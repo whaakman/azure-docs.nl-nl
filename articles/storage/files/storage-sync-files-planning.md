@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a98c8ac65de930eabcedea2a009769ed6d245216
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 1f75317882e803a40df065377ef75f8b6b753898
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617189"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918376"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -67,18 +67,25 @@ Cloud-opslaglagen is een optionele functie van Azure File Sync in die niet vaak 
 > [!Important]  
 > Cloud tiering wordt niet ondersteund voor servereindpunten op de volumes van Windows-systeem.
 
-## <a name="azure-file-sync-interoperability"></a>Azure File Sync-interoperabiliteit 
-In deze sectie bevat informatie over Azure File Sync-interoperabiliteit met Windows Server-functies en rollen en -oplossingen van derden.
+## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure File Sync-systeemvereisten en interoperabiliteit 
+In deze sectie bevat informatie over systeemvereisten voor Azure File Sync-agent en -interoperabiliteit met Windows Server-functies en rollen en -oplossingen van derden.
 
-### <a name="supported-versions-of-windows-server"></a>Ondersteunde versies van Windows Server
-De ondersteunde versies van Windows Server door Azure File Sync zijn momenteel:
+### <a name="system-requirements"></a>Systeemvereisten
+- Een server met Windows Server 2012 R2 of Windows Server 2016 
 
-| Versie | Ondersteunde SKU 's | Ondersteunde implementatieopties |
-|---------|----------------|------------------------------|
-| Windows Server 2016 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
-| Windows Server 2012 R2 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
+    | Versie | Ondersteunde SKU 's | Ondersteunde implementatieopties |
+    |---------|----------------|------------------------------|
+    | Windows Server 2016 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
+    | Windows Server 2012 R2 | Datacenter en Standard | Volledig (server met een gebruikersinterface) |
 
-Toekomstige versies van Windows Server wordt toegevoegd zodra ze worden vrijgegeven. Eerdere versies van Windows kunnen worden toegevoegd op basis van feedback van gebruikers.
+    Toekomstige versies van Windows Server wordt toegevoegd zodra ze worden vrijgegeven. Eerdere versies van Windows kunnen worden toegevoegd op basis van feedback van gebruikers.
+
+- Een server met een minimum van 2GB geheugen
+
+    > [!Important]  
+    > Als de server wordt uitgevoerd in een virtuele machine met dynamisch geheugen is ingeschakeld, kan de virtuele machine moet worden geconfigureerd met een minimaal 2048MB aan geheugen.
+    
+- Een lokaal gekoppeld volume dat is geformatteerd met het NTFS-bestandssysteem
 
 > [!Important]  
 > We raden aan om alle servers die u met Azure File Sync up-to-date met de meest recente updates van Windows Update gebruikt. 
@@ -183,27 +190,27 @@ Azure File Sync moet in het algemeen interoperabiliteit met versleutelingsoploss
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Andere oplossingen hiërarchische opslag Management (HSM)
 Er zijn geen andere HSM-oplossingen moeten worden gebruikt met Azure File Sync.
 
-## <a name="region-availability"></a>Beschikbaarheid in regio’s
+## <a name="region-availability"></a>Beschikbaarheid voor de regio
 Azure File Sync is alleen beschikbaar in de volgende regio's:
 
 | Regio | Datacenter-locatie |
 |--------|---------------------|
-| Australië - oost | New South Wales |
-| Australië - zuidoost | Victoria |
-| Canada - midden | Toronto |
-| Canada - oost | Quebec (stad) |
-| India - centraal | Pune |
+| Australië Oost | New South Wales |
+| Australië Zuidoost | Victoria |
+| Canada Centraal | Toronto |
+| Canada Oost | Quebec (stad) |
+| India Centraal | Pune |
 | US - centraal | Iowa |
 | Azië - oost | Hongkong |
 | US - oost | Virginia |
 | US - oost 2 | Virginia |
 | Europa - noord | Ierland |
-| India - zuid | Chennai |
+| India Zuid | Chennai |
 | Azië - zuidoost | Singapore |
-| Verenigd Koninkrijk Zuid | Londen |
-| Verenigd Koninkrijk West | Cardiff |
-| Europa -west | Nederland |
-| US - west | Californië |
+| VK Zuid | Londen |
+| VK West | Cardiff |
+| Europa - west | Nederland |
+| US - west | California |
 
 Azure File Sync ondersteunt alleen met een Azure-bestandsshare die zich in dezelfde regio als de Opslagsynchronisatieservice worden gesynchroniseerd.
 
@@ -214,21 +221,21 @@ Ter ondersteuning van de failover-integratie tussen geografisch redundante opsla
 
 | Primaire regio      | Gekoppelde regio      |
 |---------------------|--------------------|
-| Australië - oost      | Australië - zuidoost |
-| Australië - zuidoost | Australië - oost     |
-| Canada - midden      | Canada - oost        |
-| Canada - oost         | Canada - midden     |
-| India - centraal       | India - zuid        |
+| Australië Oost      | Australië Zuidoost |
+| Australië Zuidoost | Australië Oost     |
+| Canada Centraal      | Canada Oost        |
+| Canada Oost         | Canada Centraal     |
+| India Centraal       | India Zuid        |
 | US - centraal          | US - oost 2          |
 | Azië - oost           | Azië - zuidoost     |
 | US - oost             | US - west            |
 | US - oost 2           | US - centraal         |
-| Europa - noord        | Europa -west        |
-| India - zuid         | India - centraal      |
+| Europa - noord        | Europa - west        |
+| India Zuid         | India Centraal      |
 | Azië - zuidoost      | Azië - oost          |
-| Verenigd Koninkrijk Zuid            | Verenigd Koninkrijk West            |
-| Verenigd Koninkrijk West             | Verenigd Koninkrijk Zuid           |
-| Europa -west         | Europa - noord       |
+| VK Zuid            | VK West            |
+| VK West             | VK Zuid           |
+| Europa - west         | Europa - noord       |
 | US - west             | US - oost            |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Updatebeleid Azure File Sync-agent

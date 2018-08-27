@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 66354db65d5e615780ec49683fbc72f1156ac5e1
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 91c917687edbdfb49fc7a390187a860d9474623a
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42056910"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918921"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële Console van virtuele Machine (preview) 
 
@@ -33,10 +33,10 @@ Voor de seriële console-documentatie voor virtuele Linux-machines [Klik hier](.
 
  
 
-## <a name="prerequisites"></a>Vereisten 
+## <a name="prerequisites"></a>Vereiste onderdelen 
 
 * U moet de resource Manager-implementatiemodel gebruiken. Klassieke implementaties worden niet ondersteund. 
-* Virtuele machine moet zijn [diagnostische gegevens over opstarten](boot-diagnostics.md) ingeschakeld 
+* Virtuele machine moet zijn [diagnostische gegevens over opstarten](boot-diagnostics.md) ingeschakeld   ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 * Het account met behulp van de seriële console moet hebben [rol van Inzender](../../role-based-access-control/built-in-roles.md) voor virtuele machine en de [diagnostische gegevens over opstarten](boot-diagnostics.md) storage-account. 
 
 ## <a name="open-the-serial-console"></a>Open de seriële Console
@@ -48,65 +48,6 @@ Seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal
   4. Schuif omlaag naar de ondersteuning en probleemoplossing sectie en klik op de optie voor de seriële console (Preview). Een nieuw deelvenster met de seriële console opent en start de verbinding.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
-
-## <a name="disable-serial-console"></a>Seriële Console uitschakelen
-Standaard hebben alle abonnementen seriële console-toegang ingeschakeld voor alle virtuele machines. U kunt de seriële console van het abonnement of de VM-niveau uitschakelen.
-
-### <a name="subscription-level-disable"></a>Abonnementsniveau uitschakelen
-Seriële Console kan worden uitgeschakeld voor een volledige abonnement door via de [uitschakelen Console REST API-aanroep](https://aka.ms/disableserialconsoleapi). U kunt het 'Try It' functionaliteit die beschikbaar is op de pagina van de API-documentatie uitschakelen en inschakelen van de seriële Console voor een abonnement. Voer uw `subscriptionId`, 'standaard' in de `default` veld en klik op uitvoeren. Azure CLI-opdrachten zijn nog niet beschikbaar en wordt bezorgd moeten worden op een later tijdstip. [Probeer de REST-API-aanroep hier](https://aka.ms/disableserialconsoleapi).
-
-![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
-
-U kunt ook de reeks opdrachten hieronder gebruiken in Cloud Shell (bash-opdrachten die worden weergegeven) als wilt uitschakelen, inschakelen en weergeven van de met uitgeschakelde status van de seriële console voor een abonnement. 
-
-* De uitgeschakelde status van de seriële console voor een abonnement ophalen:
-    ```
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
-    ```
-* Om uit te schakelen voor een abonnement op de seriële console:
-    ```
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
-* Om in te schakelen voor een abonnement op de seriële console:
-    ```
-    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
-
-    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
-
-    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
-    ```
-
-### <a name="vm-level-disable"></a>VM-niveau uitschakelen
-Seriële console kan worden uitgeschakeld voor specifieke virtuele machines door het uitschakelen van deze virtuele machine opstarten diagnostische instelling. Gewoon opstarten diagnostische gegevens van de Azure portal en de seriële console zal worden uitgeschakeld voor de virtuele machine uitschakelen.
-
-## <a name="serial-console-security"></a>Seriële Console-beveiliging 
-
-### <a name="access-security"></a>Beveiliging voor toegang 
-Toegang tot de seriële console is beperkt tot gebruikers die hebben [VM inzenders](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) of hoger dan toegang tot de virtuele machine. Als uw AAD-tenant meervoudige verificatie vereist en toegang tot de seriële console ook de MFA moet omdat de toegang [Azure-portal](https://portal.azure.com).
-
-### <a name="channel-security"></a>Beveiliging van het kanaal
-Alle gegevens die worden verzonden heen en weer worden versleuteld op de kabel.
-
-### <a name="audit-logs"></a>Controlelogboeken
-Alle toegang tot de seriële console momenteel is aangemeld de [diagnostische gegevens over opstarten](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logboeken van de virtuele machine. Toegang tot deze logboeken zijn eigendom van en beheerd door de beheerder van de virtuele machine van Azure.  
-
->[!CAUTION] 
-Terwijl er geen wachtwoorden voor toegang voor de console bent aangemeld als opdrachten worden uitgevoerd binnen de console bevat of uitvoer van wachtwoorden, geheimen, gebruikersnamen of enige andere vorm van persoonlijk identificeerbare informatie (PII), worden die geschreven naar de diagnostische gegevens over opstarten van virtuele machine Logboeken, samen met alle andere zichtbare tekst, als onderdeel van de implementatie van de seriële console schuiven back-functionaliteit. Deze logboeken zijn circulaire en alleen personen met leesmachtigingen voor het opslagaccount voor diagnostische gegevens hebben de toegang tot, maar we raden aan na de aanbevolen procedure van het gebruik van de extern bureaublad voor alles wat die hebben mogelijk betrekking op geheimen en/of PII. 
-
-### <a name="concurrent-usage"></a>Gelijktijdig gebruik
-Als een gebruiker is verbonden met de seriële console en een andere gebruiker is toegang tot deze virtuele machine met dezelfde aanvraagt, wordt de eerste gebruiker verbroken en wordt de tweede gebruiker op een manier die lijkt op de eerste gebruiker permanent van en het verlaten van de fysieke-console en een nieuwe verbinding de gebruiker zich omlaag.
-
->[!CAUTION] 
-Dit betekent dat de gebruiker die wordt verbroken wordt niet afgemeld. De mogelijkheid om af te dwingen een afmelden bij het verbreken van de verbinding (via SIGHUP of een vergelijkbaar mechanisme) is nog steeds in de roadmap. Voor Windows is het een automatische time-out ingeschakeld in SAC, maar u terminal time-outinstelling voor Linux configureren kunt. 
-
 
 ## <a name="access-serial-console-for-windows"></a>Seriële Console van de toegang voor Windows 
 Nieuwere Windows Server-installatiekopieën in Azure heeft [speciale beheerconsole](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) standaard ingeschakeld. SAC wordt ondersteund in serverversies van Windows, maar is niet beschikbaar is op clientversies (bijvoorbeeld Windows 10, Windows 8 of Windows 7). Als u wilt inschakelen voor Windows-machines die zijn gemaakt met behulp van de seriële console Feb2018 of lager installatiekopieën gebruikt u de volgende stappen uit: 
@@ -144,6 +85,64 @@ Als u nodig hebt om in te schakelen van Windows-opstartlaadprogramma wordt u gev
 > [!NOTE] 
 > Op dit moment biedt ondersteuning voor functie sleutels niet is ingeschakeld, als u nodig hebt met het geavanceerde opstartopties bcdedit/set {huidige} onetimeadvancedoptions op gebruiken, raadpleegt u [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set) voor meer informatie
 
+## <a name="disable-serial-console"></a>Seriële Console uitschakelen
+Standaard hebben alle abonnementen seriële console-toegang ingeschakeld voor alle virtuele machines. U kunt de seriële console van het abonnement of de VM-niveau uitschakelen.
+
+### <a name="subscription-level-disable"></a>Abonnementsniveau uitschakelen
+Seriële Console kan worden uitgeschakeld voor een volledige abonnement door via de [uitschakelen Console REST API-aanroep](https://aka.ms/disableserialconsoleapi). U kunt het 'Try It' functionaliteit die beschikbaar is op de pagina van de API-documentatie uitschakelen en inschakelen van de seriële Console voor een abonnement. Voer uw `subscriptionId`, 'standaard' in de `default` veld en klik op uitvoeren. Azure CLI-opdrachten zijn nog niet beschikbaar en wordt bezorgd moeten worden op een later tijdstip. [Probeer de REST-API-aanroep hier](https://aka.ms/disableserialconsoleapi).
+
+![](../media/virtual-machines-serial-console/virtual-machine-serial-console-rest-api-try-it.png)
+
+U kunt ook de reeks opdrachten hieronder gebruiken in Cloud Shell (bash-opdrachten die worden weergegeven) als wilt uitschakelen, inschakelen en weergeven van de met uitgeschakelde status van de seriële console voor een abonnement. 
+
+* De uitgeschakelde status van de seriële console voor een abonnement ophalen:
+    ```azurecli-interactive
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
+    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
+    $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
+    ```
+* Om uit te schakelen voor een abonnement op de seriële console:
+    ```azurecli-interactive 
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
+    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
+    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
+    ```
+* Om in te schakelen voor een abonnement op de seriële console:
+    ```azurecli-interactive
+    $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
+
+    $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
+
+    $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/enableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
+    ```
+
+### <a name="vm-level-disable"></a>VM-niveau uitschakelen
+Seriële console kan worden uitgeschakeld voor specifieke virtuele machines door het uitschakelen van deze virtuele machine opstarten diagnostische instelling. Gewoon opstarten diagnostische gegevens van de Azure portal en de seriële console zal worden uitgeschakeld voor de virtuele machine uitschakelen.
+
+## <a name="serial-console-security"></a>Seriële Console-beveiliging 
+
+### <a name="access-security"></a>Beveiliging voor toegang 
+Toegang tot de seriële console is beperkt tot gebruikers die hebben [VM inzenders](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) of hoger dan toegang tot de virtuele machine. Als uw AAD-tenant meervoudige verificatie vereist en toegang tot de seriële console ook de MFA moet omdat de toegang [Azure-portal](https://portal.azure.com).
+
+### <a name="channel-security"></a>Beveiliging van het kanaal
+Alle gegevens die worden verzonden heen en weer worden versleuteld op de kabel.
+
+### <a name="audit-logs"></a>Auditlogboeken
+Alle toegang tot de seriële console momenteel is aangemeld de [diagnostische gegevens over opstarten](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logboeken van de virtuele machine. Toegang tot deze logboeken zijn eigendom van en beheerd door de beheerder van de virtuele machine van Azure.  
+
+>[!CAUTION] 
+Terwijl er geen wachtwoorden voor toegang voor de console bent aangemeld als opdrachten worden uitgevoerd binnen de console bevat of uitvoer van wachtwoorden, geheimen, gebruikersnamen of enige andere vorm van persoonlijk identificeerbare informatie (PII), worden die geschreven naar de diagnostische gegevens over opstarten van virtuele machine Logboeken, samen met alle andere zichtbare tekst, als onderdeel van de implementatie van de seriële console schuiven back-functionaliteit. Deze logboeken zijn circulaire en alleen personen met leesmachtigingen voor het opslagaccount voor diagnostische gegevens hebben de toegang tot, maar we raden aan na de aanbevolen procedure van het gebruik van de extern bureaublad voor alles wat die hebben mogelijk betrekking op geheimen en/of PII. 
+
+### <a name="concurrent-usage"></a>Gelijktijdig gebruik
+Als een gebruiker is verbonden met de seriële console en een andere gebruiker is toegang tot deze virtuele machine met dezelfde aanvraagt, wordt de eerste gebruiker verbroken en wordt de tweede gebruiker op een manier die lijkt op de eerste gebruiker permanent van en het verlaten van de fysieke-console en een nieuwe verbinding de gebruiker zich omlaag.
+
+>[!CAUTION] 
+Dit betekent dat de gebruiker die wordt verbroken wordt niet afgemeld. De mogelijkheid om af te dwingen een afmelden bij het verbreken van de verbinding (via SIGHUP of een vergelijkbaar mechanisme) is nog steeds in de roadmap. Voor Windows is het een automatische time-out ingeschakeld in SAC, maar u terminal time-outinstelling voor Linux configureren kunt. 
+
 ## <a name="using-serial-console-for-nmi-calls-in-windows-vms"></a>In Windows-VM's met behulp van de seriële Console voor NMI aanroepen
 Een niet-maskeren interrupt (NMI) is ontworpen voor het maken van een signaal dat software op een virtuele machine worden niet genegeerd. In het verleden zijn NMIs gebruikt om te controleren op hardwareproblemen op systemen die specifieke reactietijden vereist.  NMI vandaag, programmeurs en systeembeheerders vaak gebruikt als een mechanisme voor foutopsporing of problemen met systemen die zijn vastgelopen.
 
@@ -155,7 +154,7 @@ Zie voor meer informatie over het configureren van Windows voor het maken van ee
 
 
 ## <a name="errors"></a>Fouten
-De meeste fouten zijn tijdelijke aard en het adres van de verbinding opnieuw wordt geprobeerd deze. Onderstaande tabel geeft een lijst van fouten en risicobeperking 
+De meeste fouten zijn tijdelijke aard en het adres van de verbinding opnieuw wordt geprobeerd deze. De onderstaande tabel geeft een lijst met fouten en oplossingen
 
 Fout                            |   Oplossing 
 :---------------------------------|:--------------------------------------------|
@@ -172,8 +171,8 @@ Aangezien we nog steeds in de previewfase voor toegang tot de seriële console, 
 Probleem                             |   Oplossing 
 :---------------------------------|:--------------------------------------------|
 Er bestaat geen optie met virtual machine scale set exemplaar seriële console | Toegang tot de seriële console voor schaalsetinstanties virtuele machine wordt niet ondersteund op het moment van de Preview-versie.
-Nadat de banner van de verbinding wordt niet weergegeven voor een logboek in de prompt te maken met invoeren | [Doet niets te maken met invoeren](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
-Alleen gegevens over de servicestatus wordt weergegeven bij het verbinden met een Windows-VM| [Windows Health signalen](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md)
+Nadat de banner van de verbinding wordt niet weergegeven voor een logboek in de prompt te maken met invoeren | Raadpleeg deze pagina: [Hitting invoeren, gebeurt er niets](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Dit kan gebeuren als u een aangepaste virtuele machine uitvoert, beveiligde toestel of WORMGATEN configuratie die Windows causers als u wilt geen correct verbinding maken met de seriële poort.
+Alleen gegevens over de servicestatus wordt weergegeven bij het verbinden met een Windows-VM| Dit wordt weergegeven als de beheerconsole van speciale niet is ingeschakeld voor uw Windows-installatiekopie. Zie [toegang seriële Console voor Windows](#access-serial-console-for-windows) voor instructies over het handmatig inschakelen SAC op uw Windows-VM. Meer informatie kunnen u vinden op [Windows Health signalen](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Kan niet naar het type op SAC vragen als kernelfoutopsporing is ingeschakeld | RDP-verbinding VM en voer `bcdedit /debug {current} off` vanaf een opdrachtprompt met verhoogde bevoegdheid. Als u niet de RDP-verbinding kunt u in plaats daarvan de besturingssysteemschijf koppelen aan een andere Azure-virtuele machine en wijzigen terwijl gekoppeld als een gegevens-schijf met `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, klikt u vervolgens wisselen de schijf weer.
 Als de oorspronkelijke inhoud had een herhalende teken in PowerShell te plakken in SAC resulteert in een derde teken | Een tijdelijke oplossing is om te verwijderen van de module PSReadLine. `Remove-Module PSReadLine` verwijdert de PSReadLine-module uit de huidige sessie.
 Sommige invoer toetsenbord vreemd SAC uitvoer produceren (bijvoorbeeld `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) escapereeksen worden niet ondersteund door de SAC-prompt.

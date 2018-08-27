@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: bfd63262a1d5568223b4e4077e2f8c987b7ec0d4
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: cbe2e3d9f60ced5c707ce5a701a5aac937ccc072
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746733"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887986"
 ---
 # <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>Een virtuele machine configureren Virtual Machine scale sets beheerde Service-identiteit met Azure portal
 
@@ -29,7 +29,7 @@ Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde id
 
 In dit artikel leert u hoe u inschakelen en uitschakelen van systeem en door gebruiker toegewezen identiteit voor een VM-schaalset met behulp van de Azure-portal.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md).
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
@@ -54,7 +54,7 @@ Het systeem toegewezen identiteit op een virtuele-machineschaalset die oorspronk
 
 2. Navigeer naar de gewenste virtuele-machineschaalset.
 
-3. Schakelt het systeem toegewezen identiteit op de virtuele machine door 'Ja' onder 'Beheerde service-identiteit' en klik vervolgens op **opslaan**. Met deze bewerking duurt 60 seconden of langer om uit te voeren:
+3. Onder **systeem toegewezen**, **Status**, selecteer **op** en klik vervolgens op **opslaan**:
 
    [![Schermafbeelding van de pagina configuratie](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
@@ -66,7 +66,7 @@ Als u een virtuele-machineschaalset die niet langer moet een systeem toegewezen 
 
 2. Navigeer naar de gewenste virtuele-machineschaalset.
 
-3. Het systeem toegewezen identiteit op de virtuele machine selecteert u 'Nee' onder "Beheerde service-identiteit" uitschakelen en klik op opslaan. Met deze bewerking duurt 60 seconden of langer om uit te voeren:
+3. Onder **systeem toegewezen**, **Status**, selecteer **uit** en klik vervolgens op **opslaan**:
 
    ![Schermafbeelding van de pagina configuratie](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
 

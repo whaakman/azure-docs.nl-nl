@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: LADocs; estfan
-ms.openlocfilehash: 9eef382ea264bcf9e59dcc408d14a59355b0369b
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: ffa61ebfaa58425cd2bf70d9bf78a2e71b672369
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445674"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918480"
 ---
 # <a name="reference-architecture-enterprise-integration-with-queues-and-events"></a>Referentie-architectuur: bedrijfsintegratie met wachtrijen en -gebeurtenissen
 
@@ -28,6 +28,7 @@ De volgende referentiearchitectuur toont een set bewezen procedures die u kunt t
 ![Architectuurdiagram - bedrijfsintegratie met wachtrijen en -gebeurtenissen](media/logic-apps-architectures-enterprise-integration-with-queues-events/integr_queues_events_arch_diagram.png)
 
 *Er zijn veel mogelijke toepassingen voor de integratie van technologie. Ze variëren van een eenvoudige point-to-point-toepassing naar een volledige enterprise Azure Service Bus-toepassing. De architectuur-serie beschrijft de herbruikbare onderdelen die van toepassing zijn mogelijk voor het bouwen van een algemene integratietoepassing. Architecten moeten rekening houden met welke onderdelen ze nodig hebben om te implementeren voor hun toepassingen en infrastructuur.*
+<!-- Should previous line be in Italic or asterisks must be escaped? -->
 
 ## <a name="architecture"></a>Architectuur
 
@@ -109,13 +110,13 @@ Wanneer u resources aan resourcegroepen toewijst, houd rekening met de volgende 
 
 Zie voor meer informatie [Overzicht van Azure Resource Manager](../azure-resource-manager/resource-group-overview.md).
 
-### <a name="deployment"></a>Implementatie
+### <a name="deployment"></a>Distributie
 
 Het is raadzaam dat u [Azure Resource Manager-sjablonen](../azure-resource-manager/resource-group-authoring-templates.md) API Management, Logic Apps, Event Grid en Service Bus te implementeren. Sjablonen wordt het eenvoudiger implementaties automatiseren via PowerShell of Azure CLI.
 
 Het is raadzaam om de plaatsen van API Management, een afzonderlijke logic apps, Event Grid-onderwerpen en Service Bus-naamruimten in hun eigen, afzonderlijke Resource Manager-sjablonen. Als u afzonderlijke sjablonen gebruikt, kunt u de resources in bronbeheersystemen kunt opslaan. Vervolgens kunt u deze sjablonen implementeren samen of afzonderlijk als onderdeel van een continue integratie/continue implementatie (CI/CD)-proces.
 
-### <a name="diagnostics-and-monitoring"></a>Diagnose en controle
+### <a name="diagnostics-and-monitoring"></a>Diagnostische gegevens en controle
 
 U kunt Service Bus, zoals API Management en logische Apps bewaken met behulp van Azure Monitor. Azure Monitor biedt informatie op basis van de metrische gegevens die zijn geconfigureerd voor elke service. Azure Monitor is standaard ingeschakeld.
 

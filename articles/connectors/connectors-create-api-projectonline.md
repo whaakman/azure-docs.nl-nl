@@ -1,45 +1,74 @@
 ---
-title: ProjectOnline-connector in Azure Logic Apps | Microsoft Docs
-description: Logic apps maken met Azure App service. Project Online is een flexibele online oplossing voor beheer van de portfolio project (PPM) en de dagelijkse werk van Microsoft. Bezorgd via Office 365, Project Online kunnen organisaties snel aan de slag met krachtige mogelijkheden voor projectbeheer gepland, prioriteren en projecten en project portfolio investeringen te beheren, vanaf vrijwel elke locatie op vrijwel elk apparaat.
+title: Verbinding maken met Project Online via Azure Logic Apps | Microsoft Docs
+description: Werkstromen automatiseren die worden bewaakt en Project Online-projecten, taken en resources beheren met behulp van Azure Logic Apps maken
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
 ms.service: logic-apps
-ms.devlang: multiple
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.suite: integration
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: aaf357b1fe2c0b9b5874ee296c9141cf757e2300
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.assetid: 40ce621e-4925-4653-93bb-71ab9abcbdf1
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: cfcb53b6e95250a1ccbebfdfcfbff5ec8479504b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295353"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886950"
 ---
-# <a name="get-started-with-the-projectonline-connector"></a>Aan de slag met de connector ProjectOnline
-Project Online is een flexibele online oplossing voor beheer van de portfolio project (PPM) en de dagelijkse werk van Microsoft. Bezorgd via Office 365, Project Online kunnen organisaties snel aan de slag met krachtige mogelijkheden voor projectbeheer gepland, prioriteren en projecten en project portfolio investeringen te beheren, vanaf vrijwel elke locatie op vrijwel elk apparaat.
+# <a name="manage-project-online-projects-tasks-and-resources-by-using-azure-logic-apps"></a>Project Online-projecten, taken en resources beheren met behulp van Azure Logic Apps
 
-U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Met Azure Logic Apps en de Project Online-connector, kunt u geautomatiseerde taken en werkstromen voor uw projecten, taken en resources kunt maken in Project Online via Office 365. Uw werkstromen kunnen uitvoeren deze acties en andere resources, bijvoorbeeld:
 
-## <a name="create-a-connection-to-projectonline"></a>Maak een verbinding met ProjectOnline
-Logische apps maakt met ProjectOnline, moet u eerst maken een **verbinding** Geef vervolgens de details voor de volgende eigenschappen: 
+* Monitor als nieuwe projecten, taken of resources worden gemaakt. Monitor of wanneer nieuwe projecten worden gepubliceerd.
+* Maak nieuwe projecten, taken of resources.
+* Lijst met bestaande projecten of taken.
+* Uitchecken, inchecken of projecten publiceren.
 
-| Eigenschap | Vereist | Beschrijving |
-| --- | --- | --- |
-| Token |Ja |ProjectOnline-referenties opgeven |
+Project Online helpt u van plan bent, prioriteit en beheren van projecten en investeringen van vrijwel overal op bijna elk apparaat door te geven van de krachtige mogelijkheden voor projectbeheer. U kunt de Project Online triggers die te antwoorden krijgen van Project Online en beschikbaar voor andere acties maken voor de uitvoer. U kunt acties in uw logische apps gebruiken voor het uitvoeren van verschillende taken in Project Online. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-> [!INCLUDE [Steps to create a connection to ProjectOnline](../../includes/connectors-create-api-projectonline.md)]
-> 
+## <a name="prerequisites"></a>Vereiste onderdelen
 
-## <a name="connector-specific-details"></a>Connector-specifieke details
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. 
 
-Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/projectonline/).
+* Project Online, beschikbaar via een [Office 365-account](https://www.office.com/), 
 
-## <a name="more-connectors"></a>Meer connectors
-Ga terug naar de [API's lijst](apis-list.md).
+* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* De logische app waar u toegang tot uw Project Online-gegevens. Om te beginnen met een Project Online trigger [maken van een lege, logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Voor het gebruik van Project Online acties, start uw logische app met een andere trigger, bijvoorbeeld, de **terugkeerpatroon** trigger.
+
+## <a name="connect-to-project-online"></a>Verbinding maken met Project Online
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open uw logische app in Logic App Designer, als het niet al geopend.
+
+1. Kies een pad: 
+
+   * Voor lege, logische apps, in het zoekvak, typ 'Project Online' als filter. 
+   Selecteer de gewenste trigger onder de lijst met triggers. 
+
+     -of-
+
+   * Voor bestaande logische apps, onder de stap waarin u wilt toevoegen van een actie kiezen **nieuwe stap**. In het zoekvak, typ 'Project Online' als filter. Selecteer de actie die u wilt onder de lijst met acties.
+
+1. Als u wordt gevraagd of u zich aanmeldt met Project Online, nu aanmelden.
+
+   Uw referenties toestaan dat de logische app een verbinding maken met Project Online en toegang tot uw gegevens.
+
+1. Geef de benodigde informatie voor uw geselecteerde trigger of actie en doorgaan met het ontwikkelen van uw logische app-werkstroom.
+
+## <a name="connector-reference"></a>Connector-verwijzing
+
+Voor technische informatie over triggers en acties limieten die worden beschreven van de connector openapi (voorheen Swagger) beschrijving van de connector controleren [-verwijzingspagina](/connectors/projectonline/).
+
+## <a name="get-support"></a>Ondersteuning vragen
+
+* Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
+* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Volgende stappen
+
+* Meer informatie over andere [Logic Apps-connectors](../connectors/apis-list.md)

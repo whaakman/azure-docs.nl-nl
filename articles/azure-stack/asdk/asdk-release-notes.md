@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 08/24/2018
 ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: b77772ce69afbc32bfe8a6826fdf8420076074d9
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ed1c47830cbc4a629d827853c7d440b9bbd80d64
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42056697"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888183"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Releaseopmerkingen voor Azure Stack Development Kit  
 Deze releaseopmerkingen bevatten informatie over verbeteringen, correcties en bekende problemen in Azure Stack Development Kit. Als u niet zeker weet welke versie u uitvoert, kunt u [de portal gebruiken om te controleren](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -171,9 +171,11 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 
 - <!-- 1662991 - IS ASDK --> Diagnostische gegevens over Linux-VM wordt niet ondersteund in Azure Stack. Wanneer u een Linux-VM met VM diagnostics is ingeschakeld implementeren, wordt de implementatie mislukt. De implementatie mislukt ook als u de Linux-VM eenvoudige metrische gegevens via diagnostische instellingen inschakelen.
 
-- <!-- 2724961- IS ASDK --> Wanneer u registreert de **Microsoft.Insight** resourceprovider in instellingen voor abonnement, en een Windows-VM maken met gast OS diagnostische ingeschakeld, wordt de grafiek CPU-Percentage in de overzichtspagina van virtuele machine niet mogelijk om metrische gegevens weer te geven. Als u zoekt de grafiek CPU-Percentage voor de virtuele machine, gaat u naar de **metrische gegevens** blade en het weergeven van alle ondersteunde Windows-VM-Gast metrische gegevens.
+- <!-- 2724961- IS ASDK --> Wanneer u registreert de **Microsoft.Insight** resourceprovider in instellingen voor abonnement, en een virtuele Windows-machine maken met gast OS diagnostische ingeschakeld, de overzichtspagina van de virtuele machine metrische gegevens niet weergeven. 
 
-#### <a name="networking"></a>Netwerken
+   Als u wilt zoeken metrische gegevens, zoals het diagram CPU-Percentage voor de virtuele machine, gaat u naar de **metrische gegevens** blade en het weergeven van alle ondersteunde Windows-VM-Gast metrische gegevens.
+
+#### <a name="networking"></a>Netwerk
 - <!-- 1766332 - IS, ASDK --> Onder **netwerken**, als u klikt op **VPN-Gateway maken** voor het instellen van een VPN-verbinding, **op basis van beleid** wordt vermeld als een VPN-type. Selecteer deze optie niet. Alleen de **Route op basis van** optie wordt ondersteund in Azure Stack.
 
 - <!-- 1902460 -  IS ASDK --> Azure Stack biedt ondersteuning voor een enkel *lokale netwerkgateway* per IP-adres. Dit geldt voor alle tenant-abonnementen. Nadat het maken van de eerste lokale gateway netwerkverbinding, volgende pogingen tot het maken van een resource van een lokale netwerkgateway met hetzelfde IP-adres worden geblokkeerd.
@@ -336,7 +338,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 
 - <!-- 1662991 - IS ASDK --> Diagnostische gegevens over Linux-VM wordt niet ondersteund in Azure Stack. Wanneer u een Linux-VM met VM diagnostics is ingeschakeld implementeren, wordt de implementatie mislukt. De implementatie mislukt ook als u de Linux-VM eenvoudige metrische gegevens via diagnostische instellingen inschakelen.
 
-#### <a name="networking"></a>Netwerken
+#### <a name="networking"></a>Netwerk
 - <!-- TBD - IS ASDK --> U kan geen gebruiker gedefinieerde routes maken in de portal-beheerder of gebruiker. Als tijdelijke oplossing gebruiken [Azure PowerShell](https://docs.microsoft.com/azure/virtual-network/tutorial-create-route-table-powershell).
 
 - <!-- 1766332 - IS, ASDK --> Onder **netwerken**, als u klikt op **VPN-Gateway maken** voor het instellen van een VPN-verbinding, **op basis van beleid** wordt vermeld als een VPN-type. Selecteer deze optie niet. Alleen de **Route op basis van** optie wordt ondersteund in Azure Stack.
@@ -466,7 +468,7 @@ De volgende zijn nu beschikbaar, maar geen Azure Stack update 1804 vereist.
 
 - <!-- 1662991 - IS ASDK --> Diagnostische gegevens over Linux-VM wordt niet ondersteund in Azure Stack. Wanneer u een Linux-VM met VM diagnostics is ingeschakeld implementeren, wordt de implementatie mislukt. De implementatie mislukt ook als u de Linux-VM eenvoudige metrische gegevens via diagnostische instellingen inschakelen.
 
-#### <a name="networking"></a>Netwerken
+#### <a name="networking"></a>Netwerk
 - <!-- 1766332 - IS, ASDK --> Onder **netwerken**, als u klikt op **VPN-Gateway maken** voor het instellen van een VPN-verbinding, **op basis van beleid** wordt vermeld als een VPN-type. Selecteer deze optie niet. Alleen de **Route op basis van** optie wordt ondersteund in Azure Stack.
 
 - <!-- 2388980 -  IS ASDK --> Nadat een virtuele machine is gemaakt en die zijn gekoppeld aan een openbaar IP-adres, kunt u deze VM op basis van IP-adres kan niet loskoppelen. Ontkoppeling lijkt te werken, maar het eerder toegewezen openbare IP-adres blijft gekoppeld aan de oorspronkelijke virtuele machine.

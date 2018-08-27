@@ -1,5 +1,5 @@
 ---
-title: Beheren van Azure analyseservices met PowerShell | Microsoft Docs
+title: Azure analyseservices beheren met PowerShell | Microsoft Docs
 description: Azure Analysis Services-beheer met PowerShell.
 author: minewiskan
 manager: kfile
@@ -8,73 +8,73 @@ ms.topic: reference
 ms.date: 06/25/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 5c347a024af385e04bfdf3631ddcbaec89df4f40
-ms.sourcegitcommit: 828d8ef0ec47767d251355c2002ade13d1c162af
+ms.openlocfilehash: 6c648a9cb6b8d8dbfb60f1a5a6ebc386c57460b0
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36937361"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887243"
 ---
-# <a name="manage-azure-analysis-services-with-powershell"></a>Azure analyseservices met PowerShell beheren
+# <a name="manage-azure-analysis-services-with-powershell"></a>Azure analyseservices beheren met PowerShell
 
-In dit artikel beschrijft de PowerShell-cmdlets gebruikt voor het Azure Analysis Services-server en database-beheertaken uitvoeren. 
+Dit artikel beschrijft de PowerShell-cmdlets gebruikt voor het uitvoeren van Azure Analysis Services-server en database-beheertaken. 
 
-Server-beheertaken zoals maken of verwijderen van een server, onderbreken of hervatten van serverbewerkingen of wijzigen van het serviceniveau (laag) Azure Resource Manager (resource)-cmdlets en cmdlets van Analysis Services (server) gebruiken. Andere taken voor het beheren van databases zoals het toevoegen of verwijderen van leden van een rol, verwerkt of partitioneren gebruiken cmdlets die zijn opgenomen in dezelfde module SqlServer als SQL Server Analysis Services.
+Server-beheertaken, zoals het maken of verwijderen van een server, onderbreken of hervatten van serverbewerkingen of wijzigen van het serviceniveau (laag) gebruikt u Azure Resource Manager (resource)-cmdlets en cmdlets voor Analysis Services (server). Andere taken voor het beheren van databases, zoals het toevoegen of verwijderen van leden van een rol, verwerken of het partitioneren van gebruik van cmdlets die zijn opgenomen in de dezelfde SQL Server-module als SQL Server Analysis Services.
 
 ## <a name="permissions"></a>Machtigingen
-De meeste PowerShell taken moet dat u beheerdersbevoegdheden hebben op de Analysis Services-server die u beheert. Geplande taken van PowerShell zijn zonder toezicht bewerkingen. Het account of -service principe met de planner moet beheerdersbevoegdheden hebben op de Analysis Services-server. 
+De meeste PowerShell-taken moet dat u beheerdersbevoegdheden hebben op de Analysis Services-server die u beheert. PowerShell-taken zijn zonder toezicht bewerkingen. Het account of service-principe uitvoering van de planner moet beheerdersbevoegdheden hebben op de Analysis Services-server. 
 
-Serverbewerkingen met behulp van cmdlets AzureRm, uw account of het scheduler-account moet ook deel uitmaken van de rol van eigenaar voor de resource in [gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md). 
+Voor serverbewerkingen met behulp van de AzureRm-cmdlets, uw account of de scheduler-account moet ook behoren tot de rol van eigenaar voor de resource in [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md). 
 
-## <a name="resource-management-operations"></a>Resource-beheerbewerkingen 
+## <a name="resource-management-operations"></a>Resource management-bewerkingen 
 Module - [AzureRM.AnalysisServices](https://www.powershellgallery.com/packages/AzureRM.AnalysisServices)
 
 |Cmdlet|Beschrijving| 
 |------------|-----------------| 
-|[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Details van een server-exemplaar wordt opgehaald.|  
+|[Get-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/get-azurermanalysisservicesserver)|Hiermee haalt u details van een server-exemplaar.|  
 |[New-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesserver)|Hiermee maakt u een server-exemplaar.|   
-|[Nieuwe AzureRmAnalysisServicesFirewallConfig](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallconfig)|Maakt een nieuwe configuratie van de Analysis Services-firewall.|   
-|[Nieuwe AzureRmAnalysisServicesFirewallRule](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallrule)|Maakt een nieuwe firewallregel van Analysis Services.|   
+|[Nieuwe AzureRmAnalysisServicesFirewallConfig](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallconfig)|Hiermee maakt u een nieuwe configuratie van de Analysis Services-firewall.|   
+|[Nieuwe AzureRmAnalysisServicesFirewallRule](/powershell/module/azurerm.analysisservices/new-azurermanalysisservicesfirewallrule)|Hiermee maakt u een nieuwe firewallregel van Analysis Services.|   
 |[Remove-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/remove-azurermanalysisservicesserver)|Hiermee verwijdert u een server-exemplaar.|  
-|[Resume-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Hervatten van een server-exemplaar.|  
+|[Resume-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/resume-azurermanalysisservicesserver)|Hervat een exemplaar van server.|  
 |[Suspend-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/suspend-azurermanalysisservicesserver)|Een server-exemplaar onderbreekt.| 
 |[Set-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/set-azurermanalysisservicesserver)|Hiermee wijzigt u een server-exemplaar.|   
-|[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Het bestaan van een server-exemplaar wordt gecontroleerd.| 
+|[Test-AzureRmAnalysisServicesServer](/powershell/module/azurerm.analysisservices/test-azurermanalysisservicesserver)|Test het bestaan van een server-exemplaar.| 
 
-## <a name="server-management-operations"></a>Server beheerbewerkingen
+## <a name="server-management-operations"></a>Server management-bewerkingen
 
 Module - [Azure.AnalysisServices](https://www.powershellgallery.com/packages/Azure.AnalysisServices)
 
 |Cmdlet|Beschrijving| 
 |------------|-----------------| 
-|[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|Voegt een geverifieerde account moet worden gebruikt voor de cmdlet serveraanvragen Azure Analysis Services.| 
-|[Export AzureAnalysisServicesInstance]()|Exporteert een logboek van een exemplaar van Analysis Services-server in de momenteel aangemelde omgeving zoals opgegeven in de opdracht Add-AzureAnalysisServicesAccount|  
-|[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Een exemplaar van Analysis Services-server opnieuw wordt opgestart in de omgeving die momenteel is aangemeld. in de opdracht Add-AzureAnalysisServicesAccount opgegeven.|  
-|[Synchronisatie AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Een opgegeven database op het opgegeven exemplaar van Analysis Services-server op alle query scaleout exemplaren in de momenteel aangemelde omgeving zoals opgegeven in de opdracht Add-AzureAnalysisServicesAccount synchroniseert|  
+|[Add-AzureAnalysisServicesAccount](/powershell/module/azure.analysisservices/add-azureanalysisservicesaccount)|Een geverifieerde account moet worden gebruikt voor Azure Analysis Services-serveraanvragen cmdlet toegevoegd.| 
+|[Exporteren-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/export-azureanalysisservicesinstancelog)|Hiermee exporteert u een logboek van een exemplaar van Analysis Services-server in de momenteel aangemelde omgeving zoals opgegeven in de opdracht Add-azureanalysisservicesaccount biedt nu|  
+|[Restart-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Een exemplaar van Analysis Services-server opnieuw wordt opgestart in de omgeving die momenteel is aangemeld. in de opdracht Add-azureanalysisservicesaccount biedt nu hebt opgegeven.|  
+|[Synchronisatie-AzureAnalysisServicesInstance](/powershell/module/azurerm.analysisservices/restart-azureanalysisservicesinstance)|Een opgegeven database op het opgegeven exemplaar van Analysis Services-server op alle query scaleout-exemplaren in de momenteel aangemelde omgeving zoals opgegeven in de opdracht Add-azureanalysisservicesaccount biedt nu synchroniseren|  
 
 ## <a name="database-operations"></a>Databasebewerkingen
 
-Azure Analysis Services-database-bewerkingen gebruik van dezelfde [SqlServer module](https://www.powershellgallery.com/packages/SqlServer) als SQL Server Analysis Services. Niet alle cmdlets worden echter ondersteund voor Azure Analysis Services. Voor meer informatie over meer Zie [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
+Azure Analysis Services-databasebewerkingen gebruiken hetzelfde [SQL Server-module](https://www.powershellgallery.com/packages/SqlServer) als SQL Server Analysis Services. Niet alle cmdlets worden echter ondersteund voor Azure Analysis Services. Voor meer informatie over meer Zie [SQL Server PowerShell](https://docs.microsoft.com/sql/powershell/sql-server-powershell).
 
-De SQL Server-module bevat cmdlets voor het beheer van taak-specifieke database, evenals de algemene Invoke ASCmd cmdlet die een Tabellair Model Scripting Language (TMSL) query of script accepteert. De volgende cmdlets in de SQL Server-module worden ondersteund voor Azure Analysis Services.
+De SQL Server-module biedt taakspecifieke database management-cmdlets, evenals de voor algemeen gebruik Invoke-ASCmd cmdlet die een TMSL Tabular Model Scripting Language ()-query of het script accepteert. De volgende cmdlets in de SQL Server-module worden voor Azure Analysis Services ondersteund.
 
   
 |Cmdlet|Beschrijving|
 |------------|-----------------| 
-|[Voeg RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Een lid toevoegen aan een databaserol.| 
+|[Voeg RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|Lid toevoegen aan een databaserol.| 
 |[Backup-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/backup-asdatabase)|Back-up van een Analysis Services-database.|  
 |[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|Een lid verwijderen uit een databaserol.|   
-|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Een script TMSL uitvoeren.|
-|[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Verwerken van een database.|  
-|[Aanroepen ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|Verwerken van een partitie.| 
-|[Aanroepen ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Verwerken van een tabel.|  
-|[Samenvoegen partitie](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|Samenvoegen van een partitie.|  
-|[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Een Analysis Services-database herstellen.| 
+|[Invoke-ASCmd](https://docs.microsoft.com/powershell/module/sqlserver/invoke-ascmd)|Voer een TMSL-script.|
+|[Invoke-ProcessASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processasdatabase)|Het proces een database.|  
+|[Aanroepen ProcessPartition](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processpartition)|Een partitie worden verwerkt.| 
+|[Aanroepen ProcessTable](https://docs.microsoft.com/powershell/module/sqlserver/invoke-processtable)|Het proces een tabel.|  
+|[Partitie samenvoegen](https://docs.microsoft.com/powershell/module/sqlserver/merge-partition)|Een partitie samenvoegen.|  
+|[Restore-ASDatabase](https://docs.microsoft.com/powershell/module/sqlserver/restore-asdatabase)|Herstellen van een Analysis Services-database.| 
   
 
 ## <a name="related-information"></a>Gerelateerde informatie
 
 * [SQL Server PowerShell-Module downloaden](https://docs.microsoft.com/sql/ssms/download-sql-server-ps-module)   
-* [Downloaden van SSMS](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
+* [SSMS downloaden](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)   
 * [SQL Server-module in PowerShell Gallery](https://www.powershellgallery.com/packages/SqlServer)    
-* [Tabellaire Model wilt programmeren voor compatibiliteit niveau 1200 of hoger](https://msdn.microsoft.com/library/mt712541.aspx)
+* [Tabellair Model wilt programmeren voor compatibiliteit niveau 1200 en hoger](https://msdn.microsoft.com/library/mt712541.aspx)

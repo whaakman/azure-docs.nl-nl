@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: 55818bf3c6997925fbac32f913d573d630bc20f4
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 36537aacce0180f9b37fb8b49f301fb1f5954d1c
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004375"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918426"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>Zelfstudie: Hybride Azure Active Directory join voor beheerde domeinen configureren
 
@@ -39,10 +39,10 @@ In deze zelfstudie leert u hoe u hybride Azure AD join voor apparaten in beheerd
 > * Hybride Azure AD join configureren
 > * Windows downlevel-apparaten inschakelen
 > * Controleer of de gekoppelde apparaten 
-> * Problemen oplossen 
+> * Probleem oplossen 
 
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 In deze zelfstudie wordt ervan uitgegaan dat u bekend met bent:
     
@@ -54,7 +54,8 @@ In deze zelfstudie wordt ervan uitgegaan dat u bekend met bent:
   
 
 Voor het configureren van het scenario in dit artikel, moet u de [meest recente versie van Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) (1.1.819.0 of hoger) moet worden geïnstalleerd. 
- 
+
+Controleren of Azure AD Connect de computerobjecten van de apparaten die u wilt worden toegevoegd aan hybrid Azure AD naar Azure AD join is gesynchroniseerd. Verbinding maken ook de computerobjecten behoren tot specifieke organisatie-eenheden (OE), en vervolgens deze organisatie-eenheden moeten worden geconfigureerd voor synchronisatie in Azure AD.
 
 Vanaf versie 1.1.819.0, biedt Azure AD Connect u de wizard een hybride Azure AD join configureren. De wizard kunt u het configuratieproces aanzienlijk te vereenvoudigen. De gerelateerde wizard configureert u de serviceverbindingspunten (SCP) voor device Registration service.
 
@@ -86,7 +87,7 @@ Als u wilt een hybride Azure AD join met behulp van Azure AD Connect hebt geconf
 
 1. Azure AD Connect starten en klik vervolgens op **configureren**.
 
-    ![Welkom](./media/hybrid-azuread-join-managed-domains/11.png)
+    ![De wizard Nieuwe beveiligingsgroep](./media/hybrid-azuread-join-managed-domains/11.png)
 
 2. Op de **extra taken** weergeeft, schakelt **Apparaatopties configureren**, en klik vervolgens op **volgende**. 
 
@@ -165,7 +166,7 @@ Daarnaast moet u om in te schakelen **toestaan van updates op de statusbalk via 
 
 ## <a name="verify-the-registration"></a>Controleer of de registratie
 
-Als u wilt controleren of de status van de apparaatregistratie in uw Azure-tenant, kunt u de ** [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) ** cmdlet in de ** [Azure Active Directory PowerShell-module](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Als u wilt controleren of de status van de apparaatregistratie in uw Azure-tenant, kunt u de **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** cmdlet in de  **[Azure Active Directory PowerShell-module](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
 
 Wanneer u de **Get-MSolDevice** cmdlet om de servicedetails te controleren:
 

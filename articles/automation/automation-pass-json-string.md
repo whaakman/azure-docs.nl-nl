@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: PowerShell runbook, json, azure automation
-ms.openlocfilehash: 1bdeef02621924bbb7af1e676d2b275229761081
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 5e1ab8d6bd2de24251851cfc60d270a2fef4090d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42055673"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918815"
 ---
 # <a name="pass-a-json-object-to-an-azure-automation-runbook"></a>Een JSON-object doorgeven aan een Azure Automation-runbook
 
@@ -26,10 +26,10 @@ Om dit te doen, moet u de JSON converteren naar een tekenreeks en vervolgens de 
 In dit voorbeeld maken we een PowerShell-script aanroept [Start-AzureRmAutomationRunbook](https://docs.microsoft.com/powershell/module/azurerm.automation/start-azurermautomationrunbook) naar een PowerShell-runbook, de inhoud van de JSON wordt doorgegeven aan het runbook te starten.
 De PowerShell-runbook start een Azure-VM ophalen van de parameters voor de virtuele machine uit de JSON die is doorgegeven.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Azure-abonnement. Als u nog geen abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of <a href="/pricing/free-account/" target="_blank">[u aanmelden voor een gratis account](https://azure.microsoft.com/free/).
+* Azure-abonnement. Als u een nog geen hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [zich registreren voor een gratis account](https://azure.microsoft.com/free/).
 * [Automation-account](automation-sec-configure-azure-runas-account.md) om het runbook te bevatten en te verifiëren voor Azure-resources.  Dit account moet machtigingen hebben om de virtuele machine te starten en stoppen.
 * Een virtuele machine van Azure. We stoppen en starten deze machine, dus het mag geen productiemachine zijn.
 * Azure Powershell is geïnstalleerd op een lokale computer. Zie [installeren en configureren van Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) voor informatie over het ophalen van Azure PowerShell.

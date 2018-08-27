@@ -1,6 +1,6 @@
 ---
-title: Inzicht in uw factuur voor Azure | Microsoft Docs
-description: Meer informatie over het gelezen en begrepen gebruiks- en factuur voor uw Azure-abonnement
+title: Meer informatie over uw factuur voor Azure | Microsoft Docs
+description: Meer informatie over het lezen en informatie over het gebruik en de factuur voor uw Azure-abonnement
 services: ''
 documentationcenter: ''
 author: tonguyen10
@@ -15,132 +15,135 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/14/2018
 ms.author: tonguyen
-ms.openlocfilehash: 689ea9e0d029bb65bc579fc914c6ed3073b4a96b
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: c782cadadb0250e6c3ca4912dbf8f81e19cb88c5
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063887"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919051"
 ---
 # <a name="understand-your-bill-for-microsoft-azure"></a>Meer informatie over uw factuur voor Microsoft Azure
-Voor inzicht in uw Azure-factuur, Vergelijk uw factuur met de gedetailleerde dagelijks gebruik-bestand en de kosten-rapporten in de Azure portal.
+Voor meer informatie over uw Azure-factuur, vergelijken met uw factuur met de gedetailleerde dagelijks gebruik van bestands- en -rapporten voor de kosten in de Azure-portal.
 
 >[!NOTE]
->In dit artikel geldt niet voor klanten met Enterprise Agreement (EA). Als u een klant EA [factuur documentatie vindt u in de Enterprise Portal.](https://ea.azure.com/helpdocs/understandingYourInvoice)  
+>In dit artikel is niet van toepassing op Enterprise Agreement (EA)-klanten. Als u een EA-klant bent [factuur documentatie vindt u in de Enterprise Portal.](https://ea.azure.com/helpdocs/understandingYourInvoice)  
 
-Als u een PDF-bestand van uw factuur en een kopie van het gedetailleerde dagelijks gebruik bestand CSV downloaden, Zie [ophalen van uw Azure facturering facturen en dagelijks gebruiksgegevens](billing-download-azure-invoice-daily-usage-date.md). 
+Als u wilt een PDF-bestand van uw factuur en een kopie van uw gedetailleerde dagelijks gebruik van CSV downloaden van bestanden, Zie [ophalen van uw Azure-factuur en de dagelijkse gebruiksgegevens](billing-download-azure-invoice-daily-usage-date.md). 
 
-Zie voor gedetailleerde voorwaarden en beschrijvingen van uw factuur en gedetailleerde dagelijks gebruik bestand [begrijpen voorwaarden op uw Microsoft Azure-factuur](billing-understand-your-invoice.md) en [Understand termen in uw Microsoft Azure gedetailleerde informatie over het gebruik](billing-understand-your-usage.md). 
+Zie voor gedetailleerde voorwaarden en beschrijvingen van uw factuur en gedetailleerde dagelijkse gebruiksbestand [meer informatie over uw Microsoft Azure-factuur](billing-understand-your-invoice.md) en [begrijpen voorwaarden op uw Microsoft Azure gedetailleerde gebruik](billing-understand-your-usage.md). 
 
-Zie voor meer informatie over de kosten-rapporten, [Azure-portal kostenbeheer](https://docs.microsoft.com/azure/billing/billing-getting-started).
+Zie voor meer informatie over de kostenbeheerrapporten, [kostenbeheer van Azure portal](https://docs.microsoft.com/azure/billing/billing-getting-started).
 
-## <a name="charges"></a>Hoe maak ik ervoor dat de kosten in mijn factuur correct zijn?
+> [!div class="nextstepaction"]
+> [Help bij het verbeteren van Azure-facturering documenten](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+
+## <a name="charges"></a>Hoe ik ervoor zorgen dat de kosten in rekening gebracht op mijn factuur correct zijn?
 
 >[!VIDEO https://www.youtube.com/embed/3YegFD769Pk]
 
-Als er een kosten op uw factuur die u op meer informatie wilt, moet u er een aantal opties zijn.
+Als er een kosten in rekening gebracht op uw factuur die u op meer informatie wilt, moet u er een aantal opties zijn.
 
-### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Optie 1: Uw factuur en het gebruik en de kosten te vergelijken met het CSV-bestand voor gedetailleerde informatie over het gebruik
+### <a name="option-1-review-your-invoice-and-compare-the-usage-and-costs-with-the-detailed-usage-csv-file"></a>Optie 1: Uw factuur bekijken en vergelijken van het gebruik en kosten met het gedetailleerde gebruik CSV-bestand
 
-Het gebruik van gedetailleerde CSV-bestand bevat uw kosten per factureringsperiode en het dagelijks gebruik. Als u uw CSV-bestand voor gedetailleerde informatie over het gebruik, Zie [ophalen van uw Azure facturering facturen en dagelijks gebruiksgegevens](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date).
+Het gedetailleerde gebruik CSV-bestand bevat uw kosten per factureringsperiode en het dagelijks gebruik. Als u uw gedetailleerde gebruik CSV-bestand, raadpleegt u [ophalen van uw Azure-factuur en de dagelijkse gebruiksgegevens](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date).
 
-Uw gebruikskosten worden weergegeven op het niveau van de meter. De volgende termen betekenis dezelfde in zowel de factuur als het bestand voor gedetailleerde informatie over het gebruik. Bijvoorbeeld, is de factureringscyclus op de factuur gelijk aan de factureringsperiode die wordt weergegeven in het bestand voor gedetailleerde informatie over het gebruik.
+De gebruikskosten worden weergegeven op het niveau van de meter. De volgende termen betekenen hetzelfde te doen in de factuur en het gedetailleerde gebruik-bestand. Bijvoorbeeld, is de factureringscyclus op de factuur gelijk aan de factureringsperiode weergegeven in het bestand gedetailleerd gebruik.
 
- | Factuur (PDF) | Gedetailleerde informatie over het gebruik (CSV)|
+ | Factuur (PDF-bestand) | Gedetailleerd gebruik (CSV)|
  | --- | --- |
 |Factureringscyclus | Factureringsperiode |
- |Naam |De categorie van de meter |
- |Type |Meter subcategorie |
- |Resource |De naam van de meter |
+ |Naam |Metercategorie |
+ |Type |Subcategorie van de meter |
+ |Resource |Meternaam |
  |Regio |De regio van de meter |
  |Verbruikt |Verbruikt aantal |
- |Inbegrepen |Inbegrepen hoeveelheid |
+ |Opgenomen |Inbegrepen hoeveelheid |
  |Factureerbaar |Overschreden hoeveelheid |
 
-De **gebruikskosten** gedeelte van uw factuur is de totale waarde voor elke meter die is gebruikt tijdens de factureringsperiode. De volgende schermafbeelding ziet u bijvoorbeeld een usage-kosten voor de Azure Scheduler-service.
+De **gebruikskosten** gedeelte van uw factuur bevat de totale waarde voor elke meter die tijdens de factureringsperiode is verbruikt. De volgende schermafbeelding ziet u bijvoorbeeld een gebruik kosten in rekening gebracht voor de Azure Scheduler-service.
 
-![Factuur gebruikskosten](./media/billing-understand-your-bill/1.png)
+![Factuur-gebruikskosten](./media/billing-understand-your-bill/1.png)
 
-De **instructie** sectie van de gedetailleerde informatie over het gebruik CSV wordt dezelfde kosten. Zowel de *verbruikt* bedrag en *waarde* overeenkomen met de factuur.
+De **instructie** gedeelte van uw gedetailleerde gebruik CSV ziet u de dezelfde kosten in rekening gebracht. Zowel de *verbruikt* bedrag en *waarde* overeenkomen met de factuur.
 
-![CSV-gebruikskosten](./media/billing-understand-your-bill/2.png)
+![Kosten voor het gebruik van CSV](./media/billing-understand-your-bill/2.png)
 
-Een verdeling van deze kosten per dag, Ga naar de **dagelijkse gebruik** sectie van de CSV. Filteren op 'Scheduler' onder *Meter categorie* en ziet u welke dagen de meter is gebruikt en hoeveel is verbruikt. De *Resource* en *resourcegroep* informatie is ook vermeld voor vergelijking. De *verbruikt* waarden tot wat wordt weergegeven op de factuur moeten toevoegen.
+Als u wilt een uitsplitsing van deze kosten in rekening gebracht op basis van de dagelijkse ziet, gaat u naar de **dagelijks gebruik** sectie van de CSV. Filteren op 'Planner' onder *Metercategorie* en ziet u welke dagen de meter is gebruikt en hoeveel is verbruikt. De *Resource* en *resourcegroep* informatie wordt ook weergegeven voor de vergelijking. De *verbruikt* waarden moeten oplopen tot wat wordt weergegeven op de factuur.
 
-![De sectie dagelijks gebruik van CSV](./media/billing-understand-your-bill/3.png)
+![De sectie dagelijks gebruik in de CSV](./media/billing-understand-your-bill/3.png)
 
-Als u de kosten per dag, Vermenigvuldig de *verbruikt* bedragen met de *snelheid* waarde uit de **instructie** sectie.
+Als u de kosten per dag, vermenigvuldigt u de *verbruikt* bedragen met de *tarief* waarde uit de **instructie** sectie.
 
 Zie voor meer informatie over de factuur, [inzicht in uw Azure-factuur](billing-understand-your-invoice.md).
 
-Zie voor meer informatie over elk van de kolommen in de CSV, [inzicht in het gebruik van uw Azure gedetailleerde](billing-understand-your-invoice.md).
+Zie voor meer informatie over elk van de kolommen in de CSV, [inzicht in uw gedetailleerde gebruik van Azure](billing-understand-your-invoice.md).
 
-### <a name="option-2-review-your-invoice-and-compare-with-the-usage-and-costs-in-the-azure-portal"></a>Optie 2: Uw factuur en vergelijken met het gebruik en de kosten in de Azure-portal
+### <a name="option-2-review-your-invoice-and-compare-with-the-usage-and-costs-in-the-azure-portal"></a>Optie 2: Uw factuur bekijken en vergelijken met het gebruik en kosten in de Azure-portal
 
-De Azure-portal kunt u controleren of uw kosten. De Azure portal biedt kosten management grafieken voor een snel overzicht van uw gebruik en de kosten op uw factuur.
+De Azure-portal kunt u controleren of uw kosten in rekening gebracht. De Azure portal biedt kostengrafieken management voor een snel overzicht van uw gebruik en de kosten op uw factuur.
 
-Als u wilt doorgaan met het voorbeeld hierboven, gaat u naar de [pagina abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), selecteer uw abonnement en kies vervolgens **analysis kosten**. U kunt daar de tijdsspanne opgeven en Zie gebruik kosten voor de Azure Scheduler-service.
+Als u wilt doorgaan met het voorbeeld hierboven, gaat u naar de [pagina abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade), selecteer uw abonnement en kies vervolgens **Cost analysis**. U kunt daar de tijdspanne opgeven en Zie gebruik kosten in rekening gebracht voor de Azure Scheduler-service.
 
-![Analyse van kosten weergeven in Azure-portal](./media/billing-understand-your-bill/4.png)
+![Kostenanalyse weergave in Azure portal](./media/billing-understand-your-bill/4.png)
 
-Om te zien van de dag kosten opgesplitst in **kosten geschiedenis**, klik op de rij.
+Om te zien van de dagelijkse kostenanalyse in **kostenoverzicht**, klikt u op de rij.
 
-![Kosten geschiedenis-weergave in Azure-portal](./media/billing-understand-your-bill/5.png)
+![Kostengeschiedenis weergave in Azure portal](./media/billing-understand-your-bill/5.png)
 
-Zie voor meer informatie, [te voorkomen dat onverwachte kosten met Azure-facturering en kostenbeheer](billing-getting-started.md#costs).
+Zie voor meer informatie, [voorkomen van onverwachte kosten met Azure-facturering en kostenbeheer](billing-getting-started.md#costs).
 
 ## <a name="external"></a>Hoe zit het met externe servicekosten?
-Externe services (ook wel bekend als Azure Marketplace orders) worden geleverd door onafhankelijke serviceleveranciers en worden afzonderlijk gefactureerd. De kosten worden niet weergegeven op uw Azure-factuur. Zie voor meer informatie, [inzicht in uw Azure externe servicekosten](billing-understand-your-azure-marketplace-charges.md).
+Externe services (ook wel bekend als de Azure Marketplace orders) worden geleverd door een onafhankelijke serviceleveranciers en worden afzonderlijk gefactureerd. De kosten worden niet weergegeven op uw Azure-factuur. Zie voor meer informatie, [meer informatie over uw Azure externe servicekosten](billing-understand-your-azure-marketplace-charges.md).
 
 ## <a name="payment"></a>Hoe maak ik een betaling?
 
-Als u een creditcard of een betaalpas als uw betalingsmethode instellen, wordt de betaling betalen automatisch binnen tien dagen na afloop van de factureringsperiode. Op uw creditcard-instructie het regelitem zou spreken **MSFT Azure**.
+Als u een creditcard of een betaalpas als uw betalingswijze instellen, de betaling wordt in rekening gebracht automatisch binnen 10 dagen na afloop van de factureringsperiode. Op uw creditcard worden vermeld, het regelitem Denk **MSFT Azure**.
 
-Als u [betaalde door facturering](billing-how-to-pay-by-invoice.md), uw betaling naar de locatie die onder van uw factuur verzenden. Voor meer informatie [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
+Als u [betalen per facturering](billing-how-to-pay-by-invoice.md), verzenden de betaling naar de locatie aan de onderkant van uw factuur weergegeven. Voor meer informatie [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade).
 
-## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Hoe kan ik de status van een betaling van creditcard controleren?
+## <a name="how-do-i-check-the-status-of-a-payment-made-by-credit-card"></a>Hoe kan ik de status van een betaling per creditcard controleren?
 
-[Maak een ondersteuningsticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om de status van uw betaling te vragen. 
+[Maak een ondersteuningsticket](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om de status van de betaling te vragen. 
 
-## <a name="are-there-different-azure-customer-types-how-do-i-know-what-customer-type-i-am"></a>Zijn er verschillende Azure-klanten typen? Hoe weet ik welke-type klant ik ben?
-Er zijn verschillende soorten Azure-klanten. Zie voor meer informatie over de prijzen en -factuur, de volgende beschrijvingen van het type van de klant.
+## <a name="are-there-different-azure-customer-types-how-do-i-know-what-customer-type-i-am"></a>Zijn er verschillende Azure-klant typen? Hoe weet ik welke ik ben klanttype?
+Er zijn verschillende soorten Azure-klanten. Zie voor meer informatie over de prijzen en de factuur, de volgende beschrijvingen van de klant-type.
 
-- **Enterprise**: Enterprise-klanten zich hebben geregistreerd voor een Enterprise Agreement met Azure onderhandelde monetaire toezeggingen en toegang krijgen tot de aangepaste prijzen voor Azure-resources.
-- **Web-Direct**: Web Direct klanten niet alle aangepaste overeenkomst met Azure hebben ondertekend. Deze klanten hebt aangemeld voor Azure via azure.com en krijg openbare gerichte prijzen voor alle Azure-resources.
-- **Cloud Service Provider**: Cloudserviceproviders zijn meestal bedrijven die door een end-klant hebben ingehuurd om oplossingen boven op Azure te maken.
+- **Enterprise**: Enterprise-klanten zich hebben aangemeld voor een Enterprise Agreement van Azure om te maken in de onderhandelde monetaire toezeggingen en toegang krijgen tot aangepaste prijzen voor Azure-resources.
+- **Web-Direct**: Web Direct-klanten niet alle aangepaste overeenkomst met Azure hebben ondertekend. Deze klanten voor Azure hebben geregistreerd via azure.com en ontvangen van openbare gerichte prijzen voor alle Azure-resources.
+- **Cloud Service Provider**: Cloud-serviceproviders zijn doorgaans bedrijven die door een eindklant hebben ingehuurd om oplossingen op basis van Azure te ontwikkelen.
 
-## <a name="why-dont-i-see-the-cost-the-resource-i-have-created-in-my-bill"></a>Waarom zie ik niet de kosten van de resource die ik in mijn factuur gemaakt heb?
-Azure heeft niet de factuur direct op basis van resourcekosten. Facturering gebeurt op basis uit een of meer meters die worden gebruikt voor het bijhouden van gebruik tijdens de levensduur van een resource. Deze meters worden vervolgens gebruikt voor het berekenen van de factuur. Zie voor meer informatie over Azure softwarelicentiecontrole hieronder.
+## <a name="why-dont-i-see-the-cost-the-resource-i-have-created-in-my-bill"></a>Waarom zie ik niet de kosten voor de resource die ik in mijn factuur gemaakt heb?
+Azure voert geen factuur rechtstreeks op basis van resourcekosten. Facturering wordt op basis van uit een of meer meters die worden gebruikt voor het bijhouden van gebruik tijdens de levensduur van een resource gedaan. Deze meters worden vervolgens gebruikt voor het berekenen van de factuur. Zie meer informatie over Azure softwarelicentiecontrole hieronder.
 
 ## <a name="how-does-azure-charge-metering-work"></a>Hoe Azure kosten in rekening gebracht softwarelicentiecontrole werk?
-Wanneer u van één Azure resource, zoals een virtuele machine ronddraaien, is er een of meerdere meter exemplaren ook worden gemaakt. Deze meters worden gebruikt voor het gebruik van de resource gedurende een periode bijhouden. Elke meter verzendt gebruiksrecords die worden gebruikt door Azure in onze meetsysteem kosten voor het berekenen van de factuur. 
+Wanneer u een enkel Azure-resource, zoals een virtuele machine instellen is er een of meerdere meter exemplaren ook worden gemaakt. Deze meters worden gebruikt voor het gebruik van de resource gedurende een periode bijhouden. Elke meter verzendt gebruiksrecords die worden gebruikt door Azure in onze meetsysteem kosten voor het berekenen van de factuur. 
 
-Eén virtuele machine in Azure gemaakt kan bijvoorbeeld de volgende meters gemaakt voor het bijhouden van het gebruik ervan:
+Een enkele virtuele machine gemaakt in Azure kan bijvoorbeeld de volgende meters gemaakt voor het bijhouden van het gebruik ervan:
 
 - Rekenuren
 - Uren IP-adres
 - Inkomende gegevensoverdracht
 - Uitgaande gegevensoverdracht
 - Standard-beheerde schijven
-- Bewerkingen voor Standard-beheerde schijven
+- Standard-beheerde schijfbewerkingen
 - Standaard-IO-schijf
 - Standaard-IO-blok-Blob lezen
-- Schrijven van de standaard-IO-blok-Blob
-- Standaard-IO-blok-Blob verwijderen
+- Standaard-IO-blok-Blob schrijven
+- Standaard-IO-blok-Blob-verwijdering
 
-Zodra de virtuele machine is gemaakt, begint elk criterium van de bovenstaande meters tekensetcodering gebruiksrecords. Dit gebruik wordt vervolgens gebruikt in Azure meetsysteem samen met de meter prijs om te bepalen hoeveel van de klant in rekening wordt gebracht.
+Nadat de virtuele machine is gemaakt, begint een van de bovenstaande meters gebruiksrecords genereren. Dit gebruik wordt vervolgens in meetsysteem samen met de prijs van de meters van Azure worden gebruikt om te bepalen hoeveel een klant in rekening gebracht.
 
 > [!Note]
-> Het bovenstaande voorbeeld-meters mogelijk alleen een subset van de meter gemaakt van een virtuele machine die wordt gemaakt.
+> Het bovenstaande voorbeeld-meters mogelijk alleen een subset van de meters die zijn gemaakt van een virtuele machine die wordt gemaakt.
 
-## <a name="what-is-the-difference-between-azure-1st-party-charges-and-azure-marketplace-charges"></a>Wat is het verschil tussen Azure 1e derden kosten en Azure Marketplace-kosten?
-Azure 1e derden kosten zijn voor resources die rechtstreeks zijn ontwikkeld en die worden aangeboden door Azure. Azure Marketplace-kosten zijn voor resources die zijn gemaakt door de leveranciers van derden die beschikbaar voor gebruik via de Azure marketplace zijn. Bijvoorbeeld, is een Firewall Barracuda een Azure marketplace-resource die worden aangeboden door een derde partij. Alle kosten voor de firewall en de bijbehorende meters wordt weergegeven als marketplace-kosten. 
+## <a name="what-is-the-difference-between-azure-1st-party-charges-and-azure-marketplace-charges"></a>Wat is het verschil tussen Azure 1e kosten voor derden en kosten voor Azure Marketplace?
+Azure 1e kosten voor derden zijn voor resources die rechtstreeks zijn ontwikkeld en die worden aangeboden door Azure. Azure Marketplace-kosten zijn voor resources die zijn gemaakt door externe leveranciers die beschikbaar voor gebruik via de Azure marketplace zijn. Een Firewall Barracuda is bijvoorbeeld een Azure marketplace-resource die worden aangeboden door een derde partij. Alle kosten voor de firewall en de bijbehorende meters weergegeven als marketplace-kosten. 
 
-## <a name="tips-for-cost-management"></a>Tips voor het kostenbeheer van
-- Kosten schatten met behulp van de [prijscategorie Rekenmachine](https://azure.microsoft.com/pricing/calculator/) en [totale kosten van eigendom Rekenmachine](https://aka.ms/azure-tco-calculator), en de [gedetailleerde prijsinformatie voor elke service](https://azure.microsoft.com/pricing/).
-- [Instellen van waarschuwingen facturering](billing-set-up-alerts.md).
-- [Controleer de informatie over het gebruik en kosten regelmatig in de Azure-portal](billing-getting-started.md#costs).
+## <a name="tips-for-cost-management"></a>Tips voor kostenbeheer
+- Schat de kosten met behulp van de [prijscalculator](https://azure.microsoft.com/pricing/calculator/) en [totale kosten van eigendom Rekenmachine](https://aka.ms/azure-tco-calculator), en krijg de [gedetailleerde prijsinformatie voor elke service](https://azure.microsoft.com/pricing/).
+- [Meldingen voor facturering instellen](billing-set-up-alerts.md).
+- [Uw gebruik en kosten regelmatig in Azure portal bekijken](billing-getting-started.md#costs).
 
 ## <a name="need-help-contact-support"></a>Hulp nodig? Neem contact op met ondersteuning.
 
-Als u nog hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) ophalen van uw probleem snel worden opgelost.
+Als u nog steeds hulp nodig hebt, [contact op met ondersteuning](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade) om uw probleem snel worden opgelost.

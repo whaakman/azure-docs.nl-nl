@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2017
 ms.author: apurvajo;cephalin
-ms.openlocfilehash: 21dde5b0199345e9e8faffc6feac4854a3aa7350
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: c223e8fb000686aedefa1c02e93c1c8cbb30ec73
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42061336"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888290"
 ---
 # <a name="buy-and-configure-an-ssl-certificate-for-your-azure-app-service"></a>Een SSL-certificaat kopen en configureren voor uw Azure App Service
 
@@ -123,7 +123,7 @@ Op dit moment zou het mogelijk om naar uw app met te `HTTPS://` in plaats van `H
 
 ## <a name="step-6---management-tasks"></a>Stap 6 - beheertaken
 
-### <a name="azure-cli"></a>Azure-CLI
+### <a name="azure-cli"></a>Azure CLI
 
 [!code-azurecli[main](../../cli_scripts/app-service/configure-ssl-certificate/configure-ssl-certificate.sh?highlight=3-5 "Bind a custom SSL certificate to a web app")] 
 
@@ -210,6 +210,6 @@ Als uw SSL-certificaat is geconfigureerd voor automatische verlenging, maar deze
 ## <a name="more-resources"></a>Meer bronnen
 
 * [HTTPS afdwingen](app-service-web-tutorial-custom-ssl.md#enforce-https)
-* [TLS 1.1/1.2 afdwingen](app-service-web-tutorial-custom-ssl.md#enforce-tls-1112)
+* [TLS 1.1/1.2 afdwingen](app-service-web-tutorial-custom-ssl.md#enforce-tls-versions)
 * [Een SSL-certificaat in de code van uw toepassing in Azure App Service gebruiken](app-service-web-ssl-cert-load.md)
 * [Veelgestelde vragen: App Service-certificaten](https://blogs.msdn.microsoft.com/appserviceteam/2017/07/24/faq-app-service-certificates/)

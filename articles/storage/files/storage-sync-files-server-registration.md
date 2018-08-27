@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 468bd70682b1b36e906d32cd7bde58c78bdbb376
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 1aa1bd085a312e379dc996a860c7f97b2e0dfe73
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521996"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918873"
 ---
 # <a name="manage-registered-servers-with-azure-file-sync"></a>Geregistreerde servers met Azure File Sync beheren
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Dit gebeurt door het transformeren van uw Windows-Servers in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als waar ook ter wereld u nodig hebt.
@@ -23,10 +23,10 @@ Het volgende artikel ziet u hoe u te registreren en beheren van een server met e
 ## <a name="registerunregister-a-server-with-storage-sync-service"></a>Een server met de Opslagsynchronisatieservice registreren/registratie
 Een server registreren met Azure File Sync brengt een vertrouwensrelatie tussen Windows Server en Azure. Deze relatie kan vervolgens worden gebruikt om te maken *servereindpunten* op de server, die staan voor specifieke mappen die moeten worden gesynchroniseerd met een Azure-bestandsshare (ook wel bekend als een *cloud-eindpunt*). 
 
-### <a name="prerequisites"></a>Vereisten
+### <a name="prerequisites"></a>Vereiste onderdelen
 Voor het registreren van een server met een Opslagsynchronisatieservice, moet u eerst de server met de vereiste items voor voorbereiden:
 
-* De server moet een ondersteunde versie van Windows Server worden uitgevoerd. Zie voor meer informatie, [ondersteunde versies van Windows Server](storage-sync-files-planning.md#supported-versions-of-windows-server).
+* De server moet een ondersteunde versie van Windows Server worden uitgevoerd. Zie voor meer informatie, [Azure File Sync-systeemvereisten en interoperabiliteit](storage-sync-files-planning.md#azure-file-sync-system-requirements-and-interoperability).
 * Zorg ervoor dat een Opslagsynchronisatieservice is geïmplementeerd. Zie voor meer informatie over het implementeren van een Opslagsynchronisatieservice [over het implementeren van Azure File Sync](storage-sync-files-deployment-guide.md).
 * Zorg ervoor dat de server is verbonden met internet en dat Azure toegankelijk is.
 * De Internet Explorer Verbeterde beveiliging uitschakelt voor beheerders met de Server Manager-UI.

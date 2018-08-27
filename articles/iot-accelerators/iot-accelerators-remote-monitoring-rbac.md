@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 8886c08e88c1dd46d2b325b9ba8e9e0b8ae104f9
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40006500"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886307"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Op rollen gebaseerd toegangsbeheer in de oplossingsverbetering voor externe controle configureren
 
@@ -51,7 +51,7 @@ De Azure portal gebruiken voor het toevoegen of verwijderen van een gebruiker ui
 
 1. Controleer de [gebruiker zich in de map](../active-directory/fundamentals/add-users-azure-active-directory.md) u gebruikt. U hebt ervoor gekozen de map moet worden gebruikt wanneer u aangemeld bij de [Microsoft Azure IoT-oplossingsversnellers](https://www.azureiotsolutions.com/Accelerators) site. Naam van de map is zichtbaar in de rechterbovenhoek van de [pagina](https://www.azureiotsolutions.com/Accelerators).
 
-1. Zoek de **bedrijfstoepassing** voor uw oplossing in Azure portal. Naam van de toepassing is de naam van uw oplossing voor externe controle. In de volgende schermopname is de oplossing en de toepassing weergavenamen zijn **contoso-rm4**.
+1. Zoek de **bedrijfstoepassing** voor uw oplossing in Azure portal. Zodra er, filter de lijst door in te stellen **toepassingstype** naar **alle toepassingen**. Zoeken naar de naam van uw toepassing door de toepassing. Naam van de toepassing is de naam van uw oplossing voor externe controle. In de volgende schermopname is de oplossing en de toepassing weergavenamen zijn **contoso-rm4**.
 
     ![Bedrijfstoepassing](media/iot-accelerators-remote-monitoring-rbac/appregistration.png)
 

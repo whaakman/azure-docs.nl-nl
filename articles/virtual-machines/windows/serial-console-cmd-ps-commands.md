@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 83b3aa1efdde367577a563b477403c313a51d4fe
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: a6f8984086771fea4df4851b2a878d480b2050ea
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177590"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918514"
 ---
-# <a name="windows-commands---cmd"></a>Windows-opdrachten - CMD 
+# <a name="windows-commands---cmd-and-powershell"></a>Windows-opdrachten - CMD en PowerShell
 
 Deze sectie bevat een van de Voorbeeldopdrachten voor het uitvoeren van algemene taken in scenario's waarbij u wellicht SAC voor toegang tot uw Windows-VM, zoals wanneer u problemen met RDP-verbinding moet gebruiken.
 
@@ -91,6 +91,8 @@ of
 `netsh interface set interface name="<interface name>" admin=enabled`
 ### <a name="set-nic-to-use-dhcp"></a>Instellen van de NIC in op het gebruik van DHCP
 `netsh interface ip set address name="<interface name>" source=dhcp`
+
+Voor meer informatie over `netsh`, [Klik hier](https://docs.microsoft.com/windows-server/networking/technologies/netsh/netsh-contexts).
 
 Azure-VM's moeten altijd worden geconfigureerd in het gastbesturingssysteem te installeren met DHCP een IP-adres. De instelling voor de Azure statische IP gebruikt nog steeds DHCP te geven van het statische IP-adres aan de virtuele machine.
 ### <a name="ping"></a>Ping

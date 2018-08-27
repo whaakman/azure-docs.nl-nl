@@ -1,5 +1,5 @@
 ---
-title: Ondersteunde landen/regio's en talen voor Bing Web Search API op Azure | Microsoft Docs
+title: Landen, regio's en talen die worden ondersteund door de Bing webzoekopdrachten-API
 description: Ontdek welke landen/regio's en talen worden ondersteund door de Bing webzoekopdrachten-API.
 services: cognitive-services
 author: v-jerkin
@@ -7,24 +7,24 @@ manager: jhubbard
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 10/06/2017
-ms.author: v-jerkin
-ms.openlocfilehash: e1994ddf3bf71d01adeac4ff8688bdd1e6eac660
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: 87384a8aeabfe0c4a178344235debcc586cdf3de
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39001715"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888468"
 ---
-# <a name="bing-web-search-countriesregions-and-languages"></a>Bing webzoekopdrachten landen/regio's en talen
+# <a name="countries-regions-and-languages-supported-by-the-bing-web-search-api"></a>Landen, regio's en talen die worden ondersteund door de Bing webzoekopdrachten-API
 
-De Bing webzoekopdrachten-API biedt ondersteuning voor meer dan drie tientallen landen/regio's, veel met meer dan één taal. Een land/regio met een query op te geven fungeert voornamelijk om zoekresultaten te verfijnen op basis van de interesses in dat land/regio. Bovendien worden de resultaten kunnen koppelingen naar Bing bevatten en deze koppelingen kunnen lokaliseren van de gebruikerservaring van Bing op basis van het opgegeven land/regio of taal.
+De Bing webzoekopdrachten-API ondersteunt meer dan drie tientallen landen of regio's, veel met meer dan één taal. Een land of regio op te geven met een query kunt verfijnen zoekresultaten op basis van de interesses van dat land of regio's. De resultaten kunnen koppelingen naar Bing zijn en deze koppelingen kunnen lokaliseren van de gebruikerservaring van Bing op basis van het opgegeven land/regio of taal.
 
-U kunt geeft u een land/regio met de `cc` queryparameter. Als u een land/regio opgeeft, moet u ook opgeven een of meer taalcodes die met behulp van de `Accept-Language` HTTP-header. De ondersteunde talen variëren per land/regio; voor elk land/regio in de tabel markten wordt verstrekt.
+Kunt u een land of regio met behulp van de `cc` queryparameter. Wanneer een land of regio is opgegeven, moet u een of meer taalcodes met de [ `Accept-Language` header](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#headers). Gebruik de [markten tabel](#Markets) voor een lijst van ondersteunde talen in elke markt.
 
-U kunt ook opgeven de markt met behulp van de `mkt` query parameter en een code van de **markten** tabel. Tegelijkertijd een markt op te geven, geeft een land/regio en taal van voorkeur. De `setLang` queryparameter kan worden ingesteld op een taalcode die in dit geval; dit is doorgaans de dezelfde taal die is opgegeven door `mkt` , tenzij de gebruiker geeft de voorkeur aan om te zien van Bing in een andere taal.
+U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de **markten** tabel. Tegelijkertijd een markt op te geven, geeft een land of regio en taal van voorkeur. U kunt expliciet instellen met de taal met de `setLang` queryparameter.
 
-## <a name="countries"></a>Landen
+## <a name="countriesregions"></a>Landen/regio's
 
 |Land/regio|Code|
 |-------|----|
@@ -44,7 +44,7 @@ U kunt ook opgeven de markt met behulp van de `mkt` query parameter en een code 
 |Indonesië|Id|
 |Italië|IT|
 |Japan|JP|
-|Korea|KR|
+|Zuid-Korea|KR|
 |Maleisië|MIJN|
 |Mexico|MX|
 |Nederland|NL|
@@ -55,7 +55,7 @@ U kunt ook opgeven de markt met behulp van de `mkt` query parameter en een code 
 |Portugal|PT|
 |Filippijnen|PH|
 |Rusland|RU|
-|Saoedi-Arabië|SA|
+|Saudi-Arabië|SA|
 |Zuid-Afrika|ZA|
 |Spanje|ES|
 |Zweden|TWEEDE EDITIE|
@@ -65,18 +65,17 @@ U kunt ook opgeven de markt met behulp van de `mkt` query parameter en een code 
 |Verenigd Koninkrijk|GB|
 |Verenigde Staten|VS|
 
-
 ## <a name="markets"></a>Markten
 
 |Land/regio|Taal|Code van de markt|
 |-------|--------|-----------|
 |Argentinië|Spaans|ES-AR|
-|Australië|Nederlands|en-AU|
+|Australië|Engels|en-AU|
 |Oostenrijk|Duits|de-AT|
 |België|Nederlands|NL-worden|
 |België|Frans|FR-worden|
 |Brazilië|Portugees|pt-BR|
-|Canada|Nederlands|NL-CA|
+|Canada|Engels|NL-CA|
 |Canada|Frans|fr-CA|
 |Chili|Spaans|ES-CL|
 |Denemarken|Deens|da-DK|
@@ -84,29 +83,29 @@ U kunt ook opgeven de markt met behulp van de `mkt` query parameter en een code 
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
 |Hongkong|Traditioneel Chinees|zh-HK|
-|India|Nederlands|NL-IN|
-|Indonesië|Nederlands|NL-ID|
+|India|Engels|NL-IN|
+|Indonesië|Engels|NL-ID|
 |Italië|Italiaans|IT-IT|
 |Japan|Japans|ja-JP|
-|Korea|Koreaans|ko-KR|
-|Maleisië|Nederlands|en Mijn|
+|Zuid-Korea|Koreaans|ko-KR|
+|Maleisië|Engels|en Mijn|
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
-|Nieuw-Zeeland|Nederlands|NL-NZ|
+|Nieuw-Zeeland|Engels|NL-NZ|
 |Noorwegen|Noors|uit den boze|
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
-|Filippijnen|Nederlands|NL-PH|
+|Filippijnen|Engels|NL-PH|
 |Rusland|Russisch|ru-RU|
-|Saoedi-Arabië|Arabisch|ar-SA|
-|Zuid-Afrika|Nederlands|NL-ZA|
+|Saudi-Arabië|Arabisch|ar-SA|
+|Zuid-Afrika|Engels|NL-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
 |Zwitserland|Frans|FR-h|
 |Zwitserland|Duits|de CH|
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
-|Verenigd Koninkrijk|Nederlands|en-GB|
-|Verenigde Staten|Nederlands|nl-NL|
+|Verenigd Koninkrijk|Engels|en-GB|
+|Verenigde Staten|Engels|nl-NL|
 |Verenigde Staten|Spaans|ES-US|

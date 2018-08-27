@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: diberry
-ms.openlocfilehash: 2c648cdd82f89a9646fa0b311a7f1f68dd4bc4a9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 07c38aa5f66fc8c38392c5407449ec6911e80d47
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223578"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888623"
 ---
 # <a name="batch-testing"></a>Batchgewijs testen
  Testen van de batch is een uitgebreide test op uw huidige, getrainde model voor het meten van de prestaties van LUIS. 
@@ -61,17 +61,11 @@ Als u wilt controleren van de resultaten van de batch, selecteer **resultaten**.
 
 ![De resultaten van batch](./media/luis-how-to-batch-test/run-test-results.png)
 
-<!--
- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. 
-
-Green points indicate correct prediction, and red ones indicate incorrect prediction.
-
-The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.
-
--->
+<!-- Select the **See results** link that appears after you run the test. A scatter graph known as an error matrix displays. The data points represent the utterances in the dataset. Green points indicate correct prediction, and red ones indicate incorrect prediction. The filtering panel on the right side of the screen displays a list of all intents and entities in the app, with a green point for intents/entities that were predicted correctly in all dataset utterances, and a red point for those items with errors. Also, for each intent/entity, you can see the number of correct predictions out of the total utterances.-->
 
 
-<a name="filter-chart-results-by-intent-or-entity"></a> ## Resultaten van de grafiek filteren
+<a name="filter-chart-results-by-intent-or-entity"></a>  
+## <a name="filter-chart-results"></a>Resultaten van de grafiek filteren
 
 Om te filteren op de kaart op een bepaald doel of de entiteit, selecteert u het doel of de entiteit in het filteren aan de rechterkant-deelvenster. De gegevenspunten en de verdeling ervan bijwerken in de grafiek op basis van uw selectie. 
  

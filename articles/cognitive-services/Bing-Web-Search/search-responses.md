@@ -1,0 +1,441 @@
+---
+title: Antwoorden van de Bing webzoekopdrachten-API | Microsoft Docs
+titleSuffix: Microsoft Cognitive Services
+description: Meer informatie over de antwoord-typen en antwoorden van de Bing webzoekopdrachten-API.
+services: cognitive-services
+author: erhopf
+manager: cgronlun
+ms.service: cognitive-services
+ms.component: bing-web-search
+ms.topic: article
+ms.date: 8/13/2018
+ms.author: erhopf
+ms.openlocfilehash: 13e9792f3d5765047dabb4cdef59e85a47a69aba
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42889432"
+---
+# <a name="bing-web-search-responses"></a>Bing webzoekopdrachten-antwoorden  
+
+Als u Bing webzoekopdrachten een zoekaanvraag verzendt, wordt een [ `SearchResponse` ](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) object in de hoofdtekst van het antwoord. Het object bevat een veld voor elk antwoord dat Bing bepaald relevant zijn voor de query is. In dit voorbeeld wordt een antwoordobject als Bing geretourneerd alle antwoorden op:
+
+```json
+{
+    "_type": "SearchResponse",
+    "queryContext": {...},
+    "webPages": {...},
+    "images": {...},
+    "relatedSearches": {...},
+    "videos": {...},
+    "news": {...},
+    "spellSuggestion": {...},
+    "computation": {...},
+    "timeZone": {...},
+    "rankingResponse": {...}
+}, ...
+```
+
+Bing webzoekopdrachten retourneert doorgaans een subset van de antwoorden. Bijvoorbeeld, als de zoekterm is *Zeilsloepen*, het antwoord advies inwinnen `webPages`, `images`, en `rankingResponse`. Tenzij u bekend bent met [responseFilter](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#responsefilter) wilt wegfilteren webpagina's, bevat het antwoord altijd de `webpages` en `rankingResponse` antwoorden.
+
+## <a name="webpages-answer"></a>Antwoord van de webpagina 's
+
+De [webpagina's](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) antwoord bevat een lijst met koppelingen naar webpagina's met Bing webzoekopdrachten bepaald zijn relevant zijn voor de query. Elke [webpagina](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webpage) in de lijst bevat van de pagina naam, url, weergave-URL, korte beschrijving van de datum Bing en de inhoud de inhoud gevonden.
+
+```json
+{
+    "id": "https:\/\/api.cognitive.microsoft.com\/api\/v7\/#WebPages.0",
+    "name": "Dinghy sailing",
+    "url": "https:\/\/www.bing.com\/cr?IG=3A43CA5...",
+    "displayUrl": "https:\/\/en.contoso.com\/wiki\/Dinghy_sailing",
+    "snippet": "Dinghy sailing is the activity of sailing small boats...",
+    "dateLastCrawled": "2017-04-05T16:25:00"
+}, ...
+```
+
+Gebruik `name` en `url` te maken van een hyperlink waarop de gebruiker naar de webpagina leidt.
+
+<!-- Remove until this can be replaced with a sanitized version.
+The following shows an example of how you might display the webpage in a search results page.
+
+![Rendered webpage example](./media/cognitive-services-bing-web-api/bing-rendered-webpage-example.PNG)
+-->
+
+## <a name="images-answer"></a>Installatiekopieën van antwoord
+
+De [installatiekopieën](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) antwoord bevat een lijst met installatiekopieën die Bing beschouwd zijn relevant zijn voor de query. Elke [installatiekopie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) in de lijst bevat de URL van de afbeelding, de grootte, de dimensies en de coderingsindeling. Het Image-object bevat ook de URL van een miniatuur van de afbeelding en de afmetingen van de miniatuur.
+
+```json
+{
+    "name": "Rich Passage Sailing Dinghy",
+    "webSearchUrl": "https:\/\/www.bing.com\/cr?IG=3A43CA5CA64...",
+    "thumbnailUrl": "https:\/\/tse1.mm.bing.net\/th?id=OIP....",
+    "datePublished": "2011-10-29T11:26:00",
+    "contentUrl": "http:\/\/upload.contoso.com\/sailing\/...",
+    "hostPageUrl": "http:\/\/www.bing.com\/cr?IG=3A43CA5CA6464....",
+    "contentSize": "79239 B",
+    "encodingFormat": "jpeg",
+    "hostPageDisplayUrl": "http:\/\/en.contoso.com\/wiki\/File...",
+    "width": 526,
+    "height": 688,
+    "thumbnail": {
+        "width": 229,
+        "height": 300
+    },
+    "insightsSourcesSummary": {
+        "shoppingSourcesCount": 0,
+        "recipeSourcesCount": 0
+    }
+}, ...
+```
+
+Afhankelijk van het apparaat van de gebruiker, zou u meestal een subset van de miniaturen met een optie voor de gebruiker om de resterende installatiekopieën weer te geven weer.
+
+<!-- Remove until this can be replaced with a sanitized version.
+![List of thumbnail images](./media/cognitive-services-bing-web-api/bing-web-image-thumbnails.PNG)
+-->
+
+U kunt de miniatuur ook uitbreiden op het moment dat de gebruiker er met de cursor naar wijst. Vergeet niet om een geschikt kenmerk toe wijzen aan de afbeelding als u dat wilt doen. Bijvoorbeeld, door te extraheren van de host van `hostPageDisplayUrl` en deze onder de afbeelding wordt weergegeven. Zie [Formaat van miniaturen wijzigen en miniaturen bijsnijden](./resize-and-crop-thumbnails.md) voor informatie over het aanpassen van het formaat van de miniatuur.
+
+<!-- Remove until this can be replaced with a sanitized version.
+![Expanded view of thumbnail image](./media/cognitive-services-bing-web-api/bing-web-image-thumbnail-expansion.PNG)
+-->
+
+Als de gebruiker klikt op de miniatuur, gebruikt u `webSearchUrl` te nemen van de gebruiker van de Bing pagina met zoekresultaten voor installatiekopieën, waarin een collage van de installatiekopieën.
+
+Zie voor meer informatie over het antwoord van de installatiekopie en de afbeeldingen [afbeeldingen zoeken-API](../bing-image-search/search-the-web.md).
+
+## <a name="related-searches-answer"></a>Gerelateerde zoekopdrachten antwoord
+
+De [relatedSearches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse-relatedsearches) antwoord bevat een lijst van de meest populaire gerelateerde query's die door andere gebruikers. Elke [query](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#query_obj) in de lijst met een queryreeks bevat (`text`), een query-tekenreeks met tekens markeren van treffers (`displayText`), en een URL (`webSearchUrl`) op de pagina met zoekresultaten van Bing voor deze query.
+
+```json
+{
+    "text": "dinghy racing teams",
+    "displayText": "dinghy racing teams",
+    "webSearchUrl": "https:\/\/www.bing.com\/cr?IG=96C4CF214A0..."
+}, ...
+```
+
+Gebruik de `displayText` querytekenreeks en de `webSearchUrl` URL naar een hyperlink maken die de gebruiker naar de Bing zoeken leidt-pagina voor de gerelateerde query resultaten. U kunt ook de `text` querytekenreeks in uw eigen query webzoekopdrachten-API en de resultaten weergeven zelf.
+
+Voor informatie over het afhandelen van de markering markeringen in `displayText`, Zie [treffers markeren](./hit-highlighting.md).
+
+Hieronder ziet u een voorbeeld van het gebruik van gerelateerde query's in op Bing.com.
+
+![Voorbeeld van de verwante zoekopdrachten voor Bing](./media/cognitive-services-bing-web-api/bing-web-rendered-relatedsearches.GIF)
+
+## <a name="videos-answer"></a>Antwoord van de video 's
+
+De [video's](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#videos) antwoord bevat een lijst met video's die Bing beschouwd zijn relevant zijn voor de query. Elke [video](https://docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference#video) in de lijst bevat de URL van de video, de duur van de dimensies en de coderingsindeling. De video-object bevat ook de URL van een miniatuur van de video en dimensies van de miniatuur.
+
+```json
+{
+    "name": "Sailing dinghy",
+    "description": "Northwind Traders is a 12 foot gunter rigged...",
+    "webSearchUrl": "https:\/\/www.bing.com\/cr?IG=1CAE739681D84...",
+    "thumbnailUrl": "https:\/\/tse2.mm.bing.net\/th?id=OVP.wsKiL...",
+    "datePublished": "2013-11-06T01:56:28",
+    "publisher": [{
+        "name": "Fabrikam"
+    }],
+    "contentUrl": "https:\/\/www.fabrikam.com\/watch?v=MrVBWZpJjX",
+    "hostPageUrl": "https:\/\/www.bing.com\/cr?IG=1CAE739681D8400DB...",
+    "encodingFormat": "mp4",
+    "hostPageDisplayUrl": "https:\/\/www.fabrikam.com\/watch?v=MrBWZpJjXo",
+    "width": 1280,
+    "height": 720,
+    "duration": "PT3M47S",
+    "motionThumbnailUrl": "https:\/\/tse2.mm.bing.net\/th?id=OM.oa...",
+    "embedHtml": "<iframe width=\"1280\" height=\"720\" src=\"http:\/\/www....><\/iframe>",
+    "allowHttpsEmbed": true,
+    "viewCount": 19089,
+    "thumbnail": {
+        "width": 300,
+        "height": 168
+    },
+    "allowMobileEmbed": true,
+    "isSuperfresh": false
+}, ...
+```
+
+Afhankelijk van het apparaat van de gebruiker, zou u doorgaans een subset van de video's met een optie voor de gebruiker om weer te geven van de resterende video's weergeven. U zou een miniatuur van de video met een lengte van de video, geven een beschrijving (naam) en attribution (uitgever).
+
+<!-- Remove until this can be replaced with a sanitized version.
+![List of video thumbnails](./media/cognitive-services-bing-web-api/bing-web-video-thumbnails.PNG)
+-->
+
+Als de gebruiker de muisaanwijzer op de miniatuur kunt u `motionThumbnailUrl` een miniatuur versie van de video afspelen. Zorg ervoor dat de miniatuur beweging van het kenmerk wanneer u deze weergeven.
+
+<!-- Remove until this can be replaced with a sanitized version.
+![Motion thumbnail of a video](./media/cognitive-services-bing-web-api/bing-web-video-motion-thumbnail.PNG)
+-->
+
+Als de gebruiker op de miniatuur klikt, wordt het volgende zijn de video bekijken van de opties:
+
+- Gebruik `hostPageUrl` om weer te geven van de video op de host-website (bijvoorbeeld YouTube)
+- Gebruik `webSearchUrl` om weer te geven van de video in de Bing video-browser
+- Gebruik `embedHtml` de video insluiten in uw eigen ervaring
+
+Zie voor meer informatie over de video antwoord en video's [Video zoeken-API](../bing-video-search/search-the-web.md).
+
+## <a name="news-answer"></a>Nieuwsantwoord
+
+De [nieuws](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#news) antwoord bevat een lijst met nieuwsartikelen die Bing beschouwd zijn relevant zijn voor de query. Elke [nieuwsartikel](https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference#newsarticle) bevat in de lijst met de naam, beschrijving en URL van het artikel naar het artikel op de website van de host. Als u het artikel bevat een afbeelding, bevat het object een miniatuur van de installatiekopie.
+
+```json
+{
+    "name": "WC Sailing Qualifies for America Trophy with...",
+    "url": "http:\/\/www.bing.com\/cr?IG=3445EEF15DAF4FFFBF7...",
+    "image": {
+        "contentUrl": "http:\/\/www.contoso.com\/sports\/sail...",
+        "thumbnail": {
+            "contentUrl": "https:\/\/www.bing.com\/th?id=ON.1...",
+            "width": 400,
+            "height": 272
+        }
+    },
+    "description": "The WC sailing team qualified for a...",
+    "provider": [{
+        "_type": "Organization",
+        "name": "contoso.com"
+    }],
+    "datePublished": "2017-04-16T21:56:00"
+}, ...
+```
+
+Afhankelijk van het apparaat van de gebruiker, zou u een subset van de nieuwsartikelen met een optie voor de gebruiker om de resterende artikelen weer te geven weergeven. Gebruik `name` en `url` te maken van een hyperlink waarop de gebruiker naar het nieuwsartikel op de site van de host leidt. Als het artikel een afbeelding bevat, moet u de installatiekopie geklikt met `url`. Zorg ervoor dat u `provider` kenmerk van het artikel.
+
+<!-- Remove until this can be replaced with a sanitized version.
+The following shows an example of how you might display articles in a search results page.
+
+![List of news articles](./media/cognitive-services-bing-web-api/bing-web-news-list.PNG)
+-->
+
+Zie voor meer informatie over de nieuwsantwoord en nieuwsartikelen [nieuws zoeken-API](../bing-news-search/search-the-web.md).
+
+## <a name="computation-answer"></a>Antwoord berekenen
+
+Als de gebruiker een rekenkundige expressie of een query van de conversie unit voert, het antwoord kan bevatten een [berekening](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#computation) antwoord. De `computation` antwoord bevat de genormaliseerde expressie en het resultaat.
+
+Een eenheid conversie-query is een query die één eenheid naar een andere converteert. Bijvoorbeeld, *hoeveel meter in 10 meter?* of *hoeveel eetlepels in een 1/4-cup?*
+
+Het volgende bevat de `computation` beantwoorden voor *hoeveel meter in 10 meter?*
+
+```json
+"computation": {
+    "id": "https:\/\/www.bing.com\/api\/v7\/#Computation",
+    "expression": "10 meters",
+    "value": "32.808399 feet"
+}, ...
+```
+
+Hieronder ziet u voorbeelden van wiskundige query's en de bijbehorende `computation` antwoorden.
+
+```
+Query: (5+3)(10/2)+8
+Encoded query: %285%2B3%29%2810%2F2%29%2B8
+```
+
+```json
+"computation": {
+    "id": "https:\/\/www.bing.com\/api\/v7\/#Computation",
+    "expression": "((5+3)*(10\/2))+8",
+    "value": "48"
+}
+```
+
+```
+Query: sqrt(4^2+8^2)
+Encoded query: sqrt%284^2%2B8^2%29
+```
+
+```json
+"computation": {
+    "id": "https:\/\/www.bing.com\/api\/v7\/#Computation",
+    "expression": "sqrt((4^2)+(8^2))",
+    "value": "8.94427191"
+}
+```
+
+```
+Query: 30 6/8 - 18 8/16
+Encoded query: 30%206%2F8%20-%2018%208%2F16
+```
+
+```json
+"computation": {
+    "id": "https:\/\/www.bing.com\/api\/v7\/#WolframAlpha",
+    "expression": "30 6\/8-18 8\/16",
+    "value": "12.25"
+}
+```
+
+```
+Query: 8^2+11^2-2*8*11*cos(37)
+Encoded query: 8^2%2B11^2-2*8*11*cos%2837%29
+```
+
+```json
+"computation": {
+        "id": "https:\/\/www.bing.com\/api\/v7\/#Computation",
+        "expression": "(8^2)+(11^2)-(2*8*11*cos(37))",
+        "value": "44.4401502"
+}
+```
+
+Een wiskundige expressie kan de volgende symbolen bevatten:
+
+|Symbool|Beschrijving|
+|------------|-----------------|
+|+|Aanvulling|
+|-|Aftrekken|
+|/|deling|
+|*|Vermenigvuldigen|
+|^|Energiebeheer|
+|!|Faculteit|
+|.|decimaal|
+|()|Prioriteit groeperen|
+|[]|Functie|
+
+Een rekenkundige expressie mag de volgende constanten toe:
+
+|Symbool|Beschrijving|
+|------------|-----------------|
+|PI|3,14159...|
+|Mate|Mate|
+|Ik|Denkbeeldige getal|
+|e|e 2.71828...|
+|GoldenRatio|Golden verhouding, 1.61803...|
+
+Een rekenkundige expressie mag de volgende functies:
+
+|Symbool|Beschrijving|
+|------------|-----------------|
+|WORTEL|Vierkantswortel|
+|SIN [x], Cos [x], Tan [x]<br />Csc [x], [x] Sec Cot [x]|Trigonometrische functies (met argumenten in radialen)|
+|ArcSin [x], [x] ArcCos ArcTan [x]<br />ArcCsc [x], [x] ArcSec ArcCot [x]|Inverse trigonometrische functies (waardoor de resultaten in radialen)|
+|EXP [x] E ^ x|Exponentiële functie|
+|Log [x]|Natuurlijk logaritme|
+|SINH [x], [x] Cosh Tanh [x]<br />Csch [x], [x] Sech Coth [x]|Hyperbolische functies|
+|ArcSinh [x], [x] ArcCosh ArcTanh [x]<br />ArcCsch [x], [x] ArcSech ArcCoth [x]|Inverse hyperbolische functies|
+
+Wiskundige expressies die variabelen (voor bijvoorbeeld 4 x + 6 = 18, waarbij x staat voor de variabele) bevatten, worden niet ondersteund.
+
+## <a name="timezone-answer"></a>Tijdzone-antwoord
+
+Als de gebruiker een query voor datum of tijd voert, het antwoord kan bevatten een [tijdzone](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#timezone) antwoord. Dit antwoord ondersteunt impliciet of expliciet query's. Een impliciete query, zoals *welk moment is het?*, retourneert de lokale tijd op basis van de locatie van de gebruiker. Een explicit-query, zoals *welk moment is het in Seattle?*, retourneert de lokale tijd voor Seattle, Washington.
+
+De `timeZone` antwoord bevat de naam van de locatie, de huidige UTC-datum en tijd op de opgegeven locatie en de UTC-offset. Als de grens van de locatie in meerdere tijdzones is, wordt het antwoord bevat de huidige UTC-datum en tijd van alle tijdzones binnen de grens. Omdat de status Florida binnen twee tijdzones valt, bevat het antwoord, bijvoorbeeld de lokale datum en tijd van beide tijdzones.  
+
+Als de query vraagt om de tijd van een staat of land/regio, Bing bepaalt de primaire plaats binnen een geografische grens van de locatie en retourneert deze in de `primaryCityTime` veld. Als de grens meerdere tijdzones bevat, de resterende tijdzones worden geretourneerd in de `otherCityTimes` veld.
+
+Het volgende voorbeeld van bevat query's dat rendement de `timeZone` antwoord.
+
+```
+Query: What time is it?
+
+"timeZone": {
+    "id": "https:\/\/www.bing.com\/api\/v7\/#TimeZone",
+    "primaryCityTime": {
+        "location": "Redmond, Washington, United States",
+        "time": "2015-10-27T08:38:12.1189231Z",
+        "utcOffset": "UTC-7"
+    }
+}
+
+Query: What time is it in the Pacific time zone?
+
+"timeZone": {
+    "id": "https:\/\/www.bing.com\/api\/v7\/#TimeZone",
+    "primaryCityTime": {
+        "location": "Pacific Time Zone",
+        "time": "2015-10-23T12:33:19.0728146Z",
+        "utcOffset": "UTC-7"
+    }
+}
+
+Query: Time in Florida?
+
+"timeZone": {
+        "id": "https:\/\/www.bing.com\/api\/v7\/#TimeZone",
+        "primaryCityTime": {
+            "location": "Tallahassee, Florida, United States",
+            "time": "2015-10-23T13:04:56.6774389Z",
+            "utcOffset": "UTC-4"
+        },
+        "otherCityTimes": [{
+            "location": "Pensacola",
+            "time": "2015-10-23T12:04:56.6664294Z",
+            "utcOffset": "UTC-5"
+        }]
+}
+
+Query: What time is it in the U.S.
+
+"timeZone": {
+    "id": "https:\/\/www.bing.com\/api\/v7\/#TimeZone",
+    "primaryCityTime": {
+        "location": "Washington, D.C., United States",
+        "time": "2015-10-23T15:27:59.8892745Z",
+        "utcOffset": "UTC-4"
+    },
+    "otherCityTimes": [{
+        "location": "Honolulu",
+        "time": "2015-10-23T09:27:59.8892745Z",
+        "utcOffset": "UTC-10"
+    },
+    {
+        "location": "Anchorage",
+        "time": "2015-10-23T11:27:59.8892745Z",
+        "utcOffset": "UTC-8"
+    },
+    {
+        "location": "Phoenix",
+        "time": "2015-10-23T12:27:59.8892745Z",
+        "utcOffset": "UTC-7"
+    },
+    {
+        "location": "Los Angeles",
+        "time": "2015-10-23T12:27:59.8942788Z",
+        "utcOffset": "UTC-7"
+    },
+    {
+        "location": "Denver",
+        "time": "2015-10-23T13:27:59.8812681Z",
+        "utcOffset": "UTC-6"
+    },
+    {
+        "location": "Chicago",
+        "time": "2015-10-23T14:27:59.8892745Z",
+        "utcOffset": "UTC-5"
+    }]
+}
+```
+
+## <a name="spellsuggestion-answer"></a>SpellSuggestion antwoord
+
+Als u Bing bepaalt dat de gebruiker kan zijn bedoeld om te zoeken naar een andere, het antwoord bevat een [SpellSuggestions](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#spellsuggestions) object. Bijvoorbeeld, als de gebruiker wordt gezocht naar *carlos pen*, Bing besluiten dat de gebruiker waarschijnlijk bedoeld om te zoeken naar Carlos Pena in plaats daarvan (op basis van afgelopen zoekopdrachten door anderen van *carlos pen*). Hieronder ziet u een voorbeeld van een antwoord spellingcontrole.
+
+```json
+"spellSuggestions": {
+    "id": "https:\/\/www.bing.com\/api\/v7\/#SpellSuggestions",
+    "value": [{
+        "text": "carlos pena",
+        "displayText": "carlos pena"
+    }]
+}, ...
+```
+
+Hieronder ziet u hoe Bing maakt gebruik van het voorstel spelling.
+
+![Bing spellingcontrole suggestie voorbeeld](./media/cognitive-services-bing-web-api/bing-web-spellingsuggestion.GIF)  
+
+## <a name="next-steps"></a>Volgende stappen  
+
+* Beoordeling [aanvraagbeperking](throttling-requests.md) documentatie.  
+
+## <a name="see-also"></a>Zie ook  
+
+* [Bing webzoekopdrachten-API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)

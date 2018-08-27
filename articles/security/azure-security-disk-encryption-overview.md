@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: 0e81a48c1215e8590f90c42aee0861e6fda3db8e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 88500be4bae83049e8a7060719f4f85e7622c645
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391849"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886988"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption voor IaaS-VM 's 
 Microsoft Azure is het belangrijk ervoor te zorgen dat de privacy van gegevens, gegevensonafhankelijkheid en zodat u kunt om te bepalen uw door Azure gehoste gegevens door een bereik met geavanceerde technologieën voor het coderen, beheren en beheren van versleutelingssleutels en controle en audit toegang tot gegevens. Dit besturingselement biedt Azure-klanten de flexibiliteit om de oplossing die het beste aan hun behoeften van uw bedrijf te kiezen. In dit artikel vindt u een technologieoplossing, 'Azure schijf versleuteling voor Windows en Linux IaaS VM's ', om te beschermen en beveiligen van uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen. 
@@ -34,6 +34,10 @@ Azure disk encryption voor Windows en Linux IaaS-VM's zich in **algemene beschik
 * IaaS-VM's worden beveiligd met behulp van industriestandaard versleutelingstechnologie beveiligingsbehoeften voor organisatie-en nalevingsvereisten.
 * Opstarten van de IaaS-VM's onder de klant beheerde sleutels en beleidsregels en u kunt het gebruik ervan in uw key vault controleren.
 
+
+Als u Azure Security Center gebruikt, geeft deze een melding als u virtuele machines die niet zijn versleuteld. Deze waarschuwingsberichten hebben een hoge prioriteit. Het wordt aangeraden om deze virtuele machines te versleutelen.
+![Azure Security Center schijf versleuteling waarschuwing](media/azure-security-disk-encryption/security-center-disk-encryption-fig1.png)
+
 > [!NOTE]
 > Bepaalde aanbevelingen verhogen gegevens-, netwerk- of computerresources, wat resulteert in extra kosten in licentie of abonnement.
 
@@ -44,20 +48,24 @@ De Azure Disk Encryption-oplossing ondersteunt de volgende klant-scenario's:
 * Schakelt u versleuteling op nieuwe Windows IaaS-VM's gemaakt op basis van vooraf gecodeerde VHD en versleuteling sleutels 
 * Schakelt u versleuteling op nieuwe IaaS VM's die worden gemaakt op basis van de installatiekopieën van de ondersteunde Azure-galerie
 * Schakelt u versleuteling op bestaande IaaS-VM's die worden uitgevoerd in Azure
+* Inschakelen van versleuteling op Windows virtual machine scale sets
+* Schakelt u versleuteling op gegevensstations voor Linux virtuele-machineschaalsets
 * Schakel versleuteling uit op virtuele Windows IaaS-machines
 * Schakel versleuteling uit op gegevensstations voor Linux IaaS-VM 's
+* Uitschakelen van versleuteling op Windows virtual machine scale sets
+* Schakel versleuteling uit op de schijven voor schaalsets voor Linux-machines
 * Inschakelen van versleuteling van virtuele machines op beheerde schijven
 * Instellingen voor versleuteling van een bestaande versleutelde premium- en niet-premium-opslag virtuele machine bijwerken
 * Back-up en herstel van versleutelde virtuele machines
 
-De oplossing ondersteunt de volgende scenario's voor IaaS-VM's als ze zijn ingeschakeld in Microsoft Azure:
+De oplossing ondersteunt de volgende scenario's voor IaaS-VM's wanneer deze zijn ingeschakeld in Microsoft Azure:
 
 * Integratie met Azure Key Vault
 * Standard-laag virtuele machines: [A, D, DS, G, GS, F en enzovoort reeks IaaS-VM's](https://azure.microsoft.com/pricing/details/virtual-machines/)
     * [Virtuele Linux-machines](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) binnen deze lagen als moeten voldoen aan de minimale geheugenvereiste van 7 GB
-* Schakelt u versleuteling op Windows en Linux IaaS-VM's en virtuele machines op beheerde schijven van de ondersteunde Azure-galerie afbeeldingen
-* Versleuteling voor stations met besturingssysteem- en Windows IaaS-VM's en virtuele machines op beheerde schijven uitschakelen
-* Schakel versleuteling uit op gegevensstations voor Linux IaaS-VM's en virtuele machines op beheerde schijven
+* Versleuteling inschakelen op Windows en Linux IaaS-VM's, beheerde schijf en schaal instellen virtuele machines van de ondersteunde Azure-galerie afbeeldingen
+* Disable-versleuteling voor stations met besturingssysteem- en voor Windows IaaS-VM's, schaal virtuele machines en beheerde schijf-VM 's
+* Schakel versleuteling op gegevensstations voor Linux IaaS-VM's, schaal virtuele machines en beheerde schijf-VM 's
 * Schakelt u versleuteling op IaaS-VM's met het Windows Client-besturingssysteem
 * Versleuteling voor volumes met koppelpunt paden inschakelen
 * Schakelt u versleuteling op Linux-VM's geconfigureerd met schijf striping (RAID) met behulp van mdadm
@@ -74,7 +82,7 @@ De oplossing biedt geen ondersteuning voor de volgende scenario's, functies en -
 * Uitschakelen van versleuteling op een station van het besturingssysteem voor Linux IaaS-VM 's
 * Uitschakelen van versleuteling op een schijf als de besturingssysteemschijf is versleuteld voor Linux Iaas-VM 's
 * IaaS-VM's die zijn gemaakt met behulp van de klassieke methode voor het maken van de virtuele machine
-* Hiermee schakelt u versleuteling op Linux IaaS-VM's klanten aangepaste installatiekopieën wordt niet ondersteund.
+* Inschakelen van versleuteling op Linux IaaS-VM's klanten aangepaste installatiekopieën
 * Integratie met uw on-premises Key Management Service
 * Azure Files (gedeelde bestandssysteem), Network File System (NFS), dynamische volumes en virtuele machines van Windows die zijn geconfigureerd met software gebaseerde RAID-systemen
 
@@ -84,7 +92,7 @@ Als u inschakelt en implementeren van Azure Disk Encryption voor Azure IaaS VM's
 * Versleuteling van het volume met het besturingssysteem op het opstartvolume at-rest in de opslag beveiligen
 * Versleuteling van gegevensvolumes om de gegevensvolumes in rust in uw opslag te beveiligen
 * Uitschakelen van versleuteling op de OS- en gegevensstations voor Windows IaaS-VM 's
-* Uitschakelen van versleuteling op de gegevens schijven voor Linux IaaS-VM's (alleen als het besturingssysteem IS niet versleuteld station)
+* Uitschakelen van versleuteling op de schijven voor Linux IaaS-VM's (alleen als besturingssysteemschijf wordt niet versleuteld)
 * Bescherming van de versleutelingssleutels en geheimen in uw key vault-abonnement
 * Rapportage van de versleutelingsstatus van de versleutelde IaaS-VM
 * Het verwijderen van configuratie-instellingen van de virtuele machine voor IaaS-schijfversleuteling
@@ -103,8 +111,40 @@ De Azure Disk Encryption-oplossing wordt ondersteund op IaaS-VM's waarop Windows
 > [!NOTE]
 > Er is een extra kosten in rekening gebracht voor het versleutelen van VM-schijven met Azure Disk Encryption. Standard [prijzen voor Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) is van toepassing op de key vault gebruikt voor het opslaan van de versleutelingssleutels. 
 
+
 ## <a name="encryption-workflow"></a>Werkstroom voor versleuteling
-Om in te schakelen disk encryption voor Windows en Linux-machines, moet u de volgende stappen uitvoeren:
+
+ Om in te schakelen disk encryption voor Windows en Linux-machines, moet u de volgende stappen uitvoeren:
+
+1. Kies een versleutelingsscenario uit de bovenstaande scenario's voor versleuteling.
+2. U meldt zich aan het inschakelen van schijfversleuteling via de Azure Disk Encryption Resource Manager-sjabloon, de PowerShell-cmdlets of de CLI-opdracht en geeft u de versleutelingsconfiguratie van de.
+
+   * Voor het scenario van de VHD klant versleuteld door de versleutelde VHD te uploaden naar uw opslagaccount en de versleuteling sleutelmateriaal tot uw key vault. Klik, geef de versleutelingsconfiguratie inschakelen van versleuteling op een nieuwe IaaS-VM.
+   * Voor nieuwe virtuele machines die zijn gemaakt vanuit de Marketplace en bestaande VM's die al worden uitgevoerd in Azure, geeft u de versleutelingsconfiguratie inschakelen van versleuteling op de IaaS-VM.
+
+3. Toegang verlenen tot de Azure-platform om te lezen van de versleutelingssleutel materiaal (BitLocker-versleutelingssleutels voor Windows-systemen) en de wachtwoordzin voor Linux uit uw key vault om in te schakelen van versleuteling op de IaaS-VM.
+
+4. Azure werkt bij het VM-servicemodel met versleuteling, de configuratie van de key vault, en stelt u de versleutelde VM.
+
+ ![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig1.png)
+
+## <a name="decryption-workflow"></a>Werkstroom voor ontsleuteling
+Als u wilt uitschakelen schijfversleuteling voor IaaS-VM's, de volgende stappen op hoog niveau:
+
+1. Kies om versleuteling (decodering) te schakelen op een actieve IaaS-VM in Azure en geeft u de configuratie voor ontsleuteling. U kunt uitschakelen via de Azure Disk Encryption Resource Manager-sjabloon, PowerShell-cmdlets of Azure CLI.
+
+ Deze stap schakelt versleuteling van het besturingssysteem of het gegevensvolume of beide op de actieve Windows IaaS-virtuele machine. Echter, uitschakelen van OS-schijfversleuteling voor Linux zoals vermeld in de vorige sectie, wordt niet ondersteund. De stap ontsleuteling is alleen toegestaan voor schijven op virtuele Linux-machines, zolang de besturingssysteemschijf wordt niet versleuteld.
+2. Azure werkt het servicemodel van de virtuele machine en de IaaS-VM is gemarkeerd als ontsleutelde. De inhoud van de virtuele machine worden niet meer in rust versleuteld.
+
+> [!NOTE]
+> De bewerking uitschakelen-codering wordt niet verwijderd voor uw key vault en de versleuteling sleutelmateriaal (BitLocker-versleutelingssleutels voor Windows-systemen) of de wachtwoordzin voor Linux.
+ > Uitschakelen van OS-schijfversleuteling voor Linux wordt niet ondersteund. De stap ontsleuteling is alleen toegestaan voor schijven op virtuele Linux-machines.
+Uitschakelen van de schijf van gegevensversleuteling voor Linux wordt niet ondersteund als de besturingssysteemschijf is versleuteld.
+
+
+## <a name="encryption-workflow-previous-release"></a>Versleuteling werkstroom (vorige versie)
+
+De nieuwe versie van Azure disk encryption wordt voorkomen dat de vereiste voor het ontwikkelen van een Azure AD-toepassing-parameter voor schijfversleuteling van VM inschakelen. Met de nieuwe versie kunt u niet langer vereist op te geven van een referentie voor de Azure AD tijdens de stap van de versleuteling inschakelen. Alle nieuwe virtuele machines moeten worden versleuteld zonder de parameters van Azure AD-toepassing met behulp van de nieuwe versie. Virtuele machines die al zijn versleuteld met Azure AD-toepassing parameters worden nog steeds ondersteund en worden onderhouden met de syntaxis van de AAD moeten blijven. Om in te schakelen disk encryption voor Windows en Linux-machines (vorige versie), voer de volgende stappen uit:
 
 1. Kies een versleutelingsscenario uit de bovenstaande scenario's voor versleuteling.
 2. U meldt zich aan het inschakelen van schijfversleuteling via de Azure Disk Encryption Resource Manager-sjabloon, de PowerShell-cmdlets of de CLI-opdracht en geeft u de versleutelingsconfiguratie van de.
@@ -118,20 +158,6 @@ Om in te schakelen disk encryption voor Windows en Linux-machines, moet u de vol
 
 5. Azure werkt bij het VM-servicemodel met versleuteling en de configuratie van de key vault en stelt u de versleutelde VM.
 
- ![Microsoft Antimalware in Azure](./media/azure-security-disk-encryption/disk-encryption-fig1.png)
-
-## <a name="decryption-workflow"></a>Werkstroom voor ontsleuteling
-Als u wilt uitschakelen schijfversleuteling voor IaaS-VM's, de volgende stappen op hoog niveau:
-
-1. Kies om versleuteling (decodering) te schakelen op een actieve IaaS-VM in Azure en geeft u de configuratie voor ontsleuteling. U kunt uitschakelen via de Azure Disk Encryption Resource Manager-sjabloon, PowerShell-cmdlets of Azure CLI.
-
- Deze stap schakelt versleuteling van het besturingssysteem of het gegevensvolume of beide op de actieve Windows IaaS-virtuele machine. Echter, zoals vermeld in de vorige sectie, uitschakelen van OS-schijfversleuteling voor Linux wordt niet ondersteund. De stap ontsleuteling is alleen toegestaan voor schijven op virtuele Linux-machines, zolang de besturingssysteemschijf is niet versleuteld.
-2. Azure werkt het servicemodel van de virtuele machine en de IaaS-VM is gemarkeerd als ontsleutelde. De inhoud van de virtuele machine worden niet meer in rust versleuteld.
-
-> [!NOTE]
-> De bewerking uitschakelen-codering wordt niet verwijderd voor uw key vault en de versleuteling sleutelmateriaal (BitLocker-versleutelingssleutels voor Windows-systemen) of de wachtwoordzin voor Linux.
- > Uitschakelen van OS-schijfversleuteling voor Linux wordt niet ondersteund. De stap ontsleuteling is alleen toegestaan voor schijven op virtuele Linux-machines.
-Uitschakelen van de schijf van gegevensversleuteling voor Linux wordt niet ondersteund als de besturingssysteemschijf is versleuteld.
 
 ## <a name="terminology"></a>Terminologie
 Voor meer informatie over enkele van de algemene voorwaarden die worden gebruikt door deze technologie, gebruik de volgende tabel voor de terminologie:

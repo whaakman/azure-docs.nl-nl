@@ -14,60 +14,38 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 983cecdcdb95dca398f728dbdbe5feac69075d6a
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 7f6049e874f329c1e3a4f72417dd9a7eebc42628
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248367"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887060"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Zelfstudie: Een Windows VM beheerde Service-identiteit gebruiken voor toegang tot Azure Storage via SAS-referenties
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie leert u hoe u beheerde Service-identiteit inschakelen voor een Windows-Machine en vervolgens de beheerde Service-identiteit gebruiken om op te halen van een Shared Access Signature (SAS) storage referentie. Een [service-SAS-referentie](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures), om precies te zijn. 
+Deze zelfstudie leert u hoe u een systeem toegewezen identiteit voor een Windows virtuele machine (VM) gebruiken om te verkrijgen van een Shared Access Signature (SAS) storage referentie. Een [service-SAS-referentie](/azure/storage/common/storage-dotnet-shared-access-signature-part-1?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#types-of-shared-access-signatures), om precies te zijn. 
 
 Een Service-SAS biedt de mogelijkheid beperkte toegang verlenen tot objecten in een storage-account gedurende beperkte tijd en een bepaalde service (in ons geval de blob-service), zonder dat een toegangssleutel. U kunt een SAS-referentie gebruiken zoals u gewend bent bij opslagbewerkingen, bijvoorbeeld bij het gebruik van de Storage-SDK. Voor deze zelfstudie ziet uploaden en downloaden van een blob met behulp van PowerShell voor Azure-opslag. U leert het volgende:
 
-
 > [!div class="checklist"]
-> * Managed Service Identity op een virtuele Windows-machine inschakelen 
+> * Create a storage account
 > * Uw virtuele machine toegang verlenen tot een SAS voor een opslagaccount in Resource Manager 
 > * Een toegangstoken ophalen met de identiteit van de virtuele machine, en daarmee de SAS ophalen uit Resource Manager 
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+- [Aanmelden bij Azure portal](https://portal.azure.com)
 
-Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+- [Een Windows-machine maken](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine maken in een nieuwe resourcegroep
+- [Systeem toegewezen identiteit op uw virtuele machine inschakelen](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
-Voor deze zelfstudie maken we een nieuwe virtuele Windows-machine. U kunt ook beheerde Service-identiteit van een bestaande VM inschakelen.
-
-1.  Klik op de knop **+/Nieuwe service maken** in de linkerbovenhoek van Azure Portal.
-2.  Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**. 
-3.  Geef de informatie van de virtuele machine op. De referenties (combinatie van **Gebruikersnaam** en **Wachtwoord**) die u hier opgeeft, zijn de referenties waarmee u zich aanmeldt bij de virtuele machine.
-4.  Kies het juiste **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
-5.  Om een nieuwe **resourcegroep** te selecteren waarin de virtuele machine moet worden gemaakt, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
-6.  Selecteer de grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
-
-    ![Alt-tekst voor afbeelding](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Beheerde Service-identiteit op de virtuele machine inschakelen
-
-Een virtuele Machine beheerde Service-identiteit kunt u tokens voor toegang van Azure AD ophalen zonder dat u om referenties in uw code. Op de achtergrond, beheerde Service-identiteit inschakelen doet twee dingen: registreert uw virtuele machine met Azure Active Directory voor het maken van de beheerde identiteit, en configureert u de identiteit op de virtuele machine.
-
-1. Navigeer naar de resourcegroep van de nieuwe virtuele machine en selecteer de virtuele machine die u in de vorige stap hebt gemaakt.
-2. Klik onder de virtuele machine 'Instellingen' in het linkerdeelvenster op **configuratie**.
-3. Als u wilt registreren en de beheerde Service-identiteit inschakelen, selecteert u **Ja**, als u wilt uitschakelen, kiest u Nee.
-4. Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.
-
-    ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
 
 ## <a name="create-a-storage-account"></a>Create a storage account 
 
@@ -93,9 +71,9 @@ Later zullen we een bestand uploaden en downloaden naar het nieuwe opslagaccount
 
     ![Opslagcontainer maken](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-managed-service-identity-access-to-use-a-storage-sas"></a>Toegang van de virtuele machine beheerde Service-identiteit voor het gebruik van een SAS-opslag 
+## <a name="grant-your-vms-managed-service-identity-access-to-use-a-storage-sas"></a>De Managed Service Identity van uw VM toegang verlenen tot het gebruik van een SAS-opslag 
 
-Azure Storage biedt geen systeemeigen ondersteuning voor Azure AD-verificatie.  U kunt echter het gebruik van een beheerde Service-identiteit voor het ophalen van een SAS-opslag van Resource Manager en vervolgens de SAS gebruiken voor toegang tot opslag.  In deze stap maakt verlenen u uw virtuele machine beheerde Service-identiteit-toegang tot uw storage-account-SAS.   
+Azure Storage biedt geen systeemeigen ondersteuning voor Azure AD-verificatie.  U kunt echter het gebruik van een beheerde Service-identiteit voor het ophalen van een SAS-opslag van Resource Manager en vervolgens de SAS gebruiken voor toegang tot opslag.  In deze stap verleent u de Managed Service Identity van de VM toegang tot de SAS voor uw opslagaccount.   
 
 1. Navigeer terug naar het zojuist gemaakte opslagaccount.   
 2. Klik op de koppeling **Toegangsbeheer (IAM)** in het linkerpaneel.  
@@ -116,7 +94,7 @@ In dit gedeelte moet u de PowerShell-cmdlets voor Azure Resource Manager gebruik
 1. In Azure Portal navigeert u naar **Virtuele machines**, gaat u naar uw virtuele Windows-machine, klikt u vervolgens boven aan de pagina **Overzicht** op **Verbinden**.
 2. Voer uw referenties (**gebruikersnaam** en **wachtwoord**) in die u hebt toegevoegd bij het maken van de virtuele Windows-machine. 
 3. Nu u een **Verbinding met extern bureaublad** met de virtuele machine hebt gemaakt, opent u PowerShell in de externe sessie. 
-4. Met behulp van Powershell Invoke-WebRequest, een aanvraag indienen met het lokale eindpunt van de beheerde Service-identiteit voor een toegangstoken ophalen voor Azure Resource Manager.
+4. Dien met behulp van Powershell een Invoke-WebRequest-aanvraag in op het lokale Managed Service Identity-eindpunt om een toegangstoken voor Azure Resource Manager op te halen.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}

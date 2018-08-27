@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 98c7bd5daf3b84499e8e31c0a7a2da612834b83e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e2ff826f21adf12d48b21acefe4b704866e02c04
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521979"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917955"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraties van SAP HANA-infrastructuur en bewerkingen op Azure
 Dit document biedt richtlijnen voor het configureren van Azure-infrastructuur en SAP HANA besturingssystemen die zijn geïmplementeerd op virtuele machines van Azure (VM's). Het document bevat ook informatie over de configuratie voor SAP HANA scale-out voor de M128s VM-SKU. Dit document is niet bedoeld als vervanging van de standaard SAP-documentatie, waaronder de volgende inhoud:
@@ -30,7 +30,7 @@ Dit document biedt richtlijnen voor het configureren van Azure-infrastructuur en
 - [SAP-installatiehandleidingen](https://service.sap.com/instguides)
 - [SAP-opmerkingen](https://sservice.sap.com/notes)
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 Voor het gebruik van deze handleiding, moet u basiskennis hebt van de volgende Azure-onderdelen:
 
 - [Virtuele machines van Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
@@ -215,7 +215,7 @@ Wanneer u de virtuele machines om uit te voeren van SAP HANA installeert, moeten
 
 Voor implementaties die zijn onmisbaar, moet u echter een virtueel datacenter netwerkarchitectuur maken in Azure. Deze architectuur wordt aanbevolen de scheiding van de Azure-VNet-Gateway die verbinding maakt on-premises in een afzonderlijke Azure-VNet. Deze apart VNet moet al het verkeer dat een naar on-premises hosten of tot het internet. Deze benadering kunt u software voor controle en logboekregistratie-verkeer dat het virtuele datacenter in Azure in deze afzonderlijke hub VNet invoert te implementeren. Daarom moet u een VNet die als host fungeert voor de software en configuraties die is gekoppeld aan in- en uitgaand verkeer naar uw Azure-implementatie.
 
-De artikelen [Azure Virtual Datacenter: een Netwerkperspectief](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) en [Azure Virtual Datacenter en de Enterprise-Controlelaag](https://docs.microsoft.com/azure/architecture/vdc/) geven u meer informatie over de virtual datacenter-aanpak en gerelateerde Azure VNet-ontwerp.
+De artikelen [Azure Virtual Datacenter: een Netwerkperspectief](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) en [Azure Virtual Datacenter en de Enterprise-Controlelaag](https://docs.microsoft.com/azure/architecture/vdc/) geven u meer informatie over de virtual datacenter-aanpak en gerelateerde Azure VNet-ontwerp.
 
 
 >[!NOTE]

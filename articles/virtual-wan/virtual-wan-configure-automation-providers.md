@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 08/23/2018
 ms.author: cherylmc
 Customer intent: As a Virtual WAN software-defined connectivity provider, I want to set up a provisioning environment.
-ms.openlocfilehash: a1ff4364e394b3807cf767722ee934ae024399b0
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: bac728f286c90550107b27da76a070623577ed82
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114341"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918897"
 ---
 # <a name="configure-virtual-wan-automation---for-virtual-wan-partners-preview"></a>Virtuele WAN-automation - voor virtuele WAN-partners (Preview) configureren
 
@@ -23,7 +23,7 @@ Met software gedefinieerde connectiviteitsoplossingen gebruiken doorgaans een do
 
 ##  <a name="access"></a>Toegangsbeheer
 
-Klanten moeten kunnen juiste toegangsbeheer voor virtuele WAN instellen in de gebruikersinterface van het apparaat. Dit wordt aanbevolen met behulp van een Service-Principal voor Azure. Toegang tot service-principal op basis van bevat het juiste apparaat controller-verificatie als u wilt uploaden vertakking informatie.
+Klanten moeten kunnen juiste toegangsbeheer voor virtuele WAN instellen in de gebruikersinterface van het apparaat. Dit wordt aanbevolen met behulp van een Service-Principal voor Azure. Toegang tot service-principal op basis van bevat het juiste apparaat controller-verificatie als u wilt uploaden vertakking informatie. Zie voor meer informatie, [service-principal maken](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application).
 
 ##  <a name="site"></a>Vertakking gegevens uploaden
 
@@ -44,10 +44,10 @@ In deze stap klant die niet van een provider gebruikmaakt handmatig downloaden v
 
 ### <a name="understanding-the-device-configuration-file"></a>Inzicht krijgen in het configuratiebestand van het apparaat
 
-Het configuratiebestand van het apparaat bevat de instellingen moet worden gebruikt bij het configureren van uw on-premises VPN-apparaat. Wanneer u dit bestand bekijkt, ziet u de volgende informatie:
+Het apparaatconfiguratiebestand bevat de instellingen die u dient te gebruiken om uw on-premises VPN-apparaat te configureren. Wanneer u dit bestand bekijkt, ziet u de volgende informatie:
 
-* **vpnSiteConfiguration -** in deze sectie geeft de details ervan instellen als een site verbinding maken met het virtuele WAN. Het bevat de naam en het openbare ip-adres van het apparaat van de vertakking.
-* **vpnSiteConnections -** in deze sectie bevat informatie over het volgende:
+* **vpnSiteConfiguration -** in deze sectie vindt u de apparaatgegevens, ingesteld als een site die verbinding maakt met het virtuele WAN. Hier vindt u ook de naam en het openbare ip-adres van het branch-apparaat.
+* **vpnSiteConnections -** deze sectie bevat informatie over het volgende:
 
     * **Adresruimte** van de virtuele hub VNet.<br>Voorbeeld:
  
@@ -59,15 +59,15 @@ Het configuratiebestand van het apparaat bevat de instellingen moet worden gebru
          ```
         "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
          ```
-    * **IP-adressen** van de virtuele hub-VPN-gateway. Omdat de VPN-gateway elke verbinding zijn opgebouwd met 2 tunnels in actief / actief-configuratie heeft, ziet u beide IP-adressen die worden vermeld in dit bestand. In dit voorbeeld ziet u 'Instance0' en 'Instance1' voor elke site.<br>Voorbeeld:
+    * **IP-adressen** van de VPN-gateway van de virtuele hub. Omdat voor de VPN-gateway elke verbinding is opgebouwd uit 2 tunnels in een actief-/actief-configuratie, worden beide IP-adressen in dit bestand vermeld. In dit voorbeeld ziet u voor elke site 'Instance0' en 'Instance1'.<br>Voorbeeld:
 
         ``` 
         "Instance0":"104.45.18.186"
         "Instance1":"104.45.13.195"
         ```
-    * **VPN-gateway verbinding configuratiedetails** zoals BGP, vooraf-gedeelde sleutels enzovoort. De vooraf gedeelde sleutel is de vooraf gedeelde sleutel die wordt automatisch voor u gegenereerd. U kunt altijd de verbinding op de pagina overzicht voor een aangepaste PSK bewerken.
+    * **Informatie over verbindingsconfiguratie van VPN-gateway**, zoals BGP, vooraf-gedeelde sleutels, enzovoort. De PSK is de vooraf gedeelde sleutel die automatisch voor u wordt gegenereerd. U kunt altijd de verbinding bewerken op de pagina Overzicht om een aangepaste PSK in te stellen.
   
-### <a name="example-device-configuration-file"></a>Voorbeeld van de apparaat-configuratiebestand
+### <a name="example-device-configuration-file"></a>Voorbeeld van een apparaatconfiguratiebestand
 
   ```
   { 
@@ -250,9 +250,9 @@ Uw on-premises SDWAN/VPN-apparaat of de SD-WAN-configuratie moet overeenkomen me
 * IPsec-integriteitsalgoritme
 * PFS-groep
 
-## <a name="feedback"></a>Feedback van de Preview-versie
+## <a name="feedback"></a>Feedback voor de preview-versie
 
-We zouden waarderen uw feedback. Stuur een e-mail naar <azurevirtualwan@microsoft.com> problemen melden of feedback (positief of negatief) voor virtuele WAN. De naam van uw bedrijf in '['] opnemen in de onderwerpregel. Ook uw abonnements-ID als u een probleem wilt melden.
+Wij stellen uw feedback zeer op prijs. Stuur een e-mail naar <azurevirtualwan@microsoft.com> om problemen te melden of feedback (positief of negatief) te geven over Virtual WAN. Vermeld uw bedrijfsnaam tussen '[ ]' in de onderwerpregel. Vermeld ook uw abonnements-id als u een probleem wilt melden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 543f581659d54bd14ccb2a818fd74e379bcc8cfe
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056869"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888080"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>De Azure-opslagemulator gebruiken voor ontwikkelen en testen
 
@@ -26,9 +26,8 @@ De opslagemulator wordt momenteel uitgevoerd alleen op Windows. Degenen die u ov
 
 > [!NOTE]
 > Gegevens die zijn gemaakt in een versie van de opslagemulator is niet noodzakelijkerwijs toegankelijk wanneer u een andere versie. Als u nodig hebt om vast te leggen van de gegevens voor de lange termijn, wordt u aangeraden dat u die gegevens opslaan in een Azure storage-account, in plaats van de opslagemulator.
-> <p/>
+> 
 > De opslagemulator is afhankelijk van specifieke versies van de OData-bibliotheken. Vervangen van de OData-dll's die worden gebruikt door de opslagemulator met andere versies wordt niet ondersteund en kan leiden tot onverwacht gedrag. Elke versie van OData ondersteund door de storage-service kan echter worden gebruikt voor het verzenden van aanvragen naar de emulator.
->
 
 ## <a name="how-the-storage-emulator-works"></a>De werking van de opslagemulator
 De opslagemulator maakt gebruik van een lokaal exemplaar van Microsoft SQL Server en het lokale bestandssysteem naar Azure storage-services worden geëmuleerd. De opslagemulator maakt standaard gebruik van een database in Microsoft SQL Server 2012 Express LocalDB. U kunt het configureren van de opslagemulator voor toegang tot een lokaal exemplaar van SQL Server in plaats van de LocalDB-instantie. Zie voor meer informatie de [begin- en initialisatie van de opslagemulator](#start-and-initialize-the-storage-emulator) verderop in dit artikel.
@@ -165,7 +164,7 @@ Versie 3.0 vanaf biedt wordt een consolevenster weergegeven wanneer u de Opslage
 ### <a name="options"></a>Opties
 Typ `/help` bij de opdrachtprompt om een lijst met opties te zien.
 
-| Optie | Beschrijving | Opdracht | Argumenten |
+| Optie | Beschrijving | Command | Argumenten |
 | --- | --- | --- | --- |
 | **Beginnen** |De opslagemulator wordt gestart. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Start de emulator in het huidige proces in plaats van een nieuw proces maken. |
 | **Stoppen** |Hiermee stopt u de opslagemulator. |`AzureStorageEmulator.exe stop` | |
@@ -187,6 +186,7 @@ Omdat de opslagemulator een geëmuleerde omgeving die wordt uitgevoerd in een lo
 De volgende verschillen van toepassing op Blob-opslag in de emulator:
 
 * De blob voor storage emulator ondersteunt alleen de grootte van maximaal 2 GB.
+* De maximale lengte van de blobnaam van een in de opslagemulator is 256 tekens, terwijl de maximale lengte van de blobnaam van een in Azure Storage 1024 tekens is.
 * Incrementele kopie kunt momentopnamen van overschreven blobs moeten worden gekopieerd, waardoor een fout geretourneerd voor de service.
 * Get Page-bereiken Diff werkt niet tussen momentopnamen die zijn gekopieerd met behulp van incrementeel kopiëren van de Blob.
 * Een Blob Put-bewerking kan op basis van een blob die deel uitmaakt van de opslagemulator met een actieve lease slaagt, zelfs als de lease-ID niet in de aanvraag opgegeven is.

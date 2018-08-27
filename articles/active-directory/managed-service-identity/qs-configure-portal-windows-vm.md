@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/19/2017
 ms.author: daveba
-ms.openlocfilehash: 7ac4dd41c8a1adb422539e0832715d59ec385694
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 552fce2ffd8b6bd786010da82e702ee98c3f8647
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745556"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888553"
 ---
 # <a name="configure-a-vm-managed-service-identity-using-the-azure-portal"></a>Een virtuele machine beheerde Service-identiteit met Azure portal configureren
 
@@ -29,7 +29,7 @@ Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde id
 
 In dit artikel leert u hoe u inschakelen en uitschakelen van systeem en door gebruiker toegewezen identiteit voor een Azure Virtual Machine (VM), met behulp van de Azure portal. 
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md).
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
@@ -53,9 +53,9 @@ Het systeem toegewezen identiteit op een virtuele machine die oorspronkelijk is 
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine.
 
-2. Navigeer naar de gewenste virtuele Machine en selecteert u de pagina "Configuratie".
+2. Navigeer naar de gewenste virtuele Machine en selecteer **identiteit**.
 
-3. Schakelt het systeem toegewezen identiteit op de virtuele machine door 'Ja' onder 'Beheerde service-identiteit' en klik vervolgens op **opslaan**. Met deze bewerking duurt 60 seconden of langer om uit te voeren:
+3. Onder **systeem toegewezen**, **Status**, selecteer **op** en klik vervolgens op **opslaan**:
 
    ![Schermafbeelding van de pagina configuratie](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade.png)  
 
@@ -65,9 +65,9 @@ Als u een virtuele Machine die het systeem toegewezen identiteit niet meer nodig
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine. 
 
-2. Navigeer naar de gewenste virtuele Machine en selecteert u de pagina "Configuratie".
+2. Navigeer naar de gewenste virtuele Machine en selecteer **identiteit**.
 
-3. Het systeem toegewezen identiteit op de virtuele machine selecteert u 'Nee' onder "Beheerde service-identiteit" uitschakelen en klik op opslaan. Met deze bewerking duurt 60 seconden of langer om uit te voeren:
+3. Onder **systeem toegewezen**, **Status**, selecteer **uit** en klik vervolgens op **opslaan**:
 
    ![Schermafbeelding van de pagina configuratie](../managed-service-identity/media/msi-qs-configure-portal-windows-vm/create-windows-vm-portal-configuration-blade-disable.png)
 

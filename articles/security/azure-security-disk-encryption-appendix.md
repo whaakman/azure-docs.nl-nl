@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: cf3e9ce055219bccb44c19fd8e77fe39c938c968
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9efd8730af292e6f720c3bacd5707c48f0eab7ac
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391758"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887930"
 ---
 # <a name="appendix-for-azure-disk-encryption"></a>Bijlage voor Azure Disk Encryption 
 In dit artikel wordt een bijlage van [Azure Disk Encryption voor IaaS-VM's](azure-security-disk-encryption-overview.md). Zorg ervoor dat u de Azure Disk Encryption voor IaaS-VM's artikelen eerst voor meer informatie over de context te lezen. In dit artikel wordt beschreven hoe u vooraf gecodeerde VHD's en andere taken voorbereiden.
 
 ## <a name="connect-to-your-subscription"></a>Verbinding maken met uw abonnement
-Voordat u doorgaat, controleert u de [vereisten](azure-security-disk-encryption-prerequisites.md) artikel. Nadat u ervoor zorgen dat alle vereisten wordt voldaan, kunt u verbinding met uw abonnement door het uitvoeren van de volgende cmdlets:
+Voordat u begint, controleert u de [vereisten](azure-security-disk-encryption-prerequisites.md) artikel. Nadat alle vereisten wordt voldaan, kunt u verbinding met uw abonnement door het uitvoeren van de volgende cmdlets:
 
 ### <a name="bkmk_ConnectPSH"></a> Verbinding maken met uw abonnement met PowerShell
 
@@ -63,13 +63,13 @@ Voordat u doorgaat, controleert u de [vereisten](azure-security-disk-encryption-
 
 ### <a name="bkmk_ConnectCLI"></a> Verbinding maken met uw abonnement met de Azure CLI
 
-1. Meld u aan bij Azure met [az login](/cli/azure/authenticate-azure-cli#interactive-log-in). 
+1. Aanmelden bij Azure met [az login](/cli/azure/authenticate-azure-cli#interactive-log-in). 
      
      ```azurecli
      az login
      ```
 
-2. Als u wilt een tenant wilt aanmelden, gebruikt u selecteren:
+2. Als u selecteren van een tenant wilt onder aanmelden, gebruikt:
     
      ```azurecli
      az login --tenant <tenant>
@@ -106,33 +106,77 @@ Voordat u doorgaat, controleert u de [vereisten](azure-security-disk-encryption-
      Get-AzureKeyVaultSecret -VaultName $KeyVaultName | where {$_.Tags.ContainsKey('DiskEncryptionKeyFileName')} | format-table @{Label="MachineName"; Expression={$_.Tags['MachineName']}}, @{Label="VolumeLetter"; Expression={$_.Tags['VolumeLetter']}}, @{Label="EncryptionKeyURL"; Expression={$_.Id}}
      ```
 
+### <a name="bkmk_prereq-script"></a> Met behulp van de PowerShell-script voor Azure Disk Encryption vereisten
+Als u al bekend met de vereisten voor Azure Disk Encryption bent, kunt u de [PowerShell script met vereisten voor Azure Disk Encryption](https://raw.githubusercontent.com/Azure/azure-powershell/master/src/ResourceManager/Compute/Commands.Compute/Extension/AzureDiskEncryption/Scripts/AzureDiskEncryptionPreRequisiteSetup.ps1 ). Zie voor een voorbeeld van het gebruik van dit PowerShell-script, de [een snelstartgids van Virtual machines versleutelen](quick-encrypt-vm-powershell.md). U kunt de opmerkingen verwijderen uit een gedeelte van het script, begint bij regel 211, voor het versleutelen van alle schijven voor bestaande virtuele machines in een bestaande resourcegroep. 
+
+De volgende tabel ziet u welke parameters kunnen worden gebruikt in het PowerShell-script: 
+
+
+|Parameter|Beschrijving|Is verplicht|
+|------|------|------|
+|$resourceGroupName| De naam van de resourcegroep waaraan de KeyVault behoort.  Een nieuwe resourcegroep met deze naam wordt gemaakt als deze niet bestaat.| WAAR|
+|$keyVaultName|De naam van de Sleutelkluis waar versleutelingssleutels in sleutels moeten worden geplaatst. Een nieuwe kluis met deze naam wordt gemaakt als deze niet bestaat.| WAAR|
+|$location|Locatie van de Key Vault. Zorg ervoor dat de Key Vault en de virtuele machines moeten worden versleuteld zijn op dezelfde locatie. Haal een locatielijst op met `Get-AzureRMLocation`.|WAAR|
+|$subscriptionId|Id van het Azure-abonnement moet worden gebruikt.  U kunt uw abonnements-ID met `Get-AzureRMSubscription`.|WAAR|
+|$aadAppName|De naam van de Azure AD-toepassing die wordt gebruikt voor het schrijven van geheimen naar Key Vault. Als er nog geen toepassing met deze naam bestaat, wordt deze aangemaakt. Als deze app al bestaat, moet u aadClientSecret parameter doorgeven aan het script.|Onwaar|
+|$aadClientSecret|Clientgeheim van de Azure AD-toepassing die eerder is gemaakt.|Onwaar|
+|$keyEncryptionKeyName|De naam van de optionele sleutel van versleutelingssleutel in Key Vault. Een nieuwe sleutel met deze naam wordt gemaakt als deze niet bestaat.|Onwaar|
+
+
 ## <a name="resource-manager-templates"></a>Resource Manager-sjablonen
 
-- [Een sleutelkluis maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create) 
+<!--   - [Create a key vault](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create) -->
+
+### <a name="encrypt-or-decrypt-vms-without-an-azure-ad-app"></a>Versleutelen of ontsleutelen van virtuele machines zonder een Azure AD-app
+
+
+- [Schijfversleuteling voor de bestaande of het uitvoeren van IaaS Windows-VM's inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-without-aad)
+- [Schijfversleuteling voor de bestaande of het uitvoeren van IaaS Windows-VM's uitschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm-without-aad)
+- [Schijfversleuteling voor een bestaande of actieve IaaS virtuele Linux-machine inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm-without-aad)  
+ -  [Schakel versleuteling uit op een actieve Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm-without-aad) 
+    - Als u versleuteling uitschakelt is alleen toegestaan op gegevensvolumes voor virtuele Linux-machines.  
+
+### <a name="encrypt-or-decrypt-vms-with-an-azure-ad-app-previous-release"></a>Versleutelen of ontsleutelen van virtuele machines met een Azure AD-app (vorige versie) 
  
-- [Schijfversleuteling voor de nieuwe Windows van IaaS-VM vanuit de Marketplace inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)
-    - Deze sjabloon maakt een nieuwe VM voor het maken van versleutelde Windows die gebruikmaakt van de installatiekopie van de galerie met Windows Server 2012.
-
-- [Implementatie van RHEL 7.2 met volledige schijfversleuteling](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
-    - Deze sjabloon maakt een volledig versleuteld RHEL 7.2 in Azure met een besturingssysteemschijf 30 GB versleuteld en een RAID-0-matrix van 200 GB aan /mnt/raidencrypted gekoppeld. Zie de [Veelgestelde vragen over](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikel voor ondersteunde distributies van Linux-server. 
-
-- [Schijfversleuteling op een vooraf gecodeerde VHD voor Windows of Linux inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
-
 - [Schijfversleuteling voor de bestaande of het uitvoeren van IaaS Windows-VM's inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm)
 
-- [Schijfversleuteling voor een bestaande of actieve IaaS virtuele Linux-machine inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrt-running-linux-vm)    
+- [Schijfversleuteling voor een bestaande of actieve IaaS virtuele Linux-machine inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-linux-vm)    
 
 - [Schijfversleuteling voor het uitvoeren van Windows IaaS uitschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-windows-vm) 
 
--  [Schakel versleuteling uit op een actieve Linux VM](https://aka.ms/decrypt-linuxvm) 
+-  [Schakel versleuteling uit op een actieve Linux VM](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-running-linux-vm) 
     - Als u versleuteling uitschakelt is alleen toegestaan op gegevensvolumes voor virtuele Linux-machines. 
 
-- [Maak een nieuwe versleutelde beheerde schijf van een vooraf gecodeerde VHD/opslag-blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
-    - Maakt een nieuwe versleutelde beheerde schijf op voorwaarde dat een vooraf gecodeerde VHD en het bijbehorende versleutelingsinstellingen
+- [Schijfversleuteling voor de nieuwe Windows van IaaS-VM vanuit de Marketplace inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image)
+    - Deze sjabloon maakt een nieuwe VM voor het maken van versleutelde Windows die gebruikmaakt van de installatiekopie van de galerie met Windows Server 2012.
 
 - [Maak een nieuwe versleutelde Windows IaaS beheerde schijf VM van image z galerie](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-new-vm-gallery-image-managed-disks)
     - Deze sjabloon maakt een nieuwe versleutelde Windows-VM met beheerde schijven met behulp van de galerie met Windows Server 2012.
+
+- [Implementatie van RHEL 7.2 met volledige schijfversleuteling met beheerde schijven](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel)
+    - Deze sjabloon maakt een volledig versleutelde RHEL 7.2 in Azure met behulp van beheerde schijven. Het bevat een versleutelde 30 GB-OS-station en een versleutelde 200 GB-matrix (RAID-0) aan /mnt/raidencrypted gekoppeld. Zie de [Veelgestelde vragen over](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikel voor ondersteunde distributies van Linux-server. 
+
+- [Implementatie van RHEL 7.2 met volledige schijfversleuteling met niet-beheerde schijven](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-full-disk-encrypted-rhel-unmanaged)
+    - Deze sjabloon maakt een volledig versleutelde RHEL 7.2 in Azure met een besturingssysteemschijf met een versleutelde versie van 30 GB en een versleutelde 200 GB-matrix (RAID-0) aan /mnt/raidencrypted gekoppeld. Zie de [Veelgestelde vragen over](azure-security-disk-encryption-faq.md#bkmk_LinuxOSSupport) artikel voor ondersteunde distributies van Linux-server. 
+
+- [Schijfversleuteling op een vooraf gecodeerde VHD voor Windows of Linux inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-create-pre-encrypted-vm)
+
+- [Maak een nieuwe versleutelde beheerde schijf van een vooraf gecodeerde VHD/opslag-blob](https://github.com/Azure/azure-quickstart-templates/tree/master/201-create-encrypted-managed-disk)
+    - Maakt u een nieuwe versleutelde beheerde schijf die een vooraf gecodeerde VHD en de bijbehorende instellingen voor codering
+
+- [Schijfversleuteling op een actieve Windows-VM via de vingerafdruk van een Azure AD-client inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-windows-vm-aad-client-cert)
     
+- [Schakelt u schijfversleuteling op een actieve virtuele-machineschaalset met Linux](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-linux)
+
+- [Schijfversleuteling op een actieve virtuele-machineschaalset met Windows inschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-running-vmss-windows)
+
+ - [Een VM Scale instellen van virtuele Linux-machines met een jumpbox en kunnen versleuteling voor VMSS Linux implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-linux-jumpbox)
+
+ - [Een virtuele machine Schaalsets van Windows van virtuele machines met een jumpbox en kunnen versleuteling voor VMSS Windows implementeren](https://github.com/Azure/azure-quickstart-templates/tree/master/201-encrypt-vmss-windows-jumpbox)
+
+- [Schijfversleuteling op een actieve Linux virtuele-machineschaalset uitschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-linux)
+
+- [Schijfversleuteling op een actieve Windows virtuele-machineschaalset uitschakelen](https://github.com/Azure/azure-quickstart-templates/tree/master/201-decrypt-vmss-windows)
 
 ## <a name="bkmk_preWin"></a> Vooraf gecodeerde Windows VHD voorbereiden
 De volgende secties zijn die nodig zijn voor het vooraf gecodeerde Windows VHD voorbereiden voor implementatie als een versleutelde VHD in Azure IaaS. Gebruik de informatie voor het voorbereiden en start een nieuwe Windows virtuele machine (VHD) voor Azure Site Recovery of Azure. Zie voor meer informatie over het voorbereiden en een VHD uploaden [een gegeneraliseerde VHD uploaden en maken van nieuwe virtuele machines in Azure](../virtual-machines/windows/upload-generalized-managed.md).
@@ -183,7 +227,7 @@ Gebruik de [ `manage-bde` ](https://technet.microsoft.com/library/ff829849.aspx)
  ```powershell
     Set-AzureRmVMSourceImage -VM $VirtualMachine -PublisherName "OpenLogic" -Offer "CentOS" -Skus "7.2n" -Version "latest"
  ```
-2. Configureer de virtuele machine op basis van uw behoeften. Als u schijven voor het versleutelen van alle de (OS + gegevens), de gegevensstations moeten worden opgegeven en koppelbaar uit/etc/fstab gaat.
+2. Configureer de virtuele machine op basis van uw behoeften. Als u schijven voor het versleutelen van alle de (OS + gegevens), de gegevensstations moeten worden opgegeven en koppelbaar uit/etc/fstab gaan.
 
  > [!NOTE]
  > Gebruik de UUID =... om op te geven gegevensstations in/etc/fstab in plaats van de apparaatnaam blokkeren (bijvoorbeeld/dev/sdb1) op te geven. Tijdens het versleutelen wijzigt de volgorde van de stations op de virtuele machine. Als uw virtuele machine is afhankelijk van een specifieke volgorde van de blokapparaten, mislukt dit ze na versleuteling te koppelen.
@@ -247,13 +291,13 @@ U kunt de OS-versleuteling wordt uitgevoerd op drie manieren controleren:
 
     /var/log/azure/Microsoft.Azure.Security.AzureDiskEncryptionForLinux
 
- Het is raadzaam dat u niet bij de virtuele machine aanmelden zich terwijl OS-versleuteling uitgevoerd wordt. Kopieer de logboeken alleen als de andere twee methoden zijn mislukt.
+ We raden aan dat u niet aanmelden bij de virtuele machine terwijl OS-versleuteling uitgevoerd wordt. Kopieer de logboeken alleen als de andere twee methoden zijn mislukt.
 
 ## <a name="bkmk_preLinux"></a> Vooraf gecodeerde Linux-VHD voorbereiden
 De voorbereiding voor vooraf gecodeerde VHD's kan variëren afhankelijk van de distributie. Voorbeelden over het voorbereiden van [Ubuntu 16](#bkmk_Ubuntu), [openSUSE 13.2](#bkmk_openSUSE), en [CentOS 7](#bkmk_CentOS) beschikbaar zijn. 
 
 ### <a name="bkmk_Ubuntu"></a> Ubuntu 16
-Versleuteling tijdens de installatie van softwaredistributie configureren door het volgende te doen:
+Versleuteling tijdens de installatie van de distributie configureren met de volgende stappen:
 
 1. Selecteer **configureren van versleutelde volumes** wanneer u de schijven partitioneren.
 
@@ -275,7 +319,7 @@ Versleuteling tijdens de installatie van softwaredistributie configureren door h
 
  ![Ubuntu 16.04 Setup](./media/azure-security-disk-encryption/ubuntu-1604-preencrypted-fig5.png)
 
-6. De virtuele machine voorbereiden voor het uploaden naar Azure met [deze instructies](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). Voer niet de laatste stap (opheffen van inrichting van de virtuele machine) nog.
+6. De virtuele machine voorbereiden voor het uploaden naar Azure met [deze instructies](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-ubuntu/). De laatste stap (opheffen van inrichting van de virtuele machine) worden niet uitgevoerd nog.
 
 Configureren van versleuteling voor Azure door de volgende stappen:
 
@@ -345,7 +389,7 @@ Configureren van versleuteling voor Azure door de volgende stappen:
 
 ### <a name="bkmk_openSUSE"></a>  openSUSE 13.2
 Voer de volgende stappen uit voor het configureren van versleuteling tijdens de installatie van softwaredistributie:
-1. Wanneer u de schijven partitioneren, selecteert u **Volumegroep versleutelen**, en voer een wachtwoord. Dit is het wachtwoord dat u naar de sleutelkluis uploaden zult.
+1. Wanneer u de schijven partitioneren, selecteert u **Volumegroep versleutelen**, en voer een wachtwoord. Dit is het wachtwoord die u naar de sleutelkluis uploaden gaat.
 
  ![openSUSE 13.2 instellen](./media/azure-security-disk-encryption/opensuse-encrypt-fig1.png)
 
@@ -353,7 +397,7 @@ Voer de volgende stappen uit voor het configureren van versleuteling tijdens de 
 
  ![openSUSE 13.2 instellen](./media/azure-security-disk-encryption/opensuse-encrypt-fig2.png)
 
-3. De virtuele machine voorbereiden voor het uploaden naar Azure door de instructies in [een SLES of opensuse gebaseerde virtuele machine voor Azure voorbereiden](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). Voer niet de laatste stap (opheffen van inrichting van de virtuele machine) nog.
+3. De virtuele machine voorbereiden voor het uploaden naar Azure door de instructies in [een SLES of opensuse gebaseerde virtuele machine voor Azure voorbereiden](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-suse-create-upload-vhd/#prepare-opensuse-131). De laatste stap (opheffen van inrichting van de virtuele machine) worden niet uitgevoerd nog.
 
 Voor het configureren van versleuteling met Azure werkt, moet u de volgende stappen uitvoeren:
 1. Bewerk de /etc/dracut.conf en voeg de volgende regel toe:
@@ -429,7 +473,7 @@ Voer de volgende stappen uit voor het configureren van versleuteling tijdens de 
 
  ![CentOS 7-instellingen](./media/azure-security-disk-encryption/centos-encrypt-fig4.png)
 
-5. De virtuele machine voorbereiden voor het uploaden naar Azure met behulp van de instructies "CentOS 7.0 +" in [een CentOS gebaseerde virtuele machine voor Azure voorbereiden](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). Voer niet de laatste stap (opheffen van inrichting van de virtuele machine) nog.
+5. De virtuele machine voorbereiden voor het uploaden naar Azure met behulp van de instructies "CentOS 7.0 +" in [een CentOS gebaseerde virtuele machine voor Azure voorbereiden](https://azure.microsoft.com/documentation/articles/virtual-machines-linux-create-upload-centos/#centos-70). De laatste stap (opheffen van inrichting van de virtuele machine) worden niet uitgevoerd nog.
 
 6. U kunt nu de inrichting van de virtuele machine ongedaan maken en uw VHD uploaden naar Azure.
 
@@ -465,7 +509,7 @@ tot
 ```
     if [ 1 ]; then
 ```
-4. Bewerk /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh en deze toevoegen na het '# Open LUKS apparaat':
+4. Bewerk /usr/lib/dracut/modules.d/90crypt/cryptroot-ask.sh en voegt u het volgende na het '# Open LUKS apparaat':
     ```
     MountPoint=/tmp-keydisk-mount
     KeyFileName=LinuxPassPhraseFileName
@@ -496,7 +540,7 @@ Nadat BitLocker-versleuteling of DM-Crypt-versleuteling is ingeschakeld, wordt d
     Add-AzureRmVhd [-Destination] <Uri> [-LocalFilePath] <FileInfo> [[-NumberOfUploaderThreads] <Int32> ] [[-BaseImageUriToPatch] <Uri> ] [[-OverWrite]] [ <CommonParameters>]
 ```
 ## <a name="bkmk_UploadSecret"></a> Uploaden van het geheim voor het vooraf versleutelde VM tot uw key vault
-Het geheim voor versleuteling van de schijf die u hebt verkregen moet eerder worden geüpload als een geheim in uw key vault. De key vault moet schijfversleuteling en machtigingen die zijn ingeschakeld voor uw Azure AD-client bevatten.
+Wanneer u versleutelt met behulp van een Azure AD-app (vorige versie), moet het geheim voor versleuteling van de schijf die u eerder hebt verkregen worden geüpload als een geheim in uw key vault. De key vault moet schijfversleuteling en machtigingen die zijn ingeschakeld voor uw Azure AD-client bevatten.
 
 ```powershell 
  $AadClientId = "My-AAD-Client-Id"
@@ -624,7 +668,7 @@ Gebruik `$KeyEncryptionKey` en `$secretUrl` in de volgende stap voor [Bezig met 
 ##  <a name="bkmk_SecretURL"></a> Geef een URL van accountsleutelgeheim wanneer u een besturingssysteemschijf te koppelen
 
 ###  <a name="bkmk_URLnoKEK"></a>Zonder een KEK-sleutel
-Terwijl u de schijf met het besturingssysteem toevoegen wilt, moet u doorgeven `$secretUrl`. De URL is gegenereerd in de sectie 'schijfversleuteling geheim niet versleuteld met een KEK-sleutel'.
+Terwijl u de besturingssysteemschijf koppelen bent, moet u doorgeven `$secretUrl`. De URL is gegenereerd in de sectie 'schijfversleuteling geheim niet versleuteld met een KEK-sleutel'.
 ```powershell
     Set-AzureRmVMOSDisk `
             -VM $VirtualMachine `

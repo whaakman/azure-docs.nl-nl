@@ -10,12 +10,12 @@ ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
 keywords: PowerShell runbook, json, azure automation
-ms.openlocfilehash: 6bc860e328d6968dedda5090bb9a817b9bba6b69
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: fe7a3632936e13a0762ebc0afcc357965e019146
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42058362"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918603"
 ---
 # <a name="deploy-an-azure-resource-manager-template-in-an-azure-automation-powershell-runbook"></a>Een Azure Resource Manager-sjabloon implementeren in een Azure Automation-PowerShell-runbook
 
@@ -25,11 +25,11 @@ Op deze manier kunt kunt u de implementatie van Azure-resources automatiseren. U
 
 In dit onderwerp maakt u een PowerShell-runbook dat gebruikmaakt van een Resource Manager-sjabloon die zijn opgeslagen in [Azure Storage](../storage/common/storage-introduction.md) implementeren van een nieuw Azure Storage-account.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
-* Azure-abonnement. Als u nog geen abonnement hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of <a href="/pricing/free-account/" target="_blank">[u aanmelden voor een gratis account](https://azure.microsoft.com/free/).
+* Azure-abonnement. Als u een nog geen hebt, kunt u [uw voordelen als MSDN-abonnee activeren](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) of [zich registreren voor een gratis account](https://azure.microsoft.com/free/).
 * [Automation-account](automation-sec-configure-azure-runas-account.md) om het runbook te bevatten en te verifiëren voor Azure-resources.  Dit account moet machtigingen hebben om de virtuele machine te starten en stoppen.
 * [Azure Storage-account](../storage/common/storage-create-storage-account.md) waarin u voor het opslaan van de Resource Manager-sjabloon
 * Azure Powershell is geïnstalleerd op een lokale computer. Zie [installeren en configureren van Azure Powershell](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-4.1.0) voor informatie over het ophalen van Azure PowerShell.
@@ -238,7 +238,7 @@ U kunt zien dat het nieuwe opslagaccount is gemaakt door de volgende opdracht ui
 Get-AzureRmStorageAccount
 ```
 
-## <a name="summary"></a>Samenvatting
+## <a name="summary"></a>Overzicht
 
 Dat is alles. U kunt nu Azure Automation en Azure Storage en Resource Manager-sjablonen gebruiken voor het implementeren van al uw Azure-resources.
 

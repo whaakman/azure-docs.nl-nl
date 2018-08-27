@@ -1,48 +1,80 @@
 ---
-title: SendGrid | Microsoft Docs
-description: Logic apps maken met Azure App service. Met de SendGrid-verbindingsprovider kunt u e-mail verzenden en ontvangerslijsten beheren.
+title: Verbinding maken met SendGrid van Azure Logic Apps | Microsoft Docs
+description: Automatiseren van taken en werkstromen voor het verzenden van e-mailberichten en adressenlijsten SendGrid beheren met behulp van Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
-ms.assetid: bc4f1fc2-824c-4ed7-8de8-e82baff3b746
 ms.service: logic-apps
-ms.devlang: multiple
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
+ms.assetid: bc4f1fc2-824c-4ed7-8de8-e82baff3b746
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: integration
-ms.date: 08/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: 0b34a76ecaf4997cbf66c3d026cd770aa8aa080d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/24/2018
+ms.openlocfilehash: c8747210a77879d551e323a7c0e46a9ab013fa3f
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295836"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887186"
 ---
-# <a name="get-started-with-the-sendgrid-connector"></a>Aan de slag met de SendGrid-connector
-Met de SendGrid-verbindingsprovider kunt u e-mail verzenden en ontvangerslijsten beheren.
+# <a name="send-emails-and-manage-mailing-lists-in-sendgrid-by-using-azure-logic-apps"></a>Verzenden van e-mailberichten en adressenlijsten SendGrid beheren met behulp van Azure Logic Apps
 
-U kunt aan de slag door het maken van een logische app nu, Zie [een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md).
+Met Azure Logic Apps en de SendGrid-connector, kunt u geautomatiseerde taken en werkstromen die e-mailberichten verzenden en beheren van uw lijsten met ontvangers, bijvoorbeeld:
 
-## <a name="create-a-connection-to-sendgrid"></a>Maak een verbinding met de SendGrid
-Voor het maken van logische apps als voor sendgrid zijn, moet u eerst maken een **verbinding** Geef vervolgens de details voor de volgende eigenschappen: 
+* E-mail verzenden.
+* Geadresseerden toevoegen aan lijsten.
+* Ophalen, toevoegen en beheren van de globale onderdrukking.
 
-| Eigenschap | Vereist | Beschrijving |
-| --- | --- | --- |
-| ApiKey |Ja |Uw SendGrid-API-sleutel opgeven |
+U kunt SendGrid-acties in uw logische apps gebruiken om uit te voeren van deze taken. U kunt ook andere acties waarmee de uitvoer van de SendGrid-acties hebben. 
 
-> [!INCLUDE [Steps to create a connection to SendGrid](../../includes/connectors-create-api-sendgrid.md)]
-> 
+Deze connector beschikt u alleen acties, om de logische App, gebruikt u een afzonderlijke trigger, zoals een **terugkeerpatroon** trigger. Bijvoorbeeld, als u regelmatig geadresseerden aan uw lijsten toevoegen, kunt u e-mailberichten over ontvangers en een lijst met behulp van de connector voor Office 365 Outlook of Outlook.com-connector verzenden.
+Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
+## <a name="prerequisites"></a>Vereiste onderdelen
 
-Nadat u de verbinding hebt gemaakt, kunt u het uitvoeren van de acties te luisteren voor de triggers.
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. 
 
-## <a name="connector-specific-details"></a>Connector-specifieke details
+* Een [SendGrid-account](https://www.sendgrid.com/) en een [SendGrid-API-sleutel](https://sendgrid.com/docs/ui/account-and-settings/api-keys/)
 
-Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/sendgrid/).
+   Uw API-sleutel machtigt de logische app een verbinding maken en toegang tot uw SendGrid-account.
 
-## <a name="more-connectors"></a>Meer connectors
-Ga terug naar de [API's lijst](apis-list.md).
+* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* De logische app waar u toegang tot uw SendGrid-account. Voor het gebruik van een SendGrid-actie beginnen uw logische app met een andere trigger, bijvoorbeeld, de **terugkeerpatroon** trigger.
+
+## <a name="connect-to-sendgrid"></a>Verbinding maken met SendGrid
+
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
+
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open uw logische app in Logic App Designer, als het niet al geopend.
+
+1. Kies een pad: 
+
+   * Kies onder de laatste stap waar u een actie toevoegen, **nieuwe stap**. 
+
+     -of-
+
+   * Tussen de stappen waar u een actie toevoegen, de aanwijzer over de pijl tussen fasen. 
+   Kies het plusteken (**+**) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
+
+1. Typ 'sendgrid' als filter in het zoekvak. Selecteer de actie die u wilt onder de lijst met acties.
+
+1. Geef een naam op voor uw verbinding. 
+
+1. Voer uw SendGrid-API-sleutel en kies vervolgens **maken**.
+
+1. Geef de benodigde informatie voor de geselecteerde actie en doorgaan met het ontwikkelen van uw logische app-werkstroom.
+
+## <a name="connector-reference"></a>Connector-verwijzing
+
+Voor technische informatie over triggers en acties limieten die worden beschreven van de connector openapi (voorheen Swagger) beschrijving van de connector controleren [-verwijzingspagina](/connectors/sendgrid/).
+
+## <a name="get-support"></a>Ondersteuning vragen
+
+* Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
+* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](http://aka.ms/logicapps-wish).
+
+## <a name="next-steps"></a>Volgende stappen
+
+* Meer informatie over andere [Logic Apps-connectors](../connectors/apis-list.md)

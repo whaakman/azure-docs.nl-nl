@@ -12,19 +12,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 05/21/2018
+ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: cad3723f3109fa2fa7e6a1a7ab61d5c7eaca2674
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 8e1c194ea2ebc0e06918c8389c9ee6f72afb3e86
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623275"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887785"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Schalen van een Service Fabric-cluster af door het toevoegen van een virtuele-Machineschaalset opgehaald
 In dit artikel wordt beschreven hoe u een Azure Service Fabric-cluster schalen door een nieuwe virtuele-machineschaalset aan een bestaand cluster toe te voegen. Een Service Fabric-cluster is een netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Een machine of virtuele machine die deel uitmaakt van een cluster, heet een knooppunt. Virtuele-machineschaalsets vormen een Azure compute-resource die u gebruikt om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype die is gedefinieerd in een Azure-cluster is [instellen als een afzonderlijke schaalset](service-fabric-cluster-nodetypes.md). Vervolgens kan elk knooppunttype afzonderlijk worden beheerd. Na het maken van een Service Fabric-cluster, kunt u een cluster-knooppunttype verticaal schalen (de bronnen van de knooppunten wijzigen), werk het besturingssysteem van het knooppunttype VM's of een nieuwe virtuele-machineschaalset aan een bestaand cluster toe te voegen.  U kunt het cluster schalen op elk gewenst moment, zelfs wanneer workloads worden uitgevoerd op het cluster.  Als het cluster wordt geschaald, wordt uw toepassingen automatisch ook schalen.
 
 > [!WARNING]
+> Start niet het primaire nodetype VM-SKU wijzigen als de clusterstatus van het niet in orde is. Als de clusterstatus niet in orde is, wordt u alleen het cluster bovendien destabiliseren, als u probeert te wijzigen van de VM-SKU.
+>
 > We raden u aan de VM-SKU van een scale set/knooppunttype niet te wijzigen, tenzij deze wordt uitgevoerd op [duurzaamheid van Silver of hoger](service-fabric-cluster-capacity.md#the-durability-characteristics-of-the-cluster). VM-SKU-grootte te wijzigen, is een gegevens-destructieve ter plekke infrastructuur-bewerking. Zonder enige mogelijkheid vertraging of bewaken van deze wijziging, is het mogelijk dat de bewerking kan leiden gegevensverlies voor stateful services tot of andere onvoorziene operationele problemen, zelfs voor staatloze werkbelastingen veroorzaken. Dit betekent dat het primaire knooppunttype, die wordt uitgevoerd de stateful service fabric-systeemservices, of elk knooppunttype waarop uw werk stateful toepassingen wordt geladen.
 >
 

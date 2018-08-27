@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: a6f6beedfc6c23be70693428388f6d0e585260bc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 143d0d4b66fc8e6e62364090e3d3187c4aa7bb51
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39433167"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919003"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Multi-VM-omgevingen en PaaS-resources met Azure Resource Manager-sjablonen maken
 
@@ -37,10 +37,11 @@ Meer informatie over de vele [voordelen van het gebruik van Resource Manager-sja
 > [!NOTE]
 > Wanneer u een Resource Manager-sjabloon als uitgangspunt gebruikt om meer lab VM's te maken, zijn er enkele verschillen in gedachten moeten houden of Multi-VM's of één voor virtuele machines te maken. [Een virtuele machine van Azure Resource Manager-sjabloon gebruiken](devtest-lab-use-resource-manager-template.md) worden deze verschillen in meer detail uitgelegd.
 >
->
 
-## <a name="configure-azure-resource-manager-template-repositories"></a>Opslagplaatsen van Azure Resource Manager-sjabloon configureren
+## <a name="devtest-labs-public-environments"></a>Openbare omgevingen met DevTest Labs
+Azure DevTest Labs is een [openbare opslagplaats van Azure Resource Manager-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/Environments) die u kunt gebruiken om omgevingen te maken zonder verbinding maken met een externe bron van GitHub zelf. Deze opslagplaats bevat veelgebruikte sjablonen, zoals Azure Web Apps, Service Fabric-Cluster en development environment van de SharePoint-Farm. Deze functie is vergelijkbaar met de openbare opslagplaats voor artefacten die is opgenomen voor elke lab die u maakt. De opslagplaats van de omgeving kunt u snel aan de slag met vooraf opgestelde omgevingssjablonen met minimale invoer parameters, zodat u met een goede aan de slag te gaan ervaring te bieden voor PaaS-resources binnen labs. Zie voor meer informatie, [configureren en het gebruik openbare omgevingen in DevTest Labs](devtest-lab-configure-use-public-environments.md).
 
+## <a name="configure-your-own-template-repositories"></a>Configureren van uw eigen sjabloon-opslagplaatsen
 Als een van de aanbevolen procedures met infrastructure-as-code en configuratie als code, moeten omgevingssjablonen worden beheerd in broncodebeheer. Azure DevTest Labs met deze procedure volgt en alle sjablonen van Azure Resource Manager rechtstreeks vanuit uw GitHub- of VSTS Git-opslagplaatsen laadt. Als gevolg hiervan kunnen Resource Manager-sjablonen worden gebruikt voor de volledige release-cyclus, vanuit de testomgeving aan de productie-omgeving.
 
 Bekijk de sjablonen die zijn gemaakt door de DevTest Labs-team in de [openbare GitHub-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/Environments). In deze openbare opslagplaats, kunt u de sjablonen die worden gedeeld met anderen kunt u rechtstreeks gebruiken of pas ze aan uw eigen wensen aan weergeven. Nadat u de sjabloon hebt gemaakt, wordt dit opslaan in deze opslagplaats om deze te delen met anderen. U kunt ook uw eigen Git-opslagplaats met sjablonen die kunnen worden gebruikt voor het instellen van omgevingen in de cloud instellen. 
@@ -56,12 +57,9 @@ Er zijn een aantal regels voor het ordenen van uw Azure Resource Manager-sjablon
 - Metagegevens kan worden gedefinieerd om de weergavenaam van sjabloon en beschrijving te geven. Deze metagegevens moet zich in een bestand met de naam `metadata.json`. Het volgende voorbeeld-metagegevensbestand ziet u hoe u de weergavenaam en beschrijving opgeven: 
 
     ```json
-    {
- 
-        "itemDisplayName": "<your template name>",
- 
-        "description": "<description of the template>"
- 
+    { 
+        "itemDisplayName": "<your template name>", 
+        "description": "<description of the template>" 
     }
     ```
 

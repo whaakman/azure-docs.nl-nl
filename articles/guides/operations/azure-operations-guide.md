@@ -13,14 +13,14 @@ ms.devlang: ''
 ms.topic: ''
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
-ms.date: 08/21/2018
+ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 286b9b133bfbe633ad1fe69f66aa11b9e4c4fc1d
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 8c799ad90057c53d648ba1e103c251a0e6d6cf88
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061414"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918716"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Aan de slag voor Azure IT-operators
 
@@ -133,7 +133,7 @@ Services voor netwerken in Azure zowel tussen Azure en on-premises datacenters:
 
 -   Azure Virtual Network
 
--   ExpressRoute van Azure
+-   Azure ExpressRoute
 
 -   Azure-provided DNS
 
@@ -167,7 +167,7 @@ Een Azure-resourcegroep is een container met gerelateerde resources voor een Azu
 
 Een Azure Resource Manager-sjabloon is een JavaScript Object Notation (JSON)-bestand dat definieert een of meer resources om te implementeren in een resourcegroep. Het definieert ook de afhankelijkheden tussen de geïmplementeerde resources. Resource Manager-sjablonen worden behandeld in meer detail verderop in deze handleiding.
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>Automatisering
 
 Naast het maken, beheren en -resources verwijderen met behulp van Azure portal, kunt u deze activiteiten automatiseren met behulp van PowerShell of de Azure-opdrachtregelinterface (CLI).
 
@@ -467,44 +467,29 @@ Als u toestaan dat gebruikers toegang tot uw opslagresources hebt gecontroleerd 
 
 ## <a name="azure-virtual-network"></a>Azure Virtual Network
 
-
-Virtuele netwerken zijn nodig voor het ondersteunen van communicatie tussen virtuele machines. U kunt definiëren van subnetten, aangepaste IP-adres, DNS-instellingen, Beveiligingsfiltering en taakverdeling. U kunt virtuele netwerken van Azure naar uw on-premises netwerken verbinden via een VPN-gateway of een ExpressRoute-circuit.
-
-### <a name="use-cases"></a>Gebruiksvoorbeelden
-
-Er zijn verschillende use cases voor Azure-netwerken.
+Virtuele netwerken zijn nodig voor het ondersteunen van communicatie tussen virtuele machines. U kunt definiëren van subnetten, aangepaste IP-adres, DNS-instellingen, Beveiligingsfiltering en taakverdeling. Azure biedt ondersteuning voor verschillende gebruiksvoorbeelden: netwerken alleen in de cloud of hybride virtuele netwerken. 
 
 **Alleen in de cloud virtuele netwerken**
 
 Een Azure-netwerk standaard is alleen toegankelijk voor resources die zijn opgeslagen in Azure. Resources die zijn verbonden met hetzelfde virtuele netwerk kunnen met elkaar communiceren. U kunt koppelen van netwerkinterfaces van virtuele machines en load balancers met een openbaar IP-adres aan de virtuele machine via Internet toegankelijk maken. U kunt beveiligde toegang tot de publiekelijk blootgestelde resources met behulp van een netwerkbeveiligingsgroep.
 
-**Cross-premises virtuele netwerken**
+![Azure-netwerk voor een tier-2-webtoepassing](https://docs.microsoft.com/azure/load-balancer/media/load-balancer-internal-overview/ic744147.png)
+
+**Hybride virtuele netwerken**
 
 U kunt een on-premises netwerk verbinding maken met een Azure-netwerk via ExpressRoute of site-naar-site VPN-verbinding. In deze configuratie is Azure virtual network in feite een cloud-gebaseerde uitbreiding van uw on-premises netwerk.
+![Hybride Virtueelnetwerk met behulp van VPN](https://docs.microsoft.com/azure/architecture/reference-architectures/_images/blueprints/hybrid-network-vpn.png)
 
 Omdat het Azure-netwerk is verbonden met uw on-premises netwerk, cross-premises virtuele netwerken moeten een unieke deel van de adresruimte die gebruikmaakt van uw organisatie gebruiken. Azure wordt een andere locatie op dezelfde manier die verschillende zakelijke locaties met een specifiek IP-subnet worden toegewezen, wanneer u uw netwerk uitbreidt.
-
-### <a name="deploying-a-virtual-network"></a>Een virtueel netwerk implementeren
-
 Er zijn verschillende opties voor het implementeren van een virtueel netwerk.
+- [Portal](../..//virtual-network/quick-create-portal.md)
+- [PowerShell](../../virtual-network/quick-create-powershell.md)
+- [Opdrachtregelinterface (CLI)](../../virtual-network/quick-create-cli.md)
+- Azure Resource Manager-sjablonen
 
-**Portal**
+>**Wanneer u**: telkens wanneer u met virtuele machines in Azure werkt, werkt u met virtuele netwerken. Hiermee wordt voor het segmenteren van uw virtuele machines in openbare en particuliere subnetten vergelijkbaar on-premises datacenters. 
 
-Een Azure-netwerk implementeren met behulp van de Azure-portal vereist alleen een actief Azure-abonnement en de toegang tot een webbrowser. U kunt een nieuw virtueel netwerk implementeren in een nieuwe of bestaande resourcegroep. Wanneer u een nieuwe virtuele machine vanuit de portal maakt, kunt u een bestaand virtueel netwerk selecteren of een nieuwe maken. Zie voor meer informatie, [een virtueel netwerk maken met de Azure-portal](../../virtual-network/quick-create-portal.md).
-
-Naast het implementeren van een Azure-netwerk van Azure portal, kunt u een Azure Resource Manager-sjabloon uit de portal implementeren. Dit implementeren en configureren van alle resources, zoals gedefinieerd in de sjabloon, met inbegrip van een virtuele-netwerkbronnen. Zie voor meer informatie, [resources implementeren met Resource Manager-sjablonen en Azure portal](../../azure-resource-manager/resource-group-template-deploy-portal.md).
-
-**PowerShell**
-
-Een Azure-netwerk implementeren met behulp van PowerShell kunt voor het automatiseren van de volledige implementatie van het opslagaccount. Zie voor meer informatie, [een virtueel netwerk maken met behulp van PowerShell](../../virtual-network/quick-create-powershell.md).
-
-Naast het implementeren van afzonderlijke Azure-resources, kunt u de Azure PowerShell-module om een Azure Resource Manager-sjabloon te implementeren. Zie voor meer informatie, [resources implementeren met Resource Manager-sjablonen en Azure PowerShell](../../azure-resource-manager/resource-group-template-deploy.md).
-
-**Opdrachtregelinterface (CLI)**
-
-Net als bij de PowerShell-module, de Azure-opdrachtregelinterface biedt automatisering van de implementatie en kan worden gebruikt op Windows, OS X of Linux-systemen. U kunt de Azure CLI **netwerk vnet maken** opdracht voor het maken van een virtueel netwerk. Zie voor meer informatie, [een virtueel netwerk maken met behulp van de Azure CLI](../../virtual-network/quick-create-cli.md).
-
-U kunt ook de Azure CLI gebruiken om een Azure Resource Manager-sjabloon te implementeren. Zie voor meer informatie, [resources implementeren met Resource Manager-sjablonen en Azure CLI](../../azure-resource-manager/resource-group-template-deploy-cli.md).
+>**Aan de slag**: een Azure-netwerk implementeren met behulp van de Azure-portal vereist alleen een actief Azure-abonnement en de toegang tot een webbrowser. U kunt een nieuw virtueel netwerk implementeren in een nieuwe of bestaande resourcegroep. Wanneer u een nieuwe virtuele machine vanuit de portal maakt, kunt u een bestaand virtueel netwerk selecteren of een nieuwe maken. Aan de slag en [een virtueel netwerk maken met de Azure-portal](../../virtual-network/quick-create-portal.md).
 
 ### <a name="access-and-security-for-virtual-networks"></a>Toegang en beveiliging voor virtuele netwerken
 

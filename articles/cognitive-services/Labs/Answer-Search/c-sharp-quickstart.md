@@ -1,6 +1,6 @@
 ---
-title: C# Quick Start voor Microsoft cognitieve Services, Project antwoord zoeken | Microsoft Docs
-description: Voorbeeld van code aan de slag met de Project antwoord-zoekfunctie cognitieve Microsoft-Services in Azure.
+title: C#-Snelstartgids voor Microsoft Cognitive Services, Project antwoord zoeken | Microsoft Docs
+description: Codevoorbeeld van aan de slag met behulp van het Project antwoord zoeken, Microsoft Cognitive Services op Azure.
 services: cognitive-services
 author: mikedodaro
 ms.service: cognitive-services
@@ -8,32 +8,32 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: b05b7745bdb5020a4a0912635e040256415b2626
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c8e2a6a7fc3609932a7a1139d7b34553e5f9c291
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345261"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888320"
 ---
-# <a name="project-answer-search-query-in-c"></a>Project antwoord zoekopdracht in C#
+# <a name="project-answer-search-query-in-c"></a>Project antwoord zoekquery in C#
 
-De volgende C#-voorbeeld maakt en stuurt een query voor informatie over de derde wet van voor analysefuncties.
+Het volgende voorbeeld met C# maakt en stuurt een query voor informatie over het derde recht van voor analysefuncties.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
-U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) naar deze code in Windows worden uitgevoerd. (De editie free Community blijft werken.)
+U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) om uit te voeren van deze code op Windows. (De gratis Community-editie volstaat.)
 
-Ophalen van een toegangssleutel voor de gratis proefversie [cognitieve Services Labs](https://aka.ms/answersearchsubscription)
+Ophalen van een toegangssleutel voor de gratis proefversie [Cognitive Services Labs](https://aka.ms/answersearchsubscription)
 
 ## <a name="code-scenario"></a>Code-scenario
 
-De volgende C#-code maakt en stuurt de query. 
+De volgende C#-code wordt gemaakt en verzendt de query. 
 
 Deze is geïmplementeerd in de volgende stappen uit:
-1. Declareer de variabelen opgeven van het eindpunt en een query-URL voor de preview.  
-2. Maken van de aanvraag.
+1. Declareer de variabelen om op te geven van het eindpunt en een query-URL om te bekijken.  
+2. De aanvraag te maken.
 3. Voeg de *Ocp-Apim-Subscription-Key* header. 
-4. De webaanvraag asynchroon uitgevoerd. 
+4. De Web-aanvraag wordt asynchroon uitgevoerd. 
 5. Het antwoord lezen.
 6. De kop- en JSON-resultaten naar de console afdrukken.
 
@@ -53,7 +53,7 @@ namespace Answers_csharp
         // Replace the accessKey string value with your valid access key.
         const string accessKey = "YOUR-SUBSCRIPTION-KEY";
 
-        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search "; 
+        const string uriBase = "https://api.labs.cognitive.microsoft.com/answerSearch/v7.0/search"; 
 
         const string searchTerm = "third law of calculus"; 
 
@@ -185,7 +185,7 @@ namespace Answers_csharp
 ```
 ## <a name="running-the-application"></a>De toepassing uitvoeren
 
-De toepassing uitvoeren:
+Voor het uitvoeren van de toepassing:
 
 1. Maak een nieuwe Console-oplossing in Visual Studio.
 2. Vervang `Program.cs` met de opgegeven code.
@@ -193,4 +193,4 @@ De toepassing uitvoeren:
 4. Voer het programma.
 
 ## <a name="next-steps"></a>Volgende stappen
-[Java-Quick Start](java-quickstart.md)
+[Snelstartgids voor Java](java-quickstart.md)

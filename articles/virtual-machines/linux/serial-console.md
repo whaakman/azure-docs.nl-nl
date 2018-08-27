@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 20bd2d61671d89a5c2a13525ea119595cf0b7c93
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 0951b0ee8a1b92f94dd06bfad831b3dd9a9e967c
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061399"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918214"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële Console van virtuele Machine (preview) 
 
@@ -32,12 +32,13 @@ Voor de seriële console-documentatie voor Windows-VM's, [Klik hier](../windows/
 > Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord met de gebruiksvoorwaarden van gaat is. Zie voor meer informatie [Microsoft Azure aanvullende gebruiksvoorwaarden voor Microsoft Azure-Previews.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Deze service is momenteel **preview-versie** en toegang tot de seriële console voor virtuele machines is beschikbaar voor globale Azure-regio's. Seriële console is op dit moment niet beschikbaar Azure Government, Azure Duitsland en Azure China-cloud.
 
 
-## <a name="prerequisites"></a>Vereisten 
+## <a name="prerequisites"></a>Vereiste onderdelen 
 
 * U moet de resource Manager-implementatiemodel gebruiken. Klassieke implementaties worden niet ondersteund. 
-* Virtuele machine moet zijn [diagnostische gegevens over opstarten](boot-diagnostics.md) ingeschakeld 
+* Virtuele machine moet zijn [diagnostische gegevens over opstarten](boot-diagnostics.md) ingeschakeld   ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 * Het account met behulp van de seriële console moet hebben [rol van Inzender](../../role-based-access-control/built-in-roles.md) voor virtuele machine en de [diagnostische gegevens over opstarten](boot-diagnostics.md) storage-account. 
 * Zie voor specifieke instellingen voor Linux-distributies, [toegang tot de seriële console voor Linux](#access-serial-console-for-linux)
+
 
 
 ## <a name="open-the-serial-console"></a>Open de seriële Console
@@ -65,7 +66,7 @@ Seriële console kan worden uitgeschakeld voor een volledige abonnement door via
 U kunt ook de reeks opdrachten hieronder gebruiken in Cloud Shell (bash-opdrachten die worden weergegeven) als wilt uitschakelen, inschakelen en weergeven van de met uitgeschakelde status van de seriële console voor een abonnement. 
 
 * De uitgeschakelde status van de seriële console voor een abonnement ophalen:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -73,7 +74,7 @@ U kunt ook de reeks opdrachten hieronder gebruiken in Cloud Shell (bash-opdracht
     $ curl "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s | jq .properties
     ```
 * Om uit te schakelen voor een abonnement op de seriële console:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -81,7 +82,7 @@ U kunt ook de reeks opdrachten hieronder gebruiken in Cloud Shell (bash-opdracht
     $ curl -X POST "https://management.azure.com/subscriptions/$SUBSCRIPTION_ID/providers/Microsoft.SerialConsole/consoleServices/default/disableConsole?api-version=2018-05-01" -H "Authorization: Bearer $ACCESSTOKEN" -H "Content-Type: application/json" -H "Accept: application/json" -s -H "Content-Length: 0"
     ```
 * Om in te schakelen voor een abonnement op de seriële console:
-    ```
+    ```azurecli-interactive
     $ export ACCESSTOKEN=($(az account get-access-token --output=json | jq .accessToken | tr -d '"')) 
 
     $ export SUBSCRIPTION_ID=$(az account show --output=json | jq .id -r)
@@ -100,7 +101,7 @@ Toegang tot de seriële console is beperkt tot gebruikers die hebben [VM inzende
 ### <a name="channel-security"></a>Beveiliging van het kanaal
 Alle gegevens die worden verzonden heen en weer worden versleuteld op de kabel.
 
-### <a name="audit-logs"></a>Controlelogboeken
+### <a name="audit-logs"></a>Auditlogboeken
 Alle toegang tot de seriële console momenteel is aangemeld de [diagnostische gegevens over opstarten](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logboeken van de virtuele machine. Toegang tot deze logboeken zijn eigendom van en beheerd door de beheerder van de virtuele machine van Azure.  
 
 >[!CAUTION] 
@@ -139,7 +140,7 @@ Oracle Linux        | Oracle Linux-installatiekopieën die beschikbaar zijn op A
 Aangepaste Linux-installatiekopieën     | Om in te schakelen voor uw aangepaste Linux-VM-installatiekopie de seriële console, schakel toegang tot de console in /etc/inittab om uit te voeren van een terminal op ttyS0. Hier volgt een voorbeeld om toe te voegen deze in het bestand inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Zie voor meer informatie over het maken van aangepaste installatiekopieën correct [een Linux-VHD in Azure maken en uploaden](https://aka.ms/createuploadvhd).
 
 ## <a name="errors"></a>Fouten
-De meeste fouten van tijdelijke aard zijn en deze opnieuw wordt geprobeerd de verbinding van de seriële console van vaak adressen. Onderstaande tabel geeft een lijst van fouten en risicobeperking 
+De meeste fouten van tijdelijke aard zijn en deze opnieuw wordt geprobeerd de verbinding van de seriële console van vaak adressen. De onderstaande tabel geeft een lijst met fouten en oplossingen
 
 Fout                            |   Oplossing 
 :---------------------------------|:--------------------------------------------|
@@ -154,7 +155,7 @@ Aangezien we nog steeds in de previewfase voor toegang tot de seriële console, 
 Probleem                           |   Oplossing 
 :---------------------------------|:--------------------------------------------|
 Er bestaat geen optie met virtual machine scale set exemplaar seriële console |  Toegang tot de seriële console voor schaalsetinstanties virtuele machine wordt niet ondersteund op het moment van de Preview-versie.
-Nadat de banner van de verbinding wordt niet weergegeven voor een logboek in de prompt te maken met invoeren | [Doet niets te maken met invoeren](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md)
+Nadat de banner van de verbinding wordt niet weergegeven voor een logboek in de prompt te maken met invoeren | Raadpleeg deze pagina: [Hitting invoeren, gebeurt er niets](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Dit kan gebeuren als u een aangepaste VM, beperkte toestel of GRUB-configuratie die ervoor zorgt Linux dat mislukken correct verbinding maken met de seriële poort.
 Een antwoord 'Verboden' is opgetreden bij het openen van deze virtuele machine opstarten diagnostische storage-account. | Zorg ervoor dat diagnostische gegevens over de opstarten beschikt niet over een account-firewall. Een toegankelijke opstarten diagnostische storage-account is nodig voor de seriële console van functie.
 
 

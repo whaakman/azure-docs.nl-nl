@@ -1,6 +1,6 @@
 ---
-title: Azure Enterprise-API's facturering | Microsoft Docs
-description: Meer informatie over de rapportage-API's waarmee Azure Enterprise-klanten voor het ophalen van gegevens over het verbruik programmatisch.
+title: Azure Enterprise API's facturering | Microsoft Docs
+description: Meer informatie over de rapportage-API's waarmee de Azure Enterprise-klanten voor het ophalen van gegevens via een programma.
 services: ''
 documentationcenter: ''
 author: anandedwin
@@ -15,50 +15,53 @@ ms.tgt_pltfrm: na
 ms.workload: billing
 ms.date: 04/25/2017
 ms.author: aedwin
-ms.openlocfilehash: ff658fd14700e9fdf66b9d929da133f7a3b3f3a0
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
-ms.translationtype: HT
+ms.openlocfilehash: b67e6202c470be46b3100c06e503c05415371c6e
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831782"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42920439"
 ---
-# <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Overzicht van de rapportage-API's voor Enterprise-klanten
-De rapportage-API's kunnen klanten Azure Enterprise programmatisch gebruiks- en factureringsgegevens ophalen in de gewenste hulpprogramma's voor gegevensanalyse. 
+# <a name="overview-of-reporting-apis-for-enterprise-customers"></a>Overzicht van de rapportage-API's voor zakelijke klanten
+De rapportage-API's kunnen Azure Enterprise-klanten om op te halen via een programma gebruiks- en factureringsgegevens in de gewenste hulpprogramma's voor gegevensanalyse. Zakelijke klanten zich hebben aangemeld een [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/) met Azure om te maken in de onderhandelde monetaire toezeggingen en toegang krijgen tot aangepaste prijzen voor Azure-resources.
 
-## <a name="enabling-data-access-to-the-api"></a>Toegang tot gegevens in de API inschakelen
-* **Genereren of het ophalen van de API-sleutel** -aanmelden bij de Enterprise portal en navigeer naar rapporten > gebruiksgegevens downloaden > API-toegangssleutel voor het genereren of het ophalen van de API-sleutel.
-* **Het doorgeven van sleutels in de API** -de API-sleutel moet worden doorgegeven voor elke aanroep voor verificatie en autorisatie. De volgende eigenschap nodig is voor de HTTP-headers
+> [!div class="nextstepaction"]
+> [Help bij het verbeteren van Azure-facturering documenten](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
-|Aanvraag-Header-sleutel | Waarde|
+## <a name="enabling-data-access-to-the-api"></a>Voor gegevenstoegang tot de API
+* **Genereren of de API-sleutel ophalen** -Meld u aan bij de Enterprise portal en navigeert u naar rapporten > Download Usage > API Access Key genereren of de API-sleutel ophalen.
+* **Doorgeven van sleutels in de API** -om de API-sleutel moet worden doorgegeven voor elke aanroep voor verificatie en autorisatie. De volgende eigenschap nodig is voor de HTTP-headers
+
+|Header-sleutel aanvragen | Waarde|
 |-|-|
 |Autorisatie| Geef de waarde in deze indeling: **bearer {API_KEY}** <br/> Voorbeeld: bearer eyr... 09| 
 
-## <a name="consumption-apis"></a>Verbruik API 's
-Een Swagger-eindpunt is beschikbaar [hier](https://consumption.azure.com/swagger/ui/index) voor de API's die zijn beschreven hieronder moet inschakelen eenvoudig introspection van de API en de mogelijkheid voor het genereren van client-SDK's met behulp van [AutoRest](https://github.com/Azure/AutoRest) of [Swagger Codegen gebruikt](http://swagger.io/swagger-codegen/). Gegevens vanaf 1 mei 2014 is beschikbaar via deze API. 
+## <a name="consumption-apis"></a>Gebruik API 's
+Een Swagger-eindpunt is beschikbaar [hier](https://consumption.azure.com/swagger/ui/index) voor de API's die zijn beschreven waaronder moet inschakelen eenvoudig introspection van de API en de mogelijkheid voor het genereren van client-SDK's met behulp van [AutoRest](https://github.com/Azure/AutoRest) of [Swagger CodeGen](http://swagger.io/swagger-codegen/). Gegevens die vanaf 1 mei 2014 is beschikbaar via deze API. 
 
-* **Saldo en samenvatting** : de [saldo en samenvatting API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) biedt een maandelijkse samenvatting van gegevens op tegoeden, nieuwe aankopen, kosten voor Azure Marketplace, correcties en overschrijding kosten.
+* **Saldo en het overzicht** : de [saldo en het overzicht API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-balance-summary) biedt een maandelijkse samenvatting van informatie over de saldi, nieuwe aankopen, servicekosten voor Azure Marketplace, aanpassingen en kosten voor overschrijding.
 
-* **Informatie over het gebruik** : de [gebruik Detail API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) per dag opgesplitst verbruikte aantallen en de geschatte kosten door een inschrijving biedt. Het resultaat bevat ook informatie over exemplaren, meters en afdelingen. De API kan worden doorzocht door facturering periode of door een opgegeven begin- en datum. 
+* **Informatie over het gebruik** : de [Usage details API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-usage-detail) per dag opgesplitst verbruikte hoeveelheden en geschatte kosten in rekening gebracht door een inschrijving biedt. Het resultaat bevat ook informatie over instanties, meters en afdelingen. De API kan worden opgevraagd door factureringsperiode of door een opgegeven begin- en datum. 
 
-* **Marketplace Store kosten** : de [Marketplace Store kosten API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) retourneert de uitsplitsing op gebruik gebaseerde marketplace-kosten per dag voor de opgegeven periode facturering of de begin- en einddatums (één keer kosten zijn niet opgenomen).
+* **Marketplace-Store kosten in rekening gebracht** : de [Marketplace Store kosten in rekening gebracht API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-marketplace-storecharge) retourneert de uitsplitsing van de kosten in rekening gebracht op basis van gebruik marketplace per dag voor de opgegeven periode facturering of het begin- en einddatums (één keer kosten zijn niet inbegrepen).
 
-* **Prijslijst** : de [Price Sheet API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) het tarief voor elke Meter biedt voor de opgegeven registratie en facturering periode. 
+* **Prijslijst** : de [prijs blad API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-pricesheet) biedt van het tarief voor elke Meter voor de opgegeven inschrijving en factureringsperiode. 
 
 ## <a name="data-freshness"></a>Nieuwheid van gegevens
-Etags geretourneerd in het antwoord van de bovenstaande API. Een wijziging in de Etag Hiermee geeft u dat de gegevens zijn vernieuwd.  In de volgende aanroepen naar de dezelfde API met de parameters die de vastgelegde Etag worden doorgegeven met de sleutel 'If-None-Match' in de kop van http-aanvraag. De statuscode van antwoord zou 'NotModified' zijn als de gegevens niet verdere is vernieuwd en worden er geen gegevens geretourneerd. API wordt de volledige gegevensset geretourneerd voor de vereiste periode wanneer er een wijziging in de etag.
+In het antwoord van de bovenstaande API Etags geretourneerd. Een wijziging in de Etag geeft aan dat de gegevens zijn vernieuwd.  In volgende aanroepen naar de dezelfde API met behulp van dezelfde parameters geeft u de vastgelegde Etag met de sleutel 'If-None-Match' in de header van http-aanvraag. De responscode van de status is 'NotModified' als de gegevens niet verdere is vernieuwd en er zijn geen gegevens worden geretourneerd. API wordt de volledige gegevensset voor de vereiste periode wanneer er sprake is van een wijziging in de ETag die is geretourneerd.
 
 ## <a name="helper-apis"></a>Helper-API 's
- **Lijst van facturering perioden** : de [facturering perioden API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) retourneert een lijst met facturering perioden met gegevens over het verbruik voor de opgegeven registratie in omgekeerde volgorde. Elke categorie bevat een eigenschap die verwijst naar de API-route voor de vier gegevenssets - BalanceSummary, UsageDetails Marketplace-kosten en prijslijst.
+ **Facturering periode lijst** : de [Billing perioden API](https://docs.microsoft.com/rest/api/billing/enterprise/billing-enterprise-api-billing-periods) retourneert een lijst van factureringsperioden die gegevens voor de opgegeven inschrijving in omgekeerde volgorde hebben. Elke periode bevat een eigenschap die verwijst naar de API-route voor de vier gegevenssets - BalanceSummary, UsageDetails, Marketplace-kosten en prijslijst.
 
 
-## <a name="api-response-codes"></a>API-reactiecodes   
+## <a name="api-response-codes"></a>API-responscodes   
 |Statuscode van antwoord|Bericht|Beschrijving|
 |-|-|-|
 |200| OK|Geen fout|
-|401| Niet geautoriseerd| API-sleutel niet wordt gevonden, ongeldig, verlopen enzovoort.|
-|404| Niet beschikbaar| Rapport eindpunt is niet gevonden|
-|400| Ongeldig verzoek| Ongeldige parameters: datumbereiken, EA nummers, enz.|
-|500| Serverfout| Fout bij verwerking van aanvraag Unexoected| 
+|401| Niet gemachtigd| API-sleutel niet wordt gevonden, ongeldig, verlopen enzovoort.|
+|404| Niet beschikbaar| Rapporteindpunt is niet gevonden|
+|400| Onjuiste aanvraag| Ongeldige parameters – datumbereiken, EA-nummers, enz.|
+|500| Serverfout| Unexoected fout bij verwerking van aanvraag| 
 
 
 

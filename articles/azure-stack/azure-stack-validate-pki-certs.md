@@ -1,6 +1,6 @@
 ---
-title: Azure-Stack Public Key Infrastructure-certificaten voor de implementatie van Azure-Stack geïntegreerd systemen valideren | Microsoft Docs
-description: Beschrijft hoe de Azure-Stack PKI-certificaten voor Azure-Stack geïntegreerd systemen valideren. Bevat informatie over het hulpprogramma voor het Azure-Stack certificaat Checker.
+title: Azure Stack Public Key Infrastructure-certificaten voor de implementatie van de geïntegreerde Azure Stack-systemen valideren | Microsoft Docs
+description: Beschrijft hoe u controleert de Azure Stack PKI-certificaten voor geïntegreerde Azure Stack-systemen. Bevat informatie over met behulp van de Registercontrole Azure Stack-certificaat.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -15,54 +15,54 @@ ms.date: 05/24/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.openlocfilehash: e381d2ed3c6a972d776dd31f311fcebe2e35823a
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605607"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917080"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Valideren van Azure Stack PKI-certificaten
 
-Azure-Stack gereedheid van de Registercontrole beschreven in dit artikel vindt u [van de PowerShell Gallery](https://aka.ms/AzsReadinessChecker). U kunt het hulpprogramma gebruiken om te valideren dat de [gegenereerd PKI-certificaten](azure-stack-get-pki-certs.md) geschikt zijn voor de voorafgaand aan de implementatie. U moet certificaten valideren door te laten voldoende tijd om te testen en certificaten opnieuw uitgegeven, indien nodig.
+Azure Stack gereedheid van de Registercontrole die worden beschreven in dit artikel vindt u [vanuit de PowerShell Gallery](https://aka.ms/AzsReadinessChecker). U kunt het hulpprogramma gebruiken om te valideren dat de [PKI-certificaten die zijn gegenereerd](azure-stack-get-pki-certs.md) zijn geschikt voor voorafgaand aan de implementatie. U moet certificaten controleren door te laten voldoende tijd om te testen en certificaten opnieuw uitgegeven, indien nodig.
 
 De gereedheid van de Registercontrole voert de volgende validaties van certificaat:
 
 - **PFX lezen**  
-    Controleert op geldig PFX-bestand, juiste wachtwoord en een waarschuwing als openbare informatie niet wordt beveiligd door het wachtwoord. 
-- **Algoritme voor handtekening**  
-    Controleert de algoritme voor handtekening is niet SHA1.
+    Controleert op geldig PFX-bestand, wachtwoord, en u wordt gewaarschuwd als de gegevens van openbare niet wordt beveiligd door het wachtwoord. 
+- **Handtekeningalgoritme**  
+    Controleert of het algoritme voor handtekening niet SHA1.
 - **Persoonlijke sleutel**  
-    Controleert of de persoonlijke sleutel aanwezig is en is geëxporteerd met het kenmerk van de lokale computer. 
+    Controleert of de persoonlijke sleutel aanwezig is en wordt geëxporteerd met het kenmerk van de lokale computer. 
 - **Certificaatketen**  
-    Certificaatketen controles is intact waaronder een controle voor zelf-ondertekende certificaten.
+    De certificaatketen gecontroleerd is intact waaronder een controle voor zelfondertekende certificaten.
 - **DNS-namen**  
-    Controleert de SAN bevat relevante DNS-namen voor elk eindpunt of als een ondersteunende jokerteken aanwezig is.
+    Controleert of het SAN bevat relevante DNS-namen voor elk eindpunt, of als een ondersteunende jokertekens aanwezig is.
 - **Sleutelgebruik**  
-    Als het sleutelgebruik digitale handtekening en sleutelcodering bevat en uitgebreide-sleutelgebruik serververificatie en clientverificatie bevat controleert.
+    Als het gebruik van de sleutel digitale handtekening en sleutelcodering bevat en het uitgebreide sleutelgebruik serververificatie en clientverificatie bevat wordt gecontroleerd.
 - **Sleutelgrootte**  
-    Controleert of de sleutelgrootte 2048 aan of groter zijn is.
+    Controleert of de sleutelgrootte 2048 of groter is.
 - **Ketenvolgorde**  
-    Controleert de volgorde van de andere certificaten valideren dat de volgorde juist is.
+    Controleert of de volgorde van de certificaten gevalideerd of de volgorde juist is.
 - **Andere certificaten**  
-    Zorg ervoor dat er geen andere certificaten worden verpakt door PFX dan het relevante leaf-certificaat en de keten.
+    Zorg ervoor dat er geen andere certificaten worden ingepakt in PFX dan het relevante leaf-certificaat en de keten.
 - **Er is geen profiel**  
-    Controleert of een nieuwe gebruiker het PFX-gegevens zonder een gebruikersprofiel geladen laden kunt, het gedrag van gMSA accounts mimicking tijdens het onderhoud van het certificaat.
+    Controleert of dat een nieuwe gebruiker het PFX-gegevens zonder dat het profiel van een gebruiker zijn geladen laden kunt, het gedrag van accounts gMSA mimicking tijdens het onderhoud van het certificaat.
 
 > [!IMPORTANT]  
-> Het PKI-certificaat is een PFX-bestand en het wachtwoord moet worden behandeld als gevoelige informatie.
+> Het PKI-certificaat is een PFX-bestand en wachtwoord moet worden beschouwd als vertrouwelijke informatie.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
-Uw systeem aan de volgende vereisten voldoen voordat de PKI-certificaten voor de implementatie van een Azure-Stack valideren:
+Uw systeem moet voldoen aan de volgende vereisten voordat u PKI-certificaten voor een Azure Stack-implementatie valideren:
 
-- Microsoft Azure-Stack gereedheid Checker
-- SSL certificaten geëxporteerd na de [voorbereiding-instructies](azure-stack-prepare-pki-certs.md)
+- Microsoft Azure Stack-gereedheid Checker
+- SSL certificaten geëxporteerd na de [voorbereiding instructies](azure-stack-prepare-pki-certs.md)
 - DeploymentData.json
 - Windows 10 of Windows Server 2016
 
 ## <a name="perform-core-services-certificate-validation"></a>Validatie van het servercertificaat core services uitvoeren
 
-Volg deze stappen om voor te bereiden en voor het valideren van de Azure-Stack PKI-certificaten voor de implementatie en de geheime rotatie:
+Volg deze stappen om voor te bereiden en voor het valideren van de Azure Stack PKI-certificaten voor de implementatie en geheime rotatie:
 
 1. Installeer **AzsReadinessChecker** vanuit een PowerShell-prompt (5.1 of hoger), door de volgende cmdlet:
 
@@ -70,7 +70,7 @@ Volg deze stappen om voor te bereiden en voor het valideren van de Azure-Stack P
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
     ````
 
-2. De mapstructuur certificaat maken. U kunt wijzigen in het onderstaande voorbeeld `<c:\certificates>` naar een nieuw directorypad van uw keuze.
+2. De mapstructuur certificaat maken. U kunt wijzigen in het onderstaande voorbeeld `<c:\certificates>` naar een nieuwe directorypad van uw keuze.
 
     ````PowerShell  
     New-Item C:\Certificates -ItemType Directory
@@ -83,14 +83,14 @@ Volg deze stappen om voor te bereiden en voor het valideren van de Azure-Stack P
     ````
     
     > [!Note]  
-    > AD FS en grafiek zijn vereist als u AD FS worden gebruikt als uw identiteitssysteem.
+    > AD FS en een graaf zijn vereist als u AD FS worden gebruikt als uw identiteitssysteem.
     
      - Plaats uw certificaten in de juiste mappen in de vorige stap hebt gemaakt. Bijvoorbeeld:  
         - `c:\certificates\ACSBlob\CustomerCertificate.pfx`
         - `c:\certificates\Certs\Admin Portal\CustomerCertificate.pfx`
         - `c:\certificates\Certs\ARM Admin\CustomerCertificate.pfx`
 
-3. De waarden van wijzigen in het venster PowerShell **RegionName** en **FQDN** van toepassing op de Stack van Azure-omgeving en voer de volgende:
+3. In de PowerShell-venster, wijzigt u de waarden van **RegionName** en **FQDN** naar de Azure Stack-omgeving nodig en voer de volgende opdracht uit:
 
     ````PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
@@ -142,7 +142,7 @@ Volg deze stappen om voor te bereiden en voor het valideren van de Azure-Stack P
 
 **Oorzaak**: AzsReadinessChecker bepaalde tests worden overgeslagen als een afhankelijkheid niet is voldaan:
 
- - Andere certificaten worden overgeslagen als de certificaatketen is mislukt.
+ - Andere certificaten worden overgeslagen als de certificaatketen mislukt.
 
     ````PowerShell  
     Testing: ACSBlob\singlewildcard.pfx
@@ -169,9 +169,9 @@ Volg deze stappen om voor te bereiden en voor het valideren van de Azure-Stack P
 
 **Resolutie**: Volg de instructies van het hulpprogramma in de detailsectie onder elke reeks tests uit voor elk certificaat.
 
-## <a name="perform-platform-as-a-service-certificate-validation"></a>Platform als een validatie van het servercertificaat uitvoeren
+## <a name="perform-platform-as-a-service-certificate-validation"></a>Platform als een service-certificaatvalidatie uitvoeren
 
-Volg deze stappen voor het voorbereiden en valideren van de Azure-Stack PKI-certificaten voor platform als een service (PaaS)-certificaten als SQL/MySQL of App Services implementaties zijn gepland.
+Volg deze stappen voor het voorbereiden en valideren van de Azure Stack PKI-certificaten voor platform als een service (PaaS)-certificaten, als SQL/MySQL of Services van App-implementaties gepland zijn.
 
 1.  Installeer **AzsReadinessChecker** vanuit een PowerShell-prompt (5.1 of hoger), door de volgende cmdlet:
 
@@ -179,7 +179,7 @@ Volg deze stappen voor het voorbereiden en valideren van de Azure-Stack PKI-cert
       Install-Module Microsoft.AzureStack.ReadinessChecker -force
     ````
 
-2.  Geneste hashtabel met paden en het wachtwoord op elk validatie hoeven PaaS-certificaat maken. In het venster PowerShell uitvoeren:
+2.  Maak een geneste hash-tabel met paden en het wachtwoord op elk PaaS-certificaat dat u hoeft de validatie. In de PowerShell-venster worden uitgevoerd:
 
     ```PowerShell
         $PaaSCertificates = @{
@@ -191,7 +191,7 @@ Volg deze stappen voor het voorbereiden en valideren van de Azure-Stack PKI-cert
         }
     ```
 
-3.  Wijzig de waarden van **RegionName** en **FQDN** overeenkomen met uw Azure-Stack-omgeving voor het starten van de validatie. Voer vervolgens:
+3.  Wijzig de waarden van **RegionName** en **FQDN** zodat deze overeenkomen met uw Azure Stack-omgeving voor het starten van de validatie. Voer vervolgens
 
     ```PowerShell
     Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
@@ -245,12 +245,12 @@ Volg deze stappen voor het voorbereiden en valideren van de Azure-Stack PKI-cert
 
 ## <a name="using-validated-certificates"></a>Met behulp van gevalideerde certificaten
 
-Als uw certificaten zijn geverifieerd door de AzsReadinessChecker, bent u klaar met ze te gebruiken in uw Azure-Stack-implementatie of voor Azure-Stack geheime rotatie. 
+Als uw certificaten zijn geverifieerd door de AzsReadinessChecker, bent u klaar om ze te gebruiken in uw Azure Stack-implementatie of voor Azure Stack geheime rotatie. 
 
- - Voor implementatie, draagt de certificaten voor uw implementatie engineer zodat ze deze kunnen kopiëren naar de host van de implementatie die zijn opgegeven in de [Azure Stack PKI vereisten documentatie](azure-stack-pki-certs.md).
- - Voor geheime rotatie, kunt u de certificaten oude certificaten voor uw Azure-Stack-omgeving infrastructuur voor openbare eindpunten bijwerken door de [Azure Stack geheim rotatie documentatie](azure-stack-rotate-secrets.md).
- - Voor PaaS-services, kunt u de certificaten gebruiken voor het installeren van SQL, MySQL en Resourceproviders voor App-Services in Azure-Stack door de [overzicht van services in Azure Stack documentatie aanbieden](azure-stack-offer-services-overview.md).
+ - Voor de implementatie veilig overdragen uw certificaten naar de engineer van uw implementatie zodat ze deze kunnen kopiëren naar de host van de implementatie die zijn opgegeven in de [documentatie voor Azure Stack PKI-vereisten](azure-stack-pki-certs.md).
+ - Voor geheime roteren, kunt u de certificaten gebruiken om bij te werken van oude certificaten voor uw Azure Stack-omgeving infrastructuur voor openbare eindpunten door de [documentatie voor Azure Stack-geheim rotatie](azure-stack-rotate-secrets.md).
+ - Voor PaaS-services, kunt u de certificaten gebruiken voor het installeren van SQL, MySQL en Resourceproviders voor App Services in Azure Stack door de [overzicht van services in de documentatie over Azure Stack-aanbieding](azure-stack-offer-services-overview.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Identiteitintegratie Datacenter](azure-stack-integrate-identity.md)
+[Datacenter-identiteitintegratie](azure-stack-integrate-identity.md)

@@ -1,6 +1,6 @@
 ---
-title: Aanbevolen procedures voor prestaties voor SQL Server in Azure | Microsoft Docs
-description: Bevat de aanbevolen procedures voor het optimaliseren van prestaties van SQL Server in Microsoft Azure-VM's.
+title: Prestatierichtlijnen voor SQL Server in Azure | Microsoft Docs
+description: Bevat richtlijnen voor het optimaliseren van prestaties van SQL Server in Microsoft Azure-VM's.
 services: virtual-machines-windows
 documentationcenter: na
 author: rothja
@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 04/19/2018
+ms.date: 08/24/2018
 ms.author: jroth
-ms.openlocfilehash: a7a24bde6cc34befee7de3bcbf13b96c8b641af2
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 3a61c20b922b60e3135d9f9e53928462887a602e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888905"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886182"
 ---
-# <a name="performance-best-practices-for-sql-server-in-azure-virtual-machines"></a>Aanbevolen procedures voor prestaties voor SQL Server op virtuele machines van Azure
+# <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Prestatierichtlijnen voor SQL Server in Azure Virtual Machines
 
 ## <a name="overview"></a>Overzicht
 
@@ -37,7 +37,7 @@ Dit artikel bevat richtlijnen voor het optimaliseren van prestaties van SQL Serv
 
 Hier volgt een lijst met snelle controle voor optimale prestaties van SQL Server op Azure Virtual Machines:
 
-| Onderwerp | Optimalisaties |
+| Oppervlakte | Optimalisaties |
 | --- | --- |
 | [VM-grootte](#vm-size-guidance) |[DS3_v2](../sizes-general.md) of hoger voor SQL Enterprise edition.<br/><br/>[DS2_v2](../sizes-general.md) of hoger voor SQL Standard- en Web-edities. |
 | [Storage](#storage-guidance) |Gebruik [Premium Storage](../premium-storage.md). Standard-opslag wordt alleen aanbevolen voor ontwikkelen en testen.<br/><br/>Houd de [opslagaccount](../../../storage/common/storage-create-storage-account.md) en SQL Server-VM in dezelfde regio.<br/><br/>Azure uitschakelen [geografisch redundante opslag](../../../storage/common/storage-redundancy.md) (geo-replicatie) op het storage-account. |

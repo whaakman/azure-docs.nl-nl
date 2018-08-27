@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/24/2018
 ms.author: tonguyen
-ms.openlocfilehash: dc516aa64399447973cefa47e913193adce2f8f5
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 9396e954305ecc9ff6cbdd664c6cb71846bd5bfa
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528262"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919123"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Voorkomen van onverwachte kosten met Azure-facturering en -kostenbeheer
 
@@ -31,6 +31,9 @@ Wanneer u zich registreert voor Azure, zijn er verschillende dingen die u doen k
 - Als uw abonnement een gratis proefversie is, [Visual Studio](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/), Azure in Open (AIO) of BizSpark, uw abonnement wordt automatisch uitgeschakeld wanneer alle uw tegoed is gebruikt. Meer informatie over [bestedingslimieten](#spending-limit) om te voorkomen dat uw abonnement unexpectantly uitgeschakeld.
 
 - Als u zich hebt aangemeld voor [gratis Azure-account](https://azure.microsoft.com/free/), [kunt u enkele van de meest populaire Azure-services voor 12 maanden gratis](billing-create-free-services-included-free-account.md). Samen met de onderstaande aanbevelingen, Zie [voorkomen oninbaar gratis account](billing-avoid-charges-free-account.md).
+
+> [!div class="nextstepaction"]
+> [Help bij het verbeteren van Azure-facturering documenten](https://go.microsoft.com/fwlink/p/?linkid=2010091) 
 
 ## <a name="get-estimated-costs-before-adding-azure-services"></a>De geschatte kosten voor Azure-services toe te voegen
 
@@ -148,7 +151,7 @@ Neem contact op met uw accountmanager of de Azure-partner om te beginnen.
 |-------------------------------|-----------------------------------------------------------------------------------|
 | Enterprise Agreement (EA) | [EA-portal](https://ea.azure.com/), [help docs](https://ea.azure.com/helpdocs), en [Power BI-rapport](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
 | Cloud Solution Provider (CSP) | Neem contact op met uw provider |
-| Azure-sponsoring | [Sponsorship-portal](https://www.microsoftazuresponsorships.com/) |
+| Azure Sponsorship | [Sponsorship-portal](https://www.microsoftazuresponsorships.com/) |
 
 Als u beheert IT voor een grote organisatie, raden wij aan lezen [Azure enterprise-platform](/azure/architecture/cloud-adoption-guide/subscription-governance) en de [enterprise IT-whitepaper](http://download.microsoft.com/download/F/F/F/FFF60E6C-DBA1-4214-BEFD-3130C340B138/Azure_Onboarding_Guide_for_IT_Organizations_EN_US.pdf) (PDF-download, alleen in het Engels).
 

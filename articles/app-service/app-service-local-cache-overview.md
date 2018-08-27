@@ -16,17 +16,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 59fe70e4d2a710160751ab8e7a83c9f86310dc24
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597727"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918013"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Overzicht van Azure App Service lokale Cache
 
 > [!NOTE]
-> Lokale cache wordt niet ondersteund in App Service-apps in containers, zoals op [App Service on Linux](containers/app-service-linux-intro.md).
+> Lokale cache wordt niet ondersteund in de functie-apps of App Service-apps in containers, zoals op [App Service on Linux](containers/app-service-linux-intro.md).
+
 
 Azure-web-app-inhoud is opgeslagen in Azure Storage en omhoog in een duurzame manier als share met de inhoud is opgehaald. Dit ontwerp is bedoeld om te werken met verschillende apps en bevat de volgende kenmerken:  
 

@@ -15,16 +15,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/14/2018
 ms.author: genli
-ms.openlocfilehash: 97210c0d9dba9c4130b1da9ad17a257ff1d81b42
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b0e24e498acd823242b3613abb62df978466d56d
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449829"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918309"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Toevoegen of wijzigen van de beheerders van Azure-abonnement
 
-Voor het beheren van toegang tot Azure-resources, moet u de juiste beheerdersrol hebben. In dit artikel wordt beschreven hoe u toevoegen of wijzigen van de beheerdersrol voor een gebruiker op het abonnementsniveau.
+Om de toegang tot Azure-resources te beheren, moet u over de juiste beheerdersrol beschikken. In dit artikel wordt beschreven hoe u toevoegen of wijzigen van de beheerdersrol voor een gebruiker op het abonnementsniveau.
+
+> [!div class="nextstepaction"]
+> [Help bij het verbeteren van Azure-facturering documenten](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="what-administrator-role-do-i-use"></a>Welke beheerdersrol moet ik gebruiken?
 
@@ -34,16 +37,16 @@ Azure heeft verscheidene andere rollen. Voor het beheren van toegang tot resourc
 
 ## <a name="add-an-rbac-owner-for-a-subscription-in-azure-portal"></a>Een RBAC-eigenaar voor een abonnement toevoegen in Azure portal 
 
-Als u wilt toevoegen iemand als beheerder voor een Azure-abonnement, deze toewijzen de [eigenaar](../role-based-access-control/built-in-roles.md#owner) rol (een RBAC-rol) op het abonnementsbereik. De rol van eigenaar kan de resources in het abonnement dat u toegewezen en dat u beschikt niet over toegangsrechten aan andere abonnementen beheren.
+Als u iemand wilt toevoegen als een beheerder voor een Azure-abonnement, geeft u deze persoon de rol van [Eigenaar](../role-based-access-control/built-in-roles.md#owner) (een RBAC-rol) voor het abonnementsbereik. Een eigenaar kan de resources beheren in het abonnement dat u hebt toegewezen en beschikt niet over toegangsrechten voor andere abonnementen.
 
 1. Ga naar [ **abonnementen** in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-2. Selecteer het abonnement dat u toegang wilt verlenen.
+2. Selecteer het abonnement waarvoor u toegang wilt verlenen.
 3. Selecteer **Toevoegen**.
-   (Als de knop toevoegen ontbreekt, wordt u bent niet gemachtigd om toe te voegen van machtigingen.)
-4. Selecteer **toegangsbeheer (IAM)** in de lijst.
-5. In de **rol** Schakel **eigenaar**. 
-6. In de **toegang toewijzen aan** Schakel **Azure AD-gebruiker, groep of toepassing**. 
-7. In de **Selecteer** typt u het e-mailadres van de gebruiker die u wilt toevoegen als eigenaar. Selecteer de gebruiker en selecteer vervolgens **opslaan**.
+   (Als de knop Toevoegen ontbreekt, bent u niet gemachtigd om machtigingen toe te voegen.)
+4. Selecteer **Toegangsbeheer (IAM)** in de lijst.
+5. Selecteer **Eigenaar** in de lijst **Rol**. 
+6. Selecteer **Azure AD-gebruiker, -groep of -toepassing** in de lijst **Toegang toewijzen aan**. 
+7. Typ in het vak **Selecteer** het e-mailadres van de gebruiker die u als eigenaar wilt toevoegen. Selecteer de gebruiker en selecteer vervolgens **Opslaan**.
 
     ![Schermafbeelding van de rol van eigenaar geselecteerd](./media/billing-add-change-azure-subscription-administrator/add-role.png)
 
@@ -51,7 +54,7 @@ Dit biedt de gebruiker volledige toegang tot alle bronnen, waaronder het recht o
 
 ## <a name="add-or-change-co-administrator"></a>Toevoegen of wijzigen van CO-beheerder
 
-Alleen een [eigenaar](../role-based-access-control/built-in-roles.md#owner) kunnen worden toegevoegd als een CO-beheerder. Andere gebruikers met functies zoals [Inzender](../role-based-access-control/built-in-roles.md#contributor) en [lezer](../role-based-access-control/built-in-roles.md#reader) kan niet worden toegevoegd als co-beheerders.
+Alleen een [eigenaar](../role-based-access-control/built-in-roles.md#owner) kan als een co-beheerder worden toegevoegd. Andere gebruikers met rollen zoals [Inzender](../role-based-access-control/built-in-roles.md#contributor) en [Lezer](../role-based-access-control/built-in-roles.md#reader) kunnen niet als co-beheerders worden toegevoegd.
 
 > [!TIP]
 > U hoeft alleen de eigenaar toevoegen als een CO-beheerder als de gebruiker nodig heeft voor het beheren van de klassieke Azure-implementaties. We raden u aan met het RBAC voor alle andere doeleinden.

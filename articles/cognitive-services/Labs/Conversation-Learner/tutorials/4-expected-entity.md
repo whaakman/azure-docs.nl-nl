@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 9e013e237a996d722d958920a1310e3aaea36c52
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39170905"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888201"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Het gebruik van de eigenschap 'Verwachte entiteit' van acties
 
@@ -59,14 +59,14 @@ Concrete invulling te geven, als het veld 'verwachte entiteit' van een actie is 
 
 ### <a name="create-two-actions"></a>Twee acties maken
 
-1. Klik op acties en vervolgens nieuwe actie
+1. Klik op acties en vervolgens nieuwe actie.
 2. Typ 'Wat is de naam van uw?' in het antwoord.
 3. Voer $name in entiteiten verwacht. Klik op Opslaan.
     - Deze waarde betekent dat als deze vraag wordt gesteld en de reactie van de gebruiker beschikt niet over de entiteiten die zijn gedetecteerd, de bot moet ervan uitgaan dat het geheel van het antwoord van de gebruiker is deze entiteit.
 2. Klik op acties en vervolgens een nieuwe actie voor het maken van een tweede actie.
 3. Typ in het antwoord 'Hallo $name'.
-    - De entiteit wordt automatisch toegevoegd als een disqualifying entiteit. 
-4. Op Opslaan klikken
+    - De entiteit wordt automatisch toegevoegd als een vereiste entiteiten. 
+4. Klik op Opslaan.
 
 U hebt nu twee acties.
 

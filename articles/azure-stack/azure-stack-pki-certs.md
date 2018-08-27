@@ -16,11 +16,11 @@ ms.date: 06/07/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
 ms.openlocfilehash: 13bc82caf5e10f5b35df29d085349ec4c80628a2
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929267"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917449"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack-certificaatvereisten voor openbare-sleutelinfrastructuur
 
@@ -71,9 +71,9 @@ Voor uw implementatie, de [regio] en [externalfqdn] waarden moeten overeenkomen 
 | Beheerportal | adminportal. &lt;regio >. &lt;FQDN-naam > | Portals | &lt;region>.&lt;fqdn> |
 | Openbare Azure Resource Manager | beheer. &lt;regio >. &lt;FQDN-naam > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | Azure Resource Manager-beheerder | adminmanagement. &lt;regio >. &lt;FQDN-naam > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
-| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Blob-opslag | blob.&lt;region>.&lt;fqdn> |
 | ACSTable | * .table. &lt;regio >. &lt;FQDN-naam ><br>(Wildcard-SSL-certificaat) | Table Storage | de tabel. &lt;regio >. &lt;FQDN-naam > |
-| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Queue Storage | wachtrij. &lt;regio >. &lt;FQDN-naam > |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Opslagwachtrij | wachtrij. &lt;regio >. &lt;FQDN-naam > |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Key Vault | kluis. &lt;regio >. &lt;FQDN-naam > |
 | KeyVaultInternal | *.adminvault. &lt;regio >. &lt;FQDN-naam ><br>(Wildcard-SSL-certificaat) |  Interne Keyvault |  adminvault. &lt;regio >. &lt;FQDN-naam > |
 
@@ -82,7 +82,7 @@ Als u Azure Stack met behulp van de Azure AD-implementatiemodus implementeert, m
 |Implementatiemap|Vereiste certificaatonderwerp en alternatieve namen voor onderwerpen (SAN)|Bereik (per regio)|Subdomein naamruimte|
 |-----|-----|-----|-----|
 |ADFS|adfs.*&lt;region>.&lt;fqdn>*<br>(SSL-certificaat)|ADFS|*&lt;region>.&lt;fqdn>*|
-|Graph|graph.*&lt;region>.&lt;fqdn>*<br>(SSL-certificaat)|Graph|*&lt;region>.&lt;fqdn>*|
+|Grafiek|graph.*&lt;region>.&lt;fqdn>*<br>(SSL-certificaat)|Grafiek|*&lt;region>.&lt;fqdn>*|
 |
 
 > [!IMPORTANT]

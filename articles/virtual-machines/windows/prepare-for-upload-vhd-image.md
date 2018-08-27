@@ -13,14 +13,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-windows
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 08/01/2018
+ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 0f7b19b0848886c7a906e79d63a814fddf5ef5a6
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 293671ac3426a92453e0c1642d421038824ac02c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42054735"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886970"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Een Windows VHD of VHDX te uploaden naar Azure voorbereiden
 Voordat u een Windows virtuele machines (VM van on-premises met Microsoft Azure) uploadt, moet u de virtuele harde schijf (VHD of VHDX) voorbereiden. Azure ondersteunt **alleen virtuele machines van generatie 1** die in de VHD-indeling en hebben een schijf met vaste grootte. De maximale grootte van de VHD is 1023 GB. U kunt een generatie 1 VM op basis van de VHDX-bestandssysteem en naar een dynamisch uitbreidbare schijf naar vaste VHD converteren. Maar u kunt een virtuele machine generatie niet wijzigen. Zie voor meer informatie, [maak ik een generatie 1 of 2 virtuele machine in Hyper-V](https://technet.microsoft.com/windows-server-docs/compute/hyper-v/plan/should-i-create-a-generation-1-or-2-virtual-machine-in-hyper-v).
@@ -313,7 +313,7 @@ Zorg ervoor dat de volgende instellingen correct zijn geconfigureerd voor verbin
 
     De volgende groepen moeten worden weergegeven op dit beleid:
 
-    - Beheerders
+    - Administrators
     - Back-upoperators
     - Iedereen
     - Gebruikers

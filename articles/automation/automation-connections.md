@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/15/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5c865ff5c83626f13bb4fb9df7c1533371733540
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4ead83dc449f2b32461b0585f276c9f3bfd3f847
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054647"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42919099"
 ---
 # <a name="connection-assets-in-azure-automation"></a>Verbindingsassets in Azure Automation
 
@@ -84,7 +84,7 @@ U kunt het script gebruiken om de verbindingsasset niet maken omdat wanneer u uw
   
 ## <a name="using-a-connection-in-a-runbook-or-dsc-configuration"></a>Met behulp van een verbinding in een runbook of DSC-configuratie
 
-Ophalen van een verbinding in een runbook of DSC-configuratie met de **Get-AutomationConnection** cmdlet.  U kunt geen gebruiken de [Get-AzureRmAutomationConnection](https://docs.microsoft.com/powershell/resourcemanager/azurerm.automation/v1.0.12/Get-AzureRmAutomationConnection?redirectedfrom=msdn) activiteit.  Deze activiteit haalt de waarden van de andere velden in de verbinding en retourneert ze als een [hash-tabel](http://go.microsoft.com/fwlink/?LinkID=324844) die vervolgens kan worden gebruikt met de juiste opdrachten in het runbook of DSC-configuratie.
+Ophalen van een verbinding in een runbook of DSC-configuratie met de **Get-AutomationConnection** cmdlet.  U kunt geen gebruiken de [Get-AzureRmAutomationConnection](/powershell/module/azurerm.automation/get-azurermautomationconnection) activiteit.  Deze activiteit haalt de waarden van de andere velden in de verbinding en retourneert ze als een [hash-tabel](http://go.microsoft.com/fwlink/?LinkID=324844) die vervolgens kan worden gebruikt met de juiste opdrachten in het runbook of DSC-configuratie.
 
 ### <a name="textual-runbook-sample"></a>Tekstuele runbook-voorbeeld
 

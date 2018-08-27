@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 14bf68355550d756bd3f4da1a367133d83ddbf07
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 110bdcacf7433c1e0ab0cb31e1a04734137f9596
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42055318"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885236"
 ---
 # <a name="use-serial-console-for-sysrq-and-nmi-calls"></a>Seriële Console gebruiken voor SysRq en NMI aanroepen
 
@@ -52,7 +52,7 @@ Als u de configuratie van de SysReq permanente, u kunt als volgt als u wilt alle
 ### <a name="command-keys"></a>Opdracht sleutels 
 In de beheerdershandleiding SysRq hierboven is:
 
-|Opdracht| Functie
+|Command| Functie
 | ------| ----------- |
 |``b``  |   Wordt onmiddellijk het systeem opnieuw opstarten zonder synchroniseren of de schijven ontkoppelen.
 |``c``  |   Een systeem vastlopen wordt uitgevoerd door een NULL-aanwijzer voor referentie ongedaan maken. Een crashdump worden uitgevoerd als geconfigureerd.
@@ -84,13 +84,17 @@ In de beheerdershandleiding SysRq hierboven is:
 
 ### <a name="distribution-specific-documentation"></a>Distributie-specifieke documentatie ###
 Voor distributie-specifieke documentatie over SysRq en stappen voor het configureren van Linux te maken van een crashdump wanneer deze een opdracht SysRq "Vastloopt" ontvangt, Zie de onderstaande koppelingen:
+
 #### <a name="ubuntu"></a>Ubuntu ####
  - [Kernel-crashdump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
+
 #### <a name="red-hat"></a>Red Hat ####
 - [Wat is de faciliteit SysRq en hoe gebruik ik dit?](https://access.redhat.com/articles/231663)
 - [Het gebruik van de faciliteit SysRq voor het verzamelen van gegevens van een RHEL-server](https://access.redhat.com/solutions/2023)
+
 #### <a name="suse"></a>SUSE ####
 - [Configureren van de kernel dump van core vastleggen](https://www.suse.com/support/kb/doc/?id=3374462)
+
 #### <a name="coreos"></a>CoreOS ####
 - [Verzamelen crash-Logboeken](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 
@@ -109,16 +113,17 @@ Voor Linux-systemen die ondersteuning bieden voor sysctl voor het configureren v
 
 Voor meer informatie over Linux-kernel-configuraties, met inbegrip van `unknown_nmi_panic`, `panic_on_io_nmi`, en `panic_on_unrecovered_nmi`, Zie: [documentatie voor/proc/sys/kernel / *](https://www.kernel.org/doc/Documentation/sysctl/kernel.txt). Voor distributie-specifieke documentatie over NMI en stappen voor het configureren van Linux te maken van een crashdump wanneer deze een NMI ontvangt, Zie de onderstaande koppelingen:
  
- ### <a name="ubuntu"></a>Ubuntu 
+### <a name="ubuntu"></a>Ubuntu 
  - [Kernel-crashdump](https://help.ubuntu.com/lts/serverguide/kernel-crash-dump.html)
 
- ### <a name="red-hat"></a>Red Hat 
+### <a name="red-hat"></a>Red Hat 
  - [Wat is er een NMI en wat kan ik deze voor gebruiken?](https://access.redhat.com/solutions/4127)
  - [Hoe kan ik mijn systeem vastlopen wanneer NMI switch wordt gepusht configureren?](https://access.redhat.com/solutions/125103)
  - [Beheerdershandleiding voor de crash Dump](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/pdf/kernel_crash_dump_guide/kernel-crash-dump-guide.pdf)
 
 ### <a name="suse"></a>SUSE 
 - [Configureren van de kernel dump van core vastleggen](https://www.suse.com/support/kb/doc/?id=3374462)
+
 ### <a name="coreos"></a>CoreOS 
 - [Verzamelen crash-Logboeken](https://coreos.com/os/docs/latest/collecting-crash-logs.html)
 

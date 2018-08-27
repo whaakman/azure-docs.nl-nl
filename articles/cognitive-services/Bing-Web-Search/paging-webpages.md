@@ -1,6 +1,6 @@
 ---
-title: Het bladeren door de beschikbare webpagina's | Microsoft Docs
-description: Laat zien hoe u de pagina door alle van de webpagina's met Bing kunt terugkeren.
+title: Het bladeren door de resultaten van de Bing webzoekopdrachten-API | Microsoft Docs
+description: Leer hoe u op de pagina met resultaten van de Bing webzoekopdrachten-API.
 services: cognitive-services
 author: swhite-msft
 manager: ehansen
@@ -8,22 +8,22 @@ ms.assetid: 26CA595B-0866-43E8-93A2-F2B5E09D1F3B
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 04/15/2017
-ms.author: scottwhi
-ms.openlocfilehash: bf29783246c603270d59b20b63027fccdbd45b89
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/20/2018
+ms.author: erhopf
+ms.openlocfilehash: cd03b3af08746674dd2ba2d4af593e19e066efca
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344456"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888238"
 ---
-# <a name="paging-webpages"></a>Paginering webpagina 's 
+# <a name="how-to-page-through-bing-web-search-api-results"></a>Pagina met resultaten van de Bing webzoekopdrachten-API
 
-Wanneer u de Web zoeken-API aanroept, retourneert Bing een lijst met resultaten. De lijst is een subset van het totale aantal resultaten die relevant voor de query zijn mogelijk. Als u het geschatte aantal beschikbare resultaten, toegang krijgen tot het antwoord-object [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) veld.  
+Wanneer u de webzoekopdrachten-API aanroept, retourneert Bing een lijst met resultaten. De lijst is een subset van het totale aantal resultaten die mogelijk relevant zijn voor de query. Als u de geschatte totale aantal beschikbare resultaten, toegang krijgen tot de antwoord-object [totalEstimatedMatches](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#totalestimatedmatches) veld.  
   
 Het volgende voorbeeld wordt de `totalEstimatedMatches` veld met een Web-antwoord.  
   
-```  
+```
 {
     "_type" : "SearchResponse",
     "webPages" : {
@@ -32,17 +32,17 @@ Het volgende voorbeeld wordt de `totalEstimatedMatches` veld met een Web-antwoor
         "value" : [...]
     }
 }  
-```  
+```
   
 Pagina via de webpagina's die beschikbaar is, gebruikt u de [aantal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#count) en [offset](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#offset) queryparameters.  
   
-De `count` parameter geeft u het aantal resultaten te retourneren in het antwoord. Het maximum aantal resultaten dat u in het antwoord aanvragen mogelijk is 50. De standaardwaarde is 10. Het werkelijke aantal geleverde mogelijk minder dan aangevraagd.
+De `count` parameter geeft u het aantal resultaten dat moet worden geretourneerd in het antwoord. Het maximum aantal resultaten die u in het antwoord aanvragen kunt is 50. De standaardwaarde is 10. Het werkelijke getal geleverd mogelijk lager dan aangevraagd.
 
-De `offset` parameter geeft u het aantal resultaten om over te slaan. De `offset` is gebaseerd op nul zijn en moet kleiner zijn dan (`totalEstimatedMatches` - `count`).  
+De `offset` parameter geeft u het aantal resultaten dat moet worden overgeslagen. De `offset` is gebaseerd op nul en moet kleiner dan (`totalEstimatedMatches` - `count`).  
   
-Als u weergeven van 15 webpagina's per pagina wilt, stelt u `count` tot en met 15 en `offset` op 0 om op te halen van de eerste pagina van de resultaten. Voor elke volgende pagina opgehoogd `offset` 15 (bijvoorbeeld, 15, 30).  
+Als u weergeven van 15 webpagina's per pagina wilt, stelt u `count` tot en met 15 en `offset` op 0 om de eerste pagina van de resultaten. Voor elke volgende pagina opgehoogd `offset` 15 (bijvoorbeeld: 15, 30).  
   
-Het volgende voorbeeld aanvragen 15 webpagina's die beginnen bij verschuiving 45.  
+Het volgende voorbeeld vraagt om 15 webpagina's die beginnen bij verschuiving 45.  
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&count=15&offset=45&mkt=en-us HTTP/1.1  
@@ -50,7 +50,7 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-Als de standaard `count` waarde werkt voor uw implementatie, moet u alleen om op te geven de `offset` queryparameter.  
+Als de standaard `count` waarde werkt voor uw implementatie, u hoeft alleen te geven de `offset` queryparameter.  
   
 ```  
 GET https://api.cognitive.microsoft.com/bing/v7.0/search?q=sailing+dinghies&offset=45&mkt=en-us HTTP/1.1  
@@ -58,6 +58,6 @@ Ocp-Apim-Subscription-Key: 123456789ABCDE
 Host: api.cognitive.microsoft.com  
 ```
 
-De Web-API voor Search retourneert resultaten die eventueel afbeeldingen, video's en nieuws en webpagina's bevatten. Wanneer u de zoekresultaten zijn paging de [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) antwoord en de andere antwoorden zoals afbeeldingen of nieuws. Als u bijvoorbeeld `count` tot 50, krijgt u terug 50 webpagina resultaten, maar het antwoord resultaten voor het ook nog andere antwoorden kan bevatten. Bijvoorbeeld: de reactie omvat mogelijk 15 installatiekopieën en 4 nieuwsartikelen. Het is ook mogelijk dat nieuws over de eerste pagina, maar niet de tweede pagina, de resultaten omvatten kunnen of vice versa.   
+De webzoekopdrachten-API retourneert resultaten die webpagina's bevatten en kunnen afbeeldingen, video's en nieuws. Wanneer u de lijst met zoekresultaten, u het wisselbestand worden de [WebAnswer](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#webanswer) antwoord en de andere antwoorden, zoals afbeeldingen of nieuws. Als u bijvoorbeeld `count` tot 50, je weer toegang krijgen 50 webpagina-resultaten, maar het antwoord kan resultaten voor de andere antwoorden ook bevatten. Het antwoord kan bijvoorbeeld 15 afbeeldingen en 4 nieuwsartikelen bevatten. Het is ook mogelijk dat de resultaten nieuws op de eerste pagina, maar niet de tweede pagina kunnen bevatten of vice versa.   
     
-Als u opgeeft de `responseFilter` queryparameter en webpagina's niet opnemen in de filterlijst, gebruik niet de `count` en `offset` parameters.  
+Als u opgeeft de `responseFilter` queryparameter en omvatten geen webpagina's in de filterlijst, gebruikt u niet de `count` en `offset` parameters.  

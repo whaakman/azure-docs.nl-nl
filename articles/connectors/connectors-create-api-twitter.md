@@ -1,105 +1,96 @@
 ---
-title: Informatie over het gebruik van de Twitter-connector in logic apps | Microsoft Docs
-description: Overzicht van Twitter-connector met de parameters van de REST-API
-services: ''
-documentationcenter: ''
+title: Verbinding maken met Twitter vanuit Azure Logic Apps | Microsoft Docs
+description: Automatiseren van taken en werkstromen die bewaken en beheren van tweets, plus gegevens over Volgers, uw gevolgde gebruikers, andere gebruikers, tijdlijnen en meer uit uw Twitter-account met behulp van Azure Logic Apps ophalen
+services: logic-apps
+ms.service: logic-apps
+ms.suite: integration
 author: ecfan
-manager: jeconnoc
-editor: ''
-tags: connectors
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.assetid: 8bce2183-544d-4668-a2dc-9a62c152d9fa
-ms.service: multiple
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/18/2016
-ms.author: estfan; ladocs
-ms.openlocfilehash: b44a973a94043f71f2fd9803abca47652363d8a1
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+tags: connectors
+ms.date: 08/25/2018
+ms.openlocfilehash: eea70d979a69a4855b6eeb892d1705ecadaa8434
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296540"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918642"
 ---
-# <a name="get-started-with-the-twitter-connector"></a>Aan de slag met de Twitter-connector
-Met de Twitter-connector kunt u het volgende doen:
+# <a name="monitor-and-manage-twitter-by-using-azure-logic-apps"></a>Controleren en beheren van Twitter met behulp van Azure Logic Apps
 
-* Tweets post en get-tweets
-* Toegang tot tijdlijnen, vrienden en pc-gebruikers
-* Voer één van de andere bewerkingen en triggers die zijn beschreven in dit artikel
+Met Azure Logic Apps en de Twitter-connector, kunt u geautomatiseerde taken en werkstromen die bewaken en beheren van gegevens die u geïnteresseerd in Twitter, zoals bent een tweet, volgers, gebruikers en gebruikers, tijdlijnen en meer, samen met andere acties, bijvoorbeeld gevolgd:
 
-Gebruik [elke connector](apis-list.md), moet u eerst een logische app maken. U kunt aan de slag door [maken van een logische app nu](../logic-apps/quickstart-create-first-logic-app-workflow.md).  
+* Controleren, posten en tweets zoeken.
+* Gegevens, zoals Volgers, gevolgde gebruikers en tijdlijnen ophalen.
+
+U kunt triggers die te antwoorden krijgen van uw Twitter-account en de uitvoer beschikbaar voor andere acties. U kunt acties die taken met uw Twitter-account uitvoeren gebruiken. U kunt ook andere acties waarmee de uitvoer van de Twitter-acties hebben. Wanneer een nieuwe tweet met een specifieke hashtag wordt weergegeven, kunt u bijvoorbeeld berichten met de Slack-connector verzenden. Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
+
+## <a name="prerequisites"></a>Vereiste onderdelen
+
+* Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. 
+
+* Uw Twitter-account en de gebruikersreferenties
+
+   Uw referenties toestaan dat de logische app een verbinding maken en toegang tot uw Twitter-account.
+
+* Basiskennis over [over het maken van logische apps](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* De logische app waar u toegang tot uw Twitter-account. Om te beginnen met een Twitter-trigger, [maken van een lege, logische app](../logic-apps/quickstart-create-first-logic-app-workflow.md). Voor het gebruik van een Twitter-actie beginnen uw logische app met een andere trigger, bijvoorbeeld, de **terugkeerpatroon** trigger.
 
 ## <a name="connect-to-twitter"></a>Verbinding maken met Twitter
-Om uw logische app toegang alle services tot, moet u eerst maken een *verbinding* naar de service. Een [verbinding](connectors-overview.md) biedt connectiviteit tussen een logische app en een andere service.  
 
-### <a name="create-a-connection-to-twitter"></a>Maak een verbinding met Twitter
-> [!INCLUDE [Steps to create a connection to Twitter](../../includes/connectors-create-api-twitter.md)]
-> 
-> 
+[!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-## <a name="use-a-twitter-trigger"></a>Gebruik een trigger Twitter
-Een trigger is een gebeurtenis die kan worden gebruikt om de werkstroom die is gedefinieerd in een logische app te starten. [Meer informatie over triggers](../logic-apps/logic-apps-overview.md#logic-app-concepts).
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open uw logische app in Logic App Designer, als het niet al geopend.
 
-In dit voorbeeld gebruikt u de **wanneer een nieuwe tweet wordt gepost** trigger om te zoeken naar #Seattle. En als #Seattle wordt gevonden, het bijwerken van een bestand in Dropbox met de tekst van de tweet. In een enterprise-voorbeeld, kan u de naam van uw bedrijf zoeken en een SQL-database bijwerken met de tekst van de tweet.
+1. Kies een pad: 
 
-1. Voer *twitter* in het zoekvak op de ontwerpfunctie van logic apps selecteert u vervolgens de **Twitter - wanneer een nieuwe tweet wordt teruggepost** trigger   
-   ![Twitter triggerafbeelding 1](./media/connectors-create-api-twitter/trigger-1.png)  
-2. Voer *#Seattle* in de **zoektekst** besturingselement  
-   ![Afbeelding van de trigger Twitter 2](./media/connectors-create-api-twitter/trigger-2.png) 
+   * Typ 'twitter' als filter voor lege, logische apps, in het zoekvak. 
+   Selecteer de gewenste trigger onder de lijst met triggers. 
 
-Op dit moment is uw logische app geconfigureerd met een trigger die een uitvoering van de andere triggers en acties in de werkstroom wordt gestart. 
+     -of-
 
-> [!NOTE]
-> Voor een logische app wilt gebruiken, moet er ten minste één trigger en één actie bevatten. Gebruik de stappen in de volgende sectie voor een actie toevoegen.
+   * Voor bestaande logische apps: 
+   
+     * Kies onder de laatste stap waar u een actie toevoegen, **nieuwe stap**. 
 
-## <a name="add-a-condition"></a>Een voorwaarde toevoegen
-We bent alleen geïnteresseerd in tweets van gebruikers met meer dan 50 gebruikers. Dus is een voorwaarde waarmee wordt bevestigd het aantal pc-gebruikers dat eerst toegevoegd aan de logische app.  
+       -of-
 
-1. Selecteer **+ een nieuwe stap** om toe te voegen van de actie die u uitvoeren wilt wanneer #Seattle in een nieuwe tweet wordt gevonden  
-   ![Afbeelding 1 Twitter](../../includes/media/connectors-create-api-twitter/action-1.png)  
-2. Selecteer de **een voorwaarde toevoegen** koppeling.  
-   ![Twitter voorwaarde afbeelding 1](../../includes/media/connectors-create-api-twitter/condition-1.png)   
-   Hiermee opent u de **voorwaarde** besturingselement waarin kunt u voorwaarden zoals controleren *gelijk is aan*, *is minder dan*, *is groter dan*, *bevat*, enzovoort.  
-   ![Afbeelding van de voorwaarde Twitter 2](../../includes/media/connectors-create-api-twitter/condition-2.png)   
-3. Selecteer de **kiest u een waarde** besturingselement. In dit besturingselement, kunt u een of meer van de eigenschappen van de vorige acties of triggers selecteren. De voorwaarde van de waarde van deze eigenschap wordt geëvalueerd als waar of ONWAAR.
-   ![Twitter voorwaarde afbeelding 3](../../includes/media/connectors-create-api-twitter/condition-3.png)   
-4. Selecteer de **...**  uitbreiden van de lijst met eigenschappen, zodat u kunt zien dat alle eigenschappen die beschikbaar zijn.        
-   ![Twitter voorwaarde afbeelding 4](../../includes/media/connectors-create-api-twitter/condition-4.png)   
-5. Selecteer de **pc-gebruikers aantal** eigenschap.    
-   ![Twitter voorwaarde afbeelding 5](../../includes/media/connectors-create-api-twitter/condition-5.png)   
-6. Let op de pc-gebruikers count-eigenschap is nu in het besturingselement waarde.    
-   ![Twitter voorwaarde afbeelding 6](../../includes/media/connectors-create-api-twitter/condition-6.png)   
-7. Selecteer **is groter dan** uit de lijst operators.    
-   ![Twitter voorwaarde afbeelding 7](../../includes/media/connectors-create-api-twitter/condition-7.png)   
-8. 50 invoeren als de operand voor de *is groter dan* operator.  
-   De voorwaarde is nu toegevoegd. Sla uw werk met de **opslaan** koppeling in het menu.    
-   ![Twitter voorwaarde afbeelding 8](../../includes/media/connectors-create-api-twitter/condition-8.png)   
+     * Tussen de stappen waar u een actie toevoegen, de aanwijzer over de pijl tussen fasen. 
+     Kies het plusteken (**+**) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
+     
+       Typ 'twitter' als filter in het zoekvak. 
+       Selecteer de actie die u wilt onder de lijst met acties.
 
-## <a name="use-a-twitter-action"></a>Gebruik een Twitter-actie
-Een actie is een bewerking uitgevoerd door de werkstroom die is gedefinieerd in een logische app. [Meer informatie over acties](../logic-apps/logic-apps-overview.md#logic-app-concepts).  
+1. Als u wordt gevraagd of u aanmelden bij Twitter, meld u nu, zodat u toegang voor uw logische app verlenen kunt.
 
-Nu dat er een trigger is, een actie die een nieuwe tweet met de inhoud van de tweets gevonden door de trigger toevoegen. Voor deze procedure worden alleen tweets van gebruikers met meer dan 50 pc-gebruikers geplaatst.  
+1. Geef de benodigde informatie voor uw geselecteerde trigger of actie en doorgaan met het ontwikkelen van uw logische app-werkstroom.
 
-In de volgende stap de Twitter actie die een tweet gebruikmakend van de eigenschappen van elke tweet die wordt gepost door een gebruiker met meer dan 50 pc-gebruikers toevoegen.  
+## <a name="examples"></a>Voorbeelden
 
-1. Selecteer **een actie toevoegen**. Deze stap wordt de zoekbesturing waar u naar andere acties en triggers zoeken kunt geopend.  
-   ![Twitter voorwaarde afbeelding 9](../../includes/media/connectors-create-api-twitter/condition-9.png)   
-2. Voer *twitter* in het zoekvak selecteert de **Twitter - een tweet boeken** in te grijpen. Hiermee opent u deze stap de **een tweet boeken** beheren waarin u alle gegevens invoeren voor de tweet wordt geplaatst.      
-   ![Actie afbeelding 1-5 Twitter](../../includes/media/connectors-create-api-twitter/action-1-5.png)   
-3. Selecteer de **Tweet tekst** besturingselement. Alle uitvoerwaarden van de vorige acties en triggers in de logische app worden nu weergegeven. U kunt een van deze uitvoer selecteren en ze als onderdeel van de tekst tweet van de nieuwe tweet gebruiken.     
-   ![Afbeelding 2 Twitter](../../includes/media/connectors-create-api-twitter/action-2.png)   
-4. Selecteer **gebruikersnaam**   
-5. Onmiddellijk na de gebruikersnaam, voer *zegt:* in het tekstvak tweet.
-6. Selecteer *Tweet tekst*.       
-   ![Afbeelding 3 Twitter](../../includes/media/connectors-create-api-twitter/action-3.png)   
-7. De workflow activeert, sla uw werk en een tweet met de hashtag #Seattle wordt verzonden.
+### <a name="twitter-trigger-when-a-new-tweet-is-posted"></a>Twitter-trigger: wanneer een nieuwe tweet wordt geplaatst
 
+Deze trigger start een werkstroom voor logische Apps wanneer de trigger wordt een nieuwe tweet bijvoorbeeld gedetecteerd met de hashtag, #Seattle. Wanneer deze tweets worden gevonden, kunt u bijvoorbeeld een bestand met de tweets inhoud toevoegen aan opslag, zoals een Dropbox-account met behulp van de Dropbox-connector. 
 
-## <a name="connector-specific-details"></a>Connector-specifieke details
+U kunt eventueel een voorwaarde die in aanmerking komende tweets afkomstig van gebruikers met ten minste een opgegeven aantal Volgers zijn moeten opnemen.
 
-Alle triggers en acties die zijn gedefinieerd in de swagger bekijken en ziet u ook de beperkingen in de [connector details](/connectors/twitterconnector/). 
+**Voorbeeld van de onderneming**: U kunt deze trigger gebruiken om te controleren van tweets over uw bedrijf en de tweets inhoud uploaden naar een SQL-database.
+
+### <a name="twitter-action-post-a-tweet"></a>Twitter-actie: een tweet plaatsen
+
+Deze actie een tweet geplaatst, maar u kunt de actie instellen zodat de tweet de inhoud van de tweets die door de eerder beschreven trigger is gevonden bevat. 
+
+## <a name="connector-reference"></a>Connector-verwijzing
+
+Voor technische informatie over triggers en acties limieten die worden beschreven van de connector openapi (voorheen Swagger) beschrijving van de connector controleren [-verwijzingspagina](/connectors/twitterconnector/).
+
+## <a name="get-support"></a>Ondersteuning vragen
+
+* Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
+* Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](http://aka.ms/logicapps-wish).
 
 ## <a name="next-steps"></a>Volgende stappen
-[Een logische app maken](../logic-apps/quickstart-create-first-logic-app-workflow.md)
+
+* Meer informatie over andere [Logic Apps-connectors](../connectors/apis-list.md)

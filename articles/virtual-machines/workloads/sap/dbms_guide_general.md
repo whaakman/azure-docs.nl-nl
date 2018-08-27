@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fdf5685ad8072175bdabf8938ef293bed6f5cc13
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39076151"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918798"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -198,7 +198,7 @@ Voor Azure Standard-opslag zijn de mogelijke cache-typen:
 
 * Geen
 * Lezen
-* Lezen/schrijven
+* Lezen/Schrijven
 
 Om consistente en deterministisch prestaties, moet u instellen de cache op Azure Standard-opslag voor alle schijven met **DBMS-gerelateerde gegevensbestanden, bestanden log/opnieuw en ruimte voor tabel 'NONE'**. Het in cache plaatsen van de base VHD kan blijven met de standaardinstellingen.
 
@@ -263,7 +263,7 @@ De manier voor het instellen van Beschikbaarheidssets van Azure wordt geïllustr
 
 
 ## <a name="azure-network-considerations"></a>Azure aandachtspunten voor netwerken 
-Bij grootschalige implementaties voor SAP, aanbeveling is dat u van de blauwdruk van gebruikmaakt [Azure Virtual Datacenter](https://docs.microsoft.com/azure/networking/networking-virtual-datacenter) voor de VNet-configuratie en machtigingen en rollen toewijzingen met verschillende onderdelen van hun organisatie.
+Bij grootschalige implementaties voor SAP, aanbeveling is dat u van de blauwdruk van gebruikmaakt [Azure Virtual Datacenter](https://docs.microsoft.com/azure/architecture/vdc/networking-virtual-datacenter) voor de VNet-configuratie en machtigingen en rollen toewijzingen met verschillende onderdelen van hun organisatie.
 
 Er zijn enkele aanbevolen procedures, heeft geleid uit honderden implementaties van klanten tot:
 
@@ -325,10 +325,10 @@ Raadpleeg voor de details met betrekking tot implementatie van onderdelen die ho
 ## <a name="next-steps"></a>Volgende stappen
 Voor documentatie over bepaalde DBMS-systemen, moet u deze artikelen:
 
-- [SQL Server Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_sqlserver.md)
-- [Oracle Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_oracle.md)
-- [IBM DB2 Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_ibm.md)
-- [SAP ASE Azure virtuele Machines DBMS-implementatie voor de werkbelasting van SAP](dbms_guide_sapase.md)
+- [DBMS-implementatie voor SAP-werkbelasting in virtuele Azure-machines voor SQL Server](dbms_guide_sqlserver.md)
+- [DBMS-implementatie voor SAP-werkbelasting in virtuele Azure-machines voor Oracle](dbms_guide_oracle.md)
+- [DBMS-implementatie voor SAP-werkbelasting in virtuele Azure-machines voor IBM DB2](dbms_guide_ibm.md)
+- [DBMS-implementatie voor SAP-werkbelasting in virtuele Azure-machines voor SAP ASE](dbms_guide_sapase.md)
 - [SAP maxDB, Live Cache en implementatie van de Server voor webinhoud op Azure](dbms_guide_maxdb.md)
 - [Bedieningsgids voor SAP HANA op Azure](hana-vm-operations.md)
 - [SAP HANA met hoge beschikbaarheid voor Azure virtual machines](sap-hana-availability-overview.md)

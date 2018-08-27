@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: fd1e10239d63417a21eb6f76017539ec0d447258
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 44b4da7c293da0643fb88cc2de21433c6ea72c5c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224799"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886401"
 ---
 # <a name="back-up-your-app-in-azure"></a>Back-up maken van uw app in Azure
 De functie back-up en herstel in [Azure App Service](app-service-web-overview.md) kunt u eenvoudig back-ups maken, handmatig of volgens een schema. U kunt de app op een momentopname van een eerdere status herstellen door overschrijft de bestaande app of het herstellen naar een andere app. 
@@ -55,6 +55,7 @@ De volgende databaseoplossingen worden ondersteund door back-up:
 * Back-ups mag maximaal 10 GB-app en database-inhoud. Als de back-upgrootte deze limiet overschrijdt, krijgt u een fout.
 * Back-ups van SSL ingeschakeld Azure Database voor MySQL wordt niet ondersteund. Als een back-up is geconfigureerd, wordt er mislukte back-ups.
 * Back-ups van SSL ingeschakeld Azure Database voor PostgreSQL wordt niet ondersteund. Als een back-up is geconfigureerd, wordt er mislukte back-ups.
+* In-app MySQL-databases worden automatisch back-ups zonder configuratie. Als u handmatig de instellingen voor in-app-MySQL-databases, zoals het toevoegen van tekenreeksen voor databaseverbindingen, werkt de back-ups mogelijk niet correct.
 * Storage-account met behulp van een firewall worden ingeschakeld als de bestemming voor uw back-ups wordt niet ondersteund. Als een back-up is geconfigureerd, wordt er mislukte back-ups.
 
 
@@ -85,7 +86,9 @@ De volgende databaseoplossingen worden ondersteund door back-up:
     ![Opslagaccount kiezen](./media/web-sites-backup/03ConfigureDatabase1.png)
    
    > [!NOTE]
-   > Voor een database in deze lijst wordt weergegeven, de verbindingsreeks moet aanwezig zijn in de **verbindingsreeksen** sectie van de **toepassingsinstellingen** pagina voor uw app.
+   > Voor een database in deze lijst wordt weergegeven, de verbindingsreeks moet aanwezig zijn in de **verbindingsreeksen** sectie van de **toepassingsinstellingen** pagina voor uw app. 
+   >
+   > In-app MySQL-databases worden automatisch back-ups zonder configuratie. Als u handmatig de instellingen voor in-app-MySQL-databases, zoals het toevoegen van tekenreeksen voor databaseverbindingen, werkt de back-ups mogelijk niet correct.
    > 
    > 
 6. In de **back-upconfiguratie** pagina, klikt u op **opslaan**.    

@@ -11,32 +11,32 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/30/2018
+ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: e669fb5da0e3fd3c6a14ffed5cbdf80b8a4d9590
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: e63d798c24159777711c9cdd765e40b44826a530
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390718"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888726"
 ---
 # <a name="azure-disk-encryption-troubleshooting-guide"></a>Probleemoplossingsgids voor Azure Disk Encryption
 
-Deze handleiding is bedoeld voor IT-specialisten, informatiebeveiligingsanalisten en cloudbeheerders die willen Azure Disk Encryption gebruiken. Dit artikel is bedoeld als richtlijn voor het oplossen van schijf-versleuteling-gerelateerde problemen.
+Deze handleiding is bedoeld voor IT-specialisten, informatiebeveiligingsanalisten en cloudbeheerders die willen Azure Disk Encryption gebruiken. Dit artikel is om te helpen bij het oplossen van schijf-versleuteling-gerelateerde problemen.
 
 ## <a name="troubleshooting-linux-os-disk-encryption"></a>Oplossen van problemen met schijfversleuteling van Linux-besturingssysteem
 
 Schijfversleuteling voor Linux-besturingssysteem (OS) moet de besturingssysteemschijf voordat het wordt uitgevoerd via het versleutelingsproces volledige schijf ontkoppelen. Als de schijf, een foutbericht van deze kan niet ontkoppelen ' kan niet ontkoppelen na... ' waarschijnlijk optreedt.
 
-Deze fout kan optreden als de OS-schijfversleuteling is geprobeerd op een omgeving met doel-VM's die is gewijzigd van de ondersteunde aandelen galerijafbeelding. Voorbeelden van afwijkingen van de installatiekopie van het ondersteunde dat leiden tot met de mogelijkheid van de extensie problemen kan ontkoppelen van de besturingssysteemschijf zijn de volgende redenen:
+Deze fout kan optreden als de OS-schijfversleuteling is geprobeerd op een omgeving met doel-VM's die is gewijzigd van de ondersteunde aandelen galerijafbeelding. Afwijkingen van de installatiekopie van het ondersteunde kunnen leiden tot problemen met de mogelijkheid van de extensie ontkoppelen van de besturingssysteemschijf. Voorbeelden van afwijkingen kunnen de volgende items zijn:
 - Aangepaste installatiekopieën is niet meer overeen met een ondersteund bestandssysteem of het partitieschema.
-- Grote toepassingen zoals SAP, MongoDB, Apache Cassandra en Docker worden niet ondersteund wanneer ze geïnstalleerd en worden uitgevoerd in het besturingssysteem vóór de versleuteling zijn. Azure Disk Encryption is niet afgesloten deze processen veilig zoals vereist ter voorbereiding van de besturingssysteemschijf voor schijfversleuteling. Als er nog steeds actieve processen bestandsingangen openen om de besturingssysteemschijf te houden, is de besturingssysteemschijf kan niet worden ontkoppeld, wat resulteert in een fout opgetreden bij het versleutelen van de besturingssysteemschijf. 
+- Grote toepassingen zoals SAP, MongoDB, Apache Cassandra en Docker worden niet ondersteund wanneer ze geïnstalleerd en worden uitgevoerd in het besturingssysteem voor versleuteling zijn. Azure Disk Encryption is niet afgesloten deze processen veilig zoals vereist ter voorbereiding van de besturingssysteemschijf voor schijfversleuteling. Als er nog steeds actieve processen bestandsingangen openen om de besturingssysteemschijf te houden, is de besturingssysteemschijf kan niet worden ontkoppeld, wat resulteert in een fout opgetreden bij het versleutelen van de besturingssysteemschijf. 
 - Aangepaste scripts die worden uitgevoerd in de buurt sluiten tijd aan de versleuteling wordt ingeschakeld, of als een andere wijzigingen worden aangebracht op de virtuele machine tijdens het versleutelingsproces. Dit conflict kan gebeuren als u een Azure Resource Manager-sjabloon definieert meerdere extensies voor het gelijktijdig uitvoeren of als een extensie voor aangepaste scripts of een andere actie wordt gelijktijdig naar schijfversleuteling. Tijdens het serialiseren en te isoleren van deze stappen kunnen los het probleem.
-- Security Enhanced Linux (SELinux) is niet uitgeschakeld voordat het inschakelen van versleuteling, zodat de stap ontkoppelen is mislukt. SELinux kan worden ingeschakeld nadat de codering is voltooid.
-- De besturingssysteemschijf maakt gebruik van een schema logische Volume Manager (LVM). Hoewel beperkte LVM gegevens schijfondersteuning beschikbaar is, is niet een LVM besturingssysteemschijf.
-- Niet voldaan aan minimale geheugenvereisten (7 GB wordt aanbevolen voor versleuteling van de OS-schijf).
+- Security Enhanced Linux (SELinux) nog niet zijn uitgeschakeld voordat u de versleuteling, is ingeschakeld, zodat de stap ontkoppelen is mislukt. SELinux kan worden ingeschakeld nadat de codering is voltooid.
+- De besturingssysteemschijf maakt gebruik van een schema logische Volume Manager (LVM). Hoewel beperkte LVM gegevens schijfondersteuning beschikbaar is, is er een besturingssysteemschijf LVM niet.
+- Aan de minimale geheugenvereisten niet worden voldaan (7 GB wordt aanbevolen voor versleuteling van de OS-schijf).
 - Schijven worden recursief gekoppeld onder de map /mnt/ of elke andere (bijvoorbeeld /mnt/data1, /mnt/data2, /data3 + /data3/data4).
-- Andere Azure Disk Encryption [vereisten](azure-security-disk-encryption-prerequisites.md) voor Linux is niet voldaan.
+- Andere Azure Disk Encryption [vereisten](azure-security-disk-encryption-prerequisites.md) voor Linux worden niet voldaan.
 
 ## <a name="unable-to-encrypt"></a>Kan niet worden versleuteld
 
@@ -64,7 +64,7 @@ ProgressMessage            : OS disk successfully encrypted, please reboot the V
 Nadat u wordt gevraagd naar de virtuele machine opnieuw opstarten en nadat de virtuele machine opnieuw is opgestart, moet u wachten 2-3 minuten voor het opnieuw opstarten en de laatste stappen voor het doel moet worden uitgevoerd. Het bericht gewijzigd wanneer de codering ten slotte is voltooid. Nadat dit bericht beschikbaar is, wordt verwacht dat het versleutelde station met besturingssysteem klaar voor gebruik en de virtuele machine is gereed om te worden gebruikt.
 
 U wordt aangeraden dat u de virtuele machine terug naar de momentopname- of back-up direct vóór de versleuteling wilt herstellen in de volgende gevallen:
-   - Als het opnieuw opstarten van de takenreeks beschreven eerder niet is gebeurd.
+   - Als de takenreeks opnieuw opstarten, hierboven, niet het geval.
    - Als u de opstartgegevens, voortgangsbericht of andere foutindicatoren dat versleuteling-besturingssysteem rapporteren is in het midden van dit proces mislukt. Een voorbeeld van een bericht is de fout "het ontkoppelen is mislukt", die in deze handleiding wordt beschreven.
 
 Evalueer de kenmerken van de virtuele machine en zorg ervoor dat aan alle vereisten wordt voldaan voordat u de volgende poging.
@@ -80,7 +80,7 @@ De virtuele machine moet toegang hebben tot een key vault. Raadpleeg de richtlij
 
 ### <a name="linux-package-management-behind-a-firewall"></a>Linux-Pakketbeheer achter een firewall
 
-Tijdens runtime, is Azure Disk Encryption voor Linux is afhankelijk van de doel-distributie pakketbeheersysteem voor het installeren van vereiste componenten van de benodigde voordat versleuteling werd ingeschakeld. Als de firewall-instellingen te voorkomen de virtuele machine kunnen deze onderdelen te downloaden en installeren dat, worden klikt u vervolgens opeenvolgende fouten verwacht. De stappen voor het configureren van deze pakketbeheersysteem kunnen per distributie verschillen. Red Hat, wanneer een proxy vereist is, moet u zorgen dat de abonnement-manager en yum zijn juist ingesteld. Zie voor meer informatie, [het oplossen van problemen met abonnement-manager en yum](https://access.redhat.com/solutions/189533).  
+Tijdens runtime, is Azure Disk Encryption voor Linux afhankelijk van de doel-distributie pakketbeheersysteem benodigde vereiste componenten installeren voordat het inschakelen van versleuteling. Als de firewall-instellingen te voorkomen de virtuele machine kunnen deze onderdelen te downloaden en installeren dat, worden klikt u vervolgens opeenvolgende fouten verwacht. De stappen voor het configureren van deze pakketbeheersysteem kunnen per distributie verschillen. Red Hat, wanneer er een proxy is vereist, moet u ervoor zorgen dat de abonnement-manager en yum zijn juist ingesteld. Zie voor meer informatie, [het oplossen van problemen met abonnement-manager en yum](https://access.redhat.com/solutions/189533).  
 
 
 ## <a name="troubleshooting-windows-server-2016-server-core"></a>Het oplossen van Windows Server 2016 Server Core
@@ -117,14 +117,14 @@ DISKPART> list vol
   Volume 1                      NTFS   Partition    550 MB  Healthy    System
   Volume 2     D   Temporary S  NTFS   Partition     13 GB  Healthy    Pagefile
 ```
-## <a name="troubleshooting-encryption-status"></a>Versleutelingsstatus van probleemoplossing
+<!-- ## Troubleshooting encryption status
 
-Als de status van de verwachte versleuteling komt niet overeen met wat in de portal wordt gerapporteerd, raadpleegt u het volgende ondersteuningsartikel: [versleutelingsstatus ten onrechte wordt weergegeven op de Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por)
+If the expected encryption state does not match what is being reported in the portal, see the following support article:
+[Encryption status is displayed incorrectly on the Azure Management Portal](https://support.microsoft.com/en-us/help/4058377/encryption-status-is-displayed-incorrectly-on-the-azure-management-por) --> 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 In dit document hebt u geleerd informatie over enkele veelvoorkomende problemen in Azure Disk Encryption en hoe deze problemen op te lossen. Zie voor meer informatie over deze service en de mogelijkheden ervan, de volgende artikelen:
 
 - [Schijfversleuteling in Azure Security Center toepassen](../security-center/security-center-apply-disk-encryption.md)
-- [Een virtuele machine van Azure versleutelen](../security-center/security-center-disk-encryption.md)
 - [Azure gegevensversleuteling in rust](azure-security-encryption-atrest.md)

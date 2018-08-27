@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/26/2018
 ms.author: daveba
-ms.openlocfilehash: 70a8c9018cdc2929abc85336211beecf82bf32cb
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: a6241c105019f04df09080a89e8fe3b77b5f9385
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188043"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888760"
 ---
 # <a name="create-list-or-delete-a-user-assigned-identity-using-rest-api-calls"></a>Maken, weergeven of verwijderen van een gebruiker toegewezen identiteit met behulp van REST-API aanroepen
 
@@ -29,12 +29,12 @@ Beheerde identiteit biedt Azure-services de mogelijkheid om te verifiëren met s
 
 In dit artikel leert u hoe u te maken, weergeven, verwijderen van een gebruiker toegewezen beheerde identiteit met CURL REST-API-aanroepen.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 - Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md). **Lees de [verschil tussen een systeem toegewezen en een gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
 - Als u Windows gebruikt, installeert u de [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about) of gebruik de [Azure Cloud Shell](../../cloud-shell/overview.md) in Azure portal.
-- Als u de [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about) of een [Linux-distributie](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [installeren van de Azure CLI lokale console](/azure/install-azure-cli).
+- Als u de [Windows-subsysteem voor Linux](https://msdn.microsoft.com/commandline/wsl/about) of een [Linux-distributie](/cli/azure/install-azure-cli-apt?view=azure-cli-latest), [installeren van de Azure CLI lokale console](/cli/azure/install-azure-cli).
 - Als u van Azure CLI lokale console gebruikmaakt, aanmelden bij Azure met `az login` met een account dat is gekoppeld aan het Azure-abonnement u wilt implementeren of op te halen toegewezen gebruiker gegevens van beheerde identiteit.
 - Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de volgende roltoewijzingen:
     - [Beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) (lijst) rol te maken, lezen, bijwerken en verwijderen van de identiteit van een gebruiker toegewezen.

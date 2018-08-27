@@ -1,6 +1,6 @@
 ---
-title: Zoeken op het web SDK C# Quick Start | Microsoft Docs
-description: Setup voor zoeken op het Web SDK C#-consoletoepassing.
+title: 'Snelstartgids: De Bing webzoekopdrachten SDK voor C# gebruiken'
+description: Instellingen voor zoeken op het Web SDK-C#-consoletoepassing.
 titleSuffix: Azure cognitive services Web search SDK C# quickstart
 services: cognitive-services
 author: mikedodaro
@@ -8,24 +8,24 @@ manager: rosh
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
-ms.date: 01/29/2018
-ms.author: v-gedod
-ms.openlocfilehash: 6d87b292475edff04e930ec4aa2f8e077a0fb82c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 08/16/2018
+ms.author: v-gedod, erhopf
+ms.openlocfilehash: ef54487a1df7303fa92a78e4f3219f40f558da2b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345714"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42887316"
 ---
-# <a name="web-search-sdk-c-quickstart"></a>Web Search SDK C# Quick Start
+# <a name="quickstart-use-the-bing-web-search-sdk-for-c"></a>Snelstartgids: De Bing webzoekopdrachten SDK voor C# gebruiken
 
 De Bing Web Search SDK bevat de functionaliteit van de REST-API voor webaanvragen en parseren resultaten.
 
-De [broncode voor voorbeelden van C# Bing Web Search SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs) beschikbaar is op de Git-Hub.
+De [broncode voor C# Bing Web Search SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/blob/master/BingSearchv7/BingWebSearch/WebSearchSamples.cs) is beschikbaar op GitHub.
 
 ## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
 
-Als u een consoletoepassing met de Bing Web Search SDK instelt, blader naar de `Manage NuGet Packages` optie in Solution Explorer in Visual Studio.  Voeg de `Microsoft.Azure.CognitiveServices.Search.WebSearch` pakket.
+Als u een consoletoepassing met behulp van de Bing Web Search SDK instelt, blader naar de `Manage NuGet Packages` optie vanuit de Solution Explorer in Visual Studio.  Voeg de `Microsoft.Azure.CognitiveServices.Search.WebSearch` pakket.
 
 Installeren van de [NuGet Web Search SDK-pakket](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.WebSearch/1.2.0) installeert ook afhankelijkheden, met inbegrip van:
 * Microsoft.Rest.ClientRuntime
@@ -33,7 +33,7 @@ Installeren van de [NuGet Web Search SDK-pakket](https://www.nuget.org/packages/
 * Newtonsoft.Json
 
 ## <a name="web-search-client"></a>WebClient zoeken
-Maken van een exemplaar van de `WebSearchAPI` -client toevoegen met behulp van instructies:
+Het maken van een exemplaar van de `WebSearchAPI` client using-instructies toevoegen:
 ```
 using Microsoft.Azure.CognitiveServices.Search.WebSearch;
 using Microsoft.Azure.CognitiveServices.Search.WebSearch.Models;
@@ -52,7 +52,7 @@ var webData = client.Web.Search(query: "Yosemite National Park");
 Console.WriteLine("Searched for Query# \" Yosemite National Park \"");
 
 ```
-Parseren van de webpagina's in de resultaten van de vorige query zijn geretourneerd:
+Parseren van de webpagina's die worden geretourneerd in de resultaten van de vorige query:
 ```
 //WebPages
 if (webData?.WebPages?.Value?.Count > 0)
@@ -77,9 +77,9 @@ else
 }
 
 ```
-## <a name="complete-console-application"></a>Volledige consoletoepassing
+## <a name="complete-console-application"></a>Volledige-consoletoepassing
 
-De volgende consoletoepassing wordt de eerder gedefinieerde query uitgevoerd en wordt geparseerd webpagina's, afbeeldingen, nieuws en video's die zijn opgenomen in de resultaten:
+De volgende consoletoepassing, wordt de eerder gedefinieerde query uitgevoerd en webpagina's, afbeeldingen, nieuws en video's die zijn opgenomen in de resultaten worden geparseerd:
 ```
 using System;
 using System.Collections.Generic;
@@ -213,11 +213,11 @@ namespace WebSrchSDK
 
 ```
 
-Bing zoeken-voorbeelden laten zien dat verschillende functies van de SDK.  De volgende functies toevoegen aan het eerder gedefinieerde `WebSrchSDK` klasse.
+De Bing zoeken-voorbeelden laten zien dat verschillende functies van de SDK.  Voeg de volgende functies toe aan de eerder gedefinieerde `WebSrchSDK` klasse.
 
-## <a name="count-and-offset-parameters"></a>Aantal en de offset parameters
+## <a name="count-and-offset-parameters"></a>Aantal en de verschuiving van de parameters
 
-De volgende code wordt gezocht naar "Best restaurant in Seattle", controleert of het aantal resultaten en wordt de naam en de URL van het eerste resultaat afgedrukt.
+De volgende code wordt gezocht naar 'Beste restaurants in Seattle', controleert of het aantal resultaten en naam en de URL van het eerste resultaat afgedrukt.
 
 ```
        public static void WebResultsWithCountAndOffset(WebSearchAPI client)
@@ -257,7 +257,7 @@ De volgende code wordt gezocht naar "Best restaurant in Seattle", controleert of
 ```
 ## <a name="response-filter"></a>Antwoordfilter
 
-De volgende query zoekt de term 'Microsoft' met een antwoordfilter is ingesteld op `news` details van de resultaten worden afgedrukt.
+De volgende query zoekt de term 'Microsoft', met behulp van een reactie filter ingesteld op `news` en details van de resultaten vervolgens af te drukken.
 ```
         public static void WebSearchWithResponseFilter(WebSearchAPI client)
         {
@@ -299,9 +299,9 @@ De volgende query zoekt de term 'Microsoft' met een antwoordfilter is ingesteld 
         }
 
 ```
-## <a name="query-parameters---count-promotion-safe-search"></a>Queryparameters - aantal, promotie, veilig zoeken
+## <a name="query-parameters---count-promotion-safe-search"></a>Queryparameters - aantal, de promotie, veilig zoeken
 
-Deze query is 'Cora Gaga', zoekacties met `answerCount` en `promote` parameters details van de resultaten vervolgens afgedrukt.
+Deze query, 'Cora Gaga', wordt gezocht met behulp van `answerCount` en `promote` parameters vervolgens details van de resultaten worden afgedrukt.
 
 ```
         public static void WebSearchWithAnswerCountPromoteAndSafeSearch(WebSearchAPI client)
@@ -344,4 +344,4 @@ Deze query is 'Cora Gaga', zoekacties met `answerCount` en `promote` parameters 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve services .NET SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Cognitive services SDK voor .NET-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

@@ -11,11 +11,11 @@ ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
 ms.openlocfilehash: c5d0bc6a0e7e885f61ba28be0575697b03fece09
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480704"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917139"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack-datacenter-integratie - eindpunten publiceren
 Azure Stack, stelt u virtuele IP-adressen (VIP's) voor de functies van de infrastructuur. Deze VIP's worden toegewezen uit het openbare IP-adresgroep. Elke VIP is beveiligd met een toegangsbeheerlijst (ACL) in de software-defined network-laag. ACL's worden ook gebruikt voor de fysieke switches (tors filteren en BMC) voor het verder beperken van de oplossing. Een DNS-vermelding wordt voor elk eindpunt in de externe DNS-zone die tijdens de implementatie opgegeven gemaakt.
@@ -42,7 +42,7 @@ Interne infrastructuur voor VIP's worden niet weergegeven omdat ze niet vereist 
 |Azure Resource Manager (beheerder)|Adminmanagement.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
 |Portal (gebruiker)|Portal.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>12495<br>12649<br>13001<br>13010<br>13011<br>13012<br>13020<br>13021<br>30015<br>13003|
 |Azure Resource Manager (gebruiker)|Management.*&lt;region>.&lt;fqdn>*|HTTPS|443<br>30024|
-|Graph|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
+|Grafiek|Graph.*&lt;region>.&lt;fqdn>*|HTTPS|443|
 |Certificaatintrekkingslijst|Crl.*&lt;region>.&lt;fqdn>*|HTTP|80|
 |DNS|&#42;.*&lt;region>.&lt;fqdn>*|TCP EN UDP|53|
 |Key Vault (gebruiker)|&#42;.vault.*&lt;region>.&lt;fqdn>*|HTTPS|443|
