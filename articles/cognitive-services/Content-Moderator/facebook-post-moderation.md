@@ -9,12 +9,12 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 09/18/2017
 ms.author: sajagtap
-ms.openlocfilehash: 4570b514bef33c8dfa6d220ee4cd88ad068ba4d0
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 66caea65c21bb1f8bb6efa9b50c917599bb71e2f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41994383"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093974"
 ---
 # <a name="facebook-content-moderation-with-content-moderator"></a>Facebook-inhoudstoezicht met Content Moderator
 
@@ -67,7 +67,7 @@ Aanmelden bij de [Azure Management Portal](https://portal.azure.com/) om uw Azur
 | App-instelling | Beschrijving   | 
 | -------------------- |-------------|
 | cm:TeamId   | Uw TeamId Content Moderator  | 
-| cm:SubscriptionKey | Uw abonnementssleutel Content Moderator - Zie [referenties](/review-tool-user-guide/credentials.md) | 
+| cm:SubscriptionKey | Uw abonnementssleutel Content Moderator - Zie [referenties](review-tool-user-guide/credentials.md) | 
 | cm:Region | Uw Content Moderator regionaam, zonder de spaties. Zie de vorige opmerking. |
 | cm:ImageWorkflow | Naam van de werkstroom om uit te voeren in afbeeldingen |
 | cm:TextWorkflow | Naam van de werkstroom om uit te voeren op tekst |

@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 45a2747a60df4d91c2fe1c5247e1d4ac82ff819f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2a5c192f231bdc75d04c78cd94838a3f341dc925
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617146"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43111055"
 ---
 # <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Rollen voor Azure-resources activeren met behulp van Privileged Identity Management
 Privileged Identity Management (PIM) introduceert een nieuwe ervaring in het activeren van rollen voor Azure-resources. Leden van een in aanmerking komende rol kunnen activeren voor een toekomstige datum en tijd plannen. Ze kunnen ook een specifieke activeringsduur binnen de maximale (geconfigureerd door beheerders) selecteren. Zie voor meer informatie, [activeren of deactiveren van rollen in Azure AD Privileged Identity Management](pim-how-to-activate-role.md).
 
-## <a name="activate-roles"></a>Rollen activeren
+## <a name="activate-a-role"></a>Een rol activeren
 Blader naar de **mijn rollen** sectie in het linkerdeelvenster. Selecteer **activeren** voor de rol die u wilt activeren.
 
 !["In aanmerking komende rollen" tabblad het deelvenster 'Mijn functies'.](media/azure-pim-resource-rbac/rbac-roles.png)
@@ -39,6 +39,19 @@ Als de activering is gepland voor een toekomstige datum en tijd, de aanvraag in 
 
 ![Lijst met openstaande aanvragen met de knoppen "Annuleren"](media/azure-pim-resource-rbac/rbac-activate-pending.png)
 
+## <a name="use-a-role-immediately-after-activation"></a>Gebruik een rol onmiddellijk na de activering
+
+Vanwege de caching, treden niet onmiddellijk activeringen op in Azure portal zonder te vernieuwen. Als u nodig hebt om te beperken van de mogelijkheid van vertragingen na het activeren van een rol, kunt u de **toegang tot toepassingen** pagina in de portal. Toepassingen die via deze pagina meteen controleren of er nieuwe roltoewijzingen.
+
+1. Open Azure AD Privileged Identity Management.
+
+1. Klik op de **toegang tot toepassingen** pagina.
+
+    ![Toegang tot PIM toepassingen - schermafbeelding](./media/pim-resource-roles-activate-your-roles/pim-application-access.png)
+
+1. Klik op **Azure-resources** opnieuw openen van de portal op de **alle resources** pagina.
+
+    Als u deze koppeling klikt, wordt u geforceerd vernieuwen en er is een controle voor nieuwe Azure-resource-roltoewijzingen.
 
 ## <a name="apply-just-enough-administration-practices"></a>Just Enough Administration-praktijken toepassen
 

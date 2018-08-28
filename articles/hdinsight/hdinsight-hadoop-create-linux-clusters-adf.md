@@ -3,18 +3,18 @@ title: 'Zelfstudie: On-demand Hadoop-clusters maken in Azure HDInsight met Data 
 description: Informatie over het maken van on-demand Hadoop-clusters in HDInsight met behulp van Azure Data Factory.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/07/2018
 ms.author: jasonh
-ms.openlocfilehash: bddcaa7eb4c5bbb699218e781df848722917ba6e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: b8a177ad2bbd463d2dcb94a01ff2a29a95d86693
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39599646"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105280"
 ---
 # <a name="tutorial-create-on-demand-hadoop-clusters-in-hdinsight-using-azure-data-factory"></a>Zelfstudie: On-demand Hadoop-clusters in HDInsight met behulp van Azure Data Factory maken
 [!INCLUDE [selector](../../includes/hdinsight-create-linux-cluster-selector.md)]
@@ -240,7 +240,7 @@ In deze sectie maakt maken u twee gekoppelde services in uw data factory.
     | Type | Selecteer **On-demand HDInsight** |
     | Een gekoppelde Azure Storage-service | Selecteer de gekoppelde Storage-service die u eerder hebt gemaakt. |
     | Clustertype | Selecteer **hadoop** |
-    | Gaat live over | Geef de duur die u het HDInsight-cluster wilt moet beschikbaar zijn voordat het wordt automatisch verwijderd.|
+    | Time To Live | Geef de duur die u het HDInsight-cluster wilt moet beschikbaar zijn voordat het wordt automatisch verwijderd.|
     | Service-principal-id | Geef de toepassings-ID van de service-principal voor Azure Active Directory die u hebt gemaakt als onderdeel van de vereisten |
     | Sleutel van service-principal | Geef de verificatiesleutel voor de Azure Active Directory service-principal |
     | Het voorvoegsel van cluster | Geef een waarde die wordt voorafgegaan aan de clustertypen die zijn gemaakt door de data factory |

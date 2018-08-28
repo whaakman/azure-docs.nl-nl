@@ -1,6 +1,6 @@
 ---
-title: Overzicht en architectuur van SAP HANA in Azure (grote exemplaren) | Microsoft Docs
-description: Overzicht van de architectuur van het SAP HANA in Azure (grote exemplaren) implementeren.
+title: Overzicht en architectuur van SAP HANA op Azure (grote instanties) | Microsoft Docs
+description: Overzicht van de architectuur van SAP HANA op Azure (grote instanties) implementeren.
 services: virtual-machines-linux
 documentationcenter: ''
 author: RicksterCDN
@@ -11,375 +11,379 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3918096a977cfd48e2128646d7c552e842ab8834
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 9d28b6ea5612a3db539c51d2603c3f12282ca519
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37063677"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090413"
 ---
-# <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Overzicht van de SAP HANA (grote exemplaren) en architectuur op Azure
+# <a name="sap-hana-large-instances-overview-and-architecture-on-azure"></a>Overzicht van de SAP HANA (grote instanties) en architectuur op Azure
 
-## <a name="what-is-sap-hana-on-azure-large-instances"></a>Wat is een SAP HANA in Azure (grote exemplaren)?
+## <a name="what-is-sap-hana-on-azure-large-instances"></a>Wat is de SAP HANA op Azure (grote instanties)?
 
-SAP HANA in Azure (grote exemplaren) is een unieke oplossing naar Azure. Naast het leveren van virtuele machines voor het implementeren en uitvoeren van SAP HANA, biedt Azure u de mogelijkheid om te worden uitgevoerd en SAP HANA implementeren op bare metal-servers die aan u zijn toegewezen. De SAP HANA in Azure (grote exemplaren)-oplossing is gebaseerd op niet-gedeelde/hostserver bare-metal hardware die aan u is toegewezen. De serverhardware is ingesloten in grotere stempels die compute/server-, netwerk- en opslaginfrastructuur bevatten. Als een combinatie is afgestemd HANA center gegevensintegratie (TDI) gecertificeerd. SAP HANA in Azure (grote exemplaren) biedt een andere server SKU's of grootten. Eenheden 36 Intel CPU-kernen en 768 GB aan geheugen en gaat u naar maximaal eenheden die tot 480 Intel CPU-kernen hebben en maximaal 24 hebben TB aan geheugen.
+SAP HANA op Azure (grote instanties) is een unieke oplossing naar Azure. Naast het leveren van virtuele machines voor het implementeren en uitvoeren van SAP HANA, biedt Azure u de mogelijkheid voor het uitvoeren en implementeren van SAP HANA op bare-metal-servers die aan u zijn toegewezen. De SAP HANA op Azure (grote instanties)-oplossing is gebaseerd op niet-gedeelde/hostserver bare-metal hardware die aan u is toegewezen. De serverhardware is ingesloten in grotere stempels met compute/server-, netwerk- en opslaginfrastructuur. Als een combinatie is HANA die zijn afgestemd center gegevensintegratie (TDI) gecertificeerd. SAP HANA op Azure (grote instanties) biedt een andere server SKU's of grootten. Eenheden kunnen hebben 36 Intel CPU-kernen en biedt 768 GB van geheugen en gaat u naar maximaal eenheden die maximaal 480 Intel CPU-kernen hebben en maximaal 24 uur per dag TB aan geheugen.
 
-De klantisolatie binnen de infrastructuur stempel moet worden uitgevoerd in tenants, ziet dat:
+De klantisolatie binnen de stempel infrastructuur wordt uitgevoerd in tenants, die lijkt op:
 
-- **Networking**: isolatie van klanten in de infrastructuur-stack via virtuele netwerken per klant toegewezen tenant. Een tenant wordt toegewezen aan één klant. Een klant kan meerdere tenants hebben. De netwerkisolatie van tenants verbiedt netwerkcommunicatie tussen de tenants op het niveau van de stempel infrastructuur, zelfs als de tenants deel uitmaken van dezelfde klant.
-- **Opslagonderdelen**: isolatie door middel van opslag virtuele machines met opslagvolumes die zijn toegewezen. Opslagvolumes kunnen worden toegewezen aan slechts één opslag virtuele machine. Een opslag virtuele machine is toegewezen aan één één tenant in de SAP HANA TDI gecertificeerde infrastructuur-stack. Als gevolg hiervan zijn opslagvolumes die zijn toegewezen aan een virtuele machine voor opslag in een specifieke en verwante-tenant alleen toegankelijk. Ze zijn niet zichtbaar zijn tussen de verschillende geïmplementeerde tenants.
-- **Server- of host**: een eenheid server- of host wordt niet gedeeld tussen klanten of tenants. Een server of de host is geïmplementeerd voor een klant, is een atomic bare-metal compute-eenheid die is toegewezen aan één voor één tenant. *Geen* hardware partitioneren of zachte partitioneren wordt gebruikt die ertoe kunnen leiden dat u het delen van een host of een server met een andere klant. Opslagvolumes die zijn toegewezen aan de opslag virtuele machine van de specifieke tenant zijn gekoppeld aan deze server. Een tenant kan een naar veel server eenheden van verschillende SKU's exclusief toegewezen hebben.
-- Binnen een SAP HANA op Azure (grote exemplaren) infrastructuur stempel, zijn veel verschillende tenants geïmplementeerd en ten opzichte van elkaar geïsoleerd door middel van de tenant-concepten van netwerken, opslag en compute-niveau. 
-
-
-Deze eenheden bare metal-server worden ondersteund voor SAP HANA alleen worden uitgevoerd. De toepassingslaag SAP of werkbelasting middleware-laag wordt uitgevoerd op virtuele machines. De stempels infrastructuur met de SAP HANA op Azure (grote exemplaren) eenheden zijn verbonden met het netwerk van Azure services wervels. Op deze manier, is lage latentie connectiviteit tussen virtuele machines en SAP HANA op Azure (grote exemplaren) eenheden opgegeven.
-
-Dit document is een van de verschillende documenten die betrekking hebben op SAP HANA in Azure (grote exemplaren). Dit document worden de basisarchitectuur, verantwoordelijkheden en services die worden geleverd door de oplossing. Op hoog niveau worden van de oplossing ook besproken. Vier andere documenten uitgelegd voor de meeste andere gebieden, zoals netwerken en verbindingen, details en inzoomen informatie. De documentatie voor SAP HANA in Azure (grote exemplaren) dekt niet aspecten van de installatie van de SAP NetWeaver of implementaties van SAP NetWeaver in virtuele machines. SAP NetWeaver in Azure wordt beschreven in afzonderlijke documenten gevonden in de container met dezelfde Azure-documentatie. 
+- **Netwerken**: isolatie van klanten in de infrastructuur-stack via virtuele netwerken per klanttenant toegewezen. Een tenant is toegewezen aan één klant. Een klant kan meerdere tenants hebben. De netwerkisolatie van tenants verbiedt netwerkcommunicatie tussen tenants op het niveau van de stempel infrastructuur, zelfs als de tenants deel uitmaken van dezelfde klant.
+- **Opslagonderdelen**: isolatie door middel van opslag virtuele machines met opslagvolumes die zijn toegewezen. Opslagvolumes die kunnen worden toegewezen aan slechts één opslag virtuele machine. Een opslag virtuele machine wordt toegewezen aan één enkele tenant in de SAP HANA TDI-gecertificeerde infrastructuur-stack. Als gevolg hiervan kunnen opslagvolumes die zijn toegewezen aan een virtuele machine voor opslag worden geopend in een specifieke en gerelateerde tenant alleen. Ze zijn niet zichtbaar zijn tussen de verschillende geïmplementeerde tenants.
+- **Server of de host**: een server of de host-eenheid niet worden gedeeld tussen klanten of tenants. Een server of de host is geïmplementeerd voor een klant, is een atomische bare metal-compute-eenheid die is toegewezen aan één enkele tenant. *Geen* hardware partitioneren of zachte partitioneren wordt gebruikt dat kan leiden tot u delen van een host of een server met een andere klant. Opslagvolumes die zijn toegewezen aan de opslag virtuele machine van de specifieke tenant zijn gekoppeld aan een dergelijke server. Een tenant kunt beschikken over een aantal eenheden van de server van verschillende SKU's exclusief toegewezen.
+- Binnen een SAP HANA op Azure (grote instanties)-infrastructuur stempel, zijn veel verschillende tenants geïmplementeerd en ten opzichte van elkaar geïsoleerd door middel van de tenant-concepten in netwerken, opslag en Computing-niveau. 
 
 
-De verschillende documenten van een grote exemplaar HANA richtlijn ingegaan op de volgende gebieden:
+Deze eenheden bare metal-server worden ondersteund voor het uitvoeren van SAP HANA alleen. De SAP-toepassingslaag of workload middleware-laag wordt uitgevoerd in virtuele machines. De stempels infrastructuur met SAP HANA op Azure (grote instanties) eenheden zijn verbonden met de Azure-netwerk services wervels. Op deze manier krijgt u connectiviteit met lage latentie tussen virtuele machines en SAP HANA op Azure (grote instanties)-eenheden.
 
-- [Overzicht van de SAP HANA (grote exemplaren) en architectuur op Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Infrastructuur voor SAP HANA (grote exemplaren) en de verbindingen van Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Installeren en configureren van SAP HANA (grote exemplaren) op Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [SAP HANA (grote exemplaren) hoge beschikbaarheid en herstel na noodgevallen in Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Probleemoplossing voor SAP HANA (grote exemplaren) en de controle op Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-- [Hoge beschikbaarheid in SUSE met behulp van de STONITH instellen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
-- [OS-back-up en herstel voor Type II SKU 's](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
+Dit document is een van verschillende documenten die betrekking hebben op SAP HANA op Azure (grote instanties). Dit document worden de basisarchitectuur, verantwoordelijkheden en services die worden geleverd door de oplossing. Op hoog niveau van de mogelijkheden van de oplossing worden ook besproken. Vier andere documenten dekking voor de meeste andere gebieden, zoals netwerk- en -connectiviteit, details en inzoomen op gegevens. De documentatie van SAP HANA op Azure (grote instanties) dekt niet aspecten van de SAP NetWeaver-installatie of implementatie van SAP NetWeaver in virtuele machines. SAP NetWeaver op Azure wordt behandeld in afzonderlijke documenten gevonden in dezelfde Azure-documentatie-container. 
+
+
+De verschillende documenten van HANA grote instantie richtlijnen omvatten de volgende gebieden:
+
+- [Overzicht van de SAP HANA (grote instanties) en architectuur op Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (grote instanties)-infrastructuur en connectiviteit in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Installeren en configureren van SAP HANA (grote instanties) op Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [SAP HANA (grote instanties) hoge beschikbaarheid en herstel na noodgeval op Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Het oplossen van SAP HANA (grote instanties) en de controle op Azure](troubleshooting-monitoring.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Hoge beschikbaarheid in SUSE is ingesteld met behulp van de stonith instellen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/ha-setup-with-stonith)
+- [OS-back-up en herstel voor SKU's Type II](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/os-backup-type-ii-skus)
 
 ## <a name="definitions"></a>Definities
 
-Verschillende gemeenschappelijke definities worden veel gebruikt in de architectuur en technische Deployment Guide. Houd rekening met de volgende termen en hun betekenis:
+Verschillende gemeenschappelijke definities worden veel gebruikt in de architectuur en technische Implementatiehandleiding. Houd rekening met de volgende voorwaarden en hun betekenis:
 
 - **IaaS**: infrastructuur als een service.
 - **PaaS**: Platform als een service.
 - **SaaS**: Software als een service.
-- **SAP-onderdeel**: een afzonderlijke SAP-toepassing, zoals ERP centrale onderdeel (ECC), Business Warehouse (BW), oplossing Manager of EP (Enterprise Portal). SAP-onderdelen kunnen worden gebaseerd op traditionele ABAP of Java-technologieën of een NetWeaver op basis van toepassing zoals zakelijke objecten.
-- **SAP-omgeving**: een of meer onderdelen voor SAP logisch zijn gegroepeerd om uit te voeren van een zakelijke functie, zoals ontwikkeling, kwaliteit zekerheid, training, herstel na noodgevallen of productie.
-- **SAP liggend**: verwijst naar de gehele SAP bedrijfsmiddelen in uw IT-Liggend. De SAP-liggend bevat alle productie en niet-productieve omgevingen.
-- **SAP-systeem**: de combinatie van laag DBMS en toepassingslaag van bijvoorbeeld een SAP ERP-ontwikkelsysteem, een testsysteem SAP BW en een productiesysteem SAP CRM. Implementaties van Azure bieden geen ondersteuning voor het delen van deze twee lagen tussen on-premises en Azure. Een SAP-systeem is geïmplementeerde on-premises of de geïmplementeerd in Azure. U kunt de verschillende systemen van een liggend SAP in Azure of on-premises implementeren. U kunt bijvoorbeeld de CRM SAP-ontwikkeling implementeren en testen van systemen in Azure, terwijl u de SAP CRM productie system on-premises implementeert. Het bedoeld om u de toepassingslaag SAP van SAP-systemen in virtuele machines en de bijbehorende SAP HANA-exemplaar op een eenheid in de SAP HANA op Azure (grote exemplaren) stempel host te voor SAP HANA in Azure (grote exemplaren).
-- **Grote exemplaar stempel**: een hardware-infrastructuur stack SAP HANA TDI gecertificeerd en toegewezen aan een SAP HANA-exemplaren in Azure uitvoeren.
-- **SAP HANA in Azure (grote exemplaren):** officiële taal voor de aanbieding in Azure uitvoeren HANA-exemplaren op SAP HANA TDI-gecertificeerde hardware die wordt geïmplementeerd in grote exemplaar stempels in verschillende Azure-regio's. De verwante term *HANA grote exemplaar* is te kort voor *SAP HANA in Azure (grote exemplaren)* en wordt veel gebruikt in deze handleiding technische implementatie.
-- **Cross-premises**: Beschrijving van een scenario waarin virtuele machines zijn geïmplementeerd met een Azure-abonnement met site-naar-site meerdere locaties of Azure ExpressRoute-verbinding tussen lokale datacenters en Azure. Gemeenschappelijk Azure-documentatie, dit soort implementaties worden ook beschreven als cross-premises scenario's. De reden voor de verbinding is om lokale domeinen, lokale Azure Active Directory/OpenLDAP en lokale DNS-uitbreiden naar Azure. De lokale Liggend wordt uitgebreid naar de Azure activa van de Azure-abonnementen. Met deze uitbreiding, kunnen de virtuele machines deel uitmaken van het lokale domein. 
+- **SAP-onderdeel**: een afzonderlijke SAP-toepassing, zoals ERP centraal onderdeel (ECC), Business Warehouse (BW), Manager van de oplossing of Enterprise-Portal (EP). SAP-onderdelen kunnen worden gebaseerd op de traditionele ABAP- of Java-technologieën of een toepassing NetWeaver op basis van zoals zakelijke objecten.
+- **SAP-omgeving**: een of meer onderdelen van SAP logisch zijn gegroepeerd om uit te voeren van een zakelijke-functie, zoals ontwikkeling, kwaliteit te waarborgen, training, herstel na noodgevallen of productie.
+- **SAP-landschap**: verwijst naar de gehele SAP-elementen in uw IT-landschap. De SAP-landschap bevat alle productie- en niet-productieomgevingen.
+- **SAP-systeem**: de combinatie van DBMS-laag en niveau van de toepassing van bijvoorbeeld een systeem voor de ontwikkeling SAP ERP, een testsysteem SAP BW en een SAP CRM productiesysteem. Azure-implementaties bieden geen ondersteuning voor het delen van deze twee lagen tussen on-premises en Azure. Een SAP-systeem is on-premises geïmplementeerd of de geïmplementeerd in Azure. U kunt de verschillende systemen van SAP-landschap dat in Azure of on-premises implementeren. U kunt bijvoorbeeld implementeren van de SAP CRM-ontwikkeling en testen van systemen in Azure, hoewel u de SAP CRM productie system on-premises implementeren. Voor SAP HANA op Azure (grote instanties), dit bedoeld dat u de SAP-toepassingslaag van SAP-systemen in virtuele machines en de bijbehorende SAP HANA-exemplaar op een eenheid in de SAP HANA op Azure (grote instanties) stempel hosten.
+- **Grote instantiestempel**: een hardware-infrastructuur-stack die SAP HANA TDI-gecertificeerde en toegewezen aan het uitvoeren van SAP HANA-instanties in Azure.
+- **SAP HANA op Azure (grote instanties):** officiële naam voor de aanbieding in Azure om uit te voeren van HANA-exemplaren in op SAP HANA TDI-gecertificeerde hardware die geïmplementeerd in grote instantie stempels in verschillende Azure-regio's. De gerelateerde term *HANA grote instantie* is te kort voor *SAP HANA op Azure (grote instanties)* en wordt veel gebruikt in deze handleiding technische implementatie.
+- **Cross-premises**: Beschrijving van een scenario waarbij virtuele machines worden geïmplementeerd naar een Azure-abonnement dat site-naar-site, meerdere sites of Azure ExpressRoute-connectiviteit tussen on-premises datacenters en Azure. In algemene Azure-documentatie en dit soort implementaties worden ook beschreven als cross-premises scenario's. De reden voor de verbinding is om de on-premises domeinen, on-premises Azure Active Directory/OpenLDAP en on-premises DNS uitbreiden naar Azure. Het on-premises-landschap is uitgebreid naar de Azure-assets van de Azure-abonnementen. Met deze uitbreiding, kunnen de virtuele machines deel uitmaken van de on-premises domein. 
 
-   Gebruikers van een domein van het lokale domein kunnen toegang tot de servers en services uitvoeren op deze VMs (zoals DBMS services). Communicatie en naamomzetting tussen VM's geïmplementeerd lokale en virtuele machines van Azure is geïmplementeerd, is mogelijk. Dit scenario is Typerend voor de manier waarop de meeste SAP-elementen zijn geïmplementeerd. Zie voor meer informatie [plannen en ontwerpen voor Azure VPN-Gateway](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) en [een virtueel netwerk met een site-naar-site-verbinding maken met behulp van de Azure-portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
-- **Tenant**: een klant die is geïmplementeerd in grote exemplaar HANA stempel opgehaald geïsoleerd in een *tenant.* Een tenant is geïsoleerd van netwerken, opslag en berekeningslaag van andere tenants. Opslag en berekeningen eenheden die zijn toegewezen aan de verschillende tenants kunnen elkaar zien of op het niveau van de stempel HANA grote exemplaar met elkaar communiceren. Een klant kunt implementaties in verschillende tenants hebben. Er is zelfs dan geen communicatie tussen de tenants op het niveau van de stempel HANA grote exemplaar.
-- **SKU-categorie**: voor HANA grote exemplaar, de volgende twee categorieën van SKU's zijn beschikbaar:
-    - **Type ik klasse**: S72, S72m S144, S144m, S192, S192m en S192xm
-    - **Typ II klasse**: S384, S384m S384xm, S384xxm, S576m, S576xm, S768m, S768xm en S960m
+   Gebruikers van een domein van de on-premises domein kunnen toegang tot de servers en services op deze VM's (zoals DBMS-services) uitvoeren. On-premises communicatie en naamomzetting tussen VM's geïmplementeerd en virtuele machines die met Azure is mogelijk. In dit scenario is normaal dat van de manier waarop de meeste SAP-activa zijn geïmplementeerd. Zie voor meer informatie, [plannen en ontwerpen voor Azure VPN-Gateway](../../../vpn-gateway/vpn-gateway-plan-design.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) en [een virtueel netwerk met een site-naar-site-verbinding maken met behulp van de Azure-portal](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- **Tenant**: een klant die is geïmplementeerd in HANA grote instantie stempel wordt geïsoleerd in een *tenant.* Een tenant wordt geïsoleerd in de netwerken, opslag en compute-laag van andere tenants. Opslag- en rekencapaciteit eenheden toegewezen aan de verschillende tenants kunnen Zie elkaar of met elkaar communiceren op het niveau van de stempel HANA grote instantie. Een klant kan ervoor kiezen implementaties in verschillende tenants. Zelfs dan is er geen communicatie tussen tenants op het niveau van de stempel HANA grote instantie.
+- **SKU-categorie**: voor HANA grote instantie, de volgende twee categorieën van SKU's worden aangeboden:
+    - **Type ik klasse**: S72, S72m, S144, S144m, S192, S192m en S192xm
+    - **Typ II klasse**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm en S960m
 
 
-Een aantal extra bronnen zijn beschikbaar op het implementeren van een SAP-workload in de cloud. Als u van plan bent om een SAP HANA-implementatie worden uitgevoerd in Azure, moet u ervaring hebt met en op de hoogte van de beginselen van Azure IaaS en de implementatie van SAP werkbelastingen op Azure IaaS. Voordat u doorgaat, Zie [gebruik SAP-oplossingen voor virtuele machines in Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie. 
+Een aantal aanvullende resources zijn beschikbaar voor het implementeren van een SAP-workload in de cloud. Als u van plan bent om uit te voeren van een implementatie van SAP HANA in Azure, moet u ervaring hebt met en op de hoogte van de beginselen van Azure IaaS en de implementatie van SAP-workloads op Azure IaaS. Voordat u doorgaat, Zie [gebruik SAP-oplossingen op Azure virtual machines](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) voor meer informatie. 
 
 ## <a name="certification"></a>Certificering
 
-Naast de certificering NetWeaver vereist SAP een speciale voor SAP HANA ondersteuning bieden voor SAP HANA op bepaalde infrastructuren, zoals Azure IaaS-certificering.
+SAP vereist naast de NetWeaver-certificering, een speciale certificering voor SAP HANA voor de ondersteuning van SAP HANA op bepaalde infrastructuur, zoals Azure IaaS.
 
-De core SAP-notitie op NetWeaver en een zekere mate SAP HANA-certificaat is [SAP-notitie #1928533 – SAP-toepassingen in Azure: ondersteunde producten en typen van de virtuele machine van Azure](https://launchpad.support.sap.com/#/notes/1928533).
+De core SAP-notitie op NetWeaver en een certificaat van de SAP HANA mate is [SAP Opmerking #1928533-SAP-toepassingen op Azure: ondersteunde producten en typen Azure VM's](https://launchpad.support.sap.com/#/notes/1928533).
 
-De certificeringsinstantie records voor SAP HANA op Azure (grote exemplaren) eenheden vindt u in de [SAP HANA gecertificeerd IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) site. 
+De CA-records voor SAP HANA op Azure (grote instanties)-eenheden kunnen u vinden in de [SAP HANA-gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) site. 
 
-De SAP HANA op typen van Azure (grote exemplaren), waarnaar in SAP HANA gecertificeerd site IaaS-Platforms, biedt Microsoft en SAP-klanten de mogelijkheid voor het implementeren van grote SAP Business Suite, SAP BW, S/4 HANA, BW/4HANA of andere werkbelastingen SAP HANA in Azure. De oplossing is gebaseerd op de SAP HANA gecertificeerde specifieke hardware stempel ([SAP HANA aangepast center gegevensintegratie – TDI](https://scn.sap.com/docs/DOC-63140)). Als u een oplossing voor SAP HANA TDI geconfigureerd uitvoert, worden alle SAP HANA-toepassingen (zoals SAP Business Suite van SAP HANA, SAP BW voor SAP HANA, S4/HANA en BW4/HANA) werkt op de hardware-infrastructuur.
+De SAP HANA op Azure (grote instanties)-typen, waarnaar in de SAP HANA-gecertificeerde site IaaS-platformen, biedt Microsoft en SAP-klanten de mogelijkheid tot het implementeren van grote SAP Business Suite, SAP BW, BW/4HANA, s/4 HANA of andere SAP HANA-workloads in Azure. De oplossing is gebaseerd op het stempel SAP HANA-gecertificeerde toegewezen hardware ([SAP HANA op maat center gegevensintegratie – TDI](https://scn.sap.com/docs/DOC-63140)). Als u een oplossing voor SAP HANA TDI-geconfigureerde uitvoert, worden alle SAP HANA-toepassingen (zoals SAP Business Suite op SAP HANA, SAP BW op HANA SAP S4/HANA en BW4/HANA) werkt op de hardware-infrastructuur.
 
-Vergeleken met de SAP HANA uitgevoerd in de virtuele machines, is deze oplossing een voordeel. Het biedt voor een veel grotere volumes van geheugen. Om deze oplossing, moet u inzicht in de volgende belangrijke aspecten:
+Vergeleken met het uitvoeren van SAP HANA in virtuele machines, is deze oplossing een voordeel. Het biedt voor veel grotere volumes voor geheugen. Als u wilt deze oplossing inschakelt, moet u inzicht in de volgende belangrijke aspecten:
 
 - De SAP-toepassing-laag en niet-SAP-toepassingen uitvoeren in virtuele machines die worden gehost in de gebruikelijke Azure hardware stempels.
-- Klant on-premises infrastructuur, datacenters en implementaties van toepassingen zijn verbonden met de cloudplatform, via ExpressRoute (aanbevolen) of een virtueel particulier netwerk (VPN). Active Directory en DNS worden ook uitgebreid naar Azure.
-- Het SAP HANA-database-exemplaar voor de werkbelasting van HANA SAP HANA in Azure (grote exemplaren) wordt uitgevoerd. De stempel grote exemplaar is verbonden in Azure-netwerken, zodat de software die wordt uitgevoerd in virtuele machines kan communiceren met de HANA-exemplaar in grote HANA-exemplaar.
-- Hardware van de SAP HANA in Azure (grote exemplaren) is specifieke hardware die zijn opgegeven in een IaaS met SUSE Linux Enterprise Server of Red Hat Enterprise Linux vooraf geïnstalleerd. Net als bij virtuele machines, verdere is updates en onderhoud van het besturingssysteem uw verantwoordelijkheid.
-- Installatie van HANA of eventuele extra onderdelen die nodig zijn voor SAP HANA uitvoeren op eenheden van grote HANA-exemplaar is uw verantwoordelijkheid. Alle respectieve conflicterende bewerkingen worden uitgevoerd en het beheer van SAP HANA in Azure zijn ook uw eigen verantwoordelijkheid.
-- Naast de oplossingen die hier wordt beschreven, kunt u andere onderdelen in uw Azure-abonnement maakt verbinding met SAP HANA in Azure (grote exemplaren) installeren. Voorbeelden zijn onderdelen waarmee de communicatie met of rechtstreeks in de SAP HANA databaseservers, zoals jump servers, RDP, SAP HANA Studio SAP Data Services voor SAP BI-scenario's of bewakingsoplossingen netwerk.
-- Als in Azure biedt grote exemplaar HANA ondersteuning voor hoge beschikbaarheid en functionaliteit voor herstel na noodgevallen.
+- Klanten on-premises datacenters, infrastructuur en implementaties van toepassingen zijn verbonden met het cloud-platform via ExpressRoute (aanbevolen) of een virtueel particulier netwerk (VPN). Active Directory en DNS worden ook uitgebreid naar Azure.
+- De SAP HANA-database-instantie voor HANA-werkbelasting wordt uitgevoerd op SAP HANA op Azure (grote instanties). De stempel grote instantie is verbonden met het Azure-netwerken, zodat de software die wordt uitgevoerd in virtuele machines kan communiceren met de HANA-instantie die wordt uitgevoerd in HANA grote instantie.
+- De hardware van SAP HANA op Azure (grote instanties) is specifieke hardware die zijn opgegeven in een IaaS met SUSE Linux Enterprise Server of Red Hat Enterprise Linux vooraf is geïnstalleerd. Net als bij virtuele machines, verdere is updates en onderhoud van het besturingssysteem uw verantwoordelijkheid.
+- Installatie van HANA of eventuele extra onderdelen die nodig zijn voor het uitvoeren van SAP HANA op eenheden van HANA grote instantie is uw verantwoordelijkheid. Alle betreffende lopende bewerkingen en het beheer van SAP HANA op Azure zijn ook uw eigen verantwoordelijkheid.
+- Naast de oplossingen die hier worden beschreven, kunt u andere onderdelen installeren op uw Azure-abonnement dat verbinding met SAP HANA op Azure (grote instanties maakt). Voorbeelden zijn onderdelen waarmee communicatie met of rechtstreeks naar de SAP HANA-database, zoals Vliegende servers, RDP-servers, SAP HANA Studio, SAP-gegevensservices voor SAP BI-scenario's, of een bewakingsoplossingen.
+- Als in Azure biedt HANA grote instantie ondersteuning voor hoge beschikbaarheid en herstel na noodgevallen.
 
 ## <a name="architecture"></a>Architectuur
 
-De SAP HANA in Azure (grote exemplaren)-oplossing heeft op een hoog niveau de SAP-toepassingslaag die zich in de virtuele machines. De databaselaag bevindt zich op SAP TDI geconfigureerde hardware die zich in een grote exemplaar stempel in dezelfde Azure-regio die is verbonden met Azure IaaS.
+Op hoog niveau heeft de SAP HANA op Azure (grote instanties)-oplossing het niveau van de SAP-toepassing die in virtuele machines zich bevinden. De databaselaag bevindt zich op SAP TDI-geconfigureerde hardware die zich in een grote instantie stempel in dezelfde Azure-regio die is verbonden met Azure IaaS.
 
 > [!NOTE]
-> Implementeer de toepassingslaag SAP in dezelfde Azure-regio als de SAP DBMS-laag. Deze regel goed wordt gedocumenteerd in gepubliceerde informatie over SAP werkbelastingen op Azure. 
+> Implementeer de SAP-toepassingslaag in dezelfde Azure-regio als de SAP DBMS-laag. Deze regel wordt goed gedocumenteerd in gepubliceerde informatie over SAP-workloads op Azure. 
 
-De algehele architectuur van SAP HANA in Azure (grote exemplaren) biedt een SAP TDI gecertificeerd hardwareconfiguratie, namelijk een niet-gevirtualiseerde, bare metal, hoge prestaties server voor SAP HANA-database is. Het biedt tevens de mogelijkheid en flexibiliteit van Azure tot bronnen van de schaal voor de toepassingslaag SAP om te voldoen aan uw behoeften.
+De algehele architectuur van SAP HANA op Azure (grote instanties) biedt een SAP TDI-gecertificeerde hardwareconfiguratie, namelijk een niet-gevirtualiseerde, bare metal, high performance-server voor de SAP HANA-database. Het biedt ook de mogelijkheid om en flexibiliteit van Azure schalen van resources voor de SAP-toepassingslaag om te voldoen aan uw behoeften.
 
-![Overzicht van de architectuur van SAP HANA in Azure (grote exemplaren)](./media/hana-overview-architecture/image1-architecture.png)
+![Overzicht van de architectuur van SAP HANA op Azure (grote instanties)](./media/hana-overview-architecture/image1-architecture.png)
 
-De architectuur die wordt weergegeven, is onderverdeeld in drie secties:
+De architectuur die wordt weergegeven is onderverdeeld in drie secties:
 
-- **Rechts**: bevat een on-premises infrastructuur met verschillende toepassingen in de gegevens zodat eindgebruikers toegang LOB-toepassingen, zoals SAP tot draait. In het ideale geval dit lokale infrastructuur vervolgens is verbonden met Azure met [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
+- **Rechts**: geeft een on-premises infrastructuur met verschillende toepassingen in de gegevens zodat eindgebruikers toegang hebben tot LOB-toepassingen, zoals SAP draait. In het ideale geval deze on-premises infrastructuur naar Azure met is verbonden [ExpressRoute](https://azure.microsoft.com/services/expressroute/).
 
-- **Center**: Azure IaaS toont en in dit geval gebruik van virtuele machines als host voor SAP of andere toepassingen die gebruikmaken van SAP HANA als een DBMS-systeem. Kleinere HANA-exemplaren die werken met het geheugen dat virtuele machines bieden zijn samen met hun toepassingslaag in virtuele machines geïmplementeerd. Zie voor meer informatie over virtuele machines [virtuele machines](https://azure.microsoft.com/services/virtual-machines/).
+- **Center**: Azure IaaS bevat en in dit geval, gebruik van virtuele machines voor het hosten van SAP of andere toepassingen die gebruikmaken van SAP HANA als een DBMS-systeem. Kleinere HANA-instanties die werken met het geheugen waarmee u virtuele machines worden geïmplementeerd in virtuele machines samen met het niveau van hun toepassing. Zie voor meer informatie over virtuele machines, [virtuele machines](https://azure.microsoft.com/services/virtual-machines/).
 
-   Netwerk van Azure-services worden gebruikt voor de groep SAP-systemen samen met andere toepassingen in virtuele netwerken. Deze virtuele netwerken verbinding met on-premises systemen ook garantie voor SAP HANA in Azure (grote exemplaren).
+   Netwerk van Azure-services worden gebruikt voor het groeperen van SAP-systemen, samen met andere toepassingen in virtuele netwerken. Deze virtuele netwerken verbinden met on-premises systemen evenals garantie voor SAP HANA op Azure (grote instanties).
 
-   Zie voor SAP NetWeaver toepassingen en databases die worden ondersteund voor het uitvoeren in Azure, [SAP ondersteuning Opmerking #1928533 – SAP-toepassingen in Azure: ondersteunde producten en typen van de virtuele machine van Azure](https://launchpad.support.sap.com/#/notes/1928533). Zie voor documentatie over het implementeren van SAP-oplossingen in Azure:
+   Zie voor SAP NetWeaver-toepassingen en databases die worden ondersteund om uit te voeren in Azure, [SAP Support Opmerking #1928533-SAP-toepassingen op Azure: ondersteunde producten en typen Azure VM's](https://launchpad.support.sap.com/#/notes/1928533). Zie voor documentatie over het implementeren van SAP-oplossingen op Azure:
 
   -  [SAP op virtuele machines van Windows gebruiken](../../virtual-machines-windows-sap-get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
-  -  [SAP-oplossingen gebruiken op virtuele machines in Azure](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+  -  [SAP-oplossingen op Azure virtual machines gebruiken](get-started.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-- **Links**: toont de SAP HANA TDI-gecertificeerde hardware in de stempel grote exemplaar van Azure. De eenheden HANA grote exemplaar zijn verbonden met de virtuele netwerken van uw abonnement met behulp van dezelfde technologie als de connectiviteit van on-premises in Azure.
+- **Links**: toont de SAP HANA TDI-gecertificeerde hardware in de Azure Large Instance-stempel. De eenheden HANA grote instantie zijn verbonden met de virtuele netwerken van uw abonnement met behulp van dezelfde technologie als de connectiviteit van on-premises naar Azure.
 
-De stempel Azure grote exemplaar zelf combineert de volgende onderdelen:
+De Azure Large Instance-stempel zelf combineert de volgende onderdelen:
 
-- **Computing**: Servers die zijn gebaseerd op Intel Xeon E7-8890v3 of Intel Xeon E7-8890v4 processors die bieden de mogelijkheid voor nodig computergebruik en SAP HANA gecertificeerd.
-- **Netwerk**: A unified snel netwerk-fabric die de computer-, opslag en LAN-onderdelen met elkaar verbindt.
-- **Opslag**: een opslaginfrastructuur die toegankelijk is via een netwerk-infrastructuur. De specifieke opslagcapaciteit die is opgegeven, is afhankelijk van de specifieke SAP HANA van Azure (grote exemplaren)-configuratie die is geïmplementeerd. Meer opslagcapaciteit is beschikbaar op een extra maandelijkse kosten.
+- **Computing**: Servers die zijn gebaseerd op Intel Xeon E7-8890v3 of Intel Xeon E7-8890v4 processors die de benodigde computing mogelijkheid bieden en SAP HANA is gecertificeerd.
+- **Netwerk**: A unified zeer snelle, netwerk-fabric die de computing, opslag en LAN-onderdelen met elkaar verbindt.
+- **Opslag**: een opslaginfrastructuur die toegankelijk is via een uniform netwerk-fabric. De specifieke opslagcapaciteit die wordt geleverd, is afhankelijk van de specifieke SAP HANA op Azure (grote instanties)-configuratie die is geïmplementeerd. Meer opslagcapaciteit is beschikbaar op een extra maandelijkse kosten.
 
-Binnen de infrastructuur van de stempel grote exemplaar van meerdere tenants, klanten geïmplementeerd als geïsoleerde tenants. Bij de implementatie van de tenant, kunt u een Azure-abonnement naam binnen uw Azure-inschrijving. Deze Azure-abonnement is degene die het grote HANA-exemplaar wordt in rekening gebracht tegen. Deze tenants een 1:1 relatie hebben met het Azure-abonnement. Voor een netwerk is het mogelijk toegang tot een grote exemplaar HANA eenheid geïmplementeerd in een tenant in een Azure-regio uit verschillende virtuele netwerken die deel uitmaken van verschillende Azure-abonnementen. Deze Azure-abonnementen moeten behoren tot de dezelfde Azure-inschrijving. 
+Klanten worden binnen de multitenant-infrastructuur van de stempel grote instantie wordt geïmplementeerd als geïsoleerde tenants. Tijdens de implementatie van de tenant, kunt u een Azure-abonnement naam binnen uw Azure-inschrijving. Dit Azure-abonnement is degene die de HANA grote instantie wordt gefactureerd onder. Deze tenants hebben een 1:1-relatie met de Azure-abonnement. Voor een netwerk is het mogelijk voor toegang tot een eenheid HANA grote instantie is geïmplementeerd in een tenant in een Azure-regio van verschillende virtuele netwerken die deel uitmaken van verschillende Azure-abonnementen. Deze Azure-abonnementen moeten behoren tot dezelfde Azure-inschrijving. 
 
-Net als bij virtuele machines, wordt SAP HANA in Azure (grote exemplaren) aangeboden in meerdere Azure-regio's. Wilt disaster recovery mogelijkheden bieden, kunt u kiezen voor deelname. Andere grote exemplaar stempels binnen één geografisch politieke regio zijn aan elkaar verbonden. Bijvoorbeeld, zijn HANA grote exemplaar stempels in VS-West en VS-Oost verbonden via een speciaal netwerk-koppeling voor disaster recovery replicatie. 
+SAP HANA op Azure (grote instanties) is net als bij virtuele machines, beschikbaar in meerdere Azure-regio's. Als u wilt bieden disaster recovery-mogelijkheden, kunt u opt-in. Andere grote instantie stempels binnen één geografisch politieke regio zijn aan elkaar verbonden. Bijvoorbeeld, zijn HANA grote instantie stempels in VS West en VS-Oost verbonden via een speciaal netwerk-koppeling voor disaster recovery-replicatie. 
 
-Net zoals u tussen verschillende VM typen met Azure Virtual Machines kiezen kunt, kunt u kiezen uit verschillende SKU's van HANA grote instantie die speciaal voor de werkbelasting van de verschillende soorten SAP HANA geschikt zijn. SAP geldt geheugen processor socket-ratio's voor verschillende werkbelastingen op basis van de Intel processor generaties. De volgende tabel toont de SKU-typen die worden aangeboden.
+Net zoals u tussen verschillende VM-typen met Azure Virtual Machines kiezen kunt, kunt u kiezen uit verschillende SKU's van HANA grote instantie die speciaal voor de werkbelasting van de verschillende typen van SAP HANA geschikt zijn. SAP is van toepassing geheugen processor socket-ratio's voor verschillende workloads op basis van de generaties Intel-processor. De volgende tabel ziet u de SKU-typen die worden aangeboden.
 
-SAP HANA voor Azure (grote exemplaren)-service is beschikbaar in verschillende configuraties in de Azure-regio's VS-West, VS-Oost, Australië-Oost, Australië-Zuidoost, West-Europa, Noord-Europa, Japan-Oost en van Japan-West.
+SAP HANA op Azure (grote instanties)-service is beschikbaar in verschillende configuraties in de Azure-regio's VS West en VS-Oost, Australië-Oost, Australië-Zuidoost, West-Europa, Noord-Europa, Japan-Oost en Japan-West.
 
-[SAP HANA-SKU's van HANA grote exemplaren gecertificeerd](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) lijst zoals:
+[SKU's van HANA grote instanties van SAP HANA-gecertificeerde](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure) lijst, zoals:
 
 | SAP-oplossing | CPU | Geheugen | Storage | Beschikbaarheid |
 | --- | --- | --- | --- | --- |
-| Geoptimaliseerd voor OLAP-: SAP BW, BW/4HANA<br /> of SAP HANA voor algemene OLAP-werkbelasting | SAP HANA op Azure S72<br /> – 2 x Intel Xeon®-Processor E7 8890 v3<br /> 36 CPU-kernen en 72 CPU threads |  768 GB |  3 TB | Beschikbaar |
-| --- | SAP HANA op Azure S144<br /> – 4 x Intel Xeon®-Processor E7 8890 v3<br /> 72 CPU-kernen en 144 CPU threads |  1,5 TB |  6 TB | Niet beschikbaar meer |
-| --- | SAP HANA op Azure S192<br /> – 4 x Intel Xeon®-Processor E7 8890 v4<br /> 96 CPU-kernen en 192 CPU threads |  2.0 TB |  8 TB | Beschikbaar |
-| --- | SAP HANA op Azure S384<br /> – 8 x Intel Xeon®-Processor E7 8890 v4<br /> 192 CPU-kernen en 384 CPU threads |  4.0 TB |  16 TB | Beschikbaar |
-| Geoptimaliseerd voor OLTP: SAP Business Suite<br /> voor SAP HANA of S/4HANA (OLTP)<br /> algemene OLTP | SAP HANA op Azure S72m<br /> – 2 x Intel Xeon®-Processor E7 8890 v3<br /> 36 CPU-kernen en 72 CPU threads |  1,5 TB |  6 TB | Beschikbaar |
-|---| SAP HANA op Azure S144m<br /> – 4 x Intel Xeon®-Processor E7 8890 v3<br /> 72 CPU-kernen en 144 CPU threads |  3.0 TB |  12 TB | Niet beschikbaar meer |
-|---| SAP HANA op Azure S192m<br /> – 4 x Intel Xeon®-Processor E7 8890 v4<br /> 96 CPU-kernen en 192 CPU threads  |  4.0 TB |  16 TB | Beschikbaar |
-|---| SAP HANA op Azure S384m<br /> – 8 x Intel Xeon®-Processor E7 8890 v4<br /> 192 CPU-kernen en 384 CPU threads |  6.0 TB |  18 TB | Beschikbaar |
-|---| SAP HANA op Azure S384xm<br /> – 8 x Intel Xeon®-Processor E7 8890 v4<br /> 192 CPU-kernen en 384 CPU threads |  8.0 TB |  22 TB |  Beschikbaar |
-|---| SAP HANA op Azure S576m<br /> – 12 x Intel Xeon®-Processor E7 8890 v4<br /> 288 CPU-kernen en 576 CPU threads |  12.0 TB |  28 TB | Beschikbaar |
-|---| SAP HANA op Azure S768m<br /> – 16 x Intel Xeon®-Processor E7 8890 v4<br /> 384 CPU-kernen en 768 CPU threads |  16,0 TB |  36 TB | Beschikbaar |
-|---| SAP HANA op Azure S960m<br /> – 20 x Intel Xeon®-Processor E7 8890 v4<br /> 480 CPU-kernen en 960 CPU threads |  20,0 TB |  46 TB | Beschikbaar |
+| Geoptimaliseerd voor OLAP: SAP BW, BW/4HANA<br /> of SAP HANA voor werkbelastingen van algemene OLAP-systemen | SAP HANA op Azure S72<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 CPU-kernen en 72 CPU-threads |  768 GB |  3 TB | Beschikbaar |
+| --- | SAP HANA op Azure S144<br /> -4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 CPU-kernen en threads 144 CPU |  1,5 TB |  6 TB OPSLAGRUIMTE | Niet beschikbaar meer |
+| --- | SAP HANA op Azure S192<br /> -4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU-kernen en threads 192 CPU |  2.0 TB |  8 TB | Beschikbaar |
+| --- | SAP HANA op Azure S384<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU-kernen en threads 384 CPU |  4.0 TB |  16 TB | Beschikbaar |
+| Geoptimaliseerd voor OLTP: SAP Business Suite<br /> op SAP HANA of S/4HANA (OLTP)<br /> algemene OLTP-systemen | SAP HANA op Azure S72m<br /> – 2 x Intel® Xeon® Processor E7-8890 v3<br /> 36 CPU-kernen en 72 CPU-threads |  1,5 TB |  6 TB OPSLAGRUIMTE | Beschikbaar |
+|---| SAP HANA op Azure S144m<br /> -4 x Intel® Xeon® Processor E7-8890 v3<br /> 72 CPU-kernen en threads 144 CPU |  3.0 TB |  12 TB | Niet beschikbaar meer |
+|---| SAP HANA op Azure S192m<br /> -4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU-kernen en threads 192 CPU  |  4.0 TB |  16 TB | Beschikbaar |
+|---| SAP HANA op Azure S384m<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU-kernen en threads 384 CPU |  6.0 TB |  18 TB | Beschikbaar |
+|---| SAP HANA op Azure S384xm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU-kernen en threads 384 CPU |  8.0 TB |  22 TB |  Beschikbaar |
+|---| SAP HANA op Azure S576m<br /> tot en met 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 CPU-kernen en 576 CPU-threads |  12.0 TB |  28 TB | Beschikbaar |
+|---| SAP HANA op Azure S768m<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 CPU-kernen en threads 768 CPU |  16,0 TB |  36 TB | Beschikbaar |
+|---| SAP HANA op Azure S960m<br /> -20 x Intel® Xeon® Processor E7-8890 v4<br /> 480 CPU-kernen en threads 960 CPU |  20.0 TB |  46 TB | Beschikbaar |
 
 
-SAP kan onder SAP HANA TDIv5, klantspecifieke sizing en tot de server-configuraties die niet zijn opgenomen leiden kunnen gecertificeerde klantspecifieke projecten:
+Onder TDIv5 voor SAP HANA kunt SAP klantspecifieke grootte en klantspecifieke projecten die tot de server-configuraties die niet zijn opgenomen leiden mogelijk gecertificeerde:
 
 - [SAP HANA-gecertificeerde apparaten](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/appliances.html)
-- [SAP HANA gecertificeerd IaaS-platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
+- [SAP HANA-gecertificeerde IaaS-platformen](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)
 
-In veel gevallen voert deze klantspecifieke serverconfiguraties meer geheugen dan de server eenheden gecertificeerd met SAP. Bij het werken met SAP, hoeft klanten de mogelijkheid SAP ondersteuning krijgen en certificeren voor hun klantspecifieke grootte server-configuraties. In Azure worden de volgende grote exemplaar HANA standaard SKU's beschikbaar zijn en in de Microsoft prijslijst voor dergelijke TDIv5 klantspecifieke sizing projecten.
+In veel gevallen voert u deze serverconfiguraties klantspecifieke meer geheugen dan de server-eenheden met SAP gecertificeerde. Klanten hoeven bij het werken met SAP, de mogelijkheid voor het ophalen van SAP-ondersteuning en certificeren voor hun klant-specifieke grootte server-configuraties. In Azure worden de volgende HANA grote instantie standaard SKU's zijn beschikbaar en in de Microsoft prijslijst voor dergelijke TDIv5 klantspecifieke sizing-projecten.
 
 
 | Oorspronkelijke SKU die kan worden <br /> uitgebreid in het geheugen | CPU | Geheugen | Storage | Beschikbaarheid |
 | --- | --- | --- | --- | --- |
-| S192m kan worden uitgebreid naar | SAP HANA op Azure S192xm<br /> – 4 x Intel Xeon®-Processor E7 8890 v4<br /> 96 CPU-kernen en 192 CPU threads |  6.0 TB |  16 TB | Beschikbaar |
-| S384xm kan worden uitgebreid naar | SAP HANA op Azure S384xxm<br /> – 8 x Intel Xeon®-Processor E7 8890 v4<br /> 192 CPU-kernen en 384 CPU threads |  12.0 TB |  28 TB | Beschikbaar |
-| S576m kan worden uitgebreid naar | SAP HANA op Azure S576xm<br /> – 12 x Intel Xeon®-Processor E7 8890 v4<br /> 288 CPU-kernen en 576 CPU threads |  18,0 TB |  41 TB | Beschikbaar |
-| S768m kan worden uitgebreid naar | SAP HANA op Azure S768xm<br /> – 16 x Intel Xeon®-Processor E7 8890 v4<br /> 384 CPU-kernen en 768 CPU threads |  24.0 TB |  56 TB | Beschikbaar |
+| S192m kan worden uitgebreid naar | SAP HANA op Azure S192xm<br /> -4 x Intel® Xeon® Processor E7-8890 v4<br /> 96 CPU-kernen en threads 192 CPU |  6.0 TB |  16 TB | Beschikbaar |
+| S384xm kan worden uitgebreid naar | SAP HANA op Azure S384xxm<br /> – 8 x Intel® Xeon® Processor E7-8890 v4<br /> 192 CPU-kernen en threads 384 CPU |  12.0 TB |  28 TB | Beschikbaar |
+| S576m kan worden uitgebreid naar | SAP HANA op Azure S576xm<br /> tot en met 12 x Intel® Xeon® Processor E7-8890 v4<br /> 288 CPU-kernen en 576 CPU-threads |  18.0 TB |  41 TB | Beschikbaar |
+| S768m kan worden uitgebreid naar | SAP HANA op Azure S768xm<br /> – 16 x Intel® Xeon® Processor E7-8890 v4<br /> 384 CPU-kernen en threads 768 CPU |  24.0 TB |  56 TB | Beschikbaar |
 
-- CPU-kernen = de som van de CPU-kernen niet-hyper-threaded van de som van de processors van de server-eenheid.
-- CPU-threads = de som van de compute-threads geleverd door hyper-threaded CPU-kernen van de som van de processors van de server-eenheid. De meeste eenheden zijn standaard geconfigureerd voor gebruik van Hyper-Threading-technologie.
-- Op basis van de leverancier aanbevelingen S768m, zijn S768xm en S960m niet geconfigureerd voor het gebruik van Hyper-Threading voor SAP HANA uitgevoerd.
-
-
-De specifieke configuraties gekozen zijn afhankelijk van de werkbelasting, CPU-bronnen en gewenste geheugen. Het is mogelijk voor OLTP-werkbelasting met de SKU's die zijn geoptimaliseerd voor de OLAP-werkbelasting. 
-
-De basis voor de aanbiedingen, met uitzondering van eenheden klantspecifieke sizing projecten, hardware zijn gecertificeerd met een SAP HANA TDI. Twee verschillende soorten hardware deelt de SKU's in:
-
-- S72, S72m S144, S144m, S192, S192m en S192xm, die zijn aangeduid als 'Type ik klasse' van SKU's.
-- S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm en S960m die zijn aangeduid als de 'Typ II klasse' van SKU's.
-
-Een volledige HANA grote exemplaar stempel uitsluitend voor één klant is niet toegewezen&#39;s gebruik. Dit geldt voor rekken van berekenings- en bronnen die verbonden zijn via een netwerk fabric ook geïmplementeerd in Azure. Grote exemplaar HANA-infrastructuur, zoals Azure, implementeert u verschillende klanten &quot;tenants&quot; die zijn geïsoleerd van elkaar in de volgende drie niveaus:
-
-- **Netwerk**: isolatie door middel van virtuele netwerken in het stempel HANA grote exemplaar.
-- **Opslag**: isolatie door middel van opslag virtuele machines die zijn toegewezen opslagvolumes en isoleren opslagvolumes tussen de tenants.
-- **COMPUTE**: toewijzing van eenheden van de server toegewezen aan een enkele tenant. Nee hard of soft partitionering van eenheden van de server. Er is geen delen van een enkele server of de hostnaam eenheid tussen de tenants. 
-
-De implementaties van eenheden tussen verschillende tenants HANA grote exemplaar zijn niet zichtbaar zijn voor elkaar. Grote exemplaar HANA eenheden die zijn geïmplementeerd in verschillende tenants kunnen niet communiceren direct met elkaar op het niveau van de stempel HANA grote exemplaar. Alleen groot exemplaar HANA eenheden binnen een tenant kunnen communiceren met elkaar op het niveau van de stempel HANA grote exemplaar.
-
-Een geïmplementeerde tenant in de grote exemplaar stempel is toegewezen aan één Azure-abonnement voor facturatie. Voor een netwerk, kan deze worden geopend op virtuele netwerken van andere Azure-abonnementen binnen de dezelfde Azure-inschrijving. Als u met een andere Azure-abonnement in dezelfde Azure-regio implementeert, kunt ook u om een gescheiden HANA grote exemplaar tenant te vragen.
-
-Er zijn belangrijke verschillen tussen actieve SAP HANA op grote HANA-exemplaar en SAP HANA uitgevoerd op virtuele machines die zijn geïmplementeerd in Azure:
-
-- Er is geen virtualisatielaag voor SAP HANA in Azure (grote exemplaren). Krijgt u de prestaties van de onderliggende bare-metal hardware.
-- In tegenstelling tot Azure, worden de SAP HANA op Azure (grote exemplaren)-server is toegewezen aan een specifieke klant. Er is geen mogelijkheid waarop een eenheid van de server of de host is hard of soft gepartitioneerd. Als gevolg hiervan wordt een grote HANA-exemplaar gebruikt als in zijn geheel in een tenant en met die aan u toegewezen. Een opnieuw opstarten of afsluiten van de server leiden niet automatisch tot het besturingssysteem en SAP HANA wordt geïmplementeerd op een andere server. (Voor het Type ik klasse SKU's, de enige uitzondering hierop is als een server problemen optreedt en opnieuw implementeren gaande moet worden uitgevoerd op een andere server.)
-- In tegenstelling tot Azure, waarbij host processortypen zijn geselecteerd voor de beste prijs/prestatie-verhouding, zijn de processortypen gekozen voor SAP HANA in Azure (grote exemplaren) de hoogste prestaties van de regel Intel E7v3 en E7v4 processor.
+- CPU-kernen = de som van niet-hyper-threaded CPU-kernen van de som van de processors van de server-eenheid.
+- CPU-threads = de som van de compute-threads geleverd door hyper-threaded CPU-kernen van de som van de processors van de server-eenheid. De meeste eenheden zijn standaard geconfigureerd voor Hyper-Threading-technologie gebruiken.
+- Op basis van de leverancier aanbevelingen S768m, zijn S768xm en S960m niet geconfigureerd voor het gebruik van Hyper-Threading voor het uitvoeren van SAP HANA.
 
 
-### <a name="run-multiple-sap-hana-instances-on-one-hana-large-instance-unit"></a>Meerdere exemplaren van de SAP HANA uitvoeren op een grote exemplaar HANA-eenheid
-Het is mogelijk voor het hosten van meer dan één actieve SAP HANA-exemplaar op grote exemplaar HANA eenheden. Een dergelijke configuratie vereist om te bieden de mogelijkheden van opslag-momentopnamen en herstel na noodgevallen, een volume per exemplaar instellen. Grote exemplaar HANA eenheden kunnen op dit moment is als volgt worden onderverdeeld:
+De specifieke configuraties die is gekozen, zijn afhankelijk van de werkbelasting, CPU-resources en gewenste geheugen. Het is mogelijk dat de OLTP-werkbelasting met de SKU's die zijn geoptimaliseerd voor de OLAP-werkbelasting. 
 
-- **S72, S72m, S144, S192**: In stappen van 256 GB, met de kleinste begin eenheid van 256 GB. Verschillende stappen zoals 256 en 512 GB kunnen worden gecombineerd tot het maximum van het geheugen van de eenheid.
-- **S144m en S192m**: In stappen van 256 GB, met de kleinste eenheid van 512 GB. Verschillende stappen zoals 512 en 768 GB kunnen worden gecombineerd tot het maximum van het geheugen van de eenheid.
-- **Typ II klasse**: In stappen van 512 GB met de kleinste begin eenheid van 2 TB. Verschillende stappen zoals 512 GB en 1 TB 1,5 TB kunnen worden gecombineerd tot het maximum van het geheugen van de eenheid.
+De basis voor de aanbiedingen, met uitzondering van eenheden voor grootte van de klant-specifieke projecten, hardware zijn SAP HANA TDI-gecertificeerde. Twee verschillende soorten hardware deelt de SKU's in:
 
-Enkele voorbeelden van meerdere instanties voor SAP HANA kunnen er als volgt uitzien.
+- S72, S72m S144, S144m, S192, S192m en S192xm, die worden aangeduid als "Type ik klasse" van SKU's.
+- S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm en S960m, die worden aangeduid als de "Type II-klasse" van SKU's.
+
+Een volledige HANA grote instantie stempel is niet uitsluitend voor één klant toegewezen&#39;s gebruiken. Dit geldt voor de rekken van reken- en resources die zijn verbonden via een netwerk-fabric ook geïmplementeerd in Azure. HANA grote instantie infrastructuur, zoals Azure, verschillende klanten implementeert &quot;tenants&quot; die zijn geïsoleerd van elkaar in de volgende drie niveaus:
+
+- **Netwerk**: isolatie door middel van virtuele netwerken in de stempel HANA grote instantie.
+- **Opslag**: isolatie door middel van opslag virtuele machines met opslagvolumes die zijn toegewezen en isoleren opslagvolumes tussen tenants.
+- **COMPUTE**: toewijzing van server-eenheden toegewezen aan één tenant. Geen vaste of zachte partitioneren van eenheden van de server. Er is geen delen van één server of de host eenheid tussen tenants. 
+
+De implementaties van HANA grote instantie eenheden tussen verschillende tenants zijn niet zichtbaar zijn voor elkaar. HANA grote instantie eenheden die zijn geïmplementeerd in verschillende tenants kunnen niet communiceren rechtstreeks met elkaar op het niveau van de stempel HANA grote instantie. Alleen HANA grote instantie eenheden binnen één tenant kunnen met elkaar communiceren op het niveau van de stempel HANA grote instantie.
+
+Een geïmplementeerde tenant in de stempel grote instantie wordt toegewezen aan één Azure-abonnement voor factureringsdoeleinden. Voor een netwerk, kan deze worden geopend van virtuele netwerken van andere Azure-abonnementen binnen dezelfde Azure-inschrijving. Als u met een andere Azure-abonnement in dezelfde Azure-regio implementeert, kunt ook u vragen om een gescheiden HANA grote instantie-tenant.
+
+Er zijn belangrijke verschillen tussen het uitvoeren van SAP HANA op HANA grote instantie en SAP HANA uitvoeren op virtuele machines die zijn geïmplementeerd in Azure:
+
+- Er is geen virtualisatielaag voor SAP HANA op Azure (grote instanties). Krijgt u de prestaties van de onderliggende hardware van bare-metal.
+- In tegenstelling tot Azure, is de SAP HANA op Azure (grote instanties)-server worden toegewezen aan een specifieke klant. Er is geen mogelijkheid is dat een eenheid van de server of de host is hard of zachte gepartitioneerd. Als gevolg hiervan wordt een eenheid HANA grote instantie gebruikt als geheel naar een tenant en die aan u toegewezen. Opnieuw opstarten of afsluiten van de server leiden niet automatisch tot het besturingssysteem en de SAP HANA wordt geïmplementeerd op een andere server. (Voor het Type ik klasse SKU's, de enige uitzondering hierop is als een server problemen detecteert en opnieuw implementeren moet worden uitgevoerd op een andere server.)
+- In tegenstelling tot Azure, waarbij host processortypen zijn geselecteerd voor de beste prijs-prestatieverhouding-verhouding, zijn de processortypen voor SAP HANA op Azure (grote instanties) hebt gekozen, de hoogste prestaties van de Intel E7v3 en E7v4 processor-regel.
+
+
+### <a name="run-multiple-sap-hana-instances-on-one-hana-large-instance-unit"></a>Meerdere exemplaren van de SAP HANA uitvoeren op één HANA grote instantie-eenheid
+Het is mogelijk om meer dan één actieve SAP HANA-instantie op HANA grote instantie eenheden te hosten. Een dergelijke configuratie vereist om de mogelijkheden van opslagmomentopnamen en herstel na noodgevallen, een volume per exemplaar instellen. Op dit moment kunnen HANA grote instantie eenheden als volgt worden onderverdeeld:
+
+- **S72, S72m, S144, S192**: In stappen van 256 GB, 256 GB wordt de kleinste vanaf eenheid. Verschillende stappen zoals 256 GB en 512 GB kunnen worden gecombineerd met het maximum van het geheugen van de eenheid.
+- **S144m en S192m**: In stappen van 256 GB, 512 GB wordt de kleinste eenheid. Verschillende stappen zoals 512 GB en biedt 768 GB kunnen worden gecombineerd met het maximum van het geheugen van de eenheid.
+- **Typ II klasse**: In stappen van 512 GB, waarbij de kleinste vanaf eenheid van 2 TB. Verschillende stappen zoals 512 GB, 1 TB en 1,5 TB kunnen worden gecombineerd met het maximum van het geheugen van de eenheid.
+
+Enkele voorbeelden van het uitvoeren van meerdere SAP HANA-instanties ziet er als volgt uit.
 
 | SKU | Geheugengrootte | Opslaggrootte | Grootten met meerdere databases |
 | --- | --- | --- | --- |
-| S72 | 768 GB | 3 TB | 1 x 768 GB HANA exemplaar<br /> of 1 x 512 GB exemplaar + 1 x 256 GB-exemplaar<br /> of 3 x 256 GB exemplaren | 
-| S72m | 1,5 TB | 6 TB | 3x512GB HANA exemplaren<br />of 1 x 512 GB exemplaar + 1 x 1 TB exemplaar<br />of 6 x 256 GB exemplaren<br />of 1x1.5 TB exemplaar | 
-| S192m | 4 TB | 16 TB | 8 x 512 GB exemplaren<br />of 4 x 1 TB exemplaren<br />of exemplaren van 4 x 512 GB + 2 x 1 TB exemplaren<br />of exemplaren van 4 x 768 GB + 2 x 512 GB exemplaren<br />of 1 x 4 TB-exemplaar |
-| S384xm | 8 TB | 22 TB | 4 x 2 TB exemplaren<br />of 2 x 4 TB exemplaren<br />of 2 x 3 TB exemplaren + 1 x 2 TB exemplaren<br />of 2x2.5 TB exemplaren + 1 x 3 TB exemplaren<br />of 1 x 8 TB exemplaar |
+| S72 | 768 GB | 3 TB | 1 x 768 GB HANA-instantie<br /> of 1 x 512 GB exemplaar + 1 x 256 GB-exemplaar<br /> of exemplaren van 3 x 256 GB | 
+| S72m | 1,5 TB | 6 TB OPSLAGRUIMTE | 3x512GB HANA-instanties<br />of 1 x 512 GB exemplaar + 1 x 1 TB exemplaar<br />of 6 x 256 GB-exemplaren<br />of het exemplaar 1x1.5 TB | 
+| S192m | 4 TB | 16 TB | 8 x 512 GB-instanties<br />of exemplaren van 4 x 1 TB<br />of exemplaren van 4 x 512 GB + 2 x 1 TB exemplaren<br />of exemplaren van 4 x 768 GB + 2 x 512 GB-instanties<br />of het exemplaar van 1 x 4 TB |
+| S384xm | 8 TB | 22 TB | exemplaren van 4 x 2 TB<br />of 2 x 4 TB-exemplaren<br />of exemplaren van 2 x 3 TB + 1 x 2 TB exemplaren<br />of instanties 2x2.5 TB + 1 x 3 TB exemplaren<br />of het exemplaar van 1 x 8 TB |
 
 
-Er zijn ook andere variaties. 
+Er zijn ook andere verschillen. 
 
-### <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>SAP HANA in lagen en extensie gegevensknooppunten gebruiken
-SAP ondersteunt een gegevensmodel lagen voor SAP BW van verschillende SAP NetWeaver releases en SAP BW/4HANA. Zie voor meer informatie over de lagen van het gegevensmodel, het document SAP [SAP BW/4HANA en SAP BW op HANA met knooppunten voor SAP HANA-extensie](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#).
-Met grote HANA-exemplaar kunt u de optie 1-configuratie van SAP HANA-extensie knooppunten zoals uitgelegd in de blog Veelgestelde vragen over en SAP documenten. Optie 2-configuraties kunnen worden ingesteld met de volgende HANA grote exemplaar SKU's: S72m, S192 S192m, S384 en S384m. 
+### <a name="use-sap-hana-data-tiering-and-extension-nodes"></a>SAP HANA-gegevens in lagen en extensie-knooppunten gebruiken
+SAP biedt ondersteuning voor een gegevensmodel warmtemeting voor SAP BW van verschillende versies van SAP NetWeaver en SAP BW/4HANA. Raadpleeg het document SAP voor meer informatie over het gegevensmodel voor cloudlagen [SAP BW/4HANA en SAP BW op HANA met SAP HANA-extensie knooppunten](https://www.sap.com/documents/2017/05/ac051285-bc7c-0010-82c7-eda71af511fa.html#).
+Met HANA grote instantie kunt u de optie-1-configuratie van SAP HANA-extensie knooppunten, zoals wordt beschreven in de veelgestelde vragen en SAP blog-documenten. Optie 2-configuraties kunnen worden ingesteld met de volgende HANA grote instantie SKU's: S72m, S192, S192m, S384 en S384m. 
 
-Wanneer u de documentatie bekijkt, het voordeel mogelijk niet direct zichtbaar. Maar wanneer u de richtlijnen van SAP sizing bekijkt, ziet u een voordeel met behulp van de optie-1 en de optie 2 SAP HANA-extensie-knooppunten. Hier volgen voorbeelden:
+Wanneer u de documentatie bekijkt, het voordeel mogelijk niet meer zichtbaar onmiddellijk. Maar wanneer u de richtlijnen van de grootte SAP bekijkt, ziet u een voordeel met behulp van de optie-1 en de optie-2 SAP HANA-extensie-knooppunten. Hier volgen enkele voorbeelden:
 
-- Richtlijnen voor SAP HANA-formaat is meestal de dubbele hoeveelheid gegevensvolume als geheugen vereist. Wanneer u uw SAP HANA-exemplaar met de hot gegevens uitvoert, hebt u slechts 50% of minder van het geheugen gevuld met gegevens. De rest van het geheugen wordt in het ideale geval bewaard voor SAP HANA tijdens het doorzoeken van het werk.
-- Dat betekent in een eenheid HANA grote exemplaar S192 met 2 TB aan geheugen, met een SAP BW-database, hoeft u slechts 1 TB als gegevensvolume.
-- Als u een extra knooppunt van de extensie SAP HANA van optie 1, ook een S192 HANA grote exemplaar SKU, dit biedt u een extra capaciteit 2 TB voor gegevensvolume. In de optie 2-configuratie, kunt u een extra 4 TB voor warme gegevensvolume ophalen. Vergeleken met het knooppunt hot, worden de volledige geheugencapaciteit van de 'warme' extensieknooppunt gebruikt voor het opslaan van gegevens voor de optie-1. Dubbele het geheugen kan worden gebruikt voor gegevensvolume in knooppuntconfiguratie voor optie 2 SAP HANA-extensie.
-- U uiteindelijk eindigen met een capaciteit van 3 TB voor uw gegevens en een ratio van hot naar warme 1:2 voor optie 1. U hebt 5 TB aan gegevens en een ratio van 1:4 met de configuratie voor de uitbreiding van de optie 2-knooppunt.
+- Richtlijnen voor SAP HANA-grootte is meestal de dubbele hoeveelheid gegevensvolume als geheugen vereist. Wanneer u uw SAP HANA-instantie met de dynamische gegevens uitvoert, hebt u slechts 50% of minder van het geheugen gevuld met gegevens. De rest van het geheugen worden in het ideale geval bewaard voor SAP HANA zijn werk doet.
+- Dat betekent dat in een HANA grote instantie S192-eenheid met 2 TB aan geheugen, met een SAP BW-database, hoeft u slechts 1 TB als gegevensvolume.
+- Als u een extra knooppunt van SAP HANA-extensie van de optie-1, ook een S192 HANA grote instantie SKU, dit biedt u een extra capaciteit van 2 TB voor gegevensvolume. In de optie-2-configuratie krijgt u een extra 4 TB voor warme gegevensvolume. Vergeleken met het knooppunt ' hot ', kan de volledige geheugencapaciteit van het knooppunt 'warme' extensie worden gebruikt voor het opslaan van gegevens voor de optie-1. Dubbele het geheugen kan worden gebruikt voor gegevensvolume in optie 2 SAP HANA-extensieconfiguratie in het knooppunt.
+- U uiteindelijk een capaciteit van 3 TB voor uw gegevens en een ' hot ' naar warm-verhouding van 1:2 voor optie 1. U hebt 5 TB aan gegevens en een 1:4-verhouding met de configuratie voor de uitbreiding van de optie-2-knooppunt.
 
-Hoe hoger het gegevensvolume vergeleken met het geheugen, hoe groter de kans op zijn dat de warme gegevens dat u daarvoor is opgeslagen op de schijfopslag.
+Hoe hoger het gegevensvolume in vergelijking met het geheugen, hoe hoger de kans op zijn dat de warme gegevens die u daarvoor is opgeslagen op de schijfopslag.
 
 
-## <a name="operations-model-and-responsibilities"></a>Operations-model en verantwoordelijkheden
+## <a name="operations-model-and-responsibilities"></a>Operationeel model en -verantwoordelijkheden
 
-De service die wordt geleverd met SAP HANA in Azure (grote exemplaren) wordt uitgelijnd met Azure IaaS-services. Krijgt u een exemplaar van een grote HANA-exemplaar met een geïnstalleerd besturingssysteem die is geoptimaliseerd voor SAP HANA. Met Azure IaaS VM's, de meeste van de taken voor het beperken van het besturingssysteem, extra software te installeren, HANA installeren, besturingssystemen en HANA besturingssysteem en bijwerken van het besturingssysteem en HANA is uw verantwoordelijkheid. Microsoft biedt geen OS-updates of updates HANA afdwingen op u.
+De service die wordt geleverd met SAP HANA op Azure (grote instanties) is afgestemd op Azure IaaS-services. U krijgt een exemplaar van een HANA grote instantie met een geïnstalleerd besturingssysteem dat is geoptimaliseerd voor SAP HANA. Met Azure IaaS VM's, de meeste van de taken van de beperking van het besturingssysteem, extra software te installeren, HANA installeren, die het besturingssysteem en HANA en bijwerken van het besturingssysteem en HANA is uw verantwoordelijkheid. Microsoft biedt geen verplichten om updates van het besturingssysteem of updates voor HANA op u.
 
-![De verantwoordelijkheden van SAP HANA in Azure (grote exemplaren)](./media/hana-overview-architecture/image2-responsibilities.png)
+![De verantwoordelijkheden van SAP HANA op Azure (grote instanties)](./media/hana-overview-architecture/image2-responsibilities.png)
 
-Zoals u in het diagram, is de SAP HANA in Azure (grote exemplaren) een multitenant IaaS bieden. De deling van verantwoordelijk is voor het grootste deel op de grens OS-infrastructuur. Microsoft is verantwoordelijk voor alle aspecten van de service onder de regel van het besturingssysteem. U bent zelf verantwoordelijk voor alle aspecten van de service boven de regel. Het besturingssysteem is uw verantwoordelijkheid. U kunt blijven gebruiken van meest recente lokale methoden die u gebruikmaken van mogelijk voor naleving, beveiliging, toepassingsbeheer, basis en OS-beheer. De systemen worden weergegeven alsof ze zich in uw netwerk ten opzichte van alle.
+In het diagram wordt weergegeven, is SAP HANA op Azure (grote instanties) een multitenant IaaS bieden. Voor het overgrote deel is de verdeling van de verantwoordelijkheid van de grens van de OS-infrastructuur. Microsoft is verantwoordelijk voor alle aspecten van de service onder de lijn van het besturingssysteem. U bent verantwoordelijk voor alle aspecten van de service boven de regel. Het besturingssysteem is uw verantwoordelijkheid. U kunt echter ook doorgaan met de meest recente on-premises-methoden die u gebruikmaken van mogelijk voor naleving, beveiliging, beheer van toepassingen, basis en OS-beheer. De systemen worden weergegeven alsof ze zich in uw netwerk in alle opzichten.
 
-Deze service is geoptimaliseerd voor SAP HANA, dus er gebieden waarin u werken met Microsoft zijn wilt om de onderliggende infrastructuurmogelijkheden gebruiken voor de beste resultaten.
+Deze service is geoptimaliseerd voor SAP HANA, zodat er gebieden waar u nodig hebt om te werken met Microsoft voor het gebruik van de mogelijkheden van de onderliggende infrastructuur voor de beste resultaten.
 
-De volgende lijst geeft meer details over elk van de lagen en uw verantwoordelijkheden:
+De volgende lijst vindt u meer details over op elk van de lagen en uw verantwoordelijkheden:
 
-**Networking**: de interne netwerken voor grote exemplaar van stempel met SAP HANA. Uw verantwoordelijkheid bevat toegang tot opslag, connectiviteit tussen de exemplaren (voor scale-out en andere functies), verbinding met de liggend en verbindingen naar Azure waar de toepassingslaag SAP wordt gehost in virtuele machines. Dit omvat ook WAN-verbinding tussen Azure-datacenters voor disaster recovery doeleinden replicatie. Alle netwerken zijn gepartitioneerd door de tenant en kwaliteit van de service toegepast hebben.
+**Netwerken**: de interne netwerken voor het uitvoeren van SAP HANA grote instantie-stempel. Uw eigen verantwoordelijkheid omvat toegang tot opslag, verbinding tussen de exemplaren (voor scale-out en andere functies), verbinding met het landschap van en verbinding met Azure waar de SAP-toepassingslaag wordt gehost in VM's. Dit omvat ook WAN-verbinding tussen Azure-datacenters voor disaster recovery doeleinden-replicatie. Alle netwerken worden gepartitioneerd op basis van de tenant en kwaliteit van de service toegepast hebben.
 
-**Opslag**: de gevirtualiseerde opslag voor alle volumes die door de SAP HANA-servers nodig, evenals voor momentopnamen is gepartitioneerd. 
+**Opslag**: de gevirtualiseerde gepartitioneerd opslag voor alle volumes die nodig zijn voor de SAP HANA-servers, evenals voor momentopnamen. 
 
-**Servers**: de speciale fysieke servers naar de SAP HANA-databases die zijn toegewezen aan tenants worden uitgevoerd. De servers van het Type ik klasse van SKU's zijn gescheiden hardware. Met deze typen servers, de serverconfiguratie worden verzameld en onderhouden in profielen die kunnen worden verplaatst van één fysieke hardware voor een andere fysieke hardware. (Dergelijke een handmatig) verplaatsen van een profiel door bewerkingen kan enigszins voor herstel van de Azure-service worden vergeleken. De servers van het Type II klasse SKU's bieden niet dergelijke functionaliteit.
+**Servers**: de toegewezen fysieke servers om uit te voeren van de SAP HANA-databases die zijn toegewezen aan tenants. De servers van het Type ik klasse van SKU's zijn hardware geabstraheerd. Configuratie van de server is met de volgende typen servers, die worden verzameld en onderhouden in profielen die kunnen worden verplaatst van een fysieke hardware voor een andere fysieke hardware. Dergelijke een (handmatig) verplaatsen van een profiel door bewerkingen kan een en ander Azure-service herstel worden vergeleken. De servers van de SKU's Type II-klasse bieden niet een dergelijke mogelijkheid.
 
-**SDDC**: de software die wordt gebruikt om gegevens te beheren als door software gedefinieerde entiteiten draait. Dit kan Microsoft naar bronnen voor schaal, beschikbaarheid en prestaties van toepassingen.
+**SDDC**: de software die wordt gebruikt om gegevens te beheren als entiteiten software gedefinieerde datacenters. Hierdoor kan Microsoft tot resources van schaal, beschikbaarheid en prestaties van toepassingen.
 
-**Besturingssysteem**: het besturingssysteem die u kiest (SUSE Linux of Red Hat Linux) die wordt uitgevoerd op de servers. De installatiekopieën van die u worden geleverd met het besturingssysteem zijn opgegeven door de leverancier van de afzonderlijke Linux naar Microsoft voor het uitvoeren van SAP HANA. U moet een abonnement met de leverancier van de Linux voor de specifieke geoptimaliseerd voor SAP HANA-installatiekopie hebben. U bent zelf verantwoordelijk voor het registreren van de afbeeldingen met de leverancier van het besturingssysteem. 
+**Besturingssysteem**: het besturingssysteem die u kiest (SUSE Linux of Red Hat Linux) die wordt uitgevoerd op de servers. De installatiekopieën van het besturingssysteem die u worden geleverd met zijn opgegeven door de leverancier van de afzonderlijke Linux naar Microsoft voor het uitvoeren van SAP HANA. U moet een abonnement met de Linux-leverancier voor de specifieke geoptimaliseerd voor SAP HANA-installatiekopie hebben. U bent verantwoordelijk voor het registreren van de afbeeldingen met de leverancier van het besturingssysteem. 
 
-Vanaf het moment van overdracht door Microsoft bent u verantwoordelijk voor eventuele verdere patchen van het Linux-besturingssysteem. Deze patchen extra pakketten die mogelijk noodzakelijk voor een geslaagde installatie van de SAP HANA en die niet zijn opgenomen door de leverancier van de specifieke Linux in hun SAP HANA bevat geoptimaliseerde installatiekopieën van het besturingssysteem. (Zie de SAP HANA installatie documentatie en SAP-opmerkingen voor meer informatie.) 
+Vanaf het moment van oproepdienstoverdracht door Microsoft bent u verantwoordelijk voor alle verdere patchen van de Linux-besturingssysteem. Deze patches bevat aanvullende pakketten die mogelijk noodzakelijk voor een geslaagde installatie van de SAP HANA en die niet zijn opgenomen door de specifieke Linux-leverancier in hun SAP HANA geoptimaliseerd voor installatiekopieën van het besturingssysteem. (Zie de documentatie voor installatie van HANA en SAP-opmerkingen van SAP voor meer informatie.) 
 
-U bent zelf verantwoordelijk voor het besturingssysteem patchen als gevolg van storing of optimalisatie van het besturingssysteem en de stuurprogramma's ten opzichte van de specifieke serverhardware. Ook bent u verantwoordelijk voor beveiliging of functionele patchen van het besturingssysteem. 
+U bent verantwoordelijk voor het patchen van het besturingssysteem door de storing of optimalisatie van het besturingssysteem en de stuurprogramma's relatief ten opzichte van de specifieke serverhardware. Ook bent u verantwoordelijk voor het beveiligings- of functioneel patchen van het besturingssysteem. 
 
-Uw verantwoordelijkheid bevat ook bewaken en plannen van capaciteit van:
+Uw eigen verantwoordelijkheid bevat ook bewaken en plannen van capaciteit van:
 
-- CPU-resourceverbruik.
-- Geheugengebruik.
-- Schijfvolumes gerelateerd aan vrije ruimte, IOPS en latentie.
-- Volume netwerkverkeer tussen HANA grote exemplaar en de toepassingslaag SAP.
+- Gebruik van CPU-resources.
+- Het geheugengebruik.
+- Volumes op schijven die betrekking hebben op vrije ruimte, IOPS en latentie.
+- Volume netwerkverkeer tussen HANA grote instantie en de SAP-toepassingslaag.
 
-De onderliggende infrastructuur van grote exemplaar HANA biedt functionaliteit voor back-up en herstel van het volume met het besturingssysteem. Deze functionaliteit is ook uw eigen verantwoordelijkheid.
+De onderliggende infrastructuur van HANA grote instantie biedt functionaliteit voor back-up en herstel van het volume met het besturingssysteem. Met deze functionaliteit is ook uw eigen verantwoordelijkheid.
 
-**Middleware**: de SAP HANA-exemplaar, voornamelijk. Bent u verantwoordelijk voor beheer, bewerkingen en controle. De opgegeven functionaliteit kunt u opslag-momentopnamen gebruiken voor back-up en herstel en noodherstel hersteldoeleinden. Deze mogelijkheden worden geleverd door de infrastructuur. Uw verantwoordelijkheden ook ontwerpen van hoge beschikbaarheid of herstel na noodgevallen met deze mogelijkheden gebruik te maken van deze en controle kunt bepalen of opslag-momentopnamen met succes uitgevoerd.
+**Middleware**: SAP HANA-exemplaar, voornamelijk. Bent u verantwoordelijk voor beheer, bewerkingen en bewaking. De opgegeven functionaliteit kunt u storage-momentopnamen gebruiken voor back-up en herstel en disaster recovery-doeleinden. Deze mogelijkheden worden geleverd door de infrastructuur. Uw verantwoordelijkheden ook het ontwerpen van hoge beschikbaarheid of herstel na noodgeval met deze mogelijkheden gebruik te maken van deze en te bewaken om te bepalen of storage-momentopnamen is uitgevoerd.
 
-**Gegevens**: uw gegevens worden beheerd door een SAP HANA en andere gegevens zoals back-ups van bestanden op volumes of bestand deelt. Uw verantwoordelijkheden zijn vrije schijfruimte controleren en beheren van de inhoud op de volumes. Ook bent u verantwoordelijk voor het bewaken van de voltooiing van uitvoering van de back-ups van volumes op schijven en opslag-momentopnamen. Voltooiing van uitvoering van de gegevensreplicatie naar noodherstelsites is de verantwoordelijkheid van Microsoft.
+**Gegevens**: uw gegevens die worden beheerd door SAP HANA en andere gegevens zoals back-ups van bestanden die zijn opgeslagen op volumes of het bestand deelt. Uw verantwoordelijkheden zijn onder andere vrije schijfruimte controleren en beheren van de inhoud op de volumes. Ook bent u verantwoordelijk voor het bewaken van de voltooiing van uitvoering van back-ups van volumes op schijven en storage-momentopnamen. Geslaagde uitvoering van de replicatie van gegevens naar disaster recovery sites is de verantwoordelijkheid van Microsoft.
 
-**Toepassingen:** de SAP-toepassingsexemplaren of, in het geval van niet-SAP-toepassingen, de toepassingslaag van deze toepassingen. Uw verantwoordelijkheden zijn implementatie, beheer, bewerkingen en controle van deze toepassingen. U bent zelf verantwoordelijk voor de capaciteitsplanning van verbruik van CPU, geheugengebruik, Azure Storage-verbruik en netwerkbandbreedte in virtuele netwerken. Ook bent u verantwoordelijk voor capaciteitsplanning voor het verbruik van virtuele netwerken voor SAP HANA in Azure (grote exemplaren).
+**Toepassingen:** de toepassingsexemplaren SAP of, in het geval van niet-SAP-toepassingen, het niveau van de toepassing van deze toepassingen. Uw verantwoordelijkheden zijn onder andere implementatie, beheer, bewerkingen en bewaking van deze toepassingen. U bent verantwoordelijk voor het plannen van capaciteit van CPU-verbruik van resources, geheugenverbruik, gebruik van Azure-opslag en netwerkbandbreedte in virtuele netwerken. Ook bent u verantwoordelijk voor de capaciteitsplanning voor bronverbruik van virtuele netwerken met SAP HANA op Azure (grote instanties).
 
-**WAN**: de verbindingen die u tot stand van on-premises naar Azure implementaties voor werkbelastingen brengen. Alle klanten met HANA grote exemplaar gebruiken Azure ExpressRoute voor connectiviteit. Deze verbinding maakt geen deel uit van de SAP HANA in Azure (grote exemplaren)-oplossing. U bent zelf verantwoordelijk voor het instellen van deze verbinding.
+**WAN's**: de verbindingen die u tot stand van on-premises naar Azure-implementaties voor werkbelastingen brengen. Alle klanten met HANA grote instantie Azure ExpressRoute gebruiken voor verbindingen. Deze verbinding maakt geen deel uit van de SAP HANA op Azure (grote instanties)-oplossing. U bent verantwoordelijk voor het instellen van deze verbinding.
 
-**Archief**: U mogelijk liever archiveren kopieën van gegevens met behulp van uw eigen methoden in opslagaccounts. Archiveren vereist management, naleving, kosten en bewerkingen. U bent verantwoordelijk voor het genereren archiveren kopieert en back-ups op Azure en deze opslaan op een compatibele manier.
+**Archief**: U misschien liever archiveren kopieën van gegevens met behulp van uw eigen methoden in de storage-accounts. Archiveren is vereist, beheer, naleving, kosten en bewerkingen. U bent verantwoordelijk voor het genereren archive-exemplaren en back-ups op Azure en opslaat in een compatibele manier.
 
-Zie de [SLA voor SAP HANA in Azure (grote exemplaren)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/v1_0/).
+Zie de [SLA voor SAP HANA op Azure (grote instanties)](https://azure.microsoft.com/support/legal/sla/sap-hana-large/v1_0/).
 
 ## <a name="sizing"></a>Grootte aanpassen
 
-Sizing voor HANA grote exemplaar gaat niet anders dan in het algemeen voor HANA formaat. Voor bestaande en systemen die u verplaatsen van andere RDBMS naar HANA wilt, SAP biedt een aantal rapporten die worden uitgevoerd op uw bestaande SAP-systemen geïmplementeerd. Als de database is verplaatst naar HANA, worden deze rapporten Controleer de gegevens en geheugenvereisten voor het exemplaar HANA berekenen. Lees de volgende SAP-opmerkingen voor meer informatie over het uitvoeren van deze rapporten en krijgen hun meest recente patches of versies:
+Groottes voor HANA grote instantie is niet anders dan in het algemeen voor HANA formaat. Voor bestaande en systemen die u verplaatsen van andere RDBMS met HANA wilt, SAP biedt een aantal rapporten die worden uitgevoerd op uw bestaande SAP-systemen geïmplementeerd. Als de database is verplaatst naar HANA, worden deze rapporten Controleer de gegevens en berekenen geheugenvereisten voor de HANA-instantie. Lees de volgende SAP-opmerkingen voor meer informatie over het uitvoeren van deze rapporten en hun meest recente patches of versies te verkrijgen:
 
-- [SAP-notitie #1793345 - formaat voor SAP-Suite op HANA](https://launchpad.support.sap.com/#/notes/1793345)
-- [SAP-notitie #1872170 - Suite op HANA en S/4 HANA sizing rapport](https://launchpad.support.sap.com/#/notes/1872170)
-- [SAP-notitie #2121330 - Veelgestelde vragen over: SAP BW op HANA sizing rapport](https://launchpad.support.sap.com/#/notes/2121330)
-- [SAP-notitie #1736976 - schaling rapport voor BW op HANA](https://launchpad.support.sap.com/#/notes/1736976)
-- [SAP-notitie #2296290 - formaat nieuw rapport voor BW op HANA](https://launchpad.support.sap.com/#/notes/2296290)
+- [SAP-notitie #1793345 - grootte voor SAP-Suite op HANA](https://launchpad.support.sap.com/#/notes/1793345)
+- [SAP-notitie #1872170 - Suite op HANA en s/4 HANA sizing-rapport](https://launchpad.support.sap.com/#/notes/1872170)
+- [SAP-notitie #2121330 - Veelgestelde vragen over: SAP BW op HANA formaat van rapport](https://launchpad.support.sap.com/#/notes/2121330)
+- [SAP-notitie #1736976 - rapport van de grootte voor BW op HANA](https://launchpad.support.sap.com/#/notes/1736976)
+- [SAP-notitie #2296290 - rapport nieuwe grootte voor BW op HANA](https://launchpad.support.sap.com/#/notes/2296290)
 
-Groen veld implementaties is snelle Sizer SAP voor geheugenvereisten van de implementatie van software SAP bovenop HANA berekenen.
+Snel SAP-Sizer is voor implementaties van de voorafgaande beperkingen, beschikbaar voor het berekenen van geheugenvereisten van de implementatie van SAP-software boven op HANA.
 
-Geheugenvereisten voor HANA verhogen naarmate gegevensvolume toeneemt. Let op het huidige geheugengebruik om te voorspellen wat er gebeurt in de toekomst. Op basis van geheugenvereisten, kunt klikt u vervolgens u toewijzen uw vraag in een van de HANA grote exemplaar SKU's.
+Geheugenvereisten voor HANA verhogen naarmate het gegevensvolume toeneemt. Houd rekening met uw huidige geheugengebruik om te voorspellen wat er gebeurt in de toekomst zijn. Op basis van geheugenvereisten, kunt klikt u vervolgens u toewijzen uw vraag in een van de HANA grote instantie-SKU's.
 
 ## <a name="requirements"></a>Vereisten
 
-Deze lijst samengevoegd naast de vereisten voor SAP HANA uitgevoerd op Azure (grotere exemplaren).
+Deze lijst ophaalprotocol vereisten voor het uitvoeren van SAP HANA op Azure (grotere instanties).
 
 **Microsoft Azure**
 
-- Een Azure-abonnement dat kan worden gekoppeld aan een SAP HANA in Azure (grote exemplaren).
-- Microsoft Premier support-contract. Zie voor specifieke informatie die betrekking hebben op SAP worden uitgevoerd in Azure, [SAP ondersteuning Opmerking #2015553 – SAP op Microsoft Azure: vereisten ondersteunen](https://launchpad.support.sap.com/#/notes/2015553). Als u grote exemplaar HANA eenheden met 384 en meer CPU's gebruikt, moet u ook uitbreiden van de Premier support-contract snelle Azure-antwoord opnemen.
-- Kennis van de HANA grote exemplaar SKU's u moet na het uitvoeren van een oefening sizing met SAP.
+- Een Azure-abonnement dat kan worden gekoppeld aan SAP HANA op Azure (grote instanties).
+- Microsoft Premier support-contract. Zie voor specifieke informatie met betrekking tot het uitvoeren van SAP in Azure, [SAP Support Opmerking #2015553 – SAP op Microsoft Azure: vereisten voor ondersteuning](https://launchpad.support.sap.com/#/notes/2015553). Als u HANA grote instantie eenheden met 384 en meer CPU's gebruikt, moet u ook om uit te breiden de Premier-ondersteuningscontract om op te nemen van Azure Rapid Response.
+- Status van de HANA grote instantie SKU's u moet na het uitvoeren van een oefening schaling met SAP.
 
-**Netwerkverbinding**
+**Verbinding met het netwerk**
 
-- ExpressRoute tussen on-premises naar Azure: als u wilt verbinding maken met uw on-premises Datacenter naar Azure, zorg ervoor dat u ten minste een 1-Gbps verbinding rangschikken van uw Internetprovider. 
+- ExpressRoute tussen on-premises naar Azure: als u wilt verbinding maken met uw on-premises Datacenter naar Azure, zorg ervoor dat u de volgorde van ten minste 1 Gbps-verbinding via uw Internetprovider. 
 
 **Besturingssysteem**
 
 - Licenties voor SUSE Linux Enterprise Server 12 voor SAP-toepassingen.
 
    > [!NOTE] 
-   > Het besturingssysteem die is geleverd door Microsoft is niet geregistreerd bij SUSE. Dit is niet gekoppeld aan een exemplaar van het beheerprogramma voor abonnement.
+   > Het besturingssysteem die is geleverd door Microsoft is niet geregistreerd bij SUSE. Het is niet verbonden met een exemplaar van het beheerprogramma voor abonnement.
 
-- SUSE Linux abonnement beheerprogramma geïmplementeerd in Azure op een virtuele machine. Dit hulpprogramma biedt de mogelijkheid voor SAP HANA in Azure (grote exemplaren) worden geregistreerd en respectievelijk bijgewerkt door SUSE. (Er is geen internettoegang binnen het datacenter grote exemplaar HANA.) 
+- SUSE Linux abonnement Management Tool geïmplementeerd in Azure op een virtuele machine. Dit hulpprogramma biedt de mogelijkheid voor SAP HANA op Azure (grote instanties) worden geregistreerd en respectievelijk bijgewerkt door SUSE. (Er is geen toegang tot internet binnen het datacenter HANA grote instantie.) 
 - Licenties voor Red Hat Enterprise Linux 6.7 of 7.x voor SAP HANA.
 
    > [!NOTE]
-   > Het besturingssysteem die is geleverd door Microsoft is niet geregistreerd met Red Hat. Dit is niet gekoppeld aan een exemplaar van het Red Hat abonnement Manager.
+   > Het besturingssysteem die is geleverd door Microsoft is niet geregistreerd met Red Hat. Het is niet verbonden met een Doelabonnementbeheerder van Red Hat-exemplaar.
 
-- Red Hat abonnement Manager is geïmplementeerd in Azure op een virtuele machine. De Red Hat abonnement Manager biedt de mogelijkheid voor SAP HANA in Azure (grote exemplaren) worden geregistreerd en respectievelijk bijgewerkt door Red Hat. (Er is geen directe toegang tot internet vanaf binnen de tenant die wordt geïmplementeerd op de stempel grote exemplaar van Azure.)
-- SAP moet u een ondersteuningsaanvraag hebben contract met uw Linux-provider. Deze vereiste is niet verwijderd door de oplossing van grote HANA-exemplaar of het feit Linux in Azure uit te voeren. In tegenstelling tot met enkele van de installatiekopieën van het galerie Linux Azure de servicekosten is *niet* opgenomen in de aanbieding oplossing voor grote HANA-exemplaar. Het is uw verantwoordelijkheid om te voldoen aan de vereisten van SAP met betrekking tot support-contract met de distributor Linux. 
+- Red Hat abonnement Manager is geïmplementeerd in Azure op een virtuele machine. De Red Hat abonnement Manager biedt de mogelijkheid voor SAP HANA op Azure (grote instanties) worden geregistreerd en respectievelijk bijgewerkt door Red Hat. (Er is geen directe toegang tot internet vanaf binnen de tenant die is geïmplementeerd op de Azure Large Instance-stempel.)
+- SAP vereist dat u hebt een ondersteuning contract bij uw Linux-provider. Deze vereiste wordt niet verwijderd door de oplossing van HANA grote instantie of het feit dat u Linux in Azure worden uitgevoerd. In tegenstelling tot met enkele van de Linux Azure-galerie met installatiekopieën, de kosten van de service is *niet* deel uitmaakt van de aanbieding van de oplossing van HANA grote instantie. Het is uw verantwoordelijkheid om te voldoen aan de vereisten van SAP met betrekking tot support-contract met de distributor Linux. 
    - SUSE Linux, zoekt u de vereisten van support-contract in [SAP Opmerking #1984787 - SUSE Linux Enterprise Server 12: opmerkingen bij de installatie](https://launchpad.support.sap.com/#/notes/1984787) en [SAP Opmerking #1056161 - SUSE prioriteitsondersteuning voor SAP-toepassingen](https://launchpad.support.sap.com/#/notes/1056161).
-   - Voor Red Hat Linux moet u het juiste abonnement toegangsniveaus die zijn ondersteuning en service-updates voor de besturingssystemen van grote HANA-exemplaar. Red Hat Red Hat Enterprise Linux aanbeveelt voor [SAP-oplossingen] (https://access.redhat.com/solutions/3082481 abonnement. 
+   - Voor Red Hat Linux moet u het juiste abonnement niveaus die zijn ondersteuning en service-updates voor de besturingssystemen van HANA grote instantie. Red Hat beveelt aan het Red Hat Enterprise Linux voor [SAP-oplossingen] (https://access.redhat.com/solutions/3082481 abonnement. 
 
-Zie voor de ondersteuningsmatrix van de verschillende SAP HANA-versies met de verschillende versies van Linux [SAP-notitie #2235581](https://launchpad.support.sap.com/#/notes/2235581).
+Zie voor de ondersteuningsmatrix van de verschillende versies van de SAP HANA met de verschillende versies van Linux, [SAP Opmerking #2235581](https://launchpad.support.sap.com/#/notes/2235581).
 
-Raadpleeg voor de compatibiliteit matrix van het besturingssysteem en HLI firmware en stuurprogramma versies, [bijwerken van het besturingssysteem voor HLI](os-upgrade-hana-large-instance.md).
+Raadpleeg voor de compatibiliteitsmatrix van het besturingssysteem en firmware-/ stuurprogrammaversies HLI [bijwerken van het besturingssysteem voor HLI](os-upgrade-hana-large-instance.md).
+
+
+> [!IMPORTANT] 
+> Voor Type II eenheden alleen de SLES 12 SP2 OS-versie op dit moment ondersteund. 
 
 
 **Database**
 
-- Licenties en software-installatie van onderdelen voor SAP HANA (platform of enterprise edition).
+- De licenties en software-installatie van onderdelen voor SAP HANA (platform- of enterprise edition).
 
 **Toepassingen**
 
-- Licenties en software-installatie-onderdelen voor alle SAP-toepassingen die verbinding met SAP HANA en verwante SAP maken ondersteuning voor contracten.
-- Licenties en software-installatie-onderdelen voor alle toepassingen die niet SAP gebruikt in relatie tot SAP HANA op Azure (grote exemplaren)-omgevingen en gerelateerde support-contract.
+- Licenties en software-installatie van onderdelen voor SAP-toepassingen die verbinding met SAP HANA en gerelateerde SAP maken ondersteuning voor opdrachten.
+- Licenties en software-installatie van onderdelen voor niet-SAP-toepassingen gebruikt met betrekking tot SAP HANA op Azure (grote instanties)-omgevingen en ondersteuningscontracten die betrekking hebben.
 
 **Vaardigheden**
 
 - Ervaring met en kennis van Azure IaaS en de bijbehorende onderdelen.
-- Ervaring met en kennis over het implementeren van een werkbelasting SAP in Azure.
-- SAP HANA-installatie gecertificeerd personeel.
-- SAP architect vaardigheden voor het ontwerpen van hoge beschikbaarheid en herstel na noodgevallen rond SAP HANA.
+- Ervaring met en kennis van hoe u een SAP-workloads in Azure implementeert.
+- Installatie van SAP HANA-gecertificeerde personeel.
+- SAP-architect vaardigheden voor het ontwerpen van hoge beschikbaarheid en herstel na noodgevallen om SAP HANA.
 
 **SAP**
 
-- Verwachting is dat u een SAP-klant bent en ondersteuning voor een contract met SAP.
-- Raadpleeg SAP op versies van SAP HANA en de uiteindelijke configuraties op grote schaal omhoog hardware met name voor implementaties van de klasse Type II van HANA grote exemplaar SKU's.
+- Wordt ervan uitgegaan dat u een SAP-klant bent en een hebben contract met SAP.
+- Met name voor implementaties van het Type II-klasse van HANA grote instantie SKU's, neem contact op met SAP op versies van SAP HANA en de uiteindelijke configuraties op grote schaal omhoog hardware.
 
 
 ## <a name="storage"></a>Storage
 
-De opslagindeling voor SAP HANA in Azure (grote exemplaren) is geconfigureerd door SAP HANA op het klassieke implementatiemodel via SAP aanbevolen richtlijnen. De richtlijnen zijn gedocumenteerd in de [opslagvereisten voor SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) witboek.
+De opslagindeling voor SAP HANA op Azure (grote instanties) is geconfigureerd door SAP HANA op het klassieke implementatiemodel via SAP aanbevolen richtlijnen. De richtlijnen worden beschreven in de [opslagvereisten voor SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) technisch document.
 
-Het HANA grote exemplaar van het Type ik klasse wordt geleverd met vier keer het geheugen volume opslagvolume. Voor de klasse Type II van grote exemplaar HANA eenheden, de opslag bevindt zich niet meer vier keer. De eenheden worden geleverd met een volume dat is bedoeld voor het opslaan van HANA transactielogboekback-ups. Zie voor meer informatie [installeren en configureren van SAP HANA (grote exemplaren) op Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+De HANA grote instantie van het Type ik klasse wordt geleverd met vier keer het geheugen volume als opslagvolume. De opslag is niet voor de klasse Type II van HANA grote instantie eenheden, vier keer meer. De eenheden worden geleverd met een volume dat is bedoeld voor het opslaan van HANA transactielogboekback-ups. Zie voor meer informatie, [installeren en configureren van SAP HANA (grote instanties) op Azure](hana-installation.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Zie de volgende tabel in termen van de opslagtoewijzing van. De tabel bevat de ruwe capaciteit voor de verschillende volumes die zijn opgegeven met de verschillende HANA grote exemplaar eenheden.
+Zie de volgende tabel in termen van Opslagtoewijzing. De tabel bevat de ruwe capaciteit voor de verschillende volumes die zijn opgegeven met de verschillende HANA grote instantie-eenheden.
 
-| HANA grote exemplaar SKU | Hana/gegevens | Hana/logboek | Hana/gedeeld | Hana/logbackups |
+| HANA grote instantie SKU | Hana/gegevens | Hana/log | Hana/gedeeld | Hana/logbackups |
 | --- | --- | --- | --- | --- |
 | S72 | 1,280 GB | 512 GB | 768 GB | 512 GB |
 | S72m | 3,328 GB | 768 GB |1,280 GB | 768 GB |
-| S192 | 4.608 GB | 1.024 GB | 1.536 GB | 1.024 GB |
-| S192m | 11,520 GB | 1.536 GB | 1.792 GB | 1.536 GB |
-| S192xm |  11,520 GB |  1.536 GB |  1.792 GB |  1.536 GB |
-| S384 | 11,520 GB | 1.536 GB | 1.792 GB | 1.536 GB |
-| S384m | 12.000 GB | 2.050 GB | 2.050 GB | 2,040 GB |
-| S384xm | 16.000 GB | 2.050 GB | 2.050 GB | 2,040 GB |
-| S384xxm |  20.000 GB | 3,100 GB | 2.050 GB | 3,100 GB |
-| S576m | 20.000 GB | 3,100 GB | 2.050 GB | 3,100 GB |
-| S576xm | 31.744 GB | 4096 GB | 2048 GB | 4096 GB |
-| S768m | 28.000 GB | 3,100 GB | 2.050 GB | 3,100 GB |
+| S192 | 4.608 GB | 1.024 GB | 1536 GB | 1.024 GB |
+| S192m | 11,520 GB | 1536 GB | 1.792 GB | 1536 GB |
+| S192xm |  11,520 GB |  1536 GB |  1.792 GB |  1536 GB |
+| S384 | 11,520 GB | 1536 GB | 1.792 GB | 1536 GB |
+| S384m | 12.000 GB | 2.050 GB | 2.050 GB | 2040 GB |
+| S384xm | 16.000 GB | 2.050 GB | 2.050 GB | 2040 GB |
+| S384xxm |  20.000 GB | 3100 GB | 2.050 GB | 3100 GB |
+| S576m | 20.000 GB | 3100 GB | 2.050 GB | 3100 GB |
+| S576xm | 31.744 GB | 4096 GB | 2.048 GB | 4096 GB |
+| S768m | 28.000 GB | 3100 GB | 2.050 GB | 3100 GB |
 | S768xm | 40.960 GB | 6.144 GB | 4096 GB | 6.144 GB |
 | S960m | 36.000 GB | 4,100 GB | 2.050 GB | 4,100 GB |
 
 
-Werkelijke geïmplementeerde volumes kunnen variëren, afhankelijk van de implementatie en het hulpprogramma dat wordt gebruikt voor het weergeven van de grootte van het volume.
+Werkelijke geïmplementeerde volumes kunnen verschillen op basis van de implementatie en het hulpprogramma dat wordt gebruikt om de volumes groter weer te geven.
 
-Als u een exemplaar van HANA groot SKU onderverdelen, een paar voorbeelden van mogelijke deling stukken als volgt uitzien:
+Als u een HANA grote instantie SKU onderverdelen, enkele voorbeelden van mogelijke deling onderdelen als volgt uitzien:
 
-| Geheugenpartitie in GB | Hana/gegevens | Hana/logboek | Hana/gedeeld | Hana/log/back-up |
+| Geheugenpartitie in GB | Hana/gegevens | Hana/log | Hana/gedeeld | Hana/log/back-up |
 | --- | --- | --- | --- | --- |
 | 256 | 400 GB | 160 GB | 304 GB | 160 GB |
 | 512 | 768 GB | 384 GB | 512 GB | 384 GB |
@@ -388,154 +392,154 @@ Als u een exemplaar van HANA groot SKU onderverdelen, een paar voorbeelden van m
 | 1536 | 3,328 GB | 768 GB | 1,280 GB | 768 GB |
 
 
-Deze grootten zijn ruwe volume cijfers die kan verschillen enigszins verschillen op basis van de implementatie en de hulpprogramma's gebruikt om te kijken naar de volumes. Er zijn ook andere partitiegrootten zoals 2,5 TB. Deze maximale grootten zijn berekend met een formule vergelijkbaar met die van de vorige partities. De term 'partities' betekent niet dat het besturingssysteem, geheugen of CPU-bronnen worden op elke manier gepartitioneerd. Hiermee wordt aangegeven partities van de opslag voor de verschillende HANA-exemplaren die u mogelijk wilt implementeren op een enkele grote exemplaar HANA-eenheid. 
+Deze grootten zijn ruwe volume getallen die kan verschillen enigszins op basis van de implementatie en de hulpprogramma's gebruikt om te kijken naar de volumes. Er zijn ook de grootte van andere partities, zoals 2,5 TB. Deze opslagruimten worden berekend met een formule die vergelijkbaar is met de gebruikt voor de vorige partities. De term 'partities' betekent niet dat het besturingssysteem, geheugen of CPU-resources worden op geen enkele manier gepartitioneerd. Opslag-partities voor de verschillende HANA-instanties die u mogelijk wilt implementeren op één HANA grote instantie eenheid geeft u aan. 
 
-Mogelijk moet u meer opslagruimte. U kunt opslag toevoegen door het aanschaffen van extra opslagruimte in eenheden van 1 TB. Deze extra opslagruimte kan worden toegevoegd als extra volume. Het kan ook worden gebruikt voor het uitbreiden van een of meer van de bestaande volumes. Het niet mogelijk te verlagen de grootte van de volumes oorspronkelijk geïmplementeerd en voornamelijk door de vorige tabellen worden beschreven. Is het ook niet kunt wijzigen van de namen van de volumes of namen koppelen. De eerder beschreven opslagvolumes zijn gekoppeld aan de eenheden HANA grote exemplaar als NFS4 volumes.
+U kunt meer opslag nodig hebt. U kunt opslag toevoegen door het aanschaffen van extra opslagruimte in eenheden van 1 TB. Deze extra opslag kan worden toegevoegd als een extra volume. Er kan ook worden gebruikt om uit te breiden van een of meer van de bestaande volumes. Het is niet mogelijk om te verkleinen van de grootte van de volumes zoals oorspronkelijk geïmplementeerd en voornamelijk door de vorige tabellen worden beschreven. Is het ook niet mogelijk om te wijzigen van de namen van de volumes of koppelen van namen. De opslagvolumes die eerder is beschreven, zijn gekoppeld aan de eenheden HANA grote instantie als NFS4 volumes.
 
-Voor hersteldoeleinden back-up en herstel en noodherstel kunt u opslag-momentopnamen. Zie voor meer informatie [SAP HANA (grote exemplaren) hoge beschikbaarheid en herstel na noodgevallen op Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+U kunt storage-momentopnamen gebruiken voor back-up en herstel en disaster recovery-doeleinden. Zie voor meer informatie, [SAP HANA (grote instanties) hoge beschikbaarheid en herstel na noodgeval op Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
-Raadpleeg [HLI scenario's ondersteund](hana-supported-scenario.md) voor opslag lay-informatie voor uw scenario.
+Raadpleeg [HLI scenario's ondersteund](hana-supported-scenario.md) voor lay-out opslaggegevens voor uw scenario.
 
 ### <a name="encryption-of-data-at-rest"></a>Versleuteling van data-at-rest
-Opslagruimte wordt gebruikt voor grote exemplaar HANA kan een transparante codering van de gegevens, zoals deze wordt opgeslagen op de schijven. Wanneer een grote exemplaar HANA-eenheid wordt geïmplementeerd, kunt u dit soort versleuteling inschakelen. U kunt ook wijzigen met versleutelde volumes nadat de implementatie plaatsgevonden heeft. De overgang van niet-versleutelde naar versleutelde volumes is transparant en geen downtime nodig. 
+De opslag die wordt gebruikt voor HANA grote instantie kunt een transparante versleuteling van de gegevens zoals deze wordt opgeslagen op de schijven. Als een eenheid HANA grote instantie is geïmplementeerd, kunt u dit type versleuteling inschakelen. U kunt ook wijzigen met versleutelde volumes na de implementatie plaatsvindt. De overstap van niet-versleutelde versleutelde volumes is transparant en vereist geen downtime. 
 
-Met het Type klasse ik van SKU's, de LUN wordt opgeslagen op opstarten van het volume is versleuteld. Voor de klasse Type II van SKU's van HANA grote exemplaar moet u voor het versleutelen van het bestand Boot.ini LUN met OS-methoden. Voor meer informatie contact op met het beheer van de Service Microsoft-team.
+Met het Type ik klasse van SKU's, het volume met de LUN wordt opgeslagen op opstarten is versleuteld. Voor het Type II-klasse van SKU's van HANA grote instantie moet u voor het versleutelen van het bestand Boot.ini LUN met besturingssysteem-methoden. Voor meer informatie contact op met het Microsoft-Service Management-team.
 
 
 ## <a name="networking"></a>Netwerken
 
-De architectuur van het netwerk van Azure services is een belangrijk onderdeel van de geslaagde implementatie van SAP-toepassingen op grote HANA-exemplaar. SAP HANA in implementaties van Azure (grote exemplaren) hebben doorgaans een groter SAP Liggend met verschillende andere SAP-oplossingen met verschillende grootten van databases, verbruik van CPU en geheugengebruik. Is het waarschijnlijk dat niet alle die SAP-systemen zijn gebaseerd op SAP HANA. Uw SAP-liggend is waarschijnlijk een hybride die gebruikmaakt van:
+De architectuur van Azure network services is een belangrijk onderdeel van de succesvolle implementatie van SAP-toepassingen op HANA grote instantie. SAP HANA op Azure (grote instanties) implementaties hebben meestal een grotere SAP-landschap met diverse verschillende SAP-oplossingen met verschillende grootten van databases, resourceverbruik CPU en geheugengebruik. Is het waarschijnlijk dat niet al deze SAP-systemen zijn gebaseerd op SAP HANA. Uw SAP-landschap dat is waarschijnlijk een hybride die gebruikmaakt van:
 
-- SAP systemen lokale geïmplementeerd. Vanwege de grootte niet kunnen deze systemen op dit moment worden gehost in Azure. Een voorbeeld is een productie SAP ERP-systeem die wordt uitgevoerd op SQL Server (als de database) en vereist meer CPU of geheugen bronnen dan virtuele machines kunnen bieden.
-- SAP SAP HANA gebaseerde systemen lokale geïmplementeerd.
-- Geïmplementeerde SAP-systemen in virtuele machines. Deze systemen kunnen ontwikkeling, testen, sandbox, of productie instanties voor een van de SAP NetWeaver-toepassingen in Azure (op VM's) implementeren kunnen, op basis van gebruiks- en behoefte aan bronnen. Deze systemen kunnen ook worden gebaseerd op zoals SQL Server-databases. Zie voor meer informatie [SAP ondersteuning Opmerking #1928533 – SAP-toepassingen in Azure: ondersteunde producten en typen van de virtuele machine van Azure](https://launchpad.support.sap.com/#/notes/1928533/E). En deze systemen kunnen worden gebaseerd op databases zoals SAP HANA. Zie voor meer informatie [SAP HANA gecertificeerd IaaS platforms](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
-- SAP toepassingsservers in Azure (op VM's) die gebruikmaken van de SAP HANA in Azure (grote exemplaren) in Azure grote exemplaar stempels geïmplementeerd.
+- SAP-systemen on-premises geïmplementeerd. Vanwege de grootte, niet kunnen deze systemen op dit moment worden gehost in Azure. Een voorbeeld is een productie SAP ERP-systeem dat wordt uitgevoerd op SQL Server (als de database) en meer CPU of geheugen resources dan virtuele machines nodig.
+- SAP HANA op basis van SAP-systemen on-premises geïmplementeerd.
+- Geïmplementeerde SAP-systemen in virtuele machines. Deze systemen kunnen ontwikkelen, testen, sandbox of productie-exemplaren voor het gebruik van de SAP NetWeaver gebaseerde toepassingen die in Azure (op VM's), op basis van verbruik en het geheugen vraag naar resources kunnen implementeren. Deze systemen kunnen ook worden gebaseerd op, zoals SQL Server-databases. Zie voor meer informatie, [SAP Support Opmerking #1928533-SAP-toepassingen op Azure: ondersteunde producten en typen Azure VM's](https://launchpad.support.sap.com/#/notes/1928533/E). En deze systemen kunnen worden gebaseerd op, zoals SAP HANA-databases. Zie voor meer informatie, [SAP HANA-gecertificeerde IaaS-platformen](http://global.sap.com/community/ebook/2014-09-02-hana-hardware/enEN/iaas.html).
+- SAP-toepassingsservers in Azure (op VM's) die gebruikmaken van SAP HANA op Azure (grote instanties) in Azure Large Instance stempels geïmplementeerd.
 
-Een hybride SAP Liggend met vier of meer verschillende scenario's is normaal. Er zijn ook veel aanvragen van de klant van volledige SAP landschappen die worden uitgevoerd in Azure. Wanneer er virtuele machines komen krachtiger, verhoogt het aantal klanten die overschakelen van alle hun SAP-oplossingen in Azure.
+Een hybride SAP-landschap met vier of meer verschillende implementatiescenario's is normaal. Er zijn ook veel klantcases van complete SAP-landschappen die worden uitgevoerd in Azure. Als VM's nog krachtigere worden, verhoogt het aantal klanten die alle hun SAP-oplossingen op Azure worden verplaatst.
 
 Azure-netwerken in de context van SAP-systemen die zijn geïmplementeerd in Azure is eenvoudig. Deze gebaseerd op de volgende principes:
 
-- Virtuele netwerken van Azure moeten worden verbonden met het ExpressRoute-circuit dat verbinding met een on-premises netwerk maakt.
-- Een ExpressRoute-circuit die meestal verbindt van lokaal naar Azure moet een bandbreedte van 1 Gbps of hoger hebben. Deze minimale bandbreedte kunt voldoende bandbreedte voor de overdracht van gegevens tussen on-premises systemen en systemen die worden uitgevoerd op virtuele machines. Kunt u ook voldoende bandbreedte voor de verbinding met Azure systemen van on-premises gebruikers.
+- Virtuele netwerken van Azure moeten worden verbonden met het ExpressRoute-circuit dat is verbonden met een on-premises netwerk.
+- Een ExpressRoute-circuit die on-premises doorgaans verbinding met Azure, moet een bandbreedte van 1 Gbps of hoger hebben. Deze minimale bandbreedte kunt voldoende bandbreedte voor de overdracht van gegevens tussen on-premises systemen en systemen die worden uitgevoerd op virtuele machines. Daarnaast kunt u voldoende bandbreedte voor de verbinding met Azure-systemen van on-premises gebruikers.
 - Alle SAP-systemen in Azure moeten worden ingesteld in virtuele netwerken met elkaar communiceren.
-- Active Directory en DNS gehost lokale on-premises worden uitgebreid naar Azure via ExpressRoute.
+- Active Directory en DNS-on-premises gehost worden uitgebreid naar Azure via ExpressRoute van on-premises.
 
 
 > [!NOTE] 
-> Vanuit het facturering oogpunt kan slechts één Azure-abonnement worden gekoppeld aan slechts één tenant in een grote exemplaar stempel in een specifieke Azure-regio. Als u daarentegen kan een enkele grote exemplaar stempel tenant zijn gekoppeld aan slechts één Azure-abonnement. Deze vereiste is consistent met andere factureerbare objecten in Azure.
+> Uit een oogpunt van de facturering kan slechts één Azure-abonnement zijn gekoppeld aan slechts één tenant in een grote instantie stempel in een specifieke Azure-regio. Één grote instantie stempel tenant kan daarentegen worden gekoppeld aan slechts één Azure-abonnement. Deze vereiste is consistent met andere factureerbare objecten in Azure.
 
-Als SAP HANA in Azure (grote exemplaren) is geïmplementeerd in meerdere verschillende Azure-regio's, wordt een afzonderlijke tenant geïmplementeerd in de stempel grote exemplaar. U kunt beide onder dezelfde Azure-abonnement uitvoeren, zolang deze instanties deel van de dezelfde mate van SAP uitmaken. 
+Als SAP HANA op Azure (grote instanties) is geïmplementeerd in meerdere verschillende Azure-regio's, wordt een afzonderlijke tenant wordt geïmplementeerd in de stempel grote instantie. U kunt beide onder hetzelfde Azure-abonnement uitvoeren, zolang deze exemplaren onderdeel van de SAP-landschap dat dezelfde zijn. 
 
 > [!IMPORTANT] 
-> De implementatie van de Azure Resource Manager wordt ondersteund met SAP HANA in Azure (grote exemplaren).
+> Alleen de Azure Resource Manager-implementatie wordt ondersteund met SAP HANA op Azure (grote instanties).
 
  
 
-### <a name="additional-virtual-network-information"></a>Informatie over aanvullende virtuele netwerk
+### <a name="additional-virtual-network-information"></a>Informatie over aanvullende virtuele netwerken
 
-Voor een virtueel netwerk verbinding met ExpressRoute, moet een Azure-gateway worden gemaakt. Zie voor meer informatie [over virtuele netwerkgateways voor ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). 
+Voor een virtueel netwerk verbinding met ExpressRoute, moet een Azure-gateway worden gemaakt. Zie voor meer informatie, [virtuele netwerkgateways voor ExpressRoute](../../../expressroute/expressroute-about-virtual-network-gateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)). 
 
-Een Azure-gateway kan worden gebruikt met ExpressRoute naar een infrastructuur buiten Azure of een stempel grote exemplaar van Azure. Een Azure-gateway kan ook verbinding maken tussen virtuele netwerken worden gebruikt. Zie voor meer informatie [een netwerk-netwerkverbinding voor Resource Manager configureren met behulp van PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). U kunt verbinding maken met de Azure gateway tot maximaal vier verschillende ExpressRoute-verbindingen, zolang deze verbindingen afkomstig van andere Microsoft enterprise-randrouters zijn. Zie voor meer informatie [SAP HANA (grote exemplaren)-infrastructuur en de verbindingen van Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+Een Azure-gateway kan worden gebruikt met ExpressRoute naar een infrastructuur buiten Azure of naar een Azure Large Instance-stempel. Een Azure-gateway kan ook worden gebruikt verbinding maken tussen virtuele netwerken. Zie voor meer informatie, [een netwerk-netwerkverbinding voor Resource Manager configureren met behulp van PowerShell](../../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). U kunt de Azure-gateway tot een maximum van vier andere ExpressRoute-verbindingen kunt verbinden, zolang deze verbindingen afkomstig van andere Microsoft enterprise-randrouters zijn. Zie voor meer informatie, [SAP HANA (grote instanties)-infrastructuur en connectiviteit in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
 
 > [!NOTE] 
-> De doorvoer die een Azure-gateway biedt verschilt voor beide gevallen gebruikt. Zie voor meer informatie [over VPN-Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). De maximale doorvoer die u met een virtuele netwerkgateway bereiken kunt is 10 Gbps met behulp van een ExpressRoute-verbinding. Kopiëren van bestanden tussen een virtuele machine die zich in een virtueel netwerk bevindt en een systeem lokale (als een stream met één exemplaar) de volledige doorvoer van de verschillende gateway-SKU's niet bereiken. Als u wilt gebruikmaken van de volledige bandbreedte van de virtuele netwerkgateway gebruik meerdere streams. Of moet u verschillende bestanden parallelle stromen van één enkel bestand kopiëren.
+> De doorvoer vindt u een Azure-gateway verschilt voor beide. Zie voor meer informatie, [over VPN-Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). De maximale doorvoer die u met een virtuele netwerkgateway bereiken kunt is 10 Gbps met behulp van een ExpressRoute-verbinding. Kopiëren van bestanden tussen een virtuele machine die zich in een virtueel netwerk bevinden en een on-premises (als een stroom één exemplaar) de volledige doorvoer van de andere gateway-SKU's niet bereiken. Als u wilt gebruikmaken van de volledige bandbreedte van de virtuele netwerkgateway, gebruik van meerdere streams. Of u moet verschillende bestanden in parallelle stromen van één enkel bestand kopiëren.
 
 
-### <a name="networking-architecture-for-hana-large-instance"></a>Architectuur van de netwerken voor grote HANA-exemplaar
-De netwerkarchitectuur voor grote HANA-exemplaar kan worden onderverdeeld in vier verschillende onderdelen:
+### <a name="networking-architecture-for-hana-large-instance"></a>Architectuur van de netwerken voor HANA grote instantie
+De VPN-architectuur voor HANA grote instantie kan worden onderverdeeld in vier verschillende onderdelen:
 
-- On-premises netwerken en ExpressRoute-verbinding met Azure. Dit onderdeel is van de klant domein en is verbonden met Azure via ExpressRoute. Zie de rechtsonder in de volgende afbeelding.
-- Netwerk van Azure-services, zoals eerder besproken, met virtuele netwerken, die opnieuw gateways zijn. Dit onderdeel is een gebied waarin u moet de juiste ontwerpen voor uw toepassingsvereisten-, beveiligings- en nalevingsvereisten niet vinden. Of u grote HANA-exemplaar is een ander punt rekening houden met betrekking tot het aantal virtuele netwerken en Azure gateway-SKU's kiezen. Zie de rechtsboven in de afbeelding.
-- Connectiviteit van grote exemplaar HANA via ExpressRoute technologie in Azure. Dit onderdeel is geïmplementeerd en uitgevoerd door Microsoft. U hoeft te doen is bieden sommige IP-adresbereiken na de implementatie van uw assets in grote exemplaar HANA het ExpressRoute-circuit verbinding met de virtuele netwerken. Zie voor meer informatie [SAP HANA (grote exemplaren)-infrastructuur en de verbindingen van Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
-- Netwerken in grote HANA-instantie, die voornamelijk transparant is voor u.
+- On-premises netwerken en ExpressRoute-verbinding naar Azure. Dit onderdeel is van de klant domein en is verbonden met Azure via ExpressRoute. Zie de rechtsonder in de volgende afbeelding.
+- Netwerk van Azure-services, zoals eerder besproken, met virtuele netwerken, die opnieuw gateways zijn. Dit onderdeel is een gebied waar u nodig hebt om te vinden van de juiste ontwerpen voor uw toepassingsvereisten-, beveiligings- en nalevingsvereisten. Of u HANA grote instantie is een ander punt rekening houden met betrekking tot het aantal virtuele netwerken en Azure gateway-SKU's waaruit u kunt kiezen. Zie de rechtsboven in de afbeelding.
+- Connectiviteit van HANA grote instantie via ExpressRoute-technologie in Azure. Dit onderdeel is geïmplementeerd en uitgevoerd door Microsoft. U hoeft alleen is bieden bepaalde IP-adresbereiken na de implementatie van uw activa in HANA grote instantie verbinding maken met het ExpressRoute-circuit met de virtuele netwerken. Zie voor meer informatie, [SAP HANA (grote instanties)-infrastructuur en connectiviteit in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). 
+- Netwerken in HANA grote instantie, die voornamelijk transparant is voor u.
 
-![Virtueel netwerk is verbonden met SAP HANA op Azure (grote exemplaren) en on-premises](./media/hana-overview-architecture/image3-on-premises-infrastructure.png)
+![Virtuele netwerken die zijn verbonden met SAP HANA op Azure (grote instanties) en on-premises](./media/hana-overview-architecture/image3-on-premises-infrastructure.png)
 
-De vereisten die uw assets lokale verbinding via ExpressRoute naar Azure maken moeten wijzigen niet omdat u HANA grote exemplaar gebruiken. De vereiste om een of meerdere virtuele netwerken die worden uitgevoerd van de virtuele machines, die de toepassingslaag die verbinding met de HANA-exemplaren die worden gehost in eenheden HANA grote exemplaar maakt host, ook wijzigen niet. 
+De vereiste dat uw on-premises assets verbinding via ExpressRoute naar Azure maken moeten verandert niet omdat u gebruikmaakt van HANA grote instantie. De vereiste voor een of meerdere virtuele netwerken die worden uitgevoerd van de virtuele machines, waarop het niveau van de toepassing die verbinding met de HANA-instanties die worden gehost in eenheden van HANA grote instantie maakt wordt gehost, hebben ook wijzigen niet. 
 
-De verschillen op SAP-implementatie in Azure zijn:
+De verschillen naar SAP-oplossingen in Azure zijn:
 
-- De eenheden HANA grote exemplaar van de tenant van uw klant zijn verbonden via een ander ExpressRoute-circuit in uw virtuele netwerken. Belastingsvoorwaarden afzonderlijke, delen niet de on-premises virtuele netwerken ExpressRoute koppelingen en de koppelingen tussen virtuele netwerken en grote HANA-exemplaar de routers dezelfde.
-- Het profiel van de werkbelasting tussen de toepassingslaag SAP en het grote HANA-exemplaar is van een andere aard, met veel kleine aanvragen en barst zoals (resultaatsets) uit de SAP HANA in de toepassingslaag gegevensoverdracht.
-- De architectuur van de toepassing SAP is meer gevoelig voor netwerklatentie dan typische scenario's waarbij gegevens worden uitgewisseld tussen on-premises en Azure.
+- De eenheden HANA grote instantie van de tenant van uw klant zijn via een andere ExpressRoute-circuit in uw virtuele netwerken verbonden. Naar een afzonderlijke load voorwaarden, delen niet de on-premises naar virtuele netwerken ExpressRoute en de koppelingen tussen virtuele netwerken en HANA grote instantie de routers dezelfde.
+- De werkbelastingprofiel tussen het niveau van de SAP-toepassing en de HANA grote instantie is van een andere aard, met een groot aantal kleine aanvragen en pieken zoals (resultatensets) van SAP HANA in de toepassingslaag gegevensoverdracht.
+- De architectuur van SAP-toepassing is gevoeliger voor netwerklatentie dan typische scenario's waarbij gegevens worden uitgewisseld tussen on-premises en Azure.
 - De virtuele netwerkgateway heeft ten minste twee ExpressRoute-verbindingen. Beide verbindingen delen de maximale bandbreedte voor binnenkomende gegevens van de virtuele netwerkgateway.
 
-De netwerklatentie opgetreden tussen VM's en grote exemplaar HANA eenheden kunnen hoger zijn dan een typische round trip latentie van de VM-VM-netwerk. Afhankelijk van de Azure-regio, de meetwaarden kunnen overschrijden de 0,7 ms round trip latentie geclassificeerd zoals hieronder gemiddelde in [SAP Opmerking #1100926 - Veelgestelde vragen over: prestaties van het netwerk](https://launchpad.support.sap.com/#/notes/1100926/E). Niettemin implementeren klanten op basis van een SAP HANA SAP productietoepassingen uitgevoerd op grote SAP HANA-exemplaar. De klanten die zijn geïmplementeerd rapport verbeterd door het uitvoeren van hun SAP-toepassingen op SAP HANA met behulp van de grote exemplaar HANA eenheden. Zorg ervoor dat u uw bedrijfsprocessen grondig te testen in Azure HANA grote exemplaar.
+De ervaren netwerklatentie tussen virtuele machines en HANA grote instantie eenheden kunnen hoger zijn dan een normaal traject latentie van de VM-VM-netwerk. Afhankelijk van de Azure-regio, de meetwaarden kunnen groter zijn dan de 0,7 ms traject latentie geclassificeerd als een waarde onder het gemiddelde in [SAP Opmerking #1100926 - Veelgestelde vragen over: prestaties van het netwerk](https://launchpad.support.sap.com/#/notes/1100926/E). Niettemin implementeren klanten voor productie op basis van SAP HANA SAP-toepassingen is op SAP HANA grote instantie. De klanten die geweldige verbeteringen voor rapporten geïmplementeerd door het uitvoeren van hun SAP-toepassingen op SAP HANA met behulp van HANA grote instantie eenheden. Zorg ervoor dat u uw bedrijfsprocessen grondig testen in Azure HANA grote instantie.
  
-Om te bieden deterministische netwerklatentie tussen VM's en grote HANA-exemplaar, de keuze van de virtuele netwerkgateway SKU is essentieel. In tegenstelling tot de verkeerspatronen tussen on-premises en virtuele machines, kunt het patroon verkeer tussen VM's en grote HANA-exemplaar ontwikkelen van kleine maar groot lichtflitsen aanvragen en gegevensvolumes worden verzonden. Voor het afhandelen van dergelijke bursts goed, raden we het gebruik van de gateway UltraPerformance SKU. Voor de klasse Type II HANA grote exemplaar SKU is het gebruik van de gateway UltraPerformance SKU als een virtuele netwerkgateway verplicht.
+Voor deterministische netwerklatentie tussen virtuele machines en HANA grote instantie, de keuze van de virtuele netwerkgateway SKU is essentieel. In tegenstelling tot de patronen in het netwerkverkeer tussen on-premises en virtuele machines, kunt het patroon voor verkeer tussen virtuele machines en HANA grote instantie ontwikkelen met kleine maar hoge pieken van aanvragen en gegevens volumes moet worden verzonden. Voor het afhandelen van dergelijke bursts goed, raden we het gebruik van de gateway-SKU UltraPerformance. Voor het Type II-klasse van HANA grote instantie SKU's is het gebruik van de gateway-SKU UltraPerformance als een virtuele netwerkgateway verplicht.
 
 > [!IMPORTANT] 
-> Gezien de algehele netwerkverkeer tussen de SAP-toepassing en de lagen van de database, worden alleen de HighPerformance of UltraPerformance gateway-SKU's voor virtuele netwerken voor de verbinding met SAP HANA in Azure (grote exemplaren) ondersteund. Voor HANA grote exemplaar Type II SKU's, worden alleen de UltraPerformance-gateway SKU wordt ondersteund als een virtuele netwerkgateway.
+> Gezien de algehele netwerkverkeer tussen de SAP-toepassing en de database-lagen, worden alleen de HighPerformance of UltraPerformance gateway-SKU's voor virtuele netwerken ondersteund voor het verbinden met SAP HANA op Azure (grote instanties). Voor HANA grote instantie SKU's Type II, wordt alleen de gateway-SKU UltraPerformance ondersteund als een virtuele netwerkgateway.
 
 
 
-### <a name="single-sap-system"></a>Eenmalige SAP-systeem
+### <a name="single-sap-system"></a>Één SAP-systeem
 
-De on-premises infrastructuur eerder weergegeven is verbonden via ExpressRoute in Azure. Het ExpressRoute-circuit op een enterprise-rand router worden aangesloten. Zie voor meer informatie [technisch overzicht van ExpressRoute](../../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Nadat de route is gemaakt, wordt deze verbinding maakt in de Azure-backbone en alle Azure-regio's zijn toegankelijk.
+De on-premises infrastructuur die eerder is getoond is verbonden via ExpressRoute in Azure. Het ExpressRoute-circuit verbinding maakt in een enterprise edge router. Zie voor meer informatie, [technisch overzicht van ExpressRoute](../../../expressroute/expressroute-introduction.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Nadat de route tot stand is gebracht, verbinding wordt gemaakt in de Azure-backbone en alle Azure-regio's toegankelijk zijn.
 
 > [!NOTE] 
-> Als u wilt SAP landschappen in Azure uitvoert, verbinding maken met de enterprise edge-router die het dichtst bij de Azure-regio in de SAP-Liggend. Azure grote exemplaar stempels zijn verbonden via speciale enterprise edge router apparaten netwerklatentie tussen virtuele machines in Azure IaaS en grote exemplaar stempels minimaliseren.
+> Als u wilt uitvoeren van SAP-landschappen in Azure, verbinding maken met de die het dichtst bij de Azure-regio in de SAP-landschap enterprise edge router. Azure Large Instance stempels zijn verbonden via een speciale enterprise edge router-apparaten voor minimale netwerklatentie tussen virtuele machines in Azure IaaS- en grote instantie stempels.
 
-De virtuele netwerkgateway voor de virtuele machines die als host SAP toepassingsexemplaren fungeren is verbonden met het ExpressRoute-circuit. Hetzelfde virtuele netwerk is verbonden met een afzonderlijke enterprise edge-router toegewezen aan de verbinding te maken met grote exemplaar stempels.
+De virtuele netwerkgateway voor de virtuele machines die als exemplaren van SAP-toepassing host is verbonden met het ExpressRoute-circuit. Hetzelfde virtuele netwerk is verbonden met een speciaal voor de verbinding te maken met een grote instantie stempels afzonderlijke enterprise edge router.
 
-Dit systeem is een eenvoudig voorbeeld van een enkel SAP-systeem. De toepassingslaag SAP wordt gehost in Azure. De SAP HANA-database wordt uitgevoerd op een SAP HANA in Azure (grote exemplaren). De veronderstelling is dat de virtuele gateway bandbreedte van 2 Gbps of 10 Gbps doorvoer een knelpunt niet vertegenwoordigen.
+Dit systeem is een eenvoudig voorbeeld van een enkele SAP-systeem. Het niveau van de SAP-toepassing wordt gehost in Azure. De SAP HANA-database wordt uitgevoerd op SAP HANA op Azure (grote instanties). De veronderstelling is dat een knelpunt niet staan voor de bandbreedte van het virtuele netwerk-gateway van 2 Gbps of 10 Gbps-doorvoer.
 
 ### <a name="multiple-sap-systems-or-large-sap-systems"></a>Meerdere SAP-systemen of grote SAP-systemen
 
-Als meerdere SAP-systemen of grote SAP-systemen worden geïmplementeerd voor verbinding met SAP HANA in Azure (grote exemplaren), kan de doorvoer van de virtuele netwerkgateway een knelpunt geworden. In dat geval de toepassingslagen in meerdere virtuele netwerken te splitsen. U kunt ook een speciale virtuele netwerk die verbinding met de grote exemplaar HANA gevallen, zoals maakt maken:
+Als er meerdere SAP-systemen of grote SAP-systemen worden geïmplementeerd om te verbinden met SAP HANA op Azure (grote instanties), kan een knelpunt worden in de doorvoer van de virtuele netwerkgateway. In dat geval de toepassingslagen te splitsen in meerdere virtuele netwerken. U kunt ook een speciale virtuele netwerk dat verbinding met HANA grote instantie voor het geval, zoals maakt maken:
 
-- Het uitvoeren van back-ups rechtstreeks vanuit de HANA-exemplaren in grote HANA-exemplaar voor een virtuele machine in Azure die als host fungeert voor NFS-shares.
-- Back-ups van grote of andere bestanden kopiëren van grote exemplaar HANA eenheden schijfruimte beheerd in Azure.
+- Het uitvoeren van back-ups rechtstreeks vanuit de HANA-exemplaren in HANA grote instantie aan een virtuele machine in Azure die als host fungeert voor NFS-shares.
+- Grote back-ups of andere bestanden kopiëren van HANA grote instantie eenheden schijfruimte beheerd in Azure.
 
-Gebruik een afzonderlijke virtueel netwerk naar host virtuele machines die opslag te beheren. Deze regeling voorkomt de gevolgen van grote bestanden of overdracht van gegevens uit de grote exemplaar HANA naar Azure op de virtuele netwerkgateway die de virtuele machines die worden uitgevoerd van de toepassingslaag SAP fungeert. 
+Gebruik een afzonderlijke virtuele netwerk naar host-VM's die opslag beheren. In deze rangschikking vermijdt u de gevolgen van grote bestanden of overdracht van gegevens van HANA grote instantie naar Azure op de virtuele netwerkgateway die de VM's waarop de SAP-toepassingslaag fungeert. 
 
-Voor een meer schaalbare netwerkarchitectuur:
+Voor een beter schaalbaar netwerkarchitectuur:
 
-- Maak gebruik van meerdere virtuele netwerken voor een enkele, grotere SAP toepassingslaag.
-- Implementeer één afzonderlijke virtueel netwerk voor elk SAP-systeem dat is geïmplementeerd, vergeleken met het combineren van deze systemen SAP in afzonderlijke subnetten in hetzelfde virtuele netwerk.
+- Maak gebruik van meerdere virtuele netwerken voor een enkele, grotere SAP-toepassingslaag.
+- Implementeer een afzonderlijke virtuele netwerk voor elk SAP-systeem dat is geïmplementeerd, vergeleken met het combineren van deze SAP-systemen in afzonderlijke subnetten in hetzelfde virtuele netwerk.
 
- Een meer schaalbare netwerkarchitectuur voor SAP HANA in Azure (grote exemplaren):
+ Een beter schaalbaar netwerkarchitectuur voor SAP HANA op Azure (grote instanties):
 
-![SAP toepassingslaag via meerdere virtuele netwerken implementeren](./media/hana-overview-architecture/image4-networking-architecture.png)
+![SAP-toepassingslaag via meerdere virtuele netwerken implementeren](./media/hana-overview-architecture/image4-networking-architecture.png)
 
-De afbeelding toont de toepassingslaag SAP of onderdelen, geïmplementeerd in meerdere virtuele netwerken. Deze configuratie geïntroduceerd onvermijdelijke latentie overhead die is opgetreden tijdens de communicatie tussen de toepassingen die worden gehost in deze virtuele netwerken. Standaard wordt het netwerkverkeer tussen virtuele machines zich in verschillende virtuele netwerken doorsturen via de enterprise-randrouters in deze configuratie. De manier te optimaliseren en de latentie in de communicatie tussen twee virtuele netwerken beperken is door de peering virtuele netwerken in dezelfde regio. Deze methode werkt ook als deze virtuele netwerken zich op verschillende abonnementen behoren. Met het virtuele netwerk peering, kunt de communicatie tussen VM's in twee verschillende virtuele netwerken de Azure-netwerk-backbone gebruiken om rechtstreeks met elkaar communiceren. Latentie toont alsof de virtuele machines zich in hetzelfde virtuele netwerk. Het verkeer die zijn gericht op IP-adresbereiken die zijn verbonden via de gateway virtuele Azure-netwerk doorgestuurd via de afzonderlijke virtuele netwerkgateway van het virtuele netwerk. 
+De afbeelding ziet u de SAP-toepassingslaag of -onderdelen, geïmplementeerd in meerdere virtuele netwerken. Deze configuratie is onvermijdelijk latentie overhead die is opgetreden tijdens de communicatie tussen de toepassingen die worden gehost in de virtuele netwerken geïntroduceerd. Standaard wordt het netwerkverkeer tussen virtuele machines zich in verschillende virtuele netwerken doorsturen via het enterprise-randrouters in deze configuratie. De manier om te optimaliseren en beperken van de latentie in de communicatie tussen twee virtuele netwerken is door de peering van virtuele netwerken binnen dezelfde regio. Deze methode werkt, zelfs als deze virtuele netwerken zich in verschillende abonnementen. Met virtueel-netwerkpeering, kunt de communicatie tussen virtuele machines in twee verschillende virtuele netwerken de Azure-netwerk-backbone gebruiken om rechtstreeks met elkaar communiceren. Latentie bevat als de virtuele machines zich in hetzelfde virtuele netwerk. Verkeer dat adressen IP-adresbereiken die zijn verbonden via de gateway van virtueel Azure-netwerk wordt doorgestuurd via de afzonderlijke virtuele netwerkgateway van het virtuele netwerk. 
 
-Zie voor meer informatie over het virtuele netwerk peering [virtuele netwerk peering](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
+Zie voor meer informatie over virtueel-netwerkpeering [peering van virtuele netwerken](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview).
 
 
 ### <a name="routing-in-azure"></a>Routering in Azure
 
-Drie netwerk routering overwegingen zijn belangrijk voor SAP HANA in Azure (grote exemplaren):
+Er zijn drie netwerk routering overwegingen belangrijk voor SAP HANA op Azure (grote instanties):
 
-* SAP HANA in Azure (grote exemplaren) kan alleen worden benaderd via VM's en de speciale ExpressRoute-verbinding niet rechtstreeks van on-premises. Directe toegang krijgen tot on-premises de HANA grote exemplaar eenheden, die door Microsoft worden geleverd, is niet mogelijk onmiddellijk. De transitieve routering beperkingen zijn vanwege de huidige Azure-netwerk-architectuur voor SAP HANA grote exemplaar gebruikt. Bepaalde beheerclients en alle toepassingen die u nodig hebt voor rechtstreekse toegang, zoals SAP oplossing Manager on-premises uitgevoerd kunnen geen verbinding maken met de SAP HANA-database.
+* SAP HANA op Azure (grote instanties) kan alleen worden verkregen via virtuele machines en het toegewezen ExpressRoute-verbinding wordt niet rechtstreeks van on-premises. Directe toegang vanaf on-premises naar de eenheden HANA grote instantie, die door Microsoft worden geleverd, kunt u niet mogelijk is onmiddellijk. De transitieve routering beperkingen zijn vanwege de huidige Azure-netwerk-architectuur die worden gebruikt voor SAP HANA grote instantie. Bepaalde beheerclients en alle toepassingen die toegang, zoals SAP oplossing Manager directe moeten on-premises uitgevoerd kunnen geen verbinding maken met de SAP HANA-database.
 
-* Als er grote exemplaar HANA eenheden die zijn geïmplementeerd in twee verschillende Azure-regio's voor herstel na noodgevallen, wordt de dezelfde tijdelijke routering beperkingen toegepast. Met andere woorden, IP-adressen van een grote exemplaar HANA-eenheid in één regio (bijvoorbeeld VS-West) niet doorgestuurd naar een grote exemplaar HANA eenheid geïmplementeerd in een andere regio (bijvoorbeeld VS-Oost). Deze beperking is onafhankelijk van het gebruik van Azure-netwerk peering tussen regio's of de ExpressRoute-circuits die grote exemplaar HANA eenheden verbinding met virtuele netwerken cross-verbinding. Zie voor een grafische weergave in de afbeelding in de sectie "Gebruik HANA grote exemplaar eenheden in meerdere regio's." Deze beperking wordt geleverd met de geïmplementeerde architectuur, verbiedt het direct gebruik van HANA System Replication als de herstelfunctionaliteit na noodgevallen.
+* Als u HANA grote instantie eenheden die zijn geïmplementeerd in twee verschillende Azure-regio's voor herstel na noodgevallen hebt, wordt de dezelfde tijdelijke routering beperkingen gelden. Met andere woorden, IP-adressen van een eenheid HANA grote instantie in één regio (bijvoorbeeld VS West) niet doorgestuurd naar een eenheid HANA grote instantie is geïmplementeerd in een andere regio (bijvoorbeeld VS Oost). Deze beperking is afhankelijk van het gebruik van Azure-netwerk peering met andere regio's of het ExpressRoute-circuits die verbinding maken met HANA grote instantie eenheden naar virtuele netwerken cross-verbinding. Zie voor een grafische weergave in de afbeelding in de sectie 'Gebruik HANA grote instantie eenheden in meerdere regio's '. Deze beperking, die wordt geleverd met de geïmplementeerde architectuur, verbiedt het direct gebruik van HANA-Systeemreplicatie als herstel na noodgevallen.
 
-* SAP HANA op Azure (grote exemplaren) eenheden hebben een toegewezen IP-adres van de server IP-adresgroepbereik dat u hebt ingediend. Zie voor meer informatie [SAP HANA (grote exemplaren)-infrastructuur en de verbindingen van Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Dit IP-adres is toegankelijk via de Azure-abonnementen en ExpressRoute die is verbonden virtuele netwerken met HANA in Azure (grote exemplaren). Het IP-adres toegewezen uit dat de server IP-adresbereik van adresgroep rechtstreeks aan de hardware-eenheid is toegewezen. Deze heeft *niet* toegewezen via NAT voordoet, net zoals in de eerste implementatie van deze oplossing. 
+* SAP HANA op Azure (grote instanties)-eenheden hebben een toegewezen IP-adres uit het adresbereik van server IP-adresgroep die u hebt ingediend. Zie voor meer informatie, [SAP HANA (grote instanties)-infrastructuur en connectiviteit in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Dit IP-adres is toegankelijk via de Azure-abonnementen en ExpressRoute dat virtuele netwerken met HANA op Azure (grote instanties verbindt). Het IP-adres toegewezen van die server IP-adresgroepbereik dat rechtstreeks is toegewezen aan de hardware-eenheid. Er *niet* toegewezen via NAT zich voordoet, net als in de eerste implementatie van deze oplossing. 
 
 > [!NOTE] 
-> Gebruik voor de beperking in de tijdelijke routering overwinnen zoals wordt beschreven in de eerste twee lijstitems, extra onderdelen voor routering. Onderdelen die kunnen worden gebruikt voor de beperking overwinnen kunnen zijn:
+> De beperking in tijdelijke routering manieren, zoals wordt beschreven in de eerste twee items, om de extra onderdelen voor het routering te gebruiken. Onderdelen die kunnen worden gebruikt om te strijden tegen de beperking kunnen zijn:
 
-> * Een omgekeerde proxy voor het routeren van gegevens naar en uit. Zoals F5 BIG-IP, NGINX met Traffic Manager, geïmplementeerd in Azure als virtuele firewall/verkeer routering oplossing.
-> * Met behulp van [IPTables regels](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) in een Linux-VM routering tussen lokale locaties en grote exemplaar HANA eenheden of tussen HANA grote exemplaar eenheden in verschillende regio's inschakelen.
+> * Een omgekeerde proxy voor het routeren van gegevens naar en uit. Bijvoorbeeld, F5 BIG-IP, NGINX met Traffic Manager, geïmplementeerd in Azure als een virtuele firewall/verkeer routeren oplossing.
+> * Met behulp van [regels van IPTables](http://www.linuxhomenetworking.com/wiki/index.php/Quick_HOWTO_%3a_Ch14_%3a_Linux_Firewalls_Using_iptables#.Wkv6tI3rtaQ) in een Linux-VM om in te schakelen routering tussen on-premises locaties en HANA grote instantie eenheden, of tussen HANA grote instantie eenheden in verschillende regio's.
 
-> Let erop dat de implementatie en ondersteuning voor aangepaste oplossingen van derden met betrekking tot het netwerk toestellen of IPTables wordt niet geleverd door Microsoft. Worden moet ondersteund door de leverancier van het onderdeel dat wordt gebruikt of de integrator. 
+> Let erop dat de implementatie en ondersteuning voor aangepaste oplossingen van derden met betrekking tot netwerkapparaten of IPTables wordt niet geleverd door Microsoft. Ondersteuning moet worden opgegeven door de leverancier van het onderdeel dat wordt gebruikt of de gegevensintegrator worden verstrekt. 
 
-### <a name="internet-connectivity-of-hana-large-instance"></a>Verbinding met Internet van grote HANA-exemplaar
-HANA grote exemplaar komt *niet* beschikt over een rechtstreekse internetverbinding. Als u bijvoorbeeld kan deze beperking beperken uw registreren van de installatiekopie van het besturingssysteem rechtstreeks met de leverancier van het besturingssysteem. Mogelijk moet u samenwerken met uw lokale SUSE Linux Enterprise Server abonnement Management Tool-server of Red Hat Enterprise Linux abonnement Manager.
+### <a name="internet-connectivity-of-hana-large-instance"></a>Verbinding met Internet van HANA grote instantie
+HANA grote instantie heeft *niet* directe verbinding met internet hebben. Als u bijvoorbeeld mogelijk deze beperking kunt gebruiken om het registreren van de installatiekopie van het besturingssysteem rechtstreeks met de leverancier van de OS beperken. Mogelijk moet u werken met uw lokale abonnement beheerprogramma voor SUSE Linux Enterprise Server-server of de Doelabonnementbeheerder van Red Hat Enterprise Linux.
 
-### <a name="data-encryption-between-vms-and-hana-large-instance"></a>Versleuteling van gegevens tussen VM's en grote HANA-exemplaar
-Gegevens die overgedragen tussen HANA grote exemplaar en virtuele machines is niet versleuteld. U kunt echter uitsluitend voor de uitwisseling tussen de HANA DBMS en JDBC/ODBC-toepassingen, versleuteling van verkeer inschakelen. Zie voor meer informatie [deze documentatie door SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false).
+### <a name="data-encryption-between-vms-and-hana-large-instance"></a>Versleuteling van gegevens tussen VM's en HANA grote instantie
+Gegevens die worden overgedragen tussen HANA grote instantie en virtuele machines is niet versleuteld. U kunt echter alleen voor de uitwisseling tussen de HANA DBMS- en JDBC/ODBC-toepassingen, versleutelen van verkeer inschakelen. Zie voor meer informatie, [deze documentatie door SAP](http://help-legacy.sap.com/saphelp_hanaplatform/helpdata/en/db/d3d887bb571014bf05ca887f897b99/content.htm?frameset=/en/dd/a2ae94bb571014a48fc3b22f8e919e/frameset.htm&current_toc=/en/de/ec02ebbb57101483bdf3194c301d2e/plain.htm&node_id=20&show_children=false).
 
-### <a name="use-hana-large-instance-units-in-multiple-regions"></a>Grote exemplaar HANA eenheden gebruiken in meerdere regio 's
+### <a name="use-hana-large-instance-units-in-multiple-regions"></a>HANA grote instantie eenheden gebruiken in meerdere regio 's
 
-Mogelijk hebt u redenen voor het implementeren van SAP HANA in Azure (grote exemplaren) in meerdere Azure-regio's anders dan voor herstel na noodgevallen. Misschien wilt u toegang tot grote HANA-exemplaar van elk van de VM is geïmplementeerd in de verschillende virtuele netwerken in de regio's. De IP-adressen toegewezen aan de andere grote exemplaar HANA eenheden worden niet doorgegeven afgezien van de virtuele netwerken die rechtstreeks zijn verbonden via de gateway van de exemplaren. Als gevolg hiervan is een kleine wijziging werd geïntroduceerd in het ontwerp van het virtuele netwerk. Een virtuele netwerkgateway kan vier verschillende ExpressRoute-circuits buiten de andere enterprise-randrouters verwerken. Elk virtueel netwerk dat is verbonden met een van de stempels grote exemplaar kan worden verbonden met de stempel grote exemplaar in een andere Azure-regio.
+Mogelijk hebt u redenen voor het implementeren van SAP HANA op Azure (grote instanties) in meerdere Azure-regio's dan voor herstel na noodgevallen. Misschien wilt u toegang tot HANA grote instantie van elk van de virtuele machines geïmplementeerd in de verschillende virtuele netwerken in de regio's. De IP-adressen die zijn toegewezen aan de verschillende HANA grote instantie-eenheden worden niet doorgegeven buiten de virtuele netwerken die rechtstreeks zijn verbonden via de gateway naar de exemplaren. Als gevolg hiervan is een kleine wijziging geïntroduceerd in het ontwerp van het virtuele netwerk. Vier verschillende ExpressRoute-circuits uit verschillende enterprise-randrouters kan worden verwerkt door een virtuele netwerkgateway. Elk virtueel netwerk die is verbonden met een van de grote instantie stempels kan worden verbonden met de stempel grote instantie in een andere Azure-regio.
 
-![Virtueel netwerk is verbonden met Azure grote exemplaar stempels in verschillende Azure-regio 's](./media/hana-overview-architecture/image8-multiple-regions.png)
+![Virtueel netwerk is verbonden met Azure Large Instance stempels in verschillende Azure-regio 's](./media/hana-overview-architecture/image8-multiple-regions.png)
 
-De afbeelding toont hoe de andere virtuele netwerken in beide regio's zijn verbonden met twee verschillende ExpressRoute-circuits zijn gebruikt voor verbinding met SAP HANA in Azure (grote exemplaren) in beide Azure-regio's. De nieuwe verbindingen zijn de rechthoekige rode lijnen. Met deze verbindingen, buiten de virtuele netwerken, de virtuele machines uitvoeren in een van deze virtuele netwerken toegang tot elk van de verschillende HANA grote exemplaar eenheden dat is geïmplementeerd in de twee regio's. Zoals u in de afbeelding ziet, wordt ervan uitgegaan dat u twee ExpressRoute-verbindingen van on-premises twee Azure-regio's hebt. Deze regeling wordt aanbevolen voor disaster recovery redenen.
+De afbeelding ziet u hoe de verschillende virtuele netwerken in beide regio's zijn verbonden met twee verschillende ExpressRoute-circuits verbinding maken met SAP HANA op Azure (grote instanties) worden gebruikt in zowel Azure-regio's. De onlangs geïntroduceerde verbindingen zijn het rechthoekige rode lijnen. Met deze verbindingen buiten de virtuele netwerken, de virtuele machines die worden uitgevoerd in een van deze virtuele netwerken kunnen toegang krijgen tot elk van de verschillende HANA grote instantie eenheden geïmplementeerd in de twee regio's. Zoals in de afbeelding wordt weergegeven, wordt ervan uitgegaan dat u twee ExpressRoute-verbindingen van on-premises naar de twee Azure-regio's hebt. Deze benadering wordt aanbevolen voor disaster recovery redenen.
 
 > [!IMPORTANT] 
-> Als u meerdere ExpressRoute-circuits gebruikt, moeten lokale voorkeur BGP-instellingen en AS-padtoevoeging correcte routering van verkeer worden gebruikt.
+> Als u meerdere ExpressRoute-circuits hebt gebruikt, mogen AS-padtoevoeging en lokale voorkeur BGP-instellingen worden gebruikt om ervoor te zorgen goede routering van verkeer.
 
 

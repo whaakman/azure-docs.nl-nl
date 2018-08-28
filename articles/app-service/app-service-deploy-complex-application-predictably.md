@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 884edbf56fbf67e4ee71e0832f8924a3747994c9
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 049f5211e800dace4b8968cd9e3db9ad968f8813
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42055264"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050743"
 ---
 # <a name="provision-and-deploy-microservices-predictably-in-azure"></a>Inrichten en implementeren van microservices zoals verwacht in Azure
 Deze zelfstudie laat zien hoe u kunt inrichten en implementeren van een toepassing die bestaat uit [microservices](https://en.wikipedia.org/wiki/Microservices) in [Azure App Service](https://azure.microsoft.com/services/app-service/) als één eenheid en op een voorspelbare wijze met behulp van JSON-resourcegroepsjablonen en PowerShell-scripts. 
@@ -40,7 +40,7 @@ In de zelfstudie implementeert u een toepassing die gebruikmaakt van:
 In deze zelfstudie gebruikt u de volgende hulpprogramma's. Omdat het geen uitgebreide discussie over de hulpprogramma's, ga ik Houd u aan de end-to-end-scenario alleen te geven en u een korte inleiding voor elke en waar u meer informatie over deze kan vinden. 
 
 ### <a name="azure-resource-manager-templates-json"></a>Azure Resource Manager-sjablonen (JSON)
-Telkens wanneer u een web-app in Azure App Service maken, bijvoorbeeld een JSON-sjabloon door Azure Resource Manager gebruikt om de hele resourcegroep maken in de bronnen die onderdeel. Een complexe sjabloon van de [Azure Marketplace](/marketplace) , zoals de [schaalbare WordPress](/marketplace/partners/wordpress/scalablewordpress/) app kunt opnemen de MySQL-database, storage-accounts, het App Service-plan, web-app zelf, regels voor waarschuwingen, app-instellingen instellingen voor automatisch schalen en meer en alle deze sjablonen zijn beschikbaar via PowerShell. Zie voor meer informatie over het downloaden en gebruiken van deze sjablonen [met behulp van Azure PowerShell met Azure Resource Manager](../powershell-azure-resource-manager.md).
+Telkens wanneer u een web-app in Azure App Service maken, bijvoorbeeld een JSON-sjabloon door Azure Resource Manager gebruikt om de hele resourcegroep maken in de bronnen die onderdeel. Een complexe sjabloon van de [Azure Marketplace](/azure/marketplace) kunt opnemen de database, storage-accounts, het App Service-plan, de web-app zelf, regels voor waarschuwingen, app-instellingen, instellingen voor automatisch schalen en meer en alle deze sjablonen zijn beschikbaar voor u via PowerShell. Zie voor meer informatie over het downloaden en gebruiken van deze sjablonen [met behulp van Azure PowerShell met Azure Resource Manager](../powershell-azure-resource-manager.md).
 
 Zie voor meer informatie over de Azure Resource Manager-sjablonen [Azure Resource Manager-sjablonen ontwerpen](../azure-resource-manager/resource-group-authoring-templates.md)
 

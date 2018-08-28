@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 5c133c61c989bf19be3e84287cb76a7d110dccc8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6bfe6f9b76693ded79aa9b9d21ddcac4e1a0733e
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440470"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43110301"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster"></a>Maken van een cluster Azure Kubernetes Service (AKS)
 
@@ -48,7 +48,7 @@ De volgende opties zijn beschikbaar met de `az aks create` opdracht. Zie de [Azu
 | `--enable-rbac` `-r` | Kubernetes rollen gebaseerd toegangsbeheer inschakelen. | nee |
 | `--generate-ssh-keys` | SSH openbare en persoonlijke sleutelbestanden genereren als ontbreekt. | nee |
 | `--kubernetes-version` `-k` | De versie van Kubernetes te gebruiken voor het maken van het cluster, zoals '1.7.9' of '1.9.6'. | nee |
-| `--locaton` `-l` | Locatie voor de automatisch gemaakte resourcegroep | nee |
+| `--location` `-l` | Locatie voor de automatisch gemaakte resourcegroep | nee |
 | `--max-pods` `-m` | Het maximale aantal schillen kan worden geïmplementeerd naar een knooppunt. | nee |
 | `--network-plugin` | De netwerk-invoegtoepassing voor Kubernetes te gebruiken. | nee |
 | `--no-ssh-key` `-x` | Gebruik of maak een lokale SSH-sleutel niet. | nee |

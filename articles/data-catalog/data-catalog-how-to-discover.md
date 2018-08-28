@@ -1,68 +1,62 @@
 ---
-title: Het detecteren van gegevensbronnen in Azure Data Catalog | Microsoft Docs
-description: In dit artikel wordt uitgelegd hoe u voor het detecteren van geregistreerde gegevensassets met Azure Data Catalog, met inbegrip van zoeken en filteren en met behulp van de treffers markeren mogelijkheden van de Azure Data Catalog-portal.
+title: Detecteren van gegevensbronnen in Azure Data Catalog
+description: In dit artikel ziet u hoe u voor het detecteren van geregistreerde gegevensassets met Azure Data Catalog, met inbegrip van zoeken en filteren met behulp van de treffers markeren mogelijkheden van de Azure Data Catalog-portal.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: f72ae3a3-6573-4710-89a7-f13555e1968c
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: e2db429860e6e3a60211c993bebfecbca98d67fd
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: f8e722073db967752747511e47921aec3c4a281a
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053612"
 ---
-# <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Het detecteren van gegevensbronnen in Azure Data Catalog
+# <a name="how-to-discover-data-sources-in-azure-data-catalog"></a>Detecteren van gegevensbronnen in Azure Data Catalog
 ## <a name="introduction"></a>Inleiding
-Azure Data Catalog is een volledig beheerde cloudservice die als een systeem van registratie en detectie van zakelijke gegevensbronnen fungeert. Met andere woorden, Data Catalog helpt mensen detecteren, begrijpen en gebruiken van gegevensbronnen en het helpt organisaties Haal meer uit hun bestaande gegevens. Nadat een gegevensbron is geregistreerd met Data Catalog, worden de metagegevens van de wordt geïndexeerd door de service, zodat u gemakkelijk zoeken kunt voor het detecteren van de gegevens die u nodig.
+Azure Data Catalog is een volledig beheerde cloudservice die als een systeem van registratie en detectie van bedrijfsgegevensassets fungeert. Met andere woorden, Data Catalog helpt gebruikers ontdekken, begrijpen en gebruiken van gegevensbronnen en het helpt organisaties meer waarde halen uit hun bestaande gegevens. Nadat een gegevensbron is geregistreerd met Data Catalog, worden de metagegevens van de wordt geïndexeerd door de service, zodat u gemakkelijk terugvinden kunt voor het detecteren van de gegevens die u nodig hebt.
 
 ## <a name="searching-and-filtering"></a>Zoeken en filteren
-Detectie in Data Catalog gebruikt twee primaire mechanismen: zoeken en filteren.
+Detectie in Data Catalog twee primaire mechanismen gebruikt: zoeken en filteren.
 
 Zoeken is zowel intuïtief als krachtig. Standaard worden de zoektermen vergeleken met een eigenschap in de catalogus, met inbegrip van door de gebruiker gemaakte aantekeningen.
 
-Filteren is bedoeld als aanvulling op het zoeken. U kunt specifieke kenmerken zoals deskundigen, gegevensbrontype, objecttype en labels selecteren. U kunt zien alleen overeenkomende gegevensassets en zoekresultaten in die overeenkomt met activa beperken.
+Filteren is bedoeld als aanvulling op het zoeken. U kunt specifieke kenmerken, zoals experts, gegevensbrontype, objecttype en tags selecteren. U kunt alleen overeenkomende gegevensassets weer en beperk zoekresultaten tot overeenkomende assets.
 
-Met behulp van een combinatie van zoeken en filteren kunt u snel de gegevensbronnen die zijn geregistreerd met Data Catalog voor het detecteren van gegevensbronnen u moet navigeren.
+Met behulp van een combinatie van zoeken en filteren, kunt u de gegevensbronnen die zijn geregistreerd met Data Catalog voor het detecteren van de gegevensbronnen die u nodig snel te navigeren.
 
 ## <a name="search-syntax"></a>Zoeksyntaxis
-Hoewel het zoeken met vrije tekst standaard eenvoudige en intuïtieve is, kunt u ook zoeksyntaxis van Data Catalog gebruiken voor meer controle over de zoekresultaten. Zoeken in de catalogus ondersteunt de volgende technieken:
+Hoewel zoeken met vrije tekst standaard eenvoudige en intuïtieve is, kunt u de zoeksyntaxis van Data Catalog ook gebruiken voor meer controle over de lijst met zoekresultaten. Zoeken in gegevenscatalogus ondersteunt de volgende technieken:
 
 | Techniek | Gebruiken | Voorbeeld |
 | --- | --- | --- |
-| Basic zoeken |Basic zoeken die gebruikmaakt van een of meer zoektermen. De resultaten zijn elementen die overeenkomen met een eigenschap met een of meer van de opgegeven voorwaarden. |`sales data` |
+| Basiszoekopdracht |Basiszoekopdracht die gebruikmaakt van een of meer zoektermen. De resultaten zijn alle activa die overeenkomen met een eigenschap met een of meer van de opgegeven voorwaarden. |`sales data` |
 | Bereik van eigenschap definiëren |Alleen gegevensbronnen waarbij de zoekterm met de opgegeven eigenschap overeenkomt retourneren. |`name:finance` |
 | Booleaanse operators |Verbreed of Verfijn een zoekopdracht met Booleaanse bewerkingen. |`finance NOT corporate` |
 | Groeperen met haakjes |Gebruik haakjes en groepeer delen van de query voor logische isolatie, met name in combinatie met Booleaanse operators. |`name:finance AND (tags:Q1 OR tags:Q2)` |
 | Vergelijkingsoperators |Gebruik andere vergelijkingen dan gelijkheid voor eigenschappen die de gegevenstypen Numeriek en datum hebben. |`modifiedTime > "11/05/2014"` |
 
-Zie voor meer informatie over Data Catalog search de [Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx) artikel.
+Zie voor meer informatie over Data Catalog-zoekopdracht, de [Azure Data Catalog](https://msdn.microsoft.com/library/azure/mt267594.aspx) artikel.
 
 ## <a name="hit-highlighting"></a>Markeren
-Wanneer u zoekresultaten, elk weergegeven eigenschappen die overeenkomen met de opgegeven zoektermen (zoals de naam van de asset gegevens, beschrijving en labels bekijkt) worden gemarkeerd om deze is gemakkelijker te identificeren waarom een bepaalde gegevensasset geretourneerd door een bepaalde zoekactie.
+Wanneer u zoekresultaten, elk weergegeven eigenschappen die overeenkomen met de opgegeven zoektermen (zoals de naam van de activa gegevens, beschrijving en tags) zijn gemarkeerd zodat het is gemakkelijker om te bepalen waarom een bepaalde gegevensasset geretourneerd door een bepaalde zoekopdracht.
 
 > [!NOTE]
-> Als u wilt uitschakelen treffers markeren, gebruiken de **Markeer** switch in de portal voor Data Catalog.
+> Als u wilt uitschakelen treffers markeren, gebruikt u de **markeren** -switch in de Data Catalog-portal.
 >
 >
 
-Wanneer u de zoekresultaten weergeeft, niet altijd worden duidelijk waarom een gegevensasset opgenomen, is zelfs met treffers markering is ingeschakeld. Omdat alle eigenschappen standaard worden doorzocht, een gegevensasset mogelijk geretourneerde vanwege een overeenkomst voor een eigenschap op kolomniveau. En omdat meerdere gebruikers kunnen aantekeningen toevoegen aan geregistreerde gegevensassets met hun eigen labels en beschrijvingen, niet alle metagegevens kan worden weergegeven in de lijst met zoekresultaten.
+Wanneer u search-resultaten weergeven, kan het niet altijd zijn duidelijk waarom een gegevensasset opgenomen, wordt zelfs met treffers markeren is ingeschakeld. Omdat alle eigenschappen standaard worden doorzocht, kan een gegevensasset worden geretourneerd vanwege een overeenkomst op een eigenschap op kolomniveau. En omdat meerdere gebruikers van geregistreerde gegevensassets met hun eigen labels en beschrijvingen annoteren kunnen, niet alle metagegevens kan worden weergegeven in de lijst met zoekresultaten.
 
-In de standaard tegelweergave, elke tegel in de zoekresultaten weergegeven bevat een **weergave zoekterm overeenkomt met** pictogram, zodat u kunt snel het aantal overeenkomsten en de locatie, en om door te gaan als u wilt weergeven.
+Tegel weergeven in de standaard, elke tegel weergegeven in de lijst met zoekresultaten bevat een **weergave zoekterm overeenkomt met** pictogram, zodat u kunt snel het aantal overeenkomsten en de locatie, en voor toegang tot deze als u wilt weergeven.
 
- ![Markeren en zoeken komt overeen met in de portal voor Azure Data Catalog](./media/data-catalog-how-to-discover/search-matches.png)
+ ![Treffers markeren en zoekopdracht overeenkomt met in de Azure Data Catalog-portal](./media/data-catalog-how-to-discover/search-matches.png)
 
 ## <a name="summary"></a>Samenvatting
-Omdat u een gegevensbron met Data Catalog structurele en beschrijvende metagegevens uit de gegevensbron wordt gekopieerd naar de catalogusservice, wordt de gegevensbron eenvoudiger te detecteren en begrijpen. Nadat u een gegevensbron hebt geregistreerd, kunt u ontdekken met behulp van het filteren en zoeken van in de portal Data Catalog.
+Omdat het registreren van een gegevensbron met Data Catalog structurele en beschrijvende metagegevens opgehaald uit de gegevensbron met de catalogusservice, wordt de gegevensbron eenvoudiger te detecteren en begrijpen. Nadat u een gegevensbron hebt geregistreerd, kunt u ontdekken met behulp van filters en zoek uit in de Data Catalog-portal.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor stapsgewijze informatie over het detecteren van gegevensbronnen [aan de slag met Azure Data Catalog](data-catalog-get-started.md).

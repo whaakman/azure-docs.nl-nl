@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/27/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4cb7b165311f57fadd63770646907ddfc0378844
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f89a6bdbe906d490231725cf528396928faebe47
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445017"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092091"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-uitschalen
 
@@ -37,19 +37,7 @@ Wanneer bewerkingen voor de verwerking zijn voltooid, moet een synchronisatie tu
 
 ## <a name="region-limits"></a>Regio-limieten
 
-Het aantal query's die kunt u configureren worden beperkt door het uw server bevindt zich in de regio. De volgende beperkingen gelden:
-
-|Regio  |Maximumaantal replica 's  |
-|---------|---------|
-|VS - oost 2    |    7     |
-|West-centraal VS     |    7     |
-|West-Europa     |    7     |
-|VS - west     |     7    |
-|VS - midden     |     3    |
-|Zuidoost-Azië    |     3    |
-|Alle andere regio 's  |   1    |
-
-
+Het aantal query's die kunt u configureren worden beperkt door het uw server bevindt zich in de regio. Zie voor meer informatie, [beschikbaarheid per regio](analysis-services-overview.md#availability-by-region).
 
 ## <a name="monitor-qpu-usage"></a>QPU-gebruik bewaken
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 91c917687edbdfb49fc7a390187a860d9474623a
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8d786a337710ed53d58c5fde8e40d5347cd6cfc8
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918921"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108375"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële Console van virtuele Machine (preview) 
 
@@ -33,13 +33,15 @@ Voor de seriële console-documentatie voor virtuele Linux-machines [Klik hier](.
 
  
 
-## <a name="prerequisites"></a>Vereiste onderdelen 
+## <a name="prerequisites"></a>Vereisten 
 
 * U moet de resource Manager-implementatiemodel gebruiken. Klassieke implementaties worden niet ondersteund. 
 * Virtuele machine moet zijn [diagnostische gegevens over opstarten](boot-diagnostics.md) ingeschakeld   ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
 * Het account met behulp van de seriële console moet hebben [rol van Inzender](../../role-based-access-control/built-in-roles.md) voor virtuele machine en de [diagnostische gegevens over opstarten](boot-diagnostics.md) storage-account. 
+* De virtuele machine waarvoor u de seriële console acessing zijn moet ook een account op basis van wachtwoorden hebben. U kunt maken met de [wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionaliteit van de toegang tot VM-extensie - Zie de onderstaande schermafbeelding.
+    ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-## <a name="open-the-serial-console"></a>Open de seriële Console
+## <a name="get-started-with-serial-console"></a>Aan de slag met de seriële Console
 Seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal](https://portal.azure.com). Hieronder volgen de stappen voor toegang tot de seriële console voor virtuele machines via de portal 
 
   1. De Azure-portal openen
@@ -49,7 +51,7 @@ Seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## <a name="access-serial-console-for-windows"></a>Seriële Console van de toegang voor Windows 
+## <a name="configure-serial-console-for-windows"></a>Seriële Console configureren voor Windows 
 Nieuwere Windows Server-installatiekopieën in Azure heeft [speciale beheerconsole](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) standaard ingeschakeld. SAC wordt ondersteund in serverversies van Windows, maar is niet beschikbaar is op clientversies (bijvoorbeeld Windows 10, Windows 8 of Windows 7). Als u wilt inschakelen voor Windows-machines die zijn gemaakt met behulp van de seriële console Feb2018 of lager installatiekopieën gebruikt u de volgende stappen uit: 
 
 1. Verbinding maken met uw Windows-machine via Extern bureaublad
@@ -131,7 +133,7 @@ Toegang tot de seriële console is beperkt tot gebruikers die hebben [VM inzende
 ### <a name="channel-security"></a>Beveiliging van het kanaal
 Alle gegevens die worden verzonden heen en weer worden versleuteld op de kabel.
 
-### <a name="audit-logs"></a>Auditlogboeken
+### <a name="audit-logs"></a>Controlelogboeken
 Alle toegang tot de seriële console momenteel is aangemeld de [diagnostische gegevens over opstarten](https://docs.microsoft.com/azure/virtual-machines/linux/boot-diagnostics) logboeken van de virtuele machine. Toegang tot deze logboeken zijn eigendom van en beheerd door de beheerder van de virtuele machine van Azure.  
 
 >[!CAUTION] 

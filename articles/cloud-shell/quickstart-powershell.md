@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/27/2018
 ms.author: damaerte
-ms.openlocfilehash: adae7ea79ada9247382c88e58f1ba5331007985b
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: cb4b7f8851c6c891ca43f6c215ba812a0c784d28
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39324490"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108135"
 ---
 # <a name="quickstart-for-powershell-in-azure-cloud-shell-preview"></a>Snelstartgids voor PowerShell in Azure Cloudshell (Preview)
 
@@ -119,7 +119,7 @@ TestVm2   westus     Succeeded         Standard_DS1_v2 WindowsServer 2016-Datace
 ```
 
 > [!NOTE]
-> U merkt dat de tweede keer wanneer u typt `dir`, kan de cloudshell om de items die veel sneller weer te geven.
+> U merkt dat de tweede keer wanneer u typt `dir`, kan de Cloud Shell om weer te geven van de items die veel sneller.
 > Dit is omdat de onderliggende items in cache zijn opgeslagen in het geheugen voor een betere gebruikerservaring.
 U kunt echter altijd gebruiken `dir -Force` nieuwe gegevens op te halen.
 
@@ -258,7 +258,6 @@ mywebapp3       Running  MyResourceGroup3   {mywebapp3.azurewebsites.net...   So
 
 ## <a name="ssh"></a>SSH
 
-[Win32-OpenSSH](https://github.com/PowerShell/Win32-OpenSSH) is beschikbaar in PowerShell Cloud Shell.
 Als u wilt verifiëren op servers of virtuele machines met behulp van SSH, het openbaar / persoonlijk sleutelpaar genereren in Cloud Shell en publiceren van de openbare sleutel toe `authorized_keys` op de externe computer, zoals `/home/user/.ssh/authorized_keys`.
 
 > [!NOTE]

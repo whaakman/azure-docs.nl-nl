@@ -10,67 +10,28 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: d5bb2f2f4b79c4b03e631fc844a712f76fc69109
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: af9afcbf97df5f3d7fa82f6ea0163c714fa4f582
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258164"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051738"
 ---
 # <a name="configuring-a-custom-dns-for-azure-sql-database-managed-instance"></a>Een aangepaste DNS configureren voor Azure SQL Database Managed Instance
 
-Een Azure SQL Database Managed Instance (preview) moet worden geïmplementeerd in een Azure [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md). Er zijn enkele scenario's, gekoppelde servers naar andere SQL-exemplaren in uw cloud of hybride omgeving, die persoonlijke hostnamen worden omgezet in het beheerde exemplaar vereisen. In dit geval moet u een aangepaste DNS-server in Azure configureren. Omdat het beheerde exemplaar van de dezelfde DNS-server voor de interne werking gebruikt, moet de DNS-configuratie van het virtuele netwerk compatibel zijn met Managed Instance. 
+Een Azure SQL Database Managed Instance (preview) moet worden geïmplementeerd in een Azure [virtueel netwerk (VNet)](../virtual-network/virtual-networks-overview.md). Er zijn enkele scenario's (dat wil zeggen gekoppelde servers naar andere SQL-exemplaren in uw omgeving cloud of hybride) waarvoor persoonlijke hostnamen worden omgezet in het beheerde exemplaar. In dit geval moet u een aangepaste DNS-server in Azure configureren. Omdat het beheerde exemplaar van de dezelfde DNS-server voor de interne werking gebruikt, moet de DNS-configuratie van het virtuele netwerk compatibel zijn met Managed Instance. 
 
-Een aangepaste DNS-configuratie om compatibel te maken met Managed Instance, moet u de volgende stappen uit: 
-- Configureren van aangepaste DNS voor het doorsturen van aanvragen naar Azure DNS 
-- De aangepaste DNS als primaire en de Azure DNS als secundaire instellen voor het VNet 
-- Meld u aan de aangepaste DNS als primaire en de Azure DNS als secundaire
-
-## <a name="configure-custom-dns-to-forward-requests-to-azure-dns"></a>Configureren van aangepaste DNS voor het doorsturen van aanvragen naar Azure DNS 
-
-Gebruik deze stappen voor het doorsturen van de DNS configureren op Windows Server 2016: 
-
-1. In **Serverbeheer**, klikt u op **extra**, en klik vervolgens op **DNS**. 
-
-   ![DNS](./media/sql-database-managed-instance-custom-dns/dns.png) 
-
-2. Dubbelklik op **doorstuurservers**.
-
-   ![Doorstuurservers](./media/sql-database-managed-instance-custom-dns/forwarders.png) 
-
-3. Klik op **Bewerken**. 
-
-   ![Lijst met doorstuurservers](./media/sql-database-managed-instance-custom-dns/forwarders-list.png) 
-
-4. Voer Azure recursieve resolvers IP-adres, zoals 168.63.129.16.
-
-   ![Recursieve resolvers ip-adres](./media/sql-database-managed-instance-custom-dns/recursive-resolvers-ip-address.png) 
+Als u wilt maken van een aangepaste DNS-configuratie is compatibel met het beheerde exemplaar, moet u: 
+- Aangepaste DNS-server configureren zodat deze kunnen openbare domeinnamen omzetten 
+- Azure recursieve naamomzetting DNS IP-adres 168.63.129.16 aan het einde van het virtuele netwerk DNS-lijst plaatsen 
  
-## <a name="set-up-custom-dns-as-primary-and-azure-dns-as-secondary"></a>Aangepaste DNS als primaire en Azure DNS als secundaire instellen 
- 
-DNS-configuratie op een Azure-VNet vereist dat u IP-adressen, dus configureren van de Azure-virtuele machine die als host fungeert voor de DNS-server met een statisch IP-adres met behulp van de volgende stappen uitvoeren: 
-
-1. Open in de Azure-portal, de aangepaste DNS-VM-netwerkinterface.
-
-   ![de netwerkinterface](./media/sql-database-managed-instance-custom-dns/network-interface.png) 
-
-2. In de sectie IP-configuraties. Selecteer IP-configuratie 
-
-   ![IP-configuratie](./media/sql-database-managed-instance-custom-dns/ip-configuration.png) 
-
-
-3. Privé IP-adres instellen als statisch. Noteer het IP-adres (10.0.1.5 op deze schermafbeelding) 
-
-   ![statisch](./media/sql-database-managed-instance-custom-dns/static.png) 
-
-
-## <a name="register-custom-dns-as-primary-and-azure-dns-as-secondary"></a>Aangepaste DNS als primaire en Azure DNS registreren als secundaire 
+## <a name="setting-up-custom-dns-servers-configuration"></a>Instellen van aangepaste DNS-servers configureren
 
 1. Zoeken in de Azure-portal, aangepaste DNS-optie voor uw VNet.
 
    ![aangepaste DNS-optie](./media/sql-database-managed-instance-custom-dns/custom-dns-option.png) 
 
-2. Schakel over naar aangepaste en voer uw aangepaste DNS-server IP-adres, evenals Azure recursieve resolvers IP-adres, zoals 168.63.129.16. 
+2. Schakel over naar aangepaste en voer uw aangepaste DNS-server IP-adres, evenals Azure recursieve resolvers IP-adres 168.63.129.16. 
 
    ![aangepaste DNS-optie](./media/sql-database-managed-instance-custom-dns/custom-dns-server-ip-address.png) 
 

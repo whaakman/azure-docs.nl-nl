@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 2fd473226dca2576be79b90bc05d66599f759713
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 633bf16790437ba83e9a2a99f33a23fef9255364
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524141"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43090523"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Zelfstudie: Een app met behulp van patroon verbeteren
 
@@ -52,7 +52,7 @@ In deze zelfstudie detecteert de Human Resources-app uitingen over het verplaats
 |[Hiërarchisch (Er zijn geen rollen)](luis-quickstart-intent-and-hier-entity.md)|MV Jill Jones van **a-2349** naar **b-1298**|a-2349, b-1298|
 |In deze zelfstudie (met functies)|Verplaatsen van Billy Patterson van **Yuma** naar **Denver**.|Yuma, Denver|
 
-U kunt de hiërarchische entiteit in het patroon kan gebruiken, omdat alleen hiërarchische ouders worden gebruikt in de bovenliggende items. Als u wilt retourneren de benoemde locaties van de bron en doel, muse u gebruikt een patroon.
+U kunt de hiërarchische entiteit in het patroon kan gebruiken, omdat alleen hiërarchische ouders worden gebruikt in patronen. Als u wilt retourneren de benoemde locaties van de bron en doel, muse u gebruikt een patroon.
 
 ### <a name="simple-entity-for-new-employee-name"></a>Eenvoudige entiteit voor de naam van een nieuwe werknemer
 De naam van de nieuwe werknemer, Billy Patterson, maakt geen deel uit van de entiteit lijst **werknemer** nog. De naam van de nieuwe werknemer wordt eerst opgehaald om de naam van de verzenden naar een extern systeem te maken van de bedrijfsreferenties. Nadat de bedrijfsreferenties zijn gemaakt, de referenties van de werknemer zijn toegevoegd aan de lijst met entiteit **werknemer**.

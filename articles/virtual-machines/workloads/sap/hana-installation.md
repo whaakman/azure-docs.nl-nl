@@ -1,6 +1,6 @@
 ---
-title: SAP HANA installeren op SAP HANA in Azure (grote exemplaren) | Microsoft Docs
-description: Het SAP HANA installeren op een SAP HANA in Azure (grote exemplaar).
+title: SAP HANA installeren op SAP HANA op Azure (grote instanties) | Microsoft Docs
+description: Over het installeren van SAP HANA op een SAP HANA op Azure (grote instantie).
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
@@ -11,46 +11,49 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/27/2018
+ms.date: 08/27/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ecef13f0ce97c7cec5a6583479911a08a99b0877
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 1d335e135551b7b6faed8ee566acb14b46fd6c81
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110725"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107508"
 ---
-# <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Het installeren en configureren van SAP HANA (grote exemplaren) in Azure
+# <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Installeren en configureren van SAP HANA (grote instanties) op Azure
 
-Hier volgen enkele belangrijke definities moet weten voordat u deze handleiding leest. In [SAP HANA (grote exemplaren) overzicht en architectuur op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) er zijn twee verschillende soorten HANA grote exemplaar eenheden met geïntroduceerd:
+Hier volgen enkele belangrijke definities moet weten voordat u deze handleiding leest. In [SAP HANA (grote instanties) overzicht en architectuur op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) hebben we twee verschillende soorten HANA grote instantie eenheden met geïntroduceerd:
 
-- S72, S72m S144, S144m, S192, S192m en S192xm die naar verwezen als 'Type ik klasse' van SKU's.
-- S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm en S960m die naar als de 'Type II class-instructie van SKU's verwezen.
+- S72, S72m, S144, S144m, S192, S192m en S192xm, dit is het 'ik klasse type' van SKU's.
+- S384, S384m S384xm, S384xxm, S576m, S576xm, S768m, S768xm en S960m, dit is de 'Type II-klasse' van SKU's.
 
-De klasse-aanduiding gaat moet worden gebruikt in de documentatie van de grote exemplaar HANA uiteindelijk verwijzen naar verschillende mogelijkheden en vereisten op basis van HANA grote exemplaar SKU's.
+De klasse-id gaat moet worden gebruikt in de documentatie van HANA grote instantie uiteindelijk verwijzen naar verschillende mogelijkheden en vereisten op basis van HANA grote instantie SKU's.
 
-Er zijn andere definities die wordt vaak gebruikt:
-- **Grote exemplaar stempel:** een hardware-infrastructuur stack die SAP HANA TDI gecertificeerd en toegewezen voor SAP HANA-exemplaren in Azure uitvoeren.
-- **SAP HANA in Azure (grote exemplaren):** officiële taal voor de aanbieding in Azure uitvoeren HANA-exemplaren op SAP HANA TDI gecertificeerde hardware die wordt geïmplementeerd in grote exemplaar stempels in verschillende Azure-regio's. De verwante term **HANA grote exemplaar** kort voor SAP HANA in Azure (grote exemplaren) en veel is deze technische handleiding gebruikt.
+Er zijn andere definities die we vaak gebruiken:
+- **Grote instantiestempel:** een hardware-infrastructuur-stack die SAP HANA TDI is gecertificeerd en toegewezen voor het uitvoeren van SAP HANA-instanties in Azure.
+- **SAP HANA op Azure (grote instanties):** officiële naam voor de aanbieding in Azure om uit te voeren van HANA-exemplaren in op SAP HANA TDI-gecertificeerde hardware die is geïmplementeerd in grote instantie stempels in verschillende Azure-regio's. De gerelateerde term **HANA grote instantie** kort voor SAP HANA op Azure (grote instanties) en is veel gebruikt in deze handleiding technische implementatie.
 
 
-De installatie van de SAP HANA is uw verantwoordelijkheid en kunt u de activiteit starten na de levering van een nieuwe SAP HANA op Azure (grote exemplaren)-server. En na de connectiviteit tussen uw Azure-VNet(s) en de HANA grote exemplaar eenheid tot stand is gebracht. 
+De installatie van SAP HANA is uw verantwoordelijkheid en kunt u de activiteit starten na de levering van een nieuwe SAP HANA op Azure (grote instanties)-server. En nadat de verbinding tussen uw Azure vnet (s) en de HANA grote instantie eenheid/eenheden tot stand is gebracht. 
 
 > [!Note]
-> Per SAP-beleid, moet de installatie van de SAP HANA worden uitgevoerd door een persoon die is gecertificeerd voor SAP HANA-installaties uitvoeren. Een persoon, die is doorgegeven de examen gecertificeerd SAP-technologie koppelen, certificeringsexamen SAP HANA-installatie, of door een SAP-certificering system integrator (SI).
+> Per SAP-beleid, moet de installatie van SAP HANA worden uitgevoerd door een persoon die is gecertificeerd voor SAP HANA-installaties uitvoeren. Een persoon, die is doorgegeven het koppelen van technologie met SAP gecertificeerde examen, certificeringsexamen SAP HANA-installatie, of door een SAP-gecertificeerde systeemintegrator (SI).
 
-Controle op opnieuw, vooral bij het plannen voor het installeren van HANA 2.0, [SAP ondersteuning Opmerking #2235581 - SAP HANA: ondersteunde besturingssystemen](https://launchpad.support.sap.com/#/notes/2235581/E) om ervoor te zorgen dat het besturingssysteem wordt ondersteund met de SAP HANA release u besluiten om te installeren. Zult u ontdekken dat de ondersteund besturingssysteem voor HANA 2.0 beperkter dan het besturingssysteem dat wordt ondersteund voor HANA 1.0 is. 
+Controleer opnieuw, met name bij het plannen van HANA-2.0 installeren [SAP Support Opmerking #2235581 - SAP HANA: ondersteunde besturingssystemen](https://launchpad.support.sap.com/#/notes/2235581/E) om ervoor te zorgen dat het besturingssysteem wordt ondersteund met de SAP HANA release u besluiten om te installeren. U ontdekt dat de ondersteund besturingssysteem voor HANA 2.0 beperkter dan het besturingssysteem dat wordt ondersteund voor HANA 1.0 is. 
 
-## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>Eerste stappen na de ontvangst van het exemplaar van HANA grote eenheid
+> [!IMPORTANT] 
+> Voor Type II eenheden alleen de SLES 12 SP2 OS-versie op dit moment ondersteund. 
 
-**Stap 1** na ontvangst van het grote HANA-exemplaar en hebben toegang tot stand gebracht en connectiviteit met de exemplaren, is het besturingssysteem van het exemplaar te registreren bij uw OS-provider. Deze stap omvat het registreren van uw SUSE Linux-besturingssysteem in een exemplaar van SUSE SMT die u nodig hebt geïmplementeerd in een virtuele machine in Azure. De eenheid HANA grote exemplaar kan verbinding maken met dit exemplaar SMT (Zie verderop in deze documentatie). Of uw Red Hat-besturingssysteem moet worden geregistreerd met Red Hat abonnement Manager u verbinding moet maken. Zie ook opmerkingen in deze [document](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Deze stap is ook nodig zijn om te kunnen patch van het besturingssysteem. Een taak die is in de verantwoordelijkheid van de klant. Voor SUSE, documentatie installeren en configureren van SMT vinden [hier](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
+## <a name="first-steps-after-receiving-the-hana-large-instance-units"></a>Eerste stappen na de ontvangst van de HANA grote instantie eenheid/eenheden
 
-**Tweede stap** is om te controleren op nieuwe patches en verbeteringen van specifieke release/versie van het besturingssysteem. Controleer of de patch-niveau van het grote HANA-exemplaar op de meest recente toestand. Op basis van de timing van OS patch/releases en wijzigingen in de installatiekopie van het die Microsoft kunt implementeren, kunnen er gevallen waarbij de meest recente patches niet opgenomen worden kunnen. Daarom is een verplichte stap nadat u via een eenheid HANA grote exemplaar om te controleren of patches die relevant zijn voor beveiliging, functionaliteit, beschikbaarheid en prestaties door de leverancier van de bepaalde Linux ondertussen zijn uitgebracht en moeten worden toegepast.
+**Stap 1** na ontvangst van de HANA grote instantie en toegang tot stand gebrachte en in te stellen verbinding met de exemplaren, bestaat uit het registreren van het besturingssysteem van het exemplaar bij uw besturingssysteem-provider. Deze stap omvat het SUSE Linux-besturingssysteem wordt geregistreerd bij een exemplaar van SUSE SMT die u nodig hebt geïmplementeerd in een virtuele machine in Azure. De eenheid HANA grote instantie kan verbinding maken met dit exemplaar SMT (Zie verderop in deze documentatie). Of uw Red Hat-besturingssysteem moet worden geregistreerd met de Red Hat Doelabonnementbeheerder u verbinding wilt maken. Zie ook opmerkingen in deze [document](https://docs.microsoft.com/azure/virtual-machines/linux/sap-hana-overview-architecture?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Deze stap is ook nodig zijn om te kunnen zijn voor het vullen van het besturingssysteem. Een taak die in de verantwoordelijkheid van de klant. Voor SUSE, vindt u documentatie om te installeren en configureren van SMT [hier](https://www.suse.com/documentation/sles-12/book_smt/data/smt_installation.html).
 
-**Het derde stap** uitchecken van de relevante SAP-opmerkingen voor het installeren en configureren van SAP HANA op specifieke release/versie van het besturingssysteem is. Vanwege het wijzigen van aanbevelingen of wijzigingen in de opmerkingen bij de SAP, of-configuraties die afhankelijk van afzonderlijke installatiescenario's zijn Microsoft altijd kan niet worden naar een grote exemplaar HANA Unit perfect geconfigureerd. Daarom is het noodzakelijk dat u als klant lezen dat opmerkingen bij de SAP gerelateerd aan SAP HANA op de exacte versie van Linux. Controleer de configuraties van release/versie van het besturingssysteem nodig ook en de configuratie-instellingen toepassen waarbij niet is gebeurd.
+**Tweede stap** is om te controleren op nieuwe patches en verbeteringen van de specifieke versie/versie van het besturingssysteem. Controleer of de patch-niveau van de HANA grote instantie op de meest recente status is. Op basis van de timing van OS patch/releases en wijzigingen naar de installatiekopie van die Microsoft kunt implementeren, kunnen er gevallen waarbij de meest recente patches niet opgenomen worden mag. Het is daarom een verplichte stap na over een eenheid HANA grote instantie, om te controleren of patches die relevant zijn voor beveiliging, functies, beschikbaarheid en prestaties in de tussentijd zorgen zijn vrijgegeven door de specifieke Linux-leverancier en moeten worden toegepast.
 
-In specifieke, Controleer de volgende parameters en uiteindelijk wordt aangepast aan:
+**Het derde stap** bestaat uit het controleren van de relevante SAP-opmerkingen voor het installeren en configureren van SAP HANA op specifieke release/versie van het besturingssysteem. Vanwege het wijzigen van aanbevelingen of wijzigingen aan SAP-opmerkingen of configuraties die afhankelijk van de installatie van de afzonderlijke scenario's zijn, Microsoft niet altijd mogelijk om een HANA grote instantie eenheid perfect geconfigureerd. Het is daarom verplicht voor u als een klant, om te lezen van dat de SAP-opmerkingen met betrekking tot SAP HANA op uw exacte Linux-versie. Ook Controleer de configuraties van release/versie van het besturingssysteem die nodig zijn en de configuratie-instellingen toepassen wanneer nog niet gedaan.
+
+Controleer de volgende parameters in specifieke, en uiteindelijk wordt aangepast aan:
 
 - net.core.rmem_max = 16777216
 - net.core.wmem_max = 16777216
@@ -60,7 +63,7 @@ In specifieke, Controleer de volgende parameters en uiteindelijk wordt aangepast
 - net.ipv4.tcp_rmem = 65536 16777216 16777216
 - net.ipv4.tcp_wmem = 65536 16777216 16777216
 
-Beginnen met SLES12 SP1 en RHEL 7.2, moeten deze parameters worden ingesteld in een configuratiebestand in de map /etc/sysctl.d. Bijvoorbeeld, moet een configuratiebestand met de naam 91-NetApp-HANA.conf worden gemaakt. Voor oudere versies van SLES en RHEL moet deze parameters set in/etc/sysctl.conf.
+Beginnen met SP1 SLES12 en RHEL 7.2, moeten deze parameters worden ingesteld in een configuratiebestand in de map /etc/sysctl.d. Bijvoorbeeld, moet een configuratiebestand met de naam 91-NetApp-HANA.conf worden gemaakt. Voor oudere versies van SLES en RHEL moet deze parameters set in/etc/sysctl.conf.
 
 Voor alle RHEL vrijgegeven en beginnen met SLES12, de 
 - sunrpc.tcp_slot_table_entries = 128
@@ -68,65 +71,65 @@ Voor alle RHEL vrijgegeven en beginnen met SLES12, de
 parameter moet worden ingesteld als in/etc/modprobe.d/sunrpc-local.conf. Als het bestand niet bestaat, moet deze eerst worden gemaakt door de volgende vermelding toe te voegen: 
 - Opties voor sunrpc tcp_max_slot_table_entries = 128
 
-**Vierde stap** is om te controleren van de systeemtijd van uw exemplaar van HANA grote eenheid. De exemplaren worden geïmplementeerd met de tijdzone van een systeem met daarin de locatie van de Azure-regio die de HANA grote exemplaar stempel bevindt zich in. U bent kunt wijzigen van de systeemtijd of de tijdzone van de exemplaren die u eigenaar. Dit leidt en ordening meer exemplaren in uw tenant, moet u aan te passen aan de tijdzone van de nieuwe geleverde exemplaren worden voorbereid. Microsoft-bewerkingen hebben geen inzicht in de tijdzone die u instellen met de exemplaren na de overdracht. Geïmplementeerde exemplaren kunnen daarom niet worden ingesteld in dezelfde tijdzone als het account dat u hebt gewijzigd. Als gevolg hiervan, is het uw verantwoordelijkheid als klant om te controleren en indien nodig de tijdzone van de exemplaren afgegeven aanpassen. 
+**Vierde stap** is om te controleren of de systeemtijd van de HANA grote instantie eenheid. De exemplaren zijn geïmplementeerd met de tijdzone van een systeem waarbij de locatie van de Azure-regio die de HANA grote Instantiestempel bevindt zich in. U staat op vrije de systeemtijd of de tijdzone van de exemplaren die u wilt wijzigen. In dat geval en volgorde meer instanties in uw tenant, moet u aan te passen van de tijdzone van de zojuist geleverde exemplaren worden voorbereid. Microsoft-bewerkingen hebben geen inzicht in de tijdzone van het systeem dat u instellen met de exemplaren na de overdracht. Geïmplementeerde exemplaren kunnen daarom niet worden ingesteld in dezelfde tijdzone als het account dat u hebt gewijzigd. Als gevolg hiervan is het uw verantwoordelijkheid als klant om te controleren en indien nodig aan te passen de tijdzone van de instantie (s) afgegeven. 
 
-**Vijfde stap** is om te controleren, etc/hosts. Als de blades afgegeven ophalen, hebben ze verschillende IP-adressen toegewezen voor verschillende doeleinden (Zie volgende sectie). Controleer het etc/hosts-bestand. In gevallen waar eenheden zijn toegevoegd aan een bestaande tenant is niet van plan bent etc/hosts van de geïmplementeerde systemen correct worden beheerd met de IP-adressen van eerder geleverde systemen. Daarom is u als klant om te controleren van de juiste instellingen, dat een zojuist geïmplementeerde exemplaar kan communiceren en de namen van de eerder geïmplementeerde eenheden in uw tenant omzetten. 
+**Vijfde stap** is om te controleren op etc/hosts. Als de blades afgegeven ophalen, hebben ze verschillende IP-adressen die zijn toegewezen voor verschillende doeleinden (Zie volgende sectie). Controleer het bestand etc/hosts. In gevallen waar de eenheden worden toegevoegd aan een bestaande tenant geen verwachte etc/hosts van de zojuist geïmplementeerde systemen correct onderhouden met de IP-adressen van eerder geleverde systemen. Het is daarom op u als klant om te controleren of de juiste instellingen zo, dat een zojuist geïmplementeerde exemplaar kan communiceren en de namen van de eerder geïmplementeerde eenheden in uw tenant omzetten. 
 
 ## <a name="networking"></a>Netwerken
-We gaan ervan uit dat u de aanbevelingen bij het ontwerpen van uw Azure VNets en deze VNets verbinden met de grote exemplaren HANA zoals beschreven in deze documenten gevolgd:
+Gaan we ervan uit dat u de aanbevelingen in het ontwerpen van uw Azure vnet's en de VNets verbinden met de HANA grote instanties zoals beschreven in deze documenten hebt gevolgd:
 
-- [Overzicht van de SAP HANA (grote exemplaar) en architectuur op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
-- [Infrastructuur voor SAP HANA (grote exemplaren) en de verbindingen van Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
+- [Overzicht van de SAP HANA (grote instantie) en architectuur op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
+- [SAP HANA (grote instanties)-infrastructuur en connectiviteit in Azure](hana-overview-infrastructure-connectivity.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 
-Er zijn een aantal details waard te vermelden over de netwerken van de afzonderlijke eenheden. Elke eenheid HANA grote exemplaar wordt geleverd met twee of drie IP-adressen die zijn toegewezen aan twee of drie NIC-poorten van de eenheid. Drie IP-adressen worden gebruikt in HANA scale-out configuraties en het scenario HANA System Replication. Een van de IP-adressen toegewezen aan de Netwerkinterfacekaart van de eenheid valt buiten de Server IP-adresgroep die is beschreven in de [SAP HANA (grote exemplaar) overzicht en architectuur op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
+Er zijn enkele details waard is om te vermelden over de netwerken van de afzonderlijke eenheden. Elke eenheid HANA grote instantie wordt geleverd met twee of drie IP-adressen die zijn toegewezen aan twee of drie NIC-poorten van de eenheid. Drie IP-adressen worden gebruikt in HANA uitschaalconfiguraties en de HANA-Systeemreplicatie-scenario. Een van de IP-adressen die zijn toegewezen aan de NIC van de eenheid valt buiten de Server IP-adresgroep die is beschreven in de [SAP HANA (grote instantie) overzicht en architectuur op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture).
 
 Raadpleeg [HLI scenario's ondersteund](hana-supported-scenario.md) voor meer informatie over Ethernet-details voor uw architectuur.
 
 ## <a name="storage"></a>Storage
 
-De opslagindeling voor SAP HANA in Azure (grote exemplaren) wordt geconfigureerd via de SAP HANA op Azure Service Management via SAP hulplijnen aanbevolen zoals beschreven in [opslagvereisten voor SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) witboek. De ruwe grootte van de verschillende volumes met de verschillende HANA grote exemplaren SKU's is beschreven in [SAP HANA (grote exemplaar) overzicht en architectuur op Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+De opslagindeling voor SAP HANA op Azure (grote instanties) is geconfigureerd door SAP HANA op Azure Service Management via SAP hulplijnen aanbevolen zoals beschreven in [opslagvereisten voor SAP HANA](http://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) technisch document. De ruwe grootte van de verschillende volumes met de verschillende HANA grote instanties SKU's is beschreven in [SAP HANA (grote instantie) overzicht en architectuur op Azure](hana-overview-architecture.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 De naamgeving van de opslagvolumes worden vermeld in de volgende tabel:
 
 | Opslaggebruik | De naam van koppelpunt | Volumenaam | 
 | --- | --- | ---|
-| HANA gegevens | /Hana/Data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA-gegevens | /Hana/Data/SID/mnt0000<m> | Storage IP:/hana_data_SID_mnt00001_tenant_vol |
 | HANA-logboek | /Hana/log/SID/mnt0000<m> | Storage IP:/hana_log_SID_mnt00001_tenant_vol |
 | HANA logboekback-up | /Hana/log/backups | Storage IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA gedeeld | /Hana/Shared/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/SAP/SID | Storage IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |
 
-Waar SID het exemplaar HANA systeem-ID = 
+Waarbij SID de HANA-instantie systeem-ID = 
 
-- En tenantverkeer = van een interne opsomming van bewerkingen bij het implementeren van een tenant.
+Als de tenant een interne opsomming van bewerkingen = bij het implementeren van een tenant.
 
-Zoals u ziet, HANA gedeeld en usr/sap delen hetzelfde volume. De naamgeving volgt de namen van de quorumbron: bevat de systeem-ID van de exemplaren HANA, evenals het aantal koppelen. In implementaties van scale-up alleen is één koppelpunt, zoals mnt00001. Terwijl in scale-out-implementatie u zoveel koppelingen als ziet hebben u worker en master knooppunten. Voor scale-out-omgeving, gegevens, logboek, back-logboekvolumes gedeeld en gekoppeld aan elk knooppunt in de configuratie van de scale-out. Voor configuraties met meerdere exemplaren van het SAP, een andere set volumes gemaakt en gekoppeld aan de eenheid HAN grote exemplaar. Raadpleeg [HLI scenario's ondersteund](hana-supported-scenario.md) voor opslag lay-informatie voor uw scenario.
+Zoals u ziet, HANA, gedeeld en usr/sap delen hetzelfde volume. De naamgeving van de quorumbron: heeft betrekking op de systeem-ID van de HANA-instanties, evenals het aantal koppelen. In implementaties omhoog is er alleen een koppelpunt, zoals mnt00001. Terwijl in scale-out-implementatie u zoveel koppelingen als ziet hebben u model en worker-knooppunten. Voor de scale-out-omgeving, gegevens, log, back-up logboekvolumes gedeeld en die is gekoppeld aan elk knooppunt in de configuratie van de scale-out. Voor configuraties met meerdere instanties van SAP is een andere set volumes gemaakt en gekoppeld aan de eenheid HAN grote instantie. Raadpleeg [HLI scenario's ondersteund](hana-supported-scenario.md) voor lay-out opslaggegevens voor uw scenario.
 
-Als u het artikel lezen en zoeken van een grote exemplaar HANA-eenheid, zult u ontdekken dat de eenheden worden geleverd met in plaats daarvan vriendelijke schijfvolume HANA/gegevens en dat we een volume HANA/log/back-up hebben. De reden waarom we de HANA/gegevens zo groot formaat is dat de opslag-momentopnamen we voor u als klant bieden het dezelfde schijfvolume wordt gebruikt. Dit betekent dat de meer opslagruimte momentopnamen die u uitvoert, des te meer ruimte is verbruikt door momentopnamen in de opslagvolumes toegewezen. Het volume HANA/log/back-up wordt niet beschouwd moet het volume de databaseback-ups in plaatsen. Het wordt aangepast als back-volume voor de HANA transactielogboekback-ups worden gebruikt. In toekomstige snapshot versies van de opslag-self service dat we heeft betrekking op dit specifieke volume om frequentere momentopnamen. En met die frequentere replicaties naar de site van de herstel na noodgevallen als u om een optie in voor de disaster recovery functionaliteit van de infrastructuur HANA grote exemplaar. Zie voor meer informatie [SAP HANA (grote exemplaren) hoge beschikbaarheid en herstel na noodgevallen op Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
+Lees het document en een eenheid HANA grote instantie zoeken, ontdekt u dat de eenheden voor HANA/gegevens afkomstig met in plaats daarvan royale schijfvolume zijn en dat we beschikken over een volume HANA/log/back-up. De reden waarom we de HANA/gegevens zo groot grootte is dat de storage-momentopnamen we voor u als een klant bieden van hetzelfde schijfvolume gebruikmaakt. Dit betekent dat de meer opslag momentopnamen die u uitvoert, hoe meer opslagruimte wordt gebruikt door momentopnamen in uw opslagvolumes die zijn toegewezen. Het volume HANA/log/back-up wordt niet beschouwd moet het volume op databaseback-ups worden geplaatst. Het formaat wordt aangepast om te worden gebruikt als back-upvolume voor de HANA transactielogboekback-ups. In toekomstige snapshot versies van de opslag self service, dat wordt dit bepaald volume om vaker momentopnamen heeft betrekking op. En met die frequentere replicaties naar de site voor noodherstel als u om de optie-in voor het herstel na noodgevallen geleverd door de infrastructuur van HANA grote instantie. Zie voor meer informatie [SAP HANA (grote instanties) met hoge beschikbaarheid en herstel na noodgeval op Azure](hana-overview-high-availability-disaster-recovery.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 
 
-Naast de opslag die is opgegeven, kunt u extra opslagcapaciteit in stappen van 1 TB aanschaffen. Deze extra opslagruimte kan worden toegevoegd als nieuwe volumes op een grote HANA-exemplaren.
+Naast de opslag die is geleverd, kunt u extra opslagcapaciteit in stappen van 1 TB aanschaffen. Deze extra opslag kan worden toegevoegd als nieuwe volumes aan een HANA grote instanties.
 
-Tijdens de voorbereiding met SAP HANA op Azure-servicebeheer, de klant Hiermee geeft u een gebruikers-ID (UID) en groep-ID (GID) voor de groep van gebruikers- en sapsys sidadm (ex: 1000,500) is het nodig dat tijdens de installatie van het systeem SAP HANA deze dezelfde waarden worden gebruikt. Als u implementeren meerdere HANA-exemplaren op een eenheid wilt, kunt u meerdere sets van volumes (één ingesteld voor elk exemplaar) ophalen. Tijdens de implementatie moet u als gevolg hiervan definiëren:
+Tijdens de onboarding met SAP HANA op Azure Service Management, de klant Hiermee geeft u een gebruikers-ID (UID) en groep-ID (groeps-id) voor de groep van gebruikers- en sapsys sidadm (ex: 1000,500) is het nodig dat tijdens de installatie van de SAP HANA-systeem, deze dezelfde waarden worden gebruikt. Als u implementeren meerdere HANA-exemplaren op een eenheid wilt, krijgt u meerdere sets van volumes (één set voor elk exemplaar). Tijdens de implementatie moet u als gevolg hiervan definiëren:
 
-- De SID van de verschillende HANA-exemplaren (sidadm is buiten deze afgeleid).
-- De grootte van het geheugen van de verschillende exemplaren van HANA. Omdat de grootte van het geheugen per exemplaren de grootte van de volumes in elke set afzonderlijk volume bepaalt.
+- De SID van de verschillende HANA-instanties (sidadm is buiten deze afgeleid).
+- De grootte van het geheugen van de verschillende HANA-instanties. Omdat de grootte van het geheugen per instantie de grootte van de volumes in elke volumeset afzonderlijke definieert.
 
-Op basis van opslagaanbevelingen voor provider de volgende mount-opties zijn geconfigureerd voor alle gekoppelde volumes (met uitzondering van opstarten LUN):
+Op basis van aanbevelingen voor opslag-provider de volgende koppelingsopties zijn geconfigureerd voor alle gekoppelde volumes (met uitzondering van opstarten LUN):
 
 - NFS-rw bergen = 4, hard, timeo = 600, rsize = 1048576, wsize = 1048576, Intro, noatime, vergrendelen 0 0
 
-Deze punten zijn geconfigureerd in/etc/fstab zoals weergegeven in de onderstaande afbeeldingen koppelen:
+Deze punten zijn geconfigureerd in/etc/fstab, zoals wordt weergegeven in de volgende afbeeldingen koppelen:
 
-![fstab van gekoppelde volumes in grote exemplaar HANA-eenheid](./media/hana-installation/image1_fstab.PNG)
+![fstab van gekoppelde volumes in HANA grote instantie eenheid](./media/hana-installation/image1_fstab.PNG)
 
-De uitvoer van de opdracht df -h op een eenheid S72m HANA grote exemplaar eruit als:
+De uitvoer van de opdracht df -h op een eenheid S72m HANA grote instantie eruit als:
 
-![fstab van gekoppelde volumes in grote exemplaar HANA-eenheid](./media/hana-installation/image2_df_output.PNG)
+![fstab van gekoppelde volumes in HANA grote instantie eenheid](./media/hana-installation/image2_df_output.PNG)
 
 
-De controller voor opslag en de knooppunten in de stempels grote exemplaar worden gesynchroniseerd met NTP-servers. Met u synchronisatie van de SAP HANA op Azure (grote exemplaren) eenheden en virtuele Azure-machines op basis van een NTP-server, moet er geen aanzienlijke tijd afwijking gebeurt tussen de infrastructuur en de compute-eenheden in Azure of grote exemplaar stempels.
+De controller voor opslag en de knooppunten in de stempels grote instantie worden gesynchroniseerd met de NTP-servers. Met u synchronisatie van de SAP HANA op Azure (grote instanties)-eenheden en Azure-VM's op basis van een NTP-server, mogen er geen aanzienlijke tijd drift gebeurt tussen de infrastructuur en de rekeneenheden in Azure of grote instantie stempels.
 
-Om te optimaliseren SAP HANA naar de opslag die onder gebruikt, moet u ook de volgende SAP HANA-configuratieparameters instellen:
+Als u wilt optimaliseren SAP HANA naar de opslag die onder gebruikt, moet u ook de volgende configuratieparameters voor SAP HANA instellen:
 
 - max_parallel_io_requests 128
 - async_read_submit op
@@ -135,115 +138,118 @@ Om te optimaliseren SAP HANA naar de opslag die onder gebruikt, moet u ook de vo
  
 Voor SAP HANA 1.0 versies tot SPS12, deze parameters worden ingesteld tijdens de installatie van de SAP HANA-database, zoals beschreven in [SAP Opmerking #2267798 - configuratie van de SAP HANA-Database](https://launchpad.support.sap.com/#/notes/2267798)
 
-U kunt ook de parameters na de installatie van de SAP HANA-database configureren met behulp van het framework hdbparam. 
+U kunt ook de parameters na de installatie van de SAP HANA-database configureren met behulp van de hdbparam-framework. 
 
-Met SAP HANA 2.0, is het framework hdbparam afgeschaft. De parameters moeten als gevolg hiervan worden ingesteld met behulp van SQL-opdrachten. Zie voor meer informatie [SAP-notitie #2399079: eliminatie van hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
+Met SAP HANA 2.0, is het framework hdbparam afgeschaft. De parameters moeten als gevolg hiervan worden ingesteld met behulp van SQL-opdrachten. Zie voor meer informatie, [SAP Opmerking #2399079: opheffing van hdbparam in HANA 2](https://launchpad.support.sap.com/#/notes/2399079).
 
-Raadpleeg [HLI scenario's ondersteund](hana-supported-scenario.md) voor meer informatie over opslagindeling voor uw architectuur.
+Raadpleeg [HLI scenario's ondersteund](hana-supported-scenario.md) voor meer informatie over de indeling voor uw architectuur.
 
 ## <a name="operating-system"></a>Besturingssysteem
 
-Wisselruimte van het geleverde installatiekopie van het besturingssysteem is ingesteld op 2 GB volgens de [SAP ondersteuning Opmerking #1999997 - Veelgestelde vragen over: SAP HANA geheugen](https://launchpad.support.sap.com/#/notes/1999997/E). Een andere instelling hebben gewenste moet worden ingesteld door u als een klant.
+> [!IMPORTANT] 
+> Voor Type II eenheden alleen de SLES 12 SP2 OS-versie op dit moment ondersteund. 
 
-[SUSE Linux Enterprise Server 12 SP1 voor SAP-toepassingen](https://www.suse.com/products/sles-for-sap/hana) is de verdeling van Linux is geïnstalleerd voor SAP HANA in Azure (grote exemplaren). Deze bepaalde distributie biedt mogelijkheden voor SAP-specifieke &quot;gebruiksklaar&quot; (inclusief vooraf ingestelde parameters voor het uitvoeren van de SAP effectief op SLES).
+Wisselruimte van het geleverde installatiekopie van het besturingssysteem is ingesteld op 2 GB volgens de [SAP Support Opmerking #1999997 - Veelgestelde vragen over: SAP HANA geheugen](https://launchpad.support.sap.com/#/notes/1999997/E). Verschillende instellingen gewenste moet worden ingesteld door u als een klant.
 
-Zie [Resource bibliotheek/White Papers](https://www.suse.com/products/sles-for-sap/resource-library#white-papers) op de website SUSE en [SAP op SUSE](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE) op SAP Community netwerk (SCN) voor verschillende nuttige informatiebronnen met betrekking tot het implementeren van SAP HANA op SLES (inclusief de opzet van hoge Beschikbaarheid, beveiliging hardening die specifiek zijn voor SAP-bewerkingen en meer).
+[SUSE Linux Enterprise Server 12 SP1 voor SAP-toepassingen](https://www.suse.com/products/sles-for-sap/hana) is de verdeling van Linux voor SAP HANA op Azure (grote instanties) is geïnstalleerd. Deze specifieke distributie biedt mogelijkheden voor SAP-specifieke &quot;gebruiksklaar&quot; (met inbegrip van de vooraf ingestelde parameters voor het uitvoeren van SAP op SLES effectief).
+
+Zie [Resource bibliotheek/White Papers](https://www.suse.com/products/sles-for-sap/resource-library#white-papers) op de website van SUSE en [SAP op SUSE](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE) op de SAP Community netwerk (SCN) voor verschillende nuttige bronnen die betrekking hebben op de implementatie van SAP HANA op SLES (met inbegrip van de configuratie van hoge Beschikbaarheid, beveiliging die specifiek zijn voor SAP-bewerkingen en meer).
 
 Aanvullende en nuttige SAP op SUSE-gerelateerde koppelingen:
 
-- [SAP HANA op SUSE Linux Site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
-- [Best Practice voor SAP: in de wachtrij plaatsen replicatie – SAP NetWeaver op SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113).
-- [ClamSAP – SLES virusbeveiliging voor SAP](http://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (inclusief SLES 12 voor SAP-toepassingen).
+- [SAP HANA op SUSE Linux-Site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+SUSE)
+- [Best Practice voor SAP: in de wachtrij plaatsen replicatie: SAP NetWeaver op SUSE Linux Enterprise 12](https://www.suse.com/docrepcontent/container.jsp?containerId=9113).
+- [ClamSAP – virusbeveiliging SLES voor SAP](http://scn.sap.com/community/linux/blog/2014/04/14/clamsap--suse-linux-enterprise-server-integrates-virus-protection-for-sap) (met inbegrip van SLES 12 voor SAP-toepassingen).
 
-SAP ondersteuning opmerkingen van toepassing op het implementeren van SAP HANA op SLES 12:
+SAP-ondersteuning-opmerkingen van toepassing op het implementeren van SAP HANA op SLES 12:
 
-- [SAP ondersteuning Opmerking #1944799 – SAP HANA richtlijnen voor de installatie van het besturingssysteem SLES](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html).
-- [SAP ondersteuning Opmerking #2205917 – SAP HANA DB aanbevolen OS-instellingen voor SLES 12 voor SAP-toepassingen](https://launchpad.support.sap.com/#/notes/2205917/E).
-- [SAP ondersteuning Opmerking #1984787 – SUSE Linux Enterprise Server 12: Opmerkingen bij de installatie van de](https://launchpad.support.sap.com/#/notes/1984787).
-- [SAP ondersteuning Opmerking #171356 – SAP-Software op Linux: algemene informatie](https://launchpad.support.sap.com/#/notes/1984787).
-- [SAP ondersteuning Opmerking #1391070 – Linux UUID oplossingen](https://launchpad.support.sap.com/#/notes/1391070).
+- [SAP Support Opmerking #1944799: SAP HANA richtlijnen voor de installatie van het besturingssysteem SLES](http://go.sap.com/documents/2016/05/e8705aae-717c-0010-82c7-eda71af511fa.html).
+- [SAP Support Opmerking #2205917: SAP HANA DB aanbevolen besturingssysteeminstellingen voor het voor SLES 12 voor SAP-toepassingen](https://launchpad.support.sap.com/#/notes/2205917/E).
+- [SAP-ondersteuning Opmerking #1984787 – SUSE Linux Enterprise Server 12: Opmerkingen bij de installatie van de](https://launchpad.support.sap.com/#/notes/1984787).
+- [SAP Support Opmerking #171356 – SAP-Software op Linux: algemene informatie](https://launchpad.support.sap.com/#/notes/1984787).
+- [SAP Support Opmerking #1391070 – oplossingen voor Linux-UUID](https://launchpad.support.sap.com/#/notes/1391070).
 
-[Red Hat Enterprise Linux voor SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) is een andere aanbieding voor SAP HANA uitgevoerd op grote HANA-exemplaren. Releases van RHEL 6.7 en 7.2 zijn beschikbaar. Neem notitie in in de systeemeigen virtuele Azure-machines waar alleen RHEL 7.2 en meer recente versies worden ondersteund, HANA grote exemplaren bieden ondersteuning voor RHEL 6.7 ook. Maar wordt u aangeraden een RHEL 7.x release.
+[Red Hat Enterprise Linux voor SAP HANA](https://www.redhat.com/en/resources/red-hat-enterprise-linux-sap-hana) is een andere aanbieding voor het uitvoeren van SAP HANA op grote HANA-instanties. Versies van RHEL 6.7 en 7.2 zijn beschikbaar. Neem notitie in systeemeigen Azure-VM's waarbij alleen RHEL 7.2 en meer recente versies worden ondersteund, HANA grote instanties bieden ondersteuning voor RHEL 6.7 ook. Maar we een RHEL 7.x versie gebruiken adviseren.
 
 Aanvullende en nuttige SAP op Red Hat verwante koppelingen:
 - [SAP HANA op Red Hat Linux Site](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+on+Red+Hat).
 
-SAP ondersteuning opmerkingen bij de implementatie van SAP HANA op Red Hat die van toepassing zijn:
+SAP-ondersteuning-opmerkingen van toepassing op SAP HANA implementeren op Red Hat:
 
-- [SAP ondersteuning Opmerking #2009879 - SAP HANA richtlijnen voor het Red Hat Enterprise Linux (RHEL)-besturingssysteem](https://launchpad.support.sap.com/#/notes/2009879/E).
-- [SAP ondersteuning Opmerking #2292690 - SAP HANA-database: OS aanbevolen instellingen voor RHEL 7](https://launchpad.support.sap.com/#/notes/2292690).
-- [SAP ondersteuning Opmerking #2247020 - SAP HANA-database: OS aanbevolen instellingen voor RHEL 6.7](https://launchpad.support.sap.com/#/notes/2247020).
-- [SAP ondersteuning Opmerking #1391070 – Linux UUID oplossingen](https://launchpad.support.sap.com/#/notes/1391070).
-- [SAP ondersteuning Opmerking #2228351 - Linux: SAP HANA-Database SP's 11 revisie 110 (of hoger) op de RHEL 6 of SLES 11](https://launchpad.support.sap.com/#/notes/2228351).
-- [#2397039 - Veelgestelde vragen over SAP ondersteuning Opmerking: SAP-op de RHEL](https://launchpad.support.sap.com/#/notes/2397039).
-- [SAP ondersteuning Opmerking #1496410 - Red Hat Enterprise Linux 6.x: installatie en Upgrade](https://launchpad.support.sap.com/#/notes/1496410).
-- [SAP ondersteuning Opmerking #2002167 - Red Hat Enterprise Linux 7.x: installatie en Upgrade](https://launchpad.support.sap.com/#/notes/2002167).
+- [SAP Support Opmerking #2009879 - SAP HANA-richtlijnen voor het Red Hat Enterprise Linux (RHEL)-besturingssysteem](https://launchpad.support.sap.com/#/notes/2009879/E).
+- [SAP Support Opmerking #2292690 - SAP HANA DB: Besturingssysteem aanbevolen instellingen voor RHEL 7](https://launchpad.support.sap.com/#/notes/2292690).
+- [SAP Support Opmerking #2247020 - SAP HANA DB: Besturingssysteem aanbevolen instellingen voor RHEL 6.7](https://launchpad.support.sap.com/#/notes/2247020).
+- [SAP Support Opmerking #1391070 – oplossingen voor Linux-UUID](https://launchpad.support.sap.com/#/notes/1391070).
+- [SAP Support Opmerking #2228351 - Linux: SAP HANA-Database SP's 11 revisie 110 (of hoger) in 6 RHEL of SLES 11](https://launchpad.support.sap.com/#/notes/2228351).
+- [SAP Support Opmerking #2397039 - Veelgestelde vragen over: SAP op RHEL](https://launchpad.support.sap.com/#/notes/2397039).
+- [SAP Support Opmerking #1496410 - Red Hat Enterprise Linux 6.x: installatie en Upgrade](https://launchpad.support.sap.com/#/notes/1496410).
+- [SAP Support Opmerking #2002167 - Red Hat Enterprise Linux 7.x: installatie en Upgrade](https://launchpad.support.sap.com/#/notes/2002167).
 
 ## <a name="time-synchronization"></a>Tijdsynchronisatie
 
-SAP-toepassingen die zijn gebaseerd op de architectuur SAP NetWeaver zijn gevoelig voor tijdsverschil voor de verschillende onderdelen waaruit het SAP-systeem. SAP ABAP korte dumpen met de fouttitel van ZDATE\_grote\_tijd\_DIFF zijn waarschijnlijk vertrouwd, zoals deze korte dumpbestanden weergegeven wanneer de systeemtijd van de andere servers of virtuele machines te ver uit elkaar is verhuizen.
+SAP-toepassingen die zijn gebouwd op de architectuur van SAP NetWeaver zijn gevoelige op tijd verschillen voor de verschillende onderdelen die deel uitmaken van de SAP-systeem. SAP ABAP korte geheugendumps met de titel van Downloadfout van ZDATE\_grote\_tijd\_DIFF zijn waarschijnlijk vertrouwd, zoals deze korte dumpbestanden voor foutopsporing worden weergegeven wanneer de systeemtijd van de andere servers of virtuele machines te ver uit elkaar is verhuizen.
 
-Voor SAP HANA in Azure (grote exemplaren), tijdsynchronisatie uitgevoerd in Azure heeft&#39;t toepassen op de compute-eenheden in de grote exemplaar stempels. Deze synchronisatie is niet van toepassing voor het uitvoeren van SAP-toepassingen in systeemeigen Azure VM's, zoals Azure zorgt ervoor dat een systeem&#39;s tijd juist is gesynchroniseerd. Als gevolg hiervan een afzonderlijke tijd server moet worden ingesteld die kan worden gebruikt door SAP toepassingsservers uitgevoerd op Azure VM's en de SAP HANA-database instanties die worden uitgevoerd op grote HANA-exemplaren. De infrastructuur voor opslag in grote exemplaar stempels is tijd die zijn gesynchroniseerd met NTP-servers.
+Voor SAP HANA op Azure (grote instanties), tijd synchronisatie uitgevoerd in Azure heeft&#39;t zijn van toepassing op de compute-eenheden in de stempels grote instantie. Deze synchronisatie is niet van toepassing voor het uitvoeren van SAP-toepassingen in systeemeigen Azure-VM's, terwijl Azure zorgt voor een systeem&#39;s tijd juist is gesynchroniseerd. Als gevolg hiervan een ander tijdstip server moet worden ingesteld die kan worden gebruikt door SAP-toepassingsservers die worden uitgevoerd op Azure VM's en de SAP HANA-database exemplaren die worden uitgevoerd op HANA grote instanties. De opslaginfrastructuur in grote instantie stempels is het tijd gesynchroniseerd met de NTP-servers.
 
 ## <a name="setting-up-smt-server-for-suse-linux"></a>SMT-server instellen voor SUSE Linux
-SAP HANA grote exemplaren hebben geen directe verbinding met Internet. Het is daarom niet een eenvoudig proces aan dergelijke eenheid registreren bij de OS-provider te downloaden en patches toepassen. In het geval van SUSE Linux mogelijk een oplossing voor het instellen van een SMT-server in een Azure VM. Terwijl de virtuele machine in Azure moet worden gehost in een Azure-VNet is verbonden met het grote HANA-exemplaar. Met dergelijke een SMT-server, kan de eenheid HANA grote exemplaar registreren en patches te downloaden. 
+SAP HANA grote instanties hebt geen directe verbinding met Internet. Het is daarom niet een eenvoudig proces aan zoals eenheden registreren bij de OS-provider te downloaden en toepassen van patches. In het geval van SUSE Linux mogelijk een oplossing voor het instellen van een SMT-server in een Azure-VM. Terwijl de virtuele Azure-machine moet worden gehost in een Azure-VNet is verbonden met de HANA grote instantie. Met dergelijke een SMT-server, kan de eenheid HANA grote instantie registreren en downloaden van patches. 
 
-SUSE biedt een uitgebreidere handleiding op hun [abonnement beheerprogramma voor SLES 12 SP2](https://www.suse.com/documentation/sles-12/pdfdoc/book_smt/book_smt.pdf). 
+SUSE biedt een grotere handleiding op hun [abonnement beheerprogramma voor SLES 12 SP2](https://www.suse.com/documentation/sles-12/pdfdoc/book_smt/book_smt.pdf). 
 
-Als de voorwaarde voor de installatie van een SMT-server die voldoet aan de taak voor grote HANA-exemplaar moet:
+Als voorwaarde voor de installatie van een SMT-server die voldoet aan vereisten voor de taak voor HANA grote instantie moet:
 
-- Een Azure-VNet dat is verbonden met het circuit HANA grote exemplaar ER.
-- Een SUSE-account dat is gekoppeld aan een organisatie. Terwijl de organisatie een geldig SUSE-abonnement hebt moet.
+- Een Azure-VNet die is verbonden met het circuit HANA grote instantie ER.
+- Een SUSE-account dat is gekoppeld aan een organisatie. Terwijl de organisatie een geldige SUSE-abonnement hebt moet.
 
 ### <a name="installation-of-smt-server-on-azure-vm"></a>Installatie van SMT-server op Azure VM
 
-In deze stap installeert u het SMT-server in een Azure VM. De eerste eenheid is aan te melden bij de [SUSE Customer Center](https://scc.suse.com/)
+In deze stap installeert u het SMT-server in een Azure-VM. De eerste meting is voor aanmelding bij de [SUSE klant Center](https://scc.suse.com/)
 
-Als u bent aangemeld,--gaat u naar de organisatie > referenties van de organisatie. In deze sectie moet u de referenties die nodig zijn voor het instellen van de SMT-server vinden.
+Als u bent aangemeld, geeft gaat u naar de organisatie--> referenties van de organisatie. In deze sectie vindt u de referenties die nodig zijn voor het instellen van de SMT-server.
 
-De derde stap is het installeren van een SUSE Linux virtuele machine in Azure VNet. Duren voor het implementeren van de virtuele machine, een installatiekopie SLES 12 SP2-galerie van Azure. Een DNS-naam niet definiëren in het implementatieproces en gebruik niet statische IP-adressen zoals in deze schermafbeelding te maken
+De derde stap is het installeren van een SUSE Linux-VM in de Azure-VNet. Voor het implementeren van de virtuele machine, neemt u een installatiekopie van de galerie SLES 12 SP2 van Azure. Een DNS-naam niet definiëren in het implementatieproces en gebruik geen statische IP-adressen zoals te zien is in deze schermopname
 
 ![VM-implementatie voor SMT-server](./media/hana-installation/image3_vm_deployment.png)
 
-De geïmplementeerde virtuele machine een kleinere VM is en het interne IP-adres in het Azure VNet van 10.34.1.4 kreeg. Naam van de virtuele machine is smtserver. De verbinding met de grote HANA exemplaar/eenheden is na de installatie gecontroleerd. Afhankelijk van hoe u naamomzetting geordend mogelijk moet u resolutie van de eenheden HANA grote exemplaar in etc/hosts van de Azure VM configureren. Een extra schijf toevoegen aan de virtuele machine die u wilt worden gebruikt voor het opslaan van de patches. De opstartschijf zelf mogelijk te klein. In het geval gedemonstreerd, is de schijf is gekoppeld aan /srv/www/htdocs zoals weergegeven in de volgende schermafbeelding. Er moet een schijf van 100 GB voldoende.
+De geïmplementeerde virtuele machine een kleinere virtuele machine is en het interne IP-adres in het Azure-VNet van 10.34.1.4 kreeg. De naam van de virtuele machine is smtserver. Na de installatie, is de verbinding met de HANA grote instantie eenheid/eenheden gecontroleerd. Afhankelijk van hoe u naamomzetting georganiseerd mogelijk moet u de resolutie van de eenheden HANA grote instantie in etc/hosts van de Azure-VM configureren. Een extra schijf toevoegen aan de virtuele machine die u moet worden gebruikt voor het opslaan van de patches. De opstartschijf zelf kan worden te klein. In het geval is aangetoond dat is de schijf gekoppeld aan /srv/www/htdocs zoals wordt weergegeven in de volgende schermafbeelding. Er moet een schijf van 100 GB voldoende.
 
 ![VM-implementatie voor SMT-server](./media/hana-installation/image4_additional_disk_on_smtserver.PNG)
 
-Aanmelden bij de eenheid HANA grote exemplaar, / etc/hosts onderhouden en controleren of u de Azure-virtuele machine die moet worden uitgevoerd, de SMT-server via het netwerk kunt bereiken.
+Meld u aan bij de HANA grote instantie eenheid/eenheden, te onderhouden/etc/hosts en controleer of u de Azure-VM die moet worden uitgevoerd, het SMT-server via het netwerk kunt bereiken.
 
-Nadat deze controle is voltooid, moet u zich aanmelden bij de virtuele machine van Azure die de SMT-server moet worden uitgevoerd. Als u zich aanmelden bij de virtuele machine putty gebruikt, moet u deze reeks opdrachten uitvoeren in uw bash-venster:
+Nadat deze controle is voltooid, moet u zich aanmeldt bij de Azure-VM die het SMT-server moet worden uitgevoerd. Als u putty gebruikt voor aanmelding bij de virtuele machine, moet u deze reeks opdrachten uitvoeren in de bash-venster:
 
 ```
 cd ~
 echo "export NCURSES_NO_UTF8_ACS=1" >> .bashrc
 ```
 
-Na het uitvoeren van deze opdrachten opnieuw opstarten van uw bash voor het activeren van de instellingen. Start vervolgens YAST.
+Na deze opdrachten wordt uitgevoerd, opnieuw opstarten van uw bash voor het activeren van de instellingen. Start vervolgens YAST.
 
-Ga naar softwareonderhoud en zoek naar smt in YAST. Selecteer smt die automatisch wordt overgeschakeld naar yast2 smt zoals hieronder wordt weergegeven
+In YAST, gaat u naar het onderhoud van Software en zoek naar smt. Selecteer smt, die automatisch wordt overgeschakeld naar yast2 smt zoals hieronder wordt weergegeven
 
 ![SMT in yast](./media/hana-installation/image5_smt_in_yast.PNG)
 
 
-De selectie voor installatie op de smtserver accepteren. Eenmaal geïnstalleerd, gaat u naar de configuratie van de SMT-server en voert u de organisatie-referenties van het SUSE klant Center die u eerder hebt opgehaald. Voer uw Azure VM-hostnaam ook als de URL van de SMT-Server. In deze demonstratie is https://smtserver zoals weergegeven in de volgende afbeeldingen.
+De selectie voor installatie op de smtserver accepteren. Wanneer geïnstalleerd, gaat u naar de configuratie van de SMT-server en voer de referenties van de organisatie van de SUSE klant Center die u eerder hebt opgehaald. De hostnaam van uw virtuele Azure-machine ook opgeven als de URL van de SMT-Server. In deze demonstratie is https://smtserver zoals weergegeven in de volgende afbeeldingen.
 
 ![Configuratie van SMT-server](./media/hana-installation/image6_configuration_of_smtserver1.png)
 
-Volgende stap moet u testen of de verbinding met het midden van de klant SUSE werkt. Zoals u in de onderstaande afbeeldingen, in het geval demonstratie ziet het werkt.
+Als volgende stap moet u testen of de verbinding met het midden van de klant SUSE werkt. Zoals u in de volgende afbeeldingen, in het geval demonstratie ziet, dit werkt.
 
-![Test verbinding maken met SUSE Customer Center](./media/hana-installation/image7_test_connect.png)
+![Test verbinding maken met SUSE klant Center](./media/hana-installation/image7_test_connect.png)
 
-Eenmaal de SMT setup wordt gestart, moet u het databasewachtwoord van een op te geven. Omdat het een nieuwe installatie, moet u dit wachtwoord definiëren, zoals wordt weergegeven in de volgende afbeeldingen.
+Eenmaal de SMT setup wordt gestart, moet u een databasewachtwoord op te geven. Omdat dit een nieuwe installatie, moet u dit wachtwoord definiëren, zoals wordt weergegeven in de volgende afbeeldingen.
 
 ![Wachtwoord voor de database definiëren](./media/hana-installation/image8_define_db_passwd.PNG)
 
-De volgende interactie die u hebt is wanneer een certificaat wordt gemaakt. Ga in het dialoogvenster zoals volgende en de stap moet worden voortgezet.
+De volgende interactie hebt is wanneer een certificaat wordt gemaakt. Ga in het dialoogvenster zoals hierna ziet en de stap te gaan.
 
 ![Certificaat voor SMT-server maken](./media/hana-installation/image9_certificate_creation.PNG)
 
-Er zijn mogelijk enkele minuten in de stap van "Controle uitvoeren synchronisatie" besteed aan het einde van de configuratie. Nadat de installatie en configuratie van de server SMT, zult u de opslagplaats directory onder het koppelpunt punt /srv/www/htdocs/plus een aantal submappen onder de opslagplaats. 
+Er is mogelijk enkele minuten in de stap van "Controle uitvoeren synchronisatie" besteed aan het einde van de configuratie. Nadat de installatie en configuratie van de server SMT, vindt u de opslagplaats van de directory onder het koppelpunt punt /srv/www/htdocs/plus enkele submappen onder de opslagplaats. 
 
-De SMT-server en de verwante services met de volgende opdrachten opnieuw gestart.
+Start opnieuw op de server SMT en gerelateerde services met de volgende opdrachten.
 
 ```
 rcsmt restart
@@ -251,156 +257,156 @@ systemctl restart smt.service
 systemctl restart apache2
 ```
 
-### <a name="download-of-packages-onto-smt-server"></a>Tijdens het downloaden van pakketten naar SMT-server
+### <a name="download-of-packages-onto-smt-server"></a>Het downloaden van pakketten naar SMT-server
 
-Nadat alle services opnieuw gestart zijn, selecteert u de juiste pakketten in SMT-beheer met behulp van Yast. De selectie van het pakket is afhankelijk van de installatiekopie van het besturingssysteem van de server HANA grote exemplaar en niet de SLES release of de versie van de virtuele machine waarop het SMT-server wordt uitgevoerd. Een voorbeeld van het selectiescherm worden hieronder weergegeven.
+Nadat alle services opnieuw gestart zijn, selecteert u de juiste pakketten in SMT-beheer via het Yast. De selectie van het pakket is afhankelijk van de installatiekopie van het besturingssysteem van de server HANA grote instantie en niet op de SLES-versie of de versie van de virtuele machine waarop het SMT-server wordt uitgevoerd. Hieronder ziet u een voorbeeld van het scherm selecteren.
 
 ![Pakketten selecteren](./media/hana-installation/image10_select_packages.PNG)
 
-Als u klaar met de selectie van het pakket bent, moet u start de initiële kopie van de select-pakketten naar de SMT-server die u instelt. Dit exemplaar wordt gegeven in de shell met behulp van de opdracht smt-mirror zoals hieronder wordt weergegeven
+Zodra u klaar met de selectie van het pakket bent, moet u de eerste kopie van de select-pakketten naar de SMT-server die u instelt starten. Dit exemplaar is geactiveerd in de shell met behulp van de opdracht smt-mirror zoals hieronder wordt weergegeven
 
 
 ![Pakketten naar SMT-server downloaden](./media/hana-installation/image11_download_packages.PNG)
 
-Als u hierboven ziet, moeten de pakketten naar de mappen gemaakt onder het koppelpunt punt /srv/www/htdocs ophalen gekopieerd. Dit kan even duren. Afhankelijk van hoeveel pakketten die u selecteert, het kan duren tot één uur of meer.
+Zoals u hierboven ziet, moeten de pakketten gekopieerd naar de mappen die zijn gemaakt op basis van het koppelpunt punt /srv/www/htdocs. Dit proces kan even duren. Afhankelijk van hoeveel pakketten die u selecteert, het kan duren een uur of langer.
 Als dit proces is voltooid, moet u verplaatsen naar het SMT-clientinstallatie. 
 
-### <a name="set-up-the-smt-client-on-hana-large-instance-units"></a>De client SMT op grote exemplaar HANA eenheden ingesteld
+### <a name="set-up-the-smt-client-on-hana-large-instance-units"></a>Instellen van de client SMT op HANA grote instantie eenheden
 
-De client (s) zijn in dit geval de eenheden HANA grote exemplaar. Het script clientSetup4SMT.sh de installatie van de SMT gekopieerd naar de Azure VM. Kopie die script via de eenheid HANA grote exemplaar u wilt verbinding maken met uw SMT-server. Het script met de optie -h Start en de naam van uw server SMT geven als parameter. In dit voorbeeld smtserver.
+De client (s) zijn in dit geval de eenheden HANA grote instantie. Het script clientSetup4SMT.sh de installatie van de SMT gekopieerd naar de Azure-VM. Kopie die via script zijn aan de eenheid HANA grote instantie dat u wilt verbinding maken met uw SMT-server. Start het script met de optie -h en geef deze als parameter de naam van uw SMT-server. In dit voorbeeld smtserver.
 
 ![SMT-client configureren](./media/hana-installation/image12_configure_client.PNG)
 
-Er is mogelijk een scenario waarbij de belasting van het certificaat van de server door de client is voltooid, maar de registratie is mislukt, zoals hieronder wordt weergegeven.
+Er is mogelijk een scenario waarbij de belasting van het certificaat van de server door de client is voltooid, maar de registratie is mislukt, zoals hieronder weergegeven.
 
-![De registratie van de client is mislukt](./media/hana-installation/image13_registration_failed.PNG)
+![Registratie van de client is mislukt](./media/hana-installation/image13_registration_failed.PNG)
 
-Als de registratie is mislukt, Lees dit [SUSE ondersteunen document](https://www.suse.com/de-de/support/kb/doc/?id=7006024) en er de stappen uit te voeren.
+Als de registratie is mislukt, Lees dit [SUSE ondersteuning biedt voor document](https://www.suse.com/de-de/support/kb/doc/?id=7006024) en bevat de stappen uit te voeren.
 
 > [!IMPORTANT] 
-> Als de servernaam van de moet u de naam van de virtuele machine, in dit geval smtserver, zonder de volledig gekwalificeerde domeinnaam opgeven. Alleen de virtuele machine naam werkt. 
+> Als de servernaam van de moet u de naam van de virtuele machine, in dit geval smtserver, zonder de volledig gekwalificeerde domeinnaam opgeven. Alleen de virtuele machine de naam werkt. 
 
-Nadat u deze stappen zijn uitgevoerd, moet u de volgende opdracht uitvoeren op de eenheid HANA grote exemplaar
+Nadat deze stappen zijn uitgevoerd, moet u de volgende opdracht uitvoeren op de eenheid HANA grote instantie
 
 ```
 SUSEConnect –cleanup
 ```
 
 > [!Note] 
-> In onze tests hebben we altijd moeten wacht een paar minuten na deze stap. De clientSetup4SMT.sh onmiddellijk na de corrigerende maatregelen beschreven in het artikel SUSE beëindigd met dat het certificaat niet geldig nog berichten. Meestal 5-10 minuten wachten en het uitvoeren van clientSetup4SMT.sh beëindigd in een geslaagde clientconfiguratie.
+> In onze tests hebben we altijd moeten over een paar minuten na deze stap. De clientSetup4SMT.sh direct na de corrigerende maatregelen die worden beschreven in het artikel SUSE is beëindigd met berichten die het certificaat niet gebruikt nog worden. Doorgaans 5-10 minuten wachten en het uitvoeren van clientSetup4SMT.sh is in configuratie van een geslaagde client beëindigd.
 
-Als u het probleem dat u nodig hebt om op te lossen op basis van de stappen van het artikel SUSE is gedetecteerd, moet u clientSetup4SMT.sh op de eenheid HANA grote exemplaar opnieuw starten. Nu het moet worden voltooid zoals hieronder wordt weergegeven.
+Als u in het probleem dat u nodig hebt om op te lossen op basis van de stappen van het SUSE-artikel hebt uitgevoerd, moet u opnieuw clientSetup4SMT.sh op de eenheid HANA grote instantie. Nu het moet worden voltooid, zoals hieronder weergegeven.
 
-![Clientregistratie is geslaagd](./media/hana-installation/image14_finish_client_config.PNG)
+![Registratie is voltooid](./media/hana-installation/image14_finish_client_config.PNG)
 
-Met deze stap maakt u het SMT-client van de eenheid HANA grote exemplaar verbinding maken met de SMT-server die u hebt geïnstalleerd in de Azure VM geconfigureerd. U kunt nu 'zypper up' of 'zypper in' OS patches voor grote exemplaren HANA installeren of extra pakketten installeren nemen. Ervan wordt uitgegaan dat u alleen patches die u hebt gedownload krijgen kunt voordat op de SMT-server.
+Met deze stap maakt u het SMT-client van de eenheid HANA grote instantie verbinding maken op basis van de SMT-server die u hebt geïnstalleerd in de Azure-VM geconfigureerd. U kunt nu 'zypper van' of 'zypper in' patches voor het besturingssysteem installeren op HANA grote instanties of installeren van extra pakketten nemen. Het is duidelijk dat alleen u patches die u hebt gedownload krijgt voordat u op de SMT-server.
 
 
-## <a name="example-of-an-sap-hana-installation-on-hana-large-instances"></a>Voorbeeld van een SAP HANA-installatie op grote HANA-exemplaren
-Deze sectie ziet u hoe SAP HANA installeren op een grote exemplaar HANA-eenheid. De startstatus van de hebben we eruitzien als:
+## <a name="example-of-an-sap-hana-installation-on-hana-large-instances"></a>Voorbeeld van een installatie van de SAP HANA op grote HANA-instanties
+In deze sectie wordt beschreven hoe SAP HANA installeren op een eenheid HANA grote instantie. De status gestart die we hebben er als volgt uitzien:
 
-- U hebt Microsoft de gegevens voor het implementeren van een grote SAP HANA-exemplaar opgegeven.
-- U ontvangen het grote SAP HANA-exemplaar van Microsoft.
-- U hebt een Azure VNet dat is verbonden met uw on-premises netwerk gemaakt.
-- U verbinding het circuit ExpressRotue voor grote exemplaren HANA naar het hetzelfde Azure-VNet.
-- U hebt een Azure VM u als een korte inleiding voor grote exemplaren HANA gebruiken geïnstalleerd.
-- U hebt aangebracht of dat u verbinding in het vak korte inleiding op uw machine HANA grote exemplaar en vice versa maken kunt.
-- U hebt gecontroleerd of alle vereiste pakketten en -patches worden geïnstalleerd.
-- U leest de SAP-opmerkingen en documentatie over HANA installatie van het besturingssysteem u gebruikt en ervoor hebt gezorgd dat de HANA-release van de keuze van het besturingssysteem wordt ondersteund release.
+- U hebt opgegeven Microsoft de gegevens voor het implementeren van een SAP HANA grote instantie.
+- U hebt de SAP HANA grote instantie van Microsoft hebt ontvangen.
+- U hebt een Azure-VNet die is verbonden met uw on-premises netwerk hebt gemaakt.
+- U hebt verbinding het circuit ExpressRotue voor HANA grote instanties met de dezelfde Azure-VNet.
+- U hebt een Azure-VM die u als een jump-box voor HANA grote instanties gebruikt geïnstalleerd.
+- U hebt ervoor gezorgd dat u verbinding vanuit de jump-box op uw machine HANA grote instantie en vice versa maken kunt.
+- U hebt gecontroleerd of alle vereiste pakketten en patches worden geïnstalleerd.
+- U leest de SAP-opmerkingen en documentatie met betrekking tot HANA-installatie op het besturingssysteem u gebruikt en u hebt ervoor gezorgd dat de HANA-release van keuze wordt ondersteund voor het besturingssysteem release.
 
-Wat wordt weergegeven in de volgende reeksen is het downloaden van de installatiepakketten HANA aan het vak jump VM, in dit geval wordt uitgevoerd op een Windows-besturingssysteem, het exemplaar van de pakketten op de eenheid HANA grote exemplaar en de volgorde van de installatie.
+Wat wordt weergegeven in de volgende reeksen is het downloaden van de HANA-installatiepakketten voor de VM, in dit geval wordt uitgevoerd op een Windows-besturingssysteem, het exemplaar van de pakketten aan de eenheid HANA grote instantie en de volgorde van de installatie van de jump-box.
 
-### <a name="download-of-the-sap-hana-installation-bits"></a>Tijdens het downloaden van de SAP HANA-bits installatie
-Aangezien de eenheden HANA grote exemplaar geen directe verbinding met internet hebben, downloaden u niet rechtstreeks de installatiepakketten uit SAP voor HANA grote exemplaar VM. Als u wilt opheffen ontbrekende directe verbinding met internet, moet u het selectievakje korte inleiding in. U kunt de pakketten downloaden aan het vak jump VM.
+### <a name="download-of-the-sap-hana-installation-bits"></a>Het downloaden van de SAP HANA-installatie-bits
+Aangezien de eenheden HANA grote instantie geen directe verbinding met internet hebben, niet kan u de installatiepakketten rechtstreeks downloaden vanaf SAP voor HANA grote instantie VM. Om te strijden tegen de ontbrekende directe verbinding met internet, moet u de jump-box. U downloaden de pakketten naar de jump-box VM.
 
-Als u wilt de installatiepakketten HANA downloaden, moet u een SAP-S-gebruiker of een andere gebruiker, waarmee u toegang tot de SAP-Marketplace. Deze reeks schermen doorlopen na het aanmelden:
+De installatiepakketten HANA downloaden, moet u een SAP-S-gebruiker of een andere gebruiker, waardoor u toegang krijgt tot de SAP-Marketplace. Met deze reeks schermen volgen na het aanmelden:
 
-Ga naar [SAP Service Marketplace](https://support.sap.com/en/index.html) > Klik op downloaden van Software >-installaties en -Upgrade > door alfabetische > onder H – SAP HANA Platform editie > SAP HANA Platform Edition 2.0 > installatie > downloaden de volgende bestanden
+Ga naar [SAP Service Marketplace](https://support.sap.com/en/index.html) > Klik op downloaden van Software >-installaties en -Upgrade > door alfabetische > onder H: SAP HANA-Platform Edition > SAP HANA-Platform Edition 2.0 > installatie > downloaden de volgende bestanden
 
-![HANA installatie downloaden](./media/hana-installation/image16_download_hana.PNG)
+![HANA-installatie downloaden](./media/hana-installation/image16_download_hana.PNG)
 
-In het geval demonstratie hebben we installatiepakketten voor SAP HANA 2.0 gedownload. Klik in het Azure jump VM uitbreiden u zelfuitpakkende archiefbestanden naar de map zoals hieronder wordt weergegeven.
+In het geval demonstratie hebben we SAP HANA 2.0 installatiepakketten gedownload. In de Azure jump-box VM uitbreiden u de zelfuitpakkend archieven naar de map zoals hieronder wordt weergegeven.
 
-![Pak HANA installatie](./media/hana-installation/image17_extract_hana.PNG)
+![Uitpakken van HANA-installatie](./media/hana-installation/image17_extract_hana.PNG)
 
-Wanneer het archief zijn uitgepakt, kopieert u de map die is gemaakt door de extractie in het geval hierboven 51052030, de HANA grote exemplaar eenheid in het volume /hana/shared in een map die u hebt gemaakt.
+Als het archief zijn uitgepakt, Kopieer de map die zijn gemaakt door de extractie, in het geval hierboven 51052030, aan de HANA grote instantie-eenheid in het volume /hana/shared in een map die u hebt gemaakt.
 
 > [!Important]
-> Kopieer de installatiepakketten niet in de hoofdmap of opstartinstallatiekopieën LUN, aangezien er ruimte is beperkt en moet worden gebruikt door andere processen ook.
+> Kopieer de installatiepakketten niet in de hoofdmap of opstartinstallatiekopieën LUN, omdat er ruimte is beperkt en moet worden gebruikt door andere processen ook.
 
 
-### <a name="install-sap-hana-on-the-hana-large-instance-unit"></a>SAP HANA installeren op de eenheid HANA grote exemplaar
-Om te installeren SAP HANA, moet u zich aanmelden als gebruiker hoofdmap. Alleen hoofdmap heeft onvoldoende machtigingen voor het installeren van SAP HANA.
-Het eerste wat dat u moet doen is machtigingen worden ingesteld voor de map die u gekopieerd naar/hana/gedeeld. De machtigingen moeten worden ingesteld zoals
+### <a name="install-sap-hana-on-the-hana-large-instance-unit"></a>SAP HANA installeren op de eenheid HANA grote instantie
+Als u wilt installeren SAP HANA, moet u aanmelden als gebruiker hoofdmap. Alleen basis heeft onvoldoende machtigingen voor het installeren van SAP HANA.
+Het eerste wat dat u moet doen is het instellen van machtigingen op de map die u in/hana/gedeelde hebt gekopieerd. De machtigingen nodig om in te stellen, zoals
 
 ```
 chmod –R 744 <Installation bits folder>
 ```
 
-Als u wilt een SAP HANA grafische Setup installeert, moet het pakket gtk2 worden geïnstalleerd op de grote HANA-exemplaren. Controleer of deze is geïnstalleerd met de opdracht
+Als u wilt voor het installeren van SAP HANA met behulp van de grafische installatie, moet het pakket gtk2 worden geïnstalleerd op de HANA grote instanties. Controleer of deze is geïnstalleerd met de opdracht
 
 ```
 rpm –qa | grep gtk2
 ```
 
-Verdere stappen zijn we demonstreren van de SAP HANA-instellingen met de grafische gebruikersinterface. Volgende stap gaat u naar de installatiemap en navigeer naar de map sub HDB_LCM_LINUX_X86_64. Starten
+In de verdere stappen, zijn we aan te tonen de SAP HANA-installatie met behulp van de grafische gebruikersinterface. Als volgende stap gaat u naar de installatiemap en navigeer naar de map sub HDB_LCM_LINUX_X86_64. Starten
 
 ```
 ./hdblcmgui 
 ```
-buiten-map. Nu ophalen u door geleid een reeks schermen waarin u wilt de gegevens leveren voor de installatie. In het geval is aangetoond dat installeert we de SAP HANA-database-server en de SAP HANA-clientonderdelen. Onze selectie is daarom 'SAP HANA-Database, zoals hieronder wordt weergegeven
+uit die map. Nu ophalen u geleid via een reeks schermen waar u nodig hebt om te zorgen dat de gegevens voor de installatie. In het geval is aangetoond dat installeert we de SAP HANA-database-server en de SAP HANA client-onderdelen. Onze selectie is daarom 'SAP HANA-Database, zoals hieronder wordt weergegeven
 
-![Selecteer HANA in installatie](./media/hana-installation/image18_hana_selection.PNG)
+![HANA in installatie selecteren](./media/hana-installation/image18_hana_selection.PNG)
 
-In het volgende scherm moet optie u de nieuw systeem installeren
+In het volgende scherm kiest u de optie Nieuw systeem installeren
 
 ![Selecteer de nieuwe installatie HANA](./media/hana-installation/image19_select_new.PNG)
 
-Na deze stap moet u kiezen tussen verschillende extra onderdelen die verder kunnen worden geïnstalleerd met de SAP HANA-databaseserver.
+Na deze stap moet u kiezen tussen verschillende extra onderdelen die verder kunnen worden geïnstalleerd met de SAP HANA-database-server.
 
 ![Aanvullende HANA onderdelen selecteren](./media/hana-installation/image20_select_components.PNG)
 
-Omwille van de in deze documentatie wordt gekozen we de SAP HANA-Client en de SAP HANA-Studio. We ook een scale-up-exemplaar geïnstalleerd. daarom in het volgende scherm moet u kiezen één Host-systeem 
+We hebben gekozen ten behoeve van deze documentatie wordt de SAP HANA-Client en de SAP HANA Studio. We ook een exemplaar omhoog geïnstalleerd. daarom in het volgende scherm moet u kiezen één Host-systeem 
 
 ![Selecteer de installatie van de scale-up](./media/hana-installation/image21_single_host.PNG)
 
 In het volgende scherm moet u enkele gegevens opgeven
 
-![Geef SAP HANA-SID](./media/hana-installation/image22_provide_sid.PNG)
+![Bieden van SAP HANA-SID](./media/hana-installation/image22_provide_sid.PNG)
 
 > [!Important]
-> Als HANA systeem-ID (SID), moet u dezelfde SID, als u Microsoft opgegeven toen u de implementatie van grote exemplaar HANA besteld bieden. Een andere SID is de installatie mislukken vanwege problemen met machtiging toegang op verschillende volumes
+> Als HANA systeem-ID (SID), moet u voor de dezelfde SID, als u Microsoft verstrekt wanneer u de implementatie van HANA grote instantie besteld. Een andere SID is de installatie mislukken vanwege problemen met toegang tot de machtiging op de verschillende volumes
 
-Als installatie gedeelde map die u gebruikt de/hana/directory. In de volgende stap moet u de locaties opgeven voor de gegevensbestanden HANA en de logboekbestanden HANA
+Als de installatie van gedeelde map die u gebruikt de/hana/directory. In de volgende stap moet u de locaties opgeven voor de HANA-gegevensbestanden en de HANA-logboekbestanden
 
 
-![Geef de locatie van de HANA-logboek](./media/hana-installation/image23_provide_log.PNG)
+![Geef HANA Logboeklocatie](./media/hana-installation/image23_provide_log.PNG)
 
 > [!Note]
-> U moet definiëren als gegevens en logboekbestanden de volumes die al bij de koppelpunten die de SID die u hebt gekozen in de selectie van het scherm voordat dit scherm bevatten. Als de beveiligings-id niet met de naam die u hebt getypt overeen in, in het scherm voordat Ga terug en aanpassen van de SID aan de waarde die u op de koppelpunten hebt.
+> U moet definiëren als gegevens en logboekbestanden de volumes die al bij de koppelpunten met de SID die u hebt gekozen in de selectie van het scherm voordat u dit scherm is geleverd. Als de beveiligings-id niet met de naam die u hebt getypt overeen in, in het scherm voordat, gaat u terug en aanpassen van de SID op de waarde die u op de koppelpunten hebt.
 
-Bekijk de hostnaam en uiteindelijk corrigeren in de volgende stap. 
+De hostnaam van de beoordeling en uiteindelijk pas dit in de volgende stap. 
 
-![De hostnaam controleren](./media/hana-installation/image24_review_host_name.PNG)
+![Naam van de beoordeling-host](./media/hana-installation/image24_review_host_name.PNG)
 
-In de volgende stap moet u ook gegevens die u naar Microsoft is opgegeven toen u de implementatie van grote exemplaar HANA besteld op te halen. 
+In de volgende stap moet u ook gegevens die u naar Microsoft is opgegeven toen u de implementatie van HANA grote instantie besteld op te halen. 
 
-![Geef systeemgebruiker UID en GID](./media/hana-installation/image25_provide_guid.PNG)
+![Geef systeemgebruiker UID en groeps-id](./media/hana-installation/image25_provide_guid.PNG)
 
 > [!Important]
-> U moet dezelfde gebruikers-ID van systeem en ID van de groep van de gebruiker opgeven als u Microsoft als u de implementatie eenheid volgorde opgegeven. Als u niet erg dezelfde id's geven, mislukt de installatie van de SAP HANA op de eenheid HANA grote exemplaar.
+> U moet dezelfde gebruikers-ID van systeem en ID van de groep van de gebruiker opgeven als u Microsoft verstrekt als u de implementatie van de eenheid order. Als u niet de dezelfde id's geven, mislukt de installatie van SAP HANA op de eenheid HANA grote instantie.
 
-In de volgende twee schermen we niet zichtbaar zijn in deze documentatie, moet u het wachtwoord opgeven voor de systeemgebruiker van de SAP HANA-database en het wachtwoord voor de gebruiker sapadm, die wordt gebruikt voor de Agent van de SAP-Host die wordt geïnstalleerd als onderdeel van de SAP HANA-datab exemplaar van de as-omgeving.
+In de volgende twee schermen die we niet zichtbaar zijn in deze documentatie, moet u het wachtwoord opgeven voor de gebruiker van de SAP HANA-database en het wachtwoord voor de gebruiker sapadm, die wordt gebruikt voor de SAP-Hostagent die wordt geïnstalleerd als onderdeel van de SAP HANA-datab exemplaar van de as-omgeving.
 
-Na het definiëren van het wachtwoord, wordt een bevestigingsvenster weergegeven. Controleer alle gegevens die worden vermeld en doorgaan met de installatie. U hebt een voortgangsscherm waarin de voortgang van de installatie, zoals in het onderstaande bereikt
+Na het definiëren van het wachtwoord is een bevestigingsvenster weergegeven. Controleer alle gegevens die worden vermeld en doorgaan met de installatie. U bereiken een scherm met de installatievoortgang waarin de voortgang van de installatie, zoals de onderstaande
 
-![Controleer de voortgang van installatie](./media/hana-installation/image27_show_progress.PNG)
+![Voortgang van de installatie controleren](./media/hana-installation/image27_show_progress.PNG)
 
-Als de installatie is voltooid, moet u een afbeelding zoals de volgende
+Als de installatie is voltooid, moet u een afbeelding, zoals de volgende uitvoer
 
-![De installatie is voltooid](./media/hana-installation/image28_install_finished.PNG)
+![Installatie is voltooid](./media/hana-installation/image28_install_finished.PNG)
 
-Op dit moment moet de SAP HANA-exemplaar actief en werkend en klaar voor gebruik. U moet mogelijk zijn tot stand te brengen vanuit SAP HANA Studio. Controleer ook of u voor de meest recente patches van SAP HANA controleren en deze patches toepassen.
+Op dit moment moet de SAP HANA-instantie actief en werkend en klaar voor gebruik. U moet geen verbinding maken met het vanuit SAP HANA Studio. Controleer ook of u controleren of de meest recente patches van SAP HANA en toepassen van patches.
 
 
 

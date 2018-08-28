@@ -3,18 +3,18 @@ title: Hadoop-clusters met behulp van Azure REST API - Azure maken
 description: Leer hoe u HDInsight-clusters maken door het indienen van Azure Resource Manager-sjablonen op de Azure REST API.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jasonh
-ms.openlocfilehash: 06aa88dec705288edfbe6fecdd92ca31807ed015
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 79ab8ad9d827b3d2dda8138260b9857f241afc45
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39593414"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094064"
 ---
 # <a name="create-hadoop-clusters-using-the-azure-rest-api"></a>Hadoop-clusters met behulp van de Azure REST API maken
 

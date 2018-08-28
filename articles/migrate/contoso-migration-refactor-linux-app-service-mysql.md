@@ -4,46 +4,45 @@ description: Informatie over hoe Contoso on-premises Linux app promotiebewerking
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/27/2018
 ms.author: raynew
-ms.openlocfilehash: 5981c708abdaa12a662075cc5bf5aae14ccc35c2
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 9c43ce90603fd2bc812e5be00f438ee19054dc16
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002157"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43103627"
 ---
-# <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-the-azure-app-service-and-azure-mysql"></a>Migratie van Contoso: een Contoso Linux helpdesk-app naar de Azure App Service en Azure MySQL herstructureren
+# <a name="contoso-migration-refactor-a-contoso-linux-service-desk-app-to-multiple-regions-with-azure-app-service-traffic-manager-and-azure-mysql"></a>Migratie van Contoso: een Contoso Linux helpdesk-app voor meerdere regio's met Azure App Service, Traffic Manager en Azure MySQL herstructureren
 
 In dit artikel leest u hoe Contoso hun on-premises twee lagen Linux servicedesk-app (osTicket), promotiebewerkingen door te migreren naar Azure App Service met GitHub-integratie en Azure MySQL.
 
-Dit document is de tiende in een reeks artikelen die laten zien hoe het fictieve bedrijf Contoso de on-premises bronnen naar de Microsoft Azure-cloud migreert. De serie bevat achtergrondinformatie en scenario's die laten zien hoe u een migratie-infrastructuur instellen en uitvoeren van verschillende typen migraties. Scenario's toeneemt in complexiteit en aanvullende artikelen na verloop van tijd toegevoegd.
+Dit document is een in een reeks artikelen die laten zien hoe het fictieve bedrijf Contoso de on-premises bronnen naar de Microsoft Azure-cloud migreert. De serie bevat achtergrondinformatie en scenario's die laten zien hoe u een migratie-infrastructuur instellen en uitvoeren van verschillende typen migraties. Scenario's toeneemt in complexiteit. Aanvullende artikelen gaan we toevoegen na verloop van tijd.
 
 **Artikel** | **Details** | **Status**
 --- | --- | ---
-[Artikel 1: overzicht](contoso-migration-overview.md) | Biedt een overzicht van de strategie voor de migratie van Contoso, de artikel-serie en de voorbeeld-apps die we gebruiken. | Beschikbaar
-[Artikel 2: Een Azure-infrastructuur implementeren](contoso-migration-infrastructure.md) | Hierin wordt beschreven hoe Contoso de on-premises en Azure-infrastructuur voor migratie voorbereidt. Dezelfde infrastructuur wordt gebruikt voor alle Contoso migratiescenario's. | Beschikbaar
-[Artikel 3: On-premises resources evalueren](contoso-migration-assessment.md)  | Laat zien hoe een evaluatie van hun on-premises twee lagen SmartHotel app waarop VMware wordt uitgevoerd in Contoso. Beoordeling van de virtuele machines van een app met de [Azure Migrate](migrate-overview.md) -service en de SQL Server-database van de app met de [Azure Database Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Beschikbaar
-[Artikel 4: Hosten op Azure VM's en een beheerd exemplaar van SQL](contoso-migration-rehost-vm-sql-managed-instance.md) | Ziet u hoe Contoso de SmartHotel-app naar Azure migreert. Migreren van de app web virtuele machine via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview), en de app-database via de [Azure Database Migration](https://docs.microsoft.com/azure/dms/dms-overview) service, om te migreren naar een SQL beheerd exemplaar. | Beschikbaar
-[Artikel 5: Opnieuw hosten op Azure VM 's](contoso-migration-rehost-vm.md) | Ziet u hoe Contoso hun SmartHotel migreren naar Azure IaaS-VM's, met behulp van de Site Recovery-service.
-[Artikel 6: Opnieuw hosten op Azure VM's en SQL Server-beschikbaarheidsgroepen](contoso-migration-rehost-vm-sql-ag.md) | Laat zien hoe de app SmartHotel door Contoso worden gemigreerd. Deze Site Recovery gebruiken voor het migreren van de VM's van de app en de Database Migration service de app-database migreren naar een SQL Server-beschikbaarheidsgroep. | Beschikbaar
-[Artikel 7: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Ziet u hoe Contoso hun osTicket Linux-app naar Azure IaaS-VM's met Azure Site Recovery migreert.
-[Artikel 8: Een Linux-app op Azure VM's en Azure MySQL-Server opnieuw hosten](contoso-migration-rehost-linux-vm-mysql.md) | Ziet u hoe Contoso de osTicket Linux app migreert. Deze Site Recovery voor migratie van virtuele machine en MySQL Workbench gebruiken om te migreren naar een Azure MySQL-Server-exemplaar. | Beschikbaar
-[Artikel 9: Een app op Azure-Web-Apps en Azure SQL Database herstructureren](contoso-migration-refactor-web-app-sql.md) | Ziet u hoe Contoso de app SmartHotel migreert naar een Azure-container gebaseerde web-app en de app-database migreert naar Azure SQL-Server. | Beschikbaar
-Artikel 10: Een Linux-app op Azure WebApps en Azure MySQL-Server herstructureren | Ziet u hoe Contoso de osTicket Linux app migreert naar Azure App Service met behulp van PHP 7.0 Docker-container. De codebasis voor de implementatie is gemigreerd naar GitHub. De app-database wordt gemigreerd naar Azure MySQL. | In dit artikel.
-[Artikel 11: Herstructureren TFS op VSTS](contoso-migration-tfs-vsts.md) | Ziet u hoe Contoso hun Team Foundation Server (TFS) on-premises implementatie door te migreren migreert het naar Visual Studio Team Services (VSTS) in Azure. | Beschikbaar
-[Artikel 12: Opnieuw ontwerpen van een app op Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Ziet u hoe Contoso migreert en rearchitects hun SmartHotel app naar Azure. Ze opnieuw ontwerpen voor de laag van de web-app als een Windows-container en de app-database in een Azure SQL Database. | Beschikbaar
-[Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Ziet u hoe Contoso hun SmartHotel-app met een scala aan mogelijkheden van Azure en -services, waaronder App Services, Azure Kubernetes, Azure Functions, Cognitive services en Cosmos DB opnieuw. | Beschikbaar
+[Artikel 1: overzicht](contoso-migration-overview.md) | Overzicht van de serie artikelen, strategie voor de migratie van Contoso en de voorbeeld-apps die worden gebruikt in de reeks. | Beschikbaar
+[Artikel 2: Azure-infrastructuur implementeren](contoso-migration-infrastructure.md) | Contoso bereidt u de on-premises infrastructuur en de Azure-infrastructuur voor migratie. Dezelfde infrastructuur wordt gebruikt voor alle migratieartikelen in de reeks. | Beschikbaar
+[Artikel 3: Evalueer on-premises bronnen voor migratie naar Azure](contoso-migration-assessment.md)  | Contoso wordt uitgevoerd een evaluatie van de on-premises SmartHotel-app die wordt uitgevoerd op VMware. Contoso beoordeelt virtuele machines van app met behulp van de Azure Migrate-service en de app SQL Server-database met behulp van Data Migration Assistant. | Beschikbaar
+[Artikel 4: Opnieuw hosten van een app op een Azure-VM en het beheerde exemplaar van SQL Database](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso wordt een lift-and-shift-migratie naar Azure voor de on-premises SmartHotel app uitgevoerd. Contoso migreert u de app front-end virtuele machine via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso de app-database migreert naar een Azure SQL Database Managed Instance met de [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Beschikbaar  
+[Artikel 5: Een app op Azure VM's opnieuw hosten](contoso-migration-rehost-vm.md) | De VM's van de SmartHotel app migreert Contoso naar Azure-VM's met behulp van de Site Recovery-service. | Beschikbaar
+[Artikel 6: Een app op Azure Virtual machines en in een SQL Server AlwaysOn-beschikbaarheidsgroep opnieuw hosten](contoso-migration-rehost-vm-sql-ag.md) | De app SmartHotel, Contoso worden gemigreerd. Contoso maakt gebruik van Site Recovery voor het migreren van de VM's van de app. De Database Migration Service wordt gebruikt voor het migreren van de app-database naar een SQL Server-cluster dat wordt beveiligd door een AlwaysOn-beschikbaarheidsgroep. | Beschikbaar    
+[Artikel 7: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Contoso een lift-and-shift-migratie van de app van de osTicket Linux Azure-virtuele machines, met behulp van Azure Site Recovery is voltooid | Beschikbaar
+[Artikel 8: Een Linux-app op Azure VM's en Azure MySQL Rehost](contoso-migration-rehost-linux-vm-mysql.md) | Contoso de osTicket Linux app overzet naar virtuele Azure-machines met Azure Site Recovery en de app-database migreert naar een Azure MySQL-Server-exemplaar met behulp van MySQL Workbench. | Beschikbaar
+[Artikel 9: Een app op Azure Web Apps en Azure SQL database herstructureren](contoso-migration-refactor-web-app-sql.md) | Contoso-de app SmartHotel migreert naar een Azure-Web-App en de app-database migreert naar een Azure SQL Server-exemplaar met Database Migration Assistant | Beschikbaar
+Artikel 10: Een Linux-app op Azure-Web-Apps en Azure MySQL herstructureren | De Linux-app osTicket migreert Contoso naar een Azure-web-app op meerdere Azure-regio's met behulp van Azure Traffic Manager, geïntegreerd met GitHub voor continue levering. Contoso migreert de app-database naar een Azure Database for MySQL-exemplaar. | In dit artikel
+[Artikel 11: Herstructureren TFS op VSTS](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Visual Studio Team Services in Azure. | Beschikbaar
+[Artikel 12: Opnieuw ontwerpen van een app op Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en de database met Azure SQL Database. | Beschikbaar
+[Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar
 
 In dit artikel migreert Contoso een app met twee lagen Linux Apache MySQL PHP (LAMP) servicedesk (osTicket) naar Azure. Als u wilt deze open-source-app wilt gebruiken, kunt u het downloaden van [GitHub](https://github.com/osTicket/osTicket).
 
 
-
 ## <a name="business-drivers"></a>Zakelijke drijfveren
 
-Het team voor IT-leidinggevenden heeft nauw samengewerkt met hun zakelijke partners om te begrijpen wat ze willen bereiken:
+Het team voor IT-leidinggevenden heeft nauw samengewerkt met zakelijke partners om te begrijpen wat ze willen bereiken:
 
-- **Adres van de groei van het bedrijf**: Contoso is groeien en verplaatsen naar nieuwe markten. Ze moeten extra customer service-agents. 
+- **Adres van de groei van het bedrijf**: Contoso is groeien en verplaatsen naar nieuwe markten. Er is aanvullende customer service-agents nodig. 
 - **Schaal**: de oplossing moet worden gemaakt zodat Contoso meer medewerkers van de klantenservice als het bedrijf worden geschaald kunt toevoegen.
 - **Tolerantie verhogen**: alleen voor interne gebruikers In de afgelopen problemen met het systeem worden beïnvloed. Met het nieuwe bedrijfsmodel externe gebruikers worden beïnvloed en Contoso moet de app startklaar te allen tijde.
 
@@ -52,12 +51,12 @@ Het team voor IT-leidinggevenden heeft nauw samengewerkt met hun zakelijke partn
 Het Contoso-cloud-team heeft vastgemaakt omlaag doelstellingen voor deze migratie kan om te bepalen van de beste migratiemethode:
 
 - De toepassing moet worden geschaald dan de huidige on-premises capaciteit en prestaties.  Contoso is verplaatsen van de toepassing om te profiteren van Azure op aanvraag schalen.
-- Contoso wil de app-codebasis verplaatsen naar een pipeline voor continue levering.  Als app-wijzigingen worden gepusht naar GitHub, die ze willen implementeren die wijzigingen zonder taken voor operationele medewerkers.
-- De toepassing moet zijn tegen met mogelijkheden voor groei en failover zijn. Ze willen de app in twee verschillende Azure-regio's implementeren en instellen voor het automatisch schalen.
+- Contoso wil de app-codebasis verplaatsen naar een pipeline voor continue levering.  App-wijzigingen worden gepusht naar GitHub, Contoso wilt implementeren van deze wijzigingen zonder taken voor operationele medewerkers.
+- De toepassing moet zijn tegen met mogelijkheden voor groei en failover zijn. Contoso wil de app in twee verschillende Azure-regio's implementeren en instellen voor het automatisch schalen.
 - Contoso wil minimaliseren beheertaken database nadat de app is verplaatst naar de cloud.
 
 ## <a name="solution-design"></a>Het ontwerp van oplossing
-Na het vastmaken omlaag hun doelstellingen en vereisten, Contoso ontwerpen van een implementatieoplossing controleren en identificeren van het migratieproces, met inbegrip van de Azure-services die ze voor de migratie gaat gebruiken.
+Na het vastmaken omlaag hun doelstellingen en vereisten, Contoso ontwerpen en beoordelingen van een implementatieoplossing, en identificeert het migratieproces, met inbegrip van de Azure-services die worden gebruikt voor de migratie.
 
 
 ## <a name="current-architecture"></a>Huidige architectuur
@@ -72,7 +71,7 @@ Na het vastmaken omlaag hun doelstellingen en vereisten, Contoso ontwerpen van e
 
 ## <a name="proposed-architecture"></a>Voorgestelde architectuur
 
-Na het vastmaken hun huidige architectuur, doelstellingen en vereisten voor migratie, Contoso een implementatieoplossing ontwerpen en identificeert het migratieproces, met inbegrip van de Azure-services die ze voor de migratie gaat gebruiken.
+Dit is de voorgestelde architectuur:
 
 - De web-app-laag op OSTICKETWEB zal worden gemigreerd met het bouwen van een Azure App Service in twee Azure-regio's. Azure App Service voor Linux worden uitgevoerd met behulp van de PHP 7.0 Docker-container.
 - De app-code wordt verplaatst naar GitHub en Azure-Web-App moet worden geconfigureerd voor continue levering met GitHub.
@@ -94,9 +93,9 @@ Na het vastmaken hun huidige architectuur, doelstellingen en vereisten voor migr
 
 Contoso wordt als volgt het migratieproces voltooid:
 
-1. Als een eerste stap stelt Contoso u de Azure-infrastructuur, met inbegrip van Azure App Services voor het inrichten, het instellen van Traffic Manager en het inrichten van een Azure MySQL-exemplaar.
+1. Als een eerste stap is Contoso beheerders instellen van de Azure-infrastructuur, met inbegrip van Azure App Services voor het inrichten, het instellen van Traffic Manager en het inrichten van een Azure MySQL-exemplaar.
 2. Na het voorbereiden van de Azure migreren zij de database met behulp van MySQL Workbench. 
-3. Nadat de database wordt uitgevoerd in Azure, ze instellen van een persoonlijke GitHub-opslagplaats voor de Azure App Service met continue levering en deze met de app osTicket laden.
+3. Nadat de database wordt uitgevoerd in Azure, ze van een persoonlijke GitHub-opslagplaats voor de Azure App Service met continue levering en deze met de app osTicket te laden.
 4. In de Azure-portal laden ze de app vanuit GitHub naar de Docker-container met Azure App Service. 
 5. Deze DNS-instellingen aanpassen en automatisch schalen configureren voor de app.
 
@@ -114,33 +113,33 @@ Contoso wordt als volgt het migratieproces voltooid:
  
 ## <a name="prerequisites"></a>Vereisten
 
-Als u (en Contoso) uitvoeren van dit scenario wilt, is hier wat u moet hebben.
+Hier volgt wat Contoso moet worden uitgevoerd in dit scenario.
 
 **Vereisten** | **Details**
 --- | ---
-**Azure-abonnement** | U moet al een abonnement hebt gemaakt tijdens de eerste artikelen in deze reeks. Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) aan.<br/><br/> Als u een gratis account maakt, bent u de beheerder van uw abonnement en kunt u alle acties uitvoeren.<br/><br/> Als u een bestaand abonnement gebruiken en u niet de beheerder bent, moet u contact op met de beheerder om u de eigenaar of bijdrager machtigingen.<br/><br/> Als u meer gedetailleerde machtigingen nodig hebt, raadpleegt u [in dit artikel](../site-recovery/site-recovery-role-based-linked-access-control.md). 
+**Azure-abonnement** | Contoso abonnementen eerder in dit artikel uit de serie hebt gemaakt. Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/pricing/free-trial/) aan.<br/><br/> Als u een gratis account maakt, bent u de beheerder van uw abonnement en kunt u alle acties uitvoeren.<br/><br/> Als u een bestaand abonnement gebruiken en u niet de beheerder bent, moet u contact op met de beheerder om u de eigenaar of bijdrager machtigingen. 
 **Azure-infrastructuur** | Instellen van hun Azure-infrastructuur, zoals beschreven in Contoso [Azure-infrastructuur voor migratie](contoso-migration-infrastructure.md).
 
 
 
 ## <a name="scenario-steps"></a>Scenariostappen
 
-Dit is hoe Azure de migratie wordt voltooid:
+Hier ziet u hoe Contoso de migratie wordt voltooid:
 
 > [!div class="checklist"]
-> * **Stap 1: Inrichten Azure App Services**: Contoso, Web-Apps in de primaire en secundaire regio's wordt ingericht.
+> * **Stap 1: Inrichten Azure App Services**: Contoso-beheerders, Web-Apps in de primaire en secundaire regio's wordt ingericht.
 > * **Stap 2: Stel Traffic Manager**: ze van Traffic Manager voor de Web-Apps instellen voor Routering en load balancing-verkeer.
-> * **Stap 3: Inrichten MySQL**: In Azure, Contoso een exemplaar van Azure MySQL-database inricht.
+> * **Stap 3: Inrichten MySQL**: In Azure, het inrichten van een exemplaar van Azure MySQL-database.
 > * **Stap 4: Migreren van de database**: migreren van de database met behulp van MySQL Workbench. 
-> * **Stap 5: Stel GitHub in**: Contoso stelt u een lokale GitHub-opslagplaats voor de app websites /-code.
-> * **Stap 6: De web-apps implementeren**: Contoso implementeert de WebApps vanuit GitHub.
+> * **Stap 5: Stel GitHub in**: ze een lokale GitHub-opslagplaats voor de app-websites/code instellen.
+> * **Stap 6: De web-apps implementeren**: implementatie van de web-apps vanuit GitHub.
 
 
 
 
 ## <a name="step-1-provision-azure-app-services"></a>Stap 1: Inrichten Azure App Services
 
-Contoso bepalingen twee Web-apps (één in elke regio) met behulp van Azure App Services.
+Contoso-beheerders twee Web-apps (één in elke regio) inrichten met behulp van Azure App Services.
 
 1. Ze een Web-App-resource maken in de primaire regio in de VS-Oost 2 (**osticket eus2**) van de Azure Marketplace.
 2. Ze zetten de resource in de resourcegroep van de productie **ContosoRG**.
@@ -151,11 +150,11 @@ Contoso bepalingen twee Web-apps (één in elke regio) met behulp van Azure App 
 
      ![Azure-App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app2.png) 
     
-4. Contoso selecteert u een Linux-besturingssysteem met de runtime-stack PHP 7.0, dit een Docker-container is.
+4. Ze selecteert u een Linux-besturingssysteem met de runtime-stack PHP 7.0, dit een Docker-container is.
 
     ![Azure-App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app3.png) 
 
-5. Maken van een tweede web-app (**osticket cus**) en App service-plan voor de regio VS-midden.
+5. Maken van een tweede web-app (**osticket cus**), en App service-plan voor de regio VS-midden.
 
     ![Azure-App](./media/contoso-migration-refactor-linux-app-service-mysql/azure-app4.png) 
 
@@ -168,13 +167,13 @@ Contoso bepalingen twee Web-apps (één in elke regio) met behulp van Azure App 
 
 ## <a name="step-2-set-up-traffic-manager"></a>Stap 2: Stel Traffic Manager
 
-Contoso ingesteld van Traffic Manager om te leiden van inkomende webaanvragen naar de Web-Apps die worden uitgevoerd op de weblaag osTicket.
+Beheerders van Contoso instellen van Traffic Manager om te leiden van inkomende webaanvragen naar de Web-Apps die worden uitgevoerd op de weblaag osTicket.
 
-1. Contoso maakt u een Traffic Manager-resource (**osticket.trafficmanager.net**) van de Azure Marketplace. Ze gebruiken prioriteit routering zodat VS-Oost 2 de primaire site is. Ze plaatst u de resource in de resourcegroep voor infrastructuur (**ContosoInfraRG**). Houd er rekening mee dat de Traffic Manager globaal en niet aan een bepaalde locatie gebonden is
+1. Maken van een Traffic Manager-resource (**osticket.trafficmanager.net**) van de Azure Marketplace. Ze gebruiken prioriteit routering zodat VS-Oost 2 de primaire site is. Ze plaatst u de resource in de resourcegroep voor infrastructuur (**ContosoInfraRG**). Houd er rekening mee dat de Traffic Manager globaal en niet aan een bepaalde locatie gebonden is
 
     ![Traffic Manager](./media/contoso-migration-refactor-linux-app-service-mysql/traffic-manager1.png) 
 
-2. Nu Contoso Traffic Manager configureren met eindpunten. Ze East US 2 Web-app toevoegen als de primaire site (**osticket eus2**), en de VS-midden-app als secundaire (**osticket cus**).
+2. Ze nu configureren Traffic Manager met eindpunten. Ze East US 2 Web-app toevoegen als de primaire site (**osticket eus2**), en de VS-midden-app als secundaire (**osticket cus**).
 
     ![Traffic Manager](./media/contoso-migration-refactor-linux-app-service-mysql/traffic-manager2.png) 
 
@@ -189,7 +188,7 @@ Contoso ingesteld van Traffic Manager om te leiden van inkomende webaanvragen na
  
 ## <a name="step-3-provision-azure-database-for-mysql"></a>Stap 3: Inrichting van Azure Database voor MySQL
 
-Contoso bepalingen een MySQL-database-exemplaar in de primaire regio in de VS-Oost 2.
+Beheerders van Contoso richt een MySQL-database-exemplaar in de primaire regio in de VS-Oost 2.
 
 1. In de Azure-portal maken ze een Azure Database for MySQL-resource. 
 
@@ -200,11 +199,11 @@ Contoso bepalingen een MySQL-database-exemplaar in de primaire regio in de VS-Oo
 
      ![MySQL](./media/contoso-migration-refactor-linux-app-service-mysql/mysql-2.png)
 
-4. Voor **redundantieopties voor back-up**, Contoso worden geselecteerd voor het gebruik van **geografisch redundante**. Deze optie kan ze de database in de secundaire regio VS-midden herstellen als er een storing optreedt. Ze kunnen deze optie alleen configureren wanneer het inrichten van de database.
+4. Voor **redundantieopties voor back-up**, ze ervoor kiezen gebruik te **geografisch redundante**. Deze optie kan ze de database in de secundaire regio VS-midden herstellen als er een storing optreedt. Ze kunnen deze optie alleen configureren wanneer het inrichten van de database.
 
     ![Redundantie](./media/contoso-migration-refactor-linux-app-service-mysql/db-redundancy.png)
 
-4. Contoso instellen van beveiliging van de verbinding. In de database > **verbindingsbeveiliging**, ze Firewall-regels instellen om toe te staan van de database voor toegang tot Azure-services.
+4. Ze de beveiliging van de verbinding ingesteld. In de database > **verbindingsbeveiliging**, ze Firewall-regels instellen om toe te staan van de database voor toegang tot Azure-services.
 5. Ze toevoegen het IP-adres van de lokale werkstation-client aan het begin- en IP-adressen. Hiermee wordt de Web-apps toegang krijgen tot de MySQL-database, samen met de databaseclient die de migratie uitvoert.
 
     ![MySQL](./media/contoso-migration-refactor-linux-app-service-mysql/mysql-3.png)
@@ -213,11 +212,11 @@ Contoso bepalingen een MySQL-database-exemplaar in de primaire regio in de VS-Oo
 
 ## <a name="step-4-migrate-the-database"></a>Stap 4: De database migreren
 
-Contoso kan de database met behulp van back-up en herstel, met de MySQL-hulpprogramma's worden gemigreerd. Ze MySQL Workbench installeren, back-up van de database van OSTICKETMYSQL en vervolgens herstellen met Azure Database voor MySQL-Server.
+Beheerders van Contoso migreren van de database met behulp van back-up en herstel, met de MySQL-hulpprogramma's. Ze MySQL Workbench installeren, back-up van de database van OSTICKETMYSQL en vervolgens herstellen met Azure Database voor MySQL-Server.
 
 ### <a name="install-mysql-workbench"></a>MySQL Workbench installeren
 
-1. Controles van Contoso de [vereisten en downloads MySQL Workbench](https://dev.mysql.com/downloads/workbench/?utm_source=tuicool).
+1. Apparaat controleert of de [vereisten en downloads MySQL Workbench](https://dev.mysql.com/downloads/workbench/?utm_source=tuicool).
 2. Installatie van MySQL Workbench voor Windows in overeenstemming met de [installatie-instructies](https://dev.mysql.com/doc/workbench/en/wb-installing.html). De machine waarop ze installeren moet toegankelijk zijn voor de OSTICKETMYSQL VM en Azure via internet.
 3. In MySQL Workbench maken ze een MySQL-verbinding met OSTICKETMYSQL. 
 
@@ -231,7 +230,7 @@ Contoso kan de database met behulp van back-up en herstel, met de MySQL-hulpprog
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench3.png)
 
-6. Contoso kan nu (herstel) de database in het Azure MySQL-exemplaar van het ingesloten bestand importeren. Een nieuw schema (osticket) wordt voor het exemplaar gemaakt.
+6. Nu kunnen ze (herstel) de database in het Azure MySQL-exemplaar van het ingesloten bestand importeren. Een nieuw schema (osticket) wordt voor het exemplaar gemaakt.
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench4.png)
 
@@ -241,7 +240,7 @@ Contoso kan de database met behulp van back-up en herstel, met de MySQL-hulpprog
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench6.png)
 
-8. Ten slotte moet Contoso bijwerken van de database-informatie op de web-apps. Ze open in de MySQL-exemplaar **verbindingsreeksen**. 
+8. Ten slotte, moeten ze de informatie van de database op de web-apps bijwerken. Ze open in de MySQL-exemplaar **verbindingsreeksen**. 
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench7.png)
 
@@ -253,14 +252,14 @@ Contoso kan de database met behulp van back-up en herstel, met de MySQL-hulpprog
 
      ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench9.png)
 
-11. Contoso kunt controleren of de servernaam en aanmelding vanuit **overzicht** in de MySQL-instantie in de Azure-portal.
+11. Tney kunt controleren of de servernaam en aanmelding vanuit **overzicht** in de MySQL-instantie in de Azure-portal.
 
     ![MySQL Workbench](./media/contoso-migration-refactor-linux-app-service-mysql/workbench10.png)
 
 
 ## <a name="step-5-set-up-github"></a>Stap 5: GitHub instellen
 
-Contoso maakt een nieuwe persoonlijke GitHub-opslagplaats en stelt u een verbinding met de database osTicket in Azure MySQL. Vervolgens kunt laden ze de Azure-Web-App met de app.  
+Beheerders van Contoso maken een nieuwe persoonlijke GitHub-opslagplaats en stelt u een verbinding met de database osTicket in Azure MySQL. Vervolgens kunt laden ze de Azure-Web-App met de app.  
 
 1.  Ze bladert u naar de OsTicket software openbare GitHub-opslagplaats en deze aan de Contoso-GitHub-account te vertakken.
 
@@ -275,7 +274,7 @@ Contoso maakt een nieuwe persoonlijke GitHub-opslagplaats en stelt u een verbind
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github3.png)
 
-4. In de editor updates Contoso de databasegegevens specifiek **DBHOST** en **DBUSER**. 
+4. In de editor ze de databasedetails van de bijwerken specifiek **DBHOST** en **DBUSER**. 
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github4.png)
 
@@ -283,7 +282,7 @@ Contoso maakt een nieuwe persoonlijke GitHub-opslagplaats en stelt u een verbind
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github5.png)
 
-6. Voor elke web-app (**osticket eus2** en **osticket cus**), Contoso wijzigen de **toepassingsinstellingen** in Azure portal.
+6. Voor elke web-app (**osticket eus2** en **osticket cus**), ze kunnen wijzigen de **toepassingsinstellingen** in Azure portal.
 
     ![GitHub](./media/contoso-migration-refactor-linux-app-service-mysql/github6.png)
 
@@ -293,11 +292,11 @@ Contoso maakt een nieuwe persoonlijke GitHub-opslagplaats en stelt u een verbind
 
 ## <a name="step-6-configure-the-web-apps"></a>Stap 6: De Web-Apps configureren
 
-Als de laatste stap in het migratieproces, Contoso de web-apps configureren met de osTicket-websites.
+Als de laatste stap in het migratieproces configureren Contoso-beheerders de web-apps met de osTicket-websites.
 
 
 
-1. In de primaire web-app (**osticket eus2**) open **Implementatieoptie** en stelt u de bron op **GitHub**.
+1. In de primaire web-app (**osticket eus2**) ze openen **Implementatieoptie** en stelt u de bron op **GitHub**.
 
     ![App configureren](./media/contoso-migration-refactor-linux-app-service-mysql/configure-app1.png)
 
@@ -313,7 +312,7 @@ Als de laatste stap in het migratieproces, Contoso de web-apps configureren met 
 
     ![App configureren](./media/contoso-migration-refactor-linux-app-service-mysql/configure-app4.png)
 
-5. Contoso vervolgens de bovenstaande stappen wordt herhaald voor de secundaire web-app (**osticket cus**).
+5. Ze Herhaal de bovenstaande stappen voor de secundaire web-app (**osticket cus**).
 6. Nadat de site is geconfigureerd, is toegankelijk via de Traffic Manager-profiel. De DNS-naam is de nieuwe locatie van de app osTicket. [Meer informatie](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-domain#map-a-cname-record).
 
     ![App configureren](./media/contoso-migration-refactor-linux-app-service-mysql/configure-app5.png)
@@ -330,7 +329,7 @@ Als de laatste stap in het migratieproces, Contoso de web-apps configureren met 
 
 Tot slot stelt ze van automatisch schalen voor de app. Dit zorgt ervoor dat als u agents gebruikt de app, de app-instanties verhogen en op basis van de behoeften van uw bedrijf verlagen. 
 
-1. In App Service **APP-SRV-EUS2**, Contoso open **schaaleenheid**.
+1. In App Service **APP-SRV-EUS2**, ze openen **schaaleenheid**.
 2. Ze configureren een nieuwe instelling voor automatisch schalen met een enkele regel waarmee het aantal exemplaren met één verhoogd wanneer de CPU-percentage voor de huidige sessie dan 70% 10 minuten is.
 
     ![Automatisch schalen](./media/contoso-migration-refactor-linux-app-service-mysql/autoscale1.png)
@@ -343,7 +342,7 @@ Tot slot stelt ze van automatisch schalen voor de app. Dit zorgt ervoor dat als 
 
 Met de migratie is voltooid, wordt de app osTicket geherstructureerd uitvoeren in een Azure-Web-app met continue levering met behulp van een persoonlijke GitHub-opslagplaats. Van de app wordt uitgevoerd in twee regio's voor verhoogde flexibiliteit. De database osTicket wordt uitgevoerd in Azure database for MySQL na de migratie naar de PaaS-platform.
 
-Contoso moet nu het volgende doen: 
+Voor moet opschonen van Contoso het volgende doen: 
 - Verwijder de VMware-VM's van de vCenter-voorraad.
 - De on-premises VM's van lokale back-uptaken verwijderen.
 - Update interne documentatie nieuwe locaties en IP-adressen weergeven. 

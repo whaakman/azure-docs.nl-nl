@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 07/17/2018
+ms.date: 08/26/2018
 ms.author: juliako
-ms.openlocfilehash: b50ba825f675c84f551f9a1d191aa93eaed9a628
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 49b834325ce819f20978e06d85ee308955510ac1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070850"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051106"
 ---
 # <a name="quotas-and-limitations-in-azure-media-services-v3"></a>Quota en beperkingen in Azure Media Services v3
 
@@ -36,7 +36,6 @@ Dit artikel wordt beschreven, quota en beperkingen in Azure Media Services v3.
 | LiveEvents per Media Services-account |5|
 | Media Services-accounts in één abonnement | 25 (vast) |
 | LiveOutputs status per LiveEvent actief |3|
-| LiveOutputs gestopt per LiveEvent |50|
 | Opslagaccounts | 100<sup>(4)</sup> (vast) |
 | Streaming-eindpunten met de status per Media Services-account wordt uitgevoerd|2|
 | StreamingPolicies | 100 <sup>(3)</sup> |

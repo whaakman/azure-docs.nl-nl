@@ -1,169 +1,180 @@
+items:
 - name: Documentatie over Computer Vision
   href: index.yml
 - name: Overzicht
-  expanded: true
   items:
-    - name: Wat is Computer Vision?
-      href: Home.md
+  - name: Wat is Computer Vision?
+    href: Home.md
+  expanded: true
 - name: API-snelstarts
   items:
-    - name: Samenvatting
-      href: QuickStarts/quickstart-summary.md
-    - name: 'C#'
-      items:
-        - name: Een afbeelding analyseren
-          href: QuickStarts/CSharp-analyze.md
-        - name: Een miniatuur genereren
-          href: QuickStarts/CSharp-thumb.md
-        - name: Afgedrukte tekst extraheren
-          href: QuickStarts/CSharp-print-text.md
-        - name: Handgeschreven tekst extraheren
-          href: QuickStarts/CSharp-hand-text.md
-    - name: cURL
-      items:
-        - name: Een externe afbeelding analyseren
-          href: QuickStarts/curl-analyze.md
-        - name: Een lokale afbeelding analyseren
-          href: QuickStarts/curl-disk.md
-        - name: Een miniatuur genereren
-          href: QuickStarts/curl-thumb.md
-        - name: Afgedrukte tekst extraheren
-          href: QuickStarts/curl-print-text.md
-    - name: Aan de slag
-      items:
-        - name: Een afbeelding analyseren
-          href: QuickStarts/go-analyze.md
-        - name: Een miniatuur genereren
-          href: QuickStarts/go-thumb.md
-        - name: Afgedrukte tekst extraheren
-          href: QuickStarts/go-print-text.md
-    - name: Java
-      items:
-        - name: Een afbeelding analyseren
-          href: QuickStarts/java-analyze.md
-        - name: Een miniatuur genereren
-          href: QuickStarts/java-thumb.md
-        - name: Afgedrukte tekst extraheren
-          href: QuickStarts/java-print-text.md
-        - name: Handgeschreven tekst extraheren
-          href: QuickStarts/java-hand-text.md
-    - name: Javascript
-      items:
-        - name: Een afbeelding analyseren
-          href: QuickStarts/javascript-analyze.md
-        - name: Een miniatuur genereren
-          href: QuickStarts/javascript-thumb.md
-        - name: Afgedrukte tekst extraheren
-          href: QuickStarts/javascript-print-text.md
-        - name: Handgeschreven tekst extraheren
-          href: QuickStarts/javascript-hand-text.md
-    - name: Node.js
-      items:
-        - name: Een afbeelding analyseren
-          href: QuickStarts/node-analyze.md
-        - name: Een miniatuur genereren
-          href: QuickStarts/node-thumb.md
-        - name: Afgedrukte tekst extraheren
-          href: QuickStarts/node-print-text.md
-    - name: PHP
-      items:
-        - name: Een afbeelding analyseren
-          href: QuickStarts/php-analyze.md
-        - name: Een domeinmodel gebruiken
-          href: QuickStarts/php-domain.md
-        - name: Een miniatuur genereren
-          href: QuickStarts/php-thumb.md
-        - name: Afgedrukte tekst extraheren
-          href: QuickStarts/php-print-text.md
-    - name: Python
-      items:
-        - name: Een externe afbeelding analyseren
-          href: QuickStarts/python-analyze.md
-        - name: Een lokale afbeelding analyseren
-          href: QuickStarts/python-disk.md
-        - name: Een domeinmodel gebruiken
-          href: QuickStarts/python-domain.md
-        - name: Een miniatuur genereren
-          href: QuickStarts/python-thumb.md
-        - name: Afgedrukte tekst extraheren
-          href: QuickStarts/python-print-text.md
-        - name: Handgeschreven tekst extraheren
-          href: QuickStarts/python-hand-text.md
-    - name: Ruby
-      items:
-        - name: Een afbeelding analyseren
-          href: QuickStarts/ruby-analyze.md
-        - name: Een miniatuur genereren
-          href: QuickStarts/ruby-thumb.md
-        - name: Afgedrukte tekst extraheren
-          href: QuickStarts/ruby-print-text.md
+  - name: Samenvatting
+    href: QuickStarts/quickstart-summary.md
+  - name: C#
+    items:
+    - name: Een afbeelding analyseren
+      href: QuickStarts/CSharp-analyze.md
+    - name: Een miniatuur genereren
+      href: QuickStarts/CSharp-thumb.md
+    - name: Afgedrukte tekst extraheren
+      href: QuickStarts/CSharp-print-text.md
+    - name: Handgeschreven tekst extraheren
+      href: QuickStarts/CSharp-hand-text.md
+  - name: cURL
+    items:
+    - name: Een externe afbeelding analyseren
+      href: QuickStarts/curl-analyze.md
+    - name: Een lokale afbeelding analyseren
+      href: QuickStarts/curl-disk.md
+    - name: Een miniatuur genereren
+      href: QuickStarts/curl-thumb.md
+    - name: Afgedrukte tekst extraheren
+      href: QuickStarts/curl-print-text.md
+  - name: Aan de slag
+    items:
+    - name: Een afbeelding analyseren
+      href: QuickStarts/go-analyze.md
+    - name: Een miniatuur genereren
+      href: QuickStarts/go-thumb.md
+    - name: Afgedrukte tekst extraheren
+      href: QuickStarts/go-print-text.md
+  - name: Java
+    items:
+    - name: Een afbeelding analyseren
+      href: QuickStarts/java-analyze.md
+    - name: Een miniatuur genereren
+      href: QuickStarts/java-thumb.md
+    - name: Afgedrukte tekst extraheren
+      href: QuickStarts/java-print-text.md
+    - name: Handgeschreven tekst extraheren
+      href: QuickStarts/java-hand-text.md
+  - name: Javascript
+    items:
+    - name: Een afbeelding analyseren
+      href: QuickStarts/javascript-analyze.md
+    - name: Een miniatuur genereren
+      href: QuickStarts/javascript-thumb.md
+    - name: Afgedrukte tekst extraheren
+      href: QuickStarts/javascript-print-text.md
+    - name: Handgeschreven tekst extraheren
+      href: QuickStarts/javascript-hand-text.md
+  - name: Node.js
+    items:
+    - name: Een afbeelding analyseren
+      href: QuickStarts/node-analyze.md
+    - name: Een miniatuur genereren
+      href: QuickStarts/node-thumb.md
+    - name: Afgedrukte tekst extraheren
+      href: QuickStarts/node-print-text.md
+  - name: PHP
+    items:
+    - name: Een afbeelding analyseren
+      href: QuickStarts/php-analyze.md
+    - name: Een domeinmodel gebruiken
+      href: QuickStarts/php-domain.md
+    - name: Een miniatuur genereren
+      href: QuickStarts/php-thumb.md
+    - name: Afgedrukte tekst extraheren
+      href: QuickStarts/php-print-text.md
+  - name: Python
+    items:
+    - name: Een externe afbeelding analyseren
+      href: QuickStarts/python-analyze.md
+    - name: Een lokale afbeelding analyseren
+      href: QuickStarts/python-disk.md
+    - name: Een domeinmodel gebruiken
+      href: QuickStarts/python-domain.md
+    - name: Een miniatuur genereren
+      href: QuickStarts/python-thumb.md
+    - name: Afgedrukte tekst extraheren
+      href: QuickStarts/python-print-text.md
+    - name: Handgeschreven tekst extraheren
+      href: QuickStarts/python-hand-text.md
+  - name: Ruby
+    items:
+    - name: Een afbeelding analyseren
+      href: QuickStarts/ruby-analyze.md
+    - name: Een miniatuur genereren
+      href: QuickStarts/ruby-thumb.md
+    - name: Afgedrukte tekst extraheren
+      href: QuickStarts/ruby-print-text.md
 - name: Snelstarts voor SDK
   items:
-    - name: 'C#'
-      items:
-        - name: Een afbeelding analyseren
-          href: quickstarts-sdk/csharp-analyze-sdk.md
-        - name: Een miniatuur genereren
-          href: quickstarts-sdk/csharp-thumb-sdk.md
-        - name: Handgeschreven tekst extraheren
-          href: quickstarts-sdk/csharp-hand-text-sdk.md
+  - name: C#
+    items:
+    - name: Een afbeelding analyseren
+      href: quickstarts-sdk/csharp-analyze-sdk.md
+    - name: Een miniatuur genereren
+      href: quickstarts-sdk/csharp-thumb-sdk.md
+    - name: Handgeschreven tekst extraheren
+      href: quickstarts-sdk/csharp-hand-text-sdk.md
 - name: Handleidingen
   items:
-    - name: Eerste Computer Vision-apps
-      items:
-        - name: 'C#'
-          href: Tutorials/CSharpTutorial.md
-        - name: Java
-          href: Tutorials/java-tutorial.md
-        - name: Javascript
-          href: Tutorials/javascript-tutorial.md
-        - name: Python
-          href: Tutorials/PythonTutorial.md
-    - name: Abonnementssleutels verkrijgen
-      href: Vision-API-How-to-Topics/HowToSubscribe.md
-    - name: De Computer Vision-API aanroepen
-      href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
-    - name: Video's in realtime analyseren
-      href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
-    - name: Werken met Visual Studio
-      items:
-        - name: De verbonden service Computer Vision gebruiken
-          href: vs-computer-vision-connected-service.md
+  - name: Eerste Computer Vision-apps
+    items:
+    - name: C#
+      href: Tutorials/CSharpTutorial.md
+    - name: Java
+      href: Tutorials/java-tutorial.md
+    - name: Javascript
+      href: Tutorials/javascript-tutorial.md
+    - name: Python
+      href: Tutorials/PythonTutorial.md
+  - name: Abonnementssleutels verkrijgen
+    href: Vision-API-How-to-Topics/HowToSubscribe.md
+  - name: De Computer Vision-API aanroepen
+    href: Vision-API-How-to-Topics/HowToCallVisionAPI.md
+  - name: Video's in realtime analyseren
+    href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
+  - name: Werken met Visual Studio
+    items:
+    - name: De verbonden service Computer Vision gebruiken
+      href: vs-computer-vision-connected-service.md
 - name: Naslaginformatie
   items:
-    - name: Computer Vision-API v2.0
-      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44'
-    - name: Computer Vision-API v1.0
-      href: 'https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739'
-    - name: SDK's
-      items:
-        - name: Windows
-          href: 'https://github.com/Microsoft/Cognitive-vision-windows'
-        - name: Node.js
-          href: 'https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules'
-        - name: Python
-          href: 'https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules'
-        - name: Aan de slag
-          href: 'https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision'
-        - name: Android
-          href: 'https://github.com/Microsoft/Cognitive-vision-android'
-        - name: Swift
-          href: 'https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK'
+  - name: Azure-CLI
+    href: https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list
+  - name: Azure PowerShell
+    href: https://aka.ms/azure-powershell-cognitiveservices
+  - name: Computer Vision-API v2.0
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44
+  - name: Computer Vision-API v1.0
+    href: https://westus.dev.cognitive.microsoft.com/docs/services/56f91f2d778daf23d8ec6739
+  - name: SDK's
+    items:
+    - name: Windows
+      href: https://github.com/Microsoft/Cognitive-vision-windows
+    - name: Node.js
+      href: https://docs.microsoft.com/javascript/api/overview/azure/cognitive-services?view=azure-node-latest#vision-modules
+    - name: Python
+      href: https://docs.microsoft.com/python/api/overview/azure/cognitive-services?view=azure-python#vision-modules
+    - name: Aan de slag
+      href: https://github.com/Azure/azure-sdk-for-go/tree/master/services/cognitiveservices/v1.0/computervision
+    - name: Android
+      href: https://github.com/Microsoft/Cognitive-vision-android
+    - name: Swift
+      href: https://github.com/DanilaVladi/Microsoft-Cognitive-Services-Swift-SDK
 - name: Resources
   items:
-    - name: Voorbeelden
-      href: 'https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision'
-    - name: Veelgestelde vragen
-      href: FAQ.md
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision'
-    - name: UserVoice
-      href: 'https://cognitive.uservoice.com/forums/430309-computer-vision-api'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/questions/tagged/microsoft-cognitive'
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=ai-machine-learning'
-    - name: Regionale beschikbaarheid
-      href: 'https://azure.microsoft.com/global-infrastructure/services/'
-    - name: Categorietaxonomie
-      href: Category-Taxonomy.md
+  - name: Voorbeelden
+    href: https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision
+  - name: Veelgestelde vragen
+    href: FAQ.md
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision
+  - name: UserVoice
+    href: https://cognitive.uservoice.com/forums/430309-computer-vision-api
+  - name: Stack Overflow
+    href: https://stackoverflow.com/questions/tagged/microsoft-cognitive
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=ai-machine-learning
+  - name: Regionale beschikbaarheid
+    href: https://azure.microsoft.com/global-infrastructure/services/
+  - name: Categorietaxonomie
+    href: Category-Taxonomy.md
+ms.openlocfilehash: 9fc95708365458dcebcf40a759db3f8267fa0c96
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43086748"

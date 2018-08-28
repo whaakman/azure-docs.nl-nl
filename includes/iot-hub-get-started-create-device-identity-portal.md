@@ -8,45 +8,34 @@ ms.topic: include
 ms.date: 05/17/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: 1df3e188b71b8fa2d5223bad8bc5914513e26286
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 935e2b9e861a889bef48c1d7ba119ab694cddfb3
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "34371198"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094010"
 ---
 ## <a name="create-a-device-identity"></a>Een apparaat-id maken
 
-In deze sectie maakt u de [Azure-portal] [ lnk-azure-portal] te maken van een apparaat-id in het identiteitenregister van uw IoT-hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het id-register. Zie de sectie Id-register in de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie. Gebruik de **IoT-apparaten** deelvenster in de portal voor het genereren van een unieke apparaat-ID en de sleutel voor uw apparaat te gebruiken om zichzelf te identificeren bij IoT Hub. Apparaat-id's zijn hoofdlettergevoelig.
+In deze sectie maakt u de [Azure-portal](https://portal.azure.com) te maken van een apparaat-id in het identiteitenregister van uw IoT-hub. Een apparaat kan geen verbinding maken met de IoT-hub, tenzij het vermeld staat in het id-register. Zie voor meer informatie de sectie 'id-register van de [Ontwikkelaarshandleiding voor IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md) gebruiken de **IoT-apparaten** deelvenster in de portal voor het genereren van een unieke apparaat-ID en de sleutel voor uw apparaat gebruiken om te identificeren zelf aan IoT-Hub. Apparaat-id's zijn hoofdlettergevoelig.
 
-1. Meld u aan bij [Azure Portal][lnk-azure-portal].
+1. Meld u aan bij [Azure Portal](https://portal.azure.com)
 
 1. Selecteer **alle resources** en zoek de resource van uw IoT hub.
 
 1. Wanneer uw IoT hub-resource wordt geopend, klikt u op de **IoT-apparaten** hulpprogramma, en klik vervolgens op **toevoegen** aan de bovenkant. 
 
-    ![Apparaat-id in de portal maken][img-add-device]
+    ![Apparaat-id in de portal maken](./media/iot-hub-get-started-create-device-identity-portal/create-identity-portal.png)
 
 1. Geef een naam voor het nieuwe apparaat, zoals **myDeviceId**, en klikt u op **opslaan**. Deze actie wordt een nieuwe apparaat-id voor uw IoT-hub gemaakt.
 
    [!INCLUDE [iot-hub-pii-note-naming-device](iot-hub-pii-note-naming-device.md)]
 
-   ![Een nieuw apparaat toevoegen][img-create-device]
+   ![Een nieuw apparaat toevoegen](./media/iot-hub-get-started-create-device-identity-portal/add-device.png)
 
 1. In de lijst, klikt u op het zojuist gemaakte apparaat en kopieer de **Connection string---primaire sleutel** voor later gebruik.
 
-    ![Apparaat-verbindingsreeks][img-connection-string]
+    ![Apparaat-verbindingsreeks](./media/iot-hub-get-started-create-device-identity-portal/device-connection-string.png)
 
 > [!NOTE]
-> In het id-register van IoT Hub worden alleen apparaat-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. De apparaat-id’s en sleutels worden opgeslagen en gebruikt als beveiligingsreferenties. Met de vlag voor ingeschakeld/uitgeschakeld kunt u toegang tot een afzonderlijk apparaat uitschakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Zie de [ontwikkelaarshandleiding voor IoT Hub][lnk-devguide-identity] voor meer informatie.
-
-<!-- Images. -->
-[img-find-iothub]: ./media/iot-hub-get-started-create-device-identity-portal/find-iothub.png
-[img-add-device]: ./media/iot-hub-get-started-create-device-identity-portal/create-identity-portal.png
-[img-connection-string]: ./media/iot-hub-get-started-create-device-identity-portal/device-connection-string.png
-[img-create-device]:./media/iot-hub-get-started-create-device-identity-portal/add-device.png
-
-<!-- Links -->
-[lnk-azure-portal]: https://portal.azure.com
-[lnk-devguide-identity]: ../articles/iot-hub/iot-hub-devguide-identity-registry.md
-
+> In het id-register van IoT Hub worden alleen apparaat-id's opgeslagen waarmee veilig toegang tot de IoT-hub kan worden verkregen. De apparaat-id’s en sleutels worden opgeslagen en gebruikt als beveiligingsreferenties. Met de vlag voor ingeschakeld/uitgeschakeld kunt u toegang tot een afzonderlijk apparaat uitschakelen. Als uw toepassing andere apparaatspecifieke metagegevens moet opslaan, moet deze een toepassingsspecifieke opslagmethode gebruiken. Zie voor meer informatie, [Ontwikkelaarshandleiding voor IoT Hub](../articles/iot-hub/iot-hub-devguide-identity-registry.md).

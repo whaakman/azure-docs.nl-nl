@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/27/2018
 ms.author: wolfma
-ms.openlocfilehash: 05713be42d27df8f1c15537667f7e6cdbe832588
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: d874f1bd13239be16d7819ad1fa74797bd45ec1f
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330900"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093272"
 ---
-## <a name="speech-recognition-using-a-customized-model"></a>Met behulp van een aangepast model spraakherkenning
+## <a name="speech-recognition-with-a-customized-model"></a>Spraakherkenning met een aangepast model
 
-De [Custom Speech Service (CRI)](https://www.cris.ai/) kunt u de aanpassing van de spraak-naar-tekst-engine van Microsoft voor uw toepassing.
-Het onderstaande codefragment laat zien hoe u voor het herkennen van spraak via een microfoon met behulp van uw model CRI; Vul uw abonnementssleutel CRI en uw eigen implementatie-id voordat het wordt uitgevoerd.
+De [aangepaste spraakservice (CRI)](https://www.cris.ai/) kunt u de aanpassing van de engine voor spraak-naar-tekst van Microsoft voor uw toepassing.
+Het volgende codefragment laat zien hoe voor het herkennen van spraak via een microfoon met behulp van uw model CRI. Vul uw abonnementssleutel CRI en de identificatie van uw eigen implementatie voordat u de code uitvoeren.

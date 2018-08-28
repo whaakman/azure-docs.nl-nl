@@ -9,12 +9,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: manayar
-ms.openlocfilehash: 9ece6a4fc1d499e7fbdce07e90202e76389d6eb2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: af29333956fb962ed31133260ecbc9607de38fd3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42920567"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43052060"
 ---
 # <a name="accelerated-networking-with-azure-virtual-machine-disaster-recovery"></a>Versneld netwerken met virtuele machine van Azure-noodherstel
 
@@ -24,7 +24,7 @@ Versneld netwerken kan één i/o-virtualisatie hoofdmap (SR-IOV) aan een virtuel
 
 Azure Site Recovery kunt u gebruikmaken van de voordelen van versnelde netwerken voor Azure-machines waarvoor een failover naar een andere Azure-regio is. Dit artikel wordt beschreven hoe u de versnelde netwerken kunt inschakelen voor Azure-machines met Azure Site Recovery gerepliceerd.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Voordat u begint, zorg ervoor dat u begrijpt:
 -   Virtuele Azure-machine [-replicatiearchitectuur](azure-to-azure-architecture.md)
@@ -81,7 +81,7 @@ Als u hebt versnelde netwerken ingeschakeld op de virtuele bronmachine na het in
 2. Klik op de naam van de netwerkinterface onder de **netwerkinterfaces** sectie
 3. Selecteer **ingeschakeld** in de vervolgkeuzelijst voor versnelde netwerken onder de **doel** kolom
 
-![Versneld netwerken inschakelen](./media/azure-vm-disaster-recovery-with-accelerated-networking/compute-network-accelerated-networking.png)
+![Versneld netwerken inschakelen](./media/azure-vm-disaster-recovery-with-accelerated-networking/network-interface-accelerated-networking-enabled.png)
 
 Het bovenstaande proces moet ook worden gevolgd voor bestaande gerepliceerde virtuele machines, die niet eerder ingeschakeld, worden automatisch door Site Recovery versnelde netwerken hebt.
 

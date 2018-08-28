@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 08/27/2018
 ms.author: carlrab
-ms.openlocfilehash: 03e24679ea01dabb78a0d7028d49b624b2e3bf64
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 7f784689e8437d92cf4fc4974983d3ae1455f11b
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42058443"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091821"
 ---
 # <a name="sql-database-faq"></a>Veelgestelde vragen over SQL Database
 
@@ -155,7 +155,7 @@ Bijvoorbeeld:
 - Als u een Managed Instance maakt in de categorie Algemeen gebruik met 8 vCores en vervolgens meteen een upgrade naar 16 vCores uitvoert, wordt voor het eerste uur het tarief voor 16 vCores in rekening gebracht.
 
 > [!NOTE]
-> Voor een beperkte periode tot 30 juni 2018, zijn de kosten voor back-up en i/o-kosten in rekening gebracht zijn gratis.
+> Voor een beperkte periode, zijn de kosten voor back-up en i/o-kosten in rekening gebracht zijn gratis.
 
 ## <a name="how-does-the-use-of-active-geo-replication-in-an-elastic-pool-show-up-on-my-bill"></a>Hoe gaat het gebruik van actieve geo-replicatie in een elastische pool worden weergegeven op mijn factuur?
 In tegenstelling tot individuele databases, met behulp van [actieve geo-replicatie](sql-database-geo-replication-overview.md) met elastische databases een directe invloed facturering niet hebt.  U betaalt alleen voor de resources die zijn ingericht voor elk van de groepen (groep van primaire en secundaire groep)

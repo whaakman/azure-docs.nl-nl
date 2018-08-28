@@ -3,18 +3,18 @@ title: Toegang tot Hadoop YARN-toepassingslogboeken programmatisch - Azure
 description: Access-toepassing zich aanmeldt via een programma een Hadoop-cluster in HDInsight.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 05/25/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 42484f2a93ab5effdcafca0f0769c3fb4cdbb926
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e92f9f7bb49b0b7cc33c73a9c5eb2d0ca7532592
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600180"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094398"
 ---
 # <a name="access-yarn-application-logs-on-windows-based-hdinsight"></a>Toegang tot YARN-toepassingslogboeken in HDInsight op basis van Windows
 Dit document wordt uitgelegd hoe u toegang tot de logboeken van YARN-toepassingen die klaar bent met het op een Windows-gebaseerde Hadoop-cluster in Azure HDInsight

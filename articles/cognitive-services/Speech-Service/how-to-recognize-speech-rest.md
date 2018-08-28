@@ -1,6 +1,6 @@
 ---
 title: Spraak herkend met behulp van de REST-API
-description: Informatie over het gebruik van spraak naar tekst in de Speech-service
+description: Informatie over het gebruik van de Speech to Text-API in de Cognitive Services Speech-service.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 24fa3882a65bf6605444a139ad5d4ee42800a8ef
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 54cdfdeabe8b43b079ab0c2ec6280894f217fe12
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744926"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43099938"
 ---
 # <a name="recognize-speech-by-using-the-rest-api"></a>Spraak herkend met behulp van de REST-API
 
@@ -22,15 +22,14 @@ ms.locfileid: "42744926"
 
 De REST-API kan worden gebruikt voor het herkennen van korte uitingen met behulp van een HTTP POST-aanvraag.
 
-De REST-API is de eenvoudigste manier om spraak herkennen als u geen van een taal die wordt ondersteund gebruikmaakt door de [SDK](speech-sdk.md).
-Kunt u een HTTP POST aanvragen naar de service-eindpunt, de hele utterance in de hoofdtekst van de aanvraag; doorgeven en u ontvangt een antwoord met de herkende tekst.
+De REST-API is de eenvoudigste manier voor het herkennen van spraak als u een taal die wordt ondersteund door de [SDK](speech-sdk.md). U moet een HTTP POST-aanvraag naar de service-eindpunt en de hele utterance in de hoofdtekst van de aanvraag doorgeven. U ontvangt een antwoord met de herkende tekst.
 
 > [!NOTE]
 > Uitingen zijn beperkt tot 15 seconden of minder bij het gebruik van de REST-API.
 > Bekijk de [spraak SDK](how-to-recognize-speech-csharp.md) voor herkenning van langer uitingen.
 
-Voor meer informatie over de **spraak naar tekst** REST-API, Zie [REST-API's](rest-apis.md#speech-to-text). Om te zien hoe actie, downloaden de [REST-API-voorbeelden](https://github.com/Azure-Samples/SpeechToText-REST) vanuit GitHub.
+Voor meer informatie over de **spraak naar tekst** REST-API, raadpleegt u de [REST-API's](rest-apis.md#speech-to-text) artikel. Als u wilt de API in actie zien, downloaden de [REST-API-voorbeelden](https://github.com/Azure-Samples/SpeechToText-REST) vanuit GitHub.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Zie de REST-API-overzicht](rest-apis.md)
+- Zie de [REST API-overzicht](rest-apis.md).

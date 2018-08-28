@@ -1,40 +1,39 @@
 ---
-title: Uitbreiden met behulp van Python in Azure Data Lake Analytics U-SQL-scripts
-description: Meer informatie over het Python-code in met behulp van Azure Data Lake Analytics U-SQL-scripts uitvoeren
+title: Uitbreiden met Python in Azure Data Lake Analytics U-SQL-scripts
+description: Meer informatie over het Python-code uitvoeren in U-SQL-scripts met Azure Data Lake Analytics
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: c1c74e5e-3e4a-41ab-9e3f-e9085da1d315
 ms.topic: conceptual
 ms.date: 06/20/2017
-ms.openlocfilehash: 3e895a6ea9bccc0d210f43748edb3eea80ddc6ad
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: b2179f9d81a2dad877c8ae58471f7440eb9edbe7
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625077"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050988"
 ---
 # <a name="extend-u-sql-scripts-with-python-code-in-azure-data-lake-analytics"></a>Uitbreiden met Python-code in Azure Data Lake Analytics U-SQL-scripts
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u begint, zorg ervoor dat de Python-serverextensies zijn geïnstalleerd in uw Azure Data Lake Analytics-account.
+Voordat u begint, controleert u of dat de Python-extensies zijn geïnstalleerd in uw Azure Data Lake Analytics-account.
 
-* Navigeer naar u Data Lake Analytics-Account in de Azure portal
+* Navigeer naar u Data Lake Analytics-Account in Azure portal
 * In het menu links onder **aan de slag** klikt u op **voorbeeldscripts**
-* Klik op **U-SQL-uitbreidingen installeren** vervolgens **OK**
+* Klik op **U-SQL Extensions installeren** vervolgens **OK**
 
 ## <a name="overview"></a>Overzicht 
 
-Python-uitbreidingen voor de U-SQL kunnen ontwikkelaars massively parallelle uitvoering van Python-code uitvoeren. Het volgende voorbeeld ziet u de eenvoudige stappen:
+Python-extensies voor U-SQL kunnen ontwikkelaars enorme parallelle uitvoering van de Python-code uitvoeren. Het volgende voorbeeld wordt de eenvoudige stappen:
 
-* Gebruik de `REFERENCE ASSEMBLY` instructie Python-uitbreidingen voor de U-SQL-Script inschakelen
-* Met behulp van de `REDUCE` bewerking voor het partitioneren van de invoergegevens voor een sleutel
-* De Python-uitbreidingen voor de U-SQL bevatten een ingebouwde reducer (`Extension.Python.Reducer`) die op elk hoekpunt toegewezen aan de reducer Python-code wordt uitgevoerd
-* De U-SQL-script bevat de ingesloten Python-code die een functie die wordt aangeroepen `usqlml_main` die een pandas DataFrame als invoer accepteert en retourneert een pandas DataFrame als uitvoer.
+* Gebruik de `REFERENCE ASSEMBLY` instructie voor het inschakelen van Python-extensies voor de U-SQL-Script
+* Met behulp van de `REDUCE` bewerking voor het partitioneren van de ingevoerde gegevens op een sleutel
+* De Python-uitbreidingen voor U-SQL bevatten een ingebouwde reducer (`Extension.Python.Reducer`) die op elk hoekpunt dat is toegewezen aan de reducer Python-code wordt uitgevoerd
+* De U-SQL-script bevat de ingesloten Python-code die een functie met de naam bevat `usqlml_main` die een pandas DataFrame als invoer accepteert en retourneert een pandas DataFrame als uitvoer.
 
 --
 
@@ -69,37 +68,37 @@ Python-uitbreidingen voor de U-SQL kunnen ontwikkelaars massively parallelle uit
         TO "/tweetmentions.csv"
         USING Outputters.Csv();
 
-## <a name="how-python-integrates-with-u-sql"></a>Hoe Python integreert met U-SQL
+## <a name="how-python-integrates-with-u-sql"></a>Hoe Python kan worden geïntegreerd met U-SQL
 
 ### <a name="datatypes"></a>Gegevenstypen
 
-* Zo worden geconverteerd als tekenreeks en numerieke kolommen uit de U-SQL-tussen Pandas en U-SQL
-* U-SQL null-waarden worden geconverteerd naar en van Pandas `NA` waarden
+* Zo worden geconverteerd als tekenreeks en numerieke kolommen in U-SQL-tussen Pandas en U-SQL
+* U-SQL-null-waarden worden geconverteerd naar en van Pandas `NA` waarden
 
 ### <a name="schemas"></a>Schema 's
 
-* Index aanvalsvectoren in Pandas worden niet ondersteund in de U-SQL. Alle ingevoerde gegevensframes in de functie Python hebben altijd een 64-bits numerieke index 0 tot en met het aantal rijen min 1. 
-* U-SQL-gegevenssets kan geen dubbele kolomnamen hebben
+* Index aanvalsvectoren in Pandas worden niet ondersteund in U-SQL. Alle invoergegevens frames in de Python-functie hebben altijd een 64-bits numerieke index tussen 0 en het aantal rijen min 1. 
+* U-SQL-gegevenssets geen dubbele kolomnamen
 * U-SQL gegevenssets kolomnamen die geen tekenreeksen. 
 
 ### <a name="python-versions"></a>Python-versies
 Alleen Python 3.5.1 (gecompileerd voor Windows) wordt ondersteund. 
 
 ### <a name="standard-python-modules"></a>Standaard Python-modules
-Alle standard Python-modules zijn opgenomen.
+Alle standaard Python-modules zijn opgenomen.
 
 ### <a name="additional-python-modules"></a>Extra Python-modules
-Naast de standaard Python-bibliotheken zijn enkele veelgebruikte python-bibliotheken opgenomen:
+Naast de standaard Python-bibliotheken, zijn enkele veelgebruikte python-bibliotheken zijn opgenomen:
 
     pandas
     numpy
     numexpr
 
 ### <a name="exception-messages"></a>Uitzondering berichten
-Op dit moment is een uitzondering in Python-code wordt weergegeven als algemene hoekpunt mislukt. De U-SQL-taak foutberichten verschijnt in de toekomst, het uitzonderingsbericht Python.
+Op dit moment wordt een uitzondering in Python-code weergegeven als algemene hoekpunt mislukt. In de toekomst weergegeven de foutberichten van U-SQL-taak bericht met de Python-uitzondering.
 
-### <a name="input-and-output-size-limitations"></a>Invoer en uitvoer groottebeperkingen
-Elke hoekpunt heeft een beperkte hoeveelheid geheugen die zijn toegewezen. Deze limiet is momenteel 6 GB voor een AU. Omdat de invoer en uitvoer DataFrames moet bestaan in het geheugen van de Python-code, kan de totale grootte voor de invoer en uitvoer kan niet groter zijn dan 6 GB.
+### <a name="input-and-output-size-limitations"></a>Invoer en uitvoer beperkingen
+Elke hoekpunt heeft een beperkte hoeveelheid van het geheugen toegewezen. Deze limiet is momenteel 6 GB voor een AU. Omdat de invoer- en DataFrames moet bestaan in het geheugen van de Python-code, kan de totale grootte voor de invoer en uitvoer niet langer zijn dan 6 GB.
 
 ## <a name="see-also"></a>Zie ook
 * [Overzicht van Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

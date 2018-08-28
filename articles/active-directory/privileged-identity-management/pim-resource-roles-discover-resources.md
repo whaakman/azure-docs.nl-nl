@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: c5b26c01028e2a5746132939a2058cacdcad859f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: f4b6fafe40fe00492bac7bd6c28268321d4516db
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622099"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43104351"
 ---
 # <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Detecteren en beheren van Azure-resources met behulp van Privileged Identity Management
 
@@ -27,7 +27,7 @@ Informatie over het detecteren en beheren van Azure-resources, wanneer u in Azur
 Wanneer u eerst ingesteld PIM voor Azure-resources, moet u om te detecteren en resources te beschermen met PIM selecteren. Er is geen limiet voor het aantal resources die u met PIM kunt beheren. We raden echter aan beginnen met uw meest kritieke (productie)-resources.
 
 > [!NOTE]
-> U kunt alleen zoeken en selecteren van resources te beheren met behulp van de PIM-abonnement. Wanneer u een abonnement in PIM beheert, kunt u ook onderliggende resources in het abonnement te beheren.
+> U kunt alleen Zoek en selecteer de management-groep of abonnement resources te beheren met PIM. Wanneer u een beheergroep of een abonnement in PIM beheert, kunt u ook de onderliggende resources te beheren.
 
 ## <a name="discover-resources"></a>Services detecteren
 

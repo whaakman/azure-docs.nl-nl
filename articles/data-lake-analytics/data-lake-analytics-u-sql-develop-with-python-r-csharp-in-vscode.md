@@ -1,44 +1,43 @@
 ---
 title: U-SQL met Python, R en C# voor Azure Data Lake Analytics in Visual Studio Code ontwikkelen
-description: Informatie over het verzenden van de taak in Azure Data Lake met code achter met Python, R en C#.
+description: Informatie over het gebruik van code achter met Python, R en C# om de taak in Azure Data Lake te verzenden.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: jejiang
 ms.author: jejiang
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.topic: conceptual
 ms.date: 11/22/2017
-ms.openlocfilehash: 171aef186fd681adf9b3d92deb8691c852ea1038
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 53859f5a81cf1d797ec93e83d75df5a329590dce
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624904"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051629"
 ---
 # <a name="develop-u-sql-with-python-r-and-c-for-azure-data-lake-analytics-in-visual-studio-code"></a>U-SQL met Python, R en C# voor Azure Data Lake Analytics in Visual Studio Code ontwikkelen
-Informatie over het gebruik van Visual Studio Code (VSCode) om te schrijven, Python, R- en C# code achter met U-SQL en verzenden van taken naar Azure Data Lake-service. Zie voor meer informatie over Azure Data Lake Tools voor VSCode [gebruik van Azure Data Lake Tools voor Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
+Informatie over het gebruik van Visual Studio Code (VSCode) om te schrijven, Python, R en C# code achter met U-SQL en het verzenden van taken naar Azure Data Lake-service. Zie voor meer informatie over Azure Data Lake Tools voor VSCode [gebruik van Azure Data Lake Tools voor Visual Studio Code](data-lake-analytics-data-lake-tools-for-vscode.md).
 
-Voordat het code-behind aangepaste code schrijven, moet u een map of een werkruimte in VSCode openen.
+Voordat u de code-behind aangepaste code schrijft, moet u een map of een werkruimte vscode openen.
 
 
-## <a name="prerequisites-for-python-and-r"></a>Vereisten voor Python en R
-Python en R extensies-assembly's voor uw account ADL registreren. 
+## <a name="prerequisites-for-python-and-r"></a>Vereisten voor Python / R
+Python / R-extensies-assembly's voor uw account ADL registreren. 
 1. Open uw account in de portal.
    - Selecteer **Overzicht**. 
    - Klik op **voorbeeldscript**.
 2. Klik op **meer**.
-3. Selecteer **U-SQL-uitbreidingen installeren**. 
+3. Selecteer **U-SQL Extensions installeren**. 
 4. Bevestigingsbericht wordt weergegeven nadat de U-SQL-uitbreidingen zijn geïnstalleerd. 
 
-  ![Instellen van de omgeving voor python en R](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
+  ![Stel de omgeving voor python / R](./media/data-lake-analytics-data-lake-tools-for-vscode/setup-the-enrionment-for-python-and-r.png)
 
   > [!Note]
-  > Installeer VSCode Python en R-extensie voor de beste ervaring op Python en R-taalservice. 
+  > Installeer VSCode Python / R-extensie voor de beste ervaringen op Python / R-taalservice. 
 
-## <a name="develop-python-file"></a>Python-bestand ontwikkelen
+## <a name="develop-python-file"></a>Ontwikkelen van Python-bestand
 1. Klik op de **nieuw bestand** in uw werkruimte.
-2. Schrijf uw code in de U-SQL. Hier volgt een voorbeeld van code.
+2. Schrijf uw code in U-SQL. Hier volgt een voorbeeld van code.
     ```U-SQL
     REFERENCE ASSEMBLY [ExtPython];
     @t  = 
@@ -59,8 +58,8 @@ Python en R extensies-assembly's voor uw account ADL registreren.
         USING Outputters.Csv();
     ```
     
-3. Met de rechtermuisknop op een scriptbestand en selecteer vervolgens **ADL: genereren Python Code achter bestand**. 
-4. De **xxx.usql.py** -bestand is gegenereerd in uw werkmap. Schrijf uw code in Python-bestand. Hier volgt een voorbeeld van code.
+3. Met de rechtermuisknop op een scriptbestand en selecteer vervolgens **ADL: genereren van Python-Code achter bestand**. 
+4. De **xxx.usql.py** -bestand is gegenereerd in de werkmap. Schrijf uw code in Python-bestand. Hier volgt een voorbeeld van code.
 
     ```Python
     def get_mentions(tweet):
@@ -73,9 +72,9 @@ Python en R extensies-assembly's voor uw account ADL registreren.
         del df['tweet']
         return df
     ```
-5. Met de rechtermuisknop in **USQL** -bestand, klikt u op **compileren Script** of **Submit Job** voor het uitvoeren van taak.
+5. Met de rechtermuisknop in **USQL** -bestand, klikt u op **compileren Script** of **taak verzenden** tot het uitvoeren van taak.
 
-## <a name="develop-r-file"></a>R bestand ontwikkelen
+## <a name="develop-r-file"></a>R-bestand ontwikkelen
 1. Klik op de **nieuw bestand** in uw werkruimte.
 2. Schrijf uw code in U-SQL-bestand. Hier volgt een voorbeeld van code.
     ```U-SQL
@@ -116,17 +115,17 @@ Python en R extensies-assembly's voor uw account ADL registreren.
     TO @OutputFilePredictions
     USING Outputters.Tsv();
     ```
-3. Met de rechtermuisknop in **USQL** bestand en selecteer vervolgens **ADL: genereren R achter codebestand**. 
-4. De **xxx.usql.r** -bestand is gegenereerd in uw werkmap. Schrijf uw code in R-bestand. Hier volgt een voorbeeld van code.
+3. Met de rechtermuisknop in **USQL** bestand en selecteer vervolgens **ADL: genereren van R-Code achter bestand**. 
+4. De **xxx.usql.r** -bestand is gegenereerd in de werkmap. Schrijf uw code in R-bestand. Hier volgt een voorbeeld van code.
 
     ```R
     load("my_model_LM_Iris.rda")
     outputToUSQL=data.frame(predict(lm.fit, inputFromUSQL, interval="confidence"))
     ```
-5. Met de rechtermuisknop in **USQL** -bestand, klikt u op **compileren Script** of **Submit Job** voor het uitvoeren van taak.
+5. Met de rechtermuisknop in **USQL** -bestand, klikt u op **compileren Script** of **taak verzenden** tot het uitvoeren van taak.
 
-## <a name="develop-c-file"></a>C#-bestand ontwikkelen
-Een code-behind-bestand is een C#-bestanden die zijn gekoppeld aan een enkel U-SQL-script. U kunt een speciale script definiëren UDO, UDA, UDT en UDF in het code-behind-bestand. De UDO, UDA, UDT en UDF kunnen rechtstreeks in het script zonder eerst registreren van de assembly worden gebruikt. De code-behind-bestand is in dezelfde map als de peering U-SQL-scriptbestand geplaatst. Als het script de naam xxx.usql, is de code-behind xxx.usql.cs genoemd. Als u de code-behind-bestand voor het handmatig verwijdert, wordt de code-behind-functie is uitgeschakeld voor de bijbehorende U-SQL-script. Zie voor meer informatie over het schrijven van code voor de U-SQL-script klant [schrijven en met behulp van aangepaste Code in de U-SQL: door de gebruiker gedefinieerde functies]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
+## <a name="develop-c-file"></a>Ontwikkelen van C#-bestand
+Een code-behind-bestand is een C#-bestand dat is gekoppeld aan een enkele U-SQL-script. U kunt een toegewezen script definiëren UDO, UDA, UDT en UDF in de code-behind-bestand. De UDO, UDA, UDT en UDF kunnen rechtstreeks in het script worden gebruikt zonder dat de assembly eerst registreren. De code-behind-bestand wordt in dezelfde map als de peering U-SQL-scriptbestand geplaatst. Als het script is de naam xxx.usql, is de code-behind xxx.usql.cs genoemd. Als u de code-behind-bestand voor het handmatig verwijdert, wordt de code-behind-functie is uitgeschakeld voor de bijbehorende U-SQL-script. Zie voor meer informatie over het schrijven van code van de klant voor U-SQL-script [schrijven en met behulp van aangepaste Code in U-SQL: door de gebruiker gedefinieerde functies]( https://blogs.msdn.microsoft.com/visualstudio/2015/10/28/writing-and-using-custom-code-in-u-sql-user-defined-functions/).
 
 1. Klik op de **nieuw bestand** in uw werkruimte.
 2. Schrijf uw code in U-SQL-bestand. Hier volgt een voorbeeld van code.
@@ -159,7 +158,7 @@ Een code-behind-bestand is een C#-bestanden die zijn gekoppeld aan een enkel U-S
         USING Outputters.Tsv();
     ```
 3. Met de rechtermuisknop in **USQL** bestand en selecteer vervolgens **ADL: genereren CS achter codebestand**. 
-4. De **xxx.usql.cs** -bestand is gegenereerd in uw werkmap. Schrijf uw code in CS-bestand. Hier volgt een voorbeeld van code.
+4. De **xxx.usql.cs** -bestand is gegenereerd in de werkmap. Schrijf uw code in CS-bestand. Hier volgt een voorbeeld van code.
 
     ```CS
     namespace USQLApplication_codebehind
@@ -177,12 +176,12 @@ Een code-behind-bestand is een C#-bestanden die zijn gekoppeld aan een enkel U-S
         }
     }
     ```
-5. Met de rechtermuisknop in **USQL** -bestand, klikt u op **compileren Script** of **Submit Job** voor het uitvoeren van taak.
+5. Met de rechtermuisknop in **USQL** -bestand, klikt u op **compileren Script** of **taak verzenden** tot het uitvoeren van taak.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [De Azure Data Lake-tools gebruiken voor Visual Studio-code](data-lake-analytics-data-lake-tools-for-vscode.md)
-* [U-SQL lokaal uitvoeren en lokale foutopsporing met Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
-* [Aan de slag met Data Lake Analytics met PowerShell](data-lake-analytics-get-started-powershell.md)
+* [U-SQL lokaal uitvoeren en lokaal fouten opsporen met Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md)
+* [Aan de slag met Data Lake Analytics met behulp van PowerShell](data-lake-analytics-get-started-powershell.md)
 * [Aan de slag met Data Lake Analytics met Azure portal](data-lake-analytics-get-started-portal.md)
 * [Data Lake Tools voor Visual Studio gebruiken voor het ontwikkelen van U-SQL-toepassingen](data-lake-analytics-data-lake-tools-get-started.md)
-* [Gebruik Data Lake Analytics(U-SQL) catalogus](data-lake-analytics-use-u-sql-catalog.md)
+* [Data Lake gebruiken Analytics(U-SQL) catalogus](data-lake-analytics-use-u-sql-catalog.md)

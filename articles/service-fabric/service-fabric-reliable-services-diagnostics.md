@@ -1,6 +1,6 @@
 ---
-title: Diagnostische gegevens van Azure Service Fabric betrouwbare Stateful Services | Microsoft Docs
-description: Diagnostische functionaliteit voor betrouwbare Stateful Services in Azure Service Fabric
+title: Diagnostische gegevens van Azure Service Fabric Stateful Reliable Services | Microsoft Docs
+description: Diagnosefunctionaliteit voor Stateful Reliable Services in Azure Service Fabric
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -12,112 +12,115 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 6/28/2018
+ms.date: 8/24/2018
 ms.author: dekapur
-ms.openlocfilehash: 51895731efd466a314877e963a5fd2c6d868ec02
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: a7ba92d871bb440b7b8c8a12c1e90f9aa10df3be
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37110869"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43105338"
 ---
 # <a name="diagnostic-functionality-for-stateful-reliable-services"></a>Diagnosefunctionaliteit voor Stateful Reliable Services
-De klasse Azure Service Fabric Stateful betrouwbare Services StatefulServiceBase verzendt [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) gebeurtenissen die kunnen worden gebruikt voor fouten opsporen in de service biedt mogelijk inzicht in hoe de runtime is functioneren en oplossen van problemen met.
+De Azure Service Fabric Stateful Reliable Services StatefulServiceBase-klasse verzendt [EventSource](https://msdn.microsoft.com/library/system.diagnostics.tracing.eventsource.aspx) gebeurtenissen die kunnen worden gebruikt voor fouten opsporen in de service bieden inzicht in hoe de runtime is functioneren en kunnen oplossen.
 
-## <a name="eventsource-events"></a>EventSource gebeurtenissen
-De naam van de EventSource voor de klasse Stateful betrouwbare Services StatefulServiceBase is 'Microsoft-ServiceFabric-Services.' Gebeurtenissen van de bron van deze gebeurtenissen worden weergegeven in de [diagnostische gebeurtenissen](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) venster wanneer de service wordt [fouten worden opgespoord in Visual Studio](service-fabric-debugging-your-application.md).
+## <a name="eventsource-events"></a>Gebeurtenisbron gebeurtenissen
+De naam van de gebeurtenisbron voor de klasse Stateful Reliable Services StatefulServiceBase is 'Microsoft-service fabric-Services'. Gebeurtenissen uit deze gebeurtenisbron worden weergegeven in de [diagnostische gebeurtenissen](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md#view-service-fabric-system-events-in-visual-studio) venster wanneer de service wordt [foutopsporing in Visual Studio](service-fabric-debugging-your-application.md).
 
-Voorbeelden van hulpprogramma's en -technologieën die helpen bij het verzamelen en/of het bekijken van EventSource gebeurtenissen zijn [PerfView](http://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), en de [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
+Voorbeelden van hulpprogramma's en technologieën die hulp bieden bij het verzamelen en/of EventSource gebeurtenissen bekijken zijn [voorbeeld](http://www.microsoft.com/download/details.aspx?id=28567), [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md), en de [Microsoft TraceEvent Library](http://www.nuget.org/packages/Microsoft.Diagnostics.Tracing.TraceEvent).
 
 ## <a name="events"></a>Gebeurtenissen
 | Gebeurtenisnaam | Gebeurtenis-id | Niveau | Beschrijving van gebeurtenis |
 | --- | --- | --- | --- |
-| StatefulRunAsyncInvocation |1 |Informatief |Verzonden wanneer de taak service RunAsync wordt gestart |
-| StatefulRunAsyncCancellation |2 |Informatief |Verzonden wanneer de taak service RunAsync wordt geannuleerd |
+| StatefulRunAsyncInvocation |1 |Informatief |Verzonden wanneer de service RunAsync-taak wordt gestart |
+| StatefulRunAsyncCancellation |2 |Informatief |Wanneer de service RunAsync-taak is geannuleerd |
 | StatefulRunAsyncCompletion |3 |Informatief |Verzonden wanneer de service RunAsync-taak is voltooid |
-| StatefulRunAsyncSlowCancellation |4 |Waarschuwing |Verzonden wanneer de taak service RunAsync duurt te lang annulering voltooien |
-| StatefulRunAsyncFailure |5 |Fout |Wanneer de taak service RunAsync een uitzondering wordt verzonden |
+| StatefulRunAsyncSlowCancellation |4 |Waarschuwing |Wanneer de service RunAsync-taak te lang duren om uit te voeren annulering |
+| StatefulRunAsyncFailure |5 |Fout |Wanneer de taak service RunAsync een uitzondering genereert |
 
 ## <a name="interpret-events"></a>Gebeurtenissen interpreteren
-Gebeurtenissen StatefulRunAsyncInvocation, StatefulRunAsyncCompletion en StatefulRunAsyncCancellation zijn handig voor de schrijver van de service om te begrijpen van de levenscyclus van een service, evenals de tijd voor wanneer een service wordt gestart, wordt geannuleerd of is voltooid. Deze informatie kan nuttig zijn wanneer foutopsporing van problemen met de service of het begrijpen van de levenscyclus van de service.
+StatefulRunAsyncInvocation StatefulRunAsyncCompletion en StatefulRunAsyncCancellation gebeurtenissen zijn handig voor de schrijver van de service om te begrijpen van de levenscyclus van een service, evenals de timing van als een service wordt gestart, wordt geannuleerd of is voltooid. Deze informatie kan nuttig zijn bij foutopsporing in problemen met de service of informatie over de levenscyclus van de service.
 
-Schrijvers van de service moeten aandacht besteedt aan gebeurtenissen StatefulRunAsyncSlowCancellation en StatefulRunAsyncFailure omdat ze problemen met de service aangeeft.
+Schrijvers van de service moeten aandacht besteedt aan gebeurtenissen StatefulRunAsyncSlowCancellation en StatefulRunAsyncFailure omdat ze duiden op problemen met de service.
 
-StatefulRunAsyncFailure wordt verzonden wanneer de taak service RunAsync() er een uitzondering gegenereerd. Een uitzondering veroorzaakt geeft meestal aan een fout of een fout in de service. De uitzondering wordt bovendien de service mislukt, zodat deze is verplaatst naar een ander knooppunt. Deze bewerking kan duur zijn en binnenkomende aanvragen kan worden vertraagd terwijl de service wordt verplaatst. Schrijvers van de service moeten de oorzaak van de uitzondering en deze indien mogelijk te beperken.
+StatefulRunAsyncFailure wordt verzonden wanneer de taak service RunAsync() een uitzondering genereert. Een uitzondering geeft meestal aan fout of bug in de service. Bovendien wordt de uitzondering met de service mislukt, zodat deze wordt verplaatst naar een ander knooppunt. Deze bewerking kan duur zijn en inkomende aanvragen kan vertraging terwijl de service is verplaatst. Schrijvers van de service moeten de oorzaak van de uitzondering en deze indien mogelijk, te beperken.
 
-StatefulRunAsyncSlowCancellation wordt verzonden wanneer een annuleringsaanvraag voor de RunAsync-taak langer dan vier seconden duurt. Wanneer een service te lang annulering duurt, het is van invloed op de mogelijkheid van de service te snel opnieuw worden gestart op een ander knooppunt. Dit scenario kan invloed hebben op de algemene beschikbaarheid van de service.
+StatefulRunAsyncSlowCancellation wordt verzonden wanneer een aanvraag voor annulering voor de taak RunAsync langer duurt dan vier seconden. Wanneer een service te lang annulering duurt, het is van invloed op de mogelijkheid van de service om snel opnieuw worden gestart op een ander knooppunt. Dit scenario mogelijk invloed op de algemene beschikbaarheid van de service.
 
 ## <a name="performance-counters"></a>Prestatiemeteritems
-De runtime Reliable Services definieert de volgende categorieën voor prestatiemeteritems:
+De runtime van Reliable Services definieert de volgende categorieën voor prestatiemeteritems:
 
-| Category | Beschrijving |
+| Categorie | Beschrijving |
 | --- | --- |
-| Transactionele replicator voor Service Fabric |Items die specifiek bij de Azure Service Fabric Transactional Replicator |
-| Service Fabric TStore |Items die specifiek bij de Azure Service Fabric-TStore |
+| Transactionele replicator voor Service Fabric |Prestatiemeteritems specifiek voor de transactionele Replicator voor Azure Service Fabric |
+| Service Fabric TStore |Prestatiemeteritems specifiek voor de Azure Service Fabric TStore |
 
-Service Fabric Transactional Replicator wordt gebruikt door de [betrouwbare statusbeheer](service-fabric-reliable-services-reliable-collections-internals.md) voor replicatie van transacties binnen een bepaalde set [replica's](service-fabric-concepts-replica-lifecycle.md).
+De transactionele Replicator voor Service Fabric wordt gebruikt door de [betrouwbare status Manager](service-fabric-reliable-services-reliable-collections-internals.md) voor het repliceren van transacties binnen een bepaalde set [replica's](service-fabric-concepts-replica-lifecycle.md).
 
-De Service Fabric-TStore is een onderdeel dat wordt gebruikt [betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections-internals.md) voor het opslaan en ophalen van sleutel-waardeparen.
+De Service Fabric TStore is een onderdeel dat wordt gebruikt [betrouwbare verzamelingen](service-fabric-reliable-services-reliable-collections-internals.md) voor het opslaan en ophalen van sleutel / waarde-paren.
 
-De [Windows Prestatiemeter](https://technet.microsoft.com/library/cc749249.aspx) toepassing die standaard beschikbaar in de Windows-besturingssysteem kan worden gebruikt voor het verzamelen en weergeven van gegevens van prestatiemeteritems. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) is een andere optie voor het verzamelen van gegevens van prestatiemeteritems en uploaden naar Azure-tabellen.
+De [Windows Performance Monitor](https://technet.microsoft.com/library/cc749249.aspx) toepassing die is standaard beschikbaar in het Windows-besturingssysteem kan worden gebruikt voor het verzamelen en weergeven van gegevens van prestatiemeteritems. [Azure Diagnostics](../cloud-services/cloud-services-dotnet-diagnostics.md) is een andere optie voor het verzamelen van gegevens van prestatiemeteritems en uploaden naar Azure-tabellen.
 
 ### <a name="performance-counter-instance-names"></a>Namen van prestatiemeteritems exemplaar
-Een cluster met een groot aantal betrouwbare services of servicepartities betrouwbare heeft een groot aantal exemplaren van transactional replicator prestaties teller. Dit geldt ook voor TStore prestatiemeteritems, maar ook wordt vermenigvuldigd met het aantal betrouwbare woordenlijsten en betrouwbare wachtrijen gebruikt. De namen van prestatiemeteritems exemplaar kunnen helpen bij het identificeren van de specifieke [partitie](service-fabric-concepts-partitioning.md), service-replica's en state-provider in het geval van TStore waaraan het exemplaar van prestatiemeteritem is gekoppeld.
+Een cluster met een groot aantal betrouwbare services of partities van de betrouwbare service heeft een groot aantal transactionele replicator prestaties teller exemplaren. Dit is ook het geval is bij TStore-prestatiemeteritems, maar ook wordt vermenigvuldigd met het aantal betrouwbare woordenboeken en betrouwbare wachtrijen gebruikt. De namen van prestatiemeteritems exemplaar kunnen helpen bij het identificeren van de specifieke [partitie](service-fabric-concepts-partitioning.md), service-replica en state-provider in het geval van TStore, waaraan het exemplaar van prestatiemeteritem is gekoppeld.
 
-#### <a name="service-fabric-transactional-replicator-category"></a>Service Fabric Transactional Replicator categorie
-Voor de categorie `Service Fabric Transactional Replicator`, de teller exemplaarnamen worden in de volgende indeling:
+#### <a name="service-fabric-transactional-replicator-category"></a>Transactionele Replicator voor service Fabric-categorie
+Voor de categorie `Service Fabric Transactional Replicator`, de namen van de teller-exemplaar zijn in de volgende indeling:
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId`
 
-*ServiceFabricPartitionId* de tekenreeksweergave van de Service Fabric-partitie-ID die het exemplaar van prestatiemeteritem is gekoppeld. De partitie-ID is een GUID en de tekenreeksvoorstelling wordt gegenereerd via [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) met indelingsopgave "D".
+*ServiceFabricPartitionId* is van de tekenreeksvoorstelling van de Service Fabric-partitie-ID die het exemplaar van prestatiemeteritem is gekoppeld. De partitie-ID is een GUID en de tekenreeks is die worden gegenereerd via [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) met indelingsopgave "D".
 
-*ServiceFabricReplicaId* is de ID die is gekoppeld aan een bepaalde replica van een betrouwbare service. Replica-ID is opgenomen in de naam van het exemplaar om te controleren van de uniekheid en het voorkomen van conflicten met andere prestaties teller-exemplaren die worden gegenereerd door dezelfde partitie. Meer informatie over de replica's en hun rol binnen betrouwbare services vindt [hier](service-fabric-concepts-replica-lifecycle.md).
+*ServiceFabricReplicaId* is de ID die is gekoppeld aan een bepaalde replica van een betrouwbare service. Replica-ID is opgenomen in de naam van het exemplaar om te zorgen dat deze zijn uniek en voorkomen van conflicten met andere prestaties teller exemplaren die worden gegenereerd door de dezelfde partitie. Meer informatie over de replica's en hun rol in betrouwbare services vindt u [hier](service-fabric-concepts-replica-lifecycle.md).
 
-De volgende naam van het exemplaar is Typerend voor een item onder de `Service Fabric Transactional Replicator` categorie:
+De volgende naam van het exemplaar is normaal dat voor een item onder de `Service Fabric Transactional Replicator` categorie:
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571`
 
-In het voorgaande voorbeeld `00d0126d-3e36-4d68-98da-cc4f7195d85e` de tekenreeksweergave van de Service Fabric partitie-ID en `131652217797162571` is van de replica-ID.
+In het voorgaande voorbeeld `00d0126d-3e36-4d68-98da-cc4f7195d85e` is van de tekenreeksvoorstelling van de Service Fabric-partitie-ID, en `131652217797162571` is de replica-ID.
 
 #### <a name="service-fabric-tstore-category"></a>Service Fabric TStore categorie
-Voor de categorie `Service Fabric TStore`, de teller exemplaarnamen worden in de volgende indeling:
+Voor de categorie `Service Fabric TStore`, de namen van de teller-exemplaar zijn in de volgende indeling:
 
 `ServiceFabricPartitionId:ServiceFabricReplicaId:ServiceFabricStateProviderId_PerformanceCounterInstanceDifferentiator`
 
-*ServiceFabricPartitionId* de tekenreeksweergave van de Service Fabric-partitie-ID die het exemplaar van prestatiemeteritem is gekoppeld. De partitie-ID is een GUID en de tekenreeksvoorstelling wordt gegenereerd via [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) met indelingsopgave "D".
+*ServiceFabricPartitionId* is van de tekenreeksvoorstelling van de Service Fabric-partitie-ID die het exemplaar van prestatiemeteritem is gekoppeld. De partitie-ID is een GUID en de tekenreeks is die worden gegenereerd via [ `Guid.ToString` ](https://msdn.microsoft.com/library/97af8hh4.aspx) met indelingsopgave "D".
 
-*ServiceFabricReplicaId* is de ID die is gekoppeld aan een bepaalde replica van een betrouwbare service. Replica-ID is opgenomen in de naam van het exemplaar om te controleren van de uniekheid en het voorkomen van conflicten met andere prestaties teller-exemplaren die worden gegenereerd door dezelfde partitie. Meer informatie over de replica's en hun rol binnen betrouwbare services vindt [hier](service-fabric-concepts-replica-lifecycle.md).
+*ServiceFabricReplicaId* is de ID die is gekoppeld aan een bepaalde replica van een betrouwbare service. Replica-ID is opgenomen in de naam van het exemplaar om te zorgen dat deze zijn uniek en voorkomen van conflicten met andere prestaties teller exemplaren die worden gegenereerd door de dezelfde partitie. Meer informatie over de replica's en hun rol in betrouwbare services vindt u [hier](service-fabric-concepts-replica-lifecycle.md).
 
 *ServiceFabricStateProviderId* is de ID die is gekoppeld aan een state-provider in een betrouwbare service. Status-ID van Provider is opgenomen in de naam van het exemplaar naar een TStore onderscheiden van andere.
 
-*PerformanceCounterInstanceDifferentiator* een verschillende-id die is gekoppeld aan een exemplaar van prestatiemeteritem binnen een state-provider. Dit kenmerk is opgenomen in de naam van het exemplaar om te controleren van de uniekheid en het voorkomen van conflicten met andere prestaties teller-exemplaren die worden gegenereerd door de dezelfde state-provider.
+*PerformanceCounterInstanceDifferentiator* is een onderscheidende-ID die is gekoppeld aan een exemplaar van prestatiemeteritem binnen een state-provider. Dit kenmerk is opgenomen in de naam van het exemplaar om te zorgen dat deze zijn uniek en voorkomen van conflicten met andere prestaties teller exemplaren die worden gegenereerd door de dezelfde state-provider.
 
-De volgende naam van het exemplaar is Typerend voor een item onder de `Service Fabric TStore` categorie:
+De volgende naam van het exemplaar is normaal dat voor een item onder de `Service Fabric TStore` categorie:
 
 `00d0126d-3e36-4d68-98da-cc4f7195d85e:131652217797162571:142652217797162571_1337`
 
-In het voorgaande voorbeeld `00d0126d-3e36-4d68-98da-cc4f7195d85e` de tekenreeksweergave van de Service Fabric-partitie-ID, `131652217797162571` de replica-id `142652217797162571` is de ID-provider, en `1337` het onderscheid prestaties teller exemplaar is.
+In het voorgaande voorbeeld `00d0126d-3e36-4d68-98da-cc4f7195d85e` is van de tekenreeksvoorstelling van de Service Fabric-partitie-ID, `131652217797162571` is de replica-ID, `142652217797162571` wordt de foutstatus-ID-provider en `1337` is van de prestaties teller exemplaar gegevensbehoud.
 
-### <a name="transactional-replicator-performance-counters"></a>Prestatiemeteritems voor transactionele replicatie
+### <a name="transactional-replicator-performance-counters"></a>Transactionele Replicator-prestatiemeteritems
 
-De runtime Reliable Services verzendt de volgende gebeurtenissen onder de `Service Fabric Transactional Replicator` categorie
+De Reliable Services-runtime verzendt de volgende gebeurtenissen onder de `Service Fabric Transactional Replicator` categorie
 
- Naam van het meteritem | Beschrijving |
+ Naam van het prestatiemeteritem | Beschrijving |
 | --- | --- |
 | Transactiebewerkingen starten/sec | Het aantal nieuwe schrijven transacties per seconde worden gemaakt.|
-| Transactiebewerkingen/sec | Het aantal bewerkingen voor toevoegen, bijwerken, verwijderen is uitgevoerd op betrouwbare verzamelingen per seconde.|
-| Gem. Leegmaken latentie (ms) | Het aantal bytes dat wordt leeggemaakt op de schijf met de transactionele replicatie per seconde |
-| Beperkte bewerkingen/sec | Het aantal bewerkingen per seconde met de transactionele replicatie vanwege een beperking geweigerd. |
-| Gem. Transactie-ms/Commit | Gemiddelde doorvoervertraging per transactie in milliseconden |
-| Gem. Leegmaken latentie (ms) | Gemiddelde duur van het leegmaken schijfbewerkingen geïnitieerd door de transactionele replicatie in milliseconden |
+| Transactiebewerkingen/sec | Het aantal bewerkingen toevoegen/bijwerken/verwijderen die worden uitgevoerd op een betrouwbare verzamelingen per seconde.|
+| Gem. Latentie van leegmaken (ms) | Het aantal bytes dat wordt leeggemaakt op de schijf met de transactionele replicatie per seconde |
+| Beperkte bewerkingen/sec | Het aantal bewerkingen per seconde door de transactionele Replicator vanwege een beperking afgewezen. |
+| Gem. Transactie ms en doorvoeren | Gemiddelde doorvoervertraging per transactie in milliseconden |
+| Gem. Latentie van leegmaken (ms) | Gemiddelde duur van de schijf leegmaken bewerkingen, gestart door de transactionele Replicator in milliseconden |
 
-### <a name="tstore-performance-counters"></a>TStore-prestatiemeteritems
+### <a name="tstore-performance-counters"></a>Prestatiemeteritems TStore
 
-De runtime Reliable Services verzendt de volgende gebeurtenissen onder de `Service Fabric TStore` categorie
+De Reliable Services-runtime verzendt de volgende gebeurtenissen onder de `Service Fabric TStore` categorie
 
- Naam van het meteritem | Beschrijving |
+ Naam van het prestatiemeteritem | Beschrijving |
 | --- | --- |
-| Aantal items | Het aantal sleutels in het archief.|
+| Aantal items | Het aantal items in de store.|
+| Schijfgrootte | De totale schijfgrootte in bytes, van controlepuntbestanden voor de store.|
+| Geschreven bytes per seconde voor controlepuntbestand | Het aantal bytes per seconde voor het meest recente controlepunt geschreven.|
+| Overgedragen bytes per seconde voor kopiëren van schijf | Het aantal bytes op de schijf (op de primaire replica) gelezen of geschreven (op een secundaire replica) per seconde tijdens een kopie van de store.|
 
 ## <a name="next-steps"></a>Volgende stappen
-[EventSource providers op PerfView](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)
+[Gebeurtenisbron providers in het voorbeeld](https://blogs.msdn.microsoft.com/vancem/2012/07/09/introduction-tutorial-logging-etw-events-in-c-system-diagnostics-tracing-eventsource/)

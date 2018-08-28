@@ -1,40 +1,39 @@
 ---
 title: Websitelogboeken analyseren met Azure Data Lake Analytics
-description: Informatie over het websitelogboeken analyseren met Data Lake Analytics.
+description: Leer hoe u websitelogboeken analyseren met Data Lake Analytics.
 services: data-lake-analytics
 author: saveenr
-manager: saveenr
-editor: jasonwhowell
+ms.author: saveenr
+ms.reviewer: jasonwhowell
 ms.assetid: 3a196735-d0d9-4deb-ba68-c4b3f3be8403
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.author: saveenr
-ms.openlocfilehash: 8cb8e0f683c2790d7aebb87a684798ea0a36417f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 5d25aed196dd6b4ce92ae1cf18e556d1c32295d3
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623363"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051964"
 ---
 # <a name="analyze-website-logs-using-azure-data-lake-analytics"></a>Websitelogboeken analyseren met Azure Data Lake Analytics
-Informatie over het websitelogboeken analyseren met Data Lake Analytics, met name op fouten die verwijzingen is gedetecteerd tijdens het naar de website te controleren.
+Leer hoe u websitelogboeken analyseren met Data Lake Analytics, met name op controleren welke verwijzende sites fouten wordt uitgevoerd wanneer er wordt geprobeerd de website te bezoeken.
 
 ## <a name="prerequisites"></a>Vereisten
 * **Visual Studio 2015 of Visual Studio 2013**.
 * **[Data Lake Tools voor Visual Studio](http://aka.ms/adltoolsvs)**.
 
-    Wanneer Data Lake Tools voor Visual Studio is geïnstalleerd, ziet u een **Data Lake** item in de **extra** menu in Visual Studio:
+    Wanneer Data Lake Tools voor Visual Studio is geïnstalleerd, ziet u een **Data Lake** item in de **extra** menu van Visual Studio:
 
     ![U-SQL Visual Studio-menu](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-menu.png)
-* **Basiskennis van Data Lake Analytics en Data Lake Tools voor Visual Studio**. Zie het volgende om te beginnen:
+* **Basiskennis van Data Lake Analytics en Data Lake Tools voor Visual Studio**. Als u wilt beginnen, Zie:
 
   * [U-SQL-script met Data Lake tools voor Visual Studio ontwikkelen](data-lake-analytics-data-lake-tools-get-started.md).
-* **Een Data Lake Analytics-account.**  Zie [een Azure Data Lake Analytics-account maken](data-lake-analytics-get-started-portal.md).
-* **Installeer de voorbeeldgegevens.** In de Azure-Portal, opent u Data Lake Analytics-account en klikt u op **voorbeeldscripts** Klik in het menu links **Copy Sample Data**. 
+* **Een Data Lake Analytics-account.**  Zie [maken van een Azure Data Lake Analytics-account](data-lake-analytics-get-started-portal.md).
+* **Installeer de voorbeeldgegevens.** In de Azure-Portal, opent u Data Lake Analytics-account en klikt u op **voorbeeldscripts** in het linkermenu en klik vervolgens op **Copy Sample Data**. 
 
 ## <a name="connect-to-azure"></a>Verbinding maken met Azure
-Voordat u kunt bouwen en testen van de U-SQL-scripts, moet u eerst verbinding met Azure.
+Voordat u kunt bouwen en testen van een U-SQL-scripts, moet u eerst verbinding maken met Azure.
 
 **Verbinding maken met Data Lake Analytics**
 
@@ -45,18 +44,18 @@ Voordat u kunt bouwen en testen van de U-SQL-scripts, moet u eerst verbinding me
 
 **Om te bladeren van uw Data Lake Analytics-accounts**
 
-1. Open in Visual Studio **Server Explorer** door press **CTRL + ALT + S**.
-2. Vouw in **Server Explorer** achtereenvolgens **Azure** en **Data Lake Analytics** uit. U ziet een lijst met uw Data Lake Analytics-accounts, als u die hebt. U kunt vanuit de studio Data Lake Analytics-accounts maken. Zie [Aan de slag met Azure Data Lake Analytics met Azure Portal](data-lake-analytics-get-started-portal.md) of [Aan de slag met Azure Data Lake Analytics met Azure PowerShell](data-lake-analytics-get-started-powershell.md) voor meer informatie over het maken van een account.
+1. Open in Visual Studio, **Server Explorer** door press **CTRL + ALT + S**.
+2. Vouw in **Server Explorer** achtereenvolgens **Azure** en **Data Lake Analytics** uit. U ziet een lijst met uw Data Lake Analytics-accounts, als u die hebt. U kunt geen Data Lake Analytics-accounts maken vanuit de studio. Zie [Aan de slag met Azure Data Lake Analytics met Azure Portal](data-lake-analytics-get-started-portal.md) of [Aan de slag met Azure Data Lake Analytics met Azure PowerShell](data-lake-analytics-get-started-powershell.md) voor meer informatie over het maken van een account.
 
 ## <a name="develop-u-sql-application"></a>U-SQL-toepassing ontwikkelen
-Een U-SQL-toepassing is meestal een U-SQL-script. Zie voor meer informatie over U-SQL, [aan de slag met U-SQL](data-lake-analytics-u-sql-get-started.md).
+Een U-SQL-toepassing is voornamelijk een U-SQL-script. Zie voor meer informatie over U-SQL, [aan de slag met U-SQL](data-lake-analytics-u-sql-get-started.md).
 
-U kunt de gebruiker gedefinieerde operators toevoeging toevoegen aan de toepassing.  Zie voor meer informatie [ontwikkelen van U-SQL door de gebruiker gedefinieerde operators voor Data Lake Analytics-taken](data-lake-analytics-u-sql-develop-user-defined-operators.md).
+U kunt de gebruiker gedefinieerde operators toevoeging toevoegen aan de toepassing.  Zie voor meer informatie, [ontwikkelen van U-SQL-gebruiker gedefinieerde operators voor Data Lake Analytics-taken](data-lake-analytics-u-sql-develop-user-defined-operators.md).
 
 **Een Data Lake Analytics-taak maken en verzenden**
 
 1. Klik op de **bestand > Nieuw > Project**.
-2. Selecteer het type Project U-SQL.
+2. Selecteer het Project U-SQL-type.
 
     ![nieuw U-SQL Visual Studio-project](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-new-project.png)
 3. Klik op **OK**. Visual studio maakt een oplossing met een bestand Script.usql.
@@ -139,8 +138,8 @@ U kunt de gebruiker gedefinieerde operators toevoeging toevoegen aan de toepassi
                 cs_referer,
                 sc_status;
 
-    Zie voor informatie over de U-SQL, [aan de slag met Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md).    
-5. Een nieuw U-SQL-script toevoegen aan uw project en voer de volgende gegevens:
+    Zie voor meer informatie over de U-SQL, [aan de slag met Data Lake Analytics U-SQL-taal](data-lake-analytics-u-sql-get-started.md).    
+5. Een nieuw U-SQL-script toevoegen aan uw project en voer het volgende:
 
         // Query the referrers that ran into errors
         @content =
@@ -151,23 +150,23 @@ U kunt de gebruiker gedefinieerde operators toevoeging toevoegen aan de toepassi
         OUTPUT @content
         TO @"/Samples/Outputs/UnsuccessfulResponses.log"
         USING Outputters.Tsv();
-6. Schakel terug naar het eerste U-SQL-script en vervolgens naar de **indienen** knop, geeft u uw Analytics-account.
-7. Ga naar **Solution Explorer**, klik met de rechtermuisknop op **Script.usql** en klik vervolgens op **Build Script**. Controleer de resultaten in het deelvenster Uitvoer.
+6. Schakel terug naar het eerste U-SQL-script en klik bij de **indienen** knop, de Analytics-account opgeven.
+7. Ga naar **Solution Explorer**, klik met de rechtermuisknop op **Script.usql** en klik vervolgens op **Build Script**. Controleer of de resultaten in het deelvenster Uitvoer.
 8. Ga naar **Solution Explorer**, klik met de rechtermuisknop op **Script.usql** en klik vervolgens op **Submit Script**.
-9. Controleer of de **Analytics-Account** is waar u de taak uitvoeren en klik vervolgens op **indienen**. Het resultaat van het verzenden en de koppeling naar de taak zijn beschikbaar in het resultaatvenster van Data Lake Tools voor Visual Studio wanneer het verzenden is voltooid.
-10. Wacht totdat de taak is voltooid.  Als de taak is mislukt, waarschijnlijk ontbreken het bronbestand.  Zie de sectie vereisten van deze zelfstudie. Zie voor aanvullende informatie voor probleemoplossing [Monitor en Azure Data Lake Analytics-taken oplossen](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
+9. Controleer of de **Analytics-Account** waar u de taak uitvoeren en klik vervolgens op de is **indienen**. Het resultaat van het verzenden en de koppeling naar de taak zijn beschikbaar in het resultaatvenster van Data Lake Tools voor Visual Studio wanneer het verzenden is voltooid.
+10. Wacht totdat de taak is voltooid.  Als de taak is mislukt, is het zeer waarschijnlijk het bronbestand ontbreekt.  Zie de sectie vereisten van deze zelfstudie. Zie voor meer informatie over probleemoplossing [Monitor en Azure Data Lake Analytics-taken oplossen](data-lake-analytics-monitor-and-troubleshoot-jobs-tutorial.md).
 
-    Als de taak is voltooid, ziet u het volgende scherm:
+    Wanneer de taak is voltooid, ziet u het volgende scherm:
 
-    ![Data lake analytics analyseren weblogboeken websitelogboeken](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
-11. Herhaal stap 7 - 10 voor **Script1.usql**.
+    ![Data lake analytics analyseren weblogs websitelogboeken](./media/data-lake-analytics-analyze-weblogs/data-lake-analytics-analyze-weblogs-job-completed.png)
+11. Herhaal nu stap 7: 10 voor **Script1.usql**.
 
 **De taakuitvoer weergeven**
 
 1. Ga naar **Server Explorer**, vouw **Azure** uit, vouw **Data Lake Analytics** uit, vouw uw Data Lake Analytics-account uit, vouw **Storage Accounts** uit, klik met de rechtermuisknop op het Data Lake Storage-standaardaccount en klik vervolgens op **Explorer**.
-2. Dubbelklik op **voorbeelden** open de map en dubbelklikt u vervolgens op **uitvoer**.
+2. Dubbelklik op **voorbeelden** naar de map wilt openen, en dubbelklik vervolgens op **uitvoer**.
 3. Dubbelklik op **UnsuccessfulResponsees.log**.
-4. U kunt ook het uitvoerbestand binnen de grafiekweergave van de taak dubbelklikken om gaat u rechtstreeks naar de uitvoer.
+4. U kunt ook dubbelklikken op het uitvoerbestand in de diagramweergave van de taak om Ga rechtstreeks naar de uitvoer.
 
 ## <a name="see-also"></a>Zie ook
 Om aan de slag te gaan met Data Lake Analytics met verschillende hulpprogramma's, zie:

@@ -7,16 +7,16 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: a64ada61b2edd0a5c5d2314125b7e2a23444a398
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: faffd919e1c57f2dff21c42c2294a06eb82a2c0a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058680"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43092607"
 ---
 # <a name="use-draft-with-azure-kubernetes-service-aks"></a>Draft gebruiken met Azure Kubernetes Service (AKS)
 
-Concept is een open-source-hulpprogramma dat helpt pakket en implementeren van toepassingscontainers in een Kubernetes-cluster, zodat u zich kunt concentreren op de dev-cyclus--de 'inner loop' geconcentreerd ontwikkelen van. Concept werkt als de code wordt ontwikkeld, maar voordat u vastlegt op versiebeheer. Met Draft, kunt u snel een Kubernetes-toepassing te implementeren als er codewijzigingen optreden. Zie voor meer informatie over ontwerp, de [ontwerp-documentatie op Github][draft-documentation].
+Concept is een open-source-hulpprogramma dat helpt pakket en implementeren van toepassingscontainers in een Kubernetes-cluster, zodat u zich kunt concentreren op basis van de cyclus dev - de 'inner loop' geconcentreerd ontwikkelen van. Concept werkt als de code wordt ontwikkeld, maar voordat u vastlegt op versiebeheer. Met Draft, kunt u snel een Kubernetes-toepassing te implementeren als er codewijzigingen optreden. Zie voor meer informatie over ontwerp, de [ontwerp-documentatie op Github][draft-documentation].
 
 Dit artikel ziet u hoe u kunt Draft gebruiken met een Kubernetes-cluster in AKS.
 

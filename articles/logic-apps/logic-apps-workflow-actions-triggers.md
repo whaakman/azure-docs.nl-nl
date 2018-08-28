@@ -5,17 +5,16 @@ services: logic-apps
 ms.service: logic-apps
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
-ms.topic: reference
-ms.date: 06/22/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 427964a6651dd4ab71d0029f89e40afdd34d162a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.topic: reference
+ms.date: 06/22/2018
+ms.openlocfilehash: 8adfd0b3d6d87834441ab87af194de141b77af34
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390701"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43093615"
 ---
 # <a name="trigger-and-action-types-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Documentatie over de trigger en actie typen voor Definitietaal van werkstroom in Azure Logic Apps
 
@@ -158,6 +157,7 @@ Deze trigger wordt gecontroleerd of *polls* een eindpunt met behulp van [Microso
 |---------|------|-------------| 
 | headers | JSON-Object | De headers van de reactie | 
 | hoofdtekst | JSON-Object | De hoofdtekst van het antwoord | 
+| Statuscode | Geheel getal | De statuscode van het antwoord | 
 |||| 
 
 *Voorbeeld*
@@ -330,6 +330,7 @@ Deze trigger wordt gecontroleerd of het opgegeven eindpunt op basis van de opgeg
 |---------|------|-------------| 
 | headers | JSON-Object | De headers van de reactie | 
 | hoofdtekst | JSON-Object | De hoofdtekst van het antwoord | 
+| Statuscode | Geheel getal | De statuscode van het antwoord | 
 |||| 
 
 *Vereisten voor binnenkomende aanvragen*
@@ -337,7 +338,7 @@ Deze trigger wordt gecontroleerd of het opgegeven eindpunt op basis van de opgeg
 Als u wilt werken ook met uw logische app, moet het eindpunt in overeenstemming zijn met een specifieke triggerpatroon of het contract en herkent deze eigenschappen:  
   
 | Antwoord | Vereist | Beschrijving | 
-|----------|----------|-------------|  
+|----------|----------|-------------| 
 | Statuscode | Ja | De ' 200 OK ' statuscode wordt een uitvoering gestart. Een uitvoering elke andere statuscode niet wordt gestart. | 
 | De koptekst opnieuw proberen na | Nee | Het aantal seconden totdat de logische app het eindpunt opnieuw peilt | 
 | Location-header | Nee | De URL om aan te roepen op basis van de volgende pollinginterval. Indien niet opgegeven, wordt de oorspronkelijke URL gebruikt. | 
@@ -424,6 +425,7 @@ Sommige waarden, zoals <*type methode*>, zijn beschikbaar voor zowel de `"subscr
 |---------|------|-------------| 
 | headers | JSON-Object | De headers van de reactie | 
 | hoofdtekst | JSON-Object | De hoofdtekst van het antwoord | 
+| Statuscode | Geheel getal | De statuscode van het antwoord | 
 |||| 
 
 *Voorbeeld*
@@ -1957,7 +1959,7 @@ Deze actie wordt een *voorwaardelijke statement*, evalueert een expressie die ee
 
 | Waarde | Type | Beschrijving | 
 |-------|------|-------------| 
-| <*Voorwaarde*> | JSON-Object | De voorwaarde, dit kan een expressie om te evalueren | 
+| <*voorwaarde*> | JSON-Object | De voorwaarde, dit kan een expressie om te evalueren | 
 | <*actie-1*> | JSON-Object | De actie om uit te voeren wanneer <*voorwaarde*> resulteert in waar | 
 | <*actie-definitie*> | JSON-Object | De definitie voor de actie | 
 | <*actie-2*> | JSON-Object | De actie om uit te voeren wanneer <*voorwaarde*> wordt geëvalueerd als onwaar | 
@@ -2217,7 +2219,7 @@ Deze lusactie bevat acties die worden uitgevoerd totdat de opgegeven voorwaarde 
 | <*naam van de actie*> | Reeks | De naam voor de actie die u wilt uitvoeren binnen de lus | 
 | <*actie-type*> | Reeks | Het actietype dat uit te voeren | 
 | <*actie-invoer*> | Verschillende | De invoer voor de actie om uit te voeren | 
-| <*Voorwaarde*> | Reeks | De voorwaarde of expressie om te evalueren nadat alle acties in de lus uitgevoerd | 
+| <*voorwaarde*> | Reeks | De voorwaarde of expressie om te evalueren nadat alle acties in de lus uitgevoerd | 
 | <*lus: aantal*> | Geheel getal | De limiet op het hoogste aantal lussen die de actie kan worden uitgevoerd. De standaardwaarde `count` waarde is 60. | 
 | <*time-out van de lus*> | Reeks | De limiet voor de meeste tijd die de lus kan worden uitgevoerd. De standaardwaarde `timeout` waarde `PT1H`, dit is de vereiste [ISO 8601-notatie](https://en.wikipedia.org/wiki/ISO_8601). |
 |||| 
@@ -2552,6 +2554,159 @@ Voor een enkele logische app uitvoeren, het aantal acties die worden uitgevoerd 
    "runAfter": {}
 }
 ```
+
+<a name="connector-authentication"></a>
+
+## <a name="authenticate-triggers-or-actions"></a>Triggers of acties verifiëren
+
+HTTP-eindpunten ondersteunen verschillende soorten verificatie. U kunt verificatie instellen voor deze HTTP-triggers en acties:
+
+* [HTTP](../connectors/connectors-native-http.md)
+* [HTTP + Swagger](../connectors/connectors-native-http-swagger.md)
+* [HTTP-webhook](../connectors/connectors-native-webhook.md)
+
+Dit zijn de soorten verificatie die u kunt instellen:
+
+* [Basisverificatie](#basic-authentication)
+* [Verificatie van clientcertificaten](#client-certificate-authentication)
+* [Azure Active Directory (Azure AD) OAuth-verificatie](#azure-active-directory-oauth-authentication)
+
+<a name="basic-authentication"></a>
+
+### <a name="basic-authentication"></a>Basisverificatie
+
+Voor dit verificatietype, de definitie van de trigger of actie kan bevatten een `authentication` JSON-object met deze eigenschappen:
+
+| Eigenschap | Vereist | Waarde | Beschrijving | 
+|----------|----------|-------|-------------| 
+| **type** | Ja | 'Basic' | Het verificatietype dat moet worden gebruikt, die hier 'Basic' | 
+| **gebruikersnaam** | Ja | "@parameters(userNameParam)" | Een parameter die de naam van de gebruiker om te verifiëren voor toegang tot het service-eindpunt van het doel is geslaagd |
+| **Wachtwoord** | Ja | "@parameters(passwordParam)" | Een parameter die wordt doorgegeven bij het wachtwoord om te verifiëren voor toegang tot het doel-service-eindpunt |
+||||| 
+
+Bijvoorbeeld, als volgt de indeling voor de `authentication` -object in de definitie van de trigger of actie. Zie voor meer informatie over het beveiligen van parameters [gevoelige informatie beveiligen](#secure-info). 
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+<a name="client-certificate-authentication"></a>
+
+### <a name="client-certificate-authentication"></a>Verificatie van clientcertificaten
+
+Voor dit verificatietype, de definitie van de trigger of actie kan bevatten een `authentication` JSON-object met deze eigenschappen:
+
+| Eigenschap | Vereist | Waarde | Beschrijving | 
+|----------|----------|-------|-------------| 
+| **type** | Ja | "ClientCertificate" | Het verificatietype dat moet worden gebruikt voor Secure Sockets Layer (SSL)-clientcertificaten | 
+| **pfx** | Ja | <*Base64-gecodeerd-pfx-bestand*> | De met base64 gecodeerde inhoud uit een Personal Information Exchange (PFX)-bestand |
+| **Wachtwoord** | Ja | "@parameters(passwordParam)" | Een parameter met het wachtwoord voor toegang tot het PFX-bestand |
+||||| 
+
+Bijvoorbeeld, als volgt de indeling voor de `authentication` -object in de definitie van de trigger of actie. Zie voor meer informatie over het beveiligen van parameters [gevoelige informatie beveiligen](#secure-info). 
+
+```javascript
+"authentication": {
+   "password": "@parameters('passwordParam')",
+   "pfx": "aGVsbG8g...d29ybGQ=",
+   "type": "ClientCertificate"
+}
+```
+
+<a name="azure-active-directory-oauth-authentication"></a>
+
+### <a name="azure-active-directory-ad-oauth-authentication"></a>Azure Active Directory (AD) OAuth-verificatie
+
+Voor dit verificatietype, de definitie van de trigger of actie kan bevatten een `authentication` JSON-object met deze eigenschappen:
+
+| Eigenschap | Vereist | Waarde | Beschrijving | 
+|----------|----------|-------|-------------| 
+| **type** | Ja | `ActiveDirectoryOAuth` | Het verificatietype dat moet worden gebruikt, namelijk 'ActiveDirectoryOAuth' voor Azure AD OAuth | 
+| **instantie** | Nee | <*URL-voor--token-verlener*> | De URL voor de instantie waarmee het verificatietoken |  
+| **tenant** | Ja | <*tenant-ID*> | De tenant-ID voor de Azure AD-tenant | 
+| **Doelgroep** | Ja | <*resource-tot-toestaan*> | De resource die u wilt dat de autorisatie moet worden gebruikt, bijvoorbeeld: `https://management.core.windows.net/` | 
+| **ClientId** | Ja | <*client-ID*> | De client-ID voor de app toestemming vragen | 
+| **credentialType** | Ja | 'Geheim' of 'Certificaat' | Het referentietype de client wordt gebruikt voor het aanvragen van autorisatie. Deze eigenschap en waarde worden niet weergegeven in het definitie van de onderliggende, maar de vereiste parameters voor het referentietype bepaalt. | 
+| **Wachtwoord** | Ja, alleen voor het referentietype 'Certificaat' | "@parameters(passwordParam)" | Een parameter met het wachtwoord voor toegang tot het PFX-bestand | 
+| **pfx** | Ja, alleen voor het referentietype 'Certificaat' | <*Base64-gecodeerd-pfx-bestand*> | De met base64 gecodeerde inhoud uit een Personal Information Exchange (PFX)-bestand |
+| **secret** | Ja, alleen voor het "Geheim" referentietype | <*geheim voor verificatie*> | Het geheim base64-gecodeerd, die de client voor de aanvragende autorisatie gebruikt |
+||||| 
+
+Bijvoorbeeld, als volgt de indeling voor de `authentication` object wanneer de definitie van de trigger of actie maakt gebruik van het "Geheim" referentietype: Zie voor meer informatie over het beveiligen van parameters [gevoelige informatie beveiligen](#secure-info). 
+
+```javascript
+"authentication": {
+   "audience": "https://management.core.windows.net/",
+   "clientId": "34750e0b-72d1-4e4f-bbbe-664f6d04d411",
+   "secret": "hcqgkYc9ebgNLA5c+GDg7xl9ZJMD88TmTJiJBgZ8dFo="
+   "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+   "type": "ActiveDirectoryOAuth"
+}
+```
+
+<a name="secure-info"></a>
+
+## <a name="secure-sensitive-information"></a>Gevoelige gegevens beveiligen
+
+U kunt parameters gebruiken ter bescherming van gevoelige gegevens die u voor verificatie, zoals gebruikersnamen en wachtwoorden, in de definities van de trigger en actie gebruikt, en de `@parameters()` expressie zodat deze gegevens niet worden weergegeven nadat u uw logica opslaan -App. 
+
+Stel bijvoorbeeld dat u 'Basic' verificatie in de definitie van de trigger of actie. Hier volgt een voorbeeld `authentication` -object dat Hiermee geeft u een gebruikersnaam en wachtwoord:
+
+```javascript
+"HTTP": {
+   "type": "Http",
+   "inputs": {
+      "method": "GET",
+      "uri": "http://www.microsoft.com",
+      "authentication": {
+         "type": "Basic",
+         "username": "@parameters('userNameParam')",
+         "password": "@parameters('passwordParam')"
+      }
+  },
+  "runAfter": {}
+}
+```
+
+In de `parameters` sectie voor de definitie van uw logische app, het definiëren van de parameters die u hebt gebruikt in de definitie van de trigger of actie:
+
+```javascript
+"definition": {
+   "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+   "actions": {
+      "HTTP": {
+      }
+   },
+   "parameters": {
+      "passwordParam": {
+         "type": "securestring"
+      },
+      "userNameParam": {
+         "type": "securestring"
+      }
+   },
+   "triggers": {
+      "HTTP": {
+      }
+   },
+   "contentVersion": "1.0.0.0",
+   "outputs": {}
+},
+```
+
+Als u het maken of een sjabloon voor de implementatie Azure Resource Manager gebruikt, hebt u ook bevatten een buitenste `parameters` sectie voor de Sjabloondefinitie van de. Zie voor meer informatie over het beveiligen van parameters [beveiligde toegang tot uw logische apps](../logic-apps/logic-apps-securing-a-logic-app.md#secure-parameters-and-inputs-within-a-workflow). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

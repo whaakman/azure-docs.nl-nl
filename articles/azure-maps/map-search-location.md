@@ -3,36 +3,33 @@ title: Zoekresultaten met Azure-kaarten weergeven | Microsoft Docs
 description: Hoe u een zoekopdracht uitvoert met Azure Maps aanvragen en vervolgens de resultaten op een kaart Javascrip weergeven
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 08/26/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b0ab271eab45a6f4b05d01713e2e2ddd22a22ea3
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 540faa04573f7fa66b574f6743d42adfe855c571
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746600"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43095252"
 ---
 # <a name="show-search-results-on-the-map"></a>Zoekresultaten weergeven op de kaart
 
-Dit artikel ziet u hoe u een aanvraag zoeken en weergeven van de lijst met zoekresultaten op de kaart. 
+In dit artikel wordt beschreven hoe u zoeken naar de locatie van belang en de lijst met zoekresultaten weergeven op de kaart. 
 
 ## <a name="understand-the-code"></a>De code begrijpen
 
-<iframe height='500' scrolling='no' title='Zoekresultaten op een kaart weergeven' src='//codepen.io/azuremaps/embed/KQbaeM/?height=519&theme-id=0&default-tab=js,result&embed-version=2&editable=true' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>zoekresultaten weergeven op een kaart</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
+<iframe height='305' scrolling='no' title='Zoekresultaten weergeven op een kaart (Service-Module)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>zoekresultaten weergeven op een kaart (Service-Module)</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In de bovenstaande code wordt het eerste vereiste blok van code een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
+In de bovenstaande code wordt het eerste vereiste blok van code vormt een kaartobject en waarmee een client-service wordt gemaakt. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
 
-Het tweede codeblok maakt en voegt een laag van search kledingwinkelketen op de kaart. U kunt zien [toevoegen van een pincode op de kaart](./map-add-pin.md) voor instructies.
+Het tweede blok van code maakt gebruik van Fuzzy zoekopdrachten [Azure Maps Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) om te zoeken naar nuttige plaats. Fuzzy zoeken-API kan elke combinatie van fuzzy invoer verwerken. Het antwoord van de service fuzzy zoeken wordt vervolgens geparseerd in de GeoJSON-indeling en pincodes worden toegevoegd aan de kaart om de punten van belang zijn op de kaart weer te geven. 
 
-Het derde blok van code verzendt een [XMLHttpRequest](https://xhr.spec.whatwg.org/) naar [Azure Maps Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy).
-
-Het laatste blok van code parseert de binnenkomende respons. Voor een geslaagde respons verzamelt het de gegevens voor breedtegraad en lengtegraad voor elke locatie die is geretourneerd. Alle locatiepunten toegevoegd aan de kaart als pins en past u de grenzen van de kaart om weer te geven van alle pincodes.
-
+Het laatste blok van code voegt camera grenzen voor de kaart toe met behulp van de kaart [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) eigenschap.
 
 ## <a name="next-steps"></a>Volgende stappen
 
