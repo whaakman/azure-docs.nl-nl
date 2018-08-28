@@ -1,2 +1,0 @@
->[!NOTE]
-> Als uw werkruimte is bijgewerkt naar de [nieuwe querytaal van Log Analytics](../articles/log-analytics/log-analytics-log-search-upgrade.md), moeten de volgende query’s worden geconverteerd. U kunt het [taalconversieprogramma](../articles/log-analytics/log-analytics-log-search-transition.md#language-converter) gebruiken om deze omzetting uit te voeren.
