@@ -1,0 +1,79 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: ff1a5c52def0c6955ff90b92c0d4b2de44ea4a51
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42889521"
+documentType: LandingData
+title: Documentatie voor Bing Entiteiten zoeken
+metadata:
+  document_id: 6111ada8-aec2-11e7-abc4-cec278b6b50a
+  title: Documentatie voor Bing Webzoekopdrachten - zelfstudies, snelstarts, API-verwijzing | Microsoft Docs
+  description: Informatie over het gebruik van de Bing Webzoekopdrachten-API om resultaten te verkrijgen van het Web die relevant zijn voor query's van gebruikers. Zelfstudies laten zien hoe u apps maakt die gebruikmaken van de service.
+  services: cognitive-services
+  author: v-jerkin
+  manager: cgronlun
+  ms.service: bing-web-search
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/10/2017
+  ms.author: v-jerkin
+abstract:
+  description: De Bing Webzoekopdrachten-API biedt een ervaring die vergelijkbaar is met die van Bing door zoekresultaten te retourneren die volgens Bing relevant zijn voor de query van een gebruiker. Deze resultaten kunnen webpagina's zijn, maar ook afbeeldingen, video's en meer.
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Ga aan de slag met de Bing Webzoekopdrachten-API door een query te maken en het JSON-antwoord te bekijken:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      href: quickstarts/csharp
+      text: C&#35;
+    - image:
+        src: https://docs.microsoft.com/en-us/media/logos/logo_gopher.svg
+      href: quickstarts/go
+      text: Aan de slag
+    - image:
+        src: media/index/logo_java.svg
+      href: quickstarts/java
+      text: Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      href: quickstarts/nodejs
+      text: Node.js
+    - image:
+        src: media/index/logo_php.svg
+      href: quickstarts/php
+      text: PHP
+    - image:
+        src: media/index/logo_python.svg
+      href: quickstarts/python
+      text: Python
+    - image:
+        src: media/index/logo_ruby.svg
+      href: quickstarts/ruby
+      text: Ruby
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: 'Leer apps te ontwikkelen die gebruikmaken van de Bing Webzoekopdrachten-API:'
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="tutorial-bing-web-search-single-page-app">Web-app van één pagina</a> &#124; <a href="tutorial-bing-web-search-single-page-app-source">Broncode</a>
+    - html: <a href="computer-vision-web-search-tutorial.md">Mobiele Visual Search-app</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API's
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference">Bing Webzoekopdrachten-API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v5-reference/">Bing Webzoekopdrachten-API v5</a></p>
+    - title: SDK's
+      html: <p><a href="sdk.md">Bing Zoeken-SDK</a></p>

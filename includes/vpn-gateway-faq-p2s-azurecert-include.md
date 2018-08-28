@@ -9,10 +9,10 @@ ms.date: 03/21/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 97d33bfcc8251b10ba121b7fb013800904450563
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
+ms.lasthandoff: 08/24/2018
 ms.locfileid: "30197070"
 ---
 [!INCLUDE [P2S FAQ All](vpn-gateway-faq-p2s-all-include.md)]
@@ -25,19 +25,19 @@ Ja. Voorheen konen alleen zelfondertekende basiscertificaten worden gebruikt. U 
 
 U kunt uw Enterprise PKI-oplossing (uw interne PKI), Azure PowerShell, MakeCert en OpenSSL gebruiken.
 
-### <a name="certsettings"></a>Zijn er instructies voor de instellingen van het certificaat en parameters?
+### <a name="certsettings"></a>Zijn er instructies voor het instellen van het certificaat en de parameters?
 
-* **Interne PKI/Enterprise PKI-oplossing:** raadpleegt u de stappen voor het [certificaten genereren](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
+* **Interne PKI/Enterprise PKI-oplossing:** zie de stappen om [certificaten te genereren](../articles/vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md#generatecert).
 
-* **Azure PowerShell:** Zie de [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md) artikel voor stappen.
+* **Azure PowerShell:** zie het [Azure PowerShell](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md)-artikel voor een stappenplan.
 
-* **MakeCert:** Zie de [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md) artikel voor stappen.
+* **MakeCert:** zie het [MakeCert](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site-makecert.md)-artikel voor een stappenplan.
 
 * **OpenSSL:** 
 
-    * Wanneer het exporteren van certificaten, zorg er dan voor dat het basiscertificaat converteren naar Base64.
+    * Bij het exporteren van certificaten, moet u het basiscertificaat naar Base64 converteren.
 
-    * Voor het certificaat van de client:
+    * Voor het clientcertificaat:
 
-      * Geef de lengte als 4096 bij het maken van de persoonlijke sleutel.
-      * Bij het maken van het certificaat voor de *-extensies* parameter opgeven *usr_cert*.
+      * Bij het maken van de persoonlijke sleutel, moet u de lengte 4096 opgeven.
+      * Bij het maken van het certificaat moet u voor de paramter *-extensies* de waarde *usr_cert* opgeven.

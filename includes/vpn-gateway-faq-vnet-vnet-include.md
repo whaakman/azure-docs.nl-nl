@@ -9,10 +9,10 @@ ms.date: 04/05/2018
 ms.author: cherylmc
 ms.custom: include file
 ms.openlocfilehash: 66ff1e2e02728e05cb0aeedce90de1882a8804ce
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
+ms.lasthandoff: 08/24/2018
 ms.locfileid: "30921305"
 ---
 De veelgestelde vragen voor VNet-naar-VNet zijn van toepassing op VPN Gateway-verbindingen. Zie [Peering op virtueel netwerk](../articles/virtual-network/virtual-network-peering-overview.md) voor VNet-peering
@@ -25,9 +25,9 @@ VNet-naar-VNet-verkeer binnen dezelfde regio is gratis in beide richtingen wanne
 
 Nee. Voor VNet-naar-VNet-verkeer wordt het Microsoft-netwerk gebruikt in plaats van internet.
 
-### <a name="can-i-establish-a-vnet-to-vnet-connection-across-aad-tenants"></a>Kan ik een VNet-naar-VNet-verbinding via AAD Tenants maken?
+### <a name="can-i-establish-a-vnet-to-vnet-connection-across-aad-tenants"></a>Kan ik een VNet-naar-VNet-verbinding maken tussen verschillende AAD-tenants?
 
-Ja, werkt de VNet-naar-VNet-verbindingen met behulp van Azure VPN-gateways voor AAD-Tenants.
+Ja, VNet-naar-VNet-verbindingen met behulp van Azure VPN-gateways werken tussen verschillende AAD-tenants.
 
 ### <a name="is-vnet-to-vnet-traffic-secure"></a>Is het VNet-naar-VNet-verkeer beveiligd?
 
