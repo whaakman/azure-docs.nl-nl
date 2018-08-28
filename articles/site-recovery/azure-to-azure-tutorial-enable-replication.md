@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: aaed3dd5a2a7b32d24aa8b19dab870c28e6f58ec
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 4638b697dcaa0d4c11bae1878a94f76f6237d4a4
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216179"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42154778"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms-to-a-secondary-azure-region"></a>Herstel na noodgevallen instellen van Azure-VM’s naar een secundaire Azure-regio
 
@@ -114,8 +114,9 @@ Meer informatie over [ingebouwde Azure RBAC-rollen](../role-based-access-control
 2. Bij **Bron** selecteert u **Azure**.
 3. Bij **Bronlocatie** selecteert u de Azure-bronregio waar uw VM’s momenteel worden uitgevoerd.
 4. Selecteer het **Azure virtual machine-implementatiemodel** voor VM’s: **Resourcemanager** of **Klassiek**.
-5. Selecteer de **Bronresourcegroep** voor Resourcemanager-VM's of **cloudservice** voor klassieke VM’s.
-6. Klik op **OK** om de instellingen op te slaan.
+5. Selecteer het **Bronabonnement** waar de virtuele machines worden uitgevoerd. Dit kan elk abonnement zijn binnen dezelfde Azure Active Directory-tenant waar uw Recovery Services-kluis zich bevindt.
+6. Selecteer de **Bronresourcegroep** voor Resource Manager-VM's of **cloudservice** voor klassieke VM’s.
+7. Klik op **OK** om de instellingen op te slaan.
 
 ### <a name="select-the-vms"></a>De VM’s selecteren
 
@@ -134,9 +135,11 @@ Site Recovery maakt standaardinstellingen en replicatiebeleid voor de doelregio.
   ![Instellingen configureren](./media/azure-to-azure-tutorial-enable-replication/settings.png)
 
 
+- **Doelabonnement**: het doelabonnement dat wordt gebruikt voor herstel na noodgevallen. Standaard is het doelabonnement niet hetzelfde als het bronabonnement. Klik op 'Aanpassen' om een ander doelabonnement binnen dezelfde Azure Active Directory-tenant te selecteren.
+
 - **Doellocatie**: de doelregio die wordt gebruikt voor herstel na noodgevallen. Wij raden aan dezelfde doellocatie te gebruiken als de locatie van de Site Recovery-kluis.
 
-- **Doelresourcegroep**: de resourcegroep in de doelregio waarin Azure-VM’s zich na een failover bevinden. Site Recovery maakt standaard een nieuwe resourcegroep in de doelregio met het achtervoegsel 'asr'. resourcegroep-locatie van de doelresourcegroep mag elke regio zijn, behalve de regio waar uw virtuele bronmachines worden gehost. 
+- **Doelresourcegroep**: de resourcegroep in de doelregio waarin Azure-VM’s zich na een failover bevinden. Site Recovery maakt standaard een nieuwe resourcegroep in de doelregio met het achtervoegsel 'asr'. resourcegroep-locatie van de doelresourcegroep mag elke regio zijn, behalve de regio waar uw virtuele bronmachines worden gehost.
 
 - **Virtueel doelnetwerk**: het netwerk in de doelregio waar VM’s zich na een failover bevinden.
   Site Recovery maakt standaard een nieuw virtueel netwerken (met subnets) in de doelregio met het achtervoegsel 'asr'.

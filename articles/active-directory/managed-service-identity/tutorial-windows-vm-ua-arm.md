@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/10/2018
 ms.author: daveba
-ms.openlocfilehash: 9cc7683b260a9afbe4aee006a22af9c4834c4eb1
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: db4d423a09b6b37fd0ba88d466319cb5da4fdedf
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248384"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41917698"
 ---
 # <a name="tutorial-use-a-user-assigned-managed-service-identity-on-a-windows-vm-to-access-azure-resource-manager"></a>Zelfstudie: Toegang krijgen tot Azure Resource Manager met een door de gebruiker toegewezen Managed Service Identity op een Windows-VM
 
@@ -42,8 +42,12 @@ In deze zelfstudie leert u procedures om het volgende te doen:
 - Als u niet bekend bent met Managed Service Identity, raadpleeg dan de [overzichtssectie](overview.md). **Zorg ervoor dat u de [verschillen tussen door het systeem en door de gebruiker toegewezen identiteiten](overview.md#how-does-it-work)** kent.
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
 - Om de stappen voor het maken van de vereiste resources en het rolbeheer in deze zelfstudie uit te voeren, moet uw account 'Eigenaar'-machtigingen hebben voor het juiste bereik (uw abonnement of resourcegroep). Voor hulp bij roltoewijzing gaat u naar [Op rollen gebaseerd toegangsbeheer gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](/azure/role-based-access-control/role-assignments-portal).
-
-Als u PowerShell lokaal wilt installeren en gebruiken, is voor deze zelfstudie versie 5.7 of hoger van de Azure PowerShell-module vereist. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Login-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
+- Als u ervoor kiest om PowerShell lokaal te installeren en gebruiken, is voor deze zelfstudie versie 5.7.0 of hoger van de Azure PowerShell-module vereist. Voer ` Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). 
+- Als u PowerShell lokaal uitvoert, moet u ook het volgende doen: 
+    - Voer `Login-AzureRmAccount` uit om een verbinding op te zetten met Azure.
+    - Installeer de [nieuwste versie van PowerShellGet](/powershell/gallery/installing-psget#for-systems-with-powershell-50-or-newer-you-can-install-the-latest-powershellget).
+    - Voer `Install-Module -Name PowerShellGet -AllowPrerelease` uit om de voorlopige versie van de `PowerShellGet`-module op te halen (mogelijk moet u met `Exit` de huidige PowerShell-sessie afsluiten nadat u met deze opdracht de `AzureRM.ManagedServiceIdentity`-module hebt geïnstalleerd).
+    - Voer `Install-Module -Name AzureRM.ManagedServiceIdentity -AllowPrerelease` uit om de voorlopige versie van de `AzureRM.ManagedServiceIdentity`-module te installeren en de aan de gebruiker toegewezen identiteitsbewerkingen in dit artikel uit te voeren.
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
@@ -83,10 +87,10 @@ Een door de gebruiker toegewezen identiteit wordt gemaakt als een zelfstandige A
 [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```azurepowershell-interactive
-Get-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
+New-AzureRmUserAssignedIdentity -ResourceGroupName myResourceGroupVM -Name ID1
 ```
 
-Het antwoord bevat details voor de gemaakte door de gebruiker toegewezen identiteit, vergelijkbaar met het volgende voorbeeld. Noteer de `Id`-waarde voor uw door de gebruiker toegewezen identiteit, omdat deze bij de volgende stap wordt gebruikt:
+Het antwoord bevat details voor de gemaakte door de gebruiker toegewezen identiteit, vergelijkbaar met het volgende voorbeeld. Noteer de waarden voor `Id` en `ClientId` voor de door de gebruiker toegewezen identiteit, aangezien deze worden gebruikt in volgende stappen:
 
 ```azurepowershell
 {
@@ -148,10 +152,10 @@ Voor de rest van de zelfstudie werkt u op de virtuele machine die we eerder hebb
 
 4. Nu u een **Verbinding met extern bureaublad** met de virtuele machine hebt gemaakt, opent u **PowerShell** in de externe sessie.
 
-5. Verzend met `Invoke-WebRequest` van Powershell een aanvraag naar het lokale Managed Service Identity-eindpunt om een toegangstoken voor Azure Resource Manager op te halen.
+5. Verzend met `Invoke-WebRequest` van Powershell een aanvraag naar het lokale Managed Service Identity-eindpunt om een toegangstoken voor Azure Resource Manager op te halen.  De waarde voor `client_id` is de waarde die wordt geretourneerd bij het [maken van de door de gebruiker toegewezen beheerde identiteit](#create-a-user-assigned-identity).
 
     ```azurepowershell
-    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=73444643-8088-4d70-9532-c3a0fdc190fz&resource=https://management.azure.com' -Method GET -Headers @{Metadata="true"}
+    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&client_id=af825a31-b0e0-471f-baea-96de555632f9&resource=https://management.azure.com/' -Method GET -Headers @{Metadata="true"}
     $content = $response.Content | ConvertFrom-Json
     $ArmToken = $content.access_token
     ```
@@ -166,7 +170,7 @@ Gebruik het in de vorige stap opgehaalde toegangstoken om toegang te krijgen tot
 Het antwoord bevat de gegevens van de specifieke resourcegroep, vergelijkbaar met het volgende voorbeeld:
 
 ```json
-{"id":"/subscriptions/<SUBSCRIPTIONID>/resourceGroups/TestRG","name":"myResourceGroupVM","location":"eastus","properties":{"provisioningState":"Succeeded"}}
+{"id":"/subscriptions/<SUBSCRIPTIONID>/resourceGroups/myResourceGroupVM","name":"myResourceGroupVM","location":"eastus","properties":{"provisioningState":"Succeeded"}}
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

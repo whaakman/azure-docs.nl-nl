@@ -3,18 +3,18 @@ title: Deep dive - advanced analytics - Azure HDInsight
 description: Informatie over hoe u met geavanceerde analyse worden algoritmen gebruikt voor het verwerken van big data.
 services: hdinsight
 author: ashishthaps
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/14/2017
 ms.author: ashishth
-ms.openlocfilehash: ad1c96d1d1578489ae16b61e67a73f02cd461e0e
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 40536aae15f2ae9fa5e186cdbea1f75f7d264437
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591904"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047137"
 ---
 # <a name="deep-dive---advanced-analytics"></a>Deep dive - geavanceerde analyses
 

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 08/27/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: f6a2b3f242e5989d0c72083eef4faad9c4798cfe
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 67e82a4809253123e15305b5f2ecd8cc5f7ee4ed
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42054442"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046847"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Een Kubernetes-cluster implementeren in Azure Stack
 
@@ -88,9 +88,9 @@ Als u wilt beginnen, zorg ervoor dat u de juiste machtigingen hebt en dat uw Azu
 
 De service-principal toegang geven aan uw abonnement, zodat de principal-resources kunt maken.
 
-1.  Aanmelden bij de [beheerportal](https://adminportal.local.azurestack.external).
+1.  Aanmelden bij de [Azure Stack-portal](https://portal.local.azurestack.external/).
 
-1. Selecteer **meer services** > **gebruikersabonnementen** > **+ toevoegen**.
+1. Selecteer **meer services** > **abonnementen**.
 
 1. Selecteer het abonnement dat u hebt gemaakt.
 

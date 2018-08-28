@@ -1,86 +1,80 @@
 ---
-title: Zoekopdrachten opslaan en een pincode gegevensassets in Azure Data Catalog | Microsoft Docs
-description: Hoe kan ik artikel mogelijkheden in Azure Data Catalog is gemarkeerd voor het opslaan van gegevensbronnen en gegevensassets voor later gebruik.
+title: Zoekopdrachten en pincode gegevensassets opslaat in Azure Data Catalog
+description: Hoe kan ik artikel markeren mogelijkheden in Azure Data Catalog voor het opslaan van gegevensbronnen en gegevensassets voor later gebruik.
 services: data-catalog
-documentationcenter: 
 author: steelanddata
-manager: NA
-editor: 
-tags: 
+ms.author: maroche
 ms.assetid: 6bd00a81-820d-4b7c-91fa-ab09e575474c
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: maroche
-ms.openlocfilehash: cced7b8253a45d990371d8f95fe36b580c2debbf
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 786d65eaf667ae8ae9dc2c91d3113f5057a98a27
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053808"
 ---
-# <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Zoekopdrachten en pincode gegevensassets opslaan in Azure Data Catalog
+# <a name="save-searches-and-pin-data-assets-in-azure-data-catalog"></a>Zoekopdrachten en pincode gegevensassets opslaat in Azure Data Catalog
 ## <a name="introduction"></a>Inleiding
-Azure Data Catalog bevat mogelijkheden voor detectie van gegevensbronnen. U kunt snel zoeken en filteren van de catalogus gegevensbronnen vinden en begrijpen van het beoogde gebruik, waardoor het gemakkelijker de juiste gegevens vinden voor de taak op dat moment.
+Azure Data Catalog biedt mogelijkheden voor detectie van gegevensbronnen. U kunt snel zoeken en filteren van de catalogus naar gegevensbronnen en informatie over het beoogde gebruik, waardoor het gemakkelijker te vinden van de juiste gegevens voor de taak bij de hand.
 
-Maar wat gebeurt er als u wilt regelmatig werken met dezelfde gegevens? En wat gebeurt er als u en andere gebruikers regelmatig bij te dragen uw kennis met de dezelfde gegevensbronnen in de catalogus? In deze situaties kan herhaaldelijk uitgeven de zoekopdrachten die dezelfde zijn inefficiënt. Dit is waar opgeslagen zoekopdracht en vastgemaakt gegevensassets kunnen helpen.
+Maar wat gebeurt er als u wilt regelmatig werken met dezelfde gegevens? En wat gebeurt er als u en andere gebruikers regelmatig bij te dragen uw kennis met de dezelfde gegevensbronnen in de catalogus? In deze situaties kan om uit te geven meerdere keren dezelfde zoekopdrachten zijn inefficiënt. Dit is waar de opgeslagen zoekopdracht en vastgemaakte gegevensassets kunnen helpen.
 
 ## <a name="saved-searches"></a>Opgeslagen zoekopdrachten
-Een opgeslagen zoekopdracht in Data Catalog is een definitie van een herbruikbare, per gebruiker zoeken. U kunt een zoekopdracht, zoals zoektermen, labels en andere filters definiëren en vervolgens opslaan. U kunt de definitie van de opgeslagen zoekopdracht later om te retourneren van alle gegevensassets die overeenkomen met de zoekcriteria opnieuw uitvoeren.
+Een opgeslagen zoekopdracht in Data Catalog is een definitie van een herbruikbare, per gebruiker zoeken. U kunt een zoekopdracht, met inbegrip van zoektermen, labels en andere filters definiëren en vervolgens op te slaan. U kunt de definitie van de opgeslagen zoekopdracht later om te retourneren van alle gegevensassets die overeenkomen met de zoekcriteria opnieuw uitvoeren.
 
-### <a name="create-a-saved-search"></a>Maken van een opgeslagen zoekopdracht
-Ga als volgt te werk voor het maken van een opgeslagen zoekopdracht:
+### <a name="create-a-saved-search"></a>Een opgeslagen zoekactie maken
+Voor het maken van een opgeslagen zoekopdracht, het volgende doen:
 1. In de Azure Data Catalog-portal in de **huidige zoekopdracht** venster, klikt u op **opslaan**. 
 
     ![Koppeling van huidige zoekopdracht instellingen opslaan](./media/data-catalog-how-to-save-pin/01-save-option.png) 
 
-2. Voer de zoekcriteria die u wilt gebruiken en klik vervolgens op **opslaan**.
+2. Voer de zoekcriteria die u wilt gebruiken, en klik vervolgens op **opslaan**.
 
-    ![Huidige zoekinstellingen opgeslagen zoeknaam](./media/data-catalog-how-to-save-pin/02-name.png)
+    ![Huidige instellingen voor het zoeken die op de naam van opgeslagen zoekopdracht](./media/data-catalog-how-to-save-pin/02-name.png)
 
-3. Wanneer u wordt gevraagd, typt u een naam voor de opgeslagen zoekopdracht. Kies een naam die zinnig is en dat de gegevensassets die worden geretourneerd door de zoekopdracht beschrijft.
+3. Wanneer u wordt gevraagd, voert u een naam op voor de opgeslagen zoekopdracht. Kies een naam die zinvol is en met de beschrijving van de gegevensassets die door de zoekopdracht worden geretourneerd.
 
 ### <a name="manage-saved-searches"></a>Opgeslagen zoekopdrachten beheren
-Nadat u hebt opgeslagen zoekopdrachten voor een of meer, een **opgeslagen zoekacties** optie wordt weergegeven onder de **huidige zoekopdracht** vak. Wanneer de lijst wordt uitgevouwen, worden alle opgeslagen zoekopdrachten worden weergegeven.
+Nadat u hebt opgeslagen zoekopdrachten voor een of meer, een **opgeslagen zoekopdrachten** optie wordt weergegeven onder de **huidige zoekopdracht** vak. Wanneer de lijst wordt uitgevouwen, worden alle opgeslagen zoekopdrachten worden weergegeven.
 
  ![Lijst met opgeslagen zoekopdrachten](./media/data-catalog-how-to-save-pin/03-list.png)
 
 Het volgende doen:
 
-* Selecteer een opgeslagen zoekopdracht in de lijst voor het uitvoeren van een zoekopdracht.
+* Voor het uitvoeren van een zoekopdracht, selecteert u een opgeslagen zoekopdracht in de lijst.
 
-* Een lijst van beheeropties voor een opgeslagen zoekopdracht wilt weergeven, klikt u op de pijl-omlaag naast de naam van de zoekopdracht.
+* Een lijst van opties voor een opgeslagen zoekopdracht wilt weergeven, klikt u op de pijl-omlaag naast de naam van de zoekopdracht.
 
     ![Opties voor het beheer opgeslagen zoekopdrachten](./media/data-catalog-how-to-save-pin/04-managing.png)
 
 * Als u wilt een nieuwe naam voor de opgeslagen zoekopdracht invoeren, selecteert u **naam**. De definitie van de zoekopdracht is niet gewijzigd.
 
-* Als de opgeslagen zoekopdracht uit de lijst, selecteert u **verwijderen**, en vervolgens de verwijdering te bevestigen.
+* Als u wilt de opgeslagen zoekopdracht verwijderen uit de lijst, selecteer **verwijderen**, en Bevestig de verwijdering.
 
-* Selecteer de opgeslagen zoekopdracht als uw zoekopdracht standaard markeert, **opslaan als standaard**. Als u een 'empty' zoekopdracht vanaf de startpagina van Azure Data Catalog uitvoert, wordt uw standaard-zoekopdracht wordt uitgevoerd. Bovendien de zoekopdracht die gemarkeerd als de standaardzoekopdracht wordt weergegeven boven aan de **opgeslagen zoekacties** lijst.
+* Als u wilt markeren de opgeslagen zoekopdracht als uw Standaardzoekopdracht, selecteer **opslaan als standaard**. Als u een 'lege' zoekopdracht vanaf de startpagina van Azure Data Catalog uitvoert, wordt uw standaardzoekopdracht wordt uitgevoerd. Bovendien de zoekopdracht die gemarkeerd als de standaardzoekopdracht wordt weergegeven aan de bovenkant van de **opgeslagen zoekopdrachten** lijst.
 
-### <a name="organizational-saved-searches"></a>Organisatie opgeslagen zoekopdrachten
-Alle gebruikers in uw organisatie kunt zoekopdrachten voor eigen gebruik opslaan. Data Catalog beheerders kunnen ook gezocht naar alle gebruikers binnen de organisatie opslaan. Wanneer beheerders een zoekopdracht opslaat, ze worden weergegeven met een **Share binnen het bedrijf** optie. Als u deze optie selecteert, deelt de opgeslagen zoekopdracht voor alle gebruikers in de organisatie.
+### <a name="organizational-saved-searches"></a>Organisatie-opgeslagen zoekopdrachten
+Alle gebruikers in uw organisatie kunt zoekopdrachten voor eigen gebruik opslaan. Data Catalog-beheerders kunnen ook zoekopdrachten voor alle gebruikers binnen de organisatie opslaan. Wanneer beheerders een zoekopdracht wilt opslaan, ze worden weergegeven met een **delen binnen het bedrijf** optie. Als u deze optie selecteert, deelt de opgeslagen zoekopdracht voor alle gebruikers in de organisatie.
 
- ![Organisatie opgeslagen zoekopdrachten](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
+ ![Organisatie-opgeslagen zoekopdrachten](./media/data-catalog-how-to-save-pin/08-organizational-saved-search.png)
 
 ## <a name="pinned-data-assets"></a>Vastgemaakte gegevensassets
-U kunt met opgeslagen zoekopdrachten opslaan en opnieuw zoeken definities gebruiken. De gegevensassets die worden geretourneerd door de zoekopdrachten die kunnen worden gewijzigd na verloop van tijd als de inhoud van de wijziging van de catalogus. Wanneer u gegevensassets vastmaken, kunt u specifieke gegevensassets te vereenvoudigen voor toegang tot een zoeken gebruiken zonder expliciet identificeren.
+U kunt met opgeslagen zoekopdrachten opslaan en opnieuw gebruiken van definities van de zoekopdracht. De gegevensassets die worden geretourneerd door de zoekopdrachten kunnen worden gewijzigd na verloop van tijd als de inhoud van de wijziging van de catalogus. Wanneer u gegevensassets vastzetten, kunt u specifieke gegevensassets zodat ze beter toegankelijk zonder gebruik van een zoekopdracht kunt expliciet aangeven.
 
-Een gegevensasset vastmaken is eenvoudig. De gegevensasset toevoegen aan uw vastgemaakte lijst, klikt u op de **pincode** pictogram. Het pictogram wordt weergegeven in de rechterbenedenhoek van de asset-tegel in de weergave tile en in de linkerkolom in de lijstweergave in de portal voor Azure Data Catalog.
+Een gegevensasset vast te maken is eenvoudig. Als u wilt de gegevensasset toevoegen aan uw vastgemaakte lijst, klikt u op de **pincode** pictogram. Het pictogram wordt weergegeven in de linkerbovenhoek van de asset-tegel in de tegelweergave en in de meest linkse kolom in de lijstweergave in de Azure Data Catalog-portal.
 
-![Het Punaisepictogram gegevens asset](./media/data-catalog-how-to-save-pin/05-pinning.png)
+![Het pictogram van de gegevensasset vastmaken](./media/data-catalog-how-to-save-pin/05-pinning.png)
 
-Een gegevensasset losmaken is even eenvoudig. Klik op de **losmaken** pictogram in de instelling voor de geselecteerde asset-of uitschakelen.
+Een gegevensasset losmaakt is even eenvoudig. Klik op de **losmaken** pictogram om uit te schakelen van de instelling voor de geselecteerde asset.
 
 ![De gegevensasset losmaken pictogram](./media/data-catalog-how-to-save-pin/06-unpinning.png)
 
-## <a name="the-my-assets-section"></a>De sectie Mijn activa
-De portal startpagina van Data Catalog bevat een **Mijn activa** sectie geeft de activa van belang bij de huidige gebruiker. Deze sectie bevat zowel vastgemaakt activa en opgeslagen zoekopdrachten.
+## <a name="the-my-assets-section"></a>De sectie Mijn Assets
+De startpagina voor Data Catalog-portal bevat een **mijn Assets** sectie waarin activa van belang zijn worden weergegeven met de huidige gebruiker. In deze sectie bevat beide vastgemaakte assets en opgeslagen zoekopdrachten.
 
-![De sectie Mijn activa op de startpagina](./media/data-catalog-how-to-save-pin/07-my-assets.png)
+![De sectie Mijn Assets op de startpagina](./media/data-catalog-how-to-save-pin/07-my-assets.png)
 
 ## <a name="summary"></a>Samenvatting
-Azure Data Catalog bevat mogelijkheden waarmee het eenvoudiger is voor het detecteren van de gegevensbronnen die u nodig hebt, zodat u en andere leden van de organisatie kunnen minder tijd nodig voor zoekt gegevens en meer tijd ermee te werken. Opgeslagen zoekopdrachten en vastgemaakt gegevens activa op deze belangrijkste mogelijkheden, bouwen zodat gebruikers de gegevensbronnen die ze met herhaaldelijk werken gemakkelijk kunnen herkennen.
+Azure Data Catalog biedt mogelijkheden die het eenvoudiger is voor het detecteren van de gegevensbronnen die u nodig hebt, zodat u en andere leden van de organisatie kunnen besteden aan minder tijd zoeken naar gegevens en meer tijd aan het werk. Opgeslagen zoekopdrachten en vastgemaakt gegevens activa van deze core-mogelijkheden gebruikmaken, zodat gebruikers de gegevensbronnen die ze met herhaaldelijk werken eenvoudig kunnen herkennen.

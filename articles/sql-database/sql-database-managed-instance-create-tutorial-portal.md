@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 05/09/2018
 ms.author: bonova
 manager: craigg
-ms.openlocfilehash: e337a5c7c203e2e1048149dfeff71436a4d2752f
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: a019b21c130bebfe27925e90d7f7843d92654e01
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850607"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41918908"
 ---
 # <a name="create-an-azure-sql-database-managed-instance-in-the-azure-portal"></a>Een beheerd exemplaar voor Azure SQL Database maken in Azure Portal
 
@@ -33,13 +33,15 @@ Deze zelfstudie laat zien hoe u vanuit Azure Portal een beheerd exemplaar van Az
 > * Verbinding maken met de virtuele machine
 > * SQL Server Management Studio installeren en verbinding met het beheerde exemplaar maken
 
+> [!Note]
+> In deze zelfstudie wordt uitgelegd hoe u netwerken, subnetten, exemplaren en virtuele machines configureert met behulp van Azure Portal, wat mogelijk meer tijd in beslag neemt. Als u dit sneller wilt doen, is er een Snel starten-zelfstudie waarin het netwerk en de virtuele machine die worden gebruikt voor toegang tot het exemplaar worden gemaakt met één klik op de knop 'Implementeren naar Azure'. Bekijk in dit geval de zelfstudie [Aan de slag](sql-database-managed-instance-get-started.md) eens.
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
 > [!IMPORTANT]
 > Zie [Uw databases migreren naar een volledig beheerde service met Azure SQL Database Managed Instance](https://azure.microsoft.com/blog/migrate-your-databases-to-a-fully-managed-service-with-azure-sql-database-managed-instance/) voor een lijst met regio's waarin MI momenteel beschikbaar is.
  
-## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
+## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
 Meld u aan bij [Azure Portal](https://portal.azure.com/#create/Microsoft.SQLManagedInstance).
 
@@ -302,7 +304,7 @@ In de volgende stappen wordt uitgelegd hoe u SQL Server Management Studio downlo
 8. Wanneer u daarom wordt gevraagd, klikt u op **Installeren** om de installatie te starten.
 9. Wanneer de installatie is voltooid, klikt u op **Sluiten**.
 10. Open SQL Server Management Studio.
-11. In het dialoogvenster **Verbinding maken met server** geeft u de **hostnaam* voor uw beheerde exemplaar op in het vak **Servernaam**. Vervolgens selecteert u **SQL Server-verificatie**, voert u uw gebruikersnaam en wachtwoord in en klikt u op **Verbinding maken**.
+11. In het dialoogvenster **Verbinding maken met server** geeft u de ***hostnaam** voor uw beheerde exemplaar op in het vak **Servernaam**. Vervolgens selecteert u **SQL Server-verificatie**, voert u uw gebruikersnaam en wachtwoord in en klikt u op **Verbinding maken**.
 
     ![ssms verbinden](./media/sql-database-managed-instance-tutorial/ssms-connect.png)  
 

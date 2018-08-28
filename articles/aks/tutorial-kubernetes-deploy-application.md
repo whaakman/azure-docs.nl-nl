@@ -1,28 +1,28 @@
 ---
-title: 'Zelfstudie voor Kubernetes in Azure: toepassing implementeren'
-description: 'Zelfstudie voor AKS: toepassing implementeren'
+title: 'Zelfstudie voor Kubernetes in Azure: een toepassing implementeren'
+description: In deze zelfstudie over Azure Kubernetes Service (AKS) gaat u een toepassing met meerdere containers in uw cluster implementeren met behulp van een aangepaste installatiekopie die is opgeslagen in Azure Container Registry.
 services: container-service
 author: iainfoulds
 manager: jeconnoc
 ms.service: container-service
 ms.topic: tutorial
-ms.date: 02/22/2018
+ms.date: 08/14/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: e0e349361afaac9aec816d7f5d158322d6f4e691
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: bf817f553250ead449ec0d5db3d33acc2eff23f3
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37100975"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41918902"
 ---
 # <a name="tutorial-run-applications-in-azure-kubernetes-service-aks"></a>Zelfstudie: Toepassingen uitvoeren in AKS (Azure Kubernetes Service)
 
-In deze zelfstudie, deel vier van zeven, wordt een voorbeeldtoepassing geïmplementeerd in een Kubernetes-cluster. Dit zijn de uitgevoerde stappen:
+Kubernetes biedt een gedistribueerd platform voor toepassingen in containers. U gaat uw eigen toepassingen en services implementeren in een Kubernetes-cluster, en u laat het cluster de beschikbaarheid en connectiviteit beheren. In deze zelfstudie, deel vier van zeven, wordt een voorbeeldtoepassing geïmplementeerd in een Kubernetes-cluster. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * Kubernetes-manifestbestanden bijwerken
-> * Toepassing uitvoeren in Kubernetes
+> * Een Kubernetes-manifestbestand bijwerken
+> * Een toepassing in Kubernetes uitvoeren
 > * De toepassing testen
 
 In opeenvolgende zelfstudies wordt deze toepassing geschaald en bijgewerkt.
@@ -33,27 +33,27 @@ In deze zelfstudie wordt ervan uitgegaan dat u over basiskennis van Kubernetes-c
 
 In de vorige zelfstudies is een toepassing verpakt in een containerinstallatiekopie, is deze installatiekopie geüpload naar Azure Container Registry en is een Kubernetes-cluster gemaakt.
 
-Om deze zelfstudie te voltooien hebt u het vooraf gemaakte Kubernetes-manifestbestand `azure-vote-all-in-one-redis.yaml` nodig. Dit bestand is met de broncode van de toepassing gedownload in een vorige zelfstudie. Controleer of u de opslagplaats hebt gekloond en of u naar de gekloonde opslagplaats bent gegaan.
+Om deze zelfstudie te voltooien hebt u het vooraf gemaakte Kubernetes-manifestbestand `azure-vote-all-in-one-redis.yaml` nodig. Dit bestand is met de broncode van de toepassing gedownload in een vorige zelfstudie. Controleer of u de opslagplaats hebt gekloond en of u naar de gekloonde opslagplaats bent gegaan. Als u deze stappen niet hebt uitgevoerd en deze zelfstudie wilt volgen, gaat u terug naar [Zelfstudie 1: Containerinstallatiekopieën maken][aks-tutorial-prepare-app].
 
-Als u deze stappen niet hebt uitgevoerd en deze zelfstudie wilt volgen, gaat u terug naar [Zelfstudie 1: Containerinstallatiekopieën maken][aks-tutorial-prepare-app].
+Voor deze zelfstudie moet u Azure CLI versie 2.0.44 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
-## <a name="update-manifest-file"></a>Manifestbestand bijwerken
+## <a name="update-the-manifest-file"></a>Het manifestbestand bijwerken
 
-In deze zelfstudie wordt Azure Container Registry (ACR) gebruikt om een containerinstallatiekopie op te slaan. Voordat u de toepassing uitvoert, moet de naam van de ACR-aanmeldingsserver in het Kubernetes-manifestbestand worden bijgewerkt.
+In deze zelfstudies wordt met een instantie van Azure Container Registry (ACR) de containerinstallatiekopie voor de voorbeeldtoepassing opgeslagen. Om de toepassing te implementeren, moet u de naam van de installatiekopie in het Kubernetes-manifestbestand bijwerken zodat de naam van de ACR-aanmeldingsserver erin is opgenomen.
 
-Haal de naam van de ACR-aanmeldingsserver op met de opdracht [az acr list][az-acr-list].
+Haal de naam van de ACR-aanmeldingsserver als volgt op met de opdracht [az acr list][az-acr-list].
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-Het manifestbestand is vooraf gemaakt met `microsoft` als naam van de aanmeldingsserver. Open het bestand met een teksteditor. In dit voorbeeld wordt het bestand geopend met `nano`.
+Het voorbeeldmanifestbestand van de Git-opslagplaats dat in de eerste zelfstudie is gekloond, gebruikt *microsoft* als de naam van de aanmeldingsserver. Open dit manifestbestand openen met een teksteditor, zoals `vi`:
 
 ```console
-nano azure-vote-all-in-one-redis.yaml
+vi azure-vote-all-in-one-redis.yaml
 ```
 
-Vervang `microsoft` door de naam van de ACR-aanmeldingsserver. U vindt deze waarde op regel **47** van het manifestbestand.
+Vervang *microsoft* door de naam van de ACR-aanmeldingsserver. De naam van de installatiekopie vindt u op regel 47 van het manifestbestand. In het volgende voorbeeld ziet u de standaardnaam van de installatiekopie:
 
 ```yaml
 containers:
@@ -61,7 +61,7 @@ containers:
   image: microsoft/azure-vote-front:v1
 ```
 
-De bovenstaande code wordt dan:
+Geef uw eigen naam van de ACR-aanmeldingsserver op zodat uw manifestbestand eruitziet zoals in het volgende voorbeeld:
 
 ```yaml
 containers:
@@ -71,60 +71,58 @@ containers:
 
 Sla het bestand op en sluit het.
 
-## <a name="deploy-application"></a>Toepassing implementeren
+## <a name="deploy-the-application"></a>De toepassing implementeren
 
-Gebruik de opdracht [kubectl apply][kubectl-apply] om de toepassing uit te voeren. Deze opdracht parseert het manifestbestand en maakt de gedefinieerde Kubernetes-objecten.
+Gebruik de opdracht [kubectl apply][kubectl-apply] om uw toepassing te implementeren. Deze opdracht parseert het manifestbestand en maakt de gedefinieerde Kubernetes-objecten. Geef het voorbeeldmanifestbestand op, zoals wordt weergegeven in het volgende voorbeeld:
 
-```azurecli
+```console
 kubectl apply -f azure-vote-all-in-one-redis.yaml
 ```
 
-Uitvoer:
+De Kubernetes-objecten worden gemaakt binnen het cluster, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```
+$ kubectl apply -f azure-vote-all-in-one-redis.yaml
+
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
 service "azure-vote-front" created
 ```
 
-## <a name="test-application"></a>Toepassing testen
+## <a name="test-the-application"></a>De toepassing testen
 
-Er wordt een [Kubernetes-service][kubernetes-service] gemaakt die de toepassing beschikbaar maakt op internet. Dit proces kan enkele minuten duren.
+Er wordt een [Kubernetes-service][kubernetes-service] gemaakt die de toepassing beschikbaar maakt op internet. Dit proces kan enkele minuten duren. Gebruik de opdracht [kubectl get service][kubectl-get] met het argument `--watch` om de voortgang te controleren.
 
-Gebruik de opdracht [kubectl get service][kubectl-get] met het argument `--watch` om de voortgang te controleren.
-
-```azurecli
+```console
 kubectl get service azure-vote-front --watch
 ```
 
-Eerst wordt het *externe IP-adres* voor de service *azure-vote-front* weergegeven als *in behandeling*.
+Het *EXTERNE IP-adres* voor de service *azure-vote-front* wordt aanvankelijk weergegeven als *in behandeling*, zoals het volgende voorbeeld laat zien:
 
 ```
 azure-vote-front   10.0.34.242   <pending>     80:30676/TCP   7s
 ```
 
-Zodra het *EXTERNE IP-adres* is gewijzigd van *in behandeling* in een *IP-adres*, gebruikt u `CTRL-C` om het controleproces van kubectl te stoppen.
+Zodra het *EXTERNE IP-adres* is gewijzigd van *in behandeling* in een echt openbaar IP-adres, gebruikt u `CTRL-C` om het controleproces van kubectl te stoppen. In het volgende voorbeeld ziet u dat er nu een openbaar IP-adres is toegewezen:
 
 ```
 azure-vote-front   10.0.34.242   52.179.23.131   80:30676/TCP   2m
 ```
 
-Als u de toepassing wilt zien, bladert u naar het externe IP-adres.
+Open een webbrowser naar het externe IP-adres als u de toepassing in actie wilt zien.
 
 ![Afbeelding van Kubernetes-cluster in Azure](media/container-service-kubernetes-tutorials/azure-vote.png)
 
-Als de toepassing niet is geladen, kan dit zijn veroorzaakt door een autorisatieprobleem met het register van de installatiekopie.
-
-Volg deze stappen voor het verlenen van [toegang via een Kubernetes-geheim](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret).
+Als de toepassing niet is geladen, kan dit zijn veroorzaakt door een autorisatieprobleem met het register van de installatiekopie. Als u de status van uw containers wilt bekijken, gebruikt u de opdracht `kubectl get pods`. Zie [Toegang tot Container Registry met een Kubernetes-geheim toestaan](https://docs.microsoft.com/azure/container-registry/container-registry-auth-aks#access-with-kubernetes-secret) als de containerinstallatiekopieën niet kunnen worden opgehaald.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie is een Azure Vote-toepassing geïmplementeerd in een Kubernetes-cluster in AKS. Dit zijn de uitgevoerde taken:
+In deze zelfstudie is een Azure Vote-toepassing geïmplementeerd in een Kubernetes-cluster in AKS. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Kubernetes-manifestbestanden downloaden
-> * De toepassing uitvoeren in Kubernetes
+> * Een Kubernetes-manifestbestand bijwerken
+> * Een toepassing in Kubernetes uitvoeren
 > * De toepassing testen
 
 Ga naar de volgende zelfstudie om te leren hoe u zowel een Kubernetes-toepassing als de onderliggende Kubernetes-infrastructuur schaalt.
@@ -143,3 +141,4 @@ Ga naar de volgende zelfstudie om te leren hoe u zowel een Kubernetes-toepassing
 [aks-tutorial-prepare-app]: ./tutorial-kubernetes-prepare-app.md
 [aks-tutorial-scale]: ./tutorial-kubernetes-scale.md
 [az-acr-list]: /cli/azure/acr#list
+[azure-cli-install]: /cli/azure/install-azure-cli

@@ -1,42 +1,36 @@
 ---
-title: Voorbeelden van gegevens catalogus developer | Microsoft Docs
-description: In dit artikel biedt een overzicht van de beschikbare developer steekproeven voor de REST-API van Data Catalog.
+title: Azure Data Catalog-voorbeelden voor ontwikkelaars
+description: In dit artikel biedt een overzicht van de beschikbare developer-voorbeelden voor de REST-API van Data Catalog.
 services: data-catalog
-documentationcenter: 
 author: spelluru
-manager: jhubbard
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 0dc23edd-04d8-49fc-841e-d132fb109ce7
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: 9688cb7bf15aec4a3506939b165ac579377d3e9a
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 98d17e5fc8b2348887d6a9e361a455474d666db4
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053632"
 ---
-# <a name="data-catalog-developer-samples"></a>Voorbeelden van ontwikkelaars catalogus met gegevens
-Aan de slag met behulp van de REST-API van Data Catalog Data Catalog-apps ontwikkelen. REST-API van Data Catalog is een op REST gebaseerde API die programmatische toegang tot bronnen biedt te registreren, aantekeningen toevoegen aan en zoeken van gegevensassets programmatisch Data Catalog.
+# <a name="data-catalog-developer-samples"></a>Voorbeelden voor ontwikkelaars van Data Catalog
+Aan de slag met behulp van de REST-API van Data Catalog Data Catalog-apps ontwikkelen. De REST-API van Data Catalog is een op REST gebaseerde API die programmatische toegang tot Data Catalog-resources om te registreren biedt en annoteren van en zoeken naar gegevensassets via een programma.
 
-Hier volgen de voorbeelden die we op GitHub hebben:
+Hier volgen de voorbeelden op GitHub:
 
 * [Aan de slag met Azure Data Catalog](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-get-started/)
   
-  Een voorbeeld van een die laat zien hoe u verificatie met Azure AD om te registreren, zoeken en verwijderen van een gegevensasset met behulp van de REST-API van Data Catalog.
-* [Bulksgewijs registreren en aantekeningen toevoegen aan](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-excel-register-data-assets/)
+  Een voorbeeld dat wordt beschreven hoe u verificatie met Azure AD om te registreren, zoeken en verwijderen van een gegevensasset met behulp van de REST-API van Data Catalog.
+* [Bulksgewijs registreren en annoteren van](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-excel-register-data-assets/)
   
-  Een voorbeeldtoepassing die u ziet u hoe bulksgewijs registreren activa uit een Excel-werkmap met behulp van REST-API van Data Catalog en Open XML-gegevens.
+  Een voorbeeld waarin wordt uitgelegd hoe u bulksgewijs registreert gegevensassets uit een Excel-werkmap met behulp van REST-API van Data Catalog en Open XML.
 * [Hulpprogramma voor importeren/exporteren](https://azure.microsoft.com/resources/samples/data-catalog-dotnet-import-export/)
   
-  Een voorbeeld waarin wordt uitgelegd hoe de REST-API van Data Catalog gebruiken om te activa ophalen van de Azure Data Catalog en ze naar een bestand te serialiseren. U ziet ook een set voorzieningen geserialiseerd als JSON maken en toepassen in de catalogus. Het ondersteunt een subset van de catalogus met behulp van een zoekopdracht exporteren.
+  Een voorbeeld hoe u activa ophalen uit de Azure Data Catalog en ze te serialiseren in een bestand met de REST-API van Data Catalog. U ziet ook hoe u een set voorzieningen geserialiseerd als JSON en push ze naar de catalogus. Het ondersteunt een subset van de catalogus met behulp van een zoekopdracht exporteren.
 
-* [Termen in bulk importeren](https://azure.microsoft.com/resources/samples/data-catalog-bulk-import-glossary/)
+* [Bulksgewijs importeren Woordenlijsttermen](https://azure.microsoft.com/resources/samples/data-catalog-bulk-import-glossary/)
 
-    Dit voorbeeld laat zien hoe u termen in de importeren uit CSV-bestanden in ADC verklarende woordenlijst.
+    In dit voorbeeld laat zien hoe u Woordenlijsttermen importeren uit CSV-bestanden naar ADC-woordenlijst.
 

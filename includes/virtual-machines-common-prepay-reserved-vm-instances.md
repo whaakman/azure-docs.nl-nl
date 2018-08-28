@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 19a153a5cdc9d5f878494984313baebd12dbcbb5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631160"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040331"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties
 
@@ -30,6 +30,9 @@ De velden metersubcategorie en Product in de gebruiksgegevens geen onderscheid m
 
 Gereserveerde VM-instanties zijn beschikbaar voor de meeste VM-grootten met enkele uitzonderingen:
 
+- Klassieke virtuele machines en Cloud services de reserveringskorting niet ophalen.
+- Onderdrukte core VM's krijgen geen reservering kortingen.
+- Volgende VM-reeks reservering kortingen niet ophalen: A-serie, Av2-serie en G-serie.
 - Virtuele machines in de Preview-versie: een VM-reeks of de grootte die in de Preview-versie zijn niet beschikbaar voor het kopen van reserveringen.
 - Clouds: reserveringen zijn niet beschikbaar voor aankoop in de regio's Azure US Government, Duitsland en China.
 - Onvoldoende quotum: een reservering die is afgestemd op één abonnement vCPU-quotum is beschikbaar in het abonnement voor de nieuwe gereserveerde instantie moet hebben. Bijvoorbeeld, als het doelabonnement een limiet van 10 vcpu's voor uit de D-serie heeft, kan niet klikt u vervolgens u kopen een reservering voor 11 Standard_D1 exemplaren. De controle van het quotum voor reserveringen bevat de virtuele machines die al zijn geïmplementeerd in het abonnement. Bijvoorbeeld, als het abonnement een quotum van 10 vcpu's voor uit de D-serie heeft en twee standard_D1 instanties zijn geïmplementeerd, kunt klikt u vervolgens u kopen een reservering voor 10 standard_D1-exemplaren in dit abonnement. 

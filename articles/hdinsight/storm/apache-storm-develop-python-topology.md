@@ -3,19 +3,19 @@ title: Apache Storm met de serveronderdelen van de Python - Azure HDInsight
 description: Informatie over het maken van een Apache Storm-topologie die gebruikmaakt van Python-onderdelen.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 keywords: Apache storm-python
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: jasonh
-ms.openlocfilehash: 8c26bfc85c70addebd5e68fad7769faa63e07bea
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 753c870f5d99d7bf887944b0d180645dc019b2b1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623014"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045764"
 ---
 # <a name="develop-apache-storm-topologies-using-python-on-hdinsight"></a>Apache Storm-topologieën met behulp van Python op HDInsight ontwikkelen
 

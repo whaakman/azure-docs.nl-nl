@@ -15,12 +15,12 @@ ms.date: 08/19/2018
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 537777d2e379959d427c025036652a87ecc4a1fe
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: e03b2ab45edd57a124dcc960ff518ece4902d2fa
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617155"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048365"
 ---
 # <a name="built-in-roles-in-azure"></a>Ingebouwde rollen in Azure
 [Op rollen gebaseerd toegangsbeheer (RBAC)](overview.md) heeft diverse ingebouwde roldefinities die u aan gebruikers, groepen en service-principals toewijzen kunt. Roltoewijzingen zijn de manier waarop u de toegang tot resources in Azure. Als de ingebouwde rollen niet voldoen aan de specifieke behoeften van uw organisatie, kunt u uw eigen [aangepaste rollen](custom-roles.md) maken.
@@ -43,7 +43,7 @@ De volgende tabel bevat korte beschrijvingen van de ingebouwde rollen. Klik op d
 | [Rol Operator API Management-Service](#api-management-service-operator-role) | Kan de service beheren, maar niet de API's |
 | [Rol Lezer API Management-Service](#api-management-service-reader-role) | Alleen-lezentoegang tot de service en API's |
 | [Application Insights-Onderdeelinzender](#application-insights-component-contributor) | Kan onderdelen van Application Insights beheren |
-| [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Hiermee geeft u de gebruiker de machtiging om de functies van Application Insights Snapshot Debugger te gebruiken |
+| [Application Insights Snapshot Debugger](#application-insights-snapshot-debugger) | Biedt de gebruiker toestemming voor het weergeven en downloaden van momentopnamen voor foutopsporing die zijn verzameld met Application Insights Snapshot Debugger. Houd er rekening mee dat deze rol wordt opgenomen in geen van beide de [eigenaar](#owner) noch [Inzender](#contributor) rollen. |
 | [Operator voor Automation](#automation-job-operator) | Taken maken en beheren met Automation-runbooks. |
 | [Automation-Operator](#automation-operator) | Operators voor Automation kunnen taken starten, stoppen, onderbreken en hervatten |
 | [Operator voor Automation-Runbook](#automation-runbook-operator) | Runbook-eigenschappen lezen: hiermee kunnen taken van de runbook worden gemaakt. |

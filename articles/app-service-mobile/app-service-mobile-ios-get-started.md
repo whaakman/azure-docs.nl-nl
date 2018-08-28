@@ -12,30 +12,35 @@ ms.workload: na
 ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 970ad90aa14d5778e8b232e32aa1dacf32789988
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9809b51f1279c99de69cd1c219ffc57351ff21ef
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38593100"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41919145"
 ---
 # <a name="create-an-ios-app"></a>Een iOS-app maken
+
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Overzicht
-Deze zelfstudie laat zien hoe u [Azure Mobile Apps](app-service-mobile-value-prop.md), een back-endservice in de cloud, toevoegt aan een iOs-app. Eerst maakt u een nieuwe mobiele back-end. Vervolgens gebruiken we een eenvoudige iOS-app voor een *takenlijst* voor het opslaan van gegevens in Azure.
+
+Deze zelfstudie laat zien hoe u [Azure App Service Mobile Apps](app-service-mobile-value-prop.md), een back-endservice in de cloud, toevoegt aan een iOS-app. De eerste stap bestaat uit het maken van een nieuwe mobiele back-end in Azure. Download vervolgens een eenvoudige iOS voorbeeld-app van een *takenlijst* die gegevens in Azure opslaat.
 
 Voor het uitvoeren van deze zelfstudie hebt u een Mac en [een Azure-account](https://azure.microsoft.com/pricing/free-trial/) nodig
 
 ## <a name="step-i-create-a-new-azure-mobile-app-backend"></a>Stap 1: een nieuwe back-end voor mobiele apps van Azure maken
+
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
 
 ## <a name="step-ii-configure-the-backend-project"></a>Stap II: het back-endproject configureren
+
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="step-iii-download-and-run-the-ios-app"></a>Stap III: de iOS-app downloaden en uitvoeren
+
 [!INCLUDE [app-service-mobile-ios-run-app](../../includes/app-service-mobile-ios-run-app.md)]
 
 <!-- URLs -->

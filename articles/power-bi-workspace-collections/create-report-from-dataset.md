@@ -1,46 +1,40 @@
 ---
-title: Een nieuw rapport maken uit een gegevensset in Power BI werkruimte verzamelingen | Microsoft Docs
+title: Een nieuw rapport maken van een gegevensset in Power BI Workspace Collections | Microsoft Docs
 description: Power BI-Werkruimteverzameling rapporten kunnen nu worden gemaakt uit een gegevensset in uw eigen toepassing.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: 5c6a52edd708b6077820f2004e83ac7dee945610
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: dbfe8c98dce1879a2e0956fafba32ab6e608bfdb
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31409513"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046651"
 ---
-# <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Een nieuw rapport maken uit een gegevensset in Power BI werkruimte verzamelingen
+# <a name="create-a-new-report-from-a-dataset-in-power-bi-workspace-collections"></a>Een nieuw rapport maken van een gegevensset in Power BI-Werkruimteverzamelingen
 
 Power BI-Werkruimteverzameling rapporten kunnen nu worden gemaakt uit een gegevensset in uw eigen toepassing.
 
 > [!IMPORTANT]
 > Power BI Workspace Collections is afgeschaft en is beschikbaar tot juni 2018 of tot de datum die in uw contract wordt aangegeven. Om onderbreking van uw toepassing te voorkomen, wordt u geadviseerd om een migratie naar Power BI Embedded te plannen. Voor meer informatie over het migreren van gegevens naar Power BI Embedded raadpleegt u [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/) (Inhoud van Power BI-werkruimteverzamelingen migreren naar Power BI Embedded).
 
-De verificatiemethode is vergelijkbaar met die van een rapport insluiten. Deze is gebaseerd op toegangstokens die specifiek voor een gegevensset zijn. Gebruikt voor PowerBI.com tokens worden uitgegeven door Azure Active Directory (AAD). Power BI-Werkruimteverzameling tokens worden uitgegeven door uw eigen toepassing.
+De verificatiemethode is vergelijkbaar met die van het insluiten van een rapport. Deze is gebaseerd op toegangstokens die specifiek voor een gegevensset zijn. Tokens die worden gebruikt voor PowerBI.com worden uitgegeven door Azure Active Directory (AAD). Power BI-Werkruimteverzameling tokens worden uitgegeven door uw eigen toepassing.
 
-Wanneer u een ingesloten rapport maakt, zijn de uitgegeven tokens voor een bepaalde gegevensset. Tokens moeten worden gekoppeld aan de URL van de insluiten op hetzelfde element zodat elk een unieke token heeft. Om te kunnen maken van een rapport ingesloten *Dataset.Read en Workspace.Report.Create* scopes moeten worden opgegeven in het toegangstoken.
+Bij het maken van een ingesloten rapport, zijn de tokens die zijn uitgegeven voor een specifieke gegevensset. Tokens moeten worden gekoppeld aan de ingesloten URL op hetzelfde element zodat elk heeft een unieke token. Als u wilt maken van een rapport ingesloten *Dataset.Read en Workspace.Report.Create* bereiken moeten worden opgegeven in het toegangstoken.
 
 ## <a name="create-access-token-needed-to-create-new-report"></a>Toegangstoken voor het maken van nieuw rapport maken
 
-Power BI werkruimte verzamelingen gebruiken een insluiten token, dat HMAC is ondertekend JSON Web Tokens. De tokens zijn ondertekend door de toegangssleutel van uw Power BI-Werkruimteverzameling. Sluit tokens, standaard, worden gebruikt om alleen-lezen toegang bieden tot een rapport insluiten in een toepassing. Sluit tokens worden uitgegeven voor een specifiek rapport en moeten worden gekoppeld aan een URL insluiten.
+Power BI Workspace Collections gebruiken een ingesloten token, dat HMAC is ondertekend JSON-Webtokens. De tokens zijn ondertekend door de toegangssleutel van uw Power BI-Werkruimteverzameling. Sluit tokens, standaard, worden gebruikt voor alleen-lezen toegang tot een rapport insluiten in een toepassing. Sluit tokens worden uitgegeven voor een specifiek rapport en moet worden gekoppeld aan een ingesloten URL.
 
-Toegangstokens moeten worden gemaakt op de server, zoals de toegangssleutels voor het teken/versleutelen van de tokens worden gebruikt. Zie voor meer informatie over het maken van een toegangstoken [Authenticating en autoriseren met Power BI werkruimte verzamelingen](app-token-flow.md). U kunt ook bekijken de [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methode. Hier volgt een voorbeeld van hoe dit eruitziet met de .NET SDK voor Power BI.
+Toegangstokens moeten worden gemaakt op de server als de toegangssleutels voor het teken/versleutelen van de tokens worden gebruikt. Zie voor meer informatie over het maken van een toegangstoken [Authenticating en autoriseren met Power BI Workspace Collections](app-token-flow.md). U kunt ook bekijken de [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methode. Hier volgt een voorbeeld van hoe dit eruit met de .NET SDK voor Power BI.
 
-In dit voorbeeld hebben we onze gegevensset-ID die we maken van het nieuwe rapport willen op. Er moet ook de scopes voor toevoegen *Dataset.Read en Workspace.Report.Create*.
+In dit voorbeeld hebben we onze gegevensset-ID die we maken van het nieuwe rapport willen op. Er moet ook de bereiken voor toevoegen *Dataset.Read en Workspace.Report.Create*.
 
 De *PowerBIToken klasse* vereist dat u installeert de [Power BI Core NuGut pakket](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
@@ -62,12 +56,12 @@ PowerBIToken embedToken = PowerBIToken.CreateReportEmbedTokenForCreation(workspa
 var token = embedToken.Generate("{access key}");
 ```
 
-## <a name="create-a-new-blank-report"></a>Maak een nieuwe leeg rapport
+## <a name="create-a-new-blank-report"></a>Maak een nieuw, leeg rapport
 
-Om een nieuw rapport maakt, moet de configuratie maken worden opgegeven. Dit dient het toegangstoken, de embedURL en de datasetID die we willen maken van het rapport op basis van omvatten. Dit vereist dat u het nuget installeert [Power BI JavaScript pakket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). De embedUrl worden alleen https://embedded.powerbi.com/appTokenReportEmbed.
+Als u wilt een nieuw rapport maakt, moet de configuratie maken worden opgegeven. Hier moeten ook het toegangstoken, de embedURL en de datasetID die we willen het rapport op basis van maken. Hiervoor moet u het nuget installeren [Power BI JavaScript-pakket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). De embedUrl gedraagt zich https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
-> U kunt de [JavaScript rapport insluiten voorbeeld](https://microsoft.github.io/PowerBI-JavaScript/demo/) om functionaliteit te testen. Het biedt ook voorbeelden van code voor de verschillende bewerkingen die beschikbaar zijn.
+> U kunt de [JavaScript rapport ingesloten voorbeeld](https://microsoft.github.io/PowerBI-JavaScript/demo/) om functionaliteit te testen. Het biedt ook voorbeelden van code voor de verschillende bewerkingen die beschikbaar zijn.
 
 **NuGet-pakket installeren**
 
@@ -93,13 +87,13 @@ var embedCreateConfiguration = {
     var report = powerbi.createReport(reportContainer, embedCreateConfiguration);
 ```
 
-Het aanroepen van *powerbi.createReport()* maakt een leeg canvas in de bewerkingsmodus voorkomen binnen de *div* element.
+Aanroepen van *powerbi.createReport()* maakt een leeg canvas in de bewerkingsmodus worden weergegeven in de *div* element.
 
 ![Nieuw, leeg rapport](media/create-report-from-dataset/create-new-report.png)
 
 ## <a name="save-new-reports"></a>Nieuwe rapporten opslaan
 
-Het rapport is niet gemaakt totdat u de **opslaan als** bewerking. Dit kan worden gedaan vanuit het bestandsmenu of vanuit JavaScript.
+Het rapport is niet gemaakt totdat u de **opslaan als** bewerking. Dit kan worden gedaan vanuit het bestandsmenu of van JavaScript.
 
 ```
  // Get a reference to the embedded report.
@@ -114,13 +108,13 @@ Het rapport is niet gemaakt totdat u de **opslaan als** bewerking. Dit kan worde
 ```
 
 > [!IMPORTANT]
-> Een nieuw rapport wordt gemaakt nadat **opslaan als** wordt aangeroepen. Nadat u hebt opgeslagen, wordt het canvas de dataset nog steeds weergegeven in de bewerkingsmodus en niet in het rapport. U moet opnieuw laden van het nieuwe rapport net als andere rapporten.
+> Een rapport wordt gemaakt nadat **opslaan als** wordt genoemd. Nadat u hebt opgeslagen, wordt het canvas nog steeds de gegevensset weergegeven in de bewerkingsmodus en niet het rapport. U moet het nieuwe rapport laden, net als andere rapporten.
 
 ![Menu - bestand opslaan als](media/create-report-from-dataset/save-new-report.png)
 
 ## <a name="load-the-new-report"></a>Het nieuwe rapport laden
 
-Om te communiceren met het nieuwe rapport moet u dit op dezelfde manier als de toepassing wordt ingesloten een reguliere rapport insluiten wil zeggen, een nieuw token specifiek voor het nieuwe rapport moet worden verstrekt en vervolgens de insluiten-methode aanroepen.
+Om te communiceren met het nieuwe rapport dat u insluiten in dezelfde manier als de toepassing wordt ingesloten een gewoon rapport wilt, wat betekent dat, een nieuw token specifiek voor het nieuwe rapport moet worden afgegeven en roep vervolgens de methode insluiten.
 
 ```
 <div id="reportContainer"></div>
@@ -138,9 +132,9 @@ var embedConfiguration = {
     var report = powerbi.embed(reportContainer, embedConfiguration);
 ```
 
-## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Automatiseren opslaan en laden van een nieuw rapport met de 'opgeslagen' gebeurtenis
+## <a name="automate-save-and-load-of-a-new-report-using-the-saved-event"></a>Automatiseer opslaan en laden van een nieuw rapport met behulp van de gebeurtenis 'opgeslagen'
 
-Om het automatiseren van 'opslaan als' en klik vervolgens bij het laden van het nieuwe rapport kunt u het gebruik van de gebeurtenis 'opgeslagen'. Deze gebeurtenis wordt geactiveerd wanneer de opslagbewerking voltooid is en retourneert een Json-object met de nieuwe reportId, de naam van rapport, de oude reportId (als er een) en als de bewerking saveAs is of opslaan.
+Als u wilt het automatiseren van 'opslaan als' en klikt u vervolgens het laden van het nieuwe rapport, kunt u het gebruik van de gebeurtenis 'opgeslagen'. Deze gebeurtenis wordt geactiveerd wanneer de opslagbewerking bewerking is voltooid en retourneert een Json-object met de nieuwe reportId, de naam van rapport, de oude reportId (als er een is) en als de bewerking opslaan is of opslaan.
 
 ```
 {
@@ -151,7 +145,7 @@ Om het automatiseren van 'opslaan als' en klik vervolgens bij het laden van het 
 }
 ```
 
-Het proces te automatiseren kunt u luisteren op de 'opgeslagen' gebeurtenis, nemen de nieuwe reportId, maken van het nieuwe token en het nieuwe rapport insluiten met deze.
+Voor het automatiseren van het proces kunt u luisteren op de 'opgeslagen' gebeurtenis, duren voordat de nieuwe reportId, maken van het nieuwe token en het nieuwe rapport insluiten met het.
 
 ```
 <div id="reportContainer"></div>

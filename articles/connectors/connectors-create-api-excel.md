@@ -10,22 +10,22 @@ ms.suite: integration
 tags: connectors
 ms.topic: article
 ms.date: 08/23/2018
-ms.openlocfilehash: 94960b95e6de30159ec34b3f97bb5119cac42c35
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ceef6c5f32372bb69f6ce789e755bc540cb12ba1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818096"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43051946"
 ---
 # <a name="manage-excel-online-data-with-azure-logic-apps"></a>Excel Online-gegevens met Azure Logic Apps beheren
 
-Met Azure Logic Apps en de Excel Online-connector, kunt u geautomatiseerde taken en werkstromen op basis van uw gegevens in Excel Online voor bedrijven of OneDrive. Uw werkstromen kunnen uitvoeren deze acties en anderen met uw gegevens, bijvoorbeeld:
+Met Azure Logic Apps en de Excel Online-connector, kunt u geautomatiseerde taken en werkstromen op basis van uw gegevens in Excel Online voor bedrijven of OneDrive. Deze connector beschikt u acties waarmee u werkt met uw gegevens en werkbladen, bijvoorbeeld beheren: 
 
 * Nieuwe werkbladen en tabellen maken.
 * Opvragen en beheren van werkbladen, tabellen en rijen.
 * Voeg enkele rijen en sleutelkolommen.
 
-U kunt acties opnemen in uw logische apps die gebruikmaken van de uitvoer van Excel Online acties. Deze connector beschikt u alleen acties, om de logische App, gebruikt u een afzonderlijke trigger, zoals een **terugkeerpatroon** trigger. Bijvoorbeeld, als u op elke week werkbladen maakt, kunt u e-mailberichten over deze nieuwe werkbladen met behulp van de connector Office 365 Outlook verzenden.
+U kunt vervolgens de uitvoer van deze acties gebruiken met de acties die voor andere services. Bijvoorbeeld, als u een actie die werkbladen elke week worden gemaakt, kunt u nog een actie waarmee bevestigingse-mail verzonden via de Office 365 Outlook-connector.
 
 Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 

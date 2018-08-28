@@ -14,19 +14,19 @@ ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 03/13/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: ''
-ms.openlocfilehash: d702253c7b58b0a29c03e6563238b56ae75fa0d1
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 8b1290c2030835af1435e9a21602d3d2334a6737
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
-ms.locfileid: "30841785"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41919776"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>Zelfstudie: virtuele netwerken verbinden met virtueel-netwerkpeering met behulp van Azure Portal
 
-U kunt virtuele netwerken met elkaar verbinden met virtueel-netwerk peering. Wanneer virtuele netwerken als peers zijn gekoppeld, kunnen resources in beide virtuele netwerken met elkaar communiceren met dezelfde latentie en bandbreedte als wanneer de resources zich in hetzelfde virtuele netwerk zouden bevinden. In deze zelfstudie leert u het volgende:
+U kunt virtuele netwerken met elkaar verbinden met virtueel-netwerk peering. Deze virtuele netwerken kunnen zich in de dezelfde regio of in andere regio's bevinden (ook wel bekend als Wereldwijd VNET-peering). Wanneer virtuele netwerken als peers zijn gekoppeld, kunnen resources in beide virtuele netwerken met elkaar communiceren met dezelfde latentie en bandbreedte als wanneer de resources zich in hetzelfde virtuele netwerk zouden bevinden. In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
 > * Twee virtuele netwerken maken
@@ -54,7 +54,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
     |Adresruimte|10.0.0.0/16|
     |Abonnement| Selecteer uw abonnement.|
     |Resourcegroep| Selecteer **Nieuwe maken** en voer *myResourceGroup* in.|
-    |Locatie| Selecteer **VS Oost**.|
+    |Locatie| Selecteer **US - oost**.|
     |Subnetnaam|Subnet1|
     |Subnetadresbereik|10.0.0.0/24|
 
@@ -82,7 +82,7 @@ Meld u aan bij Azure Portal op https://portal.azure.com.
     |---|---|
     |Naam|myVirtualNetwork1-myVirtualNetwork2|
     |Abonnement| Selecteer uw abonnement.|
-    |Virtueel netwerk|myVirtualNetwork2 - selecteer het virtuele netwerk *myVirtualNetwork2* door **Virtueel netwerk** en vervolgens **myVirtualNetwork2** te selecteren.|
+    |Virtueel netwerk|myVirtualNetwork2 - selecteer het virtuele netwerk *myVirtualNetwork2* door **Virtueel netwerk** en vervolgens **myVirtualNetwork2** te selecteren. U kunt een virtueel netwerk in dezelfde regio of in een andere regio selecteren.|
 
     ![Peering-instellingen](./media/tutorial-connect-virtual-networks-portal/peering-settings.png)
 
@@ -118,7 +118,7 @@ Maak een VM in elk virtueel netwerk, zodat u er in een latere stap tussen kunt c
     |Gebruikersnaam| Voer een gebruikersnaam naar keuze in.|
     |Wachtwoord| Voer een wachtwoord naar keuze in. Het wachtwoord moet minstens 12 tekens lang zijn en moet voldoen aan de [gedefinieerde complexiteitsvereisten](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm).|
     |Resourcegroep| Selecteer **Bestaande gebruiken** en selecteer **myResourceGroup**.|
-    |Locatie| Selecteer **VS Oost**.|
+    |Locatie| Selecteer **US - oost**.|
 4. Selecteer een VM-grootte onder **Kies een grootte**.
 5. Selecteer de volgende waarden voor **Instellingen** en selecteer **OK**:
     |Instelling|Waarde|

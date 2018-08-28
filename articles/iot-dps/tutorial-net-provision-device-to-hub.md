@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: csharp
 ms.custom: mvc
-ms.openlocfilehash: 1d82ccdf85b34416dc630b9fcad969d87cc53ff1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 84072c7e5f7aa37e89fc1b93c1585167dd6d9f4b
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520663"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918616"
 ---
 # <a name="enroll-the-device-to-an-iot-hub-using-the-azure-iot-hub-provisioning-service-client-net"></a>Het apparaat registreren bij een IoT-hub met behulp van IoT Hub Device Provisioning Service-client (.NET)
 
@@ -70,10 +70,10 @@ Er zijn twee manieren om het apparaat te registreren bij Device Provisioning Ser
     using Microsoft.Azure.Devices.Provisioning.Service;
     ```
 
-1. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduiding door de DPS-verbindingsreeks die u in de vorige sectie hebt genoteerd.
+1. Voeg de volgende velden toe aan de klasse **Program**: Vervang de tijdelijke aanduiding door de verbindingsreeks van Device Provisioning Service die u in de vorige sectie hebt genoteerd.
    
     ```csharp
-    static readonly string ServiceConnectionString = "{DPS connection string}";
+    static readonly string ServiceConnectionString = "{Device Provisioning Service connection string}";
 
     private const string SampleRegistrationId = "sample-individual-csharp";
     private const string SampleTpmEndorsementKey =
@@ -222,10 +222,10 @@ Wanneer het apparaat is ingeschreven, ziet u dat deze in de portal als volgt wor
 
 Op dit punt is de volgende installatie gereed voor apparaatregistratie:
 
-1. Uw apparaat of groep met apparaten is geregistreerd bij Device Provisioning Service, en 
+1. Uw apparaat of groep met apparaten zijn geregistreerd bij Device Provisioning Service, en 
 2. Uw apparaat is gereed, de beveiliging is geconfigureerd en het apparaat is toegankelijk via de toepassing met behulp van de SDK van de Device Provisioning Service-client.
 
-Start het apparaat zodat de registratie via de clienttoepassing met Device Provisioning Service kan worden gestart.  
+Start het apparaat zodat de registratie via de clienttoepassing met Device Provisioning service kan worden gestart.  
 
 
 ## <a name="verify-the-device-is-registered"></a>Controleren of het apparaat is geregistreerd

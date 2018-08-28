@@ -1,5 +1,5 @@
 ---
-title: Inrichting van apparaten instellen in de Azure CLI | Microsoft Docs
+title: Een Device Provisioning Service instellen met behulp van de Azure CLI | Microsoft Docs
 description: Azure-snelstart - Azure IoT Hub Device Provisioning-service instellen met de Azure CLI
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: cf2e108aa7cab6be2996cb535d27d597e462617c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c9e3bbbc4fbe8a9aade3364d6cbe9e93b5798595
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626536"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42022976"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-azure-cli"></a>IoT Hub Device Provisioning Service instellen met de Azure CLI
 
@@ -72,7 +72,7 @@ az iot dps create --name my-sample-dps --resource-group my-sample-resource-group
 
 ## <a name="get-the-connection-string-for-the-iot-hub"></a>De verbindingsreeks voor de IoT-hub ophalen
 
-U hebt de verbindingsreeks voor uw IoT-hub nodig om deze aan de apparaatinrichtingsservice te koppelen. Gebruik de opdracht [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) om de verbindingsreeks op te halen en om met de uitvoer ervan een variabele in te stellen die u gaat gebruiken om de twee resources aan elkaar te koppelen. 
+U hebt de verbindingsreeks voor uw IoT-hub nodig om deze aan de Device Provisioning Service te koppelen. Gebruik de opdracht [az iot hub show-connection-string](/cli/azure/iot/hub#az-iot-hub-show-connection-string) om de verbindingsreeks op te halen en om met de uitvoer ervan een variabele in te stellen die u gaat gebruiken om de twee resources aan elkaar te koppelen. 
 
 In het volgende voorbeeld wordt de variabele *hubConnectionString* ingesteld op de waarde van de verbindingsreeks voor de primaire sleutel van het hubbeleid *iothubowner*. U kunt een ander beleid opgeven met de parameter `--policy-name`. De opdracht maakt gebruik van de [query-](/cli/azure/query-azure-cli) en [uitvoer](/cli/azure/format-output-azure-cli#tsv-output-format)opties van de Azure CLI om de verbindingsreeks op te halen uit de uitvoer van de opdracht.
 
@@ -94,7 +94,7 @@ echo $hubConnectionString
 
 U kunt de IoT-hub en uw inrichtingsservice aan elkaar koppelen met de opdracht [az iot dps linked-hub create](/cli/azure/iot/dps/linked-hub#az-iot-dps-linked-hub-create). 
 
-In het volgende voorbeeld wordt een IoT-hub met de naam *my-sample-hub* op de locatie *westus* gekoppeld aan een apparaatinrichtingsservice met de naam *my-sample-dps*. Hierbij wordt gebruikgemaakt van de verbindingsreeks voor *my-sample-hub* die in de vorige stap is opgeslagen in de variabele *hubConnectionString*.
+In het volgende voorbeeld wordt een IoT-hub met de naam *my-sample-hub* op de locatie *westus* gekoppeld aan een Device Provisioning Service met de naam *my-sample-dps*. Hierbij wordt gebruikgemaakt van de verbindingsreeks voor *my-sample-hub* die in de vorige stap is opgeslagen in de variabele *hubConnectionString*.
 
 ```azurecli-interactive 
 az iot dps linked-hub create --dps-name my-sample-dps --resource-group my-sample-resource-group --connection-string $hubConnectionString --location westus

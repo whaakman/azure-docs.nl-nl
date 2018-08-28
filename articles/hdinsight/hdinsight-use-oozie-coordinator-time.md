@@ -3,19 +3,19 @@ title: Op basis van tijd Hadoop Oozie-coordinator gebruiken in HDInsight
 description: Op basis van tijd Hadoop Oozie-coordinator gebruiken in HDInsight, een big data-service. Leer hoe u Oozie workflows en coördinatoren definieert en het verzenden van taken.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.author: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 10/04/2017
 ROBOTS: NOINDEX
-ms.openlocfilehash: 61d2e03fad5303f6f66633536b2acc8b1fe300cc
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 783857b9ca1d3e3a5aef13c24f9a3633533a2050
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597273"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048472"
 ---
 # <a name="use-time-based-oozie-coordinator-with-hadoop-in-hdinsight-to-define-workflows-and-coordinate-jobs"></a>Op tijd gebaseerde Oozie-coördinator met Hadoop in HDInsight gebruiken voor het definiëren van werkstromen en coördinatie van taken
 In dit artikel leert u hoe u workflows en coördinatoren definieert en hoe u activeert de coördinator taken, op basis van tijd. Is het handig om te gaan via [Oozie gebruiken met HDInsight] [ hdinsight-use-oozie] voordat u dit artikel leest. Naast Oozie, kunt u ook met Azure Data Factory taken plannen. Zie voor meer Azure Data Factory [Pig en Hive met Data Factory gebruiken](../data-factory/transform-data.md).

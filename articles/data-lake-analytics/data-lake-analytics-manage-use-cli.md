@@ -1,31 +1,30 @@
 ---
-title: Azure Data Lake Analytics beheren met Azure-opdrachtregelinterface
-description: In dit artikel wordt beschreven hoe de Azure CLI gebruiken voor het beheren van Data Lake Analytics-taken, gegevensbronnen, & gebruikers.
+title: Azure Data Lake Analytics met behulp van Azure-opdrachtregelinterface beheren
+description: In dit artikel wordt beschreven hoe u de Azure CLI gebruiken om Data Lake Analytics-taken, gegevensbronnen en gebruikers te beheren.
 services: data-lake-analytics
 author: jasonwhowell
 ms.author: jasonh
-manager: kfile
 ms.assetid: 4e5a3a0a-6d7f-43ed-aeb5-c3b3979a1e0a
 ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 01/29/2018
-ms.openlocfilehash: 86fa41db2d21beac08015d067b79ce1375cd3ddf
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: e265a46533264bbb1d437edbfe1bbfb3306614ad
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34736086"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43044820"
 ---
 # <a name="manage-azure-data-lake-analytics-using-the-azure-command-line-interface-cli"></a>Azure Data Lake Analytics beheren met de Azure-opdrachtregelinterface (CLI)
 
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Informatie over het beheren van Azure Data Lake Analytics-accounts, gegevensbronnen, gebruikers en taken met de Azure CLI. Als u wilt zien management onderwerpen met een ander hulpprogramma, klikt u op het tabblad select bovenaan.
+Informatie over het beheren van Azure Data Lake Analytics-accounts, gegevensbronnen, gebruikers en taken met de Azure CLI. Voor onderwerpen over met andere hulpprogramma's, klikt u op het tabblad select bovenaan.
 
 
 **Vereisten**
 
-Voordat u deze zelfstudie begint, hebt u de volgende bronnen:
+Voordat u deze zelfstudie begint, moet u de volgende bronnen:
 
 * Een Azure-abonnement. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
@@ -33,14 +32,14 @@ Voordat u deze zelfstudie begint, hebt u de volgende bronnen:
 
    * Download en installeer de **pre-release** [Azure CLI-hulpprogramma’s](https://github.com/MicrosoftBigData/AzureDataLake/releases) om deze demo te voltooien.
 
-* Verifiëren met behulp van de `az login` opdracht in en selecteer het abonnement dat u wilt gebruiken. Zie [Verbinding maken met een Azure-abonnement met Azure CLI](/cli/azure/authenticate-azure-cli) voor meer informatie over verificatie met een werk- of schoolaccount.
+* Verifiëren met behulp van de `az login` opdracht en selecteer het abonnement dat u wilt gebruiken. Zie [Verbinding maken met een Azure-abonnement met Azure CLI](/cli/azure/authenticate-azure-cli) voor meer informatie over verificatie met een werk- of schoolaccount.
 
    ```azurecli
    az login
    az account set --subscription <subscription id>
    ```
 
-   U kunt nu toegang tot de opdrachten Data Lake Analytics en Data Lake Store. Voer de volgende opdracht voor een lijst met de Data Lake Store en Data Lake Analytics-opdrachten:
+   U kunt nu toegang tot de Data Lake Analytics en Data Lake Store-opdrachten. Voer de volgende opdracht om een lijst van de Data Lake Store en Data Lake Analytics-opdrachten:
 
    ```azurecli
    az dls -h
@@ -49,7 +48,7 @@ Voordat u deze zelfstudie begint, hebt u de volgende bronnen:
 
 ## <a name="manage-accounts"></a>Accounts beheren
 
-Voordat u een Data Lake Analytics-taken uitvoert, moet u een Data Lake Analytics-account hebben. In tegenstelling tot Azure HDInsight betaalt niet u voor een Analytics-account wanneer deze een taak niet wordt uitgevoerd. U betaalt alleen voor de tijd wanneer deze een taak wordt uitgevoerd.  Zie voor meer informatie [overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md).  
+Voordat u een Data Lake Analytics-taken uitvoert, moet u een Data Lake Analytics-account hebben. In tegenstelling tot Azure HDInsight betaalt u niet voor een Analytics-account wanneer deze een taak niet wordt uitgevoerd. U betaalt alleen voor de tijd wanneer deze een taak wordt uitgevoerd.  Zie voor meer informatie, [overzicht van Azure Data Lake Analytics](data-lake-analytics-overview.md).  
 
 ### <a name="create-accounts"></a>Accounts maken
 
@@ -59,9 +58,9 @@ Voer de volgende opdracht om een Data Lake-account te maken
    az dla account create --account "<Data Lake Analytics account name>" --location "<Location Name>" --resource-group "<Resource Group Name>" --default-data-lake-store "<Data Lake Store account name>"
    ```
 
-### <a name="update-accounts"></a>Bijwerken van accounts
+### <a name="update-accounts"></a>Update-accounts
 
-De volgende opdracht werkt u de eigenschappen van een bestaande Data Lake Analytics-Account
+De volgende opdracht werkt de eigenschappen van een bestaand Data Lake Analytics-Account
 
    ```azurecli
    az dla account update --account "<Data Lake Analytics Account Name>" --firewall-state "Enabled" --query-store-retention 7
@@ -94,11 +93,11 @@ Data Lake Analytics ondersteunt momenteel de volgende twee gegevensbronnen:
 * [Azure Data Lake Store](../data-lake-store/data-lake-store-overview.md)
 * [Azure Storage](../storage/common/storage-introduction.md)
 
-Wanneer u een Analytics-account maakt, moet u een Azure Data Lake Storage-account moet het standaardopslagaccount toewijzen. De standaard Data Lake storage-account wordt gebruikt voor het opslaan van taak metagegevens en taak controlelogboeken. Nadat u een Analytics-account hebt gemaakt, kunt u extra Data Lake Storage-accounts en/of Azure Storage-account toevoegen. 
+Wanneer u een Analytics-account maakt, moet u een Azure Data Lake Storage-account om te worden van het standaardopslagaccount opgeven. De standaard Data Lake storage-account wordt gebruikt voor het opslaan van taak metagegevens en taak auditlogboeken. Nadat u een Analytics-account hebt gemaakt, kunt u extra Data Lake Storage-accounts en/of Azure Storage-account toevoegen. 
 
-### <a name="find-the-default-data-lake-store-account"></a>Het Data Lake Store-standaardaccount vinden
+### <a name="find-the-default-data-lake-store-account"></a>De standaard Data Lake Store-account zoeken
 
-U ziet de Data Lake Store-standaardaccount gebruikt door het uitvoeren van de `az dla account show` opdracht. Standaard-accountnaam wordt vermeld onder de eigenschap defaultDataLakeStoreAccount.
+Vindt u de standaard Data Lake Store-account wordt gebruikt door het uitvoeren van de `az dla account show` opdracht. Standaardnaam van het account wordt vermeld onder de eigenschap defaultDataLakeStoreAccount.
 
    ```azurecli
    az dla account show --account "<Data Lake Analytics account name>"
@@ -111,12 +110,12 @@ U ziet de Data Lake Store-standaardaccount gebruikt door het uitvoeren van de `a
    ```
 
 > [!NOTE]
-> Alleen Blob storage korte namen worden ondersteund. Gebruik geen FQDN-naam, bijvoorbeeld 'myblob.blob.core.windows.net'.
+> Alleen Blob-opslag korte namen worden ondersteund. Gebruik geen FQDN-naam, bijvoorbeeld 'myblob.blob.core.windows.net'.
 > 
 
 ### <a name="add-additional-data-lake-store-accounts"></a>Extra Data Lake Store-accounts toevoegen
 
-De volgende opdracht updates van de opgegeven Data Lake Analytics-account met een extra Data Lake Store-account:
+De volgende opdracht werkt de opgegeven Data Lake Analytics-account met een extra Data Lake Store-account:
 
    ```azurecli
    az dla account data-lake-store add --account "<Data Lake Analytics account name>" --data-lake-store-account-name "<Data Lake Store account name>"
@@ -124,13 +123,13 @@ De volgende opdracht updates van de opgegeven Data Lake Analytics-account met ee
 
 ### <a name="update-existing-data-source"></a>Bestaande gegevensbron bijwerken
 
-Een bestaande sleutel voor Blob storage-account bijwerken:
+Een bestaande Blob storage-accountsleutel bijwerken:
 
    ```azurecli
    az dla account blob-storage update --access-key "<New Blob Storage Account Key>" --account "<Data Lake Analytics account name>" --storage-account-name "<Data Lake Store account name>"
    ```
 
-### <a name="list-data-sources"></a>Lijst van gegevensbronnen:
+### <a name="list-data-sources"></a>Lijst met gegevensbronnen:
 
 Overzicht van de Data Lake Store-accounts:
 
@@ -160,9 +159,9 @@ Een Blob storage-account verwijderen:
    ```
 
 ## <a name="manage-jobs"></a>Taken beheren
-U moet een Data Lake Analytics-account hebben voordat u een taak kunt maken.  Zie voor meer informatie [beheren Data Lake Analytics-accounts](#manage-accounts).
+Voordat u een taak kunt maken, moet u een Data Lake Analytics-account hebben.  Zie voor meer informatie, [beheren van Data Lake Analytics-accounts](#manage-accounts).
 
-### <a name="list-jobs"></a>Taken weergeven
+### <a name="list-jobs"></a>Lijst met taken
 
    ```azurecli
    az dla job list --account "<Data Lake Analytics account name>"
@@ -170,7 +169,7 @@ U moet een Data Lake Analytics-account hebben voordat u een taak kunt maken.  Zi
 
    ![Gegevensbron voor Data Lake Analytics-lijst](./media/data-lake-analytics-manage-use-cli/data-lake-analytics-list-jobs.png)
 
-### <a name="get-job-details"></a>Taakdetails van de ophalen
+### <a name="get-job-details"></a>Informatie over
 
    ```azurecli
    az dla job show --account "<Data Lake Analytics account name>" --job-identity "<Job Id>"
@@ -179,7 +178,7 @@ U moet een Data Lake Analytics-account hebben voordat u een taak kunt maken.  Zi
 ### <a name="submit-jobs"></a>Verzenden van taken
 
 > [!NOTE]
-> De laagste prioriteit van een taak is 1000 en de standaard graad van parallelle uitvoering voor een taak is 1.
+> De prioriteit is standaard van een taak is 1000 en de standaard-graad van parallelle uitvoering voor een taak is 1.
 > 
    ```azurecli
    az dla job submit --account "<Data Lake Analytics account name>" --job-name "<Name of your job>" --script "<Script to submit>"

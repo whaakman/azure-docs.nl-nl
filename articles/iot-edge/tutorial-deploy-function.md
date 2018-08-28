@@ -4,17 +4,17 @@ description: In deze zelfstudie implementeert u een Azure-functie als een module
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 08/10/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d37e08f58986a1318e6b379d2efeb71bc58d4583
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 426d9fd81a0cd856378be3bb4f430f310bee53eb
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413724"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41918207"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Zelfstudie: Azure-functies implementeren als IoT Edge-modules (preview)
 
@@ -26,8 +26,12 @@ U kunt Azure-functies gebruiken voor het implementeren van code die uw bedrijfsl
 > * De module vanuit het containerregister implementeren op uw IoT Edge-apparaat.
 > * Gefilterde gegevens weergeven.
 
+<center>
+![Architectuurdiagram voor zelfstudie](./media/tutorial-deploy-function/FunctionsTutDiagram.png)
+</center>
+
 >[!NOTE]
->Azure-functiemodules in Azure IoT Edge zijn in de [openbare preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
+>Azure Functions-modules in Azure IoT Edge zijn in [openbare preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/). 
 
 De Azure-functie die u maakt in deze zelfstudie filtert de temperatuurgegevens die door uw apparaat worden gegenereerd. De functie verzendt gegevens alleen upstream naar Azure IoT Hub wanneer de temperatuur boven een opgegeven drempelwaarde komt. 
 
@@ -52,6 +56,7 @@ Ontwikkelingsresources:
 * [Docker CE](https://docs.docker.com/install/). 
 
 ## <a name="create-a-container-registry"></a>Een containerregister maken
+
 In deze zelfstudie gebruikt u de Azure IoT Edge-extensie voor VS Code om een module te bouwen en maakt u een **containerinstallatiekopie** van de bestanden. Vervolgens pusht u deze installatiekopie naar een **register** waarin uw installatiekopieën worden opgeslagen en beheerd. Tot slot implementeert u de installatiekopie uit het register voor uitvoering op uw IoT Edge-apparaat.  
 
 Voor deze zelfstudie kunt u elk register gebruiken dat compatibel is met Docker. Twee populaire Docker-registerservices die beschikbaar zijn in de cloud zijn [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) en [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags). In deze zelfstudie wordt Azure Container Registry gebruikt. 
@@ -60,21 +65,34 @@ Voor deze zelfstudie kunt u elk register gebruiken dat compatibel is met Docker.
 
     ![Een containerregister maken](./media/tutorial-deploy-function/create-container-registry.png)
 
-2. Voer een naam in voor uw register en kies een abonnement.
-3. Voor de resourcegroep is het raadzaam de naam te gebruiken van dezelfde resourcegroep die uw IoT-hub bevat. Door alle resources bij elkaar te houden in dezelfde groep, kunt u ze samen beheren. Wanneer de resourcegroep die voor testdoeleinden wordt gebruikt bijvoorbeeld wordt verwijderd, worden alle testresources in die groep verwijderd. 
-4. Stel de SKU in op **Basic**en stel **Gebruiker met beheerdersrechten** in op **Inschakelen**. 
+2. Geef de volgende waarden op om uw containerregister te maken:
+
+   | Veld | Waarde | 
+   | ----- | ----- |
+   | Registernaam | Geef hier een unieke naam op. |
+   | Abonnement | Selecteer een abonnement in de vervolgkeuzelijst. |
+   | Resourcegroep | Het wordt aangeraden om dezelfde resourcegroep te gebruiken voor alle test-resources die u maakt met de snelstartgidsen en zelfstudies voor IoT Edge, zoals **IoTEdgeResources**. |
+   | Locatie | Kies een locatie dicht bij u in de buurt. |
+   | Beheerder | Stel deze optie in op **Inschakelen**. |
+   | SKU | Selecteer **Basic**. | 
+
 5. Selecteer **Maken**.
+
 6. Nadat het containerregister is gemaakt, bladert u ernaartoe en selecteert u vervolgens **Toegangssleutels**. 
+
 7. Kopieer de waarden voor **Aanmeldingsserver**, **Gebruikersnaam** en **wachtwoord**. U gebruikt deze waarden later in de zelfstudie. 
 
 ## <a name="create-a-function-project"></a>Een functieproject maken
-Met de volgende stappen maakt u een IoT Edge-functie met behulp van Visual Studio Code en de Azure IoT Edge-extensie.
 
-1. Open Visual Studio Code.
-2. Open de met VS Code geïntegreerde terminal door **View** > **Integrated Terminal** te selecteren. 
+De Azure IoT Edge-extensie voor Visual Studio Code die u hebt geïnstalleerd als een van de vereiste onderdelen biedt niet alleen beheermogelijkheden, maar ook enkele codesjablonen. In deze sectie gebruikt u Visual Studio Code om een IoT Edge-oplossing te maken waarin een Azure-functie wordt gebruikt. 
+
+1. Open Visual Studio Code op uw ontwikkelcomputer.
+
 2. Selecteer **View** > **Command Palette** en open het VS Code-opdrachtpalet.
-3. Voer in het opdrachtpalet de opdracht **Azure: Sign in** in en voer deze uit. Volg de instructies om u aan te melden bij uw Azure-account. Als u al bent aangemeld, kunt u deze stap overslaan.
-3. Voer in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Geef in het opdrachtpalet de volgende informatie op om de oplossing te maken: 
+
+3. Voer in het opdrachtpalet de opdracht **Azure: Sign in** in en voer deze uit. Volg de instructies om u aan te melden bij uw Azure-account.
+
+4. Voer in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Volg de aanwijzingen in het opdrachtpalet om uw oplossing te maken.
 
    1. Selecteer de map waarin u de oplossing wilt maken. 
    2. Geef een naam op voor de oplossing of houd de standaardnaam **EdgeSolution** aan.
@@ -82,9 +100,11 @@ Met de volgende stappen maakt u een IoT Edge-functie met behulp van Visual Studi
    4. Geef de module de naam **CSharpFunction**. 
    5. Geef het Azure-containerregister dat u in de vorige sectie hebt gemaakt, op als de opslagplaats voor installatiekopieën voor de eerste module. Vervang **localhost:5000** door de gekopieerde waarde voor de aanmeldingsserver. De uiteindelijke tekenreeks ziet er ongeveer als volgt uit: \<registernaam\>.azurecr.io/csharpfunction.
 
+   ![Opslagplaats voor Docker-installatiekopieën opgeven](./media/tutorial-deploy-function/repository.png)
+
 4. In het VS Code-venster wordt de werkruimte van de IoT Edge-oplossing geladen: een map \.vscode, een map modules, een sjabloonbestand voor het distributiemanifest en een \.env-bestand. Open in VS Code Explorer **modules** > **CSharpFunction** > **EdgeHubTrigger-Csharp** > **run.csx**.
 
-5. Vervang de inhoud van het bestand door de volgende code:
+5. Vervang de inhoud van het bestand **run.csx** door de volgende code:
 
    ```csharp
    #r "Microsoft.Azure.Devices.Client"
@@ -148,25 +168,31 @@ Met de volgende stappen maakt u een IoT Edge-functie met behulp van Visual Studi
 
 In de vorige sectie hebt u een IoT Edge-oplossing gemaakt en code toegevoegd aan de **CSharpFunction** om berichten te filteren waarin de gemelde temperatuur van de machine onder de aanvaardbare drempelwaarde is. Nu moet u de oplossing bouwen als een containerinstallatiekopie en deze naar het containerregister pushen.
 
-1. Meld u aan bij Docker door de volgende opdracht in de geïntegreerde Visual Studio Code-terminal in te voeren. Vervolgens kunt u de module-installatiekopie naar het Azure-containerregister pushen: 
+In deze sectie geeft u tweemaal de referenties voor het containerregister op. De eerste keer om u lokaal aan te melden vanaf de ontwikkelcomputer zodat Visual Studio Code installatiekopieën naar het register kan pushen. De tweede keer in het **ENV**-bestand van uw IoT Edge-oplossing, waardoor uw IoT-Edge-apparaat bevoegd is voor het ophalen van installatiekopieën uit het register. 
+
+1. Open de met VS Code geïntegreerde terminal door **View** > **Integrated Terminal** te selecteren. 
+
+1. Meld u aan bij uw containerregister door de volgende opdracht in te voeren in de geïntegreerde terminal. Vervolgens kunt u de module-installatiekopie naar het Azure-containerregister pushen: 
      
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
     ```
-    Gebruik de gebruikersnaam en de aanmeldingsserver die u eerder hebt gekopieerd uit het Azure-containerregister. U wordt om het wachtwoord gevraagd. Plak het wachtwoord achter de prompt en druk op **Enter**.
+    Gebruik de gebruikersnaam en de aanmeldingsserver die u eerder hebt gekopieerd uit het Azure-containerregister. Wanneer u wordt gevraagd om het wachtwoord, plakt u het wachtwoord voor uw containerregister en drukt u op **Enter**.
 
     ```csh/sh
     Password: <paste in the ACR password and press enter>
     Login Succeeded
     ```
 
-2. Open in VS Code Explorer het bestand deployment.template.json in de werkruimte van de IoT Edge-oplossing. Dit bestand geeft aan welke modules de IoT Edge-runtime moet implementeren op een apparaat. Zie [Informatie over het gebruiken, configureren en hergebruiken van IoT Edge-modules](module-composition.md) voor meer informatie over distributiemanifesten.
+2. Open in VS Code Explorer het bestand **deployment.template.json** in de werkruimte van de IoT Edge-oplossing. Dit bestand geeft aan welke modules de IoT Edge-runtime moet implementeren op een apparaat. U ziet dat uw functiemodule **CSharpFunction** samen wordt vermeld met de module **tempSensor**, die testgegevens aanlevert. Zie [Informatie over het gebruiken, configureren en hergebruiken van IoT Edge-modules](module-composition.md) voor meer informatie over distributiemanifesten.
 
-3. Zoek de sectie **registryCredentials** in het implementatiemanifest. Werk **gebruikersnaam**, **wachtwoord** en **adres** bij met de referenties uit het containerregister. In dit gedeelte wordt de IoT Edge-runtime op uw apparaat gemachtigd om de containerinstallatiekopieën op te halen die u in uw privéregister hebt opgeslagen. De actuele gebruikersnaam en het bijbehorende wachtwoord zijn opgeslagen in het .env-bestand, dat wordt genegeerd door Git.
+   ![De module weergeven in het implementatiemanifest](./media/tutorial-deploy-function/deployment-template.png)
+
+3. Open het **ENV**-bestand in de werkruimte van uw IoT Edge-oplossing. In dit door git genegeerde bestand worden de referenties van uw containerregister opgeslagen, zodat u deze niet hoeft op te nemen in de sjabloon voor het implementatiemanifest. Geef de **gebruikersnaam** en het **wachtwoord** voor uw containerregister op. 
 
 5. Sla dit bestand op.
 
-6. Klik in VS Code Explorer met de rechtermuisknop op het bestand deployment.template.json en selecteer **IoT Edge-oplossing bouwen**. 
+6. Klik in VS Code Explorer met de rechtermuisknop op het bestand deployment.template.json en selecteer **Build and Push IoT Edge solution**. 
 
 Wanneer u Visual Studio Code de opdracht geeft om uw oplossing te bouwen, wordt eerst een bestand deployment.json gemaakt in een nieuwe map genaamd **config** op basis van de informatie in de distributiesjabloon. Vervolgens worden twee opdrachten uitgevoerd in de geïntegreerde terminal: `docker build` en `docker push`. Met deze twee opdrachten wordt uw code gebouwd, worden de functies in een container opgeslagen en wordt de code vervolgens naar het containerregister gepusht dat u hebt opgegeven toen u de oplossing initialiseerde. 
 
@@ -212,46 +238,13 @@ Als u het controleren van berichten wilt stoppen, voert u de opdracht **Azure Io
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)]
+Als u van plan bent door te gaan met het volgende aanbevolen artikel, kunt u de resources en configuraties die u hebt gemaakt behouden en opnieuw gebruiken. U kunt ook hetzelfde IoT Edge-apparaat blijven gebruiken als een testapparaat. 
 
-Verwijder de IoT Edge-serviceruntime conform het IoT-apparaatplatform (Linux of Windows).
+Anders kunt u de lokale configuraties en Azure-resources die u in dit artikel hebt gemaakt, verwijderen om kosten te voorkomen. 
 
-#### <a name="windows"></a>Windows
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Verwijder de IoT Edge-runtime.
-
-```Powershell
-stop-service iotedge -NoWait
-sleep 5
-sc.exe delete iotedge
-```
-
-Verwijder de containers die op uw apparaat zijn gemaakt. 
-
-```Powershell
-docker rm -f $(docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor" --filter "name=CSharpFunction")
-```
-
-#### <a name="linux"></a>Linux
-
-Verwijder de IoT Edge-runtime.
-
-```bash
-sudo apt-get remove --purge iotedge
-```
-
-Verwijder de containers die op uw apparaat zijn gemaakt. 
-
-```bash
-sudo docker rm -f $(sudo docker ps -a --no-trunc --filter "name=edge" --filter "name=tempSensor" --filter "name=CSharpFunction")
-```
-
-Verwijder de container-runtime.
-
-```bash
-sudo apt-get remove --purge moby
-```
-
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>Volgende stappen

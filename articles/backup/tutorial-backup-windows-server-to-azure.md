@@ -7,15 +7,15 @@ manager: shivamg
 keywords: windows-server back-up; back-up windows-server; back-up en herstel na noodgevallen
 ms.service: backup
 ms.topic: tutorial
-ms.date: 2/14/2018
+ms.date: 8/22/2018
 ms.author: saurse
 ms.custom: mvc
-ms.openlocfilehash: d52866a4f441a74bbc4b63f6dc362989865151b3
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 9bf4c25b416edf86d29c27bcb19901bf43073bb4
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34609015"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616186"
 ---
 # <a name="back-up-windows-server-to-azure"></a>Een back-up maken van een Windows-server naar Azure
 
@@ -29,7 +29,7 @@ U kunt Azure Backup gebruiken om uw Windows-server te beschermen tegen beschadig
 > * Op ad-hocbasis een back-up maken
 
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 Meld u aan bij Azure Portal op http://portal.azure.com.
 
@@ -41,16 +41,16 @@ Voordat u een back-up kunt maken van uw Windows-server, moet u een locatie maken
 
    ![Recovery Services-kluis openen](./media/tutorial-backup-windows-server-to-azure/full-browser-open-rs-vault_2.png)
 
-2.  Klik in het menu **Recovery Services-kluizen** op **Toevoegen**.
+2. Klik in het menu **Recovery Services-kluizen** op **Toevoegen**.
 
    ![informatie opgeven voor de kluis](./media/tutorial-backup-windows-server-to-azure/provide-vault-detail-2.png)
 
-3.  Typ in het menu **Recovery Services-kluis**
+3. Typ in het menu **Recovery Services-kluis**
 
     - *myRecoveryServicesVault* in bij **Naam**.
     - De huidige abonnements-id wordt weergegeven in **Abonnement**.
     - Selecteer voor **Resourcegroep** de optie **Bestaande gebruiken** en kies *myResourceGroup*. Als *myResourceGroup* niet bestaat, selecteert u **Nieuwe maken** en typt u *myResourceGroup*. 
-    - Kies in de vervolgkeuzelijst **Locatie** de optie *West-Europa*.
+    - Kies in de vervolgkeuzelijst **Locatie** de optie *Europa - west*.
     - Klik op **Maken** om de Recovery Services-kluis te maken.
  
 Zodra de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Services-kluizen.
@@ -59,27 +59,28 @@ Zodra de kluis is gemaakt, wordt deze weergegeven in de lijst met Recovery Servi
 
 De Microsoft Azure Recovery Services-agent (MARS) maakt een koppeling tussen de Windows-server en uw Recovery Services-kluis. In de volgende procedure wordt uitgelegd hoe u de agent downloadt naar uw server.
 
-1.  Selecteer **myRecoveryServicesVault** in de lijst met Recovery Services-kluizen om het dashboard ervan te openen.
+1. Selecteer **myRecoveryServicesVault** in de lijst met Recovery Services-kluizen om het dashboard ervan te openen.
 
    ![informatie opgeven voor de kluis](./media/tutorial-backup-windows-server-to-azure/open-vault-from-list.png)
 
-2.  Klik in het menu van het kluisdashboard op **Back-up**.
+2. Klik in het menu van het kluisdashboard op **Back-up**.
 
-3.  In het menu **Doel van back-up**:
+3. In het menu **Doel van back-up**:
 
-    - Selecteer voor **Waar wordt uw workload uitgevoerd?** de optie **On-premises**, 
-    - Selecteer voor **Waarvan wilt u een back-up maken?** de opties **Bestanden en mappen** en **Systeemstatus** 
+   * Selecteer voor **Waar wordt uw workload uitgevoerd?** de optie **On-premises**, 
+   * Selecteer voor **Waarvan wilt u een back-up maken?** de opties **Bestanden en mappen** en **Systeemstatus**
 
-    ![informatie opgeven voor de kluis](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
-    
-4.  Klik op **Infrastructuur voorbereiden** om het menu **Infrastructuur voorbereiden** te openen.
-5.  Klik in het menu **Infrastructuur voorbereiden** op **Agent voor Windows-server of Windows-client downloaden** om *MARSAgentInstaller.exe* te downloaden. 
+   ![informatie opgeven voor de kluis](./media/tutorial-backup-windows-server-to-azure/backup-goal.png)
+
+4. Klik op **Infrastructuur voorbereiden** om het menu **Infrastructuur voorbereiden** te openen.
+
+5. Klik in het menu **Infrastructuur voorbereiden** op **Agent voor Windows-server of Windows-client downloaden** om *MARSAgentInstaller.exe* te downloaden. 
 
     ![infrastructuur voorbereiden](./media/tutorial-backup-windows-server-to-azure/prepare-infrastructure.png)
 
     Het installatieprogramma opent een afzonderlijke browser en downloadt **MARSAgentInstaller.exe**.
  
-6.  Voordat u het gedownloade bestand uitvoert, klikt u op de knop **Downloaden** op de blade 'Infrastructuur voorbereiden' om het bestand **Vault Credentials** te downloaden en op te slaan. Dit bestand is vereist om de MARS-agent te verbinden met de Recovery Services-kluis.
+6. Voordat u het gedownloade bestand uitvoert, klikt u op de knop **Downloaden** in het menu 'Infrastructuur voorbereiden' om het bestand **Vault Credentials** op te slaan. Kluisreferenties zijn vereist om de MARS-agent te verbinden met de Recovery Services-kluis.
 
     ![infrastructuur voorbereiden](./media/tutorial-backup-windows-server-to-azure/download-vault-credentials.png)
  
@@ -115,13 +116,17 @@ U gebruikt de Microsoft Azure Recovery Services-agent om te plannen wanneer er b
 
 5. Klik op **Volgende**.
 
-6. Geef op de pagina **Back-upschema opgeven (Systeemstatus)** de tijd van de dag of van de week op waarop de back-up voor de systeemstatus moet worden geactiveerd. Klik vervolgens op **Volgende** 
+6. Geef op de pagina **Back-upschema opgeven (Systeemstatus)** de tijd van de dag of van de week op waarop de back-up voor de systeemstatus moet worden geactiveerd. Klik vervolgens op **Volgende**.
 
-7.  Selecteer op de pagina **Retentiebeleid selecteren (Systeemstatus)** het retentiebeleid voor de back-up van de systeemstatus. Klik vervolgens op **Volgende**
+7. Selecteer op de pagina **Retentiebeleid selecteren (Systeemstatus)** het retentiebeleid voor de back-up van de systeemstatus. Klik vervolgens op **Volgende**.
+
 8. Selecteer op dezelfde manier het back-upschema en het retentiebeleid voor de geselecteerde bestanden en mappen. 
-8.  Laat op de pagina **Eerste back-uptype kiezen** de optie **Automatisch via het netwerk** ingeschakeld en klik op **Volgende**.
-9.  Lees de informatie op de pagina **Bevestiging** en klik vervolgens op **Voltooien**.
-10. Nadat u de wizard voor het maken van een back-upschema hebt doorlopen, klikt u op **Sluiten**.
+
+9. Selecteer op de pagina **Eerste back-uptype kiezen** de optie **Automatisch via het netwerk** en klik op **Volgende**.
+
+10. Lees de informatie op de pagina **Bevestiging** en klik vervolgens op **Voltooien**.
+
+11. Nadat u de wizard voor het maken van een back-upschema hebt doorlopen, klikt u op **Sluiten**.
 
 ## <a name="perform-an-ad-hoc-back-up"></a>Op ad-hocbasis een back-up maken
 

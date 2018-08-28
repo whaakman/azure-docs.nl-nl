@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 12/13/2017
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: f3cc4f518278cca915e40bd691c6a7674219916e
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 2122b6d9c385e1137d0fc6df5229975359fa20d5
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109389"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "41919374"
 ---
 # <a name="tutorial-deploy-an-application-with-cicd-to-a-service-fabric-cluster"></a>Zelfstudie: Een toepassing met CI/CD implementeren in een Service Fabric-cluster
 
@@ -50,7 +50,7 @@ Voor u met deze zelfstudie begint:
 * [Installeer Visual Studio 2017](https://www.visualstudio.com/) en installeer de workloads **Azure-ontwikkeling** en **ASP.NET-ontwikkeling en webontwikkeling**.
 * [Installeer de Service Fabric-SDK](service-fabric-get-started.md)
 * Maak een Windows Service Fabric-cluster in Azure, bijvoorbeeld door [deze zelfstudie te volgen](service-fabric-tutorial-create-vnet-and-windows-cluster.md)
-* Maak een [Team Services-account](https://www.visualstudio.com/docs/setup-admin/team-services/sign-up-for-visual-studio-team-services).
+* Maak een [Team Services-account](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 
 ## <a name="download-the-voting-sample-application"></a>De voorbeeldtoepassing om te stemmen downloaden
 
@@ -94,7 +94,13 @@ Een definitie van een Team Services-release beschrijft een werkstroom waarmee ee
 
 Open een webbrowser en ga naar uw nieuwe teamproject op: [https://&lt;myaccount&gt;.visualstudio.com/Voting/Voting%20Team/_git/Voting](https://myaccount.visualstudio.com/Voting/Voting%20Team/_git/Voting).
 
-Selecteer het tabblad **Build & Release**, vervolgens **Builds** en **+ New definition**.  Selecteer in **Select a template** de sjabloon **Azure Service Fabric Application** en klik op **Apply**.
+Selecteer het tabblad **Build and release**, vervolgens **Builds** en klik daarna op **New Pipeline**.
+
+![Nieuwe pijplijn][new-pipeline]
+
+Selecteer **VSTS Git** als de bron, **Voting** Team project, **Voting** Repository en **master**Standaardvertakking of handmatige en geplande builds.  Klik vervolgens op **Doorgaan**.
+
+Selecteer in **Select a template** de sjabloon **Azure Service Fabric Application** en klik op **Apply**.
 
 ![Build-sjabloon kiezen][select-build-template]
 
@@ -102,7 +108,9 @@ Voer in **Tasks** Hosted VS2017 in als de **Agent queue**.
 
 ![Taken selecteren][save-and-queue]
 
-Schakel onder **Triggers** continue integratie in door **Trigger status** in te stellen.  Selecteer **Save and queue** om handmatig een build te starten.
+Schakel onder **Triggers** continue integratie in door **Enable continuous integration** in te schakelen. Binnen **Vertakkingsfilters** klikt u op **+ Toevoegen**, en de **Vertakkingsspecificatie** wordt standaard op **master** ingesteld. Selecteer **Save and queue** om handmatig een build te starten.
+
+In het dialoogvenster **Save build pipeline and queue** klikt u op **Save & queue**.
 
 ![Triggers selecteren][save-and-queue2]
 
@@ -110,7 +118,7 @@ Hiermee worden ook triggers gebouwd na pushen of inchecken. Als u de voortgang v
 
 ### <a name="create-a-release-definition"></a>Release-definitie maken
 
-Selecteer het tabblad **Build & Release**, vervolgens **Releases** en **+ New definition**.  Selecteer in **Select a template** de sjabloon **Azure Service Fabric Deployment** in de lijst en vervolgens **Apply**.
+Selecteer het tabblad **Build & Release**, vervolgens **Releases** en **+ New pipeline**.  Selecteer in **Select a template** de sjabloon **Azure Service Fabric Deployment** in de lijst en vervolgens **Apply**.
 
 ![Release-sjabloon kiezen][select-release-template]
 
@@ -134,7 +142,9 @@ Schakel een trigger voor continue implementatie in, zodat automatisch een releas
 
 ![Trigger inschakelen][enable-trigger]
 
-Selecteer **+Release** -> **Create Release** -> **Create** om handmatig een release te maken.  Controleer of de implementatie is gelukt en de toepassing in het cluster wordt uitgevoerd.  Open een browser en ga naar [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Noteer de versie van de toepassing (in dit voorbeeld 1.0.0.20170616.3).
+Selecteer **+Release** -> **Create a Release** -> **Create** om handmatig een release te maken. U kunt de voortgang van de release volgen op het tabblad **Releases**.
+
+Controleer of de implementatie is gelukt en de toepassing in het cluster wordt uitgevoerd.  Open een browser en ga naar [http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/](http://mysftestcluster.southcentralus.cloudapp.azure.com:19080/Explorer/).  Noteer de versie van de toepassing (in dit voorbeeld 1.0.0.20170616.3).
 
 ## <a name="commit-and-push-changes-trigger-a-release"></a>Wijzigingen doorvoeren en pushen, een release activeren
 
@@ -188,6 +198,7 @@ Ga door naar de volgende zelfstudie:
 [publish-app-profile]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishAppProfile.png
 [push-git-repo]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishGitRepo.png
 [publish-code]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/PublishCode.png
+[new-pipeline]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/NewPipeline.png
 [select-build-template]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SelectBuildTemplate.png
 [save-and-queue]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue.png
 [save-and-queue2]: ./media/service-fabric-tutorial-deploy-app-with-cicd-vsts/SaveAndQueue2.png

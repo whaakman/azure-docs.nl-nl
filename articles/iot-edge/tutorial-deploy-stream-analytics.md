@@ -4,17 +4,17 @@ description: In deze zelfstudie implementeert u Azure Stream Analytics als modul
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/25/2018
+ms.date: 08/10/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: afbdf2171c1fc1eef95514526a509d171e262d4a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 66d55c07493a540e36a08d48d6abbdc3d082b9b9
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39435679"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41920696"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module-preview"></a>Zelfstudie: Azure Stream Analytics implementeren als een IoT Edge-module (preview)
 
@@ -33,6 +33,10 @@ In deze zelfstudie leert u het volgende:
 > * Verbinding maken tussen de nieuwe Azure Stream Analytics-taak en andere IoT Edge-modules.
 > * De Azure Stream Analytics-taak implementeren op een IoT Edge-apparaat vanuit Azure Portal.
 
+<center>
+![Architectuurdiagram voor zelfstudie](./media/tutorial-deploy-stream-analytics/ASATutorialDiagram.png)
+</center>
+
 >[!NOTE]
 >Azure Stream Analytics-modules voor IoT Edge zijn in de [openbare preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -43,7 +47,6 @@ In deze zelfstudie leert u het volgende:
 Een Azure IoT Edge-apparaat:
 
 * U kunt uw ontwikkelcomputer of een virtuele machine gebruiken als een Edge-apparaat door de stappen te volgen in de snelstart voor [Linux-](quickstart-linux.md) of [Windows-apparaten](quickstart.md).
-* De Azure Machine Learning-module ondersteunt geen ARM-processoren.
 
 Cloudresources:
 
@@ -52,57 +55,72 @@ Cloudresources:
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Een Azure Stream Analytics-taak maken
 
-In deze sectie maakt u een Azure Stream Analytics-taak om gegevens uit uw IoT-hub te halen, de verzonden telemetriegegevens van uw apparaat te doorzoeken, en de resultaten vervolgens door te sturen naar een Azure Blob-opslagcontainer. Raadpleeg de sectie Overzicht in de [Stream Analytics-documentatie][azure-stream] voor meer informatie. 
+In deze sectie maakt u een Azure Stream Analytics-taak om gegevens uit uw IoT-hub te halen, de verzonden telemetriegegevens van uw apparaat te doorzoeken, en de resultaten vervolgens door te sturen naar een Azure Blob-opslagcontainer. 
 
 ### <a name="create-a-storage-account"></a>Create a storage account
 
-Voor Azure Stream Analytics-taken is een Azure Storage-account vereist om te fungeren als eindpunt voor de taakuitvoer. In het voorbeeld in deze sectie wordt het type Blob-opslag gebruikt. Raadpleeg de sectie Blobs in de [Azure Storage-documentatie][azure-storage] voor meer informatie.
+Wanneer u een Azure Stream Analytics-taak maakt die op een IoT Edge-apparaat moet worden uitgevoerd, moet deze worden opgeslagen op een manier die door het apparaat kan worden aangeroepen. U kunt een bestaand Azure-opslagaccount gebruiken of een nieuw maken. 
 
-1. Ga in Azure Portal naar **Een resource maken**, voer **Opslagaccount** in het tekstvak in en selecteer vervolgens **Opslagaccount: blob, bestand, tabel, wachtrij**.
+1. Ga in de Azure-portal achtereenvolgens naar **Een resource maken** > **Opslag** > **Opslagaccount - blob, bestand, tabel, wachtrij**. 
 
-1. Voer in het deelvenster **Opslagaccount maken** een naam in voor het opslagaccount, selecteer dezelfde locatie als waar de IoT-hub is opgeslagen, selecteer dezelfde resourcegroep als de IoT-hub en selecteer vervolgens **Maken**. Noteer deze naam voor later gebruik.
+1. Geef de volgende waarden op om uw opslagaccount te maken:
 
-    ![Create a storage account][1]
+   | Veld | Waarde |
+   | ----- | ----- |
+   | Naam | Voer een unieke naam in voor het opslagaccount. | 
+   | Locatie | Kies een locatie dicht bij u in de buurt. |
+   | Abonnement | Kies het hetzelfde abonnement als uw IoT-hub. |
+   | Resourcegroep | Het wordt aangeraden om dezelfde resourcegroep te gebruiken voor alle test-resources die u maakt met de snelstartgidsen en zelfstudies voor IoT Edge, zoals **IoTEdgeResources**. |
 
+1. Houd de standaardwaarden voor de andere velden aan en selecteer **Maken**. 
 
-### <a name="create-a-stream-analytics-job"></a>Een Stream Analytics-taak maken
+### <a name="create-a-new-job"></a>Een nieuwe taak maken
 
-1. Ga in Azure Portal naar **Een Resource maken** > **Internet of Things**, en selecteer vervolgens **Stream Analytics-taak**.
+1. Ga in de Azure-portal naar **Een resource maken** > **Internet of Things** > **Stream Analytics-taak**.
 
-1. Voer in het deelvenster **Nieuwe Stream Analytics-taak** de volgende stappen uit:
+1. Geef de volgende waarden op om de taak te maken:
 
-   1. Typ in het vak **Taaknaam** een naam voor de taak.
-   
-   1. Gebruik dezelfde **Resourcegroep** en **Locatie** als de IoT-hub. 
-
-      > [!NOTE]
-      > Momenteel worden Azure Stream Analytics-taken in IoT Edge niet ondersteund in de regio US - west 2. 
-
-   1. Selecteer onder **Hostingomgeving** de optie **Edge**.
-    
+   | Veld | Waarde |
+   | ----- | ----- |
+   | Taaknaam | Geef de taak een naam. Bijvoorbeeld **IoTEdgeJob**. | 
+   | Abonnement | Kies het hetzelfde abonnement als uw IoT-hub. |
+   | Resourcegroep | Het wordt aangeraden om dezelfde resourcegroep te gebruiken voor alle test-resources die u maakt met de snelstartgidsen en zelfstudies voor IoT Edge, zoals **IoTEdgeResources**. |
+   | Locatie | Kies een locatie dicht bij u in de buurt. | 
+   | Hostingomgeving | Selecteer **Edge**. |
+ 
 1. Selecteer **Maken**.
 
-1. Open in de gemaakte taak onder **Taaktopologie** de optie **Invoer**.
+### <a name="configure-your-job"></a>Uw taak configureren
+
+Zodra uw Stream Analytics-taak is gemaakt in de Azure-portal, kunt u deze configureren met invoer, uitvoer en een query die moeten worden uitgevoerd op de gegevens die worden doorgegeven. 
+
+Met behulp van de drie elementen invoer, uitvoer en query wordt in deze sectie een taak gemaakt waarbij temperatuurgegevens van het IoT Edge-apparaat worden ontvangen. Deze gegevens worden in een tijdvenster met een lopende telling van 30 seconden geanalyseerd. Als de gemiddelde temperatuur in dit tijdvenster de 70 graden overschrijdt, wordt een waarschuwing naar het IoT Edge-apparaat verzonden. In de volgende sectie, waarin u de taak gaat implementeren, moet u opgeven waar de gegevens precies vandaan komen en waar ze naartoe gaan.  
+
+1. Navigeer naar uw Stream Analytics-taak in de Azure-portal. 
+
+1. Onder **Taaktopologie** selecteert u **Invoer** en vervolgens **Stroominvoer toevoegen**.
 
    ![Azure Stream Analytics-invoer](./media/tutorial-deploy-stream-analytics/asa_input.png)
 
-1. Selecteer **Stroominvoer toevoegen**. Selecteer vervolgens **Edge Hub**.
+1. Kies **Edge Hub** in de vervolgkeuzelijst.
 
 1. Voer in het deelvenster **Nieuwe invoer** **temperatuur** in als de invoeralias. 
 
-1. Selecteer **Opslaan**.
+1. Houd de standaardwaarden voor de andere velden aan en selecteer **Opslaan**.
 
-1. Open onder **Taaktopologie** de optie **Uitvoer**.
+1. Open onder **Taaktopologie** de optie **Uitvoer** en selecteer vervolgens **Toevoegen**.
 
    ![Azure Stream Analytics-uitvoer](./media/tutorial-deploy-stream-analytics/asa_output.png)
 
-1. Selecteer **Toevoegen**. Selecteer vervolgens **Edge Hub**.
+1. Kies **Edge Hub** in de vervolgkeuzelijst.
 
 1. Voer in het deelvenster **Nieuwe uitvoer** **waarschuwing** in als de uitvoeralias. 
 
-1. Selecteer **Opslaan**.
+1. Houd de standaardwaarden voor de andere velden aan en selecteer **Opslaan**.
 
-1. Selecteer onder **Taaktopologie** de optie **Query** en vervang de standaardtekst door de volgende query waarmee een waarschuwing wordt gegenereerd wanneer de gemiddelde temperatuur van de machine 70 graden bereikt in een tijdvenster van 30 seconden:
+1. Selecteer **Query** onder **Taaktopologie**.
+
+1. Vervang de standaardtekst door de volgende query. De SQL-code verzendt een opdracht voor opnieuw instellen naar de waarschuwingsuitvoer als de gemiddelde temperatuur van de machine in een tijdvenster van 30 seconden de 70 graden bereikt. De opdracht voor opnieuw instellen is vooraf in de sensor geprogrammeerd als actie die kan worden uitgevoerd. 
 
     ```sql
     SELECT  
@@ -117,6 +135,10 @@ Voor Azure Stream Analytics-taken is een Azure Storage-account vereist om te fun
 
 1. Selecteer **Opslaan**.
 
+### <a name="configure-iot-edge-settings"></a>Instellingen voor IoT Edge configureren
+
+Als u uw Stream Analytics-taak wilt voorbereiden om te worden geïmplementeerd op een IoT Edge-apparaat, moet u de taak aan een container in een opslagaccount koppelen. Wanneer u uw taak gaat implementeren, wordt de taakdefinitie geëxporteerd naar de opslagcontainer. 
+
 1. Selecteer onder **Configureren** de optie **IoT Edge-instellingen**.
 
 1. Selecteer in de vervolgkeuzelijst uw **opslagaccount**.
@@ -125,22 +147,24 @@ Voor Azure Stream Analytics-taken is een Azure Storage-account vereist om te fun
 
 1. Selecteer **Opslaan**. 
 
-
 ## <a name="deploy-the-job"></a>De taak implementeren
 
-U bent nu klaar om de Azure Stream Analytics-taak te implementeren op uw IoT Edge-apparaat.
+U bent nu klaar om de Azure Stream Analytics-taak te implementeren op uw IoT Edge-apparaat. 
+
+In deze sectie gaat u de wizard **Modules instellen** in de Azure-portal gebruiken om een *distributiemanifest* te maken. Het distributiemanifest is een JSON-bestand waarin alle modules worden beschreven die op een apparaat worden geïmplementeerd, waarin de containerregisters worden beschreven waarin installatiekopieën van de modules worden bewaard, hoe de modules moeten worden beheerd en hoe de modules met elkaar kunnen communiceren. Uw IoT Edge-apparaat haalt het distributiemanifest op uit IoT Hub en gebruikt vervolgens de informatie die zich daarin bevindt, om alle modules die eraan zijn toegewezen te implementeren en te configureren. 
+
+In deze zelfstudie gaat u twee modules implementeren. De eerste is **tempSensor**: dit is een module die een temperatuur- en vochtigheidssensor simuleert. De tweede is uw Stream Analytics-taak. De sensormodule levert de gegevensstroom aan die door de taakquery wordt geanalyseerd. 
 
 1. Ga in Azure Portal, in uw IoT-hub, naar **IoT Edge** en open vervolgens de detailpagina van het IoT Edge-apparaat.
 
 1. Selecteer **Modules instellen**.  
 
-   Als u de tempSensor-module al eerder op dit apparaat hebt geïmplementeerd, wordt deze mogelijk automatisch ingevuld. Als dit niet het geval is, voegt u de module toe met behulp van de volgende stappen:
+1. Als u de tempSensor-module al eerder op dit apparaat hebt geïmplementeerd, wordt deze mogelijk automatisch ingevuld. Als dit niet het geval is, voegt u de module toe met behulp van de volgende stappen:
 
    1. Klik op **Toevoegen** en selecteer **IoT Edge-module**.
    1. Typ **tempSensor** als de naam.
    1. Voer **mcr.microsoft.com/azureiotedge-simulated-temperature-sensor:1.0** in als de URI voor de installatiekopie. 
-   1. Laat de overige instellingen ongewijzigd.
-   1. Selecteer **Opslaan**.
+   1. Laat de overige instellingen ongewijzigd en selecteer **Opslaan**.
 
 1. Voeg uw Azure Stream Analytics Edge-taak toe met behulp van de volgende stappen:
 
@@ -148,9 +172,17 @@ U bent nu klaar om de Azure Stream Analytics-taak te implementeren op uw IoT Edg
    1. Selecteer uw abonnement en de Azure Stream Analytics-taak die u hebt gemaakt. 
    1. Selecteer **Opslaan**.
 
-1. Selecteer **Volgende**.
+1. Zodra uw Stream Analytics-taak is gepubliceerd naar de opslagcontainer die u hebt gemaakt, klikt u op de naam van de module om te zien hoe een Stream Analytics-module is opgebouwd. 
 
-1. Vervang de standaardwaarde in **Routes** door de volgende code. Werk _{moduleName}_ bij met de naam van de Azure Stream Analytics-module. De module moet dezelfde naam hebben als de taak waarmee deze is gemaakt. 
+   De URI van de installatiekopie verwijst naar een standaardinstallatiekopie van Azure Stream Analytics. Dit is de dezelfde installatiekopie die wordt gebruikt voor elke taak die op een IoT Edge-apparaat wordt geïmplementeerd. 
+
+   De moduledubbel wordt geconfigureerd met een gewenste eigenschap genaamd **ASAJobInfo**. De waarde van deze eigenschap verwijst naar de taakdefinitie in uw opslagcontainer. Deze eigenschap bepaalt hoe de installatiekopie van Stream Analytics wordt geconfigureerd met uw specifieke taakgegevens. 
+
+1. Sluit de modulepagina.
+
+1. Noteer de naam van uw Stream Analytics-module omdat u deze in de volgende stap nodig hebt, en selecteer daarna **Volgende** om door te gaan.
+
+1. Vervang de standaardwaarde in **Routes** door de volgende code. Werk alle drie de instanties van _{moduleName}_ bij met de naam van de Azure Stream Analytics-module. 
 
     ```json
     {
@@ -162,6 +194,8 @@ U bent nu klaar om de Azure Stream Analytics-taak te implementeren op uw IoT Edg
         }
     }
     ```
+
+   De routes die u hier declareert bepalen de gegevensstroom die via het IoT Edge-apparaat gaat. De telemetriegegevens van tempSensor worden naar IoT Hub verzonden en naar de **temperatuurinvoer** die is geconfigureerd in de Stream Analytics-taak. De **waarschuwingsuitvoerberichten** worden verzonden naar IoT Hub en naar de tempSensor-module om de opdracht voor opnieuw instellen te activeren. 
 
 1. Selecteer **Volgende**.
 
@@ -197,35 +231,14 @@ U ziet nu dat de temperatuur van de machine geleidelijk stijgt totdat deze gedur
 
 ## <a name="clean-up-resources"></a>Resources opschonen 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
-Als u doorgaat met het volgende aanbevolen artikel, kunt u de resources en configuraties die u al hebt gemaakt, behouden en opnieuw gebruiken.
+Als u van plan bent door te gaan met het volgende aanbevolen artikel, kunt u de resources en configuraties die u hebt gemaakt behouden en opnieuw gebruiken. U kunt ook hetzelfde IoT Edge-apparaat blijven gebruiken als een testapparaat. 
 
 Anders kunt u de lokale configuraties en Azure-resources die u in dit artikel hebt gemaakt, verwijderen om kosten te voorkomen. 
+ 
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-> [!IMPORTANT]
-> Het verwijderen van de Azure-resources en resourcegroep kan niet ongedaan worden gemaakt. Zodra u dit hebt uitgevoerd, zijn de resourcegroep en alle bijbehorende resources definitief verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de IoT Hub in een bestaande resourcegroep hebt gemaakt met resources die u wilt behouden, moet u alleen de IoT Hub-resource zelf verwijderen in plaats van de resourcegroep te verwijderen.
->
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
-Als u alleen de IoT-hub wilt verwijderen, voert u de volgende opdracht uit met behulp van de naam van de hub en van de resourcegroep:
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-Ga als volgt te werk om de hele resourcegroep te verwijderen op naam:
-
-1. Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
-
-1. Typ in het tekstvak **Filteren op naam...** de naam van de resourcegroep die uw IoT Hub bevat. 
-
-1. Klik rechts van de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
-
-<!--
-   ![Delete](./media/iot-edge-quickstarts-clean-up-resources/iot-edge-delete-resource-group.png)
--->
-1. U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Typ de naam van de resourcegroep nogmaals om te bevestigen en klik op **Verwijderen**. Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verwijderd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -235,7 +248,6 @@ In deze zelfstudie hebt u een Azure Stream Analytics-taak geconfigureerd om gege
 > [Een Azure Machine Learning-model implementeren als een module][lnk-ml-tutorial]
 
 <!-- Images. -->
-[1]: ./media/tutorial-deploy-stream-analytics/storage.png
 [4]: ./media/tutorial-deploy-stream-analytics/add_device.png
 [5]: ./media/tutorial-deploy-stream-analytics/asa_job.png
 [6]: ./media/tutorial-deploy-stream-analytics/set_module.png

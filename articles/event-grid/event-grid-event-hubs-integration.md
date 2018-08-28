@@ -6,18 +6,18 @@ author: tfitzmac
 manager: timlt
 ms.service: event-grid
 ms.topic: tutorial
-ms.date: 05/04/2018
+ms.date: 08/22/2018
 ms.author: tomfitz
-ms.openlocfilehash: 41cd2f1081cbe8d8fca9d6afa77b87f9aa1017d3
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 432436ee13519cf342313ad369c168ba764f9264
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34302936"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616512"
 ---
 # <a name="stream-big-data-into-a-data-warehouse"></a>Big data streamen naar een datawarehouse
 
-Azure [Event Grid](overview.md) is een intelligente service voor het routeren van gebeurtenissen waarmee u kunt reageren op meldingen van apps en services. In het Engelstalige voorbeeld [An overview, how Event Hubs Capture integrates with Event Grid](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) kunt u zien hoe u Azure Event Hubs Capture gebruikt met Azure Event Grid om gegevens naadloos te migreren van een gebeurtenishub naar een SQL Data Warehouse.
+Azure [Event Grid](overview.md) is een intelligente service voor het routeren van gebeurtenissen waarmee u kunt reageren op meldingen van apps en services. Het kan bijvoorbeeld een Azure-functie activeren voor het verwerken van Event Hubs-gegevens die zijn opgenomen in een Azure Blob-opslag of Data Lake Store en de gegevens naar andere gegevensopslagplaatsen migreren. Dit [Event Hubs Capture en Event Grid-voorbeeld](https://github.com/Azure/azure-event-hubs/tree/master/samples/e2e/EventHubsCaptureEventGridDemo) laat zien hoe u Event Hubs Capture gebruikt met Event Grid voor het naadloos migreren van gegevens van Event Hubs uit blob-opslag naar een SQL Data Warehouse.
 
 ![Overzicht van toepassing](media/event-grid-event-hubs-integration/overview.png)
 
@@ -75,7 +75,7 @@ U hebt het volgende nodig om deze zelfstudie te voltooien:
 
 ## <a name="deploy-the-infrastructure"></a>De infrastructuur implementeren
 
-Om dit artikel te vereenvoudigen, gaat u de vereiste infrastructuur implementeren met behulp van een Resource Manager-sjabloon. Bekijk de [sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json) om te zien welke resources er worden geïmplementeerd. Gebruik een van de [ondersteunde regio's](overview.md) voor de locatie van de resourcegroep.
+Om dit artikel te vereenvoudigen, gaat u de vereiste infrastructuur implementeren met behulp van een Resource Manager-sjabloon. Bekijk de [sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/event-grid/EventHubsDataMigration.json) om te zien welke resources er worden geïmplementeerd.
 
 Gebruik voor Azure CLI:
 

@@ -8,15 +8,15 @@ ms.reviewer: carlrab, jovanpop
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: tutorial
-ms.date: 07/16/2018
+ms.date: 08/09/2018
 ms.author: mlandzic
 manager: craigg
-ms.openlocfilehash: 042d89017db898102deafc9156cf847a08c92227
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: afecd69cdf9832e1c6dc294ca01968ee50a3eabd
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39074305"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41919773"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>Certificaat van met TDE beveiligde database migreren naar met Azure SQL Database beheerd exemplaar
 
@@ -38,8 +38,9 @@ U moet de volgende vereiste zaken hebben om de stappen in dit artikel uit te voe
 
 - Het [Pvk2Pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx)-opdrachtregelprogramma is geïnstalleerd op de on-premises server of een andere computer met toegang tot het certificaat dat als een bestand wordt geëxporteerd. Het Pvk2Pfx-hulpprogramma maakt deel uit van de [Enterprise Windows Driver Kit](https://docs.microsoft.com/windows-hardware/drivers/download-the-wdk), een onafhankelijke op zichzelf staande opdrachtregelomgeving.
 - [Windows PowerShell](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell) versie 5.0 of hoger is geïnstalleerd.
-- De AzureRM PowerShell-module is [geïnstalleerd en bijgewerkt](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).\[AzureRM.Sql module](https://www.powershellgallery.com/packages/AzureRM.Sql) versie 4.10.0 of hoger.
-- Voer de volgende opdrachten uit in PowerShell om de PowerShell-module te installeren/bij te werken:
+- Module AzureRM PowerShell [geïnstalleerd en bijgewerkt](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
+- [Module AzureRM.Sql](https://www.powershellgallery.com/packages/AzureRM.Sql) versie 4.10.0 of hoger.
+  Voer de volgende opdrachten uit in PowerShell om de PowerShell-module te installeren/bij te werken:
 
    ```powershell
    Install-Module -Name AzureRM.Sql
@@ -108,16 +109,6 @@ Als het certificaat is opgeslagen in het certificaatarchief van de lokale comput
 
 4. Volg de wizard om het certificaat en de persoonlijke sleutel te exporteren naar een PFX-indeling (Personal Information Exchange)
 
-## <a name="extract-certificate-from-file-to-base-64-string"></a>Certificaat uit bestand uitpakken naar base-64-tekenreeks
-
-Voer het volgende script uit in PowerShell om een met base-64 gecodeerd certificaat als uitvoer te verkrijgen:
-
-```powershell
-$fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
-$base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
-echo $base64EncodedCert
-```
-
 ## <a name="upload-certificate-to-azure-sql-managed-instance-using-azure-powershell-cmdlet"></a>Certificaat uploaden naar met Azure SQL beheerd exemplaar met behulp van de Azure PowerShell-cmdlet
 
 1. Begin met de voorbereidingsstappen in PowerShell:
@@ -129,15 +120,16 @@ echo $base64EncodedCert
    Connect-AzureRmAccount
    # List subscriptions available and copy id of the subscription target Managed Instance belongs to
    Get-AzureRmSubscription
-   # Set subscription for the session
+   # Set subscription for the session (replace Guid_Subscription_Id with actual subscription id)
    Select-AzureRmSubscription Guid_Subscription_Id
    ```
 
 2. Wanneer alle voorbereidingsstappen klaar zijn, voert u de volgende opdrachten uit om het met base-64 gecodeerde certificaat te uploaden naar het beheerde doelexemplaar:
 
    ```powershell
-   $privateBlob = "<base-64-encoded-certificate-string>"
-   $securePrivateBlob = $privateBlob  | ConvertTo-SecureString -AsPlainText -Force
+   $fileContentBytes = Get-Content 'C:/full_path/TDE_Cert.pfx' -Encoding Byte
+   $base64EncodedCert = [System.Convert]::ToBase64String($fileContentBytes)
+   $securePrivateBlob = $base64EncodedCert  | ConvertTo-SecureString -AsPlainText -Force
    $password = "SomeStrongPassword"
    $securePassword = $password | ConvertTo-SecureString -AsPlainText -Force
    Add-AzureRmSqlManagedInstanceTransparentDataEncryptionCertificate -ResourceGroupName "<ResourceGroupName>" -ManagedInstanceName "<ManagedInstanceName>" -PrivateBlob $securePrivateBlob -Password $securePassword

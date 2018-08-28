@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 06/05/2018
+ms.date: 08/17/2018
 ms.author: charwen,cherylmc,rambala
-ms.openlocfilehash: 80d2f65f516d7f1190f276fa9f2c62206bd31e67
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 0e69a85f320a0a8d77bd07fc0dedb77eb99efb36
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262869"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41918350"
 ---
 # <a name="configure-expressroute-and-site-to-site-coexisting-connections"></a>Gelijktijdige ExpressRoute- en site-to-site-verbindingen configureren
 > [!div class="op_single_selector"]
@@ -183,14 +183,7 @@ Deze procedure begeleidt u bij het maken van een VNet en van site-naar-site- en 
   ```
 
 ## <a name="add"></a>Naast elkaar bestaande verbindingen configureren voor een bestaand VNet
-Als u een bestaand virtueel netwerk hebt, controleert u de grootte van het gatewaysubnet. Als het gatewaysubnet /28 of /29 is, verwijdert u eerst de gateway van het virtuele netwerk en verhoogt u het gatewaysubnet. In de stappen in dit gedeelte wordt beschreven hoe u dat doet.
-
-Als het gatewaysubnet /27 of groter is en het virtuele netwerk is verbonden via ExpressRoute, kunt u onderstaande stappen overslaan en doorgaan met [Stap 4 - Een site-naar-site-VPN-gateway maken](#vpngw) in de vorige sectie. 
-
-> [!NOTE]
-> Als u de bestaande gateway verwijdert terwijl u bezig bent met deze configuratie, wordt de verbinding tussen uw lokale site en uw virtuele netwerk verbroken. 
-> 
-> 
+Als u een virtueel netwerk hebt met maar één virtuele netwerkgateway (bijvoorbeeld een site-naar-site VPN-gateway) en u een andere gateway van een ander type wilt toevoegen van (bijvoorbeeld een ExpressRoute-gateway), moet u de grootte van het gatewaysubnet controleren. Als het gatewaysubnet/27 of groter is, kunt u de onderstaande stappen overslaan en de stappen in de vorige sectie volgen om een site-naar-site VPN-gateway of een ExpressRoute-gateway toe te voegen. Als het gatewaysubnet /28 of /29 is, verwijdert u eerst de gateway van het virtuele netwerk en verhoogt u het gatewaysubnet. In de stappen in dit gedeelte wordt beschreven hoe u dat doet.
 
 1. U moet de meest recente versie van de Azure PowerShell-cmdlets installeren. Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) voor meer informatie over het installeren van cmdlets. De cmdlets die u voor deze configuratie gebruikt, kunnen enigszins afwijken van de cmdlets waarmee u bekend bent. Zorg ervoor dat u de cmdlets gebruikt die in deze instructies worden vermeld. 
 2. Verwijder de bestaande ExpressRoute- of site-naar-site-VPN-gateway.
@@ -220,7 +213,7 @@ Als het gatewaysubnet /27 of groter is en het virtuele netwerk is verbonden via 
   ```powershell
   $vnet = Set-AzureRmVirtualNetwork -VirtualNetwork $vnet
   ```
-5. U hebt op dit moment een VNet zonder gateways. Als u nieuwe gateways wilt maken en uw verbindingen wilt voltooien, kunt u doorgaan met [Stap 4 - Een site-naar-site-VPN-gateway maken](#vpngw). Deze stap vindt u in de voorgaande reeks stappen.
+5. U beschikt nu over een virtueel netwerk zonder gateways. Als u nieuwe gateways wilt maken en de verbindingen wilt instellen, volgt u de stappen in de vorige sectie.
 
 ## <a name="to-add-point-to-site-configuration-to-the-vpn-gateway"></a>Punt-naar-site-configuratie toevoegen aan de VPN-gateway
 Volg onderstaande stappen om punt-naar-site-configuratie toe te voegen aan uw VPN-gateway in een installatie waarbij ze naast elkaar kunnen worden gebruikt.

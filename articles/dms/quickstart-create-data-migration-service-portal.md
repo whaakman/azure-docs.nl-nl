@@ -3,20 +3,20 @@ title: Een Azure Database Migration Service-exemplaar maken met Azure Portal | M
 description: Azure Portal gebruiken om een Azure Database Migration Service-exemplaar te maken
 services: database-migration
 author: edmacauley
-ms.author: edmaca
+ms.author: jtoland
 manager: craigg
 ms.reviewer: ''
 ms.service: database-migration
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: quickstart
-ms.date: 05/01/2018
-ms.openlocfilehash: 7669ee678f4049c938c6e249c26997d993fd7c6a
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
+ms.date: 08/13/2018
+ms.openlocfilehash: f4dcc659d72edff1d8c2523cce1de059f1cf3fdf
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
-ms.locfileid: "32772191"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023055"
 ---
 # <a name="create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>Een Azure Database Migration Service-exemplaar maken met behulp van Azure Portal
 In deze QuickStart maakt u gebruik van Azure Portal om een Azure Database Migration Service-exemplaar te maken.  Nadat u de service hebt gemaakt, kunt u deze gebruiken om gegevens vanuit een on-premises SQL-server te migreren naar een Azure SQL-database.
@@ -35,32 +35,39 @@ Registreer de Microsoft.DataMigration-resourceprovider voordat u uw eerste Datab
 
 2. Selecteer het abonnement waarin u het Azure Database Migration Service-exemplaar wilt maken en selecteer vervolgens **Resourceproviders**.
 
-3. Zoek naar 'migration' en selecteer rechts van Microsoft.DataMigration de optie **Registreren**.
+3. Zoek naar migratie en selecteer rechts van **Microsoft.DataMigration** de optie **Registreren**.
 
-![Resourceprovider registreren](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
+    ![Resourceprovider registreren](media/quickstart-create-data-migration-service-portal/dms-register-provider.png)
 
 ## <a name="create-an-instance-of-the-service"></a>Een exemplaar van de service maken
-1. Klik op **+ Een resource maken** om een exemplaar te maken van de Azure Database Migration Service.
+1. Selecteer **+ Een resource maken** om een exemplaar te maken van de Azure Database Migration Service.
 
-2. Zoek in de marketplace naar 'migration', selecteer **Azure Database Migration Service** en klik vervolgens in het scherm **Azure Database Migration Service**  op **Maken**.
+2. Zoek in de marketplace naar 'migration', selecteer **Azure Database Migration Service** en selecteer vervolgens in het scherm **Azure Database Migration Service**  de optie **Maken**.
 
-3. Ga in het scherm **Database Migration Service** als volgt te werk: 
+3. Ga in het scherm **Migratieservice maken** als volgt te werk: 
 
     - Kies een unieke en gemakkelijk te onthouden **Servicenaam** om uw Azure Database Migration Service-exemplaar te identificeren.
     - Selecteer het Azure-**abonnement** waarin u het exemplaar wilt maken.
-    - Maak een nieuw **netwerk** met een unieke naam.
+    - Selecteer een bestaande **Resourcegroep** of maak een nieuwe.
     - Kies de **locatie** die zich het dichtst bij uw bron- of doelserver bevindt.
+    - Selecteer een bestaand **Virtueel netwerk** (VNET) of maak een nieuwe.
+
+        Het VNET biedt de Azure Database Migration Service toegang tot de brondatabase en doelomgeving.
+
+        Zie het artikel [Een virtueel netwerk maken met de Azure-portal](https://aka.ms/vnet) voor meer informatie over het maken van een VNET in Azure Portal.
+
     - Selecteer Basis: 1 vCore als **prijscategorie**.
 
-    ![Migratieservice maken](media/quickstart-create-data-migration-service-portal/dms-create-service.png)
+        ![Migratieservice maken](media/quickstart-create-data-migration-service-portal/dms-create-service1.png)
+
 4. Selecteer **Maken**.
 
-Na enkele ogenblikken is uw Azure Database Migration Service-exemplaar gemaakt en klaar voor gebruik. De Database Migration Service wordt weergegeven zoals in de volgende afbeelding:
+    Na enkele ogenblikken is uw Azure Database Migration Service-exemplaar gemaakt en klaar voor gebruik. De Database Migration Service wordt weergegeven zoals in de volgende afbeelding:
 
-![Migratieservice gemaakt](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
+    ![Migratieservice gemaakt](media/quickstart-create-data-migration-service-portal/dms-service-created.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Alle resources die u in deze QuickStart hebt gemaakt, kunt u verwijderen door de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) te verwijderen.  U verwijdert de resourcegroep door te navigeren naar het Azure Database Migration Service-exemplaar dat u hebt gemaakt. Selecteer bij **Resourcegroep** de naam van de resourcegroep en selecteer vervolgens **Resourcegroep verwijderen**.  Door deze actie worden alle items in de resourcegroep verwijderd, evenals de groep zelf.
+Alle resources die u in deze QuickStart hebt gemaakt, kunt u verwijderen door de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) te verwijderen. U verwijdert de resourcegroep door te navigeren naar het Azure Database Migration Service-exemplaar dat u hebt gemaakt. Selecteer bij **Resourcegroep** de naam van de resourcegroep en selecteer vervolgens **Resourcegroep verwijderen**. Door deze actie worden alle items in de resourcegroep verwijderd, evenals de groep zelf.
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]

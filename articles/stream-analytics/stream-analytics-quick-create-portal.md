@@ -4,17 +4,17 @@ description: In deze snelstart wordt getoond hoe u aan de slag kunt door een Str
 services: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 05/11/2018
+ms.date: 08/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc
 manager: kfile
-ms.openlocfilehash: 830b3d4226440a68c7de62170d2ffc28082315c2
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 1e466b2945793f866aad4e6f0ace3d7379226830
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902901"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023744"
 ---
 # <a name="quickstart-create-a-stream-analytics-job-by-using-the-azure-portal"></a>Snelstart: Een Stream Analytics-taak maken via Azure Portal
 
@@ -34,7 +34,7 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
 
    ```json
    {
-     "time": "2018-01-26T21:18:52.0000000",
+     "time": "2018-08-19T21:18:52.0000000",
      "dspl": "sensorC",
      "temp": 87,
      "hmdt": 44
@@ -42,7 +42,7 @@ Voordat u de Stream Analytics-taak definieert, moet u de gegevens voorbereiden d
    ```
 2. Meld u aan bij [Azure Portal](https://portal.azure.com/).  
 
-3. Selecteer in de linkerbovenhoek in Azure Portal **Een resource maken** > **Storage** > **Storage-account**. Vul de pagina voor de Storage-accounttaak in, waarbij **Naam** is ingesteld op 'asaquickstartstorage', **Locatie** op 'VS - west2', **Resourcegroep** op 'asaquickstart-resourcegroup' (host het opslagaccount in dezelfde resourcegroep als de streaming-taak voor betere prestaties). De overige instellingen kunnen op de standaardwaarden blijven staan.  
+3. Selecteer in de linkerbovenhoek in Azure Portal **Een resource maken** > **Storage** > **Storage-account**. Vul de pagina voor de Storage-accounttaak in, waarbij **Naam** is ingesteld op 'asaquickstartstorage', **Locatie** op 'US - west 2', **Resourcegroep** op 'asaquickstart-resourcegroup' (host het opslagaccount in dezelfde resourcegroep als de streaming-taak voor betere prestaties). De overige instellingen kunnen op de standaardwaarden blijven staan.  
 
    ![Een opslagaccount maken](./media/stream-analytics-quick-create-portal/create-a-storage-account.png)
 
@@ -146,6 +146,16 @@ In deze sectie gaat u blobopslag configureren als invoer voor de Stream Analytic
 3. In dit voorbeeld leest de query de gegevens vanuit de blob en kopieert ze naar een nieuw bestand in de blob. Selecteer **Opslaan**.  
 
    ![Taaktransformatie configureren](./media/stream-analytics-quick-create-portal/configure-job-transformation.png)
+
+## <a name="configure-late-arrival-policy"></a>Beleid voor late aankomst configureren
+
+1. Ga naar de Stream Analytics-taak die u eerder hebt gemaakt.
+
+2. Selecteer onder **Configureren** de optie **Gebeurtenisvolgorde**.
+
+3. Stel **Gebeurtenissen die te laat worden gemeld** in op 20 dagen en selecteer **Opslaan**.
+
+   ![Beleid voor late aankomst configureren](./media/stream-analytics-quick-create-portal/configure-late-policy.png)
 
 ## <a name="start-the-stream-analytics-job-and-check-the-output"></a>De Stream Analytics-taak starten en uitvoer controleren
 

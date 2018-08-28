@@ -3,23 +3,19 @@ title: Azure Automation integreren met Event Grid | Microsoft Docs
 description: Leer hoe u automatisch een tag toevoegt wanneer een nieuwe virtuele machine wordt gemaakt en een melding verzendt naar Microsoft Teams.
 keywords: automatisering, runbook, teams, event grid, virtuele machine, VM
 services: automation
-documentationcenter: ''
 author: eamonoreilly
 manager: ''
-editor: ''
 ms.service: automation
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 12/06/2017
+ms.date: 08/14/2018
 ms.author: eamono
-ms.openlocfilehash: 6270f8bad893798f46d8db91e7b1140b6a125350
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: a4356f38df017901ab219318463538003d3a979e
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049861"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "41917562"
 ---
 # <a name="integrate-azure-automation-with-event-grid-and-microsoft-teams"></a>Azure Automation integreren met Event Grid en Microsoft-Teams
 
@@ -87,28 +83,30 @@ Voor het volgen van deze zelfstudie is een [Azure Automation-account](../automat
 
     ![Webhookparameters configureren](media/ensure-tags-exists-on-new-virtual-machines/configure-webhook-parameters.png)
 
-5. Selecteer **OK** om de Automation-runbookwebhook te maken.
-
+5. Selecteer **Maken** om de Automation-runbookwebhook te maken.
 
 ## <a name="create-an-event-grid-subscription"></a>Een Event Grid-abonnement maken
+
 1. Selecteer op de overzichtspagina **Automation-Account** de optie **Event Grid**.
 
     ![Event Grid selecteren](media/ensure-tags-exists-on-new-virtual-machines/select-event-grid.png)
 
-2. Selecteer de knop **Gebeurtenisabonnement**.
+2. Klik op **+ Gebeurtenisabonnement**.
 
 3. Configureer het abonnement met de volgende gegevens:
 
-    *   Voer **AzureAutomation** in voor de naam.
-    *   Selecteer **Azure-abonnementen** bij **Onderwerptype**.
-    *   Schakel het selectievakje **Abonneren op alle gebeurtenistypen** uit.
-    *   Selecteer bij **Gebeurtenistypen** de optie **Schrijven van resource geslaagd**.
-    *   Voer bij **Eindpunt abonnee** de webhook-URL voor het Watch-VMWrite-runbook in.
-    *   Voer bij **Voorvoegselfilter** het abonnement en de resourcegroep in waarin u wilt zoeken naar de nieuwe virtuele machines die zijn gemaakt. Dit ziet er als volgt uit: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
+   * Selecteer **Azure-abonnementen** voor **Onderwerptype**.
+   * Schakel het selectievakje **Abonneren op alle gebeurtenistypen** uit.
+   * Voer **AzureAutomation** in voor de naam.
+   * Schakel in de vervolgkeuzelijst **Gedefinieerde gebeurtenistypen** alle opties uit behalve **Schrijven resource gelukt**.
+   * Selecteer **Webhook** voor **Eindpunttype**.
+   * Klik op **Een eindpunt selecteren**. Plak op de pagina **Webhook selecteren** die wordt geopend, de webhook-URL die u hebt gemaakt voor het runbook Watch-VMWrite.
+   * Voer onder **FILTERS** het abonnement en de resourcegroep in waarin u wilt zoeken naar de nieuwe virtuele machines die zijn gemaakt. Dit ziet er als volgt uit: `/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/Microsoft.Compute/virtualMachines`
 
 4. Selecteer **Maken** om het Event Grid-abonnement op te slaan.
 
 ## <a name="create-a-vm-that-triggers-the-runbook"></a>Een virtuele machine maken die het runbook activeert
+
 1. Maak een nieuwe virtuele machine in de resourcegroep die u hebt opgegeven in het voorvoegselfilter van het Event Grid-abonnement.
 
 2. Het VMWrite-runbook moet worden aangeroepen en er moet een nieuwe tag worden toegevoegd aan de virtuele machine.
@@ -120,6 +118,7 @@ Voor het volgen van deze zelfstudie is een [Azure Automation-account](../automat
     ![Microsoft Teams-melding](media/ensure-tags-exists-on-new-virtual-machines/teams-vm-message.png)
 
 ## <a name="next-steps"></a>Volgende stappen
+
 In deze zelfstudie stelt u de integratie tussen Event Grid en Automation in. U hebt geleerd hoe u:
 
 > [!div class="checklist"]

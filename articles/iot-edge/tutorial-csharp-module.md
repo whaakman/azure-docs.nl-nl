@@ -9,12 +9,12 @@ ms.date: 06/27/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 991113b4e3e501d6d058a83baa795a5d7cbaa585
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 8a3cc9793af39deeb24fa725da5cf0dc536f4465
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439676"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "41920833"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-and-deploy-to-your-simulated-device"></a>Zelfstudie: Een C# IoT Edge-module ontwikkelen en implementeren op een gesimuleerd apparaat
 
@@ -66,8 +66,14 @@ Voor deze zelfstudie kunt u elk register gebruiken dat compatibel is met Docker.
 ## <a name="create-an-iot-edge-module-project"></a>Een IoT Edge-moduleproject creëren
 Met de volgende stappen maakt u een IoT Edge-moduleproject op basis van de .NET Core 2.0 SDK met behulp van Visual Studio Code en de Azure IoT Edge-extensie.
 
+### <a name="create-a-new-solution"></a>Een nieuwe oplossing maken
+
+Maak een C#-oplossingssjabloon die u met uw eigen code kunt aanpassen. 
+
 1. Selecteer in Visual Studio Code **View** > **Command Palette** om het VS Code-opdrachtpalet te openen. 
+
 2. Voer in het opdrachtpalet de opdracht **Azure: Sign in** in en voer deze uit. Volg vervolgens de instructies om u aan te melden bij uw Azure-account. Als u al bent aangemeld, kunt u deze stap overslaan.
+
 3. Voer in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** in en voer deze uit. Geef in het opdrachtpalet de volgende informatie op om de oplossing te maken: 
 
    1. Selecteer de map waarin u de oplossing wilt maken. 
@@ -76,7 +82,25 @@ Met de volgende stappen maakt u een IoT Edge-moduleproject op basis van de .NET 
    4. Vervang de standaardnaam van de module door **CSharpModule**. 
    5. Geef het Azure-containerregister dat u in de vorige sectie hebt gemaakt, op als de opslagplaats voor installatiekopieën voor de eerste module. Vervang **localhost:5000** door de gekopieerde waarde voor de aanmeldingsserver. De uiteindelijke tekenreeks ziet er ongeveer als volgt uit: \<registernaam\>.azurecr.io/csharpmodule.
 
-4.  In het VS Code-venster wordt de werkruimte van de IoT Edge-oplossing geladen: de map modules, een map \.vscode, een sjabloonbestand voor het distributiemanifest en een \.env-bestand. Open in VS Code Explorer **modules** > **CSharpModule** > **Program.cs**.
+   ![Opslagplaats voor Docker-installatiekopieën opgeven](./media/tutorial-csharp-module/repository.png)
+
+In het VS Code-venster wordt de werkruimte van de IoT Edge-oplossing geladen. De werkruimte voor de oplossing bevat vijf onderdelen op het hoogste niveau. In deze zelfstudie gaan we niet de map **\.vscode** of het bestand **\.gitignore** bewerken. De map **modules** bevat de C# -code voor uw module evenals Docker-bestanden voor het bouwen van uw module als een containerinstallatiekopie. In het bestand **\.env** worden uw referenties voor het containerregister opgeslagen. Het bestand **deployment.template.json** bevat de gegevens die de IoT Edge-runtime gebruikt om modules op een apparaat te implementeren. 
+
+Als u geen containerregister hebt opgegeven bij het maken van uw oplossing, maar de standaardwaarde localhost:5000 hebt geaccepteerd, is er geen \.env-bestand gemaakt. 
+
+   ![Werkruimte voor de C#-oplossing](./media/tutorial-csharp-module/workspace.png)
+
+### <a name="add-your-registry-credentials"></a>Uw registerreferenties toevoegen
+
+In het omgevingsbestand worden de referenties voor het containerregister opgeslagen. Deze referenties worden gedeeld met de IoT Edge-runtime. De runtime heeft deze referenties nodig om uw persoonlijke installatiekopieën naar het IoT Edge-apparaat te halen. 
+
+1. Open in VS Code Explorer het .env-bestand. 
+2. Werk de velden **gebruikersnaam** en **wachtwoord** bij met de waarden die u hebt gekopieerd uit het Azure-containerregister. 
+3. Sla dit bestand op. 
+
+### <a name="update-the-module-with-custom-code"></a>De module bijwerken met aangepaste code
+
+1. Open in VS Code Explorer **modules** > **CSharpModule** > **Program.cs**.
 
 5. Voeg bovenaan de naamruimte **CSharpModule** drie **using**-instructies toe voor typen die later worden gebruikt:
 
@@ -253,7 +277,7 @@ In de vorige sectie hebt u een IoT Edge-oplossing gemaakt en code toegevoegd aan
 
 4. Sla dit bestand op.
 
-5. Klik in VS Code Explorer met de rechtermuisknop op het bestand deployment.template.json en selecteer **IoT Edge-oplossing bouwen**. 
+5. Klik in VS Code Explorer met de rechtermuisknop op het bestand deployment.template.json en selecteer **Build and Push IoT Edge solution**. 
 
 Wanneer u Visual Studio Code de opdracht geeft om uw oplossing te bouwen, wordt eerst een bestand deployment.json gemaakt in een nieuwe map genaamd **config** op basis van de informatie in de distributiesjabloon. Vervolgens worden twee opdrachten uitgevoerd in de geïntegreerde terminal: `docker build` en `docker push`. Met deze twee opdrachten wordt uw code gebouwd, wordt de CSharpModule.dll in een container opgeslagen en wordt de code vervolgens naar het containerregister gepusht dat u hebt opgegeven toen u de oplossing initialiseerde. 
 
@@ -261,18 +285,21 @@ U kunt het volledige adres van de containerinstallatiekopie, inclusief de tag, z
 
 ## <a name="deploy-and-run-the-solution"></a>De oplossing implementeren en uitvoeren
 
-1. Configureer de Azure IoT Toolkit-extensie met de verbindingsreeks voor uw IoT-hub: 
+In dit snelstartartikel voor het instellen van uw IoT Edge-apparaat hebt u een module geïmplementeerd met behulp van de Azure-portal. U kunt modules ook implementeren via de Azure IoT Toolkit-extensie voor Visual Studio Code. U hebt al een implementatiemanifest voorbereid voor uw scenario, namelijk het bestand **deployment.json**. U hoeft nu alleen nog maar een apparaat te selecteren dat de implementatie moet ontvangen.
 
-    1. Open de VS Code Explorer door **Verkenner** > **bekijken** te selecteren.
+1. Voer in het opdrachtenpalet van VS Code de opdracht **Azure IoT Hub: Select IoT Hub** uit. 
 
-    1. Selecteer in de verkenner **Azure IoT Hub-apparaten**, klik op het weglatingsteken (**...**) en kies vervolgens **IoT Hub selecteren**. Volg de instructies om u aan te melden bij uw Azure-account en kies uw IoT-hub. 
+2. Kies het abonnement en de IoT-hub met het IoT Edge-apparaat dat u wilt configureren. 
 
-       > [!Note]
-       > U kunt de installatie ook voltooien door **IoT Hub-verbindingsreeks instellen** te kiezen. Voer in het pop-upvenster de verbindingsreeks voor de IoT-hub in waarmee het IoT Edge-apparaat verbinding maakt.
+3. Vouw in VS Code Explorer de sectie **Azure IoT Hub Devices** uit. 
 
-2. Klik in de verkenner Azure IoT Hub-apparaten met de rechtermuisknop op uw IoT Edge-apparaat. Selecteer vervolgens **Implementatie maken voor IoT Edge-apparaat**. Selecteer het bestand deployment.json in de map config en kies vervolgens **Edge-distributiemanifest selecteren**.
+4. Klik met de rechtermuisknop op de naam van het IoT Edge-apparaat en selecteer **Implementatie voor één apparaat maken**. 
 
-3. Vernieuw de sectie **Azure IoT Hub-apparaten**. U ziet nu dat de nieuwe **CSharpModule** wordt uitgevoerd, samen met de module **TempSensor** en de **$edgeAgent** en **$edgeHub**. 
+   ![Implementatie voor één apparaat maken](./media/tutorial-csharp-module/create-deployment.png)
+
+5. Selecteer het bestand **deployment.json** in de **configuratiemap** en klik vervolgens op **Edge-distributiemanifest selecteren**. Gebruik niet het bestand deployment.template.json. 
+
+6. Klik op de knop Vernieuwen. U ziet nu dat de nieuwe **CSharpModule** wordt uitgevoerd, samen met de module **TempSensor** en de **$edgeAgent** en **$edgeHub**.  
 
 ## <a name="view-generated-data"></a>Gegenereerde gegevens weergeven
 
@@ -284,33 +311,13 @@ U kunt het volledige adres van de containerinstallatiekopie, inclusief de tag, z
  
 ## <a name="clean-up-resources"></a>Resources opschonen 
 
-<!--[!INCLUDE [iot-edge-quickstarts-clean-up-resources](../../includes/iot-edge-quickstarts-clean-up-resources.md)] -->
-
-Als u van plan bent door te gaan met het volgende aanbevolen artikel, kunt u de resources en configuraties die u hebt gemaakt behouden en opnieuw gebruiken.
+Als u van plan bent door te gaan met het volgende aanbevolen artikel, kunt u de resources en configuraties die u hebt gemaakt behouden en opnieuw gebruiken. U kunt ook hetzelfde IoT Edge-apparaat blijven gebruiken als een testapparaat. 
 
 Anders kunt u de lokale configuraties en Azure-resources die u in dit artikel hebt gemaakt, verwijderen om kosten te voorkomen. 
 
-> [!IMPORTANT]
-> Het verwijderen van de Azure-resources en resourcegroepen kan niet ongedaan worden gemaakt. Wanneer deze items worden verwijderd, worden de resourcegroep en alle bijbehorende resources permanent verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de IoT-hub in een bestaande resourcegroep hebt gemaakt met resources die u wilt behouden, moet u alleen de IoT-hubresource zelf verwijderen in plaats van de resourcegroep te verwijderen.
->
+[!INCLUDE [iot-edge-clean-up-cloud-resources](../../includes/iot-edge-clean-up-cloud-resources.md)]
 
-Als u alleen de IoT-hub wilt verwijderen, voert u de volgende opdracht uit met behulp van de naam van de hub en van de resourcegroep:
-
-```azurecli-interactive
-az iot hub delete --name {hub_name} --resource-group IoTEdgeResources
-```
-
-
-Ga als volgt te werk om de hele resourcegroep te verwijderen op naam:
-
-1. Meld u aan bij [Azure Portal](https://portal.azure.com) en selecteer **Resourcegroepen**.
-
-2. Voer in het tekstvak **Filteren op naam** de naam van de resourcegroep in die uw IoT-hub bevat. 
-
-3. Selecteer rechts van de resourcegroep, in de resultatenlijst, het weglatingsteken (**...**) en selecteer vervolgens **Resourcegroep verwijderen**.
-
-4. U wordt gevraagd om het verwijderen van de resourcegroep te bevestigen. Voer ter bevestiging de naam van de resourcegroep nogmaals in en selecteer **Verwijderen**. Na enkele ogenblikken worden de resourcegroep en alle resources in de groep verwijderd.
-
+[!INCLUDE [iot-edge-clean-up-local-resources](../../includes/iot-edge-clean-up-local-resources.md)]
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ccc699a500cbaf20c9b90d71e7c730e617bc572c
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: c2c80790fa3e7c20408346fbebf60c39879a94df
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145533"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920296"
 ---
 # <a name="configure-cloud-resources-for-device-provisioning-with-the-iot-hub-device-provisioning-service"></a>Cloudresources configureren voor apparaatinrichting met de IoT Hub Device Provisioning Service
 
@@ -48,7 +48,7 @@ Volg deze stappen om een nieuwe instantie van een Device Provisioning Service te
    | **Resourcegroep** | myResourceGroup | Zie [Naming conventions](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) (Naamgevingsconventies) voor geldige namen van resourcegroepen. |
    | **Locatie** | Een geldige locatie | Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's. |   
 
-   ![Voer basisinformatie in over uw DPS in de portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
+   ![Basisinformatie over Device Provisioning Service invoeren op de portal](./media/tutorial-set-up-cloud/create-iot-dps-portal.png)
 
 5. Klik op **Create**. Na enkele ogenblikken wordt de Device Provisioning Service-instantie gemaakt en de **overzichtspagina** weergegeven.
 6. Kopieer op de **overzichtspagina** van het nieuwe service-exemplaar de waarde voor het **ID-bereik** zodat u deze later kunt gebruiken. Die waarde wordt gebruikt voor het identificeren van de registratie-id's en biedt de zekerheid dat de registratie-id uniek is.
@@ -71,7 +71,7 @@ De volgende stap bestaat uit het koppelen van de Device Provisioning Service en 
     * **IoT-hub:** kies de naam van de IoT-hub die u wilt koppelen aan deze instantie van de Device Provisioning Service.
     * **Toegangsbeleid:** selecteer **iothubowner** als de referenties om de koppeling met de IoT-hub tot stand te brengen.
 
-   ![De naam van de hub koppelen aan de DPS in de portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
+   ![Koppel de naam van de hub aan Device Provisioning Service op de portal](./media/tutorial-set-up-cloud/link-iot-hub-to-dps-portal.png)
 
 ## <a name="set-the-allocation-policy-on-the-device-provisioning-service"></a>Het toewijzingsbeleid instellen voor de Device Provisioning Service
 

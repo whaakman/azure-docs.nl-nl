@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/19/2018
 ms.author: cherylmc
-ms.openlocfilehash: 4603131c31ab3792efc1df504eb95dfde2eccb17
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4fd82c110590c3aa5ede729b317fb722e58cc406
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452631"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41919527"
 ---
 # <a name="configure-a-point-to-site-connection-to-a-vnet-using-native-azure-certificate-authentication-azure-portal"></a>Een point-to-site-verbinding naar een VNet configureren met behulp van systeemeigen Azure-certificaatverificatie: Azure Portal
 
@@ -48,7 +48,8 @@ U kunt de volgende waarden gebruiken om een testomgeving te maken of ze raadpleg
 * **Subnetadresbereik:** 192.168.1.0/24
 * **Abonnement:** controleer of u het juiste abonnement hebt in het geval u er meer dan één hebt.
 * **Resourcegroep:** TestRG
-* **Locatie:** VS - oost
+* 
+  **Locatie:** US - oost
 * **GatewaySubnet:** 192.168.200.0/24<br>
 * **DNS-server:** (optioneel) IP-adres van de DNS-server die u wilt gebruiken voor naamomzetting.
 * **Gatewaynaam van het virtuele netwerk:** VNet1GW
@@ -178,6 +179,8 @@ De configuratiebestanden van de VPN-clients bevatten de instellingen voor het co
 ### <a name="to-connect-from-a-mac-vpn-client"></a>Verbinding maken vanaf een Mac-VPN-client
 
 Zoek in het dialoogvenster Netwerk het clientprofiel dat u wilt gebruiken, geef de instellingen uit het bestand [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac) op, en klik op **Verbinding maken**.
+
+Zie [Installeren - Mac (OS X)](https://docs.microsoft.com/en-us/azure/vpn-gateway/point-to-site-vpn-client-configuration-azure-cert#installmac) voor gedetailleerde instructies.
 
   ![Mac-verbinding](./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png)
 

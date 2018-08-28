@@ -5,15 +5,15 @@ services: event-grid
 keywords: ''
 author: tfitzmac
 ms.author: tomfitz
-ms.date: 07/05/2018
+ms.date: 08/13/2018
 ms.topic: quickstart
 ms.service: event-grid
-ms.openlocfilehash: 423995aecc6e5f29464ad140349ba27f89c75b5d
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: 141e8f2a01c057f613b7668e64a0ec9503fcfb39
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39068740"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022393"
 ---
 # <a name="create-and-route-blob-storage-events-with-the-azure-portal-and-event-grid"></a>Blob-opslaggebeurtenissen maken en routeren met Azure Portal en Event Grid
 
@@ -27,8 +27,6 @@ Wanneer u klaar bent, ziet u dat de gebeurtenisgegevens naar de web-app zijn ver
 
 ## <a name="create-a-storage-account"></a>Create a storage account
 
-Om Blob-opslaggebeurtenissen te kunnen gebruiken, hebt u een [Blob-opslagaccount](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) of een [algemeen v2-opslagaccount](../storage/common/storage-account-options.md#general-purpose-v2-accounts) nodig. **GPv2-accounts (v2 voor algemeen gebruik)** zijn opslagaccounts die alle functies voor alle opslagservices ondersteunen, waaronder Blobs, Files, Queues en Tables. Een **Blob-opslagaccount** is een opslagaccount dat speciaal is bedoeld om ongestructureerde gegevens als blobs (objecten) op te slaan in Azure Storage. Blob-opslagaccounts zijn vergelijkbaar met de opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs. Voor toepassingen die alleen blok- of toevoeg-blob-opslag nodig hebben, wordt het gebruik van Blob-opslagaccounts aangeraden. 
-
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com/).
 
 1. Selecteer **Een resource maken** als u een Blob-opslag wilt maken. 
@@ -39,7 +37,7 @@ Om Blob-opslaggebeurtenissen te kunnen gebruiken, hebt u een [Blob-opslagaccount
 
    ![Opslag selecteren](./media/blob-event-quickstart-portal/create-storage.png)
 
-1. Geef waarden op voor de Blob-opslag, waaronder een unieke naam voor het account. Selecteer **Blob-opslag** als accounttype. Als locatie selecteert u een van de [locaties](overview.md) die Event Grid ondersteunen. Wanneer u klaar bent met het opgeven van waarden, klikt u op **Maken**.
+1. Voor gebeurtenissen moet u een [Blob-opslagaccount](../storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) of een [algemeen v2-opslagaccount](../storage/common/storage-account-options.md#general-purpose-v2-accounts) maken. Voor toepassingen die alleen blok- of toevoeg-blob-opslag nodig hebben, wordt het gebruik van Blob-opslagaccounts aangeraden. Geef waarden op voor het Blob- of StorageV2-account. Geef een unieke naam op voor het account. Wanneer u klaar bent met het opgeven van waarden, klikt u op **Maken**.
 
    ![Eerste stappen](./media/blob-event-quickstart-portal/provide-blob-values.png)
 

@@ -5,15 +5,15 @@ author: johnkemnetz
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/21/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 2990ba290dfdaf45d8a341138ea515bad16d5b30
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e4bbf86c6cb7e827672fe279e86c8d3fd76e8e8b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628168"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049121"
 ---
 # <a name="stream-azure-monitoring-data-to-an-event-hub-for-consumption-by-an-external-tool"></a>Azure-Stream bewakingsgegevens naar een event hub voor gebruik door een extern hulpprogramma
 
@@ -48,26 +48,26 @@ Voordat u begint, moet u [maken van een Event Hubs-naamruimte en event hub](../e
 
 Ook raadpleegt u de [Veelgestelde vragen over Azure Event Hubs](../event-hubs/event-hubs-faq.md).
 
-## <a name="how-do-i-set-up-azure-tenant-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hoe stel ik Azure-tenant door gegevens te controleren in kunnen worden gestreamd naar een event hub?
+## <a name="azure-tenant-monitoring-data"></a>Azure-tenant door gegevens te controleren
 
 Azure-tenant door gegevens te controleren is momenteel alleen beschikbaar voor Azure Active Directory. U kunt de gegevens van [Azure Active Directory-rapportage](../active-directory/reports-monitoring/overview-reports.md), die de geschiedenis van aanmelding activiteit en audit audittrail van wijzigingen in een bepaalde tenant bevat.
 
-### <a name="stream-azure-active-directory-data-into-an-event-hub"></a>Azure Active Directory-gegevens in een event hub Stream
+### <a name="azure-active-directory-data"></a>Azure Active Directory-gegevens
 
 Voor het verzenden van gegevens uit de Azure Active Directory-logboek in een Event Hubs-naamruimte, instellen van de diagnostische instelling van een tenant van uw AAD-tenant. [Deze handleiding volgt](../active-directory/reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md) voor het instellen van de diagnostische instelling van een tenant.
 
-## <a name="how-do-i-set-up-azure-subscription-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hoe stel ik Azure-abonnement door gegevens te controleren in kunnen worden gestreamd naar een event hub?
+## <a name="azure-subscription-monitoring-data"></a>Azure-abonnement door gegevens te controleren
 
 Azure-abonnement door gegevens te controleren is beschikbaar in de [Azure-activiteitenlogboek](./monitoring-overview-activity-logs.md). Hierin zijn de maken, bijwerken en verwijderen van bewerkingen van Resource Manager, de wijzigingen in [Azure-servicestatus](../service-health/service-health-overview.md) die mogelijk van invloed op bronnen in uw abonnement, de [resourcestatus](../service-health/resource-health-overview.md) status overgangen en diverse andere soorten gebeurtenissen op abonnementsniveau. [Dit artikel worden alle categorieën van gebeurtenissen die worden weergegeven in de Azure-activiteitenlogboek](./monitoring-activity-log-schema.md).
 
-### <a name="stream-azure-activity-log-data-into-an-event-hub"></a>Gegevens van een Azure-activiteitenlogboek Stream naar een event hub
+### <a name="activity-log-data"></a>Gegevens van een activiteitenlogboek
 
 Voor het verzenden van gegevens uit de Azure-activiteitenlogboek in een Event Hubs-naamruimte, instellen van een Logboekprofiel voor uw abonnement. [Deze handleiding volgt](./monitoring-stream-activity-logs-event-hubs.md) voor het instellen van een Logboekprofiel voor uw abonnement. Doe dit eenmaal per abonnement dat u wilt bewaken.
 
 > [!TIP]
 > Een Logboekprofiel kunt op dit moment u alleen te selecteren van een Event Hubs-naamruimte waarin een event hub is gemaakt met de naam 'insights-operational-logs.' Het is nog niet mogelijk om op te geven van uw eigen naam event hub in een logboek-profiel.
 
-## <a name="how-do-i-set-up-azure-resource-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hoe kan ik Stel Azure-resource bewakingsgegevens kunnen worden gestreamd naar een event hub?
+## <a name="azure-resource-metrics-and-diagnostics-logs"></a>Logboeken voor het metrische en diagnostische gegevens van Azure-resource
 
 Azure-resources verzenden twee soorten gegevens te controleren:
 1. [Diagnostische logboeken van resource](./monitoring-overview-of-diagnostic-logs.md)
@@ -78,25 +78,25 @@ Beide typen gegevens worden verzonden naar een event hub met behulp van de diagn
 > [!TIP]
 > U kunt Azure Policy gebruiken om ervoor te zorgen dat elke resource binnen een bepaald bereik altijd is ingesteld met een diagnostische instelling [met behulp van het DeployIfNotExists-effect in de beleidsregel](../azure-policy/policy-definition.md#policy-rule). Vandaag wordt DeployIfNotExists alleen ondersteund op de ingebouwde beleidsregels.
 
-## <a name="how-do-i-set-up-guest-os-monitoring-data-to-be-streamed-to-an-event-hub"></a>Hoe stel ik Gast OS bewakingsgegevens in kunnen worden gestreamd naar een event hub?
+## <a name="guest-os-data"></a>Gast-OS-gegevens
 
 U moet een agent voor het verzenden van Gast OS bewakingsgegevens naar een event hub te installeren. Voor Windows of Linux geeft u de gegevens die u wilt dat moet worden verzonden naar de event hub, evenals de event hub waarnaar de gegevens moeten worden verzonden in een configuratiebestand en het configuratiebestand doorgeven aan de agent wordt uitgevoerd op de virtuele machine.
 
-### <a name="stream-linux-data-to-an-event-hub"></a>Stream Linux gegevens naar een event hub
+### <a name="linux-data"></a>Linux-gegevens
 
 De [Linux Azure Diagnostics-agent](../virtual-machines/extensions/diagnostics-linux.md) kan worden gebruikt voor het verzenden van gegevens van een Linux-machine naar een event hub te controleren. Dit doen door toe te voegen van de event hub als een sink in uw LAD beveiligde instellingen van configuratiebestand JSON. [Raadpleeg dit artikel voor meer informatie over het toevoegen van de event hub-sink aan uw Linux Azure Diagnostics-agent](../virtual-machines/extensions/diagnostics-linux.md#protected-settings).
 
 > [!NOTE]
 > U kunt voor streaming van Gast-OS bewakingsgegevens naar een event hub in de portal instellen. In plaats daarvan moet u handmatig het configuratiebestand bewerken.
 
-### <a name="stream-windows-data-to-an-event-hub"></a>Windows-gegevens naar een event hub Stream
+### <a name="windows-data"></a>Windows-gegevens
 
 De [Windows Azure Diagnostics-agent](./azure-diagnostics.md) kan worden gebruikt voor het verzenden van gegevens van een Windows-machine naar een event hub te controleren. Dit doen door de event hub als een sink in de sectie privateConfig van het configuratiebestand WAD toe te voegen. [Raadpleeg dit artikel voor meer informatie over het toevoegen van de event hub-sink aan uw Windows Azure Diagnostics-agent](./azure-diagnostics-streaming-event-hubs.md).
 
 > [!NOTE]
 > U kunt voor streaming van Gast-OS bewakingsgegevens naar een event hub in de portal instellen. In plaats daarvan moet u handmatig het configuratiebestand bewerken.
 
-## <a name="how-do-i-set-up-application-monitoring-data-to-be-streamed-to-event-hub"></a>Hoe stel ik toepassing bewakingsgegevens kunnen worden gestreamd naar event hub
+## <a name="application-monitoring-data"></a>Bewakingsgegevens van de toepassing
 
 Toepassing door gegevens te controleren is vereist dat uw code is uitgerust met een SDK, dus er is niet een algemene oplossing om routering toepassing bewakingsgegevens naar een event hub in Azure. Echter, [Azure Application Insights](../application-insights/app-insights-overview.md) is een service die kan worden gebruikt voor het verzamelen van gegevens van Azure op toepassingsniveau. Als u Application Insights gebruikt, kunt u bewakingsgegevens naar een event hub streamen door het volgende te doen:
 

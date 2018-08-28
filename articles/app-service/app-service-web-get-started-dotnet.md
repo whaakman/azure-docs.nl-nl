@@ -1,6 +1,6 @@
 ---
-title: Een ASP.NET Core-web-app maken in Azure | Microsoft Docs
-description: Leer hoe u web-apps uitvoert in Azure App Service door de standaard-ASP.NET-web-app te implementeren.
+title: Een C# ASP.NET Core-web-app maken in Azure | Microsoft Docs
+description: Leer hoe u web-apps uitvoert in Azure App Service door de standaard C# ASP.NET-web-app te implementeren.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,14 +12,15 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 06/14/2017
+ms.date: 06/11/2018
 ms.author: cephalin
-ms.custom: mvc, devcenter
-ms.openlocfilehash: 91f6fd077146e94833a5527f03ac710352e4fd9c
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.custom: mvc, devcenter, vs-azure
+ms.openlocfilehash: 811f4df807292b9d539084a049cc643dbee07a7e
+ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42432052"
 ---
 # <a name="create-an-aspnet-core-web-app-in-azure"></a>Een ASP.NET Core-web-app maken in Azure
 
@@ -27,7 +28,7 @@ ms.lasthandoff: 04/05/2018
 > In dit artikel gaat u een app implementeren in App Service onder Windows. Zie [Een .NET Core-web-app maken en implementeren in App Service onder Linux ](./containers/quickstart-dotnetcore.md) om een app te implementeren in App Service onder _Linux_.
 >
 
-[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze snelstart laat zien hoe uw eerste ASP.NET Core-web-app implementeert in Azure Web Apps. Als u klaar bent, hebt u een resourcegroep die bestaat uit een App Service-plan en een Azure-web-app met een geïmplementeerde webtoepassing.
+[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze quickstart laat zien hoe uw eerste ASP.NET Core-web-app implementeert in Azure Web Apps. Als u klaar bent, hebt u een resourcegroep die bestaat uit een App Service-plan en een Azure-web-app met een geïmplementeerde webtoepassing.
 
 > [!NOTE]
 > Als u wilt weten hoe u een ASP.NET Framework-web-app kunt maken en implementeren, raadpleegt u het artikel [hier](app-service-web-get-started-dotnet-framework.md). 
@@ -39,11 +40,7 @@ ms.lasthandoff: 04/05/2018
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-* Installeer <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> met de volgende workloads:
-    - **ASP.NET- en web-ontwikkeling**
-    - **Azure-ontwikkeling**
-
-    ![ASP.NET- en web-ontwikkeling en Azure-ontwikkeling (onder Web en cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+U moet <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> met de **ASP.NET- en webontwikkelworkload** installeren.
 
 Als u Visual Studio al hebt geïnstalleerd, voegt u de workloads toe in Visual Studio door te klikken op **Hulpprogramma's** > **Hulpprogramma's en functies ophalen**.
 
@@ -57,15 +54,11 @@ Geef de toepassing de naam _myFirstAzureWebApp_ en selecteer vervolgens **OK**.
    
 ![Het dialoogvenster Nieuw project](./media/app-service-web-get-started-dotnet/new-project.png)
 
-U kunt elk type ASP.NET Core-web-app implementeren in Azure. Voor deze snelstart selecteert u de sjabloon **Webtoepassing** en stelt u verificatie in op **Geen verificatie**.
+U kunt elk type ASP.NET Core-web-app implementeren in Azure. Voor deze quickstart selecteert u de sjabloon **Webtoepassing** en stelt u verificatie in op **Geen verificatie**.
       
 Selecteer **OK**.
 
 ![Het dialoogvenster Nieuw ASP.NET-project](./media/app-service-web-get-started-dotnet/razor-pages-aspnet-dialog.png)
-
-Zodra het ASP.NET Core-project is gemaakt, worden de welkomstpagina van ASP.NET Core weergegeven. Deze biedt talrijke koppelingen naar bronnen die u op weg helpen. 
-
-![Welkomstpagina](./media/app-service-web-get-started-dotnet/aspnet-core-welcome-page.png)
 
 Selecteer in het menu **Fouten opsporen > Starten zonder foutopsporing** om de web-app lokaal uit te voeren.
 
@@ -85,11 +78,10 @@ Hiermee opent u het dialoogvenster **App Service maken**, waarmee u alle Azure-r
 
 ## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Selecteer **Een account toevoegen** in het dialoogvenster **App Service maken** en meld u vervolgens aan bij uw Azure-abonnement. Als u al bent aangemeld, selecteert u het account met het gewenste abonnement uit de vervolgkeuzelijst.
+Klik in het dialoogvenster **App Service maken** op **Een account toevoegen** en meld u vervolgens aan bij uw Azure-abonnement. Als u al bent aangemeld, selecteert u het account met het gewenste abonnement uit de vervolgkeuzelijst.
 
 > [!NOTE]
 > Als u al bent aangemeld, selecteert u **Maken** nog niet.
->
 >
    
 ![Aanmelden bij Azure](./media/app-service-web-get-started-dotnet/sign-in-azure.png)
@@ -115,7 +107,7 @@ Gebruik in het dialoogvenster **App Service-plan configureren** de instellingen 
 | Instelling | Voorgestelde waarde | Beschrijving |
 |-|-|-|
 |App Service-plan| myAppServicePlan | De naam van het App Service-plan. |
-| Locatie | West-Europa | Het datacenter waar de web-app wordt gehost. |
+| Locatie | Europa -west | Het datacenter waar de web-app wordt gehost. |
 | Grootte | Gratis | De [prijscategorie](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) bepaalt de hosting-functies. |
 
 Selecteer **OK**.
@@ -151,7 +143,8 @@ Zoek ergens bovenaan de HTML-tag `<div id="myCarousel" class="carousel slide" da
 
 Als u opnieuw wilt implementeren naar Azure, klikt u in **Solution Explorer** met de rechtermuisknop op het project **myFirstAzureWebApp** en selecteert u **Publiceren**.
 
-Selecteer **Publiceren** op de publicatiepagina.
+Selecteer **Publiceren** op de pagina samenvatting publiceren.
+![Pagina samenvatting publiceren in Visual Studio](./media/app-service-web-get-started-dotnet/publish-summary-page.png)
 
 Als het publiceren is voltooid, start Visual Studio een browser waarin de URL van de web-app wordt geladen.
 

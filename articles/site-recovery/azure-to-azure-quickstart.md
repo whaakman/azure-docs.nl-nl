@@ -9,18 +9,18 @@ ms.topic: quickstart
 ms.date: 07/06/2018
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: de30085ae5ff95e7067684ff3af9ccb0d45357de
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: abba75e731d2550b4719eec70d475884bd7f3c8e
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990860"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42022339"
 ---
 # <a name="replicate-an-azure-vm-to-another-azure-region"></a>Een Azure-VM repliceren naar een andere Azure-regio
 
 De service [Azure Site Recovery](site-recovery-overview.md) draagt bij aan uw strategie voor zakelijke continuïteit en noodherstel (BCDR) door te zorgen dat uw zakelijke apps actief blijven tijdens geplande en ongeplande uitval. Site Recovery beheert en orkestreert noodherstel van on-premises machines en virtuele Azure-machines (VM's), met inbegrip van replicatie, failover en herstel.
 
-In deze snelstartgids wordt het repliceren van een Azure-VM naar een andere Azure-regio beschreven. 
+In deze snelstartgids wordt het repliceren van een Azure-VM naar een andere Azure-regio beschreven.
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -62,8 +62,7 @@ De VM in de primaire regio stopt met repliceren wanneer u replicatie uitschakelt
 Stop de replicatie als volgt:
 
 1. Selecteer de VM.
-2. Klik in **Herstel na noodgeval** op **Meer**.
-3. Klik op **Replicatie uitschakelen**.
+2. Klik in **Herstel na noodgeval** op **Replicatie uitschakelen**.
 
    ![Replicatie uitschakelen](media/azure-to-azure-quickstart/disable2-replication.png)
 

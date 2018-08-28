@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/28/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 92258ce7ea39a06f2af85efd9174b1b200710566
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
+ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36216963"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41920707"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Windows-updates beheren met behulp van Azure Automation
 
@@ -126,9 +126,6 @@ Selecteer onder **Regel maken** bij **Acties aanpassen** de optie **E-mailonderw
 
 Vervolgens plant u een implementatie volgens de releaseplanning en het servicevenster om updates te installeren. U kunt kiezen welke typen updates moeten worden opgenomen in de implementatie. Zo kunt u belangrijke updates of beveiligingsupdates opnemen en updatepakketten uitsluiten.
 
-> [!WARNING]
-> Wanneer opnieuw opstarten is vereist voor een update, wordt de VM automatisch opnieuw opgestart.
-
 Als u een nieuwe update-implementatie voor de VM wilt plannen, gaat u naar **Updatebeheer** en selecteert u vervolgens **Update-implementatie plannen**.
 
 Geef onder **Nieuwe update-implementatie** de volgende informatie op:
@@ -136,6 +133,8 @@ Geef onder **Nieuwe update-implementatie** de volgende informatie op:
 * **Naam**: voer een unieke naam in voor de update-implementatie.
 
 * **Besturingssysteem**: selecteer het besturingssysteem dat het doel is voor de update-implementatie.
+
+* **Bij te werken computers**: selecteer een opgeslagen zoekopdracht, geïmporteerde groep of kies een computer in de vervolgkeuzelijst en selecteer de afzonderlijke computers. Als u **Computers** kiest, wordt de mate van gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over de diverse methoden voor het maken van computergroepen.
 
 * **Updateclassificatie**: selecteer de typen software die de update-implementatie moet opnemen in de implementatie. Voor deze zelfstudie laat u alle typen geselecteerd.
 
@@ -154,9 +153,17 @@ Geef onder **Nieuwe update-implementatie** de volgende informatie op:
 
 * **Onderhoudsvenster (minuten)**: laat hier de standaardwaarde staan. U kunt het tijdvenster instellen waarin de update-implementatie moet plaatsvinden. Met deze instelling zorgt u ervoor dat wijzigingen worden uitgevoerd binnen de gedefinieerde onderhoudsvensters.
 
+* **Opties voor opnieuw opstarten**: met deze instelling wordt bepaalt hoe opnieuw opstarten moeten worden uitgevoerd. De volgende opties zijn beschikbaar:
+  * Opnieuw opstarten indien nodig (standaard)
+  * Altijd opnieuw opstarten
+  * Nooit opnieuw opstarten
+  * Alleen opnieuw opstarten - updates worden niet geïnstalleerd
+
+Als u klaar bent met het configureren van de planning, selecteert u **Maken**.
+
 ![Deelvenster Planningsinstellingen bijwerken](./media/automation-tutorial-update-management/manageupdates-schedule-win.png)
 
-Als u klaar bent met het configureren van de planning, selecteert u **Maken**. U keert nu terug naar het statusdashboard. Selecteer **Geplande update-implementaties** om de gemaakte implementatieplanning weer te geven.
+U keert nu terug naar het statusdashboard. Selecteer **Geplande update-implementaties** om de gemaakte implementatieplanning weer te geven.
 
 ## <a name="view-results-of-an-update-deployment"></a>Resultaten van een update-implementatie weergeven
 

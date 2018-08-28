@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: Een Azure-webtoepassing configureren voor het lezen van een geheim uit Key Vault | Microsoft Docs'
-description: 'Zelfstudie: Een Node.js-toepassing configureren voor het lezen van een geheim uit Key Vault'
+title: 'Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app | Microsoft Docs'
+description: 'Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app'
 services: key-vault
 documentationcenter: ''
 author: prashanthyv
@@ -8,19 +8,19 @@ manager: sumedhb
 ms.service: key-vault
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 08/01/2018
+ms.date: 08/08/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: cc43081463667eba06af6538f3d78f16544ed2a5
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 4592b256dfda75e81a94034545cd54dbf0d71532
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412239"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023493"
 ---
-# <a name="quickstart-how-to-set-and-read-a-secret-from-key-vault-in-a-node-web-app"></a>Snelstart: Instellen en lezen van een geheim uit Key Vault in een Node-web-app 
+# <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-node-web-app"></a>Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app 
 
-In deze snelstart wordt getoond hoe u een geheim in Key Vault kunt opslaan en het er met een web-app kunt uithalen. Deze web-app kan lokaal of in Azure worden uitgevoerd. In de snelstart wordt gebruikgemaakt van Node.js en beheerde service-identiteiten (MSI's)
+In deze snelstart wordt getoond hoe u een geheim in Key Vault kunt opslaan en het er met een web-app kunt uithalen. Om de geheime waarde te bekijken, zou u deze moeten uitvoeren in Azure. In de snelstart wordt gebruikgemaakt van Node.js en beheerde service-identiteiten (MSI's)
 
 > [!div class="checklist"]
 > * Een sleutelkluis maken.
@@ -31,6 +31,9 @@ In deze snelstart wordt getoond hoe u een geheim in Key Vault kunt opslaan en he
 > * De vereiste machtigingen verlenen aan de webtoepassing om gegevens te lezen uit Key Vault.
 
 Controleer voordat u verdergaat of u bekend bent met de [basisbeginselen](key-vault-whatis.md#basic-concepts).
+
+>[!NOTE]
+Om te begrijpen waarom de onderstaande zelfstudie de aanbevolen procedure is, moeten we enkele concepten begrijpen. Key Vault is een centrale opslagplaats voor het opslaan van geheimen via een programma. Maar hiervoor moeten toepassingen/gebruikers eerst worden geverifieerd bij Key Vault, dat wil zeggen een geheim presenteren. Als u de aanbevolen procedures voor beveiliging wilt volgen, dient dit eerste geheim ook periodiek te worden gerouleerd. Maar met [Managed Service Identity](../active-directory/managed-service-identity/overview.md) krijgen toepassingen die worden uitgevoerd in Azure een identiteit die automatisch wordt beheerd door Azure. Dit helpt bij het oplossen van het **probleem van het introduceren van geheimen** waar gebruikers/toepassingen aanbevolen procedures kunnen volgen en zich geen zorgen hoeven maken over het rouleren van het eerste geheim
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -49,7 +52,7 @@ az login
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az_group_create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
+Een resourcegroep maken met de opdracht [az group create](/cli/azure/group#az-group-create). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd.
 
 Selecteer de naam van een resourcegroep en vul de tijdelijke aanduiding in.
 In het volgende voorbeeld wordt een resourcegroep met de naam *<YourResourceGroupName>* gemaakt op de locatie *eastus*.
@@ -123,8 +126,6 @@ Hieronder vindt u de paar stappen die moeten worden uitgevoerd
     ```
     # Bash
     az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9" --deployment-local-git
-    # PowerShell
-    az --% webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --runtime "NODE|6.9"
     ```
     Wanneer de web-app is gemaakt, toont de Azure CLI soortgelijke uitvoer als in het volgende voorbeeld:
     ```

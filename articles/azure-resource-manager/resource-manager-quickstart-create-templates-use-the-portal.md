@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/17/2018
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: d5bb5ed45363216bb1bcd39f85157a3eed68c2f9
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: fcae6d656f6e309b0fdcd60db743d3bebf3cd5a9
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126847"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617035"
 ---
 # <a name="quickstart-create-and-deploy-azure-resource-manager-templates-by-using-the-azure-portal"></a>Snelstart: Azure Resource Manager-sjablonen maken en implementeren via Azure Portal
 
@@ -78,7 +78,9 @@ In deze sectie maakt u een Storage-account via Azure Portal. Voordat u het Stora
 
 ## <a name="edit-and-deploy-the-template"></a>De sjabloon bewerken en implementeren
 
-In deze sectie opent u de opgeslagen sjabloon vanuit de sjabloonbibliotheek, bewerkt u de sjabloon in de portal en implementeert u de herziene sjabloon. Als u een complexere sjabloon wilt bewerken, kunt u gebruikmaken van Visual Studio Code. Dit biedt meer functionaliteit.
+In deze sectie opent u de opgeslagen sjabloon vanuit de sjabloonbibliotheek, bewerkt u de sjabloon in de portal en implementeert u de herziene sjabloon. Als u een complexere sjabloon wilt bewerken, kunt u gebruikmaken van [Visual Studio Code](./resource-manager-quickstart-create-templates-use-visual-studio-code.md). Dit biedt meer functionaliteit.
+
+Azure vereist dat elke Azure-service een unieke naam heeft. De implementatie mislukt als u de naam van een opslagaccount invoert dat al bestaat. Om dit probleem te vermijden, kunt u een sjabloon voor functieaanroep uniquestring() gebruiken voor het genereren van een unieke opslagaccountnaam.
 
 1. Selecteer in Azure Portal **All services** in het linkermenu, voer **template** in het filtervak in en selecteer **Sjabloon (PREVIEW)**.
 
@@ -177,6 +179,14 @@ In deze sectie opent u de opgeslagen sjabloon vanuit de sjabloonbibliotheek, bew
 
 10. Selecteer **Aankoop**.
 11. Selecteer het belpictogram (meldingen) boven in het scherm om de implementatiestatus te zien.
+
+    ![Notificatie van implementatie van Azure Resource Manager-sjablonen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-notification.png)
+
+12. Selecteer **Ga naar de resourcegroep** in het deelvenster meldingen. U ziet een scherm dat vergelijkbaar is met:
+
+    ![Resourcegroep voor implementatie van Azure Resource Manager-sjablonen](./media/resource-manager-quickstart-create-templates-use-the-portal/azure-resource-manager-template-tutorial-portal-deployment-resource-group.png)
+
+    U ziet dat de status van de implementatie is voltooid en er slechts één opslagaccount in de resourcegroep is. De naam van het opslagaccount is een unieke tekenreeks gegenereerd door de sjabloon. Zie voor meer informatie over het gebruik van Azure storage-accounts [Snelstart: blobs uploaden, downloaden, en noteren met behulp van de Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md).
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

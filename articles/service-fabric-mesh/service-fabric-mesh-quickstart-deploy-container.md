@@ -9,12 +9,12 @@ ms.date: 07/12/2018
 ms.topic: quickstart
 ms.service: service-fabric-mesh
 manager: timlt
-ms.openlocfilehash: 5359920ab32fab65df0466474aec2d305bcf633c
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: a740672ea948bd86efce92c534e0f95f65563438
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091047"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023572"
 ---
 # <a name="quickstart-deploy-hello-world-to-service-fabric-mesh"></a>Snelstart: Hallo wereld implementeren in Service Fabric Mesh
 
@@ -57,7 +57,7 @@ Een paar minuten later retourneert de opdracht het volgende:
 `helloWorldApp has been deployed successfully on helloWorldNetwork with public ip address <IP Address>` 
 
 ## <a name="open-the-application"></a>De toepassing openen
-Zodra de toepassing is geïmplementeerd, kopieert u het openbare IP-adres voor het service-eindpunt van de CLI-uitvoer.  Open het IP-adres in een webbrowser. Een webpagina met het logo van Azure Service Fabric Mesh wordt weergegeven.
+Zodra de toepassing is geïmplementeerd, kopieert u het openbare IP-adres voor het service-eindpunt van de CLI-uitvoer. Open het IP-adres in een webbrowser. Een webpagina met het logo van Azure Service Fabric Mesh wordt weergegeven.
 
 ## <a name="check-the-application-details"></a>De toepassingsgegevens controleren
 U kunt de status van de toepassing controleren met de opdracht `az mesh app show`. Deze opdracht retourneert nuttige informatie op basis waarvan u actie kunt ondernemen.

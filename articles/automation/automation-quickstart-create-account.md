@@ -4,17 +4,17 @@ description: Meer informatie over hoe u een Azure Automation-account kunt maken 
 services: automation
 author: csand-msft
 ms.author: csand
-ms.date: 12/13/2017
+ms.date: 08/22/2018
 ms.topic: quickstart
 ms.service: automation
 ms.component: process-automation
 ms.custom: mvc
-ms.openlocfilehash: 3accd62415cd7d3a8210b7a05aa1edfd7a380edc
-ms.sourcegitcommit: d28bba5fd49049ec7492e88f2519d7f42184e3a8
+ms.openlocfilehash: 81dbcb4f77708f9f679d146b1db83ddecc30629d
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/11/2018
-ms.locfileid: "34055151"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42616593"
 ---
 # <a name="create-an-azure-automation-account"></a>Een Azure Automation-account maken
 
@@ -22,7 +22,7 @@ Azure Automation-accounts kunnen via Azure worden gemaakt. Deze methode biedt ee
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis Azure-account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 Aanmelden bij Azure op https://portal.azure.com
 
@@ -30,13 +30,13 @@ Aanmelden bij Azure op https://portal.azure.com
 
 1. Klik op de knop **Een resource maken** in de linkerbovenhoek van Azure.
 
-1. Selecteer **Controle en beheer** en vervolgens **Automation**.
+1. Selecteer **Beheerhulpprogramma’s** en selecteer vervolgens **Automatisering**.
 
-1. Voer de accountgegevens in. Kies bij **Een Uitvoeren als-account voor Azure maken**, de optie **Ja** zodat de artefacten die verificatie bij Azure vereenvoudigen, automatisch worden ingeschakeld. Als u daarmee klaar bent, klikt u op **Maken** om met de implementatie van het Automation-account te beginnen.
+1. Voer de accountgegevens in. Kies bij **Een Uitvoeren als-account voor Azure maken**, de optie **Ja** zodat de artefacten die verificatie bij Azure vereenvoudigen, automatisch worden ingeschakeld. Het is belangrijk te weten dat bij het maken van een Automation-account de naam kan niet worden gewijzigd nadat deze is geselecteerd. Als u daarmee klaar bent, klikt u op **Maken** om met de implementatie van het Automation-account te beginnen.
 
     ![Gegevens over uw Automation-account invoeren op de pagina](./media/automation-quickstart-create-account/create-automation-account-portal-blade.png)  
 
-1. Het Automation-account is vastgemaakt aan het Azure-dashboard. Nadat de implementatie is voltooid, wordt het overzicht van het Automation-account automatisch geopend.
+1. Wanneer de implementatie is voltooid, klikt u op ** **Alle Services**, selecteert u **Automation-accounts** en selecteert u het Automation-account dat u hebt gemaakt.
 
     ![Overzicht van Automation-account](./media/automation-quickstart-create-account/automation-account-overview.png)
 

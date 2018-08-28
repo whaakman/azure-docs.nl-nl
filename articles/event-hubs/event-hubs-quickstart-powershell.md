@@ -1,6 +1,6 @@
 ---
-title: 'Azure-snelstart: Gebeurtenisstromen verwerken met behulp van Powershell | Microsoft Docs'
-description: In deze snelstart wordt beschreven hoe u gebeurtenissen van Azure Event Hubs kunt verzenden en ontvangen met behulp van PowerShell en een .NET-voorbeeldtoepassing.
+title: 'Azure-snelstart: Een event hub maken met behulp van PowerShell | Microsoft Docs'
+description: In deze snelstart wordt beschreven hoe u een event hub maakt met behulp van Azure PowerShell en vervolgens gebeurtenissen verzendt en ontvangt met behulp van .NET Standard SDK.
 services: event-hubs
 author: ShubhaVijayasarathy
 manager: timlt
@@ -11,14 +11,14 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/26/2018
 ms.author: shvija
-ms.openlocfilehash: fd2b8b2e8bd075e029a07519ced186424798fd9c
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: a8a29484af7c95e9cffa1c7048c0f7b8d642c868
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003607"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "42023747"
 ---
-# <a name="quickstart-process-event-streams-using-powershell-and-net-standard"></a>Snelstart: Gebeurtenisstromen verwerken met behulp van PowerShell en .NET Standard | Microsoft Docs
+# <a name="quickstart-create-an-event-hub-using-azure-powershell"></a>Snelstart: Een event hub maken met behulp van Azure PowerShell
 
 Azure Event Hubs is een uiterst schaalbaar platform voor het streamen van gegevens en een opneemservice die miljoenen gebeurtenissen per seconde kan opnemen en verwerken. Deze snelstart laat zien hoe u een Event Hub maakt met behulp van Azure PowerShell en vervolgens verzendt naar en ontvangt van een Event Hub met behulp van de .NET Standard-SDK.
 

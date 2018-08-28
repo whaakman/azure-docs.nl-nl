@@ -1,25 +1,21 @@
 ---
-title: Een CI/CD-pijplijn instellen voor Azure Data Lake Analytics | Microsoft Docs
+title: Een CI/CD-pijplijn instellen voor Azure Data Lake Analytics
 description: Meer informatie over het instellen van continue integratie en continue implementatie voor Azure Data Lake Analytics.
 services: data-lake-analytics
-documentationcenter: ''
 author: yanancai
-manager: ''
-editor: ''
+ms.author: yanacai
+ms.reviewer: jasonwhowell
 ms.assetid: 66dd58b1-0b28-46d1-aaae-43ee2739ae0a
 ms.service: data-lake-analytics
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
+ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.author: yanacai
-ms.openlocfilehash: c114f190ae05f5ea4788c3785a713a6365938ded
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 49ac9f9603a1b8043b19c327d5a66015959b9dd1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630701"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045871"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Een CI/CD-pijplijn instellen voor Azure Data Lake Analytics  
 
@@ -440,16 +436,16 @@ De volgende stappen voor het instellen van een taak van de database-implementati
         PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -AzureSDKPath <azure sdk path> -Interactive
         ```
 
-    * Gebruik **geheim** verificatie voor het implementeren van een U-SQL-database aan een Azure Data Lake Analytics-account:
+    * Gebruik **secrete** verificatie voor het implementeren van een U-SQL-database aan een Azure Data Lake Analytics-account:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete>
         ```
 
     * Gebruik **CertBestand** verificatie voor het implementeren van een U-SQL-database aan een Azure Data Lake Analytics-account:
 
         ```
-        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secret <secret> -CertFile <certFile>
+        PackageDeploymentTool.exe deploycluster -Package <package path> -Database <database name> -Account <account name> -ResourceGroup <resource group name> -SubscriptionId <subscript id> -Tenant <tenant name> -ClientId <client id> -Secrete <secrete> -CertFile <certFile>
         ```
 
 ### <a name="packagedeploymenttoolexe-parameter-descriptions"></a>Beschrijvingen van de parameters PackageDeploymentTool.exe
@@ -480,9 +476,9 @@ De volgende stappen voor het instellen van een taak van de database-implementati
 |AzureSDKPath|Het pad naar het afhankelijke assembly's zoeken in de Azure SDK.|Null|true|
 |Interactief|Al dan niet de interactieve modus gebruiken voor verificatie.|false|false|
 |ClientId|De Azure AD-toepassings-ID is vereist voor niet-interactieve verificatie.|Null|Vereist voor niet-interactieve verificatie.|
-|Geheim|Het geheim of het wachtwoord voor niet-interactieve verificatie. Deze moet worden gebruikt alleen in een betrouwbare en veilige omgeving.|Null|Vereist voor niet-interactieve verificatie, anders gebruik SecretFile.|
-|SecretFile|Het bestand wordt opgeslagen de geheim of het wachtwoord voor niet-interactieve verificatie. Zorg ervoor dat u het leesbare houden alleen door de huidige gebruiker.|Null|Vereist voor niet-interactieve verificatie, anders gebruik geheim.|
-|CertBestand|Het bestand wordt opgeslagen x.509-certificaat voor niet-interactieve verificatie. De standaardwaarde is het gebruik van geheime clientverificatie.|Null|false|
+|Secrete|De secrete of het wachtwoord voor niet-interactieve verificatie. Deze moet worden gebruikt alleen in een betrouwbare en veilige omgeving.|Null|Vereist voor niet-interactieve verificatie, anders gebruik SecreteFile.|
+|SecreteFile|Het bestand wordt opgeslagen de secrete of het wachtwoord voor niet-interactieve verificatie. Zorg ervoor dat u het leesbare houden alleen door de huidige gebruiker.|Null|Vereist voor niet-interactieve verificatie, anders gebruik Secrete.|
+|CertBestand|Het bestand wordt opgeslagen x.509-certificaat voor niet-interactieve verificatie. De standaardwaarde is het gebruik van de client secrete verificatie.|Null|false|
 | JobPrefix | Het voorvoegsel voor de implementatie van de database van een U-SQL-DDL-taak. | Deploy_ + DateTime.Now | false |
 
 ## <a name="next-steps"></a>Volgende stappen

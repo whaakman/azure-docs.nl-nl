@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 1237d6a35d279a1036bb8139dd0b0ceaa34edb7b
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 3fc00400590582d21590aadc9741cf0eaf048240
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746839"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047211"
 ---
 # <a name="azure-cosmos-db-bindings-for-azure-functions-2x-preview"></a>Azure Cosmos DB-bindingen voor Azure Functions 2.x (Preview)
 
@@ -36,6 +36,10 @@ Dit artikel wordt uitgelegd hoe u werkt met [Azure Cosmos DB](..\cosmos-db\serve
 > Deze binding heette oorspronkelijk DocumentDB. In functies versie zijn 2.x, de trigger, bindingen en pakket alle benoemde Cosmos DB.
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
+
+## <a name="supported-apis"></a>Ondersteunde API 's
+
+[!INCLUDE [SQL API support only](../../includes/functions-cosmosdb-sqlapi-note.md)]
 
 ## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
 
@@ -254,10 +258,7 @@ De trigger wordt niet aangegeven dat of een document is bijgewerkt of ingevoegd,
 
 ## <a name="input"></a>Invoer
 
-De Azure Cosmos DB-Invoerbinding haalt een of meer Azure Cosmos DB-documenten en geeft deze door aan de invoerparameter van de functie. De document-ID of query parameters kunnen worden bepaald op basis van de trigger die de functie activeert. 
-
->[!NOTE]
-> Geen gebruikmaken van Azure Cosmos DB-invoer of uitvoer bindingen als u met behulp van MongoDB-API op een Cosmos DB-account. Beschadiging van gegevens is mogelijk.
+De Azure Cosmos DB-Invoerbinding maakt gebruik van de SQL-API om een of meer Azure Cosmos DB-documenten te halen en geeft deze door aan de invoerparameter van de functie. De document-ID of query parameters kunnen worden bepaald op basis van de trigger die de functie activeert. 
 
 ## <a name="input---examples"></a>Invoer - voorbeelden
 
@@ -1253,10 +1254,7 @@ In JavaScript-functies worden niet automatisch updates aangebracht bij afsluiten
 
 ## <a name="output"></a>Uitvoer
 
-De Azure Cosmos DB-uitvoer binding kunt schrijven u een nieuw document met een Azure Cosmos DB-database. 
-
->[!NOTE]
-> Geen gebruikmaken van Azure Cosmos DB-invoer of uitvoer bindingen als u met behulp van MongoDB-API op een Cosmos DB-account. Beschadiging van gegevens is mogelijk.
+De Azure Cosmos DB-uitvoer binding kunt schrijven u een nieuw document naar een Azure Cosmos DB-database met behulp van de SQL-API. 
 
 ## <a name="output---examples"></a>Uitvoer - voorbeelden
 

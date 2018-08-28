@@ -1,3 +1,20 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: data-factory
+author: linda33wj
+ms.service: data-factory
+ms.topic: include
+ms.date: 08/20/2018
+ms.author: jingwang
+ms.custom: include file
+ms.openlocfilehash: ac6b53926ca6c44c8ec1e71db67321366aacb00e
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "42617605"
+---
 ## <a name="prerequisites"></a>Vereisten
 
 ### <a name="azure-subscription"></a>Azure-abonnement
@@ -6,8 +23,10 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 ### <a name="azure-roles"></a>Azure-rollen
 Als u Data Factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, lid zijn van de rol *Inzender* of *Eigenaar*, of moet dit een *beheerder* van het Azure-abonnement zijn. Als u de machtigingen die u in het abonnement hebt, wilt bekijken, gaat u naar Azure Portal, selecteert u rechtsboven uw gebruikersnaam en selecteert u vervolgens **Machtigingen**. Als u toegang tot meerdere abonnementen hebt, moet u het juiste abonnement selecteren. Zie het artikel [Rollen toevoegen](../articles/billing/billing-add-change-azure-subscription-administrator.md) voor voorbeelden van instructies voor het toevoegen van een gebruiker aan een rol.
 
+Als u onderliggende resources wilt maken en beheren (inclusief gegevenssets, gekoppelde services, pijplijnen, triggers en integratie-runtimes) voor Data Factory via de Author & Monitor UI in de Azure Portal, moet u de rol **Data Factory-inzender** hebben. Voor het maken en beheren van onderliggende resources met Powershell of de SDK is de rol **Inzender** voldoende.
+
 ### <a name="azure-storage-account"></a>Azure Storage-account
-In deze Snelstart gaat u een algemeen Azure Storage-account (en dan met name voor Blob Storage) gebruiken als zowel *bron-* als *doel*gegevensarchieven. Zie het artikel [Een opslagaccount maken](../articles/storage/common/storage-create-storage-account.md#create-a-storage-account) als u geen Azure Storage-account hebt voor algemene doeleinden en er een wilt maken. 
+In deze Snelstart gaat u een algemeen Azure Storage-account (en dan met name voor Blob Storage) gebruiken als zowel *bron-* als *doel*gegevensarchieven. Zie het artikel [Een opslagaccount maken](../articles/storage/common/storage-quickstart-create-account.md) als u geen Azure Storage-account hebt voor algemene doeleinden en er een wilt maken. 
 
 #### <a name="get-the-storage-account-name-and-account-key"></a>De naam en sleutel van een opslagaccount ophalen
 In deze QuickStart gaat u de naam en sleutel van uw Azure Storage-account gebruiken. De volgende procedure bevat stappen waarmee u de naam en sleutel van uw opslagaccount kunt ophalen: 

@@ -9,13 +9,13 @@ manager: kfile
 editor: jasonwhowell
 ms.assetid: ad8a6992-02c7-47d4-a108-62fc5a0777a3
 ms.topic: get-started-article
-ms.date: 05/02/2018
-ms.openlocfilehash: 0acaace474d62f18b9b6ca4aaae324405a2f43db
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.date: 08/13/2018
+ms.openlocfilehash: 852840fc29589292e7a74390026b78b15f81e721
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34735790"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41920994"
 ---
 # <a name="develop-u-sql-scripts-by-using-data-lake-tools-for-visual-studio"></a>U-SQL-scripts ontwikkelen met Data Lake-tools voor Visual Studio
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -52,16 +52,20 @@ Voor deze zelfstudie moet Data Lake-tools voor Visual Studio zijn geïnstalleerd
 ## <a name="connect-to-an-azure-data-lake-analytics-account"></a>Verbinding maken met een Azure Data Lake Analytics-account
 
 1. Open Visual Studio.
-2. Open Server Explorer via **Weergave** > **Server Explorer**.
-3. Klik met de rechtermuisknop op **Azure**. Selecteer vervolgens **Verbinden met Microsoft Azure-abonnement** en volg de instructies.
-4. In Server Explorer selecteert u **Azure** > **Data Lake Analytics**. U ziet een lijst met uw Data Lake Analytics-accounts.
 
+2. Open Server Explorer via **Weergave** > **Server Explorer**.
+
+3. Klik met de rechtermuisknop op **Azure**. Selecteer vervolgens **Verbinden met Microsoft Azure-abonnement** en volg de instructies.
+
+4. In Server Explorer selecteert u **Azure** > **Data Lake Analytics**. U ziet een lijst met uw Data Lake Analytics-accounts.
 
 ## <a name="write-your-first-u-sql-script"></a>Uw eerste U-SQL-script schrijven
 
 De volgende tekst is een eenvoudig U-SQL-script. Hiermee wordt een kleine gegevensset gedefinieerd en wordt die als het bestand `/data.csv` gegevensset geschreven naar de gebruikelijke Data Lake Store.
 
 ```
+USE DATABASE master;
+USE SCHEMA dbo;
 @a  = 
     SELECT * FROM 
         (VALUES
@@ -74,7 +78,7 @@ OUTPUT @a
     USING Outputters.Csv();
 ```
 
-### <a name="submit-a-data-lake-analytics-job"></a>Een Data Lake Analytics-taak verzenden
+## <a name="submit-a-data-lake-analytics-job"></a>Een Data Lake Analytics-taak verzenden
 
 1. Selecteer **Bestand** > **Nieuw** > **Project**.
 
@@ -87,31 +91,35 @@ OUTPUT @a
     ![U-SQL Visual Studio-project verzenden](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job.png)
 
 5. In de linkerbovenhoek van het **Script.usql**-venster selecteert u **Verzenden**.
-6. Verifieer het **Analytics-account** en selecteer vervolgens **Verzenden**. Het resultaat van het verzenden is beschikbaar in het resultaatvenster van Data Lake Tools voor Visual Studio wanneer het verzenden is voltooid.
 
-    ![U-SQL Visual Studio-project verzenden](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-submit-job-advanced.png)
-7. U moet op de knop **Vernieuwen** klikken om de status van de meest recente taak weer te geven en het scherm te vernieuwen. Wanneer de taak is voltooid, worden **Taakgrafiek**, **Bewerkingen van metagegevens**, **Statusgeschiedenis** en **Diagnostische gegevens** weergegeven:
+6. Als de taak is verzonden, wordt het tabblad **Job view** geopend, waarin de voortgang van de taak wordt weergeven. U moet op de knop **Vernieuwen** klikken om de status van de meest recente taak weer te geven en het scherm te vernieuwen.
 
     ![Prestatiegrafiek U-SQL Visual Studio Data Lake Analytics-taak](./media/data-lake-analytics-data-lake-tools-get-started/data-lake-analytics-data-lake-tools-performance-graph.png)
 
    * In **Taakoverzicht** staat een overzicht van de taak.   
-   * **Taakgegevens** bevat meer informatie over de taak, waaronder het script, resources en verticalen.
    * In **Taakgrafiek** staat een visualisatie van de voortgang van de taak.
    * **Bewerkingen van metagegevens** toont alle acties die zijn uitgevoerd voor de U-SQL-catalogus.
    * **Gegevens** bevat alle invoer en uitvoer.
+   * **State History** bevat de tijdlijn en de details van de status.
+   * **AU Analysis** toont hoeveel AU's er voor de taak zijn gebruikt en u kunt er simulaties mee onderzoeken van verschillende strategieën voor het toewijzen van AU's.
    * **Diagnostische gegevens** biedt een geavanceerde analyse van de taakuitvoering en de prestatieoptimalisatie.
 
-### <a name="to-check-job-state"></a>De taakstatus controleren
+## <a name="check-job-status"></a>Taakstatus controleren
 
-1. In Server Explorer selecteert u **Azure** > **Data Lake Analytics**. 
+1. In Server Explorer selecteert u **Azure** > **Data Lake Analytics**.
+
 2. Vouw de Data Lake Analytics-accountnaam uit.
+
 3. Dubbelklik op **Taken**.
+
 4. Selecteer de taak die u eerder hebt verzonden.
 
-### <a name="to-see-the-output-of-a-job"></a>De uitvoer van een taak bekijken
+## <a name="see-the-job-output"></a>Taakuitvoer bekijken
 
 1. In Server Explorer bladert u naar de taak die u hebt verzonden.
+
 2. Klik op het tabblad **Gegevens**.
+
 3. Op het tabblad **Taakuitvoer** selecteert u het bestand `"/data.csv"`.
 
 ## <a name="next-steps"></a>Volgende stappen

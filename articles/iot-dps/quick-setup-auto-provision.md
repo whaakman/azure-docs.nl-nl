@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: f4bae9ba41f61223a8e18e88e30b8fbf89eff1a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: ce1586e472e1d1ea5ddd9ca5a426b1bea2b5b931
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527589"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42024239"
 ---
 # <a name="set-up-the-iot-hub-device-provisioning-service-with-the-azure-portal"></a>IoT Hub Device Provisioning Service instellen met Azure Portal
 
@@ -34,7 +34,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 2. *Zoek op de marketplace* naar de **Device Provisioning Service**. Selecteer **IoT Hub Device Provisioning Service** en klik op de knop **Maken**. 
 
-3. Geef de volgende informatie op voor uw nieuwe instantie van de Device Provisioning Service en klik op **Maken**.
+3. Geef de volgende informatie op voor uw nieuwe exemplaar van de Device Provisioning Service en klik op **Maken**.
 
     * **Naam:** geef een unieke naam op voor uw nieuwe instantie van de Device Provisioning Service. Als de door u opgegeven naam beschikbaar is, verschijnt er een groen vinkje.
     * **Abonnement**: kies het abonnement dat u wilt gebruiken om deze instantie van de Device Provisioning Service te maken.
@@ -42,7 +42,7 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
     * **Locatie**: selecteer de locatie die het dichtst bij uw apparaten in de buurt is.
     * **Vastmaken aan dashboard:** selecteer deze optie om het exemplaar vast te maken aan uw dashboard, zodat u het exemplaar eenvoudiger kunt vinden.
 
-    ![Basisinformatie over uw DPS-exemplaar invoeren op de portalblade](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
+    ![Basisinformatie over uw Device Provisioning Service-exemplaar invoeren op de portalblade](./media/quick-setup-auto-provision/create-iot-dps-portal.png)  
 
 4. Zodra de service is geïmplementeerd, wordt de blade samenvatting automatisch geopend.
 
@@ -61,7 +61,7 @@ In deze sectie voegt u een configuratie toe aan het Device Provisioning Service-
     * **IoT-hub:** selecteer de IoT-hub die u wilt koppelen aan uw nieuwe Device Provisioning Service-exemplaar.
     * **Toegangsbeleid:** selecteer **iothubowner** als de referenties om de koppeling met de IoT-hub tot stand te brengen.  
 
-    ![De naam van de hub koppelen aan het DPS-exemplaar op de portalblade](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
+    ![Koppel de naam van de hub aan het Device Provisioning Service-exemplaar op de portalblade](./media/quick-setup-auto-provision/link-iot-hub-to-dps-portal.png)  
 
 3. Nu ziet u de geselecteerde hub onder de blade **Gekoppelde IoT-hubs**. Mogelijk moet u op **Vernieuwen** klikken om **Gekoppelde IoT-hubs** weer te geven.
 
@@ -76,7 +76,7 @@ Andere Quick Starts in deze verzameling zijn op deze Quick Start gebaseerd. Als 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze snelstartgids hebt u een IoT-hub en een Device Provisioning Service-exemplaar geïmplementeerd en de twee resources gekoppeld. Als u wilt weten hoe u deze instellingen gebruikt voor het inrichten van een gesimuleerd apparaat, gaat u verder met de rest van de snelstartgids voor het maken van een gesimuleerd apparaat.
+In deze snelstart hebt u een IoT-hub en een Device Provisioning Service-exemplaar geïmplementeerd en de twee resources gekoppeld. Als u wilt weten hoe u deze instellingen gebruikt voor het inrichten van een gesimuleerd apparaat, gaat u verder met de rest van de snelstartgids voor het maken van een gesimuleerd apparaat.
 
 > [!div class="nextstepaction"]
 > [Snelstartgids voor het maken van een gesimuleerd apparaat](./quick-create-simulated-device.md)

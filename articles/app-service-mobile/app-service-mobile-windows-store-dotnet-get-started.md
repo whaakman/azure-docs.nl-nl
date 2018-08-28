@@ -12,36 +12,36 @@ ms.workload: mobile
 ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: hero-article
-ms.date: 10/01/2016
+ms.date: 08/17/2018
 ms.author: crdun
-ms.openlocfilehash: 508989e0e2daeac7922d61ff692ee4579139cfc8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 28a741393fd4b7b4076449c90575f8a4ab30e0fc
+ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307218"
+ms.lasthandoff: 08/18/2018
+ms.locfileid: "41919530"
 ---
 # <a name="create-a-windows-app"></a>Een Windows-app maken
+
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
 
 ## <a name="overview"></a>Overzicht
+
 Deze zelfstudie laat zien hoe u een back-endservice toevoegt aan een Universal Windows Platform (UWP)-app in de cloud. Zie [What are Mobile Apps](app-service-mobile-value-prop.md) (Wat zijn Mobile Apps?) voor meer informatie. Hier volgen enkele schermopnamen van een voltooide app:
 
-![Voltooide bureaublad-app](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-desktop.png)   
-Uitgevoerd op bureaublad.
-
-![Voltooide telefoon-app](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)  
-Uitgevoerd op telefoon.
+![Voltooide bureaublad-app](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed-desktop.png)
 
 Het voltooien van deze zelfstudie is een vereiste voor alle andere zelfstudies over Mobile Apps voor UWP-apps.
 
 ## <a name="prerequisites"></a>Vereisten
+
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 * Een actief Azure-account. Als u geen account hebt, kunt u zich aanmelden voor een proefversie van Azure en maximaal tien gratis mobiele apps krijgen die u ook na de proefperiode kunt blijven gebruiken. Zie [Gratis proefversie van Azure](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
-* [Visual Studio Community 2015] of een nieuwere versie.
+* [Visual Studio Community 2017]
 
 ## <a name="create-a-new-azure-mobile-app-backend"></a>Een nieuwe back-end voor mobiele apps van Azure maken
+
 Volg deze stappen voor het maken van een nieuwe back-end voor mobiele apps.
 
 [!INCLUDE [app-service-mobile-dotnet-backend-create-new-service](../../includes/app-service-mobile-dotnet-backend-create-new-service.md)]
@@ -49,28 +49,29 @@ Volg deze stappen voor het maken van een nieuwe back-end voor mobiele apps.
 U hebt nu een back-end voor mobiele apps van Azure ingericht, die kan worden gebruikt door uw mobiele-clienttoepassingen. Nu gaat u een serverproject downloaden voor een eenvoudige back-end voor takenlijsten en deze publiceren naar Azure.
 
 ## <a name="configure-the-server-project"></a>Het serverproject configureren
+
 [!INCLUDE [app-service-mobile-configure-new-backend.md](../../includes/app-service-mobile-configure-new-backend.md)]
 
 ## <a name="download-and-run-the-client-project"></a>Het clientproject downloaden en uitvoeren
-Zodra u de back-end voor mobiele apps hebt geconfigureerd, kunt u een nieuwe client-app maken of een bestaande app wijzigen om verbinding te maken met Azure. In deze sectie download u een sjabloonproject voor een UWP-app die is aangepast om verbinding te kunnen maken met de back-end voor uw mobiele apps.
+
+Zodra u de back-end voor mobiele apps hebt geconfigureerd, kunt u een nieuwe client-app maken of een bestaande app wijzigen om verbinding te maken met Azure. In deze sectie downloadt u een project voor een voorbeeld-UWP-app die is aangepast om verbinding te kunnen maken met de back-end van uw mobiele apps.
 
 1. Op de blade **Snel starten** voor de back-end voor uw mobile app klikt u op **Een nieuwe app maken** > **Downloaden**. Pak de gecomprimeerde projectbestanden uit op de lokale computer.
 
     ![Het project Windows-snelstartgids downloaden](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-app-windows-quickstart.png)
-2. Optioneel: Voeg het UWP-appproject toe aan dezelfde oplossing als het serverproject. Hierdoor kunt u desgewenst zowel de app als de back-end makkelijker debuggen en testen in dezelfde Visual-Studio-oplossing. Als u een UWP-app-project aan de oplossing wilt toevoegen, dient u Visual Studio 2015 of een nieuwere versie te gebruiken.
-3. Met de UWP-app als opstartproject, drukt u op de F5-toets om de app te implementeren en uit te voeren.
-4. Typ zinvolle tekst in de app, zoals *Voltooi de zelfstudie*, in het tekstvak **Nieuwe taak invoegen** en klik op **Opslaan**.
+
+2. Open het UWP-project en druk op F5 om de app te implementeren en uit te voeren.
+3. Typ zinvolle tekst in de app, zoals *Voltooi de zelfstudie*, in het tekstvak **Nieuwe taak invoegen** en klik op **Opslaan**.
 
     ![Windows-snelstartgids: bureaublad voltooien](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 
     Hierdoor wordt een POST-aanvraag verzonden naar de nieuwe back-end voor mobiele apps die wordt gehost in Azure.
-5. Optioneel: Stop de app en start deze opnieuw op een ander apparaat of mobiele emulator.
 
-    ![Windows-snelstartgids: telefoon voltooien](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-completed.png)
-
-    De gegevens die in de vorige stap zijn opgeslagen, worden vanuit Azure geladen nadat de UWP-app is gestart.
+> [!TIP]
+> U kunt het UWP-app-project aan dezelfde oplossing toevoegen als het serverproject, mits u de .NET-back-end gebruikt. Hierdoor kunt u zowel de app als de back-end makkelijker debuggen en testen in dezelfde Visual-Studio-oplossing. Als u een UWP-app-project aan de back-endoplossing wilt toevoegen, dient u Visual Studio 2017 te gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * [Verificatie toevoegen aan uw app](app-service-mobile-windows-store-dotnet-get-started-users.md)  
   Ontdek hoe u gebruikers van uw app verifieert met een id-provider.
 * [Pushmeldingen toevoegen aan uw app](app-service-mobile-windows-store-dotnet-get-started-push.md)  
@@ -83,4 +84,4 @@ Zodra u de back-end voor mobiele apps hebt geconfigureerd, kunt u een nieuwe cli
 <!-- URLs. -->
 [Mobile App SDK]: http://go.microsoft.com/fwlink/?LinkId=257545
 [Azure portal]: https://portal.azure.com/
-[Visual Studio Community 2015]: https://go.microsoft.com/fwLink/p/?LinkID=534203
+[Visual Studio Community 2017]: https://go.microsoft.com/fwLink/p/?LinkID=534203

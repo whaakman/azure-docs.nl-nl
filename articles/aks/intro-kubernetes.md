@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 06/13/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: cb38285a009d8dfba175de6e3037970e6111d929
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.openlocfilehash: e6f67c8900a7ee1728b474651b47d278cdfa51eb
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37096124"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42022329"
 ---
 # <a name="azure-kubernetes-service-aks"></a>Azure Kubernetes Service (AKS)
 
@@ -66,7 +66,7 @@ Zie [GPU's gebruiken op AKS][aks-gpu] voor meer informatie.
 
 ## <a name="development-tooling-integration"></a>Integratie van ontwikkelingshulpprogramma’s
 
-Kubernetes heeft een uitgebreid ecosysteem van hulpprogramma’s voor ontwikkeling en beheer, zoals Helm, Draft en de Kubernetes-extensie voor Visual Studio Code. Deze hulpprogramma's werken naadloos samen met Azure Kuberntees Service.
+Kubernetes heeft een uitgebreid ecosysteem van hulpprogramma’s voor ontwikkeling en beheer, zoals Helm, Draft en de Kubernetes-extensie voor Visual Studio Code. Deze hulpprogramma's werken naadloos samen met Azure Kubernetes Service.
 
 Bovendien biedt Azure Dev Spaces een snelle, iteratieve Kubernetes-ontwikkelervaring voor teams. Met minimale configuratie kunt u rechtstreeks in Azure Kubernetes Service (AKS) herhaaldelijk containers uitvoeren en fouten hierin opsporen.
 
@@ -104,7 +104,7 @@ De Azure Kubernetes Service (AKS) is door de CNCF gecertificeerd als compatibel 
 
 ## <a name="regulatory-compliance"></a>Naleving van regelgeving
 
-Azure Kubernetes Service (AKS) voldoet aan SOC en ISO/HIPAA/HITRUST.
+Azure Kubernetes Service (AKS) voldoet aan SOC en ISO.
 
 ## <a name="next-steps"></a>Volgende stappen
 
@@ -131,7 +131,7 @@ U vindt meer informatie over het implementeren en beheren van AKS in de bijbehor
 [aks-scale]: ./scale-cluster.md
 [aks-upgrade]: ./upgrade-cluster.md
 [azure-dev-spaces]: https://docs.microsoft.com/en-us/azure/dev-spaces/azure-dev-spaces
-[azure-devops]: https://docs.microsoft.com/en-us/vsts/pipelines/actions/azure-devops-project-aks?view=vsts
+[azure-devops]: https://docs.microsoft.com/en-us/azure/devops-project/overview
 [azure-disk]: ./azure-disks-dynamic-pv.md
 [azure-files]: ./azure-files-dynamic-pv.md
 [container-health]: ../monitoring/monitoring-container-health.md

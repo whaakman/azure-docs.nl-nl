@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 9c2534644a0627bac9765621691cbba6ffccfe35
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 93b79b7adacdec18912d28bb9725e2dc77737d59
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391308"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050760"
 ---
 # <a name="upgrade-your-standalone-azure-service-fabric-cluster-on-windows-server"></a>Uw zelfstandige Azure Service Fabric-cluster op Windows Server upgraden 
 > [!div class="op_single_selector"]
@@ -162,7 +162,7 @@ Zie voor informatie over het gebruik, de [Start ServiceFabricClusterConfiguratio
     Register-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file>
 
     ###### Here is a filled-out example
-    Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
+    Register-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab
 
      ```
 6. Start de clusterupgrade van een naar een beschikbare versie.

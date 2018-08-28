@@ -1,6 +1,6 @@
 ---
-title: 'Azure-snelstart: Een Azure-webtoepassing configureren voor het instellen en ophalen van een geheim uit Key Vault | Microsoft Docs'
-description: Snelstart waarin wordt getoond hoe u een ASP.Net Core-toepassing configureert voor het instellen en ophalen van een geheim uit Key Vault
+title: 'Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app | Microsoft Docs'
+description: 'Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van een Node-web-app'
 services: key-vault
 author: prashanthyv
 manager: sumedhb
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 07/24/2018
 ms.author: barclayn
 ms.custom: mvc
-ms.openlocfilehash: 8b5624ae3083d92213b4ee919dc0860bf5ff4ab7
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 0188d06e5c58287e1040f6a15456d3ffe291b04a
+ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480199"
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "42022748"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-a-net-web-app"></a>Snelstart: Een geheim uit Azure Key Vault instellen en ophalen met behulp van .NET Web App
 
@@ -28,7 +28,10 @@ In deze snelstart gaat u de stappen uitvoeren die nodig zijn om een Azure-webtoe
 > * [Beheerde service-identiteiten inschakelen](../active-directory/managed-service-identity/overview.md).
 > * De vereiste machtigingen verlenen aan de webtoepassing om gegevens te lezen uit Key Vault.
 
-Voordat u verdergaat moet u kennis nemen van de [basisconcepten](key-vault-whatis.md#basic-concepts), met name van [Managed Service Identity](../active-directory/managed-service-identity/overview.md)
+Lees voordat we verdergaan de [basisconcepten](key-vault-whatis.md#basic-concepts).
+
+>[!NOTE]
+Om te begrijpen waarom de onderstaande zelfstudie de aanbevolen procedure is, moeten we enkele concepten begrijpen. Key Vault is een centrale opslagplaats voor het opslaan van geheimen via een programma. Maar hiervoor moeten toepassingen/gebruikers eerst worden geverifieerd bij Key Vault, dat wil zeggen een geheim presenteren. Als u de aanbevolen procedures voor beveiliging wilt volgen, dient dit eerste geheim ook periodiek te worden gerouleerd. Maar met [Managed Service Identity](../active-directory/managed-service-identity/overview.md) krijgen toepassingen die worden uitgevoerd in Azure een identiteit die automatisch wordt beheerd door Azure. Dit helpt bij het oplossen van het **probleem van het introduceren van geheimen** waar gebruikers/toepassingen aanbevolen procedures kunnen volgen en zich geen zorgen hoeven maken over het rouleren van het eerste geheim
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -165,6 +168,8 @@ Voer deze opdracht uit met de naam van uw sleutelkluis en de waarde van Principa
 az keyvault set-policy --name '<YourKeyVaultName>' --object-id <PrincipalId> --secret-permissions get
 
 ```
+
+**Tijdens het uitvoeren van de toepassing ziet u nu de geheime waarde die is opgehaald**
 
 ## <a name="next-steps"></a>Volgende stappen
 

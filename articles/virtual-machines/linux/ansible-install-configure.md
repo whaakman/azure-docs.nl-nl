@@ -1,48 +1,35 @@
 ---
-title: Ansible installeren en configureren voor gebruik met Azure virtual machines | Microsoft Docs
-description: Meer informatie over het installeren en configureren van Ansible voor het beheren van Azure-resources op Ubuntu-, CentOS- en SLES
-services: virtual-machines-linux
-documentationcenter: virtual-machines
-author: cynthn
+title: Ansible installeren op virtuele Azure-machines
+description: Meer informatie over het installeren en configureren van Ansible voor het beheren van Azure-resources onder Ubuntu, CentOS en SLES
+ms.service: ansible
+keywords: ansible, azure, devops, bash, cloudshell, playbook, bash
+author: tomarcher
 manager: jeconnoc
-editor: na
-tags: azure-resource-manager
-ms.assetid: ''
-ms.service: virtual-machines-linux
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.workload: infrastructure
-ms.date: 05/04/2018
-ms.author: cynthn
-ms.openlocfilehash: e7d57ead2caff87db07380582b9085b831844f1e
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
-ms.translationtype: MT
+ms.author: tarcher
+ms.topic: quickstart
+ms.date: 08/21/2018
+ms.openlocfilehash: fcb2da93a39bd4e1a81f7767dc40b3a24fd7d213
+ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37930066"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "40250645"
 ---
-# <a name="install-and-configure-ansible-to-manage-virtual-machines-in-azure"></a>Installeren en configureren van Ansible voor het beheren van virtuele machines in Azure
+# <a name="install-ansible-on-azure-virtual-machines"></a>Ansible installeren op virtuele Azure-machines
 
-Ansible kunt u de implementatie en configuratie van bronnen in uw omgeving automatiseren. U kunt Ansible gebruiken voor het beheren van uw virtuele machines (VM's) in Azure, net als elke andere resource hetzelfde. Dit artikel wordt uitgelegd hoe u Ansible en de vereiste modules voor Azure Python SDK installeren voor enkele van de meest voorkomende distributies van Linux. U kunt Ansible installeren op andere distributies door aan te passen van de geïnstalleerde pakketten aanpassen aan uw specifieke platform. Voor het maken van Azure-resources op een veilige manier, leert u ook hoe u maken en definiëren van de referenties voor Ansible te gebruiken.
+U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. U kunt Ansible gebruiken voor het beheren van uw virtuele machines (VM's) in Azure, net zoals andere resources. In dit artikel wordt in detail beschreven hoe u Ansible en de vereiste modules van Azure SDK voor Python installeert voor veelvoorkomende Linux-versies. U kunt Ansible installeren in andere versies door de geïnstalleerde pakketten aan te passen aan uw specifieke platform. Om Azure-resources op veilige wijze te maken, leert u ook hoe u referenties kunt maken en gebruiken voor Ansible. Zie [Features and tools for Bash in the Azure Cloud Shell](../../cloud-shell/features.md#tools) (functies en hulpprogramma's voor Bash in Azure Cloud Shell) voor een lijst met aanvullende beschikbare hulpprogramma's in Cloud Shell.
 
-Zie voor meer informatie over opties voor de installatie en stappen voor extra platforms de [Ansible installeren handleiding](https://docs.ansible.com/ansible/intro_installation.html).
+## <a name="prerequisites"></a>Vereisten
 
-[!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
+- **Azure-abonnement**: als u nog geen Azure-abonnement hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan.
 
-Als u ervoor kiest om te installeren en de CLI lokaal gebruikt, in dit artikel is vereist dat u de Azure CLI versie 2.0.30 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
+- **Toegang tot Linux of een virtuele Linux-machine**: als u geen Linux-machine hebt, maakt u een [virtuele Linux-machine](/virtual-machines/linux/quick-create-cli.md).
 
-## <a name="install-ansible"></a>Ansible installeren
+- **Azure service-principal**: volg de aanwijzingen in de sectie **Create the service principal** (de service-principal maken) in het artikel [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) (een Azure-service-principal maken met Azure CLI 2.0). Noteer de waarden voor **appId**, **displayName**, **password** en **tenant**.
 
-Een van de eenvoudigste manieren om u Ansible gebruikt met Azure is met de Azure Cloud Shell, een browser gebaseerde shell-ervaring voor het beheren en ontwikkelen van Azure-resources. Ansible is vooraf geïnstalleerd in de Cloud Shell, zodat u kunt verder gaan instructies over het installeren van Ansible en gaat u naar [maken-Azure-referenties](#create-azure-credentials). Zie voor een lijst van extra hulpprogramma's die ook beschikbaar in de Cloud Shell, [functies en hulpprogramma's voor Bash in de Azure Cloud Shell](../../cloud-shell/features.md#tools).
+## <a name="install-ansible-on-an-azure-linux-virtual-machine"></a>Ansible installeren op een virtuele Linux-machine in Azure
 
-De volgende instructies laten zien hoe u een Linux-VM voor verschillende Distributies maken en installeer vervolgens Ansible. Als u niet nodig hebt voor het maken van een Linux-VM, slaat u deze eerste stap voor het maken van een Azure-resourcegroep. Als u maken van een virtuele machine wilt, maakt u eerst een resourcegroep met [az-groep maken](/cli/azure/group#az_group_create). In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *eastus*:
-
-```azurecli
-az group create --name myResourceGroup --location eastus
-```
-
-Nu, selecteer een van de volgende Distributies voor stappen voor het maken van een virtuele machine, indien nodig, en installeert u Ansible:
+Meld u aan bij uw Linux-machine en selecteer een van de volgende versies voor instructies voor het installeren van Ansible:
 
 - [CentOS 7.4](#centos-74)
 - [Ubuntu 16.04 LTS](#ubuntu1604-lts)
@@ -50,24 +37,7 @@ Nu, selecteer een van de volgende Distributies voor stappen voor het maken van e
 
 ### <a name="centos-74"></a>CentOS 7.4
 
-Indien nodig, maakt u een virtuele machine met [az vm maken](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMAnsible*:
-
-```azurecli
-az vm create \
-    --name myVMAnsible \
-    --resource-group myResourceGroup \
-    --image OpenLogic:CentOS:7.4:latest \
-    --admin-username azureuser \
-    --generate-ssh-keys
-```
-
-SSH naar uw virtuele machine met de `publicIpAddress` die u hebt genoteerd in de uitvoer van de virtuele machine maken:
-
-```bash
-ssh azureuser@<publicIpAddress>
-```
-
-Installeer de vereiste pakketten voor de Azure Python SDK-modules en Ansible als volgt op de VM:
+Installeer de vereiste pakketten voor de modules van Azure SDK voor Python en Ansible door de volgende opdrachten uit te voeren in een terminal- of Bash-venster:
 
 ```bash
 ## Install pre-requisite packages
@@ -78,28 +48,12 @@ sudo yum install -y python-pip python-wheel
 sudo pip install ansible[azure]
 ```
 
-Nu wordt verplaatst naar [maken-Azure-referenties](#create-azure-credentials).
+Volg de instructies in de sectie [Azure-referenties maken](#create-azure-credentials).
 
 ### <a name="ubuntu-1604-lts"></a>Ubuntu 16.04 LTS
 
-Indien nodig, maakt u een virtuele machine met [az vm maken](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMAnsible*:
+Installeer de vereiste pakketten voor de modules van Azure SDK voor Python en Ansible door de volgende opdrachten uit te voeren in een terminal- of Bash-venster:
 
-```azurecli
-az vm create \
-    --name myVMAnsible \
-    --resource-group myResourceGroup \
-    --image Canonical:UbuntuServer:16.04-LTS:latest \
-    --admin-username azureuser \
-    --generate-ssh-keys
-```
-
-SSH naar uw virtuele machine met de `publicIpAddress` die u hebt genoteerd in de uitvoer van de virtuele machine maken:
-
-```bash
-ssh azureuser@<publicIpAddress>
-```
-
-Installeer de vereiste pakketten voor de Azure Python SDK-modules en Ansible als volgt op de VM:
 
 ```bash
 ## Install pre-requisite packages
@@ -109,28 +63,11 @@ sudo apt-get update && sudo apt-get install -y libssl-dev libffi-dev python-dev 
 sudo pip install ansible[azure]
 ```
 
-Nu wordt verplaatst naar [maken-Azure-referenties](#create-azure-credentials).
+Volg de instructies in de sectie [Azure-referenties maken](#create-azure-credentials).
 
 ### <a name="sles-12-sp2"></a>SLES 12 SP2
 
-Indien nodig, maakt u een virtuele machine met [az vm maken](/cli/azure/vm#az_vm_create). Het volgende voorbeeld wordt een virtuele machine met de naam *myVMAnsible*:
-
-```azurecli
-az vm create \
-    --name myVMAnsible \
-    --resource-group myResourceGroup \
-    --image SUSE:SLES:12-SP2:latest \
-    --admin-username azureuser \
-    --generate-ssh-keys
-```
-
-SSH naar uw virtuele machine met de `publicIpAddress` die u hebt genoteerd in de uitvoer van de virtuele machine maken:
-
-```bash
-ssh azureuser@<publicIpAddress>
-```
-
-Installeer de vereiste pakketten voor de Azure Python SDK-modules en Ansible als volgt op de VM:
+Installeer de vereiste pakketten voor de modules van Azure SDK voor Python en Ansible door de volgende opdrachten uit te voeren in een terminal- of Bash-venster:
 
 ```bash
 ## Install pre-requisite packages
@@ -144,70 +81,59 @@ sudo pip install ansible[azure]
 sudo pip uninstall -y cryptography
 ```
 
-Nu wordt verplaatst naar [maken-Azure-referenties](#create-azure-credentials).
+Volg de instructies in de sectie [Azure-referenties maken](#create-azure-credentials).
 
 ## <a name="create-azure-credentials"></a>Azure-referenties maken
 
-Ansible communiceert met Azure met behulp van een gebruikersnaam en wachtwoord of een service-principal. Een Azure service-principal is een beveiligings-id die u met apps, services en automatiseringsprogramma's, zoals Ansible gebruiken kunt. U bepaalt en definiëren van de machtigingen over welke bewerkingen die de service-principal in Azure uitvoeren kunt. Voor een betere beveiliging via alleen door een gebruikersnaam en wachtwoord maakt in dit voorbeeld u een eenvoudige service principal.
+De Ansible-referenties worden op een van de volgende twee manieren geconfigureerd op basis van de abonnements-id en de informatie die bij het maken van de service-principal wordt geretourneerd:
 
-Op de hostcomputer of in de Azure Cloud Shell, een service principal maken met behulp [az ad sp create-for-rbac](/cli/azure/ad/sp#az-ad-sp-create-for-rbac). De referenties die Ansible moet worden uitgevoerd naar het scherm:
+- [Een Ansible-referentiebestand maken](#file-credentials)
+- [Ansible-omgevingsvariabelen gebruiken](#env-credentials)
 
-```azurecli-interactive
-az ad sp create-for-rbac --query '{"client_id": appId, "secret": password, "tenant": tenant}'
-```
+Als u hulpprogramma's zoals Ansible Tower of Jenkins gaat gebruiken, moet u de waarden voor de service-principal declareren als omgevingsvariabelen.
 
-Een voorbeeld van de uitvoer in de voorgaande opdrachten is als volgt:
+### <a name="span-idfile-credentials-create-ansible-credentials-file"></a><span id="file-credentials"/> Ansible-referentiebestand maken
 
-```json
-{
-  "client_id": "eec5624a-90f8-4386-8a87-02730b5410d5",
-  "secret": "531dcffa-3aff-4488-99bb-4816c395ea3f",
-  "tenant": "72f988bf-86f1-41af-91ab-2d7cd011db47"
-}
-```
+In deze sectie wordt uitgelegd hoe u een lokaal referentiebestand maakt om referenties op te geven voor Ansible. Zie [Referenties opgeven voor Azure-modules](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules) voor meer informatie over het definiëren van Ansible-referenties.
 
-Om te worden geverifieerd bij Azure, moet u ook verkrijgen van uw Azure-abonnement-ID met [az account show](/cli/azure/account#az-account-show):
-
-```azurecli-interactive
-az account show --query "{ subscription_id: id }"
-```
-
-U gebruikt de uitvoer van deze twee opdrachten in de volgende stap.
-
-## <a name="create-ansible-credentials-file"></a>Maken van bestand met Ansible
-
-Om referenties te verstrekken aan Ansible, definiëren omgevingsvariabelen of een lokaal bestand te maken. Zie voor meer informatie over het definiëren van Ansible referenties [geven referenties aan Azure-Modules](https://docs.ansible.com/ansible/guide_azure.html#providing-credentials-to-azure-modules).
-
-Voor een ontwikkelomgeving, maakt u een *referenties* voor Ansible-bestand op uw host-VM. Maak een bestand op de virtuele machine waarop u Ansible in de vorige stap hebt geïnstalleerd:
+Voor een ontwikkelomgeving maakt u als volgt een *referentiebestand* voor Ansible op uw virtuele hostmachine:
 
 ```bash
 mkdir ~/.azure
 vi ~/.azure/credentials
 ```
 
-De *referenties* bestand zelf combineert de abonnements-ID met de uitvoer van het maken van een service-principal. Uitvoer van de vorige [az ad sp create-for-rbac](/cli/azure/ad/sp#create-for-rbac) opdracht is hetzelfde als die nodig zijn voor *client_id*, *geheim*, en *tenant*. Het volgende voorbeeld *referenties* bestand ziet u deze waarden die overeenkomen met de vorige uitvoer. Voer uw eigen waarden als volgt in:
+Voeg de volgende regels in het *referentiebestand* in, waarbij u de tijdelijke aanduidingen vervangt door de informatie die u hebt verkregen bij het maken van de service-principal.
 
 ```bash
 [default]
-subscription_id=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-client_id=eec5624a-90f8-4386-8a87-02730b5410d5
-secret=531dcffa-3aff-4488-99bb-4816c395ea3f
-tenant=72f988bf-86f1-41af-91ab-2d7cd011db47
+subscription_id=<your-subscription_id>
+client_id=<security-principal-appid>
+secret=<security-principal-password>
+tenant=<security-principal-tenant>
 ```
 
 Sla het bestand op en sluit het.
 
-## <a name="use-ansible-environment-variables"></a>Ansible-omgevingsvariabelen gebruiken
+### <a name="span-idenv-credentialsuse-ansible-environment-variables"></a><span id="env-credentials"/>Ansible-omgevingsvariabelen gebruiken
 
-Als u gebruiken, zoals Ansible Tower of Jenkins wilt, moet u voor het definiëren van omgevingsvariabelen. Deze stap kan worden overgeslagen als u alleen de Ansible-client gebruiken gaat en het Azure-referenties-bestand in de vorige stap gemaakt. Omgevingsvariabelen definiëren dezelfde informatie als de referenties voor Azure-bestand:
+In deze sectie wordt uitgelegd hoe u de Ansible-referenties configureert door deze te exporteren als omgevingsvariabelen.
+
+Voer de volgende opdrachten uit in een terminal- of Bash-venster:
 
 ```bash
-export AZURE_SUBSCRIPTION_ID=xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-export AZURE_CLIENT_ID=eec5624a-90f8-4386-8a87-02730b5410d5
-export AZURE_SECRET=531dcffa-3aff-4488-99bb-4816c395ea3f
-export AZURE_TENANT=72f988bf-86f1-41af-91ab-2d7cd011db47
+export AZURE_SUBSCRIPTION_ID=<your-subscription_id>
+export AZURE_CLIENT_ID=<security-principal-appid>
+export AZURE_SECRET=<security-principal-password>
+export AZURE_TENANT=<security-principal-tenant>
 ```
+
+## <a name="verify-the-configuration"></a>De configuratie controleren
+Als u wilt controleren of het configureren geslaagd is, kunt u nu een resourcegroep maken met Ansible.
+
+[!INCLUDE [create-resource-group-with-ansible.md](../../../includes/ansible-create-resource-group.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt nu Ansible en de vereiste Python-SDK van Azure-modules geïnstalleerd en de referenties voor Ansible gedefinieerd om te gebruiken. Meer informatie over het [een virtuele machine maken met Ansible](ansible-create-vm.md). U leert ook hoe u [een volledige Azure-VM maken en de ondersteunende resources met Ansible](ansible-create-complete-vm.md).
+> [!div class="nextstepaction"] 
+> [Een virtuele Linux-machine maken in Azure met Ansible](./ansible-create-vm.md)

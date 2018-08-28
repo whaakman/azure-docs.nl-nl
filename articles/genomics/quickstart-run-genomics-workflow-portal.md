@@ -10,12 +10,12 @@ ms.service: microsoft-genomics
 ms.workload: genomics
 ms.topic: quickstart
 ms.date: 12/07/2017
-ms.openlocfilehash: 1436ad54eb13052aa87ccfd5adc371c8d7d5a100
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 4387e1c935ada99e1f9c335fb7e1b67905c01188
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31403787"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42023135"
 ---
 # <a name="quickstart-run-a-workflow-through-the-microsoft-genomics-service"></a>Snelstartgids: een werkstroom uitvoeren via de service Microsoft Genomics
 
@@ -41,7 +41,7 @@ Configureer uw Genomics-account met de volgende informatie, zoals weergegeven in
  |Accountnaam         | MyGenomicsAccount     |Kies een unieke account-id. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige namen. |
  |Abonnement         | De naam van uw abonnement|Dit is de factureringseenheid voor uw Azure-services; zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnement. |      
  |Resourcegroep       | MyResourceGroup       |  Met resourcegroepen kunt u meerdere Azure-resources (opslagaccount, Genomics-account enzovoort) in één groep indelen voor eenvoudig beheer. Zie R[esourcegroepen] (https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview#resource-groups)) voor meer informatie. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige resourcegroepnamen. |
- |Locatie                   | VS - west 2                    |    De service is beschikbaar in VS West 2, West-Europa en Zuidoost-Azië |
+ |Locatie                   | US - west 2                    |    De service is beschikbaar in US - west 2, Europa - west en Azië - zuidoost |
 
 
 
@@ -57,7 +57,9 @@ Gebruikers moeten Python en de Python-client voor Microsoft Genomics installeren
 
 ### <a name="install-python"></a>Python installeren
 
-De Python-client voor Microsoft Genomics is compatibel met Python 2.7. We raden u aan versie 2.7.12 of hoger te gebruiken, bij voorkeur versie 2.7.14. U vindt de download [hier](https://www.python.org/downloads/). 
+De Python-client voor Microsoft Genomics is compatibel met Python 2.7. versie 12 of hoger 2.7.xx; 2.7.15 is de meest recente versie op het moment van dit artikel; 2.7.14 is de aanbevolen versie. U vindt de download [hier](https://www.python.org/downloads/). 
+
+Opmerking: Python 3.x is niet compatibel met Python 2.7.xx.  MSGen is een Python 2.7-toepassing. Zorg er bij het uitvoeren van MSGen voor dat uw actieve Python-omgeving een 2.7.xx-versie van Python gebruikt. Er treden mogelijk fouten op bij gebruik van MSGen met een 3.x-versie van Python.
 
 
 ### <a name="install-the-microsoft-genomics-client"></a>De Microsoft Genomics-client installeren
@@ -124,7 +126,7 @@ Configureer uw Storage-account met de volgende informatie, zoals weergegeven in 
  |Toegangslaag                  | Warm                   | De toegangslaag Hot geeft aan dat de objecten in het opslagaccount regelmatig worden gebruikt.    |
  |Abonnement         | Uw Azure-abonnement |Zie [Abonnementen](https://account.azure.com/Subscriptions) voor meer informatie over uw abonnement. |      
  |Resourcegroep       | MyResourceGroup       |  U kunt dezelfde resourcegroep als voor uw Genomics-account gebruiken. Zie [Naamgevingsregels](https://docs.microsoft.com/azure/architecture/best-practices/naming-conventions) voor geldige resourcegroepnamen. |
- |Locatie                  | VS - west 2                  | Gebruik dezelfde locatie als de locatie van uw Genomics-account om uitvoerkosten te verminderen en latentie te beperken. De Genomics-service is beschikbaar in VS West2, VS West 2, West-Europa en Zuidoost-Azië    |
+ |Locatie                  | US - west 2                  | Gebruik dezelfde locatie als de locatie van uw Genomics-account om uitvoerkosten te verminderen en latentie te beperken. De Genomics-service is beschikbaar in US - west 2, US - oost 2, Europa - west en Azië - zuidoost    |
  |Virtuele netwerken                | Uitgeschakeld                   | Uitgeschakeld is de standaardinstelling. Zie [Virtuele netwerken van Azure](https://docs.microsoft.com/azure/storage/common/storage-network-security) voor meer informatie.    |
 
 

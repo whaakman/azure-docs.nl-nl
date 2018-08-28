@@ -11,12 +11,12 @@ ms.assetid: 697eb8b0-4a66-40c7-be7b-6aa6b131c7ad
 ms.topic: article
 tags: connectors
 ms.date: 08/24/2018
-ms.openlocfilehash: 9714a00d070caab9d3a3338329295192e1eb9997
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 8f430477883543aa8f87eb3fb0fb49ab31e2d723
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887584"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43042035"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-azure-logic-apps"></a>Controleren, maken en beheren van de SFTP-bestanden met behulp van Azure Logic Apps
 
@@ -30,7 +30,7 @@ Met Azure Logic Apps en de SFTP-connector, kunt u geautomatiseerde taken en werk
 U kunt triggers die te antwoorden krijgen van uw SFTP-server en de uitvoer beschikbaar voor andere acties. U kunt acties in uw logische apps gebruiken voor het uitvoeren van taken met bestanden op uw SFTP-server. U kunt ook andere acties waarmee de uitvoer van de SFTP-acties hebben. Bijvoorbeeld, als u regelmatig bestanden uit uw SFTP-server ophalen, kunt u e-mailberichten over deze bestanden en hun inhoud verzenden met behulp van de connector voor Office 365 Outlook of Outlook.com-connector.
 Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. 
 
@@ -48,24 +48,16 @@ Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](.
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com), en open uw logische app in Logic App Designer, als het niet al geopend.
 
-1. Kies een pad: 
+1. Typ 'sftp' als filter voor lege, logische apps, in het zoekvak. Selecteer de gewenste trigger onder de lijst met triggers. 
 
-   * Typ 'salesforce' als filter voor lege, logische apps, in het zoekvak. 
-   Selecteer de gewenste trigger onder de lijst met triggers. 
+   -of-
 
-     -of-
+   Voor bestaande logische apps, onder de laatste stap waarin u wilt toevoegen van een actie kiezen **nieuwe stap**. 
+   Typ 'sftp' als filter in het zoekvak. 
+   Selecteer de actie die u wilt onder de lijst met acties.
 
-   * Voor bestaande logische apps: 
-   
-     * Kies onder de laatste stap waar u een actie toevoegen, **nieuwe stap**. 
-
-       -of-
-
-     * Tussen de stappen waar u een actie toevoegen, de aanwijzer over de pijl tussen fasen. 
-     Kies het plusteken (**+**) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
-     
-        Typ 'sftp' als filter in het zoekvak. 
-        Selecteer de actie die u wilt onder de lijst met acties.
+   Als u wilt toevoegen een actie tussen fasen, de aanwijzer over de pijl tussen fasen. 
+   Kies het plusteken (**+**) die wordt weergegeven, en selecteer vervolgens **een actie toevoegen**.
 
 1. Geeft u de benodigde informatie voor uw verbinding en kies vervolgens **maken**.
 
@@ -87,7 +79,7 @@ Deze actie wordt de inhoud opgehaald van een bestand in een SFTP-server. U kunt 
 
 Voor technische informatie over triggers en acties limieten die worden beschreven van de connector openapi (voorheen Swagger) beschrijving van de connector controleren [-verwijzingspagina](/connectors/sftpconnector/).
 
-## <a name="get-support"></a>Ondersteuning vragen
+## <a name="get-support"></a>Ondersteuning krijgen
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
 * Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](http://aka.ms/logicapps-wish).

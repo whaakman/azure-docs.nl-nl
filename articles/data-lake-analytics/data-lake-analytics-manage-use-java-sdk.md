@@ -1,35 +1,34 @@
 ---
-title: Azure Data Lake Analytics met Azure-SDK voor Java beheren
-description: In dit artikel wordt beschreven hoe de Azure SDK voor Java gebruiken om te schrijven van apps die Data Lake Analytics-jobs, gegevensbronnen en gebruikers beheren.
+title: Azure Data Lake Analytics met behulp van Java-SDK van Azure beheren
+description: In dit artikel wordt beschreven hoe u de Azure Java SDK gebruiken om te schrijven van apps die de Data Lake Analytics-taken, gegevensbronnen, en gebruikers beheren.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 07830b36-2fe3-4809-a846-129cf67b6a9e
 ms.topic: conceptual
 ms.date: 06/18/2017
-ms.openlocfilehash: 4cf8390f55beeb65c1bd99594e885ed9db551d9e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 938b3776f320b7556394fff9aa070eee0c44ee88
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624230"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047083"
 ---
-# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Azure Data Lake Analytics beheren met een Java-app
+# <a name="manage-azure-data-lake-analytics-using-a-java-app"></a>Azure Data Lake Analytics met behulp van een Java-app beheren
 [!INCLUDE [manage-selector](../../includes/data-lake-analytics-selector-manage.md)]
 
-Dit artikel wordt beschreven hoe u voor het beheren van Azure Data Lake Analytics-accounts, gegevensbronnen, gebruikers en taken met behulp van een app die is geschreven met behulp van de Azure SDK voor Java. 
+Dit artikel wordt beschreven hoe u voor het beheren van Azure Data Lake Analytics-accounts, gegevensbronnen, gebruikers en taken met behulp van een app die is geschreven met behulp van de Azure Java SDK. 
 
 ## <a name="prerequisites"></a>Vereisten
 * **Java Development Kit (JDK) 8** (met behulp van Java-versie 1.8).
 * **IntelliJ** of een andere geschikte Java-ontwikkelomgeving. De instructies in dit document wordt IntelliJ gebruikt.
-* Maak een Azure Active Directory (AAD)-toepassing en haal de **Client-ID**, **Tenant-ID**, en **sleutel** ervan op. Zie [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) (Een Active Directory-toepassing en service-principal maken met de portal) voor meer informatie over AAD-toepassingen en instructies voor het verkrijgen van een client-ID. De antwoord-URI en sleutel is beschikbaar via de portal zodra u hebt de toepassing gemaakt en de sleutel wordt gegenereerd.
+* Maak een Azure Active Directory (AAD)-toepassing en haal de **Client-ID**, **Tenant-ID**, en **sleutel** ervan op. Zie [Create Active Directory application and service principal using portal](../azure-resource-manager/resource-group-create-service-principal-portal.md) (Een Active Directory-toepassing en service-principal maken met de portal) voor meer informatie over AAD-toepassingen en instructies voor het verkrijgen van een client-ID. De antwoord-URI en sleutel is beschikbaar via de portal zodra u hebt de toepassing hebt gemaakt en de sleutel die is gegenereerd.
 
 ## <a name="authenticating-using-azure-active-directory"></a>Verificatie met Azure Active Directory
 
-Het volgende codefragment vindt u code voor code **niet-interactieve** verificatie, waarbij de toepassing eigen referenties verstrekt.
+Het volgende codefragment bevat de code voor code **niet-interactieve** verificatie, waar de toepassing eigen referenties verstrekt.
 
 ## <a name="create-a-java-application"></a>Een Java-toepassing maken
 1. Open IntelliJ en maak een Java-project met de **Command-Line App** sjabloon.
@@ -87,7 +86,7 @@ Het volgende codefragment vindt u code voor code **niet-interactieve** verificat
 </dependencies>
 ```
 
-Ga naar **bestand > Instellingen > samenstellen > uitvoering > implementatie**. Selecteer **Build Tools > Maven > importeren**. Controleer vervolgens **Import Maven projects automatisch**.
+Ga naar **bestand > Instellingen > Build > uitvoering > implementatie**. Selecteer **Build Tools > Maven > importeren**. Controleer vervolgens **Import Maven-projecten automatisch**.
 
 Open `Main.java` en vervang het bestaande codeblok door het volgende codefragment:
 
@@ -199,7 +198,7 @@ string script = "@input =  EXTRACT Data string FROM \"/input1.csv\" USING Extrac
 }
 ```
 
-Geef de waarden voor parameters die in het codefragment worden genoemd:
+Geef de waarden voor parameters die worden beschreven in het volgende codefragment:
 * `localFolderPath`
 * `_adlaAccountName`
 * `_adlsAccountName`
@@ -211,7 +210,7 @@ Vervang de tijdelijke aanduidingen voor:
 * `TENANT-ID`
 * `SUBSCRIPTION-ID`
 
-## <a name="helper-functions"></a>Help-functies
+## <a name="helper-functions"></a>Ondersteunende functies
 
 ### <a name="setup-clients"></a>Setup-clients
 
@@ -365,7 +364,7 @@ public static JobResult WaitForJob(UUID jobId) throws IOException, CloudExceptio
 }
 ```
 
-### <a name="retrieve-job-status"></a>Taakstatus ophalen
+### <a name="retrieve-job-status"></a>De status van taak ophalen
 
 ```
 public static String GetJobStatus(UUID jobId) throws IOException, CloudException 

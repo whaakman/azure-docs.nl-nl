@@ -1,29 +1,28 @@
 ---
 title: Aan de slag met de U-SQL-catalogus in Azure Data Lake Analytics
-description: Informatie over het gebruik van de U-SQL-catalogus code en gegevens delen.
+description: Informatie over het gebruik van de U-SQL-catalogus voor het delen van code en gegevens.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: saveenr
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 57143396-ab86-47dd-b6f8-613ba28c28d2
 ms.topic: conceptual
 ms.date: 05/09/2017
-ms.openlocfilehash: 35a39733987eba7060049db7005c1f6bc0058e63
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 62f43fc082969bf04b7177725478585ce41aa347
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624349"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045935"
 ---
 # <a name="get-started-with-the-u-sql-catalog-in-azure-data-lake-analytics"></a>Aan de slag met de U-SQL-catalogus in Azure Data Lake Analytics
 
 ## <a name="create-a-tvf"></a>Maken van een TVF
 
-In de vorige U-SQL-script wordt herhaald u het gebruik van EXTRACT lezen uit het bronbestand met dezelfde. Met de U-SQL-functie met tabelwaarden (TVF), kunt u de gegevens voor toekomstig gebruik inkapselen.  
+In het vorige U-SQL-script herhaald u het gebruik van EXTRAHEREN om te lezen uit het bronbestand dezelfde. Met de U-SQL tabelwaardefunctie (TVF), kunt u de gegevens voor toekomstig hergebruik bevatten.  
 
-Het volgende script maakt een TVF aangeroepen `Searchlog()` in de standaarddatabase en het schema:
+Het volgende script maakt een TVF met de naam `Searchlog()` in de standaard-database en het schema:
 
 ```
 DROP FUNCTION IF EXISTS Searchlog;
@@ -54,7 +53,7 @@ RETURN;
 END;
 ```
 
-Het volgende script toont hoe u de TVF die is gedefinieerd in het vorige script:
+Het volgende script laat zien hoe u de TVF die is gedefinieerd in het vorige script gebruiken:
 
 ```
 @res =
@@ -73,9 +72,9 @@ OUTPUT @res
 
 ## <a name="create-views"></a>Weergaven maken
 
-Als u een enkele query-expressie hebt, in plaats van een TVF kunt u een U-SQL-weergave inkapselen die expressie.
+Hebt u een enkele query-expressie, in plaats van een TVF kunt u een U-SQL-weergave om in te kapselen die expressie.
 
-Het volgende script maakt een weergave met de naam `SearchlogView` in de standaarddatabase en het schema:
+Het volgende script maakt u een weergave met de naam `SearchlogView` in de standaard-database en het schema:
 
 ```
 DROP VIEW IF EXISTS SearchlogView;
@@ -92,7 +91,7 @@ CREATE VIEW SearchlogView AS
 USING Extractors.Tsv();
 ```
 
-Het volgende script toont het gebruik van de gedefinieerde weergave:
+Het volgende script ziet u het gebruik van de gedefinieerde weergave:
 
 ```
 @res =
@@ -110,9 +109,9 @@ OUTPUT @res
 ```
 
 ## <a name="create-tables"></a>Tabellen maken
-Zoals met relationele database-tabellen met U-SQL kunt u een tabel met een vooraf gedefinieerd schema maken of een tabel maken die het schema uit de query afleidt die de tabel (ook wel bekend als CREATE TABLE AS SELECT of CTAS) gevuld.
+Als met relationele database-tabellen, met U-SQL kunt u een tabel met een vooraf gedefinieerd schema maken of een tabel maken die welk schema van de query bepaalt die in de tabel (ook wel bekend als CREATE TABLE AS SELECT of CTAS) Hiermee wordt gevuld.
 
-Een database en de twee tabellen maken met het volgende script:
+Een database en de twee tabellen maken met behulp van het volgende script:
 
 ```
 DROP DATABASE IF EXISTS SearchLogDb;
@@ -144,9 +143,9 @@ CREATE TABLE SearchLog2(
 ```
 
 ## <a name="query-tables"></a>Querytabellen
-U kunt de tabellen, zoals die zijn gemaakt in het vorige script, op dezelfde manier als dat u de gegevensbestanden query opvragen. In plaats van een rijenset maken met behulp van EXTRACT, nu raadpleegt u de naam van de tabel.
+U kunt tabellen, zoals die zijn gemaakt in het vorige script, op dezelfde manier dat u de gegevensbestanden query opvragen. In plaats van het maken van een rijenset met behulp van EXTRACT, kunt nu u verwijzen naar de naam van de tabel.
 
-Als u wilt lezen uit de tabellen, wijzig de transformatie-script dat u eerder hebt gebruikt:
+Om te lezen uit de tabellen, wijzigt u de transformatie-script dat u eerder hebt gebruikt:
 
 ```
 @rs1 =
@@ -169,7 +168,7 @@ OUTPUT @res
 ```
 
  >[!NOTE]
- >U uitvoeren niet een SELECT op dit moment op een tabel in hetzelfde script als het account waar u de tabel is gemaakt.
+ >U kunt een SELECT op dit moment uitvoeren op een tabel in hetzelfde script als het account dat waar u de tabel is gemaakt.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Overzicht van Microsoft Azure Data Lake Analytics](data-lake-analytics-overview.md)

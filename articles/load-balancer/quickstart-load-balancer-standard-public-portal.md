@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 03/20/18
+ms.date: 08/21/2018
 ms.author: kumud
 ms.custom: mvc
-ms.openlocfilehash: 07700ecb8a31e6ee724f27e247f377eb869e6c39
-ms.sourcegitcommit: 688a394c4901590bbcf5351f9afdf9e8f0c89505
+ms.openlocfilehash: 2197ab230341fb2945e7b1acd9a010ef3d3f8c22
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/18/2018
-ms.locfileid: "34305137"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42702403"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>Snelstart: Een standaard load balancer maken om taken van VM's te verdelen via Azure Portal
 
@@ -30,24 +30,29 @@ Taakverdeling zorgt voor een hogere beschikbaarheid en betere schaalbaarheid doo
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint. 
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
-Meld u aan bij de Azure-portal op [http://portal.azure.com](http://portal.azure.com).
+Meld u aan bij de Azure Portal op [http://portal.azure.com](http://portal.azure.com).
 
 ## <a name="create-a-public-load-balancer"></a>Openbare load balancer maken
 
 In deze sectie maakt u een openbare load balancer die helpt bij het laden van virtuele machines. Standard Load Balancer biedt alleen ondersteuning voor een standaard, openbaar IP-adres. Als u een Standard Load Balancer maakt, moet u ook een nieuw, standaard, openbaar IP-adres maken dat als de front-end (standaard *LoadBalancerFrontend* genoemd) wordt geconfigureerd voor de Standard Load Balancer. 
 
 1. Klik linksboven in het scherm op **Een resource maken** > **Netwerken** > **Load balancer**.
-2. Voer op de pagina **Een load balancer maken** deze waarden in voor de load balancer:
-    - *myLoadBalancer* als naam van de load balancer.
-    - **Openbaar** als het type load balancer.
-     - *myPublicIP* voor het **nieuwe**, openbare IP-adres dat u maakt.
-    - *myResourceGroupSLB* als naam van de **nieuwe** resourcegroep die u wilt maken.
-    - **westeurope** als locatie.
-3. Klik op **Maken** om de load balancer te maken.
-   
-    ![Een load balancer maken](./media/load-balancer-standard-public-portal/1a-load-balancer.png)
+2. Voer op de pagina **Load balancer maken** de volgende gegevens in of selecteer deze, accepteer de standaardwaarden voor de overige instellingen en selecteer **Maken**:
+
+    | Instelling                 | Waarde                                              |
+    | ---                     | ---                                                |
+    | Naam                   | *myLoadBalancer*                                   |
+    | Type          | Public                                        |
+    | SKU           | Standard                          |
+    | Openbaar IP-adres | Selecteer **Nieuwe maken** en typ *myPublicIP* in het tekstvak. De Standard SKU voor het openbare IP-adres is standaard geselecteerd. Als **Beschikbaarheidszone** selecteert u **Zone-redundant**. |
+    | Abonnement               | Selecteer uw abonnement.    |
+    |Resourcegroep | Selecteer **Nieuw** en typ *myResourceGroupSLB*.    |
+    | Locatie           | Selecteer **Europa - west**.                          |
+    
+
+![Een load balancer maken](./media/load-balancer-standard-public-portal/create-load-balancer.png)
 
 
 ## <a name="create-backend-servers"></a>Back-endservers maken
@@ -67,22 +72,22 @@ In deze sectie maakt u een virtueel netwerk, twee virtuele machines voor de back
 
 1. Klik linksboven in het scherm op **Nieuw** > **Compute** > **Windows Server 2016 Datacenter** en voer deze waarden in voor de virtuele machine:
     - *myVM1* als naam van de virtuele machine.        
-    - *azureuser* als gebruikersnaam van de beheerder.    
     - *myResourceGroupSLB*: voor **Resource group** selecteert u **Bestaande gebruiken** en vervolgens *myResourceGroupSLB*.
 2. Klik op **OK**.
 3. Selecteer **DS1_V2** als grootte van de virtuele machine en klik op **Selecteren**.
 4. Voer deze waarden in voor de instellingen van de VM:
-    - *myAvailabilitySet* als naam van de nieuwe beschikbaarheidsset die u maakt.
-    -  *myVNet*: controleer of dit als virtueel netwerk is geselecteerd.
-    - *myBackendSubnet*: controleer of dit als subnet is geselecteerd.
-    - *myNetworkSecurityGroup* als naam van de nieuwe netwerkbeveiligingsgroep (firewall) die u moet maken.
+    1. Zorg ervoor dat *myVNet* is geselecteerd voor het virtuele netwerk en dat het subnet *myBackendSubnet* is.
+    2. Selecteer als **Openbaar IP-adres**, in het venster **Openbaar IP-adres maken**, **Standard**, en selecteer vervolgens **OK**.
+    3. Selecteer voor **Netwerkbeveiligingsgroep** **Geavanceerd**, en doe vervolgens het volgende:
+        1. Selecteer *Netwerkbeveiligingsgroep (firewall), en de pagina **Netwerkbeveiligingsgroep kiezen**, selecteer **Nieuwe maken**. 
+        2. Op de pagina **Netwerkbeveiligingsgroep maken** voert u bij **Naam** *myNetworkSecurityGroup* in en selecteert vervolgens **OK**.
 5. Klik op **Uitgeschakeld** om diagnostische gegevens over opstarten uit te schakelen.
-6. Klik op **OK** om de instellingen op de overzichtspagina te controleren en klik op **Maken**.
-7. Maak een tweede VM met de naam *VM2*, met *myAvailibilityset* als beschikbaarheidsset, *myVnet* als het virtuele netwerk, *myBackendSubnet* als het subnet en**myNetworkSecurityGroup* als de netwerkbeveiligingsgroep via stap 1 t/m 6. 
+6. Klik op **OK**, controleer de instellingen op de overzichtspagina en klik op **Maken**.
+7. Maak via stap 1 t/m 6 een tweede VM met de naam *VM2*, met *myAvailibilityset* als beschikbaarheidsset, *myVnet* als het virtuele netwerk, *myBackendSubnet* als het subnet en**myNetworkSecurityGroup* als de netwerkbeveiligingsgroep. 
 
-### <a name="create-nsg-rules"></a>NSG-regels maken
+### <a name="create-nsg-rule"></a>Een NSG-regel maken
 
-In deze sectie maakt u NSG-regels om inkomende verbindingen via HTTP en RDP toe te staan.
+In deze sectie maakt u een NSG-regel om inkomende verbindingen via HTTP toe te staan.
 
 1. Klik in het linkermenu op **Alle resources** en klik in de lijst met resources op **myNetworkSecurityGroup**, die zich in de resourcegroep **myResourceGroupSLB** bevindt.
 2. Klik onder **Instellingen** op **Inkomende beveiligingsregels** en vervolgens op **Toevoegen**.
@@ -97,17 +102,6 @@ In deze sectie maakt u NSG-regels om inkomende verbindingen via HTTP en RDP toe 
     - *Allow HTTP* als beschrijving
 4. Klik op **OK**.
  
- ![Een virtueel netwerk maken](./media/load-balancer-standard-public-portal/8-load-balancer-nsg-rules.png)
-5. Herhaal stap 2 t/m 4 om nog een regel te maken (*myRDPRule*) om een binnenkomende RDP-verbinding toe te staan via poort 3389 met de volgende waarden:
-    - *Service Tag* bij **Bron**.
-    - *Internet* bij **Bronservicetag**
-    - *3389* bij **Poortbereiken van doel**
-    - *TCP* bij **Protocol**
-    - *Allow* bij **Actie**
-    - *200* bij **Prioriteit**
-    - *myRDPRule* als naam
-    - *Allow RDP* als beschrijving
-
 ### <a name="install-iis"></a>IIS installeren
 
 1. Klik in het linkermenu op **Alle resources** en klik in de lijst met resources op **myVM1**, die zich in de resourcegroep *myResourceGroupLB* bevindt.
@@ -124,7 +118,7 @@ In deze sectie maakt u NSG-regels om inkomende verbindingen via HTTP en RDP toe 
 
 ## <a name="create-load-balancer-resources"></a>Resources voor load balancer maken
 
-In deze sectie configureert u de instellingen voor de load balancer voor een back-endadresgroep en een statustest en geeft u regels voor de load balancer en NAT-regels op.
+In deze sectie configureert u de instellingen van de load balancer voor een back-end-adresgroep en een statustest en geeft u een regel voor de load balancer op.
 
 
 ### <a name="create-a-backend-address-pool"></a>Een back-endadresgroep maken
@@ -134,13 +128,10 @@ Om verkeer te distribueren naar de VM's bevat een back-end-adresgroep de IP-adre
 1. Klik in het linkermenu op **Alle resources** en vervolgens in de lijst met resources op **myLoadBalancer**.
 2. Klik onder **Instellingen** op **Back-endpools** en vervolgens op **Toevoegen**.
 3. Ga als volgt te werk op de pagina **Een back-endpool toevoegen**:
-    - Typ *myBackEndPool voor de naam van uw back-endpool.
-    - Klik voor **Gekoppeld aan** in de vervolgkeuzelijst op **Beschikbaarheidsset**
-    - Klik voor **Beschikbaarheidsset** op **myAvailabilitySet**.
-    - Klik op **Een doelnetwerk-IP-configuratie toevoegen** om elke virtuele machine die u hebt gemaakt (*myVM1* & *myVM2*), toe te voegen aan de back-endpool.
+   - Typ *myBackEndPool* als de naam van uw back-endpool.
+   - Als **Virtueel netwerk**, selecteert u *myVNet*.
+   - Voeg *myVM1* en *myVM2*toe onder **Virtuele machine**, samen met de bijbehorende IP-adressen en selecteer vervolgens **Toevoegen**.
     - Klik op **OK**.
-
-    ![Toevoegingen doen aan de back-endadresgroep ](./media/load-balancer-standard-public-portal/3-load-balancer-backend-02.png)
 
 3. Controleer of de instelling voor de back-endpool van de load balancer beide VM's (**VM1** en **VM2**) weergeeft.
 

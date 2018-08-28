@@ -6,47 +6,35 @@ author: banisadr
 manager: timlt
 ms.service: event-grid
 ms.topic: overview
-ms.date: 06/01/2018
+ms.date: 08/17/2018
 ms.author: babanisa
-ms.openlocfilehash: 6d0f769d65bc8ed4f41469b96edf4f0595d994de
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 90e8d6a3ef093046c5ee6324f6e6590e59124da7
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34725238"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "42022901"
 ---
 # <a name="an-introduction-to-azure-event-grid"></a>Een inleiding tot Azure Event Grid
 
-Met Azure Event Grid kunt u eenvoudig toepassingen bouwen met op gebeurtenissen gebaseerde architecturen. U selecteert de Azure resource waarop u zich wilt abonneren en geeft de gebeurtenis-handler of het WebHook-eindpunt op waarnaar de gebeurtenis moet worden verzonden. Event Grid bevat ingebouwde ondersteuning voor gebeurtenissen die afkomstig zijn van Azure-services, zoals storage-blobs en resourcegroepen. Event Grid biedt ook aangepaste ondersteuning voor toepassingen en gebeurtenissen van derden, met behulp van aangepaste onderwerpen en aangepaste webhooks. 
+Met Azure Event Grid kunt u eenvoudig toepassingen bouwen met op gebeurtenissen gebaseerde architecturen. Selecteer eerst de Azure-resource waarop u zich wilt abonneren en geef vervolgens de gebeurtenis-handler of het WebHook-eindpunt op waarnaar de gebeurtenis moet worden verzonden. Event Grid bevat ingebouwde ondersteuning voor gebeurtenissen die afkomstig zijn van Azure-services, zoals storage-blobs en resourcegroepen. Event Grid biedt ook ondersteuning voor uw eigen gebeurtenissen, met behulp van aangepaste onderwerpen. 
 
-U kunt filters gebruiken voor het doorsturen van specifieke gebeurtenissen naar verschillende eindpunten, multicasting uitvoeren naar meerdere eindpunten en ervoor zorgen dat uw gebeurtenissen op betrouwbare wijze worden bezorgd. Event Grid biedt ook ingebouwde ondersteuning voor aangepaste gebeurtenissen en gebeurtenissen van derden.
+U kunt filters gebruiken voor het doorsturen van specifieke gebeurtenissen naar verschillende eindpunten, multicasting uitvoeren naar meerdere eindpunten en ervoor zorgen dat uw gebeurtenissen op betrouwbare wijze worden bezorgd.
 
-Op dit moment ondersteunt Event Grid de volgende regio's:
+Azure Event Grid is momenteel beschikbaar in alle openbare regio's. Het is nog niet beschikbaar in de Azure Duitsland-, Azure China- of Azure Government-clouds.
 
-* Azië - zuidoost
-* Azië - oost
-* Australië - oost
-* Australië - zuidoost
-* VS - midden
-*   VS - oost
-*   VS - oost 2
-* Europa - west
-* Europa - noord
-* Japan - oost
-* Japan - west
-*   West-centraal VS
-*   VS - west
-*   VS - west 2
-
-In dit artikel vindt u een overzicht van Azure Event Grid. Zie [Aangepaste gebeurtenissen maken en routeren met behulp van Azure Event Grid](custom-event-quickstart.md) als u aan de slag wilt met Azure Event Grid. De volgende afbeelding laat zien hoe Event Grid bronnen en handlers verbindt, maar biedt geen uitgebreide lijst met ondersteunde opties.
+In dit artikel vindt u een overzicht van Azure Event Grid. Zie [Aangepaste gebeurtenissen maken en routeren met behulp van Azure Event Grid](custom-event-quickstart.md) als u aan de slag wilt met Azure Event Grid. 
 
 ![Functioneel model Event Grid](./media/overview/functional-model.png)
 
+Let op: deze afbeelding laat zien hoe Event Grid bronnen en handlers verbindt, maar biedt geen uitgebreide lijst met ondersteunde integraties.
+
 ## <a name="event-sources"></a>Gebeurtenisbronnen
 
-Op dit moment ondersteunen de volgende Azure-services het verzenden van gebeurtenissen naar Event Grid:
+Zie [gebeurtenisbronnen](event-sources.md) voor meer informatie over de mogelijkheden van elke bron, evenals de gerelateerde artikelen. Op dit moment ondersteunen de volgende Azure-services het verzenden van gebeurtenissen naar Event Grid:
 
 * Azure-abonnementen (beheerbewerkingen)
+* Container Registry
 * Aangepaste onderwerpen
 * Event Hubs
 * IoT Hub
@@ -56,11 +44,9 @@ Op dit moment ondersteunen de volgende Azure-services het verzenden van gebeurte
 * Storage Blob
 * Storage voor algemene doeleinden v2 (GPv2)
 
-Zie [Gebeurtenisbronnen in Azure Event Grid](event-sources.md) voor koppelingen naar artikelen waarin wordt aangegeven hoe u elke gebeurtenisbron gebruikt.
-
 ## <a name="event-handlers"></a>Event Handlers
 
-Op dit moment ondersteunen de volgende Azure-services handling-gebeurtenissen uit Event Grid: 
+Zie [gebeurtenis-handlers](event-handlers.md) voor meer informatie over de mogelijkheden van elke handler, evenals de gerelateerde artikelen. Op dit moment ondersteunen de volgende Azure-services handling-gebeurtenissen uit Event Grid: 
 
 * Azure Automation
 * Azure Functions
@@ -70,8 +56,6 @@ Op dit moment ondersteunen de volgende Azure-services handling-gebeurtenissen ui
 * Microsoft Flow
 * Queue Storage
 * WebHooks
-
-Zie [Gebeurtenis-handlers in Azure Event Grid](event-handlers.md) voor koppelingen naar artikelen waarin wordt aangegeven hoe u elke gebeurtenis-handler gebruikt.
 
 ## <a name="concepts"></a>Concepten
 

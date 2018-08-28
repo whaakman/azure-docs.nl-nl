@@ -4,17 +4,17 @@ description: In deze snelstart leert u hoe u vooraf geschreven code op afstand i
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/27/2018
+ms.date: 08/14/2018
 ms.topic: quickstart
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: dfcb764d75b7328d1234d47d82afdae8d6a0deef
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: af291782585cf0211cf8beac54adc36fd9fe0d34
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413011"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022674"
 ---
 # <a name="quickstart-deploy-your-first-iot-edge-module-to-a-linux-x64-device"></a>Snelstart: uw eerste IoT Edge-module implementeren op een Linux x64-apparaat
 
@@ -54,7 +54,9 @@ Cloudresources:
    az group create --name IoTEdgeResources --location westus
    ```
 
-* Een virtuele Linux-computer die fungeert als uw IoT Edge-apparaat. 
+IoT Edge-apparaat:
+
+* Een virtueel Linux-apparaat of een virtuele Linux-computer die fungeert als uw IoT Edge-apparaat. Als u een virtuele machine in Azure wilt maken, gebruikt u de volgende opdracht om snel aan de slag te gaan:
 
    ```azurecli-interactive
    az vm create --resource-group IoTEdgeResources --name EdgeVM --image Canonical:UbuntuServer:16.04-LTS:latest --admin-username azureuser --generate-ssh-keys --size Standard_B1ms
@@ -78,10 +80,12 @@ Met de volgende code wordt een gratis **F1**-hub gemaakt in de resourcegroep **I
 
 ## <a name="register-an-iot-edge-device"></a>Een IoT Edge-apparaat registreren
 
-Registreer een IoT Edge-apparaat bij uw net gemaakte IoT Hub.
+Registreer een IoT Edge-apparaat bij uw net gemaakte IoT Hub. 
 ![Een apparaat registreren][4]
 
-Maak een apparaat-id voor uw gesimuleerde apparaat, zodat het met uw IoT-hub kan communiceren. Omdat IoT Edge-apparaten zich anders gedragen en anders kunnen worden beheerd dan typische IoT-apparaten, geeft u vanaf het begin aan dat dit een IoT Edge-apparaat is. 
+Maak een apparaat-id voor uw gesimuleerde apparaat, zodat het met uw IoT-hub kan communiceren. De apparaat-id is opgeslagen in de cloud, en u gebruikt een unieke apparaatverbindingsreeks om een fysiek apparaat te koppelen aan een apparaat-id. 
+
+Omdat IoT Edge-apparaten zich anders gedragen en anders kunnen worden beheerd dan typische IoT-apparaten, geeft u vanaf het begin aan dat dit een IoT Edge-apparaat is. 
 
 1. Voer in Azure Cloud Shell de volgende opdracht in om een ​​apparaat met de naam **myEdgeDevice** in uw hub te maken.
 
@@ -100,12 +104,14 @@ Maak een apparaat-id voor uw gesimuleerde apparaat, zodat het met uw IoT-hub kan
 
 ## <a name="install-and-start-the-iot-edge-runtime"></a>De IoT Edge-runtime installeren en starten
 
-Installeer en start de Azure IoT Edge-runtime op uw apparaat. 
+Installeer en start de Azure IoT Edge-runtime op uw IoT Edge-apparaat. 
 ![Een apparaat registreren][5]
 
 De IoT Edge-runtime wordt op alle IoT Edge-apparaten geïmplementeerd. Deze bevat drie onderdelen. De **IoT Edge-beveiligingsdaemon** wordt telkens gestart wanneer een Edge-apparaat wordt opgestart en start het apparaat op door de IoT Edge-agent te starten. De **IoT Edge-agent** faciliteert de implementatie en bewaking van modules op het IoT Edge-apparaat, inclusief de IoT Edge-hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd. 
 
-Voer de volgende stappen uit op de Linux-machine of virtuele machine die u voor deze snelstart hebt voorbereid. 
+Tijdens de installatie van de runtime geeft u een apparaatverbindingsreeks op. Gebruik de tekenreeks die u hebt opgehaald via de Azure CLI. Deze tekenreeks koppelt uw fysieke apparaat aan de IoT Edge-apparaat-id in Azure. 
+
+Voer de volgende stappen uit op de Linux-computer of virtuele Linux-computer die u hebt voorbereid om te fungeren als een IoT Edge-apparaat. 
 
 ### <a name="register-your-device-to-use-the-software-repository"></a>Uw apparaat registreren voor gebruik van de softwareopslagplaats
 
@@ -131,19 +137,19 @@ De stappen in deze sectie zijn bestemd voor apparaten met **Ubuntu 16.04**. Voor
 
 De IoT Edge-runtime is een set van containers, en de logica die u op uw IoT Edge-apparaat implementeert, wordt geleverd als containers. Bereid uw apparaat voor op deze onderdelen door een container-runtime te installeren.
 
-Werk **apt get-** bij.
+1. Werk **apt get-** bij.
 
    ```bash
    sudo apt-get update
    ```
 
-Installeer **Moby**, een container-runtime.
+2. Installeer **Moby**, een container-runtime.
 
    ```bash
    sudo apt-get install moby-engine
    ```
 
-Installeer de CLI-opdrachten voor Moby. 
+3. Installeer de CLI-opdrachten voor Moby. 
 
    ```bash
    sudo apt-get install moby-cli
@@ -166,19 +172,26 @@ De beveiligingsdeamon wordt geïnstalleerd als een systeemservice, zodat de IoT 
    sudo nano /etc/iotedge/config.yaml
    ```
 
-3. Voeg de verbindingsreeks van het IoT Edge-apparaat toe. Zoek de variabele **device_connection_string** en werk de waarde bij met de tekenreeks die u hebt gekopieerd na de registratie van uw apparaat.
+3. Voeg de verbindingsreeks van het IoT Edge-apparaat toe. Zoek de variabele **device_connection_string** en werk de waarde bij met de tekenreeks die u hebt gekopieerd na de registratie van uw apparaat. Deze verbindingsreeks koppelt uw fysieke apparaat aan de apparaat-id die u in Azure hebt gemaakt.
 
 4. Sla het bestand op en sluit het. 
 
    `CTRL + X`, `Y`, `Enter`
 
-4. Start de IoT Edge-beveiligingsdaemon opnieuw op.
+5. Start de IoT Edge-beveiligingsdaemon opnieuw op om uw wijzigingen toe te passen.
 
    ```bash
    sudo systemctl restart iotedge
    ```
 
-5. Controleer of de Edge-beveiligingsdaemon wordt uitgevoerd als een systeemservice.
+>[!TIP]
+>U hebt verhoogde bevoegdheden nodig om `iotedge`-opdrachten uit te voeren. Nadat u zich de eerste keer na de installatie van de IoT Edge-runtime hebt afgemeld en opnieuw hebt aangemeld, worden uw machtigingen automatisch bijgewerkt. Gebruik tot die tijd **sudo** voorafgaand aan de opdrachten. 
+
+### <a name="view-the-iot-edge-runtime-status"></a>De IoT Edge runtime-status bekijken
+
+Controleer of de runtime goed is geïnstalleerd en geconfigureerd.
+
+1. Controleer of de Edge-beveiligingsdaemon wordt uitgevoerd als een systeemservice.
 
    ```bash
    sudo systemctl status iotedge
@@ -186,22 +199,21 @@ De beveiligingsdeamon wordt geïnstalleerd als een systeemservice, zodat de IoT 
 
    ![Zie hoe de Edge-beveiligingsdeamon wordt uitgevoerd als een systeemservice](./media/quickstart-linux/iotedged-running.png)
 
-   U kunt ook logboeken van de Edge-beveiligingsdeamon bekijken door de volgende opdracht uit te voeren:
+2. Als u problemen met de service moet oplossen, haalt u de servicelogboeken op. 
 
    ```bash
    journalctl -u iotedge
    ```
 
-6. Bekijk de modules die op uw apparaat worden uitgevoerd. 
-
-   >[!TIP]
-   >U moet eerst *sudo* gebruiken om `iotedge`-opdrachten uit te voeren. Meld u af bij de computer en meld u weer aan om machtigingen bij te werken. Daarna kunt u `iotedge`-opdrachten zonder verhoogde bevoegdheden uitvoeren. 
+3. Bekijk de modules die op uw apparaat worden uitgevoerd. 
 
    ```bash
    sudo iotedge list
    ```
 
    ![Eén module op uw apparaat bekijken](./media/quickstart-linux/iotedge-list-1.png)
+
+Uw IoT Edge-apparaat is nu geconfigureerd. Het is gereed voor de uitvoering van modules die in de cloud zijn geïmplementeerd. 
 
 ## <a name="deploy-a-module"></a>Een module implementeren
 
@@ -214,12 +226,11 @@ Beheer uw Azure IoT Edge-apparaat vanuit de cloud om een module te implementeren
 
 In deze snelstart hebt u een nieuw IoT Edge-apparaat gemaakt en de IoT Edge-runtime erop geïnstalleerd. Vervolgens hebt u Azure Portal gebruikt om een IoT Edge-module te pushen om te worden uitgevoerd op het apparaat zonder dat er wijzigingen in het apparaat zelf aangebracht hoefden te worden. In dit geval worden met de module die u hebt gepusht, omgevingsgegevens gemaakt die u voor de zelfstudies kunt gebruiken. 
 
-Open nogmaals de opdrachtprompt op de computer waarop het gesimuleerde apparaat wordt uitgevoerd. Bevestig dat de module die vanuit de cloud is geïmplementeerd, op uw IoT Edge -apparaat wordt uitgevoerd:
+Open de opdrachtprompt op uw IoT Edge-apparaat opnieuw. Bevestig dat de module die vanuit de cloud is geïmplementeerd, op uw IoT Edge -apparaat wordt uitgevoerd:
 
    ```bash
    sudo iotedge list
    ```
-   Na een af- en aanmelding is *sudo* niet vereist voor de bovenstaande opdracht.
 
    ![Drie modules op uw apparaat bekijken](./media/quickstart-linux/iotedge-list-2.png)
 
@@ -234,7 +245,7 @@ Na een af- en aanmelding is *sudo* niet vereist voor de bovenstaande opdracht.
 
 De temperatuursensormodule wacht mogelijk op verbinding met Edge Hub als de laatste regel die u in het logboek ziet `Using transport Mqtt_Tcp_Only` is. Probeer de module te beëindigen en opnieuw te laten starten door de Edge-agent. U kunt de module beëindigen met de opdracht `sudo docker stop tempSensor`.
 
-U kunt ook de telemetriegegevens bekijken die het apparaat verzendt door de [IoT Hub-verkenner][lnk-iothub-explorer] of de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) te gebruiken. 
+U kunt de telemetrie als deze door uw IoT Hub wordt ontvangen, ook bekijken met behulp van de [Azure IoT Toolkit-extensie voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit). 
 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
@@ -278,7 +289,8 @@ Verwijder de containers die door de IoT Edge-runtime op uw apparaat zijn gemaakt
 Verwijder de container-runtime.
 
    ```bash
-   sudo apt-get remove --purge moby
+   sudo apt-get remove --purge moby-cli
+   sudo apt-get remove --purge moby-engine
    ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -305,10 +317,9 @@ Deze snelstart is vereist voor alle IoT Edge-zelfstudies. U kunt doorgaan met el
 
 <!-- Links -->
 [lnk-docker-ubuntu]: https://docs.docker.com/engine/installation/linux/docker-ce/ubuntu/ 
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-account]: https://azure.microsoft.com/free
 [lnk-portal]: https://portal.azure.com
-[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az_iot_hub_delete
+[lnk-delete]: https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-delete
 
 <!-- Anchor links -->
 [anchor-register]: #register-an-iot-edge-device

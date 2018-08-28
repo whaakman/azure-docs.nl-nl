@@ -10,12 +10,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 08/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 0900588f818855d72e415678338c96fb6505318d
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bbf3c5930de2ec6c709b6b527ae3eac107382420
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41987513"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047796"
 ---
 # <a name="release-notes"></a>Releaseopmerkingen
 
@@ -78,7 +78,7 @@ ms.locfileid: "41987513"
 
 * Onjuiste retourwaarden, resultaat vast wanneer `RecognizeAsync()` een time-out optreedt.
 * De afhankelijkheid van media foundation-bibliotheken op Windows is verwijderd. De SDK maakt nu gebruik van Core Audio-API's.
-* Documentatie fix: een pagina regio om te beschrijven wat zijn de ondersteunde regio's toegevoegd.
+* Documentatie fix: toegevoegd een [regio's](regions.md) pagina om te beschrijven wat zijn de ondersteunde regio's.
 
 **Bekende problemen**
 

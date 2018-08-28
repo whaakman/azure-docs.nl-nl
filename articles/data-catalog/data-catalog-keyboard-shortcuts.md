@@ -1,88 +1,82 @@
 ---
-title: Sneltoetsen voor Azure Data Catalog | Microsoft Docs
-description: In dit artikel ziet de sneltoetsen voor Azure Data Catalog.
+title: Sneltoetsen voor Azure Data Catalog
+description: In dit artikel ziet u de sneltoetsen voor Azure Data Catalog.
 services: data-catalog
-documentationcenter: 
 author: spelluru
-manager: NA
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 00b77c88-fbca-4e6f-a175-d40b5cbbf144
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: 537ed3bccf7d3306628b7a64ba0866f0e51a03e5
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
+ms.openlocfilehash: 06a93b23738aa7bc5899de8b8618d824fd24c1d1
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053523"
 ---
 # <a name="keyboard-shortcuts-for-azure-data-catalog"></a>Sneltoetsen voor Azure Data Catalog
-## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Sneltoetsen voor de gegevens van Data Catalog bron hulpprogramma voor registratie
+## <a name="keyboard-shortcuts-for-the-data-catalog-data-source-registration-tool"></a>Sneltoetsen voor de Data Catalog-gegevens van bron-hulpprogramma voor registratie
 ### <a name="general-keyboard-shortcuts"></a>Algemene sneltoetsen
 | Bewerking | Druk op |
 | --- | --- |
-| Tabblad aan elk besturingselement op een pagina |Tab |
-| Kies een optie |Voer of SPATIEBALK |
+| Tab naar elk besturingselement in op een pagina |Tab |
+| Kies een optie |Opgeven of de SPATIEBALK |
 | Pagina maximaliseren |WIN + PIJL-OMHOOG |
-| Pagina terugzetten/minimaliseren |WIN + PIJL-OMLAAG |
+| Pagina herstellen/minimaliseren |WIN + PIJL-OMLAAG |
 | Menu openen pagina |ALT+SPACEBAR |
 
 ### <a name="authentication-page"></a>Verificatiepagina
 | Bewerking | Druk op |
 | --- | --- |
-| Meld u aan bij de service |ALT+S |
+| Meld u aan bij de service |ALT + S |
 
-### <a name="data-source-selection-page"></a>Gegevensbronselectiepagina
+### <a name="data-source-selection-page"></a>Data-pagina voor het selecteren van bron
 | Bewerking | Druk op |
 | --- | --- |
-| Ga naar de volgende pagina (indien ingeschakeld) |ALT+N |
-| Geselecteerd type niet wijzigen wanneer de focus op een tegel is |LINKS, rechts omhoog of pijl-omlaag |
+| Ga naar de volgende pagina (indien ingeschakeld) |ALT + N |
+| Geselecteerde type wijzigen wanneer de focus zich op een tegel |LINKS, rechts omhoog en pijl-omlaag |
 
-### <a name="data-source-connection-page"></a>Bronpagina van gegevens voor verbinding
+### <a name="data-source-connection-page"></a>Pagina Data source-verbinding
 | Bewerking | Druk op |
 | --- | --- |
-| Ga naar vorige pagina (indien ingeschakeld) |ALT + P |
-| Kies de knop verbinding maken. |ALT+C |
+| Ga naar de vorige pagina (indien ingeschakeld) |ALT + P |
+| Kies de knop verbinden. |ALT + C |
 
 ### <a name="connection-context-page"></a>Verbindingspagina-context
 | Bewerking | Druk op |
 | --- | --- |
-| Registratieknop (indien ingeschakeld) |ALT+R |
+| Registratieknop (indien ingeschakeld) |ALT + R |
 | Voorbeeld van selectievakje opnemen (indien beschikbaar) |ALT + P |
-| Gegevens profiel selectievakje opnemen (indien beschikbaar) |ALT + D |
+| Selectievakje Gegevensprofiel opnemen (indien beschikbaar) |ALT + D |
 | Navigeer naar elk lijstitem |PIJL omhoog of omlaag |
 | Serverhiërarchie, een structuurweergave knooppunt uitvouwen |PIJL-RECHTS |
-| Geselecteerde items voor verplaatsen **beschikbare objecten** of **objecten moeten worden geregistreerd** |SPACEBAR |
+| Geselecteerde items voor verplaatsen **beschikbare objecten** of **te registreren objecten** |SPATIEBALK |
 
 ### <a name="publish-progress-page"></a>Publiceren op de voortgangspagina
 | Bewerking | Druk op |
 | --- | --- |
-| De knop Annuleren |ALT+C |
-| Knop meer objecten registreren |ALT+R |
-| Knop voor weergave-Portal |ALT+V |
+| Knop Annuleren |ALT + C |
+| Knop meer objecten registreren |ALT + R |
+| Knop van de Portal weergeven |ALT + V |
 
 ### <a name="publish-progress-page"></a>Publiceren op de voortgangspagina
 | Bewerking | Druk op |
 | --- | --- |
-| Knop Opslaan (indien ingeschakeld) |ALT+S |
-| De knop Annuleren |ALT+C |
+| De knop Opslaan (indien ingeschakeld) |ALT + S |
+| Knop Annuleren |ALT + C |
 
 ## <a name="keyboard-shortcuts-for-the-data-catalog-portal"></a>Sneltoetsen voor de Data Catalog-portal
 | Bewerking | Druk op |
 | --- | --- |
-| Navigeer |TAB en SHIFT + TAB |
+| Navigeren |TAB en SHIFT + TAB |
 | Klik op een item |RUIMTE of ENTER |
-| Inzoomen op een sectie |RUIMTE of ENTER |
-| Een sectie verlaten |ESC |
-| Een asset pincode/losmaken |ALT + P |
-| Wanneer een asset focus heeft, selecteert u op de pagina discover asset |RUIMTE of ENTER |
-| De asset wordt toegevoegd of verwijderen van meervoudige selectie |CTRL + SPATIEBALK of ENTER |
-| Zoeken in het menu komt overeen met in-of uitschakelen |ALT+S |
-| Wisselknop **openen In** menu |ALT + O |
-| Container verkennen als de asset een container is |ALT+L |
+| Zoom in op een sectie |RUIMTE of ENTER |
+| Een sectie afsluiten |ESC |
+| Een asset vastmaken/losmaken |ALT + P |
+| Wanneer een asset de focus heeft, selecteert u op de pagina ontdekken asset |RUIMTE of ENTER |
+| De asset wordt toegevoegd of verwijderen uit de meervoudige selectie |CTRL + spatie of ENTER |
+| Zoeken in komt overeen met het menu in-/ uitschakelen |ALT + S |
+| In-/ uitschakelen **openen In** menu |ALT + O |
+| Verken container, als de asset een container is |ALT + L |
 

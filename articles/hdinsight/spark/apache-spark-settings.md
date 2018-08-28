@@ -4,17 +4,17 @@ description: Klik hier voor meer informatie over het configureren van Spark voor
 services: hdinsight
 author: maxluk
 ms.author: maxluk
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/26/2018
-ms.openlocfilehash: fb0a70f160df9dc4fdb292e54f41baf4bd296250
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 5678cc17cde833c02c21090a7b5f7b70c01eec9e
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619580"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045310"
 ---
 # <a name="configure-spark-settings"></a>Spark-instellingen configureren
 

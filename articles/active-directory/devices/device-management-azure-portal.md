@@ -1,5 +1,5 @@
 ---
-title: Beheer van apparaten met behulp van de Azure portal | Microsoft Docs
+title: Over het beheren van apparaten met behulp van Azure portal | Microsoft Docs
 description: Leer hoe u Azure portal gebruiken om apparaten te beheren.
 services: active-directory
 documentationcenter: ''
@@ -13,17 +13,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: bc29fbd0946f0abfe692e2270d145cd2cb292356
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: ff1d51021038909c132bef4cb680589b9951f218
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054868"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041422"
 ---
-# <a name="managing-devices-using-the-azure-portal"></a>Beheer van apparaten met behulp van de Azure portal
+# <a name="how-to-manage-devices-using-the-azure-portal"></a>Over het beheren van apparaten met behulp van de Azure-portal
 
 
 Met Apparaatbeheer in Azure Active Directory (Azure AD), kunt u ervoor zorgen dat uw gebruikers toegang hebben tot de bronnen van apparaten die voldoen aan uw normen voor beveiliging en naleving. 

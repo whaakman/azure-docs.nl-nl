@@ -2,24 +2,18 @@
 title: Een Azure-bestandsshare gebruiken met Windows | Microsoft Docs
 description: Informatie over hoe u een Azure-bestandsshare gebruikt met Windows en Windows Server.
 services: storage
-documentationcenter: na
 author: RenaShahMSFT
-manager: aungoo
-editor: tamram
-ms.assetid: ''
 ms.service: storage
-ms.workload: storage
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/07/2018
 ms.author: renash
-ms.openlocfilehash: 54e084e6480c872ff6dd4625b8c87d5a60a181ba
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.component: files
+ms.openlocfilehash: 96ad812aff8f6ea4f47035188940730e5dc2992c
+ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39392264"
+ms.lasthandoff: 08/11/2018
+ms.locfileid: "41919889"
 ---
 # <a name="use-an-azure-file-share-with-windows"></a>Een Azure-bestandsshare gebruiken met Windows
 [Azure Files ](storage-files-introduction.md) is het eenvoudig te gebruiken cloudbestandssysteem van Microsoft. Azure-bestandsshares kunnen probleemloos worden gebruikt in Windows en Windows Server. In dit artikel worden de overwegingen besproken voor het gebruik van een Azure-bestandsshare met Windows en Windows Server.
@@ -52,20 +46,11 @@ U kunt Azure-bestandsshares gebruiken in een Windows-installatie die wordt uitge
 
 * **Sleutel van het opslagaccount**: voor het koppelen van een Azure-bestandsshare hebt u de primaire (of secundaire) opslagsleutel nodig. SAS-sleutels worden momenteel niet ondersteund voor koppelen.
 
-* **Zorg ervoor dat poort 445 open is**: het SMB-protocol vereist dat TCP-poort 445 open is; verbindingen mislukken als poort 445 is geblokkeerd. Met de cmdlet `Test-NetConnection` kunt u controleren of uw firewall poort 445 blokkeert. Bij de volgende PowerShell-code wordt ervan uitgegaan dat u de AzureRM PowerShell-module heeft geïnstalleerd. Raadpleeg [Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps) voor meer informatie. Vergeet niet om `<your-storage-account-name>` en `<your-resoure-group-name>` te vervangen door de betreffende namen van uw opslagaccount.
+* **Zorg ervoor dat poort 445 open is**: het SMB-protocol vereist dat TCP-poort 445 open is; verbindingen mislukken als poort 445 is geblokkeerd. Met de cmdlet `Test-NetConnection` kunt u controleren of uw firewall poort 445 blokkeert. Vergeet niet om `your-storage-account-name` te vervangen door de desbetreffende namen van uw opslagaccount.
 
     ```PowerShell
-    $resourceGroupName = "<your-resource-group-name>"
-    $storageAccountName = "<your-storage-account-name>"
-
-    # This command requires you to be logged into your Azure account, run Login-AzureRmAccount if you haven't
-    # already logged in.
-    $storageAccount = Get-AzureRmStorageAccount -ResourceGroupName $resourceGroupName -Name $storageAccountName
-
-    # The ComputerName, or host, is <storage-account>.file.core.windows.net for Azure Public Regions.
-    # $storageAccount.Context.FileEndpoint is used because non-Public Azure regions, such as soverign clouds
-    # or Azure Stack deployments, will have different hosts for Azure file shares (and other storage resources).
-    Test-NetConnection -ComputerName [System.Uri]::new($storageAccount.Context.FileEndPoint).Host -Port 445
+    Test-NetConnection -ComputerName <your-storage-account-name>.core.windows.net -Port 445
+    
     ```
 
     Als de verbinding is geslaagd, hoort u de volgende uitvoer te zien:
@@ -208,6 +193,26 @@ Remove-PSDrive -Name <desired-drive-letter>
     ![De Azure-bestandsshare is nu gekoppeld](./media/storage-how-to-use-files-windows/4_MountOnWindows10.png)
 
 7. Wanneer u klaar bent om de Azure-bestandsshare te ontkoppelen, kunt u dit doen door met de rechtermuisknop in de Verkenner op de vermelding voor de share onder **Netwerklocaties** te klikken en **Verbinding verbreken** te selecteren.
+
+### <a name="accessing-share-snapshots-from-windows"></a>Toegang tot momentopnamen van Windows-shares
+Als u een momentopname van een share hebt gemaakt, ofwel handmatig ofwel automatisch met behulp van een script of een service zoals Azure Backup, kunt u eerdere versies van een share, een map of een bepaald bestand op een bestandsshare van Windows bekijken. U kunt een momentopname van een share delen vanuit de [Azure-portal](storage-how-to-use-files-portal.md), [Azure PowerShell](storage-how-to-use-files-powershell.md) en de [Azure CLI](storage-how-to-use-files-cli.md).
+
+#### <a name="list-previous-versions"></a>Vorige versies weergeven
+Blader naar het item of het bovenliggende item dat moet worden teruggezet. Dubbelklik om naar de gewenste map te gaan. Klik er met de rechtermuisknop op en selecteer **Eigenschappen** in het menu.
+
+![Snelmenu voor een geselecteerde map](./media/storage-how-to-use-files-windows/snapshot-windows-previous-versions.png)
+
+Selecteer **Vorige versies** om de lijst met momentopnamen van shares voor deze map weer te geven. Het kan enkele seconden duren voordat deze lijst is geladen. Dit hangt af van de netwerksnelheid en het aantal momentopnamen van shares in de map.
+
+![Tabblad Vorige versies](./media/storage-how-to-use-files-windows/snapshot-windows-list.png)
+
+U kunt **Openen** selecteren om een bepaalde momentopname te openen. 
+
+![Geopende momentopname](./media/storage-how-to-use-files-windows/snapshot-browse-windows.png)
+
+#### <a name="restore-from-a-previous-version"></a>Terugzetten op basis van een vorige versie
+Selecteer **Terugzetten** om de inhoud van de gehele map op de aanmaaktijd van de momentopname van de share recursief naar de oorspronkelijke locatie te kopiëren.
+ ![Knop Terugzetten in waarschuwingsbericht](./media/storage-how-to-use-files-windows/snapshot-windows-restore.png) 
 
 ## <a name="securing-windowswindows-server"></a>Windows/Windows Server beveiligen
 Als u een Azure-bestandsshare in Windows wilt koppelen, moet poort 445 toegankelijk zijn. Veel organisaties blokkeren poort 445 vanwege de beveiligingsrisico's die bij SMB 1 horen. SMB 1, ook wel bekend als CIFS (Common Internet File System), is een oud bestandssysteemprotocol in Windows en Windows Server. SMB 1 is een verouderd, inefficiënt en bovenal onveilig protocol. Het goede nieuws is dat Azure Files SMB 1 niet ondersteunt en dat alle ondersteunde versies van Windows en Windows Server het mogelijk maken om SMB 1 te verwijderen of uit te schakelen. We raden altijd [ten zeerste](https://aka.ms/stopusingsmb1) aan om de SMB 1-client en -server in Windows te verwijderen of uit te schakelen voordat u Azure-bestandsshares in een productieomgeving gebruikt.

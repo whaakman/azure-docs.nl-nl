@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/15/2018
-ms.openlocfilehash: 77dcad0f3e49b601110f8700245aaf479bde1c4e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4f9b14762332bd11fd69a855d8fabdb206e34919
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38722776"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41920054"
 ---
 # <a name="tutorial-2-classify-iris---build-a-model"></a>Zelfstudie 2: Iris classificeren - Een model bouwen
 Azure Machine Learning-services (preview) zijn een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Hiermee kunnen ze gegevens voorbereiden, experimenten ontwikkelen en modellen in de cloud implementeren.
@@ -388,13 +388,13 @@ U kunt ook experimenteren met het uitvoeren van scripts voor een lokale Docker-c
 1. Voer in het CLI-venster het Python-script **iris_sklearn.py** uit, opnieuw met gebruik van een Docker-uitvoeringsomgeving (als u Docker op uw machine hebt geïnstalleerd).
 
    + Als uw container in Windows is: 
-     |Uitvoering<br/>omgeving|Opdracht in Windows|
+     |Uitvoering<br/>environment|Opdracht in Windows|
      |---------------------|------------------|
      |Python|`az ml experiment submit -c docker-python .\iris_sklearn.py 0.01`|
      |Spark|`az ml experiment submit -c docker-spark .\iris_spark.py 0.1`|
 
    + Als uw container in MacOS is: 
-     |Uitvoering<br/>omgeving|Opdracht in Windows|
+     |Uitvoering<br/>environment|Opdracht in Windows|
      |---------------------|------------------|
      |Python|`az ml experiment submit -c docker-python iris_sklearn.py 0.01`|
      |Spark|`az ml experiment submit -c docker-spark iris_spark.py 0.1`|
@@ -442,7 +442,7 @@ Als u het script wilt uitvoeren in een Docker-container op een externe Linux-com
    >Het IP-adres kan ook een vrij adresseerbare Fully Qualified Domain Name (FQDN) zijn, zoals `vm-name.southcentralus.cloudapp.azure.com`. We raden u aan om aan de DSVM een FQDN toe te voegen en deze te gebruiken in plaats van een IP-adres. Dit is nuttig omdat u de VM mogelijk op een later tijdstip wilt uitschakelen om kosten te besparen. Bovendien is het zo dat het IP-adres mogelijk is gewijzigd als u de VM de volgende keer start.
 
    >[!NOTE]
-   >Naast verificatie met een gebruikersnaam en een wachtwoord kunt u ook een persoonlijke sleutel en een bijbehorende wachtwoordzin (indien van toepassing) opgeven. Gebruik hiervoor de opties `--private-key-file` en (optioneel) `--private-key-passphrase`.
+   >Naast verificatie met een gebruikersnaam en een wachtwoord kunt u ook een persoonlijke sleutel en een bijbehorende wachtwoordzin (indien van toepassing) opgeven. Gebruik hiervoor de opties `--private-key-file` en (optioneel) `--private-key-passphrase`. Als u de persoonlijke sleutel wilt gebruiken die u hebt gebruikt toen u DSVM hebt gemaakt, moet u de optie `--use-azureml-ssh-key` opgeven.
 
    Bereid vervolgens het rekendoel **myvm** voor door deze opdracht uit te voeren.
    

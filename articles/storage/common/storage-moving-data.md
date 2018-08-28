@@ -2,18 +2,18 @@
 title: Verplaatsen van grote hoeveelheden gegevens naar/vanuit de cloudopslag in Azure | Microsoft Docs
 description: Een overzicht van de verschillende methoden voor het verplaatsen van gegevens naar en van Azure Storage.
 services: storage
-author: JarrettRenshaw
+author: tamram
 ms.service: storage
 ms.topic: article
-ms.date: 01/30/2017
-ms.author: jarrettr
+ms.date: 08/26/2018
+ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 81d7b5cf03e56ecc54db71b09af335d6cb794806
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 1df237a65a8b5312b20de19a99399b3a3dd075ff
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525532"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049607"
 ---
 # <a name="moving-data-to-and-from-azure-storage"></a>Gegevens verplaatsen naar en uit Azure Storage
 Als u wilt verplaatsen van on-premises gegevens naar Azure Storage (of omgekeerd), zijn er verschillende manieren om dit te doen. De benadering die het meest voor u geschikt is afhankelijk van uw scenario. In dit artikel biedt een kort overzicht van de verschillende scenario's en de juiste aanbiedingen voor elk criterium.
@@ -21,7 +21,7 @@ Als u wilt verplaatsen van on-premises gegevens naar Azure Storage (of omgekeerd
 ## <a name="building-applications"></a>Toepassingen ontwikkelen
 Als u een toepassing ontwikkelen op basis van de REST-API bouwt of een van onze veel clientbibliotheken is een uitstekende manier om gegevens te verplaatsen naar en van Azure Storage.
 
-Azure Storage biedt uitgebreide clientbibliotheken voor .NET, iOS, Java, Android, Universal Windows Platform (UWP), Xamarin, C++, Node.JS, PHP, Ruby en Python. De clientbibliotheken bieden geavanceerde mogelijkheden, zoals pogingslogica, logboekregistratie en parallelle uploads. U kunt ook rechtstreeks met de REST API ontwikkelen. Deze kan worden aangeroepen in elke taal waarin HTTP-/HTTPS-verzoeken kunnen worden gemaakt.
+Azure Storage biedt uitgebreide clientbibliotheken voor veel populaire talen, waaronder .NET, Java, Android, Go, Xamarin, C++, Node.JS, PHP, Ruby, Python en iOS. De clientbibliotheken bieden geavanceerde mogelijkheden, zoals pogingslogica, logboekregistratie en parallelle uploads. U kunt ook rechtstreeks met de REST API ontwikkelen. Deze kan worden aangeroepen in elke taal waarin HTTP-/HTTPS-verzoeken kunnen worden gemaakt.
 
 Zie [aan de slag met Azure Blob Storage](../blobs/storage-dotnet-how-to-use-blobs.md) voor meer informatie.
 

@@ -6,15 +6,15 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: tutorial
-ms.date: 04/30/2018
+ms.date: 08/20/2018
 ms.author: marsma
 ms.custom: mvc
-ms.openlocfilehash: 6347c460ab88929152424d301445a219720b98e8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 25e3fdfe72fc2a6ffec1bcee23cd9f1edc783838
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582298"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "41924767"
 ---
 # <a name="tutorial-deploy-web-app-from-azure-container-registry"></a>Zelfstudie: web-app implementeren vanuit Azure Container Registry
 
@@ -38,24 +38,26 @@ Wanneer u een web-app vanuit een containerinstallatiekopie in het register imple
 
 ## <a name="deploy-a-web-app-for-containers-instance"></a>Een Web App for Containers-instantie implementeren
 
-In deze stap maakt u een Web App for Containers-instantie in de regio *VS West*.
+In deze stap maakt u een Web App for Containers-instantie in de regio *US - west*.
 
 Meld u aan bij [Azure Portal](https://portal.azure.com) en navigeer naar het register dat u in de vorige zelfstudie hebt gemaakt.
 
-Selecteer **Opslagplaatsen** > **acr-helloworld**, klik onder **Tags** met de rechtermuisknop op de tag **v1** en selecteer **Implementeren naar web-app**.
+Selecteer **Opslagplaatsen** > **acr-helloworld**, klik onder **Tags** met de rechtermuisknop op de tag **v1** en selecteer **Deploy to web app**:
 
 ![Naar App Service implementeren in Azure Portal][deploy-app-portal-01]
 
-Geef onder de weergegeven **Web App for Containers** de volgende waarden voor elke instelling op:
+Als Deploy to web app is uitgeschakeld, is de gebruiker met beheerdersrechten voor het register mogelijk niet beschikbaar, zoals in de eerste zelfstudie is beschreven in [Een containerregister maken](container-registry-tutorial-prepare-registry.md#create-a-container-registry). U kunt de gebruiker met beheerdersrechten in de Azure-portal inschakelen via **Instellingen** > **Toegangssleutels**.
+
+Onder **Web App for Containers**, dat wordt weergegeven na selectie van Deploy to web app, geeft u de volgende waarden voor elke instelling op:
 
 | Instelling | Waarde |
 |---|---|
 | **Sitenaam** | Een globaal unieke naam voor de web-app. In dit voorbeeld gebruiken we de indeling `<acrName>-westus` om eenvoudig het register en de regio te identificeren van waaruit de web-app wordt geïmplementeerd. |
 | **Resourcegroep** | **Bestaande gebruiken** > `myResourceGroup` |
-| **App Service-plan/-locatie** | Maak een nieuw abonnement met de naam `plan-westus` in de regio **VS West**. |
+| **App Service-plan/-locatie** | Maak een nieuw abonnement met de naam `plan-westus` in de regio **US - west**. |
 | **Installatiekopie** | `acr-helloworld:v1`
 
-Selecteer **Maken** om de web-app voor de regio *VS West* in te richten.
+Selecteer **Maken** om de web-app voor de regio *US - west* in te richten.
 
 ![Web-app op Linux-configuratie in Azure Portal][deploy-app-portal-02]
 
@@ -75,16 +77,16 @@ Zodra de Docker-installatiekopie vanuit het geo-gerepliceerde containerregister 
 
 ## <a name="deploy-second-web-app-for-containers-instance"></a>Tweede Web App for Containers-instantie implementeren
 
-Gebruik de procedure die in het vorige gedeelte is beschreven om een tweede web-app naar de regio *VS Oost* te implementeren. Geef onder **Web App for Containers** de volgende waarden op:
+Gebruik de procedure die in het vorige gedeelte is beschreven om een tweede web-app naar de regio *US - oost* te implementeren. Geef onder **Web App for Containers** de volgende waarden op:
 
 | Instelling | Waarde |
 |---|---|
 | **Sitenaam** | Een globaal unieke naam voor de web-app. In dit voorbeeld gebruiken we de indeling `<acrName>-eastus` om eenvoudig het register en de regio te identificeren van waaruit de web-app wordt geïmplementeerd. |
 | **Resourcegroep** | **Bestaande gebruiken** > `myResourceGroup` |
-| **App Service-plan/-locatie** | Maak een nieuw abonnement met de naam `plan-eastus` in de regio **VS Oost**. |
+| **App Service-plan/-locatie** | Maak een nieuw abonnement met de naam `plan-eastus` in de regio **US - oost**. |
 | **Installatiekopie** | `acr-helloworld:v1`
 
-Selecteer **Maken** om de web-app voor de regio *VS Oost* in te richten.
+Selecteer **Maken** om de web-app voor de regio *US - oost* in te richten.
 
 ![Web-app op Linux-configuratie in Azure Portal][deploy-app-portal-06]
 

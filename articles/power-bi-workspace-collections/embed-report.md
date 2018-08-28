@@ -1,50 +1,44 @@
 ---
-title: Een rapport insluiten in Azure Power BI werkruimte verzamelingen | Microsoft Docs
-description: Informatie over het insluiten van een rapport dat zich in Power BI werkruimte verzamelingen in uw toepassing.
+title: Een rapport insluiten in Azure Power BI Workspace Collections | Microsoft Docs
+description: Leer hoe u een rapport dat is in Power BI Workspace Collections in uw toepassing insluit.
 services: power-bi-embedded
-documentationcenter: ''
 author: markingmyname
-manager: kfile
-editor: ''
-tags: ''
 ROBOTS: NOINDEX
 ms.assetid: ''
 ms.service: power-bi-embedded
-ms.devlang: NA
 ms.topic: article
-ms.tgt_pltfrm: NA
 ms.workload: powerbi
 ms.date: 09/20/2017
 ms.author: maghan
-ms.openlocfilehash: b6fa46b1cf3a251d6116e7de6ef41a9e6d265c29
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 94476486ed87662f3d6b989b8d5360dd792f8824
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31410349"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43041177"
 ---
-# <a name="embed-a-report-in-power-bi-workspace-collections"></a>Een rapport insluiten in Power BI werkruimte verzamelingen
+# <a name="embed-a-report-in-power-bi-workspace-collections"></a>Een rapport insluiten in Power BI-Werkruimteverzamelingen
 
-Informatie over het insluiten van een rapport dat zich in Power BI werkruimte verzamelingen in uw toepassing.
+Leer hoe u een rapport dat is in Power BI Workspace Collections in uw toepassing insluit.
 
 > [!IMPORTANT]
 > Power BI Workspace Collections is afgeschaft en is beschikbaar tot juni 2018 of tot de datum die in uw contract wordt aangegeven. Om onderbreking van uw toepassing te voorkomen, wordt u geadviseerd om een migratie naar Power BI Embedded te plannen. Voor meer informatie over het migreren van gegevens naar Power BI Embedded raadpleegt u [How to migrate Power BI Workspace Collections content to Power BI Embedded](https://powerbi.microsoft.com/documentation/powerbi-developer-migrate-from-powerbi-embedded/) (Inhoud van Power BI-werkruimteverzamelingen migreren naar Power BI Embedded).
 
-Laten we zien hoe u daadwerkelijk een rapport insluiten in uw toepassing. Hierbij wordt verondersteld dat er al een rapport dat bestaat in een werkruimte in uw werkruimteverzameling. Als u deze stap nog niet hebt gedaan, Zie [aan de slag met Power BI werkruimte verzamelingen](get-started.md).
+We kijken hoe u daadwerkelijk een rapport insluiten in uw toepassing. Dit wordt ervan uitgegaan dat u hebt al een rapport dat zich in een werkruimte in de werkruimteverzameling van uw. Als u die stap nog niet hebt gedaan, Zie [aan de slag met Power BI Workspace Collections](get-started.md).
 
-U kunt de .NET (C#) of Node.js-SDK, samen met JavaScript, gemakkelijk maken voor uw toepassing met Power BI werkruimte verzamelingen.
+U kunt het .NET (C#) of de SDK voor Node.js, samen met JavaScript, eenvoudig uw toepassing met Power BI Workspace Collections gebruiken.
 
 ## <a name="using-the-access-keys-to-use-rest-apis"></a>Met behulp van de toegangssleutels REST-API's gebruiken
 
-Om de REST-API aanroept, kunt u de toegangssleutel die u via de Azure-portal voor een bepaalde werkruimteverzameling krijgen kunt doorgeven. Zie voor meer informatie [aan de slag met Power BI werkruimte verzamelingen](get-started.md).
+Als u wilt de REST-API aanroept, kunt u de toegangssleutel die u uit de Azure-portal voor een bepaalde werkruimteverzameling ophalen kunt doorgeven. Zie voor meer informatie, [aan de slag met Power BI Workspace Collections](get-started.md).
 
 ## <a name="get-a-report-id"></a>Een rapport-ID ophalen
 
-Elke toegangstoken is gebaseerd op een rapport. U moet de opgegeven rapport-id niet ophalen voor het rapport dat u wilt insluiten. Dit kan worden gedaan op basis van aanroepen naar de [Get Reports](https://msdn.microsoft.com/library/azure/mt711510.aspx) REST-API. Hiermee herstelt u de lijst-id en de url insluiten. Dit kan worden gedaan met behulp van de Power BI .NET SDK of de REST-API rechtstreeks aan te roepen.
+Elke toegangstoken is gebaseerd op een rapport. U moet het opgegeven rapport-id niet ophalen voor het rapport dat u wilt insluiten. Dit kan worden gedaan op basis van aanroepen naar de [Get Reports](https://msdn.microsoft.com/library/azure/mt711510.aspx) REST-API. De rapport-id en de ingesloten url wordt dan geretourneerd. Dit kan worden gedaan met behulp van de Power BI .NET-SDK of de REST-API voor het rechtstreeks aanroepen.
 
-### <a name="using-the-power-bi-net-sdk"></a>Met behulp van de Power BI .NET SDK
+### <a name="using-the-power-bi-net-sdk"></a>Met behulp van de Power BI .NET-SDK
 
-Wanneer u de .NET SDK, moet u een token referentie die is gebaseerd op de toegangssleutel die u via de Azure portal krijgen maken. Dit vereist dat u installeert de [Power BI API NuGet-pakket](https://www.nuget.org/profiles/powerbi).
+Wanneer u de .NET SDK, moet u een token referentie die is gebaseerd op de toegangssleutel die u vanuit Azure portal maken. Dit is vereist dat u installeert de [Power BI API NuGet-pakket](https://www.nuget.org/profiles/powerbi).
 
 **NuGet-pakket installeren**
 
@@ -67,7 +61,7 @@ var reports = (IList<Report>)client.Reports.GetReports(workspaceCollectionName, 
 // Select the report that you want to work with from the collection of reports.
 ```
 
-### <a name="calling-the-rest-api-directly"></a>Rechtstreeks aanroepen van de REST-API
+### <a name="calling-the-rest-api-directly"></a>Het rechtstreeks aanroepen van de REST-API
 
 ```
 System.Net.WebRequest request = System.Net.WebRequest.Create("https://api.powerbi.com/v1.0/collections/{collectionName}/workspaces/{workspaceId}/Reports") as System.Net.HttpWebRequest;
@@ -86,13 +80,13 @@ using (var response = request.GetResponse() as System.Net.HttpWebResponse)
 }
 ```
 
-## <a name="create-an-access-token"></a>Maken van een toegangstoken
+## <a name="create-an-access-token"></a>Een toegangstoken maken
 
-Gebruik van Power BI werkruimte verzamelingen sluit tokens, JSON Web Tokens die HMAC zijn ondertekend. De tokens zijn ondertekend door de toegangssleutel van uw Power BI-Werkruimteverzameling. Sluit tokens, standaard, worden gebruikt om alleen-lezen toegang bieden tot een rapport insluiten in een toepassing. Sluit tokens worden uitgegeven voor een specifiek rapport en moeten worden gekoppeld aan een URL insluiten.
+Power BI Workspace Collections gebruiken insluittokens, JSON-Webtokens HMAC zijn ondertekend. De tokens zijn ondertekend door de toegangssleutel van uw Power BI-Werkruimteverzameling. Sluit tokens, standaard, worden gebruikt voor alleen-lezen toegang tot een rapport insluiten in een toepassing. Sluit tokens worden uitgegeven voor een specifiek rapport en moet worden gekoppeld aan een ingesloten URL.
 
-Toegangstokens moeten worden gemaakt op de server, zoals de toegangssleutels voor het teken/versleutelen van de tokens worden gebruikt. Zie voor meer informatie over het maken van een toegangstoken [Authenticating en autoriseren met Power BI werkruimte verzamelingen](app-token-flow.md). U kunt ook bekijken de [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methode. Hier volgt een voorbeeld van hoe dit eruitziet met de .NET SDK voor Power BI.
+Toegangstokens moeten worden gemaakt op de server als de toegangssleutels voor het teken/versleutelen van de tokens worden gebruikt. Zie voor meer informatie over het maken van een toegangstoken [Authenticating en autoriseren met Power BI Workspace Collections](app-token-flow.md). U kunt ook bekijken de [CreateReportEmbedToken](https://docs.microsoft.com/dotnet/api/microsoft.powerbi.security.powerbitoken?redirectedfrom=MSDN#methods_) methode. Hier volgt een voorbeeld van hoe dit eruit met de .NET SDK voor Power BI.
 
-U de ID die u eerder hebt opgehaald. Zodra de insluittoken is gemaakt, wordt u vervolgens de toegangssleutel voor het genereren van het token dat u kunt gebruiken vanuit het perspectief van javascript gebruiken. De *PowerBIToken klasse* vereist dat u installeert de [Power BI Core NuGut pakket](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
+U gebruikt de rapport-ID die u eerder hebt opgehaald. Zodra het insluittoken is gemaakt, wordt u vervolgens de toegangssleutel voor het genereren van het token dat u kunt gebruiken vanuit het perspectief van javascript gebruiken. De *PowerBIToken klasse* vereist dat u installeert de [Power BI Core NuGut pakket](https://www.nuget.org/packages/Microsoft.PowerBI.Core/).
 
 **NuGet-pakket installeren**
 
@@ -111,16 +105,16 @@ embedToken = PowerBIToken.CreateReportEmbedToken(workspaceCollectionName, worksp
 var token = embedToken.Generate("{access key}");
 ```
 
-### <a name="adding-permission-scopes-to-embed-tokens"></a>Scopes van de machtiging voor het insluiten van tokens toevoegen
+### <a name="adding-permission-scopes-to-embed-tokens"></a>Machtigingsbereiken om in te sluiten van tokens toevoegen
 
-Wanneer u insluiten tokens gebruikt, kunt u beperkt gebruik van de resources die u toegang te geven. Daarom kunt u een token met bereik machtigingen genereren. Zie voor meer informatie [Scopes](app-token-flow.md#scopes)
+Wanneer u insluittokens gebruikt, kunt u slechts beperkt gebruik van de resources die u toegang te geven. Daarom kunt u een token met scoped machtigingen genereren. Zie voor meer informatie, [bereiken](app-token-flow.md#scopes)
 
 ## <a name="embed-using-javascript"></a>Insluiten met JavaScript
 
-Nadat u het toegangstoken en de lijst-ID hebt, kunnen we het rapport met JavaScript insluiten. Dit vereist dat u het NuGet installeert [Power BI JavaScript pakket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). De embedUrl worden alleen https://embedded.powerbi.com/appTokenReportEmbed.
+Nadat u het toegangstoken en de lijst-ID hebt, kunnen we het rapport met behulp van JavaScript insluiten. Hiervoor moet u het NuGet installeren [Power BI JavaScript-pakket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/). De embedUrl gedraagt zich https://embedded.powerbi.com/appTokenReportEmbed.
 
 > [!NOTE]
-> U kunt de [JavaScript rapport insluiten voorbeeld](https://microsoft.github.io/PowerBI-JavaScript/demo/) om functionaliteit te testen. Het biedt ook voorbeelden van code voor de verschillende bewerkingen die beschikbaar zijn.
+> U kunt de [JavaScript rapport ingesloten voorbeeld](https://microsoft.github.io/PowerBI-JavaScript/demo/) om functionaliteit te testen. Het biedt ook voorbeelden van code voor de verschillende bewerkingen die beschikbaar zijn.
 
 **NuGet-pakket installeren**
 
@@ -145,9 +139,9 @@ var $reportContainer = $('#reportContainer');
 var report = powerbi.embed($reportContainer.get(0), embedConfiguration);
 ```
 
-### <a name="set-the-size-of-embedded-elements"></a>De grootte van de ingesloten elementen instellen
+### <a name="set-the-size-of-embedded-elements"></a>Stel de grootte van ingesloten-elementen
 
-Het rapport wordt automatisch op basis van de grootte van de container worden ingesloten. U kunt de standaardgrootte van het ingesloten item overschrijven, gewoon een CSS-klasse-kenmerk of inline stijlen voor breedte en hoogte toevoegen.
+Het rapport wordt automatisch op basis van de grootte van de container worden ingesloten. Als u wilt de standaardgrootte van het ingesloten object onderdrukken, moet u gewoon een CSS-klasse kenmerk of inline stijlen voor breedte en hoogte toevoegen.
 
 ## <a name="see-also"></a>Zie ook
 
@@ -158,7 +152,7 @@ Het rapport wordt automatisch op basis van de grootte van de container worden in
 [Power BI JavaScript-pakket](https://www.nuget.org/packages/Microsoft.PowerBI.JavaScript/)  
 [Power BI API NuGet-pakket](https://www.nuget.org/profiles/powerbi)
 [Power BI Core NuGut-pakket](https://www.nuget.org/packages/Microsoft.PowerBI.Core/)  
-[Power BI-CSharp Git-opslagplaats](https://github.com/Microsoft/PowerBI-CSharp)  
-[Power BI-knooppunt Git-opslagplaats](https://github.com/Microsoft/PowerBI-Node)  
+[Git-opslagplaats voor Power BI-CSharp](https://github.com/Microsoft/PowerBI-CSharp)  
+[Git-opslagplaats voor Power BI-knooppunt](https://github.com/Microsoft/PowerBI-Node)  
 
 Nog vragen? [Probeer de Power BI-community](http://community.powerbi.com/)

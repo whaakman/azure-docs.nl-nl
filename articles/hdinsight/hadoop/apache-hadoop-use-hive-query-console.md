@@ -3,18 +3,18 @@ title: Hadoop Hive gebruiken in de Queryconsole in HDInsight - Azure
 description: Leer hoe u de Query op basis van de web Console gebruiken om het Hive-query's uitvoeren op een HDInsight Hadoop-cluster in uw browser.
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/12/2017
 ms.author: jasonh
 ROBOTS: NOINDEX
-ms.openlocfilehash: 130952cfc0151ce16077117a7b61fc4729e2088d
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e080085faa45e0eb330e49edb4450c5a44eb755b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597363"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43045606"
 ---
 # <a name="run-hive-queries-using-the-query-console"></a>Uitvoeren van Hive-query's met behulp van de Query-Console
 [!INCLUDE [hive-selector](../../../includes/hdinsight-selector-use-hive.md)]

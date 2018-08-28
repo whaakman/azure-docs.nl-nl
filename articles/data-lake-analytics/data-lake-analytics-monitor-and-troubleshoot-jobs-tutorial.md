@@ -1,41 +1,40 @@
 ---
-title: Taken in Azure Data Lake Analytics met Azure portal controleren
-description: In dit artikel wordt beschreven hoe de Azure portal gebruiken om op te lossen Azure Data Lake Analytics-taken.
+title: Taken bewaken in Azure Data Lake Analytics met Azure portal
+description: In dit artikel wordt beschreven hoe u de Azure portal gebruiken voor het oplossen van Azure Data Lake Analytics-taken.
 services: data-lake-analytics
 ms.service: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: b7066d81-3142-474f-8a34-32b0b39656dc
 ms.topic: conceptual
 ms.date: 12/05/2016
-ms.openlocfilehash: 8c61b8736dfb13f0c2c2520f22979ac51646e05f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1e18addc43e53cb45e92966607ad5d1db2b42c3c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623652"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046716"
 ---
-# <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Taken in Azure Data Lake Analytics met Azure Portal controleren
+# <a name="monitor-jobs-in-azure-data-lake-analytics-using-the-azure-portal"></a>Taken bewaken in Azure Data Lake Analytics met behulp van de Azure-Portal
 
-**Voor een overzicht van alle taken**
+**Om te zien van alle taken**
 
-1. Klik in de Azure-portal op **Microsoft Azure** in de linkerbovenhoek.
-2. Klik op de tegel met de naam van uw Data Lake Analytics-account.  De samenvatting taak wordt weergegeven op de **Jobbeheer** tegel.
+1. Vanuit de Azure-portal, klikt u op **Microsoft Azure** in de linkerbovenhoek.
+2. Klik op de tegel met de naam van uw Data Lake Analytics-account.  Samenvatting van de taak wordt weergegeven op de **Taakbeheer** tegel.
 
     ![Beheer van Azure Data Lake Analytics-taak](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-job-management.png)
 
-    De taak Management biedt u een overzicht van de status van de taak. Er is een mislukte taak.
-3. Klik op de **Jobbeheer** tegel om te zien van de taken. De taken zijn onderverdeeld in **met**, **in de wachtrij geplaatst**, en **beëindigd**. U ziet de mislukte taak in de **beëindigd** sectie. Het moet eerste certificaat in de lijst zijn. Wanneer u een groot aantal taken hebt, kunt u **Filter** om u te helpen u bij het zoeken van taken.
+    De taak Management biedt een overzicht van de status van de taak. Er is een mislukte taak.
+3. Klik op de **Taakbeheer** tegel om te zien van de taken. De taken zijn onderverdeeld in **met**, **in de wachtrij geplaatst**, en **beëindigd**. U ziet de mislukte taak in de **beëindigd** sectie. Het moet eerste item in de lijst zijn. Wanneer u een groot aantal taken hebt, kunt u klikken op **Filter** om u te helpen u bij het zoeken van taken.
 
-    ![Azure Data Lake Analytics-filter-taken](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
+    ![Azure Data Lake Analytics taken filteren](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-filter-jobs.png)
 4. Klik op de mislukte taak uit de lijst om de taakdetails openen:
 
     ![Azure Data Lake Analytics taak is mislukt](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job.png)
 
-    U ziet de **opnieuw indienen** knop. Nadat u het probleem hebt opgelost, kunt u de taak opnieuw indienen.
-5. Klik op de gemarkeerde onderdeel in de vorige schermafbeelding details van de fout te openen.  U ziet ongeveer als volgt:
+    U ziet dat de **opnieuw indienen** knop. Nadat u het probleem wordt opgelost, kunt u de taak opnieuw indienen.
+5. Klik op de gemarkeerde onderdeel in de vorige schermafbeelding te openen van de foutdetails.  U ziet er ongeveer als:
 
     ![Azure Data Lake Analytics taakdetails is mislukt](./media/data-lake-analytics-monitor-and-troubleshoot-tutorial/data-lake-analytics-failed-job-details.png)
 
@@ -43,7 +42,7 @@ ms.locfileid: "34623652"
 6. Klik op **Script dubbele**.
 7. Update de **FROM** pad naar:
 
-    ' / Samples/Data/SearchLog.tsv '
+    "/ Samples/Data/SearchLog.tsv"
 8. Klik op **Taak verzenden**.
 
 ## <a name="see-also"></a>Zie ook

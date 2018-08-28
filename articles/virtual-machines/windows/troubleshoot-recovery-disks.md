@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 08/09/2018
 ms.author: genli
-ms.openlocfilehash: 9845476e23396eecc4149f3e856c40b0f80f13cb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: f099eefbc6d196f25c2b09669cdc1c3cdec68a12
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004763"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050011"
 ---
 # <a name="troubleshoot-a-windows-vm-by-attaching-the-os-disk-to-a-recovery-vm-using-azure-powershell"></a>Een virtuele Windows-machine oplossen door de besturingssysteemschijf koppelen aan een virtuele machine met behulp van Azure PowerShell voor herstel
 Als uw Windows virtuele machine (VM) in Azure een opstart- of schijffout-fout optreedt, moet u mogelijk de stappen voor probleemoplossing uitvoeren op de schijf zelf. Een veelvoorkomend voorbeeld is een mislukte toepassingsupdate die verhindert de virtuele machine dat wordt het opstarten. Dit artikel wordt uitgelegd hoe u verbinding maken met de schijf naar een andere Windows-virtuele machine om eventuele fouten te corrigeren en vervolgens de oorspronkelijke virtuele machine herstellen met Azure PowerShell. 
@@ -39,6 +39,8 @@ Het probleemoplossingsproces is als volgt:
 5. Verbinding maken met de virtuele machine voor herstel. Bewerk bestanden of alle hulpmiddelen voor het oplossen van problemen op de gekopieerde schijf met het besturingssysteem worden uitgevoerd.
 6. Ontkoppel en schijf loskoppelen van de virtuele machine voor herstel.
 7. De besturingssysteemschijf voor de betreffende virtuele machine wijzigen.
+
+U kunt de scripts voor het herstel van virtuele machine gebruiken voor het automatiseren van stap 1, 2, 3, 4, 6 en 7. Zie voor meer informatie over documentatie en instructies [Scripts voor het herstel van virtuele machine voor Resource Manager-VM](https://github.com/Azure/azure-support-scripts/tree/master/VMRecovery/ResourceManager).
 
 Zorg ervoor dat u hebt [de nieuwste Azure PowerShell](/powershell/azure/overview) geïnstalleerd en aangemeld bij uw abonnement:
 

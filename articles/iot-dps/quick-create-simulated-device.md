@@ -1,5 +1,5 @@
 ---
-title: In deze snelstart ziet u hoe u een gesimuleerd TPM-apparaat kunt inrichten met C voor Azure IoT Hub | Microsoft Docs
+title: Een gesimuleerd TPM-apparaat inrichten voor Azure IoT Hub met behulp van C | Microsoft Docs
 description: In deze snelstart maakt u een gesimuleerd TPM-apparaat met de SDK voor C voor Azure IoT Hub Device Provisioning Service en richt u het in
 author: wesmc7777
 ms.author: wesmc
@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 15c0ce5a545b0bd6b2d1f320b50e9990f8278296
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 4e03268db32b4be6900234abe58e7a308110520a
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39091462"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42023743"
 ---
 # <a name="quickstart-provision-a-simulated-tpm-device-using-the-azure-iot-c-sdk"></a>Snelstart: Een gesimuleerd TPM-apparaat inrichten met de Azure IoT C SDK
 
@@ -46,7 +46,7 @@ In deze sectie bereidt u een ontwikkelomgeving voor die wordt gebruikt om de [Az
     True
     ```
 
-    Het is belangrijk dat de vereisten voor Visual Studio met (Visual Studio en de workload Desktopontwikkeling met C++) op uw computer zijn geïnstalleerd **voordat** de `CMake`-installatie wordt gestart. Zodra aan de vereisten voldaan is en de download is geverifieerd, installeert u het CMake-bouwsysteem.
+    Het is belangrijk dat de vereisten voor Visual Studio met (Visual Studio en de workload Desktopontwikkeling met C++) op uw computer zijn geïnstalleerd **voordat** de `CMake`-installatie wordt gestart. Zodra aan de vereisten is voldaan en de download is geverifieerd, installeert u het CMake-bouwsysteem.
 
 2. Open een opdrachtprompt of Git Bash-shell. Voer de volgende opdracht uit voor het klonen van de [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub-opslagplaats:
     
@@ -147,7 +147,7 @@ In deze sectie configureert u voorbeeldcode voor het gebruik van het [Advanced M
 
 1. Selecteer in Azure Portal het tabblad **Overzicht** voor uw Device Provisioning Service en kopieer de waarde bij **_Id-bereik_**.
 
-    ![DPS-eindpuntgegevens uit de portal extraheren](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
+    ![Device Provisioning Service-eindpuntgegevens uit de portal extraheren](./media/quick-create-simulated-device/extract-dps-endpoints.png) 
 
 2. Navigeer in het deelvenster *Solution Explorer* van Visual Studio naar de map **Provision\_Samples**. Vouw het voorbeeldproject met de naam **prov\_dev\_client\_sample** uit. Vouw **Source Files** uit en open **prov\_dev\_client\_sample.c**.
 

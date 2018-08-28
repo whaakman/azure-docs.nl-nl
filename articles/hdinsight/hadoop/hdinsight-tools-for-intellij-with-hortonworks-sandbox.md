@@ -4,18 +4,18 @@ description: Informatie over het gebruik van HDInsight-hulpprogramma's in Azure 
 keywords: hadoop-hulpprogramma's, hive-query, intellij, hortonworks sandbox-, azure toolkit voor intellij
 services: hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/16/2018
 ms.author: jasonh
-ms.openlocfilehash: ff0c41e620819da008a7a587bf245328a7239271
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 9e87392ad7730571b973dbec809f64487eefa849
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600224"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048588"
 ---
 # <a name="use-hdinsight-tools-for-intellij-with-hortonworks-sandbox"></a>HDInsight-hulpprogramma's voor IntelliJ met Hortonworks Sandbox gebruiken
 

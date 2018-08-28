@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: apimpm
-ms.openlocfilehash: ce3208fed119452ef9383fcb5b5eefb1aac6e224
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: ed8c34a7e1e11d431d9a3b416067736da0d1612c
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058128"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046376"
 ---
 # <a name="how-to-implement-disaster-recovery-using-service-backup-and-restore-in-azure-api-management"></a>Herstel na noodgeval met behulp van back-up van de service implementeren en te herstellen in Azure API Management
 
@@ -179,7 +179,7 @@ POST https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/
 Waar:
 
 * `subscriptionId` -id van het abonnement met de API Management-service die u herstelt een back-up in
-* `resourceGroupName` -een tekenreeks in de vorm van 'Api - standaard-{service-regio}' waar `service-region` identificeert de Azure-regio waar u bij het herstellen van een back-up in de API Management-service wordt gehost, bijvoorbeeld: `North-Central-US`
+* `resourceGroupName` -naam van de resourcegroep met de Azure API Management-service die u herstelt een back-up in
 * `serviceName` -de naam van de API Management-service wordt hersteld in op het moment van aanmaak opgegeven
 * `api-version` -vervangen `2018-06-01-preview`
 

@@ -9,20 +9,22 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 4607c997f6c274f6b367fe3e99bf8d21deceef0d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 97a5d00d43ac6a9d4b28ba23ca69d9b67e1bdf6f
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285490"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049796"
 ---
 # <a name="about-the-speech-devices-sdk-preview"></a>Informatie over de apparaten van de spraakherkenning SDK (Preview)
 
-Op zichzelf staande werkt de Microsoft Speech-service met een groot aantal apparaten en audio-bronnen. U kunt nu uw spraaktoepassingen-naar een hoger niveau met overeenkomende hardware en software kunnen nemen. De spraak-apparaten-SDK is een vooraf afgestemd bibliotheek gekoppeld aan specifieke hardware van de microfoon is ingeschakeld. De SDK kunt eenvoudig uw apparaat integreren in de cloud-gebaseerde service van Microsoft Speech en maken van een uitstekende gebruikerservaring voor uw klanten.
+De [Microsoft Speech service](overview.md) werkt met een groot aantal apparaten en audio-bronnen. U kunt nu uw spraaktoepassingen-naar een hoger niveau met overeenkomende hardware en software kunnen nemen. De spraak-apparaten-SDK is een vooraf afgestemd bibliotheek in combinatie met doel ingebouwde Microfoonmatrix SDK. Allemaal factoren die u voor het snel testen van nieuwe stem-scenario's, kunt de SDK van de apparaten spraakherkenning u eenvoudig naar de cloud gebaseerde Microsoft Speech Service integreren in uw apparaat en het maken van een uitstekende gebruikerservaring voor uw klanten. 
 
-De SDK kunt u uw eigen omgeving apparaten met een aangepaste wake bouwen, zodat de hint die een tussenkomst van de gebruiker initieert uniek is voor uw merk is. Het audio in meerdere kanalen gebruikt voor nauwkeurigere spraakherkenning via ruis onderdrukking, echo annulering helemaal veld spraak en beamforming.
+De SDK van de apparaten spraak verbruikt de [spraak SDK](speech-sdk.md), en maakt gebruik van de spraak-SDK voor het verzenden van de audio verwerkt door onze geavanceerde verwerking van audio-algoritme van de microfoon-matrix van het apparaat naar de [Microsoft Speech Service](overview.md).  Het audio in meerdere kanalen gebruikt voor nauwkeurigere ver-veld [spraakherkenning](speech-to-text.md) via ruis onderdrukking, echo annulering, beamforming en weerklank ongedaan maken.
 
-De SDK vereenvoudigt het uitvoeren van een verscheidenheid aan spraakmogelijkheden scenario's, zoals schijf-t/m bestellen systemen, in de auto of Home assistenten en slimme sprekers. U kan reageren op gebruikers met tekst, spreken terug naar deze in een standaard of aangepaste spraak, bevatten de zoekresultaten, vertalen in andere talen en nog veel meer. 
+De SDK van de apparaten spraakherkenning kunt u de apparaten door uw eigen [aangepast wake word](speech-devices-sdk-create-kws.md), zodat de hint die een tussenkomst van de gebruiker initieert uniek is voor uw merk is. 
+
+De SDK vereenvoudigt het uitvoeren van een aantal verschillende spraakmogelijkheden's, zoals schijf-t/m bestellen systemen, in de winkel of Home assistenten en slimme sprekers. U kan reageren op gebruikers met tekst, spreken terug naar deze in een standaard of [aangepaste gesproken](how-to-customize-voice-font.md), bevatten de zoekresultaten, [vertalen](speech-translation.md) in andere talen en meer. We kijken ernaar uit om te zien wat u bouwen!
 
 
 

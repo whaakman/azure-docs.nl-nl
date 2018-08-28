@@ -10,12 +10,12 @@ services: iot-dps
 manager: timlt
 ms.devlang: python
 ms.custom: mvc
-ms.openlocfilehash: c98de2d2c59ae625d274c3d6cf914e4c8c37b13f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: f6c6c4abf80a67c654b17771787ae530461ca3b4
+ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205711"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "42024030"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-python"></a>Snelstart: X.509-apparaten registreren bij Device Provisioning Service met behulp van Python
 
@@ -117,7 +117,7 @@ In deze sectie ziet u hoe u de inrichtingsgegevens van het X.509-apparaat toevoe
 
 ## <a name="run-the-sample-group-enrollment"></a>De voorbeeldgroepsinschrijving uitvoeren
 
-1. Open een opdrachtprompt en voer de volgende opdracht uit om de [azure-iot-provisioning-device-client](https://pypi.org/project/azure-iot-provisioning-device-client.) te installeren
+1. Open een opdrachtprompt en voer de volgende opdracht uit om de [azure-iot-provisioning-device-client](https://pypi.org/project/azure-iot-provisioning-device-client) te installeren.
 
     ```cmd/sh
     pip install azure-iothub-provisioningserviceclient    

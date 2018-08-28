@@ -8,14 +8,14 @@ ms.service: cosmos-db
 ms.component: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
-ms.date: 03/14/2018
+ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: d0c587b3d43f7511775a4a114bead96348372bc5
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: c084a08ffef868af751d065c5857a9b67a12485f
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36959964"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41917944"
 ---
 # <a name="get-started-with-azure-table-storage-and-the-azure-cosmos-db-table-api-using-net"></a>Aan de slag met Azure Table Storage en de Azure Cosmos DB Table-API met behulp van .NET
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]
@@ -36,10 +36,10 @@ In dit voorbeeld ziet u hoe u de [Microsoft Azure CosmosDB Table-bibliotheek voo
 U hebt het volgende nodig voor dit voorbeeld:
 
 * [Microsoft Visual Studio](https://www.visualstudio.com/downloads/)
-* [Algemene bibliotheek voor Azure Storage voor .NET (preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). Dit is een vereist preview-pakket dat wordt ondersteund in productieomgevingen. 
-* [Microsoft Azure CosmosDB Table-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)
+* [Algemene bibliotheek voor Azure Storage voor .NET (preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common/). - Een vereist preview-pakket dat wordt ondersteund in productieomgevingen. 
+* [Microsoft Azure CosmosDB Table-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table): deze bibliotheek is momenteel alleen beschikbaar voor .NET Standard, nog niet voor .NET Core.
 * [Azure Configuration Manager voor .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/)
-* [Azure Storage-account](../storage/common/storage-create-storage-account.md#create-a-storage-account)
+* [Azure Storage-account](../storage/common/storage-quickstart-create-account.md)
 
 [!INCLUDE [storage-dotnet-client-library-version-include](../../includes/storage-dotnet-client-library-version-include.md)]
 
@@ -50,17 +50,14 @@ Zie [Getting Started with Azure Table Storage in .NET](https://azure.microsoft.c
 [!INCLUDE [cosmos-db-create-azure-service-account](../../includes/cosmos-db-create-azure-service-account.md)]
 
 ### <a name="create-an-azure-storage-account"></a>Een Azure-opslagaccount maken
-De eenvoudigste manier om uw eerste Azure-opslagaccount te maken, is via [Azure Portal](https://portal.azure.com). Zie [Een opslagaccount maken](../storage/common/storage-create-storage-account.md#create-a-storage-account) voor meer informatie.
+* De eenvoudigste manier om uw eerste Azure-opslagaccount te maken, is via [Azure Portal](https://portal.azure.com). Zie [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md) voor meer informatie.
 
-U kunt ook een Azure-opslagaccount maken met behulp van [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md) of de [clientbibliotheek van Storage Resource Provider voor .NET](/dotnet/api/microsoft.azure.management.storage).
+* U kunt ook een Azure-opslagaccount maken met behulp van [Azure PowerShell](../storage/common/storage-powershell-guide-full.md), [Azure CLI](../storage/common/storage-azure-cli.md) of de [clientbibliotheek van Storage Resource Provider voor .NET](/dotnet/api/microsoft.azure.management.storage).
 
-Als u op dit moment liever nog geen opslagaccount maakt, kunt u ook de Azure-opslagemulator gebruiken om de code in een lokale omgeving uit te voeren en te testen. Zie [Use the Azure Storage Emulator for Development and Testing](../storage/common/storage-use-emulator.md) (De Azure-opslagemulator gebruiken voor het ontwikkelen en testen) voor meer informatie.
+* Als u op dit moment liever nog geen opslagaccount maakt, kunt u ook de Azure-opslagemulator gebruiken om de code in een lokale omgeving uit te voeren en te testen. Zie [Use the Azure Storage Emulator for Development and Testing](../storage/common/storage-use-emulator.md) (De Azure-opslagemulator gebruiken voor het ontwikkelen en testen) voor meer informatie.
 
 ### <a name="create-an-azure-cosmos-db-table-api-account"></a>Een Azure Cosmos DB Table-API-account maken
 [!INCLUDE [cosmos-db-create-tableapi-account](../../includes/cosmos-db-create-tableapi-account.md)]
-
-## <a name="set-up-your-development-environment"></a>De ontwikkelomgeving instellen
-Vervolgens stelt u in Visual Studio uw ontwikkelomgeving in, zodat u de codevoorbeelden in deze handleiding kunt uitproberen.
 
 ### <a name="create-a-windows-console-application-project"></a>Een Windows-consoletoepassingsproject maken
 Maak in Visual Studio een nieuwe Windows-consoletoepassing. In de volgende stappen ziet u hoe u een consoletoepassing maakt in Visual Studio 2017. De stappen zijn nagenoeg gelijk in andere versies van Visual Studio.
@@ -75,17 +72,19 @@ Alle codevoorbeelden in dit voorbeeld kunnen worden toegevoegd aan de methode `M
 
 U kunt de Azure CosmosDB Table-bibliotheek gebruiken in elk type .NET-toepassing, waaronder een Azure-cloudservice of -web-app en bureaubladtoepassingen en mobiele toepassingen. In deze gids gebruiken we een consoletoepassing voor de eenvoud.
 
-### <a name="use-nuget-to-install-the-required-packages"></a>NuGet gebruiken om de vereiste pakketten te installeren
+### <a name="install-the-required-nuget-packages"></a>De vereiste NuGet-pakketten installeren
 Er zijn drie aanbevolen pakketten waarnaar u in uw project moet verwijzen om dit voorbeeld te voltooien:
 
-* [Algemene bibliotheek voor Azure Storage voor .NET (preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). 
-* [Microsoft Azure Cosmos DB Table-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Dit pakket biedt programmatisch toegang tot gegevensbronnen in uw Azure Table Storage-account of Azure Cosmos DB Table-API-account.
+* [Algemene bibliotheek voor Azure Storage voor .NET (preview)](https://www.nuget.org/packages/Microsoft.Azure.Storage.Common). - Gebruik een versie gelijk aan of ouder dan 9.0.0.1 (< = 9.0.0.1).
+
+* [Microsoft Azure Cosmos DB Table-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table). Dit pakket biedt programmatisch toegang tot gegevensbronnen in uw Azure Table Storage-account of Azure Cosmos DB Table-API-account. Deze bibliotheek is momenteel alleen beschikbaar voor .NET Standard, nog niet voor .NET Core.
+
 * [Configuration Manager-bibliotheek van Microsoft Azure voor .NET](https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/): dit pakket biedt een klasse voor het parseren van een verbindingsreeks in een configuratiebestand, ongeacht waar de toepassing wordt uitgevoerd.
 
-Met NuGet kunt u beide pakketten verkrijgen. Volg deze stappen:
+Volg deze stappen voor het verkrijgen van de NuGet-pakketten:
 
 1. Klik met de rechtermuisknop op het project in **Solution Explorer** en kies **NuGet-pakketten beheren**.
-2. Zoek online naar 'Microsoft.Azure.Storage.Algemeen' en selecteer **Installeren** om de algemene bibliotheek van Azure Storage voor .NET (preview) en de bijbehorende afhankelijkheden te installeren. Zorg ervoor dat het selectievakje **Voorlopige versie opnemen** is ingeschakeld omdat dit een preview-pakket is.
+2. Zoek online naar 'Microsoft.Azure.Storage.Common', kies versie <= 9.0.0.1 en selecteer **Installeren** om de algemene bibliotheek van Azure Storage voor .NET (preview) en de bijbehorende afhankelijkheden te installeren. Zorg ervoor dat het selectievakje **Voorlopige versie opnemen** is ingeschakeld omdat dit een preview-pakket is.
 3. Zoek online naar 'Microsoft.Azure.CosmosDB.Table' en selecteer **Installeren** om de Microsoft Azure CosmosDB Table-bibliotheek te installeren.
 4. Zoek online naar 'WindowsAzure.ConfigurationManager' en selecteer **Installeren** om de Microsoft Azure Configuration Manager-bibliotheek te installeren.
 

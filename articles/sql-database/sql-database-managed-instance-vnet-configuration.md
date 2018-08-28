@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: f634167f24c221e702696174ea86a212c535695b
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: b17749999f7903746651403c5948933332dbee5d
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42054120"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047929"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Een VNet configureren voor het beheerde exemplaar van Azure SQL Database
 
@@ -39,21 +39,39 @@ Plan hoe het implementeren van een beheerd exemplaar in virtueel netwerk met beh
 ## <a name="requirements"></a>Vereisten
 
 Voor het maken van een beheerd exemplaar moet u toe te wijzen aan een subnet binnen het VNet dat voldoet aan de volgende vereisten:
-- **Niet leeg zijn**: het subnet moet een andere cloudservice die is gekoppeld aan het niet bevatten en mag geen gatewaysubnet. Kunt u zich niet beheerd exemplaar maakt in het subnet met andere resources dan beheerd exemplaar of andere bronnen binnen het subnet later toevoegen.
-- **Er is geen NSG**: het subnet moet een Netwerkbeveiligingsgroep die is gekoppeld aan deze niet hebben.
+- **Toegewezen subnet**: het subnet moet een andere cloudservice die is gekoppeld aan het niet bevatten en mag geen gatewaysubnet. Kunt u zich niet beheerd exemplaar maakt in het subnet met andere resources dan beheerd exemplaar of andere bronnen binnen het subnet later toevoegen.
+- **Er is geen NSG**: het subnet moet een Netwerkbeveiligingsgroep die is gekoppeld aan deze niet hebben. 
 - **Hebt u specifieke routetabel**: het subnet moet een gebruiker Route tabel (UDR) met 0.0.0.0/0 Next Hop Internet hebben als de enige route die is toegewezen. Zie voor meer informatie, [de vereiste routetabel maken en deze koppelen](#create-the-required-route-table-and-associate-it)
 3. **Optionele aangepaste DNS**: als aangepaste DNS is opgegeven in het VNet, recursieve resolvers IP-adres (zoals 168.63.129.16) van Azure moet worden toegevoegd aan de lijst. Zie voor meer informatie, [configureren van aangepaste DNS](sql-database-managed-instance-custom-dns.md).
-4. **Er is geen Service-eindpunt**: het subnet mag geen een Service-eindpunt dat is gekoppeld aan (Storage of Sql). Zorg ervoor dat de Service-eindpunten-optie is uitgeschakeld bij het maken van VNet.
-5. **Voldoende IP-adressen**: het subnet moet minimaal 16 IP-adressen hebben. Zie voor meer informatie, [bepaalt de grootte van het subnet voor beheerde instanties](#determine-the-size-of-subnet-for-managed-instances)
+4. **Er is geen Service-eindpunten**: het subnet moet een Service-eindpunt dat is gekoppeld aan deze niet hebben. Zorg ervoor dat de Service-eindpunten-optie is uitgeschakeld bij het maken van VNet.
+5. **Voldoende IP-adressen**: het subnet moet de minimumwaarde van 16 IP-adressen (aanbevolen minimum is 32 IP-adressen). Zie voor meer informatie, [bepaalt de grootte van het subnet voor beheerde instanties](#determine-the-size-of-subnet-for-managed-instances)
 
 > [!IMPORTANT]
 > Kunt u zich niet implementeren van nieuwe beheerd exemplaar als het doelsubnet niet compatibel met alle van de bovenstaande vereisten is. De doel-Vnet en het subnet moeten zijn opgeslagen in overeenstemming met deze voorwaarden Managed Instance (vóór en na de implementatie), inbreuk kan ertoe leiden dat exemplaar beschadigde status heeft en niet beschikbaar. Herstellen vanaf dat staat, moet u nieuwe sessie maken in een VNet aan het nalevingsbeleid voor netwerken, serviceniveau-Instantiegegevens opnieuw maken en herstellen van uw databases. Dit introduceert significante downtime voor uw toepassingen.
 
+Met de introductie van _bedoeling netwerkbeleid_, u kunt een netwerkbeveiligingsgroep (NSG) op een Managed Instance-subnet toevoegen nadat het beheerde exemplaar is gemaakt.
+
+U kunt nu een NSG gebruiken om te beperken de IP-adresbereiken waaruit toepassingen en gebruikers kunnen doorzoeken en beheren de gegevens door het filteren van netwerkverkeer dat wordt omgeleid naar poort 1433. 
+
+> [!IMPORTANT]
+> Wanneer u de NSG-regels die de toegang tot poort 1433 wordt beperkt configureert, moet u ook de hoogste prioriteit heeft regels voor binnenkomende verbindingen worden weergegeven in de onderstaande tabel invoegen. Anders kunt u lezen wat netwerkbeleid Hiermee blokkeert u de wijziging als niet compatibel zijn.
+
+| NAAM       |PORT                        |PROTOCOL|BRON           |BESTEMMING|ACTIE|
+|------------|----------------------------|--------|-----------------|-----------|------|
+|beheer  |9000, 9003, 1438, 1440, 1452|Alle     |Alle              |Alle        |Toestaan |
+|mi_subnet   |Alle                         |Alle     |MI-SUBNET        |Alle        |Toestaan |
+|health_probe|Alle                         |Alle     |AzureLoadBalancer|Alle        |Toestaan |
+
+De routering-ervaring is ook verbeterd zodat naast het 0.0.0.0/0 volgende hoptype Internet route, kunt u nu UDR voor het routeren van verkeer naar uw on-premises privé IP-adresbereiken via de gateway van virtueel netwerk of een virtueel netwerkapparaat (NVA) toevoegen.
+
 ##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>De grootte van het subnet voor beheerde instanties bepalen
 
-Wanneer u een beheerd exemplaar maakt, wijst Azure een aantal virtuele machines, afhankelijk van de laaggrootte van de die u tijdens het inrichten. Omdat deze virtuele machines gekoppeld aan het subnet zijn, ze hebben IP-adressen nodig. Voor hoge beschikbaarheid tijdens normale bewerkingen en onderhoud van de service, kan Azure extra virtuele machines toewijzen. Als gevolg hiervan is het aantal vereiste IP-adressen in een subnet groter is dan het aantal beheerde exemplaren in dat subnet. 
+Wanneer u een beheerd exemplaar maakt, wijst Azure een aantal virtuele machines, afhankelijk van de laag die u hebt geselecteerd tijdens het inrichten. Omdat deze virtuele machines gekoppeld aan het subnet zijn, ze hebben IP-adressen nodig. Voor hoge beschikbaarheid tijdens normale bewerkingen en onderhoud van de service, kan Azure extra virtuele machines toewijzen. Als gevolg hiervan is het aantal vereiste IP-adressen in een subnet groter is dan het aantal beheerde exemplaren in dat subnet. 
 
 Standaard is een beheerd exemplaar moet minimaal 16 IP-adressen in een subnet, en mag maximaal 256 IP-adressen gebruiken. Als gevolg hiervan kunt u subnetmaskers /28-/24 bij het definiëren van uw subnet IP-adresbereiken. 
+
+> [!IMPORTANT]
+> Grootte van het gatewaysubnet met 16 IP-adressen is de minimumwaarde met beperkte mogelijkheden voor het verder beheerd exemplaar voor scale-out. Kiezen subnet met het voorvoegsel /27 of lager wordt sterk aanbevolen. 
 
 Als u van plan bent te implementeren van meerdere beheerde exemplaren binnen het subnet en wilt optimaliseren op de grootte van het gatewaysubnet, moet u deze parameters gebruiken om te vormen een berekening: 
 
@@ -62,6 +80,9 @@ Als u van plan bent te implementeren van meerdere beheerde exemplaren binnen het
 - Elke bedrijfskritiek exemplaar moeten vier adressen
 
 **Voorbeeld**: U van plan bent de drie algemene en twee bedrijven essentiële beheerde instanties. Dat betekent dat u moet 5 + 3 * 2 + 2 * 4 = 19 IP-adressen. Als het IP-adresbereiken zijn gedefinieerd in de macht van 2, moet u het IP-adresbereik van 32 (2 ^ 5) IP-adressen. Daarom moet u het subnet met het subnetmasker/27 reserveren. 
+
+> [!IMPORTANT]
+> Berekening die wordt weergegeven boven zijn verouderd met verdere verbeteringen. 
 
 ## <a name="create-a-new-virtual-network-for-managed-instance-using-azure-resource-manager-deployment"></a>Een nieuw virtueel netwerk maken voor beheerd exemplaar met behulp van Azure Resource Manager-implementatie
 
@@ -84,59 +105,6 @@ De eenvoudigste manier om te maken en configureren van virtueel netwerk is met A
 
 U mogelijk de namen wijzigen van het VNet en subnetten en IP-adresbereiken die zijn gekoppeld aan uw netwerkresources aanpassen. Zodra u op "Aankoop" knop drukt, wordt dit formulier maken en configureren van uw omgeving. Als u geen twee subnetten kunt u de standaardwaarde kunt verwijderen. 
 
-## <a name="create-a-new-virtual-network-for-managed-instances-using-portal"></a>Een nieuw virtueel netwerk maken voor beheerde instanties met behulp van portal
-
-Het maken van een Azure-netwerk is een vereiste voor het maken van een beheerd exemplaar. U kunt de Azure-portal [PowerShell](../virtual-network/quick-create-powershell.md), of [Azure CLI](../virtual-network/quick-create-cli.md). De volgende sectie bevat de stappen met behulp van de Azure portal. Details van de hier besproken gelden voor elk van deze methoden.
-
-1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
-2. Zoek en klik op **Virtueel netwerk**, controleer of **Resource Manager** is geselecteerd als implementatiemodel en klik vervolgens op **Maken**.
-
-   ![virtueel netwerk maken](./media/sql-database-managed-instance-tutorial/virtual-network-create.png)
-
-3. Vul het formulier virtueel netwerk met de aangevraagde informatie, op een manier als in de volgende schermafbeelding:
-
-   ![formulier virtueel netwerk maken](./media/sql-database-managed-instance-tutorial/virtual-network-create-form.png)
-
-4. Klik op **Create**.
-
-   De adresruimte en het subnet zijn in CIDR-notatie opgegeven. 
-
-   > [!IMPORTANT]
-   > De standaardwaarden maken subnet waarmee alle VNet-adresruimte. Als u deze optie kiest, kunt u alle andere resources binnen het virtuele netwerk dan het beheerde exemplaar niet maken. 
-
-   De aanbevolen aanpak is het volgende: 
-   - Grootte van het gatewaysubnet berekenen door [bepaalt de grootte van het subnet voor Managed Instance](#determine-the-size-of-subnet-for-managed-instances) sectie  
-   - Beoordeling van de behoeften voor de rest van VNet 
-   - Vul in het VNet en subnet-adresbereiken dienovereenkomstig 
-
-   Zorg ervoor dat de Service-eindpunten blijft optie **uitgeschakelde**. 
-
-   ![formulier virtueel netwerk maken](./media/sql-database-managed-instance-tutorial/service-endpoint-disabled.png)
-
-### <a name="create-the-required-route-table-and-associate-it"></a>De vereiste routetabel maken en deze koppelen
-
-1. Aanmelden bij Azure Portal  
-2. Zoek en klik op **Routetabel** en klik vervolgens op de pagina Routetabel op **Maken**.
-
-   ![formulier routetabel maken](./media/sql-database-managed-instance-tutorial/route-table-create-form.png)
-
-3. Een route 0.0.0.0/0 Next Hop Internet op een manier, zoals de volgende schermafbeeldingen maken:
-
-   ![toevoegen aan routetabel](./media/sql-database-managed-instance-tutorial/route-table-add.png)
-
-   ![route](./media/sql-database-managed-instance-tutorial/route.png)
-
-4. Koppel deze route met het subnet voor het beheerde exemplaar, op een manier, zoals de volgende schermafbeeldingen:
-
-    ![subnet](./media/sql-database-managed-instance-tutorial/subnet.png)
-
-    ![routetabel instellen](./media/sql-database-managed-instance-tutorial/set-route-table.png)
-
-    ![instelling routetabel opslaan](./media/sql-database-managed-instance-tutorial/set-route-table-save.png)
-
-
-Als uw VNet is gemaakt, bent u klaar om te maken van uw beheerde exemplaar.  
-
 ## <a name="modify-an-existing-virtual-network-for-managed-instances"></a>Een bestaand virtueel netwerk voor beheerde instanties wijzigen 
 
 De vragen en antwoorden in deze sectie laten zien hoe u een beheerd exemplaar toevoegen aan bestaande virtuele netwerk. 
@@ -153,11 +121,24 @@ Als u wilt om nieuwe te maken:
 - Volg de stappen in [toevoegen, wijzigen of verwijderen van een virtueel netwerksubnet](../virtual-network/virtual-network-manage-subnet.md). 
 - Maak een routetabel met één item, **0.0.0.0/0**, zoals de volgende hop Internet en deze koppelen aan het subnet voor het beheerde exemplaar.  
 
-Als u maken van een beheerd exemplaar in een bestaand subnet wilt: 
-- Als het subnet leeg is: een beheerd exemplaar kan niet worden gemaakt in een subnet met andere resources met inbegrip van het gatewaysubnet controleren 
-- Grootte van het gatewaysubnet berekenen door de richtlijnen in de [bepaalt de grootte van het subnet voor beheerde instanties](#determine-the-size-of-subnet-for-managed-instances) sectie en controleer of de juiste grootte. 
-- Controleer dat de service-eindpunten niet zijn ingeschakeld op het subnet.
-- Zorg ervoor dat er geen netwerkbeveiligingsgroepen die zijn gekoppeld aan het subnet zijn 
+Als u maken van een beheerd exemplaar in een bestaand subnet wilt, raden wij de volgende PowerShell-script voor het voorbereiden van het subnet.
+```powershell
+$scriptUrlBase = 'https://raw.githubusercontent.com/Microsoft/sql-server-samples/master/samples/manage/azure-sql-db-managed-instance/prepare-subnet'
+
+$parameters = @{
+    subscriptionId = '<subscriptionId>'
+    resourceGroupName = '<resourceGroupName>'
+    virtualNetworkName = '<virtualNetworkName>'
+    subnetName = '<subnetName>'
+    }
+
+Invoke-Command -ScriptBlock ([Scriptblock]::Create((iwr ($scriptUrlBase+'/prepareSubnet.ps1?t='+ [DateTime]::Now.Ticks)).Content)) -ArgumentList $parameters
+```
+De voorbereiding van het subnet is gedaan in drie eenvoudige stappen:
+
+- Valideren: de geselecteerde virtuele netwok en het subnet zijn gevalideerd voor beheerd exemplaar netwerkvereisten
+- Controleer of - gebruiker een set wijzigingen die moeten worden aangebracht in het subnet voor de Managed Instance-implementatie voorbereiden en wordt gevraagd om toestemming wordt weergegeven
+- Voorbereiden: virtueel netwerk en subnet juist zijn geconfigureerd
 
 **Hebt u een aangepaste DNS-server geconfigureerd?** 
 

@@ -1,6 +1,6 @@
 ---
-title: Een HTTPS-eindpunt toevoegen aan een Service Fabric-app in Azure | Microsoft Docs
-description: In deze zelfstudie leert u hoe u een HTTPS-eindpunt kunt toevoegen aan een ASP.NET Core front-end webservice en hoe u de toepassing kunt implementeren in een cluster.
+title: Kestrel gebruiken om een HTTPS-eindpunt toe te voegen aan een Service Fabric-app in Azure | Microsoft Docs
+description: In deze zelfstudie leert u hoe u met behulp van Kestrel een HTTPS-eindpunt toevoegt aan een ASP.NET Core front-end webservice en hoe u de toepassing implementeert in een cluster.
 services: service-fabric
 documentationcenter: .net
 author: rwike77
@@ -15,14 +15,14 @@ ms.workload: NA
 ms.date: 04/12/2018
 ms.author: ryanwi
 ms.custom: mvc
-ms.openlocfilehash: 309a43d3383658029f4fe7f90f869888bac67bb1
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 70bbeabe2c2b14e8e0dcccac9ffa63f2e19230a2
+ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130047"
+ms.lasthandoff: 08/14/2018
+ms.locfileid: "41918206"
 ---
-# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service"></a>Zelfstudie: Een HTTPS-eindpunt toevoegen aan een front-end-service van ASP.NET Core Web API
+# <a name="tutorial-add-an-https-endpoint-to-an-aspnet-core-web-api-front-end-service-using-kestrel"></a>Zelfstudie: Een HTTPS-eindpunt toevoegen aan een front-end-service van ASP.NET Core Web-API met behulp van Kestrel
 
 Deze zelfstudie is deel drie van een serie.  U leert hoe u HTTPS kunt inschakelen in een ASP.NET Core-service die wordt uitgevoerd in Service Fabric. Wanneer u klaar bent, hebt u een stemtoepassing met een ASP.NET Core web-front-end en HTTPS-functionaliteit die luistert op poort 443. Als u de stemtoepassing niet handmatig wilt maken in [Een .NET Service Fabric-toepassing bouwen](service-fabric-tutorial-deploy-app-to-party-cluster.md), kunt u [de broncode downloaden](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/) voor de voltooide toepassing.
 

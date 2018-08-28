@@ -11,12 +11,12 @@ ms.custom: mvc
 ms.date: 07/20/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 4774efda6748ac640d87ce83e2d5c4ee68310546
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 0f38aabf008f0335a6f9e21717aa38aefdd21615
+ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125736"
+ms.lasthandoff: 08/10/2018
+ms.locfileid: "42022893"
 ---
 # <a name="quickstart-create-your-first-automated-workflow-with-azure-logic-apps---azure-portal"></a>Snelstart: maak uw eerste geautomatiseerde werkstroom met Azure Logic Apps - Azure-portal
 
@@ -47,7 +47,7 @@ Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="htt
    | **Naam** | MyFirstLogicApp | De naam voor uw logische app | 
    | **Abonnement** | <*your-Azure-subscription-name*> | De naam van uw Azure-abonnement | 
    | **Resourcegroep** | My-First-LA-RG | De naam van de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) die wordt gebruikt om verwante resources te organiseren | 
-   | **Locatie** | VS - west | De regio waar uw logische app-gegevens wordt opgeslagen | 
+   | **Locatie** | US - west | De regio waar uw logische app-gegevens wordt opgeslagen | 
    | **Log Analytics** | Uit | Behoud de instelling **Uit** voor het vastleggen van diagnostische gegevens. | 
    |||| 
 
@@ -171,6 +171,9 @@ Als u dit voorbeeld niet meer nodig hebt, verwijdert u de resourcegroep die uw l
 2. Voer ter bevestiging de naam van de resourcegroep in en kies **Verwijderen**.
 
    ![Verwijdering bevestigen](./media/quickstart-create-first-logic-app-workflow/delete-resource-group-2.png)
+
+> [!NOTE]
+> Wanneer u een logische app verwijdert, worden geen nieuwe uitvoeringen gemaakt. Alle uitvoeringen die bezig zijn en wachten op uitvoering worden geannuleerd. Als u duizenden uitvoeringen hebt, kan de annulering een aanzienlijke tijd in beslag nemen.
 
 ## <a name="get-support"></a>Ondersteuning krijgen
 

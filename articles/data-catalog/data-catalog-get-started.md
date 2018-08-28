@@ -1,25 +1,19 @@
 ---
-title: Aan de slag met Data Catalog | Microsoft Docs
+title: Aan de slag met Azure Data Catalog
 description: End-to-end zelfstudie waarin de scenario's en mogelijkheden van Azure Data Catalog worden gepresenteerd.
-documentationcenter: 
 services: data-catalog
 author: steelanddata
-manager: jhubbard
-editor: 
-tags: 
+ms.author: spelluru
 ms.assetid: 03332872-8d84-44a0-8a78-04fd30e14b18
 ms.service: data-catalog
-ms.devlang: NA
-ms.topic: get-started-article
-ms.tgt_pltfrm: NA
-ms.workload: data-catalog
+ms.topic: conceptual
 ms.date: 01/18/2018
-ms.author: spelluru
-ms.openlocfilehash: d67f8871bbdd87e8a67057e6e8c5d4d770e5cad6
-ms.sourcegitcommit: be9a42d7b321304d9a33786ed8e2b9b972a5977e
-ms.translationtype: HT
+ms.openlocfilehash: c65f5c2ca3f162c17d036198c4285f9c965bbd53
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/19/2018
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053596"
 ---
 # <a name="get-started-with-azure-data-catalog"></a>Aan de slag met Azure Data Catalog
 Azure Data Catalog is een volledig beheerde cloudservice die als een registratie- en detectiesysteem voor gegevensassets van ondernemingen fungeert. Zie [Wat is Azure Data Catalog?](data-catalog-what-is-data-catalog.md) voor een gedetailleerd overzicht.
@@ -40,14 +34,14 @@ Deze zelfstudie helpt u om aan de slag te gaan met Azure Data Catalog. In deze z
 ### <a name="azure-subscription"></a>Azure-abonnement
 Voor het instellen van Azure Data Catalog moet u eigenaar of mede-eigenaar van een Azure-abonnement zijn.
 
-Azure-abonnementen helpen u om toegang tot cloudserviceresources als Azure Data Catalog te organiseren. Ze helpen u ook om te bepalen hoe resourcegebruik wordt gerapporteerd, gefactureerd en betaald. Elk abonnement kan een andere facturerings- en betalingsinstelling hebben, zodat u per afdeling, project, regiokantoor, enzovoort verschillende abonnementen en plannen kunt hebben. Elke cloudservice behoort tot een abonnement. U moet over een abonnement beschikken voordat u Azure Data Catalog instelt. Zie [Accounts, abonnementen en beheerdersrollen beheren](../active-directory/active-directory-how-subscriptions-associated-directory.md) voor meer informatie.
+Azure-abonnementen helpen u om toegang tot cloudserviceresources als Azure Data Catalog te organiseren. Ze helpen u ook om te bepalen hoe resourcegebruik wordt gerapporteerd, gefactureerd en betaald. Elk abonnement kan een andere facturerings- en betalingsinstelling hebben, zodat u per afdeling, project, regiokantoor, enzovoort verschillende abonnementen en plannen kunt hebben. Elke cloudservice behoort tot een abonnement. U moet over een abonnement beschikken voordat u Azure Data Catalog instelt. Zie [Accounts, abonnementen en beheerdersrollen beheren](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) voor meer informatie.
 
 Als u geen abonnement hebt, kunt u binnen een paar minuten een gratis proefaccount maken. Zie [Gratis proefversie](https://azure.microsoft.com/pricing/free-trial/) voor meer informatie.
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 Voor het instellen van Azure Data Catalog moet u zijn aangemeld met een gebruikersaccount van Azure Active Directory (Azure AD). U moet de eigenaar of mede-eigenaar van een Azure-abonnement zijn.  
 
-Azure AD biedt uw bedrijf een eenvoudige manier om ID’s en toegang, zowel in de cloud als on-premises, te beheren. U kunt één werk- of schoolaccount gebruiken om u bij elke cloud- of on-premises webtoepassing aan te melden. Azure Data Catalog maakt gebruik van Azure AD om de aanmelding te verifiëren. Zie [Wat is Azure Active Directory?](../active-directory/active-directory-whatis.md) voor meer informatie.
+Azure AD biedt uw bedrijf een eenvoudige manier om ID’s en toegang, zowel in de cloud als on-premises, te beheren. U kunt één werk- of schoolaccount gebruiken om u bij elke cloud- of on-premises webtoepassing aan te melden. Azure Data Catalog maakt gebruik van Azure AD om de aanmelding te verifiëren. Zie [Wat is Azure Active Directory?](../active-directory/fundamentals/active-directory-whatis.md) voor meer informatie.
 
 ### <a name="azure-active-directory-policy-configuration"></a>Azure Active Directory-beleid configureren
 Het kan voorkomen dat u zich wel kunt aanmelden bij de Azure Data Catalog-portal, maar niet bij het hulpprogramma voor gegevensbronregistratie. Er wordt dan een foutmelding weergegeven. Deze fout kan zich voordoen wanneer u zich op het bedrijfsnetwerk bevindt of wanneer u verbinding maakt als u zich buiten het bedrijfsnetwerk bevindt.

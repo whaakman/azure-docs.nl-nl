@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.reviewer: ''
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5867012e0322e520b4ef234599fa25a2ec08138d
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: d5b43f81cbb3bbebb231a8a9738f6138b62ef7f6
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325765"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046026"
 ---
 # <a name="deploy-azure-iot-edge-modules-from-visual-studio-code"></a>Azure IoT Edge-modules van Visual Studio Code implementeren
 
@@ -130,7 +130,7 @@ U implementeren modules naar uw apparaat door het toepassen van het manifest imp
 
 2. Met de rechtermuisknop op het apparaat dat u wilt configureren met de implementatie van het manifest. 
 
-3. Selecteer **implementatie voor IoT Edge-apparaat maken**. 
+3. Selecteer **implementatie voor één apparaat maken**. 
 
 4. Navigeer naar de implementatie van JSON-manifestbestand die u wilt gebruiken en klikt u op **Selecteer Edge-implementatie Manifest**. 
 

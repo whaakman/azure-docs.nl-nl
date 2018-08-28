@@ -9,14 +9,14 @@ ms.component: cosmosdb-table
 ms.custom: quickstart connect, mvc
 ms.devlang: dotnet
 ms.topic: quickstart
-ms.date: 04/10/2018
+ms.date: 08/17/2018
 ms.author: sngun
-ms.openlocfilehash: e70501be61455e9707fcf57d1996729097a0641f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 020345f5f5de3235a0fb34f1efc27efd771a842d
+ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582380"
+ms.lasthandoff: 08/20/2018
+ms.locfileid: "42022907"
 ---
 # <a name="quickstart-build-a-table-api-app-with-net-and-azure-cosmos-db"></a>Quickstart: Een Table-API compileren met .NET en Azure Cosmos DB 
 
@@ -117,7 +117,7 @@ U hebt uw app nu bijgewerkt met alle informatie die nodig is voor de communicati
 1. Klik in Visual Studio met de rechtermuisknop op het project **TableStorage** in **Solution Explorer** en klik vervolgens op **NuGet-pakketten beheren**. 
 
    ![NuGet-pakketten beheren](media/create-table-dotnet/azure-cosmosdb-manage-nuget.png)
-2. Typ in het NuGet-vak **Bladeren** *Microsoft.Azure.CosmosDB.Table*. Daarmee wordt de clientbibliotheek Cosmos DB-tabel API gevonden.
+2. Typ in het NuGet-vak **Bladeren** *Microsoft.Azure.CosmosDB.Table*. Daarmee wordt de clientbibliotheek Cosmos DB-tabel API gevonden. Houd er rekening mee dat deze bibliotheek momenteel alleen beschikbaar is voor .NET Standard, deze is nog niet beschikbaar voor .NET Core.
    
    ![Tabblad NuGet bladeren](media/create-table-dotnet/azure-cosmosdb-nuget-browse.png)
 

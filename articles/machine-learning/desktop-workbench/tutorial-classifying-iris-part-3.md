@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 3/13/2018
-ms.openlocfilehash: 2270080f8612c69a69955202ececab44136f335c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: de0c93ef5b907b56e6ad66a04bb728b5b9aabb9a
+ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445533"
+ms.lasthandoff: 08/21/2018
+ms.locfileid: "41918484"
 ---
 # <a name="tutorial-3-classify-iris-deploy-a-model"></a>Zelfstudie 3: Iris classificeren - Een model implementeren
 Azure Machine Learning (preview) is een geïntegreerde, end-to-end oplossing voor gegevenswetenschap en geavanceerde analyse voor professionele gegevenswetenschappers. Gegevenswetenschappers kunnen de service gebruiken om gegevens voor te bereiden, experimenten te ontwikkelen en modellen te implementeren op cloudschaal.
@@ -247,7 +247,7 @@ U kunt nu de realtime webservice maken.
    >[!IMPORTANT]
    >De naam van de service (wat ook de naam is van de nieuwe Docker-installatiekopie) mag alleen uit kleine letters bestaan. Anders krijgt u een foutmelding. 
 
-1. Wanneer u de opdracht uitvoert, worden het model en de scoring-bestanden geüpload naar het opslagaccount dat u eerder hebt gemaakt tijdens het voorbereiden van de omgeving. Tijdens het implementatieproces wordt er een Docker-installatiekopie gemaakt met daarin het model, schema en scoring-bestand. Deze installatiekopie wordt naar het Azure Container Registry gepusht: **\<naam_ACR\>.azureacr.io/\<naam_installatiekopie\>:\<versie\>**. 
+1. Wanneer u de opdracht uitvoert, worden het model en de scoring-bestanden geüpload naar het opslagaccount dat u eerder hebt gemaakt tijdens het voorbereiden van de omgeving. Tijdens het implementatieproces wordt er een Docker-installatiekopie gemaakt met daarin het model, schema en scoring-bestand. Deze installatiekopie wordt naar het Azure Container Registry gepusht: **\<naam_ACR\>.azurecr.io/\<naam_installatiekopie\>:\<versie\>**. 
 
    Met de opdracht wordt deze installatiekopie gedownload naar de computer en wordt er vervolgens op basis van die installatiekopie een Docker-container gestart. Als uw omgeving is geconfigureerd in de clustermodus, wordt de Docker-container in plaats hiervan geïmplementeerd in het Kubernetes-cluster in Azure Cloud Services.
 
@@ -313,7 +313,7 @@ Als u de actieve webservice **irisapp** wilt testen, gebruikt u een JSON-record 
 1. Als u de service wilt testen, voert u de geretourneerde run-opdracht voor de service uit:
     
    ```azurecli
-   az ml service run realtime -i <web service ID> -d "{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}"
+   az ml service run realtime -i <web service ID> -d '{\"input_df\": [{\"petal width\": 0.25, \"sepal length\": 3.0, \"sepal width\": 3.6, \"petal length\": 1.3}]}'
    ```
 
    De uitvoer is **"Iris-setosa"**, wat de voorspelde klasse is. (Uw resultaat kan afwijken.) 

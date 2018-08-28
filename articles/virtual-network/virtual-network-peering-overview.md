@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 04/17/2018
+ms.date: 08/16/2018
 ms.author: jdial
-ms.openlocfilehash: 63ea834401e5c6798b6f84b6f09a964005d14306
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: c20375d42786b817f677be22dee8f4e71e710bc5
+ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257868"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "41918472"
 ---
 # <a name="virtual-network-peering"></a>Peering op virtueel netwerk
 
@@ -77,6 +77,11 @@ U kunt problemen met de verbinding met een virtuele machine in een gekoppeld vir
 
 ## <a name="requirements-and-constraints"></a>Vereisten en beperkingen
 
+De volgende beperkingen zijn van toepassing wanneer virtuele netwerken wereldwijd zijn gekoppeld:
+- De virtuele netwerken kunnen bestaan in elke openbare cloudregio van Azure, maar niet in nationale Azure-clouds.
+- Resources in het ene virtueel netwerk kunnen niet communiceren met het front-end IP-adres van een interne Azure load balancer in het wereldwijd gekoppelde virtuele netwerk. De load balancer en de resources die met het adres communiceren, moeten zich in dezelfde regio bevinden.
+- U kunt geen externe gateways gebruiken of gatewayoverdracht toestaan. Als u externe gateways wilt gebruiken of gatewayoverdracht wilt toestaan, moeten gekoppelde virtuele netwerken zich in dezelfde regio bevinden.
+
 Zie [Vereisten en beperkingen voor peering op een virtueel netwerk](virtual-network-manage-peering.md#requirements-and-constraints) voor meer informatie over vereisten en beperkingen. Zie [Azure-netwerklimieten](../azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#azure-resource-manager-virtual-networking-limits) voor meer informatie over de limieten voor het aantal peerings dat u kunt maken voor een virtueel netwerk. 
 
 ## <a name="permissions"></a>Machtigingen
@@ -102,3 +107,4 @@ Gatewayoverdracht is een peeringeigenschap die zorgt dat een virtueel netwerk ee
 
 * Meer informatie over het maken van een [hub-en-spoke-netwerktopologie](/azure/architecture/reference-architectures/hybrid-networking/hub-spoke?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * Meer informatie over alle [instellingen van peering in virtuele netwerken en hoe u deze kunt aanpassen](virtual-network-manage-peering.md).
+* Antwoorden op veelgestelde vragen over VNet-peering en wereldwijde VNet-peering vindt u in onze [veelgestelde vragen voor VNet-peering](virtual-networks-faq.md#vnet-peering).

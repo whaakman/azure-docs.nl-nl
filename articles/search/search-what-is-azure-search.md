@@ -6,17 +6,22 @@ author: HeidiSteen
 services: search
 ms.service: search
 ms.topic: overview
-ms.date: 07/09/2018
+ms.date: 08/09/2018
 ms.author: heidist
-ms.openlocfilehash: 4874e42139e277400c866a7fc4c7094faeae136d
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: e4d01fdb4c11277af68127e4671a36ad7e2c74d2
+ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39002201"
+ms.lasthandoff: 08/15/2018
+ms.locfileid: "42022666"
 ---
 # <a name="what-is-azure-search"></a>Wat is Azure Search?
-Azure Search is een SaaS-cloudoplossing (Search-as-a-Service) die ontwikkelaars API’s en hulpprogramma’s biedt waarmee ze een uitgebreide zoekervaring binnen privé- en heterogene inhoud kunnen toevoegen aan web-, mobiele en bedrijfstoepassingen.
+Azure Search is een SaaS-cloudoplossing (Search-as-a-Service) die ontwikkelaars API’s en hulpprogramma’s biedt waarmee ze een uitgebreide zoekervaring binnen privé- en heterogene inhoud kunnen toevoegen aan web-, mobiele en bedrijfstoepassingen. De query wordt uitgevoerd op een door de gebruiker gedefinieerde index.
+
++ Bouw een zoekverzameling met alleen uw gegevens, die afkomstig zijn uit meerdere typen inhoud en platforms. 
++ Maak gebruik van door AI aangestuurde indexering om tekst en functies te extraheren uit JPEG-bestanden of -entiteiten en sleuteltermen uit onbewerkte tekst.
++ Maak intuïtieve zoekervaringen met facetnavigatie en filters, synoniemen, automatisch aanvullen en tekstanalyse voor "bedoelde u" automatisch gecorrigeerde zoektermen.
++ Voeg het zoeken naar geografische locaties toe voor "vinden in de buurt", taalanalyses voor zoeken in volledige niet-Engelse tekst en scorelogica voor de positie in de zoekresultaten.
 
 Functionaliteit wordt beschikbaar gemaakt via een eenvoudige [REST API](/rest/api/searchservice/) of [.NET SDK](search-howto-dotnet-sdk.md) waarmee de inherente complexiteit van het ophalen van gegevens wordt gemaskeerd. Naast API’s biedt Azure Portal ondersteuning voor administratie- en inhoudsbeheer met hulpprogramma’s voor het ontwikkelen van prototypen en het doorzoeken van indexen. Omdat de service wordt uitgevoerd in de cloud, worden de infrastructuur en beschikbaarheid beheerd met Microsoft.
 
@@ -51,7 +56,7 @@ Voordat u doorzoekbare inhoud kunt uploaden, moet u eerst een Azure Search-index
 
 U kunt een schema maken in Azure Portal of via een programma met behulp van de [.NET SDK](search-howto-dotnet-sdk.md) of [REST API](/rest/api/searchservice/).
 
-### <a name="step-3-index-data"></a>Stap 3: Gegevens indexeren
+### <a name="step-3-load-data"></a>Stap 3: Gegevens laden
 Nadat u een index hebt gedefinieerd, bent u klaar om inhoud te uploaden. U kunt hiervoor een push- of een pull-model gebruiken.
 
 Met het pull-model worden gegevens opgehaald uit externe gegevensbronnen. Het model wordt ondersteund met *indexeerfuncties* die aspecten van de gegevensopname stroomlijnen en automatiseren, zoals het verbinden met, en lezen en serialiseren van gegevens. Er zijn [indexeerfuncties](/rest/api/searchservice/Indexer-operations) beschikbaar voor Azure Cosmos DB, Azure SQL Database, Azure Blob Storage en SQL Server gehost op een Azure-VM. U kunt een indexeerfunctie configureren op-aanvraag of als geplande gegevensvernieuwing.
@@ -61,7 +66,7 @@ Het push-model wordt geboden via de SDK of REST API’s, en gebruikt om bijgewer
 ### <a name="step-4-search"></a>Stap 4: Zoeken
 Nadat u een index hebt gevuld, kunt u [zoekquery’s verzenden](/rest/api/searchservice/Search-Documents) naar het service-eindpunt met behulp van eenvoudige HTTP-aanvragen met REST API of de .NET SDK.
 
-## <a name="how-azure-search-compares"></a>Azure Search vergelijken
+## <a name="how-it-compares"></a>Vergelijking
 
 Klanten vragen vaak wat de verschillen zijn tussen Azure Search en andere zoekgerelateerde oplossingen. In de volgende tabel worden de verschillen samengevat.
 
@@ -104,13 +109,16 @@ U kunt ook [de voordelen voor MSDN-abonnees activeren](https://azure.microsoft.c
 
 ## <a name="how-to-get-started"></a>Hoe gaat u aan de slag
 
-1. Maak een service in de [gratis laag](search-create-service-portal.md).
+1. Maak een [gratis service](search-create-service-portal.md). Alle snelstartgidsen en zelfstudies kunnen worden gevolgd in de gratis service.
 
-2. Volg een of meer van de volgende zelfstudies. 
+2. Doorloop de [zelfstudie over het gebruik van ingebouwde hulpprogramma's voor indexeren en query's](search-get-started-portal.md). Leer meer over belangrijke concepten en raak vertrouwd met de informatie die de portal biedt.
 
-  + In [How to use the .NET SDK](search-howto-dotnet-sdk.md) (.NET SDK gebruiken) worden de hoofdstappen voor beheerde code gedemonstreerd.  
-  + In [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) (Aan de slag met REST API) worden dezelfde stappen getoond met behulp van de REST API.  
-  + In [Create your first index in the portal](search-get-started-portal.md) (Uw eerste index maken in de portal) leest u hoe u een index in de portal maakt met behulp van ingebouwde functies voor indexeren en het ontwikkelen van prototypen.   
+3. Ga verder met code met behulp van de .NET of REST-API:
+
+  + In [De .NET SDK gebruiken](search-howto-dotnet-sdk.md) wordt de hoofdwerkstroom voor beheerde code gedemonstreerd.  
+  + In [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started) (Aan de slag met REST API) worden dezelfde stappen getoond met behulp van de REST API. U kunt deze snelstart ook gebruiken om REST-API's van Postman of Fiddler aan te roepen: [REST API's voor Azure Search verkennen ](search-fiddler.md).
+
+## <a name="watch-this-video"></a>Deze video bekijken
 
 Zoekmachines zijn de normale stuurprogramma’s voor het ophalen van informatie in mobiele apps, op het web en in zakelijke gegevensopslag. Azure Search biedt hulpprogramma’s voor het creëren van een zoekervaring die vergelijkbaar is met die op grote commerciële websites.
 
@@ -122,5 +130,3 @@ In deze 9 minuten durende video van programmamanager Liam Cavanagh leert u hoe h
 + 3-4 minuten, gaat over het inrichten van de service. 
 + 4-6 minuten, gaat over de wizard Gegevens importeren die wordt gebruikt om een index te maken met behulp van de ingebouwde vastgoedgegevensset.
 + 6-9 minuten, gaat over Search Explorer en verschillende query’s.
-
-

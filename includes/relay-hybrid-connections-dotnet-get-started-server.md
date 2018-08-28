@@ -1,3 +1,20 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: service-bus-relay
+author: clemensv
+ms.service: service-bus-relay
+ms.topic: include
+ms.date: 08/16/2018
+ms.author: clemensv
+ms.custom: include file
+ms.openlocfilehash: fbc5bbff62a13d9b4301271031105ecd7d17fa86
+ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/16/2018
+ms.locfileid: "40183355"
+---
 ### <a name="create-a-console-application"></a>Een consoletoepassing maken
 
 Maak in Visual Studio een nieuw **Console-app (.NET Framework)**-project.
@@ -5,8 +22,10 @@ Maak in Visual Studio een nieuw **Console-app (.NET Framework)**-project.
 ### <a name="add-the-relay-nuget-package"></a>Het pakket Relay NuGet toevoegen
 
 1. Klik met de rechtermuisknop op het nieuwe project en selecteer **NuGet-pakketten beheren**.
-2. Selecteer **Bladeren** en zoek naar **Microsoft.Azure.Relay**. Selecteer **Microsoft Azure Relay** in de lijst met zoekresultaten. 
-3. Selecteer **Installeren** om de installatie uit te voeren. Sluit het dialoogvenster.
+2. Selecteer de optie **Prerelease insluiten**. 
+3. Selecteer **Bladeren** en zoek naar **Microsoft.Azure.Relay**. Selecteer **Microsoft Azure Relay** in de lijst met zoekresultaten.
+4. Selecteer versie **2.0.0-preview1-20180523**. 
+5. Selecteer **Installeren** om de installatie uit te voeren. Sluit het dialoogvenster.
 
 ### <a name="write-code-to-receive-messages"></a>Code schrijven om berichten te ontvangen
 
@@ -17,6 +36,7 @@ Maak in Visual Studio een nieuw **Console-app (.NET Framework)**-project.
     using System.IO;
     using System.Threading;
     using System.Threading.Tasks;
+    using System.Net;
     using Microsoft.Azure.Relay;
     ```
 2. Voeg constanten toe aan de klasse `Program` voor de gegevens van de hybride verbinding. Vervang de tijdelijke aanduidingen tussen punthaken door de waarden die u hebt verkregen bij het maken van de hybride verbinding. Zorg ervoor dat u de volledig gekwalificeerde naamruimte gebruikt.
