@@ -63,7 +63,7 @@ Nu we een 'center-punt' hebt geplaatst (&middot;) tussen elke afzonderlijke toke
 
 Houd er rekening mee hoe de meeste tokens zijn woorden die u in de woordenlijst vinden wilt (bijv, *belangrijke*, *directeur*).
 Anderen bestaan alleen uit leestekens.
-Ten slotte zijn er meer ongebruikelijke tokens vertegenwoordigt verkorte formuleringen zoals ** voor *niet*, bezittelijke voornaamwoorden, zoals *van*, enzovoort. Deze tokeniseren kan worden uitgevoerd op het woord verwerken *niet* en de woordgroep *niet* op een consistente manier voor exemplaar.
+Ten slotte zijn er meer ongebruikelijke tokens vertegenwoordigt verkorte formuleringen *zoals* voor *niet*, bezittelijke voornaamwoorden, zoals *van*, enzovoort. Deze tokeniseren kan worden uitgevoerd op het woord verwerken *niet* en de woordgroep *niet* op een consistente manier voor exemplaar.
 
 ## <a name="specification"></a>Specificatie
 
