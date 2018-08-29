@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 59c70d33d537742a5918dc1ba55ab8ac1f84e12c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9fae855de2a746084f4775f194e04c6dbe09f684
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41987528"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127288"
 ---
 # <a name="quickstart-recognize-speech-in-c-on-windows-desktop-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in C++ op Windows-bureaublad met de spraak-SDK
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 Wordt beschreven hoe u een op basis van een C++-consoletoepassing maken voor Windows-bureaublad die gebruik maakt van de spraak-SDK.
 De toepassing is op basis van de [Microsoft Cognitive Services Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
@@ -90,7 +90,7 @@ In het scherm van het type licentie dat verschijnt, accepteer de licentie:
 
    ![Console-uitvoer na geslaagde opname](media/sdk/qs-cpp-windows-08-console-output-release.png)
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Zoek in dit voorbeeld in de `quickstart/cpp-windows` map.
 
 ## <a name="next-steps"></a>Volgende stappen

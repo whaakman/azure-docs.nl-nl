@@ -14,12 +14,12 @@ ms.date: 08/27/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 813fb79bbdc09d0fb3baa9a66cfaeae74343b3f9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9b56f540af2b8d35258a4db79502c9edf83cdb45
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093632"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128463"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
@@ -613,16 +613,22 @@ Kan alle aspecten van het product Intune beheren.
 | microsoft.aad.supporttickets/AllEntities/AllActions | Maak en beheer tickets voor Office 365-ondersteuning. |
 | microsoft.intune/AllEntities/AllActions | Beheer alle aspecten van Intune. |
 
-### <a name="license-administrator"></a>Licentiebeheerder
-Kan licenties toewijzen aan gebruikers.
 
+### <a name="license-administrator"></a>Licentiebeheerder
+Kan productlicenties voor gebruikers en groepen beheren.
+ 
+  > [!NOTE]
+  > Deze rol de aanvullende machtigingen overneemt van de rol Adreslijstlezers toe.
+  >
+  >
+ 
 | **Acties** | **Beschrijving** |
 | --- | --- |
-| microsoft.aad.directory/users/assignLicense        | &nbsp; |
-| microsoft.aad.directory/users/usageLocation/update | &nbsp; |
-| microsoft.azure.accessService/allEntities/allTasks | &nbsp; |
-| microsoft.azure.serviceHealth/allEntities/allTasks | &nbsp; |
-| Microsoft.Office365.serviceHealth/allEntities/allTasks | &nbsp; |
+| microsoft.aad.directory/users/assignLicense | Licenties voor gebruikers in Azure Active Directory beheren. |
+| microsoft.aad.directory/users/usageLocation/update | De eigenschap users.usageLocation in Azure Active Directory bijgewerkt. |
+| microsoft.azure.accessService/allEntities/allTasks | Alle aspecten van de toegang tot Azure-service beheren. |
+| microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
+| Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 
 ### <a name="lync-service-administrator"></a>Lync-servicebeheerder
 Kan alle aspecten van het product Skype voor Bedrijven beheren.

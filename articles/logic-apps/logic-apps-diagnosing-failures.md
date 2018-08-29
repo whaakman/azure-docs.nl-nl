@@ -1,27 +1,23 @@
 ---
 title: Problemen oplossen en vaststellen - Azure Logic Apps | Microsoft Docs
-description: Begrijpen hoe en waarom logic apps is mislukt
+description: Meer informatie over het oplossen en diagnosticeren van werkstroom fouten in Azure Logic Apps
 services: logic-apps
-documentationcenter: ''
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.service: logic-apps
-ms.devlang: ''
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: logic-apps
+ms.assetid: a6727ebd-39bd-4298-9e68-2ae98738576e
 ms.date: 10/15/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: b0bf6cd747860d938f80787d9bef6634a6a22d09
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 994e7945a7107815029bd415f4cc0d45bb68e335
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441529"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123684"
 ---
-# <a name="troubleshoot-and-diagnose-logic-app-failures"></a>Fouten in logische Apps vaststellen en oplossen
+# <a name="troubleshoot-and-diagnose-workflow-failures-in-azure-logic-apps"></a>Werkstroom-fouten in Azure Logic Apps vaststellen en oplossen
 
 Uw logische app genereert informatie waarmee u vaststellen en oplossen van problemen in uw app. Aan de hand van elke stap in de werkstroom via de Azure-portal kunt u een logische app onderzoeken. Of u kunt sommige stappen toevoegen aan een werkstroom voor het opsporen van fouten in runtime.
 

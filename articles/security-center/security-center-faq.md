@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/26/2018
+ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: 382f85c268b2e21a780756057f4bf78c41c791c2
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b93ad6793bb8e431ba318772c780a06c792dcd9a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283500"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126757"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen vindt u antwoorden op vragen over Azure Security Center, een service die u bij het voorkomen helpt, detecteren en direct reageren op bedreigingen met verbeterde zichtbaarheid en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -51,9 +51,146 @@ Security Center beoordeelt de configuratie van uw resources om beveiligingsprobl
 
 Zie [machtigingen in Azure Security Center](security-center-permissions.md) voor meer informatie over de functies en toegestane acties in Security Center.
 
-## <a name="data-collection"></a>Gegevensverzameling
+## <a name="data-collection-agents-and-workspaces"></a>Het verzamelen van gegevens, agents en werkruimten
 Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse.
 
+### <a name="am-i-billed-for-log-analytics-on-the-workspaces-created-by-security-center"></a>Word ik gefactureerd voor Log Analytics op de werkruimten die zijn gemaakt door Security Center?
+Nee. Werkruimten die zijn gemaakt door Security Center, terwijl voor Log Analytics geconfigureerd per knooppunt facturering, doen niet Log Analytics kosten in rekening gebracht. Security Center-facturering is altijd gebaseerd op het Security Center-beveiligingsbeleid en de oplossingen die zijn geïnstalleerd op een werkruimte:
+
+- **Gratis laag** – Security Center schakelt u de oplossing 'SecurityCenterFree' in de standaardwerkruimte. U bent niet in rekening gebracht voor de gratis laag.
+- **Standard-laag** – Security Center schakelt u de oplossing 'Beveiliging' in de standaardwerkruimte.
+
+Zie voor meer informatie over prijzen [prijzen van Security Center](https://azure.microsoft.com/pricing/details/security-center/). De pagina met prijzen adressen wijzigingen in de opslag van beveiligingsgegevens en facturering naar rato vanaf juni 2017.
+
+> [!NOTE]
+> De prijscategorie van werkruimten die zijn gemaakt door Security Center met Log Analytics heeft geen invloed op de facturering van Security Center.
+>
+>
+
+### <a name="what-qualifies-a-vm-for-automatic-provisioning-of-the-microsoft-monitoring-agent-installation"></a>Wat is een virtuele machine de definitie voor automatische inrichting van de Microsoft Monitoring Agent-installatie?
+Windows- of Linux IaaS-VM's in aanmerking komt als:
+
+- De Microsoft Monitoring Agent-extensie is momenteel niet geïnstalleerd op de virtuele machine.
+- De virtuele machine wordt uitgevoerd.
+- De Windows- of Linux VM-Agent is geïnstalleerd.
+- De virtuele machine wordt niet gebruikt als een apparaat, zoals de web application firewall of de firewall van volgende generatie.
+
+### <a name="can-i-delete-the-default-workspaces-created-by-security-center"></a>Kan ik de Standaardwerkruimten die zijn gemaakt door Security Center wilt verwijderen?
+**Verwijderen van de standaardwerkruimte wordt niet aanbevolen.** Security Center maakt gebruik van de Standaardwerkruimten voor het opslaan van beveiligingsgegevens van uw virtuele machines.  Als u een werkruimte verwijdert, kan Security Center voor het verzamelen van deze gegevens en enkele aanbevelingen voor beveiliging en waarschuwingen zijn niet beschikbaar.
+
+Als u wilt herstellen, verwijdert u de Microsoft Monitoring Agent op de virtuele machines die zijn verbonden met de verwijderde werkruimte. Security Center de agent opnieuw installeren en nieuwe Standaardwerkruimten maken.
+
+### <a name="how-can-i-use-my-existing-log-analytics-workspace"></a>Hoe kan ik mijn bestaande Log Analytics-werkruimte gebruiken?
+
+U kunt een bestaande werkruimte voor logboekanalyse voor het opslaan van gegevens die zijn verzameld door Security Center kunt selecteren. Gebruik uw bestaande Log Analytics-werkruimte:
+
+- De werkruimte moet worden gekoppeld aan uw geselecteerde Azure-abonnement.
+- Ten minste, moet u machtigingen voor toegang tot de werkruimte hebt gelezen.
+
+Selecteer een bestaande Log Analytics-werkruimte:
+
+1. Onder **beveiligingsbeleid – gegevensverzameling**, selecteer **gebruik een andere werkruimte**.
+
+   ![Een andere werkruimte gebruiken][5]
+
+2. Selecteer een werkruimte voor het opslaan van verzamelde gegevens in de vervolgkeuzelijst.
+
+   > [!NOTE]
+   > In de vervolgkeuzelijst menu, worden alleen werkruimten die u hebt toegang tot en zijn in uw Azure-abonnement weergegeven.
+   >
+   >
+
+3. Selecteer **Opslaan**.
+4. Na het selecteren van **opslaan**, wordt u gevraagd als u reconfigure bewaakte VM's wilt.
+
+   - Selecteer **Nee** als u wilt dat de nieuwe werkruimte instellingen **toepassen op nieuwe virtuele machines**. De nieuwe werkruimte-instellingen zijn alleen van toepassing op nieuwe agentinstallaties; nieuwe gedetecteerde virtuele machines die geen van de Microsoft Monitoring Agent is geïnstalleerd.
+   - Selecteer **Ja** als u wilt dat de nieuwe werkruimte instellingen **toepassen op alle virtuele machines**. Bovendien wordt elke virtuele machine verbonden met een Security Center-werkruimte gemaakt verbonden aan de nieuwe doelwerkruimte.
+
+   > [!NOTE]
+   > Als u Ja selecteert, moet u de werkruimten die zijn gemaakt door Security Center totdat alle virtuele machines hebt opnieuw is verbonden met de nieuwe doelwerkruimte niet verwijderen. Met deze bewerking mislukt als een werkruimte te vroeg is verwijderd.
+   >
+   >
+
+   - Selecteer **annuleren** om de bewerking te annuleren.
+
+### <a name="what-if-the-microsoft-monitoring-agent-was-already-installed-as-an-extension-on-the-vm"></a>Wat gebeurt er als dat de Microsoft Monitoring Agent al is geïnstalleerd als een uitbreiding op de virtuele machine?
+Security Center wordt de bestaande verbindingen met werkruimten van de gebruiker niet overschreven. Security Center worden beveiligingsgegevens van de virtuele machine opgeslagen in de werkruimte is al verbonden. Security Center werkt de versie van de extensie om op te nemen van de Azure-resource-ID van de virtuele machine voor de ondersteuning van Security Center gebruik.
+
+### <a name="what-if-i-had-a-microsoft-monitoring-agent-installed-on-the-machine-but-not-as-an-extension"></a>Wat gebeurt er als ik heb een Microsoft Monitoring Agent geïnstalleerd op de computer, maar niet als een uitbreiding?
+Als de Microsoft Monitoring Agent rechtstreeks op de virtuele machine (en niet als een Azure-extensie) is geïnstalleerd, de Microsoft Monitoring Agent wordt niet geïnstalleerd door Security Center en beveiligingsbewaking is beperkt.
+
+Zie voor meer informatie de volgende sectie [wat gebeurt er als een SCOM of OMS directe agent al is geïnstalleerd op mijn VM?](#scomomsinstalled)
+
+### Wat gebeurt er als een SCOM of OMS agent aansturen op mijn virtuele machine is al geïnstalleerd?<a name="scomomsinstalled"></a>
+Security Center kan niet van tevoren identificeren dat een agent is geïnstalleerd.  Security Center probeert te installeren van de Microsoft Monitoring Agent-extensie en mislukt als gevolg van de bestaande geïnstalleerde agent.  Deze fout wordt voorkomen dat de verbindingsinstellingen van de agent voor de werkruimte te overschrijven en voorkomt het maken van multihoming.
+
+> [!NOTE]
+> De agent-versie is bijgewerkt naar de meest recente versie van de OMS-agent.  Dit geldt ook voor SCOM-gebruikers.
+>
+>
+
+### <a name="what-is-the-impact-of-removing-these-extensions"></a>Wat zijn de gevolgen van het verwijderen van deze extensies?
+Als u de extensie voor Microsoft Monitoring verwijdert, Security Center kan geen beveiligingsgegevens verzamelen van de virtuele machine en enkele aanbevelingen voor beveiliging en waarschuwingen zijn niet beschikbaar. Security Center bepaalt binnen 24 uur dat de virtuele machine in de uitbreiding ontbreekt en de extensie opnieuw geïnstalleerd.
+
+### <a name="how-do-i-stop-the-automatic-agent-installation-and-workspace-creation"></a>Hoe voorkom ik automatische agent-installatie en werkruimte maken
+U kunt uitschakelen automatische inrichting van uw abonnementen in het beveiligingsbeleid, maar dit wordt niet aanbevolen. Het uitschakelen van automatische inrichting limieten Security Center aanbevelingen en waarschuwingen. Automatische inrichting is vereist voor abonnementen op de prijscategorie Standard. Uitschakelen van automatische inrichting:
+
+1. Als uw abonnement is geconfigureerd voor de laag standaard, opent u het beveiligingsbeleid voor dat abonnement en selecteer de **gratis** laag.
+
+   ![Prijscategorie][1]
+
+2. Vervolgens uitschakelen door het selecteren van een automatische inrichting **uit** op de **beveiligingsbeleid – gegevensverzameling** blade.
+   ![Gegevensverzameling][2]
+
+### <a name="should-i-opt-out-of-the-automatic-agent-installation-and-workspace-creation"></a>Moet ik opt-out voor de automatische installatie van agent en werkruimte maken?
+
+> [!NOTE]
+> Lees secties [wat zijn de gevolgen van het uitschrijft?](#what-are-the-implications-of-opting-out-of-automatic-provisioning) en [aanbevolen stappen wanneer uitschrijft](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning) als u wilt afmelden voor automatische inrichting.
+>
+>
+
+U wilt afmelden voor automatische inrichting als voor u het volgende geldt:
+
+- Automatische installatie van agent door Security Center is van toepassing op het hele abonnement.  U kunt geen automatische installatie toepassen op een subset van virtuele machines. Als er kritieke VM's die met de Microsoft Monitoring Agent kunnen niet worden geïnstalleerd, moet u ervoor kiezen automatische inrichting van buiten.
+- Installatie van de Microsoft Monitoring Agent-extensie van de agent-versie-updates. Dit geldt voor een directe agent en een SCOM-agent. Als de geïnstalleerde SCOM-agent versie 2012 is en wordt bijgewerkt, kunnen beheerbaarheid mogelijkheden worden verbroken wanneer de SCOM-server ook versie 2012. U moet overwegen wanneer u geen gebruik automatische inrichting als de geïnstalleerde SCOM-agent versie 2012.
+- Als u een aangepaste werkruimte buiten het abonnement (een gecentraliseerde werkruimte) hebt moet u ervoor kiezen automatische inrichting van buiten. U kunt handmatig installeren van de Microsoft Monitoring Agent-extensie en verbindt dit uw werkruimte zonder Security Center voor het overschrijven van de verbinding.
+- Als u wilt voorkomen dat het maken van meerdere werkruimten per abonnement en u uw eigen aangepaste werkruimte binnen het abonnement hebt, hebt u twee opties:
+
+   1. U kunt afmelden voor automatische inrichting. Na de migratie, stel de standaardwaarde in werkruimte-instellingen zoals beschreven in [hoe kan ik mijn bestaande Log Analytics-werkruimte gebruiken?](#how-can-i-use-my-existing-log-analytics-workspace)
+   2. Of u kunt de migratie is voltooid, de Microsoft Monitoring Agent worden geïnstalleerd op de virtuele machines, en de virtuele machines die zijn verbonden met de gemaakte werkruimte. Selecteer vervolgens uw eigen aangepaste werkruimte door in te stellen de standaardinstelling van de werkruimte met inschrijving voor het opnieuw configureren van de reeds geïnstalleerde agents. Zie voor meer informatie, [hoe kan ik mijn bestaande Log Analytics-werkruimte gebruiken?](#how-can-i-use-my-existing-log-analytics-workspace)
+
+### <a name="what-are-the-implications-of-opting-out-of-automatic-provisioning"></a>Wat zijn de gevolgen van het geen automatische inrichting?
+Zodra de migratie is voltooid, Security Center kan geen beveiligingsgegevens verzamelen van de virtuele machine en enkele aanbevelingen voor beveiliging en waarschuwingen zijn niet beschikbaar. Als u zich afmelden, moet u de Microsoft Monitoring Agent handmatig installeren. Zie [aanbevolen stappen wanneer uitschrijft](#what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning).
+
+### <a name="what-are-the-recommended-steps-when-opting-out-of-automatic-provisioning"></a>Wat zijn de aanbevolen stappen wanneer u geen automatische inrichting?
+U moet de Microsoft Monitoring Agent handmatig installeren, zodat Security Center kunt verzamelen van beveiligingsgegevens van uw virtuele machines en aanbevelingen en waarschuwingen bieden. Zie [verbinding maken met Windows-computers naar de Log Analytics-service in Azure](../log-analytics/log-analytics-windows-agent.md) voor hulp bij de installatie.
+
+U kunt de agent koppelen aan een bestaande aangepaste werkruimte of Security Center-werkruimte gemaakt. Als u een aangepaste werkruimte heeft geen van de 'Beveiliging' of 'SecurityCenterFree' oplossingen die zijn ingeschakeld, moet u een oplossing van toepassing. Als u wilt toepassen, selecteert u de aangepaste werkruimte of het abonnement en toepassen van een prijscategorie via de **beveiligingsbeleid – prijscategorie** blade.
+
+   ![Prijscategorie][1]
+
+Security Center kunnen de juiste oplossing is in de werkruimte op basis van de geselecteerde prijscategorie.
+
+### Hoe verwijder ik OMS-extensies geïnstalleerd door Security Center?<a name="remove-oms"></a>
+U kunt de Microsoft Monitoring Agent handmatig verwijderen. Dit wordt niet aanbevolen omdat deze wordt beperkt door Security Center aanbevelingen en waarschuwingen.
+
+> [!NOTE]
+> Als gegevensverzameling is ingeschakeld, kan Security Center de agent wordt opnieuw nadat u deze verwijderen.  U moet verzamelen van gegevens voordat u de agent handmatig verwijdert uitschakelen. Zie [hoe stop ik het automatische agent-installatie en werkruimte maken?](#how-do-i-stop-the-automatic-agent-installation-and-workspace-creation?) voor instructies over het verzamelen van gegevens uitschakelen.
+>
+>
+
+De agent handmatig te verwijderen:
+
+1.  Open in de portal **Log Analytics**.
+2.  Op de blade Log Analytics een werkruimte te selecteren:
+3.  Selecteer elke VM die u niet wilt bewaken en selecteer **verbinding verbreken**.
+
+   ![De agent verwijderen][3]
+
+> [!NOTE]
+> Als een Linux-VM al een OMS-agent zonder extensie heeft, wordt de extensie verwijdert, worden ook de agent en de klant heeft deze opnieuw installeren.
+>
+>
 ### <a name="how-do-i-disable-data-collection"></a>Hoe kan ik het verzamelen van gegevens uitschakelen?
 Automatische inrichting is standaard uitgeschakeld. Automatische inrichting van resources op elk gewenst moment door het uitschakelen van deze instelling in het beveiligingsbeleid, kunt u uitschakelen. Automatische inrichting wordt sterk aanbevolen om op te halen beveiligingswaarschuwingen en aanbevelingen over systeemupdates, beveiligingsproblemen en endpoint protection.
 
@@ -78,6 +215,31 @@ De agent een nominaal bedrag van systeembronnen verbruikt en moet weinig invloed
 
 ### <a name="where-is-my-data-stored"></a>Waar worden mijn gegevens opgeslagen?
 Gegevens die worden verzameld van deze agent worden opgeslagen in een bestaande Log Analytics-werkruimte die is gekoppeld aan uw abonnement of een nieuwe werkruimte. Zie voor meer informatie, [gegevensbeveiliging](security-center-data-security.md).
+
+## Bestaande klanten van Log Analytics<a name="existingloganalyticscust"></a>
+
+### <a name="does-security-center-override-any-existing-connections-between-vms-and-workspaces"></a>Security Center heeft voorrang op bestaande verbindingen tussen virtuele machines en werkruimten?
+Als een virtuele machine al de Microsoft Monitoring Agent is geïnstalleerd als een uitbreiding van Azure is, wordt de bestaande verbinding in de werkruimte niet overschreven door Security Center. Security Center gebruikt in plaats daarvan de bestaande werkruimte.
+
+Een oplossing voor Security Center is geïnstalleerd op de werkruimte als dat niet al aanwezig, en de oplossing wordt alleen toegepast op de relevante virtuele machines. Wanneer u een oplossing toevoegt, wordt deze automatisch geïmplementeerd standaard voor alle Windows en Linux-agents die zijn verbonden met uw Log Analytics-werkruimte. [Oplossing doelitems](../operations-management-suite/operations-management-suite-solution-targeting.md) kunt u een bereik toepassen op uw oplossingen.
+
+Als de Microsoft Monitoring Agent rechtstreeks op de virtuele machine (en niet als een Azure-extensie) is geïnstalleerd, de Microsoft Monitoring Agent wordt niet geïnstalleerd door Security Center en beveiligingsbewaking is beperkt.
+
+### <a name="does-security-center-install-solutions-on-my-existing-log-analytics-workspaces-what-are-the-billing-implications"></a>Security Center oplossingen installeren op mijn bestaande Log Analytics-werkruimten Wat zijn de gevolgen voor de facturering?
+Als Security Center identificeert dat een virtuele machine al is verbonden met een werkruimte die u hebt gemaakt, kunt u Security Center-oplossingen voor deze werkruimte op basis van uw prijscategorie. De oplossingen worden alleen toegepast op de relevante Azure-virtuele machines, via [oplossingstargeting](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting), zodat de facturering hetzelfde blijft.
+
+- **Gratis laag** – installeert Security Center de oplossing 'SecurityCenterFree' in de werkruimte. U bent niet in rekening gebracht voor de gratis laag.
+- **Standard-laag** – installeert Security Center de beveiligingsoplossing in de werkruimte.
+
+   ![Oplossingen op standaardwerkruimte][4]
+
+### <a name="i-already-have-workspaces-in-my-environment-can-i-use-them-to-collect-security-data"></a>Ik heb al werkruimten in Mijn omgeving, kan ik deze niet gebruiken voor het verzamelen van beveiligingsgegevens?
+Als een virtuele machine al de Microsoft Monitoring Agent is geïnstalleerd als een uitbreiding van Azure is, wordt in Security Center maakt gebruik van de bestaande gekoppelde werkruimte. Een oplossing voor Security Center is geïnstalleerd op de werkruimte als dit niet al aanwezig, en de oplossing wordt alleen toegepast op de relevante virtuele machines via [oplossingstargeting](https://docs.microsoft.com/azure/operations-management-suite/operations-management-suite-solution-targeting).
+
+Wanneer Security Center de Microsoft Monitoring Agent is geïnstalleerd op virtuele machines, gebruikt de standaard werkruimten die zijn gemaakt door Security Center.
+
+### <a name="i-already-have-security-solution-on-my-workspaces-what-are-the-billing-implications"></a>Ik heb al beveiligingsoplossing op mijn werkruimten. Wat zijn de gevolgen voor de facturering?
+De oplossing beveiliging en Audit wordt Security Center Standard-laag-functies inschakelen voor virtuele Azure-machines gebruikt. Als de oplossing beveiliging en Audit is al geïnstalleerd op een werkruimte, wordt in Security Center maakt gebruik van de bestaande oplossing. Er is geen wijziging in facturering.
 
 ## <a name="using-azure-security-center"></a>Met behulp van Azure Security Center
 ### <a name="what-is-a-security-policy"></a>Wat is er een beveiligingsbeleid?
@@ -150,3 +312,11 @@ Security Center scant doorgaans voor nieuwe gegevens per uur. De latentie van bo
 
 ### <a name="why-do-i-get-the-message-vm-agent-is-missing"></a>Waarom krijg ik het bericht 'VM-Agent is ontbrekende?'
 De VM-Agent moet worden geïnstalleerd op VM's om gegevens te verzamelen. De VM-agent wordt standaard geïnstalleerd op VM's die zijn geïmplementeerd vanuit Azure Marketplace. Zie voor meer informatie over het installeren van de VM-Agent op andere virtuele machines, het blogbericht [VM-Agent en -extensies](https://azure.microsoft.com/blog/vm-agent-and-extensions-part-2/).
+
+
+<!--Image references-->
+[1]: ./media/security-center-platform-migration-faq/pricing-tier.png
+[2]: ./media/security-center-platform-migration-faq/data-collection.png
+[3]: ./media/security-center-platform-migration-faq/remove-the-agent.png
+[4]: ./media/security-center-platform-migration-faq/solutions.png
+[5]: ./media/security-center-platform-migration-faq/use-another-workspace.png

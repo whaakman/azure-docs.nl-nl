@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: tomfitz
-ms.openlocfilehash: efc71e02cc02574973f0b6b428b5b670cd9cfd5b
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 15fe97e39fbc1c669762ddb7523cfd043638d3de
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617349"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144226"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Bronnen van gebeurtenissen in Azure Event Grid
 
@@ -74,13 +74,14 @@ Zie voor meer voorbeelden van Event Hubs als een handler [Event Hubs-handler](ev
 
 ## <a name="iot-hub"></a>IoT Hub
 
-Abonneren op IoT-Hub gebeurtenissen om te reageren op een apparaat gemaakt en gebeurtenissen verwijderd.
+Abonneren op gebeurtenissen van IoT Hub om te reageren op het apparaat is gemaakt, verwijderd, verbonden en niet-verbonden gebeurtenissen.
 
 |Titel  |Beschrijving  |
 |---------|---------|
-| [Zelfstudie: verzenden van e-mailmeldingen over Azure IoT Hub-gebeurtenissen met Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Een logische app verzendt een e-mailmelding telkens wanneer een apparaat wordt toegevoegd aan uw IoT-hub. |
-| [Overzicht: reageren op gebeurtenissen van IoT-Hub met behulp van Event Grid om acties starten](../iot-hub/iot-hub-event-grid.md) | Overzicht van Iot-Hubs integreren met Event Grid. |
+| [Verzenden van e-mailmeldingen over Azure IoT Hub-gebeurtenissen met Logic Apps](publish-iot-hub-events-to-logic-apps.md) | Een logische app verzendt een e-mailmelding telkens wanneer een apparaat wordt toegevoegd aan uw IoT-Hub. |
+| [Reageren op gebeurtenissen van IoT-Hub met behulp van Event Grid om acties starten](../iot-hub/iot-hub-event-grid.md) | Overzicht van de integratie van IoT-Hub met Event Grid. |
 | [Gebeurtenisschema](event-schema-iot-hub.md) | Velden weergegeven van IoT-Hub gebeurtenissen. |
+| [Apparaat is verbonden en het apparaat verbroken gebeurtenissen](../iot-hub/iot-hub-how-to-order-connection-state-events.md) | Laat zien hoe apparaatverbinding statusgebeurtenissen rangschikken. |
 
 ## <a name="media-services"></a>Media Services
 

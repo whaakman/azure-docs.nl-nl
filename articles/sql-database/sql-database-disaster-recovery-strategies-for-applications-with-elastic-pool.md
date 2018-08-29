@@ -7,18 +7,18 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 08/27/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 6952e26898e4ff27dd7c2f6780dcb9b8b224460b
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 8f365d123a234f367a1415232a714d2c18663b63
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092542"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124067"
 ---
 # <a name="disaster-recovery-strategies-for-applications-using-sql-database-elastic-pools"></a>Strategieën voor noodherstel voor toepassingen die gebruikmaken van SQL Database elastische pools
-In de afgelopen jaren hebben we geleerd dat cloudservices niet betrouwbare zijn en catastrofale incidenten optreden. SQL Database biedt verschillende mogelijkheden te geven voor de bedrijfscontinuïteit van uw toepassing wanneer deze incidenten optreden. [Elastische pools](sql-database-elastic-pool.md) en individuele databases ondersteunen dezelfde soort herstelfunctionaliteit bij noodgevallen. In dit artikel beschrijft verschillende strategieën voor herstel na Noodgevallen voor elastische pools die gebruikmaken van deze functies voor bedrijfscontinuïteit SQL-Database.
+In de afgelopen jaren hebben we geleerd dat cloudservices niet betrouwbare zijn en catastrofale incidenten optreden. SQL Database biedt verschillende mogelijkheden te geven voor de bedrijfscontinuïteit van uw toepassing wanneer deze incidenten optreden. [Elastische pools](sql-database-elastic-pool.md) en individuele databases ondersteunen dezelfde soort disaster recovery (DR) mogelijkheden. In dit artikel beschrijft verschillende strategieën voor herstel na Noodgevallen voor elastische pools die gebruikmaken van deze functies voor bedrijfscontinuïteit SQL-Database.
 
 In dit artikel wordt het volgende patroon van canonical ISV-SaaS-toepassing:
 

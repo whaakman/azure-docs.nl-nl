@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 4084a5bd8cb82442eb37844f88f2ff6dd166b5ee
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6eb28ad918f9d95c26d91c05d8ee9556ef768bd3
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42446061"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125849"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Zakelijke continuïteit en herstel na noodgevallen (BCDR): Azure gekoppelde regio's
 
@@ -19,7 +19,7 @@ ms.locfileid: "42446061"
 
 Azure is beschikbaar in meerdere regio's over de hele wereld. Een Azure-Geografie is een bepaald gebied van de hele wereld met ten minste één Azure-regio. Een Azure-regio is een gebied in een geografisch gebied, met een of meer datacenters.
 
-Elke Azure-regio is gekoppeld aan een andere regio binnen hetzelfde geografische gebied, een regionaal paar samen te maken. De uitzondering is Brazilië-Zuid, die is gekoppeld aan een regio buiten de geografische locatie. Platform bijgewerkt (gepland onderhoud) voor de gekoppelde regio's die Azure wordt geserialiseerd, zodat die slechts één gekoppelde regio tegelijk worden bijgewerkt. Bovendien wordt de gebeurtenis van een storing die betrekking hebben op meerdere regio's ten minste één regio's in elk paar prioriteit voor herstel krijgen moeten.
+Elke Azure-regio is gekoppeld aan een andere regio binnen hetzelfde geografische gebied, een regionaal paar samen te maken. De uitzondering is Brazilië-Zuid, die is gekoppeld aan een regio buiten de geografische locatie. Platform bijgewerkt (gepland onderhoud) voor de gekoppelde regio's die Azure wordt geserialiseerd, zodat die slechts één gekoppelde regio tegelijk worden bijgewerkt. Bovendien na een storing die betrekking hebben op meerdere regio's ten minste één regio's in elk paar prioriteit moeten krijgen voor herstel.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
 

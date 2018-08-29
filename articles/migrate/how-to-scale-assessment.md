@@ -4,14 +4,14 @@ description: Hierin wordt beschreven hoe u grote aantallen on-premises virtuele 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 08/25/2018
 ms.author: raynew
-ms.openlocfilehash: 06905a2f16a23e5a7c4612f4b567aaf86322924d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 553e0d6569a3a35802703ef58e1460878dcd930b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054861"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127511"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
@@ -22,7 +22,7 @@ Azure Migrate heeft een limiet van 1500 machines per project, in dit artikel wor
 - **VMware**: VM's die u wilt migreren, moet worden beheerd door vCenter-Server versie 5.5, 6.0 of 6.5. Daarnaast moet u één ESXi-host met versie 5.0 of hoger voor het implementeren van de collector-VM.
 - **vCenter-account**: U hebt een alleen-lezen-account voor toegang tot de vCenter-Server nodig. Azure Migrate gebruikt dit account om de on-premises virtuele machines te detecteren.
 - **Machtigingen**: In de vCenter-Server, moet u machtigingen voor het maken van een virtuele machine door het importeren van een bestand in OVA-indeling.
-- **Instellingen voor statistieken**: de instellingen voor statistieken voor de vCenter-Server moeten worden ingesteld op niveau 3 voordat u begint met implementatie. Als het niveau lager dan 3 is, werkt de beoordeling wel, maar prestatiegegevens voor appopslag en netwerken worden niet verzameld. De aanbevelingen voor de grootte wordt in dit geval worden gebaseerd op prestatiegegevens voor CPU en geheugen en configuratiegegevens voor schijf en netwerkadapters.
+- **Instellingen voor statistieken**: de instellingen voor statistieken voor de vCenter-Server moeten worden ingesteld op niveau 3 voordat u begint met implementatie. Het statistiekniveau van de is ingesteld op 3 voor elk van de dag, week en maand verzameling intervallen. Als het niveau lager dan 3 voor elk van de drie verzameling intervallen is, werkt de beoordeling wel, maar de prestatiegegevens voor appopslag en netwerken worden niet verzameld. De aanbevelingen voor de grootte wordt vervolgens worden gebaseerd op prestatiegegevens voor CPU en geheugen en configuratiegegevens voor schijf en netwerkadapters.
 
 
 ### <a name="set-up-permissions"></a>Machtigingen instellen

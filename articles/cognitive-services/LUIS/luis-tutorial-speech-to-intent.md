@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.technology: luis
 ms.topic: article
 ms.date: 06/26/2018
-ms.author: diberry;
-ms.openlocfilehash: 286efcd97c0c9ab95a8241215bc36799c486a8b6
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.author: diberry
+ms.openlocfilehash: aadca428fa076d697cc0f893673672850ddc27d4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247712"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124393"
 ---
 # <a name="integrate-speech-service"></a>Integreer Speech-service
 De [spraakservice](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u gebruikmaken van een enkele aanvraag voor het ontvangen van audio en LUIS voorspelling JSON-objecten retourneren.
@@ -120,7 +120,7 @@ De juiste intentie **GetEmployeeOrgChart**, met een betrouwbaarheid van 61% is g
 De SDK spraak retourneert het gehele LUIS-antwoord. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u niet meer nodig hebt, verwijdert u de app LUIS HumanResources. Om dit te doen, selecteer het weglatingsteken (***...*** ) knop aan de rechterkant van de naam van de app in de applijst, selecteer **verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
+Wanneer u niet meer nodig hebt, verwijdert u de app LUIS HumanResources. Selecteer hiervoor de drie puntjes (***...***) rechts van de app-naam in de lijst met apps en selecteer vervolgens **Verwijderen**. Selecteer in het pop-upvenster **Delete app?** de optie **Ok**.
 
 Houd er rekening mee te verwijderen van de LUIS-Samples-directory wanneer u klaar bent met behulp van de voorbeeldcode.
 

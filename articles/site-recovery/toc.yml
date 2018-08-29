@@ -80,8 +80,6 @@ items:
         href: physical-azure-architecture.md
       - name: Ondersteuning voor meerdere tenants voor VMware-replicatie naar Azure
         href: vmware-azure-multi-tenant-overview.md
-      - name: Over de Mobility-service
-        href: vmware-azure-install-mobility-service.md
       - name: Opties voor failbacklocaties
         href: concepts-types-of-failback.md
     - name: Replicatie naar een secundaire site
@@ -190,26 +188,26 @@ items:
       items:
       - name: Virtuele VMware-machines naar Azure repliceren met behulp van PowerShell
         href: vmware-azure-disaster-recovery-powershell.md
-      - name: Herstel na noodgeval voor fysieke servers naar Azure
-        href: physical-azure-disaster-recovery.md
       - name: De bronomgeving instellen voor VMware-VM's
         href: vmware-azure-set-up-source.md
-      - name: De bronomgeving instellen voor fysieke servers
-        href: physical-azure-set-up-source.md
       - name: De configuratieserver voor VMware-replicatie implementeren
         href: vmware-azure-deploy-configuration-server.md
       - name: De doelomgeving instellen voor VMware-VM's
         href: vmware-azure-set-up-target.md
-      - name: De doelomgeving instellen voor fysieke servers
-        href: physical-azure-set-up-target.md
       - name: Replicatie-instellingen configureren
         href: vmware-azure-set-up-replication.md
-      - name: Schijven uitsluiten van replicatie
-        href: vmware-azure-exclude-disk.md
       - name: Replicatie van virtuele VMware-machines inschakelen
         href: vmware-azure-enable-replication.md
+      - name: Schijven uitsluiten van replicatie
+        href: vmware-azure-exclude-disk.md
       - name: Multitenancy met CSP voor virtuele VMWare-machines
         href: vmware-azure-multi-tenant-csp-disaster-recovery.md
+      - name: De bronomgeving instellen voor fysieke servers
+        href: physical-azure-set-up-source.md
+      - name: De doelomgeving instellen voor fysieke servers
+        href: physical-azure-set-up-target.md
+      - name: Herstel na noodgeval voor fysieke servers naar Azure
+        href: physical-azure-disaster-recovery.md
     - name: De Mobility-service implementeren
       items:
       - name: Overzicht van de Mobility-service
@@ -218,24 +216,24 @@ items:
         href: vmware-azure-mobility-install-configuration-mgr.md
     - name: Failover en failback
       items:
-      - name: Noodherstelanalyse uitvoeren in Azure
-        href: site-recovery-test-failover-to-azure.md
       - name: Herstelplannen instellen
         href: site-recovery-create-recovery-plans.md
       - name: Azure-runbooks aan herstelplannen toevoegen
         href: site-recovery-runbook-automation.md
+      - name: Noodherstelanalyse uitvoeren in Azure
+        href: site-recovery-test-failover-to-azure.md
+      - name: Een failover naar Azure uitvoeren
+        href: site-recovery-failover.md
+      - name: Opnieuw beveiligen van Azure naar on-premises VMware
+        href: vmware-azure-reprotect.md
+      - name: Failback van Azure naar VMware
+        href: vmware-azure-failback.md
       - name: Processerver voor failback in Azure instellen en beheren
         href: vmware-azure-set-up-process-server-azure.md
       - name: Een Linux-hoofddoelserver voor failback instellen
         href: vmware-azure-install-linux-master-target.md
-      - name: Een failover naar Azure uitvoeren
-        href: site-recovery-failover.md
       - name: Een failover en failback uitvoeren voor fysieke servers
         href: physical-to-azure-failover-failback.md
-      - name: Failback van Azure naar VMware
-        href: vmware-azure-failback.md
-      - name: Opnieuw beveiligen van Azure naar on-premises VMware
-        href: vmware-azure-reprotect.md
     - name: Beheren
       items:
       - name: De configuratieserver voor VMware-replicatie beheren
@@ -390,9 +388,9 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Service-updates
     href: https://azure.microsoft.com/updates/?product=site-recovery
-ms.openlocfilehash: cdc1990f71a38e7e0740456ccc8fb82e8ed1b5f9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f0469d554b25565411bb8c484f3d3937bb9a87f6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42914915"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126067"

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: d0dbf603c600639679e121723556a7f3ceb17e37
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 67806563dcd67876d4d922c7f2c76379f7ad7222
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158978"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125510"
 ---
 # <a name="billing-options-in-the-azure-marketplace"></a>Factureringsopties voor in Azure Marketplace
 
@@ -70,7 +70,7 @@ Een belangrijk voordeel van het gebruik van de optie publiceren op Marketplace T
 In dit scenario Microsoft kosten in rekening gebracht en worden namens u worden verzameld. Microsoft facturering verwijdert de vereiste waarmee u kunt uw eigen procurement relatie maken met uw klant. Één factuur bespaart u mogelijk tijd en resources. Deze ook kunt u zich richten op de verkoop in plaats van op het verzamelen van de factuur terechtkomen. 
 
 ## <a name="enterprise-agreement"></a>Enterprise Agreement  
-Als u een Microsoft Enterprise overeenkomst-klant bent, kunt u uw Enterprise Agreement om te betalen voor Microsoft-producten. U kunt een factuur voor producten, waaronder voor uw gebruik van Azure. Gebruik uw Enterprise Agreement om te betalen is ontworpen voor organisaties die willen licentie software en services voor drie of meer jaar in de cloud. U verspreid betalingen in plaats van een. betaling. Als u een betalen per gebruik publicatieoptie gebruikt, volgt de facturering voor uw kosten voor softwarelicenties de driemaandelijkse Enterprise Agreement overschrijding factureringscyclus.  
+Als u een Microsoft Enterprise overeenkomst-klant bent, kunt u uw Enterprise Agreement om te betalen voor Microsoft-producten. U kunt een factuur voor producten, waaronder voor uw gebruik van Azure. Gebruik uw Enterprise Agreement om te betalen is ontworpen voor organisaties die willen licentie software en services voor drie of meer jaar in de cloud. U verspreid betalingen in plaats van dat een betaling. Als u een betalen per gebruik publicatieoptie gebruikt, volgt de facturering voor uw kosten voor softwarelicenties de driemaandelijkse Enterprise Agreement overschrijding factureringscyclus.  
 
 ### <a name="monetary-commitment"></a>Monetaire toezegging
 Als u een Enterprise overeenkomst-klant bent, kunt u Azure toevoegen aan uw overeenkomst. U kunt Azure toevoegen aan uw overeenkomst door vooraf een monetaire toezegging voor Azure. Uw monetaire toezegging wordt gedurende het jaar verbruikt. Uw toezegging bevat een combinatie van het gebruik van Azure-services.

@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/27/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: e833cb0e7f98933fd106a92a9aac6c4c2677d50d
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 3d0eca6e1c680dd703f4dceac6abcb70144bac37
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443579"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124994"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Een vCore-servicelaag kiezen, Reken-, geheugen, opslag- en i/o-resources
 
@@ -35,8 +35,8 @@ De volgende tabel kunt u weten wat de verschillen tussen deze twee lagen:
 |Ideaal voor|Meeste zakelijke workloads. Aanbiedingen budget documentgeoriënteerde uitgebalanceerde en schaalbare Computing- en opslagopties.|Zakelijke toepassingen die snelle I/O vereisen. Maakt gebruik van verschillende geïsoleerde replica's voor de hoogste mate van flexibiliteit wat storingen betreft.|
 |Compute|Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|Gen4: 1-24 vCore<br/>Gen5: 1 en 80 vCore|
 |Geheugen|Gen4: 7 GB per kern<br>Gen5: 5.5 GB per kern | Gen4: 7 GB per kern<br>Gen5: 5.5 GB per kern |
-|Storage|[Externe premiumopslag](../virtual-machines/windows/premium-storage.md),<br/>Singleton-Database: 5 GB – 4 TB<br/>Beheerd exemplaar: 32 GB - 8 TB |Lokale SSD-opslag<br/>Individuele Database: 5 GB – 4 TB<br/>Beheerd exemplaar: 32 GB - 4 TB |
-|I/o-doorvoer (bij benadering)|Singleton-Database: 500 IOP's per vCore met 7000 maximale IOPS</br>Beheerd exemplaar: Afhankelijk [bestandsgrootte](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOP's per kern met 200000 maximale IOPS|
+|Storage|[Externe premiumopslag](../virtual-machines/windows/premium-storage.md),<br/>Individuele Database: 5 GB – 4 TB<br/>Beheerd exemplaar: 32 GB - 8 TB |Lokale SSD-opslag<br/>Individuele Database: 5 GB – 1 TB<br/>Beheerd exemplaar: 32 GB - 4 TB |
+|I/o-doorvoer (bij benadering)|Individuele Database: 500 IOP's per vCore met 7000 maximale IOPS</br>Beheerd exemplaar: Afhankelijk [bestandsgrootte](../virtual-machines/windows/premium-storage-performance.md#premium-storage-disk-sizes)|5000 IOP's per kern met 200000 maximale IOPS|
 |Beschikbaarheid|1 replica, geen lees-schaal|3 replica's, 1 [leesschaal replica](sql-database-read-scale-out.md),<br/>zone-redundante HA|
 |Back-ups|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 en 35 dagen (7 dagen standaard)|[RA-GRS](../storage/common/storage-designing-ha-apps-with-ragrs.md), 7 en 35 dagen (7 dagen standaard)|
 |In het geheugen|N/A|Ondersteund|
@@ -53,10 +53,10 @@ Zie [Veelgestelde vragen over SQL-Database](sql-database-faq.md) voor antwoorden
 
 Overweeg de volgende:
 - De toegewezen opslag wordt gebruikt door de gegevensbestanden (MDF) en logboekbestanden bestanden (LDF).
-- Elk prestatieniveau Singleton-Database ondersteunt een maximale databasegrootte, met een maximale standaardgrootte van 32 GB.
-- Wanneer u de vereiste Singleton-grootte (grootte van het MDF) configureert, wordt 30% van de extra opslag automatisch toegevoegd ter ondersteuning van LDF
+- Elk prestatieniveau van één database ondersteunt een maximale databasegrootte, met een maximale standaardgrootte van 32 GB.
+- Wanneer u de grootte van de vereiste één database (grootte van het MDF) configureert, wordt 30% van de extra opslag automatisch toegevoegd ter ondersteuning van LDF
 - Maximale grootte in het beheerde exemplaar moet worden opgegeven in veelvouden van 32 GB.
-- U kunt de grootte van een Singleton-database tussen 10 GB en de maximale ondersteunde selecteren
+- U kunt de grootte van een singleton-database tussen 10 GB en de maximale ondersteunde selecteren
  - Voor Standard-opslag, vergroten of verkleinen in stappen van 10 GB
  - Voor Premium-opslag, vergroten of verkleinen in stappen van 250 GB
 - In de categorie Algemeen gebruik-service `tempdb` maakt gebruik van een gekoppelde SSD en deze kosten voor opslag is opgenomen in het vCore-prijs.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 1fcac972e7404c2e0549b9bb9f2e03861977bfad
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: d4ca44268740f48702594d9c87aa568d4f8eecb6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094768"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122402"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële Console van virtuele Machine (preview) 
 
@@ -36,10 +36,14 @@ Voor de seriële console-documentatie voor Windows-VM's, [Klik hier](../windows/
 
 * U moet de resource Manager-implementatiemodel gebruiken. Klassieke implementaties worden niet ondersteund. 
 * Uw virtuele machine moet hebben [diagnostische gegevens over opstarten](boot-diagnostics.md) ingeschakeld - Zie de onderstaande schermafbeelding.
+
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
+    
 * Het Azure-account met behulp van de seriële console moet hebben [rol van Inzender](../../role-based-access-control/built-in-roles.md) voor de virtuele machine en de [diagnostische gegevens over opstarten](boot-diagnostics.md) storage-account. 
 * De virtuele machine waarvoor u de seriële console acessing zijn moet ook een account op basis van wachtwoorden hebben. U kunt maken met de [wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionaliteit van de toegang tot VM-extensie - Zie de onderstaande schermafbeelding.
+
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
+
 * Zie voor specifieke instellingen voor Linux-distributies, [toegang tot de seriële console voor Linux](#access-serial-console-for-linux)
 
 

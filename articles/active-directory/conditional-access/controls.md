@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 06/13/2018
+ms.date: 08/28/2018
 ms.author: markvi
 ms.reviewer: calebb
-ms.openlocfilehash: ba770415d7371463f1370d982f179c2a6f41ee65
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 050ccff8501a22526e9382a620258b0f846efe5c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629555"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128718"
 ---
 # <a name="what-are-access-controls-in-azure-active-directory-conditional-access"></a>Wat zijn besturingselementen voor toegang in Azure Active Directory voor voorwaardelijke toegang? 
 
 Met [voorwaardelijke toegang van Azure Active Directory (Azure AD)](../active-directory-conditional-access-azure-portal.md), u kunt bepalen hoe gemachtigde gebruikers toegang tot uw cloud-apps. In een beleid voor voorwaardelijke toegang definieert u het antwoord ('Doe dit') met de reden voor het activeren van uw beleid ('als dit gebeurt'). 
 
-![Besturingselement](./media/controls/10.png)
+![Beheer](./media/controls/10.png)
 
 
 In de context van voorwaardelijke toegang 
@@ -40,7 +40,7 @@ In de context van voorwaardelijke toegang
 
 De combinatie van een voorwaardeninstructie met de besturingselementen vertegenwoordigt een beleid voor voorwaardelijke toegang.
 
-![Besturingselement](./media/controls/61.png)
+![Beheer](./media/controls/61.png)
 
 Elk besturingselement is een vereiste waaraan moet worden voldaan door de persoon die of systeem aanmelden of een beperking op wat de gebruiker kan doen na het aanmelden. 
 
@@ -59,7 +59,7 @@ Met besturingselementen voor verlenen, kunt u toegang volledig blokkeren of toeg
 - Alle geselecteerde besturingselementen om te worden uitgevoerd (*en*) 
 - Een geselecteerd besturingselement moet worden voldaan (*of*)
 
-![Besturingselement](./media/controls/17.png)
+![Beheer](./media/controls/17.png)
 
 
 
@@ -119,9 +119,12 @@ Biedt momenteel een compatibele service providers zijn onder andere:
 
 - [Duo beveiliging](https://duo.com/docs/azure-ca)
 
+- [Entrust Datacard](https://www.entrustdatacard.com/products/authentication/intellitrust)
+
 - RSA
 
 - [Trusona](https://www.trusona.com/docs/azure-ad-integration-guide)
+
 
 Voor meer informatie over deze services rechtstreeks contact op met de providers.
 
@@ -133,12 +136,12 @@ Kopieer de JSON-gegevens en plak deze in het bijbehorende tekstvak. Geen eventue
 
 De optie voor het maken van een aangepast besturingselement is in de **beheren** sectie van de **voorwaardelijke toegang** pagina.
 
-![Besturingselement](./media/controls/82.png)
+![Beheer](./media/controls/82.png)
 
 Te klikken op **nieuw aangepast besturingselement**, wordt een blade geopend met een tekstvak voor de JSON-gegevens van het besturingselement.  
 
 
-![Besturingselement](./media/controls/81.png)
+![Beheer](./media/controls/81.png)
 
 
 ### <a name="deleting-custom-controls"></a>Verwijderen van aangepaste besturingselementen
@@ -162,7 +165,7 @@ Als u wilt een aangepast besturingselement bewerken, moet u het huidige besturin
 
 Met de sessiebesturingselementen wordt de beperkte ervaring in een cloud-app ingeschakeld. De sessiebesturingselementen worden afgedwongen door cloud-apps en zijn gebaseerd op aanvullende informatie geleverd door Azure AD aan de app over de sessie.
 
-![Besturingselement](./media/controls/31.png)
+![Beheer](./media/controls/31.png)
 
 ### <a name="use-app-enforced-restrictions"></a>Door apps gehandhaafde beperkingen gebruiken
 
@@ -175,4 +178,4 @@ Zie voor meer informatie over het vereisen van beperkte toegang met SharePoint, 
 
 - Als u weten hoe u een beleid voor voorwaardelijke toegang configureren wilt, Zie [MFA vereisen voor specifieke apps met voorwaardelijke toegang van Azure Active Directory](app-based-mfa.md).
 
-- Als u klaar om te configureren van beleid voor voorwaardelijke toegang voor uw omgeving bent, raadpleegt u de [aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md). 
+- Zie [Aanbevolen procedures voor voorwaardelijke toegang in Azure Active Directory](best-practices.md) als u klaar bent om beleid voor voorwaardelijke toegang in Azure Active Directory te configureren. 

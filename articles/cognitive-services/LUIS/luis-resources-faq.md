@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: diberry
-ms.openlocfilehash: 93ced2d0c79d80a631ad90aa3f5d2dc9f8c79c7e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a266055c7685dca87d985775584a9ea7a4bda883
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390191"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128517"
 ---
 # <a name="language-understanding-faq"></a>Veelgestelde vragen over de Language Understanding
 
@@ -151,7 +151,7 @@ Als u van het logboek voor de voorspelling analyse gebruikmaakt, test-uitingen i
 
 Nee. Het gegevensmodel van de LUIS-app wordt niet gebruikt door LUIS voor het verbeteren van LUIS als een platform of gebruikt door Microsoft op geen enkele manier. De gegevens van elke app staat los en eigendom zijn alleen door de gebruiker en de deelnemers. 
 
-Meer informatie over [gebruikersprivacy](luis-reference-gdpr.md), [extra beveiliging, naleving](luis-concept-security.md#security-compliance), en [gegevensopslag](luis-concept-data-storage.md).
+Meer informatie over [gebruikersprivacy](luis-user-privacy.md), [extra beveiliging, naleving](luis-concept-security.md#security-compliance), en [gegevensopslag](luis-concept-data-storage.md).
 
 ## <a name="language-and-translation-support"></a>Ondersteuning voor taal en vertaling 
 

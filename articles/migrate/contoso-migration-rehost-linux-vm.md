@@ -5,14 +5,14 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 07/12/2018
+ms.date: 08/28/2018
 ms.author: raynew
-ms.openlocfilehash: 99733fd80ab722f38a27bd99e5dd61bc32f7ab36
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: dc2e116e9e6bb60da4ba9fecb308ad0f9d7c127b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105050"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126791"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-linux-app-to-azure-vms"></a>Migratie van Contoso: een Linux-app van de on-premises naar Azure VM's opnieuw hosten
 
@@ -71,7 +71,7 @@ Na het vastmaken omlaag doelstellingen en vereisten, Contoso ontwerpen van een i
 - De VMware-omgeving wordt beheerd door vCenter Server 6.5 (**vcenter.contoso.com**) uitgevoerd op een virtuele machine.
 - Contoso heeft een on-premises datacenter (**contoso-datacenter**), met een on-premises domeincontroller (**contosodc1**)
 
-## <a name="proposed-architecture"></a>Voorgestelde architectuur
+### <a name="proposed-architecture"></a>Voorgestelde architectuur
 
 - Omdat de app een productie-werkbelasting is, de virtuele machines in Azure bevindt zich in de resourcegroep van de productie **ContosoRG**.
 - De virtuele machines worden gemigreerd naar de primaire regio (VS-Oost 2) en worden in de productienetwerk (VNET-PROD-EUS2):
@@ -87,7 +87,7 @@ Contoso evalueert het ontwerp van de voorgestelde door het samenstellen van een 
 
 **Overweging** | **Details**
 --- | ---
-**Professionals** | Zowel de virtuele machines van app worden verplaatst naar Azure zonder wijzigingen, waardoor de migratie eenvoudig.<br/><br/> Omdat Contoso lift-and-shift voor zowel virtuele machines van de app gebruikt is, zijn geen speciale configuratie of de migratie van hulpprogramma's voor de database van de app nodig.<br/><br/> Contoso, behouden die volledige controle over de virtuele machines in Azure-app. <br/><br/> SQL-Database heeft ingebouwde fouttolerantie die Contoso niet nodig om in te stellen. Dit zorgt ervoor dat de gegevenslaag niet langer een single point of failover is.</br>/br > Ubuntu 16.04-TLS, dit is een onderschreven Linux-distributie van de app virtuele machines worden uitgevoerd. [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
+**Professionals** | Zowel de virtuele machines van app worden verplaatst naar Azure zonder wijzigingen, waardoor de migratie eenvoudig.<br/><br/> Omdat Contoso lift-and-shift voor zowel virtuele machines van de app gebruikt is, zijn geen speciale configuratie of de migratie van hulpprogramma's voor de database van de app nodig.<br/><br/> Contoso, behouden die volledige controle over de virtuele machines in Azure-app. </br>/br > Ubuntu 16.04-TLS, dit is een onderschreven Linux-distributie van de app virtuele machines worden uitgevoerd. [Meer informatie](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros).
 **Nadelen** | De lagen web en gegevens van de app blijft een single point of failover. <br/><br/> Contoso moet doorgaan met ondersteuning van de app als Azure-VM's in plaats van verplaatsen naar een beheerde service zoals Azure App Service en Azure Database voor MySQL.<br/><br/> Contoso is op de hoogte dat houdt dingen eenvoudig met een virtuele machine lift-and-shift-migratie, ze niet u maximaal van de functies van profiteert zijn [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/overview) (ingebouwde hoge beschikbaarheid, voorspelbare prestaties eenvoudig schalen, automatische back-ups en ingebouwde beveiliging).
 
 ### <a name="migration-process"></a>Migratieproces

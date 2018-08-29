@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: 551439d28bcd7c64faf7ac6ac7388145456f7a53
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: b709b2791ae7472689cc2c7ca747f75ce0f1e6bf
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41987479"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126087"
 ---
 # <a name="quickstart-recognize-speech-in-a-uwp-app-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in een UWP-app met behulp van de spraak-SDK
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel leert u over het maken van een Universal Windows Platform (UWP)-toepassing met behulp van de Cognitive Services Speech SDK spraak naar tekst te transcriberen.
 De toepassing is gemaakt met de [Microsoft Cognitive Services Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
@@ -112,7 +112,7 @@ De toepassing is gemaakt met de [Microsoft Cognitive Services Speech SDK NuGet-p
 
     ![](media/sdk/qs-csharp-uwp-11-ui-result.png)
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Zoek in dit voorbeeld in de `quickstart/csharp-uwp` map.
 
 ## <a name="next-steps"></a>Volgende stappen

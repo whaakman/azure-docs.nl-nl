@@ -6,14 +6,14 @@ author: jj09
 manager: jlembicz
 ms.service: search
 ms.topic: conceptual
-ms.date: 07/14/2016
+ms.date: 08/26/2018
 ms.author: jjed
-ms.openlocfilehash: 2f52ed0ab302d1c3dad699258287f6edd7197cef
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 6fed5a8afe6030038752d540bfabbc446c57db2c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525617"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124148"
 ---
 # <a name="get-started-with-azure-search-in-java"></a>Aan de slag met Azure Search in Java
 > [!div class="op_single_selector"]
@@ -28,9 +28,9 @@ Als u dit voorbeeld wilt uitvoeren, moet u over de Azure Search-service beschikk
 
 De volgende software is gebruik om deze sample te maken en te testen:
 
-* [Eclipse IDE voor Java EE-ontwikkelaars](https://eclipse.org/downloads/packages/eclipse-ide-java-ee-developers/lunar). Zorg ervoor dat u de EE-versie downloadt. Voor een van de verificatiestappen is een functie vereist die alleen in deze versie beschikbaar is.
-* [JDK 8u40](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
-* [Apache Tomcat 8.0](http://tomcat.apache.org/download-80.cgi)
+* [Eclipse IDE voor Java EE-ontwikkelaars](https://www.eclipse.org/downloads/packages/release/photon/r/eclipse-ide-java-ee-developers). Zorg ervoor dat u de EE-versie downloadt. Voor een van de verificatiestappen is een functie vereist die alleen in deze versie beschikbaar is.
+* [JDK 8u181](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [Apache Tomcat 8.5.33](https://tomcat.apache.org/download-80.cgi#8.5.33)
 
 ## <a name="about-the-data"></a>Over de gegevens
 In deze voorbeeldtoepassing wordt gebruikgemaakt van gegevens van [United States Geological Services (USGS)](http://geonames.usgs.gov/domestic/download_data.htm), gefilterd op de staat Rhode Island om de grootte van de gegevensset te reduceren. We gebruiken deze gegevens om een zoektoepassing te bouwen die kenmerkende gebouwen, zoals ziekenhuizen of scholen, gebouwen zoals ziekenhuizen en scholen, maar ook geologische kenmerken, zoals stromen, meren en toppen, retourneert.
@@ -51,7 +51,7 @@ In de volgende lijst worden de bestanden beschreven die relevant zijn voor dit v
 * SearchServiceHelper.java: een helperklasse die statische methoden biedt
 * Document.Java: levert het gegevensmodel
 * Config.Properties: stelt de URL van de zoekservice en de API-sleutel in
-* Pom.XML: een Maven-afhankelijkheid
+* Pom.XML: Een Maven-afhankelijkheid
 
 <a id="sub-2"></a>
 

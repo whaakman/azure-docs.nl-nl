@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 5508b5943e116545297d91e85621d2a11a635299
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: b8caeab7f08ffeee81492b01750cbb255e172872
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39059765"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144519"
 ---
 # <a name="virtual-machine-offer-publishing-guide"></a>Publicatiehandleiding voor virtuele Machine-aanbieding
 
@@ -42,7 +42,7 @@ U kunt ervoor zorgen dat gebruikers voor het testen van uw aanbieding door het o
 
 Een of meer virtuele machines via infrastructure-as-a-service(IaaS) of SaaS-apps te implementeren. Een voordeel van test drive publicatieoptie is de geautomatiseerde inrichting van een virtuele machine of de gehele oplossing onder leiding van een partner gehoste rondleiding. Een test uit biedt een evaluatie zonder extra kosten voor uw klant. De klant hoeft niet te worden van een bestaande Azure-klant contact opnemen met de proefversie. 
 
-E-mailbericht amp-testdrive@microsoft.com aan de slag. 
+Neem contact op met ons op [amp testdrive](mailto:amp-testdrive@microsoft.com) aan de slag. 
 
 |Vereisten  |Details |
 |---------|---------|

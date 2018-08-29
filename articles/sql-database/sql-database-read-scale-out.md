@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 8/27/2018
 ms.author: sashan
-ms.openlocfilehash: 2fe27f93bb48e0581902fd380813c878a4883a5c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c0fa4a9868aa19032888aa50a0d300dd2e88fcca
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060847"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124814"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Alleen-lezen replica's gebruiken om te laden saldo alleen-lezen query workloads (preview)
 
@@ -47,7 +47,7 @@ Een van de voordelen van het Always ON is dat de replica's altijd de transaction
 
 ## <a name="connecting-to-a-read-only-replica"></a>Verbinding maken met een alleen-lezen replica
 
-Wanneer u Read Scale-Out voor een database inschakelen, de `ApplicationIntent` optie in de verbindingsreeks die is opgegeven door de client bepaalt of de verbinding wordt doorgestuurd naar de replica schrijven of naar een alleen-lezen-replica. Met name als de `ApplicationIntent` waarde `ReadWrite` (de standaardwaarde), de verbinding worden omgeleid naar de databasereplica voor lezen / schrijven. Dit is gelijk aan het bestaande gedrag. Als de `ApplicationIntent` waarde `ReadOnly`, de verbinding wordt doorgestuurd naar een leesbare replica.
+Wanneer u Read Scale-Out voor een database inschakelen, de `ApplicationIntent` optie in de verbindingsreeks die is opgegeven door de client bepaalt of de verbinding wordt doorgestuurd naar de replica schrijven of naar een alleen-lezen-replica. Met name als de `ApplicationIntent` waarde `ReadWrite` (de standaardwaarde), de verbinding worden omgeleid naar de databasereplica voor lezen / schrijven. Dit is gelijk aan het bestaande gedrag. Als de `ApplicationIntent` waarde `ReadOnly`, de verbinding wordt doorgestuurd naar een alleen-lezen-replica.
 
 De volgende verbindingsreeks maakt de client bijvoorbeeld verbinding met een alleen-lezen replica (de items in de punthaken vervangen door de juiste waarden voor uw omgeving en de punthaken neerzetten):
 

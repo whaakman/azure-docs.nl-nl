@@ -8,15 +8,15 @@ author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 07/18/2018
+ms.date: 08/28/2018
 ms.reviewer: carlrab
 ms.author: dmalik
-ms.openlocfilehash: cdf067839c73f9da40d03628ff1c9920764e2219
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 223a8da0c3c940c57dfc58d9cc87a19ae45a64eb
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127588"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143807"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure SQL Database en SQL Data Warehouse
 
@@ -181,11 +181,10 @@ Azure Storage is de dezelfde functie waarmee u verbinding met uw Storage-account
 Als u ervoor kiest deze functie wilt gebruiken met een opslagaccount dat wordt gebruikt door een Azure SQL-Server, kunt u problemen ondervindt. Vervolgens wordt een lijst met en een beschrijving van de Azure-SQLDB-functies die worden beïnvloed door dit.
 
 #### <a name="azure-sqldw-polybase"></a>Azure RESOURCEKLASSE PolyBase
-PolyBase wordt meestal gebruikt om gegevens te laden in Azure RESOURCEKLASSE van Storage-accounts. Als het opslagaccount dat u het laden van gegevens van alleen toegang tot een set van VNet-subnetten limieten, wordt verbinding hebben met PolyBase aan het Account verbroken. Er is een beperking voor deze, en u kunt contact opnemen met *dmalik@microsoft.com* voor meer informatie.
+PolyBase wordt meestal gebruikt om gegevens te laden in Azure RESOURCEKLASSE van Storage-accounts. Als het opslagaccount dat u het laden van gegevens van alleen toegang tot een set van VNet-subnetten limieten, wordt verbinding hebben met PolyBase aan het Account verbroken. Er is een beperking voor deze en kunt u contact opnemen met Microsoft ondersteuning voor meer informatie.
 
 #### <a name="azure-sqldb-blob-auditing"></a>Azure SQLDB Blob Auditing
 Auditlogboeken controlefunctie voor BLOBs worden verstuurd naar uw eigen opslagaccount. Connectiviteit van Azure SQLDB naar het opslagaccount dat wordt verbroken als u dit storage-account maakt gebruik van de functie voor hergebruik Service-eindpunten.
-
 
 ## <a name="adding-a-vnet-firewall-rule-to-your-server-without-turning-on-vnet-service-endpoints"></a>Een VNET-firewallregel toevoegen aan uw server zonder in te schakelen op VNET-Service-eindpunten
 

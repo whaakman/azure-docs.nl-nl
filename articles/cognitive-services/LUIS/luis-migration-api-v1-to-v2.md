@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 03/01/2018
 ms.author: diberry
-ms.openlocfilehash: cb68ad57302f151975c1ca6616a24db9804a6a68
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: e7460a0eaf51e839accf08b6f8b07a112033af17
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223052"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43130558"
 ---
 # <a name="api-v2-migration-guide"></a>Migratiehandleiding voor API-versie 2
 De versie 1 [eindpunt](https://aka.ms/v1-endpoint-api-docs) en [ontwerpen](https://aka.ms/v1-authoring-api-docs) API's wordt afgeschaft. Gebruik deze handleiding voor meer informatie over het migreren naar versie 2 [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 
@@ -168,6 +168,6 @@ Zie [LUIS-API-responscodes](luis-reference-response-codes.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Gebruik de v2-API-documentatie voor het bijwerken van bestaande REST-naar LIUS aanroepen [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 
+Gebruik de v2-API-documentatie voor het bijwerken van bestaande REST-naar LUIS aanroepen [eindpunt](https://aka.ms/luis-endpoint-apis) en [ontwerpen](https://aka.ms/luis-authoring-apis) API's. 
 
 [LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions

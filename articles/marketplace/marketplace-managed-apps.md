@@ -14,16 +14,16 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: ellacroi
-ms.openlocfilehash: 674e91a7c1de026a26cf9a3bf1eaead7f5e86144
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: c8ead3dc34faefce0f113dee2074960fddfa11a1
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39060549"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144588"
 ---
 # <a name="azure-applications-managed-application-offer-publishing-guide"></a>Azure-toepassingen: Beheerder Toepassingsbieding Publicatiehandleiding voor
 
-Sjablonen voor oplossingen zijn een van de belangrijkste manieren om een oplossing op Marketplace publiceert. Deze handleiding gebruiken om informatie over de systeemvereisten voor deze aanbieding. 
+Een beheerde toepassing is een van de manieren voor het publiceren van een oplossing in de Marketplace. Deze handleiding gebruiken om informatie over de systeemvereisten voor deze aanbieding. 
 
 Dit zijn de transactie-aanbiedingen die zijn geïmplementeerd en worden gefactureerd via de Marketplace. De aanroep naar de actie die door een gebruiker is "Nu downloaden."
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/09/2018
 ms.author: keithcharlie
-ms.openlocfilehash: 69f11c77d01f546aecdcb5f0560f6f89483ac204
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: f1a6825cdfab2375f1a6f1858ef14684d374dae2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056399"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123479"
 ---
 # <a name="saas-applications-offer-publishing-guide"></a>SaaS-toepassingen bieden Publicatiehandleiding voor
 
@@ -41,7 +41,7 @@ SaaS-toepassingen zijn beschikbaar in zowel Azure Storefronts de volgende tabel 
 | --- | --- | --- |  
 | **Contact opnemen** | Ja | Nee |  
 | **Power BI / Dynamics** | Ja | Ja (Azure AD-integratie) |  
-| **SaaS-Apps**| Ja | Ja (Azure AD-integratie) |     
+| **SaaS-apps**| Ja | Ja (Azure AD-integratie) |     
 
 ## <a name="saas-list"></a>Lijst met SaaS
 
@@ -97,7 +97,7 @@ Gratis training voor Azure Active Directory is beschikbaar op
 * [Microsoft Azure for IT Pros Content-serie: Azure Active Directory](https://mva.microsoft.com/en-US/training-courses/microsoft-azure-for-it-pros-content-series-azure-active-directory-16754?l=N0e23wtxC_2106218965)
 
 Bovendien biedt Azure Active Directory een site om te controleren op Updates van de Service   
-* [Azure AD-Service-updates](https://azure.microsoft.com/updates/?product=active-directory)|
+* [Azure AD-Service-updates](https://azure.microsoft.com/updates/?product=active-directory)
 
 ## <a name="using-azure-active-directory-to-enable-trials"></a>Met behulp van Azure Active Directory om in te schakelen proefversies  
 

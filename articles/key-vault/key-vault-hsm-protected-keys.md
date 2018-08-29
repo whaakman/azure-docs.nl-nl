@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/05/2017
+ms.date: 08/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 774fd4ca6bbae0d02f5733269f091d325f4c776d
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 9466f4178047a4927684a1fcfd80f661ea4aa7a5
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059100"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127699"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Het genereren en overdragen met HSM beveiligde sleutels voor Azure Key Vault
-## <a name="introduction"></a>Inleiding
+
 Voor extra zekerheid, wanneer u Azure Key Vault, gebruikt kunt u importeren of genereren van sleutels in hardware security modules (HSM's) die de HSM-grens nooit verlaten. In dit scenario wordt vaak aangeduid als *uw eigen sleutel*, of byok genoemd. De HSM's zijn FIPS 140-2 Level 2-gevalideerde modules. Azure Key Vault gebruikt Thales nShield-familie van HSM's voor het beveiligen van uw sleutels.
 
 Gebruik de informatie in dit onderwerp om te plannen, te genereren en vervolgens over te dragen van uw eigen HSM beveiligde sleutels gebruiken met Azure Key Vault.
@@ -31,10 +31,7 @@ Deze functionaliteit is niet beschikbaar voor Azure China.
 
 > [!NOTE]
 > Zie voor meer informatie over Azure Key Vault [wat is Azure Key Vault?](key-vault-whatis.md)  
->
 > Zie voor een aan de slag-zelfstudie, zoals het maken van een sleutelkluis voor HSM beschermde sleutels, [aan de slag met Azure Key Vault](key-vault-get-started.md).
->
->
 
 Meer informatie over het genereren en overdragen van een met HSM beveiligde sleutel via Internet:
 
@@ -46,14 +43,17 @@ Meer informatie over het genereren en overdragen van een met HSM beveiligde sleu
 * Microsoft gebruikt afzonderlijke kek's en afzonderlijke Beveiligingswerelden in elke geografische regio. Dankzij deze scheiding zorgt ervoor dat de sleutel kan worden gebruikt alleen in datacenters in de regio waarin u hebt versleuteld. Bijvoorbeeld, kan niet een sleutel van een Europese klant worden gebruikt in datacenters in Noord-Amerika of Azië.
 
 ## <a name="more-information-about-thales-hsms-and-microsoft-services"></a>Meer informatie over Thales HSM's en Microsoft-services
+
 Thales e-Security is een toonaangevende wereldwijde leverancier van gegevensversleuteling en cyberbeveiliging beveiligingsoplossingen voor de financiële, hightech, productie, overheid en technologiesector. Met een 40 jaar bijhouden record van de bescherming van zakelijke en overheidsgegevens worden oplossingen van Thales gebruikt door vier van de vijf grootste energie- en ruimtevaart bedrijven. Hun oplossingen worden ook gebruikt door 22 NAVO-landen, en meer dan 80 procent van de betalingstransacties wereldwijd beveiligen.
 
 Microsoft heeft samengewerkt met Thales om de status van illustraties voor HSM's. Deze verbeteringen kunnen u profiteren van de gebruikelijke voordelen van gehoste services, zonder verliest controle over uw sleutels. Om precies kan deze uitbreidingen Microsoft de HSM's zodat u niet te hoeft beheren. Als een cloudservice schaalt Azure Key Vault op korte termijn opschaalbaar om te voldoen aan de gebruikspieken van uw organisatie. Op hetzelfde moment, uw sleutel beschermd binnen de HSM's van Microsoft: U behoudt de controle over de levenscyclus van de omdat u de sleutel genereren en naar HSM's van Microsoft overdragen.
 
 ## <a name="implementing-bring-your-own-key-byok-for-azure-key-vault"></a>Implementatie van uw eigen sleutel (BYOK) brengen voor Azure Key Vault
+
 Gebruik de volgende informatie en procedures als u uw eigen HSM beschermde sleutel genereren en vervolgens naar Azure Key Vault overbrengen, het uw eigen scenario key (BYOK).
 
 ## <a name="prerequisites-for-byok"></a>Vereisten voor BYOK
+
 Zie de volgende tabel voor een lijst met vereisten voor het meenemen van uw eigen sleutel (BYOK) voor Azure Key Vault.
 
 | Vereiste | Meer informatie |
@@ -61,9 +61,10 @@ Zie de volgende tabel voor een lijst met vereisten voor het meenemen van uw eige
 | Een abonnement op Azure |Voor het maken van een Azure Key Vault, moet u een Azure-abonnement: [zich aanmelden voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/) |
 | De Azure Key Vault Premium-servicelaag voor de ondersteuning van met HSM beveiligde sleutels |Zie voor meer informatie over de service-lagen en mogelijkheden voor Azure Key Vault, de [prijzen van Azure Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) website. |
 | Thales HSM, smartcards en voor ondersteuningssoftware |U moet toegang hebben tot een Thales Hardware Security Module en operationele basiskennis hebben van Thales HSM's. Zie [Thales Hardware Security Module](https://www.thales-esecurity.com/msrms/buy) voor de lijst met compatibele modellen of om aan te schaffen van een HSM, als u niet hebt. |
-| De volgende hardware en software:<ol><li>Een offline x64 werkstation met een minimale Windows-besturingssysteem Windows 7 en Thales nShield-software ten minste versie 11.50.<br/><br/>Als dit werkstation Windows 7 wordt uitgevoerd, moet u [Microsoft .NET Framework 4.5 installeren](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Een werkstation dat is verbonden met Internet en heeft een minimumversie Windows-besturingssysteem van Windows 7 en [Azure PowerShell](/powershell/azure/overview) **minimaal versie 1.1.0** geïnstalleerd.</li><li>Een USB-station of ander draagbaar opslagapparaat met ten minste 16 MB vrije ruimte.</li></ol> |Uit veiligheidsoverwegingen, wordt u aangeraden dat de eerste werkstation niet is verbonden met een netwerk. Deze aanbeveling is echter niet via een programma afgedwongen.<br/><br/>Houd er rekening mee dat in de volgende instructies wordt dit werkstation aangeduid als niet-verbonden werkstation.</p></blockquote><br/>Bovendien als uw tenantsleutel bedoeld voor een productienetwerk is, raden wij aan dat u een tweede, afzonderlijk werkstation te downloaden van de toolset en de tenant-sleutel te uploaden. Maar voor testdoeleinden kunt u hetzelfde werkstation gebruiken als het eerste.<br/><br/>Houd er rekening mee dat in de volgende instructies wordt dit tweede werkstation aangeduid als het met Internet verbonden werkstation.</p></blockquote><br/> |
+| De volgende hardware en software:<ol><li>Een offline x64 werkstation met een minimale Windows-besturingssysteem Windows 7 en Thales nShield-software ten minste versie 11.50.<br/><br/>Als dit werkstation Windows 7 wordt uitgevoerd, moet u [Microsoft .NET Framework 4.5 installeren](http://download.microsoft.com/download/b/a/4/ba4a7e71-2906-4b2d-a0e1-80cf16844f5f/dotnetfx45_full_x86_x64.exe).</li><li>Een werkstation dat is verbonden met Internet en heeft een minimumversie Windows-besturingssysteem van Windows 7 en [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azurermps-6.7.0) **minimaal versie 1.1.0** geïnstalleerd.</li><li>Een USB-station of ander draagbaar opslagapparaat met ten minste 16 MB vrije ruimte.</li></ol> |Uit veiligheidsoverwegingen, wordt u aangeraden dat de eerste werkstation niet is verbonden met een netwerk. Deze aanbeveling is echter niet via een programma afgedwongen.<br/><br/>Houd er rekening mee dat in de volgende instructies wordt dit werkstation aangeduid als niet-verbonden werkstation.</p></blockquote><br/>Bovendien als uw tenantsleutel bedoeld voor een productienetwerk is, raden wij aan dat u een tweede, afzonderlijk werkstation te downloaden van de toolset en de tenant-sleutel te uploaden. Maar voor testdoeleinden kunt u hetzelfde werkstation gebruiken als het eerste.<br/><br/>Houd er rekening mee dat in de volgende instructies wordt dit tweede werkstation aangeduid als het met Internet verbonden werkstation.</p></blockquote><br/> |
 
 ## <a name="generate-and-transfer-your-key-to-azure-key-vault-hsm"></a>Genereren en uw sleutel overdragen naar Azure Key Vault HSM
+
 U kunt de volgende vijf stappen wilt gebruiken voor het genereren en uw sleutel overdragen naar een Azure Key Vault HSM:
 
 * [Stap 1: Uw met Internet verbonden werkstation voorbereiden](#step-1-prepare-your-internet-connected-workstation)
@@ -73,29 +74,33 @@ U kunt de volgende vijf stappen wilt gebruiken voor het genereren en uw sleutel 
 * [Stap 5: Uw sleutel overdragen naar Azure Key Vault](#step-5-transfer-your-key-to-azure-key-vault)
 
 ## <a name="step-1-prepare-your-internet-connected-workstation"></a>Stap 1: Uw met Internet verbonden werkstation voorbereiden
+
 Voer de volgende procedures op uw werkstation dat is verbonden met Internet voor deze eerste stap.
 
 ### <a name="step-11-install-azure-powershell"></a>Stap 1.1: Azure PowerShell installeren
+
 Vanuit het met Internet verbonden werkstation, download en installeer de Azure PowerShell-module met de cmdlets voor het beheren van Azure Key Vault. Dit is een minimale versie van 0.8.13 vereist.
 
 Zie voor installatie-instructies [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 
 ### <a name="step-12-get-your-azure-subscription-id"></a>Stap 1.2: Uw Azure-abonnement-ID ophalen
+
 Start een Azure PowerShell-sessie en aanmelden bij uw Azure-account met behulp van de volgende opdracht uit:
 
 ```Powershell
-   Add-AzureAccount
+   Add-AzureRMAccount
 ```
 Voer in het pop-upvenster in de browser uw gebruikersnaam en wachtwoord voor uw Azure-account in. Vervolgens gebruikt u de [Get-AzureSubscription](/powershell/module/servicemanagement/azure/get-azuresubscription?view=azuresmps-3.7.0) opdracht:
 
 ```powershell
-   Get-AzureSubscription
+   Get-AzureRMSubscription
 ```
 Zoek in de uitvoer de ID voor het abonnement dat u voor Azure Key Vault gebruiken wilt. U kunt deze abonnements-ID wordt later nodig.
 
 Sluit de Azure PowerShell-venster niet.
 
 ### <a name="step-13-download-the-byok-toolset-for-azure-key-vault"></a>Stap 1.3: Download de BYOK-toolset van Azure Key Vault
+
 Ga naar het Microsoft Download Center en [download de Azure Key Vault BYOK-hulpmiddelenset](http://www.microsoft.com/download/details.aspx?id=45345) voor uw geografische regio of het exemplaar van Azure. Gebruik de volgende informatie om te identificeren van de naam van het pakket downloaden en de bijbehorende SHA-256-pakket-hash:
 
 - - -
@@ -215,9 +220,11 @@ De toolset bevat het volgende:
 Kopieer het pakket naar een USB-station of ander draagbaar opslagmedium.
 
 ## <a name="step-2-prepare-your-disconnected-workstation"></a>Stap 2: Uw niet-verbonden werkstation voorbereiden
+
 Voor deze tweede stap doen in de volgende procedures op het werkstation dat niet is verbonden met een netwerk (Internet of uw interne netwerk).
 
 ### <a name="step-21-prepare-the-disconnected-workstation-with-thales-hsm"></a>Stap 2.1: De niet-verbonden werkstation met Thales HSM voorbereiden
+
 De (Thales) nCipher-ondersteuningssoftware installeren op een Windows-computer, en voeg vervolgens een Thales HSM aan die computer.
 
 Zorg ervoor dat de Thales-hulpprogramma's in het pad (**%nfast_home%\bin**). Bijvoorbeeld, typ het volgende:
@@ -229,6 +236,7 @@ Zorg ervoor dat de Thales-hulpprogramma's in het pad (**%nfast_home%\bin**). Bij
 Zie voor meer informatie de handleiding inbegrepen bij de Thales HSM.
 
 ### <a name="step-22-install-the-byok-toolset-on-the-disconnected-workstation"></a>Stap 2.2: Installeer de BYOK-toolset op niet-verbonden werkstation
+
 Kopieer het pakket met BYOK-toolset van het USB-station of ander draagbaar opslagmedium en doet u het volgende:
 
 1. Pak de bestanden uit het gedownloade pakket naar een map.
@@ -236,13 +244,16 @@ Kopieer het pakket met BYOK-toolset van het USB-station of ander draagbaar opsla
 3. Volg de instructies voor de installatie de Visual C++ runtime-onderdelen voor Visual Studio 2013.
 
 ## <a name="step-3-generate-your-key"></a>Stap 3: De sleutel genereren
+
 Voor deze derde stap, voer de volgende procedures op de niet-verbonden werkstation. Voor deze stap moet uw HSM zijn in de modus voor de initialisatie. 
 
 
 ### <a name="step-31-change-the-hsm-mode-to-i"></a>Stap 3.1: De HSM-modus wijzigen in 'Ik'
+
 Als u Thales nShield Edge, gebruikt de modus te wijzigen: 1. Gebruik de knop modus om de vereiste modus te markeren. 2. Binnen een paar seconden en houdt u de knop wissen voor een paar seconden. Als de modus wijzigt, wordt de nieuwe modus LED niet meer knippert en branden blijft. De Status-LED onregelmatig voor een paar seconden mogelijk flash en vervolgens knippert regelmatig wanneer het apparaat gereed is. Anders wordt het apparaat blijft in de huidige modus, met de juiste modus LED belicht.
 
 ### <a name="step-32-create-a-security-world"></a>Stap 3.2: Maak een beveiligingswereld
+
 Start een opdrachtprompt en voer het nieuwe-wereld-programma van Thales.
 
    ```cmd
@@ -256,10 +267,11 @@ Ga daarna als volgt te werk:
 * Back-up van het wereldbestand. Beveilig het wereldbestand, de Beheerderskaarten en de bijbehorende pincodes, en zorg ervoor dat niemand toegang tot meer dan één kaart heeft.
 
 ### <a name="step-33-change-the-hsm-mode-to-o"></a>Stap 3.3: De HSM-modus te wijzigen ' o '
+
 Als u Thales nShield Edge, gebruikt de modus te wijzigen: 1. Gebruik de knop modus om de vereiste modus te markeren. 2. Binnen een paar seconden en houdt u de knop wissen voor een paar seconden. Als de modus wijzigt, wordt de nieuwe modus LED niet meer knippert en branden blijft. De Status-LED onregelmatig voor een paar seconden mogelijk flash en vervolgens knippert regelmatig wanneer het apparaat gereed is. Anders wordt het apparaat blijft in de huidige modus, met de juiste modus LED belicht.
 
-
 ### <a name="step-34-validate-the-downloaded-package"></a>Stap 3.4: Het gedownloade pakket valideren
+
 Deze stap is optioneel, maar aanbevolen zodat u het volgende kunt valideren:
 
 * De uitwisselingssleutel van de sleutel die is opgenomen in de hulpmiddelenset is, gegenereerd met een legitieme Thales HSM.
@@ -268,8 +280,6 @@ Deze stap is optioneel, maar aanbevolen zodat u het volgende kunt valideren:
 
 > [!NOTE]
 > Voor het valideren van het gedownloade pakket, moet de HSM moet worden verbonden, zijn ingeschakeld, en een beveiligingswereld (zoals de groep die u zojuist hebt gemaakt).
->
->
 
 Het gedownloade pakket valideren:
 
@@ -329,6 +339,7 @@ Met dit script wordt de ondertekenaarsketen tot de Thales-hoofdsleutel gevalidee
 U kunt nu een nieuwe sleutel te maken.
 
 ### <a name="step-35-create-a-new-key"></a>Stap 3.5: Maak een nieuwe sleutel
+
 Genereer een sleutel met de Thales **generatekey** programma.
 
 Voer de volgende opdracht uit om de sleutel te genereren:
@@ -348,11 +359,12 @@ Back-up van deze Tokenized sleutelbestand op een veilige locatie.
 > [!IMPORTANT]
 > Wanneer u uw sleutel later naar Azure Key Vault overdraagt, exporteren niet Microsoft deze sleutel naar u terug, dus het erg belangrijk is dat u back-up uw sleutel en beveiligingswereld veilig. Neem contact op met Thales voor richtlijnen en aanbevolen procedures voor het back-ups van uw sleutel.
 >
->
+
 
 U bent nu klaar om over te dragen van uw sleutel naar Azure Key Vault.
 
 ## <a name="step-4-prepare-your-key-for-transfer"></a>Stap 4: Uw sleutel voorbereiden voor overdracht
+
 Voer de volgende procedures op de niet-verbonden werkstation voor deze vierde stap.
 
 ### <a name="step-41-create-a-copy-of-your-key-with-reduced-permissions"></a>Stap 4.1: Maak een kopie van uw sleutel met beperkte machtigingen
@@ -419,6 +431,7 @@ U kunt inspecteert de ACL's van de volgende opdrachten met de Thales-hulpprogram
   Wanneer u deze opdrachten uitvoert, vervangt u contosokey met dezelfde waarde die u hebt opgegeven in **stap 3.5: Maak een nieuwe sleutel** uit de [de sleutel genereren](#step-3-generate-your-key) stap.
 
 ### <a name="step-42-encrypt-your-key-by-using-microsofts-key-exchange-key"></a>4.2 stap: Uw sleutel versleutelt met behulp van Microsoft uitwisselingssleutel van de sleutel
+
 Voer een van de volgende opdrachten uit, afhankelijk van uw geografische regio of het exemplaar van Azure:
 
 * Voor Noord-Amerika:
@@ -473,9 +486,11 @@ Wanneer u deze opdracht uitvoert, gebruikt u deze instructies:
 Wanneer dit voltooid is, wordt de pagina **resultaat: SUCCES** en er is een nieuw bestand in de huidige map met de volgende naam: KeyTransferPackage -*ContosoFirstHSMkey*.byok
 
 ### <a name="step-43-copy-your-key-transfer-package-to-the-internet-connected-workstation"></a>Stap 4.3: Uw sleuteloverdrachtpakket kopiëren naar het met Internet verbonden werkstation
+
 Gebruik een USB-station of ander draagbaar opslagmedium om te kopiëren van het uitvoerbestand uit de vorige stap (KeyTransferPackage-ContosoFirstHSMkey.byok) naar uw met Internet verbonden werkstation.
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Stap 5: Uw sleutel overdragen naar Azure Key Vault
+
 Voor deze laatste stap op het met Internet verbonden werkstation gebruiken de [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) cmdlet voor het uploaden van het pakket voor sleuteloverdracht die u hebt gekopieerd uit de niet-verbonden werkstation naar de Azure Key Vault HSM:
 
    ```powershell
@@ -485,4 +500,5 @@ Voor deze laatste stap op het met Internet verbonden werkstation gebruiken de [A
 Als de upload voltooid is, ziet u de eigenschappen van de sleutel die u zojuist hebt toegevoegd wordt weergegeven.
 
 ## <a name="next-steps"></a>Volgende stappen
+
 U kunt nu deze met HSM beveiligde sleutel gebruiken in uw key vault. Zie voor meer informatie de **als u wilt gebruiken van een hardware security module (HSM)** sectie de [aan de slag met Azure Key Vault](key-vault-get-started.md) zelfstudie.

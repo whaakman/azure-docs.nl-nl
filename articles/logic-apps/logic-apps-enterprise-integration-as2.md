@@ -1,181 +1,177 @@
 ---
-title: AS2-berichten voor B2B enterprise integration - Azure Logic Apps | Microsoft Docs
-description: Exchange AS2-berichten voor B2B enterprise integratie met Azure Logic Apps
+title: AS2-berichten voor B2B-bedrijfsintegratie - Azure Logic Apps | Microsoft Docs
+description: AS2-berichten uitwisselen voor B2B-bedrijfsintegratie in Azure Logic Apps met Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: c9b7e1a9-4791-474c-855f-988bd7bf4b7f
 ms.date: 06/08/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 8984b76c68ebd562ce9e5af9bded859b38d498da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 2604cdd6bf758858328c2d30fc4cde535f0a7148
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298236"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124659"
 ---
-# <a name="exchange-as2-messages-for-enterprise-integration-with-logic-apps"></a>Exchange AS2-berichten voor enterprise-integratie met logic apps
+# <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>AS2-berichten uitwisselen voor B2B-bedrijfsintegratie in Azure Logic Apps met Enterprise Integration Pack
 
-Voordat u AS2 berichten voor Azure Logic Apps uitwisselen kunt, moet u een AS2-overeenkomst maken en opslaan van deze overeenkomst in uw account integratie. Hier volgen de stappen voor het maken van een AS2-overeenkomst.
+Voordat u AS2-berichten voor Azure Logic Apps uitwisselen kan, moet u een AS2-overeenkomst maken en opslaan van deze overeenkomst in uw integratie-account. Hier volgen de stappen voor het maken van een AS2-overeenkomst.
 
 ## <a name="before-you-start"></a>Voordat u begint
 
-Hier volgt de items die u nodig:
+Hier volgt de items die u nodig hebt:
 
-* Een [integratie account](../logic-apps/logic-apps-enterprise-integration-accounts.md) die al is gedefinieerd en die zijn gekoppeld aan uw Azure-abonnement
-* Ten minste twee [partners](logic-apps-enterprise-integration-partners.md) die al zijn gedefinieerd in uw account integratie en geconfigureerd met de kwalificatie AS2 onder **Business identiteiten**
+* Een [integratieaccount](../logic-apps/logic-apps-enterprise-integration-accounts.md) die al is gedefinieerd en die zijn gekoppeld aan uw Azure-abonnement
+* Ten minste twee [partners](logic-apps-enterprise-integration-partners.md) die al zijn gedefinieerd in uw integratie-account en geconfigureerd met de kwalificatie van de AS2 onder **Bedrijfsidentiteiten**
 
 > [!NOTE]
-> Wanneer u een overeenkomst maakt, moet het type licentieovereenkomst overeenkomen met de inhoud in de overeenkomst-bestand.    
+> Wanneer u een overeenkomst maakt, moet het overeenkomsttype overeenkomen met de inhoud in de overeenkomst-bestand.    
 
-Nadat u [maken van een account integratie](../logic-apps/logic-apps-enterprise-integration-accounts.md) en [partners toevoegen](logic-apps-enterprise-integration-partners.md), kunt u een AS2-overeenkomst met de volgende stappen.
+Nadat u [maken van een integratieaccount](../logic-apps/logic-apps-enterprise-integration-accounts.md) en [partners toevoegen](logic-apps-enterprise-integration-partners.md), kunt u een AS2-overeenkomst maken door deze stappen te volgen.
 
 ## <a name="create-an-as2-agreement"></a>Maken van een AS2-overeenkomst
 
 1.  Meld u aan bij [Azure Portal](http://portal.azure.com "Azure Portal").  
 
-2. Selecteer op het Azure hoofdmenu **alle services**. Voer in het zoekvak "-integratie" en selecteer vervolgens **integratieaccounts**.
+2. Selecteer in het hoofdmenu van Azure **alle services**. Voer 'integration' in het zoekvak en selecteer vervolgens **integratieaccounts**.
 
-   ![Uw account integratie vinden](./media/logic-apps-enterprise-integration-as2/overview-1.png)
+   ![Uw integratie-account zoeken](./media/logic-apps-enterprise-integration-as2/overview-1.png)
 
    > [!TIP]
-   > Als er geen **alle services**, mogelijk moet u eerst het menu uitvouwen. Selecteer aan de bovenkant van het menu samengevouwen **tekstlabels weergeven**.
+   > Als er geen **alle services**, mogelijk hebt u eerst het menu uitvouwen. Selecteer aan de bovenkant van het menu samengevouwen **tekstlabels weergeven**.
 
-3. Onder **Integratieaccounts**, selecteert u de integratie account waar u wilt maken van de overeenkomst.
+3. Onder **Integratieaccounts**, selecteert u de integratieaccount waar u wilt maken van de overeenkomst.
 
-   ![Wanneer u de overeenkomst voor de integratie-account selecteren](./media/logic-apps-enterprise-integration-overview/overview-3.png)
+   ![Selecteer het integratieaccount waar moet worden gemaakt van de overeenkomst](./media/logic-apps-enterprise-integration-overview/overview-3.png)
 
-4. Kies de **overeenkomsten** tegel. Als u een tegel overeenkomsten geen hebt, eerst de tegel toevoegen.
+4. Kies de **overeenkomsten** tegel. Als u geen een tegel overeenkomsten, eerst de tegel toevoegen.
 
     ![Kies 'Overeenkomsten' tegel](./media/logic-apps-enterprise-integration-as2/agreement-1.png)
 
-5. Onder **overeenkomsten**, kies **toevoegen**.
+5. Onder **overeenkomsten**, kiest u **toevoegen**.
 
-    ![Kies 'Add'](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
+    ![Kies 'Toevoegen'](./media/logic-apps-enterprise-integration-as2/agreement-2.png)
 
-6. Onder **toevoegen**, voer een **naam** voor de overeenkomst. Voor **type licentieovereenkomst**, selecteer **AS2**. Selecteer de **Host Partner**, **Hostidentiteit**, **Gast Partner**, en **Gast identiteit** voor de overeenkomst.
+6. Onder **toevoegen**, voer een **naam** voor uw overeenkomst. Voor **overeenkomsttype**, selecteer **AS2**. Selecteer de **Hostpartner**, **Hostidentiteit**, **Gastpartner**, en **Gastidentiteit** voor uw overeenkomst.
 
     ![Geef overeenkomstdetails](./media/logic-apps-enterprise-integration-as2/agreement-3.png)  
 
     | Eigenschap | Beschrijving |
     | --- | --- |
     | Naam |Naam van de overeenkomst |
-    | Type licentieovereenkomst | AS2 moet |
-    | Hostpartner |Een overeenkomst moet een host en de Gast-partner. De host-partner vertegenwoordigt de organisatie die de overeenkomst configureert. |
-    | Hostidentiteit |Een id voor de host-partner |
-    | Gastpartner |Een overeenkomst moet een host en de Gast-partner. De Gast-partner vertegenwoordigt de organisatie die bedrijven gebruiken met de partner host doet. |
-    | Gastidentiteit |Een id voor de Gast-partner |
+    | Overeenkomsttype | Moet AS2 |
+    | Hostpartner |Een overeenkomst moet een host en de Gast-partner. De hostpartner vertegenwoordigt de organisatie die Hiermee configureert u de overeenkomst. |
+    | Hostidentiteit |Een id voor de hostpartner |
+    | Gastpartner |Een overeenkomst moet een host en de Gast-partner. De gastpartner vertegenwoordigt de organisatie die wordt zakendoen met de hostpartner. |
+    | Gastidentiteit |Een id voor de gastpartner |
     | Ontvangstinstellingen |Deze eigenschappen zijn van toepassing op alle berichten ontvangen door een overeenkomst. |
-    | Verzendinstellingen |Deze eigenschappen zijn van toepassing op alle berichten is verzonden door een overeenkomst. |
+    | Verzendinstellingen |Deze eigenschappen zijn van toepassing op alle berichten die door een overeenkomst worden verzonden. |
 
-## <a name="configure-how-your-agreement-handles-received-messages"></a>Configureren hoe uw ingangen overeenkomst berichten ontvangen
+## <a name="configure-how-your-agreement-handles-received-messages"></a>Configureren hoe uw overeenkomst verwerkt berichten ontvangen
 
-Nu dat u de eigenschappen van de overeenkomst hebt ingesteld, kunt u configureren hoe deze overeenkomst identificeert en binnenkomende berichten ontvangen van uw partner via deze overeenkomst worden verwerkt.
+Nu u de eigenschappen van de overeenkomst hebt ingesteld, kunt u configureren hoe deze overeenkomst identificeert en binnenkomende berichten ontvangen van uw partner via deze overeenkomst worden verwerkt.
 
 1.  Onder **toevoegen**, selecteer **instellingen ontvangen**.
-Configureer deze eigenschappen op basis van uw overeenkomst met de partner die u berichten worden uitgewisseld. Zie voor eigenschapbeschrijvingen, de tabel in deze sectie.
+Configureer deze eigenschappen op basis van uw overeenkomst met de partner die berichten met u worden uitgewisseld. Zie voor eigenschapbeschrijvingen, de tabel in deze sectie.
 
     !['Ontvangen instellingen' configureren](./media/logic-apps-enterprise-integration-as2/agreement-4.png)
 
-2. Desgewenst kunt u de eigenschappen van binnenkomende berichten wijzigen door het selecteren van **overschrijven berichteigenschappen**.
+2. U kunt eventueel de eigenschappen van binnenkomende berichten overschrijven door te selecteren **berichteigenschappen negeren**.
 
-3. Als u wilt alle inkomende berichten worden ondertekend, selecteer **bericht moet worden ondertekend**. Van de **certificaat** , selecteert u een bestaande [Gast partner openbaar certificaat](../logic-apps/logic-apps-enterprise-integration-certificates.md) voor het valideren van de handtekening op de berichten. Of het certificaat hebt gemaakt als u niet hebt.
+3. Selecteer om te vereisen dat alle inkomende berichten moeten worden ondertekend, **bericht moet ondertekend zijn**. Uit de **certificaat** , selecteert u een bestaande [Gast partner openbaar certificaat](../logic-apps/logic-apps-enterprise-integration-certificates.md) voor het valideren van de handtekening van de berichten. Of maak het certificaat, als u dit niet hebt.
 
-4.  Als u wilt alle inkomende berichten moeten worden versleuteld, selecteer **bericht moet worden versleuteld**. Van de **certificaat** , selecteert u een bestaande [host partner persoonlijk certificaat](../logic-apps/logic-apps-enterprise-integration-certificates.md) voor het ontsleutelen van binnenkomende berichten. Of het certificaat hebt gemaakt als u niet hebt.
+4.  Selecteer om te vereisen dat alle inkomende berichten moeten worden versleuteld, **bericht moet worden versleuteld**. Uit de **certificaat** , selecteert u een bestaande [host partner persoonlijk certificaat](../logic-apps/logic-apps-enterprise-integration-certificates.md) voor het ontsleutelen van binnenkomende berichten. Of maak het certificaat, als u dit niet hebt.
 
-5. Selecteer om te vereisen berichten moeten worden gecomprimeerd, **bericht moet worden gecomprimeerd**.
+5. Selecteer om te vereisen dat berichten moeten worden gecomprimeerd, **bericht moet worden gecomprimeerd**.
 
-6. Selecteer voor het verzenden van een synchrone disposition melding (MDN) voor ontvangen berichten **MDN verzenden**.
+6. Selecteer voor het verzenden van een synchrone toestand melding (MDN) voor de ontvangen berichten, **MDN verzenden**.
 
-7. Selecteer voor het verzenden van ondertekende MDNs voor ontvangen berichten **verzenden ondertekend MDN**.
+7. Selecteer voor het verzenden van ondertekende MDN's voor de ontvangen berichten, **ondertekende MDN verzenden**.
 
-8. Selecteer voor het verzenden van asynchrone MDNs voor ontvangen berichten **verzenden van asynchrone MDN**.
+8. Selecteer voor het verzenden van asynchrone MDN's voor de ontvangen berichten, **verzenden van asynchrone MDN**.
 
-9. Nadat u bent klaar, controleert u of uw instellingen opslaan door te kiezen **OK**.
+9. Als u klaar bent, zorg ervoor dat u uw instellingen opslaan door te kiezen **OK**.
 
-Uw overeenkomst is nu gereed voor het verwerken van inkomende berichten die aan de geselecteerde instellingen voldoen.
+De overeenkomst is nu gereed voor het afhandelen van berichten die aan de geselecteerde instellingen voldoen.
 
 | Eigenschap | Beschrijving |
 | --- | --- |
-| Berichteigenschappen negeren |Hiermee wordt aangegeven dat eigenschappen ontvangen berichten kunnen worden genegeerd. |
-| Het bericht moet ondertekend zijn |Vereist berichten digitaal worden ondertekend. Configureer het openbare certificaat van Gast partner voor handtekeningverificatie.  |
-| Het bericht moet worden versleuteld |Vereist berichten te versleutelen. Niet-versleutelde berichten worden geweigerd. Configureer het persoonlijke host partner-certificaat voor het ontsleutelen van berichten.  |
+| Berichteigenschappen negeren |Geeft aan dat de eigenschappen van de ontvangen berichten kunnen worden genegeerd. |
+| Het bericht moet ondertekend zijn |Vereist dat berichten naar digitaal worden ondertekend. Configureer het openbare certificaat van Gast partner voor controle van de handtekening.  |
+| Het bericht moet worden versleuteld |Vereist berichten moeten worden versleuteld. Niet-versleutelde berichten worden geweigerd. Configureer het host-partner persoonlijke certificaat voor het ontsleutelen van de berichten.  |
 | Het bericht moet worden gecomprimeerd |Vereist berichten moeten worden gecomprimeerd. Niet-gecomprimeerde berichten worden geweigerd. |
-| MDN-tekst |De standaard disposition melding (MDN) worden verzonden naar de afzender. |
-| MDN verzenden |Vereist MDNs worden verzonden. |
-| Ondertekende MDN verzenden |Vereist MDNs zijn ondertekend. |
+| MDN-tekst |De standaard toestand melding (MDN) moet worden verzonden naar de afzender van het bericht. |
+| MDN verzenden |Vereist MDN's worden verzonden. |
+| Ondertekende MDN verzenden |Vereist MDN's moeten worden ondertekend. |
 | MIC-algoritme |Selecteer het algoritme moet worden gebruikt voor het ondertekenen van berichten. |
 | Asynchrone MDN verzenden | Vereist berichten asynchroon worden verzonden. |
-| URL | Geef de URL waar de MDNs. |
+| URL | Geef de URL op waar voor het verzenden van de MDN's. |
 
-## <a name="configure-how-your-agreement-sends-messages"></a>Configureren hoe uw overeenkomst verzendt berichten
+## <a name="configure-how-your-agreement-sends-messages"></a>Configureren hoe berichten worden verzonden door uw overeenkomst
 
-U kunt configureren hoe deze overeenkomst identificeert en uitgaande berichten verwerkt die u naar uw partners via deze overeenkomst verzendt.
+U kunt configureren hoe deze overeenkomst identificeert en uitgaande berichten die u naar uw partners via deze overeenkomst verzendt worden verwerkt.
 
 1.  Onder **toevoegen**, selecteer **instellingen voor verzenden**.
-Configureer deze eigenschappen op basis van uw overeenkomst met de partner die u berichten worden uitgewisseld. Zie voor eigenschapbeschrijvingen, de tabel in deze sectie.
+Configureer deze eigenschappen op basis van uw overeenkomst met de partner die berichten met u worden uitgewisseld. Zie voor eigenschapbeschrijvingen, de tabel in deze sectie.
 
     ![Stel de eigenschappen 'Instellingen verzenden'](./media/logic-apps-enterprise-integration-as2/agreement-51.png)
 
-2. Ondertekende om berichten te verzenden naar uw partner, selecteer **inschakelen ondertekenen van berichten**. Voor het ondertekenen van de berichten in de **MIC algoritme** lijst, selecteert de *host partner persoonlijk certificaat MIC algoritme*. En in de **certificaat** , selecteert u een bestaande [host partner persoonlijk certificaat](../logic-apps/logic-apps-enterprise-integration-certificates.md).
+2. Ondertekende om berichten te verzenden naar uw partner, selecteer **Berichtondertekening inschakelen**. Voor het ondertekenen van de berichten in de **MIC-algoritme** in de lijst met de *host partner persoonlijk certificaat MIC-algoritme*. En in de **certificaat** , selecteert u een bestaande [host partner persoonlijk certificaat](../logic-apps/logic-apps-enterprise-integration-certificates.md).
 
-3. Voor het verzenden van versleutelde berichten naar de partner, selecteer **berichtversleuteling inschakelen**. Voor het versleutelen van de berichten de **versleutelingsalgoritme** lijst, selecteert de *Gast partner openbaar certificaat algoritme*.
+3. Selecteer voor het verzenden van versleutelde berichten naar de partner, **berichtversleuteling inschakelen**. Voor het versleutelen van de berichten de **versleutelingsalgoritme** in de lijst met de *Gast partner openbaar certificaat algoritme*.
 En in de **certificaat** , selecteert u een bestaande [Gast partner openbaar certificaat](../logic-apps/logic-apps-enterprise-integration-certificates.md).
 
-4. Selecteer voor het comprimeren van het bericht **bericht compressie inschakelen**.
+4. Selecteer voor het comprimeren van het bericht, **berichtcompressie inschakelen**.
 
-5. Als u wilt de HTTP-header content-type uitgevouwen tot een enkele regel, selecteer **uitgevouwen HTTP-headers**.
+5. Als u wilt de HTTP-header content-type uitvouwen tot één regel, selecteer **uitvouwen HTTP-headers**.
 
-6. Selecteer voor het ontvangen van synchrone MDNs voor de verzonden berichten **MDN aanvragen**.
+6. Selecteer voor het ontvangen van synchrone MDN's voor de verzonden berichten **MDN aanvragen**.
 
-7. Selecteer voor het ontvangen van ondertekende MDNs voor de verzonden berichten **aanvraag ondertekend MDN**.
+7. Selecteer voor het ontvangen van ondertekende MDN's voor de verzonden berichten **ondertekende MDN aanvragen**.
 
-8. Selecteer voor het ontvangen van asynchrone MDNs voor de verzonden berichten **aanvragen asynchrone MDN**. Als u deze optie selecteert, voert u de URL voor de locatie waar de MDNs verzenden.
+8. Selecteer voor het ontvangen van asynchrone MDN's voor de verzonden berichten **asynchrone MDN aanvragen**. Als u deze optie selecteert, voert u de URL voor het verzenden van de MDN's.
 
-9. Selecteer hiervoor niet-afwijzing van ontvangst **NRR inschakelen**.  
+9. Selecteer om te vereisen dat niet-afwijzing van ontvangst, **NRR inschakelen**.  
 
-10. Als u wilt opgeven algoritme indeling moet worden gebruikt in de MIC of het aanmelden van de uitgaande kopteksten aan het AS2-bericht of MDN **SHA2 algoritme indeling**.  
+10. Als u de algoritme indeling moet worden gebruikt in de MIC of in de uitgaande headers van de AS2-bericht of MDN-ondertekening, schakelt u **SHA2-algoritme indeling**.  
 
-11. Nadat u bent klaar, controleert u of uw instellingen opslaan door te kiezen **OK**.
+11. Als u klaar bent, zorg ervoor dat u uw instellingen opslaan door te kiezen **OK**.
 
-Uw overeenkomst is nu gereed voor het verwerken van uitgaande berichten die aan de geselecteerde instellingen voldoen.
+De overeenkomst is nu gereed om af te handelen uitgaande berichten die aan de geselecteerde instellingen voldoen.
 
 | Eigenschap | Beschrijving |
 | --- | --- |
 | Berichtondertekening inschakelen |Vereist dat alle berichten die zijn verzonden vanaf de overeenkomst moet worden ondertekend. |
 | MIC-algoritme |Het algoritme moet worden gebruikt voor het ondertekenen van berichten. Hiermee configureert u de host partner persoonlijk certificaat MIC-algoritme voor het ondertekenen van berichten. |
 | Certificaat |Selecteer het certificaat moet worden gebruikt voor het ondertekenen van berichten. Hiermee configureert u de host partner persoonlijk certificaat voor ondertekening van de berichten. |
-| Berichtversleuteling inschakelen |Versleuteling van alle berichten die worden verzonden vanuit deze overeenkomst is vereist. Hiermee configureert u het algoritme Gast partner openbaar certificaat te gebruiken voor het versleutelen van berichten. |
-| Versleutelingsalgoritme |Het versleutelingsalgoritme voor berichtversleuteling. Hiermee configureert u de partner Gast openbaar certificaat voor het versleutelen van berichten. |
-| Certificaat |Het certificaat moet worden gebruikt om berichten te versleutelen. Hiermee configureert u de partner Gast persoonlijk certificaat voor het versleutelen van berichten. |
-| Berichtcompressie inschakelen |Compressie van alle berichten die worden verzonden vanuit deze overeenkomst is vereist. |
-| HTTP-headers uitvouwen |De HTTP-inhoudstype-header op één regel plaatst. |
+| Berichtversleuteling inschakelen |Versleuteling van alle berichten die worden verzonden van deze overeenkomst vereist. Hiermee configureert u het algoritme Gast partner openbaar certificaat voor het versleutelen van berichten. |
+| Versleutelingsalgoritme |Het versleutelingsalgoritme te gebruiken voor codering. Hiermee configureert u het openbare certificaat van Gast-partner voor het versleutelen van berichten. |
+| Certificaat |Het certificaat te gebruiken om berichten te versleutelen. Hiermee configureert u de partner Gast persoonlijk certificaat voor het versleutelen van berichten. |
+| Berichtcompressie inschakelen |Compressie van alle berichten die zijn verzonden vanaf deze overeenkomst vereist. |
+| HTTP-headers uitvouwen |Hiermee plaatst u de inhoud van het type HTTP-header op één regel. |
 | MDN aanvragen |Vereist een MDN voor alle berichten die van deze overeenkomst worden verzonden. |
-| Ondertekende MDN aanvragen |Vereist dat alle MDNs die worden verzonden naar deze overeenkomst worden ondertekend. |
-| Asynchrone MDN aanvragen |Asynchrone MDNs worden verzonden naar deze overeenkomst is vereist. |
-| URL |Geef de URL waar de MDNs. |
-| NRR inschakelen |Niet-afwijzing van ontvangst (NRR), een communicatiekenmerk dat bewijst vereist dat de gegevens zijn geadresseerd ontvangen. |
-| Indeling van het SHA2-algoritme |Selecteer algoritme indeling in de MIC of de uitgaande kopteksten aan het AS2-bericht of MDN aanmelden |
+| Ondertekende MDN aanvragen |Vereist dat alle MDN's die worden verzonden naar deze overeenkomst moet worden ondertekend. |
+| Asynchrone MDN aanvragen |Asynchrone MDN's worden verzonden naar deze overeenkomst vereist. |
+| URL |Geef de URL op waar voor het verzenden van de MDN's. |
+| NRR inschakelen |Vereist niet-afwijzing van ontvangst (NRR), een communicatiekenmerk die aantoont dat de gegevens als opgelost is ontvangen. |
+| Indeling van het SHA2-algoritme |Selecteer de indeling algoritme moet worden gebruikt in de MIC of in de uitgaande headers van de AS2-bericht of MDN-ondertekening |
 
-## <a name="find-your-created-agreement"></a>De overeenkomst zoeken
+## <a name="find-your-created-agreement"></a>Uw overeenkomst gevonden
 
-1. Als u klaar bent met het instellen van alle uw overeenkomst-eigenschappen op de **toevoegen** pagina **OK** te maken van uw overeenkomst voltooien en keer terug naar uw account integratie.
+1. Nadat u klaar bent met het instellen van alle uw overeenkomst-eigenschappen op de **toevoegen** pagina, kies **OK** te maken van uw overeenkomst voltooien en keer terug naar uw integratie-account.
 
-    Nu uw toegevoegde overeenkomst wordt weergegeven in uw **overeenkomsten** lijst.
+    Nu uw zojuist toegevoegde overeenkomst wordt weergegeven in uw **overeenkomsten** lijst.
 
-2. U kunt ook uw overeenkomsten weergeven in uw Accountoverzicht integratie. Kies in het menu van de account integratie **overzicht**, selecteer vervolgens de **overeenkomsten** tegel. 
+2. U kunt ook uw overeenkomsten weergeven in een overzicht van uw integratie-account. Kies uw integratie-account in het menu van **overzicht**en selecteer vervolgens de **overeenkomsten** tegel. 
 
-   ![Kies 'Overeenkomsten' tegel om weer te geven van alle overeenkomsten](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
+   ![Kies 'Overeenkomsten' tegel als u wilt weergeven van alle overeenkomsten](./media/logic-apps-enterprise-integration-as2/agreement-6.png)
 
 ## <a name="view-the-swagger"></a>De swagger weergeven
-Zie de [swagger details](/connectors/as2/). 
+Zie de [details swagger](/connectors/as2/). 
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Meer informatie over het Enterprise-integratiepakket](logic-apps-enterprise-integration-overview.md "meer informatie over Enterprise Integration Pack")  
+* [Meer informatie over het Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md "meer informatie over Enterprise Integration Pack")  

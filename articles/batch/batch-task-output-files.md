@@ -12,12 +12,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
-ms.openlocfilehash: 69990ab7852999dca2b586fd28ef74c44cc283fd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: f562a6647cadbde6c46eba87b180dfb4cbb3fb90
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117432"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126309"
 ---
 # <a name="persist-task-data-to-azure-storage-with-the-batch-service-api"></a>Taakgegevens naar Azure Storage met de Batch-service-API behouden
 
@@ -34,7 +34,7 @@ Azure Batch biedt meer dan één manier om vast te leggen van de uitvoer van de 
 - Wilt u code schrijven voor de taakuitvoer van binnen uw clienttoepassing behouden zonder te wijzigen van de toepassing die de taak wordt uitgevoerd.
 - Wilt u de uitvoer van de Batch-taken en jobbeheertaken in pools die zijn gemaakt met de configuratie van de virtuele machine behouden.
 - Wilt u de uitvoer naar een Azure Storage-container met een willekeurige naam behouden.
-- U wilt behouden van de uitvoer naar een Azure Storage-container met de naam volgens de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
+- U wilt behouden van de uitvoer naar een Azure Storage-container met de naam volgens de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 Als uw scenario van die verschilt hierboven zijn vermeld, moet u mogelijk rekening houden met een andere benadering. Bijvoorbeeld, ondersteunt de API voor Batch-service momenteel geen streaming uitvoer naar Azure Storage terwijl de taak wordt uitgevoerd. Om te streamen uitvoer, overweeg het gebruik van de Batch File Conventions-bibliotheek, beschikbaar voor .NET. Voor andere talen moet u om uw eigen oplossing te implementeren. Zie voor meer informatie over andere opties voor permanente taakuitvoer [behouden taken kunt uitvoeren naar Azure Storage](batch-task-output.md). 
 
@@ -164,7 +164,7 @@ De `fileuploadout.txt` bestand logboeken uploaden wordt uitgevoerd. U kunt dit b
 
 ## <a name="use-the-batch-service-api-with-the-batch-file-conventions-standard"></a>De Batch-service-API gebruiken met de Batch File Conventions-standaard
 
-Wanneer u de uitvoer van de taak met de API voor Batch-service zich blijven voordoen, u kunt een naam geven de doelcontainer en gewenste echter blobs. U kunt er ook voor kiezen om de naam van deze volgens de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). De standaard File Conventions bepaalt de namen van de doelcontainer en blob in Azure Storage voor een bepaalde uitvoerbestand op basis van de namen van de taak en de taak. Als u de standaard File Conventions gebruikt voor het benoemen van uitvoerbestanden, wordt de uitvoerbestanden zijn beschikbaar voor weergave in de [Azure-portal](https://portal.azure.com).
+Wanneer u de uitvoer van de taak met de API voor Batch-service zich blijven voordoen, u kunt een naam geven de doelcontainer en gewenste echter blobs. U kunt er ook voor kiezen om de naam van deze volgens de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). De standaard File Conventions bepaalt de namen van de doelcontainer en blob in Azure Storage voor een bepaalde uitvoerbestand op basis van de namen van de taak en de taak. Als u de standaard File Conventions gebruikt voor het benoemen van uitvoerbestanden, wordt de uitvoerbestanden zijn beschikbaar voor weergave in de [Azure-portal](https://portal.azure.com).
 
 Als u in C# ontwikkelt, kunt u de methoden die zijn ingebouwd in de [Batch File Conventions-bibliotheek voor .NET](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). Deze bibliotheek goed benoemde containers en blob-paden voor u gemaakt. Bijvoorbeeld, kunt u de API om op te halen van de juiste naam voor de container, op basis van de taaknaam aanroept:
 

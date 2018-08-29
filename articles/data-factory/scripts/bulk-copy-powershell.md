@@ -1,6 +1,6 @@
 ---
 title: 'PowerShell-script: gegevens bulksgewijs kopiëren met behulp van Azure Data Factory | Microsoft Docs'
-description: Deze PowerShell-script laat zien hoe het gebruik van Azure Data Factory om gegevens van een brongegevensarchief naar een doelgegevensopslagplaats bulksgewijs kopiëren.
+description: Dit PowerShell-script ziet u hoe u Azure Data Factory om gegevens te kopiëren van een brongegevensarchief naar een doelgegevensarchief in één bulkbewerking.
 services: data-factory
 author: linda33wj
 manager: craigg
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2017
 ms.author: jingwang
-ms.openlocfilehash: 49102d573dd93b1481d1ef97ef3e603fc2f3ad46
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: dc1bf394a34c097caa68c029e11c141dbae32aab
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30167446"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125136"
 ---
-# <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>PowerShell script - meerdere tabellen in bulksgewijs kopiëren met behulp van Azure Data Factory
+# <a name="powershell-script---copy-multiple-tables-in-bulk-by-using-azure-data-factory"></a>PowerShell-script - meerdere tabellen bulksgewijs kopiëren met behulp van Azure Data Factory
 
-Deze PowerShell-voorbeeldscript kopieert gegevens uit meerdere tabellen in een Azure SQL database naar een Azure SQL datawarehouse.
+Met dit PowerShell-voorbeeldscript kopieert gegevens uit meerdere tabellen in een Azure SQL-database naar een Azure SQL datawarehouse.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -36,12 +36,12 @@ Zie [zelfstudie: bulksgewijs kopiëren](../tutorial-bulk-copy.md#prerequisites) 
 
 ## <a name="clean-up-deployment"></a>Opschonen van implementatie
 
-Nadat u hebt het voorbeeldscript uitvoeren, kunt u de volgende opdracht om te verwijderen van de resourcegroep en alle resources die zijn gekoppeld:
+Nadat u het voorbeeld van een script uitvoert, kunt u de volgende opdracht uit om te verwijderen van de resourcegroep en alle bijbehorende resources:
 
 ```powershell
 Remove-AzureRmResourceGroup -ResourceGroupName $resourceGroupName
 ```
-Als u wilt de gegevensfactory verwijderen uit de resourcegroep, voer de volgende opdracht: 
+Als u wilt de data factory uit de resourcegroep verwijdert, moet u de volgende opdracht uitvoeren: 
 
 ```powershell
 Remove-AzureRmDataFactoryV2 -Name $dataFactoryName -ResourceGroupName $resourceGroupName
@@ -55,11 +55,11 @@ In dit script worden de volgende opdrachten gebruikt:
 |---|---|
 | [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) | Hiermee maakt u een resourcegroep waarin alle resources worden opgeslagen. |
 | [Set-AzureRmDataFactoryV2](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2) | Een data factory maken. |
-| [Set-AzureRmDataFactoryV2LinkedService](/powershell/module/azurerm.datafactoryv2/Set-azurermdatafactoryv2linkedservice) | Maakt een gekoppelde service in de gegevensfactory. Een gekoppelde service is een gegevensarchief of het compute gekoppeld aan een gegevensfactory. |
-| [Set-AzureRmDataFactoryV2Dataset](/powershell/module/azurerm.datafactoryv2/Set-azurermdatafactoryv2dataset) | Maakt een gegevensset in de gegevensfactory. Een gegevensset vertegenwoordigt invoer/uitvoer van een activiteit in een pijplijn. | 
-| [Set-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/Set-azurermdatafactorv2ypipeline) | Een pijplijn maakt in de gegevensfactory. Een pijplijn bevat een of meer activiteiten die een bepaalde bewerking uitvoert. In deze pijplijn kopieert een kopieeractiviteit gegevens van de ene locatie naar een andere locatie in een Azure Blob Storage. |
-| [Invoke-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/Invoke-azurermdatafactoryv2pipelinerun) | Maakt een uitvoering van de pijplijn. Met andere woorden, voert u de pijplijn. |
-| [Get-AzureRmDataFactoryV2ActivityRun](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2activityrun) | Hiermee haalt details over het uitvoeren van de activiteit (uitvoeren) in de pijplijn. 
+| [Set-AzureRmDataFactoryV2LinkedService](/powershell/module/azurerm.datafactoryv2/Set-azurermdatafactoryv2linkedservice) | Hiermee maakt u een gekoppelde service in de data factory. Een gekoppelde service verbindt een gegevensopslag of compute naar een data factory. |
+| [Set-AzureRmDataFactoryV2Dataset](/powershell/module/azurerm.datafactoryv2/Set-azurermdatafactoryv2dataset) | Hiermee maakt u een gegevensset in de data factory. Een gegevensset vertegenwoordigt i/o voor een activiteit in een pijplijn. | 
+| [Set-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/Set-azurermdatafactoryv2pipeline) | Maakt een pijplijn in de data factory. Een pijplijn bevat een of meer activiteiten die een bepaalde bewerking uitvoert. In deze pijpelijn gebruikt een kopieeractiviteit kopieert gegevens van de ene locatie naar een andere locatie in een Azure Blob-opslag. |
+| [Invoke-AzureRmDataFactoryV2Pipeline](/powershell/module/azurerm.datafactoryv2/Invoke-azurermdatafactoryv2pipeline) | Hiermee maakt u een uitvoering voor de pijplijn. Met andere woorden, voert de pijplijn. |
+| [Get-AzureRmDataFactoryV2ActivityRun](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2activityrun) | Hiermee haalt details over het uitvoeren van de activiteit (uitgevoerde activiteit) in de pijplijn. 
 | [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 |||
 
@@ -67,4 +67,4 @@ In dit script worden de volgende opdrachten gebruikt:
 
 Zie [Documentatie over Azure PowerShell](https://docs.microsoft.com/powershell/) voor meer informatie over Azure PowerShell.
 
-Aanvullende voorbeelden van Azure Data Factory PowerShell-script kunnen worden gevonden in de [Azure Data Factory PowerShell-scripts](../samples-powershell.md).
+Meer Azure Data Factory PowerShell-voorbeeldscripts vindt u de [Azure Data Factory PowerShell-scripts](../samples-powershell.md).

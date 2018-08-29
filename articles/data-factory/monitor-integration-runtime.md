@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: douglasl
-ms.openlocfilehash: 9bcc73d262f4bc455c923fe0eb7c04c7cf090830
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: 8ca7ce2586513373c58552bb1f56b94715f15076
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39505358"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128446"
 ---
 # <a name="monitor-an-integration-runtime-in-azure-data-factory"></a>Een integratieruntime in Azure Data Factory controleren  
 **Integratieruntime** is de rekeninfrastructuur die door Azure Data Factory wordt gebruikt voor verschillende mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Er zijn drie typen integration runtime die worden aangeboden door Data Factory:
@@ -85,7 +85,7 @@ Sommige instellingen van de eigenschappen ook beter wanneer er twee of meer knoo
 
 De standaardwaarde van de gelijktijdige taken limiet is ingesteld, is afhankelijk van de grootte van de machine. De factoren die wordt gebruikt om deze waarde te berekenen, is afhankelijk van de hoeveelheid RAM-geheugen en het aantal CPU-kernen van de machine. Dus meer kernen en meer geheugen, de hogere beperken de standaardwaarde van gelijktijdige taken.
 
-U schalen opwaarts door het aantal knooppunten te verhogen. Als u het aantal knooppunten verhoogt, wordt de limiet voor gelijktijdige taken is het de som van de waarden van de limiet voor gelijktijdige taak van alle beschikbare knooppunten.  Bijvoorbeeld, als één knooppunt u maximaal twaalf gelijktijdige taken uitvoeren kunt, kunt vervolgens drie meer lijken knooppunten toe te voegen u maximaal 48 gelijktijdige taken (dat wil zeggen, 4 x 12) worden uitgevoerd. Het is raadzaam om de limiet voor gelijktijdige taken te verhogen, alleen wanneer er brongebruik laag met de standaardwaarden op elk knooppunt.
+U schalen opwaarts door het aantal knooppunten te verhogen. Als u het aantal knooppunten verhoogt, is de limiet voor gelijktijdige taken de som van de waarden van de limiet voor gelijktijdige taak van alle beschikbare knooppunten.  Bijvoorbeeld, als één knooppunt u maximaal twaalf gelijktijdige taken uitvoeren kunt, kunt vervolgens drie meer lijken knooppunten toe te voegen u maximaal 48 gelijktijdige taken (dat wil zeggen, 4 x 12) worden uitgevoerd. Het is raadzaam om de limiet voor gelijktijdige taken te verhogen, alleen wanneer er brongebruik laag met de standaardwaarden op elk knooppunt.
 
 U kunt de waarde in de Azure-portal berekende standaard overschrijven. Selecteer Auteur > verbindingen > Integratieruntimes > Bewerken > knooppunten > gelijktijdige taak waarde per knooppunt wijzigen. U kunt ook de PowerShell [update azurermdatafactoryv2integrationruntimenode](https://docs.microsoft.com/en-us/powershell/module/azurerm.datafactoryv2/update-azurermdatafactoryv2integrationruntimenode?view=azurermps-6.4.0#examples) opdracht.
   

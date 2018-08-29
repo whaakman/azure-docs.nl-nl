@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b578abfa6fc0a10edc5daab40f8a0eea5e6653d9
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: c0fdcdbf838a0bc283db05f36b900641016211b7
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39115059"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43121911"
 ---
 # <a name="persist-job-and-task-output"></a>Taken persistent maken
 
@@ -34,7 +34,7 @@ Dit artikel beschrijft de verschillende opties voor het persistent maken uitvoer
 
 ## <a name="about-the-batch-file-conventions-standard"></a>Over de standaard Batch File Conventions
 
-Batch definieert een optionele set van conventies voor het benoemen van bestanden van de taak uitvoer in Azure Storage. De [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) beschrijving van deze overeenkomsten. De standaard File Conventions bepaalt de namen van de container- en blobnaam doelpad in Azure Storage voor een bepaalde uitvoerbestand op basis van de namen van de taak en de taak.
+Batch definieert een optionele set van conventies voor het benoemen van bestanden van de taak uitvoer in Azure Storage. De [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) beschrijving van deze overeenkomsten. De standaard File Conventions bepaalt de namen van de container- en blobnaam doelpad in Azure Storage voor een bepaalde uitvoerbestand op basis van de namen van de taak en de taak.
 
 Het is aan u of u wilt gebruikmaken van de File Conventions-standaard voor het benoemen van uw gegevensbestanden uitvoer. U kunt ook de doelcontainer een naam en blob maar u wilt. Als u de standaard File Conventions gebruikt voor het benoemen van uitvoerbestanden, wordt de uitvoerbestanden zijn beschikbaar voor weergave in de [Azure-portal][portal].
 
@@ -71,13 +71,13 @@ De volgende secties beschrijven elk benadering in meer detail.
 
 Met versie 2017-05-01, de Batch-service voegt ondersteuning toe voor uitvoerbestanden in Azure Storage voor de taakgegevens op te geven wanneer u [een taak toevoegen aan een taak](https://docs.microsoft.com/rest/api/batchservice/add-a-task-to-a-job) of [een verzameling taken toevoegen aan een job](https://docs.microsoft.com/rest/api/batchservice/add-a-collection-of-tasks-to-a-job).
 
-De Batch-service-API biedt ondersteuning voor vastleggen van taakgegevens naar een Azure Storage-account van pools die zijn gemaakt met de configuratie van de virtuele machine. Met de Batch-service-API, kunt u taakgegevens behouden zonder te wijzigen van de toepassing die de taak wordt uitgevoerd. U kunt eventueel voldoen aan de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) voor het benoemen van bestanden die u bewaard in een Azure Storage. 
+De Batch-service-API biedt ondersteuning voor vastleggen van taakgegevens naar een Azure Storage-account van pools die zijn gemaakt met de configuratie van de virtuele machine. Met de Batch-service-API, kunt u taakgegevens behouden zonder te wijzigen van de toepassing die de taak wordt uitgevoerd. U kunt eventueel voldoen aan de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) voor het benoemen van bestanden die u bewaard in een Azure Storage. 
 
 De Batch-service-API gebruiken om vast te leggen van de taak uitvoer wanneer:
 
 - U wilt behouden van gegevens van Batch-taken en jobbeheertaken in pools die zijn gemaakt met de configuratie van de virtuele machine.
 - U wilt dat het behoud van gegevens naar een Azure Storage-container met een willekeurige naam.
-- U wilt dat het behoud van gegevens naar een Azure Storage-container met de naam volgens de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). 
+- U wilt dat het behoud van gegevens naar een Azure Storage-container met de naam volgens de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). 
 
 > [!NOTE]
 > De API voor Batch-service biedt geen ondersteuning voor vastleggen van gegevens van de taken die worden uitgevoerd in pools die zijn gemaakt met de configuratie van de cloud-service. Zie voor meer informatie over permanente taak uitvoer van groepen met de cloud services-configuratie [taak en gegevens naar Azure Storage met de Batch File Conventions-bibliotheek voor .NET om vast te leggen behouden ](batch-task-output-file-conventions.md)
@@ -88,7 +88,7 @@ Zie voor meer informatie over permanente uitvoer van de taak met de Batch-servic
 
 ### <a name="use-the-batch-file-conventions-library-for-net"></a>De Batch File Conventions-bibliotheek voor .NET gebruiken
 
-Het bouwen van Batch-oplossingen met C# en .NET-ontwikkelaars kunnen gebruiken de [File Conventions-bibliotheek voor .NET] [ nuget_package] om vast te leggen gegevens van de taak met een Azure Storage-account volgens de [Batch-bestand Conventies standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). De File Conventions-bibliotheek verplaatsen uitvoerbestanden naar Azure Storage en de naamgeving van bestemming containers en blobs in een bekende manier worden verwerkt.
+Het bouwen van Batch-oplossingen met C# en .NET-ontwikkelaars kunnen gebruiken de [File Conventions-bibliotheek voor .NET] [ nuget_package] om vast te leggen gegevens van de taak met een Azure Storage-account volgens de [Batch-bestand Conventies standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). De File Conventions-bibliotheek verplaatsen uitvoerbestanden naar Azure Storage en de naamgeving van bestemming containers en blobs in een bekende manier worden verwerkt.
 
 De File Conventions-bibliotheek biedt ondersteuning voor een query uitvoeren op uitvoerbestanden op ID of doel, zodat u eenvoudig kunt terugvinden zonder het volledige bestand URI's. 
 
@@ -106,7 +106,7 @@ De [PersistOutputs] [ github_persistoutputs] voorbeeldproject op GitHub ziet u h
 
 ### <a name="implement-the-batch-file-conventions-standard"></a>De standaard Batch File Conventions implementeren
 
-Als u van een andere taal dan .NET gebruikmaakt, kunt u implementeren de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) in uw eigen toepassing. 
+Als u van een andere taal dan .NET gebruikmaakt, kunt u implementeren de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) in uw eigen toepassing. 
 
 U kunt voor het implementeren van de File Conventions-naamgevingsnorm zelf wanneer u een schematische naam bewezen, of wanneer u wilt weergeven van uitvoer van de taak in Azure portal.
 

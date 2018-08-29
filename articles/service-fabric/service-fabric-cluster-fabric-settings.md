@@ -12,14 +12,14 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/25/2018
+ms.date: 08/27/2018
 ms.author: aljo
-ms.openlocfilehash: 9e4d65875085ec293813e2683acde095ae112b75
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: ed904f7d4de9406e60de1652cefeb5bb84e5a1d8
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503703"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43144035"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel wordt beschreven hoe u de verschillende fabric-instellingen aanpassen voor uw Service Fabric-cluster. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Voor zelfstandige clusters, kunt u instellingen aanpassen door het bijwerken van het bestand ClusterConfig.json en een configuratie-upgrade uitvoert op uw cluster. 
@@ -170,7 +170,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | --- | --- | --- | --- |
 |PropertyGroup|KeyDoubleValueMap, is standaard ingesteld op geen|Dynamisch|Bepaalt het aantal gratis knooppunten die nodig zijn om te overwegen cluster gedefragmenteerd door een van beide procent op te geven in bereik [0.0-1.0) of het nummer van lege knooppunten als getal > = 1,0 |
 
-## <a name="diagnostics"></a>Diagnostische gegevens
+## <a name="diagnostics"></a>Diagnostiek
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
 |AppDiagnosticStoreAccessRequiresImpersonation |BOOL, de standaardinstelling is true | Dynamisch |Imitatie is wel of niet vereist wanneer toegang tot diagnostische namens de toepassing opslaat. |
@@ -187,9 +187,10 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="dnsservice"></a>De DNS-service
 | **Parameter** | **Toegestane waarden** |**Upgradebeleid**| **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
+|EnablePartitionedQuery|BOOL, standaard is ingesteld op FALSE|Statisch|De vlag ondersteuning voor DNS-query's voor gepartitioneerde services inschakelen. De functie is standaard uitgeschakeld. Zie voor meer informatie, [Service Fabric-DNS-Service.](service-fabric-dnsservice.md)|
 |InstanceCount|int, standaard is 1|Statisch|standaardwaarde is 1, wat betekent dat de DNS-service wordt uitgevoerd op elk knooppunt. OneBox moet dit moet worden ingesteld op 1, omdat de DNS-service maakt gebruik van bekende poort 53, zodat deze kan niet meerdere exemplaren op dezelfde computer hebt.|
 |IsEnabled|BOOL, standaard is ingesteld op FALSE|Statisch|Schakelt/DNS-service. De DNS-service is standaard uitgeschakeld en deze configuratie moet worden ingesteld zodat het. |
-|PartitionPrefix|tekenreeks, standaardwaarde is "-"|Statisch|Hiermee bepaalt u de partitie voorvoegsel string-waarde in de DNS-query's voor gepartitioneerde services. De waarde: <ul><li>Moet zijn RFC-compatibele omdat deze deel van een DNS-query uitmaken.</li><li>Mag niet een punt, '.', zoals stip gedrag van DNS-achtervoegsel verstoort.</li><li>Mag niet langer zijn dan 5 tekens.</li><li>Mag geen lege tekenreeks zijn.</li><li>Als de instelling PartitionPrefix wordt overschreven, wordt de PartitionSuffix moet worden vervangen, en vice versa.</li></ul>Zie voor meer informatie, [DNS aan Service Fabric.](service-fabric-dnsservice.md).|
+|PartitionPrefix|tekenreeks, standaardwaarde is '--'|Statisch|Hiermee bepaalt u de partitie voorvoegsel string-waarde in de DNS-query's voor gepartitioneerde services. De waarde: <ul><li>Moet zijn RFC-compatibele omdat deze deel van een DNS-query uitmaken.</li><li>Mag niet een punt, '.', zoals stip gedrag van DNS-achtervoegsel verstoort.</li><li>Mag niet langer zijn dan 5 tekens.</li><li>Mag geen lege tekenreeks zijn.</li><li>Als de instelling PartitionPrefix wordt overschreven, wordt de PartitionSuffix moet worden vervangen, en vice versa.</li></ul>Zie voor meer informatie, [DNS aan Service Fabric.](service-fabric-dnsservice.md).|
 |PartitionSuffix|tekenreeks, standaardwaarde is ""|Statisch|Hiermee bepaalt u de partitie achtervoegsel string-waarde in de DNS-query's voor gepartitioneerde services. De waarde: <ul><li>Moet zijn RFC-compatibele omdat deze deel van een DNS-query uitmaken.</li><li>Mag niet een punt, '.', zoals stip gedrag van DNS-achtervoegsel verstoort.</li><li>Mag niet langer zijn dan 5 tekens.</li><li>Als de instelling PartitionPrefix wordt overschreven, wordt de PartitionSuffix moet worden vervangen, en vice versa.</li></ul>Zie voor meer informatie, [DNS aan Service Fabric.](service-fabric-dnsservice.md). |
 
 ## <a name="fabricclient"></a>FabricClient
@@ -280,7 +281,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |StoredChaosEventCleanupIntervalInSeconds | Int, de standaardwaarde is 3600 |Statisch|Dit is hoe vaak de store wordt gecontroleerd om op te schonen; Als het aantal gebeurtenissen meer dan 30000 is; het opruimen van de wordt gestart. |
 |TargetReplicaSetSize |int, standaard is 0 |Statisch|De TargetReplicaSetSize voor FaultAnalysisService NOT_PLATFORM_UNIX_START. |
 
-## <a name="federation"></a>Federation
+## <a name="federation"></a>Federatie
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
 |GlobalTicketLeaseDuration|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(300)|Statisch|Interval in seconden opgeven. Knooppunten in het cluster moeten een globale lease onderhouden met de kiezers. Kiezers indienen hun algemene leases worden doorgegeven in het cluster voor deze duur. Als de duur is verlopen; de lease is verbroken. Quorumverlies van de lease zorgt ervoor dat een knooppunt aan het afbreken van het cluster. door gebrek aan communicatie met een quorum van knooppunten in deze periode ontvangen.  Deze waarde moet worden aangepast op basis van de grootte van het cluster. |
@@ -350,6 +351,9 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |ApplicationHostCloseTimeout| Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch| Interval in seconden opgeven. Als Fabric afsluiten is gedetecteerd in een zelf geactiveerde processen; FabricRuntime alle replica's in het hostproces (applicationhost) van de gebruiker gesloten. Dit is de time-out voor de bewerking sluiten. |
 |ApplicationUpgradeTimeout| Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(360)|Dynamisch| Interval in seconden opgeven. De time-out voor upgrade van de toepassing. Als de time-out minder is dan de deployer "ActivationTimeout" mislukken. |
 |ContainerServiceArguments|tekenreeks, standaardwaarde is "-H localhost: 2375 -H npipe: / /"|Statisch|Service Fabric (SF) beheert docker-daemon (behalve op windows-clientcomputers, zoals Win10). Deze configuratie kan de gebruiker om op te geven van de aangepaste argumenten die moeten worden doorgegeven aan docker-daemon bij het starten van het. Wanneer er aangepaste argumenten zijn opgegeven, Service Fabric niet een van de andere argumenten doorgegeven aan Docker-engine, behalve '--pidfile' argument. Daarom mag geen gebruikers opgegeven '--pidfile' argument als onderdeel van de argumenten van de klant. De aangepaste argumenten moeten zorg er ook voor dat docker daemon luistert op de standaard benoemde pipe voor Windows (of Unix-domeinsocket voor Linux) voor Service Fabric om te communiceren met het.|
+|ContainerServiceLogFileMaxSizeInKb|int, standaard is 32768|Statisch|Maximale bestandsgrootte van logboekbestand gegenereerd door de docker-containers.  Alleen Windows.|
+|ContainerServiceLogFileNamePrefix|tekenreeks, standaard is "sfcontainerlogs"|Statisch|Voorvoegsel van bestandsnaam voor de logboekbestanden die worden gegenereerd door de docker-containers.  Alleen Windows.|
+|ContainerServiceLogFileRetentionCount|Int, de standaardwaarde is 10|Statisch|Aantal logboekbestanden die worden gegenereerd door de docker-containers voordat de logboekbestanden worden overschreven.  Alleen Windows.|
 |CreateFabricRuntimeTimeout|Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(120)|Dynamisch| Interval in seconden opgeven. De time-outwaarde voor de synchronisatie FabricCreateRuntime aanroepen |
 |DefaultContainerRepositoryAccountName|tekenreeks, standaardwaarde is ""|Statisch|Standaardreferenties gebruikt in plaats van de referenties die zijn opgegeven in ApplicationManifest.xml |
 |DefaultContainerRepositoryPassword|tekenreeks, standaardwaarde is ""|Statisch|Standaard-wachtwoordreferenties die is gebruikt in plaats van de referenties die zijn opgegeven in ApplicationManifest.xml|
@@ -357,6 +361,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |DeploymentMaxRetryInterval| Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(3600)|Dynamisch| Interval in seconden opgeven. Interval voor maximum aantal nieuwe pogingen voor de implementatie. Bij elke continue fout wordt het interval voor opnieuw proberen berekend als Min (DeploymentMaxRetryInterval; Continue foutenteller * DeploymentRetryBackoffInterval) |
 |DeploymentRetryBackoffInterval| Interval, de standaardwaarde is Common::TimeSpan::FromSeconds(10)|Dynamisch|Interval in seconden opgeven. Uitstelinterval voor de implementatie mislukt. Het systeem wordt opnieuw geprobeerd de implementatie voor maximaal de MaxDeploymentFailureCount op elke continue implementatie is mislukt. Het interval voor opnieuw proberen is een product van continue implementatie is mislukt en het uitstel implementatie interval. |
 |EnableActivateNoWindow| BOOL, standaard is ingesteld op FALSE|Dynamisch| De geactiveerde procedure is gemaakt op de achtergrond zonder een console. |
+|EnableContainerServiceDebugMode|BOOL, standaard is ingesteld op TRUE|Statisch|Logboekregistratie voor docker-containers inschakelen/uitschakelen.  Alleen Windows.|
 |EnableDockerHealthCheckIntegration|BOOL, standaard is ingesteld op TRUE|Statisch|Integratie van docker-statuscontrole gebeurtenissen met Service Fabric system health-rapport |
 |EnableProcessDebugging|BOOL, standaard is ingesteld op FALSE|Dynamisch| Hiermee toepassingshosts onder foutopsporing starten |
 |EndpointProviderEnabled| BOOL, standaard is ingesteld op FALSE|Statisch| Hiermee kunt beheer van resources door Fabric eindpunt. Vereist specificatie van de begin- en poortbereik voor toepassingen in FabricNode. |
@@ -399,7 +404,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="imagestoreservice"></a>ImageStoreService
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
-|Inschakelen |BOOL, de standaardinstelling is false |Statisch|De vlag ingeschakeld voor ImageStoreService. Standaard: false |
+|Ingeschakeld |BOOL, de standaardinstelling is false |Statisch|De vlag ingeschakeld voor ImageStoreService. Standaard: false |
 |MinReplicaSetSize | Int, de standaardwaarde is 3 |Statisch|De MinReplicaSetSize voor ImageStoreService. |
 |PlacementConstraints | tekenreeks, standaardwaarde is "" |Statisch| De PlacementConstraints voor ImageStoreService. |
 |QuorumLossWaitDuration | Tijd in seconden, de standaardwaarde is MaxValue |Statisch| Interval in seconden opgeven. De QuorumLossWaitDuration voor ImageStoreService. |
@@ -714,7 +719,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 |PropertyWriteBatch |tekenreeks, standaard is 'Admin' |Dynamisch|Beveiligingsconfiguraties voor naamgeving voor eigenschap schrijfbewerkingen. |
 |ProvisionApplicationType |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het inrichten van de toepassing-type. |
 |ProvisionFabric |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het Manifest inrichten MSI en/of -Cluster. |
-|Query |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " |Dynamisch| De beveiligingsconfiguratie voor query's. |
+|Query’s uitvoeren |tekenreeks, standaardwaarde is ' Admin\|\|gebruiker " |Dynamisch| De beveiligingsconfiguratie voor query's. |
 |RecoverPartition |tekenreeks, standaard is 'Admin' | Dynamisch|De beveiligingsconfiguratie voor het herstellen van een partitie. |
 |RecoverPartitions |tekenreeks, standaard is 'Admin' | Dynamisch|De beveiligingsconfiguratie voor het herstellen van partities. |
 |RecoverServicePartitions |tekenreeks, standaard is 'Admin' |Dynamisch| De beveiligingsconfiguratie voor het herstellen van servicepartities. |
@@ -782,7 +787,7 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 | --- | --- | --- | --- |
 |PropertyGroup|X509NameMap, is standaard ingesteld op geen|Dynamisch|Dit is een lijst van een sleutelpaar met "Naam" en "Waarde". Elke 'naam' is van het algemene naam van het onderwerp of DNS-naam van X509 certificaten die zijn gemachtigd voor siteserverbewerkingen. Voor een bepaalde "naam", "Waarde" is een met door komma's gescheiden lijst met vingerafdrukken van het certificaat voor de verlener vast te maken, als dat niet leeg is, wordt de directe verlener van certificaten moet zich in de lijst.|
 
-## <a name="setup"></a>Installatie
+## <a name="setup"></a>Instellen
 | **Parameter** | **Toegestane waarden** | **Upgradebeleid** | **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|tekenreeks, standaardwaarde is ""| Statisch |De naam van het netwerk te gebruiken bij het instellen van een netwerk container.|

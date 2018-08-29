@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/14/2018
 ms.author: bryanla
-ms.openlocfilehash: 962f9be53ce0b2022e8e5490bdeb04b2eefb4d7c
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: f36e0e3ddc605d960ed764252308cbf09578832c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42060573"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126139"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 Azure Key Vault kunnen gebruikers voor het opslaan en gebruiken van cryptografische sleutels binnen de Microsoft Azure-omgeving. Key Vault ondersteunt meerdere sleuteltypen en algoritmen, en maakt het gebruik van Hardware Security Modules (HSM) voor hoge waarde sleutels. Key Vault kunnen bovendien gebruikers geheimen veilig opslaan. Geheimen zijn geen specifieke semantiek beperkte grootte octet objecten. Key Vault biedt ook ondersteuning voor certificaten die zijn gebaseerd op de sleutels en geheimen en toevoegen van een functie voor automatische verlenging.
@@ -174,7 +174,7 @@ Azure Key Vault ondersteunt de volgende bewerkingen voor sleutels objecten:
 -   **Back-up**: Hiermee exporteert u een sleutel in een beveiligde vorm.  
 -   **Herstellen**: een back-up sleutel geïmporteerd.  
 
-Zie voor meer informatie, [belangrijke bewerkingen in de de Key Vault REST API-verwijzing](/rest/api/keyvault).  
+Zie voor meer informatie, [belangrijke bewerkingen in de Key Vault REST API-verwijzing](/rest/api/keyvault).  
 
 Zodra een sleutel is gemaakt in Azure Key Vault, kunnen de volgende cryptografische bewerkingen worden uitgevoerd met behulp van de sleutel:  
 
@@ -283,7 +283,7 @@ De volgende machtigingen kunnen worden gebruikt, op basis van per-principal, in 
 -   *Verwijder*: het geheim verwijderen  
 -   *alle*: alle machtigingen  
 
-Zie voor meer informatie over het werken met geheimen [geheime bewerkingen in de de Key Vault REST API-verwijzing](/rest/api/keyvault).  
+Zie voor meer informatie over het werken met geheimen [geheime bewerkingen in de Key Vault REST API-verwijzing](/rest/api/keyvault).  
 
 ###  <a name="BKMK_SecretTags"></a> De geheime codes  
 U kunt aanvullende toepassingsspecifieke metagegevens opgeven in de vorm van tags. Azure Key Vault ondersteunt maximaal 15 tags, die elk een naam van 256 tekens en een waarde 256 tekens hebben.  
@@ -443,7 +443,7 @@ Als het beleid van het certificaat is ingesteld op automatische verlenging, word
 -   *deleteissuers*: kan het verwijderen van certificaatverleners Key Vault  
 -   *alle*: verleent alle machtigingen  
 
-Zie voor meer informatie de [certificaatbewerkingen in de de Key Vault REST API-verwijzing](/rest/api/keyvault). 
+Zie voor meer informatie de [certificaatbewerkingen in de Key Vault REST API-verwijzing](/rest/api/keyvault). 
 
 ## <a name="see-also"></a>Zie ook
 

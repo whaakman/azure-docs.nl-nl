@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 03/15/2018
+ms.date: 08/27/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 86b8f76bd221be9f30a5b9336af858359ae0af8f
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238876"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128123"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
 
@@ -94,8 +94,18 @@ Gebruik de volgende stappen uit om te configureren op Windows-computers bijhoude
 |Ingeschakeld     | Hiermee bepaalt u als de instelling wordt toegepast.        |
 |Itemnaam     | Beschrijvende naam van het bestand moet worden bijgehouden.        |
 |Groep     | De groepsnaam van een voor logisch groeperen van bestanden.        |
-|Pad invoeren     | Het pad voor het controleren op het bestand, bijvoorbeeld: "C:\temp\myfile.txt"       |
+|Pad invoeren     | Het pad om te controleren op het bestand bijvoorbeeld: "c:\temp\\\*.txt '<br>U kunt ook omgevingsvariabelen zoals gebruiken ' %winDir%\System32\\\*. * "       |
+|Recursie     | Bepaalt of recursie wordt gebruikt bij het zoeken naar het item dat moet worden bijgehouden.        |
 |Bestandsinhoud uploaden voor alle instellingen| Schakelt uploaden van bestandsinhoud bij bijgehouden wijzigingen in of uit. Beschikbare opties: **Waar** of **Onwaar**.|
+
+## <a name="wildcard-recursion-and-environment-settings"></a>Jokertekens recursie en omgeving instellingen
+
+Recursie kunt u opgeven van jokertekens voor het vereenvoudigen van alle mappen en omgevingsvariabelen waarmee u kunt bestanden bijhouden in omgevingen met meerdere bij te houden of een dynamische schijf namen. Hier volgt een lijst met algemene informatie over het bij het configureren van recursie:
+
+* Jokertekens zijn vereist voor het bijhouden van meerdere bestanden
+* Als u jokertekens gebruikt, kunnen ze alleen worden gebruikt in het laatste segment van een pad. (zoals C:\folder\\**bestand** of /etc/*.conf)
+* Als een omgevingsvariabele heeft een ongeldig pad, de validatie slaagt maar het opgegeven pad zal mislukken wanneer inventarisatie wordt uitgevoerd.
+* Algemene paden zoals voorkomen `c:\*.*` bij het instellen van het pad, aangezien dit zou leiden tot te veel mappen wordt gebruikt.
 
 ## <a name="configure-file-content-tracking"></a>Configureren van bestandsinhoud bijhouden
 
@@ -122,13 +132,8 @@ Gebruik de volgende stappen voor het configureren van sleutel-register traceren 
 
 De oplossing wijzigingen bijhouden biedt momenteel geen ondersteuning voor de volgende items:
 
-* Mappen voor Windows-bestandstracering
-* Recursie voor Windows-bestandstracering
-* Jokertekens voor Windows-bestandstracering
 * Recursie voor Windows-register bijhouden
-* Padvariabelen
 * Netwerk-bestandssystemen
-* Bestandsinhoud
 
 Andere beperkingen:
 

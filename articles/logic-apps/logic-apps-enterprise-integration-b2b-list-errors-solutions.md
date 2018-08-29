@@ -1,153 +1,151 @@
 ---
-title: 'Logic Apps B2B lijst met fouten en oplossingen: Azure App Service | Microsoft Docs'
-description: Logic Apps B2B lijst met fouten en oplossingen
+title: Fouten en oplossingen voor B2B-scenario's - Azure Logic Apps | Microsoft Docs
+description: Zoeken naar fouten en oplossingen voor B2B-scenario's in Azure Logic Apps
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
 ms.date: 06/02/2017
-ms.author: LADocs; padmavc
-ms.openlocfilehash: 8503792d57dd7ed64434d5a306afce850ced77db
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 11fbec81e88eec6c7daa9136eb5421387b79d71c
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298335"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124331"
 ---
-# <a name="logic-apps-b2b-list-of-errors-and-solutions"></a>Logic Apps B2B lijst met fouten en oplossingen  
-In dit artikel helpt u bij het oplossen van fouten die mogelijk in Logic Apps B2B-scenario's en stelt de nodige acties voor het oplossen van deze fouten.
+# <a name="b2b-errors-and-solutions-for-azure-logic-apps"></a>B2B-fouten en oplossingen voor Azure Logic Apps
 
+Dit artikel helpt bij het oplossen van fouten die mogelijk in Logic Apps B2B-scenario's en stelt de nodige acties voor het corrigeren van deze fouten.
 
 ## <a name="agreement-resolution"></a>Omzetting van de overeenkomst
 
-### <a name="no-agreement-found"></a>* Geen overeenkomst gevonden 
+### <a name="no-agreement-found"></a>Er is geen overeenkomst gevonden 
 
 |   |   |  
 |---|---|
-| Foutbeschrijving | Er is geen overeenkomst gevonden met de overeenkomst resolutie Parameters|    
-| Gebruikersactie | De overeenkomst moet worden toegevoegd aan het account van de integratie met overeengekomen business identiteiten.</br> De zakelijke identiteit moeten overeenkomen met de bericht-id 's|  
+| Foutbeschrijving | Er is geen overeenkomst gevonden met de overeenkomst resolutie Parameters. | 
+| Actie van de gebruiker | De overeenkomst moet worden toegevoegd aan het integratieaccount met de overeengekomen bedrijfsidentiteiten. </br>De bedrijfsidentiteiten moeten overeenkomen met het invoer bericht-id's. |  
 |   |   |
 
-### <a name="-no-agreement-found-with-identities"></a>* Geen overeenkomst gevonden met identiteiten
+### <a name="no-agreement-found-with-identities"></a>Er is geen overeenkomst gevonden met identiteiten
 
 |   |   | 
 |---|---|
-| Foutbeschrijving | Er is geen overeenkomst gevonden met identiteiten: 'AS2Identity':: 'Partner1' en 'AS2Identity':: 'Partner3'| 
-| Gebruikersactie | Ongeldige AS2-uit of AS2-tot geconfigureerd voor de overeenkomst. </br> Juiste AS2 bericht AS2-uit of AS2-headers of overeenkomst moet worden gezocht AS2-id's in AS2-bericht headers met de configuraties van de overeenkomst |
+| Foutbeschrijving | Er is geen overeenkomst gevonden met identiteiten: 'AS2Identity':: 'Partner1' en 'AS2Identity':: 'Partner3' | 
+| Actie van de gebruiker | Ongeldige AS2-uit of AS2-naar geconfigureerd voor de overeenkomst. </br>Corrigeer het AS2-bericht "AS2-uit" of "AS2-naar" headers of de overeenkomst zodat deze overeenkomen met de AS2-id's in de berichtkoppen AS2 met configuraties van de overeenkomst. |
 |   |   |     
 
 ## <a name="as2"></a>AS2
 
-### <a name="-missing-as2-message-headers"></a>* AS2 berichtkoppen ontbreekt  
+### <a name="missing-as2-message-headers"></a>Ontbrekende headers voor AS2-bericht  
 
 |   |   |  
 |---|---|
-| Foutbeschrijving| Ongeldige AS2-headers. Een van de ' AS2-aan ' of ' AS2-van ' headers zijn leeg| 
-| Gebruikersactie | Een AS2-bericht is ontvangen die niet de AS2 bevat-uit of AS2-te of beide headers. </br> Controleer AS2 bericht AS2-vanaf en AS2-berichtkoppen en juist ze op basis van overeenkomst configuratie |
+| Foutbeschrijving | Ongeldige AS2-headers. Een van de ' AS2-naar ' of ' AS2-uit "headers is leeg. | 
+| Actie van de gebruiker | Een AS2-bericht is ontvangen dat geen AS2-uit of AS2-naar of beide headers. </br> Controleren van de AS2-bericht AS2-uit en AS2-headers en juiste ze op basis van overeenkomst configuratie. |
 |  |  | 
 
-
-### <a name="-missing-as2-message-body-and-headers"></a>* Ontbrekende AS2 berichttekst en -koppen    
+### <a name="missing-as2-message-body-and-headers"></a>Ontbrekende hoofdtekst van de AS2-bericht en headers    
 
 |   |   |  
 |---|---|
-| Foutbeschrijving| Inhoud van de aanvraag is null of leeg | 
-| Gebruikersactie | Een AS2-bericht is ontvangen die niet de berichttekst bevat |
+| Foutbeschrijving | De aanvraaginhoud is null of leeg. | 
+| Actie van de gebruiker | Een AS2-bericht is ontvangen dat geen hoofdtekst van het bericht. |
 |  |  | 
 
-### <a name="-as2-message-decryption-failure"></a>* Ontsleutelingsfout AS2-bericht
+### <a name="as2-message-decryption-failure"></a>Ontsleutelingsfout AS2-bericht
 
 |   |   | 
 |---|---|
-| Foutbeschrijving |  [verwerkt/fout: ontsleuteling is mislukt] | 
-| Gebruikersactie | Voeg @base64ToBinary naar AS2Message voordat wordt verzonden naar partner 
-```java
-            "HTTP": {
-                "inputs": {
-                    "body": "@base64ToBinary(body('Encode_to_AS2_message')?['AS2Message']?['Content'])",
-                    "headers": "@body('Encode_to_AS2_message')?['AS2Message']?['OutboundHeaders']",
-                    "method": "POST",
-                    "uri": "xxxxx.xxx"
-                },
-                
+| Foutbeschrijving |  [verwerkt/fout: het ontsleutelen is mislukt] | 
+| Actie van de gebruiker | Voeg @base64ToBinary naar AS2Message voordat ze worden verzonden naar partner. |
+|||
+
+Bijvoorbeeld:
+
+```json
+"HTTP": {
+   "inputs": {
+   "body": "@base64ToBinary(body('Encode_to_AS2_message')?['AS2Message']?['Content'])",
+   "headers": "@body('Encode_to_AS2_message')?['AS2Message']?['OutboundHeaders']",
+   "method": "POST",
+   "uri": "xxxxx.xxx"
+},
 ``` 
 
-### <a name="-mdn-decryption-failure"></a>* MDN ontsleutelingsfout
+### <a name="mdn-decryption-failure"></a>MDN ontsleutelen mislukt
 
 |   |   | 
 |---|---|
-| Foutbeschrijving |  [verwerkt/fout: ontsleuteling is mislukt] | 
-| Gebruikersactie | Voeg @base64ToBinary naar MDN voordat wordt verzonden naar partner 
-```java
-            "Response": {
-                "inputs": {
-                    "body": "@base64ToBinary(body('Decode_AS2_message')?['OutgoingMDN']?['Content'])",
-                    "headers": "@body('Decode_AS2_message')?['OutgoingMDN']?['OutboundHeaders']",
-                    "statusCode": 200
-                },
-                
+| Foutbeschrijving |  [verwerkt/fout: het ontsleutelen is mislukt] | 
+| Actie van de gebruiker | Voeg @base64ToBinary naar MDN voordat ze worden verzonden naar partner. | 
+|||
+
+Bijvoorbeeld:
+
+```json
+"Response": {
+   "inputs": {
+   "body": "@base64ToBinary(body('Decode_AS2_message')?['OutgoingMDN']?['Content'])",
+   "headers": "@body('Decode_AS2_message')?['OutgoingMDN']?['OutboundHeaders']",
+   "statusCode": 200
+},               
 ``` 
 
-### <a name="-missing-signing-certificate"></a>* Handtekeningcertificaat ontbreekt
+### <a name="missing-signing-certificate"></a>Ontbrekend certificaat voor ondertekening
 
 |   |   |  
 |---|---|
-| Foutbeschrijving| Het certificaat voor ondertekening is niet geconfigureerd voor AS2 partij. </br> AS2-vanaf: partner1 AS2-te: partner2 | 
-| Gebruikersactie | AS2-overeenkomst instellingen configureren met het juiste certificaat voor handtekening |
+| Foutbeschrijving| Het certificaat voor ondertekening is niet geconfigureerd voor AS2-partij. </br>AS2-uit: partner1 AS2-naar: partner2 | 
+| Actie van de gebruiker | AS2-overeenkomst instellingen configureren met het juiste certificaat voor ondertekening. |
 |  |  | 
 
 ## <a name="x12-and-edifact"></a>X12 en EDIFACT
 
-### <a name="-leading-or-trailing-space-found"></a>* Voorloop- of een afsluitende spatie gevonden    
+### <a name="leading-or-trailing-space-found"></a>Er is een voorloop- of volgspatie gevonden    
     
 |   |   | 
 |---|---|
-| Foutbeschrijving | Fout opgetreden tijdens het parseren. De transactie Edifact ingesteld met de id ' 123456 'opgenomen in interchange (zonder groep) met id ' 987654', met id 'Partner1' van de afzender, ontvanger-id 'Partner2' wordt onderbroken met de volgende fouten: voorloopspaties afsluitende scheidingsteken gevonden |
-| Gebruikersactie | De instellingen van de overeenkomst moet worden geconfigureerd voor het toestaan van voorloopspaties en afsluitende spatie. </br> Instellingen om toe te staan voorloop- en volgspaties ruimte overeenkomst bewerken |
+| Foutbeschrijving | Er is een fout opgetreden tijdens het parseren. De EDIFACT-transactieset instellen met de ID ' 123456 'opgenomen in de uitwisseling (zonder groep) met ID ' 987654', met afzender-ID 'Partner1', 'Partner2' van de ontvanger-ID is geblokkeerd met de volgende fouten: <p>"Toonaangevende Trailing scheidingsteken gevonden" |
+| Actie van de gebruiker | De instellingen van de overeenkomst moet worden geconfigureerd om toe te staan voorloopspaties en afsluitende spatie. </br>De instellingen van de overeenkomst om toe te staan voorloop- en volgspaties ruimte bewerken. |
 |   |   |
 
 ![ruimte](./media/logic-apps-enterprise-integration-b2b-list-errors-solutions/leadingandtrailing.png)
 
-### <a name="-duplicate-check-has-enabled-in-the-agreement"></a>* Dubbele selectievakje is ingeschakeld in de overeenkomst
+### <a name="duplicate-check-has-enabled-in-the-agreement"></a>Dubbele selectievakje is ingeschakeld in de overeenkomst
 
 |   |   | 
 |---|---| 
 | Foutbeschrijving | Dubbel controlenummer |
-| Gebruikersactie | Deze fout geeft aan dat het ontvangen bericht heeft dubbele besturingselement cijfers. </br> Corrigeer het besturingselementnummer en het bericht te verzenden |
+| Actie van de gebruiker | Deze fout geeft aan dat het ontvangen bericht heeft dubbele controlenummers. </br>Corrigeer het besturingselementnummer en het bericht te verzenden. |
 |   |   |
 
-### <a name="-missing-schema-in-the-agreement"></a>* Ontbrekende schema in de overeenkomst
+### <a name="missing-schema-in-the-agreement"></a>Ontbrekende schema in de overeenkomst
 
 |   |   | 
 |---|---| 
-| Foutbeschrijving | Fout opgetreden tijdens het parseren. De X12 transactie set met id '564220001' opgenomen in functionele groep met id '56422', in het knooppunt met id '000056422' met afzender-id ' 12345678', ' 87654321-id van de ontvanger' wordt onderbroken met de volgende fouten 'in het bericht heeft een onbekend documenttype en het is niet omgezet naar een van de bestaande schema's zijn geconfigureerd in de overeenkomst' |
-| Gebruikersactie | Schema in de overeenkomst-instellingen configureren  |
+| Foutbeschrijving | Er is een fout opgetreden tijdens het parseren. De X12 transactieset met ID '564220001' die zijn opgenomen in de functiegroep met ID '56422', in de uitwisseling met ID '000056422', met afzender-ID ' 12345678', ontvanger-ID ' 87654321' is geblokkeerd met de volgende fouten: <p>'Het bericht heeft een onbekend documenttype en is niet omgezet in een van de bestaande schema's geconfigureerd in de overeenkomst' |
+| Actie van de gebruiker | Schema in de overeenkomst-instellingen configureren.  |
 |   |   |
 
-### <a name="-incorrect-schema-in-the-agreement"></a>* Onjuist schema in de overeenkomst
+### <a name="incorrect-schema-in-the-agreement"></a>Onjuist schema in de overeenkomst
 
 |   |   | 
 |---|---| 
 | Foutbeschrijving | Het bericht bevat een onbekend documenttype en is niet omgezet in een van de bestaande schema's die in de overeenkomst zijn geconfigureerd. |
-| Gebruikersactie | Juiste schema in de overeenkomst-instellingen configureren  |
+| Actie van de gebruiker | Juiste schema in de overeenkomst-instellingen configureren. |
 |   |   |
 
 ## <a name="flat-file"></a>Plat bestand
 
-### <a name="-input-message-with-no-body"></a>* Invoerbericht bij geen instantie
+### <a name="input-message-with-no-body"></a>Invoerbericht met geen hoofdtekst
 
 |   |   | 
 |---|---|
-| Foutbeschrijving | InvalidTemplate. Kan de sjabloontaalexpressies proces in de invoer van de actie 'Flat_File_Decoding' op regel '1' en kolom '1902': ' eigenschap 'inhoud' verwacht een waarde maar kreeg null vereist. Pad '.'. |
-| Gebruikersactie | Deze fout geeft aan dat het invoerbericht bevat geen hoofdtekst |
+| Foutbeschrijving | InvalidTemplate. Kan de sjabloontaalexpressies proces in actie-invoer voor 'Flat_File_Decoding' op de regel '1' en '1902' kolom: ' vereiste eigenschap 'inhoud' wordt verwacht dat een waarde, maar is null. Pad '.'. |
+| Actie van de gebruiker | Deze fout geeft aan dat het invoerbericht een instantie niet bevat. |
 |   |   | 
 
-## <a name="learn-more"></a>Meer informatie
-[Meer informatie over het Enterprise-integratiepakket](logic-apps-enterprise-integration-overview.md)

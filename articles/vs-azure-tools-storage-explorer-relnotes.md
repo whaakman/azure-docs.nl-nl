@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/12/2018
 ms.author: cawa
-ms.openlocfilehash: 94ade24f1761700b93ab79d497e273c64c51bddf
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: ac2787f69651e950ffb6b786280ba7f11f4fa8e0
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990894"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127957"
 ---
 # <a name="microsoft-azure-storage-explorer-release-notes"></a>Opmerkingen bij de release van Microsoft Azure Storage Explorer
 
@@ -27,31 +27,37 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.2.0 rel
 
 [Microsoft Azure Storage Explorer](./vs-azure-tools-storage-manage-with-storage-explorer.md) is een zelfstandige app waarmee u eenvoudig met Azure Storage-gegevens kunt werken via Windows, macOS en Linux.
 
-## <a name="version-130"></a>Versie 1.3.0
-07/09/2018
+## <a name="version-141"></a>Versie 1.4.1
+08/28/2018
 
 ### <a name="download-azure-storage-explorer-130"></a>Azure Storage Explorer 1.3.0 downloaden
 - [Azure Storage Explorer 1.3.0 voor Windows](https://go.microsoft.com/fwlink/?LinkId=708343)
 - [Azure Storage Explorer 1.3.0 voor Mac](https://go.microsoft.com/fwlink/?LinkId=708342)
 - [Azure Storage Explorer 1.3.0 voor Linux](https://go.microsoft.com/fwlink/?LinkId=722418)
 
+### <a name="hotfixes"></a>Hotfixes
+* Storage Explorer is op de eerste keer opstarten wordt voor het genereren van de sleutel die wordt gebruikt voor het versleutelen van gevoelige gegevens. Dit kan problemen veroorzaken bij het gebruik van Snelweergavetoegang en het koppelen van resources. [#535](https://github.com/Microsoft/AzureStorageExplorer/issues/535)
+* Als uw account geen MFA voor de starttenant vereist heeft, maar voor sommige andere tenants heeft, zou Opslagverkenner kan geen lijst met abonnementen zijn. Nu, na het aanmelden met een dergelijk account, Storage Explorer u wordt gevraagd uw referenties opnieuw invoeren en uitvoeren van MFA. [#74](https://github.com/Microsoft/AzureStorageExplorer/issues/74)
+* Storage Explorer kon geen resources van Azure Duitsland en Azure US Government koppelen. [#572](https://github.com/Microsoft/AzureStorageExplorer/issues/572)
+* Als u zich aangemeld bij twee accounts die waren van hetzelfde e-mailadres, mislukken Opslagverkenner soms om weer te geven van uw resources in de structuurweergave wordt weergegeven. [#580](https://github.com/Microsoft/AzureStorageExplorer/issues/580)
+* Op Windows-machines, langzamer, zou het beginscherm soms duren voordat een aanzienlijke hoeveelheid tijd om te worden weergegeven. [#586](https://github.com/Microsoft/AzureStorageExplorer/issues/586)
+* Het dialoogvenster verbinding maken wordt weergegeven, zelfs als er gekoppelde accounts of -services. [#588](https://github.com/Microsoft/AzureStorageExplorer/issues/588)
+
 ### <a name="new"></a>Nieuw
-* Toegang tot de $web containers die worden gebruikt door statische Websites wordt nu ondersteund. Hiermee kunt u eenvoudig uploaden en beheren van bestanden en mappen die worden gebruikt door uw website. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
-* De app-balk op macOS is opnieuw zijn gerangschikt. Wijzigingen omvatten een bestandsmenu, enkele belangrijke wijzigingen van de snelkoppeling en diverse nieuwe opdrachten onder het menu van de app. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
-* Het eindpunt van de instantie voor het aanmelden bij Azure US Government is gewijzigd in https://login.microsoftonline.us/
-* Toegankelijkheid: Wanneer een schermlezer actief is, toetsenbordnavigatie nu werkt met de tabellen die worden gebruikt voor het weergeven van items aan de rechterkant. U kunt de pijltoetsen om te navigeren rijen en kolommen, Enter om aan te roepen standaardacties, de sleutel van de context menu te openen om het contextmenu voor een item en Shift of besturingselement multiselect gebruiken. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+* Externe resource-bijlagen, bijvoorbeeld voor SAS-verbindingen en emulatoren, is aanzienlijk verbeterd. U kunt nu het volgende doen:
+   * Pas de weergavenaam van de resource die u wilt toevoegen. [#31](https://github.com/Microsoft/AzureStorageExplorer/issues/31)
+   * Koppelen aan meerdere lokale emulators met behulp van verschillende poorten. [#193](https://github.com/Microsoft/AzureStorageExplorer/issues/193)
+   * Gekoppelde resources toevoegen aan Snelweergavetoegang. [#392](https://github.com/Microsoft/AzureStorageExplorer/issues/392)
+* Storage Explorer biedt nu ondersteuning voor voorlopig verwijderen. U kunt:
+   * Configureer een beleid voor voorlopig verwijderen met de rechtermuisknop op het knooppunt van de Blob-Containers voor uw opslagaccount.
+   * Voorlopig verwijderde weergeven blobs in de Blob-Editor door te selecteren ' Active en blobs verwijderd ' in de vervolgkeuzelijst naast de navigatiebalk.
+   * Voorlopig verwijderde blobs ongedaan.
 
 ### <a name="fixes"></a>Oplossingen
-*  Op sommige computers zijn onderliggende processen lang duurt om te starten. Wanneer dit gebeurt, is een fout 'onderliggend proces kan niet tijdig starten' wordt weergegeven. De tijd die is toegewezen voor een onderliggend proces te starten is nu verhoogd van 20 tot 90 seconden. Als u nog steeds door dit probleem ondervindt, stuur een reactie op de gekoppelde GitHub-probleem. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
-* Wanneer u een SA's dat heeft geen machtigingen hebt gelezen, was het niet mogelijk een grote blob uploadt. De logica voor het uploaden is gewijzigd om te werken in dit scenario. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
-* Het niveau van de openbare toegang instellen voor een container alle beleidsregels voor toegang verwijdert, en vice versa. Beleidsregels voor openbare toegang en toegang blijven nu behouden bij het instellen van een van de twee. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
-* "AccessTierChangeTime" zijn afgekapt in het dialoogvenster Eigenschappen. Dit probleem is opgelost. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
-* ' Microsoft Azure Storage Explorer-' voorvoegsel ontbreekt in het dialoogvenster Nieuwe map maken. Dit probleem is opgelost. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
-* Toegankelijkheid: Het dialoogvenster entiteit toevoegen is moeilijk om te navigeren wanneer u VoiceOver. Verbeteringen zijn aangebracht. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
-* Toegankelijkheid: De achtergrondkleur van de knop samenvouwen/uitvouwen voor het deelvenster met eigenschappen en acties is inconsistent met vergelijkbare UI-besturingselementen in thema met hoog Contrast zwart. De kleur is gewijzigd. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
-* Toegankelijkheid: In thema met hoog Contrast zwart, de focus opmaak voor de knop 'X' in het dialoogvenster Eigenschappen is niet zichtbaar. Dit probleem is opgelost. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
-* Toegankelijkheid: De tabbladen met eigenschappen en acties zijn verschillende aria-waarden die het heeft geresulteerd in een ervaring van de lezer subpar scherm ontbreekt. De ontbrekende aria-waarden zijn nu toegevoegd. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
-* Toegankelijkheid: Samengevouwen structuurknooppunten aan de linkerzijde zijn niet wordt opgegeven aria-uitgevouwen waarde false. Dit probleem is opgelost. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+* De actie "CORS-instellingen configureren" is niet meer beschikbaar is op Premium Storage-accounts omdat Premium Storage-accounts bieden geen ondersteuning voor CORS. [#142](https://github.com/Microsoft/AzureStorageExplorer/issues/142)
+* Er is nu een Shared Access Signature-eigenschap voor SAS-Services die zijn gekoppeld. [#184](https://github.com/Microsoft/AzureStorageExplorer/issues/184)
+* De actie 'Standaard Toegangslaag ingesteld' is nu beschikbaar voor Blob- en GPV2-Storage-accounts die zijn vastgemaakt aan Snelweergavetoegang. [#229](https://github.com/Microsoft/AzureStorageExplorer/issues/229)
+* Soms mislukt Storage Explorer om weer te geven van klassieke opslagaccounts. [#323](https://github.com/Microsoft/AzureStorageExplorer/issues/323)
 
 ### <a name="known-issues"></a>Bekende problemen
 * Bij het gebruik van emulators, zoals Azure Storage-Emulator of Azurite, moet u deze luistert voor verbindingen op hun standaardpoorten. Anders pas Opslagverkenner weer verbinding te maken met.
@@ -88,6 +94,7 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.2.0 rel
 
 ## <a name="previous-releases"></a>Vorige versies
 
+* [Versie 1.3.0](#version-130)
 * [Versie 1.2.0](#version-120)
 * [Versie 1.1.0](#version-110)
 * [Versie 1.0.0](#version-100)
@@ -113,6 +120,63 @@ In dit artikel bevat de releaseopmerkingen voor Azure Storage Explorer 1.2.0 rel
 * [Versie 0.7.20160129.1](#version-07201601291)
 * [Versie 0.7.20160105.0](#version-07201601050)
 * [Versie 0.7.20151116.0](#version-07201511160)
+
+## <a name="version-130"></a>Versie 1.3.0
+07/09/2018
+
+### <a name="new"></a>Nieuw
+* Toegang tot de $web containers die worden gebruikt door statische Websites wordt nu ondersteund. Hiermee kunt u eenvoudig uploaden en beheren van bestanden en mappen die worden gebruikt door uw website. [#223](https://github.com/Microsoft/AzureStorageExplorer/issues/223)
+* De app-balk op macOS is opnieuw zijn gerangschikt. Wijzigingen omvatten een bestandsmenu, enkele belangrijke wijzigingen van de snelkoppeling en diverse nieuwe opdrachten onder het menu van de app. [#99](https://github.com/Microsoft/AzureStorageExplorer/issues/99)
+* Het eindpunt van de instantie voor het aanmelden bij Azure US Government is gewijzigd in https://login.microsoftonline.us/
+* Toegankelijkheid: Wanneer een schermlezer actief is, toetsenbordnavigatie nu werkt met de tabellen die worden gebruikt voor het weergeven van items aan de rechterkant. U kunt de pijltoetsen om te navigeren rijen en kolommen, Enter om aan te roepen standaardacties, de sleutel van de context menu te openen om het contextmenu voor een item en Shift of besturingselement multiselect gebruiken. [#103](https://github.com/Microsoft/AzureStorageExplorer/issues/103)
+
+### <a name="fixes"></a>Oplossingen
+*  Op sommige computers zijn onderliggende processen lang duurt om te starten. Wanneer dit gebeurt, is een fout 'onderliggend proces kan niet tijdig starten' wordt weergegeven. De tijd die is toegewezen voor een onderliggend proces te starten is nu verhoogd van 20 tot 90 seconden. Als u nog steeds door dit probleem ondervindt, stuur een reactie op de gekoppelde GitHub-probleem. [#281](https://github.com/Microsoft/AzureStorageExplorer/issues/281)
+* Wanneer u een SA's dat heeft geen machtigingen hebt gelezen, was het niet mogelijk een grote blob uploadt. De logica voor het uploaden is gewijzigd om te werken in dit scenario. [#305](https://github.com/Microsoft/AzureStorageExplorer/issues/305)
+* Het niveau van de openbare toegang instellen voor een container alle beleidsregels voor toegang verwijdert, en vice versa. Beleidsregels voor openbare toegang en toegang blijven nu behouden bij het instellen van een van de twee. [#197](https://github.com/Microsoft/AzureStorageExplorer/issues/197)
+* "AccessTierChangeTime" zijn afgekapt in het dialoogvenster Eigenschappen. Dit probleem is opgelost. [#145](https://github.com/Microsoft/AzureStorageExplorer/issues/145)
+* ' Microsoft Azure Storage Explorer-' voorvoegsel ontbreekt in het dialoogvenster Nieuwe map maken. Dit probleem is opgelost. [#299](https://github.com/Microsoft/AzureStorageExplorer/issues/299)
+* Toegankelijkheid: Het dialoogvenster entiteit toevoegen is moeilijk om te navigeren wanneer u VoiceOver. Verbeteringen zijn aangebracht. [#206](https://github.com/Microsoft/AzureStorageExplorer/issues/206)
+* Toegankelijkheid: De achtergrondkleur van de knop samenvouwen/uitvouwen voor het deelvenster met eigenschappen en acties is inconsistent met vergelijkbare UI-besturingselementen in thema met hoog Contrast zwart. De kleur is gewijzigd. [#123](https://github.com/Microsoft/AzureStorageExplorer/issues/123)
+* Toegankelijkheid: In thema met hoog Contrast zwart, de focus opmaak voor de knop 'X' in het dialoogvenster Eigenschappen is niet zichtbaar. Dit probleem is opgelost. [#243](https://github.com/Microsoft/AzureStorageExplorer/issues/243)
+* Toegankelijkheid: De tabbladen met eigenschappen en acties zijn verschillende aria-waarden die het heeft geresulteerd in een ervaring van de lezer subpar scherm ontbreekt. De ontbrekende aria-waarden zijn nu toegevoegd. [#316](https://github.com/Microsoft/AzureStorageExplorer/issues/316)
+* Toegankelijkheid: Samengevouwen structuurknooppunten aan de linkerzijde zijn niet wordt opgegeven aria-uitgevouwen waarde false. Dit probleem is opgelost. [#352](https://github.com/Microsoft/AzureStorageExplorer/issues/352)
+
+### <a name="known-issues"></a>Bekende problemen
+* Detatching van een resource koppelen via SAS-URI, zoals een blob-container, mogelijk een fout die voorkomt dat andere bijlagen correct weergegeven. U kunt dit probleem omzeilen, vernieuwt u het knooppunt voor de. Zie [dit probleem](https://github.com/Microsoft/AzureStorageExplorer/issues/537) voor meer informatie.
+* Als u Visual Studio voor Mac en ooit een aangepaste AAD-configuratie hebt gemaakt, is het wellicht niet mogelijk om aan te melden. Verwijder de inhoud van het probleem te omzeilen, ~ /. IdentityService/AadConfigurations. Als u in dat geval heeft niet de blokkering opheffen u, stuur een reactie op [dit probleem](https://github.com/Microsoft/AzureStorageExplorer/issues/97).
+* Azurite is nog niet volledig geïmplementeerd alle Storage-API's. Als gevolg hiervan kunnen er onverwachte fouten of problemen bij het gebruik van Azurite voor opslag.
+* In zeldzame gevallen kan de focus structuur ophalen vastgelopen op Snelweergavetoegang. Registreer de focus, kunt u Alles vernieuwen.
+* Uploaden vanaf uw OneDrive-map werkt niet vanwege een fout in NodeJS. De fout is opgelost, maar nog niet is geïntegreerd in Electron.
+* Wanneer die gericht is op Azure Stack, mislukken bepaalde bestanden als toevoeg-blobs uploaden.
+* Na het klikken op 'Annuleren' voor een taak, duren het even voor die taak annuleren. Dit is omdat we de annuleren filter-oplossing beschreven [hier](https://github.com/Azure/azure-storage-node/issues/317).
+* Als u de verkeerde PINCODE/Smartcard-certificaat kiest, moet u opnieuw opstarten om Opslagverkenner besluit vergeet.
+* Naam wijzigen van blobs (afzonderlijk of in een nieuwe naam blob-container) behoudt niet momentopnamen. Alle andere eigenschappen en metagegevens voor blobs, bestanden en entiteiten blijven behouden tijdens een naam.
+* De volgende functies biedt geen ondersteuning voor Azure Stack en er wordt geprobeerd om ze te gebruiken tijdens het werken met Azure Stack kan leiden tot onverwachte fouten:
+   * Bestandsshares
+   * Toegangslagen
+   * Voorlopig verwijderen
+* De Electron-shell die door de Storage Explorer heeft problemen met sommige hardwareversnelling GPU (graphics processing unit). Als u Storage Explorer is een leeg (leeg) hoofdvenster weergeven, kunt u proberen Storage Explorer starten vanaf de opdrachtregel en GPU-versnelling uitschakelen door toe te voegen de `--disable-gpu` schakelen:
+
+```
+./StorageExplorer.exe --disable-gpu
+```
+
+* Voor Linux-gebruikers, moet u voor het installeren van [.NET Core 2.0](https://docs.microsoft.com/en-us/dotnet/core/linux-prerequisites?tabs=netcore2x).
+* Voor gebruikers op Ubuntu 14.04, moet u ervoor zorgen GCC is bijgewerkt: dit kan worden gedaan door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
+
+    ```
+    sudo add-apt-repository ppa:ubuntu-toolchain-r/test
+    sudo apt-get update
+    sudo apt-get upgrade
+    sudo apt-get dist-upgrade
+    ```
+
+* Voor gebruikers op Ubuntu 17.04, moet u GConf installeren, kunt u dit doen door te voeren van de volgende opdrachten en vervolgens de computer opnieuw op te starten:
+
+    ```
+    sudo apt-get install libgconf-2-4
+    ```
 
 ## <a name="version-120"></a>Versie 1.2.0
 06/12/2018

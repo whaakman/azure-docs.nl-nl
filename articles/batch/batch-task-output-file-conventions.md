@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 06/16/2017
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4d86a8fcd1dc85ccacea91afe36cb39dabe10464
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 0b4ff1799f77581452859d1dbc0e6e9cc47062e4
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117593"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128046"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>Behoud van de taak en gegevens naar Azure Storage met de Batch File Conventions-bibliotheek voor .NET 
 
@@ -49,7 +49,7 @@ Als uw scenario van die verschilt hierboven zijn vermeld, moet u mogelijk rekeni
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>Wat is de standaard Batch File Conventions?
 
-De [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions) biedt een schematische naam voor de doel-containers en de blob-paden waarnaar de uitvoerbestanden worden geschreven. Bestanden die zijn opgeslagen in een Azure-opslag die voldoen aan de standaard File Conventions zijn automatisch beschikbaar voor weergave in de Azure-portal. De portal op de hoogte van de naamconventie en bestanden die aan deze voldoen dus kunt weergeven.
+De [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions) biedt een schematische naam voor de doel-containers en de blob-paden waarnaar de uitvoerbestanden worden geschreven. Bestanden die zijn opgeslagen in een Azure-opslag die voldoen aan de standaard File Conventions zijn automatisch beschikbaar voor weergave in de Azure-portal. De portal op de hoogte van de naamconventie en bestanden die aan deze voldoen dus kunt weergeven.
 
 De File Conventions-bibliotheek voor .NET worden automatisch weergegeven in de naam van een uw storage-containers en de taak uitvoerbestanden op basis van de standaard File Conventions. De File Conventions-bibliotheek biedt ook methoden om op te vragen van de uitvoerbestanden in Azure Storage op basis van taak-ID, taak-ID of doel.   
 
@@ -201,7 +201,7 @@ foreach (CloudTask task in myJob.ListTasks())
 
 ## <a name="view-output-files-in-the-azure-portal"></a>De uitvoerbestanden weergeven in Azure portal
 
-De Azure-portal geeft uitvoerbestanden van de taak en logboeken die zijn opgeslagen op een gekoppelde Azure Storage-account met de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/vs17Dev/src/SDKs/Batch/Support/FileConventions#conventions). U kunt ook zelf deze conventies implementeren de een taal van uw keuze, of u kunt de File Conventions-bibliotheek in uw .NET-toepassingen.
+De Azure-portal geeft uitvoerbestanden van de taak en logboeken die zijn opgeslagen op een gekoppelde Azure Storage-account met de [Batch File Conventions standard](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions). U kunt ook zelf deze conventies implementeren de een taal van uw keuze, of u kunt de File Conventions-bibliotheek in uw .NET-toepassingen.
 
 Om in te schakelen in de weergave van de uitvoerbestanden in de portal, moet u de volgende vereisten voldoen:
 

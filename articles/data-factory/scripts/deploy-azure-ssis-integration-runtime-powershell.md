@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2017
 ms.author: douglasl
-ms.openlocfilehash: 9684258fde0504cfa5b10ddb4f0df736ff0e1e70
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 31a3d51b482a5e14b7a3db9081a8960b968980f6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059102"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128199"
 ---
 # <a name="powershell-script---deploy-azure-ssis-integration-runtime"></a>PowerShell-script - implementatie van Azure-SSIS-integratieruntime
 
@@ -53,7 +53,6 @@ In dit script worden de volgende opdrachten gebruikt:
 | [Set-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/set-azurermdatafactoryv2integrationruntime) | Hiermee maakt u een Azure-SSIS integratieruntime die SSIS-pakketten kan worden uitgevoerd in de cloud |
 | [Start-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/start-azurermdatafactoryv2integrationruntime) | Hiermee start u de Azure-SSIS integratieruntime. |
 | [Get-AzureRmDataFactoryV2IntegrationRuntime](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntime) | Hiermee haalt u informatie over de Azure-SSIS integratieruntime. |
-| [Get-AzureRmDataFactoryV2IntegrationRuntimeStatus](/powershell/module/azurerm.datafactoryv2/get-azurermdatafactoryv2integrationruntimestatus) | Hiermee haalt u informatie over de status van de Azure-SSIS integratieruntime. |
 | [Remove-AzureRmResourceGroup](https://docs.microsoft.com/powershell/module/azurerm.resources/remove-azurermresourcegroup) | Hiermee verwijdert u een resourcegroep met inbegrip van alle geneste resources. |
 |||
 

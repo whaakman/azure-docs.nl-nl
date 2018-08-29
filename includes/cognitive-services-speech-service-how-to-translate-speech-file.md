@@ -4,14 +4,13 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/27/2018
 ms.author: wolfma
-ms.openlocfilehash: 8a891311b6a7421faa84bafb63d30ef272d7f23d
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 7ed42badeb00e64aa04a0af20b9963900406f11d
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330859"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143898"
 ---
-## <a name="translation-using-file-input"></a>Met behulp van bestandsinvoer vertaling
+## <a name="translation-from-file-input"></a>Vertaling van bestanden invoeren
 
-Het onderstaande codefragment laat zien hoe spraakherkenning invoer van het Engels voor Duitse en Franse vertalen.
-Er wordt een bestand gebruikt als invoer.
+Het volgende codefragment laat zien hoe u voor de omzetting van spraakinvoer van het Engels voor Duits en Frans. De code wordt een bestand gebruikt als invoer.

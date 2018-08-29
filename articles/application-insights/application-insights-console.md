@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/28/2018
 ms.reviewer: lmolkova
 ms.author: mbullwin
-ms.openlocfilehash: b2b5abf3b3b170e60df3aa2d6ec5ce471db74f80
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 6d161a49b35bbdfedcb27dd91f9f09dcf7ba4133
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055687"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122023"
 ---
 # <a name="application-insights-for-net-console-applications"></a>Application Insights voor .NET-consoletoepassingen
 [Application Insights](app-insights-overview.md) kunt u uw web-App voor beschikbaarheid, prestaties en gebruik te bewaken.
@@ -44,7 +44,7 @@ telemetryClient.TrackTrace("Hello World!");
 U kunt initialiseren en Application Insights configureren vanuit de code of met behulp van `ApplicationInsights.config` bestand. Zorg ervoor dat de initialisatie gebeurt zo vroeg mogelijk. 
 
 > [!NOTE]
-> Instructies die verwijzen naar **ApplicationInsights.config** zijn alleen van toepassing op apps die zijn gericht op .NET Standard, en niet van toepassing op .NET Core-toepassingen. 
+> Instructies die verwijzen naar **ApplicationInsights.config** zijn alleen van toepassing op apps die zijn gericht op het .NET Framework en niet van toepassing op .NET Core-toepassingen.
 
 ### <a name="using-config-file"></a>Met behulp van configuratiebestand
 

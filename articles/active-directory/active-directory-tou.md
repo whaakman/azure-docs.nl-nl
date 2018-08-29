@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.component: compliance
 ms.date: 08/22/2018
 ms.author: rolyon
-ms.openlocfilehash: 6162ee59689df12e2dace9a0419490979a13d4c5
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 69313adea1719324e2b22b45c6a45535ea65097f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616860"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125039"
 ---
 # <a name="azure-active-directory-terms-of-use-feature"></a>Functie Azure Active Directory Gebruiksrechtovereenkomst
 Azure AD Gebruiksrechtovereenkomst is een eenvoudige methode waarmee organisaties informatie kunnen presenteren aan eindgebruikers. Deze presentatie zorgt ervoor dat gebruikers relevante disclaimers voor juridische vereisten of nalevingsvereisten te zien krijgen. In dit artikel wordt beschreven hoe u aan de slag kunt gaan met Azure AD Gebruiksrechtovereenkomst.
@@ -164,7 +164,7 @@ De volgende procedure wordt beschreven hoe u een gebruiksrechtovereenkomst gebru
 
 1. Selecteer de gebruiksvoorwaarden die u wilt bewerken.
 
-1. In de het detailvenster, klik op de **talen** tabblad.
+1. Klik in het detailvenster op de **talen** tabblad.
 
     ![Gebruiksrechtovereenkomst toevoegen](media/active-directory-tou/languages-tou.png)
 

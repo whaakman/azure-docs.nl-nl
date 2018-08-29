@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/15/2018
+ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: e9249f3a5787da9ad54945195b47cf9af0f45fb1
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 1f7e605cbf5aa3d519e04c4fdfd737a4c0926a3e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42058113"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122573"
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
 
@@ -122,13 +122,23 @@ Bij het gebruik van [Standard Load Balancer met Beschikbaarheidszones](load-bala
 
 Wanneer een openbare Load Balancer-resource gekoppeld aan VM-exemplaren is, wordt elke bron uitgaande verbindingen herschreven. De bron is van het virtuele netwerk privé IP-adresruimte herschreven aan de front-end openbare IP-adres van de load balancer. In de openbare IP-adresruimte, moet de 5-tuple van de stroom (bron-IP-adres, bronpoort, transportprotocol IP, doel-IP-adres, doelpoort) uniek zijn.  Onechte SNAT poort kan worden gebruikt met TCP of UDP IP-protocollen.
 
-Kortstondige poorten (SNAT) worden gebruikt om dit te bereiken nadat het herschrijven van de persoonlijke bron-IP-adres, omdat meerdere stromen afkomstig van een enkel openbaar IP-adres zijn. 
+Kortstondige poorten (SNAT) worden gebruikt om dit te bereiken nadat het herschrijven van de persoonlijke bron-IP-adres, omdat meerdere stromen afkomstig van een enkel openbaar IP-adres zijn. De poort onechte SNAT algoritme wijst SNAT poorten anders voor UDP of TCP.
 
-Een poort met SNAT wordt verbruikt per overdracht naar een enkel IP-adres, poort en protocol. Voor meerdere stromen naar de doel-IP-adres, poort en protocol verbruikt elke stroom één SNAT-poort. Dit zorgt ervoor dat de stromen uniek zijn als ze afkomstig uit hetzelfde openbare IP-adres zijn en gaat u naar het hetzelfde doel-IP-adres, poort en protocol. 
+#### <a name="tcp"></a>SNAT-TCP-poorten
+
+Een poort met SNAT wordt verbruikt per overdracht voor een enkel IP-adres, poort. Voor meerdere TCP-stromen voor hetzelfde doel-IP-adres, poort en protocol verbruikt elke TCP-stroom één SNAT-poort. Dit zorgt ervoor dat de stromen uniek zijn als ze afkomstig uit hetzelfde openbare IP-adres zijn en gaat u naar het hetzelfde doel-IP-adres, poort en protocol. 
 
 Meerdere stromen, elk op een andere doel-IP-adres, poort en protocol, delen een enkel SNAT-poort. De doel-IP-adres, poort en protocol maken stromen uniek zonder de noodzaak voor extra bron poorten te onderscheiden van stromen in de openbare IP-adresruimte.
 
+#### <a name="udp"></a> UDP-poorten voor SNAT
+
+SNAT UDP-poorten worden beheerd door een ander algoritme dan SNAT TCP-poorten.  Load Balancer gebruikt een algoritme bekend als 'poort beperkte kegel NAT' voor UDP.  Een SNAT-poort wordt gebruikt voor elke stroom, ongeacht de doel-IP-adres, poort.
+
+#### <a name="exhaustion"></a>Uitputting
+
 Wanneer SNAT poort resources verbruikt, wordt uitgaande stromen mislukken totdat bestaande stromen SNAT poorten. Load Balancer maakt SNAT poorten wanneer de stroom wordt gesloten en maakt gebruik van een [time-out voor inactiviteit van 4 minuten durende](#idletimeout) voor het vrijmaken van SNAT poorten van niet-actieve stromen.
+
+SNAT UDP-poorten in het algemeen dat verbruikt zal zijn veel sneller dan de poorten TCP SNAT vanwege het verschil in de algoritme die wordt gebruikt. U moeten ontwerp- en schaal testen met dit verschil in aanmerking genomen.
 
 Voor patronen om te beperken van voorwaarden die vaak tot uitputting van SNAT poort leiden, raadpleegt u de [SNAT beheren](#snatexhaust) sectie.
 
@@ -136,7 +146,7 @@ Voor patronen om te beperken van voorwaarden die vaak tot uitputting van SNAT po
 
 Azure maakt gebruik van een algoritme om te bepalen het aantal vooraf toegewezen SNAT poorten die beschikbaar zijn op basis van de grootte van de back-endpool bij het gebruik van poort onechte SNAT ([PAT](#pat)). SNAT poorten zijn kortstondige poorten die beschikbaar zijn voor een bepaalde openbare IP-bronadres.
 
-Hetzelfde aantal SNAT poorten zijn vooraf toegewezen voor UDP en TCP respectievelijk en onafhankelijk van elkaar per IP-transportprotocol verbruikt. 
+Hetzelfde aantal SNAT poorten zijn vooraf toegewezen voor UDP en TCP respectievelijk en onafhankelijk van elkaar per IP-transportprotocol verbruikt.  Het gebruik van SNAT poort is echter verschillend, afhankelijk van of de stroom UDP of TCP is.
 
 >[!IMPORTANT]
 >Standaard SKU SNAT programmeren is per IP-transportprotocol en afgeleid van de taakverdelingsregel.  Als er slechts een taakverdelingsregel voor TCP bestaat, is SNAT alleen beschikbaar voor TCP. Als u alleen een TCP-regel voor taakverdeling en uitgaande SNAT voor UDP moet, maakt u een UDP-load balancing-regel op basis van de dezelfde frontend naar de dezelfde back-endadresgroep.  Dit wordt SNAT programmeren voor UDP geactiveerd.  Een werkende regel of de status van de test is niet vereist.  Basic SKU SNAT SNAT wordt altijd programma's voor beide IP-transportprotocol, ongeacht het protocol-transport is opgegeven in de load balancer-regel.

@@ -128,31 +128,6 @@
 #### [Registreren voor de selfservice voor wachtwoordherstel](user-help/active-directory-passwords-reset-register.md)
 
 
-## Apparaten beheren
-### [Overzicht](devices/overview.md)
-
-### Snelstartgidsen
-#### [Bij Azure AD ingeschreven Windows 10-apparaten instellen](user-help/device-management-azuread-registered-devices-windows10-setup.md)
-#### [In Azure AD gekoppelde apparaten instellen](user-help/device-management-azuread-joined-devices-setup.md)
-
-### Zelfstudies
-#### [Hybride Azure AD-deelname configureren voor beheerde domeinen](devices/hybrid-azuread-join-managed-domains.md)
-#### [Hybride Azure AD-deelname configureren voor federatieve domeinen](devices/hybrid-azuread-join-federated-domains.md)
-#### [Hybride Azure AD-deelname handmatig configureren](devices/hybrid-azuread-join-manual-steps.md)
-#### [Azure AD-deelname configureren tijdens eerste sessie in Windows 10](devices/azuread-joined-devices-frx.md)
-
-### Handleidingen
-#### [Azure AD-deelname plannen](devices/azureadjoin-plan.md)
-#### [Uw implementatie van hybride Azure AD-deelname plannen](devices/hybrid-azuread-join-plan.md)
-#### [De hybride Azure AD-deelname van uw apparaten beheren](devices/hybrid-azuread-join-control.md)
-#### [Lokale beheerders toewijzen aan apparaten die zijn gekoppeld aan Azure AD](devices/assign-local-admin.md)
-#### [Problemen oplossen met apparaten die deel uitmaken van een hybride Azure AD en werken met de huidige versie van Windows](devices/troubleshoot-hybrid-join-windows-current.md)
-#### [Problemen oplossen met apparaten die deel uitmaken van een hybride Azure AD en werken met een oude versie van Windows](devices/troubleshoot-hybrid-join-windows-legacy.md)
-
-### Concepten
-#### [Apparaten beheren met Azure Portal](devices/device-management-azure-portal.md)
-#### [Veelgestelde vragen](devices/faq.md)
-
 ## Apps beheren
 ### [Overzicht](manage-apps/what-is-application-management.md)
 ### [Aan de slag](manage-apps/plan-an-application-integration.md)

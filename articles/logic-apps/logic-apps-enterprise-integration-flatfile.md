@@ -1,27 +1,23 @@
 ---
-title: Coderen of decoderen van platte bestanden in Azure logic apps | Microsoft Docs
-description: Over het gebruik van het coderingsprogramma van bestand of de decoder in de Enterprise Integration Pack in uw logische apps
+title: Coderen of decoderen van platte bestanden - Azure Logic Apps | Microsoft Docs
+description: Codeer of platte bestanden voor bedrijfsintegratie met Azure Logic Apps en Enterprise Integration Pack decoderen
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: 82152dab-c7ad-43df-b721-596559703be8
 ms.date: 07/08/2016
-ms.author: LADocs; divswa
-ms.openlocfilehash: b13e8da04c984456027f152f5af63cfa6604ddc4
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: d0ef61b94d7bd604b6c0062341224510f3048c57
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054239"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43123925"
 ---
-# <a name="overview-of-enterprise-integration-with-flat-files"></a>Overzicht van de enterprise integration met platte bestanden
+# <a name="encode-or-decode-flat-files-with-azure-logic-apps-and-enterprise-integration-pack"></a>Codeer of platte bestanden met Azure Logic Apps en Enterprise Integration Pack decoderen
 
 U wilt coderen van XML-inhoud voordat u deze naar een zakelijke partner in een scenario voor business-to-business (B2B verzendt). In een logische app, kunt u het platte bestand connector codering om dit te doen. De logische app die u maakt krijgt de XML-inhoud uit diverse bronnen, met inbegrip van een HTTP-aanvraag als trigger, van een andere toepassing of zelfs op een van de vele [connectors](../connectors/apis-list.md). Zie voor meer informatie over logic apps, de [documentatie over logic apps](logic-apps-overview.md "meer informatie over Logic apps").  
 

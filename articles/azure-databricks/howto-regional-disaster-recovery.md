@@ -8,24 +8,30 @@ ms.service: azure-databricks
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 08/27/2018
-ms.openlocfilehash: 46cb9eaee1d56a96801065ae0a349aa0b1be85e0
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 671e18346651a40d7f286e984117ce0c9ae62364
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 08/28/2018
-ms.locfileid: "43115235"
+ms.locfileid: "43125966"
 ---
 # <a name="regional-disaster-recovery-for-azure-databricks-clusters"></a>Regionaal herstel na noodgevallen voor Azure Databricks-clusters
 
 In dit artikel beschrijft een disaster recovery-architectuur geschikt voor Azure Databricks-clusters en de stappen om uit te voeren dat ontwerp.
 
-## <a name="control-plan-architecture"></a>Besturingselement plan-architectuur
+## <a name="azure-databricks-overview"></a>Overzicht van Azure Databricks
 
-Op hoog niveau, wanneer u een Azure Databricks-werkruimte via Azure portal maakt een [beheerde apparaat](../managed-applications/overview.md) wordt geïmplementeerd als een Azure-resource in uw abonnement, in de gekozen Azure-regio (bijvoorbeeld VS-West). Dit apparaat is geïmplementeerd in een [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) met een [Network Security Group](../virtual-network/manage-network-security-group.md) en een Azure Storage-account, beschikbaar in uw abonnement. Het virtuele netwerk biedt niveau perimeterbeveiliging naar de Databricks-werkruimte en wordt beveiligd via de netwerkbeveiligingsgroep. U kunt de Databricks-cluster (s) door te geven van de werknemer en VM-type-stuurprogramma en Databricks-runtimeversie maken in de werkruimte. De persistente gegevens zijn beschikbaar in uw storage-account, Azure Blob Storage of Azure Data Lake Store. Zodra het cluster is gemaakt, kunt u taken uitvoeren via notebooks, REST-API's, ODBC-/ JDBC eindpunten door ze te koppelen aan een specifieke cluster.
+Azure Databricks is een snel, eenvoudig en gezamenlijke Apache Spark gebaseerd analytics-service. Van een big data-pijplijn de gegevens (raw of gestructureerde) is opgenomen in Azure met Azure Data Factory in batches gaat doen, of in de buurt met behulp van realtime worden gestreamd Kafka, Event Hub of IoT-Hub. Deze gebieden van de gegevens in een data lake voor langdurige vastgehouden opslag in Azure Blob Storage of Azure Data Lake Storage. Als onderdeel van uw werkstroom analytics maakt gebruik van Azure Databricks om gegevens te lezen uit meerdere gegevensbronnen zoals [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md), [Azure Data Lake Storage](../data-lake-store/index.md), [Azure Cosmos DB](../cosmos-db/index.yml) , of [Azure SQL Data Warehouse](../sql-data-warehouse/index.md) omzetten in baanbrekende inzichten met behulp van Spark.
+
+![Databricks-pijplijn](media/howto-regional-disaster-recovery/databricks-pipeline.png)
+
+## <a name="azure-databricks-architecture"></a>Azure Databricks-architectuur
+
+Op hoog niveau, wanneer u een Azure Databricks-werkruimte via Azure portal maakt een [beheerde apparaat](../managed-applications/overview.md) wordt geïmplementeerd als een Azure-resource in uw abonnement, in de gekozen Azure-regio (bijvoorbeeld VS-West). Dit apparaat is geïmplementeerd in een [Azure Virtual Network](../virtual-network/virtual-networks-overview.md) met een [Network Security Group](../virtual-network/manage-network-security-group.md) en een Azure Storage-account, beschikbaar in uw abonnement. Het virtuele netwerk biedt niveau perimeterbeveiliging naar de Databricks-werkruimte en wordt beveiligd via de netwerkbeveiligingsgroep. In de werkruimte, kunt u Databricks-clusters maken door op te geven van de werknemer en VM-type-stuurprogramma en Databricks-runtimeversie. De persistente gegevens zijn beschikbaar in uw storage-account, Azure Blob Storage of Azure Data Lake Store. Zodra het cluster is gemaakt, kunt u taken uitvoeren via notebooks, REST-API's, ODBC-/ JDBC eindpunten door ze te koppelen aan een specifieke cluster.
 
 De controlelaag Databricks beheert en bewaakt de omgeving van het Databricks-werkruimte. Een bewerking voor het beheer, zoals cluster maken vanuit de besturingselement vlak wordt gestart. Alle metagegevens, zoals geplande taken worden opgeslagen in een Azure-Database met geo-replicatie voor fouttolerantie.
 
-![Databricks besturingselement vlak-architectuur](media/howto-regional-disaster-recovery/databricks-control-plane.png)
+![Databricks-architectuur](media/howto-regional-disaster-recovery/databricks-architecture.png)
 
 Een van de voordelen van deze architectuur is dat gebruikers verbinding maken met Azure Databricks met elke opslagbron in hun account. Een belangrijk voordeel is dat beide (Azure Databricks) compute en opslag onafhankelijk van elkaar kan worden geschaald.
 
@@ -243,7 +249,7 @@ Voor het maken van de topologie van uw eigen regionale disaster recovery, de vol
 
 7. **Migreren van bibliotheken**
 
-   Er is momenteel geen eenvoudige manier om te migreren van bibliotheken van een werkruimte naar een andere. Installeer deze bibliotheken in de nieuwe werkruimte. Deze stap is daarom voornamelijk handmatig. Dit is mogelijk om te automatiseren met behulp van de combinatie van [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) aangepaste bibliotheken uploaden naar de werkruimte en [bibliotheken CLI](https://github.com/databricks/databricks-cli#libraries-cli).
+   Er is momenteel geen eenvoudige manier om te migreren van bibliotheken van een werkruimte naar een andere. In plaats daarvan nu handmatig opnieuw deze bibliotheken in de nieuwe werkruimte. Het is mogelijk te automatiseren met behulp van de combinatie van [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples) aangepaste bibliotheken uploaden naar de werkruimte en [bibliotheken CLI](https://github.com/databricks/databricks-cli#libraries-cli).
 
 8. **Migreren van Azure blob storage en Azure Data Lake Store-koppelingen**
 
@@ -251,7 +257,7 @@ Voor het maken van de topologie van uw eigen regionale disaster recovery, de vol
 
 9. **Cluster init scripts migreren**
 
-   Cluster-initialisatiescripts kunnen worden gemigreerd van de oude naar het nieuwe werkruimte met behulp de [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Kopieer eerst de benodigde scripts "dbfs: / dat abricks/init /.. ' naar het lokale bureaublad of de virtuele machine. Kopieer deze scripts vervolgens naar de nieuwe werkruimte op hetzelfde pad.
+   Cluster-initialisatiescripts kunnen worden gemigreerd van de oude naar het nieuwe werkruimte met behulp de [DBFS CLI](https://github.com/databricks/databricks-cli#dbfs-cli-examples). Kopieer eerst de benodigde scripts `dbfs:/dat abricks/init/..` naar uw lokale bureaublad of de virtuele machine. Kopieer deze scripts vervolgens naar de nieuwe werkruimte op hetzelfde pad.
 
    ```bash
    // Primary to local

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 34ee673ee1cf870e376ac8c954a9f3fc468abaa2
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 0f053c0293488f19adcd058f1ba8304d8d238738
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42058062"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128303"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Problemen met trage prestaties van web-app oplossen in Azure App Service oplossen
 Dit artikel helpt bij het oplossen van trage prestaties van web-app oplossen in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -46,7 +46,7 @@ Oplossen van problemen kan worden onderverdeeld in drie verschillende taken, in 
 2. [Gegevens verzamelen](#collect)
 3. [Het probleem](#mitigate)
 
-[App Service Web Apps](/services/app-service/web/) biedt verschillende opties bij elke stap.
+[App Service Web Apps](app-service-web-overview.md) biedt verschillende opties bij elke stap.
 
 <a name="observe" />
 

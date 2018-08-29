@@ -10,12 +10,12 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 08/17/2018
 ms.author: kgremban
-ms.openlocfilehash: 4bb33eae53d31701b66d13cb4e810b1a0b8a4b0b
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: a86b22b3327b2353dd37a9f9863337d12a009434
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42060168"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143570"
 ---
 # <a name="azure-event-grid-event-schema-for-iot-hub"></a>Azure Event Grid-gebeurtenisschema voor IoT-Hub
 
@@ -31,8 +31,33 @@ Azure IoT Hub verzendt de volgende typen gebeurtenissen:
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Gepubliceerd wanneer een apparaat is geregistreerd bij een IoT-hub. |
 | Microsoft.Devices.DeviceDeleted | Wanneer een apparaat wordt verwijderd uit een IoT-hub gepubliceerd. | 
+| Microsoft.Devices.DeviceConnected | Wanneer een apparaat is verbonden met een IoT-hub gepubliceerd. |
+| Microsoft.Devices.DeviceDisconnected | Gepubliceerd wanneer een apparaat niet is verbonden met een IoT-hub. | 
 
 ## <a name="example-event"></a>Voorbeeld van de gebeurtenis
+
+Het schema voor gebeurtenissen DeviceConnected en DeviceDisconnected hebben dezelfde structuur. Deze voorbeeldgebeurtenis ziet u het schema van een gebeurtenis treedt op wanneer een apparaat is verbonden met een IoT-hub:
+
+```json
+[{
+  "id": "f6bbf8f4-d365-520d-a878-17bf7238abd8", 
+  "topic": "/SUBSCRIPTIONS/<subscription ID>/RESOURCEGROUPS/<resource group name>/PROVIDERS/MICROSOFT.DEVICES/IOTHUBS/<hub name>", 
+  "subject": "devices/LogicAppTestDevice", 
+  "eventType": "Microsoft.Devices.DeviceConnected", 
+  "eventTime": "2018-06-02T19:17:44.4383997Z", 
+  "data": {
+    "deviceConnectionStateEventInfo": {
+      "sequenceNumber":
+        "000000000000000001D4132452F67CE200000002000000000000000000000001"
+    },
+    "hubName": "egtesthub1",
+    "deviceId": "LogicAppTestDevice",
+    "moduleId" : "DeviceModuleID"
+  }, 
+  "dataVersion": "1", 
+  "metadataVersion": "1" 
+}]
+```
 
 Het schema voor gebeurtenissen DeviceCreated en DeviceDeleted hebben dezelfde structuur. Deze voorbeeldgebeurtenis ziet u het schema van een gebeurtenis treedt op wanneer een apparaat is geregistreerd bij een IoT-hub:
 
@@ -47,6 +72,7 @@ Het schema voor gebeurtenissen DeviceCreated en DeviceDeleted hebben dezelfde st
     "twin": {
       "deviceId": "LogicAppTestDevice",
       "etag": "AAAAAAAAAAE=",
+      "deviceEtag": "null",
       "status": "enabled",
       "statusUpdateTime": "0001-01-01T00:00:00",
       "connectionState": "Disconnected",
@@ -74,11 +100,9 @@ Het schema voor gebeurtenissen DeviceCreated en DeviceDeleted hebben dezelfde st
       }
     },
     "hubName": "egtesthub1",
-    "deviceId": "LogicAppTestDevice",
-    "operationTimestamp": "2018-01-02T19:17:44.4383997Z",
-    "opType": "DeviceCreated"
+    "deviceId": "LogicAppTestDevice"
   },
-  "dataVersion": "",
+  "dataVersion": "1",
   "metadataVersion": "1"
 }]
 ```
@@ -98,17 +122,29 @@ Alle gebeurtenissen bevatten de dezelfde gegevens op het hoogste niveau:
 | dataVersion | tekenreeks | De schemaversie van het gegevensobject. De uitgever definieert de schemaversie. |
 | metadataVersion | tekenreeks | De schemaversie van de metagegevens van de gebeurtenis. Event Grid definieert het schema van de eigenschappen op het hoogste niveau. Event Grid biedt deze waarde. |
 
-De inhoud van het gegevensobject zijn verschillend voor elke uitgever van gebeurtenissen. Het gegevensobject bevat de volgende eigenschappen voor IoT Hub-gebeurtenissen:
+Het gegevensobject bevat voor alle gebeurtenissen van IoT Hub, de volgende eigenschappen:
 
 | Eigenschap | Type | Beschrijving |
 | -------- | ---- | ----------- |
 | HubName | tekenreeks | De naam van de IoT-Hub waar het apparaat is gemaakt of verwijderd. |
 | deviceId | tekenreeks | De unieke id van het apparaat. Deze hoofdlettergevoelige tekenreeks mag maximaal 128 tekens lang en ondersteunt de ASCII-7-bits alfanumerieke tekens, plus de volgende speciale tekens bevatten: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
-| operationTimestamp | tekenreeks | De ISO8601-timestamp van de bewerking. |
-| opType | tekenreeks | Het gebeurtenistype is opgegeven voor deze bewerking door de IoT-Hub: hetzij `DeviceCreated` of `DeviceDeleted`.
+
+De inhoud van het gegevensobject zijn verschillend voor elke uitgever van gebeurtenissen. Voor **apparaat aangesloten** en **apparaat losgekoppeld** IoT Hub-gebeurtenissen, het gegevensobject bevat de volgende eigenschappen:
+
+| Eigenschap | Type | Beschrijving |
+| -------- | ---- | ----------- |
+| moduleId | tekenreeks | De unieke id van de module. Dit veld wordt uitgevoerd alleen voor apparaten van de module. Deze hoofdlettergevoelige tekenreeks mag maximaal 128 tekens lang en ondersteunt de ASCII-7-bits alfanumerieke tekens, plus de volgende speciale tekens bevatten: `- : . + % _ # * ? ! ( ) , = @ ; $ '`. |
+| deviceConnectionStateEventInfo | object | Verbinding gebeurtenis informatie over de apparaatstatus
+| sequenceNumber | tekenreeks | Een getal waarmee de volgorde van het apparaat is verbonden of het apparaat geven gebeurtenissen verbroken. Laatste gebeurtenis heeft een volgnummer dat hoger is dan de vorige gebeurtenis. Dit nummer kan worden gewijzigd door meer dan 1, maar alleen toeneemt. Zie [over het gebruik van volgnummer](../iot-hub/iot-hub-how-to-order-connection-state-events.md). |
+
+De inhoud van het gegevensobject zijn verschillend voor elke uitgever van gebeurtenissen. Voor **apparaat gemaakt** en **apparaat verwijderd** IoT Hub-gebeurtenissen, het gegevensobject bevat de volgende eigenschappen:
+
+| Eigenschap | Type | Beschrijving |
+| -------- | ---- | ----------- |
 | dubbele | object | Informatie over het dubbele apparaat, de cloud represenation van metagegevens van apparaten van toepassing is. | 
 | apparaat-id | tekenreeks | De unieke id van het dubbele apparaat. | 
-| ETag | tekenreeks | Een stukje informatie over de inhoud van het dubbele apparaat. Elke etag is gegarandeerd uniek zijn per apparaatdubbel. | 
+| ETag | tekenreeks | Een validator om ervoor te zorgen consistentie van updates voor een apparaatdubbel. Elke etag is gegarandeerd uniek zijn per apparaatdubbel. |  
+| deviceEtag| tekenreeks | Een validator om ervoor te zorgen consistentie van updates voor een apparaatregister. Elke deviceEtag is gegarandeerd uniek per apparaatregister. |
 | status | tekenreeks | Of het dubbele apparaat is ingeschakeld of uitgeschakeld. | 
 | statusUpdateTime | tekenreeks | De ISO8601-timestamp van de laatste status van het dubbele apparaat bijwerken. |
 | connectionState | tekenreeks | Of het apparaat is verbonden of niet verbonden. | 

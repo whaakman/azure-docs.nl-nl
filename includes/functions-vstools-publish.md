@@ -5,21 +5,23 @@ services: functions
 author: ggailey777
 ms.service: functions
 ms.topic: include
-ms.date: 07/17/2018
+ms.date: 08/26/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: e8cb5dadb7eed5eb33c15d7a4d1d4640a10099c9
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f0bcb2e7f99689d31be610f1523d2c57e332deb7
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40245782"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43049746"
 ---
 1. Klik in **Solution Explorer** met de rechtermuisknop op het project en selecteer **Publiceren**.
 
 2. Selecteer **Azure-functie-app**, kies **Nieuwe maken** en selecteer vervolgens **Publiceren**.
 
     ![Kies een publicatiedoel](./media/functions-vstools-publish/functions-vstools-create-new-function-app.png)
+
+    Als u **Uitvoeren vanuit ZIP-bestand** activeert, wordt uw functie-app in Azure rechtstreeks vanuit het implementatiepakket uitgevoerd. Zie voor meer informatie [Uw Azure Functions uitvoeren vanuit een pakketbestand](../articles/azure-functions/run-functions-from-deployment-package.md).
 
 3. Als u Visual Studio nog niet aan uw Azure-account hebt gekoppeld, selecteert u **Een account toevoegen...**.
 

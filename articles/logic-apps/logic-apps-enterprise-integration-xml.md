@@ -1,42 +1,37 @@
 ---
-title: Werken met XML-berichten in uw werkstromen - Azure Logic Apps | Microsoft Docs
-description: Verwerken, valideren, transformeren en XML-berichten in logic apps en zakelijke verrijken-scenario's met behulp van het Enterprise-integratiepakket
+title: XML-berichten voor B2B-bedrijfsintegratie - Azure Logic Apps | Microsoft Docs
+description: Verwerken, valideren, transformeren en verrijken van XML-berichten voor B2B-oplossingen in Azure Logic Apps met Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: divyaswarnkar
-manager: jeconnoc
-editor: ''
-ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
-ms.custom: H1Hack27Feb2017
+ms.assetid: 47672dc4-1caa-44e5-b8cb-68ec3a76b7dc
 ms.date: 02/27/2017
-ms.author: LADocs; divswa
-ms.openlocfilehash: 85bdaff5cb88bbadaed778458b66c0cce7bce9de
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 5f804bf656b423d6dbe8f5c2ed73ba54d8361000
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35298971"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124532"
 ---
-# <a name="validate-and-transform-xml-encode-and-decode-flat-files-and-enrich-messages-features-in-logic-apps"></a>Valideren en transformeren XML, coderen en decoderen platte bestanden en verrijken berichten functies in logic apps
+# <a name="xml-messages-and-flat-files-in-azure-logic-apps-with-enterprise-integration-pack"></a>XML-berichten en platte bestanden in Azure Logic Apps met Enterprise Integration Pack
 
-Met logic apps, hebt u de mogelijkheid om te verwerken van XML-berichten die u verzendt en ontvangt. Deze functie is opgenomen in de Enterprise-integratiepakket. Voor gebruikers met een achtergrond BizTalk Server biedt de Enterprise Integration Pack vergelijkbare mogelijkheden te transformeren en berichten valideren, werken met platte bestanden en zelfs XPath te sitmuleren of specifieke eigenschappen op te halen uit een bericht te gebruiken. 
+Met logic apps, hebt u de mogelijkheid om te verwerken van XML-berichten verzenden en ontvangen. Deze functie is opgenomen in de Enterprise Integration Pack. Voor gebruikers met een achtergrond BizTalk Server biedt de Enterprise Integration Pack vergelijkbare mogelijkheden te transformeren en valideren van berichten, werken met platte bestanden en zelfs XPath gebruiken om te verrijken of specifieke eigenschappen van een bericht ophalen. 
 
-Voor gebruikers die nieuw in deze ruimte zijn, vouw deze functies uit hoe u berichten verwerken binnen uw werkstroom. Bijvoorbeeld, als u zich in een scenario voor business-to-business en met specifieke XML-schema's, werken kunt u de Enterprise-integratiepakket voor het verbeteren van hoe uw bedrijf deze berichten verwerkt. 
+Voor gebruikers die niet bekend bent met deze ruimte, vouw deze functies uit hoe u berichten verwerken binnen de werkstroom. Bijvoorbeeld, als u zich in een scenario voor het business-to-business en met specifieke XML-schema's, werken kunt u het Enterprise Integration Pack gebruiken voor het verbeteren van hoe uw bedrijf deze berichten verwerkt. 
 
-De Enterprise Integration Pack omvat: 
+Het Enterprise Integration Pack bevat: 
 
-* [XML-validatie](logic-apps-enterprise-integration-xml-validation.md "meer informatie over XML-bericht validatie") -valideren van een XML-binnenkomende of uitgaande bericht ten opzichte van een specifieke schema.
+* [XML-validatie](logic-apps-enterprise-integration-xml-validation.md "meer informatie over XML-bericht validatie") -valideren van een binnenkomende of uitgaande XML-bericht op basis van een specifieke schema.
 * [XML-transformatie](../logic-apps/logic-apps-enterprise-integration-transform.md "meer informatie over XML-bericht transformaties en maps") - converteren of aanpassen van een XML-bericht op basis van uw vereisten of de vereisten van een partner.
-* [Bestand coderen en decoderen van plat bestand platte](logic-apps-enterprise-integration-flatfile.md "meer informatie over een plat bestand-codering/decodering") - coderen of een plat bestand decoderen. Bijvoorbeeld, SAP accepteert en IDOC bestanden in een plat bestand-indeling verzendt. Veel integratie platforms maken XML-berichten, inclusief Logic Apps. U kunt dus een logische app die gebruikmaakt van het coderingsprogramma plat bestand "" XML-bestanden converteren naar platte bestanden maken. 
-* [XPath](https://msdn.microsoft.com/library/mt643789.aspx) - een bericht Sitmuleren en specifieke eigenschappen ophalen uit het bericht. Vervolgens kunt u de uitgepakte eigenschappen voor het routeren van het bericht naar een bestemming, of een tussenliggende eindpunt.
+* [Bestandscodering en ontsleuteling van plat bestand met de platte](logic-apps-enterprise-integration-flatfile.md "meer informatie over de platte bestandsindeling codering/decodering") - codering of een plat bestand decoderen. Bijvoorbeeld, SAP accepteert en verzendt IDOC-bestanden in de platte bestandsindeling. Veel platforms met integratie van maken XML-berichten, met inbegrip van logische Apps. U kunt dus een logische app die gebruikmaakt van het coderingsprogramma plat bestand "" XML-bestanden converteren naar platte bestanden maken. 
+* [XPath](https://msdn.microsoft.com/library/mt643789.aspx) - verrijken van een bericht en specifieke eigenschappen onttrekken aan het bericht. U kunt vervolgens de uitgepakte eigenschappen gebruiken voor het routeren van het bericht naar een locatie, of een tussenliggende eindpunt.
 
 ## <a name="try-it-out"></a>Probeer het
-[Implementeren van een volledig operationeel logische app ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (GitHub voorbeeld) met behulp van de XML-functies in Azure Logic Apps.
+[Een volledig operationeel logische app implementeren ](https://github.com/Azure/azure-quickstart-templates/tree/master/201-logic-app-veter-pipeline) (voorbeeld van GitHub) met behulp van de XML-functies in Azure Logic Apps.
 
 ## <a name="learn-more"></a>Meer informatie
-[Meer informatie over het Enterprise-integratiepakket](../logic-apps/logic-apps-enterprise-integration-overview.md "meer informatie over Enterprise Integration Pack")
+[Meer informatie over het Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md "meer informatie over Enterprise Integration Pack")

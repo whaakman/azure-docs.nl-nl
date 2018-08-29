@@ -9,13 +9,13 @@ ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
-ms.author: diberry;
-ms.openlocfilehash: b827f157ccd2919c959385eefd0e0223a8e23607
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.author: diberry
+ms.openlocfilehash: a653d854901f5dc84b957c316c4174610af4be30
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225537"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43130566"
 ---
 # <a name="publish-your-trained-app"></a>Uw getrainde app publiceren
 Wanneer u klaar bent met het bouwen en testen van uw LUIS-app, publiceren. Nadat de app is gepubliceerd, wordt de pagina publiceren weergegeven alle bijbehorende HTTP [eindpunten](luis-glossary.md#endpoint). Deze eindpunten per [regio](luis-reference-regions.md) en per [sleutel](luis-how-to-manage-keys.md), klikt u vervolgens zijn geïntegreerd in elke client, chatbot of back-end-toepassing. 

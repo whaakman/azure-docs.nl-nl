@@ -15,12 +15,12 @@ ms.workload: big-compute
 ms.date: 04/05/2018
 ms.author: danlep
 ms.custom: ''
-ms.openlocfilehash: 54034b9a851fc6f06f97be9cfd5f261465bad455
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 85bda9e1a936f19a37be2f2c1c42f948cab727d6
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248259"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122464"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>Batch metrische gegevens, waarschuwingen en logboeken voor diagnostische evaluatie en bewaking
 
@@ -64,7 +64,7 @@ Het configureren van een waarschuwing voor metrische gegevens in de portal:
 2. Onder **bewaking**, klikt u op **waarschuwingsregels** > **metrische waarschuwing toevoegen**.
 3. Selecteer een metrische waarde, de voorwaarde voor een waarschuwing (zoals wanneer een metrische waarde een bepaalde waarde gedurende een periode overschrijdt) en een of meer meldingen.
 
-U kunt ook een bijna realtime waarschuwingen met de [REST-API](). Zie voor meer informatie, [de nieuwere metrische waarschuwingen voor Azure-services in Azure portal gebruiken](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
+U kunt ook een bijna realtime waarschuwingen met de [REST-API](https://docs.microsoft.com/rest/api/monitor/). Zie voor meer informatie, [de nieuwere metrische waarschuwingen voor Azure-services in Azure portal gebruiken](../monitoring-and-diagnostics/monitoring-near-real-time-metric-alerts.md)
 ## <a name="batch-diagnostics"></a>Diagnostische gegevens van batch
 
 Diagnostische logboeken bevatten gegevens die zijn gegenereerd door Azure-resources die de werking van elke resource beschrijven. Voor Batch, kunt u de volgende logboeken te verzamelen:

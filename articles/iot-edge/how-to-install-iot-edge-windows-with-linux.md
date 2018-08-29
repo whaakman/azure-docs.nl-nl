@@ -7,20 +7,22 @@ ms.reviewer: veyalla
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
-ms.date: 08/06/2018
+ms.date: 08/27/2018
 ms.author: kgremban
-ms.openlocfilehash: ea576c0d434d4db7077fc41bc1f5bbbc89e7779e
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: d6852b5b1fe3d0b3c248fc1948fa4c3a9428de89
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576644"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125405"
 ---
 # <a name="install-azure-iot-edge-runtime-on-windows-to-use-with-linux-containers"></a>Azure IoT Edge-runtime installeren op Windows gebruiken met Linux-containers
 
-De Azure IoT Edge-runtime wordt geïmplementeerd op alle IoT Edge-apparaten. Deze bevat drie onderdelen. De **IoT Edge security daemon** biedt en onderhoudt beveiligingsstandaarden op het Edge-apparaat. De daemon begint op elke keer opstarten en bootstrapt van het apparaat door de IoT Edge-agent wordt gestart. De **IoT Edge agent** vergemakkelijkt de implementatie en bewaking van modules op het Edge-apparaat, met inbegrip van de IoT Edge hub. Met de **IoT Edge-hub** wordt de communicatie tussen modules op het IoT Edge-apparaat en tussen het apparaat en IoT Hub beheerd.
+De Azure IoT Edge-runtime is wat een apparaat verandert in een IoT Edge-apparaat. De runtime kan worden geïmplementeerd op apparaten als klein is als een Raspberry Pi of even groot zijn als een industrie-server. Wanneer een apparaat is geconfigureerd met de IoT Edge-runtime, kun u bedrijfslogica toe vanuit de cloud implementeren. 
 
-In dit artikel vindt u de stappen voor het installeren van de Azure IoT Edge-runtime op uw Windows x64 (AMD/Intel) systeem. Windows-ondersteuning is momenteel in Preview.
+Zie voor meer informatie over de werking van de IoT Edge-runtime en welke onderdelen zijn opgenomen, [inzicht in de Azure IoT Edge-runtime en de bijbehorende architectuur](iot-edge-runtime.md).
+
+In dit artikel vindt u de stappen voor het installeren van de Azure IoT Edge-runtime met Linux-containers op uw Windows x64 (AMD/Intel) systeem. Windows-ondersteuning is momenteel in Preview.
 
 >[!NOTE]
 Met behulp van Linux-containers op Windows sytems wordt productieconfiguratie niet aanbevolen of ondersteund voor Azure IoT Edge. Het kan echter worden gebruikt voor ontwikkeling en tests.
@@ -29,6 +31,8 @@ Met behulp van Linux-containers op Windows sytems wordt productieconfiguratie ni
 Azure IoT Edge kunnen worden gebruikt voor de ontwikkeling en testen in de volgende versies van Windows, bij het gebruik van Linux-containers:
   * Windows 10 of nieuwere pc-besturingssystemen.
   * Windows Server 2016 of nieuwe server-besturingssystemen.
+
+Raadpleeg voor meer informatie over welke besturingssystemen worden ondersteund, [ondersteuning voor Azure IoT Edge](support.md#operating-systems). 
 
 ## <a name="install-the-container-runtime"></a>De container-runtime installeren 
 
@@ -43,7 +47,7 @@ U kunt [Docker voor Windows] [ lnk-docker-for-windows] voor ontwikkelen en teste
 
 Een enkele IoT Edge-apparaat kan worden ingericht handmatig met behulp van een apparaat verbindingen tekenreeks opgegeven door de IoT Hub. Of u de Device Provisioning Service kunt gebruiken voor het automatisch inrichten van apparaten, dit is handig wanneer er veel apparaten zijn om in te richten. Afhankelijk van inrichting keuze, kiest u het script voor de juiste installatie. 
 
-### <a name="install-and-manually-provision"></a>Installeren en handmatig inrichten
+### <a name="option-1-install-and-manually-provision"></a>Optie 1: Installeren en handmatig inrichten
 
 1. Volg de stappen in [een nieuwe Azure IoT Edge-apparaat registreren] [ lnk-dcs] op uw apparaat registreren en de verbindingsreeks op te halen. 
 
@@ -58,7 +62,7 @@ Een enkele IoT Edge-apparaat kan worden ingericht handmatig met behulp van een a
 
 4. Als u wordt gevraagd een **DeviceConnectionString**, de verbindingsreeks die u hebt opgehaald via IoT Hub opgeven. Geen aanhalingstekens rond de verbindingsreeks. 
 
-### <a name="install-and-automatically-provision"></a>Installeren en automatisch inrichten
+### <a name="option-2-install-and-automatically-provision"></a>Optie 2: Installeren en automatisch inrichten
 
 1. Volg de stappen in [maken en inrichten van een gesimuleerd TPM-Edge-apparaat op Windows] [ lnk-dps] de Device Provisioning Service instellen en ophalen van de **bereik-ID**, een TPM simuleren apparaat- en halen de **registratie-ID**, maakt u een afzonderlijke inschrijving. Nadat het apparaat is geregistreerd in uw IoT-Hub, gaat u verder met de installatie.  
 

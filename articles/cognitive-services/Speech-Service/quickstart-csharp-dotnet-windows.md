@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: wolfma
-ms.openlocfilehash: a625ee4d8d672ddfd42128a9dd871dcfcc013060
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 20d0f4736d3aa5f23d9061b4482da7a623862344
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41987635"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128218"
 ---
 # <a name="quickstart-recognize-speech-in-c-under-net-framework-on-windows-using-the-speech-sdk"></a>Snelstartgids: Herkennen gesproken tekst in C# onder .NET Framework op Windows met behulp van de spraak-SDK
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel leert u hoe u een C#-consoletoepassing maken voor .NET Framework voor Windows met behulp van de Cognitive Services Speech SDK spraak naar tekst te transcriberen.
 De toepassing is gemaakt met de [Microsoft Cognitive Services Speech SDK NuGet-pakket](https://aka.ms/csspeech/nuget) en Microsoft Visual Studio 2017.
@@ -100,7 +100,7 @@ In deze sectie maakt toevoegen u een nieuw platform aan de configuratie die over
 
     ![Console-uitvoer na geslaagde opname](media/sdk/qs-csharp-dotnet-windows-10-console-output.png "Console-uitvoer na geslaagde opname")
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Zoek in dit voorbeeld in de `quickstart/csharp-dotnet-windows` map.
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 5c5317a49f56bfefec7c509365008cba5ad26e1c
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9ad36d37fef4c1ee05e31098b145b0264b6440ca
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106931"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126437"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisch afstemmen in Azure SQL Database
 
@@ -40,7 +40,7 @@ Azure SQL Database automatisch afstemmen is mogelijk een van de belangrijkste fu
 
 Afstemmen bewerkingen die worden toegepast op Azure SQL-Databases zijn volledig veilig is voor de prestaties van uw meest veeleisende workloads. Het systeem is ontworpen met zorg niet te leiden tot problemen met de werkbelasting van de gebruiker. Aanbevelingen voor automatische afstemming worden alleen op de tijden van een laag gebruik toegepast. Automatisch afstemmen bewerkingen voor het beveiligen van de prestaties van de werkbelastingen kunt ook tijdelijk uitschakelen door het systeem. In dit geval wordt "Uitgeschakeld door het systeem" bericht weergegeven in Azure portal. Automatisch afstemmen beschouwt workloads met de hoogste prioriteit voor de resource.
 
-Mechanismen voor automatisch afstemmen zijn volwassen en zijn is perfect voor verschillende miljoen databases die worden uitgevoerd op Azure. Automatische afstemming bewerkingen toegepast worden automatisch gecontroleerd om ervoor te zorgen dat er een positieve verbetering in de prestaties van de werkbelastingen. Aanbevelingen voor verminderde prestaties zijn dynamisch gedetecteerd en onmiddellijk teruggedraaid. Houd er rekening mee dat in het geval van query's beïnvloed door de aanbevelingen die niet vaak worden uitgevoerd voor het afstemmen, de validatiefase maximaal 72 kunnen uur en standaard. Via de afstemmen geschiedenis vastgelegd, bestaat er een duidelijke trace van verbeteringen aangebracht aan elke Azure SQL-Database afstemmen. 
+Mechanismen voor automatisch afstemmen zijn volwassen en zijn is perfect voor verschillende miljoen databases die worden uitgevoerd op Azure. Automatische afstemming bewerkingen toegepast worden automatisch gecontroleerd om ervoor te zorgen dat er een positieve verbetering in de prestaties van de werkbelastingen. Aanbevelingen voor verminderde prestaties zijn dynamisch gedetecteerd en onmiddellijk teruggedraaid. Via de afstemmen geschiedenis vastgelegd, bestaat er een duidelijke trace van verbeteringen aangebracht aan elke Azure SQL-Database afstemmen. 
 
 ![Hoe werkt automatisch afstemmen](./media/sql-database-automatic-tuning/how-does-automatic-tuning-work.png)
 
@@ -69,7 +69,7 @@ Opties voor automatisch afstemmen in Azure SQL Database beschikbaar zijn:
 
 Automatisch afstemmen identificeert **CREATE INDEX**, **DROP INDEX**, en **FORCE laatste goede PLAN** aanbevelingen die u kunnen de databaseprestaties van uw te optimaliseren en waarin wordt getoond in [Azure-portal](sql-database-advisor-portal.md), en wordt aangegeven dat ze via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) en [REST-API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).
 
-Aanbevelingen voor afstemming via de portal handmatig toepassen of u kunt automatisch afstemmen autonoom toepassen van aanbevelingen voor afstemming voor u. De voordelen van het systeem autonoom laten toepassen van aanbevelingen voor afstemming voor u is dat in een dergelijk geval automatisch valideert Er bestaat een positieve winst op de werkbelastingsprestaties of anders als er een regressie wordt gedetecteerd, wordt automatisch overgeschakeld de aanbeveling afstemmen. Als u handmatig afstemmen toepast zijn aanbevelingen, de prestaties van de automatische validatie en terugboeking mechanismen niet beschikbaar.
+Aanbevelingen voor afstemming via de portal handmatig toepassen of u kunt automatisch afstemmen autonoom toepassen van aanbevelingen voor afstemming voor u. De voordelen van het systeem autonoom laten toepassen van aanbevelingen voor afstemming voor u is dat in een dergelijk geval automatisch valideert Er bestaat een positieve winst op de werkbelastingsprestaties of anders als er een regressie wordt gedetecteerd, wordt automatisch overgeschakeld de aanbeveling afstemmen. Houd er rekening mee dat in het geval van query's beïnvloed door de aanbevelingen die niet vaak worden uitgevoerd voor het afstemmen, de validatiefase maximaal 72 kunnen uur en standaard. Als u handmatig afstemmen toepast zijn aanbevelingen, de prestaties van de automatische validatie en terugboeking mechanismen niet beschikbaar.
 
 Opties voor automatisch afstemmen kunnen onafhankelijk van elkaar zijn ingeschakeld of uitgeschakeld per database, of ze kunnen worden geconfigureerd op de logische servers en toegepast op elke database die u neemt instellingen over van de server. Logische servers kunnen standaardinstellingen van Azure voor de instellingen voor automatisch afstemmen overnemen. Standaardinstellingen van Azure op dit moment zijn ingesteld op FORCE_LAST_GOOD_PLAN is ingeschakeld, CREATE_INDEX is ingeschakeld en DROP_INDEX is uitgeschakeld.
 

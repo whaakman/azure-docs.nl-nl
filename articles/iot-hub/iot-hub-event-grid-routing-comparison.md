@@ -1,6 +1,6 @@
 ---
-title: Vergelijk gebeurtenis raster routering voor IoT Hub | Microsoft Docs
-description: IoT Hub biedt een eigen bericht routing-service, maar ook worden geïntegreerd met gebeurtenis raster voor het publiceren van de gebeurtenis. Vergelijk de twee functies.
+title: Event Grid, routering voor IoT Hub vergelijken | Microsoft Docs
+description: IoT Hub biedt een eigen bericht routing-service, maar kan ook worden geïntegreerd met Event Grid voor het publiceren van de gebeurtenis. Vergelijk de twee functies.
 author: kgremban
 manager: timlt
 ms.service: iot-hub
@@ -8,70 +8,70 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/30/2018
 ms.author: kgremban
-ms.openlocfilehash: 320320687e441a1296065eb9d0b7b12771036459
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: af03f737c082a7fda90104303e018f7b417729b9
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636168"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143790"
 ---
-# <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Berichtroutering en gebeurtenis raster vergelijken voor IoT-Hub
+# <a name="compare-message-routing-and-event-grid-for-iot-hub"></a>Berichtroutering en Event Grid vergelijken voor IoT-Hub
 
-Azure IoT Hub biedt de mogelijkheid om te streamen van gegevens van uw verbonden apparaten en die gegevens integreren in uw zakelijke toepassingen. IoT Hub biedt twee methoden voor het integreren van IoT-gebeurtenissen in andere Azure-services of -business-toepassingen. Dit artikel worden de twee functies die deze mogelijkheid te bieden, zodat u kunt kiezen welke optie wordt aanbevolen voor uw scenario.
+Azure IoT Hub biedt de mogelijkheid voor het streamen van gegevens van uw verbonden apparaten en gegevens integreren in uw zakelijke toepassingen. IoT Hub biedt twee methoden voor het integreren van IoT-gebeurtenissen in andere Azure-services of -business-toepassingen. Dit artikel worden de twee functies die deze mogelijkheid te bieden, zodat u kunt kiezen welke optie wordt aanbevolen voor uw scenario.
 
-* **IoT Hub berichtroutering**: deze IoT Hub-functie kunnen gebruikers zich [apparaat-naar-cloud-berichten routeren](iot-hub-devguide-messages-read-custom.md) met service-eindpunten zoals Azure Storage-containers, Event Hubs, Service Bus-wachtrijen en Service Bus-onderwerpen. Routeringsregels de flexibiliteit bieden om routes op basis van een query uitvoeren. Ze ook inschakelen [kritieke waarschuwingen](iot-hub-devguide-messages-d2c.md) die acties through-query's te activeren en kan worden gebaseerd op het berichtkoppen en de hoofdtekst. 
-* **IoT Hub-integratie met gebeurtenis raster**: Azure gebeurtenis raster is een volledig beheerde gebeurtenis routing-service die gebruikmaakt van een publiceren-abonneren model. IoT Hub en Event raster samenwerken, zodat [IoT Hub gebeurtenissen integreren met Azure en niet-Azure-services](iot-hub-event-grid.md), in near-realtime. 
+* **IoT Hub-berichtroutering**: deze IoT Hub-functie kunnen gebruikers [apparaat-naar-cloud-berichten routeren](iot-hub-devguide-messages-read-custom.md) naar service-eindpunten, zoals Azure Storage-containers, Event Hubs, Service Bus-wachtrijen en Service Bus-onderwerpen. Regels voor doorsturen bieden de flexibiliteit om uit te voeren op query's gebaseerde routes. Ze maken het ook mogelijk [kritieke waarschuwingen](iot-hub-devguide-messages-d2c.md) die Activeer acties via query's en kan worden gebaseerd op de berichtheaders en hoofdtekst. 
+* **Integratie van IoT-Hub met Event Grid**: Azure Event Grid is een volledig beheerde service voor gebeurtenisroutering die gebruikmaakt van een publish-subscribe-model. IoT Hub en Event Grid samenwerken om [IoT Hub-gebeurtenissen integreren met Azure en niet-Azure-services](iot-hub-event-grid.md), in near-real-time. 
 
 ## <a name="similarities-and-differences"></a>Overeenkomsten en verschillen
 
-Berichtroutering en gebeurtenis raster waarschuwing configuratie inschakelt, maar er zijn enkele belangrijke verschillen tussen de twee. Raadpleeg de volgende tabel voor meer informatie:
+Berichtroutering en Event Grid waarschuwing configuratie inschakelt, maar er zijn enkele belangrijke verschillen tussen de twee. Raadpleeg de volgende tabel voor meer informatie:
 
-| Functie | Berichtroutering IoT-Hub | IoT Hub-integratie met gebeurtenis raster |
+| Functie | IoT Hub-berichtroutering | Integratie van IoT-Hub met Event Grid |
 | ------- | --------------- | ---------- |
-| **Apparaat-berichten** | Ja, kan berichtroutering worden gebruikt voor telemetrische gegevens. | Nee, gebeurtenis raster kan alleen worden gebruikt voor niet-telemetrie IoT Hub gebeurtenissen. |
-| **Gebeurtenistype** | Ja, berichtroutering kan rapporteren dat twin wijzigingen en device lifecycle gebeurtenissen. | Gebeurtenis raster kan Ja, rapporteren wanneer apparaten zijn geregistreerd bij een IoT-Hub en wanneer apparaten zijn verwijderd. |
-| **Ordening** | Ja, ordening van gebeurtenissen wordt bijgehouden.  | Nee, de volgorde van gebeurtenissen wordt niet gegarandeerd. | 
+| **Apparaat-berichten** | Ja, kan berichtroutering worden gebruikt voor telemetrische gegevens. | Nee, Event Grid kunnen alleen worden gebruikt voor niet-telemetrie IoT Hub-gebeurtenissen. |
+| **Gebeurtenistype** | Ja, routering van berichten kan rapporteren dat dubbele wijzigingen en levenscyclusgebeurtenissen voor het apparaat. | Ja, Event Grid kunt rapporteren wanneer apparaten zijn gemaakt, verwijderd, verbonden en IoT Hub is verbroken |
+| **Bestellen** | Ja, ordening van gebeurtenissen wordt bijgehouden.  | Nee, de volgorde van gebeurtenissen is niet noodzakelijkerwijs. | 
 | **Maximale berichtgrootte** | 256 KB, apparaat-naar-cloud | 64 kB |
-| **Filteren** | Rich filtering via SQL-achtige taal biedt ondersteuning voor filteren op berichtkoppen en instanties. Zie voor voorbeelden [IoT Hub-querytaal](iot-hub-devguide-query-language.md). | Filteren op basis van achtervoegsels /-voorvoegsel van apparaat-id's die geschikt is voor hiërarchische services zoals opslag. |
-| **Eindpunten** | <ul><li>Event Hub</li> <li>Storage-blob</li> <li>Service Bus-wachtrij</li> <li>Service Bus-onderwerpen</li></ul><br>Betaalde IoT Hub-SKU's (S1, S2 en S3) zijn beperkt tot 10 aangepaste eindpunten. 100 routes kunnen per IoT Hub worden gemaakt. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hub</li> <li>Logic Apps</li> <li>Microsoft Flow</li> <li>De services van derden via webhooks.</li></ul><br>Zie voor de meest recente lijst met eindpunten [gebeurtenis raster gebeurtenis-handlers](../event-grid/overview.md#event-handlers). |
-| **Kosten** | Er zijn geen afzonderlijke kosten voor het routeren van berichten. U betaalt alleen inkomend telemetrie in IoT Hub. Als u een bericht naar drie verschillende eindpunten gerouteerd hebt, kunt u wordt bijvoorbeeld voor gefactureerd voor slechts één bericht. | Er zijn geen kosten uit IoT Hub. Gebeurtenis raster biedt de eerst 100.000 bewerkingen per maand gratis en vervolgens $0,60 per miljoen operations daarna. |
+| **Filteren** | Uitgebreide filteren via SQL-achtige taal ondersteunt filteren op berichtkoppen en instanties. Zie voor voorbeelden van [IoT Hub-querytaal](iot-hub-devguide-query-language.md). | Filteren op basis van achtervoegsel/voorvoegsel van apparaat-id's die geschikt is voor hiërarchische services zoals opslag. |
+| **Eindpunten** | <ul><li>Event Hubs</li> <li>Storage-blob</li> <li>Service Bus-wachtrij</li> <li>Service Bus-onderwerpen</li></ul><br>Betaalde IoT Hub-SKU's (S1, S2 en S3) zijn beperkt tot 10 aangepaste eindpunten. 100 routes kunnen per IoT Hub worden gemaakt. | <ul><li>Azure Functions</li> <li>Azure Automation</li> <li>Event Hubs</li> <li>Logic Apps</li> <li>Storage Blob</li> <li>Aangepaste onderwerpen</li> <li>De services van derden via WebHooks</li></ul><br>Zie voor de meest recente lijst met eindpunten, [Event Grid-gebeurtenis-handlers](../event-grid/overview.md#event-handlers). |
+| **Kosten** | Er is geen aparte toeslag voor het routeren van berichten. Alleen inkomend verkeer van telemetrie naar IoT Hub wordt in rekening gebracht. Bijvoorbeeld, als u een bericht doorgestuurd naar drie verschillende eindpunten hebt, u worden in rekening gebracht voor slechts één bericht. | Er zijn geen kosten van IoT Hub. Event Grid biedt de eerste 100.000 bewerkingen per maand gratis, en vervolgens $0,60 per miljoen bewerkingen hierna. |
 
-Berichtroutering IoT Hub en Event raster hebt overeenkomsten te, waarvan sommige in de volgende tabel worden beschreven:
+Berichtroutering in IoT Hub en Event Grid hebt overeenkomsten te, waarvan sommige in de volgende tabel worden beschreven:
 
-| Functie | Berichtroutering IoT-Hub | IoT Hub-integratie met gebeurtenis raster |
+| Functie | IoT Hub-berichtroutering | Integratie van IoT-Hub met Event Grid |
 | ------- | --------------- | ---------- |
-| **Betrouwbaarheid** | Hoog: Levert elk bericht naar het eindpunt ten minste één keer voor elke route. Alle berichten die niet worden bezorgd binnen een uur is verlopen. | Hoog: Levert elk bericht aan de webhook ten minste eenmaal voor elk abonnement. Alle gebeurtenissen die niet worden bezorgd binnen 24 uur is verlopen. | 
-| **Schaalbaarheid** | Hoog: Voor optimale ter ondersteuning van miljoenen gelijktijdig verbonden apparaten miljarden berichten verzenden. | Hoog: Geschikt voor routering 10.000.000 gebeurtenissen per seconde per regio. |
-| **Latentie** | Laag: Vrijwel in realtime. | Laag: Vrijwel in realtime. |
-| **Verzenden naar meerdere eindpunten** | Ja, één bericht verzenden naar meerdere eindpunten. | Ja, één bericht verzenden naar meerdere eindpunten.  | 
-| **Beveiliging** | IOT Hub biedt per apparaat-id en terughalen toegangsbeheer. Zie voor meer informatie de [IoT Hub toegangsbeheer](iot-hub-devguide-security.md). | Gebeurtenis raster validatie op drie punten bevat: abonnementen voor gebeurtenissen, gebeurtenis publiceren en levering van de webhook-gebeurtenis. Zie voor meer informatie [gebeurtenis raster beveiligings- en verificatie](../event-grid/security-authentication.md). |
+| **Betrouwbaarheid** | Hoog: Levert elk bericht aan het eindpunt ten minste één keer voor elke route. Alle berichten die niet worden bezorgd binnen een uur is verlopen. | Hoog: Biedt elk bericht naar de webhook ten minste eenmaal voor elk abonnement. Alle gebeurtenissen die niet worden bezorgd binnen 24 uur is verlopen. | 
+| **Schaalbaarheid** | Hoog: Geoptimaliseerd voor het ondersteunen van miljoenen gelijktijdig verbonden apparaten miljarden berichten verzenden. | Hoog: Geschikt voor routering 10.000.000 gebeurtenissen per seconde per regio. |
+| **Latentie** | Laag: Near-real-time. | Laag: Near-real-time. |
+| **Verzenden naar meerdere eindpunten** | Ja, een enkel bericht verzenden naar meerdere eindpunten. | Ja, een enkel bericht verzenden naar meerdere eindpunten.  | 
+| **Beveiliging** | IOT Hub biedt per apparaat-id en terughalen access control. Zie voor meer informatie de [IoT Hub-toegangsbeheer](iot-hub-devguide-security.md). | Event Grid biedt validatie op de drie punten: gebeurtenisabonnementen gebeurtenispublicatie en webhook-gebeurtenisverzending. Zie voor meer informatie, [Event Grid-beveiliging en verificatie](../event-grid/security-authentication.md). |
 
 ## <a name="how-to-choose"></a>Hoe u kunt kiezen
 
-Berichtroutering IoT Hub en de IoT Hub-integratie met gebeurtenis raster verschillende bewerkingen uitvoeren om te bereikt u hetzelfde resultaat. Ze zowel gegevens uit uw IoT Hub-oplossing en geef dit door op zodat andere services kunnen reageren. Hoe bepaal u welke een om te gebruiken? Gebruik de volgende vragen om u te helpen uw beslissing naast de gegevens uit het vorige gedeelte: 
+IoT Hub-berichtroutering en de IoT Hub-integratie met Event Grid verschillende bewerkingen uitvoeren om te bereikt u hetzelfde resultaat. Ze zowel informatie uit uw IoT Hub-oplossing en doorgeven op, zodat andere services kunnen reageren. Hoe bepaalt u welke computer te gebruiken? Naast de gegevens uit de vorige sectie, gebruikt u de volgende vragen om te helpen uw beslissing: 
 
 * **Wat voor soort gegevens verzendt u naar de eindpunten?**
 
-   Gebruik IoT Hub berichtroutering wanneer u telemetriegegevens verzenden naar andere services. Berichtroutering ook kunnen opvragen bericht berichtkoppen en tekst. 
+   Gebruik IoT Hub-berichtroutering wanneer er telemetrische gegevens verzenden naar andere services. Berichtroutering ook kunnen uitvoeren van query's berichtkoppen en de berichttekst. 
 
-   De integratie van de IoT Hub met gebeurtenis raster werkt met gebeurtenissen die zich in de IoT Hub-service. Deze IoT Hub-gebeurtenissen bevatten apparaat maken en verwijderen. 
+   De IoT Hub-integratie met Event Grid werkt met gebeurtenissen die in de IoT Hub-service plaatsvinden. Deze IoT Hub-gebeurtenissen zijn onder andere apparaat gemaakt, verwijderd, verbonden en de verbinding verbroken. 
 
-* **Wat eindpunten nodig om deze informatie te ontvangen?**
+* **Welke eindpunten nodig om deze informatie te ontvangen?**
 
-   IoT Hub berichtroutering ondersteunt beperkt eindpunten, maar kunt u de connectors voor het omleiden van de gegevens en gebeurtenissen die moeten worden extra eindpunten maken. Zie de tabel in de vorige sectie voor een volledige lijst van ondersteunde eindpunten. 
+   IoT Hub-berichtroutering ondersteunt alleen eindpunten, maar u kunt connectors voor het omleiden van de gegevens en gebeurtenissen naar extra eindpunten maken. Zie voor een volledige lijst van ondersteunde eindpunten, de tabel in de vorige sectie. 
 
-   De integratie van de IoT Hub met gebeurtenis raster ondersteunt meer eindpunten. Dit werkt ook met webhooks uit te breiden routering buiten het ecosysteem van de Azure-service en in de derde partij business-toepassingen. 
+   De IoT Hub-integratie met Event Grid ondersteunt meer eindpunten. Het werkt ook met webhooks om uit te breiden routering buiten het ecosysteem van Azure-service en in toepassingen van derden. 
 
-* **Maakt het als uw gegevens in volgorde aankomen uit?**
+* **Maakt het uit of uw gegevens in volgorde binnenkomen?**
 
-   IoT Hub berichtroutering houdt de de volgorde waarin berichten worden verzonden, zodat deze op dezelfde manier binnenkomen.
+   IoT Hub-berichtroutering wordt gehandhaafd, de volgorde waarin berichten worden verzonden, zodat ze op dezelfde manier binnenkomen.
 
-   Gebeurtenis raster kan niet garanderen dat eindpunten gebeurtenissen in dezelfde volgorde ontvangen dat ze zijn opgetreden. Het schema van de gebeurtenis bevat echter een tijdstempel dat kan worden gebruikt voor het identificeren van de volgorde nadat de gebeurtenissen op het eindpunt plaatsvinden. 
+   Event Grid is geen garantie dat eindpunten gebeurtenissen ontvangen in dezelfde volgorde als ze opgetreden. Het gebeurtenissenschema bevat echter een timestamp die kan worden gebruikt voor het identificeren van de volgorde nadat de gebeurtenissen op het eindpunt plaatsvinden. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Meer informatie over [IoT Hub berichtroutering](iot-hub-devguide-messages-d2c.md) en de [IoT-hubeindpunten](iot-hub-devguide-endpoints.md).
+* Meer informatie over [IoT Hub-berichtroutering](iot-hub-devguide-messages-d2c.md) en de [IoT Hub-eindpunten](iot-hub-devguide-endpoints.md).
 
-* Meer informatie over [Azure gebeurtenis raster](../event-grid/overview.md)
+* Meer informatie over [Azure Event Grid](../event-grid/overview.md)
 
-* De gebeurtenis raster integratie door uitproberen [verzonden e-mailmeldingen over gebeurtenissen van Azure IoT Hub met Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md)
+* Probeer uit de Event Grid-integratie door [e-mailmeldingen verzenden over Azure IoT Hub-gebeurtenissen met Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md)

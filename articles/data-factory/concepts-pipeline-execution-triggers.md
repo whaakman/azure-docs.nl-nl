@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: shlo
-ms.openlocfilehash: 4ac0f27480bbddf28b83af05e4b7b89ca6766871
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8dfc2448861ca9b376246ac42f7563e44422d6de
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43093775"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122430"
 ---
 # <a name="pipeline-execution-and-triggers-in-azure-data-factory"></a>Pijplijnen uitvoeren en triggers in Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of the Data Factory service that you're using:"]
@@ -324,7 +324,7 @@ Zie [Tumblingvenstertriggers maken](how-to-create-tumbling-window-trigger.md) vo
 
 ## <a name="event-based-trigger"></a>Trigger op basis van gebeurtenissen
 
-Een trigger op basis van gebeurtenissen start pijplijnen in reactie op een gebeurtenis, zoals het binnenkomen van een bestand of het verwijderen van een bestand, in Azure Blob Storage.
+Een gebeurtenis op basis van-trigger voert pijplijnen in reactie op een gebeurtenis, zoals de aankomst van een bestand of de verwijdering van een bestand, in Azure Blob Storage.
 
 Zie [Een trigger maken die een pijplijn uitvoert in reactie op een gebeurtenis](how-to-create-event-trigger.md) voor meer informatie over triggers op basis van gebeurtenissen.
 

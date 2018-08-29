@@ -1,140 +1,143 @@
 ---
-title: AS2 bijhouden schema's voor het bewaken van B2B - Azure Logic Apps | Microsoft Docs
-description: AS2 bijhouden schema's gebruiken voor het bewaken van B2B-berichten van transacties in uw Azure-Account voor integratie.
-author: padmavc
-manager: jeconnoc
-editor: ''
+title: Volgschema's voor AS2 voor B2B-berichten - Azure Logic Apps | Microsoft Docs
+description: Volgschema's voor AS2 die B2B-berichten in integratieaccounts voor Azure Logic Apps met Enterprise Integration Pack bewaken maken
 services: logic-apps
-documentationcenter: ''
-ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: f169c411-1bd7-4554-80c1-84351247bf94
 ms.date: 01/27/2017
-ms.author: LADocs; padmavc
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48e39fd20716e962c4a3e367fdff18e0b4fba32d
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 6c4144d26042729684e507b1afaa5e3006d8a34e
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300878"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125927"
 ---
-# <a name="start-or-enable-tracking-of-as2-messages-and-mdns-to-monitor-success-errors-and-message-properties"></a>Starten of het bijhouden van AS2 berichten en MDNs monitor geslaagd, fouten en berichteigenschappen inschakelen
-U kunt deze AS2 bijhouden schema's in uw integratie van Azure-account gebruiken om u te helpen bij het bewaken van transacties voor business-to-business (B2B):
+# <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Schema's voor het bijhouden van het AS2-berichten en MDN's integratieaccounts voor Azure Logic Apps maken
 
-* AS2-bericht bijhouden schema
-* AS2-MDN bijhouden schema
+Om te controleren van geslaagd, fouten en eigenschappen van berichten voor business-to-business (B2B)-transacties, kunt u deze volgschema's voor AS2 in uw integratie-account:
 
-## <a name="as2-message-tracking-schema"></a>AS2-bericht bijhouden schema
-````java
+* Volgschema voor AS2-bericht
+* Volgschema voor AS2 MDN
 
-    {
-       "agreementProperties": {  
-            "senderPartnerName": "",  
-            "receiverPartnerName": "",  
-            "as2To": "",  
-            "as2From": "",  
-            "agreementName": ""  
-        },  
-        "messageProperties": {
-            "direction": "",
-            "messageId": "",
-            "dispositionType": "",
-            "fileName": "",
-            "isMessageFailed": "",
-            "isMessageSigned": "",
-            "isMessageEncrypted": "",
-            "isMessageCompressed": "",
-            "correlationMessageId": "",
-            "incomingHeaders": {
-            },
-            "outgoingHeaders": {
-            },
-        "isNrrEnabled": "",
-        "isMdnExpected": "",
-        "mdnType": ""
-        }
+## <a name="as2-message-tracking-schema"></a>Volgschema voor AS2-bericht
+
+```json
+{
+   "agreementProperties": {  
+      "senderPartnerName": "",  
+      "receiverPartnerName": "",  
+      "as2To": "",  
+      "as2From": "",  
+      "agreementName": ""  
+   },  
+   "messageProperties": {
+      "direction": "",
+      "messageId": "",
+      "dispositionType": "",
+      "fileName": "",
+      "isMessageFailed": "",
+      "isMessageSigned": "",
+      "isMessageEncrypted": "",
+      "isMessageCompressed": "",
+      "correlationMessageId": "",
+      "incomingHeaders": {
+       },
+      "outgoingHeaders": {
+       },
+      "isNrrEnabled": "",
+      "isMdnExpected": "",
+      "mdnType": ""
     }
-````
+}
+```
 
 | Eigenschap | Type | Beschrijving |
 | --- | --- | --- |
 | senderPartnerName | Reeks | Naam van de partner van afzender AS2-bericht. (Optioneel) |
-| receiverPartnerName | Reeks | Naam van de partner AS2 bericht ontvanger. (Optioneel) |
-| as2To | Reeks | AS2-bericht ontvanger-naam van de headers van het bericht AS2. (Verplicht) |
-| as2From | Reeks | AS2-bericht van de afzender-naam van de headers van het bericht AS2. (Verplicht) |
-| agreementName | Reeks | Naam van de AS2-overeenkomst waarnaar de berichten opgelost zijn. (Optioneel) |
+| receiverPartnerName | Reeks | Naam van de partner van Ontvanger AS2-bericht. (Optioneel) |
+| as2To | Reeks | AS2-bericht ontvanger naam van de headers van het AS2-bericht. (Verplicht) |
+| as2From | Reeks | Naam van de afzender AS2-bericht, van de headers van het AS2-bericht. (Verplicht) |
+| agreementName | Reeks | De naam van de AS2-overeenkomst waarop de berichten opgelost zijn. (Optioneel) |
 | richting | Reeks | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
-| MessageId | Reeks | AS2-bericht-ID van de headers van het bericht AS2 (optioneel) |
-| dispositionType |Reeks | Bericht Disposition melding (MDN) disposition typewaarde. (Optioneel) |
-| fileName | Reeks | Bestandsnaam uit de kop van het bericht AS2. (Optioneel) |
-| isMessageFailed |Boole-waarde | Hiermee wordt aangegeven of het AS2-bericht is mislukt. (Verplicht) |
-| isMessageSigned | Boole-waarde | Hiermee wordt aangegeven of de AS2-bericht is ondertekend. (Verplicht) |
-| isMessageEncrypted | Boole-waarde | Hiermee wordt aangegeven of het bericht AS2 is versleuteld. (Verplicht) |
-| isMessageCompressed |Boole-waarde | Hiermee wordt aangegeven of het bericht AS2 is gecomprimeerd. (Verplicht) |
-| correlationMessageId | Reeks | AS2 bericht-ID, met elkaar correleren berichten met MDNs. (Optioneel) |
-| incomingHeaders |Woordenlijst van JToken | Binnenkomende AS2-header details van bericht. (Optioneel) |
-| outgoingHeaders |Woordenlijst van JToken | Uitgaande header details van bericht van AS2. (Optioneel) |
-| isNrrEnabled | Boole-waarde | Gebruik de standaardwaarde als de waarde is niet bekend. (Verplicht) |
-| isMdnExpected | Boole-waarde | Gebruik de standaardwaarde als de waarde is niet bekend. (Verplicht) |
-| mdnType | Enum | Toegestane waarden zijn **NotConfigured**, **Sync**, en **asynchrone**. (Verplicht) |
+| MessageId | Reeks | AS2-bericht-ID, uit de headers van de AS2-bericht (optioneel) |
+| dispositionType |Reeks | Waarde voor brontype Message Disposition-Notification (MDN) toestand. (Optioneel) |
+| fileName | Reeks | Bestandsnaam van de koptekst van het AS2-bericht. (Optioneel) |
+| isMessageFailed |Booleaans | Of het AS2-bericht is mislukt. (Verplicht) |
+| isMessageSigned | Booleaans | Of het AS2-bericht is ondertekend. (Verplicht) |
+| isMessageEncrypted | Booleaans | Of het AS2-bericht is versleuteld. (Verplicht) |
+| isMessageCompressed |Booleaans | Of het AS2-bericht is gecomprimeerd. (Verplicht) |
+| CorrelationMessageId | Reeks | AS2-bericht-ID, berichten correleren met MDN's. (Optioneel) |
+| incomingHeaders |Woordenlijst met JToken | Binnenkomende AS2-bericht-header details. (Optioneel) |
+| outgoingHeaders |Woordenlijst met JToken | Uitgaande AS2-bericht-header details. (Optioneel) |
+| isNrrEnabled | Booleaans | Gebruik de standaardwaarde als de waarde is niet bekend. (Verplicht) |
+| isMdnExpected | Booleaans | Gebruik de standaardwaarde als de waarde is niet bekend. (Verplicht) |
+| mdnType | Enum | Toegestane waarden zijn **NotConfigured**, **synchronisatie**, en **asynchrone**. (Verplicht) |
+||||
 
-## <a name="as2-mdn-tracking-schema"></a>AS2-MDN bijhouden schema
-````java
+## <a name="as2-mdn-tracking-schema"></a>Volgschema voor AS2 MDN
 
-    {
-        "agreementProperties": {
-                "senderPartnerName": "",
-                "receiverPartnerName": "",
-                "as2To": "",
-                "as2From": "",
-                "agreementName": "g"
-            },
-            "messageProperties": {
-                "direction": "",
-                "messageId": "",
-                "originalMessageId": "",
-                "dispositionType": "",
-                "isMessageFailed": "",
-                "isMessageSigned": "",
-                "isNrrEnabled": "",
-                "statusCode": "",
-                "micVerificationStatus": "",
-                "correlationMessageId": "",
-                "incomingHeaders": {
-                },
-                "outgoingHeaders": {
-                }
-            }
-    }
-````
+```json
+{
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "as2To": "",
+      "as2From": "",
+      "agreementName": "g"
+   },
+   "messageProperties": {
+      "direction": "",
+      "messageId": "",
+      "originalMessageId": "",
+      "dispositionType": "",
+      "isMessageFailed": "",
+      "isMessageSigned": "",
+      "isNrrEnabled": "",
+      "statusCode": "",
+      "micVerificationStatus": "",
+      "correlationMessageId": "",
+      "incomingHeaders": {
+      },
+      "outgoingHeaders": {
+      }
+   }
+}
+```
 
 | Eigenschap | Type | Beschrijving |
 | --- | --- | --- |
 | senderPartnerName | Reeks | Naam van de partner van afzender AS2-bericht. (Optioneel) |
-| receiverPartnerName | Reeks | Naam van de partner AS2 bericht ontvanger. (Optioneel) |
+| receiverPartnerName | Reeks | Naam van de partner van Ontvanger AS2-bericht. (Optioneel) |
 | as2To | Reeks | Partnernaam die het AS2-bericht ontvangt. (Verplicht) |
-| as2From | Reeks | Partnernaam die u het bericht AS2 verzendt. (Verplicht) |
-| agreementName | Reeks | Naam van de AS2-overeenkomst waarnaar de berichten opgelost zijn. (Optioneel) |
+| as2From | Reeks | Partnernaam die het AS2-bericht verzendt. (Verplicht) |
+| agreementName | Reeks | De naam van de AS2-overeenkomst waarop de berichten opgelost zijn. (Optioneel) |
 | richting |Reeks | Richting van de berichtenstroom ontvangen of verzenden. (Verplicht) |
 | MessageId | Reeks | AS2-bericht-ID. (Optioneel) |
-| OriginalMessageId |Reeks | AS2 oorspronkelijke bericht-ID. (Optioneel) |
+| originalMessageId |Reeks | AS2 oorspronkelijke bericht-ID. (Optioneel) |
 | dispositionType | Reeks | MDN toestand typewaarde. (Optioneel) |
-| isMessageFailed |Boole-waarde | Hiermee wordt aangegeven of het AS2-bericht is mislukt. (Verplicht) |
-| isMessageSigned |Boole-waarde | Hiermee wordt aangegeven of de AS2-bericht is ondertekend. (Verplicht) |
-| isNrrEnabled | Boole-waarde | Gebruik de standaardwaarde als de waarde is niet bekend. (Verplicht) |
-| statusCode | Enum | Toegestane waarden zijn **geaccepteerde**, **geweigerd**, en **AcceptedWithErrors**. (Verplicht) |
+| isMessageFailed |Booleaans | Of het AS2-bericht is mislukt. (Verplicht) |
+| isMessageSigned |Booleaans | Of het AS2-bericht is ondertekend. (Verplicht) |
+| isNrrEnabled | Booleaans | Gebruik de standaardwaarde als de waarde is niet bekend. (Verplicht) |
+| statusCode | Enum | Toegestane waarden zijn **geaccepteerde**, **afgewezen**, en **AcceptedWithErrors**. (Verplicht) |
 | micVerificationStatus | Enum | Toegestane waarden zijn **niet van toepassing**, **geslaagd**, en **mislukt**. (Verplicht) |
-| correlationMessageId | Reeks | Correlatie-ID. De oorspronkelijke ID mailberichten (de bericht-ID van het bericht waarvoor MDN is geconfigureerd). (Optioneel) |
-| incomingHeaders | Woordenlijst van JToken | Geeft de details van inkomende bericht-header. (Optioneel) |
-| outgoingHeaders |Woordenlijst van JToken | Geeft de details van uitgaande bericht-header. (Optioneel) |
+| CorrelationMessageId | Reeks | Correlatie-ID. De oorspronkelijke ID mailberichten (de bericht-ID van het bericht waarvoor MDN is geconfigureerd). (Optioneel) |
+| incomingHeaders | Woordenlijst met JToken | Geeft aan dat binnenkomende berichtgegevens-header. (Optioneel) |
+| outgoingHeaders |Woordenlijst met JToken | Geeft aan uitgaande berichtgegevens-header. (Optioneel) |
+||||
+
+## <a name="b2b-protocol-tracking-schemas"></a>Volgschema's voor B2B-protocol
+
+Zie voor informatie over B2B-protocol volgschema's:
+
+* [Volgschema’s voor X12](logic-apps-track-integration-account-x12-tracking-schema.md)
+* [Aangepaste volgschema's B2B](logic-apps-track-integration-account-custom-tracking-schema.md)
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over de [Enterprise Integration Pack](../logic-apps/logic-apps-enterprise-integration-overview.md).    
-* Meer informatie over [B2B-berichten controleren](logic-apps-monitor-b2b-message.md).   
-* Meer informatie over [B2B aangepaste schema's bijhouden](logic-apps-track-integration-account-custom-tracking-schema.md).   
-* Meer informatie over [X12 schema's bijhouden](logic-apps-track-integration-account-x12-tracking-schema.md).   
-* Meer informatie over [bijhouden B2B-berichten in logboekanalyse](../logic-apps/logic-apps-track-b2b-messages-omsportal.md).
+
+* Meer informatie over [B2B-berichten controleren](logic-apps-monitor-b2b-message.md)
+* Meer informatie over [bijhouden van B2B-berichten in Log Analytics](../logic-apps/logic-apps-track-b2b-messages-omsportal.md)

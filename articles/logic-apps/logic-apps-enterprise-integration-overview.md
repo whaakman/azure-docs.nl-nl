@@ -1,27 +1,23 @@
 ---
-title: Bedrijfsintegratie voor B2B - Azure Logic Apps | Microsoft Docs
-description: B2B-werkstromen bouwen en ondersteuning voor enterprise integration-scenario's voor logische apps met het Enterprise Integration Pack
+title: Overzicht van B2B enterprise integration - Azure Logic Apps | Microsoft Docs
+description: Bouw geautomatiseerde B2B-werkstromen om oplossingen voor integratie met Azure Logic Apps en Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: msftman
-manager: jeconnoc
-editor: cgronlun
-ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: dd517c4d-1701-4247-b83c-183c4d8d8aae
 ms.date: 09/08/2016
-ms.author: LADocs; padmavc
-ms.openlocfilehash: c4f83d2bf082b5f1358b4eee6468d470b5cb8088
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: b2e2c81914e8c0440b358d59c7f0248db46b6c50
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056631"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124289"
 ---
-# <a name="overview-b2b-scenarios-and-communication-with-the-enterprise-integration-pack"></a>Overzicht: B2B-scenario's en communicatie met het Enterprise Integration Pack
+# <a name="overview-b2b-enterprise-integration-scenarios-in-azure-logic-apps-with-enterprise-integration-pack"></a>Overzicht: B2B enterprise integratiescenario's in Azure Logic Apps met Enterprise Integration Pack
 
 U kunt voor business-to-business (B2B) werkstromen en naadloze communicatie met Azure Logic Apps enterprise integratiescenario's met Microsoft cloud-gebaseerde oplossing, het Enterprise Integration Pack inschakelen. Organisaties kunnen uitwisselen berichten elektronisch, zelfs als ze verschillende protocollen en indelingen gebruiken. Het pack transformeert verschillende indelingen in een indeling die organisaties systemen kunnen interpreteren en verwerken. Organisaties kunnen berichten via het industriestandaard-protocollen, zoals uitwisselen [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), en [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md). U kunt ook beveiligde berichten met zowel versleuteling en digitale handtekeningen.
 

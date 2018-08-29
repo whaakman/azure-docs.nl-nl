@@ -1,13 +1,13 @@
 ---
-title: 502 Slechte gateway oplossen, 503 service niet beschikbaar fouten | Microsoft Docs
-description: Problemen oplossen met 502 Slechte gateway en 503 service niet beschikbaar fouten in uw web-app in Azure App Service wordt gehost.
+title: 502 Ongeldige gateway oplossen, 503 service niet beschikbaar fouten | Microsoft Docs
+description: Problemen oplossen met 502 Ongeldige gateway- en 503 service niet beschikbaar fouten in uw web-app die wordt gehost in Azure App Service.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
 manager: erikre
 editor: ''
 tags: top-support-issue
-keywords: 502 Slechte gateway 503 service niet beschikbaar, 503-fout, fout 502
+keywords: 502 Ongeldige gateway, 503 service niet beschikbaar, 503-fout, fout 502
 ms.assetid: 51cd331a-a3fa-438f-90ef-385e755e50d5
 ms.service: app-service-web
 ms.workload: web
@@ -16,118 +16,118 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2016
 ms.author: cephalin
-ms.openlocfilehash: 397a6aaf7dc27adfa0fc0e722b8a2be5cc1d75f0
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: b1ffc80994244fc44e3cd23cbb05b14e6f878ddb
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23836516"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125799"
 ---
-# <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>HTTP-fouten van '502 Slechte gateway' en '503 service niet beschikbaar' in uw Azure-web-apps
-'502 Slechte gateway' en '503 service niet beschikbaar' zijn veelvoorkomende fouten in uw web-app gehost in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). In dit artikel helpt u bij deze fouten oplossen.
+# <a name="troubleshoot-http-errors-of-502-bad-gateway-and-503-service-unavailable-in-your-azure-web-apps"></a>HTTP-fouten '502 Ongeldige gateway' en '503 service niet beschikbaar' in uw Azure-web-apps oplossen
+'502 Ongeldige gateway' en '503 service niet beschikbaar' zijn veelvoorkomende fouten in uw web-app die wordt gehost in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714). Dit artikel helpt bij het oplossen van deze fouten.
 
-Als u meer hulp op elk gewenst moment in dit artikel nodig hebt, kunt u de Azure-experts raadplegen op [de Azure MSDN en de Stack Overflow-forums](https://azure.microsoft.com/support/forums/). U kunt ook kunt u ook een incident voor ondersteuning van Azure bestand. Ga naar de [ondersteuning van Azure site](https://azure.microsoft.com/support/options/) en klik op **Get Support**.
+Als u hulp nodig hebt op elk gewenst moment in dit artikel, u kunt contact opnemen met de Azure-experts op [het Azure MSDN en Stack Overflow-forums](https://azure.microsoft.com/support/forums/). U kunt ook ook een Azure-ondersteuning-incident indienen. Ga naar de [ondersteuning voor Azure site](https://azure.microsoft.com/support/options/) en klikt u op **ontvang ondersteuning**.
 
 ## <a name="symptom"></a>Symptoom
-Wanneer u de web-app bladert, wordt een HTTP '502 Slechte Gateway' fout of een HTTP-fout '503 Service niet beschikbaar'.
+Wanneer u naar de web-app bladert, wordt een HTTP '502 Ongeldige Gateway' fout of een HTTP-fout '503 Service niet beschikbaar'.
 
 ## <a name="cause"></a>Oorzaak
 Dit probleem wordt vaak veroorzaakt door problemen met toepassingen niveau, zoals:
 
 * aanvragen duurt lang
-* toepassing met hoge geheugen/CPU
+* toepassing met behulp van hoge geheugen/CPU
 * de toepassing is gecrasht vanwege een uitzondering.
 
-## <a name="troubleshooting-steps-to-solve-502-bad-gateway-and-503-service-unavailable-errors"></a>Stappen voor probleemoplossing om op te lossen '502 Slechte gateway' en '503 service niet beschikbaar'-fouten
-Het oplossen van problemen kan worden onderverdeeld in drie verschillende taken in opeenvolgende volgorde:
+## <a name="troubleshooting-steps-to-solve-502-bad-gateway-and-503-service-unavailable-errors"></a>Stappen voor probleemoplossing '502 Ongeldige gateway' en '503 service niet beschikbaar'-fouten oplossen
+Oplossen van problemen kan worden onderverdeeld in drie verschillende taken, in opeenvolgende volgorde:
 
-1. [Bekijken en controleren van gedrag van toepassingen](#observe)
+1. [Bekijk en werking van de toepassing controleren](#observe)
 2. [Gegevens verzamelen](#collect)
-3. [Het probleem te verhelpen](#mitigate)
+3. [Het probleem](#mitigate)
 
-[App Service Web Apps](/services/app-service/web/) biedt verschillende opties bij elke stap.
+[App Service Web Apps](app-service-web-overview.md) biedt verschillende opties bij elke stap.
 
 <a name="observe" />
 
-### <a name="1-observe-and-monitor-application-behavior"></a>1. Bekijken en controleren van gedrag van toepassingen
+### <a name="1-observe-and-monitor-application-behavior"></a>1. Bekijk en werking van de toepassing controleren
 #### <a name="track-service-health"></a>Servicestatus bijhouden
-Microsoft Azure publicizes telkens wanneer er een service wordt onderbroken of de prestaties nadelig beïnvloeden is. U kunt de status van de service bijhouden op het [Azure Portal](https://portal.azure.com/). Zie voor meer informatie [bijhouden servicestatus](../monitoring-and-diagnostics/insights-service-health.md).
+Microsoft Azure publicizes telkens wanneer er een onderbreking of prestaties verslechtering van de service is. U kunt de status van de service volgen op de [Azure Portal](https://portal.azure.com/). Zie voor meer informatie, [servicestatus bijhouden](../monitoring-and-diagnostics/insights-service-health.md).
 
 #### <a name="monitor-your-web-app"></a>Uw web-app bewaken
-Deze optie kunt u achterhalen als uw toepassing problemen ondervindt. Klik op de blade van uw web-app de **aanvragen en fouten** tegel. De **metriek** blade ziet u alle metrische gegevens die u kunt toevoegen.
+Deze optie kunt u achterhalen als uw toepassing problemen ondervindt. Klik op de blade van uw web-app, op de **aanvragen en fouten** tegel. De **Metric** blade ziet u alle metrische gegevens die u kunt toevoegen.
 
-Sommige van de metrische gegevens die u voor uw web-app kunt bewaken
+Sommige van de metrische gegevens die u wilt mogelijk om te controleren voor uw web-app
 
-* Gemiddelde geheugen werkset
+* Gemiddeld geheugenwerkset
 * Gemiddelde reactietijd
 * CPU-tijd
-* Geheugen-werkset
+* Geheugenwerkset
 * Aanvragen
 
-![Monitor voor web-app voor het oplossen van HTTP-fouten van 502 Slechte gateway en 503 service niet beschikbaar](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
+![Monitor voor web-app voor het oplossen van HTTP-fouten van 502 Ongeldige gateway- en 503 service niet beschikbaar](./media/app-service-web-troubleshoot-HTTP-502-503/1-monitor-metrics.png)
 
 Zie voor meer informatie:
 
-* [Web-Apps bewaken in Azure App Service](web-sites-monitor.md)
+* [Web-App in Azure App Service bewaken](web-sites-monitor.md)
 * [Waarschuwingen ontvangen](../monitoring-and-diagnostics/insights-receive-alert-notifications.md)
 
 <a name="collect" />
 
 ### <a name="2-collect-data"></a>2. Gegevens verzamelen
-#### <a name="use-the-azure-app-service-support-portal"></a>Gebruik de Portal-Azure App Service-ondersteuning
-Web Apps biedt u de mogelijkheid om op te lossen problemen met betrekking tot uw web-app door te kijken HTTP Logboeken, gebeurtenislogboeken proces dumpbestanden en meer. U toegang hebt tot deze informatie met onze portal ondersteuning op **http://&lt;uw app-naam >.scm.azurewebsites.net/Support**
+#### <a name="use-the-azure-app-service-support-portal"></a>Gebruik de Portal van Azure App Service-ondersteuning
+Web Apps biedt u de mogelijkheid om het oplossen van problemen met betrekking tot uw web-app door te kijken HTTP-Logboeken, gebeurtenislogboeken, proces dumpbestanden voor foutopsporing en meer. U kunt toegang tot al deze gegevens met behulp van onze portal ondersteuning op **http://&lt;uw app-naam >.scm.azurewebsites.net/Support**
 
-De portal voor ondersteuning van Azure App Service biedt drie afzonderlijke tabbladen ter ondersteuning van de drie stappen van een algemeen scenario voor het oplossen van problemen:
+De portal ondersteuning voor Azure App Service biedt drie verschillende tabbladen voor de ondersteuning van de drie stappen van een algemeen scenario voor het oplossen van problemen:
 
-1. Huidige gedrag observeren
-2. Door het verzamelen van diagnostische gegevens en uitvoeren van de ingebouwde analyzers analyseren
-3. Beperken
+1. Gedrag van het huidige observeren
+2. Analyseren te verzamelen van diagnostische gegevens en de ingebouwde analyzers uitgevoerd
+3. Oplossen
 
-Als het probleem nu voordoet zich, klikt u op **analyseren** > **Diagnostics** > **onderzoeken nu** een diagnostische sessie voor u te maken, die HTTP-Logboeken, Logboeken, geheugen dumpbestanden, PHP-foutenlogboek en PHP-proces rapport verzamelt.
+Als het probleem op dit moment plaatsvinden is, klikt u op **analyseren** > **Diagnostics** > **nu Diagnose** een diagnostische sessie voor u te maken, die HTTP-Logboeken, Logboeken, geheugen dumpbestanden voor foutopsporing, PHP-foutenlogboeken en PHP-proces rapport verzamelt.
 
-Nadat de gegevens worden verzameld, wordt ook een analyse uitgevoerd op de gegevens en bieden u een HTML-rapport.
+Zodra de gegevens zijn verzameld, wordt ook een analyse uitvoeren op de gegevens en u voorzien van een HTML-rapport.
 
-Als u downloaden van de gegevens standaard wilt, zou deze opgeslagen in de map D:\home\data\DaaS.
+Als u wilt voor het downloaden van de gegevens standaard, zou deze worden opgeslagen in de map D:\home\data\DaaS.
 
-Zie voor meer informatie over de ondersteuning van Azure App Service-portal [nieuwe Updates naar de Site-extensie ondersteuning voor Azure Websites](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
+Zie voor meer informatie over de ondersteuning van Azure App Service-portal, [nieuwe Updates voor de extensie voor Site ondersteuning voor Azure Websites](https://azure.microsoft.com/blog/new-updates-to-support-site-extension-for-azure-websites).
 
 #### <a name="use-the-kudu-debug-console"></a>Gebruik de Kudu-Console voor foutopsporing
-Web-Apps wordt geleverd met een Foutopsporingsconsole die u gebruiken kunt voor foutopsporing, verkennen, het uploaden van bestanden, evenals de JSON-eindpunten voor het ophalen van informatie over uw omgeving. Dit heet de *Kudu-Console* of de *SCM Dashboard* voor uw web-app.
+Web Apps wordt geleverd met een console voor foutopsporing die u gebruiken kunt voor foutopsporing, verkennen, het uploaden van bestanden, evenals de JSON-eindpunten voor het ophalen van gegevens over uw omgeving. Dit heet de *Kudu-Console* of de *SCM-Dashboard* voor uw web-app.
 
-U kunt dit dashboard openen door op de koppeling **https://&lt;uw app-naam >.scm.azurewebsites.net/**.
+U kunt dit dashboard openen door te gaan naar de koppeling **https://&lt;uw app-naam >.scm.azurewebsites.net/**.
 
-Enkele van de Kudu verschaft zaken zijn:
+Enkele van de dingen die Kudu biedt, zijn:
 
 * omgevingsinstellingen voor uw toepassing
 * logboekstream
 * diagnostische dump
-* fouten opsporen console waarin u Powershell-cmdlets en basic DOS-opdrachten kunt uitvoeren.
+* fouten opsporen in een console waarin u Powershell-cmdlets en basic DOS-opdrachten kunt uitvoeren.
 
-Een andere handige functie van Kudu is dat, als uw toepassing die eerste kans uitzonderingen, kunt u Kudu en dumpbestanden voor het SysInternals-hulpprogramma Procdump geheugen maken. Deze geheugendumps momentopnamen van het proces zijn en vaak kunt u meer gecompliceerde problemen oplossen met uw web-app.
+Een andere handige functie van Kudu is dat, als uw toepassing de eerste kans uitzonderingen genereren is, kunt u Kudu en dumpbestanden voor de SysInternals-hulpprogramma Procdump geheugen maken. Deze geheugendumps zijn momentopnamen van het proces en vaak kunt u meer gecompliceerde problemen oplossen met uw web-app.
 
-Zie voor meer informatie over functies die beschikbaar zijn in Kudu [Azure Websites on line hulpmiddelen die u moet weten over](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Zie voor meer informatie over functies die beschikbaar zijn in Kudu [Azure Websites online tools die u moet weten over](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 
-### <a name="3-mitigate-the-issue"></a>3. Het probleem te verhelpen
+### <a name="3-mitigate-the-issue"></a>3. Het probleem
 #### <a name="scale-the-web-app"></a>De web-app schalen
-In Azure App Service kunt voor betere prestaties en doorvoer, u de schaal waarmee u uw toepassing uitvoert aanpassen. Schalen van een web-app omvat twee gerelateerde acties: uw App Service-abonnement wijzigen in een hogere prijscategorie en bepaalde instellingen configureren nadat u hebt overgeschakeld naar de hogere prijscategorie.
+In Azure App Service, kunt voor betere prestaties en doorvoer, u de schaal waarmee u uw toepassing uitvoert aanpassen. Omhoog schalen van een web-app bestaat uit twee gerelateerde acties: uw App Service-plan in een hogere prijscategorie te wijzigen, en bepaalde instellingen te configureren nadat u hebt overgeschakeld naar de hogere prijscategorie.
 
-Zie voor meer informatie over het schalen [schalen van een web-app in Azure App Service](web-sites-scale.md).
+Zie voor meer informatie over het omhoog schalen [een web-app schalen in Azure App Service](web-sites-scale.md).
 
-U kunt bovendien uw toepassing uitvoeren in meer dan één exemplaar. Dit niet alleen biedt u meer mogelijkheden voor verwerking, maar biedt u eveneens bepaalde hoeveelheid fouttolerantie. Als het proces uitgeschakeld op één exemplaar wordt, wordt in het andere exemplaar echter blijven voldoen aan aanvragen.
+Bovendien kunt u uw toepassing uitvoeren op meer dan één exemplaar. Dit niet alleen biedt u meer mogelijkheden voor verwerking, maar biedt ook een zekere mate van fouttolerantie. Als het proces zich op één instantie uitvalt, wordt in het andere exemplaar nog steeds blijven uitvoeren van aanvragen.
 
-U kunt instellen om de schaal worden handmatig of automatisch.
+U kunt instellen om het handmatig of automatisch worden geschaald.
 
-#### <a name="use-autoheal"></a>Gebruik AutoHeal
-AutoHeal wordt gerecycled het werkproces voor uw app op basis van de instellingen die u (zoals wijzigingen in de configuratie, aanvragen, limieten op basis van geheugen of de benodigde tijd kiest voor het uitvoeren van een aanvraag). De meeste gevallen, is recyclen van het proces de snelste manier om te herstellen van een probleem. Hoewel u altijd opnieuw van de web-app rechtstreeks in de Azure Portal opstarten kunt, wordt AutoHeal het automatisch voor u doen. Hoeft u sommige triggers toevoegen in web.config voor de hoofdmap voor uw web-app is. Houd er rekening mee dat deze instellingen op dezelfde manier werken zou, zelfs als uw toepassing niet een .net een is.
+#### <a name="use-autoheal"></a>Gebruikmaken van AutoHeal
+AutoHeal wordt gerecycled het werkproces voor uw app op basis van de instellingen die u (zoals wijzigingen in de configuratie, aanvragen, de limieten voor geheugen of de tijd die nodig is kiest voor het uitvoeren van een aanvraag). De meeste van de tijd is recyclen van het proces de snelste manier om te herstellen van een probleem. Hoewel u altijd opnieuw de web-app rechtstreeks vanuit de Azure Portal starten kunt, wordt AutoHeal het automatisch voor u doen. U hoeft alleen is bepaalde triggers toevoegen in de hoofdmap web.config voor uw web-app. Houd er rekening mee dat deze instellingen op dezelfde manier als werken zou, zelfs als uw toepassing niet een .net een is.
 
-Zie voor meer informatie [Azure websites automatisch herstel](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
+Zie voor meer informatie, [automatisch herstel Azure Web Sites](https://azure.microsoft.com/blog/auto-healing-windows-azure-web-sites/).
 
-#### <a name="restart-the-web-app"></a>Opnieuw opstarten van de web-app
-Dit is vaak de eenvoudigste manier om eenmalige problemen herstellen. Op de [Azure Portal](https://portal.azure.com/), op de blade van uw web-app, hebt u de opties te stoppen of opnieuw opstarten van uw app.
+#### <a name="restart-the-web-app"></a>De WebApp opnieuw starten
+Dit is vaak de eenvoudigste manier om eenmalige problemen te verhelpen. Op de [Azure Portal](https://portal.azure.com/), op de blade van uw web-app, hebt u de opties om te stoppen of opnieuw starten van uw app.
 
- ![opnieuw opstarten van de app om op te lossen HTTP-fouten van 502 Slechte gateway en 503 service niet beschikbaar](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
+ ![opnieuw opstarten van de app om op te lossen HTTP-fouten van 502 Ongeldige gateway- en 503 service niet beschikbaar](./media/app-service-web-troubleshoot-HTTP-502-503/2-restart.png)
 
-U kunt ook uw web-app met Azure Powershell beheren. Zie [Azure PowerShell gebruiken met Azure Resource Manager](../powershell-azure-resource-manager.md) voor meer informatie.
+U kunt ook uw web-app met behulp van Azure Powershell beheren. Zie [Azure PowerShell gebruiken met Azure Resource Manager](../powershell-azure-resource-manager.md) voor meer informatie.
 

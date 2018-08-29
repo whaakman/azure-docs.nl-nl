@@ -4,15 +4,15 @@ description: Biedt een overzicht van het Collector-apparaat en hoe dit moet word
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/27/2018
+ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: c99d0f74dbb8cc28cabebae60fe10645f4bdb3b6
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 551276f88f5c27cd860a400a5769c95f4d94cbbb
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39308456"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122884"
 ---
 # <a name="collector-appliance"></a>Collector-apparaat
 
@@ -58,6 +58,30 @@ Het collector-apparaat moet worden verbonden met internet om de gedetecteerde co
 
 > [!NOTE]
 > Op HTTPS gebaseerde proxy-servers worden niet ondersteund door de collector.
+
+#### <a name="internet-connectivity-with-intercepting-proxy"></a>Verbinding met Internet met proxy onderscheppen
+
+Als de proxy-server kunt u verbinding maken met internet een onderschept proxy is, moet u de proxy-certificaat importeren in de collector-VM. Hieronder vindt u stapsgewijze instructies voor hoe u het certificaat in de collector-VM importeren kunt.
+
+1. In de collector-VM, gaat u naar **startmenu** en open **computercertificaten beheren**.
+2. In het hulpprogramma voor certificaten in het linkerdeelvenster onder **certificaten - lokale Computer**, vinden **vertrouwde uitgevers**. Onder **vertrouwde uitgevers**, klikt u op **certificaten** om te zien van de lijst van certificaten in het deelvenster aan de rechterkant.
+
+    ![Hulpprogramma voor certificaten](./media/concepts-intercepting-proxy/certificates-tool.png)
+
+3. Kopieer uw proxy-certificaat u aan bij de collector-VM. Mogelijk moet u contact opnemen met het team van de beheerder netwerk in uw organisatie om dit certificaat te verkrijgen.
+4. Dubbelklik op het certificaat om dit te openen. Klik op **certificaat installeren**. Hiermee gaat u naar de wizard Certificaat importeren.
+5. In de Wizard Certificaat importeren voor Store-locatie, kies **lokale computer**. **Klik op volgende**.
+
+    ![Certificaatarchieflocatie](./media/concepts-intercepting-proxy/certificate-store-location.png)
+
+6. Kies de optie **alle certificaten in het onderstaande archief plaatsen**. Klik op **Bladeren** en selecteer **vertrouwde uitgevers** uit de lijst met certificaten die zijn beschikbaar. Klik op **Volgende**.
+
+    ![Archief met certificaten](./media/concepts-intercepting-proxy/certificate-store.png)
+    
+7. Klik op **Voltooien**. Hiermee wordt het certificaat importeren. 
+8. Desgewenst kunt u controleren of dat het certificaat wordt geïmporteerd door het openen van het hulpprogramma certificaten zoals in stap 1 en 2 hierboven.
+9. Controleer op de Azure Migrate collector-app of dat de controle van het internet verbinding is geslaagd.
+
 
 #### <a name="whitelisting-urls-for-internet-connection"></a>URL's in de Whitelist aan voor verbinding met internet
 

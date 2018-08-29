@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 4b25c82de4d2d3f4300fbb688c75be74ce63fe40
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 6a5f8fc126f9c94ce139b99c94936e01da8b4099
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054050"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43126418"
 ---
 # <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Een virtuele machine beheerde Service-identiteit configureren met behulp van een sjabloon
 
@@ -357,7 +357,7 @@ Als u een virtuele machine die een beheerde service-identiteit niet meer nodig h
 
 1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine.
 
-2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie. Als u een virtuele machine waarvoor alleen toegewezen gebruikers-id hebt, kunt u deze uitschakelen door het veranderen van de id-type naar `None`.
+2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie. Als u een virtuele machine waarvoor alleen toegewezen gebruikers-id hebt, kunt u deze uitschakelen door het wijzigen van het type id op `None`.
  
    Het volgende voorbeeld ziet u hoe alle gebruiker toegewezen identiteiten van een virtuele machine met geen enkel systeem toegewezen identiteit verwijderen:
    
@@ -380,7 +380,7 @@ Als u een virtuele machine die een beheerde service-identiteit niet meer nodig h
  
    **Microsoft.Compute/virtualMachines API-versie 2017-12-01**
 
-   Verwijderen van een een enkele gebruiker toegewezen identiteit van een virtuele machine verwijderen uit de `identityIds` matrix.
+   Als u een enkele gebruiker toegewezen identiteit van een virtuele machine, wilt verwijderen uit de `identityIds` matrix.
 
    Als u een systeem toegewezen identiteit hebt, moet u deze de in de `type` waarde onder de `identity` waarde.
    

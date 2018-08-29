@@ -4,28 +4,28 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 07/27/2018
 ms.author: wolfma
-ms.openlocfilehash: 79dc1fe9fffd8c44c97cf68a12bb90655b672577
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: a4accb0846ec9cf5efc5ca5aa00c731edd41d4d4
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577977"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143906"
 ---
 <!-- N.B. no header, language-agnostic -->
 
-De [spraak SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) biedt een manier voor het herkennen van **intents van gesproken inhoud**, aangedreven door de Speech-service en de [Language Understanding-service (LUIS)](https://www.luis.ai/home).
+De Microsoft Cognitive Services [spraak SDK](~/articles/cognitive-services/speech-service/speech-sdk.md) biedt een manier voor het herkennen van **intents van gesproken inhoud** en wordt ondersteund door de Cognitive Services [Language Understanding-service (LUIS)](https://www.luis.ai/home).
 
-1. Maken van een factory spraak, bieden de abonnementssleutel van een Language Understanding-service en [regio](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition). De abonnementssleutel van Language Understanding-service wordt aangeroepen **eindpuntsleutel** in de documentatie van de service. U kunt de sleutel ontwerpen Language Understanding-service niet gebruiken. Zie ook de **Opmerking** hieronder.
+1. Een spraak-factory maken met een LUIS-abonnementssleutel en [regio](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition) als parameters. De abonnementssleutel LUIS heet **eindpuntsleutel** in de documentatie van de service. U kunt de sleutel ontwerpen LUIS niet gebruiken. (Zie de opmerking later in deze sectie.)
 
 1. Ontvang een intentie herkenning van de factory spraak. Een kenmerk kunt van het apparaat standaard microfoon, een audiostream of audio uit een bestand gebruiken.
 
-1. Het taalmodel van de kennis op basis van uw App-id ophalen en toevoegen van de intenties die u nodig hebt. 
+1. Ophalen van het taalmodel wat die gebaseerd op uw **AppId**. Voeg de die u nodig hebt. 
 
-1. De gebeurtenissen voor asynchrone bewerking bezighouden indien gewenst. Uw gebeurtenis-handlers voor de herkenning wordt aangeroepen wanneer het tussentijdse en definitieve resultaten (inclusief intents) heeft. Anders ontvangt uw toepassing een definitieve transcriptie-resultaat.
+1. De gebeurtenissen voor asynchrone bewerking bezighouden indien gewenst. Uw gebeurtenis-handlers voor de herkenning wordt aangeroepen wanneer er een tijdelijke en laatste resultaten (inclusief intents). Als u de gebeurtenissen niet bezighouden, krijgt uw toepassing alleen een resultaat van de definitieve transcriptie.
 
-1. Intentieherkenning starten. Gebruik voor één spraakherkenning, zoals opdracht of een query spraakherkenning, `RecognizeAsync()`, die de eerste utterance wordt erkend als resultaat geeft. Gebruik voor herkenning van langlopende `StartContinuousRecognitionAsync()` en de gebeurtenissen voor asynchrone herkenningsresultaten bezighouden.
+1. Intentieherkenning starten. Voor één spraakherkenning, zoals opdracht of een query spraakherkenning, gebruikt u de `RecognizeAsync()` methode. Deze methode retourneert de eerste herkende utterance. Voor langlopende spraakherkenning, gebruikt u de `StartContinuousRecognitionAsync()` methode. De gebeurtenissen voor asynchrone herkenningsresultaten bezighouden.
 
-Zie de codefragmenten hieronder voor intentieherkenning scenario's met de spraak-SDK. Vervangen door uw eigen abonnementssleutel Language Understanding (eindpuntsleutel), de [regio van uw abonnement](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition), en de AppId van de intentie model op de juiste plaatsen in de voorbeelden.
+Zie de volgende codefragmenten voor intentieherkenning-scenario's die gebruikmaken van de spraak-SDK. Vervang de waarden in het voorbeeld door uw eigen abonnementssleutel LUIS (eindpuntsleutel), de [regio van uw abonnement](~/articles/cognitive-services/speech-service/regions.md#regions-for-intent-recognition), en de **AppId** van de intentie model.
 
 > [!NOTE]
-> In tegenstelling tot andere services die wordt ondersteund door de SDK-spraak, is intentieherkenning vereist een specifiek abonnementssleutel (Language Understanding-service-eindpunt). [Hier](https://www.luis.ai) vindt u meer informatie over de intentieherkenning-technologie. Over het verkrijgen van de **eindpuntsleutel** wordt beschreven [hier](https://docs.microsoft.com/en-us/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key).
+> In tegenstelling tot andere services die wordt ondersteund door de SDK-spraak, is intentieherkenning vereist een specifiek abonnement-sleutel (LUIS eindpuntsleutel). Zie voor meer informatie over de technologie intentieherkenning de [LUIS website](https://www.luis.ai). Voor meer informatie over het verkrijgen van de **eindpuntsleutel**, Zie [maken van een LUIS-eindpuntsleutel](https://docs.microsoft.com/azure/cognitive-services/LUIS/luis-how-to-azure-subscription#create-luis-endpoint-key).

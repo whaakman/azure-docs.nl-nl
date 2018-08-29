@@ -1,27 +1,23 @@
 ---
 title: AS2-berichten - Azure Logic Apps-decodering | Microsoft Docs
-description: Over het gebruik van de AS2-decodeerfunctie in het Enterprise Integration Pack voor Azure Logic Apps
+description: Decodering als berichten met Azure Logic Apps en Enterprise Integration Pack
 services: logic-apps
-documentationcenter: .net,nodejs,java
-author: padmavc
-manager: jeconnoc
-editor: ''
-ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: divyaswarnkar
+ms.author: divswa
+ms.reviewer: jonfan, estfan, LADocs
 ms.topic: article
+ms.assetid: cf44af18-1fe5-41d5-9e06-cc57a968207c
 ms.date: 08/08/2018
-ms.author: LADocs; padmavc
-ms.openlocfilehash: a1b2d68a4a9433dc5c68d65552bf6bd509463958
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 06ffa6bddc1340ad548f9baf30eba65ba503bf73
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42054440"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128278"
 ---
-# <a name="decode-as2-messages-for-azure-logic-apps-with-the-enterprise-integration-pack"></a>AS2-berichten decoderen voor Azure Logic Apps met het Enterprise Integration Pack 
+# <a name="decode-as2-messages-with-azure-logic-apps-and-enterprise-integration-pack"></a>Met Azure Logic Apps en Enterprise Integration Pack AS2-berichten decoderen 
 
 Voor het maken van beveiliging en betrouwbaarheid bij het verzenden van berichten, door de AS2-decodering bericht-connector te gebruiken. Deze connector biedt digitale ondertekening, ontsleuteling en bevestigingen via bericht toestand meldingen (MDN).
 

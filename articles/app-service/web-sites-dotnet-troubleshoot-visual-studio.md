@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/29/2016
 ms.author: cephalin
-ms.openlocfilehash: 1c56f705c07e2001e1ef8f5f9f05c264c33c2c3f
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: ba84d297420ca5a9b75b4cfa432373d3070e0d01
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054689"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125241"
 ---
 # <a name="troubleshoot-a-web-app-in-azure-app-service-using-visual-studio"></a>Een web-app in Azure App Service met behulp van Visual Studio oplossen
 ## <a name="overview"></a>Overzicht
@@ -623,7 +623,7 @@ U hebt gezien hoe u Visual Studio gemakkelijk om logboeken die zijn gemaakt door
 ### <a name="azure-web-app-troubleshooting"></a>Azure-web-app oplossen
 Zie de volgende bronnen voor meer informatie over het oplossen van web-apps in Azure App Service:
 
-* [WebApps controleren](/manage/services/web-sites/how-to-monitor-websites/)
+* [WebApps controleren](web-sites-monitor.md)
 * [Onderzoeken geheugenlekken in Azure-Web-Apps met Visual Studio 2013](http://blogs.msdn.com/b/visualstudioalm/archive/2013/12/20/investigating-memory-leaks-in-azure-web-sites-with-visual-studio-2013.aspx). Microsoft ALM-blogbericht over Visual Studio-functies voor het analyseren van beheerd geheugenproblemen.
 * [Azure-web-apps onlineprogramma's u moet weten over](https://azure.microsoft.com/blog/2014/03/28/windows-azure-websites-online-tools-you-should-know-about-2/). Blogbericht Amit Apple.
 
@@ -674,7 +674,7 @@ catch (Exception ex)
 
 * [Streaming diagnostische traceerlogboeken van de Azure Command Line (plus glimp!)](http://www.hanselman.com/blog/StreamingDiagnosticsTraceLoggingFromTheAzureCommandLinePlusGlimpse.aspx)<br/>
   Het gebruik van de opdrachtregel doen wat in deze zelfstudie laat zien hoe doen in Visual Studio. [Glimp](http://www.hanselman.com/blog/IfYoureNotUsingGlimpseWithASPNETForDebuggingAndProfilingYoureMissingOut.aspx) is een hulpprogramma voor foutopsporing van ASP.NET-toepassingen.
-* [Met behulp van WebApps-logboekregistratie en diagnose - met David Ebbo](/documentation/videos/azure-web-site-logging-and-diagnostics/) en [Streaminglogboeken van Web-Apps - met David Ebbo](/documentation/videos/log-streaming-with-azure-web-sites/)<br>
+* [Met behulp van WebApps-logboekregistratie en diagnose - met David Ebbo](https://azure.microsoft.com/documentation/videos/azure-web-site-logging-and-diagnostics/) en [Streaminglogboeken van Web-Apps - met David Ebbo](https://azure.microsoft.com/documentation/videos/log-streaming-with-azure-web-sites/)<br>
   Video's met Scott Hanselman en David Ebbo.
 
 Voor logboekregistratie van fouten, een alternatief voor het schrijven van uw eigen code tracering is een open-source logboekregistratie-framework gebruikt zoals [ELMAH](http://nuget.org/packages/elmah/). Zie voor meer informatie, [blogberichten van Scott Hanselman over ELMAH](http://www.hanselman.com/blog/NuGetPackageOfTheWeek7ELMAHErrorLoggingModulesAndHandlersWithSQLServerCompact.aspx).

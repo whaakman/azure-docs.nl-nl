@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 3ae912eb88972246577954cb2ff103ba607f18bf
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 2934c2323b056bfb5e556e7d688704ed20882bca
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110494"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124447"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Aan de slag voor Azure IT-operators
 
@@ -181,7 +181,7 @@ Azure is gebouwd op een set REST-API's die ondersteuning bieden voor de gebruike
 
 ### <a name="azure-cloud-shell"></a>Azure Cloud Shell
 
-Beheerders hebben toegang tot Azure PowerShell en Azure CLI via een browser toegankelijk is via Azure Cloud Shell met de naam. Interactieve interface biedt een veelzijdig hulpmiddel voor Linux en Windows-beheerders het gebruik de opdrachtregelinterface van keuze, Bash of PowerShell. Azure Cloud Shell kunnen zijn op te vragen via de portal, als een zelfstandige webinterface op [shell.azure.com](https://shell.azure.com), of van een aantal andere toegangspunten. Zie voor meer informatie, [overzicht van Azure Cloud Shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview).
+Beheerders hebben toegang tot Azure PowerShell en Azure CLI via een browser toegankelijk is via Azure Cloud Shell met de naam. Interactieve interface biedt een veelzijdig hulpmiddel voor Linux en Windows-beheerders het gebruik de opdrachtregelinterface van keuze, Bash of PowerShell. Azure Cloud Shell kunnen zijn op te vragen via de portal, als een zelfstandige webinterface op [shell.azure.com](https://shell.azure.com), of van een aantal andere toegangspunten. Zie voor meer informatie, [overzicht van Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview).
 
 ## <a name="azure-subscriptions"></a>Azure-abonnementen
 
@@ -191,17 +191,17 @@ Een abonnement is een logische groepering van Azure-services die is gekoppeld aa
 
 Voordat u met Azure-services werken kunt, moet u een abonnement. Verschillende typen van de abonnementen zijn beschikbaar.
 
-#### <a name="free-accounts-the-link-to-sign-up-for-a-free-account-is-on-the-azure-websitehttpsazuremicrosoftcom-this-gives-you-a-credit-over-the-course-of-30-days-to-try-any-combination-of-resources-in-azure-if-you-exceed-your-credit-amount-your-account-is-suspended-at-the-end-of-the-trial-your-services-are-decommissioned-and-will-no-longer-work-you-can-upgrade-to-a-pay-as-you-go-subscription-at-any-time"></a>Gratis accounts: de koppeling om u te registreren voor een gratis account is op de [Azure-website](https://azure.microsoft.com/). Dit biedt u een tegoed dat u in de loop van 30 dagen om te proberen een combinatie van resources in Azure. Als u uw tegoed overschrijdt, wordt uw account is geblokkeerd. Aan het einde van de proefversie van uw services buiten gebruik zijn gesteld en werkt niet meer. U kunt upgraden naar een betalen per gebruik-abonnement op elk gewenst moment.
+**Gratis accounts**: de koppeling om u te registreren voor een gratis account is op de [Azure-website](https://azure.microsoft.com/). Dit biedt u een tegoed dat u in de loop van 30 dagen om te proberen een combinatie van resources in Azure. Als u uw tegoed overschrijdt, wordt uw account is geblokkeerd. Aan het einde van de proefversie van uw services buiten gebruik zijn gesteld en werkt niet meer. U kunt upgraden naar een betalen per gebruik-abonnement op elk gewenst moment.
 
-#### <a name="msdn-subscriptions-if-you-have-an-msdn-subscription-you-get-a-specific-amount-in-azure-credit-each-month-for-example-if-you-have-a-microsoft-visual-studio-enterprise-with-msdn-subscription-you-get-150-per-month-in-azure-credit"></a>MSDN-abonnementen: als u een MSDN-abonnement hebt, krijgt u een bepaald bedrag in Azure-tegoed per maand. Bijvoorbeeld, als u een Microsoft Visual Studio Enterprise met MSDN-abonnement hebt, krijgt u \$150 per maand in de Azure-tegoed.
+**MSDN-abonnementen**: als u een MSDN-abonnement hebt, krijgt u een bepaald bedrag in Azure-tegoed per maand. Bijvoorbeeld, als u een Microsoft Visual Studio Enterprise met MSDN-abonnement hebt, krijgt u \$150 per maand in de Azure-tegoed.
 
 Als u de hoeveelheid tegoed overschrijdt, wordt uw service zijn uitgeschakeld totdat de volgende maand wordt gestart. U kunt de bestedingslimiet uitschakelen en toevoegen van een creditcard moet worden gebruikt voor de extra kosten. Sommige van deze kosten gelden kortingen voor MSDN-accounts. Bijvoorbeeld, u de Linux prijs betalen voor virtuele machines waarop Windows Server wordt uitgevoerd en er zijn geen extra kosten voor Microsoft-servers zoals Microsoft SQL Server. Dit zijn MSDN-accounts ideaal voor scenario's voor ontwikkelen en testen.
 
-#### <a name="bizspark-accounts-the-microsoft-bizspark-program-provides-many-benefits-to-startups-one-of-those-benefits-is-access-to-all-the-microsoft-software-for-development-and-test-environments-for-up-to-five-msdn-accounts-you-get-150-in-azure-credit-for-each-of-those-five-msdn-accounts-and-you-pay-reduced-rates-for-several-of-the-azure-services-such-as-virtual-machines"></a>BizSpark-accounts: de Microsoft BizSpark-programma biedt veel voordelen voor Start-UPS. Een van deze voordelen is toegang tot alle Microsoft-software voor ontwikkel- en testomgevingen voor maximaal vijf MSDN-accounts. U $150 Azure-tegoed voor elk van deze vijf MSDN-accounts, waarna u betalen een gereduceerd tarief voor verschillende Azure-services, zoals virtuele Machines.
+**BizSpark-accounts**: het Microsoft BizSpark-programma biedt veel voordelen voor Start-UPS. Een van deze voordelen is toegang tot alle Microsoft-software voor ontwikkel- en testomgevingen voor maximaal vijf MSDN-accounts. U $150 Azure-tegoed voor elk van deze vijf MSDN-accounts, waarna u betalen een gereduceerd tarief voor verschillende Azure-services, zoals virtuele Machines.
 
-#### <a name="pay-as-you-go-with-this-subscription-you-pay-for-what-you-use-by-attaching-a-credit-card-or-debit-card-to-the-account-if-you-are-an-organization-you-can-also-be-approved-for-invoicing"></a>Betalen naar gebruik: Met dit abonnement, u betaalt voor wat u gebruikt door het koppelen van een creditcard of betaalpas aan het account. Als u een organisatie, kunt u ook worden goedgekeurd voor facturering.
+**Betalen per gebruik**: met dit abonnement, u betaalt voor wat u gebruikt door het koppelen van een creditcard of betaalpas aan het account. Als u een organisatie, kunt u ook worden goedgekeurd voor facturering.
 
-#### <a name="enterprise-agreements-with-an-enterprise-agreement-you-commit-to-using-a-certain-number-of-services-in-azure-over-the-next-year-and-you-pay-that-amount-ahead-of-time-the-commitment-that-you-make-is-consumed-throughout-the-year-if-you-exceed-the-commitment-amount-you-can-pay-the-overage-in-arrears-depending-on-the-amount-of-the-commitment-you-get-a-discount-on-the-services-in-azure"></a>Ondernemingsovereenkomsten: met een enterprise agreement, die u doorvoert voor het gebruik van een bepaald aantal services in Azure in het volgende jaar, en u die hoeveelheid tevoren betaalt. De toezegging die u aanbrengt, wordt gedurende het jaar verbruikt. Als u het toezeggingsbedrag overschrijdt, kunt u de overschrijding te betalen achteraf in rekening gebracht. Afhankelijk van de grootte van de toezegging krijgt u een korting op de services in Azure.
+**Enterprise-overeenkomsten**: met een enterprise agreement, die u doorvoert voor het gebruik van een bepaald aantal services in Azure in het volgende jaar, en u die hoeveelheid tevoren betaalt. De toezegging die u aanbrengt, wordt gedurende het jaar verbruikt. Als u het toezeggingsbedrag overschrijdt, kunt u de overschrijding te betalen achteraf in rekening gebracht. Afhankelijk van de grootte van de toezegging krijgt u een korting op de services in Azure.
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Beheerderstoegang verlenen tot een Azure-abonnement
 
@@ -465,7 +465,7 @@ Als u toestaan dat gebruikers toegang tot uw opslagresources hebt gecontroleerd 
 
 ## <a name="azure-virtual-network"></a>Azure Virtual Network
 
-Virtuele netwerken zijn nodig voor het ondersteunen van communicatie tussen virtuele machines. U kunt definiëren van subnetten, aangepaste IP-adres, DNS-instellingen, Beveiligingsfiltering en taakverdeling. Azure biedt ondersteuning voor verschillende gebruiksvoorbeelden: netwerken alleen in de cloud of hybride virtuele netwerken. 
+Virtuele netwerken zijn nodig voor het ondersteunen van communicatie tussen virtuele machines. U kunt definiëren van subnetten, aangepaste IP-adres, DNS-instellingen, Beveiligingsfiltering en taakverdeling. Azure biedt ondersteuning voor verschillende gebruiksvoorbeelden: netwerken alleen in de cloud of hybride virtuele netwerken.
 
 ### <a name="cloud-only-virtual-networks"></a>Alleen in de cloud virtuele netwerken
 
@@ -489,7 +489,7 @@ Er zijn verschillende opties voor het implementeren van een virtueel netwerk.
 
 - Azure Resource Manager-sjablonen
 
->**Wanneer u**: telkens wanneer u met virtuele machines in Azure werkt, werkt u met virtuele netwerken. Hiermee wordt voor het segmenteren van uw virtuele machines in openbare en particuliere subnetten vergelijkbaar on-premises datacenters. 
+>**Wanneer u**: telkens wanneer u met virtuele machines in Azure werkt, werkt u met virtuele netwerken. Hiermee wordt voor het segmenteren van uw virtuele machines in openbare en particuliere subnetten vergelijkbaar on-premises datacenters.
 
 >**Aan de slag**: een Azure-netwerk implementeren met behulp van de Azure-portal vereist alleen een actief Azure-abonnement en de toegang tot een webbrowser. U kunt een nieuw virtueel netwerk implementeren in een nieuwe of bestaande resourcegroep. Wanneer u een nieuwe virtuele machine vanuit de portal maakt, kunt u een bestaand virtueel netwerk selecteren of een nieuwe maken. Aan de slag en [een virtueel netwerk maken met de Azure-portal](../../virtual-network/quick-create-portal.md).
 

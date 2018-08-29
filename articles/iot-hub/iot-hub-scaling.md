@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/02/2018
 ms.author: kgremban
-ms.openlocfilehash: 01aeaee03a4cfabbda3a29cddd17febdc8a16e45
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6ae0217ed4b8833eb42a4719a1f2525461f9dcdd
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003529"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143645"
 ---
 # <a name="choose-the-right-iot-hub-tier-for-your-solution"></a>Kies de juiste IoT Hub-laag voor uw oplossing
 
@@ -43,7 +43,7 @@ Nadat u uw IoT-hub die u van de basic-laag naar de prijscategorie standard upgra
 | [Controle en diagnose](iot-hub-monitor-resource-health.md) | Ja | Ja |
 | [Cloud-naar-apparaat-berichten](iot-hub-devguide-c2d-guidance.md) |   | Ja |
 | [Apparaatdubbels](iot-hub-devguide-device-twins.md), [moduledubbels](iot-hub-devguide-module-twins.md) en [Apparaatbeheer](iot-hub-device-management-overview.md) |   | Ja |
-| [Azure IoT Edge](../iot-edge/how-iot-edge-works.md) |   | Ja |
+| [Azure IoT Edge](../iot-edge/about-iot-edge.md) |   | Ja |
 
 IoT Hub biedt ook een gratis laag die is bedoeld voor test- en evaluatiedoeleinden. Het beschikt over alle mogelijkheden van de standard-laag, maar beperkt messaging-limiet. U upgraden niet van de laag gratis naar basis of standaard. 
 

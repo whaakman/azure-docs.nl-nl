@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2018
+ms.date: 08/28/2018
 ms.author: mstewart
-ms.openlocfilehash: adfacdfda5f2d2f9bc595813800d08080596ca4b
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 62ae0bcfb30e39b3b2cfcf94b3877cce9cadf9d1
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889579"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128000"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Vereisten voor Azure Disk Encryption (vorige versie)
 
@@ -266,7 +266,7 @@ Uw Azure AD-toepassing moet de rechten voor toegang tot de sleutels of geheimen 
      ```
 
 ### <a name="bkmk_KVAPCLI"></a> Het toegangsbeleid voor key vault voor de Azure AD-app met Azure CLI instellen
-Gebruik [az keyvault-beleid instellen](https://docs.microsoft.com/cli/azure/keyvault.md#az-keyvault-set-policy) om in te stellen van het toegangsbeleid. Zie voor meer informatie, [Key Vault beheren met behulp van CLI 2.0](../key-vault/key-vault-manage-with-cli2.md#authorize-the-application-to-use-the-key-or-secret).
+Gebruik [az keyvault-beleid instellen](https://docs.microsoft.com/cli/azure/keyvault.md#az-keyvault-set-policy) om in te stellen van het toegangsbeleid. Zie voor meer informatie, [Key Vault beheren met behulp van CLI 2.0](../key-vault/key-vault-manage-with-cli2.md#authorizing-an-application-to-use-a-key-or-secret).
 
 1. Indien nodig, [verbinding maken met uw Azure-abonnement](azure-security-disk-encryption-appendix.md#bkmk_ConnectCLI).
 2. Geef de service-principal die u hebt gemaakt via de Azure CLI-toegang tot het ophalen van geheimen en tekstterugloop sleutels met de volgende opdracht:

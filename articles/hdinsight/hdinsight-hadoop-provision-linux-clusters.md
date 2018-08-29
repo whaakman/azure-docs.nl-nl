@@ -4,18 +4,18 @@ description: Instellen van Hadoop, Kafka, Spark, HBase, ML-Services of Storm-clu
 keywords: setup van hadoop-cluster, kafka-cluster setup, spark-cluster setup, wat is hadoop cluster
 services: hdinsight
 author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 05/14/2018
-ms.author: jasonh
-ms.openlocfilehash: f325e49695cab44d5c3d9fe94cd207755d136f7b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.date: 08/27/2018
+ms.openlocfilehash: 0df38e1bd9c4db1cf988beab31b1c3189da4f0c2
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107126"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127904"
 ---
 # <a name="set-up-clusters-in-hdinsight-with-hadoop-spark-kafka-and-more"></a>Clusters instellen in HDInsight met Hadoop, Spark, Kafka en meer
 
@@ -99,7 +99,7 @@ Met HDInsight-clusters, kunt u twee gebruikersaccounts configureren tijdens het 
 * HTTP-gebruiker: de standaardgebruikersnaam is *admin*. Hierbij wordt de basisconfiguratie in Azure portal. Soms wordt genoemd "Cluster gebruiker."
 * SSH-gebruiker (Linux-clusters): gebruikt voor verbinding met het cluster via SSH. Zie [SSH gebruiken met HDInsight](hdinsight-hadoop-linux-use-ssh-unix.md) voor meer informatie.
 
-De Enterprise-beveiligingspakket kunt u HDInsight integreren met Active Directory en Apache Ranger. Meerdere gebruikers kunnen worden gemaakt met behulp van het beveiligingspakket Enteprise.
+De Enterprise-beveiligingspakket kunt u HDInsight integreren met Active Directory en Apache Ranger. Meerdere gebruikers kunnen worden gemaakt met behulp van de Enterprise-beveiligingspakket.
 
 ## <a name="location"></a>Locatie (regio's) voor clusters en opslag
 
@@ -140,10 +140,23 @@ Voor betere prestaties bij het gebruik van Oozie, gebruikt u een aangepaste meta
 > [!IMPORTANT]
 > U kunt een aangepaste Oozie-metastore kan niet opnieuw gebruiken. Voor het gebruik van een aangepaste Oozie-metastore, moet u een lege Azure SQL-Database opgeven bij het maken van het HDInsight-cluster.
 
+
+## <a name="custom-cluster-setup"></a>Aangepaste installatie
+Aangepaste cluster setup bouwt voort op de snelle instellingen maken en voegt de volgende opties:
+- [HDInsight-toepassingen](#install-hdinsight-applications-on-clusters)
+- [Grootte van cluster](#configure-cluster-size)
+- [Scriptacties](#advanced-settings-script-actions)
+- [Virtueel netwerk](#advanced-settings-extend-clusters-with-a-virtual-network)
+
+## <a name="install-hdinsight-applications-on-clusters"></a>HDInsight-toepassingen installeren op clusters
+
+Een HDInsight-toepassing is een toepassing die gebruikers kunnen installeren op een op Linux gebaseerd HDInsight-cluster. U kunt toepassingen geleverd door Microsoft, externe partijen of die u zelf ontwikkelen. Zie voor meer informatie, [Hadoop-toepassingen van derden installeren op Azure HDInsight](hdinsight-apps-install-applications.md).
+
+De meeste van de HDInsight-toepassingen zijn geïnstalleerd op een lege edge-knooppunt.  Een lege edge-knooppunt is een Linux-machine met de dezelfde clienthulpprogramma's geïnstalleerd en geconfigureerd zoals in het hoofdknooppunt. U kunt het edge-knooppunt gebruiken voor toegang tot het cluster en hosten van uw client-apps testen van uw clienttoepassingen. Zie voor meer informatie, [lege edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md).
+
 ## <a name="configure-cluster-size"></a>Grootte van cluster configureren
 
 U wordt gefactureerd voor gebruik voor knooppunt, zolang het cluster bestaat. Facturering wordt gestart wanneer een cluster is gemaakt en stopt als een cluster wordt verwijderd. Clusters kunnen niet worden toewijzing ongedaan gemaakt of in de wachtstand plaatsen.
-
 
 ### <a name="number-of-nodes-for-each-cluster-type"></a>Aantal knooppunten voor elk clustertype
 Elk clustertype heeft een eigen aantal knooppunten, terminologie voor knooppunten en standaard VM-grootte. In de volgende tabel is het aantal knooppunten voor elk knooppunttype tussen haakjes.
@@ -191,20 +204,6 @@ Om erachter te komen welke u waarde moeten gebruiken een VM-grootte opgeven tijd
 >
 
 Zie voor meer informatie, [grootten voor virtuele machines](../virtual-machines/windows/sizes.md). Zie voor meer informatie over de prijzen van de verschillende grootten [HDInsight prijzen](https://azure.microsoft.com/pricing/details/hdinsight).   
-
-## <a name="custom-cluster-setup"></a>Aangepaste installatie
-Aangepaste cluster setup bouwt voort op de snelle instellingen maken en voegt de volgende opties:
-- [HDInsight-toepassingen](#hdinsight-applications)
-- [Grootte van cluster](#cluster-size)
-- Geavanceerde instellingen
-  - [Scriptacties](#customize-clusters-using-script-action)
-  - [Virtueel netwerk](#use-virtual-network)
-
-## <a name="install-hdinsight-applications-on-clusters"></a>HDInsight-toepassingen installeren op clusters
-
-Een HDInsight-toepassing is een toepassing die gebruikers kunnen installeren op een op Linux gebaseerd HDInsight-cluster. U kunt toepassingen geleverd door Microsoft, externe partijen of die u zelf ontwikkelen. Zie voor meer informatie, [Hadoop-toepassingen van derden installeren op Azure HDInsight](hdinsight-apps-install-applications.md).
-
-De meeste van de HDInsight-toepassingen zijn geïnstalleerd op een lege edge-knooppunt.  Een lege edge-knooppunt is een Linux-machine met de dezelfde clienthulpprogramma's geïnstalleerd en geconfigureerd zoals in het hoofdknooppunt. U kunt het edge-knooppunt gebruiken voor toegang tot het cluster en hosten van uw client-apps testen van uw clienttoepassingen. Zie voor meer informatie, [lege edge-knooppunten gebruiken in HDInsight](hdinsight-apps-use-edge-node.md).
 
 ## <a name="advanced-settings-script-actions"></a>Geavanceerde instellingen: scriptacties
 

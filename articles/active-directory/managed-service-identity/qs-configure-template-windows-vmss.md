@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 68304b3e5eea50aba28f46344abcbd7ad060c5c8
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 69b88b5aabbadadea3b04f96d9a21f266c85a52f
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42057562"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43125381"
 ---
 # <a name="configure-managed-service-identity-on-virtual-machine-scale-using-a-template"></a>Beheerde Service-identiteit configureren op virtuele-machineschaalset met behulp van een sjabloon
 
@@ -322,7 +322,7 @@ Als u een virtuele-machineschaalset die niet langer moet een beheerde service-id
 
 1. Of u zich aanmeldt bij Azure lokaal of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
 
-2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachineScaleSets` resource van belang zijn binnen de `resources` sectie. Als u een virtuele-machineschaalset waarvoor alleen toegewezen gebruikers-id hebt, kunt u deze uitschakelen door het veranderen van de id-type naar `None`.
+2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachineScaleSets` resource van belang zijn binnen de `resources` sectie. Als u een virtuele-machineschaalset waarvoor alleen toegewezen gebruikers-id hebt, kunt u deze uitschakelen door het wijzigen van het identiteitstype aan `None`.
 
    Het volgende voorbeeld ziet u hoe alle gebruiker toegewezen identiteiten van een virtuele machine met geen enkel systeem toegewezen identiteit verwijderen:
 
@@ -339,7 +339,7 @@ Als u een virtuele-machineschaalset die niet langer moet een beheerde service-id
    
    **Microsoft.Compute/virtualMachineScaleSets API-versie 2018-06-01**
     
-   Verwijderen van een een enkele gebruiker toegewezen identiteit van een virtuele-machineschaalset verwijderen uit de `userAssignedIdentities` woordenlijst.
+   Als u een enkele gebruiker toegewezen identiteit van een virtuele-machineschaalset, wilt verwijderen uit de `userAssignedIdentities` woordenlijst.
 
    Als u een systeem toegewezen identiteit hebt, moet u deze de in de `type` waarde onder de `identity` waarde.
 

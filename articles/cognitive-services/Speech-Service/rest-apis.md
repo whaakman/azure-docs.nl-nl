@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 9991e0a1fc54e6aa4a99b8bfbd93abdfe974b01b
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 64dce26303c0e700da54d371af5cb275b1613d70
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39283066"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122100"
 ---
 # <a name="speech-service-rest-apis"></a>Spraakservice REST-API 's
 
@@ -23,7 +23,7 @@ De REST-API's van de uniforme spraakherkenning-service zijn vergelijkbaar met de
 
 In de Speech to Text-API, wordt alleen de eindpunten die worden gebruikt verschillen van de vorige spraakservice spraak Recognition-API. De nieuwe eindpunten worden weergegeven in de onderstaande tabel. Gebruik de naam die overeenkomt met de regio van uw abonnement.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
 
 De spraak-naar-tekst-API is anders is vergelijkbaar met de [REST-API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) voor de vorige Speech-API.
 
@@ -54,7 +54,7 @@ nl-NL  | Amerikaans-Engels | Man   | "Microsoft Server spraak tekst en spraak, s
 
 Hieronder vindt u de REST-eindpunten voor de uniforme spraakherkenning service Text to Speech-API. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 Deze verschillen in waarmee u rekening moet houden wanneer u naar verwijst de [REST API-documentatie](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) voor de vorige Speech-API.
 
@@ -62,7 +62,7 @@ Deze verschillen in waarmee u rekening moet houden wanneer u naar verwijst de [R
 
 Een aanvraag verzenden naar de spraakservice REST-API vereist dat een toegangstoken. U een token verkrijgen door te geven van uw abonnementssleutel voor een regionale spraakservice `issueToken` eindpunt, wordt weergegeven in de onderstaande tabel. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
 
-[!include[](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
 Elke toegangstoken is geldig voor 10 minuten. U kunt een nieuw token verkrijgen op elk gewenst moment, met inbegrip van, als u dat wilt, net voordat elk verzoek Speech REST-API. Om te beperken van netwerkverkeer en de latentie, maar wordt u aangeraden het dezelfde token negen minuten.
 

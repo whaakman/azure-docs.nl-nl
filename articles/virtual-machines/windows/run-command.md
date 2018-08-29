@@ -8,12 +8,12 @@ ms.author: gwallace
 ms.date: 06/06/2018
 ms.topic: article
 manager: carmonm
-ms.openlocfilehash: f42d3fb709807d77fb0f390b6da76efc4a60dced
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 60cdcbeba0c4149d8f049bbab553bd658c965338
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090567"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43128592"
 ---
 # <a name="run-powershell-scripts-in-your-windows-vm-with-run-command"></a>PowerShell-scripts uitvoeren in uw Windows-VM met de opdracht uitvoeren
 
@@ -63,7 +63,6 @@ Deze tabel bevat de lijst met opdrachten die beschikbaar zijn voor Windows-VM's.
 |**EnableAdminAccount**|Controleert of als het lokale Administrator-account is uitgeschakeld, en als dit het geval is ingeschakeld.|
 |**IP-configuratie**| Geeft gedetailleerde informatie voor de IP-adres, subnet en de standaard-gateway voor elke adapter die is gekoppeld aan TCP/IP.|
 |**RDPSettings**|Controleert of registerinstellingen en domeininstellingen voor Groepsbeleid. Voorgesteld beleidsacties als machine deel van een domein uitmaakt of wijzigt u de instellingen op standaardwaarden.|
-|**ResetAccountPassword**| Hiermee stelt u het wachtwoord voor ingebouwde beheerdersaccount.|
 |**ResetRDPCert**|Hiermee verwijdert u het SSL-certificaat dat is gekoppeld aan de RDP-listener en de beveiliging van RDP listerner standaard hersteld. Gebruik dit script als u problemen ondervindt met het certificaat wordt weergegeven.|
 |**SetRDPPort**|Stelt de standaard of de gebruiker opgegeven poortnummer voor extern bureaublad-verbindingen. Hiermee kunt firewall-regel voor binnenkomende toegang tot de poort.|
 

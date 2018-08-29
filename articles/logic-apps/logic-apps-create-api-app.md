@@ -1,28 +1,23 @@
 ---
 title: Web-API's en REST API's maken voor Azure Logic Apps | Microsoft Docs
-description: Web-API's en REST-API's om aan te roepen van uw API's, services of systemen van logic app workflows voor systeemintegraties maken
-keywords: Web-API's, REST-API's, werkstromen, systeemintegraties
+description: Web-API's en REST API's voor het aanroepen van uw API's, services of systemen van systeemintegraties in Azure Logic Apps maken
 services: logic-apps
-author: jeffhollan
-manager: jeconnoc
-editor: ''
-documentationcenter: ''
-ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
 ms.service: logic-apps
-ms.workload: integration
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, jehollan, LADocs
 ms.topic: article
-ms.date: 5/26/2017
-ms.author: LADocs; jehollan
-ms.openlocfilehash: 748070d43c34b501af3455d03429be1f44178b7f
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.assetid: bd229179-7199-4aab-bae0-1baf072c7659
+ms.date: 05/26/2017
+ms.openlocfilehash: a761e384a356a0cbf5531eee7340ddbbd1526909
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172014"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122243"
 ---
-# <a name="create-custom-apis-that-you-can-call-from-logic-app-workflows"></a>Aangepaste API's die u vanuit logic app workflows aanroepen kunt maken
+# <a name="create-custom-apis-you-can-call-from-azure-logic-apps"></a>Aangepaste API's die u vanuit Azure Logic Apps aanroepen kunt maken
 
 Hoewel Azure Logic Apps biedt [meer dan 100 ingebouwde connectors](../connectors/apis-list.md) dat u kunt gebruiken in logic app workflows, wilt u mogelijk voor het aanroepen van API's, systemen en services die niet beschikbaar zijn als connectors. U kunt uw eigen API's waarmee u acties en triggers voor gebruik in logic apps kunt maken. Hier volgen andere redenen waarom u mogelijk wilt maken van uw eigen API's die u vanuit logic app workflows aanroepen kunt:
 
