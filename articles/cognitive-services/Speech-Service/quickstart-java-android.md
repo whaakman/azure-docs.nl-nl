@@ -9,16 +9,16 @@ ms.technology: Speech
 ms.topic: article
 ms.date: 07/16/2018
 ms.author: fmegen
-ms.openlocfilehash: bbf10d9bd0912dab22c81e2bb850ede52a3bd9e3
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9f761fed46f0730a64a984111da1bae1229cc93d
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41988620"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43127068"
 ---
 # <a name="quickstart-recognize-speech-in-java-on-android-using-the-speech-sdk"></a>Snelstartgids: Spraakherkenning in Java op Android met behulp van de SDK spraak herkennen
 
-[!include[Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
+[!INCLUDE [Selector](../../../includes/cognitive-services-speech-service-quickstart-selector.md)]
 
 In dit artikel leert u over het maken van een Java-toepassing voor Android met behulp van de Cognitive Services Speech SDK spraak naar tekst te transcriberen.
 De toepassing is gebaseerd op de Microsoft Cognitive Services Speech SDK Maven-pakket, versie 0.6.0 en Android Studio 3.1.
@@ -61,7 +61,7 @@ Nadat het is uitgevoerd voor een tijdje uw zojuist gemaakte Android Studio-proje
 
 ## <a name="configure-your-project-for-the-speech-sdk"></a>Uw project voor de spraak-SDK configureren
 
-[!include[License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
+[!INCLUDE [License Notice](../../../includes/cognitive-services-speech-service-license-notice.md)]
 
 De huidige versie van de Cognitive Services Speech SDK is `0.6.0`.
 
@@ -154,7 +154,7 @@ De tekst en de grafische versie van de gebruikersinterface moeten er nu uitzien 
 
 Deze schermopname is de Snelstartgids voor Android. De voorbeeldcode volledige project kan worden gedownload vanuit de opslagplaats met voorbeelden.
 
-[!include[Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
+[!INCLUDE [Download the sample](../../../includes/cognitive-services-speech-service-speech-sdk-sample-download-h2.md)]
 Zoek in dit voorbeeld in de `quickstart/java-android` map.
 
 ## <a name="next-steps"></a>Volgende stappen
