@@ -4,18 +4,17 @@ description: Met Data Lake Analytics kunt u zakelijke beslissingen nemen aan de 
 services: data-lake-analytics
 author: saveenr
 ms.author: saveenr
-manager: kfile
-editor: jasonwhowell
+ms.reviewer: jasonwhowell
 ms.assetid: 1e1d443a-48a2-47fb-bc00-bf88274222de
 ms.service: data-lake-analytics
 ms.topic: overview
 ms.date: 06/23/2017
-ms.openlocfilehash: f5425abc484d30f07ce29d6b7b6ec36dad79b651
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: a0e4878987d55b57587fe949d3bdaa8921599a14
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34623618"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43053373"
 ---
 # <a name="what-is-azure-data-lake-analytics"></a>Wat is Azure Data Lake Analytics?
 
@@ -39,7 +38,7 @@ Met Data Lake Analytics kunt u uw bestaande IT-investeringen gebruiken voor iden
 
 ### <a name="affordable-and-cost-effective"></a>Betaalbaar en rendabel
 
-Data Lake Analytics is een rendabele oplossing voor het uitvoeren van big data-workloads. U betaalt per taak wanneer de gegevens worden verwerkt. Hardware, licenties en servicespecifieke ondersteuningsovereenkomsten zijn niet nodig. Het systeem wordt automatisch omhoog of omlaag geschaald bij het starten en eindigen van de taak. Op deze manier betaalt u nooit voor meer dan u nodig hebt. [Meer informatie over kostenbeheersing en geldbesparing](https://1drv.ms/f/s!AvdZLquGMt47h213Hg3rhl-Tym1c).
+Data Lake Analytics is een rendabele oplossing voor het uitvoeren van big data-workloads. U betaalt per taak wanneer de gegevens worden verwerkt. Hardware, licenties en servicespecifieke ondersteuningsovereenkomsten zijn niet nodig. Het systeem wordt automatisch omhoog of omlaag geschaald bij het starten en eindigen van de taak. Op deze manier betaalt u nooit voor meer dan u nodig hebt. [Meer informatie over kostenbeheersing en geldbesparing](https://aka.ms/adlasavemoney).
     
 ### <a name="works-with-all-your-azure-data"></a>Werkt met alle Azure-gegevens
   

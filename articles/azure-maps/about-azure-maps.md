@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: d0ec146d276f72abf4cbbe3da4d11c0d5539df6d
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 803e82a294b64452ffd788880097b9d86ac1065b
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39144190"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42745287"
 ---
 # <a name="what-is-azure-maps"></a>Wat is Azure Maps?
 Azure Maps is een verzameling georuimtelijke services die wordt ondersteund door nieuwe kaartgegevens, waarmee u uw webtoepassingen en mobiele toepassingen kunt voorzien van een nauwkeurige geografische context. Het bevat REST API’s voor het renderen van kaarten en het zoeken van nuttige plaatsen, routes naar nuttige plaatsen, verkeersomstandigheden, tijdzones en services voor IP-adressen naar locatie. U kunt deze API’s gebruiken met vertrouwde hulpprogramma's om snel oplossingen te ontwikkelen en te schalen waarmee locatiegegevens worden geïntegreerd in Azure-oplossingen. Samen met de REST API’s biedt het een webgebaseerd JavaScript-besturingselement om ontwikkeltaken voor meerdere mediums gemakkelijk, flexibel en mobiel te maken. 
@@ -98,7 +98,7 @@ Raadpleeg de pagina [Azure Maps Geoloctatie-API's](https://docs.microsoft.com/re
 
 Azure Maps is gebouwd voor mobiliteit en kan platformoverschrijdende toepassingen aansturen. Het maakt gebruik van een programmeermodel dat taalonafhankelijk is en dat JSON-uitvoer ondersteunt door middel van [REST API's](https://docs.microsoft.com/rest/api/maps/). 
 
-Bovendien biedt Azure Maps een handig [kaartbesturingselement in JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-javascript/?view=azure-iot-typescript-latest) met een eenvoudig programmeermodel voor het snel en gemakkelijk ontwikkelen van webtoepassingen en mobiele toepassingen. 
+Bovendien biedt Azure Maps een handig [kaartbesturingselement in JavaScript](https://docs.microsoft.com/javascript/api/azure-maps-control/models?view=azure-iot-typescript-latest) met een eenvoudig programmeermodel voor het snel en gemakkelijk ontwikkelen van webtoepassingen en mobiele toepassingen. 
 
 
 ## <a name="usage"></a>Gebruik

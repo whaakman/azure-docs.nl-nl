@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/03/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 03d4ad081a788299bab563ca6b956edc347732da
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f659c424f7d5e705343c113d2ba0971164ca622a
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447955"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43108803"
 ---
 # <a name="quickstart-create-a-linux-virtual-machine-in-the-azure-portal"></a>Snelstart: Een virtuele Linux-machine maken op de Azure Portal
 
@@ -53,7 +53,7 @@ Aanmelden bij Azure Portal op http://portal.azure.com
 
 3. Geef een VM-naam op, zoals *myVM*, laat het schijftype als *SSD* en geef dan een gebruikersnaam op, zoals *azuregebruiker*.
 
-4. . Als **Verificatietype** selecteert u **Openbare SSH-sleutel**. Plak dan uw openbare sleutel in het tekstvak. Zorg date er geen voorloop- en volgspaties in uw openbare sleutel staan.
+4. Als **Verificatietype** selecteert u **Openbare SSH-sleutel**. Plak dan uw openbare sleutel in het tekstvak. Zorg date er geen voorloop- en volgspaties in uw openbare sleutel staan.
 
     ![Voer basisinformatie over uw virtuele machine in op de portalblade](./media/quick-create-portal/create-vm-portal-basic-blade.png)
 

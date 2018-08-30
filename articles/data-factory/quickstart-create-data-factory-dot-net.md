@@ -10,15 +10,15 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: ''
 ms.devlang: dotnet
-ms.topic: hero-article
+ms.topic: quickstart
 ms.date: 03/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 3d1d77e585ae8d608a8f9a4e3de0943315d897af
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: a7916a434552cbcb999f1e69c7a5bc2419f517fb
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41924761"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43094339"
 ---
 # <a name="create-a-data-factory-and-pipeline-using-net-sdk"></a>Een data factory en pijplijn maken met behulp van .NET SDK
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -32,67 +32,7 @@ In deze snelstartgids wordt beschreven hoe u .NET SDK kunt gebruiken om een Azur
 
 Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
 
-## <a name="prerequisites"></a>Vereisten
-
-### <a name="azure-subscription"></a>Azure-abonnement
-Als u nog geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/) voordat u begint.
-
-### <a name="azure-roles"></a>Azure-rollen
-Als u Data Factory-exemplaren wilt maken, moet het gebruikersaccount waarmee u zich bij Azure aanmeldt, lid zijn van de rollen **Inzender** of **Eigenaar**, of moet dit een **beheerder** van het Azure-abonnement zijn. Klik in Azure Portal op uw **gebruikersnaam** in de rechterbovenhoek en selecteer **Machtigingen** om de machtigingen weer te geven die u in het abonnement hebt. Als u toegang tot meerdere abonnementen hebt, moet u het juiste abonnement selecteren. Zie het artikel [Rollen toevoegen](../billing/billing-add-change-azure-subscription-administrator.md) voor voorbeelden van instructies voor het toevoegen van een gebruiker aan een rol.
-
-### <a name="azure-storage-account"></a>Azure Storage-account
-In deze QuickStart gaat u een algemeen Azure Storage-account (en dan met name voor Blob Storage) gebruiken als zowel **bron-** als **doel**gegevensarchieven. Zie het artikel [Een opslagaccount maken](../storage/common/storage-quickstart-create-account.md) als u geen Azure Storage-account hebt voor algemene doeleinden en er een wilt maken. 
-
-#### <a name="get-storage-account-name-and-account-key"></a>De naam en sleutel van een opslagaccount ophalen
-In deze QuickStart gaat u de naam en sleutel van uw Azure Storage-account gebruiken. De volgende procedure bevat stappen waarmee u de naam en sleutel van uw opslagaccount kunt ophalen. 
-
-1. Open een browser en navigeer naar [Azure Portal](https://portal.azure.com). Meld u aan met uw Azure-gebruikersnaam en -wachtwoord. 
-2. Klik op **Meer services >** in het menu links, filter op het trefwoord **Opslag** en selecteer **Opslagaccounts**.
-
-    ![Zoeken naar een opslagaccount](media/quickstart-create-data-factory-dot-net/search-storage-account.png)
-3. Filter in de lijst met opslagaccounts op uw opslagaccount (indien nodig) en selecteer vervolgens **uw opslagaccount**. 
-4. Selecteer op de pagina **Opslagaccount** de optie **Toegangssleutels** in het menu.
-
-    ![De naam en sleutel van het opslagaccount ophalen](media/quickstart-create-data-factory-dot-net/storage-account-name-key.png)
-5. Kopieer de waarden voor de velden **Opslagaccountnaam** en **key1** naar het klembord. Plak deze in Kladblok of een andere editor en sla ze op.  
-
-#### <a name="create-input-folder-and-files"></a>Invoermap en bestanden maken
-In deze sectie maakt u in uw Azure Blob Storage een blobcontainer met de naam **adftutorial**. Vervolgens maakt u in de container een map met de naam **Invoer** en uploadt u een voorbeeldbestand naar de map Invoer. 
-
-1. Schakel op de pagina **Opslagaccount** over naar **Overzicht** en klik vervolgens op **Blobs**. 
-
-    ![De optie Blobs selecteren](media/quickstart-create-data-factory-dot-net/select-blobs.png)
-2. Klik op de pagina **Blob service** in de werkbalk op **+ Container**. 
-
-    ![Knop Container toevoegen](media/quickstart-create-data-factory-dot-net/add-container-button.png)    
-3. Voer in het dialoogvenster **Nieuwe container** als naam **adftutorial** in en klik op **OK**. 
-
-    ![Naam van container invoeren](media/quickstart-create-data-factory-dot-net/new-container-dialog.png)
-4. Klik op **adftutorial** in de lijst met containers. 
-
-    ![De container selecteren](media/quickstart-create-data-factory-dot-net/select-adftutorial-container.png)
-1. Klik op de pagina **Container** in de werkbalk op **Uploaden**.  
-
-    ![Knop Uploaden](media/quickstart-create-data-factory-dot-net/upload-toolbar-button.png)
-6. Klik op de pagina **Blob uploaden** op **Geavanceerd**.
-
-    ![Op de koppeling Geavanceerd klikken](media/quickstart-create-data-factory-dot-net/upload-blob-advanced.png)
-7. Start **Kladblok** en maak een bestand met de naam **emp.txt** met de volgende inhoud. Sla dit bestand op in de map **c:\ADFv2QuickStartPSH**. Maak de map **ADFv2QuickStartPSH** als deze nog niet bestaat.
-    
-    ```
-    John, Doe
-    Jane, Doe
-    ```    
-8. Blader in Azure Portal op de pagina **Blob uploaden** naar het bestand **emp.txt** en selecteer dit voor het veld **Bestanden**. 
-9. Typ **Invoer** als waarde in het veld **Uploaden naar map**. 
-
-    ![Blob-instellingen uploaden](media/quickstart-create-data-factory-dot-net/upload-blob-settings.png)    
-10. Controleer of de map **Invoer** en het bestand **emp.txt** is en klik op **Uploaden**.
-11. Als het goed is, ziet u in de lijst nu het bestand **emp.txt**, evenals de uploadstatus hiervan. 
-12. Sluit de pagina **Blob uploaden** door op de **X** in de hoek te klikken. 
-
-    ![De pagina Blob uploaden sluiten](media/quickstart-create-data-factory-dot-net/close-upload-blob.png)
-1. Houd de pagina **Container** geopend. U gaat hiermee aan het einde van deze QuickStart de uitvoer controleren.
+[!INCLUDE [data-factory-quickstart-prerequisites](../../includes/data-factory-quickstart-prerequisites.md)] 
 
 ### <a name="visual-studio"></a>Visual Studio
 De procedures in dit artikel zijn gebaseerd op Visual Studio 2017. U kunt ook Visual Studio 2013 of 2015 gebruiken.
@@ -100,7 +40,7 @@ De procedures in dit artikel zijn gebaseerd op Visual Studio 2017. U kunt ook Vi
 ### <a name="azure-net-sdk"></a>Azure .NET SDK
 Download en installeer [Azure .NET SDK](http://azure.microsoft.com/downloads/) op uw computer.
 
-### <a name="create-an-application-in-azure-active-directory"></a>Een toepassing maken in Azure Active Directory
+## <a name="create-an-application-in-azure-active-directory"></a>Een toepassing maken in Azure Active Directory
 Volg de instructies in de secties van [dit artikel](../azure-resource-manager/resource-group-create-service-principal-portal.md#create-an-azure-active-directory-application) om het volgende te doen: 
 
 1. **Een Azure Active Directory-toepassing maken**. Maak een toepassing in Azure Active Directory die staat voor de .NET-toepassing die u in deze zelfstudie maakt. Voor de aanmeldings-URL kunt u een dummy-URL opgeven, zoals wordt getoond in het artikel (`https://contoso.org/exampleapp`).

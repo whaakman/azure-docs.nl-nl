@@ -10,16 +10,16 @@ ms.service: data-factory
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: overview
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 1b0838bb3d4fa1f47d906294ce42c318d1f4a0cd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 0cdf10f4898ba103f9b6f65179300a10c9e33cdf
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38623549"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43087168"
 ---
 # <a name="introduction-to-azure-data-factory"></a>Inleiding tot Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -123,13 +123,13 @@ Gekoppelde services worden voor twee doeleinden gebruikt in Data Factory:
 ![Diagram: Data Factory, een service voor gegevensintegratie in de cloud - Belangrijkste concepten](./media/data-factory-introduction/data-integration-service-key-concepts.png)
 
 ## <a name="supported-regions"></a>Ondersteunde regio’s
-U kunt op dit moment gegevensfactory’s maken in de regio’s VS - west, VS - oost en Noord-Europa. Een gegevensfactory heeft echter wel toegang tot gegevensarchieven en rekenservices in andere Azure-regio’s om gegevens te verplaatsen tussen gegevensarchieven of om gegevens te verwerken middels rekenservices.
+U kunt op dit moment gegevensfactory’s maken in de regio’s US - west, US - oost en Europa - noord. Een gegevensfactory heeft echter wel toegang tot gegevensarchieven en rekenservices in andere Azure-regio’s om gegevens te verplaatsen tussen gegevensarchieven of om gegevens te verwerken middels rekenservices.
 
 Azure Data Factory zelf slaat geen gegevens op. Hiermee kunt u gegevensgestuurde werkstromen maken om het verplaatsen van gegevens tussen [ondersteunde gegevensarchieven](#data-movement-activities) in te delen. U kunt er ook gegevens mee verwerken met behulp van [rekenservices](#data-transformation-activities) in andere regio's of in een on-premises omgeving. U kunt er ook [werkstromen mee bewaken en beheren](data-factory-monitor-manage-pipelines.md) met zowel programmatische als gebruikersinterfacemechanismen.
 
-Data Factory is alleen beschikbaar in de regio VS - west, VS - oost en Noord-Europa. De service die de gegevensverplaatsing in Data Factory verzorgt, is echter [internationaal](data-factory-data-movement-activities.md#global) beschikbaar in meerdere regio's. Als een gegevensarchief zich achter een firewall bevindt, worden de gegevens verplaatst middels een [gegevensbeheergateway](data-factory-move-data-between-onprem-and-cloud.md) die is geïnstalleerd in uw on-premises omgeving.
+Data Factory is alleen beschikbaar in de regio US - west, US - oost en Europa - noord. De service die de gegevensverplaatsing in Data Factory verzorgt, is echter [internationaal](data-factory-data-movement-activities.md#global) beschikbaar in meerdere regio's. Als een gegevensarchief zich achter een firewall bevindt, worden de gegevens verplaatst middels een [gegevensbeheergateway](data-factory-move-data-between-onprem-and-cloud.md) die is geïnstalleerd in uw on-premises omgeving.
 
-Stel dat uw rekenomgevingen, bijvoorbeeld een Azure HDInsight-cluster en Azure Machine Learning, worden uitgevoerd in de regio West-Europa. U kunt een exemplaar van Azure Data Factory in Noord-Europa maken en gebruiken. Vervolgens kunt u het gebruiken om taken te plannen voor uw rekenomgevingen in West-Europa. Het duurt enkele milliseconden voordat Data Factory de taak in uw rekenomgeving activeert, maar de uitvoertijd van de taak verandert niet in uw rekenomgeving.
+Stel dat uw rekenomgevingen, bijvoorbeeld een Azure HDInsight-cluster en Azure Machine Learning, worden uitgevoerd in de regio Europa - west. U kunt een exemplaar van Azure Data Factory in Europa -noord maken en gebruiken. Vervolgens kunt u het gebruiken om taken te plannen voor uw rekenomgevingen in Europa - west. Het duurt enkele milliseconden voordat Data Factory de taak in uw rekenomgeving activeert, maar de uitvoertijd van de taak verandert niet in uw rekenomgeving.
 
 ## <a name="get-started-with-creating-a-pipeline"></a>Aan de slag met het maken van een pijplijn
 U kunt een van deze hulpprogramma's of API's gebruiken om gegevenspijplijnen te maken in Azure Data Factory: 
