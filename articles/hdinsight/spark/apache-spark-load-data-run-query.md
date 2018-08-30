@@ -3,18 +3,18 @@ title: "Zelfstudie: Gegevens laden en query's uitvoeren in een Apache Spark-clus
 description: Leer hoe u gegevens laadt en interactieve query's uitvoert op Spark-clusters in Azure HDInsight.
 services: azure-hdinsight
 author: jasonwhowell
-editor: jasonwhowell
+ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
 ms.author: jasonh
 ms.date: 05/17/2018
-ms.openlocfilehash: e83c7a4ed5987108a74153897abe4839dd24418c
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: d59f04c5dde522f3d193f345ac59147ece9d86f0
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619427"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047554"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>Zelfstudie: Gegevens laden en query's uitvoeren in een Apache Spark-cluster in Azure HDInsight
 
