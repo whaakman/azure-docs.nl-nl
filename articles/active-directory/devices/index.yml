@@ -1,0 +1,41 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 03a96770462e66c897b93ae0790838a9c8f1bd9b
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43130589"
+documentType: LandingData
+title: Documentatie over Azure AD-apparaatbeheer
+metadata:
+  document_id: 
+  title: Documentatie over apparaatbeheer voor Azure Active Directory - Zelfstudies, concepten, naslaginformatie | Microsoft Docs
+  description: Leer hoe u apparaatbeheer voor Azure Active Directory kunt configureren en testen.
+  services: active-directory
+  ms.component: devices
+  author: MarkusVi
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/14/2018
+  ms.author: markvi
+abstract:
+  description: Uw gebruikers krijgen via apparaten toegang tot uw zakelijke assets. Om als ICT-beheerder uw bedrijfsassets te beschermen, hebt u controle over deze apparaten nodig. Zo kunt u ervoor zorgen dat uw gebruikers toegang hebben tot uw resources vanuit apparaten die voldoen aan uw normen voor beveiliging en naleving.<br>Apparaatbeheer vormt ook de basis voor apparaatgebaseerde scenario's voor voorwaardelijke toegang. Met voorwaardelijke toegang op basis van apparaat kunt u ervoor zorgen dat toegang tot bronnen in uw omgeving alleen mogelijk is met beheerde apparaten.
+sections:
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Leer hoe u apparaten die aan uw on-premises AD-omgeving zijn gekoppeld kunt integreren met Azure AD.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Beheerde domeinen
+      href: hybrid-azuread-join-managed-domains.md
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Federatieve domeinen
+      href: hybrid-azuread-join-federated-domains.md
