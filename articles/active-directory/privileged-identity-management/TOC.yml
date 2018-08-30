@@ -1,0 +1,99 @@
+items:
+- name: Privileged Identity Management-documentatie
+- name: Overzicht
+  items:
+  - name: Wat is Azure AD PIM?
+    href: pim-configure.md
+- name: Concepten
+  items:
+  - name: Vereisten voor abonnementen
+    href: subscription-requirements.md
+  - name: Directory-rollen die u kunt beheren
+    href: pim-roles.md
+  - name: Veilige bevoegde toegang
+    href: ../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json
+  - name: Overzichtsdashboards
+    href: pim-resource-roles-overview-dashboards.md
+  - name: E-mailmeldingen
+    href: pim-email-notifications.md
+  - name: Toewijzingstypen
+    href: pim-resource-roles-eligible-visibility.md
+  - name: Beveiligingswizard
+    href: pim-security-wizard.md
+- name: Handleidingen
+  items:
+  - name: Beginnen met PIM
+    href: pim-getting-started.md
+  - name: Rollen activeren
+    items:
+    - name: Mijn directory-rollen activeren
+      href: pim-how-to-activate-role.md
+    - name: Mijn resourcerollen activeren
+      href: pim-resource-roles-activate-your-roles.md
+  - name: PIM configureren
+    items:
+    - name: Azure-resources detecteren
+      href: pim-resource-roles-discover-resources.md
+    - name: Anderen toegang verlenen om PIM te beheren
+      href: pim-how-to-give-access-to-pim.md
+    - name: Abonnementsbeheer inschakelen
+      href: pim-resource-roles-enable-subscription-management.md
+  - name: Directory-rollen beheren
+    items:
+    - name: Rollen toewijzen
+      href: pim-how-to-add-role-to-user.md
+    - name: Rolinstellingen configureren
+      href: pim-how-to-change-default-settings.md
+    - name: MFA vereisen
+      href: pim-how-to-require-mfa.md
+    - name: Waarschuwingen configureren
+      href: pim-how-to-configure-security-alerts.md
+    - name: Aanvragen goedkeuren
+      href: azure-ad-pim-approval-workflow.md
+    - name: Controlegeschiedenis weergeven
+      href: pim-how-to-use-audit-log.md
+  - name: Resourcerollen beheren
+    items:
+    - name: Nagaan wie er toegang heeft
+      href: azure-pim-resource-rbac.md
+    - name: Rollen toewijzen
+      href: pim-resource-roles-assign-roles.md
+    - name: Rolinstellingen configureren
+      href: pim-resource-roles-configure-role-settings.md
+    - name: MFA vereisen
+      href: pim-resource-roles-require-mfa.md
+    - name: Waarschuwingen configureren
+      href: pim-resource-roles-configure-alerts.md
+    - name: Aanvragen goedkeuren
+      href: pim-resource-roles-approval-workflow.md
+    - name: Rollen verlengen of vernieuwen
+      href: pim-resource-roles-renew-extend.md
+    - name: Controlegeschiedenis weergeven
+      href: pim-resource-roles-use-the-audit-log.md
+    - name: Aangepaste rollen gebruiken
+      href: pim-resource-roles-custom-role-policy.md
+  - name: Toegang beoordelen
+    items:
+    - name: Directory-rollen
+      items:
+      - name: Mijn directory-rollen beoordelen
+        href: pim-how-to-perform-security-review.md
+      - name: Een toegangsbeoordeling starten
+        href: pim-how-to-start-security-review.md
+      - name: Een toegangsbeoordeling voltooien
+        href: pim-how-to-complete-review.md
+    - name: Resourcerollen
+      items:
+      - name: Mijn resourcerollen beoordelen
+        href: pim-resource-roles-perform-access-review.md
+      - name: Een toegangsbeoordeling starten
+        href: pim-resource-roles-start-access-review.md
+      - name: Een toegangsbeoordeling voltooien
+        href: pim-resource-roles-complete-access-review.md
+  expanded: true
+ms.openlocfilehash: 7a8fafb4782a02da5b1fbe189cba8cadf7c22bfe
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43191243"

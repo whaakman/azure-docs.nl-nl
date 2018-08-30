@@ -15,7 +15,7 @@ items:
       href: create-sql-api-java.md
     - name: Node.js
       href: create-sql-api-nodejs.md
-    - name: Node.js - V2-preview
+    - name: Node.js - V2 (preview)
       href: create-sql-api-nodejs-preview.md
     - name: Python
       href: create-sql-api-python.md
@@ -23,24 +23,24 @@ items:
       href: create-sql-api-xamarin-dotnet.md
   - name: MongoDB
     items:
-    - name: Node.js
-      href: create-mongodb-nodejs.md
     - name: .NET
       href: create-mongodb-dotnet.md
     - name: Java
       href: create-mongodb-java.md
-    - name: Golang
-      href: create-mongodb-golang.md
+    - name: Node.js
+      href: create-mongodb-nodejs.md
     - name: Python
       href: create-mongodb-flask.md
     - name: Xamarin
       href: create-mongodb-xamarin.md
-  - name: Graph
+    - name: Golang
+      href: create-mongodb-golang.md
+  - name: Gremlin
     items:
+    - name: Gremlin-console gebruiken
+      href: create-graph-gremlin-console.md
     - name: .NET
       href: create-graph-dotnet.md
-    - name: Gremlin-console
-      href: create-graph-gremlin-console.md
     - name: Java
       href: create-graph-java.md
     - name: Node.js
@@ -49,6 +49,16 @@ items:
       href: create-graph-python.md
     - name: PHP
       href: create-graph-php.md
+  - name: Cassandra
+    items:
+    - name: .NET
+      href: create-cassandra-dotnet.md
+    - name: Java
+      href: create-cassandra-java.md
+    - name: Node.js
+      href: create-cassandra-nodejs.md
+    - name: Python
+      href: create-cassandra-python.md
   - name: Tabel
     items:
     - name: .NET
@@ -59,48 +69,46 @@ items:
       href: create-table-nodejs.md
     - name: Python
       href: create-table-python.md
-  - name: Cassandra
-    items:
-    - name: Node.js
-      href: create-cassandra-nodejs.md
-    - name: Java
-      href: create-cassandra-java.md
-    - name: .NET
-      href: create-cassandra-dotnet.md
-    - name: Python
-      href: create-cassandra-python.md
   expanded: true
 - name: Concepten
   items:
+  - name: Resourcemodel
+    href: sql-api-resources.md
   - name: Wereldwijde distributie
     href: distribute-data-globally.md
-  - name: Meerdere masters
-    href: multi-region-writers.md
-  - name: Partitionering
-    href: partition-data.md
   - name: Doorvoer
     href: request-units.md
-  - name: Consistentie
+  - name: Partitionering
+    href: partition-data.md
+  - name: Indexeren
+    href: indexing-policies.md
+  - name: Consistentiemodellen
     href: consistency-levels.md
+  - name: Meerdere masters
+    href: multi-region-writers.md
+  - name: Wijzigingsfeed
+    href: change-feed.md
+    items:
+    - name: Wijzigingsfeed voor e-commerce-oplossing
+      href: changefeed-ecommerce-solution.md
+  - name: Time To Live
+    href: time-to-live.md
   - name: Unieke sleutels
     href: unique-keys.md
-  - name: Database zonder servers
-    href: serverless-computing-database.md
   - name: Beveiliging
     href: database-security.md
     items:
-    - name: Versleuteling 'at rest'
+    - name: Gegevensversleuteling
       href: database-encryption-at-rest.md
-    - name: Toegang tot gegevens beveiligen
+    - name: Gegevenstoegang beveiligen
       href: secure-access-to-data.md
-    - name: Key Vault voor het opslaan van geheimen
+    - name: Firewallondersteuning
+      href: firewall-support.md
+    - name: Service-eindpunt voor virtueel netwerk instellen
+      href: vnet-service-endpoint.md
+    - name: Sleutelkluis voor het opslaan van geheimen
       href: access-secrets-from-keyvault.md
-  - name: Gebruiksvoorbeelden
-    href: use-cases.md
-    items:
-    - name: Socialemedia-apps
-      href: social-media-apps.md
-- name: Meerdere modellen
+- name: API's met meerdere modellen
   items:
   - name: SQL-API-documenten
     items:
@@ -110,9 +118,9 @@ items:
         href: sql-api-introduction.md
     - name: Zelfstudies
       items:
-      - name: 1 - Maken
+      - name: 1 - Account maken
         items:
-        - name: Schrijf uw eerste app
+        - name: Een console-app bouwen
           items:
           - name: .NET
             href: sql-api-get-started.md
@@ -124,156 +132,96 @@ items:
             href: sql-api-async-java-get-started.md
           - name: Node.js
             href: sql-api-nodejs-get-started.md
-          - name: Node.js - V2-preview
+          - name: Node.js - V2 (preview)
             href: sql-api-nodejs-get-started-preview.md
         - name: Een web-app bouwen
           items:
           - name: .NET
             href: sql-api-dotnet-application.md
-          - name: Xamarin
-            href: mobile-apps-with-xamarin.md
-          - name: Node.js
-            href: sql-api-nodejs-application.md
-          - name: Node.js - V2-preview
-            href: sql-api-nodejs-application-preview.md
           - name: Java
             href: sql-api-java-application.md
-          - name: Python Flask
+          - name: Node.js
+            href: sql-api-nodejs-application.md
+          - name: Node.js - V2 (preview)
+            href: sql-api-nodejs-application-preview.md
+          - name: Python
             href: sql-api-python-application.md
-      - name: 2 - Importeren
+          - name: Xamarin
+            href: mobile-apps-with-xamarin.md
+      - name: 2 - Gegevens migreren
         href: import-data.md
-      - name: 3 - Query uitvoeren
+      - name: 3 - Query's uitvoeren op gegevens
         href: tutorial-query-sql-api.md
-      - name: 4 - Wereldwijd distribueren
+      - name: 4 - Gegevens wereldwijd distribueren
         href: tutorial-global-distribution-sql-api.md
-      - name: 5 - Lokaal ontwikkelen
-        items:
-        - name: De emulator gebruiken
-          href: local-emulator.md
-        - name: Certificaten exporteren
-          href: local-emulator-export-ssl-certificates.md
     - name: Voorbeelden
       items:
-      - name: Azure-CLI
-        href: cli-samples.md
-      - name: PowerShell
-        href: powershell-samples.md
       - name: .NET-voorbeelden
         href: sql-api-dotnet-samples.md
-      - name: Node.js-voorbeelden
-        href: sql-api-nodejs-samples.md
-      - name: Node.js-voorbeelden - V2-preview
-        href: sql-api-nodejs-samples-preview.md
-      - name: Python-voorbeelden
-        href: sql-api-python-samples.md
       - name: Java-voorbeelden
         href: sql-api-java-samples.md
       - name: Async Java-voorbeelden
         href: sql-api-async-java-samples.md
+      - name: Node.js-voorbeelden
+        href: sql-api-nodejs-samples.md
+      - name: Voorbeelden van Node.js - V2 (preview)
+        href: sql-api-nodejs-samples-preview.md
+      - name: Python-voorbeelden
+        href: sql-api-python-samples.md
+      - name: PowerShell
+        href: powershell-samples.md
+      - name: Azure-CLI
+        href: cli-samples.md
     - name: Concepten
       items:
-      - name: Resources
-        href: sql-api-resources.md
       - name: Documentgegevens modelleren
         href: modeling-data.md
     - name: Handleidingen
       items:
-      - name: BulkExecutor - .NET
+      - name: Bulkuitvoering gebruiken - .NET-bibliotheek
         href: bulk-executor-dot-net.md
-      - name: BulkExecutor - JAVA
+      - name: Bulkuitvoering gebruiken - Java-bibliotheek
         href: bulk-executor-java.md
-      - name: Query’s uitvoeren
-        items:
-        - name: SQL-query's uitvoeren
-          href: sql-api-sql-query.md
-        - name: Queryprestaties afstemmen
-          href: sql-api-sql-query-metrics.md
-      - name: Index
-        href: indexing-policies.md
+      - name: SQL-query's schrijven
+        href: sql-api-sql-query.md
+      - name: Queryprestaties afstemmen
+        href: sql-api-sql-query-metrics.md
       - name: SQL-gegevenspartitionering
         href: sql-api-partition-data.md
-      - name: Feed wijzigen
-        href: change-feed.md
       - name: Gegevenstypen
         items:
-        - name: Datum/tijd
+        - name: DateTime
           href: working-with-dates.md
         - name: Georuimtelijk
           href: geospatial.md
-      - name: Prestaties afstemmen
-        items:
-        - name: Prestatietest
-          href: performance-testing.md
-        - name: Tips voor betere prestaties voor Async Java
-          href: performance-tips-async-java.md
-        - name: Tips voor betere prestaties voor .NET
-          href: performance-tips.md
-        - name: Tips voor betere prestaties voor Java
-          href: performance-tips-java.md
-      - name: Integreren met andere Azure-services
-        items:
-        - name: Een lambda-architectuur implementeren met HDInsight
-          href: lambda-architecture.md
-        - name: Verbinding maken met Spark
-          href: spark-connector.md
-        - name: Streamen met Kafka en Spark in HDInsight
-          href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
-        - name: Een website implementeren met Azure App Service
-          href: create-website.md
-        - name: Toepassingslogboeken bijhouden met Logische apps
-          href: https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json
-        - name: Verbinden aan Azure Functions
-          href: https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json
-        - name: Integreren met Azure Search
-          href: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json
-        - name: Gegevens verplaatsen met Azure Data Factory
-          href: https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json
-        - name: Realtime gegevens analyseren met Azure Stream Analytics
-          href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db
-        - name: Een gewijzigde HL7 FHIR-record ophalen met Logic Apps
-          href: change-feed-hl7-fhir-logic-apps.md
-        - name: Sensorgegevens in realtime verwerken
-          href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
-        - name: Uw gegevens visualiseren met Power BI
-          href: powerbi-visualize.md
-        - name: Het ODBC-stuurprogramma gebruiken voor gegevensvisualisatie
-          href: odbc-driver.md
-        - name: Spring Boot Starter gebruiken met SQL-API's
-          href: https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json
-      - name: Oplossingen bouwen
-        items:
-        - name: Analyse detailhandelsgegevens
-          href: changefeed-ecommerce-solution.md
     - name: Naslaginformatie
       items:
-      - name: Async Java
-        href: sql-api-sdk-async-java.md
-      - name: Java
-        href: sql-api-sdk-java.md
       - name: .NET
         href: sql-api-sdk-dotnet.md
-      - name: .NET-wijzigingsfeed
-        href: sql-api-sdk-dotnet-changefeed.md
       - name: .NET Core
         href: sql-api-sdk-dotnet-core.md
+      - name: Bibliotheek voor .NET-wijzigingsfeeds
+        href: sql-api-sdk-dotnet-changefeed.md
+      - name: Bibliotheek voor .NET-bulkuitvoering
+        href: sql-api-sdk-bulk-executor-dot-net.md
+      - name: Java
+        href: sql-api-sdk-java.md
+      - name: Bibliotheek voor Java-bulkuitvoering
+        href: sql-api-sdk-bulk-executor-java.md
+      - name: Async Java
+        href: sql-api-sdk-async-java.md
       - name: Node.js
         href: sql-api-sdk-node.md
       - name: Python
         href: sql-api-sdk-python.md
-      - name: BulkExecutor - .NET
-        href: sql-api-sdk-bulk-executor-dot-net.md
-      - name: BulkExecutor - JAVA
-        href: sql-api-sdk-bulk-executor-java.md
       - name: REST
         href: /rest/api/cosmos-db/
       - name: REST-resourceprovider
         href: /rest/api/cosmos-db-resource-provider/
-      - name: SQL
+      - name: SQL-taalsyntaxis
         href: sql-api-sql-query-reference.md
     - name: Resources
       items:
-      - name: Visual Studio Code-extensie
-        href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
       - name: SQL-testomgeving
         href: https://aka.ms/cosmos-db-playground
   - name: MongoDB-API-documenten
@@ -286,118 +234,122 @@ items:
         href: mongodb-feature-support.md
     - name: Zelfstudies
       items:
-      - name: 1 - Maken
+      - name: 1 - Account maken
         items:
-        - name: Node.js
+        - name: Node.js-console-app
           href: mongodb-samples.md
-        - name: Node.js en Angular
+        - name: Node.js en Angular-app
           items:
           - name: Deel 1 - Inleiding
             href: tutorial-develop-mongodb-nodejs.md
           - name: Deel 2 - Een Node-app maken
             href: tutorial-develop-mongodb-nodejs-part2.md
-          - name: Deel 3 - De Angular-gebruikersinterface toevoegen
+          - name: Deel 3 - Gebruikersinterface toevoegen met Angular
             href: tutorial-develop-mongodb-nodejs-part3.md
-          - name: Deel 4 - Een Cosmos DB-database maken
+          - name: Deel 4 - Een account maken
             href: tutorial-develop-mongodb-nodejs-part4.md
           - name: Deel 5 - Verbinding maken met de Cosmos DB-database
             href: tutorial-develop-mongodb-nodejs-part5.md
-          - name: Deel 6 - Naar de app schrijven
+          - name: Deel 6 - CRUD-bewerkingen uitvoeren
             href: tutorial-develop-mongodb-nodejs-part6.md
-        - name: Node.js en React
+        - name: Node.js en React-app
           href: tutorial-develop-mongodb-react.md
-      - name: 2 - Importeren
+      - name: 2 - Gegevens migreren
         href: mongodb-migrate.md
-      - name: 3 - Query uitvoeren
+      - name: 3 - Query's uitvoeren op gegevens
         href: tutorial-query-mongodb.md
-      - name: 4 - Wereldwijd distribueren
+      - name: 4 - Gegevens wereldwijd distribueren
         href: tutorial-global-distribution-mongodb.md
-      - name: 5 - Lokaal ontwikkelen
-        items:
-        - name: De emulator gebruiken
-          href: local-emulator.md
-        - name: Certificaten exporteren
-          href: local-emulator-export-ssl-certificates.md
     - name: Handleidingen
       items:
-      - name: Verbinding maken met uw MongoDB-account
+      - name: De verbindingsreeks ophalen
         href: connect-mongodb-account.md
-      - name: Studio 3T gebruiken
+      - name: Verbinding maken via Studio 3T
         href: mongodb-mongochef.md
-      - name: Robomongo gebruiken
+      - name: Verbinding maken via Robomongo
         href: mongodb-robomongo.md
-      - name: Mongoose gebruiken
+      - name: Verbinding maken via Mongoose
         href: mongodb-mongoose.md
-      - name: Leesvoorkeur gebruiken
+      - name: Leesbewerkingen wereldwijd distribueren
         href: mongodb-readpreference.md
-      - name: Indexeren
-        href: mongodb-indexing.md
       - name: Time To Live - MongoDB
         href: mongodb-time-to-live.md
-      - name: Uw gegevens visualiseren met Power BI
-        href: powerbi-visualize.md
+      - name: Gegevensindexering beheren
+        href: mongodb-indexing.md
     - name: Resources
       items:
       - name: Visual Studio Code-extensie
         href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
-  - name: Graph API-documenten
+  - name: Gremlin-API-documentatie
     items:
     - name: Overzicht
       items:
-      - name: Over Graph API
+      - name: Over Gremlin-API
         href: graph-introduction.md
       - name: Gremlin-ondersteuning
         href: gremlin-support.md
     - name: Zelfstudies
       items:
-      - name: 1 - Query
+      - name: 1 - Query's uitvoeren op gegevens
         href: tutorial-query-graph.md
     - name: Handleidingen
       items:
-      - name: Graph-partitionering
-        href: graph-partitioning.md
-      - name: Graph-gegevens importeren met BulkExecutor
+      - name: Grafiekgegevens importeren
         href: bulk-executor-graph-dotnet.md
-    - name: Resources
+      - name: Grafiekgegevens partitioneren
+        href: graph-partitioning.md
+  - name: Cassandra-API-documenten
+    items:
+    - name: Overzicht
       items:
-      - name: Visual Studio Code-extensie
-        href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
+      - name: Over Cassandra-API
+        href: cassandra-introduction.md
+    - name: Zelfstudies
+      items:
+      - name: 1 - Account maken
+        href: tutorial-develop-cassandra-java.md
+      - name: 2 - Gegevens migreren
+        href: cassandra-import-data.md
   - name: Tabel-API-documenten
     items:
     - name: Overzicht
       items:
       - name: Over Tabel-API
         href: table-introduction.md
-      - name: Tabelontwikkeling
-        href: table-support.md
     - name: Zelfstudies
       items:
-      - name: 1 - Maken
+      - name: 1 - Account maken
         href: tutorial-develop-table-dotnet.md
-      - name: 2 - Importeren
+      - name: 2 - Gegevens migreren
         href: table-import.md
-      - name: 3 - Query uitvoeren
+      - name: 3 - Query's uitvoeren op gegevens
         href: tutorial-query-table.md
-      - name: 4 - Wereldwijd distribueren
+      - name: 4 - Gegevens wereldwijd distribueren
         href: tutorial-global-distribution-table.md
+    - name: Handleidingen
+      items:
+      - name: Apps bouwen met de Table-API
+        href: table-support.md
+      - name: Ontwerpoverzicht voor Table Storage
+        href: table-storage-design-guide.md
     - name: Voorbeelden
       items:
       - name: .NET
         href: table-storage-how-to-use-dotnet.md
-      - name: F#
-        href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
       - name: Java
         href: table-storage-how-to-use-java.md
       - name: Node.js
         href: table-storage-how-to-use-nodejs.md
-      - name: C++
-        href: table-storage-how-to-use-c-plus.md
-      - name: PHP
-        href: table-storage-how-to-use-php.md
       - name: Python
         href: table-storage-how-to-use-python.md
+      - name: PHP
+        href: table-storage-how-to-use-php.md
+      - name: C++
+        href: table-storage-how-to-use-c-plus.md
       - name: Ruby
         href: table-storage-how-to-use-ruby.md
+      - name: F#
+        href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
     - name: Naslaginformatie
       items:
       - name: .NET
@@ -408,26 +360,8 @@ items:
         href: table-sdk-nodejs.md
       - name: Python
         href: table-sdk-python.md
-    - name: Resources
-      items:
-      - name: Overzicht van Table Storage
-        href: table-storage-overview.md
-      - name: Ontwerpoverzicht voor Table Storage
-        href: table-storage-design-guide.md
       - name: REST-API's voor Table Storage
         href: /rest/api/storageservices/Table-Service-Concepts
-  - name: Cassandra-API-documenten
-    items:
-    - name: Overzicht
-      items:
-      - name: Over Cassandra-API
-        href: cassandra-introduction.md
-    - name: Zelfstudies
-      items:
-      - name: 1 - Maken
-        href: tutorial-develop-cassandra-java.md
-      - name: 2 - Importeren
-        href: cassandra-import-data.md
   expanded: true
 - name: Handleidingen
   items:
@@ -441,37 +375,83 @@ items:
       href: data-explorer.md
     - name: Sleutels en consistentieniveaus beheren
       href: manage-account.md
-    - name: Doorvoer
+    - name: Doorvoer ontvangen en instellen
       href: set-throughput.md
-    - name: Time To Live
-      href: time-to-live.md
+  - name: Logboekregistratie
+    items:
     - name: Diagnostische logboeken
       href: logging.md
-  - name: Beveiligde gegevens
-    items:
-    - name: Firewallondersteuning
-      href: firewall-support.md
-    - name: Service-eindpunt voor virtueel netwerk instellen
-      href: vnet-service-endpoint.md
+    - name: Toepassingslogboeken bijhouden met Logische apps
+      href: https://docs.microsoft.com/azure/logic-apps/logic-apps-scenario-error-and-exception-handling?toc=/azure/cosmos-db/toc.json
   - name: Controleren
     items:
     - name: Bewaken met metrische gegevens
       href: use-metrics.md
     - name: SLA's bewaken
       href: monitor-accounts.md
+  - name: Lokaal ontwikkelen
+    items:
+    - name: De emulator gebruiken
+      href: local-emulator.md
+    - name: Certificaten exporteren
+      href: local-emulator-export-ssl-certificates.md
+    - name: Visual Studio Code-extensie
+      href: https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-cosmosdb
+  - name: Prestaties afstemmen
+    items:
+    - name: Tips voor betere prestaties voor de .NET-SDK
+      href: performance-tips.md
+    - name: Tips voor betere prestaties voor de Java-SDK
+      href: performance-tips-java.md
+    - name: Tips voor betere prestaties voor de Async Java-SDK
+      href: performance-tips-async-java.md
+    - name: Prestatietest - voorbeeld-app
+      href: performance-testing.md
+  - name: Big data en analyse
+    items:
+    - name: Lambda-architectuur
+      href: lambda-architecture.md
+    - name: Spark-connector
+      href: spark-connector.md
+    - name: Spark, Kafka en Azure Cosmos-DB
+      href: https://docs.microsoft.com/azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb?toc=/azure/cosmos-db/toc.json
+  - name: Integreren met andere Azure-services
+    items:
+    - name: Een website implementeren met Azure App Service
+      href: create-website.md
+    - name: Indexeerfunctie van Azure Search
+      href: https://docs.microsoft.com/azure/search/search-howto-index-cosmosdb?toc=/azure/cosmos-db/toc.json
+    - name: Azure Functions
+      items:
+      - name: Serverloze computing
+        href: serverless-computing-database.md
+      - name: Azure Function-bindingen
+        href: https://docs.microsoft.com/azure/azure-functions/functions-bindings-cosmosdb?toc=/azure/cosmos-db/toc.json
+    - name: Gegevens verplaatsen met Azure Data Factory
+      href: https://docs.microsoft.com/azure/data-factory/connector-azure-cosmos-db?toc=/azure/cosmos-db/toc.json
+    - name: Azure Stream Analytics
+      href: ../stream-analytics/stream-analytics-define-outputs.md#azure-cosmos-db
+    - name: Logic Apps en Service Bus
+      href: change-feed-hl7-fhir-logic-apps.md
+    - name: Azure Event Hubs en Azure Storage
+      href: https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md
+    - name: Spring Boot Starter gebruiken
+      href: https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json
+  - name: Gegevens visualiseren
+    items:
+    - name: Visualiseren via de Power BI-connector
+      href: powerbi-visualize.md
+    - name: Visualiseren via het ODBC-stuurprogramma
+      href: odbc-driver.md
   - name: Back-ups en herstellen
-    items:
-    - name: Online back-ups maken en herstellen
-      href: online-backup-and-restore.md
-    - name: Regionale failover
-      href: regional-failover.md
-  - name: Automatiseren
-    items:
-    - name: Opgeslagen procedures, triggers en UDF's
-      href: programming.md
-    - name: Meerdere masters instellen
-      href: multi-master-workaround.md
-  - name: Bibliotheek voor bulksgewijs uitvoeren
+    href: online-backup-and-restore.md
+  - name: Hoge beschikbaarheid
+    href: regional-failover.md
+  - name: Opgeslagen procedures, triggers en UDF's
+    href: programming.md
+  - name: Meerdere masters instellen
+    href: multi-master-workaround.md
+  - name: Over de bibliotheek voor bulkuitvoering
     href: bulk-executor-overview.md
   - name: Rendabele lees- en schrijfbewerkingen
     href: key-value-store-cost.md
@@ -481,6 +461,10 @@ items:
     href: query-cheat-sheet.md
   - name: 20 dagen met tips
     href: 20-days-of-tips.md
+  - name: Veelgestelde vragen
+    href: faq.md
+  - name: Whitepapers
+    href: whitepapers.md
   - name: Video's
     href: https://azure.microsoft.com/resources/videos/index/?services=cosmos-db
   - name: Azure-roadmap
@@ -489,15 +473,14 @@ items:
     href: https://azure.microsoft.com/try/cosmosdb/
   - name: Prijzen
     href: https://azure.microsoft.com/pricing/details/cosmos-db/
-  - name: Veelgestelde vragen
-    href: faq.md
+  - name: Gebruiksvoorbeelden
   - name: Gegevensconsistentie uitgelegd aan de hand van honkbal
     href: http://research.microsoft.com/apps/pubs/default.aspx?id=206913
-  - name: Whitepapers
-    href: whitepapers.md
-ms.openlocfilehash: d96f1543e0142bd55642710fd3efa6a3d049b001
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+  - name: Socialemedia-apps
+    href: social-media-apps.md
+ms.openlocfilehash: 882b7d69a8282beb2fcbbce0ed788810210236ca
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744961"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184892"
