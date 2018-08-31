@@ -1,6 +1,6 @@
 ---
-title: Machtiging verlenen om te veel toepassingen voor toegang tot een Azure sleutelkluis | Microsoft Docs
-description: Meer informatie over het machtiging verlenen om te veel toepassingen voor toegang tot een sleutelkluis
+title: Veel toepassingen om een Azure-sleutelkluis toegang te verlenen tot | Microsoft Docs
+description: Leer hoe u toestemming te verlenen voor veel toepassingen toegang tot een key vault
 services: key-vault
 documentationcenter: ''
 author: amitbapat
@@ -14,25 +14,25 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/01/2016
 ms.author: ambapat
-ms.openlocfilehash: ddeaf184138bd48d324799ddb45248b0a0ee8eeb
-ms.sourcegitcommit: 48ab1b6526ce290316b9da4d18de00c77526a541
+ms.openlocfilehash: 14e6e8bb723eb236f8fb315454b8697a3bd947ef
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/23/2018
-ms.locfileid: "30174969"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286424"
 ---
-# <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Machtiging verlenen om te veel toepassingen voor toegang tot een sleutelkluis
+# <a name="grant-permission-to-many-applications-to-access-a-key-vault"></a>Machtiging verlenen aan veel toepassingen toegang tot een key vault
 
-## <a name="q-i-have-several-over-16-applications-that-need-to-access-a-key-vault-since-key-vault-only-allows-16-access-control-entries-how-can-i-achieve-that"></a>V: ik heb meerdere (meer dan 16) toepassingen die toegang moeten krijgen tot een sleutelkluis. Hoe doe ik dit, aangezien in Key Vault maximaal 16 vermeldingen voor toegangsbeheer zijn toegestaan?
+## <a name="q-i-have-several-applications-that-need-to-access-a-key-vault-how-can-i-give-these-applications-up-to-1024-access-to-key-vault"></a>V: ik heb verschillende toepassingen die toegang moeten krijgen tot een key vault, hoe kan ik deze toepassingen (maximaal 1024) geen toegang verlenen tot Key Vault?
 
-Beleid voor toegangsbeheer Sleutelkluis biedt alleen ondersteuning voor 16 vermeldingen. U kunt echter een Azure Active Directory-beveiligingsgroep maken. Alle gekoppelde service-principals toevoegen aan deze beveiligingsgroep en vervolgens toegang verlenen aan deze beveiligingsgroep voor Sleutelkluis.
+Toegangsbeleid voor Key Vault ondersteunt maximaal 1024 vermeldingen. U kunt echter een Azure Active Directory-beveiligingsgroep maken. Alle gekoppelde service-principals toevoegen aan deze beveiligingsgroep en vervolgens toegang verlenen aan deze beveiligingsgroep aan Key Vault.
 
 Hier volgen de vereisten:
-* [Installeer Azure Active Directory V2 PowerShell-module](https://www.powershellgallery.com/packages/AzureAD).
+* [Azure Active Directory V2 PowerShell-module installeren](https://www.powershellgallery.com/packages/AzureAD).
 * [Installeer Azure PowerShell](/powershell/azure/overview).
-* Als u wilt de volgende opdrachten uitvoeren, moet u machtigingen voor groepen in de Azure Active Directory-tenant maken/bewerken. Als u geen machtigingen hebt, moet u mogelijk contact opnemen met uw Azure Active Directory-beheerder.
+* Als u wilt de volgende opdrachten uitvoeren, moet u machtigingen voor groepen in de Azure Active Directory-tenant maken/bewerken. Als u geen machtigingen hebt, moet u mogelijk contact op met uw Azure Active Directory-beheerder.
 
-Voer nu de volgende opdrachten in PowerShell.
+Voer nu de volgende opdrachten uit in PowerShell.
 
 ```powershell
 # Connect to Azure AD 
@@ -53,8 +53,8 @@ Set-AzureRmKeyVaultAccessPolicy –VaultName ContosoVault –ObjectId $aadGroup.
 # Of course you can adjust the permissions as required 
 ```
 
-Als u een andere set machtigingen aan een groep van toepassingen te verlenen moet, maakt u een afzonderlijke Azure Active Directory-beveiligingsgroep voor dergelijke toepassingen.
+Als u een andere set machtigingen aan een groep van toepassingen te verlenen wilt, maakt u een afzonderlijke Azure Active Directory-beveiligingsgroep voor deze toepassingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het [beveiligen van uw sleutelkluis](key-vault-secure-your-key-vault.md).
+Meer informatie over het [uw key vault beveiligen](key-vault-secure-your-key-vault.md).

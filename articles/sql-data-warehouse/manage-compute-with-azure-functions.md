@@ -1,30 +1,31 @@
 ---
-title: 'Zelfstudie: Beheren compute met Azure Functions in Azure SQL Data Warehouse | Microsoft Docs'
+title: 'Zelfstudie: Beheren Computing met Azure Functions in Azure SQL Data Warehouse | Microsoft Docs'
 description: Azure Functions gebruiken om de rekenniveaus van uw datawarehouse te beheren.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/27/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 48428ef329de4719a25afd20c21ac102bba540a8
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 2f366718a11f715b0c91a556eb3b0f216424b82c
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287898"
 ---
 # <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Gebruik Azure Functions voor het beheren van rekenresources in Azure SQL Data Warehouse
 
-Deze zelfstudie maakt gebruik van Azure Functions voor het beheren van rekenresources voor een datawarehouse in Azure SQL Data Warehouse.
+In deze zelfstudie maakt gebruik van Azure Functions voor het beheren van rekenresources voor een datawarehouse in Azure SQL Data Warehouse.
 
 Als u de Azure-functie-app met SQL Data Warehouse wilt gebruiken, dient u voor hetzelfde abonnement als uw datawarehouse-exemplaar een [service-principalaccount](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) te maken met inzenderstoegang. 
 
-## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Op basis van een timer schaling mogelijk met een Azure Resource Manager-sjabloon implementeren
+## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Een timer gebaseerde schalen met een Azure Resource Manager-sjabloon implementeren
 
-Voor het implementeren van de sjabloon, moet u de volgende informatie:
+Als u wilt implementeren de sjabloon, moet u de volgende informatie:
 
 - Naam van de resourcegroep waarin zich het SQL DW-exemplaar bevindt
 - Naam van de logische server waarin zich het SQL DW-exemplaar bevindt
@@ -40,19 +41,19 @@ Zodra u de voorgaande informatie hebt, kunt u deze sjabloon implementeren:
 <img src="https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.png"/>
 </a>
 
-Zodra u de sjabloon hebt geïmplementeerd, zult u drie nieuwe resources: een gratis Azure App Service-Plan een plan op basis van verbruik functie-App en een opslagaccount die verantwoordelijk is voor het registreren en de operations-wachtrij. Lees ook de overige secties om te zien hoe u de geïmplementeerde functies aan uw behoeften kunt aanpassen.
+Nadat u de sjabloon hebt geïmplementeerd, vindt u drie nieuwe resources: een gratis Azure App Service-Plan, een functie-App op basis van gebruik plan en een opslagaccount dat wordt gebruikt voor het registreren en de wachtrij voor bewerkingen. Lees ook de overige secties om te zien hoe u de geïmplementeerde functies aan uw behoeften kunt aanpassen.
 
-## <a name="change-the-compute-level"></a>De compute-niveau wijzigen
+## <a name="change-the-compute-level"></a>Het rekenniveau wijzigen
 
 1. Ga naar de functie-app-service. Als u de sjabloon met de standaardwaarden hebt geïmplementeerd, wordt *DWOperations* de naam van deze service. Als de functie-app is geopend, ziet u dat er vijf functies voor de functie-app-service zijn geïmplementeerd. 
 
    ![Functies die met sjabloon zijn geïmplementeerd](media/manage-compute-with-azure-functions/five-functions.png)
 
-2. Selecteer *DWScaleDownTrigger* of *DWScaleUpTrigger*, afhankelijk van of u de tijd voor omhoog of omlaag schalen wilt wijzigen. Selecteer in de vervolgkeuzelijst integreren.
+2. Selecteer *DWScaleDownTrigger* of *DWScaleUpTrigger*, afhankelijk van of u de tijd voor omhoog of omlaag schalen wilt wijzigen. Selecteer integreren in de vervolgkeuzelijst.
 
    ![Integreren als functie selecteren](media/manage-compute-with-azure-functions/select-integrate.png)
 
-3. De waarde die momenteel moeten worden weergegeven is *%ScaleDownTime%* of *%ScaleUpTime%*. Deze waarden geven aan dat de planning is gebaseerd op waarden die zijn gedefinieerd in de [Toepassingsinstellingen][Application Settings]. Op dit moment kunt u deze waarde genegeerd en het schema wijzigen op de gewenste tijd op basis van de volgende stappen.
+3. De waarde die momenteel moeten worden weergegeven is *%ScaleDownTime%* of *%ScaleUpTime%*. Deze waarden geven aan dat de planning is gebaseerd op waarden die zijn gedefinieerd in de [Toepassingsinstellingen][Application Settings]. Voor nu kunt u deze waarde genegeerd en de planning aanpassen aan uw tijd van voorkeur op basis van de volgende stappen.
 
 4. Voeg in het gedeelte met de planning de tijd toe die door de CRON-expressie moet worden uitgedrukt. Deze tijd geeft aan hoe vaak u SQL Data Warehouse omhoog wilt schalen. 
 
@@ -63,10 +64,10 @@ Zodra u de sjabloon hebt geïmplementeerd, zult u drie nieuwe resources: een gra
   {second} {minute} {hour} {day} {month} {day-of-week}
   ```
 
-  Bijvoorbeeld: *' 0 30 9 ** 1-5 '* weer een trigger elke weekdag om 9:30 uur. Ga naar Azure Functions [Voorbeelden van de planning][schedule examples] voor meer informatie.
+  Bijvoorbeeld, *"0 30 9 ** 1-5"* geven een trigger elke weekdag om 9:30 uur. Ga naar Azure Functions [Voorbeelden van de planning][schedule examples] voor meer informatie.
 
 
-## <a name="change-the-time-of-the-scale-operation"></a>Het tijdstip van de schaalbewerking wijzigen
+## <a name="change-the-time-of-the-scale-operation"></a>Wijzigen van de tijd van de schaalbewerking
 
 1. Ga naar de functie-app-service. Als u de sjabloon met de standaardwaarden hebt geïmplementeerd, wordt *DWOperations* de naam van deze service. Als de functie-app is geopend, ziet u dat er vijf functies voor de functie-app-service zijn geïmplementeerd. 
 
@@ -74,7 +75,7 @@ Zodra u de sjabloon hebt geïmplementeerd, zult u drie nieuwe resources: een gra
 
    ![Rekenniveau van functietrigger wijzigen](media/manage-compute-with-azure-functions/index-js.png)
 
-3. Wijzig de waarde van *ServiceLevelObjective* tot het gewenste niveau en druk op Opslaan. Deze waarde is de compute-niveau dat uw datawarehouse-exemplaar wordt geschaald naar op basis van de planning die is gedefinieerd in de sectie integreren.
+3. Wijzig de waarde van *ServiceLevelObjective* tot het gewenste niveau en druk op Opslaan. Deze waarde is het rekenniveau waarnaar uw datawarehouse-exemplaar wordt geschaald op basis van de planning in de sectie integreren is gedefinieerd.
 
 ## <a name="use-pause-or-resume-instead-of-scale"></a>Onderbreken of Hervatten gebruiken in plaats van Schalen 
 
@@ -91,14 +92,14 @@ De functies die momenteel standaard zijn ingeschakeld zijn *DWScaleDownTrigger* 
 3. Ga naar de tabbladen *Integreren* van de bijbehorende triggers om de planning te wijzigen.
 
    > [!NOTE]
-   > De functioneel verschil is tussen de vergroten/verkleinen triggers en de triggers onderbreken/hervatten is het bericht dat wordt verzonden naar de wachtrij. Zie voor meer informatie [toevoegen van een nieuwe functie van de trigger][Add a new trigger function].
+   > Het functionele verschil tussen de triggers vergroten/verkleinen en de triggers onderbreken/hervatten is het bericht dat wordt verzonden naar de wachtrij. Zie voor meer informatie, [een nieuwe triggerfunctie toevoegen][Add a new trigger function].
 
 
 ## <a name="add-a-new-trigger-function"></a>Een nieuwe triggerfunctie toevoegen
 
-Er zijn momenteel slechts twee schaalfuncties in de sjabloon opgenomen. Met deze functies kunt in de loop van een dag, u alleen schalen naar beneden eenmaal en maar één keer. Voor meer gedetailleerd beheer, zoals het verkleinen van meerdere keren per dag of het hebben van andere schaalgedrag in het weekend, moet u een andere trigger toevoegen.
+Er zijn momenteel slechts twee schaalfuncties in de sjabloon opgenomen. Met deze functies kunt in de loop van een dag, u alleen schalen eenmaal omlaag en eenmaal. Voor gedetailleerdere controle, zoals meerdere keren per dag omlaag schalen of andere schaalgedrag hebben in het weekend, moet u een andere trigger toevoegen.
 
-1. Maak een nieuwe, lege functie. Selecteer de *+* knop in de buurt van de locatie van uw functies om het deelvenster van de sjabloon functie weer te geven.
+1. Maak een nieuwe, lege functie. Selecteer de *+* knop naast functies om het deelvenster van de sjabloon functie weer te geven.
 
    ![Nieuwe functie maken](media/manage-compute-with-azure-functions/create-new-function.png)
 
@@ -114,7 +115,7 @@ Er zijn momenteel slechts twee schaalfuncties in de sjabloon opgenomen. Met deze
 
    ![index.js kopiëren](media/manage-compute-with-azure-functions/index-js.png)
 
-5. De variabele voor de bewerking op het gewenste gedrag als volgt instellen:
+5. De variabele van de bewerking op het gewenste gedrag als volgt instellen:
 
    ```javascript
    // Resume the data warehouse instance
@@ -137,7 +138,7 @@ Er zijn momenteel slechts twee schaalfuncties in de sjabloon opgenomen. Met deze
 
 ## <a name="complex-scheduling"></a>Complex plannen
 
-Deze sectie kort zien wat nodig is om op te halen complexere planning van onderbreken, hervatten en schalen van mogelijkheden.
+In deze sectie kort zien wat nodig is om op te halen meer complexe planning onderbreken, hervatten en mogelijkheden voor schalen.
 
 ### <a name="example-1"></a>Voorbeeld 1:
 
@@ -150,7 +151,7 @@ Elke dag om 8:00 uur omhoog schalen naar DW600 en om 20:00 uur omlaag schalen na
 
 ### <a name="example-2"></a>Voorbeeld 2: 
 
-Dagelijkse opschaling van de op 8 am tot DW1000, één maal aan DW600 terugschroeven om 16: 00 en omlaag schalen om 10 uur naar DW200.
+Dag omhoog schalen om 8 uur naar DW1000, omlaag schalen naar DW600: 00 uur en omlaag schalen naar DW200 exemplaar om 22 uur.
 
 | Functie  | Planning     | Bewerking                                |
 | :-------- | :----------- | :--------------------------------------- |

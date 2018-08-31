@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/25/2017
 ms.author: jdial
-ms.openlocfilehash: b43c082b5c4925fee2b1145956a2847e7f30bb11
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 63407382762a814ded4529caa109d76e987c9505
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42054924"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286441"
 ---
 # <a name="read-nsg-flow-logs"></a>NSG-stroomlogboeken lezen
 
 Informatie over het lezen van NSG-stroom logboeken vermeldingen met PowerShell.
 
-NSG-stroomlogboeken zijn opgeslagen in een opslagaccount in [blok-blobs](/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs.md#about-block-blobs). Blok-blobs bestaan uit kleinere blokken. Elk logboek is een afzonderlijke blok-blob die elk uur wordt gegenereerd. Nieuwe logboeken worden gegenereerd per uur, de logboeken worden bijgewerkt met nieuwe gegevens om de paar minuten met de meest recente gegevens. In dit artikel leert u hoe u onderdelen van de logboeken van de stroom lezen.
+NSG-stroomlogboeken zijn opgeslagen in een opslagaccount in [blok-blobs](https://docs.microsoft.com/rest/api/storageservices/understanding-block-blobs--append-blobs--and-page-blobs). Blok-blobs bestaan uit kleinere blokken. Elk logboek is een afzonderlijke blok-blob die elk uur wordt gegenereerd. Nieuwe logboeken worden gegenereerd per uur, de logboeken worden bijgewerkt met nieuwe gegevens om de paar minuten met de meest recente gegevens. In dit artikel leert u hoe u onderdelen van de logboeken van de stroom lezen.
 
 ## <a name="scenario"></a>Scenario
 

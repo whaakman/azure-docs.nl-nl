@@ -11,12 +11,12 @@ ms.topic: article
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 001d58aa22d4fc52acebfc88ba07d2467c1be08e
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 3f45d8059cd4af5dbab64fef798b61e439a5f2fc
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060775"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286871"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -106,6 +106,16 @@ U ziet deze fout als azds.exe is niet geïnstalleerd of niet juist geconfigureer
     ```cmd
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
+
+## <a name="warning-dockerfile-could-not-be-generated-due-to-unsupported-language"></a>Waarschuwing 'docker-bestand kan niet worden gegenereerd vanwege een niet-ondersteunde taal '
+Azure Dev opslagruimten biedt systeemeigen ondersteuning voor C# en Node.js. Bij het uitvoeren van *azds prep* in een map met code die is geschreven in een van deze talen, Azure Dev opslagruimten maakt automatisch een docker-bestand dat de juiste voor u.
+
+U kunt nog steeds gebruik van Azure Dev spaties met code die in andere talen zijn geschreven, maar moet u de docker-bestand zelf maken vóór actief *azds van* voor de eerste keer.
+
+### <a name="try"></a>Probeer:
+Als uw toepassing is geschreven in een taal dat Azure Dev spaties geen systeemeigen ondersteuning biedt, moet u voor een juiste docker-bestand voor het bouwen van een containerinstallatiekopie uitvoeren van uw code. Docker biedt een [lijst met aanbevolen procedures voor het schrijven van docker-bestanden](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) , evenals een [Dockerfile-referentiemateriaal](https://docs.docker.com/engine/reference/builder/) die kunt u dit kunt doen.
+
+Wanneer u een juiste Dockerfile geïmplementeerd hebt, kunt u doorgaan met uitvoeren *azds van* voor het uitvoeren van uw toepassing in Azure Dev spaties.
 
 ## <a name="error-upstream-connect-error-or-disconnectreset-before-headers"></a>Fout 'upstream verbindingsfout of verbreken/reset voordat headers'
 Mogelijk ziet u deze fout bij het openen van uw service. Bijvoorbeeld, wanneer u gaat naar de URL van de service in een browser. 

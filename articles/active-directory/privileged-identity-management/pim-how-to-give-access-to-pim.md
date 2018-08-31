@@ -10,49 +10,81 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.component: pim
-ms.date: 06/06/2017
+ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d6b2d9f43ce9bb86f4557c92887689c83beb49fa
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: HT
+ms.openlocfilehash: 9d5fce5a80ac1f281fdbe6afe7f9a97816807ccc
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189552"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287084"
 ---
 # <a name="grant-access-to-other-administrators-to-manage-pim"></a>Toegang verlenen aan andere beheerders voor het beheren van PIM
-De hoofdbeheerder die Azure AD Privileged Identity Management (PIM) voor een organisatie automatisch kan roltoewijzingen en toegang tot PIM ophalen. Niemand anders wordt schrijftoegang standaard, met inbegrip van andere globale beheerders. Andere globale beheerders, Beveiligingsbeheerders en beveiligingslezers hebben alleen-lezen toegang tot Azure AD PIM. Als u wilt toegang geven tot PIM, de eerste gebruiker, anderen kunt toewijzen de **beheerder met bevoorrechte rol** rol.
+
+De hoofdbeheerder die Azure AD Privileged Identity Management (PIM) voor een organisatie automatisch kunnen ophalen roltoewijzingen en toegang tot PIM. Niemand anders wordt schrijftoegang standaard, met inbegrip van andere globale beheerders. Andere globale beheerders, Beveiligingsbeheerders en Beveiligingslezers hebben alleen-lezen toegang tot PIM. Om toegang te verlenen tot PIM, de eerste gebruiker, anderen kunt toewijzen de **beheerder met bevoorrechte rol** rol.
 
 > [!NOTE]
-> Azure AD PIM beheren, moet Azure MFA. Omdat Microsoft-accounts niet voor Azure MFA registreren kunnen, kan niet een gebruiker die zich met een Microsoft-account aanmeldt toegang tot de Azure AD PIM.
-> 
-> 
+> PIM beheren, moet Azure MFA. Omdat Microsoft-accounts niet voor Azure MFA registreren kunnen, geen PIM toegang tot een gebruiker die zich met een Microsoft-account aanmeldt.
 
-Zorg ervoor dat er altijd ten minste twee gebruikers in een beheerdersrol bevoorrechte rol in het geval één gebruiker is vergrendeld of hun account wordt verwijderd.
+Zorg ervoor dat er altijd ten minste twee gebruikers in een rol beheerder met bevoorrechte rol in het geval één gebruiker is vergrendeld of hun account wordt verwijderd.
 
-## <a name="give-another-user-access-to-manage-pim"></a>Een andere gebruikerstoegang geven tot PIM beheren
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) en selecteer de **Azure AD Privileged Identity Management** -app op het dashboard.
-2. Selecteer **bevoorrechte rollen beheren** > **beheerder met bevoorrechte rol** > **toevoegen**.
-   
-    ![Toevoegen van beheerders met bevoegdheid - schermafbeelding](./media/pim-how-to-give-access-to-pim/PIM_add_PRA.png)
-3. Stap 1 is al voltooid op de blade van de beheerde gebruikers toevoegen. Selecteer stap 2, **Selecteer gebruikers** en zoek naar de gebruiker die u wilt toevoegen.
-   
-    ![Selecteer de gebruikers - schermafbeelding](./media/pim-how-to-give-access-to-pim/PIM_select_users.png)
-4. Selecteer de gebruiker in de lijst met zoekresultaten en klik op **gedaan**.
-5. Klik op **OK** om op te slaan, uw selectie. De gebruiker die u hebt geselecteerd, wordt weergegeven in de lijst met beheerders met bevoegdheid.
-   
-   * Wanneer u een nieuwe rol aan iemand toewijzen, worden ze automatisch ingesteld als in aanmerking komende om de rol te activeren. Als u ze in de rol permanent te maken wilt, klikt u op de gebruiker in de lijst. Selecteer **permanent maken** in het menu van de gebruiker gegevens.
-6. Verzenden naar de gebruiker een koppeling naar [aan de slag met Azure AD Privileged Identity Management](pim-getting-started.md).
+## <a name="grant-access-to-manage-pim"></a>Toegang verlenen tot PIM beheren
 
-## <a name="remove-another-users-access-rights-for-managing-pim"></a>Verwijderen van een andere gebruiker toegangsrechten voor het beheren van PIM
-Voordat u iemand uit de rol van de bevoorrechte rol beheerder verwijdert, altijd ervoor te zorgen er nog steeds worden twee gebruikers die zijn toegewezen.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-1. Klik in het dashboard PIM op de rol **beheerder met bevoorrechte rol**.  De lijst met gebruikers die momenteel in deze rol wordt weergegeven.
-2. Klik op de gebruiker in de lijst met gebruikers.
-3. Klik op **verwijderen**.  Een bevestigingsbericht wordt weergegeven.
-4. Klik op **Ja** om de gebruiker verwijderen uit de rol.
+1. Open **Azure AD Privileged Identity Management**.
 
-<!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
+1. Klik op **Azure AD-maprollen**.
+
+1. Klik op **rollen**.
+
+    ![Rollen in PIM-Azure AD directory - rollen](./media/pim-how-to-give-access-to-pim/pim-directory-roles-roles.png)
+
+1. Klik op de **beheerder met bevoorrechte rol** rol om de ledenpagina te openen.
+
+    ![Beheerder met bevoorrechte rol - leden](./media/pim-how-to-give-access-to-pim/pim-pra-members.png)
+
+1. Klik op **lid toevoegen** om het deelvenster van de beheerde leden toevoegen te openen.
+
+1. Klik op **leden selecteren** om het deelvenster selecteren leden te openen.
+
+    ![Beheerder met bevoorrechte rol - leden selecteren](./media/pim-how-to-give-access-to-pim/pim-pra-select-members.png)
+
+1. Selecteer een lid en klik vervolgens op **Selecteer**.
+
+1. Klik op **OK** om het lid in aanmerking komen voor de **beheerder met bevoorrechte rol** rol.
+
+    Wanneer u een nieuwe rol aan iemand in PIM toewijzen, ze automatisch worden geconfigureerd als **in aanmerking komende** om de rol te activeren.
+
+1. Het lid als permanent wilt maken, klikt u op de gebruiker in de lijst met leden van de beheerder met bevoorrechte rol.
+
+1. Klik op **meer** en vervolgens **permanent maken** de toewijzing om permanent te maken.
+
+    ![Beheerder met bevoorrechte rol - permanent maken](./media/pim-how-to-give-access-to-pim/pim-pra-make-permanent.png)
+
+1. Verzenden naar de gebruiker een koppeling naar [beginnen met PIM](pim-getting-started.md).
+
+## <a name="remove-access-to-manage-pim"></a>Toegang tot het beheer van PIM verwijderen
+
+Voordat u iemand uit de rol beheerder met bevoorrechte rol verwijdert, zorg er altijd zullen nog steeds er ten minste twee gebruikers die zijn toegewezen.
+
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
+
+1. Open **Azure AD Privileged Identity Management**.
+
+1. Klik op **Azure AD-maprollen**.
+
+1. Klik op **rollen**.
+
+1. Klik op de **beheerder met bevoorrechte rol** rol om de ledenpagina te openen.
+
+1. Schakel het selectievakje naast de gebruiker die u wilt verwijderen en klik vervolgens op **lid verwijderen**.
+
+    ![Beheerder met bevoorrechte rol - lid verwijderen](./media/pim-how-to-give-access-to-pim/pim-pra-remove-member.png)
+
+1. Klik in het bericht dat gevraagd wordt of u wilt het lid verwijderen uit de rol, **Ja**.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Beheer van abonnementen in uw tenant inschakelen](pim-resource-roles-enable-subscription-management.md)
+- [PIM gebruiken](pim-getting-started.md)

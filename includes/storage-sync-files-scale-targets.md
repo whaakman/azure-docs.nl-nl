@@ -8,21 +8,21 @@ ms.topic: include
 ms.date: 07/18/2018
 ms.author: wgries
 ms.custom: include file
-ms.openlocfilehash: e2e8da3d2dec2c74bbd1c0ca0f52b7eaba5c024e
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 3f70a8cf2df25f487de7cd1a8c8cbdf9431839f0
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42060655"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43285652"
 ---
 | Resource | Doel | Vaste limiet |
 |----------|--------------|------------|
 | Opslagsynchronisatieservices per abonnement | 15 Opslagsynchronisatieservices | Nee |
-| Synchronisatiegroepen per Opslagsynchronisatieservice | 30 synchronisatiegroepen | Ja |
+| Synchronisatiegroepen per Opslagsynchronisatieservice | 100 synchronisatiegroepen | Ja |
 | Geregistreerde servers per Opslagsynchronisatieservice | 99 servers | Ja |
 | Cloudeindpunten per groep voor synchronisatie | 1 cloudeindpunt | Ja |
 | Servereindpunten per groep voor synchronisatie | 50 servereindpunten | Nee |
-| Servereindpunten per server | servereindpunten 33 99 | Ja, maar is afhankelijk van configuratie |
+| Servereindpunten per server | servereindpunten 33 99 | Ja, maar is afhankelijk van configuratie (CPU, geheugen, volumes, bestand verloop, aantal bestanden, enz.) |
 | Grootte van eindpunt | 4 TiB | Nee |
 | -Bestandssysteem (mappen en bestanden) per groep voor synchronisatie | 25 miljoen objecten | Nee |
 | Maximum aantal bestandssysteemobjecten (mappen en bestanden) in een map | 200.000 objecten | Ja |

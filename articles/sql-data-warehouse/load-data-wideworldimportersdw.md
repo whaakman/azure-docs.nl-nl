@@ -3,19 +3,19 @@ title: 'Zelfstudie: gegevens laden in Azure SQL Data Warehouse | Microsoft Docs'
 description: In deze zelfstudie wordt gebruikgemaakt van Azure Portal en SQL Server Management Studio om het WideWorldImportersDW-datawarehouse vanuit een openbare Azure-blob naar Azure SQL Data Warehouse te laden.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 0b28bb07006ed58a82af80afe42fe472d4878971
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 57803d6b83b71e65064c4ec701ed5b7e7607321f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195359"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286930"
 ---
 # <a name="tutorial-load-data-to-azure-sql-data-warehouse"></a>Zelfstudie: gegevens laden in Azure SQL Data Warehouse
 
@@ -157,7 +157,7 @@ In deze sectie wordt gebruikgemaakt van [SSMS](/sql/ssms/download-sql-server-man
 
     ![verbinding maken met server](media/load-data-wideworldimportersdw/connect-to-server.png)
 
-4. Klik op **Verbinden**. Het venster Objectverkenner wordt geopend in SSMS. 
+4. Klik op **Verbinden**. Het venster Objectverkenner wordt geopend in SQL Server Management Studio. 
 
 5. Vouw **Databases** uit in Objectverkenner. Vouw **Systeemdatabases** en **Hoofd** uit om de objecten in de hoofddatabase weer te geven.  Vouw **mySampleDatabase** uit om de objecten in uw nieuwe database weer te geven.
 

@@ -1,90 +1,90 @@
 ---
 title: Azure SQL datawarehouse - MPP-architectuur | Microsoft Docs
-description: Meer informatie over hoe Azure SQL Data Warehouse combineert massively parallelle processing (MPP) met Azure storage voor hoge prestaties en schaalbaarheid.
+description: Meer informatie over hoe Azure SQL Data Warehouse combineert met massively parallelle verwerking (MPP) met Azure-opslag om hoge prestaties en schaalbaarheid te realiseren.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: e8fef156f4b78c9f7241c9eb9623e061f5a31fe7
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 34b908ef79b0a2479c420675272f7d3f3bf0ff15
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31799274"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286789"
 ---
-# <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL datawarehouse - Massively parallelle verwerking van de architectuur (MPP)
-Meer informatie over hoe Azure SQL Data Warehouse combineert massively parallelle processing (MPP) met Azure storage voor hoge prestaties en schaalbaarheid. 
+# <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL datawarehouse - krachtige parallelle verwerking (MPP)-architectuur
+Meer informatie over hoe Azure SQL Data Warehouse combineert met massively parallelle verwerking (MPP) met Azure-opslag om hoge prestaties en schaalbaarheid te realiseren. 
 
 ## <a name="mpp-architecture-components"></a>Onderdelen van de MPP-architectuur
-SQL Data Warehouse maakt gebruik van een scale-out-architectuur voor het distribueren van rekenkundige verwerking van gegevens op meerdere knooppunten. De eenheid van de schaal is een abstractie van rekenkracht waarvan bekend is als eenheid datawarehouse. SQL Data Warehouse gescheiden compute uit de opslag zodat u schalen onafhankelijk van de gegevens berekenen zijn in uw systeem.
+SQL Data Warehouse maakt gebruik van een uitbreidbare architectuur voor de distributie van rekenkundige verwerking van gegevens over meerdere knooppunten. De eenheid van de schaal is een abstractie van de compute-kracht die bekend als een eenheid van datawarehouse staat. SQL Data Warehouse scheidt compute uit de opslag zodat waar u om te schalen in uw systeem onafhankelijk van de gegevens COMPUTE.
 
 ![Architectuur van SQL Data Warehouse](media/massively-parallel-processing-mpp-architecture/massively-parallel-processing-mpp-architecture.png)
 
-SQL Data Warehouse maakt gebruik van een architectuur op basis van een knooppunt. Toepassingen verbinding maken en uitgeven van T-SQL-opdrachten voor een beheerknooppunt, het één punt van de vermelding voor het datawarehouse is. Het beheerknooppunt wordt de MPP-engine optimaliseert de query's voor parallelle verwerking en geeft vervolgens bewerkingen aan rekenknooppunten voor hun werk parallel uitgevoerd. De Compute nodes alle gebruikersgegevens worden opgeslagen in Azure Storage opslaat en de parallelle query's uitvoeren. Data Movement Service (DMS) is een interne systeemniveau-service waarmee gegevens op de knooppunten die nodig zijn verplaatst voor query's parallel worden uitgevoerd en nauwkeurige resultaten retourneren. 
+SQL Data Warehouse maakt gebruik van een architectuur op basis van een knooppunt. Toepassingen verbinding maken en uitgeven van T-SQL-opdrachten op een beheerknooppunt, het één punt van de vermelding voor het datawarehouse is. Het beheerknooppunt wordt de MPP-engine die optimaliseert query's voor parallelle verwerking en geeft vervolgens bewerkingen voor Compute-knooppunten voor hun werk parallel uitgevoerd. De rekenknooppunten alle gebruikersgegevens worden opgeslagen in Azure Storage opslaat en de parallelle query's uitvoeren. Data Movement Service (DMS) is een interne op systeemniveau-service die gegevens naar de verschillende knooppunten die nodig is verplaatst voor query's parallel uitvoeren en nauwkeurige resultaten worden geretourneerd. 
 
 Als u opslag en rekenactiviteiten loskoppelt van elkaar, kan SQL Data Warehouse:
 
-* Onafhankelijk grootte rekenkracht ongeacht uw opslagbehoeften.
+* Onafhankelijk van elkaar grootte compute-kracht, ongeacht uw opslagbehoeften.
 * De rekencapaciteit vergroten of verkleinen zonder gegevens te verplaatsen.
-* Rekencapaciteit onderbreken gegevens blijven behouden, zodat u betaalt alleen voor opslag.
+* De rekencapaciteit onderbreken terwijl gegevens intact, zodat u alleen betaalt voor opslag.
 * De rekencapaciteit hervatten tijdens werktijden.
 
 ### <a name="azure-storage"></a>Azure Storage
-SQL Data Warehouse maakt gebruik van Azure-opslag om uw gebruikersgegevens te beschermen.  Aangezien uw gegevens worden opgeslagen en beheerd door de Azure-opslag, brengt SQL Data Warehouse afzonderlijk voor uw opslagverbruik. De gegevens zelf is shard in **distributies** om de prestaties van het systeem te optimaliseren. U kunt kiezen welke sharding-patroon gebruiken voor het distribueren van de gegevens bij het definiëren van de tabel. SQL Data Warehouse ondersteunt deze patronen sharding:
+SQL Data Warehouse maakt gebruik van Azure storage om uw gebruikersgegevens te beschermen.  Nadat uw gegevens worden opgeslagen en beheerd door Azure storage, SQL Data Warehouse in rekening gebracht afzonderlijk voor gebruik van de opslag. De gegevens zelf is in een shard **distributies** om de prestaties van het systeem te optimaliseren. U kunt kiezen welke sharding-patroon gebruiken voor het distribueren van de gegevens wanneer u de tabel definieert. SQL Data Warehouse biedt ondersteuning voor deze sharding-patronen voor:
 
 * Hash
 * Round robin
 * Repliceren
 
-### <a name="control-node"></a>Door het beheerknooppunt
+### <a name="control-node"></a>Beheerknooppunt
 
-Het beheerknooppunt is de brain van het datawarehouse. Het is de front-end met interactie met alle toepassingen en verbindingen. De MPP-engine wordt uitgevoerd op het knooppunt controle te optimaliseren en coördineren van parallelle query's. Wanneer u een T-SQL-query naar SQL Data Warehouse verzendt, wordt het in het beheerknooppunt getransformeerd tot query's die voor elke distributie parallel uitgevoerd.
+Het beheerknooppunt is het brein van het datawarehouse. Het is de front-end met interactie met alle toepassingen en verbindingen. De MPP-engine wordt uitgevoerd op het beheerknooppunt te optimaliseren en coördinatie van parallelle query's. Wanneer u een T-SQL-query naar SQL Data Warehouse verzendt, wordt het in het beheerknooppunt getransformeerd tot query's die voor elke distributie parallel uitgevoerd.
 
 ### <a name="compute-nodes"></a>Rekenknooppunten
 
-De Compute nodes bieden de verwerkingskracht. Distributies worden toegewezen aan rekenknooppunten voor verwerking. Als u voor meer computerresources betaalt, wordt in SQL Data Warehouse opnieuw de distributies over de beschikbare Compute nodes toegewezen. Het aantal knooppunten kan variëren van 1 tot 60 berekenen en wordt bepaald door het serviceniveau voor het datawarehouse.
+De Compute-knooppunten bieden de rekenkracht. Distributies worden toegewezen aan rekenknooppunten voor verwerking. Als u voor meer rekenresources betaalt, wijst SQL Data Warehouse opnieuw de distributies naar de beschikbare Compute-knooppunten. Het aantal knooppunten kan variëren van 1 tot 60 compute en wordt bepaald door het serviceniveau voor het datawarehouse.
 
-Elk rekenknooppunt heeft een knooppunt-ID die is zichtbaar in systeemweergaven. U ziet de Compute-knooppunt-ID voor de kolom node_id in systeemweergaven waarvan de naam met sys.pdw_nodes begint. Zie voor een lijst van deze systeemweergaven [MPP systeemweergaven](sql-data-warehouse-reference-tsql-statements.md).
+Elk knooppunt heeft een knooppunt-ID die wordt weergegeven in systeemweergaven. U ziet de Compute-knooppunt-ID voor de kolom $node_id in systeemweergaven waarvan de namen met sys.pdw_nodes beginnen. Zie voor een lijst van deze systeemweergaven, [MPP systeemweergaven](sql-data-warehouse-reference-tsql-statements.md).
 
 ### <a name="data-movement-service"></a>Data Movement Service
-Data Movement Service (DMS) is de technologie voor het transport van gegevens die coördineert de verplaatsing van gegevens tussen de rekenknooppunten. Sommige query's is de verplaatsing van gegevens om te controleren of de parallelle query's nauwkeurige resultaten retourneren. Wanneer de verplaatsing van gegevens is vereist, DMS zorgt ervoor dat de juiste gegevens naar de juiste locatie opgehaald. 
+Data Movement Service (DMS) is de technologie voor het transport van gegevens die coördineert de verplaatsing van gegevens tussen de rekenknooppunten. Sommige query's is de verplaatsing van gegevens om te controleren of de parallelle query's retourneren nauwkeurige resultaten. Bij het verplaatsen van gegevens is vereist, DMS zorgt ervoor dat de juiste gegevens naar de juiste locatie opgehaald. 
 
 ## <a name="distributions"></a>Distributies
 
-Een distributiepunt is de basiseenheid voor opslag en verwerking voor parallelle query's dat wordt uitgevoerd op gedistribueerde gegevens. Wanneer SQL Data Warehouse wordt een query uitgevoerd, is het werk verdeeld in 60 kleinere query's die parallel worden uitgevoerd. Elk van de 60 kleinere query's wordt uitgevoerd op een van de gegevens-distributies. Elk rekenknooppunt beheert een of meer van de 60 distributies. Een datawarehouse met maximale computerresources heeft één verdeling per rekenknooppunt. Een datawarehouse met minimale computerresources heeft alle distributies op één rekenknooppunt.  
+Een distributiepunt is de basiseenheid voor opslag en verwerking voor parallelle query's die wordt uitgevoerd op gedistribueerde gegevens. Wanneer een query wordt uitgevoerd in SQL Data Warehouse, wordt het werk is onderverdeeld in 60 kleinere query's die parallel worden uitgevoerd. Elk van de 60 kleinere query's wordt uitgevoerd op een van de gegevens-distributies. Elk rekenknooppunt beheert een of meer van de 60 distributies. Een datawarehouse met maximale rekenresources heeft één distributie per knooppunt. Een datawarehouse met minimale rekenresources heeft alle distributies op een rekenknooppunt.  
 
-## <a name="hash-distributed-tables"></a>Gedistribueerd hash tabellen
-Een gedistribueerde hash-tabel kunt u de beste queryprestaties voor samenvoegingen en aggregaties leveren op grote tabellen. 
+## <a name="hash-distributed-tables"></a>Hash-gedistribueerde tabellen
+Een tabel kan de hoogste prestaties van query's voor samenvoegingen en aggregaties op grote tabellen leveren. 
 
-SQL Data Warehouse gebruikt een hash-functie shard-gegevens in een tabel met hash is gedistribueerd, deterministische elke rij toewijzen aan een distributiepunt. In de tabeldefinitie, is een van de kolommen aangewezen als de distributie-kolom. De hash-functie maakt gebruik van de waarden in de kolom distributie elke rij toewijzen aan een distributiepunt.
+Gegevens in een gedistribueerde hash-tabel gebruikt SQL Data Warehouse een hash-functie deterministische wijze elke rij toewijzen aan een distributiepunt. In het tabeldefinitie van de is een van de kolommen ingesteld als de distributiekolom. De hash-functie maakt gebruik van de waarden in de distributiekolom elke rij toewijzen aan een distributiepunt.
 
-Het volgende diagram illustreert hoe een volledige (tabel niet gedistribueerd) wordt opgeslagen als een tabel met hash gedistribueerd. 
+Het volgende diagram illustreert hoe een volledige (niet-gedistribueerde tabel) wordt opgeslagen als een tabel met hash worden verdeeld. 
 
 ![Gedistribueerde tabel](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "gedistribueerde tabel")  
 
-* Elke rij hoort bij een distributiepunt.  
+* Elke rij behoort tot één distributiepunt.  
 * Elke rij een deterministische hash-algoritme toegewezen aan een distributiepunt.  
-* Het aantal rijen per distributiepunt verschilt zoals aangegeven door de verschillende grootten van tabellen.
+* Het aantal rijen per distributie varieert zoals aangegeven in de verschillende formaten van tabellen.
 
-Er zijn prestatie-overwegingen voor de selectie van een kolom van de distributie, zoals onderscheidbaarheid tijdverschil gegevens en de typen query's die worden uitgevoerd op het systeem.
+Er zijn prestatie-overwegingen voor de selectie van een distributiekolom, zoals onderscheidbaarheid gegevensverschil en de typen query's die worden uitgevoerd op het systeem.
 
 ## <a name="round-robin-distributed-tables"></a>Round robin gedistribueerde tabellen
-Een round robin-tabel is de eenvoudigste tabel te maken en biedt een snelle prestaties als gebruikt als een faseringstabel voor belastingen.
+Een round robin-tabel is de eenvoudigste tabel te maken en biedt een snelle prestaties bij gebruik als een tijdelijke tabel bij belastingen.
 
-Een gedistribueerde tabel round robin verdeelt gelijkmatig gegevens in de tabel, maar zonder eventuele verdere optimalisatie. Een distributiepunt wordt eerst willekeurig geselecteerd en klik vervolgens buffers rijen zijn toegewezen aan distributies sequentieel worden verwerkt. Het is snel gegevens laden in een tabel round robin, maar queryprestaties kan vaak beter met gedistribueerd hash-tabellen zijn. Joins in round robin tabellen vereisen reshuffling gegevens en dit kost meer tijd.
+Een distributietabel round robin distribueert gegevens gelijkmatig in de tabel, maar zonder eventuele verdere optimalisatie. Een distributiepunt wordt eerst willekeurig geselecteerd en klik vervolgens buffers van rijen zijn toegewezen aan distributies sequentieel worden verwerkt. Het is snel gegevens laden in een round robin-tabel, maar de prestaties van query's voor het vaak beter met gedistribueerde hashtabellen kan worden. Joins op round robin-tabellen vereisen reshuffling gegevens en dit meer tijd in beslag.
 
 
 ## <a name="replicated-tables"></a>Gerepliceerde tabellen
-Een gerepliceerde tabel bevat de snelste queryprestaties voor kleine tabellen.
+Een gerepliceerde tabel bevat de snelste prestaties van query's voor kleine tabellen.
 
-Een tabel die is gerepliceerd in de cache opslaat voor een volledige kopie van de tabel op elk rekenknooppunt. Als gevolg daarvan kan verwijdert repliceren van een tabel de behoefte om over te dragen van gegevens tussen rekenknooppunten voordat een join of aggregatie. Gerepliceerde tabellen het beste reguleren met kleine tabellen. Er is extra opslag vereist en er zijn extra overhead die zijn gemaakt bij het schrijven van gegevens die grote niet praktisch tabellen.  
+Een tabel die is gerepliceerd in de cache opgeslagen voor een volledige kopie van de tabel op elk knooppunt. Als gevolg daarvan kunnen repliceren van een tabel Hiermee verwijdert u de noodzaak om over te dragen van gegevens tussen rekenknooppunten voordat een join of aggregatie. Gerepliceerde tabellen het beste met kleine tabellen reguleren. Extra opslag is vereist en er zijn extra overhead die zijn gemaakt bij het schrijven van gegevens waarmee u grote tabellen niet praktisch.  
 
-Het volgende diagram toont een gerepliceerde tabel. Voor SQL Data Warehouse, gerepliceerde tabel is in de cache op de eerste distributie op elk rekenknooppunt.  
+Het volgende diagram toont een gerepliceerde tabel. Voor SQL Data Warehouse de gerepliceerde tabel is in de cache op de eerste distributie op elk knooppunt.  
 
 ![Gerepliceerde tabel](media/sql-data-warehouse-distributed-data/replicated-table.png "gerepliceerde tabel") 
 

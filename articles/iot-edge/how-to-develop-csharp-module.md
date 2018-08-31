@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 212de83a88f5a8114454761121ee3f22830d2448
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: e78a2c3492ebab2ac9f23f607e5bcaa0481003d9
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42060772"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287795"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in C#-modules voor Azure IoT Edge
 
@@ -88,7 +88,7 @@ In elke modulemap zijn er verschillende Docker-bestanden voor andere containerty
 
 2. Voer in het opdrachtenpalet VS Code en voer de opdracht **Edge: Build IoT Edge-oplossing**.
 3. Selecteer de `deployment.template.json` -bestand voor uw oplossing van de command palette. 
-4. In Azure IoT Hub Device Explorer met de rechtermuisknop op een IoT Edge-apparaat-ID. Selecteer vervolgens **implementatie voor IoT Edge-apparaat maken**. 
+4. In Azure IoT Hub Device Explorer met de rechtermuisknop op een IoT Edge-apparaat-ID. Selecteer vervolgens **implementatie voor één apparaat maken**. 
 5. Openen van uw oplossing **config** map. Selecteer vervolgens de `deployment.json` bestand. Kies **Selecteer Edge-implementatie Manifest**. 
 
 Hier ziet u de implementatie is gemaakt met een implementatie-ID in een VS Code geïntegreerde terminal.

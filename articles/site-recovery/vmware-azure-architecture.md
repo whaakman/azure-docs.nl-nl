@@ -3,14 +3,14 @@ title: VMware naar Azure-replicatie-architectuur in Azure Site Recovery | Micros
 description: In dit artikel biedt een overzicht van de onderdelen en architectuur die worden gebruikt bij het repliceren van on-premises VMware-machines naar Azure met Azure Site Recovery
 author: rayne-wiselman
 ms.service: site-recovery
-ms.date: 07/06/2018
+ms.date: 08/29/2018
 ms.author: raynew
-ms.openlocfilehash: 48adf61dc0f1796b820e1e14ca509d4618c6256b
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4a97c44226d875a08f81a6306fc9ddd4ee29c409
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37920563"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288138"
 ---
 # <a name="vmware-to-azure-replication-architecture"></a>VMware naar Azure-replicatie-architectuur
 
@@ -32,22 +32,7 @@ De volgende tabel en afbeelding vindt een weergave op hoog niveau van de onderde
 
 ![Onderdelen](./media/vmware-azure-architecture/arch-enhanced.png)
 
-## <a name="configuration-steps"></a>Configuratiestappen
 
-De stappen voor het instellen van VMware naar Azure-noodherstel of de migratie zijn als volgt:
-
-1. **Instellen van Azure-onderdelen**. U moet een Azure-account met de juiste machtigingen, Azure storage-account, een Azure-netwerk en een Recovery Services-kluis. [Meer informatie](tutorial-prepare-azure.md).
-2. **Instellen van on-premises**. Deze omvatten het instellen van een account op de VMware-server zodat Site Recovery automatisch van virtuele machines repliceren detecteren kan, instellen van een account dat kan worden gebruikt voor het installeren van het onderdeel van de Mobility-service op virtuele machines die u wilt repliceren en verifiëren dat VMware-servers en virtuele machines te voldoen aan de vereisten. U kunt eventueel ook verbinding maken met deze Azure-VM's na failover voorbereiden. Site Recovery worden VM-gegevens gerepliceerd naar Azure storage-account en maakt u virtuele Azure-machines met behulp van de gegevens wanneer u een failover naar Azure uitvoert. [Meer informatie](vmware-azure-tutorial-prepare-on-premises.md).
-3. **Instellen van replicatie**. U kiezen waar u naar wilt repliceren. U configureert de bronreplicatieomgeving door het instellen van een één on-premises virtuele VMware-machine (configuratieserver) met alle van de on-premises Site Recovery-onderdelen die u nodig hebt. Na de installatie kunt u de configuratie van server-machine registreren in de Recovery Services-kluis. Selecteer vervolgens de doelinstellingen. [Meer informatie](vmware-azure-tutorial.md).
-4. **Maakt een replicatiebeleid**. U maakt een replicatiebeleid waarmee wordt aangegeven hoe replicatie moet gebeuren. 
-    - **RPO-drempelwaarde**: deze bewakingsinstelling statussen als replicatie niet binnen de opgegeven tijd wordt uitgevoerd, een waarschuwing (en eventueel een e-mailbericht) is uitgegeven. Bijvoorbeeld, als u de RPO-drempelwaarde op 30 minuten instellen en een probleem wordt voorkomen replicatie gebeurt gedurende 30 minuten dat, wordt een gebeurtenis gegenereerd. Deze instelling heeft geen invloed op de replicatie. Replicatie is continue en herstelpunten worden gemaakt om de paar minuten
-    - **Retentie**: herstelpunt bewaarperiode geeft aan hoe lang herstelpunten moet worden opgeslagen in Azure. Geef een waarde tussen 0 en 24 uur voor premium-opslag of omhoog tot 72 uur voor standard-opslag. U kunt failover uitvoeren naar de meest recente herstelpunt, of naar een opgeslagen als u de waarde die hoger is dan nul instelt. Na de bewaarperiode worden herstelpunten opgeschoond.
-    - **Crash-consistente momentopnamen**: standaard, Site Recovery neemt crash-consistente momentopnamen en maakt herstelpunten met hen om de paar minuten. Een herstelpunt is een crash-consistent als alle onderdelen met elkaar verbonden gegevens schrijven-volgorde consistent zijn, zoals ze waren op het moment het herstelpunt is gemaakt. Om beter te begrijpen, stelt u de status van de gegevens op uw PC harde schijf zich na een stroomstoring of een soortgelijke gebeurtenis. Een crash-consistente herstelpunt is meestal voldoende als uw toepassing is ontworpen om te herstellen van een crash zonder gegevensinconsistenties.
-    - **App-consistente momentopnamen**: als deze waarde niet nul is, wordt de Mobility-service die wordt uitgevoerd op de virtuele machine probeert om bestand system-consistente momentopnamen en herstelpunten te genereren. De eerste momentopname wordt gemaakt nadat de initiële replicatie is voltooid. Vervolgens worden momentopnamen gemaakt met de frequentie die u opgeeft. Een herstelpunt is toepassingsconsistente als, naast de order-write-consistente, actieve toepassingen al hun bewerkingen uitvoeren, en hun buffers naar schijf (toepassing stilleggen) leegmaken. App-consistente herstelpunten worden aanbevolen voor databasetoepassingen zoals SQL, Oracle en Exchange. Als een crash-consistente momentopname voldoende is, kunt u deze waarde ingesteld op 0.  
-    - **Multi-VM-consistentie**: U kunt eventueel ook een replicatiegroep maken. Vervolgens, wanneer u replicatie inschakelt, u virtuele machines in die groep verzamelen kunt. Virtuele machines in een-replicatie repliceren groeperen en gedeelde crash-consistente en app-consistente herstelpunten bij een failover is uitgevoerd. Moet u deze optie zorgvuldig, omdat deze kan werkbelasting beïnvloeden als momentopnamen die nodig is tussen meerdere computers worden verzameld. Dit alleen doen als virtuele machines dezelfde workload en consistent moeten worden uitgevoerd en virtuele machines hebben vergelijkbare bussen. U kunt maximaal 8 virtuele machines toevoegen aan een groep. 
-5. **Inschakelen van replicatie van virtuele machines**. Ten slotte, schakelt u replicatie voor uw on-premises VMware-machines. Als u een account voor het installeren van de Mobility-service hebt gemaakt en opgegeven dat Site Recovery een push-installatie moet doen, wordt de Mobility-service worden geïnstalleerd op elke virtuele machine waarvoor u replicatie inschakelt. [Meer informatie](vmware-azure-tutorial.md#enable-replication). Als u een replicatiegroep voor multi-VM-consistentie hebt gemaakt, kunt u virtuele machines toevoegen aan die groep.
-6. **Testfailover**. Nadat alles ingesteld, kunt u een testfailover uitvoeren om te controleren dat virtuele machines een failover naar Azure zoals verwacht. [Meer informatie](tutorial-dr-drill-azure.md).
-7. **Failover**. Als u de virtuele machines alleen naar Azure migreren bent - kunt u een volledige failover om dit te doen uitvoeren. Als u herstel na noodgevallen instelt, kunt u een volledige failover uitvoeren als u wilt. Voor volledige noodherstel, kunt na een failover naar Azure, u failover terug naar uw on-premises site als en wanneer deze beschikbaar is. [Meer informatie](vmware-azure-tutorial-failover-failback.md).
 
 ## <a name="replication-process"></a>Replicatieproces
 

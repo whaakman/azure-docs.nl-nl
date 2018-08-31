@@ -10,12 +10,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: rafats
-ms.openlocfilehash: e53f1e62b9265d2eec2f49537cc05c865e1436f3
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 3170ee1b48aa332a8730ba835396761ca5ef44c7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37902959"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287322"
 ---
 # <a name="working-with-the-change-feed-support-in-azure-cosmos-db"></a>Werken met de change feed support in Azure Cosmos DB
 
@@ -31,12 +31,6 @@ De **ondersteuning wijzigingenfeed** in Azure Cosmos DB kunt u efficiënt en sch
 
 > [!NOTE]
 > Ondersteuning wijzigingenfeed is opgegeven voor alle gegevensmodellen en containers in Azure Cosmos DB. Echter de wijzigingenfeed is lezen met behulp van de SQL-client en items serialiseert in JSON-indeling. Vanwege de opmaak, JSON MongoDB clients zult ervaren opgemaakt een discrepantie tussen BSON opgemaakt documenten en de JSON-wijzigingenfeed.
-
-In de volgende video Azure Cosmos DB Program Manager Andrew Liu laat zien hoe de Azure Cosmos DB-wijziging feed werkt.
-
-> [!VIDEO https://www.youtube.com/embed/mFnxoxeXlaU]
->
->
 
 ## <a name="how-does-change-feed-work"></a>Hoe wijzigingenfeed werk?
 
@@ -510,7 +504,7 @@ Java-bibliotheek wijzigingenfeeds lezen is beschikbaar in [Github-opslagplaats](
 
 _etag indeling interne is en u moet niet afhankelijk is van het (doen niet parseren) omdat deze op elk gewenst moment kunt wijzigen.
 _ts is gewijzigd of maken van het tijdstempel. U kunt _ts gebruiken voor chronologische vergelijking.
-een batch-id die wordt toegevoegd voor wijzigingenfeed _lsn is is, staat voor de transactie-id uit de store... Veel documenten mogelijk dezelfde _lsn.
+_lsn is een batch-id die alleen voor de wijzigingenfeed is toegevoegd, staat voor de transactie-id uit de store... Veel documenten mogelijk dezelfde _lsn.
 Nog één ding te weten, ETag op FeedResponse is anders dan de _etag u op het document ziet. _etag is een interne id en gebruikt om gelijktijdigheid, krijgt over de versie van het document en ETag is gebruikt voor het sequentiëren van de feed.
 
 ### <a name="does-reading-change-feed-add-any-additional-cost-"></a>Wijzigingenfeeds lezen extra kosten toevoegen?

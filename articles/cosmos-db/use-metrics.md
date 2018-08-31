@@ -11,21 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/25/2017
 ms.author: govindk
-ms.openlocfilehash: 3c5629dc1ad87456583f5a713f16e696bc9b7b1e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: e4bc8af7533b3d18f9e04f431d6c9f97e0982ae5
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858660"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286666"
 ---
 # <a name="monitoring-and-debugging-with-metrics-in-azure-cosmos-db"></a>Controle en foutopsporing met metrische gegevens in Azure Cosmos DB
 
 Azure Cosmos DB biedt metrische gegevens voor doorvoer, opslag, consistentie, beschikbaarheid en latentie. De [Azure-portal](https://portal.azure.com) biedt een samengevoegde weergave van deze metrische gegevens; voor gedetailleerdere metrische gegevens, zowel de client-SDK en de [diagnostische logboeken](./logging.md) beschikbaar zijn.
-
-Voor een overzicht van de nieuwe metrische gegevens en meer zoeken naar hot-partities in de database, de volgende Azure Friday-video te bekijken:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Azure-Cosmos-DB-Get-the-Most-Out-of-Provisioned-Throughput/player]
-> 
 
 Dit artikel begeleidt veelvoorkomende use cases en hoe de Azure Cosmos DB metrische gegevens te analyseren en foutopsporing van deze problemen kunnen worden gebruikt. Metrische gegevens worden verzameld om de vijf minuten en gedurende zeven dagen worden bewaard.
 

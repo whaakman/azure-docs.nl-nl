@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2018
 ms.author: barclayn
-ms.openlocfilehash: 9466f4178047a4927684a1fcfd80f661ea4aa7a5
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 523746153aa39f50d5c54c97a4f74352de04c27f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127699"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288035"
 ---
 # <a name="how-to-generate-and-transfer-hsm-protected-keys-for-azure-key-vault"></a>Het genereren en overdragen met HSM beveiligde sleutels voor Azure Key Vault
 
@@ -491,7 +491,7 @@ Gebruik een USB-station of ander draagbaar opslagmedium om te kopiëren van het 
 
 ## <a name="step-5-transfer-your-key-to-azure-key-vault"></a>Stap 5: Uw sleutel overdragen naar Azure Key Vault
 
-Voor deze laatste stap op het met Internet verbonden werkstation gebruiken de [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-azurermkeyvaultkey) cmdlet voor het uploaden van het pakket voor sleuteloverdracht die u hebt gekopieerd uit de niet-verbonden werkstation naar de Azure Key Vault HSM:
+Voor deze laatste stap op het met Internet verbonden werkstation gebruiken de [Add-AzureKeyVaultKey](/powershell/module/azurerm.keyvault/add-add-azurekeyvaultkey) cmdlet voor het uploaden van het pakket voor sleuteloverdracht die u hebt gekopieerd uit de niet-verbonden werkstation naar de Azure Key Vault HSM:
 
    ```powershell
         Add-AzureKeyVaultKey -VaultName 'ContosoKeyVaultHSM' -Name 'ContosoFirstHSMkey' -KeyFilePath 'c:\KeyTransferPackage-ContosoFirstHSMkey.byok' -Destination 'HSM'

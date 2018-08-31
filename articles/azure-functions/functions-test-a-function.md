@@ -17,12 +17,12 @@ ms.workload: na
 ms.date: 02/02/2017
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 05c88c8938580666ce99f7cae46dc69cda3c3776
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: a57d5f8d857a8cfcdc81e86650466aec740f41e3
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39344695"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286806"
 ---
 # <a name="strategies-for-testing-your-code-in-azure-functions"></a>Strategieën voor het testen van uw code in Azure Functions
 
@@ -34,9 +34,9 @@ In dit onderwerp ziet u de verschillende manieren voor het testen van functies, 
 + Timer geactiveerde functie
 + Testen van de toepassing of elk framework
 
-Alle methoden voor deze tests gebruiken een HTTP-triggerfunctie die invoer via een tekenreeksparameter of hoofdtekst van de aanvraag accepteert. In de eerste sectie maakt u deze functie.
+Alle methoden voor deze tests gebruiken een HTTP-triggerfunctie die invoer via een tekenreeksparameter of hoofdtekst van de aanvraag accepteert. U deze functie maken met de Azure-portal in de eerste sectie.
 
-## <a name="create-a-function-for-testing"></a>Een functie voor het testen van maken
+## <a name="create-a-simple-function-for-testing-using-the-azure-portal"></a>Maken van een eenvoudige functie voor het testen met behulp van de Azure portal
 Voor de meeste van deze zelfstudie gebruiken we een enigszins gewijzigde versie van de sjabloon van de HttpTrigger JavaScript-functie die beschikbaar is wanneer u een functie maken. Als u hulp bij het maken van een functie, bekijkt u deze [zelfstudie](functions-create-first-azure-function.md). Kies de **HttpTrigger - JavaScript** sjabloon bij het maken van de testfunctie in de [Azure Portal].
 
 De functie standaardsjabloon is in feite een 'Hallo wereld'-functie die de naam van de aanvraag hoofdtekst of de query queryreeks-parameter, een echo terug `name=<your name>`.  De code ook dat u kunt de naam en een adres opgeven als JSON-inhoud in de hoofdtekst van de aanvraag wordt bijgewerkt. De functie kan vervolgens deze terug naar de client wanneer deze beschikbaar.   

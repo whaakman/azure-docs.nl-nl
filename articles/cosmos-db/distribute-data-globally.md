@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dec981ad750a49646916dbef40a4cc632ab71da2
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 19e47e0dba1a89ea32f42ef0bafc26f8c59b4ad7
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856637"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288299"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Hoe u gegevens globaal distribueren met Azure Cosmos DB
 Azure is overal - heeft een wereldwijde footprint in meer dan 50 geografische regio's en continu wordt uitgebreid. Met wereldwijde aanwezigheid is een van de unieke mogelijkheden die Azure voor de ontwikkelaars biedt de mogelijkheid om te bouwen, implementeren en beheren van wereldwijd gedistribueerde toepassingen eenvoudig. 
@@ -34,11 +34,6 @@ In dit artikel krijgt u een overzicht van Azure Cosmos DB globale distributie mo
 
 ## <a id="EnableGlobalDistribution"></a>Kant en klare wereldwijde distributie inschakelen
 Azure Cosmos DB biedt de volgende mogelijkheden waarmee u kunt eenvoudig wereldwijd gedistribueerde toepassingen schrijven. Deze mogelijkheden zijn beschikbaar via de Azure Cosmos DB-resource op basis van een provider [REST-API's](https://docs.microsoft.com/rest/api/cosmos-db-resource-provider/) en de Azure-portal.
-
-Bekijk de volgende video om te zien van de functie kant en klare wereldwijde distributie in Azure Cosmos DB in actie.
-
-> [!VIDEO https://www.youtube.com/embed/1D06yjTVxt8]
->
 
 ### <a id="RegionalPresence"></a>Alomtegenwoordige regionale aanwezigheid 
 Azure is de geografische aanwezigheid voortdurend groeiende doordat [nieuwe regio's](https://azure.microsoft.com/regions/) online. Azure Cosmos DB is geclassificeerd als een *fundamentele service* in Azure en is beschikbaar in alle nieuwe Azure-regio's standaard. Hiermee kunt u een geografische regio koppelen aan uw Azure Cosmos DB-databaseaccount zodra de nieuwe regio voor bedrijven in Azure geopend.

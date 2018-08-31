@@ -10,21 +10,16 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9c1379cd457dcba37246985058b01e85633f968
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 3cc2794105eff196c3e1db02d664a89c9b37e318
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42061321"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286982"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitioneren en schalen in Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is een wereldwijd gedistribueerde, multi-model databaseservice die is ontworpen om u te helpen u Behaal snelle en voorspelbare prestaties. Het schalen naadloos samen met uw toepassing. Dit artikel bevat een overzicht van hoe werkt voor alle gegevens partitioneren in Azure Cosmos DB-modellen. Ook wordt beschreven hoe u Azure Cosmos DB-containers om effectief schalen uw toepassingen configureert.
-
-Partitioneren en partitiesleutels worden besproken in deze video:
-
-> [!VIDEO https://www.youtube.com/embed/SS6WrQ-HJ30]
-> 
 
 ## <a name="partitioning-in-azure-cosmos-db"></a>Partitionering in Azure Cosmos DB
 Azure Cosmos DB biedt containers voor het opslaan van gegevens die verzamelingen (voor documenten), grafieken of tabellen genoemd. Containers zijn logische resources en een of meer fysieke partities of servers kunnen omvatten. Het aantal partities wordt bepaald door de Azure Cosmos DB op basis van de opslaggrootte en ingerichte doorvoer voor een container of een set met containers. 

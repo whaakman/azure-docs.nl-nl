@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/29/2018
 ms.author: carlrab
-ms.openlocfilehash: 7f784689e8437d92cf4fc4974983d3ae1455f11b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43091821"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286329"
 ---
 # <a name="sql-database-faq"></a>Veelgestelde vragen over SQL Database
 
@@ -22,8 +22,10 @@ ms.locfileid: "43091821"
 De huidige versie van SQL Database is V12. Versie V11 buiten gebruik gesteld.
 
 ## <a name="what-is-the-sla-for-sql-database"></a>Wat is de SLA voor SQL-Database?
-Wij garanderen ten minste 99,99% van de tijd, krijgt u connectiviteit tussen uw Microsoft Azure SQL Database en onze Internet-gateway, ongeacht uw servicelaag. Zie voor meer informatie, [SLA](http://azure.microsoft.com/support/legal/sla/).
+Wij garanderen ten minste 99,99% van de tijd, krijgt u connectiviteit tussen uw Microsoft Azure SQL Database en onze Internet-gateway, ongeacht uw servicelaag. 0,01% is gereserveerd voor patches en upgrades failovers. Zie voor meer informatie, [SLA](http://azure.microsoft.com/support/legal/sla/). Zie voor meer informatie over de architectuur van de beschikbaarheid van Azure SQL Database [hoge beschikbaarheid en Azure SQL Database](sql-database-high-availability.md). 
 
+## <a name="can-i-control-when-patching-downtime-occurs"></a>Ik kan bepalen wanneer patches downtime plaatsvindt
+Nee. De gevolgen van het toepassen van patches is doorgaans niet opvallen als u [maken gebruik van logica voor opnieuw proberen](sql-database-develop-overview.md#resiliency) in uw app.
 ## <a name="what-is-the-new-vcore-based-purchasing-model-for-azure-sql-database"></a>Wat is de nieuwe vCore gebaseerde aankoopmodel voor Azure SQL Database?
 
 Het nieuwe aanschafmodel is een aanvulling op het bestaande DTU-model. Het vCore-model is ontworpen om klanten flexibiliteit, controle, transparantie, en een eenvoudige manier te vertalen on-premises vereisten workloads naar de cloud. Ook kunnen klanten hun reken- en rsources op basis van hun werkbelasting schalen. Individuele databases en elastische pool-opties met behulp van het vCore-model zijn ook in aanmerking komen voor van 30 procent besparen met de [Azure Hybrid Use Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md). Zie [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) voor meer informatie. 

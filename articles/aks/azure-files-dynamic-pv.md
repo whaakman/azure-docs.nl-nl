@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/15/2018
 ms.author: iainfou
-ms.openlocfilehash: ea77244d4b2e078c5eda716e94a97291350228f5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: dfc9171f54effe3da7a0f13695ab233d561357d4
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054094"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43285682"
 ---
 # <a name="persistent-volumes-with-azure-files"></a>Permanente volumes met Azure files
 
@@ -73,7 +73,7 @@ kubectl apply -f azure-file-sc.yaml
 
 AKS-clusters gebruiken Kubernetes op rollen gebaseerd toegangsbeheer (RBAC) voor limiet voor acties die kunnen worden uitgevoerd. *Rollen* definiëren de machtigingen te verlenen en *bindingen* toepassen op de gewenste gebruikers. Deze toewijzingen kunnen worden toegepast op een bepaalde naamruimte, of in het hele cluster. Zie voor meer informatie, [met behulp van RBAC-autorisatie][kubernetes-rbac].
 
-Als u wilt toestaan dat het Azure-platform om de vereiste voor opslag-resources te maken, maakt een *clusterrole* en *clusterrolebinding*. Maak een bestand met de naam `azure-pvc-roles.yaml` en kopieer de volgende YAML:
+Als u wilt toestaan dat het Azure-platform om de vereiste voor opslag-resources te maken, maakt een *ClusterRole* en *ClusterRoleBinding*. Maak een bestand met de naam `azure-pvc-roles.yaml` en kopieer de volgende YAML:
 
 ```yaml
 ---

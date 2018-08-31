@@ -6,19 +6,19 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 08/29/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 329af89e52af6f3599e2d86e6ac6d28b8b63f333
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: f056bfa33e2a43af60357d6bf50a0b9cd8d7f254
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42060858"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286294"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 
-Azure SQL Database is de maximaal beschikbare database Platform as a Service dat ervoor zorgt dat uw database omhoog en actieve 99,99% van de tijd, zonder u zorgen te maken over het onderhoud en storingen. Dit is een volledig beheerde SQL Server Database Engine-proces die wordt gehost in de Azure-cloud die ervoor zorgt dat uw SQL Server-database altijd bijgewerkt/patch uitgevoerd is zonder gevolgen voor uw workload. Azure SQL-Database kunt snel herstellen, zelfs in de meest kritieke gevallen ervoor te zorgen dat uw gegevens altijd beschikbaar is.
+Azure SQL Database is de maximaal beschikbare database Platform as a Service dat ervoor zorgt dat uw database omhoog en actieve 99,99% van de tijd, zonder u zorgen te maken over het onderhoud en storingen. Dit is een volledig beheerde SQL Server Database Engine-proces die wordt gehost in de Azure-cloud die ervoor zorgt dat uw SQL Server-database altijd bijgewerkt/patch uitgevoerd is zonder gevolgen voor uw workload. Wanneer een exemplaar is een patch uitgevoerd of een failover uitvoert, de uitvaltijd is doorgaans niet opvallen als u [maken gebruik van logica voor opnieuw proberen](sql-database-develop-overview.md#resiliency) in uw app. Als de tijd voor het voltooien van een failover langer dan 60 seconden is, moet u een ondersteuningsaanvraag openen. Azure SQL-Database kunt snel herstellen, zelfs in de meest kritieke gevallen ervoor te zorgen dat uw gegevens altijd beschikbaar is.
 
 Azure-platform volledig elke Azure SQL-Database wordt beheerd en zonder verlies van gegevens en een hoog percentage van de beschikbaarheid van gegevens wordt gegarandeerd. Azure regelt automatisch toepassen van patches, back-ups, replicatie, foutdetectie, onderliggende mogelijke hardware, software of netwerkstoringen, distribueren oplossingen voor problemen, failovers, upgrades van de database en andere onderhoudstaken. SQL Server-technici hebben geïmplementeerd de bekendste procedures ervoor te zorgen dat alle onderhoudsbewerkingen wordt uitgevoerd in minder dan 0,01% tijd van de levensduur van uw database. Deze architectuur is ontworpen om ervoor te zorgen dat vastgelegde gegevens nooit kwijt is en dat er onderhoudsbewerkingen worden uitgevoerd zonder gevolgen voor werkbelasting. Er zijn geen onderhoudsvensters of downtimes moeten waarvoor u de werkbelasting stoppen terwijl de database wordt bijgewerkt of onderhouden. Ingebouwde hoge beschikbaarheid in Azure SQL Database zorgt ervoor dat de database kan enkel storingspunt in de softwarearchitectuur niet.
 

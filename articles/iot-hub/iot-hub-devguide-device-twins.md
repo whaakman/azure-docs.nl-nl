@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: elioda
-ms.openlocfilehash: e94b023275f3992bea9595195688eebf42f0f229
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: b5e0a0caacab2413b640c58575673e555eeb76a4
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186785"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288275"
 ---
 # <a name="understand-and-use-device-twins-in-iot-hub"></a>Begrijpen en gebruiken van apparaatdubbels in IoT Hub
 
@@ -254,7 +254,7 @@ Labels en gewenste eigenschappen, gerapporteerde eigenschappen zijn JSON-objecte
     }
     ```
 
-* Alle tekenreekswaarden mag maximaal 4 KB lang.
+* Alle tekenreekswaarden kunnen maximaal 512 bytes lang zijn.
 
 ## <a name="device-twin-size"></a>Grootte van de dubbele apparaat
 IoT Hub dwingt een beperking van de grootte van 8KB op elk van de respectieve totale waarden van `tags`, `properties/desired`, en `properties/reported`, met uitzondering van alleen-lezen-elementen.
@@ -354,6 +354,7 @@ Als u wilt uitproberen enkele concepten die in dit artikel wordt beschreven, Zie
 
 * [Het gebruik van de apparaatdubbel][lnk-twin-tutorial]
 * [Apparaatdubbeleigenschappen gebruiken][lnk-twin-properties]
+* [Apparaatbeheer met Azure IoT Toolkit voor Visual Studio Code][lnk-twin-vscode]
 
 <!-- links and images -->
 
@@ -377,6 +378,7 @@ Als u wilt uitproberen enkele concepten die in dit artikel wordt beschreven, Zie
 [lnk-devguide-jobs]: iot-hub-devguide-jobs.md
 [lnk-twin-tutorial]: iot-hub-node-node-twin-getstarted.md
 [lnk-twin-properties]: tutorial-device-twins.md
+[lnk-twin-vscode]: iot-hub-device-management-iot-toolkit.md
 [lnk-twin-metadata]: iot-hub-devguide-device-twins.md#device-twin-metadata
 [lnk-concurrency]: iot-hub-devguide-device-twins.md#optimistic-concurrency
 [lnk-reconnection]: iot-hub-devguide-device-twins.md#device-reconnection-flow

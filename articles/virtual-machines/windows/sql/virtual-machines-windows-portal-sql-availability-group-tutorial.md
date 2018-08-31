@@ -14,14 +14,14 @@ ms.custom: na
 ms.topic: article
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/09/2017
+ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: a3bba4e8fd83b160472a2dc6a9425192b4bbd301
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 1e2204dbe645aeff2587c2c3d55b5da89ac227d8
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38531576"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288210"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configure AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
@@ -427,9 +427,9 @@ Voor het configureren van de load balancer, moet u een back-endadresgroep, een t
 
 ### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Het front-end-IP-adres voor de WSFC toevoegen
 
-Het WSFC-IP-adres moet ook worden op de load balancer. 
+Het WSFC-IP-adres moet ook worden op de load balancer.
 
-1. In de portal voor de WSFC met toevoegen van een nieuwe Frontend-IP-configuratie. U hebt geconfigureerd voor het WSFC in de clusterkernresources IP-adres gebruiken. Het IP-adres instellen als statisch. 
+1. In de portal voor de WSFC met toevoegen van een nieuwe Frontend-IP-configuratie. U hebt geconfigureerd voor het WSFC in de clusterkernresources IP-adres gebruiken. Het IP-adres instellen als statisch.
 
 1. Klik op de load balancer, **statuscontroles**, en klikt u op **+ toevoegen**.
 
@@ -450,7 +450,7 @@ Het WSFC-IP-adres moet ook worden op de load balancer.
 1. De load balancer-regels als volgt instellen.
    | Instelling | Beschrijving | Voorbeeld
    | --- | --- |---
-   | **Naam** | Tekst | WSFCPointListener |
+   | **Naam** | Tekst | WSFCEndPointListener |
    | **Frontend-IP-adres** | Kies een adres |Het adres dat u hebt gemaakt tijdens het configureren van het WSFC-IP-adres gebruiken. |
    | **Protocol** | Kies TCP |TCP |
    | **Poort** | Gebruik de poort voor de beschikbaarheidsgroep-listener | 58888 |
@@ -498,38 +498,20 @@ De verbinding wilt testen:
 
 1. Gebruik **sqlcmd** hulpprogramma om de verbinding te testen. Bijvoorbeeld, het volgende script maakt een **sqlcmd** verbinding met de primaire replica met de listener met de Windows-verificatie:
 
-    ```
-    sqlcmd -S <listenerName> -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName> -E
+  ```
 
-    Als de listener met behulp van een andere poort dan de standaardwaarde standaardpoort (1433), de poort in de verbindingsreeks opgeven. Bijvoorbeeld, de volgende sqlcmd-opdracht is verbonden met een listener op poort 1435:
+  Als de listener met behulp van een andere poort dan de standaardwaarde standaardpoort (1433), de poort in de verbindingsreeks opgeven. Bijvoorbeeld, de volgende sqlcmd-opdracht is verbonden met een listener op poort 1435:
 
-    ```
-    sqlcmd -S <listenerName>,1435 -E
-    ```
+  ```cmd
+  sqlcmd -S <listenerName>,1435 -E
+  ```
 
 De SQLCMD-verbinding wordt automatisch verbinding met elk exemplaar van SQL Server als host fungeert voor de primaire replica.
 
 > [!TIP]
 > Zorg ervoor dat de poort die u opgeeft geopend op de firewall van beide SQL-Servers is. Beide servers vereist een inkomende regel voor de TCP-poort die u gebruikt. Zie voor meer informatie, [toevoegen of bewerken firewallregel](http://technet.microsoft.com/library/cc753558.aspx).
->
->
-
-
-
-<!--**Notes**: *Notes provide just-in-time info: A Note is “by the way” info, an Important is info users need to complete a task, Tip is for shortcuts. Don’t overdo*.-->
-
-
-<!--**Procedures**: *This is the second “step." They often include substeps. Again, use a short title that tells users what they’ll do*. *("Configure a new web project.")*-->
-
-<!--**UI**: *Note the format for documenting the UI: bold for UI elements and arrow keys for sequence. (Ex. Click **File > New > Project**.)*-->
-
-<!--**Screenshot**: *Screenshots really help users. But don’t include too many since they’re difficult to maintain. Highlight areas you are referring to in red.*-->
-
-<!--**No. of steps**: *Make sure the number of steps within a procedure is 10 or fewer. Seven steps is ideal. Break up long procedure logically.*-->
-
-
-<!--**Next steps**: *Reiterate what users have done, and give them interesting and useful next steps so they want to go on.*-->
 
 ## <a name="next-steps"></a>Volgende stappen
 

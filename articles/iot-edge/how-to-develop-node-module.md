@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 78e952b5b1eedc1757cfe636eb13e411044dce54
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: fbf8a0302ae8414f49a055ab260a52222425ab7c
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42059433"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287191"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Ontwikkelen en fouten opsporen in Node.js-modules met Azure IoT Edge voor Visual Studio Code
 
@@ -92,7 +92,7 @@ Er zijn meerdere Docker-bestanden voor typen die andere container in elke module
 
 2. Typ in het opdrachtenpalet VS Code en voer de opdracht **Azure IoT Edge: Build IoT Edge-oplossing**.
 3. Selecteer de `deployment.template.json` -bestand voor uw oplossing van de command palette. 
-4. In de Verkenner van Azure IoT Hub-apparaten met de rechtermuisknop op een IoT Edge-apparaat-ID en selecteer vervolgens **implementatie voor IoT Edge-apparaat maken**. 
+4. In de Verkenner van Azure IoT Hub-apparaten met de rechtermuisknop op een IoT Edge-apparaat-ID en selecteer vervolgens **implementatie voor één apparaat maken**. 
 5. Open de **config** map van uw oplossing, selecteer vervolgens de `deployment.json` bestand. Klik op **Edge-distributiemanifest selecteren**. 
 
 Vervolgens ziet u dat de implementatie is gemaakt met een implementatie-ID in VS Code geïntegreerde terminal.

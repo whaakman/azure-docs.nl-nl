@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 08/13/2018
 ms.author: saudas
-ms.openlocfilehash: 614930fb11e65404416e604c94351e2754b8e941
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 9f082c5f198ebd7123058bd250d3fef55494d553
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190128"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287536"
 ---
 # <a name="aks-troubleshooting"></a>Het oplossen van AKS
 Wanneer u maakt of manager AKS-clusters, kunnen soms problemen optreden. Dit artikel worden enkele veelvoorkomende problemen en stappen voor probleemoplossing.
@@ -24,16 +24,16 @@ Wanneer u maakt of manager AKS-clusters, kunnen soms problemen optreden. Dit art
 
 ### <a name="i-am-getting-a-quota-exceeded-error-during-create-or-upgrade-what-should-i-do"></a>Ik krijg een fout is overschreden tijdens het maken of bijwerken. Wat moet ik doen? 
 
-U moet aanvragen kernen [hier](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request)
+U moet aanvragen kernen [hier](https://docs.microsoft.com/azure/azure-supportability/resource-manager-core-quotas-request).
 
 ### <a name="what-is-the-max-pods-per-node-setting-for-aks"></a>Wat is de maximale schillen per knooppunt-instelling voor AKS?
 
 De maximale schillen per knooppunt zijn standaard ingesteld op 30 als u een AKS-cluster in Azure portal implementeert.
 De maximale schillen per knooppunt zijn standaard ingesteld op 110 als u een AKS-cluster in de Azure CLI implementeren. (Zorg ervoor dat u de nieuwste versie van de Azure CLI gebruikt). Deze instelling kan worden gewijzigd met behulp van de max-knooppunten-per-pod-vlag in de az aks create-opdracht.
 
-### <a name="i-am-getting--insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Ik krijg "insufficientSubnetSize" Fout tijdens het implementeren van een AKS-cluster met geavanceerde netwerken. Wat moet ik doen?
+### <a name="i-am-getting-insufficientsubnetsize-error-while-deploying-an-aks-cluster-with-advanced-networking-what-should-i-do"></a>Ik krijg "insufficientSubnetSize" Fout tijdens het implementeren van een AKS-cluster met geavanceerde netwerken. Wat moet ik doen?
 
-Bij aangepaste VNET-optie is geselecteerd voor netwerken in AKS maakt, wordt de Azure CNI gebruikt voor IPAM. Het aantal knooppunten in een AKS-cluster kan overal liggen tussen 1 en 100 liggen. Op basis van 2) boven het subnet grootte moet groter zijn dan product van het aantal knooppunten en de maximale schil per knooppunt subnetgrootte > aantal knooppunten in het cluster * Max schillen per knooppunt.
+Bij aangepaste VNET-optie is geselecteerd voor netwerken in AKS maakt, wordt de Azure CNI gebruikt voor IPAM. Het aantal knooppunten in een AKS-cluster kan overal liggen tussen 1 en 100 liggen. Op basis van 2) boven het subnet grootte moet groter zijn dan product van het aantal knooppunten en de maximale schil per knooppunt subnetgrootte > aantal knooppunten in het cluster * max schillen per knooppunt.
 
 ### <a name="my-pod-is-stuck-in-crashloopbackoff-mode-what-should-i-do"></a>Mijn schil is vastgelopen in de modus 'CrashLoopBackOff'. Wat moet ik doen?
 

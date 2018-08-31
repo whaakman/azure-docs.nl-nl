@@ -16,12 +16,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 1a4b970b07514619b2d81a0483546ac64d07927f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 6099a818651cf75a75159f43748720b3eb01e4de
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005472"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287818"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -30,27 +30,28 @@ De JavaScript-ervaring voor Azure Functions kunt u eenvoudig voor het exporteren
 In dit artikel wordt ervan uitgegaan dat u al hebt gelezen de [referentie voor ontwikkelaars van Azure Functions](functions-reference.md).
 
 ## <a name="exporting-a-function"></a>Exporteren van een functie
-Alle JavaScript-functies moeten één exporteren `function` via `module.exports` voor de runtime functie voor het vinden en voer deze uit. Deze functie moet altijd bevatten een `context` object.
+Elke JavaScript-functie moet een enkel exporteren `function` via `module.exports` voor de runtime functie voor het vinden en voer deze uit. Altijd moet rekening houden met deze functie een `context` object als de eerste parameter.
 
 ```javascript
-// You must include a context, but other arguments are optional
-module.exports = function(context) {
-    // Additional inputs can be accessed by the arguments property
-    if(arguments.length === 4) {
-        context.log('This function has 4 inputs');
-    }
-};
-// or you can include additional inputs in your arguments
+// You must include a context, other arguments are optional
 module.exports = function(context, myTrigger, myInput, myOtherInput) {
     // function logic goes here :)
+    context.done();
+};
+// You can also use 'arguments' to dynamically handle inputs
+module.exports = function(context) {
+    context.log('Number of inputs: ' + arguments.length);
+    // Iterates through trigger and input binding data
+    for (i = 1; i < arguments.length; i++){
+        context.log(arguments[i]);
+    }
+    context.done();
 };
 ```
 
-Bindingen van `direction === "in"` worden doorgegeven als argument, wat betekent dat u kunt gebruiken [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) voor het afhandelen van nieuwe invoer dynamisch (bijvoorbeeld met behulp van `arguments.length` om te herhalen uw invoergrootte). Deze functionaliteit is handig wanneer u alleen een trigger en er zijn geen aanvullende invoer, omdat u uw triggergegevens voorspelbare toegang hebben tot zonder verwijzing naar uw `context` object.
+Invoer- en trigger-Bindingen (bindingen van `direction === "in"`) kunnen worden doorgegeven aan de functie als parameters. Ze worden doorgegeven aan de functie in dezelfde volgorde als waarin ze zijn gedefinieerd in *function.json*. U kunt dynamisch invoer met de JavaScript verwerken [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) object. Als u hebt bijvoorbeeld `function(context, a, b)` en wijzig deze in `function(context, a)`, krijgt u nog steeds de waarde van `b` in functiecode door te verwijzen naar `arguments[2]`.
 
-De argumenten worden altijd doorgegeven aan de functie in de volgorde waarin ze plaatsvinden in *function.json*, zelfs als u ze niet in de uitvoer-instructie opgeeft. Als u hebt bijvoorbeeld `function(context, a, b)` en wijzig deze in `function(context, a)`, krijgt u nog steeds de waarde van `b` in functiecode door te verwijzen naar `arguments[2]`.
-
-Alle bindingen, ongeacht de richting, ook worden doorgegeven in de `context` object (Zie het volgende script). 
+Alle bindingen, ongeacht de richting, ook worden doorgegeven in de `context` object met de `context.bindings` eigenschap.
 
 ## <a name="context-object"></a>context-object
 De runtime wordt gebruikt een `context` object om door te geven gegevens van en naar uw functie en u communiceren met de runtime te laten.
@@ -61,6 +62,7 @@ De `context` object is altijd de eerste parameter voor een functie en moet worde
 // You must include a context, but other arguments are optional
 module.exports = function(context) {
     // function logic goes here :)
+    context.done();
 };
 ```
 
@@ -96,7 +98,7 @@ context.done([err],[propertyBag])
 
 Informeert de runtime die uw code is voltooid. Als uw functie maakt gebruik van de `async function` declaratie (beschikbaar met behulp van knooppunt 8 + in functies versie 2.x), u niet wilt gebruiken `context.done()`. De `context.done` callback impliciet wordt genoemd.
 
-Als uw functie niet een functie asynchrone is **moet worden aangeroepen `context.done` ** om te informeren over de runtime die uw functie voltooid is. Als deze ontbreekt, wordt de uitvoering time-out.
+Als uw functie niet een functie asynchrone is **moet worden aangeroepen `context.done`**  om te informeren over de runtime die uw functie voltooid is. Als deze ontbreekt, wordt de uitvoering time-out.
 
 De `context.done` methode kunt u weer zowel een gebruiker gedefinieerde fout doorgeven aan de runtime en een eigenschappenverzameling van eigenschappen die de eigenschappen worden overschreven op het `context.bindings` object.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/16/2018
 ms.author: aljo
-ms.openlocfilehash: 29d04781d166abdd1fc1fc506077e6257f6551a6
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: aab985270cf17b94d6353536c96a3825b5e3b73f
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055132"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287339"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Maken van een Service Fabric-cluster met behulp van Azure Resource Manager 
 > [!div class="op_single_selector"]
@@ -259,7 +259,7 @@ az sf cluster create --resource-group $resourceGroupName --location $resourceGro
 
 ### <a name="use-a-pointer-to-a-secret-uploaded-into-a-key-vault"></a>Een verwijzing naar een geheim dat is geüpload naar een key vault gebruiken
 
-Voor het gebruik van een bestaande sleutelkluis, de key vault moet [ingeschakeld voor implementatie](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI)) om toe te staan van de compute resourceprovider certificaten van het verkrijgen en installeren op clusterknooppunten.
+Voor het gebruik van een bestaande sleutelkluis, de key vault moet [ingeschakeld voor implementatie](../key-vault/key-vault-manage-with-cli2.md#bkmk_KVperCLI) om toe te staan van de compute resourceprovider certificaten van het verkrijgen en installeren op clusterknooppunten.
 
 Implementatie van het cluster met behulp van PowerShell:
 

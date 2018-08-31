@@ -12,45 +12,65 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/28/2017
+ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7bf1e437e97fdb4d929af23bd7b2a9abb49268df
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: HT
+ms.openlocfilehash: bc60c0dbe6c609a08907feb243fe514badfe3e4e
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189155"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288072"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Goedkeuren of weigeren van aanvragen voor Azure AD directory-rollen in PIM
 
-Met Privileged Identity Management, kunt u rollen om te vereisen van goedkeuring voor activering configureren en kies een of meer gebruikers of groepen als gedelegeerde fiatteurs.
+Met Azure AD Privileged Identity Management (PIM), kunt u rollen om te vereisen van goedkeuring voor activering configureren en kies een of meer gebruikers of groepen als gedelegeerde fiatteurs.
 
-## <a name="view-pending-approvals-requests"></a>weergeven in afwachting van goedkeuring (aanvragen)
+## <a name="view-pending-requests"></a>De aanvragen in de wachtrij weergeven
 
-Als een gedelegeerde fiatteur ontvangt u e-mailmeldingen wanneer een aanvraag voor de goedkeuring in behandeling is. Als u wilt weergeven van deze aanvragen in de portal voor PIM, vanuit het dashboard (in de nieuwe navigatiefunctie) Selecteer het tabblad 'Goedkeuringsaanvragen in behandeling' in de linker navigatiebalk.
+Als een gedelegeerde fiatteur ontvangt u e-mailmeldingen wanneer een aanvraag voor de goedkeuring in behandeling is. U kunt deze aanvragen in behandeling weergeven in PIM.
 
-![](media/azure-ad-pim-approval-workflow/image023.png)
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-Daar ziet u een lijst met aanvragen in afwachting van goedkeuring:
+1. Open **Azure AD Privileged Identity Management**.
 
-![](media/azure-ad-pim-approval-workflow/image024.png)
+1. Klik op **Azure AD-maprollen**.
 
-## <a name="approve-or-deny-requests-for-role-elevation-single-andor-bulk"></a>Goedkeuren of weigeren van aanvragen om benodigde bevoegdheden rol (één en/of bulk)
+1. Klik op **aanvragen goedkeuren**.
 
-Selecteer de aanvragen die u wilt goedkeuren of afwijzen en klik op de knop in de actiebalk die met uw beslissing overeenkomt:
+    ![Rollen in PIM-Azure AD directory - rollen](./media/azure-ad-pim-approval-workflow/pim-directory-roles-approve-requests.png)
 
-![](media/azure-ad-pim-approval-workflow/image025.png)
+    U ziet een lijst met aanvragen moeten worden goedgekeurd.
 
-## <a name="provide-justification-for-my-approvaldenial"></a>Reden opgeven wanneer ze voor Mijn goedkeuring/geweigerd
+## <a name="approve-requests"></a>Aanvragen goedkeuren
 
-Hiermee wordt een nieuwe blade als u wilt goedkeuren of weigeren van meerdere aanvragen in één keer geopend. Voer een reden voor uw beslissing, en klik op (toestaan of weigeren) aan de onderkant of de blade:
+1. Selecteer de aanvragen die u wilt goedkeuren en klik vervolgens op **goedkeuren** geselecteerde aanvragen deelvenster opent u de goedkeuren.
 
-![](media/azure-ad-pim-approval-workflow/image029.png)
+    ![Lijst met aanvragen PIM goedkeuren](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
 
-Wanneer het proces voor aanvragen voltooid is, het statussymbool de beslissing weer (in dit voorbeeld wordt de beslissing is goedgekeurd):
+1. In de **reden voor goedkeuring** typt u een reden op.
 
-![](media/azure-ad-pim-approval-workflow/image031.png)
+    ![PIM goedkeuren geselecteerd aanvragen](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+
+1. Klik op **goedkeuren**.
+
+    Het statussymbool wordt bijgewerkt met uw goedkeuring.
+
+    ![PIM goedkeuren geselecteerd aanvragen](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+
+## <a name="deny-requests"></a>Aanvragen weigeren
+
+1. Selecteer de aanvragen die u wilt weigeren en klik vervolgens op **weigeren** geselecteerde aanvragen deelvenster opent u de weigeren.
+
+    ![Lijst met aanvragen PIM goedkeuren](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+
+1. In de **reden voor weigering** typt u een reden op.
+
+    ![PIM weigeren geselecteerd aanvragen](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+
+1. Klik op **weigeren**.
+
+    Het statussymbool wordt bijgewerkt met uw DOS-aanval.
 
 ## <a name="next-steps"></a>Volgende stappen
 

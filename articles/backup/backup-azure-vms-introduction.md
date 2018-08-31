@@ -7,14 +7,14 @@ manager: carmonm
 keywords: back-up van VM's, back-up van virtuele machines
 ms.service: backup
 ms.topic: conceptual
-ms.date: 7/31/2018
+ms.date: 8/29/2018
 ms.author: markgal
-ms.openlocfilehash: 438c1130486fe1ba2ee484ae01655a2fb115de27
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9e2ef16cffb044409b6f7f8e7785010097bcda87
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390752"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43286649"
 ---
 # <a name="plan-your-vm-backup-infrastructure-in-azure"></a>De infrastructuur voor back-ups van virtuele Azure-machines plannen
 In dit artikel biedt prestaties en suggesties voor het plannen van uw VM-back-upinfrastructuur resource. Het definieert ook belangrijke aspecten van de Backup-service; deze aspecten kunnen essentieel bij het bepalen van uw architectuur zijn plannen van capaciteit en planning. Als u hebt [bereid uw omgeving](backup-azure-arm-vms-prepare.md), planning van de volgende stap is voordat u begint met [back-up van virtuele machines](backup-azure-arm-vms.md). Als u meer informatie over Azure virtual machines, Zie de [documentatie voor virtuele Machines](https://azure.microsoft.com/documentation/services/virtual-machines/). 
@@ -50,17 +50,18 @@ Azure Backup VSS volledige back-ups neemt op Windows-VM's (meer informatie over 
 ```
 
 #### <a name="linux-vms"></a>Virtuele Linux-machines
-Azure Backup biedt een framework voor uitvoeren van scripts. Als u wilt zorgen voor toepassingsconsistentie wanneer de back-ups van virtuele Linux-machines, aangepaste scripts die voorafgaan aan en scripts die volgen op waarmee de back-werkstroom en de omgeving te maken. Azure Backup roept de Pre-script voordat u de VM-momentopname en roept het script dat volgt wanneer de VM-momentopname-taak is voltooid. Zie voor meer informatie, [toepassing consistente VM back-ups met Pre-script en post-script](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
+Azure Backup biedt een framework voor uitvoeren van scripts voor het beheren van de back-werkstroom en de omgeving. Om te controleren of toepassingsconsistente back-ups van Linux-VM, het uitvoeren van scripts framework te gebruiken om aangepaste scripts die voorafgaan aan en scripts die volgen op te maken. Het script voorafgaand aanroepen voordat u de VM-momentopname en vervolgens het script dat volgt aanroepen nadat de virtuele machine de dynamische-momentopnametaak is voltooid. Zie voor meer informatie het artikel [application consistent Linux VM-back-ups](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent).
+
 > [!NOTE]
 > Azure Backup alleen roept de klant geschreven vóór en na-scripts. Als de Pre-script en scripts die volgen met succes uitvoert, markeert Azure Backup het herstelpunt dat als application consistent. De klant is echter verantwoordelijk is voor de toepassingsconsistentie bij het gebruik van aangepaste scripts.
 >
 
-
-Deze tabel bevat uitleg over de typen consistentie en de voorwaarden die ze volgens tijdens de Azure-VM plaatsvinden back-up- en herstelprocedures.
+De volgende tabel beschrijft de soorten consistentie en de voorwaarden wanneer ze zich voordoen.
 
 | Consistentie | Op basis van VSS | Uitleg en details |
 | --- | --- | --- |
-| Consistentie van toepassingen |Ja voor Windows|Consistentie van toepassingen is ideaal voor workloads zoals zorgt ervoor dat:<ol><li> De virtuele machine *opgestart*. <li>Er is *geen beschadiging*. <li>Er is *zonder verlies van gegevens*.<li> De gegevens is consistent zijn om de toepassing die gebruikmaakt van de gegevens door met betrekking tot de toepassing op het moment van de back-up--met behulp van VSS of vooraf/post-script.</ol> <li>*Windows-VM's*-meest Microsoft-werkbelastingen hebben VSS-writers die specifiek voor werkbelasting die betrekking hebben op de consistentie van gegevens uitvoeren. Microsoft SQL Server heeft bijvoorbeeld een VSS-schrijver die ervoor zorgt dat de schrijfbewerkingen naar het logboekbestand van de transactie en de database correct worden uitgevoerd. Voor Azure Windows VM-back-ups, voor het maken van een App-consistente herstelpunt, moet de Backup-extensie aanroepen van de VSS-werkstroom en deze voltooien voordat u de VM-momentopname. Voor de Azure VM-momentopname nauwkeurige, moeten de VSS-schrijvers van alle Azure-VM-toepassingen ook uitvoeren. (Informatie over de [basisprincipes van VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) en dieper in op de details van [hoe het werkt](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Virtuele Linux-machines*-klanten kunnen uitvoeren [aangepaste Pre-script en post-script om ervoor te zorgen toepassingsconsistentie](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
+| Consistentie van toepassingen |Ja voor Windows|Consistentie van toepassingen is ideaal voor workloads zoals zorgt ervoor dat:<ol><li> De virtuele machine *opgestart*. <li>Er is *geen beschadiging*. <li>Er is *zonder verlies van gegevens*.<li> De gegevens is consistent zijn om de toepassing die gebruikmaakt van de gegevens door met betrekking tot de toepassing op het moment van de back-up--met behulp van VSS of vooraf/post-script.</ol> <li>*Windows-VM's*-meest Microsoft-werkbelastingen hebben VSS-schrijvers die workload-specifieke acties die betrekking hebben op de consistentie van gegevens worden uitgevoerd. Bijvoorbeeld, de SQL Server VSS writer zorgt ervoor dat de schrijfbewerkingen naar het logboekbestand van de transactie en de database, correct worden uitgevoerd. Voor IaaS Windows-VM back-ups, voor het maken van een App-consistente herstelpunt, moet de Backup-extensie aanroepen van de VSS-werkstroom, en deze voltooien voordat u de VM-momentopname. Voor de Azure VM-momentopname nauwkeurige, moeten de VSS-schrijvers van alle Azure-VM-toepassingen ook uitvoeren. (Informatie over de [basisprincipes van VSS](http://blogs.technet.com/b/josebda/archive/2007/10/10/the-basics-of-the-volume-shadow-copy-service-vss.aspx) en dieper in op de details van [hoe het werkt](https://technet.microsoft.com/library/cc785914%28v=ws.10%29.aspx)). </li> <li> *Virtuele Linux-machines*-klanten kunnen uitvoeren [aangepaste Pre-script en post-script om ervoor te zorgen toepassingsconsistentie](https://docs.microsoft.com/azure/backup/backup-azure-linux-app-consistent). </li> |
 | Consistentie van bestandssysteem |Ja, voor Windows-computers |Er zijn twee scenario's waarbij het herstelpunt kan zijn *bestandssysteemconsistent*:<ul><li>Back-ups van virtuele Linux-machines in Azure, zonder de pre-script/na-script of als pre-script/na-script is mislukt. <li>VSS-fout tijdens back-up voor Windows-VM's in Azure.</li></ul> In beide gevallen is het beste die kan worden uitgevoerd om ervoor te zorgen dat: <ol><li> De virtuele machine *opgestart*. <li>Er is *geen beschadiging*.<li>Er is *zonder verlies van gegevens*.</ol> Toepassingen moeten hun eigen mechanisme 'bijwerken' implementeren op de herstelde gegevens. |
 | Crashconsistentie |Nee |Deze situatie is gelijk aan een virtuele machine met een "vastloopt" (via een van beide een zacht of hard reset). Crashconsistentie gebeurt meestal wanneer de virtuele machine van Azure op het moment van back-up wordt afgesloten. Een crash-consistente herstelpunt biedt geen garanties de consistentie van de gegevens op het opslagmedium--vanuit het perspectief van het besturingssysteem of de toepassing. Alleen de gegevens die al op de schijf op het moment van back-up bestaat is vastgelegd en een back-up. <br/> <br/> Terwijl er normaal gesproken geen garanties, het besturingssysteem is opgestart, gevolgd door het controleren van de schijf maakt, zoals chkdsk, eventuele Beschadigingsfouten te herstellen. Een in-memory-gegevens- of schrijfbewerkingen die niet zijn overgebracht naar de schijf gaan verloren. De toepassing, meestal met een eigen mechanisme verificatie volgt als terugdraaien van de gegevens moet worden uitgevoerd. <br><br>Een voorbeeld: als het transactielogboek bevat de invoer niet aanwezig in de database, de databasesoftware wordt getotaliseerd terug tot de gegevens consistent is. Wanneer gegevens verdeeld over meerdere virtuele schijven (zoals spanned volumes), biedt een crash-consistente herstelpunt geen garanties voor de juistheid van de gegevens. |
 
@@ -104,19 +105,22 @@ Een herstelbewerking bestaat uit twee belangrijke taken: kopiëren van gegevens 
 * Het kopiëren van gegevens tijd - gegevens worden gekopieerd uit de kluis naar het opslagaccount van de klant. Herstellen tijd is afhankelijk van IOPS en doorvoer van Azure Backup-service worden opgehaald op de geselecteerde klant storage-account. Als u wilt kopiëren hoelang tijdens het herstelproces, selecteer het opslagaccount dat niet geladen met andere schrijfbewerkingen van toepassingen en leesbewerkingen.
 
 ## <a name="best-practices"></a>Aanbevolen procedures
-Het is raadzaam de volgende deze procedures bij het configureren van back-ups voor virtuele machines met niet-beheerde schijven:
 
-> [!Note]
-> De volgende procedures die u kunt wijzigen of het beheren van storage-accounts, het beste passen alleen virtuele machines met niet-beheerde schijven. Als u beheerde schijven gebruiken, zorgt Azure van alle activiteiten met betrekking tot opslag.
-> 
+Het is raadzaam de volgende deze procedures tijdens het configureren van back-ups voor alle virtuele machines:
 
-* Niet meer dan 10 klassieke virtuele machines in dezelfde cloudservice back-up op hetzelfde moment niet plannen. Als u wilt spreiden maakt u een back-up van meerdere virtuele machines in dezelfde cloudservice, de back-up keer starten door een uur.
-* Meer dan 100 virtuele machines naar back-up op hetzelfde moment vanuit één kluis niet worden gepland. 
+* Geen back-ups plannen voor meer dan 10 klassieke virtuele machines van de dezelfde cloudservice op hetzelfde moment. Als u wilt spreiden maakt u een back-up van meerdere virtuele machines in dezelfde cloudservice, de back-up keer starten door een uur.
+* Geen back-ups plannen voor meer dan 100 virtuele machines van één kluis op hetzelfde moment.
 * Virtuele machine back-ups plannen tijdens daluren. Op deze manier de Backup-service maakt gebruik van IOP's voor het overdragen van gegevens van het opslagaccount van de klant naar de kluis.
-* Zorg ervoor dat een beleid wordt toegepast op virtuele machines die zijn verdeeld over verschillende opslagaccounts. We raden niet meer dan 20 totaal aantal schijven van een enkel opslagaccount worden beveiligd door de dezelfde back-upschema. Als u meer dan 20 schijven in een storage-account hebt, moet u deze virtuele machines verdeeld over meerdere beleid voor het ophalen van de vereiste IOPS-waarde tijdens de fase van de overdracht van het back-upproces.
-* Een virtuele machine die worden uitgevoerd op Premium storage hetzelfde opslagaccount niet worden hersteld. Als het herstelproces bewerking met de back-upbewerking overeenkomt, vermindert het beschikbare IOP's voor back-up.
-* Voor de VM voor Premium-back-up van VM-back-upstack V1, is het aanbevolen dat u slechts 50% van de totale opslagruimte voor de account toewijzen zodat Azure Backup-service de momentopname naar storage-account en de overdracht van gegevens vanaf deze locatie gekopieerd in storage-account naar de kluis kopiëren kan.
 * Zorg ervoor dat virtuele Linux-machines voor back-up is ingeschakeld, hebben Python versie 2.7 of hoger.
+
+### <a name="best-practices-for-vms-with-unmanaged-disks"></a>Aanbevolen procedures voor virtuele machines met niet-beheerde schijven
+
+De volgende aanbevelingen gelden alleen voor virtuele machines met behulp van niet-beheerde schijven. Als uw virtuele machines met beheerde schijven, verwerkt de Backup-service alle beheertaken voor opslag.
+
+* Zorg ervoor dat u een back-upbeleid toepassen op virtuele machines die zijn verdeeld over meerdere opslagaccounts. Niet meer dan 20 totaal aantal schijven van een enkel opslagaccount moeten worden beveiligd door de dezelfde back-upschema. Als u meer dan 20 schijven in een storage-account hebt, moet u deze virtuele machines verdeeld over meerdere beleid voor het ophalen van de vereiste IOPS-waarde tijdens de fase van de overdracht van het back-upproces.
+* Een virtuele machine die worden uitgevoerd op Premium storage hetzelfde opslagaccount niet worden hersteld. Als het herstelproces bewerking met de back-upbewerking overeenkomt, vermindert het beschikbare IOP's voor back-up.
+* U moet slechts 50% van de totale opslagruimte voor de account voor de VM voor Premium-back-up van VM-back-upstack V1 toewijzen, zodat de Backup-service kunt kopiëren van de momentopname naar storage-account en gegevens van het opslagaccount naar de kluis overbrengen.
+
 
 ## <a name="data-encryption"></a>Gegevensversleuteling
 Azure Backup niet-versleuteld gegevens als onderdeel van het back-upproces. U kunt echter versleutelen van gegevens binnen de virtuele machine en back-up van de beveiligde gegevens naadloos (meer informatie over [back-ups van versleutelde gegevens](backup-azure-vms-encryption.md)).

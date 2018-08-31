@@ -16,12 +16,12 @@ ms.workload: na
 ms.date: 10/23/2017
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: e034d6c57c619ea74003f531d3309f7da17210b0
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b2a8e4b5310f1b5d6a13e9d23efff1751410e171
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057578"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287643"
 ---
 # <a name="azure-queue-storage-bindings-for-azure-functions"></a>Azure Queue storage-bindingen voor Azure Functions
 
@@ -35,13 +35,13 @@ De Queue storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http:/
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
 
+[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
+
 ## <a name="packages---functions-2x"></a>Pakketten - functies 2.x
 
 De Queue storage-bindingen zijn opgegeven in de [Microsoft.Azure.WebJobs](http://www.nuget.org/packages/Microsoft.Azure.WebJobs) NuGet-pakket versie 3.x. Broncode voor het pakket is in de [azure-webjobs-sdk](https://github.com/Azure/azure-webjobs-sdk/tree/master/src/Microsoft.Azure.WebJobs.Storage/Queue) GitHub-opslagplaats.
 
 [!INCLUDE [functions-package-auto](../../includes/functions-package-auto.md)]
-
-[!INCLUDE [functions-storage-sdk-version](../../includes/functions-storage-sdk-version.md)]
 
 ## <a name="trigger"></a>Trigger
 
