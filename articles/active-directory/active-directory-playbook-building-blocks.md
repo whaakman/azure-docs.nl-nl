@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 3ae2e883e3e27adc167b7e831ca53d3cd1572257
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 4618c8a0298afdac28e7511e9521cf1e26238734
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058671"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189035"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
@@ -480,7 +480,7 @@ Geschatte tijd om te voltooien: 15 minuten
 | Meld u aan bij https://portal.azure.com als een globale beheerder (GA) en een bootstrap de PIM-blade. De globale beheerder, waarmee u deze stap is gemaakt als de beveiligingsbeheerder van de.  Noemen we deze actor GA1 | [Met behulp van de beveiligingswizard in Azure AD Privileged Identity Management](privileged-identity-management/pim-security-wizard.md) |
 | Identificeren van de globale beheerder en ze verplaatsen van permanente naar in aanmerking komt. Dit moet een afzonderlijke admin van de die werd gebruikt in stap 1 voor de duidelijkheid zijn. Noemen we deze actor GA2 | [Azure AD Privileged Identity Management: Het toevoegen of verwijderen van een gebruikersrol](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[Wat is Azure AD Privileged Identity Management?: Configureer de instellingen voor rolactivering](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
 | Nu aanmelden als GA2 naar https://portal.azure.com en wijzig 'gebruikersinstellingen'. U ziet een aantal opties zijn niet beschikbaar. | |
-| In een nieuw tabblad en in dezelfde sessie als stap 3, gaat u nu naar https://portal.azure.com en de PIM-blade toevoegen aan het dashboard. | [Activeren of deactiveren van rollen in Azure AD Privileged Identity Management: de Privileged Identity Management-toepassing toevoegen](privileged-identity-management/pim-how-to-activate-role.md#add-the-privileged-identity-management-application) |
+| In een nieuw tabblad en in dezelfde sessie als stap 3, gaat u nu naar https://portal.azure.com en de PIM-blade toevoegen aan het dashboard. | [PIM gebruiken](privileged-identity-management/pim-getting-started.md) |
 | Activering van de aanvraag aan de rol globale beheerder | [Activeren of deactiveren van rollen in Azure AD Privileged Identity Management: een rol activeren](privileged-identity-management/pim-how-to-activate-role.md#activate-a-role) |
 | Houd er rekening mee dat als GA2 nooit geregistreerd voor MFA, registratie voor Azure MFA niet nodig |  |
 | Ga terug naar het oorspronkelijke tabblad in stap 3 en klik op de vernieuwknop in de browser. Houd er rekening mee dat u nu toegang hebt tot het wijzigen van "Gebruikersinstellingen" | |

@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: dobett
-ms.openlocfilehash: fdbe88492d6260d19955b39ac8eaf6cfb9dba130
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 4e23b70c8dc5fdacfd609fb4664a78293b9e2362
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144543"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247642"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Inzicht in het identiteitenregister van uw IoT-hub
 
@@ -85,9 +85,9 @@ Het apparaatgegevens die een opgegeven IoT-oplossing zijn opgeslagen, is afhanke
 
 ## <a name="device-heartbeat"></a>Apparaat heartbeat
 
-De id-register van IoT Hub bevat een veld met de naam **connectionState**. Gebruik alleen de **connectionState** veld tijdens de ontwikkeling en foutopsporing. IoT-oplossingen moeten geen query uitvoeren op het veld tijdens de uitvoering. Bijvoorbeeld: kan geen query uitvoeren op de **connectionState** veld om te controleren of een apparaat is verbonden, voordat u een cloud-naar-apparaat-bericht of een SMS-bericht verzenden.
+De id-register van IoT Hub bevat een veld met de naam **connectionState**. Gebruik alleen de **connectionState** veld tijdens de ontwikkeling en foutopsporing. IoT-oplossingen moeten geen query uitvoeren op het veld tijdens de uitvoering. Bijvoorbeeld: kan geen query uitvoeren op de **connectionState** veld om te controleren of een apparaat is verbonden, voordat u een cloud-naar-apparaat-bericht of een SMS-bericht verzenden. Het is raadzaam zich abonneert op de [ **apparaat verbroken** gebeurtenis](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types) op Event Grid waarschuwingen ontvangen en controleren van de verbindingsstatus van het apparaat. Gebruik deze [zelfstudie](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) voor informatie over het integreren van gebeurtenissen van IoT-Hub in uw IoT-oplossing.
 
-Als uw IoT-oplossing nodig heeft om te weten als een apparaat is verbonden, moet u implementeren de *heartbeat patroon*.
+Als uw IoT-oplossing nodig heeft om te weten als een apparaat is verbonden, kunt u implementeren de *heartbeat patroon*.
 In het heartbeat-patroon maakt verzendt het apparaat apparaat-naar-cloud-berichten ten minste één keer voor elke vaste hoeveelheid tijd (bijvoorbeeld ten minste één keer per uur). Dus zelfs als een apparaat beschikt niet over alle gegevens worden verzonden, stuurt nog steeds een lege apparaat-naar-cloud-bericht (meestal met een eigenschap die deze als een heartbeat identificeert). Aan de service voor deze oplossing wordt een kaart met de laatste heartbeat ontvangen voor elk apparaat. Als de oplossing niet binnen de verwachte tijd van het apparaat een heartbeat-bericht ontvangt, wordt ervan uitgegaan dat er een probleem met het apparaat is.
 
 Een meer complexe implementatie kan bijvoorbeeld de gegevens van [bewerkingen controleren] [ lnk-devguide-opmon] om apparaten die probeert verbinding te maken of communiceren, maar mislukken te identificeren. Wanneer u het patroon heartbeat implementeert, Controleer of [IoT Hub-quota en vertragingen in][lnk-quotas].

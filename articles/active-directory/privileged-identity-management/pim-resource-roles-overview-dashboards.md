@@ -1,6 +1,6 @@
 ---
-title: 'Overzicht: Een toegangscontrole uitvoeren in Privileged Identity Management voor Azure-resources | Microsoft Docs'
-description: Dit document wordt beschreven hoe u een toegangscontrole uitvoeren in PIM voor Azure-resources.
+title: Een resource-dashboard gebruiken voor het uitvoeren van een toegangscontrole - Azure | Microsoft Docs
+description: Hierin wordt beschreven hoe u een resource-dashboard met een toegangscontrole uitvoeren in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,12 +15,12 @@ ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 40fe6a4b0bec2540afee635b16ee3482a182a2df
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 20172cf7413397aedc4b3c32d0f1419531a2588a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621485"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188494"
 ---
 # <a name="use-a-resource-dashboard-to-perform-an-access-review"></a>Een resource-dashboard gebruiken voor een toegangscontrole uitvoeren
 
@@ -40,4 +40,6 @@ Aan de rechterkant van de grafiek activeringen weergeven twee grafieken de distr
 
 Onder de grafieken ziet u het aantal gebruikers en groepen met nieuwe roltoewijzingen gedurende de afgelopen 30 dagen en een lijst met functies die zijn gesorteerd op basis van totaal aantal toewijzingen (in aflopende volgorde).
 
+## <a name="next-steps"></a>Volgende stappen
 
+- [Een toegangscontrole voor Azure resource-rollen in PIM starten](pim-resource-roles-start-access-review.md) 

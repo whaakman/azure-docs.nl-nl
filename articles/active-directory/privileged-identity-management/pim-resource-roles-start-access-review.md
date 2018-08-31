@@ -1,6 +1,6 @@
 ---
-title: Toegangsbeoordelingen uitvoeren in Azure-resources met behulp van Privileged Identity Management | Microsoft Docs
-description: Wordt uitgelegd hoe u een toegangsbeoordeling starten in de Privileged Identity Management voor Azure-Resources
+title: Een toegangscontrole voor Azure resource-rollen in PIM starten | Microsoft Docs
+description: Leer hoe u een toegangscontrole voor Azure-resourcerollen starten in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f88c4a2f7e6eb569c9c0de33ab86e8b484a923e3
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9a35d32d89931a03b33f232ba4f79226fc3f57e5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622878"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189171"
 ---
-# <a name="perform-access-reviews-in-azure-resources-by-using-privileged-identity-management"></a>Toegangsbeoordelingen uitvoeren in Azure-resources met behulp van Privileged Identity Management
+# <a name="start-an-access-review-for-azure-resource-roles-in-pim"></a>Een toegangscontrole voor Azure resource-rollen in PIM starten
 Roltoewijzingen worden 'verouderde' wanneer gebruikers uitgebreide toegang die ze niet meer nodig hebt. Beheerders met bevoegdheid om het risico dat is gekoppeld aan deze verouderde roltoewijzingen, moeten regelmatig rollen controleren. In dit document bevat informatie over de stappen voor het starten van een toegangscontrole in Privileged Identity Management (PIM) voor Azure-resources.
 
 Op de toepassing hoofdpagina van PIM, gaat u naar:
@@ -71,3 +71,8 @@ In het dashboard PIM-Azure-resources kunt u de voortgang volgen de revisoren hun
 
 Totdat de periode van de toegangsbeoordeling voltooid is, kunt u Herinner de gebruikers om uit te voeren van de beoordeling of stoppen van de beoordeling vroeg in het gedeelte van de beoordelingen toegang.
 
+## <a name="next-steps"></a>Volgende stappen
+
+- [Een toegangscontrole voor Azure-resource-rollen in PIM voltooien](pim-resource-roles-complete-access-review.md)
+- [Een toegangscontrole van mijn Azure-resource-rollen in PIM uitvoeren](pim-resource-roles-perform-access-review.md)
+- [Een toegangscontrole voor Azure AD directory-rollen in PIM starten](pim-how-to-start-security-review.md)

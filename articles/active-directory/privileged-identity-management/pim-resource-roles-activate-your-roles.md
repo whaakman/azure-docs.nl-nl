@@ -1,6 +1,6 @@
 ---
-title: Rollen voor Azure-resources met behulp van Privileged Identity Management activeren | Microsoft Docs
-description: Beschrijft hoe u rollen in PIM activeren.
+title: Mijn Azure-resource-rollen in PIM activeren | Microsoft Docs
+description: Informatie over het activeren van uw Azure-resource-rollen in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 08/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2a5c192f231bdc75d04c78cd94838a3f341dc925
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 234c1d71f0ec17d15a4dd589e3db92fd9bf68df2
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43111055"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189486"
 ---
-# <a name="activate-roles-for-azure-resources-by-using-privileged-identity-management"></a>Rollen voor Azure-resources activeren met behulp van Privileged Identity Management
+# <a name="activate-my-azure-resource-roles-in-pim"></a>Mijn Azure-resource-rollen in PIM activeren
 Privileged Identity Management (PIM) introduceert een nieuwe ervaring in het activeren van rollen voor Azure-resources. Leden van een in aanmerking komende rol kunnen activeren voor een toekomstige datum en tijd plannen. Ze kunnen ook een specifieke activeringsduur binnen de maximale (geconfigureerd door beheerders) selecteren. Zie voor meer informatie, [activeren of deactiveren van rollen in Azure AD Privileged Identity Management](pim-how-to-activate-role.md).
 
 ## <a name="activate-a-role"></a>Een rol activeren
@@ -64,3 +64,7 @@ Vanuit de zoekpagina kunt u de onderliggende bron die u nodig hebt voor het behe
 Selecteer **mijn rollen** in het linkerdeelvenster en kies de juiste rol te activeren. Het toewijzingstype wordt **overgenomen** omdat de rol is toegewezen aan het abonnement, in plaats van op de resourcegroep.
 
 ![Lijst met in aanmerking komende roltoewijzingen, met het toewijzingstype is gemarkeerd](media/azure-pim-resource-rbac/my-roles-02.png)
+
+## <a name="next-steps"></a>Volgende stappen
+
+- [Mijn Azure AD-directory-rollen in PIM activeren](pim-how-to-activate-role.md)

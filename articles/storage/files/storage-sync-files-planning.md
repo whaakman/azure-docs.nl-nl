@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 1f75317882e803a40df065377ef75f8b6b753898
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918376"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247392"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -69,6 +69,47 @@ Cloud-opslaglagen is een optionele functie van Azure File Sync in die niet vaak 
 
 ## <a name="azure-file-sync-system-requirements-and-interoperability"></a>Azure File Sync-systeemvereisten en interoperabiliteit 
 In deze sectie bevat informatie over systeemvereisten voor Azure File Sync-agent en -interoperabiliteit met Windows Server-functies en rollen en -oplossingen van derden.
+
+### <a name="evaluation-tool"></a>Hulpprogramma voor het evalueren
+Voordat u Azure File Sync implementeert, moet u evalueren of het compatibel is met het systeem met behulp van het hulpprogramma voor het evalueren van Azure File Sync. Dit hulpprogramma is een AzureRM PowerShell-cmdlet waarmee wordt gecontroleerd op mogelijke problemen met het bestandssysteem en de gegevensset, zoals niet-ondersteunde tekens of een niet-ondersteunde versie van het besturingssysteem. Houd er rekening mee dat de controles betrekking hebben op meest, maar niet alle functies die worden vermeld onder; het wordt aangeraden om dat u via de rest van deze sectie zorgvuldig om te controleren of dat uw implementatie vlot te lezen. 
+
+#### <a name="download-instructions"></a>Instructies downloaden
+1. Zorg ervoor dat u de nieuwste versie van PackageManagement hebt en PowerShellGet geïnstalleerd (dit kunt u preview-modules installeren)
+    
+    ```PowerShell
+        Install-Module -Name PackageManagement -Repository PSGallery -Force
+        Install-Module -Name PowerShellGet -Repository PSGallery -Force
+    ```
+ 
+2. PowerShell starten
+3. De modules installeren
+    
+    ```PowerShell
+        Install-Module -Name AzureRM.StorageSync -AllowPrerelease
+    ```
+
+#### <a name="usage"></a>Gebruik  
+U kunt het hulpprogramma voor het evalueren aanroepen in een aantal verschillende manieren: u kunt de systeemcontroles en/of de gegevensset controles uitvoeren. Als u wilt uitvoeren van het systeem en de gegevensset wordt gecontroleerd: 
+
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path>
+```
+
+Om te testen alleen uw gegevensset:
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -Path <path> -SkipSystemChecks
+```
+ 
+Om te testen alleen systeemvereisten:
+```PowerShell
+    Invoke-AzureRmStorageSyncCompatibilityCheck -ComputerName <computer name>
+```
+ 
+De resultaten weergeven in CSV:
+```PowerShell
+    $errors = Invoke-AzureRmStorageSyncCompatibilityCheck […]
+    $errors | Select-Object -Property Type, Path, Level, Description | Export-Csv -Path <csv path>
+```
 
 ### <a name="system-requirements"></a>Systeemvereisten
 - Een server met Windows Server 2012 R2 of Windows Server 2016 
@@ -190,27 +231,27 @@ Azure File Sync moet in het algemeen interoperabiliteit met versleutelingsoploss
 ### <a name="other-hierarchical-storage-management-hsm-solutions"></a>Andere oplossingen hiërarchische opslag Management (HSM)
 Er zijn geen andere HSM-oplossingen moeten worden gebruikt met Azure File Sync.
 
-## <a name="region-availability"></a>Beschikbaarheid voor de regio
+## <a name="region-availability"></a>Beschikbaarheid in regio’s
 Azure File Sync is alleen beschikbaar in de volgende regio's:
 
 | Regio | Datacenter-locatie |
 |--------|---------------------|
-| Australië Oost | New South Wales |
-| Australië Zuidoost | Victoria |
-| Canada Centraal | Toronto |
-| Canada Oost | Quebec (stad) |
-| India Centraal | Pune |
+| Australië - oost | New South Wales |
+| Australië - zuidoost | Victoria |
+| Canada - midden | Toronto |
+| Canada - oost | Quebec |
+| India - centraal | Pune |
 | US - centraal | Iowa |
 | Azië - oost | Hongkong |
 | US - oost | Virginia |
 | US - oost 2 | Virginia |
 | Europa - noord | Ierland |
-| India Zuid | Chennai |
+| India - zuid | Chennai |
 | Azië - zuidoost | Singapore |
-| VK Zuid | Londen |
-| VK West | Cardiff |
-| Europa - west | Nederland |
-| US - west | California |
+| Verenigd Koninkrijk Zuid | Londen |
+| Verenigd Koninkrijk West | Cardiff |
+| Europa -west | Nederland |
+| US - west | Californië |
 
 Azure File Sync ondersteunt alleen met een Azure-bestandsshare die zich in dezelfde regio als de Opslagsynchronisatieservice worden gesynchroniseerd.
 
@@ -221,21 +262,21 @@ Ter ondersteuning van de failover-integratie tussen geografisch redundante opsla
 
 | Primaire regio      | Gekoppelde regio      |
 |---------------------|--------------------|
-| Australië Oost      | Australië Zuidoost |
-| Australië Zuidoost | Australië Oost     |
-| Canada Centraal      | Canada Oost        |
-| Canada Oost         | Canada Centraal     |
-| India Centraal       | India Zuid        |
+| Australië - oost      | Australië - zuidoost |
+| Australië - zuidoost | Australië - oost     |
+| Canada - midden      | Canada - oost        |
+| Canada - oost         | Canada - midden     |
+| India - centraal       | India - zuid        |
 | US - centraal          | US - oost 2          |
 | Azië - oost           | Azië - zuidoost     |
 | US - oost             | US - west            |
 | US - oost 2           | US - centraal         |
-| Europa - noord        | Europa - west        |
-| India Zuid         | India Centraal      |
+| Europa - noord        | Europa -west        |
+| India - zuid         | India - centraal      |
 | Azië - zuidoost      | Azië - oost          |
-| VK Zuid            | VK West            |
-| VK West             | VK Zuid           |
-| Europa - west         | Europa - noord       |
+| Verenigd Koninkrijk Zuid            | Verenigd Koninkrijk West            |
+| Verenigd Koninkrijk West             | Verenigd Koninkrijk Zuid           |
+| Europa -west         | Europa - noord       |
 | US - west             | US - oost            |
 
 ## <a name="azure-file-sync-agent-update-policy"></a>Updatebeleid Azure File Sync-agent

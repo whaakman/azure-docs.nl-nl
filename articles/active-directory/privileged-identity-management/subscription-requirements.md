@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management abonnementen - Azure | Microsoft Docs
-description: Legt uit het abonnement en de licentievereisten voor het beheren en met behulp van Azure AD Privileged Identity Management in uw tenant
+title: Abonnement-vereisten voor het gebruik van PIM - Azure | Microsoft Docs
+description: Beschrijving van het abonnement en de licentievereisten duidelijk zijn Azure AD Privileged Identity Management (PIM) gebruiken.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,14 +16,14 @@ ms.component: pim
 ms.date: 06/01/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: dbe4efa57a7c4c31b2bdca84665eef8179564a8f
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 1554895dcba0c09a3a2e19c284a1cd6f0416cfe1
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617066"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190607"
 ---
-# <a name="azure-active-directory-privileged-identity-management-subscription-requirements"></a>Vereisten voor het abonnement van Azure Active Directory Privileged Identity Management
+# <a name="subscription-requirements-to-use-pim"></a>Abonnement-vereisten voor het gebruik van PIM
 
 Azure AD Privileged Identity Management is beschikbaar als onderdeel van de Premium P2-editie van Azure AD. Zie voor meer informatie over andere functies van P2 en hoe deze zich verhoudt tot Premium P1, [Azure Active Directory-edities](../active-directory-editions.md).
 
@@ -61,5 +61,5 @@ Wanneer een Azure AD Premium P2-abonnement of EMS E5-abonnement is verlopen, of 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Aan de slag met Azure AD Privileged Identity Management](pim-getting-started.md)
-- [Rollen in Azure AD Privileged Identity Management](pim-roles.md)
+- [PIM gebruiken](pim-getting-started.md)
+- [Azure AD-maprollen die kunt u in PIM beheren](pim-roles.md)

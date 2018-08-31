@@ -1,6 +1,6 @@
 ---
-title: E-mailmeldingen in Azure AD PIM | Microsoft Docs
-description: Beschrijving van e-mailmeldingen in Azure AD Privileged Identity Management (PIM)
+title: E-mailmeldingen in PIM - Azure | Microsoft Docs
+description: Beschrijving van e-mailmeldingen in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.date: 07/24/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 7943b4fb8c2027b50ce04c30d21f1b0a58f98ace
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 1a1635e0ba16bdc0fa6dc90aa0e1a417f43e04ac
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621579"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190173"
 ---
-# <a name="email-notifications-in-azure-ad-pim"></a>E-mailmeldingen in Azure AD PIM
+# <a name="email-notifications-in-pim"></a>E-mailmeldingen in PIM
 
 Als er belangrijke gebeurtenissen optreedt in Azure AD Privileged Identity Management (PIM), worden e-mailmeldingen verzonden naar de desbetreffende beheerder of gebruiker. PIM verzendt bijvoorbeeld e-mailberichten voor de volgende gebeurtenissen:
 
@@ -74,5 +74,5 @@ Wanneer een gebruiker kan een bevoorrechte rol is toegewezen, gezien het e-mailb
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Over het beheren van instellingen voor rolactivering in Azure AD PIM](pim-how-to-change-default-settings.md)
-- [Goedkeuringen in Azure AD PIM](azure-ad-pim-approval-workflow.md)
+- [Azure AD directory rolinstellingen in PIM configureren](pim-how-to-change-default-settings.md)
+- [Goedkeuren of weigeren van aanvragen voor Azure AD directory-rollen in PIM](azure-ad-pim-approval-workflow.md)

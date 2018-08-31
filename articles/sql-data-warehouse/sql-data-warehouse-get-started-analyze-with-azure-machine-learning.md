@@ -3,19 +3,19 @@ title: Gegevens analyseren met Azure Machine Learning | Microsoft Docs
 description: Gebruik Azure Machine Learning om een voorspellend Machine Learning-model te maken dat is gebaseerd op gegevens die zijn opgeslagen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 4a5137ef22455c304dc672520aabd16cac2570e1
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 4324b1ac343a0e2b77c21d7834beffae08403953
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31601325"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247523"
 ---
 # <a name="analyze-data-with-azure-machine-learning"></a>Gegevens analyseren met Azure Machine Learning
 > [!div class="op_single_selector"]

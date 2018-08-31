@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 06/28/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: ea96898e36080096c91285f3ff7621f84bf81edf
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: e0d92cc52b34e1e04f13e03ec2196d13961fb7de
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056836"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247933"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -35,6 +35,8 @@ Het volgende diagram ziet u een conceptueel overzicht van het gedrag en de gegev
 
 ![Processtroom voor het beheer van bijwerken](media/automation-update-management/update-mgmt-updateworkflow.png)
 
+Updatebeheer kan worden gebruikt om systeemeigen Onboarding van machines in meerdere abonnementen in dezelfde tenant. Voor het beheren van computers in een andere tenant, u onboarding moet als [niet-Azure-machines](automation-onboard-solutions-from-automation-account.md#onboard-a-non-azure-machine).
+
 Nadat een computer een scan voor naleving van updates voert, verzendt de agent de informatie in bulk naar Azure Log Analytics. Op een Windows-computer, wordt de nalevingsscan standaard elke 12 uur uitgevoerd.
 
 Naast het schema voor scannen, wordt de scan voor naleving van updates binnen 15 minuten als de MMA opnieuw wordt opgestart, voordat de installatie van de update en na installatie van update gestart.
@@ -48,7 +50,7 @@ De oplossing rapporteert hoe up-to-date de computer is gebaseerd op de bron waar
 
 U kunt software-updates implementeren en installeren op computers die updates vereisen door daarvoor een planning in te stellen. Updates die zijn geclassificeerd als *optioneel* niet zijn opgenomen in het implementatiebereik voor Windows-computers. Alleen vereiste updates zijn opgenomen in het implementatiebereik. 
 
-De geplande implementatie wordt gedefinieerd welke doelcomputers de updates worden geïmplementeerd, ontvangen door computers expliciet op te geven of door het selecteren van een [computergroep](../log-analytics/log-analytics-computer-groups.md) die gebaseerd op logboekzoekopdrachten van een specifieke set computers. U geeft ook een planning voor het goedkeuren en toekennen van een bepaalde periode gedurende welke updates kunnen worden geïnstalleerd. 
+De geplande implementatie wordt gedefinieerd welke doelcomputers de updates worden geïmplementeerd, ontvangen door computers expliciet op te geven of door het selecteren van een [computergroep](../log-analytics/log-analytics-computer-groups.md) die gebaseerd op logboekzoekopdrachten van een specifieke set computers. U geeft ook een planning voor het goedkeuren en toekennen van een bepaalde periode gedurende welke updates kunnen worden geïnstalleerd.
 
 Updates worden geïnstalleerd door runbooks in Azure Automation. U kunt deze runbooks niet weergeven en de runbooks vereisen geen configuratie. Wanneer een update-implementatie wordt gemaakt, wordt een planning waarmee een masterupdate-runbook op de opgegeven tijd voor de opgenomen computers gestart door de update-implementatie gemaakt. De master-runbook start een onderliggend runbook op elke agent uit te voeren van de installatie van vereiste updates.
 
@@ -217,10 +219,10 @@ Voor het maken van een nieuwe update-implementatie selecteert **update-implement
 |Besturingssysteem| Linux of Windows|
 | Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u ervoor kiest **Machines**, de gereedheid van de machine wordt weergegeven in de **gereedheid voor UPDATE-AGENT** kolom.</br> Zie voor meer informatie over de verschillende methoden voor het maken van computergroepen in Log Analytics, [computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
 |Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
-|Updates die moeten worden uitgesloten|Voer de updates om uit te sluiten. Voer de KB zonder de KB-voorvoegsel voor Windows. Voer de naam van het pakket voor Linux of een jokerteken gebruiken.  |
+|Updates die moeten worden uitgesloten|Voer de updates om uit te sluiten. Voor Windows, voert u de KB zonder de KB-voorvoegsel. Voer de naam van het pakket voor Linux of een jokerteken gebruiken.  |
 |Planningsinstellingen|Selecteer de tijd om te starten, en selecteer een van beide eenmaal of terugkerende voor het terugkeerpatroon|
 | Onderhoudsvenster |Het aantal minuten instellen voor updates. De waarde kan niet worden zijn minder dan 30 minuten en niet meer dan 6 uur |
-| Opnieuw opstarten van besturingselement| Detemines hoe opnieuw wordt opgestart moeten worden verwerkt.</br>De beschikbare opties zijn:</br>Opnieuw opstarten indien nodig (standaard)</br>Altijd opnieuw opstarten</br>Nooit opnieuw opstarten</br>Alleen opnieuw opstarten - updates kan niet worden geïnstalleerd.|
+| Opnieuw opstarten van besturingselement| Bepaalt hoe vaak opnieuw opstarten moeten worden verwerkt. De volgende opties zijn beschikbaar:</br>Opnieuw opstarten indien nodig (standaard)</br>Altijd opnieuw opstarten</br>Nooit opnieuw opstarten</br>Alleen opnieuw opstarten - updates worden niet geïnstalleerd|
 
 ## <a name="update-classifications"></a>Updateclassificaties
 
@@ -310,7 +312,7 @@ Update
 
 #### <a name="single-azure-vm-assessment-queries-linux"></a>Één virtuele machine van Azure evaluatie van de query's (Linux)
 
-Voor sommige Linux-distributies er is een [endianness](https://en.wikipedia.org/wiki/Endianness) komt niet overeen met de waarde VMUUID die afkomstig zijn van Azure Resource Manager en wat wordt opgeslagen in Log Analytics. De volgende query uit controleert een overeenkomst op een van beide endianness. Vervang de waarden VMUUID door de big endian en weinig-endian-indeling van de GUID juist de resultaten worden geretourneerd. U vindt de VMUUID die moet worden gebruikt door het uitvoeren van de volgende query in Log Analytics: `Update | where Computer == "<machine name>"
+Voor sommige Linux-distributies, er is een [endianness](https://en.wikipedia.org/wiki/Endianness) komt niet overeen met de waarde VMUUID die afkomstig zijn van Azure Resource Manager en wat wordt opgeslagen in Log Analytics. De volgende query uit controleert een overeenkomst op een van beide endianness. Vervang de waarden VMUUID door de big endian en weinig-endian-indeling van de GUID juist de resultaten worden geretourneerd. U vindt de VMUUID die moet worden gebruikt door het uitvoeren van de volgende query in Log Analytics: `Update | where Computer == "<machine name>"
 | summarize by Computer, VMUUID`
 
 ##### <a name="missing-updates-summary"></a>Ontbrekende updates samenvatting
@@ -510,7 +512,7 @@ Omdat update verrijking updatebeheer in de cloud uitvoert, kunnen voor sommige u
 
 Updatebeheer kunnen echter nog steeds melden die machine als niet-compatibele omdat er extra informatie over de betreffende update.
 
-Implementeren van updates op updateclassificatie werkt niet op CentOS buiten het vak. Voor SUSE, selecteren *alleen* 'Andere updates' als de classificatie tot extra beveiliging leiden kan werkt ook wordt geïnstalleerd als beveiligingsupdates die betrekking hebben op zypper (Pakketbeheer) of de afhankelijkheden ervan eerst vereist zijn. Dit is een beperking van zypper. In sommige gevallen, mogelijk wordt u gevraagd opnieuw uitvoeren van de update-implementatie, om te controleren of de update-logboek te controleren.
+Implementeren van updates op updateclassificatie werkt niet op CentOS buiten het vak. Voor SUSE, selecteren *alleen* 'Andere updates' als de classificatie tot extra beveiliging leiden kan werkt ook wordt geïnstalleerd als beveiligingsupdates die betrekking hebben op zypper (Pakketbeheer) of de afhankelijkheden ervan eerst vereist zijn. Dit is een beperking van zypper. In sommige gevallen is het mogelijk dat u vereist de update-implementatie, om te controleren of Controleer het logboek van de update opnieuw uit te voeren.
 
 ## <a name="troubleshoot"></a>Problemen oplossen
 

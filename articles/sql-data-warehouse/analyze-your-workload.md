@@ -1,33 +1,33 @@
 ---
-title: Analyseer uw werkbelasting - Azure SQL Data Warehouse | Microsoft Docs
-description: Technieken voor het analyseren van de prioriteit van de query voor de werkbelasting in Azure SQL Data Warehouse.
+title: Analyseren van uw workload - Azure SQL Data Warehouse | Microsoft Docs
+description: Technieken voor het analyseren van de prioriteit van de query voor uw workload in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 6b0d39b81b72615a9522e95558a59007b10bf109
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: 4ce84e9714b580bcc243285dc1da5ae24a27e8e5
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31795354"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248090"
 ---
-# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>De werkbelasting in Azure SQL Data Warehouse analyseren
-Technieken voor het analyseren van de prioriteit van de query voor de werkbelasting in Azure SQL Data Warehouse.
+# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Analyseren van uw workload in Azure SQL Data Warehouse
+Technieken voor het analyseren van de prioriteit van de query voor uw workload in Azure SQL Data Warehouse.
 
 ## <a name="workload-groups"></a>Werkbelastinggroepen 
-SQL Data Warehouse implementeert resource klassen met behulp van werkbelastinggroepen. Er zijn een totaal van acht werkbelastinggroepen die het gedrag van de resource-klassen over de verschillende grootten van DWU controleren. Voor elke DWU SQL Data Warehouse maakt gebruik van vier van de werkbelastinggroepen acht. Deze benadering is logisch omdat elke werkbelastinggroep is toegewezen aan een van de vier resource klassen: smallrc, mediumrc, largerc, of xlargerc. Het belang van het begrijpen van de werkbelastinggroepen is dat sommige van deze werkbelastinggroepen zijn ingesteld tot hogere *belang*. Urgentie wordt gebruikt voor CPU planning. Query's uitvoeren met een hoge urgentie ophalen drie keer meer CPU-cycli dan query's uitvoeren met een gemiddeld urgentie. Daarom bepalen gelijktijdigheid sleuf toewijzingen ook voor CPU-prioriteit. Als een query 16 of meer sleuven verbruikt, voert deze als hoge urgentie.
+Resourceklassen implementeert SQL Data Warehouse met behulp van werkbelastinggroepen. Er zijn een totaal van acht werkbelastinggroepen die het gedrag van de resourceklassen via de verschillende DWU-grootten beheren. SQL Data Warehouse gebruikt voor een DWU slechts vier van de acht werkbelastinggroepen. Deze benadering is logisch, want elke werkbelastinggroep is toegewezen aan een van de vier resourceklassen: smallrc, mediumrc, largerc, of xlargerc. Het belang van informatie over de werkbelastinggroepen is dat sommige van deze werkbelastinggroepen zijn ingesteld op hoger *belang*. Prioriteit wordt gebruikt voor CPU plannen. Query's uitvoeren met hoge urgentie krijg drie keer meer CPU-cycli dan query's uitvoeren met gemiddelde urgentie. Gelijktijdigheid van taken sleuf toewijzingen bepalen daarom ook CPU-prioriteit. Wanneer een query 16 of meer sleuven verbruikt, deze wordt uitgevoerd als hoge urgentie.
 
 De volgende tabel toont de toewijzingen belang voor elke werkbelastinggroep.
 
-### <a name="workload-group-mappings-to-concurrency-slots-and-importance"></a>Groepstoewijzingen werkbelasting gelijktijdigheid sleuven en urgentie
+### <a name="workload-group-mappings-to-concurrency-slots-and-importance"></a>Groepstoewijzingen werkbelasting gelijktijdigheidssleuven en urgentie
 
-| Werkbelastinggroepen | Gelijktijdigheid sleuf toewijzing | MB / distributie (elasticiteit) | MB / distributie (berekenen) | Toewijzing van belang |
+| Werkbelastinggroepen | Gelijktijdigheid van taken sleuf toewijzing | MB / distributie (elasticiteit) | MB / distributie (rekenen) | Toewijzing van urgentie |
 |:---------------:|:------------------------:|:------------------------------:|:---------------------------:|:------------------:|
 | SloDWGroupC00   | 1                        |    100                         | 250                         | Middelgroot             |
 | SloDWGroupC01   | 2                        |    200                         | 500                         | Middelgroot             |
@@ -39,11 +39,10 @@ De volgende tabel toont de toewijzingen belang voor elke werkbelastinggroep.
 | SloDWGroupC07   | 128                      | 12,800                         | 32,000                      | Hoog               |
 | SloDWGroupC08   | 256                      | 25,600                         | 64,000                      | Hoog               |
 
-<!-- where are the allocation and consumption of concurrency slots charts? -->
-De **toewijzing en het verbruik van gelijktijdigheid sleuven** diagram toont een DW500 gebruikt 1, 4, 8 of 16 gelijktijdigheid sleuven voor smallrc, mediumrc largerc en xlargerc, respectievelijk. Als u het belang voor elke objectklasse resource zoekt, kunt u deze waarden in het voorgaande diagram opzoeken.
+<!-- where are the allocation and consumption of concurrency slots charts? --> De **toewijzing en het verbruik van gelijktijdigheidssleuven** grafiek toont een DW500 maakt gebruik van 1, 4, 8 of 16 gelijktijdigheidssleuven voor smallrc, mediumrc of largerc of xlargerc, respectievelijk. Als u het belang voor elke objectklasse resource zoekt, kunt u deze waarden in de voorgaande grafiek opzoeken.
 
-### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Toewijzing van klassen op belang resource DW500
-| Resourceklasse | Werkbelastinggroep | Gelijktijdigheid sleuven gebruikt | MB / distributie | Urgentie |
+### <a name="dw500-mapping-of-resource-classes-to-importance"></a>Toewijzing van resourceklassen belang DW500
+| Resourceklasse | Werkbelastinggroep | Gelijktijdigheidssleuven gebruikt | MB / distributie | Urgentie |
 |:-------------- |:-------------- |:----------------------:|:-----------------:|:---------- |
 | smallrc        | SloDWGroupC00  | 1                      | 100               | Middelgroot     |
 | mediumrc       | SloDWGroupC02  | 4                      | 400               | Middelgroot     |
@@ -59,7 +58,7 @@ De **toewijzing en het verbruik van gelijktijdigheid sleuven** diagram toont een
 | staticrc80     | SloDWGroupC03  | 16                     | 1,600             | Hoog       |
 
 ## <a name="view-workload-groups"></a>Groepen van de werkbelasting weergeven
-De volgende query worden details weergegeven van de geheugentoewijzing voor de resource vanuit het perspectief van de resourceregeling. Dit is handig voor het analyseren van actieve en historische informatie over het gebruik van de werkbelastinggroepen bij het oplossen.
+De volgende query geeft details weer van de geheugentoewijzing van de resource vanuit het perspectief van de resourceregeling. Dit is handig voor het analyseren van actieve en historische gebruik van de werkbelastinggroepen bij het oplossen van problemen.
 
 ```sql
 WITH rg
@@ -108,7 +107,7 @@ ORDER BY
 ```
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>In de wachtrij query detectie- en andere DMV 's
-U kunt de `sys.dm_pdw_exec_requests` DMV voor het identificeren van query's die in een wachtrij gelijktijdigheid wachten. Query's die wachten op een site gelijktijdigheid hebben de status van **onderbroken**.
+U kunt de `sys.dm_pdw_exec_requests` DMV voor het identificeren van query's die te in een wachtrij gelijktijdigheid vinden zijn. Query's die wachten op een gelijktijdigheid van taken sleuf hebben een status van **onderbroken**.
 
 ```sql
 SELECT  r.[request_id]                           AS Request_ID
@@ -121,7 +120,7 @@ FROM    sys.dm_pdw_exec_requests r
 ;
 ```
 
-Werkbelasting management-rollen kunnen worden bekeken met `sys.database_principals`.
+Werklast-beheerrollen kunnen worden bekeken met `sys.database_principals`.
 
 ```sql
 SELECT  ro.[name]           AS [db_role_name]
@@ -131,7 +130,7 @@ AND     ro.[is_fixed_role]  = 0
 ;
 ```
 
-De volgende query ziet u welke rol u elke gebruiker is toegewezen.
+De volgende query laat zien welke rol van elke gebruiker is toegewezen aan.
 
 ```sql
 SELECT  r.name AS role_principal_name
@@ -143,12 +142,12 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-SQL Data Warehouse heeft de volgende typen wachten:
+SQL Data Warehouse heeft de volgende typen wacht:
 
-* **LocalQueriesConcurrencyResourceType**: query's die zich buiten het kader van de sleuf gelijktijdigheid van taken. Functies, zoals DMV-query's en system `SELECT @@VERSION` zijn voorbeelden van lokale query's.
-* **UserConcurrencyResourceType**: query's die zich in het kader van de sleuf gelijktijdigheid van taken bevinden. Query's op tabellen van de eindgebruiker vertegenwoordigen voorbeelden die dit brontype wilt gebruiken.
-* **DmsConcurrencyResourceType**: wacht ten gevolge van data movement-bewerkingen.
-* **BackupConcurrencyResourceType**: deze wachttijd geeft aan dat een database worden back-up. De maximale waarde voor dit resourcetype is 1. Als meerdere back-ups aangevraagd op hetzelfde moment de andere wachtrij.
+* **LocalQueriesConcurrencyResourceType**: query's die zich buiten het kader van gelijktijdigheid van taken sleuf. DMV-query's en systeem functies, zoals `SELECT @@VERSION` zijn voorbeelden van lokale query's.
+* **UserConcurrencyResourceType**: query's die zich in het kader van gelijktijdigheid van taken sleuf bevinden. Query's op tabellen van de eindgebruiker vertegenwoordigen voorbeelden die dit brontype zou gebruiken.
+* **DmsConcurrencyResourceType**: wacht die voortvloeien uit bewerkingen voor gegevensverplaatsing.
+* **BackupConcurrencyResourceType**: deze wacht geeft aan dat een database back-up. De maximale waarde voor dit resourcetype is 1. Als meerdere back-ups hebt aangevraagd op hetzelfde moment, de andere wachtrij.
 
 De `sys.dm_pdw_waits` DMV kan worden gebruikt om te zien welke bronnen op een aanvraag wacht.
 
@@ -187,7 +186,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-De `sys.dm_pdw_resource_waits` DMV toont alleen de resource-wacht dat wordt gebruikt door een bepaalde query. Wachttijd resource wordt alleen de tijd die wachten op resources worden opgegeven, in plaats van de wachttijd signaal, is de tijd die nodig is voor de onderliggende SQL servers plannen van de query naar de CPU.
+De `sys.dm_pdw_resource_waits` DMV toont alleen de resource-wacht dat wordt gebruikt door een bepaalde query. Wachttijd van de resource wordt alleen de tijd die wachten op resources worden verstrekt, in plaats van de wachttijd signaal, dit de tijd die nodig zijn voor de onderliggende SQL servers is voor het plannen van de query naar de CPU.
 
 ```sql
 SELECT  [session_id]
@@ -205,7 +204,7 @@ FROM    sys.dm_pdw_resource_waits
 WHERE    [session_id] <> SESSION_ID()
 ;
 ```
-U kunt ook de `sys.dm_pdw_resource_waits` DMV berekenen hoeveel gelijktijdigheid sleuven hebben gekregen.
+U kunt ook de `sys.dm_pdw_resource_waits` DMV berekenen hoe veel gelijktijdigheidssleuven in beslag hebben gekregen.
 
 ```sql
 SELECT  SUM([concurrency_slots_used]) as total_granted_slots 
@@ -216,7 +215,7 @@ AND     [session_id]     <> session_id()
 ;
 ```
 
-De `sys.dm_pdw_wait_stats` DMV kan worden gebruikt voor analyse van de historische trend van wacht.
+De `sys.dm_pdw_wait_stats` DMV kan worden gebruikt voor trendanalyse van historische van wacht.
 
 ```sql
 SELECT   w.[pdw_node_id]
@@ -231,6 +230,6 @@ FROM    sys.dm_pdw_wait_stats w
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het beheren van databasegebruikers en beveiliging [beveiligen van een database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Zie voor meer informatie over hoe groter resource klassen kan worden verbeterd geclusterde columnstore-index kwaliteit [opnieuw opbouwen van indexen voor het segment verbeteren](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
+Zie voor meer informatie over het beheren van databasegebruikers en beveiliging [beveiligen van een database in SQL Data Warehouse](sql-data-warehouse-overview-manage-security.md). Zie voor meer informatie over hoe grotere resourceklassen geclusterde columnstore-index kwaliteit verbeteren kan, [opnieuw opbouwen van indexen voor het verbeteren van segmentkwaliteit](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality).
 
 

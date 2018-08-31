@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/18/2018
+ms.date: 08/28/2018
 ms.author: celested
 ms.custom: aaddev
-ms.reviewer: luleon
-ms.openlocfilehash: 90b8a9bd45d2c6a8551e3af84a5bfa915f4c3cea
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.reviewer: celested
+ms.openlocfilehash: c9db5169a978875cf639f6c534ce7920909c896e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39592200"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188237"
 ---
 # <a name="integrating-applications-with-azure-active-directory"></a>Toepassingen integreren met Azure Active Directory
 [!INCLUDE [active-directory-devguide](../../../includes/active-directory-devguide.md)]
@@ -112,7 +112,7 @@ Bovendien voordat een client toegang heeft tot een web-API beschikbaar is gemaak
 - Gedelegeerde machtigingen: Uw clienttoepassing moet toegang krijgen tot de web-API als de gebruiker is aangemeld, maar met de toegang beperkt door de geselecteerde machtiging. Dit type machtiging kan worden verleend door een gebruiker alleen de machtiging administrator toestemming vereist. 
 
   > [!NOTE]
-  > Een overgedragen machtiging toevoegen aan een toepassing verleent automatisch toestemming voor de gebruikers binnen de tenant. Gebruikers moeten nog steeds handmatig toestemming geven voor de toegevoegde gedelegeerde machtigingen tijdens runtime, tenzij de beheerder klikt op de **machtigingen verlenen** knop van de **vereiste machtigingen** sectie van de de pagina van de toepassing in Azure portal. 
+  > Een overgedragen machtiging toevoegen aan een toepassing verleent automatisch toestemming voor de gebruikers binnen de tenant. Gebruikers moeten nog steeds handmatig toestemming geven voor de toegevoegde gedelegeerde machtigingen tijdens runtime, tenzij de beheerder toestemming namens alle gebruikers verleent.
 
 #### <a name="to-add-application-credentials-or-permissions-to-access-web-apis"></a>Referenties van de toepassing of machtigingen voor toegang tot web-API's toe te voegen
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -121,13 +121,15 @@ Bovendien voordat een client toegang heeft tot een web-API beschikbaar is gemaak
 
    ![Registratie van een toepassing bijwerken](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration.png)
 
-4. U gaat naar de pagina belangrijkste registratie van de toepassing, die wordt geopend de **instellingen** pagina voor de toepassing. Een geheime sleutel voor de referenties van uw webtoepassing toevoegen:
+4. U gaat naar de pagina belangrijkste registratie van de toepassing, die wordt geopend de **instellingen** pagina voor de toepassing. Een referentie voor uw webtoepassing toevoegen:
   - Klik op de **sleutels** sectie op de **instellingen** pagina. 
-  - Een beschrijving voor uw sleutel toevoegen.
-  - Selecteer een of twee jaar.
-  - Klik op **Opslaan**. De meest rechtse kolom bevat de waarde van de sleutel, nadat u de wijzigingen in de configuratie hebt opgeslagen. **Zorg ervoor dat de sleutel wilt kopiëren** voor gebruik in de code van uw client-toepassing, omdat niet toegankelijk is wanneer u deze pagina verlaat.
-
-  ![Bijwerken van een toepassing registratie - sleutels](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-keys.png)
+  - Een certificaat toevoegen:
+    - Selecteer **openbare sleutel uploaden**.
+    - Selecteer het bestand dat u wilt uploaden. Dit moet een van de volgende bestandstypen: .cer, .pem, .crt.
+  - Een wachtwoord toevoegen:
+    - Een beschrijving voor uw sleutel toevoegen.
+    - Selecteer een tijdsduur.
+    - Klik op **Opslaan**. De meest rechtse kolom bevat de waarde van de sleutel, nadat u de wijzigingen in de configuratie hebt opgeslagen. **Zorg ervoor dat de sleutel wilt kopiëren** voor gebruik in de code van uw client-toepassing, omdat niet toegankelijk is wanneer u deze pagina verlaat.
 
 5. Machtigingen voor toegang tot resource-API's van uw client toevoegen
   - Klik op de **vereiste machtigingen** sectie op de **instellingen** pagina. 
@@ -141,11 +143,6 @@ Bovendien voordat een client toegang heeft tot een web-API beschikbaar is gemaak
   ![Registratie van een toepassing - machtigingen perms bijwerken](./media/quickstart-v1-integrate-apps-with-azure-ad/update-app-registration-settings-permissions-perms.png)
 
 6. Wanneer u klaar bent, klikt u op de **Selecteer** op knop **toegang inschakelen** pagina, dan zal de **gedaan** knop op de **API-toegang toevoegen** pagina. U keert terug naar de **vereiste machtigingen** pagina, waar de nieuwe resource wordt toegevoegd aan de lijst met API's.
-
-  > [!NOTE]
-  > Te klikken op de **gedaan** knop stelt de machtigingen voor uw toepassing ook automatisch in uw directory op basis van de machtigingen voor andere toepassingen die u hebt geconfigureerd. U kunt deze machtigingen van de toepassing weergeven door te kijken naar de toepassing **instellingen** pagina.
-  > 
-  > 
 
 ### <a name="configuring-a-resource-application-to-expose-web-apis"></a>Configureren van de resourcetoepassing van een om beschikbaar te stellen van web-API 's
 

@@ -1,6 +1,6 @@
 ---
-title: Rollen toewijzen voor Azure-resources met behulp van Privileged Identity Management | Microsoft Docs
-description: Beschrijft hoe u het toewijzen van rollen in PIM.
+title: Azure-resource-rollen in PIM toewijzen | Microsoft Docs
+description: Informatie over het toewijzen van rollen voor Azure-resource in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,25 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 52320fe160fc1df2997dd419b406fce24f43b786
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 7019a6f97a9590d3b652584015f3077f4ed075af
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622973"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188917"
 ---
-# <a name="assign-roles-for-azure-resources-by-using-privileged-identity-management"></a>Rollen toewijzen voor Azure-resources met behulp van Privileged Identity Management
+# <a name="assign-azure-resource-roles-in-pim"></a>Azure-resource-rollen in PIM toewijzen
+
+Azure AD PIM kunt beheren de ingebouwde Azure-resourcerollen, evenals aangepaste rollen, inclusief (maar niet beperkt tot):
+
+- Eigenaar
+- Beheerder van gebruikerstoegang
+- Inzender
+- Beveiligingsbeheerder
+- Beveiligingsbeheer en meer
+
+>[!NOTE]
+Gebruikers of leden van een groep die is toegewezen aan de rollen eigenaar of Administrator voor gebruikerstoegang en globale beheerders waarmee beheer van abonnementen in Azure AD zijn Resource-beheerders. Deze beheerders kunnen rollen toewijzen, configureren van instellingen voor de sitesysteemrol en toegang met behulp van PIM voor Azure-Resources beoordelen. De lijst weergeven met [ingebouwde rollen voor Azure-resources](../../role-based-access-control/built-in-roles.md).
 
 ## <a name="assign-roles"></a>Rollen toewijzen
 
@@ -76,3 +87,8 @@ Als u een rol in behandeling zijnde activering hebt, wordt een meldingsbanner wo
 Als u wilt wijzigen van bestaande toewijzingen uit de detailweergave van de gebruiker of groep, selecteert u **instellingen wijzigen** in de actiebalk. Het toewijzingstype naar **Just-in-time** of **Direct**.
 
 !['Gebruikersgegevens' deelvenster met de knop "Instellingen wijzigen"](media/azure-pim-resource-rbac/rbac-assign-role-manage.png)
+
+## <a name="next-steps"></a>Volgende stappen
+
+- [Azure-resource rolinstellingen in PIM configureren](pim-resource-roles-configure-role-settings.md)
+- [Azure AD-directory-rollen in PIM toewijzen](pim-how-to-add-role-to-user.md)

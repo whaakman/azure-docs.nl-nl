@@ -1,6 +1,6 @@
 ---
-title: Beveiligingswaarschuwingen configureren | Microsoft Docs
-description: Informatie over het configureren van beveiligingswaarschuwingen voor Azure Privileged Identity Management-extensie.
+title: Beveiligingswaarschuwingen voor Azure AD directory-rollen in PIM configureren | Microsoft Docs
+description: Informatie over het configureren van beveiligingswaarschuwingen voor Azure AD directory-rollen in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8df9bc7c332a83e9761ea71dddfbfbfaa3ae5154
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: fc39b6ad2dd63d45995b76011f4ebbe0228b4c2d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622150"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190388"
 ---
-# <a name="how-to-configure-security-alerts-in-azure-ad-privileged-identity-management"></a>Beveiligingswaarschuwingen in Azure AD Privileged Identity Management configureren
+# <a name="configure-security-alerts-for-azure-ad-directory-roles-in-pim"></a>Beveiligingswaarschuwingen voor Azure AD directory-rollen in PIM configureren
 ## <a name="security-alerts"></a>Beveiligingswaarschuwingen
 Azure Privileged Identity Management (PIM) genereert waarschuwingen wanneer er verdachte of unsafe activiteit in uw omgeving. Wanneer een waarschuwing wordt geactiveerd, wordt deze weergegeven op de PIM-dashboard. Selecteer de waarschuwing om te zien van een rapport met de gebruikers of rollen die de waarschuwing is geactiveerd.
 
@@ -65,4 +65,6 @@ Deze waarschuwing wordt geactiveerd wanneer een gebruiker een bepaalde hoeveelhe
 * **Aantal dagen**: Geef het aantal dagen tussen 0 en 100, die een gebruiker zonder het activeren van een rol kan raadplegen.
 
 ## <a name="next-steps"></a>Volgende stappen
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Azure AD directory rolinstellingen in PIM configureren](pim-how-to-change-default-settings.md)
+- [Meervoudige verificatie vereisen voor Azure AD directory-rollen in PIM](pim-how-to-require-mfa.md)

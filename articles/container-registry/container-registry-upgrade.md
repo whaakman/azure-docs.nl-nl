@@ -6,22 +6,26 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 08/28/2018
 ms.author: marsma
-ms.openlocfilehash: 562bd8da54605986e95d8105782ce7ebb9b359ea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 7a377c607639f5c044e689b11380e9778f9c72c8
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432385"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189018"
 ---
 # <a name="upgrade-a-classic-container-registry"></a>Een container klassiek register upgraden
 
-Azure Container Registry (ACR) is beschikbaar in verschillende Servicelagen, [wel SKU's](container-registry-skus.md). De eerste release van de ACR aangeboden een enkel SKU klassiek, die beschikt niet over de verschillende functies documentatiesysteem dat in de Basic, Standard en Premium-SKU's (gezamenlijk bekend als *beheerd* registers). Dit artikel wordt uitgelegd hoe u uw niet-beheerde Classic-register migreren naar een van de beheerde SKU's zodat u van hun uitgebreide functieset profiteren kunt.
+Azure Container Registry (ACR) is beschikbaar in verschillende Servicelagen, [wel SKU's](container-registry-skus.md). De eerste release van de ACR aangeboden een enkel SKU klassiek, die beschikt niet over de verschillende functies documentatiesysteem dat in de Basic, Standard en Premium-SKU's (gezamenlijk bekend als *beheerd* registers).
+
+De klassieke SKU wordt afgeschaft en zal na maart 2019 niet beschikbaar zijn. Dit artikel wordt uitgelegd hoe u uw niet-beheerde Classic-register migreren naar een van de beheerde SKU's zodat u van hun uitgebreide functieset profiteren kunt.
 
 ## <a name="why-upgrade"></a>Waarom een upgrade uitvoeren?
 
-Vanwege de beperkte mogelijkheden van klassieke niet-beheerde registers, wordt het aangeraden dat alle klassieke registers worden bijgewerkt naar Basic, Standard of Premium beheerde registers. De Register integreren-SKU's deze op een hoger niveau dieper in de mogelijkheden van Azure.
+De SKU wordt Classic-register **afgeschaft**, en is niet beschikbaar in **maart 2019**. Alle bestaande klassieke registers moet bijwerken vóór maart 2019.
+
+Vanwege de geplande buitengebruikstelling en beperkte mogelijkheden van klassieke niet-beheerde registers worden alle klassieke registers bijgewerkt naar Basic, Standard of Premium beheerde registers. De Register integreren-SKU's deze op een hoger niveau dieper in de mogelijkheden van Azure.
 
 Beheerde registers bieden:
 
@@ -30,7 +34,7 @@ Beheerde registers bieden:
 * [Geo-replicatie](container-registry-geo-replication.md)
 * [Webhooks](container-registry-webhook.md)
 
-Een Classic-register is bovenal, afhankelijk van het opslagaccount dat automatisch in uw Azure-abonnement ingericht bij het maken van het register. Daarentegen is de basis, standaard en Premium-SKU's profiteren van Azure [geavanceerde opslagfuncties](container-registry-storage.md) op transparante wijze de opslag van uw installatiekopieën voor u. Een afzonderlijk opslagaccount is niet gemaakt in uw eigen abonnement.
+De Classic-register, is afhankelijk van het opslagaccount dat Azure automatisch in uw Azure-abonnement inricht bij het maken van het register. Daarentegen is de basis, standaard en Premium-SKU's profiteren van Azure [geavanceerde opslagfuncties](container-registry-storage.md) op transparante wijze de opslag van uw installatiekopieën voor u. Een afzonderlijk opslagaccount is niet gemaakt in uw eigen abonnement.
 
 Beheerd register-opslag biedt de volgende voordelen:
 

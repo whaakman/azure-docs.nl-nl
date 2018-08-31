@@ -1,6 +1,6 @@
 ---
-title: Een toegangscontrole voor Azure-resources met behulp van Privileged Identity Management voltooien | Microsoft Docs
-description: Beschrijft hoe u een toegangscontrole voor Azure-resources te voltooien.
+title: Een toegangscontrole voor Azure-resource-rollen in PIM voltooien | Microsoft Docs
+description: Leer hoe u een toegangscontrole voor de Azure-resource in Azure AD Privileged Identity Management (PIM) voltooien.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: f1fc23afb41753bfe358cb05376a5ee9a07e34fd
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: f998c509e9bea65980367690a5e9d03f579b8e98
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620039"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189124"
 ---
-# <a name="complete-an-access-review-for-azure-resources-by-using-privileged-identity-management"></a>Een toegangscontrole voor Azure-resources met behulp van Privileged Identity Management voltooien
+# <a name="complete-an-access-review-for-azure-resource-roles-in-pim"></a>Een toegangscontrole voor Azure-resource-rollen in PIM voltooien
 Beheerders met bevoegdheid kunnen bekijken bevoegde toegang na een [toegangsbeoordeling is gestart](pim-resource-roles-start-access-review.md). Privileged Identity Management (PIM) voor Azure-resources verzendt automatisch een e-mailbericht dat gebruikers om te controleren van hun toegang wordt gevraagd. Als een gebruiker een e-mailbericht ontvangen heeft, kunt u ze de instructies van verzenden [hoe u een toegangscontrole uitvoeren](pim-resource-roles-perform-access-review.md).
 
 Nadat de periode van de toegangsbeoordeling is voltooid, of na alle gebruikers hebben hun eigen bekijken, volgt u de stappen in dit artikel voor het beheren van de beoordeling en bekijkt de resultaten.
@@ -60,5 +60,7 @@ Op de **resultaten** tabblad, weergeven en downloaden van een lijst van de resul
 Bekijk en revisoren toevoegen aan uw bestaande toegangsbeoordeling. Herinner revisoren hun beoordelingen te voltooien.
 ![Revisoren toevoegen](media/azure-pim-resource-rbac/rbac-access-review-reviewers.png)
 
+## <a name="next-steps"></a>Volgende stappen
 
-
+- [Een toegangscontrole voor Azure resource-rollen in PIM starten](pim-resource-roles-start-access-review.md)
+- [Een toegangscontrole van mijn Azure-resource-rollen in PIM uitvoeren](pim-resource-roles-perform-access-review.md)

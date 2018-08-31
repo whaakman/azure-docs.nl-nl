@@ -1,6 +1,6 @@
 ---
-title: Azure multi-factor Authentication in de Azure-resources wordt afgedwongen met behulp van Privileged Identity Management | Microsoft Docs
-description: Dit document wordt beschreven hoe u multi-factor authentication voor PIM-resources inschakelen.
+title: Meervoudige verificatie vereisen voor Azure-resource-rollen in PIM | Microsoft Docs
+description: Leer hoe u multi-factor authentication (MFA) vereist voor de Azure-resource in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 42c93a107c7ed58d6f7412b61627dccaf9076bb7
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 171d79856cf67dae9573dd1076c2ae4617cf86d1
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617867"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190565"
 ---
-# <a name="enforce-azure-multi-factor-authentication-in-azure-resources-by-using-privileged-identity-management"></a>Azure multi-factor Authentication in de Azure-resources wordt afgedwongen met behulp van Privileged Identity Management
+# <a name="require-multi-factor-authentication-for-azure-resource-roles-in-pim"></a>Meervoudige verificatie vereisen voor Azure-resource-rollen in PIM
 
 Privileged Identity Management (PIM) voor Azure-resourcerollen kunnen beheerders van de resource en identiteitsbeheerders ter bescherming van essentiële Azure-infrastructuur met tijdsgebonden lidmaatschap en just-in-time-toegang. PIM biedt bovendien optioneel afdwinging van Azure multi-factor Authentication voor twee verschillende scenario's.
 
@@ -59,9 +59,7 @@ Vanuit de dezelfde rol instelling detailscherm, schakel het selectievakje aan **
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Goedkeuring vereisen voor activeren](pim-resource-roles-approval-workflow.md)
-
-[Het controlelogboek gebruiken](pim-resource-roles-use-the-audit-log.md)
-
+- [Azure-resource rolinstellingen in PIM configureren](pim-resource-roles-configure-role-settings.md)
+- [Beveiligingswaarschuwingen voor Azure resource-rollen in PIM configureren](pim-resource-roles-configure-alerts.md)
 
 

@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: update-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/20/2018
+ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e06db4e356de6a4572721d1652d6a2666e7cfefc
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061347"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248138"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -154,10 +154,10 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
 
    |Optie|Beschrijving|
    |---|---|
-   |Opnieuw opstarten indien nodig| **(Standaard)**  Indien nodig, opnieuw opstarten intitated is als het onderhoudsvenster toestaat.|
+   |Opnieuw opstarten indien nodig| **(Standaard)**  Indien nodig, opnieuw opstarten wordt gestart als het onderhoudsvenster toestaat.|
    |Altijd opnieuw opstarten|Een systeem opnieuw wordt opgestart, ongeacht of deze vereist is. |
-   |Nooit opnieuw opstarten|Als een herstart vereist is, zijn opnieuw wordt opgestart ongeacht surpressed.|
-   |Alleen opnieuw opstarten - updates kan niet worden geïnstalleerd.|Deze optie wordt genegeerd installatie van updates en initieert alleen opnieuw worden opgestart.|
+   |Nooit opnieuw opstarten|Als een herstart vereist is, zijn ongeacht opnieuw opstarten onderdrukt.|
+   |Alleen opnieuw opstarten - updates worden niet geïnstalleerd|Deze optie wordt genegeerd installatie van updates en initieert alleen opnieuw worden opgestart.|
 
 Wanneer u klaar bent met het plannen, selecteert u de **maken** terug te keren naar het statusdashboard. De **geplande** tabel ziet u de implementatieplanning die u hebt gemaakt.
 

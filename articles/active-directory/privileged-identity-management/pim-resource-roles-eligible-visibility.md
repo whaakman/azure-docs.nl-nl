@@ -1,6 +1,6 @@
 ---
-title: In aanmerking komende toewijzingen en de zichtbaarheid van de resource voor Azure in Privileged Identity Management | Microsoft Docs
-description: Beschrijft hoe leden als in aanmerking komen voor de resource-rollen toewijzen bij het gebruik van PIM.
+title: In aanmerking komende toewijzingen en de zichtbaarheid van resources in PIM - Azure | Microsoft Docs
+description: Beschrijft hoe leden als in aanmerking voor Azure-resource-rollen in Azure AD Privileged Identity Management (PIM) toewijzen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 336453c1ef6ef8d0295d00f31afc6a5e7e42e8b6
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 3551c3231a94f8a844d26a713cbf171ca7653815
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621545"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189211"
 ---
-# <a name="eligible-assignments-and-resource-visibility-with-privileged-identity-management"></a>In aanmerking komende toewijzingen en de zichtbaarheid van de resource met Privileged Identity Management
+# <a name="eligible-assignments-and-resource-visibility-in-pim"></a>In aanmerking komende toewijzingen en de zichtbaarheid van resources in PIM
 
 Privileged Identity Management (PIM) voor Azure-resourcerollen biedt verbeterde beveiliging voor organisaties die essentiële Azure-resources hebben. Resource-beheerders kunnen PIM gebruiken voor het toewijzen van leden als in aanmerking komen voor de resource-rollen. Meer informatie over de van verschillende toewijzingstypen en de toewijzing voor de Azure-resource in de volgende secties. 
 
@@ -70,4 +70,4 @@ Wanneer u een lidmaatschap dat wordt vermeld in bekijkt **actieve rollen**, kunt
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Toewijzen van rollen in Privileged Identity Manager](pim-resource-roles-assign-roles.md)
+- [Azure-resource-rollen in PIM toewijzen](pim-resource-roles-assign-roles.md)

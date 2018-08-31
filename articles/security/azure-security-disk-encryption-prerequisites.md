@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/24/2018
+ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 4fb0cf61d88a9a3d44091e49f501ef7af0f213d4
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
-ms.translationtype: MT
+ms.openlocfilehash: d248a97235ead134f29e468aaafcd04211590e02
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887077"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247487"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Vereisten voor Azure Disk Encryption 
  In dit artikel, de vereisten voor Azure Disk Encryption, wordt beschreven welke items die worden voldaan moet voordat u Azure Disk Encryption kunt gebruiken. Azure Disk Encryption is geïntegreerd met [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) voor het beheer van versleutelingssleutels. U kunt [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), of de [Azure-portal](https://portal.azure.com) Azure Disk Encryption te configureren.
@@ -74,20 +74,18 @@ Een voorbeeld van de opdrachten die kan worden gebruikt om de gegevensschijven k
         - PowerShellGet, Azure PowerShell installeren en laden van de AzureRM-module. 
     - [Installeren en configureren van Azure Powershell in macOS en Linux](/powershell/azure/install-azurermps-maclinux).
         -  PowerShell Core, Azure PowerShell voor .NET Core, installeren en laden van de AzureRM.Netcore-module.
-2. Installeer de [Azure Active Directory PowerShell-module](/powershell/azure/active-directory/install-adv2#installing-the-azure-ad-module). 
+
+2. Controleer of de geïnstalleerde versies van de AzureRM-module. Indien nodig, [bijwerken van de Azure PowerShell-module](/powershell/azure/install-azurerm-ps#update-the-azure-powershell-module).
+    -  De versie van de AzureRM-module moet 6.0.0 of hoger.
+    - Gebruik de meest recente versie van de AzureRM-module wordt aanbevolen.
 
      ```powershell
-     Install-Module AzureAD
+     Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
      ```
 
-3. Controleer of de geïnstalleerde versies van de modules.
-      ```powershell
-      Get-Module AzureRM -ListAvailable | Select-Object -Property Name,Version,Path
-      Get-Module AzureAD -ListAvailable | Select-Object -Property Name,Version,Path
-      ```
-4. Aanmelden bij Azure met de [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
+3. Aanmelden bij Azure met de [Connect-AzureRmAccount](/powershell/module/azurerm.profile/connect-azurermaccount) cmdlet.
      
-     ```powershell
+     ```azurepowershell-interactive
      Connect-AzureRmAccount
      # For specific instances of Azure, use the -Environment parameter.
      Connect-AzureRmAccount –Environment (Get-AzureRmEnvironment –Name AzureUSGovernment)
@@ -99,13 +97,7 @@ Een voorbeeld van de opdrachten die kan worden gebruikt om de gegevensschijven k
      Set-AzureRmContext -SubscriptionId "xxxx-xxxx-xxxx-xxxx"
      ```
 
-5.  Verbinding maken met Azure AD [Connect-AzureAD](/powershell/module/azuread/connect-azuread).
-     
-     ```powershell
-     Connect-AzureAD
-     ```
-
-6. Beoordeling [aan de slag met Azure PowerShell](/powershell/azure/get-started-azureps) en [AzureAD](/powershell/module/azuread), indien nodig.
+4.  Indien nodig, Bekijk [aan de slag met Azure PowerShell](/powershell/azure/get-started-azureps).
 
 ## <a name="bkmk_CLI"></a> Installeer de Azure CLI voor gebruik op uw lokale computer (optioneel)
 

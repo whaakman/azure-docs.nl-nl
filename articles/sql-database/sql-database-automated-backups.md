@@ -11,12 +11,12 @@ ms.workload: Active
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ac548d90d5a5ed931dc199b6fed52c7cd8f25239
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: ce7c41730bec4e014225fb8c744d029493f5ec2c
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060851"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246783"
 ---
 # <a name="learn-about-automatic-sql-database-backups"></a>Meer informatie over automatische back-ups van SQL-Database
 
@@ -26,7 +26,7 @@ SQL Database automatisch maakt databaseback-ups en geografisch redundante opslag
 
 ## <a name="what-is-a-sql-database-backup"></a>Wat is er een back-up van SQL Database?
 
-SQL-Database maakt gebruik van SQL Server-technologie maken [volledige](https://msdn.microsoft.com/library/ms186289.aspx), [differentiële](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server), en [transactielogboek](https://msdn.microsoft.com/library/ms191429.aspx) back-ups voor de doeleinden van Point in time restore (PITR). De transactielogboekback-ups meestal elke 5-10 minuten en plaatsvinden differentiële back-ups in het algemeen elke 12 uur, met de frequentie op basis van het prestatieniveau en de hoeveelheid activiteit in een database. Transactielogboekback-ups, met volledige en differentiële back-ups, kunnen u een database herstellen naar een specifieke point-in-time op dezelfde server die als host fungeert voor de database. De volledige en differentiële databaseback-ups worden ook gerepliceerd naar een [gekoppeld datacenter](../best-practices-availability-paired-regions.md) voor bescherming tegen een storing in een datacenter. Wanneer u een database herstelt, wordt de service zoekt uit welke volledige, differentiële en transactie-logboek back-ups moeten worden teruggezet.
+SQL-Database maakt gebruik van SQL Server-technologie maken [volledige](https://msdn.microsoft.com/library/ms186289.aspx), [differentiële](https://docs.microsoft.com/sql/relational-databases/backup-restore/differential-backups-sql-server), en [transactielogboek](https://msdn.microsoft.com/library/ms191429.aspx) back-ups voor de doeleinden van Point in time restore (PITR). De transactielogboekback-ups meestal elke 5-10 minuten en plaatsvinden differentiële back-ups in het algemeen elke 12 uur, met de frequentie op basis van het prestatieniveau en de hoeveelheid activiteit in een database. Transactielogboekback-ups, met volledige en differentiële back-ups, kunnen u een database herstellen naar een specifieke point-in-time op dezelfde server die als host fungeert voor de database. De back-ups worden opgeslagen in de RA-GRS-opslag-blobs die worden gerepliceerd naar een [gekoppeld Datacenter](../best-practices-availability-paired-regions.md) voor bescherming tegen een storing in het datacenter. Wanneer u een database herstelt, wordt de service zoekt uit welke volledige, differentiële en transactie-logboek back-ups moeten worden teruggezet.
 
 
 U kunt deze back-ups te gebruiken:

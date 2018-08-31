@@ -1,6 +1,6 @@
 ---
-title: Tekst samenvoegen cognitieve zoeken kwalificatie (Azure Search) | Microsoft Docs
-description: Tekst van een verzameling van velden samenvoegen in één geconsolideerde veld. Gebruik deze cognitieve kwalificatie in een Azure Search verrijking-pijplijn.
+title: Tekst samenvoegen cognitief zoeken vaardigheid (Azure Search) | Microsoft Docs
+description: Tekst uit een verzameling van velden samenvoegen in één geconsolideerde veld. Gebruik deze cognitieve vaardigheden in een Azure Search verrijking-pijplijn.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,19 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: ba779ebcbc791f9caa60948feeb38b88a23ef379
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d90a9f8bd32924eef6533e602957aa1704cfdae9
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34640659"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190470"
 ---
-#    <a name="text-merge-cognitive-skill"></a>Tekst samenvoegen cognitieve kwalificatie
+#    <a name="text-merge-cognitive-skill"></a>Tekst samenvoegen cognitieve vaardigheden
 
-De **tekst samenvoegen** kwalificatie consolideert tekst uit een verzameling van velden in één veld. 
+De **tekst samenvoegen** vaardigheid consolideert tekst uit een verzameling van velden in één veld. 
 
 ## <a name="odatatype"></a>@odata.type  
-Microsoft.Skills.Util.TextMerger
+Microsoft.Skills.Text.MergeSkill
 
 ## <a name="skill-parameters"></a>Kwalificatie parameters
 
@@ -30,12 +30,12 @@ Parameters zijn hoofdlettergevoelig.
 
 | Parameternaam     | Beschrijving |
 |--------------------|-------------|
-| insertPreTag  | Tekenreeks die moet worden opgenomen voor elke invoegen. De standaardwaarde is `" "`. Als u wilt weglaten de ruimte, kunt u de waarde instelt op `""`.  |
-| insertPostTag | Tekenreeks die moet worden opgenomen na elke invoegen. De standaardwaarde is `" "`. Als u wilt weglaten de ruimte, kunt u de waarde instelt op `""`.  |
+| insertPreTag  | Tekenreeks die moet worden opgenomen voor elke invoegen. De standaardwaarde is `" "`. Als u wilt de ruimte weglaat, stelt u de waarde in op `""`.  |
+| insertPostTag | Tekenreeks die moet worden opgenomen na elke invoegen. De standaardwaarde is `" "`. Als u wilt de ruimte weglaat, stelt u de waarde in op `""`.  |
 
 
-##  <a name="sample-input"></a>Voorbeeldinvoer
-Een JSON-document bieden van bruikbare invoer voor deze kwalificatie mogelijk:
+##  <a name="sample-input"></a>Van Voorbeeldinvoer
+Een JSON-document bieden van bruikbare invoer voor deze kwalificatie kan worden:
 
 ```json
 {
@@ -54,7 +54,7 @@ Een JSON-document bieden van bruikbare invoer voor deze kwalificatie mogelijk:
 ```
 
 ##  <a name="sample-output"></a>Voorbeelduitvoer
-In dit voorbeeld ziet u de uitvoer van de vorige input, ervan uitgaande dat de *insertPreTag* is ingesteld op `" "`, en *insertPostTag* is ingesteld op `""`. 
+In dit voorbeeld ziet u de uitvoer van de vorige invoer, ervan uitgaande dat de *insertPreTag* is ingesteld op `" "`, en *insertPostTag* is ingesteld op `""`. 
 
 ```json
 {
@@ -70,11 +70,11 @@ In dit voorbeeld ziet u de uitvoer van de vorige input, ervan uitgaande dat de *
 }
 ```
 
-## <a name="extended-sample-skillset-definition"></a>Uitgebreide voorbeeld vaardigheden definitie
+## <a name="extended-sample-skillset-definition"></a>Uitgebreide voorbeelddefinitie voor vaardigheden
 
-Een gebruikelijk scenario voor het gebruik van tekst samenvoegen is het samenvoegen van de tekstweergave van installatiekopieën (tekst uit een kwalificatie OCR of het bijschrift van een afbeelding) in het veld inhoud van een document. 
+Een veelvoorkomend scenario voor het gebruik van tekst samenvoegen is om samen te voegen van de tekstweergave van installatiekopieën (tekst uit een OCR-vaardigheden of het bijschrift van een installatiekopie) in het veld inhoud van een document. 
 
-Het volgende voorbeeld vaardigheden gebruikt de kwalificatie OCR voor tekst ophalen uit de afbeeldingen die zijn ingesloten in het document. Vervolgens wordt het maken van een *merged_text* veld bevat zowel oorspronkelijke als OCRed tekst van elke installatiekopie. 
+De vaardigheden van het volgende voorbeeld maakt gebruik van de OCR-vaardigheden om tekst te extraheren uit in het document ingesloten afbeeldingen. Vervolgens maakt u er een *merged_text* veld naar het oorspronkelijke zowel OCRed tekst van elke afbeelding bevatten. 
 
 ```json
 {
@@ -101,7 +101,7 @@ Het volgende voorbeeld vaardigheden gebruikt de kwalificatie OCR voor tekst opha
         ]
     },
     {
-      "@odata.type": "#Microsoft.Skills.Util.TextMerger",
+      "@odata.type": "#Microsoft.Skills.Text.MergeSkill",
       "description": "Create merged_text, which includes all the textual representation of each image inserted at the right location in the content field.",
       "context": "/document",
       "insertPreTag": " ",
@@ -143,5 +143,5 @@ Het bovenstaande voorbeeld wordt ervan uitgegaan dat een veld genormaliseerd ins
 ## <a name="see-also"></a>Zie ook
 
 + [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md)
-+ [Het definiëren van een vaardigheden](cognitive-search-defining-skillset.md)
-+ [Maak indexeerfunctie (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
++ [Indexeerfunctie (REST) maken](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

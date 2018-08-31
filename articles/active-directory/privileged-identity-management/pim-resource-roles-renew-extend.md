@@ -1,6 +1,6 @@
 ---
-title: Uitbreiden en rollen in Azure-resources met behulp van Privileged Identity Management controleren | Microsoft Docs
-description: Dit document wordt beschreven hoe u kunt uitbreiden en vernieuwen van Azure-resourcerollen voor PIM-resources.
+title: Azure-resource-rollen in PIM verlengen of vernieuwen | Microsoft Docs
+description: Leer hoe u Azure-resource-rollen in Azure AD Privileged Identity Management (PIM) verlengen of vernieuwen.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7eb30f895214ff7d5a1607fc7e477d3d876a6fc1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 2c85c5bbbd4c152113108e0fdb717d23f85f9fde
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617520"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189647"
 ---
-# <a name="extend-and-review-roles-in-azure-resources-by-using-privileged-identity-management"></a>Uitbreiden en rollen in Azure-resources bekijken met behulp van Privileged Identity Management
+# <a name="extend-or-renew-azure-resource-roles-in-pim"></a>Azure-resource-rollen in PIM verlengen of vernieuwen
 
 Privileged Identity Management (PIM) voor Azure-resources introduceert nieuwe besturingselementen voor het beheren van de levenscyclus van toegang en de toewijzing voor Azure-resources. Beheerders kunnen lidmaatschap met behulp van begin- en datum / tijd-eigenschappen toewijzen. Wanneer het einde van de toewijzing nadert, verzonden PIM e-mailmeldingen naar de betrokken gebruikers of groepen. Het verzendt ook e-mailmeldingen voor beheerders van de resource om ervoor te zorgen dat de juiste toegang wordt bijgehouden. Toewijzingen kunnen worden vernieuwd en blijven zichtbaar is in een verlopen gedurende maximaal 30 dagen, zelfs als de toegang niet is uitgebreid.
 
@@ -131,8 +131,5 @@ Om weer te geven van een lijst van alle roltoewijzingen, is verlopen op de **led
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Goedkeuring vereisen voor activeren](pim-resource-roles-approval-workflow.md)
-
-[Een rol activeren](pim-resource-roles-use-the-audit-log.md)
-
-
+- [Goedkeuren of weigeren van aanvragen voor Azure-resource-rollen in PIM](pim-resource-roles-approval-workflow.md)
+- [Azure-resource rolinstellingen in PIM configureren](pim-resource-roles-configure-role-settings.md)

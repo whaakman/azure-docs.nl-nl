@@ -1,8 +1,20 @@
----Gegevens titel: een Contoso-app voor on-premises Rehost door te migreren naar Azure VM's en Azure SQL Database Managed Instance | Microsoft-Docs-beschrijving: informatie over hoe Contoso naamconflicten met een on-premises app op Azure Virtual machines en met behulp van Azure SQL Database Managed Instance.
-Services: site recovery-auteur: rayne wiselman manager: carmonm ms.service: site recovery ms.topic: conceptueel ms.date: 08/13/2018 ms.author: raynew
-
 ---
-
+title: Een on-premises Contoso app rehost door te migreren naar Azure VM's en Azure SQL Database Managed Instance | Microsoft Docs
+description: Meer informatie over hoe Contoso naamconflicten met een on-premises app op Azure Virtual machines en met behulp van Azure SQL Database Managed Instance.
+services: site-recovery
+author: rayne-wiselman
+manager: carmonm
+ms.service: site-recovery
+ms.topic: conceptual
+ms.date: 08/29/2018
+ms.author: raynew
+ms.openlocfilehash: f2d951a5d1b0add59e6b233fd6bc146ec54034b4
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189462"
+---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-an-azure-vm-and-sql-database-managed-instance"></a>Migratie van Contoso: een on-premises-app op een virtuele machine van Azure en SQL Database Managed Instance Rehost
 
 In dit artikel, Contoso zijn app SmartHotel migreert front-end virtuele machine met een Azure-VM met behulp van de Azure Site Recovery-service. Contoso wordt ook de app-database migreert naar Azure SQL Database Managed Instance.
@@ -13,38 +25,28 @@ In dit artikel, Contoso zijn app SmartHotel migreert front-end virtuele machine 
 In dit artikel is een in een reeks artikelen die documenten hoe het fictieve bedrijf Contoso de on-premises bronnen naar de Microsoft Azure-cloud migreert. De serie bevat achtergrondinformatie en een aantal scenario's die laten zien hoe u een migratie-infrastructuur instellen en uitvoeren van verschillende typen migraties. Scenario's toeneemt in complexiteit. Artikelen wordt toegevoegd aan de reeks na verloop van tijd.
 
 
-Artikel | Details | Status
+**Artikel** | **Details** | **Status**
 --- | --- | ---
-[Artikel 1: overzicht](contoso-migration-overview.md) | Overzicht van de strategie voor de migratie van Contoso, de artikel-serie en de voorbeeld-apps die worden gebruikt in de reeks. | Beschikbaar
-[Artikel 2: Een Azure-infrastructuur implementeren](contoso-migration-infrastructure.md) | Contoso bereidt u de on-premises infrastructuur en de Azure-infrastructuur voor migratie. Dezelfde infrastructuur wordt gebruikt voor alle migratieartikelen in de reeks. | Beschikbaar
-[Artikel 3: Evalueer on-premises bronnen voor migratie naar Azure](contoso-migration-assessment.md) | Contoso wordt uitgevoerd een evaluatie van de on-premises twee lagen SmartHotel app die wordt uitgevoerd op VMware. Contoso beoordeelt virtuele machines van app met behulp van de [Azure Migrate](migrate-overview.md) service. Contoso beoordeelt de app SQL Server-database met behulp van [Data Migration Assistant](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017). | Beschikbaar
-Artikel 4: Opnieuw hosten van een app op een Azure-VM en het beheerde exemplaar van SQL Database | Contoso wordt een lift-and-shift-migratie naar Azure voor de on-premises SmartHotel app uitgevoerd. Contoso worden gemigreerd van de app front-end virtuele machine met behulp van [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso de app-database migreert naar een Azure SQL Database Managed Instance met behulp van de [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | In dit artikel
-[Artikel 5: Een app op Azure VM's opnieuw hosten](contoso-migration-rehost-vm.md) | Contoso migreert zijn app SmartHotel virtuele machines naar Azure-VM's met behulp van de Site Recovery-service. | Beschikbaar
+[Artikel 1: overzicht](contoso-migration-overview.md) | Overzicht van de serie artikelen, strategie voor de migratie van Contoso en de voorbeeld-apps die worden gebruikt in de reeks. | Beschikbaar
+[Artikel 2: Azure-infrastructuur implementeren](contoso-migration-infrastructure.md) | Contoso bereidt u de on-premises infrastructuur en de Azure-infrastructuur voor migratie. Dezelfde infrastructuur wordt gebruikt voor alle migratieartikelen in de reeks. | Beschikbaar
+[Artikel 3: Evalueer on-premises bronnen voor migratie naar Azure](contoso-migration-assessment.md)  | Contoso wordt uitgevoerd een evaluatie van de on-premises SmartHotel-app die wordt uitgevoerd op VMware. Contoso beoordeelt virtuele machines van app met behulp van de Azure Migrate-service en de app SQL Server-database met behulp van Data Migration Assistant. | Beschikbaar
+Artikel 4: Opnieuw hosten van een app op een Azure-VM en het beheerde exemplaar van SQL Database | Contoso wordt een lift-and-shift-migratie naar Azure voor de on-premises SmartHotel app uitgevoerd. Contoso migreert u de app front-end virtuele machine via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso de app-database migreert naar een Azure SQL Database Managed Instance met de [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | In dit artikel  
+[Artikel 5: Een app op Azure VM's opnieuw hosten](contoso-migration-rehost-vm.md) | De VM's van de SmartHotel app migreert Contoso naar Azure-VM's met behulp van de Site Recovery-service. | Beschikbaar
 [Artikel 6: Een app op Azure Virtual machines en in een SQL Server AlwaysOn-beschikbaarheidsgroep opnieuw hosten](contoso-migration-rehost-vm-sql-ag.md) | De app SmartHotel, Contoso worden gemigreerd. Contoso maakt gebruik van Site Recovery voor het migreren van de VM's van de app. De Database Migration Service wordt gebruikt voor het migreren van de app-database naar een SQL Server-cluster dat wordt beveiligd door een AlwaysOn-beschikbaarheidsgroep. | Beschikbaar
-[Artikel 7: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Contoso is een lift-and-shift-migratie van de app Linux osTicket virtuele Azure-machines met behulp van Site Recovery voltooid. | Beschikbaar
-[Artikel 8: Een Linux-app op Azure VM's en Azure Database for MySQL Rehost](contoso-migration-rehost-linux-vm-mysql.md) | Contoso migreert de Linux-osTicket-app naar Azure-VM's met behulp van Site Recovery. Deze migreert de app-database naar Azure Database for MySQL via MySQL Workbench. | Beschikbaar
-[Artikel 9: Een app in een Azure-web-app en Azure SQL Database herstructureren](contoso-migration-refactor-web-app-sql.md) | Contoso zijn app SmartHotel migreert naar een Azure-web-app en de app-database migreert naar een Azure SQL Server-exemplaar. | Beschikbaar
-[Artikel 10: Een Linux-app in een Azure-web-app en de Azure Database for MySQL herstructureren](contoso-migration-refactor-linux-app-service-mysql.md) | De Linux-app osTicket migreert Contoso naar een Azure-web-app op meerdere sites. De web-app is geïntegreerd met GitHub voor continue levering. Contoso migreert de app-database naar een Azure Database for MySQL-exemplaar. | Beschikbaar
-[Artikel 11: Herstructureren Team Foundation Server in Visual Studio teamservices](contoso-migration-tfs-vsts.md) | Contoso worden gemigreerd van de on-premises Team Foundation Server-implementatie door te migreren naar Visual Studio Team Services in Azure. | Beschikbaar
-[Artikel 12: Opnieuw ontwerpen van een app in Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso zijn app SmartHotel is gemigreerd naar Azure en rearchitects vervolgens de app. Contoso-rearchitects van de laag van de web-app als een Windows-container en rearchitects van de app-database met behulp van Azure SQL Database. | Beschikbaar
-[Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service, Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar
+[Artikel 7: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Contoso een lift-and-shift-migratie van de app van de osTicket Linux Azure-virtuele machines, met behulp van Azure Site Recovery is voltooid | Beschikbaar
+[Artikel 8: Een Linux-app op Azure VM's en Azure MySQL-Server opnieuw hosten](contoso-migration-rehost-linux-vm-mysql.md) | Contoso de osTicket Linux app overzet naar virtuele Azure-machines met Azure Site Recovery en de app-database migreert naar een Azure MySQL-Server-exemplaar met behulp van MySQL Workbench. | Beschikbaar
+[Artikel 9: Een app op Azure Web Apps en Azure SQL database herstructureren](contoso-migration-refactor-web-app-sql.md) | Contoso-de app SmartHotel migreert naar een Azure-Web-App en de app-database migreert naar een Azure SQL Server-exemplaar met Database Migration Assistant | Beschikbaar
+[Artikel 10: Een Linux-app op Azure-Web-Apps en Azure MySQL herstructureren](contoso-migration-refactor-linux-app-service-mysql.md) | De Linux-app osTicket migreert Contoso naar een Azure-web-app op meerdere Azure-regio's met behulp van Azure Traffic Manager, geïntegreerd met GitHub voor continue levering. Contoso migreert de app-database naar een Azure Database for MySQL-exemplaar. | Beschikbaar 
+[Artikel 11: Herstructureren TFS op VSTS](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Visual Studio Team Services in Azure. | Beschikbaar
+[Artikel 12: Opnieuw ontwerpen van een app op Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en de database met Azure SQL Database. | Beschikbaar
+[Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar
+
+
+
 
 U kunt de voorbeeldapp SmartHotel die wordt gebruikt in dit artikel downloaden [GitHub](https://github.com/Microsoft/SmartHotel360).
 
-## <a name="on-premises-architecture"></a>On-premises-architectuur
 
-
-In dit diagram ziet u de huidige on-premises infrastructuur voor Contoso:
-
-![Huidige Contoso-architectuur](./media/contoso-migration-rehost-vm-sql-managed-instance/contoso-architecture.png)  
-
-- Contoso heeft een belangrijkste datacenter. Het datacenter bevindt zich in de plaats van New York in het oostelijk deel van de Verenigde Staten.
-- Contoso heeft drie extra lokale branches in de Verenigde Staten.
-- Het belangrijkste datacenter is verbonden met internet met een fiber Metro Ethernet-verbinding (500 MBps).
-- Elke vertakking is lokaal verbonden met het internet met behulp van kwalitatief hoogwaardige verbindingen met IPsec VPN-tunnels terug naar het primaire datacenter. De installatie, kan de hele netwerk van Contoso permanent zijn verbonden en optimaliseert de verbinding met internet.
-- Het belangrijkste datacenter is volledig gevirtualiseerd met VMware. Contoso heeft twee ESXi 6.5-virtualisatiehosts die worden beheerd door vCenter Server 6.5.
-- Contoso maakt gebruik van Active Directory voor identiteitsbeheer. Contoso maakt gebruik van DNS-servers in het interne netwerk.
-- De domeincontrollers in het datacenter worden uitgevoerd op virtuele VMware-machines. De domeincontrollers op lokale branches uitgevoerd op fysieke servers.
 
 ## <a name="business-drivers"></a>Zakelijke drijfveren
 
@@ -64,19 +66,67 @@ Het Contoso-cloud-team heeft de doelstellingen voor deze migratie geïdentificee
 - Beheertaken voor de database moeten worden geminimaliseerd nadat de app is gemigreerd.
 - Contoso wilt niet dat met een Azure SQL Database voor deze app. Er op zoek naar alternatieven.
 
-## <a name="proposed-architecture"></a>Voorgestelde architectuur
 
-In dit scenario geldt het volgende:
+## <a name="solution-design"></a>Het ontwerp van oplossing
 
-- Contoso wil de twee lagen on-premises reis-app migreren.
-- De app is gelaagd over twee virtuele machines (**WEBVM** en **SQLVM**) en bevindt zich op een VMware ESXi-host met versie 6.5 (**contosohost1.contoso.com**). 
+Na het vastmaken omlaag hun doelstellingen en vereisten, Contoso ontwerpen en beoordelingen van een implementatieoplossing, en identificeert het migratieproces, met inbegrip van de Azure-services die worden gebruikt voor de migratie.
+
+### <a name="current-architecture"></a>Huidige architectuur 
+
+- Contoso heeft een hoofddatacenter (**contoso-datacenter**). Het datacenter bevindt zich in de plaats van New York in het oostelijk deel van de Verenigde Staten.
+- Contoso heeft drie extra lokale branches in de Verenigde Staten.
+- Het belangrijkste datacenter is verbonden met internet met een fiber Metro Ethernet-verbinding (500 MBps).
+- Elke vertakking is lokaal verbonden met het internet met behulp van kwalitatief hoogwaardige verbindingen met IPsec VPN-tunnels terug naar het primaire datacenter. De installatie, kan de hele netwerk van Contoso permanent zijn verbonden en optimaliseert de verbinding met internet.
+- Het belangrijkste datacenter is volledig gevirtualiseerd met VMware. Contoso heeft twee ESXi 6.5-virtualisatiehosts die worden beheerd door vCenter Server 6.5.
+- Contoso maakt gebruik van Active Directory voor identiteitsbeheer. Contoso maakt gebruik van DNS-servers in het interne netwerk.
+- Contoso heeft een on-premises domeincontroller (**contosodc1**).
+- De domeincontrollers worden uitgevoerd op virtuele VMware-machines. De domeincontrollers op lokale branches uitgevoerd op fysieke servers.
+- De SmartHotel-app is gelaagd over twee virtuele machines (**WEBVM** en **SQLVM**) die zich op een VMware ESXi-host met versie 6.5 (**contosohost1.contoso.com**). 
 - De VMware-omgeving wordt beheerd door vCenter Server 6.5 (**vcenter.contoso.com**) die worden uitgevoerd op een virtuele machine.
-- Contoso worden gemigreerd van de app-database (**SmartHotelDB**) naar een Azure SQL Database Managed Instance.
-- Contoso migreert de on-premises VMware-machines naar een Azure-VM.
-- Contoso heeft een on-premises datacenter (**contoso-datacenter**) en een on-premises domeincontroller (**contosodc1**).
+
+![Huidige Contoso-architectuur](./media/contoso-migration-rehost-vm-sql-managed-instance/contoso-architecture.png)  
+
+### <a name="proposed-architecture"></a>Voorgestelde architectuur
+
+In dit scenario wil Contoso voor het migreren van de twee lagen on-premises reis-app als volgt:
+
+- Migreren van de app-database (**SmartHotelDB**) naar een Azure SQL Database Managed Instance.
+- Migreren van de front-end **WebVM** met een Azure-VM.
 - De on-premises machines in het Contoso-datacenter wordt gesteld wanneer de migratie is voltooid.
 
 ![Scenario-architectuur](media/contoso-migration-rehost-vm-sql-managed-instance/architecture.png) 
+
+### <a name="database-considerations"></a>Database-overwegingen
+
+Contoso heeft als onderdeel van het ontwerpproces, een vergelijking tussen Azure SQL Database en SQL Server Managed Instance. De volgende overwegingen kon ze om te bepalen aan de slag met Managed Instance.
+
+- Beheerd exemplaar is erop gericht om te leveren bijna 100% compatibiliteit met de meest recente on-premises SQL Server-versie. Microsoft raadt aan voor het beheerde exemplaar voor klanten die on-premises SQL Server of op IaaS-VM die willen hun apps migreren naar een volledig beheerde service met minimale wijzigingen.
+- Contoso is van plan om te migreren van een groot aantal apps van on-premises naar IaaS. Veel van deze zijn ISV opgegeven. Contoso beseft dat gebruik van Managed Instance zorgt u voor de compatibiliteit van de database voor deze apps, in plaats van met behulp van SQL-Database die wordt mogelijk niet ondersteund.
+- Contoso kan gewoon een lift-and-shift-migratie naar Managed Instance met behulp van de volledig geautomatiseerde Data Migration Service (DMS). Met deze service in plaats, Contoso deze opnieuw kunt gebruiken voor toekomstige database-migraties.
+- SQL Managed Instance biedt ondersteuning voor SQL Server Agent die een belangrijk probleem voor de app SmartHotel is. Contoso moet deze compatibiliteit, anders wordt er opnieuw wilt vormgeven, onderhoudsplannen vereist zijn voor de app.
+- Contoso kan hun bestaande licenties voor de kortingstarieven in een SQL Database Managed Instance met Azure Hybrid Benefit voor SQL Server uitwisselen met Software Assurance. Hierdoor kan Contoso om op te slaan tot 30% op Managed Instance.
+- Beheerd exemplaar is volledig zijn opgenomen in het virtuele netwerk, zodat er een hoge mate van isolatie en beveiliging van gegevens van Contoso. Contoso kan profiteren van de openbare cloud, terwijl de omgeving die geïsoleerd van het openbare Internet.
+- Beheerd exemplaar biedt ondersteuning voor veel beveiligingsfuncties, inclusief altijd versleuteld, dynamische gegevensmaskering, beveiliging op rijniveau en detectie van bedreigingen.
+
+
+### <a name="solution-review"></a>Beoordelingen van oplossing
+
+Contoso evalueert het ontwerp van de voorgestelde door het samenstellen van een lijst met voor- en nadelen.
+
+**Overweging** | **Details**
+--- | ---
+**Professionals** |  WEBVM wordt verplaatst naar Azure zonder wijzigingen, waardoor de migratie eenvoudig.<br/><br/> SQL Managed Instance biedt ondersteuning voor de technische vereisten en de doelstellingen van Contoso.<br/><br/> Beheerd exemplaar biedt 100% compatibiliteit met de huidige implementatie, terwijl u ze verplaatst van SQL Server 2008 R2.<br/><br/>  Ze kunnen gebruikmaken van hun investering in Software Assurance en het gebruik van de Azure Hybrid Benefit forSQL Server en Windows Server.<br/><br/> Opnieuw kan worden gebruikt de Database Migration Service voor extra toekomstige migraties.<br/><br/> Beheerd exemplaar van SQL heeft ingebouwde fouttolerantie die Contoso hoeft niet te configureren. Dit zorgt ervoor dat de gegevenslaag niet langer een single point of failover is.
+**Nadelen** | De WEBVM wordt Windows Server 2008 R2 uitgevoerd.  Hoewel dit besturingssysteem wordt ondersteund door Azure, is het niet langer ondersteund platform. [Meer informatie](https://support.microsoft.com/en-us/help/956893).<br/><br/> De weblaag blijft een single point of failover met alleen WEBVM met services.<br/><br/> Contoso moet doorgaan met ondersteuning van de laag van de web-app als een virtuele machine, in plaats van verplaatsen naar een beheerde service, zoals Azure App Service.<br/><br/> Voor de gegevenslaag Managed Instance mogelijk niet de beste oplossing als Contoso wilt aanpassen van het besturingssysteem of de database-server, of als ze willen uitvoeren van apps van derden samen met SQL Server. Met SQL Server op een IaaS-VM, kan deze flexibiliteit bieden. 
+
+### <a name="migration-process"></a>Migratieproces
+
+Contoso wordt de web- en gegevenslagen van de app SmartHotel migreren naar Azure door deze stappen te voltooien:
+
+1. Contoso heeft al de Azure-infrastructuur aanwezig is, zodat deze moet een aantal specifieke Azure-onderdelen voor dit scenario toevoegen.
+2. De gegevenslaag worden, gemigreerd met behulp van de Data Migration Service. De Data Migration Service maakt verbinding met de on-premises SQL Server-VM via een site-naar-site VPN-verbinding tussen de Contoso-datacenter en Azure. De Data Migration Service migreert vervolgens de database.
+3. De weblaag worden, met behulp van een lift-and-shift-migratie met behulp van Site Recovery gemigreerd. Het proces omvat het voorbereiden van de on-premises VMware-omgeving, instellen en inschakelen van replicatie en de virtuele machines met failover naar Azure migreren.
+
+     ![Migratiearchitectuur](media/contoso-migration-rehost-vm-sql-managed-instance/migration-architecture.png) 
 
 ### <a name="azure-services"></a>Azure-services
 
@@ -86,15 +136,7 @@ Service | Beschrijving | Kosten
 [Beheerd exemplaar voor Azure SQL Database](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance) | Managed Instance is een beheerde databaseservice die staat voor een volledig beheerde SQL Server-exemplaar in de Azure-cloud. Het maakt gebruik van dezelfde code als de meest recente versie van SQL Server Database Engine en heeft de nieuwste functies, prestatieverbeteringen en beveiligingspatches. | Met behulp van een SQL Database Managed Instance die wordt uitgevoerd in Azure, worden kosten in rekening gebracht op basis van capaciteit. Meer informatie over [prijzen van Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/). 
 [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/) | De service Site Recovery coördineert en beheert de migratie en herstel na noodgevallen voor Azure-VM's en on-premises virtuele machines en fysieke servers.  | Tijdens de replicatie naar Azure, rekening Azure Storage-kosten in gebracht.  Azure-VM's worden gemaakt en kosten in rekening gebracht wanneer een failover optreedt. Meer informatie over [Site Recovery-kosten en prijzen](https://azure.microsoft.com/pricing/details/site-recovery/).
 
- ## <a name="migration-process"></a>Migratieproces
-
-Contoso wordt de web- en gegevenslagen van de app SmartHotel migreren naar Azure door deze stappen te voltooien:
-
-1. Contoso heeft al de Azure-infrastructuur aanwezig is, zodat deze moet een aantal specifieke Azure-onderdelen voor dit scenario toevoegen.
-2. De gegevenslaag worden, gemigreerd met behulp van de Data Migration Service. De Data Migration Service maakt verbinding met de on-premises SQL Server-VM via een site-naar-site VPN-verbinding tussen de Contoso-datacenter en Azure. De Data Migration Service migreert vervolgens de database.
-3. De weblaag worden, met behulp van een lift-and-shift-migratie met behulp van Site Recovery gemigreerd. Het proces omvat het voorbereiden van de on-premises VMware-omgeving, instellen en inschakelen van replicatie en de virtuele machines met failover naar Azure migreren.
-
-     ![Migratiearchitectuur](media/contoso-migration-rehost-vm-sql-managed-instance/migration-architecture.png) 
+ 
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -135,24 +177,24 @@ Als u een Azure SQL Database Managed Instance instelt, moet Contoso een subnet d
 
 ### <a name="set-up-a-virtual-network-for-the-managed-instance"></a>Instellen van een virtueel netwerk voor het beheerde exemplaar
 
-Contoso stelt als volgt u het virtuele netwerk: 
+Contoso-beheerders instellen van het virtuele netwerk als volgt: 
 
-1. Contoso maakt een nieuw virtueel netwerk (**VNET-SQLMI-EU2**) in de primaire regio in de VS-Oost 2. Het virtuele netwerk wordt toegevoegd de **ContosoNetworkingRG** resourcegroep.
-2. Contoso wijst een adresruimte van 10.235.0.0/24 toe. Contoso zorgt ervoor dat het bereik geen overlap heeft met andere netwerken in de onderneming.
-2. Contoso voegt twee subnetten toe met het netwerk:
+1. Ze een nieuw virtueel netwerk maken (**VNET-SQLMI-EU2**) in de primaire regio in de VS-Oost 2. Het virtuele netwerk wordt toegevoegd de **ContosoNetworkingRG** resourcegroep.
+2. Ze toewijzen een adresruimte van 10.235.0.0/24. Ze zorgen ervoor dat het bereik geen overlap heeft met andere netwerken in de onderneming.
+3. Ze toevoegen twee subnetten aan het netwerk:
     - **SQLMI-DS-EUS2** (10.235.0.0.25)
     - **SQLMI-SAW-EUS2** (10.235.0.128/29). Dit subnet wordt gebruikt voor het koppelen van een map met het beheerde exemplaar.
 
     ![Managed Instance - virtueel netwerk maken](media/contoso-migration-rehost-vm-sql-managed-instance/mi-vnet.png)
 
-6. Nadat het virtuele netwerk en subnetten worden geïmplementeerd, Contoso van collega's netwerken als volgt:
+4. Nadat het virtuele netwerk en subnetten worden geïmplementeerd, zij het peer-netwerken als volgt:
 
     - Peers **VNET-SQLMI-EUS2** met **VNET-HUB-EUS2** (het virtuele hub virtuele netwerk voor de VS-Oost 2).
     - Peers **VNET-SQLMI-EUS2** met **VNET-PROD-EUS2** (het productienetwerk).
 
     ![Netwerkpeering](media/contoso-migration-rehost-vm-sql-managed-instance/mi-peering.png)
 
-7. Contoso Hiermee stelt u aangepaste DNS-instellingen. DNS verwijst eerst naar de Contoso Azure-domeincontrollers. Azure DNS is secundaire. De Contoso-Azure-domeincontrollers zich bevinden als volgt:
+5. Deze aangepaste DNS-instellingen hebt ingesteld. DNS verwijst eerst naar de Contoso Azure-domeincontrollers. Azure DNS is secundaire. De Contoso-Azure-domeincontrollers zich bevinden als volgt:
 
     - Bevindt zich in de **PROD-DC-EUS2** subnet in de VS-Oost 2-productienetwerk (**VNET-PROD-EUS2**)
     - **CONTOSODC3** adres: 10.245.42.4
@@ -179,17 +221,17 @@ Contoso rekening gehouden met deze factoren:
 - Een subnet kan worden gekoppeld aan slechts één routetabel.
 - Er zijn geen extra kosten voor het routetabellen maken in Microsoft Azure.
 
- Om in te stellen routering:
+ Voor het instellen van routering Contoso doen beheerders het volgende:
 
-1. Contoso maakt een UDR-tabel. Contoso maakt de routetabel in de **ContosoNetworkingRG** resourcegroep.
+1. Maken van een UDR (route) tabel in de **ContosoNetworkingRG** resourcegroep.
 
     ![Routetabel](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table.png)
 
-2. Om te voldoen aan de Managed Instance, nadat de routetabel (**MIRouteTable**) is geïmplementeerd, Contoso een route met het adresvoorvoegsel 0.0.0.0/0 toevoegen. De **volgende hoptype** optie is ingesteld op **Internet**.
+2. Om te voldoen aan de Managed Instance, nadat de routetabel (**MIRouteTable**) is geïmplementeerd, ze een route met het adresvoorvoegsel 0.0.0.0/0 toevoegen. De **volgende hoptype** optie is ingesteld op **Internet**.
 
     ![Voorvoegsel voor route-tabel](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table-prefix.png)
     
-3. Contoso wordt gekoppeld aan de routetabel, met de **SQLMI-DB-EUS2** subnet (in de **VNET-SQLMI-EUS2** netwerk). 
+3. ze koppelen van de routetabel, met de **SQLMI-DB-EUS2** subnet (in de **VNET-SQLMI-EUS2** netwerk). 
 
     ![Tabel subnet routeren](media/contoso-migration-rehost-vm-sql-managed-instance/mi-route-table-subnet.png)
     
@@ -199,10 +241,10 @@ Meer informatie over het [routes instellen voor een beheerd exemplaar](https://d
 
 ### <a name="create-a-managed-instance"></a>Een beheerd exemplaar maken
 
-Contoso kan nu een SQL Database Managed Instance inrichten:
+Contoso-beheerders kunnen nu een SQL Database Managed Instance inrichten:
 
-1. Omdat het beheerde exemplaar een business-app fungeert, implementeert u Contoso het beheerde exemplaar in de primaire VS-Oost 2-regio van het bedrijf. Contoso voegt het beheerde exemplaar op de **ContosoRG** resourcegroep.
-2. Contoso selecteert een prijzen laag, grootte van berekening en opslag voor het exemplaar. Meer informatie over [prijzen van Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).
+1. Omdat het beheerde exemplaar een business-app fungeert, implementeren ze de Managed Instance in de primaire VS-Oost 2-regio van het bedrijf. Ze de beheerde instantie moet toevoegen de **ContosoRG** resourcegroep.
+2. Ze selecteren een prijzen laag, grootte van berekening en opslag voor het exemplaar. Meer informatie over [prijzen van Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).
 
     ![Beheerd exemplaar](media/contoso-migration-rehost-vm-sql-managed-instance/mi-create.png)
 
@@ -219,27 +261,27 @@ Meer informatie over het [inrichten van een beheerd exemplaar](https://docs.micr
 
 ## <a name="step-2-prepare-the-database-migration-service"></a>Stap 2: Bereid de Database migratieservice
 
-Als u wilt voorbereiden van de Database Migration Service, moet Contoso een paar dingen doen:
+Om voor te bereiden op de Database Migration Service, moet de beheerders van Contoso een paar dingen doen:
 
 - De Database Migration Service-provider registreren in Azure.
-- De Database Migration Service toegang geven tot Azure Storage voor het uploaden van de back-upbestanden die worden gebruikt voor het migreren van een database. Contoso maakt om toegang te bieden met Azure Storage, een Azure Blob storage-container. Contoso genereert een SAS-URI voor de Blob storage-container. 
+- De Database Migration Service toegang geven tot Azure Storage voor het uploaden van de back-upbestanden die worden gebruikt voor het migreren van een database. Als u wilt toegang bieden voor Azure Storage, maken ze een Azure Blob storage-container. Genereert een SAS-URI voor de Blob storage-container. 
 - Maak een Database Migration Service-project.
 
-Contoso voert vervolgens de volgende stappen uit:
+Vervolgens, ze de volgende stappen uitvoeren:
 
-1. Contoso registreert de database migration-provider onder het abonnement.
+1. Ze zich registreren voor de database migration-provider onder het abonnement.
     ![Database migratieservice - Register](media/contoso-migration-rehost-vm-sql-managed-instance/dms-subscription.png)
 
-2. Contoso maakt u een Blob storage-container. Contoso genereert een SAS-URI, zodat de Database Migration Service toegang kan hebben.
+2. Ze maken een Blob storage-container. Contoso genereert een SAS-URI, zodat de Database Migration Service toegang kan hebben.
 
     ![Database migratieservice: genereren van een SAS-URI](media/contoso-migration-rehost-vm-sql-managed-instance/dms-sas.png)
 
-3. Contoso maakt een Database Migration Service-exemplaar. 
+3. Ze maken een Database Migration Service-exemplaar. 
 
     ![Database migratieservice - exemplaar maken](media/contoso-migration-rehost-vm-sql-managed-instance/dms-instance.png)
 
-4. Contoso plaatst de Database Migration Service-exemplaar in de **PROD-DC-EUS2** subnet van de **VNET-PROD-DC-EUS2** virtueel netwerk.
-    - Contoso wordt de Database Migration Service er geplaatst omdat de service moet zich in een virtueel netwerk dat toegang heeft tot de on-premises SQL Server-VM via een VPN-gateway.
+4. Deze plaatst u de Database Migration Service-exemplaar in de **PROD-DC-EUS2** subnet van de **VNET-PROD-DC-EUS2** virtueel netwerk.
+    - De Database Migration Service wordt hier geplaatst, omdat de service moet zich in een virtueel netwerk dat toegang heeft tot de on-premises SQL Server-VM via een VPN-gateway.
     - De **VNET-PROD-EUS2** is gekoppeld aan **VNET-HUB-EUS2** en mag externe gateways gebruiken. De **externe gateways gebruiken** optie zorgt ervoor dat de Database Migration Service als vereist communiceren kan.
 
         ![Database migratieservice - netwerk configureren](media/contoso-migration-rehost-vm-sql-managed-instance/dms-network.png)
@@ -258,14 +300,14 @@ Verschillende Azure-elementen zijn vereist voor Contoso voor het instellen van S
 - Een opslagaccount voor gerepliceerde gegevens. 
 - Een Recovery Services-kluis in Azure.
 
-Contoso stelt als volgt u de Site Recovery:
+Beheerders van Contoso Site Recovery als volgt instellen:
 
 1. Omdat de virtuele machine een webfront-end in de app SmartHotel, Contoso, failover van de virtuele machine om de bestaande productienetwerk (**VNET-PROD-EUS2**) en het subnet (**PROD-FE-EUS2**). Het netwerk en subnet bevinden zich in de primaire regio in de VS-Oost 2. Contoso instellen van het netwerk wanneer het [geïmplementeerd van de Azure-infrastructuur](contoso-migration-infrastructure.md).
-2. Contoso maakt een storage-account (**contosovmsacc20180528**). Contoso maakt gebruik van een account voor algemeen gebruik. Contoso selecteert u standard-opslag en lokaal redundant storage-replicatie.
+2. Maken van een storage-account (**contosovmsacc20180528**). Contoso maakt gebruik van een account voor algemeen gebruik. Contoso selecteert u standard-opslag en lokaal redundant storage-replicatie.
 
     ![Site Recovery - storage-account maken](media/contoso-migration-rehost-vm-sql-managed-instance/asr-storage.png)
 
-3. Met de netwerk- en storage-account in plaats Contoso een kluis maakt (**ContosoMigrationVault**). Contoso plaatst de kluis in de **ContosoFailoverRG** resourcegroep in de primaire regio in de VS-Oost 2.
+3. Met de netwerk- en storage-account in plaats ze een kluis maken (**ContosoMigrationVault**). Contoso plaatst de kluis in de **ContosoFailoverRG** resourcegroep in de primaire regio in de VS-Oost 2.
 
     ![Maken van de Recovery Services - kluis](media/contoso-migration-rehost-vm-sql-managed-instance/asr-vault.png)
 
@@ -276,7 +318,7 @@ Meer informatie over het [Azure instellen voor Site Recovery](https://docs.micro
 
 ## <a name="step-4-prepare-on-premises-vmware-for-site-recovery"></a>Stap 4: On-premises VMware voorbereiden voor Site Recovery
 
-Om voor te bereiden VMware voor Site Recovery, moet de Contoso deze taken uitvoeren:
+Om voor te bereiden VMware voor Site Recovery, moet de Contoso-beheerders deze taken uitvoeren:
 
 - Een account voorbereiden op de vCenter-Server-exemplaar of vSphere ESXi-host. Het account automatiseert VM-detectie.
 - Een account waarmee de automatische installatie van de Mobility-Service op virtuele VMware-machines die Contoso wil repliceren voorbereiden.
@@ -290,7 +332,7 @@ Site Recovery moet toegang hebben tot de VMware-servers om het volgende te kunne
 - Virtuele machines automatisch detecteren. Minimaal een alleen-lezen-account is vereist.
 - Replicatie, failover en failback orkestreren. Contoso moet een account die bewerkingen zoals het maken en verwijderen van schijven en inschakelen van virtuele machines kan worden uitgevoerd.
 
-Contoso stelt u het account door deze taken uit te voeren:
+Contoso-beheerders het account instellen door deze taken uit te voeren:
 
 1. Hiermee maakt u een rol op vCenter-niveau.
 2. De vereiste machtigingen aan die rol toegewezen.
@@ -305,7 +347,7 @@ De Mobility-Service moet worden geïnstalleerd op de virtuele machine die Contos
 
 - Site Recovery kan een automatische push-installatie van dit onderdeel kunt doen wanneer Contoso Hiermee schakelt u replicatie voor de virtuele machine.
 - Voor automatische push-installatie, Contoso moet een account voorbereiden waarmee Site Recovery gebruikt voor toegang tot de virtuele machine.
-- Contoso geeft dit account wanneer het programma replicatie in de Azure-console stelt.
+- Dit account is opgegeven wanneer replicatie is geconfigureerd in de Azure-console.
 - Contoso beschikken over een domein of lokale account met machtigingen om te installeren op de virtuele machine.
 
 *Meer hulp nodig hebt*
@@ -314,90 +356,90 @@ Meer informatie over het [maken van een account voor push-installatie van de Mob
 
 ### <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Voorbereiden op het verbinden met virtuele Azure-machines na een failover
 
-Na een failover naar Azure wil Contoso kunnen verbinding maken met de gerepliceerde virtuele machines in Azure. Voor verbinding met de gerepliceerde virtuele machines in Azure, moet de Contoso een paar taken op de on-premises VM vóór de migratie voltooien: 
+Na een failover naar Azure wil Contoso kunnen verbinding maken met de gerepliceerde virtuele machines in Azure. Voor verbinding met de gerepliceerde virtuele machines in Azure, moet de beheerders van Contoso een paar taken op de on-premises VM vóór de migratie voltooien: 
 
-1. Voor toegang via internet kan Contoso RDP in op de on-premises virtuele machine voordat de failover. Contoso zorgt ervoor dat TCP en UDP-regels worden toegevoegd voor de **openbare** profiel, en dat RDP is toegestaan in **Windows Firewall** > **Apps toegestaan** voor alle profielen .
-2. Voor toegang via het Contoso-site-naar-site VPN schakelt Contoso RDP in op de on-premises machine. Contoso kan RDP in **Windows Firewall** > **toegestane apps en functies** voor **domein en privé** netwerken.
-3. Contoso Hiermee stelt u de SAN-beleid van het besturingssysteem op de on-premises virtuele machine om **OnlineAll**.
+1. Ze schakelt u RDP op de on-premises virtuele machine voordat de failover voor toegang via internet. Ze zorgen ervoor dat TCP en UDP-regels worden toegevoegd voor de **openbare** profiel, en dat RDP is toegestaan in **Windows Firewall** > **Apps toegestaan** voor alle profielen.
+2. Voor toegang via het Contoso-site-naar-site VPN schakelt ze u RDP in op de on-premises machine. Dat RDP in **Windows Firewall** > **toegestane apps en functies** voor **domein en privé** netwerken.
+3. Ze SAN-beleid van het besturingssysteem op de on-premises virtuele machine ingesteld **OnlineAll**.
 
-Contoso heeft ook nodig om te controleren of deze items wanneer er een failover wordt uitgevoerd:
+Beheerders van Contoso moet ook deze items te controleren wanneer ze een failover worden uitgevoerd:
 
-- Er mogen geen Windows-updates in behandeling op de virtuele machine wanneer een failover wordt geactiveerd. Als Windows-updates in behandeling zijn, kan niet Contoso aanmelden bij de virtuele machine totdat de update is voltooid.
-- Controleer na een failover, Contoso **diagnostische gegevens over opstarten** om een schermopname van de virtuele machine weer te geven. Als u Contoso kan de diagnostische gegevens over het opstarten niet weergeven, het moet inchecken dat de virtuele machine wordt uitgevoerd, en bekijk vervolgens [tips voor probleemoplossing](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
+- Er mogen geen Windows-updates in behandeling op de virtuele machine wanneer een failover wordt geactiveerd. Als Windows-updates in behandeling zijn, kunnen niet gebruikers Contoso aanmelden bij de virtuele machine totdat de update is voltooid.
+- Controleer na een failover, beheerders **diagnostische gegevens over opstarten** om een schermopname van de virtuele machine weer te geven. Als ze de diagnostische gegevens over het opstarten niet kunnen bekijken, moeten ze controleren dat de virtuele machine wordt uitgevoerd, en bekijk vervolgens [tips voor probleemoplossing](http://social.technet.microsoft.com/wiki/contents/articles/31666.troubleshooting-remote-desktop-connection-after-failover-using-asr.aspx).
 
-## <a name="step-5-replicate-the-on-premises-vms-to-azure-by-using-site-recovery"></a>Stap 5: De on-premises VM's repliceren naar Azure met behulp van Site Recovery
+## <a name="step-5-replicate-the-on-premises-vms-to-azure"></a>Stap 5: De on-premises VM's repliceren naar Azure
 
-Voordat u een migratie naar Azure uitvoert, moet Contoso instellen van replicatie en replicatie inschakelen voor de on-premises virtuele machine.
+Voordat u een migratie naar Azure uitvoert, moet de Contoso-beheerders instellen en inschakelen van replicatie voor de on-premises VM.
 
 ### <a name="set-a-replication-goal"></a>Een replicatiedoel instellen
 
-1. In de kluis, onder de kluisnaam (**ContosoVMVault**), Contoso Hiermee stelt u een replicatiedoel (**aan de slag** > **siteherstel**  >   **Infrastructuur voorbereiden**).
-2. Contoso geeft aan dat de machines zich op locatie zijn, dat ze virtuele VMware-machines, en dat Contoso wil repliceren naar Azure.
+1. In de kluis, onder de kluisnaam (**ContosoVMVault**), ze een replicatiedoel ingesteld (**aan de slag** > **siteherstel**  >   **Infrastructuur voorbereiden**).
+2. Ze geven dat de machines zich op locatie zijn, dat ze virtuele VMware-machines repliceren naar Azure.
 
     ![Infrastructuur - beveiligingsdoel voorbereiden](./media/contoso-migration-rehost-vm-sql-managed-instance/replication-goal.png)
 
 ### <a name="confirm-deployment-planning"></a>Implementatieplanning bevestigen
 
-Als u wilt doorgaan, moet de Contoso om te bevestigen dat het plannen van de implementatie is voltooid. Als u wilt controleren, selecteert u Contoso **Ja, heb ik gedaan**. In deze implementatie is slechts één VM, migreren van Contoso, zodat deze niet met het plannen van de implementatie hoeft.
+Als u wilt doorgaan, bevestigen beheerders van Contoso dat ze plannen van de implementatie hebt voltooid. Ze selecteren **Ja, heb ik gedaan**. In deze implementatie Contoso is een enkele virtuele machine migreren, plannen van de implementatie is niet nodig.
 
 ### <a name="set-up-the-source-environment"></a>De bronomgeving instellen
 
-Contoso moet nu het configureren van de bronomgeving. Als u wilt de bronomgeving instellen, downloadt Contoso een OVF-sjabloon. Contoso maakt gebruik van de sjabloon voor het implementeren van de configuratieserver en de bijbehorende onderdelen als een maximaal beschikbaar, on-premises VMware-VM. Onderdelen op de server zijn onder andere:
+Nu, Contoso-beheerders de bronomgeving configureren. Om in te stellen de bronomgeving, ze een OVF-sjabloon downloaden en gebruiken om de configuratieserver en de bijbehorende onderdelen als een maximaal beschikbare te implementeren, on-premises VMware-VM. Onderdelen op de server zijn onder andere:
 
 - De configuratieserver die coördineert de communicatie tussen de on-premises infrastructuur en Azure. De configuratieserver beheert de gegevensreplicatie.
 - De processerver die als replicatiegateway fungeert. De processerver:
     - Replicatiegegevens ontvangt.
     - Datum van de replicatie optimaliseert met behulp van caching, compressie en codering.
     - Datum van de replicatie verzendt naar Azure Storage.
-- De processerver installeert ook de Mobility-Service op de virtuele machines die Contoso wil repliceren. De processerver detecteert automatisch on-premises VMware-VM's.
+- De processerver installeert ook de Mobility-Service op de virtuele machines die worden gerepliceerd. De processerver detecteert automatisch on-premises VMware-VM's.
 - Na de configuratieserver VM is gemaakt en gestart, wordt de server door Contoso geregistreerd in de kluis.
 
-De bronomgeving instellen:
+Voor het instellen van de bron doen Contoso omgevingsbeheerders het volgende:
 
-1. Contoso downloadt de OVF-sjabloon van de Azure-portal (**infrastructuur voorbereiden** > **bron** > **configuratieserver**).
+1. Ze de OVF-sjabloon downloaden via de Azure portal (**infrastructuur voorbereiden** > **bron** > **configuratieserver**).
     
     ![Een configuratieserver toevoegen](./media/contoso-migration-rehost-vm-sql-managed-instance/add-cs.png)
 
-2. Contoso importeert de sjabloon in VMware maken en implementeren van de virtuele machine.
+2. Ze Importeer de sjabloon in VMware om te maken en implementeren van de virtuele machine.
 
     ![Implementeren van OVF-sjabloon](./media/contoso-migration-rehost-vm-sql-managed-instance/vcenter-wizard.png)
 
-3.  Wanneer Contoso de virtuele machine voor de eerste keer inschakelt, wordt de virtuele machine gestart in een Windows Server 2016-installatie-ervaring. Contoso accepteert de gebruiksrechtovereenkomst en voert een administrator-wachtwoord.
-4. Wanneer de installatie is voltooid, Contoso meldt zich aan bij de virtuele machine als de beheerder. De eerste keer is dat Contoso zich aanmeldt bij de virtuele machine, de Azure Site Recovery Configuration Tool wordt automatisch uitgevoerd.
-5. In de Site Recovery Configuration Tool voert Contoso een naam moet worden gebruikt voor het registreren van de configuratieserver in de kluis.
-6. Het hulpprogramma controleert of de verbinding van de virtuele machine met Azure. Nadat de verbinding tot stand is gebracht, selecteert u Contoso **aanmelden** zich aanmeldt bij de Azure-abonnement. De referenties moeten toegang hebben tot de kluis waarin de configuratieserver is geregistreerd. 
+3.  Wanneer ze op de virtuele machine voor het eerst inschakelen, start deze in een Windows Server 2016-installatie-ervaring. Ze accepteer de gebruiksrechtovereenkomst en een administrator-wachtwoord invoert.
+4. Wanneer de installatie is voltooid, zich ze aanmelden bij de virtuele machine als de beheerder. Op de eerste keer aanmelden, wordt de Azure Site Recovery Configuration Tool automatisch uitgevoerd.
+5. In de Site Recovery Configuration Tool Voer ze een naam te gebruiken voor het registreren van de configuratieserver in de kluis.
+6. Het hulpprogramma controleert of de verbinding van de virtuele machine met Azure. Nadat de verbinding tot stand is gebracht, selecteren ze **aanmelden** zich aanmeldt bij de Azure-abonnement. De referenties moeten toegang hebben tot de kluis waarin de configuratieserver is geregistreerd. 
 
     ![De configuratieserver registreren](./media/contoso-migration-rehost-vm-sql-managed-instance/config-server-register2.png)
 
-7. Het hulpprogramma voert enkele configuratietaken uit en start opnieuw op. Contoso meldt zich aan bij de machine opnieuw. De configuratiewizard voor Server Management wordt automatisch gestart.
-8. In de wizard selecteert Contoso de NIC die replicatieverkeer moet ontvangen. Deze instelling kan niet worden gewijzigd nadat deze geconfigureerd.
-9. Contoso selecteert het abonnement, resourcegroep en Recovery Services-kluis waarin de configuratieserver registreren.
+7. Het hulpprogramma voert enkele configuratietaken uit en start opnieuw op. Ze zich aanmelden bij de machine opnieuw. De configuratiewizard voor Server Management wordt automatisch gestart.
+8. In de wizard selecteert ze de NIC die replicatieverkeer moet ontvangen. Deze instelling kan niet worden gewijzigd nadat deze geconfigureerd.
+9. Ze selecteert u het abonnement, resourcegroep en Recovery Services-kluis waarin de configuratieserver registreren.
 
     ![Recovery Services-kluis selecteren](./media/contoso-migration-rehost-vm-sql-managed-instance/cswiz1.png)
 
-10. Contoso downloadt en installeert MySQL-Server en VMWare PowerCLI. Contoso evalueert vervolgens de server-instellingen.
-11. Na de validatie krijgt de Contoso de FQDN-naam of IP-adres van de vCenter-Server-exemplaar of vSphere-host. Contoso verlaat de standaardpoort en voert een weergavenaam voor de vCenter-Server-exemplaar in Azure.
-12. Contoso moet het account opgeven dat het eerder hebt gemaakt zodat Site Recovery kan automatisch detecteren van VMware-VM's die beschikbaar voor replicatie zijn. 
-13. Contoso krijgt de referenties, zodat de Mobility-Service wordt automatisch geïnstalleerd wanneer replicatie is ingeschakeld. Voor Windows-machines moet het account lokale beheerdersmachtigingen op de virtuele machines. 
+10. Ze downloaden en installeren van de MySQL-Server en VMWare PowerCLI. Ze vervolgens valideert dat de serverinstellingen.
+11. Na de validatie Geef ze de FQDN-naam of IP-adres van de vCenter-Server-exemplaar of vSphere-host. Ze laat de standaardpoort, en voer een weergavenaam voor het exemplaar van de vCenter-Server in Azure.
+12. Ze geven het account dat eerder is gemaakt, zodat Site Recovery kan automatisch detecteren van VMware-VM's die beschikbaar voor replicatie zijn. 
+13. Deze invoeren referenties, zodat de Mobility-Service wordt automatisch geïnstalleerd wanneer replicatie is ingeschakeld. Voor Windows-machines moet het account lokale beheerdersmachtigingen op de virtuele machines. 
 
     ![VCenter-Server configureren](./media/contoso-migration-rehost-vm-sql-managed-instance/cswiz2.png)
 
-7. Wanneer de registratie is voltooid, klikt u in Azure portal, Contoso opnieuw gecontroleerd dat de configuratieserver en de VMware-server worden weergegeven op de **bron** pagina in de kluis. Detectie kan 15 minuten of langer duren. 
-8. Site Recovery maakt verbinding met de VMware-servers met behulp van de opgegeven instellingen. VM's worden gedetecteerd door site Recovery.
+7. Wanneer de registratie is voltooid, klikt u in Azure portal, ze opnieuw te verifiëren dat de configuratieserver en de VMware-server worden weergegeven op de **bron** pagina in de kluis. Detectie kan 15 minuten of langer duren. 
+8. Site Recovery maakt verbinding met de VMware-servers met behulp van de opgegeven instellingen en VM's worden gedetecteerd.
 
 ### <a name="set-up-the-target"></a>Het doel instellen
 
-Contoso moet nu de replicatiedoelomgeving configureren:
+Beheerders van Contoso configureren nu de replicatiedoelomgeving:
 
-1. In **infrastructuur voorbereiden** > **doel**, Contoso de doelinstellingen geselecteerd.
+1. In **infrastructuur voorbereiden** > **doel**, ze selecs de doelinstellingen.
 2. Site Recovery controleert of er een storage-account en het netwerk in het opgegeven doel is.
 
 ### <a name="create-a-replication-policy"></a>Een replicatiebeleid maken
 
-Als de bron en het doel zijn ingesteld, wordt Contoso maakt een replicatiebeleid en koppelt u het beleid aan de configuratieserver:
+Wanneer de bron en het doel zijn ingesteld, wordt beheerders van Contoso een replicatiebeleid maken en koppelt u het beleid aan de configuratieserver:
 
-1. In **infrastructuur voorbereiden** > **replicatie-instellingen** > **replicatiebeleid** >  **maken en Koppelen**, Contoso maakt de **ContosoMigrationPolicy** beleid.
-2. Contoso maakt gebruik van de standaardinstellingen:
+1. In **infrastructuur voorbereiden** > **replicatie-instellingen** > **replicatiebeleid** >  **maken en Koppelen**, het maken van de **ContosoMigrationPolicy** beleid.
+2. Ze gebruiken de standaard-instellingen:
     - **RPO-drempelwaarde**: standaardwaarde van 60 minuten. Deze waarde bepaalt hoe vaak herstelpunten worden gemaakt. Wanneer de continue replicatie deze limiet overschrijdt, wordt er een waarschuwing gegenereerd.
     - **Bewaarperiode voor herstelpunten**: standaardwaarde van 24 uur. Deze waarde wordt bepaald hoe lang de bewaarperiode is voor elk herstelpunt. Gerepliceerde VM’s kunnen worden hersteld naar een willekeurig punt in een tijdvenster.
     - **Frequentie App-consistente momentopname**: de standaardwaarde van 1 uur. Deze waarde bepaalt de frequentie waarmee App-consistente momentopnamen worden gemaakt.
@@ -415,23 +457,23 @@ Als de bron en het doel zijn ingesteld, wordt Contoso maakt een replicatiebeleid
 
 ### <a name="enable-replication"></a>Replicatie inschakelen
 
-Nu kunt Contoso beginnen met het repliceren WebVM.
+Beheerders van Contoso kunnen nu starten WebVM repliceren.
 
-1. In **toepassing repliceren** > **bron** > **repliceren**, Contoso selecteert u de instellingen voor gegevensbron.
-2. Contoso geeft aan dat het wil virtuele machines inschakelen, selecteert u het vCenter Server-exemplaar en stelt de configuratieserver.
+1. In **toepassing repliceren** > **bron** > **repliceren**, ze de instellingen voor gegevensbron selecteren.
+2. Ze geven aan dat ze willen virtuele machines inschakelen, selecteert u de vCenter-Server-exemplaar en stel de configuratieserver.
 
     ![Inschakelen van replicatie - bron](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication1.png)
  
-3. Contoso geeft de doelinstellingen, met inbegrip van de resourcegroep en een netwerk waarin de Azure-VM na failover geplaatst worden wordt. Contoso Hiermee geeft u het opslagaccount waarin de gerepliceerde gegevens worden opgeslagen.
+3. Ze geven de doelinstellingen, met inbegrip van de resourcegroep en een netwerk waarin de Azure-VM na failover geplaatst worden wordt. Ze geven het opslagaccount waarin de gerepliceerde gegevens worden opgeslagen.
 
     ![Replicatie - doel inschakelen](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication2.png)
 
-4. Contoso selecteert **WebVM** voor replicatie. Site Recovery installeert de Mobility-Service op elke virtuele machine wanneer replicatie is ingeschakeld. 
+4. Ze selecteren **WebVM** voor replicatie. Site Recovery installeert de Mobility-Service op elke virtuele machine wanneer replicatie is ingeschakeld. 
 
     ![Replicatie inschakelen: Selecteer de virtuele machine](./media/contoso-migration-rehost-vm-sql-managed-instance/enable-replication3.png)
 
-5. Contoso controleert of het juiste replicatiebeleid is geselecteerd. Er wordt vervolgens, replicatie voor **WEBVM**. Contoso houdt de voortgang van de replicatie in **taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
-6. In **Essentials** in Azure portal, Contoso de structuur kunt bekijken voor de virtuele machines die naar Azure repliceren:
+5. Ze controleren dat het juiste replicatiebeleid is geselecteerd en replicatie inschakelen voor **WEBVM**. Ze tracs Replicatievoortgang gedurende **taken**. Nadat de taak **Beveiliging voltooien** is uitgevoerd, is de machine klaar voor een mogelijke failover.
+6. In **Essentials** in Azure portal, zien ze de status voor de virtuele machines die naar Azure repliceren:
 
     ![Infrastructuurweergave](./media/contoso-migration-rehost-vm-sql-managed-instance/essentials.png)
 
@@ -439,13 +481,13 @@ Nu kunt Contoso beginnen met het repliceren WebVM.
 
 U kunt een overzicht van de volgende stappen uit in lezen [inschakelen replicatie](https://docs.microsoft.com/azure/site-recovery/vmware-azure-enable-replication).
 
-## <a name="step-6-migrate-the-database-by-using-the-database-migration-service"></a>Stap 6: Migreren van de database met behulp van de Database Migration Service
+## <a name="step-6-migrate-the-database"></a>Stap 6: De database migreren 
 
-Contoso moet een Database Migration Service-project maken en vervolgens migreren van de database.
+Beheerders van Contoso moet een Database Migration Service-project maken en vervolgens migreren van de database.
 
 ### <a name="create-a-database-migration-service-project"></a>Een Database Migration Service-project maken
 
-1. Contoso maakt een Database Migration Service-project. Contoso selecteert de **SQL Server** bronservertype. Contoso selecteert **Azure SQL Database Managed Instance** als het doel.
+1. Ze maken een Database Migration Service-project. Ze selecteert de **SQL Server** bronservertype, en **Azure SQL Database Managed Instance** als het doel.
 
      ![Database migratieservice - nieuw migratieproject](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-project.png)
 
@@ -453,85 +495,85 @@ Contoso moet een Database Migration Service-project maken en vervolgens migreren
 
 ### <a name="migrate-the-database"></a>Migreren van de database 
 
-1. Hiermee geeft u de bron-VM waarop de on-premises database zich bevindt in de Wizard migratie op Contoso. Contoso voert de referenties voor toegang tot de database.
+1. Deze opgeven in de Wizard migratie met de bron-VM waarop de on-premises database zich bevindt. Ze voert u de referenties voor toegang tot de database.
 
     ![Database migratieservice - details van gegevensbron](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-source.png)
 
-2. Contoso selecteert u de database te migreren (**SmartHotel.Registration**):
+2. ze selecteert u de database te migreren (**SmartHotel.Registration**):
 
     ![Database migratieservice - databases van de bron selecteren](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-wizard-sourcedb.png)
 
-3. Voor het doel krijgt de naam van het beheerde exemplaar de Contoso in Azure. Contoso krijgt de referenties voor toegang voor het beheerde exemplaar.
+3. Voor het doel Geef ze de naam van het beheerde exemplaar in Azure en de referenties voor toegang.
 
     ![Database migratieservice - Doeldetails](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-target-details.png)
 
-4. In **nieuwe activiteit** > **migratie uitvoeren**, Contoso Hiermee geeft u de instellingen voor het uitvoeren van de migratie:
+4. In **nieuwe activiteit** > **migratie uitvoeren**, ze de instellingen voor het uitvoeren van de migratie opgeven:
     - Referenties voor de bron en het doel.
     - De database te migreren.
-    - De netwerkshare die Contoso gemaakt op de on-premises VM. De Database Migration Service gaat bron back-ups naar deze share. 
+    - De netwerkshare die zijn gemaakt op de on-premises VM. De Database Migration Service gaat bron back-ups naar deze share. 
         - Het serviceaccount dat de SQL Server-bronexemplaar wordt uitgevoerd moet schrijfmachtigingen hebben op deze share.
         - De FQDN-pad naar de share moet worden gebruikt.
     - De SAS-URI die de Database Migration Service toegang biedt tot de container van het opslagaccount waarnaar de service wordt geüpload de back-upbestanden voor de migratie.
 
         ![Database migratieservice - migratie-instellingen configureren](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-migration-settings.png)
 
-5. Contoso-Hiermee slaat u de migratie en vervolgens uitgevoerd.
-6. In **overzicht**, Contoso bewaakt de migratiestatus.
+5. Deze migratie-instellingen opslaan, en voer vervolgens de migratie.
+6. In **overzicht**, ze monitos de migratiestatus van de.
 
     ![Database migratieservice - Monitor](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor1.png)
 
-7. Wanneer de migratie is voltooid, controleert Contoso of dat de doeldatabase op het beheerde exemplaar bestaat.
+7. Wanneer de migratie is voltooid, wordt ze controleren dat de doeldatabase op het beheerde exemplaar bestaat.
 
     ![Database migratieservice: de databasemigratie controleren](./media/contoso-migration-rehost-vm-sql-managed-instance/dms-monitor2.png)
 
-## <a name="step-7-migrate-the-vm-by-using-site-recovery"></a>Stap 7: De virtuele machine migreren met behulp van Site Recovery
+## <a name="step-7-migrate-the-vm"></a>Stap 7: De virtuele machine migreren
 
-Contoso-wordt uitgevoerd een snelle testfailover uit en klikt u vervolgens de virtuele machine migreert.
+Beheerders van Contoso uitvoeren van een snelle failover testen en vervolgens de virtuele machine te migreren.
 
 ### <a name="run-a-test-failover"></a>Een testfailover uitvoeren
 
-Voordat u migreert WEBVM, een test-failover zorgt ervoor dat alles werkt zoals verwacht. Contoso is voltooid de volgende stappen uit:
+Voordat u migreert WEBVM, een test-failover zorgt ervoor dat alles werkt zoals verwacht. Beheerders te laten uitvoeren in de volgende stappen:
 
-1. Contoso wordt een testfailover uitgevoerd naar de laatst beschikbare punt in tijd (**laatst verwerkte**).
-2. Contoso selecteert **sluit de computer voordat u begint met failover**. Met deze optie is geselecteerd, probeert Site Recovery de bron-VM wordt afgesloten voordat deze de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. 
+1. Ze een testfailover uitvoeren naar de laatst beschikbare punt in tijd (**laatst verwerkte**).
+2. Ze selecteren **sluit de computer voordat u begint met failover**. Met deze optie is geselecteerd, probeert Site Recovery de bron-VM wordt afgesloten voordat deze de failover wordt geactiveerd. De failover wordt voortgezet zelfs als het afsluiten is mislukt. 
 3. Test-failover wordt uitgevoerd: 
     1. Een controle uitgevoerd om ervoor te zorgen dat de voorwaarden die zijn vereist voor de migratie voldaan is.
     2. De gegevens worden verwerkt in de failover, zodat een Azure-VM kan worden gemaakt. Als de meest recente herstelpunt is geselecteerd, wordt een herstelpunt wordt gemaakt van de gegevens.
     3.  Azure-VM is gemaakt met behulp van de gegevens verwerkt in de vorige stap.
-3. Wanneer de failover is voltooid, wordt de replica virtuele machine in Azure weergegeven in de Azure-portal. Contoso wordt gecontroleerd of alles goed werkt: de virtuele machine is de juiste grootte heeft, verbonden met het juiste netwerk en deze wordt uitgevoerd. 
-4. Nadat u hebt de testfailover gecontroleerd, opschonen Contoso van de failover. Vervolgens registreert en eventuele opmerkingen worden opgeslagen. 
+3. Wanneer de failover is voltooid, wordt de replica virtuele machine in Azure weergegeven in de Azure-portal. ze controleren of alles goed werkt: de virtuele machine is de juiste grootte heeft, verbonden met het juiste netwerk en deze wordt uitgevoerd. 
+4. Nadat u hebt de testfailover gecontroleerd, ze opschonen van de failover en noteer eventuele opmerkingen. 
 
 ### <a name="migrate-the-vm"></a>De virtuele machine migreren
 
-1. Contoso maakt nadat u hebt gecontroleerd of de testfailover heeft gewerkt zoals verwacht, een plan voor herstel voor migratie. WEBVM Contoso toegevoegd aan het abonnement:
+1. Nadat u hebt gecontroleerd of de testfailover heeft gewerkt zoals verwacht, Contoso-beheerders maken van een herstelplan voor migratie en WEBVM toevoegen aan het abonnement:
 
      ![Plan voor herstel - Select-items maken](./media/contoso-migration-rehost-vm-sql-managed-instance/recovery-plan.png)
 
-2. Contoso wordt een failover uitgevoerd op het plan. Contoso selecteert u het meest recente herstelpunt. Contoso geeft aan dat Site Recovery proberen moet de on-premises VM afsluiten voordat deze de failover wordt geactiveerd.
+2. Ze een failover worden uitgevoerd op het abonnement, de meest recente herstelpunt selecteren. Deze opgeven dat Site Recovery proberen moet de on-premises VM afsluiten voordat deze de failover wordt geactiveerd.
 
     ![Failover](./media/contoso-migration-rehost-vm-sql-managed-instance/failover1.png)
 
-3. Na de failover Contoso wordt gecontroleerd of de Azure-VM wordt weergegeven zoals verwacht in de Azure-portal.
+3. Na de failover controleren ze of de Azure-VM wordt weergegeven zoals verwacht in de Azure-portal.
 
    ![Abonnementsdetails voor herstel](./media/contoso-migration-rehost-vm-sql-managed-instance/failover2.png)
 
-4. Na het verifiëren van de virtuele machine in Azure, wordt de migratie voor het voltooien van het migratieproces, replicatie voor de virtuele machine stoppen en Site Recovery-facturering voor de virtuele machine stoppen met Contoso voltooid.
+4. Nadat u hebt gecontroleerd, wordt dat ze bij het voltooien van de migratie voor het voltooien van het migratieproces, replicatie voor de virtuele machine stoppen en stop de facturering voor de virtuele machine voor Site Recovery.
 
     ![Failover - migratie voltooien](./media/contoso-migration-rehost-vm-sql-managed-instance/failover3.png)
 
 ### <a name="update-the-connection-string"></a>De verbindingsreeks bijwerken
 
-Contoso bijgewerkt als de laatste stap in het migratieproces, de verbindingsreeks van de toepassing om te verwijzen naar de gemigreerde database die wordt uitgevoerd op de Contoso Managed Instance.
+Beheerders van Contoso bijwerken als de laatste stap in het migratieproces, de verbindingsreeks van de toepassing om te verwijzen naar de gemigreerde database die wordt uitgevoerd op de Contoso Managed Instance.
 
-1. Contoso gevonden in de Azure-portal, de verbindingsreeks door te selecteren **instellingen** > **verbindingsreeksen**.
+1. In de Azure-portal, ze de connection string vinden door te selecteren **instellingen** > **verbindingsreeksen**.
 
     ![Verbindingsreeksen](./media/contoso-migration-rehost-vm-sql-managed-instance/failover4.png)  
 
-2. Contoso werkt de tekenreeks met de gebruikersnaam en het wachtwoord van de SQL Database Managed Instance.
-3. Nadat de tekenreeks die is geconfigureerd, wordt de huidige verbindingsreeks in het bestand web.config van de toepassing vervangen door Contoso.
-4. Na het bijwerken van het bestand en op te slaan, Contoso opnieuw wordt opgestart IIS op WEBVM. U Start IIS opnieuw, Contoso wordt uitgevoerd `IISRESET /RESTART` in een opdrachtpromptvenster.
+2. De tekenreeks worden bijgewerkt met de gebruikersnaam en het wachtwoord van de SQL Database Managed Instance.
+3. Nadat de tekenreeks die is geconfigureerd, vervangt u de huidige verbindingsreeks in het bestand web.config van de toepassing.
+4. Na het bijwerken van het bestand en op te slaan, ze Start IIS opnieuw op WEBVM door uit te voeren `IISRESET /RESTART` in een opdrachtpromptvenster.
 5. Nadat IIS opnieuw is opgestart, wordt in de app maakt gebruik van de database die wordt uitgevoerd op de SQL Database Managed Instance.
-6. Op dit moment kunt Contoso afsluiten on-premises de SQLVM-machine. De migratie is voltooid.
+6. Op dit moment kunnen ze afsluiten on-premises de SQLVM-machine. De migratie is voltooid.
 
 *Meer hulp nodig?*
 
@@ -560,17 +602,22 @@ Met de gemigreerde resources in Azure moet Contoso volledig operationeel maken e
 
 Het Contoso security team controleert de Azure-VM's en SQL Database Managed Instance om te controleren op beveiligingsproblemen met de implementatie:
 
-- Het beveiligingsteam beoordeelt de netwerkbeveiligingsgroepen die worden gebruikt om toegang te beheren voor de virtuele machine. Netwerkbeveiliging groepen ervoor te zorgen dat alleen het verkeer dat is toegestaan naar de app kunt doorgeven.
+- Het team controleert de netwerkbeveiligingsgroepen die worden gebruikt om toegang te beheren voor de virtuele machine. Netwerkbeveiliging groepen ervoor te zorgen dat alleen het verkeer dat is toegestaan naar de app kunt doorgeven.
 - Het Contoso security team ook overweegt de gegevens op de schijf te beveiligen met behulp van Azure Disk Encryption en Azure Key Vault.
-- Het security team kunt detectie van bedreigingen op het beheerde exemplaar. Detectie van bedreigingen verzendt een waarschuwing van Contoso security team/service desk systeem een ticket openen als een bedreiging wordt gedetecteerd. Meer informatie over [bedreigingen voor de Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-threat-detection).
+- Het team kunt detectie van bedreigingen op het beheerde exemplaar. Detectie van bedreigingen verzendt een waarschuwing van Contoso security team/service desk systeem een ticket openen als een bedreiging wordt gedetecteerd. Meer informatie over [bedreigingen voor de Managed Instance](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-threat-detection).
 
      ![Beheerd exemplaar beveiliging - detectie van bedreigingen](./media/contoso-migration-rehost-vm-sql-managed-instance/mi-security.png)  
 
 Zie voor meer informatie over procedures voor beveiliging voor virtuele machines, [aanbevolen beveiligingsprocedures voor IaaS-workloads in Azure](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control).
 
-### <a name="backups"></a>Back-ups
+### <a name="bcdr"></a>BCDR
 
-Contoso back-ups van de gegevens op WEBVM met behulp van de Azure Backup-service. Meer informatie over [Azure Backup](https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+Voor bedrijfscontinuïteit en herstel na noodgevallen (BCDR) voert Contoso de volgende acties uit:
+
+- Houd gegevens veilig: Contoso back-ups van de gegevens op de virtuele machines met behulp van de Azure Backup-service. [Meer informatie] https://docs.microsoft.com/azure/backup/backup-introduction-to-azure-backup?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+- Houd apps startklaar: Contoso repliceert de virtuele machines in Azure-app naar een secundaire regio met behulp van Site Recovery. [Meer informatie](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-quickstart).
+- Contoso leert meer over het beheren van SQL Managed Instance, met inbegrip van [databaseback-ups](https://docs.microsoft.com/azure/sql-database/sql-database-automated-backups).
+
 
 ### <a name="licensing-and-cost-optimization"></a>Licentie- en kosten optimaliseren
 

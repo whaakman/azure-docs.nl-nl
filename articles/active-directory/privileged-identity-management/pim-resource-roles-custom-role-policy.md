@@ -1,6 +1,6 @@
 ---
-title: Aangepaste rollen voor Privileged Identity Management-doelinstellingen gebruiken voor Azure-resources | Microsoft Docs
-description: Beschrijft hoe u aangepaste rollen voor Azure-resources met PIM gebruiken.
+title: Aangepaste rollen gebruiken voor Azure-resources in PIM | Microsoft Docs
+description: Informatie over het gebruik van aangepaste rollen voor Azure-resources in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: 03091b50eb4fb368ae0277344317b261991c4bd1
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: b01e785ac85c71b2982561e8b5e118775750fc69
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622684"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189870"
 ---
-# <a name="use-custom-roles-to-target-privileged-identity-management-settings"></a>Aangepaste rollen voor Privileged Identity Management-doelinstellingen gebruiken
+# <a name="use-custom-roles-for-azure-resources-in-pim"></a>Gebruik aangepaste rollen voor Azure-resources in PIM
 
 U moet mogelijk strikte Privileged Identity Management (PIM)-instellingen toepassen op sommige leden van een rol, terwijl er meer autonomie voor anderen. U hebt een scenario waarin huurt uw organisatie verschillende contract wordt om te helpen bij de ontwikkeling van een toepassing die wordt uitgevoerd in een Azure-abonnement.
 
@@ -49,4 +49,5 @@ Ten slotte [rollen toewijzen](pim-resource-roles-assign-roles.md) aan afzonderli
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Abonnementseigenaren lees- en toegangsbeheer](pim-resource-roles-perform-access-review.md)
+- [Azure-resource rolinstellingen in PIM configureren](pim-resource-roles-configure-role-settings.md)
+- [Aangepaste rollen in Azure](../../role-based-access-control/custom-roles.md)

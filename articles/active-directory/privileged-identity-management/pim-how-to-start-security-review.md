@@ -1,6 +1,6 @@
 ---
-title: Een toegangsbeoordeling starten | Microsoft Docs
-description: Informatie over het maken van een toegangscontrole voor bevoegde identiteiten met de Azure Privileged Identity Management-toepassing.
+title: Een toegangscontrole voor Azure AD directory-rollen in PIM starten | Microsoft Docs
+description: Leer hoe u een toegangscontrole voor voor Azure AD-maprollen starten in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/21/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 0c6c1d48d0a78781528b08b3c1d1e9438bf865ee
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a431a0a0000cc8b0838bbe05c703cc548c8977c5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617350"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189399"
 ---
-# <a name="how-to-start-an-access-review-in-azure-ad-privileged-identity-management"></a>Een toegangsbeoordeling starten in Azure AD Privileged Identity Management
+# <a name="start-an-access-review-for-azure-ad-directory-roles-in-pim"></a>Een toegangscontrole voor Azure AD directory-rollen in PIM starten
 Roltoewijzingen worden 'verouderde' wanneer gebruikers uitgebreide toegang die ze niet meer nodig hebt. Om te reduceren het risico dat samenhangt met deze verouderde roltoewijzingen bevoorrechte rol moeten medewerkers of hoofdbeheerders regelmatig maken toegangsbeoordelingen om te vragen van beheerders voor het controleren van de functies die gebruikers hebben gekregen. In dit document bevat informatie over de stappen voor het starten van een toegangscontrole in Azure AD Privileged Identity Management (PIM).
 
 ## <a name="start-an-access-review"></a>Een toegangsbeoordeling starten
@@ -77,5 +77,8 @@ U kunt de voortgang volgen de revisoren hun beoordelingen in het dashboard Azure
 Totdat de periode van de toegangsbeoordeling voltooid is, kunt u Herinner de gebruikers om uit te voeren van de beoordeling of stoppen van de beoordeling vroeg in het gedeelte van de beoordelingen toegang.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
-## <a name="pim-table-of-contents"></a>PIM inhoudsopgave
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+## <a name="next-steps"></a>Volgende stappen
+
+- [Een toegangscontrole voor Azure AD directory-rollen in PIM voltooien](pim-how-to-complete-review.md)
+- [Een toegangscontrole van mijn Azure AD-directory-rollen in PIM uitvoeren](pim-how-to-perform-security-review.md)
+- [Een toegangscontrole voor Azure resource-rollen in PIM starten](pim-resource-roles-start-access-review.md)

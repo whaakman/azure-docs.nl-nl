@@ -1,6 +1,6 @@
 ---
-title: Hoe u multi-factor authentication vereist | Microsoft Docs
-description: Leer hoe u multi-factor authentication (MFA) vereist voor bevoegde identiteiten met de extensie van Azure Active Directory Privileged Identity Management.
+title: Meervoudige verificatie vereisen voor Azure AD directory-rollen in PIM | Microsoft Docs
+description: Informatie over het vereisen van multi-factor authentication (MFA) voor Azure AD-directory-rollen in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8e1c0fa212b31c05fcc4559f9f8d42b627f0da0e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 9777a7d2ed07ea2edf4bea661a5065c808de9f2b
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622844"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188350"
 ---
-# <a name="how-to-require-mfa-in-azure-ad-privileged-identity-management"></a>MFA in Azure AD Privileged Identity Management vereisen
+# <a name="require-multi-factor-authentication-for-azure-ad-directory-roles-in-pim"></a>Meervoudige verificatie vereisen voor Azure AD directory-rollen in PIM
 Het is raadzaam dat u multi-factor authentication (MFA) voor al uw beheerders vereisen. Dit vermindert het risico van een aanval vanwege een wachtwoord is verdacht.
 
 U kunt vereisen dat gebruikers een MFA-controle voltooien wanneer ze zich aanmelden. Het blogbericht: [MFA voor Office 365 en MFA voor Azure](https://blogs.technet.microsoft.com/ad/2014/02/11/mfa-for-office-365-and-mfa-for-azure/) vergeleken wat is opgenomen in Office en Azure-abonnementen, met de functies die deel uitmaken van de aanbieding voor Microsoft Azure multi-factor Authentication.
@@ -46,5 +46,6 @@ Als gebruikers on-premises verificatie kunt u ook uw id-provider die verantwoord
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [Azure AD directory rolinstellingen in PIM configureren](pim-how-to-change-default-settings.md)
+- [Beveiligingswaarschuwingen voor Azure AD directory-rollen in PIM configureren](pim-how-to-configure-security-alerts.md)

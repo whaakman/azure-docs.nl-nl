@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 2934c2323b056bfb5e556e7d688704ed20882bca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 06365e4397075d18150095f7e77367f457e3308c
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124447"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190422"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Aan de slag voor Azure IT-operators
 
@@ -173,7 +173,7 @@ Azure PowerShell is een set van modules die cmdlets voor het beheren van Azure. 
 
 #### <a name="azure-command-line-interface"></a>Azure-opdrachtregelinterface
 
-De opdrachtregelinterface van Azure is een hulpprogramma waarmee u kunt maken, beheren en verwijderen van Azure-resources vanaf de opdrachtregel. De Azure CLI is beschikbaar voor Linux, Mac OS X en Windows. Zie voor meer informatie en technische details [Azure CLI installeren](/cli/azure/install-azure-cli.md).
+De opdrachtregelinterface van Azure is een hulpprogramma waarmee u kunt maken, beheren en verwijderen van Azure-resources vanaf de opdrachtregel. De Azure CLI is beschikbaar voor Linux, Mac OS X en Windows. Zie voor meer informatie en technische details [Azure CLI installeren](/cli/azure/install-azure-cli).
 
 #### <a name="rest-apis"></a>REST-API’s
 
@@ -499,5 +499,5 @@ U kunt beveiligde Azure-netwerken met behulp van een netwerkbeveiligingsgroep. N
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Een Windows VM maken](/virtual-machines/windows/quick-create-portal.md)
+- [Een Windows VM maken](../../virtual-machines/windows/quick-create-portal.md)
 - [Een Linux-VM maken](../../virtual-machines/linux/quick-create-portal.md)

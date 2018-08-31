@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: magoedte
 ms.component: ''
-ms.openlocfilehash: 5f2674aeb83fbb7679d9d0c2574a93484a352e9d
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 180f1a39b92dd699fa114cb98a5842b0ab0dc89a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40162002"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190535"
 ---
 # <a name="create-a-data-pipeline-with-the-data-collector-api"></a>Een pijplijn maken met de Collector-API
 
@@ -42,7 +42,7 @@ We gebruiken een klassieke ETL-type-logica te ontwerpen van onze pijplijn. De ar
 
 In dit artikel wordt niet uitgelegd hoe u gegevens maakt of [uploaden naar een Azure Blob Storage-account](../storage/blobs/storage-upload-process-images.md). In plaats daarvan kiezen we de stroom van zodra een nieuw bestand wordt geüpload naar de blob. Vanaf hier:
 
-1. Een proces wordt gedetecteerd dat nieuwe gegevens zijn geüpload.  In ons voorbeeld maakt gebruik van maakt gebruik van een [Azure Logic App](../logic-apps/logic-apps-overview.md), die beschikbaar is voor een trigger voor het detecteren van nieuwe gegevens naar een blob geüpload.
+1. Een proces wordt gedetecteerd dat nieuwe gegevens zijn geüpload.  Ons voorbeeld wordt een [Azure Logic App](../logic-apps/logic-apps-overview.md), die beschikbaar is voor een trigger voor het detecteren van nieuwe gegevens naar een blob geüpload.
 
 2. Een processor van deze nieuwe gegevens leest en converteert deze naar JSON, de indeling die is vereist door Log Analytics.  In dit voorbeeld gebruiken we een [Azure Function](../azure-functions/functions-overview.md) als een lichtgewicht, betaalbare manier voor het uitvoeren van onze verwerkingscode. De functie wordt gestart door de dezelfde logische App die we hebben gebruikt voor het detecteren van een van de nieuwe gegevens.
 

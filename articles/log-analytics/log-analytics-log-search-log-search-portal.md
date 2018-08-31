@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/15/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: e97bab36a9a1a18cab1d45abfa451139323b2320
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 532df20a7639f42d8ba1c840a5fd19f0ad0e4042
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059173"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246330"
 ---
 # <a name="create-log-searches-in-azure-log-analytics-using-the-log-search-portal"></a>Zoekopdrachten in Logboeken in Azure Log Analytics met behulp van de portal zoeken in Logboeken maken
 
@@ -38,9 +38,8 @@ Open eerst de portal Zoeken in logboeken.
 
 1. Open Azure Portal.
 2. Navigeer naar Log Analytics en selecteer uw werkruimte.
-3. Selecteer **zoeken in logboeken**.
+3. Selecteer **Logboeken**.
 
-![Knop Zoeken in Logboeken](media/log-analytics-log-search-log-search-portal/log-search-button.png)
 
 ## <a name="create-a-simple-search"></a>Een eenvoudige zoekopdracht maken
 De snelste manier om gegevens op te halen om mee te werken, is met een eenvoudige query waarmee alle records in de tabel worden opgehaald.  Als u een Windows- of Linux-client hebt verbonden met uw werkruimte, hebt u gegevens in de gebeurtenis- (Windows) of Syslog-tabel (Linux).

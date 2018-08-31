@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 07/22/2018
 ms.author: raynew
-ms.openlocfilehash: 23cf9430f82be860cb9acbfac42163f9243b2d0f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: a734999f0fa473b5f1ee8ed55c4b73950566490d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42054450"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188770"
 ---
 # <a name="protect-sql-server-using-sql-server-disaster-recovery-and-azure-site-recovery"></a>SQL Server met behulp van SQL Server-noodherstel en Azure Site Recovery beveiligen
 
@@ -83,7 +83,6 @@ Deze tabel bevat een overzicht van onze aanbevelingen voor het integreren van SQ
 
 * Een on-premises SQL Server-implementatie, waarop een ondersteunde versie van SQL Server wordt uitgevoerd. Normaal gesproken moet u ook Active Directory voor uw SQL-server.
 * De vereisten voor het scenario dat u wilt implementeren. Meer informatie over de vereisten van het ondersteuningsteam voor [replicatie naar Azure](site-recovery-support-matrix-to-azure.md) en [on-premises](site-recovery-support-matrix.md), en [implementatievereisten](site-recovery-prereq.md).
-* Als u herstel in Azure instelt, worden uitgevoerd de [Azure Virtual Machine Readiness Assessment](http://www.microsoft.com/download/details.aspx?id=40898) hulpprogramma op uw SQL Server-machines om te controleren of ze compatibel zijn met Azure en Site Recovery.
 
 ## <a name="set-up-active-directory"></a>Active Directory instellen
 

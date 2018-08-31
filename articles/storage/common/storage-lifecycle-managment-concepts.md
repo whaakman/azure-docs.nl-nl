@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: a3208152ddf198d00c0a158e466c9d024c17b4d6
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: af32ea826f8150284c242fb6d1013924945aee97
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528440"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247779"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Beheer van de levenscyclus van Azure Blob Storage (Preview)
 
@@ -37,7 +37,7 @@ Levenscyclusbeheerbeleid is beschikbaar bij zowel algemeen gebruik v2 (GPv2)-acc
 Functie voor het beheer van levenscyclus is gratis in preview. Klanten betalen voor de bewerkingskosten van de normale voor de [Blobs weergeven](https://docs.microsoft.com/rest/api/storageservices/list-blobs) en [Blob-laag instellen](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API-aanroepen. Zie [prijzen voor blok-Blob](https://azure.microsoft.com/pricing/details/storage/blobs/) voor meer informatie over prijzen.
 
 ## <a name="register-for-preview"></a>Registreren voor de Preview-versie 
-Als u wilt registreren in openbare preview-versie, moet u een aanvraag indient bij het registreren van deze functie kunt u uw abonnement. Nadat uw aanvraag is goedgekeurd (binnen een paar dagen), is alle bestaande en nieuwe GPv2 of Blob Storage-account in VS-West 2 en West-Centraal VS, heeft de functie is ingeschakeld. Tijdens de preview, wordt alleen blok-blob ondersteund. Net als bij de meeste Preview-versies, mag deze functie niet worden gebruikt voor werkbelastingen voor productie totdat het bereikt die algemene beschikbaarheid.
+Als u wilt registreren in openbare preview-versie, moet u een aanvraag indient bij het registreren van deze functie kunt u uw abonnement. Nadat uw aanvraag is goedgekeurd (binnen een paar dagen), is alle bestaande en nieuwe GPv2 of Blob Storage-account in VS-West 2, West-Centraal VS en West-Europa, heeft de functie is ingeschakeld. Tijdens de preview, wordt alleen blok-blob ondersteund. Net als bij de meeste Preview-versies, mag deze functie niet worden gebruikt voor werkbelastingen voor productie totdat het bereikt die algemene beschikbaarheid.
 
 Als u wilt een aanvraag indient, voer de volgende PowerShell of CLI-opdrachten.
 

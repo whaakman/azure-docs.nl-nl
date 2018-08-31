@@ -1,6 +1,6 @@
 ---
-title: Privileged Identity Management voor Azure-resources - abonnementsbeheer inschakelen | Microsoft Docs
-description: Informatie over hoe globale beheerders abonnementen in de tenant kunt beheren.
+title: Schakel beheer van abonnementen in uw tenant - Azure | Microsoft Docs
+description: Informatie over het beheer van abonnementen inschakelen in uw tenant inschakelen bij het gebruik van Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 03/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: d7a9c0090d3bfaaf1161b6255c4c0b659c77d692
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 89bb6fd48c58b7672b7a2251a172cc169093d368
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620277"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189992"
 ---
 # <a name="enable-subscription-management-in-your-tenant"></a>Beheer van abonnementen in uw tenant inschakelen
 
@@ -79,14 +79,5 @@ Nu dat u in aanmerking komende toewijzingen voor de belangrijke abonnementen in 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Resources doorzoeken](pim-resource-roles-discover-resources.md)
-
-[Rolinstellingen configureren](pim-resource-roles-configure-role-settings.md)
-
-
-
-
-
-
-
-
+- [Azure-resources te beheren in PIM detecteren](pim-resource-roles-discover-resources.md)
+- [Azure-resource rolinstellingen in PIM configureren](pim-resource-roles-configure-role-settings.md)

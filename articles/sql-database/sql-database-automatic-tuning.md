@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 9ad36d37fef4c1ee05e31098b145b0264b6440ca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 38b59c28096b23a22b216158d9e945a2881a4f41
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126437"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189255"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisch afstemmen in Azure SQL Database
 
@@ -64,7 +64,7 @@ Zie de ingesloten video voor een overzicht van de werking van automatische afste
 
 Opties voor automatisch afstemmen in Azure SQL Database beschikbaar zijn:
  1. **CREATE INDEX** -identificeert indexen die prestaties van uw workload kunnen verbeteren, indexen en wordt automatisch gecontroleerd dat de prestaties van query's zijn verbeterd.
- 2. **DROP INDEX** -redundant en dubbele Hiermee worden indexen geïdentificeerd dagelijks indexen die niet zijn gebruikt voor een lange periode (> 90 dagen). Houd er rekening mee dat deze optie is niet compatibel is met toepassingen die gebruikmaken van partitie schakelen en de index-hints.
+ 2. **DROP INDEX** -identificeert redundante en dubbele indexen per dag, met uitzondering van unieke indexen en indexen die gedurende een lange periode niet zijn gebruikt (> 90 dagen). Houd er rekening mee dat deze optie is niet compatibel is met toepassingen die gebruikmaken van partitie schakelen en de index-hints.
  3. **LAATSTE goede PLAN forceren** -SQL-query's met behulp van uitvoeringsplan die langzamer is dan de vorige goed plan en query's met behulp van de laatst bekende goede planning in plaats van de verminderde plan identificeert.
 
 Automatisch afstemmen identificeert **CREATE INDEX**, **DROP INDEX**, en **FORCE laatste goede PLAN** aanbevelingen die u kunnen de databaseprestaties van uw te optimaliseren en waarin wordt getoond in [Azure-portal](sql-database-advisor-portal.md), en wordt aangegeven dat ze via [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azuresqldb-current) en [REST-API](https://docs.microsoft.com/rest/api/sql/serverautomatictuning).

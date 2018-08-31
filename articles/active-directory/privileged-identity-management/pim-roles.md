@@ -1,6 +1,6 @@
 ---
-title: Rollen in Azure AD Privileged Identity Management | Microsoft Docs
-description: Meer informatie over welke functies worden gebruikt voor bevoegde identiteiten met de extensie Azure Privileged Identity Management.
+title: Azure AD directory-rollen in PIM kunt u beheren | Microsoft Docs
+description: Hierin wordt beschreven in de Azure AD-maprollen die u in Azure AD Privileged Identity Management (PIM beheren kunt).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: f8045d70ab4926cdc0e28a9a2290685c4f11205a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: c8870e4da63dc52d5926bdfd5f7c9b3218e5f53a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618560"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188983"
 ---
-# <a name="directory-roles-you-can-manage-using-azure-ad-pim"></a>U kunt beheren met behulp van Azure AD PIM-Directory-rollen
+# <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Azure AD-maprollen die kunt u in PIM beheren
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
 
 U kunt gebruikers toewijzen in uw organisatie aan andere beheerdersrollen in Azure AD. Deze roltoewijzingen beheren welke taken, zoals het toevoegen of verwijderen van gebruikers of wijzigen van service-instellingen, de gebruikers kunnen uitvoeren op Azure AD, Office 365 en andere Microsoft Online Services en verbonden toepassingen.  
@@ -86,5 +86,7 @@ Toegang tot Microsoft Online Services mogelijk de gebruiker ook een licentie wor
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [PIM gebruiken](pim-getting-started.md)
+- [Azure AD-directory-rollen in PIM toewijzen](pim-how-to-add-role-to-user.md)
 

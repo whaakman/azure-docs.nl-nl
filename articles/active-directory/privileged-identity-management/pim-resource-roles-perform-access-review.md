@@ -1,6 +1,6 @@
 ---
-title: Een toegangscontrole uitvoeren in Privileged Identity Management voor Azure-resources | Microsoft Docs
-description: Dit document wordt beschreven hoe u een toegangscontrole uitvoeren in PIM voor Azure-resources op basis van de resourcerol van de.
+title: Een toegangscontrole van mijn Azure-resource-rollen in PIM uitvoeren | Microsoft Docs
+description: Leer hoe u een toegangscontrole van uw Azure-resource-rollen uitvoeren in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 336ad1d7eff8eee0f2370e206eb98f20b4efb45b
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: a96a1de7828797f1124280fca95a3358210b55b7
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617221"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189715"
 ---
-# <a name="perform-an-access-review-in-pim-according-to-resource-role"></a>Een toegangscontrole uitvoeren in PIM, op basis van de resourcerol van de
+# <a name="perform-an-access-review-of-my-azure-resource-roles-in-pim"></a>Een toegangscontrole van mijn Azure-resource-rollen in PIM uitvoeren
 Privileged Identity Management (PIM) voor Azure-resources vereenvoudigt de manier waarop ondernemingen bevoegde toegang tot resources in Azure beheren. 
 
 Als u aan een beheerdersrol toegewezen bent, kan beheerder met bevoorrechte rol van uw organisatie u vragen om regelmatig bevestigen dat u die rol nog voor de taak moet. U kunt een e-mailbericht een koppeling bevat krijgen of gaat u rechtstreeks naar de [Azure-portal](https://portal.azure.com). Volg de stappen in dit artikel om uit te voeren met een zelf bekijken van de toegewezen rollen.
@@ -50,3 +50,7 @@ Volg deze stappen om te zoeken en de toegangsbeoordeling voltooien:
 4. Kies een **goedkeuren** of **weigeren**. In de **een vak reden**, moet u mogelijk een reden op voor uw beslissing nemen.
 
    ![Pagina met details van schermafbeelding van de beoordeling](media/azure-pim-resource-rbac/rbac-access-review-choice.png)
+
+## <a name="next-steps"></a>Volgende stappen
+
+- [Een toegangscontrole van mijn Azure AD-directory-rollen in PIM uitvoeren](pim-how-to-perform-security-review.md)

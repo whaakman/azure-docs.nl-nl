@@ -3,19 +3,19 @@ title: Aanbevolen procedures voor het laden van gegevens - Azure SQL Data Wareho
 description: Aanbevelingen en prestatieoptimalisatie voor het laden van gegevens in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 5ccf0ce0cc94f0ae08213167ee54628a9d059859
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: a2cc5b02744c04752ba11cbba14fe95c487d737c
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701515"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248114"
 ---
 # <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Aanbevolen procedures voor het laden van gegevens in Azure SQL Data Warehouse
 Aanbevelingen en prestatieoptimalisatie voor het laden van gegevens in Azure SQL Data Warehouse. 
@@ -58,11 +58,11 @@ Maak verbinding met het datawarehouse en maak een gebruiker. In de volgende code
 ```
 Meld u aan in als LoaderRC20 en voer de belasting uit om deze uit te voeren met resources voor de statiRC20-resourceklassen.
 
-Voer loads bij voorkeur uit onder statische en niet onder dynamische resourceklassen. Met de klassen statische resource wordt gegarandeerd dat dezelfde bronnen ongeacht de [datawarehouse eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md). Als u een dynamische resourceklasse gebruikt, variëren de resources afhankelijk van uw serviceniveau. Voor dynamische klassen betekent een lager serviceniveau dat u waarschijnlijk een grotere resourceklasse moet gebruiken voor uw gebruiker van het laadproces.
+Voer loads bij voorkeur uit onder statische en niet onder dynamische resourceklassen. Met behulp van de statische resourceklassen worden dezelfde resources ongeacht gegarandeerd uw [datawarehouse-eenheden](what-is-a-data-warehouse-unit-dwu-cdwu.md). Als u een dynamische resourceklasse gebruikt, variëren de resources afhankelijk van uw serviceniveau. Voor dynamische klassen betekent een lager serviceniveau dat u waarschijnlijk een grotere resourceklasse moet gebruiken voor uw gebruiker van het laadproces.
 
 ## <a name="allowing-multiple-users-to-load"></a>Meerdere gebruikers toestaan te laden
 
-Vaak is het nodig dat meerdere gebruikers gegevens kunnen laden in een datawarehouse. Bij het laden van met de [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) vereist machtigingen voor beheer van de database.  De CONTROL-machtiging biedt beheertoegang tot alle schema's. Mogelijk wilt u niet alle gebruikers die laadtaken uitvoeren, beheertoegang tot alle schema's verlenen. Als u machtigingen wilt beperken, kunt u de instructie DENY CONTROL gebruiken.
+Vaak is het nodig dat meerdere gebruikers gegevens kunnen laden in een datawarehouse. Laden met de [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) vereist machtigingen voor beheer van de database.  De CONTROL-machtiging biedt beheertoegang tot alle schema's. Mogelijk wilt u niet alle gebruikers die laadtaken uitvoeren, beheertoegang tot alle schema's verlenen. Als u machtigingen wilt beperken, kunt u de instructie DENY CONTROL gebruiken.
 
 Denk bijvoorbeeld aan databaseschema's, schema_A voor afdeling A, en schema_B voor afdeling B. Laat databasegebruikers gebruiker_A en gebruiker_B gebruikers zijn voor PolyBase die respectievelijk laden in afdeling A en B. Beide zijn voorzien van databasemachtigingen voor CONTROL. De makers van schema A en B vergrendelen nu hun schema's met DENY:
 

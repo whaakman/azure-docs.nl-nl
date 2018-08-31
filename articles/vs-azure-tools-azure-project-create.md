@@ -12,15 +12,15 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/21/2017
 ms.author: ghogen
-ms.openlocfilehash: f41628c29f40443cc213892a0cc457eda110ebca
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 3e6ab2078c6b9233360d7cabdc49eddf557b9b57
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42061340"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189237"
 ---
 # <a name="creating-an-azure-cloud-service-project-with-visual-studio"></a>Het maken van een Azure-cloud service-project met Visual Studio
-De Azure Tools voor Visual Studio biedt een projectsjabloon waarmee u een Azure-cloud-service maken. Zodra het project is gemaakt, wordt Visual Studio kunt u configureren, fouten opsporen en implementeren van de cloudservice in Azure.
+De Azure Tools voor Visual Studio biedt een projectsjabloon waarmee u maakt een [Azure-cloudservice](/azure/cloud-services/cloud-services-choose-me), dit is een eenvoudige algemene Azure-service. Zodra het project is gemaakt, wordt Visual Studio kunt u configureren, fouten opsporen en implementeren van de cloudservice in Azure.
 
 ## <a name="steps-to-create-an-azure-cloud-service-project-in-visual-studio"></a>Stappen voor het maken van een Azure-cloud service-project in Visual Studio
 In deze sectie helpt u bij het maken van een Azure-cloud service-project in Visual Studio met een of meer webrollen.  

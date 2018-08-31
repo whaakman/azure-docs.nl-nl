@@ -1,6 +1,6 @@
 ---
-title: Over het gebruik van het auditlogboek in Azure AD Privileged Identity Management | Microsoft Docs
-description: Informatie over het gebruik van het auditlogboek opgenomen in de Azure Privileged Identity Management-extensie.
+title: Controlegeschiedenis voor Azure AD-directory-rollen in PIM weergeven | Microsoft Docs
+description: Informatie over het weergeven van de controlegeschiedenis voor Azure AD directory-rollen in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,28 +13,34 @@ ms.component: pim
 ms.date: 02/14/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 922658f75a0d00998072c7bd8f2160e9db27f318
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ab5a072d845bfdbaafabe1e0e7bdce2dfce6184d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627787"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188176"
 ---
-# <a name="using-the-audit-log-in-pim"></a>Met behulp van het auditlogboek in PIM
-U kunt het auditlogboek Privileged Identity Management (PIM) gebruiken om te zien van alle toewijzingen van gebruikers en activeringen binnen een bepaalde periode. Als u wilt zien van de volledige controlegeschiedenis van activiteit in uw tenant, met inbegrip van de beheerder, eindgebruikers en synchronisatieactiviteit, kunt u de [Azure Active Directory-toegang en gebruik rapporten.](../reports-monitoring/overview-reports.md)
+# <a name="view-audit-history-for-azure-ad-directory-roles-in-pim"></a>Controlegeschiedenis voor Azure AD directory-rollen in PIM weergeven
+U kunt de controlegeschiedenis Privileged Identity Management (PIM) gebruiken om te zien van alle toewijzingen van gebruikers en activeringen binnen een bepaalde periode voor alle bevoorrechte rollen. Als u wilt zien van de volledige controlegeschiedenis van activiteit in uw tenant, met inbegrip van de beheerder, eindgebruikers en synchronisatieactiviteit, kunt u de [Azure Active Directory-toegang en gebruik rapporten.](../reports-monitoring/overview-reports.md)
 
-## <a name="navigate-to-the-audit-log"></a>Navigeer in het auditlogboek opgenomen
-Uit de [Azure-portal](https://portal.azure.com) dashboard, selecteer de **Azure AD Privileged Identity Management** app. Van daaruit toegang krijgen tot het auditlogboek door te klikken op **bevoorrechte rollen beheren** > **controlegeschiedenis** in de PIM-dashboard.
+## <a name="navigate-to-audit-history"></a>Navigeer om controlegeschiedenis
+Uit de [Azure-portal](https://portal.azure.com) dashboard, selecteer de **Azure AD Privileged Identity Management** app. Van daaruit toegang krijgen tot de controlegeschiedenis door te klikken op **bevoorrechte rollen beheren** > **controlegeschiedenis** in de PIM-dashboard.
 
-## <a name="the-audit-log-graph"></a>De audit log-grafiek
-U kunt het auditlogboek gebruiken om de totale activeringen, max activeringen per dag en gemiddelde activeringen per dag in een lijndiagram weer te geven.  U kunt ook de gegevens filteren op rol, als er meer dan één rol in de controlegeschiedenis.
+![](media/azure-ad-pim-approval-workflow/image021.png)
 
-Gebruik de **tijd**, **actie**, en **rol** knoppen voor het sorteren van het logboek.
+>[!NOTE]
+Sorteer de gegevens door de actie en zoek naar "Activeren goedgekeurd"
 
-## <a name="the-audit-log-list"></a>De lijst met audit log
-De kolommen in de lijst met audit log zijn:
 
-* **Aanvrager** -de gebruiker die de rolactivering of wijzigen.  Als de waarde 'Azure systeem', controleert u het Azure-auditlogboek voor meer informatie.
+## <a name="audit-history-graph"></a>Audit-grafiek
+U kunt de controlegeschiedenis gebruiken om de totale activeringen, max activeringen per dag en gemiddelde activeringen per dag in een lijndiagram weer te geven.  U kunt ook de gegevens filteren op rol, als er meer dan één rol in de controlegeschiedenis.
+
+Gebruik de **tijd**, **actie**, en **rol** knoppen voor het sorteren van de geschiedenis.
+
+## <a name="audit-history-list"></a>Lijst van de geschiedenis van controle
+De kolommen in de lijst van de geschiedenis audit zijn:
+
+* **Aanvrager** -de gebruiker die de rolactivering of wijzigen.  Als de waarde 'Azure systeem', controleert u de controlegeschiedenis voor Azure voor meer informatie.
 * **Gebruiker** -de gebruiker die geactiveerd of toegewezen aan een rol is.
 * **Rol** -de rol toegewezen of geactiveerd door de gebruiker.
 * **Actie** - de acties die door de aanvrager. Dit kunnen bijvoorbeeld toewijzing, ongedaan, activeren of deactiveren.
@@ -42,20 +48,20 @@ De kolommen in de lijst met audit log zijn:
 * **Redeneren** -als de tekst in het veld reden tijdens de activering is ingevoerd, wordt het hier weergegeven.
 * **Vervaldatum** - alleen relevant voor activering van rollen.
 
-## <a name="filter-the-audit-log"></a>Het controlelogboek filteren
-U kunt de informatie die wordt weergegeven in het auditlogboek door te klikken op filteren de **Filter** knop.  De **Update grafiek parameters blade** wordt weergegeven.
+## <a name="filter-audit-history"></a>Controlegeschiedenis filteren
+U kunt de informatie die wordt weergegeven in de controlegeschiedenis door te klikken op filteren de **Filter** knop.  De **Update grafiek parameters blade** wordt weergegeven.
 
-Nadat u de filters hebt ingesteld, klikt u op **Update** om de gegevens in het logboek te filteren.  Als de gegevens niet meteen wordt weergegeven, vernieuw de pagina.
+Nadat u de filters hebt ingesteld, klikt u op **Update** om de gegevens in de geschiedenis te filteren.  Als de gegevens niet meteen wordt weergegeven, vernieuw de pagina.
 
 ### <a name="change-the-date-range"></a>Wijzig het datumbereik
-Gebruik de **vandaag**, **afgelopen Week**, **afgelopen maand**, of **aangepaste** knoppen om te wijzigen van het tijdsbereik van het auditlogboek.
+Gebruik de **vandaag**, **afgelopen Week**, **afgelopen maand**, of **aangepaste** knoppen om te wijzigen van het tijdsbereik van de controlegeschiedenis.
 
-Als u ervoor kiest de **aangepaste** knop klikt, krijgt u een **van** datumveld en een **naar** datumveld om op te geven van een datumbereik voor het logboek.  U kunt de datums invoeren in MM/DD/JJJJ-notatie of klik op de **agenda** pictogram en kiest u de datum in een agenda.
+Als u ervoor kiest de **aangepaste** knop klikt, krijgt u een **van** datumveld en een **naar** datumveld om op te geven van een datumbereik voor de geschiedenis.  U kunt de datums invoeren in MM/DD/JJJJ-notatie of klik op de **agenda** pictogram en kiest u de datum in een agenda.
 
-### <a name="change-the-roles-included-in-the-log"></a>Wijzigen van de rollen die zijn opgenomen in het logboek
-Controleer of schakel de **rol** selectievakje in naast elke rol moeten worden opgenomen of uitgesloten van het logboek.
+### <a name="change-the-roles-included-in-the-history"></a>Wijzigen van de rollen die zijn opgenomen in de geschiedenis
+Controleer of schakel de **rol** selectievakje in naast elke rol moeten worden opgenomen of uitgesloten van de geschiedenis.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [Controlegeschiedenis voor Azure-resource-rollen in PIM weergeven](pim-resource-roles-use-the-audit-log.md)

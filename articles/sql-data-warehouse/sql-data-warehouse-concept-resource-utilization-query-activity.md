@@ -3,19 +3,19 @@ title: Azure SQL Data Warehouse-beheer en controle - activiteit, Resourcegebruik
 description: Meer informatie over welke mogelijkheden zijn beschikbaar voor het beheren en controleren van Azure SQL Data Warehouse. Gebruik de Azure-portal en de dynamische beheerweergaven (DMV's) om te begrijpen van de query-activiteiten en het Resourcegebruik van uw datawarehouse.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/26/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 7ff304fa478942254cca372282a30a1a3f00f354
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: c783045d242725ee19dfe7e0baee13625d986312
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112980"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246491"
 ---
 # <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Controleren van de resource-gebruik en query-activiteit in Azure SQL Data Warehouse
 Azure SQL Data Warehouse biedt een uitgebreide controle-ervaring in Azure portal om inzichten te kunnen verkrijgen voor uw datawarehouse-workload. De Azure portal is het aanbevolen hulpmiddel bij het bewaken van uw datawarehouse, aangezien deze configureerbare inhoudingen perioden, waarschuwingen, aanbevelingen, en aanpasbare grafieken en dashboards voor metrische gegevens en Logboeken biedt. Via de portal kunt u integreren met andere Azure-services, zoals Operations Management Suite (OMS) controleren / Log Analytics en Azure Monitor om te bieden een holistische controle-ervaring voor het niet alleen uw datawarehouse, maar ook uw hele Azure Analytics-platform voor een geïntegreerde ervaring voor de bewaking. Deze documentatie wordt beschreven welke mogelijkheden voor bewaking zijn beschikbaar om te optimaliseren en beheren van uw platform voor streaminganalyse met SQL Data Warehouse. 

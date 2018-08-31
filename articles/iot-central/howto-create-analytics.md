@@ -1,45 +1,93 @@
 ---
-title: Maken van aangepaste analytics voor uw Azure IoT centrale toepassing | Microsoft Docs
-description: Als operator aangepaste analytics voor uw Azure IoT centrale toepassing maken.
-author: tbhagwat3
-ms.author: tanmayb
-ms.date: 04/16/2018
+title: Maken van aangepaste analytics voor uw toepassing met Azure IoT Central | Microsoft Docs
+description: Als operator, over het maken van aangepaste analytics voor uw Azure IoT Central-toepassing.
+author: lmasieri
+ms.author: lmasieri
+ms.date: 08/26/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5facdf3f02b71e154a23d8f26c7bcc40b5c71e35
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 0a78c534605b6eab08d5b12674689f0459e80b26
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34629300"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247093"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Analytics gebruiken om de apparaatgegevens van uw te analyseren
 
-Microsoft Azure IoT Central biedt uitgebreide analytics mogelijkheden voor het zinvol zijn van grote hoeveelheden gegevens van uw apparaten. U kunt analytics weergeven en analyseren van gegevens voor een [apparaatset](howto-use-device-sets.md) in uw toepassing. Een apparaatset is een door de gebruiker gedefinieerde groepslid van uw apparaten. U kunt uw analyse op een klein aantal apparaten of op één apparaat afbakenen.
+Microsoft Azure IoT Central biedt uitgebreide analysemogelijkheden, zinvol zijn van grote hoeveelheden gegevens van uw apparaten. Als u wilt beginnen, gaat u naar **Analytics** in het navigatiemenu links. 
 
-Als operator kiezen **Analytics** in het navigatiemenu links, kiest u een apparaat en kies vervolgens de waarden op de grafiek moet worden weergegeven. Hier volgen enkele hulpprogramma's waarmee die u kunt de gegevens verder segmenteren:
+  ![Navigatie naar analytics IoT Central](media\howto-create-analytics\analytics-navigation.png)
 
-* **Metingen:** kiest u de metingen weergeven zoals temperatuur en vochtigheid.
-* **Aggregatie:** kiest u de statistische functie voor de metingen. Bijvoorbeeld: **Minimum** of **gemiddelde**.
-* **Gesplitste door:** inzoomen door onder te verdelen van de gegevens door de eigenschappen van een apparaat of de naam van apparaat. Bijvoorbeeld, splitsing door de locatie van het apparaat:
+## <a name="querying-your-data"></a>Uw gegevens opvragen
 
-     ![Hoofdpagina voor Analytics](media\howto-create-analytics\analytics-main.png)
+U moet kiezen een **apparaat**, toevoegen een **filter** (optioneel), en selecteer een **periode** aan de slag. Als u klaar bent, klikt u op *resultaten weergeven* om te beginnen met het visualiseren van uw gegevens.
 
-* **Tijdsbereik:** kunt u een van de vooraf gedefinieerde tijdsbereik tijdsbereik kiezen of maken van een aangepaste periode: ![Analytics tijdsbereik](media\howto-create-analytics\analytics-time-range.png)
 
-## <a name="change-the-visualizations"></a>De visualisaties wijzigen
+* **Apparaat instellen:** A [apparaat](howto-use-device-sets.md) is een door de gebruiker gedefinieerde groep van uw apparaten. Bijvoorbeeld, rev alle koelkasten in Oakland of alle 2.0 wind maar.
 
-U kunt wijzigen in de grafieken om te voldoen aan de vereisten van uw visualisatie door een van de drie beschikbare modi te kiezen:
+<!---
+to-do: confirm if 10 is the max number of filters
+to-do: do we need to explain how fiters work?
+--->
 
-* **Gestapelde:** een grafiek voor elke meting wordt gestapelde en elk van de grafieken hebben hun eigen y-as. Gestapelde grafieken zijn nuttig wanneer u meerdere metingen geselecteerd hebt en wilt u afzonderlijke weergave van deze metingen.
-* **Niet gestapelde:** een grafiek voor elke meting wordt uitgezet tegen één y-as, maar de waarden voor de y-as worden gewijzigd op basis van de geselecteerde meting. Niet gestapelde grafieken zijn handig als u wilt meerdere metingen overlay en wilt zien van patronen in deze maatregelen voor dezelfde periode.
-* **Gedeelde y-as:** alle grafieken delen de dezelfde y-as en de waarden voor de as niet wijzigen. Gedeelde grafieken van de y-as zijn handig als u zoeken op een enkele meting wilt bij het segmenteren van de gegevens met split-by.
+* **Filters:** desgewenst kunt u filters toevoegen aan uw zoekopdracht tot Inzoomen op uw gegevens. U kunt maximaal 10 filters tegelijk toevoegen. Bijvoorbeeld, binnen alle koelkasten in Oakland vinden die temperatuur hebben gehad gaat dan 60 graden. 
+* **Periode:** standaard zult we gegevens ophalen uit de afgelopen 10 minuten. U kunt deze waarde wijzigen in een van de vooraf gedefinieerde tijdsbereik of een aangepaste periode. 
+
+ ![Analytische query](media\howto-create-analytics\analytics-query.png)
+
+## <a name="visualizing-your-data"></a>Uw gegevens te visualiseren
+
+Nadat u uw gegevens hebt opgevraagd, kunt u zult kunnen starten met het visualiseren van deze. U kunt weergeven/verbergen metingen, wijzigen de manier waarop gegevens samengevoegd en verdere zijn gegevens splitsen op basis van de eigenschappen van een ander apparaat.  
+
+* **Delen door:** splitsen van gegevens door de eigenschappen van een apparaat kunt u verder inzoomen naar beneden in uw gegevens. Bijvoorbeeld, kunt u de resultaten op basis van apparaat-ID of locatie splitsen.
+<!---
+to-do: confirm if 10 is the max number of measurements
+--->
+* **Metingen:** u kunt maximaal 10 verschillende telemetrie-items dat wordt gerapporteerd door uw apparaten tegelijk weergeven/verbergen. Metingen zijn, zoals temperatuur en vochtigheid. 
+* **Aggregatie:** standaard we gegevens aggregeren op basis van de gemiddelde, maar u kunt kiezen om te wijzigen van de gegevens worden verzameld op iets anders aan uw behoeften voldoet. 
+
+   ![Analytics-visualisatie](media\howto-create-analytics\analytics-visualize.png) <br/><br/>
+   ![Splitsen op basis van Analytics-visualisatie](media\howto-create-analytics\analytics-splitby.png)
+
+## <a name="interacting-with-your-data"></a>Interactie met uw gegevens
+
+Er zijn verschillende manieren waarin u de resultaten van uw query om te voldoen aan de behoeften van uw visualisatie meer kunt wijzigen. U kunt schakelen tussen de grafiekweergave van een en een rasterweergave, Inzoomen en uitzoomen, vernieuw uw gegevensset en alter hoe regels worden weergegeven.
+
+* **Raster weergeven:** uw resultaten zijn beschikbaar in tabelindeling aan zodat u kunt bekijken van de specifieke waarde voor elk gegevenspunt. In deze weergave ook voldoet aan de toegankelijkheidsnormen. 
+* **Grafiek weergeven:** uw resultaten worden weergegeven in de indeling van een regel eenvoudig omhoog/omlaag punten trends en afwijkingen. 
+
+ ![De rasterweergave voor uw analyses weergeven](media\howto-create-analytics\analytics-showgrid.png)
+
+Zoomen kunt u inzoomen op uw gegevens. Als u een bepaalde periode vindt wilt u zich richten op in de resultatenset met behulp van de cursor selectiegrepen het gebied dat u wilt inzoomen op en gebruikt u de beschikbare besturingselementen een van de volgende acties uit te voeren:
+* **Inzoomen:** wanneer u een bepaalde periode hebt geselecteerd, zoomen in wordt ingeschakeld en kunt u inzoomen op uw gegevens.
+* **Uitzoomen:** dit besturingselement kunt u één niveau van de laatste zoom uitzoomen. Bijvoorbeeld, als u hebt Inzoomen op uw gegevens drie keer, uitzoomen gaat u een back-één stap tegelijk.
+* **Zoomen opnieuw instellen:** wanneer u verschillende niveaus van zoomen hebt uitgevoerd, kunt u de zoomknop opnieuw instellen om terug te keren naar de oorspronkelijke resultatenset. 
+
+ ![Zoomen op uw gegevens uitvoeren](media\howto-create-analytics\analytics-zoom.png)
+
+
+U kunt de lijnstijl om te voldoen aan uw behoeften kunt wijzigen. U zijn kunt kiezen uit vier opties:
+* **Regel:** een platte lijn tussen de afzonderlijke gegevenspunten worden gevormd. 
+* **Vloeiend:** een kromme lijn tussen elk punt worden gevormd
+* **Stap:** lijn tussen elk punt op de grafiek wordt een stap-grafiek maken
+* **Spreidingsdiagrammen:** zonder regels verbindt deze met alle punten in de grafiek worden getekend. 
+
+ ![Andere regel die beschikbaar zijn in Analytics](media\howto-create-analytics\analytics-linetypes.png)
+
+Ten slotte kunt u instellen dat uw gegevens voor de y-as door te kiezen uit een van de drie modi:
+
+* **Gestapeld:** een grafiek voor elke meting is gestapelde en elk van de grafieken hebben hun eigen y-as. Gestapelde diagrammen zijn nuttig wanneer u meerdere metingen geselecteerd hebt en wilt afzonderlijke weergave van deze metingen zijn.
+* **Niet gestapelde:** een grafiek voor elke meting is ze worden afgezet tegen een y-as, maar de waarden voor de y-as worden gewijzigd op basis van de geselecteerde meting. Niet gestapelde diagrammen zijn handig als u wilt meerdere metingen overlay en om te zien van patronen in deze maatregelen voor dezelfde periode.
+* **Gedeelde y-as:** alle grafieken delen de dezelfde y-as en de waarden voor de as niet wijzigen. Gedeelde y-as-grafieken zijn handig als u één maateenheid kijken wilt bij het segmenteren van de gegevens met een split-by.
+
+ ![Gegevens voor de y-as rangschikken met andere visualisatie-modi](media\howto-create-analytics\analytics-yaxis.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U hebt geleerd hoe u aangepaste analytics voor uw Azure IoT centrale toepassing maakt, is hier de voorgestelde volgende stap:
+U hebt geleerd over het maken van aangepaste analytics voor uw Azure IoT Central-toepassing, de voorgestelde volgende stap als volgt:
 
 > [!div class="nextstepaction"]
-> [Bereid en verbinding maken met een Node.js-toepassing](howto-connect-nodejs.md)
+> [Voorbereiden en verbinding maken met een Node.js-toepassing](howto-connect-nodejs.md)

@@ -1,6 +1,6 @@
 ---
-title: Detecteren en beheren van Azure-resources met behulp van Privileged Identity Management | Microsoft Docs
-description: Beschrijft hoe u Azure-resources beveiligen met PIM.
+title: Azure-resources te beheren in PIM detecteren | Microsoft Docs
+description: Informatie over het detecteren van Azure-resources te beheren in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: f4b6fafe40fe00492bac7bd6c28268321d4516db
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: MT
+ms.openlocfilehash: b5d48b3f854afaa79574e0ec13cff91f60396ac6
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104351"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190655"
 ---
-# <a name="discover-and-manage-azure-resources-by-using-privileged-identity-management"></a>Detecteren en beheren van Azure-resources met behulp van Privileged Identity Management
+# <a name="discover-azure-resources-to-manage-in-pim"></a>Azure-resources te beheren in PIM detecteren
 
 Informatie over het detecteren en beheren van Azure-resources, wanneer u in Azure Active Directory (Azure AD) Privileged Identity Management (PIM) hebt gebruikt. Deze informatie kan nuttig voor organisaties die al gebruikmaken van PIM om de beheerder resources te beschermen, en eigenaars van abonnementen die behoefte hebben aan voor het beveiligen van productieresources zijn.
 
@@ -64,5 +64,5 @@ De geselecteerde resources worden nu beheerd door PIM. Selecteer om te sluiten v
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Rolinstellingen configureren](pim-resource-roles-configure-role-settings.md)
-- [Toewijzen van rollen in PIM](pim-resource-roles-assign-roles.md)
+- [Azure-resource rolinstellingen in PIM configureren](pim-resource-roles-configure-role-settings.md)
+- [Azure-resource-rollen in PIM toewijzen](pim-resource-roles-assign-roles.md)

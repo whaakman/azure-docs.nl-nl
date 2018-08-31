@@ -1,6 +1,6 @@
 ---
-title: Beveiligingswaarschuwingen voor Azure-resources beheren met behulp van Privileged Identity Management | Microsoft Docs
-description: Hierin wordt beschreven in PIM-beveiligingswaarschuwingen.
+title: Beveiligingswaarschuwingen voor Azure resource-rollen in PIM configureren | Microsoft Docs
+description: Informatie over het configureren van beveiligingswaarschuwingen voor Azure resource-rollen in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -14,14 +14,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 46b19866ec3f276c8337cf9501b779701377d0a5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 33bd13421b0c1574475516da942abe4e8c71ed52
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620413"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43188829"
 ---
-# <a name="manage-security-alerts-for-azure-resources-by-using-privileged-identity-management"></a>Beveiligingswaarschuwingen voor Azure-resources beheren met behulp van Privileged Identity Management
+# <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Beveiligingswaarschuwingen voor Azure resource-rollen in PIM configureren
 Privileged Identity Management (PIM) voor Azure-Resources genereert waarschuwingen wanneer er verdachte of unsafe activiteit in uw omgeving. Wanneer een waarschuwing wordt geactiveerd, wordt deze weergegeven op de pagina met waarschuwingen. 
 
 ![Pagina met waarschuwingen](media/azure-pim-resource-rbac/RBAC-alerts-home.png)
@@ -50,3 +50,8 @@ Op de pagina met waarschuwingen, gaat u naar **instellingen**.
 
 Pas de instellingen op de verschillende waarschuwingen om te werken met uw omgeving en beveiligingsdoelen.
 ![Instellingen aanpassen](media/azure-pim-resource-rbac/rbac-alert-settings.png)
+
+## <a name="next-steps"></a>Volgende stappen
+
+- [Meervoudige verificatie vereisen voor Azure-resource-rollen in PIM](pim-resource-roles-require-mfa.md)
+- [Beveiligingswaarschuwingen voor Azure resource-rollen in PIM configureren](pim-resource-roles-configure-alerts.md)

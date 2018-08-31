@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure AD Privileged Identity Management | Microsoft Docs
-description: Informatie over het beheren van bevoegde identiteiten met de Azure Active Directory Privileged Identity Management-toepassing in de Azure Portal.
+title: Beginnen met PIM - Azure | Microsoft Docs
+description: Leer hoe u aan de slag met Azure AD Privileged Identity Management (PIM) in Azure portal.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -10,47 +10,63 @@ ms.service: active-directory
 ms.component: pim
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/17/2017
+ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 4eeb58e6e7377c2c0ec7db850a84bf1e296500d2
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 5b3bff27821964648713b02589c941c99e3eb03d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623048"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190086"
 ---
-# <a name="start-using-azure-ad-privileged-identity-management"></a>Aan de slag met Azure AD Privileged Identity Management
+# <a name="start-using-pim"></a>Beginnen met PIM
 
-Met Azure Active Directory (AD) Privileged Identity Management kunt u toegang binnen de organisatie beheren, controleren en bewaken. Dit bereik is inclusief toegang tot Azure-resources, Azure AD en andere Microsoft-onlineservices, zoals Office 365 en Microsoft Intune.
+Met Azure Active Directory (Azure AD) Privileged Identity Management (PIM), die u kunt beheren, controleren en toegang binnen uw organisatie controleren. Dit bereik is inclusief toegang tot Azure-resources, Azure AD en andere Microsoft-onlineservices, zoals Office 365 en Microsoft Intune.
 
 In dit artikel leest u hoe u de PIM-app van Azure AD toevoegt aan uw Azure Portal-dashboard.
 
-## <a name="add-the-privileged-identity-management-application"></a>De Privileged Identity Management-toepassing toevoegen
+## <a name="first-person-to-use-pim"></a>Eerste persoon PIM gaat gebruiken
 
-Voordat u Azure AD Privileged Identity Management gebruikt, moet u de toepassing toevoegen aan uw Azure Portal-dashboard.
+Als u de eerste persoon PIM gaat gebruiken in uw directory bent, u automatisch zijn toegewezen de [beveiligingsbeheerder](../users-groups-roles/directory-assign-admin-roles.md#security-administrator) en [beheerder met bevoorrechte rol](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) rollen in de map. Alleen beheerders met bevoegdheid kunnen directory-roltoewijzingen van gebruikers in Azure AD beheren. Bovendien kunt u de [beveiligingswizard](pim-security-wizard.md) uitvoeren. Deze helpt u bij de eerste ervaring met detectie en toewijzing.
 
-1. Meld u aan bij de [Azure Portal](https://portal.azure.com/) als globale beheerder van uw directory.
-2. Als uw organisatie meerdere directory's heeft, selecteert u uw gebruikersnaam rechtsboven in de Azure Portal. Selecteer de map waar u PIM gaat gebruiken.
-3. Selecteer **Alle services** en gebruik het tekstvak Filteren om te zoeken naar **Azure AD Privileged Identity Management**.
-4. Schakel **Vastmaken aan dashboard** in en klik op de knop **Maken**. De Privileged Identity Management-toepassing wordt geopend.
+## <a name="add-pim-tile-to-the-dashboard"></a>PIM-tegel aan het dashboard toevoegen
 
-Als u de eerste persoon bent die het gebruik van Azure AD Privileged Identity Management in uw map gebruikt, krijgt u automatisch de wollen **Beveiligingsbeheerder** en **Beheerder met bevoegdheid** toegewezen in de map. Alleen beheerders met bevoegdheid kunnen directory-roltoewijzingen van gebruikers in Azure AD beheren. Bovendien kunt u de [beveiligingswizard](pim-security-wizard.md) uitvoeren. Deze helpt u bij de eerste ervaring met detectie en toewijzing.
+Als u wilt maken het gemakkelijker om te openen PIM, moet u een tegel PIM toevoegen aan uw Azure portal-dashboard.
+
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als globale beheerder van uw directory.
+
+1. Klik op **alle services** en zoek de **Azure AD Privileged Identity Management** service.
+
+    ![Azure AD Privileged Identity Management in alle services](./media/pim-getting-started/pim-all-services-find.png)
+
+1. Klik op om de PIM-snelstartgids.
+
+1. Controleer **blade vastmaken aan dashboard** om de blade Snelstartgids voor PIM aan het dashboard vast te maken.
+
+    ![Blade vastmaken aan dashboard](./media/pim-getting-started/pim-quickstart-pin-to-dashboard.png)
+
+    In de Azure-dashboard ziet u een tegel als volgt:
+
+    ![PIM-snelstartgids-tegel](./media/pim-getting-started/pim-quickstart-dashboard-tile.png)
 
 ## <a name="navigate-to-your-tasks"></a>Navigeer naar uw taken
 
-Nadat Azure AD Privileged Identity Management is ingesteld, ziet u de navigatieblade telkens wanneer u de toepassing opent. Gebruik deze blade om de taken voor identiteitsbeheer te voltooien.
+Nadat het PIM is ingesteld, kunt u deze blade kunt gebruiken om uit te voeren taken voor identiteitsbeheer.
 
-![Taken op het hoogste niveau voor PIM - schermopname](./media/pim-getting-started/PIM_Tasks_New.png)
+![Taken op het hoogste niveau voor PIM - schermopname](./media/pim-getting-started/pim-quickstart-tasks.png)
 
-- **Mijn rollen**: een lijst met rollen van in aanmerking komende en actieve rollen die aan u zijn toegewezen. Hier kunt u alle in aanmerking komende toegewezen rollen activeren.
-- **Aanvragen goedkeuren (preview)**: een lijst met aanvragen voor het activeren van in aanmerking komende Azure AD-directory-rollen door gebruikers in uw directory, die u hebt aangewezen om goed te keuren. [Meer informatie.](./azure-ad-pim-approval-workflow.md)
-- **Aanvragen in behandeling (preview)**: alle in behandeling genomen aanvragen voor het activeren van in aanmerking komende roltoewijzingen.
-- **Toegang beoordelen**: actieve toegangsbeoordelingen die u hebt toegewezen om te voltooien, ongeacht of u de toegang beoordeelt voor uzelf of iemand anders.
-- **Azure AD-directory-rollen**: bevindt zich onder de sectie Beheren van het linkernavigatiemenu en bevat het dashboard voor beheerders met bevoorrechte rollen. Hiermee kunnen ze roltoewijzingen beheren, instellingen voor rolactivering wijzigen, toegangsbeoordelingen starten en meer. Dit dashboard is uitgeschakeld voor iedereen die geen beheerder met een bevoorrechte rol is. Deze gebruikers hebben toegang tot een speciaal dashboard met de titel Mijn weergave. Het dashboard Mijn weergave bevat alleen informatie over de gebruiker die toegang heeft tot het dashboard, niet de gehele tenant.
-- **Azure Resource-rollen (preview)**: bevindt zich onder de sectie Beheren van het linkernavigatiemenu en bevat een lijst van abonnementsresources waarvoor u roltoewijzingen kunt kiezen 
+| Taak + beheren | Beschrijving |
+| --- | --- |
+| **Mijn rollen**  | Geeft een lijst van in aanmerking komende en actieve rollen aan u toegewezen. Hier kunt u alle in aanmerking komende toegewezen rollen activeren. |
+| **Mijn aanvragen** | Geeft de in behandeling zijnde aanvragen voor het activeren van in aanmerking komende roltoewijzingen. |
+| **Toegang tot toepassingen** | Hiermee kunt u potentiële vertragingen verminderen en het gebruik van een rol onmiddellijk na de activering. |
+| **Aanvragen goedkeuren** | Geeft een lijst weer van aanvragen voor het activeren van in aanmerking komende rollen door gebruikers in uw directory die u hebt aangewezen om goed te keuren. |
+| **Toegang beoordelen** | Een lijst met actieve toegangsbeoordelingen die u zijn toegewezen om te voltooien, of u de toegang voor uzelf of iemand anders beoordeelt nu. |
+| **Azure AD-maprollen** | Geeft een dashboard en de instellingen voor beheerders met bevoegdheid voor het beheren van roltoewijzingen voor Azure AD-directory. Dit dashboard is uitgeschakeld voor iedereen die geen beheerder met een bevoorrechte rol is. Deze gebruikers hebben toegang tot een speciaal dashboard met de titel Mijn weergave. Het dashboard Mijn weergave bevat alleen informatie over de gebruiker die toegang heeft tot het dashboard, niet de gehele tenant. |
+| **Azure-resources** | Geeft een dashboard en de instellingen voor beheerders met bevoegdheid voor het beheren van roltoewijzingen van de Azure-resource. Dit dashboard is uitgeschakeld voor iedereen die geen beheerder met een bevoorrechte rol is. Deze gebruikers hebben toegang tot een speciaal dashboard met de titel Mijn weergave. Het dashboard Mijn weergave bevat alleen informatie over de gebruiker die toegang heeft tot het dashboard, niet de gehele tenant. |
 
 ## <a name="next-steps"></a>Volgende stappen
-Het [overzicht van Azure AD Privileged Identity Management](pim-configure.md) bevat meer informatie over het beheren van beheerderstoegang in uw organisatie.
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [Mijn Azure AD-directory-rollen in PIM activeren](pim-how-to-activate-role.md)
+- [Mijn Azure-resource-rollen in PIM activeren](pim-resource-roles-activate-your-roles.md)

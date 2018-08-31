@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/10/2018
+ms.date: 08/28/2018
 ms.author: kumud
-ms.openlocfilehash: 91c7d16296653aea2381793f2e52f2b33b831185
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42058063"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190730"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer-tests voor status
 
@@ -181,7 +181,12 @@ Als alle tests voor alle exemplaren in een back-endpool mislukken, worden bestaa
 
 ## <a name="probesource"></a>Bron-IP-adres-test
 
-Alle tests van de Load Balancer zijn afkomstig uit het IP-adres 168.63.129.16 als bron gebruikt.  Wanneer u uw eigen IP-adressen naar Azure Virtual Network meebrengen, wordt dit IP-adres van de gezondheid van test bron gegarandeerd uniek zijn omdat deze wereldwijd is bestemd voor Microsoft.  Dit adres is hetzelfde als in alle regio's en verandert niet. Deze moet niet worden beschouwd als een veiligheidsrisico inhouden omdat alleen het interne Azure-platform kunt een pakket van dit IP-adres van bron. 
+Load Balancer maakt gebruik van een gedistribueerde testinterval service voor de interne statusmodel. Elke host waarop de virtuele machines zich bevinden, kan worden geprogrammeerd voor het genereren van statuscontroles per configuratie van de klant. Het health test-verkeer is rechtstreeks tussen het onderdeel van de infrastructuur die wordt gegenereerd met de statustest en de virtuele machine van de klant. Alle tests van de Load Balancer zijn afkomstig uit het IP-adres 168.63.129.16 als bron gebruikt.  Wanneer u uw eigen IP-adressen naar Azure Virtual Network meebrengen, wordt dit IP-adres van de gezondheid van test bron gegarandeerd uniek zijn omdat deze wereldwijd is bestemd voor Microsoft.  Dit adres is hetzelfde als in alle regio's en verandert niet. Deze moet niet worden beschouwd als een veiligheidsrisico inhouden omdat alleen het interne Azure-platform kunt een pakket van dit IP-adres van bron. 
+
+Naast het Load Balancer-tests gebruiken de volgende bewerkingen voor dit IP-adres:
+
+- Kan de VM-Agent om te communiceren met het platform om aan te geven is in een status 'Gereed'
+- Communicatie met de virtuele DNS-server voor gefilterde naamomzetting voor klanten die geen aangepaste DNS-servers definieert mogelijk maakt.  Dit filter zorgt ervoor dat klanten alleen de hostnamen van de implementatie kunnen omzetten.
 
 Voor Load Balancer statustest uw exemplaar omhoog, markeert u **moet** toestaan dit IP-adres in elke Azure [beveiligingsgroepen](../virtual-network/security-overview.md) en lokale firewall-beleid.
 

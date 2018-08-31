@@ -1,202 +1,184 @@
 ---
 title: Aangemeld blijven Azure Active Directory B2C | Microsoft Docs
-description: Een onderwerp laat zien hoe u aangemeld blijven ingesteld.
+description: Informatie over het instellen van Houd Me aangemeld In (KMSI) in Azure Active Directory B2C.
 services: active-directory-b2c
 author: davidmu1
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 09/05/2016
+ms.date: 08/27/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 6bad6e1f2b204f76b075652a9d3f27367a8de49f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 6d58a62ef70cb5bacb44a3a9832516a30fc91ffa
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441314"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248056"
 ---
-# <a name="azure-active-directory-b2c-enable-keep-me-signed-in-kmsi"></a>Azure Active Directory B2C: Inschakelen 'Aangemeld (KMSI) blijven'  
+# <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Aangemeld blijven (KMSI) in Azure Active Directory B2C inschakelen
+
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-Azure AD B2C kunt nu uw web- en systeemeigen toepassingen de functionaliteit 'Automatisch aanmelden (KMSI)' in te schakelen. Deze functie verleent toegang tot het retourneren van gebruikers aan toepassing zonder dat u wordt gevraagd de gebruikersnaam en het wachtwoord opnieuw in te voeren. Deze toegang is ingetrokken wanneer de gebruiker zich afmeldt. 
+Houd Me aangemeld In (KMSI)-functionaliteit voor uw web- en systeemeigen toepassingen in Azure Active Directory (Azure AD) B2C, kunt u inschakelen. Deze functie verleent toegang tot het retourneren van gebruikers aan de toepassing zonder dat ze opnieuw in te voeren hun gebruikersnaam en wachtwoord wordt gevraagd. Deze toegang is ingetrokken wanneer een gebruiker zich afmeldt. 
 
-We raden het af gebruikers deze optie op openbare computers controleren. 
+Gebruikers moeten deze optie op openbare computers niet inschakelen. 
 
-![img](images/kmsi.PNG)
-
+![Aangemeld blijven inschakelen](./media/active-directory-b2c-reference-kmsi-custom/kmsi.PNG)
 
 ## <a name="prerequisites"></a>Vereisten
 
-Een Azure AD B2C-tenant die is geconfigureerd, zodat lokale account aanmelden-up-to-date/aanmelden, zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
+Een Azure AD B2C-tenant die is geconfigureerd voor lokale accounts zich kunnen registreren en aanmelden. Als u een tenant hebt, kunt u maken met de stappen in [zelfstudie: een Azure Active Directory B2C-tenant maken](tutorial-create-tenant.md).
 
-## <a name="how-to-enable-kmsi"></a>KMSI inschakelen
+## <a name="add-a-content-definition-element"></a>Een inhoudsdefinitie element toevoegen 
 
-De volgende wijzigingen aanbrengen in uw vertrouwensbeleid framework-extensies.
+Onder de **BuildingBlocks** element van het extensiebestand toevoegen een **ContentDefinitions** element. 
 
-## <a name="adding-a-content-definition-element"></a>Een inhoudsdefinitie-element toe te voegen 
+1. Onder de **ContentDefinitions** -element, Voeg een **ContentDefinition** element met een id van `api.signuporsigninwithkmsi`.
+2. Onder de **ContentDefinition** element toevoegen de **LoadUri**, **RecoveryUri**, en **gegevens-URI die** elementen. De `urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` waarde van de **gegevens-URI die** element is een begrijpelijk machine-id die een selectievakje KMSI in de aanmeldingspagina's wordt. Deze waarde mag niet worden gewijzigd. 
 
-De `BuildingBlocks` knooppunt van het bestand met extensie moet bevatten een `ContentDefinitions` element. 
+    ```XML
+    <BuildingBlocks>
+      <ContentDefinitions>
+        <ContentDefinition Id="api.signuporsigninwithkmsi">
+          <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
+          <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
+          <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0</DataUri>
+          <Metadata>
+            <Item Key="DisplayName">Signin and Signup</Item>
+          </Metadata>
+        </ContentDefinition>
+      </ContentDefinitions>
+    </BuildingBlocks>                       
+    ```
 
-1. In de `ContentDefinitions` sectie, het definiëren van een nieuwe `ContentDefinition` met ID `api.signuporsigninwithkmsi`.
-2. Uw nieuwe `ContentDefinition` moet bevatten een `LoadUri`, `RecoveryUri` en `DataUri` als volgt.
-3. Gegevens-URI die`urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0` is een begrijpelijk machine-id die een selectievakje KMSI in de aanmeldingspagina's wordt. Zorg ervoor dat u deze waarde niet wijzigen. 
+## <a name="add-a-sign-in-claims-provider-for-a-local-account"></a>Toevoegen van een claimprovider-aanmelden voor een lokaal account  
 
-```XML
-  <BuildingBlocks>
-    <ContentDefinitions>
-      <ContentDefinition Id="api.signuporsigninwithkmsi">
-        <LoadUri>~/tenant/default/unified.cshtml</LoadUri>
-        <RecoveryUri>~/common/default_page_error.html</RecoveryUri>
-        <DataUri>urn:com:microsoft:aad:b2c:elements:unifiedssp:1.1.0</DataUri>
-        <Metadata>
-          <Item Key="DisplayName">Signin and Signup</Item>
-        </Metadata>
-      </ContentDefinition>
-    </ContentDefinitions>
-  </BuildingBlocks>                       
-```
+U kunt definiëren lokaal account aanmelden als een claimprovider met behulp van de **ClaimsProvider** element in het bestand uitbreiding van uw beleid:
 
+1. Open de *TrustFrameworkExtensions.xml* -bestand van uw werkmap. 
+2. Zoek de **ClaimsProviders** element. Als deze nog niet bestaat, kunt u deze onder het root-element toevoegen. De [beginnerspakket](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip) voorzien van een lokaal account aanmelden claims-provider. 
+3. Voeg een **ClaimsProvider** element met de **DisplayName** en **TechnicalProfile** zoals wordt weergegeven in het volgende voorbeeld:
 
+    ```XML
+    <ClaimsProviders>
+      <ClaimsProvider>
+        <DisplayName>Local Account SignIn</DisplayName>
+        <TechnicalProfiles>
+          <TechnicalProfile Id="login-NonInteractive">
+            <Metadata>
+              <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
+              <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
+            </Metadata>
+            <InputClaims>
+              <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
+              <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
+            </InputClaims>
+          </TechnicalProfile>
+        </TechnicalProfiles>
+      </ClaimsProvider>
+    </ClaimsProviders>
+    ```
 
-## <a name="add-a--local-account-sign-in-claims-provider"></a>Een lokaal account aanmelden claims-provider toevoegen 
+### <a name="add-the-application-identifiers-to-your-custom-policy"></a>De aanvraag-id's toevoegen aan uw aangepaste beleid
 
-U kunt aanmelden met lokaal Account definiëren als een claimprovider de `<ClaimsProvider>` knooppunt in het bestand uitbreiding van uw beleid:
+Toevoegen van de aanvraag-id's aan de *TrustFrameworkExtensions.xml* bestand.
 
-1. Open het extensiebestand (TrustFrameworkExtensions.xml) van uw werkmap. 
-2. Zoek de `<ClaimsProviders>` sectie. Als deze niet bestaat, kunt u deze onder het hoofdknooppunt toevoegen.
-3. De beginnerspakket van [aan de slag](active-directory-b2c-get-started-custom.md) wordt geleverd met een claimprovider 'Aanmelden met lokaal Account'. 
-4. Zo niet, toevoegen van een nieuwe `<ClaimsProvider>` knooppunt als volgt te werk:
+1. In de *TrustFrameworkExtensions.xml* bestand, zoek de **TechnicalProfile** element met de id van `login-NonInteractive` en de **TechnicalProfile** element met een id van `login-NonInteractive-PasswordChange` en vervangt alle waarden van `IdentityExperienceFrameworkAppId` met de toepassings-id van de application Identity-Ervaringsframework zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
 
-```XML
-<ClaimsProviders>
-    <ClaimsProvider>
-      <DisplayName>Local Account SignIn</DisplayName>
-      <TechnicalProfiles>
-         <TechnicalProfile Id="login-NonInteractive">
-           <Metadata>
-            <Item Key="client_id">ProxyIdentityExperienceFrameworkAppId</Item>
-            <Item Key="IdTokenAudience">IdentityExperienceFrameworkAppId</Item>
-           </Metadata>
-            <InputClaim ClaimTypeReferenceId="client_id" DefaultValue="ProxyIdentityExperienceFrameworkAppID" />
-            <InputClaim ClaimTypeReferenceId="resource_id" PartnerClaimType="resource" DefaultValue="IdentityExperienceFrameworkAppID" />
-           </InputClaims>
-        </TechnicalProfile>
-      </TechnicalProfiles>
-    </ClaimsProvider>
- </ClaimsProviders>
-```
+    ```
+    <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
+    ```
 
-### <a name="add-the-application-ids-to-your-custom-policy"></a>De toepassings-id's toevoegen aan uw aangepaste beleid
+2. Vervangen van alle waarden van `ProxyIdentityExperienceFrameworkAppId` met de toepassings-id van de Proxy Identiteitservaring-Framework-toepassing zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
+3. Sla het extensiebestand.
 
-De toepassings-id's toevoegen aan het extensiebestand (`TrustFrameworkExtensions.xml`):
+## <a name="create-a-kmsi-enabled-user-journey"></a>Een ingeschakelde gebruiker KMSI reis maken
 
-1. Zoek het element in het extensiebestand (TrustFrameworkExtensions.xml) `<TechnicalProfile Id="login-NonInteractive">` en `<TechnicalProfile Id="login-NonInteractive-PasswordChange">`
+De claimprovider-aanmelden voor een lokaal account toevoegen aan uw gebruikersbeleving. 
 
-2. Vervang alle exemplaren van `IdentityExperienceFrameworkAppId` met toepassings-ID van de application Identity-Ervaringsframework zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md). Hier volgt een voorbeeld:
+1. Open het bestand basis van uw beleid. Bijvoorbeeld, *TrustFrameworkBase.xml*.
+2. Zoek de **UserJourneys** element en kopieer de volledige inhoud van de **UserJourney** element die gebruikmaakt van de id van `SignUpOrSignIn`.
+3. Open het extensiebestand. Bijvoorbeeld, *TrustFrameworkExtensions.xml* en zoek de **UserJourneys** element. Als het element niet bestaat, Voeg een.
+4. Plak de gehele **UserJourney** element dat u hebt gekopieerd als onderliggende site van de **UserJourneys** element.
+5. Wijzig de waarde van de id voor de nieuwe gebruikersbeleving. Bijvoorbeeld `SignUpOrSignInWithKmsi`.
+6. Ten slotte in de eerste stap in de orchestration Wijzig de waarde van **ContentDefinitionReferenceId** naar `api.signuporsigninwithkmsi`. De instelling van deze waarde kunt het selectievakje in de gebruikersbeleving. 
+7. Opslaan en upload het extensiebestand en zorg ervoor dat alle validaties slagen.
 
-   ```
-   <Item Key="client_id">8322dedc-cbf4-43bc-8bb6-141d16f0f489</Item>
-   ```
+    ```XML
+    <UserJourneys>
+      <UserJourney Id="SignUpOrSignInWithKmsi">
+        <OrchestrationSteps>
+          <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsigninwithkmsi">
+            <ClaimsProviderSelections>
+              <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
+            </ClaimsProviderSelections>
+            <ClaimsExchanges>
+              <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <OrchestrationStep Order="2" Type="ClaimsExchange">
+            <Preconditions>
+              <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
+                <Value>objectId</Value>
+                <Action>SkipThisOrchestrationStep</Action>
+              </Precondition>
+            </Preconditions>
+            <ClaimsExchanges>
+              <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <!-- This step reads any user attributes that we may not have received when in the token. -->
+          <OrchestrationStep Order="3" Type="ClaimsExchange">
+            <ClaimsExchanges>
+              <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
+            </ClaimsExchanges>
+          </OrchestrationStep>
+          <OrchestrationStep Order="4" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
+        </OrchestrationSteps>
+        <ClientDefinition ReferenceId="DefaultWeb" />
+      </UserJourney>
+    </UserJourneys>
+    ```
 
-3. Vervang alle exemplaren van `ProxyIdentityExperienceFrameworkAppId` met toepassings-ID van de Proxy Identiteitservaring-Framework-toepassing zoals beschreven in [aan de slag](active-directory-b2c-get-started-custom.md).
+## <a name="create-a-relying-party-file"></a>Maak een relying party-bestand
 
-4. Sla het extensiebestand.
+Bijwerken van de relying party (RP)-bestand dat initieert de gebruikersbeleving die u hebt gemaakt.
 
-## <a name="create-a-kmsi-in-enabled-user-journey"></a>Maken van een KMSI in ingeschakeld de gebruikersbeleving
+1. Maak een kopie van *SignUpOrSignIn.xml* bestand in uw werkmap en wijzig de naam. Bijvoorbeeld, *SignUpOrSignInWithKmsi.xml*.
+2. Open het nieuwe bestand en update de **PolicyId** kenmerk voor de **TrustFrameworkPolicy** met een unieke waarde. Dit is de naam van uw beleid. Bijvoorbeeld `SignUpOrSignInWithKmsi`.
+3. Wijzig de **ReferenceId** kenmerk voor de **DefaultUserJourney** element zodat deze overeenkomen met de id van de nieuwe gebruikersbeleving die u hebt gemaakt. Bijvoorbeeld `SignUpOrSignInWithKmsi`.
 
-U moet nu aanmelden met lokaal Account claimprovider toevoegen aan uw gebruikersbeleving. 
+    KMSI is geconfigureerd met behulp van de **UserJourneyBehaviors** element. De **KeepAliveInDays** kenmerk wordt bepaald hoe lang de gebruiker blijft aangemeld. In het volgende voorbeeld wordt de sessie KMSI automatisch verloopt na `7` dagen, ongeacht hoe vaak de gebruiker de verificatie op de achtergrond uitvoert. Instellen van de **KeepAliveInDays** waarde die moet worden `0` KMSI functionaliteit uitgeschakeld. Deze waarde is standaard `0`. Als de waarde van **SessionExpiryType** is `Rolling`, de sessie KMSI wordt uitgebreid door `7` dagen telkens wanneer de gebruiker op de achtergrond-verificatie wordt uitgevoerd.  Als `Rolling` is geselecteerd, moet u het aantal dagen tot minimum te houden. 
 
-1. Open het bestand basis van uw beleid (bijvoorbeeld TrustFrameworkBase.xml).
-2. Zoek de `<UserJourneys>` -element en kopieer de gehele `<UserJourney>` knooppunt met `Id="SignUpOrSignIn"`.
-3. Open het extensiebestand (bijvoorbeeld TrustFrameworkExtensions.xml) en zoek de `<UserJourneys>` element. Als het element niet bestaat, Voeg een.
-4. Plak de gehele `<UserJourney>` knooppunt dat u hebt gekopieerd als onderliggende site van de `<UserJourneys>` element.
-5. Wijzig de naam van de ID van de nieuwe gebruikersbeleving (bijvoorbeeld als naam `SignUpOrSignInWithKmsi`).
-6. Ten slotte in `OrchestrationStep 1` wijzigen de `ContentDefinitionReferenceId` naar `api.signuporsigninwithkmsi` , gedefinieerd in de eerdere stappen. Hierdoor is het selectievakje in de gebruikersbeleving. 
-7. U klaar bent met de extensiebestand wijzigt. Opslaan en upload dit bestand. Zorg ervoor dat alle validaties slagen.
+    De waarde van **SessionExpiryInSeconds** vertegenwoordigt de verlooptijd van een sessie voor eenmalige aanmelding. Dit wordt intern gebruikt door Azure AD B2C om te controleren of de sessie voor KMSI is verlopen of niet. De waarde van **KeepAliveInDays** bepaalt de verloopt/Max-Age-waarde van de cookie voor eenmalige aanmelding in de webbrowser. In tegenstelling tot **SessionExpiryInSeconds**, **KeepAliveInDays** wordt gebruikt om te voorkomen dat de browser de cookie te wissen wanneer dit gesloten. Een gebruiker kan op de achtergrond aanmelden alleen als de SSO-sessiecookie bestaat, die wordt beheerd door **KeepAliveInDays**, en is niet is verlopen, wordt dit bepaald door **SessionExpiryInSeconds**. Het is raadzaam dat u de waarde van **SessionExpiryInSeconds** altijd het equivalent van **KeepAliveInDays** in seconden, zoals wordt weergegeven in het volgende voorbeeld.
 
-```XML
-<UserJourneys>
-    <UserJourney Id="SignUpOrSignInWithKmsi">
-      <OrchestrationSteps>
-        <OrchestrationStep Order="1" Type="CombinedSignInAndSignUp" ContentDefinitionReferenceId="api.signuporsigninwithkmsi">
-          <ClaimsProviderSelections>
-            <ClaimsProviderSelection ValidationClaimsExchangeId="LocalAccountSigninEmailExchange" />
-          </ClaimsProviderSelections>
-          <ClaimsExchanges>
-            <ClaimsExchange Id="LocalAccountSigninEmailExchange" TechnicalProfileReferenceId="SelfAsserted-LocalAccountSignin-Email" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="2" Type="ClaimsExchange">
-          <Preconditions>
-            <Precondition Type="ClaimsExist" ExecuteActionsIf="true">
-              <Value>objectId</Value>
-              <Action>SkipThisOrchestrationStep</Action>
-            </Precondition>
-          </Preconditions>
-          <ClaimsExchanges>
-            <ClaimsExchange Id="SignUpWithLogonEmailExchange" TechnicalProfileReferenceId="LocalAccountSignUpWithLogonEmail" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <!-- This step reads any user attributes that we may not have received when in the token. -->
-        <OrchestrationStep Order="3" Type="ClaimsExchange">
-          <ClaimsExchanges>
-            <ClaimsExchange Id="AADUserReadWithObjectId" TechnicalProfileReferenceId="AAD-UserReadUsingObjectId" />
-          </ClaimsExchanges>
-        </OrchestrationStep>
-        <OrchestrationStep Order="4" Type="SendClaims" CpimIssuerTechnicalProfileReferenceId="JwtIssuer" />
-      </OrchestrationSteps>
-      <ClientDefinition ReferenceId="DefaultWeb" />
-    </UserJourney>
-  </UserJourneys>
-```
+    ```XML
+    <RelyingParty>
+      <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />
+      <UserJourneyBehaviors>
+        <SingleSignOn Scope="Tenant" KeepAliveInDays="7" />
+        <SessionExpiryType>Absolute</SessionExpiryType>
+        <SessionExpiryInSeconds>604800</SessionExpiryInSeconds>
+      </UserJourneyBehaviors>
+      <TechnicalProfile Id="PolicyProfile">
+        <DisplayName>PolicyProfile</DisplayName>
+        <Protocol Name="OpenIdConnect" />
+        <OutputClaims>
+          <OutputClaim ClaimTypeReferenceId="displayName" />
+          <OutputClaim ClaimTypeReferenceId="givenName" />
+          <OutputClaim ClaimTypeReferenceId="surname" />
+          <OutputClaim ClaimTypeReferenceId="email" />
+          <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
+        </OutputClaims>
+        <SubjectNamingInfo ClaimType="sub" />
+      </TechnicalProfile>
+    </RelyingParty>
+    ```
 
-## <a name="create-a-relying-party-rp-file"></a>Maak een relying party (RP)-bestand
-
-Werk vervolgens de relying party (RP)-bestand dat initieert de gebruikersbeleving die u hebt gemaakt:
-
-1. Maak een kopie van SignUpOrSignIn.xml in uw werkmap. Wijzig de naam van het (bijvoorbeeld SignUpOrSignInWithKmsi.xml).
-
-2. Open het nieuwe bestand en update de `PolicyId` voor het kenmerk `<TrustFrameworkPolicy>` met een unieke waarde. Dit is de naam van uw beleid (bijvoorbeeld SignUpOrSignInWithKmsi).
-
-3. Wijzig de `ReferenceId` kenmerk in `<DefaultUserJourney>` zodat deze overeenkomen met de `Id` van de nieuwe gebruikersbeleving die u hebt gemaakt (bijvoorbeeld SignUpOrSignInWithKmsi).
-
-4. KMSI is geconfigureerd in `UserJourneyBehaviors`. 
-
-5. **`KeepAliveInDays`** Hiermee bepaalt u hoe lang de gebruiker blijft aangemeld. In het volgende voorbeeld verloopt KMSI sessie automatisch na 14 dagen, ongeacht hoe vaak de gebruiker de verificatie op de achtergrond uitvoert.
-
-   Instellen van `KeepAliveInDays` waarde op 0 KMSI functionaliteit uitgeschakeld. Deze waarde is standaard 0
-
-6. Als **`SessionExpiryType`** is *Rolling*, en vervolgens de sessie KMSI wordt uitgebreid met 14 dagen telkens wanneer de gebruiker op de achtergrond-verificatie wordt uitgevoerd.  Als *Rolling* is geselecteerd, raden we u aan het aantal dagen tot minimum te beperken. 
-
-       <RelyingParty>
-       <DefaultUserJourney ReferenceId="SignUpOrSignInWithKmsi" />
-       <UserJourneyBehaviors>
-         <SingleSignOn Scope="Tenant" KeepAliveInDays="14" />
-         <SessionExpiryType>Absolute</SessionExpiryType>
-         <SessionExpiryInSeconds>1200</SessionExpiryInSeconds>
-       </UserJourneyBehaviors>
-       <TechnicalProfile Id="PolicyProfile">
-         <DisplayName>PolicyProfile</DisplayName>
-         <Protocol Name="OpenIdConnect" />
-         <OutputClaims>
-           <OutputClaim ClaimTypeReferenceId="displayName" />
-           <OutputClaim ClaimTypeReferenceId="givenName" />
-           <OutputClaim ClaimTypeReferenceId="surname" />
-           <OutputClaim ClaimTypeReferenceId="email" />
-           <OutputClaim ClaimTypeReferenceId="objectId" PartnerClaimType="sub"/>
-         </OutputClaims>
-         <SubjectNamingInfo ClaimType="sub" />
-       </TechnicalProfile>
-       </RelyingParty>
-
-7. Sla uw wijzigingen op en upload het bestand.
-
-8. Als u wilt testen het aangepaste beleid dat u hebt geüpload, in de Azure-portal, gaat u naar de beleidsblade op en klik vervolgens op **nu uitvoeren**.
-
-
-## <a name="link-to-sample-policy"></a>Koppeling naar de voorbeeld-beleid
+4. Sla uw wijzigingen op en upload het bestand.
+5. Als u wilt testen het aangepaste beleid dat u hebt geüpload, in de Azure-portal, gaat u naar de beleidspagina en selecteer vervolgens **nu uitvoeren**.
 
 U vindt de voorbeeld-beleid [hier](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/keep%20me%20signed%20in).
 

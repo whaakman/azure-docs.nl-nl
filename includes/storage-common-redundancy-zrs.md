@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 07/11/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 86c301748b58e7642df9a738c70b4fe70be3310b
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 5f7477671e7be4e6e8fd736ab94fa7e7b1e99a6e
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39400005"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184643"
 ---
 Zone-redundante opslag (ZRS) repliceert uw gegevens synchroon tussen drie opslagclusters in één regio. Elke opslagcluster fysiek gescheiden van de andere en bevindt zich in een eigen binnen een beschikbaarheidszone (AZ). Elke beschikbaarheidszone en wordt het cluster ZRS locatiemogelijkheid is autonome met afzonderlijke hulpprogramma's en netwerkmogelijkheden.
 
@@ -28,6 +28,7 @@ ZRS biedt momenteel ondersteuning voor standaard [voor algemeen gebruik v2 (GPv2
 
 ZRS is algemeen beschikbaar in de volgende regio's:
 
+- US - oost
 - US - oost 2
 - US - west 2
 - US - centraal

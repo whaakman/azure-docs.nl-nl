@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: yizhon
-ms.openlocfilehash: cf3c80424c4626b62317bda537f9491cafc8198c
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 02d9a326f0209bacca17a9617374105fcbf5ed6a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043776"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189762"
 ---
 # <a name="azure-iot-sdks-platform-support"></a>Platformondersteuning voor Azure IoT SDK 's
 
@@ -24,7 +24,7 @@ Microsoft ondersteunt een groot aantal besturingssystemen/platforms/frameworks e
     - Installatiehandleiding of pakketten bieden, indien van toepassing
     - Volledige ondersteuning op GitHub
 
-Bovendien een lijst met partners is overgezet onze C-SDK naar meer platformen en ze de platform abstraction layer (PAL) worden onderhouden.  [Azure Certified voor IoT-Apparaatcatalogus](https://catalog.azureiotsolutions.com/) ook functies een lijst van de verschillende SDK's van de OS-platformen zijn getest op basis van.  Bovendien de SDK's ook regelmatig bouwen op deze platforms met beperkte testen en ondersteunen:
+Bovendien een lijst met partners is overgezet onze C-SDK naar meer platformen en ze de platform abstraction layer (PAL) worden onderhouden.  [Azure Certified voor IoT-Apparaatcatalogus](https://catalog.azureiotsolutions.com/) ook functies een lijst van de verschillende SDK's van de OS-platformen zijn getest op basis van.  De SDK's ook regelmatig bouwen op deze platforms met beperkte testen en ondersteunen:
 - MBED2
 - Arduino
 - Windows CE 2013 (afschaffen in oktober 2018)
@@ -76,14 +76,15 @@ Bovendien een lijst met partners is overgezet onze C-SDK naar meer platformen en
 | Windows Server 2016 | X64  | Java 8       |
 
 ## <a name="partner-supported-platforms"></a>Door partners ondersteund platforms
+Klanten kunnen de platformondersteuning van ons uitbreiden door de Azure IoT C SDK, specifiek overzetten, het maken van de platform abstraction layer (PAL) van de SDK.  Microsoft werkt samen met partners om uitgebreide ondersteuning te bieden.  Een lijst met partners, is de C-SDK meer platformen en onderhouden van de PAL overgezet.
 | Partner             | Apparaten                            | Koppeling                     | Ondersteuning |
 |---------------------|------------------------------------|--------------------------|---------|
+| Espressif           | ESP32 <br/> ESP8266                              | [ESP-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  
 | Qualcomm            | Qualcomm MDM9206 LTE IoT Modem     | [Qualcomm LTE voor IoT-SDK](https://developer.qualcomm.com/software/lte-iot-sdk) | [Forum](https://developer.qualcomm.com/forums/software/lte-iot-sdk)   |
-| ST Microelectronics | STM32L4 serie STM32F4-serie      | [X-KUBUS-CLOUD](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html)             | [Ondersteuning](https://www.st.com/content/st_com/en/support/support-home.html) |
-|                     | STM32F7-serie                     | [X-KUBUS-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html)             |         |
-|                     | STM32L4 detectie Kit voor IoT-knooppunt | [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html)          |         |
-|                     |                                    | [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            |         |
-| Espressif           | ESP32                              | [ESP-azure](https://github.com/espressif/esp-azure)                | [GitHub](https://github.com/espressif/esp-azure)  |
+| ST Microelectronics | STM32L4-serie <br/> STM32F4-serie <br/>  STM32F7-serie <br/>  STM32L4 detectie Kit voor IoT-knooppunt    | [X-KUBUS-CLOUD](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-cloud.html) <br/> [X-KUBUS-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32cube-expansion-packages/x-cube-azure.html) <br/> [P-NUCLEO-AZURE](https://www.st.com/content/st_com/en/products/evaluation-tools/solution-evaluation-tools/communication-and-connectivity-solution-eval-boards/p-nucleo-azure1.html) <br/> [FP-CLD-AZURE](https://www.st.com/content/st_com/en/products/embedded-software/mcus-embedded-software/stm32-embedded-software/stm32-ode-function-pack-sw/fp-cld-azure1.html)            | [Ondersteuning](https://www.st.com/content/st_com/en/support/support-home.html)
+| Texas Instruments   | CC3220SF Launchpad <br/> CC3220S Launchpad <br/> MSP432E4 Launchpad      | [Azure IoT-invoegtoepassing voor SimpleLink](https://github.com/TexasInstruments/azure-iot-pal-simplelink) | [TI E2E-Forum](https://e2e.ti.com) <br/> [TI E2E-Forum voor CC3220](https://e2e.ti.com/support/wireless_connectivity/simplelink_wifi_cc31xx_cc32xx/) <br/> [TI E2E-Forum voor MSP432E4](https://e2e.ti.com/support/microcontrollers/msp430/) |
+
+
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Apparaat- en service-SDK's](iot-hub-devguide-sdks.md)

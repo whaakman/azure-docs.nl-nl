@@ -1,52 +1,52 @@
 ---
-title: Verbindingsreeksen voor Azure SQL Data Warehouse | Microsoft Docs
+title: Tekenreeksen voor databaseverbindingen voor Azure SQL Data Warehouse | Microsoft Docs
 description: Verbindingsreeksen voor SQL Data Warehouse
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 8fce3ba099c871059ffb71a589e4d8cd33d5bcae
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: de875731ffd2170f70d8034f0178d61351d86952
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31597146"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43248018"
 ---
-# <a name="connection-strings-for-azure-sql-data-warehouse"></a>Verbindingsreeksen voor Azure SQL Data Warehouse
-U kunt verbinding maken met SQL Data Warehouse met verschillende protocollen van verschillende groepen van toepassingen, zoals [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP] [ PHP] en [JDBC][JDBC]. Hieronder volgen enkele voorbeelden van tekenreeksen voor elk protocol voor verbindingen.  U kunt de Azure-portal ook gebruiken voor het bouwen van de verbindingsreeks.  Als u wilt maken van de verbindingsreeks met de Azure-portal, gaat u naar uw databaseblade onder *Essentials* klikt u op *databaseverbindingsreeksen tonen*.
+# <a name="connection-strings-for-azure-sql-data-warehouse"></a>Tekenreeksen voor databaseverbindingen voor Azure SQL Data Warehouse
+U kunt verbinding maken met SQL Data Warehouse met diverse verschillende protocollen, zoals [ADO.NET][ADO.NET], [ODBC][ODBC], [PHP] [ PHP] en [JDBC][JDBC]. Hieronder volgen enkele voorbeelden van tekenreeksen voor elk protocol voor verbindingen.  U kunt ook de Azure-portal gebruiken om te maken van de verbindingsreeks.  Voor het bouwen van de verbindingsreeks met de Azure-portal, gaat u naar de databaseblade onder *Essentials* klikt u op *databaseverbindingsreeksen tonen*.
 
-## <a name="sample-adonet-connection-string"></a>Voorbeeld ADO.NET-verbindingsreeks
+## <a name="sample-adonet-connection-string"></a>Voorbeeld van ADO.NET-verbindingsreeks
 ```csharp
 Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};User ID={your_user_name};Password={your_password_here};Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;
 ```
 
-## <a name="sample-odbc-connection-string"></a>Voorbeeld ODBC-verbindingsreeks
+## <a name="sample-odbc-connection-string"></a>Voorbeeld van ODBC-verbindingsreeks
 ```csharp
 Driver={SQL Server Native Client 11.0};Server=tcp:{your_server}.database.windows.net,1433;Database={your_database};Uid={your_user_name};Pwd={your_password_here};Encrypt=yes;TrustServerCertificate=no;Connection Timeout=30;
 ```
 
-## <a name="sample-php-connection-string"></a>Voorbeeld PHP-verbindingsreeks
+## <a name="sample-php-connection-string"></a>Voorbeeld van PHP-verbindingsreeks
 ```PHP
 Server: {your_server}.database.windows.net,1433 \r\nSQL Database: {your_database}\r\nUser Name: {your_user_name}\r\n\r\nPHP Data Objects(PDO) Sample Code:\r\n\r\ntry {\r\n   $conn = new PDO ( \"sqlsrv:server = tcp:{your_server}.database.windows.net,1433; Database = {your_database}\", \"{your_user_name}\", \"{your_password_here}\");\r\n    $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );\r\n}\r\ncatch ( PDOException $e ) {\r\n   print( \"Error connecting to SQL Server.\" );\r\n   die(print_r($e));\r\n}\r\n\rSQL Server Extension Sample Code:\r\n\r\n$connectionInfo = array(\"UID\" => \"{your_user_name}\", \"pwd\" => \"{your_password_here}\", \"Database\" => \"{your_database}\", \"LoginTimeout\" => 30, \"Encrypt\" => 1, \"TrustServerCertificate\" => 0);\r\n$serverName = \"tcp:{your_server}.database.windows.net,1433\";\r\n$conn = sqlsrv_connect($serverName, $connectionInfo);
 ```
 
-## <a name="sample-jdbc-connection-string"></a>Voorbeeld JDBC-verbindingsreeks
+## <a name="sample-jdbc-connection-string"></a>Voorbeeld van JDBC-verbindingsreeks
 ```Java
 jdbc:sqlserver://yourserver.database.windows.net:1433;database=yourdatabase;user={your_user_name};password={your_password_here};encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;
 ```
 
 > [!NOTE]
-> U kunt de verbindingstime-out aan 300 seconden instellen om de verbinding met het overleven korte perioden niet beschikbaar zijn.
+> Overweeg de verbindingstime-out stellen aan 300 seconden om de verbinding met het overbruggen van korte perioden van niet-beschikbaarheid staat te stellen.
 > 
 > 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het opvragen van uw datawarehouse met Visual Studio en andere toepassingen starten [Query met Visual Studio][Query with Visual Studio].
+Als u wilt gaan met het uitvoeren van query's uw datawarehouse met Visual Studio en andere toepassingen, Zie [query's uitvoeren met Visual Studio][Query with Visual Studio].
 
 <!--Image references-->
 

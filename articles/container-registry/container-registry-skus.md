@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-registry
 ms.topic: article
-ms.date: 03/15/2018
+ms.date: 08/28/2018
 ms.author: marsma
-ms.openlocfilehash: 5d9001bce4f835e4b9b82ba1c30d09f74eebd1d2
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 5c10c961519614d1560f27c41ba57237085261ba
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39442748"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43190405"
 ---
 # <a name="azure-container-registry-skus"></a>Azure Container Registry-SKU 's
 
@@ -24,13 +24,11 @@ Azure Container Registry (ACR) is beschikbaar in verschillende Servicelagen, ook
 | **Basic** | Ja | Een rendabel toegangspunt voor ontwikkelaars die meer willen leren over Azure Container Registry. Basic-registers hebben dezelfde programmatische mogelijkheden als Standard en Premium (integratie van Azure Active Directory-verificatie, verwijdering van installatiekopieën en webhooks), maar hebben beperkingen wat de grootte en het gebruik betreft. |
 | **Standard** | Ja | Standard registers bieden dezelfde mogelijkheden als Basic-, hogere opslaglimieten en doorvoer van de installatiekopie. Standard-registers moeten voldoen aan de behoeften van de meeste productiescenario's. |
 | **Premium** | Ja | Premium-registers bieden hogere limieten op beperkingen, zoals opslag en gelijktijdige bewerkingen, voor het inschakelen van scenario's met hoge volumes. Naast de hogere doorvoercapaciteit van de installatiekopie van Premium voegt functies zoals [geo-replicatie] [ container-registry-geo-replication] voor het beheren van een enkel register in meerdere regio's, onderhouden van een register dichtbij het netwerk aan elk de implementatie. |
-| Klassiek | Nee | De Classic-register SKU ingeschakeld voor de eerste release van de Azure Container Registry-service in Azure. Klassieke registers worden ondersteund door een storage-account dat in uw abonnement, zodat ze worden beperkt de mogelijkheid voor ACR voor een hoger niveau mogelijkheden, zoals verbeterde doorvoer en geo-replicatie in Azure gemaakt. Vanwege de beperkte mogelijkheden die we willen de klassieke SKU in de toekomst afschaffen. |
+| Klassieke<sup>1</sup> | Nee | Deze SKU ingeschakeld voor de eerste release van de Azure Container Registry-service in Azure. Klassieke registers worden ondersteund door een storage-account dat in uw abonnement, zodat ze worden beperkt de mogelijkheid voor ACR voor een hoger niveau mogelijkheden, zoals verbeterde doorvoer en geo-replicatie in Azure gemaakt. |
+
+<sup>1</sup> de klassieke SKU is **afgeschaft** in **maart 2019**. Basic, Standard of Premium gebruiken voor alle nieuwe container Registry.
 
 Als u kiest dat een hoger niveau SKU biedt betere prestaties en schaal, echter alle beheerde SKU's bieden dezelfde programmatische mogelijkheden. Met meerdere Servicelagen, kunt u kunt aan de slag met Basic en vervolgens converteren naar Standard en Premium wanneer uw register gebruik toeneemt.
-
-> [!NOTE]
-> Vanwege de geplande buitengebruikstelling van het klassiek register SKU, raden wij aan u Basic, Standard of Premium voor alle nieuwe registers. Zie voor meer informatie over het converteren van uw bestaande Classic-register [een klassiek register upgraden][container-registry-upgrade].
->
 
 ## <a name="managed-vs-unmanaged"></a>Beheerde en onbeheerde
 
@@ -41,6 +39,9 @@ De Basic, Standard en Premium-SKU's genoemd *beheerd* registers en klassieke reg
 Beheerde registers voordeel uit afbeeldingopslag volledig door Azure beheerd. Dat wil zeggen, weergegeven een opslagaccount waarin de afbeeldingen niet in uw Azure-abonnement. Er zijn verschillende voordelen binnenhaalt wanneer u een van de beheerde registry-SKU's, die worden beschreven in uitgebreide [afbeeldingopslag Container in Azure Container Registry][container-registry-storage]. In dit artikel richt zich op de beheerd register-SKU's en de bijbehorende mogelijkheden.
 
 ### <a name="unmanaged-classic"></a>Niet-beheerde (klassiek)
+
+> [!IMPORTANT]
+> De klassieke SKU wordt afgeschaft en zal na maart 2019 niet beschikbaar zijn. Basic, Standard of Premium gebruiken voor alle nieuwe registers.
 
 Klassieke registers zijn 'niet-beheerde' in de zin dat de storage-account dat een back-up een Classic-register zich bevindt binnen *uw* Azure-abonnement. Daarom bent u verantwoordelijk voor het beheer van het opslagaccount waarin uw containerinstallatiekopieën worden opgeslagen. Met niet-beheerde registers, kunt u niet overschakelen tussen SKU's wanneer uw behoeften veranderen (anders dan [upgraden] [ container-registry-upgrade] naar een beheerd register), en verschillende functies van beheerde registers zijn niet beschikbaar (bijvoorbeeld: verwijderen van container-installatiekopie, [geo-replicatie][container-registry-geo-replication], en [webhooks][container-registry-webhook]).
 

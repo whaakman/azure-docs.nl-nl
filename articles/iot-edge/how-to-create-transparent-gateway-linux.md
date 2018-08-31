@@ -8,12 +8,12 @@ ms.date: 6/20/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f54001c26938ea508111542b930b189342303633
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: f8ac885444c0ba52802024be9a78dfc0737e2673
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186859"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247680"
 ---
 # <a name="create-a-linux-iot-edge-device-that-acts-as-a-transparent-gateway"></a>Een Linux IoT Edge-apparaat die als een transparante gateway fungeert maken
 
@@ -80,9 +80,9 @@ De volgende stappen helpen u bij het proces van het maken van de certificaten en
    >[!NOTE]
    > **GEEN** gebruik een naam die is hetzelfde als de DNS-hostnaam van de gateway. In dat geval zorgt ervoor dat clientcertificaten op basis van deze certificaten mislukken.
 
-      ```cmd
-      ./certGen.sh create_edge_device_certificate "<gateway device name>"
-      ```
+   ```cmd
+   ./certGen.sh create_edge_device_certificate "<gateway device name>"
+   ```
 
    De uitvoer van de uitvoering van het script worden de volgende certificaten en de sleutel:
    * `$WRKDIR/certs/new-edge-device.*`
@@ -101,18 +101,24 @@ Een certificaatketen van de eigenaar van CA-certificaat, tussenliggende certific
    * Device CA-certificaat-  `$WRKDIR/certs/new-edge-device-full-chain.cert.pem`
    * De persoonlijke sleutel Device CA- `$WRKDIR/private/new-edge-device.key.pem`
    * De eigenaar van CA- `$WRKDIR/certs/azure-iot-test-only.root.ca.cert.pem`
+   
+2. Open het IoT Edge-configuratiebestand. Het is een beveiligd bestand, dus mogelijk moet u verhoogde bevoegdheden gebruiken om het te openen.
+   
+   ```bash
+   sudo nano /etc/iotedge/config.yaml
+   ```
 
-2.  Stel de `certificate` eigenschappen in de Security-Daemon config yaml-bestand naar het pad waar u de bestanden van het certificaat en de sleutel hebt geplaatst.
+3.  Stel de `certificate` eigenschappen in de Iot Edge-Daemon config yaml-bestand naar het pad waar u de bestanden van het certificaat en de sleutel hebt geplaatst.
 
-```yaml
-certificates:
-  device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
-  device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
-  trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
-```
+   ```yaml
+   certificates:
+     device_ca_cert: "$CERTDIR/certs/new-edge-device-full-chain.cert.pem"
+     device_ca_pk: "$CERTDIR/private/new-edge-device.key.pem"
+     trusted_ca_certs: "$CERTDIR/certs/azure-iot-test-only.root.ca.cert.pem"
+   ```
 
 ## <a name="deploy-edgehub-to-the-gateway"></a>EdgeHub naar de gateway implementeren
-Een van de belangrijkste mogelijkheden van Azure IoT Edge is dat u er modules voor uw IoT Edge-apparaten mee kunt implementeren vanuit de cloud. In deze sectie heeft u bij het maken van een schijnbaar lege implementatie; Edge Hub is echter automatcially toegevoegd aan alle implementaties, zelfs als er geen andere modules die aanwezig zijn. Edge Hub is de enige module die u op een Edge-apparaat beschikken over het fungeren als een transparante gateway moet, zodat het maken van een lege implementatie voldoende is. 
+Een van de belangrijkste mogelijkheden van Azure IoT Edge is dat u er modules voor uw IoT Edge-apparaten mee kunt implementeren vanuit de cloud. In deze sectie heeft u bij het maken van een schijnbaar lege implementatie; Edge Hub is echter automatisch toegevoegd aan alle implementaties, zelfs als er geen andere modules die aanwezig zijn. Edge Hub is de enige module die u op een Edge-apparaat beschikken over het fungeren als een transparante gateway moet, zodat het maken van een lege implementatie voldoende is. 
 1. Ga in Azure Portal naar uw IoT-hub.
 2. Ga naar **IoT Edge** en selecteert u uw IoT Edge-apparaat dat u wilt gebruiken als een gateway.
 3. Selecteer **Modules instellen**.

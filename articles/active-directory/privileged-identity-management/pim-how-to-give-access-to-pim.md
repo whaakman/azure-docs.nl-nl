@@ -1,6 +1,6 @@
 ---
-title: Hoe u toegang geven tot Privileged Identity Management - Azure | Microsoft Docs
-description: Informatie over het toevoegen van rollen voor gebruikers met de extensie van Azure Active Directory Privileged Identity Management, zodat ze PIM kunnen beheren.
+title: Toegang verlenen aan andere beheerders voor het beheren van PIM - Azure | Microsoft Docs
+description: Leer hoe u toegang wilt verlenen aan andere beheerders uitgebreide mogelijkheden voor het beheren van Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 06/06/2017
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: ade3939057669e7f9979001db4376fe61c2f4ad9
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
-ms.translationtype: MT
+ms.openlocfilehash: d6b2d9f43ce9bb86f4557c92887689c83beb49fa
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623065"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189552"
 ---
-# <a name="giving-access-to-manage-azure-ad-privileged-identity-management"></a>Verlenen van toegang voor het beheren van Azure AD Privileged Identity Management
+# <a name="grant-access-to-other-administrators-to-manage-pim"></a>Toegang verlenen aan andere beheerders voor het beheren van PIM
 De hoofdbeheerder die Azure AD Privileged Identity Management (PIM) voor een organisatie automatisch kan roltoewijzingen en toegang tot PIM ophalen. Niemand anders wordt schrijftoegang standaard, met inbegrip van andere globale beheerders. Andere globale beheerders, Beveiligingsbeheerders en beveiligingslezers hebben alleen-lezen toegang tot Azure AD PIM. Als u wilt toegang geven tot PIM, de eerste gebruiker, anderen kunt toewijzen de **beheerder met bevoorrechte rol** rol.
 
 > [!NOTE]
@@ -54,4 +54,5 @@ Voordat u iemand uit de rol van de bevoorrechte rol beheerder verwijdert, altijd
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+
+- [Beheer van abonnementen in uw tenant inschakelen](pim-resource-roles-enable-subscription-management.md)

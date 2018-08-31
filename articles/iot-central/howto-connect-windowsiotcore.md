@@ -2,18 +2,18 @@
 title: Een Windows IoT Core-apparaat verbinden met uw Azure IoT Central-toepassing | Microsoft Docs
 description: Leer hoe u een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing als een apparaat-ontwikkelaar.
 author: miriambrus
-ms.author: mriamb
+ms.author: miriamb
 ms.date: 04/09/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 39eb6f137750f7f741c88dcdf9a55f34d24eaa59
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 73a23ace23d2373e238c6887c4a41c6037d233de
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205745"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189001"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Een Windows IoT Core-apparaat verbinden met uw Azure IoT Central-toepassing
 
@@ -44,7 +44,7 @@ Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **Windows IoT C
 
 ### <a name="prepare-the-windows-iot-core-device"></a>Bereid het apparaat Windows IoT Core
 
-Voor het instellen van een apparaat met Windows IoT Core Volg de stapsgewijze handleiding bij [Set up van een apparaat met Windows IoT Core] (https://github.com/Microsoft/microsoft-iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
+Voor het instellen van een apparaat met Windows IoT Core Volg de stapsgewijze handleiding bij [Set up van een apparaat met Windows IoT Core] (https://github.com/Azure/iot-central-firmware/tree/master/WindowsIoT#setup-a-physical-device).
 
 ### <a name="add-a-real-device"></a>Echt apparaat toevoegen
 

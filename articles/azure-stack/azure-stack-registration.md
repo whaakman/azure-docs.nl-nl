@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/24/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: e2411a91174fd0b52227b4cfe8783c8c74c4039e
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42058064"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247820"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -84,13 +84,12 @@ Uw Azure Stack-implementatie mogelijk *verbonden* of *verbroken*.
 
  - **Verbonden**  
  Verbonden betekent dat u kunt Azure Stack hebt geïmplementeerd, zodat deze verbinding met Internet en naar Azure maken kan. U hebt een Azure Active Directory (Azure AD) of Active Directory Federation Services (AD FS) voor uw archief. Met een gekoppelde implementatie, kunt u kiezen uit twee factureringsmodellen: betalen als u-gebruik of op basis van capaciteit.
-    - [Registreren van een gekoppelde Azure-Stack met Azure met de **betalen als u-gebruik** factureringsmodel](#register-a-connected-azure-stack-with-azure-using-the-pay-as-you-use-billing-model)
-    - [Registreren van een gekoppelde Azure-Stack met Azure met de **capaciteit** factureringsmodel](#register-a-connected-azure-stack-with-azure-using-the-capacity-billing-model)
+    - [Registreren van een gekoppelde Azure-Stack met Azure met de **betalen als u-gebruik** factureringsmodel](#register-connected-with-pay-as-you-go-billing)
+    - [Registreren van een gekoppelde Azure-Stack met Azure met de **capaciteit** factureringsmodel](#register-connected-with-capacity-billing)
 
  - **De verbinding verbroken**  
  Met de niet-verbonden via de Azure-implementatie-optie, u kunt implementeren en gebruiken van Azure Stack zonder een verbinding met Internet. Met de implementatie van een niet-verbonden bent u echter beperkt tot een AD FS-identiteitsarchief en het factureringsmodel op basis van capaciteit.
-    - [Registreer een niet-verbonden met Azure Stack de **capaciteit** factureringsmodel ](#register-a-disconnected-Azure-Stack-using-the-capacity-billing-model
-)
+    - [Registreer een niet-verbonden met Azure Stack de **capaciteit** factureringsmodel ](#register-disconnected-with-capacity-billing)
 
 ## <a name="register-connected-with-pay-as-you-go-billing"></a>Verbonden met betalen per gebruik facturering registreren
 
@@ -218,7 +217,7 @@ Als u Azure Stack in een omgeving zonder verbinding (met geen verbinding met int
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
    Zie voor meer informatie over de cmdlet Get-AzsRegistrationToken [registratie verwijzing](#registration-reference).
 
@@ -358,7 +357,7 @@ U hebt nu volledig verwijderd in een niet-verbonden scenario en moet de stappen 
 
 ### <a name="disable-or-enable-usage-reporting"></a>Rapportage over het gebruik in- of uitschakelen
 
-Uitschakelen voor gebruiksrapporten met voor Azure Stack-omgevingen die gebruikmaken van een capaciteit factureringsmodel, de **EnableUsageReporting** parameter met behulp van de **Set AzsRegistration** of de  **Get-AzsRegistrationToken** cmdlets. Azure Stack-standaard metrische gegevens over gebruik rapporten. Operators met een capaciteit gebruikt of ondersteunen van een niet-verbonden omgeving moet uitschakelen rapportage over het gebruik.
+Uitschakelen voor gebruiksrapporten met voor Azure Stack-omgevingen die gebruikmaken van een capaciteit factureringsmodel, de **UsageReportingEnabled** parameter met behulp van de **Set AzsRegistration** of de  **Get-AzsRegistrationToken** cmdlets. Azure Stack-standaard metrische gegevens over gebruik rapporten. Operators met een capaciteit gebruikt of ondersteunen van een niet-verbonden omgeving moet uitschakelen rapportage over het gebruik.
 
 #### <a name="with-a-connected-azure-stack"></a>Met een gekoppelde Azure Stack
 
@@ -378,7 +377,7 @@ Uitschakelen voor gebruiksrapporten met voor Azure Stack-omgevingen die gebruikm
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
-   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -EnableUsageReporting False
+   $RegistrationToken = Get-AzsRegistrationToken -PrivilegedEndpointCredential -UsageReportingEnabled:$False
    $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint -BillingModel Capacity -AgreementNumber '<EA agreement number>' -TokenOutputFilePath $FilePathForRegistrationToken
    ```
 

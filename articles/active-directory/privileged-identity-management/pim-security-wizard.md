@@ -1,6 +1,6 @@
 ---
-title: De wizard Azure AD Privileged Identity Management-beveiliging
-description: De eerste keer dat u de extensie van Azure Active Directory Privileged Identity Management, u krijgt een beveiligingswizard. In dit artikel beschrijft de stappen voor het gebruik van de wizard.
+title: De beveiligingswizard in PIM - Azure | Microsoft Docs
+description: Beschrijving van de beveiligingswizard die wordt weergegeven de eerste keer dat u Azure AD Privileged Identity Management (PIM) gebruikt.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,14 +13,14 @@ ms.component: pim
 ms.date: 02/27/2017
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017
-ms.openlocfilehash: 19eb2b36b217dc67fabcc3c2c4721fb13b2224ec
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 178a4c5e978075f2a59b22a1cccf462138527964
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617003"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189076"
 ---
-# <a name="using-the-security-wizard-in-azure-ad-privileged-identity-management"></a>Met behulp van de beveiligingswizard in Azure AD Privileged Identity Management 
+# <a name="security-wizard-in-pim"></a>De beveiligingswizard in PIM
 Als u de eerste persoon om uit te voeren van Azure Privileged Identity Management (PIM) voor uw organisatie bent, u krijgt een wizard. De wizard helpt u inzicht in de beveiligingsrisico's van bevoegde identiteiten en hoe u PIM gaat gebruiken om te beperken die risico's. U hoeft te wijzigingen aanbrengt in bestaande roltoewijzingen in de wizard, als u liever later doen.
 
 ## <a name="what-to-expect"></a>Wat u kunt verwachten
@@ -40,5 +40,7 @@ Nadat u wijzigingen hebt aangebracht, worden de wizard niet meer weergegeven. De
 * Als u wilt meer gebruikers toegang geven tot PIM beheren, lees meer op [geven toegang tot het beheer in PIM](pim-how-to-give-access-to-pim.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
 
+- [PIM gebruiken](pim-getting-started.md)
+- [Azure AD-directory-rollen in PIM toewijzen](pim-how-to-add-role-to-user.md)
+- [Toegang verlenen aan andere beheerders voor het beheren van PIM](pim-how-to-give-access-to-pim.md)

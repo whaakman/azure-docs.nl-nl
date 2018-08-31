@@ -1,10 +1,11 @@
 ---
-title: Meldingen instellen in Azure Application Insights | Microsoft Docs
-description: Blijf op de hoogte over trage responstijden, uitzonderingen, en andere prestaties of gebruik wijzigingen in uw web-app.
+title: Stel waarschuwingen in Azure Application Insights | Microsoft Docs
+description: Ontvang een melding over trage reactietijden, uitzonderingen en andere prestaties of gebruik wijzigingen in uw web-app.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
+ms.reviewer: lagayhar
 ms.assetid: f8ebde72-f819-4ba5-afa2-31dbd49509a5
 ms.service: application-insights
 ms.workload: tbd
@@ -13,83 +14,83 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/14/2017
 ms.author: mbullwin
-ms.openlocfilehash: 87be1a48a6c3320187243e549a8fb8e5ecc9e006
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 1061f356d75037bae440a5289413b2b5d17af1c9
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293600"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246949"
 ---
-# <a name="set-alerts-in-application-insights"></a>Meldingen instellen in Application Insights
-[Azure Application Insights] [ start] kunt u een waarschuwing op wijzigingen in de prestaties of gebruik metrische gegevens in uw web-app. 
+# <a name="set-alerts-in-application-insights"></a>Waarschuwingen instellen in Application Insights
+[Azure Application Insights] [ start] kunt u te waarschuwen voor wijzigingen in de prestaties of gebruik metrische gegevens in uw web-app. 
 
-Application Insights wordt uw live app bewaakt op een [groot aantal verschillende platformen] [ platforms] bij het vaststellen van prestatieproblemen en gebruikspatronen te begrijpen.
+Application Insights bewaakt uw live app op een [groot aantal verschillende platformen] [ platforms] voor het vaststellen van prestatieproblemen en inzicht in gebruikspatronen.
 
 Er zijn drie soorten waarschuwingen:
 
-* **Metrische waarschuwingen** laat u weten wanneer een metriek een drempelwaarde overschrijden gedurende een bepaalde - zoals reactietijden, aantal uitzonderingen is, CPU-gebruik of paginaweergaven. 
-* [**Webtests** ] [ availability] zien wanneer de site niet beschikbaar op het internet of reageert traag is. [Meer informatie][availability].
-* [**Proactieve diagnoses** ](app-insights-proactive-diagnostics.md) worden automatisch geconfigureerd om u te waarschuwen over ongebruikelijke prestatiepatronen.
+* **Metrische waarschuwingen** laat u weten wanneer een metriek een drempelwaarde voor een bepaalde - zoals reactietijd, aantal uitzonderingen, CPU-gebruik of paginaweergaven. 
+* [**Webtests** ] [ availability] zien wanneer uw site beschikbaar is op het internet of reageert traag is. [Meer informatie][availability].
+* [**Proactieve diagnostische gegevens** ](app-insights-proactive-diagnostics.md) worden automatisch geconfigureerd om u te waarschuwen over ongebruikelijke prestatiepatronen.
 
-We zich richten op metrische waarschuwingen in dit artikel.
+We richten ons op metrische waarschuwingen in dit artikel.
 
-## <a name="set-a-metric-alert"></a>Een metriek waarschuwing instellen
-Open de blade met regels voor waarschuwingen en gebruik vervolgens de knop toevoegen. 
+## <a name="set-a-metric-alert"></a>Instellen van een waarschuwing voor metrische gegevens
+Open de blade waarschuwingsregels en gebruik vervolgens de knop toevoegen. 
 
-![In de blade waarschuwingsregels kiezen waarschuwing toevoegen. Uw app instellen als de bron wilt meten, Geef een naam op voor de waarschuwing en een waarde kiezen.](./media/app-insights-alerts/01-set-metric.png)
+![In de blade waarschuwingsregels Kies waarschuwing toevoegen. Uw app als de bron om te meten, Geef een naam op voor de waarschuwing en kies een metrische waarde ingesteld.](./media/app-insights-alerts/01-set-metric.png)
 
-* De bron voor de overige eigenschappen instellen. **Kies de resource '(onderdelen)'** als u wilt waarschuwingen instellen voor prestaties of gebruik metrische gegevens.
+* De resource voordat de andere eigenschappen instellen. **Kies de resource "(onderdelen)"** als u wilt instellen van waarschuwingen over metrische gegevens voor prestaties of het gebruik.
 * De naam die u aan de waarschuwing toewijst moet uniek zijn binnen de resourcegroep (niet alleen uw toepassing).
-* Wees voorzichtig te weten de eenheden waarin u wordt gevraagd om in te voeren van de drempelwaarde.
-* Als u het selectievakje '... e-eigenaars', worden waarschuwingen verzonden via e-mail wilt maken voor iedereen die toegang tot deze resourcegroep heeft. Als deze reeks mensen wilt uitbreiden, voeg deze toe aan de [resourcegroep of abonnement](app-insights-resources-roles-access-control.md) (niet de bron).
-* Als u 'Extra e-mailberichten' opgeeft, worden waarschuwingen verzonden naar deze personen of groepen (of u het e-eigenaars...' selectievakje aangevinkt). 
-* Stel een [webhook adres](../monitoring-and-diagnostics/insights-webhooks-alerts.md) als u een web-app die op waarschuwingen reageert hebt ingesteld. Deze wordt aangeroepen wanneer de waarschuwing is geactiveerd en wanneer het probleem is opgelost. (Maar houd er rekening mee dat op dit moment, query-parameters niet als webhookeigenschappen doorgegeven.)
-* U kunt uitschakelen of de waarschuwing in te schakelen: Zie de knoppen aan de bovenkant van de blade.
+* Wees voorzichtig om te weten de eenheden waarin u wordt gevraagd om in te voeren van de drempelwaarde.
+* Als u het selectievakje '... e-mail sturen naar eigenaars', worden waarschuwingen verzonden via e-mail naar iedereen die toegang tot deze resourcegroep heeft. Als u wilt deze set personen wilt uitbreiden, voeg deze toe aan de [resourcegroep of abonnement](app-insights-resources-roles-access-control.md) (niet de bron).
+* Als u 'Extra e-mailadressen' opgeeft, worden meldingen verzonden naar deze personen of groepen (of u dit selectievakje inschakelt het vak 'e-eigenaren...'). 
+* Stel een [webhook adres](../monitoring-and-diagnostics/insights-webhooks-alerts.md) als u een web-app die op waarschuwingen reageert hebt ingesteld. Deze wordt aangeroepen wanneer de waarschuwing is geactiveerd en wanneer het probleem is opgelost. (Maar houd er rekening mee dat momenteel, queryparameters niet worden doorgegeven als webhookeigenschappen).
+* U kunt uitschakelen of inschakelen van de waarschuwing: de knoppen aan de bovenkant van de blade zien.
 
-*Ik ziet de waarschuwing toevoegen knop niet.* 
+*Ik zie niet de knop Waarschuwing toevoegen.* 
 
-* Gebruikt u een organisatie-account? Als u de eigenaar of bijdrager toegang tot de bron van deze toepassing hebt, kunt u waarschuwingen instellen. Bekijk de Access Control-blade. [Meer informatie over toegangsbeheer][roles].
+* Gebruikt u een organisatie-account? Als u eigenaar of bijdrager toegang tot de bron van deze toepassing hebt, kunt u waarschuwingen instellen. Bekijk de blade toegangsbeheer. [Meer informatie over toegangsbeheer][roles].
 
 > [!NOTE]
-> In de blade waarschuwingen u ziet dat er al een waarschuwing instellen: [proactieve diagnoses](app-insights-proactive-failure-diagnostics.md). De automatische waarschuwing controleert een bepaalde meetwaarde, percentage mislukte. Tenzij u besluit de proactieve waarschuwing uitschakelen, hoeft u niet instellen van uw eigen waarschuwing voor Faalpercentage van de aanvraag. 
+> In de blade waarschuwingen ziet u dat er al een waarschuwing set up is: [Proactive Diagnostics](app-insights-proactive-failure-diagnostics.md). De automatische waarschuwing controleert een bepaalde metrische gegevens, fout snelheid van aanvragen. Tenzij u besluit de proactieve waarschuwing uitschakelen, moet u niet uw eigen melding instellen op de snelheid van aanvragen voor fout. 
 > 
 > 
 
 ## <a name="see-your-alerts"></a>Uw waarschuwingen weergegeven
-Krijgt u een e-mailbericht wanneer de status van een waarschuwing wijzigt tussen inactieve en actief. 
+U krijgt een e-mail wanneer de status van een waarschuwing wijzigt tussen niet-actieve en actieve. 
 
 De huidige status van elke waarschuwing wordt weergegeven in de regels voor waarschuwingen-blade.
 
-Er is een overzicht van recente activiteit in de waarschuwingen vervolgkeuzelijst:
+Er is een overzicht van recente activiteiten in de waarschuwingen vervolgkeuzelijst:
 
-![Waarschuwingen-omlaag](./media/app-insights-alerts/010-alert-drop.png)
+![Vervolgkeuzelijst voor waarschuwingen](./media/app-insights-alerts/010-alert-drop.png)
 
-De geschiedenis van statuswijzigingen is in het logboek voor activiteit:
+De geschiedenis van statuswijzigingen is in het activiteitenlogboek:
 
-![Klik op instellingen, controlelogboeken op de overzichtsblade.](./media/app-insights-alerts/09-alerts.png)
+![Op de blade overzicht klikt u op de logboeken voor controle-instellingen](./media/app-insights-alerts/09-alerts.png)
 
 ## <a name="how-alerts-work"></a>Hoe waarschuwingen werken
-* Een waarschuwing heeft drie statussen: 'Nooit geactiveerd', 'Geactiveerd' en "Opgelost." Geactiveerde betekent dat de voorwaarde die u hebt opgegeven is waar, wanneer deze het laatst is geëvalueerd.
-* Een melding wordt gegenereerd wanneer de status van een waarschuwing wordt gewijzigd. (Als voorwaarde voor de waarschuwing al true is wanneer u de waarschuwing hebt gemaakt, mogelijk niet krijgt u een melding totdat de voorwaarde onwaar gaat.)
-* Elke melding genereert een e-mailadres als u het selectievakje e-mails aangevinkt of e-mailadressen opgegeven. U kunt ook zoeken op de vervolgkeuzelijst meldingen.
-* Een waarschuwing wordt elke keer dat een metriek, maar niet anders binnenkomt geëvalueerd.
-* De evaluatie van de metrische gegevens aggregeert gedurende de afgelopen periode en vergelijkt deze aan de drempelwaarde om de nieuwe status te bepalen.
-* De periode die u kiest, geeft het interval op gedurende welke de metrische gegevens worden geaggregeerd. Heeft geen invloed op hoe vaak de waarschuwing wordt geëvalueerd: dat is afhankelijk van de frequentie van de aankomst van metrische gegevens.
-* Als er geen gegevens zijn voor enige tijd voor een bepaalde metriek binnenkomt, heeft de afstand van de verschillende gevolgen voor de evaluatie van de waarschuwing en op de grafieken in metrische explorer. Als er geen gegevens langer dan de grafiek steekproefinterval wordt gezien geeft de grafiek in metrische explorer een waarde van 0. Maar een waarschuwing op basis van dezelfde metric is niet opnieuw geëvalueerd, en de status van de waarschuwing blijft ongewijzigd. 
+* Een waarschuwing heeft drie statussen: 'Nooit geactiveerd', 'Geactiveerd' en 'Omgezet'. Geactiveerde betekent dat de voorwaarde die u hebt opgegeven is waar, wanneer deze het laatst is geëvalueerd.
+* Een melding wordt gegenereerd wanneer de status van een waarschuwing wordt gewijzigd. (Als de voorwaarde voor de waarschuwing is al waar bij het maken van de waarschuwing, mogelijk niet ontvangt u een melding totdat de voorwaarde onwaar is.)
+* Elke melding genereert een e-mailbericht als u dit selectievakje is ingeschakeld in het vak e-mailberichten of e-mailadressen verstrekt. U kunt ook zoeken op de vervolgkeuzelijst met meldingen.
+* Een waarschuwing wordt telkens wanneer een metrische waarde, maar niet verder bereikt worden geëvalueerd.
+* De evaluatie van de metrische gegevens aggregeert in de voorafgaande periode en vergelijkt deze aan de drempelwaarde om de nieuwe status te bepalen.
+* De periode die u kiest, geeft het interval op waarover de metrische gegevens worden samengevoegd. Dit heeft geen invloed op hoe vaak de waarschuwing wordt geëvalueerd: die afhankelijk is van de frequentie van binnenkomst van metrische gegevens.
+* Als er worden geen gegevens voor een bepaalde metrische gegevens gedurende een bepaalde periode ontvangt, heeft de kloof verschillende gevolgen voor de evaluatie van de waarschuwing en op de grafieken in metric explorer. Wanneer er geen gegevens worden gedetecteerd voor langer zijn dan de controle-interval van de grafiek, wordt de grafiek in metric explorer een waarde van 0. Maar een waarschuwing op basis van de dezelfde meetwaarde is niet opnieuw worden geëvalueerd, en de status van de waarschuwing blijft ongewijzigd. 
   
-    Wanneer gegevens uiteindelijk aankomen, wordt de grafiek gaat terug naar een andere waarde dan nul. De waarschuwing wordt geëvalueerd op basis van de gegevens beschikbaar voor de periode die u hebt opgegeven. Als het nieuwe gegevenspunt beschikbaar in de periode is, de statistische functie gebaseerd alleen op dat van gegevenspunt.
-* Een waarschuwing kunt vaak knipperen tussen waarschuwingen en de goede status, zelfs als u een lange periode instelt. Dit kan gebeuren als de metrische waarde wordt bewogen rond de drempelwaarde. Er is geen hysteresis drempelwaarde: de overgang naar waarschuwing gebeurt op dezelfde waarde als de overgang op in orde.
+    Wanneer gegevens uiteindelijk aankomen, wordt de grafiek gaat terug naar een andere waarde dan nul. De waarschuwing wordt geëvalueerd op basis van de gegevens beschikbaar zijn voor de periode die u hebt opgegeven. Als het nieuwe gegevenspunt beschikbaar in de periode is, is de statistische functie alleen gebaseerd op dat van gegevenspunt.
+* Een waarschuwing kan vaak knipperen tussen de statussen van waarschuwingen en in orde is, zelfs als u een lange periode instelt. Dit kan gebeuren als de metrische waarde wordt bewogen over de drempelwaarde. Er is geen hysteresis drempelwaarde: de overgang naar waarschuwing vindt plaats op dezelfde waarde als de overgang op in orde.
 
-## <a name="what-are-good-alerts-to-set"></a>Wat zijn goede waarschuwingen instellen?
-Dit is afhankelijk van uw toepassing. Beginnen met, is het beter niet te veel metrische gegevens instellen. Besteed voldoende tijd kijken naar uw metrische grafieken terwijl uw app wordt uitgevoerd, om een idee krijgen hoe het werkt normaal. Hierdoor kunt u de prestaties verbeteren vinden. Vervolgens waarschuwingen instellen om te zien wanneer de metrische gegevens buiten de normale zone gaat. 
+## <a name="what-are-good-alerts-to-set"></a>Wat zijn goede waarschuwingen om in te stellen?
+Dat hangt ervan af op uw toepassing. Beginnen met, is het beste niet te veel metrische gegevens instellen. Laten we zien hoe uw grafieken met metrische gegevens bekijkt terwijl uw app wordt uitgevoerd, als u wilt een idee krijgen van hoe deze gedraagt zich weer normaal. Met deze procedure kunt u vinden manieren om de prestaties te verbeteren. Stel waarschuwingen in om aan te geven wanneer de metrische gegevens buiten de normale zone gaat. 
 
 Populaire waarschuwingen zijn onder andere:
 
-* [Browser metrische gegevens][client], met name Browser **pagina laadtijden**, geschikt zijn voor webtoepassingen. Als uw pagina veel scripts heeft, moet u controleren of **browseruitzonderingen**. Om deze metrische gegevens en waarschuwingen, die u hebt voor het instellen van [webpagina bewaking][client].
-* **Serverreactietijd** voor de serverkant van webtoepassingen. En het instellen van waarschuwingen, Let op deze metrische gegevens om te zien als deze niet goed afhankelijk van hoog tarieven: variatie kan erop wijzen dat uw app wordt uitgevoerd onvoldoende resources. 
-* **Serveruitzonderingen** : als u wilt zien, kunnen sommige [aanvullende instellingen](app-insights-asp-net-exceptions.md).
+* [Metrische gegevens over browser][client], met name Browser **pagina laadtijden**, zijn geschikt voor webtoepassingen. Als uw pagina veel scripts heeft, moet u controleren of **browseruitzonderingen**. Om deze metrische gegevens en waarschuwingen, die u hebt voor het instellen van [webpagina bewaking][client].
+* **Serverreactietijd** voor de serverkant van webtoepassingen. En het instellen van waarschuwingen, te controleren op deze metrische gegevens om te zien als dit niet goed met hoge aanvraagsnelheden varieert: variant kan erop wijzen dat uw app wordt uitgevoerd uit middelen te halen. 
+* **Serveruitzonderingen** : als u wilt zien, hebt u enkele [aanvullende instellingen](app-insights-asp-net-exceptions.md).
 
-Vergeet niet dat [proactieve fout snelheid diagnostics](app-insights-proactive-failure-diagnostics.md) automatisch de snelheid waarmee uw app op aanvragen met fout codes reageert te bewaken. 
+Vergeet niet dat [snelheid van proactieve foutdiagnoses](app-insights-proactive-failure-diagnostics.md) automatisch de snelheid waarmee uw app op aanvragen met foutcodes reageert bewaken. 
 
 ## <a name="automation"></a>Automation
 * [PowerShell gebruiken voor het instellen van waarschuwingen automatiseren](app-insights-powershell-alerts.md)
