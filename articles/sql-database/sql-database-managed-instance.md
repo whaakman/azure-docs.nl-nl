@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/14/2018
+ms.date: 08/30/2018
 ms.author: bonova
-ms.openlocfilehash: 2c6cdcd5d8d50a54a87e3dabd2aa09eccc646738
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42054917"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287660"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een Managed Instance (preview)?
 
@@ -71,7 +71,7 @@ Managed Instance is beschikbaar in twee Servicelagen:
 - **Algemeen gebruik**: ontworpen voor toepassingen met normale prestaties en i/o-latentie is vereist.
 - **Bedrijfskritiek**: ontworpen voor toepassingen met laag i/o-latentie is vereist en minimale gevolgen van het onderliggende Onderhoudsbewerkingen op de werkbelasting.
 
-Beide Servicelagen garanderen een beschikbaarheid van 99,99% en kunnen u onafhankelijk opslaggrootte selecteren en de rekencapaciteit. 
+Beide Servicelagen garanderen een beschikbaarheid van 99,99% en kunnen u onafhankelijk opslaggrootte selecteren en de rekencapaciteit. Zie voor meer informatie over de architectuur voor hoge beschikbaarheid van Azure SQL Database, [hoge beschikbaarheid en Azure SQL Database](sql-database-high-availability.md).
 
 > [!IMPORTANT]
 > Het wijzigen van de servicelaag van algemeen naar bedrijfskritiek of vice versa wordt niet ondersteund in openbare Preview. Als u uw databases migreren naar een exemplaar in verschillende servicelaag wilt, kunt u maken van nieuwe instantie, databases met een punt in tijd herstel herstellen uit het oorspronkelijke exemplaar en zet vervolgens neer oorspronkelijk exemplaar als het is niet meer nodig. 
@@ -97,7 +97,7 @@ De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de cate
 | Het aantal gegevensbestanden (rijen) per de database | Meerdere | 
 | Aantal logboekbestanden (logboek) per database | 1 | 
 | Automatische back-ups beheren | Ja |
-| HOGE BESCHIKBAARHEID | Op basis van externe opslag en [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| HOGE BESCHIKBAARHEID | Gegevens die zijn opgeslagen in Azure Storage en [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Ingebouwd exemplaar en database controleren en metrische gegevens | Ja |
 | Automatische softwarepatches | Ja |
 | VNet - implementatie van Azure Resource Manager | Ja |
@@ -131,7 +131,7 @@ De volgende lijst geeft een overzicht van de belangrijkste kenmerken van de laag
 | Het aantal gegevensbestanden (rijen) per de database | Meerdere | 
 | Aantal logboekbestanden (logboek) per database | 1 | 
 | Automatische back-ups beheren | Ja |
-| HOGE BESCHIKBAARHEID | Op basis van [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) en [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
+| HOGE BESCHIKBAARHEID | Gegevens die zijn opgeslagen op lokale SSD en [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server) en [Azure Service Fabric](../service-fabric/service-fabric-overview.md) |
 | Ingebouwd exemplaar en database controleren en metrische gegevens | Ja |
 | Automatische softwarepatches | Ja |
 | VNet - implementatie van Azure Resource Manager | Ja |
