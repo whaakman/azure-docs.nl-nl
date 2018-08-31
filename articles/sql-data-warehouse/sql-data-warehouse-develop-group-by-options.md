@@ -1,39 +1,39 @@
 ---
-title: Groep wordt gebruikt door de opties in Azure SQL Data Warehouse | Microsoft Docs
-description: Tips voor het implementeren van de groep door de opties in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+title: Met behulp van de groep met de opties in Azure SQL Data Warehouse | Microsoft Docs
+description: Tips voor het implementeren van de groep met opties in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 0548983df23b158385783ac777b23268b5ac7d01
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 1f5723bd160abc164779062f213762751e5875c8
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526043"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43303375"
 ---
 # <a name="group-by-options-in-sql-data-warehouse"></a>Groeperen op opties in SQL Data Warehouse
-Tips voor het implementeren van de groep door de opties in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
+Tips voor het implementeren van de groep met opties in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 
-## <a name="what-does-group-by-do"></a>Wat is GROUP BY?
+## <a name="what-does-group-by-do"></a>Wat doet GROUP BY?
 
-De [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL-component maakt een aggregatie van gegevens naar een samenvatting set rijen. GROUP BY bevat een aantal opties die biedt geen ondersteuning voor SQL Data Warehouse. Deze opties staat er tijdelijke oplossingen.
+De [GROUP BY](/sql/t-sql/queries/select-group-by-transact-sql) T-SQL-component aggregeert gegevens naar een samenvatting set rijen. Heeft enkele mogelijkheden die SQL Data Warehouse biedt geen ondersteuning voor GROUP BY. Deze opties staat er tijdelijke oplossingen.
 
 Deze opties zijn
 
 * GROUP BY met UPDATEPAKKET
 * GROUPING SETS
-* GROUP BY met kubus
+* GROUP BY zonder kubus
 
-## <a name="rollup-and-grouping-sets-options"></a>Rollup en grouping sets-opties
-De eenvoudigste optie hier is het gebruik in plaats daarvan UNION ALL om uit te voeren van het updatepakket in plaats van te vertrouwen op de expliciete syntaxis. Het resultaat is precies hetzelfde
+## <a name="rollup-and-grouping-sets-options"></a>Hiermee stelt u opties Rollup en grouping
+De eenvoudigste optie hier is het gebruik in plaats daarvan UNION ALL om uit te voeren van het updatepakket in plaats van afhankelijk zijn van de expliciete syntaxis. Het resultaat is precies hetzelfde
 
-Het volgende voorbeeld met de GROUP BY-instructie met de ROLLUP-optie:
+Het volgende voorbeeld met behulp van de GROUP BY-instructie met de optie ROLLUP:
 ```sql
 SELECT [SalesTerritoryCountry]
 ,      [SalesTerritoryRegion]
@@ -47,13 +47,13 @@ GROUP BY ROLLUP (
 ;
 ```
 
-Met behulp van de ROLLUP-het voorgaande voorbeeld de volgende aggregaties aanvragen:
+Met behulp van UPDATEPAKKET, vraagt het vorige voorbeeld de volgende aggregaties:
 
 * Land en regio
 * Land
 * Eindtotaal
 
-U kunt voor het UPDATEPAKKET vervangen en dezelfde resultaten retourneren, UNION ALL gebruiken en de vereiste aggregaties expliciet op te geven:
+U kunt UPDATEPAKKET vervangen en de dezelfde resultaten worden geretourneerd, UNION ALL gebruiken en de vereiste aggregaties expliciet op te geven:
 
 ```sql
 SELECT [SalesTerritoryCountry]
@@ -80,14 +80,14 @@ FROM  dbo.factInternetSales s
 JOIN  dbo.DimSalesTerritory t     ON s.SalesTerritoryKey       = t.SalesTerritoryKey;
 ```
 
-Als u wilt vervangen GROUPING SETS, het principe voorbeeld is van toepassing. U hoeft alleen te maken van UNION ALL secties voor de aggregatie niveaus die u wilt zien.
+Als u wilt vervangen GROUPING SETS, de voorbeeld-principe van toepassing. U hoeft te maken van UNION ALL secties voor de aggregatieniveaus die u wilt zien.
 
-## <a name="cube-options"></a>Kubusopties voor de
-Het is mogelijk een groep door met de kubus maken met de UNION ALL benadering. Het probleem is de code kan al gauw omslachtig en onhandig. U kunt deze meer geavanceerde benadering gebruiken als oplossing hiervoor kunt.
+## <a name="cube-options"></a>Kubusopties voor
+Het is mogelijk een groep door met-kubus maken met behulp van de UNION ALL benadering. Het probleem is dat de code korte tijd uitgegroeid omslachtig en onhandig tot kunt. Als oplossing hiervoor, kunt u dit meer geavanceerde benadering gebruiken.
 
-We gaan gebruiken in het bovenstaande voorbeeld.
+We gebruiken het bovenstaande voorbeeld.
 
-De eerste stap is voor het definiëren van de 'kubus' waarin alle niveaus van aggregatie die we willen maken. Het is belangrijk te nemen van de CROSS JOIN van de twee afgeleide tabellen. Hiermee wordt alle niveaus gegenereerd voor ons. De rest van de code is echt er voor opmaak.
+De eerste stap is het definiëren van de 'kubus' waarin alle niveaus van aggregatie die we willen maken. Het is belangrijk te nemen van de CROSS JOIN van de twee afgeleide tabellen. Hiermee wordt alle niveaus gegenereerd voor ons. De rest van de code is echt er voor de opmaak.
 
 ```sql
 CREATE TABLE #Cube
@@ -145,7 +145,7 @@ WITH
 ;
 ```
 
-De derde stap is het doorlopen van onze kubus van kolommen uitvoeren van de aggregatie. De query wordt eenmaal uitvoeren voor elke rij in de tijdelijke tabel #Cube en de resultaten op te slaan in de tijdelijke tabel #Results
+De derde stap is het doorlopen van de kubus van uitvoeren van de aggregatie van kolommen. De query wordt eenmaal uitvoeren voor elke rij in de tijdelijke tabel #Cube en de resultaten opgeslagen in de tijdelijke tabel #Results
 
 ```sql
 SET @nbr =(SELECT MAX(Seq) FROM #Cube);
@@ -169,7 +169,7 @@ BEGIN
 END
 ```
 
-Ten slotte kunt u de resultaten terugkeren door gewoon lezen van de tijdelijke tabel #Results
+Ten slotte kunt u de resultaten terugkeren door gewoon uit de tijdelijke tabel #Results lezen
 
 ```sql
 SELECT *
@@ -178,8 +178,8 @@ ORDER BY 1,2,3
 ;
 ```
 
-Door de code in de secties splitsen en een samenvoegartikel constructie wordt gegenereerd, wordt de code te beheren en meer bruikbaar.
+Door de code opgesplitst in secties en konstruktor cyklu wordt gegenereerd, wordt de code beter worden beheerd en onderhouden.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer tips voor ontwikkeling, [overzicht voor ontwikkelaars](sql-data-warehouse-overview-develop.md).
+Zie voor meer tips voor ontwikkelaars [overzicht voor ontwikkelaars](sql-data-warehouse-overview-develop.md).
 

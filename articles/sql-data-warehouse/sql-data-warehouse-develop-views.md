@@ -3,35 +3,35 @@ title: T-SQL-weergaven gebruiken in Azure SQL Data Warehouse | Microsoft Docs
 description: Tips voor het gebruik van T-SQL-weergaven in Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 28280a067e7008c20361e0a0041c81ba84e7f74c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 796a549c3a01c235422667dc63b729244b1917bf
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31525992"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306500"
 ---
 # <a name="views-in-azure-sql-data-warehouse"></a>Weergaven in Azure SQL datawarehouse
 Tips voor het gebruik van T-SQL-weergaven in Azure SQL Data Warehouse om oplossingen te ontwikkelen. 
 
 ## <a name="why-use-views"></a>Waarom weergaven gebruiken?
-Weergaven kunnen worden gebruikt in een aantal verschillende manieren om de kwaliteit van uw oplossing te verbeteren.  In dit artikel worden enkele voorbeelden van hoe uw oplossing met weergaven, evenals de beperkingen die moeten worden overwogen verrijken gemarkeerd.
+Weergaven kunnen worden gebruikt in een aantal verschillende manieren om de kwaliteit van uw oplossing te verbeteren.  In dit artikel ziet u enkele voorbeelden van hoe u uw oplossing met weergaven, evenals de beperkingen die moeten worden overwogen verrijken.
 
 > [!NOTE]
-> De syntaxis voor CREATE VIEW wordt niet beschreven in dit artikel. Zie voor meer informatie de [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) documentatie.
+> Syntaxis voor CREATE VIEW is niet in dit artikel besproken. Zie voor meer informatie de [CREATE VIEW](/sql/t-sql/statements/create-view-transact-sql) documentatie.
 > 
 > 
 
 ## <a name="architectural-abstraction"></a>Architectuur abstractie
-Een algemene toepassing patroon is opnieuw om tabellen te maken met behulp van maken tabel AS selecteren (CTAS) gevolgd door een object patroon wijzigen tijdens het laden van gegevens.
+Er is een algemeen patroon opnieuw om tabellen te maken met behulp van CREATE TABLE AS SELECT (CTAS) gevolgd door een object patroon hernoemen tijdens het laden van gegevens.
 
-Het volgende voorbeeld wordt een nieuwe datum records naar een datumdimensie. Houd er rekening mee hoe een nieuwe tabel DimDate_New, is het eerst hebt gemaakt en wordt de naam gewijzigd ter vervanging van de oorspronkelijke versie van de tabel.
+Het volgende voorbeeld wordt een nieuwe datum records naar een datumdimensie. Houd er rekening mee hoe een nieuwe tabel, DimDate_New, is het eerst wordt gemaakt en vervolgens ter vervanging van de oorspronkelijke versie van de tabel is gewijzigd.
 
 ```sql
 CREATE TABLE dbo.DimDate_New
@@ -51,17 +51,17 @@ RENAME OBJECT DimDate_New TO DimDate;
 
 ```
 
-Deze methode kan echter resulteren in tabellen die wordt weergegeven en verdwijnen uit de weergave van een gebruiker, evenals een "tabel bestaat niet" foutberichten. Weergaven kunnen worden gebruikt om gebruikers te geven met een laag consistente presentatie terwijl de onderliggende objecten worden gewijzigd. Dankzij de toegang tot gegevens via weergaven, hoeven gebruikers geen zichtbaarheid in de onderliggende tabellen. Deze laag biedt een consistente gebruikerservaring tijdens het gegevensmodel ervoor te zorgen dat de datawarehouse-designers kunt ontwikkelen. Kunnen betekent ontwikkelen van de onderliggende tabellen ontwerpers CTAS kunnen gebruiken om de prestaties tijdens het laden van gegevens te optimaliseren.   
+Deze aanpak kan echter resulteren in tabellen die wordt weergegeven en in de weergave van een gebruiker als "tabel bestaat niet" foutberichten verdwijnen. Weergaven kunnen worden gebruikt om gebruikers te bieden een consistente presentatielaag terwijl de onderliggende objecten worden gewijzigd. Met toegang tot gegevens via weergaven, hoeven gebruikers geen zichtbaarheid van de onderliggende tabellen. Deze laag biedt een consistente gebruikerservaring tijdens het gegevensmodel ervoor te zorgen dat de ontwerpers van het datawarehouse kunt ontwikkelen. Kunnen betekent ontwikkelen van de onderliggende tabellen ontwerpers CTAS kunnen gebruiken om de prestaties tijdens het laden van de gegevens te maximaliseren.   
 
 ## <a name="performance-optimization"></a>Optimalisatie van prestaties
-Weergaven kunnen ook worden gebruikt om af te dwingen voor optimale prestaties joins tussen de tabellen. Een weergave kunt bijvoorbeeld een redundante distributiesleutel opnemen als onderdeel van de gekoppelde criteria voor het beperken van gegevensverplaatsing. Een ander voordeel van een weergave kan worden om af te dwingen een specifieke query of gekoppelde hint. Weergaven gebruiken op deze manier wordt gegarandeerd dat joins altijd worden uitgevoerd op optimale wijze de noodzaak van gebruikers te onthouden van de juiste construct voor hun joins te vermijden.
+Weergaven kunnen ook worden gebruikt om af te dwingen joins tussen de tabellen geoptimaliseerd voor prestaties. Een weergave kunt bijvoorbeeld een redundante distributiesleutel opnemen als onderdeel van het lid te worden criteria om te beperken van gegevensverplaatsing. Een ander voordeel van een weergave kan worden om af te dwingen een bepaalde query of een geheugensteun voor het lid te worden. Weergaven gebruiken op deze manier zorgt ervoor dat joins altijd worden uitgevoerd op optimale wijze de noodzaak van gebruikers te onthouden juist om voor te bereiden voor hun joins te voorkomen.
 
 ## <a name="limitations"></a>Beperkingen
-Weergaven in SQL Data Warehouse worden opgeslagen als bestaan alleen uit metagegevens. Als gevolg daarvan kan zijn de volgende opties niet beschikbaar:
+Weergaven in SQL Data Warehouse worden opgeslagen als alleen metagegevens. De volgende opties zijn als gevolg hiervan niet beschikbaar:
 
 * Er is geen schema binding-optie
-* Basistabellen kunnen niet via de weergave worden bijgewerkt
-* Weergaven kunnen niet worden gemaakt via tijdelijke tabellen
+* Basistabellen kunnen niet worden bijgewerkt via de weergave
+* Weergaven kunnen niet worden gemaakt over tijdelijke tabellen
 * Er is geen ondersteuning voor UITVOUWEN / NOEXPAND-hints
 * Er zijn geen geïndexeerde weergaven in SQL Data Warehouse
 

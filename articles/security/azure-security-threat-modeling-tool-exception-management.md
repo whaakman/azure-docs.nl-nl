@@ -1,43 +1,43 @@
 ---
-title: Uitzondering Management - hulpmiddel voor het modelleren van Microsoft Threat - Azure | Microsoft Docs
-description: oplossingen voor bedreigingen die worden weergegeven in het hulpprogramma Threat Modeling
+title: Uitzondering Management - Microsoft Threat Modeling Tool - Azure | Microsoft Docs
+description: oplossingen voor bedreigingen die beschikbaar zijn in de Threat Modeling Tool
 services: security
 documentationcenter: na
-author: RodSan
-manager: RodSan
-editor: RodSan
+author: jegeib
+manager: jegeib
+editor: jegeib
 ms.assetid: na
 ms.service: security
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/17/2017
-ms.author: rodsan
-ms.openlocfilehash: 3fae9390b41d12361b820e2c37601283b37bc302
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.date: 02/07/2017
+ms.author: jegeib
+ms.openlocfilehash: ce748be7f11d440e656e4af5cdd3cee3bbc9e313
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37031709"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302146"
 ---
-# <a name="security-frame-exception-management--mitigations"></a>Beveiliging Frame: Uitzonderingsbeheer | Oplossingen 
+# <a name="security-frame-exception-management--mitigations"></a>Beveiliging-Frame: Uitzonderingsbeheer | Oplossingen 
 | Product/Service | Artikel |
 | --------------- | ------- |
-| **WCF** | <ul><li>[WCF - Do serviceDebug knooppunt niet opgenomen in het configuratiebestand](#servicedebug)</li><li>[WCF - Do serviceMetadata knooppunt niet opgenomen in het configuratiebestand](#servicemetadata)</li></ul> |
-| **Web-API** | <ul><li>[Zorg ervoor dat de juiste uitzonderingsverwerking in ASP.NET Web API is uitgevoerd ](#exception)</li></ul> |
-| **Webtoepassing** | <ul><li>[Informatie over de beveiliging in foutberichten niet zichtbaar ](#messages)</li><li>[Standaard-fout tijdens het verwerken van pagina implementeren ](#default)</li><li>[Methode-implementatie instellen naar een handelsversie in IIS](#deployment)</li><li>[Uitzonderingen zou moeten veilig mislukken](#fail)</li></ul> |
+| **WCF** | <ul><li>[WCF - kan geen serviceDebug knooppunt in het configuratiebestand](#servicedebug)</li><li>[WCF - kan geen serviceMetadata knooppunt in het configuratiebestand](#servicemetadata)</li></ul> |
+| **Web-API** | <ul><li>[Zorg ervoor dat afhandeling van uitzonderingen correct wordt uitgevoerd in de ASP.NET-Web-API ](#exception)</li></ul> |
+| **Web-App** | <ul><li>[Beveiligingsdetails van de in foutberichten niet zichtbaar ](#messages)</li><li>[Pagina voor foutafhandeling standaard implementeren ](#default)</li><li>[Implementatiemethode voor instellen naar de handelsversie in IIS](#deployment)</li><li>[Uitzonderingen zou moeten veilig mislukken](#fail)</li></ul> |
 
-## <a id="servicedebug"></a>WCF - Do serviceDebug knooppunt niet opgenomen in het configuratiebestand
+## <a id="servicedebug"></a>WCF - kan geen serviceDebug knooppunt in het configuratiebestand
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | WCF | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemeen, NET Framework 3 |
-| **kenmerken**              | N/A  |
+| **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg Koninkrijk](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_debug_information) |
-| **Stappen** | Framework WCF (Windows Communication) services kunnen worden geconfigureerd om informatie over foutopsporing weer te geven. Fouten opsporen informatie mag niet worden gebruikt in een productieomgeving. De `<serviceDebug>` tag bepaalt of de functie van de informatie foutopsporing is ingeschakeld voor een WCF-service. Als het kenmerk includeExceptionDetailInFaults is ingesteld op true, informatie over de uitzondering van de toepassing wordt geretourneerd naar clients. Aanvallers kunnen gebruikmaken van de aanvullende informatie ze krijgen van foutopsporing uitvoer om te koppelen van aanvallen die zijn gericht op het framework, database of andere bronnen worden gebruikt door de toepassing. |
+| **Stappen** | Windows Communication Framework (WCF) services kan worden geconfigureerd om informatie over foutopsporing weer te geven. Fouten opsporen in informatie mag niet worden gebruikt in een productieomgeving. De `<serviceDebug>` tag bepaalt of de functie voor foutopsporing-informatie voor een WCF-service is ingeschakeld. Als het kenmerk includeExceptionDetailInFaults is ingesteld op true, informatie over de uitzondering van de toepassing wordt geretourneerd naar clients. Aanvallers kunnen de aanvullende informatie die zij krijgen vanuit het opsporen van fouten in de uitvoer voor het koppelen van aanvallen die zijn gericht op het framework, een database of andere resources die worden gebruikt door de toepassing. |
 
 ### <a name="example"></a>Voorbeeld
 Het volgende configuratiebestand bevat de `<serviceDebug>` tag: 
@@ -50,32 +50,32 @@ Het volgende configuratiebestand bevat de `<serviceDebug>` tag:
 <serviceDebug includeExceptionDetailInFaults=""True"" httpHelpPageEnabled=""True""/> 
 ... 
 ```
-Informatie voor foutopsporing in de service uitschakelen. Kan dit worden bereikt door het verwijderen van de `<serviceDebug>` tag uit het configuratiebestand van uw toepassing. 
+Informatie over foutopsporing in de service uitschakelen. Dit kan worden bewerkstelligd door het verwijderen van de `<serviceDebug>` tag van het configuratiebestand van uw toepassing. 
 
-## <a id="servicemetadata"></a>WCF - Do serviceMetadata knooppunt niet opgenomen in het configuratiebestand
+## <a id="servicemetadata"></a>WCF - kan geen serviceMetadata knooppunt in het configuratiebestand
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | WCF | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
-| **kenmerken**              | Algemeen, NET Framework 3 |
+| **Kenmerken**              | Algemeen, NET Framework 3 |
 | **Verwijzingen**              | [MSDN](https://msdn.microsoft.com/library/ff648500.aspx), [Voeg Koninkrijk](https://vulncat.fortify.com/en/detail?id=desc.config.dotnet.wcf_misconfiguration_service_enumeration) |
-| **Stappen** | Informatie over een service openbaar vrijgeeft, kan aanvallers waardevolle inzicht in hoe ze de service kunnen misbruiken bieden. De `<serviceMetadata>` code kan de functie voor het publiceren van metagegevens. Metagegevens van de service kan gevoelige gegevens bevatten die niet moet openbaar toegankelijk zijn. Ten minste staan alleen vertrouwde gebruikers toegang tot de metagegevens en ervoor te zorgen dat onnodige informatie is niet beschikbaar gemaakt. Nog beter de mogelijkheid voor het publiceren van metagegevens volledig uitschakelen. Een veilige WCF-configuratie bevat niet de `<serviceMetadata>` label. |
+| **Stappen** | Wanneer gegevens over een service openbaar beschikbaar komen, kan aanvallers met waardevolle inzicht in hoe ze misbruik van de service maken kunnen bieden. De `<serviceMetadata>` code kan de functie voor het publiceren van metagegevens. De metagegevens van de service kan gevoelige gegevens bevatten die niet openbaar toegankelijk moet zijn. Ten minste, kunt u alleen vertrouwde gebruikers toegang tot de metagegevens en ervoor zorgen dat die onnodige gegevens niet weergegeven. Nog beter, de mogelijkheid voor het publiceren van metagegevens volledig uitschakelen. Een veilige WCF-configuratie bevat niet de `<serviceMetadata>` tag. |
 
-## <a id="exception"></a>Zorg ervoor dat de juiste uitzonderingsverwerking in ASP.NET Web API is uitgevoerd
+## <a id="exception"></a>Zorg ervoor dat afhandeling van uitzonderingen correct wordt uitgevoerd in de ASP.NET-Web-API
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Web-API | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | MVC 5, 6 MVC |
-| **kenmerken**              | N/A  |
-| **Verwijzingen**              | [Afhandeling van uitzonderingen in ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling), [Model validatie in ASP.NET-Web-API](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
-| **Stappen** | Standaard worden meest niet-onderschepte uitzonderingen in ASP.NET Web API vertaald in een HTTP-antwoord met de statuscode `500, Internal Server Error`|
+| **Kenmerken**              | N/A  |
+| **Verwijzingen**              | [Afhandeling van uitzonderingen in ASP.NET Web API](http://www.asp.net/web-api/overview/error-handling/exception-handling), [Model voor validatie in ASP.NET Web-API](http://www.asp.net/web-api/overview/formats-and-model-binding/model-validation-in-aspnet-web-api) |
+| **Stappen** | Standaard worden meeste niet-onderschepte uitzonderingen in ASP.NET-Web-API vertaald naar een HTTP-antwoord met de statuscode `500, Internal Server Error`|
 
 ### <a name="example"></a>Voorbeeld
-Om te bepalen van de statuscode geretourneerd door de API `HttpResponseException` kan worden gebruikt, zoals hieronder wordt weergegeven: 
+Voor het beheren van de statuscode die is geretourneerd door de API `HttpResponseException` kan worden gebruikt, zoals hieronder weergegeven: 
 ```csharp
 public Product GetProduct(int id)
 {
@@ -89,7 +89,7 @@ public Product GetProduct(int id)
 ```
 
 ### <a name="example"></a>Voorbeeld
-Voor verdere besturingselement in het antwoord uitzondering, de `HttpResponseMessage` klasse kan worden gebruikt, zoals hieronder wordt weergegeven: 
+Voor verdere controle van het antwoord van de uitzondering, de `HttpResponseMessage` klasse kan worden gebruikt, zoals hieronder wordt weergegeven: 
 ```csharp
 public Product GetProduct(int id)
 {
@@ -106,7 +106,7 @@ public Product GetProduct(int id)
     return item;
 }
 ```
-Om af te vangen onverwerkte uitzonderingen die niet van het type `HttpResponseException`, uitzondering Filters kunnen worden gebruikt. Uitzondering filters implementeren de `System.Web.Http.Filters.IExceptionFilter` interface. De eenvoudigste manier om te schrijven van een uitzonderingsfilter is worden afgeleid van de `System.Web.Http.Filters.ExceptionFilterAttribute` klasse en de methode OnException overschrijven. 
+Om af te vangen onverwerkte uitzonderingen die niet van het type `HttpResponseException`, uitzondering Filters kunnen worden gebruikt. Uitzondering filters implementeren de `System.Web.Http.Filters.IExceptionFilter` interface. De eenvoudigste manier om het schrijffilter is een uitzondering is worden afgeleid van de `System.Web.Http.Filters.ExceptionFilterAttribute` klasse en de OnException-methode overschrijven. 
 
 ### <a name="example"></a>Voorbeeld
 Hier volgt een filter dat wordt geconverteerd `NotImplementedException` uitzonderingen in de HTTP-statuscode `501, Not Implemented`: 
@@ -131,13 +131,13 @@ namespace ProductStore.Filters
 }
 ```
 
-Er zijn verschillende manieren registreren van een uitzonderingsfilter Web-API:
+Er zijn verschillende manieren voor het registreren van een Web-API uitzonderingsfilter:
 - Door de actie
 - Door de netwerkcontroller
-- Globaal
+- wereldwijd
 
 ### <a name="example"></a>Voorbeeld
-Als u wilt het filter toepassen op een specifieke actie, moet u het filter toevoegen als een kenmerk met de actie: 
+Als u wilt de filter toepassen op een specifieke actie, moet u het filter toevoegen als een kenmerk met de actie: 
 ```csharp
 public class ProductsController : ApiController
 {
@@ -160,14 +160,14 @@ public class ProductsController : ApiController
 ```
 
 ### <a name="example"></a>Voorbeeld
-U kunt het filter globaal toepassen aan alle Web-API-controllers toe een exemplaar van het filter moet de `GlobalConfiguration.Configuration.Filters` verzameling. Uitzondering filters in deze verzameling van toepassing op elke actie Web API-controller. 
+Als u wilt het filter wereldwijd toepassen op alle Web-API-domeincontrollers, een exemplaar van het filter toevoegen de `GlobalConfiguration.Configuration.Filters` verzameling. Uitzondering filters in deze verzameling zijn van toepassing op elke Web-API-controller-actie. 
 ```csharp
 GlobalConfiguration.Configuration.Filters.Add(
     new ProductStore.NotImplExceptionFilterAttribute());
 ```
 
 ### <a name="example"></a>Voorbeeld
-Voor de validatie, kan de modelstatus worden doorgegeven aan CreateErrorResponse methode, zoals hieronder wordt weergegeven: 
+Voor de validatie, kan de modelstatus worden doorgegeven aan CreateErrorResponse methode, zoals hieronder weergegeven: 
 ```csharp
 public HttpResponseMessage PostProduct(Product item)
 {
@@ -179,40 +179,40 @@ public HttpResponseMessage PostProduct(Product item)
 }
 ```
 
-Controleer de koppelingen in de sectie Verwijzingen voor meer informatie over het afhandelen van uitzonderlijke en modelvalidatie van het in ASP.Net Web API 
+Controleer de koppelingen in de sectie Verwijzingen voor meer informatie over het afhandelen van uitzonderlijke en modelvalidatie van het in ASP.Net-Web-API 
 
-## <a id="messages"></a>Informatie over de beveiliging in foutberichten niet zichtbaar
+## <a id="messages"></a>Beveiligingsdetails van de in foutberichten niet zichtbaar
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
-| **kenmerken**              | N/A  |
+| **Kenmerken**              | N/A  |
 | **Verwijzingen**              | N/A  |
-| **Stappen** | <p>Algemene foutberichten worden verstrekt rechtstreeks naar de gebruiker zonder met inbegrip van gegevens voor gevoelige toepassingen. Voorbeelden van gevoelige gegevens omvatten:</p><ul><li>Namen van server</li><li>Verbindingsreeksen</li><li>Gebruikersnamen</li><li>Wachtwoorden</li><li>SQL-procedures</li><li>Details van dynamische SQL-fouten</li><li>Stack-trace en de regels van code</li><li>Variabelen die zijn opgeslagen in het geheugen</li><li>Station en de map locaties</li><li>Toepassing installeren punten</li><li>Host-configuratie-instellingen</li><li>Andere details interne toepassing</li></ul><p>Alle fouten in een toepassing onderscheppen en algemene foutberichten bieden, evenals aangepaste fouten in IIS inschakelen wordt voorkomen dat openbaarmaking van informatie. SQL Server-database en .NET-uitzonderingen afhandelt, onder andere foutafhandeling architecturen, zijn vooral uitgebreide en zeer nuttig is voor kwaadwillende gebruikers profileren van uw toepassing. Niet rechtstreeks de inhoud van een klasse die is afgeleid van de uitzondering voor .NET-klasse weer te geven en zorg ervoor dat de juiste uitzonderingsverwerking hebben zodat een onverwachte uitzondering per ongeluk rechtstreeks naar de gebruiker is niet gegenereerd.</p><ul><li>Geef algemene foutberichten rechtstreeks naar de gebruiker die abstracte opslag specifieke details rechtstreeks in het bericht uitzonderingsfout/gevonden</li><li>De inhoud van een .NET-uitzonderingsklasse niet rechtstreeks naar de gebruiker weergeven</li><li>Alle foutberichten afvangen en eventueel informeren over de gebruiker via een algemeen foutbericht verzonden naar de toepassingsclient</li><li>De inhoud van de uitzonderingsklasse niet rechtstreeks aan de gebruiker, met name de retourwaarde van blootstellen `.ToString()`, of de waarden van eigenschappen van het bericht of StackTrace. Veilig Meld deze informatie en een meer onschuldig bericht aan de gebruiker weergeven</li></ul>|
+| **Stappen** | <p>Algemene foutberichten zijn rechtstreeks naar de gebruiker opgegeven zonder op te nemen van gegevens voor gevoelige toepassingen. Voorbeelden van gevoelige gegevens zijn:</p><ul><li>Servernamen</li><li>Verbindingsreeksen</li><li>Gebruikersnamen</li><li>Wachtwoorden</li><li>SQL-procedures</li><li>Details van dynamische SQL-fouten</li><li>Stack-trace en regels code</li><li>Variabelen die zijn opgeslagen in het geheugen</li><li>Station en de maplocaties</li><li>Toepassing installeren punten</li><li>Host-configuratie-instellingen</li><li>De details van andere interne toepassing</li></ul><p>Alle fouten in een toepassing overlapping en bieden algemene foutberichten, evenals aangepaste fouten in IIS inschakelen wordt voorkomen dat openbaarmaking van informatie. SQL Server-database en verwerking, onder andere architecturen voor foutafhandeling van .NET-uitzonderingen zijn met name uitgebreide en zeer nuttig zijn om een kwaadwillende gebruiker profilering van uw toepassing. Niet rechtstreeks de inhoud van een klasse die is afgeleid van de .NET-uitzonderingsklasse weer te geven, en zorg ervoor dat de juiste afhandeling van uitzonderingen hebben zodat een onverwachte uitzondering per ongeluk rechtstreeks naar de gebruiker is niet gegenereerd.</p><ul><li>Geef algemene foutberichten rechtstreeks aan de gebruiker die abstracte opslag specifieke gegevens rechtstreeks in de uitzondering/foutbericht</li><li>De inhoud van een .NET-uitzonderingsklasse niet rechtstreeks naar de gebruiker weergeven</li><li>Alle foutberichten afvangen en indien van toepassing informeren over de gebruiker via een algemene foutmelding verzonden naar de toepassingsclient</li><li>De inhoud van de uitzonderingsklasse niet rechtstreeks naar de gebruiker, met name de geretourneerde waarde van blootstellen `.ToString()`, of de waarden van eigenschappen van het bericht of StackTrace. Veilig Meld deze informatie en een meer onschuldig bericht aan de gebruiker weergeven</li></ul>|
 
-## <a id="default"></a>Standaard-fout tijdens het verwerken van pagina implementeren
+## <a id="default"></a>Pagina voor foutafhandeling standaard implementeren
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
-| **kenmerken**              | N/A  |
-| **Verwijzingen**              | [Dialoogvenster voor instellingen van ASP.NET-foutpagina's bewerken](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
-| **Stappen** | <p>Wanneer een ASP.NET-toepassing mislukt en zorgt ervoor dat een HTTP/1.x 500 Interne serverfout opgetreden of de configuratie van een onderdeel (zoals Aanvraagfiltering) voorkomt dat een pagina worden weergegeven, kunt u een foutbericht wordt gegenereerd. Beheerders kunnen kiezen of er een bericht van de toepassing moet worden weergegeven voor de client, gedetailleerd foutbericht naar de client of gedetailleerd foutbericht alleen localhost. De <customErrors> -label in het bestand web.config heeft drie beschikbare modi:</p><ul><li>**Op:** geeft aan dat de aangepaste fouten zijn ingeschakeld. Als geen kenmerk defaultRedirect is opgegeven, zien gebruikers een algemene fout. De aangepaste fouten worden weergegeven op de externe clients en op de lokale host</li><li>**Uit:** geeft aan dat de aangepaste fouten zijn uitgeschakeld. De gedetailleerde ASP.NET-fouten worden weergegeven op de externe clients en op de lokale host</li><li>**RemoteOnly:** geeft aan dat aangepaste fouten worden alleen weergegeven op de externe clients en dat de ASP.NET-fouten worden weergegeven op de lokale host. Dit is de standaardwaarde</li></ul><p>Open de `web.config` -bestand voor de toepassing/site en zorg ervoor dat het label een heeft `<customErrors mode="RemoteOnly" />` of `<customErrors mode="On" />` gedefinieerd.</p>|
+| **Kenmerken**              | N/A  |
+| **Verwijzingen**              | [Dialoogvenster van de instellingen voor ASP.NET-foutpagina's bewerken](https://technet.microsoft.com/library/dd569096(WS.10).aspx) |
+| **Stappen** | <p>Wanneer een ASP.NET-toepassing mislukt en zorgt ervoor dat een HTTP/1.x 500 Interne serverfout opgetreden of een functieconfiguratie (zoals Aanvraagfiltering) voorkomt dat een pagina worden weergegeven, kunt u een foutbericht dat wordt gegenereerd. Beheerders kunnen kiezen of een bericht van de toepassing moet worden weergegeven voor de client, de gedetailleerd foutbericht naar de client of het gedetailleerde foutbericht op dat alleen localhost. De <customErrors> tag op in het bestand web.config heeft drie modi:</p><ul><li>**Op:** geeft aan dat de aangepaste fouten zijn ingeschakeld. Als geen kenmerk defaultRedirect is opgegeven, zien gebruikers een algemene fout. De aangepaste fouten worden weergegeven met de externe clients en op de lokale host</li><li>**Uitgeschakeld:** geeft aan dat de aangepaste fouten zijn uitgeschakeld. De gedetailleerde ASP.NET-fouten worden weergegeven met de externe clients en op de lokale host</li><li>**Ingesteld op RemoteOnly:** geeft aan dat aangepaste fouten worden alleen weergegeven op de externe clients, en dat de ASP.NET-fouten worden weergegeven op de lokale host. Dit is de standaardwaarde</li></ul><p>Open de `web.config` -bestand voor de toepassing/site en zorg ervoor dat de tag een heeft `<customErrors mode="RemoteOnly" />` of `<customErrors mode="On" />` gedefinieerd.</p>|
 
-## <a id="deployment"></a>Methode-implementatie instellen naar een handelsversie in IIS
+## <a id="deployment"></a>Implementatiemethode voor instellen naar de handelsversie in IIS
 
 | Titel                   | Details      |
 | ----------------------- | ------------ |
 | **Onderdeel**               | Webtoepassing | 
 | **SDL-fase**               | Implementatie |  
 | **Van toepassing technologieën** | Algemene |
-| **kenmerken**              | N/A  |
+| **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [implementatie-Element (ASP.NET-instellingenschema)](https://msdn.microsoft.com/library/ms228298(VS.80).aspx) |
-| **Stappen** | <p>De `<deployment retail>` switch is bedoeld voor gebruik door IIS productieservers. Deze switch wordt gebruikt om toepassingen worden uitgevoerd met de best mogelijke prestaties en het lekken van zo weinig mogelijk beveiliging informatie door het uitschakelen van de toepassing de mogelijkheid voor het genereren van traceringsuitvoer op een pagina voor het uitschakelen van de mogelijkheid om gedetailleerde foutberichten weer te geven eindgebruikers en de switch foutopsporing uit te schakelen.</p><p>Opties die ontwikkelaars zijn gericht, zijn zoals is mislukt, switches en vaak aanvragen tracering en foutopsporing zijn ingeschakeld tijdens het ontwikkelen van active. Het verdient aanbeveling dat de methode-implementatie op een productieserver naar een handelsversie wordt ingesteld. Open het bestand machine.config en zorg ervoor dat `<deployment retail="true" />` blijft is ingesteld op true.</p>|
+| **Stappen** | <p>De `<deployment retail>` switch is bedoeld voor gebruik door IIS productieservers. Deze switch wordt gebruikt om u te helpen toepassingen uitvoeren met de best mogelijke prestaties en de geringst mogelijke beveiliging gegevens lekken door het uitschakelen van de toepassing de mogelijkheid voor het genereren van trace-uitvoer op een pagina, uitschakelen van de mogelijkheid om gedetailleerde foutberichten weer te geven eindgebruikers en de switch foutopsporing uit te schakelen.</p><p>Opties die ontwikkelaars zijn gericht, zoals is mislukt, switches en vaak aanvragen traceren en foutopsporing, zijn ingeschakeld tijdens het ontwikkelen van active. Het verdient aanbeveling dat de implementatiemethode op een productieserver naar de handelsversie worden ingesteld. Open het bestand machine.config en zorg ervoor dat `<deployment retail="true" />` blijven ingesteld op true.</p>|
 
 ## <a id="fail"></a>Uitzonderingen zou moeten veilig mislukken
 
@@ -221,9 +221,9 @@ Controleer de koppelingen in de sectie Verwijzingen voor meer informatie over he
 | **Onderdeel**               | Webtoepassing | 
 | **SDL-fase**               | Ontwikkelen |  
 | **Van toepassing technologieën** | Algemene |
-| **kenmerken**              | N/A  |
+| **Kenmerken**              | N/A  |
 | **Verwijzingen**              | [Veilig mislukt](https://www.owasp.org/index.php/Fail_securely) |
-| **Stappen** | Toepassing zou moeten veilig mislukken. Elke methode waarbij een Booleaanse waarde retourneert, op basis van welke bepaalde besluit wordt gemaakt, hebt uitzonderingsblok zorgvuldig gemaakt. Er zijn veel logische fouten als gevolg van die kneep beveiligingsproblemen in wanneer de uitzonderingsblok ondoordacht is geschreven.|
+| **Stappen** | Toepassing zou moeten veilig mislukken. Elke methode een Booleaanse waarde retourneert, op basis van welke bepaalde beslissing is genomen, hebt uitzonderingsblok zorgvuldig gemaakt. Er zijn veel van de logische fouten vanwege die kneep beveiligingsproblemen in, wanneer het uitzonderingsblok ondoordacht wordt geschreven.|
 
 ### <a name="example"></a>Voorbeeld
 ```csharp
@@ -266,4 +266,4 @@ Controleer de koppelingen in de sectie Verwijzingen voor meer informatie over he
             }
         }
 ```
-De bovenstaande methode retourneert True, wordt altijd als een uitzondering gebeurt. Als de eindgebruiker een verkeerd ingedeelde URL die de browser respecteert biedt, maar de `Uri()` constructor niet en het slachtoffer gaat u naar de URL geldig, maar een verkeerd ingedeelde dit genereert een uitzondering. 
+De bovenstaande methode retourneert altijd waar, als het geval is een uitzondering. Als de eindgebruiker een onjuist gevormde URL, die de browser respecteert biedt, maar de `Uri()` constructor niet, dit een uitzondering genereert en het slachtoffer gaat u naar de URL geldig, maar onjuist gevormd. 

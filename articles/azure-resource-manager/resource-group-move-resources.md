@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 7ddab3717626df14f491662849d01cb85658791c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 160e2a277c82470df7d9ced2899699dae8d4ef01
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617287"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302125"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -57,7 +57,7 @@ Voordat u een resource verplaatst, moeten er enkele belangrijke stappen worden u
   * [Eigendom van een Azure-abonnement naar een ander account overdragen](../billing/billing-subscription-transfer.md)
   * [Een Azure-abonnement koppelen of toevoegen aan Azure Active Directory](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 
-2. De service moet de mogelijkheid activeren om resources te verplaatsen. In dit artikel geeft een lijst van welke services verplaatsing van resources activeren en welke services verplaatsing van resources niet activeren.
+2. De service moet de mogelijkheid activeren om resources te verplaatsen. Zie de secties hieronder in dit artikel die [services verplaatsing van resources activeren](#services-that-can-be-moved) en welke [services verplaatsing van resources niet activeren](#services-that-cannot-be-moved).
 3. Het doelabonnement moet zijn geregistreerd voor de resourceprovider van de resource die wordt verplaatst. Als u niet het geval is, ontvangt u een foutmelding waarin staat dat de **abonnement is niet geregistreerd voor een resourcetype**. U kunt dit probleem tegenkomen bij het verplaatsen van een resource naar een nieuw abonnement, terwijl dat abonnement nooit is gebruikt met dat type resource.
 
   Gebruik de volgende opdrachten om op te halen van de registratiestatus voor PowerShell:

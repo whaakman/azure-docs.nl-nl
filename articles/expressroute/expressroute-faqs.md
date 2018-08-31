@@ -1,25 +1,18 @@
 ---
 title: Veelgestelde vragen over Azure ExpressRoute | Microsoft Docs
 description: De veelgestelde vragen over de ExpressRoute bevat informatie over ondersteunde Azure-Services, kosten, gegevens en verbindingen, SLA, Providers en locaties, bandbreedte en aanvullende technische gegevens.
-documentationcenter: na
 services: expressroute
 author: cherylmc
-manager: jeconnoc
-editor: ''
-ms.assetid: 09b17bc4-d0b3-4ab0-8c14-eed730e1446e
 ms.service: expressroute
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 05/14/2018
+ms.topic: conceptual
+ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 2e332b361a1531eb5f6a8a1d3c46c2f258035258
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5f40b4c9fff57b105b7d96de69780fea83871032
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818790"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302293"
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -53,7 +46,7 @@ Ja. ExpressRoute-circuits zijn geconfigureerd, zodat u om uit te breiden tot twe
 
 ### <a name="can-i-use-the-same-private-network-connection-with-virtual-network-and-other-azure-services-simultaneously"></a>Kan ik tegelijkertijd dezelfde particulier netwerkverbinding met virtual network en andere Azure-services gebruiken?
 
-Ja. Een ExpressRoute-circuit, nadat deze is ingesteld, kunt u tegelijkertijd toegang krijgen tot de services binnen een virtueel netwerk en andere Azure-services. U verbinding maken met virtuele netwerken via het pad voor persoonlijke peering en andere services via het openbare-peeringpad.
+Ja. Een ExpressRoute-circuit, nadat deze is ingesteld, kunt u tegelijkertijd toegang krijgen tot de services binnen een virtueel netwerk en andere Azure-services. U verbinding maken met virtuele netwerken via het pad voor persoonlijke peering en andere services via het pad van de Microsoft-peering.
 
 ### <a name="does-expressroute-offer-a-service-level-agreement-sla"></a>Biedt ExpressRoute een Service Level Agreement (SLA)?
 
@@ -70,33 +63,18 @@ ExpressRoute ondersteunt [drie Routeringsdomeinen](expressroute-circuit-peerings
 ### <a name="public-peering"></a>Openbare peering
 
 >[!NOTE]
->Microsoft-peering is de beste manier voor toegang tot alle services die worden gehost op Azure.
+>Openbare peering is uitgeschakeld op nieuwe ExpressRoute-circuits. Azure-services zijn beschikbaar op Microsoft-peering.
 >
-
-* Power BI
-* Dynamics 365 voor Finance and Operations (voorheen bekend als Dynamics AX Online)
-* De meeste van de Azure-services worden ondersteund. Controleer of rechtstreeks met de service die u wilt gebruiken om te controleren of de ondersteuning.<br>
-  De volgende services worden niet ondersteund:
-    * CDN
-    * Visual Studio Team Services Belastingstests
-    * Multi-Factor Authentication
-    * Traffic Manager
 
 ### <a name="microsoft-peering"></a>Microsoft-peering
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
-* Dynamics 365 Customer Engagement-toepassingen (voorheen bekend als CRM Online)
-  * Dynamics 365 for Sales
-  * Dynamics 365 for Customer Service
-  * Dynamics 365 for Field Service
-  * Dynamics 365 voor Project-Service
-* Met behulp van [routefilters](#route-filters-for-microsoft-peering), krijgt u toegang tot de dezelfde openbare services met de Microsoft-peering:
-  * Power BI
-  * Dynamics 365 for Finance and Operations
-  * De meeste van de Azure-services worden ondersteund. Controleer of rechtstreeks met de service die u wilt gebruiken om te controleren of de ondersteuning.<br>
-  De volgende services worden niet ondersteund:
+* Dynamics 365 
+* Power BI
+* Azure Active Directory
+* Visual Studio Team Services Belastingstests
+* De meeste van de Azure-services worden ondersteund. Controleer of rechtstreeks met de service die u wilt gebruiken om te controleren of de ondersteuning.<br>De volgende services zijn **niet ondersteund**:
     * CDN
-    * Visual Studio Team Services Belastingstests
     * Multi-Factor Authentication
     * Traffic Manager
 
@@ -132,7 +110,7 @@ U verliest connectiviteit niet als een van de cross-verbindingen mislukt. Een re
 
 ### <a name="how-do-i-ensure-high-availability-on-a-virtual-network-connected-to-expressroute"></a>Hoe kan ik ervoor zorgen dat hoge beschikbaarheid in een virtueel netwerk is verbonden met ExpressRoute?
 
-U kunt hoge beschikbaarheid bereiken door verbinding te maken van ExpressRoute-circuits in verschillende peeringlocaties (bijvoorbeeld Singapore, Singapore2) met het virtuele netwerk. Als één ExpressRoute-circuit uitgeschakeld wordt, wordt connectiviteit schakelt over naar een ander ExpressRoute-circuit. Standaard wordt het virtuele netwerk uitgaand verkeer doorgestuurd op basis van op gelijke kosten Multipath routering (ECMP). U kunt verbinding gewicht gebruiken één aansluiting liever naar een andere. Zie [ExpressRoute-routering optimaliseren](expressroute-optimize-routing.md) voor meer informatie over verbinding gewicht.
+U kunt hoge beschikbaarheid bereiken via een ExpressRoute-circuits in verschillende peeringlocaties (bijvoorbeeld, Singapore, Singapore2) verbinding met uw virtuele netwerk. Als één ExpressRoute-circuit uitgeschakeld wordt, wordt connectiviteit schakelt over naar een ander ExpressRoute-circuit. Standaard wordt het virtuele netwerk uitgaand verkeer doorgestuurd op basis van op gelijke kosten Multipath routering (ECMP). U kunt verbinding gewicht gebruiken één aansluiting liever naar een andere. Zie voor meer informatie, [ExpressRoute-routering optimaliseren](expressroute-optimize-routing.md).
 
 ### <a name="onep2plink"></a>Als ik geen CO-locatie op een cloudexchange ben en mijn serviceprovider point-to-point-verbinding biedt, heb ik nodig om twee fysieke verbindingen tussen mijn on-premises netwerk en Microsoft?
 
@@ -152,12 +130,12 @@ Ja. U kunt meer dan één ExpressRoute-circuit in uw abonnement hebt. De standaa
 
 Ja. U kunt ExpressRoute-circuits hebt met veel serviceproviders. Elk ExpressRoute-circuit is gekoppeld aan een serviceprovider. 
 
-### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-eg-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Ik zie twee ExpressRoute-peeringlocaties in de dezelfde metro bijvoorbeeld Singapore en Singapore2. Welke peeringlocatie moet ik kiezen om te maken van mijn ExpressRoute-circuit?
+### <a name="i-see-two-expressroute-peering-locations-in-the-same-metro-for-example-singapore-and-singapore2-which-peering-location-should-i-choose-to-create-my-expressroute-circuit"></a>Ik zie twee ExpressRoute-peeringlocaties in de dezelfde metro bijvoorbeeld Singapore en Singapore2. Welke peeringlocatie moet ik kiezen om te maken van mijn ExpressRoute-circuit?
 Als uw serviceprovider ExpressRoute op beide sites biedt, kunt u werken met uw provider en kies een van beide site voor het instellen van ExpressRoute. 
 
 ### <a name="can-i-have-multiple-expressroute-circuits-in-the-same-metro-can-i-link-them-to-the-same-virtual-network"></a>Kan ik meerdere ExpressRoute-circuits hebben in de dezelfde metro? Kan ik deze koppelen aan hetzelfde virtuele netwerk?
 
-Ja. U kunt meerdere ExpressRoute-circuits hebt met de dezelfde of verschillende serviceproviders. Als de metro meerdere ExpressRoute-peeringlocaties heeft en de circuits van worden gemaakt op verschillende locaties voor peering, kunt u ze kunt koppelen aan hetzelfde virtuele netwerk. Als de circuits van worden gemaakt op dezelfde locatie peering, kunt u ze niet koppelen aan hetzelfde virtuele netwerk. De locatienaam van elke in Azure Portal of PowerShell/CLI API vertegenwoordigt één locatie. U kunt bijvoorbeeld de peeringlocaties "Singapore" en "Singapore2" selecteren en circuits vanaf elk aan hetzelfde virtuele netwerk verbinding maken. 
+Ja. U kunt meerdere ExpressRoute-circuits hebt met de dezelfde of verschillende serviceproviders. Als de metro meerdere ExpressRoute-peeringlocaties heeft en de circuits van worden gemaakt op verschillende locaties voor peering, kunt u ze kunt koppelen aan hetzelfde virtuele netwerk. Als de circuits van worden gemaakt op dezelfde locatie peering, kunt u ze niet koppelen aan hetzelfde virtuele netwerk. De locatienaam van elke in Azure portal of PowerShell/CLI API vertegenwoordigt één locatie. U kunt bijvoorbeeld de peeringlocaties "Singapore" en "Singapore2" selecteren en circuits vanaf elk aan hetzelfde virtuele netwerk verbinding maken. 
 
 ### <a name="how-do-i-connect-my-virtual-networks-to-an-expressroute-circuit"></a>Hoe ik mijn virtuele netwerken verbinden met een ExpressRoute-circuit
 
@@ -205,7 +183,7 @@ Ja. Als u hebt niet geadverteerd standaardroutes (0.0.0.0/0) of Internet route v
 
 Ja. U kunt de standaardroutes bekendmaakt (0.0.0.0/0) voor het blokkeren van alle internetverbinding met virtuele machines die binnen een virtueel netwerk is geïmplementeerd en routeren van al het verkeer af via het ExpressRoute-circuit.
 
-Als u de standaardroutes adverteren, dwingen we dat verkeer naar services die worden aangeboden via openbare peering (zoals Azure storage en SQL-database) terug naar uw locatie. U moet uw routers voor het retourneren van verkeer naar Azure via het pad voor openbare peering of via Internet configureren. Als u een service-eindpunt (preview) voor de service hebt ingeschakeld, wordt het verkeer naar de service wordt niet geforceerd op uw locatie. Het verkeer blijft in het Azure-backbone-netwerk. Zie voor meer informatie over service-eindpunten, [service-eindpunten voor virtuele netwerken](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
+Als u standaardroutes bekendmaakt, dwingen we verkeer naar services die worden aangeboden via Microsoft-peering (zoals Azure storage en SQL-database) terug naar uw locatie. U moet uw routers voor het retourneren van verkeer naar Azure via het pad van de Microsoft-peering of via Internet configureren. Als u een service-eindpunt voor de service hebt ingeschakeld, wordt het verkeer naar de service wordt niet geforceerd op uw locatie. Het verkeer blijft in het Azure-backbone-netwerk. Zie voor meer informatie over service-eindpunten, [service-eindpunten voor virtuele netwerken](../virtual-network/virtual-network-service-endpoints-overview.md?toc=%2fazure%2fexpressroute%2ftoc.json)
 
 ### <a name="can-virtual-networks-linked-to-the-same-expressroute-circuit-talk-to-each-other"></a>Kunnen virtuele netwerken die zijn gekoppeld aan hetzelfde ExpressRoute-circuit met elkaar communiceren?
 
@@ -223,17 +201,13 @@ Ja. U moet een ExpressRoute-gateway binnen uw virtuele netwerk maken. Er is een 
 
 Het openbare IP-adres wordt gebruikt voor interne beheer alleen en geen vormt een beveiligingsrisico van uw virtuele netwerk.
 
-### <a name="what-do-i-need-to-connect-to-azure-storage-over-expressroute"></a>Wat moet ik verbinding maken met Azure storage via ExpressRoute?
-
-U moet een ExpressRoute-circuit maken en configureren van routes voor openbare peering.
-
 ### <a name="are-there-limits-on-the-number-of-routes-i-can-advertise"></a>Zijn er beperkingen met betrekking tot het aantal routes dat ik kunt adverteren?
 
-Ja. We accepteren maximaal 4000 voorvoegsels van de route voor persoonlijke peering en 200 voor openbare peering en Microsoft-peering. U kunt deze verhogen tot 10.000 routes voor persoonlijke peering als u de ExpressRoute premium-functie inschakelt.
+Ja. We accepteren maximaal 4000 voorvoegsels van de route voor persoonlijke peering en 200 voor Microsoft-peering. U kunt deze verhogen tot 10.000 routes voor persoonlijke peering als u de ExpressRoute premium-functie inschakelt.
 
 ### <a name="are-there-restrictions-on-ip-ranges-i-can-advertise-over-the-bgp-session"></a>Zijn er beperkingen voor IP-adresbereiken die ik via de BGP-sessie adverteren kunt?
 
-We accepteren geen persoonlijke voorvoegsels (RFC1918) in de openbare en Microsoft-peering BGP-sessie.
+We accepteren geen persoonlijke voorvoegsels (RFC1918) voor de Microsoft-peering BGP-sessie.
 
 ### <a name="what-happens-if-i-exceed-the-bgp-limits"></a>Wat gebeurt er als ik het BGP beperkt?
 
@@ -242,18 +216,6 @@ BGP-sessies wordt verwijderd. Ze worden opnieuw ingesteld zodra het aantal voorv
 ### <a name="what-is-the-expressroute-bgp-hold-time-can-it-be-adjusted"></a>Wat is de tijd van de blokkering BGP ExpressRoute? Kan het worden aangepast?
 
 De tijd van de blokkering is 180. De keepalive berichten worden elke 60 seconden. Deze worden instellingen opgelost aan de kant van Microsoft die niet kan worden gewijzigd. Het is mogelijk dat u verschillende timers configureren en de parameters van BGP-sessie wordt onderhandeld over dienovereenkomstig.
-
-### <a name="after-i-advertise-the-default-route-00000-to-my-virtual-networks-i-cant-activate-windows-running-on-my-azure-vms-how-to-i-fix-this"></a>Nadat ik de standaardroute (0.0.0.0/0) naar Mijn virtuele netwerken adverteren, kan ik mijn Azure-VM's waarop Windows niet activeren. Hoe aan kan ik dit oplossen
-
-De volgende stappen helpen Azure herkent de activeringsaanvraag:
-
-1. Stel de openbare peering voor uw ExpressRoute-circuit.
-2. Een DNS-zoekopdracht uitvoeren en het IP-adres vinden **kms.core.windows.net**
-3. De Key Management Service moet herkent dat de activeringsaanvraag is afkomstig van Azure en eer de aanvraag. Voer een van de volgende drie taken:
-
-   * Op uw on-premises netwerk routeren het verkeer dat bestemd is voor de IP-adres dat u hebt verkregen in stap 2 terug naar Azure via openbare peering.
-   * Het verkeer naar Azure via openbare peering voor uw haar NSP provider-pincode hebben.
-   * Maken van een gebruiker gedefinieerde route die het IP-adres dat tot Internet als een volgende hop heeft verwijst, en dit toepassen op de subnetten waar deze virtuele machines zijn.
 
 ### <a name="can-i-change-the-bandwidth-of-an-expressroute-circuit"></a>Kan ik de bandbreedte van een ExpressRoute-circuit wijzigen?
 
@@ -280,7 +242,7 @@ ExpressRoute premium is een verzameling van de volgende functies:
     **Voorbeelden:**
 
     *  U kunt een VNet dat is gemaakt in West-Europa aan een ExpressRoute-circuit gemaakt in Silicon Valley koppelen. 
-    *  Voorvoegsels van andere geopolitieke regio's zijn via openbare peering aangekondigd dat u verbinding, bijvoorbeeld SQL Azure in Europa (West) vanuit een circuit in Silicon Valley maken kunt.
+    *  Op de Microsoft-peering, worden de voorvoegsels van andere geopolitieke regio's worden geadverteerd, zodat u verbinding, bijvoorbeeld SQL Azure in Europa (West) vanuit een circuit in Silicon Valley maken kunt.
 
 
 ### <a name="limits"></a>Het aantal vnet's kan ik koppelen aan een ExpressRoute-circuit als ik ExpressRoute premium ingeschakeld?
@@ -309,11 +271,11 @@ Raadpleeg [prijsinformatie](https://azure.microsoft.com/pricing/details/expressr
 
 Ja. ExpressRoute premium kosten gelden boven op de kosten voor ExpressRoute-circuit en de kosten die zijn vereist door de connectiviteitsprovider.
 
-## <a name="expressroute-for-office-365-and-dynamics-365"></a>ExpressRoute voor Office 365 en Dynamics 365
+## <a name="expressroute-for-office-365"></a>ExpressRoute voor Office 365
 
 [!INCLUDE [expressroute-office365-include](../../includes/expressroute-office365-include.md)]
 
-### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services-and-dynamics-365"></a>Hoe maak ik een ExpressRoute-circuit verbinding maken met Office 365-services en Dynamics 365?
+### <a name="how-do-i-create-an-expressroute-circuit-to-connect-to-office-365-services"></a>Hoe maak ik een ExpressRoute-circuit verbinding maken met Office 365-services?
 
 1. Controleer de [ExpressRoute vereisten pagina](expressroute-prerequisites.md) om ervoor te zorgen dat u voldoet aan de vereisten.
 2. Om ervoor te zorgen dat aan de behoeften van uw connectiviteit wordt voldaan, bekijk de lijst van serviceproviders en locaties in de [ExpressRoute partners en locaties](expressroute-locations.md) artikel.
@@ -321,13 +283,9 @@ Ja. ExpressRoute premium kosten gelden boven op de kosten voor ExpressRoute-circ
 4. Volg de stappen die worden vermeld in de werkstromen voor het instellen van connectiviteit [ExpressRoute-werkstromen voor circuitinrichting en circuitstatussen](expressroute-workflows.md).
 
 > [!IMPORTANT]
-> Zorg ervoor dat u premium-invoegtoepassing voor ExpressRoute hebt ingeschakeld bij het configureren van de verbinding met Office 365-services en Dynamics 365.
+> Zorg ervoor dat u premium-invoegtoepassing voor ExpressRoute hebt ingeschakeld bij het configureren van de verbinding met Office 365-services.
 > 
 > 
-
-### <a name="do-i-need-to-enable-azure-public-peering-to-connect-to-office-365-services-and-dynamics-365"></a>Heb ik nodig om in te schakelen openbare Azure-peering voor het verbinding maken met Office 365-services en Dynamics 365?
-
-Nee, moet u alleen om in te schakelen van Microsoft-Peering. Verificatieverkeer naar Azure AD wordt verzonden via Microsoft-Peering. 
 
 ### <a name="can-my-existing-expressroute-circuits-support-connectivity-to-office-365-services-and-dynamics-365"></a>Kunnen verbinding met Office 365-services en Dynamics 365-ondersteuning voor mijn bestaande ExpressRoute-circuits?
 
@@ -337,9 +295,9 @@ Ja. Uw bestaande ExpressRoute-circuit kan worden geconfigureerd ter ondersteunin
 
 Raadpleeg [Office 365-URL's en IP-adresbereiken](http://aka.ms/o365endpoints) pagina voor een bijgewerkte lijst met services die via ExpressRoute worden ondersteund.
 
-### <a name="how-much-does-expressroute-for-office-365-services-and-dynamics-365-cost"></a>Wat kost ExpressRoute voor Office 365-services en Dynamics 365 kosten?
+### <a name="how-much-does-expressroute-for-office-365-services-cost"></a>Wat kost ExpressRoute voor Office 365-services?
 
-Office 365-services en Dynamics 365 moet premium-invoegtoepassing wordt ingeschakeld. Zie de [pagina met prijsinformatie](https://azure.microsoft.com/pricing/details/expressroute/) voor kosten.
+Office 365-services vereist premium-invoegtoepassing wordt ingeschakeld. Zie de [pagina met prijsinformatie](https://azure.microsoft.com/pricing/details/expressroute/) voor kosten.
 
 ### <a name="what-regions-is-expressroute-for-office-365-supported-in"></a>Welke regio's wordt ExpressRoute voor Office 365 ondersteund?
 
@@ -356,10 +314,6 @@ Zie de aanbeveling voor [hoge beschikbaarheid en failover met Azure ExpressRoute
 
 Ja. Office 365 GCC service-eindpunten zijn bereikbaar via het Azure US Government ExpressRoute. Echter, moet u eerst een ondersteuningsticket in Azure portal voor de voorvoegsels die u van plan bent om te adverteren naar Microsoft. De verbinding met Office 365 GCC-services wordt tot stand worden gebracht nadat de ondersteuningsticket is opgelost. 
 
-### <a name="can-dynamics-365-for-operations-formerly-known-as-dynamics-ax-online-be-accessed-over-an-expressroute-connection"></a>Dynamics 365 voor bewerkingen (voorheen bekend als Dynamics AX Online) zijn toegankelijk via een ExpressRoute-verbinding?
-
-Ja. [Dynamics 365 voor bewerkingen](https://www.microsoft.com/dynamics365/operations) wordt gehost op Azure. U kunt inschakelen om openbare Azure-peering in uw ExpressRoute-circuit tot stand te brengen.
-
 ## <a name="route-filters-for-microsoft-peering"></a>Routefilters voor Microsoft-peering
 
 ### <a name="i-am-turning-on-microsoft-peering-for-the-first-time-what-routes-will-i-see"></a>Ik ben inschakelen van het Microsoft-peering voor het eerst welke routes ziet ik?
@@ -374,7 +328,7 @@ Wanneer u routefilters, kan een klant inschakelen Microsoft-peering. Voor het ge
 
 Nee, u hoeft niet autorisatie voor Dynamics 365. U kunt een regel maken en Dynamics 365 community zonder autorisatie selecteren.
 
-### <a name="i-enabled-microsoft-peering-prior-to-august-1st-2017-how-can-i-take-advantage-of-route-filters"></a>Kan ik Microsoft-peering vóór 1 augustus 2017, hoe kan ik profiteren van routefilters ingeschakeld?
+### <a name="i-enabled-microsoft-peering-prior-to-august-1-2017-how-can-i-take-advantage-of-route-filters"></a>Kan ik Microsoft-peering vóór 1 augustus 2017, hoe kan ik profiteren van routefilters ingeschakeld?
 
 Uw bestaande circuit blijft de voorvoegsels adverteren voor Office 365 en Dynamics 365. Als u toevoegen van Azure openbare voorvoegsels aankondigingen wilt via de hetzelfde Microsoft-peering, kunt u een routefilter maken, selecteert u de gewenste services aangekondigd (met inbegrip van de Office 365 (s) die u nodig hebt en Dynamics 365), en het filter koppelen aan uw Microsoft- peering. Zie voor instructies [configureren routefilters voor Microsoft-peering](how-to-routefilter-powershell.md).
 

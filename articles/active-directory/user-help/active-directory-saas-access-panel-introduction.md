@@ -1,6 +1,6 @@
 ---
-title: Wat is het toegangsvenster in Azure Active Directory? | Microsoft Docs
-description: Informatie over het gebruik van variaties op van het toegangsvenster (webbrowser, Android-app, iPhone en iPad-app) voor toegang tot SaaS-apps.
+title: Wat is de MyApps-portal in Azure Active Directory? | Microsoft Docs
+description: Informatie over het gebruik van variaties van de MyApps-portal (webbrowser, Android-app, iPhone en iPad-app) voor toegang tot SaaS-apps.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -12,20 +12,20 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: f69830deb4d2c74b5fe1c85ad8c9452097dd2a1e
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: e382f53678806aa3442151703277c3a57bb30830
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054103"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302274"
 ---
-# <a name="what-is-the-access-panel"></a>Wat is het toegangsvenster?
+# <a name="what-is-the-myapps-portal"></a>Wat is de MyApps-portal?
 
-Het toegangsvenster is een portal op Internet. Als u een werk hebt- of in Azure Active Directory (Azure AD schoolaccount), kunt u het toegangsvenster gebruiken om te bekijken en starten van cloud-gebaseerde toepassingen die een Azure AD-beheerder u toegang tot heeft verleend. U kunt ook groepsbeheer met Self-service en mogelijkheden voor app via het toegangsvenster gebruiken.
+Als u een werk hebt- of in Azure Active Directory (Azure AD schoolaccount), kunt u de portal mijn Apps op Internet gebruiken om te bekijken en starten van cloud-gebaseerde toepassingen die een Azure AD-beheerder u toegang tot heeft verleend. U kunt ook groepsbeheer met Self-service en mogelijkheden voor app via de MyApps-portal gebruiken.
 
-Het toegangsvenster is gescheiden van de Azure-portal. Dit vereist niet dat u een Azure-abonnement hebt.
+De MyApps-portal is gescheiden van de Azure-portal. Dit vereist niet dat u een Azure-abonnement hebt.
 
-![Toegangsvenster][1] met behulp van het toegangsvenster, kunt u enkele van de profielinstellingen van uw te bewerken en doe het volgende:
+![MyApps-portal][1] met behulp van de MyApps-portal, kunt u enkele van de profielinstellingen van uw te bewerken en doe het volgende:
 
 - Wijzig het wachtwoord dat is gekoppeld aan een account voor werk of school.
 
@@ -39,12 +39,9 @@ Het toegangsvenster is gescheiden van de Azure-portal. Dit vereist niet dat u ee
 
 - Groepen zelf beheren. Beheerders kunnen maken en beheren van beveiligingsgroepen en aanvragen van beveiligingsgroepen in Azure AD. Zie voor meer informatie, [selfservice groepsbeheer voor gebruikers in Azure AD](../users-groups-roles/groups-self-service-management.md) en [groepen beheren](../fundamentals/active-directory-manage-groups.md).
 
+## <a name="access-the-myapps-portal"></a>Toegang tot de MyApps-portal
 
-
-
-## <a name="access-the-access-panel"></a>Toegang tot het toegangsvenster
-
-U kunt het toegangsvenster openen door te gaan naar `http://myapps.microsoft.com`.
+U kunt de MyApps-portal openen door te gaan naar `http://myapps.microsoft.com`.
 
 Als u de aangepaste huisstijl is geconfigureerd voor uw aanmeldingspagina hebt, kunt u de huisstijl van het domein van uw organisatie toe te voegen aan de URL te laden (bijvoorbeeld `http://myapps.microsoft.com/<your domain>.com`).
 
@@ -54,7 +51,7 @@ Distribueer de URL voor alle gebruikers die zich aanmelden bij toepassingen die 
 
 ## <a name="authentication"></a>Verificatie
 
-Als u wilt het toegangspaneel, moet u in Azure AD via een account voor werk- of schoolaccount te worden geverifieerd. U kunt worden geverifieerd bij Azure AD rechtstreeks. U kunt ook als een organisatie heeft federation geconfigureerd met behulp van Active Directory Federation Services (AD FS) of andere technologieën, kunt u worden geverifieerd door Windows Server Active Directory.
+Als u wilt de MyApps-portal is bereikt, moet u in Azure AD via een account voor werk- of schoolaccount te worden geverifieerd. U kunt worden geverifieerd bij Azure AD rechtstreeks. U kunt ook als een organisatie heeft federation geconfigureerd met behulp van Active Directory Federation Services (AD FS) of andere technologieën, kunt u worden geverifieerd door Windows Server Active Directory.
 
 Als u een abonnement op Azure of Office 365 hebt en u hebt gebruikt de Azure-portal of een Office 365-toepassing, kunt u de lijst met toepassingen bekijken zonder meldt u zich opnieuw. Als u niet worden geverifieerd, wordt u gevraagd zich aanmeldt met behulp van de gebruikersnaam en het wachtwoord voor uw account in Azure AD. Als uw organisatie heeft Federatie heeft geconfigureerd, is typt de gebruikersnaam voldoende.
 
@@ -62,12 +59,12 @@ Wanneer u bent geverifieerd, kunt u communiceren met de toepassingen die uw behe
 
 ## <a name="web-browser-requirements"></a>Vereisten voor webbrowsers
 
-Ten minste het toegangsvenster vereist een browser die ondersteuning biedt voor JavaScript en CSS is ingeschakeld. Om te worden aangemeld bij toepassingen via wachtwoord gebaseerde eenmalige aanmelding (SSO), moet u de uitbreiding voor toegang tot Configuratiescherm geïnstalleerd in uw browser hebben. De extensie wordt automatisch gedownload wanneer u een toepassing selecteert die is geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden.
+Ten minste de MyApps-portal vereist een browser die ondersteuning biedt voor JavaScript en CSS is ingeschakeld. Om te worden aangemeld bij toepassingen via wachtwoord gebaseerde eenmalige aanmelding (SSO), moet u de MyApps-portalextensie geïnstalleerd in uw browser hebben. De extensie wordt automatisch gedownload wanneer u een toepassing selecteert die is geconfigureerd voor eenmalige aanmelding op basis van wachtwoorden.
 
 Het installatieprogramma is specifiek voor architectuur. Als u op de koppeling klikt, krijgt u alleen het installatieprogramma voor de OS-architectuur die u momenteel worden uitgevoerd op. Als u een beheerder van de implementatie van toepassing bent, ervoor zorgen dat u gaat u naar de koppeling van een 64-bits en 32-bits-apparaat om op te halen van beide installatieprogramma's.
 
 
-De extensie van het Configuratiescherm toegang is momenteel beschikbaar voor:
+De extensie van MyApps-portal is momenteel beschikbaar voor:
 - **Edge**: Windows 10 Anniversary Edition of hoger. 
 - **Chrome**: op Windows 7 of hoger, en op Mac OS X of hoger.
 - **Firefox 26,0 of hoger**: in Windows XP SP2 of hoger, en op Mac OS X 10.6 of hoger.
@@ -77,7 +74,7 @@ De extensie van het Configuratiescherm toegang is momenteel beschikbaar voor:
 Als u wilt aanmelden bij op basis van wachtwoorden eenmalige aanmelding, moet u de extensie. Nadat de extensie is geïnstalleerd, u kunt aanmelden bij deze aanvullende functies inschakelen door het selecteren van **Meld u aan de slag**. 
 
 - U kunt aanmelden bij een app rechtstreeks met behulp van de app **aanmeldings-URL**. Wanneer u de URL van de app gebruikt, wordt de extensie detecteert de actie en biedt de mogelijkheid van het aanmelden van de extensie.
-- U kunt uw Apps vanuit het toegangsvenster starten met behulp van de *snelle zoekactie* functie van de extensie. 
+- U kunt uw Apps via de MyApps-portal starten met behulp van de *snelle zoekactie* functie van de extensie. 
 - De extensie ziet u de laatste drie toepassingen die u in de markt gebracht **onlangs gebruikte** sectie.
 - U kunt URL's voor interne bedrijf terwijl deze extern via [Application Proxy](https://docs.microsoft.com/azure/active-directory/active-directory-application-proxy-get-started)
 
@@ -111,7 +108,7 @@ Als u wilt gebruiken intern bedrijf URL's tijdens het externe bestand met de ext
 Het team van Azure Active Directory publiceert de mobiele app voor mijn Apps. Wanneer u de app installeert, kunt u zich aanmelden op wachtwoord gebaseerde SSO-toepassingen op iOS en Android-apparaten.
 
 > [!NOTE]
-> U kunt aanmelden bij toepassingen die ondersteuning bieden voor federatie met Azure AD (inclusief Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 en meer dan 70 anderen) op vrijwel elke webbrowser, op elk apparaat, zonder een invoegtoepassing of mobiele app. Moet worden gebruikt op een mobiel apparaat, de andere [toegang tot deelvenster ervaringen](https://myapps.microsoft.com/) ook de Apps in mijn mobiele app niet vereist.
+> U kunt aanmelden bij toepassingen die ondersteuning bieden voor federatie met Azure AD (inclusief Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 en meer dan 70 anderen) op vrijwel elke webbrowser, op elk apparaat, zonder een invoegtoepassing of mobiele app. Moet worden gebruikt op een mobiel apparaat, de andere [MyApps-portal ervaringen](https://myapps.microsoft.com/) ook de Apps in mijn mobiele app niet vereist.
 >
 >
 
@@ -145,22 +142,22 @@ Intune Managed Browser is beschikbaar op de [Apple App Store](https://itunes.app
 
 ## <a name="tips-for-testing-the-user-experience"></a>Tips voor het testen van de gebruikerservaring
 
-Als u een Azure-beheerder bent en u bent aangemeld bij Azure portal met behulp van een account in de map, bent u automatisch aangemeld bij het toegangsvenster als uw huidige account. Deze weergave bevat alle toepassingen die aan u zijn toegewezen.
+Als u een Azure-beheerder bent en u bent aangemeld bij Azure portal met behulp van een account in de map, bent u automatisch aangemeld bij de MyApps-portal als uw huidige account. Deze weergave bevat alle toepassingen die aan u zijn toegewezen.
 
 Om te testen een *verschillende* gebruiker account, het volgende doen:
 
-1. Selecteer in de rechterbovenhoek van de Azure portal of in het toegangsvenster, **Afmelden**. 
-2. Ga naar de [Toegangsvenster](http://myapps.microsoft.com).
+1. Selecteer in de rechterbovenhoek van de Azure portal of de MyApps-portal, **Afmelden**. 
+2. Ga naar de [MyApps-portal](http://myapps.microsoft.com).
 3. Typ de gebruikersnaam en het wachtwoord voor het account in uw directory die u wilt testen op de aanmeldingspagina.
 
 
 ## <a name="starting-applications"></a>Het starten van toepassingen
 
-Deze sectie wordt beschreven van verschillende typen toepassingen die kunnen worden weergegeven in het toegangsvenster.
+Deze sectie wordt beschreven van verschillende typen toepassingen die kunnen worden weergegeven op de MyApps-portal.
 
 ### <a name="office-365-applications"></a>Office 365-toepassingen
 
-Als uw organisatie van Office 365-toepassingen gebruikmaakt en u een licentie voor de Office 365-toepassingen worden weergegeven in het toegangsvenster.
+Als uw organisatie van Office 365-toepassingen gebruikmaakt en u een licentie voor de Office 365-toepassingen worden weergegeven op de MyApps-portal.
 
 Als u de tegel van een toepassing voor een Office 365-toepassing selecteert, wordt u omgeleid naar de toepassing en automatisch aangemeld.
 
@@ -174,7 +171,7 @@ Wanneer u een tegel voor een toepassing selecteert, kunt u bent omgeleid en auto
 
 De beheerder kan toepassingen toevoegen in de sectie Active Directory van Azure portal met de SSO-modus ingesteld op **wachtwoord gebaseerde Single Sign-On**. Alle toepassingen die zijn geconfigureerd in deze modus kunnen zien door alle gebruikers in de map.
 
-De eerste keer dat u de tegel van een toepassing, selecteert wordt u gevraagd het wachtwoord SSO-invoegtoepassing voor Internet Explorer of Chrome installeren. De installatie moet u mogelijk opnieuw opstarten van uw webbrowser. Wanneer u gaat u terug naar het toegangsvenster en de tegel van de toepassing opnieuw selecteren, wordt u gevraagd een gebruikersnaam en wachtwoord voor de toepassing. Wanneer u uw gebruikersnaam en wachtwoord hebt ingevoerd, worden de referenties veilig opgeslagen en gekoppeld aan uw account in Azure AD.
+De eerste keer dat u de tegel van een toepassing, selecteert wordt u gevraagd het wachtwoord SSO-invoegtoepassing voor Internet Explorer of Chrome installeren. De installatie moet u mogelijk opnieuw opstarten van uw webbrowser. Als u terug naar de MyApps-portal en selecteer de tegel van de toepassing opnieuw, wordt u gevraagd een gebruikersnaam en wachtwoord voor de toepassing. Wanneer u uw gebruikersnaam en wachtwoord hebt ingevoerd, worden de referenties veilig opgeslagen en gekoppeld aan uw account in Azure AD.
 
 De volgende keer dat u de tegel van de toepassing, selecteert worden u automatisch aangemeld bij de toepassing.  
 
@@ -194,7 +191,7 @@ De beheerder kan toepassingen toevoegen in de sectie Active Directory van Azure 
 
 De eerste keer dat u de tegel van een toepassing, selecteert wordt u gevraagd het wachtwoord SSO-invoegtoepassing voor Internet Explorer of Chrome installeren. De installatie moet u mogelijk opnieuw opstarten van uw webbrowser.  
 
-Als u terug naar het toegangsvenster en de tegel van de toepassing opnieuw, selecteert u automatisch worden aangemeld bij de toepassing.
+Als u terug naar de MyApps-portal en selecteer de tegel van de toepassing opnieuw, zijn u automatisch aangemeld bij de toepassing.
 
 Sommige toepassingen moet u mogelijk uw wachtwoord bij de eerste aanmelding te wijzigen. Als uw referenties in de doeltoepassing van derden zijn gewijzigd, moet u de referenties die zijn opgeslagen in Azure AD ook bijwerken. 
 
@@ -206,9 +203,9 @@ Voor het bijwerken van uw referenties, het volgende doen:
 
 ### <a name="application-with-existing-sso-solutions"></a>Toepassing met bestaande oplossingen voor eenmalige aanmelding
 
-De Azure portal biedt voor het configureren van eenmalige aanmelding voor een toepassing, een derde optie bestaande eenmalige aanmelding. Deze optie kunt de beheerder om een koppeling naar een toepassing maken en plaats deze in het toegangsvenster voor de geselecteerde gebruikers.
+De Azure portal biedt voor het configureren van eenmalige aanmelding voor een toepassing, een derde optie bestaande eenmalige aanmelding. Deze optie kunt de beheerder om een koppeling naar een toepassing maken en plaats het op de MyApps-portal voor geselecteerde gebruikers.
 
-Bijvoorbeeld, als een toepassing is geconfigureerd om gebruikers te verifiëren met behulp van AD FS 2.0, kunt uw beheerder de optie bestaande eenmalige aanmelding gebruiken om te maken van een koppeling naar het in het toegangsvenster. Wanneer u de koppeling opent, wordt u geverifieerd via AD FS 2.0 of een andere bestaande oplossing voor eenmalige aanmelding de toepassing biedt.
+Bijvoorbeeld, als een toepassing is geconfigureerd om gebruikers te verifiëren met behulp van AD FS 2.0, kunt uw beheerder de optie bestaande eenmalige aanmelding gebruiken om te maken van een koppeling naar het op de MyApps-portal. Wanneer u de koppeling opent, wordt u geverifieerd via AD FS 2.0 of een andere bestaande oplossing voor eenmalige aanmelding de toepassing biedt.
 
 
 ## <a name="next-steps"></a>Volgende stappen

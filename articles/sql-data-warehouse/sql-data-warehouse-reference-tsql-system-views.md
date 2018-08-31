@@ -2,23 +2,23 @@
 title: Systeemweergaven - Azure SQL Data Warehouse | Microsoft Docs
 description: Koppelingen naar de documentatie voor systeemweergaven ondersteund in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: kevinvngo
-manager: craigg-msft
+author: twounder
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 04/17/2018
-ms.author: kevin
+ms.date: 06/13/2018
+ms.author: twounder
 ms.reviewer: igorstan
-ms.openlocfilehash: a0e75bc9b7cfa6827794f8d4256bddc3807f17d1
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: d76e21e37266a1b17f90fe7ce41438b9361c6e31
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32195376"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43312447"
 ---
 # <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Systeemweergaven ondersteund in Azure SQL Data Warehouse
-Koppelingen naar de documentatie voor T-SQL-instructies die worden ondersteund in Azure SQL Data Warehouse.
+Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL Data Warehouse.
 
 ## <a name="sql-data-warehouse-catalog-views"></a>SQL Data Warehouse catalogusweergaven
 * [sys.pdw_column_distribution_properties](http://msdn.microsoft.com/library/mt204022.aspx)
@@ -38,7 +38,7 @@ Koppelingen naar de documentatie voor T-SQL-instructies die worden ondersteund i
 * [sys.pdw_table_distribution_properties](http://msdn.microsoft.com/library/mt203896.aspx)
 * [sys.pdw_table_mappings](http://msdn.microsoft.com/library/mt203876.aspx)
 
-## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>Dynamische beheerweergaven SQL Data Warehouse (DMV's)
+## <a name="sql-data-warehouse-dynamic-management-views-dmvs"></a>SQL Data Warehouse dynamische beheerweergave (DMV's)
 * [sys.dm_pdw_dms_cores](http://msdn.microsoft.com/library/mt203911.aspx)
 * [sys.dm_pdw_dms_external_work](https://msdn.microsoft.com/library/mt204024.aspx)
 * [sys.dm_pdw_dms_workers](http://msdn.microsoft.com/library/mt203878.aspx)
@@ -58,11 +58,11 @@ Koppelingen naar de documentatie voor T-SQL-instructies die worden ondersteund i
 * [sys.dm_pdw_wait_stats](http://msdn.microsoft.com/library/mt203909.aspx)
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 
-## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>SQL Server DMV's van toepassing op de SQL Data Warehouse
-De volgende DMV's van toepassing zijn op de SQL Data Warehouse, maar moet worden uitgevoerd door verbinding te maken met de **master** database.
+## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>SQL Server DMV's van toepassing op SQL Data Warehouse
+De volgende DMV's zijn van toepassing op SQL Data Warehouse, maar moet worden uitgevoerd door verbinding te maken met de **master** database.
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
-* [sys.dm_operation_status bevat](https://msdn.microsoft.com/library/dn270022.aspx)
+* [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
 * [sys.fn_helpcollations()](https://msdn.microsoft.com/library/ms187963.aspx)
 
 ## <a name="sql-server-catalog-views"></a>Weergaven van SQL Server-catalogus
@@ -132,12 +132,12 @@ De volgende DMV's van toepassing zijn op de SQL Data Warehouse, maar moet worden
 * [sys.views](http://msdn.microsoft.com/library/ms190334.aspx)
 
 ## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL Server DMV's beschikbaar in SQL Data Warehouse
-SQL Data Warehouse wordt veel van de dynamische beheerweergaven (DMV's) van SQL Server. Deze weergaven wanneer een query uitgevoerd in SQL Data Warehouse, rapporteert de status van de SQL-Databases die zijn uitgevoerd op de distributies.
+SQL Data Warehouse wordt aangegeven dat veel van de dynamische beheerweergaven (DMV's) van SQL Server. Deze weergaven, wanneer een query uitgevoerd in SQL Data Warehouse rapporteren de status van SQL-Databases die worden uitgevoerd op de distributies.
 
-Gebruik de dezelfde systeemweergaven SQL Data Warehouse en Analytics Platform System Parallel Data Warehouse (PDW). Elke DMV heeft een kolom met de naam pdw_node_id, dit is de id van het rekenknooppunt. 
+Gebruik de dezelfde systeemweergaven SQL Data Warehouse en Analytics Platform System Parallel Data Warehouse (PDW). Elke DMV heeft een kolom met de naam pdw_node_id, dit is de id voor de Compute-knooppunt. 
 
 > [!NOTE]
-> Voeg 'pdw_nodes_' voor het gebruik van deze weergaven in de naam, zoals wordt weergegeven in de volgende tabel:
+> Voeg 'pdw_nodes_' voor het gebruik van deze weergaven, in de naam zoals wordt weergegeven in de volgende tabel:
 > 
 > 
 
@@ -167,7 +167,7 @@ Gebruik de dezelfde systeemweergaven SQL Data Warehouse en Analytics Platform Sy
 | sys.dm_pdw_nodes_os_child_instances |[sys.dm_os_child_instances](http://msdn.microsoft.com/library/ms165698.aspx) |
 | sys.dm_pdw_nodes_os_cluster_nodes |[sys.dm_os_cluster_nodes](http://msdn.microsoft.com/library/ms187341.aspx) |
 | sys.dm_pdw_nodes_os_dispatcher_pools |[sys.dm_os_dispatcher_pools](http://msdn.microsoft.com/library/bb630336.aspx) |
-| sys.dm_pdw_nodes_os_dispatchers |Documentatie van Transact-SQL is niet beschikbaar. |
+| sys.dm_pdw_nodes_os_dispatchers |Documentatie voor Transact-SQL is niet beschikbaar. |
 | sys.dm_pdw_nodes_os_hosts |[sys.dm_os_hosts](http://msdn.microsoft.com/library/ms187800.aspx) |
 | sys.dm_pdw_nodes_os_latch_stats |[sys.dm_os_latch_stats](http://msdn.microsoft.com/library/ms175066.aspx) |
 | sys.dm_pdw_nodes_os_memory_brokers |[sys.dm_os_memory_brokers](http://msdn.microsoft.com/library/bb522548.aspx) |
@@ -176,7 +176,7 @@ Gebruik de dezelfde systeemweergaven SQL Data Warehouse en Analytics Platform Sy
 | sys.dm_pdw_nodes_os_memory_cache_entries |[sys.dm_os_memory_cache_entries](http://msdn.microsoft.com/library/ms189488.aspx) |
 | sys.dm_pdw_nodes_os_memory_cache_hash_tables |[sys.dm_os_memory_cache_hash_tables](http://msdn.microsoft.com/library/ms182388.aspx) |
 | sys.dm_pdw_nodes_os_memory_clerks |[sys.dm_os_memory_clerks](http://msdn.microsoft.com/library/ms175019.aspx) |
-| sys.dm_pdw_nodes_os_memory_node_access_stats |Documentatie van Transact-SQL is niet beschikbaar. |
+| sys.dm_pdw_nodes_os_memory_node_access_stats |Documentatie voor Transact-SQL is niet beschikbaar. |
 | sys.dm_pdw_nodes_os_memory_nodes |[sys.dm_os_memory_nodes](http://msdn.microsoft.com/library/bb510622.aspx) |
 | sys.dm_pdw_nodes_os_memory_objects |[sys.dm_os_memory_objects](https://msdn.microsoft.com/library/ms179875.aspx) |
 | sys.dm_pdw_nodes_os_memory_pools |[sys.dm_os_memory_pools](http://msdn.microsoft.com/library/ms175022.aspx) |
@@ -184,7 +184,7 @@ Gebruik de dezelfde systeemweergaven SQL Data Warehouse en Analytics Platform Sy
 | sys.dm_pdw_nodes_os_performance_counters |[sys.dm_os_performance_counters](http://msdn.microsoft.com/library/ms187743.aspx) |
 | sys.dm_pdw_nodes_os_process_memory |[sys.dm_os_process_memory](http://msdn.microsoft.com/library/bb510747.aspx) |
 | sys.dm_pdw_nodes_os_schedulers |[sys.dm_os_schedulers](http://msdn.microsoft.com/library/ms177526.aspx) |
-| sys.dm_pdw_nodes_os_spinlock_stats |Documentatie van Transact-SQL is niet beschikbaar. |
+| sys.dm_pdw_nodes_os_spinlock_stats |Documentatie voor Transact-SQL is niet beschikbaar. |
 | sys.dm_pdw_nodes_os_sys_info |[sys.dm_os_sys_info](http://msdn.microsoft.com/library/ms175048.aspx) |
 | sys.dm_pdw_nodes_os_sys_memory |[sys.dm_os_memory_nodes](http://msdn.microsoft.com/library/bb510622.aspx) |
 | sys.dm_pdw_nodes_os_tasks |[sys.dm_os_tasks](http://msdn.microsoft.com/library/ms174963.aspx) |
@@ -206,7 +206,7 @@ Gebruik de dezelfde systeemweergaven SQL Data Warehouse en Analytics Platform Sy
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](http://msdn.microsoft.com/library/ms188778.aspx) |
 
 ## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>SQL Server 2016 PolyBase DMV's beschikbaar in SQL Data Warehouse
-De volgende DMV's van toepassing zijn op de SQL Data Warehouse, maar moet worden uitgevoerd door verbinding te maken met de **master** database.
+De volgende DMV's zijn van toepassing op SQL Data Warehouse, maar moet worden uitgevoerd door verbinding te maken met de **master** database.
 
 * [sys.dm_exec_compute_node_errors](http://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](http://msdn.microsoft.com/library/mt146382.aspx)
@@ -231,4 +231,4 @@ De volgende DMV's van toepassing zijn op de SQL Data Warehouse, maar moet worden
 * [VIEWS](http://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie, [T-SQL-instructies in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), en [elementen van de T-SQL-taal in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md).
+Zie voor meer informatie, [T-SQL-instructies in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), en [taalelementen T-SQL in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-language-elements.md).

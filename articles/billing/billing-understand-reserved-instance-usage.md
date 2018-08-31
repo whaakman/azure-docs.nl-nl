@@ -1,5 +1,5 @@
 ---
-title: Informatie over het gebruik van de Azure-reservering voor betalen per gebruik-abonnement | Microsoft Docs
+title: Gebruik Azure reserveringen voor betalen per gebruik-abonnement begrijpen | Microsoft Docs
 description: Informatie over het lezen van uw gebruik voor meer informatie over hoe de Azure-reservering voor uw betalen per gebruik-abonnement wordt toegepast.
 services: billing
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: cf1d7c67fe6033bf41317e75a33349ae07ecf643
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 1226b2f73d556da2ff7d73f6f322e0bd1590f915
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627880"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307055"
 ---
 # <a name="understand-azure-reservation-usage-for-your-pay-as-you-go-subscription"></a>Gebruik Azure-reservering voor uw abonnement op gebruiksbasis begrijpen
 
@@ -93,12 +93,12 @@ Filteren op **aanvullende informatie** en typt u in uw **Reserverings-ID**. De v
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over reserveringen, de volgende artikelen:
+Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 
-- [Wat zijn Azure reserveringen?](billing-save-compute-costs-reservations.md)
+- [Wat zijn Azure-reserveringen?](billing-save-compute-costs-reservations.md)
 - [Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit](../sql-database/sql-database-reserved-capacity.md)
-- [Reserveringen in Azure beheren](billing-manage-reserved-vm-instance.md)
+- [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md)
 - [Begrijpen hoe de reserveringskorting wordt toegepast](billing-understand-vm-reservation-charges.md)
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)
 - [Kosten van de Windows-software is niet opgenomen in de reserveringen](billing-reserved-instance-windows-software-costs.md)

@@ -3,53 +3,53 @@ title: Azure Stream Analytics gebruiken met SQL datawarehouse | Microsoft Docs
 description: Tips voor het gebruik van Azure Stream Analytics met Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 76cbbddca70d3bc8091dbea383213446adac533e
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6e9a6e9c7407939ea9e76cad569e870d578b37f9
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600305"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307358"
 ---
 # <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>Azure Stream Analytics gebruiken met SQL datawarehouse
-Azure Stream Analytics is een volledig beheerde service lage latentie, maximaal beschikbare, schaalbare complexe verwerking van gebeurtenissen geven via het streamen van gegevens in de cloud. U kunt de basisbegrippen door te lezen [Inleiding tot Azure Stream Analytics][Introduction to Azure Stream Analytics]. U kunt vervolgens informatie over het maken van een end-to-end-oplossing met Stream Analytics volgens de [aan de slag met Azure Stream Analytics] [ Get started using Azure Stream Analytics] zelfstudie.
+Azure Stream Analytics is een volledig beheerde service met lage latentie, maximaal beschikbare, schaalbare complexe verwerking van gebeurtenissen die via het streamen van gegevens in de cloud. U leert de beginselen door te lezen [Inleiding tot Azure Stream Analytics][Introduction to Azure Stream Analytics]. U kunt vervolgens informatie over het maken van een end-to-end-oplossing met Stream Analytics door de volgende de [aan de slag met Azure Stream Analytics] [ Get started using Azure Stream Analytics] zelfstudie.
 
-In dit artikel leert u hoe u uw Azure SQL Data Warehouse-database als uitvoerlocatie voor uw stoom Analytics-taken.
+In dit artikel leert u hoe u uw Azure SQL Data Warehouse-database gebruikt als een uitvoerlocatie voor uw Steam Analytics-taken.
 
 ## <a name="prerequisites"></a>Vereisten
-Voer eerst de volgende stappen in de [aan de slag met Azure Stream Analytics] [ Get started using Azure Stream Analytics] zelfstudie.  
+Voer eerst via de volgende stappen uit in de [aan de slag met Azure Stream Analytics] [ Get started using Azure Stream Analytics] zelfstudie.  
 
-1. De invoer van een Event Hub maken
-2. Configureren en starten van de gebeurtenis generator-toepassing
+1. Maak een Event Hub
+2. Configureren en gebeurtenisgenerator te starten
 3. Inrichten van een Stream Analytics-taak
-4. Taak invoer- en query opgeven
+4. Taakinvoer en query opgeven
 
 Vervolgens maakt u een Azure SQL Data Warehouse-database
 
-## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Geef de taakuitvoer: Azure SQL Data Warehouse-database
+## <a name="specify-job-output-azure-sql-data-warehouse-database"></a>Geef taakuitvoer: Azure SQL Data Warehouse-database
 ### <a name="step-1"></a>Stap 1
 Klik in de Stream Analytics-taak op **uitvoer** vanaf de bovenkant van de pagina en klik vervolgens op **uitvoer toevoegen**.
 
 ### <a name="step-2"></a>Stap 2
-Selecteer de SQL-Database en klik op volgende.
+Selecteer SQL-Database en klik op volgende.
 
 ![][add-output]
 
 ### <a name="step-3"></a>Stap 3
 Voer de volgende waarden op de volgende pagina:
 
-* *Uitvoer Alias*: een beschrijvende naam voor de taakuitvoer van deze.
+* *Uitvoer van de Alias*: Geef een beschrijvende naam voor de taakuitvoer van deze.
 * *Abonnement*:
-  * Als uw SQL Data Warehouse-database zich in hetzelfde abonnement als de Stream Analytics-taak, selecteert u SQL-Database gebruiken uit het huidige abonnement.
-  * Als uw database zich in een ander abonnement, selecteert u gebruik SQL Database in een ander abonnement.
+  * Als uw SQL Data Warehouse-database zich in hetzelfde abonnement als de Stream Analytics-taak, selecteert u met SQL Database van het huidige abonnement.
+  * Als uw database in een ander abonnement, selecteert u SQL-Database gebruiken vanuit een ander abonnement.
 * *Database*: Geef de naam van een doeldatabase.
-* *Servernaam*: Geef de naam van de server voor de database die u zojuist hebt opgegeven. De Azure-portal kunt u deze worden gevonden.
+* *De naam van server*: Geef de naam van de server voor de database die u zojuist hebt opgegeven. De Azure-portal kunt u dit vinden.
 
 ![][server-name]
 
@@ -60,14 +60,14 @@ Voer de volgende waarden op de volgende pagina:
 ![][add-database]
 
 ### <a name="step-4"></a>Stap 4
-Klik op de knop controleren de taakuitvoer van deze toevoegen en te controleren dat Stream Analytics verbinding met de database maken kan.
+Klik op de knop controleren om toe te voegen van de taakuitvoer van deze en te controleren dat Stream Analytics verbinding met de database maken kan.
 
 ![][test-connection]
 
-Als de verbinding met de database is geslaagd, ziet u een melding aan de onderkant van de portal. U kunt klikken op verbinding testen onderaan om de verbinding met de database te testen.
+Wanneer de verbinding met de database is gelukt, ziet u een melding aan de onderkant van de portal. U kunt klikken op verbinding testen onderaan om de verbinding met de database te testen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een overzicht van de integratie van [overzicht van de integratie van SQL Data Warehouse][SQL Data Warehouse integration overview].
+Zie voor een overzicht van de integratie van [overzicht van SQL Data Warehouse-integratie][SQL Data Warehouse integration overview].
 
 Zie [Overzicht van SQL Data Warehouse voor ontwikkelaars][SQL Data Warehouse development overview] voor meer tips voor ontwikkelaars.
 

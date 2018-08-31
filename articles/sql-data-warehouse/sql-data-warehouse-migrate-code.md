@@ -1,36 +1,36 @@
 ---
-title: Migreren van uw SQL-code naar SQL Data Warehouse | Microsoft Docs
+title: Uw SQL-code migreren naar SQL Data Warehouse | Microsoft Docs
 description: Tips voor het migreren van uw SQL-code naar Azure SQL Data Warehouse om oplossingen te ontwikkelen.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: b17e8e306c01bef4c58658b35f3a67d0e721633c
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: 2f16f9448da2dab9670908f74935bb5fb31a0547
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31527450"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301368"
 ---
-# <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Migreren van uw SQL-code naar SQL Data Warehouse
-Dit artikel wordt uitgelegd codewijzigingen u waarschijnlijk moet maken wanneer u uw code uit een andere database migreren naar SQL Data Warehouse. Sommige functies van SQL Data Warehouse kunnen prestaties aanzienlijk verbeteren omdat ze zijn ontworpen om te werken in een gedistribueerde wijze. Echter, om te blijven de prestaties en schaalbaarheid, sommige functies zijn ook niet beschikbaar.
+# <a name="migrate-your-sql-code-to-sql-data-warehouse"></a>Uw SQL-code migreren naar SQL Data Warehouse
+In dit artikel wordt uitgelegd codewijzigingen u waarschijnlijk moet bij het migreren van uw code van een andere database met SQL Data Warehouse. Sommige functies van SQL Data Warehouse kunnen de prestaties aanzienlijk verbeteren als ze zijn ontworpen om te werken in een gedistribueerde manier. Echter, als u wilt behouden prestaties en schaalbaarheid, sommige functies zijn ook niet beschikbaar.
 
-## <a name="common-t-sql-limitations"></a>Algemene T-SQL-beperkingen
-De volgende lijst bevat een overzicht van de meest gebruikte functies die geen ondersteuning biedt voor SQL Data Warehouse. Koppelingen gaat u naar de tijdelijke oplossingen voor de niet-ondersteunde functies:
+## <a name="common-t-sql-limitations"></a>Algemene beperkingen voor T-SQL
+De volgende lijst bevat een overzicht van de meest voorkomende functies die geen ondersteuning biedt voor SQL Data Warehouse. De koppelingen verwijzen naar tijdelijke oplossingen voor de niet-ondersteunde functies:
 
-* [ANSI joins op updates][ANSI joins on updates]
-* [ANSI-verbindingen in verwijderen][ANSI joins on deletes]
-* [Merge-instructie][merge statement]
-* meerdere databases joins
+* [ANSI-join op updates][ANSI joins on updates]
+* [ANSI-join op verwijderen][ANSI joins on deletes]
+* [instructie Merge][merge statement]
+* verbindingen tussen meerdere databases
 * [Cursors][cursors]
 * [INSERT... EXEC][INSERT..EXEC]
 * OUTPUT-component
-* de gebruiker gedefinieerde inlinefuncties
+* inline gebruiker gedefinieerde functies
 * meerdere instructies functies
 * [algemene tabelexpressies](#Common-table-expressions)
 * [recursieve algemene tabelexpressies (CTE)] (#Recursive-common-table-expressions-(CTE)
@@ -38,45 +38,45 @@ De volgende lijst bevat een overzicht van de meest gebruikte functies die geen o
 * de functie $partition
 * tabelvariabelen voor de
 * de parameters voor waarde
-* gedistribueerde transacties
+* Gedistribueerde transacties
 * Commit / rollback werken
 * transactie opslaan
-* uitvoering contexten (EXECUTE AS)
-* [Group by, component met rollup / kubus / sets opties voor groeperen][group by clause with rollup / cube / grouping sets options]
+* contexten worden uitgevoerd (EXECUTE AS)
+* [groeperen op component met updatepakket / kubus / sets opties voor groeperen][group by clause with rollup / cube / grouping sets options]
 * [geneste niveaus dan 8][nesting levels beyond 8]
-* [door weergaven bijwerken][updating through views]
-* [gebruik van selecteren voor de toewijzing van variabele][use of select for variable assignment]
-* [Er is geen MAX-gegevenstype voor dynamische SQL-tekenreeksen][no MAX data type for dynamic SQL strings]
+* [bijwerken via weergaven][updating through views]
+* [gebruik van selecteren voor toewijzing van variabele][use of select for variable assignment]
+* [Er is geen MAX-gegevenstype voor de dynamische SQL-tekenreeksen][no MAX data type for dynamic SQL strings]
 
-De meeste van deze beperkingen kunt gelukkig rond worden gewerkt. Uitleg vindt u in de hierboven vermelde relevante ontwikkeling-artikelen.
+De meeste van deze beperkingen kunt gelukkig rond worden gewerkt. Uitleg over vindt u in de ontwikkeling van relevante artikelen waarnaar hierboven wordt verwezen.
 
 ## <a name="supported-cte-features"></a>Ondersteunde CTE-functies
 Algemene tabelexpressies (CTE's) worden gedeeltelijk ondersteund in SQL Data Warehouse.  De volgende CTE-functies worden momenteel ondersteund:
 
-* Een CTE kan worden opgegeven in een SELECT-instructie.
+* Een CTE kan worden opgegeven in een instructie SELECT.
 * Een CTE kan worden opgegeven in een instructie CREATE VIEW.
-* Een CTE kan worden opgegeven in een instructie maken tabel AS selecteren (CTAS).
-* Een CTE kan worden opgegeven in een instructie maken externe tabel AS selecteren (CRTAS).
-* Een CTE kan worden opgegeven in een instructie maken externe tabel AS selecteren (CETAS).
+* Een CTE kan worden opgegeven in een instructie CREATE TABLE AS SELECT (CTAS).
+* Een CTE kan worden opgegeven in een instructie maken externe tabel als selecteren (CRTAS).
+* Een CTE kan worden opgegeven in een instructie maken externe tabel als selecteren (CETAS).
 * Een externe tabel kan worden verwezen vanuit een CTE.
 * Een externe tabel kan worden verwezen vanuit een CTE.
-* Meerdere definities voor CTE-query kunnen worden gedefinieerd in een CTE.
+* Definities van de query meerdere CTE kunnen worden gedefinieerd in een CTE.
 
 ## <a name="cte-limitations"></a>CTE-beperkingen
 Algemene tabelexpressies hebben enkele beperkingen in SQL Data Warehouse, waaronder:
 
-* Een CTE moet worden gevolgd door één SELECT-instructie. INSERT, UPDATE, DELETE, en MERGE-instructies worden niet ondersteund.
-* Een algemene tabelexpressie die verwijzingen naar zichzelf (een recursieve algemene tabelexpressie bevat) wordt niet ondersteund (Zie onderstaande sectie).
-* Het opgeven van meer dan één met de component in een CTE is niet toegestaan. Bijvoorbeeld, als een CTE_query_definition een subquery bevat, kan geen die subquery bevatten een geneste met component die een andere CTE definieert.
-* Een component ORDER BY kan niet worden gebruikt in de CTE_query_definition, behalve wanneer de component TOP is opgegeven.
+* Een CTE moet worden gevolgd door één SELECT-instructie. INSERT, UPDATE, DELETE, en de instructies voor samenvoegen worden niet ondersteund.
+* Een algemene tabelexpressie die verwijzingen naar zichzelf (een recursieve algemene tabelexpressie bevat) wordt niet ondersteund (Zie volgende sectie).
+* Meer dan één met de component opgeven in een CTE is niet toegestaan. Bijvoorbeeld, als een CTE_query_definition een subquery bevat, mag die subquery niet een geneste WITH-component die een andere CTE definieert.
+* Een component ORDER BY kan niet worden gebruikt in de CTE_query_definition, behalve wanneer een TOP-component is opgegeven.
 * Wanneer een CTE wordt gebruikt in een instructie die deel uitmaakt van een batch, moet de instructie voordat deze worden gevolgd door een puntkomma.
-* Wanneer gebruikt in instructies sp_prepare voorbereid, wordt dezelfde manier als andere SELECT-instructies in PDW gedragen zich CTE's. Echter als CTE's worden gebruikt als onderdeel van CETAS sp_prepare voorbereid, kan het gedrag uitstellen van SQL Server en andere instructies PDW vanwege de manier waarop binding voor sp_prepare is geïmplementeerd. Als SELECT verwijzingen die CTE met behulp van een verkeerde kolom niet in CTE bestaat, geeft de sp_prepare zonder de fout te detecteren, maar de fout gegenereerd tijdens sp_execute in plaats daarvan.
+* Wanneer gebruikt in instructies voorbereid door sp_prepare, gedragen CTE's dezelfde manier als andere SELECT-instructies in PDW. Echter als CTE's worden gebruikt als onderdeel van CETAS voorbereid door sp_prepare, kan het gedrag uitstellen van SQL Server en andere instructies PDW vanwege de manier waarop de binding voor sp_prepare is geïmplementeerd. Als de optie verwijzingen die CTE met behulp van een verkeerde kolom die niet in CTE bestaat, de sp_prepare zonder het detecteren van de fout wordt doorgegeven, maar de fout gegenereerd tijdens sp_execute in plaats daarvan.
 
 ## <a name="recursive-ctes"></a>Recursieve CTE 's
-Recursieve CTE's worden niet ondersteund in SQL Data Warehouse.  De migratie van recursieve CTE kan erg complex en de aanbevolen procedure is dit in meerdere stappen te verdelen. U kunt gewoonlijk een lus gebruiken en vul een tijdelijke tabel waar u de tussentijdse recursieve query's doorlopen. Zodra de tijdelijke tabel wordt ingevuld kunt u de gegevens als een enkelvoudig resultaat wordt verkregen set terugkeren. Een soortgelijke benadering is gebruikt voor het oplossen van `GROUP BY WITH CUBE` in de [group by, component met rollup / kubus / sets opties voor groeperen] [ group by clause with rollup / cube / grouping sets options] artikel.
+Recursieve CTE's worden niet ondersteund in SQL Data Warehouse.  De migratie van recursieve CTE kan redelijk complex en de aanbevolen procedure is opsplitsen in meerdere stappen. Doorgaans kunt u een lus gebruiken en vullen van een tijdelijke tabel als u de tijdelijke recursieve query's herhalen. Zodra de tijdelijke tabel wordt ingevuld kunt u de gegevens vervolgens als een set één resultaat retourneren. Een soortgelijke benadering is gebruikt om op te lossen `GROUP BY WITH CUBE` in de [groeperen op component met updatepakket / kubus / sets opties voor groeperen] [ group by clause with rollup / cube / grouping sets options] artikel.
 
-## <a name="unsupported-system-functions"></a>Niet-ondersteunde systeemfuncties
-Er zijn ook enkele systeemfuncties die worden niet ondersteund. Enkele van de belangrijkste zijn die doorgaans wellicht gebruikt in de gegevensopslag zijn:
+## <a name="unsupported-system-functions"></a>Niet-ondersteunde opgeslagen functies
+Er zijn ook enkele systeemfuncties die worden niet ondersteund. Enkele van de belangrijkste adressen die u doorgaans kunt vinden in de gegevensopslag gebruikt, zijn:
 
 * NEWSEQUENTIALID()
 * @@NESTLEVEL()
@@ -88,7 +88,7 @@ Er zijn ook enkele systeemfuncties die worden niet ondersteund. Enkele van de be
 Sommige van deze problemen kunnen worden uitgevoerd om.
 
 ## <a name="rowcount-workaround"></a>@@ROWCOUNT tijdelijke oplossing
-Onvoldoende ondersteuning voor @ omzeilen@ROWCOUNT, maakt u een opgeslagen procedure die wordt opgehaald van het laatste aantal rijen uit sys.dm_pdw_request_steps en wordt vervolgens uitgevoerd `EXEC LastRowCount` na een DML-instructie.
+Geen ondersteuning voor @ omzeilen@ROWCOUNT, maak een opgeslagen procedure waarmee wordt het laatste aantal rijen opgehaald uit sys.dm_pdw_request_steps en voer vervolgens `EXEC LastRowCount` na een DML-instructie.
 
 ```sql
 CREATE PROCEDURE LastRowCount AS
@@ -111,7 +111,7 @@ SELECT TOP 1 row_count FROM LastRequestRowCounts ORDER BY step_index DESC
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een volledige lijst met alle ondersteunde T-SQL-instructies, [Transact-SQL-onderwerpen][Transact-SQL topics].
+Zie voor een volledige lijst van alle ondersteunde T-SQL-instructies, [Transact-SQL-onderwerpen][Transact-SQL topics].
 
 <!--Image references-->
 

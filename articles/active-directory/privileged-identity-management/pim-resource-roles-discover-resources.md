@@ -11,56 +11,53 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 03/30/2018
+ms.date: 08/30/2018
 ms.author: rolyon
-ms.openlocfilehash: b5d48b3f854afaa79574e0ec13cff91f60396ac6
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
-ms.translationtype: HT
+ms.openlocfilehash: d9a6ab49d619e487eee6fb13abe128cfc167b560
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190655"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306686"
 ---
 # <a name="discover-azure-resources-to-manage-in-pim"></a>Azure-resources te beheren in PIM detecteren
 
-Informatie over het detecteren en beheren van Azure-resources, wanneer u in Azure Active Directory (Azure AD) Privileged Identity Management (PIM) hebt gebruikt. Deze informatie kan nuttig voor organisaties die al gebruikmaken van PIM om de beheerder resources te beschermen, en eigenaars van abonnementen die behoefte hebben aan voor het beveiligen van productieresources zijn.
+Met behulp van Azure AD Privileged Identity Management (PIM), kunt u de beveiliging van uw Azure-resources verbeteren. Dit is handig voor organisaties die al gebruikmaken van PIM ter bescherming van Azure AD-maprollen, en management groep en abonnement eigenaren die op zoek bent naar de productieresources beveiligen.
 
-Wanneer u eerst ingesteld PIM voor Azure-resources, moet u om te detecteren en resources te beschermen met PIM selecteren. Er is geen limiet voor het aantal resources die u met PIM kunt beheren. We raden echter aan beginnen met uw meest kritieke (productie)-resources.
-
-> [!NOTE]
-> U kunt alleen Zoek en selecteer de management-groep of abonnement resources te beheren met PIM. Wanneer u een beheergroep of een abonnement in PIM beheert, kunt u ook de onderliggende resources te beheren.
+Wanneer u eerst ingesteld PIM voor Azure-resources, moet u om te detecteren en selecteer de resources met PIM moeten worden beveiligd. Er is geen limiet voor het aantal resources die u met PIM kunt beheren. We raden echter aan beginnen met uw meest kritieke (productie)-resources.
 
 ## <a name="discover-resources"></a>Services detecteren
 
-In de Azure-portal, gaat u naar de **Privileged Identity Management** deelvenster. In het menu links in de **beheren** sectie, selecteer **Azure-resources**.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-![De 'Privileged Identity Management - Azure-resources' deelvenster](media/azure-pim-resource-rbac/aadpim_manage_azure_resources.png)
+1. Open **Azure AD Privileged Identity Management**.
 
-Als dit de eerste keer met PIM voor Azure-resources, moet u eerst detectie om te zoeken naar bronnen voor het beheren van uitvoeren. In de **bronnen detecteren** venster de **bronnen detecteren** knop om te starten van de discovery-ervaring.
+1. Klik op **Azure-resources**.
 
-![Het deelvenster 'Detecteren'](media/azure-pim-resource-rbac/aadpim_first_run_discovery.png)
+    Als dit de eerste keer met PIM voor Azure-resources, ziet u een deelvenster van de resources detecteren.
 
-Als een andere resource of directory-beheerder in uw organisatie is al een Azure-resource worden beheerd met behulp van PIM, of als u een in aanmerking komende roltoewijzing voor een resource hebt, de lijstweergave met het bericht weergegeven wordt **resources detecteren of activeren een in aanmerking komende roltoewijzing om door te gaan**. 
+    ![Bronnen - eerst detecteren](./media/pim-resource-roles-discover-resources/discover-resources-first-run.png)
 
-![De knop 'Detecteren' in de ' Privileged Identity Manager - Azure-resources ' deelvenster](media/azure-pim-resource-rbac/aadpim_discover_eligible_not_active.png)
+    Als Azure-resources in PIM is al door een andere resource of directory-beheerder in uw organisatie worden beheerd, ziet u een lijst van de resources die momenteel worden beheerd.
 
-Wanneer u selecteert de **bronnen detecteren** knop, of in het menu bovenaan of in het midden van het deelvenster, verschijnt er een lijst met abonnementen die u kunt beheren. Abonnementen die zijn gemarkeerd worden al beveiligd door PIM.
+    ![Resourcesdeelvenster detecteren](./media/pim-resource-roles-discover-resources/discover-resources.png)
 
-> [!NOTE]
-> Het abonnement kan niet worden niet-beheerde om te voorkomen dat een andere resourcebeheerder PIM-instellingen, worden verwijderd nadat een abonnement is ingesteld op beheerd.
+1. Klik op **bronnen detecteren** om te starten van de discovery-ervaring.
 
-![De 'Azure-resources - detectie"deelvenster](media/azure-pim-resource-rbac/aadpim_discovery_some_selected.png)
+    ![Detectie van deelvenster](./media/pim-resource-roles-discover-resources/discovery-pane.png)
 
-In de **RESOURCE** kolom plaats de muisaanwijzer op een abonnement dat u wilt beveiligen met PIM. Selecteer vervolgens het selectievakje aan de linkerkant van de naam van de resource. U kunt meerdere abonnementen per keer selecteren.
+1. In het deelvenster detectie gebruiken **filteren op resourcestatus** en **Selecteer resourcetype** voor het filteren van het beheer van groepen of abonnementen die u hebt toestemming om te schrijven. Het gemakkelijkst waarschijnlijk beginnen met **alle** in eerste instantie.
 
-![De lijst met resources in de 'Azure-resources - detectie"deelvenster](media/azure-pim-resource-rbac/aadpim_discovery_all_selected.png)
+    U kunt alleen Zoek en selecteer de management-groep of abonnement resources te beheren met PIM. Wanneer u een beheergroep of een abonnement in PIM beheert, kunt u ook de onderliggende resources te beheren.
 
-Selecteer voor het starten van het onboarding-proces, in het bovenste menu **resource beheren**.
+1. Voeg een vinkje naast eventuele niet-beheerde resources die u wilt beheren.
 
-![De knop 'Resource beheren' in de 'Azure-resources - detectie"deelvenster](media/azure-pim-resource-rbac/aadpim_discovery_click_manage.png)
+    > [!NOTE]
+    > Zodra een beheergroep of het abonnement is ingesteld op beheerde, kan deze niet-beheerde niet. Dit voorkomt dat een andere resourcebeheerder PIM-instellingen worden verwijderd.
 
-De geselecteerde resources worden nu beheerd door PIM. Selecteer om te sluiten van het scherm detectie in de rechterbovenhoek **X**. Om te beginnen met PIM-instellingen beheren en toewijzen leden, in het menu aan de bovenkant van de **Privileged Identity Management - Azure-resources** venster de **vernieuwen** knop.
+    ![Detectie - resource beheren](./media/pim-resource-roles-discover-resources/discovery-manage-resource.png)
 
-![De knop 'Vernieuwen' in het bovenste menu van de 'Privileged Identity Management - Azure-resources' deelvenster](media/azure-pim-resource-rbac/aadpim_discovery_resources_refresh.png)
+1. Klik op **resource beheren** om te beginnen met het beheren van de geselecteerde resources.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -4,16 +4,16 @@ description: Store niet-gestructureerde gegevens in de cloud met Azure-blobopsla
 services: storage
 author: MichaelHauss
 ms.service: storage
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/21/2018
 ms.author: michaelhauss
 ms.component: blobs
-ms.openlocfilehash: 0564d8406a0ce885ec5d75377f6a165901a8aa25
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: d0b0f8ef2fcc4307482b4ccffcb46410eaba33d5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397162"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306201"
 ---
 # <a name="how-to-use-blob-storage-from-c"></a>Het Blob storage gebruiken met C++
 
@@ -51,7 +51,7 @@ Voeg dat de volgende instructies toe aan het begin van de C++-bestand dat is waa
 ```
 
 ## <a name="setup-an-azure-storage-connection-string"></a>Een Azure storage-verbindingsreeks instellen
-Een Azure-opslagclient gebruikt een opslagverbindingstekenreeks voor het opslaan van eindpunten en referenties voor toegang tot gegevensbeheerservices. Wanneer in een clienttoepassing wordt uitgevoerd, moet u de verbindingsreeks voor opslag in de volgende indeling, met de naam van uw opslagaccount en de toegangssleutel voor het opslagaccount dat is vermeld in de [Azure Portal](https://portal.azure.com) voor de *AccountName* en *AccountKey* waarden. Zie voor meer informatie over storage-accounts en toegangssleutels [over Azure Storage-Accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). In dit voorbeeld ziet u hoe u een statisch veld kunt declareren voor het opslaan van de verbindingstekenreeks:  
+Een Azure-opslagclient gebruikt een opslagverbindingstekenreeks om eindpunten en referenties voor toegang tot gegevensbeheerservices op te slaan. Wanneer in een clienttoepassing wordt uitgevoerd, moet u de verbindingsreeks voor opslag in de volgende indeling, met de naam van uw opslagaccount en de toegangssleutel voor het opslagaccount dat is vermeld in de [Azure Portal](https://portal.azure.com) voor de *AccountName* en *AccountKey* waarden. Zie voor meer informatie over storage-accounts en toegangssleutels [over Azure Storage-Accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json). In dit voorbeeld ziet u hoe u een statisch veld kunt declareren voor het opslaan van de verbindingstekenreeks:  
 
 ```cpp
 // Define the connection-string with your values.

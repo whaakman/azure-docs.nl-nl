@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/08/2018
 ms.author: carlrab
-ms.openlocfilehash: 1d1cad4b614eb35be9235a721368db8048be050a
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: fcb7f2c1bb3e1653b9f8112abc0effaddc45fa54
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39634294"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306466"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit
 
@@ -65,10 +65,11 @@ Het vCore-reserveringskorting wordt automatisch toegepast op het aantal exemplar
 
 Voor informatie over het beheren van de SQL-Database gereserveerde capaciteitsreservering, Zie [SQL Database beheren gereserveerde capaciteit](../billing/billing-manage-reserved-vm-instance.md).
 
-Zie voor meer informatie over Azure-reservering, de volgende artikelen:
+Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 
-- [Wat zijn Azure reserveringen?](../billing/billing-save-compute-costs-reservations.md)
+- [Wat zijn Azure-reserveringen?](../billing/billing-save-compute-costs-reservations.md)
 - [Azure-reserveringen beheren](../billing/billing-manage-reserved-vm-instance.md)
+- [Korting op Azure reserveringen begrijpen](../billing/billing-understand-reservation-charges.md)
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](../billing/billing-understand-reserved-instance-usage.md)
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](../billing/billing-understand-reserved-instance-usage-ea.md)
 - [Azure-reserveringen in programma Partner Center Cloud Solution Provider (CSP)](https://docs.microsoft.com/partner-center/azure-reservations)

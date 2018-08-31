@@ -1,30 +1,30 @@
 ---
 title: Tijdelijke tabellen in SQL Data Warehouse | Microsoft Docs
-description: Essentiële instructies voor het gebruik van tijdelijke tabellen en licht de beginselen van sessie niveau tijdelijke tabellen.
+description: Essentiële instructies voor het gebruik van tijdelijke tabellen en belangrijke functies van de beginselen van de sessie op tijdelijke tabellen.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: a3e06a4074bc7b5cd8612162a624718107a50656
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: f8eb401d8bc4f348be3c84390d3422571bebe444
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31518396"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307322"
 ---
 # <a name="temporary-tables-in-sql-data-warehouse"></a>Tijdelijke tabellen in SQL Data Warehouse
-In dit artikel bevat essentiële instructies voor het gebruik van tijdelijke tabellen en markeert de beginselen van sessie niveau tijdelijke tabellen. Gebruik de informatie in dit artikel kunt u modularize uw code, zowel hergebruik en het gemak van onderhoud van uw code te verbeteren.
+In dit artikel bevat essentiële instructies voor het gebruik van tijdelijke tabellen en markeert u de beginselen van de sessie op tijdelijke tabellen. Gebruik de informatie in dit artikel kunt u modularize van uw code, om zowel herbruikbaarheid en eenvoudig onderhoud van uw code te verbeteren.
 
 ## <a name="what-are-temporary-tables"></a>Wat zijn tijdelijke tabellen?
-Tijdelijke tabellen zijn nuttig bij het verwerken van gegevens - met name tijdens transformatie waar de tussenliggende resultaten tijdelijke zijn. In SQL Data Warehouse bestaan tijdelijke tabellen op het niveau van de sessie.  Ze zijn alleen zichtbaar voor de sessie waarin ze zijn gemaakt en worden automatisch verwijderd wanneer die sessie zich afmeldt.  Tijdelijke tabellen bieden een voordeel van de prestaties omdat de resultaten worden geschreven naar lokale in plaats van de externe opslag.  Tijdelijke tabellen zijn enigszins afwijken in Azure SQL Data Warehouse Azure SQL Database, omdat ze toegankelijk zijn vanuit een willekeurige plaats in de sessie, inclusief zowel binnen als buiten een opgeslagen procedure.
+Tijdelijke tabellen zijn nuttig bij het verwerken van gegevens - met name tijdens de transformatie waar de tussenliggende resultaten tijdelijk zijn. In SQL Data Warehouse aanwezig tijdelijke tabellen op het sessieniveau van de.  Ze zijn alleen zichtbaar voor de sessie waarin ze zijn gemaakt en worden automatisch verwijderd wanneer die sessie zich afmeldt.  Tijdelijke tabellen bieden een voordeel van de prestaties omdat de resultaten worden geschreven naar een lokaal in plaats van de externe opslag.  Tijdelijke tabellen zijn enigszins in Azure SQL Data Warehouse dan Azure SQL Database, omdat ze kunnen worden benaderd vanaf elke locatie in de sessie, met inbegrip van zowel binnen als buiten een opgeslagen procedure.
 
 ## <a name="create-a-temporary-table"></a>Maak een tijdelijke tabel
-Tijdelijke tabellen zijn gemaakt door het voorvoegsel van de tabelnaam van uw met een `#`.  Bijvoorbeeld:
+Tijdelijke tabellen worden gemaakt door het voorvoegsel van de tabelnaam van uw met een `#`.  Bijvoorbeeld:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -44,7 +44,7 @@ WITH
 )
 ```
 
-Tijdelijke tabellen kunnen ook worden gemaakt met een `CTAS` met exact dezelfde manier:
+Tijdelijke tabellen kunnen ook worden gemaakt met een `CTAS` exact dezelfde benadering gebruiken:
 
 ```sql
 CREATE TABLE #stats_ddl
@@ -98,12 +98,12 @@ FROM    t1
 ``` 
 
 > [!NOTE]
-> `CTAS` is een krachtige opdracht en de bijkomend voordeel is efficiënte tijdens het gebruik van ruimte voor transactielogboeken. 
+> `CTAS` is een krachtige opdracht en de toegevoegde voordeel van efficiënte in het gebruik van transactielogboekruimte. 
 > 
 > 
 
 ## <a name="dropping-temporary-tables"></a>Tijdelijke tabellen verwijderen
-Wanneer een nieuwe sessie wordt gemaakt, moeten er zijn geen tijdelijke tabellen bestaan.  Echter, als u verbinding maakt met de dezelfde opgeslagen procedure, die een tijdelijke met dezelfde naam maakt, om ervoor te zorgen dat uw `CREATE TABLE` -instructies zijn geslaagd een eenvoudige vooraf bestaan uit met een `DROP` kan worden gebruikt zoals in het volgende voorbeeld:
+Als u een nieuwe sessie maakt, wordt geen tijdelijke tabellen moeten bestaan.  Echter, als u verbinding maakt met de dezelfde opgeslagen procedure, die zorgt voor een tijdelijke met dezelfde naam, om ervoor te zorgen dat uw `CREATE TABLE` instructies zijn gelukt een eenvoudige vooraf bestaan uit met een `DROP` kan worden gebruikt zoals in het volgende voorbeeld:
 
 ```sql
 IF OBJECT_ID('tempdb..#stats_ddl') IS NOT NULL
@@ -112,14 +112,14 @@ BEGIN
 END
 ```
 
-Het is verstandig om te gebruiken dit patroon voor tabellen en tijdelijke tabellen voor het coderen van de consistentie.  Het is ook een goed idee om te gebruiken `DROP TABLE` tijdelijke tabellen verwijderen wanneer u klaar bent met hen in uw code.  In de ontwikkeling van de opgeslagen procedure is het gebruikelijk om te zien van dat de opdrachten drop samen gebundeld aan het einde van een procedure om te controleren of dat deze objecten worden opgeschoond.
+Voor consistentie met coderen, is het raadzaam om te gebruiken van dit patroon voor tabellen en tijdelijke tabellen.  Het is ook een goed idee om te gebruiken `DROP TABLE` tijdelijke tabellen worden verwijderd wanneer u klaar bent met hen in uw code.  Bij de ontwikkeling van de opgeslagen procedure wordt is het gebruikelijk om te zien van dat de opdrachten drop samen gebundeld aan het einde van een procedure om te controleren of dat deze objecten worden opgeschoond.
 
 ```sql
 DROP TABLE #stats_ddl
 ```
 
 ## <a name="modularizing-code"></a>Modularizing code
-Omdat de tijdelijke tabellen ziet u een willekeurige plaats in een gebruikerssessie, kan dit zodat u uw toepassingscode modularize worden misbruikt.  Bijvoorbeeld, genereert de volgende opgeslagen procedure DDL om bij te werken van alle statistische gegevens in de database met de naam van statistieken.
+Omdat de tijdelijke tabellen kunnen overal worden weergegeven in de sessie van een gebruiker, kan dit worden misbruikt zodat u kunt uw toepassingscode modularize.  Bijvoorbeeld, genereert de volgende opgeslagen procedure DDL voor het bijwerken van alle statistische gegevens in de database door de naam van statistieken.
 
 ```sql
 CREATE PROCEDURE    [dbo].[prc_sqldw_update_stats]
@@ -193,7 +193,7 @@ FROM    t1
 GO
 ```
 
-In deze fase is de enige actie die is opgetreden het maken van een opgeslagen procedure die generatess een tijdelijke tabel #stats_ddl, met de DDL-instructies.  Deze opgeslagen procedure zakt #stats_ddl als deze al bestaat om ervoor te zorgen mislukt de query niet als meer dan één keer worden uitgevoerd in een sessie.  Echter, omdat er geen `DROP TABLE` aan het einde van de opgeslagen procedure, wanneer de opgeslagen procedure is voltooid, laat u de gemaakte tabel zodat deze buiten de opgeslagen procedure kan worden gelezen.  In SQL Data Warehouse is in tegenstelling tot andere SQL Server-databases het mogelijk om te gebruiken van de tijdelijke tabel buiten de procedure waarvan deze is gemaakt.  SQL Data Warehouse tijdelijke tabellen kunnen worden gebruikt **overal** binnen de sessie. Dit kan leiden tot meer modulaire en beheerbare code zoals in het volgende voorbeeld:
+In dit stadium is de enige actie die is opgetreden is het maken van een opgeslagen procedure die generatess een tijdelijke tabel #stats_ddl, met de DDL-componenten.  Deze opgeslagen procedure komt #stats_ddl als deze al bestaat, om ervoor te zorgen mislukt de query niet als meer dan één keer uitgevoerd in een sessie.  Echter, omdat er geen `DROP TABLE` aan het einde van de opgeslagen procedure, wanneer de opgeslagen procedure is voltooid, laat u de gemaakte tabel zodat deze buiten de opgeslagen procedure kan worden gelezen.  In SQL Data Warehouse is in tegenstelling tot andere SQL Server-databases, het mogelijk gebruik van de tijdelijke tabel buiten de procedure die u hebt gemaakt.  Tijdelijke tabellen van SQL Data Warehouse kunnen worden gebruikt **overal** binnen de sessie. Dit kan leiden tot meer modulaire en beheerbare code zoals in het volgende voorbeeld:
 
 ```sql
 EXEC [dbo].[prc_sqldw_update_stats] @update_type = 1, @sample_pct = NULL;
@@ -215,8 +215,8 @@ DROP TABLE #stats_ddl;
 ```
 
 ## <a name="temporary-table-limitations"></a>Beperkingen van de tijdelijke tabel
-SQL Data Warehouse een aantal beperkingen opleggen bij het implementeren van tijdelijke tabellen.  Op dit moment alleen tijdens de sessie bereik tijdelijke tabellen worden ondersteund.  Globale tijdelijke tabellen worden niet ondersteund.  Bovendien kunnen niet weergaven worden gemaakt op tijdelijke tabellen.
+SQL Data Warehouse een aantal beperkingen opleggen bij het implementeren van tijdelijke tabellen.  Op dit moment alleen tijdens de sessie binnen het bereik van tijdelijke tabellen worden ondersteund.  Globale tijdelijke tabellen worden niet ondersteund.  Bovendien kunnen niet weergaven worden gemaakt op tijdelijke tabellen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het ontwikkelen van tabellen, de [tabel overzicht](sql-data-warehouse-tables-overview.md).
+Zie voor meer informatie over het ontwikkelen van tabellen, het [tabeloverzicht](sql-data-warehouse-tables-overview.md).
 

@@ -12,12 +12,12 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 86cc98721681750617e374679c38ad29cf5a2362
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 836f426be950e33031ff74276218d1ba59f1f2f7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42058432"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300910"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>App-wachtwoorden voor verificatie in twee stappen beheren
 
@@ -38,11 +38,46 @@ Wanneer u app-wachtwoorden, is het belangrijk om te onthouden:
 
 Tijdens het registreren van uw initiële verificatie in twee stappen controle krijgt u een app-wachtwoord. Als u meer dan één wachtwoord nodig hebt, kunt u aanvullende wachtwoorden, op basis van hoe u verificatie in twee stappen:
 
-- **U verificatie in twee stappen gebruiken met uw Microsoft Azure-account.** Maken en verwijderen van uw app-wachtwoorden met behulp van de [Azure-portal](https://portal.azure.com). Zie voor meer informatie de [App-wachtwoorden en verificatie in twee stappen](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artikel.
+- **U verificatie in twee stappen gebruiken met uw werk of school-account en de MyApps-portal.** Maken en verwijderen van uw app-wachtwoorden met behulp van de instructies in de [maken en verwijderen app-wachtwoorden met behulp van de MyApps-portal](#create-and-delete-app-passwords-using-the-myapps-portal) sectie van dit artikel. Zie voor meer informatie over de MyApps-portal en het gebruik ervan [wat is de MyApps-portal in Azure Active Directory?](active-directory-saas-access-panel-introduction.md).
 
-- **U verificatie in twee stappen gebruiken met uw persoonlijke Microsoft-account.** Maken en verwijderen van uw app-wachtwoorden met behulp van de [basisprincipes van beveiliging](https://account.microsoft.com/account/) pagina met uw Microsoft-account. Zie voor meer informatie de [App-wachtwoorden en verificatie in twee stappen](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artikel.
+- **U verificatie in twee stappen gebruiken met uw werk of school-account en de Office 365-portal.** Maken en verwijderen van uw app-wachtwoorden met behulp van de instructies in de [maken en verwijderen app-wachtwoorden met behulp van de Office 365-portal](#create-and-delete-app-passwords-using-the-office-365-portal) sectie van dit artikel.
 
-- **U verificatie in twee stappen gebruiken met uw werk of school-account en uw Office 365-apps.** Maken en verwijderen van uw app-wachtwoorden met behulp van de instructies in de [maken en verwijderen app-wachtwoorden met behulp van de Office 365-portal](#create-and-delete-app-passwords-using-the-office-365-portal) sectie van dit artikel.
+- **U verificatie in twee stappen gebruiken met uw persoonlijke Microsoft-account.** Maken en verwijderen van uw app-wachtwoorden met behulp van de [basisprincipes van beveiliging](https://account.microsoft.com/account/) pagina aan uw persoonlijke Microsoft-account. Zie voor meer informatie de [App-wachtwoorden en verificatie in twee stappen](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-two-step-verification) artikel.
+
+## <a name="create-and-delete-app-passwords-using-the-myapps-portal"></a>Maken en verwijderen van app-wachtwoorden met behulp van de MyApps-portal
+U kunt maken en verwijderen van app-wachtwoorden via de MyApps-portal.
+
+### <a name="to-create-an-app-password-using-the-myapps-portal"></a>Het maken van een app-wachtwoord met behulp van de MyApps-portal
+
+1. Aanmelden bij [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
+
+2. Selecteer uw naam rechtsboven en kies **profiel**.
+
+3. Selecteer **aanvullende beveiligingsverificatie**.
+
+   ![Selecteer aanvullende beveiligingsverificatie - schermafbeelding](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
+
+4. Selecteer **App-wachtwoorden**.
+
+   ![Selecteer de app-wachtwoorden - schermafbeelding](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
+
+5. Klik op **Create**.
+
+6. Typ een naam voor het app-wachtwoord en selecteer vervolgens **volgende**.
+
+7. Het app-wachtwoord kopiëren naar het Klembord en plak deze in uw app.
+   
+    ![Een app-wachtwoord maken](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
+
+### <a name="to-delete-an-app-password-using-the-myapps-portal"></a>Verwijderen van een app-wachtwoord met behulp van de MyApps-portal
+
+1. Ga naar uw profiel, en selecteer vervolgens **aanvullende beveiligingsverificatie**.
+
+2. Selecteer **App-wachtwoorden**, en selecteer vervolgens **verwijderen** naast het app-wachtwoord die u wilt verwijderen.
+
+   ![Verwijderen van een app-wachtwoord](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
+
+3. Selecteer **Ja** om te bevestigen dat u wilt verwijderen van het wachtwoord en selecteer vervolgens **sluiten**.
 
 ## <a name="create-and-delete-app-passwords-using-the-office-365-portal"></a>Maken en verwijderen van app-wachtwoorden met behulp van de Office 365-portal
 
@@ -77,46 +112,6 @@ Als u verificatie in twee stappen met uw werk of school-account en uw Office 365
     Het app-wachtwoord is verwijderd.
 
 5. Volg de stappen voor het maken van een app-wachtwoord voor het maken van uw nieuwe app-wachtwoord.
-
-## <a name="manage-app-passwords-in-the-azure-portal"></a>App-wachtwoorden in Azure portal beheren
-
-Als u verificatie met Azure, die u wilt maken van app-wachtwoorden via Azure portal.
-
-## <a name="manage-app-passwords-with-the-myapps-portal"></a>App-wachtwoorden met de MyApps-portal beheren
-
-U kunt ook maken en verwijderen van app-wachtwoorden via de portal mijn Apps.
-
-### <a name="to-create-an-app-password-using-the-my-apps-portal"></a>Het maken van een app-wachtwoord met behulp van de portal mijn Apps
-
-1. Aanmelden bij [ https://myapps.microsoft.com ](https://myapps.microsoft.com).
-
-2. Selecteer uw naam rechtsboven en kies **profiel**.
-
-3. Selecteer **aanvullende beveiligingsverificatie**.
-
-   ![Selecteer aanvullende beveiligingsverificatie - schermafbeelding](./media/multi-factor-authentication-end-user-app-passwords/myapps1.png)
-
-4. Selecteer **App-wachtwoorden**.
-
-   ![Selecteer de app-wachtwoorden - schermafbeelding](./media/multi-factor-authentication-end-user-app-passwords/apppass2.png)
-
-5. Klik op **Create**.
-
-6. Typ een naam voor het app-wachtwoord en selecteer vervolgens **volgende**.
-
-7. Het app-wachtwoord kopiëren naar het Klembord en plak deze in uw app.
-   
-    ![Een app-wachtwoord maken](./media/multi-factor-authentication-end-user-app-passwords/create2.png)
-
-### <a name="to-delete-an-app-password-using-the-my-apps-portal"></a>Een app-wachtwoord met behulp van de portal mijn Apps verwijderen
-
-1. Ga naar uw profiel, en selecteer vervolgens **aanvullende beveiligingsverificatie**.
-
-2. Selecteer **App-wachtwoorden**, en selecteer vervolgens **verwijderen** naast het app-wachtwoord die u wilt verwijderen.
-
-   ![Verwijderen van een app-wachtwoord](./media/multi-factor-authentication-end-user-app-passwords/delete1.png)
-
-3. Selecteer **Ja** om te bevestigen dat u wilt verwijderen van het wachtwoord en selecteer vervolgens **sluiten**.
 
 ## <a name="if-your-app-passwords-arent-working-properly"></a>Als uw app-wachtwoorden niet goed werken
 

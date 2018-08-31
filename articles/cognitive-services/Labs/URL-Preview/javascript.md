@@ -1,6 +1,6 @@
 ---
-title: JavaScript Quick Start voor het voorbeeld in de Project-URL - cognitieve Microsoft-Services | Microsoft Docs
-description: Het voorbeeldscript snel aan de slag met de Preview-API van Bing-URL in cognitieve Microsoft-Services in Azure.
+title: JavaScript-Snelstartgids voor het Project URL-voorbeeld - Microsoft Cognitive Services | Microsoft Docs
+description: 'Voorbeeldscript: snel aan de slag met behulp van de Preview-API voor Bing-URL in de Microsoft Cognitive Services op Azure.'
 services: cognitive-services
 author: mikedodaro
 ms.service: cognitive-services
@@ -8,27 +8,27 @@ ms.technology: project-url-preview
 ms.topic: article
 ms.date: 03/16/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 9041a88a292fb2dabead69195ebc3074e2ecf486
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: dda6f7c105dfbadc3c22f0c008aa8759fe12fa03
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345288"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301349"
 ---
-# <a name="url-preview-in-javascript"></a>Voorbeeld van de URL in JavaScript 
+# <a name="url-preview-in-javascript"></a>URL-voorbeeld in JavaScript 
 
-De volgende toepassing met één pagina gebruikt JavaScript voor het maken van een voorbeeld-URL voor de site SwiftKey: https://swiftkey.com/en. 
+De volgende toepassing met één pagina JavaScript gebruikt om te maken van een URL-voorbeeld voor de site SwiftKey: https://swiftkey.com/en. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-Ophalen van een toegangssleutel voor de gratis proefversie [cognitieve Services Labs](https://aka.ms/answersearchsubscription)
+Ophalen van een toegangssleutel voor de gratis proefversie [Cognitive Services Labs](https://labs.cognitive.microsoft.com/en-us/project-url-preview)
 
 ## <a name="code-scenario"></a>Code-scenario
-De volgende javascript-voorbeeld bevat een tekstvak voor de invoer object waarin de gebruiker invoeren in de URL voor de preview.  Wanneer de gebruiker klikt op de **Preview** knop, de routes van de methode onclick naar `getPreview` waar code genereert voor een webaanvraag voor de **UrlPreview** eindpunt.
+De volgende javascript-voorbeeld bevat een tekstvak invoer object waarin de gebruiker de URL om een voorbeeld van invoeren.  Wanneer de gebruiker klikt op de **Preview** knop, de onclick methode routes naar `getPreview` waar code genereert voor een webaanvraag naar de **UrlPreview** eindpunt.
 
-De code maakt een *XMLHttpRequest*, voegt de *Ocp-Apim-Subscription-Key* header en -sleutel, en stuurt de aanvraag.  Een asynchrone gebeurtenis-handler voor het verwerken van het antwoord wordt toegevoegd.
+De code maakt een *XMLHttpRequest*, voegt de *Ocp-Apim-Subscription-Key* -header en -sleutel, en stuurt de aanvraag.  Een asynchrone gebeurtenis-handler voor het verwerken van het antwoord wordt toegevoegd.
 
-Als het antwoord is geretourneerd, de handler wijst de JSON-tekst van het antwoord op de `demo` lid op de pagina. Andere elementen antwoord zijn ingesteld op de volgende leden om weer te geven.
+Als de reactie is geretourneerd, de handler wijst de JSON-tekst van het antwoord op de `demo` lid op de pagina. Andere antwoord-elementen zijn ingesteld op de volgende leden om weer te geven.
 
 **Onbewerkte JSON-antwoord**
 
@@ -48,15 +48,15 @@ Als het antwoord is geretourneerd, de handler wijst de JSON-tekst van het antwoo
 
 **De actieve demo**
 
-![Voorbeeld van de Preview van JavaScript-Url](./media/java-script-demo.png)
+![Voorbeeld van de JavaScript-Url-voorbeeld](./media/java-script-demo.png)
 
 ## <a name="running-the-application"></a>De toepassing uitvoeren
 
-De toepassing uitvoeren:
+Voor het uitvoeren van de toepassing:
 
 1. Vervang de `YOUR-SUBSCRIPTION-KEY` waarde met een geldige toegangssleutel voor uw abonnement.
-2. Sla de HTML- en het script naar een bestand met extensie .html.
-3. De webpagina worden uitgevoerd in een browser.
+2. Sla de HTML-code en het script als een bestand met de extensie .html.
+3. De webpagina wordt weergegeven in een browser uitvoeren.
 4. Gebruik de bestaande URL of een andere invoeren in het tekstvak.
 5. Klik op de **Preview** knop.
 
@@ -127,7 +127,7 @@ De toepassing uitvoeren:
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- [Quick Start C#](csharp.md)
-- [Java-Quick Start](java-quickstart.md)
-- [Knooppunt Quick Start](node-quickstart.md)
+- [Snelstartgids voor C#](csharp.md)
+- [Snelstartgids voor Java](java-quickstart.md)
+- [Knooppunt-snelstartgids](node-quickstart.md)
 - [Snelstartgids voor Python](python-quickstart.md)

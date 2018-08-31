@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 08/15/2018
 ms.reviewer: klam, LADocs
 ms.suite: integration
-ms.openlocfilehash: 78e991fcac87d59ed7b84180192899ddbdf330f2
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 8a2e06d2e6cf3e470d4e0909e5559ac0411292fd
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43105636"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307110"
 ---
 # <a name="functions-reference-for-workflow-definition-language-in-azure-logic-apps"></a>Functiereferentie voor Definitietaal van werkstroom in Azure Logic Apps
 
@@ -80,7 +80,7 @@ Als u wilt werken met tekenreeksen, kunt u deze tekenreeksfuncties en ook enkele
 | [endsWith](../logic-apps/workflow-definition-language-functions-reference.md#endswith) | Controleer of een tekenreeks met de opgegeven subtekenreeks eindigt. | 
 | [GUID](../logic-apps/workflow-definition-language-functions-reference.md#guid) | Genereer een globally unique identifier (GUID) als een tekenreeks. | 
 | [indexOf](../logic-apps/workflow-definition-language-functions-reference.md#indexof) | Retourneert de beginpositie voor een subtekenreeks. | 
-| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Retourneert de positie van de einddatum voor een subtekenreeks. | 
+| [lastIndexOf](../logic-apps/workflow-definition-language-functions-reference.md#lastindexof) | Retourneert de beginpositie voor het laatste exemplaar van een subtekenreeks. | 
 | [vervangen](../logic-apps/workflow-definition-language-functions-reference.md#replace) | Vervangen door de opgegeven tekenreeks een subtekenreeks en retourneert de bijgewerkte tekenreeks. | 
 | [split](../logic-apps/workflow-definition-language-functions-reference.md#split) | Retourneert een matrix die alle tekens uit een tekenreeks en gescheiden van elkaar gehaald met de specifieke scheidingsteken. | 
 | [startsWith](../logic-apps/workflow-definition-language-functions-reference.md#startswith) | Controleren of een tekenreeks met een specifieke subtekenreeks begint. | 
@@ -2123,7 +2123,7 @@ indexOf('<text>', '<searchText>')
 
 | Retourwaarde | Type | Beschrijving | 
 | ------------ | ---- | ----------- | 
-| <*index-waarde*>| Geheel getal | De positie of index beginwaarde voor de opgegeven subtekenreeks. <p>Als de tekenreeks wordt gevonden, retourneert het getal -1. </br>Als de tekenreeks leeg is, retourneert de waarde 0. | 
+| <*index-waarde*>| Geheel getal | De positie of index beginwaarde voor de opgegeven subtekenreeks. <p>Als de tekenreeks wordt gevonden, retourneert het getal -1. | 
 |||| 
 
 *Voorbeeld* 
@@ -2387,7 +2387,7 @@ En deze resultaten retourneert:
 
 ### <a name="lastindexof"></a>lastIndexOf
 
-Retourneert de laatste positie of index waarde voor een subtekenreeks. Deze functie is niet hoofdlettergevoelig en indexen beginnen met de waarde 0.
+Retourneert de beginpositie of de indexwaarde voor het laatste exemplaar van een subtekenreeks. Deze functie is niet hoofdlettergevoelig en indexen beginnen met de waarde 0.
 
 ```
 lastIndexOf('<text>', '<searchText>')
@@ -2401,18 +2401,18 @@ lastIndexOf('<text>', '<searchText>')
 
 | Retourwaarde | Type | Beschrijving | 
 | ------------ | ---- | ----------- | 
-| <*laatste indexwaarde*> | Geheel getal | De positie of index eindwaarde voor de opgegeven subtekenreeks. <p>Als de tekenreeks wordt gevonden, retourneert het getal -1. </br>Als de tekenreeks leeg is, retourneert de waarde 0. | 
+| <*laatste indexwaarde*> | Geheel getal | De positie of index beginwaarde van het laatste exemplaar van de opgegeven subtekenreeks. <p>Als de tekenreeks wordt gevonden, retourneert het getal -1. | 
 |||| 
 
 *Voorbeeld* 
 
-In dit voorbeeld wordt de eindwaarde van de index voor de subtekenreeks "wereld" in de tekenreeks "Hallo wereld":
+In dit voorbeeld wordt de beginwaarde van de index voor het laatste exemplaar van de subtekenreeks "wereld" in de tekenreeks "Hallo wereld":
 
 ```
 lastIndexOf('hello world', 'world')
 ```
 
-En dit resultaat wordt weergegeven: `10`
+En dit resultaat wordt weergegeven: `6`
 
 <a name="length"></a>
 

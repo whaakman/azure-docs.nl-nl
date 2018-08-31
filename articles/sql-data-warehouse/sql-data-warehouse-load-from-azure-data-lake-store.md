@@ -1,27 +1,27 @@
 ---
-title: 'Zelfstudie: Laden in Azure Data Lake Store met Azure SQL datawarehouse | Microsoft Docs'
-description: PolyBase externe tabellen gebruiken om gegevens te laden in Azure Data Lake Store in Azure SQL Data Warehouse.
+title: 'Zelfstudie: Laden uit Azure Data Lake Store met Azure SQL datawarehouse | Microsoft Docs'
+description: Externe PolyBase-tabellen gebruiken om gegevens te laden uit Azure Data Lake Store in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: c6030d1951c22dddfe6df01225c63cf503a370ac
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 04676db3048cf747e9a20d91a404f29c6cfc6853
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188375"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306390"
 ---
-# <a name="load-data-from-azure-data-lake-store-to-sql-data-warehouse"></a>Gegevens uit Azure Data Lake Store met SQL Data Warehouse laden
-PolyBase externe tabellen gebruiken om gegevens te laden in Azure Data Lake Store in Azure SQL Data Warehouse. Hoewel u ad-hoc-query's op gegevens die zijn opgeslagen in ADLS uitvoeren kunt, raden wij aan de gegevens importeren in de SQL Data Warehouse voor de beste prestaties.
+# <a name="load-data-from-azure-data-lake-store-to-sql-data-warehouse"></a>Gegevens uit Azure Data Lake Store laden in SQL Data Warehouse
+Externe PolyBase-tabellen gebruiken om gegevens te laden uit Azure Data Lake Store in Azure SQL Data Warehouse. Hoewel u ad-hoc-query's op gegevens die zijn opgeslagen in ADLS uitvoeren kunt, wordt u aangeraden de gegevens worden geïmporteerd in de SQL Data Warehouse voor de beste prestaties.
 
 > [!div class="checklist"]
-> * Maken van databaseobjecten die zijn vereist om te laden in Azure Data Lake Store.
+> * Databaseobjecten die zijn vereist om te laden uit Azure Data Lake Store maken.
 > * Verbinding maken met een Azure Data Lake Store-map.
 > * Gegevens laden in Azure SQL Data Warehouse.
 
@@ -30,22 +30,22 @@ Als u geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.
 ## <a name="before-you-begin"></a>Voordat u begint
 Download en installeer voordat u met deze zelfstudie begint de nieuwste versie van [SSMS](/sql/ssms/download-sql-server-management-studio-ssms) (SQL Server Management Studio).
 
-Deze zelfstudie, hebt u nodig:
+Als u wilt uitvoeren in deze zelfstudie, hebt u het volgende nodig:
 
-* Azure Active Directory-toepassing wilt gebruiken voor verificatie van de Service-naar-Service. Als u wilt maken, volgt u [Active directory-verificatie](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
+* Azure Active Directory-toepassing moet worden gebruikt voor Service-naar-serviceverificatie. Als u wilt maken, gaat u als volgt [Active directory-verificatie](../data-lake-store/data-lake-store-authenticate-using-active-directory.md)
 
 >[!NOTE] 
-> U moet de client-ID, de sleutel en de OAuth2.0 Token Endpoint-waarde van uw Active Directory-toepassing verbinding maken met uw Azure Data Lake van SQL Data Warehouse. Details over het ophalen van deze waarden worden in de bovenstaande koppeling. Gebruik de toepassings-ID als de Client-ID. voor Azure Active Directory-App-registratie
+> U moet de client-ID, de sleutel en de OAuth 2.0 Token Endpoint-waarde van uw Active Directory-toepassing verbinding maken met uw Azure Data Lake in SQL Data Warehouse. Details voor informatie over het ophalen van deze waarden zijn in de bovenstaande koppeling. Voor registratie in Azure Active Directory-App kunt u de toepassings-ID gebruiken als de Client-ID.
 > 
 
-* Een Azure SQL datawarehouse. Zie [maken en query en Azure SQL Data Warehouse](create-data-warehouse-portal.md).
+* Een Azure SQL datawarehouse. Zie [maken en query's en Azure SQL Data Warehouse](create-data-warehouse-portal.md).
 
 * Een Azure Data Lake Store. Zie [aan de slag met Azure Data Lake Store](../data-lake-store/data-lake-store-get-started-portal.md). 
 
 ##  <a name="create-a-credential"></a>Een referentie maken
-Voor toegang tot uw Azure Data Lake Store, moet u een databasehoofdsleutel nodig voor het versleutelen van uw geheime referentie is gebruikt in de volgende stap maakt. Vervolgens maakt u een Database Scoped Credential, die de service principal referenties instellen in AAD opslaat. Noteer de credential-syntaxis verschilt voor mensen die PolyBase verbinding maken met Windows Azure Storage-Blobs hebt gebruikt.
+Voor toegang tot uw Azure Data Lake Store, moet u een databasehoofdsleutel nodig voor het versleutelen van uw referentiegeheim dat is gebruikt in de volgende stap maakt. Vervolgens maakt u een Database Scoped Credential, die de service principal-referenties instellen in AAD opslaat. Houd er rekening mee dat de syntaxis van de referentie anders is bedoeld voor degenen die PolyBase verbinding maken met Windows Azure Storage-Blobs.
 
-Als u wilt verbinding maken met Azure Data Lake Store, moet u **eerste** een Azure Active Directory-toepassing maken, maakt u een toegangssleutel en de App toegang verlenen tot de Azure Data Lake-resource. Zie voor instructies [verifiëren met Azure Data Lake Store met behulp van Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
+Als u wilt verbinding maken met Azure Data Lake Store, moet u **eerste** maken van een Azure Active Directory-toepassing, maak een toegangstoets en de App toegang verlenen tot de Azure Data Lake-resource. Zie voor instructies [verifiëren bij Azure Data Lake Store met behulp van Active Directory](../data-lake-store/data-lake-store-authenticate-using-active-directory.md).
 
 ```sql
 -- A: Create a Database Master Key.
@@ -76,7 +76,7 @@ WITH
 ```
 
 ## <a name="create-the-external-data-source"></a>De externe gegevensbron maken
-Gebruik deze [externe gegevensbron maken](/sql/t-sql/statements/create-external-data-source-transact-sql) opdracht voor het opslaan van de locatie van de gegevens. 
+Gebruik deze [CREATE EXTERNAL DATA SOURCE](/sql/t-sql/statements/create-external-data-source-transact-sql) opdracht voor het opslaan van de locatie van de gegevens. 
 
 ```sql
 -- C: Create an external data source
@@ -93,8 +93,8 @@ WITH (
 ```
 
 ## <a name="configure-data-format"></a>Indeling van gegevens configureren
-Als u wilt de gegevens importeren uit ADLS, moet u de externe bestandsindeling opgeven. Dit object definieert hoe de bestanden zijn geschreven in ADLS.
-Bekijk onze T-SQL-documentatie voor de volledige lijst [EXTERNAL FILE FORMAT maken](/sql/t-sql/statements/create-external-file-format-transact-sql)
+Voor het importeren van de gegevens van ADLS, moet u opgeven van de externe bestandsindeling. Dit object wordt gedefinieerd hoe de bestanden zijn geschreven in ADLS.
+Bekijk onze T-SQL-documentatie voor de volledige lijst [CREATE EXTERNAL FILE FORMAT](/sql/t-sql/statements/create-external-file-format-transact-sql)
 
 ```sql
 -- D: Create an external file format
@@ -115,7 +115,7 @@ WITH
 ```
 
 ## <a name="create-the-external-tables"></a>De externe tabellen maken
-Nu dat u hebt opgegeven dat de bron- en gegevensindeling, bent u klaar voor het maken van de externe tabellen. Externe tabellen zijn interactie met externe gegevens. De locatieparameter kunt een bestand of map opgeven. Als de opgegeven map, worden alle bestanden in de map wordt geladen.
+Nu dat u de gegevensindeling voor bron- en -bestand hebt opgegeven, bent u klaar om de externe tabellen te maken. Externe tabellen zijn interactie met externe gegevens. De locatieparameter kunt opgeven voor een bestand of map. Als er een map is opgegeven, worden alle bestanden in de map worden geladen.
 
 ```sql
 -- D: Create an External Table
@@ -144,21 +144,21 @@ WITH
 ```
 
 ## <a name="external-table-considerations"></a>Externe tabel overwegingen
-Het maken van een externe tabel is eenvoudig, maar er zijn enkele nuances die moeten worden besproken.
+Het maken van een externe tabel is eenvoudig, maar er zijn enkele aspecten die moeten worden besproken.
 
-Externe tabellen zijn sterk getypeerd. Dit betekent dat elke rij van de gegevens die wordt ingenomen moet voldoen aan de tabelschemadefinitie.
+Externe tabellen zijn sterk getypeerd. Dit betekent dat elke rij van de gegevens die wordt opgenomen, moet voldoen aan de schemadefinitie voor de tabel.
 Als een rij komt niet overeen met de schemadefinitie, wordt de rij van de belasting geweigerd.
 
-De opties voor REJECT_TYPE en REJECT_VALUE kunnen u bepalen hoeveel rijen of welk percentage van de gegevens moet aanwezig zijn in de laatste tabel. Tijdens het laden, als de waarde afwijzen is bereikt, mislukt de belasting. De meest voorkomende oorzaak van geweigerde rijen is een niet-overeenkomend schema definitie. Bijvoorbeeld, als een kolom het schema van int onjuist opgegeven wordt als de gegevens in het bestand een tekenreeks, elke rij niet worden geladen.
+De opties voor REJECT_TYPE en REJECT_VALUE kunnen u bepalen hoeveel rijen of welk percentage van de gegevens moet aanwezig zijn in de laatste tabel. Tijdens het laden, als de waarde afwijzen is bereikt, het laden is mislukt. De meest voorkomende oorzaak van geweigerde rijen is een niet-overeenkomend schema definitie. Bijvoorbeeld, als een kolom onjuist voor het schema van int opgegeven is wanneer de gegevens in het bestand een tekenreeks is, elke rij niet worden geladen.
 
- Azure Data Lake store maakt gebruik van rollen gebaseerd toegangsbeheer (RBAC) om toegang tot de gegevens te beheren. Dit betekent dat de Service-Principal hebben voor de mappen die zijn gedefinieerd in de locatieparameter en de onderliggende leden van de laatste map en bestanden leesmachtigingen moet. Hierdoor PolyBase om te verifiëren en die gegevens te laden. 
+ Azure Data Lake store maakt gebruik van rollen gebaseerd toegangsbeheer (RBAC) voor het beheren van toegang tot de gegevens. Dit betekent dat de Service-Principal hebben voor de mappen die zijn gedefinieerd in de locatieparameter en de onderliggende objecten van de laatste map en bestanden leesmachtigingen moet. Hierdoor is PolyBase om te verifiëren en die gegevens te laden. 
 
 ## <a name="load-the-data"></a>De gegevens laden
-Gegevens laden van Azure Data Lake Store-gebruik de [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) instructie. 
+Om gegevens te laden uit Azure Data Lake Store gebruiken de [CREATE TABLE AS SELECT (Transact-SQL)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) instructie. 
 
-CTAS wordt een nieuwe tabel gemaakt en gevuld met de resultaten van een select-instructie. CTAS wordt gedefinieerd in de nieuwe tabel dezelfde kolommen en gegevenstypen hebben als de resultaten van de select-instructie. Als u alle kolommen uit een externe tabel selecteert, is de nieuwe tabel een replica van de kolommen en gegevenstypen in de externe tabel.
+CTAS maakt een nieuwe tabel gemaakt en gevuld met de resultaten van een select-instructie. CTAS wordt gedefinieerd in de nieuwe tabel hebben dezelfde kolommen en gegevenstypen als de resultaten van de select-instructie. Als u alle kolommen uit een externe tabel selecteert, is de nieuwe tabel een replica van de kolommen en gegevenstypen in de externe tabel.
 
-In dit voorbeeld maakt er een hash-tabel gedistribueerde DimProduct aangeroepen vanuit de externe tabel DimProduct_external.
+In dit voorbeeld maken we een tabel DimProduct aangeroepen vanuit de externe tabel DimProduct_external.
 
 ```sql
 
@@ -170,10 +170,10 @@ OPTION (LABEL = 'CTAS : Load [dbo].[DimProduct]');
 ```
 
 
-## <a name="optimize-columnstore-compression"></a>Compressie columnstore optimaliseren
-Standaard worden in de tabel in SQL Data Warehouse opgeslagen als een geclusterde columnstore-index. Nadat een belasting is voltooid, kunnen sommige van de rijen met gegevens niet in de columnstore worden gecomprimeerd.  Er is een aantal redenen waarom dit kan gebeuren. Zie voor meer informatie, [columnstore-indexen beheren](sql-data-warehouse-tables-index.md).
+## <a name="optimize-columnstore-compression"></a>Columnstore-compressie optimaliseren
+Standaard worden in de tabel in SQL Data Warehouse opgeslagen als een geclusterde columnstore-index. Nadat een laden is voltooid, kunnen sommige van de rijen met gegevens niet worden gecomprimeerd in de columnstore.  Er is een aantal redenen waarom dit kan gebeuren. Zie voor meer informatie, [columnstore-indexen beheren](sql-data-warehouse-tables-index.md).
 
-Voor het optimaliseren van de prestaties van query's en de compressie columnstore na een werklast in de tabel om af te dwingen de columnstore-index moeten worden gecomprimeerd alle rijen opnieuw worden opgebouwd.
+Opnieuw maken in de tabel om af te dwingen de columnstore-index voor het comprimeren van alle rijen voor het optimaliseren van prestaties van query's en columnstore-compressie na een laden.
 
 ```sql
 
@@ -182,29 +182,29 @@ ALTER INDEX ALL ON [dbo].[DimProduct] REBUILD;
 ```
 
 ## <a name="optimize-statistics"></a>Statistieken optimaliseren
-Het is raadzaam om te maken van statistieken voor één kolom onmiddellijk na een belasting. Er zijn enkele mogelijkheden voor statistieken. Bijvoorbeeld als u statistieken voor één kolom in elke kolom maakt het mogelijk lang duren voor het opnieuw samenstellen van de statistieken. Als u weet dat bepaalde kolommen niet gaan worden als in query predicaten, kunt u statistieken maken voor deze kolommen overslaan.
+Het is raadzaam om te maken van statistieken voor één kolom onmiddellijk na een belasting. Er zijn enkele mogelijkheden voor statistieken. Bijvoorbeeld, als u één kolom statistieken voor elke kolom maken duurt het lang alle statistische gegevens opnieuw. Als u weet dat bepaalde kolommen niet meer worden in query-predicaten, kunt u statistieken voor het maken van het overslaan van deze kolommen.
 
-Als u besluit te maken van statistieken voor één kolom voor elke kolom van elke tabel, kunt u de voorbeeldcode van de opgeslagen procedure `prc_sqldw_create_stats` in de [statistieken](sql-data-warehouse-tables-statistics.md) artikel.
+Als u besluit te maken van statistieken voor één kolom in elke kolom in elke tabel, kunt u de voorbeeldcode van de opgeslagen procedure `prc_sqldw_create_stats` in de [statistieken](sql-data-warehouse-tables-statistics.md) artikel.
 
-Het volgende voorbeeld is een goed uitgangspunt voor het maken van statistieken. Statistieken voor één kolom wordt gemaakt op elke kolom in de dimensietabel en op elke gekoppelde kolom in de feitentabellen. U kunt altijd statistieken met één of meerdere kolommen naar andere kolommen van de tabel feit later toevoegen.
+Het volgende voorbeeld is een goed uitgangspunt voor het maken van statistieken. Statistieken voor één kolom wordt gemaakt op elke kolom in de dimensietabel en op elk lid te worden kolom in de feitentabellen. U kunt altijd één of meerdere kolommen statistieken voor andere kolommen in de tabel feit later toevoegen.
 
-## <a name="achievement-unlocked"></a>Bereiken ontgrendeld!
-U hebt gegevens geladen in Azure SQL Data Warehouse. Taak geweldig!
+## <a name="achievement-unlocked"></a>Prestatie ontgrendeld.
+U hebt gegevens zijn geladen in Azure SQL Data Warehouse. Uitstekend!
 
 ## <a name="next-steps"></a>Volgende stappen 
-In deze zelfstudie hebt gemaakt externe tabellen om te definiëren van de structuur voor gegevens die zijn opgeslagen in Azure Data Lake Store de PolyBase CREATE TABLE AS SELECT-instructie vervolgens gebruikt voor het laden van gegevens in uw datawarehouse. 
+In deze zelfstudie, kunt u externe tabellen voor het definiëren van de structuur voor gegevens die zijn opgeslagen in Azure Data Lake Store gemaakt en vervolgens de PolyBase CREATE TABLE AS SELECT-instructie die wordt gebruikt om gegevens te laden in uw datawarehouse. 
 
 U hebt het volgende gedaan:
 > [!div class="checklist"]
-> * Gemaakte database-objecten die zijn vereist om te laden in Azure Data Lake Store.
+> * Objecten in de gemaakte database vereist om te laden uit Azure Data Lake Store.
 > * Verbonden met een Azure Data Lake Store-map.
 > * Geladen gegevens in Azure SQL Data Warehouse.
 > 
 
-Laden van gegevens is de eerste stap bij het ontwikkelen van een datawarehouse-oplossing met behulp van SQL Data Warehouse. Bekijk onze ontwikkelbronnen.
+Het laden van gegevens is de eerste stap bij het ontwikkelen van een datawarehouse-oplossing met behulp van SQL Data Warehouse. Bekijk onze resources voor het ontwikkelen.
 
 > [!div class="nextstepaction"]
->[Meer informatie over het ontwikkelen van tabellen in SQL Data Warehouse](sql-data-warehouse-tables-overview.md)
+>[Informatie over het ontwikkelen van tabellen in SQL Data Warehouse](sql-data-warehouse-tables-overview.md)
 
 
 

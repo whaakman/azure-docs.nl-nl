@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/24/2018
+ms.date: 08/30/2018
 ms.author: carlrab
-ms.openlocfilehash: 8e7af24133b7e034bb7bc1898609cebbb860b738
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 350e472a4c17ed878d8506b4093bcd44ad60f469
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919075"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43288018"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen
 
@@ -39,18 +39,18 @@ De volgende tabellen ziet voor individuele databases, de beschikbare resources v
 |vCores|1|2|4|8|16|24|
 |Geheugen (GB)|7|14|28|56|112|168|
 |Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|
-|In-memory OLTP-opslag (GB)|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
+|In-memory OLTP-opslag (GB)|N/A|N/A|N/A|N/A|N/A|N/A|
 |Opslagtype|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|
 |Maximumgrootte van gegevens (GB)|1024|1024|1536|3072|4096|4096|
 |Maximale logboekgrootte (GB)|307|307|461|922|1229|1229|
-|TempDB-grootte (GB)|32|64|128|256|384|384|
+|TempDB-grootte (MB)|32|64|128|256|384|384|
 |Doel-IOPS (van 64 KB)|500|1000|2000|4000|7000|7000|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|3200|4800|
-|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|1|1|1|1|1|1|
-|Multi-z|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|000
-|Uitschaling lezen|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
+|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|000
+|Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
 
@@ -61,18 +61,18 @@ De volgende tabellen ziet voor individuele databases, de beschikbare resources v
 |vCores|2|4|8|16|24|32|40|80|
 |Geheugen (GB)|11|22|44|88|132|176|220|440|
 |Ondersteuning voor Columnstore|Ja|Ja|Ja|Ja|Ja|Ja|Ja|Ja|
-|In-memory OLTP-opslag (GB)|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
+|In-memory OLTP-opslag (GB)|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Opslagtype|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|Premium Storage op (extern)|
 |I/o-latentie (bij benadering)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|5-7 ms (schrijven)<br>5-10 ms (lezen)|
 |Maximumgrootte van gegevens (GB)|1024|1024|1536|3072|4096|4096|4096|4096|
 |Maximale logboekgrootte (GB)|307|307|461|614|1229|1229|1229|1229|
-|TempDB-grootte (GB)|64|128|256|384|384|384|384|384|
+|TempDB-grootte (MB)|64|128|256|384|384|384|384|384|
 |Doel-IOPS (van 64 KB)|500|1000|2000|4000|6000|7000|7000|7000|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4000|8000|
-|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|30000|30000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|1|1|1|1|1|1|1|1|
-|Multi-z|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
-|Uitschaling lezen|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
+|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
 
@@ -89,13 +89,13 @@ De volgende tabellen ziet voor individuele databases, de beschikbare resources v
 |Opslagtype|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|Lokale SSD|
 |Maximumgrootte van gegevens (GB)|1024|1024|1024|1024|1024|1024|
 |Maximale logboekgrootte (GB)|307|307|307|307|307|307|
-|TempDB-grootte (GB)|32|64|128|256|384|384|
-|Doel-IOPS (van 64 KB)|5000|10000|20000|40000|80000|120000|
+|TempDB-grootte (MB)|32|64|128|256|384|384|
+|Doel-IOPS (van 64 KB)|5000|10.000|20000|40000|80000|120000|
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|3200|4800|
-|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|3|3|3|3|3|3|
-|Multi-z|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
+|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
 |Uitschaling lezen|Ja|Ja|Ja|Ja|Ja|Ja|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
@@ -112,13 +112,13 @@ De volgende tabellen ziet voor individuele databases, de beschikbare resources v
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
 |Maximumgrootte van gegevens (GB)|1024|1024|1024|1024|2048|4096|4096|4096|
 |Maximale logboekgrootte (GB)|307|307|307|307|614|1229|1229|1229|
-|TempDB-grootte (GB)|64|128|256|384|384|384|384|384|
-|Doel-IOPS (van 64 KB)|5000|10000|20000|40000|60000|80000|100000|200000
+|TempDB-grootte (MB)|64|128|256|384|384|384|384|384|
+|Doel-IOPS (van 64 KB)|5000|10.000|20000|40000|60000|80000|100000|200000
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|200|400|800|1600|2400|3200|4000|8000|
-|Maximaal toegestane sessies|30000|30000|30000|30000|30000|30000|30000|30000|
+|Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|30.000|30.000|
 |Aantal replica's|3|3|3|3|3|3|3|3|
-|Multi-z|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
-|Uitschaling lezen|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|n.v.t.|
+|Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
+|Uitschaling lezen|N/A|N/A|N/A|N/A|N/A|N/A|N/A|N/A|
 |Back-upopslag opgenomen|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|1 X-DB-grootte|
 |||
 

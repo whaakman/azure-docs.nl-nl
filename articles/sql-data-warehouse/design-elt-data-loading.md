@@ -3,23 +3,25 @@ title: In plaats van ETL, ELT-ontwerp voor Azure SQL Data Warehouse | Microsoft 
 description: In plaats van ETL, ontwerpen van een Extract, Load en Transform (ELT)-proces voor het laden van gegevens of Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 33e4a405547fcdd797ddfdf6aba6c6c1c126b742
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: facd9a98b2f2d866574dd1f9bf180fa2a9618f31
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42054246"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301327"
 ---
 # <a name="designing-extract-load-and-transform-elt-for-azure-sql-data-warehouse"></a>Het ontwerpen van Extract, Load en Transform (ELT) voor Azure SQL datawarehouse
 
 Ontwerp in plaats van extraheren, transformeren en laden (ETL), een Extract, Load en Transform (ELT)-proces voor het laden van gegevens in Azure SQL Data Warehouse. Dit artikel worden manieren voor het ontwerpen van een ELT-proces die gegevens naar een Azure datawarehouse verplaatst geïntroduceerd.
+
+> [!VIDEO https://www.youtube.com/embed/l9-wP7OdhDk]
 
 ## <a name="what-is-elt"></a>Wat is ELT?
 

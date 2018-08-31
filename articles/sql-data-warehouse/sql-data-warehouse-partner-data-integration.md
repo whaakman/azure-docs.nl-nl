@@ -3,19 +3,19 @@ title: Integratiepartners voor SQL Data Warehouse-gegevens | Microsoft Docs
 description: Lijsten met externe partners met oplossingen voor gegevensintegratie die ondersteuning bieden voor Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: jrowlandjones
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: jrj
 ms.reviewer: igorstan
-ms.openlocfilehash: 1329fe4b30070111354adb87b32be6f694f316c5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: d92d230be1ec0e85894a1e9e4d8635aa71afa514
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054661"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307701"
 ---
 # <a name="sql-data-warehouse-data-integration-partners"></a>Integratiepartners voor SQL Data Warehouse-gegevens
 Kiezen uit een groot aantal toonaangevende hulpprogramma's voor het maken van uw datawarehouse-oplossing. In dit artikel ziet u Microsoft partnerbedrijven met oplossingen voor integratie met de ondersteuning van Azure SQL Data Warehouse.

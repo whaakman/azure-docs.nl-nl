@@ -1,6 +1,6 @@
 ---
-title: Disaster recovery richtlijnen voor Azure Data Lake Store | Microsoft Docs
-description: Hulp bij het herstel na noodgevallen voor Azure Data Lake Store
+title: Richtlijnen voor herstel na noodgevallen voor Azure Data Lake Store | Microsoft Docs
+description: Richtlijnen voor herstel na noodgevallen voor Azure Data Lake Store
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,19 +11,19 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/21/2018
 ms.author: nitinme
-ms.openlocfilehash: 7401355c7920729933d0fcc3dd4cc8ce610c399e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b51f0c1e0c6ef713bf8d3ff0a124300f446a9373
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199072"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306805"
 ---
-# <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Disaster recovery richtlijnen voor gegevens in Data Lake Store
+# <a name="disaster-recovery-guidance-for-data-in-data-lake-store"></a>Richtlijnen voor herstel na noodgevallen voor gegevens in Data Lake Store
 
-Azure Data Lake Store biedt lokaal redundante opslag (LRS). De gegevens in uw Azure Data Lake Store-account is daarom flexibel omgaan met tijdelijke hardwarefouten binnen een regio via geautomatiseerde replica's. Dit garandeert duurzaamheid en een hoge beschikbaarheid, waarmee wordt voldaan aan de SLA van Azure Data Lake Store. In dit artikel biedt richtlijnen voor het beveiligen van uw gegevens verder uit zeldzame regio hele uitval of onopzettelijke verwijderingen.
+Azure Data Lake Store biedt lokaal redundante opslag (LRS). De gegevens in uw Azure Data Lake Store-account is daarom tegen tijdelijke hardwarefouten in een datacenter door automatische replica's. Dit garandeert duurzaamheid en een hoge beschikbaarheid, waarmee wordt voldaan aan de SLA van Azure Data Lake Store. In dit artikel bevat richtlijnen voor het verder beschermen van uw gegevens tegen zeldzame regiobrede storingen of onbedoelde verwijderingen.
 
 ## <a name="disaster-recovery-guidance"></a>Richtlijnen voor herstel na noodgevallen
-Het is essentieel dat elke klant een eigen plan voor herstel na noodgevallen voorbereidt. Lees de informatie in dit artikel voor het bouwen van het noodherstelplan. Hier volgen enkele bronnen waarmee u uw eigen plan kunt maken.
+Het is essentieel dat elke klant een eigen plan voor herstel na noodgevallen voorbereidt. Lees de informatie in dit artikel voor het bouwen van uw plan voor herstel na noodgevallen. Hier volgen enkele bronnen waarmee u uw eigen plan kunt maken.
 
 * [Herstel na noodgevallen en hoge beschikbaarheid voor Azure-toepassingen](../resiliency/resiliency-disaster-recovery-high-availability-azure-applications.md)
 * [Technische richtlijnen voor flexibiliteit van Azure](../resiliency/resiliency-technical-guidance.md)

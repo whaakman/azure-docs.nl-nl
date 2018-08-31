@@ -1,5 +1,5 @@
 ---
-title: Informatie over het gebruik van de Azure-reservering voor Enterprise | Microsoft Docs
+title: Gebruik Azure reserveringen voor Enterprise begrijpen | Microsoft Docs
 description: Informatie over het lezen van uw gebruik voor meer informatie over hoe de Azure-reservering voor uw Enterprise-inschrijving wordt toegepast.
 services: billing
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: manshuk
-ms.openlocfilehash: 5ce0103315f297996ed3f3bd88b5e53558e22e14
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 334271139b791ab60f2bc89ae695ba9bf06b7d12
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628229"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301017"
 ---
 # <a name="understand-azure-reservation-usage-for-your-enterprise-enrollment"></a>Informatie over Azure-reservering gebruik voor uw Enterprise-inschrijving
 
@@ -81,9 +81,9 @@ Het gebruik van uw Azure-reservering wordt ook weergegeven in de samenvatting va
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Azure reserveringen, de volgende artikelen:
+Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 
-- [Wat zijn Azure reserveringen?](billing-save-compute-costs-reservations.md)
+- [Wat zijn Azure-reserveringen?](billing-save-compute-costs-reservations.md)
 - [Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit](../sql-database/sql-database-reserved-capacity.md) 
 - [Azure-reserveringen beheren](billing-manage-reserved-vm-instance.md)

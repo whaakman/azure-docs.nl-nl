@@ -3,19 +3,19 @@ title: Meer informatie over de werking van Azure SQL Data Warehouse | Microsoft 
 description: "In SQL Data Warehouse kunt u de rekencapaciteit naar wens vergroten, verkleinen of onderbreken door het aantal DWU's (Data Warehouse Units) aan te passen met een schuifregelaar. In dit artikel wordt beschreven welke datawarehouse-metrieken er zijn en hoe deze in verhouding staan tot het aantal DWU's. "
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 21e1f687e152cf91bd32389e0d5aa0dabd463b2f
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
+ms.openlocfilehash: c26dfc6f3fd8be28e56c18f0af379130c31aa859
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31794606"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43302163"
 ---
 # <a name="data-warehouse-workload"></a>Datawarehouse-workload
 De workload van een datawarehouse wordt gevormd door alle bewerkingen die op het desbetreffende datawarehouse worden uitgevoerd. De datawarehouse-workload omvat het hele proces van het laden van gegevens in het warehouse tot het uitvoeren van analyses en rapporten met betrekking tot het datawarehouse, het beheren van de gegevens in het datawarehouse en het exporteren van gegevens uit het datawarehouse. De omvang en complexiteit van dergelijke bewerkingen zijn vaak evenredig met de uitgebreidheid van het datawarehouse.

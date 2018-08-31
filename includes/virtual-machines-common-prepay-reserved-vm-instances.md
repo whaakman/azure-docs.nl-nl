@@ -4,12 +4,12 @@ ms.author: yashar
 ms.service: virtual-machines-windows
 ms.topic: include
 ms.date: 08-07-2018
-ms.openlocfilehash: 764470bbf47c18a2ec66dc91d433f8dd14b99a8f
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6be00937a6645fbdd266ac0b1aa1ce95ecc6c3d9
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43040331"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301877"
 ---
 # <a name="prepay-for-virtual-machines-with-azure-reserved-vm-instances"></a>Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties
 
@@ -34,7 +34,7 @@ Gereserveerde VM-instanties zijn beschikbaar voor de meeste VM-grootten met enke
 - Onderdrukte core VM's krijgen geen reservering kortingen.
 - Volgende VM-reeks reservering kortingen niet ophalen: A-serie, Av2-serie en G-serie.
 - Virtuele machines in de Preview-versie: een VM-reeks of de grootte die in de Preview-versie zijn niet beschikbaar voor het kopen van reserveringen.
-- Clouds: reserveringen zijn niet beschikbaar voor aankoop in de regio's Azure US Government, Duitsland en China.
+- Clouds: Reserveringen zijn niet beschikbaar voor aankoop in de regio's Azure US Government, Duitsland en China.
 - Onvoldoende quotum: een reservering die is afgestemd op één abonnement vCPU-quotum is beschikbaar in het abonnement voor de nieuwe gereserveerde instantie moet hebben. Bijvoorbeeld, als het doelabonnement een limiet van 10 vcpu's voor uit de D-serie heeft, kan niet klikt u vervolgens u kopen een reservering voor 11 Standard_D1 exemplaren. De controle van het quotum voor reserveringen bevat de virtuele machines die al zijn geïmplementeerd in het abonnement. Bijvoorbeeld, als het abonnement een quotum van 10 vcpu's voor uit de D-serie heeft en twee standard_D1 instanties zijn geïmplementeerd, kunt klikt u vervolgens u kopen een reservering voor 10 standard_D1-exemplaren in dit abonnement. 
 - Capaciteitsbeperkingen voor: In zeldzame gevallen kan Azure beperkt de aanschaf van nieuwe reserveringen voor een subset van de VM-grootten, vanwege onvoldoende capaciteit in een regio.
 
@@ -68,11 +68,11 @@ Gereserveerde VM-instanties zijn beschikbaar voor de meeste VM-grootten met enke
 
 De reserveringskorting wordt automatisch toegepast op het aantal actieve virtuele machines die overeenkomen met het reserveringsbereik en kenmerken. U kunt het bereik van de reservering via bijwerken [Azure-portal](https://portal.azure.com), PowerShell, CLI, of via de API.
 
-Zie voor meer informatie over het beheren van een reservering, [beheren Azure reserveringen](../articles/billing/billing-manage-reserved-vm-instance.md).
+Zie voor meer informatie over het beheren van een reservering, [Azure-reserveringen beheren](../articles/billing/billing-manage-reserved-vm-instance.md).
 
-Zie voor meer informatie over Azure reserveringen, de volgende artikelen:
+Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 
-- [Wat zijn Azure reserveringen?](../articles/billing/billing-save-compute-costs-reservations.md)
+- [Wat zijn Azure-reserveringen?](../articles/billing/billing-save-compute-costs-reservations.md)
 - [Reserveringen in Azure beheren](../articles/billing/billing-manage-reserved-vm-instance.md)
 - [Begrijpen hoe de reserveringskorting wordt toegepast](../articles/billing/billing-understand-vm-reservation-charges.md)
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](../articles/billing/billing-understand-reserved-instance-usage.md)

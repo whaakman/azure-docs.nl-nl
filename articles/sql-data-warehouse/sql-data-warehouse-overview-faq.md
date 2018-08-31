@@ -3,82 +3,82 @@ title: Veelgestelde vragen over Azure SQL datawarehouse | Microsoft Docs
 description: In dit artikel geeft een lijst van veelgestelde vragen over Azure SQL Data Warehouse van klanten en -ontwikkelaars
 services: sql-data-warehouse
 author: acomet
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: design
 ms.date: 04/17/2018
 ms.author: acomet
 ms.reviewer: igorstan
-ms.openlocfilehash: 7a570dfa6e0a2812a8dd3a25b8903c70fe07befc
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 35252b4d262833daef330a89f1874cc0835c480a
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971700"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306737"
 ---
 # <a name="sql-data-warehouse-frequently-asked-questions"></a>SQL Data Warehouse Veelgestelde vragen over
 
 ## <a name="general"></a>Algemeen
 
-Q. Wat biedt SQL DW voor beveiliging van gegevens?
+V. Wat biedt SQL DW voor beveiliging van gegevens?
 
 A. SQL DW biedt verschillende oplossingen voor het beveiligen van gegevens, zoals TDE en controle. Zie voor meer informatie, [Beveiliging].
 
-Q. Waar vind ik welke standaarden juridische of zakelijke SQL DW is naleven?
+V. Waar vind ik welke standaarden juridische of zakelijke SQL DW is naleven?
 
 A. Ga naar de [Microsoft-naleving] -pagina voor verschillende compliance-aanbiedingen per product, zoals SOC en ISO. Eerst op naleving titel kiezen uit en vouw vervolgens Azure in Microsoft binnen de regeling vallen cloud services sectie aan de rechterkant van de pagina om te zien welke services zijn Azure-services compatibel zijn.
 
-Q. Kan ik Power BI verbinding maken?
+V. Kan ik Power BI verbinding maken?
 
 A. Ja. Hoewel Power BI biedt ondersteuning voor directquery met SQL DW, het niet bedoeld voor een groot aantal gebruikers of realtime-gegevens. Voor gebruik in productieomgevingen van Power BI, wordt u aangeraden Power BI naast Azure Analysis Services of Analysis Service IaaS. 
 
-Q. Wat zijn de capaciteitslimieten van SQL Data Warehouse?
+V. Wat zijn de capaciteitslimieten van SQL Data Warehouse?
 
 A. Zie onze huidige [Capaciteitslimieten] pagina. 
 
-Q. Waarom wordt mijn schaal/onderbreken/hervatten duurt zo lang?
+V. Waarom wordt mijn schaal/onderbreken/hervatten duurt zo lang?
 
 A. Een verscheidenheid aan factoren kan invloed hebben op de tijd voor bewerkingen voor compute. Een algemene aanvraag voor het terugdraaien van de transactionele langlopende bewerkingen is. Wanneer een bewerking voor schalen of onderbreken wordt gestart, wordt alle binnenkomende sessies worden geblokkeerd en query's zijn geleegd. Als u wilt het systeem in een stabiele status laat, worden transacties teruggedraaid terug voordat een bewerking kan beginnen. Hoe groter het nummer en grotere grootte van het logboekbestand van transacties, hoe langer de bewerking wordt gestopt het systeem herstellen naar een stabiele status.
 
 ## <a name="user-support"></a>Gebruikersondersteuning
 
-Q. Ik heb een functieaanvraag waar dien ik deze?
+V. Ik heb een functieaanvraag waar dien ik deze?
 
 A. Als u een functie-aanvraag hebt, dient u dit op onze [UserVoice] pagina
 
-Q. Hoe kan ik x?
+V. Hoe kan ik x?
 
 A. Voor hulp bij het ontwikkelen met SQL Data Warehouse, kunt u vragen stellen op onze [Stack Overflow] pagina. 
 
-Q. Hoe dien ik een ondersteuningsticket?
+V. Hoe dien ik een ondersteuningsticket?
 
 A. [Ondersteuningstickets] kunnen worden ingediend via Azure portal.
 
 ## <a name="sql-languagefeature-support"></a>Ondersteuning voor SQL-taal/functie 
 
-Q. Welke gegevenstypen biedt ondersteuning voor SQL Data Warehouse?
+V. Welke gegevenstypen biedt ondersteuning voor SQL Data Warehouse?
 
 A. SQL Data Warehouse Zie [gegevenstypen].
 
-Q. Welke tabelfuncties ondersteund?
+V. Welke tabelfuncties ondersteund?
 
 A. Hoewel SQL Data Warehouse veel functies ondersteunt, sommige worden niet ondersteund en worden beschreven in [Niet-ondersteunde tabelfuncties].
 
 ## <a name="tooling-and-administration"></a>Hulpprogramma's en -beheer
 
-Q. U bieden ondersteuning voor Database-projecten in Visual Studio.
+V. U bieden ondersteuning voor Database-projecten in Visual Studio.
 
 A. We ondersteunen op dit moment geen Database-projecten in Visual Studio voor SQL Data Warehouse. Als u een stem om op te halen van deze functie cast-conversie uitvoeren wilt, gaat u naar onze Uservoice [Verzoek om de functie van de database-projecten].
 
-Q. SQL Data Warehouse biedt ondersteuning voor REST-API's?
+V. SQL Data Warehouse biedt ondersteuning voor REST-API's?
 
 A. Ja. De meeste REST-functionaliteit die kan worden gebruikt met SQL Database is ook beschikbaar met SQL Data Warehouse. Vindt u informatie in de documentatie van de REST API of [MSDN].
 
 
 ## <a name="loading"></a>Bezig met laden
 
-Q. Welke-clientstuurprogramma's ondersteund?
+V. Welke-clientstuurprogramma's ondersteund?
 
 A. Ondersteuning voor stuurprogramma's voor DW is te vinden in de [verbindingsreeksen] pagina
 

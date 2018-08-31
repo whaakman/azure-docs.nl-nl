@@ -1,5 +1,5 @@
 ---
-title: Hulp bij het verkrijgen van toegang tot en met behulp van de portal mijn Apps in Azure Active Directory | Microsoft Docs
+title: Hulp bij het verkrijgen van toegang tot en met behulp van de MyApps-portal in Azure Active Directory | Microsoft Docs
 description: Hulp bij het aanmelden bij en het uitvoeren van algemene taken in het toegangsvenster.
 services: active-directory
 author: eross-msft
@@ -12,18 +12,18 @@ ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: lizross
 ms.reviewer: japere
-ms.openlocfilehash: a6ac780625f6a109797cbdab78dc555e21e18bee
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 5503681b051066f6601be97bda246128763e7bc7
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39343607"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306407"
 ---
-# <a name="troubleshoot-issues-with-accessing-and-using-the-my-apps-portal"></a>Problemen oplossen met toegang tot en met behulp van de portal mijn Apps
+# <a name="troubleshoot-issues-with-accessing-and-using-the-myapps-portal"></a>Problemen oplossen met toegang tot en met behulp van de MyApps-portal
 
-Als u problemen ondervindt met aanmelden bij of met behulp van de portal mijn Apps, probeert u deze tips voor probleemoplossing voordat u contact opnemen met helpdesk of beheerder voor hulp.
+Als u problemen ondervindt met aanmelden bij of via de MyApps-portal, kunt u deze tips voor probleemoplossing voordat u contact opnemen met helpdesk of beheerder voor hulp.
 
-## <a name="i-am-having-trouble-signing-into-the-my-apps-portal"></a>Ik ondervind problemen bij het aanmelden bij de portal mijn Apps
+## <a name="i-am-having-trouble-signing-into-the-myapps-portal"></a>Ik ondervind problemen bij het aanmelden bij de MyApps-portal
 
 Probeer de volgende algemene tips:
 
@@ -45,7 +45,7 @@ U kunt uw wachtwoord opnieuw instellen of uw account ontgrendelen zonder iemand 
 
 ## <a name="i-am-having-trouble-installing-the-my-apps-secure-sign-in-extension"></a>Ik ondervind problemen bij het installeren van de extensie mijn Apps beveiligen aanmelden
 
-De portal mijn Apps vereist een browser die ondersteuning biedt voor JavaScript en CSS is ingeschakeld. Als u wachtwoord-apps op basis van eenmalige aanmelding gebruikt, moet ook de begeleidende extensie worden geïnstalleerd. Deze extensie wordt automatisch gedownload wanneer u een toepassing die is geconfigureerd voor wachtwoord-apps op basis van eenmalige aanmelding te starten.
+De MyApps-portal vereist een browser die ondersteuning biedt voor JavaScript en CSS is ingeschakeld. Als u wachtwoord-apps op basis van eenmalige aanmelding gebruikt, moet ook de begeleidende extensie worden geïnstalleerd. Deze extensie wordt automatisch gedownload wanneer u een toepassing die is geconfigureerd voor wachtwoord-apps op basis van eenmalige aanmelding te starten.
 
 Controleren om ervoor te zorgen dat u voldoet aan de volgende browservereisten:
 
@@ -63,8 +63,8 @@ U kunt ook de extensie downloaden rechtstreeks vanuit de volgende sites:
 Als u de uitbreiding hebt geïnstalleerd en nog steeds problemen ondervindt, probeert u het volgende:
 
 - Controleer de instellingen van uw browser-extensie om ervoor te zorgen dat de uitbreiding is ingeschakeld.
-- Start uw browser en meld u aan bij de portal mijn Apps.
-- Schakel cookies van uw browser en zich aanmelden bij de portal mijn Apps.
+- Start uw browser en meld u aan bij de MyApps-portal.
+- Schakel cookies van uw browser en meld u aan bij de MyApps-portal.
 - Zie voor toegang tot een hulpprogramma voor diagnostische gegevens en stapsgewijze instructies over het configureren van de extensie voor Internet Explorer, [oplossen met de extensie van het Configuratiescherm toegang voor Internet Explorer](https://docs.microsoft.com/azure/active-directory/active-directory-saas-ie-troubleshooting).
 
 ## <a name="use-the-my-apps-secure-sign-in-extension"></a>Gebruik de mijn Apps beveiligde aanmelding-extensie
@@ -85,7 +85,7 @@ Als u de uitbreiding hebt geïnstalleerd en nog steeds problemen ondervindt, pro
 * Als u wilt starten een app uit de extensie, het volgende doen:
    1. Nadat u de uitbreiding hebt geïnstalleerd, aanmelden bij het selecteren van **Meld u aan de slag**.
    2. Selecteer het pictogram van de extensie om het menu te openen.
-   3. Zoeken naar een app die beschikbaar is in de portal mijn Apps.
+   3. Zoeken naar een app die beschikbaar is in de MyApps-portal.
    4. Selecteer de app in de lijst met zoekresultaten.  
        De laatste drie apps die u hebt gebruikt, worden weergegeven in de **onlangs gebruikte** snelkoppeling naar de lijst.
 

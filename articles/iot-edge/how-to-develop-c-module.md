@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9fc067c46828079f7369683b5edec682747cd5c7
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 65495893d93fddd6d8e13ae80720e002ac7d8efa
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391449"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307485"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in C-modules voor Azure IoT Edge
 
@@ -29,7 +29,7 @@ In dit artikel wordt ervan uitgegaan dat u een computer of virtuele machine met 
 Omdat in dit artikel Visual Studio Code als de belangrijkste ontwikkeltool wordt, Visual Studio Code installeren. Voeg vervolgens de nodige uitbreidingen toe:
 * [Visual Studio Code](https://code.visualstudio.com/) 
 * [Azure IoT Edge-extensie](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-edge) 
-* [C/C++-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) voor Visual Studio Code.
+* [C/C++-extensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools) voor Visual Studio Code (Engelstalig).
 * [Docker-extensie](https://marketplace.visualstudio.com/items?itemName=PeterJausovec.vscode-docker)
 
 Voor het maken van een module, moet u Docker om de installatiekopie van de module en een containerregister voor de module-installatiekopie te bouwen:
@@ -85,7 +85,7 @@ In elke modulemap zijn er verschillende Docker-bestanden voor andere containerty
 
     ![Voeg *** .debug op de installatiekopienaam van uw](./media/how-to-develop-c-module/image-debug.png)
 
-2. Vervang de Node.js-module createOptions in **deployment.template.json** met onderstaande inhoud en sla dit bestand: 
+2. Vervang de C-module createOptions in **deployment.template.json** met onderstaande inhoud en sla dit bestand: 
     
     ```json
     "createOptions": "{\"HostConfig\": {\"Privileged\": true}}"
@@ -93,7 +93,7 @@ In elke modulemap zijn er verschillende Docker-bestanden voor andere containerty
 
 2. Voer in het opdrachtenpalet VS Code en voer de opdracht **Edge: Build IoT Edge-oplossing**.
 3. Selecteer de `deployment.template.json` -bestand voor uw oplossing van de command palette. 
-4. In Azure IoT Hub Device Explorer met de rechtermuisknop op een IoT Edge-apparaat-ID. Selecteer vervolgens **implementatie voor IoT Edge-apparaat maken**. 
+4. In Azure IoT Hub Device Explorer met de rechtermuisknop op een IoT Edge-apparaat-ID. Selecteer vervolgens **implementatie voor één apparaat maken**. 
 5. Openen van uw oplossing **config** map. Selecteer vervolgens de `deployment.json` bestand. Kies **Selecteer Edge-implementatie Manifest**. 
 
 Hier ziet u de implementatie is gemaakt met een implementatie-ID in een VS Code geïntegreerde terminal.
@@ -113,7 +113,7 @@ VS Code houdt opsporen van fouten in configuratie-informatie in een `launch.json
 
 4. VS-Code opsporen in de weergave ziet u de variabelen in het linkerdeelvenster. 
 
-Het vorige voorbeeld laat zien hoe fouten opsporen in C IoT Edge-modules voor containers. Deze blootgestelde poorten in uw container module createOptions toegevoegd. Nadat u klaar bent met het opsporen van fouten in uw Node.js-modules, wordt u aangeraden verwijderen van deze blootgestelde poorten voor de IoT Edge-modules gereed is voor productie.
+Het vorige voorbeeld laat zien hoe fouten opsporen in C IoT Edge-modules voor containers. Deze blootgestelde poorten in uw container module createOptions toegevoegd. Nadat u klaar bent met het opsporen van fouten in uw C-modules, wordt u aangeraden verwijderen van deze blootgestelde poorten voor de IoT Edge-modules gereed is voor productie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: jeedes
-ms.openlocfilehash: ca5bf7ae49cf120c0566419ccadeff92433c6467
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ea2b32b43fedacba7b8a60db29762c32fda65aa5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42820253"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306339"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-arcgis-enterprise"></a>Zelfstudie: Azure Active Directory-integratie met ArcGIS Enterprise
 
@@ -120,7 +120,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<EXTERNAL_DNS_NAME>/portal/sharing/rest/oauth2/saml/signin`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [ArcGIS Enterprise Client-ondersteuningsteam](mailto:nshampur@esri.com) om deze waarden te verkrijgen. Krijgt u de id-waarde van **id-Provider instellen** sectie, die verderop in deze zelfstudie wordt uitgelegd.
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [ArcGIS Enterprise Client-ondersteuningsteam](mailto:support@esri.com) om deze waarden te verkrijgen. Krijgt u de id-waarde van **id-Provider instellen** sectie, die verderop in deze zelfstudie wordt uitgelegd.
 
 5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
 
@@ -195,7 +195,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in ArcGIS Enterprise. ArcGIS Enterprise biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot ArcGIS Enterprise als deze nog niet bestaat.
 
 > [!Note]
-> Als u maken van een gebruiker handmatig wilt, neem dan contact op met [ArcGIS Enterprise-ondersteuningsteam](mailto:nshampur@esri.com).
+> Als u maken van een gebruiker handmatig wilt, neem dan contact op met [ArcGIS Enterprise-ondersteuningsteam](mailto:support@esri.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

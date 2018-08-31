@@ -1,42 +1,42 @@
 ---
-title: Contoso Retail-gegevens naar Azure SQL Data Warehouse laden | Microsoft Docs
-description: PolyBase en T-SQL-opdrachten gebruiken voor het laden van de twee tabellen uit de detailhandel van Contoso-gegevens in Azure SQL Data Warehouse.
+title: Contoso Retail gegevens laden in Azure SQL Data Warehouse | Microsoft Docs
+description: PolyBase en T-SQL-opdrachten gebruiken voor het laden van de twee tabellen uit de detailhandel Contoso-gegevens in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 0b066699475b753bb1104a78a4a1c60564535700
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: cf484d5d7a48117bac659dcfad356238f1e9f8a2
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32190892"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307434"
 ---
 # <a name="load-contoso-retail-data-to-azure-sql-data-warehouse"></a>Contoso Retail-gegevens naar Azure SQL Data Warehouse laden
 
-PolyBase en T-SQL-opdrachten gebruiken voor het laden van de twee tabellen uit de detailhandel van Contoso-gegevens in Azure SQL Data Warehouse. Het voorbeeld uitvoert voor het laden van de volledige gegevensset, [volledige Contoso Retail Data Warehouse laden](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) uit de opslagplaats voor Microsoft SQL Server-voorbeelden.
+PolyBase en T-SQL-opdrachten gebruiken voor het laden van de twee tabellen uit de detailhandel Contoso-gegevens in Azure SQL Data Warehouse. Het voorbeeld uitvoert voor het laden van de volledige gegevensset [laden van de volledige Contoso Retail Data Warehouse](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/contoso-data-warehouse/readme.md) vanuit de opslagplaats met voorbeelden van Microsoft SQL Server.
 
 In deze zelfstudie wordt u:
 
-1. PolyBase laden uit Azure blob-opslag configureren
-2. Openbare gegevens laden in de database
+1. PolyBase te laden uit Azure blob-opslag configureren
+2. Openbare gegevens laden in uw database
 3. Optimalisaties uitvoeren nadat de belasting is voltooid.
 
 ## <a name="before-you-begin"></a>Voordat u begint
-Als u wilt uitvoeren in deze zelfstudie, moet u een Azure-account die al een SQL Data Warehouse-database. Als u dit nog geen hebt, raadpleegt u [maken van een SQL Data Warehouse][Create a SQL Data Warehouse].
+Als u wilt uitvoeren in deze zelfstudie, moet u een Azure-account waarvoor al een SQL Data Warehouse-database. Als u dit nog geen hebt, raadpleegt u [maken van een SQL Data Warehouse][Create a SQL Data Warehouse].
 
-## <a name="1-configure-the-data-source"></a>1. Configureer de gegevensbron
-PolyBase gebruikt externe T-SQL-objecten voor het definiëren van de locatie en de kenmerken van de externe gegevens. De externe objectdefinities worden opgeslagen in SQL Data Warehouse. De gegevens zelf is die extern zijn opgeslagen.
+## <a name="1-configure-the-data-source"></a>1. De gegevensbron configureren
+PolyBase gebruikt externe T-SQL-objecten voor het definiëren van de locatie en de kenmerken van de externe gegevens. De externe objectdefinities worden opgeslagen in SQL Data Warehouse. De gegevens zelf is extern opgeslagen.
 
 ### <a name="11-create-a-credential"></a>1.1. Een referentie maken
-**Deze stap overslaan** als u de openbare Contoso-gegevens worden geladen. U hoeft niet op veilige toegang tot openbare gegevens omdat die al toegankelijk voor iedereen.
+**Deze stap overslaan** als u het laden van de openbare gegevens van Contoso. U hoeft geen beveiligde toegang tot de openbare gegevens omdat dit al toegankelijk voor iedereen.
 
-**Deze stap niet overslaan** als u deze zelfstudie als een sjabloon voor het laden van uw eigen gegevens. Toegang tot gegevens via een referentie op die het volgende script gebruiken voor het maken van een database-scoped referentie en vervolgens worden gebruikt bij het definiëren van de locatie van de gegevensbron.
+**Deze stap niet overslaan** als u deze zelfstudie als een sjabloon gebruikt voor het laden van uw eigen gegevens. Voor toegang tot gegevens via een referentie, het volgende script gebruiken om te maken van een database-scoped referentie en vervolgens worden gebruikt bij het definiëren van de locatie van de gegevensbron.
 
 ```sql
 -- A: Create a master key.
@@ -71,10 +71,10 @@ WITH (
 );
 ```
 
-Verder met stap 2.
+Ga naar stap 2.
 
 ### <a name="12-create-the-external-data-source"></a>1.2. De externe gegevensbron maken
-Gebruik deze [externe gegevensbron maken] [ CREATE EXTERNAL DATA SOURCE] opdracht voor het opslaan van de locatie van de gegevens en het type gegevens. 
+Gebruik deze [CREATE EXTERNAL DATA SOURCE] [ CREATE EXTERNAL DATA SOURCE] opdracht voor het opslaan van de locatie van de gegevens en het type gegevens. 
 
 ```sql
 CREATE EXTERNAL DATA SOURCE AzureStorage_west_public
@@ -86,12 +86,12 @@ WITH
 ```
 
 > [!IMPORTANT]
-> Als u uw azure blob storage-containers om openbaar te maken kiest, houd er rekening mee dat als eigenaar van de gegevens u gefactureerd voor gegevens kosten voor uitgaande wanneer gegevens het datacenter verlaat. 
+> Als u ervoor kiest om uw azure blob storage-containers openbare, houd er rekening mee dat als de gegevenseigenaar van de u in rekening voor gegevens kosten voor uitgaand verkeer gebracht wordt wanneer gegevens het datacenter verlaat. 
 > 
 > 
 
 ## <a name="2-configure-data-format"></a>2. Indeling van gegevens configureren
-De gegevens worden opgeslagen in tekstbestanden in Azure blob-opslag en elk veld wordt gescheiden met een scheidingsteken. Voer deze [EXTERNAL FILE FORMAT maken] [ CREATE EXTERNAL FILE FORMAT] opdracht voor het opgeven van de indeling van de gegevens in de tekstbestanden. De Contoso-gegevens niet-gecomprimeerde en pipe gescheiden.
+De gegevens worden opgeslagen in de tekstbestanden in Azure blob-opslag en elk veld worden gescheiden met een scheidingsteken. Voer deze [CREATE EXTERNAL FILE FORMAT] [ CREATE EXTERNAL FILE FORMAT] opdracht voor het opgeven van de indeling van de gegevens in de tekstbestanden. De gegevens van Contoso is niet-gecomprimeerde en pipe gescheiden.
 
 ```sql
 CREATE EXTERNAL FILE FORMAT TextFileFormat 
@@ -106,7 +106,7 @@ WITH
 ``` 
 
 ## <a name="3-create-the-external-tables"></a>3. De externe tabellen maken
-Nu dat u hebt opgegeven dat de bron- en gegevensindeling, bent u klaar voor het maken van de externe tabellen. 
+Nu dat u de gegevensindeling voor bron- en -bestand hebt opgegeven, bent u klaar om de externe tabellen te maken. 
 
 ### <a name="31-create-a-schema-for-the-data"></a>3.1. Maak een schema voor de gegevens.
 Maak een schema voor het maken van een plaats voor het opslaan van de Contoso-gegevens in uw database.
@@ -117,9 +117,9 @@ GO
 ```
 
 ### <a name="32-create-the-external-tables"></a>3.2. Maak de externe tabellen.
-Voer dit script voor het maken van de DimProduct en FactOnlineSales externe tabellen. Alle we hier doen is kolomnamen en gegevenstypen definiëren, en ze te binden aan de locatie en de indeling van de Azure blob-opslag-bestanden. De definitie is opgeslagen in SQL Data Warehouse en de gegevens nog in de Azure Storage-Blob.
+Voer dit script voor het maken van de DimProduct en FactOnlineSales externe tabellen. We hier doen is kolomnamen en gegevenstypen definiëren en deze te binden aan de locatie en de indeling van de bestanden van de Azure blob-opslag. De definitie wordt opgeslagen in SQL Data Warehouse en de gegevens zijn nog steeds in de Azure Storage-Blob.
 
-De **locatie** parameter is de map onder de hoofdmap in de Azure Storage-Blob. Elke tabel is in een andere map.
+De **locatie** parameter wordt de map onder de hoofdmap van de Azure Storage-Blob. Elke tabel zich in een andere map.
 
 ```sql
 
@@ -205,10 +205,10 @@ WITH
 ```
 
 ## <a name="4-load-the-data"></a>4. De gegevens laden
-Er is een verschillende manieren om toegang te krijgen tot externe gegevens.  U kunt een query over gegevens rechtstreeks vanuit de externe tabel, de gegevens in de nieuwe databasetabellen laden of externe gegevens toevoegen aan bestaande databasetabellen.  
+Er is een verschillende manieren toegang krijgen tot externe gegevens.  U kunt gegevens rechtstreeks vanuit de externe tabel op te vragen, de gegevens in de nieuwe databasetabellen laden of externe gegevens toevoegen aan bestaande databasetabellen.  
 
 ### <a name="41-create-a-new-schema"></a>4.1. Een nieuw schema maken
-CTAS maakt een nieuwe tabel die gegevens bevat.  Maak eerst een schema voor de contoso-gegevens.
+CTAS maakt een nieuwe tabel met gegevens.  Maak eerst een schema voor de gegevens van contoso.
 
 ```sql
 CREATE SCHEMA [cso]
@@ -216,11 +216,11 @@ GO
 ```
 
 ### <a name="42-load-the-data-into-new-tables"></a>4.2. De gegevens in de nieuwe tabellen laden
-Gebruiken om gegevens uit Azure blob-opslag laden en opslaan in een tabel in de database, de [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instructie. Laden met CTAS maakt gebruik van de sterk getypeerde externe tabellen die u zojuist hebt gemaakt. Als u wilt de gegevens in de nieuwe tabellen laden, gebruikt u een [CTAS] [ CTAS] instructie per tabel. 
+Als u wilt laden van gegevens uit Azure blob-opslag en opslaan in een tabel binnen uw database, gebruikt u de [CREATE TABLE AS SELECT (Transact-SQL)] [ CREATE TABLE AS SELECT (Transact-SQL)] instructie. Laden met CTAS maakt gebruik van de sterk getypeerde externe tabellen die u zojuist hebt gemaakt. Als u wilt de gegevens in de nieuwe tabellen laden, gebruikt u een [CTAS] [ CTAS] instructie per tabel. 
  
-CTAS wordt een nieuwe tabel gemaakt en gevuld met de resultaten van een select-instructie. CTAS wordt gedefinieerd in de nieuwe tabel dezelfde kolommen en gegevenstypen hebben als de resultaten van de select-instructie. Als u alle kolommen uit een externe tabel selecteert, worden de nieuwe tabel een replica van de kolommen en gegevenstypen in de externe tabel.
+CTAS maakt een nieuwe tabel gemaakt en gevuld met de resultaten van een select-instructie. CTAS wordt gedefinieerd in de nieuwe tabel hebben dezelfde kolommen en gegevenstypen als de resultaten van de select-instructie. Als u alle kolommen uit een externe tabel selecteert, worden de nieuwe tabel een replica van de kolommen en gegevenstypen in de externe tabel.
 
-We maken als u de dimensie en de feitentabel als hash-gedistribueerde tabellen in dit voorbeeld. 
+In dit voorbeeld maken we zowel de dimensie en de feitentabel als hash-gedistribueerde tabellen. 
 
 ```sql
 SELECT GETDATE();
@@ -231,7 +231,7 @@ CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey
 ```
 
 ### <a name="43-track-the-load-progress"></a>4.3 de load-voortgang bijhouden
-U kunt de voortgang van uw belasting met dynamische beheerweergaven (DMV's) te volgen. 
+U kunt de voortgang van uw load met behulp van dynamische beheerweergave (DMV's) volgen. 
 
 ```sql
 -- To see all requests
@@ -266,10 +266,10 @@ ORDER BY
     gb_processed desc;
 ```
 
-## <a name="5-optimize-columnstore-compression"></a>5. Compressie columnstore optimaliseren
-Standaard worden in de tabel in SQL Data Warehouse opgeslagen als een geclusterde columnstore-index. Nadat een belasting is voltooid, kunnen sommige van de rijen met gegevens niet in de columnstore worden gecomprimeerd.  Er is een aantal redenen waarom dit kan gebeuren. Zie voor meer informatie, [columnstore-indexen beheren][manage columnstore indexes].
+## <a name="5-optimize-columnstore-compression"></a>5. Columnstore-compressie optimaliseren
+Standaard worden in de tabel in SQL Data Warehouse opgeslagen als een geclusterde columnstore-index. Nadat een laden is voltooid, kunnen sommige van de rijen met gegevens niet worden gecomprimeerd in de columnstore.  Er is een aantal redenen waarom dit kan gebeuren. Zie voor meer informatie, [columnstore-indexen beheren][manage columnstore indexes].
 
-Voor het optimaliseren van de prestaties van query's en de compressie columnstore na een werklast in de tabel om af te dwingen de columnstore-index moeten worden gecomprimeerd alle rijen opnieuw worden opgebouwd. 
+Opnieuw maken in de tabel om af te dwingen de columnstore-index voor het comprimeren van alle rijen voor het optimaliseren van prestaties van query's en columnstore-compressie na een laden. 
 
 ```sql
 SELECT GETDATE();
@@ -279,14 +279,14 @@ ALTER INDEX ALL ON [cso].[DimProduct]               REBUILD;
 ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 ```
 
-Zie voor meer informatie over het onderhouden van de columnstore-indexen, de [columnstore-indexen beheren] [ manage columnstore indexes] artikel.
+Zie voor meer informatie over het onderhouden van columnstore-indexen, de [columnstore-indexen beheren] [ manage columnstore indexes] artikel.
 
 ## <a name="6-optimize-statistics"></a>6. Statistieken optimaliseren
-Het is raadzaam om te maken van statistieken voor één kolom onmiddellijk na een belasting. Er zijn enkele mogelijkheden voor statistieken. Bijvoorbeeld als u statistieken voor één kolom in elke kolom maakt het mogelijk lang duren voor het opnieuw samenstellen van de statistieken. Als u weet dat bepaalde kolommen niet gaan worden als in query predicaten, kunt u statistieken maken voor deze kolommen overslaan.
+Het is raadzaam om te maken van statistieken voor één kolom onmiddellijk na een belasting. Er zijn enkele mogelijkheden voor statistieken. Bijvoorbeeld, als u één kolom statistieken voor elke kolom maken duurt het lang alle statistische gegevens opnieuw. Als u weet dat bepaalde kolommen niet meer worden in query-predicaten, kunt u statistieken voor het maken van het overslaan van deze kolommen.
 
-Als u besluit te maken van statistieken voor één kolom voor elke kolom van elke tabel, kunt u de voorbeeldcode van de opgeslagen procedure `prc_sqldw_create_stats` in de [statistieken] [ statistics] artikel.
+Als u besluit te maken van statistieken voor één kolom in elke kolom in elke tabel, kunt u de voorbeeldcode van de opgeslagen procedure `prc_sqldw_create_stats` in de [statistieken] [ statistics] artikel.
 
-Het volgende voorbeeld is een goed uitgangspunt voor het maken van statistieken. Statistieken voor één kolom wordt gemaakt op elke kolom in de dimensietabel en op elke gekoppelde kolom in de feitentabellen. U kunt altijd statistieken met één of meerdere kolommen naar andere kolommen van de tabel feit later toevoegen.
+Het volgende voorbeeld is een goed uitgangspunt voor het maken van statistieken. Statistieken voor één kolom wordt gemaakt op elke kolom in de dimensietabel en op elk lid te worden kolom in de feitentabellen. U kunt altijd één of meerdere kolommen statistieken voor andere kolommen in de tabel feit later toevoegen.
 
 ```sql
 CREATE STATISTICS [stat_cso_DimProduct_AvailableForSaleDate] ON [cso].[DimProduct]([AvailableForSaleDate]);
@@ -330,10 +330,10 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_PromotionKey] ON [cso].[FactOnlineSa
 CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]([StoreKey]);
 ```
 
-## <a name="achievement-unlocked"></a>Bereiken ontgrendeld!
-Openbare gegevens is in Azure SQL Data Warehouse geladen. Taak geweldig!
+## <a name="achievement-unlocked"></a>Prestatie ontgrendeld.
+U hebt gegevens van openbaar is geladen in Azure SQL Data Warehouse. Uitstekend!
 
-U kunt nu starten opvragen van de tabellen met behulp van query's als volgt:
+U kunt nu beginnen de tabellen met behulp van query's als volgt uit:
 
 ```sql
 SELECT  SUM(f.[SalesAmount]) AS [sales_by_brand_amount]
@@ -344,7 +344,7 @@ GROUP BY p.[BrandName]
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-De volledige Contoso Retail-datawarehouse om gegevens te laden, gebruikt u het script in voor meer tips voor ontwikkeling, Zie [overzicht van SQL Data Warehouse voor ontwikkelaars][SQL Data Warehouse development overview].
+De volledige Contoso Retail Data Warehouse om gegevens te laden, gebruikt u het script in voor meer tips voor ontwikkelaars, Zie [overzicht van SQL Data Warehouse voor ontwikkelaars][SQL Data Warehouse development overview].
 
 <!--Image references-->
 

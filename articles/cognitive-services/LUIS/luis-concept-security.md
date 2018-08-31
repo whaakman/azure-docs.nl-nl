@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: fe0ee7d575e69c883ad7f980477e86fbd004778e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fddffbcabba753e9ef214f924d5ff2cee38427a5
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397240"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301690"
 ---
 # <a name="authoring-and-endpoint-user-access"></a>Ontwerp- en eindpunt gebruikerstoegang
 Ontwerpen toegang is beschikbaar voor de eigenaar en samenwerkers. Eindpunt toegang is voor een persoonlijke app beschikbaar voor de eigenaar en samenwerkers. Voor een openbare app is eindpunt toegang beschikbaar voor iedereen die hun eigen account LUIS en heeft de openbare app-ID. 
@@ -60,7 +60,7 @@ Configureren van de app als **openbare** op de **instellingen** pagina van de ap
 Een gebruiker die geen eigenaar of samenwerker, alleen toegang tot een openbare app als de app-ID. LUIS beschikt niet over een openbare _markt_ of andere manier om te zoeken naar een openbare app.  
 
 ## <a name="microsoft-user-accounts"></a>Microsoft-gebruikersaccounts
-Auteurs en samenwerkers kunnen u sleutels LUIS op de pagina publiceren. Het Microsoft-gebruikersaccount dat wordt gemaakt van de LUIS-sleutel in Azure portal, moet de eigenaar van de app of een medewerker van de app. 
+Auteurs en samenwerkers kunnen u sleutels LUIS op de pagina publiceren. Het Microsoft-gebruikersaccount dat wordt gemaakt van de LUIS-sleutel in Azure portal moet de eigenaar van de app of een medewerker van de app. 
 
 Zie [Azure Active Directory-tenant gebruiker](luis-how-to-collaborate.md#azure-active-directory-tenant-user) voor meer informatie over Active Directory-gebruikersaccounts. 
 

@@ -3,25 +3,27 @@ title: Een upgrade uitvoeren naar de nieuwste generatie van Azure SQL Data Wareh
 description: Azure SQL Data Warehouse een upgrade uitvoert naar de nieuwste generatie van Azure hardware- en storage-architectuur.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 08/22/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 1e2993e1f4d28fd5d281ea510121686d3bc37a8c
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b7765182a89e08a2b2b8fcdbdfed82c64893fc27
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746959"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306977"
 ---
 # <a name="optimize-performance-by-upgrading-sql-data-warehouse"></a>Prestaties optimaliseren door bijwerken van SQL Data Warehouse
 Azure SQL Data Warehouse een upgrade uitvoert naar de nieuwste generatie van Azure hardware- en storage-architectuur.
 
 ## <a name="why-upgrade"></a>Waarom een upgrade uitvoeren?
 U kunt nu naadloos upgraden naar de SQL Data Warehouse Compute geoptimaliseerd Gen2 laag in Azure portal. Als u een datawarehouse voor geoptimaliseerd Gen1 Compute-laag hebt, wordt een upgrade aanbevolen. Door een upgrade uitvoert, u kunt de nieuwste generatie van Azure-hardware en verbeterde opslagarchitectuur. U kunt profiteren van betere prestaties, hogere schaalbaarheid en onbeperkte opslag in kolommen. 
+
+> [!VIDEO https://www.youtube.com/embed/9B2F0gLoyss]
 
 ## <a name="applies-to"></a>Van toepassing op
 Deze upgrade is van toepassing op datawarehouses geoptimaliseerd Gen1 Compute-laag.

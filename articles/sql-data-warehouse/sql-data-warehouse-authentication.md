@@ -1,26 +1,26 @@
 ---
-title: Verifiëren met Azure SQL datawarehouse | Microsoft Docs
-description: Informatie over het verifiëren met Azure SQL Data Warehouse met behulp van Azure Active Directory (AAD) of SQL Server-verificatie.
+title: Verifiëren bij Azure SQL datawarehouse | Microsoft Docs
+description: Ontdek hoe u verifieert met Azure SQL Data Warehouse met behulp van Azure Active Directory (AAD) of SQL Server-verificatie.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/12/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: 173bc797cb6436decddb68aaf1599ea7a6dd597e
-ms.sourcegitcommit: fa493b66552af11260db48d89e3ddfcdcb5e3152
-ms.translationtype: HT
+ms.openlocfilehash: d082ba8bd2819450609a8a6e4ab41b4320158d4b
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/23/2018
-ms.locfileid: "31793576"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307826"
 ---
-# <a name="authenticate-to-azure-sql-data-warehouse"></a>Verifiëren met Azure SQL datawarehouse
-Informatie over het verifiëren met Azure SQL Data Warehouse met behulp van Azure Active Directory (AAD) of SQL Server-verificatie.
+# <a name="authenticate-to-azure-sql-data-warehouse"></a>Verifiëren bij Azure SQL datawarehouse
+Ontdek hoe u verifieert met Azure SQL Data Warehouse met behulp van Azure Active Directory (AAD) of SQL Server-verificatie.
 
-Voor verbinding met SQL Data Warehouse, moet u de beveiligingsreferenties doorgeven voor verificatiedoeleinden. Bij het maken van een verbinding, worden bepaalde verbindingsinstellingen geconfigureerd als onderdeel van uw query-sessie tot stand brengen.  
+Voor verbinding met SQL Data Warehouse, moet u in de beveiligingsreferenties doorgeven voor verificatiedoeleinden wordt gebruikt. Bij het maken van een verbinding, worden bepaalde instellingen geconfigureerd als onderdeel van het tot stand brengen van uw query-sessie.  
 
 Zie voor meer informatie over beveiliging en het inschakelen van verbindingen met uw datawarehouse [beveiligen van een database in SQL Data Warehouse][Secure a database in SQL Data Warehouse].
 
@@ -33,57 +33,57 @@ Voor verbinding met SQL Data Warehouse, moet u de volgende informatie opgeven:
 * Wachtwoord
 * Standaard-database (optioneel)
 
-Standaard wordt de verbinding maken met de *master* database en niet de gebruikersdatabase. Voor verbinding met de gebruikersdatabase, kunt u een van twee dingen doen:
+Standaard wordt de verbinding maken met de *master* database en niet de gebruikersdatabase. Voor verbinding met uw gebruikersdatabase, kunt u een van twee dingen doen:
 
-* Geef de standaarddatabase bij het registreren van uw server met SQL Server Object Explorer in SSDT, SSMS, of in de verbindingsreeks voor de toepassing. Zo bevatten de parameter InitialCatalog, is voor een ODBC-verbinding.
-* Markeer de database voordat u een sessie in SSDT maakt.
+* Geef de standaarddatabase bij het registreren van uw server met de SQL Server-Objectverkenner in SSDT, SSMS, of in de verbindingsreeks van uw toepassing. Zo bevatten de parameter InitialCatalog, is voor een ODBC-verbinding.
+* Markeer de gebruikersdatabase voordat u een sessie in SSDT.
 
 > [!NOTE]
-> De Transact-SQL-instructie **gebruik MijnDatabase;** wordt niet ondersteund voor het wijzigen van de database voor een verbinding. Voor richtlijnen die verbinding maken met SQL Data Warehouse met SSDT, raadpleegt u de [Query met Visual Studio] [ Query with Visual Studio] artikel.
+> De Transact-SQL-instructie **gebruik MijnDatabase;** wordt niet ondersteund voor het wijzigen van de database voor een verbinding. Voor richtlijnen voor het verbinding maken met SQL Data Warehouse met SSDT, raadpleegt u de [query's uitvoeren met Visual Studio] [ Query with Visual Studio] artikel.
 > 
 > 
 
-## <a name="azure-active-directory-aad-authentication"></a>Verificatie met Azure Active Directory (AAD)
-[Azure Active Directory] [ What is Azure Active Directory] verificatie is een mechanisme voor verbinding maken met Microsoft Azure SQL Data Warehouse met behulp van identiteiten in Azure Active Directory (Azure AD). Azure Active Directory-verificatie, kunt u de identiteit van gebruikers en andere Microsoft-services op één centrale locatie centraal beheren. Centrale ID-beheer biedt één plaats voor het beheren van gebruikers van de SQL Data Warehouse en vereenvoudigt het beheer van machtigingen. 
+## <a name="azure-active-directory-aad-authentication"></a>Verificatie van Azure Active Directory (AAD)
+[Azure Active Directory] [ What is Azure Active Directory] verificatie is een mechanisme van verbinding maken met Microsoft Azure SQL Data Warehouse met behulp van identiteiten in Azure Active Directory (Azure AD). Met Azure Active Directory-verificatie, kunt u de identiteit van databasegebruikers en andere Microsoft-services op één centrale locatie centraal beheren. Centrale ID-beheer biedt één plek voor het beheren van gebruikers van SQL Data Warehouse en vereenvoudigt het beheer van machtigingen. 
 
 ### <a name="benefits"></a>Voordelen
 Azure Active Directory-voordelen zijn:
 
 * Biedt een alternatief voor SQL Server-verificatie.
-* Houdt de komst van gebruikersidentiteiten voor databaseservers.
-* Hiermee kunt wachtwoord draaien op één plaats
-* Databasemachtigingen met behulp van externe (AAD)-groepen beheren.
-* Elimineert wachtwoorden moet opslaan door het inschakelen van geïntegreerde Windows-verificatie en andere soorten authenticatie wordt ondersteund door Azure Active Directory.
-* Maakt gebruik van opgenomen databasegebruikers om identiteiten op het databaseniveau van de te verifiëren.
+* Houdt de verspreiding van gebruikers-id's in de database-servers.
+* Wisseling van het wachtwoord op één plek kunt
+* Machtigingen van de database met behulp van externe (AAD)-groepen beheren.
+* Voorkomen dat wachtwoorden moet opslaan te maken met geïntegreerde Windows-verificatie en andere vormen van authenticatie wordt ondersteund door Azure Active Directory.
+* Maakt gebruik van ingesloten databasegebruikers om identiteiten op databaseniveau te verifiëren.
 * Biedt ondersteuning voor verificatie op basis van tokens voor toepassingen die verbinding maken met SQL Data Warehouse.
-* Ondersteunt multi-factor authentication via universele verificatie van Active Directory voor SQL Server Management Studio. Zie voor een beschrijving van multi-factor Authentication [SSMS ondersteuning voor Azure AD MFA met SQL-Database en SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
+* Biedt ondersteuning voor multi-factor authentication via universele authenticatie van Active Directory voor SQL Server Management Studio. Zie voor een beschrijving van multi-factor Authentication, [SSMS-ondersteuning voor Azure AD MFA met SQL Database en SQL Data Warehouse](../sql-database/sql-database-ssms-mfa-authentication.md).
 
 > [!NOTE]
-> Azure Active Directory is nog relatief nieuw en bevat enkele beperkingen. Om ervoor te zorgen dat Azure Active Directory geschikt voor uw omgeving is, Zie [Azure AD-functies en beperkingen][Azure AD features and limitations], specifiek voor de aanvullende overwegingen.
+> Azure Active Directory nog relatief nieuw is en heeft bepaalde beperkingen. Om ervoor te zorgen dat Azure Active Directory geschikt is voor uw omgeving, Zie [Azure AD-functies en beperkingen][Azure AD features and limitations], specifiek de aanvullende overwegingen.
 > 
 > 
 
 ### <a name="configuration-steps"></a>Configuratiestappen
 Volg deze stappen voor het configureren van Azure Active Directory-verificatie.
 
-1. U maakt en vult u een Azure Active Directory
-2. Optioneel: Koppelen of de active directory die momenteel is gekoppeld aan uw Azure-abonnement wijzigen
-3. Een Azure Active Directory-beheerder voor Azure SQL Data Warehouse maken.
-4. De clientcomputers configureren
-5. Ingesloten databasegebruikers in de database die is toegewezen aan Azure AD-identiteiten maken
+1. Maken en vullen van een Azure Active Directory
+2. Optioneel: Koppelen of de active directory die is gekoppeld aan uw Azure-abonnement wijzigen
+3. Maak een Azure Active Directory-beheerder voor Azure SQL Data Warehouse.
+4. Uw clientcomputers configureren
+5. Maak ingesloten databasegebruikers in de database die is toegewezen aan Azure AD-identiteiten
 6. Verbinding maken met uw datawarehouse met behulp van Azure AD-identiteiten
 
-Azure Active Directory-gebruikers worden momenteel niet weergegeven in de Objectverkenner SSDT. Als tijdelijke oplossing de gebruikers in bekijken [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
+Azure Active Directory-gebruikers worden momenteel niet weergegeven in SSDT-Objectverkenner. Als tijdelijke oplossing, bekijk de gebruikers in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).
 
 ### <a name="find-the-details"></a>De details
-* De stappen voor het configureren en gebruiken van Azure Active Directory-verificatie zijn bijna identiek zijn voor Azure SQL Database en Azure SQL Data Warehouse. De gedetailleerde stappen in het onderwerp [verbinding maken met SQL-Database of SQL Data Warehouse door met behulp van Azure Active Directory-verificatie](../sql-database/sql-database-aad-authentication.md).
-* Aangepaste database functies maken en gebruikers toevoegen aan de rollen. Vervolgens gedetailleerde machtigingen verlenen voor de rollen. Zie voor meer informatie [aan de slag met machtigingen voor Database-Engine](https://msdn.microsoft.com/library/mt667986.aspx).
+* De stappen voor het configureren en gebruiken van Azure Active Directory-verificatie zijn bijna identiek zijn voor Azure SQL Database en Azure SQL Data Warehouse. Volg de gedetailleerde stappen in het onderwerp [verbinding maken met SQL-Database of SQL Data Warehouse door met behulp van Azure Active Directory-verificatie](../sql-database/sql-database-aad-authentication.md).
+* Aangepaste databaserollen maken en gebruikers toevoegen aan de rollen. Verleen gedetailleerde machtigingen aan de rollen. Zie voor meer informatie, [aan de slag met machtigingen voor Database-Engine](https://msdn.microsoft.com/library/mt667986.aspx).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie het opvragen van uw datawarehouse met Visual Studio en andere toepassingen starten [Query met Visual Studio][Query with Visual Studio].
+Als u wilt gaan met het uitvoeren van query's uw datawarehouse met Visual Studio en andere toepassingen, Zie [query's uitvoeren met Visual Studio][Query with Visual Studio].
 
 <!-- Article references -->
 [Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
 [Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[What is Azure Active Directory]: ../active-directory/active-directory-whatis.md
+[What is Azure Active Directory]:../active-directory/fundamentals/active-directory-whatis.md
 [Azure AD features and limitations]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations

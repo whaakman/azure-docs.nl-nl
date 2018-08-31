@@ -1,32 +1,32 @@
 ---
-title: IDENTITEIT gebruiken voor het maken van sleutels vervangende - Azure SQL Data Warehouse | Microsoft Docs
-description: Aanbevelingen en voorbeelden voor het gebruik van de IDENTITY-eigenschap vervangende om sleutels te maken van tabellen in Azure SQL Data Warehouse.
+title: Vervangend sleutels - Azure SQL Data Warehouse maken met behulp van identiteit | Microsoft Docs
+description: Aanbevelingen en voorbeelden voor het gebruik van de eigenschap id voor het maken van vervangend sleutels in tabellen in Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: ronortloff
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: ab028705f5af7c37017d2e697240b7d3436f5f71
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: abe245e6174cb947e78252941c71ce6857b77f77
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31526981"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306788"
 ---
-# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Met behulp van de identiteit vervangende om sleutels te maken in Azure SQL Data Warehouse
-Aanbevelingen en voorbeelden voor het gebruik van de IDENTITY-eigenschap vervangende om sleutels te maken van tabellen in Azure SQL Data Warehouse.
+# <a name="using-identity-to-create-surrogate-keys-in-azure-sql-data-warehouse"></a>Vervangend sleutels in Azure SQL Data Warehouse maken met behulp van identiteit
+Aanbevelingen en voorbeelden voor het gebruik van de eigenschap id voor het maken van vervangend sleutels in tabellen in Azure SQL Data Warehouse.
 
-## <a name="what-is-a-surrogate-key"></a>Wat is de sleutel van een vervangende?
-Een vervangende sleutel in een tabel is een kolom met een unieke identificatie voor elke rij. De sleutel wordt niet afgeleid van gegevens in de tabel. Gegevens modelers zoals vervangende om sleutels te maken op de tabellen bij het ontwerpen van datawarehouse-modellen. U kunt de IDENTITY-eigenschap te realiseren eenvoudig en effectief zonder laadprestaties gebruiken.  
+## <a name="what-is-a-surrogate-key"></a>Wat is een surrogaatsleutel?
+Een surrogaatsleutel in een tabel is een kolom met een unieke id voor elke rij. De sleutel is niet gegenereerd op basis van gegevens in de tabel. Gegevensmodellen zoals surrogate om sleutels te maken voor de tabellen bij het ontwerpen van datawarehouse-modellen. U kunt de identiteitseigenschap te realiseren eenvoudige en doeltreffende wijze zonder laadprestaties gebruiken.  
 
-## <a name="creating-a-table-with-an-identity-column"></a>Maakt een tabel met een id-kolom
-De IDENTITY-eigenschap is ontworpen voor zonder laadprestaties uitbreiden in de distributies in het datawarehouse. Daarom is de implementatie van de identiteit is gericht op deze doelstellingen te bereiken. 
+## <a name="creating-a-table-with-an-identity-column"></a>Het maken van een tabel met een id-kolom
+De id-eigenschap is ontworpen om uit te schalen in de distributies in het datawarehouse zonder sneller kan worden geladen. De uitvoering van de identiteit is daarom gericht op deze doelstellingen te bereiken. 
 
-Een tabel kunt u definiëren als de IDENTITY-eigenschap hebben wanneer u eerst de tabel maken met behulp van de syntaxis die vergelijkbaar is met de volgende instructie:
+U kunt een tabel definiëren die de identiteitseigenschap wanneer u eerst de tabel maakt met behulp van de syntaxis die vergelijkbaar is met de volgende instructie:
 
 ```sql
 CREATE TABLE dbo.T1
@@ -42,10 +42,10 @@ WITH
 
 Vervolgens kunt u `INSERT..SELECT` voor het vullen van de tabel.
 
-Deze rest van deze sectie worden de nuances van de implementatie voor deze uitgebreider inzicht gemarkeerd.  
+Dit rest van deze sectie ziet u de aspecten van de implementatie kunt u beter te begrijpen.  
 
 ### <a name="allocation-of-values"></a>Toewijzing van waarden
-De volgorde waarin de vervangende waarden worden toegewezen, dat overeenkomt met het gedrag van SQL Server en Azure SQL Database niet worden gegarandeerd dat de IDENTITY-eigenschap. Echter, in Azure SQL Data Warehouse het ontbreken van een garantie groter is. 
+De volgorde waarin de vervangende waarden zijn toegewezen, dat overeenkomt met het gedrag van SQL Server en Azure SQL Database biedt geen garantie voor de identiteitseigenschap. Echter, in Azure SQL Data Warehouse, de afwezigheid van een groter is. 
 
 Het volgende voorbeeld wordt een afbeelding:
 
@@ -72,27 +72,27 @@ FROM dbo.T1;
 DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
-In het voorgaande voorbeeld is twee rijen bevindt zich in distributie 1. De eerste rij de vervangende waarde heeft van 1 in kolom `C1`, en de tweede rij heeft de vervangende waarde 61. Van deze waarden zijn gegenereerd door de IDENTITY-eigenschap. De toewijzing van de waarden is echter niet aaneengesloten. Dit gedrag is standaard.
+In het voorgaande voorbeeld is twee rijen bevindt zich in de distributie van 1. De eerste rij heeft de vervangende waarde van 1 in kolom `C1`, en de tweede rij heeft de vervangende waarde 61. Beide van deze waarden zijn gegenereerd door de identiteitseigenschap. De toewijzing van de waarden is echter niet aaneengesloten. Dit gedrag is standaard.
 
-### <a name="skewed-data"></a>Vertekende gegevens 
-Het bereik van waarden voor het gegevenstype gelijkmatig verdeeld over de distributies. Als een gedistribueerde tabel leidt dit tot slechtere van vertekende gegevens, kan klikt u vervolgens het bereik van waarden die beschikbaar zijn voor het gegevenstype worden uitgeput voortijdig. Bijvoorbeeld, als alle gegevens eindigt in een enkel distributiepunt, heeft vervolgens effectief de tabel toegang tot slechts één zestigste van de waarden van het gegevenstype. Daarom moet de IDENTITY-eigenschap is beperkt tot `INT` en `BIGINT` alleen gegevenstypen.
+### <a name="skewed-data"></a>Asymmetrische gegevens 
+Het bereik van waarden voor het gegevenstype gelijkmatig verdeeld over de distributies. Als een distributietabel te lijden heeft ongelijke gegevens, klikt u vervolgens het bereik van waarden beschikbaar zijn voor het gegevenstype kunt uitgeput raken voortijdig gestopt. Bijvoorbeeld, als alle gegevens eindigt om in een enkel distributiepunt, heeft klikt u vervolgens effectief in de tabel toegang tot slechts één zestigste van de waarden van het gegevenstype. Om deze reden de identiteitseigenschap is beperkt tot `INT` en `BIGINT` gegevenstypen alleen.
 
 ### <a name="selectinto"></a>SELECTEREN... IN
-Wanneer een bestaande id-kolom is geselecteerd in een nieuwe tabel, neemt de nieuwe kolom die de IDENTITY-eigenschap, tenzij een van de volgende voorwaarden voldaan wordt:
+Wanneer een bestaande id-kolom is geselecteerd in een nieuwe tabel, neemt de nieuwe kolom die de identiteitseigenschap, tenzij een van de volgende voorwaarden voldaan wordt:
 - De SELECT-instructie bevat een join.
 - Meerdere SELECT-instructies worden gekoppeld met behulp van de SAMENVOEGING.
-- De identiteitskolom staat meer dan één keer in de selectielijst.
-- De identiteitskolom maakt deel uit van een expressie.
+- De id-kolom is meer dan één keer in de selectielijst worden weergegeven.
+- De id-kolom is onderdeel van een expressie.
     
-Als een van deze voorwaarden voldaan wordt, wordt de kolom geen NULL in plaats van de identiteitseigenschap overneemt gemaakt.
+Als een van deze voorwaarden voldaan wordt, wordt de kolom niet null zijn in plaats van de identiteitseigenschap overneemt gemaakt.
 
 ### <a name="create-table-as-select"></a>TABLE AS SELECT MAKEN
-Maak tabel AS selecteren (CTAS) volgt hetzelfde gedrag voor SQL Server die wordt beschreven voor SELECT... IN. Echter, u een IDENTITY-eigenschap niet opgeven in de definitie van de kolom van de `CREATE TABLE` deel uit van de instructie. Ook in functie IDENTITY niet gebruiken de `SELECT` deel uit van de CTAS. Om te voorzien van een tabel, moet u gebruiken `CREATE TABLE` voor het definiëren van de tabel die wordt gevolgd door `INSERT..SELECT` het vullen.
+CREATE TABLE AS SELECT (CTAS) volgt hetzelfde gedrag voor SQL Server die wordt beschreven in selecteren... IN. U kan niet een eigenschap echter opgeven in de definitie van de kolom van de `CREATE TABLE` deel uitmaakt van de instructie. Ook de functie IDENTITY niet gebruiken de `SELECT` deel uitmaakt van de CTAS. Om in te vullen in een tabel, moet u gebruiken `CREATE TABLE` voor het definiëren van de tabel die wordt gevolgd door `INSERT..SELECT` voor het vullen van het.
 
-## <a name="explicitly-inserting-values-into-an-identity-column"></a>Expliciet invoegen waarden in een identiteitskolom 
-Biedt ondersteuning voor SQL Data Warehouse `SET IDENTITY_INSERT <your table> ON|OFF` syntaxis. Deze syntaxis kunt u expliciet waarden invoegen in de identiteitskolom.
+## <a name="explicitly-inserting-values-into-an-identity-column"></a>Expliciet invoegen waarden in een id-kolom 
+SQL Data Warehouse ondersteunt `SET IDENTITY_INSERT <your table> ON|OFF` syntaxis. Deze syntaxis kunt u expliciet waarden invoegen in de identiteitskolom.
 
-Veel gegevens modelers zoals met vooraf gedefinieerde negatieve waarden voor bepaalde rijen in hun dimensies. Een voorbeeld is de -1 of 'onbekend lid' rij. 
+Veel gegevensmodellen zoals met vooraf gedefinieerde negatieve waarden voor bepaalde rijen in hun dimensies. Een voorbeeld is de -1 of 'onbekende lid' rij. 
 
 Het volgende script laat zien hoe deze rij expliciet toevoegen met behulp van IDENTITY_INSERT instellen:
 
@@ -115,11 +115,11 @@ FROM    dbo.T1
 
 ## <a name="loading-data"></a>Gegevens laden
 
-De aanwezigheid van de IDENTITY-eigenschap heeft een aantal gevolgen toe aan uw code laden van gegevens. Deze sectie worden enkele basispatronen die voor het laden van gegevens in tabellen met behulp van de identiteit. 
+De aanwezigheid van de eigenschap identiteit heeft enkele gevolgen voor uw code laden van gegevens. In deze sectie worden enkele eenvoudige patronen voor het laden van gegevens in tabellen met behulp van identiteit. 
 
-Gegevens laden in een tabel en een vervangend sleutel genereren met behulp van de identiteit, de tabel maken en vervolgens met INSERT... Selecteer of INSERT... WAARDEN voor het uitvoeren van de belasting.
+Voor het laden van gegevens in een tabel en een surrogaatsleutel genereren met behulp van identiteit, maak de tabel en gebruik vervolgens invoegen... Selecteer of invoegen... De waarden uit te voeren van de belasting.
 
-Het volgende voorbeeld illustreert het basispatroon:
+Het volgende voorbeeld wordt het algemene patroon:
  
 ```sql
 --CREATE TABLE with IDENTITY
@@ -148,16 +148,16 @@ DBCC PDW_SHOWSPACEUSED('dbo.T1');
 ```
 
 > [!NOTE] 
-> Het is niet mogelijk te maken tabel AS SELEC gebruiken is momenteel bij het laden van gegevens naar een tabel met een identiteitskolom.
+> Het is niet mogelijk te maken van tabel AS SELEC gebruiken ' momenteel bij het laden van gegevens naar een tabel met een id-kolom.
 > 
 
-Zie voor meer informatie over het laden van gegevens, [ontwerpen extraheren, laden en transformeren (ELT) voor Azure SQL Data Warehouse](design-elt-data-loading.md) en [bij het laden van aanbevolen procedures](guidance-for-loading-data.md).
+Zie voor meer informatie over het laden van gegevens, [ontwerpen uitpakken, Load en Transform (ELT) voor Azure SQL Data Warehouse](design-elt-data-loading.md) en [het laden van aanbevolen procedures](guidance-for-loading-data.md).
 
 
 ## <a name="system-views"></a>Systeemweergaven
-U kunt de [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) catalogusweergave om een kolom waarvoor de eigenschap identiteit te identificeren.
+U kunt de [sys.identity_columns](/sql/relational-databases/system-catalog-views/sys-identity-columns-transact-sql) catalogusweergave om een kolom waarvoor de eigenschap id te identificeren.
 
-Als u het databaseschema beter te begrijpen, dit voorbeeld ziet u het integreren van sys.identity_column' met andere weergaven van de catalogus system:
+Als u wilt, kunt u beter begrip van het databaseschema in dit voorbeeld laat zien hoe sys.identity_column integreren is met andere systeemcatalogusweergaven:
 
 ```sql
 SELECT  sm.name
@@ -178,8 +178,8 @@ AND     tb.name = 'T1'
 ```
 
 ## <a name="limitations"></a>Beperkingen
-De IDENTITY-eigenschap kan niet worden gebruikt:
-- Wanneer het gegevenstype van kolom is geen INT of BIGINT
+De id-eigenschap kan niet worden gebruikt:
+- Wanneer het gegevenstype van kolom is niet INT- of BIGINT
 - Als de kolom is ook de distributiesleutel
 - Als de tabel is een externe tabel 
 
@@ -195,21 +195,21 @@ De volgende gerelateerde functies worden niet ondersteund in SQL Data Warehouse:
 
 ## <a name="common-tasks"></a>Algemene taken
 
-Deze sectie bevat enkele veelvoorkomende taken uitvoeren wanneer u met de id-kolommen werkt kunt u voorbeeldcode. 
+Deze sectie bevat een voorbeeld van code die kunt u algemene taken uitvoert wanneer u met de id-kolommen werkt. 
 
 Kolom C1 is de identiteit in de volgende taken.
  
  
-### <a name="find-the-highest-allocated-value-for-a-table"></a>De hoogste toegewezen waarde vinden voor een tabel
-Gebruik de `MAX()` functie om te bepalen van de hoogste waarde die is toegewezen aan een gedistribueerde tabel:
+### <a name="find-the-highest-allocated-value-for-a-table"></a>Zoek de hoogste toegewezen waarde voor een tabel
+Gebruik de `MAX()` functie om te bepalen van de hoogste waarde voor een distributietabel toegewezen:
 
 ```sql
 SELECT  MAX(C1)
 FROM    dbo.T1
 ``` 
 
-### <a name="find-the-seed-and-increment-for-the-identity-property"></a>De seed- en increment vinden voor de IDENTITY-eigenschap
-U kunt de catalogusweergaven gebruiken voor het detecteren van de identiteit increment- en seed configuratiewaarden voor een tabel met behulp van de volgende query: 
+### <a name="find-the-seed-and-increment-for-the-identity-property"></a>De seed- en increment vinden voor de identiteitseigenschap
+U kunt de catalogusweergaven gebruiken voor het detecteren van de identiteit verhogings-seed configuratiewaarden voor een tabel met behulp van de volgende query uit: 
 
 ```sql
 SELECT  sm.name
@@ -229,5 +229,5 @@ AND     tb.name = 'T1'
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over het ontwikkelen van tabellen, [tabel overview] [Overview].  
+* Voor meer informatie over het ontwikkelen van tabellen, het overzicht [tabel] [Overview].  
 

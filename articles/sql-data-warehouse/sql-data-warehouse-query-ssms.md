@@ -3,19 +3,19 @@ title: Verbinding maken met Azure SQL datawarehouse - SSMS | Microsoft Docs
 description: Gebruik SQL Server Management Studio (SSMS) verbinding maken met en query uitvoeren op Azure SQL Data Warehouse.
 services: sql-data-warehouse
 author: kavithaj
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: consume
 ms.date: 04/17/2018
 ms.author: kavithaj
 ms.reviewer: igorstan
-ms.openlocfilehash: f4b960115da3d30d355768498ae95270acaef49b
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6079c3064699da38fad20468517eb97d6ab107f8
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32182371"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307197"
 ---
 # <a name="connect-to-sql-data-warehouse-with-sql-server-management-studio-ssms"></a>Verbinding maken met SQL datawarehouse met SQL Server Management Studio (SSMS)
 > [!div class="op_single_selector"]
@@ -33,12 +33,12 @@ Gebruik SQL Server Management Studio (SSMS) verbinding maken met en query uitvoe
 Voor deze zelfstudie hebt u het volgende nodig:
 
 * Een bestaande SQL-datawarehouse. Zie [Een SQL-datawarehouse maken][Create a SQL Data Warehouse] om een datawarehouse te maken.
-* SQL Server Management Studio (SSMS) geïnstalleerd. [Installeren van SSMS] [ Install SSMS] gratis als u nog geen hebt.
+* SQL Server Management Studio (SSMS) geïnstalleerd. [Installatie van SSMS] [ Install SSMS] gratis als u nog geen hebt.
 * De volledig gekwalificeerde SQL-servernaam. Zie [Verbinding maken met SQL Data Warehouse][Connect to SQL Data Warehouse] om dit te vinden.
 
 ## <a name="1-connect-to-your-sql-data-warehouse"></a>1. Verbinding maken met uw SQL Data Warehouse
 1. Open SQL Server Management Studio.
-2. Object Explorer geopend. Om dit te doen, selecteert u **bestand** > **Objectverkenner verbinding**.
+2. Open Objectverkenner. Om dit te doen, selecteert u **bestand** > **verbinding maken met Objectverkenner**.
    
     ![SQL Server-objectverkenner][1]
 3. Vul de velden in het venster Connect to Server (Verbinding maken met server) in.
@@ -65,7 +65,7 @@ Nu er een verbinding met uw database is ingesteld, gaat u een query schrijven.
     ```sql
     SELECT COUNT(*) FROM dbo.FactInternetSales;
     ```
-4. Voer de query uit. Om dit te doen, klikt u op `Execute` of gebruik de volgende snelkoppeling: `F5`.
+4. Voer de query uit. Om dit te doen, klikt u op `Execute` of gebruikt u de volgende snelkoppeling: `F5`.
    
     ![Query uitvoeren][5]
 5. Bekijk de resultaten van de query. In dit voorbeeld heeft de tabel FactInternetSales 60398 rijen.

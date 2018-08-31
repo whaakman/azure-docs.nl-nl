@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/10/2018
 ms.author: laviswa
-ms.openlocfilehash: 26928e36b09ef0dfe5576a8a8039ffac2dd3fb4a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: a3a1f376c36004851d6e64f2fa037bebfc24665b
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060184"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43287755"
 ---
 # <a name="query-azure-cosmos-db-data-with-sql-queries"></a>Query uitvoeren op Azure Cosmos DB-gegevens met SQL-query 's
 
@@ -27,17 +27,7 @@ Microsoft Azure Cosmos DB biedt ondersteuning voor documentquery met behulp van 
 
 * Azure Cosmos DB maakt gebruik van JavaScript programmeermodel als basis voor de querytaal. De SQL-API is verankerd ligt in de JavaScript-typesysteem, evaluatie van de expressie en functieaanroepen. Deze beurt biedt een natuurlijke programmeermodel voor projecties van relationele, hiërarchische navigatie in JSON-documenten, self joins, ruimtelijke query's en aanroepen van de gebruiker gedefinieerde functies (UDF's) die zijn geschreven in JavaScript, onder andere volledig. 
 
-Dit artikel begeleidt u enkele voorbeelden van SQL-query's met behulp van eenvoudige JSON-documenten. Zie voor meer informatie over de syntaxis van de Azure Cosmos DB SQL-taal, [naslaginformatie over SQL-syntaxis](sql-api-sql-query-reference.md) artikel. U kunt ook aan de slag met het bekijken van de volgende video's van Azure Cosmos DB de querymogelijkheden en ziet u de online [testomgeving voor Query's](http://www.documentdb.com/sql/demo).
-
-> [!VIDEO https://www.youtube.com/embed/1LqUQRpHfFI]
->
->
-
-Meer geavanceerde query-technieken worden getoond in de volgende video:
-
-> [!VIDEO https://www.youtube.com/embed/kASU9NOIR90]
->
->
+Dit artikel begeleidt u enkele voorbeelden van SQL-query's met behulp van eenvoudige JSON-documenten. Zie voor meer informatie over de syntaxis van de Azure Cosmos DB SQL-taal, [naslaginformatie over SQL-syntaxis](sql-api-sql-query-reference.md) artikel. 
 
 ## <a id="GettingStarted"></a>Aan de slag met SQL-opdrachten
 Maken we twee eenvoudige JSON-documenten en query's uitvoeren op basis van die gegevens. Houd rekening met twee JSON-documenten over families, deze JSON-documenten invoegen in een verzameling en vervolgens de gegevens op te vragen. Hier hebben we een eenvoudige JSON document voor de Andersen en Wakefield families, de bovenliggende, onderliggende items (en hun huisdieren)-adres en registratie-informatie. Het document heeft tekenreeksen, getallen, Booleaanse waarden, matrices en geneste eigenschappen. 

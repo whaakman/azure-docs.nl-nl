@@ -1,36 +1,37 @@
 ---
-title: T-SQL taalelementen - Azure SQL Data Warehouse | Microsoft-documenten
-description: Koppelingen naar de documentatie voor T-SQL-instructies die worden ondersteund in Azure SQL Data Warehouse.
+title: Taalelementen T-SQL - Azure SQL Data Warehouse | Microsoft Docs
+description: Koppelingen naar de documentatie voor T-SQL-instructies ondersteund in Azure SQL Data Warehouse.
 services: sql-data-warehouse
-author: ckarst
-manager: craigg-msft
+author: twounder
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
-ms.author: cakarst
+ms.date: 06/13/2018
+ms.author: mausher
 ms.reviewer: igorstan
-ms.openlocfilehash: bd7665798e5bf26c0e538deb713ef9696c84338c
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: d40861650f479f8ef840c5150b2153f461871331
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43307818"
 ---
-# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>T-SQL taalelementen ondersteund in Azure SQL Data Warehouse
-Koppelingen naar de elementen van de T-SQL taal ondersteund in Azure SQL Data Warehouse-documentatie.
+# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>T-SQL-taalelementen die worden ondersteund in Azure SQL Data Warehouse
+Koppelingen naar de documentatie voor T-SQL-taalelementen die worden ondersteund in Azure SQL Data Warehouse.
 
 ## <a name="core-elements"></a>Core-elementen
-* [Syntaxis conventies](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
-* [naamgevingsregels voor object](https://msdn.microsoft.com/library/ms175874.aspx)
-* [gereserveerde woorden](https://msdn.microsoft.com/library/ms189822.aspx)
+* [Syntaxis van de overeenkomsten](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
+* [naamgevingsregels](https://msdn.microsoft.com/library/ms175874.aspx)
+* [gereserveerde trefwoorden](https://msdn.microsoft.com/library/ms189822.aspx)
 * [sorteringen](https://msdn.microsoft.com/library/ff848763.aspx)
-* [Opmerkingen](https://msdn.microsoft.com/library/ms181627.aspx)
+* [opmerkingen](https://msdn.microsoft.com/library/ms181627.aspx)
 * [Constanten](https://msdn.microsoft.com/library/ms179899.aspx)
-* [Gegevenstypen](https://msdn.microsoft.com/library/ms187752.aspx)
+* [gegevenstypen](https://msdn.microsoft.com/library/ms187752.aspx)
 * [UITVOEREN](https://msdn.microsoft.com/library/ms188332.aspx)
 * [Expressies](https://msdn.microsoft.com/library/ms190286.aspx)
-* [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
-* [Tijdelijke oplossing IDENTITY-eigenschap](https://msdn.microsoft.com/library/ms186775.aspx)
+* [KILL-INSTRUCTIE](https://msdn.microsoft.com/library/ms173730.aspx)
+* [Tijdelijke oplossing id-eigenschap](https://msdn.microsoft.com/library/ms186775.aspx)
 * [PRINT](https://msdn.microsoft.com/library/ms176047.aspx)
 * [GEBRUIK](https://msdn.microsoft.com/library/ms188366.aspx)
 
@@ -49,15 +50,15 @@ Koppelingen naar de elementen van de T-SQL taal ondersteund in Azure SQL Data Wa
 * [+ (Toevoegen)](https://msdn.microsoft.com/library/ms178565.aspx)
 * [+ (Samengevoegde tekenreeks)](https://msdn.microsoft.com/library/ms177561.aspx)
 * [-(Negatief)](https://msdn.microsoft.com/library/ms189480.aspx)
-* [-(Aftrekken)](https://msdn.microsoft.com/library/ms189518.aspx)
+* [-(Verwijderen)](https://msdn.microsoft.com/library/ms189518.aspx)
 * [* (Vermenigvuldigen)](https://msdn.microsoft.com/library/ms176019.aspx)
 * [/ (Delen)](https://msdn.microsoft.com/library/ms175009.aspx)
 * [Modulo](https://msdn.microsoft.com/library/ms190279.aspx)
 
-## <a name="wildcard-characters-to-match"></a>Jokertekens teken (s) moet worden gezocht
+## <a name="wildcard-characters-to-match"></a>Jokertekens (s) waarop
 * [= (Gelijk aan)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (Groter dan)](https://msdn.microsoft.com/library/ms178590.aspx)
-* [< (Minder dan)](https://msdn.microsoft.com/library/ms179873.aspx)
+* [< (Kleiner dan)](https://msdn.microsoft.com/library/ms179873.aspx)
 * [> = (handig dan of gelijk aan)](https://msdn.microsoft.com/library/ms181567.aspx)
 * [< = (kleiner dan of gelijk aan)](https://msdn.microsoft.com/library/ms174978.aspx)
 * [<> (Niet gelijk aan)](https://msdn.microsoft.com/library/ms176020.aspx)
@@ -67,7 +68,7 @@ Koppelingen naar de elementen van de T-SQL taal ondersteund in Azure SQL Data Wa
 * [ER BESTAAT](https://msdn.microsoft.com/library/ms188336.aspx)
 * [IN](https://msdn.microsoft.com/library/ms177682.aspx)
 * [[NOT] IS NULL](https://msdn.microsoft.com/library/ms188795.aspx)
-* [ZOALS](https://msdn.microsoft.com/library/ms179859.aspx)
+* [NET ALS](https://msdn.microsoft.com/library/ms179859.aspx)
 * [NIET](https://msdn.microsoft.com/library/ms189455.aspx)
 * [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
@@ -76,11 +77,11 @@ Koppelingen naar de elementen van de T-SQL taal ondersteund in Azure SQL Data Wa
 * [| (Bitsgewijze OR)](https://msdn.microsoft.com/library/ms186714.aspx)
 * [^ (Bitsgewijs exclusieve OR)](https://msdn.microsoft.com/library/ms190277.aspx)
 * [~ (Bitwise NOT)](https://msdn.microsoft.com/library/ms173468.aspx)
-* [^ = (Bitsgewijze exclusief of is gelijk aan)](https://msdn.microsoft.com/library/cc627413.aspx)
-* [| = (Bitsgewijze of is gelijk aan)](https://msdn.microsoft.com/library/cc627409.aspx)
+* [^ = (Bitsgewijs exclusieve of is gelijk aan)](https://msdn.microsoft.com/library/cc627413.aspx)
+* [| = (Bitsgewijze OR is gelijk aan)](https://msdn.microsoft.com/library/cc627409.aspx)
 * [& = (Bitsgewijze AND is gelijk aan)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## <a name="functions"></a>Functies
+## <a name="functions"></a>Functions
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)
@@ -94,13 +95,13 @@ Koppelingen naar de elementen van de T-SQL taal ondersteund in Azure SQL Data Wa
 * [ATAN](https://msdn.microsoft.com/library/ms181746.aspx)
 * [ATN2](https://msdn.microsoft.com/library/ms173854.aspx)
 * [BINARY_CHECKSUM](https://msdn.microsoft.com/library/ms173784.aspx)
-* [CASE](https://msdn.microsoft.com/library/ms181765.aspx)
+* [AANVRAAG](https://msdn.microsoft.com/library/ms181765.aspx)
 * [CAST en converteren](https://msdn.microsoft.com/library/ms187928.aspx)
 * [MAXIMUM](https://msdn.microsoft.com/library/ms189818.aspx)
 * [CHAR](https://msdn.microsoft.com/library/ms187323.aspx)
 * [CHARINDEX](https://msdn.microsoft.com/library/ms186323.aspx)
 * [CONTROLESOM](https://msdn.microsoft.com/library/ms189788.aspx)
-* [COALESCE](https://msdn.microsoft.com/library/ms190349.aspx)
+* [SAMENVOEGEN](https://msdn.microsoft.com/library/ms190349.aspx)
 * [COL_NAME](https://msdn.microsoft.com/library/ms174974.aspx)
 * [COLLATIONPROPERTY](https://msdn.microsoft.com/library/ms190305.aspx)
 * [CONCAT](https://msdn.microsoft.com/library/hh231515.aspx)
@@ -137,7 +138,7 @@ Koppelingen naar de elementen van de T-SQL taal ondersteund in Azure SQL Data Wa
 * [FIRST_VALUE](https://msdn.microsoft.com/library/hh213018.aspx)
 * [FLOOR](https://msdn.microsoft.com/library/ms178531.aspx)
 * [GETDATE](https://msdn.microsoft.com/library/ms188383.aspx)
-* [GETUTCDATE AAN](https://msdn.microsoft.com/library/ms178635.aspx)
+* [GETUTCDATE](https://msdn.microsoft.com/library/ms178635.aspx)
 * [HAS_DBACCESS](https://msdn.microsoft.com/library/ms187718.aspx)
 * [HASHBYTES](https://msdn.microsoft.com/library/ms174415.aspx)
 * [INDEXPROPERTY](https://msdn.microsoft.com/library/ms187729.aspx)
@@ -146,7 +147,7 @@ Koppelingen naar de elementen van de T-SQL taal ondersteund in Azure SQL Data Wa
 * [ISNUMERIC](https://msdn.microsoft.com/library/ms186272.aspx)
 * [VERTRAGINGSTIJD](https://msdn.microsoft.com/library/hh231256.aspx)
 * [LAST_VALUE](https://msdn.microsoft.com/library/hh231517.aspx)
-* [LEIDEN](https://msdn.microsoft.com/library/hh213125.aspx)
+* [POTENTIËLE KLANTEN](https://msdn.microsoft.com/library/hh213125.aspx)
 * [LEFT](https://msdn.microsoft.com/library/ms177601.aspx)
 * [LEN](https://msdn.microsoft.com/library/ms190329.aspx)
 * [LOGBOEK](https://msdn.microsoft.com/library/ms190319.aspx)
@@ -199,7 +200,7 @@ Koppelingen naar de elementen van de T-SQL taal ondersteund in Azure SQL Data Wa
 * [STDEV](https://msdn.microsoft.com/library/ms190474.aspx)
 * [STDEVP](https://msdn.microsoft.com/library/ms176080.aspx)
 * [STR](https://msdn.microsoft.com/library/ms189527.aspx)
-* [SPULLEN](https://msdn.microsoft.com/library/ms188043.aspx)
+* [DINGEN](https://msdn.microsoft.com/library/ms188043.aspx)
 * [DE SUBTEKENREEKS](https://msdn.microsoft.com/library/ms187748.aspx)
 * [SOM](https://msdn.microsoft.com/library/ms187810.aspx)
 * [SUSER_SNAME](https://msdn.microsoft.com/library/ms174427.aspx)
@@ -253,7 +254,7 @@ Koppelingen naar de elementen van de T-SQL taal ondersteund in Azure SQL Data Wa
 * [sp_tables](https://msdn.microsoft.com/library/ms186250.aspx)
 * [sp_unprepare](https://msdn.microsoft.com/library/ff848735.aspx)
 
-## <a name="set-statements"></a>SET-instructies
+## <a name="set-statements"></a>Instructies instellen
 * [SET ANSI_DEFAULTS](https://msdn.microsoft.com/library/ms188340.aspx)
 * [SET ANSI_NULL_DFLT_OFF](https://msdn.microsoft.com/library/ms187356.aspx)
 * [SET ANSI_NULL_DFLT_ON](https://msdn.microsoft.com/library/ms187375.aspx)
@@ -271,10 +272,10 @@ Koppelingen naar de elementen van de T-SQL taal ondersteund in Azure SQL Data Wa
 * [SET NUMBERIC_ROUNDABORT](https://msdn.microsoft.com/library/ms188791.aspx)
 * [SET QUOTED_IDENTIFIER](https://msdn.microsoft.com/library/ms174393.aspx)
 * [SET ROWCOUNT](https://msdn.microsoft.com/library/ms188774.aspx)
-* [SET TEXTSIZE](https://msdn.microsoft.com/library/ms186238.aspx)
-* [DE TRANSACTIE-ISOLATIENIVEAU INSTELLEN](https://msdn.microsoft.com/library/ms173763.aspx)
-* [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
+* [TEXTSIZE INSTELLEN](https://msdn.microsoft.com/library/ms186238.aspx)
+* [TRANSACTIE-ISOLATIENIVEAU INSTELLEN](https://msdn.microsoft.com/library/ms173763.aspx)
+* [XACT_ABORT IS INGESTELD](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>Volgende stappen
-Voor meer informatie, Zie [T-SQL-instructies in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), en [systeemweergaven in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
+Zie voor meer informatie, [T-SQL-instructies in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-statements.md), en [systeemweergaven in Azure SQL Data Warehouse](sql-data-warehouse-reference-tsql-system-views.md).
 

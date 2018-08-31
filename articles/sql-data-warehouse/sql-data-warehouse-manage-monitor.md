@@ -1,34 +1,34 @@
 ---
-title: Uw werkbelasting via DMV's bewaken | Microsoft Docs
-description: Informatie over het bewaken van uw werkbelasting via DMV's.
+title: Uw workload controleren met DMV's | Microsoft Docs
+description: Leer hoe u uw workload controleren met DMV's.
 services: sql-data-warehouse
 author: kevinvngo
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 887fa4b9f950531438986269d041189d45cdecb2
-ms.sourcegitcommit: 1362e3d6961bdeaebed7fb342c7b0b34f6f6417a
+ms.openlocfilehash: fe989a1693d73dbbea7ed0e3e91ed7aaf6fc37c4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/18/2018
-ms.locfileid: "31522469"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301079"
 ---
 # <a name="monitor-your-workload-using-dmvs"></a>Monitor your workload using DMVs
-In dit artikel wordt beschreven hoe dynamische beheerweergaven (DMV's) gebruiken om te controleren van uw workload. Dit omvat het onderzoeken van de uitvoering van de query in Azure SQL Data Warehouse.
+Dit artikel wordt beschreven hoe u uw workload controleren met dynamische beheerweergaven (DMV's). Dit omvat het onderzoeken van de uitvoering van de query in Azure SQL Data Warehouse.
 
 ## <a name="permissions"></a>Machtigingen
-Om te vragen de DMV's in dit artikel, moet u de status van de DATABASE weergeven of BESTURINGSELEMENT gemachtigd. STATUS van de DATABASE verlenen weergeven is meestal de voorkeur machtiging omdat dit veel meer beperkende.
+Om te vragen de DMV's in dit artikel, moet u de machtiging VIEW DATABASE STATE of BESTURINGSELEMENT. Verlenen VIEW DATABASE STATE is meestal de voorkeur machtiging omdat deze nog veel meer beperkende.
 
 ```sql
 GRANT VIEW DATABASE STATE TO myuser;
 ```
 
 ## <a name="monitor-connections"></a>Monitor-verbindingen
-Alle aanmeldingen met SQL Data Warehouse worden geregistreerd in [sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions].  Deze DMV bevat de laatste 10.000 aanmeldingen.  De session_id de primaire sleutel en sequentieel voor elke nieuwe aanmelding is toegewezen.
+Alle aanmeldingen met SQL Data Warehouse worden geregistreerd in [sys.dm_pdw_exec_sessions][sys.dm_pdw_exec_sessions].  Deze DMV bevat de laatste 10.000 aanmeldingen.  Het type session_id is de primaire sleutel en sequentieel worden verwerkt voor elke nieuwe aanmelding is toegewezen.
 
 ```sql
 -- Other Active Connections
@@ -36,14 +36,14 @@ SELECT * FROM sys.dm_pdw_exec_sessions where status <> 'Closed' and session_id <
 ```
 
 ## <a name="monitor-query-execution"></a>Query uitvoeren van de monitor
-Alle query's uitgevoerd op de SQL Data Warehouse worden geregistreerd in [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  Deze DMV bevat de laatste 10.000 query's uitgevoerd.  De request_id unieke wijze identificeert elke query en is de primaire sleutel voor deze DMV.  De request_id sequentieel is toegewezen voor elke nieuwe query en wordt voorafgegaan door QID staat voor de query-ID.  Deze DMV voor een bepaalde session_id opvragen, ziet u alle query's voor een bepaalde aanmelding.
+Alle query's uitgevoerd op SQL Data Warehouse worden geregistreerd in [sys.dm_pdw_exec_requests][sys.dm_pdw_exec_requests].  Deze DMV bevat de laatste 10.000 query's uitgevoerd.  De request_id uniek identificeert elke query en de primaire sleutel voor deze DMV.  De request_id sequentieel is toegewezen voor elke nieuwe query en wordt voorafgegaan door QID voor de query-ID staat.  Uitvoeren van query's deze DMV voor een bepaald type session_id ziet u alle query's voor een bepaalde aanmelding.
 
 > [!NOTE]
 > Opgeslagen procedures meerdere aanvraag-id's gebruiken.  Aanvraag-id's zijn toegewezen in opeenvolgende volgorde. 
 > 
 > 
 
-Hier volgen de stappen volgen om te onderzoeken queryplannen uitvoering en tijden voor een bepaalde query.
+Hier volgen de stappen te volgen voor het onderzoeken van query-uitvoering plannen en tijden voor een bepaalde query.
 
 ### <a name="step-1-identify-the-query-you-wish-to-investigate"></a>STAP 1: De query die u wilt onderzoeken identificeren
 ```sql
@@ -66,11 +66,11 @@ FROM    sys.dm_pdw_exec_requests
 WHERE   [label] = 'My Query';
 ```
 
-In de voorgaande queryresultaten **Let op de aanvraag-ID** van de query die u wilt onderzoeken.
+In de voorgaande queryresultaten, **Houd er rekening mee de aanvraag-ID** van de query die u wilt onderzoeken.
 
-Query's in de **onderbroken** status wordt in de wachtrij vanwege gelijktijdigheid limieten. Deze query's worden ook weergegeven in de query sys.dm_pdw_waits wacht met het type UserConcurrencyResourceType. Zie voor informatie over limieten voor gelijktijdigheid van taken, [prestatielagen](performance-tiers.md) of [Resource klassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md). Query's kunnen ook wachten om andere redenen zoals voor het object wordt vergrendeld.  Als uw query voor een resource wacht, Zie [onderzoeken van query's die wachten op resources] [ Investigating queries waiting for resources] verderop in dit artikel.
+Query's in de **onderbroken** status zijn in de wachtrij geplaatst vanwege de gelijktijdigheidslimieten. Deze query's worden ook weergegeven in de query sys.dm_pdw_waits wacht met het type UserConcurrencyResourceType. Zie voor meer informatie over gelijktijdigheidslimieten [prestatielagen](performance-tiers.md) of [resourceklassen voor het beheer van de werkbelasting](resource-classes-for-workload-management.md). Query's kunnen ook wachten om andere redenen, zoals voor het object wordt vergrendeld.  Als uw query tot een resource wacht, Zie [onderzoeken van query's die wachten op resources] [ Investigating queries waiting for resources] verderop in dit artikel.
 
-Gebruiken om te vereenvoudigen het opzoeken van een query in de tabel sys.dm_pdw_exec_requests, [LABEL] [ LABEL] een opmerking aan de query die kan worden opgezocht in de weergave sys.dm_pdw_exec_requests toewijzen.
+Gebruik ter vereenvoudiging van het opzoeken van een query in de tabel sys.dm_pdw_exec_requests [LABEL] [ LABEL] om toe te wijzen een opmerking aan de query die kan worden opgezocht in de weergave sys.dm_pdw_exec_requests.
 
 ```sql
 -- Query with Label
@@ -81,7 +81,7 @@ OPTION (LABEL = 'My Query')
 ```
 
 ### <a name="step-2-investigate-the-query-plan"></a>STAP 2: Het queryplan onderzoeken
-De aanvraag-ID gebruiken voor het ophalen van de query gedistribueerde SQL (DSQL) plan van [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
+De aanvraag-ID gebruiken om op te halen van de query gedistribueerde SQL (DSQL) het plan is uit [sys.dm_pdw_request_steps][sys.dm_pdw_request_steps].
 
 ```sql
 -- Find the distributed query plan steps for a specific query.
@@ -92,15 +92,15 @@ WHERE request_id = 'QID####'
 ORDER BY step_index;
 ```
 
-Wanneer een DSQL plan langer duurt dan verwacht, kan de oorzaak een complexe planning met veel DSQL stappen of slechts één stap duurt lang zijn.  Als het plan veel stappen met verschillende migratiebewerkingen is, u kunt uw distributies tabel om te beperken van gegevensverplaatsing. De [tabel distributie] [ Table distribution] artikel wordt uitgelegd waarom de gegevens voor het oplossen van een query moet worden verplaatst en beschrijft een aantal strategieën distributiepunten om te beperken van gegevensverplaatsing.
+Wanneer u een plan DSQL duurt langer dan verwacht, kan de oorzaak een complexe planning met veel DSQL stappen of slechts één stap duurt lang zijn.  Als het plan veel stappen met verschillende verplaatsingsbewerkingen voor het is, kunt u overwegen uw distributies tabel om te beperken van gegevensverplaatsing te optimaliseren. De [tabeldistributie] [ Table distribution] artikel wordt uitgelegd waarom de gegevens voor het oplossen van een query moet worden verplaatst en beschrijft enkele distributiestrategieën om te beperken van gegevensverplaatsing.
 
-Voor het onderzoeken van verdere details over één stap, de *operation_type* kolom van de langlopende query stap en Opmerking de **stap Index**:
+Voor meer informatie over één stap, voor verder onderzoek de *operation_type* kolom van de langlopende querystap en noteer de **Stapindex**:
 
 * Doorgaan met stap 3a voor **SQL-bewerkingen**: OnOperation, RemoteOperation, ReturnOperation.
 * Doorgaan met stap 3b voor **gegevensverplaatsing operations**: ShuffleMoveOperation, BroadcastMoveOperation, TrimMoveOperation, PartitionMoveOperation, MoveOperation, CopyOperation.
 
-### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>STAP 3a: SQL van de gedistribueerde databases onderzoeken
-Gebruik van de aanvraag-ID en de Index van de stap voor het ophalen van de details van [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], die informatie van de uitvoering van de stap van de query op alle gedistribueerde databases bevat.
+### <a name="step-3a-investigate-sql-on-the-distributed-databases"></a>STAP 3a: SQL onderzoeken voor de gedistribueerde databases
+Gebruik van de aanvraag-ID en de Index van de stap voor het ophalen van de details van [sys.dm_pdw_sql_requests][sys.dm_pdw_sql_requests], bevat informatie van de uitvoering van de querystap op alle van de gedistribueerde databases.
 
 ```sql
 -- Find the distribution run times for a SQL step.
@@ -110,7 +110,7 @@ SELECT * FROM sys.dm_pdw_sql_requests
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-Wanneer de stap van de query wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan worden gebruikt om het plan van SQL Server-geschatte ophalen uit de cache voor het plan van SQL Server voor de stap die wordt uitgevoerd op een specifieke distributiepuntengroep.
+Wanneer de querystap van de wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan worden gebruikt om op te halen van de geschatte plan van SQL Server uit de cache van de SQL Server-abonnement voor de stap die wordt uitgevoerd op een bepaalde distributie.
 
 ```sql
 -- Find the SQL Server execution plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -119,8 +119,8 @@ Wanneer de stap van de query wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN] [ DB
 DBCC PDW_SHOWEXECUTIONPLAN(1, 78);
 ```
 
-### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>STAP 3b: verplaatsing van gegevens van de gedistribueerde databases onderzoeken
-Gebruik van de aanvraag-ID en de Index van de stap informatie ophalen over een data movement stap uitgevoerd op elke distributie van [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
+### <a name="step-3b-investigate-data-movement-on-the-distributed-databases"></a>STAP 3b: verplaatsing van gegevens voor de gedistribueerde databases onderzoeken
+Gebruik van de aanvraag-ID en de Index van de stap voor het ophalen van informatie over een data movement stap die wordt uitgevoerd op elke distributie van [sys.dm_pdw_dms_workers][sys.dm_pdw_dms_workers].
 
 ```sql
 -- Find the information about all the workers completing a Data Movement Step.
@@ -130,10 +130,10 @@ SELECT * FROM sys.dm_pdw_dms_workers
 WHERE request_id = 'QID####' AND step_index = 2;
 ```
 
-* Controleer de *total_elapsed_time* kolom om te zien als een bepaalde verdeling aanzienlijk langer duurt dan andere voor verplaatsing van gegevens.
-* Voor de distributie langlopende controleren de *rows_processed* kolom om te zien als het aantal rijen wordt verplaatst van dit distributiepunt aanzienlijk groter dan andere is. Als dit het geval is, kan deze zoeken scheeftrekken van de onderliggende gegevens aangeven.
+* Controleer de *total_elapsed_time* kolom om te zien als een bepaalde distributie aanzienlijk langer dan de andere voor verplaatsing van gegevens duurt.
+* Voor de distributie van langlopende, Controleer de *rows_processed* kolom om te zien of het aantal rijen wordt verplaatst van dit distributiepunt aanzienlijk groter dan andere. Als dit het geval is, kunt u deze zoeken achterhalen scheeftrekken van de onderliggende gegevens.
 
-Als de query wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan worden gebruikt voor het geschatte plan van SQL Server ophalen uit het cachegeheugen van de SQL Server-plan voor de huidige actieve stap van de SQL binnen een bepaald distributie.
+Als de query wordt uitgevoerd, [DBCC PDW_SHOWEXECUTIONPLAN] [ DBCC PDW_SHOWEXECUTIONPLAN] kan worden gebruikt om op te halen van de geschatte plan van SQL Server uit de cache van SQL Server-abonnement voor de momenteel actieve SQL-stap binnen een bepaald distributie.
 
 ```sql
 -- Find the SQL Server estimated plan for a query running on a specific SQL Data Warehouse Compute or Control node.
@@ -144,8 +144,8 @@ DBCC PDW_SHOWEXECUTIONPLAN(55, 238);
 
 <a name="waiting"></a>
 
-## <a name="monitor-waiting-queries"></a>Wachten op query's bewaken
-Als u ontdekt dat de query niet aan te uitgevoerd brengen omdat het wacht op een resource, is dit een query worden alle bronnen wacht op een query.
+## <a name="monitor-waiting-queries"></a>Monitor wachtrij-query 's
+Als u ontdekt dat de query niet wordt uitgevoerd is beschikbaar omdat er wordt gewacht tot een resource, is hier een query waarin alle resources dat een query wordt gewacht.
 
 ```sql
 -- Find queries 
@@ -167,12 +167,12 @@ WHERE waits.request_id = 'QID####'
 ORDER BY waits.object_name, waits.object_type, waits.state;
 ```
 
-Als de query actief op de bronnen van een andere query wachten is, wordt de status van de instelling **AcquireResources**.  Als de query de vereiste resources heeft, wordt de status van de instelling **verleend**.
+Als de query actief op de resources van een andere query wacht is, wordt de status is **AcquireResources**.  Als de query alle vereiste resources heeft, wordt de status is **verleend**.
 
-## <a name="monitor-tempdb"></a>Monitor tempdb
-Hoge tempdb-gebruik, kan de hoofdoorzaak voor trage prestaties en buiten geheugenproblemen zijn. Overweeg het schalen van uw datawarehouse als u de grenzen bereikt tijdens het uitvoeren van query tempdb vinden. De volgende informatie beschrijft hoe u tempdb-gebruik per query op elk knooppunt identificeert. 
+## <a name="monitor-tempdb"></a>Monitor voor tempdb
+Hoge tempdb-gebruik, kan de hoofdoorzaak van trage prestaties en naar geheugenproblemen zijn. Houd rekening met uw datawarehouse schalen als u tempdb uiterste te belasten bereiken tijdens het uitvoeren van query's kunt vinden. De volgende informatie wordt beschreven hoe u tempdb-gebruik per query op elk knooppunt te identificeren. 
 
-De volgende weergave koppelt u het juiste knooppunt-ID voor sys.dm_pdw_sql_requests maken. Met de knooppunt-ID, kunt u andere Pass Through-DMV's gebruiken en koppel deze tabellen met sys.dm_pdw_sql_requests.
+De volgende weergave om te koppelen van de juiste knooppunt-ID voor sys.dm_pdw_sql_requests maken. Met het knooppunt-ID, kunt u andere Pass Through-DMV's gebruiken en deelnemen aan deze tabellen met sys.dm_pdw_sql_requests.
 
 ```sql
 -- sys.dm_pdw_sql_requests with the correct node id
@@ -196,7 +196,7 @@ CREATE VIEW sql_requests AS
 FROM sys.pdw_distributions AS d
 RIGHT JOIN sys.dm_pdw_sql_requests AS sr ON d.distribution_id = sr.distribution_id)
 ```
-Voer de volgende query voor het bewaken van tempdb:
+Voer de volgende query uit voor het controleren van tempdb:
 
 ```sql
 -- Monitor tempdb
@@ -227,11 +227,11 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
     AND es.login_name <> 'sa' 
 ORDER BY sr.request_id;
 ```
-## <a name="monitor-memory"></a>Monitor-geheugen
+## <a name="monitor-memory"></a>Memory bewaken
 
-Geheugen mag de hoofdoorzaak voor trage prestaties en buiten geheugenproblemen. Overweeg het schalen van uw datawarehouse als u SQL Server-geheugengebruik de grenzen bereikt tijdens het uitvoeren van query vinden.
+Geheugen kan de hoofdoorzaak van trage prestaties en naar geheugenproblemen zijn. Houd rekening met uw datawarehouse schalen als u SQL Server-geheugengebruik uiterste te belasten bereiken tijdens het uitvoeren van query's kunt vinden.
 
-De volgende query retourneert SQL Server-gebruik en geheugen geheugendruk per knooppunt:   
+De volgende query retourneert SQL Server-gebruik en het geheugen geheugendruk per knooppunt:   
 ```sql
 -- Memory consumption
 SELECT
@@ -253,8 +253,8 @@ WHERE
 pc1.counter_name = 'Total Server Memory (KB)'
 AND pc2.counter_name = 'Target Server Memory (KB)'
 ```
-## <a name="monitor-transaction-log-size"></a>Grootte van de transactie-logboekbestand bewaken
-De volgende query retourneert de grootte van het transactielogboek op elk distributiepunt. Als een van de logboekbestanden 160 GB bereikt, moet u rekening houden met schalen van uw exemplaar of de grootte van uw transactie te beperken. 
+## <a name="monitor-transaction-log-size"></a>De grootte van de transactie-logboekbestand bewaken
+De volgende query retourneert de grootte van het transactielogboek op elk distributiepunt. Als een van de logboekbestanden van 160 GB bereikt, moet u rekening houden met uw exemplaar omhoog of de grootte van de transactie te beperken. 
 ```sql
 -- Transaction log size
 SELECT
@@ -266,8 +266,8 @@ WHERE
 instance_name like 'Distribution_%' 
 AND counter_name = 'Log File(s) Used Size (KB)'
 ```
-## <a name="monitor-transaction-log-rollback"></a>Terugdraaien van transactie-logboekbestand bewaken
-Als uw query's zijn mislukt of lang duurt om door te gaan, kunt u controleren en bewaken als er transacties worden teruggedraaid.
+## <a name="monitor-transaction-log-rollback"></a>Logboekbestand terugdraaien van de transactie controleren
+Als uw query's zijn mislukt of lang duurt om door te gaan, kunt u controleren en bewaken, hebt u alle transacties terug te draaien.
 ```sql
 -- Monitor rollback
 SELECT 

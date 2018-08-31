@@ -1,45 +1,45 @@
 ---
-title: De columnstore-index prestaties - Azure SQL Data Warehouse verbeteren | Microsoft Docs
-description: Verminder de geheugenvereisten of vergroot de hoeveelheid beschikbaar geheugen om het aantal rijen comprimeren van een columnstore-index in elke rijgroep maximaliseren.
+title: Verbeter prestaties in de columnstore-index - Azure SQL Data Warehouse | Microsoft Docs
+description: Geheugenvereisten verlagen of te verhogen van het beschikbare geheugen voor het maximaliseren van het aantal rijen die een columnstore-index in elke rijgroep comprimeren.
 services: sql-data-warehouse
 author: ckarst
-manager: craigg-msft
+manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
 ms.date: 04/17/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 909b53e65fd893575a944d714f99698c7e45387d
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: e30320631a7fd9b4ee27096556af01f2ad77a746
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32188130"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43306829"
 ---
-# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Het optimaliseren van rijgroep kwaliteit voor columnstore
+# <a name="maximizing-rowgroup-quality-for-columnstore"></a>Rijgroep kwaliteit voor columnstore maximaliseren
 
-Rijgroep kwaliteit wordt bepaald door het aantal rijen in een rijgroep. Verminder de geheugenvereisten of vergroot de hoeveelheid beschikbaar geheugen om het aantal rijen comprimeren van een columnstore-index in elke rijgroep maximaliseren.  Deze methoden gebruiken compressie tarieven verbeteren en prestaties voor columnstore-indexen opvragen.
+Rijgroep kwaliteit wordt bepaald door het aantal rijen in een rijgroep. Geheugenvereisten verlagen of te verhogen van het beschikbare geheugen voor het maximaliseren van het aantal rijen die een columnstore-index in elke rijgroep comprimeren.  Deze methoden gebruiken voor betere compressie tarieven en queryprestaties voor columnstore-indexen.
 
-## <a name="why-the-rowgroup-size-matters"></a>Waarom de rijgroep-grootte van belang is
-Omdat een columnstore-index een tabel scant door kolomsegmenten van afzonderlijke rowgroups scannen, verbetert het optimaliseren van het aantal rijen in elke rijgroep de prestaties van query's. Wanneer rowgroups hebt een groot aantal rijen, verbetert wat betekent dat er minder gegevens te lezen van de schijf is gegevenscompressie de.
+## <a name="why-the-rowgroup-size-matters"></a>Waarom de grootte van de rijgroep belangrijk is
+Omdat een columnstore-index een tabel zoekt door te scannen kolomsegmenten van afzonderlijke rijgroepen, verbetert maximaliseren van het aantal rijen in elke rijgroep de prestaties van query's. Wanneer Rijgroepen een groot aantal rijen hebben, verbetert de compressie van gegevens wat inhoudt dat er minder gegevens te lezen van de schijf.
 
-Zie voor meer informatie over rowgroups [Columnstore-indexen handleiding](https://msdn.microsoft.com/library/gg492088.aspx).
+Zie voor meer informatie over Rijgroepen [gids Columnstore-indexen](https://msdn.microsoft.com/library/gg492088.aspx).
 
-## <a name="target-size-for-rowgroups"></a>Doelgrootte voor rowgroups
-Voor optimale queryprestaties is het doel om te maximaliseren van het aantal rijen per rijgroep in een columnstore-index. Een rijgroep kan een maximum van 1.048.576 rijen hebben. Dit klopt niet het maximum aantal rijen per rijgroep hebben. Columnstore-indexen bereiken van goede prestaties wanneer rowgroups ten minste 100.000 rijen hebben.
+## <a name="target-size-for-rowgroups"></a>Doelgrootte berekenen voor rijgroepen
+Voor de beste queryprestaties, wordt het doel is om het aantal rijen per rijgroep in een columnstore-index te maximaliseren. Een rijgroep kan maximaal 1.048.576 rijen hebben. Het is goed dat u hebt het maximum aantal rijen per rijgroep. Columnstore-indexen bereiken van goede prestaties wanneer Rijgroepen ten minste 100.000 rijen hebben.
 
-## <a name="rowgroups-can-get-trimmed-during-compression"></a>Rowgroups kunt ophalen afgekapte tijdens compressie
+## <a name="rowgroups-can-get-trimmed-during-compression"></a>Rijgroepen kunt ophalen afgekapt tijdens compressie
 
-Tijdens het bulksgewijs laden of columnstore-index opnieuw opbouwen is soms er onvoldoende geheugen beschikbaar is voor het comprimeren van de rijen die zijn aangewezen voor elke rijgroep. Wanneer er geheugendruk, trim columnstore-indexen de grootten rijgroep compressie in de columnstore kan wel. 
+Tijdens een bulksgewijs laden of columnstore-indexen, soms er niet voldoende geheugen beschikbaar is voor alle rijen die zijn aangewezen voor elke rijgroep comprimeren. Wanneer er geheugendruk, trim columnstore-indexen de rijgroep-grootten, zodat de compressie in de columnstore kan slagen. 
 
-Wanneer er onvoldoende geheugen voor het comprimeren van minimaal 10.000 rijen in elke rijgroep, wordt er een fout gegenereerd in SQL Data Warehouse.
+Wanneer er onvoldoende geheugen aan ten minste 10.000 rijen in elke rijgroep comprimeren, wordt er een fout gegenereerd in SQL Data Warehouse.
 
-Zie voor meer informatie over bulksgewijs laden [bulksgewijs laden in een geclusterde columnstore-index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
+Zie voor meer informatie over het bulksgewijs laden, [bulksgewijs laden in een geclusterde columnstore-index](https://msdn.microsoft.com/library/dn935008.aspx#Bulk load into a clustered columnstore index).
 
-## <a name="how-to-monitor-rowgroup-quality"></a>Het bewaken van rijgroep kwaliteit
+## <a name="how-to-monitor-rowgroup-quality"></a>Rijgroep kwaliteit controleren
 
-Er is een DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) die nuttige informatie zoals het aantal rijen in rowgroups en de reden voor bijsnijden als er was u beschikbaar maakt. U kunt de volgende weergave maken als een handige manier om op te vragen deze DMV om informatie over hoe rijgroep worden ingekort.
+Er is een DMV (sys.dm_pdw_nodes_db_column_store_row_group_physical_stats) die nuttige informatie zoals het aantal rijen in Rijgroepen en de reden voor het trimmen als er is u beschikbaar maakt. U kunt de volgende weergave maken als een handige manier om op te vragen van deze DMV voor informatie over het inkorten van rijgroep.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -66,10 +66,10 @@ select *
 from cte;
 ```
 
-De trim_reason_desc geeft aan of de rijgroep is verkleind (trim_reason_desc = NO_TRIM impliceert er is geen inkorten en rijgroep van optimale kwaliteit is). De volgende redenen voor het vrijmaken van opslagruimte voortijdige worden ingekort door de rijgroep aangeven:
-- BULKLOAD: Deze trim reden wordt gebruikt wanneer de binnenkomende batch rijen voor de belasting van minder dan 1 miljoen rijen heeft. De engine voor het gecomprimeerde Rijgroepen maakt als er meer dan 100.000 rijen worden ingevoegd (in plaats van in het archief delta invoegen), maar stelt de beperkende reden op BULKLOAD. In dit scenario kunt u uw venster voor het laden van batch opzij meer rijen verhogen. Herzie ook uw partitieschema om te controleren of dat het is niet te gedetailleerde zoals Rijgroepen niet meerdere grenzen van partities omvatten.
-- MEMORY_LIMITATION: Rijgroepen maakt met 1 miljoen rijen, een bepaalde hoeveelheid werkende geheugen is vereist door de engine. Wanneer het beschikbare geheugen van de sessie laden kleiner is dan het vereiste werkende geheugen, krijgen voortijdig Rijgroepen bijgesneden. De volgende secties wordt uitgelegd hoe schatten geheugen vereist en meer geheugen toewijzen.
-- DICTIONARY_SIZE: Voor deze trim reden geeft aan dat rijgroep bijsnijden omdat er ten minste één kolom met tekenreeksen met een hoge en/of hoge kardinaliteit tekenreeks is opgetreden. Grootte van de bibliotheek is beperkt tot 16 MB in het geheugen en als deze limiet is bereikt de rijgroep is gecomprimeerd. Als u in deze situatie uitvoert, kunt u overwegen de problematisch kolom in een afzonderlijke tabel isoleren.
+De trim_reason_desc geeft aan of de rijgroep is verkleind (trim_reason_desc = NO_TRIM impliceert dat er is geen inkorten en Rijengroep is van de optimale kwaliteit). De volgende redenen knippen geven voortijdige inkorten van de rijgroep:
+- BULKLOAD: Beperkende om die reden wordt gebruikt wanneer de binnenkomende batch rijen voor de belasting minder dan 1 miljoen rijen is. De engine maakt gecomprimeerde Rijgroepen nodig als er meer dan 100.000 rijen worden ingevoegd (in plaats van in de store delta invoegen), maar wordt de beperkende reden ingesteld op BULKLOAD. In dit scenario kunt u verhoging van uw batch load-venster als u wilt meer rijen worden verzameld. Evalueer ook uw partitieschema om te controleren of dat dit is niet te gedetailleerde omdat Rijgroepen kunnen niet de grenzen van partities omvatten.
+- MEMORY_LIMITATION: Voor het maken van Rijgroepen met 1 miljoen rijen, een bepaalde hoeveelheid werkgeheugen is vereist door de engine. Wanneer het beschikbare geheugen van de sessie laden is kleiner dan het vereiste geheugen van de werkende, krijgen voortijdig Rijgroepen bijgesneden. In de volgende secties wordt uitgelegd hoe u schat geheugen die nodig is en meer geheugen toewijzen.
+- DICTIONARY_SIZE: Voor knippen daarom geeft aan dat rijgroep trimming opgetreden omdat er ten minste één kolom met tekenreeksen met brede en/of hoge kardinaliteit tekenreeksen. Grootte van de bibliotheek is beperkt tot 16 MB in het geheugen en zodra deze limiet is bereikt de rijgroep is gecomprimeerd. Als u in deze situatie uitvoert, kunt u overwegen de problematische kolom in een afzonderlijke tabel isoleren.
 
 ## <a name="how-to-estimate-memory-requirements"></a>Hoe u schat geheugenvereisten
 
@@ -77,52 +77,52 @@ De trim_reason_desc geeft aan of de rijgroep is verkleind (trim_reason_desc = NO
 To view an estimate of the memory requirements to compress a rowgroup of maximum size into a columnstore index, download and run the view [dbo.vCS_mon_mem_grant](). This view shows the size of the memory grant that a rowgroup requires for compression in to the columnstore.
 -->
 
-De maximale hoeveelheid vereiste geheugen moeten worden gecomprimeerd één rijgroep is ongeveer
+De maximale vereiste hoeveelheid geheugen voor het comprimeren van één rijgroep is ongeveer
 
 - 72 MB +
 - \#rijen \* \#kolommen \* 8 bytes +
 - \#rijen \* \#korte tekenreekskolommen \* 32 bytes +
-- \#lange tekenreekskolommen \* 16 MB voor compressiebibliotheek
+- \#lange tekenreekskolommen \* 16 MB voor compressie woordenlijst
 
-waar korte tekenreekskolommen gebruiken voor de gegevenstypen string van < = 32 bytes en het gebruik van lange tekenreekskolommen tekenreeks gegevenstypen > 32 bytes.
+waarbij de gegevenstypen string van gebruik maken van korte-tekenreeks-kolommen < = 32 bytes en gebruik van lange tekenreekskolommen tekenreeks gegevenstypen > 32 bytes.
 
-Lange tekenreeksen zijn gecomprimeerd met een compressiemethode die is ontworpen voor het comprimeren van tekst. Deze compressiemethode gebruikt een *woordenlijst* voor het opslaan van tekstpatronen. De maximale grootte van een woordenboek is 16 MB. Er is slechts één woordenlijst voor elke kolom lange tekenreeks in de rijgroep.
+Lange tekenreeksen worden gecomprimeerd met een compressiemethode die is ontworpen voor het comprimeren van tekst. Deze compressiemethode maakt gebruik van een *woordenlijst* voor het opslaan van patronen. De maximale grootte van een woordenlijst is 16 MB. Er is slechts één woordenlijst voor elke kolom lange tekenreeks in de rijgroep.
 
-Zie de video voor een gedetailleerdere beschrijving van de geheugenvereisten columnstore [Azure SQL Data Warehouse schalen: configuratie en richtlijnen](https://myignite.microsoft.com/videos/14822).
+Zie de video voor een uitgebreide beschrijving van de geheugenvereisten columnstore [Azure SQL Data Warehouse schalen: configuratie en richtlijnen](https://myignite.microsoft.com/videos/14822).
 
-## <a name="ways-to-reduce-memory-requirements"></a>Manieren om te verminderen geheugenvereisten
+## <a name="ways-to-reduce-memory-requirements"></a>Manieren om te beperken geheugenvereisten
 
-De volgende technieken gebruiken om te beperken van de geheugenvereisten voor rowgroups comprimeren en columnstore-indexen.
+De volgende technieken gebruiken om te beperken van de geheugenvereisten voor het comprimeren van Rijgroepen in columnstore-indexen.
 
-### <a name="use-fewer-columns"></a>Gebruik minder kolommen
-Ontwerp, indien mogelijk, de tabel met minder kolommen. Wanneer een rijgroep in de columnstore is gecomprimeerd, de columnstore-index elk kolomsegment afzonderlijk gecomprimeerd. Daarom is de geheugenvereisten voor het comprimeren van een rijgroep verhogen als het aantal kolommen toeneemt.
+### <a name="use-fewer-columns"></a>Minder kolommen gebruiken
+Ontwerp, indien mogelijk, de tabel met minder kolommen. Wanneer een rijgroep is in de columnstore gecomprimeerd, de columnstore-index elke kolomsegment afzonderlijk gecomprimeerd. Daarom de geheugenvereisten voor het comprimeren van een rijgroep worden groter naarmate het aantal kolommen toeneemt.
 
 
-### <a name="use-fewer-string-columns"></a>Gebruik minder tekenreekskolommen
-Kolommen van de gegevenstypen string vereisen meer geheugen dan numerieke en datum-gegevenstypen. Overweeg om te beperken geheugenvereisten, tekenreekskolommen verwijderen uit feitentabellen en ze in kleinere dimensietabellen te plaatsen.
+### <a name="use-fewer-string-columns"></a>Minder tekenreekskolommen gebruiken
+Kolommen van de gegevenstypen string vereisen meer geheugen dan numerieke en datum-gegevenstypen. Als u wilt verkleinen geheugenvereisten, houd rekening met verwijderen van tekenreekskolommen in feitentabellen en u ze in een kleinere dimensietabellen.
 
 Extra geheugen nodig voor de compressie van de tekenreeks:
 
 - De gegevenstypen String maximaal 32 tekens kunnen 32 aanvullende bytes per waarde vereisen.
-- De gegevenstypen String met meer dan 32 tekens zijn gecomprimeerd met behulp van methoden van de woordenlijst.  Elke kolom in de rijgroep kan maximaal 16 MB extra vereisen voor het bouwen van de woordenlijst.
+- De gegevenstypen String met meer dan 32 tekens worden gecomprimeerd met behulp van methoden van de woordenlijst.  Elke kolom in de rijgroep kan maximaal 16 MB extra vereisen voor het bouwen van de woordenlijst.
 
-### <a name="avoid-over-partitioning"></a>Te veel partitioneren voorkomen
+### <a name="avoid-over-partitioning"></a>Voorkomen dat te veel partities
 
-Columnstore-indexen maken een of meer rowgroups per partitie. In SQL Data Warehouse groeit het aantal partities snel omdat de gegevens wordt gedistribueerd en elke distributie is gepartitioneerd. Als de tabel te veel partities heeft, er mogelijk niet voldoende rijen voor het vervullen van de rowgroups. Het ontbreken van rijen maakt geen geheugendruk tijdens compressie, maar dit leidt tot rowgroups die de beste prestaties van de columnstore-query kan niet worden bereikt.
+Columnstore-indexen maken van een of meer Rijgroepen per partitie. In SQL Data Warehouse toeneemt het aantal partities snel omdat de gegevens worden gedistribueerd en elke distributie is gepartitioneerd. Als de tabel te veel partities heeft, er mogelijk niet genoeg rijen om in te vullen van de Rijgroepen. Het ontbreken van rijen maakt geen geheugendruk tijdens compressie, maar dit leidt tot Rijgroepen die de beste prestaties van de columnstore-query kan niet worden bereikt.
 
-Een andere reden om te voorkomen dat te veel partitionering is er een geheugen overhead voor het laden van rijen in een columnstore-index in een gepartitioneerde tabel. Tijdens een werklast kunnen veel partities ontvangen de binnenkomende rijen die in het geheugen worden bewaard totdat elke partitie onvoldoende rijen heeft moeten worden gecomprimeerd. Aanvullende geheugendruk met te veel partities worden gemaakt.
+Een andere reden om te voorkomen dat te veel partities is er een geheugen overhead voor het laden van rijen in een columnstore-index in een gepartitioneerde tabel. Tijdens een belasting kunnen veel partities ontvangen van de binnenkomende rijen, die in het geheugen worden bewaard totdat elke partitie onvoldoende rijen heeft moeten worden gecomprimeerd. Aanvullende geheugendruk te veel partities worden gemaakt.
 
 ### <a name="simplify-the-load-query"></a>Vereenvoudig de query laden
 
-De database deelt de geheugentoekenning voor een query tussen de operators in de query. Wanneer een query load complexe sorteerbewerkingen en joins heeft, wordt het geheugen dat beschikbaar is voor de compressie verlaagd.
+De database deelt de geheugentoekenning voor een query uit alle operators in de query. Wanneer een query load ingewikkeld gesorteerd en joins heeft, wordt het geheugen dat beschikbaar is voor de compressie verlaagd.
 
-Ontwerp van de load-query om zich te richten alleen voor het laden van de query. Als u wilt de transformaties uitvoeren op de gegevens, los van de load-query uitvoeren. Bijvoorbeeld, fase van de gegevens in een tabel heap, de transformaties uitvoeren en vervolgens de faseringstabel in de columnstore-index te laden. U kunt ook de gegevens eerst laden en gebruik vervolgens de MPP-systeem om de gegevens te transformeren.
+Ontwerp van de load-query om u te richten op het laden van de query. Als u uitvoeren van transformaties op de gegevens wilt, los van de load-query uitvoeren. Bijvoorbeeld, fase van de gegevens in een heap-tabel, de transformaties uitvoeren en vervolgens de tijdelijke tabel in de columnstore-index te laden. U kunt ook eerst de gegevens te laden en vervolgens de MPP-systeem gebruiken om de gegevens te transformeren.
 
 ### <a name="adjust-maxdop"></a>MAXDOP aanpassen
 
-Elk distributiepunt comprimeert rowgroups in de columnstore parallel wanneer er meer dan één CPU-kern beschikbaar per distributiepunt. De parallelle uitvoering vereist extra geheugenbronnen, wat tot geheugendruk en rijgroep bijsnijden leiden kunnen.
+Elke distributie comprimeert Rijgroepen in de columnstore parallel wanneer er meer dan één CPU-kern beschikbaar per distributiepunt. De parallelle uitvoering vereist extra geheugenbronnen, wat tot geheugendruk en rijgroep inkorten leiden kunnen.
 
-Als u geheugendruk, kunt u de query MAXDOP hint om af te dwingen de laadbewerking worden uitgevoerd in seriële modus binnen elk distributiepunt.
+Als u wilt verkleinen geheugendruk, kunt u de queryhint MAXDOP om af te dwingen de bewerking voor het laden worden uitgevoerd in seriële modus binnen elke distributie.
 
 ```
 CREATE TABLE MyFactSalesQuota
@@ -133,20 +133,20 @@ OPTION (MAXDOP 1);
 
 ## <a name="ways-to-allocate-more-memory"></a>Manieren om meer geheugen toewijzen
 
-DWU-grootte en de resource gebruikersklasse samen bepalen hoeveel geheugen beschikbaar is voor de aanvraag voor een gebruiker. Voor een verhoging van de geheugentoekenning voor een load-query kunt u Verhoog het aantal dwu's of vergroot de bronklasse.
+DWU-grootte en de gebruiker resourceklasse samen bepalen hoeveel geheugen beschikbaar is voor de aanvraag voor een gebruiker. Om te vergroten de geheugentoekenning voor een load-query, kunt u het aantal dwu's verhogen of verhogen van de resourceklasse.
 
-- Zie voor een verhoging van het aantal dwu's [hoe schalen prestaties?](quickstart-scale-compute-portal.md)
-- Zie het wijzigen van de bronklasse voor een query [wijzigen van een voorbeeld van een gebruiker resource klasse](resource-classes-for-workload-management.md#change-a-users-resource-class).
+- Als u wilt vergroten de dwu's, Zie [hoe schalen prestaties?](quickstart-scale-compute-portal.md)
+- De resourceklasse van een query, Zie [wijzigen van een voorbeeld van een gebruiker resource klasse](resource-classes-for-workload-management.md#change-a-users-resource-class).
 
-Bijvoorbeeld op DWU 100 kunt een gebruiker in de bronklasse smallrc 100 MB aan geheugen voor elk distributiepunt. Zie voor meer informatie, [gelijktijdigheid in SQL Data Warehouse](resource-classes-for-workload-management.md).
+Bijvoorbeeld op 100 DWU kunt een gebruiker in de resourceklasse smallrc 100 MB aan geheugen voor elke distributie. Zie voor informatie [gelijktijdigheid in SQL Data Warehouse](resource-classes-for-workload-management.md).
 
 Stel dat u vastgesteld dat er 700 MB geheugen voor het ophalen van hoge kwaliteit rijgroep grootten. Deze voorbeelden laten zien hoe u de load-query kunt uitvoeren met onvoldoende geheugen.
 
-- DWU-1000 en mediumrc gebruikt, is uw geheugentoekenning 800 MB
-- DWU 600 en largerc gebruikt, is uw geheugentoekenning 800 MB.
+- Met behulp van DWU 1000 en mediumrc, is uw geheugentoekenning 800 MB
+- Met behulp van DWU 600 en largerc, is uw geheugentoekenning 800 MB.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga voor meer manieren om de prestaties verbeteren in SQL Data Warehouse, Zie de [prestatieoverzicht](sql-data-warehouse-overview-manage-user-queries.md).
+Meer manieren voor het verbeteren van de prestaties van SQL Data Warehouse, Zie de [prestatieoverzicht](sql-data-warehouse-overview-manage-user-queries.md).
 
