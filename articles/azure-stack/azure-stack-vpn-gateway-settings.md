@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: get-started-article
 ms.date: 08/14/2018
 ms.author: brenduns
-ms.openlocfilehash: e9e474fe4a32bb99673fba2a88f28a3161f23362
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6380936766bb0f3848811be305783c274867b0fc
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139448"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381864"
 ---
 # <a name="vpn-gateway-configuration-settings-for-azure-stack"></a>VPN-gatewayconfiguratie-instellingen voor Azure Stack
 
@@ -27,7 +27,7 @@ ms.locfileid: "42139448"
 
 Een VPN-gateway is een type virtuele netwerkgateway waarmee versleuteld verkeer tussen het virtuele netwerk in Azure Stack en een externe VPN-gateway wordt verzonden. De externe VPN-gateway kan zijn in Azure, een apparaat in uw datacenter of een apparaat in een andere site.  Als er verbinding met het netwerk tussen de twee eindpunten, kunt u een veilige Site-naar-Site (S2S) VPN-verbinding tussen de twee netwerken kunt maken.
 
-Een VPN-gatewayverbinding is afhankelijk van de configuratie van meerdere resources, die elk configureerbare instellingen bevat. De secties in dit artikel worden de resources en de instellingen die betrekking op een VPN-gateway voor een virtueel netwerk hebt gemaakt in Resource Manager-implementatiemodel hebben. U vindt beschrijvingen en topologiediagrammen voor elke oplossing voor verbinding [over VPN-Gateway voor Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
+Een VPN-gatewayverbinding is afhankelijk van de configuratie van meerdere resources, die elk configureerbare instellingen bevat. Dit artikel worden de resources en de instellingen die betrekking hebben op een VPN-gateway voor een virtueel netwerk die u in het Resource Manager-implementatiemodel maakt. U vindt beschrijvingen en topologiediagrammen voor elke oplossing voor verbinding [over VPN-Gateway voor Azure Stack](azure-stack-vpn-gateway-about-vpn-gateways.md).
 
 ## <a name="vpn-gateway-settings"></a>Instellingen voor VPN gateway
 
@@ -100,7 +100,7 @@ Wanneer u de virtuele netwerkgateway voor de configuratie van een VPN-gateway ma
 >
 > Bovendien Azure Stack biedt geen ondersteuning met behulp van beleid gebaseerde Verkeerkiezers voor Route gebaseerde Gateways op dit moment, omdat aangepaste configuraties voor IPSec/IKE-beleid worden niet ondersteund.
 
-* **PolicyBased**: VPN-verbindingen op basis van beleid versleutelen pakketten en sturen via IPsec-tunnels op basis van de IPsec-beleidsregels die zijn geconfigureerd met de combinaties van adresvoorvoegsels tussen uw on-premises netwerk en het Azure Stack-VNet. Het beleid of de verkeersselector, wordt gewoonlijk gedefinieerd als een toegangslijst in de configuratie van de VPN-apparaat.
+* **PolicyBased**: VPN-verbindingen op basis van beleid versleutelen pakketten en sturen via IPsec-tunnels op basis van de IPsec-beleidsregels die zijn geconfigureerd met de combinaties van adresvoorvoegsels tussen uw on-premises netwerk en het Azure Stack-VNet. Het beleid of de verkeersselector, is doorgaans een toegangslijst in de configuratie van de VPN-apparaat.
 
   >[!NOTE]
   >PolicyBased wordt ondersteund in Azure, maar niet in Azure Stack.
@@ -163,7 +163,7 @@ Soms moet u de instellingen van uw lokale netwerkgateway wijzigen. Bijvoorbeeld,
 
 ## <a name="ipsecike-parameters"></a>IPsec/IKE-parameters
 
-Bij het instellen van een VPN-verbinding in Azure Stack, moet u de verbinding aan beide uiteinden configureren.  Als u een VPN-verbinding tussen Azure Stack en een hardwareapparaat zoals een switch of router, dat als een VPN-Gateway fungeert, configureert dat apparaat mogelijk vragen u om aanvullende instellingen.
+Bij het instellen van een VPN-verbinding in Azure Stack, moet u de verbinding aan beide uiteinden configureren.  Als u een VPN-verbinding tussen Azure Stack en een hardwareapparaat zoals een switch of router die als een VPN-Gateway fungeert configureert, dat apparaat mogelijk vragen u om aanvullende instellingen.
 
 In tegenstelling tot Azure, die ondersteuning biedt voor meerdere aanbiedingen als zowel een begin- en een eindpunt, Azure Stack biedt ondersteuning voor slechts één aanbieding.
 
@@ -184,14 +184,12 @@ In tegenstelling tot Azure, die ondersteuning biedt voor meerdere aanbiedingen a
 |IKE-versie |IKEv2 |
 |Versleuteling en hash-algoritmen (codering)     | GCMAES256|
 |Versleuteling en hash-algoritmen (verificatie) | GCMAES256|
-|SA-levensduur (tijd)  | 27.000 seconden<sup>Zie Opmerking 1</sup> |
-|SA-levensduur (bytes) | 33,553,408<sup>Zie Opmerking 2</sup>     |
-|Perfect Forward Secrecy (PFS) |Geen<sup>Zie Opmerking 3</sup> |
+|SA-levensduur (tijd)  | 27.000 seconden  |
+|SA-levensduur (bytes) | 33,553,408     |
+|Perfect Forward Secrecy (PFS) |Geen<sup>Zie Opmerking 1</sup> |
 |Dead Peer Detection | Ondersteund|  
 
-* *Opmerking 1:* voorafgaand aan versie 1803, gebruikt Azure Stack een waarde van resulteren in 14.400 voor het SA-levensduur (tijd).
-* *Opmerking 2:* voorafgaand aan versie 1803, gebruikt Azure Stack een waarde van 819,200 voor het SA-levensduur (Bytes).
-* *Houd er rekening mee 3:* voorafgaand aan versie 1807, Azure Stack wordt een waarde van PFS2048 voor de Perfect Forward Secrecy (PFS).
+* *Opmerking 1:* voorafgaand aan versie 1807, Azure Stack wordt een waarde van PFS2048 voor de Perfect Forward Secrecy (PFS).
 
 ## <a name="next-steps"></a>Volgende stappen
 
