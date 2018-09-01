@@ -1,212 +1,219 @@
+items:
 - name: Documentatie voor verificatie
   href: index.yml
 - name: Overzicht
   items:
-    - name: Wat is verificatie?
-      href: overview-authentication.md
+  - name: Wat is verificatie?
+    href: overview-authentication.md
 - name: Snelstartgids
   items:
-    - name: Opnieuw instellen van wachtwoord configureren
-      href: quickstart-sspr.md
+  - name: Opnieuw instellen van wachtwoord configureren
+    href: quickstart-sspr.md
 - name: Zelfstudies
   items:
-    - name: 1 MFA voor toepassingen inschakelen
-      href: tutorial-mfa-applications.md
-    - name: 2 Een proef voor selfservice voor wachtwoordherstel beginnen
-      href: tutorial-sspr-pilot.md
-    - name: On-premises integratie van selfservice voor wachtwoordherstel inschakelen
-      href: tutorial-enable-writeback.md
-    - name: Windows 10-wachtwoordherstel inschakelen
-      href: tutorial-sspr-windows.md
-    - name: Azure Identity Protection integreren
-      href: tutorial-risk-based-sspr-mfa.md
+  - name: 1 MFA voor toepassingen inschakelen
+    href: tutorial-mfa-applications.md
+  - name: 2 Een proef voor selfservice voor wachtwoordherstel beginnen
+    href: tutorial-sspr-pilot.md
+  - name: On-premises integratie van selfservice voor wachtwoordherstel inschakelen
+    href: tutorial-enable-writeback.md
+  - name: Windows 10-wachtwoordherstel inschakelen
+    href: tutorial-sspr-windows.md
+  - name: Azure Identity Protection integreren
+    href: tutorial-risk-based-sspr-mfa.md
 - name: Concepten
-  expanded: true
   items:
-    - name: Verificatiemethoden
-      href: concept-authentication-methods.md
-    - name: Geconvergeerde registratie
-      href: concept-registration-mfa-sspr-converged.md
-    - name: Self-service voor wachtwoord opnieuw instellen
-      items:
-        - name: Hoe het opnieuw instellen van het wachtwoord werkt
-          href: concept-sspr-howitworks.md
-        - name: Opties voor het wachtwoord opnieuw instellen
-          href: concept-sspr-customization.md
-        - name: Beleid voor het opnieuw instellen van het wachtwoord
-          href: concept-sspr-policy.md
-        - name: Welke licentie heb ik nodig?
-          href: concept-sspr-licensing.md
-        - name: On-premises integratie
-          href: concept-sspr-writeback.md
-    - name: Multi-Factor Authentication
-      items:
-        - name: Hoe MFA werkt
-          href: concept-mfa-howitworks.md
-        - name: Welke versie is geschikt?
-          href: concept-mfa-whichversion.md
-        - name: Uw gebruikers een licentie geven
-          href: concept-mfa-licensing.md
-        - name: Een verificatieprovider maken
-          href: concept-mfa-authprovider.md
-        - name: Beveiligingsrichtlijnen
-          href: multi-factor-authentication-security-best-practices.md
-        - name: MFA voor Office 365
-          href: 'https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba'
-        - name: Veelgestelde vragen over MFA
-          href: multi-factor-authentication-faq.md
-    - name: Wachtwoordbeveiliging in Azure AD
-      items:
-        - name: Zwakke wachtwoorden in de cloud elimineren
-          href: concept-password-ban-bad.md
-        - name: Zwakke wachtwoorden on-premises elimineren
-          href: concept-password-ban-bad-on-premises.md
+  - name: Verificatiemethoden
+    href: concept-authentication-methods.md
+  - name: Geconvergeerde registratie
+    href: concept-registration-mfa-sspr-converged.md
+  - name: Self-service voor wachtwoord opnieuw instellen
+    items:
+    - name: Hoe het opnieuw instellen van het wachtwoord werkt
+      href: concept-sspr-howitworks.md
+    - name: Opties voor het wachtwoord opnieuw instellen
+      href: concept-sspr-customization.md
+    - name: Beleid voor het opnieuw instellen van het wachtwoord
+      href: concept-sspr-policy.md
+    - name: Welke licentie heb ik nodig?
+      href: concept-sspr-licensing.md
+    - name: On-premises integratie
+      href: concept-sspr-writeback.md
+  - name: Multi-Factor Authentication
+    items:
+    - name: Hoe MFA werkt
+      href: concept-mfa-howitworks.md
+    - name: Welke versie is geschikt?
+      href: concept-mfa-whichversion.md
+    - name: Uw gebruikers een licentie geven
+      href: concept-mfa-licensing.md
+    - name: Een verificatieprovider maken
+      href: concept-mfa-authprovider.md
+    - name: Beveiligingsrichtlijnen
+      href: multi-factor-authentication-security-best-practices.md
+    - name: MFA voor Office 365
+      href: https://support.office.com/article/Plan-for-multi-factor-authentication-for-Office-365-Deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba
+    - name: Veelgestelde vragen over MFA
+      href: multi-factor-authentication-faq.md
+  - name: Wachtwoordbeveiliging in Azure AD
+    items:
+    - name: Zwakke wachtwoorden in de cloud elimineren
+      href: concept-password-ban-bad.md
+    - name: Zwakke wachtwoorden on-premises elimineren
+      href: concept-password-ban-bad-on-premises.md
+  expanded: true
 - name: Handleidingen
   items:
-    - name: Wachtwoord opnieuw instellen
+  - name: Wachtwoord opnieuw instellen
+    items:
+    - name: Wachtwoordherstel implementeren
+      href: howto-sspr-deployment.md
+    - name: Uw authenticatiegegevens vooraf registreren
+      href: howto-sspr-authenticationdata.md
+    - name: Wachtwoord terugschrijven inschakelen
+      href: howto-sspr-writeback.md
+  - name: MFA in de cloud
+    items:
+    - name: MFA in de cloud implementeren
+      href: howto-mfa-getstarted.md
+    - name: MFA per gebruiker
+      href: howto-mfa-userstates.md
+    - name: Gebruikers-en apparaatinstellingen
+      href: howto-mfa-userdevicesettings.md
+    - name: Instellingen configureren
+      href: howto-mfa-mfasettings.md
+    - name: Directory Federation
       items:
-        - name: Wachtwoordherstel implementeren
-          href: howto-sspr-deployment.md
-        - name: Uw authenticatiegegevens vooraf registreren
-          href: howto-sspr-authenticationdata.md
-        - name: Wachtwoord terugschrijven inschakelen
-          href: howto-sspr-writeback.md
-    - name: MFA in de cloud
+      - name: Windows Server 2016 AD FS Adapter
+        href: https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa
+      - name: Federation Services
+        href: multi-factor-authentication-get-started-adfs.md
+      - name: AD FS gebruiken
+        href: howto-mfa-adfs.md
+    - name: RADIUS-integratie
       items:
-        - name: MFA in de cloud implementeren
-          href: howto-mfa-getstarted.md
-        - name: MFA per gebruiker
-          href: howto-mfa-userstates.md
-        - name: Gebruikers-en apparaatinstellingen
-          href: howto-mfa-userdevicesettings.md
-        - name: Instellingen configureren
-          href: howto-mfa-mfasettings.md
-        - name: Directory Federation
-          items:
-            - name: Windows Server 2016 AD FS Adapter
-              href: 'https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-and-azure-mfa'
-            - name: Federation Services
-              href: multi-factor-authentication-get-started-adfs.md
-            - name: AD FS gebruiken
-              href: howto-mfa-adfs.md
-        - name: RADIUS-integratie
-          items:
-            - name: Bestaande netwerkbeleidservers gebruiken
-              href: howto-mfa-nps-extension.md
-            - name: Geavanceerde configuratie voor NPS-extensie
-              href: howto-mfa-nps-extension-advanced.md
-            - name: Extern bureaublad-gateway
-              href: howto-mfa-nps-extension-rdg.md
-            - name: VPN
-              href: howto-mfa-nps-extension-vpn.md
-    - name: Lijst met verboden wachtwoorden
+      - name: Bestaande netwerkbeleidservers gebruiken
+        href: howto-mfa-nps-extension.md
+      - name: Geavanceerde configuratie voor NPS-extensie
+        href: howto-mfa-nps-extension-advanced.md
+      - name: Extern bureaublad-gateway
+        href: howto-mfa-nps-extension-rdg.md
+      - name: VPN
+        href: howto-mfa-nps-extension-vpn.md
+  - name: Lijst met verboden wachtwoorden
+    items:
+    - name: De lijst met verboden wachtwoorden configureren
+      href: howto-password-ban-bad.md
+    - name: Wachtwoordbeveiliging in Azure AD implementeren
+      href: howto-password-ban-bad-on-premises.md
+    - name: Wachtwoordbeveiliging in Azure AD configureren
+      href: howto-password-ban-bad-on-premises-operations.md
+    - name: Wachtwoordbeveiliging in Azure AD bewaken
+      href: howto-password-ban-bad-on-premises-troubleshoot.md
+  - name: Slimme vergrendeling van Azure AD
+    href: howto-password-smart-lockout.md
+  - name: Windows Hello voor Bedrijven
+    href: https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification
+  - name: Verificatie op basis van certificaat
+    items:
+    - name: Aan de slag met certificaatverificatie
+      href: active-directory-certificate-based-authentication-get-started.md
       items:
-        - name: De lijst met verboden wachtwoorden configureren
-          href: howto-password-ban-bad.md
-        - name: Wachtwoordbeveiliging in Azure AD implementeren
-          href: howto-password-ban-bad-on-premises.md
-        - name: Wachtwoordbeveiliging in Azure AD configureren
-          href: howto-password-ban-bad-on-premises-operations.md
-        - name: Wachtwoordbeveiliging in Azure AD bewaken
-          href: howto-password-ban-bad-on-premises-troubleshoot.md
-    - name: Slimme vergrendeling van Azure AD
-      href: howto-password-smart-lockout.md
-    - name: Windows Hello voor Bedrijven
-      href: 'https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-identity-verification'
-    - name: Verificatie op basis van certificaat
+      - name: Verificatie op basis van certificaat op Android-apparaten
+        href: active-directory-certificate-based-authentication-android.md
+      - name: Verificatie op basis van certificaat op iOS-apparaten
+        href: active-directory-certificate-based-authentication-ios.md
+  - name: Ontwikkelen
+    items:
+    - name: MFA inbouwen in aangepaste apps
+      href: howto-mfa-sdk.md
+  - name: Rapportage
+    items:
+    - name: Rapportage van selfservice voor wachtwoordherstel
+      href: howto-sspr-reporting.md
+    - name: MFA-rapporten
+      href: howto-mfa-reporting.md
+    - name: Gegevensverzameling
+      href: howto-mfa-reporting-datacollection.md
+  - name: MFA-server
+    items:
+    - name: MFA on-premises implementeren
+      href: howto-mfaserver-deploy.md
+    - name: De gebruikersportal installeren
+      href: howto-mfaserver-deploy-userportal.md
+    - name: Webservice voor mobiele apps
+      href: howto-mfaserver-deploy-mobileapp.md
+    - name: Hoge beschikbaarheid configureren
+      href: howto-mfaserver-deploy-ha.md
+    - name: MFA-server upgraden
+      href: howto-mfaserver-deploy-upgrade.md
+    - name: Upgraden van PhoneFactor
+      href: howto-mfaserver-deploy-upgrade-pf.md
+    - name: Windows-verificatie
+      href: howto-mfaserver-windows.md
+    - name: IIS-web-apps
+      href: howto-mfaserver-iis.md
+    - name: Adreslijstintegratie
       items:
-        - name: Aan de slag met certificaatverificatie
-          href: ../active-directory-certificate-based-authentication-get-started.md
-          items:
-            - name: Verificatie op basis van certificaat op Android-apparaten
-              href: ../active-directory-certificate-based-authentication-android.md
-            - name: Verificatie op basis van certificaat op iOS-apparaten
-              href: ../active-directory-certificate-based-authentication-ios.md
-    - name: Ontwikkelen
+      - name: LDAP-verificatie
+        href: howto-mfaserver-dir-ldap.md
+      - name: RADIUS-verificatie
+        href: howto-mfaserver-dir-radius.md
+      - name: Active Directory
+        href: howto-mfaserver-dir-ad.md
+    - name: Directory Federation
       items:
-        - name: MFA inbouwen in aangepaste apps
-          href: howto-mfa-sdk.md
-    - name: Rapportage
+      - name: AD FS 2.0 gebruiken
+        href: howto-mfaserver-adfs-2.md
+      - name: Windows Server 2012 R2 AD FS gebruiken
+        href: howto-mfaserver-adfs-2012.md
+    - name: RADIUS-integratie
       items:
-        - name: Rapportage van selfservice voor wachtwoordherstel
-          href: howto-sspr-reporting.md
-        - name: MFA-rapporten
-          href: howto-mfa-reporting.md
-        - name: Gegevensverzameling
-          href: howto-mfa-reporting-datacollection.md
-    - name: MFA-server
-      items:
-        - name: MFA on-premises implementeren
-          href: howto-mfaserver-deploy.md
-        - name: De gebruikersportal installeren
-          href: howto-mfaserver-deploy-userportal.md
-        - name: Webservice voor mobiele apps
-          href: howto-mfaserver-deploy-mobileapp.md
-        - name: Hoge beschikbaarheid configureren
-          href: howto-mfaserver-deploy-ha.md
-        - name: MFA-server upgraden
-          href: howto-mfaserver-deploy-upgrade.md
-        - name: Upgraden van PhoneFactor
-          href: howto-mfaserver-deploy-upgrade-pf.md
-        - name: Windows-verificatie
-          href: howto-mfaserver-windows.md
-        - name: IIS-web-apps
-          href: howto-mfaserver-iis.md
-        - name: Adreslijstintegratie
-          items:
-            - name: LDAP-verificatie
-              href: howto-mfaserver-dir-ldap.md
-            - name: RADIUS-verificatie
-              href: howto-mfaserver-dir-radius.md
-            - name: Active Directory
-              href: howto-mfaserver-dir-ad.md
-        - name: Directory Federation
-          items:
-            - name: AD FS 2.0 gebruiken
-              href: howto-mfaserver-adfs-2.md
-            - name: Windows Server 2012 R2 AD FS gebruiken
-              href: howto-mfaserver-adfs-2012.md
-        - name: RADIUS-integratie
-          items:
-            - name: Extern bureaublad-gateway
-              href: howto-mfaserver-nps-rdg.md
-            - name: Geavanceerde VPN-configuraties
-              href: howto-mfaserver-nps-vpn.md
-            - name: NPS-uitbreidingsfouten
-              href: howto-mfa-nps-extension-errors.md
-    - name: Problemen oplossen
-      items:
-        - name: Geconvergeerde registratie uitschakelen
-          href: howto-registration-mfa-sspr-converged-troubleshoot.md
-        - name: Problemen oplossen met selfservice voor wachtwoordherstel
-          href: active-directory-passwords-troubleshoot.md
-        - name: Veelgestelde vragen over selfservice voor wachtwoordherstel
-          href: active-directory-passwords-faq.md
-        - name: Veelgestelde vragen over MFA
-          href: multi-factor-authentication-faq.md
-        - name: NPS-extensie
-          href: howto-mfa-nps-extension-errors.md
+      - name: Extern bureaublad-gateway
+        href: howto-mfaserver-nps-rdg.md
+      - name: Geavanceerde VPN-configuraties
+        href: howto-mfaserver-nps-vpn.md
+      - name: NPS-uitbreidingsfouten
+        href: howto-mfa-nps-extension-errors.md
+  - name: Problemen oplossen
+    items:
+    - name: Geconvergeerde registratie uitschakelen
+      href: howto-registration-mfa-sspr-converged-troubleshoot.md
+    - name: Problemen oplossen met selfservice voor wachtwoordherstel
+      href: active-directory-passwords-troubleshoot.md
+    - name: Veelgestelde vragen over selfservice voor wachtwoordherstel
+      href: active-directory-passwords-faq.md
+    - name: Veelgestelde vragen over MFA
+      href: multi-factor-authentication-faq.md
+    - name: NPS-extensie
+      href: howto-mfa-nps-extension-errors.md
 - name: Naslaginformatie
   items:
-    - name: MFA-gebruikershandleiding
-      href: ./end-user/current/multi-factor-authentication-end-user.md
-    - name: Codevoorbeelden
-      href: 'https://azure.microsoft.com/resources/samples/?service=active-directory'
-    - name: Azure PowerShell-cmdlets
-      href: /powershell/azure/overview
-    - name: Servicelimieten en -beperkingen
-      href: ../users-groups-roles/directory-service-limits-restrictions.md
+  - name: MFA-gebruikershandleiding
+    href: ./end-user/current/multi-factor-authentication-end-user.md
+  - name: Codevoorbeelden
+    href: https://azure.microsoft.com/resources/samples/?service=active-directory
+  - name: Azure PowerShell-cmdlets
+    href: /powershell/azure/overview
+  - name: Servicelimieten en -beperkingen
+    href: ../users-groups-roles/directory-service-limits-restrictions.md
 - name: Resources
   items:
-    - name: Azure-feedbackforum
-      href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
-    - name: MSDN-forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/active-directory/'
-    - name: Service-updates
-      href: ../fundamentals/whats-new.md
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-active-directory'
-    - name: Video's
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=active-directory'
+  - name: Azure-feedbackforum
+    href: https://feedback.azure.com/forums/169401-azure-active-directory
+  - name: MSDN-forum
+    href: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/active-directory/
+  - name: Service-updates
+    href: ../fundamentals/whats-new.md
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-active-directory
+  - name: Video's
+    href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
+ms.openlocfilehash: 39be14a49ecdf30d75cc49a37aa9fc7bc55304cc
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338942"

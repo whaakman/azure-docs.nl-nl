@@ -123,10 +123,6 @@
 #### [Certificaten gebruiken](reports-monitoring/tutorial-access-api-with-certificates.md)
 
 ## [Wachtwoorden beheren](authentication/concept-sspr-howitworks.md)
-### Gebruikersdocumenten
-#### [Uw wachtwoord opnieuw instellen of wijzigen](user-help/active-directory-passwords-update-your-own-password.md)
-#### [Registreren voor de selfservice voor wachtwoordherstel](user-help/active-directory-passwords-reset-register.md)
-
 
 ## Apps beheren
 ### [Overzicht](manage-apps/what-is-application-management.md)
@@ -338,10 +334,6 @@
 ### [Resultaten van de toegangsbeoordeling ophalen](active-directory-azure-ad-controls-retrieve-access-review.md)
 
 ## Uw identiteiten beveiligen
-### Verificatie op basis van certificaat
-#### [Android](active-directory-certificate-based-authentication-android.md)
-#### [iOS](active-directory-certificate-based-authentication-ios.md)
-#### [Aan de slag](active-directory-certificate-based-authentication-get-started.md)
 
 ### Azure AD-identiteitsbeveiliging
 #### [Overzicht](identity-protection/overview.md)
