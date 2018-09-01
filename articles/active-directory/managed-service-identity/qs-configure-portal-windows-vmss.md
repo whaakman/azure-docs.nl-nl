@@ -1,6 +1,6 @@
 ---
-title: Beheerde Service-identiteit op een schaalset van de virtuele machine van Azure met behulp van de Azure-portal configureren
-description: Voor stap door stap instructies voor het configureren van een beheerde Service-identiteit voor Azure VMSS, met behulp van de Azure portal.
+title: Het configureren van beheerde identiteiten voor Azure-resources op een virtuele-machineschaalset
+description: Stap voor stap beheerde instructies voor het configureren van identiteiten voor een Azure-resources op een VM-schaalset met behulp van de Azure-portal.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,41 +14,39 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: cbe2e3d9f60ced5c707ce5a701a5aac937ccc072
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 89ced1fd81b7782fd2d89d24ca0db3567b466b45
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887986"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339052"
 ---
-# <a name="configure-a-virtual-machine-scale-set-managed-service-identity-using-the-azure-portal"></a>Een virtuele machine configureren Virtual Machine scale sets beheerde Service-identiteit met Azure portal
+# <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-the-azure-portal"></a>Configureren van beheerde identiteiten voor Azure-resources op een VM-schaalset met behulp van de Azure-portal
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
+Beheerde identiteiten voor Azure-resources biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
 
-In dit artikel leert u hoe u inschakelen en uitschakelen van systeem en door gebruiker toegewezen identiteit voor een VM-schaalset met behulp van de Azure-portal.
+In dit artikel, leert met behulp van PowerShell, u hoe u de volgende beheerde identiteiten voor bewerkingen van de Azure-resources op een virtuele-machineschaalset uitvoeren:
 
-## <a name="prerequisites"></a>Vereiste onderdelen
-
-- Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md).
+- Als u niet bekend met beheerde identiteiten voor Azure-resources bent, lees de [overzichtssectie](overview.md).
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
 - Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de roltoewijzing van de volgende:
-    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) inschakelen en het systeem toegewezen beheerde identiteit van een virtuele-machineschaalset verwijderen.
+    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) inschakelen en verwijder de door het systeem toegewezen beheerde identiteit van een virtuele-machineschaalset.
 
-## <a name="system-assigned-identity"></a>Systeem toegewezen identiteit 
+## <a name="system-assigned-managed-identity"></a>Het systeem toegewezen beheerde identiteit
 
-In deze sectie leert u hoe u kunt in- en uitschakelen van het systeem toegewezen identiteit op een VM-schaalset met behulp van de Azure-portal.
+In deze sectie leert u hoe u kunt in- en uitschakelen van de door het systeem toegewezen beheerde identiteit met Azure portal.
 
-### <a name="enable-system-assigned-identity-during-creation-of-a-virtual-machine-scale-set"></a>Systeem toegewezen identiteit inschakelen tijdens het maken van een virtuele-machineschaalset
+### <a name="enable-system-assigned-managed-identity-during-creation-of-a-virtual-machine-scale-set"></a>Beheerde identiteit systeem toegewezen tijdens het maken van een virtuele-machineschaalset inschakelen
 
-De Azure-portal biedt momenteel geen ondersteuning voor inschakelen systeem toegewezen identiteit tijdens het maken van een virtuele-machineschaalset. In plaats daarvan kunt u verwijzen naar de volgende virtuele machine scale set maken van het artikel maakt eerst een virtuele-machineschaalset en gaat u verder met de volgende sectie voor meer informatie over het inschakelen van systeem toegewezen identiteit op een virtuele-machineschaalset:
+De Azure-portal ondersteunt momenteel geen beheerde identiteit systeem toegewezen tijdens het maken van een virtuele-machineschaalset inschakelen. In plaats daarvan raadpleegt u de volgende maken van de virtuele machine scale set snelstartartikel voor het eerst maken een virtuele-machineschaalset en gaat u verder met de volgende sectie voor meer informatie over het inschakelen van beheerde identiteit op een virtuele-machineschaalset door het systeem toegewezen:
 
 - [Een virtuele-Machineschaalset maken in Azure portal](../../virtual-machine-scale-sets/quick-create-portal.md)  
 
-### <a name="enable-system-assigned-identity-on-an-existing-virtual-machine-scale-set"></a>Systeem toegewezen identiteit op een bestaande virtuele-machineschaalset inschakelen
+### <a name="enable-system-assigned-managed-identity-on-an-existing-virtual-machine-scale-set"></a>De beheerde inschakelen door het systeem toegewezen identiteit op een bestaande virtuele-machineschaalset
 
-Het systeem toegewezen identiteit op een virtuele-machineschaalset die oorspronkelijk is ingericht zonder inschakelen:
+De door het systeem toegewezen beheerde identiteit op een virtuele-machineschaalset die oorspronkelijk is ingericht zonder inschakelen:
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
 
@@ -58,9 +56,9 @@ Het systeem toegewezen identiteit op een virtuele-machineschaalset die oorspronk
 
    [![Schermafbeelding van de pagina configuratie](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png)](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/create-windows-vmss-portal-configuration-blade.png#lightbox)  
 
-### <a name="remove-system-assigned-identity-from-a-virtual-machine-scale-set"></a>Verwijder de systeem toegewezen identiteit van een virtuele-machineschaalset
+### <a name="remove-system-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Verwijder de door het systeem toegewezen beheerde identiteit van een virtuele-machineschaalset
 
-Als u een virtuele-machineschaalset die niet langer moet een systeem toegewezen identiteit:
+Als u een virtuele-machineschaalset die een door het systeem toegewezen beheerde identiteit niet meer nodig hebt:
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset. Ook voor zorgen dat uw account deel uitmaakt van een rol waarmee u beschikt over machtigingen voor schrijven op de virtuele-machineschaalset.
 
@@ -70,41 +68,37 @@ Als u een virtuele-machineschaalset die niet langer moet een systeem toegewezen 
 
    ![Schermafbeelding van de pagina configuratie](../managed-service-identity/media/msi-qs-configure-portal-windows-vmss/disable-windows-vmss-portal-configuration-blade.png)
 
-## <a name="user-assigned-identity"></a>Door gebruiker toegewezen identiteit
+## <a name="user-assigned-managed-identity"></a>de gebruiker toegewezen beheerde identiteit
 
-In deze sectie leert u hoe u toevoegen en verwijderen van een gebruiker toegewezen identiteit van een VM-schaalset met behulp van de Azure-portal.
+In deze sectie leert u hoe u toevoegen en verwijderen van een gebruiker toegewezen beheerde identiteit van een VM-schaalset met behulp van de Azure-portal.
 
-### <a name="assign-a-user-assigned-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>Een gebruiker toegewezen identiteit toewijzen tijdens het maken van een virtuele-machineschaalset
+### <a name="assign-a-user-assigned-managed-identity-during-the-creation-of-a-virtual-machine-scale-set"></a>Een gebruiker toegewezen beheerde identiteit toewijzen tijdens het maken van een virtuele-machineschaalset
 
-Azure portal biedt momenteel geen ondersteuning voor het toewijzen van een gebruiker toegewezen identiteit tijdens het maken van een virtuele-machineschaalset. In plaats daarvan kunt u verwijzen naar de volgende virtuele machine scale set maken van het artikel maakt eerst een virtuele-machineschaalset en gaat u verder met de volgende sectie voor meer informatie over het toewijzen van een gebruiker toegewezen identiteit:
+De Azure-portal biedt momenteel geen ondersteuning voor het toewijzen van een beheerde identiteit voor de gebruiker toegewezen tijdens het maken van een virtuele-machineschaalset. In plaats daarvan raadpleegt u het volgende virtual machine scale set maken voor het eerst maken een virtuele-machineschaalset en gaat u verder met de volgende sectie voor meer informatie over het toewijzen van een beheerde identiteit voor de gebruiker toegewezen aan het artikel:
 
 - [Een virtuele-Machineschaalset maken in Azure portal](../../virtual-machine-scale-sets/quick-create-portal.md)
 
-### <a name="assign-a-user-assigned-identity-to-an-existing-virtual-machine-scale-set"></a>Een gebruiker toegewezen identiteit toewijzen aan een bestaande virtuele-machineschaalset
+### <a name="assign-a-user-assigned-managed-identity-to-an-existing-virtual-machine-scale-set"></a>Een gebruiker toegewezen beheerde identiteit toewijzen aan een bestaande virtuele-machineschaalset
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
 2. Navigeer naar de gewenste virtuele-machineschaalset en klik op **identiteit**, **gebruiker toegewezen** en vervolgens  **\+toevoegen**.
 
-   ![Door gebruiker toegewezen identiteit toevoegen aan VMSS](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
+   ![De gebruiker toegewezen identiteit toevoegen aan VMSS](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vmss-screenshot1.png)
 
-3. Klik op de gebruiker toegewezen identiteit die u wilt toevoegen aan de virtuele-machineschaalset en klik vervolgens op **toevoegen**.
+3. Klik op de gebruiker toegewezen identiteit u wilt toevoegen aan de virtuele-machineschaalset en klik vervolgens op **toevoegen**.
    
-   ![Door gebruiker toegewezen identiteit toevoegen aan VMSS](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
+   ![De gebruiker toegewezen identiteit toevoegen aan VMSS](./media/msi-qs-configure-portal-windows-vm/add-user-assigned-identity-vm-screenshot2.png)
 
-### <a name="remove-a-user-assigned-identity-from-a-virtual-machine-scale-set"></a>Een gebruiker toegewezen identiteit van een virtuele-machineschaalset verwijderen
+### <a name="remove-a-user-assigned-managed-identity-from-a-virtual-machine-scale-set"></a>Een gebruiker toegewezen beheerde identiteit van een virtuele-machineschaalset verwijderen
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met een account dat is gekoppeld aan het Azure-abonnement met de virtuele machine.
-2. Navigeer naar de gewenste virtuele-machineschaalset en klik op **identiteit**, **gebruiker toegewezen**, de naam van de identiteit van de gebruiker toegewezen die u wilt verwijderen en klik vervolgens op **verwijderen** () Klik op **Ja** in het deelvenster bevestiging).
+2. Navigeer naar de gewenste virtuele-machineschaalset en klik op **identiteit**, **gebruiker toegewezen**, de naam van de gebruiker toegewezen identiteit die u wilt verwijderen en klik vervolgens op beheerde **verwijderen** (Klik op **Ja** in het deelvenster bevestiging).
 
-   ![Door gebruiker toegewezen identiteit van een VMSS verwijderen](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vmss-screenshot.png)
+   ![Verwijder de gebruiker toegewezen identiteit van een VMSS](./media/msi-qs-configure-portal-windows-vm/remove-user-assigned-identity-vmss-screenshot.png)
 
-
-## <a name="related-content"></a>Gerelateerde inhoud
-
-- Zie voor een overzicht van de beheerde Service-identiteit, [overzicht](overview.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Met behulp van Azure portal, krijgt een Azure virtuele-machineschaalset beheerde Service-identiteit [toegang tot een andere Azure-resource](howto-assign-access-portal.md).
+- Met behulp van Azure portal, krijgt een Azure virtuele-machineschaalset beheerde identiteit [toegang tot een andere Azure-resource](howto-assign-access-portal.md).
 
-Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en vorm van onze inhoud.
+

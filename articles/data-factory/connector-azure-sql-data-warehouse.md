@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: 3c447a37b1dfbdac2c6e2a4eaa61d0e0e08a2176
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: f444c75fb7a7bcd96a508fed337dfc32adccf665
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442236"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339012"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -401,13 +401,14 @@ SQL Data Warehouse PolyBase biedt rechtstreeks ondersteuning voor Azure BLOB Sto
 Als aan de vereisten zijn niet voldaan, wordt Azure Data Factory controleert of de instellingen en automatisch terugvalt op het mechanisme BULKINSERT voor de verplaatsing van gegevens.
 
 1. De **bron gekoppelde service** type Azure Blob-opslag is (**Azure BLOB Storage**/**AzureStorage**) met account-sleutelverificatie of Azure Data Lake Opslag Gen1 (**AzureDataLakeStore**) met service-principal verificatie.
-1. De **invoergegevensset** type **AzureBlob** of **AzureDataLakeStoreFile**. Het indelingstype onder `type` eigenschappen is **OrcFormat**, **ParquetFormat**, of **TextFormat**, met de volgende configuraties:
+2. De **invoergegevensset** type **AzureBlob** of **AzureDataLakeStoreFile**. Het indelingstype onder `type` eigenschappen is **OrcFormat**, **ParquetFormat**, of **TextFormat**, met de volgende configuraties:
 
-   1. `rowDelimiter` moet **\n**.
-   1. `nullValue` is een ingesteld op **lege tekenreeks** ("") of als standaard, links en `treatEmptyAsNull` niet is ingesteld op false.
-   1. `encodingName` is ingesteld op **utf-8**, dit is de standaardwaarde.
-   1. `escapeChar`, `quoteChar` en `skipLineCount` zijn niet opgegeven. Ondersteuning voor PolyBase overslaan rij met koppen die kan worden geconfigureerd als `firstRowAsHeader` in ADF.
-   1. `compression` kan **geen compressie**, **GZip**, of **Deflate**.
+   1. `fileName` filteren op jokerteken bevat.
+   2. `rowDelimiter` moet **\n**.
+   3. `nullValue` is een ingesteld op **lege tekenreeks** ("") of als standaard, links en `treatEmptyAsNull` niet is ingesteld op false.
+   4. `encodingName` is ingesteld op **utf-8**, dit is de standaardwaarde.
+   5. `escapeChar`, `quoteChar` en `skipLineCount` zijn niet opgegeven. Ondersteuning voor PolyBase overslaan rij met koppen die kan worden geconfigureerd als `firstRowAsHeader` in ADF.
+   6. `compression` kan **geen compressie**, **GZip**, of **Deflate**.
 
     ```json
     "typeProperties": {

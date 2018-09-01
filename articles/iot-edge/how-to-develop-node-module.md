@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/26/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: fbf8a0302ae8414f49a055ab260a52222425ab7c
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 6976314929ac2e0e099e8c2f07da32970bc57509
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287191"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382504"
 ---
 # <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Ontwikkelen en fouten opsporen in Node.js-modules met Azure IoT Edge voor Visual Studio Code
 
@@ -35,9 +35,7 @@ Voor het maken van een module, moet u Node.js waaronder npm voor het bouwen van 
 * [Node.js](https://nodejs.org)
 * [Docker](https://docs.docker.com/engine/installation/)
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) of [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-
-   >[!TIP]
-   >U kunt een lokale Docker-register voor prototype- en testdoeleinden, in plaats van een cloud-register. 
+   * U kunt een lokale Docker-register voor prototype- en testdoeleinden, in plaats van een cloud-register. 
 
 Als u wilt testen van uw module op een apparaat, moet u een actieve IoT-hub met ten minste één IoT Edge-apparaat. Als u wilt dat uw computer te gebruiken als een IoT Edge-apparaat, kunt u doen met de volgende stappen in de zelfstudies voor [Windows](quickstart.md) of [Linux](quickstart-linux.md). 
 
@@ -60,7 +58,9 @@ De volgende stappen laten zien hoe u een IoT Edge-module die is gebaseerd op Nod
 6. Geef een naam voor uw oplossing. 
 7. Kies **Node.js-Module** als de sjabloon voor de eerste module in de oplossing.
 8. Geef een naam voor uw module. Kies een naam die uniek is binnen uw containerregister. 
-9. Geef de opslagplaats voor installatiekopieën voor de module. VS Code autopopulates de module-naam, dus u hoeft te vervangen **localhost:5000** met uw eigen gegevens. Als u een lokale Docker-register voor het testen, klikt u vervolgens is ' localhost ' geen probleem. Als u Azure Container Registry gebruikt, gebruikt u de aanmeldingsserver van de instellingen van uw register. De aanmeldingsserver ziet eruit als  **\<registernaam\>. azurecr.io**.
+9. Geef de opslagplaats voor installatiekopieën voor de module. VS Code autopopulates de module-naam, dus u hoeft te vervangen **localhost:5000** met uw eigen gegevens. Als u een lokale Docker-register voor het testen, klikt u vervolgens is ' localhost ' geen probleem. Als u Azure Container Registry gebruikt, gebruikt u de aanmeldingsserver van de instellingen van uw register. De aanmeldingsserver ziet eruit als  **\<registernaam\>. azurecr.io**. Vervang alleen het onderdeel localhost van de tekenreeks, verwijder niet de naam van de module.
+
+   ![Opslagplaats voor Docker-installatiekopieën opgeven](./media/how-to-develop-node-module/repository.png)
 
 VS Code haalt de gegevens opgegeven, maakt u een IoT Edge-oplossing en laadt deze in een nieuw venster.
 
@@ -76,7 +76,7 @@ In de oplossing hebt u drie items:
 
 ## <a name="develop-your-module"></a>Uw-module ontwikkelen
 
-De standaard Node.js-code die wordt geleverd met de oplossing bevindt zich in **modules** > **\<de modulenaam van uw\>** > **app.js** . De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om te gewoon nemen invoer van een bron (in dit geval de tempSensor-module die gegevens simuleert) en doorgeven naar IoT Hub. 
+De standaard Node.js-code die wordt geleverd met de oplossing bevindt zich in **modules** > [Modulenaam van uw] > **app.js**. De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om te gewoon nemen invoer van een bron (in dit geval de tempSensor-module die gegevens simuleert) en doorgeven naar IoT Hub. 
 
 Wanneer u klaar bent om de Node.js-sjabloon met uw eigen code aanpassen, gebruikt u de [Azure IoT Hub SDK's](../iot-hub/iot-hub-devguide-sdks.md) modules bouwen dat adres de sleutel die nodig zijn voor IoT-oplossingen, zoals beveiliging, beheer van apparaten en betrouwbaarheid. 
 

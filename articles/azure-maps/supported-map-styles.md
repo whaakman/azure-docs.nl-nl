@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 33b0f5df57623f0b4433a4a09c7cd15688783485
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 04c8f43e3b484ceeb942ae13ea95baf7f0215b53
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43191107"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344832"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps ondersteunde kaartstijlen
 Azure maps ondersteunen vier verschillende ingebouwde kaartstijlen. De stijlen, samen met de bijbehorende beschrijvingen worden hieronder vermeld.
@@ -22,7 +22,7 @@ Azure maps ondersteunen vier verschillende ingebouwde kaartstijlen. De stijlen, 
 ## <a name="road"></a>Kaartachtergrond als weg
 Een **weg** kaart is een standaard-kaart die wordt weergegeven wegen, natuurlijke en kunstmatige functies samen met de labels voor deze functies.
 
-![kaartachtergrond als weg](./media/supported-map-styles/road.png)
+![Kaartachtergrond als weg](./media/supported-map-styles/road.png)
 
 **Van toepassing API's:**
 * [Kaartafbeelding](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -32,7 +32,7 @@ Een **weg** kaart is een standaard-kaart die wordt weergegeven wegen, natuurlijk
 ## <a name="satellite"></a>Satelliet 
 De **satelliet** stijl is een combinatie van satelliet en Luchtfoto beelden.
 
-![satelliet](./media/supported-map-styles/satellite.png)
+![Satelliet](./media/supported-map-styles/satellite.png)
 
 **Van toepassing API's:**
 * [Satelliet-tegel](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytilepreview)
@@ -52,4 +52,4 @@ De stijl van deze kaart is een hybride van wegen en labels satelliet en Luchtfot
 ![gray_scale](./media/supported-map-styles/grayscale_dark.png)
 
 **Van toepassing API's:**
-* Kaartbesturingselement JS
+* Kaartbesturingselement JS 

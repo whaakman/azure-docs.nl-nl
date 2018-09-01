@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: e25103d2fcbfc70be7f96f5c0e5fa6abe13fe393
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 36fad697758273246d567dfa1010f0e6bfc68939
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446738"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344559"
 ---
 # <a name="azure-active-directory-b2c-get-started-with-custom-policies"></a>Azure Active Directory B2C: Aan de slag met aangepaste beleidsregels
 
@@ -77,7 +77,7 @@ Azure AD B2C, moet u het registreren van twee extra toepassingen die worden gebr
 4. Selecteer **Nieuwe toepassing registreren**.
    * Voor **naam**, gebruikt u `IdentityExperienceFramework`.
    * Voor **toepassingstype**, gebruikt u **Web-app/API**.
-   * Voor **aanmeldings-URL**, gebruikt u `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, waarbij `yourtenant` is de domeinnaam van uw Azure AD B2C-tenant.
+   * Voor **aanmeldings-URL**, gebruikt u `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, waarbij `yourtenant` is de domeinnaam van uw Azure AD B2C-tenant.
 5. Selecteer **Maken**.
 6. Zodra deze is gemaakt, selecteert u de zojuist gemaakte toepassing **IdentityExperienceFramework**.<br>
    * Selecteer **eigenschappen**.<br>
@@ -89,14 +89,14 @@ Azure AD B2C, moet u het registreren van twee extra toepassingen die worden gebr
 1. Selecteer **Nieuwe toepassing registreren**.
    * Voor **naam**, gebruikt u `ProxyIdentityExperienceFramework`.
    * Voor **toepassingstype**, gebruikt u **systeemeigen**.
-   * Voor **omleidings-URI**, gebruikt u `https://login.microsoftonline.com/yourtenant.onmicrosoft.com`, waarbij `yourtenant` is uw Azure AD B2C-tenant.
+   * Voor **omleidings-URI**, gebruikt u `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com`, waarbij `yourtenant` is uw Azure AD B2C-tenant.
 1. Selecteer **Maken**.
 1. Zodra deze is gemaakt, selecteert u de toepassing **ProxyIdentityExperienceFramework**.<br>
    * Selecteer **eigenschappen**. <br>
    * Kopieer de toepassings-ID en bewaar het voor later.
 1. Selecteer **vereiste machtigingen**.
 1. Selecteer **Toevoegen**.
-1. Selecteer **Select an API**.
+1. Selecteer **Een API selecteren**.
 1. Zoeken naar de naam IdentityExperienceFramework. Selecteer **IdentityExperienceFramework** in de resultaten en klik vervolgens op **Selecteer**.
 1. Schakel het selectievakje in naast **toegang IdentityExperienceFramework**, en klik vervolgens op **Selecteer**.
 1. Selecteer **Done**.

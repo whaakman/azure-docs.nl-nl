@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: bf5ae39d83fd021775fbd18cf23d2e6b9078e748
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 6d8e9245e95c08aad69cd05f338b6260e554469b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927893"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337787"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een Twitter-account met behulp van Azure Active Directory B2C
 
@@ -26,7 +26,7 @@ Voor het gebruik van een Twitter-account als id-provider in Azure Active Directo
 1. Aanmelden bij de [Twitter Apps](https://apps.twitter.com/) met uw Twitter-referenties.
 2. Selecteer **nieuwe App maken**.
 3. Voer de **naam**, **beschrijving**, en **Website**.
-4. Voer `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp` in **Callback-URL's**. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld: contosob2c.onmicrosoft.com) en **{policyId}** met uw beleids-ID (bijvoorbeeld b2c_1_policy). U moet een URL voor terugbellen voor alle beleidsregels die gebruikmaken van de Twitter-account toevoegen. Zorg ervoor dat u `b2clogin.com` in plaats van ` login.microsoftonline.com` als u deze in uw toepassing.
+4. Voer `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp` in **Callback-URL's**. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld contosob2c) en **{policyId}** met uw beleids-ID (bijvoorbeeld b2c_1_policy). U moet een URL voor terugbellen voor alle beleidsregels die gebruikmaken van de Twitter-account toevoegen. 
 5. Ga akkoord met de **Developer-overeenkomst** en selecteer **uw Twitter-toepassing maken**.
 7. Selecteer de **Keys and Access Tokens** tabblad.
 8. Kopieer de waarde van **Consumer Key** en **Consumer Secret**. U moet beide een Twitter-account worden geconfigureerd als een id-provider in uw tenant.

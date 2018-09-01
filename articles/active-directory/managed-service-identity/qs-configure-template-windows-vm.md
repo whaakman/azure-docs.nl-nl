@@ -1,6 +1,6 @@
 ---
-title: Beheerde Service-identiteit op een Azure-VM configureren met behulp van een sjabloon
-description: Stapsgewijze instructies voor het configureren van een beheerde Service-identiteit op een Azure-VM, met een Azure Resource Manager-sjabloon.
+title: Het configureren van beheerde identiteiten voor Azure-resources op een Azure VM met behulp van een sjabloon
+description: Stapsgewijze instructies voor het configureren van beheerde identiteiten voor Azure-resources op een Azure-VM, met een Azure Resource Manager-sjabloon.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,29 +14,29 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 6a5f8fc126f9c94ce139b99c94936e01da8b4099
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 5bdd764c3e3c273e3495085f2b684cfdd316706d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126418"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337051"
 ---
-# <a name="configure-a-vm-managed-service-identity-by-using-a-template"></a>Een virtuele machine beheerde Service-identiteit configureren met behulp van een sjabloon
+# <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configureren van beheerde identiteiten voor Azure-resources op een Azure-VM met behulp van een sjablonen
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
+Beheerde identiteiten voor Azure-resources biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
 
-In dit artikel leert u hoe u de volgende bewerkingen van de beheerde Service-identiteit op een Azure-VM, met behulp van Azure Resource Manager-implementatiesjabloon uit te voeren:
+In dit artikel, leert met behulp van de sjabloon van Azure Resource Manager-implementatie, u hoe u voor het uitvoeren van de volgende beheerde identiteiten voor bewerkingen van de Azure-resources op een Azure-VM:
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Als u niet bekend met beheerde Service-identiteit bent, bekijk dan de [overzichtssectie](overview.md). **Lees de [verschil tussen een systeem toegewezen en een gebruiker toegewezen identiteit](overview.md#how-does-it-work)**.
+- Als u niet bekend bent met met behulp van Azure Resource Manager-implementatiesjabloon, bekijk dan de [overzichtssectie](overview.md). **Lees de [verschil tussen een beheerde identiteit door het systeem is toegewezen en de gebruiker toegewezen](overview.md#how-does-it-work)**.
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
 - Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de volgende roltoewijzingen:
-    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) toegewezen aan een virtuele machine maken en inschakelen en verwijderen van systeem en/of de gebruiker beheerde identiteit van een Azure-VM.
-    - [Beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol te maken van de identiteit van een gebruiker toegewezen.
-    - [Beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol die u wilt toewijzen en verwijderen van een gebruiker toegewezen identiteit van en naar een virtuele machine.
+    - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) aan een virtuele machine maken en inschakelen en het systeem en/of de gebruiker toegewezen beheerde identiteit verwijderen uit een Azure-VM.
+    - [Beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol te maken van een gebruiker toegewezen beheerde identiteit.
+    - [Beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol die u wilt toewijzen en verwijderen van een gebruiker toegewezen beheerde identiteit van en naar een virtuele machine.
 
 ## <a name="azure-resource-manager-templates"></a>Azure Resource Manager-sjablonen
 
@@ -47,17 +47,17 @@ Net als bij Azure portal en uitvoeren van scripts, [Azure Resource Manager](../.
    - Met behulp van een lokale [JSON-editor (zoals VS Code)](../../azure-resource-manager/resource-manager-create-first-template.md), en vervolgens uploaden en implementeren met behulp van PowerShell of CLI.
    - Met Visual Studio [Azure-resourcegroepproject](../../azure-resource-manager/vs-azure-tools-resource-groups-deployment-projects-create-deploy.md) te maken en implementeren van een sjabloon.  
 
-Ongeacht welke optie die u kiest, is de sjabloonsyntaxis van de hetzelfde tijdens de initiële implementatie en opnieuw implementeren. Inschakelen van een systeem of de gebruiker toegewezen identiteit op een nieuwe of bestaande virtuele machine wordt uitgevoerd op dezelfde manier. Bovendien standaard Azure Resource Manager biedt een [incrementele update](../../azure-resource-manager/deployment-modes.md) implementaties.
+Ongeacht welke optie die u kiest, is de sjabloonsyntaxis van de hetzelfde tijdens de initiële implementatie en opnieuw implementeren. Inschakelen van een systeem of een beheerde identiteit gebruiker toegewezen op een nieuwe of bestaande virtuele machine wordt uitgevoerd op dezelfde manier. Bovendien standaard Azure Resource Manager biedt een [incrementele update](../../azure-resource-manager/deployment-modes.md) implementaties.
 
-## <a name="system-assigned-identity"></a>Systeem toegewezen identiteit
+## <a name="system-assigned-managed-identity"></a>Het systeem toegewezen beheerde identiteit
 
-In deze sectie maakt u inschakelen en uitschakelen van een systeem toegewezen identiteit met een Azure Resource Manager-sjabloon.
+In deze sectie maakt u inschakelen en uitschakelen van een systeem toegewezen beheerde identiteit met een Azure Resource Manager-sjabloon.
 
-### <a name="enable-system-assigned-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Systeem toegewezen identiteit tijdens het maken van een Azure-VM of op een bestaande virtuele machine inschakelen
+### <a name="enable-system-assigned-managed-identity-during-creation-of-an-azure-vm-or-on-an-existing-vm"></a>Beheerde identiteit systeem toegewezen tijdens het maken van een Azure-VM of op een bestaande virtuele machine inschakelen
 
 1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine.
 
-2. Om in te schakelen systeem toegewezen identiteit, het laden van de sjabloon in een editor, Ga naar de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie en voeg de `"identity"` eigenschap op hetzelfde niveau als het `"type": "Microsoft.Compute/virtualMachines"` eigenschap. Gebruik de volgende syntaxis:
+2. Om in te schakelen door het systeem toegewezen beheerde identiteit, het laden van de sjabloon in een editor, Ga naar de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie en voeg de `"identity"` eigenschap op hetzelfde niveau als het `"type": "Microsoft.Compute/virtualMachines"` eigenschap. Gebruik de volgende syntaxis:
 
    ```JSON
    "identity": { 
@@ -65,7 +65,7 @@ In deze sectie maakt u inschakelen en uitschakelen van een systeem toegewezen id
    },
    ```
 
-3. (Optioneel) Toevoegen van de extensie van de virtuele machine beheerde Service-identiteit als een `resources` element. Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens.  Gebruik de volgende syntaxis:
+3. (Optioneel) Toevoegen van de identiteit van de VM beheerd voor uitbreiding van de Azure-resources als een `resources` element. Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens.  Gebruik de volgende syntaxis:
 
    >[!NOTE] 
    > Het volgende voorbeeld wordt ervan uitgegaan dat een Windows VM-extensie (`ManagedIdentityExtensionForWindows`) wordt geïmplementeerd. U kunt ook configureren voor Linux met behulp van `ManagedIdentityExtensionForLinux` in plaats daarvan voor de `"name"` en `"type"` elementen.
@@ -128,9 +128,9 @@ In deze sectie maakt u inschakelen en uitschakelen van een systeem toegewezen id
     ]
    ```
 
-### <a name="assign-a-role-the-vms-system-assigned-identity"></a>Van de virtuele machine systeem toegewezen identiteit voor een rol toewijzen
+### <a name="assign-a-role-the-vms-system-assigned-managed-identity"></a>Beheerde identiteit van de virtuele machine door het systeem toegewezen voor een rol toewijzen
 
-Nadat u hebt systeem toegewezen identiteit ingeschakeld op de virtuele machine, kunt u het geven een rol, zoals **lezer** toegang tot de resourcegroep waarin deze is gemaakt.
+Nadat u het systeem toegewezen beheerde identiteit hebt ingeschakeld op de virtuele machine, kunt u het geven een rol, zoals **lezer** toegang tot de resourcegroep waarin deze is gemaakt.
 
 1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine.
  
@@ -172,23 +172,23 @@ Nadat u hebt systeem toegewezen identiteit ingeschakeld op de virtuele machine, 
     }
     ```
 
-### <a name="disable-a-system-assigned-identity-from-an-azure-vm"></a>Uitschakelen van een systeem toegewezen identiteit van een Azure VM
+### <a name="disable-a-system-assigned-managed-identity-from-an-azure-vm"></a>Uitschakelen van een systeem toegewezen beheerde identiteit van een Azure VM
 
-Als u een virtuele machine die een beheerde service-identiteit niet meer nodig hebt:
+Als u een virtuele machine die een door het systeem toegewezen beheerde identiteit niet meer nodig hebt:
 
 1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine.
 
-2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie. Hebt u een virtuele machine die alleen systeem toegewezen identiteit heeft, kunt u deze uitschakelen door het wijzigen van het identiteitstype aan `None`.  
+2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie. Hebt u een virtuele machine die alleen door het systeem toegewezen beheerde identiteit heeft, kunt u deze uitschakelen door het wijzigen van het identiteitstype aan `None`.  
    
    **Microsoft.Compute/virtualMachines API-versie 2018-06-01**
 
-   Als uw virtuele machine is zowel de systeem- en de gebruiker toegewezen identiteiten, verwijdert u `SystemAssigned` van de id-type en blijf aan de `UserAssigned` samen met de `userAssignedIdentities` woordenlijst waarden.
+   Als uw virtuele machine zowel de systeem- en de gebruiker toegewezen beheerde identiteiten is, verwijdert u `SystemAssigned` van de id-type en blijf aan de `UserAssigned` samen met de `userAssignedIdentities` woordenlijst waarden.
 
    **Microsoft.Compute/virtualMachines API-versie 2018-06-01 en oudere versies**
    
-   Als uw `apiVersion` is `2017-12-01` en uw virtuele machine heeft zowel de systeem- en de gebruiker toegewezen identiteiten, verwijdert u `SystemAssigned` van de id-type en blijf aan de `UserAssigned` samen met de `identityIds` matrix van de gebruiker toegewezen identiteiten.  
+   Als uw `apiVersion` is `2017-12-01` en uw virtuele machine heeft zowel system en beheerde identiteiten gebruiker toegewezen verwijderen `SystemAssigned` van de id-type en blijf aan de `UserAssigned` samen met de `identityIds` matrix van de gebruiker toegewezen identiteiten beheerd.  
    
-Het volgende voorbeeld ziet u hoe een systeem toegewezen identiteit van een virtuele machine zonder gebruiker toegewezen identiteiten verwijderen:
+Het volgende voorbeeld ziet u hoe een systeem toegewezen beheerde identiteit verwijderen uit een virtuele machine met geen beheerde gebruiker toegewezen identiteiten:
 
 ```JSON
 {
@@ -201,20 +201,20 @@ Het volgende voorbeeld ziet u hoe een systeem toegewezen identiteit van een virt
 }
 ```
 
-## <a name="user-assigned-identity"></a>Door gebruiker toegewezen identiteit
+## <a name="user-assigned-managed-identity"></a>de gebruiker toegewezen beheerde identiteit
 
-In deze sectie maakt u de identiteit van een gebruiker toegewezen aan een Azure VM met behulp van Azure Resource Manager-sjabloon.
+In deze sectie maakt u een gebruiker toegewezen beheerde identiteit met een Azure VM met behulp van Azure Resource Manager-sjabloon.
 
 > [!Note]
-> Zie voor het maken van een gebruiker toegewezen identiteit met een Azure Resource Manager-sjabloon, [maken van een gebruiker toegewezen identiteit](how-to-manage-ua-identity-arm.md#create-a-user-assigned-identity).
+> Zie voor het maken van een gebruiker toegewezen beheerde identiteit met een Azure Resource Manager-sjabloon, [maken van een gebruiker toegewezen beheerde identiteit](how-to-manage-ua-identity-arm.md#create-a-user-assigned-managed-identity).
 
- ### <a name="assign-a-user-assigned-identity-to-an-azure-vm"></a>Een gebruiker toegewezen identiteit met een Azure VM toewijzen
+ ### <a name="assign-a-user-assigned-managed-identity-to-an-azure-vm"></a>Een gebruiker toegewezen beheerde identiteit toewijzen aan een Azure-VM
 
-1. Onder de `resources` -element de volgende vermelding voor het toewijzen van de identiteit van een gebruiker toegewezen aan uw virtuele machine toevoegen.  Vervang `<USERASSIGNEDIDENTITY>` met de naam van de toegewezen gebruikers-id die u hebt gemaakt.
+1. Onder de `resources` -element de volgende vermelding voor het toewijzen van een beheerde identiteit voor de gebruiker toegewezen aan uw virtuele machine toevoegen.  Vervang `<USERASSIGNEDIDENTITY>` beheerd door de naam van de gebruiker toegewezen identiteit die u hebt gemaakt.
 
    **Microsoft.Compute/virtualMachines API-versie 2018-06-01**
 
-   Als uw `apiVersion` is `2018-06-01`, de gebruiker toegewezen identiteiten worden opgeslagen in de `userAssignedIdentities` woordenlijst indeling en de `<USERASSIGNEDIDENTITYNAME>` waarde moet worden opgeslagen in een variabele die is gedefinieerd in de `variables` gedeelte van uw sjabloon.
+   Als uw `apiVersion` is `2018-06-01`, uw beheerde gebruiker toegewezen identiteiten worden opgeslagen in de `userAssignedIdentities` woordenlijst indeling en de `<USERASSIGNEDIDENTITYNAME>` waarde moet worden opgeslagen in een variabele die is gedefinieerd in de `variables` gedeelte van uw sjabloon.
 
    ```json
    {
@@ -233,7 +233,7 @@ In deze sectie maakt u de identiteit van een gebruiker toegewezen aan een Azure 
    
    **Microsoft.Compute/virtualMachines API-versie 2017-12-01 en oudere versies**
     
-   Als uw `apiVersion` is `2017-12-01`, de gebruiker toegewezen identiteiten worden opgeslagen in de `identityIds` matrix en de `<USERASSIGNEDIDENTITYNAME>` waarde moet worden opgeslagen in een variabele die is gedefinieerd in de `variables` gedeelte van uw sjabloon.
+   Als uw `apiVersion` is `2017-12-01`, uw beheerde gebruiker toegewezen identiteiten worden opgeslagen in de `identityIds` matrix en de `<USERASSIGNEDIDENTITYNAME>` waarde moet worden opgeslagen in een variabele die is gedefinieerd in de `variables` gedeelte van uw sjabloon.
     
    ```json
    {
@@ -349,17 +349,16 @@ In deze sectie maakt u de identiteit van een gebruiker toegewezen aan een Azure 
        }
     ]
    ```
-    
 
-### <a name="remove-user-assigned-identity-from-an-azure-vm"></a>Verwijder de gebruiker toegewezen identiteit van een Azure-VM
+### <a name="remove-a-user-assigned-managed-identity-from-an-azure-vm"></a>Verwijderen van een gebruiker toegewezen beheerde identiteit van een Azure VM
 
-Als u een virtuele machine die een beheerde service-identiteit niet meer nodig hebt:
+Als u een virtuele machine die een gebruiker toegewezen beheerde identiteit niet meer nodig hebt:
 
 1. Of u lokaal bij Azure aanmelden of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement bevat waarmee de virtuele machine.
 
-2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie. Als u een virtuele machine waarvoor alleen toegewezen gebruikers-id hebt, kunt u deze uitschakelen door het wijzigen van het type id op `None`.
+2. Laden van de sjabloon in een [editor](#azure-resource-manager-templates) en zoek de `Microsoft.Compute/virtualMachines` resource van belang zijn binnen de `resources` sectie. Als u een virtuele machine waarvoor alleen beheerde identiteit gebruiker toegewezen hebt, kunt u deze uitschakelen door het veranderen van de id-type naar `None`.
  
-   Het volgende voorbeeld ziet u hoe alle gebruiker toegewezen identiteiten van een virtuele machine met geen enkel systeem toegewezen identiteit verwijderen:
+   Het volgende voorbeeld ziet u hoe alle beheerde identiteiten die door de gebruiker toegewezen verwijderen uit een virtuele machine met geen systeem toegewezen beheerde identiteiten:
    
    ```json
     {
@@ -374,17 +373,17 @@ Als u een virtuele machine die een beheerde service-identiteit niet meer nodig h
    
    **Microsoft.Compute/virtualMachines API-versie 2018-06-01 en oudere versies**
     
-   Als u een enkele gebruiker toegewezen identiteit van een virtuele machine, wilt verwijderen uit de `useraAssignedIdentities` woordenlijst.
+   Als u een enkele gebruiker toegewezen beheerde identiteit van een virtuele machine, wilt verwijderen uit de `useraAssignedIdentities` woordenlijst.
 
-   Als u een systeem toegewezen identiteit hebt, moet u deze de in de `type` waarde onder de `identity` waarde.
+   Als u een beheerde identiteit voor het systeem toegewezen hebt, moet u deze de in de `type` waarde onder de `identity` waarde.
  
    **Microsoft.Compute/virtualMachines API-versie 2017-12-01**
 
-   Als u een enkele gebruiker toegewezen identiteit van een virtuele machine, wilt verwijderen uit de `identityIds` matrix.
+   Verwijderen van een een enkele gebruiker toegewezen beheerde identiteit van een virtuele machine verwijderen uit de `identityIds` matrix.
 
-   Als u een systeem toegewezen identiteit hebt, moet u deze de in de `type` waarde onder de `identity` waarde.
+   Als u een beheerde identiteit voor het systeem toegewezen hebt, moet u deze de in de `type` waarde onder de `identity` waarde.
    
-## <a name="related-content"></a>Gerelateerde inhoud
+## <a name="next-steps"></a>Volgende stappen
 
-- Lees voor een breder perspectief over beheerde Service-identiteit, de [overzicht van de beheerde Service-identiteit](overview.md).
+- [Identiteiten voor een overzicht van Azure-resources beheerd](overview.md).
 

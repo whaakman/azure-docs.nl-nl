@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: a81baae553bbf9c58d42372e25e90cd7588f2952
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4380d21eded3f97e3b3107e78c9544a09d1b0bb2
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445072"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338527"
 ---
 # <a name="azure-active-directory-b2c-add-adfs-as-a-saml-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: AD FS toevoegen als een SAML-id-provider met behulp van aangepaste beleidsregels
 
@@ -57,10 +57,10 @@ Lidmaatschap van **beheerders**, of gelijkwaardig, op de lokale computer is de m
     ![Geef de weergavenaam en opmerkingen bij de](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-4.png)
 6.  Optioneel. Als u een optionele token versleutelingscertificaat, klikt u vervolgens op de **certificaat configureren** pagina, klikt u op **Bladeren** Zoek uw certificaatbestand en klik vervolgens op **volgende**.
     ![Certificaat configureren](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-5.png)
-7.  Op de **URL configureren** weergeeft, schakelt de **inschakelen van ondersteuning voor het protocol SAML 2.0 WebSSO** selectievakje. Onder **Relying party SAML 2.0 SSO service URL**, typt u de Security Assertion Markup Language (SAML) service-eindpunt-URL voor deze relying partyvertrouwensrelatie, en klik vervolgens op **volgende**.  Voor de **Relying party SAML 2.0 SSO service URL**, plak de `https://login.microsoftonline.com/te/{tenant}.onmicrosoft.com/{policy}`. Vervang {tenant} met de naam van uw tenant (bijvoorbeeld: contosob2c.onmicrosoft.com) en de {beleid} vervangen door de naam van uw extensies beleid (bijvoorbeeld B2C_1A_TrustFrameworkExtensions).
+7.  Op de **URL configureren** weergeeft, schakelt de **inschakelen van ondersteuning voor het protocol SAML 2.0 WebSSO** selectievakje. Onder **Relying party SAML 2.0 SSO service URL**, typt u de Security Assertion Markup Language (SAML) service-eindpunt-URL voor deze relying partyvertrouwensrelatie, en klik vervolgens op **volgende**.  Voor de **Relying party SAML 2.0 SSO service URL**, plak de `https://(tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policy}`. Vervang {tenant} met de naam van uw tenant (bijvoorbeeld contosob2c) en de {beleid} vervangen door de naam van uw extensies beleid (bijvoorbeeld B2C_1A_TrustFrameworkExtensions).
     > [!IMPORTANT]
     >Naam van het beleid wordt dat beleid signup_or_signin neemt over van, in dit geval is: `B2C_1A_TrustFrameworkExtensions`.
-    >Bijvoorbeeld de URL is: https://login.microsoftonline.com/te/ **contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
+    >Bijvoorbeeld de URL is: https://**contosob2c**.b2clogin.com/te/**contosob2c**.onmicrosoft.com/**B2C_1A_TrustFrameworkBase**.
 
     ![Relying party SAML 2.0 SSO service URL](media/active-directory-b2c-custom-setup-adfs2016-idp/aadb2c-ief-setup-adfs2016-idp-rp-6.png)
 8. Op de **id's configureren** pagina dezelfde URL opgeven als de vorige stap, klikt u op **toevoegen** toevoegen aan de lijst en klik vervolgens op **volgende**.

@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b1fe17adc80fc7f93f1511d577b1dc363e36e2e3
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 5315e7d45ef3af838f26422655cf6971af6f903e
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745998"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382547"
 ---
 # <a name="add-a-shape-to-a-map"></a>Een vorm toevoegen aan een kaart
 
@@ -29,7 +29,7 @@ In dit artikel wordt beschreven hoe u een lijn-, een cirkel- en een veelhoek toe
 
 In de bovenstaande code wordt het eerste vereiste blok van code een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
 
-In het tweede blok van code, is een regel gemaakt. Een regel is een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.feature?view=azure-iot-typescript-latest) van LineString met LineStringProperties als de functie-eigenschap. Gebruik `new atlas.data.Feature(new atlas.data.LineString())` maakt u een regel en de eigenschappen definiëren. 
+In het tweede blok van code, is een regel gemaakt. Een regel is een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) van LineString met LineStringProperties als de functie-eigenschap. Gebruik `new atlas.data.Feature(new atlas.data.LineString())` maakt u een regel en de eigenschappen definiëren. 
 
 Een lijnlaag is een matrix van regels. Maakt gebruik van het laatste blok van code [addLineStrings](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addlinestrings) functie van de klasse kaart de lijnlaag toevoegen aan de kaart en definiëren van de eigenschappen van de regel-laag. Controleer de eigenschappen van de laag van een regel op [LinestringLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.linestringlayeroptions?view=azure-iot-typescript-latest).
 
@@ -42,7 +42,7 @@ Een lijnlaag is een matrix van regels. Maakt gebruik van het laatste blok van co
 
 In de bovenstaande code wordt het eerste vereiste blok van code een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
 
-In het tweede blok van code, wordt een cirkel gemaakt. Een cirkel wordt een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.feature?view=azure-iot-typescript-latest) van [punt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.point?view=azure-iot-typescript-latest) met [CircleProperties](https://docs.microsoft.com/javascript/api/azure-maps-control/modelscircleproperties?view=azure-iot-typescript-latest) als de functie-eigenschap. Gebruik `new atlas.data.Feature(new atlas.data.Point())` maken van een cirkel en bijbehorende eigenschappen definiëren.
+In het tweede blok van code, wordt een cirkel gemaakt. Een cirkel wordt een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) van [punt](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.point?view=azure-iot-typescript-latest) met [CircleProperties](https://docs.microsoft.com/javascript/api/azure-maps-control/models.circleproperties?view=azure-iot-typescript-latest) als de functie-eigenschap. Gebruik `new atlas.data.Feature(new atlas.data.Point())` maken van een cirkel en bijbehorende eigenschappen definiëren.
 
 Een cirkel-laag is een matrix van cirkels. Maakt gebruik van het laatste blok van code [addCircle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcircles) functie van de klasse kaart in de laag van de cirkel toevoegen aan de kaart en het definiëren van de eigenschappen van de cirkel-laag. Controleer de eigenschappen van een laag van de cirkel op [CircleLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.circlelayeroptions?view=azure-iot-typescript-latest).
 
@@ -54,7 +54,7 @@ Een cirkel-laag is een matrix van cirkels. Maakt gebruik van het laatste blok va
 
 In de bovenstaande code wordt het eerste vereiste blok van code een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
 
-In het tweede blok van code, is een veelhoek gemaakt. Een veelhoek is een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.feature?view=azure-iot-typescript-latest) van [veelhoek](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.polygon?view=azure-iot-typescript-latest) met [PolygonProperties](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.atlas.data.polygonproperties?view=azure-iot-typescript-latest) als de functie-eigenschap. Gebruik `new atlas.data.Feature(new atlas.data.Polygon())` te maken van een polygoon definieert de eigenschappen ervan. Geordende coördinaten van het pad van de veelhoek in de constructor veelhoek bevatten.
+In het tweede blok van code, is een veelhoek gemaakt. Een veelhoek is een [functie](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.feature?view=azure-iot-typescript-latest) van [veelhoek](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.data.polygon?view=azure-iot-typescript-latest) met [PolygonProperties](https://docs.microsoft.com/javascript/api/azure-maps-control/models.polygonproperties?view=azure-iot-typescript-latest) als de functie-eigenschap. Gebruik `new atlas.data.Feature(new atlas.data.Polygon())` te maken van een polygoon definieert de eigenschappen ervan. Geordende coördinaten van het pad van de veelhoek in de constructor veelhoek bevatten.
 
 Een polygoonlaag is een matrix van veelhoeken. Maakt gebruik van het laatste blok van code [addPolygons](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpolygons) functie van de klasse kaart de polygoonlaag toevoegen aan de kaart en de eigenschappen definiëren. Controleer de eigenschappen van een polygoonlaag op [PolygonLayerOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.polygonlayeroptions?view=azure-iot-typescript-latest). 
 

@@ -14,12 +14,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: mahender,cephalin
-ms.openlocfilehash: 9b4e86e719998c5f19a70734480356bcb98b8d2f
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 46f8602583329a0516edb9af59e53754ca349555
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888097"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336801"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service
 
@@ -33,7 +33,7 @@ Verificatie en autorisatie vereist grondige kennis van beveiliging, met inbegrip
 
 Zie voor informatie die specifiek is voor eigen mobiele apps [verificatie en autorisatie voor mobiele apps met Azure App Service](../app-service-mobile/app-service-mobile-auth.md).
 
-## <a name="how-it-works"></a>Hoe alles werkt
+## <a name="how-it-works"></a>Hoe werkt het?
 
 De verificatie en autorisatie-module wordt uitgevoerd in de sandbox van uw toepassingscode. Wanneer deze ingeschakeld, wordt elke binnenkomende HTTP-aanvraag doorgegeven via het voordat het wordt verwerkt door code van uw toepassing.
 
@@ -135,7 +135,7 @@ Met deze optie moet u niet een verificatiecode op te geven in uw app in te schri
 
 De optie **toestaan anonieme aanvragen**. Deze optie Hiermee schakelt u verificatie en autorisatie in App Service, maar wordt uitgesteld autorisatie beslissingen te nemen aan de code van uw toepassing. Voor geverifieerde aanvragen doorgeeft App Service ook naar de verificatiegegevens in de HTTP-headers. 
 
-Deze optie biedt meer flexibiliteit bij het verwerken van anonieme aanvragen. Bijvoorbeeld, kunt u [presenteren meerdere aanmeldingsopties](app-service-authentication-how-to.md#configure-multiple-sign-in-options) aan uw gebruikers. U hebt echter om code te schrijven. 
+Deze optie biedt meer flexibiliteit bij het verwerken van anonieme aanvragen. Bijvoorbeeld, kunt u [presenteren meerdere providers aanmelden](app-service-authentication-how-to.md#use-multiple-sign-in-providers) aan uw gebruikers. Echter, moet u code schrijven. 
 
 ## <a name="more-resources"></a>Meer bronnen
 

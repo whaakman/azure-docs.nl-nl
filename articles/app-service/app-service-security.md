@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/24/2018
 ms.author: cephalin
-ms.openlocfilehash: 78487061dd49c057e8f569fd2ccdaa6408443fd2
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 40fdd22bdbb3fc0676688430069d58c0422a7ca2
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885867"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382113"
 ---
 # <a name="security-in-azure-app-service-and-azure-functions"></a>Beveiliging in Azure App Service en Azure Functions
 
@@ -29,7 +29,7 @@ De platformonderdelen van App Service, inclusief Azure Virtual machines, opslag,
 
 - Uw app-resources zijn [beveiligde](https://github.com/projectkudu/kudu/wiki/Azure-Web-App-sandbox) van andere klanten Azure-resources.
 - [VM-exemplaren en runtime-software worden regelmatig bijgewerkt](app-service-patch-os-runtime.md) adres onlangs ontdekte beveiligingslekken. 
-- Communicatie van geheimen (zoals tekenreeksen voor databaseverbindingen) tussen uw app en andere Azure-resources (zoals [SQL-Database](/services/sql-database/)) blijft in Azure en niet alle netwerkgrenzen cross. Geheimen worden altijd versleuteld wanneer die zijn opgeslagen.
+- Communicatie van geheimen (zoals tekenreeksen voor databaseverbindingen) tussen uw app en andere Azure-resources (zoals [SQL-Database](https://azure.microsoft.com/services/sql-database/)) blijft in Azure en niet alle netwerkgrenzen cross. Geheimen worden altijd versleuteld wanneer die zijn opgeslagen.
 - Alle communicatie via de App Service-connectiviteit-functies, zoals [hybride verbinding](app-service-hybrid-connections.md), worden versleuteld. 
 - Verbindingen met externe beheerprogramma's, zoals Azure PowerShell, Azure CLI, Azure-SDK's, REST-API's, worden alle versleuteld.
 - 24-uurs threat management beveiligt de infrastructuur en platform tegen schadelijke software, distributed denial-of-service (DDoS), man-in-the-middle (MITM) en andere dreigingen.
@@ -84,7 +84,7 @@ In elk van deze gevallen is App Service biedt een manier waarop u beveiligde ver
 
 ### <a name="azure-resources"></a>Azure-resources
 
-Als uw app verbinding maakt met Azure-resources, zoals [SQL-Database](/services/sql-database/) en [Azure Storage](/azure/storage/), de verbinding blijft in Azure en niet alle netwerkgrenzen cross. Echter, de verbinding verloopt via het gedeelde netwerken in Azure, dus altijd voor zorgen dat de verbinding is versleuteld. 
+Als uw app verbinding maakt met Azure-resources, zoals [SQL-Database](https://azure.microsoft.com/services/sql-database/) en [Azure Storage](/azure/storage/), de verbinding blijft in Azure en niet alle netwerkgrenzen cross. Echter, de verbinding verloopt via het gedeelde netwerken in Azure, dus altijd voor zorgen dat de verbinding is versleuteld. 
 
 Als uw app wordt gehost een [App Service-omgeving](environment/intro.md), moet u [verbinding maken met Azure-services met behulp van service-eindpunten ondersteund](../virtual-network/virtual-network-service-endpoints-overview.md).
 
@@ -117,4 +117,4 @@ Met uitzondering van de **geïsoleerd** prijscategorie, alle lagen uw apps uitge
 - Interne toepassing via een interne load balancer (ILB), waarmee alleen toegankelijk is vanaf binnen uw Azure Virtual Network kunt leveren. De ILB heeft een IP-adres van uw privé-subnet waarmee de totale isolatie van uw apps vanaf het internet.
 - [Gebruik een ILB achter een web application firewall (WAF)](environment/integrate-with-application-gateway.md). De WAF biedt beveiliging voor uw openbare-toepassingen, zoals DDoS protection, URI filteren en SQL-injectie preventie op ondernemingsniveau.
 
-Zie voor meer informatie, [Inleiding tot Azure App Service-omgevingen](environment/intro.md).
+Zie voor meer informatie, [Inleiding tot Azure App Service-omgevingen](environment/intro.md). 

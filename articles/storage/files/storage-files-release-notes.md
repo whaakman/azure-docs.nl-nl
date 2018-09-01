@@ -5,15 +5,15 @@ services: storage
 author: wmgries
 ms.service: storage
 ms.topic: article
-ms.date: 08/21/2018
+ms.date: 08/30/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: 3cd178333ee0d8d92db08fb08cbd02b05112f58b
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: cc1b89ff94b4d4dc0b191512b110521d5fa05a7a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445019"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344363"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Opmerkingen bij de release voor de Azure File Sync-agent
 Met Azure File Sync kunt u bestandsshares van uw organisatie in Azure Files centraliseren zonder in te leveren op de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Uw installaties van Windows Server worden getransformeerd in een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is in Windows Server gebruiken voor lokale toegang tot uw gegevens (inclusief SMB, NFS en FTPS) en u kunt zoveel caches hebben als u waar ook ter wereld nodig hebt.
@@ -27,16 +27,16 @@ De volgende versies worden ondersteund voor de Azure File Sync-agent:
 |----|----------------------|--------------|------------------|
 | Updatepakket voor augustus | 3.2.0.0 | 15 augustus 2018 | Ondersteunde (aanbevolen versie) |
 | Algemene beschikbaarheid | 3.1.0.0 | 19 juni 2018 | Ondersteund |
-| Updatepakket voor juni | 3.0.13.0 | 29 juni 2018 | Agent-versie verloopt op 4 September 2018 |
-| Vernieuwen van 2 | 3.0.12.0 | 22 mei 2018 | Agent-versie verloopt op 4 September 2018 |
-| Updatepakket voor april | 2.3.0.0 | 8 mei 2018 | Agent-versie verloopt op 4 September 2018 |
-| Updatepakket van maart | 2.2.0.0 | 12 maart 2018 | Agent-versie verloopt op 4 September 2018 |
-| Updatepakket van februari | 2.1.0.0 | 28 februari 2018 | Agent-versie verloopt op 4 September 2018 |
-| 1 vernieuwen | 2.0.11.0 | 8 februari 2018 | Agent-versie verloopt op 4 September 2018 |
-| Updatepakket van januari | 1.4.0.0 | 8 januari 2018 | Agent-versie verloopt op 4 September 2018 |
-| Updatepakket van november | 1.3.0.0 | En met 30 november 2017 | Agent-versie verloopt op 4 September 2018 |
-| Met update rollup van oktober | 1.2.0.0 | 31 oktober 2017 | Agent-versie verloopt op 4 September 2018 |
-| Eerste preview-release | 1.1.0.0 | 26 september 2017 | Agent-versie verloopt op 4 September 2018 |
+| Updatepakket voor juni | 3.0.13.0 | 29 juni 2018 | Agent-versie verloopt op 1 oktober 2018 |
+| Vernieuwen van 2 | 3.0.12.0 | 22 mei 2018 | Agent-versie verloopt op 1 oktober 2018 |
+| Updatepakket voor april | 2.3.0.0 | 8 mei 2018 | Agent-versie verloopt op 1 oktober 2018 |
+| Updatepakket van maart | 2.2.0.0 | 12 maart 2018 | Agent-versie verloopt op 1 oktober 2018 |
+| Updatepakket van februari | 2.1.0.0 | 28 februari 2018 | Agent-versie verloopt op 1 oktober 2018 |
+| 1 vernieuwen | 2.0.11.0 | 8 februari 2018 | Agent-versie verloopt op 1 oktober 2018 |
+| Updatepakket van januari | 1.4.0.0 | 8 januari 2018 | Agent-versie verloopt op 1 oktober 2018 |
+| Updatepakket van november | 1.3.0.0 | En met 30 november 2017 | Agent-versie verloopt op 1 oktober 2018 |
+| Met update rollup van oktober | 1.2.0.0 | 31 oktober 2017 | Agent-versie verloopt op 1 oktober 2018 |
+| Eerste preview-release | 1.1.0.0 | 26 september 2017 | Agent-versie verloopt op 1 oktober 2018 |
 
 ### <a name="azure-file-sync-agent-update-policy"></a>Updatebeleid Azure File Sync-agent
 [!INCLUDE [storage-sync-files-agent-update-policy](../../../includes/storage-sync-files-agent-update-policy.md)]
@@ -49,6 +49,9 @@ Deze release bevat het volgende probleem:
 
 ## <a name="agent-version-3100"></a>Agentversie 3.1.0.0
 De volgende releaseopmerkingen zijn voor versie 3.1.0.0 van de Azure File Sync-agent (vrijgegeven op 19 juni 2018).
+
+### <a name="evaluation-tool"></a>Hulpprogramma voor het evalueren
+Voordat u Azure File Sync implementeert, moet u evalueren of het compatibel is met het systeem met behulp van het hulpprogramma voor het evalueren van Azure File Sync. Dit hulpprogramma is een AzureRM PowerShell-cmdlet waarmee wordt gecontroleerd op mogelijke problemen met het bestandssysteem en de gegevensset, zoals niet-ondersteunde tekens of een niet-ondersteunde versie van het besturingssysteem. Zie voor de installatie en instructies over het gebruik, [evaluatieprogramma](https://docs.microsoft.com/en-us/azure/storage/files/storage-sync-files-planning#evaluation-tool) sectie in de handleiding voor capaciteitsplanning. 
 
 ### <a name="agent-installation-and-server-configuration"></a>Agentinstallatie en serverconfiguratie
 Zie voor meer informatie over het installeren en configureren van de Azure File Sync-agent met Windows Server [Planning voor de implementatie van een Azure File Sync](storage-sync-files-planning.md) en [over het implementeren van Azure File Sync](storage-sync-files-deployment-guide.md).

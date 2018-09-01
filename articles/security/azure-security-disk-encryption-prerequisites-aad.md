@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: mstewart
-ms.openlocfilehash: 62ae0bcfb30e39b3b2cfcf94b3877cce9cadf9d1
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 701418c4c2f17d151061ffde704b5a7f05551d9c
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128000"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338458"
 ---
 # <a name="azure-disk-encryption-prerequisites-previous-release"></a>Vereisten voor Azure Disk Encryption (vorige versie)
 
@@ -204,7 +204,7 @@ U kunt een sleutelkluis maken met behulp van de [Resource Manager-sjabloon](http
 
 
 ## <a name="bkmk_ADapp"></a> Instellen van een Azure AD-app en service principal 
-Wanneer u versleuteling wordt ingeschakeld op een actieve virtuele machine in Azure nodig hebt, wordt Azure Disk Encryption genereert en schrijft de versleutelingssleutels in uw key vault. Beheer van versleutelingssleutels in uw key vault, vereist Azure AD-verificatie. Maak een Azure AD-toepassing voor dit doel. Voor verificatiedoeleinden wordt gebruikt, kunt u een van beide verificaties client op basis van een geheim of [Azure AD op basis van certificaten clientverificatie](../active-directory/active-directory-certificate-based-authentication-get-started.md).
+Wanneer u versleuteling wordt ingeschakeld op een actieve virtuele machine in Azure nodig hebt, wordt Azure Disk Encryption genereert en schrijft de versleutelingssleutels in uw key vault. Beheer van versleutelingssleutels in uw key vault, vereist Azure AD-verificatie. Maak een Azure AD-toepassing voor dit doel. Voor verificatiedoeleinden wordt gebruikt, kunt u een van beide verificaties client op basis van een geheim of [Azure AD op basis van certificaten clientverificatie](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md).
 
 
 ### <a name="bkmk_ADappPSH"></a> Instellen van een Azure AD-app en service principal met de Azure PowerShell 

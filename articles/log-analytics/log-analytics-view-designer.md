@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 77c7d9a549b10a56faaf6226062d0e6212ce19c0
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 362d19c489dfa0eda33036052ac9626414ef0933
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42057584"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340733"
 ---
 # <a name="create-custom-views-by-using-view-designer-in-log-analytics"></a>Aangepaste weergaven maken met behulp van de Weergaveontwerper in Log Analytics
 Met behulp van de Weergaveontwerper in [Azure Log Analytics](log-analytics-overview.md), kunt u tal van aangepaste weergaven maken in Azure portal kunt u visualiseren van gegevens in uw Log Analytics-werkruimte. In dit artikel geeft een overzicht van de Weergaveontwerper en procedures voor het maken en bewerken van aangepaste weergaven.
@@ -58,7 +58,7 @@ De opties worden in de volgende tabel beschreven:
 | Analyse | Hiermee opent u de [portal Advanced Analytics](log-analytics-log-search-portals.md) voor het analyseren van gegevens met Logboeken-query's. |
 | Bewerken       | Hiermee opent de weergave in de Designer bekijken om te bewerken van de inhoud en configuratie.  |
 | Kloon      | Hiermee maakt u een nieuwe weergave en wordt deze geopend in de ontwerper. De naam van de nieuwe weergave is hetzelfde als de oorspronkelijke naam, maar met *kopie* hieraan toegevoegd. |
-| Datumbereik | De datum en tijd bereikfilter instellen voor de gegevens die zijn opgenomen in de weergave. |
+| Datumbereik | De datum en tijd bereikfilter instellen voor de gegevens die zijn opgenomen in de weergave. Deze datumbereik is toegepast voordat een datumbereiken instellen in query's in de weergave.  |
 | +          | Definieer een aangepaste filter dat gedefinieerd voor de weergave. |
 
 

@@ -1,6 +1,6 @@
 ---
-title: Azure-resource-rollen in PIM verlengen of vernieuwen | Microsoft Docs
-description: Leer hoe u Azure-resource-rollen in Azure AD Privileged Identity Management (PIM) verlengen of vernieuwen.
+title: Verlengen of vernieuwen van Azure-resource-roltoewijzingen in PIM | Microsoft Docs
+description: Informatie over het verlengen of vernieuwen van Azure-resource-roltoewijzingen in Azure AD Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -15,14 +15,14 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 2c85c5bbbd4c152113108e0fdb717d23f85f9fde
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 3294bddea867e061d01e8dc72f4e47f3238b6c4d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189647"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344082"
 ---
-# <a name="extend-or-renew-azure-resource-roles-in-pim"></a>Azure-resource-rollen in PIM verlengen of vernieuwen
+# <a name="extend-or-renew-azure-resource-role-assignments-in-pim"></a>Verlengen of vernieuwen van Azure-resource-roltoewijzingen in PIM
 
 Privileged Identity Management (PIM) voor Azure-resources introduceert nieuwe besturingselementen voor het beheren van de levenscyclus van toegang en de toewijzing voor Azure-resources. Beheerders kunnen lidmaatschap met behulp van begin- en datum / tijd-eigenschappen toewijzen. Wanneer het einde van de toewijzing nadert, verzonden PIM e-mailmeldingen naar de betrokken gebruikers of groepen. Het verzendt ook e-mailmeldingen voor beheerders van de resource om ervoor te zorgen dat de juiste toegang wordt bijgehouden. Toewijzingen kunnen worden vernieuwd en blijven zichtbaar is in een verlopen gedurende maximaal 30 dagen, zelfs als de toegang niet is uitgebreid.
 

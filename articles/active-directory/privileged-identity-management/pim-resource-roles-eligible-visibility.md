@@ -15,12 +15,12 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 3551c3231a94f8a844d26a713cbf171ca7653815
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 59d51ba8edadd1fd71255271623b144cab94fc97
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189211"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344280"
 ---
 # <a name="eligible-assignments-and-resource-visibility-in-pim"></a>In aanmerking komende toewijzingen en de zichtbaarheid van resources in PIM
 
@@ -67,6 +67,24 @@ PIM voor Azure-resources heeft twee verschillende toewijzing statussen die worde
 - Geactiveerd
 
 Wanneer u een lidmaatschap dat wordt vermeld in bekijkt **actieve rollen**, kunt u de waarde in de **status** kolom onderscheid maken tussen de gebruikers die zijn **toegewezen** als actief en gebruikers die **geactiveerd** een in aanmerking komende toewijzing en zijn nu actief.
+
+## <a name="azure-resource-role-approval-workflow"></a>Werkstroom voor goedkeuring van Azure-resource-rollen
+
+Beheerders kunnen met de werkstroom voor goedkeuring in PIM voor Azure-resourcerollen, verder beschermen of beperken van toegang tot kritieke bronnen. Dat wil zeggen, beheerders kunnen vereisen dat goedkeuring roltoewijzingen te activeren.
+
+Het concept van een hiërarchie van de resource is uniek voor Azure-resourcerollen. Deze hiërarchie kunt de overname van roltoewijzingen van een bovenliggende resource-object naar beneden naar alle onderliggende resources in de bovenliggende container. 
+
+Bijvoorbeeld: Bob, de resourcebeheerder van een, PIM gebruikt voor het toewijzen van Alice als een in aanmerking komend lid aan de rol eigenaar in het Contoso-abonnement. Met deze toewijzing is Els een in aanmerking komende eigenaar van alle resource group-containers in het Contoso-abonnement. Els wordt ook de eigenaar van een in aanmerking komende van alle resources (zoals virtuele machines) in elke resourcegroep van het abonnement.
+
+Stel dat er zijn drie resourcegroepen in het Contoso-abonnement: Fabrikam Test Fabrikam Dev en Fabrikam Prod. Elk van deze resourcegroepen bevat één virtuele machine.
+
+PIM-instellingen worden geconfigureerd voor elke rol van een resource. In tegenstelling tot toewijzingen, worden deze instellingen worden niet overgenomen en zijn alleen van toepassing op de functie van.
+
+U doorgaat met het voorbeeld: Bob PIM gebruikt om te vereisen dat alle leden in de rol van eigenaar van het goedkeuren van Contoso-abonnement worden geactiveerd. Ter bescherming van de resources in de resourcegroep van Fabrikam Prod, moet Bob ook worden goedgekeurd voor leden van de rol van eigenaar van deze resource. De rollen eigenaar in Fabrikam Test- en Fabrikam Dev vereisen geen goedkeuring voor activering.
+
+Wanneer Els activering van haar eigenaarsrol voor de Contoso-abonnement aanvraagt, moet de fiatteur goedkeuren of haar aanvraag weigeren voordat ze actief in de rol. Als Alice wil [haar activering scope](pim-resource-roles-activate-your-roles.md#apply-just-enough-administration-practices) naar de resourcegroep Fabrikam Prod fiatteur moet goedkeuren of weigeren van deze aanvraag te. Maar als Alice wil het bereik van haar activering op een van beide of beide Fabrikam-Test of Fabrikam Dev, goedkeuring is niet vereist.
+
+De werkstroom voor goedkeuring is mogelijk niet nodig zijn voor alle leden van een rol. U hebt een scenario waarbij uw organisatie verschillende contract wordt om te helpen bij de ontwikkeling van een toepassing die wordt uitgevoerd in een Azure-abonnement ingehuurd. Als de resourcebeheerder van een, u wilt dat werknemers in aanmerking komende toegang hebben zonder goedkeuring is vereist, maar koppelt van het contract moeten goedkeuring aanvragen. Werkstroom voor goedkeuring configureren voor de koppelt van het contract, kunt u een aangepaste rol maken met dezelfde machtigingen als de rol die is toegewezen aan werknemers. U kunt vereisen dat goedkeuring om deze aangepaste rol te activeren. [Meer informatie over aangepaste rollen](pim-resource-roles-custom-role-policy.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

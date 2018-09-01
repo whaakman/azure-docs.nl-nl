@@ -17,12 +17,12 @@ ms.date: 06/06/2018
 ms.author: celested
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b0f8568dd67dd292ccca3972a402a110cd4a46fb
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: da13b7b7b9bd39692db422a315383e0f12aae453
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39581401"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344873"
 ---
 # <a name="azure-active-directory-v20-and-oauth-20-on-behalf-of-flow"></a>Azure Active Directory v2.0 en OAuth 2.0 namens-stroom
 De OAuth 2.0 namens-stroom fungeert de use-case waar een toepassing wordt aangeroepen met een service of web-API, dat op zijn beurt vereist is voor het aanroepen van een andere service of web-API. Het idee is dat de gemachtigde gebruiker identiteits- en machtigingen via de aanvraagketen doorgegeven. Voor de middelste laag service voor geverifieerde aanvragen versturen naar de downstream-service, moet deze voor het beveiligen van een toegangstoken van Azure Active Directory (Azure AD), namens de gebruiker.
@@ -40,7 +40,7 @@ Wordt ervan uitgegaan dat de gebruiker is geverifieerd op een toepassing met beh
 
 De volgende stappen de stroom op-andere gebruikers-Of vormen en met behulp van het volgende diagram worden uitgelegd.
 
-![OAuth 2.0 op namens-stroom](/media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
+![OAuth 2.0 op namens-stroom](./media/v1-oauth2-on-behalf-of-flow/active-directory-protocols-oauth-on-behalf-of-flow.png)
 
 
 1. De clienttoepassing een aanvraag doet bij API A met het token A (met een `aud` claim van API-A).

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: a27624d4c7a0bde4b33aefe8d05881b743ce397d
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: b325873819caff139727ec15d6aecd2d4be89c9e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285727"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338152"
 ---
 # <a name="understand-the-device-model-schema"></a>Schema van het Apparaatmodel begrijpen
 
@@ -24,7 +24,7 @@ Dit artikel beschrijft het schema voor het model van apparaten die Hiermee geeft
 De volgende artikelen zijn gerelateerd aan het huidige artikel:
 
 * [Gedrag van het Apparaatmodel implementeren](iot-accelerators-device-simulation-device-behavior.md) beschrijving van de JavaScript-bestanden die u gebruikt voor het implementeren van het gedrag van een gesimuleerd apparaat.
-* [Maak een nieuw gesimuleerd apparaat](iot-accelerators-remote-monitoring-test.md) alles bij elkaar geplaatst en laat zien u hoe u een nieuw gesimuleerd apparaattype implementeert in uw oplossing.
+* [Maak een nieuw gesimuleerd apparaat](iot-accelerators-device-simulation-create-simulated-device.md) alles bij elkaar geplaatst en laat zien u hoe u een nieuw gesimuleerd apparaattype implementeert in uw oplossing.
 
 In dit artikel leert u het volgende:
 

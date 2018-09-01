@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 88fffd28319101c112f848eebc6e8ee27f7f863e
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 11f3f190c0f55e45c549a8bd1de35f78eb7b752d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952015"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337426"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-github-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een GitHub-account met behulp van Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Voor het gebruik van een Github-account als id-provider in Azure Active Director
 1. Aanmelden bij de [GitHub Developer](https://github.com/settings/developers) -website met uw GitHub-referenties.
 2. Selecteer **OAuth Apps** en selecteer vervolgens **een nieuwe toepassing registreren**.
 3. Voer een **toepassingsnaam** en uw **URL van de startpagina**.
-4. Voer `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **URL voor terugbellen voor autorisatie**. Vervang **{tenant}** met de naam van uw Azure AD B2C-tenant (bijvoorbeeld: contosob2c.onmicrosoft.com).
+4. Voer `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in **URL voor terugbellen voor autorisatie**. Vervang **{tenant}** met de naam van uw Azure AD B2C-tenant (bijvoorbeeld contosob2c).
 5. Klik op **toepassing registreren**.
 6. Kopieer de waarden van **Client-ID** en **Clientgeheim**. U moet zowel de id-provider toevoegen aan uw tenant.
 

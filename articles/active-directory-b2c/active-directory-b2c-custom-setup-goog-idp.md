@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 19b7f708d43907ac45450a64f988b2a517293511
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f076a906ba38e6c8e8c9530baba1607553b41ea6
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446704"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338325"
 ---
 # <a name="azure-active-directory-b2c-add-google-as-an-oauth2-identity-provider-using-custom-policies"></a>Azure Active Directory B2C: Toevoegen Google + als een OAuth2-id-provider met behulp van aangepaste beleidsregels
 
@@ -78,7 +78,7 @@ Voor het gebruik van Google + als id-provider in Azure Active Directory (Azure A
 
     ![Google + - toepassingstype selecteren](media/active-directory-b2c-custom-setup-goog-idp/goog-web-app.png)
 
-13.  Geef een **naam** voor uw toepassing, voert u `https://login.microsoftonline.com` in de **geautoriseerd JavaScript oorsprongen** veld en `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in de **geautoriseerde omleidings-URI's** het veld. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld: contosob2c.onmicrosoft.com). De **{tenant}** hoofdlettergevoelig. Klik op **Create**.
+13.  Geef een **naam** voor uw toepassing, voert u `https://{tenant}.b2clogin.com` in de **geautoriseerd JavaScript oorsprongen** veld en `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in de **geautoriseerde omleidings-URI's** het veld. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld contosob2c). De **{tenant}** hoofdlettergevoelig. Klik op **Create**.
 
     ![Google + - JavaScript geautoriseerd oorsprongen opgeven en omleidings-URI's](media/active-directory-b2c-custom-setup-goog-idp/goog-create-client-id.png)
 

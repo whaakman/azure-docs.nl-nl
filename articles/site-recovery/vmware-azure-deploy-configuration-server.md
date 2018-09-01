@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 7bbcaa82b1072b8cbdea015195a8da03ceb3a25f
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 02dc4657f6c594242d12e3eca270a3549b77bf02
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056756"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337755"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
@@ -81,7 +81,7 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
 
 1. Klik in de vSphere Client-inventaris met de rechtermuisknop op de VM en selecteer **Instellingen bewerken**.
 2. Selecteer **Toevoegen** > **Ethernet-adapter** bij **Hardware**. Selecteer vervolgens **Volgende**.
-3. Selecteer een adaptertype en een netwerk. 
+3. Selecteer een adaptertype en een netwerk.
 4. Selecteer voor de virtuele NIC verbinding wanneer de virtuele machine is ingeschakeld, **verbinding maken met power-on**. Selecteer vervolgens **volgende** > **voltooien** > **OK**.
 
 ## <a name="register-the-configuration-server-with-azure-site-recovery-services"></a>De configuratieserver registreren bij Azure Site Recovery-services
@@ -102,7 +102,7 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
 
     > [!NOTE]
     > Zodra geregistreerd, is er geen flexibiliteit om te wijzigen van de recovery services-kluis.
-    
+
 3. In **software van derden installeren**,
 
     |Scenario   |Stappen om te volgen  |
@@ -144,6 +144,10 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
 ## <a name="upgrade-the-configuration-server"></a>De configuratieserver upgraden
 
 Als u de configuratieserver bijwerken naar de nieuwste versie, lees de stappen Breng [hier](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+
+## <a name="manage-the-configuration-server"></a>De configuratieserver beheren
+
+Om te voorkomen onderbrekingen in de lopende replicatie, zorg ervoor dat IP-adres van de configuratieserver niet wordt gewijzigd nadat de configuratieserver bij een kluis is geregistreerd. U kunt meer informatie over algemene beheertaken voor configuration server [hier](vmware-azure-manage-configuration-server.md).
 
 ## <a name="troubleshoot-deployment-issues"></a>Oplossen van implementatieproblemen
 

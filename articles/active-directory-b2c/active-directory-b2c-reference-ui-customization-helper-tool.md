@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 01/07/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 18f921fb718aeb7ae4add2836fbb6ffabd66668f
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 1a37a37dbed3b5ef9733f1105444529b4d255bcf
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445055"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336778"
 ---
 # <a name="azure-active-directory-b2c-a-helper-tool-used-to-demonstrate-the-page-user-interface-ui-customization-feature"></a>Azure Active Directory B2C: Een hulpprogramma dat wordt gebruikt ter illustratie van de functie pagina gebruiker gebruikersinterface (UI) aanpassen
 In dit artikel is een aanvulling op de [belangrijkste UI-aanpassing artikel](active-directory-b2c-reference-ui-customization.md) in Azure Active Directory (Azure AD) B2C. De volgende stappen wordt beschreven hoe u de pagina UI-aanpassing functie oefenen met behulp van de voorbeeld-HTML en CSS-inhoud die beschikbaar is gesteld.
@@ -74,7 +74,7 @@ U kunt downloaden de [Azure Blob Storage helper hulpprogramma en de voorbeeld-be
 git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 ```
 
-Deze opslagplaats bevat een `sample_templates\wingtip` directory waarin de voorbeeld-HTML, CSS en afbeeldingen. Voor deze sjablonen gebruiken om te verwijzen naar uw eigen Azure Blob Storage-account, moet u de HTML-bestanden bewerken. Open `unified.html` en `selfasserted.html` en Vervang alle exemplaren van `https://localhost` met de URL van uw eigen container die u hebt genoteerd in de vorige stappen. U kunt het absolute pad van de HTML-bestanden moet gebruiken, omdat in dit geval wordt de HTML-code worden geleverd door Azure AD, onder het domein `https://login.microsoftonline.com`.
+Deze opslagplaats bevat een `sample_templates\wingtip` directory waarin de voorbeeld-HTML, CSS en afbeeldingen. Voor deze sjablonen gebruiken om te verwijzen naar uw eigen Azure Blob Storage-account, moet u de HTML-bestanden bewerken. Open `unified.html` en `selfasserted.html` en Vervang alle exemplaren van `https://localhost` met de URL van uw eigen container die u hebt genoteerd in de vorige stappen. U kunt het absolute pad van de HTML-bestanden moet gebruiken, omdat in dit geval wordt de HTML-code worden geleverd door Azure AD, onder het domein `tenantname.b2clogin.com`.
 
 ### <a name="upload-the-sample-files"></a>De voorbeeldbestanden uploaden
 In dezelfde opslagplaats, pak deze uit `B2CAzureStorageClient.zip` en voer de `B2CAzureStorageClient.exe` binnen het bestand. Dit programma wordt gewoon alle bestanden in de map die u naar uw opslagaccount opgeeft uploaden en inschakelen van CORS-toegang voor deze bestanden. Als u de bovenstaande stappen hebt gevolgd, is de HTML en CSS-bestanden wordt nu verwezen naar uw storage-account. Houd er rekening mee dat de naam van uw storage-account is het gedeelte die voorafgaat aan `blob.core.windows.net`, bijvoorbeeld `contoso`. U kunt controleren of dat de inhoud correct is geüpload door het openen van `https://{storage-account-name}.blob.core.windows.net/{container-name}/wingtip/unified.html` in een browser. Ook gebruiken [ http://test-cors.org/ ](http://test-cors.org/) om ervoor te zorgen dat de inhoud nu CORS is ingeschakeld is. (Zoek naar ' XHR status: 200 ' in het resultaat.)

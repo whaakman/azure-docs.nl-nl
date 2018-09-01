@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/16/2018
-ms.openlocfilehash: f45bb3b47209bd6b02cea49c23b0a59ad75fc2e2
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: d9008956d3a5542d71438ee13050a3951230e101
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055342"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338804"
 ---
 # <a name="provision-the-data-science-virtual-machine-for-linux-ubuntu"></a>De virtuele Machine voor Datatechnologie voor Linux (Ubuntu) inrichten
 
@@ -81,13 +81,14 @@ Voordat u een virtuele Machine voor Datatechnologie voor Linux maken kunt, moet 
 ## <a name="create-your-data-science-virtual-machine-for-linux"></a>Maken van uw virtuele Machine voor Datatechnologie voor Linux
 Hier volgen de stappen voor het maken van een exemplaar van de Data Science Virtual Machine voor Linux:
 
-1. Navigeer naar de virtuele machine weergeven op de [Azure-portal](https://portal.azure.com/#create/microsoft-ads.linux-data-science-vm-ubuntulinuxdsvmubuntu).
+1. Navigeer naar de virtuele machine weergeven op de [Azure-portal](https://portal.azure.com/#create/microsoft-dsvm.linux-data-science-vm-ubuntulinuxdsvmubuntu). U mogelijk gevraagd om aan te melden bij uw Azure-account als u bent niet al aangemeld. 
 1. Klik op **maken** (aan de onderkant) om de wizard.![ Configureer-data-science-vm](./media/dsvm-ubuntu-intro/configure-data-science-virtual-machine.png)
 1. De volgende secties vindt u de invoer voor elk van de stappen in de wizard (geïnventariseerd aan de rechterkant van de afbeelding hierboven) gebruikt voor het maken van de Microsoft Data Science Virtual Machine. Hier volgen de invoer die nodig zijn voor elk van deze stappen configureren:
    
    a. **Grondbeginselen van**:
    
    * **Naam**: naam van uw data science-server die u maakt.
+   * **VM-schijftype**: kies **Premium SSD** als u liever een SSD (solid-state drive). Kies anders **Standard HDD**. 
    * **Gebruikersnaam**: eerste aanmelding bij het account ID.
    * **Wachtwoord**: eerste wachtwoord (u kunt openbare SSH-sleutel gebruiken in plaats van wachtwoord).
    * **Abonnement**: als u meer dan één abonnement hebt, selecteert u het een waar de machine zich moet worden gemaakt en worden kosten in rekening gebracht. U kunt resource het maken van bevoegdheden voor dit abonnement moet hebben.
@@ -96,23 +97,17 @@ Hier volgen de stappen voor het maken van een exemplaar van de Data Science Virt
    
    b. **Grootte**:
    
-   * Selecteer een van de servertypen die voldoet aan de vereisten van het functionele en kostenbeperkingen. Selecteer **Alles weergeven** om te zien van meer opties van VM-grootten. Selecteer een NC of ND-klasse VM voor een GPU-training. De [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/) pagina geeft een lijst van de regio's met GPU's.
+   * Selecteer een van de servertypen die voldoet aan de vereisten van het functionele en kostenbeperkingen. Selecteer een NC of de ND-klasse VM voor VM-exemplaren op basis van GPU. De [producten beschikbaar per regio](https://azure.microsoft.com/global-infrastructure/services/) pagina geeft een lijst van de regio's met GPU's.
    
    c. **Instellingen voor**:
    
-   * **Schijftype**: kies **Premium** als u liever een SSD (solid-state drive). Kies anders **Standard**. GPU-VM's vereisen een standaardschijf.
-   * **Storage-Account**: U kunt een nieuw Azure storage-account maken in uw abonnement, of gebruik een bestaande resourcegroep in dezelfde locatie die is gekozen voor de **basisbeginselen** stap van de wizard.
-   * **Andere parameters**: In de meeste gevallen gebruikt u alleen de standaardwaarden. U moet overwegen niet-standaard waarden, de muisaanwijzer over de informatieve koppeling voor meer informatie over de specifieke velden.
+   * In de meeste gevallen kunt u alleen de standaardwaarden gebruiken. U moet overwegen niet-standaard waarden, de muisaanwijzer over de informatieve koppeling voor meer informatie over de specifieke velden.
    
    d. **Samenvatting**:
    
-   * Controleer of alle informatie die u hebt ingevoerd juist is.
+   * Controleer of alle informatie die u hebt ingevoerd juist is. Een koppeling volgen met de gebruiksvoorwaarden. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap. Voor het starten van het inrichten, klikt u op **maken**. 
    
-   e. **Kopen**:
-   
-   * Voor het starten van het inrichten, klikt u op **kopen**. Een koppeling is met de voorwaarden van de transactie opgegeven. De virtuele machine heeft geen eventuele extra kosten buiten de rekenkracht voor de servergrootte van de die u hebt gekozen in de **grootte** stap.
-
-De inrichting duurt ongeveer 5-10 minuten. De status van de inrichting wordt weergegeven op de Azure-portal.
+De inrichting duurt ongeveer 5 minuten. De status van de inrichting wordt weergegeven op de Azure-portal.
 
 ## <a name="how-to-access-the-data-science-virtual-machine-for-linux"></a>Toegang tot de virtuele Machine voor Datatechnologie voor Linux
 
@@ -434,6 +429,6 @@ Hier ziet u hoe u kunt doorgaan met uw learning en verkennen:
 
 * De [gegevenswetenschap op de virtuele Machine voor Datatechnologie voor Linux](linux-dsvm-walkthrough.md) procedure ziet u hoe u enkele algemene datatechnologietaken met de Linux Data Science VM ingericht hier uitvoert. 
 * Verken de verschillende hulpprogramma's voor data science op de virtuele machine voor datatechnologie door het uitproberen van de hulpprogramma's die worden beschreven in dit artikel. U kunt ook uitvoeren *dsvm-meer-info* op de shell binnen de virtuele machine voor een algemene inleiding tot en tips voor meer informatie over de hulpprogramma's geïnstalleerd op de virtuele machine.  
-* Informatie over het bouwen van analytische oplossingen voor end-to-end systematisch met behulp van de [Team Data Science Process](https://azure.microsoft.com/documentation/learning-paths/cortana-analytics-process/).
-* Ga naar de [Cortana Analytics-galerie](http://gallery.cortanaanalytics.com) voor machine learning en data analytics-voorbeelden die gebruikmaken van de Cortana Analytics Suite.
+* Informatie over het bouwen van analytische oplossingen voor end-to-end systematisch met behulp van de [Team Data Science Process](http://aka.ms/tdsp).
+* Ga naar de [Azure AI Gallery](https://gallery.azure.ai/) voor machine learning en data analytics-voorbeelden die gebruikmaken van de Azure AI-services.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure-Services die ondersteuning bieden voor beheerde Service-identiteit
-description: Lijst met services die ondersteuning bieden voor beheerde Service-identiteit en Azure AD-verificatie
+title: Azure-Services die ondersteuning bieden voor beheerde identiteiten voor Azure-resources
+description: Lijst met services die ondersteuning bieden voor beheerde identiteiten voor Azure-resources en Azure AD-verificatie
 services: active-directory
 author: daveba
 ms.author: daveba
@@ -9,22 +9,22 @@ ms.topic: conceptual
 ms.service: active-directory
 ms.component: msi
 manager: mtillman
-ms.openlocfilehash: d738abc225e2148460012d9fe200131882b1e698
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4f7e672aa75d8344f0c4ae35ff2f573d1f48a0ea
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306164"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337144"
 ---
-# <a name="services-that-support-managed-service-identity"></a>Services die ondersteuning bieden voor beheerde Service-identiteit 
+# <a name="services-that-support-managed-identities-for-azure-resources"></a>Services die ondersteuning bieden voor beheerde identiteiten voor Azure-resources
 
-Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. Met behulp van een beheerde identiteit, kunt u verifiëren met een service die ondersteuning biedt voor Azure AD-verificatie zonder referenties in uw code. We zijn bezig met beheerde Service-identiteit en Azure AD-verificatie integreren in Azure. Controleer regelmatig of er updates.
+Beheerde identiteiten voor Azure-resources biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. Met behulp van een beheerde identiteit, kunt u verifiëren met een service die ondersteuning biedt voor Azure AD-verificatie zonder referenties in uw code. We zijn bezig met integratie van beheerde identiteiten voor Azure-resources en Azure AD-verificatie in Azure. Controleer regelmatig of er updates.
 
-## <a name="azure-services-that-support-managed-service-identity"></a>Azure-services die ondersteuning bieden voor beheerde Service-identiteit
+## <a name="azure-services-that-support-managed-identities-for-azure-resources"></a>Azure-services die ondersteuning bieden voor beheerde identiteiten voor Azure-resources
 
-De volgende Azure-services ondersteunen beheerde Service-identiteit.
+De volgende Azure-services bieden ondersteuning voor beheerde identiteiten voor Azure-resources:
 
-| Service | Systeem toegewezen status | Door gebruiker toegewezen status| Configureren | Een token verkrijgen |
+| Service | Het systeem toegewezen status | status van de gebruiker toegewezen| Configureren | Een token verkrijgen |
 | ------- | ------ | ---- | --------- | ----------- |
 | Azure Virtual Machines | Preview | Preview | [Azure Portal](qs-configure-portal-windows-vm.md)<br>[PowerShell](qs-configure-powershell-windows-vm.md)<br>[Azure-CLI](qs-configure-cli-windows-vm.md)<br>[Azure Resource Manager-sjablonen](qs-configure-template-windows-vm.md)<br>[REST](qs-configure-rest-vm.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell) |
 | Virtual Machine Scale Sets | Preview | Preview | [Azure Portal](qs-configure-portal-windows-vmss.md)<br>[PowerShell](qs-configure-powershell-windows-vmss.md)<br>[Azure-CLI](qs-configure-cli-windows-vmss.md)<br>[Azure Resource Manager-sjablonen](qs-configure-template-windows-vmss.md)<br>[REST](qs-configure-rest-vmss.md) | [REST](how-to-use-vm-token.md#get-a-token-using-http)<br>[.NET](how-to-use-vm-token.md#get-a-token-using-c)<br>[Bash/Curl](how-to-use-vm-token.md#get-a-token-using-curl)<br>[Go](how-to-use-vm-token.md#get-a-token-using-go)<br>[PowerShell](how-to-use-vm-token.md#get-a-token-using-azure-powershell)
@@ -36,7 +36,7 @@ De volgende Azure-services ondersteunen beheerde Service-identiteit.
 
 ## <a name="azure-services-that-support-azure-ad-authentication"></a>Azure-services die ondersteuning voor Azure AD-verificatie
 
-De volgende services ondersteuning bieden voor Azure AD-verificatie, en zijn getest met clientservices die gebruikmaken van beheerde Service-identiteit.
+De volgende services ondersteuning bieden voor Azure AD-verificatie, en zijn getest met clientservices die gebruikmaken van beheerde identiteiten voor Azure-resources.
 
 | Service | Resource-id | Status | Date | Toegang toewijzen |
 | ------- | ----------- | ------ | ---- | ------------- |

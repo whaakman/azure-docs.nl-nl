@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 04/02/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 33bd13421b0c1574475516da942abe4e8c71ed52
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 2fa63cf2fa05f2cde4558f0bea38bfd7f17df3ae
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188829"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43342059"
 ---
 # <a name="configure-security-alerts-for-azure-resource-roles-in-pim"></a>Beveiligingswaarschuwingen voor Azure resource-rollen in PIM configureren
 Privileged Identity Management (PIM) voor Azure-Resources genereert waarschuwingen wanneer er verdachte of unsafe activiteit in uw omgeving. Wanneer een waarschuwing wordt geactiveerd, wordt deze weergegeven op de pagina met waarschuwingen. 
@@ -53,5 +53,4 @@ Pas de instellingen op de verschillende waarschuwingen om te werken met uw omgev
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meervoudige verificatie vereisen voor Azure-resource-rollen in PIM](pim-resource-roles-require-mfa.md)
 - [Beveiligingswaarschuwingen voor Azure resource-rollen in PIM configureren](pim-resource-roles-configure-alerts.md)

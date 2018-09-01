@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 7/31/2018
+ms.date: 08/31/2018
 ms.author: rithorn
-ms.openlocfilehash: edc57d146ccb034ac3fd627386000a1953b0e558
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: b95dba65a7ab89306844e48641aba584e3d6b175
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39480319"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371513"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Resources organiseren met beheergroepen voor Azure
 
@@ -38,7 +38,7 @@ Een ander scenario waarin u beheergroepen wilt gebruiken is het bieden van toega
 
 ### <a name="important-facts-about-management-groups"></a>Belangrijke informatie over de beheergroepen
 
-- 10.000 beheergroepen kunnen in één map worden ondersteund.
+- 10.000 beheergroepen kunnen worden ondersteund in één directory (Azure Active Directory-tenant).
 - Een boomstructuur van de groep management kan maximaal zes niveaus van diepte ondersteunen.
   - Deze limiet bevatten niet het hoogste niveau doen of het abonnementsniveau.
 - Elke beheergroep en het abonnement kan alleen ondersteuning voor één bovenliggend object.

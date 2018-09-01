@@ -16,16 +16,16 @@ ms.workload: infrastructure
 ms.date: 12/12/2017
 ms.author: cynthn
 ROBOTS: NOINDEX
-ms.openlocfilehash: ede8fab67c04eb7ce8d26280de2d1563b6cc8ad2
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: defc871caed429eeda1f8672323b48a9c0007c8e
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38678737"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371734"
 ---
 # <a name="create-a-windows-virtual-machine-with-the-simplified-new-azurermvm-cmdlet-in-cloud-shell"></a>Een Windows-machine maken met de vereenvoudigde cmdlet New-AzureRMVM in Cloud Shell 
 
-De [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet een vereenvoudigde set parameters voor het maken van een nieuwe virtuele machine met behulp van PowerShell is toegevoegd. Dit onderwerp ziet u hoe u PowerShell in Azure Cloud Shell met de meest recente versie van de cmdlet New-AzureVM is vooraf geïnstalleerd, voor het maken van een nieuwe virtuele machine. We gebruiken een vereenvoudigde parameterset die automatisch alle benodigde bronnen met slimme standaardinstellingen worden gemaakt. 
+De [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) cmdlet een vereenvoudigde set parameters voor het maken van een nieuwe virtuele machine met behulp van PowerShell is toegevoegd. Dit onderwerp ziet u hoe u PowerShell in Azure Cloud Shell met de meest recente versie van de cmdlet New-AzureVM is vooraf geïnstalleerd, voor het maken van een nieuwe virtuele machine. We gebruiken een vereenvoudigde parameterset die automatisch alle benodigde bronnen met slimme standaardinstellingen worden gemaakt. 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
@@ -36,7 +36,7 @@ Als u PowerShell lokaal wilt installeren en gebruiken, wordt voor deze zelfstudi
 
 ## <a name="create-the-vm"></a>De virtuele machine maken
 
-U kunt de [New-AzureRMVM](/powershell/module/azurerm.resources/new-azurermvm) cmdlet voor het maken van een virtuele machine met slimme standaardwaarden die gebruikmaken van de installatiekopie van het Windows Server 2016 Datacenter vanuit de Azure Marketplace. U kunt New-AzureRMVM met alleen de **-naam** parameter en wordt die waarde gebruiken voor alle resourcenamen van de. In dit voorbeeld wordt de parameter **-Name** ingesteld op *myVM*. 
+U kunt de [New-AzureRMVM](https://docs.microsoft.com/powershell/module/azurerm.compute/new-azurermvm?view=azurermps-6.8.1) cmdlet voor het maken van een virtuele machine met slimme standaardwaarden die gebruikmaken van de installatiekopie van het Windows Server 2016 Datacenter vanuit de Azure Marketplace. U kunt New-AzureRMVM met alleen de **-naam** parameter en wordt die waarde gebruiken voor alle resourcenamen van de. In dit voorbeeld wordt de parameter **-Name** ingesteld op *myVM*. 
 
 Controleer of **PowerShell** in Cloud Shell is geselecteerd en typ:
 

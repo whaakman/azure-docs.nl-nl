@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.date: 08/09/2018
 ms.topic: article
-ms.openlocfilehash: 2757dea5e73f226efc13b7788ce1ab0702aa2e61
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 9de620c5e6a1698b70f25f91a744829548ad5af6
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43104694"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382328"
 ---
 # <a name="use-ansible-to-manage-your-azure-dynamic-inventories"></a>Ansible gebruiken voor het beheren van uw Azure dynamische voorraden
 Ansible kan worden gebruikt voor het ophalen van inventarisatie-informatie uit verschillende bronnen (met inbegrip van cloudbronnen zoals Azure) in een *dynamische voorraad*. In dit artikel gebruikt u de [Azure Cloud Shell](./ansible-run-playbook-in-cloudshell.md) label een van deze virtuele machines voor het configureren van het dynamische voorraad van een Ansible Azure waarin u twee virtuele machines maakt, en installeer Nginx op de gelabelde virtuele machine.
@@ -136,20 +136,21 @@ Het doel van labels is om in te schakelen van de mogelijkheid snel en eenvoudig 
 
 1. Voeg de volgende code in het zojuist gemaakte `nginx.yml` bestand:
 
-    ```yml
-    - name: Install and start Nginx on an Azure virtual machine
-    hosts: azure
-    become: yes
-    tasks:
-    - name: install nginx
-        apt: pkg=nginx state=installed
-        notify:
-        - start nginx
+```yml
+---
+- name: Install and start Nginx on an Azure virtual machine
+  hosts: azure
+  become: yes
+  tasks:
+  - name: install nginx
+    apt: pkg=nginx state=installed
+    notify:
+    - start nginx
 
-    handlers:
-    - name: start nginx
-        service: name=nginx state=started
-    ```
+  handlers:
+  - name: start nginx
+    service: name=nginx state=started
+```
 
 1. Voer de `nginx.yml` playbook:
 

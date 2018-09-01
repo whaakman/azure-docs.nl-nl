@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 01/29/2018
+ms.date: 08/29/2018
 ms.author: dobett
-ms.openlocfilehash: 4e23b70c8dc5fdacfd609fb4664a78293b9e2362
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 78956c8e9d9248708ec326fc07d46f48e51e0f83
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247642"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341257"
 ---
 # <a name="understand-the-identity-registry-in-your-iot-hub"></a>Inzicht in het identiteitenregister van uw IoT-hub
 
@@ -85,12 +85,12 @@ Het apparaatgegevens die een opgegeven IoT-oplossing zijn opgeslagen, is afhanke
 
 ## <a name="device-heartbeat"></a>Apparaat heartbeat
 
-De id-register van IoT Hub bevat een veld met de naam **connectionState**. Gebruik alleen de **connectionState** veld tijdens de ontwikkeling en foutopsporing. IoT-oplossingen moeten geen query uitvoeren op het veld tijdens de uitvoering. Bijvoorbeeld: kan geen query uitvoeren op de **connectionState** veld om te controleren of een apparaat is verbonden, voordat u een cloud-naar-apparaat-bericht of een SMS-bericht verzenden. Het is raadzaam zich abonneert op de [ **apparaat verbroken** gebeurtenis](https://docs.microsoft.com/azure/iot-hub/iot-hub-event-grid#event-types) op Event Grid waarschuwingen ontvangen en controleren van de verbindingsstatus van het apparaat. Gebruik deze [zelfstudie](https://docs.microsoft.com/azure/event-grid/publish-iot-hub-events-to-logic-apps) voor informatie over het integreren van gebeurtenissen van IoT-Hub in uw IoT-oplossing.
+De id-register van IoT Hub bevat een veld met de naam **connectionState**. Gebruik alleen de **connectionState** veld tijdens de ontwikkeling en foutopsporing. IoT-oplossingen moeten geen query uitvoeren op het veld tijdens de uitvoering. Bijvoorbeeld: kan geen query uitvoeren op de **connectionState** veld om te controleren of een apparaat is verbonden, voordat u een cloud-naar-apparaat-bericht of een SMS-bericht verzenden. Het is raadzaam zich abonneert op de [ **apparaat verbroken** gebeurtenis] [ lnk-devguide-evgrid-evtype] op Event Grid waarschuwingen ontvangen en controleren van de verbindingsstatus van het apparaat. Gebruik deze [zelfstudie] [ lnk-howto-evgrid-connstate] voor informatie over het apparaat is verbonden en het apparaat verbroken gebeurtenissen uit IoT Hub in uw IoT-oplossing integreren.
 
 Als uw IoT-oplossing nodig heeft om te weten als een apparaat is verbonden, kunt u implementeren de *heartbeat patroon*.
 In het heartbeat-patroon maakt verzendt het apparaat apparaat-naar-cloud-berichten ten minste één keer voor elke vaste hoeveelheid tijd (bijvoorbeeld ten minste één keer per uur). Dus zelfs als een apparaat beschikt niet over alle gegevens worden verzonden, stuurt nog steeds een lege apparaat-naar-cloud-bericht (meestal met een eigenschap die deze als een heartbeat identificeert). Aan de service voor deze oplossing wordt een kaart met de laatste heartbeat ontvangen voor elk apparaat. Als de oplossing niet binnen de verwachte tijd van het apparaat een heartbeat-bericht ontvangt, wordt ervan uitgegaan dat er een probleem met het apparaat is.
 
-Een meer complexe implementatie kan bijvoorbeeld de gegevens van [bewerkingen controleren] [ lnk-devguide-opmon] om apparaten die probeert verbinding te maken of communiceren, maar mislukken te identificeren. Wanneer u het patroon heartbeat implementeert, Controleer of [IoT Hub-quota en vertragingen in][lnk-quotas].
+Een meer complexe implementatie kan bijvoorbeeld de gegevens van [Azure Monitor] [ lnk-AM] en [Azure Resource Health] [ lnk-ARH] om te identificeren apparaten die u probeert te koppelen of communiceren, maar mislukken, controleert u [bewaken met diagnostische gegevens] [ lnk-devguide-mon] handleiding. Wanneer u het patroon heartbeat implementeert, Controleer of [IoT Hub-quota en vertragingen in][lnk-quotas].
 
 > [!NOTE]
 > Als een IoT-oplossing maakt gebruik van de verbindingsstatus uitsluitend om te bepalen of cloud-naar-apparaat-berichten verzenden en berichten niet op grote sets apparaten worden uitgezonden, kunt u overwegen de eenvoudiger *korte verlooptijd* patroon. Dit patroon geven hetzelfde resultaat als een apparaat verbinding status register met behulp van de heartbeat-patroon, terwijl u efficiënter te beheren. Als u een bericht bevestigingen aangevraagd, IoT-Hub u kunt een melding over welke apparaten kunnen om berichten te ontvangen en die niet zijn.
@@ -256,7 +256,7 @@ Om te verkennen met behulp van de IoT Hub Device Provisioning Service inschakele
 [lnk-rfc7232]: https://tools.ietf.org/html/rfc7232
 [lnk-bulk-identity]: iot-hub-bulk-identity-mgmt.md
 [lnk-export]: iot-hub-devguide-identity-registry.md#import-and-export-device-identities
-[lnk-devguide-opmon]: iot-hub-operations-monitoring.md
+[lnk-devguide-mon]: iot-hub-monitor-resource-health.md
 
 [lnk-devguide-security]: iot-hub-devguide-security.md
 [lnk-devguide-device-twins]: iot-hub-devguide-device-twins.md
@@ -265,3 +265,8 @@ Om te verkennen met behulp van de IoT Hub Device Provisioning Service inschakele
 
 [lnk-getstarted-tutorial]: quickstart-send-telemetry-dotnet.md
 [lnk-dps]: https://azure.microsoft.com/documentation/services/iot-dps
+
+[lnk-AM]: ../monitoring-and-diagnostics/index.yml
+[lnk-ARH]: ../service-health/resource-health-overview.md
+[lnk-devguide-evgrid-evtype]: iot-hub-event-grid.md#event-types
+[lnk-howto-evgrid-connstate]: iot-hub-how-to-order-connection-state-events.md

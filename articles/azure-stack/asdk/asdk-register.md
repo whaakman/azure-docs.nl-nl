@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 95ab06685452f647884bf92f110e3ab56f3c2714
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: c4fb8e1972286776a5fc7a13c5e9a8c91e370dd3
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058358"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338616"
 ---
 # <a name="azure-stack-registration"></a>Azure Stack-registratie
 U kunt de installatie van de Azure Stack Development Kit (ASDK) registreren met Azure marketplace-items van Azure downloaden en het instellen van rapportage terug naar Microsoft commercegegevens. Registratie is vereist voor ondersteuning van de volledige functionaliteit van Azure Stack, met inbegrip van marketplace-syndicatie. Registratie wordt aanbevolen omdat hiermee u voor het testen van belangrijke Azure Stack-functionaliteit, zoals marketplace-syndicatie en rapportage over het gebruik kunt. Nadat u Azure Stack hebt geregistreerd, wordt gebruik gerapporteerd aan Azure commerce. U kunt het zien onder het abonnement dat u voor de registratie gebruikt. Echter ASDK gebruikers niet in rekening gebracht voor het gebruik die ze rapporteren.
@@ -84,6 +84,10 @@ Volg deze stappen om te controleren of de ASDK registratie bij Azure geslaagd is
 3. Als u een lijst met items die beschikbaar zijn in Azure ziet, wordt de activering is voltooid.
 
     ![](media/asdk-register/3.PNG)
+
+## <a name="move-a-registration-resource"></a>Een registratie-resource verplaatsen
+Een registratie-resource verplaatsen tussen resourcegroepen onder hetzelfde abonnement **is** ondersteund. Zie voor meer informatie over het verplaatsen van resources naar een nieuwe resourcegroep [resources verplaatsen naar een nieuwe resourcegroep of abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
+
 
 ## <a name="next-steps"></a>Volgende stappen
 [Een Azure Stack marketplace-item toevoegen](.\.\azure-stack-marketplace.md)

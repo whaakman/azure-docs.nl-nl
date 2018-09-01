@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: de059e3875b5f15526cb176d43a019fd2d9ee9b9
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 985285b463d66770f97a431705d5b9198b632592
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37901378"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344603"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-facebook-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een Facebook-account met behulp van Azure Active Directory B2C
 
@@ -30,13 +30,13 @@ Voor het gebruik van een Facebook-account als id-provider in Azure Active Direct
 5. Klik op **maken van App-ID**. Mogelijk moet u beleid voor het platform van Facebook accepteren en een online beveiliging voltooien.
 6. Selecteer **instellingen** > **Basic**.
 7. Selecteer aan de onderkant van de pagina **Platform toevoegen**, en selecteer vervolgens **Website**.
-8. Voer `https://login.microsoftonline.com/` in **Site-URL**. Voer een URL voor de **URL privacybeleid**, bijvoorbeeld `http://www.contoso.com`.
+8. Voer `https://{tenantname}.b2clogin.com/` in **Site-URL**. Voer een URL voor de **URL privacybeleid**, bijvoorbeeld `http://www.contoso.com`.
 9. Selecteer **wijzigingen opslaan**.
 11. Aan de bovenkant van de pagina, Kopieer de waarde van **App-ID**. 
 12. Klik op **weergeven** en kopieer de waarde van **Appgeheim**. U kunt van beide Facebook als id-provider configureren in uw tenant. **App-geheim** is een belangrijke beveiligingsreferentie.
 13. Selecteer **producten**, en selecteer vervolgens **instellen** onder **aanmelden via Facebook**.
 14. Selecteer **instellingen** onder **aanmelden via Facebook**.
-15. Voer `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **geldig OAuth omleidings-URI's** . Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld: contosob2c.onmicrosoft.com). Klik op **wijzigingen opslaan** aan de onderkant van de pagina.
+15. Voer `https://{tenantname}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in **geldig OAuth omleidings-URI's** . Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld contosob2c). Klik op **wijzigingen opslaan** aan de onderkant van de pagina.
 16. Als u uw Facebook-toepassing naar Azure AD B2C, selecteer **App-revisie**, stel **openbaar maken van mijn toepassing?** naar **Ja**, een categorie kiezen, bijvoorbeeld `Business and Pages`en klik vervolgens op **bevestigen**.
 
 ## <a name="configure-a-facebook-account-as-an-identity-provider"></a>Configureren van een Facebook-account als id-provider

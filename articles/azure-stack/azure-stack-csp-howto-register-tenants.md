@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 07/12/2018
 ms.author: brenduns
 ms.reviewer: alfredo
-ms.openlocfilehash: d5f775761def1c06063cd02b4141c5de2a752cce
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: d3fc3ef6c5fdcf5a87c691c73169ef2bec95805e
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39089907"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382685"
 ---
 # <a name="add-tenant-for-usage-and-billing-to-azure-stack"></a>Toevoegen van tenant voor gebruik en facturering met Azure Stack
 
@@ -91,5 +91,5 @@ Nadat u de nieuwe klant hebt toegevoegd aan Azure Stack, of de klanttenant einde
 ## <a name="next-steps"></a>Volgende stappen
 
  - De foutberichten worden weergegeven als ze worden geactiveerd in uw registratieproces Zie [Tenant-registratie foutberichten](azure-stack-csp-ref-infrastructure.md#usage-and-billing-error-codes).
- - Zie voor meer informatie over het ophalen van informatie over het gebruik van de resource van Azure Stack, [gebruik en facturering in Azure Stack](/azure-stack-billing-and-chargeback.md).
+ - Zie voor meer informatie over het ophalen van informatie over het gebruik van de resource van Azure Stack, [gebruik en facturering in Azure Stack](azure-stack-billing-and-chargeback.md).
  - Als u wilt controleren hoe een eindklant mogen toevoegen, als de CSP, als de manager voor Azure Stack-tenant, Zie [inschakelen van een Cloudserviceprovider voor het beheren van uw Azure Stack-abonnement](user\azure-stack-csp-enable-billing-usage-tracking.md).

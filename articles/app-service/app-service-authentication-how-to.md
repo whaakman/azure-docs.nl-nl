@@ -13,12 +13,12 @@ ms.devlang: multiple
 ms.topic: article
 ms.date: 03/14/2018
 ms.author: cephalin
-ms.openlocfilehash: 191d42f43e500c7f8041a02aeba2fbcb7dfd5379
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 629a76ab5610625e14780d7b5c57d3979c2224c9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226523"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344167"
 ---
 # <a name="customize-authentication-and-authorization-in-azure-app-service"></a>Verificatie en autorisatie in Azure App Service aanpassen
 
@@ -34,9 +34,9 @@ Als u wilt snel aan de slag, ziet u een van de volgende zelfstudies:
 * [Uw app configureren voor aanmelding met een Microsoft Account](app-service-mobile-how-to-configure-microsoft-authentication.md)
 * [Uw app configureren voor aanmelding met Twitter](app-service-mobile-how-to-configure-twitter-authentication.md)
 
-## <a name="configure-multiple-sign-in-options"></a>Meerdere opties voor aanmelding configureren
+## <a name="use-multiple-sign-in-providers"></a>Aanmelden-providers gebruiken
 
-De configuratie van de portal biedt geen een directe manier om meerdere opties voor aanmelden bij uw gebruikers (zoals Facebook en Twitter) bieden. Het is echter niet moeilijk om de functionaliteit toevoegen aan uw web-app. De stappen uit worden als volgt beschreven:
+De configuratie van de portal biedt geen een directe manier om meerdere providers voor aanmelden bij uw gebruikers (zoals Facebook en Twitter) bieden. Het is echter niet moeilijk om de functionaliteit toevoegen aan uw web-app. De stappen uit worden als volgt beschreven:
 
 Eerste in de **verificatie / autorisatie** pagina in Azure portal, het configureren van elk van de id-provider die u wilt inschakelen.
 
@@ -58,6 +58,50 @@ Als u wilt omleiden van de gebruiker na-aanmelden bij een aangepaste URL, gebrui
 
 ```HTML
 <a href="/.auth/login/<provider>?post_login_redirect_url=/Home/Index">Log in</a>
+```
+
+## <a name="sign-out-of-a-session"></a>Een sessie afmelden
+
+Gebruikers kunnen een afmelding starten door het verzenden van een `GET` aanvraag van de app `/.auth/logout` eindpunt. De `GET` aanvraag doet het volgende:
+
+- Hiermee schakelt u verificatiecookies uit de huidige sessie.
+- Hiermee verwijdert u de huidige gebruiker tokens van de tokenopslag.
+- Voor Azure Active Directory en Google, voert een server-side afmelden op de id-provider.
+
+Dit is een eenvoudige afmelding koppeling in een webpagina:
+
+```HTML
+<a href="/.auth/logout">Sign out</a>
+```
+
+Standaard een geslaagde afmelden stuurt de client naar de URL `/.auth/logout/done`. U kunt de post-sign-out omleidingspagina wijzigen door toe te voegen de `post_logout_redirect_uri` queryparameter. Bijvoorbeeld:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=/index.html
+```
+
+Het is raadzaam dat u [coderen](https://wikipedia.org/wiki/Percent-encoding) de waarde van `post_logout_redirect_uri`.
+
+Wanneer u de volledig gekwalificeerde URL's, moet de URL worden gehost in hetzelfde domein of zijn geconfigureerd als een toegestane externe Omleidings-URL voor uw app. In het volgende voorbeeld, om te leiden `https://myexternalurl.com` die niet in hetzelfde domein wordt gehost:
+
+```
+GET /.auth/logout?post_logout_redirect_uri=https%3A%2F%2Fmyexternalurl.com
+```
+
+U moet de volgende opdracht uitvoeren de [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp auth update --name <app_name> --resource-group <group_name> --allowed-external-redirect-urls "https://myexternalurl.com"
+```
+
+## <a name="preserve-url-fragments"></a>URL-fragmenten behouden
+
+Nadat gebruikers zich bij uw app aanmelden, die meestal worden omgeleid naar dezelfde sectie van de dezelfde pagina, zoals wilt `/wiki/Main_Page#SectionZ`. Echter, omdat [URL fragmenten](https://wikipedia.org/wiki/Fragment_identifier) (bijvoorbeeld `#SectionZ`) nooit worden verzonden naar de server ze blijven niet behouden standaard nadat de OAuth-aanmelding is voltooid en terug naar de app leidt. Gebruikers krijgen vervolgens een suboptimale ervaring wanneer ze nodig hebben om te navigeren naar het gewenste anker opnieuw. Deze beperking geldt voor alle server-side ' verificatieoplossingen.
+
+In App Service-verificatie, kunt u de URL-fragmenten behouden in de OAuth-aanmelding. Om dit te doen, stelt u een app-instelling met de naam `WEBSITE_AUTH_PRESERVE_URL_FRAGMENT` naar `true`. U kunt dit doen de [Azure-portal](https://portal.azure.com), of gewoon de volgende opdracht uit te voeren de [Azure Cloud Shell](../cloud-shell/quickstart.md):
+
+```azurecli-interactive
+az webapp config appsettings set --name <app_name> --resource-group <group_name> --settings WEBSITE_AUTH_PRESERVE_URL_FRAGMENT="true"
 ```
 
 ## <a name="access-user-claims"></a>Claims van de gebruiker toegang

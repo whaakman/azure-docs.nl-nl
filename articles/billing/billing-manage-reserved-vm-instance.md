@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashesvi
-ms.openlocfilehash: 2283a12845a3b334e29e3f48cbadb99ad508e459
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c530fdca9d5fe499df680211a741bfd9950bb1fe
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301578"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382147"
 ---
-# <a name="manage-reservations-for-resources-in-azure"></a>Reserveringen voor resources in Azure beheren
+# <a name="manage-reservations-for-azure-resources"></a>Reserveringen voor Azure-resources beheren
 
 Nadat u een Azure-reservering kopen, moet u de reservering van toepassing op een ander abonnement, wie kan de reservering beheren of wijzigen van het bereik van de reservering wijzigen. U kunt ook een reservering in twee reserveringen op sommige van de exemplaren die u hebt aangeschaft van toepassing op een ander abonnement splitsen.
 
@@ -60,7 +60,7 @@ Om te delegeren van beheer van toegang voor een reservering:
 
 ## <a name="split-a-single-reservation-into-two-reservations"></a>Een enkele reservering in twee reserveringen splitsen
 
- Nadat u meer dan één exemplaar van de resource binnen een reservering koopt, kunt u exemplaren binnen deze reservering toewijzen aan verschillende abonnementen. Standaard worden alle exemplaren één scope - u één abonnement hebt of gedeeld. Bijvoorbeeld, u 10 Standard D2-VM's die zijn aangeschaft en het bereik voor het abonnement A. worden opgegeven U kunt nu het bereik voor 7 reserveringen wijzigen in abonnement A en de resterende 3 B. splitsen van een reservering abonnement kunt u exemplaren voor gedetailleerde scopebeheer distribueren. U kunt de toewijzing aan abonnementen vereenvoudigen door te kiezen gedeeld bereik. Maar voor cost management of budgettering doeleinden, kunt u hoeveelheden voor specifieke abonnementen toewijzen.
+ Nadat u meer dan één exemplaar van de resource binnen een reservering koopt, kunt u exemplaren binnen deze reservering toewijzen aan verschillende abonnementen. Standaard worden alle exemplaren één scope - u één abonnement hebt of gedeeld. Bijvoorbeeld, u hebt gekocht 10 exemplaren van de reservering en het bereik voor het abonnement A. worden opgegeven U kunt nu het bereik voor 7 reserveringen wijzigen in abonnement A en de resterende 3 B. splitsen van een reservering abonnement kunt u exemplaren voor gedetailleerde scopebeheer distribueren. U kunt de toewijzing aan abonnementen vereenvoudigen door te kiezen gedeeld bereik. Maar voor cost management of budgettering doeleinden, kunt u hoeveelheden voor specifieke abonnementen toewijzen.
 
  U kunt splitsen een reservering in twee reserveringen via PowerShell, CLI, of via de API.
 
@@ -86,6 +86,7 @@ Om te delegeren van beheer van toegang voor een reservering:
     Split-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId b8be062a-fb0a-46c1-808a-5a844714965a -Quantity 3,2
     ```
 4. U kunt het bereik bijwerken door de volgende opdracht uit:
+
     ```powershell
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
@@ -113,7 +114,9 @@ Zie voor meer informatie over Azure-reserveringen, de volgende artikelen:
 - [Wat zijn Azure-reserveringen?](billing-save-compute-costs-reservations.md)
 - [Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties](../virtual-machines/windows/prepay-reserved-vm-instances.md)
 - [Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit](../sql-database/sql-database-reserved-capacity.md)
+- [Betaal vooruit voor SUSE-software plannen uit de Azure-reserveringen](../virtual-machines/linux/prepay-suse-software-charges.md)
 - [Begrijpen hoe de VM-reserveringskorting wordt toegepast](billing-understand-vm-reservation-charges.md)
+- [Begrijpen hoe de korting voor SUSE Linux Enterprise software plan wordt toegepast](../billing/billing-understand-suse-reservation-charges.md)
 - [Begrijpen hoe andere reservering kortingen zijn toegepast](billing-understand-reservation-charges.md)
 - [Gebruik van de reservering voor uw abonnement op gebruiksbasis begrijpen](billing-understand-reserved-instance-usage.md)
 - [Inzicht in gebruik van de reservering voor uw Enterprise-inschrijving](billing-understand-reserved-instance-usage-ea.md)

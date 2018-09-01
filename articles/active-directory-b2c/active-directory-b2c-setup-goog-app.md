@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: dd0bf50d73b70e37195e8e5e45336b68e4e883e7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 477bd6047da639dcf21592a7ec0c1b80844e031e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37915636"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337731"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-google-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een Google-account met behulp van Azure Active Directory B2C
 
@@ -30,7 +30,7 @@ Voor het gebruik van een Google-account als id-provider in Azure Active Director
 4. Selecteer **configureren instemmingsscherm**.
 5. Selecteer of geef een geldige **e-mailadres**, bieden een **productnaam weergegeven voor gebruikers**, en klikt u op **opslaan**.
 6. Onder **toepassingstype**, selecteer **webtoepassing**.
-7. Voer een **naam** voor uw toepassing, voert u `https://login.microsoftonline.com` in **geautoriseerd JavaScript oorsprongen**, en `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **geautoriseerde omleidings-URI's**. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld: contosob2c.onmicrosoft.com).
+7. Voer een **naam** voor uw toepassing, voert u `https://{tenant}.b2clogin.com` in **geautoriseerd JavaScript oorsprongen**, en `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in **geautoriseerde omleidings-URI's**. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld contosob2c).
 8. Klik op **Create**.
 9. Kopieer de waarden van **Client-ID** en **clientgeheim**. U moet beide Google configureren als een id-provider in uw tenant. **Clientgeheim** is een belangrijke beveiligingsreferentie.
 

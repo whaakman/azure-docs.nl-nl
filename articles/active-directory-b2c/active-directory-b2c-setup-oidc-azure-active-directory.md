@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/27/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 70d3a19b715052fe658102929a1c29cf3db2d595
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: e09ad89f3225af9de40781fafc022c8326f80619
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37443715"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338635"
 ---
 # <a name="azure-active-directory-b2c-sign-in-using-azure-ad-accounts-through-a-built-in-policy"></a>Azure Active Directory B2C: Meld u aan met behulp van Azure AD-accounts via een ingebouwd beleid
 
@@ -37,13 +37,13 @@ Om in te schakelen aanmelding voor gebruikers van een specifieke Azure AD-organi
 1. Selecteer **Nieuwe toepassing registreren**.
 1. Voer een naam in voor uw toepassing (bijvoorbeeld `Azure AD B2C App`).
 1. Selecteer **Web-app / API** als toepassingstype.
-1. Voor **aanmeldings-URL**, voer de volgende URL, waarbij `yourtenant` wordt vervangen door de naam van uw Azure AD B2C-tenant (`fabrikamb2c.onmicrosoft.com`):
+1. Voor **aanmeldings-URL**, voer de volgende URL, waarbij `yourtenant` wordt vervangen door de naam van uw Azure AD B2C-tenant (`fabrikamb2c`):
 
     >[!NOTE]
     >De waarde voor 'yourtenant' moet alleen kleine letters bevatten in de **aanmeldings-URL**.
 
     ```Console
-    https://login.microsoftonline.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
+    https://yourtenant.b2clogin.com/te/yourtenant.onmicrosoft.com/oauth2/authresp
     ```
 
 1. Opslaan van de toepassings-ID, die u gebruiken in de volgende sectie als de client-ID gaat.

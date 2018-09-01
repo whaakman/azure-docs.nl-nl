@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 10/23/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 786f0dfd0cf3cf2e9ab0d16e26811fabd6bfc17c
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 28679ef07c2625908f7b08f808ff49c48ddb625b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440944"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339865"
 ---
 # <a name="azure-active-directory-b2c-add-twitter-as-an-oauth1-identity-provider-by-using-custom-policies"></a>Azure Active Directory B2C: Twitter als id-provider OAuth1 toevoegen met behulp van aangepaste beleidsregels
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
@@ -36,9 +36,9 @@ Gebruik van Twitter als id-provider in Azure Active Directory B2C (Azure AD B2C)
  
     a. Type de **naam** en een **beschrijving** voor uw nieuwe app. 
 
-    b. In de **Website** vak, plak **https://login.microsoftonline.com**. 
+    b. In de **Website** vak, plak **https://{tenant}.b2clogin.com**. Waar **{tenant}** is de naam van uw tenant (bijvoorbeeld https://contosob2c.b2clogin.com).
 
-    c. 4. Voor de **URL voor terugbellen**, voer `https://login.microsoftonline.com/te/{tenant}/{policyId}/oauth1/authresp`. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld: contosob2c.onmicrosoft.com) en **{policyId}** met uw beleids-id (bijvoorbeeld b2c_1_policy).  **De callback URL moet zich in alleen kleine letters.** U moet een URL voor terugbellen voor alle beleidsregels die gebruikmaken van de Twitter-aanmelding toevoegen. Zorg ervoor dat u `b2clogin.com` in plaats van ` login.microsoftonline.com` als u deze in uw toepassing.
+    c. 4. Voor de **URL voor terugbellen**, voer `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/{policyId}/oauth1/authresp`. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld contosob2c) en **{policyId}** met uw beleids-id (bijvoorbeeld b2c_1_policy).  **De callback URL moet zich in alleen kleine letters.** U moet een URL voor terugbellen voor alle beleidsregels die gebruikmaken van de Twitter-aanmelding toevoegen. Zorg ervoor dat u `b2clogin.com` in plaats van ` login.microsoftonline.com` als u deze in uw toepassing.
 
     d. Aan de onderkant van de pagina, lees en accepteer de voorwaarden en selecteer vervolgens **uw Twitter-toepassing maken**.
 

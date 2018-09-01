@@ -11,12 +11,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/30/2018
 ms.author: govindk
-ms.openlocfilehash: 7c9367cccf8d59d60dfa474f02567d59b9c8c8c2
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 6d1daededcf8f0efdc6a3a5649aa830110192fef
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054038"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381837"
 ---
 # <a name="azure-cosmos-db-firewall-support"></a>Azure Cosmos DB-firewallondersteuning
 Als u wilt beveiligen gegevens die zijn opgeslagen in een Azure Cosmos DB-databaseaccount, Azure Cosmos DB heeft biedt ondersteuning voor een geheim op basis van [autorisatiemodel](https://msdn.microsoft.com/library/azure/dn783368.aspx) die gebruikmaakt van een sterke Hash-based message authentication code (HMAC). Azure Cosmos DB ondersteunt nu, naast het geheim op basis van autorisatiemodel, beleid voor IP-gebaseerd toegangsbeheer voor ondersteuning van de firewallregels voor binnenkomend aangestuurd. Dit model is vergelijkbaar met de firewall-regels van een traditionele database-systeem en biedt een extra beveiligingsniveau bij de Azure Cosmos DB-databaseaccount. Met dit model kunt u nu een Azure Cosmos DB-databaseaccount om te worden alleen toegankelijk vanuit een goedgekeurde set computers en/of cloud services configureren. Toegang tot Azure Cosmos DB-resources uit deze goedgekeurde sets van machines en services is nog steeds vereist voor de oproepende functie om weer te geven van een geldige Autorisatietoken.
@@ -57,7 +57,12 @@ Toegang tot de Azure-portal is standaard ingeschakeld wanneer u de Firewall-inst
 ![Schermopname die laat zien hoe u Azure portal toegang inschakelen](./media/firewall-support/enable-azure-portal.png)
 
 ## <a name="connections-from-global-azure-datacenters-or-azure-paas-services"></a>Verbindingen van de globale Azure-datacenters of Azure PaaS-services
-In Azure, worden PaaS-services zoals Azure Stream analytics, Azure Functions en Azure App Service gebruikt in combinatie met Azure Cosmos DB. Voor toegang tot Azure Cosmos DB-databaseaccount van deze services met IP-adressen niet beschikbaar zijn het IP-adres 0.0.0.0 toevoegen aan de lijst met toegestane IP-adressen die via een programma is gekoppeld aan uw Azure Cosmos DB-databaseaccount. 
+
+"Azure PaaS-services zoals Azure Stream analytics, Azure Functions enzovoort worden gebruikt in combinatie met Azure Cosmos DB. Als u wilt toestaan dat toepassingen van andere Azure PaaS-services te verbinden met uw Azure Cosmos DB-resources, moet een firewallinstelling zijn ingeschakeld. Als u wilt deze firewallinstelling inschakelt, toevoegen het IP-adres-0.0.0.0 aan de lijst met toegestane IP-adressen. De IP-adres-0.0.0.0 geeft aan dat de verbindingen van alle Azure-datacenter-IP-adresbereik zijn toegestaan verbinding maken met uw Azure Cosmos DB-resources."
+
+> [!IMPORTANT]
+> Met deze optie configureert u de firewall zo dat alle verbindingen vanuit Azure zijn toegestaan, inclusief verbindingen vanuit de abonnementen van andere klanten. Wanneer u deze optie selecteert, zorg dan dat uw aanmeldings- en gebruikersmachtigingen de toegang beperken tot alleen geautoriseerde gebruikers.
+> 
 
 Toegang tot de verbindingen van in internationale datacenters van Azure is standaard ingeschakeld wanneer u de Firewall-instelling te wijzigen **netwerken geselecteerd** in Azure portal. 
 

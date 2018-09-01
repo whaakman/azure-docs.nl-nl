@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b86f29e4d3faa1382ac3a79ed828855a5d9f6d7f
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: c5d48e2e7316f33a565fc61a769a29c00834eed5
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42747216"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343366"
 ---
 # <a name="create-a-map"></a>Een kaart maken
 
@@ -56,7 +56,7 @@ Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
     * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds)
     
 Zie de volgende artikelen voor meer codevoorbeelden van toevoegen aan uw kaarten: 
-* [Toevoegen van een pincode](./map-add-pin.md)
-* [Een pop-up toevoegen](map-add-popup.md)
+* [Kies een stijl kaart](choose-map-style.md)
+* [Kaart-besturingselementen toevoegen](map-add-controls.md)
     
 

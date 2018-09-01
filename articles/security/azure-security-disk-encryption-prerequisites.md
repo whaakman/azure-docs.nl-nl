@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2018
 ms.author: mstewart
-ms.openlocfilehash: 859b4adb1b74d294d08f23c8ca570f53d56f539f
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 67c3591b0218beac6343b49ba7867294ebeb3f44
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307341"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381977"
 ---
 # <a name="azure-disk-encryption-prerequisites"></a>Vereisten voor Azure Disk Encryption 
  In dit artikel, de vereisten voor Azure Disk Encryption, wordt beschreven welke items die worden voldaan moet voordat u Azure Disk Encryption kunt gebruiken. Azure Disk Encryption is geïntegreerd met [Azure Key Vault](https://docs.microsoft.com/azure/key-vault/) voor het beheer van versleutelingssleutels. U kunt [Azure PowerShell](/powershell/azure/overview), [Azure CLI](/cli/azure/), of de [Azure-portal](https://portal.azure.com) Azure Disk Encryption te configureren.
@@ -147,7 +147,7 @@ Azure Disk Encryption is geïntegreerd met [Azure Key Vault](https://azure.micro
 U kunt een sleutelkluis maken met het gebruik van Azure PowerShell de [New-AzureRmKeyVault](/powershell/module/azurerm.keyvault/New-AzureRmKeyVault) cmdlet. Zie voor aanvullende cmdlets voor Key Vault [AzureRM.KeyVault](/powershell/module/azurerm.keyvault/). 
 
 1. Indien nodig, [verbinding maken met uw Azure-abonnement](azure-security-disk-encryption-appendix.md#bkmk_ConnectPSH). 
-2. Maak een nieuwe resourcegroep, indien nodig, met [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup).  Lijst met locaties voor data center, gebruikt [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocationn). 
+2. Maak een nieuwe resourcegroep, indien nodig, met [New-AzureRmResourceGroup](/powershell/module/AzureRM.Resources/New-AzureRmResourceGroup).  Lijst met locaties voor data center, gebruikt [Get-AzureRmLocation](/powershell/module/azurerm.resources/get-azurermlocation). 
      
      ```azurepowershell-interactive
      # Get-AzureRmLocation 

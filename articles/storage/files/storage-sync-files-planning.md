@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: a7d62531492695be6ec148c3bf7b9786b2a428cf
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: d5b01566f672309837f738e185820a0f13eda1c1
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247392"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382251"
 ---
 # <a name="planning-for-an-azure-file-sync-deployment"></a>Planning voor de implementatie van Azure Files Sync
 Gebruik Azure File Sync te centraliseren bestandsshares van uw organisatie in Azure Files, terwijl de flexibiliteit, prestaties en compatibiliteit van een on-premises bestandsserver. Azure File Sync transformeert Windows Server naar een snelle cache van uw Azure-bestandsshare. U kunt elk protocol dat beschikbaar is op Windows Server voor toegang tot uw gegevens lokaal, met inbegrip van SMB, NFS en FTPS gebruiken. U kunt zoveel caches hebben als u nodig hebt over de hele wereld.
@@ -112,7 +112,7 @@ De resultaten weergeven in CSV:
 ```
 
 ### <a name="system-requirements"></a>Systeemvereisten
-- Een server met Windows Server 2012 R2 of Windows Server 2016 
+- Een server met Windows Server 2012 R2 of Windows Server 2016:
 
     | Versie | Ondersteunde SKU 's | Ondersteunde implementatieopties |
     |---------|----------------|------------------------------|
@@ -121,15 +121,15 @@ De resultaten weergeven in CSV:
 
     Toekomstige versies van Windows Server wordt toegevoegd zodra ze worden vrijgegeven. Eerdere versies van Windows kunnen worden toegevoegd op basis van feedback van gebruikers.
 
-- Een server met een minimum van 2GB geheugen
+    > [!Important]  
+    > We raden aan om alle servers die u met Azure File Sync up-to-date met de meest recente updates van Windows Update gebruikt. 
+
+- Een server met een minimum van 2 GiB geheugen.
 
     > [!Important]  
-    > Als de server wordt uitgevoerd in een virtuele machine met dynamisch geheugen is ingeschakeld, kan de virtuele machine moet worden geconfigureerd met een minimaal 2048MB aan geheugen.
+    > Als de server wordt uitgevoerd in een virtuele machine met dynamisch geheugen is ingeschakeld, kan de virtuele machine moet worden geconfigureerd met een minimaal 2048 MiB van het geheugen.
     
-- Een lokaal gekoppeld volume dat is geformatteerd met het NTFS-bestandssysteem
-
-> [!Important]  
-> We raden aan om alle servers die u met Azure File Sync up-to-date met de meest recente updates van Windows Update gebruikt. 
+- Een lokaal gekoppeld volume dat is geformatteerd met het NTFS-bestandssysteem.
 
 ### <a name="file-system-features"></a>Functies
 | Functie | Ondersteuning voor status | Opmerkingen |

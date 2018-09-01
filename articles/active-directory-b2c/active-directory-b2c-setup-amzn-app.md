@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 5fb6289f75f0c98cc218233d8adb900484ee4a17
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c64b32656db2d3b821833450b4e866b9e33e44cd
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916493"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337342"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-an-amazon-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een Amazon-account met behulp van Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Voor het gebruik van een Amazon-account als id-provider in Azure Active Director
 3. Selecteer **nieuwe toepassing registreren**.
 4. Voer een **naam**, **beschrijving**, en **Privacy-URL voor kennisgeving**, en klik vervolgens op **opslaan**.
 5. In de **Webinstellingen** sectie, Kopieer de waarden van **Client-ID**. Selecteer **geheim weergeven** voor het ophalen van het clientgeheim en kopieer deze vervolgens. U moet beide een Amazon-account configureert als een id-provider in uw tenant. **Clientgeheim** is een belangrijke beveiligingsreferentie.
-6. In de **Webinstellingen** sectie, selecteer **bewerken**, en voer vervolgens `https://login.microsoftonline.com` in **JavaScript oorsprongen toegestaan** en `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **toegestaan URL's retourneren**. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld contoso.onmicrosoft.com). 
+6. In de **Webinstellingen** sectie, selecteer **bewerken**, en voer vervolgens `https://{tenant}.b2clogin.com` in **JavaScript oorsprongen toegestaan** en `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in **toegestaan URL's retourneren**. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld contosob2c). 
 7. Klik op **Opslaan**.
 
 ## <a name="configure-an-amazon-account-as-an-identity-provider"></a>Een Amazon-account configureert als een id-provider

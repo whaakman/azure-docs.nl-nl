@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: kgremban
-ms.openlocfilehash: c7d8631a8e7b99cca8f84ea1011c361db01e399e
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 4f7eefc7d6b067c360fdc3ce12b9a7ae36080bd8
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42059431"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336871"
 ---
 # <a name="monitor-the-health-of-azure-iot-hub-and-diagnose-problems-quickly"></a>Controleer de status van Azure IoT Hub en snel problemen vaststellen
 
@@ -45,6 +45,9 @@ Azure Monitor houdt bij of verschillende bewerkingen die zich in IoT Hub voordoe
 #### <a name="connections"></a>Verbindingen
 
 De verbindingen categorie nummers apparaat verbinding maken en gebeurtenissen loskoppelen van een IoT-hub, evenals fouten. Het bijhouden van deze categorie is handig voor het identificeren van niet-geautoriseerde verbindingspogingen en voor het bijhouden van een verbinding is verbroken voor apparaten in de gebieden van slechte connectiviteit.
+
+> [!NOTE]
+> Voor betrouwbare verbindingsstatus van apparaten controleren [apparaat heartbeat][lnk-devguide-heartbeat].
 
 ```json
 {
@@ -334,3 +337,4 @@ Zie voor meer informatie over het interpreteren van de van gezondheidsgegevens, 
 [lnk-AM-schemas]: ../monitoring-and-diagnostics/monitoring-diagnostic-logs-schema.md
 [lnk-ARH-checks]: ../service-health/resource-health-checks-resource-types.md
 [lnk-monitoring-notifications]: iot-hub-monitoring-notifications-with-azure-logic-apps.md
+[lnk-devguide-heartbeat]: iot-hub-devguide-identity-registry.md#device-heartbeat

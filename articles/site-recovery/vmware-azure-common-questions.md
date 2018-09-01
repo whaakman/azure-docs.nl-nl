@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.date: 07/19/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: e8d30ae6cde7c787f1aa950506e0eb74bac0c12d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: fe20cae4c316462e3af3f0a5e7e6052f6ba5719d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238805"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344420"
 ---
 # <a name="common-questions---vmware-to-azure-replication"></a>Veelgestelde vragen - VMware naar Azure-replicatie
 
@@ -45,7 +45,7 @@ Als u een abonnementsbeheerder bent, hebt u de replicatiemachtigingen die u nodi
 
 
 
-## <a name="on-premises"></a>On-premises 
+## <a name="on-premises"></a>On-premises
 
 ### <a name="what-do-i-need-on-premises"></a>Wat kan ik on-premises nodig?
 In on-premises moet u Site Recovery-onderdelen geïnstalleerd op een enkele VMware-VM. U moet ook een VMware-infrastructuur, met ten minste één ESXi-host, en het is raadzaam een vCenter-server. Bovendien moet u een of meer virtuele VMware-machines te repliceren. [Meer informatie](vmware-azure-architecture.md) over VMware naar Azure-architectuur.
@@ -72,7 +72,7 @@ Ja, ExpressRoute kan worden gebruikt voor het repliceren van virtuele machines n
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>Waarom kan ik niet repliceren via VPN?
 
-Wanneer u naar Azure repliceren, replicatieverkeer bereikt de openbare eindpunten van een Azure Storage-account, dus u kunt alleen repliceren via het openbare internet met ExpressRoute (openbare peering) en VPN werkt niet. 
+Wanneer u naar Azure repliceren, replicatieverkeer bereikt de openbare eindpunten van een Azure Storage-account, dus u kunt alleen repliceren via het openbare internet met ExpressRoute (openbare peering) en VPN werkt niet.
 
 
 
@@ -90,7 +90,7 @@ Uitgebreide of gekoppelde replicatie wordt niet ondersteund. Deze functie in aan
 Nee, dit wordt niet ondersteund. Aanvragen van deze functie in de [Feedbackforum](http://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
 
 ### <a name="can-i-exclude-disks"></a>Kan ik schijven uitsluiten?
-Ja, kunt u schijven uitsluiten van replicatie. 
+Ja, kunt u schijven uitsluiten van replicatie.
 
 ### <a name="can-i-replicate-vms-with-dynamic-disks"></a>Kan ik virtuele machines met dynamische schijven repliceren?
 Dynamische schijven kunnen worden gerepliceerd. De besturingssysteemschijf moet een standaardschijf.
@@ -105,7 +105,7 @@ U kunt de schijfgrootte wijzigen voor VMware-replicatie naar Azure. Als u wilt t
 ## <a name="configuration-server"></a>Configuratieserver
 
 ### <a name="what-does-the-configuration-server-do"></a>Wat doet de configuratieserver?
-De configuratieserver wordt uitgevoerd de on-premises Site Recovery-onderdelen, met inbegrip van: 
+De configuratieserver wordt uitgevoerd de on-premises Site Recovery-onderdelen, met inbegrip van:
 - De configuratieserver coördineert de communicatie tussen on-premises en Azure en beheert de gegevensreplicatie.
 - De processerver die als replicatiegateway fungeert. Deze ontvangt replicatiegegevens; Met caching, compressie en versleuteling, optimaliseert en verzendt die deze naar Azure storage-., de processerver installeert ook Mobility-Service op VM's die u wilt repliceren en detecteert automatisch on-premises virtuele VMware-machines.
 - De hoofddoelserver die verantwoordelijk is voor replicatiegegevens tijdens de failback vanuit Azure.
@@ -118,13 +118,13 @@ In dat geval moet u een één maximaal beschikbare on-premises virtuele VMware-m
 Controleer de [vereisten](vmware-azure-deploy-configuration-server.md#prerequisites).
 
 ### <a name="can-i-manually-set-up-the-configuration-server-instead-of-using-a-template"></a>Kan ik handmatig instellen de configuratieserver in plaats van een sjabloon?
-Het is raadzaam dat u de meest recente versie van de OVF-sjabloon [maken van de configuratieserver VM](vmware-azure-deploy-configuration-server.md). Als voor een of andere reden is niet mogelijk, zoals u geen toegang tot de VMware-server, kunt u [de geïntegreerde Setup-bestand downloaden](physical-azure-set-up-source.md) vanuit de portal en uitvoeren op een virtuele machine. 
+Het is raadzaam dat u de meest recente versie van de OVF-sjabloon [maken van de configuratieserver VM](vmware-azure-deploy-configuration-server.md). Als voor een of andere reden is niet mogelijk, zoals u geen toegang tot de VMware-server, kunt u [de geïntegreerde Setup-bestand downloaden](physical-azure-set-up-source.md) vanuit de portal en uitvoeren op een virtuele machine.
 
 ### <a name="can-a-configuration-server-replicate-to-more-than-one-region"></a>Kan een configuratieserver in meer dan één regio repliceren?
 Nee. Om dit te doen, moet u voor het instellen van een configuratieserver in elke regio.
 
 ### <a name="can-i-host-a-configuration-server-in-azure"></a>Kan ik een configuratieserver in Azure hosten?
-Tijdens het mogelijk is moet de virtuele Azure-machine waarop de configuratieserver wordt uitgevoerd om te communiceren met uw on-premises VMware-infrastructuur en virtuele machines. De overhead waarschijnlijk is niet mogelijk.
+Tijdens het mogelijk is moet de virtuele Azure-machine waarop de configuratieserver wordt uitgevoerd om te communiceren met uw on-premises VMware-infrastructuur en virtuele machines. Dit kunt latenties toevoegen en voortdurende replicatie van invloed zijn op.
 
 
 ### <a name="where-can-i-get-the-latest-version-of-the-configuration-server-template"></a>Waar vind ik de meest recente versie van de configuratieserversjabloon?
@@ -132,6 +132,9 @@ Download de nieuwste versie van de [Microsoft Download Center](https://aka.ms/as
 
 ### <a name="how-do-i-update-the-configuration-server"></a>Hoe kan ik de configuratieserver bijwerken?
 U installeren updatepakketten. U vindt de meest recente update-informatie in de [wiki updates pagina](https://social.technet.microsoft.com/wiki/contents/articles/38544.azure-site-recovery-service-updates.aspx).
+
+### <a name="should-i-backup-the-deployed-configuration-server"></a>Moet ik back-up van het geïmplementeerde configuratie-server?
+We raden u aan om regelmatig geplande back-ups van de configuratieserver. Voor succesvolle failback wordt de virtuele machine wordt een failback moet aanwezig zijn in de database van de configuratieserver en de configuratieserver moet worden uitgevoerd en een verbonden status heeft. U kunt meer informatie over algemene beheertaken voor configuration server [hier](vmware-azure-manage-configuration-server.md).
 
 ## <a name="mobility-service"></a>Mobility-service
 
@@ -191,7 +194,7 @@ Ja, als u een failover naar Azure, kunt u failover naar een andere locatie als d
 
 ### <a name="why-do-i-need-a-vpn-or-expressroute-to-fail-back"></a>Waarom heb ik een VPN of ExpressRoute voor failback nodig?
 
-Wanneer u een failback van Azure, gegevens van Azure is gekopieerd naar uw on-premises virtuele machine en persoonlijke toegang is vereist. 
+Wanneer u een failback van Azure, gegevens van Azure is gekopieerd naar uw on-premises virtuele machine en persoonlijke toegang is vereist.
 
 
 

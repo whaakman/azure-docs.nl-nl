@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 07/20/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 65495893d93fddd6d8e13ae80720e002ac7d8efa
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 5732f6986750dfee49084e2744052bb54e3a8139
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307485"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382564"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in C-modules voor Azure IoT Edge
 
@@ -35,9 +35,7 @@ Omdat in dit artikel Visual Studio Code als de belangrijkste ontwikkeltool wordt
 Voor het maken van een module, moet u Docker om de installatiekopie van de module en een containerregister voor de module-installatiekopie te bouwen:
 * [Docker Community Edition](https://docs.docker.com/install/) op uw ontwikkelcomputer. 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) of [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-
-   > [!TIP]
-   > U kunt een lokale Docker-register voor prototype en in plaats van een cloud-register voor testdoeleinden gebruiken. 
+   * U kunt een lokale Docker-register voor prototype en in plaats van een cloud-register voor testdoeleinden gebruiken. 
 
 Als u wilt testen van uw module op een apparaat, moet u een actieve IoT-hub met ten minste één IoT Edge-apparaat. Voor het gebruik van de computer als een IoT Edge-apparaat, volg de stappen in de quickstart voor [Windows](quickstart.md) of [Linux](quickstart-linux.md). 
 
@@ -46,16 +44,24 @@ Als u wilt testen van uw module op een apparaat, moet u een actieve IoT-hub met 
 Volg deze stappen voor het maken van een IoT Edge-module op basis van Azure IoT C SDK met behulp van Visual Studio Code en de Azure IoT Edge-extensie. U maakt eerst een oplossing en vervolgens het genereren van de eerste module in die oplossing. Elke oplossing kan meer dan één module bevatten. 
 
 1. Selecteer in Visual Studio Code, **weergave** > **geïntegreerde Terminal**.
-3. Selecteer **weergave** > **Command Palette**. 
-4. Voer in het opdrachtenpalet en voer de opdracht **Azure IoT Edge: nieuwe IoT Edge-oplossing**.
+
+2. Selecteer **weergave** > **Command Palette**. 
+
+3. Voer in het opdrachtenpalet en voer de opdracht **Azure IoT Edge: nieuwe IoT Edge-oplossing**.
 
    ![Nieuwe IoT Edge-oplossing uitvoeren](./media/how-to-develop-csharp-module/new-solution.png)
 
-5. Blader naar de map waar u de nieuwe oplossing maken. Kies **map selecteren**. 
-6. Voer een naam voor uw oplossing. 
-7. Selecteer **C Module** als de sjabloon voor de eerste module in de oplossing.
-8. Voer een naam voor uw module. Kies een naam die uniek is binnen uw containerregister. 
-9. Geef de naam van de opslagplaats voor installatiekopieën van de module. VS Code autopopulates de module met naam **localhost:5000**. Vervang deze door uw eigen gegevens. Als u een lokale Docker-register voor het testen, klikt u vervolgens **localhost** functioneert. Als u Azure Container Registry gebruikt, gebruikt u de aanmeldingsserver van de instellingen van uw register. De aanmeldingsserver ziet eruit als  **\<registernaam\>. azurecr.io**.
+4. Blader naar de map waar u de nieuwe oplossing maken. Kies **map selecteren**. 
+
+5. Voer een naam voor uw oplossing. 
+
+6. Selecteer **C Module** als de sjabloon voor de eerste module in de oplossing.
+
+7. Voer een naam voor uw module. Kies een naam die uniek is binnen uw containerregister. 
+
+8. Geef de naam van de opslagplaats voor installatiekopieën van de module. VS Code autopopulates de module met naam **localhost:5000**. Vervang deze door uw eigen gegevens. Als u een lokale Docker-register voor het testen, klikt u vervolgens **localhost** functioneert. Als u Azure Container Registry gebruikt, gebruikt u de aanmeldingsserver van de instellingen van uw register. De aanmeldingsserver ziet eruit als  **\<registernaam\>. azurecr.io**. Vervang alleen het onderdeel localhost van de tekenreeks, verwijder niet de naam van de module. 
+
+   ![Opslagplaats voor Docker-installatiekopieën opgeven](./media/how-to-develop-c-module/repository.png)
 
 VS Code haalt de gegevens die u verstrekt, maakt u een IoT Edge-oplossing, en laadt deze in een nieuw venster.
 
@@ -73,7 +79,7 @@ Er zijn vier items in de oplossing:
 
 ## <a name="develop-your-module"></a>Uw-module ontwikkelen
 
-De standaard C-module-code die wordt geleverd met de oplossing bevindt zich in **modules** > **\<de modulenaam van uw\>** > **main.c** . De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om te gewoon nemen invoer van een bron (in dit geval de tempSensor-module die gegevens simuleert) en doorgeven naar IoT Hub. 
+De standaard C-module-code die wordt geleverd met de oplossing bevindt zich in **modules** > [Modulenaam van uw] > **main.c**. De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om te gewoon nemen invoer van een bron (in dit geval de tempSensor-module die gegevens simuleert) en doorgeven naar IoT Hub. 
 
 Wanneer u klaar bent om de sjabloon C met uw eigen code aanpassen, gebruikt u de [Azure IoT Hub SDK's](../iot-hub/iot-hub-devguide-sdks.md) modules bouwen dat adres de sleutel die nodig zijn voor IoT-oplossingen, zoals beveiliging, beheer van apparaten en betrouwbaarheid. 
 

@@ -11,14 +11,14 @@ ms.component: data-science-vm
 ms.workload: data-services
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2017
+ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: f0fe2bde039cd209514d0cbc4842b20cd4b5fb99
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: b01ef3701ffb46da57c52e5fe73828ec4252b074
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444039"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344757"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Inrichten van de Windows Data Science Virtual Machine van Azure
 De Microsoft Data Science Virtual Machine (DSVM) is een installatiekopie van Windows Azure virtuele machine (VM). Het is vooraf geïnstalleerd en geconfigureerd met verschillende hulpprogramma's die worden gebruikt voor gegevensanalyse en machine learning. De volgende hulpprogramma's zijn opgenomen:
@@ -66,7 +66,7 @@ Voor het maken van een Microsoft Data Science Virtual Machine, moet u een Azure-
 ## <a name="create-your-microsoft-data-science-virtual-machine"></a>Uw Microsoft Data Science-Machine maken
 Volg deze stappen voor het maken van een exemplaar van de Microsoft Data Science Virtual Machine:
 
-1. Navigeer naar de virtuele machine weergeven op de [Azure-portal](https://portal.azure.com/#create/microsoft-ads.windows-data-science-vmwindows2016).
+1. Navigeer naar de virtuele machine weergeven op de [Azure-portal](https://portal.azure.com/#create/microsoft-dsvm.dsvm-windowsserver-2016). U mogelijk gevraagd om aan te melden bij uw Azure-account als u bent niet al aangemeld.
 1. Selecteer de **maken** onder in de wizard een moeten worden genomen.
 
   ![Configureer-data-science-vm](./media/provision-vm/configure-data-science-virtual-machine.png) 

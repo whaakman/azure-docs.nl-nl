@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/06/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: ee341fd3b54d748849da34cd11db30e5ea758fb1
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: b00eb1b2d25187dc50be53425ebae347edde33b4
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37445264"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344808"
 ---
 # <a name="azure-ad-b2c-single-page-app-sign-in-by-using-oauth-20-implicit-flow"></a>Azure AD B2C: Single-page-app aanmelden met behulp van OAuth 2.0-impliciete stroom
 
@@ -46,7 +46,7 @@ In deze aanvraag, de client geeft aan dat de `scope` parameter de machtigingen d
 
 ### <a name="use-a-sign-in-policy"></a>Een beleid voor aanmelden
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -59,7 +59,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### <a name="use-a-sign-up-policy"></a>Een registratiebeleid gebruiken
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -72,7 +72,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 ### <a name="use-an-edit-profile-policy"></a>Profiel bewerken-beleid gebruiken
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=id_token+token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -144,11 +144,11 @@ Aantal open source-bibliotheken zijn beschikbaar voor het valideren van JWTs, af
 
 Azure AD B2C is een eindpunt van de metagegevens OpenID Connect. Een app kan het eindpunt gebruiken voor het ophalen van informatie over Azure AD B2C tijdens runtime. Deze informatie omvat eindpunten, de inhoud van tokens en voor token-ondertekening van sleutels. Er is een JSON-metagegevensdocument voor elk beleid in uw Azure AD B2C-tenant. Bijvoorbeeld, zich het document met metagegevens voor het beleid b2c_1_sign_in in de tenant fabrikamb2c.onmicrosoft.com bevindt hier:
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
 Een van de eigenschappen van dit configuratiedocument is de `jwks_uri`. De waarde voor hetzelfde beleid zou worden:
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`
 
 Om te bepalen welk beleid is gebruikt voor het ondertekenen van een ID-token (en waar om op te halen de metagegevens van), hebt u twee opties. Ten eerste de naam van het beleid is opgenomen in de `acr` claim in `id_token`. Zie voor meer informatie over het parseren van de claims van een ID-token dat de [naslaginformatie over Azure AD B2C-tokens](active-directory-b2c-reference-tokens.md). De andere mogelijkheid is het coderen van het beleid in de waarde van de `state` parameter wanneer u de aanvraag. Vervolgens worden gedecodeerd de `state` parameter om te bepalen welk beleid is gebruikt. Een van beide methoden is geldig.
 
@@ -180,7 +180,7 @@ In een typische web-app-stroom, zou u dit doen door het maken van een aanvraag n
 
 ```
 
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -254,7 +254,7 @@ Als u de gebruiker buiten de app aanmelden wilt, moet u de gebruiker omgeleid na
 U kunt gewoon de gebruiker omleiden de `end_session_endpoint` die worden vermeld in de dezelfde OpenID Connect metadata-document wordt beschreven in [valideren van de ID-token](#validate-the-id-token). Bijvoorbeeld:
 
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
 p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```

@@ -11,78 +11,110 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 901eb5ef43ddb2840ed7a3d83fc08f2f05849461
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 9ad4965ccd86f88a61b5f6fb8f540d76e472ea69
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189732"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43345292"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Azure-resource rolinstellingen in PIM configureren
 
-Wanneer u de serverfunctie-instellingen configureert, definieert u de standaardinstellingen die worden toegepast op de toewijzingen in de omgeving voor Privileged Identity Management (PIM). Voor het definiëren van deze instellingen voor uw resource, selecteer de **rolinstellingen** tabblad in het linkerdeelvenster. U kunt ook de rol van de knop in de actiebalk (in een rol) selecteren om de huidige opties weer te geven.
+Wanneer u Azure-resource serverfunctie-instellingen configureert, definieert u de standaardinstellingen die worden toegepast op Azure-resource-roltoewijzingen in Azure AD Privileged Identity Management (PIM). Gebruik de volgende procedures voor het configureren van de werkstroom voor goedkeuring en opgeven wie kan goedkeuren of weigeren.
 
-## <a name="overview"></a>Overzicht
+## <a name="open-role-settings"></a>Rolinstellingen openen
 
-Beheerders kunnen met de werkstroom voor goedkeuring in Privileged Identity Management (PIM) voor Azure-resourcerollen, verder beschermen of beperken van toegang tot kritieke bronnen. Dat wil zeggen, beheerders kunnen vereisen dat goedkeuring roltoewijzingen te activeren. 
+Volg deze stappen om de instellingen voor de rol van een Azure-resource te openen.
 
-Het concept van een hiërarchie van de resource is uniek voor Azure-resourcerollen. Deze hiërarchie kunt de overname van roltoewijzingen van een bovenliggende resource-object naar beneden naar alle onderliggende resources in de bovenliggende container. 
+1. Aanmelden bij [Azure-portal](https://portal.azure.com/) met een gebruiker die lid is van de [beheerder met bevoorrechte rol](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) rol.
 
-Bijvoorbeeld: Bob, de resourcebeheerder van een, PIM gebruikt voor het toewijzen van Alice als een in aanmerking komend lid aan de rol eigenaar in het Contoso-abonnement. Met deze toewijzing is Els een in aanmerking komende eigenaar van alle resource group-containers in het Contoso-abonnement. Els wordt ook de eigenaar van een in aanmerking komende van alle resources (zoals virtuele machines) in elke resourcegroep van het abonnement. 
+1. Open **Azure AD Privileged Identity Management**.
 
-Stel dat er zijn drie resourcegroepen in het Contoso-abonnement: Fabrikam Test Fabrikam Dev en Fabrikam Prod. Elk van deze resourcegroepen bevat één virtuele machine.
+1. Klik op **Azure-resources**.
 
-PIM-instellingen worden geconfigureerd voor elke rol van een resource. In tegenstelling tot toewijzingen, worden deze instellingen worden niet overgenomen en zijn alleen van toepassing op de functie van. [Meer informatie over in aanmerking komende toewijzingen en zichtbaarheid van de resource](pim-resource-roles-eligible-visibility.md).
+1. Klik op de resource die u beheren wilt, zoals een abonnement of beheergroep-groep.
 
-U doorgaat met het voorbeeld: Bob PIM gebruikt om te vereisen dat alle leden in de rol van eigenaar van het goedkeuren van Contoso-abonnement worden geactiveerd. Ter bescherming van de resources in de resourcegroep van Fabrikam Prod, moet Bob ook worden goedgekeurd voor leden van de rol van eigenaar van deze resource. De rollen eigenaar in Fabrikam Test- en Fabrikam Dev vereisen geen goedkeuring voor activering.
+    ![Lijst met Azure-resources te beheren](./media/pim-resource-roles-configure-role-settings/resources-list.png)
 
-Wanneer Els activering van haar eigenaarsrol voor de Contoso-abonnement aanvraagt, moet de fiatteur goedkeuren of haar aanvraag weigeren voordat ze actief in de rol. Als Alice wil [haar activering scope](pim-resource-roles-activate-your-roles.md#apply-just-enough-administration-practices) naar de resourcegroep Fabrikam Prod fiatteur moet goedkeuren of weigeren van deze aanvraag te. Maar als Alice wil het bereik van haar activering op een van beide of beide Fabrikam-Test of Fabrikam Dev, goedkeuring is niet vereist.
+1. Klik op **rolinstellingen**.
 
-De werkstroom voor goedkeuring is mogelijk niet nodig zijn voor alle leden van een rol. U hebt een scenario waarbij uw organisatie verschillende contract wordt om te helpen bij de ontwikkeling van een toepassing die wordt uitgevoerd in een Azure-abonnement ingehuurd. Als de resourcebeheerder van een, u wilt dat werknemers in aanmerking komende toegang hebben zonder goedkeuring is vereist, maar koppelt van het contract moeten goedkeuring aanvragen. Werkstroom voor goedkeuring configureren voor de koppelt van het contract, kunt u een aangepaste rol maken met dezelfde machtigingen als de rol die is toegewezen aan werknemers. U kunt vereisen dat goedkeuring om deze aangepaste rol te activeren. [Meer informatie over aangepaste rollen](pim-resource-roles-custom-role-policy.md).
+    ![Rolinstellingen](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
 
-Gebruik de volgende procedures voor het configureren van de werkstroom voor goedkeuring en opgeven wie kan goedkeuren of weigeren.
+1. Klik op de rol waarvan u de instellingen u wilt configureren.
+
+    ![Details van de rolinstellingen](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+
+1. Klik op **bewerken** om de rol instellingen deelvenster te openen.
+
+    ![Functie-instellingen bewerken](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+
+    Voor elke rol in het deelvenster van de instelling rol zijn er enkele instellingen die u kunt configureren.
+
+## <a name="assignment-duration"></a>Duur van de toewijzing
+
+U kunt kiezen uit twee opties voor toewijzing duur voor elk toewijzingstype (in aanmerking komende en actieve) bij het configureren van instellingen voor een rol. Deze opties worden de standaard maximale duur voor wanneer een lid is toegewezen aan de rollen in PIM.
+
+U kunt een van deze **in aanmerking komende** duur toewijzingsopties:
+
+| | |
+| --- | --- |
+| **Permanent in aanmerking komende toewijzing toestaan** | Resource-beheerders kunnen permanent in aanmerking komende lidmaatschap toewijzen. |
+| **In aanmerking komende toewijzing na verlopen** | Resource-beheerders kunnen vereisen dat voor dat alle in aanmerking komende toewijzingen van een opgegeven begin- en datum hebben. |
+
+En u kunt een van deze **active** duur toewijzingsopties:
+
+| | |
+| --- | --- |
+| **Permanente actieve toewijzing toestaan** | Resource-beheerders kunnen permanent actief MSDN toewijzen. |
+| **Actieve toewijzing na verlopen** | Resource-beheerders kunnen vereisen dat voor dat alle actieve toewijzingen van een opgegeven begin- en datum hebben. |
+
+> [!NOTE] 
+> Alle toewijzingen van met een opgegeven datum kunnen worden vernieuwd door beheerders van de resource. Bovendien leden Self-service aanvragen om te kunnen initiëren [verlengen of vernieuwen van roltoewijzingen](pim-resource-roles-renew-extend.md).
+
+## <a name="require-multi-factor-authentication"></a>Meervoudige verificatie vereisen
+
+PIM biedt optionele afdwinging van Azure multi-factor Authentication (MFA) voor twee verschillende scenario's.
+
+### <a name="require-multi-factor-authentication-on-active-assignment"></a>Multi-Factor Authentication vereisen voor actieve toewijzing
+
+In sommige gevallen is het raadzaam om toe te wijzen een lid aan een rol voor een korte periode (bijvoorbeeld één dag). In dit geval hoeft ze niet de toegewezen leden aan de aanvraag voor activering. In dit scenario kan geen PIM MFA afdwingen wanneer het lid maakt gebruik van hun roltoewijzing, omdat ze al actief zijn in de rol vanaf het moment dat ze zijn toegewezen.
+
+Om ervoor te zorgen dat de beheerder van de resource die voldoen aan de toewijzing is wie ze beweren te zijn, kunt u MFA afdwingen op actieve toewijzing door het controleren van de **multi-factor Authentication vereisen bij actieve toewijzing** vak.
+
+### <a name="require-multi-factor-authentication-on-activation"></a>Multi-Factor Authentication bij activering vereisen
+
+U kunt vereisen dat in aanmerking komende leden van een rol om uit te voeren van MFA voor ze kunnen activeren. Dit proces zorgt ervoor dat de gebruiker die vraagt om de activering is wie ze beweren te zijn met redelijke zekerheid. Afdwingen van deze optie worden beveiligd op kritieke resources in situaties wanneer het gebruikersaccount dat mogelijk is aangetast.
+
+Om te vereisen dat een in aanmerking komend lid om uit te voeren van MFA voor activering, Controleer de **overeenkomende multi-factor Authentication bij activering** vak.
+
+## <a name="activation-maximum-duration"></a>Maximale activeringsduur
+
+Gebruik de **maximale activeringsduur** schuifregelaar om in te stellen de maximale tijd in uren, die een rol actief blijft voordat het verloopt. Deze waarde kan liggen tussen 1 en 24 uur.
+
+## <a name="require-justification"></a>Reden vereisen
+
+U kunt vereisen dat leden een reden op actieve toewijzing of wanneer ze activeren invoeren. Om te vereisen dat reden, Controleer de **reden vereisen bij actieve toewijzing** vak of de **reden vereisen bij activering** vak.
 
 ## <a name="require-approval-to-activate"></a>Goedkeuring vereisen om deze rol te activeren
 
-1. Blader naar PIM in Azure portal en selecteer een resource in de lijst.
+Als u wilt de goedkeuring van een rol wilt activeren, volgt u deze stappen.
 
-   ![Deelvenster 'Azure-resources' met een geselecteerde bron](media/azure-pim-resource-rbac/aadpim_manage_azure_resource_some_there.png)
+1. Controleer de **goedkeuring vereisen voor het activeren** selectievakje.
 
-2. Selecteer in het linkerdeelvenster **rolinstellingen**.
+1. Klik op **fiatteurs selecteren** Selecteer een lid of een groep om deelvenster te openen.
 
-3. Zoek en selecteer een rol en selecteer vervolgens **bewerken** om instellingen te wijzigen.
+    ![Lid of groep selecteren](./media/pim-resource-roles-configure-role-settings/resources-role-settings-select-approvers.png)
 
-   ![Knop 'Bewerken' voor de rol van operator](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_view_settings.png)
+1. Selecteer ten minste één lid of de groep en klik vervolgens op **Selecteer**. U kunt een willekeurige combinatie van leden en groepen toevoegen. U moet ten minste één goedkeurder selecteren. Er zijn geen Standaard fiatteurs.
 
-4. In de **activering** sectie, selecteer de **goedkeuring vereisen voor het activeren** selectievakje.
+    Kies de gewenste opties wordt weergegeven in de lijst met geselecteerde goedkeurders.
 
-   ![De sectie '-activering van serverfunctie-instellingen](media/azure-pim-resource-rbac/aadpim_rbac_settings_require_approval_checkbox.png)
-
-## <a name="specify-approvers"></a>Fiatteurs opgeven
-
-Klik op **fiatteurs selecteren** openen de **selecteert u een gebruiker of groep** deelvenster.
-
->[!NOTE]
->U moet ten minste één gebruiker of groep om bij te werken van de instelling selecteren. Er zijn geen Standaard fiatteurs.
-
-Resource-beheerders kunnen een combinatie van gebruikers en groepen toevoegen aan de lijst met goedkeurders. 
-
-![Deelvenster 'Voor het selecteren van een gebruiker of groep' met de gebruiker heeft geselecteerd](media/azure-pim-resource-rbac/aadpim_rbac_role_settings_select_approvers.png)
-
-## <a name="request-approval-to-activate"></a>Goedkeuring aanvragen om te activeren
-
-Aanvragen van goedkeuring heeft geen invloed op de procedure die een lid volgen moet om te activeren. [Bekijk de stappen voor het activeren van een rol](pim-resource-roles-activate-your-roles.md).
-
-Als lid van een activering van een rol waarvoor goedkeuring aangevraagd en de rol niet langer vereist is, kan het lid de aanvraag in PIM annuleren.
-
-Als u wilt annuleren, bladert u naar PIM en selecteer **mijn aanvragen**. Zoek de aanvraag en selecteer **annuleren**.
-
-![Deelvenster "Mijn aanvragen"](media/azure-pim-resource-rbac/aadpim_rbac_role_approval_request_pending.png)
+1. Nadat u uw al uw functie-instellingen hebt opgegeven, klikt u op **Update** uw wijzigingen op te slaan.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Meervoudige verificatie vereisen voor Azure-resource-rollen in PIM](pim-resource-roles-require-mfa.md)
+- [Azure-resource-rollen in PIM toewijzen](pim-resource-roles-assign-roles.md)
 - [Beveiligingswaarschuwingen voor Azure resource-rollen in PIM configureren](pim-resource-roles-configure-alerts.md)

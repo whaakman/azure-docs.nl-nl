@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 35210a8e93b8437ea4d8c3b5f002c81c549d3afe
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 061e2257200b6d660a421a86c540f43597112c5e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37444816"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337882"
 ---
 # <a name="azure-active-directory-b2c-token-session-and-single-sign-on-configuration"></a>Azure Active Directory B2C: Token-, sessie en configuratie voor eenmalige aanmelding
 
@@ -69,8 +69,8 @@ Dit zijn een aantal van use cases die u kunt inschakelen met behulp van deze eig
 We opmaakwijzigingen aangebracht in belangrijke claims in beveiligingstokens verzonden door Azure AD B2C. Dit is gedaan ter verbetering van de standaard-protocol-ondersteuning en voor betere interoperabiliteit met derden identity-bibliotheken. Echter om te voorkomen dat bestaande apps te analyseren, maken we de volgende eigenschappen om te kunnen aanmelden indien nodig klanten:
 
 * **Claim van verlener (iss)**: Hiermee wordt aangegeven met de Azure AD B2C-tenant die het token is uitgegeven.
-  * `https://login.microsoftonline.com/{B2C tenant GUID}/v2.0/`: Dit is de standaardwaarde.
-  * `https://login.microsoftonline.com/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: Id's bevat deze waarde voor zowel de B2C-tenant en het beleid dat wordt gebruikt in het token aan te vragen. Als uw app of de tapewisselaar moet Azure AD B2C om te voldoen aan de [OpenID Connect Discovery 1.0-specificatie](http://openid.net/specs/openid-connect-discovery-1_0.html), gebruikt deze waarde.
+  * `https://<domain>/{B2C tenant GUID}/v2.0/`: Dit is de standaardwaarde.
+  * `https://<domain>/tfp/{B2C tenant GUID}/{Policy ID}/v2.0/`: Id's bevat deze waarde voor zowel de B2C-tenant en het beleid dat wordt gebruikt in het token aan te vragen. Als uw app of de tapewisselaar moet Azure AD B2C om te voldoen aan de [OpenID Connect Discovery 1.0-specificatie](http://openid.net/specs/openid-connect-discovery-1_0.html), gebruikt deze waarde.
 * **Onderwerp (sub) claim**: Hiermee wordt aangegeven met de entiteit, dat wil zeggen, de gebruiker die het token worden bevestigd met informatie.
   * **Object-id**: dit is de standaardwaarde. Het wordt gevuld met de object-ID van de gebruiker in de map in de `sub` claim in het token.
   * **Niet ondersteund**: dit is alleen beschikbaar voor neerwaartse compatibiliteit, en het is raadzaam dat u naar overschakelt **ObjectID** zodra u zich kunt.

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 84b1ad2ecd2c027c7d8a105579059ceb957f41c6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: e1949c32833bb1d5e6603a6f5e36e22dc58e8cec
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37928995"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336925"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-linkedin-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een LinkedIn-account met behulp van Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Voor het gebruik van een LinkedIn-account als id-provider in Azure Active Direct
 3. Voer **bedrijfsnaam**, **toepassingsnaam**, **Toepassingsbeschrijving**, **toepassing Logo**, **toepassing gebruiken** , **Website-URL**, **zakelijke e-mailadres**, en **telefoon**.
 4. Ga akkoord met de **LinkedIn gebruiksvoorwaarden API** en klikt u op **indienen**.
 5. Kopieer de waarden van **Client-ID** en **Clientgeheim**. U vindt deze onder **verificatiesleutels**. U moet beide LinkedIn configureren als een id-provider in uw tenant. **Clientgeheim** is een belangrijke beveiligingsreferentie.
-6. Voer `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **Omleidings-URL's toegestaan**. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld contoso.onmicrosoft.com). Selecteer **toevoegen**, en klik vervolgens op **Update**.
+6. Voer `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in **Omleidings-URL's toegestaan**. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld contosob2c). Selecteer **toevoegen**, en klik vervolgens op **Update**.
 
 ## <a name="configure-a-linkedin-account-as-an-identity-provider"></a>Een LinkedIn-account configureren als een id-provider
 

@@ -1,6 +1,6 @@
 ---
-title: Een Windows VM beheerde identiteit gebruiken voor toegang tot Azure Storage met behulp van een SAS-referenties
-description: Een zelfstudie waarin wordt uitgelegd hoe u een Windows VM beheerde Service-identiteit gebruiken voor toegang tot Azure Storage, met behulp van een SAS-referenties in plaats van een toegangssleutel voor opslag.
+title: Gebruik van een Windows VM door het systeem toegewezen beheerde identiteit voor toegang tot Azure Storage met behulp van een SAS-referenties
+description: Een zelfstudie waarin wordt uitgelegd hoe u een Windows-virtuele machine door het systeem toegewezen identiteit voor toegang tot Azure Storage, met behulp van een SAS-referenties in plaats van een toegangssleutel voor opslagaccount beheerd.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 7f6049e874f329c1e3a4f72417dd9a7eebc42628
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 7120e7356816fd5308aa7189f90176143742e342
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887060"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340711"
 ---
-# <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-storage-via-a-sas-credential"></a>Zelfstudie: Een Windows VM beheerde Service-identiteit gebruiken voor toegang tot Azure Storage via SAS-referenties
+# <a name="tutorial-use-a-windows-vm-system-assigned-managed-identity-to-access-azure-storage-via-a-sas-credential"></a>Zelfstudie: Een Windows VM door het systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure Storage via SAS-referenties
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
@@ -34,7 +34,7 @@ Een Service-SAS biedt de mogelijkheid beperkte toegang verlenen tot objecten in 
 > * Uw virtuele machine toegang verlenen tot een SAS voor een opslagaccount in Resource Manager 
 > * Een toegangstoken ophalen met de identiteit van de virtuele machine, en daarmee de SAS ophalen uit Resource Manager 
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
@@ -44,12 +44,12 @@ Een Service-SAS biedt de mogelijkheid beperkte toegang verlenen tot objecten in 
 
 - [Een Windows-machine maken](/azure/virtual-machines/windows/quick-create-portal)
 
-- [Systeem toegewezen identiteit op uw virtuele machine inschakelen](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
+- [Het systeem toegewezen identiteit op uw virtuele machine inschakelen](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 
 ## <a name="create-a-storage-account"></a>Create a storage account 
 
-Als u nog geen opslagaccount hebt, maakt u er nu een. Ook kunt u deze stap overslaan en uw virtuele machine beheerde Service-identiteit toegang verlenen tot de SAS-referenties van een bestaand opslagaccount. 
+Als u nog geen opslagaccount hebt, maakt u er nu een. Ook kunt u deze stap overslaan en van de virtuele machine door het systeem toegewezen identiteit op beheerde toegang verlenen tot de SAS-referenties van een bestaand opslagaccount. 
 
 1. Klik op de knop **+/Nieuwe service maken** in de linkerbovenhoek van Azure Portal.
 2. Klik op **Opslag** en vervolgens op **Opslagaccount**. Het paneel Opslagaccount maken wordt weergegeven.
@@ -71,9 +71,9 @@ Later zullen we een bestand uploaden en downloaden naar het nieuwe opslagaccount
 
     ![Opslagcontainer maken](../managed-service-identity/media/msi-tutorial-linux-vm-access-storage/create-blob-container.png)
 
-## <a name="grant-your-vms-managed-service-identity-access-to-use-a-storage-sas"></a>De Managed Service Identity van uw VM toegang verlenen tot het gebruik van een SAS-opslag 
+## <a name="grant-your-vms-system-assigned-managed-identity-access-to-use-a-storage-sas"></a>Toegang van de virtuele machine door het systeem toegewezen beheerde identiteit voor het gebruik van een SAS-opslag 
 
-Azure Storage biedt geen systeemeigen ondersteuning voor Azure AD-verificatie.  U kunt echter het gebruik van een beheerde Service-identiteit voor het ophalen van een SAS-opslag van Resource Manager en vervolgens de SAS gebruiken voor toegang tot opslag.  In deze stap verleent u de Managed Service Identity van de VM toegang tot de SAS voor uw opslagaccount.   
+Azure Storage biedt geen systeemeigen ondersteuning voor Azure AD-verificatie.  U kunt echter het gebruik van een beheerde identiteit voor het ophalen van een SAS-opslag van Resource Manager en vervolgens de SAS gebruiken voor toegang tot opslag.  In deze stap maakt verlenen u van de virtuele machine door het systeem toegewezen identiteit op beheerde toegang tot uw storage-account-SAS.   
 
 1. Navigeer terug naar het zojuist gemaakte opslagaccount.   
 2. Klik op de koppeling **Toegangsbeheer (IAM)** in het linkerpaneel.  
@@ -94,7 +94,7 @@ In dit gedeelte moet u de PowerShell-cmdlets voor Azure Resource Manager gebruik
 1. In Azure Portal navigeert u naar **Virtuele machines**, gaat u naar uw virtuele Windows-machine, klikt u vervolgens boven aan de pagina **Overzicht** op **Verbinden**.
 2. Voer uw referenties (**gebruikersnaam** en **wachtwoord**) in die u hebt toegevoegd bij het maken van de virtuele Windows-machine. 
 3. Nu u een **Verbinding met extern bureaublad** met de virtuele machine hebt gemaakt, opent u PowerShell in de externe sessie. 
-4. Dien met behulp van Powershell een Invoke-WebRequest-aanvraag in op het lokale Managed Service Identity-eindpunt om een toegangstoken voor Azure Resource Manager op te halen.
+4. Met behulp van Powershell Invoke-WebRequest, een aanvraag indienen op de lokale beheerde identiteit voor het eindpunt van de Azure-resources op een toegangstoken ophalen voor Azure Resource Manager.
 
     ```powershell
        $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fmanagement.azure.com%2F' -Method GET -Headers @{Metadata="true"}
@@ -208,7 +208,7 @@ Name              : testblob
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd over het maken van een Service-identiteit beheerd voor toegang tot Azure Storage met behulp van een SAS-referenties.  Zie voor meer informatie over Azure Storage SAS:
+In deze zelfstudie hebt u geleerd hoe u een Windows-VM door het systeem toegewezen beheerde identiteit gebruiken voor toegang tot Azure Storage met behulp van een SAS-referenties.  Zie voor meer informatie over Azure Storage SAS:
 
 > [!div class="nextstepaction"]
 >[Shared Access Signatures (SAS) gebruiken](/azure/storage/common/storage-dotnet-shared-access-signature-part-1)

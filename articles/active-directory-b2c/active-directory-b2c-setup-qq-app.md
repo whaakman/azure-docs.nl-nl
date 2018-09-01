@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 82668446f139a5a003c33178e2d415a9314c61bc
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 11bb5bf132103bed9e154a12c0e628177ca6a57a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952174"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344921"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-qq-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een q-account met behulp van Azure Active Directory B2C
 
@@ -40,7 +40,7 @@ Voor het gebruik van een q-account als id-provider in Azure Active Directory (Az
 1. Ga naar [https://connect.qq.com/index.html](https://connect.qq.com/index.html).
 2. Selecteer**应用管理**(app-beheer).
 5. Selecteer**创建应用**(app maken) en voer de vereiste informatie.
-7. Voer `https://login.microsoftonline.com/te/{tenant_name}/oauth2/authresp` in**授权回调域**(URL voor terugbellen). Bijvoorbeeld, als uw `tenant_name` is contoso.onmicrosoft.com, de URL die moet worden ingesteld `https://login.microsoftonline.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+7. Voer `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp` in**授权回调域**(URL voor terugbellen). Bijvoorbeeld, als uw `tenant_name` is contoso, de URL die moet worden ingesteld `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
 8. Selecteer**创建应用**(app maken).
 9. Selecteer op de bevestigingspagina**应用管理**(app management) om terug te keren naar de pagina app-beheer.
 10. Selecteer**查看**(weergeven) naast de app die u hebt gemaakt.

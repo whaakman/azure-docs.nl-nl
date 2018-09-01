@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/05/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 16e4dbac4c8146b048d4d9b76544677a6111e2a5
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 338c2a197cb50091c3b272e0ce590341ffda1d7f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37900826"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341080"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een Microsoft-account met behulp van Azure Active Directory B2C
 
@@ -28,7 +28,7 @@ Voor het gebruik van een Microsoft-account als id-provider in Azure Active Direc
 3. Geef een **naam** voor uw toepassing en klik op **maken**.
 4. Op de pagina voor de registratie, Kopieer de waarde van **toepassings-Id**. U kunt uw Microsoft-account als id-provider configureren in uw tenant.
 5. Selecteer **toevoegen platform**, en vervolgens en kies **Web**.
-6. Voer `https://login.microsoftonline.com/te/{tenant}/oauth2/authresp` in **Omleidings-URL's**. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld: contosob2c.onmicrosoft.com).
+6. Voer `https://{tenant}.b2clogin.com/te/{tenant}.onmicrosoft.com/oauth2/authresp` in **Omleidings-URL's**. Vervang **{tenant}** met de naam van uw tenant (bijvoorbeeld contosob2c).
 7. Selecteer **nieuw wachtwoord genereren** onder **Toepassingsgeheimen**. Kopieer het nieuwe wachtwoord weergegeven op het scherm. U moet een Microsoft-account configureren als een id-provider in uw tenant. Dit wachtwoord is een belangrijke beveiligingsreferentie.
 
 ## <a name="configure-a-microsoft-account-as-an-identity-provider"></a>Een Microsoft-account configureren als een id-provider

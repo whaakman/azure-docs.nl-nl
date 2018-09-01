@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: jeedes
-ms.openlocfilehash: f860036f1a69b2d1ab6ac8de763a49380f8fe4bf
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 3a394c13092547991bf7f8ae98e5c69e92077701
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055060"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344781"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-youearnedit"></a>Zelfstudie: Azure Active Directory-integratie met YouEarnedIt
 
@@ -139,7 +139,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![YouEarnedIt configuratie](./media/youearnedit-tutorial/tutorial_youearnedit_configure.png) 
 
-7. Het configureren van eenmalige aanmelding op **YouEarnedIt** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64)** en **Single Sign-On Service URL voor SAML** aan uw toegewezen YouEarnedIt Klantsucces manager. Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+7. Het configureren van eenmalige aanmelding op de **YouEarnedIt** zijde, moet u voor het verzenden van de gedownloade ***Certificate(Base64)*** en ***Single Sign-On Service URL voor SAML*** aan uw toegewezen **YouEarnedIt** Klantsucces manager. Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
 
 ### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 

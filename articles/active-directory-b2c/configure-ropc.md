@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4cfd11499efb5978359fd98204271477c52491b5
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 519f13d668f09fb2d83e8f64767e195e2544fc1e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621987"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343283"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>De resource-eigenaar wachtwoord referentiestroom configureren in Azure AD B2C
 
@@ -46,7 +46,7 @@ De volgende stromen worden niet ondersteund:
 
    Vervolgens ziet u een eindpunt, zoals in dit voorbeeld:
 
-   `https://login.microsoftonline.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
+   `https://yourtenant.b2clogin.com/yourtenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_ROPC_Auth`
 
 
 ## <a name="register-an-application"></a>Een toepassing registreren
@@ -64,7 +64,7 @@ Gebruik uw favoriete API-ontwikkeling-toepassing voor het genereren van een API-
 - Vervang  *\<B2C_1A_ROPC_Auth >* met de volledige naam van uw resource-eigenaar wachtwoordbeleid referenties.
 - Vervang  *\<bef2222d56-552f-4a5b-b90a-1988a7d634c3 >* met toepassings-ID van uw inschrijving.
 
-`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | Sleutel | Waarde |
 | --- | ----- |
@@ -81,7 +81,7 @@ De werkelijke POST-aanvraag ziet er als volgt uit:
 
 ```
 POST /yourtenant.onmicrosoft.com/oauth2/v2.0/token?B2C_1_ROPC_Auth HTTP/1.1
-Host: login.microsoftonline.com
+Host: yourtenant.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 username=leadiocl%40trashmail.ws&password=Passxword1&grant_type=password&scope=openid+bef22d56-552f-4a5b-b90a-1988a7d634ce+offline_access&client_id=bef22d56-552f-4a5b-b90a-1988a7d634ce&response_type=token+id_token
@@ -104,7 +104,7 @@ Een geslaagde respons met offline toegang ziet eruit als in het volgende voorbee
 
 Bouw een POST-aanroep zoals hier wordt weergegeven met de informatie in de volgende tabel als de hoofdtekst van de aanvraag:
 
-`https://login.microsoftonline.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
+`https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
 | Sleutel | Waarde |
 | --- | ----- |

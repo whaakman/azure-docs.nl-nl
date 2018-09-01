@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 02/16/2017
 ms.author: mikeray
-ms.openlocfilehash: 7ef26dc5fa7676ca590d56978c735bf4a195440b
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e87b58ecd72291365f9eba70c807e3018c02ae07
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38698047"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382736"
 ---
 # <a name="configure-a-load-balancer-for-an-always-on-availability-group-in-azure"></a>Een load balancer voor een AlwaysOn-beschikbaarheidsgroep configureren in Azure
 In dit artikel wordt uitgelegd hoe u een load balancer voor een SQL Server Always On-beschikbaarheidsgroep maken in Azure virtuele machines die worden uitgevoerd met Azure Resource Manager. Een beschikbaarheidsgroep is een load balancer vereist bij de SQL Server-exemplaren op Azure virtual machines zijn. De load balancer slaat het IP-adres voor de beschikbaarheidsgroep-listener. Als een beschikbaarheidsgroep meerdere regio's omvat, moet elke regio een load balancer.
@@ -298,6 +298,8 @@ Als een beschikbaarheidsgroep maakt deel uit van een gedistribueerde beschikbaar
    |**Zwevend IP (direct server return)** | Ingeschakeld
 
 Herhaal deze stappen voor de load balancer op de andere beschikbaarheidsgroepen die deel uitmaken van de gedistribueerde beschikbaarheidsgroepen.
+
+Als u beperken van toegang met een Azure Network Security Group, zorg ervoor dat de regels voor toestaan de back-end SQL Server VM-IP-adressen bevatten, en de load balancer zwevend IP-adressen voor de AG-listener en core IP-adres van het cluster, indien van toepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
 

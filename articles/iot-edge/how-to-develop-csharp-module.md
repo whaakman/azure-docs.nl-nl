@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 06/27/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: e78a2c3492ebab2ac9f23f607e5bcaa0481003d9
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: a4d6d7bfe259e8616a51100162594315a5d37546
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287795"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382424"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in C#-modules voor Azure IoT Edge
 
@@ -36,9 +36,7 @@ Voor het maken van een module, moet u .NET voor het bouwen van de projectmap, Do
 * [.NET Core 2.1 SDK](https://www.microsoft.com/net/download).
 * [Docker Community Edition](https://docs.docker.com/install/) op uw ontwikkelcomputer. 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) of [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
-
-   > [!TIP]
-   > U kunt een lokale Docker-register voor prototype en in plaats van een cloud-register voor testdoeleinden gebruiken. 
+   * U kunt een lokale Docker-register voor prototype en in plaats van een cloud-register voor testdoeleinden gebruiken. 
 
 Als u wilt testen van uw module op een apparaat, moet u een actieve IoT-hub met ten minste één IoT Edge-apparaat. Voor het gebruik van de computer als een IoT Edge-apparaat, volg de stappen in de quickstart voor [Windows](quickstart.md) of [Linux](quickstart-linux.md). 
 
@@ -56,7 +54,9 @@ Volg deze stappen voor het maken van een IoT Edge-module op basis van .NET Core 
 6. Voer een naam voor uw oplossing. 
 7. Selecteer **C#-Module** als de sjabloon voor de eerste module in de oplossing.
 8. Voer een naam voor uw module. Kies een naam die uniek is binnen uw containerregister. 
-9. Geef de naam van de opslagplaats voor installatiekopieën van de module. VS Code autopopulates de module met naam **localhost:5000**. Vervang deze door uw eigen gegevens. Als u een lokale Docker-register voor het testen, klikt u vervolgens **localhost** functioneert. Als u Azure Container Registry gebruikt, gebruikt u de aanmeldingsserver van de instellingen van uw register. De aanmeldingsserver ziet eruit als  **\<registernaam\>. azurecr.io**.
+9. Geef de naam van de opslagplaats voor installatiekopieën van de module. VS Code autopopulates de module met naam **localhost:5000**. Vervang deze door uw eigen gegevens. Als u een lokale Docker-register voor het testen, klikt u vervolgens **localhost** functioneert. Als u Azure Container Registry gebruikt, gebruikt u de aanmeldingsserver van de instellingen van uw register. De aanmeldingsserver ziet eruit als  **\<registernaam\>. azurecr.io**. Vervang alleen het onderdeel localhost van de tekenreeks, verwijder niet de naam van de module.
+
+   ![Opslagplaats voor Docker-installatiekopieën opgeven](./media/how-to-develop-csharp-module/repository.png)
 
 VS Code haalt de gegevens die u verstrekt, maakt u een IoT Edge-oplossing, en laadt deze in een nieuw venster.
 
@@ -74,7 +74,7 @@ Er zijn vier items in de oplossing:
 
 ## <a name="develop-your-module"></a>Uw-module ontwikkelen
 
-De standaardcode voor het Azure-functie die wordt geleverd met de oplossing bevindt zich in **modules** > **\<de modulenaam van uw\>**   >   **Program.cs**. De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om te gewoon nemen invoer van een bron (in dit geval de tempSensor-module die gegevens simuleert) en doorgeven naar IoT Hub. 
+De standaardcode voor het Azure-functie die wordt geleverd met de oplossing bevindt zich in **modules** > [Modulenaam van uw] > **Program.cs**. De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om te gewoon nemen invoer van een bron (in dit geval de tempSensor-module die gegevens simuleert) en doorgeven naar IoT Hub. 
 
 Wanneer u klaar bent om de sjabloon C# met uw eigen code aanpassen, gebruikt u de [Azure IoT Hub SDK's](../iot-hub/iot-hub-devguide-sdks.md) modules bouwen dat adres de sleutel die nodig zijn voor IoT-oplossingen, zoals beveiliging, beheer van apparaten en betrouwbaarheid. 
 

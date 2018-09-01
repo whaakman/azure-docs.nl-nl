@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/07/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: c1f5b88dc8cd6d7f8ff1cd1269d4791d5654e133
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 7e2dd4c50a1d6995302c5a2a6f9b4877253d0a41
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059160"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382277"
 ---
 # <a name="get-data-using-the-azure-active-directory-reporting-api-with-certificates"></a>Gegevens ophalen met de Azure Active Directory rapportage-API met certificaten
 
@@ -38,7 +38,7 @@ Dit omvat de volgende stappen:
 
 1. Eerst, zorg ervoor dat u hebt voltooid de [vereisten voor toegang tot de Azure Active Directory reporting API](howto-configure-prerequisites-for-reporting-api.md). 
 
-2. Download en installeer Azure AD Powershell V2 met behulp van de instructies op de [Azure Active Directory PowerShell](https://github.com/Azure/azure-docs-powershell-azuread/blob/master/Azure AD Cmdlets/AzureAD/index.md)
+2. Download en installeer Azure AD Powershell V2 met behulp van de instructies op de [Azure Active Directory PowerShell)https://github.com/Azure/azure-docs-powershell-azuread/blob/master/docs-conceptual/azureadps-2.0/install-adv2.md)
 
 3. Installeer de MSCloudIDUtils van de [PowerShellGallery - MSCloudIdUtils](https://www.powershellgallery.com/packages/MSCloudIdUtils/). Deze module biedt verschillende cmdlets, waaronder:
     - De ADAL-bibliotheken die nodig zijn voor verificatie

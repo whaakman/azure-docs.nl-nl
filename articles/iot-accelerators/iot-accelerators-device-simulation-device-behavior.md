@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 01/29/2018
 ms.topic: conceptual
-ms.openlocfilehash: b68550bce1f4e3fbe3845c21598720083c8e384c
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 43edbc653ddbd55aab5e722071de1f2cf4bcd1c4
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285724"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344513"
 ---
 # <a name="implement-the-device-model-behavior"></a>Gedrag van het Apparaatmodel implementeren
 
@@ -41,6 +41,6 @@ Dit artikel wordt beschreven hoe u definieert het gedrag van uw eigen aangepaste
 > * Definiëren hoe een gesimuleerd apparaat reageert op een methodeaanroep van de IoT-hub die verbonden met
 > * Fouten opsporen in uw scripts
 
-Nu dat u hebt geleerd om op te geven van het gedrag van een gesimuleerd apparaat, de voorgestelde volgende stap is te leren hoe u [een gesimuleerd apparaat maakt](iot-accelerators-remote-monitoring-test.md).
+Nu dat u hebt geleerd om op te geven van het gedrag van een gesimuleerd apparaat, de voorgestelde volgende stap is te leren hoe u [een gesimuleerd apparaat maakt](iot-accelerators-device-simulation-create-simulated-device.md).
 
 Zie voor meer informatie voor ontwikkelaars over de Apparaatsimulatie-oplossing, de [Snelzoekgids voor ontwikkelaars](https://github.com/Azure/device-simulation-dotnet/wiki/Simulation-Service-Developer-Reference-Guide).

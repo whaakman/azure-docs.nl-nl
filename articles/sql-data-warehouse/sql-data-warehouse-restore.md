@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: cf96e153c07211fe176839e713935adcf6b9dbe1
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 31b137cca55b1dd249368ba5e287496582152c9f
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306959"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382657"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Herstellen van Azure SQL datawarehouse 
 In dit artikel leert u hoe u het volgende doen:
@@ -25,6 +25,10 @@ In dit artikel leert u hoe u het volgende doen:
 - Vanuit een verwijderde database herstellen
 - Herstellen vanuit een geo-back-up
 - Een kopie van uw datawarehouse maken vanuit een door de gebruiker gedefinieerde herstelpunt
+
+> [!NOTE]
+> Vanaf 8/27, is tussen servers herstellen vanwege een bekende regressie uitgeschakeld. We werken actief aan een oplossing met onze hoogste prioriteit. Onze excuses voor het ongemak. In de tussentijd kunt u gebruikmaken van uw [geo-back-up](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-restore#restore-from-an-azure-geographical-region) om terug te zetten op servers.  
+>
 
 ## <a name="before-you-begin"></a>Voordat u begint
 **Controleer of de capaciteit van uw DTU.** Elke SQL Data Warehouse wordt gehost door een SQL-server (bijvoorbeeld myserver.database.windows.net) met een standaard DTU-quotum.  Voordat u een SQL datawarehouse herstelt kunt, controleren of de SQL server heeft onvoldoende resterende DTU-quotum voor de database wordt hersteld. Zie voor meer informatie over het berekenen van DTU nodig of om aan te vragen van meer DTU, [een wijziging van de DTU-quotum aanvragen][Request a DTU quota change].

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 46e4956aa145aa082de86191ede4adaf9a43fca9
-ms.sourcegitcommit: cfff72e240193b5a802532de12651162c31778b6
+ms.openlocfilehash: 5ff4ddee3d8af15caf082be56a51b1aa0d36f02a
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39309023"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43339974"
 ---
 # <a name="azure-ad-b2c-token-reference"></a>Azure AD B2C: Token verwijzing
 
@@ -34,7 +34,7 @@ Zie voor aanvullende beveiligingsoverwegingen op bearer-tokens [RFC 6750 sectie 
 
 Veel van de tokens die problemen met Azure AD B2C worden geïmplementeerd als JSON-webtokens (JWTs). Een JWT is een compacte, URL-veilige manier van het overbrengen van gegevens tussen twee partijen. JWTs bevatten informatie bekend als claims. Dit zijn asserties van informatie over het bearer- en het onderwerp van het token. De claims in JWTs zijn JSON-objecten die zijn gecodeerd en voor de overdracht is geserialiseerd. Omdat de JWTs dat is uitgegeven door Azure AD B2C zijn ondertekend, maar niet versleuteld, kunt u eenvoudig controleren op de inhoud van een JWT voor foutopsporing kunt uitvoeren. Er zijn verschillende hulpprogramma's beschikbaar die kan dit doet, met inbegrip van [jwt.ms](https://jwt.ms). Raadpleeg voor meer informatie over JWTs [JWT-specificaties](http://self-issued.info/docs/draft-ietf-oauth-json-web-token.html).
 
-### <a name="id-tokens"></a>ID-tokens
+### <a name="id-tokens"></a>Id-tokens
 
 Een ID-token is een soort beveiligingstoken dat uw app van de Azure AD B2C ontvangt `/authorize` en `/token` eindpunten. ID-tokens worden weergegeven als [JWTs](#types-of-tokens), en bevatten claims die u gebruiken kunt om gebruikers in uw app te identificeren. Wanneer ID-tokens worden verkregen via de `/authorize` eindpunt, ze worden gedaan met behulp van de [impliciete stroom](active-directory-b2c-reference-spa.md), die vaak wordt gebruikt voor gebruikers die zich in voor javascript op basis van webtoepassingen. Wanneer ID-tokens worden verkregen via de `/token` eindpunt, ze worden gedaan met behulp van de [vertrouwelijke codestroom](active-directory-b2c-reference-oidc.md), die het token dat is verborgen in de browser houdt. Hiermee wordt het token voor het veilig in HTTP-aanvragen voor de communicatie tussen de twee onderdelen van de dezelfde toepassing of service worden verzonden. U kunt de claims in een ID-token dat wens naar. Ze worden vaak gebruikt om gegevens weer te geven of beslissingen over toegangsbeheer in een app.  
 
@@ -73,7 +73,7 @@ Houd er rekening mee dat de claims in het ID-tokens worden niet geretourneerd in
 | Naam | Claim | Voorbeeldwaarde | Beschrijving |
 | --- | --- | --- | --- |
 | Doelgroep |`aud` |`90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` |Een claim doelgroep identificeert de beoogde ontvanger van het token. Voor Azure AD B2C is de doelgroep van uw app toepassings-ID, zoals toegewezen aan uw app in de portal voor app-registratie. Uw app moet deze waarde te valideren en het token af te wijzen als komt niet overeen met. Doelgroep is gelijk aan de resource. |
-| Certificaatverlener |`iss` |`https://login.microsoftonline.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Deze claim identificeert de beveiligingstokenservice (STS) die wordt gemaakt en het token retourneert. Het identificeert ook de Azure AD-directory waarin de gebruiker is geverifieerd. Uw app moet de claim van verlener om ervoor te zorgen dat het token afkomstig van het Azure Active Directory v2.0-eindpunt is te valideren. |
+| Certificaatverlener |`iss` |`https://{tenantname}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` |Deze claim identificeert de beveiligingstokenservice (STS) die wordt gemaakt en het token retourneert. Het identificeert ook de Azure AD-directory waarin de gebruiker is geverifieerd. Uw app moet de claim van verlener om ervoor te zorgen dat het token afkomstig van het Azure Active Directory v2.0-eindpunt is te valideren. |
 | Uitgegeven op |`iat` |`1438535543` |Deze claim is de tijd waarop het token is uitgegeven, in epoche-tijd weergegeven. |
 | Vervaltijd |`exp` |`1438539443` |Verlooptijd van de claim is de tijd waarop het token ongeldig is, wordt weergegeven in epoche-tijd. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |
 | Niet voor |`nbf` |`1438535543` |Deze claim wordt de tijd waarop het token geldig, in epoche-tijd weergegeven wordt. Dit is meestal hetzelfde als de tijd die het token is uitgegeven. Uw app moet deze claim gebruiken om de geldigheid van de levensduur van tokens. |
@@ -120,7 +120,7 @@ Op elk moment kan Azure AD een token ondertekenen met behulp van een van een bep
 Azure AD B2C is een eindpunt van de metagegevens OpenID Connect. Hiermee kunt apps voor het ophalen van informatie over Azure AD B2C tijdens runtime. Deze informatie omvat eindpunten, de inhoud van tokens en voor token-ondertekening van sleutels. Uw B2C-map bevat een JSON-metagegevensdocument voor elk beleid. Bijvoorbeeld, het document met metagegevens voor de `b2c_1_sign_in` beleid in `fabrikamb2c.onmicrosoft.com` bevindt zich in:
 
 ```
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in
 ```
 
 `fabrikamb2c.onmicrosoft.com` de B2C-directory gebruikt voor het verifiëren van de gebruiker is en `b2c_1_sign_in` is het beleid voor het verkrijgen van het token. Om te bepalen welk beleid is gebruikt voor het ondertekenen van een token (en waar u om op te halen de metagegevens), hebt u twee opties. Ten eerste de naam van het beleid is opgenomen in de `acr` claim in het token. U kunt claims uit de hoofdtekst van het JWT parseren met base 64-decodering van de instantie en bij het deserialiseren van de JSON-tekenreeks die het resultaat. De `acr` claim is de naam van het beleid dat is gebruikt voor het uitgeven van het token.  De andere mogelijkheid is het coderen van het beleid in de waarde van de `state` parameter wanneer u de aanvraag uitgeven, en vervolgens worden ontsleuteld om te controleren welk beleid is gebruikt. Een van beide methoden is geldig.
@@ -128,7 +128,7 @@ https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/o
 De metadata-document is een JSON-object dat handig stukjes informatie bevat. Het gaat hierbij om de locatie van de eindpunten voor het uitvoeren van de OpenID Connect-verificatie vereist. Ook `jwks_uri`, waardoor de locatie van de set met openbare sleutels die worden gebruikt voor het ondertekenen van tokens. Dat locatie is die hier beschikbaar zijn, maar het is raadzaam om op te halen van de locatie dynamisch met behulp van het document met metagegevens en parseren `jwks_uri`:
 
 ```
-https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
+https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in
 ```
 
 Het JSON-document zich op de volgende URL bevat alle openbare sleutels informatie wordt gebruikt op een bepaald moment. Uw app kan gebruiken de `kid` claim in de JWT-header de openbare sleutel in de JSON-document dat wordt gebruikt voor het ondertekenen van een bepaalde token selecteren. Deze kan vervolgens handtekeningvalidatie uitvoeren met behulp van de juiste openbare sleutel en het opgegeven algoritme.
@@ -150,7 +150,7 @@ De levensduur van de volgende tokens zijn bedoeld om uw kennis verder. Ze kunnen
 
 | Token | Levensduur | Beschrijving |
 | --- | --- | --- |
-| ID-tokens |Eén uur |ID-tokens zijn doorgaans geldig voor een uur. Uw web-app kunt u deze levensduur gebruiken voor het onderhouden van een eigen sessies met gebruikers (aanbevolen). U kunt ook de levensduur van een andere sessie. Als uw app een nieuwe ID-token ophalen moet, deze alleen toegang nodig heeft om een nieuwe aanvraag voor aanmelding met Azure AD. Als een gebruiker een ongeldig browsersessie met Azure AD heeft, kan die gebruiker niet worden vereist referenties opnieuw invoeren. |
+| Id-tokens |Eén uur |ID-tokens zijn doorgaans geldig voor een uur. Uw web-app kunt u deze levensduur gebruiken voor het onderhouden van een eigen sessies met gebruikers (aanbevolen). U kunt ook de levensduur van een andere sessie. Als uw app een nieuwe ID-token ophalen moet, deze alleen toegang nodig heeft om een nieuwe aanvraag voor aanmelding met Azure AD. Als een gebruiker een ongeldig browsersessie met Azure AD heeft, kan die gebruiker niet worden vereist referenties opnieuw invoeren. |
 | Vernieuwen van tokens |Tot 14 dagen |Een enkele vernieuwingstoken is geldig voor maximaal 14 dagen. Een vernieuwingstoken kan echter worden ongeldig op elk gewenst moment voor een aantal oorzaken hebben. Uw app moet nog steeds gebruik van een vernieuwingstoken totdat de aanvraag is mislukt, of uw app vervangt het vernieuwingstoken dat door een nieuwe. Een vernieuwingstoken kan ook worden ongeldig als 90 dagen zijn verstreken nadat de gebruiker referenties voor het laatst ingevoerd. |
 | Verificatiecodes |Vijf minuten |Verificatiecodes zijn opzettelijk tijdelijke. Ze moeten worden ingewisseld onmiddellijk voor toegangstokens, ID-tokens of vernieuwingstokens wanneer ze worden ontvangen. |
 

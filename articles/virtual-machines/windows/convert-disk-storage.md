@@ -15,18 +15,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/07/2017
 ms.author: ramankum
-ms.openlocfilehash: 7748cf41bb97e0136d7b619debcb60d460df5d8b
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 7e4a37e318bd45c5cc2dca4e085b2a112db65efe
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39596576"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371352"
 ---
 # <a name="convert-azure-managed-disks-storage-from-standard-to-premium-and-vice-versa"></a>Converteren van Azure managed disks-opslag van standard naar premium, en vice versa
 
 Managed Disks biedt drie opties voor opslag: [Premium SSD](../windows/premium-storage.md), standaard SSD(Preview) en [Standard HDD](../windows/standard-storage.md). Hiermee kunt u gemakkelijk schakelen tussen de opties met minimale downtime op basis van uw prestatiebehoeften. Dit wordt niet ondersteund voor niet-beheerde schijven. Maar u kunt eenvoudig [converteren naar managed disks](convert-unmanaged-to-managed-disks.md) eenvoudig schakelen tussen de schijftypen.
 
-In dit artikel wordt beschreven hoe u beheerde schijven converteren van standard naar premium, en vice versa met behulp van Azure PowerShell. Als u wilt installeren of upgraden, raadpleegt [Azure PowerShell installeren en configureren](/powershell/azure/install-azurerm-ps.md).
+In dit artikel wordt beschreven hoe u beheerde schijven converteren van standard naar premium, en vice versa met behulp van Azure PowerShell. Als u wilt installeren of upgraden, raadpleegt [Azure PowerShell installeren en configureren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps?view=azurermps-6.8.1).
 
 ## <a name="before-you-begin"></a>Voordat u begint
 

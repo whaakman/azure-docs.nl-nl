@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 07/18/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a628e28e9e6bd603fb2a3789c3281bc2181c91fe
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 2283f55be1a17ec95c73878d42d3acf4d0503e07
+ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42059103"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43371369"
 ---
 # <a name="azure-ad-connect-accounts-and-permissions"></a>Azure AD Connect: Accounts en machtigingen
 
@@ -42,7 +42,7 @@ Naast deze drie accounts gebruikt voor het uitvoeren van Azure AD Connect, moet 
 - **AD DS Enterprise-beheerdersaccount**: gebruikt voor het installeren van Azure AD Connect
 - **Account van Azure AD-hoofdbeheerder**: gebruikt voor het maken van de Azure AD-Connector-account en Azure AD configureren.
 
-- **SQL-SA-account (optioneel)**: gebruikt voor het maken van de ADSync-database bij het gebruik van de volledige versie van SQL Server.  Deze SQL-Server kan lokaal of extern zijn aan de Azure AD Connect-installatie zijn.  Dit account is mogelijk niet hetzelfde account als de Enterprise-beheerder.  Inrichten van de database kan nu worden uitgevoerd buiten-band door de SQL-beheerder en vervolgens worden geïnstalleerd door de Azure AD Connect-beheerder met eigendomsrechten van de database.  Voor meer informatie over deze Zie [Installeer Azure AD Connect met behulp van SQL delegated administrator-machtigingen]()
+- **SQL-SA-account (optioneel)**: gebruikt voor het maken van de ADSync-database bij het gebruik van de volledige versie van SQL Server.  Deze SQL-Server kan lokaal of extern zijn aan de Azure AD Connect-installatie zijn.  Dit account is mogelijk niet hetzelfde account als de Enterprise-beheerder.  Inrichten van de database kan nu worden uitgevoerd buiten-band door de SQL-beheerder en vervolgens worden geïnstalleerd door de Azure AD Connect-beheerder met eigendomsrechten van de database.  Voor meer informatie over deze Zie [Installeer Azure AD Connect met behulp van SQL delegated administrator-machtigingen](active-directory-aadconnect-sql-delegation.md)
 
 ## <a name="installing-azure-ad-connect"></a>Azure AD Connect installeren
 De installatiewizard van Azure AD Connect biedt twee verschillende paden:

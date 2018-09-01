@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 228d2d3331b510a0f07dbd3ca278715466d747af
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 619dda44b5ad74ba1dcb62cfb3318687aa6ec4d5
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988888"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340132"
 ---
 # <a name="how-to-use-the-azure-maps-map-control"></a>Het gebruik van het Kaartbesturingselement van Azure Maps
 De Map Control-client-side Javascript-bibliotheek kunt u voor rendering van kaarten en ingesloten Azure kaarten-functionaliteit in uw web- of mobiele toepassing. 
@@ -62,4 +62,4 @@ U kunt een kaart insluiten in webpagina's met behulp van de Map Control-client-s
 In dit artikel laat zien hoe u een eenvoudige kaart maken met uw Azure-kaarten-sleutel. Zie de volgende artikelen voor meer codevoorbeelden van toevoegen aan uw kaarten: 
 
 * [Een kaart maken](map-create.md)
-* [Toevoegen van een pincode](map-add-pin.md)
+* [Kies een stijl kaart](choose-map-style.md)

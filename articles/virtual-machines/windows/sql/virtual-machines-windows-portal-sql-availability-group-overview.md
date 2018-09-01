@@ -1,6 +1,6 @@
 ---
-title: Beschikbaarheid van SQL Server - virtuele Azure-Machines - overzicht groepen | Microsoft Docs
-description: Dit artikel bevat een SQL Server-beschikbaarheidsgroepen op virtuele machines in Azure.
+title: Beschikbaarheid van SQL Server - virtuele Machines van Azure - overzicht groepen | Microsoft Docs
+description: Dit artikel bevat beschikbaarheidsgroepen van SQL Server op Azure virtual machines.
 services: virtual-machines
 documentationCenter: na
 authors: MikeRayMSFT
@@ -15,39 +15,39 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 01/13/2017
 ms.author: mikeray
-ms.openlocfilehash: 4a531fb87d9cd2743138ba7a027bdf0d132b9747
-ms.sourcegitcommit: d87b039e13a5f8df1ee9d82a727e6bc04715c341
+ms.openlocfilehash: b71ba12f6c533d67b04366f05b9334e1993823fa
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/21/2018
-ms.locfileid: "29396428"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382025"
 ---
-# <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Inleiding tot SQL Server altijd op beschikbaarheidsgroepen op virtuele machines in Azure #
+# <a name="introducing-sql-server-always-on-availability-groups-on-azure-virtual-machines"></a>Maak kennis met SQL Server Always On-beschikbaarheidsgroepen op Azure virtual machines #
 
-Dit artikel bevat een SQL Server-beschikbaarheidsgroepen op Azure Virtual Machines. 
+Dit artikel bevat beschikbaarheidsgroepen van SQL Server op Azure Virtual Machines. 
 
-AlwaysOn-beschikbaarheidsgroepen op Azure Virtual Machines zijn vergelijkbaar met on-premises altijd op beschikbaarheidsgroepen. Zie voor meer informatie [altijd op beschikbaarheidsgroepen (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx). 
+AlwaysOn-beschikbaarheidsgroepen op Azure Virtual Machines zijn vergelijkbaar met AlwaysOn-beschikbaarheidsgroepen on-premises. Zie voor meer informatie, [Always On Availability Groups (SQL Server)](http://msdn.microsoft.com/library/hh510230.aspx). 
 
 Het diagram illustreert de onderdelen van een volledige SQL Server-beschikbaarheidsgroep in Azure Virtual Machines.
 
 ![Beschikbaarheidsgroep](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/00-EndstateSampleNoELB.png)
 
-Het belangrijkste verschil voor een beschikbaarheidsgroep in Azure Virtual Machines is dat de virtuele machines van Azure, vereist een [netwerktaakverdeler](../../../load-balancer/load-balancer-overview.md). De load balancer bevat de IP-adressen voor de beschikbaarheidsgroeplistener. Als er meer dan één beschikbaarheidsgroep moet elke groep een listener. Één load balancer biedt ondersteuning voor meerdere listeners.
+Het belangrijkste verschil voor een beschikbaarheidsgroep in Azure Virtual Machines is dat de virtuele Azure-machines, vereist een [netwerktaakverdeler](../../../load-balancer/load-balancer-overview.md). De load balancer bevat de IP-adressen voor de beschikbaarheidsgroep-listener. Als u meer dan één beschikbaarheidsgroep hebt moet elke groep een listener. Een load balancer biedt ondersteuning voor meerdere listeners.
 
-Wanneer u gereed bent voor het bouwen van een aroup van de beschikbaarheid van SQL Server op Azure Virtual Machines, verwijzen naar deze zelfstudies.
+Wanneer u gereed voor het bouwen van een beschikbaarheidsgroep van SQL Server op Azure Virtual Machines bent, raadpleegt u deze zelfstudies.
 
-## <a name="automatically-create-an-availability-group-from-a-template"></a>Een beschikbaarheidsgroep automatisch maken van een sjabloon
+## <a name="automatically-create-an-availability-group-from-a-template"></a>Automatisch een beschikbaarheidsgroep te maken van een sjabloon
 
 [AlwaysOn-beschikbaarheidsgroep configureren voor de Resource Manager in Azure VM automatisch-](virtual-machines-windows-portal-sql-alwayson-availability-groups.md)
 
-## <a name="manually-create-an-availability-group-in-azure-portal"></a>Een beschikbaarheidsgroep handmatig maken in Azure portal
+## <a name="manually-create-an-availability-group-in-azure-portal"></a>Handmatig maken van een beschikbaarheidsgroep in Azure portal
 
-U kunt ook de virtuele machines zelf maken zonder de sjabloon. Eerst, voldoen aan de vereisten en de beschikbaarheidsgroep te maken. Zie de volgende onderwerpen: 
+U kunt ook de virtuele machines zelf maken zonder de sjabloon. Eerst, voldoen aan de vereisten en maakt u de beschikbaarheidsgroep. Zie de volgende onderwerpen: 
 
-- [Vereisten voor SQL Server AlwaysOn-beschikbaarheidsgroepen configureren op Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md)
+- [Vereisten voor SQL Server Always On-beschikbaarheidsgroepen configureren op Azure Virtual Machines](virtual-machines-windows-portal-sql-availability-group-prereq.md)
 
-- [Maak altijd op beschikbaarheidsgroep voor het verbeteren van de beschikbaarheid en herstel na noodgevallen](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
+- [Maken van AlwaysOn-beschikbaarheidsgroep voor het verbeteren van de beschikbaarheid en herstel na noodgevallen](virtual-machines-windows-portal-sql-availability-group-tutorial.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Configureren van een SQL Server altijd op beschikbaarheidsgroep op Azure virtuele Machines in verschillende regio's](virtual-machines-windows-portal-sql-availability-group-dr.md).
+[Een SQL Server Always On Availability Group op Azure Virtual Machines in verschillende regio's configureren](virtual-machines-windows-portal-sql-availability-group-dr.md).

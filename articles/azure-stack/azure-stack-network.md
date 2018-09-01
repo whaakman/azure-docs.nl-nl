@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
-ms.openlocfilehash: 48e2f85488adfb776da5f52c154028f8aafb167a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 9b1eb6878dcafba68c230255f3b3f43e005421ab
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617018"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340185"
 ---
 # <a name="network-connectivity"></a>Verbinding met het netwerk
 Dit artikel bevat informatie over de infrastructuur Azure Stack-netwerk om te bepalen hoe u het beste Azure Stack integreren met uw bestaande netwerkomgeving. 
@@ -45,7 +45,7 @@ De volgende tabel ziet u de logische netwerken en gekoppelde bereiken van de IPv
 | Switch-infrastructuur | Point-to-Point IP-adressen voor routeringsdoeleinden, toegewezen overschakelen beheerinterfaces en loopback-adressen die zijn toegewezen aan de switch. | /26 | 
 | Infrastructuur | Gebruikt voor interne onderdelen van Azure Stack om te communiceren. | /24 |
 | Privé | Gebruikt voor het opslagnetwerk en privé-VIP. | /24 | 
-| BMC | Gebruikt om te communiceren met de BMC's op de fysieke hosts. | /27 | 
+| BMC | Gebruikt om te communiceren met de BMC's op de fysieke hosts. | /26 | 
 | | | |
 
 ## <a name="network-infrastructure"></a>Netwerkinfrastructuur

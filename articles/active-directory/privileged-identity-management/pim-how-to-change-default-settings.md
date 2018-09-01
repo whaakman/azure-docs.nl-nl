@@ -13,18 +13,20 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 20a704a0d5b61134a61b5cbf02a1c71dbc7039e1
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 8af304d28be9b0884a50d60911d901818b514752
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189334"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338904"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Azure AD directory rolinstellingen in PIM configureren
 
 Een beheerder met bevoorrechte rol kunt aanpassen Azure AD Privileged Identity Management (PIM) in hun organisatie, met inbegrip van de ervaring voor een gebruiker die is een in aanmerking komende roltoewijzing activeren wijzigen.
 
 ## <a name="open-role-settings"></a>Rolinstellingen openen
+
+Volg deze stappen om de instellingen voor een Azure AD-directory-rol te openen.
 
 1. Open **Azure AD Privileged Identity Management**.
 
@@ -44,19 +46,19 @@ Een beheerder met bevoorrechte rol kunt aanpassen Azure AD Privileged Identity M
 
 ## <a name="activations"></a>Activeringen
 
-De **activeringen** schuifregelaar is de maximale tijd in uren, die een rol actief blijft voordat het verloopt. Deze waarde kan liggen tussen 1 tot 72 uur.
+Gebruik de **activeringen** schuifregelaar om in te stellen de maximale tijd in uren, die een rol actief blijft voordat het verloopt. Deze waarde kan liggen tussen 1 tot 72 uur.
 
 ## <a name="notifications"></a>Meldingen
 
-De **meldingen** switch kunt u kiezen of het systeem e-mailberichten worden verzonden naar beheerders die bevestigen dat ze een rol hebt geactiveerd. Dit kan nuttig zijn voor het detecteren van niet-geautoriseerde of illegale activeringen zijn.
+Gebruik de **meldingen** switch om op te geven of het systeem e-mailberichten worden verzonden naar beheerders die bevestigen dat ze een rol hebt geactiveerd. Dit kan nuttig zijn voor het detecteren van niet-geautoriseerde of illegale activeringen zijn.
 
 ## <a name="incidentrequest-ticket"></a>Incident-/aanvraagticket
 
-De **Incident-/ aanvraagticket** switch kunt u kiezen of in aanmerking komende beheerders op te nemen van een Ticketnummer wanneer ze hun rol activeren. Dit kan nuttig zijn wanneer u de rol toegang controles uitvoeren.
+Gebruik de **Incident-/ aanvraagticket** switch om op te geven of om te vereisen in aanmerking komende beheerders op te nemen van een Ticketnummer wanneer ze hun rol activeren. Dit kan nuttig zijn wanneer u de rol toegang controles uitvoeren.
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-De **multi-Factor Authentication** switch kunt u kiezen of gebruikers hun identiteit met MFA verifiëren voordat ze hun rol kunnen activeren. Ze hebben alleen om te controleren of deze één keer per sessie niet telkens wanneer ze een rol activeren. Er zijn twee tips waarmee u rekening moet houden wanneer u MFA inschakelen:
+Gebruik de **multi-Factor Authentication** switch om op te geven of gebruikers hun identiteit met MFA verifiëren voordat ze hun rol kunnen activeren. Ze hebben alleen om te controleren of deze één keer per sessie niet telkens wanneer ze een rol activeren. Er zijn twee tips waarmee u rekening moet houden wanneer u MFA inschakelen:
 
 * Gebruikers met Microsoft-account voor hun e-mailadressen (meestal @outlook.com, maar niet altijd) kan niet registreren voor Azure MFA. Als u rollen toewijzen aan gebruikers met een Microsoft-account wilt, moet u permanente beheerders toepast of MFA uitschakelen voor die rol.
 * U kunt MFA niet uitschakelen voor maximaal bevoorrechte rollen voor Azure AD en Office 365. Dit is een functie veiligheid omdat deze rollen moeten zorgvuldig worden beveiligd:  
@@ -84,9 +86,9 @@ Zie voor meer informatie over het gebruik van MFA met PIM [meervoudige verificat
 
 ## <a name="require-approval"></a>Goedkeuring vereisen
 
-De **goedkeuring vereisen** switch kunt u kiezen of u wilt de goedkeuring vereist voor deze rol kunt activeren.
+Als u wilt de goedkeuring van een rol wilt activeren, volgt u deze stappen.
 
-1. Als u de switch instelt op **ingeschakeld**, het deelvenster met opties voor het selecteren van de goedkeurders uitgebreid.
+1. Stel de **goedkeuring vereisen** overschakelen naar **ingeschakeld**. Hiermee breidt u het deelvenster met opties voor het selecteren van de goedkeurders.
 
     ![Azure AD-maprollen - Settings - goedkeuring vereisen](./media/pim-how-to-change-default-settings/pim-directory-roles-settings-require-approval.png)
 
@@ -107,5 +109,6 @@ De **goedkeuring vereisen** switch kunt u kiezen of u wilt de goedkeuring vereis
 
 ## <a name="next-steps"></a>Volgende stappen
 
+- [Azure AD-directory-rollen in PIM toewijzen](pim-how-to-add-role-to-user.md)
 - [Meervoudige verificatie vereisen voor Azure AD directory-rollen in PIM](pim-how-to-require-mfa.md)
 - [Beveiligingswaarschuwingen voor Azure AD directory-rollen in PIM configureren](pim-how-to-configure-security-alerts.md)

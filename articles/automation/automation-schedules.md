@@ -1,6 +1,6 @@
 ---
 title: Schema's in Azure Automation
-description: Automation-planningen worden gebruikt voor het plannen van runbooks in Azure Automation automatisch wordt gestart. Beschrijft het maken en beheren van een planning in, zodat u automatisch een runbook op een bepaald tijdstip of volgens een terugkerend schema starten kunt.
+description: Automation-planningen worden gebruikt voor het plannen van runbooks in Azure Automation om automatisch te starten. Beschrijft hoe u maken en beheren van een planning in, zodat u automatisch een runbook op een bepaald tijdstip of volgens een terugkerend schema starten kunt.
 services: automation
 ms.service: automation
 ms.component: shared-capabilities
@@ -9,54 +9,54 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 6c7bd4d4249d304ee7c1df4ae4b8fc0af476b99c
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 211d79f387697ce850ac645ef65338c216e2bd76
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34192068"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382192"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Een runbook in Azure Automation plannen
 
-Als u een runbook in Azure Automation om te beginnen bij een bepaalde tijd plannen, koppelt u deze aan een of meer planningen. Geen schema kan worden geconfigureerd voor uitvoeren nadat de of op een opnieuw optreedt per uur of dagelijks schema voor runbooks in de Azure-portal. U kunt ook plannen ze voor wekelijks, maandelijks, specifieke dagen van de week of dagen van de maand of een bepaalde dag van de maand. Een runbook kan worden gekoppeld aan meerdere planningen kan, en een planning meerdere runbooks die zijn gekoppeld.
+Als u een runbook in Azure Automation om te beginnen bij een bepaalde tijd plannen, koppelt u deze aan een of meer planningen. Een schema kan worden geconfigureerd voor uitvoeren op een compressieversies of één keer per uur of dagelijks schema voor runbooks in Azure portal. U kunt ook plannen ze voor wekelijks, maandelijks, specifieke dagen van de week of dagen van de maand of een bepaalde dag van de maand. Een runbook kan worden gekoppeld aan meerdere planningen kan, en een schema meerdere runbooks aan.
 
 > [!NOTE]
 > Schema's bieden momenteel geen ondersteuning voor Azure Automation DSC-configuraties.
 
 ## <a name="windows-powershell-cmdlets"></a>Windows PowerShell-Cmdlets
 
-De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van schema's met Windows PowerShell in Azure Automation. Ze worden verzonden als onderdeel van de [Azure PowerShell-module](/powershell/azure/overview).
+De cmdlets in de volgende tabel worden gebruikt voor het maken en beheren van schema's met Windows PowerShell in Azure Automation. Ze geleverd als onderdeel van de [Azure PowerShell-module](/powershell/azure/overview).
 
 | Cmdlets | Beschrijving |
 |:--- |:--- |
-| [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Haalt een schema. |
-| [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Een nieuw schema maakt. |
+| [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |Hiermee haalt u een planning. |
+| [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |Hiermee maakt u een nieuw schema. |
 | [Remove-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/remove-azurermautomationschedule) |Hiermee verwijdert u een planning. |
 | [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) |Hiermee stelt u de eigenschappen voor een bestaand schema. |
-| [Get-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/set-azurermautomationscheduledrunbook) |Geplande runbooks opgehaald. |
-| [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Een runbook koppelt met een schema. |
-| [Unregister-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Een runbook uit een planning dissociates. |
+| [Get-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/get-azurermautomationscheduledrunbook) |Geplande runbooks worden opgehaald. |
+| [Register-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) |Een runbook koppelt aan een schema. |
+| [Unregister-AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/unregister-azurermautomationscheduledrunbook) |Een runbook uit een schema dissociates. |
 
-## <a name="creating-a-schedule"></a>Een schema maken
+## <a name="creating-a-schedule"></a>Het maken van een planning
 
-U kunt een nieuw schema voor runbooks maken in de Azure portal of met Windows PowerShell.
+U kunt een nieuw schema voor runbooks maken in Azure portal of met Windows PowerShell.
 
 > [!NOTE]
-> Azure Automation maakt gebruik van de meest recente modules in uw Automation-account wanneer een nieuwe geplande taak wordt uitgevoerd.  Om te voorkomen die invloed hebben op uw runbooks en de processen die ze automatiseren, moet u eerst testen van runbooks die schema's met een speciaal ontworpen is voor het testen van Automation-account hebt gekoppeld.  Hiermee valideert u uw geplande runbooks correct blijven functioneren en als dat niet het geval is, kunt u verder oplossen en wijzigingen die zijn vereist voordat de bijgewerkte runbookversie migreren naar productie toepassen.
-> Uw Automation-account, niet automatisch nieuwe versies van modules ophalen tenzij u ze handmatig hebt bijgewerkt door het selecteren van de [Azure-Modules WU](automation-update-azure-modules.md) optie van de **Modules**.
+> Azure Automation maakt gebruik van de meest recente modules in uw Automation-account wanneer een nieuwe geplande taak wordt uitgevoerd.  Om te voorkomen dat dit gevolgen heeft voor uw runbooks en de processen die ze automatiseren, moet u eerst alle runbooks met planningen met een Automation-account dat is bestemd gekoppelde voor het testen van testen.  Hiermee valideert u uw geplande runbooks correct blijven werken en als dat niet het geval is, kunt u verder oplossen en wijzigingen die vereist is voordat u de bijgewerkte runbookversie migreert naar productie.
+> Uw Automation-account, niet automatisch nieuwe versies van modules ophalen, tenzij u ze handmatig hebt bijgewerkt door het selecteren van de [Update Azure-Modules](automation-update-azure-modules.md) optie uit de **Modules**.
 
-### <a name="to-create-a-new-schedule-in-the-azure-portal"></a>Een nieuwe planning maken in de Azure portal
+### <a name="to-create-a-new-schedule-in-the-azure-portal"></a>Een nieuw schema maken in Azure portal
 
-1. Selecteer in de Azure-portal van uw automation-account **planningen** onder de sectie **gedeelde bronnen** aan de linkerkant.
-1. Klik op **toevoegen van een planning** boven aan de pagina.
-1. Op de **nieuwe planning** deelvenster, typ een **naam** en optioneel een **beschrijving** voor het nieuwe schema.
-1. Selecteer de planning wordt één keer uitgevoerd of volgens een terugkerende planning door te selecteren **eenmaal** of **terugkeerpatroon**. Als u selecteert **eenmaal** Geef een **begintijd**, en klik vervolgens op **maken**. Als u selecteert **terugkeerpatroon**, Geef een **begintijd** en de frequentie voor hoe vaak het runbook moet worden herhaald - door **uur**, **dag**, **week**, of door **maand**. Als u selecteert **week** of **maand** uit de vervolgkeuzelijst de **terugkeerpatroon optie** wordt weergegeven in het deelvenster en geselecteerde de **terugkeerpatroon optie** deelvenster wordt weergegeven en kunt u de dag van week selecteren als u hebt geselecteerd **week**. Als u hebt geselecteerd **maand**, kunt u kiezen door **weekdagen** of specifieke dagen van de maand op de kalender en tot slot wilt u uitvoeren op de laatste dag van de maand of niet, en klik vervolgens op **OK**.
+1. Selecteer in de Azure portal, in uw automation-account **planningen** onder de sectie **gedeelde bronnen** aan de linkerkant.
+1. Klik op **toevoegen van een schema** aan de bovenkant van de pagina.
+1. Op de **nieuwe planning** deelvenster, typ een **naam** en eventueel een **beschrijving** voor het nieuwe schema.
+1. Selecteer of het schema wordt één keer uitgevoerd of volgens een terugkerende planning door te schakelen **eenmaal** of **terugkeerpatroon**. Als u selecteert **eenmaal** geven een **begintijd**, en klik vervolgens op **maken**. Als u selecteert **terugkeerpatroon**, Geef een **begintijd** en de frequentie voor hoe vaak u wilt dat het runbook moet worden herhaald - door **uur**, **dag**, **week**, of door **maand**. Als u selecteert **week** of **maand** uit de vervolgkeuzelijst de **terugkeerpatroon optie** wordt weergegeven in het deelvenster en bij het selecteren, de **terugkeerpatroon optie** deelvenster wordt weergegeven en kunt u de dag van week selecteren als u hebt geselecteerd **week**. Als u hebt geselecteerd **maand**, kunt u kiezen door **weekdagen** of specifieke dagen van de maand in de kalender en tot slot wilt u uitvoeren op de laatste dag van de maand of niet, en klik vervolgens op **OK**.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Een nieuw schema maken met Windows PowerShell
 
-U gebruikt de [nieuw AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet maken van planningen. U de begintijd voor de planning en de frequentie die moet worden uitgevoerd.
+U gebruikt de [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet voor het maken van planningen. U de begintijd voor de planning en de frequentie die moet worden uitgevoerd.
 
-De volgende voorbeeldopdrachten laten zien hoe maakt u een planning voor de 15e en 30e van elke maand met een cmdlet voor Azure Resource Manager.
+De volgende voorbeeldopdrachten laten zien hoe maakt u een planning voor de 15e en 30 van elke maand met een Azure Resource Manager-cmdlet.
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"
@@ -68,19 +68,19 @@ $scheduleName -StartTime "7/01/2016 15:30:00" -MonthInterval 1 `
 
 ## <a name="linking-a-schedule-to-a-runbook"></a>Een planning koppelen aan een runbook
 
-Een runbook kan worden gekoppeld aan meerdere planningen kan, en een planning meerdere runbooks die zijn gekoppeld. Als een runbook parameters heeft, kunt u waarden opgeven voor deze. U moet waarden opgeven voor de verplichte parameters en waarden kan opgeven voor optionele parameters. Deze waarden worden telkens wanneer die het runbook wordt gestart door dit schema gebruikt. U kunt hetzelfde runbook koppelen aan een ander schema en andere parameterwaarden opgeven.
+Een runbook kan worden gekoppeld aan meerdere planningen kan, en een schema meerdere runbooks aan. Als een runbook parameters heeft, kunt u waarden opgeven voor deze. U moet waarden opgeven voor de verplichte parameters en waarden voor eventuele optionele parameters kan opgeven. Deze waarden worden telkens wanneer die het runbook wordt gestart door dit schema gebruikt. U kunt hetzelfde runbook koppelen aan een ander schema en andere parameterwaarden opgeven.
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Een planning koppelen aan een runbook met de Azure-portal
 
-1. Selecteer in de Azure-portal van uw automation-account **Runbooks** onder de sectie **procesautomatisering** aan de linkerkant.
-1. Klik op de naam van het runbook te plannen.
-1. Als het runbook is momenteel niet gekoppeld aan een schema, krijgt u de optie voor het maken van een nieuwe planning of een koppeling naar een bestaand schema.
+1. Selecteer in de Azure portal, in uw automation-account **Runbooks** onder de sectie **procesautomatisering** aan de linkerkant.
+1. Klik op de naam van het runbook om te plannen.
+1. Als het runbook is momenteel niet gekoppeld aan een schema, krijgt u de optie voor het maken van een nieuw schema of een koppeling naar een bestaande planning schema.
 1. Als het runbook parameters heeft, kunt u de optie **instellingen (standaard: Azure) voor uitvoeren wijzigen** en de **Parameters** deelvenster wordt weergegeven waarin u overeenkomstig de gegevens kunt invoeren.
 
-### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Een planning aan een runbook met Windows PowerShell koppelen
+### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Een planning koppelen aan een runbook met Windows PowerShell
 
-U kunt de [registreren AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet om een planning koppelen. U kunt waarden voor het runbook parameters opgeven met de Parameters-parameter. Zie voor meer informatie over het opgeven van parameterwaarden [een Runbook starten in Azure Automation](automation-starting-a-runbook.md).
-De volgende voorbeeldopdrachten laten zien hoe een planning koppelen aan een runbook met een Azure Resource Manager-cmdlet met parameters.
+U kunt de [registreren AzureRmAutomationScheduledRunbook](/powershell/module/azurerm.automation/register-azurermautomationscheduledrunbook) cmdlet om een schema te koppelen. U kunt waarden voor parameters van het runbook opgeven met de parameter Parameters. Zie voor meer informatie over het opgeven van parameterwaarden [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md).
+De volgende voorbeeldopdrachten laten zien hoe een planning koppelen aan een runbook met behulp van een Azure Resource Manager-cmdlet met parameters.
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"
@@ -94,27 +94,27 @@ Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationA
 
 ## <a name="scheduling-runbooks-more-frequently"></a>Runbooks vaker plannen
 
-De meest voorkomende interval voor die een schema in Azure Automation kan worden geconfigureerd voor is één uur. Als u schema's uit te voeren vaker dan dat vereist, zijn er twee opties:
+De meest voorkomende interval voor die een schema in Azure Automation kan worden geconfigureerd voor is één uur. Als u schema's uit te voeren vaker dan vereist, zijn er twee opties:
 
-* Maak een [webhook](automation-webhooks.md) voor het runbook en gebruik [Azure Scheduler](../scheduler/scheduler-get-started-portal.md) de webhook niet aanroepen. Azure Scheduler biedt meer gedetailleerd granulatie bij het definiëren van een planning.
+* Maak een [webhook](automation-webhooks.md) voor het runbook en gebruik [Azure Scheduler](../scheduler/scheduler-get-started-portal.md) voor het aanroepen van de webhook. Azure Scheduler biedt meer fijnmazige granulariteit bij het definiëren van een schema.
 
-* Vier schema's kunt maken die alle binnen 15 minuten van elkaar met één keer per uur wordt gestart. In dit scenario kunt het runbook uit te voeren om de 15 minuten met de schema's.
+* Maken van vier planningen alle starten binnen 15 minuten van elkaar met één keer per uur. In dit scenario kunt het runbook om uit te voeren om de 15 minuten met de verschillende schema's.
 
-## <a name="disabling-a-schedule"></a>Het uitschakelen van een planning
+## <a name="disabling-a-schedule"></a>Een schema uit te schakelen
 
-Wanneer u een planning uitschakelt, wordt een willekeurig runbook dat is gekoppeld aan deze niet langer uitgevoerd op die planning. U kunt handmatig taakplanning uitschakelen of stel een verlooptijd voor schema's met een frequentie wanneer u deze maakt. Wanneer de verlooptijd is bereikt, wordt het schema uitgeschakeld.
+Wanneer u een planning uitschakelt, wordt een willekeurig niet meer gekoppeld aan het runbook wordt uitgevoerd op die planning. U kunt handmatig een planning uitschakelen of een verlooptijd voor schema's met de frequency wordt ingesteld wanneer u deze maakt. Wanneer de vervaltijd is bereikt, wordt het schema uitgeschakeld.
 
-### <a name="to-disable-a-schedule-from-the-azure-portal"></a>Uitschakelen van een planning van de Azure-portal
+### <a name="to-disable-a-schedule-from-the-azure-portal"></a>Om uit te schakelen van een schema van de Azure-portal
 
-1. Selecteer in de Azure-portal van uw Automation-account **planningen** onder de sectie **gedeelde bronnen** aan de linkerkant.
-1. Klik op de naam van een planning te openen van het detaildeelvenster.
+1. Selecteer in de Azure portal, in uw Automation-account **planningen** onder de sectie **gedeelde bronnen** aan de linkerkant.
+1. Klik op de naam van een schema te openen van het deelvenster met details.
 1. Wijziging **ingeschakeld** naar **Nee**.
 
-### <a name="to-disable-a-schedule-with-windows-powershell"></a>Een planning met Windows PowerShell uitschakelen
+### <a name="to-disable-a-schedule-with-windows-powershell"></a>Om uit te schakelen van een planning met Windows PowerShell
 
-U kunt de [Set AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) cmdlet om de eigenschappen van een bestaand schema wijzigen. Schakel de planning opgeven **false** voor de **IsEnabled** parameter.
+U kunt de [Set-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/set-azurermautomationschedule) cmdlet voor het wijzigen van de eigenschappen van een bestaand schema. Schakel de planning opgeven **false** voor de **IsEnabled** parameter.
 
-De volgende voorbeeldopdrachten laten zien hoe een runbook met een cmdlet voor Azure Resource Manager-taakplanning uitschakelen.
+De volgende voorbeeldopdrachten laten zien hoe een planning voor een runbook met behulp van een Azure Resource Manager-cmdlet uitschakelen.
 
 ```azurepowershell-interactive
 $automationAccountName = "MyAutomationAccount"
@@ -125,4 +125,4 @@ Set-AzureRmAutomationSchedule –AutomationAccountName $automationAccountName `
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Om te beginnen met runbooks in Azure Automation, Zie [een Runbook starten in Azure Automation](automation-starting-a-runbook.md)
+* Om te beginnen met runbooks in Azure Automation, Zie [Starting a Runbook in Azure Automation](automation-starting-a-runbook.md)

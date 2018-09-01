@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 05/22/2017
 ms.author: mikeray
-ms.openlocfilehash: 11aecd9b2bc1bc1521a0e27fc3cd06fe7426a26d
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b4641c847db817df905f056847a26d003ac25fd1
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307983"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381792"
 ---
 # <a name="configure-one-or-more-always-on-availability-group-listeners---resource-manager"></a>Een of meer Always On availability group listeners - Resource Manager configureren
 Dit onderwerp wordt beschreven hoe u:
@@ -42,6 +42,8 @@ Verwante onderwerpen zijn onder andere:
 
 ## <a name="configure-the-windows-firewall"></a>De Windows Firewall configureren
 De Windows Firewall voor SQL Server-toegang configureren. De firewall-regels toestaan TCP-verbindingen met de poorten gebruikt door de SQL Server-exemplaar en de listener-test. Zie voor gedetailleerde instructies [configureren van een Windows-Firewall for Database Engine Access](http://msdn.microsoft.com/library/ms175043.aspx#Anchor_1). Maak een inkomende regel voor de SQL Server-poort en de testpoort.
+
+Als u beperken van toegang met een Azure Network Security Group, zorg ervoor dat de regels voor toestaan de back-end SQL Server VM-IP-adressen bevatten, en de load balancer zwevend IP-adressen voor de AG-listener en core IP-adres van het cluster, indien van toepassing.
 
 ## <a name="example-script-create-an-internal-load-balancer-with-powershell"></a>Voorbeeldscript: Een interne load balancer maken met PowerShell
 > [!NOTE]
@@ -195,6 +197,7 @@ Houd rekening met de volgende richtlijnen op beschikbaarheidsgroep-listener in A
 
 * Met een interne load balancer, u alleen toegang tot de listener uit binnen hetzelfde virtuele netwerk.
 
+* Als u beperken van toegang met een Azure Network Security Group, zorg ervoor dat de regels voor toestaan de back-end SQL Server VM-IP-adressen bevatten, en de load balancer zwevend IP-adressen voor de AG-listener en core IP-adres van het cluster, indien van toepassing.
 
 ## <a name="for-more-information"></a>Voor meer informatie
 Zie voor meer informatie, [configureren altijd op beschikbaarheidsgroep in Azure VM handmatig](virtual-machines-windows-portal-sql-availability-group-tutorial.md).

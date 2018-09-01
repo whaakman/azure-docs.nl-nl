@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 8/17/2017
 ms.author: ghogen
-ms.openlocfilehash: e4a72729cfe69a810e0eec0a0ac6ddb87a468932
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4b14fa44f484735f2a5efee4d631a6f48e6a8bf6
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42058742"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43382633"
 ---
 # <a name="configuring-and-using-the-storage-emulator-with-visual-studio"></a>Configureren en gebruiken van de Opslagemulator met Visual Studio
 [!INCLUDE [storage-try-azure-tools](../includes/storage-try-azure-tools.md)]
@@ -33,7 +33,7 @@ Zie voor gedetailleerde informatie over de opslagemulator, met inbegrip van de s
 > 
 
 ## <a name="configuring-a-connection-string-for-the-storage-emulator"></a>Configureren van een verbindingsreeks voor de opslagemulator
-Voor toegang tot de opslagemulator vanuit code binnen een rol, wilt u een verbindingsreeks die verwijst naar de opslagemulator en die kan later worden gewijzigd om te verwijzen naar een Azure storage-account configureren. Een verbindingsreeks is een configuratie-instelling die uw rol kunt lezen tijdens runtime verbinding maken met een storage-account. Zie voor meer informatie over het maken van tekenreeksen voor databaseverbindingen [configureren van de Azure-toepassing](https://msdn.microsoft.com/library/azure/2da5d6ce-f74d-45a9-bf6b-b3a60c5ef74e#BK_SettingsPage).
+Voor toegang tot de opslagemulator vanuit code binnen een rol, wilt u een verbindingsreeks die verwijst naar de opslagemulator en die kan later worden gewijzigd om te verwijzen naar een Azure storage-account configureren. Een verbindingsreeks is een configuratie-instelling die uw rol kunt lezen tijdens runtime verbinding maken met een storage-account. Zie voor meer informatie over het maken van tekenreeksen voor databaseverbindingen [configureren van Azure Storage-verbindingsreeksen](/azure/storage/common/storage-configure-connection-string).
 
 > [!NOTE]
 > U kunt een verwijzing naar het opslagaccount van de emulator vanuit uw code retourneert met behulp van de **DevelopmentStorageAccount** eigenschap. Deze methode werkt goed als u wilt de opslagemulator openen vanuit uw code, maar als u van plan bent voor het publiceren van uw toepassing in Azure, u een verbindingsreeks moet voor toegang tot uw Azure storage-account en wijzig de code voor het gebruik van die verbinding maken tekenreeks voordat u deze publiceert. Als u vaak tussen het opslagaccount van de emulator en een Azure storage-account schakelen zijn, wordt een verbindingsreeks vereenvoudigen van dit proces.

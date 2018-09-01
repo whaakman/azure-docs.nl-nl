@@ -10,16 +10,16 @@ ms.topic: conceptual
 ms.date: 03/17/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 66cd3644611c1d837de717661a3515a0c0d3956f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 838717aa8f426ea54f4736453aac8c6fcf9a0099
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38308028"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43344494"
 ---
 # <a name="create-an-aspnet-web-app-with-azure-active-directory-b2c-sign-up-sign-in-profile-edit-and-password-reset"></a>Een ASP.NET-web-app maken met Azure Active Directory B2C gebruikersregistratie, aanmelding, profiel bewerken en wachtwoord opnieuw instellen
 
-In deze handleiding ontdekt u hoe u:
+In deze zelfstudie ontdekt u hoe u:
 
 > [!div class="checklist"]
 > * Azure AD B2C-identiteitsfuncties toevoegen aan uw web-app
@@ -95,7 +95,7 @@ Ons voorbeeld is geconfigureerd voor gebruik van het beleid en de client-id van 
 * `ida:ResetPasswordPolicyId` door de naam van uw 'Wachtwoord opnieuw instellen'-beleid
 
 ## <a name="launch-the-app"></a>Start de app
-Start de app in Visual Studio uit. Ga naar het tabblad To-Do-lijst, en noteer de URl is: https://login.microsoftonline.com/ *YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName*& client_id =*YourclientID*.....
+Start de app in Visual Studio uit. Ga naar het tabblad To-Do-lijst, en noteer de URl is: https://*YourTenantName*.b2clogin.com/*YourTenantName*/oauth2/v2.0/authorize?p=*YourSignUpPolicyName* & client_id =*YourclientID*...
 
 Zich registreren voor de app met behulp van de naam van uw e-mailadres of gebruikersnaam. Meld u af, en vervolgens opnieuw aan te melden en het profiel bewerken of het wachtwoord opnieuw instellen. Meld u af en meld u aan als een andere gebruiker. 
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/16/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4ad7a6fb032c805072fd9608fb8058a70aa12914
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: f56c9f916e0bbbf380347af2ec3f17645063494d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37441828"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340347"
 ---
 # <a name="azure-active-directory-b2c-web-sign-in-with-openid-connect"></a>Azure Active Directory B2C: Web-aanmelding met OpenID Connect
 OpenID Connect is een protocol voor verificatie, gebouwd op OAuth 2.0, die kan worden gebruikt om veilig gebruikers zich aanmelden voor webtoepassingen. Met behulp van de Azure Active Directory B2C (Azure AD B2C)-implementatie van OpenID Connect, u kunt uitbesteden gebruikersregistratie, aanmelding en andere identiteitsbeheer in uw web-apps aan Azure Active Directory (Azure AD). Deze handleiding wordt beschreven hoe u dit niet doet, op een taalonafhankelijke manier. Dit wordt beschreven hoe u berichten verzenden en ontvangen HTTP zonder onze open source-bibliotheken.
@@ -36,7 +36,7 @@ In deze aanvraag, de client geeft aan dat de machtigingen die nodig is om te ver
 
 #### <a name="use-a-sign-in-policy"></a>Een beleid voor aanmelden
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -49,7 +49,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 #### <a name="use-a-sign-up-policy"></a>Een registratiebeleid gebruiken
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -62,7 +62,7 @@ client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 
 #### <a name="use-an-edit-profile-policy"></a>Profiel bewerken-beleid gebruiken
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/authorize?
 client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6
 &response_type=code+id_token
 &redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
@@ -126,11 +126,11 @@ Er zijn veel open source-bibliotheken die beschikbaar zijn voor het valideren va
 
 Azure AD B2C is een eindpunt metagegevens OpenID Connect, waarmee een app voor het ophalen van informatie over Azure AD B2C tijdens runtime. Deze informatie omvat eindpunten, de inhoud van tokens en voor token-ondertekening van sleutels. Er is een JSON-metagegevensdocument voor elk beleid in uw B2C-tenant. Bijvoorbeeld, het document met metagegevens voor de `b2c_1_sign_in` beleid in `fabrikamb2c.onmicrosoft.com` bevindt zich in:
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=b2c_1_sign_in`
 
 Een van de eigenschappen van dit configuratiedocument is `jwks_uri`, waarvan de waarde voor hetzelfde beleid zou worden:
 
-`https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`.
+`https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/discovery/v2.0/keys?p=b2c_1_sign_in`.
 
 Om te bepalen welk beleid is gebruikt in een ID voor ondertekening van tokens (en waar om op te halen de metagegevens), hebt u twee opties. Ten eerste de naam van het beleid is opgenomen in de `acr` claim in het ID-token. Zie voor meer informatie over het parseren van de claims van een ID-token dat de [naslaginformatie over Azure AD B2C-tokens](active-directory-b2c-reference-tokens.md). De andere mogelijkheid is het coderen van het beleid in de waarde van de `state` parameter wanneer u de aanvraag uitgeven, en vervolgens worden ontsleuteld om te controleren welk beleid is gebruikt. Een van beide methoden is geldig.
 
@@ -160,7 +160,7 @@ De autorisatiecode die u hebt aangeschaft, kun je (met behulp van `response_type
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://login.microsoftonline.com
+Host: https://fabrikamb2c.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=authorization_code&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6 offline_access&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -226,7 +226,7 @@ ID-tokens zijn tijdelijke. U moet ze vernieuwen nadat ze zijn verlopen om door t
 
 ```
 POST fabrikamb2c.onmicrosoft.com/oauth2/v2.0/token?p=b2c_1_sign_in HTTP/1.1
-Host: https://login.microsoftonline.com
+Host: https://fabrikamb2c.b2clogin.com
 Content-Type: application/x-www-form-urlencoded
 
 grant_type=refresh_token&client_id=90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6&scope=openid offline_access&refresh_token=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&redirect_uri=urn:ietf:wg:oauth:2.0:oob&client_secret=<your-application-secret>
@@ -283,7 +283,7 @@ Als u de gebruiker buiten de app aanmelden wilt, is het niet voldoende is om te 
 U kunt gewoon de gebruiker omleiden de `end_session` eindpunt dat wordt weergegeven in het metagegevensdocument voor OpenID Connect beschreven sectie eerder in de 'valideren van de ID-token":
 
 ```
-GET https://login.microsoftonline.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
+GET https://fabrikamb2c.b2clogin.com/fabrikamb2c.onmicrosoft.com/oauth2/v2.0/logout?
 p=b2c_1_sign_in
 &post_logout_redirect_uri=https%3A%2F%2Faadb2cplayground.azurewebsites.net%2F
 ```

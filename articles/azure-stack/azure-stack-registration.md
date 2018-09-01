@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/24/2018
+ms.date: 08/30/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 58c8568da0a818f87a5bb3d6966d2d4a6c977fd9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: ebf10c7f0fb90d976062300854f69369dba946fa
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247820"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340163"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -58,7 +58,7 @@ Voordat u registreert Azure Stack met Azure, moet u het volgende hebben:
 
 ### <a name="powershell-language-mode"></a>PowerShell-taalmodus
 
-Als u wilt registreren is Azure Stack, de PowerShell-taalmodus moet worden ingesteld op **FullLanguageMode**.  Om te controleren dat de huidige taalmodus is ingesteld op volledig, opent u een PowerShell-venster met verhoogde bevoegdheid en voer de volgende PowerShell-cmdlts:
+Als u wilt registreren is Azure Stack, de PowerShell-taalmodus moet worden ingesteld op **FullLanguageMode**.  Om te controleren dat de huidige taalmodus is ingesteld op full, opent u een PowerShell-venster met verhoogde bevoegdheid en voer de volgende PowerShell-cmdlets:
 
 ```PowerShell  
 $ExecutionContext.SessionState.LanguageMode
@@ -100,7 +100,7 @@ Gebruik deze stappen om Azure Stack registreren bij Azure met behulp van het fac
 
 Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze omgevingen moet u de Azure Stack-resourceprovider registreren bij Azure en configureer vervolgens uw factureringsmodel.
 
-1. Voor het registreren van de resourceprovider van Azure Stack met Azure, PowerShell ISE starten als beheerder en gebruik de volgende PowerShell-cmdlts met de **EnvironmentName** parameter ingesteld op het juiste Azure-abonnement-type (Zie onderstaande parameters).
+1. Voor het registreren van de resourceprovider van Azure Stack met Azure, PowerShell ISE starten als beheerder en gebruik de volgende PowerShell-cmdlets met de **EnvironmentName** parameter ingesteld op het juiste Azure-abonnement-type (Zie onderstaande parameters).
 
 2. Het Azure-account die u gebruikt voor het registreren van Azure Stack toevoegen. Als u wilt het account toevoegt, worden uitgevoerd de **Add-AzureRmAccount** cmdlet. U wordt gevraagd uw globale beheerder van Azure-accountreferenties kunt invoeren en mogelijk moet u gebruikmaken van 2-factor-verificatie op basis van de configuratie van uw account.
 
@@ -160,7 +160,7 @@ Gebruik deze stappen om Azure Stack registreren bij Azure met behulp van het fac
 
 Verbonden omgevingen kunnen toegang krijgen tot het internet en Azure. Voor deze omgevingen moet u de Azure Stack-resourceprovider registreren bij Azure en configureer vervolgens uw factureringsmodel.
 
-1. Voor het registreren van de resourceprovider van Azure Stack met Azure, PowerShell ISE starten als beheerder en gebruik de volgende PowerShell-cmdlts met de **EnvironmentName** parameter ingesteld op het juiste Azure-abonnement-type (Zie onderstaande parameters).
+1. Voor het registreren van de resourceprovider van Azure Stack met Azure, PowerShell ISE starten als beheerder en gebruik de volgende PowerShell-cmdlets met de **EnvironmentName** parameter ingesteld op het juiste Azure-abonnement-type (Zie onderstaande parameters).
 
 2. Het Azure-account die u gebruikt voor het registreren van Azure Stack toevoegen. Als u wilt het account toevoegt, worden uitgevoerd de **Add-AzureRmAccount** cmdlet. U wordt gevraagd uw globale beheerder van Azure-accountreferenties kunt invoeren en mogelijk moet u gebruikmaken van 2-factor-verificatie op basis van de configuratie van uw account.
 
@@ -213,7 +213,7 @@ Als u Azure Stack in een omgeving zonder verbinding (met geen verbinding met int
    Import-Module .\RegisterWithAzure.psm1
    ```
 
-2. Als u het registratietoken, voer de volgende PowerShell-cmdlts:  
+2. Als u het registratietoken, voer de volgende PowerShell-cmdlets:  
 
    ```Powershell
    $FilePathForRegistrationToken = $env:SystemDrive\RegistrationToken.txt
@@ -250,7 +250,7 @@ U kunt de cmdlet Get-inhoud (optioneel) gebruiken om te verwijzen naar een besta
 
 Vervolgens moet u een activeringscode ophalen van de registratie-resource in Azure tijdens de Register-AzsEnvironment gemaakt.
 
-Als u de activeringscode, voer de volgende PowerShell-cmdlts:  
+Als u de activeringscode, voer de volgende PowerShell-cmdlets:  
 
   ```Powershell
   $RegistrationResourceName = "AzureStack-<Cloud Id for the Environment to register>"
@@ -263,7 +263,7 @@ Als u de activeringscode, voer de volgende PowerShell-cmdlts:
 
 ### <a name="create-an-activation-resource-in-azure-stack"></a>Een activering-Resource maken in Azure Stack
 
-Ga terug naar de Azure Stack-omgeving met het bestand of de tekst van de activeringscode gemaakt op basis van Get-AzsActivationKey. Vervolgens maakt u een bron voor activering in Azure Stack met deze activeringssleutel. Voer de volgende PowerShell-cmdlts voor het maken van een resource activering:  
+Ga terug naar de Azure Stack-omgeving met het bestand of de tekst van de activeringscode gemaakt op basis van Get-AzsActivationKey. Vervolgens maakt u een bron voor activering in Azure Stack met deze activeringssleutel. Voer de volgende PowerShell-cmdlets voor het maken van een resource activering:  
 
   ```Powershell
   $ActivationKey = "<activation key>"
@@ -329,13 +329,13 @@ U moet bijwerken of vernieuwen van de inschrijving in de volgende omstandigheden
 
 U moet eerst de resource activering verwijderen uit Azure Stack en vervolgens de registratie-resource in Azure.  
 
-Als u wilt verwijderen van de activering-resource in Azure Stack, voert u de volgende PowerShell-cmdlts in uw Azure Stack-omgeving:  
+Als u wilt verwijderen van de activering-resource in Azure Stack, voer de volgende PowerShell-cmdlets in uw Azure Stack-omgeving:  
 
   ```Powershell
   Remove-AzsActivationResource -PrivilegedEndpointCredential $YourCloudAdminCredential -PrivilegedEndpoint $YourPrivilegedEndpoint
   ```
 
-Vervolgens als u wilt verwijderen van de registratie-resource in Azure, zorg ervoor dat u gebruikmaakt van een verbonden Azure computer, zich aanmelden bij de juiste context van Azure PowerShell, en de juiste PowerShell-cmdlts uitvoeren, zoals hieronder wordt beschreven.
+Vervolgens als u wilt verwijderen van de registratie-resource in Azure, zorg ervoor dat u gebruikmaakt van een verbonden Azure computer, zich aanmelden bij de juiste context van Azure PowerShell en voert u de juiste PowerShell-cmdlets zoals hieronder wordt beschreven.
 
 U kunt de registratietoken gebruikt voor het maken van de resource:  
 
@@ -386,6 +386,8 @@ Uitschakelen voor gebruiksrapporten met voor Azure Stack-omgevingen die gebruikm
 
 2. Sla deze voor gebruik in de Azure-registratietoken verbonden machine. U kunt het bestand of de tekst van $FilePathForRegistrationToken kopiëren.
 
+## <a name="move-a-registration-resource"></a>Een registratie-resource verplaatsen
+Een registratie-resource verplaatsen tussen resourcegroepen onder hetzelfde abonnement **is** ondersteund voor alle omgevingen. Echter, een registratie-resource verplaatsen tussen abonnementen wordt alleen ondersteund voor CSP's wanneer beide abonnementen worden omgezet naar dezelfde Partner-ID. Zie voor meer informatie over het verplaatsen van resources naar een nieuwe resourcegroep [resources verplaatsen naar een nieuwe resourcegroep of abonnement](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources).
 
 ## <a name="registration-reference"></a>Registratie-verwijzing
 
