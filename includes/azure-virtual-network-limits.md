@@ -5,15 +5,15 @@ services: networking
 author: jimdial
 ms.service: networking
 ms.topic: include
-ms.date: 08/03/2018
+ms.date: 08/16/2018
 ms.author: jdial
 ms.custom: include file
-ms.openlocfilehash: 9dbd230e431b2bc3041cfc854c0161ce8d453870
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 4ab574f99f678683497b0f00b36abcda89991f88
+ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "40133323"
+ms.lasthandoff: 08/17/2018
+ms.locfileid: "43435590"
 ---
 <a name="virtual-networking-limits-classic"></a>De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd via het klassieke implementatiemodel voor elk abonnement. Meer informatie over het [weergeven van uw huidige brongebruik op basis van uw abonnementen](../articles/networking/check-usage-against-limits.md).
 
@@ -75,17 +75,17 @@ De volgende beperkingen gelden alleen voor netwerkresources die worden beheerd v
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
 | Load balancers | 100 | 1000 |
-| Regels per resource, Basic | 150 | 250 |
-| Regels per resource, Standard | 1250 | 1500 |
+| Regels per resource, Basic | 250 | 250 |
+| Regels per resource, Standard | 1500 | 1500 |
 | Regels per IP-configuratie | 299 |299 |
 | Frontend-IP-configuraties, Basic | 10 | 200 |
 | Frontend-IP-configuraties, Standard | 10 | 600 |
 | Back-endpool, Basic | 100, één Beschikbaarheidsset | 100, één Beschikbaarheidsset |
 | Back-endpool, Standard | 1000, één VNet | 1000, één VNet |
-| Back-endresources per Load Balancer Standard &ast; | 50 | 150 |
+| Back-endresources per Load Balancer Standard * | 150 | 150 |
 | HA-poorten, Standard | 1 per interne frontend | 1 per interne frontend |
 
-&ast; Maximaal 150 resources, een combinatie van zelfstandige virtuele machines, beschikbaarheidssets en virtuele-machineschaalsets.
+** Maximaal 150 resources, een combinatie van zelfstandige virtuele machines, beschikbaarheidssets en virtuele-machineschaalsets.
 
 [Neem contact op met de ondersteuning](../articles/azure-supportability/resource-manager-core-quotas-request.md ) als u de standaardlimieten wilt verhogen.
 

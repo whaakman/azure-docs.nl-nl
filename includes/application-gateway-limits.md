@@ -1,6 +1,6 @@
 | Resource | Standaardlimiet | Opmerking |
 | --- | --- | --- |
-| Application Gateway |50 per abonnement | Maximaal 100 |
+| Application Gateway |50 per abonnement | Maximaal 1000 |
 | Front-end-IP-configuraties |2 |1 openbaar en 1 privé |
 | Front-endpoorten |20 | |
 | Back-endadresgroepen |20 | |

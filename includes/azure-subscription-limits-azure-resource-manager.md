@@ -5,15 +5,15 @@ services: billing
 author: rothja
 ms.service: billing
 ms.topic: include
-ms.date: 07/02/2018
+ms.date: 08/22/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: f47654d056a26f5a58b1ccc2c200f774bee1f19f
-ms.sourcegitcommit: 756f866be058a8223332d91c86139eb7edea80cc
+ms.openlocfilehash: 08cd67e86666cdc9c9fc1b0f4ef98cf3ea7a156c
+ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37348198"
+ms.lasthandoff: 08/22/2018
+ms.locfileid: "43435597"
 ---
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
@@ -31,6 +31,7 @@ ms.locfileid: "37348198"
 | Unieke tagberekeningen per abonnement<sup>3</sup> | 10.000 | 10.000 |
 | [Cloudservices](../articles/cloud-services/cloud-services-choose-me.md) per abonnement |Niet van toepassing<sup>4</sup> |Niet van toepassing<sup>4</sup> |
 | [Affiniteitsgroepen](../articles/virtual-network/virtual-networks-migrate-to-regional-vnet.md) per abonnement |Niet van toepassing<sup>4</sup> |Niet van toepassing<sup>4</sup> |
+| [Niveau abonnementimplementaties](../articles/azure-resource-manager/deploy-to-subscription.md) per locatie | 800 | 800 |
 
 <sup>1</sup>Standaardlimieten zijn afhankelijk van het type aanbieding, zoals gratis proefversies, betalen naar gebruik of per serie, zoals Dv2, F, G, enz.
 
@@ -41,7 +42,7 @@ ms.locfileid: "37348198"
 <sup>4</sup>Deze functies zijn niet langer zijn vereist voor Azure-resourcegroepen en de Azure Resource Manager.
 
 > [!NOTE]
-> Het is belangrijk om te benadrukken dat er voor de cores van virtuele machine zowel regionale beperkingen gelden als regionale beperkingen per grootte (Dv2, F, enz.), die afzonderlijk worden gehandhaafd.  Neem bijvoorbeeld een abonnement met een limiet van 30 VM-cores voor VS Oost, een limiet van 30 cores voor de A-serie en een limiet van 30 cores voor de D-serie.  Met dit abonnement zouden 30 A1-VM’s of 30 D1-VM’s kunnen worden geïmplementeerd, of een combinatie van deze twee typen die het totaal van 30 cores niet overschrijdt (bijvoorbeeld 10 A1-VM’s en 20 D1-VM’s).  
+> Het is belangrijk om te benadrukken dat er voor de cores van virtuele machine zowel regionale beperkingen gelden als regionale beperkingen per grootte (Dv2, F, enz.), die afzonderlijk worden gehandhaafd.  Neem bijvoorbeeld een abonnement met een limiet van 30 VM-cores voor US - oost, een limiet van 30 cores voor de A-serie en een limiet van 30 cores voor de D-serie.  Met dit abonnement zouden 30 A1-VM’s of 30 D1-VM’s kunnen worden geïmplementeerd, of een combinatie van deze twee typen die het totaal van 30 cores niet overschrijdt (bijvoorbeeld 10 A1-VM’s en 20 D1-VM’s).  
 > <!-- -->
 > 
 > 
