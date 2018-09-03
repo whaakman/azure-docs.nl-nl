@@ -1,216 +1,225 @@
+items:
 - name: Documentatie voor Azure Monitor
   href: index.yml
 - name: Overzicht
   items:
-    - name: Bewaking in Azure
-      href: monitoring-overview.md
+  - name: Bewaking in Azure
+    href: monitoring-overview.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Waarschuwing (klassiek) op basis van metrische gegevens
-      href: monitor-quick-resource-metric-alert-portal.md
-    - name: Waarschuwing bij abonnementactiviteit
-      href: monitor-quick-audit-notify-action-in-subscription.md
+  - name: Waarschuwing (klassiek) op basis van metrische gegevens
+    href: monitor-quick-resource-metric-alert-portal.md
+  - name: Waarschuwing bij abonnementactiviteit
+    href: monitor-quick-audit-notify-action-in-subscription.md
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: Automatisch schalen op basis van prestaties en schema
-      href: monitor-tutorial-autoscale-performance-schedule.md
-    - name: Bewakingsgegevens archiveren
-      href: monitor-tutorial-archive-monitoring-data.md
+  - name: Automatisch schalen op basis van prestaties en schema
+    href: monitor-tutorial-autoscale-performance-schedule.md
+  - name: Bewakingsgegevens archiveren
+    href: monitor-tutorial-archive-monitoring-data.md
 - name: Concepten
   items:
-    - name: Bronnen van bewakingsgegevens
-      href: monitoring-data-sources.md
-    - name: Azure Monitor
-      href: monitoring-overview-azure-monitor.md
-    - name: Agents
-      href: ../monitoring/monitoring-overview-azure-agents.md
-    - name: Metrische gegevens
-      href: monitoring-overview-metrics.md
-    - name: Automatisch schalen
-      href: monitoring-overview-autoscale.md
-    - name: Diagnostische logboeken
-      href: monitoring-overview-of-diagnostic-logs.md
-    - name: Activiteitenlogboek
-      href: monitoring-overview-activity-logs.md
-    - name: Waarschuwingen
-      href: monitoring-overview-unified-alerts.md
-    - name: Waarschuwingen (klassiek)
-      href: monitoring-overview-alerts.md
-    - name: Waarschuwingen voor logboeken
-      href: monitor-alerts-unified-log.md
-    - name: Waarschuwingen voor activiteitenlogboeken (preview)
-      href: monitoring-activity-log-alerts-new-experience.md
-    - name: Waarschuwingen van Log Analytics uitbreiden naar Azure
-      href: monitoring-alerts-extend.md
-    - name: Actiegroepen
-      href: monitoring-action-groups.md
-    - name: Azure Diagnostics-extensie
-      href: azure-diagnostics.md
-    - name: Rolmachtigingen en -beveiliging
-      href: monitoring-roles-permissions-security.md
-    - name: Partnerintegraties
-      href: monitoring-partners.md
+  - name: Bronnen van bewakingsgegevens
+    href: monitoring-data-sources.md
+  - name: Azure Monitor
+    href: monitoring-overview-azure-monitor.md
+  - name: Agents
+    href: ../monitoring/monitoring-overview-azure-agents.md
+  - name: Metrische gegevens
+    href: monitoring-overview-metrics.md
+  - name: Automatisch schalen
+    href: monitoring-overview-autoscale.md
+  - name: Diagnostische logboeken
+    href: monitoring-overview-of-diagnostic-logs.md
+  - name: Activiteitenlogboek
+    href: monitoring-overview-activity-logs.md
+  - name: Waarschuwingen
+    href: monitoring-overview-unified-alerts.md
+  - name: Waarschuwingen (klassiek)
+    href: monitoring-overview-alerts.md
+  - name: Waarschuwingen voor logboeken
+    href: monitor-alerts-unified-log.md
+  - name: Waarschuwingen voor activiteitenlogboeken (preview)
+    href: monitoring-activity-log-alerts-new-experience.md
+  - name: Waarschuwingen van Log Analytics uitbreiden naar Azure
+    href: monitoring-alerts-extend.md
+  - name: Actiegroepen
+    href: monitoring-action-groups.md
+  - name: Azure Diagnostics-extensie
+    href: azure-diagnostics.md
+  - name: Resourcegroepinzichten
+    href: resource-group-insights.md
+  - name: Rolmachtigingen en -beveiliging
+    href: monitoring-roles-permissions-security.md
+  - name: Partnerintegraties
+    href: monitoring-partners.md
 - name: Handleidingen
   items:
-    - name: Stapsgewijze handleiding voor Azure Monitor
-      href: monitoring-get-started.md
-    - name: Grafieken met metrische gegevens maken in Metrics Explorer
-      href: monitoring-metric-charts.md
-    - name: Waarschuwingen gebruiken
-      items:
-        - name: Waarschuwingen over nieuwe metrische gegevens of logboeken configureren in Azure Portal
-          href: monitor-alerts-unified-usage.md
-        - name: Klassieke waarschuwingen configureren in Azure Portal
-          href: insights-alerts-portal.md
-        - name: Klassieke waarschuwingen configureren met CLI
-          href: insights-alerts-command-line-interface.md
-        - name: Klassieke waarschuwingen configureren met Azure PowerShell
-          href: insights-alerts-powershell.md
-        - name: Een klassieke metrische waarschuwing een webhook laten aanroepen
-          href: insights-webhooks-alerts.md
-        - name: Webhookacties voor logboekwaarschuwingen
-          href: monitor-alerts-unified-log-webhook.md
-        - name: Een waarschuwing voor een logboek maken met een Resource Manager-sjabloon
-          href: monitor-alerts-unified-log-template.md
-        - name: Een nieuwere waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
-          href: monitoring-create-metric-alerts-with-templates.md
-        - name: Een klassieke waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
-          href: monitoring-enable-alerts-using-template.md
-        - name: Waarschuwingen van de OMS-portal kopiëren naar Azure Portal
-          href: monitoring-alerts-extend-tool.md
-        - name: Waarschuwingen met dynamische drempelwaarden
-          href: monitoring-alerts-dynamic-thresholds.md
-    - name: Actiegroepen met waarschuwingen gebruiken
-      items:
-        - name: Meer informatie over webhook-schema
-          href: monitoring-activity-log-alerts-webhook.md
-        - name: Gedrag van sms-waarschuwingen
-          href: monitoring-sms-alert-behavior.md
-        - name: Beperking waarschuwingsaantallen
-          href: monitoring-alerts-rate-limiting.md
-        - name: Actiegroepen maken met Resource Manager
-          href: monitoring-create-action-group-with-resource-manager-template.md
-        - name: Een actie voor een Logische app implementeren
-          href: monitoring-action-groups-logic-app.md
-    - name: Diagnostische logboeken gebruiken
-      items:
-        - name: Archiveren
-          href: monitoring-archive-diagnostic-logs.md
-        - name: Verzenden naar Log Analytics
-          href: monitor-stream-diagnostic-logs-log-analytics.md
-        - name: Streamen naar Event Hubs
-          href: monitoring-stream-diagnostic-logs-to-event-hubs.md
-        - name: Diagnostische instellingen inschakelen met Resource Manager-sjablonen
-          href: monitoring-enable-diagnostic-logs-using-template.md
-        - name: Voorbereiden op JSON Lines-indeling voor diagnostische logboeken
-          href: monitor-diagnostic-logs-append-blobs.md
-    - name: Activiteitenlogboek gebruiken
-      items:
-        - name: Gebeurtenissen in het activiteitenlogboek bekijken
-          href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
-        - name: Meldingen configureren voor waarschuwingen van het activiteitenlogboek
-          href: monitoring-activity-log-alerts.md
-        - name: Het activiteitenlogboek archiveren
-          href: monitoring-archive-activity-log.md
-        - name: Activiteitenlogboek streamen naar Event Hubs
-          href: monitoring-stream-activity-logs-event-hubs.md
-        - name: Bewerkingen controleren met Resource Manager
-          href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
-        - name: Waarschuwingen voor activiteitenlogboek maken met Resource Manager
-          href: monitoring-create-activity-log-alerts-with-resource-manager-template.md
-        - name: Migreren naar waarschuwingen voor activiteitenlogboek
-          href: monitoring-migrate-management-alerts.md
-    - name: Servicemeldingen gebruiken
-      items:
-        - name: Servicemeldingen bekijken
-          href: monitoring-service-notifications.md
-        - name: Waarschuwingen voor servicemeldingen configureren
-          href: monitoring-activity-log-alerts-on-service-notifications.md
-    - name: Toegang op programmeerniveau
-      items:
-        - name: 'Rondleiding: REST API gebruiken'
-          href: monitoring-rest-api-walkthrough.md
-        - name: Azure PowerShell-voorbeelden
-          href: insights-powershell-samples.md
-        - name: Azure CLI-voorbeelden
-          href: insights-cli-samples.md
-    - name: Azure Diagnostics-extensie gebruiken
-      items:
-        - name: Verzenden naar Azure Storage
-          href: azure-diagnostics-storage.md
-        - name: Verzenden naar Application Insights
-          href: azure-diagnostics-configure-application-insights.md
-        - name: Verzenden naar Event Hubs
-          href: azure-diagnostics-streaming-event-hubs.md
-        - name: Problemen oplossen
-          href: azure-diagnostics-troubleshooting.md
-    - name: Automatisch schalen gebruiken
-      items:
-        - name: Stapsgewijze handleiding voor automatisch schalen
-          href: monitoring-autoscale-get-started.md
-        - name: Inzicht in instellingen voor automatisch schalen
-          href: monitoring-understanding-autoscale-settings.md
-        - name: Aanbevolen procedures
-          href: insights-autoscale-best-practices.md
-        - name: Algemene metrische gegevens
-          href: insights-autoscale-common-metrics.md
-        - name: Algemene patronen
-          href: monitoring-autoscale-common-scale-patterns.md
-        - name: Automatisch schalen met een aangepaste meetwaarde
-          href: monitoring-autoscale-scale-by-custom-metric.md
-        - name: VM-schaalsets automatisch schalen met Resource Manager-sjablonen
-          href: insights-advanced-autoscale-virtual-machine-scale-sets.md
-        - name: Machines automatisch schalen in een VM-schaalset
-          href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
-        - name: Webhooks en e-mailmeldingen configureren voor automatisch schalen
-          href: insights-autoscale-to-webhook-email.md
-    - name: Naar andere locaties doorsturen
-      items:
-        - name: Metrische gegevens naar Grafana verzenden
-          href: monitor-send-to-grafana.md
-        - name: Bewakingsgegevens naar een event hub verzenden
-          href: monitor-stream-monitoring-data-event-hubs.md
+  - name: Stapsgewijze handleiding voor Azure Monitor
+    href: monitoring-get-started.md
+  - name: Grafieken met metrische gegevens maken in Metrics Explorer
+    href: monitoring-metric-charts.md
+  - name: Waarschuwingen gebruiken
+    items:
+    - name: Waarschuwingen over nieuwe metrische gegevens of logboeken configureren in Azure Portal
+      href: monitor-alerts-unified-usage.md
+    - name: Klassieke waarschuwingen configureren in Azure Portal
+      href: insights-alerts-portal.md
+    - name: Klassieke waarschuwingen configureren met CLI
+      href: insights-alerts-command-line-interface.md
+    - name: Klassieke waarschuwingen configureren met Azure PowerShell
+      href: insights-alerts-powershell.md
+    - name: Een klassieke metrische waarschuwing een webhook laten aanroepen
+      href: insights-webhooks-alerts.md
+    - name: Webhookacties voor logboekwaarschuwingen
+      href: monitor-alerts-unified-log-webhook.md
+    - name: Een waarschuwing voor een logboek maken met een Resource Manager-sjabloon
+      href: monitor-alerts-unified-log-template.md
+    - name: Een nieuwere waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
+      href: monitoring-create-metric-alerts-with-templates.md
+    - name: Een klassieke waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
+      href: monitoring-enable-alerts-using-template.md
+    - name: Waarschuwingen van de OMS-portal kopiëren naar Azure Portal
+      href: monitoring-alerts-extend-tool.md
+    - name: Waarschuwingen met dynamische drempelwaarden
+      href: monitoring-alerts-dynamic-thresholds.md
+  - name: Actiegroepen met waarschuwingen gebruiken
+    items:
+    - name: Meer informatie over webhook-schema
+      href: monitoring-activity-log-alerts-webhook.md
+    - name: Gedrag van sms-waarschuwingen
+      href: monitoring-sms-alert-behavior.md
+    - name: Beperking waarschuwingsaantallen
+      href: monitoring-alerts-rate-limiting.md
+    - name: Actiegroepen maken met Resource Manager
+      href: monitoring-create-action-group-with-resource-manager-template.md
+    - name: Een actie voor een Logische app implementeren
+      href: monitoring-action-groups-logic-app.md
+  - name: Diagnostische logboeken gebruiken
+    items:
+    - name: Archiveren
+      href: monitoring-archive-diagnostic-logs.md
+    - name: Verzenden naar Log Analytics
+      href: monitor-stream-diagnostic-logs-log-analytics.md
+    - name: Streamen naar Event Hubs
+      href: monitoring-stream-diagnostic-logs-to-event-hubs.md
+    - name: Diagnostische instellingen inschakelen met Resource Manager-sjablonen
+      href: monitoring-enable-diagnostic-logs-using-template.md
+    - name: Voorbereiden op JSON Lines-indeling voor diagnostische logboeken
+      href: monitor-diagnostic-logs-append-blobs.md
+  - name: Activiteitenlogboek gebruiken
+    items:
+    - name: Gebeurtenissen in het activiteitenlogboek bekijken
+      href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+    - name: Meldingen configureren voor waarschuwingen van het activiteitenlogboek
+      href: monitoring-activity-log-alerts.md
+    - name: Het activiteitenlogboek archiveren
+      href: monitoring-archive-activity-log.md
+    - name: Activiteitenlogboek streamen naar Event Hubs
+      href: monitoring-stream-activity-logs-event-hubs.md
+    - name: Bewerkingen controleren met Resource Manager
+      href: ../azure-resource-manager/resource-group-audit.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+    - name: Waarschuwingen voor activiteitenlogboek maken met Resource Manager
+      href: monitoring-create-activity-log-alerts-with-resource-manager-template.md
+    - name: Migreren naar waarschuwingen voor activiteitenlogboek
+      href: monitoring-migrate-management-alerts.md
+  - name: Servicemeldingen gebruiken
+    items:
+    - name: Servicemeldingen bekijken
+      href: monitoring-service-notifications.md
+    - name: Waarschuwingen voor servicemeldingen configureren
+      href: monitoring-activity-log-alerts-on-service-notifications.md
+  - name: Toegang op programmeerniveau
+    items:
+    - name: 'Rondleiding: REST API gebruiken'
+      href: monitoring-rest-api-walkthrough.md
+    - name: Azure PowerShell-voorbeelden
+      href: insights-powershell-samples.md
+    - name: Azure CLI-voorbeelden
+      href: insights-cli-samples.md
+  - name: Azure Diagnostics-extensie gebruiken
+    items:
+    - name: Verzenden naar Azure Storage
+      href: azure-diagnostics-storage.md
+    - name: Verzenden naar Application Insights
+      href: azure-diagnostics-configure-application-insights.md
+    - name: Verzenden naar Event Hubs
+      href: azure-diagnostics-streaming-event-hubs.md
+    - name: Problemen oplossen
+      href: azure-diagnostics-troubleshooting.md
+  - name: Automatisch schalen gebruiken
+    items:
+    - name: Stapsgewijze handleiding voor automatisch schalen
+      href: monitoring-autoscale-get-started.md
+    - name: Inzicht in instellingen voor automatisch schalen
+      href: monitoring-understanding-autoscale-settings.md
+    - name: Aanbevolen procedures
+      href: insights-autoscale-best-practices.md
+    - name: Algemene metrische gegevens
+      href: insights-autoscale-common-metrics.md
+    - name: Algemene patronen
+      href: monitoring-autoscale-common-scale-patterns.md
+    - name: Automatisch schalen met een aangepaste meetwaarde
+      href: monitoring-autoscale-scale-by-custom-metric.md
+    - name: VM-schaalsets automatisch schalen met Resource Manager-sjablonen
+      href: insights-advanced-autoscale-virtual-machine-scale-sets.md
+    - name: Machines automatisch schalen in een VM-schaalset
+      href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=%2fazure%2fmonitoring-and-diagnostics%2ftoc.json
+    - name: Webhooks en e-mailmeldingen configureren voor automatisch schalen
+      href: insights-autoscale-to-webhook-email.md
+  - name: Naar andere locaties doorsturen
+    items:
+    - name: Metrische gegevens naar Grafana verzenden
+      href: monitor-send-to-grafana.md
+    - name: Bewakingsgegevens naar een event hub verzenden
+      href: monitor-stream-monitoring-data-event-hubs.md
 - name: Naslaginformatie
   items:
-    - name: Azure-CLI
-      href: /cli/azure/monitor?view=azure-cli-latest
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.insights
-    - name: REST
-      href: /rest/api/monitor/
-    - name: Ondersteunde metrische gegevens
-      href: monitoring-supported-metrics.md
-    - name: Ondersteunde metrische gegevens voor nieuwere waarschuwingen
-      href: monitoring-near-real-time-metric-alerts.md
-    - name: 'Services, categorieën en schema''s voor diagnostische logboeken'
-      href: monitoring-diagnostic-logs-schema.md
-    - name: Gebeurtenisschema in het activiteitenlogboek
-      href: monitoring-activity-log-schema.md
-    - name: Extensieschema voor Azure Diagnostics
-      href: azure-diagnostics-schema.md
-      items:
-        - name: 1.3 en hoger
-          href: azure-diagnostics-schema-1dot3-and-later.md
-        - name: 1.2
-          href: azure-diagnostics-schema-1dot2.md
-        - name: 1
-          href: azure-diagnostics-schema-1dot0.md
+  - name: Azure-CLI
+    href: /cli/azure/monitor?view=azure-cli-latest
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.insights
+  - name: REST
+    href: /rest/api/monitor/
+  - name: Ondersteunde metrische gegevens
+    href: monitoring-supported-metrics.md
+  - name: Ondersteunde metrische gegevens voor nieuwere waarschuwingen
+    href: monitoring-near-real-time-metric-alerts.md
+  - name: Services, categorieën en schema's voor diagnostische logboeken
+    href: monitoring-diagnostic-logs-schema.md
+  - name: Gebeurtenisschema in het activiteitenlogboek
+    href: monitoring-activity-log-schema.md
+  - name: Extensieschema voor Azure Diagnostics
+    href: azure-diagnostics-schema.md
+    items:
+    - name: 1.3 en hoger
+      href: azure-diagnostics-schema-1dot3-and-later.md
+    - name: "1.2"
+      href: azure-diagnostics-schema-1dot2.md
+    - name: "1"
+      href: azure-diagnostics-schema-1dot0.md
 - name: Resources
   items:
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=monitoring-management'
-    - name: Prijscalculator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Regionale beschikbaarheid
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: Video's
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=monitor'
-    - name: Snelstartsjablonen
-      href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights'
-    - name: Stack Overflow
-      href: 'https://stackoverflow.com/search?q=monitoring'
-    - name: Codevoorbeelden
-      href: 'https://azure.microsoft.com/resources/samples/?service=monitor'
-    - name: Gebruik en geraamde kosten
-      href: monitoring-usage-and-estimated-costs.md
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=monitoring-management
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regionale beschikbaarheid
+    href: https://azure.microsoft.com/regions/services/
+  - name: Video's
+    href: https://azure.microsoft.com/resources/videos/index/?services=monitor
+  - name: Snelstartsjablonen
+    href: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Insights
+  - name: Stack Overflow
+    href: https://stackoverflow.com/search?q=monitoring
+  - name: Codevoorbeelden
+    href: https://azure.microsoft.com/resources/samples/?service=monitor
+  - name: Gebruik en geraamde kosten
+    href: monitoring-usage-and-estimated-costs.md
+ms.openlocfilehash: 92b69fd2e3d299f88a3f08a42bfe4667bce59da0
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336556"

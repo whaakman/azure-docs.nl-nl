@@ -1,6 +1,6 @@
 ---
-title: Het configureren van een beheerde Service-identiteit ingeschakeld virtuele Azure-machine met een Azure-SDK
-description: Voor stap door stap instructies voor het configureren en gebruiken van een beheerde Service-identiteit op een Azure-VM, met een Azure-SDK.
+title: Een Azure-SDK gebruiken voor het configureren van een virtuele machine met beheerde identiteiten voor Azure-resources
+description: Stapsgewijze beheerde instructies voor het configureren en gebruiken van identiteiten voor een Azure-resources op een Azure-VM, met een Azure-SDK.
 services: active-directory
 documentationcenter: ''
 author: daveba
@@ -14,39 +14,37 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/28/2017
 ms.author: daveba
-ms.openlocfilehash: 2763c78d309f5a90d68429caa46581e50f8b4303
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 80368c6e6e879478df98d5c0740d60fa59703f2d
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257657"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338382"
 ---
-# <a name="configure-a-vm-managed-service-identity-using-an-azure-sdk"></a>De identiteit van een VM-Managed-Service met behulp van een Azure-SDK configureren
+# <a name="configure-a-vm-with-managed-identities-for-azure-resources-using-an-azure-sdk"></a>Een VM met beheerde identiteiten voor Azure-resources met behulp van een Azure-SDK configureren
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Beheerde Service-identiteit biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory (AD). U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
+Beheerde identiteiten voor Azure-resources biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory (AD). U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
 
-In dit artikel leert u hoe u inschakelen en verwijderen van de beheerde Service-identiteit voor een Azure-VM met een Azure-SDK.
+In dit artikel leert u hoe u inschakelen en verwijderen van beheerde identiteiten voor Azure-resources voor een Azure-VM met een Azure-SDK.
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-## <a name="azure-sdks-with-managed-service-identity-support"></a>Azure SDK's met ondersteuning voor beheerde Service-identiteit 
+## <a name="azure-sdks-with-managed-identities-for-azure-resources-support"></a>Ondersteuning voor Azure-SDK's met beheerde identiteiten voor Azure-resources 
 
-Azure biedt ondersteuning voor meerdere programmeertalen platforms via een reeks [Azure-SDK's](https://azure.microsoft.com/downloads). Meerdere zijn bijgewerkt voor de ondersteuning van beheerde Service-identiteit en bijbehorende voorbeelden om te demonstreren gebruik opgeven. Deze lijst wordt bijgewerkt wanneer aanvullende ondersteuning wordt toegevoegd:
+Azure biedt ondersteuning voor meerdere programmeertalen platforms via een reeks [Azure-SDK's](https://azure.microsoft.com/downloads). Meerdere zijn bijgewerkt voor de ondersteuning van beheerde identiteiten voor Azure-resources, en bijbehorende voorbeelden om te demonstreren gebruik opgeven. Deze lijst wordt bijgewerkt wanneer aanvullende ondersteuning wordt toegevoegd:
 
 | SDK | Voorbeeld |
 | --- | ------ | 
-| .NET   | [Resource beheren vanaf een VM MSI-ingeschakeld](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
-| Java   | [Opslag beheren met een VM MSI-ingeschakeld](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
-| Node.js| [Een virtuele machine met ingeschakelde MSI maken](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
-| Python | [Een virtuele machine met ingeschakelde MSI maken](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
-| Ruby   | [Azure virtuele machine maken met een MSI-bestand](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
+| .NET   | [Resource beheren van een virtuele machine ingeschakeld met beheerde identiteiten voor Azure-resources ingeschakeld](https://azure.microsoft.com/resources/samples/aad-dotnet-manage-resources-from-vm-with-msi/) |
+| Java   | [Opslag van een virtuele machine ingeschakeld met beheerde identiteiten voor Azure-resources beheren](https://azure.microsoft.com/resources/samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group/)|
+| Node.js| [Een virtuele machine maken met het systeem toegewezen beheerde identiteit ingeschakeld](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
+| Python | [Een virtuele machine maken met het systeem toegewezen beheerde identiteit ingeschakeld](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
+| Ruby   | [Azure virtuele machine maken met een door het systeem toegewezen identiteit die is ingeschakeld](https://azure.microsoft.com/resources/samples/compute-ruby-msi-vm/) |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie Verwante artikelen onder 'configureren beheerde Service-identiteit voor een Azure-VM", voor meer informatie over hoe u kunt de Azure portal, PowerShell, CLI en resource-sjablonen ook gebruiken.
-
-Gebruik de volgende sectie met opmerkingen uw feedback en help ons verfijnen en vorm van onze inhoud.
+- Zie Verwante artikelen onder **identiteit configureren voor een Azure-VM**, voor meer informatie over hoe u ook de Azure portal, PowerShell, CLI en resource-sjablonen kunt gebruiken.

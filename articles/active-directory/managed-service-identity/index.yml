@@ -1,16 +1,16 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: d3be19c67027746ddb73cf2cd9b4545584fd3ce0
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: ccc508b8dbfb990639abe24efa2822ff27f2f910
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389778"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43341561"
 documentType: LandingData
-title: Documentatie over de Managed Service Identity in Azure Active Directory
+title: Documentatie over in Azure AD beheerde identiteiten voor Azure-resources
 metadata:
   document_id: 
-  title: Documentatie over de Managed Service Identity in Azure Active Directory
-  description: Leer hoe u Managed Service Identity kunt gebruiken voor veilige verificatie bij Azure Cloud-services zonder dat u de referenties in uw broncode hoeft te bewaren.
+  title: Documentatie over in Azure AD beheerde identiteiten voor Azure-resources
+  description: Leer hoe u beheerde identiteiten voor Azure-resources kunt gebruiken voor veilige verificatie bij Azure-cloudservices zonder dat u de referenties in uw broncode hoeft te bewaren.
   services: active-directory
   ms.component: msi
   author: daveba
@@ -22,21 +22,21 @@ metadata:
   ms.date: 03/16/2018
   ms.author: daveba
 abstract:
-  description: Managed Service Identity levert Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, zonder dat u referenties in uw code hoeft te hebben.  Leer aan de hand van onze snelstarts en zelfstudies hoe u Managed Service Identities maakt en beheert.
+  description: Beheerde identiteiten voor Azure-resources bieden Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, zonder dat u referenties in uw code hoeft te hebben.  Leer aan de hand van onze snelstarts en zelfstudies hoe u beheerde identiteiten voor Azure-resources maakt en beheert.
   aside:
     image:
       alt: 
       height: 112
       src: media/index/video-thumb-landing-page.png
       width: 200
-    title: Kennismaking met Managed Service Identity
+    title: Inleiding tot beheerde identiteiten voor Azure-resources
     href: https://www.youtube.com/embed/bBi1bll2928
     width: 200
 sections:
 - title: QuickStarts van vijf minuten
   items:
   - type: paragraph
-    text: Leer hoe u Managed Service Identity gebruikt om toegang te krijgen tot de Azure Resource Manager-API
+    text: Leer hoe u beheerde identiteiten voor Azure-resources gebruikt om toegang te krijgen tot de Azure Resource Manager-API
   - type: list
     style: unordered
     items:
@@ -45,7 +45,7 @@ sections:
 - title: Zelfstudies met stapsgewijze instructies
   items:
   - type: paragraph
-    text: Leer hoe u Managed Service Identity gebruikt om veilig toegang te krijgen tot Azure-resources
+    text: Leer hoe u beheerde identiteiten voor Azure-resources gebruikt om veilig toegang te krijgen tot Azure-resources
   - type: paragraph
     text: Windows-VM/VMSS
   - type: list
