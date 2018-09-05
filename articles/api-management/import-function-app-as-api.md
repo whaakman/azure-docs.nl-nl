@@ -1,9 +1,9 @@
 ---
-title: Een Azure Functions-app als API importeren in Azure Portal | Microsoft Docs
-description: Deze zelfstudie laat zien hoe u Azure API Management moet gebruiken om een Azure Functions-app als API te importeren.
+title: Een Azure-functie-app als API importeren in Azure API Management | Microsoft Docs
+description: Deze zelfstudie laat zien hoe u een Azure-functie-app importeert in Azure API Management als API.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,100 +11,168 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 07/15/2018
+ms.date: 08/28/2018
 ms.author: apimpm
-ms.openlocfilehash: 670fa58de7155028b0f72f1f819b9f269e07b9eb
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: ea6078088417099045006f81dcaf1f769bbd64d7
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39239049"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43246812"
 ---
-# <a name="import-an-azure-functions-app-as-an-api"></a>Een Azure Functions-app als API importeren
+# <a name="import-an-azure-function-app-as-an-api-in-azure-api-management"></a>Een Azure-functie-app als API importeren in Azure API Management
 
-In dit artikel wordt uitgelegd hoe u een Azure Functions-app als API importeert. In het artikel wordt ook uitgelegd hoe u de Azure API Management-API kunt testen.
+Azure API Management biedt ondersteuning voor het importeren van Azure-functie-apps als nieuwe API's of het toevoegen hiervan aan bestaande API's. Er wordt automatisch een hostsleutel gegenereerd in de Azure-functie-app, die vervolgens wordt toegewezen aan een benoemde waarde in Azure API Management.
 
-In dit artikel leert u het volgende:
+In dit artikel wordt stapsgewijs het importeren van een Azure-functie-app als API in Azure API Management beschreven. Ook wordt het testproces beschreven.
+
+U leert het volgende:
 
 > [!div class="checklist"]
-> * Een Functions-app als API importeren
+> * Een Azure-functie-app als API importeren
+> * Een Azure-functie-app toevoegen aan een API
+> * De nieuwe hostsleutel van de Azure-functie-app en de benoemde waarde van Azure API Management weergeven
 > * De API testen in Azure Portal
 > * De API testen in de ontwikkelaarsportal
 
 ## <a name="prerequisites"></a>Vereisten
 
-+ Lees de snelstart [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
-+ Controleer of er een Azure Functions-app in uw abonnement aanwezig is. Zie [Een functie-app maken](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) voor meer informatie.
-+ [Maak een OpenAPI-definitie](../azure-functions/functions-openapi-definition.md) van uw Azure Functions-app.
+* Lees de snelstart [Een Azure API Management-exemplaar maken](get-started-create-service-instance.md).
+* Controleer of er een Azure Functions-app in uw abonnement aanwezig is. Zie [Een Azure-functie-app maken](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) voor meer informatie. Deze moet functies bevatten met HTTP-trigger en waarbij het verificatieniveau is ingesteld op *Anoniem* of *Functie*.
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-navigate-to-instance.md)]
 
-## <a name="create-api"></a>Een back-end-API importeren en publiceren
+## <a name="add-new-api-from-azure-function-app"></a> Een Azure-functie-app als nieuwe API importeren
 
-1. Selecteer **API's** onder **API MANAGEMENT**.
-2. Selecteer **Functions App** in de lijst **Add a new API**.
+Voer de volgende stappen uit om een nieuwe API te maken vanuit een Azure-functie-app.
 
-    ![Functions-app](./media/import-function-app-as-api/function-app-api.png)
-3. Selecteer **Bladeren** voor een overzicht van de Functions-apps in uw abonnement.
-4. Selecteer de app. API Management zoekt de swagger die is gekoppeld aan de geselecteerde app, haalt deze op en importeert deze. 
-5. Voeg een achtervoegsel toe van de URL voor de API. Het achtervoegsel is een naam die deze specifieke API in dit API Management-exemplaar identificeert. Het achtervoegsel moet uniek zijn in dit exemplaar van API Management.
-6. Publiceer de API door deze aan een product te koppelen. In dit geval wordt het product **Onbeperkt** gebruikt. Als u wilt dat de API wordt gepubliceerd en beschikbaar komt voor ontwikkelaars, voegt u de API aan een product toe. U kunt de API aan een product toevoegen wanneer u de API maakt. U kunt de API ook later toevoegen.
+1. Selecteer in uw **Azure API Management**-service-exemplaar de optie **API's** in het menu links.
 
-    Producten zijn koppelingen van een of meer API's. U kunt meerdere API's opnemen en deze beschikbaar stellen voor ontwikkelaars via de ontwikkelaarsportal. Ontwikkelaars moeten zich eerst abonneren op een product om toegang tot de API te krijgen. Wanneer een ontwikkelaar zich abonneert, ontvangt hij of zij een abonnementssleutel die toegang biedt tot elke API in het betreffende product. Als u het API Management-exemplaar hebt gemaakt, bent u een beheerder. Beheerders zijn standaard geabonneerd op elk product.
+2. Selecteer **Functie-app** in de lijst **Een nieuwe API toevoegen**.
 
-    Standaard wordt elk API Management-exemplaar geleverd met twee voorbeeldproducten:
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/add-01.png)
 
-    * **Starter**
-    * **Onbeperkt**   
-7. Selecteer **Maken**.
+3. Klik op **Bladeren** om functies voor het importeren te selecteren.
 
-## <a name="populate-azure-functions-keys-in-azure-api-management"></a>Azure Function-sleutels invullen in Azure API Management
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/add-02.png)
 
-Als de geïmporteerde Azure Functions-apps door sleutels worden beveiligd, worden er automatisch *benoemde waarden* voor de sleutels gemaakt. De vermeldingen worden niet door API Management met geheimen gevuld. Voltooi voor elke vermelding de volgende stappen:  
+4. Klik op de sectie **Functie-app** om te kiezen uit de lijst met beschikbare functie-apps.
 
-1. Selecteer het tabblad **Benoemde waarden** in het API Management-exemplaar.
-2. Selecteer een vermelding en selecteer vervolgens **Waarde weergeven** in de zijbalk.
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/add-03.png)
 
-    ![Benoemde waarden](./media/import-function-app-as-api/apim-named-values.png)
+5. Zoek de functie-app waarvan u functies wilt importeren, klik erop en druk op **Selecteren**.
 
-3. Als de tekst in het vak **Waarde** gelijk is aan **code for \<Azure Functions-naam\>**, gaat u naar **Functions Apps** en vervolgens naar **Functions**.
-4. Selecteer **Beheren** en kopieer de relevante sleutel, dus de sleutel die is gebaseerd op de verificatiemethode van uw app.
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/add-04.png)
 
-    ![Functions-app - Sleutels kopiëren](./media/import-function-app-as-api/azure-functions-app-keys.png)
+6. Selecteer de functies die u wilt importeren en klik op **Selecteren**.
 
-5. Plak de sleutel in het vak **Waarde** en selecteer **Opslaan**.
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/add-05.png)
 
-    ![Functions-app - Sleutelwaarden plakken](./media/import-function-app-as-api/apim-named-values-2.png)
+    > [!NOTE]
+    > U kunt alleen functies importeren die zijn gebaseerd op HTTP-trigger en waarbij het verificatieniveau is ingesteld op *Anoniem* of *Functie*.
 
-## <a name="test-the-new-api-management-api-in-the-azure-portal"></a>De nieuwe API Management-API testen in Azure Portal
+7. Bewerk zo nodig de vooraf ingevulde velden. Klik op **Create**.
+
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/add-06.png)
+
+## <a name="append-azure-function-app-to-api"></a> Een Azure-functie-app toevoegen aan een bestaande API
+
+Voer de volgende stappen uit om de Azure-functie-app toe te voegen aan een bestaande API.
+
+1. Selecteer in uw **Azure API Management**-service-exemplaar de optie **API's** in het menu links.
+
+2. Kies een API waarin u een Azure-functie-app wilt importeren. Klik op **...** en selecteer **Importeren** in het contextmenu.
+
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/append-01.png)
+
+3. Klik op de tegel **Functie-app**.
+
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/append-02.png)
+
+4. Klik in het pop-upvenster op **Bladeren**.
+
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/append-03.png)
+
+5. Klik op de sectie **Functie-app** om te kiezen uit de lijst met beschikbare functie-apps.
+
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/add-03.png)
+
+6. Zoek de functie-app waarvan u functies wilt importeren, klik erop en druk op **Selecteren**.
+
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/add-04.png)
+
+7. Selecteer de functies die u wilt importeren en klik op **Selecteren**.
+
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/add-05.png)
+
+8. Klik op **Import**.
+
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/append-04.png)
+
+## <a name="function-app-import-keys"></a> Gegenereerde hostsleutel van de Azure-functie-app
+
+Bij het importeren van een Azure-functie-app wordt automatisch het volgende gegenereerd:
+* hostsleutel binnen de functie-app met de naam apim-{*de naam van uw Azure API Management service-exemplaar*},
+* de benoemde waarde binnen het Azure API Management-exemplaar met de naam {*de naam van uw exemplaar van Azure-functie-app*}-key, die de gemaakte hostsleutel bevat.
+
+> [!WARNING]
+> Als de waarde van de hostsleutel van de Azure-functie-app of de benoemde waarde van Azure API Management wordt verwijderd of gewijzigd, wordt de communicatie tussen de services verbroken. De waarden worden niet automatisch gesynchroniseerd.
+>
+> Als u de hostsleutel wilt verwisselen, moet u de benoemde waarde ook wijzigen in Azure API Management.
+
+### <a name="access-azure-function-app-host-key"></a>De hostsleutel van de Azure-functie-app openen
+
+1. Navigeer naar uw exemplaar van Azure-functie-app.
+
+2. Selecteer **Instellingen voor functie-apps** in het overzicht.
+
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/keys-02-a.png)
+
+3. De sleutel bevindt zich in de sectie **Hostsleutels**.
+
+    ![Toevoegen vanuit functie-app](./media/import-function-app-as-api/keys-02-b.png)
+
+### <a name="access-the-named-value-in-azure-api-management"></a>De benoemde waarde in Azure API Management openen
+
+Navigeer naar uw Azure API Management-exemplaar en selecteer **Benoemde waarden** in het menu links. De sleutel van de Azure-functie-app is daar opgeslagen.
+
+![Toevoegen vanuit functie-app](./media/import-function-app-as-api/keys-01.png)
+
+## <a name="test-in-azure-portal"></a> De nieuwe API Management-API testen in Azure Portal
 
 U kunt bewerkingen rechtstreeks vanuit Azure Portal aanroepen. In Azure Portal kunt u de bewerkingen van een API gemakkelijk bekijken en testen.  
 
 1. Selecteer de API die u in de voorgaande sectie hebt gemaakt.
+
 2. Selecteer het tabblad **Testen**.
+
 3. Selecteer een bewerking.
 
     De pagina geeft velden weer voor queryparameters en velden voor de headers. Een van de headers is **Ocp-Apim-Subscription-Key** voor de abonnementssleutel van het product dat is gekoppeld aan deze API. Als u het API Management-exemplaar hebt gemaakt, bent u al een beheerder en wordt de sleutel dus automatisch ingevuld. 
+
 4. Selecteer **Verzenden**.
 
     Back-end reageert met **200 OK** en enkele gegevens.
 
-## <a name="call-operation"></a>Een bewerking aanroepen vanuit de ontwikkelaarsportal
+## <a name="test-in-developer-portal"></a> Een bewerking aanroepen vanuit de ontwikkelaarsportal
 
 U kunt ook bewerkingen aanroepen vanuit de ontwikkelaarsportal om API's te testen. 
 
 1. Selecteer de API die u hebt gemaakt in [Een back-end-API importeren en publiceren](#create-api).
+
 2. Selecteer **Ontwikkelaarsportal**.
 
     De site voor de ontwikkelaarsportal wordt geopend.
+
 3. Selecteer de **API** die u hebt gemaakt.
+
 4. Selecteer de bewerking die u wilt testen.
+
 5. Selecteer **Probeer het nu**.
+
 6. Selecteer **Verzenden**.
     
     Nadat een bewerking is aangeroepen, worden in de ontwikkelaarsportal de **antwoordstatus**, de **antwoordheaders** en eventuele **antwoordinhoud** weergegeven.
-
-[!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
 [!INCLUDE [api-management-define-api-topics.md](../../includes/api-management-define-api-topics.md)]
 

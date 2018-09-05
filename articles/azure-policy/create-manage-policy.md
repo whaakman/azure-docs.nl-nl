@@ -4,17 +4,17 @@ description: Azure Policy gebruiken om standaarden af te dwingen, te voldoen aan
 services: azure-policy
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 07/13/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: azure-policy
 ms.custom: mvc
 manager: carmonm
-ms.openlocfilehash: b8ac93da2f0dd4099ab1aa2df93e5d979ecdd285
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 68ee6b64baf4284bbd0977e82fc473a58a59874c
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049741"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42813421"
 ---
 # <a name="create-and-manage-policies-to-enforce-compliance"></a>Beleidsregels voor het afdwingen van naleving maken en beheren
 
@@ -36,26 +36,26 @@ De eerste stap bij het afdwingen van naleving met Azure Policy bestaat uit het t
 
    ![Zoeken naar beleid](media/create-manage-policy/search-policy.png)
 
-2. Selecteer **Toewijzingen** in het linkerdeelvenster van de Azure Policy-pagina. Een toewijzing is een beleid dat is toegewezen om te worden toegepast binnen een bepaald bereik.
-3. Selecteer **Beleid toewijzen** boven in de pagina **Beleidstoewijzingen**.
+1. Selecteer **Toewijzingen** in het linkerdeelvenster van de Azure Policy-pagina. Een toewijzing is een beleid dat is toegewezen om te worden toegepast binnen een bepaald bereik.
+1. Selecteer **Beleid toewijzen** boven in de pagina **Beleidstoewijzingen**.
 
    ![Een beleidsdefinitie toewijzen](media/create-manage-policy/select-assign-policy.png)
 
-4. Selecteer op de pagina **Beleid toewijzen** het **Bereik** door te klikken op het weglatingsteken en een abonnement (vereist) en resourcegroep (optioneel) te selecteren. Het bereik bepaalt op welke resources of groep resources de beleidstoewijzing wordt afgedwongen.  Klik vervolgens op **Selecteren** aan de onderkant van de pagina **Bereik**.
+1. Selecteer op de pagina **Beleid toewijzen** het **Bereik** door te klikken op het weglatingsteken en een abonnement (vereist) en resourcegroep (optioneel) te selecteren. Het bereik bepaalt op welke resources of groep resources de beleidstoewijzing wordt afgedwongen.  Klik vervolgens op **Selecteren** aan de onderkant van de pagina **Bereik**.
 
    In dit voorbeeld wordt het **Contoso-abonnement** gebruikt. U hebt waarschijnlijk een ander abonnement.
 
-5. Als u een of meer resourcegroepen (als u alleen binnen het bereik van een abonnement blijft) of specifieke resources binnen een resourcegroep (in beide gevallen van het bereik) wilt uitsluiten, kunt u **uitsluitingen** configureren vanuit de beleidstoewijzing. Laat dit voorlopig leeg.
+1. Als u een of meer resourcegroepen (als u alleen binnen het bereik van een abonnement blijft) of specifieke resources binnen een resourcegroep (in beide gevallen van het bereik) wilt uitsluiten, kunt u **uitsluitingen** configureren vanuit de beleidstoewijzing. Laat dit voorlopig leeg.
 
-6. Selecteer het weglatingsteken **Beleidsdefinitie** om de lijst van beschikbare definities te openen. U kunt het **Type** van de beleidsdefinitie filteren op *Ingebouwd* om alles te bekijken en de beschrijvingen te lezen.
+1. Selecteer het weglatingsteken **Beleidsdefinitie** om de lijst van beschikbare definities te openen. U kunt het **Type** van de beleidsdefinitie filteren op *Ingebouwd* om alles te bekijken en de beschrijvingen te lezen.
 
-7. Selecteer **SQL Server-versie 12.0 vereisen**. Als u dit niet meteen kunt vinden, typt u **SQL Server-versie 12.0 vereisen** in het zoekvak en drukt u op Enter, of u klikt weg uit het zoekvak. Klik op **Selecteer** aan de onderkant van de pagina **Beschikbare definities** zodra u de beleidsdefinitie hebt gevonden en geselecteerd.
+1. Selecteer **SQL Server-versie 12.0 vereisen**. Als u dit niet meteen kunt vinden, typt u **SQL Server-versie 12.0 vereisen** in het zoekvak en drukt u op Enter, of u klikt weg uit het zoekvak. Klik op **Selecteer** aan de onderkant van de pagina **Beschikbare definities** zodra u de beleidsdefinitie hebt gevonden en geselecteerd.
 
    ![Een beleid zoeken](media/create-manage-policy/select-available-definition.png)
 
-8. De **Toewijzingsnaam** wordt automatisch ingevuld met de naam van het beleid dat u hebt geselecteerd, maar u kunt dit wijzigen. In dit voorbeeld houden we *SQL Server-versie 12.0 vereisen*. U kunt ook een optionele **Beschrijving** opgeven. De beschrijving bevat details over deze beleidstoewijzing.
+1. De **Toewijzingsnaam** wordt automatisch ingevuld met de naam van het beleid dat u hebt geselecteerd, maar u kunt dit wijzigen. In dit voorbeeld houden we *SQL Server-versie 12.0 vereisen*. U kunt ook een optionele **Beschrijving** opgeven. De beschrijving bevat details over deze beleidstoewijzing.
 
-9. Klik op **Toewijzen**.
+1. Klik op **Toewijzen**.
 
 ## <a name="implement-a-new-custom-policy"></a>Een nieuw aangepast beleid implementeren
 
@@ -65,8 +65,8 @@ Nu u een ingebouwde beleidsdefinitie hebt toegewezen, kunt u meer kunt doen met 
 
    ![Definitie onder Ontwerpen](media/create-manage-policy/definition-under-authoring.png)
 
-2. Selecteer **+ Beleidsdefinitie** bovenaan de pagina. Hiermee opent u de pagina **Beleidsdefinitie**.
-3. Voer het volgende in:
+1. Selecteer **+ Beleidsdefinitie** bovenaan de pagina. Hiermee opent u de pagina **Beleidsdefinitie**.
+1. Voer het volgende in:
 
    - De beheergroep of het abonnement waarin de beleidsdefinitie is opgeslagen. Selecteer met behulp van het weglatingsteken **Definitielocatie**.
 
@@ -108,7 +108,7 @@ Nu u een ingebouwde beleidsdefinitie hebt toegewezen, kunt u meer kunt doen met 
 
     Meer Azure Policy-voorbeelden vindt u in [Sjablonen voor Azure-beleid](json-samples.md).
 
-4. Selecteer **Opslaan**.
+1. Selecteer **Opslaan**.
 
 ## <a name="create-a-policy-definition-with-rest-api"></a>Een beleidsdefinitie maken met de REST API
 
@@ -247,7 +247,7 @@ Get-AzureRmPolicyDefinition
 
 Hiermee worden alle beschikbare beleidsdefinities geretourneerd, inclusief ingebouwd beleid. Elk beleid wordt geretourneerd in de volgende indeling:
 
-```
+```output
 Name               : e56962a6-4747-49cd-b67b-bf8b01975c4c
 ResourceId         : /providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c
 ResourceName       : e56962a6-4747-49cd-b67b-bf8b01975c4c
@@ -327,19 +327,19 @@ Met een initiatiefdefinitie kunt u verschillende beleidsdefinities groeperen om 
 
    ![Definities selecteren](media/create-manage-policy/select-definitions.png)
 
-2. Selecteer **+ Initiatiefdefinitie** bovenaan de pagina. U gaat dan naar de pagina **Initiatiefdefinitie**.
+1. Selecteer **+ Initiatiefdefinitie** bovenaan de pagina. U gaat dan naar de pagina **Initiatiefdefinitie**.
 
    ![Initiatiefdefinitie](media/create-manage-policy/initiative-definition.png)
 
-3. Gebruik **Definitielocatie** om een abonnement voor het opslaan van de definitie te selecteren.
+1. Gebruik **Definitielocatie** om een beheergroep of abonnement voor het opslaan van de definitie te selecteren.
 
-4. Voer de **naam** en **beschrijving** van het initiatief in.
+1. Voer de **naam** en **beschrijving** van het initiatief in.
 
    In dit voorbeeld moet ervoor worden gezorgd dat resources voldoen aan beleidsdefinities over veilig worden. De naam van het initiatief wordt dus **Beveiligen** en de beschrijving is: **Dit initiatief is gemaakt voor het afhandelen van alle beleidsregels die zijn gekoppeld aan het beveiligen van resources**.
 
-5. Kies voor **Categorie** uit bestaande opties of maak een nieuwe categorie.
+1. Kies voor **Categorie** uit bestaande opties of maak een nieuwe categorie.
 
-6. Blader door de lijst met **Beschikbare definities** (rechterhelft van de pagina **Initiatiefdefinitie**) en selecteer het beleidsdefinitie(s) die u wilt toevoegen aan dit initiatief. Voeg voor het initiatief **Veilig worden** de volgende ingebouwde beleidsdefinities toe door te klikken op de **+** naast de beleidsdefinitie-gegevens of door op een beleidsdefinitie-rij te klikken en vervolgens op de optie **+ Toevoegen** in de detailpagina:
+1. Blader door de lijst met **Beschikbare definities** (rechterhelft van de pagina **Initiatiefdefinitie**) en selecteer het beleidsdefinitie(s) die u wilt toevoegen aan dit initiatief. Voeg voor het initiatief **Veilig worden** de volgende ingebouwde beleidsdefinities toe door te klikken op de **+** naast de beleidsdefinitie-gegevens of door op een beleidsdefinitie-rij te klikken en vervolgens op de optie **+ Toevoegen** in de detailpagina:
    - SQL Server-versie 12.0 vereisen
    - [Preview]: Monitor unprotected web applications in Security Center.
    - [Preview]: Monitor permissive network across in Security Center.
@@ -350,13 +350,20 @@ Met een initiatiefdefinitie kunt u verschillende beleidsdefinities groeperen om 
 
    ![Initiatiefdefinities](media/create-manage-policy/initiative-definition-2.png)
 
-7. Klik op **Opslaan**.
+1. Als een beleidsdefinitie die aan het initiatief wordt toegevoegd, parameters heeft, worden deze weergegeven onder beleidsnaam in het gebied **BELEID EN PARAMETERS**. U kunt de _waarde_ instellen op Waarde instellen (in code vastgelegd voor alle toewijzingen van dit initiatief) of Initiatiefparameter gebruiken (wordt ingesteld bij elke toewijzing van een initiatief). Als Waarde instellen is geselecteerd, kunt u met de vervolgkeuzepijl rechts van _Waarden_ de gewenste waarde(n) invoeren of selecteren. Als Initiatiefparameter gebruiken is geselecteerd, wordt een nieuwe sectie **Initiatiefparameters** weergegeven waarin u de parameter kunt definiëren die wordt ingesteld tijdens de initiatieftoewijzing. Via de toegestane waarden voor deze initiatiefparameter kunt u verder beperken wat er mag worden ingesteld tijdens de initiatieftoewijzing.
+
+   ![Parameters van de initiatiefdefinitie](media/create-manage-policy/initiative-definition-3.png)
+
+   > [!NOTE]
+   > Voor sommige `strongType`-parameters kan de lijst met waarden niet automatisch worden bepaald. In deze gevallen wordt een beletselteken rechts van de parameterrij weergegeven. Als u hierop klikt, wordt de pagina Parameterbereik (&lt;parameternaam&gt;) geopend. Op deze pagina selecteert u het abonnement dat u wilt gebruiken om de waardeopties op te geven. Dit parameterbereik wordt alleen gebruikt tijdens het maken van de initiatiefdefinitie en heeft geen invloed op de evaluatie van het beleid of het bereik van het initiatief na het toewijzen.
+
+1. Klik op **Opslaan**.
 
 ### <a name="assign-an-initiative-definition"></a>Een initiatiefdefinitie maken
 
 1. Selecteer **Definities** onder **ONTWERPEN** aan de linkerkant van de pagina Azure Policy.
-2. Zoek de initiatiefdefinitie **Veilig worden** die u eerder hebt gemaakt en selecteer deze.
-3. Selecteer **Toewijzen** bovenaan de pagina om de pagina **Veilig worden: initiatief toewijzen** te openen.
+1. Zoek de initiatiefdefinitie **Veilig worden** die u eerder hebt gemaakt en selecteer deze.
+1. Selecteer **Toewijzen** bovenaan de pagina om de pagina **Veilig worden: initiatief toewijzen** te openen.
 
    ![Een definitie toewijzen](media/create-manage-policy/assign-definition.png)
 
@@ -364,14 +371,14 @@ Met een initiatiefdefinitie kunt u verschillende beleidsdefinities groeperen om 
 
    ![Klik met de rechtermuisknop op een rij](media/create-manage-policy/select-right-click.png)
 
-4. Vul het formulier **Veilig worden: definitie toewijzen** in door de volgende voorbeeldinformatie in te voeren. U kunt uw eigen gegevens gebruiken.
+1. Vul het formulier **Veilig worden: definitie toewijzen** in door de volgende voorbeeldinformatie in te voeren. U kunt uw eigen gegevens gebruiken.
 
    - Bereik: Het abonnement waarin u het initiatief hebt opgeslagen wordt de standaardwaarde.  U kunt het bereik wijzigen om het initiatief toe te wijzen aan een resourcegroep in de opslaglocatie van het abonnement.
    - Uitsluitingen: Configureer alle resources binnen het bereik om te voorkomen dat de initiatieftoewijzing erop wordt toegepast.
    - Initiatiefdefinitie en naam van de Toewijzing: Veilig worden (vooraf ingevuld als de naam van het initiatief dat wordt toegewezen).
    - Beschrijving: deze initiatieftoewijzing heeft als doel deze groep beleidsdefinities af te dwingen.
 
-5. Klik op **Toewijzen**.
+1. Klik op **Toewijzen**.
 
 ## <a name="exempt-a-non-compliant-or-denied-resource-using-exclusion"></a>Een bron die niet voldoet of wordt geweigerd uitsluiten met behulp van Uitsluiten
 
@@ -392,15 +399,15 @@ In dit voorbeeld was Trent Baker, een van Contoso's Sr. virtualisatie-specialist
 ### <a name="update-assignment-with-exclusion"></a>Toewijzing met uitsluiting bijwerken
 
 1. Selecteer **Toewijzingen** onder **ONTWERPEN** aan de linkerkant van de pagina Azure Policy.
-2. Blader door alle beleidstoewijzingen en open de toewijzing *SQL Server-versie 12.0 vereisen*.
-3. Stel de **Uitsluiting** in door te klikken op het weglatingsteken en het selecteren van de resourcegroep die u wilt uitsluiten, *SQLServers_Excluded* in dit voorbeeld.
+1. Blader door alle beleidstoewijzingen en open de toewijzing *SQL Server-versie 12.0 vereisen*.
+1. Stel de **Uitsluiting** in door te klikken op het weglatingsteken en het selecteren van de resourcegroep die u wilt uitsluiten, *SQLServers_Excluded* in dit voorbeeld.
 
    ![Uitsluiting aanvragen](media/create-manage-policy/request-exclusion.png)
 
    > [!NOTE]
    > Afhankelijk van het beleid en de invloed ervan, kan de uitsluiting ook worden toegekend aan specifieke resources binnen een resourcegroep binnen het bereik van de toewijzing. Als een **Weigeren**-effect is gebruikt in deze zelfstudie, zou het niet verstandig om de uitsluiting in te stellen op een specifieke resource die al bestaat.
 
-4. Klik op **Selecteren** en klik vervolgens op **Opslaan**.
+1. Klik op **Selecteren** en klik vervolgens op **Opslaan**.
 
 In deze sectie hebt u een geweigerde poging om een SQL-server te maken opgelost door een uitsluiting aan te maken voor een specifieke groep resources.
 
@@ -409,8 +416,8 @@ In deze sectie hebt u een geweigerde poging om een SQL-server te maken opgelost 
 Als u niet wilt doorgaan, gebruikt u de volgende stappen om alle bovenstaande toewijzingen of definities te verwijderen:
 
 1. Selecteer **Definities** (of **Toewijzingen** als u een toewijzing probeert te verwijderen) onder **ONTWERPEN** in het linkerdeelvenster van de Azure Policy-pagina.
-2. Zoek naar de nieuwe initiatief- of beleidsdefinitie (of toewijzing) die u zojuist hebt gemaakt.
-3. Klik met de rechtermuisknop op de rij of selecteer de weglatingstekens aan het einde van de definitie (of de toewijzing) en selecteer **Definitie verwijderen** (of **Toewijzing verwijderen**).
+1. Zoek naar de nieuwe initiatief- of beleidsdefinitie (of toewijzing) die u zojuist hebt gemaakt.
+1. Klik met de rechtermuisknop op de rij of selecteer de weglatingstekens aan het einde van de definitie (of de toewijzing) en selecteer **Definitie verwijderen** (of **Toewijzing verwijderen**).
 
 ## <a name="next-steps"></a>Volgende stappen
 

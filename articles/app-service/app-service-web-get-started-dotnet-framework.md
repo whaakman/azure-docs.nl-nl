@@ -1,6 +1,6 @@
 ---
-title: Een ASP.NET Framework-web-app maken in Azure | Microsoft Docs
-description: Leer hoe u web-apps uitvoert in Azure App Service door de standaard-ASP.NET-web-app te implementeren.
+title: Een C# ASP.NET Framework-web-app maken in Azure | Microsoft Docs
+description: Leer hoe u web-apps uitvoert in Azure App Service door de standaard C# ASP.NET-web-app te implementeren.
 services: app-service\web
 documentationcenter: ''
 author: cephalin
@@ -12,22 +12,21 @@ ms.workload: web
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 11/30/2017
+ms.date: 08/29/2018
 ms.author: cephalin
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 125377b91514b1615cfbb488f7ddfe59fbc016f5
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: f6f443dfe637e68b0e1e13f7c3b9e718ae48a85d
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43191304"
 ---
 # <a name="create-an-aspnet-framework-web-app-in-azure"></a>Een ASP.NET Framework-web-app maken in Azure
 
-[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze snelstart laat zien hoe uw eerste ASP.NET-web-app implementeert in Azure Web Apps. Als u klaar bent, hebt u een resourcegroep die bestaat uit een App Service-plan en een Azure-web-app met een geïmplementeerde webtoepassing.
+[Azure Web Apps](app-service-web-overview.md) biedt een uiterst schaalbare webhostingservice met self-patchfunctie.  Deze Quickstart laat zien hoe uw eerste ASP.NET-web-app implementeert in Azure Web Apps. Als u klaar bent, hebt u een resourcegroep die bestaat uit een App Service-plan en een Azure-web-app met een geïmplementeerde webtoepassing.
 
-Bekijk de video om de inhoud van deze snelstart in actie te zien en doorloop de stappen daarna zelf om uw eerste .NET-app op Azure te publiceren.
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
+![](./media/app-service-web-get-started-dotnet-framework/published-azure-web-app.png)
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -35,11 +34,7 @@ Bekijk de video om de inhoud van deze snelstart in actie te zien en doorloop de 
 
 Vereisten voor het voltooien van deze zelfstudie:
 
-* Installeer <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> met de volgende workloads:
-    - **ASP.NET- en web-ontwikkeling**
-    - **Azure-ontwikkeling**
-
-    ![ASP.NET- en web-ontwikkeling en Azure-ontwikkeling (onder Web en cloud)](media/app-service-web-tutorial-dotnet-sqldatabase/workloads.png)
+U moet <a href="https://www.visualstudio.com/downloads/" target="_blank">Visual Studio 2017</a> met de **ASP.NET- en webontwikkelworkload** installeren.
 
 Als u Visual Studio al hebt geïnstalleerd, voegt u de workloads toe in Visual Studio door te klikken op **Hulpprogramma's** > **Hulpprogramma's en functies ophalen**.
 
@@ -53,7 +48,7 @@ Geef de toepassing de naam _myFirstAzureWebApp_ en selecteer vervolgens **OK**.
    
 ![Het dialoogvenster Nieuw project](./media/app-service-web-get-started-dotnet-framework/new-project.png)
 
-U kunt elk type ASP.NET-web-app implementeren in Azure. Voor deze snelstart selecteert u de sjabloon **MVC** en stelt u de verificatie in op **Geen verificatie**.
+U kunt elk type ASP.NET-web-app implementeren in Azure. Voor deze Quickstart selecteert u de sjabloon **MVC** en stelt u de verificatie in op **Geen verificatie**.
       
 Selecteer **OK**.
 
@@ -107,7 +102,7 @@ Gebruik in het dialoogvenster **App Service-plan configureren** de instellingen 
 | Instelling | Voorgestelde waarde | Beschrijving |
 |-|-|-|
 |App Service-plan| myAppServicePlan | De naam van het App Service-plan. |
-| Locatie | West-Europa | Het datacenter waar de web-app wordt gehost. |
+| Locatie | Europa -west | Het datacenter waar de web-app wordt gehost. |
 | Grootte | Gratis | De [prijscategorie](https://azure.microsoft.com/pricing/details/app-service/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) bepaalt de hosting-functies. |
 
 Selecteer **OK**.
@@ -144,6 +139,7 @@ Zoek ergens bovenaan de HTML-tag `<div class="jumbotron">` en vervang het volled
 Als u opnieuw wilt implementeren naar Azure, klikt u in **Solution Explorer** met de rechtermuisknop op het project **myFirstAzureWebApp** en selecteert u **Publiceren**.
 
 Selecteer **Publiceren** op de publicatiepagina.
+![Pagina samenvatting publiceren in Visual Studio](./media/app-service-web-get-started-dotnet-framework/publish-summary-page.png)
 
 Als het publiceren is voltooid, start Visual Studio een browser waarin de URL van de web-app wordt geladen.
 
@@ -162,6 +158,12 @@ De pagina Overzicht van uw web-app wordt weergegeven. Hier kunt u algemene behee
 ![App Service-blade in Azure Portal](./media/app-service-web-get-started-dotnet-framework/web-app-blade.png)
 
 Het linkermenu bevat een aantal pagina's voor het configureren van uw app. 
+
+## <a name="video"></a>Video
+
+Bekijk de video om de inhoud van deze snelstartgids in actie te zien en doorloop de stappen daarna zelf om uw eerste .NET-app op Azure te publiceren.
+
+> [!VIDEO https://channel9.msdn.com/Shows/Azure-for-NET-Developers/Create-a-NET-app-in-Azure-Quickstart/player]
 
 [!INCLUDE [Clean-up section](../../includes/clean-up-section-portal.md)]
 

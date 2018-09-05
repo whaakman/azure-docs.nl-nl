@@ -14,12 +14,12 @@ ms.tgt_pltfrm: ASP.NET
 ms.workload: tbd
 ms.date: 06/13/2018
 ms.author: wesmc
-ms.openlocfilehash: 4c34bd10768ab7acf4700b29386d3a71532490db
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cf47b2d6bd17fa5a9f7cbe98ab7db2799f6e8287
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38674849"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42916297"
 ---
 # <a name="quickstart-create-a-chat-room-with-signalr-service"></a>Snelstart: Een chatruimte maken met de SignalR-service
 
@@ -93,15 +93,20 @@ In dit gedeelte voegt u het [hulpprogramma Secret Manager](https://docs.microsof
 
         dotnet restore
 
-3. Voeg een geheim met de naam *Azure__SignalR__ConnectionString* toe aan Secret Manager. Dit geheim is een hiërarchische configuratiewaarde en een dubbele punt (:) werkt mogelijk niet op alle platforms. Het dubbele onderstrepingsteken (__) dat in dit geheim wordt gebruikt, wordt ondersteund op alle platforms.  Dit geheim bevat straks de verbindingsreeks voor toegang tot de resource van de SignalR-service. *Azure__SignalR__ConnectionString* is de standaardconfiguratiesleutel waarnaar met SignalR wordt gezocht om een verbinding tot stand te brengen. Vervang de waarde in de onderstaande opdracht door de verbindingsreeks voor de resource van de SignalR-service.
+3. Voeg een geheim met de naam *Azure:SignalR:ConnectionString* toe aan Secret Manager. 
+
+    Dit geheim bevat straks de verbindingsreeks voor toegang tot de resource van de SignalR-service. *Azure:SignalR:ConnectionString* is de configuratiesleutel waarnaar SignalR standaard zoekt om een verbinding tot stand brengen. Vervang de waarde in de onderstaande opdracht door de verbindingsreeks voor de resource van de SignalR-service.
 
     Deze opdracht moet worden uitgevoerd in de map met het bestand *.csproj*.
 
     ```
-    dotnet user-secrets set Azure__SignalR__ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
+    dotnet user-secrets set Azure:SignalR:ConnectionString "Endpoint=<Your endpoint>;AccessKey=<Your access key>;"    
     ```
 
     Secret Manager wordt alleen gebruikt om de web-app te testen terwijl deze lokaal wordt gehost. In een latere zelfstudie gaat u de web-app voor de chatruimte implementeren in Azure. Als dat is gebeurd, gebruikt u een toepassingsinstelling in plaats van de verbindingsreeks op te slaan met Secret Manager.
+
+    Dit geheim is toegankelijk met de configuratie-API. Een dubbele punt (:) werkt in de configuratienaam met de configuratie-API op alle ondersteunde platforms, zie [Configuratie per omgeving](https://docs.microsoft.com/aspnet/core/fundamentals/configuration/index?tabs=basicconfiguration&view=aspnetcore-2.0#configuration-by-environment). 
+
 
 4. Open *Startup.cs* en werk de methode `ConfigureServices` bij voor het gebruik van de Azure SignalR-service door de methode `services.AddSignalR().AddAzureSignalR()` aan te roepen:
 
@@ -113,7 +118,7 @@ In dit gedeelte voegt u het [hulpprogramma Secret Manager](https://docs.microsof
     }
     ```
 
-    Omdat er geen parameter wordt doorgegeven aan `AddAzureSignalR()`, wordt in deze code de standaardconfiguratiesleutel *Azure__SignalR__ConnectionString* gebruikt voor de resourceverbindingsreeks van de SignalR-service.
+    Doordat er geen parameter wordt doorgegeven voor `AddAzureSignalR()`, wordt in deze code de standaardconfiguratiesleutel *Azure:SignalR:ConnectionString* gebruikt voor de verbindingsreeks voor de resource van de SignalR-service.
 
 5. Verder moet u in *Startup.cs* de methode `Configure` bijwerken door de aanroep van `app.UseStaticFiles()` te vervangen door de onderstaande code. Sla het bestand vervolgens op.
 
@@ -251,7 +256,7 @@ Als u niet verder wilt met de snelstart, kunt u de Azure-resources verwijderen d
 > 
 > 
 
-Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
 
 Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...**. In de instructies voor deze snelstart is een resourcegroep met de naam *SignalRTestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
 

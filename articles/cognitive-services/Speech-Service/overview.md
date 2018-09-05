@@ -1,88 +1,117 @@
 ---
-title: Wat is de spraakservice (preview)?
-description: 'De spraak-service, onderdeel van de Microsoft Cognitive Services, koppelt zijn verschillende Azure speech services die eerder beschikbaar afzonderlijk waren netwerk: Bing Speech (die bestaat uit spraakherkenning en tekst naar spraak), aangepaste spraak en Spraakomzetting.'
+title: Wat is de Speech-service (preview-versie)?
+description: "De Speech-service, onderdeel van Microsoft's Cognitive Services, verenigt verschillende Azure-spraakservices die voorheen afzonderlijk beschikbaar waren: Bing Speech (bestaande uit spraakherkenning en tekst-naar-spraak), Custom Speech en Spraakomzetting."
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
 ms.component: speech-service
-ms.topic: article
+ms.topic: overview
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 60ff2f71766a14af17ebb1cb9d20825976471296
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
-ms.translationtype: MT
+ms.openlocfilehash: 922320bb0b880e933b27025257e6a533fe257680
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41987576"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43091469"
 ---
-# <a name="what-is-the-speech-service-preview"></a>Wat is de spraakservice (preview)?
+# <a name="what-is-the-speech-service"></a>Wat is de Speech-service?
 
-De spraak-service biedt ontwikkelaars een eenvoudige manier om te krachtige functies voor spraak ingeschakelde toevoegen aan hun toepassingen met één abonnement. Uw apps kunnen nu voorzien van gesproken opdrachten, transcriptie, dicteren, spraaksynthese en spraakomzetting.
+De Speech-service verenigt de Azure-spraakfuncties die voorheen beschikbaar waren via de services [Bing Speech-API](https://docs.microsoft.com/azure/cognitive-services/speech/home), [Translator Speech](https://docs.microsoft.com/azure/cognitive-services/translator-speech/), [Custom Speech](https://docs.microsoft.com/azure/cognitive-services/custom-speech-service/cognitive-services-custom-speech-home) en [Custom Voice](http://customvoice.ai/). Eén abonnement biedt nu toegang tot al deze mogelijkheden.
 
-De spraak-service wordt mogelijk gemaakt door de technologieën die worden gebruikt in andere Microsoft-producten, met inbegrip van Cortana en Microsoft Office.
+Net zoals de andere Azure-spraakservices wordt de Speech-service mogelijk gemaakt door de bewezen spraaktechnologieën die worden gebruikt in producten zoals Cortana en Microsoft Office. U kunt rekenen op de kwaliteit van de resultaten en de betrouwbaarheid van de Azure-cloud.
 
 > [!NOTE]
-> De spraak-service is momenteel in openbare preview. Ga terug hier regelmatig op updates naar documentatie en voorbeelden van aanvullende code.
+> De Speech-service is momenteel beschikbaar als openbare preview-versie. Kom hier regelmatig terug voor documentatie-updates, nieuwe codevoorbeelden en meer.
 
-## <a name="speech-service-features"></a>Spraak-service-functies
+## <a name="main-speech-service-functions"></a>Belangrijkste functies van de Speech-service
 
-|Functie|Beschrijving|
+De primaire functies van de Speech-service zijn Spraak naar tekst (ook wel spraakherkenning of transcriptie genoemd), Tekst naar spraak (spraaksynthese) en Spraakomzetting.
+
+|Functie|Functies|
 |-|-|
-|[Spraak-naar-tekst](speech-to-text.md)| Transcribes audiostreams naar tekst die uw toepassing als invoer accepteren kunt. Ook worden geïntegreerd met de [Language Understanding service](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) worden afgeleid van de bedoeling van gebruikers van uitingen.|
-|[Tekst naar spraak](text-to-speech.md)| Converteert tekst zonder opmaak naar natuurlijk klinkende spraak, die worden geleverd aan uw toepassing in een geluidsbestand. Meerdere stemmen, variëren in geslacht of accent, zijn beschikbaar voor vele ondersteunde talen. |
-|[Spraakomzetting](speech-translation.md)| Kan worden gebruikt voor de omzetting van streaming audio in near-real-time of opgenomen spraak te verwerken. |
-|Aangepaste spraak-naar-tekst|U kunt de spraak-naar-tekst aanpassen door het maken van uw eigen [akoestische](how-to-customize-acoustic-models.md) en [taal](how-to-customize-language-model.md) -modellen en geven aangepaste [uitspraak](how-to-customize-pronunciation.md) regels. |
-|[Aangepaste tekst naar spraak](how-to-customize-voice-font.md)|U kunt uw eigen stemmen voor tekst naar spraak maken.|
-|[Spraak apparaten SDK](speech-devices-sdk.md)| Met de introductie van de geïntegreerde Speech-service bieden Microsoft en haar partners een geïntegreerde hardware/software-platform dat is geoptimaliseerd voor het ontwikkelen spraak ingeschakelde apparaten |
+|[Spraak naar tekst](speech-to-text.md)| <ul><li>Transcribeert continue realtime spraak naar tekst.<li>Kan spraak uit geluidsopnamen in batches transcriberen. <li>Biedt herkenningsmodi voor interactieve, conversationele en dicterende gebruiksscenario’s.<li>Ondersteunt tussenliggende resultaten, detectie van het einde van de spraak, automatische tekstopmaak en maskering van grof taalgebruik. <li>Kan [Language Understanding](https://docs.microsoft.com/azure/cognitive-services/luis/) (LUIS) gebruiken om de bedoeling van gebruikers af te leiden van getranscribeerde spraak.\*|
+|[Tekst naar spraak](text-to-speech.md)| <ul><li>Converteert tekst naar natuurlijk klinkende spraak. <li>Biedt meerdere geslachten en/of dialecten voor vele ondersteunde talen. <li>Ondersteunt de invoer van tekst zonder opmaak en Speech Synthesis Markup Language (SSML). |
+|[Spraakomzetting](speech-translation.md)| <ul><li>Vertaalt streaming audio vrijwel in realtime.<li> Kan ook opgenomen spraak verwerken.<li>Levert resultaten als tekst of gesynthetiseerde spraak. |
 
-## <a name="access-to-the-speech-service"></a>Toegang tot de spraak-service
+\* *Herkenning van bedoeling vereist een LUIS-abonnement.*
 
-De spraak-service is beschikbaar op twee manieren. [De SDK](speech-sdk.md) de details van de netwerkprotocollen voor vereenvoudigde ontwikkeling op ondersteunde platforms volledig weggewerkt. De [REST-API](rest-apis.md) werkt met elke programmeertaal, maar biedt niet alle functies die worden aangeboden door de SDK.
 
-|<br>Methode|Speech<br>naar tekst|Tekst die moet worden<br>Speech|Speech<br>Omzetting|<br>Beschrijving|
+## <a name="customizing-speech-features"></a>Spraakfuncties aanpassen
+
+Met de Speech-service kunt u uw eigen gegevens gebruiken om de onderliggende modellen van de functies Spraak naar tekst en Tekst naar spraak van de Speech-service te trainen. 
+
+|Functie|Model|Doel|
+|-|-|-|
+|Spraak naar tekst|[Akoestisch model](how-to-customize-acoustic-models.md)|Helpt bepaalde sprekers en omgevingen zoals auto’s of fabrieken te transcriberen|
+||[Taalmodel](how-to-customize-language-model.md)|Helpt veldspecifiek vocabulaire en grammatica zoals medisch of IT-jargon te transcriberen|
+||[Uitspraakmodel](how-to-customize-pronunciation.md)|Helpt afkortingen en acroniemen zoals ‘IOU’ voor ‘I owe you’ te transcriberen |
+|Tekst naar spraak|[Spraakstijl](how-to-customize-voice-font.md)|Geeft uw app zijn eigen stem door het model te trainen in voorbeelden van menselijke spraak.|
+
+Zodra uw aangepaste modellen zijn gemaakt, kunnen ze overal worden gebruikt waar u de standaardmodellen zou gebruiken in de functie Spraak naar tekst of Tekst naar spraak van uw app.
+
+
+## <a name="using-the-speech-service"></a>De Speech-service gebruiken
+
+Om de ontwikkeling van apps met spraakmogelijkheden te vereenvoudigen, biedt Microsoft de [Speech-SDK](speech-sdk.md) voor gebruik met de nieuwe Speech-service. De Speech-SDK biedt consistente systeemeigen API’s voor Spraak naar tekst en Spraakomzetting voor C#, C++ en Java. Als u met een van deze talen ontwikkelt, maakt de Speech-SDK het ontwikkelen gemakkelijker door de netwerkgegevens voor u te verwerken.
+
+De Speech-service heeft ook een [REST-API](rest-apis.md) die werkt met elke programmeertaal die HTTP-verzoeken kan indienen. De REST-interface biedt echter niet de streaming, realtime functionaliteit die de SDK biedt.
+
+|<br>Methode|Speech<br>naar tekst|Tekst naar<br>Speech|Speech<br>Omzetting|<br>Beschrijving|
 |-|-|-|-|-|
-|[SDK 's](speech-sdk.md)|Ja|Nee|Ja|Websocket-procotol die eenvoudiger maken gebruik van bibliotheken voor specifieke programmeertalen.|
-|[REST](rest-apis.md)|Ja|Ja|Nee|Een eenvoudige, door de HTTP-gebaseerde API waarmee u eenvoudig spraak toevoegen aan uw toepassing.|
+|[Speech-SDK](speech-sdk.md)|Ja|Nee|Ja|Systeemeigen API’s voor C#, C++ en Java om ontwikkeling te vereenvoudigen.|
+|[REST](rest-apis.md)|Ja|Ja|Nee|Een eenvoudige HTTP-gebaseerde API die het gemakkelijk maakt spraak aan uw apps toe te voegen.|
 
-## <a name="speech-scenarios"></a>Spraak-scenario 's
+### <a name="websockets"></a>WebSockets
 
-Enkele veelvoorkomende toepassingen van technologie voor spraak worden kort hieronder besproken. De [spraak SDK](speech-sdk.md) centraal staat in de meeste van deze scenario's.
+De Speech-service heeft ook WebSockets-protocollen om Spraak naar tekst en Spraakomzetting te streamen. De Speech-SDK’s gebruiken deze protocollen om met de Speech-service te communiceren. U moet de Speech-SDK gebruiken in plaats van uw eigen WebSockets-communicatie proberen te implementeren met de Speech-service.
+
+Als u echter al code hebt die Bing Speech of Translator Speech via WebSockets gebruikt, kan deze gemakkelijk worden bijgewerkt om de Speech-service te gebruiken. De WebSockets-protocollen zijn compatibel; alleen de eindpunten zijn anders.
+
+### <a name="speech-devices-sdk"></a>Speech Devices SDK
+
+De [Speech Devices SDK](speech-devices-sdk.md) is een geïntegreerd hardware- en softwareplatform voor ontwikkelaars van apparaten met spraakmogelijkheden. Onze hardwarepartner biedt referentieontwerpen en ontwikkelingseenheden. Microsoft biedt een apparaatgeoptimaliseerde SDK die de mogelijkheden van de hardware volledig benut.
+
+
+## <a name="speech-scenarios"></a>Spraakscenario's
+
+Gebruiksscenario’s voor de Speech-service omvatten:
 
 > [!div class="checklist"]
-> * Maak apps stem wordt geactiveerd
-> * Transcriberen call center-opnamen
-> * Stem bots implementeren
+> * Ontwikkeling van apps die reageren op stemmen
+> * Transcriptie van callcenteropnamen
+> * Implementatie van spraakbots
 
-### <a name="voice-triggered-apps"></a>Apps stem wordt geactiveerd
+### <a name="voice-user-interface"></a>Gebruikersinterface voor spraak
 
-Stem de invoer is een uitstekende manier om uw app maken voor flexibele, Handsfree en snel te gebruiken. Gebruikers kunnen alleen in een stem-app stellen voor de gegevens die ze willen in plaats van dat u hoeft te navigeren door te klikken of tikken.
+Spraakinvoer is een geweldige manier om uw app flexibel, handsfree en snel te gebruiken te maken. In een app met spraakmogelijkheden kunnen gebruikers gewoon om de gewenste informatie vragen in plaats van ernaar te moeten navigeren.
 
-Als uw app is bedoeld voor gebruik door het grote publiek, kunt u de basislijn spraakherkenning model geleverd door de Speech-service. Hiervoor wordt een goed in een groot aantal sprekers in de standaardomgevingen herkennen.
+Als uw app is bedoeld voor gebruik door het algemene publiek, kunt u de standaard spraakherkenningsmodellen gebruiken. Die zijn goed in het herkennen van vele verschillende sprekers in algemene omgevingen.
 
-Als uw app wordt gebruikt in een specifiek domein (bijvoorbeeld arts of IT), kunt u een [taalmodel](how-to-customize-language-model.md) om te leren van de spraakservice over de speciale terminologie die wordt gebruikt door uw app.
+Als uw app in een specifiek domein (bijvoorbeeld medisch of IT) zal worden gebruikt, kunt u een [taalmodel](how-to-customize-language-model.md) maken om de Speech-service de speciale terminologie aan te leren die door uw app wordt gebruikt.
 
-Als uw app wordt gebruikt in een ruis omgeving, zoals een fabriek, kunt u een aangepaste [akoestisch model](how-to-customize-acoustic-models.md) beter zodat de spraak-service voor spraak onderscheiden van de ruis.
+Als uw app in een lawaaierige omgeving (bijvoorbeeld een fabriek) zal worden gebruikt, kunt u een aangepast [akoestisch model](how-to-customize-acoustic-models.md) maken om de Speech-service spraak en lawaai beter te kunnen laten onderscheiden.
 
-Aan de slag is net zo gemakkelijk als het downloaden van de [spraak SDK](speech-sdk.md) en relevante [snelstartgids](quickstart-csharp-dotnet-windows.md) artikel.
+Om aan de slag te gaan, downloadt u gewoon de [Speech-SDK](speech-sdk.md) en leest u een relevant [snelstartartikel](quickstart-csharp-dotnet-windows.md).
 
-### <a name="transcribe-call-center-recordings"></a>Transcriberen call center-opnamen
+### <a name="call-center-transcription"></a>Callcentertranscriptie
 
-Call center-opnamen zijn vaak alleen als er zich een probleem met een aanroep voordoet geraadpleegd. Met de Speech-service is het eenvoudig elke opnemen om tekst te transcriberen. Zodra ze tekst, kunt u deze eenvoudig indexeren [zoeken in volledige tekst](https://docs.microsoft.com/azure/search/search-what-is-azure-search) of toe te passen [Tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/) aan het sentiment, taal en sleuteltermen detecteren.
+Callcenteropnamen worden vaak alleen geraadpleegd als er tijdens het gesprek een probleem optreedt. Met de Speech-service kan elke opname gemakkelijk worden getranscribeerd naar tekst. Zodra opnamen in tekstvorm zijn, kunt u ze gemakkelijk indexeren voor [zoekopdrachten in volledige tekst](https://docs.microsoft.com/azure/search/search-what-is-azure-search) of [tekstanalyse](https://docs.microsoft.com/azure/cognitive-services/Text-Analytics/) toepassen om gevoel, taal en belangrijke woordgroepen te detecteren.
 
-Als uw call center-opnamen bevatten vaak gespecialiseerde terminologie (zoals productnamen of vaktermen IT), kunt u een [taalmodel](how-to-customize-language-model.md) om te leren van de spraakservice die vocabulaire. Een aangepaste [akoestisch model](how-to-customize-acoustic-models.md) help de spraakservice inzicht krijgt in minder dan optimale phone verbindingen.
+Als uw callcenteropnamen speciale terminologie (zoals productnamen of IT-jargon) bevatten, kunt u een [taalmodel](how-to-customize-language-model.md) maken om de Speech-service dat vocabulaire aan te leren. Een aangepast [akoestisch model](how-to-customize-acoustic-models.md) kan de Speech-service helpen niet zo goede telefoonverbindingen te begrijpen.
 
-Voor meer informatie over dit scenario, leest u meer over [batch transcriptie](batch-transcription.md) met de Speech-service.
+Voor meer informatie over dit scenario leest u meer over [batchtranscriptie](batch-transcription.md) met de Speech-service.
 
-### <a name="voice-bots"></a>Stem bots
+### <a name="voice-bots"></a>Spraakbots
 
-[Bots](https://dev.botframework.com/) een steeds populairder manier om verbinding te maken van gebruikers met de informatie die ze willen, en klanten met de bedrijven die hun keuze. Een conversatie gebruikersinterface aan uw website of app toe te voegen, kunt u de functionaliteit ervan gemakkelijker te vinden en sneller toegang tot. Met de Speech-service duurt dit gesprek op een nieuwe dimensie van fluency door daadwerkelijk te reageren op gesproken query's met kunstmatige spraak.
+[Bots](https://dev.botframework.com/) zijn een steeds populairdere manier om gebruikers te verbinden met de informatie die ze graag willen, en klanten met de bedrijven die ze graag gebruiken. Als u een conversationele gebruikersinterface aan uw website of app toevoegt, is de functionaliteit ervan gemakkelijker te vinden en sneller te gebruiken. Met de Speech-service wordt deze conversatie nóg vloeiender door te reageren op gesproken vragen.
 
-Als u wilt een unieke persoonlijkheid toevoegen aan uw bot spraak ingeschakeld (en Versterk uw merk), krijgt het een stem van een eigen. Het maken van een aangepaste gesproken is een proces in twee stappen. Eerste, u [maken van opnamen](record-custom-voice-samples.md) van de stem die u wilt gebruiken. U [verzenden die opnamen](how-to-customize-voice-font.md) (samen met een tekstversie) met de spraak-service [stem aanpassing portal](https://cris.ai/Home/CustomVoice), dat doet de rest. Als u uw aangepaste gesproken hebt gemaakt, is het eenvoudig te gebruiken in uw app.
+Door een unieke personaliteit aan uw bot met spraakmogelijkheden toe te voegen (en uw merk te versterken), kunt u deze een eigen stem geven. U kunt in twee stappen een aangepaste stem maken. Eerst [maakt u opnamen](record-custom-voice-samples.md) van de stem die u wilt gebruiken. Vervolgens [verzendt u die opnamen](how-to-customize-voice-font.md) (samen met een transcriptie) naar de [stemaanpassingsportal](https://cris.ai/Home/CustomVoice) van de Speech-service, die de rest doet. Zodra u uw aangepaste stem hebt gemaakt, kunt u deze gemakkelijk in uw app gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Een abonnementssleutel voor de service voor spraak ophalen.
+Verkrijg een abonnementssleutel voor de Speech-service.
 
 > [!div class="nextstepaction"]
-> [De spraak-service gratis uitproberen](get-started.md)
+> [Probeer de Speech-service gratis uit](get-started.md)

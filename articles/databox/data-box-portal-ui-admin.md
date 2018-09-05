@@ -1,5 +1,5 @@
 ---
-title: Beheerhandleiding voor de Azure Data Box-portal | Microsoft Docs
+title: Beheerhandleiding voor de Azure Data Box Disk-portal | Microsoft Docs
 description: Beschrijft hoe u de Azure-portal gebruikt om uw Azure Data Box te beheren.
 services: databox
 documentationcenter: NA
@@ -13,16 +13,16 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/10/2018
+ms.date: 08/28/2018
 ms.author: alkohli
-ms.openlocfilehash: c76d8bc6af808fd1257e44ad296e3e2d65b8695d
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: 7bf88a4e9d7af1033f014939d95783f9430dd84a
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39238111"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124960"
 ---
-# <a name="use-azure-portal-to-administer-your-data-box-preview"></a>De Azure-portal gebruiken om uw Data Box te beheren (preview)
+# <a name="use-azure-portal-to-administer-your-data-box-disk-preview"></a>De Azure-portal gebruiken om uw Data Box Disk te beheren (preview)
 
 De zelfstudies in dit artikel zijn van toepassing op de preview-versie van de Microsoft Azure Data Box Disk. In dit artikel worden enkele van de complexe werkstromen en beheertaken beschreven die kunnen worden uitgevoerd in de Data Box Disk. 
 

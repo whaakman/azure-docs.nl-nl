@@ -16,23 +16,33 @@ items:
   expanded: true
 - name: Zelfstudies
   items:
-  - name: Een Kubernetes-cluster maken met AKS en Terraform
-    href: terraform-create-k8s-cluster-with-tf-and-aks.md
-  - name: Terraform- en Azure-implementatiesites voor providers
-    href: terraform-slot-walkthru.md
-  - name: Een virtuele Terraform-machine met ingeschakelde MSI maken
-    href: terraform-vm-msi.md
-  - name: Een VM-cluster maken met Terraform-modules
-    href: terraform-create-vm-cluster-module.md
-  - name: Een VM-cluster maken met Terraform en HCL
-    href: terraform-create-vm-cluster-with-infrastructure.md
-  - name: Een VM-schaalset inrichten met infrastructuur
-    href: terraform-create-vm-scaleset-network-disks-hcl.md
-  - name: Een VM-schaalset inrichten op basis van een aangepaste Packer-installatiekopie
-    href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: App Service
+    items:
+    - name: Terraform- en Azure-implementatiesites voor providers
+      href: terraform-slot-walkthru.md
+  - name: Containers
+    items:
+    - name: Een Kubernetes-cluster maken met AKS en Terraform
+      href: terraform-create-k8s-cluster-with-tf-and-aks.md
+  - name: Infrastructuur
+    items:
+    - name: Een virtuele Terraform-machine met ingeschakelde MSI maken
+      href: terraform-vm-msi.md
+    - name: Een VM-cluster maken met Terraform-modules
+      href: terraform-create-vm-cluster-module.md
+    - name: Een VM-cluster maken met Terraform en HCL
+      href: terraform-create-vm-cluster-with-infrastructure.md
+    - name: Een VM-schaalset inrichten met infrastructuur
+      href: terraform-create-vm-scaleset-network-disks-hcl.md
+    - name: Een VM-schaalset inrichten op basis van een aangepaste Packer-installatiekopie
+      href: terraform-create-vm-scaleset-network-disks-using-packer-hcl.md
+  - name: Hulpprogramma's
+    items:
+    - name: De Terraform Visual Studio Code-extensie installeren
+      href: terraform-vscode-extension.md
 - name: Concepten
   items:
-  - name: Cloud Shell-integratie
+  - name: Azure Cloud Shell-integratie
     href: terraform-cloud-shell.md
 - name: Voorbeelden
   items:
@@ -44,17 +54,15 @@ items:
     href: https://registry.terraform.io/modules/Azure
   - name: Naslaginformatie voor Terraform
     href: http://aka.ms/terraform
-  - name: Azure Terraform VS Code-extensie
-    href: terraform-vscode-extension.md
 - name: Resources
   items:
   - name: Azure en Terraform
     href: https://azure.microsoft.com/solutions/devops/terraform/
   - name: Azure-roadmap
     href: https://azure.microsoft.com/roadmap/
-ms.openlocfilehash: 349348f2230005831c1ad68eb7f48dfaa8f4b78c
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e6c4637618d794f96db8ed9ca8eb063a62f704a1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "41928387"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663533"

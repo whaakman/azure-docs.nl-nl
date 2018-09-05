@@ -12,15 +12,15 @@ ms.devlang: multiple
 ms.topic: get-started-article
 ms.tgt_pltfrm: na
 ms.workload: big-compute
-ms.date: 04/06/2018
+ms.date: 08/22/2018
 ms.author: danlep
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d404e3a300a953ccc1cfb691cbde6f6d7ee54b26
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f1c933c9dcb3e3e2c2cb267073386d4b9c4e2022
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39216305"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42746015"
 ---
 # <a name="develop-large-scale-parallel-compute-solutions-with-batch"></a>Grootschalige parallelle rekenoplossingen ontwikkelen met Batch
 
@@ -288,7 +288,7 @@ Als een begintaak op een rekenknooppunt mislukt, wordt de status van het knooppu
 Als u de begintaak voor een bestaande pool toevoegt of bijwerkt, moet u de rekenknooppunten voor de begintaak opnieuw toepassen op de knooppunten.
 
 >[!NOTE]
-> De totale grootte van een begintaak moet kleiner zijn dan of gelijk zijn aan 32.768 tekens, inclusief bronbestanden en omgevingsvariabelen. Met een van de volgende twee benaderingen kunt u ervoor zorgen dat uw begintaak aan deze vereiste voldoet:
+> Batch beperkt de totale grootte van een begintaak, inclusief bronbestanden en omgevingsvariabelen. Als u de grootte van een begintaak wilt beperken, kunt u dat op twee manieren doen:
 >
 > 1. U kunt toepassingspakketten gebruiken om toepassingen of gegevens te distribueren naar elk knooppunt in de Batch-pool. Zie [Deploy applications to compute nodes with Batch application packages](batch-application-packages.md) (Toepassingen implementeren naar rekenknooppunten met Batch-toepassingspakketten) voor meer informatie over toepassingspakketten.
 > 2. U kunt handmatig een ZIP-archief maken dat uw toepassingsbestanden bevat. Upload het ZIP-archief als een blob naar Azure Storage. Geef het ZIP-archief op als bronbestand voor de begintaak. Voordat u de opdrachtregel voor de begintaak uitvoert, moet u het archief uitpakken vanaf de opdrachtregel. 

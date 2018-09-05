@@ -1,185 +1,194 @@
+items:
 - name: Documentatie voor Stream Analytics
   href: index.yml
 - name: Overzicht
   items:
-    - name: Wat is een Stream Analytics?
-      href: stream-analytics-introduction.md
+  - name: Wat is een Stream Analytics?
+    href: stream-analytics-introduction.md
 - name: Snelstartgidsen
   items:
-    - name: Een taak maken - Azure Portal
-      href: stream-analytics-quick-create-portal.md
-    - name: Een taak maken - PowerShell
-      href: stream-analytics-quick-create-powershell.md
-    - name: Een taak maken - Visual Studio
-      href: stream-analytics-quick-create-vs.md
+  - name: Een taak maken - Azure Portal
+    href: stream-analytics-quick-create-portal.md
+  - name: Een taak maken - PowerShell
+    href: stream-analytics-quick-create-powershell.md
+  - name: Een taak maken - Visual Studio
+    href: stream-analytics-quick-create-vs.md
 - name: Zelfstudies
   items:
-    - name: 1 - Een taak maken/beheren
-      href: stream-analytics-manage-job.md
-    - name: 2 - Azure Functions uitvoeren
-      href: stream-analytics-with-azure-functions.md
-    - name: 3 - Een JavaScript-UDF uitvoeren
-      href: stream-analytics-javascript-user-defined-functions.md
-    - name: 4 - Implementeren met CI/CD in VSTS
-      href: stream-analytics-tools-visual-studio-cicd-vsts.md
+  - name: 1 - Een taak maken/beheren
+    href: stream-analytics-manage-job.md
+  - name: 2 - Azure Functions uitvoeren
+    href: stream-analytics-with-azure-functions.md
+  - name: 3 - Een JavaScript-UDF uitvoeren
+    href: stream-analytics-javascript-user-defined-functions.md
+  - name: 4 - Implementeren met CI/CD in VSTS
+    href: stream-analytics-tools-visual-studio-cicd-vsts.md
 - name: Voorbeelden
   items:
-    - name: Codevoorbeelden
-      href: 'https://azure.microsoft.com/resources/samples/?service=stream-analytics'
+  - name: Codevoorbeelden
+    href: https://azure.microsoft.com/resources/samples/?service=stream-analytics
 - name: Concepten
   items:
-    - name: Invoertypen voor een taak
-      href: stream-analytics-add-inputs.md
-      items:
-        - name: Gegevensinvoer streamen
-          href: stream-analytics-define-inputs.md
-        - name: Verwijzen naar gegevensinvoer
-          href: stream-analytics-use-reference-data.md
-    - name: Uitvoertypen voor een taak
-      href: stream-analytics-define-outputs.md
-      items:
-        - name: Uitvoer naar Cosmos DB
-          href: stream-analytics-documentdb-output.md
-    - name: Vensterfuncties
-      href: stream-analytics-window-functions.md
-    - name: Compatibiliteitsniveau
-      href: stream-analytics-compatibility-level.md
-    - name: Veelvoorkomende querypatronen
-      href: stream-analytics-stream-analytics-query-patterns.md
-    - name: JSON en AVRO-gegevens parseren
-      href: stream-analytics-parsing-json.md
-    - name: Overwegingen over gebeurtenisvolgordes
-      href: stream-analytics-out-of-order-and-late-events.md
-    - name: Controlepunt en herhaling
-      href: stream-analytics-concepts-checkpoint-replay.md
-    - name: Foutbeleid
-      href: output-error-policy.md
+  - name: Invoertypen voor een taak
+    href: stream-analytics-add-inputs.md
+    items:
+    - name: Gegevensinvoer streamen
+      href: stream-analytics-define-inputs.md
+    - name: Verwijzen naar gegevensinvoer
+      href: stream-analytics-use-reference-data.md
+  - name: Uitvoertypen voor een taak
+    href: stream-analytics-define-outputs.md
+    items:
+    - name: Uitvoer naar Cosmos DB
+      href: stream-analytics-documentdb-output.md
+  - name: Vensterfuncties
+    href: stream-analytics-window-functions.md
+  - name: Georuimtelijke functies
+    href: stream-analytics-geospatial-functions.md
+  - name: Compatibiliteitsniveau
+    href: stream-analytics-compatibility-level.md
+  - name: Veelvoorkomende querypatronen
+    href: stream-analytics-stream-analytics-query-patterns.md
+  - name: JSON en AVRO-gegevens parseren
+    href: stream-analytics-parsing-json.md
+  - name: Overwegingen over gebeurtenisvolgordes
+    href: stream-analytics-out-of-order-and-late-events.md
+  - name: Controlepunt en herhaling
+    href: stream-analytics-concepts-checkpoint-replay.md
+  - name: Foutbeleid
+    href: output-error-policy.md
 - name: Handleidingen
   items:
-    - name: Beheren
+  - name: Beheren
+    items:
+    - name: Referenties bijwerken
+      href: stream-analytics-login-credentials-inputs-outputs.md
+    - name: Waarschuwingen configureren
+      href: stream-analytics-set-up-alerts.md
+    - name: Een taak testen
+      href: stream-analytics-test-query.md
+    - name: De resultaten bekijken in een dashboard
+      href: stream-analytics-power-bi-dashboard.md
+    - name: Een taak opschonen
+      href: stream-analytics-clean-up-your-job.md
+    - name: Taken koppelen voor betrouwbaarheid
+      href: stream-analytics-job-reliability.md
+  - name: Oplossingen bouwen
+    items:
+    - name: Twitter-sentimentanalyse
+      href: stream-analytics-twitter-sentiment-analysis-trends.md
+    - name: Fraudebewaking in realtime
+      href: stream-analytics-real-time-fraud-detection.md
+    - name: Taken uitvoeren in IoT Edge
+      href: stream-analytics-edge.md
+    - name: Analyse van de sensorgegevens van een tolloket
+      href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
+    - name: Een JavaScript-UDA uitvoeren
+      href: stream-analytics-javascript-user-defined-aggregates.md
+    - name: High-frequency trading
+      href: stream-analytics-high-frequency-trading.md
+    - name: IoT-gegevensstromen verwerken
+      href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
+    - name: Regels op basis van een drempelwaarde
+      href: stream-analytics-threshold-based-rules.md
+  - name: Controleren
+    items:
+    - name: Taken bewaken - Azure Portal
+      href: stream-analytics-monitoring.md
+    - name: Taken bewaken - PowerShell
+      href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
+    - name: Taken bewaken - Azure .Net SDK
+      href: stream-analytics-monitor-jobs.md
+    - name: Taken bewaken - Visual Studio
+      href: stream-analytics-monitor-jobs-use-vs.md
+  - name: Schalen
+    items:
+    - name: Schaal aanpassen met streaming-eenheden
+      href: stream-analytics-streaming-unit-consumption.md
+    - name: Schaal aanpassen met query-parallellisatie
+      href: stream-analytics-parallelization.md
       items:
-        - name: Referenties bijwerken
-          href: stream-analytics-login-credentials-inputs-outputs.md
-        - name: Waarschuwingen configureren
-          href: stream-analytics-set-up-alerts.md
-        - name: Een taak testen
-          href: stream-analytics-test-query.md
-        - name: De resultaten bekijken in een dashboard
-          href: stream-analytics-power-bi-dashboard.md
-        - name: Een taak opschonen
-          href: stream-analytics-clean-up-your-job.md
-        - name: Taken koppelen voor betrouwbaarheid
-          href: stream-analytics-job-reliability.md
-    - name: Oplossingen bouwen
-      items:
-        - name: Twitter-sentimentanalyse
-          href: stream-analytics-twitter-sentiment-analysis-trends.md
-        - name: Fraudebewaking in realtime
-          href: stream-analytics-real-time-fraud-detection.md
-        - name: Taken uitvoeren in IoT Edge
-          href: stream-analytics-edge.md
-        - name: Analyse van de sensorgegevens van een tolloket
-          href: stream-analytics-build-an-iot-solution-using-stream-analytics.md
-        - name: Een JavaScript-UDA uitvoeren
-          href: stream-analytics-javascript-user-defined-aggregates.md
-        - name: High-frequency trading
-          href: stream-analytics-high-frequency-trading.md
-        - name: IoT-gegevensstromen verwerken
-          href: stream-analytics-get-started-with-azure-stream-analytics-to-process-data-from-iot-devices.md
-        - name: Regels op basis van een drempelwaarde
-          href: stream-analytics-threshold-based-rules.md
-    - name: Controleren
-      items:
-        - name: Taken bewaken - Azure Portal
-          href: stream-analytics-monitoring.md
-        - name: Taken bewaken - PowerShell
-          href: stream-analytics-monitor-and-manage-jobs-use-powershell.md
-        - name: Taken bewaken - Azure .Net SDK
-          href: stream-analytics-monitor-jobs.md
-        - name: Taken bewaken - Visual Studio
-          href: stream-analytics-monitor-jobs-use-vs.md
-    - name: Schalen
-      items:
-        - name: Schaal aanpassen met streaming-eenheden
-          href: stream-analytics-streaming-unit-consumption.md
-        - name: Schaal aanpassen met query-parallellisatie
-          href: stream-analytics-parallelization.md
-          items:
-            - name: Doorvoer vergroten
-              href: stream-analytics-scale-jobs.md
-        - name: Schaal aanpassen met ML-functies
-          href: stream-analytics-scale-with-machine-learning-functions.md
-    - name: Automatiseren
-      items:
-        - name: .NET SDK gebruiken
-          href: stream-analytics-dotnet-management-sdk.md
-        - name: Azure PowerShell gebruiken
-          href: 'https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick'
-    - name: Visual Studio-hulpprogramma's
-      items:
-        - name: Hulpprogramma's installeren
-          href: stream-analytics-tools-for-visual-studio-install.md
-        - name: Een taak lokaal testen
-          href: stream-analytics-vs-tools-local-run.md
-        - name: Taken weergeven in Visual Studio
-          href: stream-analytics-vs-tools.md
-        - name: Een Edge-taak ontwikkelen
-          href: stream-analytics-tools-for-visual-studio-edge-jobs.md
-        - name: Een CI/CD-pijplijn instellen
-          href: stream-analytics-tools-for-visual-studio-cicd.md
-    - name: Problemen oplossen
-      items:
-        - name: Stappen voor probleemoplossing
-          href: stream-analytics-troubleshooting-guide.md
-        - name: Algemene problemen
-          href: stream-analytics-common-troubleshooting-issues.md
-        - name: Taakdiagram
-          href: stream-analytics-job-diagram-with-metrics.md
-        - name: Diagnostische logboeken
-          href: stream-analytics-job-diagnostic-logs.md
-        - name: SELECT INTO-instructie
-          href: stream-analytics-select-into.md
-        - name: Event Hub-ontvangers
-          href: stream-analytics-event-hub-consumer-groups.md
-    - name: Integreren met machine learning
-      items:
-        - name: Sentimentanalyse met ML-modellen
-          href: stream-analytics-machine-learning-integration-tutorial.md
-        - name: Afwijkingsdetectie
-          href: stream-analytics-machine-learning-anomaly-detection.md
-        - name: REST-API's gebruiken
-          href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
+      - name: Doorvoer vergroten
+        href: stream-analytics-scale-jobs.md
+    - name: Schaal aanpassen met ML-functies
+      href: stream-analytics-scale-with-machine-learning-functions.md
+  - name: Automatiseren
+    items:
+    - name: .NET SDK gebruiken
+      href: stream-analytics-dotnet-management-sdk.md
+    - name: Azure PowerShell gebruiken
+      href: https://github.com/Azure/azure-stream-analytics/tree/master/Samples/ASAOneClick
+  - name: Visual Studio-hulpprogramma's
+    items:
+    - name: Hulpprogramma's installeren
+      href: stream-analytics-tools-for-visual-studio-install.md
+    - name: Een taak lokaal testen
+      href: stream-analytics-vs-tools-local-run.md
+    - name: Taken weergeven in Visual Studio
+      href: stream-analytics-vs-tools.md
+    - name: Een Edge-taak ontwikkelen
+      href: stream-analytics-tools-for-visual-studio-edge-jobs.md
+    - name: Een CI/CD-pijplijn instellen
+      href: stream-analytics-tools-for-visual-studio-cicd.md
+  - name: Problemen oplossen
+    items:
+    - name: Stappen voor probleemoplossing
+      href: stream-analytics-troubleshooting-guide.md
+    - name: Algemene problemen
+      href: stream-analytics-common-troubleshooting-issues.md
+    - name: Taakdiagram
+      href: stream-analytics-job-diagram-with-metrics.md
+    - name: Diagnostische logboeken
+      href: stream-analytics-job-diagnostic-logs.md
+    - name: SELECT INTO-instructie
+      href: stream-analytics-select-into.md
+    - name: Event Hub-ontvangers
+      href: stream-analytics-event-hub-consumer-groups.md
+  - name: Integreren met machine learning
+    items:
+    - name: Sentimentanalyse met ML-modellen
+      href: stream-analytics-machine-learning-integration-tutorial.md
+    - name: Afwijkingsdetectie
+      href: stream-analytics-machine-learning-anomaly-detection.md
+    - name: REST-API's gebruiken
+      href: stream-analytics-how-to-configure-azure-machine-learning-endpoints-in-stream-analytics.md
 - name: Naslaginformatie
   items:
-    - name: Azure PowerShell
-      href: /powershell/module/azurerm.streamanalytics
-    - name: Querytaal
-      href: 'https://msdn.microsoft.com/library/azure/dn834998'
-    - name: .NET
-      href: /dotnet/api/microsoft.azure.management.streamanalytics
-    - name: REST
-      href: /rest/api/streamanalytics
+  - name: Azure PowerShell
+    href: /powershell/module/azurerm.streamanalytics
+  - name: Querytaal
+    href: https://msdn.microsoft.com/library/azure/dn834998
+  - name: .NET
+    href: /dotnet/api/microsoft.azure.management.streamanalytics
+  - name: REST
+    href: /rest/api/streamanalytics
 - name: Resources
   items:
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Blog
-      href: 'http://blogs.msdn.com/b/streamanalytics/'
-    - name: Feedbackforum
-      href: 'http://feedback.azure.com/forums/270577-azure-stream-analytics'
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/stream-analytics/'
-    - name: Prijscalculator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Service-updates
-      href: 'https://azure.microsoft.com/updates/?product=stream-analytics'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-stream-analytics'
-    - name: Video's
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest'
-    - name: Casestudy's van klanten
-      href: 'https://azure.microsoft.com/case-studies/?service=stream-analytics'
-    - name: Whitepaper - Gebeurtenissen in realtime verwerken
-      href: stream-analytics-real-time-event-processing-reference-architecture.md
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Blog
+    href: http://blogs.msdn.com/b/streamanalytics/
+  - name: Feedbackforum
+    href: http://feedback.azure.com/forums/270577-azure-stream-analytics
+  - name: Forum
+    href: https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/stream-analytics/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service-updates
+    href: https://azure.microsoft.com/updates/?product=stream-analytics
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-stream-analytics
+  - name: Video's
+    href: https://azure.microsoft.com/resources/videos/index/?services=stream-analytics&sort=newest
+  - name: Casestudy's van klanten
+    href: https://azure.microsoft.com/case-studies/?service=stream-analytics
+  - name: Whitepaper - Gebeurtenissen in realtime verwerken
+    href: stream-analytics-real-time-event-processing-reference-architecture.md
+ms.openlocfilehash: 6598121e8405a60c64490fda179c22f34ac86455
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695317"

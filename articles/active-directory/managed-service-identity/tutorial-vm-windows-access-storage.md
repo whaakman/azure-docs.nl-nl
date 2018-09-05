@@ -14,22 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/12/2018
 ms.author: daveba
-ms.openlocfilehash: e001907b9df77eff1455043a3fd7ce5533838fcc
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 0781bf3fe9806c2c8aaa911433c4d6eddcafe04c
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39056171"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885490"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-identity-to-access-azure-storage"></a>Zelfstudie: Toegang krijgen tot Azure Storage met een beheerde entiteit voor Windows-VM
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie laat zien hoe u een beheerde entiteit kunt inschakelen voor een virtuele Windows-machine, en daarmee toegang kunt krijgen tot Azure Storage.  In deze zelfstudie leert u procedures om het volgende te doen:
+Deze zelfstudie laat zien hoe u toegang krijgt tot Azure Storage met een door het systeem toegewezen identiteit voor een virtuele Windows-machine (VM). In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * Een virtuele Windows-machine maken in een nieuwe resourcegroep 
-> * Beheerde identiteit op een virtuele Windows-machine (VM) inschakelen
 > * Een blobcontainer in een opslagaccount maken
 > * Beheerde entiteit van de virtuele Windows-machine toegang verlenen tot een opslagaccount 
 > * Een toegangstoken ophalen en daarmee Azure Storage aanroepen 
@@ -43,31 +41,11 @@ Deze zelfstudie laat zien hoe u een beheerde entiteit kunt inschakelen voor een 
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+- [Aanmelden bij de Azure-portal](https://portal.azure.com)
 
-Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+- [Een virtuele Windows-machine maken](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine maken in een nieuwe resourcegroep
-
-In deze sectie maakt u een virtuele Windows-machine waaraan later een beheerde identiteit wordt verleend.
-
-1.  Klik op de knop **+/Nieuwe service maken** in de linkerbovenhoek van Azure Portal.
-2.  Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**. 
-3.  Geef de informatie van de virtuele machine op. De referenties (combinatie van **Gebruikersnaam** en **Wachtwoord**) die u hier opgeeft, zijn de referenties waarmee u zich aanmeldt bij de virtuele machine.
-4.  Kies het juiste **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
-5.  Om een nieuwe **resourcegroep** te selecteren waarin de virtuele machine moet worden gemaakt, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
-6.  Selecteer de grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
-
-    ![Alt-tekst voor afbeelding](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-identity-on-your-vm"></a>Beheerde identiteit op de virtuele machine inschakelen
-
-Met een beheerde identiteit op de virtuele machine kunt u toegangstokens uit Azure AD ophalen zonder referenties in uw code te hoeven opnemen. Er gebeuren twee dingen als u Beheerde identiteit op een virtuele machine via Azure Portal inschakelt: de virtuele machine wordt bij Azure AD geregistreerd om een beheerde identiteit te maken, en de identiteit wordt geconfigureerd op de virtuele machine. 
-
-1. Navigeer naar de resourcegroep van de nieuwe virtuele machine en selecteer de virtuele machine die u in de vorige stap hebt gemaakt.
-2. Klik onder de categorie **Instellingen** op **Configuratie**.
-3. Selecteer **Ja** om de beheerde entiteit in te schakelen.
-4. Klik op **Opslaan** om de configuratie toe te passen. 
+- [Door het systeem toegewezen identiteit op uw virtuele machine inschakelen](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="create-a-storage-account"></a>Create a storage account 
 

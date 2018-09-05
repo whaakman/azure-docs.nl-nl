@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 06/26/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 1bd6f048682b93e3dfa1e19f6b3c50bff2ed232e
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 7e02caf9706a5127d3729256fcc238f467eb2991
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41919509"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143497"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Zelfstudie: gegevens opslaan aan de rand met SQL Server-databases
 
@@ -73,7 +73,7 @@ Om gegevens naar een database te verzenden hebt u een module nodig die de gegeve
 De volgende stappen laten zien hoe u een IoT-Edge-functie maakt met behulp van Visual Studio Code en de Azure IoT Edge-extensie.
 
 1. Open Visual Studio Code.
-2. Open de met VS Code geïntegreerde terminal door **View** > **Integrated Terminal** te selecteren.
+2. Open de met VS Code geïntegreerde terminal door **View** > **Terminal** te selecteren.
 3. Selecteer **View** > **Command Palette** en open het VS Code-opdrachtpalet.
 4. Typ in het opdrachtpalet de opdracht **Azure: Sign in** en voer deze uit. Volg vervolgens de instructies om u aan te melden bij uw Azure-account. Als u zich al hebt aangemeld, kunt u deze stap overslaan.
 3. Typ in het opdrachtpalet de opdracht **Azure IoT Edge: New IoT Edge solution** en voer deze uit. Geef in het opdrachtpalet de volgende informatie op om de oplossing te maken: 
@@ -253,15 +253,15 @@ U kunt modules op een apparaat instellen via de IoT Hub, maar u hebt ook toegang
 2. Volg de aanwijzingen om u aan te melden bij uw Azure-account. 
 3. Selecteer in het opdrachtenpalet uw Azure-abonnement en selecteer vervolgens uw IoT Hub. 
 4. Vouw in VS Code Explorer de sectie **Azure IoT Hub Devices** uit. 
-5. Klik met de rechtermuisknop op het doelapparaat van uw implementatie en selecteer **Implementatie maken voor IoT Edge-apparaat**. 
+5. Klik met de rechtermuisknop op het doelapparaat van uw implementatie en selecteer **Implementatie maken voor één apparaat**. 
 6. Ga in de bestandsverkenner naar de map **config** in uw oplossing en kies **deployment.json**. Klik op **Edge-distributiemanifest selecteren**. 
 
 Als de implementatie is geslaagd, wordt er een bevestigingsbericht afgedrukt in de VS Code-uitvoer. U kunt ook controleren of alle modules op uw apparaat actief zijn. 
 
 Voer op uw IoT Edge-apparaat de volgende opdracht uit om de status van de modules te bekijken. Dit kan enkele minuten duren.
 
-   ```bash
-   sudo iotedge list
+   ```PowerShell
+   iotedge list
    ```
 
 ## <a name="create-the-sql-database"></a>De SQL-database maken

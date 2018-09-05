@@ -12,15 +12,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/26/2018
+ms.date: 08/27/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 925a1af53438e21282e65418edc9ea365ad6a653
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b8c114ec3fe9b27d0318bf11a8b1fa8e3ce5f1c3
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39432436"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124977"
 ---
 # <a name="tutorial-configure-a-jenkins-environment-to-enable-cicd-for-a-java-application-on-service-fabric"></a>Zelfstudie: Een Jenkins-omgeving configureren om CI/CD in te schakelen voor een Java-toepassing voor Service Fabric
 
@@ -53,10 +53,10 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
 
 1. Haal de Service Fabric Jenkins container-installatiekopie op: ``docker pull rapatchi/jenkins:v10``. Deze installatiekopie wordt geleverd met de Service Fabric Jenkins-invoegtoepassing die vooraf is geïnstalleerd.
 
-1. Voer de container-installatiekopie uit met de locatie waar uw certificaten aan uw lokale machine gekoppeld zijn
+1. Voer de container-installatiekopie uit met de locatie waar uw Azure-certificaten zijn opgeslagen op uw gekoppelde lokale machine.
 
     ```bash
-    docker run -itd -p 8080:8080 -v /Users/suhuruli/Documents/Work/Samples/service-fabric-java-quickstart/AzureCluster:/tmp/myCerts rapatchi/jenkins:v10
+    docker run -itd -p 8080:8080 -v /service-fabric-java-quickstart/AzureCluster rapatchi/jenkins:v10
     ```
 
 1. Haal de id op van het exemplaar van de installatiekopie van de container. U kunt een lijst van alle Docker-containers bekijken met de opdracht ``docker ps –a``
@@ -86,7 +86,7 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
 
 1. Als u geen opslagplaats hebt die u kunt gebruiken voor het hosten van het stemproject op Github, maak er dan eerst een. De opslagplaats wordt **dev_test** genoemd voor de rest van deze zelfstudie.
 
-1. Maak een **nieuw item** op uw Jenkins-dashboard.
+1. Maak een **nieuw item** op uw Jenkins-dashboard op ``http://<HOST-IP>:8080``,.
 
 1. Voer een itemnaam in (bijvoorbeeld **MyJob**). Selecteer **free-style project** en klik op **OK**.
 
@@ -123,6 +123,8 @@ U kunt Jenkins instellen binnen of buiten een Service Fabric-cluster. De volgend
     > [!NOTE]
     > Het cluster dat u hier gebruikt, moet het cluster zijn waarin de Jenkins-containertoepassing wordt gehost als u Service Fabric gebruikt om de installatiekopie van de Jenkins-containerinstallatiekopie te implementeren.
     >
+
+1. Klik op **Opslaan**.
 
 ## <a name="update-your-existing-application"></a>De bestaande toepassing bijwerken
 

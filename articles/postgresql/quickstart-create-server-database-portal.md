@@ -10,12 +10,12 @@ ms.service: postgresql
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 03/20/2018
-ms.openlocfilehash: b34fd81532e27960d0dd92f172790aee3cd82ca5
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 002ec2f99e488af76654c2391416e4b90e16e4c0
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34639415"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43050224"
 ---
 # <a name="quickstart-create-an-azure-database-for-postgresql-server-in-the-azure-portal"></a>Snelstart: een Azure Database for PostgreSQL-server maken in Azure Portal
 
@@ -85,6 +85,10 @@ In Azure Database for PostgreSQL wordt een firewall op serverniveau gemaakt. De 
     AllowAllIps | 0.0.0.0 | 255.255.255.255
 
      ![Firewallregels instellen](./media/quickstart-create-database-portal/5-firewall-2.png)
+     
+      > [!NOTE]
+      > Voor productie-exemplaren moet u de firewallregels instellen voor het accepteren van inkomende aanvragen van bekende IP-adressen.  Deze instellingen zijn alleen bedoeld als voorbeeld.
+      >
 
 4. Selecteer **Opslaan** op de bovenste werkbalk van de pagina **Verbindingsbeveiliging**. Ga pas verder als u de melding ziet dat de verbindingsbeveiliging is bijgewerkt.
 

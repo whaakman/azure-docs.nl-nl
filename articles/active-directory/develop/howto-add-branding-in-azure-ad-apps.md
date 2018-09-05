@@ -1,6 +1,6 @@
 ---
-title: Huisstijlrichtlijnen voor toepassingen | Microsoft Docs
-description: Een uitgebreide handleiding voor ontwikkelaars resources voor Azure Active Directory
+title: Huisstijlrichtlijnen voor apps | Microsoft Docs
+description: Een uitgebreide handleiding voor bronnen voor ontwikkelaars voor Azure Active Directory
 services: active-directory
 documentationcenter: dev-center-name
 author: CelesteDG
@@ -17,95 +17,95 @@ ms.date: 04/27/2017
 ms.author: celested
 ms.reviewer: arielgo
 ms.custom: aaddev, signin_art
-ms.openlocfilehash: 78a0b9bf7f49cc41c8d78287bcbe54c5c88f0809
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
-ms.translationtype: MT
+ms.openlocfilehash: 92990a71a0b138f08c515450ecd71692fa57f297
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "39597902"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43185417"
 ---
-# <a name="branding-guidelines-for-applications"></a>Huisstijlrichtlijnen voor toepassingen
+# <a name="branding-guidelines-for-applications"></a>Huisstijlrichtlijnen voor apps
 
-Dit artikel worden de huisstijlrichtlijnen die moet u bij het ontwikkelen van toepassingen met Azure Active Directory (Azure AD). Deze richtlijnen kunnen uw klanten direct wanneer ze hun werk- of schoolaccount gebruikt willen, worden beheerd in Azure AD, of hun eigen account voor registratie en aanmelden bij uw toepassing.
+In dit artikel worden de huisstijlrichtlijnen besproken die u moet gebruiken bij het ontwikkelen van apps met Azure Active Directory (Azure AD). Deze richtlijnen begeleiden uw klanten wanneer ze hun werk- of schoolaccount, dat in Azure AD wordt beheerd, of hun persoonlijke account willen gebruiken om zich te registreren voor en aan te melden bij uw app.
 
-## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Persoonlijke accounts en werk- of schoolaccounts van Microsoft
+## <a name="personal-accounts-vs-work-or-school-accounts-from-microsoft"></a>Persoonlijke accounts vs. werk- of schoolaccounts van Microsoft
 
 Microsoft beheert twee soorten gebruikersaccounts:
 
-* **Persoonlijke accounts** (voorheen bekend als Windows Live ID). Deze accounts geven het verband tussen *afzonderlijke* gebruikers en Microsoft en worden gebruikt voor toegang tot apparaten en services van Microsoft. Deze accounts zijn bedoeld voor persoonlijk gebruik.
-* **Accounts voor werk- of schoolaccount.** Deze accounts worden beheerd door Microsoft namens de organisaties die gebruikmaken van Azure Active Directory. Deze accounts worden gebruikt voor het aanmelden bij Office 365 en andere zakelijke services van Microsoft.
+* **Persoonlijke accounts** (voorheen bekend als Windows Live ID). Deze accounts vertegenwoordigen de relatie tussen *afzonderlijke* gebruikers en Microsoft, en worden gebruikt om toegang te verkrijgen tot consumentenapparaten en services van Microsoft. Deze accounts zijn bedoeld voor persoonlijk gebruik.
+* **Werk- of schoolaccounts.** Deze accounts worden beheerd door Microsoft namens organisaties die Azure Active Directory gebruiken. Deze accounts worden gebruikt voor aanmelding bij Office 365 en andere zakelijke services van Microsoft.
 
-Microsoft werk-of schoolaccounts doorgaans aan eindgebruikers (werknemers, studenten, federale werknemers) door hun organisatie (bedrijf, school, overheidsinstelling heeft toegewezen zijn). Deze accounts onder de knie rechtstreeks in de cloud (in de Azure AD-platform) of die uit een on-premises adreslijst, zoals Windows Server Active Directory zijn gesynchroniseerd met Azure AD. Microsoft is de *beheerder* van werk of school-accounts, maar de accounts zijn eigendom van en beheerd door de organisatie.
+Werk- of schoolaccounts van Microsoft worden meestal toegewezen aan eindgebruikers (werknemers, leerlingen/studenten, overheidspersoneel) door hun organisaties (bedrijf, school, overheidsinstelling). Deze accounts worden rechtstreeks in de cloud beheerd (op het Azure AD-platform) of met Azure AD gesynchroniseerd vanuit een on-premises directory, zoals Windows Server Active Directory. Microsoft is de *bewaarder* van de werk- of schoolaccounts, maar de accounts zijn eigendom van en worden beheerd door de organisatie.
 
-## <a name="referring-to-azure-ad-accounts-in-your-application"></a>Verwijzen naar Azure AD-accounts in uw toepassing
+## <a name="referring-to-azure-ad-accounts-in-your-application"></a>Verwijzen naar Azure AD-accounts in uw app
 
-Microsoft biedt geen eindgebruikers kunnen de Azure of de Active Directory-merknamen en geen van beide blootstellen, moet u.
+Microsoft stelt eindgebruikers niet bloot aan de merknaam Azure of Active Directory, en u moet dat ook niet doen.
 
-* Nadat gebruikers zijn aangemeld, gebruikt u de naam en het logo zo veel mogelijk van de organisatie. Dit is beter dan het gebruik van algemene termen, zoals "uw organisatie."
-* Wanneer gebruikers niet bent aangemeld, verwijzen naar hun accounts als ' werk- of schoolaccounts "en het gebruik van het Microsoft-logo om weer te geven dat deze accounts worden beheerd door Microsoft. Gebruik geen termen, zoals 'enterprise-account', 'zakelijke account' of 'zakelijk account', die gebruiker verwarring maken.
+* Zodra gebruikers zijn aangemeld, moeten ze de naam en het logo van de organisatie zoveel mogelijk zien. Dit is beter dan algemene termen zoals ‘uw organisatie’ te gebruiken.
+* Wanneer gebruikers niet zijn aangemeld, moet u naar hun accounts verwijzen als ‘werk- of schoolaccounts’ en het Microsoft-logo gebruiken om te laten zien dat Microsoft deze accounts beheert. Gebruik geen termen zoals ‘ondernemingsaccount’, ‘bedrijfsaccount’ of ‘zakelijk account’, want die kunnen voor verwarring zorgen bij de gebruiker.
 
-## <a name="user-account-pictogram"></a>Pictogram van gebruiker-account
+## <a name="user-account-pictogram"></a>Pictogram van het gebruikersaccount
 
-In een eerdere versie van deze richtlijnen raden wij met behulp van een pictogram 'blue logo'. Op basis van feedback van gebruikers- en developer, nu wordt aangeraden het gebruik van het Microsoft-logo in plaats daarvan. Het Microsoft-logo helpt gebruikers begrijpen dat opnieuw kan worden gebruikt de account die ze gebruiken met Office 365 of andere Microsoft business services aan te melden bij uw app.
+In een eerdere versie van deze richtlijnen raadden we aan een pictogram van een ‘blauwe badge’ te gebruiken. Naar aanleiding van feedback van gebruikers en ontwikkelaars raden we nu echter aan het Microsoft-logo te gebruiken. Het Microsoft-logo helpt gebruikers te begrijpen dat ze het account dat ze met Office 365 of andere zakelijke Microsoft-services gebruiken, ook kunnen gebruiken om zich aan te melden bij uw app.
 
-## <a name="signing-up-and-signing-in-with-azure-ad"></a>Zich registreren en aanmelden met Azure AD
+## <a name="signing-up-and-signing-in-with-azure-ad"></a>Registreren en aanmelden met Azure AD
 
-Uw app moet u wellicht afzonderlijke paden voor registratie en aanmelding en de volgende secties bevatten visuele richtlijnen voor beide scenario's.
+Uw app heeft misschien aparte paden voor registratie en aanmelding, en de volgende secties bieden visuele begeleiding voor beide scenario’s.
 
-**Als uw app door eindgebruikers zich aanmelden (voor een voorbeeld, gratis proefversie of freemium-model) ondersteunt**: U ziet een **aanmelden** knop waarmee gebruikers toegang krijgen tot uw app met hun werkaccount of persoonlijk account. Azure AD wordt een toestemmingsprompt de eerste keer dat ze toegang krijgen uw app tot weergegeven.
+**Als uw app eindgebruikersregistratie ondersteunt (bijvoorbeeld voor een gratis proefversie of freemium-model)**: U kunt een knop **Aanmelden** tonen waarmee gebruikers toegang tot uw app kunnen verkrijgen met hun werkaccount of persoonlijke account. De eerste keer dat ze toegang tot uw app verkrijgen, toont Azure AD een instemmingsprompt.
 
-**Als uw app nodig heeft machtigingen die alleen beheerders met instemmen kunnen, of als uw app is een organisatie-licentie vereist**: beheerder aanschaf van aanmelden van gebruikers te scheiden. De **knop 'deze app ophalen'** beheerders om te melden bij en vervolgens vragen om toestemming namens gebruikers in hun organisatie, die het voordeel heeft van het onderdrukken van eindgebruikers toestemming wordt gevraagd naar uw app wordt omgeleid.
+**Als uw app toestemmingen nodig heeft die alleen beheerders kunnen verlenen, of als uw app organisatielicenties nodig heeft**: Scheid beheerdersdownload van gebruikersaanmelding. Met de knop **Download deze app** worden beheerders naar de aanmeldingspagina geleid, waarna ze worden gevraagd toestemming te verlenen namens gebruikers in hun organisatie. Dit heeft het extra voordeel dat instemmingsprompts voor eindgebruikers naar uw app worden onderdrukt.
 
-## <a name="visual-guidance-for-app-acquisition"></a>Visual richtlijnen voor de aanschaf van app
+## <a name="visual-guidance-for-app-acquisition"></a>Visuele begeleiding voor app-download
 
-De koppeling 'ophalen van de app' omleiden van de gebruiker moet de Azure AD om toegang te verlenen (autorisatie) pagina, waarmee een beheerder om uw app toegang hebben tot gegevens van hun organisatie, die wordt gehost door Microsoft te autoriseren. Meer informatie over het aanvragen van toegang worden beschreven de [toepassingen integreren met Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md) artikel.
+Uw koppeling ‘Download de app’ moet de gebruiker naar de Azure AD-pagina voor toegangsverlening (autorisatie) leiden, zodat de beheerder van een organisatie kan autoriseren dat uw app toegang heeft tot de gegevens van die organisatie, die worden gehost door Microsoft. In het artikel [Toepassingen integreren met Azure Active Directory](quickstart-v1-integrate-apps-with-azure-ad.md) staat meer informatie over hoe u toegang kunt aanvragen.
 
-Nadat beheerders toestemming aan uw app geven, ze kunnen kiezen toe te voegen aan hun Office 365-app startprogramma voor de gebruikerservaring (toegankelijk is vanaf de wafel en vanaf [ https://portal.office.com/myapps ](https://portal.office.com/myapps)). Als u adverteren van deze mogelijkheid wilt, kunt u voorwaarden, zoals 'Deze app aan uw organisatie toevoegen' en een knop weergeven, zoals in het volgende voorbeeld:
+Nadat beheerders toestemming hebben verleend voor uw app, kunnen ze ervoor kiezen deze toe te voegen aan het startprogramma voor Office 365-apps van hun gebruikers (toegankelijk via het wafelmenu en via [https://portal.office.com/myapps](https://portal.office.com/myapps)). Als u deze mogelijkheid wilt adverteren, kunt u termen zoals ‘Voeg deze app aan uw organisatie toe’ gebruiken en een knop tonen zoals in het volgende voorbeeld:
 
-![Soorten toepassingen en scenario 's](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
+![App-soorten en scenario’s](./media/howto-add-branding-in-azure-ad-apps/add-to-my-org.png)
 
-We raden echter aan dat u verklarende tekst in plaats van knoppen schrijven. Bijvoorbeeld:
+We raden u echter aan verklarende tekst te schrijven in plaats van op knoppen te vertrouwen. Bijvoorbeeld:
 
-> *Als u al Office 365 of andere zakelijke services van Microsoft hebt gebruikt, kunt u < your_app_name > toegang verlenen tot gegevens van uw organisatie. Hierdoor kunnen uw gebruikers toegang tot < your_app_name > met hun bestaande werkaccounts.*
+> *Als u Office 365 of andere zakelijke services van Microsoft al gebruikt, kunt u <naam_van_uw_app> toegang verlenen tot de gegevens van uw organisatie. Zo kunnen uw gebruikers toegang tot <naam_van_uw_app> verkrijgen met hun bestaande werkaccount.*
 
-Voor het downloaden van het officiële Microsoft-logo voor gebruik in uw app, met de rechtermuisknop op het account dat u wilt gebruiken en sla deze op uw computer.
+Als u het officiële Microsoft-logo wilt downloaden voor gebruik in uw app, klikt u met de rechtermuisknop op het logo dat u wilt gebruiken en slaat u het op naar uw computer.
 
-| Asset                                | PNG-indeling. | SVG-indeling |
+| Asset                                | PNG-indeling | SVG-indeling |
 | ------------------------------------ | ---------- | ---------- |
-| Microsoft-logo  | ![Microsoft-logo PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.png) | ![SVG-Microsoft-logo](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_MSSymbol_19.svg) |
+| Microsoft-logo  | ![Microsoft-logo PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.png) | ![Microsoft-logo SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_mssymbol_19.svg) |
 
-## <a name="visual-guidance-for-sign-in"></a>Visual richtlijnen voor het aanmelden
+## <a name="visual-guidance-for-sign-in"></a>Visuele begeleiding voor aanmelding
 
-Uw app moet een knop aanmelden waarmee gebruikers worden omgeleid naar het eindpunt aanmelden die overeenkomt met het protocol dat u gebruiken om te integreren met Azure AD worden weergegeven. De volgende sectie biedt informatie over hoe die knop eruit moet zien.
+Uw app moet een aanmeldingsknop tonen waarmee gebruikers naar het aanmeldingseindpunt worden geleid dat overeenkomt met het protocol dat u gebruikt om te integreren met Azure AD. De volgende sectie biedt meer informatie over hoe de knop eruit moet zien.
 
-### <a name="pictogram-and-sign-in-with-microsoft"></a>Pictogram en 'Meld u aan met Microsoft'
+### <a name="pictogram-and-sign-in-with-microsoft"></a>Pictogram en ‘Aanmelden met Microsoft’
 
-Dit is de koppeling van het Microsoft-logo en de voorwaarden voor 'Sign in met Microsoft' die staan voor een unieke Azure AD met andere id-providers uw app kan ondersteunen. Als u niet genoeg ruimte heeft voor 'Sign in met Microsoft', is het om moet u deze 'Aanmelden.' U kunt een lichte of donkere kleurenschema voor de knoppen.
+Het is de associatie van het Microsoft-logo en de term ‘Aanmelden met Microsoft’ die Azure AD onderscheidt van andere identiteitsproviders die uw app mogelijk ondersteunt. Als u niet genoeg ruimte hebt voor ‘Aanmelden met Microsoft’, kunt u dit afkorten tot ‘Aanmelden’. Voor de knoppen kunt u een licht of donker kleurenschema gebruiken.
 
-Het volgende diagram toont dat de Microsoft aanbevolen redlines bij het gebruik van de activa met uw app. De redlines van toepassing op 'Sign in met Microsoft' of de kortere 'Aanmelden' versie.
+Het volgende diagram toont de door Microsoft aanbevolen rode lijnen wanneer u de assets met uw app gebruikt. De rode lijnen zijn van toepassing op ‘Aanmelden met Microsoft’ en de kortere versie ‘Aanmelden’.
 
-![Aanmelden bij Microsoft redlines](./media/howto-add-branding-in-azure-ad-apps/Sign-in-with-Microsoft-redlines.png)
+![Rode lijnen voor ‘Aanmelden bij Microsoft’](./media/howto-add-branding-in-azure-ad-apps/sign-in-with-microsoft-redlines.png)
 
-Voor het downloaden van de officiële afbeeldingen voor gebruik in uw app, met de rechtermuisknop op het account dat u wilt gebruiken en sla deze op uw computer.
+Als u de officiële afbeelding wilt downloaden voor gebruik in uw app, klikt u met de rechtermuisknop op de afbeelding die u wilt gebruiken en slaat u deze op naar uw computer.
 
-| Asset                                | PNG-indeling. | SVG-indeling |
+| Asset                                | PNG-indeling | SVG-indeling |
 | ------------------------------------ | ---------- | ---------- |
-| Aanmelden bij Microsoft (donker thema)  | ![Meld u aan knop donker thema PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.png) | ![Meld u aan met Microsoft knop donker thema SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark.svg) |
-| Aanmelden bij Microsoft (licht thema) | ![Meld u aan knop lichte thema PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.png) | ![Meld u aan met Microsoft knop lichte thema SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light.svg) |
-| Meld u aan (donker thema)                 | ![Meld u aan in een korte knop donker thema PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.png) | ![Meld u aan in een korte knop donker thema SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_dark_short.svg) |
-| Meld u aan (licht thema)                | ![Meld u aan in een korte knop lichte thema PNG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.png) | ![Meld u aan in een korte knop lichte thema SVG](./media/howto-add-branding-in-azure-ad-apps/MS-SymbolLockup_SignIn_light_short.svg) |
+| Aanmelden met Microsoft (donker thema)  | ![Knop Aanmelden donker thema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.png) | ![Knop Aanmelden met Microsoft donker thema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark.svg) |
+| Aanmelden met Microsoft (licht thema) | ![Knop Aanmelden licht thema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.png) | ![Knop Aanmelden met Microsoft licht thema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light.svg) |
+| Aanmelden (donker thema)                 | ![Korte knop Aanmelden donker thema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.png) | ![Korte knop Aanmelden donker thema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_dark_short.svg) |
+| Aanmelden (licht thema)                | ![Korte knop Aanmelden licht thema PNG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.png) | ![Korte knop Aanmelden licht thema SVG](./media/howto-add-branding-in-azure-ad-apps/ms-symbollockup_signin_light_short.svg) |
 
 
-## <a name="branding-dos-and-donts"></a>Huisstijl van uw taken en niet moet doen
+## <a name="branding-dos-and-donts"></a>Huisstijl: wel en niet doen
 
-**Voer** 'account voor werk of school' gebruiken in combinatie met de knop 'Sign in met Microsoft' voor aanvullende uitleg zodat eindgebruikers herkennen of kan worden gebruikt. **Geen** gebruiken andere termen, zoals 'enterprise-account', 'zakelijke account' of 'zakelijk account'.
+**WEL DOEN** ‘Werk- of schoolaccount’ gebruiken in combinatie met de knop ‘Aanmelden met Microsoft’ om eindgebruikers te helpen zien of ze het kunnen gebruiken. **NIET DOEN** Andere termen zoals ‘ondernemingsaccount’, ‘bedrijfsaccount’ of ‘zakelijk account’ gebruiken.
 
-**Geen** gebruiken 'Office 365-ID' of 'Azure-id '. Office 365 is ook de naam van een gebruiker van Microsoft, die geen Azure AD voor verificatie gebruiken.
+**NIET DOEN** ‘Office 365 ID’ of ‘Azure ID’ gebruiken. Office 365 is ook de naam van een consumentenaanbod van Microsoft, dat geen gebruik maakt van Azure AD voor verificatie.
 
-**Geen** wijzigen van het Microsoft-logo.
+**NIET DOEN** Het Microsoft-logo wijzigen.
 
-**Geen** blootstellen eindgebruikers kunnen de merken die Azure of Active Directory. Het is geen probleem echter het gebruik van deze voorwaarden met ontwikkelaars, IT-professionals en beheerders.
+**NIET DOEN** Eindgebruikers blootstellen aan het merk Azure of Active Directory. U kunt deze termen echter wel gebruiken bij ontwikkelaars, IT-professionals en beheerders.
 
-## <a name="navigation-dos-and-donts"></a>Navigatie-taken en niet moet doen
+## <a name="navigation-dos-and-donts"></a>Navigatie: wel en niet doen
 
-**Voer** bieden een manier voor gebruikers zich afmelden en schakel over naar een ander gebruikersaccount. Hoewel de meeste mensen één persoonlijke account van Microsoft/Facebook/Google/Twitter hebben, zijn mensen vaak gekoppeld aan meer dan één organisatie. Ondersteuning voor meerdere aangemelde gebruikers wordt binnenkort beschikbaar.
+**WEL DOEN** Gebruikers een manier bieden om zich af te melden en naar een ander gebruikersaccount te schakelen. Hoewel de meeste mensen één persoonlijk account van Microsoft/Facebook/Google/Twitter hebben, zijn mensen vaak gekoppeld aan meer dan één organisatie. Ondersteuning voor meerdere aangemelde gebruikers zal binnenkort beschikbaar zijn.

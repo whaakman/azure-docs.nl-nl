@@ -9,12 +9,12 @@ ms.date: 05/22/2018
 ms.topic: tutorial
 ms.service: service-bus-messaging
 ms.custom: mvc
-ms.openlocfilehash: 42f0781de5412310ecb5326f0384268aba9c53dd
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 81d538c0324f8fa89a7ce86ceaf2b0a2a76b4d51
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34651471"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43120681"
 ---
 # <a name="tutorial-update-inventory-using-cli-and-topicssubscriptions"></a>Zelfstudie: Voorraad bijwerken met behulp van CLI en onderwerpen/abonnementen
 
@@ -25,8 +25,8 @@ In deze zelfstudie leert u het volgende:
 > * Een Service Bus-onderwerp en een of meer abonnementen op dat onderwerp maken met Azure CLI.
 > * Onderwerpfilters toevoegen met Azure CLI.
 > * Twee berichten met verschillende inhoud maken.
-> * De berichten verzenden en controleren of ze zijn ontvangen in de verwachte abonnementen.
-> * Berichten ontvangen van de abonnementen.
+> * De berichten verzenden en controleren of ze zijn ontvangen in de verwachte abonnementen
+> * Berichten ontvangen van de abonnementen
 
 Een voorbeeld van dit scenario is het bijwerken van het voorraadassortiment voor meerdere winkels. In dit scenario ontvangt elke winkel of reeks winkels berichten op basis waarvan ze hun assortiment kunnen bijwerken. Deze zelfstudie laat zien hoe dit scenario met behulp van abonnementen en filters kan worden geïmplementeerd. Eerst maakt u een onderwerp met drie abonnementen, voegt u een aantal regels en filters toe, en vervolgens verzendt en ontvangt u berichten van het onderwerp en de abonnementen.
 
@@ -48,13 +48,13 @@ Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor 
 
 ## <a name="service-bus-topics-and-subscriptions"></a>Service Bus-onderwerpen en -abonnementen
 
-Elk [abonnement op een onderwerp](service-bus-messaging-overview.md#topics) kan een kopie van elk bericht ontvangen. Onderwerpen zijn qua protocol en semantiek volledig compatibel met Service Bus-wachtrijen. Service Bus-onderwerpen ondersteunen een breed scala aan selectieregels met filtervoorwaarden, met optionele acties waarmee berichteigenschappen worden ingesteld of gewijzigd. Telkens wanneer een regel overeenkomt, wordt een bericht gegenereerd. Volg deze [koppeling](topic-filters.md) voor meer informatie over regels, filters en acties.
+Elk [abonnement op een onderwerp](service-bus-messaging-overview.md#topics) kan een kopie van elk bericht ontvangen. Onderwerpen zijn qua protocol en semantiek volledig compatibel met Service Bus-wachtrijen. Service Bus-onderwerpen ondersteunen een breed scala aan selectieregels met filtervoorwaarden, met optionele acties waarmee berichteigenschappen worden ingesteld of gewijzigd. Telkens wanneer een regel overeenkomt, wordt er een bericht gegenereerd. Volg deze [koppeling](topic-filters.md) voor meer informatie over regels, filters en acties.
 
-## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
+## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
 
 Zodra CLI is geïnstalleerd, opent u een opdrachtprompt en meldt u zich met de volgende opdrachten aan bij Azure. Deze stappen zijn niet nodig als u Cloud Shell gebruikt:
 
-1. Als u Azure CLI gebruikt, kunt u zich ook met de volgende opdracht aanmelden bij Azure: Deze aanmeldingsstap is niet nodig als u deze opdrachten in Cloud Shell uitvoert:
+1. Als u Azure CLI gebruikt, kunt u zich ook met de volgende opdracht aanmelden bij Azure. Deze aanmeldingsstap is niet nodig als u deze opdrachten in Cloud Shell uitvoert:
 
    ```azurecli-interactive
    az login
@@ -130,7 +130,7 @@ Nadat de naamruimte en onderwerp/abonnementen zijn ingericht en u over de benodi
 
 ## <a name="send-and-receive-messages"></a>Berichten verzenden en ontvangen
 
-1. Zorg dat Cloud Shell is geopend en dat de Bash-aanwijzing wordt weergegeven.
+1. Zorg dat Cloud Shell is geopend en dat de Bash-prompt wordt weergegeven.
 
 2. Kloon de [Service Bus GitHub-opslagplaats](https://github.com/Azure/azure-service-bus/) met behulp van de volgende opdracht:
 
@@ -157,7 +157,7 @@ Nadat de naamruimte en onderwerp/abonnementen zijn ingericht en u over de benodi
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-Voer de volgende opdracht uit om de resourcegroep, naamruimte en alle gerelateerde resources te verwijderen:
+Voer de volgende opdracht uit om de resourcegroep, de naamruimte en alle gerelateerde resources te verwijderen:
 
 ```azurecli-interactive
 az group delete --resource-group my-resourcegroup
@@ -330,13 +330,13 @@ public CompletableFuture<Void> receiveAllMessageFromSubscription(String subscrip
 In deze zelfstudie hebt u resources ingericht met behulp van Azure CLI en vervolgens berichten verzonden en ontvangen van een Service Bus-onderwerp en de daarbij behorende abonnementen. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
-> * Een Service Bus-onderwerp en een of meer abonnementen op dat onderwerp kunt maken met Azure Portal.
-> * Onderwerpfilters kunt toevoegen met .NET-code.
-> * Twee berichten met verschillende inhoud kunt maken.
-> * De berichten kunt verzenden en controleren of ze zijn ontvangen in de verwachte abonnementen.
-> * Berichten kunt ontvangen van de abonnementen.
+> * Een Service Bus-onderwerp en een of meer abonnementen voor dat onderwerp maken met Azure Portal
+> * Onderwerpfilters toevoegen met .NET-code
+> * Twee berichten met verschillende inhoud maken
+> * De berichten verzenden en controleren of ze zijn ontvangen in de verwachte abonnementen
+> * Berichten ontvangen van de abonnementen
 
-Meer voorbeelden voor het verzenden en ontvangen van berichten, vindt u bij [Service Bus-voorbeelden op GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted).
+Meer voorbeelden voor het verzenden en ontvangen van berichten vindt u in [de Service Bus-voorbeelden op GitHub](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/GettingStarted).
 
 Ga naar de volgende zelfstudie voor meer informatie over het gebruik van de mogelijkheden voor publiceren/abonneren van Service Bus.
 

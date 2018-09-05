@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 06/27/2018
+ms.date: 08/30/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 5c2088ab39e32c049ce867698e84efba759c9a87
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 7f16f53af7d1c2f46c5c61974601833fafc8f828
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37447333"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698771"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een virtuele machine beschikbaar maken in Azure Stack
 
@@ -37,7 +37,7 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
 1. [Een Windows VM-installatiekopie uploaden naar Azure voor Resource Manager-implementaties](https://azure.microsoft.com/documentation/articles/virtual-machines-windows-upload-image/) of voor een Linux-installatiekopie, volgt u de instructies die worden beschreven in [implementeren Linux virtuele machines in Azure Stack](azure-stack-linux.md). Voordat u de installatiekopie uploadt, is het belangrijk dat u rekening houden met de volgende factoren:
 
-   - Azure Stack biedt ondersteuning voor de vaste schijf VHD-indeling. Een vaste indeling structuren de logische schijf lineair binnen het bestand, zodat de schijf-offset X wordt opgeslagen op blob-offset X. Een kleine voettekst aan het einde van de blob beschrijft de eigenschappen van de VHD. Om te bevestigen of de schijf is opgelost, gebruikt u de [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell-opdracht.  
+   - Azure Stack alleen ondersteunt generatie virtuele machine één (1) in de vaste schijf VHD-indeling. De vaste indeling structuren de logische schijf lineair binnen het bestand, zodat de schijf-offset X wordt opgeslagen op blob-offset X. Een kleine voettekst aan het einde van de blob beschrijft de eigenschappen van de VHD. Om te bevestigen of de schijf is opgelost, gebruikt u de [Get-VHD](https://docs.microsoft.com/powershell/module/hyper-v/get-vhd?view=win10-ps) PowerShell-opdracht.  
 
     > [!IMPORTANT]
     >  Azure Stack biedt geen ondersteuning voor dynamische schijf VHD's. Formaat van een dynamische schijf die is gekoppeld aan een virtuele machine laat u de virtuele machine in een foutstatus. Risico's te beperken, door de virtuele machine te verwijderen zonder te verwijderen van de VM schijf, een VHD-blob in een storage-account. Het omzetten van de VHD van een dynamische schijf naar een vaste schijf en de virtuele machine opnieuw te maken.
@@ -48,7 +48,7 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
    * Maak een notitie van de blob-opslag-URI waar u de installatiekopie uploadt. De URI van de blob-opslag heeft de volgende indeling: *&lt;storageAccount&gt;/&lt;blobContainer&gt;/&lt;targetVHDName&gt;* VHD.
 
-   * Als u de blob anoniem toegankelijk is, gaat u naar de storage-account blob-container waarnaar de VHD van de VM-installatiekopie is geüpload. Selecteer **Blob**, en selecteer vervolgens **toegangsbeleid**. (Optioneel) kunt u in plaats daarvan een shared access signature voor de container genereren en opnemen als onderdeel van de blob-URI.
+   * Als u de blob anoniem toegankelijk is, gaat u naar de storage-account blob-container waarnaar de VHD van de VM-installatiekopie is geüpload. Selecteer **Blob**, en selecteer vervolgens **toegangsbeleid**. (Optioneel) kunt u in plaats daarvan een shared access signature voor de container genereren en opnemen als onderdeel van de blob-URI. Deze stap zorgt ervoor dat de blob is beschikbaar om te worden gebruikt voor het toevoegen van dit als een afbeelding. Als de blob niet anoniem toegankelijk is, wordt de VM-installatiekopie te worden gemaakt in een foutstatus.
 
    ![Ga naar opslagaccountblobs](./media/azure-stack-add-vm-image/image1.png)
 

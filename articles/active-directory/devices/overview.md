@@ -1,6 +1,6 @@
 ---
-title: Inleiding tot Apparaatbeheer in Azure Active Directory | Microsoft Docs
-description: Meer informatie over hoe Apparaatbeheer kan u helpen om op te halen van controle over de apparaten die toegang hebben tot bronnen in uw omgeving.
+title: Wat is apparaatbeheer in Azure Active Directory? | Microsoft Docs
+description: Leer hoe apparaatbeheer u kan helpen controle te krijgen over de apparaten die toegang verkrijgen tot bronnen in uw omgeving.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -12,177 +12,177 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 05/21/2018
+ms.topic: overview
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 7e71ff5f5da17165d5127f3547d8eb0756411b8c
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
-ms.translationtype: MT
+ms.openlocfilehash: 456b28c50bd5e7d69c3f16dd3e76a9ced20112f9
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39597690"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43048859"
 ---
-# <a name="introduction-to-device-management-in-azure-active-directory"></a>Inleiding tot Apparaatbeheer in Azure Active Directory
+# <a name="what-is-device-management-in-azure-active-directory"></a>Wat is apparaatbeheer in Azure Active Directory?
 
-In een wereld mobiliteit, cloud-first kunt Azure Active Directory (Azure AD) single sign-on bij apparaten, apps en services vanaf elke locatie. IT-professionals worden met de komst van apparaten: Bring Your Own Device (BYOD), inclusief momenteel geconfronteerd met twee tegengestelde doelen:
+In een wereld waar mobiliteit en cloud belangrijke begrippen zijn, maakt Azure Active Directory (Azure AD) eenmalige aanmelding bij apparaten, apps en services vanaf elke locatie mogelijk. Als gevolg van een toenemend aantal apparaten, waaronder Bring Your Own Device (BYOD), hebben IT-professionals te maken met twee tegengestelde doelen:
 
-- Zorg ervoor dat de end-gebruikers om productief waar en wanneer
-- De zakelijke activa op elk gewenst moment beveiligen
+- Geef de eindgebruikers de mogelijkheid overal en altijd productief te zijn
+- Beveilig de zakelijke bezittingen - op elk moment
 
-Via apparaten krijgen uw gebruikers toegang tot uw zakelijke activa. Ter bescherming van uw bedrijfsmiddelen, als IT-beheerder, die u wilt hebben controle over deze apparaten. Hiermee kunt u om ervoor te zorgen dat uw gebruikers toegang hebben tot de bronnen van apparaten die voldoen aan uw normen voor beveiliging en naleving. 
+Uw gebruikers krijgen via apparaten toegang tot uw zakelijke assets. Om als ICT-beheerder uw bedrijfsassets te beschermen, hebt u controle over deze apparaten nodig. Zo kunt u ervoor zorgen dat uw gebruikers toegang tot uw bronnen hebben vanaf apparaten die voldoen aan uw normen voor beveiliging en naleving. 
 
-Apparaatbeheer is ook de basis vormt voor [apparaat gebaseerde voorwaardelijke toegang](../conditional-access/require-managed-devices.md). Met voorwaardelijke toegang op basis van apparaat, kunt u ervoor zorgen dat toegang tot bronnen in uw omgeving is alleen mogelijk met beheerde apparaten.   
+Apparaatbeheer vormt ook de basis voor [scenario's met apparaatgebaseerde voorwaardelijke toegang](../conditional-access/require-managed-devices.md). Met voorwaardelijke toegang op basis van apparaat kunt u ervoor zorgen dat toegang tot bronnen in uw omgeving alleen mogelijk is met beheerde apparaten.   
 
-In dit artikel wordt uitgelegd hoe Apparaatbeheer in Azure Active Directory werkt.
+In dit artikel wordt uitgelegd hoe apparaatbeheer in Azure Active Directory werkt.
 
-## <a name="getting-devices-under-the-control-of-azure-ad"></a>Apparaten onder het beheer van Azure AD
+## <a name="getting-devices-under-the-control-of-azure-ad"></a>Apparaten onder het beheer van Azure AD krijgen
 
-Als u een apparaat onder het beheer van Azure AD, hebt u twee opties:
+Om een apparaat onder het beheer van Azure AD te krijgen, hebt u twee opties:
 
-- Registreren 
-- Lid worden
+- Registratie 
+- Koppeling
 
-**Registreren van** een apparaat met Azure AD kunt u voor het beheren van een apparaat-id. Wanneer een apparaat is geregistreerd, biedt Azure AD-apparaatregistratie het apparaat met een identiteit die wordt gebruikt voor verificatie van het apparaat wanneer een gebruiker zich aanmeldt bij Azure AD. U kunt de identiteit gebruiken of een apparaat uit te schakelen.
+**Registratie** van een apparaat bij Azure AD stelt u in staat de identiteit van een apparaat te beheren. Wanneer een apparaat is geregistreerd, geeft Azure AD-apparaatregistratie het apparaat een identiteit die wordt gebruikt om het apparaat te verifiëren wanneer een gebruiker zich aanmeldt bij Azure AD. U kunt de identiteit gebruiken om een apparaat in of uit te schakelen.
 
-In combinatie met een MDM-oplossing voor mobiele apparaten, zoals Microsoft Intune, worden de apparaatkenmerken in Azure AD bijgewerkt met extra informatie over het apparaat. Hiermee kunt u extra regels voor voorwaardelijke toegang maken die toegang afdwingen van apparaten, zodat ze voldoen aan uw standaarden voor beveiliging en compliance Zie voor meer informatie over inschrijving van apparaten in Microsoft Intune-apparaten inschrijven voor beheer in Intune.
+In combinatie met een MDM-oplossing (Mobile Device Management), zoals Microsoft Intune, worden de apparaatkenmerken in Azure AD bijgewerkt met extra informatie over het apparaat. Hiermee kunt u extra regels voor voorwaardelijke toegang maken die toegang afdwingen van apparaten, zodat ze voldoen aan uw standaarden voor beveiliging en compliance Zie ‘Apparaten inschrijven voor beheer in Intune’ voor meer informatie over het inschrijven van apparaten in Microsoft Intune.
 
-**Lid worden van** een apparaat is een uitbreiding van een apparaat wordt geregistreerd. Dit houdt in dat het vindt u alle voordelen van het registreren van een apparaat en daarnaast ook verandert de status van de lokale van een apparaat. Wijzigen van de lokale status kan uw gebruikers om aan te melden met een apparaat met behulp van een organisatie-werk- of schoolaccount in plaats van een persoonlijk account.
+**Koppeling** van een apparaat is een uitbreiding van registratie van een apparaat. Dit betekent dat u niet alleen alle voordelen van registratie krijgt, maar ook dat de lokale status van een apparaat wordt gewijzigd. Wijziging van de lokale status stelt uw gebruikers in staat zich bij een apparaat aan te melden met behulp van een werk- of schoolaccount in plaats van een persoonlijk account.
 
-## <a name="azure-ad-registered-devices"></a>Azure AD ingeschreven apparaten   
+## <a name="azure-ad-registered-devices"></a>Azure AD-geregistreerde apparaten   
 
-Het doel van geregistreerd bij Azure AD-apparaten is om u te bieden ondersteuning voor de **Bring Your Own Device (BYOD)** scenario. In dit scenario kan een gebruiker toegang tot bronnen van van uw organisatie Azure Active Directory die worden beheerd met behulp van een persoonlijk apparaat.  
+Het doel van Azure AD-geregistreerde apparaten is u ondersteuning te bieden voor het scenario van **Bring Your Own Device (BYOD)**. In dit scenario kan een gebruiker via een persoonlijk apparaat toegang verkrijgen tot de Azure Active Directory-beheerde bronnen van uw organisatie.  
 
-![Azure AD ingeschreven apparaten](./media/overview/03.png)
+![Azure AD-geregistreerde apparaten](./media/overview/03.png)
 
-De toegang is gebaseerd op een account voor werk of school die is opgegeven op het apparaat.  
-Windows 10 kunnen bijvoorbeeld gebruikers een account voor werk of school toevoegen aan een pc, tablet of telefoon.  
-Wanneer een gebruiker een werk- of school-account, het apparaat is toegevoegd, is geregistreerd bij Azure AD en (optioneel) die zijn geregistreerd in het mobile device management (MDM)-systeem die uw organisatie heeft geconfigureerd. Gebruikers van uw organisatie kunnen toevoegen een werk- of schoolaccount naar een persoonlijk apparaat eenvoudig:
+De toegang is gebaseerd op een werk- of schoolaccount dat op het apparaat is ingevoerd.  
+Windows 10 stelt gebruikers bijvoorbeeld in staat een werk- of schoolaccount aan een persoonlijke computer, tablet of telefoon toe te voegen.  
+Wanneer een gebruiker een werk- of schoolaccount heeft toegevoegd, wordt het apparaat geregistreerd bij Azure AD en optioneel ingeschreven in het MDM-systeem (Mobile Device Management) dat uw organisatie heeft geconfigureerd. De gebruikers van uw organisatie kunnen gemakkelijk een werk- of schoolaccount aan een persoonlijk apparaat toevoegen:
 
-- Bij het openen van een work-toepassing voor de eerste keer
-- Handmatig via de **instellingen** menu in het geval van Windows 10 
+- Wanneer ze een werktoepassing voor het eerst openen
+- Handmatig via het menu **Instellingen** in het geval van Windows 10 
 
-U kunt apparaten geregistreerd bij Azure AD configureren voor Windows 10, iOS, Android en macOS.
+U kunt Azure AD-geregistreerde apparaten configureren voor Windows 10, iOS, Android en macOS.
 
-## <a name="azure-ad-joined-devices"></a>Azure AD gekoppelde apparaten
+## <a name="azure-ad-joined-devices"></a>Azure AD-gekoppelde apparaten
 
-Het doel van Azure AD gekoppelde apparaten is voor het vereenvoudigen van:
+Het doel van Azure AD-gekoppelde apparaten is vereenvoudiging van:
 
-- Windows-implementaties van work-apparaten 
-- Toegang tot organisatie-apps en bronnen van een Windows-apparaat
-- Cloud-gebaseerde beheer van apparaten in eigendom van het werk
+- Windows-implementaties van apparaten die eigendom van het bedrijf zijn 
+- Toegang tot apps en bronnen van de organisatie vanaf elk Windows-apparaat
+- Cloudgebaseerd beheer van apparaten die eigendom van het bedrijf zijn
 
-![Azure AD ingeschreven apparaten](./media/overview/02.png)
+![Azure AD-geregistreerde apparaten](./media/overview/02.png)
 
-Azure AD Join kan worden geïmplementeerd met behulp van de volgende methoden: 
- - [Windows Autopilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
- - [Bulk-implementatie](https://docs.microsoft.com/intune/windows-bulk-enroll)
+Azure AD-koppeling kan via een van de volgende methoden worden geïmplementeerd: 
+ - [Windows AutoPilot](https://docs.microsoft.com/windows/deployment/windows-autopilot/windows-10-autopilot)
+ - [Bulkimplementatie](https://docs.microsoft.com/intune/windows-bulk-enroll)
  - [Selfservice-ervaring](azuread-joined-devices-frx.md) 
 
-**Azure AD Join** is bedoeld voor organisaties die willen worden cloud-first (dat wil zeggen, voornamelijk gebruik van cloudservices, met als doel om te beperken van gebruik van een on-premises infrastructuur) of alleen in de cloud (Er zijn geen on-premises infrastructuur). Er zijn geen beperkingen voor de grootte of het type van organisaties die Azure AD Join kunt implementeren. Azure AD Join werkt ook goed in een hybride omgeving, toegang tot zowel cloud en on-premises apps en resources.
+**Azure AD-koppeling** is bedoeld voor organisaties die cloud-first willen zijn (d.w.z. die voornamelijk cloudservices willen gebruiken, met als doel on-premises infrastructuur steeds minder te gebruiken) of die cloud-only willen zijn (d.w.z. die geen on-premises infrastructuur willen gebruiken). Azure AD-koppeling kan worden geïmplementeerd door organisaties van elke omvang en elk type. Azure AD-koppeling werkt zelfs goed in een hybride omgeving, met toegang tot apps en bronnen in zowel de cloud als on-premises.
 
-Implementatie van Azure AD gekoppelde apparaten biedt de volgende voordelen:
+Door Azure AD-gekoppelde apparaten te implementeren, profiteert u van de volgende voordelen:
 
-- **Eenmalige aanmelding (SSO)** beheerd naar uw Azure SaaS-apps en services. Uw gebruikers geen aanvullende verificatie wordt gevraagd te zien bij het openen van bronnen op het werk. De SSO-functionaliteit is, zelfs wanneer ze niet zijn verbonden met het domeinnetwerk beschikbaar.
+- **Eenmalige aanmelding** bij uw Azure-beheerde SaaS-apps en -services. Uw gebruikers zien geen aanvullende verificatieprompts wanneer ze werkbronnen openen. De functionaliteit voor eenmalige aanmelding is zelfs beschikbaar wanneer ze geen verbinding met het domeinnetwerk hebben.
 
-- **Enterprise compatibel roaming** van gebruikersinstellingen op gekoppelde apparaten. Gebruikers moeten geen verbinding maken met een Microsoft-account (bijvoorbeeld Hotmail) om te zien van instellingen op apparaten.
+- **Enterprise Compliant Roaming** van gebruikersinstellingen op alle gekoppelde apparaten. Gebruikers hoeven geen Microsoft-account (bijvoorbeeld Hotmail) te verbinden om instellingen op alle apparaten te kunnen zien.
 
-- **Toegang tot Windows Store voor bedrijven** met behulp van een Azure AD-account. Uw gebruikers kunnen kiezen uit een inventaris van toepassingen die vooraf zijn geselecteerd door de organisatie.
+- **Toegang tot Windows Store voor Bedrijven** met behulp van een Azure AD-account. Uw gebruikers kunnen kiezen uit verschillende toepassingen die vooraf zijn geselecteerd door de organisatie.
 
-- **Windows Hello** ondersteuning voor veilige en gemakkelijke manier toegang tot bronnen op het werk.
+- **Windows Hello**-ondersteuning voor veilige en handige toegang tot werkbronnen.
 
-- **Beperking van toegang** om te alleen apparaten die voldoen aan het nalevingsbeleid voor apps.
+- **App-toegang die is beperkt** tot alleen apparaten die aan nalevingsbeleid voldoen.
 
-- **Naadloze toegang tot on-premises bronnen** wanneer het apparaat verbinding met de on-premises domeincontroller heeft. 
-
-
-Terwijl Azure AD join is hoofdzakelijk bedoeld voor organisaties die nog geen een on-premises Windows Server Active Directory-infrastructuur, u kan waarschijnlijk worden gebruikt in scenario's waarbij:
-
-- U wilt overstappen op cloud gebaseerde infrastructuur in met behulp van Azure AD en MDM, zoals Intune.
-
-- U kunt een lid van de on-premises domein, bijvoorbeeld niet gebruiken als u nodig hebt om op te halen van mobiele apparaten zoals tablets en telefoons onder beheer.
-
-- Uw gebruikers voornamelijk toegang nodig voor toegang tot Office 365 of andere SaaS-apps die is geïntegreerd met Azure AD.
-
-- Wilt u een groep gebruikers beheren in Azure AD in plaats van in Active Directory. Dit kunt toepassen, bijvoorbeeld op seizoenswerkers, aannemers of studenten.
-
-- Wilt u lid te worden mogelijkheden bieden aan werknemers in externe filialen met beperkte on-premises infrastructuur.
-
-U kunt Azure AD gekoppelde apparaten voor Windows 10-apparaten kunt configureren.
+- **Naadloze toegang tot on-premises bronnen** wanneer het apparaat verbinding heeft met de on-premises domeincontroller. 
 
 
-## <a name="hybrid-azure-ad-joined-devices"></a>Hybride Azure AD gekoppelde apparaten
+Hoewel Azure AD-koppeling voornamelijk is bedoeld voor organisaties die geen on-premises Windows Server Active Directory-infrastructuur hebben, kunt u dit beslist gebruiken in scenario’s waarbij:
 
-Voor meer dan tien jaar sterk vebeterd, hebben veel organisaties een lid van het domein met hun on-premises Active Directory gebruikt om in te schakelen:
+- U wilt overstappen op cloudgebaseerde infrastructuur met behulp van Azure AD en MDM zoals Intune.
 
-- IT-afdelingen werken eigendom om apparaten te beheren vanaf een centrale locatie.
+- U geen on-premises domeinkoppeling kunt gebruiken, bijvoorbeeld als u mobiele apparaten zoals tablets en telefoons onder controle moet krijgen.
 
-- Gebruikers zich aanmelden op hun apparaten bij hun Active Directory werk- of schoolaccount. 
+- Uw gebruikers voornamelijk toegang nodig hebben tot Office 365 of andere SaaS-apps die zijn geïntegreerd met Azure AD.
 
-Normaal gesproken organisaties met een on-premises-footprint afhankelijk zijn van imaging methoden voor het inrichten van apparaten en kunnen ze vaak gebruiken **System Center Configuration Manager (SCCM)** of **Groepsbeleid (GP)** beheren ze.
+- U een groep gebruikers in Azure AD wilt beheren in plaats van in Active Directory. Dit kan bijvoorbeeld van toepassing zijn op seizoenswerkers, aannemers of leerlingen/studenten.
 
-Als uw omgeving een on-premises heeft AD-footprint en u ook voordeel van de mogelijkheden van Azure Active Directory, kunt u hybride Azure AD gekoppelde apparaten implementeren. Dit zijn apparaten die beide zijn gekoppeld aan uw on-premises Active Directory en uw Azure Active Directory.
+- U koppelingsmogelijkheden wilt bieden aan medewerkers in externe filialen met beperkte on-premises infrastructuur.
 
-![Azure AD ingeschreven apparaten](./media/overview/01.png)
+U kunt Azure AD-gekoppelde apparaten configureren voor Windows 10-apparaten.
 
 
-U moet de apparaten toegevoegd aan hybrid Azure AD gebruiken als:
+## <a name="hybrid-azure-ad-joined-devices"></a>Hybride Azure AD-gekoppelde apparaten
 
-- Hebt u Win32-apps die zijn geïmplementeerd op deze apparaten die afhankelijk van verificatie van Active Directory-machine zijn.
+Al meer dan tien jaar gebruiken vele organisaties de domeinkoppeling naar hun on-premises Active Directory om:
 
-- Gewenste GP om apparaten te beheren.
+- IT-afdelingen vanaf een centrale locatie apparaten te laten beheren die eigendom van het bedrijf zijn.
 
-- Wilt u doorgaan met installatiekopieën om oplossingen te gebruiken om apparaten te configureren voor uw werknemers.
+- Gebruikers zich bij hun apparaat te laten aanmelden met hun Active Directory-werkaccount of -schoolaccount. 
 
-U kunt configureren dat Hybrid Azure AD gekoppelde apparaten voor Windows 10 en downlevel-apparaten, zoals Windows 8 en Windows 7.
+Organisaties met een on-premises voetafdruk zijn meestal afhankelijk van imaging-methoden om apparaten in te richten, en gebruiken vaak **System Center Configuration Manager (SCCM)** of **groepsbeleid (GP)** om ze te beheren.
+
+Als uw omgeving een on-premises AD-voetafdruk heeft en u ook wilt profiteren van de mogelijkheden die Azure Active Directory biedt, kunt u hybride Azure AD-gekoppelde apparaten implementeren. Dit zijn apparaten die zowel aan uw on-premises Active Directory als aan uw Azure Active Directory zijn gekoppeld.
+
+![Azure AD-geregistreerde apparaten](./media/overview/01.png)
+
+
+U moet hybride Azure AD-gekoppelde apparaten gebruiken als:
+
+- U Win32-apps op deze apparaten hebt geïmplementeerd die afhankelijk zijn van Active Directory-machineverificatie.
+
+- U groepsbeleid nodig hebt om apparaten te beheren.
+
+- U imaging-oplossingen wilt blijven gebruiken om apparaten voor uw werknemers te configureren.
+
+U kunt hybride Azure AD-gekoppelde apparaten configureren voor Windows 10 en voor downlevel apparaten zoals Windows 8 en Windows 7.
 
 ## <a name="summary"></a>Samenvatting
 
-Met Apparaatbeheer in Azure AD, kunt u het volgende doen: 
+Met apparaatbeheer in Azure AD kunt u: 
 
-- Het vereenvoudigen van apparaten meebrengen onder het beheer van Azure AD
+- Het proces vereenvoudigen om apparaten onder het beheer van Azure AD te krijgen
 
-- Uw gebruikers voorzien van een eenvoudig te gebruiken toegang tot cloud-gebaseerde bronnen van uw organisatie
+- Uw gebruikers gemakkelijke toegang tot de cloudgebaseerde bronnen van uw organisatie bieden
 
-Als een regel van een miniatuur, moet u het volgende gebruiken:
+Als vuistregel geldt:
 
-- Azure AD ingeschreven apparaten:
+- Gebruik Azure AD-geregistreerde apparaten:
 
     - Voor persoonlijke apparaten 
 
-    - Apparaten handmatig te registreren bij Azure AD
+    - Om apparaten handmatig te registreren bij Azure AD
 
-- Azure AD gekoppelde apparaten: 
+- Gebruik Azure AD-gekoppelde apparaten: 
 
-    - Voor apparaten die eigendom zijn van uw organisatie
+    - Voor apparaten die eigendom van uw organisatie zijn
 
-    - Voor apparaten die zijn **niet** lid is van een on-premises AD
+    - Voor apparaten die **niet** zijn gekoppeld aan een on-premises AD
 
-    - Apparaten handmatig te registreren bij Azure AD
+    - Om apparaten handmatig te registreren bij Azure AD
 
-    - De status van de lokale van een apparaat wijzigen
+    - Om de lokale status van een apparaat te wijzigen
 
-- Hybride Azure AD gekoppelde apparaten voor apparaten die zijn gekoppeld aan een on-premises AD     
+- Gebruik hybride Azure AD-gekoppelde apparaten:     
 
-    - Voor apparaten die eigendom zijn van uw organisatie
+    - Voor apparaten die eigendom van uw organisatie zijn
 
     - Voor apparaten die zijn gekoppeld aan een on-premises AD
 
-    - Apparaten automatisch registreren bij Azure AD
+    - Om apparaten automatisch te registreren bij Azure AD
 
-    - De status van de lokale van een apparaat wijzigen
+    - Om de lokale status van een apparaat te wijzigen
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u een overzicht van het apparaat in Azure portal te beheren, Zie [apparaten beheert met de Azure-portal](device-management-azure-portal.md)
+- Zie [Apparaten beheren met behulp van de Azure-portal](device-management-azure-portal.md) voor een overzicht van hoe u apparaten in de Azure-portal kunt beheren.
 
-- Zie voor meer informatie over voorwaardelijke toegang op basis van apparaat, [configureren van beleid voor het apparaat gebaseerde voorwaardelijke toegang van Azure Active Directory](../conditional-access/require-managed-devices.md).
+- Zie [Beleid configureren voor apparaatgebaseerde voorwaardelijke toegang van Azure Active Directory](../conditional-access/require-managed-devices.md) voor meer informatie over apparaatgebaseerde voorwaardelijke toegang.
 
-- Instellen:
-    - Azure Active Directory ingeschreven Windows 10-apparaten, Zie [over het configureren van Azure Active Directory geregistreerde Windows 10-apparaten](../user-help/device-management-azuread-registered-devices-windows10-setup.md)
-    - Azure Active Directory gekoppelde apparaten, Zie [over het configureren van Azure Active Directory gekoppelde apparaten](../user-help/device-management-azuread-joined-devices-setup.md)
-    - Hybride Azure AD gekoppelde apparaten, Zie [over het plannen van de implementatie van hybride Azure Active Directory join](hybrid-azuread-join-plan.md).
+- Voor het instellen van:
+    - Azure Active Directory-geregisteerde Windows 10-apparaten raadpleegt u [Azure Active Directory-geregistreerde Windows 10-apparaten configureren](../user-help/device-management-azuread-registered-devices-windows10-setup.md).
+    - Azure Active Directory-gekoppelde apparaten raadpleegt u [Azure Active Directory-gekoppelde apparaten configureren](../user-help/device-management-azuread-joined-devices-setup.md).
+    - Hybride Azure AD-gekoppelde apparaten raadpleegt u [De implementatie van uw hybride Azure Active Directory-koppeling plannen](hybrid-azuread-join-plan.md).
 
 

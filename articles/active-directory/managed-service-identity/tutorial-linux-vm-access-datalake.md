@@ -14,23 +14,22 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: 6854b0a6c72b44bcd3f778e0c46cb109b34ce826
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 4a9d147d1605f4efa638ff258df2667b6b95230e
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258827"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885155"
 ---
 # <a name="tutorial-use-managed-service-identity-for-a-linux-vm-to-access-azure-data-lake-store"></a>Zelfstudie: Managed Service Identity voor een Linux-VM gebruiken om toegang te krijgen tot Azure Data Lake Storage
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie laat zien hoe u toegang krijgt tot Azure Data Lake Storage met een Managed Service Identity (MSI) voor een virtuele Linux-machine (VM). Identiteiten die u maakt via Managed Service Identity, worden automatisch beheerd in Azure. U kunt Managed Service Identity gebruiken voor verificatie bij services die Azure AD-verificatie (Azure Active Directory) ondersteunen, zonder referenties in uw code te hoeven invoegen. 
+Deze zelfstudie laat zien hoe u toegang krijgt tot Azure Data Lake Store met een door het systeem toegewezen identiteit voor een virtuele Linux-machine (VM). Identiteiten die u maakt via Managed Service Identity, worden automatisch beheerd in Azure. U kunt Managed Service Identity gebruiken voor verificatie bij services die Azure AD-verificatie (Azure Active Directory) ondersteunen, zonder referenties in uw code te hoeven invoegen. 
 
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Managed Service Identity op een Linux-VM inschakelen. 
 > * Uw virtuele machine toegang verlenen tot Azure Data Lake Storage.
 > * Een toegangstoken ophalen met behulp van de identiteit van de virtuele machine en dat token gebruiken om toegang te krijgen tot Azure Data Lake Storage.
 
@@ -40,33 +39,11 @@ In deze zelfstudie leert u het volgende:
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+- [Aanmelden bij de Azure-portal](https://portal.azure.com)
 
-Meld u aan bij [Azure Portal](https://portal.azure.com).
+- [Een virtuele Linux-machine maken](/azure/virtual-machines/linux/quick-create-portal)
 
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-machine maken in een nieuwe resourcegroep
-
-Voor deze zelfstudie maken we een nieuwe virtuele Linux-machine. U kunt MSI ook inschakelen op een bestaande virtuele machine.
-
-1. Selecteer de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
-2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
-3. Geef de informatie van de virtuele machine op. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel** of **Wachtwoord**. Met de gemaakte referenties kunt u zich aanmelden bij de virtuele machine.
-
-   ![‘Basis’-deelvenster voor het maken van een virtuele machine](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. Selecteer een abonnement voor de virtuele machine in de lijst **Abonnement**.
-5. Als u de virtuele machine in een nieuwe resourcegroep wilt maken, selecteert u **Resourcegroep** > **Nieuwe maken**. Selecteer **OK** wanneer u klaar bent.
-6. Selecteer de grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Handhaaf de standaardinstellingen in het deelvenster Instellingen en selecteer **OK**.
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Managed Service Identity op uw VM inschakelen
-
-Met Managed Service Identity op een virtuele machine kunt u toegangstokens uit Azure AD ophalen zonder dat u referenties in uw code hoeft op te nemen. Er gebeuren twee dingen als u Managed Service Identity inschakelt op een virtuele machine: de virtuele machine wordt bij Azure Active Directory geregistreerd om de beheerde identiteit te maken, en de identiteit wordt geconfigureerd op de virtuele machine.
-
-1. Selecteer bij **Virtuele machine** de virtuele machine waarop u Managed Service Identity wilt inschakelen.
-2. Selecteer **Configuratie** in het linkerdeelvenster.
-3. U ziet **Managed Service Identity**. Als u Managed Service Identity wilt registreren en inschakelen, selecteert u **Ja**. Als u dit wilt uitschakelen, selecteert u **Nee**.
-   ![Selectie ‘Registreren bij Azure Active Directory’](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-4. Selecteer **Opslaan**.
+- [Door het systeem toegewezen identiteit op uw virtuele machine inschakelen](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Uw virtuele machine toegang verlenen tot Azure Data Lake Storage
 
@@ -101,7 +78,7 @@ U hebt een SSH-client nodig om deze stappen uit te voeren. Als u Windows gebruik
 
 1. Blader in de portal naar uw Linux-VM. Selecteer **Verbinden** in **Overzicht**.  
 2. Maak verbinding met de VM met behulp van de SSH-client van uw keuze. 
-3. Dien in het terminalvenster met behulp van cURL een aanvraag in bij het lokale eindpunt van Managed Service Identity om een toegangstoken voor het Data Lake Storage-bestandssysteem op te halen. De resource-id voor Data Lake Storage is ‘https://datalake.azure.net/’.  Het is belangrijk om de afsluitende slash in de resource-id op te nemen.
+3. Dien in het terminalvenster met behulp van cURL een aanvraag in bij het lokale eindpunt van Managed Service Identity om een toegangstoken voor het Data Lake Storage-bestandssysteem op te halen. De resource-id voor Data Lake Storage is ‘ https://datalake.azure.net/’.  Het is belangrijk om de afsluitende slash in de resource-id op te nemen.
     
    ```bash
    curl 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -H Metadata:true   

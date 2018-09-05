@@ -1,45 +1,39 @@
 ---
-title: Toepassingen implementeren op virtuele-machineschaalsets in Azure met Ansible
-description: Leer hoe u Ansible gebruikt voor het configureren van een virtuele-machineschaalset en -toepassing implementeren op de virtuele-machineschaalset in Azure
+title: Toepassingen implementeren in schaalsets voor virtuele machines in Azure met Ansible
+description: Meer informatie over het gebruik van Ansible voor het configureren van een schaalset voor virtuele machines en het implementeren van een toepassing in de schaalset voor virtuele machines in Azure
 ms.service: ansible
-keywords: ansible, azure, devops, bash, playbook, virtuele machines, virtuele-machineschaalset, vmss
+keywords: ansible, azure, devops, bash, playbook, virtuele machine, schaalset voor virtuele machines, vmss
 author: tomarcher
-manager: jpconnock
-editor: na
-ms.topic: article
-ms.tgt_pltfrm: vm-linux
-ms.date: 07/11/2018
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: b9c8058606e13c0db4908530e98cddb69d2caf50
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 08/24/2018
+ms.openlocfilehash: 762c14b5b6e30f6410a8d572d69651c803f079c2
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008851"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42918083"
 ---
-# <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Toepassingen implementeren op virtuele-machineschaalsets in Azure met Ansible
-Ansible kunt u de implementatie en configuratie van bronnen in uw omgeving automatiseren. U kunt Ansible gebruiken om uw toepassingen naar Azure te implementeren. Dit artikel ziet u hoe u een Java-toepassing in een schaalset voor virtuele Azure-machines (VMSS) implementeert.  
+# <a name="deploy-applications-to-virtual-machine-scale-sets-in-azure-using-ansible"></a>Toepassingen implementeren in schaalsets voor virtuele machines in Azure met Ansible
+U kunt Ansible ook gebruiken om de implementatie en configuratie van resources in uw omgeving te automatiseren. U kunt Ansible gebruiken om uw toepassingen te implementeren in Azure. In dit artikel leest u hoe u een Java-toepassing implementeert in een schaalset voor virtuele Azure-machines (VMSS).  
 
 ## <a name="prerequisites"></a>Vereisten
-- **Azure-abonnement** : als u geen Azure-abonnement, maak een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) voordat u begint.
-- **Ansible configureren** - [maken-Azure-referenties en Ansible configureren](../virtual-machines/linux/ansible-install-configure.md#create-azure-credentials)
-- **Ansible en de Azure Python SDK-modules** 
-  - [CentOS 7.4](../virtual-machines/linux/ansible-install-configure.md#centos-74)
-  - [Ubuntu 16.04 LTS](../virtual-machines/linux/ansible-install-configure.md#ubuntu-1604-lts)
-  - [SLES 12 SP2](../virtual-machines/linux/ansible-install-configure.md#sles-12-sp2)
-- **Virtuele-machineschaalset** : als u een virtuele-machineschaalset nog niet hebt ingesteld, kunt u [maken van een virtuele-machineschaalset met Ansible](ansible-create-configure-vmss.md). 
-- **GIT** - [git](https://git-scm.com) wordt gebruikt om een Java-voorbeeld in deze zelfstudie gebruikt te downloaden.
-- **Java SE Development Kit (JDK)** -de JDK wordt gebruikt om het voorbeeld van Java-project te bouwen.
-- **Hulpprogramma's van Apache Maven build** : de [hulpprogramma's van Apache Maven build](https://maven.apache.org/download.cgi) worden gebruikt om het voorbeeld van Java-project te bouwen.
+- **Azure-abonnement**: als u geen Azure-abonnement hebt, maakt u een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
+- [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation1.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation1.md)] [!INCLUDE [ansible-prereqs-for-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-for-cloudshell-use-or-vm-creation2.md)]
+- **Schaalset voor virtuele machines**: als u nog geen schaalset voor virtuele machines hebt, kunt u [een schaalset voor virtuele machines maken met Ansible](ansible-create-configure-vmss.md). 
+- Met **git** - [git](https://git-scm.com) wordt een Java-voorbeeld gedownload dat in deze zelfstudie wordt gebruikt.
+- **Java SE Development Kit (JDK)**: de JDK wordt gebruikt om het Java-voorbeeldproject te maken.
+- **Hulpprogramma's voor maken van Apache Maven**: de [hulpprogramma's voor maken van Apache Maven](https://maven.apache.org/download.cgi) worden gebruikt om het Java-voorbeeldproject te maken.
 
 > [!Note]
-> Ansible 2.6 is vereist voor het uitvoeren van de volgende de playbooks voorbeeld in deze zelfstudie. 
+> Ansible 2.6 is vereist voor het uitvoeren van de volgende playbooks-voorbeelden in deze zelfstudie. 
 
-## <a name="get-host-information"></a>Informatie over ophalen
+## <a name="get-host-information"></a>Hostgegevens ophalen
 
-In deze sectie ziet u hoe u Ansible gebruikt om op te halen van informatie over de host voor een groep virtuele machines van Azure. Hieronder volgt een voorbeeld van Ansible-playbook. De code wordt de openbare IP-adressen en load balancer in resourcegroep opgegeven en maakt u een hostgroep met de naam **saclesethosts** in voorraad. 
+In deze sectie ziet u hoe u met Ansible hostgegevens kunt ophalen voor een groep virtuele Azure-machines. Hieronder ziet u een voorbeeld van een Ansible-playbook. Met de code worden de openbare IP-addressen en load balancer binnen de opgegeven resourcegroup opgehaald en wordt een hostgroep met de naam **saclesethosts** gemaakt in de inventaris. 
 
-Sla het volgende voorbeeld-playbook als `get-hosts-tasks.yml`: 
+Sla het volgende voorbeeld-playbook op als `get-hosts-tasks.yml`: 
 
   ```yaml
   - name: Get facts for all Public IPs within a resource groups
@@ -65,9 +59,9 @@ Sla het volgende voorbeeld-playbook als `get-hosts-tasks.yml`:
       - "{{ output.ansible_facts.azure_loadbalancers[0].properties.inboundNatRules }}"
   ```
 
-## <a name="prepare-an-application-for-deployment"></a>Een toepassing voor implementatie voorbereiden  
+## <a name="prepare-an-application-for-deployment"></a>Een toepassing voorbereiden voor implementatie  
 
-In deze sectie maakt u git gebruiken om te klonen van een Java-voorbeeldproject van GitHub en bouw het project. Opslaan van de volgende playbook als `app.yml`:
+In deze sectie gebruikt u git om een Java-voorbeeldproject van GitHub te klonen en het project te maken. Sla het volgende playbook op als `app.yml`:
 
   ```yaml
   - hosts: localhost
@@ -85,13 +79,13 @@ In deze sectie maakt u git gebruiken om te klonen van een Java-voorbeeldproject 
       shell: mvn package chdir="{{ workspace }}/complete"
   ```
 
-De voorbeeld-Ansible-playbook uitvoeren met de volgende opdracht:
+Voer het voorbeeld-Ansible-playbook uit met de volgende opdracht:
 
   ```bash
   ansible-playbook app.yml
   ```
 
-Geeft het de uitvoer van de opdracht ansible-playbook uit die vergelijkbaar is met het volgende waar u zien dat deze de voorbeeld-app klonen vanuit GitHub gebouwd:
+De uitvoer van de opdracht ansible-playbook lijkt op het volgende, waarbij u kunt zien dat de voorbeeld-app is gemaakt die is gekloond vanuit GitHub:
 
   ```bash
   PLAY [localhost] **********************************************************
@@ -110,11 +104,11 @@ Geeft het de uitvoer van de opdracht ansible-playbook uit die vergelijkbaar is m
 
   ```
 
-## <a name="deploy-the-application-to-vmss"></a>De toepassing implementeren naar VMSS
+## <a name="deploy-the-application-to-vmss"></a>De toepassing implementeren in VMSS
 
-Java Runtime Environment (Java Runtime Environment) op een hostgroep met de naam wordt geïnstalleerd door de volgende sectie in een Ansible-playbook **saclesethosts**, en implementeert de Java-toepassing aan een hostgroep met de naam **saclesethosts**: 
+Met de volgende sectie in een Ansible-playbook wordt de JRE (Java Runtime Environment) geïnstalleerd op een hostgroep met de naam **saclesethosts** en wordt de Java-toepassing geïmplementeerd in een hostgroep met de naam **saclesethosts**: 
 
-(Wijziging de `admin_password` op uw eigen wachtwoord.)
+(Wijzig de `admin_password` in uw eigen wachtwoord.)
 
   ```yaml
   - hosts: localhost
@@ -153,25 +147,25 @@ Java Runtime Environment (Java Runtime Environment) op een hostgroep met de naam
       poll: 0
   ```
 
-U kunt het voorgaande voorbeeld Ansible-playbook als opslaan `vmss-setup-deploy.yml`, of [downloaden van het volledige voorbeeld playbook](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
+U kunt het voorgaande voorbeeld-Ansible-playbook opslaan als `vmss-setup-deploy.yml` of [het volledige voorbeeld-playbook downloaden](https://github.com/Azure-Samples/ansible-playbooks/blob/master/vmss). 
 
-Gebruik de ssh verbindingstype met wachtwoorden, moet u het programma sshpass installeren. 
-  - Voer de opdracht uit voor Ubunto 16.04, `apt-get install sshpass`.
-  - Voer de opdracht uit voor CentOS 7.4, `yum install sshpass`.
+Als u het ssh-verbindingstype wilt gebruiken met wachtwoorden, moet u het sshpass-programma installeren. 
+  - Voor Ubunto 16.04 voert u de opdracht `apt-get install sshpass` uit.
+  - Voor CentOS 7.4 voert u de opdracht `yum install sshpass` uit.
 
-U ziet mogelijk een foutbericht wordt weergegeven als **met een SSH-wachtwoord in plaats van een sleutel is niet mogelijk omdat de Hostsleutel controleren is ingeschakeld en deze biedt geen ondersteuning voor sshpass.  Toevoegen van deze host vingerafdruk toe aan het bestand known_hosts voor het beheren van deze host.** Als u deze fout ziet, kunt u uitschakelen hostsleutel controleren door de volgende regel toe te voegen aan de `/etc/ansible/ansible.cfg` bestand of de `~/.ansible.cfg` bestand:
+U ziet mogelijk een foutbericht zoals **Het gebruik van een SSH-wachtwoord in plaats van een sleutel is niet mogelijk omdat de controle van de hostsleutel is ingeschakeld en dit niet wordt ondersteund door sshpass. Voeg de vingerafdruk van deze host toe aan het bestand known_hosts om deze host te beheren.** Als u deze fout ziet, kunt u de controle van de hostsleutel uitschakelen door de volgende regel toe te voegen aan het bestand `/etc/ansible/ansible.cfg` of het bestand `~/.ansible.cfg`:
   ```bash
   [defaults]
   host_key_checking = False
   ```
 
-De playbook uitvoeren met de volgende opdracht:
+Voer het playbook uit met de volgende opdracht:
 
   ```bash
   ansible-playbook vmss-setup-deploy.yml
   ```
 
-De uitvoer van het uitvoeren van de opdracht ansible-playbook geeft aan dat de Java-voorbeeldtoepassing aan de hostgroep van de virtuele-machineschaalset is geïnstalleerd:
+In de uitvoer van het uitvoeren van de opdracht ansible-playbook wordt aangegeven dat de Java-voorbeeldtoepassing is geïnstalleerd in de hostgroep van de schaalset voor virtuele machines:
 
   ```bash
   PLAY [localhost] **********************************************************
@@ -208,10 +202,10 @@ De uitvoer van het uitvoeren van de opdracht ansible-playbook geeft aan dat de J
   localhost                  : ok=4    changed=1    unreachable=0    failed=0
   ```
 
-Gefeliciteerd! Uw toepassing wordt nu uitgevoerd in Azure. U kunt nu navigeren naar de URL van de load balancer voor uw virtuele-machineschaalset:
+Gefeliciteerd! Uw toepassing wordt nu uitgevoerd in Azure. U kunt nu navigeren naar de URL van de load balancer voor uw schaalset voor virtuele machines:
 
-![Java-app die wordt uitgevoerd in een virtuele-machineschaalset in Azure.](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
+![Java-app die wordt uitgevoerd in een schaalset voor virtuele machines in Azure.](media/ansible-deploy-app-vmss/ansible-deploy-app-vmss.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 
-> [Voorbeeld-Ansible-playbook voor VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)
+> [Ansible-voorbeeldplaybook voor VMSS](https://github.com/Azure-Samples/ansible-playbooks/tree/master/vmss)

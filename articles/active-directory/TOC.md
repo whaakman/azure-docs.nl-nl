@@ -103,6 +103,7 @@
 #### [Activiteitenlogboeken naar een Azure Event Hub leiden](reports-monitoring/quickstart-azure-monitor-stream-logs-to-event-hub.md)
 #### [Activiteitenlogboeken in een Azure-opslagaccount archiveren](reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account.md)
 #### [Activiteitenlogboeken met Splunk integreren via Azure Monitor](reports-monitoring/tutorial-integrate-activity-logs-with-splunk.md)
+#### [Activiteitenlogboeken met SumoLogic integreren via Azure Monitor](reports-monitoring/howto-integrate-activity-logs-with-sumologic.md)
 
 ### Naslaginformatie
 #### [Retentie](reports-monitoring/reference-reports-data-retention.md)
@@ -332,6 +333,8 @@
 ### [Gebruikerstoegang met beoordelingen beheren](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
 ### [Programma's en besturingselementen beheren](active-directory-azure-ad-controls-manage-programs-controls.md)
 ### [Resultaten van de toegangsbeoordeling ophalen](active-directory-azure-ad-controls-retrieve-access-review.md)
+
+## [Gebruiksvoorwaarden](active-directory-tou.md)
 
 ## Uw identiteiten beveiligen
 

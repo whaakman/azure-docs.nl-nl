@@ -12,18 +12,19 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: 43092a12535ed18a5c91f924e3fdf72ad6d47d7b
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ea8bb1db53deaa546f4174ddc04d9a270aa96d9a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41918476"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187780"
 ---
-# <a name="azure-cosmos-db-data-migration-tool"></a>Azure Cosmos DB: hulpprogramma voor gegevensmigratie
+# <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Hulpprogramma voor gegevensmigratie gebruiken voor het migreren van uw gegevens naar Azure Cosmos DB 
 
 Deze zelfstudie bevat instructies over het gebruik van het Azure Cosmos DB-hulpprogramma voor gegevensmigratie waarmee gegevens uit diverse bronnen kunnen worden geïmporteerd in Azure Cosmos DB-verzamelingen en -tabellen. U kunt importeren vanuit JSON-bestanden, CSV-bestanden, SQL, MongoDB, Azure-tabelopslag, Amazon DynamoDB en zelfs Azure Cosmos DB SQL-API verzamelingen. U migreert die gegevens naar verzamelingen en tabellen voor gebruik met Azure Cosmos DB. Het hulpprogramma voor gegevensmigratie kan ook worden gebruikt wanneer u vanaf een verzameling met één partitie migreert naar een verzameling met meerdere partities voor de SQL-API.
 
 Welke API gaat u gebruiken met Azure Cosmos DB? 
+
 * **[SQL-API](documentdb-introduction.md)**: u kunt een van de bronopties in het hulpprogramma voor gegevensmigratie gebruiken om gegevens te importeren.
 * **[Tabel-API](table-introduction.md)**: u kunt het hulpprogramma voor gegevensmigratie of AzCopy gebruiken om gegevens te importeren. Zie [Gegevens importeren voor gebruik met de Azure Cosmos DB Table-API](table-import.md) voor meer informatie.
 * **[MongoDB-API](mongodb-introduction.md)**: het hulpprogramma voor gegevensmigratie ondersteunt momenteel Azure Cosmos DB MongoDB-API niet als een bron of als een doel. Als u de gegevens wilt migreren naar of uit MongoDB-API-verzamelingen in Azure Cosmos DB, raadpleegt u [Azure Cosmos DB: gegevens migreren voor de MongoDB-API](mongodb-migrate.md) voor instructies. U kunt het hulpprogramma voor gegevensmigratie nog wel gebruiken om gegevens vanaf MongoDB te exporteren naar Azure Cosmos DB SQL-API-verzamelingen voor gebruik met de SQL-API. 
@@ -77,8 +78,8 @@ Nadat u het hulpprogramma hebt geïnstalleerd, is het tijd om uw gegevens te imp
 * [Blob](#BlobImport)
 * [Azure DB Cosmos-verzamelingen](#SQLSource)
 * [HBase](#HBaseSource)
-* [Azure DB Cosmos-bulkimport](#SQLBulkImport)
-* [Azure DB Cosmos sequentiële recordimport](#DocumentDSeqTarget)
+* [Azure DB Cosmos-bulkimport](#SQLBulkTarget)
+* [Azure DB Cosmos sequentiële recordimport](#SQLSeqTarget)
 
 
 ## <a id="JSON"></a>JSON-bestanden importeren

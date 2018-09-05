@@ -3,7 +3,7 @@ title: Een API handmatig toevoegen met Azure Portal | Microsoft Docs
 description: Deze zelfstudie laat u zien hoe u een API Management (APIM) moet gebruiken om handmatig een API toe te voegen.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: mikebudzynski
 manager: cfowler
 editor: ''
 ms.service: api-management
@@ -11,16 +11,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 11/22/2017
+ms.date: 08/27/2018
 ms.author: apimpm
-ms.openlocfilehash: ef7cfa0f30eaaa426c312b21ce0a73aa4409d2ec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 35b4777c7de4db1f8514b24e7b1e4d11775d0ca0
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38307445"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247899"
 ---
-# <a name="add-an-api-manually"></a>Handmatig een API toevoegen 
+# <a name="add-an-api-manually"></a>Handmatig een API toevoegen
 
 In dit artikel wordt uitgelegd hoe u handmatig een API moet toevoegen aan het exemplaar van API Management (APIM) met Azure Portal. Een veelvoorkomend scenario wanneer u een lege API wilt maken en het handmatig wilt definiëren om een gesimuleerde API te maken. Zie voor meer informatie over het simuleren van een API [Gesimuleerde API-antwoorden](mock-api-responses.md).
 
@@ -54,17 +54,16 @@ Lees de volgende snelstart: [Een Azure API Management-exemplaar maken](get-start
     |**Producten**|"*Onbeperkt*" |Publiceer de API door deze aan een product te koppelen. Als u wilt dat de API wordt gepubliceerd en beschikbaar is voor ontwikkelaars, kunt u deze toevoegen aan een product. U kunt dit doen tijdens het maken van de API of het later instellen.<br/><br/>Producten zijn koppelingen van een of meer API's. U kunt een aantal API's opnemen en deze beschikbaar stellen voor ontwikkelaars via de ontwikkelaarsportal. <br/>Ontwikkelaars moeten zich eerst abonneren op een product om toegang tot de API te krijgen. Wanneer ontwikkelaars zich abonneren, ontvangen ze een abonnementssleutel die toegang biedt tot elke API in het betreffende product. Als u de APIM-abonnementssleutel hebt gemaakt, bent u al een beheerder en bent u standaard geabonneerd op elk product.<br/><br/> Standaard wordt elke API Management-instantie geleverd met twee voorbeeldproducten: **Starter** en **Onbeperkt**.| 
 5. Selecteer **Maken**.
 
-U hebt op dit moment geen bewerkingen in APIM die zijn toegewezen aan de bewerkingen in uw back-end-API. Als u een bewerking aanroept die beschikbaar is gesteld via de back-end maar niet via de APIM, krijgt u een **404**. 
+U hebt op dit moment geen bewerkingen in APIM die zijn toegewezen aan de bewerkingen in uw back-end-API. Als u een bewerking aanroept die beschikbaar is gesteld via de back-end maar niet via de APIM, krijgt u een **404**.
 
 >[!NOTE] 
 > Standaard zal de APIM geen bewerkingen blootstellen totdat u ze accepteert wanneer u een API toevoegt, zelfs als deze is verbonden met bepaalde back-endservice. Om een bewerking van uw back-end-service goed te keuren, maakt u een APIM-bewerking die is toegewezen aan de back-end-bewerking.
->
 
 ## <a name="add-and-test-an-operation"></a>Toevoegen en testen van een bewerking
 
 In deze sectie wordt beschreven hoe u een bewerking "/get" toevoegt om ze te kunnen toewijzen aan de back-end-bewerking "http://httpbin.org/get".
 
-### <a name="add-the-operation"></a>Voeg de bewerking toe
+### <a name="add-an-operation"></a>Een bewerking toevoegen
 
 1. Selecteer de API die u in de vorige stap hebt gemaakt.
 2. Klik op **+ Bewerking toevoegen**.
@@ -72,7 +71,7 @@ In deze sectie wordt beschreven hoe u een bewerking "/get" toevoegt om ze te kun
 4. Voer "*FetchData*" in als **Weergavenaam**.
 5. Selecteer **Opslaan**.
 
-### <a name="test-the-operation"></a>Test de bewerking
+### <a name="test-an-operation"></a>Een bewerking testen
 
 Test de functie in Azure Portal. U kunt het ook testen in de **Ontwikkelaarsportal**.
 

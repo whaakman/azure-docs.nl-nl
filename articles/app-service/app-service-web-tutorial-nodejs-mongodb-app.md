@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 05/04/2017
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 7a3e91e8f928f6e7e2df7a26f52bd44b3b3a81b2
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 70b7af1701c13e6a5d7644f04e4502f76ef7743a
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618951"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43187842"
 ---
 # <a name="tutorial-build-a-nodejs-and-mongodb-web-app-in-azure"></a>Zelfstudie: Een web-app voor Node.js en MongoDB bouwen in Azure
 
@@ -117,6 +117,9 @@ De MEAN.js-voorbeeldtoepassing slaat gebruikersgegevens op in de database. Als d
 Selecteer **Admin > Manage Articles** om enkele artikelen toe te voegen.
 
 Als u Node.js wilt stoppen, drukt u in de terminal op `Ctrl+C`. 
+
+> [!NOTE]
+> De [Node.js-snelstart](app-service-web-get-started-nodejs.md) vermeldt de noodzaak voor een web.config in de hoofdmap van de app. In deze zelfstudie wordt het web.config-bestand echter automatisch gegenereerd door App Service wanneer u uw bestanden implementeert met behulp van [lokale Git-implementatie](app-service-deploy-local-git.md) in plaats van met implementatie met een ZIP-bestand. 
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/22/2017
 ms.author: daveba
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: d1e4d8dd7201935ef1dbdc83224f905c812f9cca
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 98be87d62861295536a75201ff93e809c9ba120b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39447472"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886849"
 ---
 # <a name="tutorial-use-a-user-assigned-identity-on-a-linux-vm-to-access-azure-resource-manager"></a>Zelfstudie: een door de gebruiker toegewezen identiteit gebruiken op een Linux-VM om toegang te krijgen tot Azure Resource Manager
 
@@ -40,29 +40,15 @@ In deze zelfstudie leert u procedures om het volgende te doen:
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Als u niet bekend bent met Managed Service Identity, raadpleeg dan de [overzichtssectie](overview.md). **Zorg ervoor dat u de [verschillen tussen door het systeem en door de gebruiker toegewezen identiteiten](overview.md#how-does-it-work)** kent.
-- Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
-- Om de stappen voor het maken van de vereiste resources en het rolbeheer in deze zelfstudie uit te voeren, moet uw account 'Eigenaar'-machtigingen hebben voor het juiste bereik (uw abonnement of resourcegroep). Voor hulp bij roltoewijzing gaat u naar [Op rollen gebaseerd toegangsbeheer gebruiken voor het beheer van de toegang tot de resources van uw Azure-abonnement](/azure/role-based-access-control/role-assignments-portal).
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
+
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+[Aanmelden bij de Azure-portal](https://portal.azure.com)
+
+[Een virtuele Linux-machine maken](/azure/virtual-machines/linux/quick-create-portal)
 
 Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor deze snelstartgids de versie Azure CLI 2.0.4 of hoger uitvoeren. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
-
-## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
-
-Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
-
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-machine maken in een nieuwe resourcegroep
-
-Voor deze zelfstudie maakt u eerst een nieuwe virtuele Linux-machine. U kunt ook een bestaande VM gebruiken.
-
-1. Klik in de linkerbovenhoek van Azure Portal op **Een resource maken**.
-2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
-3. Geef de informatie van de virtuele machine op. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel** of **Wachtwoord**. Met de gemaakte referenties kunt u zich aanmelden bij de virtuele machine.
-
-    ![Linux-VM maken](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. Kies een **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
-5. Om een nieuwe **resourcegroep** te selecteren waarin u de virtuele machine wilt maken, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
-6. Selecteer de grootte voor de virtuele machine. Kies om meer grootten weer te geven de optie **Alle weergeven** of wijzig het filter Ondersteund schijftype. Handhaaf op de blade Instellingen de standaardwaarden en klik op **OK**.
 
 ## <a name="create-a-user-assigned-identity"></a>Door de gebruiker toegewezen identiteit maken
 

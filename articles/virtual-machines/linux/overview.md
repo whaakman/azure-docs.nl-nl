@@ -15,20 +15,20 @@ ms.workload: infrastructure
 ms.date: 11/29/2017
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: d2e4a014a0f7bb7f94885528abc930d2b243318b
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1ac55b728a29ff1bb8129087da5992ffe5f23df9
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30911315"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42820314"
 ---
 # <a name="azure-and-linux"></a>Azure en Linux
-Microsoft Azure is een groeiende verzameling geïntegreerde, openbare cloudservices, waaronder analyses, VM's, databases, mobiele toepassingen, netwerken, opslag en het web&mdash;ideaal voor het hosten van uw oplossingen.  Microsoft Azure biedt een schaalbaar platform waarvoor u alleen betaalt voor wat u gebruikt, wanneer u dat gebruikt - zonder dat u hoeft te investeren in on-premises hardware.  Azure is klaar om uw oplossingen op te schalen wanneer u daar ook klaar, welke schaal u ook nodig hebt om te voorzien in de behoeften van uw klanten.
+Microsoft Azure is een groeiende verzameling geïntegreerde, openbare cloudservices, waaronder analyses, virtuele machines, databases, mobiele toepassingen, netwerken, opslag en het web&mdash;ideaal voor het hosten van uw oplossingen.  Microsoft Azure biedt een schaalbaar platform waarvoor u alleen betaalt voor wat u gebruikt, wanneer u dat gebruikt - zonder dat u hoeft te investeren in on-premises hardware.  Azure is klaar om uw oplossingen op te schalen wanneer u daar ook klaar, welke schaal u ook nodig hebt om te voorzien in de behoeften van uw klanten.
 
 Als u bekend met de verschillende functies van AWS van Amazon, kunt u het document [AWS voor vergelijking van Azure-services](https://azure.microsoft.com/campaigns/azure-vs-aws/mapping/) doornemen.
 
 ## <a name="regions"></a>Regio's
-Resources van Microsoft Azure worden verdeeld over verschillende geografische regio's over de hele wereld.  Een 'regio' vertegenwoordigt meerdere datacenters in één geografisch gebied. Momenteel (november 2017) zijn er voor Azure wereldwijd 36 regio's algemeen beschikbaar. Er zijn bovendien 6 nieuwe regio's aangekondigd. Op de volgende pagina ziet u een bijgewerkte lijst met bestaande en aangekondigde regio's:
+Resources van Microsoft Azure worden verdeeld over verschillende geografische regio's over de hele wereld.  Een 'regio' vertegenwoordigt meerdere datacenters in één geografisch gebied. Momenteel (augustus 2018) zijn er voor Azure wereldwijd 42 regio's algemeen beschikbaar. Er zijn bovendien 12 nieuwe regio's aangekondigd, waarmee Azure in meer wereldwijde regio’s beschikbaar is dan enige andere cloudprovider. Op de volgende pagina ziet u een bijgewerkte lijst met bestaande en aangekondigde regio's:
 
 * [Azure-regio's](https://azure.microsoft.com/regions/)
 
@@ -53,13 +53,13 @@ De [grootte](sizes.md) van de VM die u gebruikt, wordt bepaald door de workload 
 
 Azure rekent een [uurprijs](https://azure.microsoft.com/pricing/details/virtual-machines/linux/) op basis van de grootte en het besturingssysteem van de VM. Voor niet-hele uren worden alleen de minuten van gebruik in rekening gebracht. De opslag wordt afzonderlijk berekend en in rekening gebracht.
 
-## <a name="automation"></a>Automatisering
+## <a name="automation"></a>Automation
 Voor een juiste DevOps-cultuur moet alle infrastructuur uit code bestaan.  Als alle infrastructuur bestaat uit code, kan deze namelijk eenvoudig opnieuw worden opgebouwd (Phoenix Servers).  Azure werkt met de belangrijkste automatiseringstools zoals Ansible, Chef, SaltStack en Puppet.  Azure heeft ook eigen tools voor automatisering:
 
 * [Azure-sjablonen](create-ssh-secured-vm-from-template.md)
 * [Azure VMAccess](using-vmaccess-extension.md)
 
-Azure is bezig met het uitrollen van ondersteuning voor [cloud init](http://cloud-init.io/) voor de meeste Linux-distributies die dit ondersteunen.  Op dit moment worden VM's met Ubuntu van Canonical geïmplementeerd met cloud-init standaard ingeschakeld.  Red Hats RHEL, CentOS en Fedora ondersteunen cloud init, maar cloud-init wordt momenteel niet geïnstalleerd met de installatiekopieën van Azure die worden onderhouden door RedHat.  Als u cloud-init wilt gebruiken met een OS uit de RedHat-familie, moet u een aangepaste installatiekopie maken met cloud-init geïnstalleerd.
+Azure is bezig met het uitrollen van ondersteuning voor [cloud init](http://cloud-init.io/) voor de meeste Linux-distributies die dit ondersteunen.  Op dit moment worden VM's met Ubuntu van Canonical geïmplementeerd met cloud-init standaard ingeschakeld.  Red Hats RHEL, CentOS en Fedora ondersteunen cloud init, maar cloud-init wordt momenteel niet geïnstalleerd met de installatiekopieën van Azure die worden onderhouden door Red Hat.  Als u cloud-init wilt gebruiken met een OS uit de Red Hat-familie, moet u een aangepaste installatiekopie maken met cloud-init geïnstalleerd.
 
 * [Cloud-init gebruiken op virtuele Linux-machines in Azure](using-cloud-init.md)
 
@@ -73,7 +73,7 @@ Microsoft werkt nauw samen met partners om ervoor te zorgen dat de beschikbare i
 
 * [Linux op door Azure goedgekeurde distributies](endorsed-distros.md)
 * SUSE - [Azure Marketplace - SUSE Linux Enterprise Server](https://azuremarketplace.microsoft.com/en-us/marketplace/apps?search=%27SUSE%27)
-* Redhat - [Azure Marketplace - RedHat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
+* Red Hat - [Azure Marketplace - Red Hat Enterprise Linux 7.2](https://azure.microsoft.com/marketplace/partners/redhat/redhatenterpriselinux72/)
 * Canonical - [Azure Marketplace - Ubuntu Server 16.04 LTS](https://azure.microsoft.com/marketplace/partners/canonical/ubuntuserver1604lts/)
 * Debian - [Azure Marketplace - Debian 8 "Jessie"](https://azure.microsoft.com/marketplace/partners/credativ/debian8/)
 * FreeBSD - [Azure Marketplace - FreeBSD 10.3](https://azure.microsoft.com/marketplace/partners/microsoft/freebsd103/)

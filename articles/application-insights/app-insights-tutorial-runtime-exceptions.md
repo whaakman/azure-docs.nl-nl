@@ -10,16 +10,16 @@ ms.service: application-insights
 ms.custom: mvc
 ms.topic: tutorial
 manager: carmonm
-ms.openlocfilehash: 115611c5d4eeffb0f0600dd0a792ee9f80247e36
-ms.sourcegitcommit: 5ac112c0950d406251551d5fd66806dc22a63b01
+ms.openlocfilehash: 7c2e67605cd2489f2c8d9da5ac80386056464afa
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/23/2018
-ms.locfileid: "27998046"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42815110"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Runtime-uitzonderingen vinden en diagnosticeren met behulp van Azure Application Insights
 
-Azure Application Insights verzamelt telemetrie van uw toepassing om runtime-uitzonderingen te identificeren en diagnosticeren.  In deze zelfstudie leert u dit proces met uw toepassing.  Procedures voor:
+Azure Application Insights verzamelt telemetrie van uw toepassing om runtime-uitzonderingen te identificeren en diagnosticeren.  In deze zelfstudie leert u dit proces met uw toepassing.  In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
 > * Het wijzigen van uw project om het bijhouden van uitzonderingen in te schakelen
@@ -43,7 +43,7 @@ Vereisten voor het voltooien van deze zelfstudie:
 - De zelfstudie volgt de identificatie van een uitzondering in uw toepassing; wijzig dus uw code in uw ontwikkelings- of testomgeving om een uitzondering te genereren. 
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
-Meld u aan bij Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+Meld u aan bij de Azure-portal op [https://portal.azure.com](https://portal.azure.com).
 
 
 ## <a name="analyze-failures"></a>Fouten analyseren
@@ -62,20 +62,17 @@ Application Insights verzamelt fouten in uw toepassing en laat u zien hoe vaak z
 
     ![Venster Mislukte aanvragen](media/app-insights-tutorial-runtime-exceptions/failed-requests-window.png)
 
-5. Klik op **Details weergeven** om de details van de bewerking te bekijken.  Dit omvat een Gantt-diagram dat twee mislukte afhankelijkheden toont die samen bijna een halve seconde kostten om uit te voeren.  U kunt meer te weten komen over het analyseren van prestatieproblemen door de zelfstudie [Find and diagnose performance issues with Azure Application Insights](app-insights-tutorial-performance.md) te volgen (Prestatieproblemen vinden en diagnosticeren met Azure Application Insights).
+5. Zie de gerelateerde steekproeven door te klikken op de knop met het aantal gefilterde resultaten. De 'aanbevolen' steekproeven hebben gerelateerde telemetrie van alle onderdelen, zelfs als er hierin steekproeven zijn genomen. Klik op een zoekresultaat om de details van de fout te bekijken.
 
-    ![Details over mislukte aanvraag](media/app-insights-tutorial-runtime-exceptions/failed-requests-details.png)
+    ![Steekproeven van mislukte aanvraag](media/app-insights-tutorial-runtime-exceptions/failed-requests-search.png)
 
-6. De bewerkingsdetails laten ook een FormatException zien, die de fout lijkt te hebben veroorzaakt.  Klik op de uitzondering of op het aantal bij **Top 3 uitzonderingstypen** om de details ervan weer te geven.  U ziet dat de uitzondering te wijten is aan een ongeldige postcode.
+6. In de details van de mislukte aanvraag ziet u het Gantt-diagram waarin wordt aangegeven dat er twee afhankelijkheidsfouten waren in deze transactie, wat heeft gezorgd voor meer dan 50% van de totale duur van de transactie. Deze ervaring bevat alle telemetrie voor alle onderdelen van een gedistribueerde toepassing die zijn gerelateerd aan deze bewerkings-id. [Meer informatie over de nieuwe ervaring](app-insights-transaction-diagnostics.md). U kunt een van de items selecteren om rechts de details te bekijken. 
+
+    ![Details van mislukte aanvraag](media/app-insights-tutorial-runtime-exceptions/failed-request-details.png)
+
+7. De bewerkingsdetails laten ook een FormatException zien, die de fout lijkt te hebben veroorzaakt.  U ziet dat de uitzondering te wijten is aan een ongeldige postcode. U kunt de momentopname voor foutopsporing openen om foutopsporingsgegevens op codeniveau te bekijken in Visual Studio.
 
     ![Details van uitzondering](media/app-insights-tutorial-runtime-exceptions/failed-requests-exception.png)
-
-> [!NOTE]
-Schakel de [preview-ervaring](app-insights-previews.md) "Unified details: E2E Transaction Diagnostics" (Gecombineerde details: E2E-transactiediagnose) in om alle gerelateerde telemetrie aan de serverzijde in één weergave op het volledige scherm te zien, zoals aanvragen, afhankelijkheden, traceringen, gebeurtenissen, enzovoort. 
-
-Met de ingeschakelde preview kunt u zien hoeveel tijd wordt doorgebracht in afhankelijkheidsaanroepen, alsmede eventuele fouten of uitzonderingen, in één gecombineerde ervaring. Voor transacties tussen onderdelen kunnen het Gantt-diagram en het detailvenster u helpen snel het onderdeel, de afhankelijkheid of de uitzondering te diagnosticeren waar de hoofdoorzaak zich bevindt. U kunt de onderste sectie uitvouwen om de tijdreeks te zien van traceringen of gebeurtenissen die voor de geselecteerde onderdeelbewerking zijn verzameld. [Meer informatie over de nieuwe ervaring](app-insights-transaction-diagnostics.md)  
-
-![Diagnostische gegevens voor transacties](media/app-insights-tutorial-runtime-exceptions/e2e-transaction-preview.png)
 
 ## <a name="identify-failing-code"></a>Mislukt code identificeren
 De Snapshot Debugger verzamelt momentopnamen van de meest frequente uitzonderingen in uw toepassing om u te helpen bij de diagnose van de onderliggende oorzaak in de productie.  U kunt foutopsporingsmomentopnamen in het portaal bekijken om de aanroepstack te zien en variabelen inspecteren bij elk aanroepstackframe. Vervolgens kunt u fouten in de broncode opsporen door de snapshot te downloaden en te openen in Visual Studio 2017.
@@ -104,15 +101,6 @@ Alle gegevens die door Application Insights worden verzameld, worden opgeslagen 
     ![Code](media/app-insights-tutorial-runtime-exceptions/codelens.png)
 
 9. Klik op **Impact analyseren** om Application Insights Analytics te openen.  Het wordt gevuld met enkele query's die details bieden over mislukte aanvragen, zoals getroffen gebruikers, browsers en regio's.<br><br>![Analytische gegevens](media/app-insights-tutorial-runtime-exceptions/analytics.png)<br>
-
-## <a name="add-work-item"></a>Werkitem toevoegen
-Als u Application Insights aansluit op een trackingsysteem zoals Visual Studio Team Services of GitHub, kunt u direct vanuit Application Insights een werkitem maken.
-
-1. Ga terug naar het deelvenster **Uitzonderingseigenschappen** in Application Insights.
-2. Klik op **Nieuw werkitem**.
-3. Het deelvenster **Nieuw werkitem** wordt geopend, waarin al gegevens over de uitzondering zijn ingevuld.  U kunt aanvullende informatie toevoegen voordat u opslaat.
-
-    ![Nieuw werkitem](media/app-insights-tutorial-runtime-exceptions/new-work-item.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 Nu u hebt geleerd runtime-uitzonderingen te identificeren, kunt u doorgaan naar de volgende zelfstudie om te leren hoe u prestatieproblemen kunt identificeren en diagnosticeren.

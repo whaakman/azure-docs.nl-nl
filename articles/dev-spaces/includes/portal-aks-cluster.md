@@ -10,12 +10,12 @@ ms.author: ghogen
 ms.date: 05/11/2018
 ms.topic: include
 manager: douge
-ms.openlocfilehash: aeb4ff26b05a5542fd77ac32589c8f8efb622798
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4c4a5b66fe35da01a3661715e17a9fda20bc2411
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40166288"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43184727"
 ---
 ## <a name="create-a-kubernetes-cluster-enabled-for-azure-dev-spaces"></a>Een Kubernetes-cluster maken dat is ingeschakeld voor Azure Dev Spaces
 
@@ -42,7 +42,7 @@ ms.locfileid: "40166288"
 
    ![Routering van HTTP-toepassingen inschakelen](../media/common/Kubernetes-Create-Cluster-3.PNG)
 
-    > [!IMPORTANT]
-    > U moet routering van HTTP-toepassingen inschakelen wanneer u uw cluster AKS maakt. Het is niet mogelijk deze instelling later te wijzigen.
+    > [!Note]
+    > Om [Routering van HTTP-toepassingen](/azure/aks/http-application-routing) in te schakelen op een bestaande cluster, gebruikt u de opdracht: `az aks enable-addons --resource-group myResourceGroup --name myAKSCluster --addons http_application_routing`
 
 1. Selecteer **Controleren + maken** en vervolgens **Maken** wanneer u klaar bent.

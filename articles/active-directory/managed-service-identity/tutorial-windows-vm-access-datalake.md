@@ -14,21 +14,20 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/20/2017
 ms.author: daveba
-ms.openlocfilehash: f5d4a5e26ecf4bde286a5163bf5ec7da492e474d
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: a472a0f1fe052b0bc8130f5d81c91692c7723377
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39247910"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885885"
 ---
 # <a name="tutorial-use-a-windows-vm-managed-service-identity-to-access-azure-data-lake-store"></a>Zelfstudie: Toegang krijgen tot Azure Data Lake Storage met een Managed Service Identity voor een Windows-VM
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-Deze zelfstudie laat zien hoe u toegang krijgt tot Azure Data Lake Storage met behulp van een Managed Service Identity voor een virtuele Windows-machine (VM). Managed Service Identity's worden automatisch beheerd in Azure en stellen u in staat om te verifiëren bij services die Azure AD-verificatie ondersteunen, zonder referenties in code te hoeven invoegen. In deze zelfstudie leert u procedures om het volgende te doen:
+Deze zelfstudie laat zien hoe u toegang krijgt tot een Azure Data Lake Store met een door het systeem toegewezen identiteit voor een virtuele Windows-machine (VM). Managed Service Identity's worden automatisch beheerd in Azure en stellen u in staat om te verifiëren bij services die Azure AD-verificatie ondersteunen, zonder referenties in code te hoeven invoegen. In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * Managed Service Identity op een Windows-VM inschakelen 
 > * Uw virtuele machine toegang verlenen tot Azure Data Lake Storage
 > * Een toegangstoken ophalen met behulp van de identiteit van de virtuele machine en dat token gebruiken om toegang te krijgen tot Azure Data Lake Storage
 
@@ -38,36 +37,11 @@ Deze zelfstudie laat zien hoe u toegang krijgt tot Azure Data Lake Storage met b
 
 [!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
 
-## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
+- [Aanmelden bij de Azure-portal](https://portal.azure.com)
 
-Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
+- [Een virtuele Windows-machine maken](/azure/virtual-machines/windows/quick-create-portal)
 
-## <a name="create-a-windows-virtual-machine-in-a-new-resource-group"></a>Een virtuele Windows-machine maken in een nieuwe resourcegroep
-
-Voor deze zelfstudie maken we een nieuwe virtuele Windows-machine.  U kunt Managed Service Identity ook op een bestaande VM inschakelen.
-
-1. Klik op de knop **Een resource maken** in de linkerbovenhoek van Azure Portal.
-2. Selecteer **Compute** en vervolgens **Windows Server 2016 Datacenter**. 
-3. Geef de informatie van de virtuele machine op. De referenties (combinatie van **Gebruikersnaam** en **Wachtwoord**) die u hier opgeeft, zijn de referenties waarmee u zich aanmeldt bij de virtuele machine.
-4. Kies het juiste **abonnement** voor de virtuele machine in de vervolgkeuzelijst.
-5. Om een nieuwe **resourcegroep** te selecteren waarin de virtuele machine moet worden gemaakt, kiest u **Nieuwe maken**. Na het voltooien klikt u op **OK**.
-6. Selecteer de grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Handhaaf de standaardinstellingen op de pagina Instellingen en klik op **OK**.
-
-   ![Alt-tekst voor afbeelding](media/msi-tutorial-windows-vm-access-arm/msi-windows-vm.png)
-
-## <a name="enable-managed-service-identity-on-your-vm"></a>Managed Service Identity op uw VM inschakelen 
-
-Met Managed Service Identity op een virtuele machine kunt u toegangstokens uit Azure AD ophalen zonder dat u referenties in uw code hoeft op te nemen. Het inschakelen van Managed Service Identity vertelt Azure dat er een beheerde identiteit voor uw VM moet worden gemaakt. Op de achtergrond gebeuren er twee dingen als u Managed Service Identity inschakelt: de virtuele machine wordt bij Azure Active Directory geregistreerd om de beheerde identiteit te maken, en de identiteit wordt geconfigureerd op de virtuele machine.
-
-1. Selecteer de **virtuele machine** waarop u Managed Service Identity wilt inschakelen.  
-2. Klik op de linkernavigatiebalk op **Configuratie**. 
-3. U ziet **Managed Service Identity**. Als u Managed Service Identity wilt registreren en inschakelen, selecteert u **Ja**. Als u het wilt uitschakelen, kiest u Nee. 
-4. Vergeet niet op **Opslaan** te klikken om de configuratie op te slaan.  
-   ![Alt-tekst voor afbeelding](media/msi-tutorial-linux-vm-access-arm/msi-linux-extension.png)
-
-5. Als u wilt controleren en nagaan welke extensies aanwezig zijn op deze virtuele machine, klikt u op **Extensies**. Als Managed Service Identity is ingeschakeld, wordt **ManagedIdentityExtensionforWindows** weergegeven in de lijst.
-
-   ![Alt-tekst voor afbeelding](media/msi-tutorial-windows-vm-access-arm/msi-windows-extension.png)
+- [Door het systeem toegewezen identiteit op uw virtuele machine inschakelen](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 ## <a name="grant-your-vm-access-to-azure-data-lake-store"></a>Uw virtuele machine toegang verlenen tot Azure Data Lake Storage
 
@@ -101,7 +75,7 @@ In deze zelfstudie gebruikt u PowerShell voor het maken van REST-aanvragen om te
 1. Navigeer in Azure Portal naar **Virtuele machines**, ga naar uw virtuele Windows-machine, en klik op de pagina **Overzicht** op **Verbinden**.
 2. Voer uw referenties (**gebruikersnaam** en **wachtwoord**) in die u hebt toegevoegd bij het maken van de virtuele Windows-machine. 
 3. Nu u een **Verbinding met extern bureaublad** met de virtuele machine hebt gemaakt, opent u **PowerShell** in de externe sessie. 
-4. Verzend met `Invoke-WebRequest` van Powershell een aanvraag naar het lokale Managed Service Identity-eindpunt om een toegangstoken voor Azure Data Lake Storage op te halen.  De resource-id voor Data Lake Storage is ‘https://datalake.azure.net/’.  Voor Data Lake moet u een exact overeenkomende resource-id opgeven, met de schuine streep op het einde.
+4. Verzend met `Invoke-WebRequest` van Powershell een aanvraag naar het lokale Managed Service Identity-eindpunt om een toegangstoken voor Azure Data Lake Storage op te halen.  De resource-id voor Data Lake Storage is ‘ https://datalake.azure.net/’.  Voor Data Lake moet u een exact overeenkomende resource-id opgeven, met de schuine streep op het einde.
 
    ```powershell
    $response = Invoke-WebRequest -Uri 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fdatalake.azure.net%2F' -Method GET -Headers @{Metadata="true"}

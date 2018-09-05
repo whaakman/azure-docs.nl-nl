@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.date: 11/15/2017
 ms.author: govindk
 ms.custom: mvc
-ms.openlocfilehash: b53328875f2242faba369dea0df655bc78117009
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 55a6fec1b6ac018b4b24c0d27dcfdd5812455800
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "41919111"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43189673"
 ---
-# <a name="azure-cosmos-db-import-cassandra-data"></a>Azure Cosmos DB: Cassandra-gegevens importeren
+# <a name="migrate-your-data-to-azure-cosmos-db-cassandra-api-account"></a>Gegevens migreren naar een Azure Cosmos DB Cassandra-API-account
 
 In deze zelfstudie vindt u instructies voor het importeren van Cassandra-gegevens in Azure Cosmos DB met de CQL-opdracht (Cassandra Query Language) COPY. 
 
@@ -31,11 +31,13 @@ Deze zelfstudie bestaat uit de volgende taken:
 
 # <a name="prerequisites"></a>Vereisten
 
-* Installeer [Apache Cassandra](http://cassandra.apache.org/download/) en zorg er met name voor dat *cqlsh* aanwezig is.
-* Verhoog de doorvoer: de duur van de gegevensmigratie is afhankelijk van de hoeveelheid doorvoer die u voor uw tabellen hebt ingericht. Verhoog de doorvoer voor grotere gegevensmigraties. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer om kosten te besparen. Zie [Doorvoer instellen voor Azure Cosmos DB](set-throughput.md) voor meer informatie over het verhogen van de doorvoer in [Azure Portal](https://portal.azure.com).
+* Installeer [Apache Cassandra](http://cassandra.apache.org/download/) en zorg er met name voor dat *cqlsh* aanwezig is.  
+
+* Verhoog de doorvoer: de duur van de gegevensmigratie is afhankelijk van de hoeveelheid doorvoer die u voor uw tabellen hebt ingericht. Verhoog de doorvoer voor grotere gegevensmigraties. Nadat u de migratie hebt voltooid, verlaagt u de doorvoer om kosten te besparen. Zie [Doorvoer instellen voor Azure Cosmos DB](set-throughput.md) voor meer informatie over het verhogen van de doorvoer in [Azure Portal](https://portal.azure.com).  
+
 * Schakel SSL in: voor Azure Cosmos DB gelden strenge beveiligingsvereisten en -normen. Schakel SSL in wanneer u uw account gebruikt. Wanneer u CQL gebruikt met SSH, hebt u een optie om SSL-informatie op te geven. 
 
-## <a name="find-your-connection-string"></a>Uw verbindingsreeks zoeken
+## <a name="get-your-connection-string"></a>Verbindingsreeks ophalen
 
 1. Klik in [Azure Portal](https://portal.azure.com) uiterst links op **Azure Cosmos DB**.
 
@@ -45,14 +47,14 @@ Deze zelfstudie bestaat uit de volgende taken:
 
     ![Pagina Verbindingsreeks](./media/cassandra-import-data/keys.png)
 
-## <a name="use-cqlsh-copy"></a>Cqlsh-opdracht COPY gebruiken
+## <a name="migrate-data-by-using-cqlsh-copy"></a>Gegevens migreren met cqlsh COPY
 
 Als u Cassandra-gegevens wilt importeren in Azure Cosmos DB voor gebruik met de Cassandra-API, gebruikt u de volgende richtlijnen:
 
 1. Meld u aan bij cqhsh met de verbindingsgegevens van de portal.
 2. Gebruik de [CQL-opdracht COPY](http://cassandra.apache.org/doc/latest/tools/cqlsh.html#cqlsh) om lokale gegevens te kopiëren naar het eindpunt van de Apache Cassandra-API. Controleer of de bron en het doel zich in hetzelfde datacenter bevinden om latentieproblemen te minimaliseren.
 
-### <a name="guide-for-moving-data-with-cqlsh"></a>Handleiding voor het verplaatsen van gegevens met cqlsh
+### <a name="steps-to-move-data-with-cqlsh"></a>Stappen voor het verplaatsen van gegevens met cqlsh
 
 1. Maak van tevoren de tabel en schaal deze:
     * Standaard wordt met Azure Cosmos DB een nieuwe Cassandra-API-tabel ingericht met 1000 aanvraageenheden per seconde (RU/s) (bij gebruik van CQL wordt de tabel ingericht met 400 RU/s). Voordat u de migratie start met cqlsh, maakt u vooraf alle tabellen vanuit [Azure Portal](https://portal.azure.com) of cqlsh. 
@@ -80,11 +82,11 @@ Als u Cassandra-gegevens wilt importeren in Azure Cosmos DB voor gebruik met de 
 
 5. Voer de laatste migratieopdracht uit. Als u deze opdracht uitvoert, wordt ervan uitgegaan dat u cqlsh hebt gestart met de verbindingsreeksgegevens.
 
-   ```
+   ```bash
    COPY exampleks.tablename FROM filefolderx/*.csv 
    ```
 
-## <a name="use-spark-to-import-data"></a>Spark gebruiken om gegevens te importeren
+## <a name="migrate-data-by-using-spark"></a>Gegevens migreren met Spark
 
 Voor gegevens die zich in een bestaand cluster op virtuele Azure-machines bevinden, kunt u ook gegevens importeren met Spark. Hiervoor moet Spark voor eenmalige of regelmatige gegevensopname worden ingesteld als intermediair. 
 

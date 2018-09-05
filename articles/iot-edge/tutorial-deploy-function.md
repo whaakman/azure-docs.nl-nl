@@ -4,17 +4,17 @@ description: In deze zelfstudie implementeert u een Azure-functie als een module
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/10/2018
+ms.date: 08/22/2018
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 426d9fd81a0cd856378be3bb4f430f310bee53eb
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: cf973899a6f56010c47588bdd506418a3d9a7cd8
+ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "41918207"
+ms.lasthandoff: 08/23/2018
+ms.locfileid: "42744039"
 ---
 # <a name="tutorial-deploy-azure-functions-as-iot-edge-modules-preview"></a>Zelfstudie: Azure-functies implementeren als IoT Edge-modules (preview)
 
@@ -170,7 +170,7 @@ In de vorige sectie hebt u een IoT Edge-oplossing gemaakt en code toegevoegd aan
 
 In deze sectie geeft u tweemaal de referenties voor het containerregister op. De eerste keer om u lokaal aan te melden vanaf de ontwikkelcomputer zodat Visual Studio Code installatiekopieën naar het register kan pushen. De tweede keer in het **ENV**-bestand van uw IoT Edge-oplossing, waardoor uw IoT-Edge-apparaat bevoegd is voor het ophalen van installatiekopieën uit het register. 
 
-1. Open de met VS Code geïntegreerde terminal door **View** > **Integrated Terminal** te selecteren. 
+1. Open de met VS Code geïntegreerde terminal door **View** > **Terminal** te selecteren. 
 
 1. Meld u aan bij uw containerregister door de volgende opdracht in te voeren in de geïntegreerde terminal. Vervolgens kunt u de module-installatiekopie naar het Azure-containerregister pushen: 
      
@@ -219,7 +219,7 @@ U kunt de Azure-portal gebruiken om uw functiemodule op een IoT Edge-apparaat te
 
 5. Vouw in VS Code Explorer de sectie **Azure IoT Hub Devices** uit. 
 
-6. Klik met de rechtermuisknop op de naam van het IoT Edge-apparaat. Selecteer vervolgens **Implementatie voor IoT Edge-apparaat maken**. 
+6. Klik met de rechtermuisknop op de naam van het IoT Edge-apparaat en selecteer **Implementatie voor één apparaat maken**. 
 
 7. Blader naar de oplossingsmap die de **CSharpFunction** bevat. Open de map config, selecteer het bestand deployment.json en kies vervolgens **Edge-distributiemanifest selecteren**.
 

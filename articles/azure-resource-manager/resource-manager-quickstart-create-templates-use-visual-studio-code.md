@@ -1,6 +1,6 @@
 ---
 title: Visual Studio Code gebruiken om Azure Resource Manager-sjablonen te maken | Microsoft Docs
-description: Gebruik de Azure Resource Manager-extensie voor hulpprogramma's om te werken met Resource Manager-sjablonen.
+description: Gebruik Visual Studio Code en de Azure Resource Manager-extensie voor hulpprogramma's om te werken met Resource Manager-sjablonen.
 services: azure-resource-manager
 documentationcenter: ''
 author: mumian
@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/17/2018
+ms.date: 08/24/2018
 ms.topic: quickstart
 ms.author: jgao
-ms.openlocfilehash: d50b84ac61210fc89665341ae0c2de3fc4ce0c11
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 540aabc9164e43776d2166926430f4512dd23f49
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42023428"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43106046"
 ---
 # <a name="quickstart-create-azure-resource-manager-templates-by-using-visual-studio-code"></a>Snelstart: Azure Resource Manager-sjablonen maken met Visual Studio Code
 
@@ -89,32 +89,49 @@ Als u wilt weten hoe u een sjabloon met behulp van Visual Studio Code bewerkt, v
 
 ## <a name="deploy-the-template"></a>De sjabloon implementeren
 
-Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze snelstart gebruikt u Cloud Shell van Azure Portal. Cloud Shell ondersteunt zowel Azure CLI als Azure PowerShell. De hier gebruikte instructies maken gebruik van CLI.
+Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze snelstart gebruikt u Azure Cloud Shell van Azure Portal. Cloud Shell ondersteunt zowel Azure CLI als Azure PowerShell. 
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com)
 2. Selecteer **Cloud Shell** in de rechterbovenhoek, zoals weergegeven in de volgende afbeelding:
 
     ![Cloud Shell in Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell.png)
 
-3. Selecteer de pijl-omlaag en vervolgens **Bash** om van CLI naar PowerShell te schakelen.
+    Cloud Shell wordt geopend onderaan het scherm.
+
+3. Linksboven in Cloud Shell wordt **PowerShell** of **Bash** weergegeven. Als u CLI wilt gebruiken, moet u een Bash-sessie openen. Als u PowerShell wilt uitvoeren, moet u een PowerShell-sessie openen. Als u wilt overschakelen, selecteert u de pijl-omlaag en selecteert u de interpreter. In de volgende afbeelding wordt het overschakelen van PowerShell naar Bash weergegeven.
 
     ![Cloud Shell CLI in Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-choose-cli.png)
-4. Selecteer **Opnieuw starten** om de shell opnieuw te starten.
-5. Selecteer **Upload/download files** en selecteer **Uploaden**.
+
+    U moet de shell opnieuw starten wanneer u overschakelt.
+4. Selecteer **Upload/download files** en selecteer **Uploaden**.
 
     ![Bestand uploaden in Cloud Shell in Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-upload-file.png)
-4. Selecteer het bestand dat u eerder in de snelstart hebt opgeslagen. De standaardnaam is **azuredeploy.json**.
-5. Voer vanaf Cloud Shell de opdracht **ls** uit om te verifiëren of het bestand is geüpload. U kunt de opdracht **cat** gebruiken om de sjablooninhoud te verifiëren.
+
+    U moet het sjabloonbestand uploaden voordat u het vanuit de shell kunt implementeren.
+5. Selecteer het bestand dat u eerder in de snelstart hebt opgeslagen. De standaardnaam is **azuredeploy.json**.
+6. Voer vanaf Cloud Shell de opdracht **ls** uit om te verifiëren of het bestand is geüpload. U kunt de opdracht **cat** gebruiken om de sjablooninhoud te verifiëren. In de volgende afbeelding ziet u dat de opdracht wordt uitgevoerd vanuit Bash.  U gebruikt dezelfde opdrachten van een PowerShell-sessie.
 
     ![Cloud Shell-lijstbestand in Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-list-file.png)
-6. Voer vanuit Cloud Shell de volgende opdrachten uit:
+7. Voer vanuit Cloud Shell de volgende opdrachten uit. Selecteer het tabblad om de PowerShell-code of de CLI-code weer te geven.
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
     az group create --name <ResourceGroupName> --location <AzureLocation>
 
     az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file <TemplateFileName>
     ```
-    Dit is de schermafbeelding van een voorbeeldimplementatie:
+   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    
+    ```powershell
+    New-AzureRmResourceGroup -Name <ResourceGroupName> -Location <AzureLocation>
+
+    New-AzureRmResourceGroupDeployment -ResourceGroupName <ResourceGroupName> -TemplateFile <TemplateFileName>
+    ```
+    
+    ---
+
+    In de volgende schermafbeelding ziet u een voorbeeld-CLI-implementatie:
 
     ![Sjabloon implementeren in Cloud Shell in Azure Portal](./media/resource-manager-quickstart-create-templates-use-visual-studio-code/azure-portal-cloud-shell-deploy-template.png)
 
@@ -127,11 +144,20 @@ Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze snel
 
     In de uitvoer op de schermafbeelding ziet u dat de naam van het opslagaccount *3tqebj3slyfyestandardsa* is. 
 
-7. Voer de volgende CLI-opdracht uit om het nieuw gemaakte opslagaccount weer te geven:
+7. Voer de volgende CLI- of PowerShell-opdracht uit om het nieuwe opslagaccount weer te geven:
 
+    # <a name="clitabcli"></a>[CLI](#tab/CLI)
     ```cli
     az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
     ```
+   
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+    
+    ```powershell
+    Get-AzureRmStorageAccount -ResourceGroupName <ResourceGroupName> -Name <StorageAccountName>
+    ```
+    
+    ---
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -144,7 +170,7 @@ Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u een sjabloon maakt met behulp van Visual Studio Code en hoe u de sjabloon via Cloud Shell in Azure Portal implementeert. In de volgende zelfstudie leert u meer over het ontwikkelen van een sjabloon en het gebruiken sjabloonverwijzing.
+De primaire focus van deze zelfstudie is het gebruik van Visual Studio Code om een bestaande sjabloon van de Azure-snelstartsjablonen te bewerken. U hebt ook geleerd hoe u de sjabloon kunt implementeren met CLI of PowerShell vanuit Azure Cloud Shell. De sjablonen van de Azure-snelstartsjablonen voldoen mogelijk niet volledig aan uw behoeften. In de volgende zelfstudie leert u hoe u de informatie van de sjabloonverwijzing kunt vinden, zodat u een versleuteld Azure-opslagaccount kunt maken.
 
 > [!div class="nextstepaction"]
-> [Een versleuteld Storage-account maken](./resource-manager-tutorial-create-encrypted-storage-accounts.md)
+> [Een versleuteld opslagaccount maken](./resource-manager-tutorial-create-encrypted-storage-accounts.md)

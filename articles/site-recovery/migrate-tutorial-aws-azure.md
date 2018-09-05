@@ -6,15 +6,15 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: tutorial
-ms.date: 07/06/2018
+ms.date: 08/24/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: ee38fe542ca6e2e4e1f8e09b54717d4390b453d0
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 48714d71edcf54726eb362c7f56950a1350fd52b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37922654"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885322"
 ---
 # <a name="migrate-amazon-web-services-aws-vms-to-azure"></a>AWS-VM’s (Amazon Web Services) migreren naar Azure
 
@@ -33,10 +33,12 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://a
 
 ## <a name="prerequisites"></a>Vereisten
 - Zorg ervoor dat de VM’s die u wilt migreren, worden uitgevoerd met een ondersteunde versie van het besturingssysteem. Ondersteunde versies zijn onder andere: 
-    - Windows Server 2016
-    - Red Hat Enterprise Linux 6.7 (alleen gevirtualiseerde HVM-instanties), met alleen Citrix HW- of AWS HW-stuurprogramma's. Instanties waarop een Red Hat HW-stuurprogramma wordt uitgevoerd, worden **niet** ondersteund.
-
-- De Mobility-service moet worden geïnstalleerd op elke VM die u wilt repliceren. 
+  - Windows Server 2016 
+  - Windows Server 2012 R2
+  - Windows Server 2012 
+  - 64-bits versie van Windows Server 2008 R2 SP1 of later
+  - Red Hat Enterprise Linux 6.7 (alleen gevirtualiseerde HVM-instanties), met alleen Citrix HW- of AWS HW-stuurprogramma's. Instanties waarop een RedHat HW-stuurprogramma wordt uitgevoerd, worden *niet* ondersteund.
+ - De Mobility-service moet worden geïnstalleerd op elke VM die u wilt repliceren. 
 
     > [!IMPORTANT]
     > Site Recovery installeert deze service automatisch wanneer u replicatie voor de VM inschakelt. Voor automatische installatie moet u op de EC2-instanties een account voorbereiden waarmee Site Recovery toegang kan krijgen tot de VM. U kunt een domein of lokale account gebruiken. 
@@ -64,7 +66,7 @@ Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. 
 5. Selecteer bij **Replicatie** de standaardinstelling **RA-GRS**.
 6. Selecteer het abonnement dat u voor deze zelfstudie wilt gebruiken.
 7. Selecteer voor **Resourcegroep** de optie **Nieuwe maken**. In dit voorbeeld gebruiken we **migrationRG** als naam voor de resourcegroep.
-8. Selecteer bij **Locatie** de optie **West-Europa**.
+8. Selecteer bij **Locatie** de optie **Europa - west**.
 9. Selecteer **Maken** om het opslagaccount te maken.
 
 ### <a name="create-a-vault"></a>Een kluis maken
@@ -74,7 +76,7 @@ Installatiekopieën van gerepliceerde machines worden bewaard in Azure Storage. 
 3. Voer bij **Naam** in: **myVault**.
 4. Selecteer bij **Abonnement** het abonnement dat u wilt gebruiken.
 4. Selecteer bij **Resourcegroep** de optie **Bestaande gebruiken** en selecteer vervolgens **migrationRG**.
-5. Selecteer bij **Locatie** de optie **West-Europa**.
+5. Selecteer bij **Locatie** de optie **Europa - west**.
 5. Selecteer **Aan dashboard vastmaken** voor snelle toegang tot de nieuwe kluis vanaf het dashboard.
 7. Als u gereed bent, selecteert u **Maken**.
 
@@ -90,7 +92,7 @@ Wanneer Azure-VM’s zijn gemaakt na de migratie (failover), worden ze gekoppeld
 4. Laat de standaardwaarde die is ingesteld voor **Adresruimte**.
 5. Selecteer bij **Abonnement** het abonnement dat u wilt gebruiken.
 6. Selecteer bij **Resourcegroep** de optie **Bestaande gebruiken** en selecteer vervolgens **migrationRG**.
-7. Selecteer bij **Locatie** de optie **West-Europa**.
+7. Selecteer bij **Locatie** de optie **Europa - west**.
 8. Laat onder **Subnet** de standaardwaarden staan bij **Naam** en **IP-bereik**.
 9. Laat de optie **Service-eindpunten** uitgeschakeld.
 10. Als u gereed bent, selecteert u **Maken**.

@@ -14,23 +14,21 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/09/2018
 ms.author: daveba
-ms.openlocfilehash: d4daccfdcb2bc11831e960aa20533e32801db946
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 5117444b6312d96f87f9e1edf8ce26d0360417ef
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049334"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42885748"
 ---
 # <a name="tutorial-use-a-linux-vms-managed-identity-to-access-azure-storage"></a>Zelfstudie: toegang krijgen tot Azure Storage met de beheerde entiteit van een Linux-VM 
 
 [!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
-
-Deze zelfstudie laat zien hoe u een Linux-VM beheerde identiteit maakt en gebruikt om toegang te krijgen tot Azure Storage. In deze zelfstudie leert u procedures om het volgende te doen:
+Deze zelfstudie laat zien hoe u toegang krijgt tot Azure Storage met een door het systeem toegewezen identiteit voor een virtuele Linux-machine (VM). In deze zelfstudie leert u procedures om het volgende te doen:
 
 > [!div class="checklist"]
-> * Een virtuele Linux-machine maken in een nieuwe resourcegroep
-> * Beheerde identiteit op een virtuele Linux-machine (VM) inschakelen
+> * Create a storage account
 > * Een blobcontainer in een opslagaccount maken
 > * De beheerde identiteit van de Linux-VM toegang geven tot een Azure Storage-container
 > * Een toegangstoken ophalen en daarmee Azure Storage aanroepen
@@ -40,41 +38,20 @@ Deze zelfstudie laat zien hoe u een Linux-VM beheerde identiteit maakt en gebrui
 
 ## <a name="prerequisites"></a>Vereisten
 
-Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com) voordat u verdergaat.
+[!INCLUDE [msi-qs-configure-prereqs](../../../includes/active-directory-msi-qs-configure-prereqs.md)]
 
-[!INCLUDE [msi-tut-prereqs](~/includes/active-directory-msi-tut-prereqs.md)]
+[!INCLUDE [msi-tut-prereqs](../../../includes/active-directory-msi-tut-prereqs.md)]
+
+- [Aanmelden bij de Azure-portal](https://portal.azure.com)
+
+- [Een virtuele Linux-machine maken](/azure/virtual-machines/linux/quick-create-portal)
+
+- [Door het systeem toegewezen identiteit op uw virtuele machine inschakelen](/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm#enable-system-assigned-identity-on-an-existing-vm)
 
 Als u de CLI-scriptvoorbeelden in deze zelfstudie wilt uitvoeren, hebt u twee opties:
 
 - Gebruik [Azure Cloud Shell](~/articles/cloud-shell/overview.md) vanuit Azure Portal of via de knop **Uitproberen** in de rechterbovenhoek van elk codeblok.
 - [Installeer de nieuwste versie van CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli) (2.0.23 of later) als u liever een lokale CLI-console gebruikt.
-
-## <a name="sign-in-to-azure"></a>Aanmelden bij Azure
-
-Meld u aan bij de Azure Portal op [https://portal.azure.com](https://portal.azure.com).
-
-## <a name="create-a-linux-virtual-machine-in-a-new-resource-group"></a>Een virtuele Linux-machine maken in een nieuwe resourcegroep
-
-In deze sectie maakt u een virtuele Linux-machine waaraan later een beheerde identiteit wordt verleend.
-
-1. Selecteer de knop **Nieuw** in de linkerbovenhoek van Azure Portal.
-2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
-3. Geef de informatie van de virtuele machine op. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel** of **Wachtwoord**. Met de gemaakte referenties kunt u zich aanmelden bij de virtuele machine.
-
-   ![‘Basis’-deelvenster voor het maken van een virtuele machine](media/msi-tutorial-linux-vm-access-arm/msi-linux-vm.png)
-
-4. Selecteer een abonnement voor de virtuele machine in de lijst **Abonnement**.
-5. Als u de virtuele machine in een nieuwe resourcegroep wilt maken, selecteert u **Resourcegroep** > **Nieuwe maken**. Selecteer **OK** wanneer u klaar bent.
-6. Selecteer de grootte voor de virtuele machine. Kies om meer groottes weer te geven de optie **Alle weergeven** of wijzig het filter **Ondersteund schijftype**. Handhaaf de standaardinstellingen in het deelvenster Instellingen en selecteer **OK**.
-
-## <a name="enable-managed-identity-on-your-vm"></a>Beheerde identiteit op de virtuele machine inschakelen
-
-Met een beheerde identiteit op de virtuele machine kunt u toegangstokens uit Azure AD ophalen zonder referenties in uw code te hoeven opnemen. Er gebeuren twee dingen als u Beheerde identiteit op een virtuele machine via Azure Portal inschakelt: de virtuele machine wordt bij Azure AD geregistreerd om een beheerde identiteit te maken, en de identiteit wordt geconfigureerd op de virtuele machine.
-
-1. Navigeer naar de resourcegroep van de nieuwe virtuele machine en selecteer de virtuele machine die u in de vorige stap hebt gemaakt.
-2. Klik onder de categorie **Instellingen** op **Configuratie**.
-3. Selecteer **Ja** om beheerde entiteit in te schakelen.
-4. Klik op **Opslaan** om de configuratie toe te passen. 
 
 ## <a name="create-a-storage-account"></a>Create a storage account 
 

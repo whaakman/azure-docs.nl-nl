@@ -9,12 +9,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: 18f4d2656ec7f027557d73959531b781be1d8d44
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 1009a7a1d9f354f7a41b0e3a0fbc49d57992bc31
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42022816"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42916467"
 ---
 # <a name="quickstart-create-an-azure-data-lake-storage-gen2-preview-storage-account"></a>Snelstart: Een Azure Data Lake Storage Gen2 Preview-opslagaccount maken
 
@@ -87,7 +87,7 @@ Als u een resourcegroep wilt maken in Azure Portal, volgt u deze stappen:
 Als u een v2-opslagaccount voor algemeen gebruik wilt maken in de Azure Portal, volgt u deze stappen:
 
 > [!NOTE]
-> De hiërarchische naamruimte is alleen ingeschakeld in US - west 2 en US - west centraal. Zorg ervoor dat u een van deze locaties opgeeft bij het maken van het opslagaccount.
+> De hiërarchische naamruimte is alleen ingeschakeld in US - oost, US - oost 2, US - west, US - west 2, US - west-centraal, Europa - noord, Europa - west, Azië - zuidoost en Australië - oost. Zorg ervoor dat u een van deze locaties opgeeft bij het maken van het opslagaccount.
 
 1. Vouw in Azure Portal het menu links open om het menu met services te openen en kies **Alle services**. Schuif vervolgens omlaag naar **Opslag** en kies **Opslagaccounts**. Kies in het venster **Opslagaccounts** dat wordt weergegeven de optie **Toevoegen**.
 2. Voer een naam in voor het opslagaccount.
@@ -135,7 +135,7 @@ Start vervolgens de shell opnieuw.
 Gebruik de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup) om een nieuwe resourcegroep te maken: 
 
 > [!NOTE]
-> De hiërarchische naamruimte is alleen ingeschakeld in US - west 2 en US - west centraal. Zorg ervoor dat u een van deze locaties opgeeft bij het maken van het opslagaccount.
+> De hiërarchische naamruimte is alleen ingeschakeld in US - oost, US - oost 2, US - west, US - west 2, US - west-centraal, Europa - noord, Europa - west, Azië - zuidoost en Australië - oost. Zorg ervoor dat u een van deze locaties opgeeft bij het maken van het opslagaccount.
 
 ```powershell
 # put resource group in a variable so you can use the same group name going forward,
@@ -196,7 +196,7 @@ az group create \
 ```
 
 > [!NOTE]
-> De hiërarchische naamruimte is alleen ingeschakeld in US - west 2 en US - west centraal. Zorg ervoor dat u een van deze locaties opgeeft bij het maken van het opslagaccount.
+> De hiërarchische naamruimte is alleen ingeschakeld in US - oost, US - oost 2, US - west, US - west 2, US - west-centraal, Europa - noord, Europa - west, Azië - zuidoost en Australië - oost. Zorg ervoor dat u een van deze locaties opgeeft bij het maken van het opslagaccount.
 
 ### <a name="create-a-general-purpose-v2-storage-account"></a>Een v2-opslagaccount voor algemeen gebruik maken
 

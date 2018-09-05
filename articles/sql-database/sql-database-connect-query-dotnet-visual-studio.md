@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: ceb7d64ddd1923cdd22428df6cbc86676b685b4f
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 1e56d3160e42e3f722f3f9ccb8a6de82ac3bfb83
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42147090"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186055"
 ---
 # <a name="use-net-c-with-visual-studio-to-connect-and-query-an-azure-sql-database"></a>.NET (C#) met Visual Studio gebruiken om verbinding te maken en query's uit te voeren voor een Azure SQL-database
 
@@ -55,7 +55,7 @@ Zorg ervoor dat u over het volgende beschikt om deze snelstart te voltooien:
 3. Selecteer **Console App** en voer *sqltest* voor de projectnaam in.
 4. Klik op **OK** om het nieuwe project in Visual Studio te maken en te openen.
 4. Klik in Solution Explorer met de rechtermuisknop op **sqltest** en klik vervolgens op **NuGet-pakketten beheren**. 
-5. Zoek in **Bladeren** naar ```System.Data.SqlClient``` en selecteer deze.
+5. Zoek op het tabblad **Bladeren** naar ```System.Data.SqlClient``` en selecteer deze.
 6. Klik op de pagina **System.Data.SqlClient** op **Installeren**.
 7. Wanneer de installatie is voltooid, controleert u de wijzigingen en klikt u vervolgens op **OK** om het venster **Preview** te sluiten. 
 8. Als een venster voor **akkoord gaan met de licentie** wordt weergegeven, klikt u op **Ik ga akkoord**.

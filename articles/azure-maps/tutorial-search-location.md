@@ -3,18 +3,18 @@ title: Zoeken met Azure Maps | Microsoft Docs
 description: Zoeken naar nuttige plaatsen in de buurt met behulp van Azure Maps
 author: dsk-2015
 ms.author: dkshir
-ms.date: 05/07/2018
+ms.date: 08/23/2018
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: ffc4b7625a6c43f8e2801313c61f14c785a3ec5f
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e30d84c70f786a5bea25073c70a29b63c9a00ae9
+ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988871"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42917659"
 ---
 # <a name="search-nearby-points-of-interest-using-azure-maps"></a>Zoeken naar nuttige plaatsen in de buurt met behulp van Azure Maps
 
@@ -81,8 +81,9 @@ De Map Control-API is een handige clientbibliotheek waarmee u Maps eenvoudig kun
         <meta name="viewport" content="width=device-width, user-scalable=no" />
         <title>Map Search</title>
 
-        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1.0" type="text/css" />
-        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1.0"></script>
+        <link rel="stylesheet" href="https://atlas.microsoft.com/sdk/css/atlas.min.css?api-version=1" type="text/css" /> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas.min.js?api-version=1"></script> 
+        <script src="https://atlas.microsoft.com/sdk/js/atlas-service.min.js?api-version=1"></script> 
 
         <style>
             html,
@@ -131,10 +132,12 @@ De Map Control-API is een handige clientbibliotheek waarmee u Maps eenvoudig kun
 
 ## <a name="add-search-capabilities"></a>Zoekmogelijkheden toevoegen
 
-In dit gedeelte ziet u hoe u met de Maps Search-API een nuttige plaats vindt op de kaart. Het is een RESTful-API, die is bedoeld voor ontwikkelaars om te zoeken naar adressen, nuttige plaatsen en andere geografische informatie. De Search-service wijst een breedtegraad en lengtegraad toe aan een opgegeven adres. 
+In dit gedeelte ziet u hoe u met de Maps Search-API een nuttige plaats vindt op de kaart. Het is een RESTful-API, die is bedoeld voor ontwikkelaars om te zoeken naar adressen, nuttige plaatsen en andere geografische informatie. De Search-service wijst een breedtegraad en lengtegraad toe aan een opgegeven adres. Met de **servicemodule** die hieronder wordt beschreven, kunt u zoeken naar een locatie met de Kaarten zoeken-API.
 
-1. Voeg een nieuwe laag toe aan uw kaart om de zoekresultaten weer te geven. Voeg de volgende Javascript-code toe aan het blok *script*, na de code waarmee de kaart wordt geïnitialiseerd. 
+### <a name="service-module"></a>Servicemodule
 
+1. Voeg een nieuwe laag toe aan uw kaart om de zoekresultaten weer te geven. Voeg de volgende Javascript-code toe aan het scriptblok, na de code waarmee de kaart wordt geïnitialiseerd. 
+    
     ```JavaScript
     // Initialize the pin layer for search results to the map
     var searchLayerName = "search-results";
@@ -145,69 +148,50 @@ In dit gedeelte ziet u hoe u met de Maps Search-API een nuttige plaats vindt op 
     });
     ```
 
-2. Maak een [XMLHttpRequest](https://xhr.spec.whatwg.org/) en voeg een gebeurtenis-handler toe voor het parseren van het JSON-antwoord dat wordt verzonden door de zoekservice van Maps. Met dit codefragment wordt de gebeurtenis-handler gemaakt voor het verzamelen van adressen, namen, breedtegraad en lengtegraad voor elke locatie die wordt geretourneerd in de variabele `searchPins`. Ten slotte voegt het deze verzameling van locatiepunten als pins toe aan het besturingselement `map`. 
+2. Als u de clientservice wilt instantiëren, voegt u de volgende Javascript-code toe aan het scriptblok, na de code waarmee de kaart wordt geïnitialiseerd.
 
     ```JavaScript
-    // Perform a request to the search service and create a pin on the map for each result
-    var xhttp = new XMLHttpRequest();
-    xhttp.onreadystatechange = function () {
-        var searchPins = [];
-
-        if (this.readyState === 4 && this.status === 200) {
-            var response = JSON.parse(this.responseText);
-
-            var poiResults = response.results.filter((result) => { return result.type === "POI" }) || [];
-
-            searchPins = poiResults.map((poiResult) => {
-                var poiPosition = [poiResult.position.lon, poiResult.position.lat];
-                return new atlas.data.Feature(new atlas.data.Point(poiPosition), {
-                    name: poiResult.poi.name,
-                    address: poiResult.address.freeformAddress,
-                    position: poiResult.position.lat + ", " + poiResult.position.lon
-                });
-            });
-
-            map.addPins(searchPins, {
-                name: searchLayerName
-            });
-
-            var lons = searchPins.map((pin) => { return pin.geometry.coordinates[0] });
-            var lats = searchPins.map((pin) => { return pin.geometry.coordinates[1] });
-
-            var swLon = Math.min.apply(null, lons);
-            var swLat = Math.min.apply(null, lats);
-            var neLon = Math.max.apply(null, lons);
-            var neLat = Math.max.apply(null, lats);
-
-            map.setCameraBounds({
-                bounds: [swLon, swLat, neLon, neLat],
-                padding: 50
-            });
-        }
-    };
+    var client = new atlas.service.Client(subscriptionKey);
     ```
 
-3. Voeg de volgende code toe aan het blok *script* om de query samen te stellen en de XMLHttpRequest te verzenden naar de Search-service van Maps:
+3. Voeg het volgende scriptblok toe om de query te maken. Hierin wordt de service Fuzzy zoeken gebruikt, een basiszoek-API van de Search Service. Via de service Fuzzy zoeken wordt de meeste fuzzy invoer verwerkt, zoals een combinatie van tokens voor een adres en een nuttige plaats. Er wordt gezocht naar benzinestations binnen de opgegeven radius. Het antwoord wordt vervolgens geparseerd in GeoJSON-indeling en geconverteerd naar punten, die aan de kaart worden toegevoegd als punaises. Met het laatste deel van het script worden cameragrenzen aan de kaart toegevoegd met de eigenschap [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) van de kaart.
 
     ```JavaScript
-    var url = "https://atlas.microsoft.com/search/fuzzy/json?";
-    url += "api-version=1.0";
-    url += "&query=gasoline%20station";
-    url += "&subscription-key=" + MapsAccountKey;
-    url += "&lat=47.6292";
-    url += "&lon=-122.2337";
-    url += "&radius=100000";
-
-    xhttp.open("GET", url, true);
-    xhttp.send();
-    ``` 
-    Dit fragment maakt gebruik van de basis-zoek-API van de Search Service, die **Fuzzy zoeken** wordt genoemd. Het fragment verwerkt de meest fuzzy invoer van elke combinatie van tokens voor adres of POI (nuttige plaatsen). Er wordt gezocht naar **tankstations** in de buurt, binnen een straal van de opgegeven coördinaten voor de breedtegraad en lengtegraad. Hierbij wordt de primaire sleutel van uw account gebruikt die eerder in het voorbeeldbestand is opgegeven om de aanroep naar Maps uit te voeren. Deze retourneert de resultaten als breedtegraad lengtegraad/waardeparen voor de locaties die zijn gevonden. 
-    
+    client.search.getSearchFuzzy("gasoline station", {
+     lat: 47.6292,
+     lon: -122.2337,
+     radius: 100000
+    }).then(response => {
+       // Parse the response into GeoJSON 
+       var geojsonResponse = new atlas.service.geojson.GeoJsonSearchResponse(response); 
+ 
+       // Create the point features that will be added to the map as pins 
+       var searchPins = geojsonResponse.getGeoJsonResults().features.map(poiResult => { 
+           var poiPosition = [poiResult.properties.position.lon, poiResult.properties.position.lat]; 
+           return new atlas.data.Feature(new atlas.data.Point(poiPosition), { 
+                name: poiResult.properties.poi.name, 
+                address: poiResult.properties.address.freeformAddress, 
+                position: poiPosition[1] + ", " + poiPosition[0] 
+           }); 
+       }); 
+ 
+       // Add pins to the map for each POI 
+       map.addPins(searchPins, { 
+           name: searchLayerName 
+       }); 
+ 
+       // Set the camera bounds 
+       map.setCameraBounds({ 
+           bounds: geojsonResponse.getGeoJsonResults().bbox, 
+           padding: 50 
+       ); 
+    }); 
+    ```
 4. Sla het bestand **MapSearch.html** op en vernieuw de browser. U ziet nu dat de kaart is gecentreerd rond Seattle en dat blauwe spelden de locaties van tankstations in het gebied aangeven. 
 
    ![De kaart met zoekresultaten weergeven](./media/tutorial-search-location/pins-map.png)
 
-5. U kunt de onbewerkte gegevens zien die de basis van de kaart vormen door de XMLHTTPRequest die u in het bestand compileert in te voeren in uw browser. Vervang \<your account key\> door de primaire sleutel. 
+5. U kunt de onbewerkte gegevens die op de kaart worden weergegeven, zien door de volgende HTTPRequest in uw browser te typen. Vervang \<your account key\> door de primaire sleutel. 
 
    ```http
    https://atlas.microsoft.com/search/fuzzy/json?api-version=1.0&query=gasoline%20station&subscription-key=<your account key>&lat=47.6292&lon=-122.2337&radius=100000
@@ -237,7 +221,7 @@ De kaart die we tot nu toe hebben gemaakt, is uitsluitend gebaseerd op de gegeve
         popupContentElement.appendChild(popupAddressElement);
 
         var popupPositionElement = document.createElement("div");
-        popupPositionElement.innerText = e.features[0].properties.name;
+        popupPositionElement.innerText = e.features[0].properties.position;
         popupContentElement.appendChild(popupPositionElement);
 
         popup.setPopupOptions({

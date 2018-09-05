@@ -1,6 +1,6 @@
 ---
-title: Hoe het configureren van hybride Azure Active Directory apparaten gekoppelde | Microsoft Docs
-description: Informatie over het configureren van hybride Azure Active Directory verbonden apparaten.
+title: Hybride Azure Active Directory-gekoppelde apparaten configureren| Microsoft Docs
+description: Lees hoe u hybride Azure Active Directory-gekoppelde apparaten kunt configureren.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -12,217 +12,217 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 07/31/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: sandeo
-ms.openlocfilehash: cc6d08de74097ba7566037664fd33d9be85ac390
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
-ms.translationtype: MT
+ms.openlocfilehash: f4659d2dc8dfd52ae6f7ec19dc29ec31c9b3ca6b
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628985"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43047339"
 ---
-# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Zelfstudie: Hybride Azure Active Directory join voor federatieve domeinen configureren
+# <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>Zelfstudie: Hybride Azure Active Directory-koppeling configureren voor federatieve domeinen
 
-Een apparaat wordt op een soortgelijke manier aan een gebruiker een andere identiteit die u wilt beveiligen en ook gebruiken voor het beveiligen van uw resources op elk moment en de locatie. U kunt dit doel te bereiken door uw apparaten met identiteiten met Azure AD met behulp van een van de volgende methoden:
+Net zoals een gebruiker, wordt een apparaat ook een identiteit die u wilt beschermen en die u wilt gebruiken om uw bronnen altijd en overal te beschermen. U kunt dit doel bereiken door de identiteiten van uw apparaten naar Azure AD te brengen met een van de volgende methoden:
 
-- Azure AD join
-- Hybrid Azure AD Join
+- Azure AD-koppeling
+- Hybride Azure AD-koppeling
 - Azure AD-registratie
 
-Door uw apparaten meebrengen naar Azure AD, kunt u uw gebruikers productiviteit door middel van eenmalige aanmelding (SSO) in uw cloud en on-premises resources maximaliseren. Op hetzelfde moment, kunt u veilige toegang tot uw cloud en on-premises resources met [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md).
+Door uw apparaten naar Azure AD te brengen, optimaliseert u de productiviteit van uw gebruikers via eenmalige aanmelding (SSO) bij al uw on-premises bronnen en cloudbronnen. Tegelijk kunt u de toegang tot uw on-premises bronnen en cloudbronnen beveiligen met [voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md).
 
-In deze zelfstudie leert u hoe u hybride Azure AD join voor apparaten dat is gefedereerd met behulp van AD FS configureren.
+In deze zelfstudie leert u hoe u hybride Azure AD-koppeling kunt configureren voor apparaten die zijn gefedereerd met ADFS.
 
 > [!div class="checklist"]
-> * Hybride Azure AD join configureren
-> * Windows downlevel-apparaten inschakelen
-> * Controleer of de registratie
+> * Hybride Azure AD-koppeling configureren
+> * Downlevel Windows-apparaten inschakelen
+> * De registratie verifiëren
 > * Problemen oplossen
 
 
 ## <a name="prerequisites"></a>Vereisten
 
-In deze zelfstudie wordt ervan uitgegaan dat u bekend met bent:
+In deze zelfstudie wordt ervan uitgegaan dat u bekend bent met:
 
--  [Inleiding tot Apparaatbeheer in Azure Active Directory](../device-management-introduction.md)
+-  [Inleiding tot apparaatbeheer in Azure Active Directory](../device-management-introduction.md)
 
 -  [De implementatie van uw hybride Azure Active Directory-deelname plannen](hybrid-azuread-join-plan.md)
 
 -  [De hybride Azure AD-deelname van uw apparaten beheren](hybrid-azuread-join-control.md)
 
 
-Voor het configureren van het scenario in deze zelfstudie, hebt u het volgende nodig:
+Voor het configureren van het scenario in deze zelfstudie hebt u het volgende nodig:
 
 - Windows Server 2012 R2 met AD FS
 
 - [Azure AD Connect](https://www.microsoft.com/download/details.aspx?id=47594) versie 1.1.819.0 of hoger. 
  
 
-Vanaf versie 1.1.819.0, biedt Azure AD Connect u de wizard een hybride Azure AD join configureren. De wizard kunt u het configuratieproces aanzienlijk te vereenvoudigen. De gerelateerde wizard:
+Vanaf versie 1.1.819.0 bevat Azure AD Connect een wizard om hybride Azure AD-koppeling te configureren. Met de wizard kunt u het configuratieproces aanzienlijk vereenvoudigen. De gerelateerde wizard:
 
-- Hiermee configureert u de serviceverbindingspunten (SCP) voor device Registration service
+- Configureert de serviceverbindingspunten (SCP) voor apparaatregistratie
 
-- Back-up van uw bestaande Azure AD-vertrouwensrelatie van relying party
+- Maakt een back-up van uw bestaande vertrouwensrelatie van de Relying Party van Azure AD
 
-- Updates van de claimregels in uw Azure AD-vertrouwensrelatie
+- Werkt de claimregels in uw Azure AD-vertrouwensrelatie bij
 
-De configuratiestappen in dit artikel zijn gebaseerd op deze wizard. Als u een oudere versie van Azure AD Connect geïnstalleerd hebt, moet u deze bijwerken naar 1.1.819 of hoger. Als het installeren van de meest recente versie van Azure AD Connect kan niet worden gebruikt voor u, raadpleegt u [het handmatig configureren van device Registration service](../device-management-hybrid-azuread-joined-devices-setup.md).
+De configuratiestappen in dit artikel zijn gebaseerd op deze wizard. Als u een oudere versie van Azure AD Connect hebt geïnstalleerd, werkt u deze bij naar 1.1.819 of hoger. Zie [Apparaatregistratie handmatig configureren](../device-management-hybrid-azuread-joined-devices-setup.md) als het voor u niet mogelijk is om de nieuwste versie van Azure AD Connect te installeren.
 
-Hybride Azure AD join vereist dat de apparaten toegang hebben tot de volgende Microsoft-resources binnen het netwerk van uw organisatie:  
+Voor hybride Azure AD-koppeling moeten de apparaten toegang tot de volgende Microsoft-bronnen hebben vanuit het netwerk van uw organisatie:  
 
 - https://enterpriseregistration.windows.net
 - https://login.microsoftonline.com
 - https://device.login.microsoftonline.com
-- Uw organisatie STS (federatieve domeinen)
-- https://autologon.microsoftazuread-sso.com (Als u met behulp van of van plan te gebruiken van naadloze eenmalige aanmelding)
+- De STS van uw organisatie (federatieve domeinen)
+- https://autologon.microsoftazuread-sso.com (als u naadloze eenmalige aanmelding gebruikt of van plan bent te gebruiken)
 
-Als uw organisatie toegang tot Internet via een uitgaande proxy vereist, kunt beginnen met Windows 10 1709, u configureren proxy-instellingen op uw computer met behulp van een groepsbeleidsobject (GPO). Als uw computer wordt uitgevoerd dat alles ouder dan Windows 10 1709, moet u Web Proxy Auto-Discovery (WPAD) om in te schakelen van Windows 10-computers te doen met Azure AD-apparaatregistratie implementeren. 
+Als uw organisatie internettoegang via een uitgaande proxy vereist, kunt u vanaf Windows 10 1709 proxyinstellingen op uw computer configureren met behulp van een groepsbeleidsobject (GPO). Als op uw computer een oudere versie dan Windows 10 1709 wordt uitgevoerd, moet u Web Proxy Auto-Discovery (WPAD) implementeren om Windows 10-computers in staat te stellen apparaten te registreren met Azure AD. 
 
-Als uw organisatie toegang tot Internet via een geverifieerde uitgaande proxy vereist, moet u ervoor zorgen dat uw Windows 10-computers aan de uitgaande proxy verifiëren kunnen. Omdat Windows 10-computers worden uitgevoerd met behulp van de context van de computer het registreren van apparaten, is het nodig zijn om uitgaande proxy-verificatie met behulp van de context van de computer te configureren. Volgen met uw provider uitgaande proxy op de configuratievereisten. 
+Als uw organisatie internettoegang via een geverifieerde uitgaande proxy vereist, moet u ervoor zorgen dat uw Windows 10-computers succesvol kunnen verifiëren bij de uitgaande proxy. Omdat Windows 10-computers apparaatregistratie uitvoeren via machinecontext, moet u verificatie van een uitgaande proxy configureren via machinecontext. Vraag uw provider van de uitgaande proxy naar de configuratievereisten. 
 
 
-## <a name="configure-hybrid-azure-ad-join"></a>Hybride Azure AD join configureren
+## <a name="configure-hybrid-azure-ad-join"></a>Hybride Azure AD-koppeling configureren
 
-Als u wilt een hybride Azure AD join met behulp van Azure AD Connect hebt geconfigureerd, hebt u het volgende nodig:
+Voor het configureren van een hybride Azure AD-koppeling via Azure AD Connect hebt u het volgende nodig:
 
 - De referenties van een globale beheerder voor uw Azure AD-tenant.  
 
-- De referenties voor ondernemingsadministrator voor elk van de forests.
+- De referenties van een ondernemingsbeheerder voor elk van de forests.
 
 - De referenties van uw AD FS-beheerder. 
 
 
-**Een hybride Azure AD join met behulp van Azure AD Connect configureren:**
+**Ga als volgt te werk om een hybride Azure AD-koppeling te configureren via Azure AD Connect:**
 
-1. Azure AD Connect starten en klik vervolgens op **configureren**.
+1. Start Azure AD Connect en klik op **Configureren**.
 
     ![Welkom](./media/hybrid-azuread-join-federated-domains/11.png)
 
-2. Op de **extra taken** weergeeft, schakelt **Apparaatopties configureren**, en klik vervolgens op **volgende**. 
+2. Selecteer op de pagina **Extra taken** de optie **Apparaatopties configureren** en klik op **Volgende**. 
 
     ![Extra taken](./media/hybrid-azuread-join-federated-domains/12.png)
 
-3. Op de **overzicht** pagina, klikt u op **volgende**. 
+3. Klik op de pagina **Overzicht** op **Volgende**. 
 
     ![Overzicht](./media/hybrid-azuread-join-federated-domains/13.png)
 
-4. Op de **verbinding maken met Azure AD** pagina, typ de referenties van een globale beheerder voor uw Azure AD-tenant en klik vervolgens op **volgende**.   
+4. Voer op de pagina **Verbinding maken met Azure AD** de referenties in van een globale beheerder voor uw Azure AD-tenant en klik op **Volgende**.   
 
     ![Verbinding maken met Azure AD](./media/hybrid-azuread-join-federated-domains/14.png)
 
-5. Op de **Apparaatopties** weergeeft, schakelt **configureren Hybrid Azure AD join**, en klik vervolgens op **volgende**. 
+5. Selecteer op de pagina **Apparaatopties** de optie **Hybride Azure AD-koppeling configureren** en klik op **Volgende**. 
 
     ![Apparaatopties](./media/hybrid-azuread-join-federated-domains/15.png)
 
-6. Op de **SCP** pagina, het uitvoeren van de volgende stappen uit en klik vervolgens op **volgende**: 
+6. Voer op de pagina **SCP** de volgende stappen uit en klik op **Volgende**: 
 
     ![SCP](./media/hybrid-azuread-join-federated-domains/16.png)
 
-    a. Selecteer het forest.
+    a. Selecteer de forest.
 
-    b. Selecteer de service voor verificatie.
+    b. Selecteer de verificatieservice.
 
-    c. Klik op **toevoegen** de referenties voor ondernemingsadministrator invoeren.
+    c. Klik op **Toevoegen** om de referenties van een ondernemingsbeheerder in te voeren.
 
 
-7. Op de **besturingssystemen van apparaten** pagina, selecteer de besturingssystemen die worden gebruikt door apparaten in uw Active Directory-omgeving en klik vervolgens op **volgende**. 
+7. Selecteer op de pagina **Apparaatbesturingssystemen** de besturingssystemen die worden gebruikt door apparaten in uw Active Directory-omgeving en klik op **Volgende**. 
 
-    ![Besturingssysteem apparaat](./media/hybrid-azuread-join-federated-domains/17.png)
+    ![Apparaatbesturingssysteem](./media/hybrid-azuread-join-federated-domains/17.png)
 
-8. Op de **federatieconfiguratie** pagina, voert u de referenties van uw AD FS-beheerder en klik vervolgens op **volgende**. 
+8. Voer op de pagina **Federatieconfiguratie** de referenties van uw AD FS-beheerder in en klik op **Volgende**. 
 
     ![Federatieconfiguratie](./media/hybrid-azuread-join-federated-domains/18.png)
 
-9. Op de **klaar om te configureren** pagina, klikt u op **configureren**. 
+9. Klik op de pagina **Gereed om te configureren** op **Configureren**. 
 
     ![Klaar om te configureren](./media/hybrid-azuread-join-federated-domains/19.png)
 
-10. Op de **configuratie voltooid** pagina, klikt u op **afsluiten**. 
+10. Klik op de pagina **Configuratie voltooid** op **Afsluiten**. 
 
     ![Configuratie voltooid](./media/hybrid-azuread-join-federated-domains/20.png)
 
 
 
 
-## <a name="enable-windows-down-level-devices"></a>Windows downlevel-apparaten inschakelen
+## <a name="enable-windows-down-level-devices"></a>Downlevel Windows-apparaten inschakelen
 
-Als sommige van uw apparaten domein Windows downlevel-apparaten zijn, moet u naar:
+Als sommige van uw domein-gekoppelde apparaten downlevel Windows-apparaten zijn, moet u:
 
 - Apparaatinstellingen bijwerken
  
-- De instellingen van lokaal intranet voor device Registration service configureren
+- De lokale intranetinstellingen voor apparaatregistratie configureren
 
 
 ### <a name="update-device-settings"></a>Apparaatinstellingen bijwerken 
 
-Voor het registreren van Windows downlevel-apparaten, moet u om ervoor te zorgen dat de instellingen voor apparaten waarmee gebruikers apparaten registreren in Azure AD zijn ingesteld. U kunt deze instelling onder vinden in de Azure-portal:
+Om downlevel Windows-apparaten te kunnen registreren, moet u ervoor zorgen dat de apparaatinstellingen zijn geconfigureerd waarmee gebruikers apparaten mogen registreren in Azure AD. In de Azure-portal vindt u deze instelling onder:
 
 `Home > [Name of your tenant] > Devices - Device settings`  
 
 
     
-Het volgende beleid moet worden ingesteld op **alle**: **gebruikers hun apparaten kunnen registreren bij Azure AD**
+Het volgende beleid moet zijn ingesteld op **Alle**: **Gebruikers mogen hun apparaten met Azure AD registreren**
 
 ![Apparaten registreren](./media/hybrid-azuread-join-federated-domains/23.png)
 
 
-### <a name="configure-the-local-intranet-settings-for-device-registration"></a>De instellingen van lokaal intranet voor device Registration service configureren
+### <a name="configure-the-local-intranet-settings-for-device-registration"></a>De lokale intranetinstellingen voor apparaatregistratie configureren
 
-Met succes voltooid hybride Azure AD join van uw Windows downlevel-apparaten en om te voorkomen dat certificaat wordt gevraagd wanneer apparaten worden geverifieerd met Azure AD kunt u een beleid pushen naar uw domein apparaten de volgende URL's toevoegen aan het lokale Intranet verifiëren zone in Internet Explorer:
-
-- `https://device.login.microsoftonline.com`
+Om de hybride Azure AD-koppeling van uw downlevel Windows-apparaten succesvol te voltooien en om certificaatprompts te vermijden wanneer apparaten worden geverifieerd bij Azure AD, kunt u een beleid naar uw domein-gekoppelde apparaten pushen om de volgende URL’s toe te voegen aan de zone Lokaal intranet in Internet Explorer:
 
 - `https://device.login.microsoftonline.com`
 
-- Uw organisatie beveiligingstokenservice (STS - federatieve domeinen)
+- `https://device.login.microsoftonline.com`
+
+- De beveiligingstokenservice (STS - federatieve domeinen) van uw organisatie
 
 - `https://autologon.microsoftazuread-sso.com` (voor naadloze eenmalige aanmelding).
 
-Daarnaast moet u om in te schakelen **toestaan van updates op de statusbalk via script** in de lokale intranetzone van de gebruiker.
+Daarnaast moet u **Statusbalkupdates via scripts toestaan** inschakelen in de zone Lokaal intranet van de gebruiker.
 
 
 
-## <a name="verify-the-registration"></a>Controleer of de registratie
+## <a name="verify-the-registration"></a>De registratie verifiëren
 
-Als u wilt controleren of de status van de apparaatregistratie in uw Azure-tenant, kunt u de ** [Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice) ** cmdlet in de ** [Azure Active Directory PowerShell-module](/powershell/azure/install-msonlinev1?view=azureadps-2.0)**.
+Om de status van de apparaatregistratie in uw Azure-tenant te verifiëren, kunt u de cmdlet **[Get-MsolDevice](https://docs.microsoft.com/powershell/msonline/v1/get-msoldevice)** in de **[Azure Active Directory PowerShell-module](/powershell/azure/install-msonlinev1?view=azureadps-2.0)** gebruiken.
 
-Wanneer u de **Get-MSolDevice** cmdlet om de servicedetails te controleren:
+Wanneer u de cmdlet **Get-MSolDevice** gebruikt om de servicedetails te controleren:
 
-- Een object met de **apparaat-id** die overeenkomt met de ID op de Windows client moet bestaan.
-- De waarde voor **DeviceTrustType** moet **domein**. Dit is gelijk aan de **toegevoegd aan Hybrid Azure AD** staat op de pagina apparaten in de Azure AD-portal.
-- De waarde voor **ingeschakeld** moet **waar** voor apparaten die worden gebruikt voor de voorwaardelijke toegang. 
+- Moet er een object bestaan met de **apparaat-id** die overeenkomt met de id op de Windows-client.
+- Moet de waarde voor **DeviceTrustType** op **Toegevoegd aan domein** zijn ingesteld. Dit is equivalent aan de status **Toegevoegd aan hybride Azure AD** op de pagina Apparaten in de Azure AD-portal.
+- Moet de waarde voor **Ingeschakeld** op **Waar** zijn ingesteld voor apparaten die worden gebruikt met voorwaardelijke toegang. 
 
 
-**De om servicedetails te controleren:**
+**Ga als volgt te werk om de servicedetails te controleren:**
 
-1. Open **Windows PowerShell** als administrator.
+1. Open **Windows PowerShell** als beheerder.
 
-2. Type `Connect-MsolService` verbinding maken met uw Azure-tenant.  
+2. Typ `Connect-MsolService` om verbinding te maken met uw Azure-tenant.  
 
 3. Typ `get-msoldevice -deviceId <deviceId>`.
 
-6. Controleer **ingeschakeld** is ingesteld op **waar**.
+6. Verifieer dat **Ingeschakeld** is ingesteld op **Waar**.
 
 
 
 
 
-## <a name="troubleshoot-your-implementation"></a>Uw implementatie oplossen
+## <a name="troubleshoot-your-implementation"></a>Problemen met uw implementatie oplossen
 
-Als u problemen ondervindt bij het invullen van hybride Azure AD join voor domein gekoppelde Windows-apparaten, Zie:
+Als u problemen ondervindt met het voltooien van de hybride Azure AD-koppeling voor domein-gekoppelde Windows-apparaten, raadpleegt u:
 
-- [Oplossen van problemen met Hybrid Azure AD join voor de huidige Windows-apparaten](troubleshoot-hybrid-join-windows-current.md)
-- [Oplossen van problemen met Hybrid Azure AD join voor Windows downlevel-apparaten](troubleshoot-hybrid-join-windows-legacy.md)
+- [Problemen met hybride Azure AD-koppeling oplossen voor actuele Windows-apparaten](troubleshoot-hybrid-join-windows-current.md)
+- [Problemen met hybride Azure AD-koppeling oplossen voor downlevel Windows-apparaten](troubleshoot-hybrid-join-windows-legacy.md)
 
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Configure hybride Azure Active Directory join voor beheerde domeinen](hybrid-azuread-join-managed-domains.md)
-> [hybride Azure Active Directory join handmatig configureren](hybrid-azuread-join-manual-steps.md)
+> [Hybride Azure Active Directory-koppeling configureren voor beheerde domeinen](hybrid-azuread-join-managed-domains.md)
+> [Hybride Azure Active Directory-koppeling handmatig configureren](hybrid-azuread-join-manual-steps.md)
 
 
 

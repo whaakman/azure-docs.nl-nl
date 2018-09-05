@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 7c78636a210ae90c5bfe1d0bfd35e4e05633f5cd
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 57d5f7039831c9fd617926f20f3ff001b22ef314
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188196"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43097882"
 ---
 # <a name="tutorial-create-an-azure-resource-manager-template-for-deploying-an-encrypted-storage-account"></a>Zelfstudie: een Azure Resource Manager-sjabloon maken voor het implementeren van een versleuteld opslagaccount
 
@@ -30,9 +30,7 @@ Deze zelfstudie bestaat uit de volgende taken:
 
 > [!div class="checklist"]
 > * Een snelstartsjabloon openen
-> * Inzicht in de sjabloonindeling
-> * Parameters in een sjabloon gebruiken
-> * Variabelen in een sjabloon gebruiken
+> * Inzicht in de sjabloon
 > * De sjabloon bewerken
 > * De sjabloon implementeren
 
@@ -101,7 +99,7 @@ Met variabelen kunt u waarden maken die in uw sjablonen kunnen worden gebruikt. 
 Deze sjabloon definieert één variabele: *storageAccountName*. In de definitie worden twee sjabloonfuncties gebruikt:
 
 - **concat()**: voegt tekenreeksen samen. Zie [concat](./resource-group-template-functions-string.md#concat) voor meer informatie.
-- **uniqueString()**: hiermee maakt u een deterministische hash-tekenreeks gebaseerd op de waarden die zijn geleverd als parameters. Elk Azure-opslagaccount moet een unieke naam overal binnen Azure hebben. Deze functie biedt een unieke tekenreeks. Zie [Tekenreeksfuncties](./resource-group-template-functions-string.md) voor meer tekenreeksfuncties.
+- **uniqueString()**: hiermee maakt u een deterministische hash-tekenreeks gebaseerd op de waarden die zijn geleverd als parameters. Elk Azure-opslagaccount moet een naam hebben die uniek is in heel Azure. Deze functie biedt een unieke tekenreeks. Zie [Tekenreeksfuncties](./resource-group-template-functions-string.md) voor meer tekenreeksfuncties.
 
 De variabele die is gedefinieerd in de sjabloon gebruiken:
 
@@ -111,10 +109,10 @@ De variabele die is gedefinieerd in de sjabloon gebruiken:
 
 ## <a name="edit-the-template"></a>De sjabloon bewerken
 
-Als u de aan versleuteling gerelateerde configuratie voor het opslagaccount wilt vinden, kunt u de sjabloonverwijzing van het Azure-opslagaccount gebruiken.
+Het doel van deze zelfstudie is om een sjabloon te definiëren voor het maken van een versleuteld opslagaccount.  Met de voorbeeldsjabloon wordt alleen een niet-versleuteld basisopslagaccount gemaakt. Als u de aan versleuteling gerelateerde configuratie wilt vinden, kunt u de sjabloonverwijzing van het Azure-opslagaccount gebruiken.
 
 1. Browse naar [Azure-sjablonen](https://docs.microsoft.com/azure/templates/).
-2. Selecteer in de inhoudsopgave aan de linkerkant **Verwijzing**->**Opslag**->**Opslagaccounts**. De pagina bevat de informatie voor het definiëren van de gegevens van een opslagaccount.
+2. Selecteer in de inhoudsopgave aan de linkerkant **Verwijzing**->**Opslag**->**Opslagaccounts**. U kunt ook **opslag** invoeren in het veld **Filteren op**.  De pagina bevat het schema voor het definiëren van de gegevens van een opslagaccount.
 3. Bekijk de aan versleuteling gerelateerde informatie.  
 4. Voeg de volgende json toe in het element eigenschappen van de resourcedefinitie voor het opslagaccount:
 
@@ -130,59 +128,17 @@ Als u de aan versleuteling gerelateerde configuratie voor het opslagaccount wilt
     ```
     Met deze tegel wordt de versleutelingsfunctie van de Blob Storage-service ingeschakeld.
 
-Het laatste element resources ziet er als volgt uit:
+Wijzig de sjabloon vanuit Visual Studio Code, zodat het uiteindelijke resources-element er als volgt uitziet:
 
 ![Versleutelde resources van opslagaccount in Resource Manager-sjabloon](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-resources.png)
 
 ## <a name="deploy-the-template"></a>De sjabloon implementeren
 
-Er bestaan meerdere methoden voor het implementeren van sjablonen.  In deze zelfstudie gebruikt u Cloud Shell van Azure Portal. Cloud Shell ondersteunt zowel Azure CLI als Azure PowerShell. De hier gebruikte instructies maken gebruik van CLI.
+Raadpleeg de sectie [De sjabloon implementeren](./resource-manager-quickstart-create-templates-use-visual-studio-code.md#deploy-the-template) in de snelstartgids van Visual Studio Code voor de implementatieprocedure.
 
-1. Meld u aan bij [Azure Portal](https://portal.azure.com)
-2. Selecteer **Cloud Shell** in de rechterbovenhoek, zoals weergegeven in de volgende afbeelding:
+In de volgende schermafbeelding ziet u de CLI-opdracht voor het weergeven van het zojuist gemaakte opslagaccount, waarmee wordt aangegeven dat versleuteling is ingeschakeld voor de blobopslag.
 
-    ![Cloud Shell in Azure Portal](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell.png)
-
-3. Selecteer de pijl-omlaag en selecteer vervolgens **Bash** als deze niet Bash is. U gebruikt Azure CLI in deze zelfstudie.
-
-    ![Cloud Shell CLI in Azure Portal](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-choose-cli.png)
-4. Selecteer **Opnieuw starten** om de shell opnieuw te starten.
-5. Selecteer **Upload/download files** en selecteer **Uploaden**.
-
-    ![Bestand uploaden in Cloud Shell in Azure Portal](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-upload-file.png)
-6. Selecteer het bestand dat u eerder in de zelfstudie hebt opgeslagen. De standaardnaam is **azuredeploy.json**.
-7. Voer vanaf Cloud Shell de opdracht **ls** uit om te verifiëren of het bestand is geüpload. U kunt de opdracht **cat** gebruiken om de sjablooninhoud te verifiëren.
-
-    ![Cloud Shell-lijstbestand in Azure Portal](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-list-file.png)
-8. Voer vanuit Cloud Shell de volgende opdrachten uit:
-
-    ```cli
-    az group create --name <ResourceGroupName> --location <AzureLocation>
-
-    az group deployment create --name <DeploymentName> --resource-group <ResourceGroupName> --template-file azuredeploy.json
-    ```
-    Dit is de schermafbeelding van een voorbeeldimplementatie:
-
-    ![Sjabloon implementeren in Cloud Shell in Azure Portal](./media/resource-manager-tutorial-create-encrypted-storage-accounts/azure-portal-cloud-shell-deploy-template.png)
-
-    In de schermafbeelding worden de volgende waarden gebruikt:
-
-    * **&lt;ResourceGroupName>**: myresourcegroup0719. De parameter komt tweemaal voor.  Zorg ervoor dat u dezelfde waarde gebruikt.
-    * **&lt;AzureLocation>**: eastus2
-    * **&lt;DeployName>**: mydeployment0719
-    * **&lt;TemplateFile>**: azuredeploy.json
-
-    In de uitvoer op de schermafbeelding ziet u dat de naam van het opslagaccount *fhqbfslikdqdsstandardsa* is. 
-
-9. Voer de volgende PowerShell-opdracht uit om het nieuw gemaakte opslagaccount weer te geven:
-
-    ```cli
-    az storage account show --resource-group <ResourceGroupName> --name <StorageAccountName>
-    ```
-
-    U ziet een resultaat vergelijkbaar met de volgende schermafbeelding, waarin wordt aangegeven dat versleuteling voor de blob-opslag is ingeschakeld.
-
-    ![Versleuteld opslagaccount in Azure Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
+![Versleuteld opslagaccount in Azure Resource Manager](./media/resource-manager-tutorial-create-encrypted-storage-accounts/resource-manager-template-encrypted-storage-account.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
@@ -195,7 +151,7 @@ Schoon de geïmplementeerd Azure-resources, wanneer u deze niet meer nodig hebt,
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u met sjabloonverwijzing een bestaande sjabloon kunt aanpassen. De gebruikte sjabloon in deze zelfstudie bevat slechts één Azure-resource.  In de volgende zelfstudie ontwikkelt u een sjabloon met meerdere resources.  Sommige resources hebben afhankelijke resources.
+In deze zelfstudie hebt u geleerd hoe u met sjabloonverwijzing een bestaande sjabloon kunt aanpassen. De gebruikte sjabloon in deze zelfstudie bevat slechts één Azure-resource.  In de volgende zelfstudie ontwikkelt u een sjabloon met meerdere resources. Sommige resources hebben afhankelijke resources.
 
 > [!div class="nextstepaction"]
 > [Meerdere resources maken](./resource-manager-tutorial-create-templates-with-dependent-resources.md)

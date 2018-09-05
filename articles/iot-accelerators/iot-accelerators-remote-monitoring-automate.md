@@ -9,12 +9,12 @@ services: iot-accelerators
 ms.date: 07/19/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: d94f8d38ef771bd5ab03f4d3cef25233c33e7546
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 6759568a678394f7cec4ac9f0bdd99d8ed1db9de
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282614"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42886787"
 ---
 # <a name="tutorial-detect-issues-with-devices-connected-to-your-monitoring-solution"></a>Zelfstudie: Problemen detecteren met apparaten die zijn verbonden met uw bewakingsoplossing
 
@@ -112,11 +112,23 @@ Als u een bestaande regel wilt wijzigen, selecteert u de regel in de lijst met r
 
 ## <a name="disable-a-rule"></a>Een regel uitschakelen
 
-Als u een regel tijdelijk wilt uitschakelen, kunt u dat doen in de lijst met regels. Selecteer de regel die u wilt uitschakelen en kies **Uitschakelen**. De **Status** van de regel in de lijst verandert om aan te geven dat de regel nu is uitgeschakeld. Een regel die u eerder hebt uitgeschakeld kunt u met behulp van dezelfde procedure weer inschakelen.
+Als u een regel tijdelijk wilt uitschakelen, kunt u dat doen in de lijst met regels. Kies de regel die u wilt uitschakelen en kies **Uitschakelen**. De **Status** van de regel in de lijst verandert om aan te geven dat de regel nu is uitgeschakeld. Een regel die u eerder hebt uitgeschakeld kunt u met behulp van dezelfde procedure weer inschakelen.
 
 [![Regel uitschakelen](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdisable-expanded.png#lightbox)
 
 U kunt meerdere regels tegelijk in- en uitschakelen door meerdere regels in de lijst te selecteren.
+
+## <a name="delete-a-rule"></a>Een regel verwijderen
+
+Als u een regel permanent wilt verwijderen, kunt u deze verwijderen in de lijst met regels. Selecteer de regel die u wilt verwijderen en kies **Verwijderen**.
+
+[![Regel verwijderen](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdelete-expanded.png#lightbox)
+
+Wanneer u hebt bevestigd dat u de regel wilt verwijderen, kunt u meldingen die aan de regel zijn gekoppeld, verwijderen op de pagina **Onderhoud**.
+
+[![Regel verwijderen](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-inline.png)](./media/iot-accelerators-remote-monitoring-automate/rulesactionsdeletetidy-expanded.png#lightbox)
+
+U kunt slechts één regel tegelijk verwijderen.
 
 [!INCLUDE [iot-accelerators-tutorial-cleanup](../../includes/iot-accelerators-tutorial-cleanup.md)]
 

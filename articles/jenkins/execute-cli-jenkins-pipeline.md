@@ -1,69 +1,62 @@
 ---
-title: De Azure CLI met Jenkins uitvoeren | Microsoft Docs
-description: Informatie over het gebruik van Azure CLI een Java-web-app implementeren in Azure in Jenkins-pijplijn
-services: app-service\web
-documentationcenter: ''
-author: mlearned
-manager: douge
-editor: ''
-ms.assetid: ''
+title: De Azure CLI uitvoeren met Jenkins
+description: Leer hoe u de Azure CLI kunt gebruiken om een Java-web-app te implementeren naar Azure in de Jenkins-pijplijn
 ms.service: jenkins
-ms.devlang: na
-ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: web
+keywords: jenkins, azure, devops, app service, cli
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 6/7/2017
-ms.author: mlearned
-ms.custom: Jenkins
-ms.openlocfilehash: 1796e9f76e39334c8bbdd03463a0f91e9b47cb17
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
-ms.translationtype: MT
+ms.openlocfilehash: 7d9565db8fe46ee26fafa7bd021d771e728e9a77
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421301"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43101609"
 ---
-# <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementeren in Azure App Service met Jenkins en Azure CLI
-Als u wilt een Java-web-app implementeren in Azure, kunt u Azure CLI in [Jenkins pijplijn](https://jenkins.io/doc/book/pipeline/). In deze zelfstudie maakt u een CI/CD-pijplijn op een virtuele machine in Azure. U leert onder andere:
+# <a name="deploy-to-azure-app-service-with-jenkins-and-the-azure-cli"></a>Implementeren in Azure App Service met Jenkins en de Azure CLI
+Als u een Java-web-app wilt implementeren in Azure, kunt u de Azure CLI in de [Jenkins-pijplijn](https://jenkins.io/doc/book/pipeline/) gebruiken. In deze zelfstudie maakt u een CI/CD-pijplijn op een virtuele machine in Azure. U leert onder andere:
 
 > [!div class="checklist"]
 > * Een Jenkins-VM maken
 > * Jenkins configureren
 > * Een web-app maken in Azure
 > * Een GitHub-opslagplaats voorbereiden
-> * Jenkins-pijplijn maken
-> * Voer de pijplijn en controleer of de web-app
+> * Een Jenkins-pijplijn maken
+> * De pijplijn uitvoeren en de web-app controleren
 
 Voor deze zelfstudie is versie 2.0.4 of hoger van de Azure CLI vereist. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli).
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="create-and-configure-jenkins-instance"></a>Maken en configureren van Jenkins-exemplaar
-Als u nog geen een Jenkins-master, begint u met de [oplossingssjabloon](install-jenkins-solution-template.md), waaronder de vereiste [Azure Credentials](https://plugins.jenkins.io/azure-credentials) invoegtoepassing standaard. 
+## <a name="create-and-configure-jenkins-instance"></a>Een Jenkins-exemplaar maken en configureren
+Als u nog geen Jenkins-master hebt, begint u met de [oplossingssjabloon](install-jenkins-solution-template.md), die standaard de vereiste invoegtoepassing [Azure Credentials](https://plugins.jenkins.io/azure-credentials) bevat. 
 
-De invoegtoepassing Azure Credential biedt u referenties voor Microsoft Azure service-principal in Jenkins opslaan. In versie 1.2, we ondersteuning toegevoegd, zodat die Jenkins-pijplijn tot de Azure-referenties krijgen kunt. 
+Met de invoegtoepassing Azure Credentials kunt u uw referenties voor de Microsoft Azure-service-principal in Jenkins opslaan. In versie 1.2 hebben we de ondersteuning toegevoegd, zodat de Jenkins-pijplijn de Azure-referenties kan ophalen. 
 
-Zorg ervoor dat u versie 1.2 of hoger hebt:
-* Klik in het dashboard van Jenkins op **Manage Jenkins-invoegtoepassing Manager > ->** en zoek naar de **Azure Credential**. 
-* De invoegtoepassing bijwerken als de versie ouder dan 1.2 is.
+Controleer of u versie 1.2 of hoger hebt:
+* Klik in het dashboard van Jenkins op **Jenkins beheren -> Invoegtoepassingenbeheer ->** en zoek naar **Azure Credential**. 
+* Werk de invoegtoepassing bij als de versie ouder is dan 1.2.
 
-Java JDK en Maven zijn ook vereist in de Jenkins-master. Als u wilt installeren, meld u aan bij de Jenkins-master met behulp van SSH en voer de volgende opdrachten uit:
+Java JDK en Maven zijn ook vereist in de Jenkins-master. Als u deze wilt installeren, meldt u zich aan bij de Jenkins-master met SSH en voert u de volgende opdrachten uit:
 ```bash
 sudo apt-get install -y openjdk-7-jdk
 sudo apt-get install -y maven
 ```
 
-## <a name="add-azure-service-principal-to-jenkins-credential"></a>Azure service-principal toevoegen aan de Jenkins-referentie
+## <a name="add-azure-service-principal-to-jenkins-credential"></a>Azure-service-principal toevoegen aan Jenkins-referenties
 
-Een Azure-referentie is nodig voor het uitvoeren van Azure CLI.
+Azure-referenties zijn nodig om de Azure CLI uit te voeren.
 
-* Klik in het dashboard van Jenkins op **referenties -> systeem ->**. Klik op **globale credentials(unrestricted)**.
-* Klik op **referenties toevoegen** om toe te voegen een [Microsoft Azure service-principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) door het invullen van de abonnements-ID, Client-ID, Client Secret en OAuth 2.0 Token Endpoint. Geef een ID voor gebruik in de volgende stap.
+* Klik in het dashboard van Jenkins op **Referenties -> Systeem ->**. Klik op **Algemene referenties (onbeperkt)**.
+* Klik op **Referenties toevoegen** als u een [Microsoft Azure-service-principal](https://docs.microsoft.com/cli/azure/create-an-azure-service-principal-azure-cli?toc=%2fazure%2fazure-resource-manager%2ftoc.json) wilt toevoegen door Abonnements-id, Client-id, Clientgeheim en OAuth 2.0 Token-eindpunt in te vullen. Geef een id op voor gebruik in de volgende stap.
 
 ![Referenties toevoegen](./media/execute-cli-jenkins-pipeline/add-credentials.png)
 
-## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Een Azure App Service voor het implementeren van de Java-web-app maken
+## <a name="create-an-azure-app-service-for-deploying-the-java-web-app"></a>Een Azure App Service maken voor het implementeren van de Java-web-app
 
-Maak een Azure App Service-plan met de **gratis** prijzen laag met behulp van de [az appservice plan maken](/cli/azure/appservice/plan#az-appservice-plan-create) CLI-opdracht. Het App Service-plan definieert de fysieke resources die gebruikt worden voor het hosten van uw apps. Alle toepassingen die zijn toegewezen aan een App Service-plan delen deze resources, zodat u kosten kunt besparen als u meerdere apps host. 
+Maak een Azure App Service-plan met de prijscategorie **GRATIS** met behulp van de CLI-opdracht [az appservice plan create](/cli/azure/appservice/plan#az-appservice-plan-create). Het App Service-plan definieert de fysieke resources die gebruikt worden voor het hosten van uw apps. Alle toepassingen die zijn toegewezen aan een App Service-plan delen deze resources, zodat u kosten kunt besparen als u meerdere apps host. 
 
 ```azurecli-interactive
 az appservice plan create \
@@ -92,7 +85,7 @@ Wanneer het plan klaar is, laat de Azure CLI uitvoer zien die vergelijkbaar is m
 
 ### <a name="create-an-azure-web-app"></a>Een Azure-web-app maken
 
- Gebruik de [az webapp maken](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) CLI-opdracht voor het maken van de definitie van een web-app in de `myAppServicePlan` App Service-plan. De definitie van de web-app biedt een URL voor toegang tot uw toepassing en configureert diverse opties voor het implementeren van uw code naar Azure. 
+ Gebruik de CLI-opdracht [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) om de definitie van een web-app te maken in het `myAppServicePlan` App Service-plan. De definitie van de web-app biedt een URL voor toegang tot uw toepassing en configureert diverse opties voor het implementeren van uw code naar Azure. 
 
 ```azurecli-interactive
 az webapp create \
@@ -122,7 +115,7 @@ Wanneer de definitie van de web-app is gemaakt, toont de Azure CLI soortgelijke 
 
 ### <a name="configure-java"></a>Java configureren 
 
-Instellen van de configuratie van de Java-runtime die uw app nodig met heeft de [az appservice web config update](/cli/azure/appservice/web/config#az-appservice-web-config-update) opdracht.
+Stel de Java-runtimeconfiguratie in die uw app nodig heeft met de opdracht [az appservice web config update](/cli/azure/webapp/config#az-appservice-web-config-update).
 
 De volgende opdracht configureert de web-app om op een recente Java 8 JDK en [Apache Tomcat](http://tomcat.apache.org/) 8.0 te worden uitgevoerd.
 
@@ -136,78 +129,78 @@ az webapp config set \
 ```
 
 ## <a name="prepare-a-github-repository"></a>Een GitHub-opslagplaats voorbereiden
-Open de [eenvoudige Java-Web-App voor Azure](https://github.com/azure-devops/javawebappsample) opslagplaats. Als u wilt splitsen in de opslagplaats naar uw eigen GitHub-account, klikt u op de **Fork** knop in de rechterbovenhoek.
+Open de opslagplaats [Eenvoudige Java-web-App voor Azure](https://github.com/azure-devops/javawebappsample). Om de opslagplaats naar uw eigen GitHub-account te vertakken, klikt u rechtsboven op de knop **Fork**.
 
-* Open in GitHub-Webgebruikersinterface, **Jenkinsfile** bestand. Klik op het potloodpictogram om dit bestand voor het bijwerken van de resourcegroep en de naam van uw web-app op regel 20 en 21 respectievelijk te bewerken.
+* Op het bestand **Jenkinsfile** in de GitHub-webgebruikersinterface. Klik op het potloodpictogram om in dit bestand de resourcegroep en de naam van uw web-app bij te werken op respectievelijk regel 20 en 21.
 
 ```java
 def resourceGroup = '<myResourceGroup>'
 def webAppName = '<app_name>'
 ```
 
-* Wijzig regel 23 referentie-ID in uw Jenkins-exemplaar bijwerken
+* Wijzig regel 23 om de referentie-id in uw Jenkins-exemplaar bij te werken
 
 ```java
 withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
 ```
 
-## <a name="create-jenkins-pipeline"></a>Jenkins-pijplijn maken
-Jenkins in een webbrowser openen, klikt u op **Nieuw Item**. 
+## <a name="create-jenkins-pipeline"></a>Een Jenkins-pijplijn maken
+Open Jenkins in een webbrowser en klik op **Nieuw item**. 
 
-* Geef een naam op voor de taak en selecteer **pijplijn**. Klik op **OK**.
-* Klik op de **pijplijn** volgende tabblad. 
-* Voor **definitie**, selecteer **Pipeline-script uit SCM**.
-* Voor **SCM**, selecteer **Git**.
-* Voer de GitHub-URL voor uw Gevorkte opslagplaats: https:\<uw Gevorkte opslagplaats\>.git
+* Geef een naam voor de taak op en selecteer **Pijplijn**. Klik op **OK**.
+* Klik nu op het tabblad **Pijplijn**. 
+* Selecteer bij **Definitie** de optie **Pijplijnscript uit SCM**.
+* Bij **SCM** selecteert u **Git**.
+* Voer de GitHub-URL voor de vertakte opslagplaats in: https:\<uw vertakte opslagplaats\>.git
 * Klik op **Opslaan**.
 
 ## <a name="test-your-pipeline"></a>Test uw pijplijn
-* Ga naar de pijplijn die u hebt gemaakt, klikt u op **Build Now**
-* Een build in een paar seconden moet slagen, en kunt u gaat u naar de build en klikt u op **Console-uitvoer** om de details te bekijken
+* Ga naar de pijplijn die u hebt gemaakt en klik op **Nu maken**
+* Dit is binnen een paar seconden voltooid, waarna u hierheen kunt gaan en op **Console-uitvoer** kunt klikken om de details te bekijken
 
-## <a name="verify-your-web-app"></a>Controleer of uw web-app
-Om te controleren of het WAR-bestand is geïmplementeerd in uw web-app. Open een webbrowser:
+## <a name="verify-your-web-app"></a>Uw web-app verifiëren
+Verifiëren dat het WAR-bestand in uw web-app is geïmplementeerd. Open een webbrowser:
 
-* Ga naar http://&lt;app_name >.azurewebsites.net/api/calculator/ping  
+* Ga naar http://&lt;app-naam>.azurewebsites.net/api/calculator/ping  
 U ziet:
 
         Welcome to Java Web App!!! This is updated!
         Sun Jun 17 16:39:10 UTC 2017
 
-* Ga naar http://&lt;app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y > (Vervang &lt;x > en &lt;y > met willekeurige getallen) om op te halen van de som van de x- en y
+* Ga naar http://&lt;app-naam>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (vervang &lt;x> en &lt;y> door getallen) om de som van x en y te berekenen
 
-![Calculator: toevoegen](./media/execute-cli-jenkins-pipeline/calculator-add.png)
+![Calculator: optellen](./media/execute-cli-jenkins-pipeline/calculator-add.png)
 
-## <a name="deploy-to-azure-web-app-on-linux"></a>Implementeren naar Azure WebApp on Linux
-Nu dat u hoe u Azure CLI gebruiken in uw Jenkins-pijplijn weet, kunt u het script te implementeren naar een Azure-Web-App op Linux kunt wijzigen.
+## <a name="deploy-to-azure-web-app-on-linux"></a>Implementeren in Azure Web App on Linux
+Nu u weet hoe u Azure CLI gebruikt in uw Jenkins-pijplijn, kunt u het script wijzigen om te implementeren in Azure Web App on Linux.
 
-Web App on Linux biedt ondersteuning voor een andere manier voor de implementatie, is het gebruik van Docker. Als u wilt implementeren, moet u een docker-bestand dat uw web-app met service-runtime-in een Docker-installatiekopie pakketten opgeven. De invoegtoepassing wordt vervolgens de installatiekopie van het bouwen, deze naar een Docker-register pushen en de installatiekopie implementeert op uw web-app.
+Web App on Linux ondersteunt een andere implementatiemethode. Hierbij wordt namelijk Docker gebruikt. Om uw web-app te implementeren met Docker moet u een Dockerfile opgeven waarmee uw web-app met een serviceruntime in een Docker-installatiekopie wordt verpakt. De invoegtoepassing voert vervolgens de build van de installatiekopie uit, pusht deze naar een Docker-register en implementeert deze naar uw web-app.
 
-* Volg de stappen [hier](../app-service/containers/quickstart-nodejs.md) te maken van een Azure-Web-App die wordt uitgevoerd op Linux.
-* Docker installeren op uw Jenkins-instantie door de instructies in deze [artikel](https://docs.docker.com/engine/installation/linux/ubuntu/).
-* Een Containerregister maken in Azure portal met behulp van de stappen [hier](/azure/container-registry/container-registry-get-started-azure-cli).
-* In dezelfde [eenvoudige Java-Web-App voor Azure](https://github.com/azure-devops/javawebappsample) opslagplaats u gesplitst, bewerken de **Jenkinsfile2** bestand:
-    * Lijn van 18-21, bij te werken aan de namen van uw resourcegroep, web-app en ACR respectievelijk. 
+* Voer de stappen [hier](../app-service/containers/quickstart-nodejs.md) uit om een Azure-web-app te maken die wordt uitgevoerd op Linux.
+* Installeer Docker op uw Jenkins-exemplaar door de instructies in dit [artikel](https://docs.docker.com/engine/installation/linux/ubuntu/) te volgen.
+* Maak een containerregister in de Azure-portal door [deze](/azure/container-registry/container-registry-get-started-azure-cli) stappen uit te voeren.
+* In dezelfde opslagplaats [Eenvoudige Java-web-app voor Azure](https://github.com/azure-devops/javawebappsample) die u hebt vertakt, bewerkt u het bestand **Jenkinsfile2**:
+    * Werk regel 18-21 bij naar de namen van uw resourcegroep, web-app en ACR. 
         ```
         def webAppResourceGroup = '<myResourceGroup>'
         def webAppName = '<app_name>'
         def acrName = '<myRegistry>'
         ```
 
-    * Regel 24 uur per dag, update \<azsrvprincipal\> naar uw referentie-ID
+    * Werk op regel 24 \<azsrvprincipal\> bij naar uw referentie-id
         ```
         withCredentials([azureServicePrincipal('<mySrvPrincipal>')]) {
         ```
 
-* Een nieuwe pijplijn met Jenkins maken als u bij het implementeren in Azure-web-app in Windows, alleen deze keer gebruikt **Jenkinsfile2** in plaats daarvan.
-* Uw nieuwe taak uitvoeren.
-* Als u wilt controleren, in de Azure CLI, voert u de volgende uit:
+* Maak een nieuwe Jenkins-pijplijn, net zoals bij de implementatie in de Azure-web-app in Windows, maar gebruik nu **Jenkinsfile2**.
+* Voer uw nieuwe taak uit.
+* Voer het volgende uit in de Azure CLI om te verifiëren:
 
     ```
     az acr repository list -n <myRegistry> -o json
     ```
 
-    Krijgt u het volgende resultaat:
+    U krijgt het volgende resultaat:
     
     ```
     [
@@ -215,20 +208,20 @@ Web App on Linux biedt ondersteuning voor een andere manier voor de implementati
     ]
     ```
     
-    Ga naar http://&lt;app_name >.azurewebsites.net/api/calculator/ping. U ziet het bericht: 
+    Ga naar http://&lt;app-naam>.azurewebsites.net/api/calculator/ping. U ziet het bericht: 
     
         Welcome to Java Web App!!! This is updated!
         Sun Jul 09 16:39:10 UTC 2017
 
-    Ga naar http://&lt;app_name >.azurewebsites.net/api/calculator/add?x=&lt;x > & y =&lt;y > (Vervang &lt;x > en &lt;y > met willekeurige getallen) om op te halen van de som van de x- en y
+    Ga naar http://&lt;app-naam>.azurewebsites.net/api/calculator/add?x=&lt;x>&y=&lt;y> (vervang &lt;x> en &lt;y> door getallen) om de som van x en y te berekenen
     
 ## <a name="next-steps"></a>Volgende stappen
-In deze zelfstudie maakt u een Jenkins-pijplijn die de broncode in GitHub-repo uitgecheckt geconfigureerd. Maven voor het bouwen van een war-bestand wordt uitgevoerd en vervolgens Azure CLI gebruikt om te implementeren in Azure App Service. U hebt geleerd hoe u:
+In deze zelfstudie hebt u een Jenkins-pijplijn geconfigureerd waarmee de broncode in de GitHub-opslagplaats wordt uitgecheckt. Gebruikt Maven om een WAR-bestand te maken en gebruikt vervolgens de Azure CLI om te implementeren in Azure App Service. U hebt geleerd hoe u:
 
 > [!div class="checklist"]
 > * Een Jenkins-VM maken
 > * Jenkins configureren
 > * Een web-app maken in Azure
 > * Een GitHub-opslagplaats voorbereiden
-> * Jenkins-pijplijn maken
-> * Voer de pijplijn en controleer of de web-app
+> * Een Jenkins-pijplijn maken
+> * De pijplijn uitvoeren en de web-app controleren

@@ -10,15 +10,15 @@ ms.service: azure-resource-manager
 ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.date: 07/20/2018
+ms.date: 08/27/2018
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: bd559cb9f0140706a4b9735c642367e03616a14d
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 7509ed46ba07cd8250f82f8eb258d18e3f4a1ee6
+ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188162"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43107102"
 ---
 # <a name="tutorial-create-azure-resource-manager-templates-with-dependent-resources"></a>Zelfstudie: Azure Resource Manager-sjablonen met afhankelijke resources maken
 
@@ -56,12 +56,27 @@ Azure-snelstartsjablonen is een opslagplaats voor Resource Manager-sjablonen. In
 
 ## <a name="explore-the-template"></a>De sjabloon verkennen
 
+Wanneer u de sjabloon in deze sectie verkent, probeert u om deze vragen te beantwoorden:
+
+- Hoeveel Azure-resources zijn er in deze sjabloon gedefinieerd?
+- Een van de resources is een Azure-opslagaccount.  Ziet de definitie eruit zoals de definitie die is gebruikt in de laatste zelfstudie?
+- Kunt u de sjabloonverwijzingen vinden voor de resources die zijn gedefinieerd in deze sjabloon?
+- Kunt u de afhankelijkheden van de resources vinden?
+
 1. Vouw in Visual Studio Code de elementen samen totdat u alleen de elementen op het eerste niveau en tweede niveau binnen **resources** ziet:
 
     ![Azure Resource Manager-sjablonen in Visual Studio Code](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code.png)
 
     Er worden vijf resources gedefinieerd door de sjabloon.
-2. Vouw het vierde element uit:
+2. Vouw de eerste resource uit. Dit is een opslagaccount. De definitie is identiek aan de definitie die is gebruikt in het begin van de vorige zelfstudie.
+
+    ![Azure Resource Manager-sjablonen in Visual Studio Code: definitie van opslagaccount](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-storage-account-definition.png)
+
+3. Vouw de tweede resource uit. Het resourcetype is **Microsoft.Network/publicIPAddresses**. Als u de sjabloonverwijzing wilt zoeken, bladert u naar [Sjabloonverwijzing](https://docs.microsoft.com/azure/templates/) en typt u **Openbaar IP-adres** of **Openbare IP-adressen** in het veld **Filteren op titel**. Vergelijk de resourcedefinitie met de sjabloonverwijzing.
+
+    ![Azure Resource Manager-sjablonen in Visual Studio Code: definitie van openbaar IP-adres](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-public-ip-address-definition.png)
+4. Herhaal de vorige stap om de sjabloonverwijzingen te zoeken voor de andere resources die zijn gedefinieerd in deze sjabloon.  Vergelijk de resourcedefinities met de verwijzingen.
+5. Vouw de vierde resource uit:
 
     ![Azure Resource Manager-sjablonen in Visual Studio Code: dependson](./media/resource-manager-tutorial-create-templates-with-dependent-resources/resource-manager-template-visual-studio-code-dependson.png)
 
@@ -70,7 +85,7 @@ Azure-snelstartsjablonen is een opslagplaats voor Resource Manager-sjablonen. In
     * publicIPAddress
     * virtualNetwork
 
-3. Vouw het vijfde element uit. Deze resource is een virtuele machine. Deze is afhankelijk van twee andere resources:
+6. Vouw de vijfde resource uit. Deze resource is een virtuele machine. Deze is afhankelijk van twee andere resources:
 
     * storageAccount
     * networkInterface

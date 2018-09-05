@@ -1,6 +1,6 @@
 ---
-title: Een nieuwe Windows 10-apparaat met Azure AD tijdens de uitvoering van een eerste toevoegen | Microsoft Docs
-description: Dit onderwerp wordt beschreven hoe gebruikers kunnen Azure AD Join instellen tijdens de eerste ervaring van uitvoeren.
+title: Een nieuw Windows 10-apparaat aan Azure AD koppelen tijdens de eerste uitvoering | Microsoft Docs
+description: Een onderwerp waarin wordt uitgelegd hoe gebruikers Azure AD-koppeling kunnen instellen tijdens de eerste uitvoering.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -12,81 +12,85 @@ ms.component: devices
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
-ms.date: 01/15/2018
+ms.topic: tutorial
+ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: 1376f011d056aac33333f6ac31ee2eaadaf3ef4a
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
-ms.translationtype: MT
+ms.openlocfilehash: eaf0b3e3b607145598660dbb64cadd5a277360cb
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414999"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43046319"
 ---
-# <a name="join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Een nieuwe Windows 10-apparaat met Azure AD tijdens de uitvoering van een eerste toevoegen
+# <a name="tutorial-join-a-new-windows-10-device-with-azure-ad-during-a-first-run"></a>Zelfstudie: Een nieuw Windows 10-apparaat aan Azure AD koppelen tijdens de eerste uitvoering
 
-Met Apparaatbeheer in Azure Active Directory (Azure AD), kunt u ervoor zorgen dat uw gebruikers toegang hebben tot de bronnen van apparaten die voldoen aan uw normen voor beveiliging en naleving. Zie voor meer informatie de [Inleiding tot Apparaatbeheer in Azure Active Directory](overview.md).
+Met apparaatbeheer in Azure Active Directory (Azure AD) kunt u ervoor zorgen dat uw gebruikers toegang tot uw bronnen hebben vanaf apparaten die voldoen aan uw normen voor beveiliging en naleving. Zie [Inleiding tot apparaatbeheer in Azure Active Directory](overview.md) voor meer informatie.
 
-Met Windows 10, kunt u een nieuw apparaat toevoegen aan Azure AD tijdens de eerste sessie (FRX).  
-Hiermee kunt u krimp apparaten aan uw werknemers of studenten distribueren.
+Met Windows 10 kunt u een nieuw apparaat aan Azure AD koppelen tijdens de eerste uitvoering.  
+Zo kunt u apparaten in krimpverpakking naar uw werknemers of leerlingen/studenten distribueren.
 
-Als u Windows 10 Professional of Windows 10 Enterprise op een apparaat is geïnstalleerd hebt, is de ervaring standaard ingesteld op het installatieproces voor bedrijfsapparaten.
+Als Windows 10 Professional of Windows 10 Enterprise op een apparaat is geïnstalleerd, wordt de uitvoering standaard ingesteld op het installatieproces voor apparaten die eigendom van het bedrijf zijn.
 
-In de Windows *out-of-box experience*, lid worden van een on-premises Active Directory (AD)-domein wordt niet ondersteund. Als u van plan bent een computer toevoegen aan een AD-domein tijdens de installatie, moet u de koppeling **Windows instellen met een lokaal account**. U kunt vervolgens deelnemen aan het domein van de instellingen op uw computer.
+In de *Out-Of-Box Experience* van Windows wordt koppeling van een on-premises AD-domein (Active Directory) niet ondersteund. Als u van plan bent een computer aan een AD-domein te koppelen, moet u tijdens de installatie de koppeling **Windows instellen met een lokaal account** selecteren. Vervolgens kunt u het domein koppelen via de instellingen op uw computer.
  
+In deze zelfstudie leert u hoe u een apparaat aan Azure AD kunt koppelen tijdens de eerste uitvoering:
+ > [!div class="checklist"]
+> * Vereisten
+> * Een apparaat koppelen
+> * Verificatie
+
+## <a name="prerequisites"></a>Vereisten
+
+Om een Windows 10-apparaat te koppelen, moet de apparaatregistratieservice zodanig zijn geconfigureerd dat u apparaten kunt registreren. U moet niet alleen toestemming hebben om apparaten te koppelen in uw Azure AD-tenant, maar er moeten ook minder apparaten zijn geregistreerd dan het geconfigureerde maximum. Zie [Apparaatinstellingen configureren](device-management-azure-portal.md#configure-device-settings) voor meer informatie.
+
+Als uw tenant is gefedereerd, MOET uw identiteitsprovider bovendien het WS-Fed en WS-Trust gebruikersnaam/wachtwoord-eindpunt ondersteunen. Dit kan versie 1.3 of 2005 zijn. Deze protocolondersteuning is vereist om het apparaat aan Azure AD te koppelen en om u met een wachtwoord bij het apparaat aan te melden.
+
+## <a name="joining-a-device"></a>Een apparaat koppelen
+
+**Ga als volgt te werk om een Windows 10-apparaat aan Azure AD te koppelen tijdens de eerste uitvoering:**
 
 
-## <a name="before-you-begin"></a>Voordat u begint
+1. Wanneer u uw nieuwe apparaat aanzet en het installatieproces start, moet u het bericht **Voorbereiding** zien. Volg de prompts om uw apparaat in te stellen.
 
-Als u wilt deelnemen aan een Windows 10-apparaat, moet de device registratieservice om te registreren van apparaten worden geconfigureerd. Naast de machtiging voor het toevoegen van apparaten in uw Azure AD-tenant, moet u minder apparaten die zijn geregistreerd dan het geconfigureerde maximum hebben. Zie voor meer informatie, [apparaatinstellingen configureren](device-management-azure-portal.md#configure-device-settings).
-
-Als uw tenant is gefedereerd, moet uw id-provider ook ondersteuning voor eindpunt voor WS-Federation en WS-Trust gebruikersnaam en wachtwoord. Dit is versie 1.3 of 2005. De ondersteuning van dit protocol is vereist voor zowel het apparaat toevoegen aan Azure AD en meld u aan bij het apparaat met een wachtwoord.
-
-## <a name="joining-a-device"></a>Een apparaat toevoegen
-
-**Op een Windows 10-apparaat toevoegen aan Azure AD tijdens FRX:**
-
-
-1. Wanneer u het nieuwe apparaat inschakelen en het installatieproces wordt gestart, ziet u de **gereed ophalen** bericht. Volg de aanwijzingen voor het instellen van uw apparaat.
-
-2. Begin met het aanpassen van uw regio en taal. Accepteer de licentievoorwaarden voor Microsoft-Software.
+2. Begin door uw regio en taal aan te passen. Accepteer vervolgens de Licentievoorwaarden voor Microsoft-software.
  
     ![Aanpassen voor uw regio](./media/azuread-joined-devices-frx/01.png)
 
-3. Selecteer het netwerk die u gebruiken wilt om verbinding te maken met Internet.
+3. Selecteer het netwerk dat u wilt gebruiken om verbinding te maken met internet.
 
-4. Klik op **dit apparaat behoort tot mijn organisatie**. 
+4. Klik op **Dit apparaat is van mijn organisatie**. 
 
-    ![Wie is eigenaar van dit scherm PC](./media/azuread-joined-devices-frx/02.png)
+    ![Scherm Van wie is deze pc?](./media/azuread-joined-devices-frx/02.png)
 
-5. Voer de referenties die aan u zijn verstrekt door uw organisatie en klik vervolgens op **aanmelden**.
+5. Voer de referenties in die uw organisatie aan u heeft verstrekt, en klik vervolgens op **Aanmelden**.
 
-    ![Aanmeldingsscherm](./media/azuread-joined-devices-frx/03.png)
+    ![Scherm Aanmelden](./media/azuread-joined-devices-frx/03.png)
 
-6. Uw apparaat wordt gezocht naar een overeenkomende tenant in Azure AD. Als u zich in een federatief domein, wordt u omgeleid naar uw on-premises Secure Token Service (STS) server, bijvoorbeeld Active Directory Federation Services (AD FS).
+6. Uw apparaat zoekt een overeenkomende tenant in Azure AD. Als u zich in een federatief domein bevindt, wordt u omgeleid naar uw on-premises STS-server (Secure Token Service), bijvoorbeeld Active Directory Federation Services (AD FS).
 
-7. Als u een gebruiker in een niet-gefedereerde domein, Voer uw referenties rechtstreeks op de pagina in Azure AD worden gehost. 
+7. Als u een gebruiker in een niet-federatief domein bent, voert u uw referenties rechtstreeks op de Azure AD-gehoste pagina in. 
 
-8. U wordt gevraagd voor een uitdaging meervoudige verificatie. 
+8. U wordt gevraagd om meervoudige verificatie. 
  
-9. Azure AD wordt gecontroleerd of een inschrijving in beheer van mobiele apparaten vereist is.
+9. Azure AD controleert of inschrijving voor mobiel apparaatbeheer vereist is.
 
-10. Windows het apparaat wordt geregistreerd in de map van de organisatie in Azure AD en in beheer van mobiele apparaten inschrijft, indien van toepassing.
+10. Windows registreert het apparaat in de organisatiedirectory in Azure AD en schrijft het in voor mobiel apparaatbeheer, indien van toepassing.
 
-11. Als u bent:
-    - Een beheerde gebruiker Windows gaat u naar het bureaublad door het proces voor automatische aanmelding.
+11. Als u:
+    - Een beheerde gebruiker bent, leidt Windows u naar het bureaublad via het automatische aanmeldingsproces.
 
-    - Een federatieve gebruiker u worden doorgestuurd naar de Windows-aanmeldingsscherm uw referenties in te voeren.
+    - Een federatieve gebruiker bent, wordt u naar het Windows-aanmeldingsscherm geleid, waar u uw referenties moet invoeren.
 
 ## <a name="verification"></a>Verificatie
 
-Om te controleren of een apparaat wordt toegevoegd aan uw Azure AD, Controleer de **toegang tot werk of school** dialoogvenster op uw Windows-apparaat. Het dialoogvenster aangeven dat u met uw Azure AD-directory verbonden bent.
+Om te verifiëren of een apparaat aan uw Azure AD is gekoppeld, bekijkt u het dialoogvenster **Werk- of schoolaccount openen** op uw Windows-apparaat. Het dialoogvenster moet aangeven dat u bent verbonden met uw Azure AD-directory.
 
-![Toegang tot werk of school](./media/azuread-joined-devices-frx/13.png)
+![Werk- of schoolaccount openen](./media/azuread-joined-devices-frx/13.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie de [Inleiding tot Apparaatbeheer in Azure Active Directory](overview.md).
+- Zie [Inleiding tot apparaatbeheer in Azure Active Directory](overview.md) voor meer informatie.
 
-- Zie voor meer informatie over het beheren van apparaten in de Azure AD-portal [apparaten beheert met de Azure-portal](device-management-azure-portal.md).
+- Zie [Apparaten beheren met behulp van de Azure-portal](device-management-azure-portal.md) voor meer informatie over het beheren van apparaten in de Azure AD-portal.

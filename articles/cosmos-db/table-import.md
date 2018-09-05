@@ -10,16 +10,16 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 11/28/2017
 ms.author: sngun
-ms.openlocfilehash: e4e783d131c4ceee9315b3442ee504e662157d8c
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 905815259707116759e0b980690fac108ab81c7b
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37856804"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186827"
 ---
-# <a name="import-data-for-use-with-the-azure-cosmos-db-table-api"></a>Gegevens importeren voor gebruik met de Azure Cosmos DB Table-API
+# <a name="migrate-your-data-to-azure-cosmos-db-table-api-account"></a>Gegevens migreren naar een Azure Cosmos DB Table-API-account
 
-In deze zelfstudie vindt u instructies voor het importeren van gegevens voor gebruik met de Azure Cosmos DB [Table-API](table-introduction.md). Als u gegevens hebt opgeslagen in Azure Table Storage, kunt u het gegevensmigratieprogramma of AzCopy gebruiken om de gegevens te importeren. Als u gegevens hebt opgeslagen in een Azure Cosmos DB Table-API-account (preview), moet u het gegevensmigratieprogramma gebruiken om uw gegevens te migreren. Wanneer uw gegevens zijn geïmporteerd, kunt u gebruikmaken van de Premium-functionaliteit die Azure Cosmos DB biedt, zoals kant-en-klare globale distributie, toegewezen doorvoer, wachttijden van eencijferige milliseconden in het 99e percentiel, gegarandeerde hoge beschikbaarheid en automatische secundaire indexering.
+In deze zelfstudie vindt u instructies voor het importeren van gegevens voor gebruik met de Azure Cosmos DB [Table-API](table-introduction.md). Als u gegevens hebt opgeslagen in Azure Table Storage, kunt u het gegevensmigratieprogramma of AzCopy gebruiken om de gegevens te importeren in Azure Cosmos DB Table-API. Als u gegevens hebt opgeslagen in een Azure Cosmos DB Table-API-account (preview), moet u het gegevensmigratieprogramma gebruiken om uw gegevens te migreren. 
 
 Deze zelfstudie bestaat uit de volgende taken:
 
@@ -39,11 +39,11 @@ Het opdrachtregelprogramma voor Azure Cosmos DB-gegevensmigratie (dt.exe) kan wo
 Als u tabelgegevens wilt migreren, moet u de volgende taken uitvoeren:
 
 1. Download het migratieprogramma op [GitHub](https://github.com/azure/azure-documentdb-datamigrationtool).
-2. Voer `dt.exe` uit met de opdrachtregelargumenten voor uw scenario.
+2. Voer `dt.exe` uit met de opdrachtregelargumenten voor uw scenario. `dt.exe` wordt uitgevoerd met een opdracht in de volgende indeling:
 
-dt.exe wordt uitgevoerd met een opdracht in de volgende indeling:
-
+   ```bash
     dt.exe [/<option>:<value>] /s:<source-name> [/s.<source-option>:<value>] /t:<target-name> [/t.<target-option>:<value>] 
+```
 
 Opties voor de opdracht zijn:
 
@@ -105,7 +105,7 @@ Hier ziet u een voorbeeld van een opdrachtregel voor het importeren vanuit Table
 dt /s:AzureTable /s.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Table API preview account name>;AccountKey=<Table API preview account key>;TableEndpoint=https://<Account Name>.documents.azure.com; /s.Table:<Table name> /t:TableAPIBulk /t.ConnectionString:DefaultEndpointsProtocol=https;AccountName=<Azure Cosmos DB account name>;AccountKey=<Azure Cosmos DB account key>;TableEndpoint=https://<Account name>.table.cosmosdb.azure.com:443 /t.TableName:<Table name> /t.Overwrite
 ```
 
-## <a name="azcopy-command"></a>AzCopy-opdracht
+## <a name="migrate-data-by-using-azcopy"></a>Gegevens migreren met AzCopy
 
 U kunt ook met het AzCopy-opdrachtregelprogramma gegevens vanuit Azure Table Storage migreren naar de Azure Cosmos DB Table-API. Als u AzCopy wilt gebruiken, exporteert u eerst de gegevens zoals wordt beschreven in [Gegevens exporteren vanuit Azure Table Storage](../storage/common/storage-use-azcopy.md#export-data-from-table-storage) en importeert u de gegevens vervolgens in Azure Cosmos DB zoals wordt beschreven in [Azure Cosmos DB Table-API](../storage/common/storage-use-azcopy.md#import-data-into-table-storage).
 

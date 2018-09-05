@@ -1,26 +1,21 @@
 ---
 title: Goedkeuringswerkstromen maken voor het verwerken van adressenlijstaanvragen - Azure Logic Apps | Microsoft Docs
-description: Deze zelfstudie laat zien hoe u automatische goedkeuringswerkstromen kunt maken voor het verwerken van adressenlijstabonnementen met Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: 'Zelfstudie: het maken van automatische goedkeuringswerkstromen voor het verwerken van adressenlijstabonnementen met Azure Logic Apps'
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: e31be6ac24b7b194ab77856cb7376f9431a79f24
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4ac5861dabbc473099886b4f099824cde60f38b9
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300671"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43122866"
 ---
 # <a name="manage-mailing-list-requests-with-a-logic-app"></a>Adressenlijstaanvragen beheren met een logische app
 
@@ -69,7 +64,7 @@ Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="htt
    | **Naam** | LA-MailingList | De naam voor uw logische app | 
    | **Abonnement** | <*your-Azure-subscription-name*> | De naam van uw Azure-abonnement | 
    | **Resourcegroep** | LA-MailingList-RG | De naam van de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) die wordt gebruikt om verwante resources te organiseren | 
-   | **Locatie** | VS - oost 2 | De regio waar u informatie over uw logische app opslaat | 
+   | **Locatie** | US - oost 2 | De regio waar u informatie over uw logische app opslaat | 
    | **Log Analytics** | Uit | Behoud de instelling **Uit** voor het vastleggen van diagnostische gegevens. | 
    |||| 
 

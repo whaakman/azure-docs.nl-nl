@@ -1,28 +1,23 @@
 ---
 title: Geautomatiseerde werkstromen maken op basis van een planning - Azure Logic Apps | Microsoft Docs
-description: Deze zelfstudie laat zien hoe u een terugkerende, geautomatiseerde werkstroom op basis van een planning kunt maken met Azure Logic Apps
-author: ecfan
-manager: jeconnoc
-editor: ''
+description: 'Zelfstudie: het maken van een terugkerende, geautomatiseerde werkstroom op basis van een planning met Azure Logic Apps'
 services: logic-apps
-documentationcenter: ''
-ms.assetid: ''
 ms.service: logic-apps
-ms.workload: logic-apps
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.suite: integration
+author: ecfan
+ms.author: estfan
+ms.reviewer: klam, LADocs
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/12/2018
-ms.author: LADocs; estfan
-ms.openlocfilehash: 84779d3e56b089c34e6556368008d794e634d535
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 43f826414ae7f279c23f6e9e2e39d4d21267e158
+ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35300766"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43124015"
 ---
-# <a name="check-traffic-with-a-scheduler-based-logic-app"></a>Verkeer controleren met een logische app op basis van een planning
+# <a name="check-traffic-with-a-schedule-based-logic-app"></a>Verkeer controleren met een logische app op basis van een planning
 
 Met Azure Logic Apps kunt u werkstromen automatiseren die worden uitgevoerd volgens een planning. Deze zelfstudie laat zien hoe u een [logische app](../logic-apps/logic-apps-overview.md) met een scheduler-trigger kunt bouwen die elke doordeweekse dag ‘s ochtends wordt uitgevoerd en die de reistijd, inclusief het verkeer, tussen twee plaatsen controleert. Als de tijd een bepaalde limiet overschrijdt, verzendt de logische app een e-mail met de reistijd en de extra tijd die u nodig hebt om uw bestemming te bereiken.
 
@@ -67,7 +62,7 @@ Gebruik de referenties van uw Azure-account om u aan melden bij het <a href="htt
    | **Naam** | LA-TravelTime | De naam voor uw logische app | 
    | **Abonnement** | <*your-Azure-subscription-name*> | De naam van uw Azure-abonnement | 
    | **Resourcegroep** | LA-TravelTime-RG | De naam van de [Azure-resourcegroep](../azure-resource-manager/resource-group-overview.md) die wordt gebruikt om verwante resources te organiseren | 
-   | **Locatie** | VS - oost 2 | De regio waar u informatie over uw logische app opslaat | 
+   | **Locatie** | US - oost 2 | De regio waar u informatie over uw logische app opslaat | 
    | **Log Analytics** | Uit | Behoud de instelling **Uit** voor het vastleggen van diagnostische gegevens. | 
    |||| 
 

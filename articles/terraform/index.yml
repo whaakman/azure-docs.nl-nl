@@ -1,24 +1,23 @@
 ### YamlMime:YamlDocument
+ms.openlocfilehash: 38f55894925febb66a50f019de15f8e7dcd9ef23
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666976"
 documentType: LandingData
 title: Documentatie over Terraform op Azure
 metadata:
-  title: Documentatie over Terraform op Azure - zelfstudies en naslaginformatie
-  meta.description: Learn how to use Terraform to reliably provision virtual machines and other infrastructure on Azure.
+  title: Documentatie over Terraform op Azure - zelfstudies, voorbeelden, verwijzingen en resources
+  description: Leer hoe u Terraform kunt gebruiken om op betrouwbare wijze virtuele machines en andere infrastructuur op Azure in te richten.
   services: terraform
-  author: rloutlaw
-  manager: justhe
   ms.service: terraform
-  ms.tgt_pltfrm: na
-  ms.devlang: devops
+  keywords: terraform, azure, devops, zelfstudies, voorbeelden, verwijzing
+  author: tomarcher
+  manager: jeconnoc
+  ms.author: tarcher
   ms.topic: landing-page
-  ms.date: 09/21/2017
-  ms.author: routlaw
-  ms.openlocfilehash: b12e9b8f611bb456d0eda04a1b9e8d42d1256d0a
-  ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-  ms.translationtype: HT
-  ms.contentlocale: nl-NL
-  ms.lasthandoff: 06/11/2018
-  ms.locfileid: "35300606"
+  ms.date: 08/31/2018
 abstract:
   description: Gebruik Terraform om op betrouwbare wijze infrastructuur in Azure te maken en versies te beheren. Leer aan de hand van onze snelstartgidsen en zelfstudies over het maken van resources, het gebruiken van Azure Terraform-modules en het onderhouden van uw infrastructuur met code.
 sections:

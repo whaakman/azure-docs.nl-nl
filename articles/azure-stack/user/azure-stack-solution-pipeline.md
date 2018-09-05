@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/08/2018
+ms.date: 09/04/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 5fbce0c20e66eec0e7d7023344051fcf302af677
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 391cc4ca4b34149aeda54a60bfe6f6949e5a379b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382609"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697744"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Zelfstudie: apps implementeren in Azure en Azure Stack
 
@@ -108,10 +108,11 @@ De volgende stappen wordt beschreven wat is vereist om verificatie te configurer
 
 ### <a name="create-a-service-principal"></a>Een Service-Principal maken
 
-Raadpleeg de [Service-Principal maken](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instructies voor het maken van een service-principal en kies vervolgens **Web-App/API** voor het toepassingstype of [Gebruik deze PowerShell-script](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5), zoals wordt beschreven [hier](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
+Raadpleeg de [Service-Principal maken](https://docs.microsoft.com/azure/active-directory/develop/active-directory-integrating-applications) instructies voor het maken van een service-principal. Kies **Web-App/API** voor het toepassingstype of [het PowerShell-script gebruiken](https://github.com/Microsoft/vsts-rm-extensions/blob/master/TaskModules/powershell/Azure/SPNCreation.ps1#L5) , zoals wordt beschreven in het artikel [Maak een Azure Resource Manager serviceverbinding met een bestaande service Principal ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal).
 
- > [!Note]
- > Als u het script gebruiken wilt om een Azure Stack Azure Resource Manager-eindpunt te maken, moet u om door te geven de `-azureStackManagementURL` en `-environmentName` parameters, die is https://management.local.azurestack.external/ en *AzureStack*.
+ > [!Note]  
+ > Als u het script gebruiken om een Azure Stack Azure Resource Manager-eindpunt te maken, moet u om door te geven de **- azureStackManagementURL** parameter en **- environmentName** parameter. Bijvoorbeeld:  
+> `-azureStackManagementURL https://management.local.azurestack.external -environmentName AzureStack`
 
 ### <a name="create-an-access-key"></a>Maak een toegangstoets
 
@@ -204,7 +205,7 @@ Maak een persoonlijk toegangstoken voor toegang tot VSTS.
 1. Aanmelden bij uw VSTS-account en selecteer de naam van uw profiel.
 2. Selecteer **beveiliging beheren** access token maken-pagina.
 
-    ![Aanmelding door een gebruiker in](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![Gebruikersaanmelding](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
     ![Selecteer teamproject](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
@@ -264,17 +265,17 @@ Met het maken van eindpunten, implementeren een build van het Visual Studio Onli
 9. In **gebruikers en groepen toevoegen**, voer een gebruikersnaam en selecteert u die gebruiker in de lijst van gebruikers.
 10. Selecteer **wijzigingen opslaan**.
 
-## <a name="create-azure-stack-endpoint"></a>Azure Stack-eindpunt maken
+## <a name="create-an-azure-stack-endpoint"></a>Een Azure Stack-eindpunt maken
 
-Controleer [dit](https://docs.microsoft.com/en-us/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) documentatie een serviceverbinding met een bestaande service-principal maken en gebruiken van de volgende toewijzing:
+U kunt de instructies in [een Azure Resource Manager-serviceverbinding met een bestaande service-principal maken ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) artikel een serviceverbinding met een bestaande service-principal maken en gebruiken van de volgende toewijzing:
 
 - Omgeving: AzureStack
 - URL van de omgeving: Er ongeveer als `https://management.local.azurestack.external`
 - Abonnements-ID: Gebruiker abonnements-ID van Azure Stack
 - De naam van abonnement: naam van gebruikersabonnement van Azure Stack
-- Service-Principal-client-ID: de principal-ID van [dit](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sectie in dit artikel.
+- Service-Principal-client-ID: de principal-ID van [dit](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#create-a-service-principal) sectie in dit artikel.
 - Sleutel van de Service-Principal: de sleutel van hetzelfde artikel (of het wachtwoord als u het script gebruikt).
-- Tenant-ID: De tenant-ID je [hier](https://docs.microsoft.com/en-us/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
+- Tenant-ID: De tenant-ID u ophalen na de instructie op [ophalen van de tenant-ID](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-solution-pipeline#get-the-tenant-id).
 
 Nu het eindpunt is gemaakt, de VSTS aan Azure Stack-verbinding is klaar voor gebruik. De build-agent in Azure Stack haalt de instructies van VSTS en vervolgens de agent voor de communicatie met Azure Stack-eindpuntgegevens overbrengen.
 
@@ -316,7 +317,7 @@ Hybride CI/CD kunt toepassen op zowel de toepassingscode als de infrastructuurco
 ### <a name="create-the-build-definition"></a>De build-definitie maken
 
 1. Meld u aan VSTS is gerelateerd aan met een account dat een build-definitie kunt maken.
-2. Navigeer naar de **bouwen Web Applicaiton** pagina voor het project.
+2. Navigeer naar de **webtoepassing bouwen** pagina voor het project.
 
 3. In **argumenten**, toevoegen **win10 - r-x64** code. Dit is vereist voor het activeren van een onafhankelijke implementatie met .net Core.
 
@@ -454,7 +455,7 @@ Deze sectie wordt beschreven hoe u kunt controleren en bijhouden van al uw imple
 
     U kunt het pictogram van een persoon in de **actie** kolom voor het goedkeuren van een vóór de implementatie of na de implementatie Zie heeft goedgekeurd (of afgewezen) op de implementatie en het bericht die worden geleverd.
 
-2. Nadat de implementatie is voltooid, wordt het hele bestand weergegeven in het rechter deelvenster. U kunt een selecteren **stap** in het linkerdeelvenster om te zien van het logboekbestand voor een enkele stap, zoals "Job initialiseren". De mogelijkheid om te zien van afzonderlijke logboeken is het gemakkelijker te traceren en foutopsporing uitvoeren onderdelen van de algehele implementatie. U kunt ook **opslaan** het logboekbestand voor een stap of **alle logboeken downloaden als zip**.
+2. Nadat de implementatie is voltooid, wordt het hele bestand weergegeven in het rechter deelvenster. U kunt een selecteren **stap** in het linkerdeelvenster om te zien van het logboekbestand voor één stap, zoals "Job initialiseren". De mogelijkheid om te zien van afzonderlijke logboeken is het gemakkelijker te traceren en foutopsporing uitvoeren onderdelen van de algehele implementatie. U kunt ook **opslaan** het logboekbestand voor een stap of **alle logboeken downloaden als zip**.
 
     ![Release-Logboeken](media\azure-stack-solution-hybrid-pipeline\203.png)
 

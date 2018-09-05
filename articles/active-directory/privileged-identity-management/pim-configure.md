@@ -1,6 +1,6 @@
 ---
-title: Azure AD Privileged Identity Management configureren | Microsoft Docs
-description: In dit onderwerp wordt uitgelegd wat Azure AD Privileged Identity Management is en hoe u PIM kunt gebruiken om de cloudbeveiliging te verbeteren.
+title: Wat is Azure AD Privileged Identity Management? | Microsoft Docs
+description: Biedt een overzicht van Azure Active Directory Privileged Identity Management (PIM).
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -13,12 +13,12 @@ ms.topic: overview
 ms.date: 03/07/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8ac1dad9413d9e2710722127c2e837223a5b6f7f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: ff4e5322ac9ccc0bbfd0706ca9f4863670bbf1b5
+ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39618849"
+ms.lasthandoff: 08/29/2018
+ms.locfileid: "43186208"
 ---
 # <a name="what-is-azure-ad-privileged-identity-management"></a>Wat is Azure AD Privileged Identity Management?
 
@@ -51,6 +51,35 @@ In Azure AD kunnen met Azure AD Privileged Identity Management de gebruikers wor
 ## <a name="just-in-time-administrator-access"></a>JIT-beheerderstoegang (Just-In-Time)
 
 Eerder was het mogelijk om een gebruiker toe te wijzen aan een beheerdersrol via Azure Portal, andere portals van Microsoft-onlineservices of de Azure AD-cmdlets in Windows PowerShell. Het gevolg was dat de gebruiker een **permanente beheerder** werd, die altijd actief was in de toegewezen rol. In Azure AD Privileged Identity Management wordt het concept van een **in aanmerking komende beheerder** geïntroduceerd. In aanmerking komende beheerders zijn gebruikers die af en toe bevoorrechte toegang nodig hebben, maar niet de hele dag en ook niet elke dag. De rol is inactief totdat gebruikers toegang nodig hebben. Op dat moment voeren ze een activeringsproces uit en zijn ze gedurende een vooraf bepaalde hoeveelheid tijd een actieve beheerder. Steeds meer organisaties kiezen voor deze benadering om doorlopende beheerderstoegang tot bevoorrechte rollen te verminderen of uit te sluiten.
+
+
+## <a name="terminology"></a>Terminologie
+
+*In aanmerking komende rolgebruiker*: een in aanmerking komende rolgebruiker is een gebruiker in uw organisatie die aan een Azure AD-rol is toegewezen als in aanmerking komend (de rol moet worden geactiveerd).
+
+*Gedelegeerde fiatteur*: een gedelegeerde fiatteur bestaat uit een of meerdere personen of groepen in uw Azure AD die verantwoordelijk is/zijn voor het goedkeuren van aanvragen om rollen te activeren.
+
+## <a name="scenarios"></a>Scenario's
+
+Privileged Identity Management ondersteunt de volgende scenario's:
+
+**Als een beheerder met bevoorrechte rol kunt u:**
+
+- Goedkeuring voor specifieke rollen inschakelen
+- Gebruikers en/of groepen toewijzen als fiatteur om aanvragen goed te keuren
+- De geschiedenis van aanvragen en goedkeuringen bekijken voor alle bevoorrechte rollen
+
+**Als een aangewezen fiatteur, kunt u:**
+
+- Goedkeuringen in behandeling (aanvragen) bekijken
+- Aanvragen voor rolverhoging goedkeuren of afwijzen (afzonderlijk en/of bulksgewijs)
+- De reden voor de goedkeuring/afwijzing opgeven 
+
+**Als een in aanmerking komende rolgebruiker kunt u:**
+
+- Activering van een rol waarvoor goedkeuring nodig is, aanvragen
+- De status van uw aanvraag voor activeren bekijken
+- Uw taak voltooien in Azure AD als de activering is goedgekeurd
 
 ## <a name="enable-privileged-identity-management-for-your-directory"></a>Privileged Identity Management inschakelen voor uw adreslijst
 
@@ -157,4 +186,6 @@ Als in uw organisatie het abonnement op Azure AD Premium P2 niet is verlengd of 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[!INCLUDE [active-directory-privileged-identity-management-toc](../../../includes/active-directory-privileged-identity-management-toc.md)]
+- [Abonnementsvereisten voor het gebruik van PIM](subscription-requirements.md)
+- [Azure AD-directoryrollen die u kunt beheren in PIM](pim-roles.md)
+- [Bevoegde toegang beveiligen voor hybride implementaties en cloudimplementaties in Azure AD](../users-groups-roles/directory-admin-roles-secure.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json)

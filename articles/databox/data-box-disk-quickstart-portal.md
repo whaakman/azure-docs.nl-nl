@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: quickstart
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 08/28/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.openlocfilehash: 20dc414c5cdd309434ba53acf2d7f6716d3edfe5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 596c4b15ea6ef76d4471bca6994377bf4d5ddc01
+ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009923"
+ms.lasthandoff: 08/28/2018
+ms.locfileid: "43143420"
 ---
 # <a name="quickstart-deploy-azure-data-box-disk-using-the-azure-portal-preview"></a>Quickstart: De Azure Data Box Disk implementeren met de Azure-portal (preview)
 
@@ -31,7 +31,7 @@ Ga naar [Zelfstudie: Azure Data Box Disk bestellen](data-box-disk-deploy-ordered
 Als u nog geen abonnement op Azure hebt, maakt u een [gratis account](https://azure.microsoft.com/en-us/free/?WT.mc_id=A261C142F) aan.
 
 > [!IMPORTANT]
-> Data Box Disk is beschikbaar als preview-versie. Lees de [Azure-gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert.
+> Data Box Disk is in de preview-fase. Lees de [Azure-gebruiksvoorwaarden voor de preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) voordat u deze oplossing implementeert.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -54,7 +54,6 @@ Deze stap neemt ongeveer 5 minuten in beslag.
 
 Zodra de order is gemaakt, worden de schijven voorbereid voor verzending. 
 
-
 ## <a name="unpack"></a>Uitpakken
 
 Deze stap neemt ongeveer 5 minuten in beslag.
@@ -64,7 +63,6 @@ De Data Box Disks worden verzonden in een UPS Express Box. Open de doos en contr
 - Eén tot vijf USB-schijven in bubbeltjesplastic.
 - Eén verbindingskabel per schijf. 
 - Een verzendlabel voor retourzending.
- 
 
 ## <a name="connect-and-unlock"></a>Verbinden en ontgrendelen
 
@@ -75,10 +73,8 @@ Deze stap neemt ongeveer 5 minuten in beslag.
 
     1. Ga in de Azure-portal naar **Algemeen > Apparaatdetails** en haal de wachtwoordsleutel op.
     2. Download en extraheer het Data Box Disk-ontgrendelingsprogramma op de computer die wordt gebruikt om de gegevens naar schijven te kopiëren. 
-    3. Voer *DataBoxDiskUnlock.exe* uit en geef de wachtwoordsleutel op. Herhaal deze stap voor eventuele andere schijven die worden geplaatst.
+    3. Voer *DataBoxDiskUnlock.exe* uit en geef de wachtwoordsleutel op. Voor elke schijf die opnieuw wordt geplaatst, voert u het ontgrendelingshulpprogramma opnieuw uit en geeft de wachtwoordsleutel op. **Gebruik niet het BitLocker-dialoogvenster of de BitLocker-sleutel voor het ontgrendelen van de schijf.** 
     4. De stationsletter die is toegewezen aan de schijf wordt weergegeven in het hulpprogramma. Noteer de letter van het schijfstation. Deze wordt in de volgende stappen gebruikt.
-
-
 
 ## <a name="copy-data-and-verify"></a>Gegevens kopiëren en verifiëren
 
@@ -92,7 +88,7 @@ De duur van deze bewerking hangt af van de hoeveelheid gegevens.
     > - Alle containers en blobs moeten voldoen aan de [Azure-naamgevingsregels](data-box-disk-limits.md#azure-block-blob-and-page-blob-naming-conventions). Als u zich niet aan deze regels houdt, mislukt de gegevensupload naar Azure.
     > - Zorg ervoor dat de bestanden de ~4,7 TiB voor blok-blobs en ~8 TiB voor pagina-blobs niet overschrijden.
 
-2. (Optioneel) Zodra het kopiëren is voltooid, is het raadzaam de `AzureExpressDiskService.ps1` in de map *AzureImportExport* uit te voeren om controlesommen te genereren voor validatie. Afhankelijk van de gegevensgrootte kan deze stap enige tijd in beslag nemen. 
+2. (Optioneel) Zodra het kopiëren is voltooid, is het raadzaam de `AzureExpressDiskService.cmd` in de map *AzureImportExport* uit te voeren om controlesommen te genereren voor validatie. Afhankelijk van de gegevensgrootte kan deze stap enige tijd in beslag nemen. 
 3. Ontkoppel de schijf. 
 
 
@@ -116,7 +112,6 @@ De duur van deze bewerking hangt af van de hoeveelheid gegevens.
     1. Controleer foutenlogboeken op eventuele fouten en onderneem toepasselijke acties.
     2. Controleer of uw gegevens zich in de opslagaccount(s) bevinden voordat u deze uit de bron verwijdert.
 
-
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 Deze stap neemt 2 tot 3 minuten in beslag.
@@ -131,7 +126,7 @@ Als u wilt opschonen, kunt u de Data Box-order annuleren en vervolgens verwijder
 
     Als u de order wilt verwijderen, gaat u naar **Overzicht** en klikt u in de opdrachtbalk op **Verwijderen**.
 
-## <a name="next-step"></a>Volgende stap
+## <a name="next-steps"></a>Volgende stappen
 
 In deze quickstart hebt u Azure Data Box Disk geïmplementeerd om u te helpen uw gegevens in Azure te importeren. Ga verder naar de volgende zelfstudie voor meer informatie over Azure Data Box Disk-beheer: 
 

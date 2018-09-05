@@ -15,12 +15,12 @@ ms.workload: NA
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: afa9aa4ef4d3d8d8a6816d194b69271fdf0d928a
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: 4614eedd08eabf5c1c2eec6f26e542e20b0875bf
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37109671"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43040500"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>Zelfstudie: Een Java-toepassing implementeren in een Service Fabric-cluster in Azure
 
@@ -173,7 +173,7 @@ In de volgende stappen maakt u de benodigde resources die vereist zijn voor het 
 
     De SAS-URL voor Event Hubs volgt de structuur: https://<namespacename>.servicebus.windows.net/<eventhubsname>?sr=<sastoken>. Bijvoorbeeld: https://testeventhubnamespace.servicebus.windows.net/testeventhub?sr=https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
 
-12. Open het bestand *sfdeploy.parameters.json* en vervang de volgende inhoud uit de voorgaande stappen
+12. Open het bestand *sfdeploy.parameters.json* en vervang de volgende inhoud uit de voorgaande stappen. [SAS-URL-STORAGE-ACCOUNT] hebt u genoteerd in stap 8. [SAS-URL-EVENT-HUBS] hebt u genoteerd in stap 11.
 
     ```json
     "applicationDiagnosticsStorageAccountName": {
@@ -187,7 +187,12 @@ In de volgende stappen maakt u de benodigde resources die vereist zijn voor het 
     }
     ```
 
-13. Voer de volgende opdracht uit om uw Service Fabric-cluster te maken
+13. Opens **sfdeploy.parameters.json**. Wijzig de volgende parameters en sla het bestand op.
+    - **clusterName**. Gebruik alleen kleine letters en cijfers.
+    - **adminUserName** (in een waarde anders dan leeg)
+    - **adminPassword** (in een waarde anders dan leeg)
+
+14. Voer de volgende opdracht uit om uw Service Fabric-cluster te maken
 
     ```bash
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
@@ -206,13 +211,13 @@ In de volgende stappen maakt u de benodigde resources die vereist zijn voor het 
 2. Om uw toepassing in dit cluster te implementeren, moet u SFCTL gebruiken om een verbinding met het cluster tot stand te brengen. SFCTL vereist een PEM-bestand met zowel de openbare als de persoonlijke sleutel om verbinding te maken met het cluster. Voer de volgende opdracht uit om een PEM-bestand met zowel de openbare als de persoonlijke sleutel te maken. 
 
     ```bash
-    openssl pkcs12 -in testservicefabric.westus.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
+    openssl pkcs12 -in <clustername>.<region>.cloudapp.azure.com.pfx -out sfctlconnection.pem -nodes -passin pass:<password>
     ```
 
 3. Voer de volgende opdracht uit om verbinding te maken met het cluster.
 
     ```bash
-    sfctl cluster select --endpoint https://testlinuxcluster.westus.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
+    sfctl cluster select --endpoint https://<clustername>.<region>.cloudapp.azure.com:19080 --pem sfctlconnection.pem --no-verify
     ```
 
 4. Om uw toepassing te implementeren, navigeert u naar de map *Voting/Scripts* en voert u het script **install.sh** uit.

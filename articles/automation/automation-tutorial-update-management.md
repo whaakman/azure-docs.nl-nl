@@ -6,15 +6,15 @@ author: zjalexander
 ms.service: automation
 ms.component: update-management
 ms.topic: tutorial
-ms.date: 02/28/2018
+ms.date: 08/29/2018
 ms.author: zachal
 ms.custom: mvc
-ms.openlocfilehash: 4d5222889d5e840bd03bf77a56584dac48bb740c
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 8458aaee9f8d328d959fb47fb3e32af176d545b1
+ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41920707"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43247365"
 ---
 # <a name="manage-windows-updates-by-using-azure-automation"></a>Windows-updates beheren met behulp van Azure Automation
 
@@ -82,9 +82,19 @@ Klik ergens anders in de update om het deelvenster **Zoeken in logboeken** te op
 
 ## <a name="configure-alerts"></a>Waarschuwingen configureren
 
-In deze stap stelt u een waarschuwing in die u laat weten wanneer de implementatie van de updates is voltooid. De waarschuwing die u maakt, is gebaseerd op een Log Analytics-query. U kunt een aangepaste query schrijven voor extra waarschuwingen als u rekening wilt houden met veel verschillende scenario’s. Ga in Azure Portal naar **Monitor** en selecteer vervolgens **Waarschuwing maken**. 
+In deze stap leert u hoe u een melding kunt instellen om te worden geïnformeerd wanneer updates zijn geïmplementeerd via een Log Analytics-query of door het master-runbook voor Updatebeheer bij te houden voor implementaties die zijn mislukt.
 
-Selecteer onder **Regel maken** bij **1. Waarschuwingsvoorwaarde definiëren** de optie **Doel selecteren**. Selecteer onder **Filteren op resourcetype** de optie **Log Analytics**. Selecteer de Log Analytics-werkruimte en selecteer vervolgens **Gereed**.
+### <a name="alert-conditions"></a>Meldingsvoorwaarden
+
+Voor elk type melding moeten er verschillende meldingsvoorwaarden worden gedefinieerd.
+
+#### <a name="log-analytics-query-alert"></a>Melding via Log Analytics-query
+
+Voor geslaagde implementaties kunt u een melding maken op basis van een Log Analytics-query. Voor mislukte implementaties kunt u de stappen bij [Runbookmelding](#runbook-alert) gebruiken om te worden geïnformeerd wanneer het master-runbook waarmee update-implementaties worden uitgevoerd, mislukt. U kunt een aangepaste query schrijven voor extra waarschuwingen als u rekening wilt houden met veel verschillende scenario’s.
+
+Ga in Azure Portal naar **Monitor** en selecteer vervolgens **Waarschuwing maken**.
+
+Klik onder **1. Meldingsvoorwaarde maken** op **Doel selecteren**. Selecteer onder **Filteren op resourcetype** de optie **Log Analytics**. Selecteer de Log Analytics-werkruimte en selecteer vervolgens **Gereed**.
 
 ![Waarschuwing maken](./media/automation-tutorial-update-management/create-alert.png)
 
@@ -104,7 +114,21 @@ Voer onder **Waarschuwingslogica** voor **Drempelwaarde** in: **1**. Wanneer u k
 
 ![Signaallogica configureren](./media/automation-tutorial-update-management/signal-logic.png)
 
-Selecteer bij **2. Waarschuwingsdetails definiëren** een naam en beschrijving voor de waarschuwing. Stel **Ernst** in op **Informational(Sev 2)** omdat de waarschuwing is bedoeld voor een geslaagde uitvoering.
+#### <a name="runbook-alert"></a>Runbook-melding
+
+Als u een melding wilt ontvangen van mislukte implementaties via de masteruitvoering, gaat u in het Azure-portal naar **Controle** en selecteert u **Waarschuwing maken**.
+
+Klik onder **1. Meldingsvoorwaarde maken** op **Doel selecteren**. Selecteer onder **Filteren op resourcetype** de optie **Automation-accounts**. Selecteer uw Automation-account en selecteer **Gereed**.
+
+Klik bij **Runbooknaam** op het **\+**-teken en typ **Patch-MicrosoftOMSComputers** als aangepaste naam. Kies bij **Status** de optie **Mislukt** of klik op het **\+**-teken om **Mislukt** te typen.
+
+![Signaallogica voor runbooks configureren](./media/automation-tutorial-update-management/signal-logic-runbook.png)
+
+Voer onder **Waarschuwingslogica** voor **Drempelwaarde** in: **1**. Wanneer u klaar bent, selecteert u **Gereed**.
+
+### <a name="alert-details"></a>Meldingsdetails
+
+Selecteer bij **2. Waarschuwingsdetails definiëren** een naam en beschrijving voor de waarschuwing. Stel **Ernst** in op **Ter informatie (ernst 2)** voor een geslaagde uitvoering of **Ter informatie (ernst 1)** voor een mislukte uitvoering.
 
 ![Signaallogica configureren](./media/automation-tutorial-update-management/define-alert-details.png)
 
@@ -134,7 +158,7 @@ Geef onder **Nieuwe update-implementatie** de volgende informatie op:
 
 * **Besturingssysteem**: selecteer het besturingssysteem dat het doel is voor de update-implementatie.
 
-* **Bij te werken computers**: selecteer een opgeslagen zoekopdracht, geïmporteerde groep of kies een computer in de vervolgkeuzelijst en selecteer de afzonderlijke computers. Als u **Computers** kiest, wordt de mate van gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over de diverse methoden voor het maken van computergroepen.
+* **Bij te werken computers**: selecteer een opgeslagen zoekopdracht, geïmporteerde groep of kies een computer in de vervolgkeuzelijst en selecteer de afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics
 
 * **Updateclassificatie**: selecteer de typen software die de update-implementatie moet opnemen in de implementatie. Voor deze zelfstudie laat u alle typen geselecteerd.
 
@@ -153,7 +177,7 @@ Geef onder **Nieuwe update-implementatie** de volgende informatie op:
 
 * **Onderhoudsvenster (minuten)**: laat hier de standaardwaarde staan. U kunt het tijdvenster instellen waarin de update-implementatie moet plaatsvinden. Met deze instelling zorgt u ervoor dat wijzigingen worden uitgevoerd binnen de gedefinieerde onderhoudsvensters.
 
-* **Opties voor opnieuw opstarten**: met deze instelling wordt bepaalt hoe opnieuw opstarten moeten worden uitgevoerd. De volgende opties zijn beschikbaar:
+* **Opties voor opnieuw opstarten**: met deze instelling wordt bepaald hoe het opnieuw opstarten moet worden verwerkt. De volgende opties zijn beschikbaar:
   * Opnieuw opstarten indien nodig (standaard)
   * Altijd opnieuw opstarten
   * Nooit opnieuw opstarten
