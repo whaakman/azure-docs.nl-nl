@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 06/22/2017
-ms.openlocfilehash: 61ee84ccfccfa49ff2e106e7036d072c1b21ca03
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 4da97d708f8db2dcee406645a0eee409fa111012
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/04/2018
-ms.locfileid: "34652539"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696799"
 ---
 # <a name="scale-an-azure-stream-analytics-job-to-increase-throughput"></a>Een Azure Stream Analytics-taak voor een betere doorvoer schalen
 Dit artikel ziet u hoe u een Stream Analytics-query voor een betere doorvoer voor Streaming Analytics-taken af te stemmen. U kunt de volgende procedure gebruiken voor het schalen van uw taak voor het verwerken van de hogere load en profiteer van meer systeembronnen (zoals meer bandbreedte, meer CPU-resources, meer geheugen).
@@ -70,7 +70,7 @@ Voor bepaalde ISV use-cases, waarbij is het meer betaalbare om gegevens van meer
 2.  Het aantal invoer partities beperken tot de laagst mogelijke waarde van 2, als u van Event Hub gebruikmaakt.
 3.  Voer de query uit met 6 SU. Met de verwachte belasting voor elke subquery toevoegen u zoveel dergelijke subquery's mogelijk, totdat de taak wordt de system resource limiet hebt bereikt. Raadpleeg [voorbeeld1](#case-1--your-query-is-inherently-fully-parallelizable-across-input-partitions) voor de symptomen als dit gebeurt.
 4.  Nadat u de limiet van de subquery gemeten hierboven hebt bereikt, start u de subquery toe te voegen aan een nieuwe taak. Het aantal taken uit te voeren als een functie van het aantal onafhankelijke query's moet vrij lineaire, ervan uitgaande dat u hebt een elke belasting door scheeftrekken. U kunt vervolgens een prognose hoeveel 6 SU taken moet u uitvoeren als een functie van het aantal tenants dat u wilt leveren.
-5.  Wanneer u gegevens lid worden van verwijzing met dergelijke query's, moet u union die de invoer samen voordat hij bij met de dezelfde referentiegegevens, klikt u vervolgens opgesplitst de gebeurtenissen indien nodig. Anders houdt elke verwijzing gegevens join een kopie van referentiegegevens in het geheugen, die waarschijnlijk van het geheugengebruik onnodig.
+5.  Wanneer u gegevens lid worden van verwijzing met dergelijke query's, union de samen voordat hij bij met dezelfde invoer verwijzen naar gegevens. Opgesplitst vervolgens de gebeurtenissen indien nodig. Anders houdt elke verwijzing gegevens join een kopie van referentiegegevens in het geheugen, die waarschijnlijk van het geheugengebruik onnodig.
 
 > [!Note] 
 > Hoeveel tenants in elke taak te plaatsen?

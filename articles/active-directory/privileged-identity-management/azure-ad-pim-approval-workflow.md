@@ -15,20 +15,20 @@ ms.component: pim
 ms.date: 08/29/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: bc60c0dbe6c609a08907feb243fe514badfe3e4e
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 9402824540f965cb89aa00791d093bd87712a89a
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288072"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665839"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-directory-roles-in-pim"></a>Goedkeuren of weigeren van aanvragen voor Azure AD directory-rollen in PIM
 
-Met Azure AD Privileged Identity Management (PIM), kunt u rollen om te vereisen van goedkeuring voor activering configureren en kies een of meer gebruikers of groepen als gedelegeerde fiatteurs.
+Met Azure AD Privileged Identity Management (PIM), kunt u rollen om te vereisen van goedkeuring voor activering configureren en kies een of meer gebruikers of groepen als gedelegeerde fiatteurs. Volg de stappen in dit artikel voor het goedkeuren of weigeren van aanvragen voor Azure AD-maprollen.
 
 ## <a name="view-pending-requests"></a>De aanvragen in de wachtrij weergeven
 
-Als een gedelegeerde fiatteur ontvangt u e-mailmeldingen wanneer een aanvraag voor de goedkeuring in behandeling is. U kunt deze aanvragen in behandeling weergeven in PIM.
+Als een gedelegeerde fiatteur ontvangt u een e-mailmelding wanneer een aanvraag om de Azure AD directory rol moeten worden goedgekeurd. U kunt deze aanvragen in behandeling weergeven in PIM.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
@@ -74,5 +74,5 @@ Als een gedelegeerde fiatteur ontvangt u e-mailmeldingen wanneer een aanvraag vo
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Goedkeuren of weigeren van aanvragen voor Azure-resource-rollen in PIM](pim-resource-roles-approval-workflow.md)
 - [E-mailmeldingen in PIM](pim-email-notifications.md)
+- [Goedkeuren of weigeren van aanvragen voor Azure-resource-rollen in PIM](pim-resource-roles-approval-workflow.md)

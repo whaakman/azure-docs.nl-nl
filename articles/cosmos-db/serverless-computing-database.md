@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: dfca26f36287cfd856beb98edeb2b2362f36bc4b
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: b54a302c022a8af84c1964c13ffadc52b45c4ca4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37858803"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696816"
 ---
 # <a name="azure-cosmos-db-serverless-database-computing-using-azure-functions"></a>Azure Cosmos DB: Serverless database computing met Azure Functions
 
@@ -31,7 +31,7 @@ Azure Cosmos DB en Azure Functions kunt u uw databases en serverloze apps integr
 * Binding van een functie met een Azure Cosmos DB-container met een **Uitvoerbinding**. Wanneer een functie is voltooid, uitvoerbindingen gegevens schrijven naar een container.
 
 > [!NOTE]
-> Op dit moment werken de Azure Cosmos DB-trigger, invoerbindingen en uitvoerbindingen alleen met SQL API- en Graph API-accounts.
+> Op dit moment werken de Azure Cosmos DB-trigger, invoerbindingen en uitvoerbindingen met SQL-API en Gremlin-API-accounts.
 
 Het volgende diagram illustreert elk van deze drie integraties: 
 
@@ -82,7 +82,7 @@ De volgende afbeeldingen ziet de code in de Azure-portal voor dit scenario.
 
 ### <a name="gaming-use-case---azure-cosmos-db-trigger-and-output-binding"></a>Gaming use case: Azure Cosmos DB-trigger en Storage-Uitvoerbinding
 
-In games, wanneer een nieuwe gebruiker wordt gemaakt. u kunt zoeken naar andere gebruikers die kent u ze met behulp van mogelijk de [Azure Cosmos DB Graph API](graph-introduction.md). U kunt de resultaten vervolgens schrijven naar een [Azure Cosmos DB SQL-database] voor eenvoudig op te halen.
+In games, wanneer een nieuwe gebruiker wordt gemaakt. u kunt zoeken naar andere gebruikers die kent u ze met behulp van mogelijk de [Gremlin-API van Azure Cosmos DB](graph-introduction.md). U kunt de resultaten vervolgens schrijven naar een [Azure Cosmos DB SQL-database] voor eenvoudig op te halen.
 
 **Implementatie:** gebruik van een Azure Cosmos DB-trigger en een Uitvoerbinding
 

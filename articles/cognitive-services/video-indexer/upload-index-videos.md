@@ -9,19 +9,32 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/17/2018
 ms.author: juliako
-ms.openlocfilehash: 8a9409c46cac8397bc449c586374729a4d864036
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ac9d3f8fd10a3b65a2af2999b8c7ade7965de912
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41987478"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664442"
 ---
 # <a name="upload-and-index-your-videos"></a>Indexeren van uw video 's  
 
-In dit artikel ziet u hoe u de [video uploaden](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API voor het uploaden en indexeren van uw video's met Video Indexer van Azure. Hierin worden ook enkele van de parameters die u op de API instellen kunt te wijzigen van het proces en de uitvoer van de API.
+In dit artikel laat zien hoe een video uploaden met Video Indexer van Azure. De Video Indexer-API biedt twee opties voor uploaden: 
+
+* Upload uw video van een URL (aanbevolen)
+* het videobestand verzenden als een bytematrix in de aanvraagtekst.
+
+Het artikel ziet u hoe u de [video uploaden](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) API voor het uploaden en indexeren van uw video's op basis van een URL. De voorbeeldcode in het artikel bevat de opmerkingen van code die laat zien hoe u de bytematrix uploaden.  
+
+Het artikel komen enkele van de parameters die u op de API instellen kunt te wijzigen van het proces en de uitvoer van de API.
 
 > [!Note]
-> Als u een Video Indexer-account maakt, kunt u een gratis proefaccount (waar u aan een bepaald aantal gratis indexering minuten) of een betaalde optie (waarbij u bent niet beperkt door het quotum). <br/>Met gratis proefversie Video Indexer biedt maximaal 600 minuten gratis worden geïndexeerd voor gebruikers van de website en maximaal 2400 minuten gratis indexing voor een API-gebruikers. <br/>Betaalde optie, maakt u een Video Indexer-account dat is [verbonden met uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt voor minuten geïndexeerd, evenals de Media-Account gekoppeld kosten in rekening gebracht. 
+> Als u een Video Indexer-account maakt, kunt u een gratis proefaccount (waar u aan een bepaald aantal gratis indexering minuten) of een betaalde optie (waarbij u bent niet beperkt door het quotum). <br/>Met gratis proefversie Video Indexer biedt maximaal 600 minuten gratis worden geïndexeerd voor gebruikers van de website en maximaal 2400 minuten gratis indexing voor een API-gebruikers. Betaalde optie, maakt u een Video Indexer-account dat is [verbonden met uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt voor minuten geïndexeerd, evenals de Media-Account gekoppeld kosten in rekening gebracht. 
+
+## <a name="uploading-considerations"></a>Overwegingen met betrekking tot uploaden
+    
+- Bij het uploaden van uw video op basis van de URL (bij voorkeur) moet het eindpunt worden beveiligd met TLS 1.2 (of hoger)
+- De optie byte-matrix is beperkt tot 4GB en er een time-out na 30 minuten
+- De URL die is opgegeven in de `videoURL` param moet worden gecodeerd
 
 ## <a name="configurations-and-params"></a>Configuraties en parameters
 
@@ -45,7 +58,7 @@ Prijs is afhankelijk van de geselecteerde optie voor indexering.
 
 Een POST-URL om te waarschuwen wanneer indexeren is voltooid. Video Indexer voegt twee Reeksparameters naar deze query:-id en status. Bijvoorbeeld, als de callback-url is 'https://test.com/notifyme?projectName=MyProject', de melding wordt verzonden met extra parameters voor'https://test.com/notifyme?projectName=MyProject&id=1234abcd&state=Processed'.
 
-U kunt ook meer parameters toevoegen aan de URL voordat u de aanroep van Video Indexer en deze parameters worden opgenomen in de callback. Later in uw code kunt u ophalen en parseren van de query-tekenreeks back alle van de opgegeven parameters in de queryreeks (gegevens die u oorspronkelijk had toegevoegd aan de URL plus de gegevens van de Video Indexer opgegeven.) 
+U kunt ook meer parameters toevoegen aan de URL voordat u de aanroep van Video Indexer en deze parameters worden opgenomen in de callback. Later in uw code kunt u ophalen en parseren van de query-tekenreeks back alle van de opgegeven parameters in de queryreeks (gegevens die u oorspronkelijk had toegevoegd aan de URL plus de gegevens van de Video Indexer opgegeven.) De URL moet worden gecodeerd.
 
 ### <a name="streamingpreset"></a>streamingPreset
 
@@ -56,6 +69,12 @@ Wanneer u de [video uploaden](https://api-portal.videoindexer.ai/docs/services/o
 Om uit te voeren van het indexeren en coderingstaken, de [Azure Media Services-account verbonden met uw Video Indexer-account](connect-to-azure.md), gereserveerde eenheden is vereist. Zie voor meer informatie, [Media-verwerking schalen](https://docs.microsoft.com/azure/media-services/previous/media-services-scale-media-processing-overview). Aangezien deze intensieve rekentaken, wordt S3-eenheidstype aanbevolen. Het aantal ru's definieert het maximale aantal taken dat parallel kan worden uitgevoerd. De aanbeveling van de basislijn is 10 S3-ru's. 
 
 Als u alleen wilt uw video kunt indexeren, maar deze niet te coderen, stelt u `streamingPreset`naar `NoStreaming`.
+
+### <a name="videourl"></a>videoUrl
+
+Een URL van de video en audio-bestand worden geïndexeerd. De URL moet verwijzen naar een media-bestand (HTML-pagina's worden niet ondersteund). Het bestand kan worden beveiligd door een toegangstoken die is geleverd als onderdeel van de URI en het eindpunt voor het bestand moet worden beveiligd met TLS 1.2 of hoger. De URL moet worden gecodeerd. 
+
+Als de `videoUrl` niet is opgegeven, de Video Indexer wordt verwacht dat u het bestand als een multipart/form-hoofdtekst doorgeven.
 
 ## <a name="code-sample"></a>Codevoorbeeld
 

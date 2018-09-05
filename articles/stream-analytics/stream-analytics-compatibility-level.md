@@ -1,6 +1,6 @@
 ---
-title: Inzicht in het compatibiliteitsniveau voor Azure Stream Analytics-taken
-description: Informatie over het compatibiliteitsniveau voor een Azure Stream Analytics-taak en belangrijke wijzigingen in de meest recente versie van het compatibiliteitsniveau instellen
+title: Informatie over het compatibiliteitsniveau voor Azure Stream Analytics-taken
+description: Informatie over het instellen van een compatibiliteitsniveau voor een Azure Stream Analytics-taak en belangrijke wijzigingen in de meest recente compatibiliteitsniveau
 services: stream-analytics
 author: jasonwhowell
 ms.author: jasonh
@@ -8,65 +8,65 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 01/03/2018
-ms.openlocfilehash: 32e73918b2dd98822d42d74002b705ff730145d9
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 136b21f026d208c09b50dfa8601de692e518774e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30902969"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699107"
 ---
-# <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Het compatibiliteitsniveau voor Azure Stream Analytics-taken
+# <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Compatibiliteitsniveau voor Azure Stream Analytics-taken
  
-Het compatibiliteitsniveau verwijst naar de release-specifieke gedrag van een Azure Stream Analytics-service. Azure Stream Analytics is een beheerde service, met de reguliere functie-updates en verbeteringen. Meestal worden updates automatisch beschikbaar gesteld aan eindgebruikers. Enkele nieuwe functies kunnen echter introduceren grote wijzigingen van dergelijke als-Wijzig in het gedrag van een bestaande taak, wijziging van de processen gebruiken van gegevens uit deze taken enz. Compatibiliteitsniveau wordt gebruikt om een grote wijziging die is geïntroduceerd in Stream Analytics vertegenwoordigen. Belangrijke wijzigingen worden altijd geïntroduceerd met nieuwe compatibiliteitsniveau. 
+Compatibiliteitsniveau verwijst naar de release-specifieke gedrag van een Azure Stream Analytics-service. Azure Stream Analytics is een beheerde service, met de reguliere functie-updates en verbeterde prestaties. Meestal worden updates automatisch beschikbaar gemaakt voor eindgebruikers. Enkele nieuwe functies kunnen echter introduceert belangrijke wijzigingen dergelijke als-wijziging in het gedrag van een bestaande taak, wijziging van de processen gebruiken van gegevens van deze taken enzovoort. Een compatibiliteitsniveau wordt gebruikt voor belangrijke wijzigingen die zijn geïntroduceerd in Stream Analytics. Belangrijke wijzigingen zijn altijd met een nieuwe compatibiliteitsniveau geïntroduceerd. 
 
-Het compatibiliteitsniveau zorgt ervoor dat bestaande taken worden uitgevoerd zonder een storing. Wanneer u een nieuwe Stream Analytics-taak maakt, wordt het aanbevolen om deze te maken met behulp van de meest recente compatibiliteitsniveau die voor u beschikbaar is. 
+Compatibiliteitsniveau zorgt ervoor dat bestaande taken worden uitgevoerd zonder een storing. Wanneer u een nieuwe Stream Analytics-taak maakt, is het een aanbevolen procedure om deze te maken met behulp van de meest recente compatibiliteitsniveau die voor u beschikbaar is. 
  
-## <a name="set-a-compatibility-level"></a>Een compatibiliteitsniveau instellen 
+## <a name="set-a-compatibility-level"></a>Stel een compatibiliteitsniveau 
 
-Het compatibiliteitsniveau bepaalt het runtimegedrag van een stream analytics-taak. U kunt het compatibiliteitsniveau van een Stream Analytics-taak instellen met behulp van de portal of met behulp van de [taak REST API-aanroep maken](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Azure Stream Analytics ondersteunt momenteel twee compatibiliteit niveaus-"1.0" en '1.1'. Het compatibiliteitsniveau is standaard ingesteld op "1.0" dat tijdens de algemene beschikbaarheid van Azure Stream Analytics werd geïntroduceerd. Voor het bijwerken van de standaardwaarde, gaat u naar uw bestaande Stream Analytics-taak > Selecteer de **compatibiliteitsniveau** optie in **configureren** sectie en wijzig de waarde. 
+Compatibiliteitsniveau bepaalt het runtimegedrag van een stream analytics-taak. U kunt het compatibiliteitsniveau voor een Stream Analytics-taak kunt instellen met behulp van de portal of met behulp van de [oproep voor de REST-API maken](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job). Azure Stream Analytics ondersteunt momenteel twee compatibiliteit niveaus-"1.0" en '1.1'. Het compatibiliteitsniveau is standaard ingesteld op "1.0", dat werd geïntroduceerd bij algemene beschikbaarheid van Azure Stream Analytics. Voor het bijwerken van de standaardwaarde, gaat u naar uw bestaande Stream Analytics-taak > Selecteer de **compatibiliteitsniveau** optie **configureren** sectie en wijzig de waarde. 
 
 Zorg ervoor dat u de taak stoppen voordat u het compatibiliteitsniveau bijwerkt. U kunt het compatibiliteitsniveau niet bijwerken als de taak actief is is. 
 
 ![Compatibiliteitsniveau in de portal](media\stream-analytics-compatibility-level/image1.png)
 
  
-Wanneer u het compatibiliteitsniveau bijwerkt, valideert de T-SQL-compiler de taak met de syntaxis die overeenkomt met het geselecteerde compatibiliteitsniveau. 
+Wanneer u het compatibiliteitsniveau bijwerkt, wordt de taak met de syntaxis die overeenkomt met het geselecteerde compatibiliteitsniveau gevalideerd door de T-SQL-compiler. 
 
 ## <a name="major-changes-in-the-latest-compatibility-level-11"></a>Belangrijke wijzigingen in de meest recente compatibiliteitsniveau (1.1)
 
-De volgende belangrijke wijzigingen worden in compatibiliteitsniveau 1.1 geïntroduceerd:
+De volgende belangrijke wijzigingen zijn geïntroduceerd in compatibiliteitsniveau 1.1 van:
 
 * **Service Bus-XML-indeling**  
 
-  * **vorige versies:** Azure Stream Analytics gebruikt DataContractSerializer, zodat de inhoud van het bericht XML-labels opgenomen. Bijvoorbeeld:
+  * **vorige versies:** Azure Stream Analytics gebruikt DataContractSerializer, zodat de inhoud van het bericht XML-tags opgenomen. Bijvoorbeeld:
     
-   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001 {'SensorId': '1', 'temperatuur': 64\}\u0001 
+   @\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId": "1", "temperatuur": 64\}\u0001 
 
-  * **huidige versie:** inhoud van het bericht bevat de stroom rechtstreeks met er zijn geen extra labels. Bijvoorbeeld:
+  * **huidige versie:** inhoud van het bericht bevat de stream rechtstreeks met geen andere labels. Bijvoorbeeld:
   
-   {{'SensorId': '1', 'temperatuur': 64} 
+   {"SensorId": "1", "temperatuur": 64} 
  
-* **Persisting hoofdlettergevoeligheid voor de veldnamen**  
+* **Permanente hoofdlettergevoeligheid voor veldnamen**  
 
-  * **vorige versies:** veldnamen zijn gewijzigd in kleine letters wanneer door de Azure Stream Analytics-engine verwerkt. 
+  * **vorige versies:** veldnamen zijn gewijzigd in kleine letters wanneer verwerkt door de Azure Stream Analytics-engine. 
 
-  * **huidige versie:** hoofdlettergevoeligheid voor de veldnamen worden bewaard wanneer ze worden verwerkt door de Azure Stream Analytics-engine. 
+  * **huidige versie:** hoofdlettergevoeligheid voor veldnamen worden bewaard wanneer ze worden verwerkt door de Azure Stream Analytics-engine. 
 
   > [!NOTE] 
-  > Persisting hoofdlettergevoeligheid is nog niet beschikbaar voor stroom analytische taken die worden gehost met behulp van de omgeving zijde. Hierdoor worden alle veldnamen worden geconverteerd naar kleine letters als uw werk op de rand wordt gehost. 
+  > Permanente hoofdlettergevoeligheid is nog niet beschikbaar voor Stream Analytics-taken die worden gehost met behulp van Edge-omgeving. Als gevolg hiervan, worden alle veldnamen geconverteerd naar kleine letters, als de taak voor edge-apparaten wordt gehost. 
 
 * **FloatNaNDeserializationDisabled**  
 
-  * **vorige versies:** CREATE TABLE-opdracht is geen filter voor gebeurtenissen met NaN (Not a Number. Bijvoorbeeld oneindig, -oneindig) in een FLOAT-kolom typen omdat ze buiten het gedocumenteerde bereik voor deze getallen zijn.
+  * **vorige versies:** CREATE TABLE-opdracht heeft geen filter voor gebeurtenissen met NaN (Not a Number. Bijvoorbeeld oneindig, -oneindig) in een FLOAT-kolom typt, omdat deze buiten het bereik beschreven voor deze getallen zijn.
 
-  * **huidige versie:** CREATE TABLE kunt u een sterk schema opgeven. De Stream Analytics-engine valideert dat de gegevens aan dit schema voldoen. Met dit model kan de opdracht filter gebeurtenissen met NaN-waarden. 
+  * **huidige versie:** CREATE TABLE kunt u een sterke schema opgeven. De Stream Analytics-engine valideert dat de gegevens aan dit schema voldoen. De opdracht kunt u gebeurtenissen met NaN waarden filteren met dit model. 
 
 * **Schakel automatische upcast voor datum/tijd-tekenreeksen in JSON.**  
 
-  * **vorige versies:** de JSON-parser zou automatisch opgewaardeerd tekenreeks waarden met datum/tijdzone-informatie naar DateTime typen en vervolgens weer converteren naar UTC. Dit resulteert in het verlies van de informatie over de tijdzone.
+  * **vorige versies:** de JSON-parser zou automatisch opgewaardeerd tekenreeks waarden met de datum/tijdzone-informatie naar DateTime typt en vervolgens converteren naar UTC. Dit leidde tot verlies van informatie over de tijdzone.
 
-  * **huidige versie:** bestaat niet meer automatisch opgewaardeerd van tekenreekswaarden datum/tijdzone-informatie over het type DateTime. Als gevolg hiervan, wordt informatie over de tijdzone bewaard. 
+  * **huidige versie:** bestaat niet meer automatisch opgewaardeerd van tekenreekswaarden met datum/tijdzone-informatie naar DateTime-type. Als gevolg hiervan, wordt informatie over de tijdzone bewaard. 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Gids voor probleemoplossing voor Azure Stream Analytics](stream-analytics-troubleshooting-guide.md)
-* [Stream Analytics resourceblade health](stream-analytics-resource-health.md)
+* [Stream Analytics-Resource health-blade](stream-analytics-resource-health.md)

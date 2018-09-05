@@ -11,17 +11,18 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: d33ca1a4ab08ab25855f8b3992157ad3d086a180
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: c9efaeed05856f830a4f0cf699cb35ebc21966c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42054036"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700707"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>De resourceprovider van SQL Server op Azure Stack implementeren
+
 De resourceprovider van Azure Stack SQL Server gebruiken om SQL-databases als een Azure Stack-service zichtbaar te maken. De SQL-resourceprovider wordt uitgevoerd als een service op een Windows Server 2016 Server Core-machine (VM).
 
 ## <a name="prerequisites"></a>Vereisten
@@ -30,13 +31,12 @@ Er zijn verschillende vereisten die worden voldaan moet voordat u kunt de Azure 
 
 - Als u dit nog niet hebt gedaan, [registreren Azure Stack](azure-stack-registration.md) met Azure, zodat u kunt Azure marketplace-items downloaden.
 - U moet de Azure- en PowerShell voor Azure Stack-modules installeren op het systeem waar u deze installatie wordt uitgevoerd. Dat systeem moet een installatiekopie van Windows 10 of Windows Server 2016 met de meest recente versie van de .NET runtime. Zie [PowerShell voor Azure Stack installeren](.\azure-stack-powershell-install.md).
-- De vereiste Windows Server-core VM toevoegen aan de Azure Stack marketplace door te downloaden de **Windows Server 2016 Datacenter - Server Core** installatiekopie. 
-- Downloaden van de SQL-resourceprovider binaire en voer vervolgens de zelfstandige extractor om de inhoud uitpakken naar een tijdelijke map. De resourceprovider heeft een minimale bijbehorende Azure Stack bouwen. Zorg ervoor dat u het juiste binaire bestand voor de versie van Azure-Stack die u gebruikt downloaden:
+- De vereiste Windows Server-core VM toevoegen aan de Azure Stack marketplace door te downloaden de **Windows Server 2016 Datacenter - Server Core** installatiekopie.
+- Downloaden van de SQL-resourceprovider binaire en voer vervolgens de zelfstandige extractor om de inhoud uitpakken naar een tijdelijke map. De resourceprovider heeft een minimale bijbehorende Azure Stack bouwen.
 
-    |Azure Stack-versie|SQL RP-versie|
+    |Minimale versie van Azure Stack|SQL RP-versie|
     |-----|-----|
-    |Versie 1804 (1.0.180513.1)|[SQL RP versie 1.1.24.0](https://aka.ms/azurestacksqlrp1804)
-    |Versie 1802 (1.0.180302.1)|[SQL RP versie 1.1.18.0](https://aka.ms/azurestacksqlrp1802)|
+    |Versie 1804 (1.0.180513.1)|[SQL RP versie 1.1.24.0](https://aka.ms/azurestacksqlrp)
     |     |     |
 
 - Zorg ervoor dat de datacenter-integratie vereisten wordt voldaan:
@@ -45,7 +45,7 @@ Er zijn verschillende vereisten die worden voldaan moet voordat u kunt de Azure 
     |-----|-----|
     |Voorwaardelijk doorsturen van DNS is correct ingesteld.|[Datacenter-integratie Azure Stack - DNS](azure-stack-integrate-dns.md)|
     |Poorten voor inkomend verkeer voor resourceproviders zijn geopend.|[Azure Stack-datacenter-integratie - eindpunten publiceren](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |PKI-certificaatonderwerp en SAN zijn juist ingesteld.|[Azure Stack verplichte PKI vereisten voor implementatie](azure-stack-pki-certs.md#mandatory-certificates)<br>[De vereisten PaaS-certificaat voor Azure Stack-implementatie](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |PKI-certificaatonderwerp en SAN zijn juist ingesteld.|[Azure Stack verplichte PKI implementatievereisten](azure-stack-pki-certs.md#mandatory-certificates)[PaaS Azure Stack-certificaat implementatievereisten](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>Certificaten
@@ -80,6 +80,7 @@ U kunt de volgende parameters vanaf de opdrachtregel opgeven. Als u dit niet doe
 | **AzCredential** | De referenties voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties die u gebruikt voor het implementeren van Azure Stack. | _Vereist_ |
 | **VMLocalCredential** | De referenties voor het lokale administrator-account van de SQL-resourceprovider VM. | _Vereist_ |
 | **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het eindpunt van de bevoegdheden. |  _Vereist_ |
+| **Azure-omgeving** | De azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist als het is niet ADFS. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een China Azure Active Directory gebruikt, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Voor alleen geïntegreerde systemen, moet uw certificaat-pfx-bestand in deze map worden geplaatst. U kunt eventueel een pakket voor Windows Update MSU hier kopiëren. | _Optionele_ (_verplichte_ voor geïntegreerde systemen) |
 | **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat. | _Vereist_ |
 | **MaxRetryCount** | Het aantal keren dat die u wilt dat elke bewerking wordt uitgevoerd als er een fout is.| 2 |

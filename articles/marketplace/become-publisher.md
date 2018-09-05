@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 4d37aba665fd9b6de89f683ce2785a14b1b6f60b
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: c6f074b84b099f6ea5023967fdae7e44d5e9d545
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412012"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666381"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Word een Cloud-Marketplace-uitgever
 
@@ -74,7 +74,8 @@ U wordt gevraagd om op te nemen van de volgende informatie:
 
 ---  
 ## <a name="4-sign-into-cloud-partner-portal"></a>4. Meld u aan bij de Cloud Partner-Portal
-| 1-3 dagen | Onze Marketplace Onboarding-Team beoordelen en valideren van de gegevens van marketplace registratie vindt u in stap 3. Zodra goedgekeurd, ontvangt u een welkomstbericht met accountreferenties en hulp bij het aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com).
+| 1-3 dagen | <br>
+Onze Marketplace Onboarding-Team beoordelen en valideren van de gegevens van marketplace registratie vindt u in stap 3. Zodra goedgekeurd, ontvangt u een welkomstbericht met accountreferenties en hulp bij het aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com).
 
 U gebruikt de [Cloud Partner-Portal](https://cloudpartner.azure.com) wilt maken, publiceren en beheren van marketplace-aanbiedingen. Nadat u het welkomstbericht goedkeuring ontvangen, kunt u direct aanmelden bij de [Cloud Partner-Portal](https://cloudpartner.azure.com) met uw Microsoft-account voor toegang tot aanvullende technische informatie over het publiceren op marketplace en het maken van uw aanbieding. 
 *   Voor meer informatie over het gebruik van Cloud Partner-Portal, [Ga naar het artikel aan de slag in de sectie meer](https://cloudpartner.azure.com/#documentation/getting-started-with-the-cloud-partner-portal). U moet zijn aangemeld op de Cloud Partner-Portal voor toegang tot deze gegevens.

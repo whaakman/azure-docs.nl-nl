@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: abnarain
 robots: noindex
-ms.openlocfilehash: 7ca0e8eb2d496bdcd8eff7dbee2af2e549f123dd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 988c264ef6052b4b41de493944ac8d39a197a083
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626852"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698754"
 ---
 # <a name="data-management-gateway"></a>Gegevensbeheergateway
 > [!NOTE]
@@ -142,7 +142,7 @@ Op het niveau van de firewall van het bedrijf, moet u de volgende domeinen bevin
 
 | Domeinnamen | Poorten | Beschrijving |
 | --- | --- | --- |
-| *.servicebus.windows.net |443, 80 |Gebruikt voor communicatie met back-end Data Movement Service |
+| *.servicebus.windows.net |443 |Gebruikt voor communicatie met back-end Data Movement Service |
 | *.core.windows.net |443 |Gebruikt voor tijdelijke kopiëren met behulp van Azure-Blob (indien geconfigureerd)|
 | *.frontend.clouddatahub.net |443 |Gebruikt voor communicatie met back-end Data Movement Service |
 | *.servicebus.windows.net |9350-9354, 5671 |Optionele service bus relay via TCP wordt gebruikt door de Wizard kopiëren |

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: ddd30729aa2bcb616efab814dc4046d2817c64fa
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 725f52e55795025671036095f209fd92636a4d9c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128674"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701496"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële Console van virtuele Machine (preview) 
 
@@ -39,7 +39,7 @@ Voor de seriële console-documentatie voor virtuele Linux-machines [Klik hier](.
 * Virtuele machine moet zijn [diagnostische gegevens over opstarten](boot-diagnostics.md) ingeschakeld 
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * Het account met behulp van de seriële console moet hebben [rol van Inzender](../../role-based-access-control/built-in-roles.md) voor virtuele machine en de [diagnostische gegevens over opstarten](boot-diagnostics.md) storage-account. 
 * De virtuele machine waarvoor u de seriële console acessing zijn moet ook een account op basis van wachtwoorden hebben. U kunt maken met de [wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionaliteit van de toegang tot VM-extensie - Zie de onderstaande schermafbeelding.
 
@@ -77,7 +77,7 @@ Als de benodigde SAC kan offline worden ingeschakeld
 
 Als [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) niet is ingeschakeld de seriële console wordt niet weergegeven voor de SAC-prompt. Het kan een VM-status-informatie weergeven in sommige gevallen of het normaal zou zijn leeg.  
 
-### <a name="enabling-boot-menu-to-show-in-the-serial-console"></a>Opstartmenu om weer te geven in de seriële console inschakelen 
+## <a name="enabling-boot-menu-to-show-in-the-serial-console"></a>Opstartmenu om weer te geven in de seriële console inschakelen 
 
 Als u nodig hebt om in te schakelen van Windows-opstartlaadprogramma wordt u gevraagd om weer te geven in de seriële console, kunt u de volgende aanvullende opties toevoegen aan Windows-opstartlaadprogramma.
 
@@ -149,6 +149,15 @@ Als een gebruiker is verbonden met de seriële console en een andere gebruiker i
 >[!CAUTION] 
 Dit betekent dat de gebruiker die wordt verbroken wordt niet afgemeld. De mogelijkheid om af te dwingen een afmelden bij het verbreken van de verbinding (via SIGHUP of een vergelijkbaar mechanisme) is nog steeds in de roadmap. Voor Windows is het een automatische time-out ingeschakeld in SAC, maar u terminal time-outinstelling voor Linux configureren kunt. 
 
+## <a name="common-scenarios-for-accessing-serial-console"></a>Algemene scenario's voor toegang tot de seriële console 
+Scenario          | Acties in de seriële console                
+:------------------|:-----------------------------------------
+Onjuiste firewall-regels | Toegang tot de seriële console en de oplossing Windows firewall-regels. 
+Bestandssysteem beschadigd/selectievakje | Toegang tot de seriële console van maken en herstellen van bestandssysteem. 
+Problemen met RDP-configuratie | Toegang tot de seriële console en instellingen wijzigen. Ga naar de [RDP documentatie](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access) aan de slag.
+Systeem voor het vergrendelen van netwerk| Toegang tot de seriële console via de portal voor het beheren van systeem. Sommige netwerkopdrachten worden vermeld in de [seriële Console CMD- en PowerShell-documentatie](./serial-console-cmd-ps-commands.md). 
+Interactie met de bootloader | BCD toegang via de seriële console. Ga naar [Opstartmenu inschakelen om weer te geven in de seriële console](#enabling-boot-menu-to-show-in-the-serial-console) aan de slag. 
+
 ## <a name="using-serial-console-for-nmi-calls-in-windows-vms"></a>In Windows-VM's met behulp van de seriële Console voor NMI aanroepen
 Een niet-maskeren interrupt (NMI) is ontworpen voor het maken van een signaal dat software op een virtuele machine worden niet genegeerd. In het verleden zijn NMIs gebruikt om te controleren op hardwareproblemen op systemen die specifieke reactietijden vereist.  NMI vandaag, programmeurs en systeembeheerders vaak gebruikt als een mechanisme voor foutopsporing of problemen met systemen die zijn vastgelopen.
 
@@ -158,6 +167,14 @@ De seriële Console kan worden gebruikt voor het verzenden van een NMI met een A
 
 Zie voor meer informatie over het configureren van Windows voor het maken van een crashdump wanneer deze een NMI ontvangt: [het genereren van een volledige crashdumpbestand of een kernel crashdumpbestand met behulp van een NMI op een Windows-systeem](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
+## <a name="accessibility"></a>Toegankelijkheid
+Toegankelijkheid is een belangrijke focus voor de seriële console van Azure. Wat dat betreft, hebben we ervoor gezorgd dat dat de seriële console is toegankelijk voor mensen met het visuele element en gehoorproblemen, evenals de mensen die misschien niet mogelijk een muis te gebruiken.
+
+### <a name="keyboard-navigation"></a>Toetsenbordnavigatie
+Gebruik de `tab` sleutel op het toetsenbord om te navigeren in de interface van de seriële console binnen de Azure-portal. Uw locatie wordt gemarkeerd op het scherm worden weergegeven. Als u wilt de focus van de seriële console-blade laten, drukt u op `Ctrl + F6` op het toetsenbord.
+
+### <a name="use-serial-console-with-a-screen-reader"></a>Seriële console gebruiken met een schermlezer
+Seriële console wordt geleverd met ingebouwde ondersteuning voor schermlezers. Navigeren om met een schermlezer ingeschakeld, kunnen de alt-tekst voor de geselecteerde knop om te worden door de schermlezer voorgelezen.
 
 ## <a name="errors"></a>Fouten
 De meeste fouten zijn tijdelijke aard en het adres van de verbinding opnieuw wordt geprobeerd deze. De onderstaande tabel geeft een lijst met fouten en oplossingen

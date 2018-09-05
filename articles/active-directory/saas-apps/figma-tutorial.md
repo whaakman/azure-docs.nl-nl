@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: jeedes
-ms.openlocfilehash: c8613697481f642066bf1d5d5db7be3af81a6529
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 4094de1a1c17e844d96ac789bb4bc1655fdc1546
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307844"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669240"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-figma"></a>Zelfstudie: Azure Active Directory-integratie met Figma
 
@@ -38,10 +38,10 @@ Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD
 Voor het configureren van Azure AD-integratie met Figma, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een Figma eenmalige aanmelding ingeschakeld abonnement
+- Een Figma [eenmalige aanmelding ingeschakeld abonnement](https://www.figma.com/pricing/)
 
 > [!NOTE]
-> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
+> Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving. Nieuwe klanten en actieve abonnees van Figma Professional-Team contact opnemen met Figma naar [hun abonnement](https://www.figma.com/pricing/) naar de prijscategorie van de organisatie Figma.
 
 Als u wilt testen van de stappen in deze zelfstudie, moet u deze aanbevelingen volgen:
 
@@ -81,15 +81,14 @@ Voor het configureren van de integratie van Figma in Azure AD, moet u Figma uit 
 
 In deze sectie maakt u configureert en test Azure AD eenmalige aanmelding met Figma op basis van een testgebruiker 'Julia steen' genoemd.
 
-Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in Figma is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in Figma tot stand worden gebracht.
+Voor eenmalige aanmelding om te werken, moet Azure AD worden gekoppeld aan Figma.  Als u wilt configureren en Azure AD eenmalige aanmelding met Figma testen, voert u de volgende stappen uit:
 
-Om te configureren en testen van Azure AD eenmalige aanmelding met Figma, moet u de volgende bouwstenen voltooien:
-
-1. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-2. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-3. **[Maak een testgebruiker Figma](#create-a-figma-test-user)**  : als u wilt een equivalent van Britta Simon in Figma die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-4. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-5. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
+1. [**Neem contact op met het ondersteuningsteam Figma** ](mailto:support@figma.com?subject=SAML+Config) starten van een SAML-configuratie voor uw organisatie en een ORG_SAML_CONFIG_ID ophalen.
+2. **[Azure AD eenmalige aanmelding configureren](#configure-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
+3. **[Maak een Azure AD-testgebruiker](#create-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
+4. **[Maak een testgebruiker Figma](#create-a-figma-test-user)**  : als u wilt een equivalent van Britta Simon in Figma die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
+5. **[Toewijzen van de Azure AD-testgebruiker](#assign-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
+6. **[Eenmalige aanmelding testen](#test-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configure-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
 
@@ -120,7 +119,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://www.figma.com/saml/<ORG_SAML_CONFIG_ID>/start`
 
     > [!NOTE]
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [Figma Client ondersteuningsteam]( mailto:services-404040@figma.com) om deze waarden te verkrijgen.
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [Figma ondersteuningsteam](mailto:support@figma.com?subject=SAML+Config) om deze waarden te verkrijgen.
 
 5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op de knop kopiëren om te kopiëren **App-Url voor federatieve metagegevens** en plak deze in Kladblok.
 
@@ -130,7 +129,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Configureren van eenmalige aanmelding opslaan](./media/figma-tutorial/tutorial_general_400.png)
 
-7. Het configureren van eenmalige aanmelding op **Figma** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** naar [Figma ondersteuningsteam]( mailto:services-404040@figma.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+7. Voor het configureren van eenmalige aanmelding aan Figma, vul dit formulier: [ https://goo.gl/forms/XkRB1z5ed4eVUzXn2 ](https://goo.gl/forms/XkRB1z5ed4eVUzXn2). Deze accepteert uw **App-Url voor federatieve metagegevens** uit stap 5.
 
 ### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
@@ -167,9 +166,6 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 ### <a name="create-a-figma-test-user"></a>Maak een testgebruiker Figma
 
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Figma. Figma biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot Figma als deze nog niet bestaat.
-
-> [!Note]
-> Als u maken van een gebruiker handmatig wilt, neem dan contact op met [Figma ondersteuningsteam]( mailto:services-404040@figma.com).
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

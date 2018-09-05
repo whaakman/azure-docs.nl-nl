@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 05/14/2018
+ms.date: 08/31/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: 8c9d1ee51acdfff188e0d6483f723fbb08e17bd5
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: e5db7b9bed674011c2922f026c301172f347f53f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39601953"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666305"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 
@@ -45,11 +45,23 @@ Azure Active Directory (Azure AD) is een identiteitsservice in de cloud gebaseer
 
 *  Klanten die SCIM gebruiken kunt voor dezelfde app wordt ingericht.
 
-##  <a name="prerequisites-implement-federation-protocol"></a>Vereisten: Implementeer federation-protocol
+## <a name="prerequisites"></a>Vereisten
+
+- Voor federatieve toepassingen (Open-ID en SAML/WS-Federation), moet de toepassing ondersteunt de SaaS-model voor het ophalen van die worden vermeld in de galerie van Azure AD. De galerie bedrijfstoepassingen moeten configuraties met meerdere klanten en niet voor elke klant met een specifieke ondersteunen.
+
+- Voor de Open ID Connect meerdere tenants van de toepassing moet en [Azure AD-toestemmingsframework](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) moet de juiste wijze worden geïmplementeerd voor de toepassing. De gebruiker kan de aanmeldingsaanvraag verzenden naar een gemeenschappelijk eindpunt zodat elke klant u toestemming voor de toepassing krijgt. U kunt toegang van gebruikers op basis van de tenant-ID en de UPN van de gebruiker in het token ontvangen.
+
+- Voor SAML 2.0/WS-Federation moet uw toepassing de mogelijkheid de SAML/WS-Federation SSO integreren in de modus SP of id-provider. Zorg ervoor dat deze correct werkt voordat de aanvraag is ingediend.
+
+- Voor eenmalige aanmelding het wachtwoord, zorg ervoor dat uw toepassing ondersteuning biedt voor formulierverificatie zodat wachtwoordkluis kan worden gedaan om op te halen van eenmalige aanmelding werken zoals verwacht.
+
+- Voor aanvragen automatisch gebruikers inrichten moet toepassing worden weergegeven in de galerie met één functie aanmelding ingeschakeld met behulp van een van de federation-protocol die hierboven worden beschreven. U kunt aanvragen voor eenmalige aanmelding en gebruiker samen in de portal wordt ingericht als deze nog niet wordt weergegeven.
+
+##  <a name="implementing-sso-using-federation-protocol"></a>Eenmalige aanmelding met behulp van de federation-protocol implementeren
 
 Als u een toepassing in de galerie met Azure AD-app, moet u eerst een van de volgende federation protocollen die worden ondersteund door Azure AD te implementeren en akkoord gaat met Azure AD-toepassing galerie voorwaarden en bepalingen. Lees de voorwaarden en bepalingen van de Azure AD-toepassingsgalerie van [hier](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
-*   **OpenID Connect**: de multitenant-toepassing in Azure AD maken en implementeren van de [Azure AD-toestemmingsframework](quickstart-v1-integrate-apps-with-azure-ad.md#overview-of-the-consent-framework) voor uw toepassing. De aanmeldingsaanvraag naar een gemeenschappelijk eindpunt verzenden, zodat elke klant u toestemming voor de toepassing krijgt. U kunt toegang van gebruikers op basis van de tenant-ID en de UPN van de gebruiker in het token ontvangen. Als u wilt uw toepassing integreren met Azure AD, gaat u als volgt de [ontwikkelaars instructies](authentication-scenarios.md).
+*   **OpenID Connect**: als u wilt uw toepassing integreren met Azure AD met behulp van het Open ID Connect-protocol, volgt u de [ontwikkelaars instructies](authentication-scenarios.md).
 
     ![Tijdlijn van de OpenID Connect-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/openid.png)
 
@@ -57,21 +69,23 @@ Als u een toepassing in de galerie met Azure AD-app, moet u eerst een van de vol
 
     * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** of **WS-Federation**: uw toepassing moet beschikken over de mogelijkheid de SAML/WS-Federation SSO integreren in de modus SP of id-provider. Als uw app SAML 2.0 ondersteunt, u kunt deze rechtstreeks integreren met een Azure AD-tenant met behulp van de [instructies voor het toevoegen van een aangepaste toepassing](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** of **WS-Federation**: als uw app SAML 2.0 ondersteunt, u kunt deze rechtstreeks integreren met een Azure AD-tenant met behulp van de [instructies voor het toevoegen van een aangepaste toepassing](../active-directory-saas-custom-apps.md).
 
     ![Tijdlijn van SAML 2.0 of WS-Federation-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/saml.png)
 
     * Als u wilt dat uw toepassing toevoegen aan lijst in de galerie met **SAML 2.0** of **WS-Federation**, selecteer **SAMl 2.0/WS-Federation** zoals hierboven.
 
-    * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
-
-*   **SSO-wachtwoord**: Maak een webtoepassing met een HTML-aanmeldingspagina configureren [wachtwoord gebaseerde eenmalige aanmelding](../manage-apps/what-is-single-sign-on.md). Wachtwoord gebaseerde SSO, ook wel aangeduid als wachtwoord vaulting, kunt u voor het beheren van toegang voor gebruikers en wachtwoorden voor webtoepassingen die bieden geen ondersteuning voor identiteitsfederatie. Het is ook handig voor scenario's waarin meerdere gebruikers één account moeten, zoals om accounts voor sociale media-app van uw organisatie te delen.
-
-    ![Tijdlijn van de aanbieding wachtwoord SSO-toepassing in de galerie](./media/howto-app-gallery-listing/passwordsso.png)
-
-    * Als u wilt uw toepassing toevoegen aan lijst in de galerie met behulp van wachtwoord SSO, selecteer **wachtwoord SSO** zoals hierboven.
-
     * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+## <a name="implementing-sso-using-password-sso"></a>Eenmalige aanmelding met wachtwoord eenmalige aanmelding implementeren
+
+Maak een webtoepassing met een HTML-aanmeldingspagina configureren [wachtwoord gebaseerde eenmalige aanmelding](../manage-apps/what-is-single-sign-on.md). Wachtwoord gebaseerde SSO, ook wel aangeduid als wachtwoord vaulting, kunt u voor het beheren van toegang voor gebruikers en wachtwoorden voor webtoepassingen die bieden geen ondersteuning voor identiteitsfederatie. Het is ook handig voor scenario's waarin meerdere gebruikers één account moeten, zoals om accounts voor sociale media-app van uw organisatie te delen.
+
+![Tijdlijn van de aanbieding wachtwoord SSO-toepassing in de galerie](./media/howto-app-gallery-listing/passwordsso.png)
+
+* Als u wilt uw toepassing toevoegen aan lijst in de galerie met behulp van wachtwoord SSO, selecteer **wachtwoord SSO** zoals hierboven.
+
+* Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
 ##  <a name="updateremove-existing-listing"></a>Bestaande aanbieding bijwerken/verwijderen
 
@@ -80,7 +94,7 @@ Als u wilt bijwerken of verwijderen van een bestaande toepassing in de galerie v
 * Selecteer relevante optie uit de onderstaande afbeelding
 
     ![Tijdlijn van saml-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/updateorremove.png)
-    
+
     * Als u een bestaande toepassing bijwerken wilt, selecteert u **bijwerken van bestaande toepassing aanbieding**.
 
     * Als u verwijderen van een bestaande toepassing in de Azure AD-galerie wilt, selecteert u **bestaande toepassing aanbieding verwijderen**

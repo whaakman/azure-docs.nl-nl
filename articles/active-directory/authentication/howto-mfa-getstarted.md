@@ -5,17 +5,17 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c2d0f14bca2b9ab062c61407479ab45a0104ff0a
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 0408b26e687dd31c408dbccc68f56e8198016c8f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716260"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664785"
 ---
 # <a name="deploy-cloud-based-azure-multi-factor-authentication"></a>Implementeren van cloud-gebaseerde Azure multi-factor Authentication
 
@@ -23,8 +23,8 @@ Aan de slag met Azure multi-factor Authentication (Azure MFA) is een eenvoudig p
 
 Voordat u begint, zorg er dan voor dat u hebt de volgende vereisten:
 
-* Een globale beheerdersaccount in uw Azure AD-tenant. Als u nodig hebt voor hulp bij deze stap is voltooid, raadpleegt u ons artikel [aan de slag met Azure AD](../get-started-azure-ad.md)
-* Juiste licenties zijn toegewezen aan gebruikers. Als u meer informatie naar het onderwerp moet [over het verkrijgen van Azure multi-factor Authentication](concept-mfa-licensing.md)
+* Een globale beheerdersaccount in uw Azure AD-tenant. Als u nodig hebt voor hulp bij deze stap is voltooid, raadpleegt u ons artikel [aan de slag met Azure AD](../get-started-azure-ad.md).
+* Juiste licenties zijn toegewezen aan gebruikers. Als u meer informatie naar het onderwerp moet [over het verkrijgen van Azure multi-factor Authentication](concept-mfa-licensing.md).
 
 ## <a name="choose-how-to-enable"></a>Kiezen hoe u om in te schakelen
 
@@ -32,7 +32,7 @@ Voordat u begint, zorg er dan voor dat u hebt de volgende vereisten:
 
 Ingeschakeld door Azure AD Identity Protection - met deze methode maakt gebruik van de Azure AD Identity Protection-beleid voor gebruikersrisico's om te vereisen van verificatie in twee stappen alleen op basis van aanmeldingsrisico voor alle cloudtoepassingen. Deze methode is een Azure Active Directory P2-licentie vereist. Meer informatie over deze methode kan worden gevonden [Azure Active Directory Identity Protection](../identity-protection/overview.md#risky-sign-ins).
 
-Ingeschakeld door het veranderen van de gebruiker status - dit is de traditionele methode voor het vereisen van verificatie in twee stappen. Het werkt met beide Azure MFA in de cloud en Azure MFA-Server. Met deze methode vereist dat gebruikers om uit te voeren van verificatie in twee stappen **telkens** ze zich aanmelden en vervangt u beleid voor voorwaardelijke toegang. Meer informatie over deze methode kan worden gevonden [hoe u verificatie in twee stappen vereist voor een gebruiker](howto-mfa-userstates.md)
+Ingeschakeld door het veranderen van de gebruiker status - dit is de traditionele methode voor het vereisen van verificatie in twee stappen. Het werkt met beide Azure MFA in de cloud en Azure MFA-Server. Met deze methode vereist dat gebruikers om uit te voeren van verificatie in twee stappen **telkens** ze zich aanmelden en vervangt u beleid voor voorwaardelijke toegang. Meer informatie over deze methode kan worden gevonden [hoe u verificatie in twee stappen vereist voor een gebruiker](howto-mfa-userstates.md).
 
 > [!Note]
 > Meer informatie over licenties en prijzen vindt u op de [Azure AD](https://azure.microsoft.com/pricing/details/active-directory/

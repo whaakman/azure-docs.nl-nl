@@ -9,12 +9,12 @@ ms.technology: project-answer-search
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: a12761c2d913cd7ffaa2cbc2cd42576c6bc96434
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 28a73918b50d7b13248fe5b6a17f2c95287a1ba4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866981"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666285"
 ---
 # <a name="project-answer-search-v7-reference"></a>Antwoord zoeken v7 verwijzing project
 
@@ -110,9 +110,9 @@ Hiermee definieert u de fout is opgetreden.
 |<a name="error-code" />Code|De foutcode die aangeeft van de categorie van de fout. Zie voor een lijst van mogelijke codes, [foutcodes](#error-codes).|Reeks|  
 |<a name="error-message" />Bericht|Een beschrijving van de fout.|Reeks|  
 |<a name="error-moredetails" />moreDetails|Een beschrijving met aanvullende informatie over de fout.|Reeks|  
-|<a name="error-parameter" />parameter|De queryparameter in de aanvraag die de fout heeft veroorzaakt.|Reeks|  
-|<a name="error-subcode" />de subCode|De foutcode die aangeeft van de fout. Bijvoorbeeld, als `code` InvalidRequest, is `subCode` mogelijk ParameterInvalid of ParameterInvalidValue. |Reeks|  
-|<a name="error-value" />waarde|De queryparameter-waarde die niet geldig is.|Reeks|  
+|<a name="error-parameter" />Parameter|De queryparameter in de aanvraag die de fout heeft veroorzaakt.|Reeks|  
+|<a name="error-subcode" />De subCode|De foutcode die aangeeft van de fout. Bijvoorbeeld, als `code` InvalidRequest, is `subCode` mogelijk ParameterInvalid of ParameterInvalidValue. |Reeks|  
+|<a name="error-value" />Waarde|De queryparameter-waarde die niet geldig is.|Reeks|  
   
 
 ### <a name="errorresponse"></a>ErrorResponse  
@@ -121,7 +121,7 @@ Het object van het type op het hoogste niveau dat het antwoord bevat als de aanv
 |Naam|Waarde|Type|  
 |----------|-----------|----------|  
 |_Type|Type hint.|Reeks|  
-|<a name="errors" />fouten|Een lijst van fouten die worden beschreven van de redenen waarom de aanvraag is mislukt.|[Fout](#error)]|  
+|<a name="errors" />Fouten|Een lijst van fouten die worden beschreven van de redenen waarom de aanvraag is mislukt.|[Fout](#error)|  
 
   
   

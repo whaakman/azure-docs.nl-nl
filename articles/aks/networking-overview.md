@@ -6,14 +6,14 @@ author: mmacy
 manager: jeconnoc
 ms.service: container-service
 ms.topic: article
-ms.date: 08/08/2018
+ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: 051402a319e1dc26145b5a1602a4caeffa7fba19
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e78be76d68cf75cf9d59f5b5dff86c65524275a9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445504"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697235"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuratie van het netwerk in Azure Kubernetes Service (AKS)
 
@@ -47,68 +47,75 @@ Geavanceerde netwerken biedt de volgende voordelen:
 
 ## <a name="advanced-networking-prerequisites"></a>Geavanceerde netwerken vereisten
 
-* Het VNet voor het AKS-cluster moet uitgaande internetverbinding toestaan.
+* Het virtuele netwerk voor het AKS-cluster moet uitgaande internetverbinding toestaan.
 * Maak niet meer dan één AKS-cluster in hetzelfde subnet.
 * AKS-clusters worden niet gebruikt `169.254.0.0/16`, `172.30.0.0/16`, of `172.31.0.0/16` voor het Kubernetes-service-adresbereik.
-* De service-principal die worden gebruikt door het AKS-cluster moet minimaal beschikken over [Inzender voor netwerken](../role-based-access-control/built-in-roles.md#network-contributor) machtigingen op het subnet binnen uw VNet. Als u wilt definiëren een [aangepaste rol](../role-based-access-control/custom-roles.md) in plaats van de ingebouwde rol van inzender voor netwerken, de volgende machtigingen zijn vereist:
+* De service-principal die worden gebruikt door het AKS-cluster moet minimaal beschikken over [Inzender voor netwerken](../role-based-access-control/built-in-roles.md#network-contributor) machtigingen op het subnet binnen uw virtuele netwerk. Als u wilt definiëren een [aangepaste rol](../role-based-access-control/custom-roles.md) in plaats van de ingebouwde rol van inzender voor netwerken, de volgende machtigingen zijn vereist:
   * `Microsoft.Network/virtualNetworks/subnets/join/action`
   * `Microsoft.Network/virtualNetworks/subnets/read`
 
 ## <a name="plan-ip-addressing-for-your-cluster"></a>IP-adressen voor uw cluster plannen
 
-Clusters die zijn geconfigureerd met geavanceerde netwerken vereist extra planning. De grootte van uw VNet en een subnet moet geschikt zijn voor zowel het aantal schillen die u van plan bent om uit te voeren als het aantal knooppunten voor het cluster.
+Clusters die zijn geconfigureerd met geavanceerde netwerken vereist extra planning. De grootte van het virtuele netwerk en een subnet moet geschikt zijn voor zowel het aantal schillen die u van plan bent om uit te voeren als het aantal knooppunten voor het cluster.
 
-IP-adressen voor het gehele product en de knooppunten van het cluster worden toegewezen uit het opgegeven subnet binnen het VNet. Elk knooppunt is geconfigureerd met een primaire IP-adres, is het IP-adres van het knooppunt en 30 extra IP-adressen vooraf is geconfigureerd door Azure CNI die zijn toegewezen aan schillen gepland naar het knooppunt. Wanneer u uw cluster uitschalen, wordt elk knooppunt op dezelfde manier geconfigureerd met IP-adressen uit het subnet.
+IP-adressen voor het gehele product en de knooppunten van het cluster worden toegewezen uit het opgegeven subnet binnen het virtuele netwerk. Elk knooppunt is geconfigureerd met een primaire IP-adres, is het IP-adres van het knooppunt en 30 extra IP-adressen vooraf is geconfigureerd door Azure CNI die zijn toegewezen aan schillen gepland naar het knooppunt. Wanneer u uw cluster uitschalen, wordt elk knooppunt op dezelfde manier geconfigureerd met IP-adressen uit het subnet.
 
-Het abonnement van de IP-adres voor een AKS-cluster bestaat uit een VNet, ten minste één subnet voor de knooppunten en schillen, en een Kubernetes-service-adresbereik.
+Het IP-adres-plan voor een AKS-cluster bestaat uit een virtueel netwerk, ten minste één subnet voor de knooppunten en schillen en Kubernetes service adresbereik.
 
 | Adresbereik / Azure resource | Limieten en grootte |
 | --------- | ------------- |
-| Virtueel netwerk | Azure VNet kan even groot zijn als de/8 die maar mogelijk alleen 16.000 geconfigureerd IP-adressen. |
+| Virtueel netwerk | Het Azure-netwerk zo groot is als/8 die kan worden, maar is beperkt tot 65.536 geconfigureerde IP-adressen. |
 | Subnet | Moet groot genoeg is voor de knooppunten, schillen en alle Kubernetes en Azure-resources die kunnen worden ingericht in het cluster. Als u een interne Load Balancer in Azure implementeert, kunt u voor de front-end-IP-adressen, worden toegewezen uit het subnet van het cluster, geen openbare IP-adressen. <p/>Voor het berekenen van *minimale* subnetgrootte: `(number of nodes) + (number of nodes * pods per node)` <p/>Voorbeeld voor een cluster met 50 knooppunten: `(50) + (50 * 30) = 1,550` (/ 21 of hoger) |
-| Adresbereik van Kubernetes service | Dit bereik moet niet worden gebruikt door een willekeurig netwerkelement op of verbonden met dit VNet. Adres van service CIDR moet kleiner zijn dan /12. |
+| Adresbereik van Kubernetes service | Dit bereik moet niet worden gebruikt door elk netwerkelement op of verbonden met dit virtuele netwerk. Adres van service CIDR moet kleiner zijn dan /12. |
 | IP-adres van Kubernetes DNS-service | IP-adres binnen het Kubernetes-service-adresbereik dat wordt gebruikt door clusterservicedetectie (kube-dns). |
 | Docker bridge-adres | IP-adres (in CIDR-notatie) gebruikt als de Docker bridge-IP-adres op knooppunten. De standaardwaarde van 172.17.0.1/16. |
 
-Elk VNet dat is ingericht voor gebruik met de invoegtoepassing Azure CNI beperkt tot is **16.000 geconfigureerde IP-adressen**.
-
 ## <a name="maximum-pods-per-node"></a>Maximale schillen per knooppunt
 
-Het standaard maximum aantal schillen per knooppunt in een AKS-cluster varieert tussen basiseigenschappen en geavanceerde netwerken en de methode van implementatie van het cluster.
+Het standaard maximum aantal schillen per knooppunt in een AKS-cluster varieert tussen de basisopties en geavanceerde netwerken en de methode van implementatie van het cluster.
 
 ### <a name="default-maximum"></a>Standaard maximale
 
-* Netwerkgebruik: **110 schillen per knooppunt**
-* Geavanceerde netwerken **30 schillen per knooppunt**
+Dit zijn de *standaard* maximumwaarden bij het implementeren van een AKS-cluster zonder op te geven het maximum aantal schillen tijdens de implementatie:
 
-### <a name="configure-maximum"></a>Maximale configureren
+| Implementatiemethode | Basic | Geavanceerd | Kan worden geconfigureerd tijdens de implementatie |
+| -- | :--: | :--: | -- |
+| Azure-CLI | 110 | 30 | Ja |
+| Resource Manager-sjabloon | 110 | 30 | Ja |
+| Portal | 110 | 30 | Nee |
 
-Afhankelijk van de methode van implementatie, is het mogelijk om te wijzigen van het maximum aantal schillen per knooppunt in een AKS-cluster.
+### <a name="configure-maximum---new-clusters"></a>Maximum - nieuwe clusters configureren
+
+Een ander maximum aantal schillen per knooppunt opgeven wanneer u een AKS-cluster implementeert:
 
 * **Azure CLI**: Geef de `--max-pods` argument bij het implementeren van een cluster met de [az aks maken] [ az-aks-create] opdracht.
 * **Resource Manager-sjabloon**: Geef de `maxPods` eigenschap in de [ManagedClusterAgentPoolProfile] object wanneer u een cluster met een Resource Manager-sjabloon implementeert.
 * **Azure-portal**: U kunt het maximale aantal schillen per knooppunt niet wijzigen wanneer u een cluster met de Azure portal implementeert. Geavanceerde VPN-clusters zijn beperkt tot 30 schillen per knooppunt bij de implementatie in Azure portal.
 
+### <a name="configure-maximum---existing-clusters"></a>Maximum - bestaande clusters configureren
+
+U kunt de maximale schillen per knooppunt in een bestaand AKS-cluster niet wijzigen. Alleen wanneer u in eerste instantie het cluster implementeert, kunt u het nummer van de aanpassen.
+
 ## <a name="deployment-parameters"></a>Implementatieparameters
 
 Wanneer u een AKS-cluster maakt, kunnen de volgende parameters worden geconfigureerd voor geavanceerde netwerken:
 
-**Virtueel netwerk**: het VNet waarin u wilt de Kubernetes-cluster implementeren. Als u maken van een nieuw VNet voor uw cluster wilt, selecteert u *nieuw* en volg de stappen in de *virtueel netwerk maken* sectie. Het VNet is beperkt tot 16.000 geconfigureerde IP-adressen.
+**Virtueel netwerk**: het virtuele netwerk waarin u wilt de Kubernetes-cluster implementeren. Als u een nieuw virtueel netwerk voor uw cluster maken wilt, selecteert u *nieuw* en volg de stappen in de *virtueel netwerk maken* sectie. Zie voor meer informatie over de limieten en quota's voor een Azure virtual network [Azure-abonnement en Servicelimieten, quotums en beperkingen](../azure-subscription-service-limits.md#azure-resource-manager-virtual-networking-limits).
 
-**Subnet**: het subnet binnen het VNet waar u het cluster te implementeren. Als u een nieuw subnet in het VNet voor uw cluster te maken wilt, selecteert u *nieuw* en volg de stappen in de *subnet maken* sectie.
+**Subnet**: het subnet binnen het virtuele netwerk waar u het cluster te implementeren. Als u een nieuw subnet in het virtuele netwerk voor uw cluster te maken wilt, selecteert u *nieuw* en volg de stappen in de *subnet maken* sectie.
 
 **Kubernetes-service-adresbereik**: dit is de set van virtuele IP-adressen die Kubernetes wordt toegewezen aan [services] [ services] in uw cluster. U kunt elk bereik met privé-adres dat voldoet aan de volgende vereisten:
 
-* Moet niet binnen het VNet-IP-adresbereik van het cluster
-* Mag niet overlappen met een andere vnet's die van het cluster VNet collega 's
+* Moet niet binnen het virtuele netwerk IP-adresbereik van het cluster
+* Mag niet overlappen met andere virtuele netwerken met die van het virtuele clusternetwerk collega 's
 * Mag niet overlappen met een on-premises-IP-adressen
 * Moet niet binnen de bereiken `169.254.0.0/16`, `172.30.0.0/16`, of `172.31.0.0/16`
 
-Hoewel het technisch mogelijk om op te geven van een service-adresbereik binnen hetzelfde VNet als uw cluster, wordt doen zo niet aanbevolen. Onvoorspelbaar gedrag kan veroorzaken als er overlappende IP-adresbereiken worden gebruikt. Zie voor meer informatie de [Veelgestelde vragen over](#frequently-asked-questions) sectie van dit artikel. Zie voor meer informatie over Kubernetes-services, [Services] [ services] in het Kubernetes-documentatie.
+Hoewel het technisch mogelijk om op te geven van een service-adresbereik binnen hetzelfde virtuele netwerk als uw cluster, wordt doen zo niet aanbevolen. Onvoorspelbaar gedrag kan veroorzaken als er overlappende IP-adresbereiken worden gebruikt. Zie voor meer informatie de [Veelgestelde vragen over](#frequently-asked-questions) sectie van dit artikel. Zie voor meer informatie over Kubernetes-services, [Services] [ services] in het Kubernetes-documentatie.
 
 **IP-adres van Kubernetes DNS-service**: het IP-adres van het cluster DNS-service. Dit adres moet zich binnen de *Kubernetes service-adresbereik*.
 
-**Docker Bridge-adres**: het IP-adres en netmasker om toe te wijzen aan de brug Docker. Dit IP-adres moet niet binnen het VNet-IP-adresbereik van het cluster.
+**Docker Bridge-adres**: het IP-adres en netmasker om toe te wijzen aan de brug Docker. Dit IP-adres moet niet binnen het virtuele netwerk IP-adresbereik van het cluster.
 
 ## <a name="configure-networking---cli"></a>Configureren van netwerken - CLI
 
@@ -140,7 +147,7 @@ De volgende vragen en antwoorden van toepassing op de **Geavanceerd** netwerkcon
 
 * *Kan ik virtuele machines implementeren in het clustersubnet van mijn?*
 
-  Nee. Implementatie van VM's in het subnet dat wordt gebruikt door uw Kubernetes-cluster wordt niet ondersteund. VM's kunnen worden geïmplementeerd in hetzelfde VNet, maar in een ander subnet.
+  Nee. Implementatie van VM's in het subnet dat wordt gebruikt door uw Kubernetes-cluster wordt niet ondersteund. VM's kunnen worden geïmplementeerd in hetzelfde virtuele netwerk, maar in een ander subnet.
 
 * *Kan ik per pod-netwerkbeleid configureren?*
 
@@ -150,13 +157,15 @@ De volgende vragen en antwoorden van toepassing op de **Geavanceerd** netwerkcon
 
   Ja, wanneer u een cluster met de Azure CLI of een Resource Manager-sjabloon implementeert. Zie [Maximum schillen per knooppunt](#maximum-pods-per-node).
 
+  U kunt het maximale aantal schillen per knooppunt in een bestaand cluster niet wijzigen.
+
 * *Hoe configureer ik extra eigenschappen voor het subnet dat ik heb tijdens het maken van de AKS-cluster gemaakt? Bijvoorbeeld, service-eindpunten.*
 
-  De volledige lijst met eigenschappen voor de VNet en subnetten die u tijdens het maken van de AKS-cluster maakt kan worden geconfigureerd in de standaard pagina met de VNet-configuratie in Azure portal.
+  De volledige lijst met eigenschappen voor het virtuele netwerk en subnetten die u tijdens het maken van de AKS-cluster maakt kan worden geconfigureerd in de configuratiepagina van de standaard virtueel netwerk in Azure portal.
 
-* *Kan ik een ander subnet binnen mijn cluster VNet gebruiken voor de* **Kubernetes service-adresbereik**?
+* *Kan ik een ander subnet gebruiken in mijn cluster virtuele netwerk voor de* **Kubernetes service-adresbereik**?
 
-  Het wordt niet aanbevolen, maar deze configuratie is mogelijk. Het adresbereik van de service is een set van virtuele IP-adressen (VIP's) die Kubernetes wordt toegewezen aan de services in uw cluster. Azure-netwerk heeft geen zichtbaarheid van het service-IP-adresbereik van het Kubernetes-cluster. Vanwege de afwezigheid van inzicht in het adresbereik van het cluster-service is het mogelijk te maken later een nieuw subnet in het VNet dat met het adresbereik van de service overlapt-cluster. Als deze een overlapping optreedt, toewijzen Kubernetes een service een IP-adres dat wordt al gebruikt door een andere resource in het subnet of fouten in onvoorspelbaar gedrag veroorzaken. Door ervoor te zorgen dat u een adresbereik buiten de VNet van het cluster gebruikt, kunt u dit risico overlapping te vermijden.
+  Het wordt niet aanbevolen, maar deze configuratie is mogelijk. Het adresbereik van de service is een set van virtuele IP-adressen (VIP's) die Kubernetes wordt toegewezen aan de services in uw cluster. Azure-netwerk heeft geen zichtbaarheid van het service-IP-adresbereik van het Kubernetes-cluster. Vanwege de afwezigheid van inzicht in het adresbereik van het cluster-service is het mogelijk te maken later een nieuw subnet in het cluster virtuele netwerk met het service-adresbereik overlapt. Als deze een overlapping optreedt, toewijzen Kubernetes een service een IP-adres dat wordt al gebruikt door een andere resource in het subnet of fouten in onvoorspelbaar gedrag veroorzaken. Door ervoor te zorgen dat u een adresbereik buiten het virtuele netwerk van het cluster gebruikt, kunt u dit risico overlapping te vermijden.
 
 ## <a name="next-steps"></a>Volgende stappen
 

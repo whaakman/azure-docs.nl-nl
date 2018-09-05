@@ -1,9 +1,9 @@
 ---
-title: Overzicht van Azure Relay standaard .NET API's | Microsoft Docs
-description: Overzicht van Azure Standard Relay .NET-API
+title: Overzicht van Azure Relay .NET Standard-API's | Microsoft Docs
+description: Overzicht van Azure Relay .NET Standard-API
 services: service-bus-relay
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: b1da9ac1-811b-4df7-a22c-ccd013405c40
@@ -13,21 +13,21 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/23/2018
-ms.author: sethm
-ms.openlocfilehash: aa1863a44f00ae17f63b02c7c247b2c9fd9925f6
-ms.sourcegitcommit: 9890483687a2b28860ec179f5fd0a292cdf11d22
+ms.author: spelluru
+ms.openlocfilehash: a6a1706c8d1e849fd1bb4309c46063dd3f9439c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/24/2018
-ms.locfileid: "28016430"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700137"
 ---
-# <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Overzicht van Azure Relay hybride verbindingen .NET Standard API
+# <a name="azure-relay-hybrid-connections-net-standard-api-overview"></a>Overzicht van Azure Relay Hybrid Connections .NET Standard API
 
-In dit artikel ziet u een aantal van de sleutel Azure Relay hybride verbindingen .NET Standard [client-API's](/dotnet/api/microsoft.azure.relay).
+In dit artikel vindt u een samenvatting van de Azure Relay Hybrid Connections .NET Standard sleutel [client-API's](/dotnet/api/microsoft.azure.relay).
   
-## <a name="relay-connection-string-builder-class"></a>Relay verbindingsreeksen klasse
+## <a name="relay-connection-string-builder-class"></a>Klasse van relay-opbouwfunctie voor verbindingsreeksen
 
-De [RelayConnectionStringBuilder] [ RelayConnectionStringBuilder] klasse indelingen verbindingsreeksen die specifiek voor Relay hybride verbindingen zijn. U kunt deze gebruiken om te controleren of de indeling van een verbindingsreeks of een verbindingsreeks vanaf het begin. Zie de volgende code voor een voorbeeld:
+De [RelayConnectionStringBuilder] [ RelayConnectionStringBuilder] klasse indelingen verbindingsreeksen die specifiek voor hybride Relay-verbindingen zijn. U kunt deze gebruiken om te controleren of de indeling van een verbindingsreeks of om een verbindingsreeks helemaal. Zie de volgende code voor een voorbeeld:
 
 ```csharp
 var endpoint = "[Relay namespace]";
@@ -44,7 +44,7 @@ var connectionStringBuilder = new RelayConnectionStringBuilder()
 };
 ```
 
-U kunt ook een verbindingsreeks rechtstreeks naar doorgeven de `RelayConnectionStringBuilder` methode. Deze bewerking kunt u controleren of de verbindingsreeks is een ongeldige indeling. Als u een van de parameters zijn ongeldig, de constructor genereert een `ArgumentException`.
+U kunt ook een verbindingsreeks rechtstreeks naar doorgeven de `RelayConnectionStringBuilder` methode. Met deze bewerking kunt u controleren of de verbindingsreeks is een geldige indeling hebben. Als een van de parameters ongeldig zijn, de constructor genereert een `ArgumentException`.
 
 ```csharp
 var myConnectionString = "[RelayConnectionString]";
@@ -61,15 +61,15 @@ catch (ArgumentException ae)
 }
 ```
 
-## <a name="hybrid-connection-stream"></a>Stroom van hybride verbinding
+## <a name="hybrid-connection-stream"></a>Hybride verbinding stream
 
-De [HybridConnectionStream] [ HCStream] klasse is de primaire object dat wordt gebruikt voor het verzenden en ontvangen van gegevens van een eindpunt Azure Relay of u met werkt een [HybridConnectionClient] [ HCClient], of een [HybridConnectionListener][HCListener].
+De [HybridConnectionStream] [ HCStream] klasse is de primaire object dat wordt gebruikt voor het verzenden en ontvangen van gegevens van een Azure Relay-eindpunt, of u met werkt nu een [HybridConnectionClient] [ HCClient], of een [HybridConnectionListener][HCListener].
 
 ### <a name="getting-a-hybrid-connection-stream"></a>Ophalen van een stream van hybride verbinding
 
 #### <a name="listener"></a>Listener
 
-Met behulp van een [HybridConnectionListener] [ HCListener] object, kunt u een `HybridConnectionStream` object als volgt:
+Met behulp van een [HybridConnectionListener] [ HCListener] -object, kunt u een `HybridConnectionStream` object als volgt:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -82,7 +82,7 @@ var hybridConnectionStream = await listener.AcceptConnectionAsync();
 
 #### <a name="client"></a>Client
 
-Met behulp van een [HybridConnectionClient] [ HCClient] object, kunt u een `HybridConnectionStream` object als volgt:
+Met behulp van een [HybridConnectionClient] [ HCClient] -object, kunt u een `HybridConnectionStream` object als volgt:
 
 ```csharp
 // Use the RelayConnectionStringBuilder to get a valid connection string
@@ -91,11 +91,11 @@ var client = new HybridConnectionClient(csb.ToString());
 var hybridConnectionStream = await client.CreateConnectionAsync();
 ```
 
-### <a name="receiving-data"></a>Ontvangen van gegevens
+### <a name="receiving-data"></a>Gegevens ontvangen
 
-De [HybridConnectionStream] [ HCStream] klasse wederzijdse communicatie mogelijk maakt. In de meeste gevallen ontvangt u continu van de stroom. Als u tekst uit de stroom leest, kunt u ook gebruik van een [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) object, waardoor u gemakkelijker bij het parseren van de gegevens. U kunt bijvoorbeeld gegevens lezen als tekst, in plaats van als `byte[]`.
+De [HybridConnectionStream] [ HCStream] klasse wederzijdse communicatie mogelijk maakt. In de meeste gevallen ontvangt u continu van de stroom. Als u tekst uit de stroom leest, kunt u ook gebruik van een [StreamReader](https://msdn.microsoft.com/library/system.io.streamreader(v=vs.110).aspx) object, waarmee u gemakkelijker bij het parseren van de gegevens. Bijvoorbeeld, kunt u gegevens lezen als tekst, in plaats van als `byte[]`.
 
-De volgende code worden afzonderlijke tekstregels gelezen uit de stroom totdat een annulering is aangevraagd:
+De volgende code weergegeven als afzonderlijke regels tekst van de stroom totdat een annulering wordt aangevraagd:
 
 ```csharp
 // Create a CancellationToken, so that we can cancel the while loop
@@ -120,14 +120,14 @@ while (!cancellationToken.IsCancellationRequested)
 
 ### <a name="sending-data"></a>Verzenden van gegevens
 
-Wanneer u een verbinding tot stand gebracht, kunt u een bericht verzenden naar de Relay-eindpunt. Omdat het verbindingsobject neemt over [stroom](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx), verzenden van uw gegevens als een `byte[]`. Het volgende voorbeeld ziet u hoe u dit doet:
+Zodra u een verbinding tot stand gebracht hebt, kunt u een bericht verzenden naar de Relay-eindpunt. Omdat het verbindingsobject neemt over [Stream](https://msdn.microsoft.com/library/system.io.stream(v=vs.110).aspx), verzenden van uw gegevens als een `byte[]`. Het volgende voorbeeld ziet u hoe u dit doet:
 
 ```csharp
 var data = Encoding.UTF8.GetBytes("hello");
 await clientConnection.WriteAsync(data, 0, data.Length);
 ```
 
-Echter, als u tekst rechtstreeks verzenden wilt zonder de voor het coderen van de tekenreeks telkens wanneer u terugloopt de `hybridConnectionStream` object met een [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) object.
+Echter, als u verzenden van de tekst rechtstreeks wilt, zonder te coderen van de tekenreeks telkens wanneer u kunt laten lopen de `hybridConnectionStream` object met een [StreamWriter](https://msdn.microsoft.com/library/system.io.streamwriter(v=vs.110).aspx) object.
 
 ```csharp
 // The StreamWriter object only needs to be created once

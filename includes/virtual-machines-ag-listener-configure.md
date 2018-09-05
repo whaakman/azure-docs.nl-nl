@@ -10,7 +10,7 @@ De beschikbaarheidsgroep-listener is een IP-adres en de naam die de SQL Server-b
 
    ![Naam van clusternetwerk](./media/virtual-machines-ag-listener-configure/90-clusternetworkname.png)
 
-2. <a name="addcap"></a>Voeg de client access point.  
+1. <a name="addcap"></a>Voeg de client access point.  
     De client access point is de naam van het netwerk dat toepassingen gebruiken om verbinding maken met de databases in een beschikbaarheidsgroep. Maak de client access point in Failoverclusterbeheer.
 
     a. Vouw de naam van het cluster en klik vervolgens op **rollen**.
@@ -24,7 +24,9 @@ De beschikbaarheidsgroep-listener is een IP-adres en de naam die de SQL Server-b
 
     d. Klik op om het maken van de listener **volgende** twee keer, en klik vervolgens op **voltooien**. Worden niet weergegeven in de listener of resource online op dit moment.
 
-3. <a name="congroup"></a>Configureer de IP-resource voor de beschikbaarheidsgroep.
+1. De beschikbaarheid van groep-clusterrol offline halen. In **Failoverclusterbeheer** onder **rollen**, met de rechtermuisknop op de rol en selecteert u **functie stoppen**.
+
+1. <a name="congroup"></a>Configureer de IP-resource voor de beschikbaarheidsgroep.
 
     a. Klik op de **Resources** tabblad uit en vouw vervolgens het clienttoegangspunt dat u hebt gemaakt.  
     De client access point is offline.
@@ -41,7 +43,7 @@ De beschikbaarheidsgroep-listener is een IP-adres en de naam die de SQL Server-b
     1. Disable NetBIOS for this address and click **OK**. Repeat this step for each IP resource if your solution spans multiple Azure VNets. 
     ------------------------->
 
-4. <a name = "dependencyGroup"></a>Controleer de SQL Server-beschikbaarheidsgroepresource afhankelijk van de client access point.
+1. <a name = "dependencyGroup"></a>Controleer de SQL Server-beschikbaarheidsgroepresource afhankelijk van de client access point.
 
     a. In Failoverclusterbeheer klikt u op **rollen**, en klik vervolgens op de beschikbaarheidsgroep.
 
@@ -53,7 +55,7 @@ De beschikbaarheidsgroep-listener is een IP-adres en de naam die de SQL Server-b
 
     d. Klik op **OK**.
 
-5. <a name="listname"></a>Controleer de afhankelijk van het IP-adres van client access point resource.
+1. <a name="listname"></a>Controleer de afhankelijk van het IP-adres van client access point resource.
 
     a. In Failoverclusterbeheer klikt u op **rollen**, en klik vervolgens op de beschikbaarheidsgroep. 
 
@@ -65,32 +67,35 @@ De beschikbaarheidsgroep-listener is een IP-adres en de naam die de SQL Server-b
 
    ![IP-Resource](./media/virtual-machines-ag-listener-configure/98-propertiesdependencies.png) 
 
-    d. Met de rechtermuisknop op de listenernaam van de, en klik vervolgens op **Online brengen**. 
-
     >[!TIP]
     >U kunt controleren of de afhankelijkheden juist zijn geconfigureerd. In Failoverclusterbeheer, gaat u aan rollen, met de rechtermuisknop op de beschikbaarheidsgroep, klikt u op **meer acties**, en klik vervolgens op **Afhankelijkheidsrapport weergeven**. Wanneer de afhankelijkheden juist zijn geconfigureerd, de beschikbaarheidsgroep is afhankelijk van de netwerknaam en de naam van het netwerk is afhankelijk van het IP-adres. 
 
 
-6. <a name="setparam"></a>Stel de clusterparameters in PowerShell.
+1. <a name="setparam"></a>Stel de clusterparameters in PowerShell.
 
   a. Kopieer de volgende PowerShell-script naar een van uw SQL Server-exemplaren. Werk de variabelen voor uw omgeving.
 
-  - `$ILBIP` de IP-adres dat u hebt gemaakt op de Azure load balancer voor de beschikbaarheidsgroep-listener is.
+  - `$ListenerILBIP` de IP-adres dat u hebt gemaakt op de Azure load balancer voor de beschikbaarheidsgroep-listener is.
     
-  - `$ProbePort` is de poort die u hebt geconfigureerd op de Azure load balancer voor de beschikbaarheidsgroep-listener.
+  - `$ListenerProbePort` is de poort die u hebt geconfigureerd op de Azure load balancer voor de beschikbaarheidsgroep-listener.
 
   ```PowerShell
   $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
   $IPResourceName = "<IPResourceName>" # the IP Address resource name
-  $ILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
-  [int]$ProbePort = <nnnnn>
+  $ListenerILBIP = "<n.n.n.n>" # the IP Address of the Internal Load Balancer (ILB). This is the static IP address for the load balancer you configured in the Azure portal.
+  [int]$ListenerProbePort = <nnnnn>
   
   Import-Module FailoverClusters
 
-  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ListenerILBIP";"ProbePort"=$ListenerProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
   ```
 
   b. De clusterparameters instellen door het PowerShell-script uitgevoerd op een van de clusterknooppunten.  
+
+  > [!NOTE]
+  > Als uw SQL Server-exemplaren in verschillende regio's zijn, moet u het PowerShell-script worden twee keer uitgevoerd. De eerste keer gebruikt de `$ListenerILBIP` en `$ListenerProbePort` van de eerste regio. De tweede keer gebruikt de `$ListenerILBIP` en `$ListenerProbePort` vanaf de tweede regio. De naam van het cluster-netwerk en de naam van de cluster-IP-resource zijn ook verschillende voor elke regio.
+
+1. De beschikbaarheid van groep clusterrol online brengen. In **Failoverclusterbeheer** onder **rollen**, klik met de rechtermuisknop op de rol en selecteer **rol starten**.
 
 Herhaal de stappen hierboven om in te stellen van de clusterparameters voor het IP-adres van het WSFC-cluster.
 
@@ -104,22 +109,22 @@ Herhaal de stappen hierboven om in te stellen van de clusterparameters voor het 
   
   a. Kopieer de volgende PowerShell-script naar een van uw SQL Server-exemplaren. Werk de variabelen voor uw omgeving.
 
-  - `$ILBIP` is het IP-adres dat u hebt gemaakt in de Azure load balancer voor de clusterbron van de WSFC-core. Dit wijkt af van het IP-adres voor de beschikbaarheidsgroep-listener.
+  - `$ClusterCoreIP` is het IP-adres dat u hebt gemaakt in de Azure load balancer voor de clusterbron van de WSFC-core. Dit wijkt af van het IP-adres voor de beschikbaarheidsgroep-listener.
 
-  - `$ProbePort` is de poort die u hebt geconfigureerd in de Azure load balancer voor de WSFC-statustest. Dit wijkt af van de test voor de beschikbaarheidsgroep-listener.
+  - `$ClusterProbePort` is de poort die u hebt geconfigureerd in de Azure load balancer voor de WSFC-statustest. Dit wijkt af van de test voor de beschikbaarheidsgroep-listener.
 
   ```PowerShell
   $ClusterNetworkName = "<MyClusterNetworkName>" # the cluster network name (Use Get-ClusterNetwork on Windows Server 2012 of higher to find the name)
   $IPResourceName = "<ClusterIPResourceName>" # the IP Address resource name
-  $ILBIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
-  [int]$ProbePort = <nnnnn> # The probe port from the WSFCEndPointprobe in the Azure portal. This port must be different from the probe port for the availability grouop listener probe port.
+  $ClusterCoreIP = "<n.n.n.n>" # the IP Address of the Cluster IP resource. This is the static IP address for the load balancer you configured in the Azure portal.
+  [int]$ClusterProbePort = <nnnnn> # The probe port from the WSFCEndPointprobe in the Azure portal. This port must be different from the probe port for the availability grouop listener probe port.
   
   Import-Module FailoverClusters
   
-  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ILBIP";"ProbePort"=$ProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
+  Get-ClusterResource $IPResourceName | Set-ClusterParameter -Multiple @{"Address"="$ClusterCoreIP";"ProbePort"=$ClusterProbePort;"SubnetMask"="255.255.255.255";"Network"="$ClusterNetworkName";"EnableDhcp"=0}
   ```
 
   b. De clusterparameters instellen door het PowerShell-script uitgevoerd op een van de clusterknooppunten.  
 
-  > [!NOTE]
-  > Als uw SQL Server-exemplaren in verschillende regio's zijn, moet u het PowerShell-script worden twee keer uitgevoerd. De eerste keer gebruikt de `$ILBIP` en `$ProbePort` van de eerste regio. De tweede keer gebruikt de `$ILBIP` en `$ProbePort` vanaf de tweede regio. De naam van het cluster-netwerk en de naam van de cluster-IP-resource zijn hetzelfde.
+>[!WARNING]
+>De health testpoort beschikbaarheidsgroeplistener moet afwijken van de cluster core IP-adres health testpoort. In deze voorbeelden wordt de listener-poort is 59999 en het IP-adres van de cluster-core 58888 is. Beide poorten vereist een inkomende firewall-regel voor toestaan.

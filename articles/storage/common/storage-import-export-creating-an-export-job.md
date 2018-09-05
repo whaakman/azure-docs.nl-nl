@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 889cedf555c8a9a86cc8a2101f27cafcb48376df
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0066ec20c68d70fac9a6529f8f5b85855d6c5349
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523152"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666821"
 ---
 # <a name="creating-an-export-job-for-the-azure-importexport-service"></a>Een exporttaak voor de Azure Import/Export-service maken
 Het maken van een exporttaak voor de Microsoft Azure Import/Export-service met behulp van de REST-API omvat de volgende stappen:
@@ -48,7 +48,7 @@ Het maken van een exporttaak voor de Microsoft Azure Import/Export-service met b
  Zie voor meer informatie over het opgeven van blobs voor het exporteren van de [plaatsen taak](/rest/api/storageimportexport/jobs#Jobs_CreateOrUpdate) bewerking.
 
 ## <a name="obtaining-your-shipping-location"></a>Het ophalen van de locatie van uw verzending
-Voordat u een exporttaak bekijken, moet u eerst een verzending locatienaam en adres door het aanroepen van de [locatie ophalen](https://portal.azure.com) of [lijst met locaties](/rest/api/storageimportexport/listlocations) bewerking. `List Locations` retourneert een lijst met locaties en hun e-mailadressen. U kunt een locatie in de geretourneerde lijst selecteren en verzending van uw harde schijven naar dat adres. U kunt ook de `Get Location` bewerking rechtstreeks verkrijgen van het verzendadres voor een specifieke locatie.
+Voordat u een exporttaak bekijken, moet u eerst een verzending locatienaam en adres door het aanroepen van de [locatie ophalen](https://portal.azure.com) of [lijst met locaties](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) bewerking. `List Locations` retourneert een lijst met locaties en hun e-mailadressen. U kunt een locatie in de geretourneerde lijst selecteren en verzending van uw harde schijven naar dat adres. U kunt ook de `Get Location` bewerking rechtstreeks verkrijgen van het verzendadres voor een specifieke locatie.
 
 Volg de stappen hieronder om de locatie van de verzending verkrijgen:
 

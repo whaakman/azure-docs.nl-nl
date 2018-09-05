@@ -1,62 +1,68 @@
 ---
-title: PowerShell voor Virtual Network service-eindpunten en regels in SQL | Microsoft Docs
-description: PowerShell-scripts voor het maken en beheren van virtuele Service-eindpunten voor uw Azure SQL Database biedt.
+title: PowerShell voor Virtual Network-service-eindpunten en regels in Azure SQL | Microsoft Docs
+description: PowerShell-scripts voor het maken en beheren van virtuele Service-eindpunten voor uw Azure SQL Database en SQL Data Warehouse biedt.
 services: sql-database
-author: MightyPen
+author: DhruvMsft
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 02/05/2018
-ms.reviewer: genemi
+ms.date: 06/14/2018
+ms.reviewer: genemi, carlrab
 ms.author: dmalik
-ms.openlocfilehash: 503aef620679c9bf3f65cd7f463ba604c6b9e451
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 364dd2709c9000aae082976f3ec28396f92850da
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34649513"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669899"
 ---
-# <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database"></a>PowerShell gebruiken voor het maken van een virtuele Service-eindpunt en een regel voor Azure SQL Database
+# <a name="use-powershell-to-create-a-virtual-service-endpoint-and-rule-for-azure-sql-database-and-sql-data-warehouse"></a>PowerShell gebruiken voor het maken van een virtuele Service-eindpunt en een regel voor Azure SQL Database en SQL Data Warehouse
 
-In dit artikel biedt en legt een PowerShell-script dat de volgende acties uit:
+Zowel Azure [SQL-Database](sql-database-technical-overview.md) en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) bieden ondersteuning voor virtuele-Service-eindpunten. 
 
-1. Hiermee maakt u een Microsoft Azure *virtuele Service-eindpunt* op het subnet.
-2. Het eindpunt toegevoegd aan de firewall van uw Azure SQL Database-server maken een *virtueel netwerk regel*.
+> [!NOTE]
+> Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
 
-Uw motivaties voor het maken van een regel worden beschreven: [virtuele Service-eindpunten voor Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
+In dit artikel biedt en legt uit een PowerShell-script dat de volgende acties uitgevoerd:
+
+1. Hiermee maakt u een Microsoft Azure *virtuele Service-eindpunt* op uw subnet.
+2. Het eindpunt toegevoegd aan de firewall van uw Azure SQL-databaseserver maken een *regel voor virtuele netwerken*.
+
+De redenen voor het maken van een regel worden uitgelegd: [virtuele Service-eindpunten voor Azure SQL Database][sql-db-vnet-service-endpoint-rule-overview-735r].
 
 > [!TIP]
-> Als alles wat u nodig is om te beoordelen of de virtuele-Service-eindpunt toevoegen *typenaam* voor SQL-Database tot uw subnet, kunt u verder gaan naar onze meer [directe PowerShell-script](#a-verify-subnet-is-endpoint-ps-100).
+> Als alles wat u nodig is om te beoordelen of de virtuele-Service-eindpunt toevoegen *typenaam* voor SQL Database om uw subnet, kunt u verder op onze meer [directe PowerShell-script](#a-verify-subnet-is-endpoint-ps-100).
 
 #### <a name="major-cmdlets"></a>Primaire-cmdlets
 
-In dit artikel wordt beschreven welke cmdlet met de naam **nieuw AzureRmSqlServerVirtualNetworkRule**, zodat het subnet-eindpunt wordt toegevoegd aan de toegangsbeheerlijst (ACL) van uw Azure SQL Database-server, waardoor het maken van een regel.
+In dit artikel ligt de nadruk op cmdlet met de naam **New-azurermsqlservervirtualnetworkrule toegevoegd om**, zodat aan het subnet-eindpunt wordt toegevoegd aan de toegangsbeheerlijst (ACL) van uw Azure SQL Database-server, waardoor het maken van een regel.
 
-De volgende lijst ziet u de volgorde van andere *belangrijke* cmdlets die u uitvoeren moet om voor te bereiden voor de aanroep **nieuw AzureRmSqlServerVirtualNetworkRule**. In dit artikel deze aanroepen optreden in [3 "virtuele netwerk scriptregel'](#a-script-30):
+De volgende lijst bevat de volgorde van de andere *belangrijke* -cmdlets die u uitvoeren moet om voor te bereiden voor de aanroep van **New-azurermsqlservervirtualnetworkrule toegevoegd om**. In dit artikel worden deze aanroepen optreden in [script 3 "Virtual network rule'](#a-script-30):
 
-1. [Nieuwe AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): Hiermee maakt u een subnetobject.
+1. [Nieuwe-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworksubnetconfig): maakt een subnetobject.
 
-2. [Nieuwe-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): maakt het virtuele netwerk in het subnet wordt gegeven.
+2. [Nieuwe-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetwork): maakt uw virtuele netwerk, het subnet wordt gegeven.
 
-3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): een virtuele Service-eindpunt toegewezen aan het subnet.
+3. [Set-AzureRmVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetworkSubnetConfig): wijst een virtuele Service-eindpunt toe aan uw subnet.
 
-4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): wijzigingen in het virtuele netwerk zich blijft voordoen.
+4. [Set-AzureRmVirtualNetwork](https://docs.microsoft.com/powershell/module/azurerm.network/Set-AzureRmVirtualNetwork): updates aangebracht in het virtuele netwerk zich blijft voordoen.
 
-5. [Nieuwe AzureRmSqlServerVirtualNetworkRule](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): nadat uw subnet een eindpunt is, voegt u uw subnet toe als een regel virtueel netwerk in de ACL van uw Azure SQL Database-server.
-    - De parameter biedt **- IgnoreMissingVnetServiceEndpoint**, te beginnen in PowerShell-Module voor Azure RM versie 5.1.1.
+5. [Nieuwe-azurermsqlservervirtualnetworkrule toegevoegd om](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqlservervirtualnetworkrule): nadat uw subnet een eindpunt is, voegt u uw subnet toe als een regel voor virtuele netwerken in de ACL van uw Azure SQL Database-server.
+    - De parameter biedt **- IgnoreMissingVnetServiceEndpoint**, beginnend in PowerShell-Module voor Azure RM versie 5.1.1.
 
 #### <a name="prerequisites-for-running-powershell"></a>Vereisten voor het uitvoeren van PowerShell
 
-- U kunt al aanmelden bij Azure, zoals via de [Azure-portal][http-azure-portal-link-ref-477t].
+- U kunt al Meld u aan bij Azure, zoals via de [Azure-portal][http-azure-portal-link-ref-477t].
 - U kunt al PowerShell-scripts uitvoeren.
 
 > [!NOTE]
-> Zorg ervoor dat de service-eindpunten zijn ingeschakeld voor het Vnet/Subnet die u wilt toevoegen aan uw Server anders mislukt het maken van de firewallregel Vnet.
+> Zorg ervoor dat service-eindpunten zijn ingeschakeld voor het Vnet/Subnet die u wilt toevoegen aan uw Server anders mislukt het maken van de Vnet-firewallregel.
 
 #### <a name="one-script-divided-into-four-chunks"></a>Een script onderverdeeld in vier segmenten
 
-Onze demonstratie PowerShell-script is onderverdeeld in een reeks van kleinere scripts. De deling learning vereenvoudigt en biedt flexibiliteit. De scripts moeten worden uitgevoerd in de aangegeven volgorde. Als u geen tijd nu de scripts worden uitgevoerd, wordt na script 4 onze werkelijke testuitvoer weergegeven.
+Onze demonstratie PowerShell-script is onderverdeeld in een reeks kleinere scripts. De afdeling learning vereenvoudigt en biedt flexibiliteit. De scripts moeten worden uitgevoerd in de aangegeven volgorde. Als u geen tijd nu de scripts uit te voeren, wordt na 4-script uit onze werkelijke testuitvoer weergegeven.
 
 
 
@@ -70,9 +76,9 @@ Onze demonstratie PowerShell-script is onderverdeeld in een reeks van kleinere s
 Deze eerste PowerShell-script waarden worden toegewezen aan variabelen. De volgende scripts zijn afhankelijk van deze variabelen.
 
 > [!IMPORTANT]
-> Voordat u dit script uitvoert, kunt u de waarden als u dit wilt bewerken. Als u al een resourcegroep hebt, wilt u mogelijk de naam van uw resourcegroep als de toegewezen waarde bewerken.
+> Voordat u dit script uitvoert, kunt u de waarden, als u dat wilt bewerken. Als u al een resourcegroep hebt, wilt u mogelijk de namen van uw resourcegroep als de toegewezen waarde bewerken.
 >
->  De abonnementsnaam van uw moet worden bewerkt in het script.
+>  Naam van uw abonnement moet worden bewerkt in het script.
 
 #### <a name="powershell-script-1-source-code"></a>Broncode van de PowerShell-script 1
 
@@ -120,7 +126,7 @@ Write-Host 'Completed script 1, the "Variables".';
 
 ## <a name="script-2-prerequisites"></a>Script 2: vereisten
 
-Dit script wordt voorbereid voor het volgende script uit, waarbij de eindpuntactie is. Dit script maakt u de volgende items, maar alleen weergegeven als deze niet al bestaan. U kunt script 2 overslaan als u weet zeker van te zijn dat deze items al bestaan:
+Met dit script wordt voorbereid voor het volgende script, waarbij de eindpuntactie is. Met dit script maakt u de volgende items, maar alleen weergegeven als deze nog niet bestaan. Als u weet zeker dat deze items al bestaat, kunt u script 2 overslaan:
 
 - Azure-resourcegroep
 - Azure SQL Database-server
@@ -216,7 +222,7 @@ Write-Host 'Completed script 2, the "Prerequisites".';
 
 ## <a name="script-3-create-an-endpoint-and-a-rule"></a>Script 3: Een eindpunt en een regel maken
 
-Dit script maakt een virtueel netwerk met een subnet. Vervolgens het script toegewezen de **Microsoft.Sql** eindpunttype voor het subnet. Ten slotte wordt het script uw subnet toegevoegd aan de toegangsbeheerlijst (ACL) van de SQL-Database-server, waardoor het maken van een regel.
+Dit script maakt een virtueel netwerk met een subnet. Vervolgens het script toegewezen de **Microsoft.Sql** eindpunttype aan uw subnet. Het script voegt ten slotte uw subnet toe aan de toegangsbeheerlijst (ACL) van uw SQL Database-server, waardoor het maken van een regel.
 
 #### <a name="powershell-script-3-source-code"></a>Broncode van de PowerShell-script 3
 
@@ -305,14 +311,14 @@ Write-Host 'Completed script 3, the "Virtual-Netowrk-Rule".';
 
 <a name="a-script-40" />
 
-## <a name="script-4-clean-up"></a>4 script: Opschonen van
+## <a name="script-4-clean-up"></a>Script 4: Opschoning
 
-Dit laatste script verwijdert u de resources die de vorige scripts die zijn gemaakt voor de demonstratie. Het script vraagt echter om bevestiging voordat deze wordt verwijderd als het volgende:
+Deze laatste script Hiermee verwijdert u de resources die de vorige scripts die zijn gemaakt voor de demo. Het script vraagt echter om bevestiging voordat deze wordt verwijderd als het volgende:
 
 - Azure SQL Database-server
 - Azure-resourcegroep
 
-U kunt script 4 uitvoeren op elk gewenst moment na 1-script is voltooid.
+U kunt script 4 uitvoeren op elk gewenst moment nadat het script 1 is voltooid.
 
 #### <a name="powershell-script-4-source-code"></a>Broncode van de PowerShell-script 4
 
@@ -391,9 +397,9 @@ Write-Host 'Completed script 4, the "Clean-Up".';
 
 <a name="a-actual-output" />
 
-## <a name="actual-output-from-scripts-1-through-4"></a>Werkelijke uitvoer van scripts 1 tot en met 4
+## <a name="actual-output-from-scripts-1-through-4"></a>Werkelijke uitvoer van scripts 1 t/m 4
 
-De uitvoer van onze testuitvoering wordt vervolgens weergegeven in een afgekorte indeling. De uitvoer kan nuttig zijn als u niet wilt dat de PowerShell-scripts daadwerkelijk nu uitvoeren.
+De uitvoer van onze testuitvoering wordt vervolgens weergegeven in een verkorte notatie. De uitvoer kan nuttig zijn als u niet wilt daadwerkelijk de PowerShell-scripts nu uitvoeren.
 
 ```
 [C:\WINDOWS\system32\]
@@ -495,29 +501,29 @@ Dit is het einde van onze belangrijkste PowerShell-script.
 
 ## <a name="verify-your-subnet-is-an-endpoint"></a>Controleer of dat het subnet is een eindpunt
 
-Moet u wellicht een subnet die al is toegewezen de **Microsoft.Sql** typenaam, wat betekent dat deze is al een virtuele Service-eindpunt. U kunt de [Azure-portal] [ http-azure-portal-link-ref-477t] voor het maken van een virtueel netwerk-regel van het eindpunt.
+Mogelijk hebt u een subnet dat al is toegewezen de **Microsoft.Sql** typenaam, wat betekent dat het al een virtuele Service-eindpunt. U kunt de [Azure-portal] [ http-azure-portal-link-ref-477t] te maken van een regel voor virtuele netwerken van het eindpunt.
 
-Of u mogelijk niet zeker of uw subnet heeft de **Microsoft.Sql** typenaam. U kunt het volgende PowerShell-script voor deze maatregelen kunt uitvoeren:
+Of u mogelijk niet zeker weet of uw subnet heeft de **Microsoft.Sql** typenaam. U kunt de volgende PowerShell-script om uit te voeren van deze acties uitvoeren:
 
 1. Nagaan of uw subnet heeft de **Microsoft.Sql** typenaam.
-2. Naam van het type eventueel toewijzen als deze niet aanwezig is.
-    - Het script vraagt u *bevestigen*voordat het afwezig type toepassing naam.
+2. (Optioneel) naam van het type toewijzen als deze niet aanwezig is.
+    - Het script vraagt u *bevestigen*, voordat dit van toepassing het type afwezig is naam.
 
 #### <a name="phases-of-the-script"></a>Fasen van het script
 
-Hier volgen de fasen van het PowerShell-script:
+Hier vindt u de fasen van de PowerShell-script:
 
-1. Meld u aan bij aan uw Azure-account nodig slechts één keer per PS-sessie.  Variabelen toewijzen.
-2. Zoeken voor het virtuele netwerk en voor het subnet.
-3. Uw subnet getagd als **Microsoft.Sql** eindpunttype server?
+1. Meld u aan bij uw Azure-account, die nodig is slechts één keer per PS-sessie.  Variabelen toewijzen.
+2. Zoeken naar voor het virtuele netwerk en vervolgens voor uw subnet.
+3. Uw subnet is gemarkeerd als **Microsoft.Sql** eindpunttype server?
 4. Toevoegen van een virtuele Service-eindpunt van de naam van **Microsoft.Sql**, op het subnet.
 
 > [!IMPORTANT]
 > Voordat u dit script uitvoert, moet u de waarden die zijn toegewezen aan de $-variabelen aan de bovenkant van het script bewerken.
 
-#### <a name="direct-powershell-source-code"></a>Directe PowerShell broncode
+#### <a name="direct-powershell-source-code"></a>Directe PowerShell-broncode
 
-Dit script werkt niet bij alles zijn, tenzij u Ja reageert als PowerShell wordt u om bevestiging wordt gevraagd. Het script de naam van het type kunt toevoegen **Microsoft.Sql** tot uw subnet. Maar het script probeert de toevoegen alleen als uw subnet beschikt niet over de typenaam.
+Dit script niet van alles zijn, bijgewerkt wordt tenzij u Ja reageren als PowerShell wordt u om bevestiging wordt gevraagd. Naam van het type kunt toevoegen door het script **Microsoft.Sql** aan uw subnet. Maar het script probeert de toevoegen alleen als uw subnet beschikt niet over de naam van het type.
 
 ```powershell
 ### 1. LOG into to your Azure account, needed only once per PS session.  Assign variables.
@@ -611,9 +617,9 @@ for ($nn=0; $nn -lt $vnet.Subnets.Count; $nn++)
 { $vnet.Subnets[0].ServiceEndpoints; }  # Display.
 ```
 
-#### <a name="actual-output"></a>Werkelijke output
+#### <a name="actual-output"></a>Werkelijke uitvoer
 
-Het volgende blok wordt onze werkelijke feedback (met cosmetisch bewerkingen) weergegeven.
+Het volgende blok geeft de werkelijke feedback (met cosmetisch wijzigingen).
 
 ```powershell
 <# Our output example (with cosmetic edits), when the subnet was already tagged:

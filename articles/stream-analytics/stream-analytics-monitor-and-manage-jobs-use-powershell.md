@@ -1,6 +1,6 @@
 ---
-title: Bewaken en beheren van Azure Stream Analytics-taken met behulp van PowerShell
-description: Dit artikel wordt beschreven hoe u Azure PowerShell-cmdlets en om te controleren en beheren van Azure Stream Analytics-taken.
+title: Controleren en beheren van Azure Stream Analytics-taken met behulp van PowerShell
+description: In dit artikel wordt beschreven hoe u Azure PowerShell en cmdlets gebruiken om te controleren en beheren van Azure Stream Analytics-taken.
 services: stream-analytics
 author: jseb225
 ms.author: jeanb
@@ -9,20 +9,20 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/28/2017
-ms.openlocfilehash: 61c26c55725c19f526680d70f3621d41e9590965
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: 6812298bc90446a7b7e136ec81a67641c2a9e18f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31600897"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701605"
 ---
-# <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Bewaken en beheren van de Stream Analytics-taken met Azure PowerShell-cmdlets
-Informatie over het controleren en beheren van resources in de Stream Analytics met Azure PowerShell-cmdlets en powershell-scripts die basic Stream Analytics-taken uitvoeren.
+# <a name="monitor-and-manage-stream-analytics-jobs-with-azure-powershell-cmdlets"></a>Controleren en beheren van Stream Analytics-taken met Azure PowerShell-cmdlets
+Informatie over het controleren en beheren van Stream Analytics-resources met Azure PowerShell-cmdlets en powershell-scripts die eenvoudige Stream Analytics-taken uitvoeren.
 
 ## <a name="prerequisites-for-running-azure-powershell-cmdlets-for-stream-analytics"></a>Vereisten voor het uitvoeren van Azure PowerShell-cmdlets voor Stream Analytics
-* Maak een Azure-resourcegroep in uw abonnement. Hier volgt een voorbeeld Azure PowerShell-script. Zie voor informatie Azure PowerShell [installeren en configureren van Azure PowerShell](/powershell/azure/overview);  
+* Maak een Azure-resourcegroep in uw abonnement. Hier volgt een voorbeeld van Azure PowerShell-script. Zie voor meer informatie voor Azure PowerShell, [installeren en configureren van Azure PowerShell](/powershell/azure/overview);  
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
          # Log in to your Azure account
         Add-AzureAccount
@@ -42,7 +42,7 @@ Azure PowerShell 1.0:
         Connect-AzureRmAccount
 
         # Select the Azure subscription you want to use to create the resource group.
-        Get-AzureRmSubscription –SubscriptionName “your sub” | Select-AzureRmSubscription
+        Get-AzureRmSubscription –SubscriptionName "your sub" | Select-AzureRmSubscription
 
         # If Stream Analytics has not been registered to the subscription, remove remark symbol below (#) to run the Register-AzureProvider cmdlet to register the provider namespace.
         #Register-AzureRmResourceProvider -Force -ProviderNamespace 'Microsoft.StreamAnalytics'
@@ -53,20 +53,20 @@ Azure PowerShell 1.0:
 
 
 > [!NOTE]
-> Stream Analytics-taken via een programma gemaakt beschikt niet over bewaking standaard ingeschakeld.  U kunt handmatig inschakelen in de Azure Portal controleren door te navigeren naar de pagina van de Monitor van de taak en te klikken op de knop inschakelen of u kunt dit programmatisch doen door de stappen die zich bevindt op [Azure Stream Analytics - Monitor Stream Analytics-taken Via programmacode](stream-analytics-monitor-jobs.md).
+> Stream Analytics-taken die zijn gemaakt via een programma geen bewaking standaard ingeschakeld.  U kunt handmatig inschakelen in Azure Portal controleren door te navigeren naar pagina van de Monitor van de taak en te klikken op de knop inschakelen of u kunt dit programmatisch doen met de volgende stappen te vinden op [Azure Stream Analytics - Monitor voor Stream Analytics-taken Programmatisch](stream-analytics-monitor-jobs.md).
 > 
 > 
 
 ## <a name="azure-powershell-cmdlets-for-stream-analytics"></a>Azure PowerShell-cmdlets voor Stream Analytics
-De volgende Azure PowerShell-cmdlets kunnen worden gebruikt om te controleren en beheren van Azure Stream Analytics-taken. Houd er rekening mee dat Azure PowerShell verschillende versies heeft. 
-**In de voorbeelden weergegeven met de eerste opdracht voor Azure PowerShell 0.9.8, is de tweede opdracht is voor Azure PowerShell 1.0.** De Azure PowerShell 1.0-opdrachten hebben altijd 'AzureRM' in de opdracht.
+De volgende Azure PowerShell-cmdlets kan worden gebruikt om te controleren en beheren van Azure Stream Analytics-taken. Houd er rekening mee dat Azure PowerShell, zijn er verschillende versies. 
+**De eerste opdracht in de voorbeelden is Azure PowerShell 0.9.8 gebruikt, de tweede opdracht is voor Azure PowerShell 1.0.** De Azure PowerShell 1.0-opdrachten hebben altijd 'AzureRM' in de opdracht.
 
 ### <a name="get-azurestreamanalyticsjob--get-azurermstreamanalyticsjob"></a>Get-AzureStreamAnalyticsJob | Get-AzureRMStreamAnalyticsJob
-Informatie over de taak over een specifieke taak in de resourcegroep opgehaald of een lijst met alle Stream Analytics-taken gedefinieerd in de Azure-abonnement of de opgegeven resourcegroep.
+Een lijst met alle Stream Analytics-taken gedefinieerd in de Azure-abonnement of de opgegeven resourcegroep gemaakt of taakinformatie ophalen over een specifieke taak binnen een resourcegroep.
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Get-AzureStreamAnalyticsJob
 
@@ -78,7 +78,7 @@ Deze PowerShell-opdracht retourneert informatie over alle Stream Analytics-taken
 
 **Voorbeeld 2**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US 
 
@@ -86,11 +86,11 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US 
 
-Deze PowerShell-opdracht retourneert informatie over alle Stream Analytics-taken in de resourcegroep StreamAnalytics, standaard, centraal, VS.
+Deze PowerShell-opdracht retourneert informatie over alle Stream Analytics-taken in de resourcegroep StreamAnalytics-standaard-centraal-Verenigde Staten.
 
 **Voorbeeld 3**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Get-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob
 
@@ -98,14 +98,14 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob
 
-Deze PowerShell-opdracht retourneert informatie over de Stream Analytics-taak StreamingJob in de resourcegroep StreamAnalytics, standaard, centraal, VS.
+Deze PowerShell-opdracht retourneert informatie over de Stream Analytics-taak StreamingJob in de resourcegroep StreamAnalytics-standaard-centraal-Verenigde Staten.
 
 ### <a name="get-azurestreamanalyticsinput--get-azurermstreamanalyticsinput"></a>Get-AzureStreamAnalyticsInput | Get-AzureRMStreamAnalyticsInput
-Informatie over een specifieke invoer opgehaald of een lijst met alle van de invoerwaarden die zijn gedefinieerd in een opgegeven Stream Analytics-taak.
+Een lijst met alle van de invoerwaarden die zijn gedefinieerd in een opgegeven Stream Analytics-taak, of informatie ophalen over een specifieke invoer.
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
 
@@ -113,11 +113,11 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
 
-Deze PowerShell-opdracht retourneert informatie over de invoerwaarden die zijn gedefinieerd in de taak StreamingJob.
+Deze PowerShell-opdracht retourneert informatie over de invoer die zijn gedefinieerd in de taak StreamingJob.
 
 **Voorbeeld 2**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Get-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name EntryStream
 
@@ -128,11 +128,11 @@ Azure PowerShell 1.0:
 Deze PowerShell-opdracht retourneert informatie over de invoer met de naam gedefinieerd in de taak StreamingJob EntryStream.
 
 ### <a name="get-azurestreamanalyticsoutput--get-azurermstreamanalyticsoutput"></a>Get-AzureStreamAnalyticsOutput | Get-AzureRMStreamAnalyticsOutput
-Informatie over een specifieke uitvoer opgehaald of een lijst met alle van de resultaten die zijn gedefinieerd in een opgegeven Stream Analytics-taak.
+Een lijst met alle van de uitvoer die zijn gedefinieerd in een opgegeven Stream Analytics-taak, of informatie ophalen over een specifieke uitvoer.
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob
 
@@ -144,7 +144,7 @@ Deze PowerShell-opdracht retourneert informatie over de uitvoer die is gedefinie
 
 **Voorbeeld 2**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Get-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name Output
 
@@ -159,7 +159,7 @@ Hiermee haalt u informatie over het quotum van het streaming-eenheden in een opg
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Get-AzureStreamAnalyticsQuota –Location "Central US" 
 
@@ -167,14 +167,14 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsQuota –Location "Central US" 
 
-Deze PowerShell-opdracht retourneert informatie over de quota en het gebruik van de streaming-eenheden in de regio VS-midden.
+Deze PowerShell-opdracht retourneert informatie over de quota en het gebruik van streaming-eenheden in de regio VS-midden.
 
 ### <a name="get-azurestreamanalyticstransformation--getazurermstreamanalyticstransformation"></a>Get-AzureStreamAnalyticsTransformation | GetAzureRMStreamAnalyticsTransformation
 Hiermee haalt u informatie over een specifieke transformatie gedefinieerd in een Stream Analytics-taak.
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Get-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name StreamingJob
 
@@ -182,22 +182,22 @@ Azure PowerShell 1.0:
 
     Get-AzureRMStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –Name StreamingJob
 
-Deze PowerShell-opdracht retourneert informatie over de transformatie StreamingJob aangeroepen in de taak StreamingJob.
+Deze PowerShell-opdracht retourneert informatie over de transformatie StreamingJob in de taak StreamingJob genoemd.
 
 ### <a name="new-azurestreamanalyticsinput--new-azurermstreamanalyticsinput"></a>New-AzureStreamAnalyticsInput | New-AzureRMStreamAnalyticsInput
-Maakt u een nieuwe invoer binnen een Stream Analytics-taak of updates van een bestaande opgegeven invoer.
+Hiermee maakt u een nieuwe invoer binnen een Stream Analytics-taak of een bestaande opgegeven invoer-updates.
 
-De naam van de invoer kan worden opgegeven in het bestand .json of op de opdrachtregel. Als beide zijn opgegeven, moet de naam op de opdrachtregel hetzelfde zijn als het certificaat in het bestand.
+De naam van de invoer kan worden opgegeven in het .json-bestand of op de opdrachtregel. Als beide zijn opgegeven, de naam op de opdrachtregel moet hetzelfde zijn als de waarde in het bestand.
 
-Als u opgeeft invoer die al bestaat en geef de parameter – Force, vraagt de cmdlet al dan niet worden vervangen de bestaande invoer.
+Als u opgeven van de invoer die al bestaat en geef de parameter – Force, de cmdlet wordt u gevraagd of u wel of niet ter vervanging van de bestaande invoer.
 
-Als u de parameter forceren en geef een bestaande naam invoeren, wordt de invoer vervangen zonder bevestiging.
+Als u de parameter Force en geef de naam van een bestaande invoer, wordt de invoer vervangen zonder bevestiging.
 
-Raadpleeg voor gedetailleerde informatie over de JSON-bestandsstructuur en inhoud de [maken invoer (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-input] sectie van de [Stream Analytics Management REST API-verwijzing Bibliotheek][stream.analytics.rest.api.reference].
+Raadpleeg voor gedetailleerde informatie over de structuur van de JSON-bestand en de inhoud de [invoer maken (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-input] sectie van de [Stream Analytics Management REST API-verwijzing Bibliotheek][stream.analytics.rest.api.reference].
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" 
 
@@ -205,11 +205,11 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" 
 
-Deze PowerShell-opdracht maakt een nieuwe invoer van het bestand Input.json. Als een bestaande invoer met de naam die is opgegeven in het definitiebestand voor invoer is al gedefinieerd, wordt al dan niet worden vervangen door de cmdlet gevraagd.
+Deze PowerShell-opdracht maakt een nieuwe invoer van het bestand Input.JSON ziet. Als een bestaande invoer met de naam die is opgegeven in het definitiebestand van de invoer is al gedefinieerd, wordt al dan niet om deze te vervangen door de cmdlet gevraagd.
 
 **Voorbeeld 2**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream
 
@@ -217,11 +217,11 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream
 
-Deze PowerShell-opdracht maakt een nieuwe invoer in de taak EntryStream aangeroepen. Als een bestaande invoer met deze naam al is gedefinieerd, vraagt de cmdlet al dan niet worden vervangen.
+Deze PowerShell-opdracht maakt u een nieuwe invoer in de taak met de naam EntryStream. Als een bestaande invoer met deze naam al is gedefinieerd, wordt al dan niet om deze te vervangen door de cmdlet gevraagd.
 
 **Voorbeeld 3**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     New-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream -Force
 
@@ -229,22 +229,22 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US -JobName StreamingJob –File "C:\Input.json" –Name EntryStream -Force
 
-Deze PowerShell-opdracht wordt vervangen door de definitie van de bestaande invoerbron EntryStream aangeroepen met de definitie uit het bestand.
+Deze PowerShell-opdracht vervangt de definitie van de bestaande invoerbron EntryStream aangeroepen met de definitie uit het bestand.
 
 ### <a name="new-azurestreamanalyticsjob--new-azurermstreamanalyticsjob"></a>New-AzureStreamAnalyticsJob | New-AzureRMStreamAnalyticsJob
-Maakt een nieuwe Stream Analytics-taak in Microsoft Azure of updates van de definitie van een bestaande opgegeven taak.
+Hiermee maakt u een nieuwe Stream Analytics-taak in Microsoft Azure of updates van de definitie van een bestaande taak opgegeven.
 
-De naam van de taak kan worden opgegeven in het bestand .json of op de opdrachtregel. Als beide zijn opgegeven, moet de naam op de opdrachtregel hetzelfde zijn als het certificaat in het bestand.
+De naam van de taak kan worden opgegeven in het .json-bestand of op de opdrachtregel. Als beide zijn opgegeven, de naam op de opdrachtregel moet hetzelfde zijn als de waarde in het bestand.
 
-Als u een taaknaam opgeeft die al bestaat en geef de parameter – Force, vraagt de cmdlet al dan niet worden vervangen de bestaande taak.
+Als u opgeven de taaknaam van een die al bestaat en geef de parameter – Force, de cmdlet wordt u gevraagd of u wel of niet ter vervanging van de bestaande taak.
 
-Als u de parameter forceren en geef de taaknaam van een bestaande, wordt de taakdefinitie vervangen zonder bevestiging.
+Als u de parameter Force en geeft u de taaknaam van een bestaande, wordt de taakdefinitie vervangen zonder bevestiging.
 
-Raadpleeg voor gedetailleerde informatie over de JSON-bestandsstructuur en inhoud de [Stream Analytics-taak maken] [ msdn-rest-api-create-stream-analytics-job] sectie van de [Stream Analytics Management REST API Reference Library] [stream.analytics.rest.api.reference].
+Raadpleeg voor gedetailleerde informatie over de structuur van de JSON-bestand en de inhoud de [Stream Analytics-taak maken] [ msdn-rest-api-create-stream-analytics-job] sectie van de [Stream Analytics Management REST API Reference Library] [stream.analytics.rest.api.reference].
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" 
 
@@ -252,11 +252,11 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" 
 
-Deze PowerShell-opdracht maakt een nieuwe taak van de definitie in JobDefinition.json. Als een bestaande taak met de naam die is opgegeven in het definitiebestand voor de taak is al gedefinieerd, wordt al dan niet worden vervangen door de cmdlet gevraagd.
+Deze PowerShell-opdracht maakt een nieuwe taak van de definitie van JobDefinition.json. Als een bestaande taak met de naam die is opgegeven in het definitiebestand van de taak is al gedefinieerd, wordt al dan niet om deze te vervangen door de cmdlet gevraagd.
 
 **Voorbeeld 2**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     New-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\JobDefinition.json" –Name StreamingJob -Force
 
@@ -267,19 +267,19 @@ Azure PowerShell 1.0:
 Deze PowerShell-opdracht vervangt de taakdefinitie voor StreamingJob.
 
 ### <a name="new-azurestreamanalyticsoutput--new-azurermstreamanalyticsoutput"></a>New-AzureStreamAnalyticsOutput | New-AzureRMStreamAnalyticsOutput
-Maakt een nieuwe uitvoer binnen een Stream Analytics-taak of een bestaande uitvoer-updates.  
+Hiermee maakt u een nieuwe uitvoer in een Stream Analytics-taak, of de uitvoer van een bestaande bijgewerkt.  
 
-De naam van de uitvoer kan worden opgegeven in het bestand .json of op de opdrachtregel. Als beide zijn opgegeven, moet de naam op de opdrachtregel hetzelfde zijn als het certificaat in het bestand.
+De naam van de uitvoer kan worden opgegeven in het .json-bestand of op de opdrachtregel. Als beide zijn opgegeven, de naam op de opdrachtregel moet hetzelfde zijn als de waarde in het bestand.
 
-Als u geeft een uitvoer die al bestaat en geef de parameter – Force, vraagt de cmdlet al dan niet worden vervangen de bestaande uitvoer.
+Als u geeft een uitvoer die er al bestaat en geef de parameter – Force, de cmdlet wordt u gevraagd of u wel of niet ter vervanging van de bestaande uitvoer.
 
-Als u de parameter forceren en geef de naam van een bestaande uitvoer, wordt de uitvoer wordt vervangen zonder bevestiging.
+Als u de parameter Force en geef de naam van een bestaande uitvoer, wordt de uitvoer vervangen zonder bevestiging.
 
-Raadpleeg voor gedetailleerde informatie over de JSON-bestandsstructuur en inhoud de [uitvoer maken (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-output] sectie van de [Stream Analytics Management REST API-verwijzing Bibliotheek][stream.analytics.rest.api.reference].
+Raadpleeg voor gedetailleerde informatie over de structuur van de JSON-bestand en de inhoud de [uitvoer maken (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-output] sectie van de [Stream Analytics Management REST API-verwijzing Bibliotheek][stream.analytics.rest.api.reference].
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output
 
@@ -287,11 +287,11 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output
 
-Deze PowerShell-opdracht maakt u een nieuwe uitvoer 'uitvoer' in de taak StreamingJob aangeroepen. Als een bestaande uitvoer met deze naam al is gedefinieerd, vraagt de cmdlet al dan niet worden vervangen.
+Deze PowerShell-opdracht maakt u een nieuwe uitvoer met de naam 'uitvoer' in de taak StreamingJob. Als een bestaande uitvoer met deze naam al is gedefinieerd, wordt al dan niet om deze te vervangen door de cmdlet gevraagd.
 
 **Voorbeeld 2**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     New-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output -Force
 
@@ -299,22 +299,22 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Output.json" –JobName StreamingJob –Name output -Force
 
-Deze PowerShell-opdracht wordt de definitie voor 'uitvoer' in de taak StreamingJob vervangen.
+Deze PowerShell-opdracht vervangt de definitie voor 'uitvoer' in de taak StreamingJob.
 
-### <a name="new-azurestreamanalyticstransformation--new-azurermstreamanalyticstransformation"></a>Nieuwe AzureStreamAnalyticsTransformation | Nieuwe AzureRMStreamAnalyticsTransformation
-Maakt u een nieuwe transformatie binnen een Stream Analytics-taak of updates van de bestaande transformatie.
+### <a name="new-azurestreamanalyticstransformation--new-azurermstreamanalyticstransformation"></a>Nieuwe AzureStreamAnalyticsTransformation | Nieuwe-AzureRMStreamAnalyticsTransformation
+Hiermee maakt u een nieuwe transformatie binnen een Stream Analytics-taak of updates van de bestaande transformatie.
 
-De naam van de transformatie kan worden opgegeven in het bestand .json of op de opdrachtregel. Als beide zijn opgegeven, moet de naam op de opdrachtregel hetzelfde zijn als het certificaat in het bestand.
+De naam van de transformatie kan worden opgegeven in het .json-bestand of op de opdrachtregel. Als beide zijn opgegeven, de naam op de opdrachtregel moet hetzelfde zijn als de waarde in het bestand.
 
-Als u opgeeft dat al bestaat de transformatie en geef de parameter – Force, vraagt de cmdlet al dan niet worden vervangen de bestaande transformatie.
+Als u opgeven van een transformatie die al bestaat en geef de parameter – Force, de cmdlet wordt u gevraagd of u wel of niet ter vervanging van de bestaande transformatie.
 
-Als u de parameter forceren en geef de naam van een bestaande transformatie, de transformatie wordt vervangen zonder bevestiging.
+Als u de parameter Force en geeft u de naam van een bestaande transformatie, de transformatie wordt vervangen zonder bevestiging.
 
-Raadpleeg voor gedetailleerde informatie over de JSON-bestandsstructuur en inhoud de [transformatie maken (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-transformation] sectie van de [Stream Analytics Management REST-API Referentiebibliotheek][stream.analytics.rest.api.reference].
+Raadpleeg voor gedetailleerde informatie over de structuur van de JSON-bestand en de inhoud de [transformatie maken (Azure Stream Analytics)] [ msdn-rest-api-create-stream-analytics-transformation] sectie van de [Stream Analytics Management REST-API Referentiebibliotheek][stream.analytics.rest.api.reference].
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform
 
@@ -322,11 +322,11 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform
 
-Deze PowerShell-opdracht maakt u een nieuwe transformatie StreamingJobTransform aangeroepen in de taak StreamingJob. Als er al een bestaande transformatie is gedefinieerd met deze naam, vraagt de cmdlet al dan niet worden vervangen.
+Deze PowerShell-opdracht maakt een nieuwe transformatie StreamingJobTransform in de taak StreamingJob genoemd. Als een bestaande transformatie is al gedefinieerd met deze naam, vraagt de cmdlet al dan niet om deze te vervangen.
 
 **Voorbeeld 2**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     New-AzureStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform -Force
 
@@ -334,15 +334,15 @@ Azure PowerShell 1.0:
 
     New-AzureRMStreamAnalyticsTransformation -ResourceGroupName StreamAnalytics-Default-Central-US –File "C:\Transformation.json" –JobName StreamingJob –Name StreamingJobTransform -Force
 
- Deze PowerShell-opdracht wordt de definitie van StreamingJobTransform in de taak StreamingJob vervangen.
+ Deze PowerShell-opdracht vervangt de definitie van StreamingJobTransform in de taak StreamingJob.
 
 ### <a name="remove-azurestreamanalyticsinput--remove-azurermstreamanalyticsinput"></a>Remove-AzureStreamAnalyticsInput | Remove-AzureRMStreamAnalyticsInput
-Een specifieke invoer wordt asynchroon worden verwijderd uit een Stream Analytics-taak in Microsoft Azure.  
+Asynchroon Hiermee verwijdert u een specifieke invoer van een Stream Analytics-taak in Microsoft Azure.  
 Als u de parameter – Force, de invoer worden verwijderd zonder bevestiging.
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Remove-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EventStream
 
@@ -353,12 +353,12 @@ Azure PowerShell 1.0:
 Deze PowerShell-opdracht verwijdert de invoer EventStream in de taak StreamingJob.  
 
 ### <a name="remove-azurestreamanalyticsjob--remove-azurermstreamanalyticsjob"></a>Remove-AzureStreamAnalyticsJob | Remove-AzureRMStreamAnalyticsJob
-Asynchroon Hiermee verwijdert u een specifieke Stream Analytics-taak in Microsoft Azure.  
-Als u de parameter – Force, de taak worden verwijderd zonder bevestiging.
+Hiermee verwijdert u een specifieke Stream Analytics-taak in Microsoft Azure asynchroon.  
+Als u de parameter – Force, de taak wordt verwijderd zonder bevestiging.
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Remove-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
 
@@ -369,12 +369,12 @@ Azure PowerShell 1.0:
 Deze PowerShell-opdracht verwijdert u de taak StreamingJob.  
 
 ### <a name="remove-azurestreamanalyticsoutput--remove-azurermstreamanalyticsoutput"></a>Remove-AzureStreamAnalyticsOutput | Remove-AzureRMStreamAnalyticsOutput
-Een specifieke uitvoer wordt asynchroon worden verwijderd uit een Stream Analytics-taak in Microsoft Azure.  
-Als u de parameter – Force, wordt de uitvoer verwijderd zonder bevestiging.
+Asynchroon Hiermee verwijdert u een specifieke uitvoer van een Stream Analytics-taak in Microsoft Azure.  
+Als u de parameter – Force, de uitvoer worden verwijderd zonder bevestiging.
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Remove-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
 
@@ -382,14 +382,14 @@ Azure PowerShell 1.0:
 
     Remove-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
 
-Hiermee PowerShell-opdracht verwijdert u de uitvoer van de uitvoer in de taak StreamingJob.  
+In dit PowerShell-opdracht verwijdert de uitvoer van de taak StreamingJob uitvoer.  
 
 ### <a name="start-azurestreamanalyticsjob--start-azurermstreamanalyticsjob"></a>Start-AzureStreamAnalyticsJob | Start-AzureRMStreamAnalyticsJob
-Asynchroon implementeert en een Stream Analytics-taak start in Microsoft Azure.
+Asynchroon implementeert en start u een Stream Analytics-taak in Microsoft Azure.
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Start-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US -Name StreamingJob -OutputStartMode CustomTime -OutputStartTime 2012-12-12T12:12:12Z
 
@@ -400,11 +400,11 @@ Azure PowerShell 1.0:
 Deze PowerShell-opdracht start de taak StreamingJob met een begintijd aangepaste uitvoer ingesteld op 12 December 2012 12:12:12 UTC.
 
 ### <a name="stop-azurestreamanalyticsjob--stop-azurermstreamanalyticsjob"></a>Stop-AzureStreamAnalyticsJob | Stop-AzureRMStreamAnalyticsJob
-Asynchroon stopt een Stream Analytics-taak wordt uitgevoerd in Microsoft Azure en ongedaan wijst bronnen toe die zijn die zijn gebruikt. De taakdefinitie en metagegevens blijven beschikbaar in uw abonnement via de Azure-portal en de API's zodanig dat de taak kan worden bewerkt en opnieuw opgestart. U wordt niet in rekening gebracht voor een taak gestopt.
+Asynchroon stopt een Stream Analytics-taak wordt uitgevoerd in Microsoft Azure en wijst er resources zijn die zijn gebruikt ongedaan maken. De taakdefinitie en de metagegevens blijven beschikbaar binnen uw abonnement via de Azure-portal en de beheer-API's, zodat de taak kan worden bewerkt en opnieuw opgestart. U, wordt niet in rekening gebracht voor een taak de status ' gestopt '.
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Stop-AzureStreamAnalyticsJob -ResourceGroupName StreamAnalytics-Default-Central-US –Name StreamingJob 
 
@@ -415,11 +415,11 @@ Azure PowerShell 1.0:
 Deze PowerShell-opdracht wordt de taak StreamingJob gestopt.  
 
 ### <a name="test-azurestreamanalyticsinput--test-azurermstreamanalyticsinput"></a>Test-AzureStreamAnalyticsInput | Test-AzureRMStreamAnalyticsInput
-Test de mogelijkheid van Stream Analytics verbinding maken met een opgegeven invoer.
+Test de mogelijkheid van Stream Analytics om verbinding maken met een opgegeven invoer.
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Test-AzureStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EntryStream
 
@@ -427,14 +427,14 @@ Azure PowerShell 1.0:
 
     Test-AzureRMStreamAnalyticsInput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name EntryStream
 
-Deze PowerShell-opdracht wordt de verbindingsstatus van de invoer EntryStream in StreamingJob gecontroleerd.  
+Deze PowerShell-opdracht wordt de status van de verbinding van de invoer EntryStream in StreamingJob gecontroleerd.  
 
 ### <a name="test-azurestreamanalyticsoutput--test-azurermstreamanalyticsoutput"></a>Test-AzureStreamAnalyticsOutput | Test-AzureRMStreamAnalyticsOutput
-Test de mogelijkheid van Stream Analytics verbinding maken met een opgegeven uitvoer.
+Test de mogelijkheid van Stream Analytics om verbinding maken met een opgegeven uitvoer.
 
 **Voorbeeld 1**
 
-Azure PowerShell 0.9.8:  
+Azure PowerShell 0.9.8 gebruikt:  
 
     Test-AzureStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
 
@@ -442,10 +442,10 @@ Azure PowerShell 1.0:
 
     Test-AzureRMStreamAnalyticsOutput -ResourceGroupName StreamAnalytics-Default-Central-US –JobName StreamingJob –Name Output
 
-Deze opdracht PowerShell tests de verbindingsstatus van de uitvoer van de uitvoer in StreamingJob.  
+In dit PowerShell-opdracht tests de status van de verbinding van de uitvoer uitvoer in StreamingJob.  
 
 ## <a name="get-support"></a>Ondersteuning krijgen
-Voor verdere hulp kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
+Voor verdere ondersteuning kunt u proberen onze [Azure Stream Analytics-forum](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics). 
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Inleiding tot Azure Stream Analytics](stream-analytics-introduction.md)

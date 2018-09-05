@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 01/09/2018
 ms.author: alkohli@microsoft.com
-ms.openlocfilehash: 291de21d3d98bf9eb65adc7d506f3549171ee0a0
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 9408531a9e24af93359b562ed022b3d8253851e8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38696817"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665681"
 ---
 # <a name="use-windows-powershell-for-storsimple-to-administer-your-device"></a>Windows PowerShell voor StorSimple gebruiken voor het beheren van uw apparaat
 
@@ -37,7 +37,7 @@ Na het lezen van dit artikel, kunt u zich aan:
 
 > [!NOTE]
 > * Windows PowerShell voor StorSimple-cmdlets kunt u voor het beheren van uw StorSimple-apparaat van een seriële console of extern via Windows PowerShell voor externe toegang. Voor meer informatie over elk van de afzonderlijke cmdlets die kunnen worden gebruikt in deze interface, gaat u naar [cmdlet-naslaginformatie voor Windows PowerShell voor StorSimple](https://technet.microsoft.com/library/dn688168.aspx).
-> * De StorSimple van Azure PowerShell-cmdlets zijn een andere verzameling van cmdlets waarmee u voor het automatiseren van StorSimple serviceniveau en taken van de migratie vanaf de opdrachtregel. Voor meer informatie over de Azure PowerShell-cmdlets voor StorSimple, gaat u naar de [Azure StorSimple-cmdlet-verwijzing](https://docs.microsoft.com/powershell/servicemanagement/azure.storsimple/v3.1.0/azure.storsimple).
+> * De StorSimple van Azure PowerShell-cmdlets zijn een andere verzameling van cmdlets waarmee u voor het automatiseren van StorSimple serviceniveau en taken van de migratie vanaf de opdrachtregel. Voor meer informatie over de Azure PowerShell-cmdlets voor StorSimple, gaat u naar de [Azure StorSimple-cmdlet-verwijzing](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0&viewFallbackFrom=azuresmps-3.7.0#azure).
 
 
 U kunt toegang tot de Windows PowerShell voor StorSimple met behulp van een van de volgende methoden:

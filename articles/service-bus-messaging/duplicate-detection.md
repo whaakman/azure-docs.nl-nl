@@ -1,5 +1,5 @@
 ---
-title: Azure Service Bus voor de detectie van dubbele berichten | Microsoft Docs
+title: Azure Service Bus dubbele berichten detecteren | Microsoft Docs
 description: Detecteren van dubbele Service Bus-berichten
 services: service-bus-messaging
 documentationcenter: ''
@@ -12,51 +12,51 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
-ms.author: sethm
-ms.openlocfilehash: efc5608d4812edbb3f477dffbc2b495b331bd787
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: 7402fcf01078ea3934d1b6794a9190947fe339c2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28198550"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696622"
 ---
 # <a name="duplicate-detection"></a>Detectie van duplicaten
 
-Als er optreedt bij een toepassing een fatale fout onmiddellijk na verzendt een bericht en exemplaar van de toepassing opnieuw gestart ten onrechte gelooft dat de levering van de voorafgaande berichten niet optreedt, een latere verzenden zorgt ervoor dat hetzelfde bericht tweemaal wordt weergegeven in het systeem.
+Als een toepassing een fatale fout onmiddellijk na het verzendt een bericht en het exemplaar van de opnieuw gestart per ongeluk is van mening dat de levering van de voorafgaande berichten zich niet heeft voorgedaan, een latere verzenden zorgt ervoor dat hetzelfde bericht in twee keer worden weergegeven in het systeem.
 
-Het is ook mogelijk dat een fout op het niveau van client- of eerder even optreden en geretourneerd naar de client voor een bericht verzonden om te worden doorgevoerd in de wachtrij, met de bevestiging is mislukt. Dit scenario maakt de client bij twijfel over de uitkomst van de verzendbewerking.
+Het is ook mogelijk dat een fout op het niveau van de client of het netwerk eerder even optreden en geretourneerd naar de client voor een verzonden bericht worden vastgelegd in de wachtrij, met de bevestiging is mislukt. In dit scenario maakt de client bij twijfel over de uitkomst van de bewerking voor het verzenden.
 
-Detectie van duplicaten neemt de twijfel buiten deze situaties doordat de afzender opnieuw verzenden hetzelfde bericht en de wachtrij of onderwerp verwijdert alle dubbele exemplaren.
+Detectie van duplicaten neemt de twijfel buiten deze situaties doordat de afzender opnieuw verzenden van hetzelfde bericht en de wachtrij of onderwerp verwijdert alle dubbele exemplaren.
 
-Het inschakelen van de detectie van duplicaten helpt bijhouden van de toepassing gecontroleerde *MessageId* van alle berichten die worden verzonden naar een wachtrij of onderwerp tijdens een opgegeven periode. Als een nieuw bericht wordt verzonden met een *MessageId* die al is geregistreerd tijdens de periode, het bericht wordt gerapporteerd als geaccepteerd (de verzendbewerking is geslaagd), maar het zojuist verzonden bericht onmiddellijk wordt genegeerd en verwijderd. Er zijn geen andere onderdelen van het bericht anders dan de *MessageId* worden beschouwd.
+Het inschakelen van detectie van duplicaten helpt met het bijhouden van de toepassing gecontroleerde *MessageId* van alle berichten die worden verzonden naar een wachtrij of onderwerp tijdens een opgegeven periode. Als een nieuw bericht wordt verzonden met een *MessageId* die al is geregistreerd tijdens de periode, het bericht wordt gerapporteerd als geaccepteerd (de bewerking voor het verzenden is geslaagd), maar de onlangs verzonden bericht direct wordt genegeerd en verwijderd. Er zijn geen andere onderdelen van het bericht dat andere dan de *MessageId* worden beschouwd.
 
-Besturingselementen van de toepassing van de id is essentieel omdat alleen waarmee de toepassing om te koppelen de *MessageId* naar een proces bedrijfscontext waaruit deze opnieuw worden voorspelbare samengesteld in geval van een storing.
+Toepassingsbeheer van de id is het essentieel is, omdat alleen dat de toepassing om te koppelen in staat stelt de *MessageId* aan een proces bedrijfscontext waaruit deze opnieuw worden voorspelbare samengesteld bij een storing.
 
-Voor een bedrijfsproces waarin meerdere berichten worden verzonden tijdens het verwerken van de context van een toepassing, de *MessageId* mogelijk een samenstelling van de op toepassingsniveau context-id, zoals het nummer van de inkooporder, en de onderwerp van het bericht; bijvoorbeeld: **12345.2017/betaling**.
+Voor een bedrijfsproces waarin meerdere berichten worden verzonden tijdens het verwerken van de context van een toepassing, de *MessageId* mogelijk een samenstelling van de id van de context op toepassingsniveau, zoals een aankoopordernummer en de onderwerp van het bericht. bijvoorbeeld, **12345.2017/betaling**.
 
-De *MessageId* kunnen altijd worden sommige GUID, maar de id van het bedrijfsproces verankeren levert het voorspelbare herhaalbaarheid die nodig is voor een effectief gebruik te maken van de detectie van duplicaten-functie.
+De *MessageId* kunnen altijd worden sommige GUID, maar de id voor het bedrijfsproces verankering levert voorspelbare herhaalbaarheid, die vereist is voor een effectief gebruik te maken van de functie voor detectie van duplicaten.
 
 ## <a name="enable-duplicate-detection"></a>Duplicaatdetectie inschakelen
 
-In de portal voor de functie is ingeschakeld tijdens het maken van de entiteit met de **inschakelen detectie van duplicaten** selectievakje standaard uitgeschakeld is. De instelling voor het maken van nieuwe onderwerpen is gelijk.
+In de portal voor de functie is ingeschakeld tijdens het maken van een entiteit met de **duplicaatdetectie inschakelen** selectievakje standaard uitgeschakeld is. De instelling voor het maken van nieuwe onderwerpen is gelijk.
 
 ![][1]
 
-Via een programma, het instellen van de markering op in de [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) -eigenschap op het volledige framework .NET API. Met de Azure Resource Manager-API, de waarde is ingesteld met de [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) eigenschap.
+Via een programma, het instellen van de markering op in de [QueueDescription.requiresDuplicateDetection](/dotnet/api/microsoft.servicebus.messaging.queuedescription.requiresduplicatedetection#Microsoft_ServiceBus_Messaging_QueueDescription_RequiresDuplicateDetection) eigenschap op het volledige .NET API-framework. Met de Azure Resource Manager-API, de waarde is ingesteld met de [queueProperties.requiresDuplicateDetection](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) eigenschap.
 
-De geschiedenis van de detectie van duplicaten tijd standaard ingesteld op 30 seconden voor wachtrijen en onderwerpen, met een maximale waarde van 7 dagen. U kunt deze instelling in het venster van de eigenschappen wachtrij en onderwerp in de Azure portal kunt wijzigen.
+De geschiedenis van detectie van duplicaten tijd standaard 30 seconden voor wachtrijen en onderwerpen, met een maximale waarde van zeven dagen. U kunt deze instelling in het venster van de eigenschappen wachtrij en onderwerp in de Azure-portal wijzigen.
 
 ![][2]
 
 Via een programma, kunt u de grootte van de detectie van duplicaten venster gedurende welke de bericht-id's worden bewaard, met behulp van de [QueueDescription.DuplicateDetectionHistoryTimeWindow](/dotnet/api/microsoft.servicebus.messaging.queuedescription.duplicatedetectionhistorytimewindow#Microsoft_ServiceBus_Messaging_QueueDescription_DuplicateDetectionHistoryTimeWindow) eigenschap met de volledige .NET Framework-API . Met de Azure Resource Manager-API, de waarde is ingesteld met de [queueProperties.duplicateDetectionHistoryTimeWindow](/azure/templates/microsoft.servicebus/namespaces/queues#property-values) eigenschap.
 
-Let op: inschakelen van de detectie van duplicaten en de grootte van het venster direct invloed op de doorvoer van wachtrij (en onderwerp), omdat alle vastgelegde bericht-id's moeten worden vergeleken met de nieuwe verzonden bericht-id.
+Houd er rekening mee dat het inschakelen van detectie van duplicaten en de grootte van het venster rechtstreeks invloed hebben op de doorvoer van de wachtrij (en onderwerp), omdat alle vastgelegde bericht-id's moeten worden vergeleken met de nieuw ingediende bericht-id.
 
-Het venster kleine betekent dat minder bericht-id's moeten worden bewaard en overeenkomende en doorvoer is houden beïnvloed kleiner. Voor hoge doorvoersnelheid entiteiten waarvoor de detectie van duplicaten, moet u het venster zo klein mogelijk behouden.
+Lager beïnvloed te houden van het venster kleine betekent dat minder bericht-id's moeten worden bewaard en vergeleken, en de doorvoer is. Voor hoge doorvoer entiteiten waarvoor de detectie van duplicaten, moet u het venster zo klein mogelijk houden.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Service Bus-berichtenservice, de volgende onderwerpen:
+Zie voor meer informatie over Service Bus-berichten, de volgende onderwerpen:
 
 * [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)

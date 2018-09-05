@@ -6,18 +6,18 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 08/23/2018
 ms.author: danlep
-ms.openlocfilehash: f4bad3d7058e82a246afce9502d275c7d485cb88
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39009173"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698380"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Batch-oplossingen controleren door te tellen van taken en knooppunten per staat
 
-Als u wilt bewaken en beheren van grootschalige Azure Batch-oplossingen, moet u nauwkeurige tellingen van resources in verschillende statussen. Azure Batch biedt een efficiënte werking voor deze telt voor Batch *taken* en *rekenknooppunten*. Gebruik deze bewerkingen in plaats van potentieel tijdrovende API-aanroepen om terug te keren gedetailleerde informatie over grote verzamelingen van taken of knooppunten.
+Als u wilt bewaken en beheren van grootschalige Azure Batch-oplossingen, moet u nauwkeurige tellingen van resources in verschillende statussen. Azure Batch biedt een efficiënte werking voor deze telt voor Batch *taken* en *rekenknooppunten*. Gebruik deze bewerkingen in plaats van potentieel tijdrovende lijstquery's die gedetailleerde gegevens over grote verzamelingen van taken of knooppunten retourneren.
 
 * [Ophalen van de taak wordt geteld] [ rest_get_task_counts] opgehaald van een statistische count van actieve, uitgevoerd en voltooide taken in een job en taken die geslaagd of mislukt. 
 
@@ -49,19 +49,15 @@ Console.WriteLine("Task count in preparing or running state: {0}", taskCounts.Ru
 Console.WriteLine("Task count in completed state: {0}", taskCounts.Completed);
 Console.WriteLine("Succeeded task count: {0}", taskCounts.Succeeded);
 Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
-Console.WriteLine("ValidationStatus: {0}", taskCounts.ValidationStatus);
 ```
 
 U kunt een soortgelijk patroon voor REST en andere ondersteunde talen aantallen van de taak voor een taak ophalen. 
- 
 
-### <a name="consistency-checking-for-task-counts"></a>De consistentiecontrole voor de taak tellingen
+### <a name="counts-for-large-numbers-of-tasks"></a>Aantallen voor een groot aantal taken
 
-Batch biedt aanvullende validatie voor de taak status telt het aantal door het uitvoeren van consistentiecontroles op basis van meerdere onderdelen van het systeem. In het onwaarschijnlijke geval dat de consistentiecontrole fouten worden aangetroffen, wordt het resultaat van de bewerking ophalen voor de taken wordt geteld op basis van de resultaten van de consistentiecontrole opgelost door Batch.
+De bewerking ophalen voor de taak wordt geteld retourneert tellingen van taakstatuswaarden in het systeem op een bepaald tijdstip. Wanneer de taak een groot aantal taken heeft, kunnen de aantallen die wordt geretourneerd door de taak telt u de werkelijke taakstatuswaarden door maximaal een paar seconden vertraging. Batch zorgt ervoor dat de uiteindelijke consistentie tussen de resultaten van de taak telt ophalen en de werkelijke taakstatuswaarden (die u kunt een query via de lijst met taken API). Echter, als uw taak een zeer groot aantal taken is (> 200.000), raden wij aan dat u de lijst met taken API en een [gefilterde query](batch-efficient-list-queries.md) in plaats daarvan welke vindt u meer actuele informatie. 
 
-De `validationStatus` eigenschap in het antwoord geeft aan of Batch de consistentiecontrole uitgevoerd. Als Batch nog niet is ingeschakeld, staat in mindering gebracht op de werkelijke Staten die zijn ondergebracht in het systeem, dan zal de `validationStatus` eigenschap is ingesteld op `unvalidated`. Uit prestatieoverwegingen Batch consistentiecontrole niet uitvoeren als de taak meer dan 200.000 taken bevat, zodat de `validationStatus` eigenschap is ingesteld op `unvalidated` in dit geval. (Het aantal voor de taak is niet noodzakelijkerwijs verkeerde in dit geval als zelfs beperkte gegevensverlies onwaarschijnlijk is.) 
-
-Wanneer een taak de status wordt gewijzigd, verwerkt de aggregatiepijplijn de wijziging binnen een paar seconden. De bewerking ophalen voor de taak wordt geteld geeft het aantal bijgewerkte taak in die periode. Echter als de aggregatiepijplijn missers een wijziging in de taakstatus van een, is klikt u vervolgens deze wijziging niet geregistreerd tot en met de volgende validatie-pas. Gedurende deze tijd aantallen van de taak is mogelijk iets onjuist vanwege de ontbrekende gebeurtenis, maar ze zijn gecorrigeerd in de volgende stap van de validatie.
+Batch-Service-API-versies voordat 2018-08-01.7.0 ook retourneren een `validationStatus` eigenschap in het antwoord ophalen voor de taak wordt geteld. Deze eigenschap geeft aan of Batch de status van de aantallen voor consistentie met de statussen gerapporteerd in de lijst met taken API ingeschakeld. Een waarde van `validated` alleen geeft aan dat de Batch gecontroleerd op consistentie ten minste één keer voor de taak. De waarde van de `validationStatus` eigenschap wordt niet aangegeven of de aantallen die u voor de taak wordt geteld als resultaat geeft op dat moment up-to-date zijn.
 
 ## <a name="node-state-counts"></a>Status van knooppunt wordt geteld
 

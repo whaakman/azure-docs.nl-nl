@@ -1,9 +1,9 @@
 ---
 title: Service Bus-wachtrijen voor onbestelbare berichten | Microsoft Docs
-description: Overzicht van Azure Service Bus-wachtrijen voor onbestelbare berichten
+description: Overzicht van Azure Service Bus-wachtrijen voor onbestelbare
 services: service-bus-messaging
 documentationcenter: .net
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 68b2aa38-dba7-491a-9c26-0289bc15d397
@@ -13,78 +13,78 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/31/2018
-ms.author: sethm
-ms.openlocfilehash: a82d70e7bf776bf470d14e7f061774ccbb136316
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
+ms.author: spelluru
+ms.openlocfilehash: fcdda123ff63c0d350945d3e4929d2a39a38fcb3
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
-ms.locfileid: "28925659"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699865"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Overzicht van Service Bus-wachtrijen voor onbestelbare berichten
 
-Azure Service Bus-wachtrijen en onderwerpabonnementen bieden u een secundaire onderliggende wachtrij aangeroepen een *wachtrij voor onbestelbare berichten* (DLQ). De wachtrij voor onbestelbare berichten hoeft niet expliciet worden gemaakt en kan niet worden verwijderd of anders beheerd onafhankelijk van de belangrijkste entiteit.
+Azure Service Bus-wachtrijen en onderwerpabonnementen bieden u een secundaire onderliggende wachtrij, met de naam een *dead-letter-wachtrij* (DLQ). De dead-letter-wachtrij hoeft niet te expliciet worden gemaakt en kan niet worden verwijderd of anderszins beheerd onafhankelijk van de belangrijkste entiteit.
 
-Dit artikel wordt beschreven wachtrijen voor onbestelbare berichten in de Service Bus. Veel van de bespreking van de wordt geïllustreerd door het [onbestelbare wachtrijen voorbeeld](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) op GitHub.
+Dit artikel wordt beschreven dead-letter uitvoeren voor wachtrijen in Service Bus. Veel van de discussie wordt aangegeven door de [Dead-Letter wachtrijen voorbeeld](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/DeadletterQueue) op GitHub.
  
-## <a name="the-dead-letter-queue"></a>De wachtrij voor onbestelbare berichten
+## <a name="the-dead-letter-queue"></a>De dead-letter-wachtrij
 
-Het doel van de wachtrij voor onbestelbare berichten is voor het opslaan van berichten die naar een ontvanger kunnen niet worden bezorgd of berichten die niet kunnen worden verwerkt. Berichten kunnen vervolgens worden verwijderd uit de DLQ en gecontroleerd. Een toepassing kan met behulp van een operator wordt oplossen van problemen en verzend het bericht opnieuw, meld het feit dat er een fout is en corrigerende maatregelen nemen. 
+Het doel van de dead-letter-wachtrij is voor het opslaan van berichten die naar een ontvanger kunnen niet worden bezorgd, of berichten die niet kunnen worden verwerkt. Berichten kunnen vervolgens worden verwijderd uit de DLQ en gecontroleerd. Een toepassing mogelijk, met behulp van de operator oplossen van problemen en verzend opnieuw het bericht, aanmelden van het feit dat er een fout opgetreden is en neemt u corrigerende maatregelen. 
 
-Vanuit een perspectief API en het protocol is voornamelijk de DLQ vergelijkbaar met de wachtrij, behalve dat berichten kunnen alleen worden verzonden via de onbestelbare bewerking van de bovenliggende entiteit. Bovendien time to live is niet-naleving en u kunt een bericht van een DLQ onbestelbare niet. Volledige ondersteuning voor de wachtrij voor onbestelbare berichten peek vergrendeling levering en transactionele bewerkingen.
+Vanuit een perspectief API en het protocol is meestal de DLQ die vergelijkbaar is met een andere wachtrij, behalve dat berichten kunnen alleen worden verzonden via de dead-letter uitvoeren voor bewerking van de bovenliggende entiteit. Bovendien time-to-live niet nageleefd, en is niet mogelijk een bericht van een DLQ dead-letter. De dead-letter-wachtrij biedt volledige ondersteuning peek-lock levering en transactionele bewerkingen.
 
-Houd er rekening mee dat er geen automatische opschoning van de DLQ is. Berichten blijven in de DLQ totdat u ze expliciet uit de DLQ en aanroep ophaalt [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) voor het bericht met onbestelbare berichten.
+Houd er rekening mee dat er geen automatisch opschonen van de DLQ is. Berichten in de DLQ blijven totdat u expliciet deze worden opgehaald van de DLQ en roep [Complete()](/dotnet/api/microsoft.azure.servicebus.queueclient.completeasync) op de onbestelbare berichten.
 
-## <a name="moving-messages-to-the-dlq"></a>Verplaatsen van berichten naar de DLQ
+## <a name="moving-messages-to-the-dlq"></a>Berichten verplaatsen naar de DLQ
 
-Er zijn verschillende activiteiten in de Service Bus die ertoe leiden dat berichten naar de DLQ uit binnen de messaging-engine zelf ophalen gepusht. Een toepassing kunt u ook expliciet berichten verplaatsen naar de DLQ. 
+Er zijn verschillende activiteiten in Service Bus die ertoe leiden dat berichten naar de DLQ uit binnen de messaging-engine zelf ophalen gepusht. Een toepassing kan ook expliciet berichten verplaatsen naar de DLQ. 
 
-Als het bericht wordt verplaatst met de broker, twee eigenschappen worden toegevoegd aan het bericht wanneer de broker de interne versie van roept de [wachtrij voor onbestelbare](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) methode voor het bericht: `DeadLetterReason` en `DeadLetterErrorDescription`.
+Als u het bericht wordt verplaatst van de broker, twee eigenschappen worden toegevoegd aan het bericht als de broker-zijn interne versie van aanroepen de [onbestelbare berichten](/dotnet/api/microsoft.azure.servicebus.queueclient.deadletterasync) methode voor het bericht: `DeadLetterReason` en `DeadLetterErrorDescription`.
 
-Toepassingen kunnen hun eigen codes definiëren voor de `DeadLetterReason` eigenschap, maar het systeem stelt u de volgende waarden.
+Toepassingen kunnen hun eigen codes definiëren voor de `DeadLetterReason` stelt de volgende waarden in de eigenschap, maar het systeem.
 
 | Voorwaarde | DeadLetterReason | DeadLetterErrorDescription |
 | --- | --- | --- |
-| Altijd |HeaderSizeExceeded |De grootte voor deze stroom is overschreden. |
+| Altijd |HeaderSizeExceeded |Het quotum van de voor deze stroom is overschreden. |
 | ! TopicDescription.<br />EnableFilteringMessagesBeforePublishing en SubscriptionDescription.<br />EnableDeadLetteringOnFilterEvaluationExceptions |exception.GetType().Name |exception.Message |
-| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Het bericht is verlopen en dode is lettered. |
+| EnableDeadLetteringOnMessageExpiration |TTLExpiredException |Het bericht is verlopen en werd dode lettered. |
 | SubscriptionDescription.RequiresSession |Sessie-id is null. |Sessie ingeschakeld entiteit is niet mogelijk een bericht waarvan sessie-id null is. |
-| ! wachtrij voor onbestelbare berichten |MaxTransferHopCountExceeded |Null |
-| Toepassing expliciete dode lettering |Opgegeven door toepassing |Opgegeven door toepassing |
+| ! dead-letter-wachtrij |MaxTransferHopCountExceeded |Null |
+| Expliciete dode lettering toepassing |Opgegeven door toepassing |Opgegeven door toepassing |
 
 ## <a name="exceeding-maxdeliverycount"></a>Meer dan MaxDeliveryCount
 
-Wachtrijen en abonnementen hebben een [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) en [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) eigenschap respectievelijk; de standaardwaarde is 10. Wanneer een bericht is bezorgd onder een vergrendeling ([ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)), maar is een expliciet verlaten of de vergrendeling is verlopen, wordt het bericht [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) is verhoogd. Wanneer [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) overschrijdt [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), het bericht is verplaatst naar de DLQ geven de `MaxDeliveryCountExceeded` redencode.
+Wachtrijen en abonnementen hebben een [QueueDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) en [SubscriptionDescription.MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription.maxdeliverycount) eigenschap respectievelijk; de standaardwaarde is 10. Wanneer een bericht is afgeleverd bij een vergrendeling ([ReceiveMode.PeekLock](/dotnet/api/microsoft.azure.servicebus.receivemode)), maar heeft een expliciet is afgebroken of de vergrendeling is verlopen, wordt het bericht [BrokeredMessage.DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) is verhoogd. Wanneer [DeliveryCount](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage) overschrijdt [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount), het bericht wordt verplaatst naar de DLQ op te geven de `MaxDeliveryCountExceeded` redencode.
 
-Dit gedrag kan niet worden uitgeschakeld, maar u kunt instellen [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) met een zeer groot aantal.
+Dit gedrag kan niet worden uitgeschakeld, maar u kunt instellen [MaxDeliveryCount](/dotnet/api/microsoft.servicebus.messaging.queuedescription.maxdeliverycount) naar een groot getal.
 
-## <a name="exceeding-timetolive"></a>TimeToLive overschrijdt
+## <a name="exceeding-timetolive"></a>TimeToLive overschreden
 
-Wanneer de [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) of [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnMessageExpiration) eigenschap is ingesteld op **waar** (de standaardwaarde is **false**), alle verlopende berichten worden verplaatst naar de DLQ geven de `TTLExpiredException` redencode.
+Wanneer de [QueueDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.queuedescription#Microsoft_ServiceBus_Messaging_QueueDescription_EnableDeadLetteringOnMessageExpiration) of [SubscriptionDescription.EnableDeadLetteringOnMessageExpiration](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnMessageExpiration) eigenschap is ingesteld op **waar** (de standaardwaarde is **false**), alle verlopende berichten worden verplaatst naar de DLQ op te geven de `TTLExpiredException` redencode.
 
-Houd er rekening mee dat er alleen verlopen berichten zijn opgeschoond en naar de DLQ verplaatst wanneer er ten minste één actieve ontvanger binnenhalen van de hoofdwachtrij of abonnement. Dit gedrag is inherent aan het ontwerp.
+Houd er rekening mee dat verlopen berichten alleen worden opgeschoond en naar de DLQ verplaatst wanneer er ten minste één actieve ontvanger binnenhalen van de belangrijkste wachtrij of abonnement. Dit gedrag is standaard.
 
-## <a name="errors-while-processing-subscription-rules"></a>Fouten tijdens het verwerken van abonnementsregels
+## <a name="errors-while-processing-subscription-rules"></a>Fouten tijdens het verwerken van abonnementsregels voor
 
-Wanneer de [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnFilterEvaluationExceptions) eigenschap voor een abonnement is ingeschakeld, eventuele fouten die zich voordoen tijdens een abonnement SQL filterregel wordt uitgevoerd in de DLQ langs worden vastgelegd met de strijdige bericht.
+Wanneer de [SubscriptionDescription.EnableDeadLetteringOnFilterEvaluationExceptions](/dotnet/api/microsoft.servicebus.messaging.subscriptiondescription#Microsoft_ServiceBus_Messaging_SubscriptionDescription_EnableDeadLetteringOnFilterEvaluationExceptions) eigenschap voor een abonnement is ingeschakeld, worden eventuele fouten die zich voordoen tijdens de SQL-filterregel van een abonnement wordt uitgevoerd, worden vastgelegd in de DLQ langs met de strijdige bericht.
 
-## <a name="application-level-dead-lettering"></a>Op toepassingsniveau verwerking van onbestelbare berichten
+## <a name="application-level-dead-lettering"></a>Onbestelbare op toepassingsniveau
 
-Naast de verwerking van onbestelbare berichten systeem geleverde functies toepassingen de DLQ gebruiken voor het expliciet weigeren onaanvaardbaar berichten. Dit kunnen bijvoorbeeld berichten die correct kunnen niet worden verwerkt vanwege een of andere vorm van een systeemprobleem, berichten waarin een verkeerd ingedeelde nettoladingen of berichten die niet door de verificatie als sommige berichtniveau beveiligingsschema wordt gebruikt.
+Toepassingen kunnen de DLQ gebruiken om expliciet weigeren onaanvaardbaar berichten naast het systeem geleverde onbestelbare-functies. Dit kunnen bijvoorbeeld berichten die naar behoren kunnen niet worden verwerkt vanwege een of andere vorm van systeemprobleem, berichten die onjuist gevormde nettolading bevatten of berichten die niet door de verificatie bij sommige bericht beveiligingsniveau-schema wordt gebruikt.
 
-## <a name="dead-lettering-in-forwardto-or-sendvia-scenarios"></a>Verwerking van onbestelbare berichten in scenario's ForwardTo of SendVia
+## <a name="dead-lettering-in-forwardto-or-sendvia-scenarios"></a>Onbestelbare in scenario's doorsturen naar of verzenden via
 
-Berichten worden verzonden naar de wachtrij onbestelbare berichten in de volgende omstandigheden:
+Berichten worden verzonden naar de wachtrij voor overdracht dead-letter uitvoeren voor de volgende voorwaarden:
 
-- Een bericht wordt doorgegeven via meer dan 3 wachtrijen of onderwerpen die [aaneengeschakeld](service-bus-auto-forwarding.md).
-- De doelwachtrij of onderwerp is uitgeschakeld of verwijderd.
-- De doelwachtrij of onderwerp wordt de maximale entiteit overschrijdt.
+- Een bericht wordt doorgegeven via meer dan 3 wachtrijen of onderwerpen die zijn [samen in een keten](service-bus-auto-forwarding.md).
+- De bestemmingswachtrij of onderwerp is uitgeschakeld of verwijderd.
+- De bestemmingswachtrij of onderwerp groter is dan de maximale entiteit.
 
-Voor het ophalen van deze lettered van onbestelbare berichten, kunt u een ontvanger met behulp van de [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) hulpprogramma methode.
+Als u wilt deze berichten dead lettered ophalen, kunt u een ontvanger met behulp van de [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) hulpprogramma methode.
 
 ## <a name="example"></a>Voorbeeld
 
-Het volgende codefragment maakt een bericht ontvanger. In de receive-lus voor de hoofdwachtrij, de code haalt het bericht met [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_Receive_System_TimeSpan_), waarin wordt gevraagd de broker onmiddellijk retourneren elk bericht direct beschikbaar, of om te retourneren met geen resultaat. Als de code wordt een bericht ontvangt, het onmiddellijk verlaat deze welke stappen de `DeliveryCount`. Zodra het bericht wordt verplaatst naar de DLQ het systeem, de hoofdwachtrij leeg is en dat de lus wordt afgesloten, als [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_ReceiveAsync_System_TimeSpan_) retourneert **null**.
+Het volgende codefragment wordt een bericht ontvanger gemaakt. Op de hoogte van de ontvangen voor de hoofdwachtrij, haalt de code het bericht met [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_Receive_System_TimeSpan_), waarin wordt gevraagd de broker om terug te keren direct bericht direct beschikbaar, of om te retourneren met geen resultaat. Als de code wordt een bericht ontvangt, het onmiddellijk verwijdert deze, welke stappen van de `DeliveryCount`. Nadat het systeem wordt het bericht naar de DLQ verplaatst, de belangrijkste wachtrij leeg is en de lus wordt afgesloten, als [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver#Microsoft_ServiceBus_Messaging_MessageReceiver_ReceiveAsync_System_TimeSpan_) retourneert **null**.
 
 ```csharp
 var receiver = await receiverFactory.CreateMessageReceiverAsync(queueName, ReceiveMode.PeekLock);
@@ -108,5 +108,5 @@ while(true)
 Zie de volgende artikelen voor meer informatie over Service Bus-wachtrijen:
 
 * [Aan de slag met Service Bus-wachtrijen](service-bus-dotnet-get-started-with-queues.md)
-* [Azure-wachtrijen en Service Bus-wachtrijen vergeleken](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
+* [Azure-wachtrijen en Service Bus-wachtrijen in vergelijking met](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
 

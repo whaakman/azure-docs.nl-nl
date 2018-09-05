@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: sngun
-ms.openlocfilehash: a8d9704c48801b98800abb71769ba0954e727848
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 375990f095d3a6cbbbfa18db70466c274fd7e17b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190453"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702592"
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure Cosmos DB
@@ -28,7 +28,7 @@ Als u een DocumentDB-API-account voordat u had, hebt u nu een SQL API-account, z
 
 ### <a name="what-happened-to-azure-documentdb-as-a-service"></a>Wat is er gebeurd met Azure DocumentDB als een service?
 
-De Azure DocumentDB-service is nu een onderdeel van de Azure Cosmos DB-service en manifesten zelf in de vorm van de SQL-API. Toepassingen die zijn gebouwd met Azure DocumentDB wordt uitgevoerd zonder deze te wijzigen op Azure Cosmos DB SQL API. Azure Cosmos DB ondersteunt bovendien de Graph API, de Table-API, de MongoDB-API en de Cassandra-API (Preview).
+De Azure DocumentDB-service is nu een onderdeel van de Azure Cosmos DB-service en manifesten zelf in de vorm van de SQL-API. Toepassingen die zijn gebouwd met Azure DocumentDB wordt uitgevoerd zonder deze te wijzigen op Azure Cosmos DB SQL API. Azure Cosmos DB ondersteunt bovendien de Gremlin-API, de Table-API, de MongoDB-API en de Cassandra-API (Preview).
 
 ### <a name="what-are-the-typical-use-cases-for-azure-cosmos-db"></a>Wat zijn typische gebruiksvoorbeelden voor Azure Cosmos DB?
 Azure Cosmos DB is een goede keuze voor nieuwe web, mobiel, gaming en IoT-toepassingen waarbij automatisch schalen, voorspelbare prestaties, volgorde van orderresponstijden en de mogelijkheid om query te snel via schemavrije gegevens is belangrijk. Azure Cosmos DB toepassingsgegevensmodellen wilt herhalen voor snelle ontwikkeling en het ondersteunen van de continue iteratie van de toepassing gegevensmodellen over te brengen. Toepassingen die worden beheerd door gebruikers gegenereerde inhoud en gegevens zijn [algemene scenario's voor Azure Cosmos DB](use-cases.md). 
@@ -36,11 +36,11 @@ Azure Cosmos DB is een goede keuze voor nieuwe web, mobiel, gaming en IoT-toepas
 ### <a name="how-does-azure-cosmos-db-offer-predictable-performance"></a>Hoe biedt Azure Cosmos DB voorspelbare prestaties?
 Een [aanvraageenheid](request-units.md) (ru/s) is de maateenheid voor doorvoer in Azure Cosmos DB. Een doorvoer van 1 RU komt overeen met de doorvoer van het ophalen van een document van 1 KB. Elke bewerking in Azure Cosmos DB, met inbegrip van leesbewerkingen, schrijfbewerkingen, SQL-query's en uitvoeringen van opgeslagen procedures, heeft een deterministische RU-waarde die gebaseerd op de doorvoer die is vereist om de bewerking te voltooien. In plaats van nadenken over de CPU, IO en geheugen en hoe ze elke invloed op de doorvoer van uw toepassing, kunt u denken in termen van één RU maateenheid.
 
-U kunt elke Azure Cosmos DB-container met een ingerichte doorvoer in termen van Aanvraageenheden aan doorvoer per seconde reserveren. U kunt voor toepassingen van elke omvang, benchmarken van afzonderlijke aanvragen voor het meten van de RU-waarden en inrichten van een container voor het afhandelen van het totaal aantal aanvraageenheden voor alle aanvragen. U kunt ook omhoog of omlaag doorvoer van uw container schalen naarmate de behoeften van uw toepassing veranderen. Voor meer informatie over aanvraageenheden en hulp bij het bepalen van de container moet, Zie [schatten van de doorvoer moet](request-units.md#estimating-throughput-needs) en probeer de [doorvoer calculator](https://www.documentdb.com/capacityplanner). De term *container* verwijst hier naar verwijst naar een verzameling van de SQL-API, Graph API graph, MongoDB-API-verzameling en Table-API-tabel. 
+U kunt elke Azure Cosmos DB-container met een ingerichte doorvoer in termen van Aanvraageenheden aan doorvoer per seconde reserveren. U kunt voor toepassingen van elke omvang, benchmarken van afzonderlijke aanvragen voor het meten van de RU-waarden en inrichten van een container voor het afhandelen van het totaal aantal aanvraageenheden voor alle aanvragen. U kunt ook omhoog of omlaag doorvoer van uw container schalen naarmate de behoeften van uw toepassing veranderen. Voor meer informatie over aanvraageenheden en hulp bij het bepalen van de container moet, Zie [schatten van de doorvoer moet](request-units.md#estimating-throughput-needs) en probeer de [doorvoer calculator](https://www.documentdb.com/capacityplanner). De term *container* verwijst hier naar verwijst naar een verzameling van de SQL-API, Gremlin-API-grafiek, MongoDB-API-verzameling en Table-API-tabel. 
 
 ### <a name="how-does-azure-cosmos-db-support-various-data-models-such-as-keyvalue-columnar-document-and-graph"></a>Hoe biedt Azure Cosmos DB ondersteuning voor verschillende gegevensmodellen zoals sleutel/waarde, in kolomvorm, document en een graaf?
 
-Sleutel/waarde (tabel), wat in kolomvorm, document en de grafiekgegevens zijn modellen zijn alle systeemeigen worden ondersteund vanwege het ARS (atomen, records en -reeksen) ontwerpen dat Azure Cosmos DB is gebouwd op. Atomen, records en -reeksen kunnen eenvoudig worden toegewezen en toegewezen aan verschillende gegevensmodellen. De API's voor een subset van modellen zijn beschikbaar nu (SQL, MongoDB, Table en Graph-API's) en anderen die specifiek zijn voor aanvullende gegevensmodellen komen beschikbaar in de toekomst.
+Sleutel/waarde (tabel), wat in kolomvorm, document en de grafiekgegevens zijn modellen zijn alle systeemeigen worden ondersteund vanwege het ARS (atomen, records en -reeksen) ontwerpen dat Azure Cosmos DB is gebouwd op. Atomen, records en -reeksen kunnen eenvoudig worden toegewezen en toegewezen aan verschillende gegevensmodellen. De API's voor een subset van modellen zijn beschikbaar nu (SQL, MongoDB, Table en Gremlin-API's) en anderen die specifiek zijn voor aanvullende gegevensmodellen komen beschikbaar in de toekomst.
 
 Azure Cosmos DB heeft een schema agnostisch indexeren engine voor automatisch indexeren van alle gegevens die deze neemt zonder schema's of secundaire indexen van de ontwikkelaar. De engine is afhankelijk van een set van logische index-indelingen (omgekeerde, in kolomvorm, structuur) die de indeling van de index en de subsystemen voor queryverwerking loskoppelen. Cosmos DB biedt ook de mogelijkheid ter ondersteuning van een set wire-protocollen en API's op een uitbreidbare manier en efficiënt te vertalen naar het gegevensmodel core (1) en de logische index-indelingen (2) waardoor het een unieke kan meerdere gegevensmodellen systeemeigen ondersteunen.
 
@@ -57,7 +57,7 @@ Er is geen limiet voor de totale hoeveelheid doorvoer die een container in Azure
 Ja, beide modi worden altijd volledig versleuteld. 
 
 ### <a name="how-much-does-azure-cosmos-db-cost"></a>Wat kost Azure Cosmos DB?
-Raadpleeg voor meer informatie, de [prijsinformatie van Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) pagina. Azure Cosmos DB-gebruikskosten worden bepaald door het aantal ingerichte containers, het aantal uren dat de containers online zijn en de ingerichte doorvoer voor elke container. De term *containers* verwijst hier naar de verzameling van de SQL-API, graph Graph API, API voor MongoDB-verzameling en Table-API-tabellen. 
+Raadpleeg voor meer informatie, de [prijsinformatie van Azure Cosmos DB](https://azure.microsoft.com/pricing/details/cosmos-db/) pagina. Azure Cosmos DB-gebruikskosten worden bepaald door het aantal ingerichte containers, het aantal uren dat de containers online zijn en de ingerichte doorvoer voor elke container. De term *containers* verwijst hier naar de verzameling van de SQL-API, Gremlin-API (Graph), MongoDB-API-verzameling en Table-API-tabellen. 
 
 ### <a name="is-a-free-account-available"></a>Is een gratis account beschikbaar?
 Ja, kunt u aanmelden voor een account gedurende beperkte tijd gratis, zonder toezegging. Om u te registreren, gaat u naar [Azure Cosmosdb gratis uitproberen](https://azure.microsoft.com/try/cosmosdb/) of lees meer in de [probeer Azure Cosmos DB Veelgestelde vragen over](#try-cosmos-db).
@@ -87,7 +87,7 @@ Probeer Azure Cosmos DB-abonnementen worden weergegeven in de Azure-portal naast
 
 De volgende voorwaarden van toepassing op abonnementen Try Azure Cosmos DB:
 
-* Een container per abonnement voor SQL, Gremlin (Graph API) en tabel accounts.
+* Een container per abonnement voor SQL, Gremlin-API en tabel accounts.
 * Maximaal 3-verzamelingen per abonnement voor MongoDB-accounts.
 * Opslagcapaciteit van 10 GB.
 * Globale replicatie is beschikbaar in de volgende [Azure-regio's](https://azure.microsoft.com/regions/): VS-midden, Noord-Europa en Zuidoost-Azië
@@ -97,7 +97,7 @@ De volgende voorwaarden van toepassing op abonnementen Try Azure Cosmos DB:
 
 ## <a name="set-up-azure-cosmos-db"></a>Instellen van Azure Cosmos DB
 ### <a name="how-do-i-sign-up-for-azure-cosmos-db"></a>Hoe registreer ik me voor Azure Cosmos DB?
-Azure Cosmos DB is beschikbaar in de Azure-portal. Eerst zich registreren voor een Azure-abonnement. Nadat u zich hebt aangemeld, kunt u een SQL-API, de Graph API, de Table-API, de MongoDB-API of de Cassandra-API-account toevoegen aan uw Azure-abonnement.
+Azure Cosmos DB is beschikbaar in de Azure-portal. Eerst zich registreren voor een Azure-abonnement. Nadat u zich hebt aangemeld, kunt u een SQL-API, Gremlin-API, tabel-API, MongoDB-API of Cassandra-API-account toevoegen aan uw Azure-abonnement.
 
 ### <a name="what-is-a-master-key"></a>Wat is een hoofdsleutel?
 Een hoofdsleutel is een beveiligingstoken voor toegang tot alle resources voor een account. Personen met de sleutel hebt gelezen en schrijftoegang tot alle resources in de databaseaccount. Wees voorzichtig met het distribueren van hoofdsleutels. De hoofdsleutel van de primaire en secundaire hoofdsleutel zijn beschikbaar op de **sleutels** blade van de [Azure-portal][azure-portal]. Zie voor meer informatie over sleutels, [weergeven, kopiëren en opnieuw genereren toegangssleutel](manage-account.md#keys).
@@ -440,15 +440,15 @@ Azure Table storage en Azure Cosmos DB Table-API gebruikt de dezelfde SDK's, zod
 ### <a name="why-do-i-get-throttled-when-i-try-to-create-lot-of-tables-one-after-another-in-the-table-api"></a>Waarom ik te maken met beperkingen wanneer ik probeer te veel tabellen na elkaar maken in de Table-API?
 Azure Cosmos DB is een SLA-systeem waarmee latentie, doorvoer, beschikbaarheid en garanties voor consistentie. Omdat het een ingerichte systeem is, behoudt deze resources om te garanderen van deze vereisten. De snelle snelheid van het maken van tabellen is gedetecteerd en beperkt. U wordt aangeraden dat u kijken naar de snelheid van het maken van tabellen en het verlagen naar minder dan 5 per minuut. Houd er rekening mee dat de Table-API een ingerichte systeem is. Het moment dat u hebt ingericht, begint om te betalen voor u. 
 
-## <a name="graph-api"></a>Graph API
-### <a name="how-can-i-apply-the-functionality-of-graph-api-to-azure-cosmos-db"></a>Hoe kan ik toepassen op de functionaliteit van de Graph API met Azure Cosmos DB?
-U kunt een extensiebibliotheek gebruiken om toe te passen van de functionaliteit van de Graph API. Deze bibliotheek heet grafieken van Microsoft Azure, en deze beschikbaar is op [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
+## <a name="gremlin-api"></a>Gremlin-API
+### <a name="how-can-i-apply-the-functionality-of-gremlin-api-to-azure-cosmos-db"></a>Hoe kan ik toepassen op de functionaliteit van Gremlin-API met Azure Cosmos DB?
+U kunt een extensiebibliotheek gebruiken om toe te passen van de functionaliteit van Gremlin-API. Deze bibliotheek heet grafieken van Microsoft Azure, en deze beschikbaar is op [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
 ### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Het lijkt erop dat u de Gremlin graph-traversal taal ondersteunen. Bent u van plan om toe te voegen meer soorten query?
 Ja, we van plan bent om toe te voegen andere methoden voor de query in de toekomst. 
 
-### <a name="how-can-i-use-the-new-graph-api-offering"></a>Hoe kan ik de nieuwe aanbieding voor Graph API gebruiken? 
-Voltooien om te beginnen, de [Graph API](../cosmos-db/create-graph-dotnet.md) quick start-artikel.
+### <a name="how-can-i-use-the-new-gremlin-api-offering"></a>Hoe kan ik de nieuwe aanbieding van de Gremlin-API gebruiken? 
+Voltooien om te beginnen, de [Gremlin-API](../cosmos-db/create-graph-dotnet.md) quick start-artikel.
 
 
 ## <a id="cassandra"></a> Cassandra-API

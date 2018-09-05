@@ -13,12 +13,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: na
 ms.date: 08/10/2018
 ms.author: routlaw
-ms.openlocfilehash: d895258a4c8a38d00932d81600dc8633d7d70112
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: bbc1c3426b52e71db84a988b39a1d76ac24b6168
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42060771"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697008"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 
@@ -93,7 +93,7 @@ met de bijbehorende `function.json`:
 
 Azure Functions ondersteunt het gebruik van bibliotheken van derden. Standaard alle afhankelijkheden die zijn opgegeven in uw project `pom.xml` bestand zal automatisch worden gebundeld tijdens de `mvn package` doel. Voor bibliotheken niet is opgegeven als afhankelijkheden in de `pom.xml` bestand, plaats deze in een `lib` map in de hoofdmap van de functie. Afhankelijkheden worden geplaatst de `lib` directory worden toegevoegd aan het laadprogramma van de klasse system tijdens runtime.
 
-## <a name="data-types"></a>Gegevenstypen
+## <a name="data-type-support"></a>Ondersteuning voor gegevenstype
 
 U kunt alle gegevenstypen die in Java gebruiken voor de invoer- en -gegevens, inclusief systeemeigen typen; aangepaste Java-typen en gespecialiseerde Azure typen die zijn gedefinieerd `azure-functions-java-library` pakket. De Azure Functions runtime probeert converteren de invoer die is ontvangen in het type dat is aangevraagd door uw code.
 
@@ -243,7 +243,7 @@ public class MyClass {
 
 Interactie met Azure Functions-uitvoeringsomgeving via de `ExecutionContext` object dat is gedefinieerd de `azure-functions-java-library` pakket. Gebruik de `ExecutionContext` object aanroep informatie en functions runtime-gegevens gebruiken in uw code.
 
-### <a name="logging"></a>Logboekregistratie
+### <a name="custom-logging"></a>Aangepaste logboekregistratie
 
 Toegang tot de logger Functions-runtime is beschikbaar via de `ExecutionContext` object. In dit logboek is gekoppeld aan de Azure monitor en kunt u met de vlag-waarschuwingen en fouten aangetroffen tijdens het uitvoeren van de functie.
 
@@ -263,6 +263,29 @@ public class Function {
     }
 }
 ```
+
+## <a name="view-logs-and-trace"></a>Logboeken weergeven en tracering
+
+U kunt de Azure CLI voor stream van standaard Java en logboekregistratie van fouten, evenals de logboekregistratie van andere toepassingen. Eerst uw functie toepassing configureren voor het schrijven van logboekregistratie van toepassingen met de Azure CLI:
+
+```azurecli-interactive
+az webapp log config --name functionname --resource-group myResourceGroup --application-logging true
+```
+
+Om te streamen van uitvoer van de logboekregistratie voor uw functie-app met de Azure CLI, een nieuwe opdrachtprompt, Bash of Terminal-sessie openen en voer de volgende opdracht:
+
+```azurecli-interactive
+az webapp log tail --name webappname --resource-group myResourceGroup
+```
+De [az webapp log tail](/cli/azure/webapp/log) opdracht bevat opties voor het filteren van uitvoer met behulp van de `--provider` optie. 
+
+De logboekbestanden downloaden als een ZIP-bestand met de Azure CLI, een nieuwe opdrachtprompt, Bash of Terminal-sessie openen en voer de volgende opdracht:
+
+```azurecli-interactive
+az webapp log download --resource-group resourcegroupname --name functionappname
+```
+
+U moet bestandssysteem logboekregistratie in de Azure Portal of Azure CLI voor het uitvoeren van deze opdracht hebt ingeschakeld.
 
 ## <a name="environment-variables"></a>Omgevingsvariabelen
 
@@ -288,9 +311,12 @@ Elke sleutel / waarde van de toewijzing van in de `values` kaart wordt beschikba
 Met de code nu, afhankelijk van deze omgevingsvariabelen, kunt u zich naar de Azure-portal voor het instellen van dezelfde sleutel / waarde-paren in de instellingen van uw functie-app zodat uw code oftewel werkt wanneer getest lokaal en wanneer geïmplementeerd op Azure.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie de volgende bronnen voor meer informatie:
+
+Zie de volgende bronnen voor meer informatie over het ontwikkelen van Java voor Azure-functie:
 
 * [Aanbevolen procedures voor Azure Functions](functions-best-practices.md)
 * [Naslaginformatie over Azure Functions voor ontwikkelaars](functions-reference.md)
 * [Azure Functions-triggers en bindingen](functions-triggers-bindings.md)
+- Lokale ontwikkeling en foutopsporing met [Visual Studio Code](https://code.visualstudio.com/docs/java/java-azurefunctions), [IntelliJ](functions-create-maven-intellij.md), en [Eclipse](functions-create-maven-eclipse.md). 
 * [Externe foutopsporing voor Java Azure Functions met Visual Studio Code](https://code.visualstudio.com/docs/java/java-serverless#_remote-debug-functions-running-in-the-cloud)
+* [Maven-invoegtoepassing voor Azure Functions](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-functions-maven-plugin/README.md) -functie maken via stroomlijnen de `azure-functions:add` doel en een staging-map voor te bereiden [ZIP-bestandsimplementatie](deployment-zip-push.md).

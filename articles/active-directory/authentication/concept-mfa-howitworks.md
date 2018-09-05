@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 25af61ce51828691d08210f4089afa0cf56b9846
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: 46c99011a22f855f6faf53e03169b2d1e4c6ce85
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39257840"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669004"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>Hoe het werkt: Azure multi-factor Authentication
 
@@ -39,11 +39,14 @@ Multi-factor Authentication wordt geleverd als onderdeel van de volgende aanbied
 * **Multi-factor Authentication voor Office 365** -een subset van de Azure multi-factor Authentication-mogelijkheden zijn beschikbaar als onderdeel van uw abonnement. Zie het artikel voor meer informatie over MFA voor Office 365, [plannen voor multi-factor authentication voor Office 365-implementaties](https://support.office.com/article/plan-for-multi-factor-authentication-for-office-365-deployments-043807b2-21db-4d5c-b430-c8a6dee0e6ba).
 * **Azure Active Directory globale beheerders** -een subset van de Azure multi-factor Authentication-mogelijkheden zijn beschikbaar als een manier om te beveiligen global administrator-accounts.
 
+> [!NOTE]
+> Nieuwe klanten kunnen niet meer Azure multi-factor Authentication aanschaffen als zelfstandige aanbieding met 1 September 2018. Meervoudige verificatie wordt nog steeds een beschikbare functie in Azure AD Premium-licenties.
+
 ### <a name="auth-provider-or-mfa-license"></a>Authentication-Provider of MFA-licentie
 
-Als u Azure AD Premium of een licentie-bundel met Azure AD Premium hebt, hebt u al Azure MFA. Uw organisatie hoeft niet verder niets meer om uit te breiden de functionaliteit van de verificatie in twee stappen voor alle gebruikers. U hoeft alleen een licentie toewijzen aan een gebruiker en vervolgens u MFA kunt inschakelen.
+Als u Azure AD Premium of een andere licentie-bundel met Azure AD Premium hebt, hebt u al Azure MFA. Uw organisatie hoeft niet verder niets meer om uit te breiden de functionaliteit van de verificatie in twee stappen voor alle gebruikers. U hoeft alleen een licentie toewijzen aan een gebruiker en vervolgens u MFA kunt inschakelen.
 
-Als u geen licenties die Azure MFA bevatten of beschikt niet over voldoende licenties voor alle gebruikers, en vervolgens kunt u een [MFA-verificatieprovider](concept-mfa-authprovider.md) om uit te breiden de volledige functionaliteit van MFA voor gebruikers die ze nodig hebt. 
+Als u geen licenties die Azure MFA bevatten of beschikt niet over voldoende licenties voor alle gebruikers, en vervolgens kunt u een [MFA-verificatieprovider](concept-mfa-authprovider.md) om uit te breiden de volledige functionaliteit van MFA voor gebruikers die ze nodig hebt.
 
 > [!IMPORTANT]
 > Als u geen voldoende licenties voor al uw gebruikers hebt, kunt u een per gebruiker multi-factor Authentication-Provider voor de rest van uw organisatie maken. Maak een per authenticatie multi-factor Authentication-Provider niet. Als u dit doet, kan het uiteindelijke betaalt voor aanvragen voor verificatie van gebruikers die al licenties hebt.

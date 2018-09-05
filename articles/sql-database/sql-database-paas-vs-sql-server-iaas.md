@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: a6d6a7639d3db0cc7d194ca9fae126ad9a2cc3ba
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 0b1eda89d2baaa54b17d8a7c73a2e9c987f0f8eb
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413651"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665982"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Kies een SQL Server-cloudoptie: Azure SQL (PaaS) Database of SQL Server op Azure Virtual Machines (IaaS)
 
@@ -28,9 +28,9 @@ In Azure, hebt u uw SQL Server-workloads die worden uitgevoerd in een gehoste in
       > [!NOTE]
       > Een Azure SQL Database met één en gepoolde databases biedt de meeste functies van SQL Server-database-scoped van.
 
-      De volgende afbeelding ziet u deze implementatieopties:
+      In de volgende afbeelding worden deze implementatieopties weergegeven:
 
-      ![implementatie-opties](./media/sql-database-technical-overview/deployment-options.png) 
+      ![implementatieopties](./media/sql-database-technical-overview/deployment-options.png) 
   - U kunt implementeren op een [Azure SQL Database Managed Instances (preview)](sql-database-managed-instance.md). 
 
       > [!NOTE]
@@ -133,7 +133,7 @@ Voor **SQL-Database**, biedt Microsoft een beschikbaarheids-SLA van 99,99%. Zie 
 Voor **SQL Server die wordt uitgevoerd op Azure Virtual Machines**, biedt Microsoft een beschikbaarheids-SLA van 99,95% die alleen van toepassing is op de virtuele machine. Deze SLA heeft geen betrekking op de processen (zoals SQL Server) die worden uitgevoerd op de VM en vereist dat u ten minste twee exemplaren van de virtuele machine in een beschikbaarheidsset host. Voor de meest recente informatie, zie de [VM SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/). Voor database hoge beschikbaarheid (HA) in virtuele machines, moet u configureren een van de opties voor ondersteunde hoge beschikbaarheid in SQL Server, zoals [Always On Availability Groups](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server). Het gebruik van een ondersteunde optie voor hoge beschikbaarheid biedt geen extra SLA, maar u kunt wel een databasebeschikbaarheid van >99,99% behalen.
 
 ### <a name="market"></a>Verplaatsen naar Azure
-**Logische SQL Database-servers, elastische pools en individuele databases** is de juiste oplossing voor de cloud ontworpen toepassingen wanneer de productiviteit van ontwikkelaars en snelle time-to-market voor oplossingen noew van essentieel belang zijn. Met programmatische DBA-functies is het ideaal voor cloud-architecten en -ontwikkelaars aangezien het de noodzaak voor het beheren van het onderliggende besturingssysteem en de database vermindert. 
+**Logische SQL Database-servers, elastische pools en individuele databases** is de juiste oplossing voor de cloud ontworpen toepassingen wanneer de productiviteit van ontwikkelaars en snelle time-to-market voor nieuwe oplossingen van essentieel belang zijn. Met programmatische DBA-functies is het ideaal voor cloud-architecten en -ontwikkelaars aangezien het de noodzaak voor het beheren van het onderliggende besturingssysteem en de database vermindert. 
 
 **SQL Database Managed Instance** vereenvoudigt de migratie van bestaande toepassingen naar Azure SQL Database, zodat u kunt een gemigreerde database toepassingen in Azure snel de markt brengen.
 

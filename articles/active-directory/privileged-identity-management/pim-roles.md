@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: c8870e4da63dc52d5926bdfd5f7c9b3218e5f53a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: fc45cde1a5f0f287274302541ac0115569e2239d
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188983"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666333"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Azure AD-maprollen die kunt u in PIM beheren
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -76,13 +76,36 @@ Toegang tot de Azure-portal vereist de gebruiker een servicebeheerder of CO-behe
 Toegang tot Microsoft Online Services mogelijk de gebruiker ook een licentie worden toegewezen voordat ze kunnen openen van de service-portal of administratieve taken uitvoeren.
 
 ## <a name="assign-a-license-to-a-user-in-azure-ad"></a>Een licentie toewijzen aan een gebruiker in Azure AD
+
 1. Aanmelden bij de [Azure-portal](http://portal.azure.com) met een account voor globale beheerder of CO-beheerder.
-3. Azure AD selecteren en de map die u werken met en die wilt heeft licenties die zijn gekoppeld.
-4. Selecteer **licenties** aan de linkerkant. De lijst met beschikbare licenties wordt weergegeven.
-5. Selecteer het licentieabonnement waarin de licenties die u wilt distribueren.
-6. Selecteer **gebruikers toe te wijzen**.
-7. Selecteer de gebruiker die u wilt een licentie toewijzen.
-8. Klik op de **toewijzen** knop.  De gebruiker kan zich nu aanmelden bij Azure.
+
+1. Selecteer de Azure AD-directory die u wilt werken en die licenties die zijn gekoppeld aan deze heeft.
+
+1. Klik in het linkernavigatievenster op **Azure Active Directory**.
+
+1. Klik op **licenties**. De lijst met beschikbare licenties wordt weergegeven.
+
+    ![Licenties voor Azure Active Directory](./media/pim-roles/licenses-overview.png)
+
+1. Klik op uw **Product**.
+
+1. Klik op het licentieabonnement waarin de licenties die u wilt distribueren.
+
+    ![Producten met licenties](./media/pim-roles/licenses-products.png)
+
+1. Klik op **toewijzen** om de licentie toewijzen deelvenster te openen.
+
+    ![Gebruikers met licenties](./media/pim-roles/licenses-licensed-users.png)
+
+1. Selecteer de gebruiker of groep die u wilt een licentie toewijzen.
+
+    ![Licentie toewijzen](./media/pim-roles/licenses-assign-license.png)
+
+1. Klik op **toewijzingsopties** om uw toewijzingsopties te configureren.
+
+    ![Toewijzingsopties](./media/pim-roles/licenses-assignment-options.png)
+
+1. Klik op **toewijzen** de licentie toewijzen. De gebruiker heeft nu de licentie.
 
 <!--Every topic should have next steps and links to the next logical set of content to keep the customer engaged-->
 ## <a name="next-steps"></a>Volgende stappen

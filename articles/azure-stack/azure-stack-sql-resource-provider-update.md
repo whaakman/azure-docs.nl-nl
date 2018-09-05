@@ -1,6 +1,6 @@
 ---
-title: Bijwerken van de Azure-Stack SQL-resourceprovider | Microsoft Docs
-description: Meer informatie over hoe u de Azure-Stack SQL-resourceprovider kunt bijwerken.
+title: Bijwerken van de Azure Stack-SQL-resourceprovider | Microsoft Docs
+description: Meer informatie over hoe u de Azure Stack-SQL-resourceprovider kunt bijwerken.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,48 +11,48 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/11/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: ac5073d1abc32b7598a869750f9c5a801559e9e6
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.openlocfilehash: 017ac3214046b812ce003ab7a190f2f2b3f4f2e2
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264074"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697938"
 ---
 # <a name="update-the-sql-resource-provider"></a>Bijwerken van de SQL-resourceprovider
 
-*Van toepassing op: Azure Stack geïntegreerd systemen.*
+*Is van toepassing op: Azure Stack-geïntegreerde systemen.*
 
-Een nieuwe resourceprovider voor SQL kan worden vrijgegeven wanneer Azure Stack wordt bijgewerkt naar een nieuwe build. Hoewel de bestaande adapter werken blijft, wordt u aangeraden zo snel mogelijk naar de laatste build bijwerken.
+Een nieuwe SQL-resourceprovider kan worden vrijgegeven wanneer Azure Stack wordt bijgewerkt naar een nieuwe build. Hoewel de bestaande adapter werken blijft, kunt u het beste bijwerken naar de nieuwste build zo snel mogelijk.
 
 >[!IMPORTANT]
->In de volgorde waarin die ze worden vrijgegeven, moet u updates installeren. U kunt de versies niet overslaan. Raadpleeg de lijst met versies in [implementeert de vereisten van de provider resource](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
+>U moet updates installeren in de volgorde waarin die ze zijn vrijgegeven. U kunt de versies niet overslaan. Raadpleeg de lijst met versies in [implementeert de vereisten van de provider resource](.\azure-stack-sql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="overview"></a>Overzicht
 
-Voor het bijwerken van de resourceprovider, gebruiken de *UpdateSQLProvider.ps1* script. Dit script is opgenomen in het downloaden van de nieuwe SQL-resourceprovider. De updateproces is vergelijkbaar met het proces waarmee [implementeert de bronprovider](.\azure-stack-sql-resource-provider-deploy.md). Het script bijwerken gebruikt dezelfde argumenten als het script DeploySqlProvider.ps1 en moet u geeft certificaatgegevens.
+Voor het bijwerken van de resourceprovider, gebruikt u de *UpdateSQLProvider.ps1* script. Met dit script wordt geleverd bij het downloaden van de nieuwe SQL-resourceprovider. De updateproces is vergelijkbaar met het proces waarmee [implementeren van de resourceprovider](.\azure-stack-sql-resource-provider-deploy.md). Het updatescript maakt gebruik van dezelfde argumenten als het script DeploySqlProvider.ps1 en u moet gegevens opgeven.
 
-### <a name="update-script-processes"></a>Bijwerken van de script-processen
+### <a name="update-script-processes"></a>Update-script-processen
 
-De *UpdateSQLProvider.ps1* script maakt een nieuwe virtuele machine (VM) met de meest recente resource provider-code.
+De *UpdateSQLProvider.ps1* script maakt u een nieuwe virtuele machine (VM) met de meest recente code van de resource-provider.
 
 >[!NOTE]
->Het is raadzaam dat u de installatiekopie van het meest recente Windows Server 2016 Core uit het beheer van de Marketplace downloaden. Als u een update installeert moet, schakelt u een **één** MSU-pakket in het pad van de lokale afhankelijkheid. Het script mislukt als er meer dan één MSU-bestand op deze locatie.
+>Het is raadzaam dat u de meest recente installatiekopie van Windows Server 2016 Core uit het beheer van de Marketplace downloaden. Als u een update installeert wilt, kunt u plaatsen een **één** MSU-pakket in het afhankelijkheidspad van de lokale. Het script mislukken als er meer dan één MSU-bestand op deze locatie.
 
-Na de *UpdateSQLProvider.ps1* script maakt een nieuwe virtuele machine, wordt het script de volgende instellingen van de oude VM-provider wordt gemigreerd:
+Na de *UpdateSQLProvider.ps1* script maakt u een nieuwe virtuele machine, het script worden de volgende instellingen gemigreerd van de oude VM-provider:
 
-* Database-informatie
-* hosting-servergegevens
+* database-informatie
+* serverinformatie die als host fungeert
 * vereiste DNS-record
 
 ### <a name="update-script-powershell-example"></a>Voorbeeld van PowerShell-script bijwerken
 
-U kunt bewerken en voer het volgende script vanaf een verhoogde PowerShell ISE. Vergeet niet de accountgegevens en -wachtwoorden nodig zijn voor uw omgeving te wijzigen.
+U kunt bewerken en voer het volgende script vanaf een verhoogde PowerShell ISE. Vergeet niet om de accountgegevens en wachtwoorden als nodig zijn voor uw omgeving te wijzigen.
 
 > [!NOTE]
-> Het bijwerkproces is alleen van toepassing op systemen met Azure-Stack geïntegreerd.
+> Het bijwerkproces is alleen van toepassing op systemen met integratie van Azure Stack.
 
 ```powershell
 # Install the AzureRM.Bootstrapper module and set the profile.
@@ -97,21 +97,22 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
 
 ## <a name="updatesqlproviderps1-parameters"></a>UpdateSQLProvider.ps1 parameters
 
-U kunt de volgende parameters vanaf de opdrachtregel opgeven wanneer u het script uitvoeren. Als u dit niet, of als een parametervalidatie mislukt, wordt u gevraagd de vereiste parameters bevatten.
+U kunt de volgende parameters vanaf de opdrachtregel opgeven wanneer u het script uitvoert. Als u dit niet doet, of als een parametervalidatie mislukt, wordt u gevraagd de vereiste parameters opgeven.
 
 | Parameternaam | Beschrijving | Opmerking of de standaardwaarde |
 | --- | --- | --- |
-| **CloudAdminCredential** | De referentie voor de beheerder van de cloud, nodig voor toegang tot de bevoegde eindpunt. | _Vereist_ |
-| **AzCredential** | De referenties voor de Azure-Stack-beheerdersaccount. Gebruik dezelfde referenties die u gebruikt voor de implementatie van Azure-Stack. | _Vereist_ |
+| **CloudAdminCredential** | De referentie voor de beheerder van de cloud, die nodig zijn voor toegang tot het eindpunt van de bevoegdheden. | _Vereist_ |
+| **AzCredential** | De referenties voor het beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties die u gebruikt voor het implementeren van Azure Stack. | _Vereist_ |
 | **VMLocalCredential** | De referenties voor het lokale administrator-account van de SQL-resourceprovider VM. | _Vereist_ |
-| **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het bevoegde eindpunt. |  _Vereist_ |
-| **DependencyFilesLocalPath** | U moet ook het PFX-certificaatbestand in deze map geplaatst. | _Optioneel voor één knooppunt, maar verplicht voor meerdere knooppunten_ |
+| **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het eindpunt van de bevoegdheden. |  _Vereist_ |
+| **Azure-omgeving** | De azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist als het is niet ADFS. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een China Azure Active Directory gebruikt, **AzureChinaCloud**. | AzureCloud |
+| **DependencyFilesLocalPath** | U moet uw certificaat-pfx-bestand ook plaatsen in deze map. | _Optioneel voor één knooppunt, maar verplicht voor meerdere knooppunten_ |
 | **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat. | _Vereist_ |
-| **MaxRetryCount** | Het aantal keren dat u wilt opnieuw proberen aan elke als er een storing optreedt.| 2 |
-| **RetryDuration** |De time-interval tussen nieuwe pogingen, in seconden. | 120 |
+| **MaxRetryCount** | Het aantal keren dat die u wilt dat elke bewerking wordt uitgevoerd als er een fout is.| 2 |
+| **RetryDuration** |De time-outinterval tussen nieuwe pogingen in seconden. | 120 |
 | **Verwijderen** | Hiermee verwijdert u de resourceprovider en alle bijbehorende resources. | Nee |
-| **Fouten opsporen-modus** | Voorkomt dat automatisch opschonen bij fouten. | Nee |
+| **Fouten opsporen-modus** | Hiermee voorkomt u dat bij fout automatisch op te schonen. | Nee |
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[De SQL-resourceprovider onderhouden](azure-stack-sql-resource-provider-maintain.md)
+[Onderhouden van de SQL-resourceprovider](azure-stack-sql-resource-provider-maintain.md)

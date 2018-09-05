@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 2f5661ddac16a3024335bd633623f7ada2fc5870
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 6d6ee22bd1691f1af6956330b3299a1483c588f7
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42057193"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696636"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>De resourceprovider van MySQL in Azure Stack implementeren
 
@@ -38,21 +38,20 @@ Er zijn verschillende vereisten die worden voldaan moet voordat u kunt de Azure 
   >[!NOTE]
   >Voor het implementeren van de MySQL-provider op een computer die geen toegang tot Internet, Kopieer de [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) bestand naar een lokaal pad. Geef het pad de naam met behulp de **DependencyFilesLocalPath** parameter.
 
-* De resourceprovider heeft een minimale bijbehorende Azure Stack bouwen. Zorg ervoor dat u het juiste binaire bestand voor de versie van Azure-Stack die u gebruikt downloaden:
+* De resourceprovider heeft een minimale bijbehorende Azure Stack bouwen.
 
-    | Azure Stack-versie | MySQL RP-versie|
+    | Minimale versie van Azure Stack | MySQL RP-versie|
     | --- | --- |
     | Versie 1804 (1.0.180513.1)|[MySQL RP versie 1.1.24.0](https://aka.ms/azurestackmysqlrp1804) |
-    | Versie 1802 (1.0.180302.1) | [MySQL RP versie 1.1.18.0](https://aka.ms/azurestackmysqlrp1802)|
     |     |     |
 
-- Zorg ervoor dat de datacenter-integratie vereisten wordt voldaan:
+* Zorg ervoor dat de datacenter-integratie vereisten wordt voldaan:
 
     |Vereiste|Referentie|
     |-----|-----|
     |Voorwaardelijk doorsturen van DNS is correct ingesteld.|[Datacenter-integratie Azure Stack - DNS](azure-stack-integrate-dns.md)|
     |Poorten voor inkomend verkeer voor resourceproviders zijn geopend.|[Azure Stack-datacenter-integratie - eindpunten publiceren](azure-stack-integrate-endpoints.md#ports-and-protocols-inbound)|
-    |PKI-certificaatonderwerp en SAN zijn juist ingesteld.|[Azure Stack verplichte PKI vereisten voor implementatie](azure-stack-pki-certs.md#mandatory-certificates)<br>[De vereisten PaaS-certificaat voor Azure Stack-implementatie](azure-stack-pki-certs.md#optional-paas-certificates)|
+    |PKI-certificaatonderwerp en SAN zijn juist ingesteld.|[Azure Stack verplichte PKI implementatievereisten](azure-stack-pki-certs.md#mandatory-certificates)[PaaS Azure Stack-certificaat implementatievereisten](azure-stack-pki-certs.md#optional-paas-certificates)|
     |     |     |
 
 ### <a name="certificates"></a>Certificaten
@@ -87,6 +86,7 @@ U kunt deze parameters vanaf de opdrachtregel opgeven. Als u dit niet doet, of a
 | **AzCredential** | De referenties voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties die u gebruikt voor het implementeren van Azure Stack. | _Vereist_ |
 | **VMLocalCredential** | De referenties voor het lokale administrator-account van de MySQL-resourceprovider VM. | _Vereist_ |
 | **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het eindpunt van de bevoegdheden. |  _Vereist_ |
+| **Azure-omgeving** | De azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist als het is niet ADFS. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een China Azure Active Directory gebruikt, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Voor alleen geïntegreerde systemen, moet uw certificaat-pfx-bestand in deze map worden geplaatst. Download voor niet-verbonden enviroments [mysql-connector-net-6.10.5.msi](https://dev.mysql.com/get/Downloads/Connector-Net/mysql-connector-net-6.10.5.msi) naar deze map. U kunt eventueel een pakket voor Windows Update MSU hier kopiëren. | _Optionele_ (_verplichte_ voor geïntegreerde systemen of niet-verbonden omgevingen) |
 | **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat. | _Vereist_ |
 | **MaxRetryCount** | Het aantal keren dat die u wilt dat elke bewerking wordt uitgevoerd als er een fout is.| 2 |

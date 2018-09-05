@@ -1,6 +1,6 @@
 ---
-title: Het gebruik van de Afwijkingsdetectie zoeken-API met Javascript - cognitieve Microsoft-Services | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met Afwijkingsdetectie zoeken met Javascript in cognitieve Services.
+title: Over het gebruik van de Finder-API voor Afwijkingsdetectie met Javascript - Microsoft Cognitive Services | Microsoft Docs
+description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van Afwijkingsdetectie met Javascript in Cognitive Services.
 services: cognitive-services
 author: chliang
 manager: bix
@@ -9,38 +9,40 @@ ms.technology: anomaly-detection
 ms.topic: article
 ms.date: 05/01/2018
 ms.author: chliang
-ms.openlocfilehash: 105da0219efd7bf7c9a105a018dda7ea5b084cfd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 048647f1657a5674bcb508b20b7c57a8a6ed5ed9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345060"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665019"
 ---
-# <a name="use-the-anomaly-finder-api-with-javascript"></a>Gebruik de zoekfunctie Afwijkingsdetectie API met Javascript
+# <a name="use-the-anomaly-finder-api-with-javascript"></a>Gebruik de API voor Afwijkingsdetectie met Javascript
 
-In dit artikel bevat informatie en codevoorbeelden kunt u snel aan de slag met de Afwijkingsdetectie Detection-API met Javascript voor het uitvoeren van de taak van het ophalen van de afwijkingsdetectie detectieresultaat reeks gegevens.
+Dit artikel bevat informatie en voorbeelden van code om u te helpen snel aan de slag met behulp van de API voor Afwijkingsdetectie met Javascript om uit te voeren van de taak van het resultaat van de detectie van afwijkingen van time series-gegevens ophalen.
 
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [GetSubscriptionKey](../includes/get-subscription-key.md)]
 
-## <a name="getting-anomaly-points-with-anomaly-detection-api-using-javascript"></a>Afwijkingsdetectie punten ophalen met Afwijkingsdetectie Detection-API met Javascript
+## <a name="getting-anomaly-points-with-anomaly-detection-api-using-javascript"></a>Anomaliedetectie punten ophalen met behulp van Javascript API voor Afwijkingsdetectie
 
 [!INCLUDE [DataContract](../includes/datacontract.md)]
 
-### <a name="example-of-time-series-data"></a>Voorbeeld van een reeksgegevens
+### <a name="example-of-time-series-data"></a>Voorbeeld van time series-gegevens
 
-In het voorbeeld van de gegevenspunten van reeksen tijd is als volgt: [!INCLUDE [Request](../includes/request.md)]
+Het voorbeeld van de tijd gegevenspunten van reeks is als volgt:
 
-### <a name="analyze-data-and-get-anomaly-points-javascript-example"></a>Gegevens analyseren en afwijkingsdetectie punten Javascript-voorbeeld
+[!INCLUDE [Request](../includes/request.md)]
 
-De stappen van het gebruik van het voorbeeld zijn als volgt.
+### <a name="analyze-data-and-get-anomaly-points-javascript-example"></a>Gegevens analyseren en anomaliedetectie punten Javascript-voorbeeld
+
+De stappen van het gebruik van het voorbeeld zijn er als volgt uit.
 
 1. Maak een nieuwe HTML-bestand.
 2. Het HTML-bestand vervangen door de volgende code.
-3. Vervang de `[YOUR_SUBSCRIPTION_KEY]` waarde met de sleutel geldig abonnement.
+3. Vervang de `[YOUR_SUBSCRIPTION_KEY]` waarde door de sleutel geldig abonnement.
 4. De gegevens in requestTextArea vervangen door uw gegevenspunten.
-5. Open het HTML-bestand in een webbrowser en klik op `Anomaly Detection` knop.
+5. Het HTML-bestand in een webbrowser openen en op `Anomaly Detection` knop.
 
 ```Javascript
 <!DOCTYPE html>
@@ -304,7 +306,7 @@ De stappen van het gebruik van het voorbeeld zijn als volgt.
 
 ### <a name="example-response"></a>Voorbeeld van een antwoord
 
-Een geslaagde reactie wordt geretourneerd als JSON. Voorbeeldreactie is als volgt.
+Een geslaagde reactie is geretourneerd in JSON. Voorbeeldantwoord is als volgt.
 [!INCLUDE [Response](../includes/response.md)]
 
 ## <a name="next-steps"></a>Volgende stappen

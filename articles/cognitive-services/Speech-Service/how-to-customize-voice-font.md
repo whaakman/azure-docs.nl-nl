@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 84493ae83515c0458bf5b9e9cf44603300a8b4f7
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 1f9facf94b8068b98aa49c49ece7070a83db0686
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39284884"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665082"
 ---
 # <a name="creating-custom-voice-fonts"></a>Het maken van aangepaste spraakstijlen
 
@@ -22,7 +22,6 @@ Voor het maken van uw spraakstijl, moet u een studio-opname maken en uploaden va
 
 U kunt aan de slag met een kleine hoeveelheid gegevens voor een concepttest. Maar hoe meer gegevens u hebt opgegeven, hoe meer natuurlijke en professional geluiden in uw stem.
 
-Stem aanpassing is beschikbaar voor Amerikaans Engels (en-US) en vasteland Chinees (zh-CN).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -45,6 +44,9 @@ U moet ook een Azure-account en een abonnement op de Speech-service. [Maak een](
      ![Abonnement toevoegen](media/custom-voice/add-subscription.png)
 
 U bent klaar om te beginnen.
+
+> [!IMPORTANT]
+> In de beperkte preview-fase moet abonnementen in de whitelist opgenomen om de aangepaste spraak-functie te gebruiken. Volg de stappen op de pagina om uw abonnement in de whitelist opgenomen.
 
 ## <a name="prepare-recordings-and-transcripts"></a>Voorbereiden van de opnamen en transcripties
 
@@ -69,8 +71,6 @@ Audio-bestanden moeten als volgt worden voorbereid. Andere indelingen worden nie
 | Archiefindeling| Zip      |
 | Maximale grootte archief|200 MB|
 
-Plaats de set audio-bestanden in een enkele map zonder de submappen en inpakken van de gehele set als een ZIP-archief voor één bestand.
-
 > [!NOTE]
 > Bestanden met een lager is dan 16.000 Hz samplefrequentie Wave worden geweigerd. In het geval waarbij een zip-bestand blokken met verschillende tarieven bevat, worden alleen die gelijk is aan of hoger is dan 16.000 Hz geïmporteerd.
 > De portal importeert momenteel ZIP-archieven 200 MB. Meerdere archieven kunnen echter worden geüpload. Het maximum aantal toegestane gegevenssets is dat 10 ZIP bestanden gratis gebruikers en 50 voor abonnementsgebruikers van de standard.
@@ -90,7 +90,7 @@ Bijvoorbeeld:
 Het systeem aangepaste gesproken normaliseert Transcripten door de tekst converteren naar kleine letters en te verwijderen van overbodige leestekens. Het is belangrijk dat de Transcripten 100% nauwkeurig tot op het bijbehorende audio-opnamen zijn.
 
 > [!TIP]
-> Wanneer het maken van productie tekst naar spraak stemmen, selecteer uitingen (of scripts schrijven) overweegt zowel fonetische dekking en efficiëntie.
+> Wanneer het maken van productie tekst naar spraak stemmen, selecteer uitingen (of scripts schrijven) overweegt zowel fonetische dekking en efficiëntie. Problemen met het ophalen van de resultaten wilt u dat? [Neem contact op met het team voor aangepaste spraak](mailto:tts@microsoft.com) out meer over ons een Raadpleeg vinden.
 
 ## <a name="upload-your-datasets"></a>Uw gegevenssets uploaden
 
@@ -102,8 +102,6 @@ Na het voorbereiden van uw audio-bestand archiveren en transcripties, upload dez
 1. Meld u aan bij de portal.
 
 2. Kies **gegevens** onder aangepaste spraak op de hoofdpagina. 
-
-    ![Mijn projecten](media/custom-voice/my-projects.png)
 
     De tabel mijn Voice-gegevens wordt weergegeven. Het is leeg als u hebt geen gegevenssets stem nog niet geüpload.
 
@@ -224,13 +222,20 @@ Wanneer de status van de implementatie is geslaagd, wordt het eindpunt van uw ge
 Online testen van het eindpunt is ook beschikbaar via de portal voor aangepaste gesproken. Als u wilt testen op uw eindpunt, kies **eindpunten testen** uit de vervolgkeuzelijst van aangepaste spraak. Het eindpunt testen van de pagina wordt weergegeven. Kies een geïmplementeerde aangepaste gesproken en voer de tekst die moet worden uitgesproken (in tekst zonder opmaak of SSML-indeling) in het tekstvak in.
 
 > [!NOTE] 
-> Bij het gebruik van SSML, de `<voice>` tag geeft de naam die u uw aangepaste gesproken hebt opgegeven toen u het maakte.
+> Bij het gebruik van SSML, de `<voice>` tag geeft de naam die u uw aangepaste gesproken hebt opgegeven toen u het maakte. Als u tekst zonder opmaak hebt ingediend, wordt de aangepaste gesproken altijd gebruikt.
 
 Klik op **afspelen** graag de tekst die in uw aangepaste spraakstijl gesproken.
 
 ![Eindpunt testen](media/custom-voice/endpoint-testing.png)
 
 Het eindpunt van de aangepaste is identiek aan de standaard-eindpunt gebruikt voor het aanvragen van tekst naar spraak. Zie [REST-API](rest-apis.md) voor meer informatie.
+
+## <a name="language-support"></a>Taalondersteuning
+
+Stem aanpassing is beschikbaar voor Amerikaans Engels (en-US), vasteland Chinees (zh-CN) en Italiaans (it-IT).
+
+> [!NOTE]
+> Trainingen voor de Italiaanse toon begint met een gegevensset van meer dan 2000 uitingen. Chinees-Engels tweetalige modellen worden ook ondersteund met een gegevensset van meer dan 2000 uitingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

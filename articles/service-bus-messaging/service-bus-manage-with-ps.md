@@ -1,9 +1,9 @@
 ---
-title: PowerShell gebruiken om Azure Service Bus-resources te beheren | Microsoft Docs
-description: Gebruik PowerShell-module maken en beheren van Service Bus-resources
+title: PowerShell gebruiken voor het beheren van Azure Service Bus-bronnen | Microsoft Docs
+description: PowerShell-module gebruiken om te maken en beheren van Service Bus-bronnen
 services: service-bus-messaging
 documentationcenter: .NET
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -13,40 +13,40 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 962134c0c71ac0a251f8adf1f0f067d6067cb808
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.author: spelluru
+ms.openlocfilehash: 66475d9d59c8825eef7eb16e826d9813e819aa8a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018618"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699624"
 ---
-# <a name="use-powershell-to-manage-service-bus-resources"></a>PowerShell gebruiken om Service Bus-resources beheren
+# <a name="use-powershell-to-manage-service-bus-resources"></a>PowerShell gebruiken voor het beheren van Service Bus-bronnen
 
-Microsoft Azure PowerShell is een scriptomgeving op servers die u gebruiken kunt om te beheren en de implementatie en beheer van Azure services automatiseren. In dit artikel wordt beschreven hoe u de [Service Bus-Resource Manager PowerShell-module](/powershell/module/azurerm.servicebus) inrichten en beheren van Service Bus-entiteiten (naamruimten, wachtrijen, onderwerpen en abonnementen) met behulp van een lokale Azure PowerShell-console of het script.
+Microsoft Azure PowerShell is een scriptomgeving die u gebruiken kunt om te beheren en automatiseren van de implementatie en het beheer van Azure-services. In dit artikel wordt beschreven hoe u de [Service Bus-Resource Manager PowerShell-module](/powershell/module/azurerm.servicebus) kunt inrichten en beheren van Service Bus-entiteiten (naamruimten, wachtrijen, onderwerpen en abonnementen) met behulp van een lokale Azure PowerShell-console of het script.
 
-U kunt ook beheren met behulp van Azure Resource Manager-sjablonen van Service Bus-entiteiten. Zie voor meer informatie het artikel [maken van Service Bus-resources met behulp van Azure Resource Manager-sjablonen](service-bus-resource-manager-overview.md).
+U kunt ook Service Bus-entiteiten met behulp van Azure Resource Manager-sjablonen beheren. Zie voor meer informatie het artikel [maken van Service Bus-resources met behulp van Azure Resource Manager-sjablonen](service-bus-resource-manager-overview.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
 Voordat u begint, moet u de volgende vereisten:
 
-* Een Azure-abonnement. Zie voor meer informatie over het verkrijgen van een abonnement [aanschafopties][purchase options], [lid biedt][member offers], of [gratis account][free account].
+* Een Azure-abonnement. Zie voor meer informatie over het verkrijgen van een abonnement [Aankoopopties][purchase options], [aanbiedingen voor leden][member offers], of [gratis account][free account].
 * Een computer met Azure PowerShell. Zie voor instructies [aan de slag met Azure PowerShell-cmdlets](/powershell/azure/get-started-azureps).
 * Een algemeen begrip van de PowerShell-scripts, NuGet-pakketten en .NET Framework.
 
 ## <a name="get-started"></a>Aan de slag
 
-De eerste stap is het gebruik van PowerShell zich aanmelden bij uw Azure-account en de Azure-abonnement. Volg de instructies in [aan de slag met Azure PowerShell-cmdlets](/powershell/azure/get-started-azureps) voor aanmelden bij uw Azure-account en toegang te krijgen tot de resources in uw Azure-abonnement.
+De eerste stap is PowerShell gebruiken om aan te melden bij uw Azure-account en Azure-abonnement. Volg de instructies in [aan de slag met Azure PowerShell-cmdlets](/powershell/azure/get-started-azureps) Meld u aan bij uw Azure-account en ophalen en toegang tot de resources in uw Azure-abonnement.
 
 ## <a name="provision-a-service-bus-namespace"></a>Inrichten van een Service Bus-naamruimte
 
-Als u werkt met Service Bus-naamruimten, kunt u de [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [nieuw AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace), en [Set AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdlets.
+Als u werkt met Service Bus-naamruimten, kunt u de [Get-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespace), [New-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespace), [Remove-AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespace), en [Set AzureRmServiceBusNamespace](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespace) cmdlets.
 
-In dit voorbeeld maakt een paar lokale variabelen in het script; `$Namespace` en `$Location`.
+Dit voorbeeld maakt u een paar lokale variabelen in het script; `$Namespace` en `$Location`.
 
-* `$Namespace` is de naam van de Service Bus-naamruimte die we wilt werken.
-* `$Location` identificeert het datacenter waarin we de naamruimte inrichten.
+* `$Namespace` is de naam van de Service Bus-naamruimte die we willen werken.
+* `$Location` Hiermee geeft u het datacenter waarin we de naamruimte inrichten.
 * `$CurrentNamespace` slaat de referentie-naamruimte die we ophalen (of maak).
 
 In een werkelijke script `$Namespace` en `$Location` kunnen worden doorgegeven als parameters.
@@ -54,8 +54,8 @@ In een werkelijke script `$Namespace` en `$Location` kunnen worden doorgegeven a
 Dit deel van het script doet het volgende:
 
 1. Probeert op te halen van een Service Bus-naamruimte met de opgegeven naam.
-2. Als de naamruimte wordt gevonden, rapporteert wat is gevonden.
-3. Als de naamruimte niet wordt gevonden, maakt u de naamruimte en vervolgens haalt de zojuist gemaakte naamruimte.
+2. Als de naamruimte wordt gevonden, rapporteert deze wat is gevonden.
+3. Als de naamruimte niet wordt gevonden, maakt de naamruimte en vervolgens wordt de zojuist gemaakte naamruimte opgehaald.
    
     ``` powershell
     # Query to see if the namespace currently exists
@@ -79,9 +79,9 @@ Dit deel van het script doet het volgende:
     }
     ```
 
-### <a name="create-a-namespace-authorization-rule"></a>Een autorisatieregel naamruimte maken
+### <a name="create-a-namespace-authorization-rule"></a>Een verificatieregel voor een naamruimte maken
 
-Het volgende voorbeeld laat zien hoe voor het beheren van autorisatieregels naamruimte met behulp van de [nieuw AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [Set AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule), en [verwijderen AzureRmServiceBusNamespaceAuthorizationRule cmdlets](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
+Het volgende voorbeeld laat zien hoe voor het beheren van verificatieregels voor een naamruimte met behulp van de [New-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/new-azurermservicebusnamespaceauthorizationrule), [Get-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/get-azurermservicebusnamespaceauthorizationrule), [Set-AzureRmServiceBusNamespaceAuthorizationRule](/powershell/module/azurerm.servicebus/set-azurermservicebusnamespaceauthorizationrule), en [Remove-AzureRmServiceBusNamespaceAuthorizationRule-cmdlets](/powershell/module/azurerm.servicebus/remove-azurermservicebusnamespaceauthorizationrule).
 
 ```powershell
 # Query to see if rule exists
@@ -123,7 +123,7 @@ else
 
 ## <a name="create-a-queue"></a>Een wachtrij maken
 
-Voer een naamruimte-controle met het script in de vorige sectie voor het maken van een wachtrij of onderwerp. Maak vervolgens de wachtrij:
+Voor het maken van een wachtrij of onderwerp, voert u een naamruimte-uit met behulp van het script in de vorige sectie. Maak vervolgens de wachtrij:
 
 ```powershell
 # Check if queue already exists
@@ -143,9 +143,9 @@ else
 }
 ```
 
-### <a name="modify-queue-properties"></a>De wachtrijeigenschappen van de wijzigen
+### <a name="modify-queue-properties"></a>Wachtrijeigenschappen van de wijzigen
 
-Na het uitvoeren van script in de vorige sectie, kunt u de [Set AzureRmServiceBusQueue](/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) cmdlet bij te werken van de eigenschappen van een wachtrij, zoals in het volgende voorbeeld:
+Nadat het script is uitgevoerd in de vorige sectie, kunt u de [Set-AzureRmServiceBusQueue](/powershell/module/azurerm.servicebus/set-azurermservicebusqueue) cmdlet voor het bijwerken van de eigenschappen van een wachtrij, zoals in het volgende voorbeeld:
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True
@@ -158,18 +158,18 @@ Set-AzureRmServiceBusQueue -ResourceGroup $ResGrpName -NamespaceName $Namespace 
 
 ## <a name="provisioning-other-service-bus-entities"></a>Inrichting van andere Service Bus-entiteiten
 
-U kunt de [Service Bus PowerShell-module](/powershell/module/azurerm.servicebus) om in te richten andere entiteiten, zoals onderwerpen en abonnementen. Deze cmdlets zijn syntaxis vergelijkbaar is met de wachtrij maken cmdlets in de vorige sectie wordt gedemonstreerd.
+U kunt de [Service Bus-PowerShell-module](/powershell/module/azurerm.servicebus) voor het inrichten van andere entiteiten, zoals onderwerpen en abonnementen. Deze cmdlets zijn syntactisch vergelijkbaar met de wachtrij maken-cmdlets in de vorige sectie wordt gedemonstreerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie de volledige documentatie van de Service Bus-Resource Manager PowerShell-module [hier](/powershell/module/azurerm.servicebus). Deze pagina worden alle beschikbare cmdlets.
-- Zie het artikel voor informatie over het gebruik van Azure Resource Manager-sjablonen [maken van Service Bus-resources met behulp van Azure Resource Manager-sjablonen](service-bus-resource-manager-overview.md).
-- Informatie over [management-Service Bus .NET-bibliotheken](service-bus-management-libraries.md).
+- Zie de volledige documentatie van de Service Bus-Resource Manager PowerShell-module [hier](/powershell/module/azurerm.servicebus). Deze pagina geeft een lijst van alle beschikbare cmdlets.
+- Zie het artikel voor informatie over het gebruik van Azure Resource Manager-sjablonen, [maken van Service Bus-resources met behulp van Azure Resource Manager-sjablonen](service-bus-resource-manager-overview.md).
+- Informatie over [Service Bus .NET-beheerbibliotheken](service-bus-management-libraries.md).
 
-Er zijn een aantal alternatieve methoden voor het beheren van Service Bus-entiteiten, zoals beschreven in deze blogberichten:
+Er zijn enkele alternatieve methoden voor het beheren van Service Bus-entiteiten, zoals beschreven in de volgende blogberichten:
 
-* [Het maken van Service Bus-wachtrijen, onderwerpen en abonnementen op basis van een PowerShell-script](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
-* [Het maken van een Service Bus-Namespace en een Event Hub met een PowerShell-script](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
+* [Over het maken van Service Bus-wachtrijen, onderwerpen en abonnementen die gebruikmaken van een PowerShell-script](http://blogs.msdn.com/b/paolos/archive/2014/12/02/how-to-create-a-service-bus-queues-topics-and-subscriptions-using-a-powershell-script.aspx)
+* [Over het maken van een Service Bus-Namespace en een Event Hub met behulp van een PowerShell-script](http://blogs.msdn.com/b/paolos/archive/2014/12/01/how-to-create-a-service-bus-namespace-and-an-event-hub-using-a-powershell-script.aspx)
 * [Service Bus PowerShell-Scripts](https://code.msdn.microsoft.com/Service-Bus-PowerShell-a46b7059)
 
 <!--Anchors-->

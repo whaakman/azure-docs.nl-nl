@@ -12,12 +12,12 @@ ms.topic: article
 ms.date: 10/27/2016
 ms.author: sumuth
 ROBOTS: NOINDEX,NOFOLLOW
-ms.openlocfilehash: f078cad95d39c18a8391bc32100d08accc53c37c
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: f145e879dab4484d647cf8ea21582958df0f0cd4
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215200"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665719"
 ---
 # <a name="faq-for-cleardb-mysql-databases-with-azure-app-service"></a>Veelgestelde vragen voor ClearDB MySql-databases met Azure App Service
 Deze Veelgestelde vragen vindt u antwoorden op veelgestelde vragen over het gebruik en het kopen van de ClearDB MySQL databases voor Azure Web Apps.
@@ -41,7 +41,7 @@ ClearDB is een hostingservice MySQL en beheert de MySQL-infrastructuur voor u. W
 ## <a name="do-i-need-a-credit-card-for-the-web-app--mysql-template-in-the-azure-marketplace"></a>Heb ik een creditcard nodig voor de Web-app + MySQL-sjabloon in de Azure Marketplace?
 Dit is afhankelijk van het type abonnement dat u gebruikt. Hier volgen enkele veelgebruikte abonnementstypen:
 
-* [Betalen](/offers/ms-azr-0003p/): vereist een creditcard is geregistreerd, en bij de aankoop van een betaalde MySQL-database voor uw creditcard in rekening gebracht.
+* [Betalen](https://azure.microsoft.com/offers/ms-azr-0003p/): vereist een creditcard is geregistreerd, en bij de aankoop van een betaalde MySQL-database voor uw creditcard in rekening gebracht.
 * [Gratis proefversie](https://azure.microsoft.com/pricing/free-trial/): tegoeden voor gebruik met Microsoft Azure-services, maar aankoop van resources van derden is niet toegestaan. Voor het kopen van services van derden of een betaald MySQL-database moet u een creditcard ingeschakeld abonnement gebruiken. U kunt een gratis ClearDB MySQL-database maken voor Web-Apps.
 * [MSDN-abonnement](https://azure.microsoft.com/pricing/member-offers/msdn-benefits/) en **MSDN Dev Test betalen**: net als bij gratis proefversie, MSDN-abonnement vereist dat u hebt een creditcard nodig om aan te schaffen een betaalde MySQL-oplossing van ClearDB.
 * [Enterprise Agreement (EA)](https://azure.microsoft.com/pricing/enterprise-agreement/): EA-klanten worden gefactureerd op basis van hun EA elk kwartaal voor al hun aankopen op Azure Marketplace (derde) op een afzonderlijke, geconsolideerde factuur. U wordt gefactureerd buiten de monetaire toezegging voor een marketplace-aankopen. Houd er rekening mee dat op dit moment Azure Store niet beschikbaar voor klanten die zijn ingeschreven in Azerbeidzjan, Kroatië, Noorwegen en Porto Rico is. 
@@ -109,5 +109,5 @@ Toegang tot Azure Marketplace voor services van derden kan worden beheerd door d
 Neem contact op met [Enterprise Customer Support](http://aka.ms/AzureEntSupport) met betrekking tot facturering onder hun EA-inschrijving. Het ondersteuningsteam voor EA-Portal, wordt uw vraag worden beantwoord of uw probleem op te lossen.
 
 ## <a name="more-information"></a>Meer informatie
-[Veelgestelde vragen over Azure Marketplace](/marketplace/faq/)
+[Veelgestelde vragen over Azure Marketplace](https://azure.microsoft.com/marketplace/faq/)
 

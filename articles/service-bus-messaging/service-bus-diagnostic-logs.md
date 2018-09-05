@@ -1,10 +1,10 @@
 ---
-title: Diagnostische logboeken van Azure Service Bus | Microsoft Docs
-description: Informatie over het instellen van diagnostische logboeken voor Service Bus in Azure.
+title: Diagnostische logboeken in Azure Service Bus | Microsoft Docs
+description: Meer informatie over het instellen van diagnostische logboeken voor Service Bus in Azure.
 keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
-author: banisadr
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: ''
@@ -14,69 +14,69 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
 ms.date: 02/05/2018
-ms.author: sethm
-ms.openlocfilehash: 4ce724adc9ca167634be9a0b7137b6a3d54211bf
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
+ms.author: spelluru
+ms.openlocfilehash: 3c2528634dea5c75e4a0e35b7e1a6a30de8d96c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29122172"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696153"
 ---
 # <a name="service-bus-diagnostic-logs"></a>Diagnostische logboeken van Service Bus
 
-U kunt twee soorten logboeken bekijken voor Azure Service Bus:
+U kunt twee typen logboeken voor Azure Service Bus weergeven:
 * **[Activiteitenlogboeken](../monitoring-and-diagnostics/monitoring-overview-activity-logs.md)**. Deze logboeken bevatten informatie over de bewerkingen die worden uitgevoerd op een andere taak. De logboeken zijn altijd ingeschakeld.
-* **[Diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. U kunt diagnostische logboeken voor uitgebreidere informatie over alles wat er in een job gebeurt kunt configureren. Diagnostische logboeken behandeld activiteiten vanaf het moment dat de taak is gemaakt totdat de taak is verwijderd, inclusief updates en activiteiten die optreden terwijl de taak wordt uitgevoerd.
+* **[Diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md)**. U kunt diagnostische logboeken voor uitgebreidere informatie over alles wat er gebeurt in een taak configureren. Diagnostische logboeken voor activiteiten vanaf het moment dat de taak is gemaakt totdat de taak wordt verwijderd, met inbegrip van updates en activiteiten die plaatsvinden terwijl de taak wordt uitgevoerd.
 
 ## <a name="turn-on-diagnostic-logs"></a>Logboeken met diagnostische gegevens inschakelen
 
-Diagnostische logboeken zijn standaard uitgeschakeld. Schakel diagnostische logboeken door de volgende stappen uitvoeren:
+Diagnostische logboeken zijn standaard uitgeschakeld. Om in te schakelen logboeken met diagnostische gegevens, moet u de volgende stappen uitvoeren:
 
-1.  In de [Azure-portal](https://portal.azure.com)onder **bewaking + Management**, klikt u op **diagnostische logboeken**.
+1.  In de [Azure-portal](https://portal.azure.com)onder **bewaking en beheer**, klikt u op **diagnoselogboeken**.
 
-    ![Blade navigatie naar Logboeken met diagnostische gegevens](./media/service-bus-diagnostic-logs/image1.png)
+    ![navigatie in de blade naar Logboeken met diagnostische gegevens](./media/service-bus-diagnostic-logs/image1.png)
 
-2. Klik op de bron die u wilt bewaken.  
+2. Klik op de resource die u wilt bewaken.  
 
-3.  Klik op **diagnostische gegevens inschakelen**.
+3.  Klik op **Diagnostische gegevens inschakelen**.
 
     ![Logboeken met diagnostische gegevens inschakelen](./media/service-bus-diagnostic-logs/image2.png)
 
 4.  Voor **Status**, klikt u op **op**.
 
-    ![Diagnostische logboeken status wijzigen](./media/service-bus-diagnostic-logs/image3.png)
+    ![wijzigen van de status van diagnostische logboeken](./media/service-bus-diagnostic-logs/image3.png)
 
-5.  Doel voor de archief gewenste; ingesteld bijvoorbeeld, een opslagaccount, een event hub of Azure-logboekanalyse.
+5.  Instellen van het doel van archief dat u wilt. bijvoorbeeld: een storage-account, een event hub of Azure Log Analytics.
 
 6.  De nieuwe instellingen voor diagnostische gegevens opslaan.
 
-Nieuwe instellingen van kracht in ongeveer 10 minuten. Daarna logboeken worden weergegeven in de geconfigureerde archivering doel op de **diagnostische logboeken** blade.
+Nieuwe instellingen van kracht in ongeveer 10 minuten. Hierna logboeken worden weergegeven in de geconfigureerde archivering doel, op de **diagnoselogboeken** blade.
 
-Zie voor meer informatie over het configureren van diagnostische gegevens van de [overzicht van Azure diagnostische logboeken](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
+Zie voor meer informatie over het configureren van diagnostische gegevens over de [overzicht van diagnostische logboeken in Azure](../monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs.md).
 
 ## <a name="diagnostic-logs-schema"></a>Diagnostische logboeken schema
 
-Alle logboeken worden opgeslagen in de notatie JSON (JavaScript Object)-indeling. Elk item heeft tekenreeksvelden die gebruikmaken van de indeling die wordt beschreven in de volgende sectie.
+Alle logboeken worden opgeslagen in JavaScript Object Notation (JSON)-indeling. Elk item heeft tekenreeksvelden die gebruikmaken van de indeling die wordt beschreven in de volgende sectie.
 
 ## <a name="operational-logs-schema"></a>Operationele logboeken schema
 
-Registreert in de **OperationalLogs** categorie leggen wat er gebeurt tijdens de Service Bus-bewerkingen. Deze logboeken vastleggen in het bijzonder het type van de bewerking, waaronder het maken van de wachtrij, resources die worden gebruikt en de status van de bewerking.
+Registreert in de **OperationalLogs** categorie leggen wat er gebeurt tijdens de bewerkingen voor Service Bus. Deze logboeken vastleggen met name het bewerkingstype, met inbegrip van de wachtrij is gemaakt, resources die worden gebruikt en de status van de bewerking.
 
-Operationeel logboek van JSON tekenreeksen bevatten elementen in de volgende tabel weergegeven:
+Operationeel logboek van JSON-tekenreeksen zijn onder andere elementen die worden vermeld in de volgende tabel:
 
 Naam | Beschrijving
 ------- | -------
-ActivityId | Interne ID, die wordt gebruikt voor bijhouden
-EventName | Bewerkingsnaam           
-resourceId | Azure Resource Manager-bron-ID
+ActivityId | Interne ID, die wordt gebruikt voor het bijhouden
+EventName | Naam van bewerking           
+resourceId | Azure Resource Manager-resource-ID
 SubscriptionId | Abonnements-id
 EventTimeString | Bewerkingstijd
 EventProperties | Eigenschappen van bewerking
-Status | De bewerkingsstatus
-Caller | De aanroeper van bewerking (Azure portal of management-client)
+Status | Bewerkingsstatus
+Caller | De aanroeper van bewerking (Azure portal of de beheer-client)
 category | OperationalLogs
 
-Hier volgt een voorbeeld van een operationeel logboek van JSON-tekenreeks:
+Hier volgt een voorbeeld van een operationeel logboek JSON-tekenreeks:
 
 ```json
 {

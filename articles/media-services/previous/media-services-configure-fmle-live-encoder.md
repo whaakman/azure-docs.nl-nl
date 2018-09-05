@@ -1,6 +1,6 @@
 ---
-title: Configureren van het coderingsprogramma FMLE voor het verzenden van een single-bitrate live stream | Microsoft Docs
-description: Dit onderwerp leest hoe u configureert het coderingsprogramma Flash Media Live coderingsprogramma (FMLE) voor het verzenden van een single-bitrate stream AMS-kanalen die zijn ingeschakeld voor live codering.
+title: FMLE-coderingsprogramma voor het verzenden van een single-bitrate live stream configureren | Microsoft Docs
+description: In dit onderwerp laat zien hoe het configureren van het coderingsprogramma Flash Media Live Encoder (FMLE) voor het verzenden van een single-bitrate stream aan AMS-kanalen die zijn ingeschakeld voor live codering.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -14,45 +14,44 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 01/05/2017
 ms.author: juliako;cenkdin;anilmur
-ms.openlocfilehash: 055decd689e260a69651c5a3e1ce3f3f78b67340
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 1a7cbd19b89663ab874fc5a7a86587e292b86f81
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788744"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665882"
 ---
-# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>Het coderingsprogramma FMLE gebruiken voor het verzenden van een single-bitrate live stream
+# <a name="use-the-fmle-encoder-to-send-a-single-bitrate-live-stream"></a>FMLE-coderingsprogramma gebruiken voor het verzenden van een single-bitrate live stream
 > [!div class="op_single_selector"]
 > * [FMLE](media-services-configure-fmle-live-encoder.md)
-> * [Live elemental](media-services-configure-elemental-live-encoder.md)
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
 >
 >
 
-Dit artikel laat zien hoe u configureert de [Media Flash Live coderingsprogramma](http://www.adobe.com/products/flash-media-encoder.html) (FMLE)-codering verzenden een single-bitrate stream naar AMS kanalen die zijn ingeschakeld voor live codering. Zie [Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Media Services](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
+In dit artikel laat zien hoe het configureren van de [Flash Media Live Encoder](http://www.adobe.com/products/flash-media-encoder.html) encoder (FMLE) voor het verzenden van een single-bitrate stream aan AMS kanalen die zijn ingeschakeld voor live codering. Zie [Werken met kanalen waarmee Live Encoding kan worden uitgevoerd met Azure Media Services](media-services-manage-live-encoder-enabled-channels.md) voor meer informatie.
 
-Deze zelfstudie laat zien hoe Azure Media Services (AMS) beheren met Azure Media Services Explorer (AMSE)-hulpprogramma. Dit hulpprogramma wordt alleen uitgevoerd op Windows-PC. Als u op Mac- of Linux, gebruikt u de Azure portal maken [kanalen](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) en [programma's](media-services-portal-creating-live-encoder-enabled-channel.md).
+In deze zelfstudie laat zien hoe Azure Media Services (AMS) beheren met Azure Media Services Explorer (AMSE)-hulpprogramma. Dit hulpprogramma wordt alleen uitgevoerd op Windows-PC. Als u van Mac- of Linux gebruikmaakt, de Azure portal gebruiken voor het maken van [kanalen](media-services-portal-creating-live-encoder-enabled-channel.md#create-a-channel) en [programma's](media-services-portal-creating-live-encoder-enabled-channel.md).
 
-Deze zelfstudie wordt beschreven hoe AAC. FMLE ondersteunt niet echter AAC standaard. U moet aanschaffen van een invoegtoepassing voor AAC codering bijvoorbeeld van MainConcept: [AAC-invoegtoepassing](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
+Deze zelfstudie wordt beschreven met behulp van AAC. FMLE ondersteunt niet echter AAC standaard. U moet een invoegtoepassing voor de AAC-codering bijvoorbeeld-02-MainConcept kopen: [AAC-invoegtoepassing](http://www.mainconcept.com/products/plug-ins/plug-ins-for-adobe/aac-encoder-fmle.html)
 
 ## <a name="prerequisites"></a>Vereisten
 * [Een Azure Media Services-account maken](media-services-portal-create-account.md)
-* Zorg dat er een Streaming-eindpunt is uitgevoerd. Zie voor meer informatie [Streaming-eindpunten beheren in een Media Services-Account](media-services-portal-manage-streaming-endpoints.md)
+* Controleer of er is een Streaming-eindpunt is uitgevoerd. Zie voor meer informatie, [Streaming-eindpunten beheren in een Media Services-Account](media-services-portal-manage-streaming-endpoints.md)
 * Installeer de nieuwste versie van de [AMSE](https://github.com/Azure/Azure-Media-Services-Explorer) hulpprogramma.
 * Het hulpprogramma voor starten en verbinding maken met uw AMS-account.
 
 ## <a name="tips"></a>Tips
 * Gebruik indien mogelijk een internetverbinding ' hardwired '.
-* Een goede vuistregel bij het bepalen van de vereiste bandbreedte is voor de streaming bitsnelheden verdubbelen. Hoewel dit niet verplicht is, vermindert het de gevolgen van opstoppingen in het netwerk.
+* Een goede vuistregel bij het bepalen van de bandbreedtevereisten voor, is het dubbele van de streaming bitsnelheden. Hoewel dit niet verplicht is, vermindert het de gevolgen van opstoppingen in het netwerk.
 * Wanneer u coderingsprogramma's op basis van software, sluit u alle onnodige programma's.
 
 ## <a name="create-a-channel"></a>Een kanaal maken
-1. Navigeer in het AMSE-hulpprogramma naar het **Live** tabblad en met de rechtermuisknop op het gebied van kanaal. Selecteer **kanaal maken...** in het menu.
+1. In het AMSE-hulpprogramma, gaat u naar de **Live** tabblad, en met de rechtermuisknop op het gebied van het kanaal. Selecteer **kanaal maken...** in het menu.
 
     ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle1.png)
 
-2. Geef een kanaalnaam het beschrijvingsveld is optioneel. Selecteer onder instellingen voor kanaal **standaard** voor de optie Live Encoding met het invoer-Protocol die is ingesteld op **RTMP**. U kunt alle andere instellingen zoals is laten.
+2. Geef de naam van een kanaal, het beschrijvingsveld is optioneel. Selecteer onder instellingen voor Channel **Standard** voor de optie voor Live codering met het invoer-Protocol die is ingesteld op **RTMP**. U kunt alle andere instellingen omdat laten.
 
     Zorg ervoor dat de **nu starten van het nieuwe kanaal** is geselecteerd.
 
@@ -61,27 +60,27 @@ Deze zelfstudie wordt beschreven hoe AAC. FMLE ondersteunt niet echter AAC stand
    ![FMLE](./media/media-services-fmle-live-encoder/media-services-fmle2.png)
 
 > [!NOTE]
-> Het kanaal kan zo lang starten 20 minuten duren.
+> Het kanaal kan zo lang 20 minuten duren.
 >
 >
 
 Terwijl het kanaal wordt gestart, kunt u [configureren van het coderingsprogramma](media-services-configure-fmle-live-encoder.md#configure_fmle_rtmp).
 
 > [!IMPORTANT]
-> Houd er rekening mee dat omdat facturering begint zodra kanaal probeert het gereed. Zie voor meer informatie [van kanaal statussen](media-services-manage-live-encoder-enabled-channels.md#states).
+> Houd er rekening mee dat de facturering begint zodra kanaal krijgt de status gereed. Zie voor meer informatie, [van kanaal Staten](media-services-manage-live-encoder-enabled-channels.md#states).
 >
 >
 
-## <a id=configure_fmle_rtmp></a>Het coderingsprogramma FMLE configureren
-In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van deze sectie beschrijft de configuratiestappen in meer detail.
+## <a id=configure_fmle_rtmp></a>FMLE-coderingsprogramma configureren
+In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van deze sectie worden de configuratiestappen in meer detail beschreven.
 
 **Video**:
 
 * Codec: H.264
-* Profiel: Hoge (niveau 4.0)
+* Profiel: Hoog (niveau 4.0)
 * Bitrate: 5000 kbps
-* Sleutelframe: 2 seconden (60 seconden)
-* Frequentie frame: 30
+* Sleutelframes: 2 seconden (60 seconden)
+* Tarief frame: 30
 
 **Audio**:
 
@@ -90,79 +89,79 @@ In deze zelfstudie worden de volgende uitvoerinstellingen gebruikt. De rest van 
 * Samplefrequentie: 44,1 kHz
 
 ### <a name="configuration-steps"></a>Configuratiestappen
-1. Navigeer naar het Flash Media Live coderingsprogramma van (FMLE) interface op de computer die wordt gebruikt.
+1. Navigeer naar de Flash Media Live Encoder van (FMLE) interface op de machine die wordt gebruikt.
 
-    De interface is één hoofdpagina van instellingen. Let op de volgende instellingen om te beginnen met het streamen FMLE met aanbevolen.
+    De interface is een startpagina van instellingen. Noteer de volgende instellingen om te beginnen met streamen met FMLE aanbevolen.
 
    * Indeling: H.264 framesnelheid: 30,00
-   * De grootte van de invoer: 1280 x 720
+   * Invoergrootte: 1280 x 720
    * Bitsnelheid: 5000 Kbps (kan worden aangepast op basis van de beperkingen op het netwerk)  
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle3.png)
 
-     Bronnen met behulp van interlaced, neemt u de optie 'Zonder interliniëring' vinkje
-2. Selecteer de moersleutelpictogram naast indeling, moeten deze extra instellingen:
+     Wanneer met behulp van bronnen geïnterlinieerde, kunt u de optie 'Zonder interliniëring' is ingeschakeld
+2. Selecteer de moersleutelpictogram naast indeling, moeten de volgende aanvullende instellingen:
 
    * Profiel: Main
    * Niveau: 4.0
-   * Keyframe frequentie: 2 seconden
+   * Frequentie van sleutelframes: 2 seconden
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle4.png)
-3. Stel de volgende belangrijke audio-instelling:
+3. Stel de volgende belangrijke audio instelling:
 
    * Indeling: AAC
    * Samplefrequentie: 44100 Hz
    * Bitrate: 192 Kbps
 
      ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle5.png)
-4. Get het kanaal de invoer-URL om te kunnen toewijzen aan de FMLE **RTMP eindpunt**.
+4. Het kanaal Get invoer van URL om te kunnen toewijzen aan van de FMLE **RTMP-eindpunt**.
 
-    Ga terug naar het AMSE-hulpprogramma, en controleren van de voltooiingsstatus van kanaal. Zodra de status is gewijzigd van **starten** naar **met**, krijgt u de invoer-URL.
+    Ga terug naar het AMSE-hulpprogramma en de voltooiingsstatus kanaal controleren. Zodra de status is gewijzigd van **vanaf** naar **met**, krijgt u de invoer-URL.
 
-    Wanneer het kanaal wordt uitgevoerd, met de rechtermuisknop op de naam van het kanaal, navigeer naar aanwijzen via **invoer-URL kopiëren naar Klembord** en selecteer vervolgens **primaire invoer-URL**.  
+    Wanneer het kanaal wordt uitgevoerd, met de rechtermuisknop op de naam van het kanaal, navigeer naar de plaats de muisaanwijzer **invoer-URL kopiëren naar Klembord** en selecteer vervolgens **primaire invoer-URL**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle6.png)
-5. Plak deze informatie in de **FMS URL** veld van de sectie uitvoer, en wijst u de naam van een gegevensstroom.
+5. Plak deze informatie in de **FMS URL** veld van de sectie uitvoer en de naam van een stream toewijzen.
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle7.png)
 
-    Herhaal deze stappen aan de secundaire invoer-URL voor extra redundantie.
+    Herhaal deze stappen met het secundaire invoer-URL voor extra redundantie.
 6. Selecteer **Verbinden**.
 
 > [!IMPORTANT]
-> Voordat u op **Connect**, u **moet** ervoor te zorgen dat het kanaal gereed is.
-> Zorg ervoor dat u niet het kanaal in een status ready heeft verlaten zonder een invoer bijdrage feed langer dan 15 minuten >.
+> Voordat u klikt op **Connect**, u **moet** ervoor te zorgen dat het kanaal gereed is.
+> Zorg ervoor dat u niet laat het kanaal in een status gereed hebben zonder een invoer bijdrage feed voor langer dan 15 minuten >.
 >
 >
 
 ## <a name="test-playback"></a>Test afspelen
 
-Navigeer naar het AMSE-hulpprogramma en met de rechtermuisknop op het kanaal moet worden getest. In het menu Beweeg de muisaanwijzer over **afspelen van de Preview** en selecteer **met Azure Media Player**.  
+Navigeer naar het AMSE-hulpprogramma en met de rechtermuisknop op het kanaal moet worden getest. In het menu Beweeg de muisaanwijzer over **afspelen van de Preview-versie** en selecteer **met Azure Media Player**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle8.png)
 
-Als de stroom wordt weergegeven in de speler, is klikt u vervolgens het coderingsprogramma juist geconfigureerd voor verbinding met AMS.
+Als de stroom in de speler wordt weergegeven, is klikt u vervolgens het coderingsprogramma correct is geconfigureerd om te verbinden met AMS.
 
-Als een fout wordt ontvangen, wordt het kanaal moet opnieuw worden ingesteld en instellingen voor codering aangepast. Zie de [probleemoplossing](media-services-troubleshooting-live-streaming.md) artikel voor instructies.  
+Als er een fout is ontvangen, wordt het kanaal moet opnieuw worden ingesteld en encoder-instellingen aangepast. Zie de [probleemoplossing](media-services-troubleshooting-live-streaming.md) artikel voor hulp.  
 
 ## <a name="create-a-program"></a>Een programma maken
-1. Nadat het kanaal afspelen is bevestigd, maak een programma. Onder de **Live** tabblad in het AMSE-hulpprogramma, met de rechtermuisknop op het gebied programma en selecteer **nieuw programma maken**.  
+1. Wanneer het kanaal afspelen hebt bevestigd, maakt u een programma. Onder de **Live** tabblad in het AMSE-hulpprogramma, met de rechtermuisknop op het gebied van het programma en selecteert u **nieuw programma maken**.  
 
     ![fmle](./media/media-services-fmle-live-encoder/media-services-fmle9.png)
-2. Naam van het programma en wijzig indien nodig de **lengte van een archiefvenster** (die standaard 4 uur). U kunt ook opgeven van een opslaglocatie of laat de standaardwaarde.  
+2. Naam van het programma en wijzig indien nodig, de **voor het archiefvenster** (die standaard 4 uur). U kunt ook opgeven van een opslaglocatie bevinden of behoud de standaardwaarde.  
 3. Controleer de **Start het programma nu** vak.
 4. Klik op **programma maken**.  
 
     >[!NOTE]
-    >Maken van het programma kost minder tijd dan het maken van kanaal.
+    >Maken van een programma duurt minder lang dan het maken van kanalen.
         
-5. Zodra het programma wordt uitgevoerd, bevestigt u afspelen door met de rechtermuisknop op het programma en te navigeren naar **afspelen van de programma's** en selecteren **met Azure Media Player**.  
-6. Zodra bevestigd, opnieuw met de rechtermuisknop op het programma en selecteer **Kopieer de URL van de uitvoer naar Klembord** (of het ophalen van deze informatie van de **programma gegevens en instellingen** optie in het menu).
+5. Zodra het programma wordt uitgevoerd, bevestigt u afspelen door met de rechtermuisknop op het programma en te navigeren naar **afspelen van de programma's** en vervolgens de optie **met Azure Media Player**.  
+6. Nadat u hebt bevestigd, met de rechtermuisknop op het programma opnieuw uit en selecteer **de URL van de uitvoer naar Klembord kopiëren** (of het ophalen van deze informatie van de **gegevens en instellingen van het programma** optie in het menu).
 
-De stroom is nu gereed om te worden ingesloten in een speler of gedistribueerd naar een doelgroep voor live weer te geven.  
+De stroom is nu klaar om te worden ingesloten in een speler of gedistribueerd naar een doelgroep voor het weergeven van live.  
 
 ## <a name="troubleshooting"></a>Problemen oplossen
-Zie de [probleemoplossing](media-services-troubleshooting-live-streaming.md) artikel voor instructies.
+Zie de [probleemoplossing](media-services-troubleshooting-live-streaming.md) artikel voor hulp.
 
 ## <a name="media-services-learning-paths"></a>Media Services-leertrajecten
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]

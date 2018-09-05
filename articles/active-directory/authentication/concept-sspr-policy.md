@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 8396db3a45c2b6f2c88a9fd6bbf0b8e5a7df4efb
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 404be287d2e6ac693e0942c84f630f4e067127f3
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162045"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666749"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en beperkingen in Azure Active Directory
 
@@ -23,7 +23,7 @@ Dit artikel wordt beschreven voor het wachtwoordbeleid en -vereisten voor wachtw
 
 ## <a name="administrator-reset-policy-differences"></a>Beheerder opnieuw instellen van beleid verschillen
 
-**Microsoft dwingt een sterk standaardbeleid *twee-gate* wachtwoord opnieuw instellen voor alle Azure-beheerdersrol** deze polciy kan afwijken van de waarde die u voor uw gebruikers hebt gedefinieerd en kan niet worden gewijzigd. U moet altijd functionaliteit voor het wachtwoord opnieuw instellen als een gebruiker testen zonder een Azure-beheerdersrollen toegewezen.
+**Microsoft dwingt een sterk standaardbeleid *twee-gate* wachtwoord opnieuw instellen voor alle Azure-beheerdersrol** dit beleid kan afwijken van de waarde die u voor uw gebruikers hebt gedefinieerd en kan niet worden gewijzigd. U moet altijd functionaliteit voor het wachtwoord opnieuw instellen als een gebruiker testen zonder een Azure-beheerdersrollen toegewezen.
 
 Met een twee-gate-beleid, **beheerders niet hebben de mogelijkheid om de beveiligingsvragen gebruiken als**.
 
@@ -76,7 +76,7 @@ Een beleid voor één gate vereist een stukje authenticatiegegevens, zoals een e
 
 ## <a name="userprincipalname-policies-that-apply-to-all-user-accounts"></a>UserPrincipalName-beleidsregels die van toepassing op alle gebruikersaccounts
 
-Elke gebruikersaccount die u zich moet aanmelden bij Azure AD moet een unieke gebruikers principal name (UPN)-kenmerkwaarde die is gekoppeld aan hun account hebben. De volgende tabel bevat de beleidsregels die van toepassing op zowel on-premises Active Directory-gebruikersaccounts die zijn gesynchroniseerd naar de cloud en gebruikersaccounts die alleen in de cloud:
+Elke gebruikersaccount die u zich moet aanmelden bij Azure AD moet een unieke gebruikers principal name (UPN)-kenmerkwaarde die is gekoppeld aan hun account hebben. De volgende tabel geeft een overzicht van de beleidsregels die van toepassing op zowel on-premises Active Directory-gebruikersaccounts die zijn gesynchroniseerd naar de cloud en gebruikersaccounts die alleen in de cloud:
 
 | Eigenschap | UserPrincipalName-vereisten |
 | --- | --- |

@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 08/05/2018
 ms.author: juliako
-ms.openlocfilehash: 64a38ba617a1cc5fe1fdb3473e3cb88a49d89bb0
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: df9d3f40b28f5b030f3d7e7a63b1b3e77caedb6c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42744748"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700805"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Maken van een Video Indexer-account dat is verbonden met Azure
 
@@ -52,7 +52,7 @@ In dit artikel laat zien hoe een Video Indexer-account dat gekoppeld aan een Azu
 
 ## <a name="connect-to-azure"></a>Verbinding maken met Azure
 
-1. Meld u aan met die gebruiker en klik op de **verbinding maken met Azure** knop:
+1. Aanmelden bij [ https://www.videoindexer.ai/ ](https://www.videoindexer.ai/) en klik op de **verbinding maken met Azure** knop:
 
     ![Verbinding maken met Azure](./media/create-account/connect-to-azure.png)
 
@@ -69,9 +69,21 @@ In dit artikel laat zien hoe een Video Indexer-account dat gekoppeld aan een Azu
     * Voor het gebruik van een Media Services-account, selecteert u **bestaande resource gebruiken**. Selecteer uw account in de lijst met accounts.
 
         Media Services-account moet dezelfde regio als uw Video Indexer-account hebben. Om te beperken de duur van indexering en lage doorvoer, het aanpassen van het type en aantal gereserveerde eenheden voor **10 gereserveerde S3-eenheden** in Media Services-account.
-    * Voor het handmatig configureren van de verbinding, klikt u op de **overschakelen naar de handmatige configuratie** koppelen en geef de benodigde informatie:
+    * Voor het handmatig configureren van de verbinding, klikt u op de **overschakelen naar de handmatige configuratie**. 
+    
+        U wilt uw verbinding als voor een of andere reden de automatische optie kan niet worden voltooid of als de installatie en configuratie is anders dan de algemene aanvragen, of u wilt hebben volledige zichtbaarheid en controle over de instellingen handmatig configureren. 
+        
+        In de **Video Indexer verbinding maken met een Azure-abonnement**, geef de volgende informatie.
 
-    ![Video Indexer verbinden met Azure](./media/create-account/connect-vi-to-azure-subscription-2.png)
+        |Instelling|Beschrijving|
+        |---|---|
+        |Video Indexer-accountregio|De naam van de regio van de Video Indexer-account. Voor betere prestaties en lagere kosten, is het raadzaam om op te geven van de naam van de regio waar de resource van Azure Media Services en Azure Storage-account zich bevinden. |
+        |Azure Active Directory (AAD)-tenant|De naam van de Azure AD-tenant, bijvoorbeeld 'contoso.onmicrosoft.com'. De tenant-gegevens kan worden opgehaald uit de Azure-portal. Plaats de cursor boven de naam van de aangemelde gebruiker in de rechterbovenhoek.|
+        |Abonnements-id|De Azure-abonnement waarmee deze verbinding moet worden gemaakt. De abonnements-ID kan worden opgehaald uit de Azure-portal. Klik op **alle services** in het linkerdeelvenster en zoek naar 'abonnementen'. Selecteer, **abonnementen** en kiest u de gewenste-ID in de lijst met uw abonnementen.|
+        |Azure-resourcegroep de naam|De naam voor de nieuwe resourcegroep waarin u uw verbinding te maken.|
+        |Azure-resource naam|De naam van de Azure Media Services-resource.|
+        |Toepassings-id|De toepassings-ID voor Azure AD met machtigingen voor de opgegeven Media Services-account. Zie voor meer informatie, [gebruik service-principal verificatie](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
+        |Toepassingssleutel|Zie voor meer informatie, [gebruik service-principal verificatie](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
 5. Wanneer u klaar bent, kiest u **Connect**. Met deze bewerking kan enkele minuten duren. 
 

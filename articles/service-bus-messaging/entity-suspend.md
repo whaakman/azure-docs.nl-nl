@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus onderbreken berichtentiteiten | Microsoft Docs
-description: Onderbreken en opnieuw activeren van Azure Service Bus bericht entiteiten.
+title: Azure Service Bus messaging-entiteiten onderbreken | Microsoft Docs
+description: Onderbreken en opnieuw activeren van Azure Service Bus-bericht-entiteiten.
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -12,40 +12,40 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: sethm
-ms.openlocfilehash: 1984b113f695107f8d4d80e5bbf25c7dc39d13f6
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: 3e3c0fdf4133fa1f44a67f4f7e0df1995c0a23f0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28197023"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701973"
 ---
-# <a name="suspend-and-reactivate-messaging-entities-disable"></a>Onderbreken en opnieuw activeren messaging-entiteiten (uitgeschakeld)
+# <a name="suspend-and-reactivate-messaging-entities-disable"></a>Onderbreken en opnieuw activeren messaging-entiteiten (uitschakelen)
 
-Wachtrijen, onderwerpen en abonnementen kunnen tijdelijk worden onderbroken. De entiteit opschorten worden in een uitgeschakelde status waarin alle berichten in de opslag worden bewaard. Echter berichten kunnen niet worden verwijderd of toegevoegd en de protocolbewerkingen van het betreffende yield fouten.
+Wachtrijen, onderwerpen en abonnementen kunnen tijdelijk worden onderbroken. Onderbreking worden de entiteit in een uitgeschakelde status waarin alle berichten worden bewaard in opslag geplaatst. Echter berichten kunnen niet worden verwijderd of toegevoegd en de protocolbewerkingen van het betreffende fouten opleveren.
 
-Het uitstellen van een entiteit gewoonlijk wordt uitgevoerd voor urgente beheerredenen. Een scenario is een defecte ontvanger waarmee berichten uit de wachtrij hebben geïmplementeerd mislukt verwerking, en nog niet correct is voltooid de berichten en verwijdert u deze. Als dit probleem is gediagnosticeerd, de wachtrij kan worden uitgeschakeld voor ontvangt totdat de gecorrigeerde code is geïmplementeerd en verdere gegevensverlies door de defecte code kan worden voorkomen.
+Onderbreken van een entiteit is gewoonlijk wordt uitgevoerd voor urgente administratieve redenen. Een scenario is een defecte ontvanger waarmee berichten uit de wachtrij staan, hebben geïmplementeerd niet kan verwerken, en nog onjuist is voltooid de berichten en verwijdert u deze. Als dit gedrag wordt vastgesteld, de wachtrij kan worden uitgeschakeld voor ontvangt totdat gecorrigeerde code is geïmplementeerd en verder gegevensverlies door de foute code kan worden voorkomen.
 
-Een opschorten of opnieuw activeren kan worden uitgevoerd door de gebruiker of door het systeem. Het systeem wordt alleen onderbroken entities oorzaken ernstig beheerdersrechten zoals roept de uitgavenlimiet abonnement. Systeem-uitgeschakeld entiteiten kunnen niet opnieuw worden geactiveerd door de gebruiker, maar worden hersteld wanneer de oorzaak van de onderbreking is opgelost.
+Een onderbreking of reactiveren kan worden uitgevoerd door de gebruiker of door het systeem. Het systeem wordt alleen onderbroken entiteiten vanwege ernstig administratieve redenen, zoals het abonnement bestedingslimiet hebt bereikt. Entiteiten systeem is uitgeschakeld door de gebruiker niet opnieuw kunnen worden geactiveerd, maar worden hersteld wanneer de oorzaak van de onderbreking is opgelost.
 
-In de portal de **eigenschappen** sectie voor de respectieve entiteit kunt wijzigen van de status; de volgende schermafbeelding ziet u de wisselknop voor een wachtrij:
+In de portal, de **eigenschappen** sectie voor de desbetreffende entiteit kunt wijzigen van de status, de volgende schermafbeelding ziet u de in-/ uitschakelen voor een wachtrij:
 
 ![][1]
 
-De portal is alleen toegestaan voor wachtrijen volledig uit te schakelen. U kunt ook uitschakelen van de verzenden en ontvangen van bewerkingen afzonderlijk met behulp van de Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API's in de .NET Framework SDK of met een Azure Resource Manager-sjabloon via Azure CLI of Azure PowerShell.
+De portal kan alleen volledig uitgeschakeld wachtrijen. U kunt ook de verzenden uitschakelen en ontvangstbewerkingen afzonderlijk via Service Bus [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API's in de .NET Framework SDK, of met een Azure Resource Manager-sjabloon via Azure CLI of Azure PowerShell.
 
-## <a name="suspension-states"></a>Opschorten statussen
+## <a name="suspension-states"></a>Onderbreking Staten
 
 De statussen die kunnen worden ingesteld voor een wachtrij zijn:
 
 -   **Actieve**: de wachtrij is actief.
 -   **Uitgeschakelde**: de wachtrij is onderbroken.
--   **SendDisabled**: de wachtrij gedeeltelijk wordt onderbroken, klikt u met receive wordt toegestaan.
+-   **SendDisabled**: de wachtrij gedeeltelijk wordt onderbroken, klikt u met mogen worden ontvangen.
 -   **ReceiveDisabled**: de wachtrij gedeeltelijk wordt onderbroken, klikt u met verzenden wordt toegestaan.
 
-Voor abonnementen en alleen onderwerpen **Active** en **uitgeschakelde** kan worden ingesteld.
+Voor abonnementen en -onderwerpen, alleen **Active** en **uitgeschakelde** kan worden ingesteld.
 
-De [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) opsomming ook een set van overgangs statussen kunnen alleen worden ingesteld door het systeem gedefinieerd. De PowerShell-opdracht om uit te schakelen van een wachtrij wordt weergegeven in het volgende voorbeeld. De opdracht opnieuw activeren is gelijkwaardig instelling `Status` naar **Active**.
+De [EntityStatus](/dotnet/api/microsoft.servicebus.messaging.entitystatus) opsomming bepaalt ook een set overgangs statussen die kan alleen worden ingesteld door het systeem. De PowerShell-opdracht om uit te schakelen van een wachtrij wordt weergegeven in het volgende voorbeeld. De opdracht opnieuw activeren is gelijkwaardig instelling `Status` naar **Active**.
 
 ```powershell
 $q = Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue
@@ -57,7 +57,7 @@ Set-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName m
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Service Bus-berichtenservice, de volgende onderwerpen:
+Zie voor meer informatie over Service Bus-berichten, de volgende onderwerpen:
 
 * [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)

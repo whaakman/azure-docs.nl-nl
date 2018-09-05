@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 7c990fc0d385af9527bf55339b2fa617e589ec0e
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 59dab4651366c3ad6579e0da660baee0c653d1a3
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190583"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665999"
 ---
 # <a name="activate-my-azure-ad-directory-roles-in-pim"></a>Mijn Azure AD-directory-rollen in PIM activeren
 
@@ -26,11 +26,11 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM) vereenvou
 
 Als u hebt aangebracht in aanmerking voor een beheerdersrol, betekent dit dat u die rol kunt activeren wanneer u nodig hebt bevoegde acties uit te voeren. Bijvoorbeeld als u Office 365-functies van tijd tot tijd beheert, beheerders met bevoegdheid van uw organisatie mogelijk niet moet u een permanente globale beheerder, omdat die rol te invloed is op andere services. In plaats daarvan moeten deze u in aanmerking voor Azure AD-rollen, zoals Exchange Online-beheerder. U kunt aanvragen om te activeren die rol wanneer u de bevoegdheden nodig hebt, en vervolgens beheerdersbevoegdheden voor een vooraf vastgestelde periode hebt u.
 
-Dit artikel is bedoeld voor beheerders die u nodig hebt om hun rol in PIM te activeren.
+Dit artikel is bedoeld voor beheerders die u nodig hebt om hun Azure AD directory-rol in PIM te activeren.
 
 ## <a name="activate-a-role"></a>Een rol activeren
 
-Wanneer u nodig hebt om een rol te, kunt u activering aanvragen met behulp van de **mijn rollen** navigatieoptie in PIM.
+Als u uitvoeren op een Azure AD-directory-rol wilt, kunt u activering aanvragen met behulp van de **mijn rollen** navigatieoptie in PIM.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 

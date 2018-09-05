@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: kumud
-ms.openlocfilehash: 5ceddb1bcd6ce89f7014e034b56c873f02cc2007
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ecc33fc6078dac4affe3942f1be7e039ae9e9e70
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190730"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43695422"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer-tests voor status
 
@@ -36,7 +36,7 @@ De typen statuscontroles beschikbaar en de manier waarop de gezondheid van tests
 > [!IMPORTANT]
 > Load Balancer statuscontroles zijn afkomstig uit het IP-adres 168.63.129.16 en moeten niet worden geblokkeerd voor tests uitvoeren voor uw exemplaar markeren.  Beoordeling [bron-IP-adres-test](#probesource) voor meer informatie.
 
-## <a name="types"></a>Health test typen
+## <a name="types"></a>Test-typen
 
 Statuscontroles kunnen bekijken van een willekeurige poort op een back-end-instantie, met inbegrip van de poort waarop de service wordt geleverd. Het health test-protocol kan worden geconfigureerd voor drie verschillende typen statuscontroles:
 

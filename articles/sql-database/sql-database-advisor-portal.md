@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 7df4033a378ce3b37a99ed0335200e7f71696594
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 67432c8751cd8809649d41195957a7d68b392074
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528643"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665596"
 ---
 # <a name="find-and-apply-performance-recommendations"></a>Zoeken en toepassen van aanbevelingen voor prestaties
 
@@ -114,7 +114,7 @@ Selecteer elke aanbeveling klikken en klik vervolgens op **script weergeven**. V
 *Indexen die handmatig worden uitgevoerd worden niet gecontroleerd en gevalideerd voor prestatie-impact door de service* , zodat het wordt aangeraden dat u deze indexen na het maken om te controleren of ze leveren prestaties controleren en aanpassen of verwijder ze indien nodig. Zie voor meer informatie over het maken van indexen [INDEX maken (Transact-SQL)](https://msdn.microsoft.com/library/ms188783.aspx).
 
 ### <a name="canceling-recommendations"></a>Aanbevelingen annuleren
-Aanbevelingen die zich in een **in behandeling**, **controleren**, of **succes** status kan worden geannuleerd. Aanbevelingen met de status van **Executing** kan niet worden geannuleerd.
+Aanbevelingen die zich in een **in behandeling**, **Validating**, of **succes** status kan worden geannuleerd. Aanbevelingen met de status van **Executing** kan niet worden geannuleerd.
 
 1. Selecteer een aanbeveling in de **afstemmen geschiedenis** gebied te openen de **gegevens over de aanbevelingen** pagina.
 2. Klik op **annuleren** om af te breken van het proces van het toepassen van de aanbeveling.
@@ -126,7 +126,7 @@ Toepassen van een aanbeveling mogelijk niet onmiddellijk plaatsvindt. De portal 
 |:--- |:--- |
 | In behandeling |Aanbeveling opdracht is ontvangen en gepland voor uitvoering van toepassing. |
 | In uitvoering |De aanbeveling is toegepast. |
-| Controleren |De aanbeveling is toegepast en de service is meten van de voordelen. |
+| Valideren |De aanbeveling is toegepast en de service is meten van de voordelen. |
 | Geslaagd |De aanbeveling is toegepast en voordelen zijn gemeten. |
 | Fout |Er is een fout opgetreden tijdens het toepassen van de aanbeveling. Dit is een tijdelijk probleem of mogelijk een schema wijzigen in de tabel en het script is niet meer geldig. |
 | Terugdraaien |De aanbeveling is toegepast, maar niet-goed presterende ervan en wordt automatisch hersteld. |

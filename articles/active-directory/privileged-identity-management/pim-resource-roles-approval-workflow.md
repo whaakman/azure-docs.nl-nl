@@ -11,41 +11,74 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.component: pim
-ms.date: 04/02/2018
+ms.date: 08/31/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: e5cda31af5ac95e7ebe2b858b1d7355ea3f2a6bb
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: c661f2662f48c5aaece142cb4a2223ab8a6d0853
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189801"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666588"
 ---
 # <a name="approve-or-deny-requests-for-azure-resource-roles-in-pim"></a>Goedkeuren of weigeren van aanvragen voor Azure-resource-rollen in PIM
 
-Als u wilt goedkeuren of weigeren van een aanvraag, moet u lid zijn van de Fiatteurlijst zijn. 
+Met Azure AD Privileged Identity Management (PIM), kunt u rollen om te vereisen van goedkeuring voor activering configureren en kies een of meer gebruikers of groepen als gedelegeerde fiatteurs. Volg de stappen in dit artikel voor het goedkeuren of weigeren van aanvragen voor Azure-resourcerollen.
 
-1. Selecteer in PIM, **aanvragen goedkeuren** op het tabblad in het menu links en Ga naar de aanvraag.
+## <a name="view-pending-requests"></a>De aanvragen in de wachtrij weergeven
 
-   ![Deelvenster 'Aanvragen goedkeuren'](media/azure-pim-resource-rbac/aadpim_rbac_approve_requests_list.png)
+Als een gedelegeerde fiatteur ontvangt u een e-mailmelding wanneer een aanvraag om de rol Azure-resource in afwachting van uw goedkeuring is. U kunt deze aanvragen in behandeling weergeven in PIM.
 
-2. Selecteer de aanvraag, een reden opgeven wanneer ze voor de beslissing en selecteer **goedkeuren** of **weigeren**. De aanvraag is vervolgens opgelost.
+1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
-   ![Geselecteerde aanvraag met gedetailleerde informatie](media/azure-pim-resource-rbac/aadpim_rbac_approve_request_approved.png)
+1. Open **Azure AD Privileged Identity Management**.
+
+1. Klik op **aanvragen goedkeuren**.
+
+    ![Azure-resources - aanvragen goedkeuren](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+
+    In de **aanvragen voor rolactiveringen** sectie ziet u een lijst met aanvragen moeten worden goedgekeurd.
+
+## <a name="approve-requests"></a>Aanvragen goedkeuren
+
+1. Zoek en klik op de aanvraag die u wilt goedkeuren. Een goedkeuring deelvenster wordt weergegeven.
+
+    ![Deelvenster aanvragen goedkeuren](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+
+1. In de **reden** typt u een reden op.
+
+1. Klik op **goedkeuren**.
+
+    Er wordt een melding weergegeven met uw goedkeuring wordt vereist.
+
+    ![Melding goed te keuren](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+
+## <a name="deny-requests"></a>Aanvragen weigeren
+
+1. Zoek en klik op de aanvraag die u wilt weigeren. Een goedkeuring deelvenster wordt weergegeven.
+
+    ![Deelvenster aanvragen goedkeuren](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png)
+
+1. In de **reden** typt u een reden op.
+
+1. Klik op **weigeren**.
+
+    Er wordt een melding weergegeven met uw DOS-aanval.
 
 ## <a name="workflow-notifications"></a>Werkstroommeldingen
 
-Hier vindt u enige kennis over werkstroommeldingen:
+Hier volgt informatie over werkstroommeldingen:
 
 - Alle leden van de Fiatteurlijst krijgt een melding via e-mail wanneer een aanvraag voor een rol in afwachting van de beoordeling is. E-mailmeldingen bevatten een directe koppeling naar de aanvraag, waarin de fiatteur kan goedkeuren of weigeren.
-- Aanvragen worden opgelost door de eerste lid van de lijst die goedkeurt of weigert. 
-- Wanneer een goedkeurder op de aanvraag reageert, zijn alle leden van de Fiatteurlijst een melding van de actie. 
-- Resource-beheerders worden gewaarschuwd wanneer een goedgekeurde lid actief in hun rol. 
+- Aanvragen worden opgelost door de eerste lid van de lijst die goedkeurt of weigert.
+- Wanneer een goedkeurder op de aanvraag reageert, zijn alle leden van de Fiatteurlijst een melding van de actie.
+- Resource-beheerders worden gewaarschuwd wanneer een goedgekeurde lid actief in hun rol.
 
 >[!Note]
 >De resourcebeheerder van een die ervan overtuigd is dat een goedgekeurde lid niet actief mag zijn, kunt de toewijzing van actieve rollen in PIM verwijderen. Hoewel resource beheerders zijn niet op de hoogte gesteld van aanvragen in behandeling, tenzij ze lid van de Fiatteurlijst zijn, kunnen ze weergeven en annuleren in behandeling zijnde aanvragen van alle gebruikers weergeven in behandeling zijnde aanvragen in PIM. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Goedkeuren of weigeren van aanvragen voor Azure AD directory-rollen in PIM](azure-ad-pim-approval-workflow.md)
+- [Azure-resource-rollen in PIM verlengen of vernieuwen](pim-resource-roles-renew-extend.md)
 - [E-mailmeldingen in PIM](pim-email-notifications.md)
+- [Goedkeuren of weigeren van aanvragen voor Azure AD directory-rollen in PIM](azure-ad-pim-approval-workflow.md)

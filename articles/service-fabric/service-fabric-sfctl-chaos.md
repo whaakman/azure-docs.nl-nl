@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/31/2018
 ms.author: bikang
-ms.openlocfilehash: 68799fe2755d8c0e811ae217f2cf6ceb84c7d869
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1e77dfdec902b64f2524c790bda6742eaa1105fc
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494223"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669171"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 Starten, stoppen en rapporteren over de chaos-test-service.
@@ -30,9 +30,9 @@ Starten, stoppen en rapporteren over de chaos-test-service.
 | [schedule](service-fabric-sfctl-chaos-schedule.md) | Ophalen en instellen van de planning van chaos. |
 ## <a name="commands"></a>Opdrachten
 
-|Command|Beschrijving|
+|Opdracht|Beschrijving|
 | --- | --- |
-| gebeurtenissen | Hiermee haalt u het volgende segment van de Chaos-gebeurtenissen op basis van het vervolgtoken of het tijdsbereik. |
+| events | Hiermee haalt u het volgende segment van de Chaos-gebeurtenissen op basis van het vervolgtoken of het tijdsbereik. |
 | Toevoegen | De status van Chaos ophalen. |
 | start | Chaos start in het cluster. |
 | Stoppen | Chaos stopt als deze wordt uitgevoerd in het cluster en de planning Chaos in een status ' gestopt plaatsen '. |
@@ -47,9 +47,9 @@ Als u het volgende segment van de Chaos-gebeurtenissen, kunt u de ContinuationTo
 |Argument|Beschrijving|
 | --- | --- |
 | --vervolgtoken | De voortzetting van token-parameter wordt gebruikt om op te halen van de volgende set resultaten. Een vervolgtoken met een niet-lege waarde is opgenomen in het antwoord van de API wanneer de resultaten van het systeem niet in één antwoord passen. Wanneer deze waarde wordt doorgegeven aan de volgende API-aanroep retourneert de API volgende set met resultaten. Als er geen verdere resultaten, klikt u vervolgens bevat het vervolgtoken een waarde. De waarde van deze parameter mag geen URL-codering. |
-| --utc-time-end | De Windows-bestand tijd voor de eindtijd van de periode waarvoor een Chaos-rapport wordt gegenereerd. Raadpleeg [DateTime.ToFileTimeUtc methode](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) voor meer informatie. |
+| --utc-time-end | De Windows-bestand tijd voor de eindtijd van de periode waarvoor een Chaos-rapport wordt gegenereerd. Raadpleeg [DateTime.ToFileTimeUtc methode](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc) voor meer informatie. |
 | --max-resultaten | Het maximum aantal resultaten moeten worden geretourneerd als onderdeel van de wisselbare query's. Deze parameter bepaalt de bovengrens van het aantal geretourneerde resultaten. De resultaten kan worden kleiner zijn dan het opgegeven maximum aantal resultaten als ze niet in het bericht aan de hand van de beperkingen van de grootte van maximaal bericht passen gedefinieerd in de configuratie. Als deze parameter nul is of niet is opgegeven, bevat de query met resultatenpagina's zo veel resultaten als is mogelijk dat de geretourneerde bericht. |
-| --utc-time-start | De Windows-bestand tijd voor de begintijd van de periode waarvoor een Chaos-rapport wordt gegenereerd. Raadpleeg [DateTime.ToFileTimeUtc methode](https\://msdn.microsoft.com/library/system.datetime.tofiletimeutc(v=vs.110).aspx) voor meer informatie. |
+| --utc-time-start | De Windows-bestand tijd voor de begintijd van de periode waarvoor een Chaos-rapport wordt gegenereerd. Raadpleeg [DateTime.ToFileTimeUtc methode](https://docs.microsoft.com/dotnet/api/system.datetime.tofiletimeutc?redirectedfrom=MSDN&view=netframework-4.7.2#System_DateTime_ToFileTimeUtc) voor meer informatie. |
 | --time-out -t | Servertime-out in seconden.  Standaard\: 60. |
 
 ### <a name="global-arguments"></a>Algemene argumenten

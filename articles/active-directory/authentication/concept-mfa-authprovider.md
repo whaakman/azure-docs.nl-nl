@@ -5,25 +5,28 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.component: authentication
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/01/2018
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 4a6ce07bfe641d9efdbe0eac841bb4f27f468b34
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: b601a3d23b23faa16925881a54e2ceba85c800f8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161461"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669062"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Wanneer u een Azure multi-factor Authentication-Provider
 
 Verificatie in twee stappen is standaard beschikbaar voor globale beheerders van Azure Active Directory- en Office 365-gebruikers. Als u echter wilt profiteren van [geavanceerde functies](howto-mfa-mfasettings.md), moet u de volledige versie van Azure Multi-Factor Authentication (MFA) aanschaffen.
 
-Een Azure Multi-Factor Authentication-provider wordt gebruikt om te kunnen profiteren van de functies van de volledige versie van Azure MFA. Het is bedoeld voor gebruikers die **geen licenties via Azure MFA, Azure AD Premium of Azure AD Premium of Azure MFA-bundels**. Azure MFA en Azure AD Premium bevatten standaard de volledige versie van Azure MFA.
+Azure multi-factor Authentication-Provider wordt gebruikt om te profiteren van functies van Azure multi-factor Authentication voor gebruikers die **geen licenties**. 
 
 Als u licenties die betrekking hebben op alle gebruikers in uw organisatie hebt, klikt u vervolgens hoeft niet u Azure multi-factor Authentication-Provider. Maak een Azure multi-factor Authentication-Provider alleen als u moet ook opgeven de verificatie in twee stappen voor gebruikers die geen licenties.
+
+> [!NOTE]
+> Vanaf 1 September 2018 nieuwe auth-providers kunnen niet meer worden gemaakt. Bestaande auth-providers kunnen nog steeds worden gebruikt en bijgewerkt. Meervoudige verificatie wordt nog steeds een beschikbare functie in Azure AD Premium-licenties.
 
 ## <a name="caveats-related-to-the-azure-mfa-sdk"></a>Waarschuwingen met betrekking tot de Azure MFA-SDK
 
@@ -62,7 +65,7 @@ Voer de volgende stappen uit om een Azure Multi-Factor Authentication-provider t
 
 U kunt het gebruiksmodel (per ingeschakelde gebruiker of per verificatie) niet wijzigen nadat een MFA-provider is gemaakt. U kunt de MFA-provider echter verwijderen en vervolgens een nieuwe maken met een ander gebruiksmodel.
 
-Als de huidige Multi-Factor Authentication-provider is gekoppeld aan een Azure AD-adreslijst (ook wel een Azure AD-tenant genoemd), kunt u de MFA-provider gerust verwijderen en er een maken die is gekoppeld aan dezelfde Azure AD-tenant. U kunt ook als u onvoldoende MFA, Azure AD Premium of bundels met Azure AD Premium of Azure MFA softwarelicenties voor alle gebruikers die zijn ingeschakeld voor MFA hebt aangeschaft, kunt u verwijderen de MFA-provider kan worden overgeslagen.
+Als de huidige Multi-Factor Authentication-provider is gekoppeld aan een Azure AD-adreslijst (ook wel een Azure AD-tenant genoemd), kunt u de MFA-provider gerust verwijderen en er een maken die is gekoppeld aan dezelfde Azure AD-tenant. U kunt ook als u voldoende licenties voor alle gebruikers die zijn ingeschakeld voor MFA hebt aangeschaft, kunt u verwijderen de MFA-provider kan worden overgeslagen.
 
 Als de MFA-provider niet is gekoppeld aan een Azure AD-tenant, of als u de nieuwe MFA-provider koppelt aan een andere Azure AD-tenant, worden de gebruikersinstellingen en configuratieopties niet overgedragen. Bestaande Azure MFA-servers moeten ook opnieuw worden geactiveerd met behulp van de activeringsreferenties die worden gegenereerd door de nieuwe MFA-provider. Opnieuw activeren van de MFA-Servers om ze te koppelen aan de nieuwe MFA-Provider niet van invloed op telefonische oproepen en tekstberichtverificatie, maar de mobiele app-meldingen werken voor alle gebruikers niet meer totdat ze de mobiele app activeren.
 

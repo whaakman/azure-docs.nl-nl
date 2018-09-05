@@ -6,16 +6,16 @@ ms.service: automation
 ms.component: change-inventory-management
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 8066612db20d1569920835a67d84b27d1b852e6e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128123"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669480"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
 
@@ -27,8 +27,7 @@ Wijzigingen in de geïnstalleerde software, services voor Windows, Windows-regis
 
 De volgende versies van het Windows-besturingssysteem worden officieel ondersteund voor de Windows-agent:
 
-* Windows Server 2008 Service Pack 1 (SP1) of hoger
-* Windows 7 SP1 en hoger.
+* Windows Server 2008 R2 of hoger
 
 ## <a name="supported-linux-operating-systems"></a>Ondersteunde Linux-besturingssystemen
 
@@ -47,8 +46,8 @@ De volgende Linux-distributies zijn officieel ondersteund. De Linux-agent kan ec
 Als u wilt bijhouden van wijzigingen, moet u de oplossing wijzigingen bijhouden en inventaris inschakelen voor uw Automation-Account.
 
 1. Navigeer in de Azure-portal naar uw Automation-Account
-1. Selecteer **wijzigingen bijhouden** onder **configuratie**.
-1. Selecteer een bestaande Log analytics-werkruimte of **nieuwe werkruimte maken** en klikt u op **inschakelen**.
+2. Selecteer **wijzigingen bijhouden** onder **configuratie**.
+3. Selecteer een bestaande Log analytics-werkruimte of **nieuwe werkruimte maken** en klikt u op **inschakelen**.
 
 Hiermee schakelt u de oplossing voor uw automation-account. De oplossing kan maximaal 15 minuten om in te schakelen duren. De blauwe voortgangsbalk waarschuwt u als de oplossing is ingeschakeld. Ga terug naar de **bijhouden** pagina voor het beheren van de oplossing.
 

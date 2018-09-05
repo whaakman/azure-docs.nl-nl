@@ -14,12 +14,12 @@ ms.component: pim
 ms.date: 08/30/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 9ad4965ccd86f88a61b5f6fb8f540d76e472ea69
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: a4aecd276df8e5453f0c35d6290bbe8a8d156ffa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345292"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669360"
 ---
 # <a name="configure-azure-resource-role-settings-in-pim"></a>Azure-resource rolinstellingen in PIM configureren
 
@@ -89,6 +89,8 @@ Om ervoor te zorgen dat de beheerder van de resource die voldoen aan de toewijzi
 U kunt vereisen dat in aanmerking komende leden van een rol om uit te voeren van MFA voor ze kunnen activeren. Dit proces zorgt ervoor dat de gebruiker die vraagt om de activering is wie ze beweren te zijn met redelijke zekerheid. Afdwingen van deze optie worden beveiligd op kritieke resources in situaties wanneer het gebruikersaccount dat mogelijk is aangetast.
 
 Om te vereisen dat een in aanmerking komend lid om uit te voeren van MFA voor activering, Controleer de **overeenkomende multi-factor Authentication bij activering** vak.
+
+Zie voor meer informatie, [multi-factor authentication (MFA) en PIM](pim-how-to-require-mfa.md).
 
 ## <a name="activation-maximum-duration"></a>Maximale activeringsduur
 

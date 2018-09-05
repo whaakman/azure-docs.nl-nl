@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 7e2634db33d760207e9190b9955bd1f2ead179be
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: de9abac2839341e1744a694daaaa0befdff4e7fa
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123151"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668577"
 ---
 # <a name="supported-languages-for-speech-service"></a>Ondersteunde talen voor spraak-service
 
@@ -39,7 +39,7 @@ De Microsoft-spraakherkenning API ondersteunt de volgende talen.
 
 ## <a name="text-to-speech"></a>Tekst naar spraak
 
-De **tekst naar spraak** API biedt de volgende stemmen, die ondersteuning biedt voor een specifieke taal en een dialect, geïdentificeerd door de landinstelling.
+De spraak-API voor synthese biedt de volgende stemmen, die ondersteuning biedt voor een specifieke taal en een dialect, geïdentificeerd door de landinstelling.
 
 Landinstelling | Taal | Geslacht | De toewijzing van service
 -------|----------|---------|--------------------
@@ -128,13 +128,16 @@ zh-TW | Chinees (Taiwan)|Vrouw | "Microsoft Server spraak tekst en spraak, spraa
 
 ### <a name="customization"></a>Aanpassing
 
-Aangepaste **tekst naar spraak** spraakstijlen Amerikaans Engels (en-US) en Chinees (zh-CN) ondersteunen.
+Stem aanpassing is beschikbaar voor Amerikaans Engels (en-US), vasteland Chinees (zh-CN) en Italiaans (it-IT).
+
+> [!NOTE]
+> Trainingen voor de Italiaanse toon begint met een gegevensset van meer dan 2000 uitingen. Chinees-Engels tweetalige modellen worden ook ondersteund met een initiële gegevensset van meer dan 2000 uitingen.
 
 ## <a name="speech-translation"></a>Spraakomzetting
 
 De **Spraakomzetting** API biedt ondersteuning voor verschillende talen voor spraak-naar-spraak- en spraak naar tekst converteren. De source-taal moet altijd zijn uit de onderstaande tabel voor spraak-taal. De beschikbare talen voor doel, is afhankelijk van of het doel van de vertaling spraak of tekst is.
 
-U vindt de lijst met talen ofwel via programmacode of via de REST-API-eindpunt voor talen. De lijst bevat de taalcode voor elke, evenals de naam van de taal in het Engels, of in een andere ondersteunde taal. Deze lijst wordt bijgewerkt door de Microsoft Translator-service wanneer een nieuwe taal beschikbaar.
+U kunt de lijst met talen programmatisch met behulp van de REST-API-eindpunt voor talen verkrijgen. De lijst bevat de taalcode voor elke, evenals de naam van de taal in het Engels, of in een andere ondersteunde taal. Deze lijst wordt bijgewerkt door de Microsoft Translator-service wanneer een nieuwe taal beschikbaar.
 
 ### <a name="speech-languages"></a>Talen voor spraak
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: 931cc628dccc77a026791b27a7a8159b37c585d4
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: eb6f7d9b34e00ce1efd8c871439c2504e5f550d5
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37919560"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43669439"
 ---
 # <a name="replicate-a-multitier-dynamics-ax-application-by-using-azure-site-recovery"></a>Een met meerdere lagen Dynamics AX-toepassing repliceren met behulp van Azure Site Recovery
 
@@ -99,7 +99,7 @@ Selecteer de virtuele machine in de gerepliceerde items de netwerkinstellingen c
 
 * Als u een statisch IP-adres gebruikt, geeft u de IP-adres dat u wilt dat de virtuele machine te nemen de **doel-IP** in het tekstvak.
 
-    ![Netwerkinstellingen ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png).
+    ![Netwerkinstellingen ](./media/site-recovery-dynamics-ax/vmpropertiesaos1.png)
 
 
 ### <a name="5-create-a-recovery-plan"></a>5. Een herstelplan maken
@@ -168,7 +168,7 @@ Zie voor meer informatie over het uitvoeren van een testfailover [Testfailover n
 
 Zie voor meer informatie over een failover uitvoert, [Failover in Site Recovery](site-recovery-failover.md).
 
-### <a name="perform-a-failback"></a>Een failback uitvoeren
+### <a name="perform-a-failback"></a>Failback uitvoeren
 
 Zie voor overwegingen specifieke SQL Server tijdens de failback [toepassingen met SQL Server en Azure Site Recovery repliceert](site-recovery-sql.md).
 

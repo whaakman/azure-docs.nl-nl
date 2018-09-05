@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/13/2018
+ms.date: 09/04/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4e894eaee6bb151b480204905d0a98324f5c353b
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 86e72787347cddd399fbdde4cd943b86ba48375f
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049592"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697829"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Bijwerken van de MySQL-resourceprovider 
 
@@ -31,6 +31,7 @@ Een nieuwe SQL-resource provider-adapter kan worden vrijgegeven wanneer Azure St
 >U moet updates installeren in de volgorde waarin die ze zijn vrijgegeven. U kunt de versies niet overslaan. Raadpleeg de lijst met versies in [implementeert de vereisten van de provider resource](.\azure-stack-mysql-resource-provider-deploy.md#prerequisites).
 
 ## <a name="update-the-mysql-resource-provider-adapter-integrated-systems-only"></a>Bijwerken van de MySQL-resource provider-adapter (alleen geïntegreerde systemen)
+
 Een nieuwe SQL-resource provider-adapter kan worden vrijgegeven wanneer Azure Stack-builds worden bijgewerkt. Hoewel de bestaande adapter werken blijft, kunt u het beste bijwerken naar de nieuwste build zo snel mogelijk.  
  
 Het bijwerken van de resource-provider die u gebruikt de **UpdateMySQLProvider.ps1** script. Het proces is vergelijkbaar met het proces dat wordt gebruikt voor het installeren van een resourceprovider, zoals beschreven in de [implementeren van de resourceprovider](#deploy-the-resource-provider) sectie van dit artikel. Het script is inbegrepen bij het downloaden van de resourceprovider. 
@@ -97,6 +98,7 @@ U kunt deze parameters opgeven vanaf de opdrachtregel. Als u dit niet doet, of a
 | **AzCredential** | De referenties voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties als u hebt gebruikt voor het implementeren van Azure Stack. | _Vereist_ | 
 | **VMLocalCredential** |De referenties voor het lokale administrator-account van de SQL-resourceprovider VM. | _Vereist_ | 
 | **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het eindpunt van de bevoegdheden. |  _Vereist_ | 
+| **Azure-omgeving** | De azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist als het is niet ADFS. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een China Azure Active Directory gebruikt, **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Uw certificaat-pfx-bestand moet worden geplaatst in deze map ook. | _Optionele_ (_verplichte_ voor meerdere knooppunten) | 
 | **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat. | _Vereist_ | 
 | **MaxRetryCount** | Het aantal keren dat die u wilt dat elke bewerking wordt uitgevoerd als er een fout is.| 2 | 

@@ -3,7 +3,7 @@ title: Service Bus prijzen en facturering | Microsoft Docs
 description: Overzicht van Service Bus prijsstructuur.
 services: service-bus-messaging
 documentationcenter: na
-author: sethmanheim
+author: spelluru
 manager: timlt
 editor: ''
 ms.assetid: 7c45b112-e911-45ab-9203-a2e5abccd6e0
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/21/2017
-ms.author: sethm
-ms.openlocfilehash: 4faf37394b8e4f6c4e463acb11aea898a29fef80
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.author: spelluru
+ms.openlocfilehash: 9f899afef175afa2509dc60e0920dc387f8a7c5e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448404"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702558"
 ---
 # <a name="service-bus-pricing-and-billing"></a>Service Bus prijzen en facturering
 
@@ -37,7 +37,7 @@ Service Bus maakt gebruik van de volgende 2 meters voor wachtrijen en onderwerpe
 
 De **Standard** laag introduceert gestaffelde prijzen voor bewerkingen die worden uitgevoerd met wachtrijen en onderwerpen/abonnementen, wat resulteert in op basis van een volume kortingen tot wel 80% op het hoogste gebruiksniveau van het. Er is ook een Standard-laag basiskosten van $10 per maand; deze kunt u maximaal 12,5 miljoen bewerkingen per maand gratis uit te voeren.
 
-De **Premium** laag biedt isolatie van resources op het niveau van de CPU en geheugen, zodat elke workload van een klant geïsoleerd wordt uitgevoerd. Deze resourcecontainer wordt een *Messaging-eenheid* genoemd. Aan elke Premium-naamruimte wordt ten minste één Messaging-eenheid toegewezen. U kunt voor elke Service Bus Premium-naamruimte 1, 2 of 4 Messaging-eenheden aanschaffen. Een enkele workload of entiteit kan meerdere Messaging-eenheden omspannen en het aantal Messaging-eenheden kan naar wens worden gewijzigd, hoewel facturering plaatsvindt tegen een 24-uurs of dagelijks tarief. Dit resulteert in voorspelbare en herhaalbare prestaties voor uw Service Bus-oplossing. Niet alleen zijn de prestaties beter voorspelbaar en beschikbaar, ze zijn ook sneller. 
+De **Premium** laag biedt isolatie van resources op het niveau van de CPU en geheugen, zodat elke workload van een klant geïsoleerd wordt uitgevoerd. Deze resourcecontainer wordt een *Messaging-eenheid* genoemd. Aan elke Premium-naamruimte wordt ten minste één Messaging-eenheid toegewezen. U kunt voor elke Service Bus Premium-naamruimte 1, 2 of 4 Messaging-eenheden aanschaffen. Een enkele workload of entiteit kan meerdere Messaging-eenheden omspannen en het aantal Messaging-eenheden kan naar wens worden gewijzigd, hoewel facturering plaatsvindt tegen een 24-uurs of dagelijks tarief. Dit resulteert in voorspelbare en herhaalbare prestaties voor uw Service Bus-oplossing. Niet alleen zijn de prestaties beter voorspelbaar en beschikbaar, ze zijn ook sneller.
 
 > [!NOTE]
 > Onderwerpen en -abonnementen zijn alleen beschikbaar in de Standard of Premium-Prijscategorieën; de Basic-laag ondersteunt alleen wachtrijen.

@@ -1,6 +1,6 @@
 ---
-title: Replicatie-gegevens in om te repliceren van gegevens in Azure-Database voor MySQL configureren.
-description: In dit artikel wordt beschreven hoe gegevens in de replicatie instellen voor Azure-Database voor MySQL.
+title: Als u wilt repliceren van gegevens in Azure Database voor MySQL is de replicatie van gegevens in configureren.
+description: In dit artikel wordt beschreven hoe u gegevens in de replicatie instellen voor Azure Database voor MySQL.
 services: mysql
 author: ajlam
 ms.author: andrela
@@ -8,68 +8,68 @@ manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
-ms.date: 06/20/2018
-ms.openlocfilehash: e099597eae419653a2a40c7f01ee7abbbc4657f0
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.date: 08/31/2018
+ms.openlocfilehash: 83d970cf41dde4141fcba84c39b9b750783e54e0
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36294418"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667154"
 ---
-# <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Het configureren van Azure-Database voor replicatie van MySQL-gegevens in
+# <a name="how-to-configure-azure-database-for-mysql-data-in-replication"></a>Azure Database voor MySQL-gegevens in replicatie configureren
 
-In dit artikel leert u het instellen van de replicatie van gegevens in in de Azure-Database voor de MySQL-service door de primaire en replica-servers te configureren. Gegevens in replicatie kunt u gegevens van een primaire MySQL-server on-premises uitgevoerd in de virtuele machines of database-services die door andere cloudproviders worden gehost in een replica in de Azure-Database voor de MySQL-service synchroniseren. 
+In dit artikel leert u hoe u kunt instellen in de Azure Database for MySQL-service is de replicatie van gegevens in door de hoofd- en replica-servers te configureren. Gegevens in replicatie kunt u gegevens synchroniseren met een master MySQL-server die on-premises worden uitgevoerd in virtuele machines of database-services die door andere cloudproviders worden gehost in een replica in de Azure Database for MySQL-service. 
 
-In dit artikel wordt ervan uitgegaan dat er ten minste enige ervaring met MySQL-servers en databases.
+In dit artikel wordt ervan uitgegaan dat u ten minste enige ervaring met MySQL-servers en databases hebt.
 
-## <a name="create-a-mysql-server-to-be-used-as-replica"></a>Een MySQL-server moet worden gebruikt als een replica maken
+## <a name="create-a-mysql-server-to-be-used-as-replica"></a>Een MySQL-server moet worden gebruikt als replica maken
 
-1. Maak een nieuwe Azure-Database voor de MySQL-server
+1. Maak een nieuwe Azure-Database voor MySQL-server
 
-   Maak een nieuwe MySQL-server (ex. 'replica.mysql.database.azure.com'). Raadpleeg [maken van een Azure-Database voor de MySQL-server met behulp van de Azure-portal](quickstart-create-mysql-server-database-using-azure-portal.md) voor het maken van de server. Deze server is de replicaserver '' in de gegevens in replicatie.
+   Maak een nieuwe MySQL-server (ex.) "replica.mysql.database.azure.com"). Raadpleeg [maken van een Azure Database for MySQL-server met behulp van de Azure-portal](quickstart-create-mysql-server-database-using-azure-portal.md) voor het maken van de server. Deze server is de 'replica'-server in de gegevens in replicatie.
 
    > [!IMPORTANT]
-   > De Azure-Database voor de MySQL-server moet worden gemaakt in de Prijscategorieën voor algemene doeleinden of geoptimaliseerd voor geheugen.
+   > De Azure Database for MySQL-server moet worden gemaakt in de Prijscategorieën voor algemeen gebruik of geoptimaliseerd voor geheugen.
    > 
 
-2. Dezelfde gebruikersaccounts en de bijbehorende rechten maken
+2. Dezelfde gebruikersaccounts en de bijbehorende machtigingen maken
 
-   Gebruikersaccounts worden niet gerepliceerd van de primaire server naar de replicaserver. Als u van plan zodat gebruikers beschikken over toegang tot de replica-server bent, moet u handmatig maken van alle accounts en de bijbehorende machtigingen op de nieuwe Azure-Database voor de MySQL-server.
+   Gebruikersaccounts worden niet gerepliceerd van de hoofd-server naar de replicaserver. Als u van plan gebruikers voorzien van toegang tot de replica-server bent, moet u handmatig maken van alle accounts en de bijbehorende machtigingen op de zojuist gemaakte Azure Database voor MySQL-server.
 
-## <a name="configure-the-primary-server"></a>De primaire server configureren
-De volgende stappen voorbereiden en configureren van de MySQL-server die gehost on-premises, in een virtuele machine of databaseservice die wordt gehost door andere cloudproviders voor replicatie van gegevens in. Deze server is de 'primaire' in de gegevens in replicatie. 
+## <a name="configure-the-master-server"></a>De hoofd-server configureren
+De volgende stappen uit voorbereiden en configureren van de MySQL-server die gehost on-premises, in een virtuele machine of de databaseservice die wordt gehost door andere cloudproviders voor replicatie van gegevens in. Deze server is de 'master' in de gegevens in replicatie. 
 
 1. Binaire logboekregistratie inschakelen
 
-   Controleer als binaire logboekregistratie is ingeschakeld op de primaire met de volgende opdracht: 
+   Controleer als binaire logboekregistratie is ingeschakeld op het model door de volgende opdracht uit: 
 
    ```sql
    SHOW VARIABLES LIKE 'log_bin';
    ```
 
-   Als de variabele [ `log_bin` ](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) wordt geretourneerd met de waarde 'ON', binaire logboekregistratie is ingeschakeld op uw server. 
+   Als de variabele [ `log_bin` ](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_log_bin) wordt geretourneerd met de waarde 'aan', binaire logboekregistratie is ingeschakeld op uw server. 
 
-   Als `log_bin` is geretourneerd met de waarde 'OFF', schakelt u binaire logboekregistratie door het bestand my.cnf dus bewerkt die `log_bin=ON` en start de server voor de wijziging door te voeren.
+   Als `log_bin` is geretourneerd met de waarde 'OFF', inschakelen in binaire registratie door het bestand my.cnf zo bewerken dat `log_bin=ON` en start opnieuw op de server voor de wijziging door te voeren.
 
-2. Instellingen van de primaire server
+2. Instellingen van de hoofd-server
 
-   Parameter is vereist voor replicatie van gegevens in `lower_case_table_names` consistent zijn tussen de primaire en replica-servers. Deze parameter is 1 standaard in Azure voor MySQL-Database. 
+   Gegevens in replicatie moet de parameter `lower_case_table_names` consistent tussen de hoofd- en replica-servers. Deze parameter is 1 standaard in Azure Database for MySQL. 
 
    ```sql
    SET GLOBAL lower_case_table_names = 1;
    ```
 
-3. Maken van een nieuwe replicatie-rol en machtigingen instellen
+3. Maak een nieuwe replicatierol en machtigingen instellen
 
-   Maak een gebruikersaccount op de primaire server die is geconfigureerd met bevoegdheden voor replicatie. Dit kan worden gedaan via SQL-opdrachten of een hulpprogramma zoals MySQL-Workbench. Overweeg of u van plan gerepliceerd met SSL bent, zoals dit worden opgegeven moet bij het maken van de gebruiker. Raadpleeg de documentatie MySQL om te begrijpen hoe [gebruikersaccounts toevoegen](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) op uw primaire server. 
+   Maak een gebruikersaccount op de hoofd-server die is geconfigureerd met bevoegdheden voor replicatie. Dit kan worden gedaan via SQL-opdrachten of een hulpprogramma zoals MySQL Workbench. Overweeg of u van plan gerepliceerd met SSL bent, zoals dit worden opgegeven moet bij het maken van de gebruiker. Raadpleeg de MySQL-documentatie om te begrijpen hoe u [gebruikersaccounts toevoegen](https://dev.mysql.com/doc/refman/5.7/en/adding-users.html) op de hoofd-server. 
 
-   De nieuwe replicatie-functie gemaakt is in de onderstaande opdrachten toegang kunnen krijgen tot de primaire vanaf een willekeurige computer, niet alleen de computer die als host fungeert voor de primaire zelf. Dit wordt gedaan door te geven ' syncuser@'%' ' in de opdracht van de gebruiker maken. Zie de MySQL-documentatie voor meer informatie over [geven accountnamen](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
+   De nieuwe replicatierol hebt gemaakt is in de onderstaande opdrachten toegang kunnen krijgen tot het model van elke machine, niet alleen de computer die als host fungeert voor het model zelf. Dit wordt gedaan door op te geven "syncuser@'%' ' in de opdracht create-gebruiker. Zie de MySQL-documentatie voor meer informatie over [op te geven accountnamen](https://dev.mysql.com/doc/refman/5.7/en/account-names.html).
 
    **SQL-opdracht**
 
    *Replicatie met SSL*
 
-   Om SSL te vereisen voor alle verbindingen van de gebruiker, moet u de volgende opdracht gebruiken om een gebruiker te maken: 
+   Om SSL te vereisen voor alle verbindingen van de gebruiker, gebruik de volgende opdracht om een gebruiker te maken: 
 
    ```sql
    CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
@@ -78,92 +78,92 @@ De volgende stappen voorbereiden en configureren van de MySQL-server die gehost 
 
    *Replicatie zonder SSL*
 
-   Als SSL niet vereist voor alle verbindingen is, gebruikt u de volgende opdracht om een gebruiker te maken:
+   Als SSL niet vereist voor alle verbindingen is, gebruikt u de volgende opdracht uit om een gebruiker te maken:
 
    ```sql
    CREATE USER 'syncuser'@'%' IDENTIFIED BY 'yourpassword';
    GRANT REPLICATION SLAVE ON *.* TO ' syncuser'@'%';
    ```
 
-   **MySQL-Workbench**
+   **MySQL Workbench**
 
-   Voor het maken van de replicatie-rol in de MySQL Workbench, opent u de **gebruikers en rechten** van het deelvenster van de **Management** Configuratiescherm. Klik vervolgens op **Account toevoegen**. 
+   Voor het maken van de replicatierol van de in MySQL Workbench, opent u de **gebruikers en bevoegdheden** vanuit het deelvenster de **Management** deelvenster. Klik vervolgens op **-Account toevoegen**. 
  
-   ![Gebruikers en rechten](./media/howto-data-in-replication/users_privileges.png)
+   ![Gebruikers en machtigingen](./media/howto-data-in-replication/users_privileges.png)
 
    Typ de gebruikersnaam in de **aanmeldingsnaam** veld. 
 
-   ![Synchronisatie-gebruiker](./media/howto-data-in-replication/syncuser.png)
+   ![Gebruiker synchroniseren](./media/howto-data-in-replication/syncuser.png)
  
-   Klik op de **beheerdersrollen** -scherm en selecteer vervolgens **replicatie Slave** uit de lijst met **globale bevoegdheden**. Klik vervolgens op **toepassen** om de replicatie-rol te maken.
+   Klik op de **beheerdersrollen** deelvenster en selecteer vervolgens **Slave-replicatie** uit de lijst met **globale bevoegdheden**. Klik vervolgens op **toepassen** om de replicatierol te maken.
 
    ![Replicatie Slave](./media/howto-data-in-replication/replicationslave.png)
 
 
-4. Instellen van de primaire server naar de modus alleen-lezen
+4. De hoofd-server ingesteld op modus alleen-lezen
 
-   Voordat u begint met dump uit de database, moet de server worden geplaatst in de modus alleen-lezen. In de alleen-lezen-modus is de primaire kan niet worden verwerkt alle schrijftransacties. Evalueer de gevolgen voor uw bedrijf en plannen van het venster alleen-lezen in een tijdstip buiten de piekuren indien nodig.
+   Voordat u begint met het dumpen van de database, moet de server worden geplaatst in de modus alleen-lezen. In de modus alleen-lezen, zich het model niet voor het verwerken van transacties die zijn geschreven. Evalueren van de impact op uw bedrijf en plannen van de alleen-lezen-venster in een tijd buiten de piektijden indien nodig.
 
    ```sql
    FLUSH TABLES WITH READ LOCK;
    SET GLOBAL read_only = ON;
    ```
 
-5. Binair logboekbestand en offset ophalen
+5. Binaire logboekbestandsnaam en offset ophalen
 
-   Voer de [ `show master status` ](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) opdracht om te bepalen van de huidige binaire logboek-bestandsnaam en de offset.
+   Voer de [ `show master status` ](https://dev.mysql.com/doc/refman/5.7/en/show-master-status.html) opdracht uit om te bepalen van de huidige binaire logboekbestandsnaam en offset.
     
    ```sql
    show master status;
    ```
-   De resultaten moeten volgende. Zorg ervoor dat Let op de naam van het binaire bestand zoals deze wordt gebruikt in latere stappen.
+   De resultaten moeten als volgende. Zorg ervoor dat u de naam van het binaire bestand Opmerking zoals deze worden gebruikt in latere stappen.
 
    ![Resultaten van master-Status](./media/howto-data-in-replication/masterstatus.png)
  
-## <a name="dump-and-restore-primary-server"></a>Dump en herstellen van de primaire server
+## <a name="dump-and-restore-master-server"></a>Dump maken en terugzetten van hoofd-server
 
-1. Alle databases van primaire server dump
+1. Dump van alle databases van hoofd-server
 
-   U kunt mysqldump dump databases van uw primaire. Raadpleeg voor meer informatie, [Dump & herstellen](concepts-migrate-dump-restore.md). Het is niet nodig dump MySQL-bibliotheek en testen van de bibliotheek.
+   U kunt mysqldump dump databases van uw model. Raadpleeg voor meer informatie, [dumpen en terugzetten](concepts-migrate-dump-restore.md). Het is niet nodig dump MySQL-bibliotheek en testen van de bibliotheek.
 
-2. De primaire server instellen om de modus lezen/schrijven
+2. Instellen van de master-server met modus lezen/schrijven
 
-   Zodra de database heeft is gedumpt, wijzigt u de primaire MySQL-server terug naar de modus lezen/schrijven.
+   Zodra de database heeft zijn gedumpt, wijzigt u de master MySQL-server terug naar de modus lezen/schrijven.
 
    ```sql
    SET GLOBAL read_only = OFF;
    UNLOCK TABLES;
    ```
 
-3. Dumpbestand terugzetten naar de nieuwe server
+3. Bestand herstellen naar nieuwe server
 
-   Het dumpbestand terugzetten naar de server gemaakt in de Azure-Database voor de MySQL-service. Raadpleeg [Dump & herstellen](concepts-migrate-dump-restore.md) voor het herstellen van een bestand naar een MySQL-server. Als het dumpbestand groot is, kunt u deze naar een virtuele machine in Azure binnen dezelfde regio bevinden als de replicaserver uploaden. Herstellen naar de Azure-Database voor de MySQL-server van de virtuele machine.
+   Het dumpbestand terugzetten naar de server hebt gemaakt in de Azure Database for MySQL-service. Raadpleeg [dumpen en terugzetten](concepts-migrate-dump-restore.md) voor informatie over het herstellen van een bestand naar een MySQL-server. Als het bestand groot is, kunt u deze aan een virtuele machine in Azure binnen dezelfde regio als de replicaserver uploaden. Deze herstellen met de Azure Database voor MySQL-server van de virtuele machine.
 
-## <a name="link-primary-and-replica-servers-to-start-data-in-replication"></a>Koppeling primaire en replicaservers gegevens in de replicatie te starten
+## <a name="link-master-and-replica-servers-to-start-data-in-replication"></a>Koppeling hoofd- en replica-servers gegevens in replicatie moet worden gestart
 
-1. De primaire server instellen
+1. Set-hoofdserver
 
-   Alle gegevens in de replicatie-functies worden uitgevoerd door de opgeslagen procedures. U vindt alle procedures op [Data opgeslagen replicatieprocedures](reference-data-in-stored-procedures.md). De opgeslagen procedures kunnen worden uitgevoerd in de MySQL-shell of MySQL-Workbench. 
+   Alle gegevens in replicatie-functies worden uitgevoerd door opgeslagen procedures. U vindt alle procedures op [gegevens in door replicatie opgeslagen Procedures](reference-data-in-stored-procedures.md). De opgeslagen procedures kunnen worden uitgevoerd in de MySQL-shell of MySQL Workbench. 
 
-   Twee servers koppelen en replicatie, meld u aan bij de doelserver van de replica in de Azure DB voor MySQL-service starten en het externe exemplaar ingesteld als de primaire server. Dit wordt gedaan met behulp van de `mysql.az_replication_change_primary` opgeslagen procedure voor de Azure DB voor MySQL-server.
+   Om te koppelen van twee servers en replicatie, meld u aan bij de doelserver van de replica in de Azure database voor MySQL-service starten en het externe exemplaar instellen als de hoofd-server. Dit wordt gedaan met behulp van de `mysql.az_replication_change_master` opgeslagen procedure uit op de Azure DB voor MySQL-server.
 
    ```sql
-   CALL mysql.az_replication_change_primary('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
+   CALL mysql.az_replication_change_master('<master_host>', '<master_user>', '<master_password>', 3306, '<master_log_file>', <master_log_pos>, '<master_ssl_ca>');
    ```
 
-   - master_host: hostnaam van de primaire server
-   - master_user: gebruikersnaam voor de primaire server
-   - master_password: wachtwoord voor de primaire server
-   - master_log_file: bestandsnaam binair logboek wordt uitgevoerd `show master status`
-   - master_log_pos: binaire logboek positie wordt uitgevoerd `show master status`
-   - master_ssl_ca: context van de CA-certificaat. Als u geen gebruikmaakt van SSL doorgeven in een lege tekenreeks.
+   - master_host: hostnaam van de hoofd-server
+   - master_user: de gebruikersnaam voor de hoofd-server
+   - master_password: wachtwoord voor de hoofd-server
+   - master_log_file: binaire logboekbestandsnaam die worden uitgevoerd `show master status`
+   - master_log_pos: binaire logboekpositie die worden uitgevoerd `show master status`
+   - master_ssl_ca: CA-certificaat-context. Als u geen gebruik van SSL, geeft u lege tekenreeks.
        - Het verdient aanbeveling om door te geven van deze parameter in als een variabele. Zie de volgende voorbeelden voor meer informatie.
 
    **Voorbeelden**
 
    *Replicatie met SSL*
 
-   De variabele `@cert` wordt gemaakt met de volgende MySQL-opdrachten: 
+   De variabele `@cert` worden gemaakt met de volgende opdrachten voor MySQL: 
 
    ```sql
    SET @cert = '-----BEGIN CERTIFICATE-----
@@ -171,17 +171,17 @@ De volgende stappen voorbereiden en configureren van de MySQL-server die gehost 
    -----END CERTIFICATE-----'
    ```
 
-   Replicatie met SSL is tussen een primaire server gehost in het domein 'BedrijfA.com zou' en een replicaserver die wordt gehost in Azure-Database voor MySQL ingesteld. Deze opgeslagen procedure wordt uitgevoerd op de replica. 
+   Replicatie met SSL is ingesteld tussen een hoofd-server die wordt gehost in het domein 'BedrijfA.com zou' en een replica-server die wordt gehost in Azure Database voor MySQL. Deze opgeslagen procedure wordt uitgevoerd op de replica. 
 
    ```sql
-   CALL mysql.az_replication_change_primary('primary.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, @cert);
    ```
    *Replicatie zonder SSL*
 
-   Replicatie zonder SSL is tussen een primaire server gehost in het domein 'BedrijfA.com zou' en een replicaserver die wordt gehost in Azure-Database voor MySQL ingesteld. Deze opgeslagen procedure wordt uitgevoerd op de replica.
+   Replicatie zonder SSL is ingesteld tussen een hoofd-server die wordt gehost in het domein 'BedrijfA.com zou' en een replica-server die wordt gehost in Azure Database voor MySQL. Deze opgeslagen procedure wordt uitgevoerd op de replica.
 
    ```sql
-   CALL mysql.az_replication_change_primary('primary.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
+   CALL mysql.az_replication_change_master('master.companya.com', 'syncuser', 'P@ssword!', 3306, 'mysql-bin.000002', 120, '');
    ```
 
 2. Replicatie starten
@@ -192,21 +192,21 @@ De volgende stappen voorbereiden en configureren van de MySQL-server die gehost 
    CALL mysql.az_replication_start;
    ```
 
-3. Controleer de replicatiestatus van
+3. Replicatiestatus controleren
 
-   Roep de [ `show slave status` ](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) opdracht op de replicaserver naar de replicatiestatus weergeven.
+   Roep de [ `show slave status` ](https://dev.mysql.com/doc/refman/5.7/en/show-slave-status.html) opdracht op de replica-server om de replicatiestatus van de weer te geven.
     
    ```sql
    show slave status;
    ```
 
-   Als de status van `Slave_IO_Running` en `Slave_SQL_Running` zijn 'Ja' en de waarde van `Seconds_Behind_Master` '0', replicatie goed werkt. `Seconds_Behind_Master` Hiermee wordt aangegeven hoe laat de replica. Als de waarde geen is '0', betekent dit dat de replica updates wordt verwerkt. 
+   Als de status van `Slave_IO_Running` en `Slave_SQL_Running` zijn 'Ja' en de waarde van `Seconds_Behind_Master` is '0', replicatie goed werkt. `Seconds_Behind_Master` Geeft aan hoe laat de replica is. Als de waarde geen is '0', betekent dit dat de replica is worden gebruikt voor het verwerken van updates. 
 
 ## <a name="other-stored-procedures"></a>Andere opgeslagen procedures
 
 ### <a name="stop-replication"></a>Replicatie stoppen
 
-Als u wilt stoppen van replicatie tussen de primaire en replica-server, gebruikt u de volgende opgeslagen procedure:
+Als u wilt stoppen met replicatie tussen de hoofd- en replica-server, gebruikt u de volgende opgeslagen procedure:
 
 ```sql
 CALL mysql.az_replication_stop;
@@ -214,19 +214,19 @@ CALL mysql.az_replication_stop;
 
 ### <a name="remove-replication-relationship"></a>Verwijder de replicatierelatie
 
-Gebruik de volgende opgeslagen procedure voor het verwijderen van de relatie tussen de primaire en replica-server:
+Als u wilt verwijderen van de relatie tussen hoofd- en replica-server, gebruikt u de volgende opgeslagen procedure:
 
 ```sql
-CALL mysql.az_replication_remove_primary;
+CALL mysql.az_replication_remove_master;
 ```
 
 ### <a name="skip-replication-error"></a>Replicatiefout overslaan
 
-Een replicatiefout overslaan en wilt doorgaan, gebruikt u de volgende opgeslagen procedure-replicatie:
+Een replicatiefout overslaan en de replicatie wilt doorgaan, gebruikt u de volgende opgeslagen procedure toestaan:
     
 ```sql
 CALL mysql.az_replication_skip_counter;
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [gegevens in replicatie](concepts-data-in-replication.md) voor Azure-Database voor MySQL. 
+- Meer informatie over [Data Replication](concepts-data-in-replication.md) voor Azure Database for MySQL. 

@@ -12,17 +12,17 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
-ms.author: sethm
-ms.openlocfilehash: e6524fe056ee2a1d81c9cccf257008b2369352b1
-ms.sourcegitcommit: ded74961ef7d1df2ef8ffbcd13eeea0f4aaa3219
+ms.author: spelluru
+ms.openlocfilehash: f20893de235ac02fc5a94b54518af2405e4549ff
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/29/2018
-ms.locfileid: "28197728"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696955"
 ---
 # <a name="message-counters"></a>Berichtentellers
 
-U kunt het aantal berichten in wachtrijen en abonnementen met behulp van Azure Resource Manager en Service Bus ophalen [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) API's in de .NET Framework SDK.
+U kunt het aantal berichten in wachtrijen en abonnementen met behulp van Azure Resource Manager en Service Bus ophalen [NamespaceManager](/dotnet/api/microsoft.servicebus.namespacemanager) -API's in de SDK voor .NET Framework.
 
 Met PowerShell, kunt u het aantal als volgt verkrijgen:
 
@@ -30,21 +30,21 @@ Met PowerShell, kunt u het aantal als volgt verkrijgen:
 (Get-AzureRmServiceBusQueue -ResourceGroup mygrp -NamespaceName myns -QueueName myqueue).CountDetails
 ```
 
-## <a name="message-count-details"></a>Details van bericht van aantal
+## <a name="message-count-details"></a>Aantal berichtgegevens
 
-Het aantal actieve berichten weten is handig bij het bepalen of een wachtrij een achterstand waarvoor meer resources maakt worden verwerkt dan wat momenteel is geïmplementeerd. De volgende details voor prestatiemeteritems zijn beschikbaar in de [MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) klasse:
+Weet het aantal actieve berichten is nuttig bij het bepalen of een wachtrij een achterstand waarvoor meer resources maakt voor het verwerken van dan wat momenteel is geïmplementeerd. De volgende details van teller zijn beschikbaar in de [MessageCountDetails](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails) klasse:
 
--   [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ActiveMessageCount):-berichten in de wachtrij of een abonnement dat in de actieve status en gereed is voor de levering van.
+-   [ActiveMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.activemessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ActiveMessageCount): berichten in de wachtrij of abonnement die zich in de actieve status en gereed is voor de levering van.
 -   [DeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.deadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_DeadLetterMessageCount): berichten in de wachtrij voor onbestelbare berichten.
 -   [ScheduledMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.scheduledmessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_ScheduledMessageCount): berichten in de status van de geplande.
--   [TransferDeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transferdeadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferDeadLetterMessageCount): berichten die overdracht naar een andere wachtrij of onderwerp is mislukt en zijn verplaatst naar de wachtrij met onbestelbare berichten.
+-   [TransferDeadLetterMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transferdeadlettermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferDeadLetterMessageCount): berichten die zijn mislukt overdracht naar een andere wachtrij of onderwerp en zijn verplaatst naar de dead-letter-wachtrij voor overdracht.
 -   [TransferMessageCount](/dotnet/api/microsoft.servicebus.messaging.messagecountdetails.transfermessagecount#Microsoft_ServiceBus_Messaging_MessageCountDetails_TransferMessageCount): berichten in behandeling zijnde overdracht naar een andere wachtrij of onderwerp.
 
-Als een toepassing wil schalen op basis van de lengte van de wachtrij, moet dit met een zeer gemeten tempo. Het ophalen van de items van het bericht is een dure bewerking binnen de broker bericht en vaak nadelig en rechtstreeks uitvoeren van invloed is op de prestaties van de entiteit.
+Als een toepassing wil schalen van resources op basis van de lengte van de wachtrij, moet dit met een zeer gemeten tempo. Het ophalen van de items van het bericht is een dure bewerking in de berichtenbroker, en uitvoeren van deze vaak rechtstreeks en negatieve gevolgen heeft voor de prestaties van de entiteit.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Service Bus-berichtenservice, de volgende onderwerpen:
+Zie voor meer informatie over Service Bus-berichten, de volgende onderwerpen:
 
 * [Grondbeginselen van Service Bus](service-bus-fundamentals-hybrid-solutions.md)
 * [Service Bus-wachtrijen, -onderwerpen en -abonnementen](service-bus-queues-topics-subscriptions.md)

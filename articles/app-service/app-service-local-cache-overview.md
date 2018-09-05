@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/04/2016
 ms.author: cephalin
-ms.openlocfilehash: 4959e4e3a0692837a7775eaf813a8fcff925312d
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 6729c87dcc9a85e2e3ccb6b4822213d38e2ba6f7
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918013"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666111"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Overzicht van Azure App Service lokale Cache
 
@@ -44,13 +44,15 @@ De functie van de lokale Cache van Azure App Service biedt een webweergave van d
 * Ze zijn ongevoelig voor de geplande upgrades of niet-geplande storingen en eventuele andere storingen met Azure Storage die zich voordoen op servers die de inhoud delen.
 * Ze hebben minder app wordt opnieuw opgestart vanwege wijzigingen voor storage-share.
 
-## <a name="how-local-cache-changes-the-behavior-of-app-service"></a>Hoe lokale Cache verandert het gedrag van App Service
-* De lokale cache is een kopie van de mappen KCC/site en /siteextensions van de web-app. Deze is gemaakt op de lokale VM-exemplaar op starten van de web-app. De grootte van de lokale cache per web-app is standaard beperkt tot 300 MB, maar u het kunt verhogen, kunt u maximaal 2 GB.
-* De lokale cache is alleen-lezen. Elke wijziging wordt echter verwijderd wanneer de web-app verplaatst van virtuele machines of opnieuw wordt opgestart. Gebruik geen lokale Cache voor apps die essentiële gegevens opslaan in de store.
-* Web-apps kunnen doorgaan met het schrijven van logboekbestanden en diagnostische gegevens als ze momenteel doen. Logboekbestanden en gegevens, maar worden lokaal opgeslagen op de virtuele machine. Vervolgens worden deze gekopieerd via periodiek naar de gedeelde inhoud store. Het kopiëren naar de gedeelde inhoud store is een gunstigste inspanning--write-back-ups maakt gaan vanwege een onverwachte vastlopen van een VM-exemplaar verloren mogelijk.
-* Er is een wijziging in de mapstructuur van de mappen logboekbestanden en de gegevens voor WebApps die gebruikmaken van lokale Cache. Er zijn nu submappen in de storage-gegevens en logboekbestanden mappen die het naamgevingspatroon van "de unieke id" + tijdstempel volgen. Elk van de submappen komt overeen met een VM-exemplaar waar de web-app wordt uitgevoerd of is uitgevoerd.  
-* Wijzigingen publiceren naar de web-app via een van de mechanismen voor publicatie worden gepubliceerd naar de duurzame shared content store. Als u wilt vernieuwen van de lokale cache van de web-app, moet opnieuw worden gestart. Als u de levenscyclus van naadloze, Zie de informatie later in dit artikel.
-* D:\Home verwijst naar de lokale cache. D:\Local blijft om te verwijzen naar de tijdelijke opslag voor VM-specifieke.
+## <a name="how-the-local-cache-changes-the-behavior-of-app-service"></a>Hoe de lokale cache verandert het gedrag van App Service
+* _D:\home_ verwijst naar de lokale cache, die op de VM-exemplaar wordt gemaakt wanneer de app wordt gestart. _D:\Local_ om te verwijzen naar de tijdelijke opslag voor VM-specifieke blijft.
+* De lokale cache bevat een momentopname van de _/siteconfiguratie_ en _/siteextensions_ mappen van de gedeelde inhoud store op _D:\home\site_ en _D:\home\ siteextensions_, respectievelijk. De bestanden zijn gekopieerd naar de lokale cache wanneer de app wordt gestart. De grootte van de twee mappen voor elke app is standaard beperkt tot 300 MB, maar u het kunt verhogen, kunt u maximaal 2 GB.
+* De lokale cache is alleen-lezen. Een wijziging wordt echter verwijderd wanneer de app wordt verplaatst van virtuele machines of opnieuw wordt opgestart. Gebruik de lokale cache niet voor apps die essentiële gegevens opslaan in de store.
+* _D:\home\LogFiles_ en _D:\home\Data_ logboekbestanden en app-gegevens bevatten. De twee submappen worden lokaal opgeslagen op de VM-exemplaar en periodiek worden gekopieerd naar de gedeelde inhoud store. Apps kunnen logboekbestanden en gegevens behouden door ze naar deze mappen te schrijven. Het kopiëren naar de gedeelde inhoud store is echter best-effort, zodat het mogelijk voor logboekbestanden en de gegevens verloren vanwege het vastlopen van een plotselinge van een VM-exemplaar.
+* [Logboekstreaming](web-sites-enable-diagnostic-log.md#streamlogs) wordt beïnvloed door het best-effort-exemplaar. U kan zien tot een vertraging van één minuut in de gestreamde Logboeken.
+* In de gedeelde inhoud store is een wijziging in de mapstructuur van de _logboekbestanden_ en _gegevens_ mappen voor apps die gebruikmaken van de lokale cache. Er zijn nu submappen in die het naamgevingspatroon van "de unieke id" + tijdstempel volgen. Elk van de submappen komt overeen met een VM-exemplaar waar de app wordt uitgevoerd of is uitgevoerd.
+* Andere mappen in _D:\home_ blijven in de lokale cache en zijn niet gekopieerd naar de gedeelde inhoud store.
+* App-implementatie via elke ondersteunde methode publiceert rechtstreeks naar de duurzame opslag voor gedeelde inhoud. Om te vernieuwen de _D:\home\site_ en _D:\home\siteextensions_ mappen in de lokale cache, de app moet opnieuw worden opgestart. Als u de levenscyclus van naadloze, Zie de informatie later in dit artikel.
 * De standaardweergave van de SCM-site blijft die van de gedeelde opslag van inhoud.
 
 ## <a name="enable-local-cache-in-app-service"></a>Lokale Cache in App Service inschakelen

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 05/11/2018
 ms.author: genli
-ms.openlocfilehash: 16d023a2f3abf0feb1f1c0478edb3de7a157d5a4
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 1f3a24cebe5061f7e3ca3897692b068531780431
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055466"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668118"
 ---
 # <a name="how-to-use-perfinsights"></a>PerfInsights gebruiken
 
@@ -68,7 +68,7 @@ In dit scenario wordt uitgevoerd de [Diskspd](https://github.com/Microsoft/disks
 
 In dit scenario wordt uitgevoerd een [prestatiemeteritem](https://msdn.microsoft.com/library/windows/desktop/aa373083(v=vs.85).aspx) traceren met behulp van de items die zijn opgegeven in het bestand RuleEngineConfig.json. Als de virtuele machine wordt geïdentificeerd als een server waarop SQL Server wordt uitgevoerd, wordt een prestaties teller tracering wordt uitgevoerd. Dit gebeurt met behulp van de items die zijn gevonden in het bestand RuleEngineConfig.json. Dit scenario omvat ook prestatiegegevens van diagnostische gegevens.
 
-### <a name="azure-files-analysis"></a>Azure Files-analyse
+### <a name="azure-files-analysis"></a>Azure bestanden analysis
 
 In dit scenario wordt een speciale prestaties teller vastleggen, samen met een netwerktracering uitgevoerd. De opname omvat alle Server Message Block (SMB) client shares prestatiemeteritems. Hier volgen enkele belangrijke SMB-share clientprestatietellers die deel van het vastleggen uitmaken:
 
@@ -104,7 +104,7 @@ Informatie over Windows-VM, schijven of pools opslagconfiguratie, prestatiemeter
 
 |Gegevens die zijn verzameld                              |  |  | Performance-scenario 's |  |  | |
 |----------------------------------|----------------------------|------------------------------------|--------------------------|--------------------------------|----------------------|----------------------|
-|                               | Analyse van snelle prestaties | Benchmarking | Analyse van prestaties | Azure Files-analyse | Geavanceerde analyse |
+|                               | Analyse van snelle prestaties | Benchmarking | Analyse van prestaties | Azure bestanden analysis | Geavanceerde analyse |
 | Gegevens uit de gebeurtenislogboeken       | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Systeemgegevens                | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
 | Volume-kaart                        | Ja                        | Ja                                | Ja                      | Ja                  | Ja                  |
@@ -245,11 +245,11 @@ Als u wilt de PerfInsights-hulpprogramma uitvoert, de volgende stappen uit:
     >
     >Als de duur van de switch **/d** niet is opgegeven, PerfInsights wordt gevraagd u aan om te reproduceren het probleem tijdens het uitvoeren van vmslow, Azure Files en geavanceerde scenario's. 
 
-Wanneer de traceringen of bewerkingen zijn voltooid, wordt een nieuw bestand in dezelfde map als PerfInsights weergegeven. De naam van het bestand is **CollectedData\_jjjj-MM-dd\_hh: mm: ss-fff.zip.** U kunt dit bestand verzenden naar de agent ondersteuning voor analyse of open het rapport in het zip-bestand bevindingen en aanbevelingen te bekijken.
+Wanneer de traceringen of bewerkingen zijn voltooid, wordt een nieuw bestand in dezelfde map als PerfInsights weergegeven. De naam van het bestand is **PerformanceDiagnostics\_jjjj-MM-dd\_hh: mm: ss-fff.zip.** U kunt dit bestand verzenden naar de agent ondersteuning voor analyse of open het rapport in het zip-bestand bevindingen en aanbevelingen te bekijken.
 
 ## <a name="review-the-diagnostics-report"></a>Bekijk het rapport diagnostische gegevens
 
-Binnen de **CollectedData\_jjjj-MM-dd\_hh: mm: ss-fff.zip** -bestand, kunt u een HTML-rapport waarin wordt uitgelegd van de resultaten van de PerfInsights vinden. Als u wilt controleren van het rapport, vouw de **CollectedData\_jjjj-MM-dd\_hh: mm: ss-fff.zip** bestand en open vervolgens de **PerfInsights Report.html** bestand.
+Binnen de **PerformanceDiagnostics\_jjjj-MM-dd\_hh: mm: ss-fff.zip** -bestand, kunt u een HTML-rapport waarin wordt uitgelegd van de resultaten van de PerfInsights vinden. Als u wilt controleren van het rapport, vouw de **PerformanceDiagnostics\_jjjj-MM-dd\_hh: mm: ss-fff.zip** bestand en open vervolgens de **PerfInsights Report.html** bestand.
 
 Selecteer de **bevindingen** tabblad.
 
@@ -314,4 +314,4 @@ De volgende schermafbeelding ziet een bericht vergelijkbaar met wat u mogelijk o
 
 Volg de instructies in het bericht voor toegang tot het bestand transfer-werkruimte. Voor extra beveiliging die u moet uw wachtwoord wijzigen in de eerste keer wordt gebruikt.
 
-Nadat u zich hebt aangemeld, vindt u een dialoogvenster voor het uploaden van de **CollectedData\_jjjj-MM-dd\_hh: mm: ss-fff.zip** bestand die is verzameld door PerfInsights.
+Nadat u zich hebt aangemeld, vindt u een dialoogvenster voor het uploaden van de **PerformanceDiagnostics\_jjjj-MM-dd\_hh: mm: ss-fff.zip** bestand die is verzameld door PerfInsights.

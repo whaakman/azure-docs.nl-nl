@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 08/30/2018
 ms.author: mikeray
-ms.openlocfilehash: 1e2204dbe645aeff2587c2c3d55b5da89ac227d8
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 7dbbfb2d97b7015118edca3db3ae050ad07c51ee
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288210"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667444"
 ---
 # <a name="configure-always-on-availability-group-in-azure-vm-manually"></a>Configure AlwaysOn-beschikbaarheidsgroep in Azure VM handmatig
 
@@ -45,7 +45,7 @@ De volgende tabel bevat de vereisten die u nodig hebt om te voltooien voordat u 
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)| Windows Server | File share voor een cluster witness |  
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server-serviceaccount | Domeinaccount |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|SQL Server Agent-serviceaccount | Domeinaccount |  
-|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Firewall-poorten openen | -SQL Server: **1433** voor standaardexemplaar <br/> -Eindpunt voor databasespiegeling: **5022** of een beschikbare poort <br/> -Azure load balancer-test: **59999** of een beschikbare poort |
+|![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Firewall-poorten openen | -SQL Server: **1433** voor standaardexemplaar <br/> -Eindpunt voor databasespiegeling: **5022** of een beschikbare poort <br/> -Beschikbaarheid van groep statustest load balancer IP-adres: **59999** of een beschikbare poort <br/> -Cluster core statustest load balancer IP-adres: **58888** of een beschikbare poort |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Toevoegen van de functie Failoverclustering | Deze functie nodig hebben voor zowel SQL-Servers |
 |![Square](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/square.png)|Domeinaccount voor installatie | -Lokale beheerder zijn op elke SQL-Server <br/> -Lid is van SQL Server vaste serverrol sysadmin voor elk exemplaar van SQL Server  |
 
@@ -78,7 +78,7 @@ Nadat de vereiste onderdelen zijn voltooid, wordt de eerste stap is het maken va
    | Toegangspunt voor beheer van het Cluster |Typ de naam van een cluster, zoals **SQLAGCluster1** in **clusternaam**.|
    | Bevestiging |Gebruik de standaardinstellingen, tenzij u van opslagruimten gebruikmaakt. Zie de opmerking onder deze tabel. |
 
-### <a name="set-the-cluster-ip-address"></a>De cluster-IP-adres instellen
+### <a name="set-the-windows-server-failover-cluster-ip-address"></a>Windows server failover cluster-IP-adres instellen
 
 1. In **Failoverclusterbeheer**, schuif omlaag naar **Clusterkernresources** en vouwt u de clusterdetails van de. Ziet u zowel de **naam** en de **IP-adres** bronnen in de **mislukt** staat. De resource van het IP-adres kan niet online worden gebracht omdat het cluster is toegewezen hetzelfde IP-adres als de machine zelf, daarom is het een dubbel adres.
 
@@ -343,13 +343,15 @@ Op dit moment hebt u een beschikbaarheidsgroep met replica's op twee exemplaren 
 
 Een beschikbaarheidsgroep van SQL Server vereist op Azure virtual machines, een load balancer. De load balancer bevat de IP-adressen voor de beschikbaarheidsgroep-listeners en de Windows Server-failovercluster. In deze sectie bevat een overzicht van de load balancer maken in Azure portal.
 
+Een Azure Load Balancer mag een Standard Load Balancer of een Basic Load Balancer. Standard Load Balancer heeft meer functionaliteit dan de basisversie van Load Balancer. Voor een beschikbaarheidsgroep, is de Standard Load Balancer is vereist als u een Beschikbaarheidszone (in plaats van een Beschikbaarheidsset) gebruiken. Zie voor meer informatie over het verschil tussen de load balancer-typen, [vergelijking van de Load Balancer-SKU](../../../load-balancer/load-balancer-overview.md#skus).
+
 1. In de Azure-portal, gaat u naar de resourcegroep waar uw SQL-Servers zijn en klik op **+ toevoegen**.
-2. Zoeken naar **Load Balancer**. Kies de load balancer gepubliceerd door Microsoft.
+1. Zoeken naar **Load Balancer**. Kies de load balancer gepubliceerd door Microsoft.
 
    ![AG in Failoverclusterbeheer](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/82-azureloadbalancer.png)
 
-1.  Klik op **Create**.
-3. Configureer de volgende parameters voor de load balancer.
+1. Klik op **Create**.
+1. Configureer de volgende parameters voor de load balancer.
 
    | Instelling | Veld |
    | --- | --- |
@@ -358,7 +360,7 @@ Een beschikbaarheidsgroep van SQL Server vereist op Azure virtual machines, een 
    | **Virtueel netwerk** |Gebruik de naam van de Azure-netwerk. |
    | **Subnet** |Gebruik de naam van het subnet waarin de virtuele machine zich bevindt.  |
    | **IP-adrestoewijzing** |Statisch |
-   | **IP-adres** |Gebruik een beschikbaar adres uit het subnet. Houd er rekening mee dat dit af van uw cluster-IP-adres wijkt |
+   | **IP-adres** |Gebruik een beschikbaar adres uit het subnet. Dit adres gebruiken voor de beschikbaarheidsgroeplistener. Houd er rekening mee dat dit af van het IP-adres van uw cluster wijkt.  |
    | **Abonnement** |Gebruik hetzelfde abonnement als de virtuele machine. |
    | **Locatie** |Gebruik de dezelfde locatie als de virtuele machine. |
 
@@ -376,7 +378,9 @@ Voor het configureren van de load balancer, moet u een back-endadresgroep, een t
 
    ![Load Balancer niet vinden in de resourcegroep](./media/virtual-machines-windows-portal-sql-availability-group-tutorial/86-findloadbalancer.png)
 
-1. Klik op de load balancer, **back-endpools**, en klikt u op **+ toevoegen**. 
+1. Klik op de load balancer, **back-endpools**, en klikt u op **+ toevoegen**.
+
+1. Typ een naam voor de back-endpool.
 
 1. Back-end-pool koppelen aan de beschikbaarheidsset met de virtuele machines.
 
@@ -391,7 +395,7 @@ Voor het configureren van de load balancer, moet u een back-endadresgroep, een t
 
 1. Klik op de load balancer, **statuscontroles**, en klikt u op **+ toevoegen**.
 
-1. De statustest als volgt instellen:
+1. De statustest listener als volgt instellen:
 
    | Instelling | Beschrijving | Voorbeeld
    | --- | --- |---
@@ -407,14 +411,14 @@ Voor het configureren van de load balancer, moet u een back-endadresgroep, een t
 
 1. Klik op de load balancer, **Taakverdelingsregels**, en klikt u op **+ toevoegen**.
 
-1. De load balancer-regels als volgt instellen.
+1. De listener-load balancer-regels als volgt instellen.
    | Instelling | Beschrijving | Voorbeeld
    | --- | --- |---
    | **Naam** | Tekst | SQLAlwaysOnEndPointListener |
    | **Frontend-IP-adres** | Kies een adres |Gebruik het adres dat u hebt gemaakt tijdens het maken van de load balancer. |
    | **Protocol** | Kies TCP |TCP |
-   | **Poort** | Gebruik de poort voor de beschikbaarheidsgroep-listener | 1435 |
-   | **Back-Endpoort** | Dit veld wordt niet gebruikt wanneer zwevend IP is ingesteld voor direct server return | 1435 |
+   | **Poort** | Gebruik de poort voor de beschikbaarheidsgroep-listener | 1433 |
+   | **Back-Endpoort** | Dit veld wordt niet gebruikt wanneer zwevend IP is ingesteld voor direct server return | 1433 |
    | **Test** |De naam die u hebt opgegeven voor de test | SQLAlwaysOnEndPointProbe |
    | **Sessiepersistentie** | Vervolgkeuzelijst | **Geen** |
    | **Time-out voor inactiviteit** | Minuten dat een TCP-verbinding openen | 4 |
@@ -423,17 +427,17 @@ Voor het configureren van de load balancer, moet u een back-endadresgroep, een t
    > [!WARNING]
    > Direct server return is ingesteld tijdens het maken van. De naam kan niet worden gewijzigd.
 
-1. Klik op **OK** om in te stellen van de load balancer-regels.
+1. Klik op **OK** om in te stellen de listener-load balancer-regels.
 
-### <a name="add-the-front-end-ip-address-for-the-wsfc"></a>Het front-end-IP-adres voor de WSFC toevoegen
+### <a name="add-the-cluster-core-ip-address-for-the-windows-server-failover-cluster-wsfc"></a>Voeg het IP-adres van de cluster-core voor Windows Server Failover Cluster (WSFC)
 
 Het WSFC-IP-adres moet ook worden op de load balancer.
 
-1. In de portal voor de WSFC met toevoegen van een nieuwe Frontend-IP-configuratie. U hebt geconfigureerd voor het WSFC in de clusterkernresources IP-adres gebruiken. Het IP-adres instellen als statisch.
+1. Klik in de portal aan de dezelfde Azure load balancer, **Frontend-IP-configuratie** en klikt u op **+ toevoegen**. U hebt geconfigureerd voor het WSFC in de clusterkernresources IP-adres gebruiken. Het IP-adres instellen als statisch.
 
 1. Klik op de load balancer, **statuscontroles**, en klikt u op **+ toevoegen**.
 
-1. De statustest als volgt instellen:
+1. De statustest WSFC-cluster core IP-adres als volgt instellen:
 
    | Instelling | Beschrijving | Voorbeeld
    | --- | --- |---
@@ -447,13 +451,13 @@ Het WSFC-IP-adres moet ook worden op de load balancer.
 
 1. Stel de load balancer-regels. Klik op **Taakverdelingsregels**, en klikt u op **+ toevoegen**.
 
-1. De load balancer-regels als volgt instellen.
+1. Het cluster core IP-adres load balancer-regels als volgt instellen.
    | Instelling | Beschrijving | Voorbeeld
    | --- | --- |---
-   | **Naam** | Tekst | WSFCEndPointListener |
-   | **Frontend-IP-adres** | Kies een adres |Het adres dat u hebt gemaakt tijdens het configureren van het WSFC-IP-adres gebruiken. |
+   | **Naam** | Tekst | WSFCEndPoint |
+   | **Frontend-IP-adres** | Kies een adres |Het adres dat u hebt gemaakt tijdens het configureren van het WSFC-IP-adres gebruiken. Dit wijkt af van het listener-IP-adres |
    | **Protocol** | Kies TCP |TCP |
-   | **Poort** | Gebruik de poort voor de beschikbaarheidsgroep-listener | 58888 |
+   | **Poort** | De poort voor de cluster-IP-adres gebruiken. Dit is een beschikbare poort die niet wordt gebruikt voor de test-listener-poort. | 58888 |
    | **Back-Endpoort** | Dit veld wordt niet gebruikt wanneer zwevend IP is ingesteld voor direct server return | 58888 |
    | **Test** |De naam die u hebt opgegeven voor de test | WSFCEndPointProbe |
    | **Sessiepersistentie** | Vervolgkeuzelijst | **Geen** |
@@ -486,7 +490,7 @@ Stel de listener-poort in SQL Server Management Studio.
 
 1. U ziet nu de listener met de naam die u hebt gemaakt in Failoverclusterbeheer. Met de rechtermuisknop op de listenernaam van de en klikt u op **eigenschappen**.
 
-1. In de **poort** vak, geef het poortnummer voor de beschikbaarheidsgroep-listener met behulp van de $EndpointPort u eerder hebt gebruikt (1433 is de standaardinstelling), klikt u vervolgens op **OK**.
+1. In de **poort** vak, het poortnummer opgeven voor de beschikbaarheidsgroep-listener. 1433 is de standaardinstelling, klikt u op **OK**.
 
 U hebt nu een SQL Server-beschikbaarheidsgroep in Azure virtuele machines die in Resource Manager-modus uitgevoerd.
 

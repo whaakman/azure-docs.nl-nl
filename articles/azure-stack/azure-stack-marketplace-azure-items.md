@@ -12,21 +12,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/13/2018
+ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 196e671eefc3a8baaa7d6edc723851c101afc2da
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: bb2dc0d5500778372de674c749b44267fb512a2e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42054451"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43701150"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure Stack
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit.*
 
-## <a name="virtual-machine-extensions"></a>Extensies voor virtuele machines
+## <a name="virtual-machine-extensions"></a>Extensies virtuele machine
 
 Wanneer er updates beschikbaar voor extensies voor virtuele machines (VM zijn) u wilt gebruiken, moet u deze downloaden. Extensies in het product hebt verzonden, niet bijwerken in de normale patch- en bijwerkproces; dus regelmatig controleren op updates. Andere extensies zijn alleen beschikbaar via de Marketplace-beheer.
 
@@ -90,8 +90,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![Debian 9 'Stretch"](media/azure-stack-marketplace-azure-items/debian8.png) | [Debian 9 'Stretch"](https://azuremarketplace.microsoft.com/marketplace/apps/credativ.Debian9) | Debian GNU/Linux is een van de meest populaire Linux-distributies. | credativ |
 | ![Op basis van centOS 6,9](media/azure-stack-marketplace-azure-items/roguewave.png) | [CentOS-based 6.9](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased69) | Deze distributie Linux is gebaseerd op CentOS en wordt geleverd door Rogue Wave Software. | Rogue Wave Software (voorheen OpenLogic)  |
 | ![Op basis van centOS 6.10](media/azure-stack-marketplace-azure-items/roguewave.png) | [Op basis van centOS 6.10](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased610) | Deze distributie Linux is gebaseerd op CentOS en wordt geleverd door Rogue Wave Software. | Rogue Wave Software (voorheen OpenLogic)  |
-| ![Op basis van centOS 7.4](media/azure-stack-marketplace-azure-items/roguewave.png) | [Op basis van centOS 7.4](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | Deze distributie Linux is gebaseerd op CentOS en wordt geleverd door Rogue Wave Software. | Rogue Wave Software (voorheen OpenLogic) |
-| ![Op basis van centOS 7.4-LVM](media/azure-stack-marketplace-azure-items/roguewave.png) | [Op basis van centOS 7.4-LVM](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74) | Deze distributie Linux is gebaseerd op CentOS en wordt geleverd door Rogue Wave Software. | Rogue Wave Software (voorheen OpenLogic) |
+| ![7.3 op basis van CentOS](media/azure-stack-marketplace-azure-items/roguewave.png) | [Op basis van centOS 7.3](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased73) | Deze distributie Linux is gebaseerd op CentOS en wordt geleverd door Rogue Wave Software. | Rogue Wave Software (voorheen OpenLogic) |
 | ![Op basis van centOS 7.5](media/azure-stack-marketplace-azure-items/roguewave.png) | [Op basis van centOS 7.5](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | Deze distributie Linux is gebaseerd op CentOS en wordt geleverd door Rogue Wave Software. | Rogue Wave Software (voorheen OpenLogic) |
 | ![7.5-LVM op basis van centOS](media/azure-stack-marketplace-azure-items/roguewave.png) | [7.5-LVM op basis van centOS](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased75) | Deze distributie Linux is gebaseerd op CentOS en wordt geleverd door Rogue Wave Software. | Rogue Wave Software (voorheen OpenLogic) |
 | ![SLES 11 SP4 (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SLES 11 SP4 (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SLES) | SUSE Linux Enterprise Server 11 SP4. | SUSE |
@@ -234,9 +233,9 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![KEMP LoadMaster Load Balancer ADC inhoud Switch](media/azure-stack-marketplace-azure-items/kemp.png) | [KEMP LoadMaster Load Balancer ADC inhoud Switch](https://azuremarketplace.microsoft.com/marketplace/apps/kemptech.vlm-azure) | Load Balancer uit laag 4-7 Application Delivery Controller (ADC), inhoud Switch en Traffic Manager. | KEMP Technologies, Inc. |
 | ![NRI mPLAT Suite - meerdere Cloud-tablets](media/azure-stack-marketplace-azure-items/nri.png) | [mPLAT Suite - meerdere Cloud-tablets](https://azuremarketplace.microsoft.com/marketplace/apps/nri.mplatmc2018-vm) | Een enkel deelvenster van glas te bewaken, configureren, inrichten, automatiseren en beheren van een werkbelasting of de cloud. | NRI |
 | ![Compatibel is met NooBaa hybride AWS S3 - Community-editie](media/azure-stack-marketplace-azure-items/noobaa.png) | [NooBaa hybride AWS S3 compatibe - Community-editie](https://azuremarketplace.microsoft.com/marketplace/apps/noobaa.noobaa-hybrid-s3-archive-05) | S3-compatibele storage-service die openbare omvat en on-premises resources van de capaciteit. | NooBaa |
+| ![Palo Alto VM-reeks Next Generatiefirewall](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-reeks Next Generatiefirewall](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | De volgende-generatiefirewall van de VM-serie kan klanten voor het migreren van hun toepassingen en gegevens veilig naar Azure Stack of ze worden beschermd tegen bekende en onbekende bedreigingen met een beleid ter preventie van toepassing in een whitelist opnemen en bedreigingen. **Deze installatiekopie is vereist voor een sjabloon te implementeren; Raadpleeg deze [artikel](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) voor belangrijke informatie.**| Palo Alto Networks, Inc. |
 | ![PT Application Firewall](media/azure-stack-marketplace-azure-items/pt.png) | [PT Application Firewall](https://azuremarketplace.microsoft.com/marketplace/apps/ptsecurity.ptaf) | PT Application Firewall detecteert bekende en onbekende beveiligingsproblemen en aanvallen op web-apps voorkomen. **Beide PT Marketplace-items downloaden.** | Positieve technologieën |
 | ![Puppet Enterprise](media/azure-stack-marketplace-azure-items/puppet.png) | [Puppet Enterprise](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2) | Puppet Enterprise kunt u de hele levenscyclus van uw Azure Stack-infrastructuur te automatiseren. **Beide Puppet Marketplace-items downloaden.** | Puppet |
 | ![Quest snel herstel](media/azure-stack-marketplace-azure-items/quest.png) | [Quest snel herstel Core](https://azuremarketplace.microsoft.com/marketplace/apps/quest.rapid-recovery-core-vm) | Snel herstel geavanceerde bescherming van gegevens verenigt de back-up, replicatie en het herstel in één eenvoudig te gebruiken, softwareoplossing. | Quest Software |
 | ![SUSE Manager 3.1 Proxy (BYOS)](media/azure-stack-marketplace-azure-items/suse.png) | [SUSE Manager 3.1 Proxy (BYOS)](https://azuremarketplace.microsoft.com/marketplace/apps/SUSE.SUSE-Manager) | Beheer van de best mogelijke open-source-infrastructuur. | SUSE |
 | ![ZeroDown Software BCaaS](media/azure-stack-marketplace-azure-items/zerodown.png) | [Bedrijfscontinuïteit ZeroDown Software as a Service](https://azuremarketplace.microsoft.com/marketplace/apps/zerodown_software.bcaasforazure) | ZeroDown®-Software-technologie biedt bedrijven met continue toegang tot hun bedrijfsgegevens via hun zakelijke continuïteit as a Service (BCaaS)™-architectuur, beveiligt toepassingen en transacties in het geval van netwerkonderbrekingen zou Normaal gesproken platleggen de onderneming. | ZeroDown Software |
-| ![Palo Alto VM-reeks Next Generatiefirewall](media/azure-stack-marketplace-azure-items/paloalto.png) | [Palo Alto VM-reeks Next Generatiefirewall](https://azuremarketplace.microsoft.com/marketplace/apps/paloaltonetworks.vmseries-ngfw) | De volgende-generatiefirewall van de VM-serie kan klanten voor het migreren van hun toepassingen en gegevens veilig naar Azure Stack of ze worden beschermd tegen bekende en onbekende bedreigingen met een beleid ter preventie van toepassing in een whitelist opnemen en bedreigingen. **Deze installatiekopie is vereist voor een sjabloon te implementeren; Raadpleeg deze [artikel](https://www.paloaltonetworks.com/documentation/81/virtualization/virtualization/set-up-the-vm-series-firewall-on-azure/deploy-the-vm-series-firewalls-on-azure-stack) voor belangrijke informatie.**| Palo Alto Networks, Inc. |

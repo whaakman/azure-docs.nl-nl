@@ -3,18 +3,18 @@ title: Style-functies van Azure Maps toewijzen | Microsoft Docs
 description: Meer informatie over Azure Maps stijl gerelateerde functies.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/29/2018
+ms.date: 08/31/2018
 ms.topic: how-to-guides
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e4a54394dc2bb6784f1b1dcbd0ef71ac1f7bbabd
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b95e3c325160d1c0b775320e25fdd40514b02b9f
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345084"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666868"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Kies een stijl kaart op Azure-kaarten
 Azure Maps heeft vier verschillende maps stijlen om uit te kiezen. Zie voor meer informatie over de kaartstijlen [kaartstijlen ondersteund in Azure Maps](./supported-map-styles.md). Dit artikel leest hoe u de functies met betrekking tot stijl voor een stijl instellen bij het laden van de kaart, de stijl van een nieuwe instellen en gebruiken van een besturingselement voor het kiezen van de stijl.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/25/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 551276f88f5c27cd860a400a5769c95f4d94cbbb
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 74caf0ab052e1f6558dc20d15d84c01177b3f9cb
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122884"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665577"
 ---
 # <a name="collector-appliance"></a>Collector-apparaat
 
@@ -212,17 +212,27 @@ We raden u ook aan de volgende stappen uit voor het beveiligen van uw apparaat
 
 U kunt de Collector upgraden naar de meest recente versie zonder het ova-bestand opnieuw te downloaden.
 
-1. Download de meest recente [upgradepakket](https://aka.ms/migrate/col/upgrade_9_13) (versie 1.0.9.13).
+1. Download de meest recente [upgradepakket](https://aka.ms/migrate/col/upgrade_9_14) (versie 1.0.9.14).
 2. Om ervoor te zorgen dat de gedownloade hotfix beveiligd is, open opdrachtvenster voor beheerders en voer de volgende opdracht voor het genereren van de hash voor het ZIP-bestand. De gegenereerde hash moet overeenkomen met de hash op basis van de specifieke versie vermeld:
 
     ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
 
-    (gebruik voorbeeld C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.7.zip SHA256)
+    (gebruik voorbeeld C:\>CertUtil - HashFile C:\AzureMigrate\CollectorUpdate_release_1.0.9.14.zip SHA256)
 3. Kopieer het zip-bestand naar de Azure Migrate collector virtuele machine (collector-apparaat).
 4. Met de rechtermuisknop op het zip-bestand en selecteer Alles uitpakken.
 5. Met de rechtermuisknop op Setup.ps1 en selecteer uitvoeren met PowerShell en volg de instructies op het scherm om de update te installeren.
 
 ### <a name="list-of-updates"></a>Lijst met updates
+
+#### <a name="upgrade-to-version-10914"></a>Upgrade uitvoeren naar versie 1.0.9.14
+
+Hash-waarden voor de upgrade [1.0.9.14 pakket](https://aka.ms/migrate/col/upgrade_9_14)
+
+**Algoritme** | **Hash-waarde**
+--- | ---
+MD5 | c5bf029e9fac682c6b85078a61c5c79c
+SHA1 | af66656951105e42680dfcc3ec3abd3f4da8fdec
+SHA256 | 58b685b2707f273aa76f2e1d45f97b0543a8c4d017cd27f0bdb220e6984cc90e
 
 #### <a name="upgrade-to-version-10913"></a>Upgrade uitvoeren naar versie 1.0.9.13
 

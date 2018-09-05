@@ -1,6 +1,6 @@
 ---
 title: Een IoT-oplossing bouwen met behulp van Azure Stream Analytics
-description: Zelfstudie voor de Stream Analytics IoT-oplossing van een scenario tolhuisje aan de slag
+description: Aan de slag-zelfstudie voor de Stream Analytics IoT-oplossing van een stencil-scenario
 services: stream-analytics
 author: jasonwhowell
 ms.author: jasonh
@@ -9,67 +9,67 @@ ms.reviewer: jasonh, sngun
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 03/21/2018
-ms.openlocfilehash: 80e287d09fdc5ab7157b9ee46bc830fd2db4d501
-ms.sourcegitcommit: 5b2ac9e6d8539c11ab0891b686b8afa12441a8f3
+ms.openlocfilehash: 1610e8173d90be3c0b50f05e64d0e84e1c21ad0e
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/06/2018
-ms.locfileid: "30912267"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698040"
 ---
-# <a name="build-an-iot-solution-by-using-stream-analytics"></a>Een IoT-oplossing bouwen met behulp van de Stream Analytics
+# <a name="build-an-iot-solution-by-using-stream-analytics"></a>Een IoT-oplossing bouwen met behulp van Stream Analytics
 
 ## <a name="introduction"></a>Inleiding
-In deze oplossing leert u hoe u met Azure Stream Analytics realtime-inzichten verkrijgen van uw gegevens. Ontwikkelaars kunnen eenvoudig gegevensstromen, zoals Klik streams logboeken en gebeurtenissen die door de apparaten worden gegenereerd met historische records of referentiegegevens worden afgeleid van zakelijke inzichten combineren. Als een volledig beheerde, realtime stroom berekening service die wordt gehost in Microsoft Azure, biedt Azure Stream Analytics ingebouwde tolerantie, lage latentie en schaalbaarheid voor bent u in minuten uitgevoerd.
+In deze oplossing leert u hoe u realtime inzicht krijgen in uw gegevens met Azure Stream Analytics. Ontwikkelaars combineren eenvoudig gegevensstromen, zoals de klik-streams, logboeken en gebeurtenissen apparaat worden gegenereerd, met historische records of referentiegegevens voor het afleiden van zakelijke inzichten worden verkregen. Als een volledig beheerde, realtime stream berekening service die wordt gehost in Microsoft Azure, biedt Azure Stream Analytics ingebouwde tolerantie, lage latentie en schaalbaarheid voor u en binnen enkele minuten.
 
-Na het voltooien van deze oplossing, zich u kunt:
+Na het voltooien van deze oplossing, kunt u zich:
 
-* Tijd om uzelf bekend met de Azure Stream Analytics-portal.
+* Maak uzelf bekend met de Azure Stream Analytics-portal.
 * Configureren en implementeren van een streaming-taak.
-* Bewoordingen aan echte problemen en ze op te lossen met behulp van de Stream Analytics query language.
-* Ontwikkel streaming van oplossingen voor uw klanten met behulp van de Stream Analytics met vertrouwen.
-* Gebruik de controle en logboekregistratie ervaring problemen kunt oplossen.
+* Bewoordingen aan problemen en oplossen van problemen met behulp van de Stream Analytics-querytaal.
+* Streaming van oplossingen voor uw klanten met behulp van Stream Analytics met vertrouwen te ontwikkelen.
+* De bewaking en logboekregistratie ervaring om problemen te gebruiken.
 
 ## <a name="prerequisites"></a>Vereisten
 U moet de volgende vereisten voor het voltooien van deze oplossing:
 * Een [Azure-abonnement](https://azure.microsoft.com/pricing/free-trial/)
 
-## <a name="scenario-introduction-hello-toll"></a>Scenario Inleiding: "Hallo, Tolstation!"
-Een station tolstation is een algemene verschijnsel. Tijdens deze veel autowegen bruggen en tunnels over de hele wereld. Elk station tolstation heeft meerdere tolstation stands. U stoppen als u wilt de tolstation betalen aan een daarmee gepaard gaande op handmatige stands. Een sensor boven op elke stand scant op geautomatiseerde stands een RFID-kaart wordt aangebracht op de voorruit van uw vehicle verwerkt als u de gratis stand doorgeven. Het is gemakkelijk om te visualiseren van het verstrijken van de door middel van deze stations tolstation als een stroom gebeurtenissen waarover interessante bewerkingen kunnen worden uitgevoerd.
+## <a name="scenario-introduction-hello-toll"></a>Scenario-Inleiding: "Hallo, gratis!"
+Een station nummer is een algemene verschijnsel. U ondervindt ze op tal van autowegen, bruggen en tunnels over de hele wereld. Elk station nummer heeft meerdere nummer stands. Bij handmatige stands stoppen u om te betalen van de gratis naar een daarmee gepaard gaande. Bij geautomatiseerde stands scant een sensor boven op elke stand een RFID-kaart die wordt aangebracht op de voorruit van het voertuig als u het nummer tolloket doorgeven. Het is gemakkelijk om te visualiseren van het verstrijken van de door middel van deze stations nummer als een gebeurtenisstroom waarover interessante bewerkingen kunnen worden uitgevoerd.
 
-![Afbeelding van auto's op een tolstation stands](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
+![Afbeelding van auto's op nummer stands](media/stream-analytics-build-an-iot-solution-using-stream-analytics/image1.jpg)
 
 ## <a name="incoming-data"></a>Binnenkomende gegevens
-Deze oplossing werkt met twee streams gegevens. Sensoren die zijn geïnstalleerd in de in- en afsluiten van de stations tolstation produceren de eerste stroom. De tweede stroom is een statische lookup gegevensset die vehicle registratiegegevens heeft.
+Deze oplossing werkt met twee gegevensstromen. Sensoren die in de in- en afsluiten van de stations nummer geïnstalleerd produceren de eerste stream. De tweede stream is een statische lookup-gegevensset waarvoor vehicle-registratiegegevens.
 
-### <a name="entry-data-stream"></a>Gegevensstroom van vermelding
-De gegevensstroom vermelding bevat informatie over auto's wanneer deze stations tolstation binnengaat. De afsluitcode Gegevensgebeurtenissen zijn live gestreamd in een wachtrij Event Hub van een Web-App die is opgenomen in de voorbeeld-app.
+### <a name="entry-data-stream"></a>Post-gegevensstroom
+De gegevensstroom vermelding bevat informatie over auto's als ze gratis stations invoeren. De gegevens afsluiten gebeurtenissen zijn live gestreamd naar een Event Hub-wachtrij vanuit een Web-App die is opgenomen in de voorbeeld-app.
 
-| TollID | EntryTime | LicensePlate | Status | Maken | Model | VehicleType | VehicleWeight | Gratis | Label |
+| TollID | EntryTime | LicensePlate | Status | Maken | Model | VehicleType | VehicleWeight | Nummer | Label |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
 | 1 |2014-09-10 12:01:00.000 |JNB 7001 |NY |Honda |CRV |1 |0 |7 | |
 | 1 |2014-09-10 12:02:00.000 |YXZ 1001 |NY |Toyota |Camry |1 |0 |4 |123456789 |
 | 3 |2014-09-10 12:02:00.000 |ABC 1004 |CT |Ford |Taurus |1 |0 |5 |456789123 |
 | 2 |2014-09-10 12:03:00.000 |XYZ 1003 |CT |Toyota |Corolla |1 |0 |4 | |
 | 1 |2014-09-10 12:03:00.000 |BNJ 1007 |NY |Honda |CRV |1 |0 |5 |789123456 |
-| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4x4 |1 |0 |6 |321987654 |
+| 2 |2014-09-10 12:05:00.000 |CDE 1007 |NJ |Toyota |4 x 4 |1 |0 |6 |321987654 |
 
 Hier volgt een korte beschrijving van de kolommen:
 
 | Kolom | Beschrijving |
 | --- | --- |
-| TollID |De tolstation stand-ID die een unieke identificatie van een stand tolstation |
-| EntryTime |De datum en tijd van de vermelding van de drager naar de stand tolstation in UTC |
-| LicensePlate |De sofi-nummer van de drager |
+| TollID |De gratis stand-ID die een unieke identificatie van een tolloket nummer |
+| EntryTime |De datum en tijd van de vermelding van het voertuig naar de stand nummer in UTC |
+| LicensePlate |De sofi-nummer van het voertuig |
 | Status |Een status in de Verenigde Staten |
 | Maken |De fabrikant van de auto |
 | Model |Het modelnummer van het auto |
-| VehicleType |1 voor passagiers voertuigen of 2 voor commerciële voertuigen |
-| WeightType |Toegestaan gewicht in ton; 0 voor passagiers voertuigen |
-| Gratis |De waarde tolstation in USD |
-| Label |De e-code op de auto die betaling automatiseert. lege wanneer de betaling handmatig is uitgevoerd |
+| VehicleType |1 voor passagier voertuigen of 2 voor commerciële voertuigen |
+| WeightType |Vehicle gewicht in ton; 0 voor passagier voertuigen |
+| Nummer |De waarde van het nummer in USD |
+| Label |De e-code op de auto waarmee betaling. leeg wanneer de betaling handmatig is uitgevoerd |
 
-### <a name="exit-data-stream"></a>De gegevensstroom afsluiten
-De gegevensstroom afsluiten bevat informatie over het station tolstation verlaten auto's. De afsluitcode Gegevensgebeurtenissen zijn live gestreamd in een wachtrij Event Hub van een Web-App die is opgenomen in de voorbeeld-app.
+### <a name="exit-data-stream"></a>Sluit de gegevensstroom
+De gegevensstroom afsluiten bevat informatie over auto's zodat het station dat nummer. De gegevens afsluiten gebeurtenissen zijn live gestreamd naar een Event Hub-wachtrij vanuit een Web-App die is opgenomen in de voorbeeld-app.
 
 | **TollId** | **ExitTime** | **LicensePlate** |
 | --- | --- | --- |
@@ -84,14 +84,14 @@ Hier volgt een korte beschrijving van de kolommen:
 
 | Kolom | Beschrijving |
 | --- | --- |
-| TollID |De tolstation stand-ID die een unieke identificatie van een stand tolstation |
-| ExitTime |De datum en tijd van af te sluiten van de drager van tolstation stand in UTC |
-| LicensePlate |De sofi-nummer van de drager |
+| TollID |De gratis stand-ID die een unieke identificatie van een tolloket nummer |
+| ExitTime |De datum en tijd van af te sluiten van het voertuig in stand nummer in UTC |
+| LicensePlate |De sofi-nummer van het voertuig |
 
-### <a name="commercial-vehicle-registration-data"></a>De registratiegegevens commerciële vehicle
-De oplossing maakt gebruik van een momentopname van een registratiedatabase commerciële vehicle verwerkt. Deze gegevens wordt opgeslagen als een JSON-bestand in Azure blob-opslag, opgenomen in de steekproef.
+### <a name="commercial-vehicle-registration-data"></a>Registratiegegevens commerciële voertuigen
+De oplossing maakt gebruik van een momentopname van een commerciële voertuigen registratie-database. Deze gegevens worden opgeslagen als JSON-bestand in Azure blob-opslag, opgenomen in het voorbeeld.
 
-| LicensePlate | Registratie-id | Verlopen |
+| LicensePlate | Registratie-id | Vervallen |
 | --- | --- | --- |
 | SVT 6023 |285429838 |1 |
 | XLZ 3463 |362715656 |0 |
@@ -104,55 +104,55 @@ Hier volgt een korte beschrijving van de kolommen:
 
 | Kolom | Beschrijving |
 | --- | --- |
-| LicensePlate |De sofi-nummer van de drager |
-| Registratie-id |De drager registratie-ID |
-| Verlopen |De registratiestatus van de drager: 0 of vehicle registratie actief is, is 1 als de registratie is verlopen |
+| LicensePlate |De sofi-nummer van het voertuig |
+| Registratie-id |Registratie-ID van het voertuig |
+| Vervallen |De registratiestatus van het voertuig: 0 of vehicle registratie actief is, 1 als de registratie is verlopen |
 
-## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Instellen van de omgeving voor Azure Stream Analytics
-Voor het voltooien van deze oplossing, moet u een Microsoft Azure-abonnement. Als u geen Azure-account hebt, kunt u [aanvragen van een gratis evaluatieversie](http://azure.microsoft.com/pricing/free-trial/).
+## <a name="set-up-the-environment-for-azure-stream-analytics"></a>Stel de omgeving voor Azure Stream Analytics
+Voor deze oplossing, hebt u een Microsoft Azure-abonnement nodig. Als u een Azure-account hebt, kunt u [aanvragen van een gratis proefversie](http://azure.microsoft.com/pricing/free-trial/).
 
 Zorg ervoor dat de stappen in de sectie 'Opschonen van uw Azure-account' aan het einde van dit artikel zodat u kunt het beste gebruik van uw Azure-tegoed.
 
 ## <a name="deploy-the-sample"></a>Het voorbeeld implementeren 
-Er zijn verschillende bronnen die gemakkelijk kunnen worden geïmplementeerd in een resourcegroep samen met een paar klikken. De definitie van de oplossing wordt gehost in github-opslagplaats op [ https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp ](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
+Er zijn verschillende bronnen die eenvoudig kunnen worden geïmplementeerd in een resourcegroep, samen met enkele klikken. De oplossingsdefinitie van de wordt gehost in github-opslagplaats op [ https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp ](https://github.com/Azure/azure-stream-analytics/tree/master/Samples/TollApp).
 
-### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>De sjabloon TollApp in de Azure portal implementeren
-1. Als u wilt implementeren de TollApp-omgeving op Azure, gebruik je deze link naar [TollApp Azure-sjabloon implementeren](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
+### <a name="deploy-the-tollapp-template-in-the-azure-portal"></a>De sjabloon TollApp in Azure portal implementeren
+1. Voor het implementeren van de omgeving TollApp naar Azure, gebruikt u deze koppeling naar [TollApp Azure-sjabloon implementeren](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-stream-analytics%2Fmaster%2FSamples%2FTollApp%2FVSProjects%2FTollAppDeployment%2Fazuredeploy.json).
 
-2. Meld u aan bij de Azure portal als u wordt gevraagd.
+2. Meld u aan de Azure-portal als u hierom wordt gevraagd.
 
-3. Kies het abonnement waarin de verschillende resources worden gefactureerd.
+3. Kies het abonnement waarin de verschillende bronnen worden in rekening gebracht.
 
 4. Geef een nieuwe resourcegroep met een unieke naam, bijvoorbeeld `MyTollBooth`. 
 
 5. Selecteer een Azure-locatie.
 
-6. Geef een **Interval** als een aantal seconden. Deze waarde wordt gebruikt in de voorbeeld-web-app, voor hoe vaak gegevens worden verzonden naar de Event Hub. 
+6. Geef een **Interval** als een aantal seconden. Deze waarde wordt gebruikt in de voorbeeld-web-app, hoe vaak om gegevens te verzenden naar Event Hub. 
 
 7. **Controleer** om de voorwaarden en bepalingen te accepteren.
 
-8. Selecteer **vastmaken aan dashboard** zodat u de resources later kan vinden.
+8. Selecteer **vastmaken aan dashboard** zodat u de resources die later kan vinden.
 
 9. Selecteer **aankoop** om de voorbeeldsjabloon te implementeren.
 
-10. Na enkele ogenblikken wordt een melding weergegeven om te bevestigen dat de **implementatie is voltooid**.
+10. Na een paar seconden een melding wordt weergegeven om te bevestigen de **implementatie is voltooid**.
 
-### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Controleer de Azure Stream Analytics TollApp resources
+### <a name="review-the-azure-stream-analytics-tollapp-resources"></a>Bekijk de Azure Stream Analytics TollApp-resources
 1. Aanmelden bij Azure Portal
 
 2. Zoek de resourcegroep die u met de naam in de vorige sectie.
 
-3. Controleer of dat de volgende bronnen worden vermeld in de resourcegroep:
+3. Controleer of dat de volgende bronnen worden weergegeven in de resourcegroep:
    - Een Cosmos DB-Account
    - Een Azure Stream Analytics-taak
    - Een Azure Storage-Account
-   - One Azure Event Hub
+   - Een Azure Event Hub
    - Twee Web-Apps
 
 ## <a name="examine-the-sample-tollapp-job"></a>Bekijk het voorbeeld TollApp taak 
-1. Vanaf de resourcegroep in de vorige sectie, selecteert u de Stream Analytics-taak streaming begint met de naam **tollapp** (naam bevat willekeurige tekens voor uniekheid).
+1. Starten van de resourcegroep in de vorige sectie, selecteert u de Stream Analytics streaming-taak starten met de naam van de **tollapp** (de naam bevat willekeurige tekens uniek).
 
-2. Op de **overzicht** pagina van de taak, kennisgeving de **Query** vak om de querysyntaxis weer te geven.
+2. Op de **overzicht** pagina van de taak, u ziet dat de **Query** vak om de query-syntaxis weer te geven.
 
    ```sql
    SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*) AS Count
@@ -161,47 +161,47 @@ Er zijn verschillende bronnen die gemakkelijk kunnen worden geïmplementeerd in 
    GROUP BY TUMBLINGWINDOW(minute, 3), TollId
    ```
 
-   Om de bedoeling van de query parafraseren, Stel dat u moet het aantal voertuigen die een tolstation stand invoeren. Omdat een snelweg tolstation stand een continue stroom van voertuigen heeft, zijn de ingang gebeurtenissen zijn vergelijkbaar met een stroom die nooit wordt gestopt. Als u wilt de stroom kwantificeren, die u hebt voor het definiëren van een 'periode' om te meten via. Laten we verfijnen bovendien de vraag naar 'hoeveel voertuigen Geef een tolstation stand elke drie minuten?' Dit wordt vaak aangeduid als het aantal daling.
+   Stel de die u wilt tellen het aantal voertuigen die invoeren van een tolloket nummer om u te parafraseren de bedoeling van de query. Omdat een snelweg nummer tolloket een continue stroom van voertuigen heeft, zijn de ingang gebeurtenissen zijn vergelijkbaar met een stroom waarmee nooit wordt gestopt. Als u wilt de stroom kwantificeren, die u hebt voor het definiëren van een 'periode' voor het meten van. Laten we de vraag verder verfijnen op "hoeveel voertuigen Voer een nummer stand om de drie minuten?" Dit wordt vaak aangeduid als het aantal tumblingvenstertrigger.
 
-   Zoals u ziet, Azure Stream Analytics maakt gebruik van een querytaal die lijkt op SQL en enkele uitbreidingen om op te geven tijd gerelateerde aspecten van de query toegevoegd.  Lees voor meer informatie over [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) en [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) constructies die worden gebruikt in de query.
+   Zoals u ziet, Azure Stream Analytics maakt gebruik van een querytaal die is zoals SQL en biedt een aantal extensies om op te geven met betrekking tot tijd aspecten van de query.  Lees voor meer informatie over [Time Management](https://msdn.microsoft.com/library/azure/mt582045.aspx) en [Windowing](https://msdn.microsoft.com/library/azure/dn835019.aspx) constructies die worden gebruikt in de query.
 
-3. Controleer de invoer van de taak TollApp-voorbeeld. Alleen de invoer EntryStream wordt gebruikt in de huidige query.
-   - **EntryStream** invoer is een Event Hub-verbinding die telkens wanneer een auto krijgt een tolhuisje op de weg die gegevens in de wachtrij geplaatst. Een web-app die deel uitmaakt van het voorbeeld maakt de gebeurtenissen en die gegevens in de wachtrij in deze Event Hub. Houd er rekening mee dat deze invoer in de component FROM van de streaming-query wordt opgevraagd.
-   - **ExitStream** invoer is een Event Hub-verbinding die gegevens over elke keer dat een auto wordt een tolhuisje afgesloten op de weg in de wachtrij geplaatst. Deze streaming invoer wordt in latere variaties van de syntaxis van de query gebruikt.
-   - **Registratie** invoer is een Azure Blob storage-verbinding, die verwijst naar een bestand statische registration.json, dat wordt gebruikt voor zoekopdrachten indien nodig. Deze verwijzing gegevensinvoer wordt in latere variaties van de syntaxis van de query gebruikt.
+3. Controleer de invoer van de taak TollApp-voorbeeld. Alleen de EntryStream invoer wordt gebruikt in de huidige query.
+   - **EntryStream** invoer is een Event Hub-verbinding die gegevens die telkens wanneer een auto voert een stencil op de weg vertegenwoordigt in de wachtrij geplaatst. Een web-app die deel uitmaakt van het voorbeeld is het maken van de gebeurtenissen en die gegevens in deze Event Hub in de wachtrij is geplaatst. Houd er rekening mee dat deze invoer query wordt uitgevoerd in de component FROM van de streaming-query.
+   - **ExitStream** invoer is een Event Hub-verbinding die gegevens die telkens wanneer een auto afgesloten een stencil op de weg vertegenwoordigt in de wachtrij geplaatst. Dit streaming invoer wordt gebruikt in latere variaties van de query-syntaxis.
+   - **Registratie** invoer is een Azure Blob storage-verbinding, die verwijst naar een bestand statische registration.json, die wordt gebruikt voor zoekopdrachten, indien nodig. Deze referentie-invoer voor gegevens wordt gebruikt in latere variaties van de query-syntaxis.
 
 4. Bekijk de uitvoer van de taak TollApp-voorbeeld.
-   - **Cosmos DB** uitvoer is een Cosmos-database-verzameling die de uitvoer sink gebeurtenissen ontvangt. Houd er rekening mee dat deze uitvoer wordt gebruikt in een component van de streaming-query.
+   - **Cosmos DB** uitvoer is een verzameling van Cosmos-database waarin de uitvoer-sink-gebeurtenissen worden ontvangen. Houd er rekening mee dat deze uitvoer in een component van de streaming-query wordt gebruikt in.
 
 ## <a name="start-the-tollapp-streaming-job"></a>Start de TollApp streaming-taak
 Volg deze stappen voor het starten van de streaming-taak:
 
 1. Op de **overzicht** pagina van de taak, selecteer **Start**.
 
-2. Op de **starttaak** deelvenster **nu**.
+2. Op de **starttaak** venster **nu**.
 
-3. Na enkele ogenblikken, zodra de taak wordt uitgevoerd, op de **overzicht** pagina van de streaming-taak, weergave de **bewaking** grafiek. De grafiek moet worden enkele duizenden invoervelden en tientallen uitvoergebeurtenissen dat wordt weergegeven.
+3. Na enkele ogenblikken, zodra de taak wordt uitgevoerd, op de **overzicht** pagina van de streaming-taak, weergave de **bewaking** graph. De grafiek moet worden verschillende duizend invoergebeurtenissen en tientallen uitvoergebeurtenissen weergegeven.
 
-## <a name="review-the-cosmosdb-output-data"></a>Bekijk de uitvoergegevens CosmosDB
-1. Zoek de resourcegroep met de resources TollApp.
+## <a name="review-the-cosmosdb-output-data"></a>Controleer de CosmosDB-uitvoer-gegevens
+1. Zoek de resourcegroep die de TollApp resources bevat.
 
-2. Selecteer de Azure Cosmos DB rekening met het naampatroon **tollapp<random>-cosmos**.
+2. Selecteer het Azure Cosmos DB-Account met de naampatroon **tollapp<random>-cosmos**.
 
-3. Selecteer de **Data Explorer** kolomkop klikken om de pagina Data Explorer te openen.
+3. Selecteer de **Data Explorer** kop om de pagina Data Explorer te openen.
 
 4. Vouw de **tollAppDatabase** > **tollAppCollection** > **documenten**.
 
-5. In de lijst met de id's worden verschillende docs weergegeven zodra de uitvoer beschikbaar is.
+5. In de lijst met id's, worden diverse docs worden weergegeven wanneer de uitvoer beschikbaar is.
 
-6. Selecteer elke id om de JSON-document te controleren. Let op elke tollid, windowend tijd en het aantal auto's uit dit venster.
+6. Selecteer elke id om te controleren van het JSON-document. Let op elke tollid, windowend tijd en de telling van auto's in dit venster.
 
-7. Na een extra drie minuten een andere verzameling vier documenten beschikbaar is, een document per tollid. 
+7. Na een extra drie minuten een andere set met vier documenten die beschikbaar is, wordt één document per tollid. 
 
 
 ## <a name="report-total-time-for-each-car"></a>Totale tijd voor elke auto rapport
-De gemiddelde tijd die zijn voor een auto vereist doorgeven aan de tolstation helpt bij het beoordelen van de efficiëntie van het proces en de gebruikerservaring.
+De gemiddelde tijd die is vereist voor een auto om door te geven via de gratis helpt bij het beoordelen van de efficiëntie van het proces en de gebruikerservaring.
 
-Ga voor de totale tijd lid worden van de stroom ExitTime EntryTime stream. Voeg de twee ingevoerde stromen op gelijke overeenkomende TollId en LicencePlate kolommen. De **JOIN** operator moet u tijdelijke eenheidsprofiel die het toegestane tijdverschil de gekoppelde gebeurtenissen beschrijft opgeven. Gebruik de **DATEDIFF** functie opgeven die gebeurtenissen langer zijn dan 15 minuten van elkaar moet. Ook van toepassing op de **DATEDIFF** functie om af te sluiten en tijden van vermelding voor het berekenen van de werkelijke tijd waarop een auto doorbrengt in het station tolstation. Noteer het verschil van het gebruik van **DATEDIFF** wanneer het wordt gebruikt in een **Selecteer** instructie in plaats van een **JOIN** voorwaarde.
+Als u de totale tijd zoekt, neem deel aan de EntryTime streamen met de stroom ExitTime. Neem deel aan de twee invoerstromen op gelijke overeenkomende TollId en LicencePlate kolommen. De **JOIN** operator moet u tijdelijke eenheidsprofiel die het acceptabele tijdsverschil tussen de gekoppelde gebeurtenissen beschrijft opgeven. Gebruik de **DATEDIFF** functie waarmee u kunt opgeven dat gebeurtenissen niet meer dan 15 minuten van elkaar worden verbonden moeten zijn. Ook van toepassing de **DATEDIFF** functie om af te sluiten en tijden van de vermelding voor het berekenen van de werkelijke hoeveelheid tijd die een auto doorbrengt in de gratis-station. Let op het verschil van het gebruik van **DATEDIFF** wanneer deze wordt gebruikt een **Selecteer** instructie in plaats van een **JOIN** voorwaarde.
 
 ```sql
 SELECT EntryStream.TollId, EntryStream.EntryTime, ExitStream.ExitTime, EntryStream.LicensePlate, DATEDIFF (minute, EntryStream.EntryTime, ExitStream.ExitTime) AS DurationInMinutes
@@ -212,26 +212,26 @@ ON (EntryStream.TollId= ExitStream.TollId AND EntryStream.LicensePlate = ExitStr
 AND DATEDIFF (minute, EntryStream, ExitStream ) BETWEEN 0 AND 15
 ```
 
-### <a name="to-update-the-tollapp-streaming-job-query-syntax"></a>De streaming-taak querysyntaxis TollApp bijwerken:
+### <a name="to-update-the-tollapp-streaming-job-query-syntax"></a>Bijwerken van de TollApp streaming job query-syntaxis:
 
 1. Op de **overzicht** pagina van de taak, selecteer **stoppen**.
 
-2. Wacht enige tijd voor de melding dat de taak is gestopt.
+2. Wacht een paar seconden voor de melding dat de taak is gestopt.
 
-3. Selecteer onder de kop taak TOPOLOGIE **haken Query**
+3. Selecteer onder de kop TAAKTOPOLOGIE **combinatie Query**
 
-4. Plak de gecorrigeerde streaming SQL-query.
+4. Plak de aangepaste streaming SQL-query.
 
-5. Selecteer **opslaan** de query op te slaan. Bevestig **Ja** de wijzigingen wilt opslaan.
+5. Selecteer **opslaan** de query op te slaan. Controleer of **Ja** de wijzigingen op te slaan.
 
 6. Op de **overzicht** pagina van de taak, selecteer **Start**.
 
-7. Op de **starttaak** deelvenster **nu**.
+7. Op de **starttaak** venster **nu**.
 
-### <a name="review-the-total-time-in-the-output"></a>Bekijk de totale tijd in de uitvoer
-Herhaal de stappen in de vorige sectie om te controleren van de CosmosDB uitvoergegevens van de streaming-taak. Bekijk de meest recente JSON-documenten. 
+### <a name="review-the-total-time-in-the-output"></a>De totale tijd in de uitvoer controleren
+Herhaal de stappen in de vorige sectie om te controleren van de CosmosDB-uitvoergegevens van de streaming-taak. Raadpleegt u de meest recente JSON-documenten. 
 
-Dit document ziet u bijvoorbeeld een auto voorbeeld met een bepaalde nummerbord en de tijd entrytime naar en uitgang uit het DATEDIFF durationinminutes berekende veld de duur van de stand tolstation als twee minuten weergegeven: 
+Dit document ziet u bijvoorbeeld een auto voorbeeld met een bepaalde licentie-element, de tijd entrytime en afsluiten en het DATEDIFF durationinminutes berekende veld weergegeven van de duur van de stand nummer als twee minuten: 
 ```JSON
 {
     "tollid": 4,
@@ -248,10 +248,10 @@ Dit document ziet u bijvoorbeeld een auto voorbeeld met een bepaalde nummerbord 
 }
 ```
 
-## <a name="report-vehicles-with-expired-registration"></a>Rapport voertuigen met verlopen registratie
-Azure Stream Analytics kunt statische momentopnamen van referentiegegevens samen te voegen met de tijdelijke gegevensstromen. Gebruik de volgende voorbeeldquery vraag ter illustratie van deze mogelijkheid. De registratie-invoer is een statische blob json-bestand met een lijst met de accountwachtwoorden van licentie-codes. Door op de nummerbord, wordt de referentiegegevens vergeleken met elke vehicle verwerkt de tolstation te doorlopen. 
+## <a name="report-vehicles-with-expired-registration"></a>Rapport voertuigen met de registratie van verlopen
+Azure Stream Analytics kunt statische momentopnamen van de referentiegegevens samen te voegen met tijdelijke gegevensstromen. Om te demonstreren van deze mogelijkheid, het volgende Voorbeeldvraag te gebruiken. De invoer van de registratie is een vaste blob json-bestand met een lijst met het verlopen van licentie-codes. De referentiegegevens wordt lid van het licentie-element, vergeleken met elke vehicle doorgegeven via het nummer. 
 
-Als een commerciële-medium is geregistreerd bij het bedrijf tolstation, kan deze de tolstation stand passeren zonder te zijn gestopt voor inspectie. Gebruik de opzoektabel registratie voor het identificeren van alle commerciële voertuigen die registraties zijn verlopen.
+Als een commerciële voertuigen is geregistreerd bij het bedrijf nummer, kan deze de stand nummer passeren zonder te zijn gestopt voor inspectie. Gebruik de opzoektabel voor registratie voor het identificeren van alle commerciële voertuigen die registraties zijn verlopen.
 
 ```sql
 SELECT EntryStream.EntryTime, EntryStream.LicensePlate, EntryStream.TollId, Registration.RegistrationId
@@ -262,9 +262,9 @@ ON EntryStream.LicensePlate = Registration.LicensePlate
 WHERE Registration.Expired = '1'
 ```
 
-1. Herhaal de stappen in de vorige sectie de streaming-taak querysyntaxis TollApp bijwerken.
+1. Herhaal de stappen in de vorige sectie om bij te werken van de TollApp streaming job query-syntaxis.
 
-2. Herhaal de stappen in de vorige sectie om te controleren van de CosmosDB uitvoergegevens van de streaming-taak. 
+2. Herhaal de stappen in de vorige sectie om te controleren van de CosmosDB-uitvoergegevens van de streaming-taak. 
 
 Voorbeelduitvoer:
 ```json
@@ -282,10 +282,10 @@ Voorbeelduitvoer:
     }
 ```
 
-## <a name="scale-out-the-job"></a>De taak uitbreiden
-Azure Stream Analytics is ontworpen voor elastisch schalen zodat deze kan grote hoeveelheden gegevens verwerken. De Azure Stream Analytics query kunt gebruiken een **PARTITION BY** component zien of het systeem in deze stap uitgeschaald. **PartitionId** is een speciale kolom die het systeem wordt toegevoegd aan de partitie-ID van de invoer (event hub).
+## <a name="scale-out-the-job"></a>De taak uitschalen
+Azure Stream Analytics is ontworpen voor flexibele manier schalen zodat deze kan grote hoeveelheden gegevens worden verwerkt. De Azure Stream Analytics-query kunt gebruiken een **PARTITION BY** -component om te zien van het systeem dat in deze stap uitgeschaald wordt. **PartitionId** is een speciale kolom die het systeem wordt toegevoegd zodat deze overeenkomt met de partitie-ID van de invoer (event hub).
 
-Als u wilt uitbreiden de query voor partities, bewerk de syntaxis van de query naar de volgende code:
+Als u wilt schalen de query met partities, bewerken de query-syntaxis in de volgende code:
 ```sql
 SELECT TollId, System.Timestamp AS WindowEnd, COUNT(*)AS Count
 INTO CosmosDB
@@ -295,33 +295,33 @@ PARTITION BY PartitionId
 GROUP BY TUMBLINGWINDOW(minute,3), TollId, PartitionId
 ```
 
-Voor de streaming-taak naar meer eenheden voor streaming opschalen:
+Om omhoog te schalen naar meer streamingeenheden de streaming-taak:
 
 1. **Stop** de huidige taak. 
 
-2. Bijwerken van de syntaxis van de query in de **haken Query** pagina en de wijzigingen opslaan.
+2. Bijwerken van de query-syntaxis in de **combinatie Query** pagina en de wijzigingen opslaan.
 
-3. Selecteer onder de kop configureren op de streaming-taak **Scale**.
+3. Selecteer onder de kop configureren op de streaming-taak **schaal**.
    
-4. Schuif de **Streamingeenheden** schuifregelaar van 1 tot en met 6. Streaming-eenheden definiëren de hoeveelheid rekenkracht die de taak kan ontvangen. Selecteer **Opslaan**.
+4. Schuif de **Streaming-eenheden** schuifregelaar van 1 tot en met 6. Streaming-eenheden definiëren de hoeveelheid rekenkracht die de taak kan ontvangen. Selecteer **Opslaan**.
 
-5. **Start** de streaming-taak voor het demonstreren van de aanvullende schaal. Azure Stream Analytics werk verdeelt over meer computerresources en betere doorvoer behalen partitionering van het werk tussen resources met behulp van de kolom aangegeven in de component PARTITION BY. 
+5. **Start** de streaming-taak ter illustratie van de schaal te vergroten. Azure Stream Analytics werk verdeeld over meer rekenresources en betere doorvoer, maar liefst partitioneren van het werk voor resources met behulp van de kolom die is aangeduid in de component PARTITION BY. 
 
 ## <a name="monitor-the-job"></a>De taak bewaken
-De **MONITOR** gebied statistieken over actieve taak bevat. Configuratie van de eerste keer is nodig voor het gebruik van het opslagaccount in dezelfde regio (tolstation naam als de rest van dit document).   
+De **MONITOR** gebied statistieken over de actieve taak bevat. Configuratie van de eerste keer is nodig voor het gebruik van het opslagaccount in dezelfde regio (naam nummer als de rest van dit document).   
 
-![Schermopname van monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
+![Schermafbeelding van monitor](media/stream-analytics-build-an-iot-solution-using-stream-analytics/monitoring.png)
 
-U hebt toegang tot **activiteitenlogboeken** vanuit het dashboard taak **instellingen** ook gebied.
+U hebt toegang tot **activiteitenlogboeken** vanuit het dashboard van de taak **instellingen** ook gebied.
 
-## <a name="clean-up-the-tollapp-resources"></a>De resources TollApp opschonen
-1. Stop de Stream Analytics-taak in de Azure portal.
+## <a name="clean-up-the-tollapp-resources"></a>De TollApp resources opschonen
+1. Stop de Stream Analytics-taak in Azure portal.
 
-2. Zoek de resourcegroep met acht bronnen die betrekking hebben op de sjabloon TollApp.
+2. Zoek de resourcegroep die acht bronnen die betrekking hebben op de sjabloon TollApp bevat.
 
 3. Selecteer **Resourcegroep verwijderen**. Typ de naam van de resourcegroep verwijderen te bevestigen.
 
 ## <a name="conclusion"></a>Conclusie
-Deze oplossing is geïntroduceerd met de Azure Stream Analytics-service. Het configureren van de invoer en uitvoer voor de Stream Analytics-taak gedemonstreerd. Met behulp van het scenario niet gratis gegevens, de oplossing voorkomende problemen die optreden in de ruimte van de gegevens in beweging en hoe ze kunnen worden opgelost met eenvoudige SQL-achtige query's in Azure Stream Analytics uitgelegd. De oplossing beschreven SQL extensie constructs voor het werken met tijdelijke gegevens. Deze hebt u geleerd hoe gegevensstromen kunt koppelen, hoe de gegevensstroom met statische referentiegegevens sitmuleren en hoe moet worden uitgebreid met een query naar een hogere doorvoer te bereiken.
+Deze oplossing hebt u kennisgemaakt met de Azure Stream Analytics-service. Het configureren van de invoer en uitvoer voor de Stream Analytics-taak aangetoond. Met behulp van het scenario niet gratis gegevens, beschreven de oplossing voorkomende problemen die optreden in de ruimte van gegevens in beweging en hoe ze kunnen worden opgelost met eenvoudige SQL-achtige query's in Azure Stream Analytics. De oplossing beschreven SQL-constructs-extensie voor het werken met tijdelijke gegevens. Deze hebt u geleerd hoe u gegevensstromen kunt samenvoegen, hoe u de gegevensstroom met statische referentiegegevens verrijken en hoe u uit een query groeperen voor hogere doorvoer te schalen.
 
-Hoewel deze oplossing een goede inleiding biedt, is het niet voltooid door middel van. U vindt meer querypatronen met de taal SAQL op [voorbeelden voor het algemene gebruikspatronen van de Stream Analytics Query](stream-analytics-stream-analytics-query-patterns.md).
+Hoewel deze oplossing een goede inleiding biedt, is het niet voltooid door middel van. U vindt meer querypatronen met behulp van de taal SAQL op [voorbeelden voor algemene patronen voor het gebruik van Stream Analytics Query](stream-analytics-stream-analytics-query-patterns.md).

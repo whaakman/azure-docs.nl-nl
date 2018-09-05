@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 7/25/2018
 ms.author: saurse
-ms.openlocfilehash: e7a63167285c06fdfe632e7d45d9fddd3cca7842
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 2c8978cfba8fc56d4dbc565cb3a91c75d9d54679
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248519"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700192"
 ---
 # <a name="troubleshoot-microsoft-azure-recovery-services-mars-agent-issues"></a>Microsoft Azure Recovery Services (MARS) met agents oplossen
 ## <a name="recommended-steps"></a>Aanbevolen stappen
@@ -66,7 +66,10 @@ De volgende stappen uitvoeren wanneer geplande back-ups niet automatisch, doet u
 <li>Dubbelklik op de taak 'Microsoft-OnlineBackup' en Ga naar het tabblad 'Triggers'.
 <li>Zorg ervoor dat de Status van de taak is ingesteld op 'Enabled'. Als dit niet het geval is, klikt u op 'Bewerken' en schakel het selectievakje 'Enabled'
 <li>Navigeer naar de *beveiligingsopties* sectie van de *algemene* tabblad
-<li>Zorg ervoor dat het gebruikersaccount dat is geselecteerd voor het uitvoeren van de taak een is *SYSTEM* of de groep lokale beheerders op de server > [!TIP] verdient het de server opnieuw opstarten na het uitvoeren van de stappen hierboven om ervoor te zorgen dat wordt gewijzigd die consistent worden toegepast op
+<li>Zorg ervoor dat het gebruikersaccount dat is geselecteerd voor het uitvoeren van de taak een is *SYSTEM* of de groep lokale beheerders op de server
+
+> [!TIP]
+> Het verdient aanbeveling op de server opnieuw opstarten na het uitvoeren van de stappen hierboven om ervoor te zorgen dat wijzigingen consequent worden toegepast
 
 
 ## <a name="troubleshooting-restore-issues"></a>Problemen met herstellen oplossen

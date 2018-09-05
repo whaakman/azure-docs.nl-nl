@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 08/27/2018
 ms.author: rolyon
 ms.custom: pim
-ms.openlocfilehash: 8af304d28be9b0884a50d60911d901818b514752
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2d7226f18eb922eaba3c8184656560c33202ef56
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338904"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665431"
 ---
 # <a name="configure-azure-ad-directory-role-settings-in-pim"></a>Azure AD directory rolinstellingen in PIM configureren
 
@@ -82,7 +82,7 @@ Gebruik de **multi-Factor Authentication** switch om op te geven of gebruikers h
   * Skype voor Bedrijven-beheerder  
   * Beheerder van gebruikersaccounts  
 
-Zie voor meer informatie over het gebruik van MFA met PIM [meervoudige verificatie vereisen voor Azure AD directory-rollen in PIM](pim-how-to-require-mfa.md).
+Zie voor meer informatie, [multi-factor authentication (MFA) en PIM](pim-how-to-require-mfa.md).
 
 ## <a name="require-approval"></a>Goedkeuring vereisen
 
@@ -110,5 +110,4 @@ Als u wilt de goedkeuring van een rol wilt activeren, volgt u deze stappen.
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Azure AD-directory-rollen in PIM toewijzen](pim-how-to-add-role-to-user.md)
-- [Meervoudige verificatie vereisen voor Azure AD directory-rollen in PIM](pim-how-to-require-mfa.md)
 - [Beveiligingswaarschuwingen voor Azure AD directory-rollen in PIM configureren](pim-how-to-configure-security-alerts.md)

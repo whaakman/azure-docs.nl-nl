@@ -10,7 +10,7 @@ Met behulp van runbooks in [Azure Automation](../articles/automation/automation-
 
 ## <a name="create-a-virtual-machine-scale-set"></a>Een virtuele-machineschaalset maken
 
-Schaalsets maken het eenvoudig te implementeren en beheren van identieke VM's als een set. U kunt Linux of Windows-schaalsets met de [Azure-portal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), of de [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). U kunt ook maken en beheren van schaalsets met SDK's, zoals [Python](/develop/python) of [Node.js](/nodejs/azure), of rechtstreeks met de [REST-API's](/rest/api/compute/virtualmachinescalesets). Automatisch schalen van virtuele machines wordt gerealiseerd met metrische gegevens en regels toepassen op de schaalset.
+Schaalsets maken het eenvoudig te implementeren en beheren van identieke VM's als een set. U kunt Linux of Windows-schaalsets met de [Azure-portal](../articles/virtual-machine-scale-sets/virtual-machine-scale-sets-portal-create.md), [Azure PowerShell](../articles/virtual-machines/windows/tutorial-create-vmss.md), of de [Azure CLI](../articles/virtual-machines/linux/tutorial-create-vmss.md). U kunt ook maken en beheren van schaalsets met SDK's, zoals [Python](https://azure.microsoft.com/develop/python/) of [Node.js](/nodejs/azure), of rechtstreeks met de [REST-API's](/rest/api/compute/virtualmachinescalesets). Automatisch schalen van virtuele machines wordt gerealiseerd met metrische gegevens en regels toepassen op de schaalset.
 
 ## <a name="configure-autoscale-for-a-scale-set"></a>Automatisch schalen configureren voor een schaalset
 

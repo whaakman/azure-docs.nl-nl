@@ -3,18 +3,18 @@ title: Zoekresultaten met Azure-kaarten weergeven | Microsoft Docs
 description: Hoe u een zoekopdracht uitvoert met Azure Maps aanvragen en vervolgens de resultaten weergeven op een Javascript-kaart
 author: jingjing-z
 ms.author: jinzh
-ms.date: 08/26/2018
+ms.date: 08/31/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 31ff57f8a933ac17c6dfaa1a1fb0cf2bab0b6557
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7d4eb5f9be4a6bcefe4b544d3f97a9b9391c0d81
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345268"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665774"
 ---
 # <a name="show-search-results-on-the-map"></a>Zoekresultaten weergeven op de kaart
 
@@ -27,7 +27,7 @@ In dit artikel wordt beschreven hoe u zoeken naar de locatie van belang en de li
 
 In de bovenstaande code wordt het eerste vereiste blok van code vormt een kaartobject en waarmee een client-service wordt gemaakt. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
 
-Het tweede blok van code maakt gebruik van Fuzzy zoekopdrachten [Azure Maps Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) om te zoeken naar nuttige plaats. Fuzzy zoeken-API kan elke combinatie van fuzzy invoer verwerken. Het antwoord van de service fuzzy zoeken wordt vervolgens geparseerd in de GeoJSON-indeling en pincodes worden toegevoegd aan de kaart om de punten van belang zijn op de kaart weer te geven. 
+Het tweede blok van code maakt gebruik van Fuzzy zoekopdrachten [Azure Maps Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) om te zoeken naar nuttige plaats. Fuzzy zoeken-API kan elke combinatie van fuzzy invoer verwerken. Het antwoord van de service fuzzy zoeken wordt vervolgens geparseerd in de GeoJSON-notatie gebruiken de [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) methode. De pincodes worden vervolgens toegevoegd aan de kaart om de punten van belang zijn op de kaart weer te geven.
 
 Het laatste blok van code voegt camera grenzen voor de kaart toe met behulp van de kaart [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) eigenschap.
 

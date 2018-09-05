@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/25/2018
-ms.openlocfilehash: 62e928525c8bd63258ea079830585db0f0ffc358
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 4a84e8f7460d3a339be783be6a12353770ced1b8
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39716488"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43665820"
 ---
 # <a name="understand-inputs-for-azure-stream-analytics"></a>Meer informatie over invoer voor Azure Stream Analytics
 
@@ -42,7 +42,7 @@ Stream Analytics ondersteunt ook bekend als invoer *verwijzen naar gegevens*. Re
 
 Zie voor meer informatie over het verwijzen naar gegevensinvoer [met referentiegegevens voor zoekacties in Stream Analytics](stream-analytics-use-reference-data.md)
 
-In dit artikel is een stap in de [leertraject voor Stream Analytics](/documentation/learning-paths/stream-analytics/).
+In dit artikel is een stap in de [leertraject voor Stream Analytics](https://azure.microsoft.com/documentation/learning-paths/stream-analytics/).
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]

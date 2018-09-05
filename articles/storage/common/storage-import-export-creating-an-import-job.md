@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 3c6adc3f27e49facec124401f03a036269b7c7a9
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524444"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666016"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Een importtaak voor de Azure Import/Export-service maken
 
@@ -57,7 +57,7 @@ Voorbereiden van het station bestaat uit:
 
 ## <a name="obtaining-your-shipping-location"></a>Het ophalen van de locatie van uw verzending
 
-Voordat u een import-taak maakt, moet u eerst een verzending locatienaam en adres door het aanroepen van de [lijst met locaties](/rest/api/storageimportexport/listlocations) bewerking. `List Locations` retourneert een lijst met locaties en hun e-mailadressen. U kunt een locatie in de geretourneerde lijst selecteren en verzending van uw harde schijven naar dat adres. U kunt ook de `Get Location` bewerking rechtstreeks verkrijgen van het verzendadres voor een specifieke locatie.
+Voordat u een import-taak maakt, moet u eerst een verzending locatienaam en adres door het aanroepen van de [lijst met locaties](https://docs.microsoft.com/rest/api/storageimportexport/locations/list) bewerking. `List Locations` retourneert een lijst met locaties en hun e-mailadressen. U kunt een locatie in de geretourneerde lijst selecteren en verzending van uw harde schijven naar dat adres. U kunt ook de `Get Location` bewerking rechtstreeks verkrijgen van het verzendadres voor een specifieke locatie.
 
  Volg de stappen hieronder om de locatie van de verzending verkrijgen:
 

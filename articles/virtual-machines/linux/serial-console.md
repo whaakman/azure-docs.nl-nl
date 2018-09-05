@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: d4ca44268740f48702594d9c87aa568d4f8eecb6
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: e74ee48f0adc0d8ba0d2ea91b5d82415601f9405
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122402"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702415"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële Console van virtuele Machine (preview) 
 
@@ -38,7 +38,7 @@ Voor de seriële console-documentatie voor Windows-VM's, [Klik hier](../windows/
 * Uw virtuele machine moet hebben [diagnostische gegevens over opstarten](boot-diagnostics.md) ingeschakeld - Zie de onderstaande schermafbeelding.
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-diagnostics-settings.png)
-    
+
 * Het Azure-account met behulp van de seriële console moet hebben [rol van Inzender](../../role-based-access-control/built-in-roles.md) voor de virtuele machine en de [diagnostische gegevens over opstarten](boot-diagnostics.md) storage-account. 
 * De virtuele machine waarvoor u de seriële console acessing zijn moet ook een account op basis van wachtwoorden hebben. U kunt maken met de [wachtwoord opnieuw instellen](https://docs.microsoft.com/azure/virtual-machines/extensions/vmaccess#reset-password) functionaliteit van de toegang tot VM-extensie - Zie de onderstaande schermafbeelding.
 
@@ -124,14 +124,14 @@ Dit betekent dat de gebruiker die wordt verbroken wordt niet afgemeld. De mogeli
 De seriële console-functionaliteit, kan door het uitschakelen van deze virtuele machine opstarten diagnostische instelling voor specifieke virtuele machines worden gedeactiveerd.
 
 ## <a name="common-scenarios-for-accessing-serial-console"></a>Algemene scenario's voor toegang tot de seriële console 
-Scenario          | Acties in de seriële console                |  OS-toepassing 
-:------------------|:-----------------------------------------|:------------------
-Verbroken FSTAB-bestand | `Enter` de sleutel te gaan en op te lossen van fstab-bestand met een teksteditor. U moet mogelijk worden in de modus voor één gebruiker voor deze. Zie [voor het oplossen van problemen met fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) en [met behulp van de seriële Console van toegang tot WORMGATEN en de modus voor één gebruiker](serial-console-grub-single-user-mode.md) aan de slag. | Linux 
-Onjuiste firewall-regels | Toegang tot de seriële console en op te lossen iptables of Windows firewall-regels. | Linux/Windows 
-Bestandssysteem beschadigd/selectievakje | Toegang tot de seriële console van maken en herstellen van bestandssysteem. | Linux/Windows 
-Problemen met SSH/RDP-configuratie | Toegang tot de seriële console en instellingen wijzigen. | Linux/Windows 
-Systeem voor het vergrendelen van netwerk| Toegang tot de seriële console via de portal voor het beheren van systeem. | Linux/Windows 
-Interactie met de bootloader | Toegang tot WORMGATEN/BCD via de seriële console. Ga naar [met behulp van de seriële Console van toegang tot WORMGATEN en de modus voor één gebruiker](serial-console-grub-single-user-mode.md) aan de slag. | Linux/Windows 
+Scenario          | Acties in de seriële console                
+:------------------|:-----------------------------------------
+Verbroken FSTAB-bestand | `Enter` de sleutel te gaan en op te lossen van fstab-bestand met een teksteditor. U moet mogelijk worden in de modus voor één gebruiker voor deze. Zie [voor het oplossen van problemen met fstab](https://support.microsoft.com/help/3206699/azure-linux-vm-cannot-start-because-of-fstab-errors) en [met behulp van de seriële Console van toegang tot WORMGATEN en de modus voor één gebruiker](serial-console-grub-single-user-mode.md) aan de slag.
+Onjuiste firewall-regels | Toegang tot de seriële console en op te lossen iptables. 
+Bestandssysteem beschadigd/selectievakje | Toegang tot de seriële console van maken en herstellen van bestandssysteem. 
+Problemen met SSH/RDP-configuratie | Toegang tot de seriële console en instellingen wijzigen. 
+Systeem voor het vergrendelen van netwerk| Toegang tot de seriële console via de portal voor het beheren van systeem. 
+Interactie met de bootloader | Toegang WORMGATEN via de seriële console. Ga naar [met behulp van de seriële Console van toegang tot WORMGATEN en de modus voor één gebruiker](serial-console-grub-single-user-mode.md) aan de slag. 
 
 ## <a name="access-serial-console-for-linux"></a>Seriële Console van de toegang voor Linux
 In de volgorde voor de seriële console te laten functioneren, moet het gastbesturingssysteem worden geconfigureerd om te lezen en schrijven van consoleberichten naar de seriële poort. De meeste [Azure Linux-distributies die zijn goedgekeurd](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) hebben van de seriële console standaard geconfigureerd. Eenvoudig te klikken op de seriële Console-sectie in Azure portal biedt toegang tot de console. 
@@ -145,6 +145,15 @@ CoreOS      | CoreOS-installatiekopieën die beschikbaar zijn op Azure hebt toeg
 SUSE        | Nieuwere SLES-installatiekopieën die beschikbaar zijn op Azure hebt toegang tot de console standaard ingeschakeld. Als u oudere versies (10 of lager) van SLES op Azure gebruikt, volgt u de [KB-artikel](https://www.novell.com/support/kb/doc.php?id=3456486) seriële console inschakelen. 
 Oracle Linux        | Oracle Linux-installatiekopieën die beschikbaar zijn op Azure hebt toegang tot de console standaard ingeschakeld.
 Aangepaste Linux-installatiekopieën     | Om in te schakelen voor uw aangepaste Linux-VM-installatiekopie de seriële console, schakel toegang tot de console in /etc/inittab om uit te voeren van een terminal op ttyS0. Hier volgt een voorbeeld om toe te voegen deze in het bestand inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Zie voor meer informatie over het maken van aangepaste installatiekopieën correct [een Linux-VHD in Azure maken en uploaden](https://aka.ms/createuploadvhd).
+
+## <a name="accessibility"></a>Toegankelijkheid
+Toegankelijkheid is een belangrijke focus voor de seriële console van Azure. Wat dat betreft, hebben we ervoor gezorgd dat dat de seriële console is toegankelijk voor mensen met het visuele element en gehoorproblemen, evenals de mensen die misschien niet mogelijk een muis te gebruiken.
+
+### <a name="keyboard-navigation"></a>Toetsenbordnavigatie
+Gebruik de `tab` sleutel op het toetsenbord om te navigeren in de interface van de seriële console binnen de Azure-portal. Uw locatie wordt gemarkeerd op het scherm worden weergegeven. Als u wilt de focus van de seriële console-blade laten, drukt u op `Ctrl + F6` op het toetsenbord.
+
+### <a name="use-serial-console-with-a-screen-reader"></a>Seriële console gebruiken met een schermlezer
+Seriële console wordt geleverd met ingebouwde ondersteuning voor schermlezers. Navigeren om met een schermlezer ingeschakeld, kunnen de alt-tekst voor de geselecteerde knop om te worden door de schermlezer voorgelezen.
 
 ## <a name="errors"></a>Fouten
 De meeste fouten van tijdelijke aard zijn en deze opnieuw wordt geprobeerd de verbinding van de seriële console van vaak adressen. De onderstaande tabel geeft een lijst met fouten en oplossingen

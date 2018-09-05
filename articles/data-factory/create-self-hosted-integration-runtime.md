@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: e708ae741c6835395e8eb35f6835c2d8c7002780
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: af7d4253b4e631295f8c04c96601e932595af9c1
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044727"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697761"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Over het maken en configureren van zelfgehoste Cloudintegratieruntime
 De Integration Runtime (IR) is de rekeninfrastructuur die door Azure Data Factory gebruikt om u te bieden mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration Runtime](concepts-integration-runtime.md).
@@ -219,7 +219,7 @@ Op **bedrijfsfirewall** niveau, moet u de volgende domeinen bevinden en uitgaand
 
 Domeinnamen | Poorten | Beschrijving
 ------------ | ----- | ------------
-*.servicebus.windows.net | 443, 80 | Gebruikt voor communicatie met back-end Data Movement Service
+*.servicebus.windows.net | 443 | Gebruikt voor communicatie met back-end Data Movement Service
 *.core.windows.net | 443 | Gebruikt voor tijdelijke kopiëren met behulp van Azure-Blob (indien geconfigureerd)
 *.frontend.clouddatahub.net | 443 | Gebruikt voor communicatie met back-end Data Movement Service
 download.microsoft.com | 443 | Gebruikt voor het downloaden van updates

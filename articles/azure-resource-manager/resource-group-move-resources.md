@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/04/2018
 ms.author: tomfitz
-ms.openlocfilehash: 160e2a277c82470df7d9ced2899699dae8d4ef01
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 429a10988fdc19863cfd6809a8d73757d33349c9
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302125"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702304"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -122,10 +122,9 @@ De services waarmee u verplaatsen naar een nieuwe resourcegroep en een abonnemen
 * Azure Maps
 * Azure Relay
 * Azure Stack - registraties
-* Azure Migrate
 * Batch
 * BizTalk Services
-* Bot Service
+* Bot-service
 * CDN
 * Cloud Services - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
 * Cognitive Services
@@ -141,7 +140,7 @@ De services waarmee u verplaatsen naar een nieuwe resourcegroep en een abonnemen
 * Event Grid
 * Event Hubs
 * HDInsight-clusters - Zie [HDInsight beperkingen](#hdinsight-limitations)
-* IOT Central
+* IoT Central
 * IoT Hubs
 * Key Vault
 * Load Balancers - Zie [beperkingen van de Load Balancer](#lb-limitations)
@@ -188,6 +187,7 @@ De services die momenteel niet mogelijk verplaatsen van een resource zijn:
 * Azure Database for PostgreSQL
 * Azure Database Migration
 * Azure Databricks
+* Azure Migrate
 * Batch AI
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar de geüploade certificaten hebben [beperkingen](#app-service-limitations).
 * Container Instances
@@ -237,8 +237,6 @@ Bij het verplaatsen van een virtueel netwerk, moet u ook de afhankelijke resourc
 Voor het verplaatsen van een gekoppeld virtueel netwerk, moet u eerst de virtueel-netwerkpeering uitschakelen. Als uitgeschakeld, kunt u het virtuele netwerk kunt verplaatsen. Na de verplaatsing opnieuw de peering op virtueel netwerk.
 
 U kunt een virtueel netwerk niet verplaatsen naar een ander abonnement, als het virtuele netwerk een subnet met resourcenavigatiekoppelingen bevat. Bijvoorbeeld, als een Redis-Cache-bron wordt geïmplementeerd in een subnet, heeft dat subnet een resourcenavigatiekoppeling.
-
-U kunt een virtueel netwerk niet verplaatsen naar een ander abonnement, als het virtuele netwerk een aangepaste DNS-server bevat. Voor het verplaatsen van het virtuele netwerk, moet u deze op (door Azure geleverd) standaard-DNS-server instellen. Na de verplaatsing opnieuw de aangepaste DNS-server.
 
 ## <a name="app-service-limitations"></a>Beperkingen voor App Service
 
