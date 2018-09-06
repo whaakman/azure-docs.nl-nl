@@ -54,7 +54,7 @@ PP = Openbare preview
 | Biedt ondersteuning voor FIM-synchronisatieregels en -connectors voor de inrichting van on-premises systemen. | | | |● |● |
 
  
-& #42; Momenteel worden hiervoor twee opties ondersteund.  Dit zijn: 
+&#42; Momenteel worden hiervoor twee opties ondersteund.  Dit zijn: 
 
    1. U kunt de algemene LDAP-connector gebruiken en deze buiten Azure AD Connect inschakelen.  Dit is ingewikkeld en hiervoor moet een worden betrokken en een Premier Support-overeenkomst worden gehandhaafd.  Met deze optie kunnen zowel één als meerdere LDAP-adreslijsten worden verwerkt. 
 
