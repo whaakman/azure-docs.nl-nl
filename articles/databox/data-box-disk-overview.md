@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: overview
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand what Data Box Disk is and how it works so I can use it to import on-premises data into Azure.
-ms.openlocfilehash: f2e1a59584507b52d0a834af1869e3e9f2db5f07
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: b1beb0e9a5a0435bdf298eddbefc230b2f95ed0a
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127361"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698499"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Wat is Azure Data Box Disk? (Preview)
 
@@ -106,14 +106,14 @@ Tijdens de preview kan Data Box Disk gegevens overdragen in de volgende Azure-re
 
 |Azure-regio  |Azure-regio  |
 |---------|---------|
-|US - west-centraal     |US - oost        |        
-|VS - west 2     |US - oost 2          |     
+|US - west-centraal     |Canada - midden       |        
+|VS - west 2     |Canada - oost         |     
 |US - west     | Europa -west        |      
 |US - zuid-centraal   |Europa - noord     |         
-|US - centraal     |Canada - oost|
-|US - noord-centraal  |Canada - midden    |
-
-
+|US - centraal     |Australië - oost|
+|US - noord-centraal  |Australië - zuidoost   |
+|US - oost      |Australië - centraal |
+|US - oost 2     |Australië - centraal 2|
 
 
 ## <a name="pricing"></a>Prijzen

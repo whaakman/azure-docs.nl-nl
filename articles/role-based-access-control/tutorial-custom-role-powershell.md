@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/12/2018
 ms.author: rolyon
-ms.openlocfilehash: 2b3bd55fd2ed9f392611fcb32b0ebd0f5c6b5e09
-ms.sourcegitcommit: 65b399eb756acde21e4da85862d92d98bf9eba86
+ms.openlocfilehash: 1e3043a6053625f8363e9035e59b53275714a827
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/22/2018
-ms.locfileid: "36322522"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300606"
 ---
 # <a name="tutorial-create-a-custom-role-using-azure-powershell"></a>Zelfstudie: Een aangepaste rol maken met Azure PowerShell
 
@@ -99,7 +99,7 @@ De eenvoudigste manier om een aangepaste rol te maken, is door een ingebouwde ro
     
 1. Bewerk het JSON-bestand om de bewerking `"Microsoft.Support/*"` toe te voegen aan de eigenschap `Actions`. Vergeet niet om een komma toe te voegen na de read-bewerking. Deze actie stelt de gebruiker in staat om ondersteuningstickets aan te maken.
 
-1. Vraag de id van uw abonnement op met de opdracht [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription).
+1. Vraag de id van uw abonnement op met de opdracht [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
     ```azurepowershell
     Get-AzureRmSubscription

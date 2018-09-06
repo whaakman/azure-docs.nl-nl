@@ -8,12 +8,12 @@ manager: jeconnoc
 ms.author: tarcher
 ms.topic: quickstart
 ms.date: 08/21/2018
-ms.openlocfilehash: fcb2da93a39bd4e1a81f7767dc40b3a24fd7d213
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 9ad18397a3463fc845692c79b5e1f817d0912a8e
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40250645"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43663664"
 ---
 # <a name="install-ansible-on-azure-virtual-machines"></a>Ansible installeren op virtuele Azure-machines
 
@@ -23,7 +23,7 @@ U kunt Ansible ook gebruiken om de implementatie en configuratie van resources i
 
 - **Azure-abonnement**: als u nog geen Azure-abonnement hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan.
 
-- **Toegang tot Linux of een virtuele Linux-machine**: als u geen Linux-machine hebt, maakt u een [virtuele Linux-machine](/virtual-machines/linux/quick-create-cli.md).
+- **Toegang tot Linux of een virtuele Linux-machine**: als u geen Linux-machine hebt, maakt u een [virtuele Linux-machine](https://docs.microsoft.com/azure/virtual-network/quick-create-cli).
 
 - **Azure service-principal**: volg de aanwijzingen in de sectie **Create the service principal** (de service-principal maken) in het artikel [Create an Azure service principal with Azure CLI 2.0](/cli/azure/create-an-azure-service-principal-azure-cli?view=azure-cli-latest#create-the-service-principal) (een Azure-service-principal maken met Azure CLI 2.0). Noteer de waarden voor **appId**, **displayName**, **password** en **tenant**.
 

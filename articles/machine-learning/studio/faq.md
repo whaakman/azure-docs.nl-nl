@@ -16,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
 ms.date: 06/02/2017
-ms.openlocfilehash: 01635b184903b88fa12e23c370caa65bb1eb377c
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 31676ea43acc495bf0cb6a249901e5b64ef217b7
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37024689"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782927"
 ---
 # <a name="azure-machine-learning-frequently-asked-questions-billing-capabilities-limitations-and-support"></a>Veelgestelde vragen over Azure Machine Learning: facturering, mogelijkheden, beperkingen en ondersteuning
 U vindt hier een aantal veelgestelde vragen en de bijbehorende antwoorden die betrekking hebben op Azure Machine Learning, een cloudservice voor het ontwikkelen van voorspellende modellen en operationele oplossingen via webservices. Deze veelgestelde vragen gaan over het gebruik van de service, zoals het factureringsmodel, de mogelijkheden, beperkingen en ondersteuning.
@@ -312,7 +312,7 @@ U vindt ook trainingsmateriaal op [Microsoft Virtual Academy](http://www.microso
 
 **Waar kan ik ondersteuning krijgen voor Azure Machine Learning?**
 
-Voor technische ondersteuning voor Azure Machine Learning gaat u naar [de ondersteuning van Azure](/support/options/) en selecteert u **Machine Learning**.
+Voor technische ondersteuning voor Azure Machine Learning gaat u naar [de ondersteuning van Azure](https://azure.microsoft.com/support/options/) en selecteert u **Machine Learning**.
 
 Azure Machine Learning heeft ook een communityforum op MSDN waar u vragen kunt stellen over Azure Machine Learning. Het forum wordt bewaakt door het Azure Machine Learning-team. Ga naar het [Azure-forum](http://social.msdn.microsoft.com/Forums/windowsazure/home?forum=MachineLearning).
 
@@ -437,9 +437,9 @@ U wordt aangeraden te beginnen met de Standard-laag S1 en het serviceverbruik bi
 
 De nieuwe abonnementen zijn beschikbaar in de drie productieregio‘s waar de nieuwe webservices worden ondersteund:
 
-* Zuid-centraal VS
-* West-Europa
-* Zuidoost-Azië
+* US - zuid-centraal
+* Europa -west
+* Azië - zuidoost
 
 **Ik heb webservices in meerdere regio‘s. Heb ik voor elke regio een apart plan nodig?**
 

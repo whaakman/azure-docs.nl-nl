@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/14/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: 0f10384e7e21d65b3a16869a10f8294b9643c74c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: b1435773f8d05f9cc730e5745c1a916d9b74321f
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38705680"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340590"
 ---
 # <a name="create-and-manage-vpn-gateway-with-the-azure-powershell-module"></a>Een Azure VPN-gateway maken en beheren met behulp van Microsoft Azure PowerShell
 
@@ -66,7 +66,7 @@ $GwIPConf1   = "gwipconf1"
 
 ## <a name="create-resource-group"></a>Een resourcegroep maken
 
-Maak een resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Eerst moet u een resourcegroep maken. In het volgende voorbeeld wordt een resourcegroep met de naam *TestRG1* gemaakt in de regio *VS Oost*:
+Maak een resourcegroep met de opdracht [New-AzureRmResourceGroup](/powershell/module/azurerm.resources/new-azurermresourcegroup). Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. Eerst moet u een resourcegroep maken. In het volgende voorbeeld wordt een resourcegroep met de naam *TestRG1* gemaakt in de regio *US - oost*:
 
 ```azurepowershell-interactive
 New-AzureRmResourceGroup -ResourceGroupName $RG1 -Location $Location1
@@ -145,7 +145,7 @@ Zie [Reset a VPN gateway](vpn-gateway-resetgw-classic.md) (Een VPN-gateway opnie
 
 ## <a name="get-the-gateway-public-ip-address"></a>Het openbare IP-adres van de gateway ophalen
 
-Als u de naam van het openbare IP-adres weet, gebruikt u [Get-AzureRmPublicIpAddress](/powershell/module/azurerm.network/Reset-AzureRmPublicIpAddress) om het openbare IP-adres weer te geven dat is toegewezen aan de gateway.
+Als u de naam van het openbare IP-adres weet, gebruikt u [Get-AzureRmPublicIpAddress](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermpublicipaddress?view=azurermps-6.8.1) om het openbare IP-adres weer te geven dat is toegewezen aan de gateway.
 
 ```azurepowershell-interactive
 $myGwIp = Get-AzureRmPublicIpAddress -Name $GwIP1 -ResourceGroup $RG1

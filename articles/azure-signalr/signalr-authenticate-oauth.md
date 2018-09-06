@@ -3,7 +3,7 @@ title: Zelfstudie voor het verifiëren van Azure SignalR-clients | Microsoft Doc
 description: In deze zelfstudie leert u hoe u clients van de service Azure SignalR kunt verifiëren
 services: signalr
 documentationcenter: ''
-author: wesmc7777
+author: sffamily
 manager: cfowler
 editor: ''
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 06/13/2018
-ms.author: wesmc
-ms.openlocfilehash: c24e3045640471ed6ee7052f877850acd8e8cf00
-ms.sourcegitcommit: d7725f1f20c534c102021aa4feaea7fc0d257609
+ms.author: zhshang
+ms.openlocfilehash: 4856f4cdba7618884a42341f16d4828cb062e75c
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37101015"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667647"
 ---
 # <a name="tutorial-azure-signalr-service-authentication"></a>Zelfstudie: Verificatie van Azure SignalR-service
 
@@ -593,7 +593,7 @@ Als u niet verder wilt met de snelstart, kunt u de Azure-resources verwijderen d
 > 
 > 
 
-Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
 
 Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...**. In de instructies voor dit artikel is een resourcegroep met de naam *SignalRTestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
 

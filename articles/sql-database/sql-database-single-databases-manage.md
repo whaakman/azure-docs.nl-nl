@@ -10,12 +10,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: a94c3a4c4b8ffb22b1d75ca064bd3e48a2e50141
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 483ac248619a6d8a0f403592b1b4e55ad5e973da
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005675"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841855"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Logische servers en individuele databases in Azure SQL Database maken en beheren 
 
@@ -156,10 +156,7 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls, gebrui
 |[Servers - Update](/rest/api/sql/servers/update)|Een bestaande server worden bijgewerkt.|
 |[Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate)|Maakt een nieuwe database gemaakt of bijgewerkt van een bestaande database.|
 |[Databases - Get](/rest/api/sql/databases/get)|Hiermee haalt u een database.|
-|[Databases - ophalen door de elastische Pool](/rest/api/sql/databases/getbyelasticpool)|Hiermee haalt u een database in een elastische pool.|
-|[Databases - opvragen aanbevolen elastische Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Hiermee haalt u een database binnen een recommented elastische pool.|
 |[Databases - lijst op de elastische Pool](/rest/api/sql/databases/listbyelasticpool)|Retourneert een lijst met databases in een elastische pool.|
-|[Databases - lijst met aanbevolen elastische Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourneert een lijst met databases binnen een aanbevolen elastische pool.|
 |[Databases - lijst met door de Server](/rest/api/sql/databases/listbyserver)|Retourneert een lijst met databases in een server.|
 |[Databases - Update](/rest/api/sql/databases/update)|Werkt een bestaande database.|
 |[Firewall-regels - maken of bijwerken](/rest/api/sql/firewallrules/createorupdate)|Hiermee of een firewall-regel bijgewerkt.|

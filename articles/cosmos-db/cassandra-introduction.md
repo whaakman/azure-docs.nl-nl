@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 11/20/2017
 ms.author: govindk
-ms.openlocfilehash: 6ec0feeac9364b416709b45af09c79773a87d0e1
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f2f2257d3ddc22a80600882d2078210ac27cb15d
+ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42023482"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43284919"
 ---
 # <a name="introduction-to-azure-cosmos-db-apache-cassandra-api"></a>Inleiding tot Azure Cosmos DB: Apache Cassandra-API
 
@@ -34,10 +34,7 @@ Azure Cosmos DB kan worden gebruikt als gegevensopslag voor apps die zijn geschr
 
 ![Azure Cosmos DB Cassandra-API](./media/cassandra-introduction/cosmosdb-cassandra.png)
 
-De Cassandra-API stelt u in staat om gegevens te gebruiken die zijn opgeslagen in Azure Cosmos DB. Dit doet u via hulpprogramma’s op basis van de Cassandra-querytaal (bijvoorbeeld CQLSH) en Cassandra-clientstuurprogramma’s waarmee u al vertrouwd bent. Principal Engineering Manager Kirill Gavrylyuk geeft u hier meer informatie over in deze Microsoft Mechanics-video.
-
-> [!VIDEO https://www.youtube.com/embed/1Sf4McGN1AQ]
->
+De Cassandra-API stelt u in staat om gegevens te gebruiken die zijn opgeslagen in Azure Cosmos DB. Dit doet u via hulpprogramma’s op basis van de Cassandra-querytaal (bijvoorbeeld CQLSH) en Cassandra-clientstuurprogramma’s waarmee u al vertrouwd bent. 
 
 ## <a name="what-is-the-benefit-of-using-apache-cassandra-api-for-azure-cosmos-db"></a>Wat is het voordeel van het gebruik van de Apache Cassandra-API voor Azure Cosmos DB?
 

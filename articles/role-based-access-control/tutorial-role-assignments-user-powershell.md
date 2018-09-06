@@ -13,12 +13,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 06/11/2018
 ms.author: rolyon
-ms.openlocfilehash: 4eeae864721040bda18409b48abf5d33b81ca609
-ms.sourcegitcommit: 1438b7549c2d9bc2ace6a0a3e460ad4206bad423
+ms.openlocfilehash: cac585b36c3b5969a18c941215b623443850cd4c
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/20/2018
-ms.locfileid: "36295895"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43301725"
 ---
 # <a name="tutorial-grant-access-for-a-user-using-rbac-and-azure-powershell"></a>Zelfstudie - Toegang verlenen aan een gebruiker met RBAC en Azure PowerShell
 
@@ -44,7 +44,7 @@ Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
 
 In RBAC verleent u toegang door een roltoewijzing te maken. Een roltoewijzing bestaat uit drie elementen: beveiligings-principal, roldefinitie en bereik (ook wel scope of niveau genoemd). Dit zijn de twee roltoewijzingen die u gaat uitvoeren in deze zelfstudie:
 
-| Beveiligings-principal | Roldefinitie ophalen | Bereik |
+| Beveiligings-principal | Roldefinitie | Bereik |
 | --- | --- | --- |
 | Gebruiker<br>(RBAC Tutorial User) | [Lezer](built-in-roles.md#reader) | Abonnement |
 | Gebruiker<br>(RBAC Tutorial User)| [Inzender](built-in-roles.md#contributor) | Resourcegroep<br>(rbac-tutorial-resource-group) |
@@ -109,7 +109,7 @@ U gaat een resourcegroep maken om te laten zien hoe u een rol kunt toewijzen op 
 
 U verleent toegang aan een gebruiker door met de opdracht [New AzureRmRoleAssignment](/powershell/module/azurerm.resources/new-azurermroleassignment) een rol toe te wijzen. U moet hierbij de beveiligings-principal, de roldefinitie en het bereik opgeven.
 
-1. Vraag de id van uw abonnement op met de opdracht [Get-AzureRmSubscription](/powershell/module/azurerm.resources/get-azurermsubscription).
+1. Vraag de id van uw abonnement op met de opdracht [Get-AzureRmSubscription](/powershell/module/azurerm.profile/get-azurermsubscription).
 
     ```azurepowershell
     Get-AzureRmSubscription

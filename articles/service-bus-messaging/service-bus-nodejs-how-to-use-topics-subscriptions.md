@@ -14,12 +14,12 @@ ms.devlang: nodejs
 ms.topic: article
 ms.date: 08/10/2017
 ms.author: spelluru
-ms.openlocfilehash: fbb43d07296ca573f0c4cb9f1e10e005633ade06
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: daabf711e923e1c4ff3132c5e4765bdbff206948
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700093"
+ms.locfileid: "43782908"
 ---
 # <a name="how-to-use-service-bus-topics-and-subscriptions-with-nodejs"></a>Gebruik Service Bus-onderwerpen en abonnementen met behulp van Node.js
 
@@ -95,7 +95,7 @@ serviceBusService.createTopicIfNotExists('MyTopic',function(error){
 });
 ```
 
-De `createServiceBusService` methode biedt ook ondersteuning voor extra opties waarmee u kunt de standaardinstellingen van onderwerp zoals time to live van bericht of grootte van het maximum aantal onderwerp negeren. 
+De `createTopicIfNotExists` methode biedt ook ondersteuning voor extra opties waarmee u kunt de standaardinstellingen van onderwerp zoals time to live van bericht of grootte van het maximum aantal onderwerp negeren. 
 
 Het volgende voorbeeld wordt de grootte van het maximum aantal onderwerp naar 5 GB met een time to live van één minuut van:
 
@@ -235,12 +235,12 @@ var rule={
 }
 ```
 
-Wanneer nu een bericht is verzonden naar `MyTopic`, deze zal worden bezorgd bij ontvangers die zijn geabonneerd op de `AllMessages` onderwerpabonnement en selectief bezorgd bij ontvangers die zijn geabonneerd op de `HighMessages` en `LowMessages` onderwerpabonnementen (afhankelijk van de inhoud van het bericht).
+Wanneer nu een bericht is verzonden naar `MyTopic`, wordt bezorgd bij ontvangers die zijn geabonneerd op de `AllMessages` onderwerpabonnement en selectief bezorgd bij ontvangers die zijn geabonneerd op de `HighMessages` en `LowMessages` onderwerpabonnementen (al naar gelang de inhoud van het bericht).
 
 ## <a name="how-to-send-messages-to-a-topic"></a>Over het verzenden van berichten naar een onderwerp
 Voor het verzenden van een bericht naar een Service Bus-onderwerp, uw toepassing moet gebruikmaken van de `sendTopicMessage` -methode van de **ServiceBusService** object.
 Berichten verzonden naar Service Bus-onderwerpen zijn **BrokeredMessage** objecten.
-**BrokeredMessage** objecten hebben een aantal standaardeigenschappen (zoals `Label` en `TimeToLive`), een woordenlijst die wordt gebruikt om aangepaste toepassingsspecifieke eigenschappen te bewaren en een hoofdtekst met tekenreeksen. Een toepassing de hoofdtekst van het bericht worden ingesteld door door te geven van een string-waarde voor de `sendTopicMessage` en alle vereiste standaardeigenschappen zal worden gevuld met standaardwaarden.
+**BrokeredMessage** objecten hebben een aantal standaardeigenschappen (zoals `Label` en `TimeToLive`), een woordenlijst die wordt gebruikt om aangepaste toepassingsspecifieke eigenschappen te bewaren en een hoofdtekst met tekenreeksen. Een toepassing de hoofdtekst van het bericht worden ingesteld door door te geven van een string-waarde voor de `sendTopicMessage` en alle vereiste standaardeigenschappen zijn gevuld met standaardwaarden.
 
 Het volgende voorbeeld ziet u hoe u voor het verzenden van vijf testberichten naar `MyTopic`. De `messagenumber` eigenschapswaarde van elk bericht varieert op de herhaling van de lus (deze bepaalt welke abonnementen ontvangen):
 
@@ -268,7 +268,7 @@ Service Bus-onderwerpen ondersteunen een maximale grootte van 256 kB in de [Stan
 ## <a name="receive-messages-from-a-subscription"></a>Berichten ontvangen van een abonnement
 Berichten worden ontvangen van een abonnement met de `receiveSubscriptionMessage` methode voor het **ServiceBusService** object. Standaard worden berichten verwijderd uit het abonnement zoals ze worden gelezen. U kunt echter de optionele parameter instellen `isPeekLock` naar **waar** (peek) lezen en vergrendelen van het bericht zonder deze te verwijderen uit het abonnement.
 
-Het standaardgedrag van lezen en verwijderen van het bericht als onderdeel van de ontvangstbewerking, is het eenvoudigste model en werkt het beste voor scenario's waarin een toepassing kan tolereren niet verwerken van een bericht bij een storing. Voor meer informatie over dit probleem, u hebt een scenario waarin de consument problemen met de aanvraag ontvangen en vervolgens vastloopt voordat deze wordt verwerkt. Omdat Service Bus het bericht als verbruikt heeft gemarkeerd, klikt u vervolgens wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint, ontbreekt het bericht dat voor het vastlopen is verbruikt.
+Het standaardgedrag van lezen en verwijderen van het bericht als onderdeel van de ontvangstbewerking, is het eenvoudigste model en werkt het beste voor scenario's waarin een toepassing kan tolereren niet verwerken van een bericht bij een storing. Voor meer informatie over dit probleem, u hebt een scenario waarin de consument problemen met de aanvraag ontvangen en vervolgens vastloopt voordat deze wordt verwerkt. Omdat Service Bus kan het bericht als verbruikt heeft gemarkeerd, klikt u vervolgens ontbreekt wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint het het bericht dat voor het vastlopen is verbruikt.
 
 Als de `isPeekLock` parameter is ingesteld op **waar**, wordt de ontvangst een bewerking met twee fasen, waardoor er toepassingen kunnen worden ondersteund die geen ontbrekende berichten kunnen tolereren. Wanneer Service Bus een aanvraag ontvangt, deze vindt het volgende bericht te gebruiken, wordt vergrendeld om te voorkomen dat andere consumenten het ontvangen en geeft dit terug aan de toepassing.
 Nadat de toepassing het bericht verwerkt (of deze op betrouwbare wijze voor toekomstige verwerking slaat), is de tweede fase van het ontvangstproces voltooid door het aanroepen van **deleteMessage** methode, en wordt het bericht te verwijderen als parameter doorgegeven. De **deleteMessage** methode wordt het bericht gemarkeerd als verbruikt en wordt deze verwijderd uit het abonnement.

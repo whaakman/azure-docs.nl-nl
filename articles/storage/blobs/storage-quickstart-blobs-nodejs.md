@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: quickstart
 ms.date: 04/09/2018
 ms.author: cshoe
-ms.openlocfilehash: acf332209ca0588ab7722ddcfdcfe7b6715d672c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 21e09ea231853826155d1ab12d9c992d85ef568a
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397929"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664209"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-using-nodejs"></a>Snelstart: blobs downloaden, uploaden en vermelden met behulp van Node.js
 
@@ -100,11 +100,11 @@ De variabelen worden ingesteld op de volgende waarden:
 - *sourceFilePath* wordt ingesteld op het absolute pad van het te uploaden bestand
 - *blobName* wordt gemaakt door de bestandsnaam te nemen en de bestandsextensie te verwijderen
 
-In de volgende implementatie wordt elk van de *blobService*-functies verpakt in een *Promise* voor toegang tot de JavaScript-functie *async* en de *await*-operator voor het stroomlijnen van de callback van de [Azure Storage API](/nodejs/api/azure-storage/blobservice). Wanneer een geslaagde reactie voor elke functie wordt gegenereerd, wordt de promise omgezet met relevante gegevens, samen met een bericht dat specifiek bij die actie hoort.
+In de volgende implementatie wordt elk van de *blobService*-functies verpakt in een *Promise* voor toegang tot de JavaScript-functie *async* en de *await*-operator voor het stroomlijnen van de callback van de [Azure Storage API](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest). Wanneer een geslaagde reactie voor elke functie wordt gegenereerd, wordt de promise omgezet met relevante gegevens, samen met een bericht dat specifiek bij die actie hoort.
 
 ### <a name="create-a-blob-container"></a>Een blob-container maken
 
-De *createContainer*-functie roept [createContainerIfNotExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists) aan en stelt het juiste toegangsniveau voor de blob in.
+De *createContainer*-functie roept [createContainerIfNotExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists) aan en stelt het juiste toegangsniveau voor de blob in.
 
 ```javascript
 const createContainer = () => {
@@ -120,13 +120,13 @@ const createContainer = () => {
 };
 ```
 
-De tweede parameter (*options*) voor **createContainerIfNotExists** accepteert een waarde voor [publicAccessLevel](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createContainerIfNotExists). De waarde *blob* voor *publicAccessLevel* geeft aan dat specifieke blob-gegevens worden weergegeven aan het publiek. Deze instelling is het tegenovergestelde van toegang op *container*niveau, waarmee de inhoud van de container kan worden weergegeven.
+De tweede parameter (*options*) voor **createContainerIfNotExists** accepteert een waarde voor [publicAccessLevel](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createcontainerifnotexists). De waarde *blob* voor *publicAccessLevel* geeft aan dat specifieke blob-gegevens worden weergegeven aan het publiek. Deze instelling is het tegenovergestelde van toegang op *container*niveau, waarmee de inhoud van de container kan worden weergegeven.
 
 Door **createContainerIfNotExists** kan de toepassing de opdracht *createContainer* meerdere keren uitvoeren zonder dat er fouten worden geretourneerd wanneer de container al bestaat. In een productieomgeving hoeft u **createContainerIfNotExists** vaak maar eenmaal aan te roepen wanneer dezelfde container overal in de toepassing wordt gebruikt. In dergelijke gevallen kunt u de container vooraf via de portal of via de Azure CLI maken.
 
 ### <a name="upload-a-blob-to-the-container"></a>Een blob uploaden naar de container
 
-De *upload*-functie maakt gebruik van de [createBlockBlobFromLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromLocalFile)-functie om een bestand te uploaden en te schrijven of overschrijven vanuit het bestandssysteem naar de blob-opslag. 
+De *upload*-functie maakt gebruik van de [createBlockBlobFromLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromlocalfile)-functie om een bestand te uploaden en te schrijven of overschrijven vanuit het bestandssysteem naar de blob-opslag. 
 
 ```javascript
 const upload = () => {
@@ -141,13 +141,13 @@ const upload = () => {
     });
 };
 ```
-In de context van de voorbeeldtoepassing wordt het bestand met de naam *example.txt* geüpload naar een blob met de naam *example* binnen een container met de naam *test-container*. Andere methoden voor het uploaden van inhoud naar blobs zijn werken met [tekst](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText) en [streams](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromStream).
+In de context van de voorbeeldtoepassing wordt het bestand met de naam *example.txt* geüpload naar een blob met de naam *example* binnen een container met de naam *test-container*. Andere methoden voor het uploaden van inhoud naar blobs zijn werken met [tekst](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromtext) en [streams](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#createblockblobfromstream).
 
 Om te controleren of het bestand is geüpload naar de blob-opslag, kunt u met de [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/) de gegevens in uw account bekijken.
 
 ### <a name="list-the-blobs-in-a-container"></a>De blobs in een container in een lijst weergeven
 
-De *list*-functie roept de [listBlobsSegmented](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_createBlockBlobFromText)-methode aan om een lijst met blob-metagegevens in een container te retourneren. 
+De *list*-functie roept de [listBlobsSegmented](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#listblobssegmented)-methode aan om een lijst met blob-metagegevens in een container te retourneren. 
 
 ```javascript
 const list = () => {
@@ -163,11 +163,11 @@ const list = () => {
 };
 ```
 
-Het aanroepen van *listBlobsSegmented* retourneert blob-metagegevens als een matrix met [BlobResult](/nodejs/api/azure-storage/blobresult)-instanties. Resultaten worden geretourneerd in batches van 5000 blobs (segmenten). Als er in een container meer dan 5000 blobs zijn, bevatten de resultaten een waarde voor **continuationToken**. Als u volgende segmenten uit de blob-container wilt weergeven, kunt u het vervolgtoken als tweede argument doorgeven aan **listBlobSegmented**.
+Het aanroepen van *listBlobsSegmented* retourneert blob-metagegevens als een matrix met [BlobResult](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice.blobresult?view=azure-node-latest)-instanties. Resultaten worden geretourneerd in batches van 5000 blobs (segmenten). Als er in een container meer dan 5000 blobs zijn, bevatten de resultaten een waarde voor **continuationToken**. Als u volgende segmenten uit de blob-container wilt weergeven, kunt u het vervolgtoken als tweede argument doorgeven aan **listBlobSegmented**.
 
 ### <a name="download-a-blob-from-the-container"></a>Een blob downloaden uit de container
 
-De *download*-functie maakt gebruik van [getBlobToLocalFile](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_getBlobToLocalFile) om de inhoud van de blob te downloaden naar het opgegeven absolute bestandspad.
+De *download*-functie maakt gebruik van [getBlobToLocalFile](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#getblobtolocalfile) om de inhoud van de blob te downloaden naar het opgegeven absolute bestandspad.
 
 ```javascript
 const download = () => {
@@ -187,7 +187,7 @@ De hier weergegeven implementatie verandert het bronbestandspad door *.downloade
 
 ### <a name="delete-blobs-in-the-container"></a>Blobs in de container verwijderen
 
-De *deleteBlock*-functie (als alias van de consoleopdracht *delete*) roept de [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice#azure_storage_BlobService_deleteBlobIfExists)-functie aan. Zoals de naam al aangeeft, retourneert deze functie geen fout als de blob al is verwijderd.
+De *deleteBlock*-functie (als alias van de consoleopdracht *delete*) roept de [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists)-functie aan. Zoals de naam al aangeeft, retourneert deze functie geen fout als de blob al is verwijderd.
 
 ```javascript
 const deleteBlock = () => {
@@ -272,7 +272,7 @@ try {
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Als u niet van plan bent de in dit artikel gemaakte gegevens of accounts te gebruiken, kunt u die verwijderen om ongewenste facturering te voorkomen. Als u de blob en containers wilt verwijderen, kunt u de methoden [deleteBlobIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteBlobIfExists_container__blob__options__callback_) en [deleteContainerIfExists](/nodejs/api/azure-storage/blobservice?view=azure-node-latest#deleteContainerIfExists_container__options__callback_) gebruiken. U kunt de opslagaccount ook verwijderen [via de portal](../common/storage-create-storage-account.md).
+Als u niet van plan bent de in dit artikel gemaakte gegevens of accounts te gebruiken, kunt u die verwijderen om ongewenste facturering te voorkomen. Als u de blob en containers wilt verwijderen, kunt u de methoden [deleteBlobIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deleteblobifexists) en [deleteContainerIfExists](https://docs.microsoft.com/javascript/api/azure-storage/azurestorage.services.blob.blobservice.blobservice?view=azure-node-latest#deletecontainerifexists) gebruiken. U kunt de opslagaccount ook verwijderen [via de portal](../common/storage-create-storage-account.md).
 
 ## <a name="resources-for-developing-nodejs-applications-with-blobs"></a>Resources voor het ontwikkelen van Node.js-toepassingen met blobs
 

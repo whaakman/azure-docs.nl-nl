@@ -2,24 +2,24 @@
 title: Snelstart - Berichten verzenden naar en ontvangen van Azure Service Bus | Microsoft Docs
 description: In deze snelstart leert u hoe u met behulp van PowerShell en de .NET Standard-client Service Bus-berichten verzendt en ontvangt
 services: service-bus-messaging
-author: sethmanheim
+author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 05/22/2018
-ms.author: sethm
-ms.openlocfilehash: b22bf2acc83f46eda1aa74981377e66261d13394
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.author: spelluru
+ms.openlocfilehash: 5652069e7a81f54936a41ddb563b49fe6131e7e0
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34660507"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696833"
 ---
 # <a name="quickstart-send-and-receive-messages-using-azure-powershell-and-net"></a>Snelstart: Berichten verzenden en ontvangen met Azure PowerShell en .NET
 
-Microsoft Azure Service Bus is een geïntegreerde berichtenbroker voor bedrijven die voor een beveiligde en absoluut betrouwbare berichtenuitwisseling zorgt. In een typisch Service Bus-scenario hebt u gewoonlijk te maken met het van elkaar loskoppelen van twee of meer toepassingen, services of processen en het overbrengen van status- of gegevenswijzigingen. Dergelijke scenario's kunnen betrekking hebben op het plannen van meerdere batchtaken in andere toepassingen of services, of het activeren van de orderafhandeling. Een detailhandelsbedrijf kan bijvoorbeeld gegevens van het verkooppunt naar een back-office of regionaal distributiecentrum verzenden in verband met het aanvullen en -bijwerken van de voorraad. In dit scenario verzendt en ontvangt de client-app berichten naar en van een Service Bus-wachtrij.
+Microsoft Azure Service Bus is een geïntegreerde berichtenbroker voor bedrijven die voor een beveiligde en absoluut betrouwbare berichtenuitwisseling zorgt. In een typisch Service Bus-scenario hebt u gewoonlijk te maken met het van elkaar loskoppelen van twee of meer toepassingen, services of processen en het overbrengen van status- of gegevenswijzigingen. Dergelijke scenario's kunnen betrekking hebben op het plannen van meerdere batchtaken in andere toepassingen of services, of het activeren van de orderafhandeling. Een detailhandelsbedrijf kan bijvoorbeeld gegevens van het verkooppunt naar een back-office of regionaal distributiecentrum verzenden voor het aanvullen en bijwerken van de voorraad. In dit scenario verzendt en ontvangt de client-app berichten naar en van een Service Bus-wachtrij.
 
 ![wachtrij](./media/service-bus-quickstart-powershell/quick-start-queue.png)
 
@@ -31,10 +31,10 @@ Als u nog geen abonnement op Azure hebt, maak dan een [gratis account][] aan voo
 
 Het volgende moet zijn geïnstalleerd om deze zelfstudie te voltooien:
 
-- [Visual Studio 2017 update 3 (versie 15.3, 26730.01)](http://www.visualstudio.com/vs) of later.
+- [Visual Studio 2017 update 3 (versie 15.3, 26730.01)](http://www.visualstudio.com/vs) of hoger.
 - [NET Core SDK](https://www.microsoft.com/net/download/windows), versie 2.0 of later.
 
-Voor deze snelstart moet u de nieuwste versie van Azure PowerShell uitvoeren. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure PowerShell installeren en configureren][].
+Voor deze snelstart moet u de nieuwste versie van Azure PowerShell uitvoeren. Als u Azure PowerShell wilt installeren of upgraden, raadpleegt u [Azure PowerShell installeren en configureren][].
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
@@ -105,13 +105,13 @@ Ga als volgt te werk om de code uit te voeren:
 
 6.  Navigeer naar de map `bin\Debug\netcoreapp2.0`.
 
-7.  Typ de volgende opdracht om het programma uit te voeren. Zorg dat u `myConnectionString` vervangt door de waarde die u eerder hebt verkregen en vervang `myQueueName` door de naam van de wachtrij die u hebt gemaakt:
+7.  Typ de volgende opdracht om het programma uit te voeren. Zorg ervoor dat u `myConnectionString` vervangt door de waarde die u eerder hebt verkregen, en vervang `myQueueName` door de naam van de wachtrij die u hebt gemaakt:
 
    ```shell
    dotnet BasicSendReceiveQuickStart.dll -ConnectionString "myConnectionString" -QueueName "myQueueName"
    ``` 
 
-8. U ziet dat er tien berichten naar de wachtrij worden verzonden en dat deze vervolgens van de wachtrij worden ontvangen:
+8. Bekijk tien berichten die naar de wachtrij zijn verzonden en vervolgens van de wachtrij zijn ontvangen:
 
    ![programma-uitvoer](./media/service-bus-quickstart-powershell/dotnet.png)
 
@@ -214,7 +214,7 @@ static void RegisterOnMessageHandlerAndReceiveMessages()
 
 ### <a name="send-messages"></a>Berichten verzenden
 
-De bewerkingen voor maken en verzenden van berichten vinden in de methode `SendMessagesAsync()` plaats:
+De bewerkingen voor het maken en verzenden van berichten vinden in de methode `SendMessagesAsync()` plaats:
 
 ```csharp
 static async Task SendMessagesAsync(int numberOfMessagesToSend)
@@ -258,7 +258,7 @@ static async Task ProcessMessagesAsync(Message message, CancellationToken token)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In dit artikel hebt u een Service Bus-naamruimte en andere resources gemaakt die zijn vereist voor het verzenden naar en het ontvangen van berichten vanuit een wachtrij. Voor meer informatie over het schrijven van code voor het verzenden en ontvangen van berichten, gaat u naar de volgende zelfstudie over Service Bus:
+In dit artikel hebt u een Service Bus-naamruimte en andere resources gemaakt die zijn vereist voor het verzenden en ontvangen van berichten in een wachtrij. Voor meer informatie over het schrijven van code voor het verzenden en ontvangen van berichten, gaat u naar de volgende zelfstudie over Service Bus:
 
 > [!div class="nextstepaction"]
 > [Inventaris bijwerken met behulp van Azure PowerShell](./service-bus-tutorial-topics-subscriptions-powershell.md)

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: c4f1b63e2d564f0480508c3ec5a5a24c76ea6bc4
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 7ae235ea52c5c505e535cc3fad2306167d349ee9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41918054"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782257"
 ---
 # <a name="azure-container-service-tutorial---manage-dcos"></a>Zelfstudie Azure Container Service: DC/OS beheren
 
@@ -238,7 +238,7 @@ Als u naar dit adres gaat, wordt de standaardsite NGINX geopend.
 
 ## <a name="scale-dcos-cluster"></a>Het DC/OS-cluster schalen
 
-In de voorgaande voorbeelden is een toepassing geschaald naar meerdere exemplaren. De DC/OS-infrastructuur kan ook worden geschaald om meer of minder rekencapaciteit te bieden. Dit wordt gedaan met de opdracht [az acs scale](). 
+In de voorgaande voorbeelden is een toepassing geschaald naar meerdere exemplaren. De DC/OS-infrastructuur kan ook worden geschaald om meer of minder rekencapaciteit te bieden. Dit wordt gedaan met de opdracht [az acs scale](/cli/azure/acs#az-acs-scale). 
 
 Als u het huidige aantal DC/OS-agents wilt zien, gebruikt u de opdracht [az acs show](/cli/azure/acs#az-acs-show).
 

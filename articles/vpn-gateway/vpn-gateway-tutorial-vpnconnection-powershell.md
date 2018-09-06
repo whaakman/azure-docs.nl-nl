@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 05/08/2018
 ms.author: yushwang
 ms.custom: mvc
-ms.openlocfilehash: da077f013c558448be63dce9b215ded99362d22e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 61e040fc2f7ff70794b49204e3dea01375637641
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452461"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43336573"
 ---
 # <a name="create-and-manage-s2s-vpn-connections-with-the-azure-powershell-module"></a>Azure S2S VPN-verbindingen maken en beheren met behulp van de Azure PowerShell-module
 
@@ -86,7 +86,7 @@ Een lokale netwerkgateway vertegenwoordigt uw on-premises netwerk. U kunt de eig
 * On-premises adresruimte
 * (Optioneel) BGP-kenmerken (BGP-peer-IP-adres en AS-nummer)
 
-Maak een lokale netwerkgateway met de opdracht [Nieuwe AzureRmLocalNetworkGateway](/powershell/module/azurerm.resources/new-azurermlocalnetworkgateway).
+Maak een lokale netwerkgateway met de opdracht [Nieuwe AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermlocalnetworkgateway?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
 New-AzureRmLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
@@ -95,7 +95,7 @@ New-AzureRmLocalNetworkGateway -Name $LNG1 -ResourceGroupName $RG1 `
 
 ## <a name="create-a-s2s-vpn-connection"></a>Een S2S VPN-verbinding maken
 
-Maak vervolgens een Site-naar-Site VPN-verbinding tussen uw virtuele netwerkgateway en uw VPN-apparaat met de [New-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/new-azurermvirtualnetworkgatewayconnection). U ziet dat het -ConnectionType voor Site-naar-Site VPN *IPsec* is.
+Maak vervolgens een Site-naar-Site VPN-verbinding tussen uw virtuele netwerkgateway en uw VPN-apparaat met de [New-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/new-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1). U ziet dat het -ConnectionType voor Site-naar-Site VPN *IPsec* is.
 
 ```azurepowershell-interactive
 $vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -112,7 +112,7 @@ Voeg de optionele eigenschap **- EnableBGP $True** toe om BGP in te schakelen vo
 
 ### <a name="view-and-update-your-pre-shared-key"></a>Weergeven en bijwerken van de vooraf gedeelde sleutel
 
-Azure S2S VPN-verbinding gebruikt een vooraf gedeelde sleutel (geheim) om te verifiëren tussen uw on-premises VPN-apparaat en de Azure VPN-gateway. U kunt de vooraf gedeelde sleutel weergeven en bijwerken voor een verbinding met [Get-AzureRmVirtualNetworkGatewayConnectionSharedKey](/powershell/module/azurerm.resources/get-azurermvirtualnetworkgatewayconnectionsharedkey) en [Set AzureRmVirtualNetworkGatewayConnectionSharedKey](/powershell/module/azurerm.resources/set-azurermvirtualnetworkgatewayconnectionsharedkey).
+Azure S2S VPN-verbinding gebruikt een vooraf gedeelde sleutel (geheim) om te verifiëren tussen uw on-premises VPN-apparaat en de Azure VPN-gateway. U kunt de vooraf gedeelde sleutel weergeven en bijwerken voor een verbinding met [Get-AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/get-azurermvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1) en [Set AzureRmVirtualNetworkGatewayConnectionSharedKey](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnectionsharedkey?view=azurermps-6.8.1).
 
 > [!IMPORTANT]
 > De vooraf gedeelde sleutel is een tekenreeks met **afdrukbare ASCII-tekens** van niet langer dan 128.
@@ -140,7 +140,7 @@ Azure VPN-gateway biedt ondersteuning voor een dynamisch BGP-routeringsprotocol.
 * On-premises lokale netwerkgateway ASN
 * On-premises lokale netwerkgateway BGP-peer-IP-adres
 
-Als u de BGP-eigenschappen niet hebt geconfigureerd, gebruikt u de volgende opdrachten om deze eigenschappen toe te voegen aan uw VPN-gateway en de lokale netwerkgateway: [Set AzureRmVirtualNetworkGateway](/powershell/module/azurerm.resources/set-azurermvirtualnetworkgateway) en [ Set-AzureRmLocalNetworkGateway](/powershell/module/azurerm.resources/set-azurermlocalnetworkgateway).
+Als u de BGP-eigenschappen niet hebt geconfigureerd, gebruikt u de volgende opdrachten om deze eigenschappen toe te voegen aan uw VPN-gateway en de lokale netwerkgateway: [Set AzureRmVirtualNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgateway?view=azurermps-6.8.1) en [ Set-AzureRmLocalNetworkGateway](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermlocalnetworkgateway?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
 $vng1 = Get-AzureRmVirtualNetworkGateway -Name $GW1  -ResourceGroupName $RG1
@@ -151,7 +151,7 @@ Set-AzureRmLocalNetworkGateway -LocalNetworkGateway $lng1 `
   -Asn $LNGASN1 -BgpPeeringAddress $BGPPeerIP1
 ```
 
-Schakel BGP in met [Set-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/set-azurermvirtualnetworkgatewayconnection).
+Schakel BGP in met [Set-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/set-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
 $connection = Get-AzureRmVirtualNetworkGatewayConnection `
@@ -214,7 +214,7 @@ Er zijn nu twee S2S VPN-verbindingen naar uw Azure VPN-gateway.
 
 ## <a name="delete-a-s2s-vpn-connection"></a>Een S2S VPN-verbinding verwijderen
 
-Verwijder een S2S VPN-verbinding met [Remove-AzureRmVirtualNetworkGatewayConnection](/powershell/module/azurerm.resources/remove-azurermvirtualnetworkgatewayconnection).
+Verwijder een S2S VPN-verbinding met [Remove-AzureRmVirtualNetworkGatewayConnection](https://docs.microsoft.com/powershell/module/azurerm.network/remove-azurermvirtualnetworkgatewayconnection?view=azurermps-6.8.1).
 
 ```azurepowershell-interactive
 Remove-AzureRmVirtualNetworkGatewayConnection -Name $Connection2 -ResourceGroupName $RG1
