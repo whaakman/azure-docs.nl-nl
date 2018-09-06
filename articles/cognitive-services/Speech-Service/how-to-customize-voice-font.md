@@ -7,12 +7,12 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: nolach
-ms.openlocfilehash: 1f9facf94b8068b98aa49c49ece7070a83db0686
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 35572f046b3702deba56e86819b8ad0cd7ae6e9b
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665082"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842463"
 ---
 # <a name="creating-custom-voice-fonts"></a>Het maken van aangepaste spraakstijlen
 
@@ -31,13 +31,11 @@ U moet ook een Azure-account en een abonnement op de Speech-service. [Maak een](
 
 1. Meld u aan bij de [aangepaste spraak portal](https://customvoice.ai) met hetzelfde Microsoft-account dat u gebruikt om toe te passen om toegang te krijgen.
 
-2. Ga naar 'Abonnementen' onder de accountnaam in de rechterbovenhoek.
+2. Ga naar alle abonnementen onder de accountnaam in de rechterbovenhoek.
 
     ![Abonnementen](media/custom-voice/subscriptions.png)
 
 3. Kies op de pagina 'Abonnementen', 'Verbinding maken met bestaande abonnement'.
-
-     ![Verbinding maken met bestaande abonnement](media/custom-voice/connect-existing-sub.png)
 
 4. Plak uw abonnementssleutel in de tabel, zoals hieronder wordt weergegeven. Elk abonnement heeft twee sleutels en u kunt een van beide.
 
@@ -122,7 +120,7 @@ Na het voorbereiden van uw audio-bestand archiveren en transcripties, upload dez
 > [!NOTE]
 > Gratis gebruikers kunnen twee gegevenssets tegelijk uploaden. Abonnementsgebruikers van de Standard-kunnen vijf gegevenssets gelijktijdig uploaden. Als u de limiet is bereikt, wacht tot ten minste één van uw gegevenssets is geïmporteerd, probeer het vervolgens opnieuw.
 
-Wanneer het uploaden voltooid is, wordt de tabel mijn Voice-gegevens opnieuw weergegeven. U ziet een vermelding die overeenkomt met uw gegevensset zojuist hebt geüpload. 
+Wanneer het uploaden voltooid is, wordt de tabel mijn Voice-gegevens opnieuw weergegeven. U ziet een vermelding die overeenkomt met uw gegevensset zojuist hebt geüpload.
 
 Gegevenssets worden automatisch gevalideerd nadat het uploaden. De gegevensvalidatie bevat een reeks controles op de audio-bestanden om te controleren of de bestandsindeling, de grootte en de samplingfrequentie. Controles op de bestanden transcriptie controleren of de bestandsindeling en uitvoeren van sommige normalisering tekst. De uitingen worden omgezet met behulp van spraakherkenning en de resulterende tekst wordt vergeleken met het transcript die u hebt opgegeven.
 
@@ -189,17 +187,11 @@ Tijd training, is afhankelijk van het volume van audiogegevens verwerkt. Typisch
 
 ## <a name="test-your-voice-font"></a>Test uw spraakstijl
 
-Als uw spraakstijl met succes is gemaakt, kunt u deze testen voordat u deze implementeert voor gebruik. Klik op **Test** in de Operations-kolom. De testpagina wordt weergegeven voor de geselecteerde spraakstijl. De tabel is leeg als u nog een test-aanvragen voor de stem nog niet hebt verzonden.
-
-![Mijn Spraakstijlen, deel 2](media/custom-voice/my-voice-fonts2.png)
+Als uw spraakstijl met succes is gemaakt, kunt u deze testen voordat u deze implementeert voor gebruik. Klik op **Test** in de Operations-kolom van de tabel mijn Spraakstijlen. De testpagina wordt weergegeven voor de geselecteerde spraakstijl. De tabel is leeg als u nog een test-aanvragen voor de stem nog niet hebt verzonden.
 
 Klik op **Test met tekst** knop onder de tabeltitel om een pop-upmenu voor het indienen van aanvragen van de tekst weer te geven. U kunt uw testaanvraag in tekst zonder opmaak of SSML indienen. De maximale grootte van de invoer is 1024 tekens, inclusief alle tags voor SSML aanvraag. De taal van de tekst moet hetzelfde zijn als de taal van uw spraakstijl.
 
-![Stem lettertype testen](media/custom-voice/voice-font-testing.png)
-
 Na het invullen van het tekstvak en waaruit blijkt dat de invoer-modus, klikt u op **Ja** uw testaanvraag indienen en gaat u terug naar de testpagina. De tabel bevat nu een vermelding die overeenkomt met uw nieuwe aanvraag en de kolom nu bekende status. Het kan enkele minuten om na te bootsen spraak duren. Wanneer de statuskolom is voltooid gelezen, kunt u de tekstinvoer downloaden (een `.txt` bestand) en audio-uitvoer (een `.wav` bestand) en de laatste voor kwaliteit beluisteren.
-
-![Stem lettertype testen, deel 2](media/custom-voice/voice-font-testing2.png)
 
 ## <a name="create-and-use-a-custom-endpoint"></a>Maken en gebruiken van een aangepast eindpunt
 

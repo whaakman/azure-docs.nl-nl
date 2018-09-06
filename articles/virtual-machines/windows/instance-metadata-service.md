@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/10/2017
 ms.author: harijayms
-ms.openlocfilehash: de597424c1be01e651068b7900acbece822610b1
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: d64233883d2dd6fb174c55467fcfcd276b452775
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008372"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782987"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata service
 
@@ -37,10 +37,10 @@ De service is beschikbaar in de algemeen beschikbare Azure-regio's. Niet alle AP
 
 Regio's                                        | Beschikbaarheid?                                 | Ondersteunde versies
 -----------------------------------------------|-----------------------------------------------|-----------------
-[Alle globale Azure regio's algemeen beschikbaar](https://azure.microsoft.com/regions/)     | Algemeen beschikbaar   | 2017-04-02, 2017-08-01, 2017-12-01, 01-02-2018
-[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Algemeen beschikbaar | 2017-04-02,2017-08-01
-[Azure China](https://www.azure.cn/)                                                           | Algemeen beschikbaar | 2017-04-02,2017-08-01
-[Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)                    | Algemeen beschikbaar | 2017-04-02,2017-08-01
+[Alle globale Azure regio's algemeen beschikbaar](https://azure.microsoft.com/regions/)     | Algemeen verkrijgbaar   | 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02-2017-04-02
+[Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 01-02-2018
+[Azure China](https://www.azure.cn/)                                                           | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 01-02-2018
+[Azure Duitsland](https://azure.microsoft.com/overview/clouds/germany/)                    | Algemeen verkrijgbaar | 2017-04-02, 2017-08-01, 2017-12-01, 01-02-2018
 
 Deze tabel wordt bijgewerkt wanneer er service-updates beschikbaar zijn en of nieuwe ondersteunde versies zijn beschikbaar
 
@@ -49,7 +49,7 @@ Als u wilt de Instance Metadata Service uitproberen, maakt u een VM op basis van
 ## <a name="usage"></a>Gebruik
 
 ### <a name="versioning"></a>Versiebeheer
-De Instance Metadata Service is samengesteld. Versies zijn verplicht en de huidige versie op algemene Azure `2017-12-01`. Huidige ondersteunde versies zijn (2017-04-02, 2017-08-01,2017-12-01)
+De Instance Metadata Service is samengesteld. Versies zijn verplicht en de huidige versie op algemene Azure `2018-04-02`. Huidige ondersteunde versies zijn (2017-04-02, 2017-08-01, 2017-12-01, 2018-04-02-2018-02-01)
 
 > [!NOTE] 
 > Eerdere versies van de Preview-versie van geplande gebeurtenissen {nieuwste} wordt ondersteund als de api-versie. Deze indeling wordt niet meer ondersteund en wordt in de toekomst afgeschaft.
@@ -299,6 +299,8 @@ subscriptionId | Azure-abonnement voor de virtuele Machine | 2017-08-01
 tags | [Tags](../../azure-resource-manager/resource-group-using-tags.md) voor uw virtuele Machine  | 2017-08-01
 resourceGroupName | [Resourcegroep](../../azure-resource-manager/resource-group-overview.md) voor uw virtuele Machine | 2017-08-01
 placementGroupId | [Plaatsingsgroep](../../virtual-machine-scale-sets/virtual-machine-scale-sets-placement-groups.md) instellen van uw virtuele-machineschaalset | 2017-08-01
+plan | [Abonnement] (https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#plan) voor een virtuele machine in het is een Azure Marketplace-installatiekopie, bevat de naam, product en uitgever | 2017-04-02
+publicKeys | Verzameling van openbare sleutels [https://docs.microsoft.com/en-us/rest/api/compute/virtualmachines/createorupdate#sshpublickey] toegewezen aan de virtuele machine en de paden | 2017-04-02
 vmScaleSetName | [Naam van de virtuele Machine ScaleSet](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) instellen van uw virtuele-machineschaalset | 2017-12-01
 zone | [Binnen een Beschikbaarheidszone](../../availability-zones/az-overview.md) van uw virtuele machine | 2017-12-01 
 IPv4/privateIpAddress | Lokale IPv4-adres van de virtuele machine | 2017-04-02
@@ -379,6 +381,39 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute?api-vers
 }
 ```
 
+
+### <a name="getting-azure-environment-where-the-vm-is-running"></a>Ophalen van Azure-omgeving waarop de virtuele machine wordt uitgevoerd 
+
+Azure heeft verschillende soverign clouds, zoals [Azure Government](https://azure.microsoft.com/overview/clouds/government/) , soms moet u de Azure-omgeving om sommige runtime beslissingen te nemen. Volgende voorbeeld ziet u hoe u dit kunt doen
+
+**Aanvraag**
+
+```
+  $metadataResponse = Invoke-WebRequest "http://169.254.169.254/metadata/instance/compute?api-version=2018-02-01" -H @{"Metadata"="true"} -UseBasicParsing
+  $metadata = ConvertFrom-Json ($metadataResponse.Content)
+ 
+  $endpointsResponse = Invoke-WebRequest "https://management.azure.com/metadata/endpoints?api-version=2017-12-01" -UseBasicParsing
+  $endpoints = ConvertFrom-Json ($endpointsResponse.Content)
+ 
+  foreach ($cloud in $endpoints.cloudEndpoint.PSObject.Properties) {
+    $matchingLocation = $cloud.Value.locations | Where-Object {$_ -match $metadata.location}
+    if ($matchingLocation) {
+      $cloudName = $cloud.name
+      break
+    }
+  }
+ 
+  $environment = "Unknown"
+  switch ($cloudName) {
+    "public" { $environment = "AzureCloud"}
+    "usGovCloud" { $environment = "AzureUSGovernment"}
+    "chinaCloud" { $environment = "AzureChinaCloud"}
+    "germanCloud" { $environment = "AzureGermanCloud"}
+  }
+ 
+  Write-Host $environment
+```
+
 ### <a name="examples-of-calling-metadata-service-using-different-languages-inside-the-vm"></a>Voorbeelden van het aanroepen van metadata-service met behulp van verschillende talen in de virtuele machine 
 
 Taal | Voorbeeld 
@@ -404,7 +439,7 @@ Puppet | https://github.com/keirans/azuremetadata
    * De Instance Metadata Service ondersteunt momenteel alleen exemplaren met Azure Resource Manager gemaakt. In de toekomst ondersteuning voor virtuele machines van Cloud Service kan worden toegevoegd.
 3. Ik heb mijn virtuele Machine via Azure Resource Manager een tijd weer gemaakt. Waarom kan ik niet Zie compute-metagegevens?
    * Voor virtuele machines die na Sep 2016 zijn gemaakt, voegt u toe een [Tag](../../azure-resource-manager/resource-group-using-tags.md) om te zien starten compute-metagegevens. Voor oudere VM's (gemaakt voordat Sep 2016), toevoegen/verwijderen-extensies of gegevens schijven aan de virtuele machine metagegevens vernieuwen.
-4. Ik zie niet alle gegevens ingevuld voor de nieuwe versie van 2017-08-01
+4. Ik zie niet alle gegevens voor de nieuwe versie is ingevuld
    * Voor virtuele machines die na Sep 2016 zijn gemaakt, voegt u toe een [Tag](../../azure-resource-manager/resource-group-using-tags.md) om te zien starten compute-metagegevens. Voor oudere VM's (gemaakt voordat Sep 2016), toevoegen/verwijderen-extensies of gegevens schijven aan de virtuele machine metagegevens vernieuwen.
 5. Waarom krijg ik de fout `500 Internal Server Error`?
    * Probeer uw aanvraag op basis van exponentieel uitstel system. Neem contact op met ondersteuning van Azure als het probleem zich blijft voordoen.
@@ -414,6 +449,10 @@ Puppet | https://github.com/keirans/azuremetadata
    * Ja is Metadata-service beschikbaar voor Schalingsinstanties instellen. 
 8. Hoe krijg ik ondersteuning voor de service?
    * Voor ondersteuning voor de service, maakt u een Ondersteuningsprobleem in Azure-portal voor de virtuele machine waar u zijn niet in staat om op te halen van de reactie met metagegevens na lange pogingen 
+9. Er verschijnt er is een time-out opgetreden voor de aanroep van de de service?
+   * Metagegevens-aanroepen moeten worden gemaakt van het primaire IP-adres toegewezen aan de netwerkkaart van de virtuele machine, ook als u hebt gewijzigd uw routes er moeten een route voor 169.254.0.0/16 adres buiten uw netwerkkaart.
+10. Kan ik mijn labels in Virtual Machine Scale set bijgewerkt, maar ze niet weergegeven in de exemplaren in tegenstelling tot virtuele machines?
+   * Op dit moment voor ScaleSets weergegeven labels alleen op de virtuele machine op een opnieuw opstarten/terugzetten van een installatiekopie/of een schijf met het exemplaar wijzigen. 
 
    ![Ondersteuning voor Instance-Metagegevens](./media/instance-metadata-service/InstanceMetadata-support.png)
     

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: a112e2f201109b71b7bab1c2b344ec4fcf2a851c
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: ff023812acd5e30bfec34254379431b3e620dac9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627641"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781839"
 ---
 # <a name="azure-active-directory-pass-through-authentication-current-limitations"></a>Azure Pass through-verificatie van Active Directory: Huidige beperkingen
 
@@ -47,7 +47,7 @@ De volgende scenario's zijn _niet_ ondersteund:
 - Pass through-verificatie is niet geïntegreerd met [Azure AD Connect Health](../connect-health/active-directory-aadconnect-health.md).
 
 >[!IMPORTANT]
->Als tijdelijke oplossing voor niet-ondersteunde scenario's _alleen_ (met uitzondering van Azure AD Connect Health-integratie), synchronisatie van Wachtwoordhashes inschakelen op de [optionele functies](active-directory-aadconnect-get-started-custom.md#optional-features) pagina in de Azure AD Connect-wizard. Wanneer gebruikers zich aanmelden op toepassingen die worden vermeld in de 'niet-ondersteunde scenario's "sectie, die specifieke aanmeldingsaanvragen worden _niet_ verwerkt door Pass through-verificatie-Agents en daarom niet worden vastgelegd in [ Pass through-verificatie registreert](active-directory-aadconnect-troubleshoot-pass-through-authentication.md#collecting-pass-through-authentication-agent-logs).
+>Als tijdelijke oplossing voor niet-ondersteunde scenario's _alleen_ (met uitzondering van Azure AD Connect Health-integratie), synchronisatie van Wachtwoordhashes inschakelen op de [optionele functies](active-directory-aadconnect-get-started-custom.md#optional-features) pagina in de Azure AD Connect-wizard.
 
 >[!NOTE]
 Wachtwoord-Hashsynchronisatie inschakelen biedt de mogelijkheid tot failover-verificatie als uw on-premises infrastructuur wordt onderbroken. Deze failover van Pass through-verificatie naar wachtwoord-Hashsynchronisatie wordt niet automatisch. U moet handmatig met behulp van Azure AD Connect methode overschakelen. Als de Azure AD Connect-server uitvalt, hebt u nodig hebt met hulp van Microsoft Support Pass through-verificatie uitschakelen.

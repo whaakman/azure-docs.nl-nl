@@ -9,12 +9,12 @@ ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: v-jansko
-ms.openlocfilehash: f5b916ba3b6b044f12b84958b2eb69f44e2f8136
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 15e01dd55a0fe297eab69417074dc58a15b469c4
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888138"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783209"
 ---
 # <a name="supported-languages-in-the-microsoft-translator-text-api"></a>Ondersteunde talen in de Microsoft Translator Text-API
 
@@ -38,8 +38,8 @@ De Microsoft Translator Text-API ondersteunt de volgende talen voor tekst naar t
 | Tsjechisch        |  Neurale |`cs`          |
 | Deens        |  Neurale |`da`          |
 | Nederlands        |  Neurale |`nl`          |
-| Engels       |  Neurale |`en`          |
-| Ests      | Neurale |`et`          |
+| Nederlands       |  Neurale |`en`          |
+| Estisch      | Neurale |`et`          |
 | Fiji      | Statistische |`fj`          |
 | Filipijns      | Statistische |`fil`          |
 | Fins      | Neurale |`fi`          |
@@ -62,7 +62,7 @@ De Microsoft Translator Text-API ondersteunt de volgende talen voor tekst naar t
 | Lets      | Neurale |`lv`          |
 | Litouws      | Neurale |`lt`          |
 | Malagassische      | Statistische |`mg`          |
-| Maleisisch      | Statistische |`ms`          |
+| Maleis      | Statistische |`ms`          |
 | Maltees      | Statistische |`mt`          |
 | Noors        |  Neurale |`nb`          |
 | Perzisch      | Statistische |`fa`          |
@@ -80,11 +80,12 @@ De Microsoft Translator Text-API ondersteunt de volgende talen voor tekst naar t
 | Zweeds        |  Neurale |`sv`          |
 | Tahitian      | Statistische |`ty`          |
 | Tamil      | Statistische |`ta`          |
-| Thai      | Neurale |`th`          |
+| Telugu   | Neurale   | `te` |
+| Thais      | Neurale |`th`          |
 | Tongan      | Statistische |`to`          |
 | Turks       |  Neurale |`tr`          |
 | Oekraïens      | Neurale |`uk`          |
-| Oerdoe      | Statistische |`ur`          |
+| Urdu      | Statistische |`ur`          |
 | Vietnamees      | Neurale |`vi`          |
 | Welsh      | Neurale |`cy`          |
 | Yucatec Maya      | Statistische |`yua`          |
@@ -97,24 +98,24 @@ De methode Transliterate ondersteunt de volgende talen. In de 'naar/van", '<>--'
 |:----------- |:-------------:|:-------------:|:-------------:|:-------------:|
 | Arabisch | ar | Arabisch | <--> | Latijns |
 |Bengalees  | bn | Bengaals | <--> | Latijns |
-| Chinees (Vereenvoudigd) | zh-Hans | Vereenvoudigd Chinees | <--> | Latijns |
-| Chinees (Vereenvoudigd) | zh-Hans | Vereenvoudigd Chinees | <--> | Traditioneel Chinees |
-| Chinees (Traditioneel) | zh-Hant | Traditioneel Chinees | <--> | Latijns |
-| Chinees (Traditioneel) | zh-Hant | Traditioneel Chinees | <--> | Vereenvoudigd Chinees |
+| Chinees (vereenvoudigd) | zh-Hans | Vereenvoudigd Chinees | <--> | Latijns |
+| Chinees (vereenvoudigd) | zh-Hans | Vereenvoudigd Chinees | <--> | Traditioneel Chinees |
+| Chinees (traditioneel) | zh-Hant | Traditioneel Chinees | <--> | Latijns |
+| Chinees (traditioneel) | zh-Hant | Traditioneel Chinees | <--> | Vereenvoudigd Chinees |
 | Gujarati | Gu  | Gujarati | --> | Latijns |
 | Hebreeuws | hij | Hebreeuws | <--> | Latijns |
 | Hindi | Hallo | Devanagari | <--> | Latijns |
 | Japans | ja | Japans | <--> | Latijns |
-| Kannada | kN | Kannada | --> | Latijns |
+| Kanarees | kN | Kanarees | --> | Latijns |
 | Malasian | ml | Malayalam | --> | Latijns |
-| Marathi | MR | Devanagari | --> | Latijns |
+| Mahratti | MR | Devanagari | --> | Latijns |
 | Odia | of | Odia | <--> | Latijns |
 | Punjabi | Pa | Gurmukhi | <--> | Latijns  |
 | Servisch (Cyrillisch) | SR-Cyrl | Cyrillisch  | --> | Latijns |
 | Servisch (Latijns) | SR-Latn | Latijns | --> | Cyrillisch |
 | Tamil | TA | Tamil | --> | Latijns |
 | Telugu | Ken | Telugu | --> | Latijns |
-| Thai | e | Thai | <--> | Latijns |
+| Thais | e | Thais | <--> | Latijns |
 
 ## <a name="dictionary"></a>Woordenlijst
 
@@ -133,7 +134,7 @@ De woordenlijst ondersteunt de volgende talen naar of van Engels met behulp van 
 | Tsjechisch      | `cs`          |
 | Deens      | `da`          |
 | Nederlands      | `nl`          |
-| Ests      | `et`          |
+| Estisch      | `et`          |
 | Fins      | `fi`          |
 | Frans      | `fr`          |
 | Duits      | `de`          |
@@ -152,7 +153,7 @@ De woordenlijst ondersteunt de volgende talen naar of van Engels met behulp van 
 | Koreaans      | `ko`          |
 | Lets      | `lv`          |
 | Litouws      | `lt`          |
-| Maleisisch      | `ms`          |
+| Maleis      | `ms`          |
 | Maltees      | `mt`          |
 | Noors      | `nb`          |
 | Perzisch      | `fa`          |
@@ -166,10 +167,10 @@ De woordenlijst ondersteunt de volgende talen naar of van Engels met behulp van 
 | Spaans      | `es`          |
 | Zweeds      | `sv`          |
 | Tamil      | `ta`          |
-| Thai      | `th`          |
+| Thais      | `th`          |
 | Turks      | `tr`          |
 | Oekraïens      | `uk`          |
-| Oerdoe      | `ur`          |
+| Urdu      | `ur`          |
 | Vietnamees      | `vi`          |
 | Welsh      | `cy`          |
 
@@ -187,15 +188,15 @@ De volgende talen kunnen worden gedetecteerd door de analyse-methode. Detecteren
 | Bulgaars |
 | Catalaans |
 | Chinees |
-| Chinees (Vereenvoudigd) |
-| Chinees (Traditioneel) |
+| Chinees (vereenvoudigd) |
+| Chinees (traditioneel) |
 | Kroatisch |
 | Tsjechisch |
 | Deens |
 | Nederlands |
-| Engels |
+| Nederlands |
 | Esperanto |
-| Ests |
+| Estisch |
 | Fins |
 | Frans |
 | Galicisch |
@@ -217,7 +218,7 @@ De volgende talen kunnen worden gedetecteerd door de analyse-methode. Detecteren
 | Lets |
 | Litouws |
 | Macedonisch |
-| Maleisisch |
+| Maleis |
 | Maltees |
 | Noors |
 | Noors (Nynorsk) |
@@ -236,10 +237,11 @@ De volgende talen kunnen worden gedetecteerd door de analyse-methode. Detecteren
 | Swahili |
 | Zweeds |
 | Tagalog |
-| Thai |
+| Telugu |
+| Thais |
 | Turks |
 | Oekraïens |
-| Oerdoe |
+| Urdu |
 | Oezbeeks (Cyrillisch) |
 | Oezbeeks (Latijns) |
 | Vietnamees |

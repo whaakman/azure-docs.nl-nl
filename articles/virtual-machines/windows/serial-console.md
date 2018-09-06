@@ -14,17 +14,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 725f52e55795025671036095f209fd92636a4d9c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 4e93e455e309771ed3e33382ee49cdc144036fb1
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701496"
+ms.locfileid: "43782410"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële Console van virtuele Machine (preview) 
 
 
-De seriële Console van de virtuele Machine op Azure biedt toegang tot een op tekst gebaseerde console voor Linux en Windows virtuele machines. Deze seriële verbinding is op de seriële poort COM1 van de virtuele machine en biedt toegang tot de virtuele machine en niet zijn gerelateerd aan virtuele machinenetwerk / operationele status van het systeem. Toegang tot de seriële console voor een virtuele machine kan worden uitgevoerd op dit moment alleen via Azure portal en toegestaan alleen voor gebruikers die VM-Inzender hebben of hoger toegang tot de virtuele machine. 
+De seriële Console van de virtuele Machine op Azure biedt toegang tot een op tekst gebaseerde console voor Windows-machines. Deze seriële verbinding is met de seriële poort COM1 van de virtuele machine, toegang tot de virtuele machine die onafhankelijk is van het netwerk of de staat van besturingssysteem van een virtuele machine. Toegang tot de seriële console voor een virtuele machine op dit moment kunnen alleen worden uitgevoerd via Azure portal en alleen voor gebruikers die VM-Inzender hebben of hoger toegang tot de virtuele machine is toegestaan. 
 
 Voor de seriële console-documentatie voor virtuele Linux-machines [Klik hier](../linux/serial-console.md).
 
@@ -46,7 +46,7 @@ Voor de seriële console-documentatie voor virtuele Linux-machines [Klik hier](.
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
 ## <a name="get-started-with-serial-console"></a>Aan de slag met de seriële Console
-Seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal](https://portal.azure.com). Hieronder volgen de stappen voor toegang tot de seriële console voor virtuele machines via de portal 
+Seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal](https://portal.azure.com). Hieronder volgen de stappen voor toegang tot de seriële console voor virtuele machines via de portal.
 
   1. De Azure-portal openen
   2. Selecteer de virtuele machines in het menu links.
@@ -55,8 +55,8 @@ Seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-## <a name="configure-serial-console-for-windows"></a>Seriële Console configureren voor Windows 
-Nieuwere Windows Server-installatiekopieën in Azure heeft [speciale beheerconsole](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) standaard ingeschakeld. SAC wordt ondersteund in serverversies van Windows, maar is niet beschikbaar is op clientversies (bijvoorbeeld Windows 10, Windows 8 of Windows 7). Als u wilt inschakelen voor Windows-machines die zijn gemaakt met behulp van de seriële console Feb2018 of lager installatiekopieën gebruikt u de volgende stappen uit: 
+## <a name="enable-serial-console-in-custom-or-older-images"></a>Seriële Console inschakelen in aangepaste of oudere installatiekopieën
+Nieuwere Windows Server-installatiekopieën in Azure heeft [speciale beheerconsole](https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) (SAC) standaard ingeschakeld. SAC wordt ondersteund in serverversies van Windows, maar is niet beschikbaar is op clientversies (bijvoorbeeld Windows 10, Windows 8 of Windows 7). Als u wilt inschakelen voor Windows-machines die zijn gemaakt vóór februari 2018 de seriële console, gebruikt u de volgende stappen uit: 
 
 1. Verbinding maken met uw Windows-machine via Extern bureaublad
 2. Voer de volgende opdrachten vanaf een opdrachtprompt met beheerdersrechten. 
@@ -73,13 +73,13 @@ Als de benodigde SAC kan offline worden ingeschakeld
 * `bcdedit /store <mountedvolume>\boot\bcd /ems {default} on`
 * `bcdedit /store <mountedvolume>\boot\bcd /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 
-### <a name="how-do-i-know-if-sac-is-enabled-or-not"></a>Hoe weet ik of SAC is ingeschakeld of niet 
+### <a name="how-do-i-know-if-sac-is-enabled"></a>Hoe weet ik of SAC is ingeschakeld?
 
-Als [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) niet is ingeschakeld de seriële console wordt niet weergegeven voor de SAC-prompt. Het kan een VM-status-informatie weergeven in sommige gevallen of het normaal zou zijn leeg.  
+Als [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) niet is ingeschakeld de seriële console wordt niet weergegeven voor de SAC-prompt. In sommige gevallen kan de VM-status gegevens worden weergegeven en in andere gevallen wordt het leeg zijn.  
 
-## <a name="enabling-boot-menu-to-show-in-the-serial-console"></a>Opstartmenu om weer te geven in de seriële console inschakelen 
+## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Het opstartmenu Windows in de seriële Console inschakelen 
 
-Als u nodig hebt om in te schakelen van Windows-opstartlaadprogramma wordt u gevraagd om weer te geven in de seriële console, kunt u de volgende aanvullende opties toevoegen aan Windows-opstartlaadprogramma.
+Als u nodig hebt om in te schakelen van Windows-opstartlaadprogramma wordt u gevraagd om weer te geven in de seriële console, kunt u de volgende aanvullende opties toevoegen aan uw opstartconfiguratiegegevens. Zie [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set) voor meer informatie
 
 1. Verbinding maken met uw Windows-machine via Extern bureaublad
 2. Voer de volgende opdrachten vanaf een opdrachtprompt met beheerdersrechten. 
@@ -88,8 +88,14 @@ Als u nodig hebt om in te schakelen van Windows-opstartlaadprogramma wordt u gev
 * `bcdedit /set {bootmgr} bootems yes`
 3. Opnieuw opstarten van het systeem voor het opstartmenu worden ingeschakeld
 
-> [!NOTE] 
-> Op dit moment biedt ondersteuning voor functie sleutels niet is ingeschakeld, als u nodig hebt met het geavanceerde opstartopties bcdedit/set {huidige} onetimeadvancedoptions op gebruiken, raadpleegt u [bcdedit](https://docs.microsoft.com/windows-hardware/drivers/devtest/bcdedit--set) voor meer informatie
+## <a name="use-serial-console-for-nmi-calls-in-windows-vms"></a>Seriële Console voor NMI aanroepen in de Windows-VM's gebruiken
+Een niet-maskeren interrupt (NMI) is ontworpen voor het maken van een signaal dat software op een virtuele machine worden niet genegeerd. In het verleden zijn NMIs gebruikt om te controleren op hardwareproblemen op systemen die specifieke reactietijden vereist.  NMI vandaag, programmeurs en systeembeheerders vaak gebruikt als een mechanisme voor foutopsporing of problemen met systemen die zijn vastgelopen.
+
+De seriële Console kan worden gebruikt voor het verzenden van een NMI met een Azure-machine via het toetsenbordpictogram in de opdrachtbalk die hieronder wordt weergegeven. Zodra de NMI wordt geleverd, worden de virtuele-machineconfiguratie bepalen hoe het systeem reageert. Windows kan worden geconfigureerd voor crashes en een geheugendump maken wanneer er een NMI worden ontvangen.
+
+![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
+
+Zie voor meer informatie over het configureren van Windows voor het maken van een crashdump wanneer deze een NMI ontvangt: [het genereren van een volledige crashdumpbestand of een kernel crashdumpbestand met behulp van een NMI op een Windows-systeem](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## <a name="disable-serial-console"></a>Seriële Console uitschakelen
 Standaard hebben alle abonnementen seriële console-toegang ingeschakeld voor alle virtuele machines. U kunt de seriële console van het abonnement of de VM-niveau uitschakelen.
@@ -157,15 +163,6 @@ Bestandssysteem beschadigd/selectievakje | Toegang tot de seriële console van m
 Problemen met RDP-configuratie | Toegang tot de seriële console en instellingen wijzigen. Ga naar de [RDP documentatie](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-allow-access) aan de slag.
 Systeem voor het vergrendelen van netwerk| Toegang tot de seriële console via de portal voor het beheren van systeem. Sommige netwerkopdrachten worden vermeld in de [seriële Console CMD- en PowerShell-documentatie](./serial-console-cmd-ps-commands.md). 
 Interactie met de bootloader | BCD toegang via de seriële console. Ga naar [Opstartmenu inschakelen om weer te geven in de seriële console](#enabling-boot-menu-to-show-in-the-serial-console) aan de slag. 
-
-## <a name="using-serial-console-for-nmi-calls-in-windows-vms"></a>In Windows-VM's met behulp van de seriële Console voor NMI aanroepen
-Een niet-maskeren interrupt (NMI) is ontworpen voor het maken van een signaal dat software op een virtuele machine worden niet genegeerd. In het verleden zijn NMIs gebruikt om te controleren op hardwareproblemen op systemen die specifieke reactietijden vereist.  NMI vandaag, programmeurs en systeembeheerders vaak gebruikt als een mechanisme voor foutopsporing of problemen met systemen die zijn vastgelopen.
-
-De seriële Console kan worden gebruikt voor het verzenden van een NMI met een Azure-machine via het toetsenbordpictogram in de opdrachtbalk die hieronder wordt weergegeven. Zodra de NMI wordt geleverd, worden de virtuele-machineconfiguratie bepalen hoe het systeem reageert. Windows kan worden geconfigureerd voor crashes en een geheugendump maken wanneer er een NMI worden ontvangen.
-
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-nmi.png) <br>
-
-Zie voor meer informatie over het configureren van Windows voor het maken van een crashdump wanneer deze een NMI ontvangt: [het genereren van een volledige crashdumpbestand of een kernel crashdumpbestand met behulp van een NMI op een Windows-systeem](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## <a name="accessibility"></a>Toegankelijkheid
 Toegankelijkheid is een belangrijke focus voor de seriële console van Azure. Wat dat betreft, hebben we ervoor gezorgd dat dat de seriële console is toegankelijk voor mensen met het visuele element en gehoorproblemen, evenals de mensen die misschien niet mogelijk een muis te gebruiken.

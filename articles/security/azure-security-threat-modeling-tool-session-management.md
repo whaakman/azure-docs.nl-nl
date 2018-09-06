@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: cd843f1826ad65098a7c0f6d30383113ccd28f6a
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 97953779f1132d89c7ad07abdb4e08c0f476f4b9
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43306436"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841810"
 ---
-# <a name="security-frame-session-management--articles"></a>Security Frame: Sessiebeheer | Artikelen 
+# <a name="security-frame-session-management"></a>Frame beveiliging: Sessiebeheer
 | Product/Service | Artikel |
 | --------------- | ------- |
 | **Azure AD**    | <ul><li>[De juiste afmelden implementeren met behulp van ADAL methoden bij het gebruik van Azure AD](#logout-adal)</li></ul> |
@@ -380,36 +380,42 @@ void Page_Init (object sender, EventArgs e) {
 | **Stappen** | Sessietime-out vertegenwoordigt de gebeurtenis die plaatsvindt wanneer een gebruiker niet een actie op een website uitvoeren tijdens een interval van is (gedefinieerd door de webserver). De gebeurtenis, aan serverzijde, de status van de gebruikerssessie wijzigen naar 'ongeldig' (bijvoorbeeld ' niet meer gebruikt') en dat de webserver te vernietigen (verwijderen van alle gegevens die erin zijn opgenomen). Het volgende codevoorbeeld wordt de time-out van sessie-kenmerk ingesteld op 15 minuten in het bestand Web.config.|
 
 ### <a name="example"></a>Voorbeeld
-'''XML-code <configuration> < system.web > <sessionState mode="InProc" cookieless="true" timeout="15" /> < /system.web > </configuration>
+```XML 
+<configuration>
+  <system.web>
+    <sessionState mode="InProc" cookieless="true" timeout="15" />
+  </system.web>
+</configuration>
 ```
 
-## <a id="threat-detection"></a>Enable Threat detection on Azure SQL
-```
-
-| Titel                   | Details      |
-| ----------------------- | ------------ |
-| **Onderdeel**               | Webtoepassing | 
-| **SDL-fase**               | Ontwikkelen |  
-| **Van toepassing technologieën** | Webformulieren |
-| **Kenmerken**              | N/A  |
-| **Verwijzingen**              | [Element vormt voor verificatie (ASP.NET-instellingenschema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
-| **Stappen** | De time-out van de cookie Formulierverificatieticket ingesteld op 15 minuten|
-
-### <a name="example"></a>Voorbeeld
-'''XML-code <forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
-</forms>
+## <a id="threat-detection"></a>Detectie van bedreigingen op SQL Azure inschakelen
 ```
 
 | Title                   | Details      |
 | ----------------------- | ------------ |
 | **Component**               | Web Application | 
 | **SDL Phase**               | Build |  
-| **Applicable Technologies** | Web Forms, MVC5 |
-| **Attributes**              | EnvironmentType - OnPrem |
-| **References**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
-| **Steps** | When the web application is Relying Party and ADFS is the STS, the lifetime of the authentication cookies - FedAuth tokens - can be set by the following configuration in web.config:|
+| **Applicable Technologies** | Web Forms |
+| **Attributes**              | N/A  |
+| **References**              | [forms Element for authentication (ASP.NET Settings Schema)](https://msdn.microsoft.com/library/1d3t3c61(v=vs.100).aspx) |
+| **Steps** | Set the Forms Authentication Ticket cookie timeout to 15 minutes|
 
 ### Example
+```XML
+<forms  name=".ASPXAUTH" loginUrl="login.aspx"  defaultUrl="default.aspx" protection="All" timeout="15" path="/" requireSSL="true" slidingExpiration="true"/>
+</forms>
+```
+
+| Titel                   | Details      |
+| ----------------------- | ------------ |
+| **Onderdeel**               | Webtoepassing | 
+| **SDL-fase**               | Ontwikkelen |  
+| **Van toepassing technologieën** | Webformulieren, MVC5 |
+| **Kenmerken**              | EnvironmentType - on-premises |
+| **Verwijzingen**              | [asdeqa](https://skf.azurewebsites.net/Mitigations/Details/wefr) |
+| **Stappen** | Wanneer de web-App Relying Party is en AD FS de STS is, kan de levensduur van de verificatiecookies die - tokens FedAuth - worden ingesteld door de volgende configuratie in web.config:|
+
+### <a name="example"></a>Voorbeeld
 ```XML
   <system.identityModel.services>
     <federationConfiguration>

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/10/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: de2e1defeff9ab2dd78bdf019009b62955f73b88
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970548"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842495"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hosting-servers voor de SQL-resourceprovider toevoegen
 
@@ -78,15 +78,15 @@ Als u wilt toevoegen van een zelfstandige host-server die al ingesteld, de volge
 
 1. Meld u aan de portal van Azure Stack-operator als de servicebeheerder van een.
 
-2. Selecteer **Bladeren** &gt; **BEHEERDERSRESOURCES** &gt; **SQL Servers die als host fungeert**.
+2. Selecteer **alle services** &gt; **BEHEERDERSRESOURCES** &gt; **SQL-Servers die als host fungeert**.
 
    ![SQL-Servers die als host fungeert](./media/azure-stack-sql-rp-deploy/sqlhostingservers.png)
 
-   Onder **SQL-Servers die als host fungeert**, u kunt de SQL-resourceprovider verbinding maken met exemplaren van SQL Server, die als back-end van de resourceprovider dienen.
+   Onder **SQL-Servers die als host fungeert**, u kunt de SQL-resourceprovider verbinding maken met exemplaren van SQL Server die als back-end van de resourceprovider fungeren moet.
 
-   ![SQL-Adapter-dashboard](./media/azure-stack-sql-rp-deploy/sqladapterdashboard.png)
+   ![SQL-Adapter-dashboard](./media/azure-stack-sql-rp-deploy/sqlrp-hostingserver.png)
 
-3. Op **toevoegen van een SQL-Server die als host fungeert**, bieden de verbindingsgegevens voor uw SQL Server-exemplaar.
+3. Klik op **toevoegen** en geef vervolgens de verbindingsgegevens voor uw SQL Server-exemplaar op de **toevoegen van een SQL-Server die als host fungeert** blade.
 
    ![Toevoegen van een SQL Server die als host fungeert](./media/azure-stack-sql-rp-deploy/sqlrp-newhostingserver.png)
 

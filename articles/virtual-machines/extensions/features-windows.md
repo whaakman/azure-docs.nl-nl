@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e23d3c39c6fd4e69f03ab0f2c11c9b523307b788
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: fc2433b8ac12bc1d485b6f23b56f356041e5128e
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715138"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783097"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensies voor virtuele machines en functies voor Windows
 
@@ -43,7 +43,7 @@ Een aangepast Script-extensie is naast processpecifieke extensies beschikbaar vo
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voor het afhandelen van de extensie op de virtuele machine, moet u de Azure Linux Agent is geïnstalleerd. Aantal afzonderlijke extensies hebben vereisten, zoals toegang tot bronnen of afhankelijkheden.
+Voor het afhandelen van de extensie op de virtuele machine, moet u de Azure Windows-Agent is geïnstalleerd. Aantal afzonderlijke extensies hebben vereisten, zoals toegang tot bronnen of afhankelijkheden.
 
 ### <a name="azure-vm-agent"></a>Azure VM-agent
 

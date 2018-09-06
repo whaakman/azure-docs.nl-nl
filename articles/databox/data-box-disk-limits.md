@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 07/12/2018
+ms.date: 09/04/2018
 ms.author: alkohli
 ms.custom: ''
-ms.openlocfilehash: 358f81498d8caad7c0a67519bbb776efa153249f
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 3b26c5f9a6d75725fb102d89192e77988b295dea
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42054651"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782022"
 ---
 # <a name="azure-data-box-disk-limits-preview"></a>Limieten voor Azure Data Box-schijf (Preview)
 
@@ -33,7 +33,7 @@ Houd rekening met deze limieten bij het implementeren en uitvoeren van uw oploss
 
 ## <a name="data-box-service-limits"></a>Data Box-service-limieten
 
- - Data Box-service is alleen beschikbaar in VS- en EU in alle Azure-regio's voor openbare Azure-cloud.
+ - Data Box-service is alleen beschikbaar in VS, EU, Canada en Australië in alle Azure-regio's voor openbare Azure-cloud.
  - Een enkel opslagaccount wordt ondersteund met de Data Box-schijf.
 
 ## <a name="data-box-disk-performance"></a>Prestaties van de Data Box-schijf
@@ -77,8 +77,8 @@ Hier vindt u de grootte van de Azure-objecten die kunnen worden geschreven. Zorg
 
 | Azure-objecttype | Standaardlimiet                                             |
 |-------------------|-----------------------------------------------------------|
-| Blok-Blob        | ~ 8 TB                                                 |
-| Pagina-blobs         | 1 TB <br> (Elk bestand dat is geüpload in de indeling van de pagina-Blob moet zijn uitgelijnd 512 bytes (een integraal meerdere), anders het uploaden is mislukt. <br> De VHD en VHDX zijn 512 bytes uitgelijnd.) |
+| Blok-blob        | ~ 8 TB                                                 |
+| Pagina-blob         | 1 TB <br> (Elk bestand dat is geüpload in de indeling van de pagina-Blob moet zijn uitgelijnd 512 bytes (een integraal meerdere), anders het uploaden is mislukt. <br> De VHD en VHDX zijn 512 bytes uitgelijnd.) |
 
 
 ## <a name="azure-block-blob-and-page-blob-naming-conventions"></a>Azure blok-blobs en pagina-blob naamconventies

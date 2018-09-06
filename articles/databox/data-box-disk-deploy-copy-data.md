@@ -12,15 +12,15 @@ ms.devlang: NA
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 07/12/2018
+ms.date: 09/05/2018
 ms.author: alkohli
 Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b0769ba70f495728df5c38b43bae4059b27de88b
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: f25d0b3522658d5fcd4b34110cb03b624dd9e7b1
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39010817"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841502"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-disk-and-verify"></a>Zelfstudie: gegevens kopiëren naar de Azure Data Box-schijf en deze gegevens controleren
 
@@ -76,10 +76,10 @@ Voer de volgende stappen uit om verbinding te maken en gegevens van uw computer 
     
     |Parameters/opties  |Beschrijving |
     |--------------------|------------|
-    |<Source>            | Hiermee geeft u het pad naar de bronmap op.        |
-    |<Destination>       | Hiermee geeft u het pad naar de doelmap op.        |
+    |Bron            | Hiermee geeft u het pad naar de bronmap op.        |
+    |Doel       | Hiermee geeft u het pad naar de doelmap op.        |
     |/E                  | Hiermee kopieert u submappen, met inbegrip van lege mappen. |
-    |/MT[:N]             | Hiermee maakt u kopieën met meerdere threads met N-threads, waarbij N een geheel getal tussen 1 en 128 is. <br>De standaardwaarde voor N is 8.        |
+    |/MT[:N]             | Hiermee maakt u kopieën met meerdere (N) threads, waarbij N een geheel getal tussen 1 en 128 is. <br>De standaardwaarde voor N is 8.        |
     |/R: <N>             | Hiermee geeft u het aantal nieuwe pogingen bij mislukte kopieerbewerkingen op. De standaardwaarde van N is 1.000.000 (één miljoen nieuwe pogingen).        |
     |/W: <N>             | Hiermee geeft u de wachttijd tussen nieuwe pogingen op in seconden. De standaardwaarde van N is 30 (wachttijd 30 seconden).        |
     |/NFL                | Hiermee geeft u op dat bestandsnamen niet moeten worden vastgelegd.        |

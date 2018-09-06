@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 29ed96044ceaa914db3f8b7090a1be5f65827e54
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 5f654ce8730af1e66e0186d7087aa130b00afd2b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627471"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782105"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-frequently-asked-questions"></a>Azure Active Directory naadloze eenmalige aanmelding: veelgestelde vragen
 
@@ -84,12 +84,11 @@ Volg deze stappen op de on-premises server waarop Azure AD Connect:
 
 ### <a name="step-1-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Step 1. Lijst met AD-forests waarop naadloze eenmalige aanmelding is ingeschakeld
 
-1. Eerst, downloaden en installeren van de [Microsoft Online Services-aanmeldhulp](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Download en installeer vervolgens de [64-bits Azure Active Directory-module voor Windows PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-msonlinev1?view=azureadps-1.0).
-3. Navigeer naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
-4. Importeer de naadloze eenmalige aanmelding PowerShell-module met de volgende opdracht: `Import-Module .\AzureADSSO.psd1`.
-5. Voer PowerShell uit als beheerder. In PowerShell, roept u `New-AzureADSSOAuthenticationContext`. Met deze opdracht geeft u een pop-upvenster van uw tenant hoofdbeheerder referenties in te voeren.
-6. Bel `Get-AzureADSSOStatus`. Met deze opdracht biedt u de lijst met AD-forests (zoek op de lijst met 'Domeinen') op die deze functie is ingeschakeld.
+1. Eerst, download en installeer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Navigeer naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
+3. Importeer de naadloze eenmalige aanmelding PowerShell-module met de volgende opdracht: `Import-Module .\AzureADSSO.psd1`.
+4. Voer PowerShell uit als beheerder. In PowerShell, roept u `New-AzureADSSOAuthenticationContext`. Met deze opdracht geeft u een pop-upvenster van uw tenant hoofdbeheerder referenties in te voeren.
+5. Bel `Get-AzureADSSOStatus`. Met deze opdracht biedt u de lijst met AD-forests (zoek op de lijst met 'Domeinen') op die deze functie is ingeschakeld.
 
 ### <a name="step-2-update-the-kerberos-decryption-key-on-each-ad-forest-that-it-was-set-it-up-on"></a>Stap 2. Bijwerken van de Kerberos-ontsleutelingssleutel op elk AD-forest dat deze is dit instellen op
 
@@ -123,26 +122,24 @@ Als u wilt de opschonen te voltooien, volgt u de stappen 2 en 3 op de on-premise
 
 Voer de volgende stappen uit op de on-premises server waarop Azure AD Connect:
 
-1. Eerst, downloaden en installeren van de [Microsoft Online Services-aanmeldhulp](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Download en installeer vervolgens de [64-bits Azure Active Directory-module voor Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Navigeer naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
-4. Importeer de naadloze eenmalige aanmelding PowerShell-module met de volgende opdracht: `Import-Module .\AzureADSSO.psd1`.
-5. Voer PowerShell uit als beheerder. In PowerShell, roept u `New-AzureADSSOAuthenticationContext`. Met deze opdracht geeft u een pop-upvenster van uw tenant hoofdbeheerder referenties in te voeren.
-6. Bel `Enable-AzureADSSO -Enable $false`.
+1. Eerst, download en installeer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Navigeer naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
+3. Importeer de naadloze eenmalige aanmelding PowerShell-module met de volgende opdracht: `Import-Module .\AzureADSSO.psd1`.
+4. Voer PowerShell uit als beheerder. In PowerShell, roept u `New-AzureADSSOAuthenticationContext`. Met deze opdracht geeft u een pop-upvenster van uw tenant hoofdbeheerder referenties in te voeren.
+5. Bel `Enable-AzureADSSO -Enable $false`.
 
 >[!IMPORTANT]
 >Naadloze eenmalige aanmelding uitschakelen verandert met behulp van PowerShell niet de status in Azure AD Connect. Naadloze eenmalige aanmelding wordt weergegeven als ingeschakeld in de **aanmelden van gebruikers wijzigen** pagina.
 
 ### <a name="step-2-get-list-of-ad-forests-where-seamless-sso-has-been-enabled"></a>Stap 2. Lijst met AD-forests waarop naadloze eenmalige aanmelding is ingeschakeld
 
-Volg de stappen 1 t/m 5 hieronder als u naadloze eenmalige aanmelding met Azure AD Connect hebt uitgeschakeld. Als u naadloze eenmalige aanmelding met behulp van PowerShell in plaats daarvan hebt uitgeschakeld, gaat u verder naar stap 6 hieronder.
+Voer de taken 1 tot en met 4 hieronder als u naadloze eenmalige aanmelding met Azure AD Connect hebt uitgeschakeld. Als u naadloze eenmalige aanmelding met behulp van PowerShell in plaats daarvan hebt uitgeschakeld, gaat u verder naar taak 5 hieronder.
 
-1. Eerst, downloaden en installeren van de [Microsoft Online Services-aanmeldhulp](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Download en installeer vervolgens de [64-bits Azure Active Directory-module voor Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Navigeer naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
-4. Importeer de naadloze eenmalige aanmelding PowerShell-module met de volgende opdracht: `Import-Module .\AzureADSSO.psd1`.
-5. Voer PowerShell uit als beheerder. In PowerShell, roept u `New-AzureADSSOAuthenticationContext`. Met deze opdracht geeft u een pop-upvenster van uw tenant hoofdbeheerder referenties in te voeren.
-6. Bel `Get-AzureADSSOStatus`. Met deze opdracht biedt u de lijst met AD-forests (zoek op de lijst met 'Domeinen') op die deze functie is ingeschakeld.
+1. Eerst, download en installeer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Navigeer naar de map `%programfiles%\Microsoft Azure Active Directory Connect`.
+3. Importeer de naadloze eenmalige aanmelding PowerShell-module met de volgende opdracht: `Import-Module .\AzureADSSO.psd1`.
+4. Voer PowerShell uit als beheerder. In PowerShell, roept u `New-AzureADSSOAuthenticationContext`. Met deze opdracht geeft u een pop-upvenster van uw tenant hoofdbeheerder referenties in te voeren.
+5. Bel `Get-AzureADSSOStatus`. Met deze opdracht biedt u de lijst met AD-forests (zoek op de lijst met 'Domeinen') op die deze functie is ingeschakeld.
 
 ### <a name="step-3-manually-delete-the-azureadssoacct-computer-account-from-each-ad-forest-that-you-see-listed"></a>Stap 3. Verwijder handmatig de `AZUREADSSOACCT` computeraccount in elk AD-forest die u ziet die worden vermeld.
 

@@ -14,12 +14,12 @@ ms.date: 03/09/2018
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 656577211a992432366033326362c9892f7ba6ef
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 29a53101bff8c384d01f952c4498e09d9d970ee3
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37861701"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841731"
 ---
 # <a name="configure-the-expiration-policy-for-office-365-groups"></a>Het vervalbeleid voor Office 365-groepen configureren
 
@@ -43,9 +43,9 @@ Rol | Machtigingen
 Globale beheerder of beheerder van gebruikersaccounts | Kunt maken, lezen, bijwerken of verwijderen van de beleidsinstellingen voor verlopen van Office 365-groepen<br>Kan Office 365-groep vernieuwen
 Gebruiker | Een Office 365-groep waarvan ze eigenaar kunt vernieuwen<br>Een Office 365-groep waarvan ze eigenaar kunt herstellen<br>De vervaldatum kunt beleidsinstellingen lezen
 
-Zie voor meer informatie over machtigingen om terug te zetten van een verwijderde groep [een verwijderde Office 365-groep in Azure Active Directory terugzetten](../fundamentals/active-directory-groups-restore-azure-portal.md).
+Zie voor meer informatie over machtigingen om terug te zetten van een verwijderde groep [een verwijderde Office 365-groep in Azure Active Directory terugzetten](groups-restore-deleted.md).
 
-## <a name="set-group-expiration"></a>Vervaldatum van de groep instellen
+## <a name="set-group-expiration"></a>Verloopdatum van de groep instellen
 
 1. Open de [Azure AD-beheercentrum](https://aad.portal.azure.com) met een account dat een globale beheerder in uw Azure AD-tenant.
 
@@ -71,7 +71,7 @@ Wanneer een groep is verlopen, kan de groep één dag na de vervaldatum is verwi
 
 ![E-mailmelding in verwijderen](./media/groups-lifecycle/deletion-notification.png)
 
-De groep binnen 30 dagen na de verwijdering kan worden hersteld door het selecteren van **groep herstellen** of met behulp van PowerShell-cmdlets, zoals beschreven in [een verwijderde Office 365-groep in Azure Active Directory terugzetten](../fundamentals/active-directory-groups-restore-azure-portal.md).
+De groep binnen 30 dagen na de verwijdering kan worden hersteld door het selecteren van **groep herstellen** of met behulp van PowerShell-cmdlets, zoals beschreven in [een verwijderde Office 365-groep in Azure Active Directory terugzetten](groups-restore-deleted.md).
     
 Als de groep die u herstellen van wilt documenten, SharePoint-sites of andere permanente objecten bevat, is het duurt maximaal 24 uur aan de groep en de inhoud ervan volledig te herstellen.
 
@@ -146,8 +146,8 @@ De volgende cmdlets kan worden gebruikt om het beleid configureren in meer detai
 ## <a name="next-steps"></a>Volgende stappen
 Deze artikelen bevatten aanvullende informatie over Azure AD-groepen.
 
-* [Zie de bestaande groepen](../fundamentals/active-directory-groups-view-azure-portal.md)
+* [Bestaande groepen weergeven](../fundamentals/active-directory-groups-view-azure-portal.md)
 * [Instellingen van een groep beheren](../fundamentals/active-directory-groups-settings-azure-portal.md)
 * [Leden van een groep beheren](../fundamentals/active-directory-groups-members-azure-portal.md)
-* [Lidmaatschap van een groep beheren](../fundamentals/active-directory-groups-membership-azure-portal.md)
+* [Lidmaatschappen van een groep beheren](../fundamentals/active-directory-groups-membership-azure-portal.md)
 * [Dynamische regels voor gebruikers in een groep beheren](groups-dynamic-membership.md)

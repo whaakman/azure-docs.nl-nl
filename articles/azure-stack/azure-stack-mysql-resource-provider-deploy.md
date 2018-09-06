@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 6d6ee22bd1691f1af6956330b3299a1483c588f7
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 722df244135d045e18b9f2d0dd88066ba00b7d49
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696636"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841876"
 ---
 # <a name="deploy-the-mysql-resource-provider-on-azure-stack"></a>De resourceprovider van MySQL in Azure Stack implementeren
 
 De resourceprovider van MySQL-Server gebruiken om MySQL-databases als een Azure Stack-service zichtbaar te maken. De MySQL-resourceprovider wordt uitgevoerd als een service op een Windows Server 2016 Server Core-machine (VM).
+
+> [!IMPORTANT]
+> Alleen de resourceprovider wordt ondersteund voor het maken van items op servers die SQL-host of MySQL. Items die zijn gemaakt op een host-server die niet zijn gemaakt door de resourceprovider kunnen leiden tot een niet-overeenkomende staat.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -150,6 +153,7 @@ Wanneer het script voor resource provider-installatie is voltooid, vernieuw uw b
 2. Selecteer **resourcegroepen**
 3. Selecteer de **system.\< locatie\>.mysqladapter** resourcegroep.
 4. Op de overzichtspagina voor de resourcegroep overzicht, mogen er geen mislukte implementaties.
+5. Selecteer ten slotte **virtuele machines** in de beheerportal om te controleren of de MySQL-resourceprovider virtuele machine correct is gemaakt en wordt uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

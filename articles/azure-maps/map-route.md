@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 44937bbe619e3bc0b43fd9872c97a7b185f98bdd
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 80abd6db9888524aa6a66d9861d8dc2d05188e19
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669343"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781493"
 ---
 # <a name="show-directions-from-a-to-b"></a>Routebeschrijving van A naar B 
 
@@ -37,7 +37,7 @@ Maakt gebruik van het volgende codeblok [setCameraBounds](https://docs.microsoft
 
 Het zesde codeblok wordt een route-query.
 
-Het laatste blok van code de Azure Maps-service voor gebeurtenisroutering via query's de [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) methode voor het ophalen van een route tussen de begin- en doel het toegangspunt. Het antwoord wordt vervolgens geparseerd in de GeoJSON-notatie gebruiken de [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) methode. Alle regels op de kaart om weer te geven van de route wordt toegevoegd. U kunt zien [toevoegen van een regel op de kaart](./map-add-shape.md#addALine) voor instructies.
+Het laatste blok van code de Azure Maps-service voor gebeurtenisroutering via query's de [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) methode voor het ophalen van een route tussen de begin- en doel het toegangspunt. Het antwoord wordt vervolgens geparseerd in de GeoJSON-notatie gebruiken de [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) methode. Alle regels op de kaart om weer te geven van de route wordt toegevoegd. U kunt zien [toevoegen van een regel op de kaart](./map-add-shape.md#addALine) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,25 +1,24 @@
 ---
 title: On-premises gegevensgateway - Azure Logic Apps installeren | Microsoft Docs
-description: Het downloaden en installeren van de on-premises gegevensgateway voordat u toegang gegevens on-premises vanuit logische apps tot
+description: Voordat u krijgt gegevens on-premises van Azure Logic Apps tot toegang, downloaden en installeren van de on-premises gegevensgateway
 services: logic-apps
 ms.service: logic-apps
+ms.suite: integration
 author: ecfan
 ms.author: estfan
-manager: jeconnoc
+ms.reviewer: yshoukry, LADocs
 ms.topic: article
 ms.date: 07/20/2018
-ms.reviewer: yshoukry, LADocs
-ms.suite: integration
-ms.openlocfilehash: 616e3d81d577fd30e65117ec15c65250d3b3e27e
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d4fbbcb81433876e4c57763b8a90b3ff1168a699
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503645"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842444"
 ---
-# <a name="install-the-on-premises-data-gateway-for-azure-logic-apps"></a>De on-premises gegevensgateway installeren voor Azure Logic Apps
+# <a name="install-on-premises-data-gateway-for-azure-logic-apps"></a>On-premises gegevensgateway installeren voor Azure Logic Apps
 
-Voordat u uw logische apps verbinding met on-premises gegevensbronnen maken kunt, downloaden en installeren van de on-premises gegevensgateway op een lokale computer. De gateway werkt als een brug waarmee snelle gegevensoverdracht en gegevensversleuteling tussen gegevensbronnen on-premises (niet in de cloud) en uw logische apps. Dit artikel wordt beschreven hoe u kunt downloaden, installeren en instellen van uw on-premises gegevensgateway. 
+Voordat u verbinding met on-premises gegevensbronnen vanuit Azure Logic Apps maken kunt, downloaden en installeren van de on-premises gegevensgateway op een lokale computer. De gateway werkt als een brug waarmee snelle gegevensoverdracht en gegevensversleuteling tussen gegevensbronnen on-premises (niet in de cloud) en uw logische apps. Dit artikel wordt beschreven hoe u kunt downloaden, installeren en instellen van uw on-premises gegevensgateway. 
 
 U kunt dezelfde gatewayinstallatie gebruiken met andere services, zoals Power BI, Microsoft Flow, PowerApps en Azure Analysis Services. Meer informatie over [de werking van de data gateway](#gateway-cloud-service).
 
@@ -50,9 +49,13 @@ Zie de volgende artikelen voor meer informatie over het gebruik van de gateway m
 
 <a name="requirements"></a>
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
-* Een [werk- of schoolaccount](../active-directory/fundamentals/sign-up-organization.md) waarvoor een [Azure-abonnement](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer). Tijdens de gatewayinstallatie van de aanmelden u bij dit account, zodat u de installatie van de gateway aan uw Azure-abonnement koppelen kunt. Later kunt u ook gebruiken hetzelfde account wanneer u een Azure-resource voor uw gatewayinstallatie in de Azure-portal maakt. Als u een Azure-abonnement nog geen <a href="https://azure.microsoft.com/free/" target="_blank">zich aanmelden voor een gratis Azure-account</a>.
+* Een [werk- of schoolaccount](../active-directory/fundamentals/sign-up-organization.md) waarvoor een [Azure-abonnement](https://docs.microsoft.com/azure/architecture/cloud-adoption-guide/adoption-intro/subscription-explainer) 
+
+  Tijdens de gatewayinstallatie van de aanmelden u bij dit account, zodat u de installatie van de gateway aan uw Azure-abonnement koppelen kunt. 
+  Later kunt u ook gebruiken hetzelfde account wanneer u een Azure-resource voor uw gatewayinstallatie in de Azure-portal maakt. 
+  Als u een Azure-abonnement nog geen <a href="https://azure.microsoft.com/free/" target="_blank">zich aanmelden voor een gratis Azure-account</a>.
 
 * Hier volgen de vereisten voor de lokale computer:
 
@@ -72,8 +75,7 @@ Zie de volgende artikelen voor meer informatie over het gebruik van de gateway m
     > [!TIP]
     > Om latentie te beperken, kunt u de gateway zo dicht mogelijk bij uw gegevensbron, of op dezelfde computer, ervan uitgaande dat u gemachtigd installeren.
 
-  * De gateway installeren op een computer die *niet* uitschakelen, gaat u naar de slaapstand of verbinding maken met Internet. De gateway kan niet worden uitgevoerd onder deze omstandigheden. 
-  Prestaties van een gateway kan ook een draadloos netwerk afnemen.
+  * De gateway installeren op een computer die verbonden met internet, altijd ingeschakeld, en *niet* gaat u naar de slaapstand. Anders wordt de gateway kan niet worden uitgevoerd. Prestaties dan ook, kunnen afnemen een draadloos netwerk.
 
   * Tijdens de installatie, kunt u alleen zich aanmelden met een [werk- of schoolaccount](../active-directory/sign-up-organization.md) die wordt beheerd door Azure Active Directory (Azure AD) en niet een Microsoft-account. 
   Controleer ook of dit account is niet van een Azure B2B (Gast)-account. 
@@ -368,7 +370,7 @@ Deze stappen wordt beschreven wat er gebeurt wanneer een gebruiker in de cloud c
 **Q**: Wat is het voordeel van de herstelsleutel? <br/>
 **Een**: de herstelsleutel biedt een manier om te migreren of de gateway-instellingen te herstellen na een noodgeval.
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 In deze sectie worden enkele veelvoorkomende problemen die optreden tijdens het instellen en gebruiken van de on-premises gegevensgateway.
 

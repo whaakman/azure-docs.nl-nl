@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/19/2018
+ms.date: 09/24/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 99f877a0002e9a631bcfdabdbea51fcf2ca1a2c1
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 890c28601315a63e34c286289cd7378830afa9ba
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626589"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782043"
 ---
 # <a name="troubleshoot-azure-active-directory-pass-through-authentication"></a>Pass through-verificatie voor Azure Active Directory oplossen
 
@@ -97,7 +97,7 @@ Zorg ervoor dat u een account van de globale beheerder alleen in de cloud voor a
 
 Als u Pass-through-verificatie ingeschakeld in uw tenant hebt en u probeert te verwijderen van Azure AD Connect, wordt deze weergegeven u de volgende waarschuwing weergegeven: "gebruikers zich niet aanmelden bij Azure AD, tenzij u andere Pass through-verificatie-agents geïnstalleerd op hebt andere servers."
 
-Zorg ervoor dat uw setup [hoog beschikbare](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) voordat u Azure AD Connect om te voorkomen dat belangrijke aanmelden van gebruikers verwijderen.
+Zorg ervoor dat uw setup [maximaal beschikbare](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability) voordat u Azure AD Connect om te voorkomen dat belangrijke aanmelden van gebruikers verwijderen.
 
 ## <a name="issues-with-enabling-the-feature"></a>Problemen bij het inschakelen van de functie
 
@@ -129,7 +129,7 @@ Voor gedetailleerde analyse inschakelen ' sessielogboek '. De verificatie-Agent 
 
 ### <a name="detailed-trace-logs"></a>Gedetailleerde traceerlogboeken
 
-Om op te lossen gebruiker aanmeldingen dat is toegestaan, zoek naar Logboeken met traceringen op **%ProgramData%\Microsoft\Azure AD verbinding maken met verificatie Agent\Trace\\**. Deze logboeken bevatten de redenen waarom een specifieke gebruiker aanmelden is mislukt met de functie voor Pass through-verificatie. Deze fouten worden ook is toegewezen aan de aanmelding mislukt redenen die wordt weergegeven in de voorgaande [tabel](#sign-in-failure-reasons-on-the-Azure-portal). Hieronder volgt een voorbeeld van invoer voor logboekbestand:
+Om op te lossen gebruiker aanmeldingen dat is toegestaan, zoek naar Logboeken met traceringen op **%ProgramData%\Microsoft\Azure AD verbinding maken met verificatie Agent\Trace\\**. Deze logboeken bevatten de redenen waarom een specifieke gebruiker aanmelden is mislukt met de functie voor Pass through-verificatie. Deze fouten worden ook toegewezen aan de aanmelding mislukt redenen die wordt weergegeven in de voorgaande tabel van de redenen aanmelding mislukt. Hieronder volgt een voorbeeld van invoer voor logboekbestand:
 
 ```
     AzureADConnectAuthenticationAgentService.exe Error: 0 : Passthrough Authentication request failed. RequestId: 'df63f4a4-68b9-44ae-8d81-6ad2d844d84e'. Reason: '1328'.

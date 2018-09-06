@@ -1,6 +1,6 @@
 ---
-title: Visual zoeken SDK knooppunt Quick Start | Microsoft Docs
-description: Setup voor Visual zoeken consoletoepassing SDK-knooppunt.
+title: Visuele zoekopdrachten SDK Node-Quickstart | Microsoft Docs
+description: Instellingen voor visuele zoekopdrachten knooppunt van de SDK-consoletoepassing.
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: mikedodaro
@@ -10,25 +10,25 @@ ms.component: bing-web-search
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-gedod
-ms.openlocfilehash: 51797f4b674224b4348f3f51518a5b087fd2329a
-ms.sourcegitcommit: 0408c7d1b6dd7ffd376a2241936167cc95cfe10f
+ms.openlocfilehash: bb245f9eab0f367a0e1b69af88352c54132ea29d
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/26/2018
-ms.locfileid: "36961907"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782437"
 ---
-# <a name="visual-search-sdk-node-quickstart"></a>Quick Start Visual zoeken SDK knooppunt
+# <a name="visual-search-sdk-node-quickstart"></a>Visuele zoekopdrachten-SDK-Node-Quickstart
 
-De Bing-SDK voor Visual Search gebruikt de functionaliteit van de REST-API voor webaanvragen en parseren resultaten.
-De [broncode voor voorbeelden van knooppunt Visual Search SDK](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js) beschikbaar is op de Git-Hub.
+De Bing Visual Search SDK maakt gebruik van de functionaliteit van de REST-API voor webaanvragen en parseren resultaten.
+De [broncode voor Node-SDK voor Visual Search-voorbeelden](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/visualSearch.js) is beschikbaar op Git Hub.
 
-Code-scenario's zijn onder de volgende rubrieken beschreven:
+Scenario's de code worden onder de volgende rubrieken beschreven:
 * [Visual Search-client](#client)
-* [Volledige consoletoepassing](#complete)
+* [Volledige-consoletoepassing](#complete)
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Een cognitieve Services API-sleutel is vereist voor het verifiëren van de SDK-aanroepen. Aanmelden voor een [gratis proefabonnement sleutel]((https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7)). De evaluatieversie sleutel is geschikt is voor de zeven dagen met één aanroep per seconde. Voor productiescenario's [kopen een toegangssleutel](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Zie ook [prijsgegevens](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
+* Een Cognitive Services-API-sleutel is vereist voor het verifiëren van de SDK-aanroepen. Zich aanmelden voor een [gratis proefversie sleutel](https://azure.microsoft.com/try/cognitive-services/?api=search-api-v7). De proefversie sleutel is handig voor zeven dagen met één aanroep per seconde. Voor productiescenario's, [kopen van een toegangssleutel](https://portal.azure.com/#create/Microsoft.CognitiveServicesBingSearch-v7). Zie ook [informatie over de prijzen](https://azure.microsoft.com/pricing/details/cognitive-services/search-api/visual/).
 
 ## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
 
@@ -36,7 +36,7 @@ Code-scenario's zijn onder de volgende rubrieken beschreven:
 
 <a name="client"></a>
 ## <a name="visual-search-client"></a>Visual Search-client
-Maken van een exemplaar van de `VisualSearchAPI` -client toevoegen met behulp van instructies:
+Het maken van een exemplaar van de `VisualSearchAPI` client using-instructies toevoegen:
 ```
 const Search = require('azure-cognitiveservices-visualsearch');
 const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
@@ -49,7 +49,7 @@ let credentials = new CognitiveServicesCredentials(keyVar);
 let visualSearchApiClient = new Search.VisualSearchAPIClient(credentials);
 
 ```
-De client gebruiken om installatiekopieën te zoeken:
+Gebruik de client om te zoeken naar afbeeldingen:
 ```
 let fileStream = fs.createReadStream('../Data/image.jpg');
 let visualSearchRequest = JSON.stringify({});
@@ -97,9 +97,9 @@ else {
 
 ```
 <a name="complete"></a>
-## <a name="complete-console-application"></a>Volledige consoletoepassing
+## <a name="complete-console-application"></a>Volledige-consoletoepassing
 
-De volgende consoletoepassing wordt uitgevoerd van de vorige code andere scenario's, en wordt geparseerd resultaten:
+De volgende consoletoepassing wordt uitgevoerd van de vorige code, andere scenario's, en parseert resultaten:
 ```
 /*
  * Copyright (c) Microsoft Corporation. All rights reserved.
@@ -328,4 +328,4 @@ exports.sample = sample;
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Voorbeelden van cognitieve Services .NET SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).
+[Cognitive Services .NET SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7).

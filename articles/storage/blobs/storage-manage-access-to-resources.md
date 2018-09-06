@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 04/26/2017
 ms.author: tamram
-ms.openlocfilehash: 7270ec7c5129352b0e801808e5c7720e5021ac9d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: bf7dabc1c3765d86e7a0f87acaa6f06a68d3d530
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398815"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782005"
 ---
 # <a name="manage-anonymous-read-access-to-containers-and-blobs"></a>Anonieme leestoegang tot containers en blobs beheren
 U kunt anoniem, openbare leestoegang tot een container en de blobs in Azure Blob-opslag inschakelen. Op deze manier kunt u alleen-lezen toegang tot deze resources verlenen zonder het delen van uw accountsleutel en zonder een shared access signature (SAS).
@@ -39,7 +39,7 @@ U kunt de volgende containermachtigingen in te stellen:
 Containermachtigingen instellen de [Azure-portal](https://portal.azure.com), als volgt te werk:
 
 1. Open uw **opslagaccount** -blade in de portal. U vindt uw storage-account door te selecteren **opslagaccounts** in de blade van de portal in het hoofdmenu.
-1. Onder **BLOB-SERVICE** Selecteer op de blade menu **Containers**.
+1. Onder **BLOB-SERVICE** Selecteer op de blade menu **Blobs**.
 1. Met de rechtermuisknop op de rij van de container of Selecteer het weglatingsteken te openen van de container **contextmenu**.
 1. Selecteer **toegangsbeleid** in het contextmenu.
 1. Selecteer een **toegangstype** in de vervolgkeuzelijst.

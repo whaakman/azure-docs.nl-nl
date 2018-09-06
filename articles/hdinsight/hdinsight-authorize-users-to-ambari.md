@@ -9,12 +9,12 @@ ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 09/26/2017
 ms.author: maxluk
-ms.openlocfilehash: 7734848035eeab3c38a57b9999f8cda77f6a4e24
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: f1aa80ec9df8faee4cf5ea98910e28cfc11a7920
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43107153"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782124"
 ---
 # <a name="authorize-users-for-ambari-views"></a>Gebruikers machtigen voor Ambari-weergaven
 
@@ -116,7 +116,7 @@ De lijstweergave biedt snelle bewerkingsmogelijkheden in twee categorieën: gebr
 
     ![Rollen lijstweergave - gebruikers](./media/hdinsight-authorize-users-to-ambari/roles-list-view-users.png)
 
-* De categorie groepen van de lijstweergave geeft alle groepen en de rol die is toegewezen aan elke groep. In ons voorbeeld, de lijst met groepen worden gesynchroniseerd vanuit de Azure AD-beveiligingsgroepen die is opgegeven in de **gebruikersgroep openen** eigenschap van de instellingen van het domein van het cluster. Zie [een Domain-joined HDInsight-cluster maken](/domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
+* De categorie groepen van de lijstweergave geeft alle groepen en de rol die is toegewezen aan elke groep. In ons voorbeeld, de lijst met groepen worden gesynchroniseerd vanuit de Azure AD-beveiligingsgroepen die is opgegeven in de **gebruikersgroep openen** eigenschap van de instellingen van het domein van het cluster. Zie [een Domain-joined HDInsight-cluster maken](./domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-a-domain-joined-hdinsight-cluster).
 
     ![Rollen lijstweergave - groepen](./media/hdinsight-authorize-users-to-ambari/roles-list-view-groups.png)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/17/2018
 ms.author: miradic
-ms.openlocfilehash: a742ac79f1152816621312e2ebc59598772ba127
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 55feb64f06c2d67f85f230cb92e84dfe8fd3ada2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38990618"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782386"
 ---
 # <a name="introduction-to-auto-scaling"></a>Inleiding tot automatisch schalen
 Automatisch schalen is een extra functie van Service Fabric voor het dynamisch schalen van uw services op basis van de belasting van services rapporteren of op basis van hun gebruik van resources. Automatisch schalen biedt grote flexibiliteit en inrichting van extra exemplaren of partities van de service op aanvraag. De gehele functie voor automatisch schalen van proces is automatisch en transparant en zodra het instellen van uw beleid voor een service is niet nodig voor handmatige vergroten / verkleinen op het serviceniveau van de. Automatisch schalen kan worden ingeschakeld tijdens de aanmaak van de service of op elk gewenst moment door het bijwerken van de service.
@@ -47,7 +47,7 @@ Er zijn twee methoden die momenteel worden ondersteund voor automatisch schalen.
 Het eerste type van de trigger is gebaseerd op de belasting van de exemplaren in een servicepartitie stateless. Metrische gegevens geladen worden eerst geëffend om op te halen van de belasting voor elk exemplaar van een partitie en vervolgens deze waarden zijn gemiddeld over alle exemplaren van de partitie. Er zijn drie factoren die bepalen wanneer de service wordt aangepast:
 
 * _Drempelwaarde voor het laden van lagere_ is een waarde die bepaalt wanneer de service worden **geschaald in**. Als de gemiddelde belasting van alle exemplaren van de partities lager is dan deze waarde is, wordt de service worden geschaald.
-* _Hoogste belastingsdrempelwaarde_ is een waarde die bepaalt wanneer de service worden **uitgeschaalde**. Als de gemiddelde belasting van alle exemplaren van de partitie lager dan deze waarde is, zal klikt u vervolgens de service worden uitgebreid.
+* _Hoogste belastingsdrempelwaarde_ is een waarde die bepaalt wanneer de service worden **uitgeschaalde**. Als de gemiddelde belasting van alle exemplaren van de partitie hoger dan deze waarde is, zal klikt u vervolgens de service worden uitgebreid.
 * _Interval voor vergroten/verkleinen_ bepaalt hoe vaak de trigger wordt gecontroleerd. Zodra de trigger is gecontroleerd, indien nodig schalen is het mechanisme wordt toegepast. Als schalen niet vereist is, klikt u vervolgens geen actie ondernomen. In beide gevallen wordt trigger niet gecontroleerd opnieuw voordat het interval voor vergroten/verkleinen is verstreken opnieuw.
 
 Deze trigger kan alleen worden gebruikt met stateless services (stateless containers of Service Fabric-services). In het geval wanneer een service meerdere partities heeft, de trigger wordt geëvalueerd voor elke partitie afzonderlijk en elke partitie het opgegeven mechanisme onafhankelijk toegepast heeft. Daarom kan dit het geval is, is het mogelijk dat enkele van de partities van de service zal worden uitgebreid, worden sommige worden geschaald, en sommige wordt niet worden geschaald helemaal op hetzelfde moment, op basis van de belasting.

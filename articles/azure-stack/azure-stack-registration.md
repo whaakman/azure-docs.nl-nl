@@ -12,19 +12,21 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: ebf10c7f0fb90d976062300854f69369dba946fa
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 5a6dcddce3337989a7a34515570ac3277aa1edd5
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340163"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841927"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
 Azure Stack registreren bij Azure, kunt u voor het downloaden van marketplace-items van Azure en het instellen van rapportage terug naar Microsoft commercegegevens. Nadat u zich registreert voor Azure Stack, gebruik wordt gerapporteerd aan Azure commerce en kunt u deze bekijken onder het abonnement dat wordt gebruikt voor de registratie.
+
+De informatie in dit artikel beschrijft registreren geïntegreerde Azure Stack-systemen met Azure. Zie voor meer informatie over het registreren van de ASDK met Azure [Azure Stack-registratie](.\asdk\asdk-register.md) in de documentatie van ASDK.
 
 > [!IMPORTANT]  
 > Registratie is vereist voor ondersteuning van de volledige functionaliteit van de Azure Stack, waaronder items in de marketplace-aanbieding. Bovendien moet u in strijd is met Azure Stack licentievoorwaarden als u niet registreren bij het gebruik van het facturering model voor betalen als u-gebruik. Raadpleeg voor meer informatie over Azure Stack-licentieverlening modellen, de [over het aanschaffen van pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/).

@@ -14,12 +14,12 @@ ms.workload: na
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 5e265543e2ce5feeed095d89cdb47ede9817bad1
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 317d8bf40ef152e5b7dae6406be29330feaaa8d3
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40002675"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842467"
 ---
 # <a name="create-your-first-function-with-java-and-intellij-preview"></a>Uw eerste functie maken met Java en IntelliJ (Preview)
 
@@ -80,11 +80,11 @@ Voor het starten van de functie-host in de foutopsporingsmodus, toevoegen **- De
 mvn azure-functions:run -DenableDebug
 ```
 
-Voor foutopsporing in IntelliJ, In de **uitvoeren** menu Selecteer **configuraties bewerken**. Klik op ** + ** om toe te voegen een **externe**. Vul in **naam** en **instellingen**, en klik vervolgens op **OK** aan de configuratie op te slaan. Nadat Setup is voltooid, klikt u op **Debug** 'Uw RAS-configuratie-Name' of drukt u op **Shift + F9** foutopsporing te starten.
+Voor foutopsporing in IntelliJ, In de **uitvoeren** menu Selecteer **configuraties bewerken**. Klik op **+** om toe te voegen een **externe**. Vul in **naam** en **instellingen**, en klik vervolgens op **OK** aan de configuratie op te slaan. Nadat Setup is voltooid, klikt u op **Debug** 'Uw RAS-configuratie-Name' of drukt u op **Shift + F9** foutopsporing te starten.
 
 ![Functies debuggen in IntelliJ](media/functions-create-first-java-intellij/debug-configuration-intellij.PNG)
 
-Wanneer u klaar bent stop de foutopsporing en het proces dat wordt uitgevoerd. Slechts één functie host kan worden actieve en actieve lokaal op tegelijk.
+Wanneer u klaar bent stop de foutopsporing en het proces dat wordt uitgevoerd. Slechts één functie host kan actieve en actieve lokaal op een tijdstip zijn.
 
 ## <a name="deploy-the-function-to-azure"></a>De functie implementeren in Azure
 

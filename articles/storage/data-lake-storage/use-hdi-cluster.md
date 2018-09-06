@@ -7,12 +7,12 @@ ms.service: storage
 ms.topic: article
 ms.date: 06/27/2018
 ms.author: jamesbak
-ms.openlocfilehash: ee169f008cc5d6b95d2ddadc68e63673372e2dc5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 3869d83ada1cbe0b234694b6acae88b6f68fc2dd
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43301830"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782274"
 ---
 # <a name="use-azure-data-lake-storage-gen2-preview-with-azure-hdinsight-clusters"></a>Gen2 Preview van Azure Data Lake Storage gebruiken met Azure HDInsight-clusters
 
@@ -170,7 +170,7 @@ Gebruik de volgende opdracht om een container te maken:
 
 Het URI-schema om bestanden in Azure Storage vanuit HDInsight te openen:
 
-    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.widows.net/<PATH>
+    abfs[s]://<FILE_SYSTEM_NAME>@<ACCOUNT_NAME>.dfs.core.windows.net/<PATH>
 
 Het URI-schema biedt niet-versleutelde toegang (met de *abfs:* voorvoegsel) en SSL-versleutelde toegang (met *abfss*). Wordt u aangeraden *abfss* waar mogelijk, zelfs bij het openen van gegevens die zich in dezelfde regio in Azure.
 
@@ -179,7 +179,7 @@ Het URI-schema biedt niet-versleutelde toegang (met de *abfs:* voorvoegsel) en S
 
     Als de waarden voor &lt;FILE_SYSTEM_NAME&gt; noch &lt;accountnaam&gt; is opgegeven, wordt het standaardbestandssysteem gebruikt. Voor de bestand op het standaardbestandssysteem kunt u een relatief of een absoluut pad gebruiken. Bijvoorbeeld, de *hadoop-mapreduce-examples.jar* -bestand dat wordt geleverd met HDInsight-clusters kan worden aangeduid met behulp van een van de volgende paden:
     
-        abfs://myfilesystempath@myaccount.dfs.core.widows.net/example/jars/hadoop-mapreduce-examples.jar
+        abfs://myfilesystempath@myaccount.dfs.core.windows.net/example/jars/hadoop-mapreduce-examples.jar
         abfs:///example/jars/hadoop-mapreduce-examples.jar
         /example/jars/hadoop-mapreduce-examples.jar
 

@@ -14,26 +14,19 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 07/02/2018
 ms.author: ellacroi
-ms.openlocfilehash: f529459562ec10a7b9bbcca578d8998e545f3f4c
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 0007396ad6d5fc16177d76683f959591e9830ac3
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952610"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782073"
 ---
-# <a name="support-for-azure-marketplace"></a>Ondersteuning voor Azure Marketplace  
-De ondersteuningsopties voor Azure Marketplace.  
+# <a name="support-for-the-marketplace"></a>Ondersteuning voor de Marketplace  
+De ondersteuningsopties voor de Marketplace.  
 
 ## <a name="onboarding"></a>Onboarding
 
 [Open een ticket](https://support.microsoft.com/en-us/getsupport?wf=0&tenant=classiccommercial&oaspworkflow=start_1.0.0.0&locale=en-us&supportregion=en-us&pesid=16230&forceorigin=esmc&ccsid=636595105151894820) voor "Onboarding Marketplace" die met Microsoft ondersteuning voor het oplossen van alle problemen met het aan de slag.
-
-## <a name="publishing"></a>Publiceren  
-
-| Ondersteuning van kanaal | Beschrijving | Beschikbaarheid |  
-|:--- |:--- |:--- |  
-| E-mail: [azurecertified@microsoft.com](mailto:azurecertified@microsoft.com) | Ondersteuning voor Azure Marketplace publiceren van apps voor u. | In de tijdzone Pacific zijn de kantooruren. |  
-| E-mail: [amp-testdrive@microsoft.com](mailto:amp-testdrive@microsoft.com) | Onboarding-toegang tot het testen. | In de tijdzone Pacific zijn de kantooruren. |  
 
 ## <a name="cloud-partner-portal"></a>Cloud Partner-portal  
 
@@ -48,7 +41,7 @@ De ondersteuningsopties voor Azure Marketplace.
 | Slack: [join.marketplace.azure.com](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Slack-omgeving voor de ondersteuning van Partners met technische problemen. Er zijn over 350 + Partners momenteel werken in deze omgeving. |  
 | MSDN-forums: Marketplace zich bevindt op [social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket](https://social.msdn.microsoft.com/Forums/azure/home?forum=DataMarket) | Forum voor Microsoft Developer Network. |  
 | Stack Overflow: Azure zich bevindt op [stackoverflow.com/questions/tagged/azure](https://stackoverflow.com/questions/tagged/azure) | Stack Overflow-omgeving zodanig dat deze oplossingen en vragen over alles met betrekking tot Azure Marketplace.<ul> <li>Stack Overflow: Azure Marketplace vinden op [stackoverflow.com/questions/tagged/azure-marketplace](https://stackoverflow.com/questions/tagged/azure-marketplace)</li> <li>Stack Overflow: Azure Resource Manager zich bevindt op [stackoverflow.com/questions/tagged/azure-resource-manager](https://stackoverflow.com/questions/tagged/azure-resource-manager)</li> <li>Stack Overflow: virtuele Machines op Azure te vinden op [stackoverflow.com/questions/tagged/azure-virtual-machine](https://stackoverflow.com/questions/tagged/azure-virtual-machine)</li> <li>Stack Overflow: Containers in Azure zich bevindt op [stackoverflow.com/search?q=azure+container](https://stackoverflow.com/search?q=azure+container)</li> </ul> |
-
+| Ondersteuning voor AppSource: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Ondersteuning voor het publiceren van uw Dynamics-Apps |
 ## <a name="marketing-resources"></a>Marketing-resources  
 
 | Ondersteuning van kanaal | Beschrijving | Beschikbaarheid |  
@@ -57,14 +50,6 @@ De ondersteuningsopties voor Azure Marketplace.
 | E-mail: [gtm@microsoft.com](mailto:gtm@microsoft.com) | Ondersteuning voor GTM-voordelen en programma-vragen. | In de tijdzone Pacific zijn de kantooruren. |  
 | E-mail: [cebrand@microsoft.com](mailto:cebrand@microsoft.com) | Antwoorden op vragen over het gebruik van Azure logo's en een huisstijl. |  |  
 
-# <a name="support-for-appsource"></a>Ondersteuning voor AppSource  
-De ondersteuningsopties voor AppSource.  
-
-## <a name="technical"></a>Technisch  
-
-| Ondersteuning van kanaal | Beschrijving |  
-|:--- |:--- |  
-| E-mail: [appsourcecrm@Microsoft.com](mailto:appsourcecrm@microsoft.com) | Ondersteuning voor publiceren Dynamics-Apps voor u |
 
 ## <a name="next-steps"></a>Volgende stappen
 Ga naar de [Azure Marketplace en AppSource Uitgevershandleiding voor](./marketplace-publishers-guide.md) pagina.  

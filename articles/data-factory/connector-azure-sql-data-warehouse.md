@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/28/2018
 ms.author: jingwang
-ms.openlocfilehash: f444c75fb7a7bcd96a508fed337dfc32adccf665
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: ef1bd613943543f78d358064f4abefc6fa31b63e
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43339012"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842332"
 ---
 #  <a name="copy-data-to-or-from-azure-sql-data-warehouse-by-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure SQL Data Warehouse met behulp van Azure Data Factory 
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you're using:"]
@@ -163,9 +163,9 @@ Volg deze stappen voor het gebruik van Azure AD MSI-gebaseerde toepassing tokenv
 
 1. **Een groep maken in Azure AD.** Controleer de factory MSI een lid van de groep.
 
-    a. Zoek de data factory-service-identiteit vanuit Azure portal. Ga naar uw data factory **eigenschappen**. Kopieer de SERVICE-identiteit-ID.
+    1. Zoek de data factory-service-identiteit vanuit Azure portal. Ga naar uw data factory **eigenschappen**. Kopieer de SERVICE-identiteit-ID.
 
-    b. Installeer de [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Meld u aan met behulp van de `Connect-AzureAD` opdracht. Voer de volgende opdrachten een groep maken en toevoegen van de data factory MSI-bestand als een lid.
+    1. Installeer de [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2) module. Meld u aan met behulp van de `Connect-AzureAD` opdracht. Voer de volgende opdrachten een groep maken en toevoegen van de data factory MSI-bestand als een lid.
     ```powershell
     $Group = New-AzureADGroup -DisplayName "<your group name>" -MailEnabled $false -SecurityEnabled $true -MailNickName "NotSet"
     Add-AzureAdGroupMember -ObjectId $Group.ObjectId -RefObjectId "<your data factory service identity ID>"

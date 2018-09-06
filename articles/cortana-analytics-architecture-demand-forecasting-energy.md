@@ -1,32 +1,32 @@
 ---
-title: Cortana Intelligence oplossingssjabloon architectuur voor het voorspellen van de vraag van energie | Microsoft Docs
-description: Architectuur van de Microsoft Cortana Intelligence oplossingssjabloon waarmee forecast aanvraag voor een bedrijf, energie-hulpprogramma.
-keywords: oplossingsverbetering; cortana-analytics; energie prognose
-services: cortana-analytics
+title: Architectuur van de Cortana Intelligence-oplossingssjabloon voor on-demand prognose van energie | Microsoft Docs
+description: Architectuur van de Microsoft Cortana Intelligence-oplossingssjabloon waarmee een prognose van vraag voor een energiebedrijf-hulpprogramma.
+keywords: de oplossingsversneller; cortana analytics; energie voorspellen
+services: machine-learning
 documentationcenter: ''
 author: garyericson
-manager: jhubbard
-editor: cgronlun
+manager: cgronlun
 ms.assetid: 745db9da-9ca1-421a-aa76-13c992f6513d
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 11/19/2015
 ms.author: garye
-ms.openlocfilehash: 87a27dbe9042973dcfa7e9a5a438773d1bbab4d3
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: d1cce1d7932c547c76e42617d1d8c3fc5a3e8ff8
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23845658"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840633"
 ---
-# <a name="cortana-intelligence-solution-template-architecture-for-demand-forecasting-of-energy"></a>Cortana Intelligence oplossingssjabloon architectuur voor het voorspellen van de vraag van energie
-Het diagram hieronder biedt een overzicht van de architectuur van de [Cortana Intelligence oplossingssjabloon voor het voorspellen van de vraag van energie](cortana-analytics-playbook-demand-forecasting-energy.md).
+# <a name="cortana-intelligence-solution-template-architecture-for-demand-forecasting-of-energy"></a>Architectuur van de Cortana Intelligence-oplossingssjabloon voor on-demand prognose van energie
+Het volgende diagram biedt een overzicht van de architectuur van de [Cortana Intelligence-oplossingssjabloon voor on-demand prognose van energie](cortana-analytics-playbook-demand-forecasting-energy.md).
 
-U kunt een volledige versie van het overzichtsdiagram hier downloaden: [Architectuurdiagram: oplossingssjabloon voor het voorspellen van de vraag van energie](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-energy-forecasting.png).
+U kunt een volledige versie van het overzichtsdiagram hier downloaden: [Architectuurdiagram: oplossingssjabloon voor on-demand prognose van energie](http://download.microsoft.com/download/1/9/B/19B815F0-D1B0-4F67-AED3-A40544225FD1/ca-topologies-energy-forecasting.png).
 
-![Architectuurdiagram van de sjabloon voor Microsoft Cortana Intelligence-oplossing voor het voorspellen van de vraag van energie][image]
+![Architectuurdiagram van Microsoft Cortana Intelligence-oplossingssjabloon voor on-demand prognose van energie][image]
 
 [image]: ./media/cortana-analytics-architecture-demand-forecasting-energy/ca-topologies-energy-forecasting.png

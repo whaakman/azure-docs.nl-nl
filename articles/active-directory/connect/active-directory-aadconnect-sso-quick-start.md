@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 4710e30ad38485f47c115ac2e0e914e91c96d582
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 8cab491a874094ee195f12ba6fe7f19a87f09ef2
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522178"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841944"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on-quick-start"></a>Azure Active Directory naadloze eenmalige aanmelding: snel starten
 
@@ -30,7 +30,7 @@ Azure Active Directory (Azure AD) naadloze eenmalige aanmelding (naadloze eenmal
 
 Volg deze stappen voor het implementeren van naadloze eenmalige aanmelding.
 
-## <a name="step-1-check-the-prerequisites"></a>Stap 1: Controleer de vereisten
+## <a name="step-1-check-the-prerequisites"></a>Stap 1: controleer de vereisten
 
 Zorg ervoor dat de volgende vereisten voldaan is:
 
@@ -42,6 +42,9 @@ Zorg ervoor dat de volgende vereisten voldaan is:
     >Azure AD Connect-versies 1.1.557.0, 1.1.558.0 1.1.561.0 en 1.1.614.0 is een probleem met betrekking tot wachtwoord-hashsynchronisatie. Als u _niet_ wilt wachtwoord-hashsynchronisatie gebruiken in combinatie met Pass through-verificatie, lees de [opmerkingen bij de release van Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-version-history#116470) voor meer informatie.
 
 * **Gebruik een ondersteunde Azure AD Connect-topologie**: Zorg ervoor dat u van een van de Azure AD Connect van ondersteunde topologieën beschreven gebruikmaakt [hier](active-directory-aadconnect-topologies.md).
+
+    >[!NOTE]
+    >Naadloze eenmalige aanmelding ondersteunt meerdere AD-forests, of AD-vertrouwensrelaties er daartussen of niet zijn.
 
 * **Instellen van referenties voor de domeinbeheerder**: U moet domeinbeheerdersreferenties hebben voor elk Active Directory-forest:
     * U synchroniseren met Azure AD via Azure AD Connect.
@@ -180,7 +183,7 @@ Mozilla Firefox niet automatisch Kerberos-verificatie gebruiken. Elke gebruiker 
 
 #### <a name="safari-macos"></a>Safari (Mac OS)
 
-Zorg ervoor dat de machine met de macOS is gekoppeld aan AD. Zie voor instructies over het koppelen van AD [Best Practices voor OS X integreren met Active Directory](http://www.isaca.org/Groups/Professional-English/identity-management/GroupDocuments/Integrating-OS-X-with-Active-Directory.pdf).
+Zorg ervoor dat de machine met de macOS is gekoppeld aan AD. Instructies voor het lidmaatschap van AD uw macOS-apparaat is buiten het bereik van dit artikel.
 
 #### <a name="google-chrome-all-platforms"></a>Google Chrome (alle platformen)
 

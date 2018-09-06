@@ -15,22 +15,22 @@ ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: v-daljep
 ms.component: na
-ms.openlocfilehash: 47069f0af7409d87cb2d4fbbbce9dda0b1c2056e
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 82845f475857f9a911febd496e86eb2a60f69c25
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886557"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782223"
 ---
 # <a name="monitor-azure-sql-databases-using-azure-sql-analytics-preview"></a>Monitor voor Azure SQL-Databases met behulp van Azure SQL Analytics (Preview)
 
 ![Azure SQL Analytics-symbool](./media/log-analytics-azure-sql/azure-sql-symbol.png)
 
-Azure SQL Analytics is een cloud voor controle voor het bewaken van de prestaties van Azure SQL-Databases op schaal in meerdere elastische pools en abonnementen. Er worden verzameld en worden gevisualiseerd met belangrijke metrische gegevens voor Azure SQL Database-prestaties met ingebouwde intelligentie voor bovenaan op problemen met prestaties. 
+Azure SQL Analytics is een cloud voor het bewaken van de prestaties van Azure SQL-Databases, elastische pools en beheerde instanties op schaal en voor meerdere abonnementen voor controle. Er worden verzameld en worden gevisualiseerd met belangrijke metrische gegevens voor Azure SQL Database-prestaties met ingebouwde intelligentie voor het oplossen van prestaties.
 
-Metrische gegevens die u hebt verzameld met de oplossing gebruikt, kunt u aangepaste regels voor bewaking en waarschuwingen kunt maken. De oplossing helpt u bij het identificeren van problemen in elke laag van uw toepassingsstack. Metrische gegevens voor Azure-diagnose en weergaven van Log Analytics wordt gebruikt om gegevens over uw Azure SQL-databases en elastische pools in één Log Analytics-werkruimte te presenteren. Log Analytics helpt u bij het verzamelen, afstemmen en visualiseren van gestructureerde en ongestructureerde gegevens.
+Metrische gegevens die u hebt verzameld met de oplossing gebruikt, kunt u aangepaste regels voor bewaking en waarschuwingen kunt maken. De oplossing helpt u bij het identificeren van problemen in elke laag van uw toepassingsstack. Deze metrische gegevens voor Azure-diagnose en weergaven van Log Analytics gebruikt om gegevens over alle uw Azure SQL-databases, elastische pools en databases die aanwezig zijn in beheerde instanties in één Log Analytics-werkruimte. Log Analytics helpt u bij het verzamelen, afstemmen en visualiseren van gestructureerde en ongestructureerde gegevens.
 
-Deze preview-oplossing ondersteunt momenteel maximaal 150.000 Azure SQL-Databases en 5000 elastische SQL-Pools per werkruimte.
+Deze preview-oplossing ondersteunt momenteel maximaal 200.000 Azure SQL-Databases en 5000 elastische SQL-Pools per werkruimte.
 
 Zie de ingesloten video voor een praktische overzicht over het gebruik van Azure SQL Analytics-oplossing en voor typische gebruiksscenario's:
 
@@ -39,9 +39,9 @@ Zie de ingesloten video voor een praktische overzicht over het gebruik van Azure
 
 ## <a name="connected-sources"></a>Verbonden bronnen
 
-Azure SQL Analytics is een cloud solution ondersteunende streaming van diagnostische gegevens telemetrie voor Azure SQL-Databases en elastische pools controleren. Verbinding maken met de service Log Analytics agents niet gebruikt, de oplossing biedt geen ondersteuning voor connectiviteit met Windows, Linux of SCOM-resources, Zie de onderstaande Compatibiliteitstabel.
+Azure SQL Analytics is een cloud die alleen bewaking oplossing ondersteunende streaming van diagnostische gegevens telemetrie voor Azure SQL-Databases, elastische pools en beheerde instanties. Zoals verbinding maken met de service Log Analytics agents niet gebruikt, niet de oplossing voor het bewaken van on-premises SQL-Servers of VM's ondersteunen, Zie de onderstaande Compatibiliteitstabel.
 
-| Verbonden bron | Ondersteuning | Beschrijving |
+| Verbonden bron | Ondersteund | Beschrijving |
 | --- | --- | --- |
 | **[Azure Diagnostics](log-analytics-azure-storage.md)** | **Ja** | Azure-logboeken en metrische gegevens gegevens worden verzonden naar Log Analytics rechtstreeks door Azure. |
 | [Azure Storage-account](log-analytics-azure-storage.md) | Nee | Log Analytics lezen niet van de gegevens van een storage-account. |

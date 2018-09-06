@@ -84,7 +84,6 @@
 
 ## [Groepen en leden beheren](fundamentals/active-directory-manage-groups.md)
 ### [Groepen beheren](fundamentals/active-directory-groups-create-azure-portal.md)
-### [Herstellen van een verwijderde Office 365-groep](fundamentals/active-directory-groups-restore-azure-portal.md)
 ### [Groepsinstellingen beheren](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Rapporten beheren](reports-monitoring/overview-reports.md)
 ### [Aanmeldingsactiviteit](reports-monitoring/concept-sign-ins.md)

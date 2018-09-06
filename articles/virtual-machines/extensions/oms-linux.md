@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 05/21/2018
+ms.date: 09/05/2018
 ms.author: roiyz
-ms.openlocfilehash: 58827e8abd6394b1c9359ecbabbee37193a34706
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 858c586151c8a0dd5378794a5057c22a423c43cf
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414291"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782736"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-linux"></a>Log Analytics VM-extensie voor Linux
 
@@ -36,18 +36,24 @@ De Log Analytics-Agent-extensie kan voor deze Linux-distributies worden uitgevoe
 
 | Distributie | Versie |
 |---|---|
-| CentOS Linux | 5, 6 en 7 (x86/x64) |
-| Oracle Linux | 5, 6 en 7 (x86/x64) |
-| Red Hat Enterprise Linux Server | 5, 6 en 7 (x86/x64) |
-| Debian GNU/Linux | 6, 7, 8 en 9 (x86/x64) |
-| Ubuntu | 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64) |
-| SUSE Linux Enterprise Server | 11 en 12 (x86/x64) |
+| CentOS Linux | 6 en 7 (x86/x64) |
+| Amazon-Linux | 2017.09 | 
+| Oracle Linux | 6 en 7 (x86/x64) |
+| Red Hat Enterprise Linux Server | 6 en 7 (x86/x64) |
+| Debian GNU/Linux | 8 en 9 (x86/x64) |
+| Ubuntu | 14.04 LTS, 16.04 LTS en 18.04 LTS (x86/x64) |
+| SUSE Linux Enterprise Server | 12 (x86/x64) |
+
+>[!NOTE]
+>OpenSSL lager is dan versie 1.x wordt niet ondersteund op elk platform en versie 1.10 wordt alleen ondersteund op x86_64 platforms (64-bits).  
+>
 
 ### <a name="agent-and-vm-extension-version"></a>Versie agent en VM-extensie
 De volgende tabel bevat een toewijzing van de versie van de Log Analytics VM-extensie en de bundel voor elke versie van de Log Analytics-Agent. Een koppeling naar de opmerkingen bij de release voor de versie van Log Analytics-agent-bundel is opgenomen. Opmerkingen bij de release bevatten informatie over oplossingen voor problemen en nieuwe functies die beschikbaar zijn voor een opgegeven agent-release.  
 
 | Versie van de extensie log Analytics virtuele Linux-machine | Log Analytics-Agent bundelversie krijgt | 
 |--------------------------------|--------------------------|
+| 1.7.7 | [1.6.1-3](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.1.3)| 
 | 1.6.42.0 | [1.6.0-42](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.6.0-42)| 
 | 1.4.60.2 | [1.4.4-210](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.4-210)| 
 | 1.4.59.1 | [1.4.3-174](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_GA_v1.4.3-174)|
@@ -84,7 +90,7 @@ De volgende JSON ziet u het schema voor de Log Analytics-Agent-extensie. De exte
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.6",
+    "typeHandlerVersion": "1.7",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -102,7 +108,7 @@ De volgende JSON ziet u het schema voor de Log Analytics-Agent-extensie. De exte
 | apiVersion | 2015-06-15 |
 | Uitgever | Microsoft.EnterpriseCloud.Monitoring |
 | type | OmsAgentForLinux |
-| typeHandlerVersion | 1.6 |
+| typeHandlerVersion | 1.7 |
 | werkruimte-id (bijvoorbeeld) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (bijvoorbeeld) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
@@ -127,7 +133,7 @@ Het volgende voorbeeld wordt ervan uitgegaan dat de VM-extensie is genest in de 
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.6",
+    "typeHandlerVersion": "1.7",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -152,7 +158,7 @@ Bij het plaatsen van de JSON-extensie in de hoofdmap van de sjabloon, naam van d
   "properties": {
     "publisher": "Microsoft.EnterpriseCloud.Monitoring",
     "type": "OmsAgentForLinux",
-    "typeHandlerVersion": "1.6",
+    "typeHandlerVersion": "1.7",
     "settings": {
       "workspaceId": "myWorkspaceId"
     },
@@ -173,7 +179,7 @@ az vm extension set \
   --vm-name myVM \
   --name OmsAgentForLinux \
   --publisher Microsoft.EnterpriseCloud.Monitoring \
-  --version 1.6 --protected-settings '{"workspaceKey": "omskey"}' \
+  --version 1.7 --protected-settings '{"workspaceKey": "omskey"}' \
   --settings '{"workspaceId": "omsid"}'
 ```
 
@@ -200,12 +206,11 @@ Extensie uitvoering uitvoer wordt vastgelegd in het volgende bestand:
 | 9 | Met de naam voortijdig inschakelen | [De Azure Linux Agent bijwerken](https://docs.microsoft.com/azure/virtual-machines/linux/update-agent) naar de meest recente beschikbare versie. |
 | 10 | Virtuele machine is al verbonden met een Log Analytics-werkruimte | StopOnMultipleConnections ingesteld op false in de openbare-instellingen voor de virtuele machine verbinding met de werkruimte die is opgegeven in het extensieschema, of verwijder deze eigenschap. Deze virtuele machine in rekening gebracht wanneer er voor elke werkruimte is verbonden met. |
 | 11 | Ongeldige configuratie opgegeven voor de extensie | Volg de voorgaande voorbeelden om in te stellen alle eigenschapswaarden die nodig zijn voor implementatie. |
-| 12 | De dpkg package manager is vergrendeld | Zorg ervoor dat alle dpkg update-bewerkingen op de computer hebt voltooid en probeer het opnieuw. |
 | 17 | Fout tijdens de installatie van de OMS-pakket | 
 | 19 | Fout tijdens de installatie van de OMI-pakket | 
 | 20 | Fout tijdens de installatie van de SCX-pakket |
 | 51 | Deze extensie wordt niet ondersteund voor besturingssysteem van de virtuele machine | |
-| 55 | Kan geen verbinding maken met de Microsoft Operations Management Suite-service | Controleer of het systeem heeft toegang tot Internet of dat een geldige HTTP-proxy is opgegeven. Controleer daarnaast de juistheid van de werkruimte-ID. |
+| 55 | Kan geen verbinding maken naar de OMS-service of de vereiste pakketten ontbreken of het dpkg pakket manager is vergrendeld| Controleer of het systeem heeft toegang tot Internet of dat een geldige HTTP-proxy is opgegeven. Bovendien Controleer de juistheid van de werkruimte-ID en controleer of curl en tar-hulpprogramma's zijn geïnstalleerd. |
 
 Als u meer informatie over probleemoplossing vindt u op de [OMS-Agent voor Linux Troubleshooting Guide](../../log-analytics/log-analytics-azure-vmext-troubleshoot.md).
 

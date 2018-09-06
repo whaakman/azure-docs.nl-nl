@@ -5,14 +5,14 @@ services: event-grid
 author: tfitzmac
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 08/08/2018
+ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: b34386a7b416d6f7d8b008a9cb5ef142948a370f
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 2a9ff23e5182c8cb7c91ad93e368f61f258c84f8
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005392"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841589"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Levering van berichten van Event Grid en probeer het opnieuw 
 
@@ -35,19 +35,20 @@ De volgende HTTP-responscodes geven aan dat een gebeurtenis met succes is bezorg
 
 ### <a name="failure-codes"></a>Foutcodes
 
-De volgende HTTP-responscodes geven aan dat een gebeurtenis levering is mislukt. 
+De volgende HTTP-responscodes geven aan dat een gebeurtenis levering is mislukt.
 
 - 400-Ongeldige aanvraag
 - 401-niet toegestaan
 - 404 – Niet gevonden
 - 408 time-out van aanvraag
+- 413 Aanvraagentiteit te groot
 - 414 URI te lang
 - 429 te veel aanvragen
 - 500 Interne serverfout
 - 503 Service niet beschikbaar
 - 504 Time-out van gateway
 
-Als Event Grid ontvangt een foutbericht weergegeven dat het eindpunt is tijdelijk niet beschikbaar of een aanvraag voor toekomstige kan het wel lukken, wordt opnieuw geprobeerd om de gebeurtenis te verzenden. Als de Event Grid ontvangt een foutbericht weergegeven dat de levering nooit worden uitgevoerd en een [dead-letter-eindpunt is geconfigureerd](manage-event-delivery.md), wordt de gebeurtenis verzonden naar de dead-letter-eindpunt. 
+Als u hebt [geconfigureerd een eindpunt dead-letter uitvoeren voor](manage-event-delivery.md) en Event Grid een 400 of 413-antwoordcode wordt ontvangen, Event Grid onmiddellijk de gebeurtenis verzonden naar de dead-letter-eindpunt. Event Grid pogingen anders alle fouten.
 
 ## <a name="retry-intervals-and-duration"></a>Interval tussen nieuwe pogingen en de duur
 

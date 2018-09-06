@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 404be287d2e6ac693e0942c84f630f4e067127f3
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8ec0947d041dc0d4f5423a48a443ab2dd86949e2
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666749"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782532"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Wachtwoordbeleid en beperkingen in Azure Active Directory
 
@@ -80,7 +80,7 @@ Elke gebruikersaccount die u zich moet aanmelden bij Azure AD moet een unieke ge
 
 | Eigenschap | UserPrincipalName-vereisten |
 | --- | --- |
-| Toegestane tekens |<ul> <li>A-Z</li> <li>a - z</li><li>0 – 9</li> <li> . - \_ ! \# ^ \~</li></ul> |
+| Toegestane tekens |<ul> <li>A-Z</li> <li>a - z</li><li>0 – 9</li> <li> \. - \_ ! \# ^ \~</li></ul> |
 | Zijn niet toegestaan |<ul> <li>Een "\@ \" teken dat niet van de gebruikersnaam van het domein scheiden wordt.</li> <li>Mag een periode teken niet bevatten "." direct vóór de '\@ \" symbool</li></ul> |
 | Lengtebeperkingen |<ul> <li>De totale lengte mag niet groter zijn dan 113 tekens</li><li>Er mag maximaal 64 tekens vóór de '\@ \" symbool</li><li>Er mag maximaal 48 tekens na het '\@ \" symbool</li></ul> |
 

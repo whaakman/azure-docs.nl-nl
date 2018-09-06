@@ -10,21 +10,21 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 05/05/2017
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: 869ea96072b1492db929c16cfb1e22b0c96bca7d
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
-ms.translationtype: HT
+ms.openlocfilehash: 54a335cf1386ab29c0e0214bccf1f53a076da02b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783567"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights"></a>Web-apps tijdens runtime instrumenteren met Application Insights
 
-
 U kunt een live web-app instrumenteren met Azure Application Insights, zonder dat u de code hoeft te wijzigen of opnieuw hoeft te implementeren. Als uw apps worden gehost op een on-premises IIS-server, installeert u Status Monitor. Als uw apps Azure-web-apps zijn of worden uitgevoerd op een virtuele Azure-machine, kunt u Application Insights-bewaking inschakelen in het configuratiescherm van Azure. (Er zijn ook afzonderlijke artikelen over het instrumenteren van [live J2EE-web-apps](app-insights-java-live.md) en [Azure Cloud Services](app-insights-cloudservices.md).) U hebt een [Microsoft Azure](http://azure.com)-abonnement nodig.
 
-![voorbeeldgrafieken](./media/app-insights-monitor-performance-live-website-now/10-intro.png)
+![Schermopname van App Insights-overzicht grafieken met informatie over mislukte aanvragen, serverreactietijd en serveraanvragen](./media/app-insights-monitor-performance-live-website-now/overview-graphs.png)
 
 U kunt kiezen uit drie routes om Application Insights toe te passen op uw .NET-webtoepassingen:
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: wgries
 ms.component: files
-ms.openlocfilehash: b4905c8bcf3c14c7f1dfa752a930f57ccbfd8fd7
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 19adbbfc456303b471251c28cd984d1676786b19
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818483"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783148"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Planning voor de implementatie van Azure Files
 [Azure Files](storage-files-introduction.md) biedt volledig beheerde bestandsshares in de cloud die toegankelijk zijn via het industriestandaard SMB-protocol. Omdat Azure Files wordt volledig beheerd, is het veel eenvoudiger dan implementeren en beheren van een bestandsserver of een NAS-apparaat dat u deze in productie scenario's is geïmplementeerd. In dit artikel komen de onderwerpen om u te overwegen bij het implementeren van een Azure-bestandsshare voor gebruik in productieomgevingen binnen uw organisatie.
@@ -41,7 +41,7 @@ ms.locfileid: "42818483"
 Azure Files beschikt twee ingebouwde, handige data access-methoden die u afzonderlijk of in combinatie met elkaar worden verbonden, gebruiken kunt voor toegang tot uw gegevens:
 
 1. **Direct cloudtoegang**: een Azure-bestandsshare kan worden gekoppeld door [Windows](storage-how-to-use-files-windows.md), [macOS](storage-how-to-use-files-mac.md), en/of [Linux](storage-how-to-use-files-linux.md) met de branche standaard Server Message Block (SMB) protocol of via de File REST-API. Lees- en schrijfbewerkingen op bestanden op de share met SMB, zijn er rechtstreeks op de bestandsshare in Azure. Voor het koppelen van een virtuele machine in Azure, de SMB-client in het besturingssysteem moet ondersteuning van ten minste SMB 2.1. Koppeling maken met on-premises, zoals op een Gebruikerswerkstation de SMB-client wordt ondersteund door het werkstation moet ondersteuning van ten minste SMB 3.0 (met versleuteling). Naast SMB, nieuwe toepassingen of services kunnen rechtstreeks toegang tot de bestandsshare via de REST-bestand, waarmee u een eenvoudige en schaalbare application programming interface voor het ontwikkelen van software.
-2. **Azure File Sync** (preview): met Azure File Sync, bestandsshares kunnen worden gerepliceerd naar Windows-Servers on-premises of in Azure. Uw gebruikers zou zoals toegang tot de bestandsshare via de Windows-Server, dat via een SMB- of NFS-share. Dit is handig voor scenario's waarin gegevens worden geopend en gewijzigd ver weg van een Azure-datacenter, zoals in een scenario voor het filiaal. Gegevens kunnen worden gerepliceerd tussen meerdere eindpunten voor Windows Server, zoals tussen meerdere filialen. Ten slotte kan worden gelaagde gegevens in Azure Files, zodat alle gegevens zijn nog steeds toegankelijk via de Server, maar de Server heeft geen een volledige kopie van de gegevens. In plaats daarvan gegevens naadloos ingetrokken wanneer door de gebruiker wordt geopend.
+2. **Azure File Sync**: met Azure File Sync, bestandsshares kunnen worden gerepliceerd naar Windows-Servers on-premises of in Azure. Uw gebruikers zou zoals toegang tot de bestandsshare via de Windows-Server, dat via een SMB- of NFS-share. Dit is handig voor scenario's waarin gegevens worden geopend en gewijzigd ver weg van een Azure-datacenter, zoals in een scenario voor het filiaal. Gegevens kunnen worden gerepliceerd tussen meerdere eindpunten voor Windows Server, zoals tussen meerdere filialen. Ten slotte kan worden gelaagde gegevens in Azure Files, zodat alle gegevens zijn nog steeds toegankelijk via de Server, maar de Server heeft geen een volledige kopie van de gegevens. In plaats daarvan gegevens naadloos ingetrokken wanneer door de gebruiker wordt geopend.
 
 De volgende tabel ziet u hoe uw gebruikers en toepassingen toegang uw Azure-bestandsshare tot hebben:
 

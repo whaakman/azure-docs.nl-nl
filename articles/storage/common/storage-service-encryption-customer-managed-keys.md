@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 0e1ebd8868cfe5ef69a09219ffc82092fb85a4c8
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: f14ffc7bfbdabdd93e7743c7932dae1af7730e60
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527083"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781561"
 ---
 # <a name="storage-service-encryption-using-customer-managed-keys-in-azure-key-vault"></a>Versleuteling voor opslagservice met behulp van de klant beheerde sleutels in Azure Key Vault
 Microsoft Azure is belangrijk dat u kunt beschermen en beveiligen van uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen goed. Een manier die het opslagplatform van Azure beschermt uw gegevens is via versleuteling SSE (Storage Service), die uw gegevens worden versleuteld bij het schrijven van deze naar de opslag en ontsleutelt de gegevens bij het ophalen van het. De versleuteling en ontsleuteling is automatische, transparant en maakt gebruik van 256-bits [AES-versleuteling](https://wikipedia.org/wiki/Advanced_Encryption_Standard), een van de krachtigste blokversleutelingsmethoden die er bestaan.
@@ -34,7 +34,7 @@ Als u wilt gebruiken door de klant beheerde sleutels met SSE, kunt u een nieuwe 
 Maak eerst een storage-account als u er nog geen hebt. Zie voor meer informatie, [maken van een nieuw opslagaccount](storage-quickstart-create-account.md).
 
 ### <a name="step-2-enable-sse-for-blob-and-file-storage"></a>Stap 2: Serverversleuteling inschakelen voor de Blob-en bestand
-Twee belangrijke functies voor gegevensbeveiliging, voorlopig verwijderen en niet verwijderen, moeten ook worden ingeschakeld zodat SSE door de klant beheerde sleutels. Deze instellingen ervoor dat de sleutels kunnen niet per ongeluk of opzettelijk verwijderde. De maximale bewaarperiode van de sleutels is ingesteld op 90 dagen, beveiligt gebruikers tegen kwaadwillende actoren of ransomware-aanvallen.
+Als u wilt met behulp van de klant beheerde sleutels SSE inschakelt, moeten twee belangrijke functies voor gegevensbeveiliging, voorlopig verwijderen en niet verwijderen, ook worden ingeschakeld in Azure Key Vault. Deze instellingen ervoor dat de sleutels kunnen niet per ongeluk of opzettelijk verwijderde. De maximale bewaarperiode van de sleutels is ingesteld op 90 dagen, beveiligt gebruikers tegen kwaadwillende actoren of ransomware-aanvallen.
 
 Als u inschakelen via een programma door de klant beheerde sleutels voor SSE wilt, kunt u de [Azure Storage Resource Provider REST API](https://docs.microsoft.com/rest/api/storagerp), wordt de [Storage Resource Provider-clientbibliotheek voor .NET](https://docs.microsoft.com/dotnet/api), [ Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), of de [Azure CLI](https://docs.microsoft.com/azure/storage/storage-azure-cli).
 

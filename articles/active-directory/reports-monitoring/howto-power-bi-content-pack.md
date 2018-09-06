@@ -14,14 +14,19 @@ ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 090e7419f80bc734ee2b1cb4f976911792046a9c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 752e71f3c6b22a6d9f1e2392b58c01deef9de89c
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059445"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782157"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI Content Pack gebruiken
+
+|  |
+|--|
+|Op dit moment het Azure AD Power BI-inhoudspakket maakt gebruik van de Azure AD Graph-API's voor het ophalen van gegevens uit uw Azure AD-tenant. Als gevolg hiervan, ziet u mogelijk enkele verschillen tussen de gegevens die beschikbaar zijn in het inhoudspakket en de gegevens die worden opgehaald met behulp van de [Microsoft Graph-API's voor het melden van](concept-reporting-api.md). |
+|  |
 
 Voor u als IT-beheerder is het enorm belangrijk om te weten hoe uw gebruikers functies van Azure Active Directory implementeren en gebruiken. Deze informatie is vereist om uw IT-infrastructuur en communicatie te plannen om zo het gebruik van AAD-functies te vergroten en het rendement te optimaliseren. Power BI Content Pack voor Azure Active Directory biedt u de mogelijkheid om uw gegevens verder te analyseren, zodat u begrijpt hoe u deze gegevens kunt gebruiken voor het verzamelen van inzichten die nog beter laten zien hoe Azure Active Directory wordt ingezet voor de verschillende toepassingsmogelijkheden die een belangrijke rol spelen in uw organisatie.  Met de integratie van Azure Active Directory-API's in Power BI kunt u eenvoudig de vooraf samengestelde inhoudspakketten downloaden en met behulp van de krachtige visualisatie-opties van Power BI inzicht verkrijgen in alle activiteiten binnen uw Azure Active Directory. U kunt uw eigen dashboard maken en dit dashboard vervolgens eenvoudig delen met andere personen binnen uw organisatie. 
 

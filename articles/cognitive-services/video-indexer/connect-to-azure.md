@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/05/2018
+ms.date: 09/05/2018
 ms.author: juliako
-ms.openlocfilehash: df9d3f40b28f5b030f3d7e7a63b1b3e77caedb6c
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: c598fdae40b4552e1d4dc29b8558d82d0830160a
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700805"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841830"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Maken van een Video Indexer-account dat is verbonden met Azure
 
@@ -80,8 +80,8 @@ In dit artikel laat zien hoe een Video Indexer-account dat gekoppeld aan een Azu
         |Video Indexer-accountregio|De naam van de regio van de Video Indexer-account. Voor betere prestaties en lagere kosten, is het raadzaam om op te geven van de naam van de regio waar de resource van Azure Media Services en Azure Storage-account zich bevinden. |
         |Azure Active Directory (AAD)-tenant|De naam van de Azure AD-tenant, bijvoorbeeld 'contoso.onmicrosoft.com'. De tenant-gegevens kan worden opgehaald uit de Azure-portal. Plaats de cursor boven de naam van de aangemelde gebruiker in de rechterbovenhoek.|
         |Abonnements-id|De Azure-abonnement waarmee deze verbinding moet worden gemaakt. De abonnements-ID kan worden opgehaald uit de Azure-portal. Klik op **alle services** in het linkerdeelvenster en zoek naar 'abonnementen'. Selecteer, **abonnementen** en kiest u de gewenste-ID in de lijst met uw abonnementen.|
-        |Azure-resourcegroep de naam|De naam voor de nieuwe resourcegroep waarin u uw verbinding te maken.|
-        |Azure-resource naam|De naam van de Azure Media Services-resource.|
+        |Azure Media Services de naam van resourcegroep|De naam voor de resourcegroep waarin u kunt de Media Services-account bestaat.|
+        |Media service-resourcenaam|De naam van de Azure Media Services-resource.|
         |Toepassings-id|De toepassings-ID voor Azure AD met machtigingen voor de opgegeven Media Services-account. Zie voor meer informatie, [gebruik service-principal verificatie](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
         |Toepassingssleutel|Zie voor meer informatie, [gebruik service-principal verificatie](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 

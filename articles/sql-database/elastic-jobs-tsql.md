@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: ca21355c836a58591bbbd09874d0c5d0b5c17435
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126422"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842601"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Transact-SQL (T-SQL) gebruiken om te maken en beheren van taken voor Elastic Database
 
@@ -184,7 +184,13 @@ Bijvoorbeeld: als u wilt alle resultaten van de uitvoering van dezelfde taak van
 
 ## <a name="monitor-database-performance"></a>Databaseprestaties bewaken
 
-Het volgende voorbeeld wordt een nieuwe taak voor het verzamelen van prestatiegegevens uit meerdere databases.  
+Het volgende voorbeeld wordt een nieuwe taak voor het verzamelen van prestatiegegevens uit meerdere databases.
+
+Standaard wordt de agent voor taken zoeken voor het maken van de tabel voor het opslaan van de geretourneerde resultaten in. Als gevolg hiervan moet de aanmelding die is gekoppeld aan de referentie die wordt gebruikt voor de referentie van de uitvoer voldoende rechten hebt voor dit uitvoeren. Als u handmatig wilt maken in de tabel vooraf moet deze de volgende eigenschappen hebben:
+1. Kolommen met de juiste naam en gegevenstypen voor de resultatenset.
+2. Extra kolom voor internal_execution_id met het gegevenstype uniqueidentifier.
+3. Een niet-geclusterde index met de naam ' IX_<TableName>_Internal_Execution_ID ' op de kolom internal_execution_id.
+
 Verbinding maken met de [ *taak database* ](elastic-jobs-overview.md#job-database) en voer de volgende opdrachten uit:
 
 ```sql

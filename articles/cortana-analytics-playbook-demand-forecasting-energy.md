@@ -1,404 +1,405 @@
 ---
-title: Cortana Intelligence oplossing sjabloon Playbook voor het voorspellen van de vraag van energie | Microsoft Docs
-description: Een oplossingssjabloon met Microsoft Cortana Intelligence waarmee forecast aanvraag voor een bedrijf, energie-hulpprogramma.
-services: cortana-analytics
+title: Sjabloon Playbook van Cortana Intelligence-oplossing voor vraagprognose van energie | Microsoft Docs
+description: Een oplossingssjabloon met Microsoft Cortana Intelligence waarmee de prognose van vraag voor een energiebedrijf-hulpprogramma.
+services: machine-learning
 documentationcenter: ''
 author: ilanr9
-manager: ilanr9
+manager: cgronlun
 editor: yijichen
 ms.assetid: 8855dbb9-8543-45b9-b4c6-aa743a04d547
-ms.service: cortana-analytics
+ms.service: machine-learning
+ms.subservice: team-data-science-process
 ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2016
-ms.author: ilanr9;yijichen;garye
-ms.openlocfilehash: 275e387878900154660d044b26ff5ac03a17a65a
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.author: yijichen
+ms.openlocfilehash: 6a879faa88cc6cdf586f2c12283bcb6f0263bf57
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23846428"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842569"
 ---
-# <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Cortana Intelligence oplossing sjabloon Playbook voor het voorspellen van de vraag van energie
-## <a name="executive-summary"></a>Managementsamenvatting
-In de afgelopen jaren, hebben Internet der dingen (IoT), alternatieve energie en big data samengevoegde voor het maken van de enorme mogelijkheden in het hulpprogramma en de energie-domein. Op hetzelfde moment hebben het hulpprogramma en de volledige energiesector verbruik plat uit met betere methoden voor het beheren van hun gebruik van energie veeleisende consumenten gezien. Daarom zijn het hulpprogramma en de smartcard raster bedrijven nodig voor innoveren en vernieuwen van zichzelf. Bovendien steeds veel hulpprogramma's en energiebeheer rasters verouderde en kostbare onderhouden en beheren. Tijdens het afgelopen jaar werkt het team op een aantal betrokkenheid binnen de energie-domein. Er is veel gevallen waarin de hulpprogramma's of ISV's (Independent Software Vendors) hebben op zoek in voorspellen voor toekomstige energie vraag tijdens deze betrokkenheid. Deze prognoses speelt een belangrijke rol in het huidige en toekomstige bedrijf en de basis voor verschillende gebruiksvoorbeelden zijn geworden. Het gaat hierbij om korte en lange termijn power load prognose, handel, taakverdeling, raster optimalisatie, enzovoort. BIG data en geavanceerde analyses AA-methoden zoals Machine Learning (ML) zijn de belangrijkste onderdelen mogelijk te maken voor het produceren van nauwkeurige en betrouwbare prognoses.  
+# <a name="cortana-intelligence-solution-template-playbook-for-demand-forecasting-of-energy"></a>Sjabloon Playbook van Cortana Intelligence-oplossing voor vraagprognose van energie
+## <a name="executive-summary"></a>Uitvoeringssamenvatting
+Internet of Things (IoT), alternatieve energiebronnen en big data in de afgelopen jaren hebben samengevoegd voor het maken van grote verkoopkansen in het hulpprogramma en de energie-domein. Op hetzelfde moment, hebben het hulpprogramma en de volledige energiesector verbruik plat maken om met klanten betere manieren voor het beheren van hun gebruik van energie veeleisende gezien. Daarom kan zijn het hulpprogramma en slimme grid bedrijven nodig voor het vernieuwen en vernieuwen zelf. Bovendien worden veel hulpprogramma's en energiebeheer rasters vaker het verouderde en zeer kostbaar zijn te onderhouden en beheren. Tijdens het afgelopen jaar werkt het team aan een aantal engagements binnen het domein energie. Tijdens deze betrokkenheid, Hiermee hebben we veel gevallen waarin de hulpprogramma's of ISV's (Independent Software Vendors) hebt op zoek was bij de prognoses voor toekomstige energievraag aangetroffen. Deze prognoses speelt een belangrijke rol in hun huidige en toekomstige activiteiten en de basis vormt voor verschillende gebruiksvoorbeelden zijn geworden. Het gaat hierbij om korte en lange termijn power load prognose, handel, taakverdeling, raster optimalisatie, enzovoort. BIG data en geavanceerde analyse (AA) methoden, zoals Machine Learning (ML) zijn de belangrijkste virtualisatielaag voor het produceren van nauwkeurige en betrouwbare prognoses.  
 
-In deze playbook we samenstellen de zakelijke en analytische richtlijnen die nodig zijn voor een geslaagde ontwikkeling en implementatie van de vraag energie forecast oplossing. Deze voorgestelde richtlijnen kunnen u hulpprogramma's, gegevenswetenschappers en gegevens engineers volledig geoperationaliseerd, cloud-gebaseerde, voorspellen van de vraag oplossingen tot stand wordt gebracht. Voor de bedrijven die hun big data en geavanceerde analyses vervoer net beginnen, kan een dergelijke oplossing de initiële seed in hun langetermijnstrategie smart raster vertegenwoordigen.
+In deze playbook we samengesteld de zakelijke en analytische richtlijnen die nodig zijn voor een geslaagde ontwikkeling en implementatie van de vraag naar energie prognose-oplossing. Deze voorgestelde richtlijnen kunnen u hulpprogramma's, gegevenswetenschappers en data-engineers bij het opstellen van volledig ingezette, cloudgebaseerde en on-demand prognose-oplossingen. Voor bedrijven die hun big data en geavanceerde analyse reis net begint, kan een dergelijke oplossing de basiswaarde in hun langetermijnstrategie slimme grid vertegenwoordigen.
 
 > [!TIP]
-> Zie voor het downloaden van een diagram waarin u een overzicht van de architectuur van deze sjabloon bevat [Cortana Intelligence oplossingssjabloon architectuur voor het voorspellen van de vraag van energie](cortana-analytics-architecture-demand-forecasting-energy.md).  
+> Zie voor het downloaden van een diagram een overzicht van de architectuur van deze sjabloon biedt [architectuur van de Cortana Intelligence-oplossingssjabloon voor on-demand prognose van energie](cortana-analytics-architecture-demand-forecasting-energy.md).  
 > 
 > 
 
 ## <a name="overview"></a>Overzicht
-Dit document bevat informatie over de zakelijke, gegevens en technische aspecten van het gebruik van Cortana Intelligence en in bepaalde Azure Machine Learning (AML) voor de implementatie en de implementatie van energie prognose oplossingen. Het document bestaat uit drie hoofdonderdelen:  
+In dit document bevat informatie over het bedrijf, gegevens en technische aspecten van het gebruik van Cortana Intelligence en in bepaalde Azure Machine Learning (AML) voor de implementatie- en implementatie van oplossingen voor energie voorspellen. Het document bestaat uit drie belangrijke onderdelen:  
 
 1. Inzicht in het bedrijf  
-2. Understanding Data  
+2. Inzicht in gegevens  
 3. Technische implementatie
 
-De **bedrijven inzicht** deel bevat een overzicht van het bedrijf aspect één moet om te begrijpen en overwegen voordat een beslissing investering. Hierin wordt uitgelegd hoe u het zakelijke probleem op dat moment om ervoor te zorgen dat predictive analytics en machine learning inderdaad effectieve en van toepassing zijn. Het document verder vindt u de basisbeginselen van machine learning en hoe deze wordt gebruikt voor het oplossen van problemen energie prognose. Het bevat een overzicht van de vereisten en de kwalificatiecriteria van een gebruiksvoorbeeld. Aantal voorbeelden gebruiken aanvragen en het bedrijfsscenario scenario's worden ook gegeven.
+De **inzicht in het bedrijf** onderdeel bevat een overzicht van het bedrijf aspect nodig zijn om te begrijpen en overwegen voordat u een beslissing investering. Hierin wordt uitgelegd hoe u het zakelijke probleem bij de hand om ervoor te zorgen dat predictive analytics en machine learning inderdaad effectief en van toepassing zijn. Het document verder vindt u de basisbeginselen van machine learning en hoe deze wordt gebruikt voor het voorspellen van energieverbruik problemen te verhelpen. Het bevat een overzicht van de vereisten en de kwalificatiecriteria van een use case. Een aantal voorbeelden use cases en het bedrijfsscenario scenario's zijn ook beschikbaar.
 
-Gegevens zijn het hoofdbestanddeel voor een machine learning-oplossing. De **gegevens Understanding** deel van dit document bevat enkele belangrijke aspecten van de gegevens. Het bevat een overzicht van de soort gegevens die nodig is voor de prognose energie, data quality vereisten en welke gegevensbronnen bestaan doorgaans. Ook wordt uitgelegd hoe de onbewerkte gegevens wordt gebruikt voor het voorbereiden van de functies voor die daadwerkelijk het deel van het model.
+Gegevens zijn de belangrijkste onderdeel toe voor elke machine learning-oplossing. De **gegevens wat** onderdeel van dit document bevat informatie over enkele belangrijke aspecten van de gegevens. Het bevat een overzicht van het type gegevens dat is vereist voor het voorspellen van energieverbruik, kwaliteitsvereisten gegevens en welke gegevensbronnen bestaan doorgaans. Ook wordt uitgelegd hoe de onbewerkte gegevens om voor te bereiden gegevensfuncties die daadwerkelijk het deel van het model wordt gebruikt.
 
-Het derde onderdeel van het document bevat informatie over de **technische implementatie** aspect van een oplossing. Functie-engineering en modellering vormen de kern van het proces van de wetenschappelijke gegevens en worden daarom enkele gedetailleerd besproken. Ze omvatten het concept van webservices een belangrijk medium voor cloudimplementatie van predictive analytics-oplossingen zijn. We een typische architectuur van een operationalized end-to-end-oplossing ook een overzicht.
+Het derde deel van het document bevat informatie over de **technische implementatie** aspect van een oplossing. Feature-engineering en modellen zijn in de kern van het data science process en daarom in bepaalde mate van detail worden besproken. Hierin wordt het concept van webservices een belangrijk vehicle voor cloudimplementatie van predictive analytics-oplossingen zijn. We een typische architectuur van een end-to-end ingezette oplossing ook een overzicht.
 
-Het document bevat bovendien referentiemateriaal die u gebruiken kunt om te krijgen meer inzicht in het domein en de technologie.
+Het document bevat bovendien referentiemateriaal dat beschikbaar is die u gebruiken kunt om te krijgen meer inzicht in het domein en de technologie.
 
-Het is belangrijk te weten dat er niet van plan bent omvatten in dit document de meer gedetailleerde gegevens wetenschappelijke processen de wiskundige en technische aspecten. Deze gegevens vindt u in [documentatie voor Azure ML](http://azure.microsoft.com/services/machine-learning/) en [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
+Het is belangrijk te weten dat we niet van plan bent om te kunnen krijgen in dit document het diepere data science process de wiskundige en technische aspecten. Deze informatie kunnen u vinden in [documentatie voor Azure ML](http://azure.microsoft.com/services/machine-learning/) en [blogs](http://blogs.microsoft.com/blog/tag/azure-machine-learning/).
 
 ### <a name="target-audience"></a>Doelgroep
-De doelgroep voor dit document is zowel zakelijke en technische medewerkers die u wilt leren kennen en kennis van Machine Learning gebaseerde oplossingen en hoe deze worden gebruikt specifiek binnen het domein energie prognose.
+De doelgroep voor dit document is zowel zakelijke als technische medewerkers die graag willen kennis en inzicht in Machine Learning op basis van oplossingen en hoe deze worden gebruikt om precies binnen het domein energie voorspellen.
 
-Gegevenswetenschappers kunnen ook profiteren van het lezen van dit document voor het verkrijgen van een beter inzicht te krijgen van het hoogste niveau proces dat de implementatie van een oplossing prognose energie-stations. In deze context kan ook worden gebruikt om een goede basis stand te brengen en beginpunt voor meer gedetailleerde en geavanceerde materiaal.
+Gegevenswetenschappers kunnen ook profiteren van dit document om te krijgen een beter begrip van het proces op hoog niveau die de implementatie van een prognose-oplossing energie-stations. In deze context het kan ook worden gebruikt voor een goede basislijn en beginpunt voor meer gedetailleerde en geavanceerde materiaal.
 
-### <a name="industry-trends"></a>Trends van
-In de afgelopen jaren hebben IoT, alternatieve energie en big data samengevoegde voor het maken van de enorme mogelijkheden in het hulpprogramma en de energie-ruimte. Op hetzelfde moment hebben het hulpprogramma en de volledige energiesectoren verbruik plat uit met betere methoden voor het beheren van hun gebruik van energie veeleisende consumenten gezien.
+### <a name="industry-trends"></a>Trends in de branche
+IoT, alternatieve energiebronnen en big data in de afgelopen jaren hebben voor het maken van enorme mogelijkheden in de ruimte hulpprogramma en de energie samengevoegd. Op hetzelfde moment, hebben het hulpprogramma en de volledige energiesectoren verbruik plat maken om met klanten betere manieren voor het beheren van hun gebruik van energie veeleisende gezien.
 
-Veel hulpprogramma en slimme energiebedrijven is pioneering de [smart raster](https://en.wikipedia.org/wiki/Smart_grid) door het implementeren van een aantal gebruik aanvragen die maken gebruik van de gegevens die worden gegenereerd door het raster. Veel gebruiksvoorbeelden gebaseerd op de intrinsieke kenmerken van elektriciteitsproductie: kan niet worden verzameld of gereserveerd als inventarisatie worden opgeslagen. Ja, wat wordt geproduceerd moet worden gebruikt. Hulpprogramma's die u wilt weten hoe u efficiënter energieverbruik gewoon prognose nodig omdat die deze meer mogelijkheden om te krijgt **en aanbod in evenwicht**, waardoor wordt voorkomen dat energie-verliezen **handel gas uitstoot verminderen**, en beheerkosten.
+Veel hulpprogramma en slimme energiebedrijven hebben is beveiligingsexperts de [slimme grid](https://en.wikipedia.org/wiki/Smart_grid) door het implementeren van een aantal gebruik gevallen die gebruik van de gegevens die worden gegenereerd door het raster. Veel van use cases omvangsfase heeft te maken rond de inherente kenmerken van elektriciteitswinning: kan niet worden samengevoegd of gereserveerd als inventarisatie worden opgeslagen. Dus, wat wordt geproduceerd moet worden gebruikt. Hulpprogramma's die u wilt weten hoe u efficiënter nodig hebt om te voorspellen van energieverbruik gewoon omdat dit ze meer mogelijkheden om te geeft **vraag en aanbod in balans brengen**, waardoor wordt voorkomen dat energie verliezen, **handel gas beperken emissie**, en de kosten worden beheerd.
 
-Bij het bespreken van de kosten, is er een ander belangrijk aspect, de prijs is. Nieuwe mogelijkheden voor de handel stroom tussen de hulpprogramma's voor een goede nodig zijn om te hebben gebracht **voorspellen van toekomstige vraag en toekomstige prijs elektriciteit**. Hierdoor kunnen bedrijven hun omvang van de productie te bepalen.
+Bij het bespreken van de kosten, is er een ander belangrijk aspect, de prijs is. Nieuwe mogelijkheden voor energiebeheer tussen hulpprogramma's in een geweldige hoeft te hebben gebracht **voorspellen van toekomstige vraag en toekomstige prijsstijgingen van elektriciteit**. Dit kan helpen bedrijven hun omvang van de productie te bepalen.
 
-Wanneer we het woord 'smart' gebruiken, verwijzen we daadwerkelijk naar een raster dat u kunt meer informatie over de en voorspellingen. Kan het seizoen wijzigingen in het verbruik van verwacht, evenals **voorzien van tijdelijke overbelasting situaties en automatisch aanpassen voor**. Door op afstand reguleren verbruik (met behulp van deze smartcard meters), kunnen gelokaliseerde overbelasting situaties worden verwerkt. **Door eerst voorspellen en vervolgens fungeert**, het raster kunt u zelf slimmer gedurende een bepaalde periode.
+Als we het woord 'slimme' gebruiken, verwijzen we eigenlijk naar een raster dat kan leren en vervolgens voorspellingen te doen. Deze seizoensgebonden wijzigingen in het verbruik van kan voorspellen, evenals **voorzien van tijdelijke overbelasting en automatisch aanpassen voor**. Door op afstand reguleren verbruik (aan de hand van deze slimme meters), kunnen gelokaliseerde overbelasting worden verwerkt. **Door eerst voorspellen en vervolgens handelen**, het raster kunt u zelf slimmer na verloop van tijd.
 
-Voor de rest van dit document gaan we in op een specifieke reeks gebruiksvoorbeelden die betrekking hebben op voorspellen van toekomstige, korte termijn en op lange termijn energie-aanvraag. We werken al op deze gebieden een paar maanden en hebben opgedaan sommige kennis en vaardigheden dat wij bedrijfstak hoogwaardige resultaten opleveren. Andere toepassingen worden behandeld ook in het document in de nabije toekomst.
+Voor de rest van dit document ligt de nadruk op een specifieke reeks van use cases die betrekking hebben op voorspellen van toekomstige, korte termijn en op lange termijn energievraag te voldoen. We werken al op deze gebieden een paar maanden en hebben opgedaan met enkele kennis en vaardigheden die we kunnen branche geavanceerde resultaten opleveren. Andere gevallen wordt gedekt ook in het document in de nabije toekomst.
 
 ## <a name="business-understanding"></a>Inzicht in het bedrijf
 ### <a name="business-goals"></a>Zakelijke doelstellingen
-De **energie Demo** doel is om aan te tonen een typische predictive analytics en machine learning-oplossing die kan worden geïmplementeerd in een korte periode. In het bijzonder is onze huidige focus over het inschakelen van energie vraag prognose oplossingen zodat de bedrijfswaarde kan snel worden gerealiseerd en worden gebruikt bij. De informatie in deze playbook kunt de klant uitvoeren van de volgende doelen:
+De **energie Demo** doel is om te demonstreren een typische predictive analytics en machine learning-oplossing die kan worden geïmplementeerd in een zeer korte periode. Onze huidige focus is met name over het inschakelen van energie-demandoplossingen prognose zodat de waarde voor het bedrijf kan snel worden gerealiseerd en worden gebruikt bij het. De informatie in deze playbook kan helpen de klant uitvoeren van de volgende doelen:
 
-* Oplossing op basis van een korte tijd op de waarde van machine learning
-* Mogelijkheid om uit te breiden een proef gebruiksvoorbeeld aan andere toepassingen of een ruimere bereik op basis van hun zakelijke behoeften
-* Snel krijgen van Cortana Intelligence Suite productkennis
+* Korte tijd op de waarde van machine learning op basis van de oplossing
+* Mogelijkheid om uit te breiden van een leider use-case naar andere use-cases of naar een breder bereik op basis van hun zakelijke behoeften
+* Productkennis van Cortana Intelligence Suite en snel inzicht
 
-Met deze drie doelen voor ogen, wordt deze playbook gericht op het leveren van de zakelijke en technische kennis die u helpt bij het bereiken van deze doelstellingen.
+Met deze drie doelen voor ogen, deze playbook is erop gericht op het leveren van de zakelijke en technische kennis die u helpt bij het bereiken van deze doelstellingen.
 
-### <a name="power-load-and-demand-forecasting"></a>Power laden en het voorspellen van de vraag
-Binnen de energiesector, kan er veel manieren besproken waarop vraag prognose kan helpen bedrijfsproblemen oplost. In feite voorspellen van de vraag kan worden beschouwd als de basis voor veel core gebruiksvoorbeelden in de branche. In het algemeen we twee soorten energie vraagprognoses beschouwen: korte en lange termijn. Elk criterium mag hebben een ander doel en gebruikmaken van een andere benadering. Het belangrijkste verschil tussen de twee is de prognoses horizon, wat betekent dat het bereik van de tijd in de toekomst waarvoor we zou prognose.
+### <a name="power-load-and-demand-forecasting"></a>Power belasting en on-Demand prognose
+Binnen de energiesector, kunnen er veel manieren waarop vraag voorspellen kunt kritieke zakelijke problemen kunt oplossen. In feite vraagprognose kan worden beschouwd als de basis voor veel core use-cases in de branche. In het algemeen wij beschouwen als twee typen energie vraagprognoses: korte en lange termijn. Elk mogelijk een ander doel dienen en gebruikmaken van een andere benadering. Het belangrijkste verschil tussen de twee is de prognoses horizon, wat betekent dat het bereik van de tijd in de toekomst waarvoor we zouden prognose.
 
-#### <a name="short-term-load-forecasting"></a>Voor de korte termijn Load prognose
-Korte termijn laden prognose (STLF) wordt binnen de context van energie-aanvraag is gedefinieerd als de geaggregeerde belasting die wordt een prognose in de nabije toekomst op verschillende onderdelen van het raster (of het raster als geheel). Korte termijn wordt in deze context is gedefinieerd als periode binnen het bereik van 1 uur tot 24 uur. In sommige gevallen is er ook een periode van 48 uur mogelijk. Daarom is STLF heel gebruikelijk in een aanvraag operationeel gebruik van het raster. Hier volgen enkele voorbeelden van STLF aangestuurd gebruiksvoorbeelden:
+#### <a name="short-term-load-forecasting"></a>Korte termijn Load prognoses
+Korte termijn laden prognose (STLF) wordt in de context van de vraag naar energie gedefinieerd als de cumulatieve load die in de nabije toekomst op verschillende onderdelen van het raster (of het raster als geheel) wordt een prognose. In deze context, wordt de korte termijn gedefinieerd als periode binnen het bereik van 1 uur tot 24 uur. In sommige gevallen kan is een periode van 48 uur ook mogelijk. Daarom is STLF heel gebruikelijk in een operationele use case van het raster. Hier volgen enkele voorbeelden van STLF gestuurde gebruiksvoorbeelden:
 
 * Vraag en aanbod Netwerktaakverdeling
-* Handelspartners ondersteuning voor energiebeheer
-* Markt maken (instelling power prijs)
+* Trading ondersteuning voor energiebeheer
+* Handel maken (instelling power prijs)
 * Raster operationele optimalisatie
-* [Vraag antwoord](https://en.wikipedia.org/wiki/Demand_response)
-* Pieksnelheden voorspellen van de vraag
+* [Vraag-antwoord](https://en.wikipedia.org/wiki/Demand_response)
+* Pieken vraagprognose
 * Vraag aan clientzijde management
-* Taakverdeling en preventie van de overbelasting
-* Lange termijn Load prognose
-* Detectie van fouttolerantie en afwijkingsdetectie
+* Taakverdeling en preventie overbelasten
+* Lange termijn Load prognoses
+* Fouttolerantie en anomaliedetectie
 * Piek inperking/herverdeling 
 
-STLF model zijn voornamelijk gebaseerd op de bijna afgelopen (laatste dag of week) gegevens over het verbruik en gebruik prognose temperatuur als een belangrijke manier. Het verkrijgen van nauwkeurige temperatuur prognose voor het volgende uur en up tot 24 uur wordt steeds minder van een challenge nu dagen. Deze modellen zijn minder gevoelig voor seizoensgebonden patronen of trends voor lange termijn verbruik.
+STLF model zijn voornamelijk gebaseerd op het dichtstbijzijnde verleden (afgelopen dag of week) gegevens over het verbruik en gebruik temperatuur als een belangrijke voorspelde prognose. Het verkrijgen van nauwkeurige temperatuur prognose voor het volgende uur en van 24 uur wordt steeds minder van een uitdaging nu dagen. Deze modellen zijn minder gevoelig zijn voor seizoensgebonden patronen of verbruikstrends van op de lange termijn.
 
-Er zijn ook SLTF oplossingen waarschijnlijk voor het genereren van grote hoeveelheden voorspelling aanroepen (serviceaanvragen) omdat ze zijn wordt aangeroepen op uurbasis en in sommige gevallen zelfs met een hogere frequentie. Het is ook heel gebruikelijk om te zien stadium van de innesteling waar elke afzonderlijke onderstation of transformator wordt weergegeven als een model met zelfstandige en zijn daarom het volume aan aanvragen van de voorspelling nog groter.
+SLTF oplossingen waarschijnlijk ook voor het genereren van groot aantal aanroepen van de productie (serviceaanvragen) omdat ze wordt op uurbasis berekend en in sommige gevallen zelfs met een hogere frequentie aangeroepen. Het is ook heel gebruikelijk om te zien stadium van de innesteling waar elke afzonderlijke onderstation of transformator wordt weergegeven als een zelfstandige model en het aantal aanvragen voor voorspelling zijn daarom nog groter.
 
-#### <a name="long-term-load-forecasting"></a>Lange termijn Load prognose
-Het doel van de lange termijn Load prognose (LTLF) is te voorspellen power-aanvraag met een periode tussen 1 week tot meerdere maanden (en in sommige gevallen een aantal jaar). Dit bereik van de horizon is vooral van toepassing voor het plannen van investering gebruiksscenario's.
+#### <a name="long-term-load-forecasting"></a>Lange termijn Load prognoses
+Het doel van de lange termijn Load prognose (LTLF) is prognose van vraag met een periode, variërend van 1 week tot meerdere maanden (en in sommige gevallen voor een aantal jaar). Dit bereik van de horizon is voornamelijk van toepassing voor het plannen van en investering gebruiksvoorbeelden.
 
-Voor de lange termijn scenario's is het belangrijk om gegevens van hoge kwaliteit die betrekking heeft op een reeks van meerdere jaren (minimaal 3 jaar). Deze modellen wordt doorgaans periodieke patronen extraheren uit de historische gegevens en maken gebruik van externe predicators zoals als weer en klimaat patronen.
+Voor scenario's op de lange termijn is het belangrijk dat u hebt gegevens van hoge kwaliteit die betrekking heeft op een reeks van meerdere jaren (ten minste 3 jaar). Deze modellen wordt gewoonlijk seizoensgebondenheid patronen onttrekken aan de historische gegevens en maakt gebruik van externe predicators zoals als weer en klimaat patronen.
 
-Het is belangrijk om te verduidelijken dat hoe langer de prognoses horizon, hoe minder nauwkeurig de prognose kan zijn. Daarom is het belangrijk dat u sommige intervallen vertrouwen samen met de werkelijke prognose waarmee mensen rekening houden met de mogelijke variatie in hun planningsproces produceren.
+Het is belangrijk om te verduidelijken dat hoe langer de prognoses horizon is, hoe minder nauwkeurig de prognose kan zijn. Daarom is het belangrijk dat u bepaalde intervallen vertrouwen, samen met de werkelijke prognose waarmee mensen rekening met de mogelijke variatie in hun planningsproces zou produceren.
 
-Aangezien het verbruik scenario voor LTLF is voornamelijk planning, verwachten we veel lagere voorspelling volumes (in vergelijking met STLF). We deze voorspellingen in visualisatie's zoals Excel of Power BI embedded standaard wordt weergegeven en handmatig worden aangeroepen door de gebruiker.
+Aangezien het verbruik scenario voor LTLF is voornamelijk plan, kunnen we verwachten dat veel lager voorspelling volumes (in vergelijking met STLF). We meestal wordt deze voorspellingen in visualisatie-hulpprogramma's zoals Excel of Power BI embedded en handmatig worden aangeroepen door de gebruiker.
 
 ### <a name="short-term-vs-long-term-prediction"></a>Korte termijn vs. Voorspelling van de lange termijn
 De volgende tabel vergelijkt STLF en LTLF met betrekking tot de belangrijkste kenmerken:
 
-| Kenmerk | Korte termijn Load Forecast | Lange termijn Load prognose |
+| Kenmerk | Prognose van de korte termijn laden | Lange termijn Load prognose |
 | --- | --- | --- |
-| Prognose Horizon |Vanaf 1 uur, 48 uur |Van 1 tot en met 6 maanden of meer |
-| Samenvattingen van gegevens |Elk uur |Elk uur of dagelijks |
-| Typische gebruiksvoorbeelden |<ul><li>Vraag/aanbod Netwerktaakverdeling</li><li>Kies uur prognose</li><li>Vraag antwoord</li></ul> |<ul><li>Lange termijn planning</li><li>Raster activa plannen</li><li>Resourceplanning</li></ul> |
-| Typische variabelen |<ul><li>Dag of week</li><li>Uur van dag</li><li>Temperatuur per uur</li></ul> |<ul><li>Maand van het jaar</li><li>Dag van de maand</li><li>Lange termijn temperatuur- en klimaat</li></ul> |
-| Historische gegevensbereik |Twee of drie jaar aan gegevens |5 tot 10 jaren aan gegevens |
-| Gemiddelde nauwkeurigheid |MAPE * van 5% of minder |MAPE * van 25% of minder |
-| Prognose frequentie |Elk uur of elke 24 uur geproduceerd |Geproduceerd zodra per maand, kwartaal of jaar |
+| Prognose Horizon |Van 1 uur tot 48 uur |Van 1 tot en met 6 maanden of meer |
+| Gegevens granulariteit |Elk uur |Elk uur of dagelijks |
+| Typische gebruiksvoorbeelden |<ul><li>Vraag/aanbod Netwerktaakverdeling</li><li>Kies uur prognoses</li><li>Vraag-antwoord</li></ul> |<ul><li>Lange termijn planning</li><li>Raster activa plannen</li><li>Resourceplanning</li></ul> |
+| Typische voorspellingsfactoren |<ul><li>Dag of week</li><li>uur van de dag</li><li>Per uur temperatuur</li></ul> |<ul><li>Maand van jaar</li><li>Dag van maand</li><li>Lange termijn temperatuur en klimaat</li></ul> |
+| Bereik van historische gegevens |Twee of drie jaar aan gegevens |Vijf tot en met 10 jaar aan gegevens |
+| Typische nauwkeurigheid |MAPE * van 5% of minder |MAPE * van 25% of minder |
+| Prognose frequentie |Elk uur of elke 24 uur |Geproduceerd eenmaal per maand, kwartaal of jaar |
 
 \*[MAPE](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error) – gemiddeld percentage fout betekent
 
-Zoals blijkt uit deze tabel, is het erg belangrijk onderscheid maken tussen de korte en lange termijn prognose scenario's, omdat dit andere bedrijfsbehoeften vertegenwoordigen en mogelijk andere implementatie en het verbruik patronen.
+Als uit deze tabel kan worden gezien, is het heel belangrijk dat u onderscheid maken tussen de korte en lange termijn voorspellen scenario's zoals deze staan voor verschillende zakelijke behoeften en mogelijk verschillende implementatie- en gebruikspatronen voor databasebronnen.
 
-### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Gebruiksvoorbeeld voorbeeld 1: eSmart systemen – overbelasting optimalisatie
-Een belangrijke rol van een [smart raster](https://en.wikipedia.org/wiki/Smart_grid) moet dynamisch en voortdurend te optimaliseren en voor de veranderende verbruik patronen aanpassen. Energieverbruik kan worden beïnvloed door op korte termijn wijzigingen die hoofdzakelijk worden veroorzaakt door temperatuur schommelingen (*bijvoorbeeld*, meer stroom wordt gebruikt voor lucht voorwaarde of verwarming). Energieverbruik wordt op hetzelfde moment ook beïnvloed door trends op lange termijn. Deze kunnen seizoensgebonden effecten, feestdagen op lange termijn groei van de consumptie en zelfs economische factoren zoals consumer index olie en bbp bevatten.
+### <a name="example-use-case-1-esmart-systems--overload-optimization"></a>Voorbeeld van de Use Case 1: eSmart systemen – overbelasting optimalisatie
+Een belangrijke rol van een [slimme grid](https://en.wikipedia.org/wiki/Smart_grid) is dynamisch en voortdurend te optimaliseren en aanpassen aan de veranderende gebruikspatronen voor databasebronnen. Energieverbruik kan worden beïnvloed door die voornamelijk worden veroorzaakt door temperatuur fluctuaties (*bijvoorbeeld*, meer stroom wordt gebruikt voor lucht voorwaarde of verwarming). Energieverbruik wordt tegelijkertijd, ook beïnvloed door op de lange termijn trends. Deze kunnen seizoensgebondenheid effecten, feestdagen, op de lange termijn de groei van consumptie en zelfs de economische factoren zoals consumenten index, de olieprijs en bbp bevatten.
 
-In dit geval gebruik [eSmart](http://www.esmartsystems.com/) wilt implementeren van een cloud-gebaseerde oplossing waarmee het investeringsneiging van overbelasting van het raster op een gegeven onderstation voorspellen. In het bijzonder wilde eSmart onderstations die waarschijnlijk overbelasting binnen een uur, zodat een onmiddellijke actie kan worden ondernomen om te voorkomen of oplossen van die situatie identificeren.
+In dit geval gebruik [eSmart](http://www.esmartsystems.com/) wilde implementeren van een cloud-gebaseerde oplossing waarmee de neiging zullen zijn van overbelasting van het raster op een bepaalde onderstation voorspellen. In het bijzonder wilde eSmart substations die waarschijnlijk overbelasten binnen een uur, zodat een onmiddellijke actie kan worden ondernomen om te voorkomen of oplossen van die situatie identificeren.
 
-Een nauwkeurige en snel uitvoeren voorspelling vereist de implementatie van de drie voorspellende modellen:
+Een nauwkeurige en het uitvoeren van snelle voorspelling vereist implementatie van drie voorspellende modellen:
 
-* Lange termijn model waarmee een prognose van het energieverbruik op elke onderstation tijdens de volgende enkele weken of maanden
-* Korte termijn model waarmee voorspelling van overbelasting op een gegeven onderstation in het volgende uur
-* Temperatuur model waarmee voorspellen van toekomstige temperatuur via meerdere scenario 's
+* Lange termijn model waarmee voorspellen van energieverbruik op elke onderstation tijdens de volgende paar weken of maanden
+* Korte termijn model waarmee voorspelling van overbelasting op een bepaalde onderstation in het volgende uur
+* Temperatuur-model dat u kunt voorspellen van toekomstige temperatuur via meerdere scenario 's
 
-Het doel van de lange termijn model is het rangschikken van de onderstations op basis van hun investeringsneiging van de overbelasting (gegeven hun energiecapaciteit transmission) tijdens de volgende week of maand. Hierdoor is het maken van een korte lijst met onderstations die als invoer voor de korte termijn voorspelling bedienen. Zoals temperatuur een belangrijke manier voor het model op lange termijn is, is het nodig voortdurend meerdere scenario temperatuur prognoses produceren en ze feed als invoer in het model op lange termijn. De korte termijn prognose wordt vervolgens om te voorspellen welke onderstation waarschijnlijk via het volgende uur van de overbelasting is aangeroepen.
+Het doel van de lange termijn model is het de substations rangschikken op basis van hun neiging zullen zijn om te overbelasten (gegeven hun energiecapaciteit verzending) tijdens de volgende week of maand. Hiermee wordt het maken van een korte lijst substations die als invoer voor de korte termijn voorspelling dienen kan. Zoals temperatuur hoger een belangrijk voorspelde voor de lange termijn model is, is er een nodig voortdurend meerdere scenario temperatuur prognoses maken en ze als invoer in voor het model op de lange termijn. De prognose van de korte termijn wordt vervolgens aangeroepen om te voorspellen welke onderstation dreigt te overbelasten in het volgende uur.
 
-De korte en lange termijn modellen worden afzonderlijk per elke onderstation geïmplementeerd. Daarom vereist de praktische uitvoering van deze modellen uitgebreide orchestration. Om toegang te krijgen hogere nauwkeurigheid op de korte termijn, is een meer gedetailleerd model als toegewezen voor elk uur van de dag. Alle deze modellen worden elk uur uitgevoerd en worden uitgevoerd binnen een paar minuten aan dat er voldoende tijd om te reageren en preventieve maatregelen indien nodig te voltooien. Deze verzameling van modellen wordt bijgewerkt door periodieke retraining de meest recente gegevens.
+De modellen voor zowel kortdurende als langdurige worden afzonderlijk per elke onderstation geïmplementeerd. Daarom vereist de praktische uitvoering van deze modellen uitgebreide indeling. Om te krijgen hogere nauwkeurigheid op de korte termijn, wordt een meer gedetailleerd model toegewezen voor elk uur van de dag. Alle deze modellen worden elk uur uitgevoerd en uitgevoerd binnen een paar minuten aan dat er voldoende tijd om te reageren en preventieve acties uitvoeren, indien nodig. Deze verzameling van modellen wordt up-to-date gehouden door periodieke retraining met behulp van de meest recente gegevens.
 
-Meer informatie over deze gebruiksvoorbeeld vindt [hier](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945).
+Meer informatie over deze use case vindt [hier](https://customers.microsoft.com/Pages/CustomerStory.aspx?recid=18945).
 
-#### <a name="use-case-qualification-criteria--prerequisites"></a>Gebruik Case kwalificatiecriteria: vereisten
-De belangrijkste sterkte van Cortana Intelligence is in de krachtige mogelijkheid om te implementeren en schalen van machine learning gericht oplossingen. Het is ontworpen voor ondersteuning van duizenden van voorspellingen die gelijktijdig worden uitgevoerd. Het kan automatisch schalen om te voldoen aan veranderende verbruik patroon. Een oplossing focus is daarom op de nauwkeurigheid en de computerprestaties. Bijvoorbeeld, is een bedrijf hulpprogramma geïnteresseerd in het opstellen van nauwkeurige energie-vraag prognose voor het volgende uur en voor elk uur van de dag. Aan de andere kant we minder geïnteresseerd bent in het beantwoorden van de vraag van waarom de aanvraag wordt voorspeld worden zoals deze is (het model zelf zorgt voor die).
+#### <a name="use-case-qualification-criteria--prerequisites"></a>Gebruik Case kwalificatiecriteria-vereisten
+De belangrijkste sterkte van Cortana Intelligence is in de krachtige mogelijkheid voor het implementeren en schalen van machine learning gebaseerde oplossingen. Het is ontworpen voor ondersteuning van duizenden van voorspellingen die gelijktijdig worden uitgevoerd. Deze kan automatisch worden geschaald om te voldoen aan een wisselende verbruik-patroon. De focus van een oplossing is daarom op nauwkeurigheid en verwerkingsprestaties. Bijvoorbeeld, is een energiebedrijf geïnteresseerd in productie nauwkeurige energievraag prognose voor het volgende uur en voor elk uur van de dag. Aan de andere kant zijn we minder geïnteresseerd in het beantwoorden van de vraag van waarom de aanvraag wordt voorspeld zijn als deze is (het model zelf zorgt dat).
 
-Daarom rekening mee dat niet alle gebruiksvoorbeelden en zakelijke problemen effectief kunnen worden opgelost met behulp van machine learning.
+Het is dus houd er rekening mee dat niet alle use-cases en zakelijke problemen effectief kunnen worden opgelost met behulp van machine learning.
 
-Cortana Intelligence en machine learning mogelijk zeer effectieve bij het oplossen van een bepaalde zakelijke probleem wanneer de volgende criteria wordt voldaan:
+Cortana Intelligence en machine learning kunnen worden zeer effectief zijn bij het oplossen van een bepaalde zakelijke probleem wanneer de volgende criteria wordt voldaan:
 
-* Het zakelijke probleem in de hand is **voorspellende** aard. Een voorbeeld van een Voorspellend gebruik case is een hulpprogramma bedrijf die u wilt voorspellen power belasting van een bepaalde onderstation in het volgende uur. Aan de andere kant analyseren en classificeren van stuurprogramma's van de historische vraag zou worden **beschrijvende** van aard en bijgevolg minder van toepassing.
-* Er is een duidelijke **pad van de actie** moeten worden uitgevoerd zodra de voorspelling beschikbaar is. Bijvoorbeeld, het voorspellen van een overbelasting op een onderstation in het volgende uur een proactieve actie van de belasting die is gekoppeld aan die onderstation verminderen en zo mogelijk te voorkomen dat een overbelasting activeren.
-* Het gebruiksvoorbeeld vertegenwoordigt een **typische type probleem** zo dat als opgelost deze kunt bereid u voor het oplossen van andere vergelijkbare gebruiksvoorbeelden.
-* De klant kunt instellen **kwalitatieve en kwantitatieve doelstellingen** ter illustratie van de implementatie van een geslaagde oplossing. Een goede kwantitatief doel voor energie vraagprognose zou bijvoorbeeld de vereiste nauwkeurigheid drempelwaarde (*bijvoorbeeld*, maximaal 5% is een fout is toegestaan) of wanneer onderstation voorspellen van de overbelasting vervolgens de precisie (percentage van de waarde true positieven) en terughalen (mate van true positieven) moet hoger dan een opgegeven drempelwaarde. Deze doelstellingen moeten zijn afgeleid van de klant zakelijke doelstellingen.
-* Er is een duidelijke **integratiescenario** met workflow binnen het bedrijf van het bedrijf. De onderstation load prognose kan bijvoorbeeld worden geïntegreerd in het raster beheercentrum om toe te staan activiteiten van overbelasting te voorkomen.
-* De klant heeft, gebruiksklare **gegevens met voldoende kwaliteit** ter ondersteuning van het gebruiksvoorbeeld (Zie voor meer informatie in de volgende sectie **gegevenskwaliteit**, van deze playbook).
-* De klant-architectuur hebben cloud gericht gegevens of **cloud-gebaseerde machine learning**, met inbegrip van Azure ML en andere onderdelen Cortana Intelligence Suite.
-* De klant is tot stand brengen wil **een end-to-end-gegevensstroom** die faciliteiten de levering van gegevens naar de cloud voortdurend, en wil **operationeel** de oplossing.
-* De klant is gereed om te **toe te wijzen aan resources** die zal worden actief ingeschakeld tijdens de eerste implementatie van de test zodat kennis en eigendom van de oplossing kunnen worden overgebracht naar de klant bij voltooiing zonder fouten.
-* De bron van de klant moet een **ervaren gegevens professional**, bij voorkeur een wetenschappelijk gegevens.
+* Het zakelijke probleem in voorraad is **voorspellende** van aard. Een voorbeeld van een voorspellende use case is een hulpprogramma voor bedrijf die graag power belasting van een bepaalde onderstation in het volgende uur te voorspellen. Aan de andere kant, analyseren en classificeren van stuurprogramma's van de historische vraag zou worden **beschrijvende** van aard en daarom minder van toepassing.
+* Er is een duidelijke **pad van de actie** moeten worden uitgevoerd zodra de voorspelling beschikbaar is. Bijvoorbeeld, het voorspellen van een overbelasting op een onderstation in het volgende uur een proactieve actie van de load die is gekoppeld aan deze onderstation verminderen en zo mogelijk te voorkomen dat een overbelasting activeren.
+* Hiermee geeft u de use-case een **typische type probleem dat** zo dat als opgelost deze kunt bereid u voor de manier waarop voor het oplossen van andere vergelijkbare gebruiksvoorbeelden.
+* De klant kunt instellen **kwalitatieve en kwantitatieve doelstellingen** ter illustratie van de implementatie van een succesvolle oplossingen. Een goede kwantitatief doel voor vraagprognose energie zou bijvoorbeeld, de nauwkeurigheid van de vereiste drempelwaarde (*bijvoorbeeld*, maximaal 5% fout is toegestaan) of wanneer het voorspellen van onderstation overbelasten vervolgens de precisie (percentage van echt positieven) en het intrekken (mate van echt positieven) moet hoger dan een opgegeven drempelwaarde. Deze doelstellingen moeten zijn afgeleid van de klant zakelijke doelstellingen.
+* Er is een duidelijke **integratiescenario** met bedrijfswerkstroom uit van het bedrijf. Bijvoorbeeld, kan de prognose van de load onderstation in het raster control center om toe te staan van overbelasting preventie activiteiten worden geïntegreerd.
+* De klant heeft, gebruiksklare **gegevens van kwaliteit voldoende** ter ondersteuning van de use-case (Zie voor meer informatie in de volgende sectie **gegevenskwaliteit**, van deze playbook).
+* De klant-architectuur is gebaseerd op met cloud gericht gegevens of **cloud op basis van machine learning**, met inbegrip van Azure ML en andere onderdelen van de Cortana Intelligence Suite.
+* De klant is uitgeroepen tot stand brengen **een end-to-gegevensstroom** die faciliteiten de levering van gegevens in de cloud op een vaste regelmatig uitgevoerd, en wil **operationeel** de oplossing.
+* De klant is gereed om te **toe te wijzen aan resources** die zal worden actief Bezig tijdens de initiële implementatie van de pilot zodat kennis en het eigendom van de oplossing kunnen worden overgedragen aan de klant na voltooiing.
+* De klant-resource moet een **ervaren gegevens professional**, bij voorkeur een gegevenswetenschapper.
 
-Eis van een gebruiksvoorbeeld op basis van de bovenstaande criteria kan aanzienlijk verbeteren de succespercentages van een gebruiksvoorbeeld en tot stand brengen van een goede beachhead voor de uitvoering van aanvragen voor toekomstig gebruik.
+Kwalificatie van een use case op basis van de bovenstaande criteria kan aanzienlijk verbeteren de succespercentages van een use-case en tot stand brengen van een goede beachhead voor de implementatie van de gevallen voor toekomstig gebruik.
 
 ### <a name="cloud-based-solutions"></a>Cloud-gebaseerde oplossingen
-Cortana Intelligence Suite in Azure is een geïntegreerde omgeving die zich in de cloud bevindt. De implementatie van een oplossing voor geavanceerde analyses in een cloudomgeving bevat aanzienlijke voordelen voor bedrijven en op hetzelfde moment big wijziging voor bedrijven kunnen betekenen dat nog steeds on-premises gebruiken IT-oplossingen. Binnen de energiesector is er een duidelijke trend van geleidelijke migratie van bewerkingen in de cloud. Deze trend gaat gepaard samen met de ontwikkeling van de smartcard raster zoals beschreven in bovenstaande **Trends van**. Als deze playbook is gericht op een cloud-gebaseerde oplossing in het energie-domein, is het belangrijk om uit te leggen van de voordelen en andere overwegingen voor het implementeren van een cloud-gebaseerde oplossing.
+Cortana Intelligence Suite op Azure is een geïntegreerde omgeving die zich in de cloud bevindt. De implementatie van een geavanceerde analyseoplossing in een cloudomgeving bevat aanzienlijke voordelen voor bedrijven en op hetzelfde moment big wijzigen voor bedrijven kunnen betekenen dat nog steeds gebruik on-premises IT-oplossingen. Binnen de energiesector is er een duidelijke trend van geleidelijke migratie van bewerkingen in de cloud. Deze trend gaat hand in hand samen met de ontwikkeling van het raster slimme zoals hierboven, in **Trends in de branche**. Als deze playbook is gericht op een cloud-gebaseerde oplossing in het energie-domein, is het belangrijk om uit te leggen van de voordelen en andere overwegingen van de implementatie van een cloud-gebaseerde oplossing.
 
-Mogelijk is het grootste voordeel van een cloud-gebaseerde oplossing de kosten. Als een oplossing maakt gebruik van cloud geïmplementeerd onderdelen, er is geen opstartkosten of onderdeelkosten omzet (kosten van de omzet) gekoppeld. Dit betekent dat hoeft niet te investeren in de hardware, software en IT-onderhoud, dus er is een aanzienlijke vermindering van bedrijfsrisico.
+Het is wellicht het grootste voordeel van een cloud-gebaseerde oplossing de kosten. Als een oplossing maakt gebruik van de onderdelen van cloud zijn geïmplementeerd, is er geen kosten vooraf of onderdeelkosten van COGS (kosten van verkochte goederen) gekoppeld. Dit betekent dat er geen hoeven te investeren in hardware, software en IT-onderhoud, en er daarom een aanzienlijke vermindering van zakelijk risico is.
 
-Een ander belangrijk voordeel is de kostenstructuur betalen naar gebruik van cloud-gebaseerde oplossingen. Cloud-gebaseerde servers voor computing of de opslag kunnen worden geïmplementeerd en worden geschaald op basis van just-nodig. Hiermee wordt het voordeel van de efficiëntie kosten van een cloud-gebaseerde oplossing.
+Een ander belangrijk voordeel is de kostenstructuur voor betalen per gebruik van cloud-gebaseerde oplossingen. Cloud-gebaseerde servers voor computing of de opslag kunnen worden geïmplementeerd en geschaald op basis van net zo nodig. Hiermee wordt het voordeel van de kosten voor efficiëntie van een cloud-gebaseerde oplossing.
 
-Er is ten slotte niet nodig voor het investeren in de IT-onderhoud of toekomstige infrastructuurontwikkeling, omdat deze deel uitmaakt van de aanbieding cloud-gebaseerde. Dat opzicht Cortana Intelligence Suite omvat het beste in klasse services en de routekaart houdt in ontwikkeling. Nieuwe functies, onderdelen en -mogelijkheden zijn voortdurend geïntroduceerd en ontwikkelen.
+Er is ten slotte niet nodig voor het investeren in de IT-onderhoud of toekomstige infrastructuurontwikkeling als al deze deel uit van de aanbieding op basis van een cloud maakt. Dat opzicht Cortana Intelligence Suite bevat het beste in klasse services en de roadmap houdt in ontwikkeling. Nieuwe functies, onderdelen en functies worden voortdurend wordt geïntroduceerd en ontwikkelen.
 
-Voor een bedrijf dat de overgang naar de cloud nog wordt gestart, bevelen maximaal we voor een geleidelijke manier door het implementeren van een routekaart voor cloud-migratie. We zijn ervan overtuigd dat de toepassingen die worden beschreven in deze playbook voor hulpprogramma's en bedrijven in het energie-domein, een uitstekende gelegenheid voor het testen van predictive analytics-oplossingen in de cloud vertegenwoordigen.
+Voor een bedrijf dat de overgang naar de cloud nog wordt gestart, bevelen we zeer voor een geleidelijke manier door het implementeren van een overzicht van de cloud migreren. Wij geloven dat de use-cases die worden beschreven in dit playbook voor hulpprogramma's en bedrijven in de energie-domein, een uitstekende gelegenheid voor predictive analytics-oplossingen in de cloud valideert vertegenwoordigen.
 
-#### <a name="business-case-justification-considerations"></a>Overwegingen voor zakelijke rechtvaardiging voor de aanvraag
-In veel gevallen is de klant mogelijk geïnteresseerd zijn bij het maken van een zakelijke rechtvaardiging voor een bepaalde gebruiksvoorbeeld waarin een cloud-gebaseerde oplossing en Machine Learning belangrijke onderdelen zijn. In tegenstelling tot een on-premises-oplossing in het geval van een cloud-gebaseerde oplossing, is minimaal, het onderdeel kosten vooraf en de meeste van de kostenelementen zijn gekoppeld aan het werkelijke gebruik. Bij het implementeren van een oplossing op Cortana Intelligence Suite prognose energie, kunnen meerdere services kunnen worden geïntegreerd met een enkele algemene kostenstructuur. Bijvoorbeeld: databases (*bijvoorbeeld*, SQL Azure) kunnen worden gebruikt voor het opslaan van de onbewerkte gegevens en klik vervolgens voor de werkelijke prognoses Azure ML wordt gebruikt voor het hosten van de prognoses services. In dit voorbeeld kan de kostenstructuur opslag en transactionele onderdelen bevatten.
+#### <a name="business-case-justification-considerations"></a>Overwegingen voor zakelijke reden voor aanvraag
+In veel gevallen de klant mogelijk geïnteresseerd zijn bij het maken van een zakelijke rechtvaardiging voor een bepaalde use-case belangrijke onderdelen waarin een cloud-gebaseerde oplossing en Machine Learning zijn. In tegenstelling tot een on-premises-oplossing in het geval van een cloud-gebaseerde oplossing is minimaal, het onderdeel kosten vooraf en de meeste van de kostenelementen zijn gekoppeld aan het werkelijke gebruik. Als het gaat om een prognose-oplossing op Cortana Intelligence Suite energie implementeren, kunnen meerdere services worden geïntegreerd met een enkele algemene kostenstructuur. Bijvoorbeeld,-databases (*bijvoorbeeld*, SQL Azure) kan worden gebruikt voor het opslaan van de onbewerkte gegevens en vervolgens voor de werkelijke geeft een prognose van Azure ML wordt gebruikt voor het hosten van de prognoses services. In dit voorbeeld kan de kostenstructuur voor opslag en transactionele onderdelen bevatten.
 
-Aan de andere kant moet één een goed begrip van de zakelijke voordelen van het besturingssysteem van een energie-vraag prognose (korte of lange termijn) hebben. Het is in feite de zakelijke voordelen van elke bewerking prognose Houd er rekening mee. Bijvoorbeeld, nauwkeurig power load prognose voor de eerstvolgende 24 uur overproduction kunt voorkomen of overloads op het raster kunt voorkomen en dit kan worden bepaalde in termen van financiële besparingen dagelijks.
+Aan de andere kant moet één hebben een goed begrip van de bedrijfswaarde van het besturingssysteem van een vraag naar energie voorspellen (korte of lange termijn). In feite is het belangrijk om te profiteren van de bedrijfswaarde van elke bewerking prognose. Bijvoorbeeld, nauwkeurig power load prognose voor de volgende 24 uur overproduction kunt voorkomen of overloads in het raster kunt voorkomen en dit kan worden gekwantificeerd in termen van financiële besparing op dagelijks.
 
-Een eenvoudige formule voor het berekenen van de financiële voordelen van de vraag forecast oplossing: ![Basic formule voor het berekenen van de financiële voordelen van de vraag forecast oplossing](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
+Een eenvoudige formule voor het berekenen van de financiële voordelen van de vraag prognose-oplossing: ![eenvoudige formule voor het berekenen van de financiële voordelen van de vraag prognose-oplossing](media/cortana-analytics-playbook-demand-forecasting-energy/financial-benefit-formula.png)
 
-Aangezien Cortana Intelligence Suite een betalen naar gebruik prijsmodel biedt, hoeft niet voor een onderdeel van de vaste kosten op deze formule aangaan. Deze formule kan worden berekend op basis van dagelijks, maandelijks of jaarlijks.
+Omdat Cortana Intelligence Suite voorziet in een prijsmodel voor betalen per gebruik, is er geen behoefte waarbij extra kosten voor een vaste prijs onderdeel op deze formule. Deze formule kan worden berekend op basis van een dagelijks, maandelijks of jaarlijks.
 
-Huidige Cortana Intelligence Suite en Azure ML prijsstelling vindt [hier](http://azure.microsoft.com/pricing/details/machine-learning/).
+Huidige Cortana Intelligence Suite en Azure ML-prijzen en abonnementen vindt [hier](http://azure.microsoft.com/pricing/details/machine-learning/).
 
-### <a name="solution-development-process"></a>Ontwikkelingsproces oplossing
-De ontwikkelingscyclus van een energie-vraag prognose oplossing omvat doorgaans 4 fasen, die allemaal we maken gebruik van cloud-gebaseerde technologieën en services binnen de Cortana Intelligence Suite.
+### <a name="solution-development-process"></a>Ontwikkelingsproces van oplossing
+Het ontwikkelingsproces van een vraag naar energie prognose-oplossing worden doorgaans 4 fasen, die allemaal we maken gebruik van cloud-gebaseerde technologieën en services in de Cortana Intelligence Suite.
 
 Dit wordt geïllustreerd in het volgende diagram:
 
-![Smart raster cyclus](media/cortana-analytics-playbook-demand-forecasting-energy/smart-grid-cycle.png)
+![Slimme Grid cyclus](media/cortana-analytics-playbook-demand-forecasting-energy/smart-grid-cycle.png)
 
-Het volgende lid beschrijft het proces van deze stap 4:
+De volgende alinea beschrijving van dit proces stap 4:
 
-1. **Gegevensverzameling** – een geavanceerde gebaseerd analytics-oplossing is afhankelijk van de gegevens (Zie **gegevens Understanding**). In het bijzonder als het gaat om predictive analytics en prognoses, wij zijn afhankelijk van continue, dynamische stroom van gegevens. In het geval van energie vraag prognoses, deze gegevens kan afkomstig zijn direct vanaf smart meters of al op een on-premises-database worden geaggregeerd. Er is ook afhankelijk van andere externe gegevensbronnen zoals weer en temperatuur. Deze continue stroom van gegevens moet worden beheerd, gepland en opgeslagen. [Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF) is onze belangrijkste werkpaard voor het uitvoeren van deze taak.
-2. **Modeling** – voor nauwkeurige en betrouwbare energie prognoses, moet een (train) ontwikkelen en te onderhouden van een geweldige model dat maken gebruik van de historische gegevens en extraheert de betekenis en voorspellende patronen in de gegevens. Het gebied van Machine Learning (ML) heeft groeien snel met meer geavanceerde algoritmen die regelmatig worden ontwikkeld. Azure ML Studio biedt een goede gebruikerservaring waarmee gebruikmaken van de meest geavanceerde algoritmen ML binnen een werkstroom voltooid. Werkstroom wordt weergegeven in een intuïtieve stroomdiagram en omvat het voorbereiden van gegevens, het ophalen van functies, modellering en model evaluatie. De gebruiker kunt ophalen in honderden verschillende modellen die zijn opgenomen in deze omgeving. Aan het einde van deze fase wordt een wetenschappelijk gegevens hebben een werkmodel die volledig geëvalueerd en klaar voor implementatie.
+1. **Het verzamelen van gegevens** : een geavanceerde op basis van analyseoplossing is gebaseerd op gegevens (Zie **gegevens wat**). Met name als het gaat om predictive analytics en prognoses, we zijn afhankelijk van continue, dynamische stroom van gegevens. In het geval van energie vraagprognose, deze gegevens kan worden opgevraagd rechtstreeks van slimme meters of al op een on-premises database worden samengesteld. We zijn ook afhankelijk van andere externe gegevensbronnen, zoals weer en temperatuur. Deze continue stroom van gegevens moet worden georganiseerd, gepland en opgeslagen. [Azure Data Factory](http://azure.microsoft.com/services/data-factory/) (ADF) is onze belangrijkste werkpaard voor het uitvoeren van deze taak.
+2. **Modellering** – voor nauwkeurige en betrouwbare energie prognoses, moet een (train) ontwikkelen en onderhouden van een geweldige model dat maakt gebruik van de historische gegevens en de betekenis en voorspellende patronen in de gegevens worden geëxtraheerd. Het gebied van Machine Learning (ML) heeft snel groeien met meer geavanceerde algoritmen die regelmatig worden ontwikkeld. Azure ML Studio biedt een optimale ervaring waarmee u kunt gebruikmaken van de meest geavanceerde algoritmen binnen een volledige werkstroom. Werkstroom wordt weergegeven in een diagram van een intuïtieve stroom en de gegevens voor te bereiden, het ophalen van functies, modelleren en model evaluatie bevat. De gebruiker kan op te halen in honderden verschillende modellen die zijn opgenomen in deze omgeving. Aan het einde van deze fase heeft een gegevenswetenschapper een werkende-model dat zich volledig geëvalueerd en klaar voor implementatie.
    
-   Het volgende diagram wordt een afbeelding van een gangbare werkstroom:
+   Het volgende diagram wordt een afbeelding van een werkstroom:
    
    ![Modellering van een werkstroom](media/cortana-analytics-playbook-demand-forecasting-energy/modeling-workflow.png)
-3. **Implementatie** – met een werkmodel echter in de volgende stap is voor implementatie. Hier wordt het model geconverteerd naar een webservice die beschrijft een RESTful-API die gelijktijdig van verschillende verbruik clients via Internet kan worden aangeroepen. Azure ML biedt een eenvoudige manier voor het implementeren van een model rechtstreeks vanuit de Azure ML Studio met één klik een knop. Het volledige implementatieproces gebeurt achter de schermen. Deze oplossing kunt automatisch schalen om te voldoen aan de vereiste verbruik.
-4. **Verbruik** : In deze fase, maken we daadwerkelijk gebruik van het prognosemodel voor het produceren van voorspellingen. Het verbruik van de toepassing van een gebruiker kan worden bepaald (*bijvoorbeeld*, dashboard) of rechtstreeks van een operationeel systeem zoals vraag/aanbod balancing systeem of een raster optimalisatie-oplossing. Meerdere gebruiksmogelijkheden kunnen uit één model worden aangestuurd.
+3. **Implementatie** – met een model werkt echter in de volgende stap is voor implementatie. Hier wordt het model omgezet in een webservice die een RESTful API die gelijktijdig kunnen worden aangeroepen van verschillende verbruik clients via Internet beschikbaar stelt. Azure ML biedt een eenvoudige manier van het implementeren van een model rechtstreeks vanuit de Azure ML Studio met één klik een knop. Het proces voor de hele gebeurt achter de schermen. Deze oplossing kan automatisch worden geschaald om te voldoen aan de vereiste verbruik.
+4. **Verbruik** : In deze fase, maken we daadwerkelijk gebruik van het prognosemodel voor het produceren van voorspellingen. Het verbruik worden bepaald vanuit de gebruikerstoepassing van een (*bijvoorbeeld*, dashboard) of rechtstreeks vanuit een operationele systeem zoals vraag/aanbod balancing systeem of een raster optimalisatie-oplossing. Meerdere gebruiksmogelijkheden worden bepaald vanuit één model.
 
-## <a name="data-understanding"></a>Understanding Data
-Na die betrekking hebben op de overwegingen voor bedrijven (Zie **bedrijven inzicht**) van een energie-vraag prognose oplossing, bent er nu klaar om het gegevensonderdeel worden behandeld. Een predictive analytics-oplossing is afhankelijk van betrouwbare gegevens. Voor het voorspellen van energie de vraag, afhankelijk wij zijn van historische verbruiksgegevens met verschillende detailniveaus. Historische gegevens wordt gebruikt als de grondstoffen. Deze worden onderworpen aan een zorgvuldige analyse waarin het gegevens-wetenschappelijk variabelen (ook wel onderdelen genoemd) die kunnen worden geplaatst in een model waarmee de vereiste prognoses uiteindelijk genereert wordt geïdentificeerd.
+## <a name="data-understanding"></a>Inzicht in gegevens
+Na die betrekking hebben op de overwegingen voor het bedrijf (Zie **inzicht in het bedrijf**) van een vraag naar energie prognose-oplossing, zijn we nu klaar om te bespreken het gegevensonderdeel. Een predictive analytics-oplossing is afhankelijk van betrouwbare gegevens. Voor energie vraagprognose, zijn we afhankelijk van historische gegevens met verschillende detailniveaus. Historische gegevens wordt gebruikt als de grondstoffen. Deze worden onderworpen aan een zorgvuldige analyse waarin de gegevenswetenschapper voorspellingsfactoren (ook wel functies genoemd) die kunnen worden geplaatst in een model dat wordt uiteindelijk de vereiste prognoses gegenereerd wordt geïdentificeerd.
 
-In de rest van deze sectie worden de verschillende stappen en overwegingen voor informatie over de gegevens en hoe u aan om aan een bruikbaar formulier worden beschreven.
+In de rest van deze sectie wordt we de verschillende stappen en overwegingen voor het begrijpen van de gegevens en over te brengen naar een bruikbaar formulier beschreven.
 
 ### <a name="the-model-development-cycle"></a>De ontwikkelingscyclus Model
-Het opstellen van goede prognose modellen vereist zorgvuldige voorbereiding en planning. De het modelleringsproces in meerdere stappen te analyseren en te focussen op één stap tegelijk kunnen het resultaat van het hele proces aanzienlijk te verbeteren.
+Produceert goede prognoses modellen vereist zorgvuldige voorbereiding en planning. Behalve dat het modelleringsproces in meerdere stappen en gericht op één stap tegelijk kunnen aanzienlijk te verbeteren de uitkomst van het gehele proces.
 
 Het volgende diagram illustreert hoe het modelleringsproces kan worden onderverdeeld in meerdere stappen:
 
 ![Model ontwikkelingscyclus](media/cortana-analytics-playbook-demand-forecasting-energy/model-development-cycle.png)
 
-Zoals te zien dat de cyclus bestaat uit zes stappen uitvoeren:
+Zoals u kunt zien dat de cyclus bestaat uit zes stappen uit:
 
-* Probleem formulering
-* Gegevensopname en verkennen
-* Voorbereiden van gegevens en functie-engineering
+* Aanmaak van probleem
+* Gegevensopname en -gegevens verkennen
+* Gegevens voor te bereiden en feature-engineering
 * Modelleren
 * Model-evaluatie
 * Ontwikkeling
 
-In de rest van deze sectie worden de afzonderlijke stappen en rekening mee moet houden bij elke stap worden beschreven.
+In de rest van deze sectie wordt we de afzonderlijke stappen en items om te overwegen bij elke stap beschreven.
 
-### <a name="problem-formulation"></a>Probleem formulering
-We kunnen de formulering probleem als de meest kritieke stap één moet uitvoeren voorafgaand aan de implementatie van een predictive analytics-oplossing beschouwen. Hier wordt het zakelijke probleem zou transformeren en deze op bepaalde elementen die kunnen worden opgelost door middel van gegevens technieken afbreken. Het is raadzaam het probleem als een reeks vragen die wij willen graag beantwoorden formuleren. Hier volgen enkele mogelijke vragen die mogelijk van toepassing binnen het bereik van de prognose van energie-aanvraag:
+### <a name="problem-formulation"></a>Aanmaak van probleem
+Wij kunnen beschouwen als de formulering probleem als de meest kritieke stap een moet uitvoeren voorafgaand aan de implementatie van een predictive analytics-oplossing. We zouden hier het zakelijke probleem transformeren en deze op bepaalde elementen die kunnen worden opgelost door middel van gegevens technieken afbreken. Het is raadzaam om te formuleren van het probleem als een reeks vragen die we graag willen beantwoorden. Hier volgen enkele mogelijke vragen die mogelijk van toepassing is binnen het bereik van energie vraagprognose:
 
-* Wat is de verwachte belasting van een afzonderlijke onderstation in het volgende uur of dag?
-* Op welk tijdstip van de dag wordt mijn raster pieken ervaren?
-* Hoe waarschijnlijk is mijn raster ter ondersteuning van de verwachte piekbelasting?
-* Hoeveel energie moet het station power genereren tijdens elk uur van de dag
+* Wat is de verwachte belasting van een afzonderlijke onderstation in het volgende uur of de dag?
+* Op welk moment van de dag wordt mijn raster vraag ondervinden?
+* Hoe waarschijnlijk is mijn raster te accepteren van de verwachte piekbelasting?
+* Hoeveel energie moet het station power genereren tijdens elk uur van de dag?
 
-Het opstellen van deze vragen kan wij gericht op de juiste gegevens ophalen en implementeren van een oplossing die volledig is afgestemd op het zakelijke probleem bij de hand. Daarnaast kunnen we enkele belangrijke metrische gegevens die kunnen we de prestaties van het model evalueren wordt ingesteld. Bijvoorbeeld, hoe nauwkeurig moet de prognose zijn en wat is het bereik van de fout die nog steeds aanvaardbaar door het bedrijf zijn?
+Opstellen van deze vragen kan we ons concentreren op de juiste gegevens ophalen en implementeren van een oplossing die volledig is afgestemd op het zakelijke probleem bij de hand. Bovendien kunnen we enkele belangrijke metrische gegevens die we kunnen de prestaties van het model evalueren wordt ingesteld. Bijvoorbeeld, hoe nauwkeurig de prognose moeten en wat is het bereik van de fout die nog steeds acceptabel door het bedrijf?
 
 ### <a name="data-sources"></a>Gegevensbronnen
-Het moderne smart raster verzamelt gegevens uit verschillende onderdelen en -onderdelen van het raster. Deze gegevens vertegenwoordigt verschillende aspecten van de bewerking en het gebruik van het raster power. Binnen het bereik van de energie-vraag prognose, zijn we de bespreking van de gegevensbronnen die overeenkomen met het werkelijke vraag verbruik te beperken. Een belangrijke bron van het energieverbruik zijn smart meters. Hulpprogramma's voor de hele wereld worden snel smart meters voor hun consumenten implementeert. Smart meters het werkelijke energieverbruik registreren en deze gegevens terug naar het hulpprogramma bedrijf voortdurend relay. Gegevens worden verzameld en verzonden terug op een vast interval, variërend van elke 5 minuten tot 1 uur. Meer geavanceerde smart meters kunnen op afstand beheren en het werkelijke verbruik binnen een huishouden in evenwicht worden geprogrammeerd. Smart meter gegevens is relatief betrouwbare en een tijdstempel bevat. Dat is het belangrijk ingrediënt voor vraag prognose. Gegevens van de meter kan worden geaggregeerd (getotaliseerde) op verschillende niveaus binnen de topologie raster: transformator, onderstation, regio, *enzovoort*. We kunnen het aggregatieniveau van de vereiste voor het bouwen van een prognosemodel voor vervolgens kiezen. Bijvoorbeeld, als het bedrijf hulpprogramma wilt voorspellen van toekomstige belasting voor elk van de rasterlijnen onderstations vervolgens alle meters gegevens kunnen worden samengevoegd voor elke afzonderlijke onderstation en gebruikt als invoer voor het prognosemodel. We noemen smart meters een interne gegevensbron.
+Het moderne slimme raster verzamelt gegevens uit verschillende onderdelen en onderdelen van het raster. Deze gegevens vertegenwoordigt verschillende aspecten van de bewerking en het gebruik van het raster power. Binnen het bereik van de prognose van vraag naar energie, zijn we de discussie over de gegevensbronnen die overeenkomen met de vraag verbruik te beperken. Een belangrijke bron van het energieverbruik zijn slimme meters. Hulpprogramma's over de hele wereld implementeert snel slimme meters voor hun gebruikers. Slimme meters het werkelijke energieverbruik vastleggen en deze gegevens terug naar het hulpprogramma bedrijf voortdurend relay. Gegevens worden verzameld en verzonden op een vast interval, variërend van elke 5 minuten tot 1 uur weer. Meer geavanceerde slimme meters kunnen op afstand te beheren en het werkelijke verbruik binnen een huishouden in evenwicht worden geprogrammeerd. Smart meter gegevens relatief betrouwbaar is en een tijdstempel bevat. Daardoor is het belangrijk onderdeel toe voor de prognose van vraag. Meter-gegevens kunnen worden geaggregeerd (getotaliseerde) op verschillende niveaus in de topologie grid: transformator, onderstation, regio, *enzovoort*. We kunnen vervolgens het aggregatieniveau van de vereiste op het bouwen van een Voorspellend model voor het kiezen. Bijvoorbeeld, als het bedrijf hulpprogramma wilt voorspellen van toekomstige belasting van elk van de grid substations kunnen vervolgens alle meters gegevens worden samengevoegd voor elke afzonderlijke onderstation en gebruikt als invoer voor het prognosemodel. We verwijzen naar slimme meters als een interne gegevensbron.
 
-Een aanvraag betrouwbare energie prognose vertrouwt ook op andere externe gegevensbronnen. Een belangrijke factor die invloed heeft op energieverbruik is het weer of nauwkeuriger de temperatuur. Historische gegevens vindt u nauwe correlatie tussen externe temperatuur- en energieverbruik. Hot zomer dagen, de consument maken gebruik van hun airconditioning en tijdens de verwarming winter inschakelen. Een betrouwbare bron van historische temperaturen op de rasterlocatie is daarom sleutel. Bovendien afhankelijk we ook van nauwkeurige voorspelling van temperatuur energieverbruik te voorspellen.
+Een betrouwbare energie vraagprognose rekenen ook op andere externe gegevensbronnen. Een belangrijke factor die invloed heeft op energieverbruik is het weer, of nauwkeuriger de temperatuur. Historische gegevens vindt u nauwe correlatie tussen externe temperatuur- en energieverbruik. Hot zomer dagen, de consument te maken van hun airconditioning en tijdens de kracht winter op verwarming gebruiken. Een betrouwbare bron van historische temperaturen op de rasterlocatie is daarom sleutel. Bovendien we ook zijn afhankelijk van nauwkeurige prognose van de temperatuur te voorspellen van energieverbruik.
 
-Andere externe gegevensbronnen kunnen ook helpen bij het bouwen van prognosemodellen energie-aanvraag. Deze kunnen wijzigingen in de lange termijn klimaat, voordelige indexen bevatten (*bijvoorbeeld*, bbp), en andere. In dit document nemen niet we deze andere gegevensbronnen.
+Externe gegevens van andere bronnen kunnen ook helpen bij het bouwen van prognosemodellen energie-aanvraag. Deze tips omvatten bijvoorbeeld wijzigingen in de lange termijn klimaat, voordelige indexen (*bijvoorbeeld*, bbp), en anderen. In dit document nemen niet we deze gegevens van andere bronnen.
 
-### <a name="data-structure"></a>De structuur van gegevens
-Nadat u de vereiste gegevensbronnen, graag willen we om ervoor te zorgen dat onbewerkte gegevens die zijn verzameld, de functies van de juiste gegevens bevat. Als u wilt maken van een betrouwbare vraag prognosemodel, moet we om ervoor te zorgen dat de verzamelde gegevens gegevenselementen die kunnen helpen bij het voorspellen van toekomstige vraag bevat. Hier volgen enkele basisvereisten inzake de gegevensstructuur (schema) van de onbewerkte gegevens.
+### <a name="data-structure"></a>Gegevensstructuur
+Na het identificeren van de vereiste gegevens-bronnen, graag willen we om ervoor te zorgen dat de onbewerkte gegevens die zijn verzameld de functies van de juiste gegevens bevat. Voor het bouwen van een betrouwbare aanvraag prognosemodel moet we om ervoor te zorgen dat de verzamelde gegevens gegevenselementen waarmee de toekomstige vraag voorspellen bevat. Hier volgen enkele basisvereisten inzake de gegevensstructuur (schema) van de onbewerkte gegevens.
 
-De onbewerkte gegevens bestaat uit rijen en kolommen. Elke meting wordt weergegeven als één rij met gegevens. Elke rij gegevens bevat meerdere kolommen (ook aangeduid als functies of velden).
+De onbewerkte gegevens bestaat uit rijen en kolommen. Elke meting wordt weergegeven als één rij met gegevens. Elke rij gegevens bestaat uit meerdere kolommen (ook wel functies of velden genoemd).
 
-1. **Tijdstempel** – de tijdstempelveld vertegenwoordigt de werkelijke tijd waarop de meting is geregistreerd. Het moet voldoen aan een van de algemene datum/tijd-indelingen. Zowel de datum en tijd onderdelen moeten worden opgenomen. In de meeste gevallen is er niet nodig voor de tijd moeten tot het tweede niveau van granulatie worden vastgelegd. Het is belangrijk om op te geven van de tijdzone waarin de gegevens worden geregistreerd.
-2. **ID meten** -dit veld geeft de meter of het apparaat van de meting. Dit kan is een categorische variabele en een combinatie van cijfers en tekens.
-3. **Waarde van de consumptie** – dit is het werkelijke verbruik op een gegeven datum/tijd. Het verbruik kan worden gemeten in kWh (kilowatt-hour) of een andere gewenste eenheden. Het is belangrijk te weten dat de maateenheid in alle metingen in de gegevens consistent moet blijven. In sommige gevallen kan verbruik meer dan 3 power fasen worden opgegeven. In dat geval moet er voor het verzamelen van alle fasen van de onafhankelijke verbruik.
-4. **Temperatuur** – de temperatuur doorgaans worden verzameld van een onafhankelijke bron. Er moet echter compatibel is met de gegevens over het verbruik. Neemt een tijdstempel die ervoor zorgen dat deze worden gesynchroniseerd met de werkelijke verbruiksgegevens zoals hierboven is beschreven. De waarde van de temperatuur kan worden opgegeven in graden c of Fahrenheit, maar moet blijven consistent op alle metingen.
-5. **Locatie –** het locatieveld is meestal gekoppeld aan de plaats waar de temperatuur-gegevens zijn verzameld. Worden kan weergegeven als een zip-code number of breedtegraad/lengtegraad (lat/lang)-indeling.
+1. **Tijdstempel** – het tijdstempelveld geeft de werkelijke tijd waarop de meting is geregistreerd. Het moet voldoen aan een van de algemene datum/tijd-indelingen. Datum- en tijdgegevens onderdelen moeten worden opgenomen. In de meeste gevallen is er niet nodig voor de tijd om te worden geregistreerd totdat het tweede niveau van de granulatie. Het is belangrijk om op te geven van de tijdzone waarin de gegevens worden geregistreerd.
+2. **ID meten** -dit veld geeft de meter of het apparaat voor de meting. Het is een categorische variabele en kan bestaan uit een combinatie van cijfers en tekens.
+3. **Verbruik waarde** : dit is het werkelijke verbruik op een bepaalde datum/tijd. Het gebruik kan worden gemeten in kWh (kilowatt-hour) of een andere aanbevolen eenheden. Het is belangrijk te weten dat de maateenheid voor alle metingen in de gegevens consistent moet blijven. In sommige gevallen kan meer dan 3 power fasen op verbruik worden opgegeven. In dat geval moet er voor het verzamelen van alle fasen van de onafhankelijke verbruik.
+4. **Temperatuur** – de temperatuur doorgaans worden verzameld van een onafhankelijke bron. Het moet echter zijn compatibel met de verbruiksgegevens. Hierbij moet een tijdstempel, zoals hierboven beschreven, zodat deze kunnen worden gesynchroniseerd met de werkelijke verbruiksgegevens. De temperatuurwaarde in graden Celsius of Fahrenheit kan worden opgegeven maar moet blijven consistent op alle metingen.
+5. **Locatie –** het locatieveld is doorgaans gekoppeld aan de plaats waar de temperatuurgegevens zijn verzameld. Het kan worden weergegeven als een zip-code number of in breedtegraad/lengtegraad (lat/lang)-indeling.
 
-De volgende tabellen ziet u voorbeelden van een goede gebruiks- en temperatuur gegevensindeling:
+De volgende tabellen ziet u voorbeelden van een goede verbruik en temperatuur gegevensindeling:
 
-| **Datum** | **Tijd** | **ID van de meter** | **Fase 1** | **Fase 2** | **Fase 3** |
+| **datum** | **tijd** | **Meter-ID** | **Fase 1** | **Fase 2** | **Fase 3** |
 | --- | --- | --- | --- | --- | --- |
 | 7/1/2015 |10:00:00 |ABC1234 |7.0 |2.1 |5.3 |
 | 7/1/2015 |10:00:01 |ABC1234 |7.1 |2.2 |4.3 |
 | 7/1/2015 |10:00:02 |ABC1234 |6.0 |2.1 |4.0 |
 
-| **Datum** | **Tijd** | **Locatie** | **Temperatuur** |
+| **datum** | **tijd** | **Locatie** | **temperatuur** |
 | --- | --- | --- | --- |
 | 7/1/2015 |10:00:00 |11242 |24.4 |
 | 7/1/2015 |10:00:01 |11242 |24.4 |
 | 7/1/2015 |10:00:02 |11242 |24.5 |
 
-Zoals hierboven kan worden afgeleid, worden in dit voorbeeld 3 verschillende waarden voor verbruik die zijn gekoppeld aan 3 power fasen bevat. Houd er ook rekening mee dat de datum en tijd velden worden gescheiden, maar ze kunnen ook worden gecombineerd in één kolom. In dit geval wordt de kolom locatie weergegeven in een 5-cijferige postcode-indeling en de temperatuur in een zekere mate c-indeling.
+Zoals hierboven kunnen worden weergegeven, wordt in dit voorbeeld 3 verschillende waarden voor verbruik dat is gekoppeld aan 3 power fasen bevat. Houd er ook rekening mee dat de datum en tijd velden worden gescheiden, maar ze kunnen ook worden gecombineerd in één kolom. In dit geval wordt de locatiekolom weergegeven in de indeling van een 5-cijferige zip-code en de temperatuur in een indeling graden Celsius.
 
-### <a name="data-format"></a>Indeling van gegevens
-De meest voorkomende gegevensindelingen zoals CSV, TSV JSON, kan worden ondersteund door Cortana Intelligence Suite *enzovoort*. Het is belangrijk dat de indeling van de gegevens consistent voor de volledige levenscyclus van het project blijft.
+### <a name="data-format"></a>Gegevensindeling
+Cortana Intelligence Suite kunt ondersteuning voor de meest voorkomende opmaak van gegevens, zoals CSV, TSV, JSON, *enzovoort*. Het is belangrijk dat de indeling van de gegevens consistent voor de volledige levenscyclus van het project blijft.
 
 ### <a name="data-ingestion"></a>Gegevensopname
-Aangezien energie vraagprognose wordt voortdurend en vaak voorspeld, moeten we ervoor zorgen dat de onbewerkte gegevens door middel van een solide en betrouwbare opname proces stroomt. Het proces opname moet garanderen dat de onbewerkte gegevens beschikbaar voor het prognosemodel proces op het moment dat vereist is. Die impliceert dat de frequentie van de opname gegevens groter dan de frequentie van het prognosemodel moet.
+Omdat vraagprognose energie wordt voortdurend en vaak voorspeld, moeten we ervoor zorgen dat de onbewerkte gegevens met behulp van een solide en betrouwbare opname-proces worden doorgestuurd. De opname-proces moet garanderen dat de onbewerkte gegevens beschikbaar voor de prognoses proces op de tijd die nodig is is. Dat betekent dat de gegevensfrequentie van opname groter zijn dan de prognoses frequentie moet.
 
-Bijvoorbeeld: als onze oplossing prognose aanvraag een nieuwe prognose om 8:00 AM dagelijks genereert moet we om ervoor te zorgen dat alle gegevens die zijn verzameld tijdens de afgelopen 24 uur is het volledig is ingenomen tot dat moment en moet ook het afgelopen uur aan gegevens bevatten.
+Bijvoorbeeld: als onze oplossing voor vraagprognose een nieuwe prognose om 8:00 uur dagelijks genereert vervolgens we zorgen ervoor moeten dat alle gegevens die zijn verzameld tijdens de afgelopen 24 uur is volledig tot dat moment zijn opgenomen en is zelfs het afgelopen uur  de gegevens.
 
-Cortana Intelligence Suite biedt hiervoor, verschillende manieren ter ondersteuning van een betrouwbare gegevens opname-proces. Dit wordt nader besproken in de **implementatie** gedeelte van dit document.
+Cortana Intelligence Suite biedt hiervoor, verschillende manieren voor ondersteuning van een betrouwbare opname-proces. Dit wordt nader besproken in de **implementatie** sectie van dit document.
 
 ### <a name="data-quality"></a>Gegevenskwaliteit
-De bron van onbewerkte gegevens die nodig is voor het uitvoeren van de aanvraag voor betrouwbare en nauwkeurige prognose moet voldoen aan de criteria van een aantal basisgegevens kwaliteit. Hoewel geavanceerde statistische methoden kunnen worden gebruikt om te compenseren voor een aantal mogelijke gegevens kwaliteit probleem, moet er nog steeds om ervoor te zorgen dat we een aantal basisgegevens kwaliteit drempelwaarde overschrijden bij het ophalen van nieuwe gegevens. Hier volgen enkele overwegingen betreffende de kwaliteit van de onbewerkte gegevens:
+De onbewerkte gegevensbron die is vereist voor het uitvoeren van betrouwbare en nauwkeurige vraagprognose moet voldoen aan bepaalde kwaliteitscriteria basisgegevens. Hoewel geavanceerde statistische methoden kunnen worden gebruikt om te compenseren voor een probleem mogelijk gegevens van kwaliteit opgetreden, moet er nog steeds om ervoor te zorgen dat we enkele basisgegevens kwaliteit drempelwaarde overschrijden bij het ophalen van nieuwe gegevens. Hier volgen enkele overwegingen betreffende de kwaliteit van de onbewerkte gegevens:
 
-* **Ontbrekende waarde** – dit verwijst naar de situatie wanneer bepaalde meting is niet verzameld. Hier het basic vereiste is dat de ontbrekende waarde snelheid niet groter dan 10% voor een bepaalde periode zijn moet. In geval een enkele waarde is het ontbrekende moet worden aangegeven met een vooraf gedefinieerde waarde (bijvoorbeeld: '9999') en niet '0', die een geldige meting kan worden.
-* **Nauwkeurigheid van de meting** : de werkelijke waarde van verbruik of temperatuur nauwkeurig moet worden geregistreerd. Onjuiste metingen levert onnauwkeurige prognoses. Normaal gesproken moet de meting fout lager zijn dan 1% ten opzichte van de waarde ' True '.
-* **Tijdstip van de meting** – dit is vereist dat de werkelijke tijdstempel van de gegevens verzameld wordt niet meer dan 10 seconden ten opzichte van de waarde true tijd van de werkelijke meting afwijken.
-* **Synchronisatie** – wanneer meerdere gegevensbronnen worden gebruikt (*bijvoorbeeld*, gebruiks- en temperatuur) we moet ervoor zorgen dat er geen tijdsynchronisatie problemen ertussen. Dit betekent dat het tijdsverschil tussen de tijdstempel die worden verzameld van twee onafhankelijke gegevensbronnen mag niet langer zijn dan meer dan 10 seconden.
-* **Latentie** - zoals beschreven in bovenstaande **gegevensopname**, wij zijn afhankelijk van een betrouwbare gegevens stroom en opnamesnelheid proces. Om te bepalen die moeten we ervoor zorgen dat we de latentie van de gegevens bepalen. Dit is opgegeven als het tijdsverschil tussen de tijd die de werkelijke maat is gemaakt en het tijdstip waarop deze is geladen in de opslag van de Cortana Intelligence Suite en is klaar voor gebruik. Voor de korte termijn load prognose van de totale latentie mag niet langer dan 30 minuten. Voor de lange termijn load prognose van de totale latentie niet moet groter dan 1 dag.
+* **Ontbrekende waarde** – dit verwijst naar de situatie wanneer bepaalde meting is niet verzameld. De algemene vereiste hier is dat de ontbrekende waarde snelheid niet groter zijn dan 10% voor een bepaalde periode moet. In geval dat een enkele waarde het ontbreekt, moet worden aangegeven met behulp van een vooraf gedefinieerde waarde (bijvoorbeeld: '9999') en niet '0', wat erop kan een geldige waarde.
+* **De nauwkeurigheid van de meting** : de werkelijke waarde van de verbruiks- of temperatuur nauwkeurig moet worden geregistreerd. Onjuiste metingen levert onnauwkeurige prognoses. Normaal gesproken moet de meting-fout lager zijn dan 1% ten opzichte van de waarde true.
+* **Tijdstip van de meting** : dit is vereist dat de werkelijke tijdstempel van de gegevens die worden verzameld wordt niet meer dan 10 seconden ten opzichte van de waarde true tijd van de werkelijke meting afwijken.
+* **Synchronisatie** – wanneer meerdere gegevensbronnen worden gebruikt (*bijvoorbeeld*, verbruik en temperatuur) we moet ervoor zorgen dat er geen tijdsynchronisatie zijn problemen daartussen. Dit betekent dat het tijdsverschil tussen de verzamelde-timestamp van twee onafhankelijke gegevensbronnen mag niet groter zijn dan meer dan 10 seconden.
+* **Latentie** - zoals hierboven, in **gegevensopname**, we zijn afhankelijk van een betrouwbare gegevensstroom en opnamesnelheid proces. Om te bepalen die moeten we ervoor zorgen dat we invloed hebben op de gegevenslatentie. Dit is opgegeven als het tijdsverschil tussen de tijd die de werkelijke meting is uitgevoerd en het tijdstip waarop deze is geladen in de Cortana Intelligence Suite-opslag en gereed is voor gebruik. Voor de korte termijn load prognose van de totale latentie niet moet groter zijn dan 30 minuten. Voor de lange termijn load prognose van de totale latentie niet moet groter zijn dan 1 dag.
 
-### <a name="data-preparation-and-feature-engineering"></a>Voorbereiden van gegevens en functie-Engineering
-Zodra de onbewerkte gegevens zijn geconsumeerd (Zie **gegevensopname**) en is veilig opgeslagen, is het gereed om te worden verwerkt. De gegevens voorbereidingsfase is in feite duurt de onbewerkte gegevens en converteren (transformeert, opnieuw) in een formulier voor het modelleren-fase. Eventueel die eenvoudige handelingen zoals het gebruik van de onbewerkte gegevenskolom is met de werkelijke waarde van de gemeten, gestandaardiseerde waarden, complexere-bewerkingen zoals [tijd achtergebleven](https://en.wikipedia.org/wiki/Lag_operator), en andere. De zojuist gemaakte gegevenskolommen worden aangeduid als gegevensfuncties en het proces voor het genereren van deze aangeduid als de functie-engineering. Aan het einde van dit proces moet er een nieuwe gegevensset die is is afgeleid van de onbewerkte gegevens en kan worden gebruikt voor het model. Bovendien moet de gegevens voorbereidingsfase zorgt voor de ontbrekende waarden (Zie **gegevenskwaliteit**) en compenseren voor hen. In sommige gevallen moet er ook normaliseren van de gegevens om ervoor te zorgen dat alle waarden in dezelfde schaal worden weergegeven.
+### <a name="data-preparation-and-feature-engineering"></a>Gegevens voor te bereiden en Feature-Engineering
+Nadat de onbewerkte gegevens heeft die is opgenomen (Zie **gegevensopname**) en is veilig opgeslagen, is het gereed om te worden verwerkt. De voorbereidingsfase gegevens is in feite houdend met de onbewerkte gegevens en (transformeren, omvormen) converteren naar een formulier voor het maken van modellering-fase. Die eenvoudige bewerkingen zoals het gebruik van de onbewerkte gegevenskolom is met de werkelijke waarde van de gemeten, gestandaardiseerde waarden, meer gecompliceerde bewerkingen zoals kan bevatten [tijd achtergebleven](https://en.wikipedia.org/wiki/Lag_operator), enzovoort. De zojuist gemaakte gegevenskolommen worden aangeduid als functies en het proces voor het genereren van deze wordt aangeduid als feature-engineering. Aan het einde van dit proces hebben we een nieuwe gegevensset die is is afgeleid van de onbewerkte gegevens en kan worden gebruikt voor modellen. Daarnaast de voorbereidingsfase gegevens moet voorzichtig zijn met ontbrekende waarden (Zie **gegevenskwaliteit**) en voor hen compenseren. In sommige gevallen moet we ook de gegevens om ervoor te zorgen dat alle waarden worden weergegeven in dezelfde schaal normaliseren.
 
-In deze sectie die wordt een overzicht van de functies van algemene gegevens die zijn opgenomen in de energie prognosemodellen vraag.
+In deze sectie die wordt een overzicht van de algemene functies voor gegevens die zijn opgenomen in de energie vraagprognose modellen.
 
-**Tijd gebaseerde functies:** deze functies zijn afgeleid van de gegevens van de datum/tijdstempel. Deze zijn geëxtraheerd en geconverteerd naar categorische functies, zoals:
+**Tijd gestuurde functies:** deze functies zijn afgeleid van de gegevens van de datum/tijdstempel. Deze zijn geëxtraheerd en geconverteerd naar categorische functies zoals:
 
-* Tijd van de dag: dit is de uur van de dag waarmee waarden tussen 0 en 23
-* Dag van week – dit vertegenwoordigt de dag van de week en waarden van 1 (zondag) tot en met 7 (zaterdag)
-* Dag van de maand – dit staat voor de huidige datum en kan waarden tussen 1 en 31
-* Maand van het jaar – dit vertegenwoordigt de maand en waarden van 1 (januari) en 12 (December)
-* Weekend – dit is een functie binaire waarde waarmee de waarden van 0 voor weekdagen of 1 voor het weekend
-* Vakantiedag - dit is een binaire waarde-functie die de waarden van 0 voor een normale dag of 1 voordat een feestdag duurt
-* Voorwaarden Fourier – de Fourier voorwaarden zijn gewichten die zijn afgeleid van het tijdstempel en worden gebruikt om vast te leggen van de seizoensgebonden (cycli) in de gegevens. Aangezien we meerdere seizoen in onze gegevens hebben mogelijk moeten we meerdere Fourier voorwaarden. Waarden van de aanvraag kunnen bijvoorbeeld jaarlijkse wekelijks en dagelijks seizoen/cycli dat in 3 Fourier voorwaarden resulteert.
+* Tijd van de dag – dit het uur van de dag waarbij waarden tussen 0 en 23 is
+* Dag van week – dit staat voor de dag van de week en waarden van 1 (zondag) tot en met 7 (zaterdag)
+* Dag van maand – dit de werkelijke datum weergeeft en kan duren voordat de waarden van 1 tot en met 31
+* Maand van jaar – dit staat voor de maand en waarden van 1 (januari) en 12 (December)
+* Weekend: dit is een binaire waarde-functie die de waarden van 0 voor doordeweekse dagen of 1 voor weekend
+* Vakantiedag - dit is een binaire waarde-functie die de waarden van 0 voor een normale dag of 1 voor een feestdag
+* Fourier voorwaarden: de voorwaarden Fourier zijn gewichten die zijn afgeleid van de tijdstempel en worden gebruikt om vast te leggen van de periodieke variatie (cycli) in de gegevens. Omdat we meerdere seizoenen in onze gegevens hebben mogelijk moet er mogelijk meerdere Fourier voorwaarden. Waarden van de aanvraag kunnen bijvoorbeeld jaarlijkse wekelijks en dagelijks seizoenen /-cycli die tot 3 Fourier voorwaarden leidt.
 
-**Onafhankelijke meting functies:** onafhankelijke biedt onder meer de gegevenselementen die we willen graag gebruiken als variabelen in het model. Hier wordt het afhankelijke onderdeel dat we moet te voorspellen uitsluiten.
+**Onafhankelijke meting functies:** de onafhankelijke functies omvatten alle gegevenselementen die we graag gebruiken als variabelen in het model. Hier wordt de afhankelijke functie die we om te voorspellen moet uitsluiten.
 
-* De functie lag – dit tijd verschoven zijn waarden van de werkelijke vraag. De functies lag 1 wordt bijvoorbeeld de waarde van de aanvraag houdt in het vorige uur ten opzichte van de huidig timestamp (ervan uitgaande dat per uur). Op deze manier we toevoegen lag 2, 3, lag *enzovoort*. De werkelijke combinatie van lag functies die worden gebruikt tijdens de fase modellering bepaald door de evaluatie van de resultaten van het model.
-* Lange termijn trends – deze functie vertegenwoordigt de lineaire groei van de vraag tussen jaar.
+* De functie lag: dit zijn tijd verschoven waarden van de vraag. De functies lag 1 bevatten bijvoorbeeld de waarde van de aanvraag in het vorige uur (ervan uitgaande dat de gegevens per uur) ten opzichte van de huidige tijdstempel. Op deze manier kunnen we lag 2 toevoegen, 3, vertraging *enzovoort*. De werkelijke combinatie van lag-functies die worden gebruikt worden tijdens de fase modellering is bepaald door de evaluatie van de modelresultaten.
+* Lange termijn trends: deze functie vertegenwoordigt de lineaire groei in de vraag tussen jaar.
 
-**Afhankelijke functie:** het afhankelijke onderdeel is de kolom met gegevens die willen we graag onze model om te voorspellen. Met [onder supervisie machine learning](https://en.wikipedia.org/wiki/Supervised_learning), moeten we het model met behulp van de afhankelijke functies (die ook aangeduid als labels) eerst te trainen. Hierdoor kan het model voor meer informatie over de patronen in de gegevens die zijn gekoppeld aan het afhankelijke onderdeel. In energie vraag prognose doorgaans willen we de werkelijke vraag voorspellen en daarom wordt het zou gebruiken als het afhankelijke onderdeel.
+**Afhankelijke functie:** de afhankelijke functie is de kolom met gegevens die we graag onze model om te voorspellen. Met [onder supervisie van machine learning](https://en.wikipedia.org/wiki/Supervised_learning), moeten we eerst het model met behulp van de afhankelijke onderdelen (dit wordt ook wel labels) te trainen. Hiermee wordt het model voor meer informatie over de patronen in de gegevens die zijn gekoppeld aan het afhankelijke onderdeel. In de vraag naar energie voorspellen willen we meestal om te voorspellen van de vraag en daarom gebruiken we dit als het afhankelijke onderdeel.
 
-**Verwerking van de ontbrekende waarden:** tijdens de voorbereidingsfase van gegevens moet we om te bepalen van de beste strategie voor het afhandelen van de ontbrekende waarden. Dit gebeurt meestal met behulp van de verschillende statistische [begrip Gegevensmethoden](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). In het geval van energie vraag prognoses rekenen we ontbrekende waarden meestal met behulp van zwevend gemiddelde van de vorige beschikbare gegevenspunten.
+**Verwerking van de ontbrekende waarden:** tijdens de voorbereidingsfase gegevens moet we de beste strategie voor het afhandelen van ontbrekende waarden te bepalen. Dit gebeurt meestal met behulp van de verschillende statistische [toerekening metody](https://en.wikipedia.org/wiki/Imputation_\(statistics\)). In het geval van energie-on-demand prognose rekenen we meestal ontbrekende waarden met behulp van zwevend gemiddelde van de vorige punten van de beschikbare gegevens.
 
-**Gegevensnormalisatie:** gegevensnormalisatie is een ander type transformatie die wordt gebruikt voor alle numerieke gegevens zoals vraag prognose overbrengen naar een soortgelijke schaal. Dit meestal verbetert de nauwkeurigheid model en de precisie. We gewoonlijk doet dit door de werkelijke waarde delen door het bereik van de gegevens.
-Hiermee wordt de oorspronkelijke waarde omlaag schalen in een kleiner bereik, doorgaans tussen 1 en 1 liggen.
+**Gegevens normaliseren:** gegevensnormalisatie is een ander type transformatie die wordt gebruikt voor alle numerieke gegevens, zoals vraagprognose overzetten naar een soortgelijke schaal. Dit doorgaans verbetert de nauwkeurigheid van model en de precisie. We zouden dit meestal doen door de werkelijke waarde te delen door het bereik van de gegevens.
+Hiermee wordt de oorspronkelijke waarde omlaag schalen in een kleiner bereik, meestal tussen 1 en 1.
 
 ## <a name="modeling"></a>Modelleren
-De model-fase is waar de omzetting van de gegevens in een model plaatsvindt. In de kern van dit proces er zijn geavanceerde algoritmen die bij het scannen van de historische gegevens (trainingsgegevens), patronen ophalen en een model bouwen. Dit model kan later worden gebruikt om te voorspellen op nieuwe gegevens die niet is gebruikt voor het bouwen van het model.
+De fase modellering is waar de conversie van de gegevens in een model plaatsvindt. In de kern van dit proces er zijn geavanceerde algoritmen die de historische gegevens (trainingsgegevens) scannen, patronen ophalen en een model bouwen. Dit model kan later worden gebruikt om te voorspellen op nieuwe gegevens die niet is gebruikt om het model te bouwen.
 
-Nadat we hebben een betrouwbare werkmodel we kan vervolgens worden gebruikt voor de beoordeling van nieuwe gegevens die is geordend op zodanig dat de vereiste onderdelen (X). Het scoreprofiel proces maakt gebruik van de persistente model (object van de fase training) en de doelvariabele die wordt aangeduid met Ŷ voorspellen.
+Zodra er een betrouwbare werkmodel we kan vervolgens worden gebruikt om te scoren van nieuwe gegevens die is opgebouwd om op te nemen van de vereiste onderdelen (X). Het scoring-proces maakt gebruik van de persistente model (object van de fase training) en het voorspellen van de doelvariabele die wordt aangeduid met Ŷ.
 
-### <a name="demand-forecasting-modeling-techniques"></a>Prognosemodel Modelleringstechnieken vraag
-In het geval van een aanvraag prognose maken we gebruik van historische gegevens op die is besteld op tijd. We meestal verwijzen naar gegevens die de tijddimensie als omvat [time series](https://en.wikipedia.org/wiki/Time_series). Het doel in de reeks modellering van tijd is om te zoeken tijd gerelateerde trends, seizoensgebonden, auto-correlatie (correlatie na verloop van tijd) en die in een model te formuleren.
+### <a name="demand-forecasting-modeling-techniques"></a>Vraagprognose technieken modelleren
+In het geval van de vraag voorspelt maken we gebruik van historische gegevens die zijn geordend op basis van tijd. We in het algemeen verwijst naar gegevens die met de tijddimensie als [time series](https://en.wikipedia.org/wiki/Time_series). Het doel in time series modellering is te vinden wanneer gerelateerde trends, seizoensgebondenheid, auto-correlatie (correlatie na verloop van tijd), en die in een model te formuleren.
 
-In de afgelopen jaren zijn geavanceerde algoritmen om time series prognose onder te brengen en prognoses nauwkeuriger ontwikkeld. We beschreven enkele van deze hier kort.
+In de afgelopen jaren zijn geavanceerde algoritmen ontwikkeld voor time series-prognoses en de nauwkeurigheid van prognoses verbeteren. We beschreven enkele van deze hier kort.
 
 > [!NOTE]
-> Deze sectie is niet bedoeld om te worden gebruikt als een machine learning en overzicht prognoses maar in plaats daarvan als een kort overzicht van modelleren technieken die vaak worden gebruikt voor het voorspellen van de vraag. Voor meer informatie en educatieve materiaal over tijd reeks prognose wordt ten zeerste aanbevolen de on line handleiding [prognose: beginselen en praktijken](https://www.otexts.org/book/fpp).
+> In deze sectie is niet bedoeld om te worden gebruikt als een machine learning en voorspeld overzicht, maar in plaats van als een korte enquête van het modelleren van technieken die vaak worden gebruikt voor de prognose van vraag. Voor meer informatie en educatieve materiaal over time series-prognoses, is het raadzaam het online boek [Forecasting: principes en praktijken](https://www.otexts.org/book/fpp).
 > 
 > 
 
 #### <a name="ma-moving-averagehttpswwwotextsorgfpp62"></a>[**MA (zwevend gemiddelde)**](https://www.otexts.org/fpp/6/2)
-Zwevend gemiddelde is een van de eerste analytische technieken die is gebruikt voor het voorspellen van de reeks tijd en is nog steeds een van de meest gebruikte technieken vanaf vandaag. Het is ook de basis voor meer geavanceerde prognose technieken. Met zwevend gemiddelde zijn we het volgende gegevenspunt gemiddelde via de meest recente punten K, waarbij K de volgorde van de zwevend gemiddelde geeft van de prognose.
+Zwevend gemiddelde is een van de eerste analytische technieken die is gebruikt voor time series-prognoses en is nog steeds een van de meest gangbare technieken vanaf vandaag. Het is ook de basis voor meer geavanceerde technieken prognose. Met het zwevend gemiddelde zijn we het volgende gegevenspunt gemiddelde over de meest recente punten K, waarbij K de volgorde van de zwevend gemiddelde geeft van de prognose.
 
-De zwevend gemiddelde techniek heeft het effect van het vloeiend maken van de prognose en daarom kan niet verwerken en grote volatiliteit in de gegevens.
+De zwevend gemiddelde techniek is het effect van de prognose-aanpassing en daarom kan niet worden verwerkt en grote volatiliteit van de gegevens.
 
-#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**ETS (exponentiële demping)**](https://www.otexts.org/fpp/7/5)
-Exponentiële vloeiend maken (ETS) is een serie van verschillende methoden die gewogen gemiddelde van recente gegevenspunten gebruiken om te voorspellen van de volgende gegevenspunt. Het idee is hoger gewichten toewijzen aan meer recente waarden en dit gewicht voor oudere meetwaarden geleidelijk te verlagen. Er zijn een aantal verschillende manieren met deze familie, zijn enkele van deze verwerking van de seizoensgebonden in de gegevens, zoals [Holt Winters seizoensgebonden methode](https://www.otexts.org/fpp/7/5).
+#### <a name="ets-exponential-smoothinghttpswwwotextsorgfpp75"></a>[**ETS (exponentieel vloeiend maken)**](https://www.otexts.org/fpp/7/5)
+Exponentieel vloeiend maken (ETS) is een productreeks met verschillende methoden die gewogen gemiddelde van recente gegevenspunten gebruiken om te voorspellen van de volgende gegevenspunt. Het idee is hoger gewicht toewijzen aan meer recente waarden en dit gewicht voor oudere meetwaarden geleidelijk te verlagen. Er zijn een aantal verschillende manieren met deze serie, zijn enkele van deze verwerking van de periodieke variatie in de gegevens, zoals [Holt-Winters seizoensgebonden methode](https://www.otexts.org/fpp/7/5).
 
-Sommige van deze methoden factor ook in de seizoensgebonden van de gegevens.
+Sommige van deze methoden factor ook in de periodieke variatie van de gegevens.
 
-#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**ARIMA (automatische regressie geïntegreerd zwevend gemiddelde)**](https://www.otexts.org/fpp/8)
-Automatische regressie geïntegreerde zwevend gemiddelde (ARIMA) is een ander gezin van methoden die wordt meestal gebruikt voor de prognose tijdreeks. Het combineert automatisch regressie methoden vrijwel met zwevend gemiddelde. Automatische regressie methoden maken gebruik van regressie modellen door middel van eerdere tijd reekswaarden om te kunnen berekenen van de volgende datum-punt. ARIMA methoden differentiërende methodes waaronder berekening van het verschil tussen de gegevenspunten en het gebruik van die in plaats van de oorspronkelijke waarde van de gemeten ook van toepassing. Ten slotte ARIMA ook maakt gebruik van het zwevende gemiddelde technieken die hierboven worden beschreven. De combinatie van al deze methoden op verschillende manieren is wat de familie van ARIMA methoden vormt.
+#### <a name="arima-auto-regression-integrated-moving-averagehttpswwwotextsorgfpp8"></a>[**ARIMA (automatisch regressie Integrated Moving Average)**](https://www.otexts.org/fpp/8)
+Automatisch regressie geïntegreerde zwevend gemiddelde (ARIMA) is een andere serie van methoden die wordt doorgaans gebruikt voor het maken van prognoses tijdreeksen. Het automatisch regressie methoden voor het praktisch combineert met zwevend gemiddelde. Automatisch regressie methoden maken gebruik van regressiemodellen door vorige tijdwaarden van de serie als u wilt de volgende datum punt compute. ARIMA methoden differentiërende methoden, zoals het verschil tussen de gegevenspunten berekenen en u deze in plaats van de oorspronkelijke gemeten waarde ook van toepassing. Ten slotte ARIMA ook maakt gebruik van de zwevend gemiddelde technieken die hierboven worden beschreven. De combinatie van al deze methoden op verschillende manieren is wat de familie van ARIMA methoden bouwt.
 
-ETS en ARIMA worden zijn veel vandaag gebruikt voor het voorspellen van de energie-vraag en veel andere prognoses problemen. In veel gevallen deze gecombineerd gecombineerd om zeer nauwkeurige resultaten.
+ETS en ARIMA zijn tegenwoordig gebruikte voor vraagprognose energie en tal van andere prognoses problemen. In veel gevallen deze worden gecombineerd samen aan het leveren van zeer nauwkeurige resultaten.
 
-**Algemene meerdere regressies** regressie modellen kunnen worden de belangrijkste modellering aanpak binnen het domein van de machine learning en statistieken. In de context van de tijdreeks gebruiken we regressie te voorspellen van toekomstige waarden (*bijvoorbeeld*, van de vraag). In regressie we nemen van een lineaire combinatie van de variabelen en meer informatie over het gewicht (ook wel coëfficiënten genoemd) van deze variabelen tijdens de training. Het doel is voor het produceren van een lijn die onze voorspelde waarde wordt verwacht. Regressie methoden zijn geschikt wanneer de doelvariabele numerieke en daarom ook time series prognose past. Er is een breed scala aan regressie methoden inclusief zeer eenvoudig regressie modellen zoals [lineaire regressie](https://en.wikipedia.org/wiki/Linear_regression) en meer geavanceerde toepassingsgroepen zoals beslissingsstructuren [willekeurige Forests](https://en.wikipedia.org/wiki/Random_forest), [Neural Networks](https://en.wikipedia.org/wiki/Artificial_neural_network), en Boosted Decision Trees.
+**Algemene meerdere regressies** regressiemodellen kunnen worden de belangrijkste benadering van modellering binnen het domein van machine learning en statistieken. In de context van de tijdreeks we regressie gebruiken om de toekomstige waarden te voorspellen (*bijvoorbeeld*, van aanvraag). In de regressie we een lineair combinatie van de voorspellingsfactoren en informatie over het gewicht (ook wel coëfficiënten genoemd) van de voorspellingsfactoren tijdens de training. Het doel is voor het produceren van een lijn die de waarde voor de voorspelde wordt verwacht. Regressie methoden zijn geschikt als de doelvariabele numeriek moet zijn en dus ook geschikt is voor time series-prognoses. Er is een breed scala aan regressie methoden, met inbegrip van zeer eenvoudig regressiemodellen zoals [lineaire regressie](https://en.wikipedia.org/wiki/Linear_regression) en meer resources, zoals beslisbomen, geavanceerde [willekeurige Forests](https://en.wikipedia.org/wiki/Random_forest), [Neural Netwerken](https://en.wikipedia.org/wiki/Artificial_neural_network), en heeft de Klantenopbrengst Beslisbomen.
 
-Energie-aanvraag prognose als een probleem regressie construeren ons een grote flexibiliteit bij het selecteren van de gegevensfuncties van onze die kunnen worden gecombineerd van de werkelijke vraag time series gegevens en de externe factoren zoals temperatuur biedt. Meer informatie over de geselecteerde onderdelen worden beschreven in de functie-Engineering (Zie **voorbereiden van gegevens en functie-Engineering**) sectie van dit playbook.
+Maken van de vraag naar energie voorspellen als regressieprobleem biedt ons een grote flexibiliteit bij het selecteren van onze functies die kunnen worden gecombineerd in de vraag time series-gegevens en externe factoren zoals temperatuur. Meer informatie over de geselecteerde onderdelen worden beschreven in de functie-Engineering (Zie **gegevens voor te bereiden en functie-Engineering**) sectie van dit playbook.
 
-Uit onze ervaring met implementatie- en implementatie van energie vraag prognoses test, er is vastgesteld dat de geavanceerde regressie modellen die beschikbaar in Azure ML zijn meestal de beste resultaten produceren en we maken gebruik ervan.
+Uit onze ervaring met het implementeren en implementatie van energie aanvraag prognoses pilot, we hebben ontdekt dat dat de geavanceerde regressiemodellen die beschikbaar in Azure ML zijn doorgaans de beste resultaten opleveren en we maken gebruik van deze.
 
 ## <a name="model-evaluation"></a>Model-evaluatie
-Evaluatie van het model is een belangrijke rol in de **Model ontwikkelingscyclus**. Bij deze stap kijken we in het model en de prestaties met gegevens van de praktijk worden gevalideerd. Tijdens de stap modellering we een deel van de beschikbare gegevens gebruiken voor het model te trainen. Tijdens de evaluatiefase nemen we de rest van de gegevens voor het testen van het model. Vrijwel betekent dit dat we de nieuwe modelgegevens die heeft is geherstructureerd en bevat de functies van de gegevensset training zijn voeding. Echter tijdens het validatieproces gebruiken we het model te voorspellen van de doelvariabele in plaats van de beschikbare doelservers-variabele opgeven. Vaak is dit proces als het score model. We zou vervolgens de doelwaarden true gebruiken en deze te vergelijken met de voorspelde waarden. Dit dient om te meten en beperken van de voorspelling fout, wat betekent dat het verschil tussen de voorspellingen en de waarde ' True '. De meting fout kwantificeren is sleutel Aangezien we willen graag aanpassen van het model en valideren of de fout daadwerkelijk afneemt. Aan te passen van het model kan worden gedaan door het wijzigen van Modelparameters waarmee het leerproces of door toe te voegen of te verwijderen van functies (aangeduid als [parameters vegen](https://channel9.msdn.com/Blogs/Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Dat betekent vrijwel dat we mogelijk herhalen tussen de functie-engineering, modelleren, en het model evaluatie fasen totdat we kunnen de fout op het vereiste niveau verlagen meerdere keren.
+Evaluatie van het model is een belangrijke rol binnen de **Model ontwikkelingscyclus**. Bij deze stap kijken we het model en de prestaties met echte leven gegevens valideren. Tijdens het maken van modellering stap gebruiken we een deel van de beschikbare gegevens voor het model te trainen. Tijdens de evaluatiefase nemen we de rest van de gegevens voor het testen van het model. Vrijwel, betekent dit dat we deze uit het model nieuwe gegevens die is is geherstructureerd en bevat de dezelfde functies als de gegevensset training. Echter tijdens het validatieproces gebruiken we het model om te voorspellen van de doelvariabele in plaats van de beschikbare doelvariabele bieden. Vaak verwijzen we naar dit proces als het model scoren. We zouden gebruikt u de doelwaarden waar en deze te vergelijken met de voorspelde waarden. Het doel hier is om te meten en Minimaliseer de voorspelling fout, wat betekent dat het verschil tussen de voorspellingen en de waarde true. Kwantificeren de meting van de fout is erg belangrijk omdat we willen het model afstemmen en valideren of de fout daadwerkelijk afneemt. Bezig met het aanpassen van het model kan worden gedaan door het Modelparameters waarmee het leerproces te wijzigen of toevoegen of verwijderen van functies voor (aangeduid als [parameters vegen](https://channel9.msdn.com/Blogs/Azure/Data-Science-Series-Building-an-Optimal-Model-With-Parameter-Sweep)). Vrijwel dat betekent dat we moet mogelijk herhalen tussen de feature-engineering, modellerings- en evaluatie fasen model meerdere keren totdat we kunnen om te beperken van de fout op het vereiste niveau.
 
-Het is belangrijk dat de fout voorspelling nooit nul als worden kan nadruk is nooit een model dat elke uitkomst perfect kan voorspellen. Er is echter een bepaalde grootte van de fout die aanvaardbaar is door het bedrijf. Tijdens het validatieproces willen we graag om ervoor te zorgen dat onze model prediction-fout op het niveau is of hoger is dan het tolerantieniveau van bedrijven. Het is daarom belangrijk om in te stellen van het niveau van de toegestane fout aan het begin van de cyclus tijdens de **probleem formulering** fase.
+Het is belangrijk om te benadrukken dat de fout voorspelling kan niet nul als er wordt nooit een model dat perfect elke resultaten kan voorspellen. Er is echter een bepaalde grootte van de fout die aanvaardbaar is door het bedrijf. Tijdens het validatieproces, willen we graag om ervoor te zorgen dat onze model prediction fout op het niveau of hoger is dan het tolerantieniveau business. Het is daarom belangrijk om in te stellen van het niveau van de toegestane fout aan het begin van de cyclus tijdens de **probleem formulering** fase.
 
 ### <a name="typical-evaluation-techniques"></a>Typische evaluatietechnieken
-Er zijn verschillende manieren in welke voorspelling fout kan worden gemeten en bepaalde. In deze sectie gaan we de bespreking van de relevante op tijdreeks en in specifieke voor energie vraag prognose evaluatietechnieken.
+Er zijn verschillende manieren in welke voorspelling fout kan worden gemeten en (gekwantificeerde). In deze sectie gaan we de discussie over de evaluatietechnieken relevante tijdreeksen en met specifieke voor vraag naar energie voorspellen.
 
 #### <a name="mapehttpsenwikipediaorgwikimeanabsolutepercentageerror"></a>[**MAPE**](https://en.wikipedia.org/wiki/Mean_absolute_percentage_error)
-MAPE staat voor de gemiddelde Absolute Percentage fout. Met MAPE we het verschil tussen zijn computing elk punt en de werkelijke waarde van dat punt prognose. We vervolgens kwantificeren de fout per punt door te berekenen van het deel van het verschil ten opzichte van de werkelijke waarde. Op de laatste stap gemiddelde we deze waarden. De wiskundige formule voor MAPE is het volgende:
+MAPE staat voor Mean Absolute Error voor Percentage. Met MAPE zijn we het verschil tussen cloudcomputing elk punt en de werkelijke waarde van dat moment prognose. We vervolgens kwantificeren de fout per punt door het berekenen van de verhouding van het verschil ten opzichte van de werkelijke waarde. Tijdens de laatste stap gemiddelde we deze waarden. De rekenkundige formule gebruikt voor MAPE is het volgende:
 
-![De formule MAPE](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png)
-*waar A<sub>t</sub> de werkelijke waarde, F<sub>t</sub> is de voorspelde waarde en n staat voor de prognose horizon.*
+![MAPE formule](media/cortana-analytics-playbook-demand-forecasting-energy/mape-formula.png)
+*waar een<sub>t</sub> is de werkelijke waarde, F<sub>t</sub> is de voorspelde waarde en n de prognose horizon.*
 
 ## <a name="deployment"></a>Implementatie
-We hebben, kunt u de fase modelleren en kan de model-prestaties die we klaar voor gebruik in de implementatiefase zijn gevalideerd. In deze context betekent implementatie inschakelen van de klant gebruiken voor het model door uitgevoerd werkelijke voorspellingen op grote schaal. Het concept van implementatie is de sleutel in Azure ML omdat onze belangrijkste doel is om aan te roepen voortdurend voorspellingen in plaats van alleen het inzicht verkrijgen van de gegevens. De implementatiefase is het gedeelte waar we het model om te worden verbruikt op grote schaal kunnen inschakelen.
+Nadat we hebben, kunt u de model-fase en de modelprestaties die we staan klaar om te gaan naar de implementatiefase gevalideerd. In deze context betekent implementatie inschakelen van de klant gebruiken voor het model door de werkelijke voorspellingen die erop worden uitgevoerd op grote schaal. Het concept van de implementatie is de sleutel in Azure ML sinds onze belangrijkste doel is om aan te roepen voortdurend voorspellingen in plaats van alleen het verkrijgen van het inzicht van de gegevens. De implementatiefase is het gedeelte waar we in staat stellen het model om te worden verbruikt op grote schaal.
 
-Binnen de context van energie vraagprognose is ons doel om aan te roepen continue en periodieke prognoses terwijl u ervoor zorgt dat nieuwe gegevens beschikbaar voor het model is en dat de voorspelde gegevens worden verzonden naar de client in beslag neemt.
+In de context van energie-vraagprognose is ons doel om aan te roepen doorlopende en periodieke prognoses terwijl ervoor te zorgen dat er nieuwe gegevens beschikbaar zijn voor het model is en dat de verwachte gegevens worden verzonden naar de client in beslag nemen.
 
-### <a name="web-services-deployment"></a>Implementatie van Web-Services
-De belangrijkste implementeerbare bouwsteen in Azure ML is de webservice. Dit is de meest effectieve manier om het verbruik van een Voorspellend model in de cloud inschakelen. De webservice ingekapseld van het model en wordt afgerond met een [RESTful](http://www.restapitutorial.com/) API (Application Programming Interface). De API kan worden gebruikt als onderdeel van een clientcode zoals geïllustreerd in het onderstaande diagram.
+### <a name="web-services-deployment"></a>Implementatie van Web Services
+De belangrijkste implementeerbare bouwsteen in Azure ML is de web-service. Dit is de meest efficiënte manier om in te schakelen verbruik van een Voorspellend model in de cloud. De webservice bevat het model en afgerond met een [RESTful](http://www.restapitutorial.com/) API (Application Programming Interface). De API kan worden gebruikt als onderdeel van een clientcode, zoals wordt geïllustreerd in het onderstaande diagram.
 
-![We Service-implementatie en het verbruik](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
+![We-Service-implementatie en het verbruik](media/cortana-analytics-playbook-demand-forecasting-energy/web-service-deployment-and-consumption.png)
 
-Zoals u kunt zien, wordt de web-service wordt geïmplementeerd in de cloud Cortana Intelligence Suite en via het blootgestelde REST-API-eindpunt kan worden aangeroepen. Ander type van clients in verschillende domeinen kunt tegelijkertijd de service via de Web-API aanroepen. De webservice kan ook worden geschaald ter ondersteuning van duizenden gelijktijdige aanroepen.
+Zoals u kunt zien, wordt de web-service wordt geïmplementeerd in de cloud voor Cortana Intelligence Suite en kan worden aangeroepen via de beschikbaar gemaakte REST-API-eindpunt. Ander type clients in verschillende domeinen kunt tegelijkertijd de service via de Web-API aanroepen. De webservice kunt ook schalen ter ondersteuning van duizenden gelijktijdige aanroepen.
 
-### <a name="a-typical-solution-architecture"></a>Een typische oplossingsarchitectuur
-Bij het implementeren van een oplossing prognose energie-vraag bent we geïnteresseerd in een end-to-end-oplossing die zich verder uitstrekt dan de webservice voor de voorspelling en vereenvoudigt de hele gegevensstroom implementeren. Op het moment dat we een nieuwe prognose aanroepen, moet we om ervoor te zorgen dat het model met de functies van de meest recente gegevens worden ingevoerd. Dat betekent dat de zojuist verzamelde onbewerkte gegevens is voortdurend ingenomen, verwerkt en in de vereiste functieset omgezet in het model is opgebouwd. Op hetzelfde moment willen we ervoor dat de verwachte gegevens beschikbaar zijn voor het end gebruiken van clients. Een voorbeeld van de gegevens stroom cyclus (of gegevens pijplijn) wordt weergegeven in het diagram hieronder:
+### <a name="a-typical-solution-architecture"></a>Een typische oplossing-architectuur
+Wanneer u een vraag naar energie prognose-oplossing implementeert, zijn we geïnteresseerd in de implementatie van een end-to-end-oplossing die gaat verder dan de voorspellingswebservice en vereenvoudigt het uitvoeren van de volledige gegevensstroom. Op het moment dat we een nieuwe prognose aanroepen, zouden we nodig om ervoor te zorgen dat het model wordt ingevoerd met de functies van de meest recente gegevens. Dat betekent dat de zojuist verzamelde onbewerkte gegevens is voortdurend die zijn opgenomen, verwerkt en in de vereiste functieset omgezet in het model is gebouwd. Op hetzelfde moment graag willen we om de verwachte gegevens beschikbaar voor het end clients verbruikt. Een voorbeeld van de gegevens stroom cyclus (of pijplijn) wordt weergegeven in het onderstaande diagram:
 
-![Prognose complete gegevensstroom van de energie-vraag](media/cortana-analytics-playbook-demand-forecasting-energy/energy-demand-forecase-end-data-flow.png)
+![Vraag naar energie voorspellen End-to-gegevensstroom](media/cortana-analytics-playbook-demand-forecasting-energy/energy-demand-forecase-end-data-flow.png)
 
 Dit zijn de stappen die uitgevoerd als onderdeel van de prognose energiecyclus voor aanvraag worden:
 
-1. Miljoenen meters geïmplementeerde gegevens genereren voortdurend energieverbruiksgegevens in realtime.
+1. Miljoenen geïmplementeerde meters genereren energieverbruiksgegevens voortdurend in realtime.
 2. Deze gegevens worden verzameld en geüpload naar een cloud-opslagplaats (*bijvoorbeeld*, Azure Blob).
-3. De onbewerkte gegevens worden samengevoegd tot een onderstation of regionaal niveau voordat het wordt verwerkt, zoals gedefinieerd door het bedrijf.
-4. De verwerking van de functie (Zie **voorbereiden van gegevens en verwerken van de functie**) vervolgens plaatsvindt en geeft de gegevens die vereist is voor training of score model: de functie setgegevens worden opgeslagen in een database (*bijvoorbeeld*, SQL Azure).
-5. De service opnieuw training wordt opgeroepen opnieuw trainen van het prognosemodel – dat de nieuwe versie van het model wordt bewaard, zodat deze kan worden gebruikt door de webservice score.
-6. De score-webservice wordt aangeroepen op een planning die geschikt is voor de vereiste frequentie van de prognose.
-7. De verwachte gegevens worden opgeslagen in een database die toegankelijk zijn voor de end-verbruik-client.
-8. De client verbruik haalt de prognoses, past deze weer in het raster en in overeenstemming met het vereiste gebruiksvoorbeeld worden verbruikt.
+3. De onbewerkte gegevens worden samengevoegd tot een onderstation of regionaal niveau voordat deze wordt verwerkt, zoals gedefinieerd door het bedrijf.
+4. De functie-verwerking (Zie **gegevens voor te bereiden en verwerken van de functie**) vervolgens plaatsvindt produceert de gegevens die vereist is voor het model en training of scoring – de functie setgegevens worden opgeslagen in een database (*bijvoorbeeld*, SQL Azure).
+5. De opnieuw training-service wordt aangeroepen met het opnieuw trainen van het prognosemodel – dat de nieuwe versie van het model worden bewaard, zodat deze kan worden gebruikt door de scoring-webservice.
+6. De scoring-webservice wordt aangeroepen op een planning die geschikt is voor de vereiste frequentie van de prognose.
+7. De verwachte gegevens worden opgeslagen in een database die kan worden geopend door de end-verbruik-client.
+8. De client verbruik worden opgehaald van de prognoses, past deze weer in het raster en in overeenstemming met de vereiste use-case worden verbruikt.
 
-Het is belangrijk te weten dat deze volledige cyclus is volledig geautomatiseerd en volgens een planning wordt uitgevoerd. De volledige orchestration van deze gegevenscyclus kunt doen met behulp van hulpprogramma's zoals [Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
+Het is belangrijk te weten dat deze volledige cyclus is volledig geautomatiseerd en volgens een schema wordt uitgevoerd. De volledige indeling van de cyclus van deze gegevens kan worden gedaan met behulp van hulpprogramma's zoals [Azure Data Factory](http://azure.microsoft.com/services/data-factory/).
 
-### <a name="end-to-end-deployment-architecture"></a>Architectuur van de end-to-End-implementatie
-Om een prognose energie demand-oplossing op Cortana Intelligence vrijwel implementeert, moeten we ervoor dat de vereiste onderdelen zijn gemaakt en correct geconfigureerd.
+### <a name="end-to-end-deployment-architecture"></a>Implementatie van de end-to-architectuur
+We moeten nagenoeg implementeert een energie demand prognose-oplossing op Cortana Intelligence, zorg ervoor dat de vereiste onderdelen zijn vastgesteld en correct geconfigureerd.
 
-Het volgende diagram wordt een typische Cortana Intelligence gebaseerd architectuur die wordt geïmplementeerd en stuurt de cyclus voor het stroom van gegevens die hierboven beschreven:
+Het volgende diagram illustreert een typische architectuur voor Cortana Intelligence op basis van die worden geïmplementeerd en stuurt de stroom-cyclus voor gegevens die hierboven beschreven:
 
-![Architectuur van de end-to-End-implementatie](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
+![Implementatie van de end-to-architectuur](media/cortana-analytics-playbook-demand-forecasting-energy/architecture.png)
 
-Raadpleeg voor meer informatie over elk van de onderdelen en de hele architectuur de energie-oplossingssjabloon.
+Raadpleeg de energie-oplossingssjabloon voor meer informatie over elk van de onderdelen en de hele architectuur.
 

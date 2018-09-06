@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: 5b3cea87e7762e492432722c54a1a8aaa342b84a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d2ab34b3737ec00e4adc464f6d2255203fb6ae08
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054711"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840616"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Key Vault toevoegen aan uw web-App met behulp van Visual Studio verbonden Services
 
@@ -74,6 +74,10 @@ U kunt nu toegang tot uw geheimen in de code. De volgende stappen zijn verschill
 
 ## <a name="access-your-secrets-in-code-aspnet-core-projects"></a>Toegang tot uw geheimen in de code (ASP.NET Core-projecten)
 
+De verbinding met Key Vault bij het opstarten is ingesteld door een klasse die [Microsoft.AspNetCore.Hosting.IHostingStartup](/dotnet/api/microsoft.aspnetcore.hosting.ihostingstartup?view=aspnetcore-2.1) met behulp van een manier voor het uitbreiden van opstartgedrag dat wordt beschreven in [een app met een externe te verbeteren assembly in ASP.NET Core met IHostingStartup](/aspnet/core/fundamentals/host/platform-specific-configuration). De opstartklasse maakt gebruik van twee omgevingsvariabelen die de verbindingsgegevens van de Key Vault bevatten: ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONENABLED, ingesteld op true en ASPNETCORE_HOSTINGSTARTUP__KEYVAULT__CONFIGURATIONVAULT, ingesteld op uw sleutel URL van de kluis. Deze worden toegevoegd aan het bestand launchsettings.json wanneer u via uitvoert de **Add Connected Service** proces.
+
+Voor toegang tot uw geheimen:
+
 1. In Visual Studio in uw ASP.NET Core-project, u kunt nu verwijzen naar deze geheime gegevens met behulp van de volgende expressies in code:
  
    ```csharp
@@ -99,6 +103,10 @@ U kunt nu toegang tot uw geheimen in de code. De volgende stappen zijn verschill
 1. Bouwen en uitvoeren van de web-App, gaat u naar de pagina over en de waarde 'geheim' zien.
 
 ## <a name="access-your-secrets-in-code-aspnet-471-projects"></a>Toegang tot uw geheimen in de code (ASP.NET 4.7.1 projecten)
+
+De verbinding met uw Key Vault is ingesteld door de ConfigurationBuilder-klasse met behulp van informatie die is toegevoegd aan het bestand web.config, wanneer u via uitvoert de **Add Connected Service** proces.
+
+Voor toegang tot uw geheimen:
 
 1. Web.config als volgt wijzigen. De sleutels zijn tijdelijke aanduidingen die wordt vervangen door de AzureKeyVault ConfigurationBuilder met de waarden van geheimen in Key Vault.
 

@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 09/05/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 8b5f62daf2b43453aadb0373171bc98f96494688
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 58a33b2d3f06deab4f31c76e04d45f8bd0bbba4c
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39215064"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841958"
 ---
 # <a name="azure-active-directory-pass-through-authentication-frequently-asked-questions"></a>Azure Active Directory Pass through-verificatie: Veelgestelde vragen
 
@@ -48,7 +48,7 @@ Ja. Pass through-verificatie ondersteunt `Alternate ID` als de gebruikersnaam wa
 
 ## <a name="does-password-hash-synchronization-act-as-a-fallback-to-pass-through-authentication"></a>Wachtwoord-hashsynchronisatie fungeren als een terugval naar Pass-through-verificatie?
 
-Nee. Pass through-verificatie _niet_ automatisch een failover naar wachtwoord-hashsynchronisatie. Het fungeert alleen als alternatieve methode voor [scenario's voor Pass through-verificatie biedt geen ondersteuning voor vandaag](active-directory-aadconnect-pass-through-authentication-current-limitations.md#unsupported-scenarios). Om te voorkomen dat een gebruiker aanmeldingen dat is toegestaan, moet u Pass-through-verificatie voor configureren [hoge beschikbaarheid](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
+Nee. Pass through-verificatie _niet_ automatisch een failover naar wachtwoord-hashsynchronisatie. Om te voorkomen dat een gebruiker aanmeldingen dat is toegestaan, moet u Pass-through-verificatie voor configureren [hoge beschikbaarheid](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="can-i-install-an-azure-ad-application-proxymanage-appsapplication-proxymd-connector-on-the-same-server-as-a-pass-through-authentication-agent"></a>Kan ik Installeer een [Azure AD-toepassingsproxy](../manage-apps/application-proxy.md) connector op dezelfde server als een Pass through-verificatie-Agent?
 
@@ -56,17 +56,17 @@ Ja. De rebranded versies van de Pass through-verificatie-Agent, versie 1.5.193.0
 
 ## <a name="what-versions-of-azure-ad-connect-and-pass-through-authentication-agent-do-you-need"></a>Welke versies van Azure AD Connect en Pass through-verificatie-Agent hebt u nodig?
 
-Voor deze functie te gebruiken, moet u versie 1.1.486.0 of hoger voor Azure AD Connect en 1.5.58.0 of hoger voor de verificatie-Agent voor Pass Through-query. Alle software installeren op servers met Windows Server 2012 R2 of hoger.
+Voor deze functie te gebruiken, moet u versie 1.1.750.0 of hoger voor Azure AD Connect en 1.5.193.0 of hoger voor de verificatie-Agent voor Pass Through-query. Alle software installeren op servers met Windows Server 2012 R2 of hoger.
 
 ## <a name="what-happens-if-my-users-password-has-expired-and-they-try-to-sign-in-by-using-pass-through-authentication"></a>Wat gebeurt er als mijn gebruikerswachtwoord is verlopen en probeert u aan te melden met behulp van Pass through-verificatie?
 
-Als u hebt geconfigureerd [wachtwoord terugschrijven](../user-help/active-directory-passwords-update-your-own-password.md) voor een specifieke gebruiker, en als de gebruiker zich aanmeldt met behulp van Pass through-verificatie, kunnen ze wijzigen of hun wachtwoord opnieuw instellen. De wachtwoorden worden teruggeschreven naar on-premises Active Directory, zoals verwacht.
+Als u hebt geconfigureerd [wachtwoord terugschrijven](../authentication/concept-sspr-writeback.md) voor een specifieke gebruiker, en als de gebruiker zich aanmeldt met behulp van Pass through-verificatie, kunnen ze wijzigen of hun wachtwoord opnieuw instellen. De wachtwoorden worden teruggeschreven naar on-premises Active Directory, zoals verwacht.
 
 Als u het terugschrijven van wachtwoorden voor een specifieke gebruiker niet hebt geconfigureerd of als de gebruiker beschikt niet over een geldige Azure AD-licentie is toegewezen, de gebruiker het wachtwoord in de cloud kan niet bijwerken. Het wachtwoord bijwerken niet, zelfs als het wachtwoord is verlopen. De gebruiker in plaats daarvan ziet dit bericht: 'uw organisatie niet kunt u uw wachtwoord op deze site bij te werken. Bijgewerkt op basis van de door uw organisatie aanbevolen wijze of vraag uw beheerder als u hulp nodig hebt." De gebruiker of beheerder moet de hun on-premises Active Directory-wachtwoord opnieuw instellen.
 
 ## <a name="how-does-pass-through-authentication-protect-you-against-brute-force-password-attacks"></a>Hoe biedt Pass through-verificatie u bescherming tegen aanvallen met brute kracht wachtwoord?
 
-Lezen [Azure Active Directory Pass through-verificatie: Smart Lockout](../authentication/howto-password-smart-lockout.md) voor meer informatie.
+[Informatie over Smart Lockout](../authentication/howto-password-smart-lockout.md).
 
 ## <a name="what-do-pass-through-authentication-agents-communicate-over-ports-80-and-443"></a>Wat Pass through-verificatie-Agents communiceren via de poorten 80 en 443
 
@@ -82,7 +82,7 @@ Ja. Als Web Proxy Auto-Discovery (WPAD) is ingeschakeld in uw on-premises-omgevi
 
 ## <a name="can-i-install-two-or-more-pass-through-authentication-agents-on-the-same-server"></a>Kan ik twee of meer Pass through-verificatie-Agents installeren op dezelfde server?
 
-Nee, kunt u alleen een Pass through-verificatie-Agent installeren op één server. Als u configureren van Pass-through-verificatie voor maximale beschikbaarheid wilt, volg de instructies in [Azure Active Directory Pass through-verificatie: snel starten](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
+Nee, kunt u alleen een Pass through-verificatie-Agent installeren op één server. Als u wilt configureren van Pass-through-verificatie voor hoge beschikbaarheid, [Volg de instructies hier](active-directory-aadconnect-pass-through-authentication-quick-start.md#step-4-ensure-high-availability).
 
 ## <a name="how-do-i-remove-a-pass-through-authentication-agent"></a>Hoe kan ik een Pass through-verificatie-Agent verwijderen?
 
@@ -116,6 +116,10 @@ Twee of drie verificatie-Agents in totaal zijn voor de meeste klanten voldoende 
 ## <a name="can-i-install-the-first-pass-through-authentication-agent-on-a-server-other-than-the-one-that-runs-azure-ad-connect"></a>Kan ik de eerste Pass through-verificatie-Agent installeren op een andere server dan die wordt uitgevoerd van Azure AD Connect?
 
 Nee, dit scenario is _niet_ ondersteund.
+
+## <a name="why-do-i-need-a-cloud-only-global-administrator-account-to-enable-pass-through-authentication"></a>Waarom moet ik een cloud-only hoofdbeheerdersaccount Pass through-verificatie in te schakelen?
+
+Het is raadzaam dat u in- of uitschakelen van Pass through-verificatie met een alleen-cloud Global Administrator-account. Meer informatie over [toevoegen van een alleen-cloud globale beheerdersaccount](../active-directory-users-create-azure-portal.md). Als het op deze manier zorgt u ervoor dat u geen toegang meer hebt tot uw tenant.
 
 ## <a name="how-can-i-disable-pass-through-authentication"></a>Hoe kan ik Pass through-verificatie uitschakelen?
 

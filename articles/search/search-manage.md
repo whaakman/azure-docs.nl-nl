@@ -7,14 +7,14 @@ tags: azure-portal
 services: search
 ms.service: search
 ms.topic: conceptual
-ms.date: 11/09/2017
+ms.date: 08/28/2018
 ms.author: heidist
-ms.openlocfilehash: 6e751715146d0dfa5c89ae8c2e8cb23d8337432f
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: fb09e12a5122f6e6671e55c5b5623afdd6b35c29
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371224"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842286"
 ---
 # <a name="service-administration-for-azure-search-in-the-azure-portal"></a>Beheer van de service voor Azure Search in Azure portal
 > [!div class="op_single_selector"]
@@ -23,16 +23,16 @@ ms.locfileid: "43371224"
 > * [.NET SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.search)
 > * [Python](https://pypi.python.org/pypi/azure-mgmt-search/0.1.0)> 
 
-Azure Search is een volledig beheerde, cloud-gebaseerde search-service die wordt gebruikt voor het bouwen van een rijke zoekervaring wordt geboden in aangepaste apps. In dit artikel bevat informatie over de *servicebeheer* taken die u kunt uitvoeren in de [Azure-portal](https://portal.azure.com) voor een search-service die u al hebt ingericht. *Servicebeheer* is een lichtgewicht standaard beperkt tot de volgende taken:
+Azure Search is een volledig beheerde, cloud-gebaseerde search-service die wordt gebruikt voor het bouwen van een rijke zoekervaring wordt geboden in aangepaste apps. In dit artikel bevat informatie over de beheertaken voor de service die u kunt uitvoeren in de [Azure-portal](https://portal.azure.com) voor een search-service die u al hebt ingericht. Service-beheer is lichtgewicht standaard beperkt tot de volgende taken:
 
-* Beheren en beveiligen van toegang tot de *api-sleutels* gebruikt voor het lezen of schrijven toegang tot uw service.
+* Beheer de toegang tot de *api-sleutels* gebruikt voor het lezen of schrijven toegang tot uw service.
 * Servicecapaciteit door het veranderen van de toewijzing van partities en replica's aanpassen.
 * Resourcegebruik, ten opzichte van de maximale limieten van de servicelaag te bewaken.
 
 U ziet dat *upgrade* wordt niet vermeld als een beheertaak. Omdat resources worden toegewezen wanneer de service is ingericht, vereist verplaatsen naar een andere laag een nieuwe service. Zie voor meer informatie, [maken van een Azure Search-service](search-create-service-portal.md).
 
 > [!Tip]
-> Zoeken naar Help-informatie over het zoeken in verkeer of query-prestaties analyseren? Krijg inzicht in queryvolume, die voorwaarden mensen zoeken, en hoe succesvol zoekresultaten zijn bij klanten in specifieke documenten in uw index. Zie voor instructies [Search Traffic Analytics voor Azure Search](search-traffic-analytics.md), [controleren metrische gegevens over gebruik en query](search-monitor-usage.md), en [prestaties en optimalisatie](search-performance-optimization.md).
+> Zoeken naar Help-informatie over het zoeken in verkeer of query-prestaties analyseren? U kunt queryvolume voorwaarden mensen zoeken naar en zoeken hoe succesvol resultaten in specifieke documenten in uw index leidende klanten kunnen controleren. Zie voor meer informatie, [Search Traffic Analytics voor Azure Search](search-traffic-analytics.md), [controleren metrische gegevens over gebruik en query](search-monitor-usage.md), en [prestaties en optimalisatie](search-performance-optimization.md).
 
 <a id="admin-rights"></a>
 
@@ -66,11 +66,11 @@ Met behulp van de Search Service REST API, krijgt u een aantal bestanden op docu
 
 ## <a name="disaster-recovery-and-service-outages"></a>Disaster recovery en service storingen
 
-Hoewel we uw gegevens redden kunt, biedt Azure Search geen onmiddellijke failover van de service als er een storing op het niveau van het cluster of data center. Als een cluster in het datacenter is mislukt, wordt het operationele team detecteert en werken om de service te herstellen. U ondervindt uitvaltijd tijdens het terugzetten van de service. U kunt service tegoed om te compenseren voor de service niet beschikbaar zijn per aanvragen de [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
+Hoewel we uw gegevens redden kunt, biedt Azure Search geen onmiddellijke failover van de service als er een storing op het niveau van het cluster of data center. Als een cluster in het datacenter is mislukt, wordt het operationele team detecteert en werken om de service te herstellen. U ondervindt uitvaltijd tijdens het terugzetten van de service, maar kunt u servicetegoeden om te compenseren voor de service niet beschikbaar zijn per aanvragen de [Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/search/v1_0/). 
 
 Als continue service vereist in het geval van een onherstelbare fouten buiten de controle van Microsoft is, kunt u [inrichten van een extra service](search-create-service-portal.md) in een andere regio en het implementeren van een strategie voor geo-replicatie om ervoor te zorgen indexen zijn volledig redundante op alle services.
 
-Klanten die gebruikmaken van [indexeerfuncties](search-indexer-overview.md) wilt vullen en vernieuwen van indexen herstel na noodgevallen met geo-specifieke indexeerfuncties gebruik te maken van dezelfde gegevensbron kunnen verwerken. Twee services in verschillende regio's, elk uitvoeren van een indexeerfunctie kunnen indexeren van dezelfde gegevensbron te bereiken, geografische redundantie. Als u uit gegevensbronnen die ook geografisch redundante indexeert, er rekening mee dat Azure Search-Indexeerfuncties kunnen alleen uitvoeren incrementele indexeren van de primaire replica's. In een failover, moet u opnieuw de indexeerfunctie verwijzen naar de nieuwe primaire replica. 
+Klanten die gebruikmaken van [indexeerfuncties](search-indexer-overview.md) wilt vullen en vernieuwen van indexen herstel na noodgevallen met geo-specifieke indexeerfuncties gebruik te maken van dezelfde gegevensbron kunnen verwerken. Twee services in verschillende regio's, elk uitvoeren van een indexeerfunctie kunnen dezelfde gegevensbron voor het bereiken van geo-redundantie indexeren. Als u uit gegevensbronnen die ook geografisch redundante indexeert, er rekening mee dat Azure Search-Indexeerfuncties kunnen alleen uitvoeren incrementele indexeren van de primaire replica's. In een failover, moet u opnieuw de indexeerfunctie verwijzen naar de nieuwe primaire replica. 
 
 Als u indexeerfuncties niet gebruikt, gebruikt u de code van uw toepassing voor push-objecten en gegevens naar verschillende services tegelijk. Zie voor meer informatie, [prestaties en optimalisatie in Azure Search](search-performance-optimization.md).
 
@@ -78,7 +78,7 @@ Als u indexeerfuncties niet gebruikt, gebruikt u de code van uw toepassing voor 
 
 Omdat Azure Search niet een oplossing voor primaire gegevens is, bieden we een formele mechanisme voor selfservice back-up en herstel. De code van uw toepassing gebruikt voor het maken en invullen van een index is de gebruikelijke optie voor terugzetten als u per ongeluk een index verwijdert. 
 
-Als u wilt een index opnieuw maken, zou u verwijderen (ervan uitgaande dat deze bestaat), maakt u de index in de service opnieuw en opnieuw laden door het ophalen van gegevens van de primaire gegevensopslag. U kunt ook kunt u bereiken uit aan de klantenservice op restwaarde indexen als er een regionale onderbreking.
+Als u wilt een index opnieuw maken, zou u verwijderen (ervan uitgaande dat deze bestaat), maakt u de index in de service opnieuw en opnieuw laden door het ophalen van gegevens van de primaire gegevensopslag.
 
 
 <a id="scale"></a>
@@ -103,12 +103,10 @@ De meeste servicetoepassingen hebben ingebouwde nodig meer replica's in plaats v
 De Standard-laag, partities worden toegevoegd in veelvouden van 12 (met name 1, 2, 3, 4, 6 of 12). Dit is een artefact van sharding. Een index is gemaakt in 12 shards, die kunnen worden alle opgeslagen op 1 partitie of evenredig onderverdeeld in 2, 3, 4, 6 of 12 partities (één shard per partitie).
 
 ### <a name="remove-replicas"></a>Replica's verwijderen
-U kunt na perioden van hoge query volumes, replica's verminderen nadat zoeken querybelasting zijn genormaliseerd (bijvoorbeeld, nadat de feestdagen verkoop staan).
-
-U doet dit door de schuifregelaar replica terug op een lager getal. Er zijn geen verdere stappen vereist van uw kant. Het aantal replica's te verlagen, vervangen door virtuele machines in het datacenter. Uw query's en bewerkingen voor gegevensopname wordt nu uitgevoerd op minder VM's dan vóór. De minimumlimiet is een van de replica.
+Na de perioden van hoge query volumes, kunt u de schuifregelaar om te beperken van replica's nadat zoeken querybelasting zijn genormaliseerd (bijvoorbeeld, nadat de feestdagen verkoop staan). Er zijn geen verdere stappen vereist van uw kant. Het aantal replica's te verlagen, vervangen door virtuele machines in het datacenter. Uw query's en bewerkingen voor gegevensopname wordt nu uitgevoerd op minder VM's dan vóór. De minimale vereiste is een van de replica.
 
 ### <a name="remove-partitions"></a>Partities verwijderen
-Tegenstelling tot het verwijderen van replica's waarvoor geen extra inspanningen op het onderdeel is vereist, is mogelijk wat werk te doen als u meer opslag dan kunnen worden verlaagd. Bijvoorbeeld, als uw oplossing van drie partities gebruikmaakt, wordt downsizing aan één of twee partities een fout gegenereerd als de nieuwe opslagruimte kleiner dan vereist is. Als u had verwacht, wordt uw keuzes zijn om indexen of documenten in een gekoppeld index ruimte vrij of behoud de huidige configuratie te verwijderen.
+Tegenstelling tot het verwijderen van replica's waarvoor geen extra inspanningen op het onderdeel is vereist, is mogelijk wat werk te doen als u meer opslag dan kunnen worden verlaagd. Bijvoorbeeld, als uw oplossing van drie partities gebruikmaakt, wordt downsizing aan één of twee partities een fout gegenereerd als de nieuwe opslagruimte kleiner is dan de vereiste voor het hosten van uw index. Als u had verwacht, wordt uw keuzes zijn om indexen of documenten in een gekoppeld index ruimte vrij of behoud de huidige configuratie te verwijderen.
 
 Er is geen detectiemethode die aangeeft welke index shards zijn opgeslagen op specifieke partities. Elke partitie biedt ongeveer 25 GB in de opslag, dus moet u opslag verminderen in een grootte die kan worden aangepast door het aantal partities die u hebt. Als u wilt terugkeren naar één partitie, moet alle 12 shards past.
 

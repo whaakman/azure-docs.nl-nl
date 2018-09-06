@@ -11,19 +11,22 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: c9efaeed05856f830a4f0cf699cb35ebc21966c1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 08ab76e587c4e2c8b8afe9cb27e9df59a5924475
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700707"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842037"
 ---
 # <a name="deploy-the-sql-server-resource-provider-on-azure-stack"></a>De resourceprovider van SQL Server op Azure Stack implementeren
 
 De resourceprovider van Azure Stack SQL Server gebruiken om SQL-databases als een Azure Stack-service zichtbaar te maken. De SQL-resourceprovider wordt uitgevoerd als een service op een Windows Server 2016 Server Core-machine (VM).
+
+> [!IMPORTANT]
+> Alleen de resourceprovider wordt ondersteund voor het maken van items op servers die SQL-host of MySQL. Items die zijn gemaakt op een host-server die niet zijn gemaakt door de resourceprovider kunnen leiden tot een niet-overeenkomende staat.
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -144,8 +147,8 @@ U kunt de volgende stappen Controleer of de SQL-resourceprovider met succes is g
 2. Selecteer **resourcegroepen**.
 3. Selecteer de **system.\< locatie\>.sqladapter** resourcegroep.
 4. Op de overzichtspagina voor de resourcegroep overzicht, mogen er geen mislukte implementaties.
-
       ![Controleer of de implementatie van de SQL-resourceprovider](./media/azure-stack-sql-rp-deploy/sqlrp-verify.png)
+5. Selecteer ten slotte **virtuele machines** in de beheerportal om te controleren of de SQL-resourceprovider virtuele machine correct is gemaakt en wordt uitgevoerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 

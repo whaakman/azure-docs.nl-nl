@@ -10,15 +10,15 @@ ms.component: manage
 ms.date: 08/29/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 31b137cca55b1dd249368ba5e287496582152c9f
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 6eba50fbe7c2a7a40b08e37a96adac66583b8251
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382657"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781857"
 ---
 # <a name="restoring-azure-sql-data-warehouse"></a>Herstellen van Azure SQL datawarehouse 
-In dit artikel leert u hoe u het volgende doen:
+In dit artikel leert u hoe u in Azure portal en PowerShell het volgende doen:
 
 - Een herstelpunt maken
 - Herstellen van een punt voor het automatisch herstellen of de gebruiker gedefinieerde herstelpunt
@@ -33,12 +33,12 @@ In dit artikel leert u hoe u het volgende doen:
 ## <a name="before-you-begin"></a>Voordat u begint
 **Controleer of de capaciteit van uw DTU.** Elke SQL Data Warehouse wordt gehost door een SQL-server (bijvoorbeeld myserver.database.windows.net) met een standaard DTU-quotum.  Voordat u een SQL datawarehouse herstelt kunt, controleren of de SQL server heeft onvoldoende resterende DTU-quotum voor de database wordt hersteld. Zie voor meer informatie over het berekenen van DTU nodig of om aan te vragen van meer DTU, [een wijziging van de DTU-quotum aanvragen][Request a DTU quota change].
 
-# <a name="restore-through-powershell"></a>Herstellen via PowerShell
+## <a name="restore-through-powershell"></a>Herstellen via PowerShell
 
 ## <a name="install-powershell"></a>PowerShell installeren
 Om Azure PowerShell gebruiken met SQL Data Warehouse, moet u Azure PowerShell-versie 1.0 of hoger installeren.  U kunt uw versie controleren door te voeren **Get-Module - ListAvailable-Name AzureRM**.  De meest recente versie kan worden geïnstalleerd vanaf [Microsoft Web Platform Installer][Microsoft Web Platform Installer].  Zie [Azure PowerShell installeren en configureren][How to install and configure Azure PowerShell] voor meer informatie over het installeren van de meest recente versie.
 
-## <a name="restore-an-active-or-paused-database"></a>Herstellen van een database actief of onderbroken
+## <a name="restore-an-active-or-paused-database-using-powershell"></a>Herstellen van een actieve of onderbroken database met behulp van PowerShell
 Een database terugzetten vanuit een gebruik van de punt herstellen de [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] PowerShell-cmdlet.
 
 1. Open Windows PowerShell.
@@ -94,7 +94,7 @@ $RestoredDatabase.status
 > Nadat het herstel is voltooid, kunt u de herstelde database configureren door [configureren van uw database na het herstel][Configure your database after recovery].
 >
 
-## <a name="copy-your-data-warehouse-with-user-defined-restore-points"></a>Kopieer uw datawarehouse met de gebruiker gedefinieerde herstelpunten
+## <a name="copy-your-data-warehouse-with-user-defined-restore-points-using-powershell"></a>Kopieer uw datawarehouse met de gebruiker gedefinieerde herstelpunten met behulp van PowerShell
 Een database te herstellen van een gebruiker gedefinieerde terugzetten punt gebruiken de [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] PowerShell-cmdlet.
 
 1. Open Windows PowerShell.
@@ -102,10 +102,10 @@ Een database te herstellen van een gebruiker gedefinieerde terugzetten punt gebr
 3. Selecteer het abonnement met de database te herstellen.
 4. Een herstelpunt voor een onmiddellijke kopie van uw database maken
 5. Wijzig de naam van uw database naar een tijdelijke naam.
-5. De meest recente herstelpunt door de opgegeven RestorePointLabel ophalen.
-6. Ophalen van de resource-id van de database wilt terugzetten starten
-6. De database herstellen naar het gewenste herstelpunt.
-7. Controleer of de herstelde database online is.
+6. De meest recente herstelpunt door de opgegeven RestorePointLabel ophalen.
+7. Ophalen van de resource-id van de database wilt terugzetten starten
+8. De database herstellen naar het gewenste herstelpunt.
+9. Controleer of de herstelde database online is.
 
 ```Powershell
 
@@ -142,7 +142,7 @@ $RestoredDatabase.status
 
 ```
 
-## <a name="restore-a-deleted-database"></a>Een verwijderde database herstellen
+## <a name="restore-a-deleted-database-using-powershell"></a>Herstellen van een verwijderde database met behulp van PowerShell
 Als u een verwijderde database herstellen, gebruikt u de [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet.
 
 1. Open Windows PowerShell.
@@ -177,7 +177,7 @@ $RestoredDatabase.status
 > Nadat het herstel is voltooid, kunt u de herstelde database configureren door [configureren van uw database na het herstel][Configure your database after recovery].
 >
 
-## <a name="restore-from-an-azure-geographical-region"></a>Herstellen van een Azure-geografische regio
+## <a name="restore-from-an-azure-geographical-region-using-powershell"></a>Herstellen van een Azure-geografische regio met behulp van PowerShell
 Als u wilt een database herstelt, gebruikt u de [Restore-AzureRmSqlDatabase] [ Restore-AzureRmSqlDatabase] cmdlet.
 
 > [!NOTE]
@@ -212,9 +212,9 @@ $GeoRestoredDatabase.status
 
 De herstelde database worden TDE is ingeschakeld als de brondatabase TDE is ingeschakeld is.
 
-# <a name="restore-through-the-azure-portal"></a>Herstellen via Azure Portal
+## <a name="restore-through-the-azure-portal"></a>Herstellen via Azure portal
 
-## <a name="create-a-user-defined-restore-point"></a>Een door de gebruiker gedefinieerde herstelpunt maken
+## <a name="create-a-user-defined-restore-point-using-the-azure-portal"></a>Een gebruiker gedefinieerde herstelpunt met behulp van de Azure portal maken
 1. Meld u aan bij [Azure Portal][Azure portal].
 
 2. Navigeer naar de SQL datawarehouse die u wilt maken van een herstelpunt voor.
@@ -222,37 +222,37 @@ De herstelde database worden TDE is ingeschakeld als de brondatabase TDE is inge
 3. Selecteer aan de bovenkant van de blade overzicht **+ nieuw herstelpunt**.
 
     ![Nieuw herstelpunt](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_0.png)
-    
+
 4. Geef een naam voor het herstelpunt.
 
     ![Naam van het herstelpunt](./media/sql-data-warehouse-restore-database-portal/creating_restore_point_1.png)
 
-## <a name="restore-an-active-or-paused-database"></a>Herstellen van een database actief of onderbroken
+## <a name="restore-an-active-or-paused-database-using-the-azure-portal"></a>Herstellen van een actieve of onderbroken database met behulp van de Azure portal
 1. Meld u aan bij [Azure Portal][Azure portal].
 2. Navigeer naar de SQL datawarehouse die u herstellen wilt uit.
 3. Selecteer aan de bovenkant van de blade overzicht **herstellen**.
 
     ![ Overzicht van Herstellen](./media/sql-data-warehouse-restore-database-portal/restoring_0.png)
-    
+
 4. Selecteer een **automatisch herstelpunten** of **herstelpunten zelfgedefinieerde**.
 
     ![Automatische herstelpunten](./media/sql-data-warehouse-restore-database-portal/restoring_1.png)
-    
+
 5. Voor door de gebruiker gedefinieerde herstellen punten **Selecteer een herstelpunt** of **maken van een nieuw herstelpunt voor gebruiker gedefinieerde**.
 
     ![Herstelpunten gebruiker gedefinieerd](./media/sql-data-warehouse-restore-database-portal/restoring_2_udrp.png)
 
-## <a name="restore-a-deleted-database"></a>Een verwijderde database herstellen
+## <a name="restore-a-deleted-database-using-the-azure-portal"></a>Een verwijderde database herstellen via de Azure-portal
 1. Meld u aan bij [Azure Portal][Azure portal].
 2. Navigeer naar de SQL-server die de verwijderde database werd gehost op.
 3. Selecteer het pictogram van de verwijderde databases in de inhoudsopgave.
 
     ![Verwijderde Databases](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_0.png)
-    
+
 4. Selecteer de verwijderde database die u wilt herstellen.
 
     ![Verwijderde Databases selecteren](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_1.png)
-    
+
 5. Geef de naam van een nieuwe database.
 
     ![Geef de naam van Database](./media/sql-data-warehouse-restore-database-portal/restoring_deleted_2.png)

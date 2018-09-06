@@ -11,16 +11,24 @@ ms.topic: article
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 3f45d8059cd4af5dbab64fef798b61e439a5f2fc
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286871"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841606"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
 Deze handleiding bevat informatie over veelvoorkomende problemen die mogelijk hebt u bij het gebruik van Azure Dev spaties.
+
+## <a name="enabling-detailed-logging"></a>Gedetailleerde logboekregistratie inschakelen
+
+Om te kunnen oplossen van problemen effectiever, mogelijk kunt u meer gedetailleerde logboeken voor controle maken.
+
+Voor de extensie voor Visual Studio, u kunt dit doen door in te stellen de `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` omgevingsvariabele op 1. Zorg ervoor dat opnieuw opstarten van Visual Studio voor de omgeving in te voeren. Eenmaal is ingeschakeld, gedetailleerde logboeken worden geschreven naar uw `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
+
+In de CLI, kunt u meer informatie tijdens de uitvoering van de opdracht uitvoeren met behulp van de `--verbose` overschakelen.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Fout 'Failed to Azure Dev spaties controller maken'
 

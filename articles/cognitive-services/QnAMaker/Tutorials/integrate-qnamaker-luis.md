@@ -1,5 +1,5 @@
 ---
-title: Integreer QnA Maker en LUIS - cognitieve Services van Microsoft | Microsoft Docs
+title: Integreer QnA Maker en LUIS - Microsoft Cognitive Services | Microsoft Docs
 titleSuffix: Azure
 description: een stapsgewijze zelfstudie over het integreren van QnA Maker en LUIS
 services: cognitive-services
@@ -10,42 +10,42 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: 0a0eeb3815b793ed81f60b2b239bc459e5574788
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 18eae69867dc9774f63b11c762b22df4595bdce6
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345317"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781744"
 ---
-# <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>Integreer QnA Maker en LUIS voor het distribueren van uw kennisdatabase
-Wanneer uw kennisdatabase QnA Maker grote groeit, wordt het moeilijk om te zorgen dat het aangezien één monolithische ingesteld en moet de knowledge base in kleinere logische segmenten splitsen.
+# <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>QnA Maker en LUIS voor het distribueren van uw knowledge base integreren
+Als uw QnA Maker knowledge base grote groeit, wordt het moeilijk te onderhouden als één monolithische ingesteld en er behoefte aan de knowledge base splitsen in kleinere logische segmenten.
 
-Het is eenvoudig meerdere kennis basissen in QnA Maker maken, moet u bepaalde logica voor het routeren van de binnenkomende vraag naar de juiste knowledge base. U kunt dit doen met behulp van LUIS.
+Het is eenvoudig te maken van meerdere knowledge bases in QnA Maker, moet u bepaalde logica voor het routeren van de binnenkomende vraag naar de juiste knowledge base. U kunt dit doen met behulp van LUIS.
 
 ## <a name="architecture"></a>Architectuur
 
-![QnA Maker luis architectuur](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
+![QnA Maker luis-architectuur](../media/qnamaker-tutorials-qna-luis/qnamaker-luis-architecture.PNG)
 
-In het bovenstaande scenario QnA Maker eerst de bedoeling van de binnenkomende vraag opgehaald uit een model LUIS en gebruikt u dat het doorsturen naar de juiste QnA Maker knowledge base.
+In dit scenario, QnA Maker eerst de bedoeling van de binnenkomende vraag opgehaald uit een LUIS-model, en gebruik vervolgens die aan deze wordt doorgestuurd naar de juiste QnA Maker knowledge base.
 
 ## <a name="prerequisites"></a>Vereisten
 - Meld u aan bij de [LUIS](https://www.luis.ai/) portal en [maken van een app](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
-- [Toevoegen van intents](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) aan de hand van uw scenario.
-- [Train](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) en [publiceren](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) uw LUIS App.
-- Meld u aan bij [QnA Maker](https://qnamaker.ai) en [kennisartikelen]() baseert conform de instelling voor uw scenario.
-- [Test]() en [publiceren]() het kennis-databases.
+- [Intents toevoegen](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) aan de hand van uw scenario.
+- [Train](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) en [publiceren](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) uw LUIS-App.
+- Meld u aan bij [QnA Maker](https://qnamaker.ai) en [maken](https://www.qnamaker.ai/Create) knowledge bases aan de hand van uw scenario.
+- Testen en publiceren van de knowledge bases.
 
-## <a name="qna-maker--luis-bot"></a>QnA Maker + LUIS Bot
-1. Eerst een bot-Web-App maken met de sjabloon LUIS, deze koppelen aan de LUIS-app die u hierboven hebt gemaakt en de intents wijzigen. Zie de gedetailleerde stappen [hier](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
+## <a name="qna-maker--luis-bot"></a>QnA Maker + LUIS-Bot
+1. Eerst een bot-Web-App maken met de sjabloon LUIS, een koppeling met de LUIS-app die u hierboven hebt gemaakt en de intenties wijzigen. Zie de gedetailleerde stappen [hier](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
 
-2. Afhankelijkheden toevoegen aan de bovenkant van het bestand, met de andere afhankelijkheden:
+2. Afhankelijkheden toevoegen aan het begin van het bestand, met de andere afhankelijkheden:
 
     ```
     using RestSharp;
     using System.Collections.Generic;
     using Newtonsoft.Json;
     ```
-3. Voeg de onderstaande klasse voor het aanroepen van uw service QnA Maker:
+3. Voeg de volgende klasse voor het aanroepen van de QnA Maker-service:
 
     ```
         /// <summary>
@@ -121,11 +121,11 @@ In het bovenstaande scenario QnA Maker eerst de bedoeling van de binnenkomende v
         /* END - QnA Maker Response Class */
     ```
 
-3. Ga naar https://qnamaker.ai -> Mijn basissen kennis -> weergave-code van de bijbehorende knowledge base. Lees de volgende informatie:
+3. Ga naar https://qnamaker.ai -> Mijn knowledge bases -> de code weergeven van de bijbehorende knowledge base. Haal de volgende informatie:
 
     ![QnA Maker HTTP-aanvraag](../media/qnamaker-tutorials-qna-luis/qnamaker-http-request.png)
 
-4. Exemplaar maken van de klasse QnAMakerService voor elk van uw kennis basissen:
+4. Exemplaar maken van de klasse QnAMakerService voor elk van uw knowledge bases:
     ```
             // Instantiate the knowledge bases
             public QnAMakerService hrQnAService = new QnAMakerService("https://hrkb.azurewebsites.net", "<HR knowledge base id>", "<HR endpoint key>");
@@ -133,7 +133,7 @@ In het bovenstaande scenario QnA Maker eerst de bedoeling van de binnenkomende v
             public QnAMakerService financeQnAService = new QnAMakerService("https://financekb.azurewebsites.net", "<Finance knowledge base id>", "<Finance endpoint key>");
     ```
 
-5. De bijbehorende knowledge base-aanroep voor het doel.
+5. Het betreffende knowledge base-aanroep voor het doel.
     ```
             // HR Intent
             [LuisIntent("HR")]
@@ -163,18 +163,18 @@ In het bovenstaande scenario QnA Maker eerst de bedoeling van de binnenkomende v
 ## <a name="build-the-bot"></a>De bot bouwen
 1. In de code-editor met de rechtermuisknop op `build.cmd` en selecteer **uitvoeren vanaf de Console**.
 
-    ![uitvoeren vanuit de console](../media/qnamaker-tutorials-qna-luis/run-from-console.png)
+    ![uitvoeren vanaf de console](../media/qnamaker-tutorials-qna-luis/run-from-console.png)
 
-2. De codeweergave wordt vervangen door een terminalvenster waarin de voortgang en resultaten van de build.
+2. De weergave van de code wordt vervangen door een terminalvenster waarin de voortgang en resultaten van de build.
 
-    ![console build](../media/qnamaker-tutorials-qna-luis/console-build.png)
+    ![console-build](../media/qnamaker-tutorials-qna-luis/console-build.png)
 
 ## <a name="test-the-bot"></a>De bot testen
-Selecteer in de Azure-portal **testen in Web chatten** voor het testen van de bot. Typ de berichten van verschillende intents ophalen van het antwoord van de bijbehorende knowledge base.
+Selecteer in de Azure portal, **testen in Web Chat** voor het testen van de bot. Typ berichten van verschillende intents om op te halen van het antwoord van het betreffende knowledge base.
 
-![WebTest chat](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
+![chat WebTest](../media/qnamaker-tutorials-qna-luis/qnamaker-web-chat.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Maken van een plan voor bedrijfscontinuïteit voor QnA Maker](../How-To/business-continuity-plan.md)
+> [Maak een plan voor bedrijfscontinuïteit voor QnA Maker](../How-To/business-continuity-plan.md)

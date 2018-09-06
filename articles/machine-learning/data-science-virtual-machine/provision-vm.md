@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: b01ef3701ffb46da57c52e5fe73828ec4252b074
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344757"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782651"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Inrichten van de Windows Data Science Virtual Machine van Azure
 De Microsoft Data Science Virtual Machine (DSVM) is een installatiekopie van Windows Azure virtuele machine (VM). Het is vooraf geïnstalleerd en geconfigureerd met verschillende hulpprogramma's die worden gebruikt voor gegevensanalyse en machine learning. De volgende hulpprogramma's zijn opgenomen:
@@ -126,7 +126,7 @@ Voor het ontwikkelen met behulp van Python zijn-distributies Anaconda Python 2.7
 > 
 > 
 
-Anaconda Python 3.6 is geïnstalleerd onder **C:\Anaconda**. Anaconda Python 2.7 is geïnstalleerd onder **c:\Anaconda\envs\python2**. Zie voor gedetailleerde stappen [documentatie bij PTVS](/visualstudio/python/installing-python-interpreters.md). 
+Anaconda Python 3.6 is geïnstalleerd onder **C:\Anaconda**. Anaconda Python 2.7 is geïnstalleerd onder **c:\Anaconda\envs\python2**. Zie voor gedetailleerde stappen [documentatie bij PTVS](https://docs.microsoft.com/visualstudio/python/installing-python-interpreters). 
 
 ### <a name="the-jupyter-notebook"></a>De Jupyter-Notebook
 Anaconda distributie wordt geleverd met de Jupyter-Notebook, een omgeving voor het delen van code en -analyse. De Jupyter-Notebook-server is vooraf geconfigureerd met Python 2.7, Python 3.x PySpark, Julia en R-kernels. Start de Jupyter-server en start u de browser voor toegang tot de notebook-server, er wordt een pictogram op het bureaublad genoemd **Jupyter-Notebook**. 

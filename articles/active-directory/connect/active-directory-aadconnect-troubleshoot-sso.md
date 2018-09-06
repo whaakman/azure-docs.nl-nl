@@ -9,15 +9,15 @@ ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/04/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: def1bbd52e05666f380ab9d5a9295366798d5ae0
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 029ba1c936862ef5c5f774dc683c4746e157c4aa
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39626920"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43781933"
 ---
 # <a name="troubleshoot-azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding oplossen
 
@@ -34,7 +34,7 @@ In dit artikel helpt u bij het oplossen van problemen informatie over veelvoorko
 - Naadloze eenmalige aanmelding werkt niet in Internet Explorer als uitgebreide beveiligde modus is ingeschakeld.
 - Naadloze eenmalige aanmelding werkt niet op mobiele browsers op iOS en Android.
 - Als een gebruiker deel van te veel groepen in Active Directory uitmaakt, Kerberos-ticket van de gebruiker waarschijnlijk zal zijn te groot om te verwerken en dit zorgt voor naadloze eenmalige aanmelding mislukken. Azure AD-HTTPS-aanvragen kunnen headers met een maximale grootte van 50 KB; hebben Kerberos-tickets moeten kleiner zijn dan deze limiet voor andere Azure AD-artefacten (meestal 2-5 KB), zoals cookies. Onze aanbeveling is het verminderen van groepslidmaatschappen van gebruiker en probeer het opnieuw.
-- Als u 30 of meer Active Directory-forests synchroniseren bent, kunt u naadloze eenmalige aanmelding via Azure AD Connect niet inschakelen. Als tijdelijke oplossing, kunt u [handmatig in te schakelen](#manual-reset-of-azure-ad-seamless-sso) de functie op uw tenant.
+- Als u 30 of meer Active Directory-forests synchroniseren bent, kunt u naadloze eenmalige aanmelding via Azure AD Connect niet inschakelen. Als tijdelijke oplossing, kunt u [handmatig in te schakelen](#manual-reset-of-the-feature) de functie op uw tenant.
 - Toevoegen van de URL van de Azure AD-service (https://autologon.microsoftazuread-sso.com) aan de zone Vertrouwde websites in plaats van de lokale intranetzone *wordt voorkomen dat gebruikers zich*.
 - Uitschakelen van het gebruik van de **RC4_HMAC_MD5** naadloze eenmalige aanmelding, versleutelingstype voor Kerberos in uw Active Directory-instellingen worden verbroken. In de Editor voor Groepsbeleidsbeheer hulpprogramma ervoor te zorgen dat de beleidswaarde voor **RC4_HMAC_MD5** onder **Computerconfiguratie > Windows-instellingen -> Beveiligingsinstellingen -> lokaal beleid Beveiligingsopties - -> > ' Netwerkbeveiliging: voor Kerberos toegestane versleutelingstypen configureren '** is "ingeschakeld".
 
@@ -106,10 +106,9 @@ Als het oplossen van hebt gehad, kunt u de functie handmatig herstellen op uw te
 
 ### <a name="step-1-import-the-seamless-sso-powershell-module"></a>Stap 1: De naadloze eenmalige aanmelding PowerShell-module importeren
 
-1. Download en installeer de [Microsoft Online Services-aanmeldhulp](http://go.microsoft.com/fwlink/?LinkID=286152).
-2. Download en installeer de [64-bits Azure Active Directory-module voor Windows PowerShell](http://go.microsoft.com/fwlink/p/?linkid=236297).
-3. Blader naar de `%programfiles%\Microsoft Azure Active Directory Connect` map.
-4. De naadloze eenmalige aanmelding PowerShell-module importeren met behulp van deze opdracht: `Import-Module .\AzureADSSO.psd1`.
+1. Eerst, download en installeer [Azure AD PowerShell](https://docs.microsoft.com/powershell/azure/active-directory/overview).
+2. Blader naar de `%programfiles%\Microsoft Azure Active Directory Connect` map.
+3. De naadloze eenmalige aanmelding PowerShell-module importeren met behulp van deze opdracht: `Import-Module .\AzureADSSO.psd1`.
 
 ### <a name="step-2-get-the-list-of-active-directory-forests-on-which-seamless-sso-has-been-enabled"></a>Stap 2: Haal de lijst met Active Directory-forests waarop naadloze eenmalige aanmelding is ingeschakeld
 
@@ -129,8 +128,10 @@ Als het oplossen van hebt gehad, kunt u de functie handmatig herstellen op uw te
 ### <a name="step-4-enable-seamless-sso-for-each-active-directory-forest"></a>Stap 4: Naadloze eenmalige aanmelding inschakelen voor elk Active Directory-forest
 
 1. Bel `Enable-AzureADSSOForest`. Wanneer u wordt gevraagd, typt u de referenties voor de domeinbeheerder voor het beoogde Active Directory-forest.
+
    >[!NOTE]
    >We gebruiken de domeinbeheerder username, opgegeven in de User Principal namen (UPN) (johndoe@contoso.com) indeling of domein gekwalificeerde sam-account,-naam (contoso\janjansen of contoso.com\johndoe), om te vinden van de beoogde AD-forest. Als u de domeinnaam van de gekwalificeerde sam-account gebruikt, gebruiken we het domeingedeelte van de gebruikersnaam voor [vinden van de domeincontroller van de beheerder van het domein met behulp van DNS](https://social.technet.microsoft.com/wiki/contents/articles/24457.how-domain-controllers-are-located-in-windows.aspx). Als u de UPN in plaats daarvan gebruiken we [vertaald in een domein gekwalificeerde sam-accountnaam](https://docs.microsoft.com/windows/desktop/api/ntdsapi/nf-ntdsapi-dscracknamesa) voordat het zoeken naar de desbetreffende domeincontroller.
+
 2. Herhaal de vorige stap voor elk Active Directory-forest waar u het instellen van de functie.
 
 ### <a name="step-5-enable-the-feature-on-your-tenant"></a>Stap 5. De functie op uw tenant inschakelen

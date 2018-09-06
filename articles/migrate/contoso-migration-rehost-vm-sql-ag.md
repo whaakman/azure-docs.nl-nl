@@ -6,18 +6,18 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 09/05/2018
 ms.author: raynew
-ms.openlocfilehash: 18cbbef3a12816a509191795cf22b33ba93d046c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f744b9bacfb43b5cf4ba81e19d8e543561bcec61
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128551"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842750"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migratie van Contoso: een on-premises-app op Azure VM's en SQL Server AlwaysOn-beschikbaarheidsgroep Rehost
 
-In dit artikel ziet u hoe Contoso naamconflicten voor de SmartHotel-app in Azure. De frontend van de app VM migreert Contoso naar een Azure-VM en de app-database naar een Azure SQL Server VM, die worden uitgevoerd in een Windows Server-failovercluster met SQL Server AlwaysOn-beschikbaarheidsgroep gGroups.
+In dit artikel ziet u hoe Contoso naamconflicten voor de SmartHotel360-app in Azure. De frontend van de app VM migreert Contoso naar een Azure-VM en de app-database naar een Azure SQL Server VM, die worden uitgevoerd in een Windows Server-failovercluster met SQL Server AlwaysOn-beschikbaarheidsgroep gGroups.
 
 Dit document is een in een reeks artikelen die laten zien hoe het fictieve bedrijf Contoso on-premises bronnen naar de Microsoft Azure-cloud migreert. De serie bevat achtergrondinformatie en scenario's die laten zien instellen van een infrastructuur voor migratie, beoordeling van de on-premises bronnen voor migratie en het uitvoeren van verschillende typen migraties. Scenario's toeneemt in complexiteit. Aanvullende artikelen gaan we toevoegen na verloop van tijd.
 
@@ -25,20 +25,20 @@ Dit document is een in een reeks artikelen die laten zien hoe het fictieve bedri
 --- | --- | ---
 [Artikel 1: overzicht](contoso-migration-overview.md) | Overzicht van de serie artikelen, strategie voor de migratie van Contoso en de voorbeeld-apps die worden gebruikt in de reeks. | Beschikbaar
 [Artikel 2: Azure-infrastructuur implementeren](contoso-migration-infrastructure.md) | Contoso bereidt u de on-premises infrastructuur en de Azure-infrastructuur voor migratie. Dezelfde infrastructuur wordt gebruikt voor alle migratieartikelen in de reeks. | Beschikbaar
-[Artikel 3: Evalueer on-premises bronnen voor migratie naar Azure](contoso-migration-assessment.md)  | Contoso wordt uitgevoerd een evaluatie van de on-premises SmartHotel-app die wordt uitgevoerd op VMware. Contoso beoordeelt virtuele machines van app met behulp van de Azure Migrate-service en de app SQL Server-database met behulp van Data Migration Assistant. | Beschikbaar
-[Artikel 4: Opnieuw hosten van een app op een Azure-VM en het beheerde exemplaar van SQL Database](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso wordt een lift-and-shift-migratie naar Azure voor de on-premises SmartHotel app uitgevoerd. Contoso migreert u de app front-end virtuele machine via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso de app-database migreert naar een Azure SQL Database Managed Instance met de [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Beschikbaar  
-[Artikel 5: Een app op Azure VM's opnieuw hosten](contoso-migration-rehost-vm.md) | De VM's van de SmartHotel app migreert Contoso naar Azure-VM's met behulp van de Site Recovery-service. | Beschikbaar
-Artikel 6: Een app op Azure Virtual machines en in een SQL Server AlwaysOn-beschikbaarheidsgroep opnieuw hosten | De app SmartHotel, Contoso worden gemigreerd. Contoso maakt gebruik van Site Recovery voor het migreren van de VM's van de app. De Database Migration Service wordt gebruikt voor het migreren van de app-database naar een SQL Server-cluster dat wordt beveiligd door een AlwaysOn-beschikbaarheidsgroep. | In dit artikel
+[Artikel 3: Evalueer on-premises bronnen voor migratie naar Azure](contoso-migration-assessment.md)  | Contoso wordt uitgevoerd een evaluatie van de on-premises SmartHotel360-app die wordt uitgevoerd op VMware. Contoso beoordeelt virtuele machines van app met behulp van de Azure Migrate-service en de app SQL Server-database met behulp van Data Migration Assistant. | Beschikbaar
+[Artikel 4: Opnieuw hosten van een app op een Azure-VM en het beheerde exemplaar van SQL Database](contoso-migration-rehost-vm-sql-managed-instance.md) | Contoso wordt een lift-and-shift-migratie naar Azure voor de on-premises SmartHotel360-app uitgevoerd. Contoso migreert u de app front-end virtuele machine via [Azure Site Recovery](https://docs.microsoft.com/azure/site-recovery/site-recovery-overview). Contoso de app-database migreert naar een Azure SQL Database Managed Instance met de [Azure Database Migration Service](https://docs.microsoft.com/azure/dms/dms-overview). | Beschikbaar   
+[Artikel 5: Een app op Azure VM's opnieuw hosten](contoso-migration-rehost-vm.md) | De VM's van de SmartHotel360-app migreert Contoso naar Azure-VM's met behulp van de Site Recovery-service. | Beschikbaar
+Artikel 6: Een app op Azure Virtual machines en in een SQL Server AlwaysOn-beschikbaarheidsgroep opnieuw hosten | Contoso migreert de SmartHotel360-app. Contoso maakt gebruik van Site Recovery voor het migreren van de VM's van de app. De Database Migration Service wordt gebruikt voor het migreren van de app-database naar een SQL Server-cluster dat wordt beveiligd door een AlwaysOn-beschikbaarheidsgroep. | In dit artikel
 [Artikel 7: Een Linux-app op Azure VM's opnieuw hosten](contoso-migration-rehost-linux-vm.md) | Contoso een lift-and-shift-migratie van de app van de osTicket Linux Azure-virtuele machines, met behulp van Azure Site Recovery is voltooid | Beschikbaar
 [Artikel 8: Een Linux-app op Azure VM's en Azure MySQL-Server opnieuw hosten](contoso-migration-rehost-linux-vm-mysql.md) | Contoso de osTicket Linux app overzet naar virtuele Azure-machines met Azure Site Recovery en de app-database migreert naar een Azure MySQL-Server-exemplaar met behulp van MySQL Workbench. | Beschikbaar
-[Artikel 9: Een app op Azure Web Apps en Azure SQL database herstructureren](contoso-migration-refactor-web-app-sql.md) | Contoso-de app SmartHotel migreert naar een Azure-Web-App en de app-database migreert naar een Azure SQL Server-exemplaar met Database Migration Assistant | Beschikbaar
+[Artikel 9: Een app op Azure Web Apps en Azure SQL database herstructureren](contoso-migration-refactor-web-app-sql.md) | Contoso de SmartHotel360-app is gemigreerd naar een Azure-Web-App en de app-database migreert naar een Azure SQL Server-exemplaar met Database Migration Assistant | Beschikbaar
 [Artikel 10: Een Linux-app op Azure-Web-Apps en Azure MySQL herstructureren](contoso-migration-refactor-linux-app-service-mysql.md) | De Linux-app osTicket migreert Contoso naar een Azure-web-app op meerdere Azure-regio's met behulp van Azure Traffic Manager, geïntegreerd met GitHub voor continue levering. Contoso migreert de app-database naar een Azure Database for MySQL-exemplaar. | Beschikbaar 
 [Artikel 11: Herstructureren TFS op VSTS](contoso-migration-tfs-vsts.md) | Contoso migreert de on-premises Team Foundation Server-implementatie naar Visual Studio Team Services in Azure. | Beschikbaar
-[Artikel 12: Opnieuw ontwerpen van een app op Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | De app SmartHotel migreert Contoso naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en de database met Azure SQL Database. | Beschikbaar
-[Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt zijn SmartHotel-app met een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar
+[Artikel 12: Opnieuw ontwerpen van een app op Azure-containers en Azure SQL Database](contoso-migration-rearchitect-container-sql.md) | Contoso migreert de SmartHotel360-app naar Azure. Vervolgens rearchitects wordt de weblaag app als een Windows-container die wordt uitgevoerd in Azure Service Fabric en de database met Azure SQL Database. | Beschikbaar
+[Artikel 13: Opnieuw opbouwen van een app in Azure](contoso-migration-rebuild.md) | Contoso wordt opnieuw gemaakt van de SmartHotel360-app met behulp van een scala aan mogelijkheden van Azure en services, waaronder Azure App Service, Azure Kubernetes Service (AKS), Azure Functions, Azure Cognitive Services en Azure Cosmos DB. | Beschikbaar
 
 
-In dit artikel worden de twee lagen SmartHotel .NET Windows-app die worden uitgevoerd op virtuele VMware-machines naar Azure gemigreerd door Contoso. Als u wilt deze app wilt gebruiken, wordt geleverd als open source en u kunt downloaden via [GitHub](https://github.com/Microsoft/SmartHotel360).
+In dit artikel worden de twee lagen SmartHotel360 .NET Windows-app die worden uitgevoerd op virtuele VMware-machines naar Azure gemigreerd door Contoso. Als u wilt deze app wilt gebruiken, wordt geleverd als open source en u kunt downloaden via [GitHub](https://github.com/Microsoft/SmartHotel360).
 
 ## <a name="business-drivers"></a>Zakelijke drijfveren
 
@@ -261,7 +261,7 @@ Contoso-beheerders kunnen nu altijd op inschakelen:
 
 2. Ze start de service voor de wijzigingen worden doorgevoerd.
 
-Contoso kan met AlwaysOn inschakelen instellen van de AlwaysOn-beschikbaarheidsgroep die worden beveiligd door de database SmartHotel.
+Contoso kan met AlwaysOn inschakelen instellen van de AlwaysOn-beschikbaarheidsgroep die worden beveiligd door de SmartHotel360-database.
 
 **Meer hulp nodig?**
 
@@ -342,7 +342,7 @@ Deze wordt als volgt instellen door beheerders van Contoso:
 
 1.  Contoso is al gemaakt/subnet van een netwerk voor Site Recovery kan worden gebruikt wanneer ze [geïmplementeerd van de Azure-infrastructuur](contoso-migration-rehost-vm-sql-ag.md).
 
-    - De app SmartHotel is een productie-app en WEBVM worden gemigreerd naar de-Azure-productienetwerk (VNET-PROD-EUS2) in de primaire regio in de VS-Oost 2.
+    - De SmartHotel360-app is een productie-app en WEBVM worden gemigreerd naar de-Azure-productienetwerk (VNET-PROD-EUS2) in de primaire regio in de VS-Oost 2.
     - WEBVM wordt geplaatst in de resourcegroep ContosoRG, die wordt gebruikt voor productieresources, en in de productie-subnet (PROD-FE-EUS2).
 
 2. Beheerders van Contoso maken Azure storage-account (contosovmsacc20180528) in de primaire regio.
@@ -539,7 +539,7 @@ Contoso-beheerders kunnen nu starten WebVM repliceren.
 
 ## <a name="step-7-install-the-database-migration-assistant-dma"></a>Stap 7: De Database Migration Assistant (DMA) installeren
 
-Beheerders van Contoso de SmartHotel-database wilt migreren met Azure VM **SQLAOG1** met behulp van de DMA. Ze stelt DMA als volgt in:
+Beheerders van Contoso de SmartHotel360-database wilt migreren naar Azure-VM **SQLAOG1** met behulp van de DMA. Ze stelt DMA als volgt in:
 
 1. Ze het hulpprogramma downloaden van de [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=53595) naar de on-premises SQL Server-VM (**SQLVM**).
 2. Ze uitvoeren setup (DownloadMigrationAssistant.msi) op de virtuele machine.
@@ -577,7 +577,7 @@ Met de app-database op **SQLAOG1**, Contoso-beheerders kunnen nu beveiligen met 
 ### <a name="create-an-alwayson-availability-group"></a>Een AlwaysOn-beschikbaarheidsgroep maken
 
 1. In SQL Management Studio, ze met de rechtermuisknop op **altijd op hoge beschikbaarheid** om te beginnen de **Wizard Nieuwe beschikbaarheidsgroep**.
-2. In **beveiligingsopties opgeven**, naam van de beschikbaarheidsgroep **SHAOG**. In **Databases selecteren**, ze de SmartHotel-database selecteren.
+2. In **beveiligingsopties opgeven**, naam van de beschikbaarheidsgroep **SHAOG**. In **Databases selecteren**, ze de SmartHotel360-database selecteren.
 
     ![AlwaysOn-beschikbaarheidsgroep](media/contoso-migration-rehost-vm-sql-ag/aog-1.png)
 
@@ -675,7 +675,7 @@ Beheerders van Contoso bijwerken als de laatste stap in het migratieproces, de v
 
 ## <a name="clean-up-after-migration"></a>Na de migratie opschonen
 
-Na de migratie, de SmartHotel-app wordt uitgevoerd op een Azure VM en de database SmartHotel bevindt zich in de Azure SQL-cluster.
+Na de migratie, de SmartHotel360-app wordt uitgevoerd op een Azure VM en de SmartHotel360-database bevindt zich in de Azure SQL-cluster.
 
 Contoso moet nu deze opschonen stappen uitvoeren:  
 
@@ -695,7 +695,7 @@ Het Contoso security team controleert de Azure VM's WEBVM, SQLAOG1 en SQLAOG2 om
 
 - Het team controleert de Netwerkbeveiligingsgroepen (nsg's) voor de virtuele machine om toegang te beheren. Nsg's worden gebruikt om ervoor te zorgen dat alleen verkeer dat is toegestaan voor de toepassing kan worden doorgegeven.
 - Het team rekening gehouden met de gegevens op de schijf met behulp van Azure Disk Encryption en Key Vault te beveiligen.
-- Het team moet evalueren transparante gegevensversleuteling (TDE) en vervolgens bij de SmartHotel database op de nieuwe SQL AOG in te schakelen. [Meer informatie](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017).
+- Het team moet evalueren transparante gegevensversleuteling (TDE) en vervolgens op de SmartHotel360-database die wordt uitgevoerd op de nieuwe SQL AOG in te schakelen. [Meer informatie](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption?view=sql-server-2017).
 
 [Lees meer](https://docs.microsoft.com/azure/security/azure-security-best-practices-vms#vm-authentication-and-access-control) over procedures voor beveiliging voor virtuele machines.
 
@@ -716,7 +716,7 @@ Het Contoso security team controleert de Azure VM's WEBVM, SQLAOG1 en SQLAOG2 om
 
 ## <a name="conclusion"></a>Conclusie
 
-In dit artikel rehosted Contoso de SmartHotel-app in Azure door het app-front-end virtuele machine migreren naar Azure met behulp van de Site Recovery-service. Contoso-gemigreerd van de app-database naar een SQL Server-cluster dat is ingericht in Azure en beveiligd in een SQL Server AlwaysOn-beschikbaarheidsgroep.
+In dit artikel rehosted Contoso de SmartHotel360-app in Azure door het app-front-end virtuele machine migreren naar Azure met behulp van de Site Recovery-service. Contoso-gemigreerd van de app-database naar een SQL Server-cluster dat is ingericht in Azure en beveiligd in een SQL Server AlwaysOn-beschikbaarheidsgroep.
 
 ## <a name="next-steps"></a>Volgende stappen
 

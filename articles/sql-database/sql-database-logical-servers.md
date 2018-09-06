@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 9d31d12e400bbae441d70c5d3797d4fcdca509fc
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 9213f82a8e3a350312d4830aa2a8e5f695852ca5
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414950"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841831"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database-logische servers en hun beheer
 
@@ -179,10 +179,7 @@ Als u wilt maken en beheren van Azure SQL-server, databases en firewalls, gebrui
 |[Servers - Update](/rest/api/sql/servers/update)|Een bestaande server worden bijgewerkt.|
 |[Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate)|Maakt een nieuwe database gemaakt of bijgewerkt van een bestaande database.|
 |[Databases - Get](/rest/api/sql/databases/get)|Hiermee haalt u een database.|
-|[Databases - ophalen door de elastische Pool](/rest/api/sql/databases/getbyelasticpool)|Hiermee haalt u een database in een elastische pool.|
-|[Databases - opvragen aanbevolen elastische Pool](/rest/api/sql/databases/getbyrecommendedelasticpool)|Hiermee haalt u een database binnen een recommented elastische pool.|
 |[Databases - lijst op de elastische Pool](/rest/api/sql/databases/listbyelasticpool)|Retourneert een lijst met databases in een elastische pool.|
-|[Databases - lijst met aanbevolen elastische Pool](/rest/api/sql/databases/listbyrecommendedelasticpool)|Retourneert een lijst met databases binnen een aanbevolen elastische pool.|
 |[Databases - lijst met door de Server](/rest/api/sql/databases/listbyserver)|Retourneert een lijst met databases in een server.|
 |[Databases - Update](/rest/api/sql/databases/update)|Werkt een bestaande database.|
 |[Firewall-regels - maken of bijwerken](/rest/api/sql/firewallrules/createorupdate)|Hiermee of een firewall-regel bijgewerkt.|

@@ -6,25 +6,25 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 06/27/2018
+ms.date: 09/04/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: a4d6d7bfe259e8616a51100162594315a5d37546
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: b1c6209c4d589093d7a29cd8a883d3e5d4ca12f9
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382424"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782299"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in C#-modules voor Azure IoT Edge
 
 U kunt uw bedrijfslogica in modules inschakelen voor Azure IoT Edge. Dit artikel ziet u hoe u Visual Studio Code (VS-Code) gebruikt als het belangrijkste instrument voor het ontwikkelen en fouten opsporen in C#-modules.
 
 ## <a name="prerequisites"></a>Vereisten
-In dit artikel wordt ervan uitgegaan dat u een computer of virtuele machine met Windows of Linux als uw ontwikkelcomputer. Uw IoT Edge-apparaat mag een andere fysieke apparaat. Of u kunt uw IoT Edge-apparaat simuleren op uw ontwikkelcomputer.
+In dit artikel wordt ervan uitgegaan dat u een computer of virtuele machine met Windows, Mac OS- of Linux als uw ontwikkelcomputer. Uw IoT Edge-apparaat mag een andere fysieke apparaat.
 
 > [!NOTE]
-> In dit artikel foutopsporing ziet u hoe u een proces in een container module koppelen en foutopsporing kunt uitvoeren met VS Code. U kunt alleen fouten opsporen C#-modules in Linux amd64-containers. Als u niet bekend bent met de mogelijkheden voor foutopsporing van Visual Studio Code, meer informatie over [foutopsporing](https://code.visualstudio.com/Docs/editor/debugging). 
+> In dit artikel foutopsporing ziet u twee gebruikelijke manieren fouten opsporen in uw C#-module in VS Code. Een manier is om te koppelen van een proces in een module-container, terwijl de andere het lanuch de module-code in de foutopsporingsmodus is. Als u niet bekend bent met de mogelijkheden voor foutopsporing van Visual Studio Code, meer informatie over [foutopsporing](https://code.visualstudio.com/Docs/editor/debugging).
 
 Omdat in dit artikel Visual Studio Code als de belangrijkste ontwikkeltool wordt, Visual Studio Code installeren. Voeg vervolgens de nodige uitbreidingen toe:
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -38,9 +38,15 @@ Voor het maken van een module, moet u .NET voor het bouwen van de projectmap, Do
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) of [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * U kunt een lokale Docker-register voor prototype en in plaats van een cloud-register voor testdoeleinden gebruiken. 
 
+Het instellen van lokale ontwikkelomgeving om op te sporen, uitvoeren en testen van uw IoT Edge-oplossing, moet u [Azure IoT EdgeHub ontwikkeltool](https://pypi.org/project/iotedgehubdev/). Installeer [Python (2.7/3.6) en Pip](https://www.python.org/). Installeer vervolgens **iotedgehubdev** onderstaande opdracht in de terminal service wordt uitgevoerd.
+
+   ```cmd
+   pip install --upgrade iotedgehubdev
+   ```
+
 Als u wilt testen van uw module op een apparaat, moet u een actieve IoT-hub met ten minste één IoT Edge-apparaat. Voor het gebruik van de computer als een IoT Edge-apparaat, volg de stappen in de quickstart voor [Windows](quickstart.md) of [Linux](quickstart-linux.md). 
 
-## <a name="create-a-new-solution-template"></a>Een nieuwe oplossingssjabloon maken
+## <a name="create-a-new-solution-with-c-module"></a>Een nieuwe oplossing maken met C#-module
 
 Volg deze stappen voor het maken van een IoT Edge-module op basis van .NET Core 2.0 met behulp van Visual Studio Code en de Azure IoT Edge-extensie. U maakt eerst een oplossing en vervolgens het genereren van de eerste module in die oplossing. Elke oplossing kan meer dan één module bevatten. 
 
@@ -74,39 +80,96 @@ Er zijn vier items in de oplossing:
 
 ## <a name="develop-your-module"></a>Uw-module ontwikkelen
 
-De standaardcode voor het Azure-functie die wordt geleverd met de oplossing bevindt zich in **modules** > [Modulenaam van uw] > **Program.cs**. De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om te gewoon nemen invoer van een bron (in dit geval de tempSensor-module die gegevens simuleert) en doorgeven naar IoT Hub. 
+De standaard C#-module-code die wordt geleverd met de oplossing bevindt zich in **modules** > ** [Modulenaam van uw] ** > **Program.cs**. De module en het bestand deployment.template.json zijn ingesteld zodat u kunt de oplossing te bouwen, deze naar het containerregister pushen en implementeren op een apparaat om te testen zonder code aan te starten. De module is gebouwd om te gewoon nemen invoer van een bron (in dit geval de tempSensor-module die gegevens simuleert) en doorgeven naar IoT Hub. 
 
 Wanneer u klaar bent om de sjabloon C# met uw eigen code aanpassen, gebruikt u de [Azure IoT Hub SDK's](../iot-hub/iot-hub-devguide-sdks.md) modules bouwen dat adres de sleutel die nodig zijn voor IoT-oplossingen, zoals beveiliging, beheer van apparaten en betrouwbaarheid. 
 
-## <a name="build-and-deploy-your-module-for-debugging"></a>Bouw en implementeer uw module voor foutopsporing
+De C#-ondersteuning in VS Code is geoptimaliseerd voor platformoverschrijdende .NET Core-ontwikkeling. Meer informatie over [over het werken met C# in VS Code](https://code.visualstudio.com/docs/languages/csharp).
 
-In elke modulemap zijn er verschillende Docker-bestanden voor andere containertypen. Gebruik een van deze bestanden die met de extensie eindigen **.debug** uw-module voor het testen van maken. Op dit moment in C#-modules ondersteunen foutopsporing alleen in Linux amd64-containers.
+## <a name="launch-and-debug-module-code-without-container"></a>Start en fouten opsporen in module code zonder container
+De IoT Edge C#-module is een .net Core-toepassing. En dat hangt ervan af op Azure IoT C# Device SDK. In de code van de module standaard u initialiseert een **ModuleClient** met omgevingsinstellingen en voer een naam in, wat betekent dat de IoT Edge C#-module vereist dat de omgevingsinstellingen start en uitvoert en moet u ook om te verzenden of het routeren van berichten naar de invoer kanalen. Uw standaard C#-module bevat slechts één invoer kanaal en de naam is **input1**.
 
-1. In VS Code, gaat u naar de `deployment.template.json` bestand. De URL van uw functie-installatiekopie bijwerken door toe te voegen **.debug** aan het einde.
+### <a name="setup-iot-edge-simulator-for-single-module-app"></a>IoT Edge-simulator voor één module app instellen
 
-   ![Voeg *** .debug op de installatiekopienaam van uw](./media/how-to-develop-csharp-module/image-debug.png)
+1. Als u wilt installeren en starten van de simulator, typ in het opdrachtenpalet van VS Code, en selecteer **Azure IoT Edge: Start IoT Edge Hub Simulator voor één Module**. U moet ook opgeven de namen van de invoer voor de module voor enkele toepassing, type **input1** en druk op Enter. De opdracht wordt geactiveerd **iotedgehubdev** CLI en IoT Edge-simulator en een test hulpprogramma module-container te starten. U ziet de uitvoer hieronder in de geïntegreerde terminal als de simulator is gestart in de modus voor één module. U ziet ook een `curl` opdracht om te verzenden via. U gebruikt dit later.
 
-2. Voer in het opdrachtenpalet VS Code en voer de opdracht **Edge: Build IoT Edge-oplossing**.
-3. Selecteer de `deployment.template.json` -bestand voor uw oplossing van de command palette. 
-4. In Azure IoT Hub Device Explorer met de rechtermuisknop op een IoT Edge-apparaat-ID. Selecteer vervolgens **implementatie voor één apparaat maken**. 
-5. Openen van uw oplossing **config** map. Selecteer vervolgens de `deployment.json` bestand. Kies **Selecteer Edge-implementatie Manifest**. 
+   ![IoT Edge-simulator voor één module app instellen](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
 
-Hier ziet u de implementatie is gemaakt met een implementatie-ID in een VS Code geïntegreerde terminal.
+   U kunt verplaatsen naar Docker Explorer en de module met de status zien.
 
-Controleer de containerstatus van uw in Docker van VS Code explorer of door het uitvoeren van de `docker ps` opdracht in de terminal.
+   ![Status van de Simulator-module](media/how-to-develop-csharp-module/simulator-status.png)
 
-## <a name="start-debugging-c-module-in-vs-code"></a>C#-module in VS Code voor de foutopsporing starten
-VS Code houdt opsporen van fouten in configuratie-informatie in een `launch.json` bestand zich bevindt in een `.vscode` map in uw werkruimte. Dit `launch.json` bestand is gegenereerd tijdens het maken van een nieuwe IoT Edge-oplossing. Bijgewerkt telkens wanneer u een nieuwe module die ondersteuning biedt voor foutopsporing toevoegen. 
+   De **edgeHubDev** container is de kern van de lokale IoT Edge-simulator. Deze kunt uitvoeren op uw ontwikkelcomputer zonder IoT Edge security-daemon en omgevingsinstellingen opgeven voor uw systeemeigen module app of de module containers. De **invoer** container restAPIs voor de brug berichten moet worden toegepast op uw module-invoerkanaal weergegeven.
 
-1. Navigeer naar de weergave voor foutopsporing van VS Code. Selecteer het configuratiebestand voor de foutopsporing voor de module. De naam van de optie foutopsporing zijn vergelijkbaar met **ModuleName externe foutopsporing (.NET Core)**
+2. Typ in het opdrachtenpalet van VS Code, en selecteer **Azure IoT Edge: Module referenties instellen voor gebruikersinstellingen** om in te stellen van de module omgevingsinstellingen in `azure-iot-edge.EdgeHubConnectionString` en `azure-iot-edge.EdgeModuleCACertificateFile` in de gebruikersinstellingen. U vindt deze omgevingsinstellingen wordt verwezen in **.vscode** > **launch.json** en [gebruikersinstellingen van VS Code](https://code.visualstudio.com/docs/getstarted/settings).
 
-   ![Selecteer debug-configuratie](./media/how-to-develop-csharp-module/debug-config.png).
+### <a name="build-module-app-and-debug-in-launch-mode"></a>Module-app bouwen en fouten opsporen in de modus starten
+
+1. In de geïntegreerde terminal, wijzig de map naar **CSharpModule** map, voer de volgende opdracht om te maken van .net Core-toepassing.
+
+    ```cmd
+    dotnet build
+    ```
+
+   > [!TIP]
+   > U kunt ook [PostMan](https://www.getpostman.com/) of andere API's voor het verzenden van berichten via in plaats van `curl`.
 
 2. Navigeer naar `program.cs`. Voeg een onderbrekingspunt toe in dit bestand.
 
-3. Selecteer **Start Debugging** of selecteer **F5**. Selecteer het proces om aan te koppelen.
+3. Navigeer naar de weergave voor probleemoplossing van VS Code. Selecteer de configuratie van de foutopsporing **ModuleName lokale foutopsporing (.NET Core)**. 
 
-4. VS-Code opsporen in de weergave ziet u de variabelen in het linkerdeelvenster. 
+4. Klik op **Start Debugging** of druk op **F5**. U kunt de foutopsporingssessie wordt gestart.
+
+5. In VS Code geïntegreerde terminal, voer de volgende opdracht voor het verzenden van een **Hello World** bericht naar uw module. Dit is de opdracht in de vorige stappen hebt u geleerd IoT Edge-simulator is wanneer de installatie.
+
+    ```cmd
+    curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
+    ```
+
+   > [!NOTE]
+   > Als u Windows gebruikt, te zorgen dat de shell van uw VS Code geïntegreerde terminal is **Git Bash** of **WSL Bash**. Kan niet worden uitgevoerd `curl` opdracht in PowerShell of Command Prompt. 
+   
+   > [!TIP]
+   > U kunt ook [PostMan](https://www.getpostman.com/) of andere API's voor het verzenden van berichten via in plaats van `curl`.
+
+6. VS-Code opsporen in de weergave ziet u de variabelen in het linkerdeelvenster. 
+
+    ![Bekijk variabelen](media/how-to-develop-csharp-module/single-module-variables.png)
+
+7. Als u wilt stoppen foutopsporingssessie, klikt u op de knop stoppen of druk op **Shift + F5**. Typ in het opdrachtenpalet van VS Code, en selecteer **Azure IoT Edge: IoT Edge-Simulator stoppen**.
+
+## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>Build van container van de module voor foutopsporing en fouten opsporen in koppelen modus
+
+De standaardoplossing bevat twee modules, is een gesimuleerde temperatuur sensor-module en de andere is de C# pipe-module. De gesimuleerde temperatuursensor blijft verzenden van berichten naar de C# pipe-module en klikt u vervolgens de berichten worden doorgesluisd naar IoT Hub. In de modulemap die u hebt gemaakt, zijn er verschillende Docker-bestanden voor andere containertypen. Gebruik een van deze bestanden die met de extensie eindigen **.debug** uw-module voor het testen van maken. Op dit moment C# modules ondersteuning voor foutopsporing alleen in Linux amd64-containers in de modus koppelen. 
+
+### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>IoT Edge-simulator voor IoT Edge-oplossing instellen
+
+Op uw ontwikkelcomputer kun u IoT Edge-simulator in plaats van installatie van de IoT Edge-security-daemon voor het uitvoeren van uw IoT Edge-oplossing. 
+
+1. In de apparatenverkenner aan de linkerkant, met de rechtermuisknop op uw IoT Edge-apparaat-ID, selecteer **Setup IoT Edge Simulator** bij het starten van de simulator door de verbindingsreeks van het apparaat.
+
+2. U ziet dat de IoT Edge-Simulator is ingesteld met succes in de geïntegreerde terminal.
+
+### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Bouwen en uitvoeren van de container voor foutopsporing en fouten opsporen in koppelen modus
+
+1. In VS Code, gaat u naar de `deployment.template.json` bestand. Bijwerken van uw C#-module afbeeldings-URL door toe te voegen **.debug** aan het einde.
+
+   ![Voeg *** .debug op de installatiekopienaam van uw](./media/how-to-develop-csharp-module/image-debug.png)
+
+2. Navigeer naar `program.cs`. Voeg een onderbrekingspunt toe in dit bestand.
+3. Selecteer in het bestand VS Code explorer de `deployment.template.json` -bestand voor uw oplossing, in het contextmenu, klikt u op **bouwen en uitvoeren op IoT Edge-oplossing in de Simulator**. U kunt controleren of dat alle van de module-container in hetzelfde venster registreert. U kunt ook navigeren naar Docker Explorer om te bekijken van de containerstatus van de.
+
+   ![Bekijk variabelen](media/how-to-develop-csharp-module/view-log.png)
+
+5. Navigeer naar de weergave voor foutopsporing van VS Code. Selecteer het configuratiebestand voor de foutopsporing voor de module. De naam van de optie foutopsporing zijn vergelijkbaar met **ModuleName externe foutopsporing (.NET Core)**
+
+   ![Configuratie selecteren](media/how-to-develop-csharp-module/debug-config.png)
+
+6. Selecteer **Start Debugging** of selecteer **F5**. Selecteer het proces om aan te koppelen.
+
+7. VS-Code opsporen in de weergave ziet u de variabelen in het linkerdeelvenster.
+
+8. Als u wilt stoppen foutopsporingssessie, klikt u op de knop stoppen of druk op **Shift + F5**. Typ in het opdrachtenpalet van VS Code, en selecteer **Azure IoT Edge: IoT Edge-Simulator stoppen**.
 
 > [!NOTE]
 > In dit voorbeeld laat zien hoe fouten opsporen in .NET Core IoT Edge-modules voor containers. Deze gebaseerd op de foutopsporingsversie van `Dockerfile.debug`, waaronder het opdrachtregelprogramma foutopsporingsprogramma van .NET Core VSDBG in uw containerinstallatiekopie tijdens het maken van deze. Nadat u fouten opsporen in uw C#-modules, wordt aangeraden dat u rechtstreeks gebruiken of aanpassen `Dockerfile` zonder VSDBG voor IoT Edge-modules gereed is voor productie.

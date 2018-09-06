@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/27/2018
+ms.date: 08/31/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f89a6bdbe906d490231725cf528396928faebe47
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 730b11fb5038e5d6c4f9b00fbc4eb07d673757f9
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43092091"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43840986"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-uitschalen
 
@@ -23,11 +23,15 @@ Met scale-out-clientquery's kunnen worden verdeeld over meerdere *queryreplica* 
 
 In een typische server-implementatie, wordt één server fungeert als zowel de verwerkingsserver en de queryserver. Als de client-query's voor modellen op uw server meer dan de Query verwerken eenheden (QPU) voor de planning van uw server, of modelverwerking uitgevoerd op hetzelfde moment als hoge querywerkbelastingen wordt, worden de prestaties kunnen afnemen. 
 
-U kunt een querypool met maximaal zeven extra queryreplica's (acht in totaal, met inbegrip van uw server) kunt maken met scale-out. U kunt het aantal query's worden afgestemd op QPU op kritieke perioden schalen en u kunt een verwerkingsserver van de querypool scheiden op elk gewenst moment. Alle query-replica's worden gemaakt in dezelfde regio als uw server.
+U kunt een querypool met maximaal zeven extra query replica resources (acht in totaal, met inbegrip van uw server) kunt maken met scale-out. U kunt het aantal query's worden afgestemd op QPU op kritieke perioden schalen en u kunt een verwerkingsserver van de querypool scheiden op elk gewenst moment. Alle query-replica's worden gemaakt in dezelfde regio als uw server.
 
-Ongeacht het aantal queryreplica's in een querypool hebt, zijn de verwerkingsworkloads niet verdeeld over queryreplica's. Een enkele server fungeert als de verwerkingsserver. Queryreplica's fungeren alleen query's op de modellen gesynchroniseerd tussen elke replica in de query-groep. 
+Ongeacht het aantal queryreplica's in een querypool hebt, zijn de verwerkingsworkloads niet verdeeld over queryreplica's. Een enkele server fungeert als de verwerkingsserver. Queryreplica's fungeren alleen query's op de modellen gesynchroniseerd tussen de replica van elke query in de query-groep. 
 
-Wanneer bewerkingen voor de verwerking zijn voltooid, moet een synchronisatie tussen de verwerkingsserver en de query-replica-servers worden uitgevoerd. Bij het automatiseren van bewerkingen voor de verwerking, is het belangrijk dat u een synchronisatiebewerking na voltooiing van de verwerkingen configureren. Synchronisatie kan handmatig worden uitgevoerd in de portal of met behulp van PowerShell of REST-API.
+Bij het uitschalen, worden nieuwe query-replica's toegevoegd aan de querypool incrementeel. Duurt het tot vijf minuten voor nieuwe query replica resources moeten worden opgenomen in de query-groep. gereed voor clientverbindingen en query's ontvangen. Wanneer alle nieuwe query-replica's zijn en wordt uitgevoerd, worden nieuwe clientverbindingen zijn verdeeld over alle resources in de query. Bestaande clientverbindingen zijn niet gewijzigd van de resource die momenteel zijn verbonden met.  Wanneer u, worden bestaande clientverbindingen met een query pool-resource die wordt verwijderd van de querypool beëindigd. Ze zijn verbonden aan een andere query pool resource wanneer de schaal in de bewerking is voltooid.
+
+Bij het verwerken van modellen, nadat de bewerkingen zijn voltooid, moet een synchronisatie tussen de verwerkingsserver en de replica van de query's worden uitgevoerd. Bij het automatiseren van bewerkingen voor de verwerking, is het belangrijk dat u een synchronisatiebewerking na voltooiing van de verwerkingen configureren. Synchronisatie kan handmatig worden uitgevoerd in de portal of met behulp van PowerShell of REST-API. 
+
+Voor maximale prestaties voor verwerking en querybewerkingen, kunt u kiezen voor het scheiden van de verwerkingsserver van de querypool. Wanneer gescheiden, worden bestaande en nieuwe clientverbindingen zijn toegewezen aan de query-replica's in de groep van de query alleen. Als een korte periode alleen bewerkingen voor de verwerking nemen, kunt u voor het scheiden van uw verwerkingsserver van de querypool alleen voor de hoeveelheid tijd die nodig is het uitvoeren van bewerkingen voor verwerking en synchronisatie en neemt u deze terug naar de querypool. 
 
 > [!NOTE]
 > Scale-out is beschikbaar voor servers in de prijscategorie Standard. Elke query-replica wordt hetzelfde tarief als uw server gefactureerd.

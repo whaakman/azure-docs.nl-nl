@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2018
 ms.author: kumud
-ms.openlocfilehash: 1f7e605cbf5aa3d519e04c4fdfd737a4c0926a3e
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: ea8e8ae9b0f487481ac2f25d4e2b9c5733e15431
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122573"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43842252"
 ---
 # <a name="outbound-connections-in-azure"></a>Uitgaande verbindingen in Azure
 
@@ -80,7 +80,7 @@ In dit scenario wordt de virtuele machine maakt geen deel uit van een openbare L
 >[!IMPORTANT] 
 >In dit scenario geldt ook wanneer __alleen__ een interne Basic Load Balancer is gekoppeld. Scenario 3 is __niet beschikbaar__ wanneer een interne Standard Load Balancer is gekoppeld aan een virtuele machine.  U moet expliciet maken [scenario 1](#ilpip) of [scenario 2](#lb) naast het gebruik van een interne Standard Load Balancer.
 
-Azure maakt gebruik van SNAT met poort onechte ([PAT](#pat)) om uit te voeren van deze functie. In dit scenario is vergelijkbaar met [scenario 2](#lb), maar er geen controle over het IP-adres gebruikt is. Dit is een alternatief scenario voor wanneer scenario 1 en 2 niet bestaan. In dit scenario wordt niet aanbevolen als u wilt dat de controle over het uitgaande adres. Als u uitgaande verbindingen zijn een belangrijk onderdeel van uw toepassing, moet u een ander scenario hebt gekozen.
+Azure maakt gebruik van SNAT met poort onechte ([PAT](#pat)) om uit te voeren van deze functie. In dit scenario is vergelijkbaar met [scenario 2](#lb), maar er geen controle over het IP-adres gebruikt is. Dit is een alternatief scenario voor wanneer scenario 1 en 2 niet bestaan. In dit scenario wordt niet aanbevolen als u wilt dat de controle over het uitgaande adres. Als u uitgaande verbindingen zijn een belangrijk onderdeel van uw toepassing, moet u een ander scenario kiezen.
 
 SNAT poorten zijn vooraf toegewezen zoals beschreven in de [Understanding SNAT en PAT](#snat) sectie.  Het aantal virtuele machines delen een Beschikbaarheidsset bepaalt welke laag voorafgaande toewijzing is van toepassing.  Een zelfstandige virtuele machine zonder een Beschikbaarheidsset is in feite een pool van 1 voor de vaststelling van de voorafgaande toewijzing (1024 SNAT poorten). SNAT poorten zijn een eindige resource die kan worden verbruikt. Het is belangrijk om te weten hoe ze zijn [verbruikt](#pat). Als u wilt weten hoe u voor dit verbruik ontwerpen en te beperken indien nodig, Bekijk [SNAT beheren uitputting](#snatexhaust).
 
@@ -165,7 +165,7 @@ De volgende tabel toont de preallocations SNAT poort voor de lagen van de back-e
 | 801-1000 | 32 |
 
 >[!NOTE]
-> Bij het gebruik van Standard Load Balancer met [meerdere front-ends](load-balancer-multivip-overview.md), [elke front-end-IP-adres wordt het aantal beschikbare poorten van SNAT vermenigvuldigd](#multivipsnat) in de vorige tabel. Bijvoorbeeld, een back endpool van 50 VM's met 2 regels voor taakverdeling, elk met een afzonderlijke frontend-IP-adressen, (2 x 1024) 2048 SNAT poorten per IP-configuratie gebruikt. Zie de details voor [meerdere front-ends](#multife).
+> Bij het gebruik van Standard Load Balancer met [meerdere front-ends](load-balancer-multivip-overview.md), [elke front-end-IP-adres wordt het aantal beschikbare poorten van SNAT vermenigvuldigd](#multivipsnat) in de vorige tabel. Bijvoorbeeld, een back endpool van 50 VM's met 2 regels voor taakverdeling, elk met een afzonderlijke frontend-IP-adres, (2 x 1024) 2048 SNAT poorten per IP-configuratie gebruikt. Zie de details voor [meerdere front-ends](#multife).
 
 Houd er rekening mee dat het aantal beschikbare poorten op de SNAT geen rechtstreeks naar het aantal stromen vertaalt. Één poort zijn SNAT kan worden hergebruikt voor meerdere unieke doelen. Poorten die worden verbruikt alleen indien nodig stromen om uniek te maken. Voor richtlijnen voor ontwerp en risicobeperking, raadpleegt u de sectie over [over het beheren van deze resource onuitputtelijk](#snatexhaust) en de sectie waarin wordt beschreven [PAT](#pat).
 
@@ -219,16 +219,16 @@ Uw scenario toewijzen van een ILPIP verandert [Instance Level Public IP aan een 
 
 #### <a name="multifesnat"></a>Meerdere front-ends gebruiken
 
-Wanneer u een openbare Standard Load Balancer, die u toewijst [meerdere front-end-IP-adressen voor uitgaande verbindingen](#multife) en [Vermenigvuldig het aantal beschikbare poorten op de SNAT](#preallocatedports).  U moet maken van een front-end-IP-configuratie, de regel en de back-endpool voor het activeren van het programmeren van SNAT naar het openbare IP-adres van de front-end.  De regel niet hoeft te werken en een statustest hoeft niet te voltooien.  Als u meerdere front-ends voor gebruik, evenals Inkomend (in plaats van alleen voor uitgaand), moet u aangepaste statuscontroles goed om te zorgen dat de betrouwbaarheid.
+Wanneer u een openbare Standard Load Balancer, die u toewijst [meerdere front-end-IP-adressen voor uitgaande verbindingen](#multife) en [Vermenigvuldig het aantal beschikbare poorten op de SNAT](#preallocatedports).  U moet maken van een front-end-IP-configuratie, de regel en de back-endpool voor het activeren van het programmeren van SNAT naar het openbare IP-adres van de front-end.  De regel niet hoeft te werken en een statustest hoeft niet te voltooien.  Als u meerdere front-ends voor gebruik, evenals Inkomend (in plaats van alleen voor uitgaande), moet u aangepaste statustests en om ervoor te zorgen betrouwbaarheid.
 
 >[!NOTE]
 >In de meeste gevallen is uitputting van SNAT poorten het een teken van slecht ontwerp.  Zorg ervoor dat u weten waarom u uitput poorten zijn voordat u meer front-ends met SNAT poorten toevoegen.  U mogelijk een probleem dat tot mislukte later leiden kan worden maskeren.
 
 #### <a name="scaleout"></a>Uitschalen
 
-[Vooraf toegewezen poorten](#preallocatedports) zijn toegewezen op basis van de grootte van de back-end-groep en onderverdeeld in lagen om onderbreking te minimaliseren als deel van de poorten moet opnieuw worden toegewezen om te voldoen aan de volgende grotere back-end-pool grootte laag.  Mogelijk hebt u een optie intensiteit van het gebruik van SNAT-poort voor een bepaalde front-end verbeteren door het schalen van uw back-endgroep voor de maximale grootte voor een bepaalde laag.  Dit is vereist voor de toepassing efficiënt uitschalen.
+[Vooraf toegewezen poorten](#preallocatedports) zijn toegewezen op basis van de grootte van de back-end-groep en onderverdeeld in lagen om onderbreking te minimaliseren als deel van de poorten moet opnieuw worden toegewezen om te voldoen aan de volgende grotere back-end-pool grootte laag.  Mogelijk hebt u een optie de intensiteit van het gebruik van SNAT-poort voor een bepaalde front-end verbeteren door het schalen van uw back-endpool naar de maximale grootte voor een bepaalde laag.  Dit is vereist voor de toepassing efficiënt uitschalen.
 
-2 virtuele machines in de back-endpool zou bijvoorbeeld 1024 SNAT poorten die per IP-configuratie, zodat u een totaal van 2048 SNAT poorten voor de implementatie beschikbaar.  Als de implementatie worden verhoogd tot 50 virtuele kunnen machines, zelfs als het aantal poorten blijft constante per virtuele machine, een totaal van 51,200 (50 x 1024) vooraf toegewezen SNAT poorten worden gebruikt door de implementatie.  Als u uitbreiden van uw implementatie wilt, controleert u het aantal [vooraf toegewezen poorten](#preallocatedports) per laag om te controleren of u uw scale-out naar het maximum voor de desbetreffende laag vorm.  In het voorgaande voorbeeld, als u had gekozen voor de schaal vergroten tot 51 in plaats van 50 instanties uw voortgang naar de volgende laag en het einde van met minder SNAT poorten per VM ook zoals in totaal.
+2 virtuele machines in de back-endpool zou bijvoorbeeld 1024 SNAT poorten die per IP-configuratie, zodat u een totaal van 2048 SNAT poorten voor de implementatie beschikbaar.  Als de implementatie worden verhoogd tot 50 virtuele kunnen machines, zelfs als het aantal poorten blijft constante per virtuele machine, een totaal van 51,200 (50 x 1024) vooraf toegewezen SNAT poorten worden gebruikt door de implementatie.  Als u uitbreiden van uw implementatie wilt, controleert u het aantal [vooraf toegewezen poorten](#preallocatedports) per laag om te controleren of u uw scale-out naar het maximum voor de desbetreffende laag vorm.  In het voorgaande voorbeeld, als u had gekozen voor de schaal vergroten tot 51 in plaats van 50 instanties voortgang u naar de volgende laag en het einde van met minder SNAT poorten per VM ook zoals in totaal.
 
 Als u de schaal vergroten tot de volgende grotere back-end-pool grootte laag, is er mogelijk voor een aantal uitgaande verbindingen met time-out als toegewezen poorten moeten opnieuw worden toegewezen.  Als u slechts enkele van de poorten SNAT, is uitschalen over de grootte van de volgende grotere back-end-groep niet van belang zijn.  De helft van de bestaande poorten wordt opnieuw telkens wanneer u naar de volgende laag van de back-end-groep worden toegewezen.  Als u niet dat dit wilt om te worden toegepast, moet u de vorm van uw implementatie om de laaggrootte van de.  Of zorg ervoor dat uw toepassing kan detecteren en probeer dit nodig is.  TCP-keepalives kan helpen in detecteren wanneer SNAT niet langer functie poorten vanwege opnieuw wordt toegewezen.
 

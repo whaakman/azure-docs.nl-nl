@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/14/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2060239b27ef05c34ea6f5b388b4c4086a44a826
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 037c2714d146bd59b30573df874794342d743e03
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056626"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782229"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Onderliggende runbooks in Azure Automation
 
@@ -72,7 +72,9 @@ Als u niet dat het bovenliggende runbook wordt geblokkeerd op wachten wilt, kunt
 
 Parameters voor een onderliggend runbook gestart met een cmdlet worden opgegeven als hashtabel, zoals beschreven in [Runbookparameters](automation-starting-a-runbook.md#runbook-parameters). Alleen eenvoudige gegevenstypen kunnen worden gebruikt. Als het runbook een parameter met een complex gegevenstype heeft, klikt u vervolgens het moet dit inline worden aangeroepen.
 
-Als de context van het abonnement met meerdere abonnementen werken gegaan zijn verloren bij het aanroepen van de onderliggende runbooks. Om ervoor te zorgen dat de context van het abonnement wordt doorgegeven aan de onderliggende runbooks, voeg de `DefaultProfile` parameter voor de cmdlet en geeft u de context toe.
+De context van het abonnement verloren zijn gegaan bij het aanroepen van de onderliggende runbooks als afzonderlijke taken. In de volgorde voor het onderliggende runbook aanroepen van Azure RM-cmdlets op basis van een gewenste Azure-abonnement, moet het onderliggende runbook worden geverifieerd met dit abonnement onafhankelijk van het bovenliggende runbook.
+
+Als taken binnen hetzelfde Automation-account met meerdere abonnementen werkt, kan een abonnement te selecteren in één taak de momenteel geselecteerde abonnement-context voor andere taken, die normaal gesproken niet gewenst wijzigen. Om te voorkomen dat dit probleem, sla het resultaat van de `Select-AzureRmSubscription` cmdlet-aanroep aan en geeft u dit object toe aan de `DefaultProfile` parameter van alle de volgende Azure RM-cmdlets aanroepen. Dit patroon moet consistent worden toegepast voor alle runbooks die worden uitgevoerd in dit Automation-account.
 
 ### <a name="example"></a>Voorbeeld
 

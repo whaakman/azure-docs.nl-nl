@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 79c78da3ba3102f41a1bd623c6844f064699b30a
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 62a7bb9bf63e8ebf97f9aeb5b08bf08ef06da43b
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382096"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43782787"
 ---
 # <a name="update-management-solution-in-azure"></a>Oplossing voor updatebeheer in Azure
 
@@ -119,7 +119,7 @@ Als uw System Center Operations Manager-beheergroep is verbonden met een Log Ana
 Zie voor meer informatie over hoe management packs voor oplossingen worden bijgewerkt, [Operations Manager verbinden met Log Analytics](../log-analytics/log-analytics-om-agents.md).
 
 > [!NOTE]
-> Voor systemen waarop de Operations Manager-Agent, om te kunnen volledig worden beheerd door beheer van updates, de agent moet worden bijgewerkt naar de Microsoft Monitoring Agent. Zie voor informatie over het bijwerken van de agent, [upgrade uitvoeren van een Operations Manager-agent](/system-center/scom/deploy-upgrade-agents).
+> Voor systemen waarop de Operations Manager-Agent, om te kunnen volledig worden beheerd door beheer van updates, de agent moet worden bijgewerkt naar de Microsoft Monitoring Agent. Zie voor informatie over het bijwerken van de agent, [upgrade uitvoeren van een Operations Manager-agent](https://docs.microsoft.com/system-center/scom/deploy-upgrade-agents).
 
 ### <a name="confirm-that-non-azure-machines-are-onboarded"></a>Controleer of niet-Azure-machines zijn toegevoegd
 
@@ -217,7 +217,7 @@ Voor het maken van een nieuwe update-implementatie selecteert **update-implement
 | --- | --- |
 | Naam |Unieke naam voor het identificeren van de update-implementatie. |
 |Besturingssysteem| Linux of Windows|
-| Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u ervoor kiest **Machines**, de gereedheid van de machine wordt weergegeven in de **gereedheid voor UPDATE-AGENT** kolom.</br> Zie voor meer informatie over de verschillende methoden voor het maken van computergroepen in Log Analytics, [computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) |
+| Bij te werken computers |Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of Machine kiezen in de vervolgkeuzelijst en selecteer afzonderlijke computers. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**.</br> Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics |
 |Updateclassificaties|Selecteer de updateclassificaties die u nodig hebt|
 |Updates die moeten worden uitgesloten|Voer de updates om uit te sluiten. Voor Windows, voert u de KB zonder de KB-voorvoegsel. Voer de naam van het pakket voor Linux of een jokerteken gebruiken.  |
 |Planningsinstellingen|Selecteer de tijd om te starten, en selecteer een van beide eenmaal of terugkerende voor het terugkeerpatroon|

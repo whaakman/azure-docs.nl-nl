@@ -6,25 +6,25 @@ documentationcenter: ''
 keywords: WAD2AI, Azure Diagnostics
 author: mrbullwinkle
 manager: carmonm
-editor: alancameronwills
 ms.assetid: 5c7a5b34-329e-42b7-9330-9dcbb9ff1f88
 ms.service: application-insights
 ms.devlang: na
 ms.tgt_pltfrm: ibiza
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.workload: tbd
-ms.date: 05/05/2017
+ms.date: 09/05/2018
 ms.author: mbullwin
-ms.openlocfilehash: f36a9e21478d2629d705d90179a6db5175c78299
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
-ms.translationtype: HT
+ms.openlocfilehash: 3b06ec3b10edc39d770e5a724125e70afd5e5477
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783580"
 ---
 # <a name="application-insights-for-azure-cloud-services"></a>Application Insights voor Azure Cloud Services
 [Microsoft Azure Cloud-service-apps](https://azure.microsoft.com/services/cloud-services/) kunnen met [Application Insights][start] worden gecontroleerd op beschikbaarheid, prestaties, fouten en gebruik door gegevens uit de Application Insights-SDK's te combineren met [Azure Diagnotics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)-gegevens uit uw cloudservices. Op basis van de feedback die u krijgt over de prestaties en de effectiviteit van uw app tijdens het gebruik, kunt u weldoordachte beslissingen nemen over de richting van het ontwerp in elke fase van de ontwikkelingslevenscyclus.
 
-![Voorbeeld](./media/app-insights-cloudservices/sample.png)
+![Schermafbeelding van een dashboard](./media/app-insights-cloudservices/overview-graphs.png)
 
 ## <a name="before-you-start"></a>Voordat u begint
 U hebt het volgende nodig:
@@ -81,9 +81,8 @@ Als u hebt besloten om een afzonderlijke resource voor elke rol te maken - en mi
 1. Maak in de [Azure Portal][portal] een nieuwe Application Insights-resource. Kies ASP.NET-app als het toepassingstype. 
 
     ![Klik op Nieuw > Application Insights](./media/app-insights-cloudservices/01-new.png)
-2. U ziet dat elke resource een instrumentatiesleutel krijgt. Mogelijk hebt u deze sleutels later nodig als u de configuratie van de SDK handmatig wilt configureren of verifiëren.
+2. Elke resource wordt geïdentificeerd door een Instrumentatiesleutel. Mogelijk hebt u deze sleutels later nodig als u de configuratie van de SDK handmatig wilt configureren of verifiëren.
 
-    ![Op Eigenschappen klikken, de sleutel selecteren en op Ctrl + C drukken](./media/app-insights-cloudservices/02-props.png) 
 
 ## <a name="set-up-azure-diagnostics-for-each-role"></a>Azure Diagnostics instellen voor elke rol
 Stel deze optie in om uw app te controleren met Application Insights. Voor webrollen zorgt u hiermee voor prestatiebewaking, waarschuwingen en diagnostische gegevens en een gebruiksanalyse. Voor andere rollen kunt u diagnostische gegevens van Azure doorzoeken en controleren, zoals gegevens over het opnieuw opstarten, gegevens van prestatiemeteritems en aanroepen van System.Diagnostics.Trace. 
@@ -107,14 +106,14 @@ Gebruik Visual Studio om de Application Insights-SDK voor elk cloudtoepassingspr
 1. **Webrollen**: Klik met de rechtermuisknop op het project en kies **Application Insights configureren** of **Toevoegen > Application Insights Telemetry**.
 
 2. **Werkrollen**: 
- * Klik met de rechtermuisknop op het project en selecteer **NuGet-pakketten beheren**.
+ * Met de rechtermuisknop op het project en selecteer **NuGet-pakketten beheren**.
  * Voeg [Application Insights voor Windows Servers](https://www.nuget.org/packages/Microsoft.ApplicationInsights.WindowsServer/) toe.
 
     ![Naar Application Insights zoeken](./media/app-insights-cloudservices/04-ai-nuget.png)
 
 3. Configureer de SDK om gegevens te verzenden naar de Application Insights-resource.
 
-    Stel in een geschikte opstartfunctie de instrumentatiesleutel in vanuit de configuratie-instelling in het CSCFG-bestand:
+    Stel in een geschikte opstartfunctie de instrumentatiesleutel van de configuratie-instelling in de ``.cscfg file``:
  
     ```csharp
    
@@ -128,7 +127,7 @@ Gebruik Visual Studio om de Application Insights-SDK voor elk cloudtoepassingspr
    * [Voor webpagina’s](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/MvcWebRole/Views/Shared/_Layout.cshtml#L13) 
 4. Stel het bestand ApplicationInsights.config zo in dat het altijd naar de uitvoermap wordt gekopieerd. 
    
-    (In het CONFIG-bestand ziet u berichten waarin u wordt gevraagd de instrumentatiesleutel in dat bestand te plaatsen. Voor cloudtoepassingen is het echter beter om de sleutel in te stellen vanuit het CSCFG-bestand. Dit zorgt ervoor dat de rol correct wordt geïdentificeerd in de portal.)
+    (In het CONFIG-bestand ziet u berichten waarin u wordt gevraagd de instrumentatiesleutel in dat bestand te plaatsen. Echter voor cloud-toepassingen is het beter om in te stellen via de ``.cscfg file``. Dit zorgt ervoor dat de rol correct wordt geïdentificeerd in de portal.)
 
 #### <a name="run-and-publish-the-app"></a>De app uitvoeren en publiceren
 Voer uw app uit en meld u aan bij Azure. Open de Application Insights-resources die u hebt gemaakt. U ziet dat in [Search](app-insights-diagnostic-search.md) de afzonderlijke gegevenspunten worden weergegeven en in [Metric Explorer](app-insights-metrics-explorer.md) de cumulatieve gegevens. 
@@ -152,7 +151,7 @@ Als u prestatiemeteritems en aantallen gebeurtenissen wilt zien, opent u [Metric
 
 ![Gegevens van Azure Diagnostics](./media/app-insights-cloudservices/23-wad.png)
 
-Gebruik [Search](app-insights-diagnostic-search.md) of een [Analytics-query](app-insights-analytics-tour.md) om te zoeken in de verschillende traceerlogboeken die door Azure Diagnostics zijn verzonden. Stel bijvoorbeeld dat u te maken krijgt met een onverwerkte uitzondering waardoor een rol is gecrasht en gerecycled. Deze informatie zou worden weergegeven in het toepassingskanaal van het Windows-gebeurtenislogboek. U kunt Search gebruiken om naar de fout in het Windows-gebeurtenislogboek te kijken en om de volledige stack-trace voor de uitzondering op te halen. Dit helpt u bij het vinden van de hoofdoorzaak van het probleem.
+Gebruik [Search](app-insights-diagnostic-search.md) of een [Analytics-query](app-insights-analytics-tour.md) om te zoeken in de verschillende traceerlogboeken die door Azure Diagnostics zijn verzonden. Stel bijvoorbeeld dat u te maken krijgt met een onverwerkte uitzondering waardoor een rol is gecrasht en gerecycled. Deze informatie zou worden weergegeven in het toepassingskanaal van het Windows-gebeurtenislogboek. U kunt Search gebruiken om naar de fout in het Windows-gebeurtenislogboek te kijken en om de volledige stack-trace voor de uitzondering op te halen. Hierdoor kunt u de hoofdoorzaak van het probleem.
 
 ![Zoeken in Azure Diagnostics](./media/app-insights-cloudservices/25-wad.png)
 
@@ -197,7 +196,7 @@ Voor webrollen worden ook gegevens verzameld voor de volgende prestatiemeteritem
 
 U kunt extra aangepaste prestatiemeteritems of andere Windows-prestatiemeteritems opgeven door ApplicationInsights.config te bewerken, [zoals in dit voorbeeld](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/ApplicationInsights.config#L14).
 
-  ![Prestatiemeteritems](./media/app-insights-cloudservices/OLfMo2f.png)
+  ![Prestatiemeteritems](./media/app-insights-cloudservices/002-servers.png)
 
 ## <a name="correlated-telemetry-for-worker-roles"></a>Gecorreleerde telemetrie voor werkrollen
 Het is uiterst nuttig om bij het vaststellen van problemen precies te kunnen zien wat heeft geleid tot een mislukte aanvraag of een lange wachttijd na een aanvraag. Voor webrollen wordt door de SDK automatisch een correlatie ingesteld tussen verwante telemetrie. Voor werkrollen kunt u om dit te bereiken een aangepaste telemetrie-initializer gebruiken voor het instellen van een gemeenschappelijk Operation.Id-contextkenmerk voor alle telemetrie. Zo kunt u in een oogopslag zien of het probleem (de latentie of fout) is veroorzaakt door een afhankelijkheid of door uw code! 
@@ -206,11 +205,7 @@ Dit doet u al volgt:
 
 * Stel de correlatie-id in een CallContext in, zoals [hier](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L36) wordt weergegeven. In dit geval wordt de aanvraag-id gebruikt als de correlatie-id.
 * Voeg een aangepaste TelemetryInitializer-implementatie toe om de Operation.Id in te stellen op de correlatie-id die u hiervoor hebt ingesteld. Hier vindt u een voorbeeld: [ItemCorrelationTelemetryInitializer](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/Telemetry/ItemCorrelationTelemetryInitializer.cs#L13)
-* Voeg de aangepaste telemetrie-initializer toe. U kunt dat doen in het bestand ApplicationInsights.config of in de code, zoals [hier](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233) wordt weergegeven
-
-Dat is alles. De portal is zo ingericht dat u alle bijbehorende telemetrie in een oogopslag kunt zien:
-
-![Gecorreleerde telemetrie](./media/app-insights-cloudservices/bHxuUhd.png)
+* Voeg de aangepaste telemetrie-initializer toe. U kunt dat doen in het bestand ApplicationInsights.config of in de code zoals [hier](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/Samples/AzureEmailService/WorkerRoleA/WorkerRoleA.cs#L233).
 
 ## <a name="client-telemetry"></a>Telemetrie op de client
 [Voeg de JavaScript-SDK toe aan uw webpagina’s][client] om telemetrie van de browser op te halen, zoals het aantal paginaweergaven, paginalaadtijden en scriptuitzonderingen, en om de mogelijkheid te krijgen om aangepaste telemetrie te schrijven in uw paginascripts.
