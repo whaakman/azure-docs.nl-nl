@@ -6,15 +6,15 @@ author: sethmanheim
 manager: femila
 ms.service: azure-stack
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: sethm
 ms.reviewer: kivenkat
-ms.openlocfilehash: d478ccd0895ad067657bce56469a3a61d4ea0e17
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 143e6c2856485e33022254abfcf0cf3806b30cef
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139557"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025770"
 ---
 # <a name="introduction-to-azure-stack-virtual-machines"></a>Kennismaking met virtuele machines in Azure Stack
 
@@ -99,7 +99,7 @@ De resources in de volgende tabel worden gebruikt door de virtuele machine en mo
 |Resource|Vereist|Beschrijving|
 |---------|---------|---------|
 |Resourcegroep|Ja|De VM moet zijn opgenomen in een resourcegroep.|
-|Storage-account|Ja|De VM heeft het opslagaccount nodig voor het opslaan van de virtuele harde schijven.|
+|Storage-account|Nee|De virtuele machine is niet nodig de storage-account voor het opslaan van de virtuele harde schijven als schijven beheerd. <br>De virtuele machine hoeft het opslagaccount voor het opslaan van de virtuele harde schijven als niet-beheerde schijven.|
 |Virtueel netwerk|Ja|De VM moet lid zijn van een virtueel netwerk.|
 |Openbaar IP-adres|Nee|Aan de VM kan een openbaar IP-adres worden toegewezen voor externe toegang.|
 |Netwerkinterface|Ja|De netwerkinterface van de VM moet in het netwerk communiceren.|

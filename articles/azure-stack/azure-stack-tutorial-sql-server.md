@@ -1,6 +1,6 @@
 ---
-title: SQL-databases beschikbaar maken voor de gebruikers van uw Azure-Stack | Microsoft Docs
-description: Zelfstudie voor het installeren van de SQL Server-resourceprovider en maken biedt die, kunnen gebruikers van de Stack Azure SQL-databases maken.
+title: SQL-databases beschikbaar maken voor uw Azure Stack-gebruikers | Microsoft Docs
+description: Zelfstudie voor het installeren van de resourceprovider van SQL Server en maak biedt waarmee SQL-databases maken van Azure Stack-gebruikers.
 services: azure-stack
 documentationcenter: ''
 author: jeffgilb
@@ -12,57 +12,57 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: b9ba2bb89bb0d7e16a28a165cf14530a7a10f71b
-ms.sourcegitcommit: 4e36ef0edff463c1edc51bce7832e75760248f82
+ms.openlocfilehash: 35f4d2adfe3ca64496139cdd708fb5f52f8721ee
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35234747"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023474"
 ---
-# <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Zelfstudie: SQL-databases beschikbaar te maken voor uw Azure-Stack-gebruikers
+# <a name="tutorial-make-sql-databases-available-to-your-azure-stack-users"></a>Zelfstudie: SQL-databases beschikbaar te maken voor uw Azure Stack-gebruikers
 
-Als de beheerder van een Azure-Stack cloud kunt u aanbiedingen die uw gebruikers laten maken (tenants) maken van SQL-databases die ze met hun cloud-systeemeigen apps, websites en werkbelastingen gebruiken kunnen. Dankzij deze aangepaste, op verzoek, cloud-gebaseerde databases aan uw gebruikers, kunt u ze bespaart tijd en bronnen. Dit als u wilt instellen, kun je het:
+Als de beheerder van een Azure Stack-cloud, kunt u aanbiedingen waarmee uw gebruikers kunnen maken (tenants) SQL-databases die ze met hun cloud-eigen apps, websites en werkbelastingen gebruiken kunnen maken. Door op te geven deze databases aangepaste, op aanvraag, op basis van cloud naar uw gebruikers, kunt u ze Bespaar tijd en resources. Dit als u wilt instellen, u het volgende doen:
 
 > [!div class="checklist"]
-> * De resource-provider voor SQL Server implementeren
+> * De SQL Server-resourceprovider implementeren
 > * Een aanbieding maken
 > * Testen van de aanbieding
 
-## <a name="deploy-the-sql-server-resource-provider"></a>De resource-provider voor SQL Server implementeren
+## <a name="deploy-the-sql-server-resource-provider"></a>De SQL Server-resourceprovider implementeren
 
-Het implementatieproces is beschreven in de [Gebruik SQL-databases op Azure-Stack artikel](azure-stack-sql-resource-provider-deploy.md), en bestaat uit de volgende primaire stappen:
+Het implementatieproces wordt uitgebreid beschreven in de [Gebruik SQL-databases op Azure Stack-artikel](azure-stack-sql-resource-provider-deploy.md), en bestaat uit de volgende primaire stappen uit:
 
-1. [Implementeren van de SQL-resourceprovider](azure-stack-sql-resource-provider-deploy.md).
+1. [De SQL-resourceprovider implementeren](azure-stack-sql-resource-provider-deploy.md).
 2. [Controleer of de implementatie](azure-stack-sql-resource-provider-deploy.md#verify-the-deployment-using-the-azure-stack-portal).
-3. Een capaciteit door verbinding te maken met een hosting SQL-server. Zie voor meer informatie [toevoegen die als host fungeert voor servers](azure-stack-sql-resource-provider-hosting-servers.md)
+3. Geef capaciteit door verbinding te maken met een host SQL-server. Zie voor meer informatie, [toevoegen die als host fungeert voor servers](azure-stack-sql-resource-provider-hosting-servers.md)
 
 ## <a name="create-an-offer"></a>Een aanbieding maken
 
-1.  [Een quotum](azure-stack-setting-quotas.md) en noem deze *SQLServerQuota*. Selecteer **Microsoft.SQLAdapter** voor de **Namespace** veld.
-2.  [Maak een plan](azure-stack-create-plan.md). Naam *TestSQLServerPlan*, selecteer de **Microsoft.SQLAdapter** service, en **SQLServerQuota** quotum.
+1.  [Definieert een quotum op](azure-stack-setting-quotas.md) en noem het *SQLServerQuota*. Selecteer **Microsoft.SQLAdapter** voor de **Namespace** veld.
+2.  [Maak een plan](azure-stack-create-plan.md). Geef het de naam *TestSQLServerPlan*, selecteer de **Microsoft.SQLAdapter** -service, en **SQLServerQuota** quotum.
 
     > [!NOTE]
-    > Als gebruikers wilt laten maken van andere apps, andere services vereist zijn in het plan. Azure Functions moet bijvoorbeeld de **Microsoft.Storage** service in het plan, terwijl Wordpress vereist **Microsoft.MySQLAdapter**.
+    > Als u wilt dat gebruikers andere apps te maken, andere services vereist zijn in het plan. Bijvoorbeeld: Azure Functions heeft de **Microsoft.Storage** service in het abonnement, terwijl Wordpress vereist **Microsoft.MySQLAdapter**.
 
-3.  [Maken van een aanbieding](azure-stack-create-offer.md), naam **TestSQLServerOffer** en selecteer de **TestSQLServerPlan** plan.
+3.  [Maak een aanbieding](azure-stack-create-offer.md), geef deze de naam **TestSQLServerOffer** en selecteer de **TestSQLServerPlan** plan.
 
 ## <a name="test-the-offer"></a>Testen van de aanbieding
 
-Nu dat u de SQL Server-resourceprovider hebt geïmplementeerd en een aanbieding hebt gemaakt, u als een gebruiker aanmelden kunt, abonneren op de aanbieding en maak een database.
+Nu dat u de resourceprovider van SQL Server hebt geïmplementeerd en een aanbieding hebt gemaakt, u als een gebruiker aanmelden kunt, Abonneer u op de aanbieding en maak een database.
 
-### <a name="subscribe-to-the-offer"></a>Abonneren op de aanbieding
+### <a name="subscribe-to-the-offer"></a>Abonneer u op de aanbieding
 
-1. Aanmelden bij de Azure-Stack-portal (https://portal.local.azurestack.external) als een tenant.
-2. Selecteer **Neem een abonnement op** en voer vervolgens **TestSQLServerSubscription** onder **weergavenaam**.
+1. Aanmelden bij de Azure Stack-portal (https://portal.local.azurestack.external) als een tenant.
+2. Selecteer **Neem een abonnement** en voer vervolgens **TestSQLServerSubscription** onder **weergavenaam**.
 3. Selecteer **selecteert u een aanbieding** > **TestSQLServerOffer** > **maken**.
-4. Selecteer **meer services** > **abonnementen** > **TestSQLServerSubscription** > **Resource providers**.
+4. Selecteer **alle services** > **abonnementen** > **TestSQLServerSubscription** > **Resource providers**.
 5. Selecteer **registreren** naast de **Microsoft.SQLAdapter** provider.
 
-### <a name="create-a-sql-database"></a>Een SQL Database maken
+### <a name="create-a-sql-database"></a>Een SQL-database maken
 
 1. Selecteer **+**  >  **gegevens en opslag** > **SQL-Database**.
 2. Behoud de standaardwaarden of het gebruik van deze voorbeelden voor de volgende velden:
@@ -70,8 +70,8 @@ Nu dat u de SQL Server-resourceprovider hebt geïmplementeerd en een aanbieding 
     - **Maximale grootte in MB**: 100
     - **Abonnement**: TestSQLOffer
     - **Resourcegroep**: SQL-RG
-3. Selecteer **aanmeldingsinstellingen**, geef referenties op voor de database en selecteer vervolgens **OK**.
-4. Selecteer **SKU** > Selecteer de SQL-SKU die u hebt gemaakt voor de SQL Server die als host fungeert > en selecteer vervolgens **OK**.
+3. Selecteer **Login Settings**, geef referenties op voor de database en selecteer vervolgens **OK**.
+4. Selecteer **SKU** > Selecteer de SQL-SKU die u hebt gemaakt voor de SQL-Server die als host fungeert > en selecteer vervolgens **OK**.
 5. Selecteer **Maken**.
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -79,11 +79,11 @@ Nu dat u de SQL Server-resourceprovider hebt geïmplementeerd en een aanbieding 
 In deze zelfstudie heeft u het volgende geleerd:
 
 > [!div class="checklist"]
-> * De resource-provider voor SQL Server implementeren
+> * De SQL Server-resourceprovider implementeren
 > * Een aanbieding maken
 > * Testen van de aanbieding
 
-Voorafgaande aan de volgende zelfstudie voor meer informatie over hoe:
+Ga verder met de volgende zelfstudie voor meer informatie over het:
 
 > [!div class="nextstepaction"]
-> [Web-, mobiele en API-apps beschikbaar te maken voor uw gebruikers]( azure-stack-tutorial-app-service.md)
+> [Web, mobiele Apps en API-apps beschikbaar te maken voor uw gebruikers]( azure-stack-tutorial-app-service.md)

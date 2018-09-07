@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: get-started-article
-ms.date: 08/30/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: 7f16f53af7d1c2f46c5c61974601833fafc8f828
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: ba4c53f03350995544eb95917102bd7123a077d2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698771"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022761"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een virtuele machine beschikbaar maken in Azure Stack
 
@@ -54,7 +54,7 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 
    ![Blob-toegang instellen op openbaar](./media/azure-stack-add-vm-image/image2.png)
 
-2. Meld u met Azure Stack als operator. Selecteer in het menu **meer services**. Selecteer **Compute** > **VM-installatiekopieën** > **toevoegen**.
+2. Meld u met Azure Stack als operator. Selecteer in het menu **alle services**. Klik vervolgens onder de **beheer** categorie selecteren **Compute** > **VM-installatiekopieën** > **toevoegen**.
 
 3. Onder **toevoegen van een VM-installatiekopie**, voer de uitgever, aanbieding, SKU en versie van de installatiekopie van de virtuele machine. Deze segmenten naam verwijzen naar de VM-installatiekopie in Resource Manager-sjablonen. Zorg ervoor dat u selecteert de **osType** correct-waarde. Voor **Blob-URI van OS-schijf**, voer de Blob-URI waarnaar de afbeelding is geüpload. Selecteer **maken** om te beginnen met het maken van de VM-installatiekopie.
 
@@ -115,7 +115,7 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
     Zie voor meer informatie, de PowerShell-referentie voor de [toevoegen AzsPlatformimage](https://docs.microsoft.com/powershell/module/azs.compute.admin/add-azsplatformimage) cmdlet en de [New-DataDiskObject](https://docs.microsoft.com/powershell/module/Azs.Compute.Admin/New-DataDiskObject) cmdlet.
 
 ## <a name="add-a-custom-vm-image-to-the-marketplace-by-using-powershell"></a>Een aangepaste VM-installatiekopie toevoegen aan de Marketplace met behulp van PowerShell
-
+ 
 1. [Installeren van PowerShell voor Azure Stack](azure-stack-powershell-install.md).
 
   ```PowerShell  

@@ -1,43 +1,72 @@
+items:
 - name: Documentatie voor Batch AI
-  href: index.md
+  href: index.yml
 - name: Overzicht
   items:
-    - name: Wat is Batch AI?
-      href: overview.md
-- name: Aan de slag
-  expanded: true
+  - name: Wat is Batch AI?
+    href: overview.md
+- name: Snelstartgidsen
   items:
-    - name: Trainingstaak uitvoeren - CLI
-      href: quickstart-cli.md
-    - name: Trainingstaak uitvoeren - Python
-      href: quickstart-python.md
+  - name: Cluster maken - CLI
+    href: quickstart-create-cluster-cli.md
+  - name: Cluster maken - Portal
+    href: quickstart-create-cluster-portal.md
+  - name: Een AI-model trainen - CLI
+    href: quickstart-tensorflow-training-cli.md
+  expanded: true
+- name: Zelfstudies
+  items:
+  - name: Gedistribueerde training met Horovod
+    href: tutorial-horovod-tensorflow.md
+- name: Voorbeelden
+  items:
+  - name: Azure-CLI
+    href: cli-samples.md
+- name: Concepten
+  items:
+  - name: Batch AI-resources
+    href: resource-concepts.md
+  - name: Batch AI-quota en -limieten
+    href: quota-limits.md
 - name: Handleidingen
   items:
-    - name: Migreren naar bijgewerkte API
-      href: migrate-to-new-api.md
+  - name: Werken met clusters
+    href: clusters.md
+  - name: Azure Storage gebruiken
+    href: use-azure-storage.md
+  - name: Een model trainen met de Python-SDK
+    href: cntk-training-python.md
+  - name: Migreren naar bijgewerkte API
+    href: migrate-to-new-api.md
 - name: Naslaginformatie
   items:
-    - name: Azure-CLI
-      href: /cli/azure/batchai
-    - name: .NET
-      href: /dotnet/api/overview/azure/batchai
-    - name: Java
-      href: /java/api/overview/azure/batchai
-    - name: Node.js
-      href: /javascript/api/overview/azure/batchai
-    - name: Python
-      href: /python/api/overview/azure/batchai
-    - name: REST
-      href: /rest/api/batchai
+  - name: Azure-CLI
+    href: /cli/azure/batchai
+  - name: .NET
+    href: /dotnet/api/overview/azure/batchai
+  - name: Java
+    href: /java/api/overview/azure/batchai
+  - name: Node.js
+    href: /javascript/api/overview/azure/batchai
+  - name: Python
+    href: /python/api/overview/azure/batchai
+  - name: REST
+    href: /rest/api/batchai
 - name: Resources
   items:
-    - name: Trainingsrecepten
-      href: 'https://github.com/Azure/BatchAI'
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/batch-ai'
-    - name: Prijscalculator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Regionale beschikbaarheid
-      href: 'https://azure.microsoft.com/regions/services/'
+  - name: Trainingsrecepten
+    href: https://github.com/Azure/BatchAI
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/batch-ai
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Regionale beschikbaarheid
+    href: https://azure.microsoft.com/regions/services/
+ms.openlocfilehash: ad3ffb48dd035f189054c40c9c1a3466230ac11d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051687"

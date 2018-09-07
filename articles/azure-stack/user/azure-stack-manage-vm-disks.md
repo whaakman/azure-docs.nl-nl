@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: jiahan
-ms.openlocfilehash: fc17ce0ebd13fb7e89405fcf4d6633551f340a27
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: bdf31c72fbcd8941161e6b9df0a490df7f6a16e0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139756"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026515"
 ---
 # <a name="provision-virtual-machine-disk-storage-in-azure-stack"></a>Inrichten van virtuele machine disk-opslag in Azure Stack
 
@@ -30,9 +30,13 @@ Dit artikel wordt beschreven hoe u om in te richten schijfopslag voor virtuele m
 
 ## <a name="overview"></a>Overzicht
 
-Ondersteunt het gebruik van Azure Stack [niet-beheerde schijven](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks) op virtuele machines, als zowel een besturingssysteem (OS) en een gegevensschijf.
+Vanaf versie 1808, Azure Stack biedt ondersteuning voor het gebruik van beheerde schijven en niet-beheerde schijven op virtuele machines, als zowel een besturingssysteem (OS) en een gegevensschijf. Voorafgaand aan versie 1808, worden alleen niet-beheerde schijven ondersteund. 
 
-Voor het gebruik van niet-beheerde schijven die u maakt een [opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) voor het opslaan van de schijven. De schijven die u hebt gemaakt, worden aangeduid als VM-schijven en worden opgeslagen in containers in het opslagaccount.
+**[Beheerde schijven](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#managed-disks)**  Schijfbeheer voor Azure IaaS VM's vereenvoudigen door het beheer van de storage-accounts die zijn gekoppeld aan de VM-schijven. U hoeft alleen te geven van de grootte van de schijf die u nodig hebt en Azure Stack maakt en beheert de schijf voor u.
+
+**[Niet-beheerde schijven](https://docs.microsoft.com/azure/virtual-machines/windows/about-disks-and-vhds#unmanaged-disks)**, vereist dat u maakt een [opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-create-storage-account) voor het opslaan van de schijven. De schijven die u hebt gemaakt, worden aangeduid als VM-schijven en worden opgeslagen in containers in het opslagaccount.
+
+ 
 
 ### <a name="best-practice-guidelines"></a>Richtlijnen voor aanbevolen procedures
 

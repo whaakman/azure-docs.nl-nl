@@ -11,23 +11,23 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviwer: xiaofmao
-ms.openlocfilehash: 6c0c42763ec3d124850555500c3a322073af2479
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 89f6a0c1adaded724f159ffbf33aae98969ab9fe
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139682"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027166"
 ---
-# <a name="azure-stack-storage-differences-and-considerations"></a>Azure stack-opslag: verschillen en overwegingen
+# <a name="azure-stack-storage-differences-and-considerations"></a>Azure Stack-opslag: verschillen en overwegingen
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Azure stack-opslag is de set met opslag cloudservices in Microsoft Azure Stack. Azure stack-opslag biedt blob, table, queue en functionaliteit voor Gebruikersaccountbeheer met Azure-consistente semantiek.
+Azure Stack-opslag is de set met opslag cloudservices in Microsoft Azure Stack. Azure Stack-opslag biedt blob, table, queue en functionaliteit voor Gebruikersaccountbeheer met Azure-consistente semantiek.
 
-In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschillen met Azure Storage-services. Het is ook een lijst met aandachtspunten bij het implementeren van Azure Stack. Zie voor meer informatie over belangrijke verschillen tussen de globale Azure en Azure Stack, de [belangrijke overwegingen met betrekking tot](azure-stack-considerations.md) onderwerp.
+In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschillen met Azure Storage-services. Het is ook een lijst met aandachtspunten bij het implementeren van Azure Stack. Zie voor meer informatie over belangrijke verschillen tussen de globale Azure en Azure Stack, de [belangrijke overwegingen met betrekking tot](azure-stack-considerations.md) artikel.
 
 ## <a name="cheat-sheet-storage-differences"></a>Overzichtskaart: opslag verschillen
 
@@ -38,7 +38,7 @@ In dit artikel bevat een overzicht van de bekende Azure Stack Storage verschille
 |Type opslagaccount|Voor algemene doeleinden en Azure blob storage-accounts|Voor algemeen gebruik alleen.
 |Opties voor gegevensreplicatie|Lokaal redundante opslag, geografisch redundante opslag, geografisch redundante opslag met leestoegang en zone-redundante opslag|Lokaal redundante opslag.
 |Premium Storage|Volledig ondersteund|Kan worden ingericht, maar er is geen prestatielimiet voor of garanderen.
-|Managed Disks|Premium en standaard worden ondersteund|Nog niet ondersteund.
+|Managed Disks|Premium en standaard worden ondersteund|Als u versie 1808 of hoger ondersteund.
 |Blobnaam|1024 tekens (2048 bytes)|880 tekens (1,760 bytes)
 |Maximale grootte voor blok-blob|4.75 TB (100 MB X 50.000 blokken)|4.75 TB (100 MB x 50.000 blokken) voor de update 1802 of een nieuwere versie. 50.000 x 4 MB (CA. 195 GB) voor eerdere versies.
 |Pagina-blob-momentopname kopiëren|Back-up Azure niet-beheerde VM-schijven die zijn gekoppeld aan een actieve virtuele machine die wordt ondersteund|Nog niet ondersteund.

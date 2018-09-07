@@ -1,10 +1,10 @@
 ### YamlMime:YamlDocument
-ms.openlocfilehash: f83fd24605577a16257517d96208016bea95c0af
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: b00d2c68748372c644a0966d76d5adb8e430e2d5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43184360"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053598"
 documentType: LandingData
 title: Documentatie voor Azure Cosmos DB
 metadata:
@@ -21,7 +21,7 @@ metadata:
   ms.date: 04/26/2018
   ms.author: sngun
 abstract:
-  description: Azure Cosmos DB is een wereldwijd gedistribueerde, multi-model databaseservice. Gebruik deze QuickStarts, zelfstudies en voorbeelden voor het ontwikkelen van document-, sleutelwaarde-, kolom- en grafiekdatabases met behulp van populaire API's en programmeermodellen. Leer vervolgens hoe u uw gegevens kunt repliceren naar een willekeurig aantal Azure-regio's en u uw doorvoer onafhankelijk van uw opslag kunt schalen, terwijl u profiteert van uitgebreide SLA's.
+  description: Azure Cosmos DB is een wereldwijd gedistribueerde databaseservice met meerdere modellen waarmee databases voor document-, sleutelwaarde-, kolom- en grafiekdatabases worden ondersteund. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u Azure Cosmos DB gebruikt.
   aside:
     image:
       alt: 

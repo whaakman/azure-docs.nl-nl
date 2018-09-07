@@ -1,6 +1,6 @@
 ---
-title: Abonneren op een aanbieding in Azure-Stack | Microsoft Docs
-description: Abonnementen voor aanbiedingen maken in Azure-Stack
+title: Abonneren op een aanbieding in Azure Stack | Microsoft Docs
+description: Abonnementen voor aanbiedingen maken in Azure Stack
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,90 +12,90 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/11/2018
+ms.date: 09/05/2018
 ms.author: brenduns
-ms.openlocfilehash: 9153649774a67533649fb62da83a3f50abd592da
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b35e75d7cfcaa46da46d2edcb80fe37c112a66a3
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35295207"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025568"
 ---
-# <a name="create-subscriptions-to-offers-in-azure-stack"></a>Abonnementen op aanbiedingen maken in Azure-Stack
+# <a name="create-subscriptions-to-offers-in-azure-stack"></a>Abonnementen voor aanbiedingen maken in Azure Stack
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-Nadat u [maken van een aanbieding](azure-stack-create-offer.md), gebruikers moeten een abonnement op deze aanbieding voordat deze kan worden gebruikt. Er zijn twee manieren dat gebruikers kunnen ophalen geabonneerd met een aanbieding:
+Nadat u [maken van een aanbieding](azure-stack-create-offer.md), gebruikers moeten een abonnement op de aanbieding voordat deze kan worden gebruikt. Er zijn twee manieren dat gebruikers kunnen u geabonneerd op een aanbieding:
 
-- Als een cloud-operator, kunt u een abonnement voor een gebruiker uit binnen de beheerdersportal. Abonnementen die u maakt kunnen zijn voor openbare en persoonlijke aanbiedingen.
-- Als een gebruiker tenant kunt u abonneren op een openbare aanbieding wanneer u de gebruikersportal.  
+- Als een cloud-operator, kunt u een abonnement voor een gebruiker uit binnen de beheerdersportal maken. U maakt-abonnementen kunnen worden voor zowel openbare als persoonlijke aanbiedingen.
+- Als de gebruiker van een tenant, kunt u abonneren op een openbare aanbieding wanneer u de gebruikersportal.  
 
-## <a name="create-a-subscription-as-a-cloud-operator"></a>Een abonnement als een cloud-operator maken
+## <a name="create-a-subscription-as-a-cloud-operator"></a>Maken van een abonnement als een cloud-operator
 
-Cloudoperators kunnen de-beheerportal gebruiken om een abonnement met een aanbieding voor een gebruiker te maken.  U kunt abonnementen voor leden van uw eigen directory-tenant maken.  Wanneer [multi-tenancymodus](azure-stack-enable-multitenancy.md) is ingeschakeld, u kunt ook abonnementen maken voor gebruikers in extra directory-tenants.
+Cloudoperators kunnen de beheerportal gebruiken om een abonnement op een aanbieding voor een gebruiker te maken.  U kunt abonnementen voor leden van uw eigen directory-tenant maken.  Wanneer [multitenancy](azure-stack-enable-multitenancy.md) is ingeschakeld, kunt u ook abonnementen maken voor gebruikers in de extra directory-tenants.
 
-Als niet wilt dat uw tenants hun eigen abonnementen maken en maak vervolgens de abonnementen voor uw tenants uw aanbiedingen privé maken. Deze aanpak is gebruikelijk bij Azure Stack integratie met externe facturerings- of -catalogus systemen.
+Als niet wilt dat uw tenants te maken van hun eigen abonnementen, privé maken van uw aanbiedingen en klikt u vervolgens abonnementen voor uw tenants te maken. Deze aanpak is gebruikelijk bij het integreren van Azure Stack met externe facturering of service catalogussystemen.
 
-Nadat u een abonnement voor een gebruiker hebt gemaakt, kunnen ze aanmelden bij de gebruikersportal en Zie dat ze bent geabonneerd op de aanbieding.  
+Nadat u een abonnement voor een gebruiker maakt, kunnen ze zich aanmelden bij de gebruikersportal en zien dat ze bent geabonneerd op de aanbieding.  
 
 ### <a name="to-create-a-subscription-for-a-user"></a>Een abonnement voor een gebruiker maken
 
-1. Ga in de beheerportal naar **gebruikersabonnementen.**
-2. Selecteer **Toevoegen**. Onder **nieuwe gebruikerabonnement**, voer de volgende informatie:  
+1. In het beheerportal, gaat u naar **gebruikersabonnementen.**
+2. Selecteer **Toevoegen**. Onder **nieuw gebruikersabonnement**, voer de volgende informatie:  
 
-   - **Weergavenaam** – een beschrijvende naam voor het identificeren van het abonnement dat wordt weergegeven als de *abonnement gebruikersnaam*.
-   - **Gebruiker** – Geef een gebruiker vanuit een beschikbare directory-tenant voor dit abonnement. De gebruikersnaam wordt weergegeven als *eigenaar*.  De indeling van de gebruikersnaam is afhankelijk van uw oplossing voor identiteit. Bijvoorbeeld:
+   - **Weergavenaam** : een beschrijvende naam voor het identificeren van het abonnement dat wordt weergegeven als de *naam van gebruikersabonnement*.
+   - **Gebruiker** – Geef een gebruiker vanuit een beschikbare directory-tenant voor dit abonnement. Naam van de gebruiker wordt weergegeven als *eigenaar*.  De indeling van de naam van de gebruiker, is afhankelijk van uw oplossing voor identiteit. Bijvoorbeeld:
 
-     - **Azure AD:***&lt;gebruiker1 > @&lt;contoso.onmicrosoft.com >* 
+     - **Azure AD:** `<user1>@<contoso.onmicrosoft.com>`
 
-     - **AD FS:***&lt;gebruiker1 > @&lt;azurestack.local >* 
+     - **AD FS:** `<user1>@<azurestack.local>` 
 
-   - **Directory-tenant** – Selecteer de directory-tenant waar het gebruikersaccount behoort. Als u multi-tenancymodus nog niet hebt ingeschakeld, is alleen de tenant van uw lokale directory beschikbaar.
+   - **Directory-tenant** : Selecteer de directory-tenant waar het gebruikersaccount behoort. Als u meerdere tenants nog niet hebt ingeschakeld, vindt u alleen uw lokale directory-tenant.
 
-3. Selecteer **bieden**. Onder **biedt**, kies een **bieden** voor dit abonnement. Omdat u het abonnement voor een gebruiker maakt, selecteert u **persoonlijke** als de status van de toegankelijkheid.
+3. Selecteer **bieden**. Onder **biedt**, kiest u een **bieden** voor dit abonnement. Omdat u het abonnement voor een gebruiker maakt, selecteert u **persoonlijke** als de status van de toegankelijkheid.
 
-4. Selecteer **maken** om het abonnement te maken. Ziet u het nieuwe abonnement onder **gebruikerabonnement**. Wanneer de gebruiker zich aanmeldt bij de gebruikersportal zien ze de details van abonnement.
+4. Selecteer **maken** om het abonnement te maken. Ziet u het nieuwe abonnement onder **gebruikersabonnement**. Wanneer de gebruiker zich aanmeldt bij de gebruikersportal aanmeldt, zien ze kunnen details van het abonnement.
 
-### <a name="to-make-an-add-on-plan-available"></a>Om een plan invoegtoepassing beschikbaar maken
+### <a name="to-make-an-add-on-plan-available"></a>Een aanvullende plan om beschikbaar te maken
 
-Een cloud-operator kunt u een plan invoegtoepassing toevoegen aan een eerder gemaakte abonnement op elk gewenst moment:
+Een cloud-operator kunt u een aanvullende plan toevoegen aan een eerder gemaakte abonnement op elk gewenst moment:
 
-1. Selecteer in het beheerportal **meer Services** > **gebruikersabonnementen**. Selecteer het abonnement dat u wilt wijzigen.
+1. Selecteer in de beheerportal **alle Services** en klik vervolgens onder de **BEHEERDERSRESOURCES** categorie, selecteer **gebruikersabonnementen**. Selecteer het abonnement dat u wilt wijzigen.
 
 2. Selecteer **invoegtoepassingen** en selecteer vervolgens **+ toevoegen**.  
 
-3. Onder **toevoegen plan**, het plan dat u wilt selecteren als een invoegtoepassing.
+3. Onder **toevoegen plan**, selecteert u het gewenste abonnement als een invoegtoepassing.
 
 ## <a name="create-a-subscription-as-a-user"></a>Een abonnement als een gebruiker maken
 
-Als een gebruiker, kunt u zich aanmelden bij de gebruikersportal om te zoeken en zich abonneren op openbare aanbiedingen en plannen van de invoegtoepassing voor uw directory-tenant (organisatie).
+Als een gebruiker, kunt u zich aanmelden bij de gebruikersportal aanmeldt om te zoeken en Abonneer u op openbare aanbiedingen en aanvullende plannen voor uw directory-tenant (organisatie).
 
 >[!NOTE]
->Als uw Azure-Stack-omgeving ondersteunt [multi-tenancymodus](azure-stack-enable-multitenancy.md) u kunt zich ook abonneren op aanbiedingen van een externe directory-tenant.
+>Als uw Azure Stack-omgeving ondersteunt [multitenancy](azure-stack-enable-multitenancy.md) u kunt ook abonneren op aanbiedingen van een externe directory-tenant.
 
-### <a name="to-subscribe-to-an-offer"></a>Abonneren op een aanbieding
+### <a name="to-subscribe-to-an-offer"></a>Om u te abonneren op een aanbieding
 
-1. [Meld u aan](azure-stack-connect-azure-stack.md) bij de gebruikersportal van Azure-Stack (https://portal.local.azurestack.external) en selecteer **Neem een abonnement op**.
+1. [Meld u aan](azure-stack-connect-azure-stack.md) bij de gebruikersportal van Azure Stack (https://portal.local.azurestack.external) en selecteer **Neem een abonnement**.
 
    ![Een abonnement nemen](media/azure-stack-subscribe-plan-provision-vm/image01.png)
   
-2. Onder **Neem een abonnement op**, geef de beschrijvende naam van het abonnement in **weergavenaam**. Selecteer **bieden** en klikt u onder **kiest u een aanbieding**, kies een aanbieding. Selecteer **maken** om het abonnement te maken.
+2. Onder **Neem een abonnement**, geef de beschrijvende naam van het abonnement in **weergavenaam**. Selecteer **bieden** en klikt u onder **Kies een aanbieding**, kies een aanbieding. Selecteer **maken** om het abonnement te maken.
 
    ![Een aanbieding maken](media/azure-stack-subscribe-plan-provision-vm/image02.png)
   
 3. Nadat u zich op een aanbieding abonneert, vernieuw de portal om te zien welke services deel uitmaken van het nieuwe abonnement.
-4. Overzicht van het abonnement dat u hebt gemaakt, selecteert u **meer services** en selecteer vervolgens **abonnementen**. Selecteer het abonnement kunt u de details van abonnement.  
+4. Als u wilt zien van het abonnement dat u hebt gemaakt, selecteert u **alle services** en klik vervolgens onder de **algemene** categorie selecteren **abonnementen**. Selecteer het abonnement om de details van het abonnement te bekijken.  
 
-### <a name="to-subscribe-to-an-add-on-plan"></a>Abonneren op een plan voor de invoegtoepassing
+### <a name="to-subscribe-to-an-add-on-plan"></a>Abonneren op een aanvullende-plan
 
-Als een aanbieding een invoegtoepassing plan heeft, kunt u dat plan kunt toevoegen aan uw abonnement op elk gewenst moment.  
+Als een aanbieding een aanvullende plan heeft, kunt u het abonnement kunt toevoegen aan uw abonnement op elk gewenst moment.  
 
-1. Selecteer in de gebruikersportal **meer services** > **abonnementen**, en selecteer vervolgens het abonnement dat u wijzigen wilt. Als er extra schema's beschikbaar zijn, **+ toevoegen plan** actief is en er is een tegel voor **invoegtoepassing plannen**.
+1. Selecteer in de gebruikersportal **alle services**. Vervolgens onder de **algemene** categorie selecteren **abonnementen**, en selecteer vervolgens het abonnement dat u wijzigen wilt. Als er aanvullende plannen beschikbaar, **+ toevoegen plan** actief is en er is een tegel voor **aanvullende plannen**.
 
    >[!NOTE]
-   >Als **+ toevoegen plan** is niet actief is, wordt er geen invoegtoepassing plannen voor de aanbieding die zijn gekoppeld aan dat abonnement.
+   >Als **+ toevoegen plan** is niet actief is, wordt er geen eventuele aanvullende plannen voor de aanbieding die zijn gekoppeld aan dat abonnement.
 
-1. Selecteer **+ toevoegen plan** of de **invoegtoepassing plannen** tegel. Onder **invoegtoepassing plannen**, selecteer het plan dat u wilt toevoegen.
+1. Selecteer **+ toevoegen plan** of de **aanvullende plannen** tegel. Onder **aanvullende plannen**, selecteert u het abonnement dat u wilt toevoegen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

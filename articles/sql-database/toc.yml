@@ -9,15 +9,27 @@ items:
     href: sql-database-paas-vs-sql-server-iaas.md
 - name: Snelstartgidsen
   items:
-  - name: Database maken - Portal
-    href: sql-database-get-started-portal.md
-  - name: Database maken - Azure CLI
-    href: sql-database-get-started-cli.md
-  - name: Database maken - Azure PowerShell
-    href: sql-database-get-started-powershell.md
-  - name: Beheerd exemplaar maken
-    href: sql-database-managed-instance-get-started.md
-  - name: Verbinding maken en query's uitvoeren
+  - name: Maken
+    items:
+    - name: Individuele database
+      href: sql-database-get-started-portal.md
+    - name: Beheerd exemplaar
+      href: sql-database-managed-instance-get-started.md
+  - name: Configureren
+    items:
+    - name: Logische serverfirewallregel
+      href: sql-database-get-started-portal-firewall.md
+    - name: Client-VM-verbinding naar een beheerd exemplaar
+      href: sql-database-managed-instance-configure-vm.md
+    - name: Punt-naar-site-verbinding naar een beheerd exemplaar
+      href: sql-database-managed-instance-configure-p2s.md
+  - name: Gegevens laden
+    items:
+    - name: BACPAC importeren in een individuele database
+      href: sql-database-import.md
+    - name: Een back-up van een database herstellen naar een beheerd exemplaar
+      href: sql-database-managed-instance-get-started-restore.md
+  - name: Query’s uitvoeren
     href: sql-database-connect-query.md
     items:
     - name: SSMS
@@ -59,13 +71,9 @@ items:
     href: sql-database-security-tutorial.md
   - name: 5 - Een geografisch gedistribueerde database implementeren
     href: sql-database-implement-geo-distributed-database.md
-  - name: 6 - Beheerd exemplaar maken
-    href: sql-database-managed-instance-create-tutorial-portal.md
-  - name: 7 - Een back-up terugzetten naar een beheerd exemplaar
-    href: sql-database-managed-instance-restore-from-backup-tutorial.md
-  - name: 8 - Met DMS naar een beheerd exemplaar migreren
+  - name: 6 - Met DMS naar een beheerd exemplaar migreren
     href: ../dms/tutorial-sql-server-to-managed-instance.md
-  - name: 9 - Azure SQL Data Sync instellen
+  - name: 7 - Azure SQL Data Sync instellen
     href: sql-database-get-started-sql-data-sync.md
 - name: Voorbeelden
   items:
@@ -606,9 +614,9 @@ items:
     href: /azure/architecture/
   - name: Verhalen van klanten
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 1cd65f1f3ee3907324bdb17be61dcfb5d0a747f1
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: e44c2d461f35098e20e50c776ca37b932566c4a0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43245908"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050476"

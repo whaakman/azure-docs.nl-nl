@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 07/27/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 418b2f6b156853c1a2820271808bdba922d41a87
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 290b3daf73e323b3f5a7e1ef81299e72bf1c5f1d
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39412896"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024797"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
@@ -151,7 +151,7 @@ Er zijn twee onderdelen voor dit scenario:
 2. De beheerportal gebruiken voor het uploaden van het pakket in de marketplace-item (de .azpkg-bestand) naar Azure Stack-Blob-opslag. Uploaden van het pakket maakt ze beschikbaar voor Azure Stack, zodat u kunt het item later publiceren Azure Stack Marketplace.
 
    Uploaden, moet u een opslagaccount met een openbaar toegankelijke container hebt (Zie de vereisten voor dit scenario)   
-   1. In de Azure Stack-beheerportal, gaat u naar **meer services** > **opslagaccounts**.  
+   1. In de Azure Stack-beheerportal, gaat u naar **alle services** en klik vervolgens onder de **gegevens en opslag** categorie, selecteer **opslagaccounts**.  
    
    2. Selecteer een opslagaccount van uw abonnement en klik vervolgens onder **BLOB-SERVICE**, selecteer **Containers**.  
       ![BLOB-service](media/azure-stack-download-azure-marketplace-item/blob-service.png)  
@@ -198,7 +198,7 @@ Er zijn twee onderdelen voor dit scenario:
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. Nadat u een galerie-item publiceren, kunt u het weergeven van **meer services** > **Marketplace**.  Als uw download een oplossingssjabloon is, zorg er dan voor dat u eventuele afhankelijke VHD-installatiekopie voor deze oplossingssjabloon toevoegen.  
+5. Nadat u een galerie-item, deze door te gaan naar publiceren **alle services**. Vervolgens onder de **algemene** categorie, selecteer **Marketplace**.  Als uw download een oplossingssjabloon is, zorg er dan voor dat u eventuele afhankelijke VHD-installatiekopie voor deze oplossingssjabloon toevoegen.  
   ![Weergave marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

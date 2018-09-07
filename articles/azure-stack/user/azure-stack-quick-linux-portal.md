@@ -7,16 +7,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: c692bc461c116b4c0497c2378ae4e21e1b841c8f
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: e82c3de4461e2d663496cd4ae4a98c10e7819466
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139542"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025407"
 ---
 # <a name="quickstart-create-a-linux-server-virtual-machine-with-the-azure-stack-portal"></a>Snelstartgids: een virtuele Linux-server-machine maken met de Azure Stack-portal
 
@@ -27,6 +27,10 @@ U kunt een Ubuntu Server 16.04 LTS virtuele machine maken met behulp van de Azur
 * Verbinding maken met de virtuele machine met een externe client.
 * Een NGINX-webserver installeren.
 * Uw resources opschonen.
+
+> [!NOTE]  
+> De schermafbeeldingen in dit artikel worden bijgewerkt zodat deze overeenkomt met de wijzigingen die zijn geïntroduceerd in Azure Stack-versie 1808. 1808 voegt ondersteuning toe voor met behulp van *beheerde schijven* naast de niet-beheerde schijven. Als u een eerdere versie gebruikt, zijn sommige afbeeldingen voor taken zoals schijfselectie is anders dan wat in dit artikel wordt weergegeven.  
+
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -66,7 +70,9 @@ Aanmelden bij de Azure Stack-portal. Het adres van de Azure Stack-portal, is afh
 1. Klik op **een resource maken** in de linkerbovenhoek van de Azure Stack-portal.
 
 2. Selecteer **Compute** en selecteer vervolgens **Ubuntu Server 16.04 LTS**.
-3. Klik op **Create**.
+   
+   ![Selecteer de Linux-server](media/azure-stack-quick-linux-portal/select.png)
+1. Klik op **Create**.
 
 4. Typ de informatie van de virtuele machine. Bij **Verificatietype** selecteert u **Openbare SSH-sleutel**. Plakken in de openbare SSH-sleutel die u opgeslagen en klik vervolgens op **OK**.
 
@@ -75,24 +81,28 @@ Aanmelden bij de Azure Stack-portal. Het adres van de Azure Stack-portal, is afh
 
    ![Basisbeginselen van het deelvenster - virtuele machine configureren](media/azure-stack-quick-linux-portal/linux-01.PNG)
 
-5. Selecteer **D1_V2** voor de virtuele machine.
+5. Selecteer **D1** voor de virtuele machine.
 
    ![Het formaat van deelvenster - virtuele machine een grootte kiezen](media/azure-stack-quick-linux-portal/linux-02.PNG)
 
-6. Op de **instellingen** pagina, laat de standaardwaarden staan en klik op **OK**.
+6. Op de **instellingen** pagina, de gewenste wijzigingen aanbrengen in de standaardinstellingen.
+   
+    - Vanaf versie van Azure Stack 1808, kunt u configureren **opslag** waarin u kunt kiezen om te gebruiken *beheerde schijven*. Voorafgaand aan versie 1808 kunnen alleen niet-beheerde schijven worden gebruikt.    
+      ![Configureren van opslag voor beheerde schijven](media/azure-stack-quick-linux-portal/linux-03.PNG)
+    
+    Wanneer uw configuraties klaar bent, selecteert u **OK** om door te gaan.
 
-7. Op de **samenvatting** pagina, klikt u op **OK** implementatie van virtuele machine te starten.
+7. Op de **samenvatting** pagina, klikt u op **OK** implementatie van virtuele machine te starten.  
+   ![Implementeren](media/azure-stack-quick-linux-portal/deploy.png)
 
 ## <a name="connect-to-the-virtual-machine"></a>Verbinding maken met de virtuele machine
 
-1. Klik op **Connect** op de pagina van de virtuele machine. U ziet nu een SSH-verbindingsreeks die u moet verbinding maken met de virtuele machine.
-
-   ![Verbinding maken met virtuele machine](media/azure-stack-quick-linux-portal/linux-03.PNG)
+1. Klik op **Connect** op de pagina van de virtuele machine. U ziet nu een SSH-verbindingsreeks die u moet verbinding maken met de virtuele machine. 
 
 2. Open PuTTY.
-3. Op de **PuTTY-configuratie** scherm u gebruikt de **categorie** venster omhoog of omlaag te schuiven. Schuif omlaag naar **SSH**, vouw **SSH**, en klik vervolgens op **Auth**. Klik op **Bladeren** en kies het bestand met persoonlijke sleutel die u hebt opgeslagen.
 
-   ![PuTTY persoonlijke sleutel selecteren](media/azure-stack-quick-linux-portal/Putty03.PNG)
+3. Op de **PuTTY-configuratie** scherm u gebruikt de **categorie** venster omhoog of omlaag te schuiven. Schuif omlaag naar **SSH**, vouw **SSH**, en klik vervolgens op **Auth**. Klik op **Bladeren** en kies het bestand met persoonlijke sleutel die u hebt opgeslagen.
+   ![Verbinding maken met virtuele machine](media/azure-stack-quick-linux-portal/putty03.PNG)
 
 4. Blader omhoog de **categorie** venster en klik vervolgens op **sessie**.
 5. In de **hostnaam (of IP-adres)** vak, plak de verbindingsreeks die wordt weergegeven in de Azure Stack-portal. In dit voorbeeld wordt de tekenreeks is ```asadmin@192.168.102.34```.
@@ -136,7 +146,7 @@ Met NGINX is geïnstalleerd en poort 80 is geopend op uw virtuele machine, kunt 
 
 Open een webbrowser en Ga naar ```http://<public IP address>```.
 
-![Welkomstpagina van NGINX web server](media/azure-stack-quick-linux-portal/linux-04.PNG)
+![Welkomstpagina van NGINX web server](media/azure-stack-quick-linux-portal/linux-05.PNG)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

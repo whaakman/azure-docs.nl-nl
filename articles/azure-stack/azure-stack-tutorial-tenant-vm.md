@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 06/07/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 6bd722801202f5cdff2882c29895ae06fecbbcb8
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 09b9126125006fb70f5e2560f04b815b4a874405
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39425360"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027296"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Zelfstudie: virtuele machines beschikbaar te maken voor uw Azure Stack-gebruikers
 
@@ -118,7 +118,7 @@ Nu dat u een aanbieding hebt gemaakt, kunt u deze testen. U kunt zich moet aanme
 
    ![Een aanbieding maken](media/azure-stack-subscribe-plan-provision-vm/image02.png)
 
-   c. Als u het abonnement, selecteer **meer services**, en selecteer vervolgens **abonnementen**. Selecteer uw nieuwe abonnement om te zien welke services deel uitmaken van het abonnement.
+   c. Als u het abonnement, selecteer **alle services**, en klik vervolgens onder de **algemene** categorie selecteren **abonnementen**. Selecteer uw nieuwe abonnement om te zien welke services deel uitmaken van het abonnement.
 
    >[!NOTE]
    >Nadat u zich op een aanbieding abonneert, moet u wellicht Vernieuw de portal om te zien welke services deel uitmaken van het nieuwe abonnement.
