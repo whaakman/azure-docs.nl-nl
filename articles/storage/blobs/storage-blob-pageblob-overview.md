@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: wielriac
 ms.component: blobs
-ms.openlocfilehash: a215771b0126e9048b7d9da4ed1d6073c8e960a4
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: dc15dcb9f7b342d2d5140199ecf34c1a4781fa25
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39265731"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022685"
 ---
 # <a name="unique-features-of-azure-page-blobs"></a>De unieke functies van Azure-pagina-blobs
 
@@ -71,7 +71,7 @@ pageBlob.Resize(32 * OneGigabyteAsBytes);
 ```
 
 #### <a name="writing-pages-to-a-page-blob"></a>Pagina's schrijven naar een pagina-blob
-Voor het schrijven van pagina's, gebruikt u de [CloudPageBlob.WritePages](/library/microsoft.windowsazure.storageclient.cloudpageblob.writepages.aspx) methode.  Hiermee kunt u een opeenvolgende reeks's tot 4MBs schrijven. De verschuiving naar worden geschreven moet starten op een grens van een 512-byte (startingOffset % 512 == 0), en eindigen op een 512 grens - 1.  Het volgende codevoorbeeld laat zien hoe u aan te roepen **WritePages** voor een blob:
+Voor het schrijven van pagina's, gebruikt u de [CloudPageBlob.WritePages](https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.blob.cloudpageblob.beginwritepages?view=azure-dotnet#Microsoft_WindowsAzure_Storage_Blob_CloudPageBlob_BeginWritePages_System_IO_Stream_System_Int64_System_String_Microsoft_WindowsAzure_Storage_AccessCondition_Microsoft_WindowsAzure_Storage_Blob_BlobRequestOptions_Microsoft_WindowsAzure_Storage_OperationContext_System_AsyncCallback_System_Object_) methode.  Hiermee kunt u een opeenvolgende reeks's tot 4MBs schrijven. De verschuiving naar worden geschreven moet starten op een grens van een 512-byte (startingOffset % 512 == 0), en eindigen op een 512 grens - 1.  Het volgende codevoorbeeld laat zien hoe u aan te roepen **WritePages** voor een blob:
 
 ```csharp
 pageBlob.WritePages(dataStream, startingOffset); 
@@ -116,8 +116,6 @@ foreach (PageRange range in pageRanges)
 
 #### <a name="leasing-a-page-blob"></a>Overdracht van een pagina-blob
 De Lease-Blob-bewerking wordt tot stand gebracht en een vergrendeling voor een blob beheert voor schrijven en verwijderen van bewerkingen. Met deze bewerking is handig in situaties waar een pagina-blob van meerdere clients om ervoor te zorgen slechts één client tegelijk kunt schrijven naar de blob wordt geopend. Azure-schijven, bijvoorbeeld: maakt gebruik van deze lease-mechanisme om te controleren of de schijf alleen wordt beheerd door een enkele virtuele machine. De vergrendelingsduur van de kan 15 tot 60 seconden, of kunt oneindige. Zie de documentatie [hier](/rest/api/storageservices/lease-blob) voor meer informatie.
-
-> Gebruik de volgende koppeling om op te halen [codevoorbeelden](/resources/samples/?service=storage&term=blob&sort=0 ) voor veel andere scenario's de toepassing. 
 
 Naast uitgebreide REST-API's en bieden pagina-blobs ook gedeelde toegang, duurzaamheid en verbeterde beveiliging. We komen aan bod die voordelen in de volgende alinea's in meer detail. 
 

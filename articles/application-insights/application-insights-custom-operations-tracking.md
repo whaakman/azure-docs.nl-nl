@@ -1,6 +1,6 @@
 ---
-title: Bijhouden van aangepaste bewerkingen met Azure Application Insights-SDK voor .NET | Microsoft Docs
-description: Het bijhouden van aangepaste bewerkingen met Azure Application Insights-SDK voor .NET
+title: Aangepaste bewerkingen met Azure Application Insights-SDK voor .NET bijhouden | Microsoft Docs
+description: Bijhouden van aangepaste bewerkingen met Azure Application Insights-SDK voor .NET
 services: application-insights
 documentationcenter: .net
 author: mrbullwinkle
@@ -9,43 +9,45 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/30/2017
-ms.author: sergkanz;mbullwin
-ms.openlocfilehash: e66d5e8674d6564d3910daddb1119c22a8b8bd9f
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 8295fb58bdf92ca8688f5f7b6270dc1b48632a73
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44057132"
 ---
-# <a name="track-custom-operations-with-application-insights-net-sdk"></a>Bijhouden van aangepaste bewerkingen met Application Insights-SDK voor .NET
+# <a name="track-custom-operations-with-application-insights-net-sdk"></a>Aangepaste bewerkingen met Application Insights .NET-SDK bijhouden
 
-Azure Application Insights-SDK's automatisch worden bijgehouden binnenkomende HTTP-aanvragen en aanroepen naar afhankelijke services, zoals HTTP-aanvragen en SQL-query's. Bijhouden en correlatie van aanvragen en afhankelijkheden bieden u inzicht in de reactietijd en betrouwbaarheid van de hele toepassing op alle microservices met een combinatie van deze toepassing. 
+Azure Application Insights-SDK's automatisch worden bijgehouden binnenkomende HTTP-aanvragen en aanroepen van afhankelijke services, zoals HTTP-aanvragen en SQL-query's. Wijzigingen bijhouden en correlatie van aanvragen en de afhankelijkheden geven u inzicht in de reactiesnelheid en betrouwbaarheid van de hele toepassing in alle microservices met een combinatie van deze toepassing. 
 
-Er is een klasse die van toepassing patronen die algemeen kan niet worden ondersteund. Goede bewaking van deze patronen vereist handmatige code instrumentation. In dit artikel bevat informatie over een paar patronen die mogelijk handmatige instrumentation, zoals aangepaste wachtrij verwerken en langlopende achtergrondtaken uitvoeren.
+Er is een klasse toepassingspatronen die algemeen kan niet worden ondersteund. Goede bewaking van deze patronen vereist instrumentation handmatige code. In dit artikel bevat informatie over een paar patronen die mogelijk handmatige instrumentation, zoals aangepaste wachtrij verwerken en uitvoeren van langlopende achtergrondtaken.
 
-Dit document biedt richtlijnen voor het bijhouden van aangepaste bewerkingen met Application Insights-SDK. Deze documentatie is relevant voor:
+Dit document bevat richtlijnen over het bijhouden van aangepaste bewerkingen met de Application Insights-SDK. Deze documentatie is relevant voor:
 
 - Application Insights voor .NET (ook wel bekend als Base SDK) versie 2.4 +.
-- Application Insights voor web-toepassingen (met ASP.NET) versie 2.4 +.
+- Application Insights voor web-toepassingen (ASP.NET uitvoert) versie 2.4 +.
 - Application Insights voor ASP.NET Core versie 2.1 +.
 
 ## <a name="overview"></a>Overzicht
-Een bewerking is een logische werk uitgevoerd door een toepassing. Een naam, de starttijd, duur, resultaat en een context van de uitvoering zoals gebruikersnaam, eigenschappen en resultaat heeft. Als een bewerking is gestart door de bewerking B, wordt bewerking B ingesteld als een bovenliggend element van A. Een bewerking kan slechts één bovenliggend hebben, maar er veel onderliggende bewerkingen. Zie voor meer informatie over bewerkingen en telemetrie correlatie [Azure Application Insights telemetrie correlatie](application-insights-correlation.md).
+Een bewerking is een logische werk uitvoeren door een toepassing. Een naam, de starttijd, duur, resultaat en een context van de uitvoering, zoals gebruikersnaam, eigenschappen en resultaat heeft. Als een bewerking is gestart door de bewerking B, wordt bewerking B ingesteld als een bovenliggende voor A. Een bewerking kan slechts één bovenliggende hebben, maar het kan veel onderliggende bewerkingen hebben. Zie voor meer informatie over bewerkingen en telemetriecorrelatie [Azure Application Insights-telemetriecorrelatie](application-insights-correlation.md).
 
-De bewerking wordt in de Application Insights .NET SDK beschreven door de abstracte klasse [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) en afgeleiden [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) en [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
+In de Application Insights .NET SDK, de bewerking wordt beschreven door de abstracte klasse [OperationTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/Extensibility/Implementation/OperationTelemetry.cs) en bijbehorende descendants [RequestTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/RequestTelemetry.cs) en [DependencyTelemetry](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/develop/src/Microsoft.ApplicationInsights/DataContracts/DependencyTelemetry.cs).
 
-## <a name="incoming-operations-tracking"></a>Binnenkomende operations bijhouden 
-De Application Insights web SDK verzamelt automatisch HTTP-aanvragen voor ASP.NET-toepassingen die worden uitgevoerd in een IIS-pijplijn en alle toepassingen die ASP.NET Core. Er zijn oplossingen voor andere platforms en frameworks community ondersteund. Echter, als de toepassing wordt niet ondersteund door een van de standaard of community ondersteund oplossingen, u kunt softwareontwikkelaars deze handmatig.
+## <a name="incoming-operations-tracking"></a>Binnenkomende bewerkingen bijhouden 
+De Application Insights web SDK worden automatisch verzameld voor HTTP-aanvragen voor ASP.NET-toepassingen die worden uitgevoerd in een pijplijn IIS en alle ASP.NET Core-toepassingen. Er zijn community-ondersteunde oplossingen voor andere platforms en frameworks. Echter, als de toepassing wordt niet ondersteund door een van de standaard of door de community-ondersteunde oplossingen, u kunt instrumenteren deze handmatig.
 
-Een ander voorbeeld waarvoor aangepaste bijhouden is de werknemer die items uit de wachtrij ontvangt. Voor sommige wachtrijen, wordt de aanroep van een bericht toevoegen aan deze wachtrij bijgehouden als een afhankelijkheid. De bewerking voor op hoog niveau die worden beschreven berichtverwerking is echter niet automatisch verzameld.
+Een ander voorbeeld waarvoor aangepaste volgschema is de werknemer die items uit de wachtrij ontvangt. Voor bepaalde wachtrijen, wordt de aanroep van een bericht toevoegen aan deze wachtrij bijgehouden als een afhankelijkheid. De op hoog niveau bewerking die wordt beschreven berichtverwerking is echter niet automatisch verzameld.
 
-Laten we zien hoe deze acties kunnen worden bijgehouden.
+We gaan nu kijken hoe deze bewerkingen kunnen worden bijgehouden.
 
-Op hoog niveau, wordt de taak is het maken van `RequestTelemetry` en bekende eigenschappen instellen. Nadat de bewerking is voltooid, kunt u de telemetrie bijhouden. Het volgende voorbeeld wordt met deze taak.
+Op hoog niveau, de taak is het maken van `RequestTelemetry` en bekende eigenschappen instellen. Nadat de bewerking is voltooid, kunt u de telemetrie bijhouden. Het volgende voorbeeld ziet u deze taak.
 
-### <a name="http-request-in-owin-self-hosted-app"></a>HTTP-aanvraag in host zichzelf Owin-app
-In dit voorbeeld trace context wordt doorgegeven volgens de [HTTP-Protocol voor correlatie](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). U moet verwacht te ontvangen van de headers die er worden beschreven.
+### <a name="http-request-in-owin-self-hosted-app"></a>HTTP-aanvraag in de zelf-hostend Owin-app
+In dit voorbeeld trace-context wordt doorgegeven volgens de [HTTP-Protocol voor correlatie](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md). U moet verwacht te ontvangen van headers die er worden beschreven.
 
 ```csharp
 public class ApplicationInsightsMiddleware : OwinMiddleware
@@ -118,17 +120,17 @@ public class ApplicationInsightsMiddleware : OwinMiddleware
 }
 ```
 
-Het HTTP-Protocol voor correlatie declareert ook de `Correlation-Context` header. Echter, dit wordt weggelaten hier voor eenvoud.
+De HTTP-Protocol voor correlatie declareert ook de `Correlation-Context` header. Maar wordt deze weggelaten hier voor het gemak.
 
 ## <a name="queue-instrumentation"></a>Wachtrij instrumentation
-Hoewel er [HTTP-Protocol voor correlatie](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) correlatie details met de HTTP-aanvraag doorgeven, elke wachtrij-protocol is om te definiëren hoe de details van de hetzelfde bericht in de wachtrij worden doorgegeven. Sommige protocollen wachtrij (zoals AMQP) kunnen doorgeven aanvullende metagegevens en andere (deze Azure-Opslagwachtrij) moeten de context om te worden gecodeerd in de nettolading van het bericht.
+Hoewel er [HTTP-Protocol voor correlatie](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md) om door te geven correlatiedetails van de met HTTP-aanvraag, elke wachtrij-protocol is om te definiëren hoe de details van hetzelfde bericht in de wachtrij worden doorgegeven. Sommige protocollen wachtrij (zoals AMQP) kunnen aanvullende metagegevens te geven en andere (zoals Azure Storage-wachtrij) moeten de context om te worden gecodeerd in de berichtnettolading van het.
 
 ### <a name="service-bus-queue"></a>Service Bus-wachtrij
-Application Insights houdt aanroepen met de nieuwe Service Bus-berichtenservice [Microsoft Azure Service Bus-Client voor .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) versie 3.0.0 en hoger.
-Als u [bericht handler patroon](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) voor het verwerken van berichten, u klaar bent: alle Service Bus-aanroepen doen door de service automatisch worden bijgehouden en gecorreleerd met andere telemetrie-items. Raadpleeg de [Service Bus-clienttoepassing traceren met Microsoft Application Insights](../service-bus-messaging/service-bus-end-to-end-tracing.md) als u handmatig berichten verwerkt.
+Application Insights worden bijgehouden voor Service Bus Messaging-aanroepen met de nieuwe [Microsoft Azure Service Bus-Client voor .NET](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus/) versie 3.0.0 en hoger.
+Als u [bericht handler patroon](/dotnet/api/microsoft.azure.servicebus.queueclient.registermessagehandler) voor het verwerken van berichten, bent u klaar: alle Service Bus-aanroepen uitgevoerd door uw service automatisch worden bijgehouden en verband houden met de andere telemetrie-items. Raadpleeg de [Service Bus-clienttoepassing traceren met Microsoft Application Insights](../service-bus-messaging/service-bus-end-to-end-tracing.md) als u handmatig-berichten verwerken.
 
-Als u [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) pakket verder - leest volgen voorbeelden laten zien hoe u houden (en correleren) zoals AMQP-protocol maakt gebruik van Service Bus-wachtrij en Application Insights niet aan de Service Bus-aanroepen wachtrij-bewerkingen automatisch worden bijgehouden.
-Correlatie-id's worden in de berichteigenschappen doorgegeven.
+Als u [WindowsAzure.ServiceBus](https://www.nuget.org/packages/WindowsAzure.ServiceBus/) pakket, lees de aanvullende - volgen voorbeelden laten zien hoe u te houden (en correleren) aanroepen naar de Service Bus AMQP-protocol maakt gebruik van Service Bus-wachtrij en Application Insights niet wachtrijbewerkingen automatisch worden bijgehouden.
+Correlatie-id's worden doorgegeven in de eigenschappen van berichten.
 
 #### <a name="enqueue"></a>In de wachtrij plaatsen
 
@@ -169,7 +171,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>Verwerken
+#### <a name="process"></a>Proces
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -203,12 +205,12 @@ public async Task Process(BrokeredMessage message)
 ```
 
 ### <a name="azure-storage-queue"></a>Azure Storage-wachtrij
-Het volgende voorbeeld ziet u het bijhouden van de [Azure Storage-wachtrij](../storage/queues/storage-dotnet-how-to-use-queues.md) bewerkingen en vergelijken telemetrie tussen de producent, de consumer en Azure Storage. 
+Het volgende voorbeeld laat zien hoe voor het bijhouden van de [Azure Storage-wachtrij](../storage/queues/storage-dotnet-how-to-use-queues.md) bewerkingen en correleren telemetrie tussen de producent, de consument- en Azure Storage. 
 
-De opslagwachtrij heeft een HTTP-API. Alle aanroepen naar de wachtrij worden bijgehouden door de Application Insights afhankelijkheid Collector voor HTTP-aanvragen.
-Zorg ervoor dat u hebt `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` in `applicationInsights.config`. Als u dit niet hebt u deze toevoegen via een programma zoals beschreven in [filteren en in de Application Insights-SDK van Azure voorverwerking](app-insights-api-filtering-sampling.md).
+De opslagwachtrij heeft een HTTP-API. Alle aanroepen naar de wachtrij worden bijgehouden door de Collector Application Insights-afhankelijkheid voor HTTP-aanvragen.
+Zorg ervoor dat u hebt `Microsoft.ApplicationInsights.DependencyCollector.HttpDependenciesParsingTelemetryInitializer` in `applicationInsights.config`. Als u deze niet hebt, deze toevoegen via een programma zoals beschreven in [voor filteren en voorverwerking in de Azure Application Insights SDK](app-insights-api-filtering-sampling.md).
 
-Als u de Application Insights handmatig configureert, moet u maken en initialiseren `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` als:
+Als u Application Insights handmatig configureren, moet u maken en initialiseren `Microsoft.ApplicationInsights.DependencyCollector.DependencyTrackingTelemetryModule` op dezelfde manier naar:
  
 ```csharp
 DependencyTrackingTelemetryModule module = new DependencyTrackingTelemetryModule();
@@ -221,17 +223,17 @@ module.Initialize(TelemetryConfiguration.Active);
 // Do not forget to dispose of the module during application shutdown.
 ```
 
-Ook kunt u correlaties zichtbaar maken tussen de Application Insights bewerkings-ID met de opslag-aanvraag-ID. Zie voor meer informatie over het instellen en ophalen van een client van de aanvraag opslag en de aanvraag-ID van een server [Monitor, vaststellen en oplossen van Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
+Ook kunt u correlaties zichtbaar maken tussen de bewerkings-ID van de Application Insights met de opslag-aanvraag-ID. Zie voor meer informatie over het instellen en ophalen van een client van de aanvraag voor opslag en de aanvraag-ID van een server [bewaken, problemen vaststellen en oplossen van Azure Storage](../storage/common/storage-monitoring-diagnosing-troubleshooting.md#end-to-end-tracing).
 
 #### <a name="enqueue"></a>In de wachtrij plaatsen
-Omdat opslagwachtrijen de HTTP-API ondersteunt, worden alle bewerkingen met de wachtrij automatisch bijgehouden door de Application Insights. In veel gevallen kan moeten deze instrumentation voldoende. Echter voor de bijbehorende traceringen aan de kant van de consument met producent traceringen, moet u doorgeven context correlatie op dezelfde manier aan hoe we in het HTTP-Protocol voor correlatie doen. 
+Omdat Storage-wachtrijen de HTTP-API ondersteunen, worden alle bewerkingen aan de wachtrij automatisch bijgehouden door Application Insights. In veel gevallen moet deze instrumentatie voldoende. Echter, voor het correleren van traceringen consumers met producent traceringen, u moet bepaalde context kan doorgeven correlatie op dezelfde manier hoe we doen in het HTTP-Protocol voor correlatie. 
 
-Dit voorbeeld ziet u het bijhouden van de `Enqueue` bewerking. U kunt:
+In dit voorbeeld laat zien hoe voor het bijhouden van de `Enqueue` bewerking. U kunt:
 
- - **Nieuwe pogingen correleren (indien aanwezig)**: alle hebben een gemeenschappelijke bovenliggende die heeft de `Enqueue` bewerking. Ze zijn anders bijgehouden als onderliggende elementen van de binnenkomende aanvraag. Als er meerdere logische aanvragen naar de wachtrij, kan het lastig zijn om te zoeken welke aanroep heeft nieuwe pogingen.
- - **Opslag logboeken correleren (of en wanneer nodig)**: ze zijn gecorreleerd met Application Insights telemetrie.
+ - **Nieuwe pogingen correleren (indien aanwezig)**: hebben ze een gemeenschappelijke bovenliggende die ook is de `Enqueue` bewerking. Ze zijn anders als onderliggende items van de inkomende aanvraag bijgehouden. Als er meerdere logische aanvragen naar de wachtrij worden, is het mogelijk dat het moeilijk te vinden waarvan het gesprek leidde tot nieuwe pogingen.
+ - **Opslaglogboeken correleren (of en wanneer nodig)**: ze zijn gecorreleerd met Application Insights telemetry.
 
-De `Enqueue` bewerking is het onderliggende lid van een bovenliggende-bewerking (bijvoorbeeld, een binnenkomende HTTP-aanvraag). De HTTP-aanroep voor afhankelijkheid is het onderliggende lid van de `Enqueue` bewerking en de onderliggend van de inkomende aanvraag:
+De `Enqueue` bewerking is het onderliggende lid van een bovenliggende bewerking (bijvoorbeeld, een binnenkomende HTTP-aanvraag). De HTTP-afhankelijkheidsaanroep is het onderliggende lid van de `Enqueue` bewerking en de onderliggend van de inkomende aanvraag:
 
 ```csharp
 public async Task Enqueue(CloudQueue queue, string message)
@@ -274,18 +276,18 @@ public async Task Enqueue(CloudQueue queue, string message)
 }  
 ```
 
-Ter verlaging van de hoeveelheid telemetrie uw toepassing rapporten of als u niet wilt bijhouden de `Enqueue` bewerking om andere redenen, gebruik de `Activity` rechtstreeks API:
+Te verminderen de hoeveelheid telemetrie van uw toepassing rapporten of als u niet wilt dat voor het bijhouden van de `Enqueue` bewerking om andere redenen, gebruik de `Activity` API nu rechtstreeks:
 
-- Maak (en start) een nieuwe `Activity` in plaats van het begin van de Application Insights-bewerking. U doet *niet* eventuele eigenschappen, behalve de naam van de bewerking toe te wijzen.
-- Serialiseren `yourActivity.Id` in de nettolading van het bericht in plaats van `operation.Telemetry.Id`. U kunt ook `Activity.Current.Id`.
+- Maken (en starten) een nieuwe `Activity` in plaats van de Application Insights-bewerking starten. U doet *niet* alle eigenschappen, behalve de naam van de bewerking toe te wijzen.
+- Serialiseren `yourActivity.Id` in de berichtnettolading van het in plaats van `operation.Telemetry.Id`. U kunt ook `Activity.Current.Id`.
 
 
-#### <a name="dequeue"></a>In wachtrij
-Als `Enqueue`, een werkelijke HTTP-aanvraag naar de wachtrij opslag automatisch wordt gevolgd door Application Insights. Echter, de `Enqueue` -bewerking wordt waarschijnlijk uitgevoerd in de context van de bovenliggende, zoals de aanvraagcontext van een binnenkomende. Application Insights-SDK's correleren automatisch dergelijke bewerking (en het onderdeel HTTP) met de bovenliggende aanvraag en andere telemetrie die zijn gerapporteerd in hetzelfde bereik.
+#### <a name="dequeue"></a>Uit de wachtrij verwijderen
+Op dezelfde manier naar `Enqueue`, een HTTP-aanvraag naar de opslagwachtrij is automatisch bijgehouden door Application Insights. Echter, de `Enqueue` bewerking waarschijnlijk in de context van de bovenliggende, zoals de aanvraagcontext van een binnenkomende gebeurt. Application Insights-SDK's correleren automatisch dergelijke een bewerking (en de HTTP-onderdeel) met de bovenliggende aanvraag en andere telemetrie die zijn gerapporteerd in hetzelfde bereik.
 
-De `Dequeue` bewerking is lastig. HTTP-aanvragen automatisch worden bijgehouden in de Application Insights-SDK. Maar weet niet de correlatie-context totdat het bericht wordt geparseerd. Het is niet mogelijk is de HTTP-aanvraag voor het ophalen van het bericht met de rest van de telemetrie correleren.
+De `Dequeue` bewerking is moeilijk. HTTP-aanvragen automatisch worden bijgehouden in de Application Insights-SDK. Maar weet niet de correlatie-context totdat het bericht wordt geparseerd. Het is niet mogelijk om te correleren van de HTTP-aanvraag om op te halen van het bericht met de rest van de telemetrie.
 
-In veel gevallen is het mogelijk dat het nuttig om de HTTP-aanvraag naar de wachtrij correleren met andere traceringen ook. Het volgende voorbeeld laat zien hoe om dat te doen:
+In veel gevallen kan het nuttig zijn de HTTP-aanvraag naar de wachtrij correleren met andere traceringen ook zijn. Het volgende voorbeeld ziet u hoe u om dit te doen:
 
 ```csharp
 public async Task<MessagePayload> Dequeue(CloudQueue queue)
@@ -334,9 +336,9 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>Verwerken
+#### <a name="process"></a>Proces
 
-In het volgende voorbeeld wordt wordt een binnenkomend bericht bijgehouden in een manier op dezelfde manier naar inkomende HTTP-aanvraag:
+In het volgende voorbeeld wordt wordt een binnenkomend bericht bijgehouden in een manier op dezelfde manier naar binnenkomende HTTP-aanvraag:
 
 ```csharp
 public async Task Process(MessagePayload message)
@@ -366,24 +368,24 @@ public async Task Process(MessagePayload message)
 }
 ```
 
-Op dezelfde manier kunnen andere bewerkingen wachtrij worden geïmplementeerd. Een bewerking peek moet geïnstrumenteerd op een vergelijkbare manier als een bewerking van de wachtrij halen. Wachtrij-beheerbewerkingen instrumenteren is niet nodig. Application Insights houdt bewerkingen zoals HTTP en in de meeste gevallen is voldoende.
+Op deze manier kunnen andere wachtrijbewerkingen worden geïmplementeerd. Een peek-bewerking moet worden geïmplementeerd op een soortgelijke manier als een bewerking uit de wachtrij verwijderen. Wachtrij-beheerbewerkingen instrumenteren is niet nodig. Application Insights bewerkingen, zoals HTTP worden bijgehouden en in de meeste gevallen is voldoende.
 
-Wanneer u softwareontwikkelaars verwijdering van berichten, zorg er dan voor dat u de bewerking-id's (correlatie) instellen. U kunt ook de `Activity` API. U hoeft niet vervolgens bewerking-id's op de telemetrie-items niet instellen omdat Application Insights-SDK dit gebeurt:
+Tijdens het instrumenteren van verwijdering van berichten, zorg ervoor dat u de bewerking-id's (correlatie) instelt. U kunt ook kunt u de `Activity` API. Vervolgens moet u geen bewerking-id's op de telemetrie-items instellen omdat Application Insights-SDK het allemaal voor u doet:
 
 - Maak een nieuwe `Activity` nadat u hebt een item uit de wachtrij.
-- Gebruik `Activity.SetParentId(message.ParentId)` als Logboeken correleren.
+- Gebruik `Activity.SetParentId(message.ParentId)` consumenten en producent logboeken correleren.
 - Start de `Activity`.
-- Bijhouden in wachtrij, verwerken en verwijderen van bewerkingen met behulp van `Start/StopOperation` helpers. Dit doen via de dezelfde asynchrone Controlestroom (uitvoeringscontext). Op deze manier bent ze gecorreleerde goed.
+- Spoor uit de wachtrij verwijderen, verwerken en verwijderbewerkingen met behulp van `Start/StopOperation` hulpprogramma's. Dit doen vanuit de dezelfde asynchrone Controlestroom (uitvoeringscontext). Op deze manier bent ze gecorreleerd naar behoren.
 - Stop de `Activity`.
-- Gebruik `Start/StopOperation`, of bel `Track` telemetrie handmatig.
+- Gebruik `Start/StopOperation`, of neem contact op `Track` telemetrie handmatig.
 
 ### <a name="batch-processing"></a>Batchverwerking
-Sommige wachtrijen, kunt u meerdere berichten met één aanvraag in wachtrij. Dergelijke berichten worden verwerkt, is waarschijnlijk onafhankelijk en behoort tot de verschillende logische bewerkingen. In dit geval wordt het is niet mogelijk met elkaar correleren de `Dequeue` bewerking op de verwerking van een bepaald bericht.
+Sommige wachtrijen, kunt u meerdere berichten met één aanvraag in wachtrij. Deze berichten worden verwerkt, is waarschijnlijk onafhankelijk en behoort tot de verschillende logische bewerkingen. In dit geval het is niet mogelijk om te correleren de `Dequeue` bewerking bepaalde berichtverwerking.
 
-Elk bericht moet worden verwerkt in de eigen asynchrone Controlestroom. Zie voor meer informatie de [uitgaande afhankelijkheden bijhouden](#outgoing-dependencies-tracking) sectie.
+Elk bericht dat moet worden verwerkt in een eigen asynchrone Controlestroom. Zie voor meer informatie de [uitgaande afhankelijkheden bijhouden](#outgoing-dependencies-tracking) sectie.
 
-## <a name="long-running-background-tasks"></a>Achtergrondtaken langlopende
-Sommige toepassingen starten langlopende bewerkingen die kunnen worden veroorzaakt door het aanvragen van gebruikers. Vanuit het perspectief tracering/instrumentation verschilt niet van de aanvraag of een afhankelijkheid instrumentation: 
+## <a name="long-running-background-tasks"></a>Langlopende achtergrondtaken
+Sommige toepassingen starten langlopende bewerkingen die kunnen worden veroorzaakt door aanvragen van gebruikers. Vanuit het perspectief tracering/instrumentation verschilt niet van de aanvraag of een afhankelijkheid instrumentation: 
 
 ```csharp
 async Task BackgroundTask()
@@ -413,22 +415,22 @@ async Task BackgroundTask()
 }
 ```
 
-In dit voorbeeld `telemetryClient.StartOperation` maakt `RequestTelemetry` en vult u de context van de correlatie. Stel dat u hebt een bovenliggende-bewerking die is gemaakt door de inkomende aanvragen dat de bewerking gepland. Zolang `BackgroundTask` begint in dezelfde asynchrone transportbesturing als een inkomende aanvraag, deze worden gecorreleerd met die bovenliggende voor deze bewerking. `BackgroundTask` en alle geneste telemetrie-items automatisch worden gecorreleerd met de aanvraag, waardoor er, zelfs nadat de aanvraag wordt beëindigd.
+In dit voorbeeld `telemetryClient.StartOperation` maakt `RequestTelemetry` en vult u de correlatie-context. Stel dat u hebt een bovenliggende bewerking die is gemaakt door binnenkomende aanvragen die de bewerking gepland. Zolang `BackgroundTask` wordt gestart in dezelfde asynchrone Controlestroom als een binnenkomende aanvraag, deze worden gecorreleerd met die bovenliggende voor deze bewerking. `BackgroundTask` en alle geneste telemetrie-items automatisch worden gecorreleerd met de aanvraag, waardoor er, zelfs nadat de aanvraag is beëindigd.
 
-Wanneer de taak wordt gestart vanuit de achtergrondthread die geen bewerkingen (`Activity`) gekoppeld, `BackgroundTask` heeft een bovenliggende geen. Echter, het kan hebben genest bewerkingen. Alle telemetrie-items gerapporteerd door de taak zijn gecorreleerd met de `RequestTelemetry` gemaakt in `BackgroundTask`.
+Wanneer de taak wordt gestart vanuit de achtergrondthread die geen elke bewerking (`Activity`) die zijn gekoppeld aan deze `BackgroundTask` beschikt niet over een bovenliggende. Echter, het kunt geneste bewerkingen. Alle telemetrie-items gerapporteerd door de taak worden gecorreleerd met de `RequestTelemetry` gemaakt in `BackgroundTask`.
 
 ## <a name="outgoing-dependencies-tracking"></a>Uitgaande afhankelijkheden bijhouden
-U kunt uw eigen soort afhankelijkheid of een bewerking die niet wordt ondersteund door de Application Insights bijhouden.
+U kunt uw eigen soort afhankelijkheid of een bewerking die niet wordt ondersteund door Application Insights bijhouden.
 
-De `Enqueue` methode in de Service Bus-wachtrij of de opslagwachtrij kan fungeren als voorbeelden van dergelijke aangepaste bijhouden.
+De `Enqueue` methode in de Service Bus-wachtrij of de Storage-wachtrij kan fungeren als voorbeelden van dergelijke aangepaste bijhouden.
 
 De algemene benadering voor het bijhouden van aangepaste afhankelijkheid is:
 
-- Roep de `TelemetryClient.StartOperation` (extensie)-methode die vult de `DependencyTelemetry` eigenschappen die nodig zijn voor correlatie en andere eigenschappen (begintijd stempel, duur).
-- Andere aangepaste eigenschappen worden ingesteld op de `DependencyTelemetry`, zoals de naam en een andere context die u nodig.
-- Controleer een afhankelijkheid bellen en een ogenblik geduld.
-- Stoppen van de bewerking met `StopOperation` wanneer deze voltooid.
-- Uitzonderingen worden verwerkt.
+- Roep de `TelemetryClient.StartOperation` (extensie)-methode die wordt ingevuld de `DependencyTelemetry` eigenschappen die nodig zijn voor correlatie- en andere eigenschappen (en-tijd tijdstempel, duur).
+- Andere aangepaste eigenschappen worden ingesteld op de `DependencyTelemetry`, zoals de naam en een andere context die u nodig hebt.
+- Een afhankelijkheid aanroepen en wacht totdat deze maken.
+- Stoppen van de bewerking opnieuw uit met `StopOperation` wanneer deze voltooid.
+- Het verwerken van uitzonderingen.
 
 ```csharp
 public async Task RunMyTaskAsync()
@@ -448,16 +450,15 @@ public async Task RunMyTaskAsync()
 }
 ```
 
-Verwijdering van de bewerking wordt de bewerking moet worden gestopt zodat u dit in plaats van aanroepen doen kunt `StopOperation`.
+Verwijdering van de bewerking zorgt ervoor dat bewerking moet worden gestopt, zodat u deze in plaats van aanroepen doen kunt `StopOperation`.
 
-*Waarschuwing*: in sommige gevallen kan dit unhanded uitzondering [te voorkomen dat](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` moet worden aangeroepen zodat bewerkingen kunnen niet worden bijgehouden.
+*Waarschuwing*: in sommige gevallen unhanded uitzondering kan [te voorkomen dat](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) `finally` om te worden aangeroepen, zodat bewerkingen kunnen niet worden gevolgd.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>Parallelle bewerkingen kunnen worden verwerkt en bijhouden
 
-`StopOperation` alleen stopt de bewerking die is gestart. Als de huidige actieve bewerking, komt niet overeen met de versie die u stoppen wilt, `StopOperation` , gebeurt er niets. Deze situatie kan gebeuren als u meerdere bewerkingen parallel in dezelfde uitvoeringscontext starten:
+`StopOperation` alleen stopt de bewerking die is gestart. Als de huidige actieve bewerking komt niet overeen met de versie die u stoppen wilt, `StopOperation` , gebeurt er niets. Deze situatie kan gebeuren als u meerdere bewerkingen gelijktijdig in de dezelfde uitvoeringscontext starten:
 
 ```csharp
-var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstOperation = telemetryClient.StartOperation<DependencyTelemetry>("task 1");
 var firstTask = RunMyTaskAsync();
 
@@ -473,7 +474,7 @@ telemetryClient.StopOperation(firstOperation);
 await secondTask;
 ```
 
-Zorg ervoor dat u altijd aanroepen `StartOperation` en verwerken van de bewerking in dezelfde **asynchrone** methode voor het isoleren van bewerkingen parallelle uitvoering. Als de bewerking is synchroon (of geen asynchrone) proces Inpakken en bij te houden met `Task.Run`:
+Zorg ervoor dat u altijd aanroepen `StartOperation` en verwerken van de bewerking in dezelfde **asynchrone** methode voor het isoleren van bewerkingen gelijktijdig uitgevoerd. Als de bewerking is synchroon (of niet asynchrone) proces verpakken en bij te houden met `Task.Run`:
 
 ```csharp
 public void RunMyTask(string name)
@@ -496,8 +497,8 @@ public async Task RunAllTasks()
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Leer de basisbeginselen van [telemetrie correlatie](application-insights-correlation.md) in Application Insights.
-- Zie de [gegevensmodel](application-insights-data-model.md) voor Application Insights-typen en data model.
-- Aangepast rapport [gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md) naar Application Insights.
-- Bekijk standaard [configuratie](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) voor context eigenschappen verzameling.
-- Controleer de [System.Diagnostics.Activity gebruikershandleiding](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) om te zien hoe we telemetrie correleren.
+- Leer de basisprincipes van [telemetriecorrelatie](application-insights-correlation.md) in Application Insights.
+- Zie de [gegevensmodel](application-insights-data-model.md) voor Application Insights-typen en -gegevensmodel.
+- Aangepaste rapport [gebeurtenissen en metrische gegevens](app-insights-api-custom-events-metrics.md) naar Application Insights.
+- Bekijk standard [configuratie](app-insights-configuration-with-applicationinsights-config.md#telemetry-initializers-aspnet) voor context eigenschappen verzameling.
+- Controleer de [System.Diagnostics.Activity gebruikershandleiding](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) om te zien hoe we correleren van telemetrie.

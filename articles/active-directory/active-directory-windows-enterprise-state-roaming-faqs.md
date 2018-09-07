@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: e6cb83eb6aaaea38686c63d0f3f70738efa4bcff
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 39d3913013d9528405191c5f052a943f1869048a
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630753"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026853"
 ---
 # <a name="settings-and-data-roaming-faq"></a>Veelgestelde vragen over instellingen en gegevensroaming
 In dit artikel vindt u antwoorden op enkele vragen die IT-beheerders mogelijk over de instellingen en app-gegevens synchroniseren.
@@ -35,12 +35,12 @@ In dit artikel vindt u antwoorden op enkele vragen die IT-beheerders mogelijk ov
 * *Wachtwoorden*, met inbegrip van wachtwoorden voor Internet-, Wi-Fi-profielen en anderen.
 * *Taalvoorkeuren*, waaronder instellingen voor de toetsenbord-indelingen, systeemtaal, datum en tijd en meer.
 * *Gebruiksgemak toegangsfuncties*, zoals thema met hoog contrast en Narrator, Vergrootglas.
-* *Andere Windows-instellingen*, zoals de instellingen van de opdrachtprompt en lijst met toepassingen.
+* *Andere Windows-instellingen*, zoals muisinstellingen.
 
 **Toepassingsgegevens**: universele Windows-apps instellingsgegevens naar een map voor zwervende schrijft en alle gegevens die naar deze map geschreven automatisch worden gesynchroniseerd. Het is aan de afzonderlijke app-ontwikkelaar een app om te profiteren van deze mogelijkheid te ontwerpen. Zie voor meer informatie over het ontwikkelen van een universele Windows-app die gebruikmaakt van roaming, het [appdata-API van storage](https://msdn.microsoft.com/library/windows/apps/mt299098.aspx) en de [Windows 8 appdata roaming ontwikkelaarsblog](http://blogs.msdn.com/b/windowsappdev/archive/2012/07/17/roaming-your-app-data.aspx).
 
 ## <a name="what-account-is-used-for-settings-sync"></a>Welk account wordt gebruikt voor synchronisatie van instellingen?
-In Windows 8 en Windows 8.1-instellingen synchroniseren is altijd gebruikt consument Microsoft-accounts. Zakelijke gebruikers heeft de mogelijkheid om te verbinden met hun Active Directory-domeinaccount toegang te krijgen tot de synchronisatie van instellingen voor een Microsoft-account. In Windows 10 verbonden deze functionaliteit wordt vervangen met een primaire/secundaire account-framework voor Microsoft-account.
+In Windows 8.1, instellingen synchroniseren is altijd gebruikt voor consumenten-Microsoft-accounts. Zakelijke gebruikers heeft de mogelijkheid om te verbinden met hun Active Directory-domeinaccount toegang te krijgen tot de synchronisatie van instellingen voor een Microsoft-account. In Windows 10 verbonden deze functionaliteit wordt vervangen met een primaire/secundaire account-framework voor Microsoft-account.
 
 Het hoofdaccount is gedefinieerd als het account waarmee zich aanmeldt bij Windows. Dit kan een Microsoft-account, Azure Active Directory (Azure AD)-account, een on-premises Active Directory-account of een lokaal account zijn. Windows 10-gebruikers kunnen een of meer secundaire cloudaccounts toevoegen aan hun apparaat naast het hoofdaccount. Een secundaire-account is doorgaans een Microsoft-account, een Azure AD-account of een ander account, zoals Gmail of Facebook. Deze secundaire accounts geven toegang tot extra services zoals eenmalige aanmelding en de Windows Store, maar ze zijn niet geschikt voor die instellingen synchroniseren.
 
@@ -59,7 +59,7 @@ Als de eigenaar van een app kan niet worden geïdentificeerd, wordt deze kunnen 
 >
 
 ## <a name="how-do-i-upgrade-from-microsoft-account-settings-sync-in-windows-8-to-azure-ad-settings-sync-in-windows-10"></a>Hoe voer ik een upgrade van Microsoft-account-instellingen synchroniseren in Windows 8 naar Azure AD in Windows 10-instellingen synchroniseren?
-Als u lid zijn van Active Directory-domein met Windows 8 of Windows 8.1 met een Microsoft-account verbonden, wordt u instellingen synchroniseren via uw Microsoft-account. Na de upgrade naar Windows 10, blijft u synchronisatie van gebruikersinstellingen via Microsoft-account als u een domein-gebruiker bent en de Active Directory-domein geen verbinding met Azure AD maken.
+Als u lid zijn van Active Directory-domein met Windows 8.1 met een Microsoft-account verbonden, wordt u instellingen synchroniseren via uw Microsoft-account. Na de upgrade naar Windows 10, blijft u synchronisatie van gebruikersinstellingen via Microsoft-account als u een domein-gebruiker bent en de Active Directory-domein geen verbinding met Azure AD maken.
 
 Als de on-premises Active Directory-domein maakt verbinding met Azure AD, uw apparaat probeert te synchroniseren met behulp van de gekoppelde instellingen Azure AD-account. Als de Azure AD-beheerder is niet ingeschakeld voor het Enterprise State Roaming, het verbonden Azure AD-account wordt stoppen van de synchronisatie van instellingen. Als u een Windows 10-gebruiker bent en u zich aanmelden met een Azure AD-identiteit, begint u windows-instellingen synchroniseren zodra de beheerder kan instellingen synchroniseren via Azure AD.
 
@@ -94,7 +94,7 @@ Beheerders kunnen configureren UE-V voor Windows desktop-app-gegevens door het v
 Microsoft kan in de toekomst manieren UE-V is nauw geïntegreerd in Windows maken en uitbreiden van UE-V voor Roaming van instellingen via de cloud met Azure AD onderzoeken.
 
 ## <a name="can-i-store-synced-settings-and-data-on-premises"></a>Kan ik gesynchroniseerde instellingen en gegevens on-premises opslaan?
-Enterprise State Roaming dat alle gesynchroniseerde gegevens worden opgeslagen in de Azure-cloud. UE-V biedt een on-premises oplossing roaming.
+Enterprise State Roaming dat alle gesynchroniseerde gegevens worden opgeslagen in de Microsoft-cloud. UE-V biedt een on-premises oplossing roaming.
 
 ## <a name="who-owns-the-data-thats-being-roamed"></a>Wie is eigenaar van de gegevens die wordt wordt zwerven?
 De eigen ondernemingen de gegevens zwerven via Enterprise State Roaming. Gegevens worden opgeslagen in een Azure-datacenter. Alle gegevens van de gebruiker is versleuteld, zowel in-transit en in rust in de cloud met behulp van de Azure Rights Management-service van Azure Information Protection. Dit is een verbetering ten opzichte van Microsoft-account gebaseerde instellingen sync, waarmee alleen bepaalde gevoelige gegevens, zoals gebruikersreferenties worden versleuteld voordat het apparaat verlaat.

@@ -9,16 +9,16 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: 7320286e186d7e6ba4041d3ed52f19e573b4d7e3
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 87ed816077d2c742223a0350851cdf2f0c5653f6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39049878"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023035"
 ---
 # <a name="moderate-text-using-net"></a>Gemiddeld tekst met behulp van .NET
 
-Dit artikel bevat informatie en voorbeelden van code om u te helpen aan de slag met de Content Moderator-SDK voor .NET tot:
+In dit artikel vindt u informatie en voorbeelden van code om u te helpen aan de slag met de [Content Moderator-SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) aan:
 - Detecteren van potentieel grof taalgebruik in tekst met filteren op basis van een term
 - Gebruik op basis van machine-learning-modellen [classificeren van de tekst](text-moderation-api.md#classification) in drie categorieën.
 - Persoonlijk identificeerbare informatie (PII) zoals VS en UK telefoonnummers, e-mailadressen en VS postadressen detecteren.
@@ -211,4 +211,4 @@ Het voorbeeld voor het programma-uitvoer geschreven naar het logboekbestand is:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Downloaden van de Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET, en aan de slag met uw integratie.
+Krijgen de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET, en aan de slag met uw integratie.

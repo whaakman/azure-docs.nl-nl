@@ -14,12 +14,12 @@ ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 1a7ecbe42857e522785d5919d46b783feae4caeb
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 1ac15ce8f8abf2b30b42f02b300a17448f86fc40
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494122"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052765"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?
 Eenmalige aanmelding betekent toegang te hebben tot alle toepassingen en bronnen die u nodig hebt om zaken te doen, aanmeldt slechts eenmaal met behulp van één gebruikersaccount. Nadat u bent aangemeld, u toegang hebt tot alle van de toepassingen die u nodig hebt zonder vereist is om te verifiëren (bijvoorbeeld, typ een wachtwoord) een tweede keer.
@@ -46,7 +46,7 @@ Azure AD ondersteunt drie verschillende manieren aanmelden bij toepassingen:
 
 * **Federatieve eenmalige aanmelding** kunnen toepassingen om te leiden naar Azure AD voor verificatie van de gebruiker in plaats van dat u wordt gevraagd om een eigen wachtwoord. Federatieve eenmalige aanmelding wordt voor toepassingen die ondersteuning voor, zoals SAML 2.0, WS-Federation en OpenID Connect protocollen, en de uitgebreidste modus van eenmalige aanmelding is ondersteund.
 * **Wachtwoord gebaseerde eenmalige aanmelding** kunnen beveiligde toepassing wachtwoorden worden opgeslagen en herhalen met behulp van een uitbreiding van web browser of mobiele app. Wachtwoord gebaseerde eenmalige aanmelding maakt gebruik van de bestaande proces dat is opgegeven door de toepassing, maar kan een beheerder de wachtwoorden beheren en vereist niet de gebruiker het wachtwoord kennen.
-* **Bestaande eenmalige aanmelding** kan gebruikmaken van een bestaande eenmalige aanmelding die is ingesteld voor de toepassing, maar deze toepassingen worden gekoppeld aan de Office 365 of Azure AD access panel portals kan Azure AD en kunt u ook extra rapportage in Azure AD wanneer de toepassingen er worden gestart.
+* **Eenmalige aanmelding gekoppeld** kan gebruikmaken van een bestaande eenmalige aanmelding die is ingesteld voor de toepassing, maar deze toepassingen worden gekoppeld aan de Office 365 of Azure AD access panel portals kan Azure AD en kunt u ook extra rapportage in Azure AD wanneer de toepassingen er worden gestart.
 
 Wanneer een gebruiker is geverifieerd met een toepassing, moeten ze ook een accountrecord die is ingericht op de toepassing die wordt gemeld dat de toepassing waarbij de machtigingen en het niveau van toegang in de toepassing zijn hebben. Het inrichten van een record voor dit account ofwel automatisch kan worden uitgevoerd kan, of wanneer deze handmatig door een beheerder voordat de gebruiker één aanmelding toegang ontvangt.
 
@@ -79,10 +79,10 @@ Voor eenmalige aanmelding op basis van wachtwoorden kunnen van de eindgebruiker 
 * Chrome--Op Windows 7 of hoger, en op Mac OS X of hoger
 * Firefox 26,0 of later--op Windows XP SP2 of hoger, en Mac OS X 10,6 of hoger
 
-### <a name="existing-single-sign-on"></a>Bestaande eenmalige aanmelding
-Bij het configureren van eenmalige aanmelding voor een toepassing, biedt de Azure-portal een derde optie van ' bestaande Single Sign-On '. Deze optie kan alleen de beheerder een koppeling naar een toepassing maken en plak deze in het toegangsvenster voor de geselecteerde gebruikers.
+### <a name="linked-single-sign-on"></a>Gekoppelde eenmalige aanmelding
+Bij het configureren van eenmalige aanmelding voor een toepassing, biedt de Azure-portal een derde optie van ' gekoppelde Single Sign-On '. Deze optie kan alleen de beheerder een koppeling naar een toepassing maken en plak deze in het toegangsvenster voor de geselecteerde gebruikers.
 
-Bijvoorbeeld, als er een toepassing die is geconfigureerd voor het verifiëren van gebruikers met behulp van Active Directory Federation Services 2.0, kunt een beheerder de optie ' bestaande Single Sign-On ' gebruiken om te maken van een koppeling naar het in het toegangsvenster. Wanneer gebruikers toegang krijgen de koppeling tot, zijn ze geverifieerd met behulp van Active Directory Federation Services 2.0 of welke bestaande eenmalige aanmelding-oplossing wordt geleverd door de toepassing.
+Bijvoorbeeld, als er een toepassing die is geconfigureerd voor het verifiëren van gebruikers met behulp van Active Directory Federation Services 2.0, kunt een beheerder de optie ' gekoppelde Single Sign-On ' gebruiken om te maken van een koppeling naar het in het toegangsvenster. Wanneer gebruikers toegang krijgen de koppeling tot, zijn ze geverifieerd met behulp van Active Directory Federation Services 2.0 of welke bestaande eenmalige aanmelding-oplossing wordt geleverd door de toepassing.
 
 ### <a name="user-provisioning"></a>Inrichten van gebruikers
 Voor bepaalde toepassingen, Azure AD maakt het mogelijk om geautomatiseerde gebruikersinrichting en ongedaan maken inrichting van accounts in externe SaaS-toepassingen uit in Azure portal, de gegevens van uw Windows Server Active Directory of Azure AD-identiteit. Wanneer een gebruiker wordt gegeven van machtigingen in Azure AD voor een van deze toepassingen, kan automatisch een account worden gemaakt (ingericht) in de doel-SaaS-toepassing.
@@ -172,7 +172,7 @@ Meest federatieve toepassingen die ondersteuning bieden voor SAML 2.0, WS-Federa
 ![](./media/what-is-single-sign-on/workdaymobile.png)
 
 ### <a name="direct-sign-on-links-for-federated-password-based-or-existing-apps"></a>Directe aanmelding koppelingen voor federatieve, op basis van wachtwoorden of bestaande apps
-Azure AD biedt ook ondersteuning voor directe eenmalige aanmelding in koppelingen naar afzonderlijke toepassingen die ondersteuning op basis van wachtwoorden eenmalige aanmelding, bestaande eenmalige aanmelding en een vorm van federatieve eenmalige aanmelding bieden.
+Azure AD biedt ook ondersteuning voor directe eenmalige aanmelding in koppelingen naar afzonderlijke toepassingen die ondersteuning op basis van wachtwoorden eenmalige aanmelding, gekoppelde eenmalige aanmelding en een vorm van federatieve eenmalige aanmelding bieden.
 
 Deze koppelingen zijn speciaal ontworpen URL's die een gebruiker door het proces voor aanmelding bij Azure AD voor een bepaalde toepassing verzenden zonder de gebruiker start ze vanuit de Azure AD toegang tot deelvenster of Office 365. Deze één aanmeldings-URL's kan worden gevonden op het tabblad Dashboard van vooraf geïntegreerde toepassingen in de sectie Active Directory van Azure portal, zoals wordt weergegeven in de onderstaande schermafbeelding.
 

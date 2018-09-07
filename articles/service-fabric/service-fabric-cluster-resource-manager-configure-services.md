@@ -1,6 +1,6 @@
 ---
-title: Geef de instellingen metrische gegevens en de plaatsing in Azure microservices | Microsoft Docs
-description: Met een beschrijving van een Service Fabric-service door metrische gegevens, plaatsingsbeperkingen en andere plaatsingsbeleid te geven.
+title: Instellingen voor metrische gegevens en plaatsing opgeven in Azure Service Fabric | Microsoft Docs
+description: Leer hoe u een Service Fabric-service door op te geven de metrische gegevens, plaatsingsbeperkingen en andere plaatsingsbeleid te beschrijven.
 services: service-fabric
 documentationcenter: .net
 author: masnider
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 16e19a02bf12e30e81eb1743fc637bce435df914
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: ea781b5dbbf09c0a21fbcf781ae129295d02dbad
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34210576"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054788"
 ---
 # <a name="configuring-cluster-resource-manager-settings-for-service-fabric-services"></a>Cluster resource manager-instellingen voor Service Fabric-services configureren
-De Service Fabric Cluster Resource Manager kunt fijnmazig controle over de regels die bepalen van elke afzonderlijke service met de naam. Elke benoemde service kunt regels opgeven voor hoe moet worden toegewezen in het cluster. Elke benoemde service kunt ook de set met metrische gegevens die deze wil definiëren om te rapporteren, met inbegrip van hoe belangrijk dat ze zijn aan die service. Configureren van services uitvalt in drie verschillende taken:
+De Service Fabric Cluster Resource Manager kunt heel nauwkeurig bepalen de regels op basis van elke afzonderlijke gebruiker met de naam service. Elke benoemde service kan regels opgeven voor hoe moet worden toegewezen in het cluster. Elke benoemde service kan ook definiëren voor de set van metrische gegevens die zij wil rapport, met inbegrip van hoe belangrijk dat ze zijn die service. Configureren van services problematisch zijn, in drie verschillende taken:
 
 1. Plaatsingsbeperkingen configureren
-2. Metrische gegevens configureren
+2. Configureren van metrische gegevens
 3. Configureren van geavanceerde plaatsingsbeleid en andere regels (minder algemeen)
 
 ## <a name="placement-constraints"></a>Plaatsingsbeperkingen
-Plaatsingsbeperkingen worden gebruikt om te bepalen welke knooppunten in het cluster een service daadwerkelijk op kunnen uitvoeren. Doorgaans een bepaalde service-exemplaar of alle services van een bepaald type beperkte uit te voeren op een bepaald type knooppunt genoemd. Plaatsingsbeperkingen worden uitgebreid. U kunt een set eigenschappen per knooppunttype definiëren en vervolgens selecteren ze met beperkingen bij het maken van services. U kunt ook een service plaatsingsbeperkingen wijzigen terwijl deze wordt uitgevoerd. Hiermee kunt u om te reageren op wijzigingen in het cluster of de vereisten van de service. De eigenschappen van een bepaald knooppunt kunnen ook dynamisch worden bijgewerkt in het cluster. Meer informatie over plaatsingsbeperkingen en het configureren ervan vindt u in [in dit artikel](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
+Plaatsingsbeperkingen worden gebruikt om te bepalen welke knooppunten in het cluster een service daadwerkelijk op kunnen uitvoeren. Normaal gesproken een bepaalde service-exemplaar of alle services van een bepaald type beperkte om uit te voeren op een bepaald type knooppunt genoemd. Plaatsingsbeperkingen worden uitgebreid. U kunt een set eigenschappen per knooppunttype definiëren en vervolgens selecteren voor deze met beperkingen bij het maken van services. U kunt ook een service-plaatsingsbeperkingen wijzigen terwijl deze wordt uitgevoerd. Hiermee kunt u om te reageren op wijzigingen in het cluster of de vereisten van de service. De eigenschappen van een bepaald knooppunt kunnen ook dynamisch worden bijgewerkt in het cluster. Meer informatie over plaatsingsbeperkingen en hoe u ze configureert vindt u [in dit artikel](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints)
 
 ## <a name="metrics"></a>Metrische gegevens
-Meetgegevens voor het aantal resources die een bepaalde benoemde service moet zijn. Configuratie van de service omvat hoeveel van de bron elke stateful replica of stateless exemplaar van die service standaard verbruikt. Metrische gegevens behoren ook een gewicht dat aangeeft hoe belangrijk balancing die metrische gegevens die service, in geval gebruik van systeembronnen nodig zijn.
+Metrische gegevens zijn de set van resources die een bepaalde benoemde service nodig heeft. Configuratie van de service omvat welk deel van die resource elke stateful doelreplica of stateless van die service standaard verbruikt. Metrische gegevens bevatten ook een gewicht die aangeeft hoe belangrijk is taakverdeling die metrische gegevens die service, in geval compromissen nodig zijn.
 
-## <a name="advanced-placement-rules"></a>Van geavanceerde plaatsingsregels
-Er zijn andere typen regels die handig in een minder algemene scenario's zijn voor de plaatsing. Een aantal voorbeelden:
+## <a name="advanced-placement-rules"></a>Geavanceerde plaatsingsregels
+Er zijn andere typen plaatsingsregels die handig zijn in minder algemene scenario's. Een aantal voorbeelden:
 - Beperkingen die u bij geografisch verspreide clusters helpen
-- Bepaalde toepassingsarchitecturen
+- Bepaalde architecturen voor toepassingen
 
 Andere plaatsingsregels zijn via correlaties of beleidsregels geconfigureerd.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Metrische gegevens zijn hoe de Service Fabric-Cluster Resource Manager beheert gebruiks- en capaciteit in het cluster. Bekijk voor meer informatie over metrische gegevens en het configureren ervan [in dit artikel](service-fabric-cluster-resource-manager-metrics.md)
-- Affiniteit is één modus die u voor uw services configureren kunt. Wordt meestal niet, maar als u deze nodig hebt u meer over deze [hier](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
-- Er zijn veel verschillende plaatsingsregels die in de service voor het afhandelen van aanvullende scenario's kunnen worden geconfigureerd. U vindt informatie over deze beleidsregels voor verschillende plaatsing [hier](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
-- Vanaf het begin starten en [Maak kennis met de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
-- Als u wilt weten over hoe de Cluster Resource Manager beheert en een compromis tussen de werklast van het cluster, Raadpleeg het artikel op [load balancing](service-fabric-cluster-resource-manager-balancing.md)
-- De Cluster Resource Manager bevat veel opties voor het beschrijven van het cluster. Meer informatie over deze, Bekijk dit artikel op [met een beschrijving van een Service Fabric-cluster](service-fabric-cluster-resource-manager-cluster-description.md)
+- Metrische gegevens zijn hoe gebruiks- en capaciteit in het cluster worden beheerd door de Service Fabric-Cluster Resource Manager. Bekijk voor meer informatie over metrische gegevens en hoe u ze configureert, [in dit artikel](service-fabric-cluster-resource-manager-metrics.md)
+- Affiniteit is één modus die u voor uw services configureren kunt. Het is niet gebruikelijk, maar als u deze nodig hebt vindt u informatie over het [hier](service-fabric-cluster-resource-manager-advanced-placement-rules-affinity.md)
+- Er zijn veel verschillende plaatsingsregels die kunnen worden geconfigureerd op uw service voor het afhandelen van aanvullende scenario's. U vindt informatie over deze verschillende plaatsingsbeleid [hier](service-fabric-cluster-resource-manager-advanced-placement-rules-placement-policies.md)
+- Vanaf het begin starten en [een inleiding tot de Service Fabric Cluster Resource Manager](service-fabric-cluster-resource-manager-introduction.md)
+- Als u wilt weten over hoe met Cluster Resource Manager beheert en verdeelt de taken in het cluster, Zie het artikel op [taakverdeling](service-fabric-cluster-resource-manager-balancing.md)
+- Cluster Resource Manager beschikt over veel opties voor het beschrijven van het cluster. Meer informatie over deze, Bekijk dit artikel op [met een beschrijving van een Service Fabric-cluster](service-fabric-cluster-resource-manager-cluster-description.md)

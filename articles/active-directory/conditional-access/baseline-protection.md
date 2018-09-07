@@ -17,12 +17,12 @@ ms.workload: identity
 ms.date: 08/08/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 856673d2a5465f9646172a1436ed75c0d73692cb
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 57fef112186834ead76f6223e32cb358e4d6d053
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003169"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024070"
 ---
 # <a name="what-is-baseline-protection-preview"></a>Wat is basislijn protection (preview)?  
 
@@ -51,7 +51,7 @@ Gebruikers met toegang tot beschermde accounts hebben onbeperkte toegang tot uw 
 
 ![Azure Active Directory](./media/baseline-protection/01.png)
 
-Dit beleid biedt u de optie om gebruikers en groepen te sluiten. U mogelijk wilt uitsluiten van een * [EMS-access-Administrator-account](../users-groups-roles/directory-emergency-access.md) * om te controleren of u geen toegang tot de tenant zijn geblokkeerd.
+Dit beleid biedt u de optie om gebruikers en groepen te sluiten. U mogelijk wilt uitsluiten van een *[EMS-access-Administrator-account](../users-groups-roles/directory-emergency-access.md)* om te controleren of u geen toegang tot de tenant zijn geblokkeerd.
 
 
 ## <a name="enable-a-baseline-policy"></a>Een beleid inschakelen 
@@ -86,7 +86,7 @@ Tijdens het beheren van beleid voor aangepaste voorwaardelijke toegang vereist e
 
 De directory-rollen die zijn opgenomen in het Basisbeleid zijn de meeste bevoegdheden Azure AD-rollen. 
 
-Als u accounts die worden gebruikt in uw scripts uitgebreide, vervangt u deze met [Managed Service Identity (MSI)](../managed-service-identity/overview.md) of [service-principals met certificaten](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Als tijdelijke oplossing, kunt u specifieke gebruikersaccounts uitsluiten van het Basisbeleid. 
+Als u accounts die worden gebruikt in uw scripts uitgebreide, vervangt u deze met [Managed Service Identity (MSI)](../managed-identities-azure-resources/overview.md) of [service-principals met certificaten](../../azure-resource-manager/resource-group-authenticate-service-principal.md). Als tijdelijke oplossing, kunt u specifieke gebruikersaccounts uitsluiten van het Basisbeleid. 
 
 Basislijn-beleid van toepassing op verouderde verificatiestromen zoals POP, IMAP, oudere Office-bureaublad-client. 
 

@@ -18,12 +18,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: tanning
 ms.custom: it-pro
-ms.openlocfilehash: a80bec460fffcc7c7170204d541d578428980394
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c7a2428e4e5e3b5af0e9e01514ba433707e6a3c8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223946"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022795"
 ---
 # <a name="troubleshooting-enterprise-state-roaming-settings-in-azure-active-directory"></a>Enterprise State Roaming-instellingen in Azure Active Directory oplossen
 
@@ -71,7 +71,7 @@ Enterprise State Roaming vereist dat het apparaat worden geregistreerd bij Azure
 **Potentiële problemen**: **WamDefaultSet** en **AzureAdJoined** zowel "Nee" hebben in de veldwaarde, het apparaat is domein en geregistreerd bij Azure AD en het apparaat wordt niet gesynchroniseerd. Als het dit wordt weergegeven, wordt het apparaat moet mogelijk na afloop van beleid moet worden toegepast of de verificatie voor het apparaat is mislukt bij het verbinden met Azure AD. De gebruiker mogelijk Wacht een paar uur voor het beleid moet worden toegepast. Andere stappen voor probleemoplossing, omvat mogelijk automatische registratie door afmelden en weer opnieuw of start de taak in Task Scheduler. In sommige gevallen wordt uitgevoerd '*dsregcmd.exe /leave*' in het venster opdrachtprompt met verhoogde bevoegdheid opnieuw wordt opgestart, en probeer het opnieuw registreren bij dit probleem kunnen helpen.
 
 
-**Potentiële problemen**: het veld voor **AzureAdSettingsUrl** leeg is en het apparaat wordt niet gesynchroniseerd. De gebruiker kan hebben laatst vastgelegd in op het apparaat voordat Enterprise State Roaming is ingeschakeld in de Azure Active Directory-Portal. Het apparaat opnieuw starten en de gebruikersaanmelding hebben. Probeer (optioneel) dat de IT-beheerder uitschakelen en opnieuw inschakelen van gebruikers kunnen synchronisatie-instellingen en Enterprise-App-gegevens in de portal. Eenmaal opnieuw ingeschakeld, start het apparaat opnieuw en de gebruikersaanmelding hebben. Als het probleem hiermee niet is opgelost **AzureAdSettingsUrl** mag niet leeg zijn in het geval van een certificaat voor beschadigde apparaten. In dit geval wordt uitgevoerd '*dsregcmd.exe /leave*' in het venster opdrachtprompt met verhoogde bevoegdheid opnieuw wordt opgestart, en probeer het opnieuw registreren bij dit probleem kunnen helpen.
+**Potentiële problemen**: het veld voor **SettingsUrl** leeg is en het apparaat wordt niet gesynchroniseerd. De gebruiker kan hebben laatst vastgelegd in op het apparaat voordat Enterprise State Roaming is ingeschakeld in de Azure Active Directory-Portal. Het apparaat opnieuw starten en de gebruikersaanmelding hebben. Probeer (optioneel) dat de IT-beheerder uitschakelen en opnieuw inschakelen van gebruikers kunnen synchronisatie-instellingen en Enterprise-App-gegevens in de portal. Eenmaal opnieuw ingeschakeld, start het apparaat opnieuw en de gebruikersaanmelding hebben. Als het probleem hiermee niet is opgelost **SettingsUrl** mag niet leeg zijn in het geval van een certificaat voor beschadigde apparaten. In dit geval wordt uitgevoerd '*dsregcmd.exe /leave*' in het venster opdrachtprompt met verhoogde bevoegdheid opnieuw wordt opgestart, en probeer het opnieuw registreren bij dit probleem kunnen helpen.
 
 ## <a name="enterprise-state-roaming-and-multi-factor-authentication"></a>Enterprise State Roaming en meervoudige verificatie 
 Onder bepaalde omstandigheden, kan Enterprise State Roaming niet kunnen synchroniseren van gegevens als Azure multi-factor Authentication is geconfigureerd. Raadpleeg het ondersteuningsdocument over voor meer informatie over deze problemen [KB3193683](https://support.microsoft.com/kb/3193683). 
@@ -81,7 +81,7 @@ Onder bepaalde omstandigheden, kan Enterprise State Roaming niet kunnen synchron
 **Potentiële problemen**: synchronisatie kan mislukken als de beheerder het voorwaardelijke toegangsbeleid van Active Directory Federation Services multi-factor Authentication configureert en het toegangstoken op het apparaat is verlopen. Zorg ervoor dat u zich aanmelden en meld u af met de Microsoft Passport for Work-PINCODE of multi-Factor Authentication voltooid tijdens het openen van andere Azure-services zoals Office 365.
 
 ### <a name="event-viewer"></a>Logboeken
-Voor geavanceerde probleemoplossing, kan de logboeken worden gebruikt om fouten gevonden. Deze worden beschreven in de onderstaande tabel. De gebeurtenissen kunnen u vinden onder Logboeken > Logboeken toepassingen en Services > **Microsoft** > **Windows** > **SettingSync** en voor problemen met het synchroniseren van identiteit gerelateerde **Microsoft** > **Windows** > **AAD**.
+Voor geavanceerde probleemoplossing, kan de logboeken worden gebruikt om fouten gevonden. Deze worden beschreven in de onderstaande tabel. De gebeurtenissen kunnen u vinden onder Logboeken > Logboeken toepassingen en Services > **Microsoft** > **Windows** > **SettingSync Azure** en voor identiteit-problemen met synchronisatie **Microsoft** > **Windows** > **AAD**.
 
 
 ## <a name="known-issues"></a>Bekende problemen
@@ -174,14 +174,6 @@ In Logboeken onder logboeken van de AAD/operationeel voor deze fout kan worden w
 
 **Aanbevolen actie**  
 Doorgaan met de hier vermelde stappen [KB3196528](https://support.microsoft.com/kb/3196528).  
-
-
-
-## <a name="next-steps"></a>Volgende stappen
-
-- Gebruik de [User Voice-forum](https://social.technet.microsoft.com/Forums/windows/en-US/f51c856c-db92-4cf7-a497-720da21d7d31/enterprise-state-roaming) naar uw feedback en suggesties voor het verbeteren van Enterprise State Roaming.
-
-- Zie voor meer informatie de [Enterprise State Roaming overzicht](active-directory-windows-enterprise-state-roaming-overview.md). 
 
 ## <a name="related-topics"></a>Verwante onderwerpen
 * [Enterprise state roaming overzicht](active-directory-windows-enterprise-state-roaming-overview.md)

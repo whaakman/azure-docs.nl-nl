@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 9213f82a8e3a350312d4830aa2a8e5f695852ca5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: f30d15c70b33200565f1933a4d8ebe8ed654638c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841831"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055230"
 ---
 # <a name="azure-sql-database-logical-servers-and-their-management"></a>Azure SQL Database-logische servers en hun beheer
 
@@ -62,7 +62,7 @@ Maken van een Azure SQL database met behulp van de [Azure-portal](https://portal
 > [!IMPORTANT]
 > Zie voor meer informatie over het selecteren van de prijscategorie voor uw database [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 
-Zie voor het maken van een beheerd exemplaar, [een beheerd exemplaar maken](sql-database-managed-instance-create-tutorial-portal.md)
+Zie voor het maken van een beheerd exemplaar, [een beheerd exemplaar maken](sql-database-managed-instance-get-started.md)
 
 ### <a name="manage-an-existing-sql-server"></a>Een bestaande SQL server beheren
 
@@ -132,7 +132,7 @@ Maken en beheren van Azure SQL-server, databases en firewalls met de [Azure CLI]
 |[AZ sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Hiermee verwijdert u een firewall-regel|
 
 > [!TIP]
-> Zie voor een Azure CLI-Quick Start [maken van een individuele Azure SQL-database met de Azure CLI](sql-database-get-started-cli.md). Zie voor de Azure CLI-voorbeeldscripts, [CLI gebruiken om te maken van een individuele Azure SQL-database en een firewallregel configureren](scripts/sql-database-create-and-configure-database-cli.md) en [CLI gebruiken om te controleren en schalen van één SQL-database](scripts/sql-database-monitor-and-scale-database-cli.md).
+> Zie voor een Azure CLI-Quick Start [maken van een individuele Azure SQL-database met de Azure CLI](sql-database-cli-samples.md). Zie voor de Azure CLI-voorbeeldscripts, [CLI gebruiken om te maken van een individuele Azure SQL-database en een firewallregel configureren](scripts/sql-database-create-and-configure-database-cli.md) en [CLI gebruiken om te controleren en schalen van één SQL-database](scripts/sql-database-monitor-and-scale-database-cli.md).
 >
 
 ## <a name="manage-azure-sql-servers-databases-and-firewalls-using-transact-sql"></a>Azure SQL-servers, databases, en firewalls beheren met behulp van Transact-SQL

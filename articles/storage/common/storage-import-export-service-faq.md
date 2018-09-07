@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/22/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 6a2d067625e96aefdcb0197e1abb13b0c41fbe7f
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: edaff86531a9c40064d25a046bbbb70f48b75c84
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521435"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027126"
 ---
 # <a name="azure-importexport-service-frequently-asked-questions"></a>Azure Import/Export-service: veelgestelde vragen 
 Hier volgen vragen en antwoorden die u hebt wanneer u uw Azure Import/Export-service voor het overbrengen van gegevens naar Azure storage. De vragen en antwoorden zijn in de volgende categorieën onderverdeeld:
@@ -119,7 +119,7 @@ Bij het maken van een harde schijf voor een importtaak, is het doel is opgegeven
 Hangt ervan af. Wanneer het station is voorbereid, kunt u opgeven of de doel-bestanden moeten worden overschreven of genegeerd met het veld in gegevensset CSV-bestand met de naam toestand: < naam | niet overschrijven | overschrijven >. Standaard de service wijzigt de naam van de nieuwe bestanden in plaats bestaande blobs of bestanden overschrijven.
 
 ### <a name="is-the-waimportexport-tool-compatible-with-32-bit-operating-systems"></a>Het hulpprogramma WAImportExport compatibel is met 32-bits besturingssystemen?
-Nee. Het hulpprogramma WAImportExport is alleen compatibel met 64-bits Windows-besturingssystemen. Voor een volledige lijst van ondersteunde OS, gaat u naar [Supported Operating Systems](). 
+Nee. Het hulpprogramma WAImportExport is alleen compatibel met 64-bits Windows-besturingssystemen. Voor een volledige lijst van ondersteunde OS, gaat u naar [Supported Operating Systems](https://docs.microsoft.com/azure/storage/common/storage-import-export-requirements). 
 
 
 ### <a name="what-is-the-maximum-block-blob-and-page-blob-size-supported-by-azure-importexport"></a>Wat is de maximale blok-Blob en het formaat van pagina-Blob ondersteund door Azure Import/Export?

@@ -9,12 +9,12 @@ ms.author: xshi
 ms.date: 09/04/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: b1c6209c4d589093d7a29cd8a883d3e5d4ca12f9
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: a66a17a0f8daed5f61753dd7c20ed5d9987c0b15
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782299"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053897"
 ---
 # <a name="use-visual-studio-code-to-develop-and-debug-c-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in C#-modules voor Azure IoT Edge
 
@@ -44,7 +44,7 @@ Het instellen van lokale ontwikkelomgeving om op te sporen, uitvoeren en testen 
    pip install --upgrade iotedgehubdev
    ```
 
-Als u wilt testen van uw module op een apparaat, moet u een actieve IoT-hub met ten minste één IoT Edge-apparaat. Voor het gebruik van de computer als een IoT Edge-apparaat, volg de stappen in de quickstart voor [Windows](quickstart.md) of [Linux](quickstart-linux.md). 
+Als u wilt testen van uw module op een apparaat, moet u een actieve IoT-hub met ten minste één IoT Edge-apparaat-ID gemaakt. Als u een IoT Edge-daemon op de ontwikkelcomputer uitvoert, moet u mogelijk EdgeHub en EdgeAgent stoppen voordat u met de volgende stap verdergaat. 
 
 ## <a name="create-a-new-solution-with-c-module"></a>Een nieuwe oplossing maken met C#-module
 
@@ -111,9 +111,6 @@ De IoT Edge C#-module is een .net Core-toepassing. En dat hangt ervan af op Azur
     dotnet build
     ```
 
-   > [!TIP]
-   > U kunt ook [PostMan](https://www.getpostman.com/) of andere API's voor het verzenden van berichten via in plaats van `curl`.
-
 2. Navigeer naar `program.cs`. Voeg een onderbrekingspunt toe in dit bestand.
 
 3. Navigeer naar de weergave voor probleemoplossing van VS Code. Selecteer de configuratie van de foutopsporing **ModuleName lokale foutopsporing (.NET Core)**. 
@@ -136,7 +133,7 @@ De IoT Edge C#-module is een .net Core-toepassing. En dat hangt ervan af op Azur
 
     ![Bekijk variabelen](media/how-to-develop-csharp-module/single-module-variables.png)
 
-7. Als u wilt stoppen foutopsporingssessie, klikt u op de knop stoppen of druk op **Shift + F5**. Typ in het opdrachtenpalet van VS Code, en selecteer **Azure IoT Edge: IoT Edge-Simulator stoppen**.
+7. Als u wilt stoppen foutopsporingssessie, klikt u op de knop stoppen of druk op **Shift + F5**. Typ in het opdrachtenpalet van VS Code, en selecteer **Azure IoT Edge: IoT Edge-Simulator stoppen** stoppen en opschonen van de simulator.
 
 ## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>Build van container van de module voor foutopsporing en fouten opsporen in koppelen modus
 

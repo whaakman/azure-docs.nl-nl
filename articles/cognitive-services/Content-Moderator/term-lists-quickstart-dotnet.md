@@ -1,6 +1,6 @@
 ---
-title: Gemiddeld met aangepaste term lijsten in Azure inhoud beheerder | Microsoft Docs
-description: Het gemiddelde met aangepaste term geeft een lijst met Azure inhoud beheerder SDK voor .NET.
+title: Gematigd met aangepaste terminologielijsten in Azure Content Moderator | Microsoft Docs
+description: Het gemiddelde met aangepaste term geeft een lijst met Azure Content Moderator-SDK voor .NET.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,60 +9,60 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/11/2018
 ms.author: sajagtap
-ms.openlocfilehash: 6da72ad070d9c3a6be38e24626dff77b52fed852
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2ae080518a9ad78552a8ec173e7f4d70085c7a6b
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344562"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022637"
 ---
-# <a name="moderate-with-custom-term-lists-in-net"></a>Gemiddelde met aangepaste term lijsten in .NET
+# <a name="moderate-with-custom-term-lists-in-net"></a>Gemiddelde met aangepaste terminologielijsten in .NET
 
-De standaard globale lijst met termen in Azure inhoud beheerder is voldoende voor de meest inhoud toezicht behoeften. Mogelijk moet u echter scherm van de termen die specifiek voor uw organisatie zijn. Bijvoorbeeld, kan u concurrent labelnamen voor verder onderzoek. 
+De standaard globale lijst met voorwaarden in Azure Content Moderator is voldoende voor de meest content moderation behoeften. U moet echter mogelijk scherm van de termen die specifiek voor uw organisatie zijn. Bijvoorbeeld, kunt u code concurrent namen voor verder onderzoek. 
 
-Maken van aangepaste lijsten met voorwaarden voor gebruik met de tekst toezicht API kunt u de inhoud beheerder SDK voor .NET.
+U kunt de [Content Moderator-SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) om aangepaste lijsten van voorwaarden voor gebruik met de tekst Afbeeldingstoezicht-API te maken.
 
 > [!NOTE]
 > Er is een maximumlimiet van **geeft een lijst van 5 term** met elke lijst **niet meer dan 10.000 voorwaarden**.
 >
 
-Dit artikel bevat informatie en codevoorbeelden om u te helpen aan de slag met de inhoud beheerder SDK voor .NET aan:
+Dit artikel bevat informatie en voorbeelden van code om u te helpen aan de slag met de Content Moderator-SDK voor .NET tot:
 - Een lijst maken.
 - Voorwaarden toevoegen aan een lijst.
 - Scherm voorwaarden op basis van de voorwaarden in een lijst.
-- Voorwaarden verwijdert uit een lijst.
-- Een lijst te verwijderen.
-- Lijst met gegevens bewerken.
-- De index vernieuwen, zodat de wijzigingen in de lijst zijn opgenomen in een nieuwe scan.
+- Gebruiksvoorwaarden verwijderen uit een lijst.
+- Een lijst verwijderen.
+- Bewerk de gegevens weer te geven.
+- De index vernieuwen zodat wijzigingen in de lijst zijn opgenomen in een nieuwe scan.
 
 In dit artikel wordt ervan uitgegaan dat u al bekend met Visual Studio en C# bent.
 
-## <a name="sign-up-for-content-moderator-services"></a>Aanmelden voor inhoud beheerder services
+## <a name="sign-up-for-content-moderator-services"></a>Aanmelden voor Content Moderator-services
 
-Voordat u inhoud beheerder services via de REST-API of de SDK gebruiken kunt, moet u een abonnementssleutel.
+Voordat u de Content Moderator-services via de REST-API of de SDK gebruiken kunt, moet u de abonnementssleutel van een.
 
-In het Dashboard inhoud beheerder vindt u de abonnementssleutel van uw in **instellingen** > **referenties** > **API**  >  **Proefversie Ocp-Apim-Subscription-Key**. Zie voor meer informatie [overzicht](overview.md).
+In het Dashboard met Content Moderator, vindt u uw abonnementssleutel in **instellingen** > **referenties** > **API**  >  **Proefversie Ocp-Apim-Subscription-Key**. Zie voor meer informatie, [overzicht](overview.md).
 
 ## <a name="create-your-visual-studio-project"></a>Visual Studio-project maken
 
-1. Voeg een nieuwe **Console-app (.NET Framework)** project om uw oplossing.
+1. Toevoegen van een nieuwe **Console-app (.NET Framework)** project aan uw oplossing.
 
 1. Noem het project **TermLists**. Selecteer dit project als opstartproject één voor de oplossing.
 
-1. Voeg een verwijzing naar de **ModeratorHelper** project assembly die u hebt gemaakt in de [inhoud beheerder client helper Quick Start](content-moderator-helper-quickstart-dotnet.md).
+1. Voeg een verwijzing naar de **ModeratorHelper** project assembly die u hebt gemaakt in de [Content Moderator client helper snelstartgids](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>De vereiste pakketten installeren
 
-De volgende NuGet-pakketten voor het project TermLists installeren:
+Installeer de volgende NuGet-pakketten voor het project TermLists:
 
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
 - Microsoft.Rest.ClientRuntime.Azure
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Update van het programma de using-instructies
+### <a name="update-the-programs-using-statements"></a>Update het programma de using-instructies
 
-Wijzig het programma de using-instructies.
+Wijzig het programma de using-instructies toe.
 
     using System;
     using System.Threading;
@@ -91,16 +91,16 @@ De volgende persoonlijke eigenschappen toevoegen aan de naamruimte TermLists, kl
     /// </summary>
     private const double latencyDelay = 0.5;
 
-## <a name="create-a-term-list"></a>Maak een lijst van de termijn
+## <a name="create-a-term-list"></a>Een terminologielijst maken
 
-U maakt een lijst van de termijn met **ContentModeratorClient.ListManagementTermLists.Create**. De eerste parameter **maken** is een tekenreeks met een MIME-type ' application/json' moet zijn. Zie voor meer informatie de [API-referentiemateriaal](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). De tweede parameter is een **instantie** object met een naam en beschrijving voor de nieuwe termijn-lijst.
+Maakt u de lijst met een term met **ContentModeratorClient.ListManagementTermLists.Create**. De eerste parameter voor **maken** is een tekenreeks met een MIME-type moet ' application/json'. Zie voor meer informatie de [API-verwijzing](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f67f). De tweede parameter is een **hoofdtekst** object met een naam en beschrijving voor de lijst met nieuwe term.
 
-De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
+De methodedefinitie van de volgende aan naamruimte TermLists, klasse programma toevoegen.
 
 > [!NOTE]
-> De sleutel van uw inhoud beheerder service heeft een aanvragen per frequentielimiet van tweede (RPS) en als u de limiet overschrijdt, de SDK er een uitzondering gegenereerd met een 429 foutcode. 
+> De sleutel van uw Content Moderator-service heeft een aantal aanvragen per limiet voor tweede (RPS) en als u de limiet overschrijdt, de SDK een uitzondering met een foutcode 429 genereert. 
 >
-> Een sleutel gratis laag heeft een limiet van de frequentie waarmee een RPS.
+> De sleutel van een gratis laag heeft een limiet van één RPS.
 
     /// <summary>
     /// Creates a new term list.
@@ -126,11 +126,11 @@ De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
         }
     }
 
-## <a name="update-term-list-name-and-description"></a>Update term lijstnaam en beschrijving
+## <a name="update-term-list-name-and-description"></a>Update term lijst met naam en beschrijving
 
-Bijwerken van de informatie van de termijn lijst met **ContentModeratorClient.ListManagementTermLists.Update**. De eerste parameter **Update** is de term lijst-ID. De tweede parameter is een MIME-type ' application/json' moet zijn. Zie voor meer informatie de [API-referentiemateriaal](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). De derde parameter is een **instantie** object, dat de nieuwe naam en beschrijving bevat.
+Bijwerken van de informatie van de termijn van lijst met **ContentModeratorClient.ListManagementTermLists.Update**. De eerste parameter voor **Update** wordt de term lijst-ID. De tweede parameter is een MIME-type moet ' application/json'. Zie voor meer informatie de [API-verwijzing](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf755e3f9b070c105bd2c2/operations/57cf755e3f9b070868a1f685). De derde parameter is een **hoofdtekst** object, dat de nieuwe naam en beschrijving bevat.
 
-De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
+De methodedefinitie van de volgende aan naamruimte TermLists, klasse programma toevoegen.
 
     /// <summary>
     /// Update the information for the indicated term list.
@@ -147,9 +147,9 @@ De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
         Thread.Sleep(throttleRate);
     }
 
-## <a name="add-a-term-to-a-term-list"></a>Een term kunt toevoegen aan een lijst term
+## <a name="add-a-term-to-a-term-list"></a>Een term toevoegen aan een terminologielijst met
 
-De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
+De methodedefinitie van de volgende aan naamruimte TermLists, klasse programma toevoegen.
 
     /// <summary>
     /// Add a term to the indicated term list.
@@ -164,9 +164,9 @@ De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
         Thread.Sleep(throttleRate);
     }
 
-## <a name="get-all-terms-in-a-term-list"></a>Alle termen in een lijst van de termijn ophalen
+## <a name="get-all-terms-in-a-term-list"></a>Alle voorwaarden in een terminologielijst ophalen
 
-De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
+De methodedefinitie van de volgende aan naamruimte TermLists, klasse programma toevoegen.
 
     /// <summary>
     /// Get all terms in the indicated term list.
@@ -185,13 +185,13 @@ De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
         Thread.Sleep(throttleRate);
     }
 
-## <a name="add-code-to-refresh-the-search-index"></a>Code toevoegen om te vernieuwen van de search-index
+## <a name="add-code-to-refresh-the-search-index"></a>Code voor het vernieuwen van de search-index toevoegen
 
-Nadat u wijzigingen in een lijst van de termijn aanbrengt, vernieuw de search-index om de wijzigingen te worden opgenomen de volgende keer dat u de lijst term om tekst op het scherm te gebruiken. Dit is vergelijkbaar met hoe een zoekmachine op het bureaublad (indien ingeschakeld) of een zoekmachine voortdurend vernieuwd de index als nieuwe bestanden of pagina's wilt opnemen.
+Nadat u wijzigingen aan een terminologielijst aanbrengt, kunt u de search-index voor de wijzigingen op te nemen dat de volgende keer dat u met de terminologielijst om tekst op het scherm te vernieuwen. Dit is vergelijkbaar met hoe een zoekmachine op het bureaublad (indien ingeschakeld) of een zoekmachine voortdurend Hiermee vernieuwt u de index zodanig dat nieuwe bestanden of pagina's.
 
 Vernieuwen van een term lijst search-index met **ContentModeratorClient.ListManagementTermLists.RefreshIndexMethod**.
 
-De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
+De methodedefinitie van de volgende aan naamruimte TermLists, klasse programma toevoegen.
 
     /// <summary>
     /// Refresh the search index for the indicated term list.
@@ -205,22 +205,22 @@ De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
         Thread.Sleep((int)(latencyDelay * 60 * 1000));
     }
 
-## <a name="screen-text-using-a-term-list"></a>Tekst op het scherm met behulp van een lijst van de termijn
+## <a name="screen-text-using-a-term-list"></a>Tekst op het scherm met behulp van een terminologielijst
 
-Scherm van tekst met behulp van een lijst van de termijn met **ContentModeratorClient.TextModeration.ScreenText**, die de volgende parameters zijn vereist.
+Scherm van tekst met behulp van de lijst met een term met **ContentModeratorClient.TextModeration.ScreenText**, die de volgende parameters zijn vereist.
 
-- De taal van de voorwaarden in de lijst van de termijn.
-- Een MIME-type, ' text/html', ' text/xml', ' text/markdown' of ' text/plain worden kan'.
+- De taal van de voorwaarden in de terminologielijst.
+- Een MIME-type, die ' text/html', ' text/xml', ' text/markdown' of ' text/plain worden kan'.
 - De tekst op het scherm.
-- Een Booleaanse waarde. Dit veld ingesteld op **true** AutoCorrectie-de tekst vóór het gescreend.
-- Een Booleaanse waarde. Dit veld ingesteld op **true** voor het detecteren van persoonlijk herleidbare informatie (PII) in de tekst.
+- Een Booleaanse waarde. Stel dit veld in **waar** AutoCorrectie-de tekst voor het afschermen.
+- Een Booleaanse waarde. Stel dit veld in **waar** persoonlijk identificeerbare informatie (PII) in de tekst detecteren.
 - De term lijst-ID.
 
-Zie voor meer informatie de [API-referentiemateriaal](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
+Zie voor meer informatie de [API-verwijzing](https://westus2.dev.cognitive.microsoft.com/docs/services/57cf753a3f9b070c105bd2c1/operations/57cf753a3f9b070868a1f66f).
 
-**ScreenText** retourneert een **scherm** -object met een **voorwaarden** eigenschap met een lijst met alle voorwaarden die inhoud beheerder gedetecteerd in de bestandsgroepen. Houd er rekening mee dat als inhoud beheerder eventuele voorwaarden die u tijdens de controle niet gedetecteerd de **voorwaarden** eigenschap heeft een waarde **null**.
+**ScreenText** retourneert een **scherm** object, dat is een **voorwaarden** eigenschap met een lijst met alle voorwaarden die Content Moderator gedetecteerd in de bestandsgroepen. Houd er rekening mee dat als Content Moderator heeft niet de voorwaarden die zich tijdens de screening detecteert de **voorwaarden** eigenschap heeft een waarde **null**.
 
-De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
+De methodedefinitie van de volgende aan naamruimte TermLists, klasse programma toevoegen.
 
     /// <summary>
     /// Screen the indicated text for terms in the indicated term list.
@@ -246,17 +246,17 @@ De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
         read.Sleep(throttleRate);
     }
 
-## <a name="delete-terms-and-lists"></a>Voorwaarden en lijsten verwijderen
+## <a name="delete-terms-and-lists"></a>Voorwaarden verwijderen en lijsten
 
-Het is eenvoudig een term of een lijst te verwijderen. U de SDK gebruiken voor de volgende taken uitvoeren:
+Het is eenvoudig een abonnement of een lijst te verwijderen. U de SDK gebruiken voor de volgende taken uitvoeren:
 
-- Een term verwijderen. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
+- Een term te verwijderen. (**ContentModeratorClient.ListManagementTerm.DeleteTerm**)
 - De voorwaarden in een lijst verwijderen zonder te verwijderen van de lijst. (**ContentModeratorClient.ListManagementTerm.DeleteAllTerms**)
 - Een lijst en alle inhoud verwijderd. (**ContentModeratorClient.ListManagementTermLists.Delete**)
 
 ### <a name="delete-a-term"></a>Een term verwijderen
 
-De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
+De methodedefinitie van de volgende aan naamruimte TermLists, klasse programma toevoegen.
 
     /// <summary>
     /// Delete a term from the indicated term list.
@@ -271,9 +271,9 @@ De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
         Thread.Sleep(throttleRate);
     }
 
-### <a name="delete-all-terms-in-a-term-list"></a>Alle termen in een lijst term verwijderen
+### <a name="delete-all-terms-in-a-term-list"></a>Alle voorwaarden in de lijst met een term verwijderen
 
-De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
+De methodedefinitie van de volgende aan naamruimte TermLists, klasse programma toevoegen.
 
     /// <summary>
     /// Delete all terms from the indicated term list.
@@ -287,9 +287,9 @@ De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
         Thread.Sleep(throttleRate);
     }
 
-### <a name="delete-a-term-list"></a>Een term lijst verwijderen
+### <a name="delete-a-term-list"></a>Een terminologielijst verwijderen
 
-De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
+De methodedefinitie van de volgende aan naamruimte TermLists, klasse programma toevoegen.
 
     /// <summary>
     /// Delete the indicated term list.
@@ -303,9 +303,9 @@ De volgende methodedefinitie toevoegen aan naamruimte TermLists, klasse Program.
         Thread.Sleep(throttleRate);
     }
 
-## <a name="putting-it-all-together"></a>Kort samengevat
+## <a name="putting-it-all-together"></a>Dit alles
 
-Voeg de **Main** methodedefinitie naamruimte TermLists, klasse Program. Tot slot sluit de klasse Program en de naamruimte TermLists.
+Voeg de **Main** methodedefinitie naamruimte TermLists, klasse programma. Tot slot sluit de klasse Program en de TermLists-naamruimte.
 
     static void Main(string[] args)
     {
@@ -341,9 +341,9 @@ Voeg de **Main** methodedefinitie naamruimte TermLists, klasse Program. Tot slot
         }
     }
 
-## <a name="run-the-application-to-see-the-output"></a>Voer de toepassing om te zien van de uitvoer
+## <a name="run-the-application-to-see-the-output"></a>Voer de toepassing om de uitvoer te bekijken
 
-De uitvoer worden uitgevoerd in de volgende regels, maar de gegevens kan verschillen.
+De uitvoer worden uitgevoerd in de volgende regels, maar de gegevens kunnen variëren.
 
     Creating term list.
     Term list created. ID: 252.
@@ -375,4 +375,4 @@ De uitvoer worden uitgevoerd in de volgende regels, maar de gegevens kan verschi
     
 ## <a name="next-steps"></a>Volgende stappen
 
-[Downloaden van de Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere inhoud beheerder snelstartgidsen voor .NET, en op uw integratie aan de slag.
+Krijgen de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET, en aan de slag met uw integratie.

@@ -1,6 +1,6 @@
 ---
-title: Ophalen van installatiekopieën van het web met de Bing afbeeldingen zoeken-API | Microsoft Docs
-description: De Bing afbeeldingen zoeken-API gebruiken om te zoeken naar en ophalen van relevante afbeeldingen van het web.
+title: Afbeeldingen ophalen via het web met de Bing afbeeldingen zoeken-API | Microsoft Docs
+description: De Bing afbeeldingen zoeken-API gebruiken om te zoeken naar en relevante afbeeldingen van het web.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,16 +10,16 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: c379cc2dfbe53f83e4d79500cd947879407c8d55
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 720318ab2be53c59c47e3399b1be5a55487840b7
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "40082602"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053955"
 ---
-# <a name="getting-images-from-the-web-with-the-bing-image-search-api"></a>Ophalen van installatiekopieën van het web met de Bing afbeeldingen zoeken-API
+# <a name="get-images-from-the-web-with-the-bing-image-search-api"></a>Afbeeldingen ophalen via het web met de Bing afbeeldingen zoeken-API
 
-U kunt met behulp van de Bing afbeeldingen zoeken REST-API, afbeeldingen krijgen via het web die gerelateerd zijn aan de zoekterm van de gebruiker door de volgende GET-aanvraag te verzenden:
+Wanneer u de Bing afbeeldingen zoeken REST-API gebruikt, kunt u installatiekopieën kunt krijgen via het web die gerelateerd zijn aan de zoekterm door de volgende GET-aanvraag te verzenden:
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies&mkt=en-us HTTP/1.1
@@ -35,7 +35,7 @@ Host: api.cognitive.microsoft.com
 > * Als het de eerste keer aanroepen van een van de Bing zoeken-API's, niet de header van de client-ID bevatten. Als u voorheen een Bing-API die een client-ID voor de gebruiker en apparaat combinatie geretourneerd hebt genoemd, zijn alleen de client-ID.
 > * Afbeeldingen moeten worden weergegeven in de volgorde die is opgegeven in het antwoord.
 
-## <a name="getting-images-from-a-specific-web-domain"></a>Ophalen van afbeeldingen uit een specifieke web-domein
+## <a name="get-images-from-a-specific-web-domain"></a>Afbeeldingen ophalen uit een specifieke web-domein
 
 Als u afbeeldingen uit een bepaald domein wilt opvragen, gebruikt de query-operator [site:](http://msdn.microsoft.com/library/ff795613.aspx).
 
@@ -44,7 +44,7 @@ GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghi
 ```
 
 > [!NOTE]
-> Antwoorden op query's met behulp van de `site:` operator kan bevatten inhoud voor volwassenen ongeacht de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) instelling. Gebruik alleen `site:` als u zich bewust bent van de inhoud op het domein.
+> Antwoorden op query's met behulp van de `site:` operator advies inwinnen bij inhoud voor volwassenen ongeacht de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) instelling. Gebruik alleen `site:` bent u op de hoogte van de inhoud van het domein.
 
 Het volgende voorbeeld laat zien hoe u kleine afbeeldingen opvraagt van ContosoSailing.com die Bing de afgelopen week heeft gedetecteerd.  
 
@@ -57,25 +57,25 @@ X-MSEdge-ClientID: <blobFromPriorResponseGoesHere>
 Host: api.cognitive.microsoft.com  
 ```
 
-## <a name="filtering-images"></a>Afbeeldingen filteren
+## <a name="filter-images"></a>Installatiekopieën filteren
 
- De afbeeldingen zoeken-API wordt standaard alle installatiekopieën die relevant voor de query zijn worden geretourneerd. Als u wilt filteren van de installatiekopieën die Bing retourneert (bijvoorbeeld om terug te keren alleen afbeeldingen met een transparant achtergrond of een specifieke grootte), kunt u de volgende queryparameters:
+ De afbeeldingen zoeken-API retourneert standaard alle installatiekopieën die relevant voor de query zijn. Als u wilt filteren van de installatiekopieën die Bing retourneert (bijvoorbeeld om terug te keren alleen afbeeldingen met een transparante achtergrond of een specifieke grootte), gebruikt u de volgende queryparameters:
 
-* [aspect](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#aspect): filter afbeeldingen op hoogte-breedteverhouding (bijvoorbeeld standaardafbeeldingen of afbeeldingen voor een breed scherm)
-* [color](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#color): filter afbeeldingen op overheersende kleur of zwart-wit
-* [feshness](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#freshness): filter afbeeldingen op leeftijd (bijvoorbeeld afbeeldingen die in de afgelopen week door Bing zijn gedetecteerd)
-* [height](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#height), [width](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#width): filter afbeeldingen op breedte en hoogte
-* [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagecontent): filter afbeeldingen op inhoud (bijvoorbeeld afbeeldingen die alleen het gezicht van een persoon bevatten)
-* [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype): filter afbeeldingen op type (zoals illustraties, GIF-animaties of doorzichtige achtergronden)
-* [license](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license): filter afbeeldingen op het type licentie dat aan de site is gekoppeld
-* [size](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size): filter afbeeldingen op grootte, zoals kleine afbeeldingen tot 200x200 pixels
+* [aspect](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#aspect): filteren van installatiekopieën op de hoogte-breedteverhouding (bijvoorbeeld, standard of breed schermafbeeldingen).
+* [kleur](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#color), installatiekopieën van de overheersende kleur of zwart-wit filteren.
+* [nieuwheid](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#freshness): installatiekopieën filteren op leeftijd (bijvoorbeeld afbeeldingen door Bing gedetecteerd in de afgelopen week).
+* [hoogte](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#height), [breedte](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#width)-installatiekopieën met breedte en hoogte filteren.
+* [imageContent](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagecontent): installatiekopieën filteren op de inhoud (bijvoorbeeld afbeeldingen die alleen van een persoon face weergeven).
+* [imageType](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#imagetype)-installatiekopieën op type (bijvoorbeeld, illustraties, GIF-animaties of transparante achtergrond) filteren.
+* [licentie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#license): installatiekopieën filteren op het type licentie dat is gekoppeld aan de site.
+* [grootte](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#size): Filter installatiekopieën op grootte, zoals de kleine afbeeldingen maximaal 200 x 200 pixels.
 
 Als u afbeeldingen uit een bepaald domein wilt opvragen, gebruikt de query-operator [site:](http://msdn.microsoft.com/library/ff795613.aspx).
 
-    > [!NOTE]
-    > Responses to queries using the `site:` operator may include adult content regardless of the [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) setting. Only use `site:` if you are aware of the content on the domain.
+ > [!NOTE]
+ > Antwoorden op query's met behulp van de `site:` operator advies inwinnen bij inhoud voor volwassenen ongeacht de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) instelling. Gebruik alleen `site:` bent u op de hoogte van de inhoud van het domein.
 
-Het volgende voorbeeld laat zien hoe u kleine afbeeldingen opvraagt van ContosoSailing.com die Bing de afgelopen week heeft gedetecteerd.  
+Het volgende voorbeeld ziet hoe u kleine afbeeldingen van ContosoSailing.com die Bing gedetecteerd in de afgelopen week.  
 
 ```http
 GET https://api.cognitive.microsoft.com/bing/v7.0/images/search?q=sailing+dinghies+site:contososailing.com&size=small&freshness=week&mkt=en-us HTTP/1.1  
@@ -88,7 +88,7 @@ Host: api.cognitive.microsoft.com
 
 ## <a name="bing-image-search-response-format"></a>Bing afbeeldingen zoeken-antwoordindeling
 
-Het antwoordbericht van Bing bevat een [installatiekopieën](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) antwoord bevat een lijst met installatiekopieën die Azure cognitive services blijkt dat relevant is voor de query. Elke [installatiekopie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) object in de lijst bevat de volgende informatie over de installatiekopie: de URL, de grootte, de dimensies, de coderingsindeling, een URL naar een miniatuur van de installatiekopie en dimensies van de miniatuur.
+Het antwoordbericht van Bing bevat een [installatiekopieën](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) antwoord bevat een lijst met installatiekopieën die Cognitive Services blijkt dat relevant is voor de query. Elke [installatiekopie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#image) object in de lijst bevat de volgende informatie over de installatiekopie: de URL, de grootte, de dimensies, de coderingsindeling, een URL naar een miniatuur van de installatiekopie en dimensies van de miniatuur.
 
 ```json
 {
@@ -117,7 +117,7 @@ Het antwoordbericht van Bing bevat een [installatiekopieën](https://docs.micros
 },
 ```
 
-Wanneer u de Bing Afbeeldingen zoeken-API aanroept, retourneert Bing een lijst met resultaten. De lijst is een subset van het totale aantal resultaten die relevant zijn voor de query. Het veld `totalEstimatedMatches` in de respons bevat een schatting van het aantal afbeeldingen dat beschikbaar is om weer te geven. Zie [Afbeeldingen per pagina weergeven](../paging-images.md) voor meer informatie over het paginagewijs weergeven van de resterende afbeeldingen.
+Wanneer u de Bing Afbeeldingen zoeken-API aanroept, retourneert Bing een lijst met resultaten. De lijst is een subset van het totale aantal resultaten die relevant zijn voor de query. Het veld `totalEstimatedMatches` in de respons bevat een schatting van het aantal afbeeldingen dat beschikbaar is om weer te geven. Zie voor meer informatie over het bladeren door de rest van de installatiekopieën [installatiekopieën van het wisselbestand](../paging-images.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

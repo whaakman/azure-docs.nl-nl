@@ -1,3 +1,21 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: site-recovery
+author: rayne-wiselman
+manager: carmonm
+ms.service: site-recovery
+ms.topic: include
+ms.date: 09/06/2018
+ms.author: raynew
+ms.custom: include file
+ms.openlocfilehash: 2ca4916d48da6fe8a2c061056a1ea0fed9a78bb6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44058345"
+---
 1. Voer het installatiebestand voor de geïntegreerde Setup uit.
 2. In **voordat u begint**, selecteer **de configuratieserver en processerver installeren**.
 
@@ -21,10 +39,7 @@
 7. Maak bij **MySQL-configuratie** referenties voor aanmelden bij de MySQL-serverinstantie die is geïnstalleerd.
 
     ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz6.png)
-8. Selecteer bij **Details van de omgeving** of u virtuele VMware-machines wilt repliceren. Als u bent, klikt u vervolgens controleert Setup of PowerCLI 6.0 is geïnstalleerd.
-
-    ![MySQL](./media/site-recovery-add-configuration-server/combined-wiz7.png)
-
+8. In **Details van de omgeving**, Selecteer Nee als u Azure Stack-machines of fysieke servers repliceert. 
 9. Selecteer bij **Installatielocatie** waar u de binaire bestanden wilt installeren en de cache wilt opslaan. Het station dat u selecteert, moet ten minste 5 GB vrije schijfruimte bevatten, maar wij raden u aan een cachestation te gebruiken met minstens 600 GB vrije ruimte.
 
     ![Installatielocatie](./media/site-recovery-add-configuration-server/combined-wiz8.png)

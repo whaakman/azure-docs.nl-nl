@@ -7,14 +7,14 @@ manager: mbaldwin
 ms.service: key-vault
 ms.topic: article
 ms.workload: identity
-ms.date: 10/12/2017
+ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: d8554d235fdfeb5b192ddf1268e60b7bc32aabe7
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: b4522d9eb2e9af782918f021c79bbcb155c5c383
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42060110"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053618"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Handleiding voor ontwikkelaars van Azure Key Vault
 
@@ -53,11 +53,9 @@ Resources in bovenstaande video:
 
 ## <a name="creating-and-managing-key-vaults"></a>Het maken en beheren van Sleutelkluizen
 
-Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. Managed Service Identity (MSI) levert Azure-services met een automatisch beheerde identiteit in Azure Active Directory (Azure AD), waarmee dit probleem eenvoudiger kan worden opgelost. U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben. 
+Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd voor Key Vault om ze op te halen. Beheerde identiteiten voor Azure-resources maakt het oplossen van dit probleem eenvoudiger door middel van Azure-services een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt deze identiteit gebruiken voor verificatie bij alle services die ondersteuning bieden voor Azure AD-verificatie, inclusief Key Vault, zonder dat u referenties in uw code hoeft te hebben. 
 
-Zie voor meer informatie over MSI [Managed Service Identity (MSI) voor Azure-resources](https://docs.microsoft.com/azure/active-directory/msi-overview).
-
-Zie voor meer informatie over het werken met AAD [toepassingen integreren met Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
+Zie voor meer informatie over beheerde identiteiten voor Azure-resources [het overzicht van beheerde identiteiten](../active-directory/managed-identities-azure-resources/overview.md). Zie voor meer informatie over het werken met AAD [toepassingen integreren met Azure Active Directory](/azure/active-directory/develop/active-directory-integrating-applications).
 
 Voordat u met de sleutels, geheimen of certificaten werken in uw key vault, moet u maken en beheren van uw key vault via de CLI, PowerShell, Resource Manager-sjablonen of REST, zoals beschreven in de volgende artikelen:
 
@@ -110,14 +108,14 @@ In Node.js zijn de API voor Key Vault-beheer en de Key Vault-object API afzonder
 ### <a name="quick-start-guides"></a>Quick start-handleidingen
 
 - [Key Vault maken](https://github.com/Azure/azure-quickstart-templates/tree/master/101-key-vault-create)
-- [Aan de slag met Key Vault in Node.js](https://azure.microsoft.com/resources/samples/key-vault-node-getting-started/)
+- [Aan de slag met Key Vault in Node.js](https://github.com/Azure-Samples/key-vault-node-getting-started)
 
 ### <a name="code-examples"></a>Voorbeelden van code
 
 Voor volledige voorbeelden met Key Vault met uw toepassingen, Zie:
 
-- [Azure Key Vault-codevoorbeelden](http://www.microsoft.com/download/details.aspx?id=45343) -voorbeeld van .NET-toepassing *HelloKeyVault* en een voorbeeld van Azure-web-service. 
-- [Azure Key Vault vanuit een webtoepassing gebruiken](key-vault-use-from-web-application.md) -zelfstudie voor meer informatie over het gebruik van Azure Key Vault vanuit een webtoepassing in Azure. 
+- [Azure Key Vault-codevoorbeelden](https://azure.microsoft.com/resources/samples/?service=key-vault) -codevoorbeelden voor Azure Key Vault. 
+- [Azure Key Vault vanuit een webtoepassing gebruiken](quick-create-net.md) -zelfstudie voor meer informatie over het gebruik van Azure Key Vault vanuit een webtoepassing in Azure. 
 
 ## <a name="how-tos"></a>Procedures
 

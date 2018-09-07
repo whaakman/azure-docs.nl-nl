@@ -1,6 +1,7 @@
 ---
-title: Veelgestelde vragen voor spraak-naar-tekst-Service op Azure
-description: Hier vindt u antwoorden op de meest populaire vragen over de spraak-naar-tekst.
+title: Veelgestelde vragen over de spraak-naar-tekst-service in Azure
+description: Vind antwoorden op de meest populaire vragen over de spraak-naar-tekst-service.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
 ms.service: cognitive-services
@@ -8,136 +9,134 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: e5ba01c25646578da22f054659051be3515e9e4b
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: 31515d6867fc5524df1b081932dd2a28b0cf989c
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39281827"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022155"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Veelgestelde vragen over spraak naar tekst
 
-Als u geen antwoorden op uw vragen in deze Veelgestelde vragen vinden, bekijk dan andere ondersteuningsopties [hier](support.md).
+Als u geen antwoorden op uw vragen in deze Veelgestelde vragen vinden, bekijk dan [andere ondersteuningsopties](support.md).
 
 ## <a name="general"></a>Algemeen
 
-**Vraag**: Wat is het verschil tussen de basislijn en aangepaste spraak naar tekst-modellen?
+**V: Wat is het verschil tussen een basislijn-model en een aangepaste spraak naar tekst-model?**
 
-**Antwoord**: basislijn modellen zijn getraind met gegevens eigendom zijn van Microsoft en al zijn geïmplementeerd in de cloud. Aangepaste modellen kunnen de gebruiker aan te passen van een model voor een betere aansluiting op een specifieke omgeving met specifieke omgevingsgeluid of -taal. Factory verdiepingen, auto's, ruis Streets (straten) aangepast akoestisch model zou vereisen dat bepaalde onderwerpen zoals biologie, natuurkunde, radiologie, productnamen en aangepaste acroniemen een aangepast taalmodel moet.
+**Een**: een basislijn-model is getraind met behulp van eigendom van Microsoft gegevens en al is geïmplementeerd in de cloud.  U kunt een aangepast model gebruiken om aan te passen van een model voor een betere aansluiting op een specifieke omgeving met specifieke omgevingsgeluid of taal. Factory verdiepingen, auto's of ruis Streets (straten) moet een aangepast akoestisch model. Onderwerpen zoals biologie, natuurkunde, radiologie, productnamen en aangepaste acroniemen moet een aangepast taalmodel.
 
-**Vraag**: waar moet ik beginnen als u wilt gebruiken een model basislijn?
+**V: waar begin ik als ik wil een basislijn-model gebruiken?**
 
-**Antwoord**: u moet eerst aan een [abonnementssleutel](get-started.md). Als u maken van de REST-aanroepen naar de modellen predeployed basislijn wilt, raadpleegt u de [hier details](rest-apis.md). Als u wilt gebruiken van WebSockets downloaden de [SDK](speech-sdk.md)
+**Een**: Haal eerst een [abonnementssleutel](get-started.md). Als u maken van de REST-aanroepen naar de modellen predeployed basislijn wilt, raadpleegt u de [REST-API's](rest-apis.md). Als u wilt gebruikmaken van WebSockets, [de SDK downloaden](speech-sdk.md).
 
-**Vraag**: kan ik altijd nodig hebt om een aangepast spraakmodel ontwikkelen?
+**V: ik altijd moet een aangepast spraakmodel bouwen?**
 
-**Antwoord**: Nee, als uw toepassing van algemene dagelijkse taal gebruikmaakt en u niet hoeft voor het aanpassen van een model. Bovendien als uw toepassing wordt gebruikt in een omgeving waar er weinig of geen achtergrondgeluiden wordt u niet nodig hebt om aan te passen ofwel. De portal kan gebruikers basislijn en aangepaste modellen implementeren en nauwkeurigheidstests uitgevoerd. Gebruikers kunnen deze functie gebruiken om te meten nauwkeurigheid van een basislijn vs een aangepast model.
+**Een**: Nee. Als uw toepassing gebruikmaakt van algemene, dagelijkse taal niet moet u een model aanpassen. Als uw toepassing in een omgeving wordt gebruikt wanneer er weinig of geen achtergrondgeluiden, hoeft u niet voor het aanpassen van een model. 
 
-**Vraag**: hoe weet ik wanneer de verwerking van de gegevensset of het model voltooid is?
+U kunt implementeren basislijn en aangepaste modellen in de portal en vervolgens nauwkeurigheidstests uitgevoerd. U kunt deze functie gebruiken voor het meten van de nauwkeurigheid van een model basislijn ten opzichte van een aangepast model.
 
-**Antwoord**: de status van het model of de gegevensset in de tabel is momenteel de enige manier om te weten.
-Wanneer de verwerking voltooid is, wordt de status worden 'geslaagd'.
+**V: hoe weet ik wanneer de verwerking voor de gegevensset of het model is voltooid?**
 
-**Vraag**: kan ik meer dan één model maken?
+**Een**: de status van het model of de gegevensset in de tabel is momenteel de enige manier om te weten. Wanneer de verwerking voltooid is, wordt de status is **geslaagd**.
 
-**Antwoord**: Er is geen limiet voor het aantal modellen in uw verzameling zijn.
+**V: kan ik meer dan één model maken?**
 
-**Vraag**: ik gerealiseerde ik een fout hebt gemaakt. Hoe ik mijn gegevens importeren annuleren of model maken die wordt uitgevoerd? 
+**Een**: Er is geen limiet voor het aantal modellen die u in uw verzameling hebben kunt.
 
-**Antwoord**: momenteel u kan niet worden teruggedraaid een aanpassing van woordenlijsten akoestische of taal proces. Geïmporteerde gegevens en -modellen kunnen worden verwijderd nadat ze in een definitieve status heeft zijn.
+**V: ik gerealiseerde dat ik een fout hebt gemaakt. Hoe ik mijn gegevens importeren annuleren of model maken die wordt uitgevoerd?**
 
-**Vraag**: Wat is het verschil tussen de zoekopdracht & dicteren modellen en het conversatie-modellen?
+**Een**: op dit moment u kan niet worden teruggedraaid een aanpassing van woordenlijsten akoestische of taal proces. U kunt de geïmporteerde gegevens en modellen verwijderen wanneer ze zich in een definitieve status heeft.
 
-**Antwoord**: Er zijn meer dan één basislijn modellen kiezen uit in de Speech-Service. Het conversatie-model is geschikt voor het herkennen van spraak gesproken in een eigen stijl. Dit model zou ideaal voor het aanroepen van tijdens het zoeken te transcriberen en dicteren is ideaal voor spraak geactiveerd Apps. Universal is een nieuw model dat is erop gericht voor beide scenario's.
+**V: Wat is het verschil tussen de zoek- en spraakherkenning model en de conversatie model?**
 
-**Vraag**: kan ik mijn bestaande model (model stapelen) bijwerken?
+**Een**: U kunt kiezen uit meer dan één basislijn-model in de Speech-service. De conversatie model is handig voor het herkennen van spraak in een eigen stijl wordt gezegd. Dit model is ideaal voor telefoongesprekken te transcriberen. Het model voor zoeken en dicteren is ideaal voor apps stem wordt geactiveerd. Het universele model is een nieuw model dat is erop gericht voor beide scenario's.
 
-**Antwoord**: bestaande modellen kunnen niet worden bijgewerkt. De oude gegevensset worden gecombineerd met de nieuwe en readapt als tijdelijke oplossing.
+**V: kan ik mijn bestaande model (model stapelen) bijwerken?**
 
-De oude en nieuwe gegevenssets moet worden gecombineerd in één Zip-(indien dit om akoestische gegevens is) of een txt-bestand als het language-gegevens. Aanpassing van woordenlijsten gebeurt nadat de nieuwe bijgewerkte model moet worden opgeheven geïmplementeerde verkrijgen van een nieuw eindpunt
+**Een**: een bestaand model kan niet worden bijgewerkt. Als een oplossing combineert de oude gegevensset met de nieuwe gegevensset en readapt.
 
-**Vraag**: Wat gebeurt er als ik hogere gelijktijdigheid nodig voor mijn geïmplementeerde model dan wat wordt aangeboden in de portal. 
+De oude gegevensset en de nieuwe gegevensset moeten worden gecombineerd in één ZIP-bestand (voor akoestische gegevens) of in een txt-bestand (voor taal gegevens). Wanneer de aanpassing is voltooid, moet de nieuwe, bijgewerkte model worden geïmplementeerd om te verkrijgen van een nieuw eindpunt
 
-**Antwoord**: U kunt uw model in stappen van 20 gelijktijdige aanvragen opschalen. 
+**V: Wat gebeurt er als ik hogere gelijktijdigheid nodig voor mijn geïmplementeerde model dan wat wordt aangeboden in de portal?** 
 
-Contact met ons opnemen als u hogere schaal nodig hebt.
+**Een**: U kunt uw model in stappen van 20 gelijktijdige aanvragen opschalen. 
 
-**Vraag**: kan ik mijn model downloaden en lokaal uitvoeren?
+Contact met ons opnemen als u een hogere schaal nodig hebt.
 
-**Antwoord**: modellen niet kunnen worden gedownload en lokaal worden uitgevoerd.
+**V: kan ik mijn model downloaden en lokaal uitvoeren?**
 
-**Vraag**: zijn mijn aanvragen in het logboek geregistreerd?
+**Een**: modellen niet kunnen worden gedownload en lokaal worden uitgevoerd.
 
-**Antwoord**: U hebt de mogelijkheid tijdens het maken van een implementatie te traceren, waarna er geen audio uitschakelen of transcripties worden geregistreerd. Anders aanvragen worden gewoonlijk is geregistreerd in Azure in veilige opslag. Als u nog meer vragen over privacy leiden die voorkomen dat u met behulp van de Custom Speech Service hebt, neem contact op met een van de ondersteuningskanalen.
+**V: Mijn aanvragen in het logboek geregistreerd zijn?**
+
+**Een**: U hebt de keuze bij het maken van een implementatie tracering uitschakelen. Op dat moment worden geen audio- of transcripties geregistreerd. Anders aanvragen worden gewoonlijk is geregistreerd in Azure in veilige opslag. 
+
+Als u nog meer vragen over privacy leiden die voorkomen dat u met behulp van de aangepaste spraakservice hebt, neem contact op met een van de ondersteuningskanalen.
 
 ## <a name="importing-data"></a>Gegevens importeren
 
-**Vraag**: Wat is de limiet voor de grootte van de gegevensset? Hoe komt dat? 
+**V: Wat is de limiet voor de grootte van een gegevensset en waarom is het de limiet?**
 
-**Antwoord**: de huidige limiet voor een gegevensset is 2 GB, vanwege de beperking voor de grootte van een bestand voor het uploaden van HTTP. 
+**Een**: de huidige limiet voor een gegevensset is 2 GB. De limiet is vanwege de beperking voor de grootte van een bestand voor het uploaden van HTTP. 
 
-**Vraag**: kan ik mijn tekstbestanden zip om het uploaden van een grotere tekstbestand? 
+**V: kan ik mijn tekstbestanden zip zodat ik kan een grotere tekstbestand uploaden?** 
 
-**Antwoord**: Nee, momenteel alleen niet-gecomprimeerde tekstbestanden zijn toegestaan.
+**Een**: Nee. Op dit moment zijn alleen niet-gecomprimeerde tekstbestanden toegestaan.
 
-**Vraag**: het gegevensrapport zegt er zijn mislukte uitingen. Wat is het probleem?
+**Vraag: het gegevensrapport zegt er zijn mislukte uitingen. Wat is het probleem?**
 
-**Antwoord**: Failover-overschakeling naar 100% van de uitingen in een bestand uploaden is geen probleem.
-Als het overgrote deel van de uitingen in een akoestische of elke taal worden gegevens (bijvoorbeeld > 95%) correct zijn geïmporteerd, de gegevensset kan worden gebruikt. Het wordt echter aanbevolen dat u probeert te begrijpen waarom de uitingen is mislukt en de problemen kunt oplossen. Meest voorkomende problemen, zoals het opmaken van fouten, zijn gemakkelijk op te lossen. 
+**Een**: Failover-overschakeling naar 100 procent van de uitingen in een bestand uploaden is geen probleem. Als het overgrote deel van de uitingen in een gegevensset akoestische of taal (voor een voorbeeld, meer dan 95 procent) geïmporteerd zijn, kan de gegevensset worden gebruikt. We raden echter aan dat u probeert te begrijpen waarom de uitingen is mislukt en de problemen kunt oplossen. Meest voorkomende problemen, zoals het opmaken van fouten, zijn gemakkelijk op te lossen. 
 
-## <a name="creating-am"></a>Het maken van AM
+## <a name="creating-an-acoustic-model"></a>Het maken van een akoestisch model
 
-**Vraag**: hoeveel akoestische gegevens heb ik nodig?
+**V: hoe veel akoestische gegevens heb ik nodig?**
 
-**Antwoord**: kunt het beste beginnen met 30 minuten tot een uur om akoestische gegevens.
+**Een**: kunt het beste beginnen met tussen 30 minuten en één uur om akoestische gegevens.
 
-**Vraag**: welke gegevens moet ik verzamelen?
+**V: voor welke gegevens moet ik verzameld?**
 
-**Antwoord**: verzamelen van gegevens die zich zo dicht bij de toepassingsscenario en use-case mogelijk.
-Het verzamelen van gegevens moet overeenkomen met de doeltoepassing en gebruikers in termen van apparaten of apparaten, omgevingen en typen sprekers. In het algemeen dient u te verzamelen gegevens van als brede tal van sprekers mogelijk. 
+**Een**: verzamelen van gegevens die zich zo dicht bij de toepassingsscenario en use-case mogelijk. Het verzamelen van gegevens moet overeenkomen met de doeltoepassing en gebruikers in termen van apparaten of apparaten, omgevingen en typen sprekers. In het algemeen dient u te verzamelen gegevens van als brede tal van sprekers mogelijk. 
 
-**Vraag**: hoe moet ik deze verzamelen? 
+**V: hoe moet ik om akoestische gegevens verzameld?**
 
-**Antwoord**: U kunt een zelfstandige gegevens verzameling-toepassing maken of sommige uit de audio-opnamen plank software gebruiken.
-U kunt ook een versie van uw toepassing die de audio gegevens geregistreerd en gebruikt die maken. 
+**Een**: U kunt een zelfstandige gegevens verzameling-toepassing maken of klare audio-opnamesoftware. U kunt ook een versie van uw toepassing waarmee de audiogegevens-logboeken en gebruikt vervolgens de gegevens maken. 
 
-**Vraag**: heb ik nodig transcriberen aanpassing van woordenlijsten gegevens zelf? 
+**V: ik moet transcriberen aanpassing van woordenlijsten gegevens zelf?**
 
-**Antwoord**: Ja! U kunt deze moet transcriberen zelf of een professionele transcriptie-service gebruiken. Sommige gebruikers liever typistes terwijl anderen crowdsourcing gebruiken of de transcripties zelf doen.
+**Een**: Ja! U kunt deze moet transcriberen zelf of een professionele transcriptie-service gebruiken. Sommige gebruikers liever typistes en anderen crowdsourcing gebruiken of de transcripties zelf doen.
 
 ## <a name="accuracy-testing"></a>Nauwkeurigheidstests
 
-**Vraag**: kan ik uitvoeren offline testen van mijn aangepast akoestisch model met behulp van een aangepast taalmodel?
+**V: kan ik de offline testen van mijn aangepast akoestisch model met behulp van een aangepast taalmodel uitvoeren?**
 
-**Antwoord**: Ja, selecteer de aangepaste taalmodel in de vervolgkeuzelijst bij het instellen van de offline testen
+**Een**: Ja, selecteer de aangepaste taalmodel in de vervolgkeuzelijst bij het instellen van de offline-test.
 
-**Vraag**: kan ik uitvoeren offline testen van mijn aangepaste taalmodel met behulp van een aangepast akoestisch model?
+**V: kan ik uitvoeren offline testen van mijn aangepaste taalmodel met behulp van een aangepast akoestisch model?**
 
-**Antwoord**: Ja, selecteer de aangepast akoestisch model in de vervolgkeuzelijst bij het instellen van de offline-test.
+**Een**: Ja, selecteer de aangepast akoestisch model in de vervolgkeuzelijst bij het instellen van de offline-test.
 
-**Vraag**: Wat is er Word fout tarief (WER) en hoe wordt het berekend?
+**V: wat word Foutfrequentie (Windows Foutrapportage) is en hoe wordt het berekend?**
 
-**Antwoord**: Word fout tarief (WER) is de evaluatie van metrische gegevens voor spraakherkenning. Als het totale aantal fouten, waaronder invoegingen, verwijderingen en vervangingen, gedeeld door het totale aantal woorden in de referentie-transcriptie wordt meegeteld. [Hier](https://en.wikipedia.org/wiki/Word_error_rate) vindt u meer informatie.
+**Een**: Windows Foutrapportage is de evaluatie van metrische gegevens voor spraakherkenning. Windows Foutrapportage wordt geteld als het totale aantal fouten, waaronder invoegingen, verwijderingen en vervangingen, gedeeld door het totale aantal woorden in de transcriptie verwijzing. Zie voor meer informatie, [word Foutfrequentie](https://en.wikipedia.org/wiki/Word_error_rate).
 
-**Vraag**: hoe bepaal ik als de resultaten van een test nauwkeurigheid is het verstandig?
+**V: hoe bepaal ik of de resultaten van een test nauwkeurigheid goed zijn?**
 
-**Antwoord**: de resultaten staat dat een vergelijking tussen de basislijn-model en de versie die u hebt aangepast.
-U moet erop gericht zijn op maat van het model basislijn zodat aanpassing van de moeite waard.
+**Een**: de resultaten staat dat een vergelijking tussen de basislijn-model en het model dat u hebt aangepast. U moet erop gericht zijn op maat van het model basislijn zodat aanpassing waard.
 
-**Vraag**: hoe ik achterhalen de frequentie van de Word-fouten van de basis modellen, zodat ik zien kan als er verbetering is? 
+**V: hoe bepaal ik de Windows Foutrapportage van een basis-model, zodat ik zien kan als er een verbetering is?** 
 
-**Antwoord**: de resultaten van de offline nauwkeurigheid van de nauwkeurigheid van de basislijn van het aangepaste model en het verbeteren na verloop van basislijn weergeven.
+**Een**: de resultaten van de offline de nauwkeurigheid van de basislijn van het aangepaste model en het verbeteren na verloop van basislijn weergeven.
 
-## <a name="creating-lm"></a>Het maken van LM
+## <a name="creating-a-language-model"></a>Het maken van een taalmodel
 
-**Vraag**: hoeveel tekstgegevens heb ik nodig om te uploaden?
+**V: hoe veel tekstgegevens heb ik nodig om te uploaden?**
 
-**Antwoord**: dit is afhankelijk van hoe verschillende vocabulaire en zinnen die wordt gebruikt in uw toepassing afkomstig zijn van de eerste taalmodellen. Voor alle nieuwe woorden is het handig om zo veel voorbeelden bieden mogelijk van het gebruik van deze woorden. Voor veelvoorkomende zinnen die worden gebruikt in uw toepassing, is met inbegrip van zinnen in de taal-gegevens ook handig als het systeem om te luisteren naar deze voorwaarden ook krijgt. Het is gebruikelijk om ten minste één honderd en doorgaans enkele honderden uitingen in de gegevensset taal of meer. Als bepaalde typen query's worden naar verwachting worden vaker voor dan anderen, kunt u ook meerdere exemplaren van de algemene query's invoegen in de gegevensset.
+**Een**: dit is afhankelijk van hoe verschillende vocabulaire en zinnen die wordt gebruikt in uw toepassing afkomstig zijn van de eerste taalmodellen. Voor alle nieuwe woorden is het handig om zo veel voorbeelden bieden mogelijk van het gebruik van deze woorden. Voor algemene zinnen die worden gebruikt in uw toepassing, is met inbegrip van zinnen in de gegevens van de taal ook handig omdat deze geeft het systeem ook luisteren naar deze voorwaarden. Het is gebruikelijk om ten minste 100 en doorgaans enkele honderden of meer uitingen in de taal-gegevensset. Als bepaalde typen query's worden naar verwachting worden vaker voor dan anderen, kunt u meerdere exemplaren van de algemene query's invoegen in de gegevensset.
 
-**Vraag**: kan ik net uploaden een lijst met woorden?
+**V: kan ik een lijst met woorden alleen uploaden?**
 
-**Antwoord**: een lijst met woorden uploaden wordt de woorden in vocabulaire maar geen informatie over het systeem hoe de woorden worden meestal gebruikt.
-Door op te geven van de volledige of gedeeltelijke uitingen (zinnen bestaat dingen die gebruikers maken zich waarschijnlijk in te spreken) het taalmodel kunt informatie over de nieuwe woorden en hoe ze worden gebruikt. Het aangepaste taalmodel geldt niet alleen voor het ophalen van nieuwe woorden in het systeem, maar ook voor het aanpassen van de kans op bekende woorden voor uw toepassing. Volledige uitingen die helpt het systeem meer beter. 
+**Een**: uploaden van een lijst met woorden de woorden worden toegevoegd aan de woordenlijst, maar deze wordt niet het systeem leren hoe de woorden die meestal worden gebruikt. Dankzij de volledige of gedeeltelijke uitingen (zinnen bestaat die gebruikers maken zich waarschijnlijk in te spreken) hebben het taalmodel informatie over de nieuwe woorden en hoe ze worden gebruikt. Het aangepaste taalmodel geldt niet alleen voor het toevoegen van nieuwe woorden naar het systeem, maar ook voor het aanpassen van de kans op bekende woorden voor uw toepassing. Volledige uitingen die helpt het systeem meer beter. 
 
 ## <a name="next-steps"></a>Volgende stappen
 

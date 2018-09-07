@@ -1,6 +1,6 @@
 ---
-title: Fouten opsporen in Azure microservices in Windows | Microsoft Docs
-description: Informatie over het bewaken en onderzoeken van uw services die zijn geschreven met behulp van Microsoft Azure Service Fabric op een lokale ontwikkelcomputer.
+title: Fouten opsporen in Azure Service Fabric-apps in Windows | Microsoft Docs
+description: Informatie over het bewaken en diagnoses uitvoeren van de services die zijn geschreven met behulp van Microsoft Azure Service Fabric op een lokale ontwikkelcomputer.
 services: service-fabric
 documentationcenter: .net
 author: dkkapur
@@ -14,57 +14,57 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/15/2017
 ms.author: dekapur
-ms.openlocfilehash: 93cf4985e94c0af480d9f4e2e38b792cffe4df6e
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: b4c3bc21591e8472dc8d51309f7431cb5d4421fd
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206178"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054166"
 ---
-# <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Controle en diagnose van services in de instellingen voor een lokale computer-ontwikkeling
+# <a name="monitor-and-diagnose-services-in-a-local-machine-development-setup"></a>Controle en diagnose van services in een lokale machine development setup
 > [!div class="op_single_selector"]
 > * [Windows](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally.md)
 > * [Linux](service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally-linux.md)
 > 
 > 
 
-Bewaking, detecteren, onderzoeken en het oplossen van problemen kunt services wilt gaan met minimale onderbreking van de gebruikerservaring. Controle en diagnostische gegevens zijn essentieel belang is in een werkelijke geïmplementeerde productie-omgeving, afhankelijk de efficiëntie van een vergelijkbaar model overstap tijdens de ontwikkeling van services zodat ze werken wanneer u naar een echte setup. Service Fabric maakt het eenvoudig voor ontwikkelaars van de service voor het implementeren van diagnostische gegevens die naadloos voor zowel lokale ontwikkeling één machine-instellingen als de echte productie cluster instellingen werkt.
+Bewaking, detecteren, onderzoeken en oplossen van problemen kunt voor diensten om door te gaan met minimale onderbreking van de gebruikerservaring. Controle en diagnose zijn essentieel belang is in een werkelijke geïmplementeerde productie-omgeving, afhankelijk de efficiëntie overstappen op een vergelijkbare model tijdens de ontwikkeling van services om te controleren of dat ze werken wanneer u naar de installatie van een echte verplaatst. Service Fabric kunt eenvoudig service waarmee ontwikkelaars voor het implementeren van diagnostische gegevens die naadloos kan worden gebruikt voor zowel lokale ontwikkeling van één machine-instellingen en instellingen voor real-world productie-cluster.
 
-## <a name="event-tracing-for-windows"></a>Gebeurtenistracering voor Windows
-[Event Tracing voor Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) is de aanbevolen technologie voor tracering van berichten in Service Fabric. Er zijn enkele voordelen van het gebruik van ETW:
+## <a name="event-tracing-for-windows"></a>Event Tracing voor Windows
+[Event Tracing voor Windows](https://msdn.microsoft.com/library/windows/desktop/bb968803.aspx) (ETW) is de aanbevolen technologie voor berichten voor tracering in Service Fabric. Er zijn enkele voordelen van het gebruik van ETW:
 
-* **ETW is snel.** Het is ontwikkeld als een tracering technologie met minimale gevolgen voor een uitvoeringstijden code.
-* **ETW-tracering werkt naadloos samen in lokale ontwikkelomgevingen en ook instellingen echte cluster.** Dit betekent dat u code te herschrijven uw tracering wanneer u klaar bent voor het implementeren van uw code naar een echte cluster geen hebt.
-* **Service Fabric systeemcode gebruikt ook ETW voor interne tracering.** Hiermee kunt u uw toepassingstraceringen interleaved met traceringen van Service Fabric-systeem weergeven. Ook kunt u gemakkelijker inzicht in de takenreeksen en relaties tussen uw toepassingscode en gebeurtenissen in het onderliggende systeem.
-* **Er is een ingebouwde ondersteuning voor Service Fabric Visual Studio tools ETW-gebeurtenissen weergeven.** ETW-gebeurtenissen worden weergegeven in de weergave van diagnostische gebeurtenissen van Visual Studio als Visual Studio correct is geconfigureerd met Service Fabric. 
+* **ETW is snel.** Het is ontwikkeld als een tracering-technologie met minimale impact op de uitvoertijd van code.
+* **ETW-tracering werkt naadloos met lokale ontwikkelomgevingen en ook instellingen voor real-world-cluster.** Dit betekent dat u hoeft te herschrijven van uw code tracering wanneer u klaar bent voor uw code implementeren in een echt cluster.
+* **Service Fabric-systeemcode maakt ook gebruik van ETW voor interne tracering.** Hiermee kunt u om uw toepassingstraces interleaved met Service Fabric-systeem traceringen weer te geven. Ook kunt u eenvoudig inzicht krijgen in de reeksen en relaties tussen uw toepassingscode en gebeurtenissen in het onderliggende systeem.
+* **Er is een ingebouwde ondersteuning in Service Fabric-Visual Studio-hulpprogramma's om ETW-gebeurtenissen weer te geven.** ETW-gebeurtenissen worden weergegeven in de weergave van diagnostische gebeurtenissen van Visual Studio als Visual Studio correct is geconfigureerd met Service Fabric. 
 
-## <a name="view-service-fabric-system-events-in-visual-studio"></a>Service Fabric-systeemgebeurtenissen bekijken in Visual Studio
-Service Fabric verzendt ETW-gebeurtenissen om te begrijpen wat er gebeurt in het platform voor ontwikkelaars van toepassingen. Als u dit nog niet hebt gedaan, gaat u verder gaan en volg de stappen in [maken van uw eerste toepassing in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). Deze informatie kunt u een toepassing actief en werkend ophalen met de diagnostische gebeurtenissen Viewer de traceringsberichten weergegeven.
+## <a name="view-service-fabric-system-events-in-visual-studio"></a>Bekijk systeemgebeurtenissen voor Service Fabric in Visual Studio
+Service Fabric verzendt ETW-gebeurtenissen om te begrijpen wat er gebeurt in het platform voor ontwikkelaars van toepassingen. Als u dit nog niet hebt gedaan, gaat u verder en volg de stappen in [maken van uw eerste toepassing in Visual Studio](service-fabric-create-your-first-application-in-visual-studio.md). Deze informatie krijgt u een toepassing actief en werkend krijgen met de Viewer voor diagnostische gebeurtenissen van de traceringsberichten.
 
-1. Als de diagnostische gegevens gebeurtenissen venster wordt niet automatisch wordt weergegeven, gaat u naar de **weergave** tabblad in Visual Studio, kiest u **overige vensters** en vervolgens **diagnostische logboeken**.
-2. Elke gebeurtenis heeft standaard metagegevens die u leest het knooppunt, toepassing en service afkomstig is van de gebeurtenis. U kunt ook de lijst met gebeurtenissen filteren met behulp van de **gebeurtenissen filteren** vak aan de bovenkant van het venster gebeurtenissen. Bijvoorbeeld, u kunt filteren op **knooppuntnaam** of **servicenaam.** En wanneer u de details van gebeurtenis kijkt, kunt u ook onderbreken met behulp van de **onderbreken** knop aan de bovenkant van het venster gebeurtenissen en later hervatten zonder verlies van gebeurtenissen.
+1. Als de diagnostische gegevens over het venster gebeurtenissen niet automatisch wordt weergegeven, gaat u naar de **weergave** tabblad in Visual Studio, kiest u **andere Windows** en vervolgens **Viewer voor diagnostische gebeurtenissen**.
+2. Elke gebeurtenis is standaard metagegevens die u leest het knooppunt, toepassing en service afkomstig is van de gebeurtenis. U kunt ook de lijst met gebeurtenissen filteren met behulp van de **gebeurtenissen filteren** vak aan de bovenkant van het venster gebeurtenissen. U kunt bijvoorbeeld filteren op **knooppuntnaam** of **servicenaam.** En als u geïnteresseerd bent in de details van gebeurtenis, kunt u ook onderbreken met behulp van de **onderbreken** knop aan de bovenkant van het venster gebeurtenissen en later hervatten zonder verlies van gebeurtenissen.
    
-   ![Visual Studio diagnostische gegevens van de Gebeurtenissenviewer](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
+   ![Visual Studio diagnostische logboeken met gebeurtenissen weer](./media/service-fabric-diagnostics-how-to-monitor-and-diagnose-services-locally/DiagEventsExamples2.png)
 
-## <a name="add-your-own-custom-traces-to-the-application-code"></a>Uw eigen aangepaste traceringen toevoegen aan de toepassingscode
-De Service Fabric Visual Studio-projectsjablonen bevatten voorbeeldcode. De code staat het toevoegen van aangepaste code ETW toepassingstraceringen die worden weergegeven in de Visual Studio ETW-viewer naast system traceringen van Service Fabric. Het voordeel van deze methode is dat de metagegevens wordt automatisch toegevoegd aan traceringen en Visual Studio diagnostische gebeurtenissen Viewer al geconfigureerd is om deze weer te geven.
+## <a name="add-your-own-custom-traces-to-the-application-code"></a>Uw eigen aangepaste traceringen in de toepassingscode toevoegen
+De Service Fabric-Visual Studio-projectsjablonen bevatten voorbeelden van code. De code laat zien hoe aangepaste toepassing code ETW-traceringen die worden weergegeven in de Visual Studio ETW-viewer naast system traceringen van Service Fabric toevoegen. Het voordeel van deze methode is dat metagegevens wordt automatisch toegevoegd aan traceringen, en de Visual Studio Viewer voor diagnostische gebeurtenissen al is geconfigureerd om deze weer te geven.
 
-Voor projecten gemaakt op basis van de **servicesjablonen** (stateless of stateful) zoeken de `RunAsync` implementatie:
+Voor projecten die zijn gemaakt op basis van de **servicesjablonen** (stateless of stateful) zoeken voor de `RunAsync` implementatie:
 
 1. De aanroep van `ServiceEventSource.Current.ServiceMessage` in de `RunAsync` methode toont een voorbeeld van een aangepaste ETW-tracering van de toepassingscode.
-2. In de **ServiceEventSource.cs** -bestand, vindt u een overbelasting voor de `ServiceEventSource.ServiceMessage` methode die moet worden gebruikt voor hoge frequentie gebeurtenissen om prestatieredenen.
+2. In de **ServiceEventSource.cs** -bestand, vindt u een overbelasting van de `ServiceEventSource.ServiceMessage` methode die moet worden gebruikt voor high-frequency gebeurtenissen vanwege prestatieredenen.
 
-Voor projecten gemaakt op basis van de **actor sjablonen** (stateless of stateful):
+Voor projecten die zijn gemaakt op basis van de **actor sjablonen** (stateless of stateful):
 
-1. Open de **'ProjectName'.cs** waar het bestand *ProjectName* is de naam die u hebt gekozen voor Visual Studio-project.  
-2. Zoek de code `ActorEventSource.Current.ActorMessage(this, "Doing Work");` in de *DoWorkAsync* methode.  Dit is een voorbeeld van een aangepaste ETW-tracering van toepassingscode geschreven.  
-3. In het bestand **ActorEventSource.cs**, vindt u een overbelasting voor de `ActorEventSource.ActorMessage` methode die moet worden gebruikt voor hoge frequentie gebeurtenissen om prestatieredenen.
+1. Open de **"ProjectName".cs** waar het bestand *ProjectName* is de naam die u hebt gekozen voor Visual Studio-project.  
+2. Zoek de code `ActorEventSource.Current.ActorMessage(this, "Doing Work");` in de *DoWorkAsync* methode.  Dit is een voorbeeld van een aangepaste ETW-tracering van toepassingscode worden geschreven.  
+3. V souboru **ActorEventSource.cs**, vindt u een overbelasting van de `ActorEventSource.ActorMessage` methode die moet worden gebruikt voor high-frequency gebeurtenissen vanwege prestatieredenen.
 
-Na het toevoegen van aangepaste ETW-tracering toe aan uw servicecode, kunt u bouwen, implementeren en uitvoeren van de toepassing opnieuw om te zien van uw gebeurtenis(sen) in de diagnostische gebeurtenissen Viewer. Als u de toepassing met fouten opsporen **F5**, de diagnostische gebeurtenissen Viewer wordt automatisch geopend.
+Na het toevoegen van aangepaste ETW-tracering in de servicecode van uw, kunt u bouwen, implementeren en uitvoeren van de toepassing opnieuw om te zien van uw gebeurtenis(sen) in de Viewer voor diagnostische gebeurtenissen. Als u fouten opsporen in de toepassing met **F5**, de Viewer voor diagnostische gebeurtenissen wordt automatisch geopend.
 
 ## <a name="next-steps"></a>Volgende stappen
-Dezelfde tracering-code die u hebt toegevoegd aan uw toepassing hierboven voor lokale diagnostische gegevens werken met hulpprogramma's die u gebruiken kunt om deze gebeurtenissen wanneer uw toepassing wordt uitgevoerd op een Azure-cluster weer te geven. Bekijk deze artikelen die de verschillende opties voor de hulpprogramma's worden behandeld en wordt beschreven hoe u kunt deze instellen.
+Dezelfde tracering code die u hebt toegevoegd aan uw toepassing hierboven voor lokale diagnostische gegevens werken met hulpprogramma's die u gebruiken kunt om deze gebeurtenissen bij het uitvoeren van uw toepassing op een Azure-cluster weer te geven. Lees deze artikelen die de verschillende opties voor de hulpprogramma's beschreven en wordt beschreven hoe u ze kunt instellen om.
 
-* [Het verzamelen van logboeken met diagnostische Azure-gegevens](service-fabric-diagnostics-how-to-setup-wad.md)
-* [Gebeurtenis-aggregatie en verzameling op basis van EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
+* [Over het verzamelen van logboeken met diagnostische gegevens van Azure](service-fabric-diagnostics-how-to-setup-wad.md)
+* [Aggregatie van de gebeurtenis en verzameling met EventFlow](service-fabric-diagnostics-event-aggregation-eventflow.md)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/22/2018
 ms.author: shlo
-ms.openlocfilehash: 1023eadbf4b799cd8b0c761c1689b9249cee450a
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d0f36551fb06e04b50af464bac6953dda64c6202
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42616841"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054145"
 ---
 # <a name="alert-and-monitor-data-factories-using-azure-monitor"></a>Waarschuwen en bewaken van data factory's met behulp van Azure Monitor
 Cloud-Apps zijn complexe met veel bewegende onderdelen bevatten. Monitoring biedt gegevens om ervoor te zorgen dat uw toepassing actief en wordt uitgevoerd in een foutloze toestand bevindt. Ook kunt u potentiële problemen voorkomen of oplossen van het verleden zijn. Bovendien kunt u bewakingsgegevens diep om inzicht te krijgen over uw toepassing. Deze kennis kan u helpen te verbeteren van de prestaties van de toepassing of onderhoud, of Automatiseer acties die anders handmatig worden opgelost moeten zouden.
@@ -392,7 +392,7 @@ ADFV2 verzendt de volgende metrische gegevens
 |----------------------|---------------------------------|----------|----------------------|-------------------------------------------------------|
 | PipelineSucceededRun | Pijplijn-runs metrische gegevens is voltooid | Count    | Totaal                | Totaal aantal pijplijnen werkstroomuitvoeringen binnen een minuut |
 | PipelineFailedRuns   | Pijplijn-runs metrische gegevens is mislukt    | Count    | Totaal                | Totale pijplijnen wordt uitgevoerd binnen een minuut    |
-| ActiviySucceededRuns | Metrische gegevens de uitvoeringen van activiteiten is voltooid | Count    | Totaal                | Totaal aantal uitvoeringen van activiteit is voltooid binnen een minuut  |
+| ActivitySucceededRuns | Metrische gegevens de uitvoeringen van activiteiten is voltooid | Count    | Totaal                | Totaal aantal uitvoeringen van activiteit is voltooid binnen een minuut  |
 | ActivityFailedRuns   | Kan geen metrische gegevens van activiteiten wordt uitgevoerd    | Count    | Totaal                | Totaal aantal uitvoeringen van activiteit is mislukt binnen een minuut     |
 | TriggerSucceededRuns | Trigger wordt uitgevoerd metrische gegevens is voltooid  | Count    | Totaal                | Totaal aantal trigger werkstroomuitvoeringen binnen een minuut   |
 | TriggerFailedRuns    | Trigger wordt uitgevoerd metrische gegevens is mislukt     | Count    | Totaal                | Totaal aantal trigger wordt uitgevoerd binnen een minuut      |
@@ -496,7 +496,7 @@ U kunt ook Meld u aan bij de Azure-portal en klikt u op **Monitor -&gt; waarschu
 
 3.  Definieer de **Waarschuwingsdetails**.
 
-    ![Waarschuwingsdetails](media/monitor-using-azure-monitor/alerts_image8.png)
+    ![Meldingsdetails](media/monitor-using-azure-monitor/alerts_image8.png)
 
 4.  Definieer de **actiegroep**.
 

@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 13bc82caf5e10f5b35df29d085349ec4c80628a2
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: d4322e5a7f9d587049e9225c3adde08d04325afc
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917449"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024301"
 ---
 # <a name="azure-stack-public-key-infrastructure-certificate-requirements"></a>Azure Stack-certificaatvereisten voor openbare-sleutelinfrastructuur
 
@@ -71,18 +71,20 @@ Voor uw implementatie, de [regio] en [externalfqdn] waarden moeten overeenkomen 
 | Beheerportal | adminportal. &lt;regio >. &lt;FQDN-naam > | Portals | &lt;region>.&lt;fqdn> |
 | Openbare Azure Resource Manager | beheer. &lt;regio >. &lt;FQDN-naam > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
 | Azure Resource Manager-beheerder | adminmanagement. &lt;regio >. &lt;FQDN-naam > | Azure Resource Manager | &lt;region>.&lt;fqdn> |
-| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Blob-opslag | blob.&lt;region>.&lt;fqdn> |
+| ACSBlob | *.blob.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Blob Storage | blob.&lt;region>.&lt;fqdn> |
 | ACSTable | * .table. &lt;regio >. &lt;FQDN-naam ><br>(Wildcard-SSL-certificaat) | Table Storage | de tabel. &lt;regio >. &lt;FQDN-naam > |
-| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Opslagwachtrij | wachtrij. &lt;regio >. &lt;FQDN-naam > |
+| ACSQueue | *.queue.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Queue Storage | wachtrij. &lt;regio >. &lt;FQDN-naam > |
 | KeyVault | *.vault.&lt;region>.&lt;fqdn><br>(Wildcard-SSL-certificaat) | Key Vault | kluis. &lt;regio >. &lt;FQDN-naam > |
 | KeyVaultInternal | *.adminvault. &lt;regio >. &lt;FQDN-naam ><br>(Wildcard-SSL-certificaat) |  Interne Keyvault |  adminvault. &lt;regio >. &lt;FQDN-naam > |
+| Beheerdersuitbreiding Host | *.adminhosting. \<regio >. \<FQDN-naam > (Wildcard-SSL-certificaten) | Beheerdersuitbreiding Host | adminhosting. \<regio >. \<FQDN-naam > |
+| Host van de openbare-extensie | * .hosting. \<regio >. \<FQDN-naam > (Wildcard-SSL-certificaten) | Host van de openbare-extensie | die als host fungeert. \<regio >. \<FQDN-naam > |
 
 Als u Azure Stack met behulp van de Azure AD-implementatiemodus implementeert, moet u alleen aanvragen van de certificaten die worden vermeld in de vorige tabel. Als u Azure Stack met behulp van de modus voor AD FS-implementatie implementeert, moet u echter ook de certificaten die worden beschreven in de volgende tabel vragen:
 
 |Implementatiemap|Vereiste certificaatonderwerp en alternatieve namen voor onderwerpen (SAN)|Bereik (per regio)|Subdomein naamruimte|
 |-----|-----|-----|-----|
 |ADFS|adfs.*&lt;region>.&lt;fqdn>*<br>(SSL-certificaat)|ADFS|*&lt;region>.&lt;fqdn>*|
-|Grafiek|graph.*&lt;region>.&lt;fqdn>*<br>(SSL-certificaat)|Grafiek|*&lt;region>.&lt;fqdn>*|
+|Graph|graph.*&lt;region>.&lt;fqdn>*<br>(SSL-certificaat)|Graph|*&lt;region>.&lt;fqdn>*|
 |
 
 > [!IMPORTANT]

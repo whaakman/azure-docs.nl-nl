@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 9eaaaaa4cc9be661cdc2ffde2b634e062c95a404
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 56c464b9fbc9fe5f2d9acd1a403333fd1c729113
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39523254"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023389"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-Firewalls en virtuele netwerken configureren
 Azure Storage biedt een gelaagd beveiligingsmodel waarmee u uw storage-accounts naar een specifieke set toegestane netwerken beveiligen.  Als network-regels zijn geconfigureerd, kunnen alleen de toepassingen van toegestane netwerken toegang krijgen tot een storage-account.  Bij het aanroepen van een toegestane netwerk, blijven toepassingen juiste autorisatie (een geldige toegangssleutel of SAS-token) voor toegang tot het opslagaccount nodig.
 
 > [!IMPORTANT]
-> Inschakelen van Firewall-regels voor uw opslagaccount, wordt de toegang tot binnenkomende aanvragen voor gegevens, met inbegrip van andere Azure-services geblokkeerd.  Dit omvat het gebruik van de Portal voor het schrijven van Logboeken, enzovoort.  Voor deelnemende services kunt u functionaliteit via opnieuw inschakelen de [uitzonderingen](#Exceptions) onderstaande sectie.  Voor toegang tot de Portal moet u dat doen op een computer in de vertrouwde grens (IP- of VNet) die u hebt ingesteld.
+> Inschakelen van Firewall-regels voor uw opslagaccount, wordt de toegang tot binnenkomende aanvragen voor gegevens, met inbegrip van andere Azure-services geblokkeerd.  Dit omvat het gebruik van de Portal voor het schrijven van Logboeken, enzovoort.  Voor deelnemende services kunt u functionaliteit via opnieuw inschakelen de [uitzonderingen](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) onderstaande sectie.  Voor toegang tot de Portal moet u dat doen op een computer in de vertrouwde grens (IP- of VNet) die u hebt ingesteld.
 >
 
 ## <a name="scenarios"></a>Scenario's
@@ -35,7 +35,7 @@ VM-schijfverkeer (inclusief koppelen en ontkoppelen van bewerkingen en schijf-i/
 
 Klassieke opslagaccounts **niet** ondersteuning voor Firewalls en virtuele netwerken.
 
-Back-up en herstellen van virtuele Machines met niet-beheerde schijven in opslagaccounts met netwerkregels toegepast wordt ondersteund via een uitzondering maken zoals beschreven in de [uitzonderingen](/storage/common/storage-network-security#exceptions) sectie van dit artikel.  Firewall-uitzonderingen zijn niet van toepassing met Managed Disks, omdat ze al worden beheerd door Azure.
+Back-up en herstellen van virtuele Machines met niet-beheerde schijven in opslagaccounts met netwerkregels toegepast wordt ondersteund via een uitzondering maken zoals beschreven in de [uitzonderingen](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) sectie van dit artikel.  Firewall-uitzonderingen zijn niet van toepassing met Managed Disks, omdat ze al worden beheerd door Azure.
 
 ## <a name="change-the-default-network-access-rule"></a>Wijzigen van de standaardtoegangsregel voor netwerk
 Standaard accepteren opslagaccounts verbindingen van clients op een netwerk.  Als u wilt beperken de toegang tot geselecteerde netwerken, moet u eerst de standaardactie wijzigen.

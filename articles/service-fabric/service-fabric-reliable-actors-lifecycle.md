@@ -1,6 +1,6 @@
 ---
-title: Overzicht van Azure microservices op basis van actor-levenscyclus | Microsoft Docs
-description: Legt uit betrouwbare Service Fabric-Actor levenscyclus, garbagecollection en het handmatig verwijderen actors en hun status
+title: Overzicht van de levenscyclus van de Azure Service Fabric-actor | Microsoft Docs
+description: Service Fabric Reliable Actor levenscyclus, garbagecollection en handmatig verwijderen van actoren en hun status uitgelegd
 services: service-fabric
 documentationcenter: .net
 author: amanbha
@@ -14,54 +14,54 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/06/2017
 ms.author: amanbha
-ms.openlocfilehash: 4e919c565574e0765227abda5832c858c36a77c0
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: dbd9551027744d443613e32e0a082c10d4f357d5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208434"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052045"
 ---
-# <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Actor levenscyclus, garbagecollection automatische en handmatige verwijderen
-Een actor is de eerste keer die wordt een aanroep naar een van de bijbehorende methoden geactiveerd. Een actor is gedeactiveerd (garbage collector zijn verzameld door de runtime actoren) als deze niet wordt gebruikt voor een configureerbare periode. Een actor en de status kunnen ook handmatig worden verwijderd op elk gewenst moment.
+# <a name="actor-lifecycle-automatic-garbage-collection-and-manual-delete"></a>Actor-levenscyclus, automatische garbagecollection en handmatig verwijderen
+Een actor is de eerste keer die wordt een aanroep uitgevoerd naar een van de bijbehorende methoden geactiveerd. Een actor is gedeactiveerd (garbagecollection die worden verzameld door de runtime actoren) als deze niet is gebruikt gedurende een configureerbare tijd. Een actor en de status kunnen ook handmatig worden verwijderd op elk gewenst moment.
 
 ## <a name="actor-activation"></a>Actor-activering
-Wanneer een actor is geactiveerd, gebeurt het volgende:
+Als een actor is geactiveerd, gebeurt het volgende:
 
-* Wanneer een oproep voor een actor binnenkomt en een nog niet actief, wordt een nieuwe actor gemaakt.
-* Status van de actor is geladen als deze status wordt onderhouden.
-* De `OnActivateAsync` (C#) of `onActivateAsync` (Java)-methode (die kan worden overschreven in de implementatie van de actor) wordt aangeroepen.
-* De actor is nu beschouwd als actief.
+* Wanneer een oproep afkomstig van een actor is en deze nog niet is actief, wordt een nieuwe actor gemaakt.
+* Status van de actor wordt geladen als deze status wordt onderhouden.
+* De `OnActivateAsync` (C#) of `onActivateAsync` (Java)-methode (die kan worden overschreven in de actorimplementatie) wordt genoemd.
+* De actor wordt nu als actief beschouwd.
 
-## <a name="actor-deactivation"></a>Deactivering van actor
+## <a name="actor-deactivation"></a>Actor-deactiveren
 Wanneer een actor is gedeactiveerd, gebeurt het volgende:
 
-* Wanneer een actor niet voor een bepaalde tijd gebruikt wordt, wordt dit verwijderd uit de tabel Active actoren.
-* De `OnDeactivateAsync` (C#) of `onDeactivateAsync` (Java)-methode (die kan worden overschreven in de implementatie van de actor) wordt aangeroepen. Hiermee worden de timers voor de actor. Actor-bewerkingen zoals status wijzigingen moeten niet worden aangeroepen vanuit deze methode.
+* Wanneer een actor niet voor een bepaalde tijd gebruikt wordt, wordt deze verwijderd uit de tabel Active actoren.
+* De `OnDeactivateAsync` (C#) of `onDeactivateAsync` (Java)-methode (die kan worden overschreven in de actorimplementatie) wordt genoemd. Hiermee worden alle timers voor de actor. Actor-bewerkingen, zoals status wijzigingen mag niet worden aangeroepen vanuit deze methode.
 
 > [!TIP]
-> De runtime Fabric actoren verzendt sommige [gebeurtenissen met betrekking tot actor activering en deactivering](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Ze zijn nuttig zijn bij de diagnostische gegevens en prestatiebewaking.
+> De Fabric-actoren-runtime verzendt sommige [gebeurtenissen met betrekking tot de actor-activering en deactivering](service-fabric-reliable-actors-diagnostics.md#list-of-events-and-performance-counters). Ze zijn nuttig in diagnostische gegevens en bewaking van toepassingsprestaties.
 >
 >
 
-### <a name="actor-garbage-collection"></a>Garbagecollection actor
-Wanneer een actor is gedeactiveerd, verwijzingen naar het object actor worden vrijgegeven en wordt deze de garbage collector zijn verzameld normaal door de common language runtime (CLR) of de garbagecollector van de virtuele machine (JVM) java kan worden. Het object actor; ruimt garbagecollection alleen Dit gebeurt **niet** status opgeslagen in de actor status Manager verwijderen. De volgende keer dat de actor is geactiveerd, een nieuw actor-object wordt gemaakt en de status is hersteld.
+### <a name="actor-garbage-collection"></a>Actor-garbagecollection
+Wanneer een actor is gedeactiveerd, verwijzingen naar de actorobject worden vrijgegeven en garbagecollection normaal gesproken worden verzameld door de common language runtime (CLR) of de java virtual machine (JVM ook) garbagecollector kan zijn. Garbagecollection alleen opschonen van de actorobject. Dit gebeurt **niet** staat die zijn opgeslagen in de actor van status Manager verwijderen. De volgende keer dat de actor is geactiveerd, een nieuw actorobject wordt gemaakt en de status is hersteld.
 
-Wat wordt geteld als 'wordt gebruikt' voor het deactiveren en garbagecollection?
+Wat telt als 'wordt gebruikt' voor het deactiveren en garbagecollection?
 
-* Ontvangt een oproep
-* `IRemindable.ReceiveReminderAsync` methode wordt aangeroepen (alleen van toepassing als de actor herinneringen gebruikt)
+* Een gesprek ontvangen
+* `IRemindable.ReceiveReminderAsync` methode wordt aangeroepen (alleen van toepassing als herinneringen maakt gebruik van de actor)
 
 > [!NOTE]
-> Als de actor timers gebruikt en de timer-retouraanroep wordt aangeroepen, wordt **niet** aantal als 'wordt gebruikt'.
+> Als de actor timers gebruikt en de retouraanroep timer wordt aangeroepen, wordt **niet** tellen als 'gebruikte'.
 >
 >
 
-Voordat we gaan in de details van deactivering, is het belangrijk om te definiëren van de volgende voorwaarden:
+Voordat we de details van de deactivering, is het belangrijk om te definiëren van de volgende voorwaarden:
 
-* *Controle-interval*. Dit is het interval waarmee de runtime actoren scant de tabel Active actoren voor actoren die kunnen worden gedeactiveerd en garbage collector zijn verzameld. De standaardwaarde voor deze is 1 minuut.
-* *Time-out voor inactiviteit*. Dit is de hoeveelheid tijd die een actor moet niet opnieuw gebruikt (niet-actief) voordat deze worden gedeactiveerd en garbage collector zijn verzameld. De standaardwaarde voor deze is 60 minuten.
+* *Controle-interval*. Dit is het interval waarmee de runtime actoren scant de tabel Active actoren op actoren die kunnen worden gedeactiveerd en garbagecollection die worden verzameld. De standaardwaarde voor deze is 1 minuut.
+* *Time-out voor inactiviteit*. Dit is de hoeveelheid tijd die een actor moet blijven ongebruikte (inactief) voordat deze kan worden gedeactiveerd en garbagecollection die worden verzameld. De standaardwaarde voor deze is 60 minuten.
 
-Normaal gesproken hoeft u niet te deze standaardinstellingen wijzigen. Indien nodig, deze intervallen kunnen echter worden gewijzigd via `ActorServiceSettings` bij het registreren van uw [Actor Service](service-fabric-reliable-actors-platform.md):
+Normaal gesproken hoeft u niet te deze standaardinstellingen wijzigen. Indien nodig, deze intervallen kunnen echter worden gewijzigd via `ActorServiceSettings` bij het registreren van uw [Actorservice](service-fabric-reliable-actors-platform.md):
 
 ```csharp
 public class Program
@@ -94,36 +94,36 @@ public class Program
     }
 }
 ```
-Voor elke actieve actor de runtime actor houdt van de hoeveelheid tijd die inactief is geweest (d.w.z. niet gebruikt). Elk van de actoren wordt gecontroleerd door de runtime actor elke `ScanIntervalInSeconds` om te zien als deze worden kan garbage collector zijn verzameld en verzamelt deze als gebruikt gedurende is `IdleTimeoutInSeconds`.
+Voor elke actieve acteur, de actor-runtime houdt van de hoeveelheid tijd die inactief is geweest (dat wil zeggen niet gebruikt). De actor-runtime wordt elk van de actoren elke `ScanIntervalInSeconds` om te zien als mag garbagecollection die worden verzameld en verzamelt deze als u een niet-actieve voor `IdleTimeoutInSeconds`.
 
-Telkens wanneer een actor wordt gebruikt, wordt de niet-actieve tijd ingesteld op 0. Hierna, mag de actor de garbage collector zijn verzameld alleen als het opnieuw inactief blijft voor `IdleTimeoutInSeconds`. Intrekken dat een actor wordt beschouwd als zijn gebruikt als een interfacemethode actor of een herinnering actor retouraanroep wordt uitgevoerd. Een actor is **niet** beschouwd als zijn gebruikt als de timer-retouraanroep wordt uitgevoerd.
+Telkens wanneer een actor wordt gebruikt, wordt de niet-actieve tijd ingesteld op 0. Hierna de actor kan worden verwijderd als het opnieuw inactief blijft voor `IdleTimeoutInSeconds`. Intrekken dat een actor wordt beschouwd als zijn gebruikt als een actormethode-interface of een herinnering actor terugbellen wordt uitgevoerd. Is van een actor **niet** beschouwd als zijn gebruikt als de retouraanroep timer wordt uitgevoerd.
 
-Het volgende diagram toont de levenscyclus van een enkele actor ter illustratie van deze concepten.
+Het volgende diagram toont de levenscyclus van een enkele actor om deze concepten te illustreren.
 
 ![Voorbeeld van een niet-actieve tijd][1]
 
-Het voorbeeld ziet de impact van de methode actoraanroepen, herinneringen en timers van de levensduur van deze acteur. De volgende punten over in het voorbeeld zijn opgemerkt:
+Het voorbeeld ziet de invloed van de methodeaanroepen actor, herinneringen en timers van de levensduur van deze actor. De volgende punten over het voorbeeld worden opgemerkt:
 
-* ScanInterval en IdleTimeout zijn ingesteld op 5 en 10 respectievelijk. (Eenheden niet terzake hier, omdat het doel is alleen ter illustratie van het concept.)
-* De scan voor actoren garbage collector zijn verzameld worden gebeurt op T = 0, 5, 10, 15, 20, 25, zoals gedefinieerd door het controle-interval van 5.
-* Een periodieke timer wordt geactiveerd op T = 4, 8, 12, 16, 20, 24, en de retouraanroep wordt uitgevoerd. De niet-actieve tijd van de actor geen gevolgen.
-* Een methodeaanroep actor op T = 7 stelt de niet-actieve tijd in op 0, en de garbagecollection van de actor uitstelt.
-* Een herinnering actor retouraanroep wordt uitgevoerd op T = 14 en verdere uitstelt de garbagecollection van de actor.
-* Tijdens het scannen van de verzameling afval T = 25 niet-actieve tijd van de actor ten slotte de time-out voor inactiviteit van 10 overschrijdt en is de actor garbage collector zijn verzameld.
+* ScanInterval en IdleTimeout zijn ingesteld op 5 en 10 respectievelijk. (Eenheden niet terzake hier, omdat ons doel is uitsluitend ter illustratie van het concept.)
+* De scan voor actors moet worden verwijderd vindt plaats op T = 0, 5, 10, 15, 20, 25, zoals gedefinieerd door het controle-interval van 5.
+* Een periodieke timer wordt geactiveerd op T = 4, 8, 12, 16, 20, 24 uur per dag, en de retouraanroep wordt uitgevoerd. Dit heeft geen invloed op de niet-actieve tijd van de actor.
+* De aanroep van een actor-methode op T = 7 wordt de niet-actieve tijd teruggezet naar de 0 en uitstelt de garbagecollection van de actor.
+* Een herinnering actor terugbellen wordt uitgevoerd om T = 14 en verder uitstelt de garbagecollection van de actor.
+* Niet-actieve tijd van de actor ten slotte is groter dan de time-out voor inactiviteit van 10 en de actor wordt onleesbare die worden verzameld tijdens het scannen van de verzameling garbagecollection T = 25.
 
-Een actor kan garbage collector zijn verzameld terwijl deze wordt uitgevoerd een van de bijbehorende methoden, ongeacht hoeveel tijd is besteed aan het uitvoeren van deze methode niet. Zoals eerder vermeld, wordt de uitvoering van actor interfacemethoden en herinnering retouraanroepen voorkomen dat garbagecollection door niet-actieve tijd van de actor instellen op 0. De uitvoering van retouraanroepen timer niet opnieuw instellen niet-actieve tijd op 0. De garbagecollection van de actor wordt echter worden uitgesteld totdat de timercallback uitvoering is voltooid.
+Een actor wordt nooit worden verwijderd terwijl deze een van de bijbehorende methoden, ongeacht hoeveel tijd wordt besteed aan het bij het uitvoeren van deze methode wordt uitgevoerd. Zoals eerder vermeld, wordt de uitvoering van de actor-interfacemethoden en herinnering callbacks garbagecollection voorkomen dat door de fabrieksinstellingen van niet-actieve tijd van de actor op 0. De uitvoering van de timer callbacks heeft niet de niet-actieve tijd ingesteld op 0. De garbagecollection van de actor wordt echter worden uitgesteld totdat de timercallback uitvoering is voltooid.
 
-## <a name="manually-deleting-actors-and-their-state"></a>Handmatig verwijderen van actors en hun status
-Het object actor garbagecollection van gedeactiveerde actoren alleen ruimt, maar gegevens die zijn opgeslagen in een actor status Manager wordt niet verwijderd. Wanneer een actor opnieuw worden geactiveerd, is de gegevens opnieuw beschikbaar gesteld aan via de status Manager. In gevallen waarbij actoren gegevens opslaan in de status Manager en zijn gedeactiveerd maar nooit opnieuw worden geactiveerd, is het mogelijk nodig om hun gegevens op te schonen.  Lees voor voorbeelden van hoe verwijderd actoren [verwijderd actoren en hun status](service-fabric-reliable-actors-delete-actors.md).
+## <a name="manually-deleting-actors-and-their-state"></a>Handmatig verwijderen van actoren en hun status
+Garbagecollection van gedeactiveerde actoren alleen opschonen van de actorobject, maar deze gegevens die zijn opgeslagen in van een actor status Manager worden niet verwijderd. Wanneer een actor opnieuw worden geactiveerd, wordt de gegevens opnieuw beschikbaar gesteld aan via de status Manager. In gevallen waar actoren gegevens opslaan in de status Manager en zijn gedeactiveerd maar nooit opnieuw worden geactiveerd, is het mogelijk dat het nodig zijn om hun gegevens op te schonen.  Lees voor voorbeelden van het verwijderen van actoren, [actoren en hun status verwijderen](service-fabric-reliable-actors-delete-actors.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Acteur timers en herinneringen](service-fabric-reliable-actors-timers-reminders.md)
+* [Actor-timers en herinneringen](service-fabric-reliable-actors-timers-reminders.md)
 * [Actor-gebeurtenissen](service-fabric-reliable-actors-events.md)
-* [Acteur herintreding](service-fabric-reliable-actors-reentrancy.md)
-* [Acteur diagnostische gegevens en prestatiebewaking](service-fabric-reliable-actors-diagnostics.md)
-* [Acteur API-naslagdocumentatie](https://msdn.microsoft.com/library/azure/dn971626.aspx)
-* [C# voorbeeldcode](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
-* [Voorbeeldcode voor Java](http://github.com/Azure-Samples/service-fabric-java-getting-started)
+* [Herbetreedbaarheid actor](service-fabric-reliable-actors-reentrancy.md)
+* [Actor-diagnose en bewaking van toepassingsprestaties](service-fabric-reliable-actors-diagnostics.md)
+* [Actor-API-referentiedocumentatie](https://msdn.microsoft.com/library/azure/dn971626.aspx)
+* [Voorbeeld van C#-code](https://github.com/Azure-Samples/service-fabric-dotnet-getting-started)
+* [Java-voorbeeldcode](http://github.com/Azure-Samples/service-fabric-java-getting-started)
 
 <!--Image references-->
 [1]: ./media/service-fabric-reliable-actors-lifecycle/garbage-collection.png

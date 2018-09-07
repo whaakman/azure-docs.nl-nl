@@ -1,6 +1,6 @@
 ---
-title: Gemiddeld met lijsten van de aangepaste installatiekopie in Azure inhoud beheerder | Microsoft Docs
-description: Het gemiddelde met aangepaste installatiekopie geeft een lijst met Azure inhoud beheerder SDK voor .NET.
+title: Gematigd met aangepaste afbeeldingslijsten in Azure Content Moderator | Microsoft Docs
+description: Het gemiddelde met aangepaste installatiekopie geeft een lijst met Azure Content Moderator-SDK voor .NET.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,59 +9,59 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/04/2018
 ms.author: sajagtap
-ms.openlocfilehash: c953df88f878b4f05c9a9f3099aea77f3ff48a92
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 040962077def18d373d6e187d4b0b220889ed133
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344565"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023998"
 ---
-# <a name="moderate-with-custom-image-lists-in-net"></a>Gemiddelde met aangepaste installatiekopie lijsten in .NET
+# <a name="moderate-with-custom-image-lists-in-net"></a>Gemiddelde met aangepaste afbeeldingslijsten in .NET
 
-Dit artikel bevat informatie en codevoorbeelden om u te helpen aan de slag met de inhoud beheerder SDK voor .NET aan:
-- Een lijst van de aangepaste installatiekopie maken
-- Toevoegen en verwijderen van afbeeldingen in de lijst
-- De id's van alle afbeeldingen in de lijst ophalen
+In dit artikel vindt u informatie en voorbeelden van code om u te helpen aan de slag met de [Content Moderator-SDK voor .NET](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) aan:
+- Een lijst met aangepaste installatiekopie maken
+- Toevoegen en verwijderen van installatiekopieën uit de lijst
+- De id's van alle installatiekopieën in de lijst ophalen
 - Ophalen en bijwerken van de metagegevens van de lijst
-- Vernieuw de lijst search-index
-- Installatiekopieën van het scherm tegen afbeeldingen in de lijst
+- Vernieuw de lijst met search-index
+- Schermafbeeldingen op basis van installatiekopieën in de lijst
 - Alle installatiekopieën uit de lijst verwijderen
 - De aangepaste lijst verwijderen
 
 > [!NOTE]
-> Er is een maximumlimiet van **5 installatiekopie lijsten** met elke lijst **niet meer dan 10.000 afbeeldingen**.
+> Er is een maximumlimiet van **5 image lijsten** met elke lijst **niet meer dan 10.000 afbeeldingen**.
 >
 
-De consoletoepassing voor deze snelstartgids simuleert enkele van de taken die u met de lijst met afbeeldingen API uitvoeren kunt.
+De consoletoepassing voor deze Quick Start simuleert de taken die u met de afbeeldingenlijst-API kunt uitvoeren.
 
 In dit artikel wordt ervan uitgegaan dat u al bekend met Visual Studio en C# bent.
 
-## <a name="sign-up-for-content-moderator-services"></a>Aanmelden voor inhoud beheerder services
+## <a name="sign-up-for-content-moderator-services"></a>Aanmelden voor Content Moderator-services
 
-Voordat u inhoud beheerder services via de REST-API of de SDK gebruiken kunt, moet u een abonnementssleutel.
-Raadpleeg de [Quick Start](quick-start.md) voor meer informatie over hoe u de sleutel kunt verkrijgen.
+Voordat u de Content Moderator-services via de REST-API of de SDK gebruiken kunt, moet u de abonnementssleutel van een.
+Raadpleeg de [snelstartgids](quick-start.md) voor meer informatie over hoe u de sleutel kunt verkrijgen.
 
 ## <a name="create-your-visual-studio-project"></a>Visual Studio-project maken
 
-1. Voeg een nieuwe **Console-app (.NET Framework)** project om uw oplossing.
+1. Toevoegen van een nieuwe **Console-app (.NET Framework)** project aan uw oplossing.
 
    Noem het project in de voorbeeldcode **ImageLists**.
 
 1. Selecteer dit project als opstartproject één voor de oplossing.
 
-1. Voeg een verwijzing naar de **ModeratorHelper** project assembly die u hebt gemaakt in de [inhoud beheerder client helper Quick Start](content-moderator-helper-quickstart-dotnet.md).
+1. Voeg een verwijzing naar de **ModeratorHelper** project assembly die u hebt gemaakt in de [Content Moderator client helper snelstartgids](content-moderator-helper-quickstart-dotnet.md).
 
 ### <a name="install-required-packages"></a>De vereiste pakketten installeren
 
-De volgende NuGet-pakketten installeren:
+Installeer de volgende NuGet-pakketten:
 
 - Microsoft.Azure.CognitiveServices.ContentModerator
 - Microsoft.Rest.ClientRuntime
 - Newtonsoft.Json
 
-### <a name="update-the-programs-using-statements"></a>Update van het programma de using-instructies
+### <a name="update-the-programs-using-statements"></a>Update het programma de using-instructies
 
-Wijzig het programma de using-instructies.
+Wijzig het programma de using-instructies toe.
 
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
@@ -75,7 +75,7 @@ Wijzig het programma de using-instructies.
 
 ### <a name="initialize-application-specific-settings"></a>Initialiseren van toepassingsspecifieke instellingen
 
-Voeg de volgende klassen en statische velden voor de **programma** klasse in Program.cs.
+Voeg de volgende klassen en statische velden die u wilt de **programma** klasse in Program.cs.
 
     /// <summary>
     /// The minimum amount of time, im milliseconds, to wait between calls
@@ -197,12 +197,12 @@ Voeg de volgende klassen en statische velden voor de **programma** klasse in Pro
    
 
 > [!NOTE]
-> De sleutel van uw inhoud beheerder service heeft een aanvragen per frequentielimiet van tweede (RPS) en als u de limiet overschrijdt, de SDK er een uitzondering gegenereerd met een 429 foutcode. 
+> De sleutel van uw Content Moderator-service heeft een aantal aanvragen per limiet voor tweede (RPS) en als u de limiet overschrijdt, de SDK een uitzondering met een foutcode 429 genereert. 
 >
-> Een sleutel gratis laag heeft een limiet van de frequentie waarmee een RPS.
+> De sleutel van een gratis laag heeft een limiet van één RPS.
 
 
-## <a name="create-a-method-to-write-messages-to-the-log-file"></a>Maken van een methode voor berichten schrijven naar het logboekbestand
+## <a name="create-a-method-to-write-messages-to-the-log-file"></a>Een methode voor het schrijven van berichten naar het logboekbestand maken
 
 Voeg de volgende methode toe aan de klasse **Program**. 
 
@@ -248,11 +248,11 @@ Voeg de volgende methode toe aan de klasse **Program**.
         return result;
     }
 
-## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Een methode voor het toevoegen van een verzameling afbeeldingen aan de lijst maken
+## <a name="create-a-method-to-add-a-collection-of-images-to-the-list"></a>Een methode voor het toevoegen van een verzameling van afbeeldingen aan de lijst maken
 
 Voeg de volgende methode toe aan de klasse **Program**.
 
-Deze snelstartgids komt niet laten zien hoe tags toepassen op de afbeeldingen in de lijst. 
+In deze Quick Start is niet laten zien hoe u tags toepassen op de afbeeldingen in de lijst. 
 
     /// <summary>
     /// Adds images to an image list.
@@ -327,7 +327,7 @@ Voeg de volgende methode toe aan de klasse **Program**.
         }
     }
 
-## <a name="create-a-method-to-get-all-of-the-content-ids-for-images-in-the-list"></a>Een methode voor alle inhoud-id's voor afbeeldingen in de lijst maken
+## <a name="create-a-method-to-get-all-of-the-content-ids-for-images-in-the-list"></a>Een methode voor alle van de inhoud-id's om afbeeldingen in de lijst maken
 
 Voeg de volgende methode toe aan de klasse **Program**. 
 
@@ -409,7 +409,7 @@ Voeg de volgende methode toe aan de klasse **Program**.
 
 Voeg de volgende methode toe aan de klasse **Program**.
 
-Elk gewenst moment bijwerken van een lijst, moet u de search-index voordat u de lijst om installatiekopieën van het scherm te vernieuwen.
+Telkens wanneer die u een lijst bijwerken die u wilt de search-index voordat u de lijst om de installatiekopieën van het scherm te vernieuwen.
 
     /// <summary>
     /// Refreshes the search index for an image list.
@@ -432,7 +432,7 @@ Elk gewenst moment bijwerken van een lijst, moet u de search-index voordat u de 
         return result;
     }
 
-## <a name="create-a-method-to-match-images-against-the-list"></a>Een methode zodat deze overeenkomen met de installatiekopieën op basis van de lijst maken
+## <a name="create-a-method-to-match-images-against-the-list"></a>Een methode zodat deze overeenkomt met de installatiekopieën op basis van de lijst maken
 
 Voeg de volgende methode toe aan de klasse **Program**. 
 
@@ -460,7 +460,7 @@ Voeg de volgende methode toe aan de klasse **Program**.
         }
     }
 
-## <a name="create-a-method-to-delete-all-images-from-the-list"></a>Een methode voor het verwijderen van alle afbeeldingen in de lijst maken
+## <a name="create-a-method-to-delete-all-images-from-the-list"></a>Een methode voor het verwijderen van alle installatiekopieën in de lijst maken
 
 Voeg de volgende methode toe aan de klasse **Program**. 
 
@@ -504,7 +504,7 @@ Voeg de volgende methode toe aan de klasse **Program**.
         WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
     }
 
-## <a name="create-a-method-to-retrieve-ids-for-all-image-lists"></a>Een methode voor het ophalen van id's voor alle lijsten met installatiekopie maken
+## <a name="create-a-method-to-retrieve-ids-for-all-image-lists"></a>Een methode voor id's ophalen voor een lijst met alle installatiekopieën maken
 
 Voeg de volgende methode toe aan de klasse **Program**. 
 
@@ -527,11 +527,11 @@ Voeg de volgende methode toe aan de klasse **Program**.
         return result;
     }
 
-## <a name="add-code-to-simulate-the-use-of-an-image-list"></a>Code toevoegen om te simuleren van het gebruik van een lijst met afbeeldingen
+## <a name="add-code-to-simulate-the-use-of-an-image-list"></a>Code toevoegen om te simuleren, het gebruik van een lijst met afbeeldingen
 
-Voeg de volgende code naar de **Main** methode.
+Voeg de volgende code aan de **Main** methode.
 
-Deze code wordt gesimuleerd veel van de bewerkingen die u uitvoeren wilt in definiëren en beheren van de lijst, evenals met behulp van de lijst om installatiekopieën van het scherm. De logboekregistratiefuncties kunnen u zien de antwoord-objecten die worden gegenereerd door de SDK-aanroepen naar de inhoud van beheerder-service.
+Deze code wordt gesimuleerd veel van de bewerkingen die u uitvoeren wilt in definiëren en beheren van de lijst, evenals met behulp van de lijst om de installatiekopieën van het scherm. De functies voor logboekregistratie kunnen u zien dat de antwoordobjecten die worden gegenereerd door de SDK-aanroepen naar de Content Moderator-service.
 
     // Create the text writer to use for logging, and cache a static reference to it.
     using (StreamWriter outputWriter = new StreamWriter(OutputFile))
@@ -599,9 +599,9 @@ Deze code wordt gesimuleerd veel van de bewerkingen die u uitvoeren wilt in defi
     Console.WriteLine("Press any key to exit...");
     Console.ReadKey();
 
-## <a name="run-the-program-and-review-the-output"></a>Voer het programma en controleer de uitvoer
+## <a name="run-the-program-and-review-the-output"></a>Voer het programma uit en controleer de uitvoer
 
-De ID van de lijst en de inhoud-id's zijn verschillende afbeelding wanneer telkens u de toepassing uitvoeren.
+De lijst-ID en de inhoud-id's zijn verschillende afbeelding wanneer telkens u de toepassing wordt uitgevoerd.
 Het logboekbestand geschreven door het programma heeft de volgende uitvoer:
 
     Creating list MyList.
@@ -1021,4 +1021,4 @@ Het logboekbestand geschreven door het programma heeft de volgende uitvoer:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Downloaden van de Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere inhoud beheerder snelstartgidsen voor .NET, en op uw integratie aan de slag.
+Krijgen de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET, en aan de slag met uw integratie.

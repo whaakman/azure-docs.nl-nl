@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 01/26/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: 51a73a4466f3460beead0ce03ddbf011a0b9cc3b
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c5b9d1993c9e90411c7b05d9874721a159275f22
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527658"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021825"
 ---
 # <a name="reviewing-azure-importexport-job-status-with-copy-log-files"></a>De status van de Azure Import/Export-taak controleren met logboekbestanden kopiëren
-Wanneer de Microsoft Azure Import/Export-service stations die zijn gekoppeld aan een taak importeren of exporteren verwerkt, schrijft deze kopie logboekbestanden naar het storage-account of waaruit u importeren of exporteren blobs. Het logboekbestand bevat gedetailleerde status van elk bestand dat is geïmporteerd of geëxporteerd. De URL naar het logboekbestand van elk exemplaar wordt geretourneerd wanneer u de status van een voltooide taak; opvragen Zie [Get Job](/rest/api/storageservices/Get-Job3) voor meer informatie.  
+Wanneer de Microsoft Azure Import/Export-service stations die zijn gekoppeld aan een taak importeren of exporteren verwerkt, schrijft deze kopie logboekbestanden naar het storage-account of waaruit u importeren of exporteren blobs. Het logboekbestand bevat gedetailleerde status van elk bestand dat is geïmporteerd of geëxporteerd. De URL naar het logboekbestand van elk exemplaar wordt geretourneerd wanneer u de status van een voltooide taak; opvragen Zie [Get Job](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Get) voor meer informatie.  
 
 ## <a name="example-urls"></a>Voorbeeld-URL 's
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/10/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: af2a3da788fd26387ccdcc36422ffa5b11893212
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: 529612aeecfcea1d775c2f4359c5135ca3c6885e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888080"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052540"
 ---
 # <a name="use-the-azure-storage-emulator-for-development-and-testing"></a>De Azure-opslagemulator gebruiken voor ontwikkelen en testen
 
@@ -68,7 +68,7 @@ De storage emulator opdrachtregel-hulpprogramma kunt u de opslagemulator om te v
 
   U kunt ook de volgende opdracht, die ervoor zorgt de emulator dat gebruiken de standaard SQL Server-exemplaar gebruiken:
 
-  `AzureStorageEmulator.exe init /server .\\`
+  `AzureStorageEmulator.exe init /server .`
 
   Of u kunt de volgende opdracht uit, initialiseert de database op het standaardexemplaar van LocalDB opnieuw gebruiken:
 
@@ -93,10 +93,10 @@ Sommige Azure storage-clientbibliotheken, zoals de Xamarin-clientbibliotheek is 
 U kunt ook een SAS-token genereren met behulp van Azure PowerShell. Het volgende voorbeeld wordt een SAS-token met volledige machtigingen voor een blob-container gegenereerd:
 
 1. Installeer Azure PowerShell als u dit nog (met behulp van de meest recente versie van de Azure PowerShell cmdlets wordt aanbevolen). Zie voor installatie-instructies [installeren en configureren van Azure PowerShell](/powershell/azure/install-azurerm-ps).
-2. Open Azure PowerShell en voer de volgende opdrachten, vervangen `ACCOUNT_NAME` en `ACCOUNT_KEY==` met uw eigen referenties en `CONTAINER_NAME` met een naam van uw keuze:
+2. Open Azure PowerShell en voer de volgende opdrachten, vervangen `CONTAINER_NAME` met een naam van uw keuze:
 
 ```powershell
-$context = New-AzureStorageContext -StorageAccountName "ACCOUNT_NAME" -StorageAccountKey "ACCOUNT_KEY=="
+$context = New-AzureStorageContext -Local
 
 New-AzureStorageContainer CONTAINER_NAME -Permission Off -Context $context
 
@@ -108,7 +108,7 @@ New-AzureStorageContainerSASToken -Name CONTAINER_NAME -Permission rwdl -ExpiryT
 De resulterende shared access signature URI voor de nieuwe container zijn vergelijkbaar met:
 
 ```
-https://storageaccount.blob.core.windows.net/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
+http://127.0.0.1:10000/devstoreaccount1/sascontainer?sv=2012-02-12&se=2015-07-08T00%3A12%3A08Z&sr=c&sp=wl&sig=t%2BbzU9%2B7ry4okULN9S0wst%2F8MCUhTjrHyV9rDNLSe8g%3Dsss
 ```
 
 De handtekening voor gedeelde toegang gemaakt met dit voorbeeld is geldig gedurende één dag. De handtekening, hebben volledige toegang (lezen, schrijven, verwijderen, lijst) tot de blobs in de container.
@@ -164,7 +164,7 @@ Versie 3.0 vanaf biedt wordt een consolevenster weergegeven wanneer u de Opslage
 ### <a name="options"></a>Opties
 Typ `/help` bij de opdrachtprompt om een lijst met opties te zien.
 
-| Optie | Beschrijving | Command | Argumenten |
+| Optie | Beschrijving | Opdracht | Argumenten |
 | --- | --- | --- | --- |
 | **Beginnen** |De opslagemulator wordt gestart. |`AzureStorageEmulator.exe start [-inprocess]` |*-inprocess*: Start de emulator in het huidige proces in plaats van een nieuw proces maken. |
 | **Stoppen** |Hiermee stopt u de opslagemulator. |`AzureStorageEmulator.exe stop` | |

@@ -1,5 +1,6 @@
 ---
-title: LUIS-regio met C# niet vinden in de grenzen van Language Understanding (LUIS) | Microsoft Docs
+title: Eindpunt-regio met C# niet vinden in LUIS
+titleSuffix: Azure Cognitive Services
 description: Via een programma zoeken regio met de eindpuntsleutel en toepassing publiceren-ID van LUIS.
 services: cognitive-services
 author: diberry
@@ -7,16 +8,16 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/31/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 6f2688e492dbba718dc55825de164c189a9b46c9
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 7af58f141730557f103c61a6c591908cc7ec69d0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225105"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44057359"
 ---
-# <a name="region-can-be-determined-from-api-call"></a>Regio kan worden bepaald van API-aanroep 
+# <a name="find-endpoint-region-with-c"></a>Eindpunt-gebied met C# zoeken 
 Als u de LUIS-app-ID en de LUIS abonnements-ID hebt, kunt u welke regio u moet gebruiken voor eindpunt query's kunt vinden.
 
 > [!NOTE] 

@@ -1,6 +1,6 @@
 ---
-title: Geheimen in Azure-Stack draaien | Microsoft Docs
-description: Ontdek hoe u uw geheimen in Azure-Stack draaien.
+title: Geheimen in Azure Stack draaien | Microsoft Docs
+description: Informatie over het draaien van uw geheimen in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,111 +11,110 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: 8ac151a70a81f78dab5ed1f30df51a1121a42cbd
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: dacfa738a99eb2d580d825957d09b2b1a3111e93
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37029013"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051388"
 ---
-# <a name="rotate-secrets-in-azure-stack"></a>Geheimen in Azure-Stack draaien
+# <a name="rotate-secrets-in-azure-stack"></a>Geheimen in Azure Stack draaien
 
-*Deze instructies gelden alleen voor Azure Stack geïntegreerde systemen versie 1803 en Later. Probeer geen geheime rotatie op pre-1802 Azure Stack-versies*
+*Deze instructies gelden alleen voor Azure Stack geïntegreerde systemen versie 1803 en Later. Probeer niet geheime rotatie in de pre-1802 Azure Stack-versies*
 
-Verschillende geheimen Azure Stack gebruikt voor het onderhouden van veilige communicatie tussen de Azure-Stack-infrastructuur en -services.
+Azure Stack gebruikt verschillende geheimen voor het onderhouden van veilige communicatie tussen de resources voor Azure Stack-infrastructuur en services.
 
 - **Interne geheimen**  
-Alle certificaten, wachtwoorden, beveiligde tekenreeksen, en sleutels die worden gebruikt door de Azure-Stack-infrastructuur zonder tussenkomst van de Azure-Stack-Operator. 
+Alle certificaten, wachtwoorden, beveiligde tekenreeksen, en sleutels die worden gebruikt door de Azure Stack-infrastructuur zonder tussenkomst van de Azure Stack-Operator. 
 
 - **Externe geheimen**  
-Certificaten van de infrastructuur-service voor extern gerichte services die worden geleverd door de Azure-Stack-Operator. Dit omvat de certificaten voor de volgende services: 
+Infrastructuur voor service-certificaten voor extern gerichte-services die worden geleverd door de Azure Stack-Operator. Dit omvat de certificaten voor de volgende services: 
     - Beheerdersportal 
     - Openbare-Portal 
-    - Beheerder Azure resourcemanager 
+    - Beheerder van Azure resourcemanager 
     - Globale Azure Resource Manager 
-    - Beheerder Keyvault 
+    - Beheerder Key Vault 
     - KeyVault 
-    - ACS (inclusief blob, table en queue storage) 
+    - ACS (met inbegrip van de blob, table en queue storage) 
     - ADFS<sup>*</sup>
     - Grafiek<sup>*</sup>
 
-    > <sup>*</sup> Alleen toepasbaar als de omgeving identiteitsprovider Active Directory Federated Services (AD FS).
+   <sup>*</sup> Alleen van toepassing als id-provider van de omgeving Active Directory Federated Services (AD FS is).
 
 > [!NOTE]
-> Alle andere beveiligde sleutels en tekenreeksen, met inbegrip van de BMC en overschakelen van wachtwoorden, wachtwoorden van gebruikers- en nog steeds handmatig worden bijgewerkt door de beheerder. 
+> Alle andere beveiligde sleutels en tekenreeksen, met inbegrip van de BMC en schakelt u over wachtwoorden, gebruikers en beheerders wachtwoorden worden nog steeds handmatig bijgewerkt door de beheerder. 
 
-Operators moeten om de integriteit van de Azure-Stack-infrastructuur te behouden, de mogelijkheid om terug te draaien regelmatig hun infrastructuur geheimen op frequenties die consistent met de beveiligingsvereisten van hun organisatie zijn.
+Operators moeten de integriteit van de Azure Stack-infrastructuur te behouden, de mogelijkheid om te roteren periodiek de geheimen van de infrastructuur bij frequenties die consistent met de beveiligingsvereisten van hun organisatie zijn.
 
 ### <a name="rotating-secrets-with-external-certificates-from-a-new-certificate-authority"></a>Geheimen met externe certificaten van een nieuwe certificeringsinstantie draaien
 
-Azure-Stack ondersteunt geheime wisselen met externe certificaten van een nieuwe certificeringsinstantie (CA) in de volgende situaties:
+Azure Stack ondersteunt geheime rotatie van externe certificaten van een nieuwe certificeringsinstantie (CA) in de volgende situaties:
 
-|Geïnstalleerde certificaat CA|CA om terug te draaien|Ondersteund|Azure Stack-versies die worden ondersteund|
-|-----|-----|-----|-----|-----|
+|Geïnstalleerde certificaat CA|Certificeringsinstantie voor het draaien|Ondersteund|Ondersteunde versies van Azure Stack|
+|-----|-----|-----|-----|
 |Van zelf-ondertekend|Naar de onderneming|Niet ondersteund||
 |Van zelf-ondertekend|Voor zelf-ondertekend|Niet ondersteund||
-|Van zelf-ondertekend|Naar openbaar<sup>*</sup>|Ondersteund|1803 & hoger|
-|Van Enterprise|Naar de onderneming|Ondersteund zolang klanten de dezelfde ondernemings-CA gebruiken zoals gebruikt bij de implementatie|1803 & hoger|
-|Van Enterprise|Voor zelf-ondertekend|Niet ondersteund||
-|Van Enterprise|Naar openbaar<sup>*</sup>|Ondersteund|1803 & hoger|
-|Van publiek<sup>*</sup>|Naar de onderneming|Niet ondersteund|1803 & hoger|
-|Van publiek<sup>*</sup>|Voor zelf-ondertekend|Niet ondersteund||
-|Van publiek<sup>*</sup>|Naar openbaar<sup>*</sup>|Ondersteund|1803 & hoger|
+|Van zelf-ondertekend|Voor publiek<sup>*</sup>|Ondersteund|1803 en hoger|
+|Van onderneming|Naar de onderneming|Als klanten de dezelfde ondernemings-CA gebruiken zoals gebruikt bij de implementatie wordt ondersteund|1803 en hoger|
+|Van onderneming|Voor zelf-ondertekend|Niet ondersteund||
+|Van onderneming|Voor publiek<sup>*</sup>|Ondersteund|1803 en hoger|
+|Van openbare<sup>*</sup>|Naar de onderneming|Niet ondersteund|1803 en hoger|
+|Van openbare<sup>*</sup>|Voor zelf-ondertekend|Niet ondersteund||
+|Van openbare<sup>*</sup>|Voor publiek<sup>*</sup>|Ondersteund|1803 en hoger|
 
-<sup>*</sup> Hier volgen openbare certificeringsinstanties die deel van de vertrouwde basis-programma van Windows uitmaken. U vindt de volledige lijst [Microsoft Trusted Root Certificate Program: deelnemers (vanaf 27 juni 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
+<sup>*</sup> Dit zijn openbare certificeringsinstanties die deel van het Windows Trusted Root-programma uitmaken. U vindt de volledige lijst [Microsoft Trusted Root Certificate Program: deelnemers in (vanaf 27 juni 2017)](https://gallery.technet.microsoft.com/Trusted-Root-Certificate-123665ca).
 
-## <a name="alert-remediation"></a>Waarschuwing herstel
+## <a name="alert-remediation"></a>Herstel van waarschuwing
 
-Wanneer geheimen binnen 30 dagen na de vervaldatum zijn, worden de volgende waarschuwingen gegenereerd in de Beheerdersportal: 
+Wanneer de geheimen zijn binnen 30 dagen na verlopen, worden de volgende waarschuwingen gegenereerd in de Beheerdersportal: 
 
-- Wachtwoordverlooptijd in behandeling zijnde service-account 
-- In behandeling intern certificaat verloopt 
-- In behandeling extern certificaat verloopt 
+- Wachtende service-account wachtwoord verloopt 
+- In behandeling interne certificaat verloopt 
+- In behandeling extern certificaat verlopen 
 
-Geheime rotatie van de onderstaande instructies wordt uitgevoerd, wordt deze waarschuwingen oplossen.
+Geheime rotatie met behulp van de onderstaande instructies uitgevoerd, wordt deze waarschuwingen oplossen.
 
-## <a name="pre-steps-for-secret-rotation"></a>Vooraf stappen voor het geheime draaien
+## <a name="pre-steps-for-secret-rotation"></a>Stappen voor geheime rotatie vóór
 
-1.  Waarschuw de gebruikers van elke onderhoudsbewerkingen. Normale onderhoudsvensters die zo veel mogelijk, tijdens buiten kantooruren plannen. Onderhoud kunnen zowel de werkbelastingen van de gebruiker en de portal bewerkingen beïnvloeden.
-
+   > [!IMPORTANT]  
+   > Zorg ervoor dat de geheime rotatie is nog niet is uitgevoerd op uw omgeving. Als de geheime rotatie is al uitgevoerd, moet u Azure Stack bijwerken naar versie 1807 of hoger voordat u geheime rotatie uitvoert. 
+1.  Informeer de gebruikers van elke onderhoudsbewerkingen. Normale onderhoudsvensters, zo veel mogelijk tijdens de kantooruren plannen. Onderhoudsbewerkingen mogelijk van invloed op zowel de werkbelastingen van de gebruiker en de portal bewerkingen.
     > [!note]  
-    > De volgende stappen gelden alleen wanneer de externe Azure-Stack-geheimen draaien.
-
-2. Zorg ervoor dat geheime rotatie nog niet is uitgevoerd op uw omgeving binnen de afgelopen maand. Op dit moment ondersteunt Azure Stack alleen geheime rotatie één keer per maand. 
-3. Bereid een nieuwe reeks vervanging externe certificaten. De nieuwe set overeenkomt met de certificaat-specificaties die worden beschreven in de [Azure Stack PKI-certificaatvereisten](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
-4.  Een back-up naar de certificaten gebruikt voor rotatie op een veilige back-locatie opslaan. Als uw rotatie wordt uitgevoerd en mislukt, vervangt u de certificaten in de bestandsshare met de back-ups voordat u de draaihoek opnieuw uitvoeren. Houd er rekening mee, back-ups behouden in de veilige back-uplocatie.
-5.  Een bestandsshare die u vanaf de ERCS virtuele machines openen kunt maken. De bestandsshare moet leesbaar en beschrijfbaar zijn voor de **CloudAdmin** identiteit.
-6.  Open een PowerShell ISE-console vanaf een computer waarop u toegang tot de bestandsshare hebt. Navigeer naar de bestandsshare. 
+    > De volgende stappen zijn alleen van toepassing wanneer u externe geheimen voor Azure Stack.
+3. Bereid een nieuwe set vervanging externe certificaten. De nieuwe set komt overeen met de certificaat-specificaties die worden beschreven in de [Azure Stack PKI-certificaatvereisten](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs).
+4.  Een back-up naar de certificaten gebruikt voor draaien op een veilige locatie van de back-Store. Als uw rotatie wordt uitgevoerd en mislukt, vervangt u de certificaten in de bestandsshare met de back-ups voordat u de draaihoek van het opnieuw uitvoeren. Houd er rekening mee, back-ups behouden in de veilige back-uplocatie.
+5.  Maak een bestandsshare die u vanaf de ERCS virtuele machines openen kunt. De bestandsshare moet leesbaar en beschrijfbaar zijn voor de **CloudAdmin** identiteit.
+6.  Open een PowerShell ISE-console op een computer waar u toegang tot de bestandsshare hebt. Navigeer naar de bestandsshare. 
 7.  Voer **[CertDirectoryMaker.ps1](http://www.aka.ms/azssecretrotationhelper)** om de vereiste mappen voor uw externe certificaten te maken.
 
 ## <a name="rotating-external-and-internal-secrets"></a>Externe en interne geheimen draaien
 
-Beide externe een interne geheim draaien:
+Externe een interne geheim draaien:
 
-1. Binnen het zojuist gemaakte **certificaten** map gemaakt in de stappen vóór de nieuwe set van externe certificaten vervangen in de mapstructuur volgens de notatie die wordt beschreven in de sectie verplichte certificaten plaatsen van de [Azure Stack PKI-certificaatvereisten](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
-2. Maken van een PowerShell-sessie met de [bevoegde eindpunt](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) met behulp van de **CloudAdmin** account en de sessies opslaan als een variabele. Als de parameter in de volgende stap gebruikt u deze variabele.
+1. In het zojuist gemaakte **certificaten** directory hebt gemaakt in de stappen vóór de nieuwe set van externe certificaten vervangen in de mapstructuur op basis van de indeling die worden beschreven in de sectie verplichte certificaten plaatsen van de [Azure Stack PKI-certificaatvereisten](https://docs.microsoft.com/azure/azure-stack/azure-stack-pki-certs#mandatory-certificates).
+2. Maken van een PowerShell-sessie met de [bevoegde eindpunt](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint) met behulp van de **CloudAdmin** account en de sessies opslaan als een variabele. U gebruikt deze variabele als de parameter in de volgende stap.
 
     > [!IMPORTANT]  
-    > Voer de sessie, slaat u de sessie als een variabele niet.
+    > De sessie, slaat u de sessie als een variabele niet.
     
-3. Voer  **[invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1)**. Geeft de sessievariabele bevoorrechte eindpunt PowerShell als de **sessie** parameter. 
+3. Voer  **[invoke-command](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/invoke-command?view=powershell-5.1)**. Doorgeven van uw variabele bevoegde eindpunt PowerShell-sessie als de **sessie** parameter. 
 4. Voer **Start SecretRotation** met de volgende parameters:
     - **PfxFilesPath**  
-    Geef het netwerkpad naar de directory van uw certificaten eerder hebt gemaakt.  
+    Geef het netwerkpad naar de map van uw certificaten eerder hebt gemaakt.  
     - **PathAccessCredential**  
     Een PSCredential-object om referenties voor de share. 
     - **CertificatePassword**  
-    Een beveiligde tekenreeks van het wachtwoord dat wordt gebruikt voor alle de pfx-certificaatbestanden gemaakt.
+    Een beveiligde tekenreeks van het wachtwoord gebruikt voor alle van de pfx-certificaatbestanden gemaakt.
 4. Een ogenblik geduld terwijl uw geheimen draaien.  
-Wanneer deze geheime wisselen is voltooid, de console weergegeven **algemene actiestatus: geslaagd**. 
-5. Uw certificaten verwijderen uit de share gemaakt in de vooraf stap na geheime wisselen is voltooid, en deze opslaan op hun beveiligde back-uplocatie. 
+Wanneer deze geheime rotatie is voltooid, de console weergegeven **algemene actiestatus: geslaagd**. 
+5. Na voltooiing van de geheime rotatie, uw certificaten verwijderen uit de share in de vooraf stap hebt gemaakt en op te slaan in de veilige back-uplocatie. 
 
-## <a name="walkthrough-of-secret-rotation"></a>Overzicht van de geheime draaihoek
+## <a name="walkthrough-of-secret-rotation"></a>Overzicht van het geheim draaien
 
-Het volgende PowerShell-voorbeeld toont de cmdlets en -parameters worden uitgevoerd om uw geheimen draaien.
+De volgende PowerShell-voorbeeld ziet u de cmdlets en -parameters om uit te voeren om uw geheimen draaien.
 
 ```powershell
 #Create a PEP Session
@@ -131,16 +130,16 @@ Invoke-Command -session $PEPsession -ScriptBlock {
 Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $using:CertShareCred -CertificatePassword $using:CertPassword }
 Remove-PSSession -Session $PEPSession
 ```
-## <a name="rotating-only-internal-secrets"></a>Alleen intern geheimen draaien
+## <a name="rotating-only-internal-secrets"></a>Alleen interne geheimen draaien
 
-Alleen intern geheimen met Azure-Stack draaien:
+Alleen interne geheimen met Azure-Stack draaien:
 
 1. Maken van een PowerShell-sessie met de [bevoegde eindpunt](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
-2. Uitvoeren in de sessie bevoorrechte eindpunt **Start SecretRotation** zonder argumenten.
+2. Uitvoeren in de sessie bevoegde eindpunt **Start SecretRotation** zonder argumenten.
 
-## <a name="start-secretrotation-reference"></a>Start SecretRotation verwijzing
+## <a name="start-secretrotation-reference"></a>Start-SecretRotation verwijzing
 
-De geheimen van een Azure-Stack-systeem worden gedraaid. Alleen uitgevoerd voor het eindpunt van Azure-Stack-bevoegdheden.
+De geheimen van een Azure Stack-systeem draait. Alleen uitgevoerd voor de bevoegde eindpunt voor Azure Stack.
 
 ### <a name="syntax"></a>Syntaxis
 
@@ -152,15 +151,16 @@ Start-SecretRotation [-PfxFilesPath <string>] [-PathAccessCredential] <PSCredent
 
 ### <a name="description"></a>Beschrijving
 
-De cmdlet Start-SecretRotation draait geheimen van de infrastructuur van een Azure-Stack-systeem. Standaard die alle geheimen blootgesteld aan het infrastructuurnetwerk in de interne gedraaid met invoer van gebruiker gedraaid en dus de certificaten van alle eindpunten voor extern netwerk-infrastructuur. Wanneer het roteren van de infrastructuur van externe netwerkeindpunten moet Start SecretRotation via een Invoke-Command-scriptblok worden uitgevoerd met de Azure-Stack-omgeving bevoorrechte eindpunt sessie doorgegeven als de sessieparameter.
+De cmdlet Start-SecretRotation draait de geheimen van de infrastructuur van een Azure Stack-systeem. Standaard gedraaid alle geheimen blootgesteld aan de interne infrastructuur-netwerk met de invoer van de gebruiker ook gedraaid de certificaten van alle externe network-infrastructuur-eindpunten. Wanneer u de infrastructuur-eindpunten voor externe netwerken, moet Start SecretRotation via een Invoke-Command-scriptblok worden uitgevoerd met de Azure Stack-omgeving bevoegde eindpunt sessie ingevoerd als de sessieparameter.
  
 ### <a name="parameters"></a>Parameters
 
 | Parameter | Type | Vereist | Positie | Standaard | Beschrijving |
 | -- | -- | -- | -- | -- | -- |
-| PfxFilesPath | Reeks  | False  | Met de naam  | Geen  | Het fileshare-pad naar de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer de interne en externe geheimen draaien. Einde map moet **\Certificates**. |
-| CertificatePassword | SecureString | False  | Met de naam  | Geen  | Het wachtwoord voor alle certificaten die zijn opgegeven in de PfXFilesPath. Waarde is vereist als PfxFilesPath wordt verstrekt wanneer zowel interne als externe geheimen worden gedraaid. |
-|
+| PfxFilesPath | Reeks  | False  | met de naam  | Geen  | Het fileshare-pad naar de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer u externe geheimen of alle geheime gegevens. Einde map moet **\Certificates**. |
+| CertificatePassword | SecureString | False  | met de naam  | Geen  | Het wachtwoord voor alle certificaten die zijn opgegeven in de - PfXFilesPath. Vereiste waarde als PfxFilesPath is opgegeven als zowel interne als externe geheimen worden gedraaid. |
+| PathAccessCredential | PSCredential | False  | met de naam  | Geen  | De PowerShell-referentie voor de bestandsshare van de **\Certificates** map met alle externe eindpunt certificaten het netwerk. Alleen vereist wanneer u externe geheimen of alle geheime gegevens.  |
+| Opnieuw uitvoeren | SwitchParameter | False  | met de naam  | Geen  | Opnieuw uitvoeren moet worden gebruikt op elk moment geheime rotatie opnieuw geprobeerd na een mislukte poging wordt. |
 
 ### <a name="examples"></a>Voorbeelden
  
@@ -170,7 +170,7 @@ De cmdlet Start-SecretRotation draait geheimen van de infrastructuur van een Azu
 PS C:\> Start-SecretRotation  
 ```
 
-Met deze opdracht worden alle van de infrastructuur geheimen blootgesteld aan Azure-Stack interne netwerk. Start SecretRotation alle stack gegenereerde geheimen draait, maar omdat er geen certificaten zijn opgegeven, niet extern eindpunt certificaten wordt gedraaid.  
+Met deze opdracht worden alle van de infrastructuur-geheimen blootgesteld aan interne netwerk van Azure Stack. Start-SecretRotation draait alle geheimen van de stack is gegenereerd, maar omdat er geen certificaten zijn opgegeven, niet extern eindpunt certificaten wordt gedraaid.  
 
 **Interne en externe infrastructuur geheimen draaien**
   
@@ -180,16 +180,16 @@ Start-SecretRotation -PfxFilesPath $using:CertSharePath -PathAccessCredential $u
 Remove-PSSession -Session $PEPSession
 ```
 
-Met deze opdracht worden alle van de infrastructuur geheimen blootgesteld aan Azure-Stack interne netwerk, evenals de TLS-certificaten gebruikt voor externe netwerkeindpunten infrastructuur Azure-Stack. Start SecretRotation draait alle stack gegenereerde geheimen en omdat er certificaten worden aangeboden, ook certificaten extern eindpunt wordt gedraaid.  
+Met deze opdracht worden alle van de infrastructuur-geheimen blootgesteld aan interne netwerk van Azure Stack, evenals de TLS-certificaten gebruikt voor het externe netwerk infrastructuur-eindpunten van Azure Stack. Start-SecretRotation draait alle geheimen stack gegenereerd en omdat er certificaten worden verleend, Extern eindpunt certificaten ook worden gedraaid.  
 
 
-## <a name="update-the-baseboard-management-controller-bmc-password"></a>Het wachtwoord baseboard management controller (BMC) bijwerken
+## <a name="update-the-baseboard-management-controller-bmc-password"></a>De baseboard management controller (BMC)-wachtwoord bijwerken
 
-De BMC (baseboard management controller) bewaakt de fysieke status van uw servers. De specificaties en instructies voor het bijwerken van het wachtwoord van de BMC variëren, afhankelijk van de leverancier van uw oorspronkelijke leveranciers (OEM)-hardware. De wachtwoorden voor Azure-Stack-onderdelen op een reguliere uitgebracht, moet u bijwerken.
+De BMC (baseboard management controller) wordt de fysieke status van uw servers. De specificaties en instructies over het bijwerken van het wachtwoord van de BMC variëren op basis van de leverancier van de oorspronkelijke leveranciers (OEM)-hardware. U moet uw wachtwoorden voor Azure Stack-onderdelen op een regelmatiger bijwerken.
 
-1. Werk de BMC op fysieke servers van de Azure-Stack door de OEM-instructies te volgen. Het wachtwoord voor elke BMC in uw omgeving moet hetzelfde zijn.
-2. Open een bevoorrechte eindpunt in Azure Stack-sessies. Zie voor instructies [met behulp van de bevoegde eindpunt in Azure-Stack](azure-stack-privileged-endpoint.md).
-3. Nadat uw PowerShell-prompt is gewijzigd in **[IP-adres of ERCS VM name]: PS >** of **[azs ercs01]: PS >**, afhankelijk van de omgeving, voeren `Set-BmcPassword` door het uitvoeren van `invoke-command`. Uw sessievariabele bevoorrechte eindpunt als parameter doorgeven. Bijvoorbeeld:
+1. Bijwerken van de BMC op fysieke servers van de Azure Stack door de OEM-instructies te volgen. Het wachtwoord voor elke BMC in uw omgeving, moet hetzelfde zijn.
+2. Een bevoegde eindpunt geopend in Azure Stack-sessies. Zie voor instructies, [met behulp van het eindpunt van de bevoegde in Azure Stack](azure-stack-privileged-endpoint.md).
+3. Nadat uw PowerShell-prompt is gewijzigd in **[IP-adres of ERCS VM name]: PS >** of **[azs-ercs01]: PS >**, afhankelijk van de omgeving, voeren `Set-BmcPassword` door uit te voeren `invoke-command`. Uw sessievariabele bevoegde eindpunt als een parameter doorgeven. Bijvoorbeeld:
 
     ```powershell
     # Interactive Version
@@ -225,4 +225,4 @@ De BMC (baseboard management controller) bewaakt de fysieke status van uw server
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Meer informatie over Azure-Stack-beveiliging](azure-stack-security-foundations.md)
+[Meer informatie over Azure Stack-beveiliging](azure-stack-security-foundations.md)

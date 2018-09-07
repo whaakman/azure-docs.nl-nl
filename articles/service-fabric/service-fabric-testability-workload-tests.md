@@ -1,6 +1,6 @@
 ---
-title: Fouten in Azure microservices simuleren | Microsoft Docs
-description: Hoe de beveiliging van uw services tegen fouten in de correcte en geforceerde afsluiting.
+title: Fouten in apps in Azure Service Fabric simuleren | Microsoft Docs
+description: Klik hier voor meer informatie over het beveiligen van uw services tegen fouten in de correcte en geforceerde afsluiting.
 services: service-fabric
 documentationcenter: .net
 author: anmolah
@@ -14,25 +14,25 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 06/15/2017
 ms.author: anmola
-ms.openlocfilehash: dccd8eeeda1a41f23c9e3dd9896e0630e2a7a0a4
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 3c075ac9642c7d050fc45ce6164071c9c733326e
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34208893"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051911"
 ---
 # <a name="simulate-failures-during-service-workloads"></a>Storingen simuleren tijdens servicewerkbelastingen
-De testbaarheid scenario's in Azure Service Fabric kunnen ontwikkelaars geen zorgen over het afhandelen van de afzonderlijke fouten. Er zijn scenario's, echter, waar een expliciete interleaving van de werkbelasting van de client en storingen mogelijk nodig zijn. De interleaving van de werkbelasting van de client en fouten, zorgt u ervoor dat de service daadwerkelijk wordt een bepaalde actie bij fout gebeurt. Gezien het niveau van het besturingselement dat testbaarheid biedt, kunnen deze worden op nauwkeurige punten van de uitvoering van de werkbelasting. Dit doen ontstaan van fouten in verschillende statussen in de toepassing kunt vinden bugs en verbeteren.
+De testbaarheidsscenario's in Azure Service Fabric kunnen ontwikkelaars over het afhandelen van de afzonderlijke fouten u geen zorgen. Er zijn scenario's, maar waarbij een expliciete interleaving van client-werkbelasting en fouten nodig zijn. De interleaving van client-werkbelasting en fouten, zorgt u ervoor dat de service daadwerkelijk een actie wordt uitgevoerd wanneer de fout doet zich voor. Gezien de mate van controle die testbaarheid biedt, kunnen deze worden op exacte momenten van de werkbelasting kan worden uitgevoerd. Dit doen ontstaan van fouten op verschillende statussen in de toepassing kunt vinden fouten en de kwaliteit te verbeteren.
 
 ## <a name="sample-custom-scenario"></a>Aangepaste voorbeeldscenario
-Deze test ziet u een scenario waarbij de werkbelasting bedrijven met interleaves [correcte en geforceerde afsluiting](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). De fouten moeten worden bewerkstelligd in het midden van de servicebewerkingen of compute voor de beste resultaten.
+Deze test toont een scenario waarin de workload business met interleaves [fouten in vensters en geforceerde afsluiting](service-fabric-testability-actions.md#graceful-vs-ungraceful-fault-actions). De fouten moeten worden verkregen in het midden van servicebewerkingen of de rekenresource voor de beste resultaten.
 
-We doorlopen een voorbeeld van een service die beschrijft de vier werkbelastingen: A, B, C en D. elk komt overeen met een set van werkstromen en kan worden compute-, opslag- of een combinatie. Omwille van de eenvoud zullen we abstracte uit de werkbelastingen in ons voorbeeld. De andere fouten die in dit voorbeeld worden uitgevoerd zijn:
+We nemen een voorbeeld van een service die wordt aangegeven dat vier werkbelastingen: A, B, C en D. elk komt overeen met een set van werkstromen en kan worden compute, opslag of een combinatie. Om het eenvoudig, te zullen we de werkbelastingen uit abstracte in ons voorbeeld. De andere fouten die zijn uitgevoerd in dit voorbeeld zijn:
 
-* Restartnode uitgevoerd: Fout bij geforceerde afsluiting om te simuleren een machine opnieuw opstarten.
-* RestartDeployedCodePackage: Geforceerde afsluiting veroorzaakt om te simuleren hostproces van de service is vastgelopen.
-* RemoveReplica: Fout bij correct te simuleren replica verwijderen.
-* MovePrimary: Fout bij correct te simuleren replica verplaatst geactiveerd door de Service Fabric load balancer.
+* RestartNode: Geforceerde afsluiting fout simuleren een machine opnieuw opstarten.
+* RestartDeployedCodePackage: Geforceerde afsluiting fout simuleren service hostproces vastloopt.
+* RemoveReplica: Fout bij vensters voor het simuleren van replica verwijderen.
+* MovePrimary: Fout bij vensters voor het simuleren van replica verplaatst geactiveerd door de Service Fabric load balancer.
 
 ```csharp
 // Add a reference to System.Fabric.Testability.dll and System.Fabric.dll.

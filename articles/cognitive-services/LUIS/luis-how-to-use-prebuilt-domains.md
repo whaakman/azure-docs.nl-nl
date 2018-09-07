@@ -1,20 +1,21 @@
 ---
-title: Gebruik vooraf gemaakte domeinen in LUIS-apps in Azure | Microsoft Docs
-description: Informatie over het gebruik van vooraf gemaakte domeinen in Language Understanding Intelligent Service (LUIS)-toepassingen.
+title: Vooraf gemaakte domeinen gebruiken voor het bouwen van apps sneller in LUIS-apps
+titleSuffix: Azure Cognitive Services
+description: Language Understanding (LUIS) biedt vooraf gemaakte domeinen die zijn vooraf gedefinieerde sets intenties en entiteiten die voor domeinen samenwerken of algemene categorieën van clienttoepassingen. De vooraf gemaakte domeinen vooraf is getraind en gereed zijn voor u om toe te voegen aan uw LUIS-app.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 12/13/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: df57f9adf5bf7f5f652a77ddeafe950463c6a9fc
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 80a83fdb1e2b84ac03d0ae0cf969f1635f00cca0
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224174"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053720"
 ---
 # <a name="use-prebuilt-domains-in-luis-apps"></a>Vooraf gemaakte domeinen in LUIS-apps gebruiken  
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: af7d4253b4e631295f8c04c96601e932595af9c1
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: bb5e58c0cb06baabf76d7d0443e94b368549176f
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697761"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051337"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Over het maken en configureren van zelfgehoste Cloudintegratieruntime
 De Integration Runtime (IR) is de rekeninfrastructuur die door Azure Data Factory gebruikt om u te bieden mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration Runtime](concepts-integration-runtime.md).
@@ -30,16 +30,16 @@ Dit document beschrijft hoe u kunt maken en configureren van zelfgehoste IR.
 1. Een zelf-hostende integratieruntime maken. U kunt ADF UI gebruiken voor het maken van de zelf-hostende IR Hier volgt een voorbeeld van PowerShell:
 
     ```powershell
-    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
+    Set-AzureRmDataFactoryV2IntegrationRuntime -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntimeName -Type SelfHosted -Description "selfhosted IR description"
     ```
 2. Download en installeer de zelf-hostende integratieruntime (op de lokale computer).
 3. Verificatiesleutel ophalen en zelf-hostende integratieruntime registreren met de sleutel. Hier volgt een voorbeeld van PowerShell:
 
     ```powershell
-    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resouceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
+    Get-AzureRmDataFactoryV2IntegrationRuntimeKey -ResourceGroupName $resourceGroupName -DataFactoryName $dataFactoryName -Name $selfHostedIntegrationRuntime.  
     ```
 
-## <a name="setting-up-self-hosted-ir-on-azure-vm-using-azure-resource-manager-template-automatation"></a>Instellen van de zelf-hostende IR op virtuele Azure-machine met behulp van Azure Resource Manager-sjabloon (automatation)
+## <a name="setting-up-self-hosted-ir-on-azure-vm-using-azure-resource-manager-template-automation"></a>Instellen van de zelf-hostende IR op virtuele Azure-machine met behulp van Azure Resource Manager-sjabloon (automatisering)
 U kunt zelf-hostende IR setup over het gebruik van een Azure-VM automatiseren [deze Azure Resource Manager-sjabloon](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vms-with-selfhost-integration-runtime). Dit biedt een eenvoudige manier om een volledig functionerende zelfgehoste IR in Azure VNet met hoge Avalaibility en schaalbaarheid functie (zolang u het aantal knooppunten aan 2 of hoger worden ingesteld).
 
 ## <a name="command-flow-and-data-flow"></a>Opdracht stroom en de gegevensstroom

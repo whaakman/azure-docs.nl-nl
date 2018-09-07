@@ -7,20 +7,20 @@ manager: femila
 editor: ''
 ms.service: azure-stack
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: kivenkat
-ms.openlocfilehash: 4e77e187d969af7ea2a12754b18d4a218daceed6
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 3fbc3047688fed877280ca2d0f079ddea66bceb8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39411903"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024728"
 ---
 # <a name="make-virtual-machine-scale-sets-available-in-azure-stack"></a>Virtual Machine Scale Sets beschikbaar maken in Azure Stack
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
-
+  
 Virtuele-machineschaalsets vormen een compute-resource van Azure Stack. U kunt deze gebruiken om te implementeren en beheren van een set identieke virtuele machines. Met alle virtuele machines geconfigureerd dezelfde schaalsets vereisen vooraf inrichten van virtuele machines. Het is eenvoudiger om grootschalige services die zijn gericht op big compute, big data en beperkte workloads te ontwikkelen.
 
 In dit artikel begeleidt u door het proces van schaalsets beschikbaar maken in Azure Stack Marketplace. Nadat u deze procedure hebt voltooid, kan uw gebruikers kunnen toevoegen virtuele-machineschaalsets in de abonnementen.
@@ -36,9 +36,31 @@ In Azure Stack ondersteuning virtuele-machineschaalsets geen voor automatisch sc
 - **De Marketplace**  
     Azure Stack registreren met globale Azure, de beschikbaarheid van de items in de Marketplace. Volg de instructies in [Azure Stack registreren met Azure](azure-stack-registration.md).
 - **Installatiekopie van besturingssysteem**  
-    Als u een installatiekopie van besturingssysteem nog niet hebt toegevoegd in de Azure Stack Marketplace, Zie [een Azure Stack marketplace-item toevoegen van Azure](asdk/asdk-marketplace-item.md).
+  Voordat een virtuele-machineschaalset (VMSS) kan worden gemaakt, moet u de VM-installatiekopieën voor gebruik in de VMSS van downloaden de [Azure Stack Marketplace](azure-stack-download-azure-marketplace-item.md). De installatiekopieën moeten al aanwezig zijn voordat een gebruiker een nieuwe VMSS kunt maken. 
 
-## <a name="add-the-virtual-machine-scale-set"></a>Toevoegen van de virtuele-Machineschaalset
+
+## <a name="use-the-azure-stack-portal"></a>De Azure Stack-portal gebruiken 
+
+>[!NOTE]  
+> De informatie in deze sectie is van toepassing wanneer u Azure Stack-versie 1808 of hoger. Als uw versie 1807 of een eerdere versie, Zie [toevoegen van de virtuele-Machineschaalset opgehaald (vóór 1808)](#add-the-virtual-machine-scale-set-(prior-to-version-1808)).
+
+1. Aanmelden bij de Azure Stack-portal. Ga vervolgens naar **alle services** > **virtuele-machineschaalsets**, en klik vervolgens onder *COMPUTE*, selecteer **virtuele-machineschaalsets**. 
+   ![Selecteer virtuele-machineschaalsets](media/azure-stack-compute-add-scalesets/all-services.png)
+
+2. Selecteer maken ***virtuele-machineschaalsets***.
+   ![Een virtuele-machineschaalset maken](media/azure-stack-compute-add-scalesets/create-scale-set.png)
+
+3. Vul de lege velden, kiest u uit het vervolgkeuzemenu's voor *installatiekopie van besturingssysteemschijf*, *abonnement*, en *Exemplaargrootte*. Selecteer **Ja** voor *beheerde schijven gebruiken*. Ten slotte selecteert u **Create**.
+    ![Configureren en maken](media/azure-stack-compute-add-scalesets/create.png)
+
+4. Om te zien van uw nieuwe virtuele-machineschaalset instellen, gaat u naar **alle resources**, voor naam van de virtuele-machineschaalset zoeken, en selecteer vervolgens de naam ervan in het zoekvak. 
+   ![De schaalset bekijken](media/azure-stack-compute-add-scalesets/search.png)
+
+
+
+## <a name="add-the-virtual-machine-scale-set-prior-to-version-1808"></a>De virtuele-Machineschaalset opgehaald (voorafgaand aan versie 1808) toevoegen
+>[!NOTE]  
+> De informatie in deze sectie is van toepassing wanneer u een eerdere versie van Azure Stack dan 1808 gebruikt. Als u versie 1808 of hoger gebruikt, raadpleegt u [gebruiken de Azure Stack-portal](#use-the-azure-stack-portal).
 
 1. Open de Azure Stack Marketplace en verbinding maken met Azure. Selecteer **Marketplace management**> **+ toevoegen vanuit Azure**.
 
@@ -56,7 +78,7 @@ Nadat u een virtuele-machineschaalset gemaakt, kunnen gebruikers afbeeldingen in
 
    Wanneer de *versie* is ingesteld als **nieuwste** in de *imageReference* sectie van de sjabloon voor een schaal ingesteld, bewerkingen voor het gebruik van scale set opschalen met de nieuwste beschikbare versie Stel exemplaren van de afbeelding voor de schaal. Nadat een omhoog schalen voltooid is, kunt u oudere exemplaren van virtuele machine scale sets verwijderen.  (De waarden voor *publisher*, *bieden*, en *sku* ongewijzigd blijven). 
 
-   Hier volgt een voorbeeld van het opgeven van *nieuwste*:  
+   Hiermee geeft u op de volgende JSON-voorbeeld *nieuwste*:  
 
     ```Json  
     "imageReference": {
@@ -81,6 +103,17 @@ Nadat u een virtuele-machineschaalset gemaakt, kunnen gebruikers afbeeldingen in
     Als u een installatiekopie met een nieuwere versie (die de versie verandert) downloadt, kan niet de schaalset omhoog schalen. Dit is standaard als de versie van de installatiekopie opgegeven in de sjabloon van de schaalset moet beschikbaar zijn.  
 
 Zie voor meer informatie, [besturingssysteemschijven en installatiekopieën](.\user\azure-stack-compute-overview.md#operating-system-disks-and-images).  
+
+
+## <a name="scale-a-virtual-machine-scale-set"></a>Schalen van een virtuele-machineschaalset
+U kunt de schaal van een *virtuele-machineschaalset* naar groter of kleiner maken.  
+
+1. Selecteer in de portal voor uw schaalset en selecteer vervolgens **schalen**.
+2. Gebruik van de schuifregelaar om in te stellen de nieuwe niveau van schaalbaarheid voor deze virtuele-machineschaalset en selecteer vervolgens **opslaan**.
+     ![De schaalset](media/azure-stack-compute-add-scalesets/scale.png)
+
+
+
 
 
 ## <a name="remove-a-virtual-machine-scale-set"></a>Een virtuele-Machineschaalset verwijderen

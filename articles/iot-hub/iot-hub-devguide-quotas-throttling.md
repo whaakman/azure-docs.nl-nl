@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: dobett
-ms.openlocfilehash: 11cec9621ad72cfeaee45e4cd466430e64b9b836
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: c9004e776488006d563fd4de791cade69736a5b8
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42054854"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024366"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie - IoT-Hub-quota en beperkingen
 
@@ -42,8 +42,9 @@ De volgende tabel ziet u de afgedwongen beperkingen. Waarden verwijzen naar een 
 | Directe methoden<sup>1</sup> | 160KB/sec/unit<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
 | (Apparaat- en -module) leesbewerkingen Twin<sup>1</sup> | 10 per seconde | Hogere van 10 per seconde of 1 per seconde per eenheid | 50 per seconde per eenheid |
 | Updates (apparaat- en -module) Twin<sup>1</sup> | 10 per seconde | Hogere van 10 per seconde of 1 per seconde per eenheid | 50 per seconde per eenheid |
-| Taken operations<sup>1</sup> <br/> (maken, bijwerken, weergeven, verwijderen) | 1.67/sec/Unit (100 per minuut per eenheid) | 1.67/sec/Unit (100 per minuut per eenheid) | 83.33/sec/Unit (5000 per minuut per eenheid) |
-| Taken apparaatbewerkingen<sup>1</sup> <br/> (dubbele bijwerken, rechtstreekse methode aanroepen) | 10 per seconde | Hogere van 10 per seconde of 1 per seconde per eenheid | 50 per seconde per eenheid |
+| Taken maken, bijwerken, weergeven en verwijderen van bewerkingen | 1.67/sec/Unit (100 per minuut per eenheid) | 1.67/sec/Unit (100 per minuut per eenheid) | 83.33/sec/Unit (5000 per minuut per eenheid) |
+| Taken twin update, directe methode bewerkingen aanroepen | 10 per seconde | Hogere van 10 per seconde of 1 per seconde per eenheid | 50 per seconde per eenheid |
+| Taken bulksgewijs importeren/exporteren-bewerkingen | 1 actieve taken per hub | 1 actieve taken per hub | 1 actieve taken per hub |
 | Configuraties en edge-implementaties<sup>1</sup> <br/> (maken, bijwerken, weergeven, verwijderen) | 0.33/sec/Unit (20 per minuut per eenheid) | 0.33/sec/Unit (20 per minuut per eenheid) | 0.33/sec/Unit (20 per minuut per eenheid) |
 
 

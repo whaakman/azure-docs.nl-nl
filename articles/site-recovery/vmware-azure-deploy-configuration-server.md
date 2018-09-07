@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: bd456e0f881f606f36f2b4d80e704ce138f7db0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 4222214705c42fe09d90d77faa7be63cc2a13206
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666429"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025273"
 ---
 # <a name="deploy-a-configuration-server"></a>Een configuratieserver implementeren
 
@@ -42,7 +42,7 @@ Vereisten voor de configuratieserver de grootte is afhankelijk van de mogelijke 
 | 12 vcpu's (2-sockets * 6 kernen \@ 2,5 GHz) |18 GB |600 GB |500 GB tot 1 TB |100-150-machines repliceren. |
 | 16 vcpu's (2-sockets * 8 kernen \@ 2,5 GHz) |32 GB |1 TB |1 TB tot 2 TB |150 tot 200-machines repliceren. |
 
-Als u meer dan een VMware-VM repliceert, leest u [overwegingen voor capaciteitsplanning](https://docs.microsoft.com/azure/site-recovery/site-recovery-plan-capacity-vmware). Voer de [tool voor implementatieplanning](site-recovery-deployment-planner.md) voor VMWare-replicatie.
+Als u meer dan een VMware-VM repliceert, leest u [overwegingen voor capaciteitsplanning](site-recovery-plan-capacity-vmware.md). Voer de [tool voor implementatieplanning](site-recovery-deployment-planner.md) voor VMWare-replicatie.
 
 ## <a name="download-the-template"></a>De sjabloon downloaden
 
@@ -121,7 +121,7 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
 
 1. Kan ik de virtuele machine, waarop de configuratieserver is geïnstalleerd, voor verschillende doeleinden gebruiken?
 
-    **Geen**, raden we u met de virtuele machine voor enig doel van de configuratieserver. Volg de specificaties die zijn vermeld in de [vorige sectie](vmware-azure-deploy-configuration-server.md#Prerequisites) voor efficiënt beheer van herstel na noodgevallen.
+    **Geen**, raden we u met de virtuele machine voor enig doel van de configuratieserver. Zorg ervoor dat u de specificaties die zijn vermeld in volgen [vereisten](#prerequisites) voor efficiënt beheer van herstel na noodgevallen.
 2. Kan ik wisselen van de kluis die al zijn geregistreerd in de configuratieserver met een nieuwe kluis?
 
     **Geen**, zodra een kluis is geregistreerd met de configuratieserver, kan niet worden gewijzigd.
@@ -130,10 +130,10 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
     **Ja**, dezelfde configuratieserver kan worden gebruikt voor het repliceren van fysieke en virtuele machines. Echter kan fysieke machine kan worden niet terug alleen bij een VMware-VM.
 4. Wat is het doel van een configuratieserver en waar wordt deze gebruikt?
 
-    Raadpleeg onze Azure Site Recovery-architectuur [hier](vmware-azure-architecture.md) voor meer informatie over de configuratieserver en de functionaliteiten.
+    Raadpleeg [VMware naar Azure-replicatie-architectuur](vmware-azure-architecture.md) voor meer informatie over de configuratieserver en de functionaliteiten.
 5. Waar vind ik de meest recente versie van de configuratieserver
 
-    Raadpleeg het artikel voor stappen voor het bijwerken van de configuratieserver [via portal](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). U kunt ook rechtstreeks downloaden vanaf [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
+    Zie voor stappen voor het bijwerken van de configuratieserver via de portal, [Upgrade van de configuratieserver](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server). U kunt ook rechtstreeks downloaden vanaf [Microsoft Download Center](https://aka.ms/asrconfigurationserver).
 6. Waar kan ik de wachtwoordzin voor de configuratieserver downloaden?
 
     Raadpleeg [in dit artikel](vmware-azure-manage-configuration-server.md#generate-configuration-server-passphrase) voor het downloaden van de wachtwoordzin.
@@ -143,7 +143,7 @@ Als u toevoegen van een extra NIC aan de configuratieserver wilt, moet u het toe
 
 ## <a name="upgrade-the-configuration-server"></a>De configuratieserver upgraden
 
-Als u de configuratieserver bijwerken naar de nieuwste versie, lees de stappen Breng [hier](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server)
+Als u de configuratieserver bijwerken naar de nieuwste versie, volgt u deze [stappen](vmware-azure-manage-configuration-server.md#upgrade-the-configuration-server).
 
 ## <a name="manage-the-configuration-server"></a>De configuratieserver beheren
 

@@ -1,6 +1,6 @@
 ---
 title: Azure FileUpload UI-element | Microsoft Docs
-description: Beschrijft het Microsoft.Common.FileUpload UI-element voor Azure-portal.
+description: Beschrijft de Microsoft.Common.FileUpload UI-element voor Azure-portal.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
+ms.date: 09/05/2018
 ms.author: tomfitz
-ms.openlocfilehash: c41ff548ed4020ab85d15f610503a3b1592910a5
-ms.sourcegitcommit: f06925d15cfe1b3872c22497577ea745ca9a4881
+ms.openlocfilehash: 2886dbafe6bf20718f4e3cd2976764fc432dbb04
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37059886"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021749"
 ---
 # <a name="microsoftcommonfileupload-ui-element"></a>Microsoft.Common.FileUpload UI-element
 Een besturingselement waarmee een gebruiker om op te geven van een of meer bestanden te uploaden.
@@ -48,12 +48,13 @@ Een besturingselement waarmee een gebruiker om op te geven van een of meer besta
 ```
 
 ## <a name="remarks"></a>Opmerkingen
-- `constraints.accept` Hiermee geeft u de typen bestanden die worden weergegeven in het dialoogvenster bestand van de browser. Zie de [HTML5-specificatie](http://www.w3.org/TR/html5/forms.html#attr-input-accept) voor toegestane waarden. De standaardwaarde is **null**.
-- Als `options.multiple` is ingesteld op **true**, de gebruiker kan meer dan één bestand selecteren in het dialoogvenster bestand van de browser. De standaardwaarde is **false**.
-- Dit element ondersteunt bestanden zijn geüpload in twee modi, afhankelijk van de waarde van `options.uploadMode`. Als **bestand** is opgegeven, wordt de uitvoer is de inhoud van het bestand als een blob. Als **url** is opgegeven, wordt het bestand is geüpload naar een tijdelijke locatie en de uitvoer de URL van de blob heeft. Tijdelijke blobs wordt opgeschoond na 24 uur. De standaardwaarde is **bestand**.
-- De waarde van `options.openMode` bepaalt hoe het bestand wordt gelezen. Als het bestand wordt verwacht als tekst zonder opmaak, geeft u **tekst**; anders is, geef **binaire**. De standaardwaarde is **tekst**.
+- `constraints.accept` Hiermee geeft u de typen bestanden die worden weergegeven in het dialoogvenster voor het bestand van de browser. Zie de [HTML5-specificatie](http://www.w3.org/TR/html5/forms.html#attr-input-accept) voor toegestane waarden. De standaardwaarde is **null**.
+- Als `options.multiple` is ingesteld op **waar**, de gebruiker meer dan één bestand selecteren in het dialoogvenster voor het bestand van de browser is toegestaan. De standaardwaarde is **false**.
+- Dit element biedt ondersteuning voor bestanden die worden geüpload in twee modi op basis van de waarde van `options.uploadMode`. Als **bestand** is opgegeven, wordt de uitvoer heeft de inhoud van het bestand op als een blob. Als **url** is opgegeven, wordt het bestand is geüpload naar een tijdelijke locatie en de uitvoer de URL van de blob bevat. Tijdelijke blobs opgeschoond na 24 uur. De standaardwaarde is **bestand**.
+- Een geüploade bestand is beveiligd. De uitvoer-URL bevat een [SAS-token](../storage/common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor toegang tot het bestand tijdens de implementatie.
+- De waarde van `options.openMode` bepaalt hoe het bestand wordt gelezen. Als het bestand is naar verwachting uit tekst zonder opmaak, geef **tekst**; anders is, geef **binaire**. De standaardwaarde is **tekst**.
 - Als `options.uploadMode` is ingesteld op **bestand** en `options.openMode` is ingesteld op **binaire**, de uitvoer is base64-gecodeerd.
-- `options.encoding` Hiermee geeft u de codering die moet worden gebruikt bij het lezen van het bestand. De standaardwaarde is **UTF-8**, en dient alleen wanneer `options.openMode` is ingesteld op **tekst**.
+- `options.encoding` Hiermee geeft u de codering als u wilt gebruiken bij het lezen van het bestand. De standaardwaarde is **UTF-8**, en wordt gebruikt alleen wanneer `options.openMode` is ingesteld op **tekst**.
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
 Als options.multiple ingesteld op false is en options.uploadMode bestand is, heeft de uitvoer de inhoud van het bestand als een JSON-tekenreeks:
@@ -62,7 +63,7 @@ Als options.multiple ingesteld op false is en options.uploadMode bestand is, hee
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
 ```
 
-Als options.multiple ingesteld op true is and'options.uploadMode bestand is, wordt de uitvoer de inhoud van de bestanden heeft als een JSON-matrix:
+Als options.multiple ingesteld op true is and'options.uploadMode bestand is, wordt de uitvoer heeft de inhoud van de bestanden als een JSON-matrix:
 
 ```json
 [
@@ -88,9 +89,9 @@ Als options.multiple ingesteld op true is en options.uploadMode url is, heeft de
 ]
 ```
 
-Bij het testen van een CreateUiDefinition afkappen sommige browsers (zoals Google Chrome) URL's die worden gegenereerd door het element Microsoft.Common.FileUpload in de browserconsole. U moet mogelijk met de rechtermuisknop op afzonderlijke koppelingen voor het kopiëren van de volledige URL's.
+Bij het testen van een CreateUiDefinition afkappen sommige browsers (zoals Google Chrome) URL's die worden gegenereerd door het element Microsoft.Common.FileUpload in de browserconsole. U moet mogelijk met de rechtermuisknop op afzonderlijke koppelingen als u wilt kopiëren van de volledige URL's.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een inleiding tot het maken van de definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
+* Zie voor een inleiding tot het maken van definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
 * Zie voor een beschrijving van de algemene eigenschappen in de UI-elementen, [CreateUiDefinition elementen](create-uidefinition-elements.md).

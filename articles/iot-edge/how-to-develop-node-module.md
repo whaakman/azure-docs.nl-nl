@@ -6,25 +6,25 @@ keywords: ''
 author: shizn
 manager: timlt
 ms.author: xshi
-ms.date: 06/26/2018
+ms.date: 09/04/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 6976314929ac2e0e099e8c2f07da32970bc57509
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 22049ae0903d2735e4c1974c1071eb7582be9823
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382504"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049980"
 ---
-# <a name="develop-and-debug-nodejs-modules-with-azure-iot-edge-for-visual-studio-code"></a>Ontwikkelen en fouten opsporen in Node.js-modules met Azure IoT Edge voor Visual Studio Code
+# <a name="use-visual-studio-code-to-develop-and-debug-nodejs-modules-for-azure-iot-edge"></a>Visual Studio Code gebruiken om te ontwikkelen en fouten opsporen in Node.js-modules voor Azure IoT Edge
 
 U kunt uw bedrijfslogica op de edge werken door te schakelen in modules voor Azure IoT Edge kunt verzenden. In dit artikel vindt u gedetailleerde instructies voor het gebruik van Visual Studio Code (VS-Code) als de belangrijkste ontwikkelingsprogramma voor het ontwikkelen van Node.js-modules.
 
 ## <a name="prerequisites"></a>Vereisten
-In dit artikel wordt ervan uitgegaan dat u gebruikmaakt van een computer of virtuele machine met Windows of Linux als uw ontwikkelcomputer. Uw IoT Edge-apparaat kan een andere fysieke apparaat, of kunt u uw IoT Edge-apparaat simuleren op uw ontwikkelcomputer.
+In dit artikel wordt ervan uitgegaan dat u een computer of virtuele machine met Windows, Mac OS- of Linux als uw ontwikkelcomputer. Uw IoT Edge-apparaat mag een andere fysieke apparaat.
 
 > [!NOTE]
-> In deze zelfstudie foutopsporing wordt beschreven hoe u een proces in een container module koppelen en foutopsporing kunt uitvoeren met VS Code. U kunt fouten opsporen in Node.js-modules in linux-amd64, windows en arm32 containers. Als u niet bekend bent met de mogelijkheden voor foutopsporing van Visual Studio Code, meer informatie over [foutopsporing](https://code.visualstudio.com/Docs/editor/debugging). 
+> In dit artikel foutopsporing ziet u twee gebruikelijke manieren om op te sporen uw Node.js-module in VS Code. Een manier is om te koppelen van een proces in een module-container, terwijl de andere het lanuch de module-code in de foutopsporingsmodus is. Als u niet bekend bent met de mogelijkheden voor foutopsporing van Visual Studio Code, meer informatie over [foutopsporing](https://code.visualstudio.com/Docs/editor/debugging).
 
 Omdat in dit artikel Visual Studio Code als de belangrijkste ontwikkeltool wordt, Visual Studio Code installeren en vervolgens de nodige uitbreidingen toevoegen:
 * [Visual Studio Code](https://code.visualstudio.com/) 
@@ -37,7 +37,14 @@ Voor het maken van een module, moet u Node.js waaronder npm voor het bouwen van 
 * [Azure Container Registry](https://docs.microsoft.com/azure/container-registry/) of [Docker Hub](https://docs.docker.com/docker-hub/repos/#viewing-repository-tags)
    * U kunt een lokale Docker-register voor prototype- en testdoeleinden, in plaats van een cloud-register. 
 
-Als u wilt testen van uw module op een apparaat, moet u een actieve IoT-hub met ten minste één IoT Edge-apparaat. Als u wilt dat uw computer te gebruiken als een IoT Edge-apparaat, kunt u doen met de volgende stappen in de zelfstudies voor [Windows](quickstart.md) of [Linux](quickstart-linux.md). 
+Het instellen van lokale ontwikkelomgeving om op te sporen, uitvoeren en testen van uw IoT Edge-oplossing, moet u [Azure IoT EdgeHub ontwikkeltool](https://pypi.org/project/iotedgehubdev/). Installeer [Python (2.7/3.6) en Pip](https://www.python.org/). Installeer vervolgens **iotedgehubdev** onderstaande opdracht in de terminal service wordt uitgevoerd.
+
+   ```cmd
+   pip install --upgrade iotedgehubdev
+   ```
+
+Als u wilt testen van uw module op een apparaat, moet u een actieve IoT-hub met ten minste één IoT Edge-apparaat-ID gemaakt. Als u een IoT Edge-daemon op de ontwikkelcomputer uitvoert, moet u mogelijk EdgeHub en EdgeAgent stoppen voordat u met de volgende stap verdergaat. 
+
 
 ## <a name="create-a-new-solution-template"></a>Een nieuwe oplossingssjabloon maken
 
@@ -80,38 +87,87 @@ De standaard Node.js-code die wordt geleverd met de oplossing bevindt zich in **
 
 Wanneer u klaar bent om de Node.js-sjabloon met uw eigen code aanpassen, gebruikt u de [Azure IoT Hub SDK's](../iot-hub/iot-hub-devguide-sdks.md) modules bouwen dat adres de sleutel die nodig zijn voor IoT-oplossingen, zoals beveiliging, beheer van apparaten en betrouwbaarheid. 
 
-## <a name="build-and-deploy-your-module-for-debugging"></a>Bouw en implementeer uw module voor foutopsporing
+Visual Studio Code biedt ondersteuning voor Node.js. Meer informatie over [over het werken met Node.js in VS Code](https://code.visualstudio.com/docs/nodejs/nodejs-tutorial).
 
-Er zijn meerdere Docker-bestanden voor typen die andere container in elke modulemap. U kunt een van deze bestanden die met de extensie eindigen **.debug** uw-module voor het testen van maken. Op dit moment ondersteuning Node.js-modules alleen voor foutopsporing in linux-amd64-, windows-amd64- en linux-arm32v7-containers.
+## <a name="launch-and-debug-module-code-without-container"></a>Start en fouten opsporen in module code zonder container
+De IoT Edge Node.js-module is afhankelijk van apparaat-SDK van Azure IoT Node.js. In de code van de module standaard u initialiseert een **ModuleClient** met omgevingsinstellingen en voer een naam in, wat betekent dat de IoT Edge Node.js-module vereist dat de omgevingsinstellingen start en uitvoert en u moet ook verzenden of berichten routeren met de invoer kanalen. Uw standaard Node.js-module bevat alleen één invoer kanaal en de naam is **input1**.
+
+### <a name="setup-iot-edge-simulator-for-single-module-app"></a>IoT Edge-simulator voor één module app instellen
+
+1. Als u wilt installeren en starten van de simulator, typ in het opdrachtenpalet van VS Code, en selecteer **Azure IoT Edge: Start IoT Edge Hub Simulator voor één Module**. U moet ook opgeven de namen van de invoer voor de module voor enkele toepassing, type **input1** en druk op Enter. De opdracht wordt geactiveerd **iotedgehubdev** CLI en IoT Edge-simulator en een test hulpprogramma module-container te starten. U ziet de uitvoer hieronder in de geïntegreerde terminal als de simulator is gestart in de modus voor één module. U ziet ook een `curl` opdracht om te verzenden via. U gebruikt dit later.
+
+   ![IoT Edge-simulator voor één module app instellen](media/how-to-develop-csharp-module/start-simulator-for-single-module.png)
+
+   U kunt verplaatsen naar Docker Explorer en de module met de status zien.
+
+   ![Status van de Simulator-module](media/how-to-develop-csharp-module/simulator-status.png)
+
+   De **edgeHubDev** container is de kern van de lokale IoT Edge-simulator. Deze kunt uitvoeren op uw ontwikkelcomputer zonder IoT Edge security-daemon en omgevingsinstellingen opgeven voor uw systeemeigen module app of de module containers. De **invoer** container restAPIs voor de brug berichten moet worden toegepast op uw module-invoerkanaal weergegeven.
+
+2. Typ in het opdrachtenpalet van VS Code, en selecteer **Azure IoT Edge: Module referenties instellen voor gebruikersinstellingen** om in te stellen van de module omgevingsinstellingen in `azure-iot-edge.EdgeHubConnectionString` en `azure-iot-edge.EdgeModuleCACertificateFile` in de gebruikersinstellingen. U vindt deze omgevingsinstellingen wordt verwezen in **.vscode** > **launch.json** en [gebruikersinstellingen van VS Code](https://code.visualstudio.com/docs/getstarted/settings).
+
+### <a name="debug-nodejs-module-in-launch-mode"></a>Fouten opsporen in Node.js-module in de modus starten
+
+1. In de geïntegreerde terminal, wijzig de map naar **NodeModule** map, voer de volgende opdracht uit om knooppunt pakketten te installeren
+
+   ```cmd
+   npm install
+   ```
+
+2. Navigeer naar `app.js`. Voeg een onderbrekingspunt toe in dit bestand.
+
+3. Navigeer naar de weergave voor probleemoplossing van VS Code. Selecteer de configuratie van de foutopsporing **ModuleName lokale foutopsporing (Node.js)**. 
+
+4. Klik op **Start Debugging** of druk op **F5**. U kunt de foutopsporingssessie wordt gestart.
+
+5. In VS Code geïntegreerde terminal, voer de volgende opdracht voor het verzenden van een **Hello World** bericht naar uw module. Dit is de opdracht in de vorige stappen hebt u geleerd IoT Edge-simulator is wanneer de installatie. U moet mogelijk te maken of schakel over naar een andere geïntegreerde terminal als de huidige bewerking is geblokkeerd.
+
+    ```cmd
+    curl --header "Content-Type: application/json" --request POST --data '{"inputName": "input1","data":"hello world"}' http://localhost:53000/api/v1/messages
+    ```
+
+   > [!NOTE]
+   > Als u Windows gebruikt, te zorgen dat de shell van uw VS Code geïntegreerde terminal is **Git Bash** of **WSL Bash**. Kan niet worden uitgevoerd `curl` opdracht in PowerShell of Command Prompt. 
+   
+   > [!TIP]
+   > U kunt ook [PostMan](https://www.getpostman.com/) of andere API's voor het verzenden van berichten via in plaats van `curl`.
+
+6. VS-Code opsporen in de weergave ziet u de variabelen in het linkerdeelvenster. 
+
+7. Als u wilt stoppen foutopsporingssessie, klikt u op de knop stoppen of druk op **Shift + F5**. Typ in het opdrachtenpalet van VS Code, en selecteer **Azure IoT Edge: IoT Edge-Simulator stoppen** om te stoppen en opschonen van de simulator.
+
+
+## <a name="build-module-container-for-debugging-and-debug-in-attach-mode"></a>Build van container van de module voor foutopsporing en fouten opsporen in koppelen modus
+
+Uw standaardoplossing bevat twee modules, is een gesimuleerde temperatuur sensor-module en de andere is het pipe-module voor Node.js. De gesimuleerde temperatuursensor blijft verzenden van berichten naar Node.js pipe-module en klikt u vervolgens de berichten worden doorgesluisd naar IoT Hub. In de modulemap die u hebt gemaakt, zijn er verschillende Docker-bestanden voor andere containertypen. Gebruik een van deze bestanden die met de extensie eindigen **.debug** uw-module voor het testen van maken. Op dit moment ondersteuning Node.js-modules alleen voor foutopsporing in linux-amd64-, windows-amd64- en linux-arm32v7-containers.
+
+### <a name="setup-iot-edge-simulator-for-iot-edge-solution"></a>IoT Edge-simulator voor IoT Edge-oplossing instellen
+
+Op uw ontwikkelcomputer kun u IoT Edge-simulator in plaats van installatie van de IoT Edge-security-daemon voor het uitvoeren van uw IoT Edge-oplossing. 
+
+1. In de apparatenverkenner aan de linkerkant, met de rechtermuisknop op uw IoT Edge-apparaat-ID, selecteer **Setup IoT Edge Simulator** bij het starten van de simulator door de verbindingsreeks van het apparaat.
+
+2. U ziet dat de IoT Edge-Simulator is ingesteld met succes in de geïntegreerde terminal.
+
+### <a name="build-and-run-container-for-debugging-and-debug-in-attach-mode"></a>Bouwen en uitvoeren van de container voor foutopsporing en fouten opsporen in koppelen modus
 
 1. In VS Code, gaat u naar de `deployment.template.json` bestand. De afbeeldings-URL van uw module bijwerken door toe te voegen **.debug** aan het einde.
+
 2. Vervang de Node.js-module createOptions in **deployment.template.json** met onderstaande inhoud en sla dit bestand: 
     ```json
     "createOptions": "{\"ExposedPorts\":{\"9229/tcp\":{}},\"HostConfig\":{\"PortBindings\":{\"9229/tcp\":[{\"HostPort\":\"9229\"}]}}}"
     ```
 
-2. Typ in het opdrachtenpalet VS Code en voer de opdracht **Azure IoT Edge: Build IoT Edge-oplossing**.
-3. Selecteer de `deployment.template.json` -bestand voor uw oplossing van de command palette. 
-4. In de Verkenner van Azure IoT Hub-apparaten met de rechtermuisknop op een IoT Edge-apparaat-ID en selecteer vervolgens **implementatie voor één apparaat maken**. 
-5. Open de **config** map van uw oplossing, selecteer vervolgens de `deployment.json` bestand. Klik op **Edge-distributiemanifest selecteren**. 
+5. Navigeer naar de weergave voor foutopsporing van VS Code. Selecteer het configuratiebestand voor de foutopsporing voor de module. De naam van de optie foutopsporing zijn vergelijkbaar met **ModuleName externe foutopsporing (Node.js)** of **ModuleName externe foutopsporing (Node.js in Windows-Container)**, die afhankelijk is van het containertype op de ontwikkelcomputer.
 
-Vervolgens ziet u dat de implementatie is gemaakt met een implementatie-ID in VS Code geïntegreerde terminal.
+6. Selecteer **Start Debugging** of selecteer **F5**. Selecteer het proces om aan te koppelen.
 
-U kunt de containerstatus van uw in Docker van VS Code explorer of door uitvoering controleren de `docker ps` opdracht in de terminal.
+7. VS-Code opsporen in de weergave ziet u de variabelen in het linkerdeelvenster.
 
-## <a name="start-debugging-nodejs-module-in-vs-code"></a>Node.js-module in VS Code voor de foutopsporing starten
+8. Als u wilt stoppen foutopsporingssessie, klikt u op de knop stoppen of druk op **Shift + F5**. Typ in het opdrachtenpalet van VS Code, en selecteer **Azure IoT Edge: IoT Edge-Simulator stoppen**.
 
-VS Code houdt opsporen van fouten in configuratie-informatie in een `launch.json` bestand zich bevindt in een `.vscode` map in uw werkruimte. Dit `launch.json` bestand is gegenereerd tijdens het maken van een nieuwe IoT Edge-oplossing. Bijgewerkt telkens wanneer u een nieuwe module die ondersteuning biedt voor foutopsporing toevoegen. 
-
-1. Navigeer naar de weergave voor foutopsporing van VS Code en selecteer het configuratiebestand voor de foutopsporing voor de module.
-
-2. Navigeer naar `app.js`. Voeg een onderbrekingspunt toe in dit bestand.
-
-3. Klik op de **Start Debugging** of drukt u op **F5**, en selecteert u het proces om aan te koppelen.
-
-4. VS-Code opsporen in de weergave ziet u de variabelen in het linkerdeelvenster. 
-
-Het vorige voorbeeld laat zien hoe fouten opsporen in Node.js IoT Edge-modules voor containers. Deze blootgestelde poorten in uw container module createOptions toegevoegd. Nadat u klaar bent met het opsporen van fouten in uw Node.js-modules, wordt u aangeraden verwijderen van deze blootgestelde poorten voor de IoT Edge-modules gereed is voor productie.
+> [!NOTE]
+> Het vorige voorbeeld laat zien hoe fouten opsporen in Node.js IoT Edge-modules voor containers. Deze blootgestelde poorten in uw container module createOptions toegevoegd. Nadat u klaar bent met het opsporen van fouten in uw Node.js-modules, wordt u aangeraden verwijderen van deze blootgestelde poorten voor de IoT Edge-modules gereed is voor productie.
 
 ## <a name="next-steps"></a>Volgende stappen
 

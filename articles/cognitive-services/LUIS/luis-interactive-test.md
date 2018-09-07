@@ -1,5 +1,6 @@
 ---
-title: Trainen en testen van uw LUIS-app - Azure | Microsoft Docs
+title: Test uw LUIS-app in de portal LUIS
+titleSuffix: Azure Cognitive Services
 description: Met Language Understanding (LUIS) kunt werken continu op uw toepassing het verfijnen en verbeteren van de taal begrijpen.
 services: cognitive-services
 author: diberry
@@ -7,18 +8,18 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 925b96b61de876d40105c89556fd6dcb600d1b1a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: f697e55e095baf113b7e622c4e7447b78444d4ac
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223647"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054738"
 ---
 # <a name="test-your-luis-app"></a>Uw LUIS-app testen
 <a name="train-your-app"></a>
-[Training](luis-how-to-train.md) en [testen](luis-concept-test.md) een app is een iteratief proces. Na het trainen van uw LUIS-app, door deze te testen met voorbeeldgegevens uitingen om te controleren of de intenties en entiteiten correct worden herkend. Als ze niet zijn, moet u opnieuw updates voor de LUIS-app, trainen en testen. 
+[Testen](luis-concept-test.md) een app is een iteratief proces. Na het trainen van uw LUIS-app, door deze te testen met voorbeeldgegevens uitingen om te controleren of de intenties en entiteiten correct worden herkend. Als ze niet zijn, moet u opnieuw updates voor de LUIS-app, trainen en testen. 
 
 <!-- anchors for H2 name changes -->
 <a name="test-your-app"></a>

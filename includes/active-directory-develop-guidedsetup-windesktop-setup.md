@@ -15,39 +15,43 @@ ms.workload: identity
 ms.date: 04/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: 5e933406b266b8371019abf0f62365184d8900b3
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: c5d61da61f6ec98a1cac37ce9b12b28019ce2ae1
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205241"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44058339"
 ---
 ## <a name="set-up-your-project"></a>Instellen van uw project
 
-In deze sectie u een nieuwe project maken om te laten zien hoe u een Windows Desktop .NET-toepassing (XAML) worden geïntegreerd met *aanmelden met Microsoft* zodat de toepassing kan Web-API's die een token vereisen een query.
+In deze sectie maakt u een nieuw project om u te laten zien hoe u een Windows Desktop .NET-toepassing (XAML) integreren met *aanmelden met Microsoft* zodat de toepassing query kunt uitvoeren op Web-API's waarvoor een token.
 
-De toepassing die u met deze handleiding maakt wordt weergegeven een knop die wordt gebruikt voor het aanroepen van een grafiek, een gebied om de resultaten op het scherm weer te geven en een knop Afmelden.
+De toepassing die u met deze handleiding maakt geeft een knop die wordt gebruikt voor het aanroepen van een grafiek, een ruimte om de resultaten op het scherm weer te geven en een knop Afmelden.
 
 > [!NOTE]
-> Voorkeur voor het downloaden van dit voorbeeld Visual Studio-project in plaats daarvan? [Downloaden van een project](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip), en ga verder met de [configuratiestap](#register-your-application) het codevoorbeeld configureren voordat u deze uitvoert.
+> Voorkeur voor het downloaden van dit voorbeeld Visual Studio-project in plaats daarvan? [Een project hebt gedownload](https://github.com/Azure-Samples/active-directory-dotnet-desktop-msgraph-v2/archive/master.zip), en gaat u naar de [configuratiestap](#register-your-application) het codevoorbeeld configureren voordat u deze uitvoert.
 >
 
 Voor het maken van uw toepassing, het volgende doen:
-1. Selecteer in Visual Studio **bestand** > **nieuw** > **Project**.
+1. Selecteer in Visual Studio, **bestand** > **nieuw** > **Project**.
 2. Onder **sjablonen**, selecteer **Visual C#**.
-3. Selecteer **WPF-App** of **WPF-toepassing**, afhankelijk van de versie van Visual Studio-versie die u gebruikt.
+3. Selecteer **WPF-App** of **Aplikaci WPF**, afhankelijk van de versie van Visual Studio-versie die u gebruikt.
 
 ## <a name="add-msal-to-your-project"></a>MSAL toevoegen aan uw project
-1. Selecteer in Visual Studio **extra** > **NuGet Package Manager**> **Package Manager Console**.
-2. Plak de volgende Azure PowerShell-opdracht in het venster Package Manager-Console:
+1. Selecteer in Visual Studio, **extra** > **NuGet Package Manager**> **Package Manager Console**.
+2. Plak de volgende Azure PowerShell-opdracht in het venster Package Manager Console:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
     > [!NOTE] 
-    > Met deze opdracht installeert Microsoft Authentication Library. MSAL verwerkt ophalen, opslaan in cache en gebruikerstokens die worden gebruikt voor toegang tot de API's die worden beveiligd door Azure Active Directory-v2 vernieuwen.
+    > Met deze opdracht installeert Microsoft Authentication Library. MSAL verwerkt ophalen, opslaan in cache en vernieuwen van gebruikerstokens die worden gebruikt voor toegang tot de API's die worden beveiligd door Azure Active Directory v2.
     >
+
+    > [!NOTE]
+    > In deze Quick Start niet gebruiken, maar de meest recente versie van MSAL.NET, maar er wordt gewerkt aan het bijwerken
+    > 
 
 ## <a name="add-the-code-to-initialize-msal"></a>Voeg de code voor het initialiseren van MSAL
 In deze stap maakt u een klasse voor het afhandelen van interactie met MSAL, zoals de verwerking van tokens.
@@ -73,11 +77,11 @@ In deze stap maakt u een klasse voor het afhandelen van interactie met MSAL, zoa
     }
     ```
 
-## <a name="create-the-application-ui"></a>De UI-toepassing maken
+## <a name="create-the-application-ui"></a>Gebruikersinterface van de toepassing maken
 
-Deze sectie wordt beschreven hoe een toepassing een beveiligde back-endserver zoals Microsoft Graph kan een query. 
+Deze sectie wordt beschreven hoe een toepassing query kunt uitvoeren op een beveiligde back-end-server, zoals Microsoft Graph. 
 
-Een *MainWindow.xaml* bestand automatisch moet worden gemaakt als onderdeel van uw project-sjabloon. Dit bestand openen en vervangt u uw toepassing  *\<raster >* knooppunt met de volgende code:
+Een *MainWindow.xaml* bestand automatisch moet worden gemaakt als onderdeel van de projectsjabloon, maken. Dit bestand openen en vervolgens vervangen van uw toepassing  *\<raster >* knooppunt met de volgende code:
 
 ```xml
 <Grid>

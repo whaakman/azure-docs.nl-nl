@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/27/2018
 ms.author: aljo
-ms.openlocfilehash: ed904f7d4de9406e60de1652cefeb5bb84e5a1d8
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: cf8e9dff020e16efe4b37a2bfd66563211be3020
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144035"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055536"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Instellingen voor Service Fabric-cluster aanpassen
 In dit artikel wordt beschreven hoe u de verschillende fabric-instellingen aanpassen voor uw Service Fabric-cluster. Voor clusters die worden gehost in Azure, kunt u instellingen via de [Azure-portal](https://portal.azure.com) of met behulp van een Azure Resource Manager-sjabloon. Voor zelfstandige clusters, kunt u instellingen aanpassen door het bijwerken van het bestand ClusterConfig.json en een configuratie-upgrade uitvoert op uw cluster. 
@@ -624,10 +624,13 @@ Hierna volgt een lijst van Fabric-instellingen die u kunt aanpassen, ingedeeld p
 ## <a name="security"></a>Beveiliging
 | **Parameter** | **Toegestane waarden** |**Upgradebeleid**| **Richtlijnen of korte beschrijving** |
 | --- | --- | --- | --- |
+|AADCertEndpointFormat|tekenreeks, standaardwaarde is ""|Statisch|AAD-certificaat-eindpunt, standaard Azure Commercial opgegeven indeling voor niet-standaard-omgeving, zoals Azure Government "https://login.microsoftonline.us/{0}/federationmetadata/2007-06/federationmetadata.xml" |
 |AADClientApplication|tekenreeks, standaardwaarde is ""|Statisch|Naam van de toepassing Native Client of voor Clients van de Fabric-ID |
 |AADClusterApplication|tekenreeks, standaardwaarde is ""|Statisch|Naam van de web-API-toepassing of voor het cluster-ID |
+|AADLoginEndpoint|tekenreeks, standaardwaarde is ""|Statisch|AAD eindpunt voor aanmelding, Azure Commercial standaard opgegeven voor niet-standaard-omgeving, zoals Azure Government "https://login.microsoftonline.us" |
 |AADTenantId|tekenreeks, standaardwaarde is ""|Statisch|Tenant-ID (GUID) |
 |AdminClientCertThumbprints|tekenreeks, standaardwaarde is ""|Dynamisch|Vingerafdrukken van de certificaten die worden gebruikt door clients in de rol van beheerder. Het is een naam door komma's gescheiden lijst. |
+|AADTokenEndpointFormat|tekenreeks, standaardwaarde is ""|Statisch|AAD-Token-eindpunt standaard Azure Commercial opgegeven voor niet-standaard-omgeving, zoals Azure Government "https://login.microsoftonline.us/{0}" |
 |AdminClientClaims|tekenreeks, standaardwaarde is ""|Dynamisch|Alle mogelijke claims verwacht van beheerder clients; dezelfde indeling als ClientClaims; Deze lijst wordt intern toegevoegd aan ClientClaims; dus hoeft u ook de dezelfde items toevoegen aan ClientClaims. |
 |AdminClientIdentities|tekenreeks, standaardwaarde is ""|Dynamisch|Windows-identiteit van de fabric-clients in de rol admin; gebruikt voor de autorisatie van fabric bevoorrechte bewerkingen. Het is een door komma's gescheiden lijst. elk item is een domeinaccountnaam of groepsnaam. Voor het gemak; het account dat wordt uitgevoerd fabric.exe is beheerdersrol; automatisch toegewezen wordt gegroepeerd zodat ServiceFabricAdministrators. |
 |CertificateExpirySafetyMargin|Interval, de standaardwaarde is Common::TimeSpan::FromMinutes(43200)|Statisch|Interval in seconden opgeven. Veiligheidsmarge voor certificaat verloopt; certificaat health rapportstatus verandert van OK in waarschuwing wanneer de vervaldatum is minder dan dit. Standaard is 30 dagen. |

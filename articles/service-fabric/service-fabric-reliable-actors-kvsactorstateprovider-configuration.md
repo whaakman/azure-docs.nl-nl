@@ -1,6 +1,6 @@
 ---
-title: Wijzig de instellingen in Azure microservices KVSActorStateProvider | Microsoft Docs
-description: Meer informatie over het configureren van stateful actoren van het type KVSActorStateProvider Azure Service Fabric.
+title: KVSActorStateProvider instellingen wijzigen in Azure Service Fabric-actoren | Microsoft Docs
+description: Meer informatie over het configureren van stateful Azure Service Fabric-actoren van het type KVSActorStateProvider.
 services: Service-Fabric
 documentationcenter: .net
 author: sumukhs
@@ -14,37 +14,37 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 10/2/2017
 ms.author: sumukhs
-ms.openlocfilehash: c01bcfecea8d79784b764e715f077c76e7d4be45
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 81c09d61a5213319fa01ef5cc7070ffe385bbab1
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37017644"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049507"
 ---
 # <a name="configuring-reliable-actors--kvsactorstateprovider"></a>Reliable Actors--KVSActorStateProvider configureren
-U kunt de standaardconfiguratie van KVSActorStateProvider wijzigen door het bestand settings.xml die wordt gegenereerd in de hoofdmap van het pakket Microsoft Visual Studio onder de map configuratie voor de opgegeven actor wordt gewijzigd.
+U kunt de standaardconfiguratie van KVSActorStateProvider wijzigen door het veranderen van de settings.xml-bestand dat wordt gegenereerd in de hoofdmap van het Microsoft Visual Studio-pakket in de Config-map voor de opgegeven actor.
 
-De Azure Service Fabric-runtime gezocht naar vooraf gedefinieerde sectienamen in het bestand settings.xml en de configuratiewaarden verbruikt tijdens het maken van de onderliggende runtimeonderdelen.
+De Azure Service Fabric-runtime vooraf gedefinieerde namen in het bestand settings.xml zoekt en neemt de configuratiewaarden tijdens het maken van de onderliggende runtimeonderdelen.
 
 > [!NOTE]
-> Voer **niet** verwijderen of wijzigen van de namen van de volgende configuraties in het settings.xml-bestand dat wordt gegenereerd in de Visual Studio-oplossing.
+> Voer **niet** verwijderen of wijzigen van de namen van de volgende configuraties in het settings.xml-bestand dat wordt gegenereerd in Visual Studio-oplossing.
 > 
 > 
 
-## <a name="replicator-security-configuration"></a>Replicator Beveiligingsconfiguratie
-Beveilig het communicatiekanaal dat wordt gebruikt tijdens de replicatie worden beveiligingsconfiguraties Replicator gebruikt. Dit betekent dat services elkaars replicatieverkeer, om te garanderen dat de gegevens die maximaal beschikbaar is ook beveiligde kunnen niet zien.
+## <a name="replicator-security-configuration"></a>Configuratie van de replicatie-beveiliging
+Beveiligingsconfiguraties replicatie worden gebruikt om Beveilig het communicatiekanaal dat wordt gebruikt tijdens de replicatie. Dit betekent dat services elkaars replicatieverkeer, ervoor te zorgen dat de gegevens die maximaal beschikbaar worden gesteld ook beveiligd is niet kunnen zien.
 Standaard wordt een lege beveiligingsconfiguratiesectie voorkomen dat replicatiebeveiliging.
 
 > [!IMPORTANT]
-> Op Linux-knooppunten moet certificaten PEM-indeling. Zie voor meer informatie over het zoeken naar en het configureren van certificaten voor Linux [certificaten configureren op Linux](./service-fabric-configure-certificates-linux.md). 
+> Op Linux-knooppunten moeten certificaten een PEM-indeling. Zie voor meer informatie over het zoeken naar en configureren van certificaten voor Linux [certificaten configureren op Linux](./service-fabric-configure-certificates-linux.md). 
 > 
 
 ### <a name="section-name"></a>Sectienaam
 &lt;ActorName&gt;ServiceReplicatorSecurityConfig
 
-## <a name="replicator-configuration"></a>Configuratie van de Replicator
-Replicator configuraties configureren de replicator die verantwoordelijk is voor het maken van de status van de Actor State-Provider uiterst betrouwbaar.
-De standaardconfiguratie wordt gegenereerd door de sjabloon voor Visual Studio en moet voldoende zijn. Deze sectie wordt gesproken over aanvullende configuraties die beschikbaar zijn voor het afstemmen van de replicator.
+## <a name="replicator-configuration"></a>Configuratie van de replicatie
+Configuraties voor replicatie configureren de replicatie dat verantwoordelijk is voor het maken van de status van de Actor State-Provider zeer betrouwbare.
+De standaardconfiguratie wordt gegenereerd door de sjabloon voor Visual Studio en moet voldoende zijn. In deze sectie wordt besproken aanvullende configuraties die beschikbaar zijn voor het afstemmen van de replicatie.
 
 ### <a name="section-name"></a>Sectienaam
 &lt;ActorName&gt;ServiceReplicatorConfig
@@ -52,16 +52,16 @@ De standaardconfiguratie wordt gegenereerd door de sjabloon voor Visual Studio e
 ### <a name="configuration-names"></a>Configuratienamen
 | Naam | Eenheid | Standaardwaarde | Opmerkingen |
 | --- | --- | --- | --- |
-| BatchAcknowledgementInterval |Seconden |0.015 |Periode waarvoor de replicatie op de secundaire Wacht na de ontvangst van een bewerking voor het verzenden van back-een bevestiging naar de primaire. Alle andere bevestigingen voor bewerkingen binnen dit interval verwerkt worden verzonden, worden verzonden als een reactie. |
-| ReplicatorEndpoint |N/A |Er is geen standaard--vereiste parameter |IP-adres en poort op die de primaire en secundaire replicatie wordt gebruikt om te communiceren met andere replicaties in de replica is ingesteld. Dit moet verwijzen naar een resource TCP-eindpunt in het servicemanifest. Raadpleeg [Service manifest resources](service-fabric-service-manifest-resources.md) voor meer informatie over het definiëren van endpoint-resources in het servicemanifest. |
-| retryInterval |Seconden |5 |De periode waarna de replicator opnieuw een bericht verzendt als deze niet een bevestiging voor een bewerking ontvangt. |
+| BatchAcknowledgementInterval |Seconden |0.015 |De periode waarvoor de replicatie op de secundaire Wacht na de ontvangst van een bewerking voor het verzenden van een bevestiging terug naar de primaire. Alle andere bevestigingen voor bewerkingen die worden verwerkt binnen dit interval worden verzonden als één antwoord verzonden. |
+| ReplicatorEndpoint |N/A |Er is geen standaard--de vereiste parameter |IP-adres en poort op die de primaire/secundaire replicatie wordt gebruikt om te communiceren met andere distributeurs in de replica instellen. Dit moet verwijzen naar een TCP-resource-eindpunt in het servicemanifest. Raadpleeg [servicemanifest-resources](service-fabric-service-manifest-resources.md) voor meer informatie over het definiëren van eindpunt resources in het servicemanifest. |
+| retryInterval |Seconden |5 |De periode waarna de replicatie opnieuw een bericht verzendt als er een bevestiging voor een bewerking niet ontvangt. |
 | MaxReplicationMessageSize |Bytes |50 MB |Maximale grootte van de replicatiegegevens die kunnen worden overgebracht in één bericht. |
-| MaxPrimaryReplicationQueueSize |Aantal bewerkingen |1024 |Maximum aantal bewerkingen in de primaire wachtrij. Een bewerking wordt vrijgemaakt nadat de primaire replicatie een bevestiging van de secundaire replicaties ontvangt. Deze waarde moet groter zijn dan 64 en een macht van 2 zijn. |
-| MaxSecondaryReplicationQueueSize |Aantal bewerkingen |2048 |Maximum aantal bewerkingen in de secundaire wachtrij. Een bewerking wordt vrijgemaakt nadat u de status maximaal beschikbaar is via persistentie. Deze waarde moet groter zijn dan 64 en een macht van 2 zijn. |
+| MaxPrimaryReplicationQueueSize |Aantal bewerkingen |1024 |Maximum aantal bewerkingen in de primaire wachtrij. Een bewerking wordt vrijgemaakt nadat de primaire replicatie ontvangt een bevestiging van de secundaire distributeurs. Deze waarde moet groter zijn dan 64 en een macht van 2. |
+| MaxSecondaryReplicationQueueSize |Aantal bewerkingen |2048 |Maximum aantal bewerkingen in de secundaire wachtrij. Een bewerking wordt vrijgemaakt nadat u de status maximaal beschikbaar is via persistentie. Deze waarde moet groter zijn dan 64 en een macht van 2. |
 
-## <a name="store-configuration"></a>Configuratie van gegevensarchief
-Store-configuraties worden gebruikt voor het configureren van het lokale archief dat wordt gebruikt om vast te leggen van de status die wordt gerepliceerd.
-De standaardconfiguratie wordt gegenereerd door de sjabloon voor Visual Studio en moet voldoende zijn. Deze sectie wordt gesproken over aanvullende configuraties die beschikbaar zijn voor het afstemmen van het lokale archief.
+## <a name="store-configuration"></a>Store-configuratie
+Store-configuraties worden gebruikt voor het configureren van het lokale archief dat wordt gebruikt om vast te leggen de status die wordt gerepliceerd.
+De standaardconfiguratie wordt gegenereerd door de sjabloon voor Visual Studio en moet voldoende zijn. In deze sectie wordt besproken aanvullende configuraties die beschikbaar zijn voor het afstemmen van het lokale archief.
 
 ### <a name="section-name"></a>Sectienaam
 &lt;ActorName&gt;ServiceLocalStoreConfig
@@ -69,10 +69,10 @@ De standaardconfiguratie wordt gegenereerd door de sjabloon voor Visual Studio e
 ### <a name="configuration-names"></a>Configuratienamen
 | Naam | Eenheid | Standaardwaarde | Opmerkingen |
 | --- | --- | --- | --- |
-| MaxAsyncCommitDelayInMilliseconds |Milliseconden |200 |Hiermee stelt u het interval voor duurzame lokale archief doorvoeracties batchverwerking maximum. |
-| MaxVerPages |Het aantal pagina 's |16384 |Het maximum aantal pagina's de versie van de lokale database worden opgeslagen. Bepaalt het maximum aantal openstaande transacties. |
+| MaxAsyncCommitDelayInMilliseconds |Milliseconden |200 |Hiermee stelt u het interval voor duurzame lokale archief doorvoeringen batchverwerking maximum. |
+| MaxVerPages |Aantal pagina 's |16384 |Het maximum aantal pagina's de versie van de lokale database opslaan. Bepaalt het maximum aantal openstaande transacties. |
 
-## <a name="sample-configuration-file"></a>Voorbeeld van configuratiebestand
+## <a name="sample-configuration-file"></a>Voorbeeldconfiguratiebestand
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <Settings xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.microsoft.com/2011/01/fabric">
@@ -95,6 +95,6 @@ De standaardconfiguratie wordt gegenereerd door de sjabloon voor Visual Studio e
 </Settings>
 ```
 ## <a name="remarks"></a>Opmerkingen
-De parameter BatchAcknowledgementInterval bepaalt replicatielatentie. Een waarde van '0' resulteert in de laagst mogelijke latentie koste doorvoer (zoals meer bevestigingsberichten moeten worden verzonden en verwerkt, elk met minder bevestigingen).
-Hoe hoger de waarde voor BatchAcknowledgementInterval, hoe hoger de algehele replicatie doorvoer, koste hogere latentie van de bewerking. Hierdoor kan rechtstreeks aan de latentie van transactie doorvoeracties.
+De parameter BatchAcknowledgementInterval bepaalt replicatielatentie. Een waarde van '0' resulteert in de laagst mogelijke latentie leiden doorvoer (zoals meer bevestigingsberichten moeten worden verzonden en verwerkt, elk met minder bevestigingen).
+Hoe hoger de waarde voor BatchAcknowledgementInterval, hoe hoger de algemene replicatie doorvoer, leiden van hogere latentie van de bewerking. Dit wordt rechtstreeks omgezet in de latentie van transacties doorgevoerd.
 

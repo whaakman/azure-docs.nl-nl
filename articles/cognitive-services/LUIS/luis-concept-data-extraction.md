@@ -1,5 +1,6 @@
 ---
-title: Gegevens uitpakken concepten in LUIS - Azure | Microsoft Docs
+title: Gegevens uitpakken concepten in LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Informatie over wat voor soort gegevens kan worden geëxtraheerd uit Language Understanding (LUIS)
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: f57e7cb85e6d183a59b358e347d70d4d185868a7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 40c7e0744825697779e6bd19a78d8d3512b5d63e
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225679"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023457"
 ---
 # <a name="data-extraction"></a>Ophalen van gegevens
 LUIS biedt u de mogelijkheid informatie ophalen van natuurlijke taal-uitingen van een gebruiker. De informatie wordt opgehaald op een manier dat deze kan worden gebruikt door een programma, toepassing of chatbot om actie te ondernemen.
@@ -46,7 +47,7 @@ De primaire gegevens is de hoogste score **intentie naam**. Met behulp van de `M
 
 |Data-Object|Gegevenstype|Gegevenslocatie|Waarde|
 |--|--|--|--|
-|Doel|Reeks|topScoringIntent.intent|"GetStoreInfo"|
+|Intentie|Reeks|topScoringIntent.intent|"GetStoreInfo"|
 
 Als uw chatbot of app van LUIS-aanroepen maakt een beslissing op basis van meer dan één intentie score, de intenties scores terug door in te stellen de queryreeks-parameter `verbose=true`. De eindpunt-antwoord is:
 
@@ -75,8 +76,8 @@ De intenties zijn gerangschikt op de hoogste naar laagste score.
 
 |Data-Object|Gegevenstype|Gegevenslocatie|Waarde|Score|
 |--|--|--|--|:--|
-|Doel|Reeks|intents [0] .intent|"GetStoreInfo"|0.984749258|
-|Doel|Reeks|.intent intents [1]|'Geen'|0.0168218873|
+|Intentie|Reeks|intents [0] .intent|"GetStoreInfo"|0.984749258|
+|Intentie|Reeks|.intent intents [1]|'Geen'|0.0168218873|
 
 Als u vooraf gemaakte domeinen toevoegt, geeft de naam van de intentie het domein, zoals `Utilties` of `Communication` en het doel:
 
@@ -104,11 +105,11 @@ Als u vooraf gemaakte domeinen toevoegt, geeft de naam van de intentie het domei
 }
 ```
     
-|Domein|Data-Object|Gegevenstype|Gegevenslocatie|Waarde|
+|Domain|Data-Object|Gegevenstype|Gegevenslocatie|Waarde|
 |--|--|--|--|--|
-|Nutsbedrijven|Doel|Reeks|intents [0] .intent|"<b>Hulpprogramma's voor</b>. ShowNext"|
-|Communicatie|Doel|Reeks|.intent intents [1]|<b>Communicatie</b>. Opnieuw"|
-||Doel|Reeks|.intent intents [2]|'Geen'|
+|Nutsbedrijven|Intentie|Reeks|intents [0] .intent|"<b>Hulpprogramma's voor</b>. ShowNext"|
+|Communicatie|Intentie|Reeks|.intent intents [1]|<b>Communicatie</b>. Opnieuw"|
+||Intentie|Reeks|.intent intents [2]|'Geen'|
 
 
 ## <a name="data-from-entities"></a>Gegevens van entiteiten

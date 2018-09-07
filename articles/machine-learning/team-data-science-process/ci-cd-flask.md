@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 4d95fc25ed6f2f2efec8313e5b208b3cccbb619f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 6de1832dde1764b2655d4c34643d6a026e198f64
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38968788"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052221"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps voor kunstmatige intelligentie (AI)-toepassingen: het maken van de pijplijn voor continue integratie in Azure met behulp van Docker en Kubernetes
 Er zijn vaak twee stromen werkzaamheden, Data Scientists, het bouwen van machine learning-modellen en App-ontwikkelaars het bouwen van de toepassing en beschikbaar te maken voor eindgebruikers te gebruiken voor een toepassing AI. In dit artikel laten we zien hoe u voor het implementeren van een continue integratie (CI) / pijplijn voor continue levering (CD) voor een AI-toepassing. AI-toepassing is een combinatie van een model dat machine learning (ML) zijn ingebed toepassingscode. In dit artikel we bij het ophalen van een pretrained model vanuit een persoonlijke Azure-blob storage-account, wordt een AWS S3-account. Voor het artikel gebruiken we een eenvoudige python flask-toepassing.
@@ -65,7 +65,7 @@ De pijplijn-architectuur wordt hieronder.
 11. DNS-server de aanvraag tot de load balancer is geslaagd en stuurt het antwoord terug naar de gebruiker.
 
 ## <a name="next-steps"></a>Volgende stappen
-* Raadpleeg de [zelfstudie]((https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md)) volgt u de details en implementeren van uw eigen CI/CD-pijplijn voor uw toepassing.
+* Raadpleeg de [zelfstudie](https://github.com/Azure/DevOps-For-AI-Apps/blob/master/Tutorial.md) volgt u de details en implementeren van uw eigen CI/CD-pijplijn voor uw toepassing.
 
 ## <a name="references"></a>Verwijzingen
 * [Team Data Science Process (TDSP)](https://aka.ms/tdsp)

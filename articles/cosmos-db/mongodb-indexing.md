@@ -11,12 +11,12 @@ ms.devlang: nodejs
 ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: orkostak
-ms.openlocfilehash: d0c74bd2ba7a4a77a16d481ddb3b76f90a923254
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: a3dadfc4257d43f9df1b93f5d486e5577b7889d6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38989506"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055308"
 ---
 # <a name="indexing-in-the-azure-cosmos-db-mongodb-api"></a>Indexeren in de MongoDB-API van Azure Cosmos DB
 
@@ -41,7 +41,7 @@ Samengestelde indexen bevatten verwijzingen naar meerdere velden van een documen
 >[!important] 
 > Op dit moment kunnen alleen unieke indexen worden gemaakt wanneer de verzameling leeg is (bevat geen documenten). 
 
-Met de volgende opdracht maakt u een unieke index voor het veld 'student_id':
+De volgende opdracht maakt u een unieke index voor het veld 'student_id':
 
 ```JavaScript
 globaldb:PRIMARY> db.coll.createIndex( { "student_id" : 1 }, {unique:true} ) 

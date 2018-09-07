@@ -9,12 +9,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: rafats
-ms.openlocfilehash: 11aac0ab4476494f74453ca64a1b77964197adaa
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: b090c1593b49bec4f51fea8d498860e8af8b2f4b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42748056"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053081"
 ---
 # <a name="use-key-vault-to-store-and-access-azure-cosmos-db-keys"></a>Key Vault gebruiken voor het opslaan en openen van Azure Cosmos DB-sleutels
 
@@ -56,7 +56,7 @@ De volgende stappen zijn vereist voor het opslaan en lezen van Azure Cosmos DB-t
 
 ## <a name="create-an-azure-web-application"></a>Een Azure-web-toepassing maken
 
-1. Een Azure-web-toepassing maken of kunt u de app vanuit de [GitHub-opslagplaats](https://github.com/rsarosh/CosmosDB-KeyVault). Er is een eenvoudige MVC-toepassing.  
+1. Een Azure-web-toepassing maken of kunt u de app vanuit de [GitHub-opslagplaats](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/Demo/keyvaultdemo). Er is een eenvoudige MVC-toepassing.  
 
 2. Pak het gedownloade toepassing uit en opent u de **HomeController.cs** bestand. Werk de geheime-ID in de volgende regel:
 
@@ -87,11 +87,9 @@ Als u de toepassing uitvoert, kunt u nu het geheim lezen uit Key Vault.
 
 ![-App geïmplementeerd met geheim](./media/access-secrets-from-keyvault/app-deployed-with-access.png)
  
-Op deze manier kunt u een gebruiker voor toegang tot de key Vault toevoegen. U moet zelf aan de Key Vault toevoegen door te klikken op 'Toegangsbeleid' en vervolgens alle moet u de toepassing uitvoeren vanuit Visual studio toestemming geven. Als deze toepassing wordt uitgevoerd vanaf het bureaublad, gaat uw identiteit.
+Op deze manier kunt u een gebruiker voor toegang tot de key Vault toevoegen. U moet zelf toevoegen aan de Key Vault hiervoor **toegangsbeleid** en hen vervolgens machtigen alle machtigingen die u nodig hebt voor het uitvoeren van de toepassing vanuit Visual studio. Als deze toepassing wordt uitgevoerd vanaf het bureaublad, gaat uw identiteit.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * Een firewall configureren voor Azure Cosmos DB Zie [firewall-ondersteuning](firewall-support.md) artikel.
 * Zie configureren van service-eindpunt voor virtueel netwerk [toegang beveiligen met behulp van VNet-service-eindpunt](vnet-service-endpoint.md) artikel.
-
-

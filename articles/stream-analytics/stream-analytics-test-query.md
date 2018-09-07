@@ -10,12 +10,12 @@ manager: kfile
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: d699d69362b2d28c205aab14a4bfb26570a68a4e
-ms.sourcegitcommit: 7b845d3b9a5a4487d5df89906cc5d5bbdb0507c8
+ms.openlocfilehash: 63f9b98bcd70378ae02769298f0ffcd796378612
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42060141"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027262"
 ---
 # <a name="test-a-stream-analytics-query-with-sample-data"></a>Testen van een Stream Analytics-query met voorbeeldgegevens
 
@@ -29,7 +29,7 @@ U kunt met behulp van Azure Stream Analytics, voorbeeldquery gegevens- en Testsc
 
 3. Op de Stream Analytics job pagina, onder de **Taaktopologie** kop, selecteer **Query** het Query-editor-venster te openen. 
 
-4. Als u wilt testen van uw query's uitvoeren met voorbeelden van invoergegevens, met de rechtermuisknop op een van uw invoer.  Selecteer vervolgens **voorbeeldgegevens uit het bestand uploaden**. De gegevens moeten worden geserialiseerd in JSON, CSV of AVRO.
+4. Als u wilt testen van uw query's uitvoeren met voorbeelden van invoergegevens, met de rechtermuisknop op een van uw invoer.  Selecteer vervolgens **voorbeeldgegevens uit het bestand uploaden**. De gegevens moeten worden geserialiseerd in JSON, CSV of AVRO. Van Voorbeeldinvoer moet worden gecodeerd in UTF-8- en niet gecomprimeerd. Alleen de scheidingsteken komma (,) wordt ondersteund voor het testen van CSV-invoer voor de portal.
 
     ![Stream analytics query-editor testovat dotaz](media/stream-analytics-test-query/stream-analytics-test-query-editor-upload.png)
 

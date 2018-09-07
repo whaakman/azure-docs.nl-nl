@@ -1,6 +1,6 @@
 ---
-title: 'PowerShell-script: Set VM-grootten toegestaan in Azure Lab Services | Microsoft Docs'
-description: Deze PowerShell-script stelt toegestane grootten voor virtuele machine in Azure Lab-Services.
+title: 'PowerShell-script: Set toegestaan VM-grootten in Azure Lab-Services | Microsoft Docs'
+description: Dit PowerShell-script wordt toegestane VM-grootten in Azure Lab-Services.
 services: lab-services
 author: spelluru
 manager: ''
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 159f175e7bb27b2d89001e1eba737c67adb89e50
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 559e74675a5d113584dca21979c20462c9cdf19c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34638140"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054703"
 ---
 # <a name="use-powershell-to-set-allowed-vm-sizes-in-azure-lab-services"></a>Gebruik PowerShell om in te stellen toegestaan VM-grootten in Azure Lab Services
 
-Deze PowerShell-voorbeeldscript stelt u de grootte van toegestane virtuele machines (VM) in Azure Lab Services.
+Met dit PowerShell-voorbeeldscript stelt grootten van toegestane virtuele machines (VM) in Azure Lab-Services.
 
 [!INCLUDE [sample-powershell-install](../../../includes/sample-powershell-install-no-ssh.md)]
 
@@ -38,13 +38,13 @@ In dit script worden de volgende opdrachten gebruikt:
 
 | Opdracht | Opmerkingen |
 |---|---|
-| [Find-AzureRmResource](/module/azurerm.resources/find-azurermresource) | Hiermee zoekt u naar resources op basis van de opgegeven parameters. |
-| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | Hiermee haalt u resources. |
+| [Find-AzureRmResource](/powershell/module/azurerm.resources/find-azurermresource) | Zoekt naar resources op basis van de opgegeven parameters. |
+| [Get-AzureRmResource](/powershell/module/azurerm.resources/get-azurermresource) | -Resources ophaalt. |
 | [Set-AzureRmResource](/powershell/module/azurerm.resources/set-azurermresource) | Hiermee wijzigt u een resource. |
-| [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Maak een resource. |
+| [New-AzureRmResource](/powershell/module/azurerm.resources/new-azurermresource) | Een resource maken. |
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie [Documentatie over Azure PowerShell](https://docs.microsoft.com/powershell/) voor meer informatie over Azure PowerShell.
 
-Voorbeelden van extra Azure Lab Services PowerShell-script kunnen worden gevonden in de [Azure Lab Services PowerShell-voorbeelden](../samples-powershell.md).
+Aanvullende voorbeelden van Azure Lab Services PowerShell-scripts vindt u de [voorbeelden van Azure Lab Services PowerShell](../samples-powershell.md).

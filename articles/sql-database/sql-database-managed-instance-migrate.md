@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: e152fa4bb439f1881dc9974bfdf1b3e8c77c434a
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 276d36562aece7101465752528f59008e1ee7607
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42055471"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050320"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-exemplaar migratie naar Azure SQL Database Managed Instance
 
@@ -100,13 +100,13 @@ De volgende tabel vindt u meer informatie over de methoden die u kunt gebruiken,
 |Back-up naar Azure Storage plaatsen|Eerdere SQL 2012 SP1 CU2|Uploaden van bestand met .bak rechtstreeks naar Azure storage|
 ||2012 SP1 CU2 - 2016|Directe back-up met afgeschaft [WITH CREDENTIAL](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql) syntaxis|
 ||2016 en hoger|Directe back-up met [met SAS-REFERENTIES](https://docs.microsoft.com/sql/relational-databases/backup-restore/sql-server-backup-to-url)|
-|Herstellen van Azure-opslag naar beheerd exemplaar|[HERSTELLEN van URL met SAS-REFERENTIES](sql-database-managed-instance-restore-from-backup-tutorial.md)|
+|Herstellen van Azure-opslag naar beheerd exemplaar|[HERSTELLEN van URL met SAS-REFERENTIES](sql-database-managed-instance-get-started-restore.md)|
 
 > [!IMPORTANT]
 > - Wanneer een database die is beveiligd met [transparante gegevensversleuteling](transparent-data-encryption-azure-sql.md) (TDE) wordt gemigreerd naar een met Azure SQL Database beheerd exemplaar met behulp van de optie voor systeemeigen herstel, moet het corresponderende certificaat van de on-premises of IaaS SQL-server worden gemigreerd voordat de database wordt hersteld. Zie voor gedetailleerde stappen [cert TDE migreren naar Managed Instance](sql-database-managed-instance-migrate-tde-certificate.md)
 > - Herstellen van systeemdatabases wordt niet ondersteund. Exemplaar niveau om objecten te migreren (opgeslagen in de basispagina of msdb-databases), wordt aangeraden deze scripts en T-SQL-scripts uitvoeren op de doel-exemplaar.
 
-Zie voor een volledige zelfstudie waarin de back-up van een database herstellen naar een beheerd exemplaar met behulp van een SAS-referenties, [herstellen vanuit back-up naar een beheerd exemplaar](sql-database-managed-instance-restore-from-backup-tutorial.md).
+Zie voor een snelstart van het back-up van een database herstellen naar een beheerd exemplaar met behulp van een SAS-referentie [herstellen vanuit back-up naar een beheerd exemplaar](sql-database-managed-instance-get-started-restore.md).
 
 ## <a name="monitor-applications"></a>Toepassingen bewaken
 

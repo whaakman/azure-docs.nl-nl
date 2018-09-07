@@ -1,5 +1,5 @@
 ---
-title: Azure microservice load met metrische gegevens beheren | Microsoft Docs
+title: Azure Service Fabric-app laden met metrische gegevens beheren | Microsoft Docs
 description: Meer informatie over het configureren en gebruiken van metrische gegevens in Service Fabric voor het beheren van service resourceverbruik.
 services: service-fabric
 documentationcenter: .net
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: e16f1ae28f2212d0cec61368a2fba946d48fd811
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 7a7d3ad59d743287e5fe13c52c6c6a1a115d53f3
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006281"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053309"
 ---
 # <a name="managing-resource-consumption-and-load-in-service-fabric-with-metrics"></a>Beheren van resourceverbruik en laden in Service Fabric met metrische gegevens
 *Metrische gegevens* zijn de resources die uw care services over en die worden geleverd door de knooppunten in het cluster. Een metrische waarde is alles wat u wilt beheren om te verbeteren of de prestaties van uw services controleren. U kunt bijvoorbeeld geheugenverbruik als u wilt weten als uw service is overbelast bekijken. Een andere toepassing is om te achterhalen of de service elders waar geheugen dat minder beperkt is om betere prestaties kan verplaatsen.

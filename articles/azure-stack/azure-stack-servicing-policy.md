@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: harik
-ms.openlocfilehash: a76cf1394dc2c4900b370b52f3479dc03d1d8afe
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: f74a4ad0507f1c1f029befff88d733ffa719a763
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42059098"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023508"
 ---
 # <a name="azure-stack-servicing-policy"></a>Azure Stack servicebeleid
 Dit artikel wordt beschreven voor het uitvoeren van onderhoud beleid voor geïntegreerde Azure Stack-systemen, en wat u moet doen om te voorkomen dat uw systeem in een ondersteunde status. 
@@ -38,9 +38,10 @@ Er zijn twee soorten updatepakketten voor geïntegreerde systemen:
 Microsoft verwacht om software-updatepakketten een maandelijkse uitgebracht vrij te geven. Het is echter mogelijk om meerdere, of er zijn geen updates in een maand. OEM-hardwareleveranciers vrijgeven hun updates op basis van behoefte. 
 
 Documentatie voor het plannen en beheren van updates en het bepalen van uw huidige versie in [beheren updates overzicht](azure-stack-updates.md). Voor informatie over een bepaalde update, met inbegrip van hoe u het downloaden, Zie de releaseopmerkingen voor deze update: 
+- [Azure Stack 1808 update](azure-stack-update-1808.md)
 - [Azure Stack 1807 update](azure-stack-update-1807.md)
 - [Azure Stack 1805 update](azure-stack-update-1805.md)
-- [Azure Stack 1804 update](azure-stack-update-1804.md)
+
 
 ## <a name="hotfixes"></a>Hotfixes
 In sommige gevallen biedt Microsoft hotfixes voor Azure Stack dat adres een specifiek probleem die vaak preventief of tijdgebonden.  Elke hotfix is uitgebracht met een bijbehorende Microsoft Knowledge Base-artikel waarin wordt uitgelegd van het probleem, de oorzaak en de oplossing. 

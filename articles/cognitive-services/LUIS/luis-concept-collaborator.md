@@ -1,5 +1,6 @@
 ---
-title: Inzicht in samenwerking in de LUIS-app - Azure | Microsoft Docs
+title: LUIS-app samenwerking - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: LUIS-apps moeten de eigenaar van een enkele en optionele deelnemers.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: diberry
-ms.openlocfilehash: fe5e35c2dcb08cdff9d92142558cf8d7ec81c36c
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fd4955cb2d7ea76e8d0fd6c60027740b64bd8b24
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399568"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026244"
 ---
 # <a name="collaborating"></a>Samenwerken
 
@@ -41,7 +42,7 @@ Als u meerdere apps delen met uw collega's wilt, moet elke app van de samenwerke
 ## <a name="managing-multiple-authors"></a>Beheer van meerdere auteurs
 De [LUIS](luis-reference-regions.md#luis-website) website niet op dit moment biedt voor het transactieniveau ontwerpen. Auteurs kunnen werken op onafhankelijke versies van een basisversie kunt u toestaan. Twee verschillende methoden worden beschreven in de volgende secties.
 
-### <a name="manage-multiple-versions-inside-the-same-app"></a>Meerdere versies binnen dezelfde app beheren
+## <a name="manage-multiple-versions-inside-the-same-app"></a>Meerdere versies binnen dezelfde app beheren
 Beginnen met het [klonen](luis-how-to-manage-versions.md#clone-a-version), van een basisversie voor elke auteur maken. 
 
 Elke auteur brengt wijzigingen aan zijn of haar eigen versie van de app. Wanneer elke auteur maken door het model is, moet u de nieuwe versies exporteren naar JSON-bestanden.  
@@ -50,7 +51,7 @@ Geëxporteerde apps zijn JSON-indeling bestanden, die wijzigingen kunnen worden 
 
 Deze methode kunt u een actieve versie, één fase-versie en een gepubliceerde versie hebben. U kunt de resultaten in het deelvenster met interactieve testen voor de drie versies vergelijken.
 
-### <a name="manage-multiple-versions-as-apps"></a>Beheer van meerdere versies als apps
+## <a name="manage-multiple-versions-as-apps"></a>Beheer van meerdere versies als apps
 [Exporteren](luis-how-to-manage-versions.md#export-version) de basisversie. Elke auteur importeert de-versie. De persoon die de invoer van de app is de eigenaar van de versie. Wanneer ze klaar zijn voor het wijzigen van de app, de versie exporteren. 
 
 Geëxporteerde apps zijn JSON-indeling bestanden, die kunnen worden vergeleken met de basis exporteren voor wijzigingen. Combineer de bestanden voor het maken van een enkel JSON-bestand van de nieuwe versie. Wijzig de **versionId** eigenschap in de JSON om de nieuwe versie van de samengevoegde aan te geven. Die versie importeren in de oorspronkelijke app.

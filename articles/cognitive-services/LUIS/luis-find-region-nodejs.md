@@ -1,5 +1,6 @@
 ---
-title: LUIS-regio met behulp van Node.js niet vinden in de grenzen van Language Understanding (LUIS) | Microsoft Docs
+title: Eindpunt-regio met behulp van Node.js niet vinden in LUIS
+titleSuffix: Azure Cognitive Services
 description: Via een programma zoeken regio met de eindpuntsleutel en toepassing publiceren-ID van LUIS.
 services: cognitive-services
 author: diberry
@@ -7,16 +8,16 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/01/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 66a34b5b611934ca531e7709b13e0c6d1c794206
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 2b978b8459bbf248f7702076c78c1948b036aec6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222508"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44057358"
 ---
-# <a name="region-can-be-determined-from-api-call"></a>Regio kan worden bepaald van API-aanroep 
+# <a name="find-endpoint-region-with-nodejs"></a>Eindpunt-gebied met behulp van Node.js zoeken
 Als u de LUIS-app-ID en de LUIS abonnements-ID hebt, kunt u welke regio u moet gebruiken voor eindpunt query's kunt vinden.
 
 > [!NOTE] 

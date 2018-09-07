@@ -3,7 +3,7 @@ title: Onboarding van Azure Security Center Standard voor verbeterde beveiliging
 description: " Informatie over hoe om te onboarden naar Azure Security Center Standard voor verbeterde beveiliging. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: a68c0ecc15f81efe6045f4c298b48f9809916297
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.date: 09/02/2018
+ms.author: rkarlin
+ms.openlocfilehash: 21ffab10b87925513a50198b5b0e66188ef15455
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38479458"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024907"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Onboarding van Azure Security Center Standard voor verbeterde beveiliging
 Upgrade uitvoeren naar Security Center Standard om te profiteren van verbeterde beveiligingsbeheer en bedreigingsbeveiliging voor uw hybride cloudworkloads.  U kunt standaard 60 dagen gratis uitproberen. Zie het Security Center [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
@@ -40,59 +40,40 @@ U kunt een hele Azure-abonnement upgraden naar de Standard-laag, die is overgeno
 >
 >
 
-## <a name="upgrade-an-azure-subscription"></a>Upgrade van een Azure-abonnement
-Alle abonnementen upgraden naar Standard:
-1. Selecteer in het hoofdmenu van Security Center de optie **Onboarding naar geavanceerde beveiliging**.
-2. Onder **Onboarding naar geavanceerde beveiliging**, Security Center geeft een lijst van de abonnementen die in aanmerking komen voor onboarding. U kunt alle abonnementen bijwerken door te selecteren **toepassen Standard-abonnement**.
+## <a name="upgrade-an-azure-subscription-or-workspace"></a>Een Azure-abonnement of de werkruimte een upgrade uitvoert
+Een abonnement of een werkruimte upgraden naar Standard:
+1. Selecteer in het hoofdmenu van Security Center de optie **aan de slag**.
+  ![Aan de slag](./media/security-center-onboarding/get-started.png)
+2. Onder **Upgrade**, Security Center een lijst met abonnementen en werkruimten die in aanmerking komen voor onboarding. 
+   - U kunt klikken op de uitbreidbare **toepassen van uw proefversie** voor een overzicht van alle abonnementen en werkruimten met hun status proefversie in aanmerking te komen.
+   -    U kunt abonnementen en werkruimten die niet in aanmerking voor proefversie upgraden.
+   -    U kunt in aanmerking komende werkruimten en abonnementen voor uw proefversie starten selecteren.
+3.  Klik op **proefversie starten** uw proefversie starten op de geselecteerde abonnementen.
+  ![abonnement selecteren](./media/security-center-onboarding/select-subscription.png)
 
-  ![Upgrade van alle abonnementen][1]
-
-Een afzonderlijk abonnement upgraden naar Standard: U kunt een abonnement van **Onboarding** hiervoor **Standard-laag van toepassing**. Als u wilt een resourcegroep onder het abonnement een upgrade naar Standard, selecteer het abonnement:
-1. Selecteer een abonnement.  **Beveiligingsbeleid** bevat informatie over de resourcegroep die is opgenomen in het abonnement.
-2. Selecteer het abonnement of resourcegroep.
-
-  ![Upgrade van alle abonnementen][2]
-
-3. Selecteer **Standard** om te upgraden van gratis naar standaard.
-4. Selecteer **Opslaan**.
-
-> [!NOTE]
-> Een abonnement upgraden naar Standard inschakelt [automatische inrichting](security-center-enable-data-collection.md) als deze eerder was uitgeschakeld. U wordt aangeraden automatische inrichting van bewakingsagents.
->
->
-
-## <a name="upgrade-a-workspace"></a>Een werkruimte upgraden
-Standard toe te passen op de werkruimte is van toepassing op alle resources die rapporteren aan de werkruimte.
-
-1. Ga terug naar de **Onboarding** blade.
-2. Selecteer een werkruimte.
-
-  ![Een werkruimte upgraden][8]
-
-3. Selecteer **Standard** om bij te werken.  
-4. Selecteer **Opslaan**.
 
    > [!NOTE]
-   > Er is een scenario waarin u hebt mogelijk geen gratis of standaard toegepast op uw werkruimte. Als u gratis selecteert, worden de gratis mogelijkheden van Security Center toegepast op uw Azure-VM's alleen. De gratis mogelijkheden worden niet toegepast op uw niet-Azure-computers. Als u standaard selecteert, wordt het Standard-uitvoering worden toegepast op alle Azure-VM's en niet-Azure-computers die rapporteren aan de werkruimte. Het is raadzaam dat u van toepassing standaard zijn voor geavanceerde beveiliging voor uw Azure- en niet-Azure-resources.
+   > Gratis mogelijkheden van Security Center worden toegepast op uw Azure-VM's alleen. De gratis mogelijkheden worden niet toegepast op uw niet-Azure-computers. Als u standaard selecteert, wordt het Standard-uitvoering worden toegepast op alle Azure-VM's en niet-Azure-computers die rapporteren aan de werkruimte. Het is raadzaam dat u van toepassing standaard zijn voor geavanceerde beveiliging voor uw Azure- en niet-Azure-resources.
    >
    >
 
 ## <a name="onboard-non-azure-computers"></a>Onboarding voor niet-Azure-computers
-Security Center kan de beveiligingsstatus van uw niet-Azure-computers controleren, maar u moet deze resources dan eerst onboarden. U kunt niet-Azure computers toevoegen uit de **Onboarding** blade of vanuit de **Compute** blade. We nemen door beide methoden.
+Security Center kan de beveiligingsstatus van uw niet-Azure-computers controleren, maar u moet deze resources dan eerst onboarden. U kunt niet-Azure computers toevoegen uit de **aan de slag** blade of vanuit de **Compute** blade. We nemen door beide methoden.
 
-### <a name="add-new-non-azure-computers-from-onboarding"></a>Nieuwe niet-Azure-computers toevoegen uit Onboarding
+### <a name="add-new-non-azure-computers-from-getting-started"></a>Toevoegen van nieuwe niet-Azure-computers vanuit **aan de slag**
 
-1. Ga terug naar **Onboarding**.   
-2. Selecteer **wilt u nieuwe niet-Azure-computers toevoegen**.
+1. Ga terug naar **aan de slag**.   
+2. Selecteer de **aan de slag** tabblad.
 
-  ![Niet-Azure-computer toevoegen][3]
+  ![Niet-Azure](./media/security-center-onboarding/non-azure.png)
+
+3. Klik op **configureren** onder **nieuwe niet-Azure-computers toevoegen**. Een lijst met uw Log Analytics-werkruimten weergegeven. De lijst bevat, indien van toepassing, de standaardwerkruimte die is gemaakt door Security Center toen automatisch inrichten werd ingeschakeld. Selecteer deze werkruimte of een andere werkruimte die u wilt gebruiken.
+
+  ![Niet-Azure-computer toevoegen][7]
 
 Als u bestaande werkruimten hebt, worden deze weergegeven onder **nieuwe niet-Azure-computers toevoegen**. U kunt computers toevoegen aan een bestaande werkruimte of maak een nieuwe werkruimte. Selecteer de koppeling voor het maken van een nieuwe werkruimte **toevoegen van een nieuwe werkruimte**.
 
-Behandelen we beide methoden:
-
-- Een nieuwe werkruimte maken en de computer toevoegen
-- Selecteer een bestaande werkruimte en computer toevoegen
+### <a name="add-new-non-azure-computers-from-compute"></a>Toevoegen van nieuwe niet-Azure-computers vanuit **Compute**
 
 **Een nieuwe werkruimte maken en de computer toevoegen**
 
@@ -134,9 +115,9 @@ In dit artikel hebt u geleerd hoe u ingebouwde Azure en niet-Azure-resources om 
 <!--Image references-->
 [1]: ./media/security-center-onboarding/onboard.png
 [2]: ./media/security-center-onboarding/onboard-subscription.png
-[3]: ./media/security-center-onboarding/add-non-azure-resource.png
+[3]: ./media/security-center-onboarding/get-started.png
 [4]: ./media/security-center-onboarding/create-workspace.png
 [5]: ./media/security-center-onboarding/overview.png
 [6]: ./media/security-center-onboarding/compute-blade.png
-[7]: ./media/security-center-onboarding/add-non-azure-computer.png
+[7]: ./media/security-center-onboarding/add-computer.png
 [8]: ./media/security-center-onboarding/onboard-workspace.png

@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: 9a06ff345d1bf91efd1abff9960a1a6f9a681dce
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 40e67dfd4ffa427ac47198e88994762a4a45cc94
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223664"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023348"
 ---
 # <a name="windows-10-roaming-settings-reference"></a>Naslaginformatie over roaminginstellingen voor Windows 10
 Hier volgt een volledige lijst van alle instellingen die worden verplaatste of een back-up in Windows 10. 
@@ -44,10 +44,11 @@ De volgende voor Instellingengroepen zijn beschikbaar voor eindgebruikers in-of 
 
 * Thema: bureaubladachtergrond, gebruikerstegel, positie van de taakbalk, enzovoort. 
 * Instellingen voor Internet Explorer: browsegeschiedenis, hebt getypt, URL's, Favorieten, enzovoort. 
-* Wachtwoorden: [Windows referentiekluis](https://technet.microsoft.com/library/jj554668.aspx), met inbegrip van Wi-Fi-profielen 
+* Wachtwoorden: Windows Referentiebeheer, met inbegrip van Wi-Fi-profielen 
 * Taalvoorkeuren: woordenlijst, systeem-taalinstellingen 
 * Toegankelijkheid: narrator, Schermtoetsenbord Vergrootglas 
 * Andere instellingen voor Windows: Zie de details van Windows-instellingen
+* Edge browserinstelling: Microsoft Edge-Favorieten, leeslijst en andere instellingen
 
 ![](./media/active-directory-enterprise-state-roaming/active-directory-enterprise-state-roaming-syncyoursettings.png)
 
@@ -73,7 +74,7 @@ Instellingen die niet kunnen worden gebruikt of sync behoren niet tot een groep.
 | **App-gegevens**: afzonderlijke apps kunnen synchroniseren van gegevens |back-up van synchronisatie |back-up van synchronisatie |Interne |
 | **Lijst met Apps**: lijst met geïnstalleerde apps |X |Back-up |Overige |
 | **Bluetooth**: alle Bluetooth-instellingen |X |X | |
-| **Opdrachtprompt**: opdrachtregel de opdracht 'Standaard' instellingen |Synchronisatie |X | |
+| **Opdrachtprompt**: opdrachtregel de opdracht 'Standaard' instellingen |Synchronisatie |X |Interne |
 | **Referenties**: BitLocker voor referenties |Synchronisatie |Synchronisatie |wachtwoord |
 | **Datum, tijd en de regio**: automatische tijd (tijdsynchronisatie Internet) |Synchronisatie |Synchronisatie |Taal |
 | **Datum, tijd en de regio**: 24-uurs notatie |Synchronisatie |X |Taal |

@@ -6,18 +6,18 @@ author: bryanla
 manager: mbaldwin
 services: key-vault
 ms.author: bryanla
-ms.date: 11/15/2017
+ms.date: 09/05/2018
 ms.topic: article
 ms.prod: ''
 ms.service: key-vault
 ms.technology: ''
 ms.assetid: 4be434c4-0c99-4800-b775-c9713c973ee9
-ms.openlocfilehash: b158414e7a2954981534fe6fb26c987eb2f4ce67
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: bbab141a7d0515ac1bd0726f861089befb1f4cf0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42056832"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022520"
 ---
 # <a name="service-to-service-authentication-to-azure-key-vault-using-net"></a>Service-naar-serviceverificatie naar Azure Key Vault met behulp van .NET
 
@@ -29,12 +29,12 @@ Met de ontwikkelaarsreferenties van tijdens het ontwikkelen van lokale is veilig
 
 De `Microsoft.Azure.Services.AppAuthentication` bibliotheek beheert verificatie automatisch, op zijn beurt waarmee u zich richten op uw oplossing in plaats van uw referenties.
 
-De `Microsoft.Azure.Services.AppAuthentication` bibliotheek biedt ondersteuning voor lokale ontwikkeling met Microsoft Visual Studio, Azure CLI of Azure AD-geïntegreerde verificatie. Wanneer geïmplementeerd in Azure App Services of een Azure-virtuele Machine (VM), gebruikt de bibliotheek automatisch [beheerde Service-identiteit](/azure/active-directory/msi-overview) (MSI). Er zijn geen wijzigingen code of configuratie nodig. De bibliotheek ondersteunt ook direct gebruik van Azure AD [clientreferenties](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) wanneer MSI-bestand is niet beschikbaar of wanneer de beveiligingscontext van de ontwikkelaar kan niet worden bepaald tijdens de lokale ontwikkeling.
+De `Microsoft.Azure.Services.AppAuthentication` bibliotheek biedt ondersteuning voor lokale ontwikkeling met Microsoft Visual Studio, Azure CLI of Azure AD-geïntegreerde verificatie. Wanneer geïmplementeerd in Azure App Services of een Azure-virtuele Machine (VM), gebruikt de bibliotheek automatisch [beheerde identiteiten voor een Azure-services](/azure/active-directory/msi-overview). Er zijn geen wijzigingen code of configuratie nodig. De bibliotheek ondersteunt ook direct gebruik van Azure AD [clientreferenties](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-authenticate-service-principal) wanneer een beheerde identiteit is niet beschikbaar, of wanneer de beveiligingscontext van de ontwikkelaar kan niet worden bepaald tijdens de lokale ontwikkeling.
 
 <a name="asal"></a>
 ## <a name="using-the-library"></a>Met behulp van de bibliotheek
 
-Voor .NET-toepassingen, de eenvoudigste manier om te werken met een Managed Service Identity (MSI) is via de `Microsoft.Azure.Services.AppAuthentication` pakket. Hier wordt aan de slag:
+Voor .NET-toepassingen, de eenvoudigste manier om te werken met een beheerde identiteit is via de `Microsoft.Azure.Services.AppAuthentication` pakket. Hier wordt aan de slag:
 
 1. Voeg een verwijzing naar de [Microsoft.Azure.Services.AppAuthentication](https://www.nuget.org/packages/Microsoft.Azure.Services.AppAuthentication) NuGet-pakket aan uw toepassing.
 
@@ -58,7 +58,7 @@ Voor .NET-toepassingen, de eenvoudigste manier om te werken met een Managed Serv
 
 De `AzureServiceTokenProvider` klasse in de cache van het token in het geheugen opgeslagen en opgehaald uit Azure AD net voordat het verloopt. Als gevolg hiervan, u hoeft niet langer om te controleren is verlopen voordat de `GetAccessTokenAsync` methode. Roept de methode als u wilt dat het token wordt gebruikt. 
 
-De `GetAccessTokenAsync` methode vereist een resource-id. Zie voor meer informatie, [die Azure-services ondersteunen beheerde Service-identiteit](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
+De `GetAccessTokenAsync` methode vereist een resource-id. Zie voor meer informatie, [welke Azure-services ondersteunen beheerde identiteiten voor Azure-resources](https://docs.microsoft.com/azure/active-directory/msi-overview#which-azure-services-support-managed-service-identity).
 
 
 <a name="samples"></a>
@@ -66,11 +66,11 @@ De `GetAccessTokenAsync` methode vereist een resource-id. Zie voor meer informat
 
 De volgende voorbeelden tonen de `Microsoft.Azure.Services.AppAuthentication` bibliotheek in actie:
 
-1. [Gebruik een Managed Service Identity (MSI) voor het ophalen van een geheim uit Azure Key Vault tijdens runtime](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
+1. [Gebruik van een beheerde identiteit voor het ophalen van een geheim uit Azure Key Vault tijdens runtime](https://github.com/Azure-Samples/app-service-msi-keyvault-dotnet)
 
-2. [Een Azure Resource Manager-sjabloon van een Azure-VM met een MSI-bestand via een programma implementeren](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet).
+2. [Een Azure Resource Manager-sjabloon van een Azure-VM met een beheerde identiteit programmatisch implementeren](https://github.com/Azure-Samples/windowsvm-msi-arm-dotnet).
 
-3. [Voorbeeld van .NET Core- en MSI gebruiken voor het aanroepen van Azure-services van een Azure Linux VM](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
+3. [Voorbeeld van .NET Core en een beheerde identiteit gebruiken voor het aanroepen van Azure-services van een Azure Linux VM](https://github.com/Azure-Samples/linuxvm-msi-keyvault-arm-dotnet/).
 
 
 <a name="local"></a>
@@ -86,7 +86,7 @@ Hier kunt u meer informatie over de vereisten voor elk scenario en de ondersteun
 
 ### <a name="authenticating-to-azure-services"></a>Verificatie bij Azure-Services
 
-Lokale machines bieden geen ondersteuning voor Managed Service Identity (MSI).  Als gevolg hiervan de `Microsoft.Azure.Services.AppAuthentication` bibliotheek maakt gebruik van uw ontwikkelaarsreferenties om uit te voeren in uw lokale ontwikkelomgeving. Wanneer de oplossing wordt geïmplementeerd naar Azure, wordt in de bibliotheek MSI overschakelen naar een stroom voor de referentie verlenen van OAuth 2.0-client gebruikt.  Dit betekent dat u kunt dezelfde code testen lokaal en extern zonder zorgen.
+Lokale machines bieden geen ondersteuning voor beheerde identiteiten voor Azure-resources.  Als gevolg hiervan de `Microsoft.Azure.Services.AppAuthentication` bibliotheek maakt gebruik van uw ontwikkelaarsreferenties om uit te voeren in uw lokale ontwikkelomgeving. Wanneer de oplossing wordt geïmplementeerd naar Azure, de bibliotheek maakt gebruik van een beheerde identiteit overschakelen naar een stroom voor de referentie verlenen van OAuth 2.0-client.  Dit betekent dat u kunt dezelfde code testen lokaal en extern zonder zorgen.
 
 Voor lokale ontwikkeling `AzureServiceTokenProvider` worden opgehaald met behulp van **Visual Studio**, **Azure-opdrachtregelinterface** (CLI), of **Azure AD-geïntegreerde verificatie**. Elke optie geprobeerd sequentieel worden verwerkt en de bibliotheek maakt gebruik van de eerste optie die is geslaagd. Als er geen optie werkt, een `AzureServiceTokenProviderException` uitzondering is opgetreden met gedetailleerde informatie.
 
@@ -160,12 +160,12 @@ Bij het maken van een service die een aangepaste service aanroept, gebruikt u de
 
 Zodra u zich hebt aangemeld bij Azure, `AzureServiceTokenProvider` de service-principal gebruikt voor het ophalen van een token voor lokale ontwikkeling.
 
-Dit geldt alleen voor lokale ontwikkeling. Als uw oplossing is geïmplementeerd in Azure, wordt de bibliotheek overbrengen naar MSI-verificatie.
+Dit geldt alleen voor lokale ontwikkeling. Wanneer uw oplossing is geïmplementeerd in Azure, schakelt u de bibliotheek naar een beheerde identiteit voor de verificatie.
 
 <a name="msi"></a>
-## <a name="running-the-application-using-a-managed-service-identity"></a>Uitvoeren van de toepassing met behulp van een beheerde Service-identiteit 
+## <a name="running-the-application-using-managed-identity"></a>Uitvoeren van de toepassing met behulp van beheerde identiteit 
 
-Wanneer u uw code op een Azure App Service of een virtuele Azure-machine met ingeschakelde MSI uitvoert, maakt gebruik van de bibliotheek automatisch beheerde Service-identiteit. Er zijn geen codewijzigingen vereist. 
+Wanneer u de code op een Azure App Service of een Azure-VM met een beheerde identiteit is ingeschakeld uitvoeren, wordt automatisch de beheerde identiteit in de bibliotheek gebruikt. Er zijn geen codewijzigingen vereist. 
 
 
 <a name="sp"></a>
@@ -177,7 +177,7 @@ Het is mogelijk nodig om u te maken van een Azure AD-Client-referentie om te ver
  
 2. Uw code wordt uitgevoerd op een lokale ontwikkelingsomgeving en u aanmelden bij een aangepaste service, zodat u uw developer-identiteit niet gebruiken. 
  
-3. Uw code wordt uitgevoerd op een Azure compute-resource die nog geen beheerde Service-identiteit, zoals Azure Batch ondersteunt.
+3. Uw code wordt uitgevoerd op een Azure compute-resource die beheerde identiteiten nog niet voor Azure-resources, zoals Azure Batch biedt ondersteuning.
 
 Een certificaat aan te melden bij Azure AD gebruiken:
 
@@ -228,7 +228,7 @@ De volgende opties worden ondersteund:
 | `RunAs=Developer; DeveloperTool=AzureCli` | Lokale ontwikkeling | AzureServiceTokenProvider maakt gebruik van Azure CLI-token ophalen. |
 | `RunAs=Developer; DeveloperTool=VisualStudio` | Lokale ontwikkeling | AzureServiceTokenProvider maakt gebruik van Visual Studio-token ophalen. |
 | `RunAs=CurrentUser;` | Lokale ontwikkeling | AzureServiceTokenProvider maakt gebruik van geïntegreerde verificatie van Azure AD-token ophalen. |
-| `RunAs=App;` | Beheerde service-identiteit | Beheerde Service-identiteit AzureServiceTokenProvider gebruikt voor het token ophalen. |
+| `RunAs=App;` | beheerde identiteiten voor Azure-resources | AzureServiceTokenProvider maakt gebruik van een beheerde identiteit ophalen-token. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};CertificateThumbprint`<br>`   ={Thumbprint};CertificateStoreLocation={LocalMachine or CurrentUser}`  | Service-principal | `AzureServiceTokenProvider` maakt gebruik van certificaten aan van Azure AD-token ophalen. |
 | `RunAs=App;AppId={AppId};TenantId={TenantId};`<br>`   CertificateSubjectName={Subject};CertificateStoreLocation=`<br>`   {LocalMachine or CurrentUser}` | Service-principal | `AzureServiceTokenProvider` certificaat wordt gebruikt om op te halen token uit Azure AD|
 | `RunAs=App;AppId={AppId};TenantId={TenantId};AppKey={ClientSecret}` | Service-principal |`AzureServiceTokenProvider` maakt gebruik van geheim aan van Azure AD-token ophalen. |
@@ -236,7 +236,7 @@ De volgende opties worden ondersteund:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Meer informatie over [beheerde Service-identiteit](/azure/app-service/app-service-managed-service-identity).
+- Meer informatie over [beheerde identiteiten voor een Azure-resources](/azure/app-service/app-service-managed-service-identity).
 
 - Verschillende manieren om te leren [verifiëren en autoriseren van apps](/azure/app-service/app-service-authentication-overview).
 

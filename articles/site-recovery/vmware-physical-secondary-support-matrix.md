@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 2ea1c337b4193997039876a05e71fb0088d455b1
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 4df929e8a185a04aef5cb13f30c19b0db707e765
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921491"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021990"
 ---
 # <a name="support-matrix-for-replication-of-vmware-vms-and-physical-servers-to-a-secondary-site"></a>Ondersteuningsmatrix voor replicatie van virtuele VMware-machines en fysieke servers naar een secundaire site
 
@@ -112,7 +112,7 @@ De Mobility-service coördineert de replicatie tussen on-premises VMware-servers
 
 **Update** | **Details** 
 --- | --- 
-Scout-updates | [Meer informatie over en download](/vmware-physical-secondary-disaster-recovery.md#updates) de meest recente updates voor Scout | Scout-updates zijn cumulatief.
+Scout-updates | [Meer informatie over en download](vmware-physical-secondary-disaster-recovery.md#updates) de meest recente updates voor Scout | Scout-updates zijn cumulatief.
 Updates van onderdelen | Scout-updates bevatten updates voor alle onderdelen, waaronder de RX-server, configuratieserver, proces en hoofddoelservers, vContinuum-servers en bronservers die u wilt beveiligen.<br/><br/> [Meer informatie](vmware-physical-secondary-disaster-recovery.md#download-and-install-component-updates).
 
 

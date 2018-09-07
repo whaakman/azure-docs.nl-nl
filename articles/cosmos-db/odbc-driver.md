@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/22/2018
 ms.author: sngun
-ms.openlocfilehash: 131ba3dfb8bd8ad8be893e26fcc22c5a0e65f145
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 010556dae1649754df5199fb81c10efcf4c5a226
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431637"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049997"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>Verbinding maken met Azure Cosmos DB met behulp van analysehulpprogramma's voor BI met het ODBC-stuurprogramma
 
@@ -173,7 +173,7 @@ U kunt definiëren en weergaven maken als onderdeel van het proces steekproeven.
 
 Een weergave maakt voor uw gegevens de **Schema-Editor** venster in de **weergavedefinities** kolom, klikt u op **toevoegen** op de rij van de verzameling met voorbeeld. Klik in de **weergavedefinities** venster de volgende handelingen uit:
 1. Klik op **nieuw**, voer een naam voor de weergave, bijvoorbeeld EmployeesfromSeattleView en klik vervolgens op **OK**.
-1. In de **weergave bewerken** venster, voert u een Azure Cosmos DB-query. Dit moet een Azure Cosmos DB SQL-query, bijvoorbeeld`SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = “Seattle”`, en klik vervolgens op **OK**.
+1. In de **weergave bewerken** venster, voert u een Azure Cosmos DB-query. Dit moet een Azure Cosmos DB SQL-query, bijvoorbeeld`SELECT c.City, c.EmployeeName, c.Level, c.Age, c.Gender, c.Manager FROM c WHERE c.City = "Seattle"`, en klik vervolgens op **OK**.
 
 Als u wilt, kunt u een groot aantal weergaven maken. Wanneer u klaar bent voor het definiëren van de weergaven die u kunt vervolgens steekproef de gegevens. 
 

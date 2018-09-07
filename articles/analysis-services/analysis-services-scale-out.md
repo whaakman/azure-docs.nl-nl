@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/31/2018
+ms.date: 09/06/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 730b11fb5038e5d6c4f9b00fbc4eb07d673757f9
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: ecf56f3172ebeab54757d7cbd164b92ca1470ce5
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840986"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051167"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-uitschalen
 
@@ -27,7 +27,7 @@ U kunt een querypool met maximaal zeven extra query replica resources (acht in t
 
 Ongeacht het aantal queryreplica's in een querypool hebt, zijn de verwerkingsworkloads niet verdeeld over queryreplica's. Een enkele server fungeert als de verwerkingsserver. Queryreplica's fungeren alleen query's op de modellen gesynchroniseerd tussen de replica van elke query in de query-groep. 
 
-Bij het uitschalen, worden nieuwe query-replica's toegevoegd aan de querypool incrementeel. Duurt het tot vijf minuten voor nieuwe query replica resources moeten worden opgenomen in de query-groep. gereed voor clientverbindingen en query's ontvangen. Wanneer alle nieuwe query-replica's zijn en wordt uitgevoerd, worden nieuwe clientverbindingen zijn verdeeld over alle resources in de query. Bestaande clientverbindingen zijn niet gewijzigd van de resource die momenteel zijn verbonden met.  Wanneer u, worden bestaande clientverbindingen met een query pool-resource die wordt verwijderd van de querypool beëindigd. Ze zijn verbonden aan een andere query pool resource wanneer de schaal in de bewerking is voltooid.
+Bij het uitschalen, worden nieuwe query-replica's toegevoegd aan de querypool incrementeel. Duurt het tot vijf minuten voor nieuwe query replica resources moeten worden opgenomen in de query-groep. gereed voor clientverbindingen en query's ontvangen. Wanneer alle nieuwe query-replica's zijn en wordt uitgevoerd, worden nieuwe clientverbindingen zijn verdeeld over alle resources in de query. Bestaande clientverbindingen zijn niet gewijzigd van de resource die momenteel zijn verbonden met.  Wanneer u, worden bestaande clientverbindingen met een query pool-resource die wordt verwijderd van de querypool beëindigd. Ze zijn verbonden aan een andere query pool resource wanneer de schaal in de bewerking is voltooid, wat tot vijf minuten kan duren.
 
 Bij het verwerken van modellen, nadat de bewerkingen zijn voltooid, moet een synchronisatie tussen de verwerkingsserver en de replica van de query's worden uitgevoerd. Bij het automatiseren van bewerkingen voor de verwerking, is het belangrijk dat u een synchronisatiebewerking na voltooiing van de verwerkingen configureren. Synchronisatie kan handmatig worden uitgevoerd in de portal of met behulp van PowerShell of REST-API. 
 

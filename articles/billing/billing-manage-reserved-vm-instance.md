@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashesvi
-ms.openlocfilehash: c530fdca9d5fe499df680211a741bfd9950bb1fe
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3e5316ac0ca20c58a0960818d3151c238927df0d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382147"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054594"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Reserveringen voor Azure-resources beheren
 
@@ -91,9 +91,17 @@ Om te delegeren van beheer van toegang voor een reservering:
     Update-AzureRmReservation -ReservationOrderId a08160d4-ce6b-4295-bf52-b90a5d4c96a0 -ReservationId 5257501b-d3e8-449d-a1ab-4879b1863aca -AppliedScopeType Single -AppliedScope /subscriptions/15bb3be0-76d5-491c-8078-61fe3468d414
     ```
 
+## <a name="cancellations-and-exchanges"></a>Annuleringen en uitwisselingen
+
+Afhankelijk van het reserveringstype, is het mogelijk om te annuleren of een reservering wisselen. Zie de annulering en uitwisselingen secties in de volgende onderwerpen voor meer informatie:
+
+- [Vooruitbetalen voor virtuele Machines met Azure gereserveerde VM-instanties](..//virtual-machines/windows/prepay-reserved-vm-instances.md#cancellations-and-exchanges)
+- [Betaal vooruit voor SUSE-software plannen uit de Azure-reserveringen](../virtual-machines/linux/prepay-suse-software-charges.md#cancellation-and-exchanges-not-allowed)
+- [Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit](../sql-database/sql-database-reserved-capacity.md#cancellations-and-exchanges)
+
 ## <a name="change-optimize-setting-for-reserved-vm-instances"></a>Wijziging instelling voor gereserveerde VM-instanties optimaliseren
 
- Wanneer u een gereserveerde VM-instantie koopt, kiest u de grootte van instantieflexibiliteit of capaciteitsprioriteit. Grootte-instantieflexibiliteit past de reserveringskorting op andere virtuele machines in dezelfde [groep voor VM-grootte](https://aka.ms/RIVMGroups). Capaciteitsprioriteit reserveert Datacenter-capaciteit voor uw implementaties. Deze optie biedt extra vertrouwen ontstaat in uw vermogen om te starten van de VM-exemplaren, wanneer u ze nodig hebt.
+ Wanneer u een gereserveerde VM-instantie koopt, kiest u de grootte van instantieflexibiliteit of capaciteitsprioriteit. Grootte-instantieflexibiliteit past de reserveringskorting op andere virtuele machines in dezelfde [groep voor VM-grootte](https://aka.ms/RIVMGroups). Capaciteitsprioriteit bepaalt de volgorde van Datacenter-capaciteit voor uw implementaties. Deze optie biedt extra vertrouwen ontstaat in uw vermogen om te starten van de VM-exemplaren, wanneer u ze nodig hebt.
 
 Wanneer het bereik van de reservering wordt gedeeld, is de flexibiliteit van de grootte van exemplaar op. De capaciteit van het datacenter wordt niet prioriteit voor VM-implementaties.
 

@@ -12,12 +12,12 @@ ms.date: 08/16/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
 ms.topic: conceptual
-ms.openlocfilehash: 54917c6548c7f0bfacad6408732c5619e6346683
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 56a1e7038515a64f1dfe3fda639213bcfcde63d6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177624"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053428"
 ---
 # <a name="azure-sql-database-managed-instance-connectivity-architecture"></a>Azure SQL Database Managed Instance Connectiviteitsarchitectuur 
 
@@ -73,7 +73,7 @@ Beheer en de implementatie van services verbinden met beheerd exemplaar met behu
 - Zie voor een overzicht [wat is een beheerd exemplaar](sql-database-managed-instance.md) 
 - Zie voor meer informatie over VNet-configuratie, [beheerd exemplaar VNet-configuratie](sql-database-managed-instance-vnet-configuration.md). 
 - Zie voor een snelstartgids over het maken van Managed Instance: 
-  - uit de [Azure-Portal](sql-database-managed-instance-create-tutorial-portal.md) 
+  - Uit de [Azure-portal](sql-database-managed-instance-get-started.md) 
   - met behulp van [PowerShell](https://blogs.msdn.microsoft.com/sqlserverstorageengine/2018/06/27/quick-start-script-create-azure-sql-managed-instance-using-powershell/) 
   - met behulp van [Azure Resource Manager-sjabloon](https://azure.microsoft.com/resources/templates/101-sqlmi-new-vnet/) 
   - met behulp van [Azure Resource Manager-sjabloon (jumpbox met SSMS opgenomen)](https://portal.azure.com/) 

@@ -15,15 +15,15 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: fd93f1ad83f6627f27534eca17f91c9fe9b2cc9f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: ab56ad07bd3da17f105bd09f2484173207d30015
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43667854"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025061"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Inzicht in het gebruik van de virtuele machine van Azure
-Uw gebruik van Azure door gegevens te analyseren, krachtige verbruik inzichten kunnen worden verkregen – inzichten die mogelijk kosten beter beheer en de toewijzing binnen uw organisatie. Dit document bevat een dieper ingaan op de details van uw Azure Compute-gebruik. Voor meer informatie over algemene Azure-gebruik, gaat u naar [informatie over uw factuur](/billing/billing-understand-your-bill.md).
+Uw gebruik van Azure door gegevens te analyseren, krachtige verbruik inzichten kunnen worden verkregen – inzichten die mogelijk kosten beter beheer en de toewijzing binnen uw organisatie. Dit document bevat een dieper ingaan op de details van uw Azure Compute-gebruik. Voor meer informatie over algemene Azure-gebruik, gaat u naar [informatie over uw factuur](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
 
 ## <a name="download-your-usage-details"></a>Uw gebruiksgegevens downloaden
 Om te beginnen, [downloaden van de informatie over het gebruik](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). De onderstaande tabel bevat de definitie en voorbeeld van de waarden van het gebruik van voor virtuele Machines die zijn geïmplementeerd via de Azure Resource Manager. Dit document bevat geen gedetailleerde informatie over virtuele machines die via het klassieke model zijn geïmplementeerd.
@@ -143,5 +143,6 @@ Facturering voor de resources worden in het klassieke model samengevoegd op het 
 Premium-opslag kunnen virtuele machines worden gefactureerd tegen hetzelfde tarief als niet-premium-opslag kunnen virtuele machines. Alleen de opslagkosten van uw afwijken. Ga naar de [pagina met prijzen voor storage](https://azure.microsoft.com/pricing/details/storage/unmanaged-disks/) voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over de informatie over het gebruik, [meer informatie over uw factuur voor Microsoft Azure.](/billing/billing-understand-your-bill.md)
+Zie voor meer informatie over de informatie over het gebruik, [meer informatie over uw factuur voor Microsoft Azure.](https://docs.microsoft.com/azure/billing/billing-understand-your-bill
+)
 

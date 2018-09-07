@@ -8,14 +8,14 @@ manager: kfile
 ms.service: cosmos-db
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 375990f095d3a6cbbbfa18db70466c274fd7e17b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 2f18840802a39f03659792a4d5b33ad3a73c5961
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702592"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051439"
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure Cosmos DB
@@ -441,15 +441,132 @@ Azure Table storage en Azure Cosmos DB Table-API gebruikt de dezelfde SDK's, zod
 Azure Cosmos DB is een SLA-systeem waarmee latentie, doorvoer, beschikbaarheid en garanties voor consistentie. Omdat het een ingerichte systeem is, behoudt deze resources om te garanderen van deze vereisten. De snelle snelheid van het maken van tabellen is gedetecteerd en beperkt. U wordt aangeraden dat u kijken naar de snelheid van het maken van tabellen en het verlagen naar minder dan 5 per minuut. Houd er rekening mee dat de Table-API een ingerichte systeem is. Het moment dat u hebt ingericht, begint om te betalen voor u. 
 
 ## <a name="gremlin-api"></a>Gremlin-API
-### <a name="how-can-i-apply-the-functionality-of-gremlin-api-to-azure-cosmos-db"></a>Hoe kan ik toepassen op de functionaliteit van Gremlin-API met Azure Cosmos DB?
-U kunt een extensiebibliotheek gebruiken om toe te passen van de functionaliteit van Gremlin-API. Deze bibliotheek heet grafieken van Microsoft Azure, en deze beschikbaar is op [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Graphs). 
 
-### <a name="it-looks-like-you-support-the-gremlin-graph-traversal-language-do-you-plan-to-add-more-forms-of-query"></a>Het lijkt erop dat u de Gremlin graph-traversal taal ondersteunen. Bent u van plan om toe te voegen meer soorten query?
-Ja, we van plan bent om toe te voegen andere methoden voor de query in de toekomst. 
+### <a name="for-cnet-development-should-i-use-the-microsoftazuregraphs-package-or-gremlinnet"></a>Voor C# / .NET-ontwikkeling, moet ik gebruiken het Microsoft.Azure.Graphs pakket of Gremlin.NET? 
 
-### <a name="how-can-i-use-the-new-gremlin-api-offering"></a>Hoe kan ik de nieuwe aanbieding van de Gremlin-API gebruiken? 
-Voltooien om te beginnen, de [Gremlin-API](../cosmos-db/create-graph-dotnet.md) quick start-artikel.
+Azure Cosmos DB Gremlin-API maakt gebruik van de open-source-stuurprogramma's als de belangrijkste connectors voor de service. Zodat de aanbevolen optie is het gebruik van [stuurprogramma's die worden ondersteund door Apache Tinkerpop](http://tinkerpop.apache.org/).
 
+### <a name="how-are-rus-charged-when-running-queries-on-a-graph-database"></a>Hoe worden RU/s in rekening gebracht bij het uitvoeren van query's op een grafiekdatabase? 
+
+Graph-objecten, hoekpunten en randen, worden weergegeven als JSON-documenten in de back-end. Omdat een Gremlin-query op een wijzigen kunt of veel graph-objecten op een tijdstip, de kosten die zijn gekoppeld met deze isbe direct verband houden met de objecten, randen die worden verwerkt door de query. Dit is hetzelfde proces dat Azure Cosmos DB voor alle andere API's gebruikt. Zie voor meer informatie, [Aanvraageenheden in Azure Cosmos DB](request-units.md).
+
+De RU-kosten zijn gebaseerd op de werkset van de gegevens van het transport en niet het resultaat ingesteld. Bijvoorbeeld, als een query is erop gericht om op te halen van een hoekpunt als gevolg hiervan, maar moet door meerdere andere objecten van de manier waarop bladeren, klikt u vervolgens de kosten wordt worden gebaseerd op alle graph-objecten die nodig is voor het berekenen van het hoekpunt één resultaat.
+
+### <a name="whats-the-maximum-scale-that-a-graph-database-can-have-in-azure-cosmos-db-gremlin-api"></a>Wat is de maximale schaal die een grafiekdatabase in Gremlin-API van Azure Cosmos DB hebben kunt? 
+
+Azure Cosmos DB maakt gebruik van [horizontale partitionering](partition-data.md) automatisch adres toename in de vereisten voor opslag en doorvoer. De maximale doorvoer en opslag van de capaciteit van een werkbelasting wordt bepaald door het bedrag van de partities die gekoppeld aan een bepaalde verzameling zijn. Een verzameling Gremlin-API heeft echter een specifieke set richtlijnen om te controleren of een goede prestaties op schaal. Zie voor meer informatie en aanbevolen procedures, [best practices voor partitionering](partition-data.md#best-practices-when-choosing-a-partition-key) document. 
+
+### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Hoe kan ik beveiligen tegen aanvallen via injectie met behulp van Gremlin-stuurprogramma's? 
+
+Meest systeemeigen Tinkerpop Gremlin-stuurprogramma's kunnen de optie voor een woordenlijst met de parameters voor uitvoeren van query's. Dit is een voorbeeld van hoe u dit doen [Gremlin.Net]() en [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+
+### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Waarom krijg ik de ' Fout bij Schemacompilatie Gremlin-Query: kan niet vinden van elke methode "fout?
+
+Azure Cosmos DB Gremlin-API implementeert een subset van de functionaliteit die is gedefinieerd in het gebied van Gremlin. Raadpleeg voor meer informatie en ondersteunde stappen [Gremlin-ondersteuning](gremlin-support.md) artikel.
+
+De beste oplossing is de vereiste Gremlin-stappen opnieuw schrijven met de ondersteunde functionaliteit, omdat alle essentiële Gremlin-stappen worden ondersteund door Azure Cosmos DB.
+
+### <a name="why-am-i-getting-the-websocketexception-the-server-returned-status-code-200-when-status-code-101-was-expected-error"></a>Waarom krijg ik het "WebSocketException: de server heeft statuscode '200' geretourneerd als de statuscode '101' werd verwacht" fout?
+
+Deze fout wordt waarschijnlijk gegenereerd wanneer het verkeerde eindpunt wordt gebruikt. Het eindpunt dat deze fout wordt gegenereerd, is het volgende patroon:
+
+`https:// YOUR_DATABASE_ACCOUNT.documents.azure.com:443/` 
+
+Dit is het eindpunt van de documenten voor de graph-database.  Het juiste eindpunt te gebruiken is de Gremlin-eindpunt met de volgende indeling: 
+
+`https://YOUR_DATABASE_ACCOUNT.gremlin.cosmosdb.azure.com:443/`
+
+### <a name="why-am-i-getting-the-requestrateistoolarge-error"></a>Waarom krijg ik de fout 'RequestRateIsTooLarge'?
+
+Deze fout betekent dat de toegewezen Aanvraageenheden per seconde niet voldoende is zijn voor het bieden van de query. Deze fout wordt meestal gezien tijdens het uitvoeren van een query waarmee alle hoekpunten verkrijgt:
+
+```
+// Query example:
+g.V()
+```
+
+Deze query zal proberen om op te halen van alle hoekpunten in de grafiek. De kosten van deze query is dus gelijk is aan ten minste het aantal hoekpunten in termen van ru's. De instelling van de RU/s moet worden aangepast om deze query op te lossen.
+
+### <a name="why-do-my-gremlin-driver-connections-get-dropped-eventually"></a>Waarom mijn Gremlin-stuurprogramma verbindingen verwijderd uiteindelijk?
+
+Een Gremlin-verbinding wordt gemaakt via een WebSocket-verbinding. Hoewel WebSocket verbindingen nog niet een bepaald tijdstip met live, kan Gremlin-API van Azure Cosmos DB de niet-actieve verbindingen wordt beëindigd na 30 minuten van inactiviteit. 
+
+### <a name="why-cant-i-use-fluent-api-calls-in-the-native-gremlin-drivers"></a>Waarom gebruik ik fluent API-aanroepen kan niet in de systeemeigen Gremlin-stuurprogramma's?
+
+Fluent API-aanroepen zijn nog niet ondersteund door de Gremlin-API van Azure Cosmos DB. Fluent API-aanroepen moeten een interne opmaak functie wel bytecode ondersteuning die wordt momenteel niet ondersteund door Azure Cosmos DB Gremlin API. Vanwege om dezelfde reden is wordt de meest recente stuurprogramma voor Gremlin-JavaScript ook op dit moment niet ondersteund. 
+
+### <a name="how-can-i-evaluate-the-efficiency-of-my-gremlin-queries"></a>Hoe kan ik de efficiëntie van mijn Gremlin query's evalueren?
+
+De **executionProfile()** preview stap kan worden gebruikt om zo een analyse van het queryplan kan worden uitgevoerd. Deze stap moet worden toegevoegd aan het einde van elke Gremlin-query zoals wordt geïllustreerd door het volgende voorbeeld:
+
+**Voorbeeld van de query**
+
+```
+g.V('mary').out('knows').executionProfile()
+```
+
+**Voorbeeld van uitvoer**
+
+```json
+[
+  {
+    "gremlin": "g.V('mary').out('knows').executionProfile()",
+    "totalTime": 8,
+    "metrics": [
+      {
+        "name": "GetVertices",
+        "time": 3,
+        "annotations": {
+          "percentTime": 37.5
+        },
+        "counts": {
+          "resultCount": 1
+        }
+      },
+      {
+        "name": "GetEdges",
+        "time": 5,
+        "annotations": {
+          "percentTime": 62.5
+        },
+        "counts": {
+          "resultCount": 0
+        },
+        "storeOps": [
+          {
+            "partitionsAccessed": 1,
+            "count": 0,
+            "size": 0,
+            "time": 0.6
+          }
+        ]
+      },
+      {
+        "name": "GetNeighborVertices",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      },
+      {
+        "name": "ProjectOperator",
+        "time": 0,
+        "annotations": {
+          "percentTime": 0
+        },
+        "counts": {
+          "resultCount": 0
+        }
+      }
+    ]
+  }
+]
+```
+
+De uitvoer van de bovenstaande profiel toont hoeveel tijd wordt besteed aan het verkrijgen van de objecten hoekpunt en Edge, evenals de grootte van de werkset van de gegevens. Dit heeft betrekking op de metingen standaardkosten voor Azure Cosmos DB-query's.
 
 ## <a id="cassandra"></a> Cassandra-API
 

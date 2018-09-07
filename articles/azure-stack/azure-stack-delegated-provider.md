@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: alfredop
-ms.openlocfilehash: 112586d3ee5f49eab9adb72d41a210e2dd9828d8
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: b58118a3ed4fba5017e0eb630d822ec59f04aa16
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056618"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024773"
 ---
 # <a name="delegate-offers-in-azure-stack"></a>Aanbiedingen in Azure Stack delegeren
 
@@ -128,7 +128,7 @@ Meld u aan bij de gebruikersportal aanmeldt als gedelegeerde-provider en maak ve
 
 4. De openbare gedelegeerde aanbiedingen zijn nu zichtbaar zijn alleen door de gedelegeerde-portal. Om te zoeken en wijzig deze URL:
 
-    a.  Selecteer **Bladeren** > **meer services** > **abonnementen**. Selecteer vervolgens de gedelegeerde-Providerabonnement. Bijvoorbeeld, **DPSubscription** > **eigenschappen**.
+    a.  Selecteer **Bladeren** > **alle services**, en klik vervolgens onder de **algemene** categorie, selecteer **abonnementen**. De gedelegeerde-Providerabonnement selecteren. Bijvoorbeeld, **DPSubscription** > **eigenschappen**.
 
     b.  Kopiëren van de portal URL naar een afzonderlijke locatie, zoals Kladblok.
 

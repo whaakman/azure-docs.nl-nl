@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 5a6dcddce3337989a7a34515570ac3277aa1edd5
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 52d0706177482e162d1f4bc038c967a4596fd3b3
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841927"
+ms.locfileid: "44024855"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -45,7 +45,7 @@ U moet de volgende voldaan voordat u registreert:
 
 Voordat u registreert Azure Stack met Azure, moet u het volgende hebben:
 
-- De abonnements-ID voor een Azure-abonnement. Als u de ID, aanmelden bij Azure, klikt u op **meer services** > **abonnementen**, klik op het abonnement dat u gebruiken wilt, en klikt u onder **Essentials** vindt u de Abonnements-ID.
+- De abonnements-ID voor een Azure-abonnement. Als u de ID, aanmelden bij Azure, klikt u op **alle services**. Klik vervolgens onder de **algemene** categorie, selecteer **abonnementen**, klik op het abonnement dat u gebruiken wilt, en klikt u onder **Essentials** vindt u de abonnement-ID.
 
   > [!Note]  
   > Duitsland-cloudabonnementen worden momenteel niet ondersteund.
@@ -284,7 +284,7 @@ U kunt de cmdlet Get-inhoud (optioneel) gebruiken om te verwijzen naar een besta
 Volg deze stappen om te controleren of Azure Stack is geregistreerd met Azure.
 
 1. Meld u aan met de Azure Stack [beheerdersportal](https://docs.microsoft.com/azure/azure-stack/azure-stack-manage-portals#access-the-administrator-portal): https&#58;/ / adminportal. *&lt;regio >. &lt;FQDN-naam >*.
-2. Selecteer **meer Services** > **Marketplace Management** > **toevoegen vanuit Azure**.
+2. Selecteer **alle Services**, en klik vervolgens onder de **beheer** categorie, selecteer **Marketplace management** > **uit Azuretoevoegen**.
 
 Als u ziet een lijst met items die beschikbaar zijn in Azure (zoals WordPress), wordt de activering is voltooid. Echter, in niet-verbonden omgevingen niet ziet u Azure marketplace-items in de Azure Stack marketplace.
 

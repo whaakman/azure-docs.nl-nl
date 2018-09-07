@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/24/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: e381d2ed3c6a972d776dd31f311fcebe2e35823a
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 1e7d3c4d5f91a74adb881840e3c5a5ac7e8f3763
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917080"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053547"
 ---
 # <a name="validate-azure-stack-pki-certificates"></a>Valideren van Azure Stack PKI-certificaten
 
@@ -38,7 +38,7 @@ De gereedheid van de Registercontrole voert de volgende validaties van certifica
 - **DNS-namen**  
     Controleert of het SAN bevat relevante DNS-namen voor elk eindpunt, of als een ondersteunende jokertekens aanwezig is.
 - **Sleutelgebruik**  
-    Als het gebruik van de sleutel digitale handtekening en sleutelcodering bevat en het uitgebreide sleutelgebruik serververificatie en clientverificatie bevat wordt gecontroleerd.
+    Als het gebruik van de sleutel een digitale handtekening en sleutelcodering bevat en het uitgebreide sleutelgebruik serververificatie en clientverificatie bevat wordt gecontroleerd.
 - **Sleutelgrootte**  
     Controleert of de sleutelgrootte 2048 of groter is.
 - **Ketenvolgorde**  
@@ -51,7 +51,7 @@ De gereedheid van de Registercontrole voert de volgende validaties van certifica
 > [!IMPORTANT]  
 > Het PKI-certificaat is een PFX-bestand en wachtwoord moet worden beschouwd als vertrouwelijke informatie.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Uw systeem moet voldoen aan de volgende vereisten voordat u PKI-certificaten voor een Azure Stack-implementatie valideren:
 
@@ -66,21 +66,20 @@ Volg deze stappen om voor te bereiden en voor het valideren van de Azure Stack P
 
 1. Installeer **AzsReadinessChecker** vanuit een PowerShell-prompt (5.1 of hoger), door de volgende cmdlet:
 
-    ````PowerShell  
+    ```PowerShell  
         Install-Module Microsoft.AzureStack.ReadinessChecker -force 
-    ````
+    ```
 
 2. De mapstructuur certificaat maken. U kunt wijzigen in het onderstaande voorbeeld `<c:\certificates>` naar een nieuwe directorypad van uw keuze.
-
-    ````PowerShell  
+    ```PowerShell  
     New-Item C:\Certificates -ItemType Directory
     
-    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal'
+    $directories = 'ACSBlob','ACSQueue','ACSTable','ADFS','Admin Portal','ARM Admin','ARM Public','Graph','KeyVault','KeyVaultInternal','Public Portal','Admin Extension Host','Public Extension Host'
     
     $destination = 'c:\certificates'
     
     $directories | % { New-Item -Path (Join-Path $destination $PSITEM) -ItemType Directory -Force}
-    ````
+    ```
     
     > [!Note]  
     > AD FS en een graaf zijn vereist als u AD FS worden gebruikt als uw identiteitssysteem.
@@ -92,16 +91,15 @@ Volg deze stappen om voor te bereiden en voor het valideren van de Azure Stack P
 
 3. In de PowerShell-venster, wijzigt u de waarden van **RegionName** en **FQDN** naar de Azure Stack-omgeving nodig en voer de volgende opdracht uit:
 
-    ````PowerShell  
+    ```PowerShell  
     $pfxPassword = Read-Host -Prompt "Enter PFX Password" -AsSecureString 
 
     Start-AzsReadinessChecker -CertificatePath c:\certificates -pfxPassword $pfxPassword -RegionName east -FQDN azurestack.contoso.com -IdentitySystem AAD 
-
-    ````
+    ```
 
 4. Controleer de uitvoer en alle certificaten slagen voor alle tests. Bijvoorbeeld:
 
-    ````PowerShell
+    ```PowerShell  
     AzsReadinessChecker v1.1803.405.3 started
     Starting Certificate Validation
 
@@ -134,7 +132,7 @@ Volg deze stappen om voor te bereiden en voor het valideren van de Azure Stack P
     AzsReadinessChecker Report location: 
     C:\AzsReadinessChecker\AzsReadinessReport.json
     AzsReadinessChecker Completed
-    ````
+    ```
 
 ### <a name="known-issues"></a>Bekende problemen
 
@@ -144,7 +142,7 @@ Volg deze stappen om voor te bereiden en voor het valideren van de Azure Stack P
 
  - Andere certificaten worden overgeslagen als de certificaatketen mislukt.
 
-    ````PowerShell  
+    ```PowerShell  
     Testing: ACSBlob\singlewildcard.pfx
         Read PFX: OK
         Signature Algorithm: OK
@@ -165,7 +163,7 @@ Volg deze stappen om voor te bereiden en voor het valideren van de Azure Stack P
     AzsReadinessChecker Log location: C:\AzsReadinessChecker\AzsReadinessChecker.log
     AzsReadinessChecker Report location (for OEM): C:\AzsReadinessChecker\AzsReadinessChecker.log
     AzsReadinessChecker Completed
-    ````
+    ```
 
 **Resolutie**: Volg de instructies van het hulpprogramma in de detailsectie onder elke reeks tests uit voor elk certificaat.
 
@@ -175,13 +173,13 @@ Volg deze stappen voor het voorbereiden en valideren van de Azure Stack PKI-cert
 
 1.  Installeer **AzsReadinessChecker** vanuit een PowerShell-prompt (5.1 of hoger), door de volgende cmdlet:
 
-    ````PowerShell  
+    ```PowerShell  
       Install-Module Microsoft.AzureStack.ReadinessChecker -force
-    ````
+    ```
 
 2.  Maak een geneste hash-tabel met paden en het wachtwoord op elk PaaS-certificaat dat u hoeft de validatie. In de PowerShell-venster worden uitgevoerd:
 
-    ```PowerShell
+    ```PowerShell  
         $PaaSCertificates = @{
         'PaaSDBCert' = @{'pfxPath' = '<Path to DBAdapter PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
         'PaaSDefaultCert' = @{'pfxPath' = '<Path to Default PFX>';'pfxPassword' = (ConvertTo-SecureString -String '<Password for PFX>' -AsPlainText -Force)}
@@ -193,7 +191,7 @@ Volg deze stappen voor het voorbereiden en valideren van de Azure Stack PKI-cert
 
 3.  Wijzig de waarden van **RegionName** en **FQDN** zodat deze overeenkomen met uw Azure Stack-omgeving voor het starten van de validatie. Voer vervolgens
 
-    ```PowerShell
+    ```PowerShell  
     Start-AzsReadinessChecker -PaaSCertificates $PaaSCertificates -RegionName east -FQDN azurestack.contoso.com 
     ```
 4.  Controleer of de uitvoer en dat alle certificaten slagen voor alle tests.

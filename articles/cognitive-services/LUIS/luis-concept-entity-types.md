@@ -1,5 +1,6 @@
 ---
-title: Informatie over de Entiteitstypen in LUIS-apps in Azure | Microsoft Docs
+title: Entiteitstypen in LUIS-apps - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Entiteiten (belangrijke gegevens in het domein van uw toepassing) in Language Understanding Intelligent Service (LUIS)-apps toevoegen.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: diberry
-ms.openlocfilehash: b0b5852a223a77e33a288bb8061c1ce374018ec1
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: d6d68842b5e519201f7990a9c361710115de7fea
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39282276"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022947"
 ---
 # <a name="entities-in-luis"></a>Entiteiten in LUIS
 

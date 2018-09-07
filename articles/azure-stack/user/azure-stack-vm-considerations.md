@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/05/2018
 ms.author: mabrigg
-ms.openlocfilehash: 7eb82457d8c8d7e306dcbdac39510ce328cd925b
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 30cdb07f8e0d5481f34148b99fa86f2a1bb85e0b
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054695"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022193"
 ---
 # <a name="considerations-for-using-virtual-machines-in-azure-stack"></a>Overwegingen voor het gebruik van virtuele machines in Azure Stack
 
@@ -36,7 +36,7 @@ Virtuele machines van Azure Stack bieden on-demand en schaalbare computing-resou
 | Quota's voor virtuele machine | [De quotalimieten](../../azure-subscription-service-limits.md#service-specific-limits) zijn ingesteld door Microsoft | De beheerder van de Azure Stack-cloud moet quota toewijzen voordat ze virtuele machines voor hun gebruikers bieden. |
 | Extensies van de virtuele machine |Azure ondersteunt een groot aantal extensies voor virtuele machines. Raadpleeg voor meer informatie over de beschikbare uitbreidingen, de [extensies voor virtuele machines en functies](../../virtual-machines/windows/extensions-features.md) artikel.| Azure Stack ondersteunt een subset van de uitbreidingen die beschikbaar in Azure zijn en elk van de extensie voor specifieke versies hebben. De beheerder van de Azure Stack-cloud kunt kiezen welke extensies moet worden beschikbaar gesteld aan voor hun gebruikers. Raadpleeg de lijst van ondersteunde extensies wilt weergeven, de [extensies voor virtuele machines](#virtual-machine-extensions) sectie van dit artikel. |
 | Netwerk voor virtuele machines | Openbare IP-adressen toegewezen aan de tenant virtuele machine zijn via Internet toegankelijk.<br><br><br>Virtuele Machines van Azure heeft een vaste DNS-naam | Openbare IP-adressen toegewezen aan een tenant virtuele machine zijn binnen de omgeving van Azure Stack Development Kit alleen toegankelijk. Een gebruiker moet toegang hebben tot de Azure Stack Development Kit via [RDP](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop) of [VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn) verbinding maken met een virtuele machine die wordt gemaakt in Azure Stack.<br><br>Virtuele machines die worden gemaakt binnen een specifiek exemplaar van Azure Stack hebben een DNS-naam op basis van de waarde die is geconfigureerd door de beheerder van de cloud. |
-| Virtuele-machineopslag | Ondersteunt [beheerde schijven.](../../virtual-machines/windows/managed-disks-overview.md) | Beheerde schijven zijn nog niet ondersteund in Azure Stack. |
+| Virtuele-machineopslag | Ondersteunt [beheerde schijven.](../../virtual-machines/windows/managed-disks-overview.md) | Beheerde schijven worden ondersteund in Azure Stack met versie 1808 en hoger. |
 | API-versies | Azure heeft altijd de meest recente API-versies voor alle functies van de virtuele machine. | Azure Stack biedt ondersteuning voor specifieke Azure-services en specifieke API-versies voor deze services. Raadpleeg de lijst van ondersteunde API-versies wilt weergeven, de [API-versies](#api-versions) sectie van dit artikel. |
 |Beschikbaarheidssets voor virtuele machines|Meerdere domeinen met fouten (2 of 3 per regio)<br>Meerdere updatedomeinen<br>Beheerde schijfondersteuning|Meerdere domeinen met fouten (2 of 3 per regio)<br>Meerdere updatedomeinen (maximaal 20)<br>Er is geen ondersteuning voor beheerde schijven|
 |Virtuele-machineschaalsets|Automatisch schalen wordt ondersteund|Automatisch schalen niet ondersteund.<br>Meer exemplaren toevoegen aan een schaalset met behulp van de portal, Resource Manager-sjablonen of PowerShell.

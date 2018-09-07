@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: 6419753a48e1356b2d94592fca72cee1f848dcdb
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 9108d9e1b230fe2267f0195bd2c33c5a4c57d956
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390650"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021937"
 ---
 # <a name="use-azure-container-instances-as-a-jenkins-build-agent"></a>Gebruik Azure Container Instances als een Jenkins build-agent
 
@@ -48,7 +48,7 @@ Zie voor meer informatie over Azure Container Instances [over Azure Container In
 
    ![Aanvullende instellingen voor de implementatie van de Jenkins-portal](./media/container-instances-jenkins/jenkins-portal-02.png)
 
-4. Selecteer voor service-principal integratie, **Auto(MSI)** hebben [Azure beheerde Service-identiteit] [ managed-service-identity] automatisch een verificatie-identiteit voor de via Jenkins maken het exemplaar. Selecteer **handmatig** voor uw eigen referenties van de service-principal.
+4. Selecteer voor service-principal integratie, **Auto(MSI)** hebben [Azure Managed Service Identity] [beheerd-id's-azure-resources] automatisch een verificatie-identiteit voor het Jenkins-exemplaar maken. Selecteer **handmatig** voor uw eigen referenties van de service-principal.
 
 5. Cloud-agents configureren een cloudplatform voor Jenkins build-taken. Selecteer voor dit artikel **ACI**. Met de ACI-agent, elke Jenkins build-taak wordt uitgevoerd in een containerexemplaar in de cloud.
 
@@ -128,9 +128,9 @@ Als u wilt testen van de build-taak en u ziet Azure Container Instances als de b
 
    ![Resourcegroep met container instances is verwijderd](./media/container-instances-jenkins/jenkins-aci-none.png)
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>De Jenkins-invoegtoepassing oplossen
+## <a name="troubleshooting-the-jenkins-plugin"></a>Problemen met de Jenkins-invoegtoepassing oplossen
 
-Als u er fouten met de Jenkins-invoegtoepassingen optreden, dient u een probleem in de [Jenkins JIRA](https://issues.jenkins-ci.org/) voor het specifieke onderdeel.
+Als u problemen ondervindt met de Jenkins-invoegtoepassingen, kunt u in [Jenkins JIRA](https://issues.jenkins-ci.org/) een ticket openen voor het specifieke onderdeel.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -11,22 +11,22 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/09/2018
+ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: bff0140d173fc3393ac56ec3d709c3c067842a2a
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 9287eb0925556d382410f95caf16a9ca478ca2da
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42054237"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054414"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Een Kubernetes-Cluster toevoegen aan de Azure Stack Marketplace
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
 > [!note]  
-> De Kubernetes Azure Kubernetes-Services (AKS) in Azure Stack is in de beperkte Preview-versie. Voor het aanvragen van toegang tot het Kubernetes-Marketplace-item die nodig zijn om uit te voeren van de instructies in dit artikel [een indienen om toegang te krijgen](https://aka.ms/azsk8).
+> De Engine voor AKS (Azure Kubernetes Service) op Azure Stack is in de beperkte Preview-versie. Voor het aanvragen van toegang tot het Kubernetes-Marketplace-item die nodig zijn om uit te voeren van de instructies in dit artikel [een indienen om toegang te krijgen](https://aka.ms/azsk8).
 
 U kunt een Kubernetes-Cluster als een Marketplace-item aan uw gebruikers bieden. Uw gebruikers kunnen Kubernetes implementeren in een enkele, gecoördineerde bewerking.
 
@@ -66,7 +66,7 @@ De volgende Ubuntu-Server-installatiekopie toevoegen aan de Marketplace:
 
 1. Aanmelden bij de [beheerportal](https://adminportal.local.azurestack.external).
 
-1. Selecteer **meer services** > **Marketplace Management**.
+1. Selecteer **alle services**, en klik vervolgens onder de **beheer** categorie, selecteer **Marketplace management**.
 
 1. Selecteer **+ toevoegen vanuit Azure**.
 
@@ -89,7 +89,7 @@ Het Kubernetes-Cluster uit de Marketplace toevoegen:
 
 1. Open de [beheerportal](https://adminportal.local.azurestack.external).
 
-1. Selecteer **meer services** > **Marketplace Management**.
+1. Selecteer **alle services** en klik vervolgens onder de **beheer** categorie, selecteer **Marketplace Management**.
 
 1. Selecteer **+ toevoegen vanuit Azure**.
 
@@ -110,7 +110,7 @@ Het Kubernetes-Cluster uit de Marketplace toevoegen:
 
 1. Open de [beheerportal](https://adminportal.local.azurestack.external).
 
-1. Selecteer **meer services** > **Marketplace Management**.
+1. Selecteer **A; services** en klik vervolgens onder de **beheer** categorie, selecteer **Marketplace Management**.
 
 1. Selecteer **+ toevoegen vanuit Azure**.
 

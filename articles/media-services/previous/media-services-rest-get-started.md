@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/13/2018
 ms.author: juliako
-ms.openlocfilehash: 757ba9e999bfbb46be96e653e7939d91bdf67679
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 015b8570e9cbb06a33107de7a8cb9ae00d60cacb
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287122"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053985"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>Aan de slag met het leveren van inhoud op aanvraag met behulp van REST
 [!INCLUDE [media-services-selector-get-started](../../../includes/media-services-selector-get-started.md)]
@@ -54,7 +54,7 @@ De volgende taken worden weergegeven in deze Quick Start.
 >[!NOTE]
 >Er geldt een limiet van 1.000.000 beleidsregels voor verschillende AMS-beleidsitems (bijvoorbeeld voor Locator-beleid of ContentKeyAuthorizationPolicy). Gebruik dezelfde beleids-ID als u altijd dezelfde dagen / toegangsmachtigingen gebruikt, bijvoorbeeld beleidsregels voor locators die zijn bedoeld om te blijven aanwezig gedurende een lange periode (niet-uploadbeleidsregels). Raadpleeg [dit artikel](media-services-dotnet-manage-entities.md#limit-access-policies) voor meer informatie.
 
-Zie voor meer informatie over de AMS-REST-entiteiten die worden gebruikt in dit artikel [Azure Media Services REST API-verwijzing](https://docs.microsoft.com/en-us/rest/api/media/services/azure-media-services-rest-api-reference). Zie ook [Azure Media Services-concepten](media-services-concepts.md).
+Zie voor meer informatie over de AMS-REST-entiteiten die worden gebruikt in dit artikel [Azure Media Services REST API-verwijzing](https://docs.microsoft.com/rest/api/media/operations/azure-media-services-rest-api-reference). Zie ook [Azure Media Services-concepten](media-services-concepts.md).
 
 >[!NOTE]
 >Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie, [instellen voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md).
@@ -405,7 +405,7 @@ Als dit lukt, wordt het volgende geretourneerd:
 
 ## <a id="encode"></a>Het bronbestand coderen in een set adaptive bitrate MP4-bestanden
 
-Na het opnemen van de die activa in Media Services, media kunnen worden gecodeerd, transmuxed, van een watermerk enzovoort, voordat deze aan clients wordt geleverd. Deze activiteiten worden gepland en uitgevoerd op meerdere achtergrondrolinstanties om hoge prestaties en een hoge beschikbaarheid te garanderen. Deze activiteiten worden taken genoemd en elke taak bestaat uit atomische taken die daadwerkelijk werken op het assetbestand (Zie voor meer informatie, [taak](https://docs.microsoft.com/en-us/rest/api/media/operations/job), [taak](https://docs.microsoft.com/en-us/rest/api/media/operations/task) beschrijvingen).
+Na het opnemen van de die activa in Media Services, media kunnen worden gecodeerd, transmuxed, van een watermerk enzovoort, voordat deze aan clients wordt geleverd. Deze activiteiten worden gepland en uitgevoerd op meerdere achtergrondrolinstanties om hoge prestaties en een hoge beschikbaarheid te garanderen. Deze activiteiten worden taken genoemd en elke taak bestaat uit atomische taken die daadwerkelijk werken op het assetbestand (Zie voor meer informatie, [taak](https://docs.microsoft.com/rest/api/media/operations/job), [taak](https://docs.microsoft.com/rest/api/media/operations/task) beschrijvingen).
 
 Zoals eerder al is aangegeven, bij het werken met Azure Media Services is een van de meest voorkomende scenario's adaptive bitrate streaming geleverd aan uw clients. Media Services kunt u een dynamisch pakket een set adaptive bitrate MP4-bestanden in een van de volgende indelingen: HTTP Live Streaming (HLS), Smooth Streaming, MPEG DASH.
 

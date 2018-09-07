@@ -1,5 +1,6 @@
 ---
-title: Enterprise-concepten voor een LUIS-app - Azure | Microsoft Docs
+title: Enterprise-concepten voor een LUIS-app - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Ontwerp basisbegrippen voor grote LUIS-apps.
 services: cognitive-services
 author: diberry
@@ -9,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: diberry
-ms.openlocfilehash: fda4a089866950688d88f9f47988c1540abe1cc0
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 010efdf0fbfabb92b7465e37cb678a64810c8979
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224857"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025245"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Enterprise-strategieën voor een LUIS-app
 Bekijk deze ontwerpstrategieën voor uw enterprise-app.

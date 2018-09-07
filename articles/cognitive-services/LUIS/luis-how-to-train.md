@@ -1,20 +1,21 @@
 ---
-title: Uw LUIS-app - Azure trainen | Microsoft Docs
-description: Language Understanding (LUIS) gebruiken voor het trainen van uw model.
+title: Uw LUIS-app trainen
+titleSuffix: Azure Cognitive Services
+description: Training is het proces van uw app Language Understanding (LUIS) voor het verbeteren van de natuurlijke taal begrijpen lessen. Uw LUIS-app na updates voor het model zoals toevoegen, bewerken, labels of verwijderen van entiteiten, intents of uitingen trainen.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: e947df20141b0b9870f318f410488aea23bafcf5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 42cff3dd8237598da5aa71ed1a4d6462c5b4c25d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223181"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049128"
 ---
 # <a name="train-your-luis-app"></a>Uw LUIS-app trainen
 
@@ -32,11 +33,7 @@ Voor het starten van de iteratief proces, moet u eerst uw LUIS-app ten minste é
 
 2. Selecteer in uw app **Train** in het bovenste deelvenster. 
 
-    ![De knop Train](./media/luis-how-to-train/train-button.png)
-
 3. Wanneer training voltooid is, wordt een groen meldingsbalk weergegeven aan de bovenkant van de browser.
-
-    ![Pagina Train & Test-App](./media/luis-how-to-train/train-success.png)
 
 <!-- The following note refers to what might cause the error message "Training failed: FewLabels for model: <ModelName>" -->
 

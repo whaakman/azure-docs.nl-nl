@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: markvi
-ms.openlocfilehash: bb2210619e481189fc88ca3bb6b8044a8f5d7e14
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: aa14563966e028716d8e18c3228f026af983561f
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39262945"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024106"
 ---
 # <a name="enable-enterprise-state-roaming-in-azure-active-directory"></a>Enterprise state roaming inschakelen in Azure Active Directory
 Enterprise State Roaming is beschikbaar voor elke organisatie met een Azure AD Premium of Enterprise Mobility + Security (EMS)-licentie. Zie voor meer informatie over het verkrijgen van een Azure AD-abonnement, de [productpagina van Azure AD](https://azure.microsoft.com/services/active-directory).
@@ -32,16 +32,17 @@ Wanneer u de Enterprise State Roaming inschakelt, wordt uw organisatie een grati
 
 1. Aanmelden bij [Azure AD-beheercentrum](https://aad.portal.azure.com/).
 
-2. Selecteer **Azure Active Directory** &gt; **apparaten** &gt; **apparaatinstellingen**.
+2. Selecteer **Azure Active Directory** &gt; **apparaten** &gt; **Enterprise State Roaming**.
 
 3. Selecteer **gebruikers kunnen instellingen en app-gegevens synchroniseren via apparaten**. Zie voor meer informatie, [apparaatinstellingen configureren](https://docs.microsoft.com/azure/active-directory/device-management-azure-portal).
   
   ![afbeelding van de instelling van de apparaten met het label gebruikers kan instellingen en app-gegevens synchroniseren via apparaten](./media/active-directory-windows-enterprise-state-roaming-enable/device-settings.png)
   
-Het apparaat moet verifiëren met behulp van een Azure AD-identiteit voor een Windows 10-apparaat om de service Enterprise State Roaming te gebruiken. Voor apparaten die zijn gekoppeld aan Azure AD, is identiteit van de gebruiker primaire aanmelding hun Azure AD-identiteit, zodat er geen aanvullende configuratie vereist. Voor apparaten die gebruikmaken van on-premises Active Directory, de IT-beheerder moet [domein apparaten verbinden met Azure AD voor Windows 10-ervaringen](active-directory-azureadjoin-devices-group-policy.md).
+Het apparaat moet verifiëren met behulp van een Azure AD-identiteit voor een Windows 10-apparaat om de service Enterprise State Roaming te gebruiken. Voor apparaten die zijn gekoppeld aan Azure AD, is identiteit van de gebruiker primaire aanmelding hun Azure AD-identiteit, zodat er geen aanvullende configuratie vereist. Voor apparaten die gebruikmaken van on-premises Active Directory, de IT-beheerder moet [configureren hybride Azure Active Directory gekoppelde apparaten](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-manual-steps). 
 
 ## <a name="data-storage"></a>Gegevensopslag
 Enterprise State Roaming gegevens worden gehost in een of meer [Azure-regio's](https://azure.microsoft.com/regions/) dat beste zijn afgestemd op de waarde land/regio in de Azure Active Directory-exemplaar. Enterprise State Roaming gegevens zijn gepartitioneerd op basis van drie belangrijke geografische regio's: Noord-Amerika, EMEA en APAC. Enterprise State Roaming gegevens voor de tenant is lokaal bevindt als de geografische regio, en wordt niet gerepliceerd tussen regio's.  Bijvoorbeeld:
+
 Land/regio waarde | heeft de gegevens die worden gehost in
 ---------------------|-------------------------
 Een EMEA-land, zoals "Frankrijk" of "Zambia" | een of van de Azure-regio's in Europa 
@@ -69,7 +70,7 @@ Volg deze stappen om een statusrapport voor synchronisatie van per gebruiker-app
   ![afbeelding van het apparaat synchroniseren kolomgegevens](./media/active-directory-windows-enterprise-state-roaming-enable/device-status-row.png)
 
 ## <a name="data-retention"></a>Bewaartijd van gegevens
-Gegevens die zijn gesynchroniseerd met Azure met behulp van Enterprise State Roaming worden bewaard totdat deze handmatig wordt verwijderd of de desbetreffende gegevens blijkt dat het verouderd. 
+Gegevens die zijn gesynchroniseerd met de Microsoft-cloud met behulp van Enterprise State Roaming worden bewaard totdat deze handmatig wordt verwijderd of de desbetreffende gegevens blijkt dat het verouderd. 
 
 ### <a name="explicit-deletion"></a>Expliciet verwijderen
 Expliciet verwijderen is als een Azure-beheerder Hiermee verwijdert u een gebruiker of een map of anders expliciet aanvragen dat gegevens worden verwijderd.
@@ -79,14 +80,14 @@ Expliciet verwijderen is als een Azure-beheerder Hiermee verwijdert u een gebrui
 * **Op aanvraag verwijderen**: als de Azure AD-beheerder wil handmatig verwijderen van de gegevens of instellingsgegevens van een specifieke gebruiker, de beheerder kan een ticket indienen bij [ondersteuning van Azure](https://azure.microsoft.com/support/). 
 
 ### <a name="stale-data-deletion"></a>Verouderde gegevens verwijderen
-Gegevens die niet is geopend voor één jaar ("de bewaarperiode') wordt beschouwd als verouderd en kan worden verwijderd uit Azure. De bewaarperiode kan worden gewijzigd, maar is niet minder dan 90 dagen. De verouderde gegevens mogelijk een specifieke set Windows/toepassings- of alle instellingen voor een gebruiker. Bijvoorbeeld:
+Gegevens die niet is geopend voor één jaar ("de bewaarperiode') wordt beschouwd als verouderd en kan worden verwijderd uit de Microsoft-cloud. De bewaarperiode kan worden gewijzigd, maar is niet minder dan 90 dagen. De verouderde gegevens mogelijk een specifieke set Windows/toepassings- of alle instellingen voor een gebruiker. Bijvoorbeeld:
 
 * Als apparaten geen toegang een verzameling bepaalde instellingen tot (bijvoorbeeld een toepassing van het apparaat is verwijderd of een instellingengroep zoals 'Thema' is uitgeschakeld voor alle apparaten van een gebruiker), en vervolgens deze verzameling verlopen na de bewaarperiode is en kan worden verwijderd . 
 * Als een gebruiker heeft de synchronisatie van instellingen op alle apparaten zijn/haar uitgeschakeld, klikt u vervolgens geen van de instellingsgegevens worden geopend en de van instellingsgegevens voor die gebruiker wordt verlopen en na de bewaarperiode kan worden verwijderd. 
 * Als de Azure AD-directory-beheerder uitgeschakeld Enterprise State Roaming voor de hele map, klikt u vervolgens alle gebruikers wordt in die map wordt stoppen van de synchronisatie van instellingen en alle instellingsgegevens in de voor alle gebruikers zullen verlopen en na de bewaarperiode kan worden verwijderd. 
 
 ### <a name="deleted-data-recovery"></a>Verwijderde gegevens herstellen
-Het bewaarbeleid voor gegevens kan niet worden geconfigureerd. Zodra de gegevens worden definitief verwijderd, kan het niet worden hersteld. Echter wordt de instellingsgegevens alleen van Azure, niet van de apparaten van eindgebruikers verwijderd. Als een apparaat opnieuw verbinding later opnieuw met de service Enterprise State Roaming maakt, worden de instellingen opnieuw gesynchroniseerd en opgeslagen in Azure.
+Het bewaarbeleid voor gegevens kan niet worden geconfigureerd. Zodra de gegevens worden definitief verwijderd, kan het niet worden hersteld. Echter de instellingsgegevens alleen verwijderd uit de Microsoft-cloud, niet van de apparaten van eindgebruikers. Als een apparaat opnieuw verbinding later opnieuw met de service Enterprise State Roaming maakt, worden de instellingen opnieuw gesynchroniseerd en opgeslagen in de Microsoft cloud.
 
 ## <a name="related-topics"></a>Verwante onderwerpen
 * [Overzicht van Enterprise State Roaming](active-directory-windows-enterprise-state-roaming-overview.md)

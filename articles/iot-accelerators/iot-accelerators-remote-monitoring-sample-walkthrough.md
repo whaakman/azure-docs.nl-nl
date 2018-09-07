@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: dfe584532efeab1dbc0d2928b7afb0a6695a21ee
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 097eba4f5bcbb74d4158cc8d4135255d31e03ebd
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39184942"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44027007"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Externe bewaking accelerator overzicht van de oplossing
 
@@ -42,9 +42,15 @@ Cloudarchitectuur heeft zich ontwikkeld sinds de eerste oplossingsversnellers de
 
 De oplossing omvat de volgende onderdelen in het gedeelte van de connectiviteit apparaat van de logische architectuur:
 
-### <a name="simulated-devices"></a>Gesimuleerde apparaten
+### <a name="physical-devices"></a>Fysieke apparaten
 
-De oplossing bevat een microservice waarmee u voor het beheren van een groep gesimuleerde apparaten de end-to-end-stroom testen in de oplossing. De gesimuleerde apparaten:
+U kunt fysieke apparaten verbinden met de oplossing. U kunt het gedrag van uw gesimuleerde apparaten met behulp van de Azure IoT device SDK's kunt implementeren.
+
+U kunt fysieke apparaten vanuit het dashboard in de portal van de oplossing inrichten.
+
+### <a name="device-simulation-microservice"></a>Apparaat simulatie microservice
+
+De oplossing omvat de [apparaat simulatie microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation) waarmee u kunt een pool van gesimuleerde apparaten beheren vanaf het dashboard van de oplossing voor het testen van de end-to-end-stroom in de oplossing. De gesimuleerde apparaten:
 
 * Apparaat-naar-cloud telemetrie genereren.
 * Reageren op cloud-naar-apparaat methodeaanroepen van IoT-Hub.
@@ -53,24 +59,24 @@ De microservices biedt een RESTful-eindpunt kunt maken, starten en stoppen van s
 
 U kunt gesimuleerde apparaten vanuit het dashboard in de portal van de oplossing inrichten.
 
-### <a name="physical-devices"></a>Fysieke apparaten
+### <a name="iot-hub"></a>IoT Hub
 
-U kunt fysieke apparaten verbinden met de oplossing. U kunt het gedrag van uw gesimuleerde apparaten met behulp van de Azure IoT device SDK's kunt implementeren.
-
-U kunt fysieke apparaten vanuit het dashboard in de portal van de oplossing inrichten.
-
-### <a name="iot-hub-and-the-iot-manager-microservice"></a>IoT Hub en de IoT-manager microservice
-
-De [IoT-hub](../iot-hub/index.yml) neemt gegevens op die van de apparaten worden verzonden naar de cloud en maakt ze beschikbaar voor de `telemetry-agent` microservice.
+De [IoT-hub](../iot-hub/index.yml) neemt telemetrie die van de fysieke en gesimuleerde apparaten worden verzonden naar de cloud. De IoT-hub maakt de telemetrie beschikbaar voor de services in de back-end oplossing voor IoT voor verwerking.
 
 De IoT Hub in de oplossing doet ook het volgende:
 
-* Een identiteitsregister waarin de id's en verificatiesleutels van de apparaten die verbinding mogen maken met de portal. U kunt apparaten in- en uitschakelen via het register van identiteiten.
-* Roept namens de oplossingsportal methoden aan op uw apparaten.
+* Een identiteitsregister waarin de id's en verificatiesleutels van de apparaten die verbinding mogen maken met de portal.
+* Methoden op uw apparaten roept namens de solution accelerator.
 * Onderhoudt apparaatdubbels voor alle geregistreerde apparaten. Een apparaatdubbel slaat de eigenschapswaarden op die door een apparaat worden gerapporteerd. Een apparaatdubbel slaat ook gewenste eigenschappen op die in de oplossingsportal zijn ingesteld, zodat het apparaat deze kan ophalen wanneer opnieuw verbinding wordt maakt.
 * Plant taken voor het instellen van eigenschappen voor meerdere apparaten of voor het aanroepen van methoden op meerdere apparaten.
 
-De oplossing omvat de `iot-manager` microservice voor het afhandelen van interacties met uw IoT-hub, zoals:
+## <a name="data-processing-and-analytics"></a>Gegevensverwerking en -analyse
+
+De oplossing omvat de volgende onderdelen in de gegevensverwerking en analytics deel uit van de logische architectuur:
+
+### <a name="iot-hub-manager-microservice"></a>IoT Hub manager microservice
+
+De oplossing omvat de [IoT-Hub manager microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager) voor het afhandelen van interacties met uw IoT-hub, zoals:
 
 * Het maken en beheren van IoT-apparaten.
 * Dubbele apparaten beheren.
@@ -81,36 +87,45 @@ Deze service wordt ook uitgevoerd IoT Hub query's om op te halen die behoren tot
 
 De microservices biedt een RESTful-eindpunt voor het beheren van apparaten en apparaatdubbels, aanroepen van methoden en IoT Hub-query's uitvoeren.
 
-## <a name="data-processing-and-analytics"></a>Gegevensverwerking en -analyse
+### <a name="telemetry-microservice"></a>Telemetrie microservice
 
-De oplossing omvat de volgende onderdelen in de gegevensverwerking en analytics deel uit van de logische architectuur:
+De [telemetrie microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry) biedt een RESTful-eindpunt voor lezen-toegang tot telemetrie van apparaten, CRUD-bewerkingen op regels en de toegang voor lezen/schrijven voor definities van de waarschuwing uit de opslag.
 
-### <a name="device-telemetry"></a>Telemetrie van apparaten
+### <a name="storage-adapter-microservice"></a>Opslag-adapter microservice
 
-De oplossing bevat twee microservices voor het afhandelen van telemetrie van apparaten.
+De [opslag adapter microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/storage-adapter) beheert van sleutel / waarde-paren, waarbij de semantiek voor storage-service en presenteren van een eenvoudige interface voor het opslaan van gegevens van elke indeling met behulp van Azure Cosmos DB.
 
-De [telemetrie-agent](https://github.com/Azure/telemetry-agent-dotnet) microservice:
+Waarden zijn ingedeeld in verzamelingen. U kunt werken op de afzonderlijke waarden of hele verzamelingen ophalen. Complexe gegevensstructuren worden geserialiseerd met de clients en beheerd als eenvoudige tekst-nettolading.
 
-* Telemetrie in Azure Cosmos DB opgeslagen.
-* Analyseert de telemetriestroom vanaf de apparaten.
-* Genereert waarschuwingen op basis van gedefinieerde regels.
+De service biedt een RESTful-eindpunt voor CRUD-bewerkingen op sleutel / waarde-paren. Waarden
 
-De waarschuwingen worden opgeslagen in Azure Cosmos DB.
+### <a name="cosmos-db"></a>Cosmos DB
 
-De [telemetrie-agent](https://github.com/Azure/telemetry-agent-dotnet) microservice kunt de portal van de oplossing te lezen van de telemetrie die is verzonden vanaf de apparaten. De portal van de oplossing gebruikt ook deze service:
+Maakt gebruik van de standaardimplementatie van de solution accelerator [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) als de belangrijkste storage-service.
 
-* Regels voor bewaking, zoals de drempelwaarden die waarschuwingen definiëren
-* De lijst van eerdere waarschuwingen worden opgehaald.
+### <a name="azure-stream-analytics-manager-microservice"></a>Azure Stream Analytics manager microservice
 
-Gebruik de RESTful-eindpunt geleverd door deze microservice voor het beheren van telemetrie, regels en alarmen.
+De [Azure Stream Analytics manager microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/asa-manager) Azure Stream Analytics (ASA)-taken, inclusief het instellen van de configuratie hiervan, starten en stoppen en hun status controleren worden beheerd.
 
-### <a name="storage"></a>Storage
+De ASA-taak wordt ondersteund door twee sets van verwijzingsgegevens. Definieert u regels voor één gegevensset en een apparaatgroepen definieert. De referentiegegevens regels is gegenereerd op basis van de informatie die wordt beheerd door de telemetrie-microservice. De Azure Stream Analytics manager microservice transformeert telemetrie regels naar logica voor de verwerking van stromen.
 
-De [opslagadapter](https://github.com/Azure/pcs-storage-adapter-dotnet) microservice is een adapter voor de belangrijkste storage-service gebruikt voor de solution accelerator. Het biedt eenvoudige verzameling en -sleutel / waarde-opslag.
+De referentiegegevens voor groepen van apparaten wordt gebruikt om te bepalen welke groep van regels toe te passen op een binnenkomende telemetrie-bericht. De groepen apparaten worden beheerd door de configuratie van microservice en gebruik Azure IoT Hub apparaatdubbel-query's.
 
-De standaardimplementatie van de solution accelerator maakt gebruik van Azure Cosmos DB als de belangrijkste storage-service.
+### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
-De Azure Cosmos DB-database worden gegevens opgeslagen in de solution accelerator. De **opslagadapter** microservice fungeert als een adapter voor de andere microservices in de oplossing voor toegang tot opslag-services.
+[Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) is een engine voor gebeurtenisverwerking waarmee u grote volumes aan gegevensstromen van apparaten onderzoeken.
+
+### <a name="configuration-microservice"></a>Configuratie van microservice
+
+De [configuratie microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/config) biedt een RESTful-eindpunt voor CRUD-bewerkingen op apparaatgroepen, Oplossingsinstellingen en gebruikersinstellingen in de solution accelerator. Het werkt met de opslag-adapter microservice om vast te leggen van de configuratiegegevens.
+
+### <a name="authentication-and-authorization-microservice"></a>Verificatie en autorisatie microservice
+
+De [verificatie en autorisatie microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) beheert de gebruikers die zijn gemachtigd voor toegang tot de solution accelerator. Beheer van gebruikers kan worden gedaan met behulp van een identity-serviceprovider die ondersteuning biedt voor [OpenId Connect](http://openid.net/connect/).
+
+### <a name="azure-active-directory"></a>Azure Active Directory
+
+Maakt gebruik van de standaardimplementatie van de solution accelerator [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) als OpenID Connect-provider. Azure Active Directory gebruikersgegevens worden opgeslagen en vindt u certificaten voor het valideren van JWT-token handtekeningen. 
 
 ## <a name="presentation"></a>Presentatie
 
@@ -122,16 +137,16 @@ De [online gebruikersinterface is een toepassing reageren Javascript](https://gi
 * Is opgemaakt met CSS.
 * Communiceert met openbare gerichte microservices via AJAX-aanroepen.
 
-De gebruikersinterface geeft alle functionaliteit van de solution accelerator en communiceert met andere services, zoals:
+De gebruikersinterface geeft alle functionaliteit van de solution accelerator en communiceert met andere microservices, zoals:
 
-* De [verificatie](https://github.com/Azure/pcs-auth-dotnet) microservice om gebruikersgegevens te beschermen.
-* De [iothub-manager](https://github.com/Azure/iothub-manager-dotnet) microservice weergeven en beheren van de IoT-apparaten.
+* De verificatie en autorisatie microservice om gebruikersgegevens te beschermen.
+* De IoT Hub manager microservice weergeven en beheren van de IoT-apparaten.
 
-De [ui-config](https://github.com/Azure/pcs-config-dotnet) microservice kunt u de gebruikersinterface voor het opslaan en ophalen van configuratie-instellingen.
+De configuratie van microservice kunt de gebruikersinterface voor het opslaan en ophalen van configuratie-instellingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Als u de documentatie van de bron-code en ontwikkelaars verkennen wilt, begint u met een de twee belangrijkste GitHub-opslagplaatsen:
+Als u de documentatie van de bron-code en ontwikkelaars verkennen wilt, begint u met een van de twee GitHub-opslagplaatsen:
 
 * [De oplossingsversneller voor externe controle met Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
 * [De oplossingsversneller voor externe controle met Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).

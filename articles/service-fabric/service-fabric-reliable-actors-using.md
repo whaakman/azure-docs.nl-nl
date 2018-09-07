@@ -1,6 +1,6 @@
 ---
-title: Implementatie van functies in Azure Service Fabric-actoren | Microsoft Docs
-description: Beschrijft hoe u uw eigen actor-service waarmee functies op serviceniveau dezelfde manier als wanneer wordt overgenomen van StatefulService schrijven.
+title: Functies implementeren in Azure Service Fabric-actoren | Microsoft Docs
+description: Beschrijft hoe u uw eigen actorservice die functies op serviceniveau op dezelfde manier als implementeert wanneer u StatefulService overnemen schrijven.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,22 +14,24 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/19/2018
 ms.author: vturecek
-ms.openlocfilehash: 6aff9e9599d31942f994f3cb4e5e9219f33dc7e1
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 89161f3dad68c4b208f4badc548e2057c7ed58c1
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205517"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022046"
 ---
-# <a name="implementing-service-level-features-in-your-actor-service"></a>Functies op serviceniveau implementeren in uw actor-service
-Zoals beschreven in [service-lagen](service-fabric-reliable-actors-platform.md#service-layering), de actorservice zelf is een betrouwbare service.  U kunt uw eigen service die is afgeleid van schrijven `ActorService` en functies op serviceniveau implementeren de dezelfde manier als wanneer wordt overgenomen van StatefulService, zoals:
+# <a name="implement-service-level-features-in-your-actor-service"></a>Functies op serviceniveau implementeren in uw actor-service
+
+Zoals beschreven in [service-lagen](service-fabric-reliable-actors-platform.md#service-layering), de actorservice zelf is een betrouwbare service. U kunt uw eigen service die is afgeleid van schrijven `ActorService`. Ook kunt u implementeren functies op serviceniveau in dezelfde manier als wanneer u een stateful service, zoals overnemen:
 
 - Service maken en herstellen.
 - Gedeelde functionaliteit voor alle actoren, bijvoorbeeld een Circuitonderbreker.
 - Externe procedureaanroepen op de actorservice zelf en op elke afzonderlijke actor.
 
-## <a name="using-the-actor-service"></a>Met behulp van de actor-service
-Actor-exemplaren hebben toegang tot de actor-service waarin ze worden uitgevoerd. Actor-exemplaren kunnen programmatisch de servicecontext verkrijgen via de actorservice. De servicecontext heeft de partitie-ID, servicenaam, toepassingsnaam van de en andere Service Fabric-platform-specifieke informatie:
+## <a name="use-the-actor-service"></a>Gebruik de actor-service
+
+Actor-exemplaren hebben toegang tot de actor-service waarin ze worden uitgevoerd. Actor-exemplaren kunnen programmatisch de servicecontext verkrijgen via de actorservice. De servicecontext heeft de partitie-ID, servicenaam, toepassingsnaam van de en andere Azure Service Fabric-platform-specifieke informatie.
 
 ```csharp
 Task MyActorMethod()
@@ -50,7 +52,7 @@ CompletableFuture<?> MyActorMethod()
 }
 ```
 
-Net als alle betrouwbare Services, moet de actor-service zijn geregistreerd met een servicetype in de Service Fabric-runtime. Voor de actor-service kan uw actorexemplaren uitvoeren, moet ook uw actortype worden geregistreerd bij de actorservice. De `ActorRuntime`-registratiemethode doet dit voor actors. In het meest eenvoudige geval is, kunt u alleen uw actortype registreren en de actorservice met standaardinstellingen wordt impliciet worden gebruikt:
+Net als alle betrouwbare Services, moet de actor-service zijn geregistreerd met een servicetype in de Service Fabric-runtime. Actor-service om uit te voeren van uw actor-exemplaren, worden uw actortype ook geregistreerd bij de actor-service. De `ActorRuntime`-registratiemethode doet dit voor actors. In het meest eenvoudige geval is, kunt u uw actortype registreren en de actorservice gebruikt vervolgens de standaardinstellingen.
 
 ```csharp
 static class Program
@@ -64,7 +66,7 @@ static class Program
 }
 ```
 
-U kunt ook een lambda geleverd door de registratiemethode gebruiken om samen te stellen van de actor-service zelf. U kunt vervolgens de actorservice configureren en expliciet maken uw actorexemplaren, waar u afhankelijkheden aan uw actor via de constructor kunt invoeren:
+U kunt ook een lambda geleverd door de registratiemethode gebruiken om samen te stellen van de actor-service zelf. Vervolgens kunt u configureren de actor-service en uw actorexemplaren expliciet te maken. U kunt afhankelijkheden aan uw actor via de constructor invoeren.
 
 ```csharp
 static class Program
@@ -95,11 +97,13 @@ static class Program
 ```
 
 ## <a name="actor-service-methods"></a>Actor-service-methoden
-De Actor-service wordt geïmplementeerd `IActorService` (C#) of `ActorService` (Java), die op zijn beurt implementeert `IService` (C#) of `Service` (Java). Dit is de interface die worden gebruikt door externe communicatie Reliable Services, waarmee externe procedureaanroepen op service-methoden. Het serviceniveau-methoden die op afstand via de service voor externe toegang kunnen worden aangeroepen en kunnen u bevat [opsommen](service-fabric-reliable-actors-enumerate.md) en [verwijderen](service-fabric-reliable-actors-delete-actors.md) actoren.
+
+De actor-service wordt geïmplementeerd `IActorService` (C#) of `ActorService` (Java), die op zijn beurt implementeert `IService` (C#) of `Service` (Java). Deze interface wordt gebruikt door externe communicatie Reliable Services, waarmee externe procedureaanroepen op service-methoden. Het bevat serviceniveau-methoden die extern kunnen worden aangeroepen via externe communicatie met service. U kunt deze [opsommen](service-fabric-reliable-actors-enumerate.md) en [verwijderen](service-fabric-reliable-actors-delete-actors.md) actoren.
 
 
 ## <a name="custom-actor-service"></a>Aangepaste actor-service
-U kunt uw eigen aangepaste actor-service die is afgeleid van registreren met behulp van de actor-registratie lambda, `ActorService` (C#) en `FabricActorService` (Java). In deze aangepaste actor-service, kunt u de functionaliteit van uw eigen serviceniveau implementeren door het schrijven van een serviceklasse die eigenschappen overneemt `ActorService` (C#) of `FabricActorService` (Java). Een aangepaste actor-service alle de actor-runtime-functionaliteit neemt over `ActorService` (C#) of `FabricActorService` (Java) en kan worden gebruikt om uw eigen servicemethoden te implementeren.
+
+U kunt uw eigen aangepaste actor-service die is afgeleid van registreren met behulp van de actor-registratie lambda, `ActorService` (C#) en `FabricActorService` (Java). U kunt de functionaliteit van uw eigen serviceniveau vervolgens implementeren met het schrijven van een serviceklasse die eigenschappen overneemt `ActorService` (C#) of `FabricActorService` (Java). Een aangepaste actor-service alle de actor-runtime-functionaliteit neemt over `ActorService` (C#) of `FabricActorService` (Java). Het kan worden gebruikt om uw eigen servicemethoden te implementeren.
 
 ```csharp
 class MyActorService : ActorService
@@ -146,68 +150,78 @@ public class Program
 }
 ```
 
-## <a name="implementing-actor-backup-and-restore"></a>Actor-up en herstel implementeren
-Een aangepaste actor-service beschikbaar maakt een methode voor het back-up actor-gegevens door te profiteren van de listener voor externe toegang die al aanwezig in `ActorService`.  Zie voor een voorbeeld [back-up en herstel actoren](service-fabric-reliable-actors-backup-and-restore.md).
+## <a name="implement-actor-backup-and-restore"></a>Implementeer actor back-up en herstel
 
-## <a name="actor-using-remoting-v2interfacecompatible-stack"></a>Met behulp van externe toegang V2(InterfaceCompatible) Stack actor
-Remoting V2 (ook wel V2_1 InterfaceCompatible)-stack heeft alle functies van Remoting V2-stack van het feit dat het compatibel stack interface naar externe communicatie van V1-stack is maar niet compatibel met V2 en V1 is. Als u wilt u de upgrade van V1 naar V2_1 zonder enige impact op de beschikbaarheid van de service, volg de onderstaande [artikel](#actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability).
+Een aangepaste actor-service beschikbaar maakt een methode voor het back-up actor-gegevens door te profiteren van de listener voor externe toegang die al aanwezig in `ActorService`. Zie voor een voorbeeld [back-up en herstel actoren](service-fabric-reliable-actors-backup-and-restore.md).
 
-Volgende wijzigingen zijn vereist voor de externe toegang V2_1-Stack gebruiken.
- 1. De volgende assembly-kenmerk toevoegen op de Actor-Interfaces.
+## <a name="actor-that-uses-a-remoting-v2-interface-compatible-stack"></a>Actor die gebruikmaakt van een remoting V2-stack (interface-compatibel)
+
+De remoting V2 (interface compatibel zijn, ook wel V2_1) stack heeft alle functies van de externe toegang-stack V2. De interface is compatibel met de externe communicatie van V1-stack, maar het is niet compatibel met V2 en V1. Als u wilt upgraden van V1 naar V2_1 met geen gevolgen voor de beschikbaarheid van de service, de stappen in de volgende sectie uit te voeren.
+
+De volgende wijzigingen zijn vereist voor het gebruik van de externe toegang V2_1 stapel:
+
+ 1. De volgende assembly-kenmerk toevoegen op de actor-interfaces.
+  
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
    ```
 
- 2. Build en Upgrade ActorService Actor-Client en projecten met V2-Stack aan de slag.
+ 2. Bouw en upgrade actor-service en client actorprojecten om te beginnen met behulp van de V2-stack.
 
-#### <a name="actor-service-upgrade-to-remoting-v2interfacecompatible-stack-without-impacting-service-availability"></a>Actor-Service upgraden naar externe communicatie V2(InterfaceCompatible) Stack zonder enige impact op de beschikbaarheid van de Service.
-Deze wijziging is een upgrade van een 2-stap. Volg de stappen in dezelfde volgorde als die worden vermeld.
+### <a name="actor-service-upgrade-to-remoting-v2-interface-compatible-stack-without-affecting-service-availability"></a>Actor-service een upgrade uit naar remoting V2 (compatibel interface)-stack zonder die betrekking hebben op beschikbaarheid van de service
 
-1.  De volgende assembly-kenmerk toevoegen op de Actor-Interfaces. Dit kenmerk wordt gestart twee listeners voor de ActorService, V1 (bestaand) en V2_1 Listener. ActorService bijwerken met deze wijziging.
+Deze wijziging is een upgrade van verificatie in twee stappen. Volg de stappen in deze reeks.
+
+1. De volgende assembly-kenmerk toevoegen op de actor-interfaces. Dit kenmerk wordt gestart voor twee listeners voor de actorservice, V1 (bestaand) en de listener V2_1. Upgrade van de actorservice met deze wijziging.
 
   ```csharp
   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
   ```
 
-2. ActorClients upgraden na het voltooien van de bovenstaande upgrade.
-Deze stap zorgt ervoor dat Actor-Proxy wordt gebruikt voor externe toegang V2_1 Stack.
+2. De actor-clients upgraden na het voltooien van de vorige upgrade.
+Deze stap zorgt ervoor dat de stack V2_1 voor externe toegang maakt gebruik van de actor-proxy.
 
-3. Deze stap is optioneel. Wijzig het bovenstaande kenmerk als u wilt verwijderen van V1-Listener.
+3. Deze stap is optioneel. Wijzig het vorige kenmerk als u wilt verwijderen van de V1-listener.
 
     ```csharp
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2_1,RemotingClientVersion = RemotingClientVersion.V2_1)]
     ```
 
-## <a name="actor-using-remoting-v2-stack"></a>Actor Remoting V2-Stack gebruiken
-Gebruikers kunnen nu Remoting V2-stack, waardoor beter is en waarmee u functies zoals aangepaste serialisatie gebruiken 2,8 nuget-pakket. Remoting V2 is niet compatibel met bestaande voor externe toegang-stack (we bellen nu deze als externe communicatie van V1-stack).
+## <a name="actor-that-uses-the-remoting-v2-stack"></a>Actor die gebruikmaakt van de stack remoting V2
 
-Volgende wijzigingen zijn vereist voor de Remoting V2-Stack gebruiken.
- 1. De volgende assembly-kenmerk toevoegen op de Actor-Interfaces.
+Gebruikers kunnen nu de remoting V2-stack, waardoor beter presteert en waarmee u functies zoals aangepaste serialisatie gebruiken met de versie 2.8 NuGet-pakket. Remoting V2 is niet compatibel met de bestaande externe toegang-stack (nu de V1 voor externe toegang-stack genoemd).
+
+De volgende wijzigingen zijn vereist voor de remoting V2-stack gebruiken.
+
+ 1. De volgende assembly-kenmerk toevoegen op de actor-interfaces.
+
    ```csharp
    [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
    ```
 
- 2. Build en Upgrade ActorService Actor-Client en projecten met V2-Stack aan de slag.
+ 2. Bouw en werk de actor-service en client actorprojecten om te beginnen met behulp van de V2-stack.
 
-#### <a name="actor-service-upgrade-to-remoting-v2-stack-without-impacting-service-availability"></a>Actor-Service upgraden naar Remoting V2 Stack zonder enige impact op de beschikbaarheid van de Service.
-Deze wijziging is een upgrade van een 2-stap. Volg de stappen in dezelfde volgorde als die worden vermeld.
+### <a name="upgrade-the-actor-service-to-the-remoting-v2-stack-without-affecting-service-availability"></a>De actorservice upgraden naar de remoting V2-stack zonder die betrekking hebben op beschikbaarheid van de service
 
-1.  De volgende assembly-kenmerk toevoegen op de Actor-Interfaces. Dit kenmerk wordt gestart twee listeners voor de ActorService, V1 (bestaand) en V2-Listener. ActorService bijwerken met deze wijziging.
+Deze wijziging is een upgrade van verificatie in twee stappen. Volg de stappen in deze reeks.
+
+1. De volgende assembly-kenmerk toevoegen op de actor-interfaces. Dit kenmerk wordt gestart voor twee listeners voor de actorservice, V1 (bestaand) en de V2-listener. Upgrade van de actorservice met deze wijziging.
 
   ```csharp
   [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V1|RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
   ```
 
-2. ActorClients upgraden na het voltooien van de bovenstaande upgrade.
-Deze stap zorgt ervoor dat Actor Proxy Remoting V2 Stack wordt gebruikt.
+2. De actor-clients upgraden na het voltooien van de vorige upgrade.
+Deze stap zorgt ervoor dat de actor-proxy wordt gebruikt voor de remoting V2-stack.
 
-3. Deze stap is optioneel. Wijzig het bovenstaande kenmerk als u wilt verwijderen van V1-Listener.
+3. Deze stap is optioneel. Wijzig het vorige kenmerk als u wilt verwijderen van de V1-listener.
 
     ```csharp
     [assembly:FabricTransportActorRemotingProvider(RemotingListenerVersion = RemotingListenerVersion.V2,RemotingClientVersion = RemotingClientVersion.V2)]
     ```
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * [Statusbeheer actor](service-fabric-reliable-actors-state-management.md)
 * [Actor-levenscyclus en garbagecollection verzameling](service-fabric-reliable-actors-lifecycle.md)
 * [Actoren API-referentiedocumentatie](https://msdn.microsoft.com/library/azure/dn971626.aspx)

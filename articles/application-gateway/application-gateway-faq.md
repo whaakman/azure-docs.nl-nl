@@ -7,14 +7,14 @@ manager: jpconnock
 ms.service: application-gateway
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 8/10/2018
+ms.date: 9/6/2018
 ms.author: victorh
-ms.openlocfilehash: 858427bfd2a9b4c40ddf7054e09d98bcf5c1a992
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: e180f0912bdb9145f3d36492fb9bcdcb551037f0
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42057194"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022913"
 ---
 # <a name="frequently-asked-questions-for-application-gateway"></a>Veelgestelde vragen over Application Gateway
 
@@ -84,7 +84,7 @@ Nee, Application Gateway biedt geen ondersteuning voor statische openbare IP-adr
 
 Slechts één openbaar IP-adres wordt ondersteund in een toepassingsgateway.
 
-**Q. Hoe groot moet ik mijn subnet voor Application Gateway?**
+**Q. Hoe groot ik moet mijn subnet voor Application Gateway?**
 
 Application Gateway verbruikt één privé IP-adres per exemplaar, plus een andere privé-IP-adres als een privé front-end-IP-configuratie is geconfigureerd. Ook Azure reserveert de eerste vier en laatste IP-adres in elk subnet voor intern gebruik.
 Bijvoorbeeld, als Application Gateway is ingesteld op drie exemplaren en geen privé front-end-IP, klikt u vervolgens een/29 subnet, grootte of hoger is vereist. In dit geval Application Gateway maakt gebruik van drie IP-adressen. Als u drie exemplaren en een IP-adres voor de privé front-end-IP-configuratie, klikt u vervolgens een/28 hebt subnet groot of groter is nodig omdat tijdens vier IP-adressen zijn vereist.
@@ -211,8 +211,8 @@ In de volgende tabel staan gemiddelde doorvoerprestaties voor elk toepassingsgat
 
 | Gemiddelde paginalaadtijd van back-end Antwoordgrootte | Klein | Middelgroot | Groot |
 | --- | --- | --- | --- |
-| 6KB |7,5 Mbps |13 Mbps |50 Mbps |
-| 100KB |35 Mbps |100 Mbps |200 Mbps |
+| 6 KB |7,5 Mbps |13 Mbps |50 Mbps |
+| 100 KB |35 Mbps |100 Mbps |200 Mbps |
 
 > [!NOTE]
 > Deze waarden zijn geschatte waarden voor de doorvoer van een toepassingsgateway. De werkelijke doorvoer hangt af van verschillende details van de omgeving, zoals de gemiddelde paginagrootte, locatie van back-endexemplaren en de verwerkingstijd voor een pagina. Voor nauwkeurige prestatiecijfers moet u uw eigen tests uitvoeren. Deze waarden worden alleen geboden als richtlijn voor de capaciteitsplanning.
@@ -333,7 +333,7 @@ Op dit moment ondersteunt CRS WAF [2.2.9](application-gateway-crs-rulegroups-rul
 
 **Q. Ondersteunt WAF ook DDoS voorkomen?**
 
-Nee, WAF biedt geen DDoS-preventie.
+Ja. DDos-beveiliging op de VNet waar de application gateway wordt geïmplementeerd, kunt u inschakelen. Dit zorgt ervoor dat de toepassingsgateway die VIP wordt eveneens beveiligd met behulp van de service Azure DDos Protection.
 
 ## <a name="diagnostics-and-logging"></a>Diagnostische gegevens en logboekregistratie
 

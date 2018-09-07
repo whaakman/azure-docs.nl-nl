@@ -1,20 +1,21 @@
 ---
-title: Voorgestelde uitingen van LUIS label | Microsoft Docs
-description: Language Understanding (LUIS) gebruiken om te labelen voorgestelde uitingen en helpen verhogen actieve machine learning.
+title: Controle-eindpunt uitingen van Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: De functie baanbrekende van LUIS is het concept van actief leren. Zodra uw LUIS eindpunt-query's heeft, verbetert actief leren de kwaliteit van de resultaten door uitingen selecteert dat u niet zeker weet. Als u deze uitingen label, trainen en publiceren, en vervolgens LUIS uitingen nauwkeuriger identificeert.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2017
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 5e195b8ef5aeb35b73c22438980fe2b2e3856977
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3ec791d534fb73a9d88f2dcdb81e445d6c26ab69
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224548"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44057354"
 ---
 # <a name="review-endpoint-utterances"></a>Eindpuntuitingen controleren
 
@@ -24,8 +25,6 @@ De functie baanbrekende van LUIS is de [concept](luis-concept-review-endpoint-ut
 1. Open uw app (bijvoorbeeld TravelAgent) door te selecteren van de naam op **mijn Apps** pagina en selecteer vervolgens **bouwen** in de bovenste balk.
 
 2. Onder de **verbeterde app-prestaties**, selecteer **bekijken eindpunt uitingen**.
-
-    ![Uitingen bekijken](./media/label-suggested-utterances/review.png)
 
 3. Op de **bekijken eindpunt uitingen** weergeeft, schakelt u in de **filterlijst met opzet of entiteit** in het tekstvak. Deze vervolgkeuzelijst bevat alle intents onder **INTENTS** en alle entiteiten in **entiteiten**.
 

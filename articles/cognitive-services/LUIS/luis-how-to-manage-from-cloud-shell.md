@@ -1,5 +1,6 @@
 ---
-title: LUIS-gebruik van Azure Cloud Shell bekijken | Microsoft Docs
+title: Azure Cloud Shell-gebruiksgegevens voor LUIS
+titleSuffix: Azure Cognitive Services
 description: Informatie over het verkrijgen van informatie over het gebruik in Azure Cloud Shell voor LUIS.
 services: cognitive-services
 author: diberry
@@ -7,16 +8,16 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/08/2017
+ms.date: 09/06/2017
 ms.author: diberry
-ms.openlocfilehash: f9d3a489328263bd300d60935bfde2f0dfc0245c
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 95bd1e83b4a0ed08850862ec4f4addb3353a9481
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224038"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44052962"
 ---
-# <a name="manage-luis-service-from-azure-cloud-shell"></a>LUIS-service van Azure Cloud Shell beheren
+# <a name="usage-data-for-luis-service-from-azure-cloud-shell"></a>Gegevens over het gebruik van LUIS-service van Azure Cloud Shell
 De Azure-portal kunt u PowerShell-cmdlets gebruiken om te werken met LUIS-resources. 
 
 Deze cmdlets kunt u [maken](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/new-azurermcognitiveservicesaccount?view=azurermps-6.0.0) een LUIS-abonnement, informatie over het abonnement, met inbegrip van [gebruik](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/get-azurermcognitiveservicesaccountusage?view=azurermps-6.0.0), en [verwijderen](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/remove-azurermcognitiveservicesaccount?view=azurermps-6.0.0) het abonnement. 

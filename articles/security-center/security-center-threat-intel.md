@@ -3,7 +3,7 @@ title: Bedreigingsinformatie in Azure Security Center | Microsoft Docs
 description: In dit document wordt uitgelegd hoe u de mogelijkheden van bedreigingsinformatie in Azure Security Center gebruikt voor het identificeren van mogelijke bedreigingen op uw virtuele machines en computers.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
@@ -12,29 +12,23 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/10/2018
-ms.author: terrylan
-ms.openlocfilehash: 8f1c6aa2e691a11e8920db8ca8bfdef5b8eb61b9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: 34474892d35c2c0bc299bbc4a2fb6507ffb24ee9
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434187"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022217"
 ---
-# <a name="threat-intelligence-in-azure-security-center"></a>Bedreigingsinformatie in Azure Security Center
-In dit artikel wordt uitgelegd hoe u bedreigingsinformatie van Azure Security Center gebruikt voor het aanpakken van beveiligingsproblemen.
+# <a name="security-alerts-map-azure-security-center"></a>Beveiligingswaarschuwingen toewijzen Azure Security Center
+In dit artikel helpt u bij het gebruik van de Azure Security Center security waarschuwingen kaart en beveiliging op basis van gebeurtenissen bedreigingsinformatiekaart beveiligingsgerelateerde om problemen te verhelpen.
 
-## <a name="what-is-threat-intelligence"></a>Wat is bedreigingsinformatie?
-Met de optie Bedreigingsinformatie van Security Center kunnen IT-beheerders beveiligingsbedreigingen voor de omgeving identificeren. Zo kunnen ze bijvoorbeeld bepalen of een bepaalde computer deel uitmaakt van een botnet. Computers kunnen knooppunten worden in een botnet wanneer aanvallers malware installeren waarmee de computer wordt verbonden met een computer van de aanvallers. Bedreigingsinformatie kan ook worden gebruikt om potentiële bedreigingen te identificeren die afkomstig zijn van underground communicatiekanalen, zoals het 'dark web'.
+## <a name="how-the-security-alerts-map-works"></a>Hoe werkt in de beveiligingswaarschuwingen worden toegewezen
+Security Center biedt u een map die u helpt beveiligingsbedreigingen voor de omgeving identificeren. U kunt bijvoorbeeld bepalen of een bepaalde computer deel uitmaakt van een botnet en wanneer de bedreiging die afkomstig zijn van. Computers gaan knooppunten in een botnet wanneer aanvallers malware installeren waarmee bedieningscentrale communiceert met opdrachten en besturing die het botnet beheren. 
 
-Voor het samenstellen van deze bedreigingsinformatie gebruikt Security Center gegevens die afkomstig zijn uit meerdere bronnen binnen Microsoft. Security Center gebruikt deze gegevens voor het identificeren van mogelijke bedreigingen voor uw omgeving. Het deelvenster **Bedreigingsinformatie** bestaat uit drie belangrijke onderdelen:
+Voor het bouwen van deze kaart maakt gebruik van Security Center gegevens die afkomstig zijn uit meerdere bronnen binnen Microsoft. Security Center gebruikt deze gegevens voor het toewijzen van mogelijke bedreigingen voor uw omgeving. 
 
-- Gedetecteerde bedreigingstypen
-- Bedreigingsoorsprong
-- Bedreigingsinformatiekaart
-
-
-## <a name="when-should-you-use-threat-intelligence"></a>Wanneer moet ik bedreigingsinformatie gebruiken?
 Een van de stappen van de [procedure om te reageren op een beveiligingsincident](https://docs.microsoft.com/azure/security-center/security-center-planning-and-operations-guide#incident-response) is het identificeren van de ernst van het aangevallen systeem. In deze fase moet u de volgende taken uitvoeren:
 
 - Bepaal de aard van de aanval.
@@ -43,29 +37,37 @@ Een van de stappen van de [procedure om te reageren op een beveiligingsincident]
 - Stel vast welke systemen zijn aangevallen.
 - Stel vast welke bestanden zijn geopend en bepaal de gevoeligheid van die bestanden.
 
-U kunt bedreigingsinformatie in Security Center gebruiken om te helpen bij deze taken.
+U kunt de toewijzing van beveiliging waarschuwingen in Security Center gebruiken om te helpen bij deze taken.
 
-## <a name="access-the-threat-intelligence"></a>Hoe open ik de bedreigingsinformatie?
-Als u de huidige bedreigingsinformatie voor uw omgeving wilt visualiseren, moet u eerst de werkruimte selecteren waarin uw gegevens zich bevinden. Als u maar één werkruimte hebt, wordt de werkruimteselector niet weergegeven en gaat u rechtstreeks naar het dashboard **Bedreigingsinformatie**. Het dashboard openen:
+## <a name="access-the-security-alerts-map"></a>Toegang tot de beveiliging waarschuwingen overzicht
+Als u wilt de huidige bedreigingen in uw omgeving visualiseren, open de toewijzing van de waarschuwingen beveiliging:
+
+1. Open het dashboard van **Security Center**.
+2. In het linkerdeelvenster onder **Threat Protection** Selecteer **Security waarschuwingen kaart**. De kaart wordt geopend.
+3. Voor meer informatie over de waarschuwing en herstelstappen ontvangen, klikt u op de waarschuwing stip op de kaart en volg de instructies. 
+ 
+De toewijzing van de waarschuwingen beveiliging is gebaseerd op waarschuwingen. Deze waarschuwingen zijn gebaseerd op activiteiten die voor welk netwerk communicatie is gekoppeld aan een IP-adres dat is opgelost, is al dan niet het IP-adres een bekende riskante IP-adres (bijvoorbeeld, een bekende cryptominer is) of een IP-adres dat wordt niet herkend eerder als riskant. De kaart bevat waarschuwingen over abonnementen die u eerder hebt geselecteerd in Azure. 
+
+De waarschuwingen op de kaart worden weergegeven op basis van de geografische locatie waar ze worden gedetecteerd als zijnde afkomstig van, en ze hebben een kleurcode op basis van ernst. 
+ 
+## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Het dashboard Bedreigingsinformatie op basis van gebeurtenissen weergeven
+Als u de bedreigingsinformatiekaart op basis van onbewerkte beveiligingsgebeurtenissen, kunt u deze procedure te volgen. Deze kaart bevat alleen de gebeurtenissen die betrekking hebben op een IP-adres dat wordt beschouwd als risico's, bijvoorbeeld een IP-adres van een bekend botnet.
 
 1. Open het dashboard van **Security Center**.
 
-1. In het linkerdeelvenster onder **Threat Protection** Selecteer **Bedreigingsinformatie**. Een kaart wordt geopend.
+1. In het linkerdeelvenster onder **Threat Protection** Selecteer **Security waarschuwingen kaart**. De kaart wordt geopend.
+2. Klik in de rechterbovenhoek, **gaat u naar beveiliging gebeurtenissen kaart**.
+3. Selecteer de werkruimte waarvan u wilt om het dashboard weer te geven.
+4. Selecteer aan de bovenkant van de kaart **klassieke bedreigingsinformatie weer**. De **Bedreigingsinformatie** dashboard wordt geopend.
 
-    ![Bedreigingsinformatiekaart](./media/security-center-threat-intel/security-center-threat-intel.png)
-
-1. Selecteer aan de bovenkant van de kaart **klassieke bedreigingsinformatie weer**. De **Bedreigingsinformatie** dashboard wordt geopend.
-
-    ![Het dashboard Bedreigingsinformatie](./media/security-center-threat-intel/security-center-threat-intel-fig1.png)
-
-    > [!NOTE]
-    > Als in de meest rechtse kolom de tekst **UPGRADE ABONNEMENT** staat, is deze werkruimte gekoppeld aan het gratis abonnement. Voer een upgrade naar de Standard-versie uit om deze functie te gebruiken. Als in de meest rechtse kolom **VEREIST UPDATE** staat, moet u [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bijwerken om deze functie te gebruiken. Lees Prijzen van Azure Security Center voor meer informatie over de prijzen.
-    >
-1. Als er meer dan één werkruimte is om te onderzoeken, bepaalt u de prioriteit van het onderzoek via de kolom **Schadelijk IP**. Hier ziet u het huidige aantal schadelijke IP-adressen in deze werkruimte. Selecteer de werkruimte die u wilt gebruiken. Het dashboard **Bedreigingsinformatie** wordt nu weergegeven.
+   > [!NOTE]
+   > Als in de meest rechtse kolom de tekst **UPGRADE ABONNEMENT** staat, is deze werkruimte gekoppeld aan het gratis abonnement. Voer een upgrade naar de Standard-versie uit om deze functie te gebruiken. Als in de meest rechtse kolom **VEREIST UPDATE** staat, moet u [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) bijwerken om deze functie te gebruiken. Lees Prijzen van Azure Security Center voor meer informatie over de prijzen.
+   >
+5. Als er meer dan één werkruimte is om te onderzoeken, bepaalt u de prioriteit van het onderzoek via de kolom **Schadelijk IP**. Hier ziet u het huidige aantal schadelijke IP-adressen in deze werkruimte. Selecteer de werkruimte die u wilt gebruiken. Het dashboard **Bedreigingsinformatie** wordt nu weergegeven.
 
     ![Bedreigingsinformatie](./media/security-center-threat-intel/security-center-threat-intel-fig5.png)
 
-1. Het dashboard is onderverdeeld in vier tegels:
+6. Het dashboard is onderverdeeld in vier tegels:
 
     a.  **Bedreigingstypen**. Hier ziet u een overzicht van het type bedreigingen dat in de geselecteerde werkruimte is gedetecteerd.
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/01/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: hectorl
-ms.openlocfilehash: 578bb864f56b788db77d1201533e73d3b9616669
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: a11de2a4580515f6a358438a706e5be3f5543e28
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055463"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025307"
 ---
 # <a name="back-up-azure-stack"></a>Back-up van Azure Stack
 
@@ -81,7 +81,7 @@ Het resultaat ziet er als de volgende uitvoer:
 Gebruik de Azure Stack-beheerportal om te controleren of dat deze back-up is voltooid door de volgende stappen:
 
 1. Open de [Azure Stack-beheerportal](azure-stack-manage-portals.md).
-2. Selecteer **meer services** > **infrastructuur back-up**. Kies **configuratie** in de **infrastructuur back-up** blade.
+2. Selecteer **alle services**, en klik vervolgens onder de **beheer** categorie selecteren > **infrastructuur back-up**. Kies **configuratie** in de **infrastructuur back-up** blade.
 3. Zoek de **naam** en **datum voltooid** van de back-up in **beschikbare back-ups** lijst.
 4. Controleer of de **status** is **geslaagd**.
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/23/2017
 ms.author: muralikk
 ms.component: common
-ms.openlocfilehash: e87b791dda03521def32ca7473336d7d37644773
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: c1effeba7e4b0750d5af3a5a82b755704379af68
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666016"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021843"
 ---
 # <a name="creating-an-import-job-for-the-azure-importexport-service"></a>Een importtaak voor de Azure Import/Export-service maken
 
@@ -97,7 +97,7 @@ U moet verzend uw schijven naar het adres dat u in de vorige stap hebt verkregen
 >  U moet uw stations via een ondersteunde Provider-service, die het pakket van een volgnummer voorzien verzenden.
 
 ## <a name="updating-the-import-job-with-your-shipping-information"></a>De import-taak bijwerken met uw verzendgegevens
-Nadat u uw traceringsnummer hebt, roept u de [taakeigenschappen bijwerken](/api/storageimportexport/jobs#Jobs_Update) bewerking voor het bijwerken van de naam van de vervoerder, het aantal voor de taak en de accountnummer van vervoerder voor retourneren verzending. U kunt het aantal stations en de datum van verzending ook optioneel opgeven.
+Nadat u uw traceringsnummer hebt, roept u de [taakeigenschappen bijwerken](https://docs.microsoft.com/rest/api/storageimportexport/Jobs/Update) bewerking voor het bijwerken van de naam van de vervoerder, het aantal voor de taak en de accountnummer van vervoerder voor retourneren verzending. U kunt het aantal stations en de datum van verzending ook optioneel opgeven.
 
 [!INCLUDE [storage-import-export-delete-personal-info.md](../../../includes/storage-import-export-delete-personal-info.md)]
 

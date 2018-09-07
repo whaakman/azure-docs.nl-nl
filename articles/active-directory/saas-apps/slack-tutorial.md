@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: 8f79926d0d4729c6ad939bc604e9eb885dbe9f03
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b742f3eb9124093bcf0c3c912bbae0367cdcce56
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39421238"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053836"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Zelfstudie: Azure Active Directory-integratie met Slack
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van Slack in Azure AD, moet u Slack uit 
 
 **Als u wilt toevoegen Slack uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -114,11 +114,8 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname>.slack.com`
 
-    b. In de **id** tekstvak typt u de URL: `https://slack.com`
+    b. In de **id** tekstvak, werkt de waarde bij met de aanmelding URL. Dit is het domein van uw werkruimte. Bijvoorbeeld: `https://contoso.slack.com`
 
-    > [!NOTE] 
-    > De waarde is niet echt. U moet de waarde met de werkelijke op URL bijwerken. Neem contact op met [Slack ondersteuningsteam](https://slack.com/help/contact) om de waarde.
-     
 1. Slack-toepassing wordt verwacht dat de SAML-asserties ondertekend in een specifieke indeling. Configureer de volgende claims voor deze toepassing. U kunt de waarden van deze kenmerken vanuit beheren de "**gebruikerskenmerken**" sectie op de pagina van de toepassing-integratie. De volgende Schermafbeelding toont een voorbeeld voor deze.
     
     ![Eenmalige aanmelding configureren](./media/slack-tutorial/tutorial_slack_attribute.png)

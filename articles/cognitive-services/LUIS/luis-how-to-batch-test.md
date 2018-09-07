@@ -1,22 +1,23 @@
 ---
-title: Batch test uw LUIS-app - Azure | Microsoft Docs
-description: Met Language Understanding (LUIS) batch testen te uitingen met onjuiste intenties en entiteiten.
+title: Batch-test met 1000 voorbeeld uitingen
+titleSuffix: Azure Cognitive Services
+description: Met Language Understanding (LUIS) batch testsets te uitingen met onjuiste intenties en entiteiten.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/06/2018
 ms.author: diberry
-ms.openlocfilehash: 07c38aa5f66fc8c38392c5407449ec6911e80d47
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: e5820b7d65cb989411657670ae19ef1bdca2122d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888623"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054771"
 ---
-# <a name="batch-testing"></a>Batchgewijs testen
+# <a name="batch-testing-with-a-set-of-example-utterances"></a>Testen met een set van voorbeeld-uitingen batch
  Testen van de batch is een uitgebreide test op uw huidige, getrainde model voor het meten van de prestaties van LUIS. 
 
 <a name="batch-testing"></a>
@@ -27,8 +28,6 @@ ms.locfileid: "42888623"
     ![Batch-koppeling testen](./media/luis-how-to-batch-test/batch-testing-link.png)
 
 2. Selecteer **importeren gegevensset**. De **nieuwe gegevensset importeren** in het dialoogvenster wordt weergegeven. Selecteer **bestand kiezen** en zoekt u een JSON-bestand met de juiste [JSON-indeling](luis-concept-batch-test.md#batch-file-format) die bevat *niet meer dan 1000* uitingen om te testen.
-
-    ![Gegevensset-bestand importeren](./media/luis-how-to-batch-test/batchtest-importset.png)
 
     Fouten worden gerapporteerd in een rode meldingsbalk aan de bovenkant van de browser. Wanneer een import fouten bevat, wordt er geen gegevensset gemaakt. Zie voor meer informatie, [veelvoorkomende fouten](luis-concept-batch-test.md#common-errors-importing-a-batch).
 

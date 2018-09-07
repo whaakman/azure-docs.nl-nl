@@ -1,6 +1,6 @@
 ---
-title: Maken van uw eerste Azure op basis van actor-microservice in C# | Microsoft Docs
-description: Deze zelfstudie leert u de stappen voor het maken en implementeren van een eenvoudige actor-service met behulp van Service Fabric Reliable Actors foutopsporing.
+title: Maken van een actor-service in Azure Service Fabric | Microsoft Docs
+description: Informatie over het maken, fouten opsporen en implementeren van uw eerste service op basis van een actor in met behulp van Service Fabric Reliable Actors voor C#.
 services: service-fabric
 documentationcenter: .net
 author: vturecek
@@ -14,35 +14,35 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 03/16/2018
 ms.author: vturecek
-ms.openlocfilehash: 32d3fa09c863c47753267e97e7c4730dff869887
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 4ff896902c1a92c244c3bcd147c3daeeb9e49c77
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34211402"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054746"
 ---
 # <a name="getting-started-with-reliable-actors"></a>Aan de slag met Reliable Actors
 > [!div class="op_single_selector"]
 > * [C# op Windows](service-fabric-reliable-actors-get-started.md)
 > * [Java op Linux](service-fabric-reliable-actors-get-started-java.md)
 
-Dit artikel begeleidt bij het maken en een eenvoudige betrouwbare Actor-toepassing in Visual Studio-foutopsporing. Zie voor meer informatie over Reliable Actors [Inleiding tot Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
+Dit artikel helpt bij het maken van en opsporen van fouten in een eenvoudige Reliable actors-toepassing in Visual Studio. Zie voor meer informatie over Reliable Actors [Inleiding tot Service Fabric Reliable Actors](service-fabric-reliable-actors-introduction.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voordat u begint, zorg ervoor dat u de Service Fabric-ontwikkelomgeving, met inbegrip van Visual Studio op uw computer instellen. Zie voor meer informatie [het instellen van de ontwikkelomgeving](service-fabric-get-started.md).
+Voordat u begint, controleert u of de Service Fabric-ontwikkelomgeving, met inbegrip van Visual Studio, instellen op uw computer. Zie voor meer informatie, [over het instellen van de ontwikkelomgeving](service-fabric-get-started.md).
 
 ## <a name="create-a-new-project-in-visual-studio"></a>Maak een nieuw project in Visual Studio
 
 Start Visual Studio 2015 of hoger als beheerder en maak vervolgens een nieuwe **Service Fabric-toepassing** project:
 
-![Service Fabric-tools voor Visual Studio - nieuw project][1]
+![Service Fabric tools voor Visual Studio - nieuw project][1]
 
-Kies in het volgende dialoogvenster **Actor Service** onder **.Net Core 2.0** en voer een naam voor de service.
+Kies in het volgende dialoogvenster **Actorservice** onder **.Net Core 2.0** en voer een naam voor de service.
 
 ![Service Fabric-projectsjablonen][5]
 
-Het gemaakte project ziet u de volgende structuur:
+Het project bevat de volgende structuur:
 
 ![De structuur van de service Fabric-project][2]
 
@@ -50,19 +50,19 @@ Het gemaakte project ziet u de volgende structuur:
 
 De oplossing bevat drie projecten:
 
-* **Het toepassingsproject (Mijntoepassing)**. Dit project pakketten alle services samen voor implementatie. Bevat de *ApplicationManifest.xml* en PowerShell-scripts voor het beheren van de toepassing.
+* **Het toepassingsproject (MyApplication)**. Dit project pakketten alle services samen voor implementatie. Deze bevat de *ApplicationManifest.xml* en PowerShell-scripts voor het beheren van de toepassing.
 
-* **De interface-project (HelloWorld.Interfaces)**. Dit project bevat de interfacedefinitie voor de actor. Actor-interfaces kunnen worden gedefinieerd in een project met een willekeurige naam.  De interface definieert het contract actor die wordt gedeeld door de actor-implementatie en de clients de actor aanroepen.  Omdat klantprojecten mogelijk afhankelijk, zinvol het doorgaans om te definiëren in een assembly die is gescheiden van de actor-implementatie.
+* **De interfaceproject (HelloWorld.Interfaces)**. Dit project bevat de interfacedefinitie voor de actor. Actor-interfaces kunnen worden gedefinieerd in een project met een willekeurige naam.  De interface definieert het actorcontract dat wordt gedeeld met de actorimplementatie en de clients die de actor aanroepen.  Omdat afhankelijk van het client-projecten zijn, zinvol het doorgaans om te definiëren in een assembly die is gescheiden van de actorimplementatie.
 
-* **Het serviceproject actor (HelloWorld)**. Dit project definieert de Service Fabric-service die als host voor de actor gaat. Bevat de implementatie van de actor *HellowWorld.cs*. Een actor-implementatie is een klasse die is afgeleid van het basistype `Actor` en implementeert de interfaces die zijn gedefinieerd in de *MyActor.Interfaces* project. Een actor-klasse moet ook een constructor implementeren een `ActorService` exemplaar en een `ActorId` en geeft deze door aan de base `Actor` klasse.
+* **De actor-service-project (HelloWorld)**. Dit project definieert de Service Fabric-service die u voor het hosten van de actor. Deze bevat de implementatie van de actor *HellowWorld.cs*. De actorimplementatie van een is een klasse die is afgeleid van het basistype `Actor` en implementeert de interfaces die zijn gedefinieerd in de *MyActor.Interfaces* project. Een actor-klasse moet ook implementeren om een constructor die accepteert een `ActorService` exemplaar en een `ActorId` en geeft deze door aan de base `Actor` klasse.
     
-    Dit project bevat ook *Program.cs*, die klassen actor registreert bij de Service Fabric-runtime gebruiken `ActorRuntime.RegisterActorAsync<T>()`. De `HelloWorld` klasse is al geregistreerd. De aanvullende actor implementaties die zijn toegevoegd aan het project moeten ook zijn geregistreerd in de `Main()` methode.
+    Dit project bevat ook *Program.cs*, waardoor actor klassen wordt geregistreerd met de Service Fabric-runtime via `ActorRuntime.RegisterActorAsync<T>()`. De `HelloWorld` klasse is al geregistreerd. De aanvullende actor implementaties die zijn toegevoegd aan het project moeten ook worden geregistreerd de `Main()` methode.
 
-## <a name="customize-the-helloworld-actor"></a>De HelloWorld actor aanpassen
+## <a name="customize-the-helloworld-actor"></a>De actor HelloWorld aanpassen
 
-De projectsjabloon definieert een aantal methoden in de `IHelloWorld` interface en implementeert u ze op in de `HelloWorld` actor-implementatie.  Vervang deze methoden, zodat de actor-service een eenvoudige 'Hallo wereld'-tekenreeks retourneert.
+De projectsjabloon, maken definieert sommige methoden in de `IHelloWorld` interface en implementeert u deze in de `HelloWorld` actorimplementatie.  Vervang deze methoden, zodat de actor-service een eenvoudige 'Hallo wereld'-tekenreeks retourneert.
 
-In de *HelloWorld.Interfaces* project in de *IHelloWorld.cs* bestand, vervangt de interfacedefinitie als volgt:
+In de *HelloWorld.Interfaces* project in de *IHelloWorld.cs* bestand, vervangt u de interfacedefinitie als volgt:
 
 ```csharp
 public interface IHelloWorld : IActor
@@ -71,7 +71,7 @@ public interface IHelloWorld : IActor
 }
 ```
 
-In de **HelloWorld** project in **HelloWorld.cs**, vervang de volledige klassendefinitie als volgt:
+In de **HelloWorld** project in **HelloWorld.cs**, vervangt u de definitie van de gehele klasse als volgt:
 
 ```csharp
 [StatePersistence(StatePersistence.Persisted)]
@@ -89,11 +89,11 @@ internal class HelloWorld : Actor, IHelloWorld
 }
 ```
 
-Druk op **Ctrl-Shift-B** bouw het project en zorg ervoor dat alles wordt gecompileerd.
+Druk op **Ctrl-Shift-B** aan het project te bouwen en te controleren of alles wordt gecompileerd.
 
-## <a name="add-a-client"></a>Toevoegen van een client
+## <a name="add-a-client"></a>Een client toevoegen
 
-Maak een eenvoudige consoletoepassing de actor-service aanroepen.
+Maak een eenvoudige consoletoepassing voor het aanroepen van de actor-service.
 
 1. Met de rechtermuisknop op de oplossing in Solution Explorer > **toevoegen** > **nieuw Project...** .
 
@@ -102,25 +102,25 @@ Maak een eenvoudige consoletoepassing de actor-service aanroepen.
     ![Dialoogvenster Nieuw Project toevoegen][6]    
     
     > [!NOTE]
-    > Een consoletoepassing is niet het type app die u vaak als een Service Fabric-client gebruikt, maar het voorbeeld van een handige voor foutopsporing en testen met behulp van de lokale Service Fabric-cluster maakt.
+    > Een consoletoepassing is niet het type van de app die u vaak als een client in Service Fabric gebruikt, maar het is een eenvoudig voorbeeld voor foutopsporing en testen met behulp van de lokale Service Fabric-cluster.
 
-3. De consoletoepassing moet een 64-bits toepassing voor compatibiliteit met de interface-project en andere afhankelijkheden.  Klik in Solution Explorer met de rechtermuisknop op de **ActorClient** project en klik vervolgens op **eigenschappen**.  Op de **bouwen** tabblad, stelt u **Platform doel** naar **x64**.
+3. De consoletoepassing moet een 64-bits-toepassing voor compatibiliteit met de interfaceproject en andere afhankelijkheden.  Klik in Solution Explorer met de rechtermuisknop op de **ActorClient** project en klik vervolgens op **eigenschappen**.  Op de **bouwen** tabblad **Platform doel** naar **x64**.
     
     ![Eigenschappen bouwen][8]
 
-4. Het clientproject vereist het betrouwbare actoren NuGet-pakket.  Klik op **Hulpprogramma's** > **NuGet Package Manager** > **Package Manager-console**.  Voer de volgende opdracht in de Package Manager-Console:
+4. Het clientproject vereist het NuGet-pakket voor betrouwbare actoren.  Klik op **Hulpprogramma's** > **NuGet Package Manager** > **Package Manager-console**.  Voer de volgende opdracht in de Package Manager-Console:
     
     ```powershell
     Install-Package Microsoft.ServiceFabric.Actors -IncludePrerelease -ProjectName ActorClient
     ```
 
-    Het NuGet-pakket en de afhankelijkheden ervan zijn in het project ActorClient geïnstalleerd.
+    Het NuGet-pakket en alle afhankelijkheden ervan zijn in het project ActorClient geïnstalleerd.
 
-5. Het clientproject is ook vereist een verwijzing naar het project interfaces.  Met de rechtermuisknop in het project ActorClient **afhankelijkheden** en klik vervolgens op **verwijzing toevoegen...** .  Selecteer **projecten > oplossing** (indien niet geselecteerd), en vervolgens het selectievakje in naast voor maatstreepjes **HelloWorld.Interfaces**.  Klik op **OK**.
+5. Het clientproject vereist ook een verwijzing naar het project interfaces.  Met de rechtermuisknop in het project ActorClient **afhankelijkheden** en klik vervolgens op **verwijzing toevoegen...** .  Selecteer **projecten > oplossing** (indien nog niet is ingeschakeld), en vervolgens het selectievakje in naast voor maatstreepjes **HelloWorld.Interfaces**.  Klik op **OK**.
     
-    ![Dialoogvenster verwijzing toevoegen][7]
+    ![Dialoogvenster toevoegen][7]
 
-6. Vervang de volledige inhoud van in het project ActorClient *Program.cs* met de volgende code:
+6. Vervang de volledige inhoud van in het project ActorClient *Program.cs* door de volgende code:
     
     ```csharp
     using System;
@@ -146,19 +146,19 @@ Maak een eenvoudige consoletoepassing de actor-service aanroepen.
 
 ## <a name="running-and-debugging"></a>Uitvoeren en foutopsporing
 
-Druk op **F5** wilt maken, implementeren en de toepassing lokaal uitvoeren in het cluster Service Fabric-ontwikkeling.  Tijdens de implementatie, ziet u de voortgang op het **uitvoer** venster.
+Druk op **F5** bouwen, implementeren en de toepassing lokaal uitvoeren in de ontwikkeling van Service Fabric-cluster.  Tijdens de implementatie, ziet u de voortgang in de **uitvoer** venster.
 
-![Service Fabric foutopsporing uitvoervenster][3]
+![Service Fabric het uitvoervenster van foutopsporing][3]
 
-Wanneer de uitvoer de tekst bevat, *de toepassing gereed is*, is het mogelijk voor het testen van de service met behulp van de toepassing ActorClient.  Klik in Solution Explorer met de rechtermuisknop op de **ActorClient** project en klik vervolgens op **Debug** > **nieuw exemplaar gestart**.  De uitvoer van de actor-service moet worden weergegeven in de toepassing vanaf de opdrachtregel.
+Wanneer de uitvoer de tekst bevat, *de toepassing gereed is*, is het mogelijk om de service met behulp van de toepassing ActorClient te testen.  Klik in Solution Explorer met de rechtermuisknop op de **ActorClient** project en klik vervolgens op **Debug** > **nieuwe instantie starten**.  De uitvoer van de actor-service moet worden weergegeven in de toepassing vanaf de opdrachtregel.
 
-![uitvoer van de toepassing][9]
+![Uitvoer van de toepassing][9]
 
 > [!TIP]
-> De Service Fabric actoren runtime verzendt sommige [gebeurtenissen en prestatiemeteritems met betrekking tot actor methoden](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Ze zijn nuttig zijn bij de diagnostische gegevens en prestatiebewaking.
+> De runtime Service Fabric-actoren verzendt sommige [gebeurtenissen en prestatiemeteritems die betrekking hebben op de actor methoden](service-fabric-reliable-actors-diagnostics.md#actor-method-events-and-performance-counters). Ze zijn nuttig in diagnostische gegevens en bewaking van toepassingsprestaties.
 
 ## <a name="next-steps"></a>Volgende stappen
-Meer informatie over [hoe Reliable Actors gebruiken voor het Service Fabric-platform](service-fabric-reliable-actors-platform.md).
+Meer informatie over [hoe Reliable Actors het Service Fabric-platform gebruiken](service-fabric-reliable-actors-platform.md).
 
 
 [1]: ./media/service-fabric-reliable-actors-get-started/reliable-actors-newproject.PNG

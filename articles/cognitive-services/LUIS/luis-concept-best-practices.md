@@ -1,5 +1,6 @@
 ---
-title: Inzicht in aanbevolen procedures LUIS - Azure | Microsoft Docs
+title: Aanbevolen procedures voor het bouwen van apps met LUIS - Language Understanding
+titleSuffix: Azure Cognitive Services
 description: Informatie over de aanbevolen procedures van LUIS om de beste resultaten te krijgen.
 services: cognitive-services
 author: diberry
@@ -9,14 +10,14 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 06/08/2018
 ms.author: diberry
-ms.openlocfilehash: 81a2523f37cac926d9f498953a831c2d877a7528
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 2c844aa9dbaa1b228558e9cee80565cdc95650b7
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224004"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025615"
 ---
-# <a name="best-practices"></a>Aanbevolen procedures
+# <a name="best-practices-for-building-a-language-understanding-app-with-cognitive-services"></a>Aanbevolen procedures voor het bouwen van een language understanding-app met Cognitive Services
 Gebruik Apps kunt maken om uw LUIS-app te bouwen. 
 
 * Taalmodel bouwen

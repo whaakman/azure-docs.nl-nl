@@ -8,16 +8,16 @@ ms.topic: article
 ms.date: 05/18/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 6ddae66ee6408a3cab905826cd0d7c0831607d33
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: e20e0c412206b2a35973b192ef911bb99ed7c210
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39526382"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021860"
 ---
 # <a name="authenticate-with-azure-ad-from-an-azure-managed-service-identity-preview"></a>Verifiëren met Azure AD vanuit een Azure beheerde Service-identiteit (Preview)
 
-Azure Storage biedt ondersteuning voor verificatie met Azure Active Directory (Azure AD) [beheerde Service-identiteit](../../active-directory/managed-service-identity/overview.md). Beheerde Service Identity (MSI) biedt een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt MSI gebruiken voor verificatie op Azure Storage vanuit toepassingen die worden uitgevoerd in virtuele machines van Azure, functie-apps, virtuele-machineschaalsets en anderen. Met behulp van MSI en gebruik te maken van de kracht van Azure AD-verificatie, kunt u voorkomen dat opslaan van referenties op met uw toepassingen die worden uitgevoerd in de cloud.  
+Azure Storage biedt ondersteuning voor verificatie met Azure Active Directory (Azure AD) [beheerde Service-identiteit](../../active-directory/managed-identities-azure-resources/overview.md). Beheerde Service Identity (MSI) biedt een automatisch beheerde identiteit in Azure Active Directory (Azure AD). U kunt MSI gebruiken voor verificatie op Azure Storage vanuit toepassingen die worden uitgevoerd in virtuele machines van Azure, functie-apps, virtuele-machineschaalsets en anderen. Met behulp van MSI en gebruik te maken van de kracht van Azure AD-verificatie, kunt u voorkomen dat opslaan van referenties op met uw toepassingen die worden uitgevoerd in de cloud.  
 
 Om machtigingen te verlenen aan een beheerde service-identiteit voor storage-containers of wachtrijen, kunt u een opslagmachtigingen voor het MSI-bestand dat RBAC-rol toewijzen. Zie voor meer informatie over RBAC-rollen in de opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC (Preview)](storage-auth-aad-rbac.md). 
 
@@ -33,14 +33,14 @@ In dit artikel laat zien hoe om te verifiëren met Azure Storage met MSI-bestand
 Voordat u MSI gebruiken kunt voor verificatie op Azure Storage vanuit uw virtuele machine, moet u eerst de MSI-bestand op de virtuele machine inschakelen. Zie voor informatie over het inschakelen van MSI-bestand, een van de volgende artikelen:
 
 - [Azure Portal](https://docs.microsoft.com/azure/active-directory/managed-service-identity/qs-configure-portal-windows-vm)
-- [Azure PowerShell](../../active-directory/managed-service-identity/qs-configure-powershell-windows-vm.md)
-- [Azure-CLI](../../active-directory/managed-service-identity/qs-configure-cli-windows-vm.md)
-- [Azure Resource Manager-sjabloon](../../active-directory/managed-service-identity/qs-configure-template-windows-vm.md)
-- [Azure SDK 's](../../active-directory/managed-service-identity/qs-configure-sdk-windows-vm.md)
+- [Azure PowerShell](../../active-directory/managed-identities-azure-resources/qs-configure-powershell-windows-vm.md)
+- [Azure-CLI](../../active-directory/managed-identities-azure-resources/qs-configure-cli-windows-vm.md)
+- [Azure Resource Manager-sjabloon](../../active-directory/managed-identities-azure-resources/qs-configure-template-windows-vm.md)
+- [Azure SDK 's](../../active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm.md)
 
 ## <a name="get-an-msi-access-token"></a>Een MSI toegang-token ophalen
 
-Als u wilt verifiëren met MSI-bestand, moet uw toepassing of script een MSI-toegangstoken verkrijgen. Zie voor meer informatie over hoe u een toegangstoken verkrijgen, [over het gebruik van een Azure VM Managed Service Identity (MSI) voor het ophalen van tokens](../../active-directory/managed-service-identity/how-to-use-vm-token.md).
+Als u wilt verifiëren met MSI-bestand, moet uw toepassing of script een MSI-toegangstoken verkrijgen. Zie voor meer informatie over hoe u een toegangstoken verkrijgen, [over het gebruik van een Azure VM Managed Service Identity (MSI) voor het ophalen van tokens](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md).
 
 ## <a name="net-code-example-create-a-block-blob"></a>.NET-codevoorbeeld: maken van een blok-blob
 

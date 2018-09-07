@@ -1,6 +1,6 @@
 ---
-title: Waarschuwing beheeroplossing in Azure Log Analytics | Microsoft Docs
-description: De waarschuwing beheeroplossing in Log Analytics kunt u het analyseren van alle waarschuwingen in uw omgeving.  Naast het consolideren waarschuwingen gegenereerd binnen Log Analytics, importeert deze waarschuwingen van verbonden beheergroepen van System Center Operations Manager in logboekanalyse.
+title: Waarschuwingenbeheeroplossing in Azure Log Analytics | Microsoft Docs
+description: De oplossing voor beheer van waarschuwingen in Log Analytics helpt u bij het analyseren van alle van de waarschuwingen in uw omgeving.  Naast consolideren waarschuwingen gegenereerd in Log Analytics, importeert deze waarschuwingen van verbonden beheergroepen voor System Center Operations Manager in Log Analytics.
 services: log-analytics
 documentationcenter: ''
 author: bwren
@@ -15,33 +15,33 @@ ms.workload: infrastructure-services
 ms.date: 01/19/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: eb61a48e8c479db4742d65187b202655f29b032d
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: acf9e512e188c34c0124832a6a534135790f1e2d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37131044"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049198"
 ---
-# <a name="alert-management-solution-in-azure-log-analytics"></a>Waarschuwing beheeroplossing in Azure Log Analytics
+# <a name="alert-management-solution-in-azure-log-analytics"></a>Waarschuwingenbeheeroplossing in Azure Log Analytics
 
 ![Pictogram voor het beheer van waarschuwing](media/log-analytics-solution-alert-management/icon.png)
 
-De oplossing voor beheer van waarschuwingen kunt u analyseren van alle waarschuwingen in uw opslagplaats logboekanalyse.  Deze waarschuwingen hebben afkomstig zijn uit verschillende bronnen, met inbegrip van deze bronnen [gemaakt door logboekanalyse](log-analytics-alerts.md) of [geïmporteerd uit Nagios of Zabbix](log-analytics-linux-agents.md).  De oplossing ook waarschuwingen importeert uit een [System Center Operations Manager-beheergroepen verbonden](log-analytics-om-agents.md).
+De Waarschuwingsbeheer oplossing helpt u bij het analyseren van alle van de waarschuwingen in uw Log Analytics-opslagplaats.  Deze waarschuwingen kunnen afkomstig zijn uit een groot aantal bronnen die bronnen waaronder [die zijn gemaakt door Log Analytics](log-analytics-alerts.md) of [geïmporteerd uit Nagios of Zabbix](log-analytics-linux-agents.md). De oplossing ook waarschuwingen importeert uit een [System Center Operations Manager-beheergroepen verbonden](log-analytics-om-agents.md).
 
 ## <a name="prerequisites"></a>Vereisten
-De oplossing werkt met alle records in de opslagplaats logboekanalyse met een type **waarschuwing**, dus moet u de configuratie is vereist voor het verzamelen van deze records uitvoeren.
+De oplossing werkt met alle records in de opslagplaats van Log Analytics met een type **waarschuwing**, dus moet u de gewenste configuratie is vereist voor het verzamelen van deze records uitvoeren.
 
-- Voor logboekanalyse waarschuwingen, [waarschuwingsregels maken](log-analytics-alerts.md) waarschuwing records maken rechtstreeks in de opslagplaats.
-- Voor Nagios en Zabbix waarschuwingen, [configureren die servers](log-analytics-linux-agents.md) om waarschuwingen te verzenden met logboekanalyse.
-- Voor System Center Operations Manager-waarschuwingen [uw Operations Manager-beheergroep verbinden met uw werkruimte voor logboekanalyse](log-analytics-om-agents.md).  Alle waarschuwingen die zijn gemaakt in System Center Operations Manager worden geïmporteerd in logboekanalyse.  
+- Voor Log Analytics-waarschuwingen, [waarschuwingsregels maken](log-analytics-alerts.md) waarschuwing om records te maken in de opslagplaats.
+- Voor Nagios en Zabbix-waarschuwingen, [configureren die servers](log-analytics-linux-agents.md) om waarschuwingen te verzenden naar Log Analytics.
+- Voor System Center Operations Manager-waarschuwingen, [uw Operations Manager-beheergroep verbinden met uw Log Analytics-werkruimte](log-analytics-om-agents.md).  Alle waarschuwingen die zijn gemaakt in System Center Operations Manager worden geïmporteerd in Log Analytics.  
 
 ## <a name="configuration"></a>Configuratie
-De oplossing voor beheer van waarschuwingen toevoegen aan uw werkruimte voor logboekanalyse met behulp van de procedure beschreven in [oplossingen toevoegen](log-analytics-add-solutions.md).  Er is geen verdere configuratie nodig.
+De oplossing voor beheer van waarschuwingen toevoegen aan uw Log Analytics-werkruimte met behulp van de procedure beschreven in [oplossingen toevoegen](log-analytics-add-solutions.md). Er is geen verdere configuratie nodig.
 
 ## <a name="management-packs"></a>Management packs
-Als uw System Center Operations Manager-beheergroep met de werkruimte voor logboekanalyse is verbonden, wordt de volgende management packs geïnstalleerd in System Center Operations Manager als u deze oplossing toevoegt.  Er is geen configuratie of onderhoud van de management packs vereist.  
+Als uw System Center Operations Manager-beheergroep is verbonden met uw Log Analytics-werkruimte, klikt u vervolgens de volgende management packs geïnstalleerd in System Center Operations Manager wanneer u deze oplossing toevoegt.  Er is geen configuratie of onderhoud van de management packs vereist.
 
-* Microsoft System Center Advisor waarschuwing Management (Microsoft.IntelligencePacks.AlertManagement)
+* Microsoft System Center Advisor Waarschuwingsbeheer (Microsoft.IntelligencePacks.AlertManagement)
 
 Zie [Operations Manager koppelen aan Log Analytics](log-analytics-om-agents.md) voor meer informatie over de manier waarop uw management packs voor oplossingen worden bijgewerkt.
 
@@ -51,74 +51,74 @@ De volgende tabel beschrijft de verbonden bronnen die worden ondersteund door de
 
 | Verbonden bron | Ondersteuning | Beschrijving |
 |:--- |:--- |:--- |
-| [Windows-agents](log-analytics-windows-agent.md) | Nee |Directe Windows-agents genereren geen waarschuwingen.  Log Analytics waarschuwingen kunnen worden gemaakt van gebeurtenissen en prestatiegegevens verzameld via Windows-agents. |
-| [Linux-agents](log-analytics-linux-agents.md) | Nee |Directe Linux-agents genereren geen waarschuwingen.  Log Analytics waarschuwingen kunnen worden gemaakt van gebeurtenissen en prestatiegegevens verzameld van Linux-agents.  Nagios en Zabbix waarschuwingen worden verzameld van deze servers waarvoor de Linux-agent. |
-| [System Center Operations Manager-beheergroep](log-analytics-om-agents.md) |Ja |Waarschuwingen die worden gegenereerd op de Operations Manager-agents zijn geleverd aan de beheergroep en vervolgens doorgestuurd naar logboekanalyse.<br><br>Een directe verbinding van Operations Manager-agents met logboekanalyse is niet vereist. Waarschuwingsgegevens wordt uit de beheergroep doorgestuurd naar de opslagplaats logboekanalyse. |
+| [Windows-agents](log-analytics-windows-agent.md) | Nee |Direct Windows-agents geen waarschuwingen worden gegenereerd.  Log Analytics-waarschuwingen kunnen worden gemaakt op basis van gebeurtenissen en prestatiegegevens verzameld van Windows-agents. |
+| [Linux-agents](log-analytics-linux-agents.md) | Nee |Directe Linux-agents geen waarschuwingen worden gegenereerd.  Log Analytics-waarschuwingen kunnen worden gemaakt van gebeurtenissen en prestatiegegevens verzameld van Linux-agents.  Nagios en Zabbix-waarschuwingen worden verzameld van deze servers waarvoor de Linux-agent. |
+| [System Center Operations Manager-beheergroep](log-analytics-om-agents.md) |Ja |Waarschuwingen die worden gegenereerd in Operations Manager-agents zijn die worden geleverd aan de beheergroep en vervolgens doorgestuurd naar Log Analytics.<br><br>Een directe verbinding van Operations Manager-agents naar Log Analytics is niet vereist. Waarschuwingsgegevens wordt uit de beheergroep doorgestuurd naar de opslagplaats van Log Analytics. |
 
 
 ### <a name="collection-frequency"></a>Verzamelingsfrequentie
-- Waarschuwing records zijn beschikbaar voor de oplossing zodra ze worden opgeslagen in de opslagplaats.
-- Waarschuwing gegevens worden verzonden vanuit de Operations Manager-beheergroep met logboekanalyse elke drie minuten.  
+- Waarschuwing records zijn beschikbaar voor de oplossing zodra ze zijn opgeslagen in de opslagplaats.
+- Waarschuwingsgegevens wordt verzonden vanaf de Operations Manager-beheergroep naar Log Analytics om de drie minuten.  
 
 ## <a name="using-the-solution"></a>De oplossing gebruiken
-Wanneer u het beheersysteem voor waarschuwing aan uw werkruimte voor logboekanalyse toevoegt de **waarschuwingenbeheer** tegel is toegevoegd aan uw dashboard.  Deze tegel wordt weergegeven voor een aantal en de grafische weergave van het aantal actieve waarschuwingen die zijn gegenereerd binnen de afgelopen 24 uur.  U kunt dit tijdsbereik niet wijzigen.
+Wanneer u de waarschuwing beheeroplossing aan uw Log Analytics-werkruimte toevoegt, de **Waarschuwingsbeheer** tegel aan uw dashboard is toegevoegd.  Deze tegel toont een telling en grafische weergave van het aantal actieve waarschuwingen die zijn gegenereerd in de afgelopen 24 uur.  U kunt dit tijdsbereik niet wijzigen.
 
-![Waarschuwing Management tegel](media/log-analytics-solution-alert-management/tile.png)
+![Waarschuwing tegel-beheer](media/log-analytics-solution-alert-management/tile.png)
 
-Klik op de **waarschuwingenbeheer** tegel openen de **waarschuwingenbeheer** dashboard.  Het dashboard bevat de kolommen in de volgende tabel.  Elke kolom bevat de bovenste 10 waarschuwingen op het aantal die overeenkomt met de criteria die kolom voor het opgegeven bereik en tijdsbereik.  U kunt een zoekopdracht logboek waarmee de volledige lijst door te klikken op uitvoeren **alle** aan de onderkant van de kolom of door te klikken op de kolomkop.
+Klik op de **Waarschuwingsbeheer** tegel om te openen de **Waarschuwingsbeheer** dashboard.  Het dashboard bevat de kolommen in de volgende tabel.  Elke kolom bevat de bovenste 10 waarschuwingen per aantal die overeenkomen met criteria voor het opgegeven bereik en het tijdsbereik van die kolom.  U kunt een logboekzoekopdracht waarmee de volledige lijst door te klikken op uitvoeren **alle** aan de onderkant van de kolom of door op de kolomkop te klikken.
 
 | Kolom | Beschrijving |
 |:--- |:--- |
-| Kritieke waarschuwingen |Alle waarschuwingen weergegeven met een ernst kritiek gegroepeerd op de naam van waarschuwing.  Klik op de naam van een waarschuwing te retourneren van alle records voor deze waarschuwing logboek zoekopdracht uitvoert. |
-| Waarschuwingsmeldingen |Alle waarschuwingen weergegeven met een ernst van waarschuwing gegroepeerd op de naam van waarschuwing.  Klik op de naam van een waarschuwing te retourneren van alle records voor deze waarschuwing logboek zoekopdracht uitvoert. |
-| Actieve SCOM-waarschuwingen |Alle waarschuwingen die zijn verzameld uit Operations Manager met elke status anders dan *gesloten* gegroepeerd op de bron die de waarschuwing heeft gegenereerd. |
-| Alle actieve waarschuwingen |Alle waarschuwingen weergegeven met alle ernst gegroepeerd op de naam van waarschuwing. Alleen dan bevat Operations Manager-waarschuwingen met elke status *gesloten*. |
+| Kritieke waarschuwingen |Alle waarschuwingen met een ernst gegroepeerd op de naam van de waarschuwing kritiek.  Klik op de naam van een waarschuwing om uit te voeren van een logboekzoekopdracht die alle records voor deze waarschuwing. |
+| Waarschuwingsmeldingen |Alle waarschuwingen met een ernst van waarschuwing gegroepeerd op de naam van de waarschuwing.  Klik op de naam van een waarschuwing om uit te voeren van een logboekzoekopdracht die alle records voor deze waarschuwing. |
+| Actieve SCOM-waarschuwingen |Alle waarschuwingen die zijn verzameld uit Operations Manager met een staat met andere dan *gesloten* gegroepeerd op de bron die de waarschuwing heeft gegenereerd. |
+| Alle actieve waarschuwingen |Alle waarschuwingen met een gegroepeerd op de naam van waarschuwing ernst. Bevat alleen de Operations Manager-waarschuwingen met een staat met andere dan *gesloten*. |
 
-Als u naar rechts schuiven, het dashboard bevat enkele algemene query's die u op klikken kunt om uit te voeren een [logboek zoeken](log-analytics-log-searches.md) voor waarschuwingsgegevens.
+Als u naar rechts schuift, het dashboard hier worden enkele algemene query's die u klikken kunt op om uit te voeren een [zoeken in logboeken](log-analytics-log-searches.md) voor waarschuwingsgegevens.
 
-![Waarschuwing Management dashboard](media/log-analytics-solution-alert-management/dashboard.png)
+![Beheer van een waarschuwingendashboard](media/log-analytics-solution-alert-management/dashboard.png)
 
 
 ## <a name="log-analytics-records"></a>Log Analytics-records
-De waarschuwing beheeroplossing analyseert elke record met een type **waarschuwing**.  Waarschuwingen gemaakt met logboekanalyse of verzameld van Nagios of Zabbix worden niet rechtstreeks verzameld door de oplossing.
+De waarschuwing oplossing analyseert elke record van het type **waarschuwing**.  Waarschuwingen die zijn gemaakt door Log Analytics of die worden verzameld van Nagios of Zabbix worden niet rechtstreeks verzameld door de oplossing.
 
-De oplossing waarschuwingen importeren uit System Center Operations Manager en maakt u een record voor elk met een type **waarschuwing** en een SourceSystem van **OpsManager**.  Deze records hebben de eigenschappen in de volgende tabel:  
+De oplossing waarschuwingen importeren uit System Center Operations Manager en maakt u een record voor elk type **waarschuwing** en SourceSystem **OpsManager**.  Deze records hebben de eigenschappen in de volgende tabel:  
 
 | Eigenschap | Beschrijving |
 |:--- |:--- |
-| Type |*Een waarschuwing* |
+| Type |*Ontvang een waarschuwing* |
 | SourceSystem |*OpsManager* |
-| AlertContext |Details van het gegevensitem waarvoor de waarschuwing wordt gegenereerd in XML-indeling. |
+| AlertContext |De details van het gegevensitem dat de waarschuwing worden gegenereerd in XML-indeling heeft. |
 | AlertDescription |Gedetailleerde beschrijving van de waarschuwing. |
-| AlertId |GUID van de waarschuwing. |
-| AlertName |De naam van de waarschuwing. |
-| AlertPriority |Het prioriteitsniveau van de waarschuwing. |
+| AlertId |De GUID van de waarschuwing. |
+| AlertName |Naam van de waarschuwing. |
+| AlertPriority |Prioriteit van de waarschuwing. |
 | AlertSeverity |Ernst van de waarschuwing. |
-| AlertState |Meest recente toestand van de omzetting van de waarschuwing. |
+| AlertState |Meest recente oplossingsstatus van de waarschuwing. |
 | LastModifiedBy |De naam van de gebruiker die de waarschuwing het laatst is gewijzigd. |
-| ManagementGroupName |Naam van de beheergroep waar de waarschuwing is gegenereerd. |
-| RepeatCount |Aantal keren dat dezelfde waarschuwing is gegenereerd voor dezelfde bewaakt object sinds wordt omgezet. |
+| ManagementGroupName |De naam van de beheergroep waar de waarschuwing is gegenereerd. |
+| RepeatCount |Aantal keren dat de dezelfde waarschuwing is gegenereerd voor dezelfde bewaakte object sinds worden omgezet. |
 | ResolvedBy |De naam van de gebruiker die de waarschuwing is opgelost. Leeg zijn als de waarschuwing nog niet opgelost is. |
-| SourceDisplayName |Weergavenaam van het controle-object dat de waarschuwing heeft gegenereerd. |
-| SourceFullName |Volledige naam van het controle-object dat de waarschuwing heeft gegenereerd. |
-| TicketId |Ticket-ID voor de waarschuwing als de System Center Operations Manager-omgeving is geïntegreerd met een proces voor het toewijzen van tickets voor waarschuwingen.  Lege van er is geen ticket-ID is toegewezen. |
+| SourceDisplayName |Weergavenaam van de controle-object dat de waarschuwing heeft gegenereerd. |
+| SourceFullName |Volledige naam van de controle-object dat de waarschuwing heeft gegenereerd. |
+| TicketId |Ticket-ID voor de waarschuwing als de System Center Operations Manager-omgeving is geïntegreerd met een proces voor het toewijzen van tickets voor waarschuwingen.  Lege van geen ticket-ID is toegewezen. |
 | TimeGenerated |Datum en tijd waarop de waarschuwing is gemaakt. |
 | TimeLastModified |Datum en tijd waarop de waarschuwing voor het laatst is gewijzigd. |
 | TimeRaised |Datum en tijd waarop de waarschuwing is gegenereerd. |
 | TimeResolved |Datum en tijd waarop de waarschuwing is opgelost. Leeg zijn als de waarschuwing nog niet opgelost is. |
 
 ## <a name="sample-log-searches"></a>Voorbeeldzoekopdrachten in logboeken
-De volgende tabel bevat een voorbeeld-logboek zoekt waarschuwing records die door deze oplossing worden verzameld: 
+De volgende tabel bevat voorbeelden van zoekopdrachten voor waarschuwing records die zijn verzameld door deze oplossing: 
 
 | Query’s uitvoeren | Beschrijving |
 |:---|:---|
-| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en AlertSeverity == "error" en TimeRaised > ago(24h) |Kritieke waarschuwingen die in de afgelopen 24 uur zijn geactiveerd |
-| Waarschuwing &#124; waar AlertSeverity == 'waarschuwing' en TimeRaised > ago(24h) |Waarschuwingsmeldingen die in de afgelopen 24 uur zijn geactiveerd |
-| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en AlertState! = 'Gesloten' en TimeRaised > ago(24h) &#124; samenvatten Count = count() door SourceDisplayName |Bronnen met actieve waarschuwingen die in de afgelopen 24 uur zijn geactiveerd |
-| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en AlertSeverity == "error" en TimeRaised > ago(24h) en AlertState! = 'Gesloten' |Kritieke waarschuwingen die worden weergegeven gedurende de afgelopen 24 uur die nog steeds actief zijn |
-| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en TimeRaised > ago(24h) en AlertState == 'Gesloten' |Deze gebeurtenis treedt op tijdens de afgelopen 24 uur die nu zijn gesloten waarschuwingen |
-| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en TimeRaised > ago(1d) &#124; samenvatten Count = count() door AlertSeverity |Waarschuwingen die in de afgelopen dag zijn geactiveerd, gegroepeerd op de ernst van de waarschuwing |
-| Waarschuwing &#124; waar SourceSystem == 'OpsManager' en TimeRaised > ago(1d) &#124; sorteren op RepeatCount desc |Waarschuwingen die in de afgelopen dag zijn geactiveerd, gegroepeerd op de waarde voor het aantal herhalingen van de waarschuwing |
+| Waarschuwing &#124; waar SourceSystem == "OpsManager" en AlertSeverity == "error" en TimeRaised > ago(24h) |Kritieke waarschuwingen die in de afgelopen 24 uur zijn geactiveerd |
+| Waarschuwing &#124; waar AlertSeverity 'waarschuwing' en TimeRaised == > ago(24h) |Waarschuwingsmeldingen die in de afgelopen 24 uur zijn geactiveerd |
+| Waarschuwing &#124; waar SourceSystem == "OpsManager" en AlertState! = 'Gesloten' en TimeRaised > ago(24h) &#124; samenvatten Count = count() by SourceDisplayName |Bronnen met actieve waarschuwingen die in de afgelopen 24 uur zijn geactiveerd |
+| Waarschuwing &#124; waar SourceSystem == "OpsManager" en AlertSeverity == "error" en TimeRaised > ago(24h) en AlertState! = 'Gesloten' |Kritieke waarschuwingen die in de afgelopen 24 uur die nog steeds actief zijn geactiveerd |
+| Waarschuwing &#124; waar SourceSystem == "OpsManager" en TimeRaised > ago(24h) en AlertState == 'Gesloten' |Waarschuwingen die zijn geactiveerd in de afgelopen 24 uur die nu zijn gesloten |
+| Waarschuwing &#124; waar SourceSystem == "OpsManager" en TimeRaised > ago(1d) &#124; samenvatten Count = count() by AlertSeverity |Waarschuwingen die in de afgelopen dag zijn geactiveerd, gegroepeerd op de ernst van de waarschuwing |
+| Waarschuwing &#124; waar SourceSystem == "OpsManager" en TimeRaised > ago(1d) &#124; sorteren op RepeatCount desc |Waarschuwingen die in de afgelopen dag zijn geactiveerd, gegroepeerd op de waarde voor het aantal herhalingen van de waarschuwing |
 
 
 

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/02/2018
+ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: bccc2dcad8e326cd29cfe031a95a7c2d0cf5ec7f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: aacf99afef344564d028e78892091c6618c7d495
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38302309"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44026686"
 ---
 # <a name="add-hosting-servers-for-the-mysql-resource-provider"></a>Hosting-servers voor de MySQL-resourceprovider toevoegen
 
@@ -32,8 +32,8 @@ MySQL-versie 5.6, 5.7 en 8.0 kunnen worden gebruikt voor de hosting-servers. De 
 Zorg ervoor dat u hebt de referenties voor een account met systeembeheerdersbevoegdheden. Als u wilt toevoegen een hosting-server, de volgende stappen uit:
 
 1. Aanmelden bij de portal voor Azure Stack-operator als de beheerder van een service.
-2. Selecteer **meer services**.
-3. Selecteer **BEHEERDERSRESOURCES** > **MySQL-Servers die als host fungeert** > **+ toevoegen**. Hiermee opent u de **toevoegen van een MySQL-Server die als host fungeert** dialoogvenster wordt weergegeven in de volgende schermopname.
+2. Selecteer **Alle services**.
+3. Onder de **BEHEERDERSRESOURCES** categorie selecteren **MySQL-Servers die als host fungeert** > **+ toevoegen**. Hiermee opent u de **toevoegen van een MySQL-Server die als host fungeert** dialoogvenster wordt weergegeven in de volgende schermopname.
 
    ![Een host-server configureren](./media/azure-stack-mysql-rp-deploy/mysql-add-hosting-server-2.png)
 

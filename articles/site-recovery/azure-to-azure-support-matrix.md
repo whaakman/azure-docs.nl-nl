@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: sujayt
-ms.openlocfilehash: 32bdf1080aa6e7c5884747eeecad3f42c7334c3a
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: c3852f4055b5afe84aaa233c50f50732f98537a2
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444823"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44022889"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -38,8 +38,8 @@ In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen
 --- | --- | ---
 **Kluis verplaatsen tussen resourcegroepen** | Niet ondersteund<br/><br/> U kunt een Recovery services-kluis niet verplaatsen tussen resourcegroepen.
 **Compute/opslagnetwerk resources verplaatsen tussen resourcegroepen** | Wordt niet ondersteund.<br/><br/> Als u een virtuele machine of de bijbehorende onderdelen, zoals opslag/netwerk verplaatsen wanneer deze wordt gerepliceerd, moet u replicatie uitschakelen en weer inschakelen replicatie voor de virtuele machine.
-**Virtuele Azure-machines repliceren van één abonnement naar een andere voor herstel na noodgevallen** | Ondersteund binnen dezelfde Azure Active Directory-tenant.
-**Virtuele machines migreren tussen abonnementen** | Wordt niet ondersteund.
+**Virtuele Azure-machines repliceren van één abonnement naar een andere voor herstel na noodgevallen** | Binnen dezelfde Azure Active Directory-tenant voor 'Resource manager-implementatiemodel' virtuele machines wordt ondersteund. Wordt niet ondersteund voor 'Klassieke implementatiemodel' virtuele machines.
+**Virtuele machines migreren tussen regio's binnen de ondersteunde geografische clusters (binnen en tussen abonnementen)** | Binnen dezelfde Azure Active Directory-tenant voor 'Resource manager-implementatiemodel' virtuele machines wordt ondersteund. Wordt niet ondersteund voor 'Klassieke implementatiemodel' virtuele machines.
 **Migreren van VM's binnen dezelfde regio** | Wordt niet ondersteund.
 
 
@@ -147,6 +147,7 @@ Schijf toevoegen aan de gerepliceerde virtuele machine | Wordt niet ondersteund.
 --- | --- | ---
 Grootte | Elke Azure-VM-grootte met ten minste 2 CPU-kernen en 1 GB RAM-geheugen | Raadpleeg [Azure VM-grootten](../virtual-machines/windows/sizes.md)
 Beschikbaarheidssets | Ondersteund | Als u de standaardoptie tijdens de stap 'Replicatie inschakelen' in de portal gebruikt, is de beschikbaarheidsset automatisch gemaakt op basis van de configuratie van de gegevensbron regio. U kunt de doel-beschikbaarheidsset in wijzigen ' gerepliceerd item > Instellingen > berekening en netwerk > beschikbaarheidsset ' elk gewenst moment.
+Beschikbaarheidszones | Niet ondersteund | Virtuele machines die worden geïmplementeerd in beschikbaarheidszones worden momenteel niet ondersteund.
 Virtuele machines Hybrid Use Benefit (HUB) | Ondersteund | Als de bron-VM HUB license ingeschakeld heeft, de testfailover of Failover-VM gebruikt ook de HUB-licentie.
 Virtuele-machineschaalsets | Niet ondersteund |
 Azure-galerie met installatiekopieën - Microsoft gepubliceerd | Ondersteund | Ondersteund als de virtuele machine op een ondersteund besturingssysteem wordt uitgevoerd door Site Recovery

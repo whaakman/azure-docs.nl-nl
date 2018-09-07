@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: be3fd304e04a66e6564141b6a20efea88cf62553
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 75b7ecac465fa12b1e19ca409d1535d89c755801
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054865"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44021884"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Beheer van rechten voor het Azure Storage-gegevens met RBAC (Preview)
 
 Azure Active Directory (Azure AD) machtigt toegangsrechten tot beveiligde bronnen via [op rollen gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). Azure Storage definieert een aantal ingebouwde RBAC-rollen die algemene sets machtigingen die wordt gebruikt voor toegang tot containers of wachtrijen omvatten. Wanneer een RBAC-rol is toegewezen aan een Azure AD-identiteit die identiteit krijgt toegang tot deze resources, op basis van het opgegeven bereik. Toegang kan worden gericht op het niveau van het abonnement, de resourcegroep, de storage-account of een afzonderlijke container of de wachtrij. Hier kunt u toegangsrechten voor Azure Storage-resources met behulp van de Azure portal, opdrachtregelprogramma's van Azure en Azure Management-API's. 
 
-Een Azure AD-identiteit is mogelijk een gebruiker, groep of toepassing service-principal of wordt een *beheerde service-identiteit*. Een beveiligings-principal kan een gebruiker, groep of service-principal van toepassing zijn. Een [beheerde service-identiteit](../../active-directory/managed-service-identity/overview.md) is automatisch beheerde identiteit gebruikt voor het verifiëren van toepassingen die worden uitgevoerd in virtuele machines van Azure, functie-apps, virtuele-machineschaalsets en anderen. Zie voor een overzicht van identiteit in Azure AD, [over Azure-identiteitsoplossingen](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+Een Azure AD-identiteit is mogelijk een gebruiker, groep of toepassing service-principal of wordt een *beheerde service-identiteit*. Een beveiligings-principal kan een gebruiker, groep of service-principal van toepassing zijn. Een [beheerde service-identiteit](../../active-directory/managed-identities-azure-resources/overview.md) is automatisch beheerde identiteit gebruikt voor het verifiëren van toepassingen die worden uitgevoerd in virtuele machines van Azure, functie-apps, virtuele-machineschaalsets en anderen. Zie voor een overzicht van identiteit in Azure AD, [over Azure-identiteitsoplossingen](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
 
 ## <a name="rbac-roles-for-azure-storage"></a>RBAC-rollen voor Azure Storage
 

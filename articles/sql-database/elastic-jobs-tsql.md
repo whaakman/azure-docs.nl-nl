@@ -8,12 +8,12 @@ ms.service: sql-database
 ms.topic: article
 ms.date: 06/14/2018
 ms.author: jaredmoo
-ms.openlocfilehash: ae5dafcebd50ecd22309a7771b0edf01a97fd7a7
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: d524f7756c8dd394d8651839a1f6426c512d6a73
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842601"
+ms.locfileid: "44023525"
 ---
 # <a name="use-transact-sql-t-sql-to-create-and-manage-elastic-database-jobs"></a>Transact-SQL (T-SQL) gebruiken om te maken en beheren van taken voor Elastic Database
 
@@ -482,7 +482,7 @@ sp_add_job moet worden uitgevoerd vanaf de taak agent database die is opgegeven 
 Nadat sp_add_job als u wilt toevoegen van een taak is uitgevoerd, kan het toevoegen van stappen die de activiteiten voor de taak uitvoeren sp_add_jobstep worden gebruikt. De eerste versienummer van de taak is 0, 1 wordt verhoogd wanneer de eerste stap is toegevoegd.
 
 #### <a name="permissions"></a>Machtigingen
-Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Het beperken van een gebruiker alleen mogelijk voor het bewaken van taken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
+Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Ze een gebruiker alleen om te kunnen bewaken van taken beperken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
 
 - jobs_reader
 
@@ -544,7 +544,7 @@ De datum op welke taak uitvoeren kunt stoppen. schedule_end_time DATETIME2, is m
 Nadat sp_add_job als u wilt toevoegen van een taak is uitgevoerd, kan het toevoegen van stappen die de activiteiten voor de taak uitvoeren sp_add_jobstep worden gebruikt. De eerste versienummer van de taak is 0, 1 wordt verhoogd wanneer de eerste stap is toegevoegd.
 
 #### <a name="permissions"></a>Machtigingen
-Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Het beperken van een gebruiker alleen mogelijk voor het bewaken van taken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
+Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Ze een gebruiker alleen om te kunnen bewaken van taken beperken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
 - jobs_reader
 
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
@@ -576,7 +576,7 @@ Geeft aan of verwijderen als de taak uitvoeringen wordt uitgevoerd heeft en alle
 Taakgeschiedenis wordt automatisch verwijderd wanneer een taak wordt verwijderd.
 
 #### <a name="permissions"></a>Machtigingen
-Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Het beperken van een gebruiker alleen mogelijk voor het bewaken van taken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
+Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Ze een gebruiker alleen om te kunnen bewaken van taken beperken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
 - jobs_reader
 
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
@@ -701,7 +701,7 @@ Het maximumniveau van parallelle uitvoering per elastische pool. Indien ingestel
 Als sp_add_jobstep is geslaagd, wordt het huidige versienummer van de taak wordt verhoogd. De volgende keer dat de taak wordt uitgevoerd, wordt de nieuwe versie gebruikt. Als de taak wordt momenteel uitgevoerd, bevat die tot uitvoering van de nieuwe stap niet.
 
 #### <a name="permissions"></a>Machtigingen
-Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Het beperken van een gebruiker alleen mogelijk voor het bewaken van taken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:  
+Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Ze een gebruiker alleen om te kunnen bewaken van taken beperken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:  
 
 - jobs_reader
 
@@ -825,7 +825,7 @@ Het maximumniveau van parallelle uitvoering per elastische pool. Indien ingestel
 Alle uitvoeringen in uitvoering van de taak wordt niet beïnvloed. Als sp_update_jobstep is geslaagd, wordt het versienummer van de taak wordt verhoogd. De volgende keer dat de taak wordt uitgevoerd, wordt de nieuwe versie gebruikt.
 
 #### <a name="permissions"></a>Machtigingen
-Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Het beperken van een gebruiker alleen mogelijk voor het bewaken van taken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
+Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Ze een gebruiker alleen om te kunnen bewaken van taken beperken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
 
 - jobs_reader
 
@@ -870,7 +870,7 @@ Alle uitvoeringen in uitvoering van de taak wordt niet beïnvloed. Als sp_update
 De overige taakstappen wordt automatisch opnieuw genummerd om op te vullen van de tussenruimte door de verwijderde taakstap.
  
 #### <a name="permissions"></a>Machtigingen
-Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Het beperken van een gebruiker alleen mogelijk voor het bewaken van taken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
+Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Ze een gebruiker alleen om te kunnen bewaken van taken beperken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
 - jobs_reader
 
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
@@ -906,7 +906,7 @@ Output-parameter die de taakuitvoering van de-id worden toegewezen. job_version 
 Geen.
  
 #### <a name="permissions"></a>Machtigingen
-Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Het beperken van een gebruiker alleen mogelijk voor het bewaken van taken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
+Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Ze een gebruiker alleen om te kunnen bewaken van taken beperken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
 - jobs_reader
 
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
@@ -934,7 +934,7 @@ De id-nummer van de taakuitvoering te stoppen. job_execution_id is uniqueidentif
 Geen.
  
 #### <a name="permissions"></a>Machtigingen
-Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Het beperken van een gebruiker alleen mogelijk voor het bewaken van taken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
+Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Ze een gebruiker alleen om te kunnen bewaken van taken beperken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
 - jobs_reader
 
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
@@ -966,7 +966,7 @@ De naam van de doelgroep te maken. target_group_name is nvarchar(128) met geen s
 Doelgroepen bieden een eenvoudige manier om een taak op een verzameling van databases.
 
 #### <a name="permissions"></a>Machtigingen
-Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Het beperken van een gebruiker alleen mogelijk voor het bewaken van taken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
+Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Ze een gebruiker alleen om te kunnen bewaken van taken beperken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
 - jobs_reader
 
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
@@ -994,7 +994,7 @@ De naam van de doelgroep te verwijderen. target_group_name is nvarchar(128) met 
 Geen.
 
 #### <a name="permissions"></a>Machtigingen
-Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Het beperken van een gebruiker alleen mogelijk voor het bewaken van taken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
+Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Ze een gebruiker alleen om te kunnen bewaken van taken beperken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
 - jobs_reader
 
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
@@ -1050,7 +1050,7 @@ Geretourneerde waarden (geslaagd) 0 of 1 (fout)
 Een taak wordt uitgevoerd op alle databases binnen een server of elastische pool op het moment van uitvoering, wanneer een logische server of een elastische pool is opgenomen in de doelgroep.
 
 #### <a name="permissions"></a>Machtigingen
-Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Het beperken van een gebruiker alleen mogelijk voor het bewaken van taken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
+Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Ze een gebruiker alleen om te kunnen bewaken van taken beperken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
 - jobs_reader
 
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
@@ -1115,7 +1115,7 @@ De naam van de doelgroep van waaruit het lid van de groep doel te verwijderen. t
 Doelgroepen bieden een eenvoudige manier om een taak op een verzameling van databases.
 
 #### <a name="permissions"></a>Machtigingen
-Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Het beperken van een gebruiker alleen mogelijk voor het bewaken van taken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
+Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Ze een gebruiker alleen om te kunnen bewaken van taken beperken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
 - jobs_reader
 
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
@@ -1166,7 +1166,7 @@ De naam van de taak waarvoor u de geschiedenisrecords te verwijderen. job_name i
 0 (geslaagd) of 1 (fout) opmerkingen doelgroepen bieden een eenvoudige manier om een taak op een verzameling van databases.
 
 #### <a name="permissions"></a>Machtigingen
-Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Het beperken van een gebruiker alleen mogelijk voor het bewaken van taken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
+Leden van de vaste serverrol sysadmin kunnen deze opgeslagen procedure uitvoeren standaard. Ze een gebruiker alleen om te kunnen bewaken van taken beperken, kunt u de gebruiker als onderdeel van de volgende databaserol in de taak agent database die is opgegeven bij het maken van de taakagent verlenen:
 - jobs_reader
 
 Zie de sectie machtiging in dit document voor meer informatie over de machtigingen van deze rollen. Alleen leden van sysadmin kunnen deze opgeslagen procedure gebruiken om te bewerken van de kenmerken van de taken die eigendom zijn van andere gebruikers.
@@ -1336,7 +1336,7 @@ Ziet u alle leden van alle doelgroepen.
 
 ## <a name="resources"></a>Resources
 
- - ![Onderwerp koppelingspictogram](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "onderwerp koppelingspictogram") [conventies voor Transact-SQL-syntaxis](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql.md)  
+ - ![Onderwerp koppelingspictogram](https://docs.microsoft.com/sql/database-engine/configure-windows/media/topic-link.gif "onderwerp koppelingspictogram") [conventies voor Transact-SQL-syntaxis](https://docs.microsoft.com/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)  
 
 
 ## <a name="next-steps"></a>Volgende stappen

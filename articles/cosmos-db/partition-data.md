@@ -10,20 +10,25 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: andrl
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3cc2794105eff196c3e1db02d664a89c9b37e318
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: d53106efa4e3761a497e67181546c8ec09fd880c
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286982"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055502"
 ---
 # <a name="partition-and-scale-in-azure-cosmos-db"></a>Partitioneren en schalen in Azure Cosmos DB
 
 [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/) is een wereldwijd gedistribueerde, multi-model databaseservice die is ontworpen om u te helpen u Behaal snelle en voorspelbare prestaties. Het schalen naadloos samen met uw toepassing. Dit artikel bevat een overzicht van hoe werkt voor alle gegevens partitioneren in Azure Cosmos DB-modellen. Ook wordt beschreven hoe u Azure Cosmos DB-containers om effectief schalen uw toepassingen configureert.
 
+Azure Cosmos DB ondersteunt de volgende typen containers voor alle API's:
+
+- **Vaste container**: deze containers een grafiek kunnen opslaan in grootte met een maximum van 10.000 aanvraageenheden per seconde dat is toegewezen maximaal 10 GB-database. Voor het maken van een vaste container is het niet nodig om op te geven van een belangrijke eigenschap van de partitie in de gegevens.
+
+- **Onbeperkte container**: deze containers kunnen automatisch worden geschaald voor het opslaan van een grafiek buiten de limiet van 10 GB tot en met horizontale partitionering. Elke partitie worden opgeslagen 10 GB en de gegevens zullen worden automatisch verdeeld op basis van de **opgegeven partitiesleutel**, dit is een vereiste parameter bij het gebruik van een onbeperkte container. Dit type container kan een vrijwel onbeperkt aantal gegevensgrootte opslaan en mogen maximaal 100.000 aanvraageenheden per seconde of meer [contact opnemen met ondersteuning voor](https://aka.ms/cosmosdbfeedback?subject=Cosmos%20DB%20More%20Throughput%20Request).
+
 ## <a name="partitioning-in-azure-cosmos-db"></a>Partitionering in Azure Cosmos DB
 Azure Cosmos DB biedt containers voor het opslaan van gegevens die verzamelingen (voor documenten), grafieken of tabellen genoemd. Containers zijn logische resources en een of meer fysieke partities of servers kunnen omvatten. Het aantal partities wordt bepaald door de Azure Cosmos DB op basis van de opslaggrootte en ingerichte doorvoer voor een container of een set met containers. 
-
 
 ### <a name="physical-partition"></a>Fysieke partitie
 
@@ -72,7 +77,7 @@ Als een fysieke partitie heeft de opslaglimiet bereikt en de gegevens in de part
 Een partitiesleutel kiezen zodat:
 
 * De distributie van de opslag is zelfs voor alle sleutels.  
-* De distributie van het volume van aanvragen op een bepaald moment in-time is zelfs voor alle sleutels.  
+* Kies een partitiesleutel waarmee gegevens worden gelijkmatig wordt verdeeld over meerdere partities.
 
   Er is een goed idee om te controleren hoe uw gegevens worden gedistribueerd over meerdere partities. Om te controleren of de verdeling van gegevens in de portal, gaat u naar uw Azure Cosmos DB-account en klik op **metrische gegevens** in **bewaking** sectie en klik vervolgens op **opslag** tabblad om te zien hoe uw gegevens zijn gepartitioneerd over verschillende fysieke partities.
 
@@ -80,13 +85,13 @@ Een partitiesleutel kiezen zodat:
 
   De bovenstaande afbeelding links toont het resultaat van een ongeldige partitiesleutel en de juiste bovenstaande afbeelding toont het resultaat wanneer een goede partitiesleutels is gekozen. In de afbeelding links ziet u dat de gegevens niet gelijkmatig wordt verdeeld over de partities. U moet streven naar een partitiesleutel die uw gegevens worden verdeeld, zodat deze op de juiste installatiekopie lijkt kiezen.
 
-* Query's die worden aangeroepen met hoge gelijktijdigheid kunnen door de partitiesleutel te nemen in het filterpredicaat efficiënt worden gerouteerd.  
+* Als u wilt ophalen van gegevens binnen de grenzen van een partitie indien mogelijk-query's optimaliseren. Een strategie voor het partitioneren van optimale zou worden uitgelijnd met de patronen in een query uitvoeren op. Query's die gegevens worden verkregen uit één partitie bevatten de best mogelijke prestaties. Query's die worden aangeroepen met hoge gelijktijdigheid kunnen door de partitiesleutel te nemen in het filterpredicaat efficiënt worden gerouteerd.  
+
 * Een partitiesleutel kiezen met een hogere kardinaliteit is in het algemeen aanbevolen – becaue deze doorgaans resulteert in betere distributie en schaalbaarheid. Bijvoorbeeld, kan een synthetische sleutel worden gevormd door het samenvoegen van waarden uit meerdere eigenschappen om te verhogen van de kardinaliteit van de.  
 
 Als u ervoor kiest een partitiesleutel met bovenstaande overwegingen, u geen zorgen te hoeven maken over het aantal partities of hoeveel doorvoer is toegewezen per fysieke partitie, zoals Azure Cosmos DB is geschaald van het aantal fysieke partities kunnen ook worden geschaald de afzonderlijke partities indien nodig.
 
-<a name="prerequisites"></a>
-## <a name="prerequisites-for-partitioning"></a>Vereisten voor het partitioneren van
+## <a name="prerequisites"></a>Vereisten voor het partitioneren van
 
 Azure Cosmos DB-containers kunnen worden gemaakt als vast of onbeperkt in de Azure-portal. Containers met vaste grootte hebben een maximale limiet van 10 GB en doorvoer van 10.000 RU/s. Voor het maken van een container als onbeperkte, moet u een partitiesleutel en een minimale doorvoer van 1000 RU/s. Azure Cosmos DB-containers kunnen ook worden geconfigureerd voor het delen van doorvoer tussen een set van containers, waarbij elke container nader moet een partitie sleutel en onbeperkt kan groeien. Hier volgen de vereisten om te overwegen voor het partitioneren en schalen:
 
@@ -98,16 +103,49 @@ Azure Cosmos DB-containers kunnen worden gemaakt als vast of onbeperkt in de Azu
 
 Als u hebt gemaakt een **vaste** container zonder dat er partitie sleutel of doorvoer minder dan 1000 RU/s, de container wordt niet automatisch kan worden geschaald. Als u wilt de gegevens van een vaste container migreren naar een onbeperkte container, die u wilt gebruiken de [hulpprogramma voor gegevensmigratie](import-data.md) of de [Change Feed bibliotheek](change-feed.md). 
 
-## <a name="partitioning-and-provisioned-throughput"></a>Partitionering en ingerichte doorvoer
-Azure Cosmos DB is ontworpen voor voorspelbare prestaties. Wanneer u een container of een set van containers maakt, u de doorvoer in termen van reserveren  *[Aanvraageenheden](request-units.md) (RU) per seconde*. Elke aanvraag maakt een RU kosten in rekening gebracht die is evenredig aan de hoeveelheid systeembronnen, zoals CPU, geheugen en i/o-gebruikt door de bewerking. Lezen van een document van 1 KB met sessieconsistentie verbruikt 1 RU. Een leesbewerking is 1 RU, ongeacht het aantal items die zijn opgeslagen of het aantal gelijktijdige aanvragen die actief zijn op hetzelfde moment. Grotere items moet hoger ru's, afhankelijk van de grootte. Als u de grootte van uw entiteiten en het aantal leesbewerkingen die u wilt ondersteunen voor uw toepassing weet, kunt u de exacte hoeveelheid doorvoer die is vereist voor de behoeften van uw toepassing kunt inrichten. 
+## <a name="PartitionedGraph"></a>Vereisten voor gepartitioneerde graph
 
-> [!NOTE]
-> Volledig gebruik van ingerichte doorvoer voor een container of een set van containers, moet u een partitiesleutel waarmee u aanvragen gelijkmatig wordt verdeeld over alle afzonderlijke partitie-sleutelwaarden.
-> 
-> 
+Houd rekening met de volgende informatie op bij het maken van een gepartitioneerde grafiekcontainer:
 
-<a name="designing-for-partitioning"></a>
-## <a name="create-partition-key"></a>Partitiesleutel maken 
+- **Het instellen van het partitioneren is noodzakelijk** als de container wordt verwacht dat meer dan 10 GB groot zijn en/of als bij het toewijzen van meer dan 10.000 aanvraageenheden per seconde (RU/s) vereist is.
+
+- **Hoekpunten en randen worden opgeslagen als JSON-documenten** in de back-end van een Gremlin-API van Azure Cosmos DB.
+
+- **Hoekpunten vereisen een partitiesleutel**. Deze sleutel bepaalt welke partitie wordt gebruikt voor het opslaan van het hoekpunt en een hash-algoritme maakt gebruik van dit proces. De naam van de partitiesleutel van deze is een tekenreeks van één woord zonder spaties of speciale tekens en deze is gedefinieerd bij het maken van een nieuwe container met de volgende indeling `/partitioning-key-name`.
+
+- **Randen worden opgeslagen met hun bronhoekpunt**. Met andere woorden, voor elk hoekpunt dat definieert de partitiesleutel waar het hoekpunt en de uitgaande randen zijn opgeslagen. Dit wordt gedaan om te voorkomen dat partitieoverkoepelende query's bij het gebruik van de `out()` kardinaliteit in graph-query's.
+
+- **Graph-query's moeten een partitiesleutel opgeven**. Query's moeten partitiesleutel bevatten om te profiteren van de horizontale partitionering in Azure Cosmos DB, indien mogelijk de grafiek. Bijvoorbeeld wanneer een hoekpunt is geselecteerd. De volgende voorbeeldquery's laten zien hoe om op te nemen partitiesleutel bij het selecteren van een of meerdere hoekpunten in een gepartitioneerde grafiek:
+
+    - Selecteren en vervolgens een hoekpunt door-ID, **gebruiken de `.has()` stap om op te geven van de partitie-sleuteleigenschap**: 
+    
+        ```
+        g.V('vertex_id').has('partitionKey', 'partitionKey_value')
+        ```
+    
+    - Selecteren van een hoekpunt door **op te geven een tuple met inbegrip van de waarde voor de partitiesleutel en -ID**: 
+    
+        ```
+        g.V(['partitionKey_value', 'vertex_id'])
+        ```
+        
+    - Een hoekpunt selecteren door op te geven een **matrix met tuples die partitiesleutelwaarden die zijn en id's bevatten**:
+    
+        ```
+        g.V(['partitionKey_value0', 'verted_id0'], ['partitionKey_value1', 'vertex_id1'], ...)
+        ```
+        
+    - Selecteren van een set met hoekpunten door **op te geven een lijst met partitie-sleutelwaarden**: 
+    
+        ```
+        g.V('vertex_id0', 'vertex_id1', 'vertex_id2', …).has('partitionKey', within('partitionKey_value0', 'partitionKey_value01', 'partitionKey_value02', …)
+        ```
+
+* **Altijd de waarde voor de partitiesleutel opgeven bij het opvragen van een hoekpunt**. Het verkrijgen van een hoekpunt van een bekende partitie is de meest efficiënte manier wat betreft prestaties.
+
+* **De uitgaande richting gebruiken bij het opvragen van randen** wanneer het is mogelijk. Randen worden opgeslagen met hun bron hoekpunten in de uitgaande richting. Dit betekent dat de kans op sorteren op query's over meerdere partities wanneer de gegevens en query's zijn ontworpen met dit patroon waarmee u rekening moet worden beperkt.
+
+## <a name="designing-for-partitioning"></a> Partitiesleutel maken 
 U kunt de Azure portal of Azure CLI containers te maken en ze op elk gewenst moment te schalen. Deze sectie wordt beschreven hoe u containers maken en de ingerichte doorvoer en partitie sleutel met behulp van elke API opgeven.
 
 
@@ -225,8 +263,7 @@ Een optie is om in te stellen partitionKey op/DeviceID of /date. Als wilt vormen
 
 U kunt in realtime scenario's duizenden documenten hebben zodat u logica op de client voor het samenvoegen van waarden in een synthetische sleutel, de synthetische sleutel invoegen in de documenten en vervolgens worden gebruikt om op te geven van de partitiesleutel te definiëren.
 
-<a name="designing-for-scale"></a>
-## <a name="design-for-scale"></a>Ontwerpen voor schalen
+## <a name="designing-for-scale"></a> Ontwerpen voor schalen
 Als u wilt effectief schalen met Azure Cosmos DB, moet u een goede partitiesleutel kiezen bij het maken van de container. Er zijn twee belangrijke overwegingen voor het kiezen van een goede partitiesleutels:
 
 * **Query uitvoeren op grens en transacties**. Uw keuze van de partitiesleutel moet de noodzaak om transacties te gebruiken op basis van de behoefte aan uw entiteiten verdelen over meerdere partitiesleutels om te controleren of een schaalbare oplossing in balans brengen. U kunt dezelfde partitiesleutel instellen voor alle items op een extreme, maar deze optie kan de schaalbaarheid van uw oplossing beperken. Op de andere extreme, kunt u een unieke partitiesleutel voor elk item toewijzen. Deze keuze is zeer schaalbaar, maar voorkomt dat u met behulp van de transacties tussen meerder documenten via opgeslagen procedures en triggers. Een ideale partitiesleutel kunt u efficiënt query's en heeft voldoende kardinaliteit om te controleren of dat uw oplossing is schaalbaar. 

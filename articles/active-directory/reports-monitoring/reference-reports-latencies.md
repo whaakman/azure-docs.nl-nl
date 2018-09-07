@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 12/15/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f0de2f8700bef83b5a8a9303e90c97aab29722a3
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 66e974e80fa6f5e002b1f54584ea48e22a7b13ce
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42060764"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053184"
 ---
 # <a name="azure-active-directory-reporting-latencies"></a>Azure Active Directory reporting latenties
 
@@ -39,7 +39,7 @@ Er zijn twee gebieden van het melden van activiteit:
 
 De volgende tabel bevat de latentie-informatie voor activiteitenrapporten.
 
-| Rapport | Latentie (P95) |Latentie (P99)|
+| Rapport | Latentie (95%) |Latentie (99%)|
 | :-- | --- | --- | 
 | Controlelogboeken | 2 minuten  | 5 minuten  |
 | Aanmeldingen | 2 minuten  | 5 minuten |

@@ -9,16 +9,16 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/18/2018
 ms.author: sajagtap
-ms.openlocfilehash: fe321d08a44e7f843228668908c8b2c4ff3a3c32
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 808ee3637d67ff4874c5d4837d5c53cbe7b18680
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "41988615"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024587"
 ---
 # <a name="create-video-reviews-using-net"></a>Maak video beoordelingen met behulp van .NET
 
-Dit artikel bevat informatie en voorbeelden van code om u te helpen snel aan de slag met de Content Moderator-SDK met C# voor:
+In dit artikel vindt u informatie en voorbeelden van code om u te helpen snel aan de slag met de [Content Moderator-SDK met C#](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) aan:
 
 - Maken van een video bekijken voor menselijke moderators
 - Frames toevoegen aan een beoordeling
@@ -32,11 +32,22 @@ In dit artikel wordt ervan uitgegaan dat u hebt [onder toezicht van de video (Zi
 
 In dit artikel wordt ook van uitgegaan dat u al bekend met Visual Studio en C# bent.
 
-### <a name="sign-up-for-content-moderator-services"></a>Aanmelden voor Content Moderator-services
+## <a name="sign-up-for-content-moderator"></a>Aanmelden voor Content Moderator
 
 Voordat u de Content Moderator-services via de REST-API of de SDK gebruiken kunt, moet u de abonnementssleutel van een.
+Raadpleeg de [snelstartgids](quick-start.md) voor meer informatie over hoe u de sleutel kunt verkrijgen.
 
-In het Dashboard met Content Moderator, vindt u uw abonnementssleutel in **instellingen** > **referenties** > **API**  >  **Proefversie Ocp-Apim-Subscription-Key**. Zie voor meer informatie, [overzicht](overview.md).
+## <a name="sign-up-for-a-review-tool-account-if-not-completed-in-the-previous-step"></a>Zich registreren voor een hulpprogramma voor beoordeling account als niet in de vorige stap is voltooid
+
+Als u uw Content Moderator vanuit de Azure-portal ook hebt [zich registreren voor de beoordeling hulpprogramma account](https://contentmoderator.cognitive.microsoft.com/) en maken van een beoordelingsteam. U moet het team-Id en het beoordelingsprogramma de API controleren als u wilt een taak starten en de evaluaties weergeven in het controlehulpprogramma aan te roepen.
+
+## <a name="ensure-your-api-key-can-call-the-review-api-for-review-creation"></a>Zorg ervoor dat uw API-sleutel de beoordeling-API kunt aanroepen voor het maken van de beoordeling
+
+Na het voltooien van de vorige stappen, zou u uiteindelijk met twee Content Moderator-sleutels als u vanuit de Azure-portal gestart. 
+
+Als u van plan bent de Azure-opgegeven API-sleutel in de SDK-voorbeeld gebruiken, volgt u de stappen in de [met behulp van Azure-sleutel met de API controleren](review-tool-user-guide/credentials.md#use-the-azure-account-with-the-review-tool-and-review-api) sectie waarmee uw toepassing in de beoordeling-API aanroepen en beoordelingen te maken.
+
+Als u de gratis proefversie sleutel gegenereerd door het beoordelingsprogramma, uw beoordeling hulpprogramma-account al op de hoogte van de sleutel en daarom geen extra stappen zijn vereist.
 
 ### <a name="prepare-your-video-and-the-video-frames-for-review"></a>Uw video en de videoframes voorbereiden voor controle
 
@@ -536,8 +547,8 @@ Ten slotte ziet u de video controle in uw Content Moderator hulpprogramma accoun
 
 ## <a name="next-steps"></a>Volgende stappen
 
+Krijgen de [Content Moderator .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.ContentModerator/) en de [Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET.
+
 Informatie over het toevoegen [transcript toezicht](video-transcript-moderation-review-tutorial-dotnet.md) naar de video-overzicht. 
 
 Bekijk de gedetailleerde zelfstudie over het ontwikkelen van een [videotoezicht oplossing voltooien](video-transcript-moderation-review-tutorial-dotnet.md).
-
-[Downloaden van de Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET.

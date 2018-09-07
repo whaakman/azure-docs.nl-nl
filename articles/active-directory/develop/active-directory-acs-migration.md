@@ -13,20 +13,19 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/14/2017
+ms.date: 09/06/2018
 ms.author: celested
-ms.reviewer: hirsin, dastrock
-ms.openlocfilehash: 41c7de3039634f262efedc1bb3de1b39dda4593a
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.reviewer: jlu, annaba, hirsin
+ms.openlocfilehash: 3120bf36c32a8be42f325ef584bfc8a2c5cd04df
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698057"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055291"
 ---
 # <a name="migrate-from-the-azure-access-control-service"></a>Migreren vanuit de Azure Access Control-service
 
-Access Control van Azure, een service van Azure Active Directory (Azure AD), wordt op 7 November 2018 beëindigd. Toepassingen en services die momenteel gebruikmaken van toegangsbeheer moeten volledig zijn gemigreerd naar een ander verificatiemechanisme dan. Dit artikel beschrijft de aanbevelingen voor huidige klanten, als u van plan bent uw gebruik van Access Control afschaffen. Als u toegangsbeheer op dit moment niet gebruikt, moet u geen enkele actie ondernemen.
-
+Microsoft Azure Access Control Service (ACS), een service van Azure Active Directory (Azure AD), wordt op 7 November 2018 beëindigd. Toepassingen en services die momenteel gebruikmaken van toegangsbeheer moeten volledig zijn gemigreerd naar een ander verificatiemechanisme dan. Dit artikel beschrijft de aanbevelingen voor huidige klanten, als u van plan bent uw gebruik van Access Control afschaffen. Als u toegangsbeheer op dit moment niet gebruikt, moet u geen enkele actie ondernemen.
 
 ## <a name="overview"></a>Overzicht
 
@@ -73,7 +72,6 @@ Hier is de planning voor beëindigde Access Control-onderdelen:
 - **2 april 2018**: klassieke Azure-portal is volledig buiten gebruik gesteld, wat betekent dat beheer van de Access Control-naamruimte is niet langer beschikbaar is via een URL. U kan niet op dit moment uitschakelen of inschakelen, verwijderen of het inventariseren van de Access Control-naamruimten. De Access Control-beheerportal zijn echter volledig functionele en zich op `https://\<namespace\>.accesscontrol.windows.net`. Alle andere onderdelen van Access Control blijft normaal functioneren.
 - **7 november 2018**: alle Access Control-onderdelen, permanent worden afgesloten. Dit omvat de Access Control-beheerportal, de management-service, STS en het token transformatie regels-engine. Op dit moment aanvragen die worden verzonden naar de Access Control (dat zich bevindt in \<naamruimte\>. accesscontrol.windows.net) mislukken. U moet hebt gemigreerd alle bestaande apps en services met andere technologieën en eerder.
 
-
 ## <a name="migration-strategies"></a>Migratiestrategieën
 
 De volgende secties beschrijven op hoog niveau aanbevelingen voor het migreren van toegangsbeheer voor andere Microsoft-technologieën.
@@ -98,7 +96,6 @@ Ten minste één alternatieve vorm van verificatie biedt ondersteuning voor elke
 <!-- Retail federation services are moving, customers don't need to move -->
 <!-- Azure StorSimple: TODO -->
 <!-- Azure SiteRecovery: TODO -->
-
 
 ### <a name="sharepoint-customers"></a>SharePoint-klanten
 
@@ -175,26 +172,14 @@ Als u WS-Federation of WIF wilt integreren met Azure AD, wordt aangeraden de ben
 - U krijgt de volledige flexibiliteit van Azure AD-token aanpassen. U kunt de claims die zijn uitgegeven door Azure AD zodat deze overeenkomen met de claims die zijn uitgegeven door Access Control aanpassen. Hierbij wordt met name de gebruikers-ID of naam id claim. Zorg ervoor dat de gebruikers-id's dat is uitgegeven door Azure AD-overeenkomst die zijn uitgegeven door toegangsbeheer om door te gaan voor het ontvangen van consistente gebruikers-id voor uw gebruikers na het wijzigen van technologieën.
 - U kunt een certificaat voor token-ondertekening die specifiek is voor uw toepassing, en met een levensduur die u beheert configureren.
 
-<!--
-
-Possible nameIdentifiers from Access Control (via AAD or AD FS):
-- AD FS - Whatever AD FS is configured to send (email, UPN, employeeID, what have you)
-- Default from AAD using App Registrations, or Custom Apps before ClaimsIssuance policy: subject/persistent ID
-- Default from AAD using Custom apps nowadays: UPN
-- Kusto can't tell us distribution, it's redacted
-
--->
-
 > [!NOTE]
 > Deze aanpak is een Azure AD Premium-licentie vereist. Als u een Access Control-klant bent en u een premium-licentie nodig voor het instellen van eenmalige aanmelding voor een toepassing, contact met ons opnemen. We zult graag bieden ontwikkelaars licenties te gebruiken.
 
 Een alternatieve methode is om te volgen [dit codevoorbeeld](https://github.com/Azure-Samples/active-directory-dotnet-webapp-wsfederation), waardoor enigszins instructies voor het instellen van WS-Federation. Dit codevoorbeeld maakt geen gebruik WIF, maar in plaats daarvan de ASP.NET 4.5 OWIN-middleware. Echter, de instructies voor het app-registratie geldig zijn voor apps met behulp van WIF en vereisen een Azure AD Premium-licentie. 
 
-Als u deze aanpak kiest, moet u begrijpen [ondertekening van sleutelrollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Deze methode maakt gebruik van de Azure AD globaal ondertekeningssleutel voor probleem-tokens. Standaard geeft WIF ondersteuningssleutels niet automatisch vernieuwd. Wanneer Azure AD de globale ondersteuningssleutels draait, moet uw toepassing met WIF worden voorbereid om de wijzigingen te accepteren.
+Als u deze aanpak kiest, moet u begrijpen [ondertekening van sleutelrollover in Azure AD](https://docs.microsoft.com/azure/active-directory/develop/active-directory-signing-key-rollover). Deze methode maakt gebruik van de Azure AD globaal ondertekeningssleutel voor probleem-tokens. Standaard geeft WIF ondersteuningssleutels niet automatisch vernieuwd. Wanneer Azure AD de globale ondersteuningssleutels draait, moet uw toepassing met WIF worden voorbereid om de wijzigingen te accepteren. Zie voor meer informatie, [belangrijke informatie over het ondertekenen van sleutelrollover in Azure AD](https://msdn.microsoft.com/en-us/library/azure/dn641920.aspx).
 
 Als u met Azure AD via de OpenID Connect of OAuth-protocollen integreren kunt, raden wij in dat geval. We hebben uitgebreide documentatie en richtlijnen over hoe u Azure AD integreren in uw web-App die beschikbaar zijn in onze [ontwikkelaarsgids van Azure AD](https://aka.ms/aaddev).
-
-<!-- TODO: If customers ask about authZ, let's put a blurb on role claims here -->
 
 #### <a name="migrate-to-azure-active-directory-b2c"></a>Migreren naar Azure Active Directory B2C
 
@@ -237,7 +222,6 @@ Als u besluit dat Azure AD B2C de beste migratiepad voor uw toepassingen en serv
 - [Azure AD B2C aangepast beleid](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-overview-custom)
 - [Prijzen voor Azure AD B2C](https://azure.microsoft.com/pricing/details/active-directory-b2c/)
 
-
 #### <a name="migrate-to-ping-identity-or-auth0"></a>Migreren naar Ping Identity of Auth0
 
 In sommige gevallen kunt u zien dat Azure AD en Azure AD B2C zijn niet voldoende zijn voor het vervangen van Access Control in uw web-apps zonder dat belangrijke code hoeft te wijzigen. Enkele algemene voorbeelden hiervan zijn:
@@ -249,8 +233,6 @@ In sommige gevallen kunt u zien dat Azure AD en Azure AD B2C zijn niet voldoende
 - Webtoepassingen voor meerdere tenants die gebruikmaken van ACS federation op veel verschillende id-providers centraal te beheren
 
 In dergelijke gevallen is het raadzaam om te overwegen voor het migreren van uw webtoepassing met een andere cloud authentication-service. Het is raadzaam om de volgende opties verkennen. Elk van de volgende opties bieden mogelijkheden die vergelijkbaar is met toegangsbeheer:
-
-
 
 |     |     | 
 | --- | --- |

@@ -9,18 +9,18 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/19/2018
 ms.author: manayar
-ms.openlocfilehash: 3a2ad35a5382394a6886ed14dcc4f659762f2833
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 28ea6c58eed110cfb57f3feaa6b828289bd20e64
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172235"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054543"
 ---
 # <a name="use-azure-site-recovery-to-protect-active-directory-and-dns"></a>Azure Site Recovery gebruiken om te beveiligen van Active Directory en DNS
 
 Zakelijke toepassingen zoals SharePoint, Dynamics AX en SAP, is afhankelijk van Active Directory en DNS-infrastructuur te laten functioneren. Bij het instellen van herstel na noodgevallen voor toepassingen, moet u vaak herstellen Active Directory en DNS voordat u andere toepassingsonderdelen, om te controleren of de functionaliteit van de juiste toepassing kunt herstellen.
 
-U kunt [Site Recovery](site-recovery-overview.md) te maken van een herstelplan na noodgevallen voor Active Directory. Wanneer een onderbreking optreedt, kunt u een failover starten. U kunt Active Directory van en die worden uitgevoerd in een paar minuten hebben. Als u kunt Active Directory voor meerdere toepassingen hebt geïmplementeerd op de primaire site, bijvoorbeeld kunt voor SharePoint en SAP, u failover uitvoeren voor de volledige site. U kunt eerst Active Directory itenaam herstel met failover. Failover vervolgens naar de andere toepassingen, met behulp van toepassingsspecifieke herstelplannen.
+U kunt [Site Recovery](site-recovery-overview.md) te maken van een herstelplan na noodgevallen voor Active Directory. Wanneer een onderbreking optreedt, kunt u een failover starten. U kunt Active Directory van en die worden uitgevoerd in een paar minuten hebben. Als u kunt Active Directory voor meerdere toepassingen hebt geïmplementeerd op de primaire site, bijvoorbeeld kunt voor SharePoint en SAP, u failover uitvoeren voor de volledige site. U kunt eerst een failover Active Directory met behulp van Site Recovery. Failover vervolgens naar de andere toepassingen, met behulp van toepassingsspecifieke herstelplannen.
 
 In dit artikel wordt uitgelegd hoe u een oplossing voor noodherstel voor Active Directory maken. Het bevat de vereisten en instructies voor failover. U moet bekend zijn met Active Directory- en Site Recovery voordat u begint.
 

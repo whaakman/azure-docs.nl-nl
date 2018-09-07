@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 04/20/2018
 ms.author: andret
 ms.custom: aaddev
-ms.openlocfilehash: 48d03b590d718cf82d692dc177a69f6d54de43d1
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: cd6cf2e94b032408fd6c3b298294d84837e102a6
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39496319"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44024745"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>Microsoft Graph API aanroepen vanuit een Universal Windows Platform-toepassing (XAML)
 
@@ -42,7 +42,7 @@ Deze handleiding UWP met een voorbeeldtoepassing die query's van Microsoft Graph
 
 Deze handleiding maakt gebruik van de volgende NuGet-pakketten:
 
-|Tapewisselaar|Beschrijving|
+|Bibliotheek|Beschrijving|
 |---|---|
 |[Microsoft.Identity.Client](https://www.nuget.org/packages/Microsoft.Identity.Client)|Microsoft Authentication Library|
 
@@ -71,11 +71,14 @@ Deze handleiding wordt gemaakt van een toepassing die wordt weergegeven een knop
 2. Kopieer en plak de volgende opdracht in de **Package Manager Console** venster:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre
+    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
     ```
 
 > [!NOTE]
 > Met deze opdracht installeert [Microsoft Authentication Library](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet). MSAL verkrijgt, in de cache opgeslagen en wordt vernieuwd gebruikerstokens die toegang API's die zijn beveiligd door Azure Active Directory v2 tot.
+
+> [!NOTE]
+> In deze zelfstudie niet gebruikt, maar de meest recente versie van MSAL.NET, maar er wordt gewerkt aan het bijwerken.
 
 ## <a name="initialize-msal"></a>MSAL initialiseren
 Deze stap maakt u een klasse voor het afhandelen van interactie met MSAL, zoals het verwerken van tokens.
@@ -352,7 +355,7 @@ U ziet ook basisinformatie over het token dat is verkregen `AcquireTokenAsync` o
 |---------|---------|---------|
 |**Naam** |Volledige naam van gebruiker|En achternaam van eerst de gebruiker.|
 |**Gebruikersnaam** |<span>user@domain.com</span> |De gebruikersnaam waarmee de gebruiker.|
-|**Token is verlopen** |Datum en tijd |De tijd wanneer het token is verlopen. MSAL vervolg op de vervaldatum vernieuwen van het token indien nodig.|
+|**Token is verlopen** |DateTime |De tijd wanneer het token is verlopen. MSAL vervolg op de vervaldatum vernieuwen van het token indien nodig.|
 |**Toegangstoken** |Reeks |De token tekenreeks die wordt verzonden naar HTTP-aanvragen waarvoor een *autorisatie-header*.|
 
 #### <a name="see-whats-in-the-access-token-optional"></a>Ontdek wat er in het toegangstoken (optioneel)

@@ -1,6 +1,6 @@
 ---
-title: Azure Standard Load Balancer en beschikbaarheid Zones | Microsoft Docs
-description: Standaard Load Balancer en beschikbaarheid Zones
+title: Azure Standard Load Balancer en Beschikbaarheidszones | Microsoft Docs
+description: Load Balancer van het type Standard en beschikbaarheidszones
 services: load-balancer
 documentationcenter: na
 author: KumudD
@@ -14,51 +14,51 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2018
 ms.author: kumud
-ms.openlocfilehash: f5d46fda6bdb32c1a5000883c6aedb2da15e796a
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 042ab6cc0c894a720e9d9974be9debdb089fe65d
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30322791"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050252"
 ---
-# <a name="standard-load-balancer-and-availability-zones"></a>Standaard Load Balancer en beschikbaarheid Zones
+# <a name="standard-load-balancer-and-availability-zones"></a>Load Balancer van het type Standard en beschikbaarheidszones
 
-Azure Load Balancer standaard SKU ondersteunt [beschikbaarheid Zones](../availability-zones/az-overview.md) scenario's. Verschillende nieuwe concepten zijn beschikbaar met standaard Load Balancer, waarmee u kunt de beschikbaarheid in uw scenario end-to-end optimaliseren door het uitlijnen van resources met zones, evenals deze verdelen over zones.  Bekijk [beschikbaarheid Zones](../availability-zones/az-overview.md) voor hulp bij het wat beschikbaarheid Zones zijn, welke regio's wordt momenteel ondersteund beschikbaarheid Zones en andere verwante concepten en producten. Beschikbaarheid Zones in combinatie met standaard Load Balancer is een uitgebreide en flexibele functieset die veel verschillende scenario's kunt maken.  Lees dit document te begrijpen [concepten](#concepts) en fundamentele scenario [richtlijnen ontwerpen](#design).
+Biedt ondersteuning voor Azure Load Balancer standaard-SKU [Beschikbaarheidszones](../availability-zones/az-overview.md) scenario's. Verscheidene nieuwe concepten zijn beschikbaar in Standard Load Balancer, waarmee u voor een optimale beschikbaarheid in uw end-to-end-scenario door resources met zones uitlijnen en verdelen ze in zones.  Beoordeling [Beschikbaarheidszones](../availability-zones/az-overview.md) voor meer informatie over wat Beschikbaarheidszones zijn in welke regio's momenteel ondersteuning voor Beschikbaarheidszones en andere verwante concepten en producten. Beschikbaarheidszones in combinatie met de standaardversie van Load Balancer is een uitgebreide en flexibele functieset die veel verschillende scenario's kunt maken.  Raadpleeg dit document voor meer informatie over deze [concepten](#concepts) en fundamentele scenario [ontwerprichtlijnen](#design).
 
 >[!NOTE]
->Bekijk [beschikbaarheid Zones](https://aka.ms/availabilityzones) voor andere verwante onderwerpen. 
+>Beoordeling [Beschikbaarheidszones](https://aka.ms/availabilityzones) voor andere verwante onderwerpen. 
 
-## <a name="concepts"></a> Beschikbaarheid Zones concepten die worden toegepast met Load Balancer
+## <a name="concepts"></a> Beschikbaarheidszones concepten die worden toegepast op de Load Balancer
 
-Er is geen directe relatie tussen resources van de Load Balancer en werkelijke infrastructuur; maken van een Load Balancer maken geen exemplaar. Load Balancer resources zijn waarbinnen u hoe de vooraf gedefinieerde multitenant-infrastructuur voor het scenario dat u wilt maken op Azure moet programma kunt express-objecten.  Dit is van belang is in de context van beschikbaarheid Zones omdat één Load Balancer resource programmeren van infrastructuur in meerdere Zones van de beschikbaarheid bepalen kunt tijdens een zone-redundante service wordt weergegeven als één resource vanuit het oogpunt van een klant.
+Er is geen directe relatie tussen resources voor Load Balancer en de werkelijke infrastructuur; het maken van een Load Balancer biedt geen exemplaar maken. Resources voor Load Balancer zijn waarin u hoe de vooraf gedefinieerde multitenant-infrastructuur voor het scenario dat u wilt maken-Azure moet programma kunt express-objecten.  Dit is van belang is in de context van de Beschikbaarheidszones omdat één Load Balancer-resource programmering van infrastructuur in meerdere Beschikbaarheidszones beheren kunt, terwijl een zone-redundante service wordt weergegeven als één resource vanuit het oogpunt van een klant.
 
-Functies van de bron van een Load Balancer worden uitgedrukt als een frontend, een regel, een health test en de definitie van een back-end-adresgroep.
+Functies van een Load Balancer-resource worden uitgedrukt als een frontend, een regel, een statustest en de definitie van een back-end-pool.
 
-Het gedrag en de eigenschappen van een Load Balancer-resource in de context van beschikbaarheid Zones worden als zone-redundante of zonal beschreven.  Zone-redundante beschrijft zonal de zonality van een eigenschap.  In de context van de Load Balancer, zone-redundante altijd betekent *alle zones* en zonal middelen garanderen van de service een *enkele zone*.
+Het gedrag en de eigenschappen van een Load Balancer-resource in de context van de Beschikbaarheidszones, worden als zone-redundante of zonegebonden beschreven.  Zone-redundante en zonegebonden beschrijven de zonality van een eigenschap.  In de context van de Load Balancer, zone-redundante altijd betekent *alle zones* en zonegebonden betekent dat de service om te garanderen een *één zone*.
 
-Openbare en interne Load Balancer zone-redundante en zonal scenario's ondersteunen en beide kunnen verkeer omleiden via zones naar behoefte (*cross-zone taakverdeling*).
+Zone-redundante en zonegebonden scenario's voor ondersteuning van openbare en interne Load Balancer en beide kunnen instellen dat verkeer in zones behoefte (*zoneoverschrijdende load balancing*).
 
-Een Load Balancer-resource zelf is regionale en nooit zonal.  En een VNet en het subnet zijn altijd regionale en nooit zonal.
+Een Load Balancer-resource zelf is regionale en nooit zonegebonden.  En een VNet en subnet zijn altijd regionale en nooit zonegebonden.
 
 ### <a name="frontend"></a>Front-end
 
-Een Load Balancer-frontend is een Frontend-IP-adresconfiguratie verwijst naar een openbare IP-adres resource of een particulier IP-adres binnen het subnet van een resource van het virtuele netwerk.  Vormt het eindpunt taakverdeling waar uw service wordt weergegeven.
+Een Load Balancer-frontend is een Frontend-IP-configuratie verwijst naar een openbare IP-adresresource of een privé IP-adres binnen het subnet van een virtueel netwerk-resource.  Dit vormt het eindpunt met gelijke waar uw service beschikbaar is gemaakt.
 
-Een Load Balancer-resource kan tegelijk zonal en zone-redundante frontends bevatten. 
+Een Load Balancer-resource kan tegelijk zonegebonden en zone-redundante front-ends bevatten. 
 
-Wanneer een openbare IP-resource heeft is gegarandeerd aan een zone, is de zonality (of ontbreken daarvan) geen veranderlijke.  Als u wilt wijzigen of laat de zonality van een openbare IP-frontend, moet u het openbare IP-adres in de juiste zone opnieuw.  
+Als een openbaar IP-adresresource is aan een zone is gegarandeerd, niet de zonality (of het gebrek daaraan) veranderlijke.  Als u wilt wijzigen of laat de zonality van een openbare IP-front, moet u het openbare IP-adres in de juiste zone opnieuw maken.  
 
-U kunt de zonality van een frontend van een interne Load Balancer wijzigen door te verwijderen en opnieuw maken van de frontend, wijzigen of als de zonality wordt weggelaten.
+U kunt de zonality van een front-end van een interne Load Balancer wijzigen door te verwijderen en opnieuw maken van de front-end, wijzigen of de zonality weglaten.
 
-Wanneer u meerdere frontends, Bekijk [meerdere frontends voor de Load Balancer](load-balancer-multivip-overview.md) voor belangrijke tips hierbij.
+Wanneer u meerdere front-ends, Bekijk [meerdere front-ends voor Load Balancer](load-balancer-multivip-overview.md) voor belangrijke overwegingen.
 
-#### <a name="zone-redundant-by-default"></a>Zoneredundant standaard
+#### <a name="zone-redundant-by-default"></a>Zone-redundant standaard
 
-Een standaard Load Balancer-frontend is in een regio met beschikbaarheid Zones, zone-redundante standaard.  Een enkele frontend-IP-adres zone kan storingen en kan worden gebruikt voor het bereiken van alle back-end-groepsleden ongeacht de zone. Dit betekent niet hitless gegevenspad, maar alle nieuwe pogingen of reestablishment slaagt. DNS-redundantie schema's zijn niet vereist. De frontend één IP-adres wordt tegelijkertijd door onafhankelijke infrastructuur implementaties in elke Zone beschikbaarheid behandeld.  Zone-redundante betekent dat alle binnenkomende of uitgaande stromen door alle Zones voor beschikbaarheid in een regio die gelijktijdig met één IP-adres worden behandeld.
+Een Standard Load Balancer-frontend is in een regio met Availability Zones, zone-redundante standaard.  Een enkele frontend-IP-adres zone kunt storingen en kan worden gebruikt om alle leden van back-end, ongeacht de zone bereiken. Dit betekent dat niet hitless gegevenspad, maar geen nieuwe pogingen of reestablishment slaagt. DNS--redundantie schema's zijn niet vereist. Enkele van de front-end-IP-adres wordt tegelijkertijd bediend door onafhankelijke implementaties in elke Beschikbaarheidszone.  Zone-redundante betekent dat alle binnenkomende of uitgaande stromen worden bediend door alle Beschikbaarheidszones in een regio tegelijkertijd met behulp van één IP-adres.
 
-Een of meer beschikbaarheid Zones kan mislukken en het gegevenspad blijft zo lang als één zone in de regio blijft in orde is. Zone-redundante configuratie is de standaardinstelling en vereist geen aanvullende acties.  Wanneer een regio de mogelijkheid krijgt te ondersteunen van de Zones van de beschikbaarheid, wordt een bestaande frontend zone-redundante automatisch.
+Een of meer Beschikbaarheidszones kan mislukken en het gegevenspad blijft zo lang als één zone in de regio blijven in orde is. Zone-redundante configuratie is de standaardinstelling en is geen verdere actie vereist.  Wanneer een regio de mogelijkheid krijgt voor ondersteuning voor Beschikbaarheidszones, wordt een bestaande frontend zone-redundante automatisch.
 
-Gebruik het volgende script te maken van een zone-redundante openbare IP-adres voor uw interne standaard Load Balancer. Als u bestaande Resource Manager-sjablonen in uw configuratie gebruikt, voegt de **sku** sectie tot deze sjablonen.
+Het volgende script gebruiken om te maken van een zone-redundante openbare IP-adres voor uw interne Standard Load Balancer. Als u bestaande Resource Manager-sjablonen in uw configuratie gebruikt, voegt de **sku** sectie om deze sjablonen.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -71,7 +71,7 @@ Gebruik het volgende script te maken van een zone-redundante openbare IP-adres v
             },
 ```
 
-Gebruik het volgende script te maken van een zone-redundante frontend-IP-adres voor uw interne standaard Load Balancer. Als u bestaande Resource Manager-sjablonen in uw configuratie gebruikt, voegt de **sku** sectie tot deze sjablonen.
+Het volgende script gebruiken om te maken van een zone-redundante frontend-IP-adres voor uw interne Standard Load Balancer. Als u bestaande Resource Manager-sjablonen in uw configuratie gebruikt, voegt de **sku** sectie om deze sjablonen.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -99,13 +99,13 @@ Gebruik het volgende script te maken van een zone-redundante frontend-IP-adres v
 
 #### <a name="optional-zone-guarantee"></a>Optionele zone garantie
 
-U kunt een frontend gegarandeerd dat een enkele zone hebt waarvan bekend is als een *zonal frontend*.  Dit betekent dat elk binnenkomend of uitgaand stroom wordt geleverd door een enkele zone in een regio.  Uw frontend deelt gedrag met de status van de zone.  Het gegevenspad wordt niet beïnvloed door fouten in zones dan waar deze is gegarandeerd. U kunt zonal frontends gebruiken om een IP-adres per beschikbaarheid Zone weer te geven.  Bovendien kunt u rechtstreeks zonal frontends gebruiken of, wanneer de frontend uit openbare IP-adressen bestaat, moet u ze integreren in een DNS-taakverdeling product zoals [Traffic Manager](../traffic-manager/traffic-manager-overview.md) en gebruik één DNS-naam, die een client wordt omgezet in meerdere zonal IP-adressen.  U kunt dit ook gebruiken om per zone taakverdeling eindpunten voor het bewaken van elke zone afzonderlijk weer te geven.  Als u wilt overgaan van deze concepten (zone-redundante en zonal voor dezelfde back-end), raadpleegt u [meerdere frontends voor Azure Load Balancer](/load-balancer-multivip-overview.md).
+U kunt ervoor kiezen een frontend gegarandeerd een enkele zone die wordt ook wel een *zonegebonden frontend*.  Dit betekent dat binnenkomende of uitgaande stromen worden geleverd door een enkele zone in een regio.  Uw frontend deelt gedrag met de status van de zone.  Het gegevenspad wordt niet beïnvloed door fouten in zones dan wanneer deze is gegarandeerd. U kunt zonegebonden front-ends gebruiken om een IP-adres per binnen een Beschikbaarheidszone zichtbaar te maken.  Bovendien kunt u rechtstreeks zonegebonden front-ends gebruiken of, wanneer de front-end uit openbare IP-adressen bestaat, moet u deze integreren in een DNS-load balancing-product, zoals [Traffic Manager](../traffic-manager/traffic-manager-overview.md) en één DNS-naam, die een client wordt omgezet in gebruik meerdere zonegebonden IP-adressen.  U kunt dit ook gebruiken om beschikbaar te stellen per zone taakverdeling eindpunten voor het bewaken van afzonderlijk elke zone.  Als u wilt combineren van deze concepten (zone-redundante en zonegebonden voor dezelfde back-end), raadpleegt u [meerdere front-ends voor Azure Load Balancer](load-balancer-multivip-overview.md).
 
-Een openbare Load Balancer-frontend, voegt u toe een *zones* -parameter voor het openbare IP-adres waarnaar wordt verwezen door de frontend-IP-configuratie.  
+Voor de front-end van een openbare Load Balancer, die u toevoegt een *zones* parameter voor het openbare IP-adres waarnaar wordt verwezen door de front-end-IP-configuratie.  
 
-Voor een interne Load Balancer-frontend, voegt u een *zones* -parameter voor de interne Load Balancer frontend-IP-configuratie. De zonal frontend zorgt ervoor dat de Load Balancer garanderen van een IP-adres in een subnet aan een specifieke zone.
+Voor een interne Load Balancer-frontend, voegt u toe een *zones* parameter voor de interne Load Balancer front-end-IP-configuratie. De frontend van de zonegebonden zorgt ervoor dat de Load Balancer om te waarborgen van een IP-adres in een subnet naar een specifieke zone.
 
-Gebruik het volgende script te maken van een zonal standaard openbare IP-adres in beschikbaarheid Zone 1. Als u bestaande Resource Manager-sjablonen in uw configuratie gebruikt, voegt de **sku** sectie tot deze sjablonen.
+Het volgende script gebruiken voor het maken van een zonegebonden standaard, openbaar IP-adres in beschikbaarheid Zone 1. Als u bestaande Resource Manager-sjablonen in uw configuratie gebruikt, voegt de **sku** sectie om deze sjablonen.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -119,9 +119,9 @@ Gebruik het volgende script te maken van een zonal standaard openbare IP-adres i
             },
 ```
 
-Gebruik het volgende script te maken van een interne standaard Load Balancer-front-end in beschikbaarheid Zone 1.
+Het volgende script gebruiken om te maken van een interne Standard Load Balancer-front-end in de beschikbaarheid van Zone 1.
 
-Als u bestaande Resource Manager-sjablonen in uw configuratie gebruikt, voegt de **sku** sectie tot deze sjablonen. Bepaal ook de **zones** eigenschap in de frontend-IP-configuratie voor de onderliggende resource.
+Als u bestaande Resource Manager-sjablonen in uw configuratie gebruikt, voegt de **sku** sectie om deze sjablonen. Ook, definiëren de **zones** eigenschap in de front-end-IP-configuratie voor de onderliggende resource.
 
 ```json
             "apiVersion": "2017-08-01",
@@ -148,77 +148,77 @@ Als u bestaande Resource Manager-sjablonen in uw configuratie gebruikt, voegt de
                 ],
 ```
 
-### <a name="cross-zone-load-balancing"></a>Cross-zone voor taakverdeling
+### <a name="cross-zone-load-balancing"></a>Zoneoverschrijdende Load Balancing
 
-Taakverdeling cross-zone, is de mogelijkheid van de Load Balancer een back-end-eindpunt in een zone te bereiken en is onafhankelijk van de front-end- en de zonality.
+Zoneoverschrijdende load balancing is het vermogen van de Load Balancer een back endeindpunt in een andere zone bereiken en is onafhankelijk van de front-end- en de zonality.
 
-Als u wilt uitlijnen en garanderen van uw implementatie binnen een enkele zone, uitlijnen zonal frontend en backend zonal resources aan de zone met dezelfde. Er is geen verdere actie vereist.
+Als u wilt uitlijnen en garanderen van uw implementatie binnen een enkele zone, zonegebonden front-end en back-van zonegebonden endresources aan de zone met dezelfde uitlijnen. Er is geen verdere actie vereist.
 
 ### <a name="backend"></a>Back-end
 
-Load Balancer werkt met virtuele Machines.  Een virtuele machine in een enkel VNet kan deel uitmaken van de back-endpool ongeacht of deze is gegarandeerd aan een zone of welke zone is gegarandeerd.
+Load Balancer werkt met virtuele Machines.  Alle virtuele machines in een enkel VNet kan deel uitmaken van de back-endpool, ongeacht of deze aan een zone is gegarandeerd of welke zone is gegarandeerd.
 
-Als u wilt uitlijnen en garanderen van uw frontend en backend met een enkele zone, plaats alleen voor virtuele machines binnen dezelfde zone in de betreffende back-endpool.
+Als u wilt uitlijnen en garanderen van de front-end en back-end met een enkele zone, plaats alleen voor VM's binnen dezelfde regio in de desbetreffende back-endpool.
 
-Als u te adres VM's via meerdere zones wenst, plaatsen gewoon voor virtuele machines in meerdere zones aan dezelfde back endpool.  Wanneer met behulp van de virtuele-machineschaalset wordt ingesteld, kunt u een of meer virtuele-machineschaalsets plaatsen in dezelfde endadresgroep back.  En mag elk van deze virtuele-machineschaalsets in één of meerdere zones.
+Als u adres VM's in meerdere zones wilt, plaats gewoon voor virtuele machines in meerdere zones in de dezelfde back-endpool.  Wanneer u schaalsets van virtuele machine, kunt u een of meer virtuele-machineschaalsets aan dezelfde back endadresgroep plaatsen.  En elk van deze virtuele-machineschaalsets kan zich in een of meerdere zones.
 
 ### <a name="outbound-connections"></a>Uitgaande verbindingen
 
-[Uitgaande verbindingen](load-balancer-outbound-connections.md) door alle zones worden behandeld en in een regio met beschikbaarheid Zones automatisch zone-redundante zijn wanneer een virtuele machine gekoppeld aan een openbare Load Balancer en een zone-redundante frontend is.  Uitgaande verbinding snat omzetten poort toewijzingen overleven zone fouten.  
+[Uitgaande verbindingen](load-balancer-outbound-connections.md) door alle zones worden verwerkt en in een regio met Beschikbaarheidszones automatisch zone-redundante zijn wanneer een virtuele machine gekoppeld aan een openbare Load Balancer en een zone-redundante front is.  Uitgaande verbindingen SNAT poort toewijzingen overleven zone fouten.  
 
-Als de virtuele machine gekoppeld aan een openbare Load Balancer en een zonal frontend is, zijn op zijn beurt uitgaande verbindingen om te worden geleverd door een enkele zone gegarandeerd.  Uitgaande verbindingen delen gedrag met de status van de desbetreffende zone.
+Op zijn beurt als de virtuele machine gekoppeld aan een openbare Load Balancer en een zonegebonden front is, worden uitgaande verbindingen gegarandeerd door een enkele zone worden geleverd.  Uitgaande verbindingen delen gedrag met de status van de respectieve zone.
 
-Het voorafgaande toewijzing snat omzetten-poort en de algoritme is dezelfde met of zonder zones.
+De voorafgaande toewijzing SNAT-poort en de algoritme is hetzelfde met of zonder zones.
 
 ### <a name="health-probes"></a>Statuscontroles
 
-Uw bestaande health test definities ongewijzigd blijven zonder beschikbaarheid Zones.  Maar we het statusmodel op het niveau van infrastructuur hebt uitgebreid. 
+Uw bestaande health test definities ongewijzigd blijven zonder Beschikbaarheidszones.  Maar we hebben het statusmodel op het niveau van een infrastructuur uitgebreid. 
 
-Wanneer u zone-redundante uitbreiding frontends, Load Balancer van de interne statusmodel onafhankelijk test de bereikbaarheid van een virtuele machine uit elke Zone beschikbaarheid en paden afsluiten in zones die mogelijk zonder tussenkomst van de klant is mislukt.  Als een opgegeven pad niet beschikbaar is via de Load Balancer-infrastructuur van een zone voor een virtuele machine in een andere zone is, Load Balancer detecteren en te voorkomen dat deze fout. Andere zones die toegang heeft tot deze virtuele machine kunnen blijven voldoen aan de VM van hun respectieve frontends.  Als gevolg hiervan is het mogelijk dat tijdens de mislukte gebeurtenissen, elke zone mogelijk enigszins andere stroom distributies bij het beveiligen van de algemene status van uw service end-to-end.
+Bij het gebruik van zone-redundante uitbreiding front-ends, Load Balancer van de interne statusmodel onafhankelijk de bereikbaarheid van een virtuele machine van elke Beschikbaarheidszone-test en paden afsluiten in zones die mogelijk is mislukt zonder tussenkomst van de klant.  Als een opgegeven pad niet beschikbaar vanaf de infrastructuur van de Load Balancer van een zone voor een virtuele machine in een andere zone is, kan de Load Balancer detecteren en te voorkomen dat deze fout. Andere zones die deze virtuele machine kunnen bereiken kunnen blijven voldoen aan de VM op basis van hun respectieve front-ends.  Als gevolg hiervan is het mogelijk dat tijdens de gebeurtenissen die betrekking hebben, elke zone mogelijk enigszins stroom distributies bij het beveiligen van de algemene status van uw end-to-end-service.
 
 ## <a name="design"></a> Overwegingen bij het ontwerpen
 
-Load Balancer is opzettelijk flexibel in de context van beschikbaarheid Zones. U kunt uitlijnen met zones of kunt u zone-redundante worden.  Grotere beschikbaarheid kan worden geleverd voor de prijs van grotere complexiteit en moet u ontwerpen voor beschikbaarheid voor optimale prestaties.  Laten we op een aantal belangrijke ontwerpoverwegingen.
+Load Balancer is opzettelijk flexibel in de context van de Beschikbaarheidszones. U kunt kiezen om uitgelijnd met zones of kunt u zone-redundante worden.  Grotere beschikbaarheid kunt komen voor de prijs van een grotere complexiteit en moet u ontwerpen voor beschikbaarheid voor optimale prestaties.  Laten we eens enkele belangrijke ontwerpoverwegingen.
 
 ### <a name="automatic-zone-redundancy"></a>Automatische zone-redundantie
 
-Load Balancer kunt u eenvoudig een enkel IP-adres als een zone-redundante frontend hebben. Een zone-redundante IP-adres een zonal resource in een zone kan veilig worden voorzien en kan een of meer zone fouten overleven zolang één zone in orde binnen de regio blijft. Als u daarentegen is een zonal frontend een vermindering van de service naar een enkele zone en shares gedrag met de desbetreffende zone.
+Load Balancer kunt u eenvoudig een enkel IP-adres als een zone-redundante front hebben. Een zone-redundante IP-adres kan veilig geen zonegebonden resource in een zone fungeren en kan een of meer zone fouten overleven als één zone in de regio in orde is blijft. Een zonegebonden front is echter een vermindering van de service naar een enkele zone en -shares gedrag met de bijbehorende zone.
 
-Zone-redundantie betekent niet dat hitless gegevenspad of besturingselement vlak;  het is uitdrukkelijk vlak van gegevens. Zone-redundante stromen kunnen geen zones gebruiken en het gebruik van een klant stromen alle orde zones in een regio. In geval van storing van de zone, worden verkeersstromen, met goede zones op dat moment niet beïnvloed.  Verkeersstromen met behulp van een zone op het moment van de zone fout wordt mogelijk beïnvloed maar toepassingen kunnen herstellen en deze stromen in de resterende orde zones in het gebied van herverzending of reestablishment kunnen worden voortgezet wanneer Azure is geconvergeerd rond de zone-fout.
+Zone-redundantie impliceert niet hitless gegevenspad of controlelaag;  het is uitdrukkelijk gegevenslaag. Zone-redundante stromen kunnen zones en stromen van de klant wordt alle in orde zones gebruiken in een regio. In het geval van een fout opgetreden in een zone verkeersstromen, gezonde zones met op dat punt in tijd niet beïnvloed.  Verkeersstromen met behulp van een zone op het moment van de zone fout wordt mogelijk beïnvloed, maar toepassingen kunnen herstellen en deze stromen blijven in de resterende in orde zones in het gebied van doorgifte of reestablishment zodra Azure geconvergeerd rond de zone-fout.
 
 ### <a name="xzonedesign"></a> Cross-zone grenzen
 
-Het is belangrijk te weten dat elk gewenst moment een end-to-end-service bestrijkt zones, u gedrag met niet één zone, maar mogelijk meerdere zones delen.  Als gevolg hiervan uw end-to-end-service mogelijk niet hebben opgedaan met andere beschikbaarheid via niet-zonal implementaties.
+Het is belangrijk om te begrijpen dat elk gewenst moment een end-to-end-service snijdt zones, u gedrag delen met niet één zone, maar mogelijk meerdere zones.  Als gevolg hiervan uw end-to-end-service mogelijk niet hebben opgedaan met beschikbaarheid via niet-zonegebonden implementaties.
 
-Vermijd introducing onbedoelde cross-zone-afhankelijkheden die wordt ongeldig verklaard beschikbaarheid krijgt wanneer u de beschikbaarheid van Zones.  Wanneer uw toepassing bestaat uit meerdere onderdelen en u wilt netwerkfouten zone mislukt, moet u om te controleren of het overleven van voldoende belangrijke onderdelen in het geval van een zone mislukken behandelen.  Kritieke één component voor uw toepassing kan bijvoorbeeld gevolgen voor uw hele toepassing als deze alleen in een zone dan de overgebleven zones bestaat.  Bovendien ook rekening houden met het herstel van de zone en hoe doorgegeven aan uw toepassing wordt uitgevoerd. Laten we enkele belangrijke punten bekijken en ze gebruiken als inspiratie voor vragen als u denkt via uw specifieke scenario dat.
+Vermijd de introductie van onbedoelde zoneoverschrijdende afhankelijkheden, die wordt ongeldig verklaard beschikbaarheid winsten bij het gebruik van Beschikbaarheidszones.  Wanneer uw toepassing uit meerdere onderdelen bestaat en u wilt worden bestand is tegen fouten van de zone, moet u ervoor zorgen dat dat de voldoende belangrijke onderdelen in het geval van een zone mislukken.  Bijvoorbeeld één kritieke onderdeel voor uw toepassing kan van invloed zijn op de gehele toepassing als deze alleen in een zone dan de overgebleven zone (s bestaat).  Bovendien ook rekening houden met de herstelbewerking zone en hoe uw toepassing worden geconvergeerd. Laten we bekijken enkele belangrijke punten en deze gebruiken als inspiratie voor vragen als u denkt uw specifieke scenario dat.
 
-- Als uw toepassing bestaat uit twee onderdelen, zoals een IP-adres en een virtuele machine met beheerde schijf en ze zijn gegarandeerd in zone 1 en zone 2, wanneer de zone 1 mislukt uw end-to-end-service wordt niet blijven bewaard als zone 1 is mislukt.  Cross-zones niet als u volledig begrijpt dat u een potentieel gevaarlijke fout-modus maakt.
+- Als uw toepassing bestaat uit twee onderdelen, zoals een IP-adres en een virtuele machine met een beheerde schijf, en ze worden gegarandeerd in zone 1 en zone 2, wanneer de zone 1, mislukt de end-to-end-service niet overleeft wanneer zone 1 is mislukt.  Niet overschreden door de zones, tenzij u beter begrijpen die u een potentieel schadelijke foutmodus maakt.
 
-- Als uw toepassing twee onderdelen, heeft zoals een IP-adres en een virtuele machine met de schijf, beheerd en ze zijn gegarandeerd zone-redundante en 1 respectievelijk zone, uw end-to-end-service wordt storingen zone van de zone 2, zone 3 of beide tenzij zone 1 is mislukt.  Echter, verliest u enige mogelijkheid tot reden over de status van uw service als u worden geobserveerd de bereikbaarheid van de frontend.  U kunt een uitgebreidere gezondheid en capaciteit model te ontwikkelen.  U kunt mogelijk zone-redundante en zonal concepten samen gebruiken om uit te breiden inzicht en beheerbaarheid.
+- Als uw toepassing bestaat uit twee onderdelen, zoals een IP-adres en een VM met beheerde schijf, en ze worden zone-redundante en zone 1 respectievelijk worden gegarandeerd, uw end-to-end-service blijven geldig na het mislukken van de zone van zone 2, zone 3, of beide, tenzij de zone 1 is mislukt.  Echter, verliest u enkele mogelijkheid tot reden over de status van uw service als uw probleem, is de bereikbaarheid van de front-end.  Houd rekening met een meer uitgebreide status en capaciteit analysemodel.  U kunt de zone-redundante en zonegebonden concepten samen gebruiken om uit te breiden inzicht en beheerbaarheid.
 
-- Als uw toepassing bestaat uit twee onderdelen, zoals een zone-redundante Load Balancer-front- en een cross-zone virtuele-machineschaalset in drie zones, uw resources in zones niet beïnvloed door de fout is beschikbaar, maar uw end-to-end-service mogelijk een slechtere in termen van capaciteit tijdens zone-fout. Uw implementatie kan een of meer zone fouten overleven vanuit het perspectief van een infrastructuur, en dit genereert de volgende vragen:
-  - Begrijpt u hoe uw toepassing redenen over deze fouten en verslechterde capaciteit?
-  - Moet u de beveiliging van een failover naar een paar regio indien nodig in uw service om af te dwingen hebben?
-  - Hoe wordt u bewaken, detecteren en het verminderen van dergelijk scenario? U kunt mogelijk met standaard Load Balancer diagnostics standaardverificatie bewaking van de serviceprestaties van uw end-to-end. Overweeg wat er beschikbaar is en wat kan uitdiepen nodig voor een volledig overzicht.
+- Als uw toepassing bestaat uit twee onderdelen, zoals een zone-redundante Load Balancer-frontend en een zoneoverschrijdende virtuele-machineschaalset in drie zones, uw resources in zones niet beïnvloed door de fout is beschikbaar, maar de servicecapaciteit van de end-to-end-is mogelijk gedegradeerd tijdens de zone is mislukt. Uw implementatie kan een of meer zone fouten overleven vanuit het perspectief van een infrastructuur, en dit genereert de volgende vragen:
+  - Begrijpt u hoe uw toepassing redenen over deze fouten en verminderde capaciteit?
+  - Moet u beveiliging in uw service, zodat een failover afgedwongen op een paar regio indien nodig hebt?
+  - Hoe wordt u bewaken, opsporen en verhelpen dergelijk scenario? Het is mogelijk dat er diagnostische gegevens van Standard Load Balancer gebruiken voor het verbeteren van de bewaking van de serviceprestaties van uw end-to-end. Bedenk wat er beschikbaar is en wat kan uitdiepen nodig hebt om een volledig overzicht.
 
-- Zones kunnen zorgen dat problemen eenvoudiger begrepen en opgenomen.  Zone-fout is echter niet anders dan andere fouten bij het concepten zoals time-outs, nieuwe pogingen en backoff algoritmen. Hoewel Azure Load Balancer zone-redundante paden biedt en probeert te herstellen snel op het pakketniveau van een in realtime herhaald verzenden of reestablishments zich kunnen voordoen tijdens het begin van een fout en is het belangrijk om te begrijpen hoe uw toepassing met copes fouten. Uw schema voor de taakverdeling wordt overleven, maar u moet plannen voor het volgende:
-  - Wanneer een zone mislukt, uw service end-to-end Hiermee instemt en als de status verbroken wordt, hoe moet u herstellen?
-  - Wanneer een zone wordt geactiveerd, uw toepassing te begrijpen hoe veilig convergeren?
+- Zones kunnen u problemen eenvoudiger begrepen en die zijn opgenomen.  Zone-fout is echter niet anders dan andere fouten als het gaat om concepten zoals time-outs, nieuwe pogingen en algoritmen voor uitstel. Hoewel Azure Load Balancer zone-redundante paden biedt en er wordt geprobeerd om te snel herstellen op het pakketniveau van een in realtime, herhaald verzenden of reestablishments zich kunnen voordoen tijdens het begin van een fout en is het belangrijk om te begrijpen hoe uw toepassing met copes fouten. Uw load balancing-schema blijven geldig na, maar moet u plannen voor het volgende:
+  - Als een zone is mislukt, uw end-to-end-service te begrijpen dit en als de status van de verloren gegaan is, hoe wordt u herstellen?
+  - Wanneer een zone worden geretourneerd, uw toepassing te begrijpen hoe u veilig worden geconvergeerd?
 
-### <a name="zonalityguidance"></a> Zone-redundante versus zonal
+### <a name="zonalityguidance"></a> Zone-redundante versus zonegebonden
 
-Zone-redundante bieden een zone-networkdirect en op dezelfde tijd robuuste optie met een enkel IP-adres voor de service.  Dit kan op zijn beurt complexiteit verminderen.  Zone-redundante ook heeft mobility diverse zones en veilig kan worden gebruikt voor bronnen in een zone.  Het is ook toekomstige bewijs in regio's zonder beschikbaarheid Zones die wijzigingen vereist wanneer een regio beschikbaarheid Zones krijgen kunt beperken.  De syntaxis van de configuratie voor een zone-redundante IP-adres of frontend slaagt in elke regio inclusief gebruikers met beschikbaarheid Zones.
+Zone-redundante biedt een zone-neutraal en op dezelfde tijd flexibele optie met een enkel IP-adres voor de service.  Deze kan op zijn beurt complexiteit verminderen.  Zone-redundante ook heeft mobility in zones en veilig kan worden gebruikt voor bronnen in elke zone.  Het is ook de oplossing Toekomstbestendig in regio's zonder Beschikbaarheidszones, die wijzigingen die vereist zijn wanneer een regio toegang tot Beschikbaarheidszones kunt beperken.  De syntaxis van de configuratie voor een zone-redundante IP-adres of een frontend slaagt in elke regio inclusief gebruikers met Beschikbaarheidszones.
 
-Zonal kan bieden een expliciete garantie aan een zone gedrag delen met de status van de zone. Koppelen van een zonal IP kan-adres of zonal Load Balancer-frontend worden een kenmerk wenselijk of redelijke met name als uw gekoppelde resource een zonal VM in dezelfde regio is.  Of misschien expliciete kennis over welke zone een resource bevindt zich in uw toepassing is vereist en u expliciet reden over beschikbaarheid in afzonderlijke zones.  U kunt kiezen om meerdere zonal frontends voor een end-to-end-service verdeeld over zones weer te geven (dat wil zeggen, per zone zonal frontends voor meerdere zonal virtuele-machineschaalset stelt).  Als uw zonal frontends openbare IP-adressen, kunt u deze meerdere zonal frontends gebruiken voor het blootstellen van uw service met [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Of u kunt meerdere zonal frontends per zone status en prestaties insights via van derden bewakingsoplossingen krijgen en de algehele service met een zone-redundante frontend weer te geven. U moet alleen zonal resources met zonal frontends uitgelijnd op dezelfde zone leveren en te voorkomen dat schadelijke cross-zone-scenario's voor zonal bronnen.  Er bestaan alleen zonal resources in regio's waar beschikbaarheid Zones bestaan.
+Zonegebonden krijgt u een expliciete garantie voor een zone terechtkomt delen met de status van de zone. Een zonegebonden IP-adres koppelen is adres of de zonegebonden Load Balancer-frontend een kenmerk wenselijk of redelijke met name als de gekoppelde resource een zonegebonden VM in dezelfde zone is.  Of misschien uw toepassing vereist expliciete kennis over welke zone een resource zich bevindt in en u wilt expliciet reden over beschikbaarheid in afzonderlijke zones.  U kunt kiezen om meerdere zonegebonden front-ends voor een end-to-end-service die verdeeld over zones zichtbaar te maken (dat wil zeggen, per zone zonegebonden frontends voor meerdere zonegebonden virtuele-machineschaalsets wordt ingesteld).  En als uw zonegebonden front-ends openbare IP-adressen zijn, kunt u deze meerdere zonegebonden front-ends voor de weergave van uw service met [Traffic Manager](../traffic-manager/traffic-manager-overview.md).  Of u kunt meerdere zonegebonden front-ends gebruiken om te krijgen per zone status en prestaties inzichten via externe bewakingsoplossingen en de algehele service met een zone-redundante front zichtbaar maken. U moet alleen zonegebonden resources met zonegebonden front-ends uitgelijnd op dezelfde zone fungeren en te voorkomen dat mogelijk schadelijke zoneoverschrijdende-scenario's voor zonegebonden resources.  Verwijzing voor zonegebonden resources alleen aanwezig in regio's waar Beschikbaarheidszones bestaan.
 
-Er is geen algemene richtlijnen dat een een betere keuze dan de andere is zonder te weten van de service-architectuur.
+Er is geen algemene richtlijnen die een is een betere keuze dan de andere zonder te weten van de servicearchitectuur.
 
 ## <a name="limitations"></a>Beperkingen
 
-- Gegevens terwijl vlak is volledig zone-redundante (tenzij zonal garantie is opgegeven), vlak beheerbewerkingen zijn niet volledig zone-redundante.
+- Terwijl gegevens vlak is volledig zone-redundante (tenzij zonegebonden garantie is opgegeven), bewerkingen voor de controlelaag zijn niet volledig zone-redundante.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [beschikbaarheid Zones](../availability-zones/az-overview.md)
-- Meer informatie over [standaard Load Balancer](load-balancer-standard-overview.md)
-- Meer informatie over hoe [taakverdeling maken voor virtuele machines in een zone met een standaard Load Balancer met een zonal frontend.](load-balancer-standard-public-zonal-cli.md)
-- Meer informatie over hoe [taakverdeling maken voor virtuele machines in zones met een standaard Load Balancer met een zone-redundante frontend](load-balancer-standard-public-zone-redundant-cli.md)
+- Meer informatie over [Beschikbaarheidszones](../availability-zones/az-overview.md)
+- Meer informatie over [Standard Load Balancer](load-balancer-standard-overview.md)
+- Meer informatie over het [taakverdeling instellen voor virtuele machines binnen een zone met behulp van een Standard Load Balancer met een zonegebonden frontend.](load-balancer-standard-public-zonal-cli.md)
+- Meer informatie over het [taakverdeling instellen voor virtuele machines in zones met behulp van een Standard Load Balancer met een zone-redundante front](load-balancer-standard-public-zone-redundant-cli.md)
