@@ -49,7 +49,6 @@
 ### [Gebruikerswachtwoorden opnieuw instellen](fundamentals/active-directory-users-reset-password-azure-portal.md)
 ### [Accounts delen](active-directory-sharing-accounts.md)
 ### [Gebruikers aan beheerdersrollen toewijzen](fundamentals/active-directory-users-assign-role-azure-portal.md)
-### [Een verwijderde gebruiker herstellen](fundamentals/active-directory-users-restore.md)
 ### [Gastgebruikers toevoegen van een andere directory (B2B)](b2b/what-is-b2b.md)
 #### [Beheerders die B2B-gebruikers toevoegen](b2b/add-users-administrator.md)
 #### [Informatiewerkers die B2B-gebruikers toevoegen](b2b/add-users-information-worker.md)
@@ -163,7 +162,7 @@
 ##### [Stille installatie](manage-apps/application-proxy-register-connector-powershell.md)
 ##### [Aangepaste startpagina](manage-apps/application-proxy-configure-custom-home-page.md)
 ##### [Inlinelinks vertalen](manage-apps/application-proxy-configure-hard-coded-link-translation.md)
-##### [Jokertekens](active-directory-application-proxy-wildcard.md)
+##### [Jokertekens](manage-apps/application-proxy-wildcard.md)
 ##### [Persoonlijke gegevens verwijderen](manage-apps/application-proxy-remove-personal-data.md)
 
 
@@ -172,7 +171,7 @@
 ##### [SharePoint](manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 ##### [Microsoft Teams](manage-apps/application-proxy-integrate-with-teams.md)
 ##### [Tableau](manage-apps/application-proxy-integrate-with-tableau.md)
-##### [Qlik](active-directory-application-proxy-qlik.md)
+##### [Qlik](manage-apps/application-proxy-qlik.md)
 #### [PowerShell](https://docs.microsoft.com/powershell/module/azuread/?view=azureadps-2.0#application_proxy_application_management) 
 
 #### [Problemen oplossen](manage-apps/application-proxy-troubleshoot.md)

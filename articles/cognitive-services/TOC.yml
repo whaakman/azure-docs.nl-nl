@@ -1,41 +1,50 @@
+items:
 - name: Documentatie over Azure Cognitive Services
   href: index.yml
 - name: Overzicht
-  expanded: true
   items:
-    - name: Wat zijn cognitieve services?
-      href: Welcome.md
+  - name: Wat zijn cognitieve services?
+    href: Welcome.md
+  - name: Taalondersteuning
+    href: language-support.md
+  expanded: true
 - name: Snelstartgidsen
   items:
-    - name: Een account maken
-      href: cognitive-services-apis-create-account.md
-    - name: Een afbeeldingsclassificatie-app bouwen
-      href: ./custom-vision-service/getting-started-build-a-classifier.md
-    - name: Een huisautomatiserings-app bouwen
-      href: ./luis/luis-get-started-create-app.md
-    - name: Een .NET-tekstanalyse-app maken
-      href: ./text-analytics/quickstarts/csharp.md
+  - name: Een account maken
+    href: cognitive-services-apis-create-account.md
+  - name: Een afbeeldingsclassificatie-app bouwen
+    href: ./custom-vision-service/getting-started-build-a-classifier.md
+  - name: Een huisautomatiserings-app bouwen
+    href: ./luis/luis-get-started-create-app.md
+  - name: Een .NET-tekstanalyse-app maken
+    href: ./text-analytics/quickstarts/csharp.md
 - name: Zelfstudies
   items:
-    - name: Webpagina voor aangepast zoeken maken
-      href: ./bing-custom-search/tutorials/custom-search-web-page.md
-    - name: Language Understanding-app
-      href: ./luis/luis-nodejs-tutorial-build-bot-framework-sample.md
-    - name: Intentienauwkeurigheid voor opdrachten verbeteren
-      href: ./luis/luis-tutorial-batch-testing.md
+  - name: Webpagina voor aangepast zoeken maken
+    href: ./bing-custom-search/tutorials/custom-search-web-page.md
+  - name: Language Understanding-app
+    href: ./luis/luis-nodejs-tutorial-build-bot-framework-sample.md
+  - name: Intentienauwkeurigheid voor opdrachten verbeteren
+    href: ./luis/luis-tutorial-batch-testing.md
 - name: Resources
   items:
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=cognitive-services'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/cognitive-services/'
-    - name: Prijscalculator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Video's
-      href: 'https://azure.microsoft.com/resources/videos/index/?services=cognitive-services'
-    - name: Service-updates
-      href: 'https://azure.microsoft.com/updates/?product=cognitive-services'
-    - name: Gedragscode
-      href: 'http://go.microsoft.com/fwlink/?LinkId=698895'
-    - name: Knowledge Base
-      href: 'https://cognitive.uservoice.com/knowledgebase'
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=cognitive-services
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/cognitive-services/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Video's
+    href: https://azure.microsoft.com/resources/videos/index/?services=cognitive-services
+  - name: Service-updates
+    href: https://azure.microsoft.com/updates/?product=cognitive-services
+  - name: Gedragscode
+    href: http://go.microsoft.com/fwlink/?LinkId=698895
+  - name: Knowledge Base
+    href: https://cognitive.uservoice.com/knowledgebase
+ms.openlocfilehash: 8bd7984fd713a2acbb1ca2cc66e3d64bd49ef5a4
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44023822"
