@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/29/2018
+ms.date: 09/05/2018
 ms.author: anwestg
-ms.openlocfilehash: 53766099f283f802482fe8e84144502d386b1d69
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: acadd1adec93d10d64712a2fbedb89e098998294
+ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39440148"
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "44025959"
 ---
 # <a name="how-to-redistribute-azure-app-service-on-azure-stack-across-fault-domains"></a>Over het distribueren van Azure App Service in Azure Stack in domeinen met fouten
 
@@ -48,8 +48,8 @@ Als u wilt distribueren de schaalsets die is geïmplementeerd voor de resourcepr
 Als u wilt schalen de schaalsets, de volgende stappen uit:
 
 1. Aanmelden bij de Azure Stack-Beheerdersportal.
-1. Selecteer **meer services**.
-1. Selecteer onder COMPUTE, **virtuele-machineschaalsets**. Wordt het bestaande schaalsets worden geïmplementeerd als onderdeel van de App Service-implementatie met instance count wordt informatie weergegeven. De volgende Schermafbeelding toont een voorbeeld van schaalsets.
+1. Selecteer **Alle services**.
+2. In de **COMPUTE** categorie, selecteer **virtuele-machineschaalsets**. Wordt het bestaande schaalsets worden geïmplementeerd als onderdeel van de App Service-implementatie met instance count wordt informatie weergegeven. De volgende Schermafbeelding toont een voorbeeld van schaalsets.
 
       ![Azure App Service Scale Sets die worden vermeld in Virtual Machine Scale Sets UX][1]
 

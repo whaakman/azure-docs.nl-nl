@@ -11,12 +11,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 08/30/2018
 ms.author: bonova
-ms.openlocfilehash: 2e1fd7c87931f804433708b6ac30a5960e6006ae
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 5caafdfbaca1a701d2728afdfcb31e8e73b4fded
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287660"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050303"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een Managed Instance (preview)?
 
@@ -200,7 +200,7 @@ Beheerd exemplaar doelen gebruikersscenario's met grote databasemigratie vanuit 
 ### <a name="backup-and-restore"></a>Back-ups en herstellen  
 
 De migratie maakt gebruik van SQL-back-ups naar Azure blob-opslag. Back-ups die zijn opgeslagen in Azure storage-blob kunnen rechtstreeks worden hersteld naar beheerd exemplaar met behulp van de [T-SQL terugzetten opdracht](https://docs.microsoft.com/sql/t-sql/statements/restore-statements-transact-sql?view=azuresqldb-mi-current). 
-  - Zie voor een zelfstudie waarin wordt getoond hoe om te herstellen van de Wide World Importers - back-upbestand van Standard-database, [herstellen van een back-upbestand naar een beheerd exemplaar](sql-database-managed-instance-restore-from-backup-tutorial.md). In deze zelfstudie leert dat u moet een back-upbestand uploaden naar Azure BLOB-opslag en beveiligd met behulp van een Shared access signature (SAS)-sleutel.
+  - Zie voor een zelfstudie waarin wordt getoond hoe om te herstellen van de Wide World Importers - back-upbestand van Standard-database, [herstellen van een back-upbestand naar een beheerd exemplaar](sql-database-managed-instance-get-started-restore.md). In deze zelfstudie leert dat u moet een back-upbestand uploaden naar Azure BLOB-opslag en beveiligd met behulp van een Shared access signature (SAS)-sleutel.
   - Zie voor meer informatie over het herstellen van URL [systeemeigen terugzetten vanuit URL](sql-database-managed-instance-migrate.md#native-restore-from-url).
   
 ### <a name="data-migration-service"></a>Data migratieservice
@@ -251,6 +251,6 @@ De volgende tabel toont enkele eigenschappen, toegankelijk zijn via Transact-SQL
 - Zie voor meer informatie over het maken van uw eerste Managed Instance, [snelstartgids](sql-database-managed-instance-get-started.md).
 - Voor een functies en van de vergelijkingslijst, Zie [algemene SQL-functies](sql-database-features.md).
 - Lees [Managed Instance VNet Configuration](sql-database-managed-instance-vnet-configuration.md) (VNet-configuratie voor beheerd exemplaar) voor meer informatie over VNet-configuratie.
-- Zie voor een zelfstudie die een beheerd exemplaar maakt en wordt een database teruggezet vanuit een back-upbestand [maken van een beheerd exemplaar](sql-database-managed-instance-create-tutorial-portal.md).
+- Zie voor een zelfstudie die een beheerd exemplaar maakt en wordt een database teruggezet vanuit een back-upbestand [maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md).
 - Lees het artikel [Managed Instance migration using DMS](../dms/tutorial-sql-server-to-managed-instance.md) (Migratie van een beheerd exemplaar via DMS) voor een zelfstudie over gebruik van de Azure Database Migration Service (DMS).
 - Zie voor informatie over de prijzen [prijzen van SQL Database Managed Instance](https://azure.microsoft.com/pricing/details/sql-database/managed/).
