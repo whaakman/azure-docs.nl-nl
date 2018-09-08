@@ -1,6 +1,6 @@
 ---
-title: Een virtuele Windows-machine maken met behulp van PowerShell in Azure-Stack | Microsoft Docs
-description: Een virtuele Windows-machine maken met PowerShell in Azure-Stack.
+title: Een Windows-machine maken met behulp van PowerShell in Azure Stack | Microsoft Docs
+description: Een Windows-machine maken met PowerShell in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,38 +12,40 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
-ms.date: 04/20/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.custom: mvc
-ms.openlocfilehash: 9f5752a969ff6a191ec60e175494316aea4abcaf
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: aaeed9c86f340d2eda2524922c7af9a8285a1782
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32152116"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162651"
 ---
-# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snelstartgids: een virtuele machine van Windows Server maken met behulp van PowerShell in Azure-Stack
+# <a name="quickstart-create-a-windows-server-virtual-machine-by-using-powershell-in-azure-stack"></a>Snelstartgids: een Windows Server-machine maken met behulp van PowerShell in Azure Stack
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-U kunt een Windows Server 2016 virtuele machine maken met behulp van PowerShell voor Azure-Stack. Volg de stappen in dit artikel maken en gebruiken van een virtuele machine. In dit artikel hebt u ook de stappen voor het:
+U kunt een Windows Server 2016 virtuele machine maken met behulp van PowerShell voor Azure Stack. Volg de stappen in dit artikel te maken en gebruiken van een virtuele machine. Dit artikel vindt u ook de stappen voor het:
 
 * Verbinding maken met de virtuele machine met een externe client.
-* De IIS-webserver installeren en de standaardstartpagina weergeven.
-* Opschonen van uw resources.
+* De IIS-webserver installeren en de standaard-startpagina weergeven.
+* Uw resources opschonen.
 
 >[!NOTE]
- U kunt de stappen in dit artikel vanuit de Azure-Stack Development Kit of vanuit een externe Windows-client als u via een VPN verbonden bent uitvoeren.
+ U kunt de stappen in dit artikel vanuit de Azure Stack Development Kit of vanuit een externe Windows-client als u via een VPN-verbinding verbonden bent uitvoeren.
 
 ## <a name="prerequisites"></a>Vereisten
 
-* Zorg ervoor dat uw Azure-Stack-operator de installatiekopie van het 'WindowsServer 2016' is toegevoegd aan de Stack van Azure marketplace.
+* Zorg ervoor dat uw Azure Stack-operator is toegevoegd de **Windows Server 2016** installatiekopie naar de Azure Stack marketplace.
 
-* Azure-Stack is vereist voor een specifieke versie van Azure PowerShell maken en beheren van de resources. Als er geen PowerShell voor Azure-Stack is geconfigureerd, volgt u de stappen voor het [installeren](azure-stack-powershell-install.md) en [configureren](azure-stack-powershell-configure-user.md) PowerShell.
+* Azure Stack is vereist voor een specifieke versie van Azure PowerShell om te maken en beheren van de resources. Als u geen PowerShell voor Azure Stack is geconfigureerd, volgt u de stappen voor het [installeren](azure-stack-powershell-install.md) PowerShell.
+
+* Met de Azure Stack PowerShell instellen, moet u verbinding maken met uw Azure Stack-omgeving. Zie voor instructies, [verbinding maken met Azure Stack met PowerShell als een gebruiker](azure-stack-powershell-configure-user.md).
 
 ## <a name="create-a-resource-group"></a>Een resourcegroep maken
 
-Een resourcegroep is een logische container in welke Azure-Stack resources worden geïmplementeerd en beheerd. Uitvoeren vanuit uw development kit of het systeem Azure Stack geïntegreerd, het volgende codeblok voor het maken van een resourcegroep. Waarden voor de variabelen in dit document zijn toegewezen, kunt u deze waarden gebruiken of nieuwe waarden toewijzen.
+Een resourcegroep is een logische container in welke Azure-Stack resources worden geïmplementeerd en beheerd. Vanuit uw development kit of de geïntegreerde Azure Stack-systeem, voer het volgende codeblok om een resourcegroep te maken. Waarden voor de variabelen in dit document worden toegewezen, kunt u deze waarden gebruiken of nieuwe waarden toewijzen.
 
 ```powershell
 # Create variables to store the location and resource group names.
@@ -55,7 +57,7 @@ New-AzureRmResourceGroup `
   -Location $location
 ```
 
-## <a name="create-storage-resources"></a>Storage-resources maken
+## <a name="create-storage-resources"></a>Opslagresources maken
 
 Maak een opslagaccount en een opslagcontainer voor het opslaan van de installatiekopie van het Windows Server 2016.
 
@@ -84,7 +86,7 @@ $container = New-AzureStorageContainer `
 
 ## <a name="create-networking-resources"></a>Netwerkresources maken
 
-Maak een virtueel netwerk, subnet en een openbaar IP-adres. Deze resources worden gebruikt voor verbinding met het netwerk aan de virtuele machine.
+Maak een virtueel netwerk, subnet en een openbaar IP-adres. Deze resources worden gebruikt voor de netwerkverbinding met de virtuele machine.
 
 ```powershell
 # Create a subnet configuration
@@ -111,7 +113,7 @@ $pip = New-AzureRmPublicIpAddress `
 
 ### <a name="create-a-network-security-group-and-a-network-security-group-rule"></a>Een netwerkbeveiligingsgroep en een regel voor de netwerkbeveiligingsgroep maken
 
-De netwerkbeveiligingsgroep beveiligt de virtuele machine met behulp van regels voor binnenkomend en uitgaand. U kunt een inkomende regel voor poort 3389 voor het toestaan van binnenkomende verbindingen van extern bureaublad en een inkomende regel voor poort 80 om toe te staan inkomend webverkeer maken.
+De netwerkbeveiligingsgroep beveiligt de virtuele machine met behulp van regels voor binnenkomend en uitgaand. We maken een inkomende regel voor poort 3389 waarmee binnenkomende verbindingen met extern bureaublad en een binnenkomende regel voor poort 80 waarmee inkomend webverkeer.
 
 ```powershell
 # Create an inbound network security group rule for port 3389
@@ -163,7 +165,7 @@ $nic = New-AzureRmNetworkInterface `
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 
-Maak een virtuele-machineconfiguratie. Deze configuratie bevat de instellingen die zijn gebruikt bij het implementeren van de virtuele machine. Bijvoorbeeld: referenties, grootte en de installatiekopie van de virtuele machine.
+Maak een virtuele-machineconfiguratie. Deze configuratie bevat de instellingen die worden gebruikt bij het implementeren van de virtuele machine. Bijvoorbeeld: referenties, grootte en de installatiekopie van de virtuele machine.
 
 ```powershell
 # Define a credential object to store the username and password for the virtual machine
@@ -214,14 +216,14 @@ New-AzureRmVM `
 
 ## <a name="connect-to-the-virtual-machine"></a>Verbinding maken met de virtuele machine
 
-Op afstand in de virtuele machine die u in de vorige stap hebt gemaakt, moet u het openbare IP-adres. Voer de volgende opdracht om op te halen van het openbare IP-adres van de virtuele machine:
+Externe verbinding met de virtuele machine die u in de vorige stap hebt gemaakt, moet u het openbare IP-adres. Voer de volgende opdracht uit om op te halen van het openbare IP-adres van de virtuele machine:
 
 ```powershell
 Get-AzureRmPublicIpAddress `
   -ResourceGroupName $ResourceGroupName | Select IpAddress
 ```
 
-Gebruik de volgende opdracht voor het maken van een extern bureaublad-sessie met de virtuele machine. Vervang het IP-adres door het publicIPAddress van de virtuele machine. Wanneer u wordt gevraagd, typt u de gebruikersnaam en wachtwoord die u hebt gebruikt bij het maken van de virtuele machine.
+Gebruik de volgende opdracht om te maken van een extern bureaublad-sessie met de virtuele machine. Vervang het IP-adres door het publicIPAddress van de virtuele machine. Wanneer u wordt gevraagd, typt u de gebruikersnaam en het wachtwoord die u hebt gebruikt bij het maken van de virtuele machine.
 
 ```powershell
 mstsc /v <publicIpAddress>
@@ -237,13 +239,13 @@ Install-WindowsFeature -name Web-Server -IncludeManagementTools
 
 ## <a name="view-the-iis-welcome-page"></a>De welkomstpagina van IIS weergeven
 
-Met IIS is geïnstalleerd en met poort 80 is geopend op uw virtuele machine, kunt u een webbrowser van uw keuze om weer te geven van de standaardwelkomstpagina van IIS. Gebruik de *publicIpAddress* u gedocumenteerd in de vorige sectie de standaardpagina te bezoeken.
+Met IIS is geïnstalleerd en poort 80 is geopend op de virtuele machine, kunt u een webbrowser van uw keuze gebruiken om de standaard IIS-welkomstpagina weer te geven. Gebruik de *publicIpAddress* u hebt gedocumenteerd in de vorige sectie de standaardpagina bezoekt.
 
 ![Standaardsite van IIS](./media/azure-stack-quick-create-vm-windows-powershell/default-iis-website.png)
 
 ## <a name="delete-the-virtual-machine"></a>Verwijder de virtuele machine
 
-Wanneer deze niet langer nodig is, moet u de volgende opdracht gebruiken om te verwijderen van de resourcegroep die de virtuele machine en de bijbehorende resources bevat:
+Wanneer u niet meer nodig hebt, gebruik de volgende opdracht om te verwijderen van de resourcegroep die de virtuele machine en de bijbehorende resources bevat:
 
 ```powershell
 Remove-AzureRmResourceGroup `
@@ -252,4 +254,4 @@ Remove-AzureRmResourceGroup `
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt een eenvoudige Windows virtuele machine hebt geïmplementeerd in deze snelstartgids. Voor meer informatie over virtuele machines van Azure-Stack blijven [overwegingen voor virtuele Machines in Azure Stack](azure-stack-vm-considerations.md).
+In deze quickstart maakt hebt u een eenvoudige Windows virtuele machine geïmplementeerd. Voor meer informatie over virtuele machines van Azure Stack, blijven [overwegingen voor virtuele Machines in Azure Stack](azure-stack-vm-considerations.md).

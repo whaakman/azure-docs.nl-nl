@@ -36,6 +36,8 @@ items:
   items:
   - name: Azure Stack-portal gebruiken
     href: azure-stack-use-portal.md
+  - name: Verbinding maken met PowerShell
+    href: azure-stack-powershell-configure-user.md
   - name: De Azure Stack-API gebruiken
     href: azure-stack-rest-api-use.md
   - name: Beveiliging en naleving
@@ -58,6 +60,8 @@ items:
         href: azure-stack-vm-sizes.md
       - name: VM-schijven beheren
         href: azure-stack-manage-vm-disks.md
+      - name: Overwegingen voor beheerde schijven
+        href: azure-stack-managed-disk-considerations.md
       - name: Virtuele machines beschermen
         href: azure-stack-manage-vm-protect.md
       - name: Overwegingen voor SQL Server-VM
@@ -188,9 +192,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Training en certificering
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 7bf5ef3ab2270d059a6d426cba3551cf21ce16e0
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2fe3061657d453f3a122195c4f1dcd3eeb259f09
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026710"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158702"
