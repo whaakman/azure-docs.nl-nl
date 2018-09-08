@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/05/2018
 ms.author: dobett
-ms.openlocfilehash: c9004e776488006d563fd4de791cade69736a5b8
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 3989ff6e8ef600500f1c3dcc292d4385d6fb4a8b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024366"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162560"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>Referentie - IoT-Hub-quota en beperkingen
 
@@ -25,7 +25,7 @@ Elke IoT-hub is ingericht met een bepaald aantal eenheden in een bepaalde laag. 
 De laag bepaalt ook de bandbreedteregeling limieten die IoT Hub wordt afgedwongen op alle bewerkingen.
 
 ## <a name="operation-throttles"></a>Vertragingen in bewerking
-Bewerking vertragingen zijn tarief beperkingen die worden toegepast in minuut bereiken en zijn bedoeld om misbruik te voorkomen. IoT-Hub probeert om te voorkomen dat fouten indien mogelijk worden geretourneerd, maar begint uitzonderingen retourneren als de vertraging wordt geschonden te lang.
+Bewerking vertragingen zijn tarief beperkingen die worden toegepast in minuut bereiken en zijn bedoeld om misbruik te voorkomen. IoT-Hub probeert om te voorkomen dat fouten indien mogelijk worden geretourneerd, maar begint retourneren `429 ThrottlingException` als de vertraging wordt geschonden te lang.
 
 Op elk moment kunt u quota's of beperkingslimieten verhogen door het aantal ingerichte eenheden in een IoT-hub.
 
@@ -42,15 +42,14 @@ De volgende tabel ziet u de afgedwongen beperkingen. Waarden verwijzen naar een 
 | Directe methoden<sup>1</sup> | 160KB/sec/unit<sup>2</sup> | 480KB/sec/unit<sup>2</sup> | 24MB/sec/unit<sup>2</sup> | 
 | (Apparaat- en -module) leesbewerkingen Twin<sup>1</sup> | 10 per seconde | Hogere van 10 per seconde of 1 per seconde per eenheid | 50 per seconde per eenheid |
 | Updates (apparaat- en -module) Twin<sup>1</sup> | 10 per seconde | Hogere van 10 per seconde of 1 per seconde per eenheid | 50 per seconde per eenheid |
-| Taken maken, bijwerken, weergeven en verwijderen van bewerkingen | 1.67/sec/Unit (100 per minuut per eenheid) | 1.67/sec/Unit (100 per minuut per eenheid) | 83.33/sec/Unit (5000 per minuut per eenheid) |
-| Taken twin update, directe methode bewerkingen aanroepen | 10 per seconde | Hogere van 10 per seconde of 1 per seconde per eenheid | 50 per seconde per eenheid |
-| Taken bulksgewijs importeren/exporteren-bewerkingen | 1 actieve taken per hub | 1 actieve taken per hub | 1 actieve taken per hub |
+| Taken operations<sup>1,3</sup> <br/> (maken, bijwerken, weergeven, verwijderen) | 1.67/sec/Unit (100 per minuut per eenheid) | 1.67/sec/Unit (100 per minuut per eenheid) | 83.33/sec/Unit (5000 per minuut per eenheid) |
+| Taken apparaatbewerkingen<sup>1</sup> <br/> (dubbele bijwerken, rechtstreekse methode aanroepen) | 10 per seconde | Hogere van 10 per seconde of 1 per seconde per eenheid | 50 per seconde per eenheid |
 | Configuraties en edge-implementaties<sup>1</sup> <br/> (maken, bijwerken, weergeven, verwijderen) | 0.33/sec/Unit (20 per minuut per eenheid) | 0.33/sec/Unit (20 per minuut per eenheid) | 0.33/sec/Unit (20 per minuut per eenheid) |
 
 
-<sup>1</sup>deze functie is niet beschikbaar in de basic-laag van IoT-Hub. Zie voor meer informatie, [u bij het kiezen van de juiste IoT-Hub](iot-hub-scaling.md). <br/><sup>2</sup>meter formaat beperking is 8 KB.
+<sup>1</sup>deze functie is niet beschikbaar in de basic-laag van IoT-Hub. Zie voor meer informatie, [u bij het kiezen van de juiste IoT-Hub](iot-hub-scaling.md). <br/><sup>2</sup>meter formaat beperking is 8 KB. <br/><sup>3</sup>u kunt slechts één actieve apparaten import/export-taak tegelijk hebben.
 
-De *apparaatverbindingen* vertraging bepaalt de snelheid waarmee nieuwe apparaatverbindingen kunnen worden gemaakt met een IoT-hub. De *apparaatverbindingen* vertraging heeft geen betrekking op het maximale aantal gelijktijdig verbonden apparaten. De vertraging is afhankelijk van het aantal eenheden die zijn ingericht voor de IoT hub.
+De *apparaatverbindingen* vertraging bepaalt de snelheid waarmee nieuwe apparaatverbindingen kunnen worden gemaakt met een IoT-hub. De *apparaatverbindingen* vertraging heeft geen betrekking op het maximale aantal gelijktijdig verbonden apparaten. De *apparaatverbindingen* snelheid beperken, is afhankelijk van het aantal eenheden die zijn ingericht voor de IoT hub.
 
 Bijvoorbeeld, als u één S1-eenheid koopt, krijgt u een vertraging van 100 verbindingen per seconde. Dus als u wilt verbinding maken met 100.000 apparaten, duurt het ten minste 1000 seconden (ongeveer 16 minuten). U kunt echter zo veel gelijktijdig verbonden apparaten als er apparaten zijn geregistreerd in uw register-id's hebben.
 

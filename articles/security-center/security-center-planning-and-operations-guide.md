@@ -8,17 +8,18 @@ manager: mbaldwin
 editor: ''
 ms.assetid: f984e4a2-ac97-40bf-b281-2f7f473494c4
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/02/2018
 ms.author: yurid
-ms.openlocfilehash: d187d24725084296078f58447c19bda1ace13a69
-ms.sourcegitcommit: ca05dd10784c0651da12c4d58fb9ad40fdcd9b10
-ms.translationtype: HT
+ms.openlocfilehash: b180acfb74f503447212044f0b6be5589e2dd452
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/03/2018
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158786"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Plannings- en bedieningsgids voor Azure Security Center
 Deze gids is bedoeld voor IT-specialisten, IT-architecten, gegevensbeveiligingsanalisten en cloudbeheerders die willen gaan werken met Azure Security Center.
@@ -125,7 +126,7 @@ Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en h
 
 Beleidsregels van Security Center bevatten de volgende onderdelen:
 - [Gegevensverzameling](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection): instellingen voor configuratie van agent en verzamelen van gegevens.
-- [Beveiligingsbeleid](https://docs.microsoft.com/azure/security-center/security-center-policies): een [Azure-beleid](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) dat bepaalt welke items worden bewaakt en aanbevolen door Security Center, of Azure-beleid gebruiken voor het maken van nieuwe definities, het definiëren van extra beleidsregels en het toewijzen van beleidsregels binnen beheergroepen.
+- [Beveiligingsbeleid](https://docs.microsoft.com/azure/security-center/security-center-policies): een [Azure Policy](http://docs.microsoft.com/azure/azure-policy/azure-policy-introduction) waarmee wordt bepaald welke besturingselementen worden bewaakt en aanbevolen door Security Center of Azure-beleid gebruiken voor het maken van nieuwe definities, het definiëren van extra beleidsregels en het beleid toe te wijzen binnen beheergroepen.
 - [E-mailmeldingen](https://docs.microsoft.com/azure/security-center/security-center-provide-security-contact-details): instellingen voor contactpersonen en meldingen voor beveiliging.
 - [Prijscategorie](https://docs.microsoft.com/azure/security-center/security-center-pricing): keuze uit de prijscategorie Gratis of Standaard, die bepaalt welke functies van Security Center beschikbaar zijn voor resources binnen het bereik (kan worden opgegeven voor abonnementen, resourcegroepen en werkruimten).
 

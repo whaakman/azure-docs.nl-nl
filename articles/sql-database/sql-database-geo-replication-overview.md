@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/24/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 71268c07f7e653e1f7cf545f373717fd2760fee9
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 026b9147bf6f0f5ab4732d1937bd61d803967854
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918232"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159517"
 ---
 # <a name="overview-active-geo-replication-and-auto-failover-groups"></a>Overzicht: Actieve geo-replicatie en automatische failover-groepen
 
@@ -30,7 +30,7 @@ Actieve geo-replicatie is bedoeld als een zakelijke continuïteit-oplossing waar
 > Actieve Geo-replicatie is niet beschikbaar in het beheerde exemplaar.
 >  
 
-Automatische failover-groepen is een uitbreiding van actieve geo-replicatie. Het is ontworpen voor het beheren van failovers van meerdere databases geo-replicatie sumultaneously met behulp van een failover van de toepassing gestart of door over te dragen van failover worden uitgevoerd door de SQL-Database-service op basis van een gebruiker gedefinieerde criteria. De laatste kunt u meerdere verwante databases in een secundaire regio wordt automatisch hersteld na een onherstelbare fout of andere niet-geplande gebeurtenis optreedt die in het volledige of gedeeltelijke verlies van beschikbaarheid van de service SQL Database in de primaire regio resulteert. Bovendien kunt u de leesbare secundaire databases voor de offload van alleen-lezen querywerkbelastingen. Omdat automatische failover-groepen hebben betrekking op meerdere databases, moeten deze databases worden geconfigureerd op de primaire server. Primaire en secundaire servers voor de databases in de failovergroep moeten zich in hetzelfde abonnement. Automatische failovergroepen ondersteuning bieden voor replicatie van alle databases in de groep met slechts één secundaire server in een andere regio.
+Automatische failover-groepen is een uitbreiding van actieve geo-replicatie. Het is ontworpen voor het beheren van failovers van meerdere geo-replicatie databases tegelijkertijd met behulp van een failover van de toepassing gestart of door over te dragen van failover worden uitgevoerd door de SQL-Database-service op basis van een gebruiker gedefinieerde criteria. De laatste kunt u meerdere verwante databases in een secundaire regio wordt automatisch hersteld na een onherstelbare fout of andere niet-geplande gebeurtenis optreedt die in het volledige of gedeeltelijke verlies van beschikbaarheid van de service SQL Database in de primaire regio resulteert. Bovendien kunt u de leesbare secundaire databases voor de offload van alleen-lezen querywerkbelastingen. Omdat automatische failover-groepen hebben betrekking op meerdere databases, moeten deze databases worden geconfigureerd op de primaire server. Primaire en secundaire servers voor de databases in de failovergroep moeten zich in hetzelfde abonnement. Automatische failovergroepen ondersteuning bieden voor replicatie van alle databases in de groep met slechts één secundaire server in een andere regio.
 
 > [!NOTE]
 > Gebruik actieve geo-replicatie als meerdere secundaire replica's vereist zijn.
@@ -182,7 +182,7 @@ Zoals eerder besproken automatische failover-groepen en actieve kan geo-replicat
 
 ## <a name="manage-sql-database-failover-using-transact-sql"></a>Beheren van een failover van SQL database met behulp van Transact-SQL
 
-| Command | Beschrijving |
+| Opdracht | Beschrijving |
 | --- | --- |
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |SECUNDAIRE ON SERVER toevoegen argument gebruiken om te maken van een secundaire database voor een bestaande database en replicatie van gegevens wordt gestart |
 | [ALTER DATABASE (Azure SQL Database)](/sql/t-sql/statements/alter-database-azure-sql-database) |FAILOVER of FORCE_FAILOVER_ALLOW_DATA_LOSS gebruiken om over te schakelen van een secundaire database als primaire failover initiëren |

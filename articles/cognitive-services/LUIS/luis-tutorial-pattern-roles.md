@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/03/2018
 ms.author: diberry
-ms.openlocfilehash: 633bf16790437ba83e9a2a99f33a23fef9255364
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 6f3e7c9db7bbdb6bc24d123208355fc7a1d8e7e8
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43090523"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161931"
 ---
 # <a name="tutorial-improve-app-with-pattern-roles"></a>Zelfstudie: Een app met behulp van patroon verbeteren
 
@@ -27,7 +27,7 @@ In deze zelfstudie, gebruikt u een enkele entiteit met de rollen in combinatie m
 * Patroon voor uitingen met behulp van eenvoudige entiteit met de rol maken
 * Patroon voorspelling verbeteringen controleren
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u geen de Human Resources-app vanuit de [patroon](luis-tutorial-pattern.md) zelfstudie [importeren](luis-how-to-start-new-app.md#import-new-app) de JSON naar een nieuwe app in de [LUIS](luis-reference-regions.md#luis-website) website. De app voor het importeren is gevonden in de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-patterns-HumanResources-v2.json) GitHub-opslagplaats.
@@ -126,15 +126,15 @@ Labels van de entiteiten in deze stappen is mogelijk beter als de vooraf gedefin
 
 ## <a name="train-the-luis-app"></a>LUIS-app trainen
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-without-pattern"></a>Query uitvoeren op het eindpunt zonder patroon
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)] 
 
 2. Ga naar het einde van de URL in het adres en voer `Move Wayne Berry from Miami to Mount Vernon` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. 
 
@@ -382,7 +382,7 @@ De intentie score is nu veel hoger en de rolnamen van de maken deel uit van het 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: b5bcd12d3ead3fa99f80355e02a068246d7bcfa8
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: eabd6fdd643f7f8e1795f791e8a66e612651dee2
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052804"
+ms.locfileid: "44159500"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 update
 
@@ -82,7 +82,7 @@ Deze update bevat de volgende verbeteringen voor Azure Stack.
 - <!-- TBD | IS, ASDK -->  **Verbeteringen in het Azure Stack Capacity Planner gebruik**. De Azure Stack [Capacity Planner](http://aka.ms/azstackcapacityplanner) biedt nu een vereenvoudigde ervaring voor het invoeren van S2D-cache en S2D capaciteit bij het definiëren van de oplossing SKU's. De limiet van 1000 virtuele machine is verwijderd.
 
 
-### <a name="fixed-issues"></a>Opgeloste problemen
+### <a name="fixed-issues"></a>Problemen opgelost
 
 - <!-- TBD | ASDK, IS --> Er zijn verschillende verbeteringen aangebracht in het updateproces zodat deze betrouwbaarder. Bovendien zijn correcties aangebracht aan onderliggende infrastructuur, die zo weinig mogelijk potentiële downtime voor workloads tijdens het bijwerken.
 
@@ -143,7 +143,11 @@ Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveilig
   > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
 
 
-- Voordat u begint met de installatie van deze update, voert u [Test AzureStack](azure-stack-diagnostic-test.md) om te valideren van de status van uw Azure-Stack en los eventuele operationele problemen gevonden, met inbegrip van alle waarschuwingen en fouten. Ook actieve waarschuwingen bekijken en op te lossen die actie is vereist.
+- Voordat u begint met de installatie van deze update, voert u [Test AzureStack](azure-stack-diagnostic-test.md) met de volgende parameters om te valideren van de status van uw Azure-Stack en los eventuele operationele problemen gevonden, met inbegrip van alle waarschuwingen en fouten. Ook actieve waarschuwingen bekijken en op te lossen die actie is vereist.  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ``` 
 
 ### <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces
 

@@ -3,26 +3,21 @@ title: Een Azure-functie aanroepen vanuit Microsoft Flow | Microsoft Docs
 description: Een aangepaste connector maken en vervolgens een functie met behulp van deze connector aanroepen.
 services: functions
 keywords: cloud-apps, cloud services, Microsoft Flow, bedrijfsprocessen, business-toepassing
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 57d80ad836a16b8821ba0cce42c822728c654dfd
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 662c78fc7074b0dafc53c393962aa4b578779095
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38467741"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092255"
 ---
 # <a name="call-a-function-from-microsoft-flow"></a>Een functie van Microsoft Flow aanroepen
 

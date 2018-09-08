@@ -1,35 +1,31 @@
 ---
 title: Afhandeling van fouten in duurzame functies - Azure
-description: Informatie over het afhandelen van fouten in de uitbreiding duurzame functies voor Azure Functions.
+description: Leer hoe u voor het afhandelen van fouten in de extensie duurzame functies voor Azure Functions.
 services: functions
 author: cgillum
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/30/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 944fab5ccc55bc9a697e870208338bd0e697672d
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 0b19fe7441d3c2c5222095c31d9c3677b8c9cf34
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33763302"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092714"
 ---
-# <a name="handling-errors-in-durable-functions-azure-functions"></a>Afhandeling van fouten in duurzame functies (Azure-functies)
+# <a name="handling-errors-in-durable-functions-azure-functions"></a>Afhandeling van fouten in duurzame functies (Azure Functions)
 
-Duurzame functie integraties zijn geïmplementeerd in de code en de foutafhandeling mogelijkheden van de programmeertaal kunnen gebruiken. Met deze rekening er echt zijn niet alle nieuwe concepten, u moet meer informatie over de foutverwerking van de en compensatie opnemen in uw integraties. Er zijn echter enkele gedrag dat u houden moet rekening.
+Duurzame functie indelingen zijn geïmplementeerd in de code en de mogelijkheden voor foutafhandeling van de programmeertaal kunnen gebruiken. Met deze waarmee u rekening moet er echt zijn niet alle nieuwe concepten die u meer informatie wilt over wanneer foutafhandeling en compensatie opnemen in uw indelingen. Er zijn echter enkele problemen die u moet rekening houden met.
 
-## <a name="errors-in-activity-functions"></a>Fouten in de functies van de activiteit
+## <a name="errors-in-activity-functions"></a>Fouten in de activiteitsfuncties
 
 Elke uitzondering die is gegenereerd in een functie van de activiteit is samengevoegd terug naar de orchestrator-functie en gegenereerd als een `FunctionFailedException`. U kunt schrijven voor de verwerking en compensatie foutcode die aansluit bij uw behoeften in de orchestrator-functie.
 
-Neem bijvoorbeeld de volgende orchestrator-functie die middelen van één account naar een andere overzet:
+Bijvoorbeeld, houd rekening met de volgende orchestrator-functie die wordt overgedragen middelen van één account naar een andere:
 
 ```csharp
 #r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
@@ -68,11 +64,11 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-Als de aanroep van de **CreditAccount** functie mislukt voor de doelaccount, de orchestrator-functie gecompenseerd voor dit door de middelen creditering terug naar de bronaccount.
+Als de aanroep van de **CreditAccount** functie mislukt voor de doelaccount, de orchestrator-functie voor deze worden gecompenseerd door de bestaande fondsen creditering terug naar de bronaccount.
 
-## <a name="automatic-retry-on-failure"></a>Automatische nieuwe pogingen bij fouten
+## <a name="automatic-retry-on-failure"></a>Automatische nieuwe pogingen bij fout
 
-Als u functies van de activiteit aanroepen of subquery orchestration-functies kunt u automatisch beleid voor opnieuw proberen. Het volgende voorbeeld probeert een functie maximaal 3 keer aanroept en wacht 5 seconden tussen nieuwe pogingen:
+Als u activiteitsfuncties of subquery orchestration functies aanroept, kunt u een beleid voor automatische opnieuw proberen. Het volgende voorbeeld roept een functie maximaal drie keer en wacht vijf seconden tussen nieuwe pogingen:
 
 ```csharp
 public static async Task Run(DurableOrchestrationContext context)
@@ -87,20 +83,20 @@ public static async Task Run(DurableOrchestrationContext context)
 }
 ```
 
-De `CallActivityWithRetryAsync` API duurt een `RetryOptions` parameter. Onderliggende orchestration-aanroepen met de `CallSubOrchestratorWithRetryAsync` API kunt gebruiken deze dezelfde beleid voor opnieuw proberen.
+De `CallActivityWithRetryAsync` API duurt een `RetryOptions` parameter. Suborchestration aanroept met behulp van de `CallSubOrchestratorWithRetryAsync` API kunt gebruiken deze dezelfde beleid voor opnieuw proberen.
 
-Er zijn verschillende opties voor het aanpassen van het beleid voor automatisch opnieuw proberen. Hieronder vallen de volgende landen:
+Er zijn verschillende opties voor het aanpassen van het beleid voor automatische opnieuw proberen. Hieronder vallen de volgende landen:
 
 * **Maximumaantal pogingen**: het maximum aantal nieuwe pogingen.
-* **Interval voor eerste poging**: de hoeveelheid tijd moet worden gewacht voordat de eerste opnieuw proberen.
-* **Coefficient backoff**: de coefficient gebruikt om te bepalen van de snelheid van de toename van backoff. De standaardwaarde is 1.
-* **Interval voor opnieuw proberen Max**: de maximale hoeveelheid tijd moet wachten tussen nieuwe pogingen.
-* **Probeer time-out**: de maximale hoeveelheid tijd te besteden doen opnieuw probeert. Er is het standaardgedrag voor onbepaalde tijd opnieuw.
-* **Aangepaste**: een door de gebruiker gedefinieerde callback kan worden opgegeven waarmee wordt bepaald of een functieaanroep moet opnieuw worden geprobeerd.
+* **Eerste interval voor opnieuw proberen**: de hoeveelheid tijd moet worden gewacht voordat de eerste nieuwe poging.
+* **Uitstel coëfficiënt**: de coëfficiënt gebruikt om te bepalen van de snelheid van de toename van uitstel. Standaard ingesteld op 1.
+* **Interval voor opnieuw proberen van max**: de maximale hoeveelheid tijd moet wachten tussen nieuwe pogingen.
+* **Opnieuw proberen**: de maximale hoeveelheid tijd te besteden aan dit nieuwe pogingen. Het standaardgedrag is voor onbepaalde tijd opnieuw uit te voeren.
+* **Aangepaste**: een door de gebruiker gedefinieerde callback kunt opgeven dat bepaalt of een aanroep van de functie opnieuw moet worden uitgevoerd.
 
 ## <a name="function-timeouts"></a>Functie time-outs
 
-Mogelijk wilt u een functieaanroep binnen een orchestrator-functie afbreken als dit te lang duurt. De juiste manier om dit te doen vandaag is door het maken van een [duurzame timer](durable-functions-timers.md) met `context.CreateTimer` in combinatie met `Task.WhenAny`, zoals in het volgende voorbeeld:
+Mogelijk wilt u een functieaanroep binnen een orchestrator-functie afbreken als duurt te lang om te voltooien. De juiste manier om dit te doen vandaag is door het maken van een [duurzame timer](durable-functions-timers.md) met behulp van `context.CreateTimer` in combinatie met `Task.WhenAny`, zoals in het volgende voorbeeld:
 
 ```csharp
 public static async Task<bool> Run(DurableOrchestrationContext context)
@@ -130,11 +126,11 @@ public static async Task<bool> Run(DurableOrchestrationContext context)
 ```
 
 > [!NOTE]
-> Dit mechanisme uitvoering van een activiteit in uitvoering functie niet daadwerkelijk worden beëindigd. In plaats daarvan gewoon kunt u de orchestrator-functie voor het negeren van het resultaat en op verplaatsen. Zie de [Timers](durable-functions-timers.md#usage-for-timeout) documentatie voor meer informatie.
+> Dit mechanisme uitvoeren van de activiteit wordt uitgevoerd niet daadwerkelijk wordt beëindigd. In plaats daarvan kunt deze gewoon de orchestrator-functie voor het negeren van het resultaat en op verplaatsen. Zie voor meer informatie de [Timers](durable-functions-timers.md#usage-for-timeout) documentatie.
 
 ## <a name="unhandled-exceptions"></a>Niet-verwerkte uitzonderingen
 
-Als een orchestrator-functie is mislukt met een niet-verwerkte uitzondering, de details van de uitzondering wordt geregistreerd en het exemplaar is voltooid met een `Failed` status.
+Als een orchestrator-functie is mislukt met een niet-verwerkte uitzondering, de details van de uitzondering worden geregistreerd en het exemplaar is voltooid met een `Failed` status.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -3,26 +3,28 @@ title: Beveiligingsbeleid instellen in Azure Security Center | Microsoft Docs
 description: In dit artikel leest u hoe u beveiligingsbeleid configureert in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 3b9e1c15-3cdb-4820-b678-157e455ceeba
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/05/2018
-ms.author: terrylan
-ms.openlocfilehash: f12cede430a94da937a874ade2e50e4ed9860da9
-ms.sourcegitcommit: 4f9fa86166b50e86cf089f31d85e16155b60559f
-ms.translationtype: HT
+ms.date: 09/3/2018
+ms.author: rkarlin
+ms.openlocfilehash: c68b55beba445b7f5d30efe7155a47e7f6f76690
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34756988"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161285"
 ---
 # <a name="set-security-policies-in-azure-security-center"></a>Beveiligingsbeleid instellen in Azure Security Center
 In dit artikel leest u hoe u beveiligingsbeleid configureert in Security Center.
+
+Zie voor instructies over het instellen van beleidsregels met behulp van PowerShell [Snelstartgids: een beleidstoewijzing maken om te identificeren van niet-compatibele resources met behulp van de Azure DB PowerShell-module](../azure-policy/assign-policy-definition-ps.md).
 
 ## <a name="how-security-policies-work"></a>Hoe beveiligingsbeleid werkt
 In Security Center wordt voor elk van uw Azure-abonnementen automatisch een standaardbeveiligingsbeleid gemaakt. In Security Center kunt u het beleid bewerken en controleren of het beleid wordt nageleefd.
@@ -37,13 +39,12 @@ U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen bewerk
 
 1. Meld u aan bij Azure Portal.
 
-2. Ga op het dashboard van **Security Center** naar **Algemeen** en selecteer **Beveiligingsbeleid**.
+2. Ga in het dashboard van **Security Center** naar **BELEID EN NALEVING** en selecteer **Beveiligingsbeleid**.
 
 3. Selecteer het abonnement waarvoor u een beveiligingsbeleid wilt inschakelen.
 
-4. Klik in het gedeelte **Beleidsonderdelen** op **Beveiligingsbeleid**.  
-    Dit is het standaardbeleid dat door Security Center wordt toegewezen. U kunt de beschikbare beveiligingsaanbevelingen in- of uitschakelen.
-
+4. Schakel de beleidsregels die u wilt inschakelen voor het abonnement. U ontvangt aanbevelingen op basis van elk beleid dat u selecteert. 
+  ![lijst met beleidsregels](./media/security-center-policies/policies.png)
 5. Selecteer **Opslaan** als u klaar bent.
 
 ## <a name="available-security-policy-definitions"></a>Beschikbare beveiligingsbeleiddefinities

@@ -1,74 +1,70 @@
 ---
-title: Azure Functions duurzame eenheid testen
-description: Meer informatie over hoe eenheid test duurzame functies.
+title: Azure Duurzame functies Eenheidstesten
+description: Leer hoe u aan eenheid testen duurzame functies.
 services: functions
 author: kadimitr
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 02/28/2018
 ms.author: kadimitr
-ms.openlocfilehash: 7de9a6f0d4dfcb45932b89504c0d38c3c70283e9
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 81d187cf5b75b7bd943d9dcedc97b56ba9c397de
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33762757"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092573"
 ---
-# <a name="durable-functions-unit-testing"></a>Duurzame functies eenheid testen
+# <a name="durable-functions-unit-testing"></a>Duurzame functies Eenheidstesten
 
-Testen van de eenheden is een belangrijk onderdeel van de moderne software development procedures. Controles voor zakelijke logica gedrag controleren en beschermen tegen introducing onopgemerkte grote wijzigingen in de toekomst. Duurzame functies kunnen gemakkelijk worden uitgebreid in complexiteit zodat introducing eenheidstests helpt om te voorkomen dat de wijzigingen op te splitsen. De volgende secties wordt uitgelegd hoe eenheid test de functietypen drie - client, Orchestrator en activiteit Orchestration functies. 
+Testen eenheid is een belangrijk onderdeel van moderne softwareontwikkelingsprocedures. Eenheidstests zakelijke logica gedrag controleren en beveiligen van de introductie van ongemerkt belangrijke wijzigingen in de toekomst. Duurzame functies kunnen eenvoudig toeneemt in complexiteit, zodat de introductie tot eenheidstests helpt om te voorkomen dat belangrijke wijzigingen. De volgende secties wordt uitgelegd hoe u aan eenheid test de drie functietypen - Orchestration-client, -Orchestrator en -activiteit functies. 
 
 ## <a name="prerequisites"></a>Vereisten
 
-De voorbeelden in dit artikel vereisen kennis van de volgende concepten en frameworks: 
+De voorbeelden in dit artikel is kennis nodig van de volgende concepten en frameworks: 
 
 * Moduletests uitvoeren
 
 * Durable Functions 
 
-* [xUnit](https://xunit.github.io/) -framework testen
+* [xUnit](https://xunit.github.io/) -testen-framework
 
-* [moq](https://github.com/moq/moq4) -framework Mocking
+* [moq](https://github.com/moq/moq4) -framework simuleren
 
 
-## <a name="base-classes-for-mocking"></a>Basisklassen voor mocking 
+## <a name="base-classes-for-mocking"></a>Basisklassen voor het simuleren 
 
-Mocking wordt ondersteund via twee abstracte klassen in duurzame functies:
+Nabootsend wordt ondersteund via twee abstracte klassen in duurzame functies:
 
 * [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) 
 
 * [DurableOrchestrationContextBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContextBase.html)
 
-Deze klassen zijn basisklassen voor [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) en [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) die de Orchestration-Client en de Orchestrator-methoden definiëren. De mocks wordt verwacht gedrag voor basisklasse methoden instellen, zodat het testen van eenheden kunt controleren of de zakelijke logica. Er is een werkstroom in twee stappen voor het testen van de zakelijke logica in de Orchestration-Client en de Orchestrator-eenheid:
+Deze klassen zijn basisklassen voor [DurableOrchestrationClient](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html) en [DurableOrchestrationContext](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationContext.html) die de Orchestration-Client en de Orchestrator-methoden definiëren. De mocks wordt verwacht gedrag voor de basisklasse methoden instellen zodat de eenheidstest kunt controleren of de bedrijfslogica. Er is een werkstroom in twee stappen voor het testen van de bedrijfslogica in de Orchestration-Client en de Orchestrator-eenheid:
 
-1. Gebruik in plaats van de concrete implementatie op de basisklassen behoren bij het definiëren van de Orchestration-Client en de Orchestrator-handtekeningen.
-2. In de eenheidstests model van het gedrag van de basisklassen en controleer of de zakelijke logica. 
+1. Gebruik de basisklassen in plaats van de concrete implementatie bij het definiëren van de Orchestration-Client en de Orchestrator-handtekeningen.
+2. In de eenheidstests model van het gedrag van de basisklassen en controleer of de bedrijfslogica. 
 
-Meer informatie vinden in de volgende leden voor het testen van functies die gebruikmaken van de orchestration-client-binding en de orchestrator-binding activeren.
+Meer informatie vinden in de volgende alinea's voor het testen van functies die gebruikmaken van de orchestration-client-binding en de orchestrator activeren binding.
 
-## <a name="unit-testing-trigger-functions"></a>Eenheid testen trigger-functies
+## <a name="unit-testing-trigger-functions"></a>Triggerfuncties voor test-eenheid
 
-In deze sectie wordt het testen van eenheden de logica van de volgende HTTP-trigger-functie voor het starten van nieuwe integraties valideren.
+In deze sectie wordt de test jednotky de logica van de volgende HTTP-trigger-functie voor het starten van nieuwe indelingen valideren.
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HttpStart.cs)]
 
-De taak eenheid testen worden om te controleren of de waarde van de `Retry-After` header is opgegeven in de nettolading van de reactie. Zodat het testen van eenheden wordt een aantal model [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) methoden om ervoor te zorgen voorspelbaar gedrag. 
+De taak van de testen eenheid is om te controleren of de waarde van de `Retry-After` koptekst opgegeven in de nettolading van de reactie. Zodat de eenheidstest gesimuleerde aantal een worden [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html) methoden voor het voorspelbare gedrag. 
 
-Eerst een nagebootste van de basisklasse is vereist, [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). De nagebootste mag een nieuwe klasse die wordt geïmplementeerd [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). Echter, met behulp van een mocking framework zoals [moq](https://github.com/moq/moq4) vereenvoudigt het proces:    
+Eerst een nagebootste van de basisklasse is vereist, [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). De nagebootste mag een nieuwe klasse die [DurableOrchestrationClientBase](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClientBase.html). Echter met behulp van een antwoordnabootsing framework zoals [moq](https://github.com/moq/moq4) vereenvoudigt het proces:    
 
 ```csharp
     // Mock DurableOrchestrationClientBase
     var durableOrchestrationClientBaseMock = new Mock<DurableOrchestrationClientBase>();
 ```
 
-Vervolgens `StartNewAsync` methode is mocked om te retourneren van een bekende exemplaar-ID.
+Vervolgens `StartNewAsync` methode is simulatie om terug te keren een bekende exemplaar-ID.
 
 ```csharp
     // Mock StartNewAsync method
@@ -77,7 +73,7 @@ Vervolgens `StartNewAsync` methode is mocked om te retourneren van een bekende e
         ReturnsAsync(instanceId);
 ```
 
-Volgende `CreateCheckStatusResponse` mocked altijd return is een leeg HTTP 200-antwoord.
+Volgende `CreateCheckStatusResponse` gesimuleerd altijd terug is een lege HTTP 200-respons.
 
 ```csharp
     // Mock CreateCheckStatusResponse method
@@ -90,7 +86,7 @@ Volgende `CreateCheckStatusResponse` mocked altijd return is een leeg HTTP 200-a
         });
 ```
 
-`TraceWriter` ook mocked is:
+`TraceWriter` simulatie is ook mogelijk:
 
 ```csharp
     // Mock TraceWriter
@@ -98,7 +94,7 @@ Volgende `CreateCheckStatusResponse` mocked altijd return is een leeg HTTP 200-a
 
 ```  
 
-Nu de `Run` methode aangeroepen vanuit de unit-test:
+Nu de `Run` methode wordt aangeroepen vanuit de unit-test:
 
 ```csharp
     // Call Orchestration trigger function
@@ -113,7 +109,7 @@ Nu de `Run` methode aangeroepen vanuit de unit-test:
         traceWriterMock.Object);
  ``` 
 
- De laatste stap is het vergelijken van de uitvoer met de verwachte waarde:
+ De laatste stap is om te vergelijken van de uitvoer met de verwachte waarde:
 
 ```csharp
     // Validate that output is not null
@@ -123,15 +119,15 @@ Nu de `Run` methode aangeroepen vanuit de unit-test:
     Assert.Equal(TimeSpan.FromSeconds(10), result.Headers.RetryAfter.Delta);
 ```
 
-Na het combineren van alle stappen heeft de unit-test de volgende code: 
+Nadat alle stappen worden gecombineerd, hebt het testen van eenheden de volgende code: 
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HttpStartTests.cs)]
 
-## <a name="unit-testing-orchestrator-functions"></a>Testen van orchestrator-functies van de eenheden
+## <a name="unit-testing-orchestrator-functions"></a>Eenheidstesten orchestrator-functies
 
-Orchestrator-functies zijn nog meer interessante voor het testen aangezien meestal veel meer bedrijfslogica hebben eenheid.
+Orchestrator-functies zijn nog interessanter voor eenheidstesten omdat ze meestal veel meer bedrijfslogica hebben.
 
-In dit gedeelte de eenheid tests valideert de uitvoer van de `E1_HelloSequence` Orchestrator-functie:
+In deze sectie de eenheid tests valideert de uitvoer van de `E1_HelloSequence` Orchestrator-functie:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 
@@ -141,7 +137,7 @@ De code van de test eenheid wordt gestart met het maken van een nagebootste:
     var durableOrchestrationContextMock = new Mock<DurableOrchestrationContextBase>();
 ```
 
-Vervolgens wordt de activiteit methodeaanroepen worden mocked:
+Vervolgens wordt de activiteit methodeaanroepen worden simulatie:
 
 ```csharp
     durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "Tokyo")).ReturnsAsync("Hello Tokyo!");
@@ -149,7 +145,7 @@ Vervolgens wordt de activiteit methodeaanroepen worden mocked:
     durableOrchestrationContextMock.Setup(x => x.CallActivityAsync<string>("E1_SayHello", "London")).ReturnsAsync("Hello London!");
 ```
 
-Naast het testen van eenheden belt `HelloSequence.Run` methode:
+Naast de eenheidstest worden gebeld `HelloSequence.Run` methode:
 
 ```csharp
     var result = await HelloSequence.Run(durableOrchestrationContextMock.Object);
@@ -164,15 +160,15 @@ En ten slotte de uitvoer worden gevalideerd:
     Assert.Equal("Hello London!", result[2]);
 ```
 
-Na het combineren van alle stappen heeft de unit-test de volgende code:
+Nadat alle stappen worden gecombineerd, hebt het testen van eenheden de volgende code:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/VSSample.Tests/HelloSequenceOrchestratorTests.cs)]
 
-## <a name="unit-testing-activity-functions"></a>Eenheid testen activiteit functies
+## <a name="unit-testing-activity-functions"></a>Activiteitsfuncties voor test-eenheid
 
-Functies van de activiteit kunnen worden getest op dezelfde manier als niet-duurzame functies eenheid. Functies van de activiteit beschikt niet over een basisklasse voor mocking. Dus de eenheidstests de parametertypen rechtstreeks gebruiken.
+Activiteitsfuncties kunnen worden getest op dezelfde manier als niet-duurzame functies eenheid. Activiteitsfuncties beschikt niet over een basisklasse op voor het simuleren. Dus de eenheidstests de parametertypen rechtstreeks gebruiken.
 
-In deze sectie valideert het testen van eenheden het gedrag van de `E1_SayHello` activiteit functie:
+In deze sectie de eenheidstest valideert het gedrag van de `E1_SayHello` activiteit functie:
 
 [!code-csharp[Main](~/samples-durable-functions/samples/precompiled/HelloSequence.cs)]
 

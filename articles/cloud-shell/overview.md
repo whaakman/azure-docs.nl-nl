@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 07/24/2018
+ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 9588bebdc827760f0e0d3e2aadccbff5f24723f1
-ms.sourcegitcommit: c2c64fc9c24a1f7bd7c6c91be4ba9d64b1543231
+ms.openlocfilehash: ff50ea8c49d35306ccb48ec703de39c27c24bf7b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39258922"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160673"
 ---
 # <a name="overview-of-azure-cloud-shell"></a>Overzicht van Azure Cloudshell
 Azure Cloud Shell is een interactieve, browser toegankelijke shell voor het beheren van Azure-resources.
@@ -35,6 +35,7 @@ Probeer uit Azure portal met behulp van de Cloud Shell-pictogram.
 ![Portal starten](media/overview/portal-launch-icon.png)
 
 ## <a name="features"></a>Functies
+
 ### <a name="browser-based-shell-experience"></a>Browser gebaseerde shell-ervaring
 Cloudshell kan toegang tot een browser gebaseerde opdrachtregel ervaring die zijn gebouwd met Azure-beheertaken waarmee u rekening moet worden ingeschakeld.
 Maak gebruik van Cloud Shell om te werken voelt van een lokale machine op een manier alleen de cloud kunt opgeven.
@@ -65,33 +66,11 @@ Cloudshell is een flexibele hulpprogramma dat kan worden gebruikt vanuit:
 * [VS Code Azure-accountextensie](https://marketplace.visualstudio.com/items?itemName=ms-vscode.azure-account)
 
 ### <a name="connect-your-microsoft-azure-files-storage"></a>Verbinding maken met uw Microsoft Azure File storage
-Cloud Shell-machines zijn tijdelijk en vereist een Azure-bestandsshare te koppelen als `clouddrive` om vast te leggen van de bestanden.
+Cloud Shell machines zijn tijdelijk en vereisen een nieuwe of bestaande Azure-bestandsshare te koppelen als `clouddrive` om vast te leggen van de bestanden.
 
 Op de eerste keer opstarten die cloud Shell wordt gevraagd om te maken van een resource delen groeperen, storage-account en Azure Files namens. Dit is een eenmalige stap en automatisch worden toegevoegd voor alle sessies. Één bestandsshare kan worden toegewezen en wordt gebruikt door zowel Bash als PowerShell in Cloud Shell (Preview).
 
-#### <a name="create-new-storage"></a>Maken van nieuwe opslag
-![](media/overview/basic-storage.png)
-
-Een account voor lokaal redundante opslag (LRS) en een Azure-bestandsshare kunnen namens u worden gemaakt. De Azure-bestandsshare wordt gebruikt voor omgevingen met zowel Bash als PowerShell als u wilt gebruiken. Reguliere opslagkosten van toepassing.
-
-Drie bronnen worden namens u gemaakt:
-1. De resourcegroep met de naam: `cloud-shell-storage-<region>`
-2. Storage-Account met de naam: `cs<uniqueGuid>`
-3. De bestandsshare met de naam: `cs-<user>-<domain>-com-<uniqueGuid>`
-
-> [!Note]
-> Bash in Cloud Shell maakt ook een standaardinstallatiekopie van 5 GB-schijf om te blijven behouden `$Home`. Alle bestanden in uw directory $Home zoals SSH-sleutels worden opgeslagen in de schijfinstallatiekopie van de gebruiker die zijn opgeslagen in uw gekoppelde Azure-bestandsshare. Aanbevolen procedures toepassen bij het opslaan van bestanden in uw directory $Home en de gekoppelde Azure-bestandsshare.
-
-#### <a name="use-existing-resources"></a>Gebruik bestaande bronnen
-![](media/overview/advanced-storage.png)
-
-Een geavanceerde optie is opgegeven om te koppelen van bestaande resources naar Cloud Shell.
-Klik op 'Geavanceerde instellingen weergeven' bij de prompt opslag instellen om extra opties weer te geven.
-
-> [!Note]
-> Vervolgkeuzemenu's worden voor uw vooraf toegewezen Cloud Shell-regio en LRS/GRS/ZRS-opslagaccounts gefilterd.
-
-[Meer informatie over Cloud Shell-opslag, het bijwerken van de Azure-bestandsshares en uploadt/downloadt bestanden.](persisting-shell-storage.md)
+Meer informatie voor meer informatie over het koppelen van een [nieuwe of bestaande opslagaccount](persisting-shell-storage.md).
 
 ## <a name="concepts"></a>Concepten
 * Cloudshell wordt uitgevoerd op een tijdelijke host die is opgegeven op een per-sessie, per gebruiker

@@ -11,20 +11,20 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: f20bcb4245a2870d8eaa442c6f747ee533b362db
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e5edfc92fc23c3235e4d4b9ca23f83c7adc3accf
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39348320"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158400"
 ---
 # <a name="set-up-security-info-to-use-text-messaging-preview"></a>Beveiligingsgegevens ingesteld voor het gebruik van SMS-berichten (preview)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 Instellen van je beveiligingsgegevens, moet u zich aanmelden bij uw werk of school-account en klikt u vervolgens het registratieproces te voltooien. Als u nooit je beveiligingsgegevens hebt ingesteld, wordt u gevraagd dit nu doen.
 
-## <a name="set-up-text-messaging"></a>Instellen van de SMS-berichten verzenden
+## <a name="set-up-text-messaging"></a>Sms-berichten instellen
 
 Afhankelijk van instellingen van uw organisatie, u mogelijk gevraagd om toe te voegen van de SMS-berichten tot je beveiligingsgegevens, wanneer u zich aanmeldt. Anders wordt om te beginnen met het instellen van de SMS-berichten in de beveiligingsgegevens, volg de stappen in [je beveiligingsgegevens beheren](security-info-manage-settings.md).
 

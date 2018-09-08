@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 04/16/2018
 ms.author: daveba
-ms.openlocfilehash: adfa7ebfd911bfcbc88e01030777e91c48841784
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 9e1ea4e35c1d8b90aa3d0fdf5e619f7b7f7db400
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028020"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157130"
 ---
 # <a name="create-list-and-delete-a-user-assigned-managed-identity-using-azure-resource-manager"></a>Maken, weergeven en verwijderen van een gebruiker toegewezen beheerde identiteit met Azure Resource Manager
 
-[!INCLUDE[preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
+[!INCLUDE [preview-notice](~/includes/active-directory-msi-preview-notice-ua.md)]
 
 Beheerde identiteiten voor Azure-resources biedt Azure-services met een beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken voor verificatie bij services die ondersteuning bieden voor Azure AD-verificatie, zonder de referenties in uw code. 
 
@@ -53,7 +53,7 @@ Als met de Azure bieden portal en schrijven van scripts en Azure Resource Manage
 
 Gebruik de volgende sjabloon voor het maken van een gebruiker toegewezen beheerde identiteit. Vervang de `<USER ASSIGNED IDENTITY NAME>` waarde door uw eigen waarden:
 
-[!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+[!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
 ```json
 {

@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 08/13/2018
+ms.date: 09/07/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 10bcf54da9660da1edcc8358f10289e9678be5cb
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 89b21af5303afc2082d3d56ddb9e894f3ae4c4b8
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055266"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158408"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installeren en configureren van een on-premises gegevensgateway
 Een on-premises gegevensgateway is vereist wanneer een of meer Azure Analysis Services-servers in dezelfde regio verbinding met on-premises gegevensbronnen maken. Zie voor meer informatie over de gateway, [On-premises gegevensgateway](analysis-services-gateway.md).
@@ -35,6 +35,7 @@ Een on-premises gegevensgateway is vereist wanneer een of meer Azure Analysis Se
 * Tijdens de installatie bij het registreren van uw gateway met Azure, is de standaardregio voor uw abonnement geselecteerd. U kunt een andere regio. Als u servers in meer dan één regio hebt, moet u een gateway voor elke regio. 
 * De gateway kan niet worden geïnstalleerd op een domeincontroller.
 * Slechts één gateway kan worden geïnstalleerd op een enkele computer.
+* Standaard wordt met de gateway de account NT SERVICE\PBIEgwService gebruikt om aan te melden. Een ander account kan worden opgegeven tijdens de installatie van of in Services. Zorg ervoor dat instellingen voor Groepsbeleid kunnen dat het serviceaccount heeft logboek op als de service-bevoegdheden.
 * De gateway installeren op een computer die blijft op en gaat niet naar de slaapstand.
 * Moet u de gateway niet installeren op een computer draadloos zijn verbonden met uw netwerk. Prestaties kan worden verminderd.
 * Aanmelden bij Azure met een account in Azure AD voor dezelfde [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) als het abonnement registreert u de gateway in. Azure B2B (Gast)-accounts worden niet ondersteund bij het installeren en registreren van een gateway.
@@ -116,4 +117,4 @@ Dat is alles. Als u wilt openen van poorten of problemen oplost, moet u uitcheck
 ## <a name="next-steps"></a>Volgende stappen
 * [Analyseservices beheren](analysis-services-manage.md)   
 * [Gegevens ophalen uit Azure Analysis Services](analysis-services-connect.md)   
-* [Gateway gebruiken voor gegevensbronnen op een Azure Virtual Network](analysis-services-vnet-gateway.md)
+* [Gateway gebruiken voor gegevensbronnen in een virtueel Azure-netwerk](analysis-services-vnet-gateway.md)

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 11/17/2017
 ms.author: suhuruli
-ms.openlocfilehash: 618180f9cbd1c65863e3e039bac40d1cc493bc37
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 8473b2e202dd408cce6658f3ca349d884a28dc3a
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918497"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160470"
 ---
 # <a name="set-up-your-development-environment-on-mac-os-x"></a>Uw ontwikkelomgeving instellen in Mac OS X
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "42918497"
 
 U kunt Azure Service Fabric-toepassingen bouwen voor uitvoering in Linux-clusters met behulp van Mac OS X. In dit document wordt uitgelegd hoe u uw Mac kunt instellen voor ontwikkeling.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 Azure Service Fabric wordt niet systeemeigen op OS X uitgevoerd. Als u een lokaal Service Fabric-cluster wilt uitvoeren, wordt er een vooraf geconfigureerde Docker-containerinstallatiekopie aangeboden. Voordat u aan de slag gaat, hebt u het volgende nodig:
 
 * Ten minste 4 GB RAM-geheugen.
@@ -157,14 +157,16 @@ Service Fabric biedt hulpprogramma's waarmee u vanuit de terminal een Service Fa
     ```bash
     npm install -g yo
     ```
-3. Installeer de Yeoman generator die u wilt gebruiken. Volg hiervoor de stappen in deze [startdocumentatie](service-fabric-get-started-linux.md). Volg deze stappen om Service Fabric-toepassingen te maken met behulp van Yeoman:
+3. Installeer de Yeoman generator die u wilt gebruiken. Volg hiervoor de stappen in deze [startdocumentatie](service-fabric-get-started-linux.md#set-up-yeoman-generators-for-containers-and-guest-executables). Volg deze stappen om Service Fabric-toepassingen te maken met behulp van Yeoman:
 
     ```bash
     npm install -g generator-azuresfjava       # for Service Fabric Java Applications
     npm install -g generator-azuresfguest      # for Service Fabric Guest executables
     npm install -g generator-azuresfcontainer  # for Service Fabric Container Applications
     ```
-4. Als u een Service Fabric Java-toepassing wilt maken op een Mac, moeten JDK 1.8 en Gradle op de hostcomputer zijn geïnstalleerd. De software kan worden geïnstalleerd met behulp van [HomeBrew](https://brew.sh/), als volgt: 
+4. Nadat u de generatoren hebt geïnstalleerd, kunt u uitvoerbare gastbestanden of containerservices maken door respectievelijk `yo azuresfguest` of `yo azuresfcontainer` uit te voeren.
+
+5. Als u een Service Fabric Java-toepassing wilt maken op een Mac, moeten JDK 1.8 en Gradle op de hostcomputer zijn geïnstalleerd. De software kan worden geïnstalleerd met behulp van [HomeBrew](https://brew.sh/), als volgt: 
 
     ```bash
     brew update

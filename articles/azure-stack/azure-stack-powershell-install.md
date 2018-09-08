@@ -11,46 +11,45 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 08/10/2018
+ms.date: 09/06/2018
 ms.author: sethm
 ms.reviewer: thoroet
-ms.openlocfilehash: 2619f959dbefba84ea1a4d5aa974055998b78b5a
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: b563117f4d4b0e3859f0478a66610b0238f265dd
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42059169"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092556"
 ---
 # <a name="install-powershell-for-azure-stack"></a>PowerShell voor Azure Stack installeren
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-U moet Azure Stack compatibel PowerShell-modules om te werken met uw cloud te installeren. Compatibiliteit wordt ingeschakeld via een functie, genaamd *API profielen*.
+Als u wilt werken met uw cloud, moet u Azure Stack-compatibele PowerShell-modules installeren. Compatibiliteit wordt ingeschakeld via een functie, genaamd *API profielen*.
 
 API-profielen bieden een manier voor het beheren van versieverschillen tussen Azure en Azure Stack. Een API-versie-profiel is een set met Azure Resource Manager PowerShell-modules met specifieke API-versies. Elk cloudplatform bevat een set ondersteunde API-versieprofielen. Bijvoorbeeld, Azure Stack biedt ondersteuning voor een specifieke datum Profielversie zoals **2017-03-09-profiel**, en biedt ondersteuning voor Azure de **nieuwste** API-versie-profiel. Wanneer u een profiel installeert, worden de Azure Resource Manager PowerShell-modules die met het opgegeven profiel overeenkomen geïnstalleerd.
 
-U kunt Azure Stack-compatibele PowerShell-modules installeren in Internet verbonden zijn, gedeeltelijk verbonden, of in een niet-verbonden scenario. In dit artikel helpen we u bij de gedetailleerde instructies voor het installeren van PowerShell voor Azure Stack voor deze scenario's.
+U kunt Azure Stack compatibel PowerShell-modules op Internet verbonden, gedeeltelijk verbonden of niet verbonden scenario's kunt installeren. Dit artikel helpt bij de gedetailleerde instructies voor het installeren van PowerShell voor Azure Stack voor deze scenario's.
 
 ## <a name="1-verify-your-prerequisites"></a>1. Controleer of uw vereisten
 
-Voordat u uw get aan de slag met Azure Stack en PowerShell, moet u beschikken over een paar vereisten.
+Voordat u aan de slag met Azure Stack en PowerShell, hebt u de volgende vereisten:
 
 - **PowerShell-versie 5.0**  
-Om te controleren of uw versie, $PSVersionTable.PSVersion uitvoeren en vergelijkt u de **belangrijke** versie. Als u geen PowerShell 5.0 hebt, volgt u de [koppeling](https://docs.microsoft.com/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) om te upgraden naar PowerShell 5.0.
+Uitvoeren om te controleren of uw versie, **$PSVersionTable.PSVersion** en vergelijkt u de **belangrijke** versie. Als u geen PowerShell 5.0 hebt, volgt u de [koppeling](/powershell/scripting/setup/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell) om te upgraden naar PowerShell 5.0.
 
   > [!Note]  
   > PowerShell 5.0 vereist een Windows-machine.
 
-- **Powershell een opdrachtprompt met verhoogde bevoegdheden uitvoeren**  
-  U moet mogelijk om PowerShell met beheerdersbevoegdheden.
+- **Voer Powershell uit in een opdrachtprompt met verhoogde bevoegdheid**  
+  U moet PowerShell ook uitvoeren met administratorbevoegdheden.
 
 - **PowerShell Gallery-toegang**  
-  U moet toegang tot de [PowerShell Gallery](https://www.powershellgallery.com). De galerie is de centrale opslagplaats voor PowerShell-inhoud. De **PowerShellGet** -module bevat cmdlets voor het detecteren, installeren, bijwerken en PowerShell-artefacten, zoals modules, DSC-resources, rolmogelijkheden en scripts vanaf de PowerShell Gallery en andere persoonlijke publiceren opslagplaatsen. Als u PowerShell in een niet-verbonden scenario gebruikt, moet u resources ophalen van een virtuele machine met een verbinding met Internet en op te slaan op een locatie die toegankelijk is voor uw niet-verbonden machine.
-
+  U hebt toegang tot de [PowerShell Gallery](https://www.powershellgallery.com). De galerie is de centrale opslagplaats voor PowerShell-inhoud. De **PowerShellGet** -module bevat cmdlets voor het detecteren, installeren, bijwerken en PowerShell-artefacten, zoals modules, DSC-resources, rolmogelijkheden en scripts vanaf de PowerShell Gallery en andere persoonlijke publiceren opslagplaatsen. Als u PowerShell in een niet-verbonden scenario gebruikt, moet u resources ophalen van een virtuele machine met een verbinding met Internet en sla ze op een locatie die toegankelijk is voor uw niet-verbonden machine.
 
 <!-- Nuget? -->
 
-## <a name="2-validate-if-the-powershell-gallery-is-accessible"></a>2. Controleren of de PowerShell Gallery beschikbaar is
+## <a name="2-validate-the-powershell-gallery-accessibility"></a>2. Valideren van de PowerShell Gallery toegankelijkheid
 
 Valideren of PSGallery is geregistreerd als een opslagplaats.
 
@@ -130,7 +129,7 @@ Als de installatie geslaagd is, wordt de azurerm-module en AzureStack-modules wo
 
 In een niet-verbonden scenario, moet u eerst de PowerShell-modules downloaden op een computer die verbinding heeft met Internet en deze vervolgens overbrengen naar de Azure Stack Development Kit voor installatie.
 
-Aanmelden bij een computer waarop u over een internetverbinding beschikt en de volgende scripts gebruiken voor het downloaden van de Azure Resource Manager en AzureStack pakketten naar uw lokale computer, afhankelijk van uw versie van Azure Stack.
+Aanmelden bij een computer met een internetverbinding en de volgende scripts gebruiken voor het downloaden van de Azure Resource Manager en AzureStack pakketten, afhankelijk van uw versie van Azure Stack:
 
 
   - **Versie 1.3.0** (Azure Stack 1804 of hoger)
@@ -157,11 +156,11 @@ Aanmelden bij een computer waarop u over een internetverbinding beschikt en de v
       Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
     ````
 
-2. Kopieer het gedownloade pakketten via een USB-apparaat.
+2. Kopieer het gedownloade pakketten naar een USB-apparaat.
 
 3. Meld u aan met het werkstation en kopieer de pakketten van het USB-apparaat naar een locatie op het werkstation.
 
-4. Nu moet u deze locatie als de standaard-opslagplaats registreren en de azurerm-module en AzureStack-modules installeren vanuit deze opslagplaats:
+4. Nu registreren van deze locatie als de standaard-opslagplaats en de azurerm-module en AzureStack-modules installeren vanaf deze opslagplaats:
 
    ```PowerShell
    #requires -Version 5
@@ -181,19 +180,18 @@ Aanmelden bij een computer waarop u over een internetverbinding beschikt en de v
 
 ## <a name="6-configure-powershell-to-use-a-proxy-server"></a>6. PowerShell voor het gebruik van een proxyserver configureren
 
-In scenario's waarin een proxyserver voor toegang tot het Internet, moet u eerst de PowerShell voor het gebruik van een bestaande proxyserver configureren.
+In scenario's waarin een proxyserver voor toegang tot het Internet, moet u eerst PowerShell voor het gebruik van een bestaande proxyserver configureren:
 
 1. Open een verhoogde PowerShell-prompt.
 2. Voer de volgende opdrachten uit:
 
-````PowerShell  
-  #To use Windows credentials for proxy authentication
-  [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
+   ```PowerShell  
+   #To use Windows credentials for proxy authentication
+   [System.Net.WebRequest]::DefaultWebProxy.Credentials = [System.Net.CredentialCache]::DefaultCredentials
 
-  #Alternatively, to prompt for separate credentials that can be used for #proxy authentication
-
-  [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
-````
+   #Alternatively, to prompt for separate credentials that can be used for #proxy authentication
+   [System.Net.WebRequest]::DefaultWebProxy.Credentials = Get-Credential
+   ```
 
 ## <a name="next-steps"></a>Volgende stappen
 

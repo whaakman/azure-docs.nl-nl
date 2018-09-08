@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/10/2017
 ms.author: nberdy
-ms.openlocfilehash: 0f4d5105b7266ba24fc5efa9af887b4458c05d5e
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 3aa452cd178bd0d064726c5be7dbdf65c6ef8d92
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186193"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160045"
 ---
 # <a name="iot-hub-operations-monitoring"></a>IoT Hub-bewerkingen controleren
 
@@ -186,26 +186,6 @@ De categorie voor het doorsturen van bericht houdt bij of fouten die optreden ti
 }
 ```
 
-## <a name="view-events"></a>Gebeurtenissen weergeven
-
-U kunt de *iothub-explorer* hulpprogramma voor het snel testen van uw IoT-hub genereren van gebeurtenissen voor bewaking. Voor het installeren van het hulpprogramma, raadpleegt u de instructies in de [iothub-explorer] [ lnk-iothub-explorer] GitHub-opslagplaats.
-
-1. Zorg ervoor dat de **verbindingen** categorie bewaking is ingesteld op **uitgebreid** in de portal.
-
-1. Voer de volgende opdracht te lezen van de controle-eindpunt bij een opdrachtprompt:
-
-    ```
-    iothub-explorer monitor-ops --login {your iothubowner connection string}
-    ```
-
-1. Voer de volgende opdracht voor het simuleren van een apparaat verzenden van apparaat-naar-cloud-berichten in een andere opdrachtprompt:
-
-    ```
-    iothub-explorer simulate-device {your device name} --send "My test message" --login {your iothubowner connection string}
-    ```
-
-1. De eerste opdrachtprompt ziet u de gebeurtenissen voor bewaking als het gesimuleerde apparaat verbinding met uw IoT-hub maakt.
-
 ## <a name="connect-to-the-monitoring-endpoint"></a>Verbinding maken met de controle-eindpunt
 
 De controle-eindpunt op uw IoT-hub is een Event Hub-compatibele eindpunt. U kunt een mechanisme dat werkt met Event Hubs controleren om berichten te lezen vanaf dit eindpunt. Het volgende voorbeeld maakt u een basislezer die niet geschikt voor een implementatie met hoge doorvoer. Zie voor meer informatie over het verwerken van Event Hubs-berichten de zelfstudie [Aan de slag met Event Hubs][lnk-eventhubs-tutorial].
@@ -303,5 +283,4 @@ Als u wilt de mogelijkheden van IoT Hub verder verkennen, Zie:
 
 [lnk-devguide]: iot-hub-devguide.md
 [lnk-iotedge]: ../iot-edge/tutorial-simulate-device-linux.md
-[lnk-iothub-explorer]: https://github.com/azure/iothub-explorer
 [lnk-eventhubs-tutorial]: ../event-hubs/event-hubs-csharp-ephcs-getstarted.md

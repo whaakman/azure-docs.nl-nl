@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 09/15/2016
+ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 1948fb927c00e928a46c347bc6f1a01a43e155df
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 5ce80e85f00c4c3542bf61e910baec9ccd635bcd
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112136"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161302"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-vms"></a>Snelstartgids: Handmatige installatie van één exemplaar SAP HANA op Azure Virtual machines
 ## <a name="introduction"></a>Inleiding
@@ -45,7 +45,9 @@ Deze handleiding wordt ook van uitgegaan dat u bekend met bent:
    * Als u meer informatie over het verbeteren van de efficiëntie in gebruik te maken van een multi-SID-installatie van ASCS/SCS op Azure. Zie [maken van een multi-SID-configuratie van SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-multi-sid). 
    * Principes van het uitvoeren van SAP NetWeaver gebaseerd op Linux gebaseerde virtuele machines in Azure. Zie [met SAP NetWeaver op Microsoft Azure SUSE Linux VM's](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/suse-quickstart). Deze handleiding bevat specifieke instellingen voor Linux in Azure VM's en meer informatie over het correct Azure storage-schijven koppelen aan virtuele Linux-machines.
 
-Op dit moment worden Azure-VM's voor SAP HANA omhoog configuraties alleen gecertificeerd door SAP. Scale-out-configuraties met SAP HANA-werkbelastingen zijn nog niet ondersteund. Zie voor SAP HANA met hoge beschikbaarheid in geval van een scale-up-configuraties, [hoge beschikbaarheid van SAP HANA op Azure virtual machines (VM's)](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability).
+De typen Azure VM's die kunnen worden gebruikt voor productiescenario's worden vermeld in de [SAP-documentatie voor IAAS](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html). Voor niet-productie scenario's is een groter aantal systeemeigen Azure-VM-typen beschikbaar.
+Raadpleeg het document voor meer informatie over de virtuele machine configuratie en bewerkingen [configuraties van SAP HANA-infrastructuur en bewerkingen op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations).
+Zie voor hoge beschikbaarheid van SAP HANA, [SAP HANA met hoge beschikbaarheid voor Azure virtual machines](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview).
 
 Als u op zoek zijn naar een exemplaar van SAP HANA of S/4HANA of BW/4HANA system geïmplementeerd in de zeer snel tijd ophalen, kunt u overwegen het gebruik van [SAP Cloud Appliance Library](http://cal.sap.com). Documentatie over het implementeren, bijvoorbeeld van een S/4HANA-systeem via SAP CAL op Azure in [in deze handleiding](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/cal-s4h). Alles wat u nodig hebt is een Azure-abonnement en een SAP-gebruiker die kan worden geregistreerd met SAP Cloud Appliance Library.
 

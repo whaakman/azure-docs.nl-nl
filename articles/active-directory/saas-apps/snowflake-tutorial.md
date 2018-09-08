@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/29/2018
+ms.date: 09/07/2018
 ms.author: jeedes
-ms.openlocfilehash: 3ad3f42563878d829f900d5cddb0c6866d2deab5
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 247d18eb13f7bad10cbfd89891a80d2d1c6135c3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307870"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160540"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-snowflake"></a>Zelfstudie: Azure Active Directory-integratie met Snowflake
 
@@ -39,6 +39,7 @@ Voor het configureren van Azure AD-integratie met Snowflake, moet u de volgende 
 
 - Een Azure AD-abonnement
 - Een Snowflake eenmalige aanmelding ingeschakeld abonnement
+- Klanten die geen Snowflake-account hebt en wilt uitproberen via Azure AD app gallery en Raadpleeg [dit](https://trial.snowflake.net/?cloud=azure&utm_source=azure-marketplace&utm_medium=referral&utm_campaign=self-service-azure-mp) koppeling.
 
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
@@ -103,22 +104,22 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
  
     ![In het dialoogvenster voor eenmalige aanmelding](./media/snowflake-tutorial/tutorial_snowflake_samlbase.png)
 
-3. Op de **Snowflake-domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+3. Op de **Snowflake-domein en URL's** sectie, voert u de volgende stappen uit:
 
     ![Snowflake-domein en URL's, eenmalige aanmelding informatie](./media/snowflake-tutorial/tutorial_snowflake_url.png)
 
-    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<SNOWFLAKE-URL>`
+    a. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
 
-    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<SNOWFLAKE-URL>/fed/login`
+    b. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<SNOWFLAKE-URL>.snowflakecomputing.com/fed/login`
 
 4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
 
     ![Snowflake-domein en URL's, eenmalige aanmelding informatie](./media/snowflake-tutorial/tutorial_snowflake_url1.png)
 
-    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<SNOWFLAKE-URL>`
+    In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<SNOWFLAKE-URL>.snowflakecomputing.com`
      
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [Snowflake-Client-ondersteuningsteam](https://support.snowflake.net/s/snowflake-support) om deze waarden te verkrijgen. 
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL.
 
 5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **certificaat (Base64)** en slaat u het certificaatbestand op uw computer.
 
@@ -132,7 +133,22 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Snowflake-configuratie](./media/snowflake-tutorial/tutorial_snowflake_configure.png) 
 
-8. Het configureren van eenmalige aanmelding op **Snowflake** zijde, moet u voor het verzenden van de gedownloade **certificaat (Base64)** en **Single Sign-On Service URL voor SAML** naar [ Snowflake-ondersteuningsteam](https://support.snowflake.net/s/snowflake-support). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+8. In een ander browservenster, meld u aan bij Snowflake als een beveiligingsbeheerder.
+
+9. Uitvoeren de onderstaande SQL-query op het werkblad door in te stellen de **certificaat** waarde die moet worden de **gedownload certificaat** en **ssoUrl** naar de gekopieerde **SAML Single Sign-On Service-URL** van Azure AD aan de waarde zoals hieronder wordt weergegeven.
+
+    ![Snowflake-sql](./media/snowflake-tutorial/tutorial_snowflake_sql.png) 
+
+    ```
+    use role accountadmin;
+    alter account set saml_identity_provider = '{
+    "certificate": "<Paste the content of downloaded certificate from Azure portal>",
+    "ssoUrl":"<SAML single sign-on service URL value which you have copied from the Azure portal>",
+    "type":"custom",
+    "label":"AzureAD"
+    }';
+    alter account set sso_login_page = TRUE;
+    ```
 
 ### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
@@ -168,7 +184,25 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="create-a-snowflake-test-user"></a>Maak een testgebruiker Snowflake
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Snowflake. Werken met [Snowflake-ondersteuningsteam](https://support.snowflake.net/s/snowflake-support) om toe te voegen de gebruikers in het Snowflake-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
+Als u wilt dat gebruikers zich aanmelden bij Snowflake Azure AD, moeten ze worden ingericht voor Snowflake. In Snowflake is inrichten een handmatige taak.
+
+**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
+
+1. Meld u aan bij Snowflake als een beveiligingsbeheerder.
+
+2. **Overschakelen van functie** naar **ACCOUNTADMIN**, door te klikken op **profiel** op rechtsboven van de pagina.  
+
+    ![De Snowflake-beheerder ](./media/snowflake-tutorial/tutorial_snowflake_accountadmin.png)
+
+3. Maak de gebruiker door het uitvoeren van de onderstaande SQL-query, ervoor te zorgen dat 'Aanmeldingsnaam' is ingesteld op de Azure AD-gebruikersnaam in het werkblad zoals hieronder wordt weergegeven.
+
+    ![De Snowflake-adminsql ](./media/snowflake-tutorial/tutorial_snowflake_usersql.png)
+
+    ```
+
+    use role accountadmin;
+    CREATE USER britta_simon PASSWORD = '' LOGIN_NAME = 'BrittaSimon@contoso.com' DISPLAY_NAME = 'Britta Simon';
+    ```
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

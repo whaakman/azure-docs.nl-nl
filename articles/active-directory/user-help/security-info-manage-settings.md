@@ -11,16 +11,16 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: abd2984574f80f03f276861782ff9ee51348d07e
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: f9a77c1f3fbce295a40db366619d7485d44efc4f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391374"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162713"
 ---
 # <a name="manage-your-security-info-preview"></a>Beheren van je beveiligingsgegevens (preview)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 U kunt je beveiligingsgegevens te melden bij uw werk of school-account of om uw wachtwoord opnieuw in te gebruiken.
 
@@ -92,13 +92,13 @@ In dit artikel helpt u bij het oplossen van je beveiligingsgegevens, met inbegri
 
 - Voer een van deze artikelen voor meer informatie over het instellen van uw apparaten in het gebied van beveiliging info:
 
-    - [Beveiligingsgegevens ingesteld voor het gebruik van een verificator-app](security-info-setup-auth-app.md)
+    - [Beveiligingsgegevens instellen om een verificatie-app te gebruiken](security-info-setup-auth-app.md)
 
-    - [Beveiligingsgegevens ingesteld voor het gebruik van telefoongesprekken](security-info-setup-phone-number.md)
+    - [Beveiligingsgegevens instellen om telefonische boodschappen te gebruiken](security-info-setup-phone-number.md)
 
     - [Beveiligingsgegevens ingesteld voor het gebruik van SMS-berichten](security-info-setup-text-msg.md)
 
-    - [Beveiligingsgegevens instellen voor e-mailadres gebruiken](security-info-setup-email.md)
+    - [Beveiligingsgegevens instellen om e-mail te gebruiken](security-info-setup-email.md)
 
     - [Beveiligingsgegevens ingesteld voor het gebruik van beveiligingsvragen](security-info-setup-questions.md)
 

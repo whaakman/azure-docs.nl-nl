@@ -13,24 +13,24 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/27/2018
+ms.date: 09/06/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2ff826f21adf12d48b21acefe4b704866e02c04
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 0a6c9d4ad27eb6dc6b0aba24f32a4a0dfde3c784
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917955"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163309"
 ---
 # <a name="sap-hana-infrastructure-configurations-and-operations-on-azure"></a>Configuraties van SAP HANA-infrastructuur en bewerkingen op Azure
 Dit document biedt richtlijnen voor het configureren van Azure-infrastructuur en SAP HANA besturingssystemen die zijn geïmplementeerd op virtuele machines van Azure (VM's). Het document bevat ook informatie over de configuratie voor SAP HANA scale-out voor de M128s VM-SKU. Dit document is niet bedoeld als vervanging van de standaard SAP-documentatie, waaronder de volgende inhoud:
 
-- [Gebruikershandleiding voor SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/330e5550b09d4f0f8b6cceb14a64cd22.html)
+- [Gebruikershandleiding voor SAP](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/330e5550b09d4f0f8b6cceb14a64cd22.html)
 - [SAP-installatiehandleidingen](https://service.sap.com/instguides)
 - [SAP-opmerkingen](https://sservice.sap.com/notes)
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 Voor het gebruik van deze handleiding, moet u basiskennis hebt van de volgende Azure-onderdelen:
 
 - [Virtuele machines van Azure](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-vm)
@@ -212,6 +212,11 @@ Wanneer u de virtuele machines om uit te voeren van SAP HANA installeert, moeten
 
 - Twee virtuele NIC's geïnstalleerd: één NIC verbinding maken met het beheersubnet en één NIC verbinding maken tussen de on-premises netwerk of andere netwerken, en de SAP HANA-instantie in de Azure-VM.
 - Statische privé IP-adressen die zijn geïmplementeerd voor zowel virtuele NIC's.
+
+> [!NOTE]
+> Moet u statische IP-adressen via Azure middelen toewijzen aan afzonderlijke vnic's. U moet statische IP-adressen binnen het gastbesturingssysteem niet toewijzen aan een vNIC. Sommige Azure-services zoals Azure Backup-Service is afhankelijk van het feit dat op minimaal de primaire vNIC is ingesteld op DHCP- en niet op de vaste IP-adressen. Zie ook het document [los problemen met Azure virtuele machine back-up](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Als u meerdere statische IP-adressen toewijzen aan een virtuele machine wilt, moet u meerdere vnic's toewijzen aan een virtuele machine.
+>
+>
 
 Voor implementaties die zijn onmisbaar, moet u echter een virtueel datacenter netwerkarchitectuur maken in Azure. Deze architectuur wordt aanbevolen de scheiding van de Azure-VNet-Gateway die verbinding maakt on-premises in een afzonderlijke Azure-VNet. Deze apart VNet moet al het verkeer dat een naar on-premises hosten of tot het internet. Deze benadering kunt u software voor controle en logboekregistratie-verkeer dat het virtuele datacenter in Azure in deze afzonderlijke hub VNet invoert te implementeren. Daarom moet u een VNet die als host fungeert voor de software en configuraties die is gekoppeld aan in- en uitgaand verkeer naar uw Azure-implementatie.
 

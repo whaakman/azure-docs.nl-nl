@@ -1,83 +1,83 @@
 ---
-title: OpenAPI metagegevens in Azure Functions | Microsoft Docs
-description: Overzicht van ondersteuning voor Azure Functions OpenAPI
+title: OpenAPI-metagegevens in Azure Functions | Microsoft Docs
+description: Overzicht van de OpenAPI-ondersteuning in Azure Functions
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/23/2017
 ms.author: alkarche
-ms.openlocfilehash: b6aacc536e589a2036aba5a0784a4ba71641a59e
-ms.sourcegitcommit: 6fcd9e220b9cd4cb2d4365de0299bf48fbb18c17
+ms.openlocfilehash: 68077e576fe3451627d8a5c8e1ff1b26d06d96b7
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/05/2018
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091835"
 ---
-# <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Ondersteuning voor OpenAPI 2.0-metagegevens in de Azure-functies (preview)
-OpenAPI 2.0 (voorheen Swagger) ondersteuning voor metagegevens in Azure Functions is een preview-functie die u gebruiken kunt om te schrijven van de definitie van een OpenAPI 2.0 binnen een functie-app. Vervolgens kunt u dat bestand met de functie-app hosten.
+# <a name="openapi-20-metadata-support-in-azure-functions-preview"></a>Ondersteuning voor OpenAPI 2.0-metagegevens in Azure Functions (preview)
+OpenAPI 2.0 (voorheen Swagger) ondersteuning voor metagegevens in Azure Functions is een preview-functie die u gebruiken kunt om te schrijven van de definitie van een OpenAPI 2.0 in een functie-app. U kunt vervolgens dat bestand hosten met behulp van de functie-app.
 
-[OpenAPI metagegevens](http://swagger.io/) biedt de mogelijkheid een functie die als host fungeert voor een REST-API om te worden verbruikt door een groot aantal andere software. Deze software bevat de offerings Microsoft zoals PowerApps en de [API Apps-functie van Azure App Service](../app-service/app-service-web-overview.md), hulpprogramma's voor ontwikkelaars van derden, zoals [Postman](https://www.getpostman.com/docs/importing_swagger), en [veel meer pakketten](http://swagger.io/tools/).
+[OpenAPI-metagegevens](http://swagger.io/) kunt u een functie die als host fungeert voor een REST-API om te worden verbruikt door een groot aantal andere software. Deze software bevat Microsoft-aanbiedingen zoals PowerApps en de [API Apps-functie van Azure App Service](../app-service/app-service-web-overview.md), hulpprogramma's voor ontwikkelaars van derden, zoals [Postman](https://www.getpostman.com/docs/importing_swagger), en [nog veel meer pakketten](http://swagger.io/tools/).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
 >[!TIP]
->Het is raadzaam beginnen met de [zelfstudie aan de slag](./functions-api-definition-getting-started.md) en vervolgens te retourneren aan dit document voor meer informatie over specifieke functies.
+>We raden u aan te beginnen met de [zelfstudie aan de slag](./functions-api-definition-getting-started.md) en vervolgens terugkeert naar dit document voor meer informatie over specifieke functies.
 
-## <a name="enable"></a>OpenAPI definitie ondersteuning inschakelen
-U kunt alle OpenAPI-instellingen configureren op de **API-definitie** pagina in de functie-app **platformfuncties**.
+## <a name="enable"></a>Ondersteuning voor OpenAPI-definitie
+U kunt alle OpenAPI-instellingen configureren op de **API-definitie** pagina in uw functie-app **platformfuncties**.
 
-Zodat het genereren van de definitie van een gehoste OpenAPI en een Quick Start-definitie ingesteld **API-definitie bron** naar **functie (Preview)**. **Externe URL** biedt de mogelijkheid uw functie te gebruiken van de definitie van een OpenAPI die heeft die elders wordt gehost.
+> [!NOTE]
+> API-definitie-functie van de functie is momenteel niet ondersteund voor Bèta-runtime.
 
-## <a name="generate-definition"></a>Genereren van een geraamte Swagger van metagegevens van de functie
-Een sjabloon kunt u de definitie van de eerste OpenAPI vrienden. De functie voor definitie-sjabloon maakt de definitie van een sparse OpenAPI door alle metagegevens in het bestand function.json voor elk van de functies van uw HTTP-trigger. Moet u meer informatie over de API van Vul de [OpenAPI specificatie](http://swagger.io/specification/), zoals sjablonen voor aanvraag en -antwoord.
+Instellen zodat de generatie van een gehoste OpenAPI-definitie en de definitie van een snelstartgids **bron van API-definitie** naar **functie (Preview)**. **Externe URL** Hiermee staat u de functie te gebruiken van een OpenAPI-definitie die ergens anders is gehost.
 
-Zie voor stapsgewijze instructies de [zelfstudie aan de slag](./functions-api-definition-getting-started.md).
+## <a name="generate-definition"></a>Het geraamte Swagger uit uw functie metagegevens genereren
+Aan de hand van een sjabloon kunt u beginnen met het schrijven van uw eerste OpenAPI-definitie. De functie voor definitie-sjabloon maakt een eenvoudige OpenAPI-definitie met behulp van alle metagegevens in het bestand function.json voor elk van de functies van uw HTTP-trigger. U moet invullen meer informatie over uw API van de [OpenAPI-specificatie](http://swagger.io/specification/), zoals aanvraag- en -sjablonen.
+
+Zie voor stapsgewijze instructies, de [zelfstudie aan de slag](./functions-api-definition-getting-started.md).
 
 ### <a name="templates"></a>Beschikbare sjablonen
 
 |Naam| Beschrijving |
 |:-----|:-----|
-|De definitie van de gegenereerde|De definitie van een OpenAPI met de maximale hoeveelheid gegevens die kan worden afgeleid van de bestaande metagegevens van de functie.|
+|Gegenereerde definitie|Een OpenAPI-definitie met de maximale hoeveelheid gegevens die kan worden afgeleid uit bestaande metagegevens van de functie.|
 
-### <a name="quickstart-details"></a>Metagegevens van de opgenomen in de definitie van de gegenereerde
+### <a name="quickstart-details"></a>Opgenomen metagegevens in de gegenereerde definitie
 
-De volgende tabel voor de Azure portal-instellingen en de bijbehorende gegevens die in function.json staat zoals is toegewezen aan de gegenereerde Swagger-basis.
+In de volgende tabel staat voor de Azure portal-instellingen en de bijbehorende gegevens in de function.json zoals deze is toegewezen aan de gegenereerde Swagger-basis.
 
-|Swagger.json|Portal-gebruikersinterface|Function.json|
+|Swagger.json|Portal UI|Function.json|
 |:----|:-----|:-----|
-|[Host](http://swagger.io/specification/#fixed-fields-15)|**App-instellingen werken** > **App Service-instellingen** > **overzicht** > **URL**|*Niet aanwezig*
-|[Paden](http://swagger.io/specification/#paths-object-29)|**Integreren** > **geselecteerd HTTP-methoden**|Bindingen: Route
-|[Pad-Item](http://swagger.io/specification/#path-item-object-32)|**Integreren** > **Routesjabloon**|Bindingen: methoden
-|[Beveiliging](http://swagger.io/specification/#security-scheme-object-112)|**Keys**|*Niet aanwezig*|
-|operationID *|**Route + toegestane termen**|Route + toegestane termen|
+|[Host](http://swagger.io/specification/#fixed-fields-15)|**Functie van app-instellingen** > **App Service-instellingen** > **overzicht** > **URL**|*Niet aanwezig*
+|[Paden](http://swagger.io/specification/#paths-object-29)|**Integreer** > **geselecteerde HTTP-methoden**|Bindingen: Route
+|[Pad-Item](http://swagger.io/specification/#path-item-object-32)|**Integreer** > **Routesjabloon**|Bindingen: methoden
+|[Beveiliging](http://swagger.io/specification/#security-scheme-object-112)|**sleutels**|*Niet aanwezig*|
+|bewerkings-id *|**Route + toegestane bewerkingen**|Route + toegestane bewerkingen|
 
-\*De bewerkings-ID is alleen vereist voor integratie met PowerApps en stroom.
+\*De bewerkings-ID is alleen vereist voor integratie met PowerApps en Flow.
 > [!NOTE]
-> De x-ms-overzicht uitbreiding biedt een weergavenaam in Logic Apps, PowerApps en stroom.
+> De x-ms-summary-extensie biedt een weergavenaam in Logic Apps, PowerApps en Flow.
 >
-> Zie voor meer informatie, [aanpassen van uw Swagger-definitie voor PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/).
+> Zie voor meer informatie, [uw Swagger-definitie aanpassen voor PowerApps](https://powerapps.microsoft.com/tutorials/customapi-how-to-swagger/).
 
-## <a name="CICD"></a>Gebruik CI/CD voor het instellen van een API-definitie
+## <a name="CICD"></a>CI/CD gebruiken om in te stellen van een API-definitie
 
- API-definitie die als host fungeert in de portal voordat u broncodebeheer wijzigen van uw API-definitie van broncodebeheer inschakelt, moet u inschakelen. Volg deze instructies:
+ API-definitie die als host fungeert in de portal voordat u broncodebeheer om te wijzigen van uw API-definitie vanuit broncodebeheer inschakelt, moet u inschakelen. Volg deze instructies:
 
-1. Blader naar **API-definitie (preview)** in de functie app-instellingen.
-  1. Stel **API-definitie bron** naar **functie**.
-  1. Klik op **genereren API-definitie sjabloon** en vervolgens **opslaan** voor het maken van de Sjabloondefinitie van een om later te wijzigen.
-  1. Houd er rekening mee uw API-definitie URL en de sleutel.
-1. [Continue integratie/doorlopende implementatie (CI/CD) ingesteld](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
-2. Wijzigen van swagger.json in broncodebeheer op \site\wwwroot\.azurefunctions\swagger\swagger.json.
+1. Blader naar **API-definitie (preview)** in de instellingen van uw functie-app.
+  1. Stel **bron van API-definitie** naar **functie**.
+  1. Klik op **sjabloon voor genereren van API-definitie** en vervolgens **opslaan** te maken van de Sjabloondefinitie van een later aan te passen.
+  1. Houd er rekening mee voor uw API-definitie URL en de sleutel.
+1. [Instellen van continue integratie/continue implementatie (CI/CD)](https://docs.microsoft.com/azure/azure-functions/functions-continuous-deployment#continuous-deployment-requirements).
+2. Wijzigen van swagger.json in Bronbeheer op \site\wwwroot\.azurefunctions\swagger\swagger.json.
 
-Nu wijzigingen aan swagger.json in de opslagplaats worden gehost door de functie-app op de API definitie-URL en de sleutel die u hebt genoteerd in stap 1.c.
+Nu wijzigingen in swagger.json in uw opslagplaats worden gehost door uw functie-app op de API URL-definitie en de sleutel die u hebt genoteerd in stap 1.c.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Zelfstudie aan de slag](functions-api-definition-getting-started.md). Probeer onze scenario als de definitie van een OpenAPI in actie wilt weergeven.
-* [Azure Functions GitHub-opslagplaats](https://github.com/Azure/Azure-Functions/). Bekijk de functies te ons feedback geven over de API-definitie ondersteuning preview opslagplaats. Maak een probleem met de GitHub voor alles wat die u bijgewerkte wilt zien.
-* [Naslaginformatie over Azure Functions developer](functions-reference.md). Meer informatie over het coderen van functies en definiëren van triggers en bindingen.
+* [Zelfstudie aan de slag](functions-api-definition-getting-started.md). Probeer onze scenario als u wilt een OpenAPI-definitie in actie zien.
+* [Azure Functions-GitHub-opslagplaats](https://github.com/Azure/Azure-Functions/). Kijk eens naar de opslagplaats van de functies naar ons feedback geven over de API-definitie ondersteuning voor Preview-versie. Een GitHub-probleem maken voor alles wat die u bijgewerkte wilt zien.
+* [Referentie voor ontwikkelaars van Azure Functions](functions-reference.md). Meer informatie over het coderen van functies en het definiëren van triggers en bindingen.

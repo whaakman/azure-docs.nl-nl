@@ -1,10 +1,26 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: iot-hub
+author: dominicbetts
+ms.service: iot-hub
+ms.topic: include
+ms.date: 09/07/2018
+ms.author: dobett
+ms.custom: include file
+ms.openlocfilehash: 73b7604e3072e76c69383481259e1cd8990f4df4
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44168679"
+---
 ## <a name="extended-iot-scenarios"></a>Uitgebreide IoT-scenario 's
 
 Gebruik andere Azure-services en -hulpprogramma's. Wanneer u uw apparaat met IoT Hub hebt verbonden, kunt u extra scenario's verkennen die gebruikmaken van andere Azure-hulpprogramma's en -services:
 
 | Scenario                                                   | Azure-service of -hulpprogramma              |
 |----------------------------------------------------------- |------------------------------------|
-| [IoT Hub-berichten beheren][Mg_IoT_Hub_Msg]                  | Hulpprogramma iothub-explorer               |
 | [IoT Hub-berichten beheren][Mg_IoT_Toolkit]                  | VS Code Azure IoT Toolkit-extensie|
 | [Uw IoT-apparaat beheren][Mg_IoT_Dv]                        | Azure CLI 2.0 en de IoT-extensie|
 | [Uw IoT-apparaat beheren][Mg_IoT_Dv_Toolkit]                | VS Code Azure IoT Toolkit-extensie|
@@ -19,7 +35,6 @@ Gebruik andere Azure-services en -hulpprogramma's. Wanneer u uw apparaat met IoT
 Wanneer u deze zelfstudies hebt voltooid, kunt u de mogelijkheden van IoT Hub verder verkennen in de [Ontwikkelaarsgids][lnk-dev-guide]. U vindt aanvullende zelfstudies in het gedeelte [Procedures][lnk-how-to].
 
 
-[Mg_IoT_Hub_Msg]: ../articles/iot-hub/iot-hub-explorer-cloud-device-messaging.md
 [Mg_IoT_Toolkit]: ../articles/iot-hub/iot-hub-vscode-iot-toolkit-cloud-device-messaging.md
 [Mg_IoT_Dv]: ../articles/iot-hub/iot-hub-device-management-iot-extension-azure-cli-2-0.md
 [Mg_IoT_Dv_Toolkit]: ../articles/iot-hub/iot-hub-device-management-iot-toolkit.md

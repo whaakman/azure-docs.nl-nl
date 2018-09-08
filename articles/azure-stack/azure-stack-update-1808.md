@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/07/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: f7ad862b150adc7b096c01a1c326a93bf2de2792
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: f9973f2099ed5c6dda38c6569f42995b6903ef5e
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049963"
+ms.locfileid: "44162407"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -54,7 +54,7 @@ Deze update bevat de volgende verbeteringen voor Azure Stack.
 - <!-- 2489570 | IS ASDK--> **Ondersteuning voor aangepaste configuraties voor beleid voor IPSec/IKE** voor [VPN-gateways in Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 
 
- ### <a name="fixed-issues"></a>Opgeloste problemen
+ ### <a name="fixed-issues"></a>Problemen opgelost
 - <!-- IS ASDK--> We het probleem voor het maken van een beschikbaarheidsset in de portal dat heeft geresulteerd in de set met een domein met fouten en een updatedomein van 1 is opgelost. 
 
 - <!-- IS ASDK --> Instellingen voor het schalen van virtuele-machineschaalsets zijn nu beschikbaar in de portal.  
@@ -105,14 +105,17 @@ Deze update bevat ook de oplossing voor het speculatieve uitvoering kant kanaal 
 
 - De Azure-Stack installeren [1807 bijwerken](azure-stack-update-1807.md) voordat u de Azure Stack 1808 update toepassen. 
 
-- Installeer de meest recente beschikbare [update of hotfix voor versie 1805](azure-stack-update-1805.md#post-update-steps).  
   > [!TIP]  
   > Abonneer u op de volgende *RRS* of *Atom* feeds, blijven van het Azure Stack Hotfixes:
   > - RRS: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/rss ... 
   > - Atom: https://support.microsoft.com/app/content/api/content/feeds/sap/en-us/32d322a8-acae-202d-e9a9-7371dccf381b/atom ...
 
 
-- Voordat u begint met de installatie van deze update, voert u [Test AzureStack](azure-stack-diagnostic-test.md) om te valideren van de status van uw Azure-Stack en los eventuele operationele problemen gevonden, met inbegrip van alle waarschuwingen en fouten. Ook actieve waarschuwingen bekijken en op te lossen die actie is vereist.
+- Voordat u begint met de installatie van deze update, voert u [Test AzureStack](azure-stack-diagnostic-test.md) met de volgende parameters om te valideren van de status van uw Azure-Stack en los eventuele operationele problemen gevonden, met inbegrip van alle waarschuwingen en fouten. Ook actieve waarschuwingen bekijken en op te lossen die actie is vereist.  
+
+  ```PowerShell
+  Test-AzureStack -Include AzsControlPlane, AzsDefenderSummary, AzsHostingInfraSummary, AzsHostingInfraUtilization, AzsInfraCapacity, AzsInfraRoleSummary, AzsPortalAPISummary, AzsSFRoleSummary, AzsStampBMCSummary
+  ``` 
 
 ### <a name="known-issues-with-the-update-process"></a>Bekende problemen met het updateproces
 

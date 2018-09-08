@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
-ms.openlocfilehash: ca07c3aca106f6c92187fea5a3ebf7bf172cddcc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8e4c86a3c9ff40f23a2a758b450d685b81dabc1a
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026199"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091897"
 ---
 # <a name="apply-updates-in-azure-stack"></a>In Azure Stack-updates toepassen
 
@@ -65,7 +65,7 @@ De volgende procedure beschrijft het importeren en -updatepakketten installeren 
 6. Onder **blob uploaden**, klik op het mappictogram, blader naar het updatepakket .exe-bestand en klik vervolgens op **Open** in het bestand explorer-venster.
   
 7. Onder **blob uploaden**, klikt u op **uploaden**. 
- 
+  
     ![Laat zien waar elke pakketbestand uploaden](media/azure-stack-apply-updates/ApplyUpdates6.png)
 
 8. Herhaal stap 6 en 7 dagen voor de *PackageName*.BIN-bestand en Metadata.xml-bestanden. Importeer het bestand aanvullende Notice.txt niet als opgenomen.
@@ -74,6 +74,8 @@ De volgende procedure beschrijft het importeren en -updatepakketten installeren 
 11. Als u wilt de update installeert, selecteert u het pakket dat gemarkeerd als **gereed** en met de rechtermuisknop op het pakket en selecteert u **nu bijwerken**, of klik op de **nu bijwerken** actie aan de bovenkant .
 12. Als u het updatepakket installeren klikt, ziet u de status in de **Update-uitvoering details** gebied. Hier kunt u kunt ook klikken op **volledige logboeken downloaden die u** voor het downloaden van de logboekbestanden.
 13. Wanneer de update is voltooid, wordt de tegel Update de bijgewerkte versie van Azure Stack.
+
+U kunt updates handmatig verwijderen uit het opslagaccount nadat ze zijn geïnstalleerd in Azure Stack. Azure Stack wordt regelmatig gecontroleerd voor oudere-updatepakketten en worden deze verwijderd uit de opslag. Het Azure Stack duurt twee weken om te verwijderen van de oude pakketten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

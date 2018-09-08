@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: 1587debecd82072c29d4caffc2b81629b1f52b0e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 43f169ae11191c2e98c4538189bce781821de980
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527361"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157851"
 ---
 # <a name="tutorial-improve-app-with-patternany-entity"></a>Zelfstudie: Een app met pattern.any entiteit verbeteren
 
@@ -26,7 +26,7 @@ In deze zelfstudie, gebruikt u de entiteit pattern.any intentie en entiteit voor
 * Patroon die gebruikmaakt van pattern.any maken
 * Voorspelling verbeteringen controleren
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 Als u geen de Human Resources-app vanuit de [patroon rollen](luis-tutorial-pattern-roles.md) zelfstudie [importeren](luis-how-to-start-new-app.md#import-new-app) de JSON naar een nieuwe app in de [LUIS](luis-reference-regions.md#luis-website) website. De app voor het importeren is gevonden in de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) GitHub-opslagplaats.
@@ -108,7 +108,7 @@ De entiteit Pattern.any extraheert entiteiten met verschillende lengten. Dit wer
 
 ## <a name="train-the-luis-app"></a>LUIS-app trainen
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="test-the-new-pattern-for-free-form-data-extraction"></a>Het nieuwe patroon voor vrije gegevensextractie testen
 1. Selecteer **testen** in de bovenste balk met om de test-deelvenster te openen. 
@@ -125,7 +125,7 @@ De entiteit Pattern.any extraheert entiteiten met verschillende lengten. Dit wer
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

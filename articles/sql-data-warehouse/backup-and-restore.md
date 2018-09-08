@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: manage
-ms.date: 08/24/2018
+ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: e9b5005fad1eeb13314e1fb6a5708bb02b96cbf9
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: bdcc0510503e48caf70f4f0d91d7602d767ca9ab
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248663"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092475"
 ---
 # <a name="backup-and-restore-in-azure-sql-data-warehouse"></a>Back-up en herstel in Azure SQL Data Warehouse
 Meer informatie over hoe back-up en herstel werkt in Azure SQL Data Warehouse. Gebruik gegevens datawarehouse-momentopnamen voor herstel of uw datawarehouse kopiëren naar een vorige herstelpunt in de primaire regio. Gebruik datawarehouse-geografisch redundante back-ups om terug te zetten naar een andere geografische regio. 
@@ -39,20 +39,21 @@ order by run_id desc
 ;
 ```
 
-## <a name="user-defined-restore-points"></a>Door de gebruiker gedefinieerde herstelpunten
-Deze functie kunt u handmatig trigger momentopnamen om herstelpunten te maken van uw datawarehouse voor en na grote wijzigingen. Deze functionaliteit zorgt ervoor dat herstelpunten logisch consistent waarmee u aanvullende gegevensbeveiliging in het geval van eventuele onderbrekingen van de werkbelasting of gebruikersfouten voor snel hersteltijd. Herstelpunten die door de gebruiker gedefinieerde zijn beschikbaar voor de zeven dagen en worden automatisch verwijderd uit uw naam. U kunt de bewaarperiode van de gebruiker gedefinieerde herstelpunten niet wijzigen. Alleen 42 door de gebruiker gedefinieerde herstelpunten in de tijd op elk gewenst moment worden ondersteund, zodat ze moet [verwijderd](https://go.microsoft.com/fwlink/?linkid=875299) voordat het maken van een ander herstelpunt. U kunt momentopnamen voor het maken van herstelpunten door gebruiker gedefinieerde activeren [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) of de Azure-Portal.
+## <a name="user-defined-restore-points"></a>Herstelpunten gebruiker gedefinieerd
+Deze functie kunt u handmatig trigger momentopnamen om herstelpunten te maken van uw datawarehouse voor en na grote wijzigingen. Deze functionaliteit zorgt ervoor dat herstelpunten logisch consistent waarmee u aanvullende gegevensbeveiliging in het geval van eventuele onderbrekingen van de werkbelasting of gebruikersfouten voor snel hersteltijd. Herstelpunten die door de gebruiker gedefinieerde zijn beschikbaar voor de zeven dagen en worden automatisch verwijderd uit uw naam. U kunt de bewaarperiode van de gebruiker gedefinieerde herstelpunten niet wijzigen. **herstelpunten van de gebruiker gedefinieerde 42** op elk gewenst moment in de tijd worden gegarandeerd, zodat ze moet [verwijderd](https://go.microsoft.com/fwlink/?linkid=875299) voordat het maken van een ander herstelpunt. U kunt momentopnamen voor het maken van herstelpunten door gebruiker gedefinieerde activeren [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint?view=azurermps-6.2.0#examples) of de Azure-portal.
 
 
 > [!NOTE]
 > Als u meer dan zeven dagen herstelpunten nodig hebt, kunt stemmen voor deze mogelijkheid [hier](https://feedback.azure.com/forums/307516-sql-data-warehouse/suggestions/35114410-user-defined-retention-periods-for-restore-points). U kunt ook een door de gebruiker gedefinieerde herstelpunt maken en uit het zojuist gemaakte herstelpunt te herstellen naar een nieuwe datawarehouse. Nadat u hebt hersteld, moet u het datawarehouse online zijn en voor onbepaalde tijd om op te slaan van de kosten voor rekenuren kunt onderbreken. De onderbroken database leidt tot opslagkosten voor tegen het tarief van Azure Premium Storage. Als u een actieve kopie van de teruggezette datawarehouse nodig hebt, kunt u hervatten die slechts een paar minuten duurt.
 >
 
-### <a name="snapshot-retention-when-a-data-warehouse-is-paused"></a>Momentopname bewaren wanneer een datawarehouse wordt onderbroken
-SQL Data Warehouse maakt geen momentopnamen en herstelpunten niet verloopt terwijl een datawarehouse wordt onderbroken. Herstellen punten niet wijzigen terwijl het datawarehouse wordt onderbroken. Herstelpunt bewaarperiode is gebaseerd op het aantal dagen dat het datawarehouse online, niet dagen is.
-
-Als een momentopname oktober 1: 00 uur gestart en het datawarehouse wordt onderbroken oktober 3: 00 uur, zijn de herstelpunten van maximaal twee dagen oud. Wanneer het datawarehouse weer online komt is het herstelpunt twee dagen oud. Als het datawarehouse online oktober 5: 00 uur komt, wordt het herstelpunt is twee dagen oud en blijft vijf dagen.
-
-Wanneer het datawarehouse weer online komt, wordt SQL Data Warehouse wordt hervat het maken van nieuwe herstelpunten en deze is verlopen wanneer ze meer dan zeven dagen aan gegevens hebben.
+### <a name="restore-point-retention"></a>Bewaarperiode van het herstelpunt herstellen
+Het volgende is, worden de details op terugzetten punt bewaarperioden beschreven:
+1. SQL Data Warehouse een herstelpunt wordt verwijderd wanneer deze de bewaarperiode van 7 dagen **en** wanneer er ten minste 42 totale aantal herstelpunten (met inbegrip van de gebruiker gedefinieerde zowel automatische)
+2. Momentopnamen worden niet gemaakt als een datawarehouse wordt onderbroken
+3. De leeftijd van een herstelpunt wordt gemeten door de absolute kalenderdagen vanaf het moment dat het herstelpunt wordt gemaakt, met inbegrip van wanneer het datawarehouse wordt onderbroken
+4. Op elk gewenst moment in-time, een datawarehouse kan worden gegarandeerd kunnen maximaal 42 door de gebruiker gedefinieerde herstelpunten opslaan en 42 Automatische herstelpunten zolang deze herstelpunten de bewaarperiode van 7 dagen niet hebben bereikt
+5. Als een momentopname wordt gemaakt, het datawarehouse Klik voor meer dan 7 dagen is onderbroken en hervat, is het mogelijk voor herstelpunt om vast te leggen totdat er 42 totale aantal herstelpunten (met inbegrip van de gebruiker gedefinieerde zowel automatische)
 
 ### <a name="snapshot-retention-when-a-data-warehouse-is-dropped"></a>Momentopname bewaren wanneer een datawarehouse is verwijderd
 Wanneer u een datawarehouse neerzet, wordt SQL Data Warehouse maakt u een momentopname van een definitieve en slaat het voor de zeven dagen. U kunt het datawarehouse herstellen naar het laatste herstelpunt is gemaakt op verwijderen. 
@@ -67,12 +68,12 @@ SQL Data Warehouse voert een geo-back-up eenmaal per dag een [gekoppeld Datacent
 Geo-back-ups zijn standaard ingeschakeld. Als uw datawarehouse Gen1 is, kunt u [opt-out](/powershell/module/azurerm.sql/set-azurermsqldatabasegeobackuppolicy) als u wenst. Afnemen geo-back-ups voor Gen2 omdat de beveiliging van gegevens een ingebouwde gegarandeerd is.
 
 > [!NOTE]
-> Als u een kortere RPO voor geo-back-ups nodig hebt, kunt stemmen voor deze mogelijkheid [hier](https://feedback.azure.com/forums/307516-sql-data-warehouse). U kunt ook een door de gebruiker gedefinieerde herstelpunt maken en uit het zojuist gemaakte herstelpunt te herstellen naar een nieuwe datawarehouse in een andere regio. Nadat u hebt hersteld, moet u het datawarehouse online zijn en voor onbepaalde tijd om op te slaan van de kosten voor rekenuren kunt onderbreken. De onderbroken database leidt tot opslagkosten voor tegen het tarief van Azure Premium Storage. en vervolgens onderbreekt. Als u moet een actieve kopie van het datawarehouse, kunt u hervatten die slechts een paar minuten duurt.
+> Als u een kortere RPO voor geo-back-ups vereist, stemmen voor deze mogelijkheid [hier](https://feedback.azure.com/forums/307516-sql-data-warehouse). U kunt ook een door de gebruiker gedefinieerde herstelpunt maken en uit het zojuist gemaakte herstelpunt te herstellen naar een nieuwe datawarehouse in een andere regio. Nadat u hebt hersteld, moet u het datawarehouse online zijn en voor onbepaalde tijd om op te slaan van de kosten voor rekenuren kunt onderbreken. De onderbroken database leidt tot opslagkosten voor tegen het tarief van Azure Premium Storage. en vervolgens onderbreekt. Als u moet een actieve kopie van het datawarehouse, kunt u hervatten die slechts een paar minuten duurt.
 >
 
 
 ## <a name="backup-and-restore-costs"></a>Kosten voor back-up en herstel
-U ziet dat de Azure-factuur heeft een regelitem voor opslag en een regelitem voor Disaster Recovery-opslag. De kosten voor opslag zijn de totale kosten voor het opslaan van gegevens in de primaire regio, samen met de incrementele wijzigingen vastgelegd door momentopnamen. Voor een meer gedetailleerde uitleg over hoe momentopnamen op dit moment worden gemaakt, raadpleegt u dit [documentatie](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). De kosten voor geografisch redundante dekt de kosten voor het opslaan van de geo-back-ups.  
+U ziet dat de Azure-factuur heeft een regelitem voor opslag en een regelitem voor Disaster Recovery-opslag. De kosten voor opslag zijn de totale kosten voor het opslaan van gegevens in de primaire regio, samen met de incrementele wijzigingen vastgelegd door momentopnamen. Voor een meer gedetailleerde uitleg over hoe momentopnamen op dit moment worden gemaakt, verwijzen naar dit [documentatie](https://docs.microsoft.com/rest/api/storageservices/Understanding-How-Snapshots-Accrue-Charges?redirectedfrom=MSDN#snapshot-billing-scenarios). De kosten voor geografisch redundante dekt de kosten voor het opslaan van de geo-back-ups.  
 
 De totale kosten voor uw primaire datawarehouse en gedurende zeven dagen van de momentopname van wijzigingen wordt afgerond op het dichtstbijzijnde aantal TB. Bijvoorbeeld, als uw datawarehouse 1,5 TB is en de momentopnamen worden vastgelegd van 100 GB, u in rekening gebracht voor 2 TB aan gegevens in Azure Premium Storage-tarieven. 
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: eb30fc16145bb8fedba4760bbab4ef0ab0800bc9
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: aa0811e05fc1d7069cb55314381f3b4b4acc0937
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028108"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157834"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-azure-cli"></a>Configureren van beheerde identiteiten voor Azure-resources op een Azure-VM met behulp van Azure CLI
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Beheerde identiteiten voor Azure-resources biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
 
@@ -110,7 +110,7 @@ Als u een virtuele machine die door het systeem toegewezen identiteit niet meer 
 az vm update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-Verwijderen van de beheerde identiteit voor VM-extensie voor Azure-resources, gebruiker `-n ManagedIdentityExtensionForWindows` of `-n ManagedIdentityExtensionForLinux` overschakelen (afhankelijk van het type virtuele machine) met [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
+Verwijderen van de beheerde identiteit voor Azure-resources VM-extensie (gepland voor de afschaffing in januari 2019), gebruiker `-n ManagedIdentityExtensionForWindows` of `-n ManagedIdentityExtensionForLinux` overschakelen (afhankelijk van het type virtuele machine) met [az vm extension delete](https://docs.microsoft.com/cli/azure/vm/#assign-identity):
 
 ```azurecli-interactive
 az vm identity --resource-group myResourceGroup --vm-name myVm -n ManagedIdentityExtensionForWindows
@@ -132,7 +132,7 @@ In deze sectie helpt u bij het maken van een virtuele machine met de toewijzing 
 
 2. Maak een beheerde identiteit gebruiker toegewezen met [az-identiteit maken](/cli/azure/identity#az-identity-create).  De `-g` parameter geeft u de resourcegroep waarin de gebruiker toegewezen beheerde identiteit wordt gemaakt, en de `-n` parameter geeft u de naam ervan.    
     
-   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+   [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
    ```azurecli-interactive
    az identity create -g myResourceGroup -n myUserAssignedIdentity

@@ -1,6 +1,6 @@
 ---
-title: De Azure-Stack PowerShell-omgeving configureren | Microsoft Docs
-description: Informatie over het configureren van de Azure-Stack PowerShell-omgeving.
+title: Verbinding maken met Azure Stack met PowerShell als operator | Microsoft Docs
+description: Meer informatie over het verbinding maken met Azure Stack met PowerShell als operator
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,32 +11,32 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: PowerShell
 ms.topic: article
-ms.date: 06/22/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.reviewer: thoroet
-ms.openlocfilehash: 74a5a9408a78dd0da12fb3f8ed721774030cc438
-ms.sourcegitcommit: 6eb14a2c7ffb1afa4d502f5162f7283d4aceb9e2
+ms.openlocfilehash: e6e1ffdf4384080649a769b2fdf6877ea744ec51
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "36749858"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162169"
 ---
-# <a name="configure-the-azure-stack-powershell-environment"></a>De Azure-Stack PowerShell-omgeving configureren
+# <a name="connect-to-azure-stack-with-powershell-as-an-operator"></a>Verbinding maken met Azure Stack met PowerShell als operator
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-U kunt de Azure-Stack als PowerShell wilt gebruiken voor het beheren van resources, zoals het maken van aanbiedingen, plannen, quota en waarschuwingen configureren. Dit onderwerp helpt u bij het configureren van de operator-omgeving.
+U kunt de Azure Stack voor het gebruik van PowerShell voor het beheren van resources, zoals het maken van aanbiedingen, plannen, quota's en waarschuwingen kunt configureren. Dit onderwerp helpt u bij het configureren van de operator-omgeving.
 
 ## <a name="prerequisites"></a>Vereisten
 
-Voer de volgende vereisten een van de [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), of vanuit een Windows-externe client als u [verbonden via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). 
+De volgende vereisten worden uitgevoerd vanuit de [development kit](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-remote-desktop), of vanuit een Windows-externe client als u [verbonden zijn via VPN](azure-stack-connect-azure-stack.md#connect-to-azure-stack-with-vpn). 
 
- - Installeer [Azure Stack-compatibele Azure PowerShell-modules](azure-stack-powershell-install.md).  
- - Download de [hulpprogramma's voor het werken met Azure-Stack](azure-stack-powershell-download.md).  
+ - Installeer [Azure Stack-compatibel is met Azure PowerShell-modules](azure-stack-powershell-install.md).  
+ - In het [Azure Stack development Kit, worden de blobEndpoint](azure-stack-powershell-download.md) .  
 
-## <a name="configure-the-operator-environment-and-sign-in-to-azure-stack"></a>Configureren van de operator-omgeving en aanmelden bij Azure Stack
+## <a name="configure-the-operator-environment-and-sign-in-to-azure-stack"></a>De operator-omgeving configureren en aanmelden bij Azure Stack
 
-Hiermee configureert u de Azure-Stack operator-omgeving met PowerShell. Voer een van de volgende scripts: de Azure AD-tenantName, GraphAudience eindpunt en ArmEndpoint waarden vervangen door de configuratie van uw eigen omgeving.
+De Azure Stack-operator-omgeving configureren met PowerShell. Voer een van de volgende scripts: de Tenantnaam van Azure AD, GraphAudience eindpunt en ArmEndpoint waarden vervangen door de configuratie van uw eigen omgeving.
 
 ````PowerShell  
     # For Azure Stack development kit, this value is set to https://adminmanagement.local.azurestack.external.
@@ -54,7 +54,7 @@ Hiermee configureert u de Azure-Stack operator-omgeving met PowerShell. Voer een
 
 ## <a name="test-the-connectivity"></a>De connectiviteit testen
 
-Nu dat u alles hebt constateert PowerShell gebruiken voor het maken van resources in Azure-Stack. U kunt bijvoorbeeld een resourcegroep voor een toepassing maken en toevoegen van een virtuele machine. Gebruik de volgende opdracht voor het maken van een resourcegroep met de naam **MyResourceGroup**.
+Nu dat u alles integratiemethode PowerShell gebruiken voor het maken van resources in Azure Stack. U kunt bijvoorbeeld een resourcegroep voor een toepassing maken en toevoegen van een virtuele machine. Gebruik de volgende opdracht om te maken van een resourcegroep met de naam **MyResourceGroup**.
 
 ```powershell
 New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
@@ -62,5 +62,5 @@ New-AzureRmResourceGroup -Name "MyResourceGroup" -Location "Local"
 
 ## <a name="next-steps"></a>Volgende stappen
 
- - [Sjablonen voor Azure-Stack ontwikkelen](user/azure-stack-develop-templates.md)
+ - [Sjablonen ontwikkelen voor Azure Stack](user/azure-stack-develop-templates.md)
  - [Sjablonen implementeren met PowerShell](user/azure-stack-deploy-template-powershell.md)

@@ -3,23 +3,19 @@ title: naslaginformatie over host.JSON voor Azure Functions
 description: Referentiedocumentatie voor de Azure Functions host.json-bestand.
 services: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 02/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9043add91022c2829c305425dba9c8f11b224fcf
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: 11bf136897b5d5b8140fc7ff1bb259c657a71921
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39345511"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092187"
 ---
 # <a name="hostjson-reference-for-azure-functions"></a>naslaginformatie over host.JSON voor Azure Functions
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 6bb2fa30d79093eab2259cc8234115cfcd1fd1c3
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 86830d8a13e4d83ff48bcf7e2f2dfac41d764718
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028190"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161421"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-to-acquire-an-access-token"></a>Over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM aan een toegangstoken verkrijgen 
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 
 Beheerde identiteiten voor Azure-resources biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
 
@@ -78,7 +78,7 @@ GET 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-0
 | `object_id` | (Optioneel) Een queryreeks-parameter, die de object_id van de beheerde identiteit die u wilt dat het token voor aangeeft. Vereist, als uw virtuele machine meerdere beheerde identiteiten gebruiker toegewezen heeft.|
 | `client_id` | (Optioneel) Een queryreeks-parameter, die de client_id van de beheerde identiteit die u wilt dat het token voor aangeeft. Vereist, als uw virtuele machine meerdere beheerde identiteiten gebruiker toegewezen heeft.|
 
-Voorbeeld van een aanvraag voor Azure-resources VM-extensie-eindpunt met behulp van de beheerde identiteiten *(om te worden afgeschaft)*:
+Voorbeeld van een aanvraag voor Azure-resources VM-extensie-eindpunt met behulp van de beheerde identiteiten *(gepland voor de afschaffing in januari 2019)*:
 
 ```
 GET http://localhost:50342/oauth2/token?resource=https%3A%2F%2Fmanagement.azure.com%2F HTTP/1.1

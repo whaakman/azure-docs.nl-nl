@@ -10,15 +10,17 @@ ms.component: design
 ms.date: 04/17/2018
 ms.author: rortloff
 ms.reviewer: igorstan
-ms.openlocfilehash: 34b908ef79b0a2479c420675272f7d3f3bf0ff15
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 1fa31b23aa8df73b13e73da80096596bf1ce2db3
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286789"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093293"
 ---
 # <a name="azure-sql-data-warehouse---massively-parallel-processing-mpp-architecture"></a>Azure SQL datawarehouse - krachtige parallelle verwerking (MPP)-architectuur
 Meer informatie over hoe Azure SQL Data Warehouse combineert met massively parallelle verwerking (MPP) met Azure-opslag om hoge prestaties en schaalbaarheid te realiseren. 
+
+> [!VIDEO https://www.youtube.com/embed/PlyQ8yOb8kc]
 
 ## <a name="mpp-architecture-components"></a>Onderdelen van de MPP-architectuur
 SQL Data Warehouse maakt gebruik van een uitbreidbare architectuur voor de distributie van rekenkundige verwerking van gegevens over meerdere knooppunten. De eenheid van de schaal is een abstractie van de compute-kracht die bekend als een eenheid van datawarehouse staat. SQL Data Warehouse scheidt compute uit de opslag zodat waar u om te schalen in uw systeem onafhankelijk van de gegevens COMPUTE.

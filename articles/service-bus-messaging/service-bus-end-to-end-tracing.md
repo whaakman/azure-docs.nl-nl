@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/18/2017
 ms.author: lmolkova
-ms.openlocfilehash: 5489fa999f3427345c3ee9f07f904296de224e31
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: e30c6b9ef8f593f2fea3f6e3f5ccf22734ca5bee
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057201"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092169"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Gedistribueerde tracering en correlatie via Service Bus-berichten
 
@@ -83,10 +83,10 @@ async Task ProcessAsync(Message message)
 In dit voorbeeld `RequestTelemetry` voor elk verwerkte bericht wordt een tijdstempel, duur en het resultaat (geslaagd) gerapporteerd. De telemetrische gegevens is ook een set eigenschappen correlatie.
 Geneste traces en uitzonderingen gemeld tijdens de verwerking van berichten zijn ook een factureringslabel voor correlatie-eigenschappen die ze als 'kinderen' van de `RequestTelemetry`.
 
-In het geval u naar ondersteunde externe onderdelen tijdens de verwerking van berichten aanroepen, maar ze zijn ook automagically bijgehouden en gecorreleerde. Raadpleeg [aangepaste bewerkingen met Application Insights .NET-SDK bijhouden](../application-insights/application-insights-custom-operations-tracking.md) voor het handmatig bijhouden en correlatie.
+In het geval u aanroepen van ondersteunde externe onderdelen tijdens de verwerking van berichten aanbrengt, worden ze ook automatisch bijgehouden en gecorreleerde. Raadpleeg [aangepaste bewerkingen met Application Insights .NET-SDK bijhouden](../application-insights/application-insights-custom-operations-tracking.md) voor het handmatig bijhouden en correlatie.
 
 ### <a name="tracking-without-tracing-system"></a>Bijhouden zonder traceringssysteem
-Als uw traceringssysteem biedt geen ondersteuning voor Service Bus-aanroepen automagical bijhouden wordt u op zoek naar dergelijke ondersteuning in een traceringssysteem of in uw toepassing toe te voegen. Deze sectie beschrijft diagnostische gebeurtenissen die door Service Bus .NET-client worden verzonden.  
+Als uw traceringssysteem biedt geen ondersteuning voor automatische Service Bus aanroepen bijhouden wordt u op zoek naar dergelijke ondersteuning in een traceringssysteem of in uw toepassing toe te voegen. Deze sectie beschrijft diagnostische gebeurtenissen die door Service Bus .NET-client worden verzonden.  
 
 Service Bus .NET-Client is geïnstrumenteerd met behulp van .NET tracering primitieven [System.Diagnostics.Activity](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/ActivityUserGuide.md) en [System.Diagnostics.DiagnosticSource](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/DiagnosticSourceUsersGuide.md).
 
@@ -153,7 +153,7 @@ Elke gebeurtenis 'Stop' heeft een `Status` eigenschap met de `TaskStatus` asynch
 
 Dit is de volledige lijst met providers bewerkingen:
 
-| Naam van bewerking | Bijgehouden API | De nettolading van de specifieke eigenschappen|
+| De naam van bewerking | Bijgehouden API | De nettolading van de specifieke eigenschappen|
 |----------------|-------------|---------|
 | Microsoft.Azure.ServiceBus.Send | [MessageSender.SendAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.sendasync) | IList<Message> berichten - lijst met berichten worden verzonden. |
 | Microsoft.Azure.ServiceBus.ScheduleMessage | [MessageSender.ScheduleMessageAsync](/dotnet/api/microsoft.azure.servicebus.core.messagesender.schedulemessageasync) | Bericht - bericht dat wordt verwerkt<br/>DateTimeOffset ScheduleEnqueueTimeUtc - verschuiving van de geplande berichten<br/>lange SequenceNumber - volgnummer van gepland bericht (nettolading 'Stop') |

@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: get-started-article
-ms.date: 08/02/2018
+ms.topic: conceptual
+ms.date: 09/05/2018
 ms.author: barclayn
-ms.openlocfilehash: 26828efedac9953ce1c7375fc62269e93019ce50
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
-ms.translationtype: HT
+ms.openlocfilehash: d7357dc7e8fa473bd8517dd80ede749b9d8e3f07
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43094867"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162832"
 ---
 # <a name="what-is-azure-key-vault"></a>Wat is Azure Sleutelkluis?
 
@@ -40,9 +40,9 @@ Hieronder vindt u een paar belangrijke termen:
 - **Kluisconsument**: een kluisconsument kan acties uitvoeren op de elementen in de sleutelkluis wanneer de eigenaar van de kluis toegang verleent aan de consument. De beschikbare acties zijn afhankelijk van de verleende machtigingen.
 - **[Azure Active Directory (Azure AD)](../active-directory/active-directory-whatis.md)**: Azure AD is de Active Directory-service voor een tenant. Elke adreslijst heeft een of meer domeinen. Aan een directory kunnen vele abonnementen zijn gekoppeld, maar slechts één tenant. 
 - **Tenant-id voor Azure AD**: een tenant-id is een unieke manier om een Azure AD-exemplaar in een Azure-abonnement te identificeren.
-- **Managed Service Identity**: Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd bij Key Vault om ze te kunnen ophalen. Managed Service Identity levert Azure-services met een automatisch beheerde identiteit in Azure AD, waarmee dit probleem eenvoudiger kan worden opgelost. U kunt deze identiteit gebruiken voor verificatie bij Key Vault bij alle services die ondersteuning bieden voor Microsoft Azure Active Directory-verificatie, zonder dat u referenties in uw code hoeft te hebben. Zie [Managed Service Identity voor Azure-resources](../active-directory/managed-service-identity/overview.md) voor meer informatie.
+- **Identiteiten voor een Azure-resources beheerd**: Azure Key Vault biedt een manier voor het veilig opslaan van referenties en andere sleutels en geheimen, maar uw code moet worden geverifieerd met Key Vault om op te halen ze. Met behulp van een beheerde identiteit, maakt het oplossen van dit probleem eenvoudiger door middel van Azure-services een automatisch beheerde identiteit in Azure AD. U kunt deze identiteit gebruiken voor verificatie bij Key Vault bij alle services die ondersteuning bieden voor Microsoft Azure Active Directory-verificatie, zonder dat u referenties in uw code hoeft te hebben. Voor meer informatie, Zie de onderstaande afbeelding en de [beheerde identiteiten voor een overzicht van Azure-resources](../active-directory/managed-identities-azure-resources/overview.md).
 
-    ![Diagram van de werking van Managed Service Identity](./media/key-vault-whatis/msi.png)
+    ![Diagram van hoe u beheerde identiteiten voor een Azure-resources werkt](./media/key-vault-whatis/msi.png)
 
 ## <a name="key-vault-roles"></a>Rollen van Key Vault
 

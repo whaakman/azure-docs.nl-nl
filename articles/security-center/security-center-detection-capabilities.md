@@ -8,18 +8,18 @@ manager: mbaldwin
 editor: ''
 ms.assetid: 4c5599cc-99a1-430f-895f-601615ef12a0
 ms.service: security-center
-ms.topic: hero-article
+ms.topic: conceptual
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2017
 ms.author: yurid
-ms.openlocfilehash: 699903ff874ace4991c5c4b0584d4661d3e45f33
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.openlocfilehash: a0a218fc18c1c9ede71de590179b0c93221eb80c
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
-ms.locfileid: "33894230"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161030"
 ---
 # <a name="azure-security-center-detection-capabilities"></a>Detectiemogelijkheden van Azure Security Center
 In dit document worden de geavanceerde detectiemogelijkheden van Azure Security Center besproken, waarmee actieve bedreigingen die gericht zijn op uw Microsoft Azure-resources kunnen worden geïdentificeerd en waarmee u de inzichten krijgt die nodig zijn om snel te kunnen reageren.
@@ -27,7 +27,7 @@ In dit document worden de geavanceerde detectiemogelijkheden van Azure Security 
 Geavanceerde detecties zijn beschikbaar in de Standard-laag van Azure Security Center. Er is een gratis proefversie voor 60 dagen beschikbaar. U kunt uw versie opwaarderen door Prijscategorie te selecteren in het gedeelte [Beveiligingsbeleid](security-center-policies.md). Ga naar de [Security Center-pagina](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie over tarieven. 
 
 > [!NOTE]
-> Security Center heeft een nieuwe set detecties vrijgegeven voor beperkte preview. Deze detecties maken gebruik van controlerecords, een gemeenschappelijk controleframework, voor het detecteren van de schadelijke gedragingen op Linux-machines. Stuur [ons](mailto:ASC_linuxdetections@microsoft.com) een e-mail met uw abonnement-id's om deel te nemen aan de preview.
+> Security Center is vrijgegeven voor beperkte Preview-versie van een nieuwe set detecties die gebruikmaken van de gecontroleerde records, een gemeenschappelijk controle framework voor het detecteren van schadelijke gedragingen op Linux-machines. Stuur [ons](mailto:ASC_linuxdetections@microsoft.com) een e-mail met uw abonnement-id's om deel te nemen aan de preview.
 
 ## <a name="responding-to-todays-threats"></a>Reageren op actuele bedreigingen
 De bedreigingen zijn de afgelopen 20 jaar aanzienlijk veranderd. In het verleden moesten bedrijven zich meestal alleen zorgen maken over beschadiging van de website door afzonderlijke kwaadwillende gebruikers die voornamelijk wilden zien 'waartoe ze in staat waren'. Vandaag de dag gaan aanvallers veel genuanceerder te werk en zijn ze beter georganiseerd. Ze hebben vaak specifieke financiële en strategische doelstellingen. Ook hebben ze meer middelen beschikbaar, omdat ze mogelijk worden gefinancierd door staten of de georganiseerde misdaad.

@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/07/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 5df8104907e30337cdf47e5a9489ffdb50451a94
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c0c625852ff131aaa26e424ded75fbe51f94f23d
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055213"
+ms.locfileid: "44159296"
 ---
 # <a name="deploy-a-kubernetes-cluster-to-azure-stack"></a>Een Kubernetes-cluster implementeren in Azure Stack
 
@@ -28,7 +28,7 @@ ms.locfileid: "44055213"
 > [!Note]  
 > De Engine voor AKS (Azure Kubernetes Service) op Azure Stack is in de beperkte Preview-versie. Uw Azure Stack-operator moet de toegang tot het Kubernetes-Marketplace-item die nodig zijn om uit te voeren van de instructies in dit artikel.
 
-Het volgende artikel kijkt met behulp van de sjabloon voor een Azure Resource Manager-oplossing te implementeren en inrichten van de resources voor Kubernetes in een enkele, gecoördineerde bewerking. U moet de vereiste gegevens verzamelen over uw Azure Stack-installatie genereren van de sjabloon, en vervolgens naar de cloud kunt implementeren.
+Het volgende artikel kijkt met behulp van de sjabloon voor een Azure Resource Manager-oplossing te implementeren en inrichten van de resources voor Kubernetes in een enkele, gecoördineerde bewerking. U moet de vereiste gegevens verzamelen over uw Azure Stack-installatie genereren van de sjabloon, en vervolgens naar de cloud kunt implementeren. De sjabloon is niet hetzelfde beheerd AKS-service die wordt aangeboden in de globale Azure, maar dichter bij de ACS-service.
 
 ## <a name="kubernetes-and-containers"></a>Kubernetes en containers
 

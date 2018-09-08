@@ -1,6 +1,6 @@
 ---
-title: Integratie van Azure Security Center-beveiligingsbeleid met Azure Policy | Microsoft Docs
-description: In dit document leest u hoe u integratie van Azure Security Center-beveiligingsbeleid configureert met Azure Policy.
+title: Azure Security Center-beveiligingsbeleid kunnen worden ingesteld, afzonderlijk of als onderdeel van het Azure-beleid | Microsoft Docs
+description: Dit document helpt u beleidsregels instellen in Azure Security Center of Azure Policy.
 services: security-center
 documentationcenter: na
 author: TerryLanfear
@@ -9,20 +9,27 @@ editor: ''
 ms.assetid: cd906856-f4f9-4ddc-9249-c998386f4085
 ms.service: security-center
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/21/2018
+ms.date: 09/5/2018
 ms.author: terrylan
-ms.openlocfilehash: b3d6d15d41fece613290deb2c77e980caa5dcfef
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
-ms.translationtype: HT
+ms.openlocfilehash: bc6226d462bac7e9c50ce3f348007023bf861ec3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37018560"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162288"
 ---
-# <a name="integrate-security-center-security-policies-with-azure-policy"></a>Integratie van Security Center-beveiligingsbeleid met Azure Policy
-In dit artikel leest u hoe u Azure Security Center-beveiligingsbeleid configureert met [Azure Policy](../azure-policy/azure-policy-introduction.md).
+# <a name="setting-security-policies-in-security-center-or-in-azure-policy"></a>Beveiligingsbeleid instellen in Security Center of Azure Policy
+
+Dit artikel helpt u bij het configureren van Azure Security Center-beveiligingsbeleid. Azure klantomgevingen Center-beleid worden geïntegreerd met Azure-beleid, zodat u kunt deze instellen in Security Center op een bepaald abonnement of in [Azure Policy](../azure-policy/azure-policy-introduction.md), waarmee u kunt voor het instellen van beleidsregels binnen beheergroepen en over meerdere abonnementen...
+
+## <a name="what-are-security-policies"></a>Wat is beveiligingsbeleid?
+Een beveiligingsbeleid definieert de gewenste configuratie van uw workloads en helpt ervoor te zorgen dat aan de beveiligingsvereisten van het bedrijf of aan regelgeving wordt voldaan. U kunt in Azure Security Center definieert beleid voor uw Azure-abonnementen en past u dit aan uw type workload of de vertrouwelijkheid van uw gegevens. Toepassingen met gereglementeerde gegevens, zoals persoonsgegevens, kunnen bijvoorbeeld vereisen dat een hoger beveiligingsniveau dan andere werkbelastingen. Als u wilt een beleid instellen voor abonnementen of beheergroepen, stelt u deze [Azure Policy](../azure-policy/azure-policy-introduction.md).
+
+> [!NOTE]
+> Als u eerder beveiligingsbeleid voor een abonnement dat deel uitmaakt van een beheergroep, of meerdere toewijzingen van beleid is geconfigureerd, grijs dat beleid weergegeven in Security Center zodat u kunt het beleid op het niveau van beheer via de Azure beheren Pagina met beleid. 
 
 ## <a name="how-security-policies-work"></a>Hoe beveiligingsbeleid werkt
 In Security Center wordt voor elk van uw Azure-abonnementen automatisch een standaardbeveiligingsbeleid gemaakt. U kunt het beleid bewerken in Security Center of Azure Policy gebruiken om het volgende doen:
@@ -40,8 +47,17 @@ De Azure-beleid bestaat uit de volgende onderdelen:
 
 Een resource wordt geëvalueerd op basis van de beleidsregels die eraan zijn toegewezen en krijgt een waardering op basis van het aantal beleidsregels waaraan de resource voldoet.
 
+## <a name="who-can-edit-security-policies"></a>Wie kan beveiligingsbeleid bewerken?
+Security Center maakt gebruik van rollen gebaseerd toegangsbeheer (RBAC), waarmee u ingebouwde rollen die kunnen worden toegewezen aan gebruikers, groepen en services in Azure. Wanneer gebruikers Security Center openen, zien ze alleen informatie met betrekking tot ze toegang tot hebben resources. Wat betekent dat gebruikers de rol van eigenaar, bijdrager of lezer zijn toegewezen aan de groep abonnement of resourcegroep waartoe een resource behoort. Naast deze rollen zijn er twee specifieke Security Center-rollen:
+
+- Beveiligingslezer: heeft weergave rechten voor Security Center, waaronder aanbevelingen, waarschuwingen, beleid en de gezondheid van, maar ze niet wijzigen.
+- Beveiligingsbeheerder: de dezelfde rechten weergeven als beveiligingslezer hebben, en ze kunnen ook bijwerken van het beveiligingsbeleid en aanbevelingen en waarschuwingen sluiten.
+
 ## <a name="edit-security-policies"></a>Beveiligingsbeleid bewerken
 U kunt het standaardbeveiligingsbeleid voor elk van uw Azure-abonnementen en beheergroepen bewerken in Security Center. U kunt een beveiligingsbeleid alleen wijzigen als u een eigenaar, bijdrager of beveiligingsbeheerder van dat abonnement bent of van de bovenliggende beheergroep. Ga als volgt te werk als u uw beveiligingsbeleidsregels wilt weergeven in Security Center:
+
+> [!NOTE]
+> Alle beleidsregels die zijn ingesteld op een abonnement dat deel uitmaakt van een beheergroep, of heeft meerdere toewijzingen van beleid, wordt grijs weergegeven in Security Center. U kunt deze beleidsregels in bewerken [Azure Policy](../azure-policy/azure-policy-introduction.md). 
 
 1. Ga in het dashboard van **Security Center** naar **BELEID EN NALEVING** en selecteer **Beveiligingsbeleid**. **Beleidsbeheer** wordt geopend.
 

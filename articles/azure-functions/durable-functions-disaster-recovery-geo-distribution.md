@@ -3,23 +3,19 @@ title: Herstel na noodgevallen en geo-distributie in duurzame functies - Azure
 description: Meer informatie over herstel na noodgevallen en geo-distributie in duurzame functies.
 services: functions
 author: MS-Santi
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: bbfbf351b8976f4140b6dd98a9a54ba982c3d865
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: c3eae78b613916d05009ecdd567c2f73e5e78c66
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399394"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091327"
 ---
 # <a name="disaster-recovery-and-geo-distribution"></a>Herstel bij noodgeval en geodistributie
 

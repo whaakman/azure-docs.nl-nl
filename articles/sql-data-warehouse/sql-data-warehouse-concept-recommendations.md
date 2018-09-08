@@ -10,20 +10,20 @@ ms.component: manage
 ms.date: 07/27/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 35ae3d1a8a6de2d348f90e2f55b732421b879917
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 48d64873f0a8c3754ac5c3ecda2294c0f337b9d5
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307634"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094601"
 ---
 # <a name="sql-data-warehouse-recommendations"></a>Aanbevelingen voor SQL datawarehouse
 
 Dit artikel beschrijft de aanbevelingen die is geleverd door SQL Data Warehouse via Azure Advisor.  
 
-SQL Data Warehouse biedt aanbevelingen om te controleren of uw datawarehouse wordt voortdurend geoptimaliseerd voor prestaties. Aanbevelingen voor datawarehouse is nauw geïntegreerd met [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) zodat u kunt met best practices rechtstreeks binnen de [Azure-portal](https://aka.ms/Azureadvisor). SQL Data Warehouse de huidige status van uw datawarehouse analyseert, Telemetrie en bevat aanbevelingen voor de werkbelasting van uw actieve dagelijks worden verzameld. De aanbeveling scenario's met ondersteunde datawarehouse worden hieronder beschreven, samen met het toepassen van de aanbevolen acties.
+SQL Data Warehouse biedt aanbevelingen om te controleren of uw datawarehouse wordt voortdurend geoptimaliseerd voor prestaties. Datawarehouse aanbevelingen zijn nauw geïntegreerd met [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) zodat u kunt met best practices rechtstreeks binnen de [Azure-portal](https://aka.ms/Azureadvisor). SQL Data Warehouse de huidige status van uw datawarehouse analyseert, Telemetrie en bevat aanbevelingen voor de werkbelasting van uw actieve dagelijks worden verzameld. De aanbeveling scenario's met ondersteunde datawarehouse worden hieronder beschreven, samen met het toepassen van de aanbevolen acties.
 
-Als u feedback over de SQL Data Warehouse Advisor hebt of ondervindt problemen, neem contact op [ sqldwadvisor@service.microsoft.com ](mailto:sqldwadvisor@service.microsoft.com).   
+Als u feedback over de SQL Data Warehouse Advisor hebt of ondervindt problemen, contact op met [ sqldwadvisor@service.microsoft.com ](mailto:sqldwadvisor@service.microsoft.com).   
 
 Klik op [hier](https://aka.ms/Azureadvisor) om te controleren op uw aanbevelingen vandaag nog! Deze functie is momenteel van toepassing op datawarehouses alleen Gen2. 
 
@@ -39,4 +39,4 @@ Uit suboptimale statistieken kan grote invloed is op prestaties van query's, dit
 
 - [Het maken en bijwerken van tabelstatistieken](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistic)
 
-Deze twee aanbevelingen voor de advisor wordt continu wordt uitgevoerd de volgende [T-SQL-script](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables) voor het identificeren van tabellen die worden beïnvloed door aanbevelingen voor scheeftrekken en statistieken.
+Als u wilt de lijst met betrokken tabellen zien door deze aanbevelingen, voer de volgende [T-SQL-script](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/samples/sqlops/MonitoringScripts/ImpactedTables). De advisor wordt continu uitgevoerd voor de dezelfde T-SQL-script voor het genereren van deze aanbevelingen.

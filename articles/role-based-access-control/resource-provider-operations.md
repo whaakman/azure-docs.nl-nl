@@ -10,15 +10,15 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/19/2018
+ms.date: 09/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 86a2fba7730a653a254a2fd996f9e45ed322fbe3
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 7e66f9a0f22103c01e947c028a5c8355cb4d0e15
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055131"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095569"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -34,7 +34,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
 > | Bewerking | Microsoft.AAD/domainServices/delete | Domeinservice verwijderen |
-> | Bewerking | Microsoft.AAD/domainServices/read | Lees domeinservice |
+> | Bewerking | Microsoft.AAD/domainServices/read | Domain Services lezen |
 > | Bewerking | Microsoft.AAD/domainServices/write | Write-domeinservice |
 > | Bewerking | Microsoft.AAD/locations/operationresults/read |  |
 > | Bewerking | Microsoft.AAD/Operations/read |  |
@@ -472,10 +472,10 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Automation/automationAccounts/listKeys/action | Leest de sleutels voor het automation-account |
 > | Bewerking | Microsoft.Automation/automationAccounts/logDefinitions/read | Hiermee worden de beschikbare logboeken opgehaald voor het automation-account |
 > | Bewerking | Microsoft.Automation/automationAccounts/modules/activities/read | Azure Automation-activiteiten opgehaald |
-> | Bewerking | Microsoft.Automation/automationAccounts/modules/delete | Hiermee verwijdert u een Azure Automation-module |
-> | Bewerking | Microsoft.Automation/automationAccounts/modules/getCount/action | Het aantal modules binnen het Automation-Account opgehaald |
-> | Bewerking | Microsoft.Automation/automationAccounts/modules/read | Haalt een Azure Automation-module |
-> | Bewerking | Microsoft.Automation/automationAccounts/modules/write | Hiermee maken of bijwerken van een Azure Automation-module |
+> | Bewerking | Microsoft.Automation/automationAccounts/modules/delete | Hiermee verwijdert u een Azure Automation-Powershell-module |
+> | Bewerking | Microsoft.Automation/automationAccounts/modules/getCount/action | Met deze eigenschap wordt de telling van de Powershell-modules binnen het Automation-Account |
+> | Bewerking | Microsoft.Automation/automationAccounts/modules/read | Haalt een Azure Automation-Powershell-module |
+> | Bewerking | Microsoft.Automation/automationAccounts/modules/write | Hiermee maken of bijwerken van een Azure Automation-Powershell-module |
 > | Bewerking | Microsoft.Automation/automationAccounts/nodeConfigurations/delete | Hiermee verwijdert u een Azure Automation DSC-knooppuntconfiguratie |
 > | Bewerking | Microsoft.Automation/automationAccounts/nodeConfigurations/rawContent/action | Leest configuratie-inhoud voor een Azure Automation DSC-knooppunt |
 > | Bewerking | Microsoft.Automation/automationAccounts/nodeConfigurations/read | Leest een Azure Automation DSC-knooppuntconfiguratie |
@@ -1301,24 +1301,24 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.ContainerService/containerServices/delete | Hiermee verwijdert u een containerservice |
+> | Bewerking | Microsoft.ContainerService/containerServices/delete | Hiermee wordt een containerservice verwijderd |
 > | Bewerking | Microsoft.ContainerService/containerServices/read | Ophalen van een containerservice |
-> | Bewerking | Microsoft.ContainerService/containerServices/write | Hiermee maakt u een nieuwe containerservice of een bestaande bijgewerkt |
+> | Bewerking | Microsoft.ContainerService/containerServices/write | Hiermee wordt een nieuwe containerservice gemaakt of wordt een bestaande bijgewerkt |
 > | Bewerking | Microsoft.ContainerService/locations/operationresults/read | Hiermee wordt de status van het resultaat van een asynchrone bewerking opgehaald |
 > | Bewerking | Microsoft.ContainerService/locations/operations/read | Hiermee wordt de status van een asynchrone bewerking opgehaald |
 > | Bewerking | Microsoft.ContainerService/locations/orchestrators/read | Geeft een lijst van de ondersteunde orchestrators |
-> | Bewerking | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Een profiel van de toegang tot beheerde cluster met op rolnaam met behulp van de lijst met referenties ophalen |
-> | Bewerking | Microsoft.ContainerService/managedClusters/accessProfiles/read | Ophalen van een profiel van de toegang tot beheerde cluster met op rolnaam |
-> | Bewerking | Microsoft.ContainerService/managedClusters/delete | Hiermee verwijdert u een beheerd cluster |
+> | Bewerking | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | Een toegangsprofiel van een beheerd cluster ophalen op rolnaam met lijstreferenties |
+> | Bewerking | Microsoft.ContainerService/managedClusters/accessProfiles/read | Een toegangsprofiel van een beheerd cluster ophalen op rolnaam |
+> | Bewerking | Microsoft.ContainerService/managedClusters/delete | Hiermee wordt een beheerd cluster verwijderd |
 > | Bewerking | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | Lijst van de referentie clusterAdmin van een beheerde cluster |
 > | Bewerking | Microsoft.ContainerService/managedClusters/listClusterUserCredential/action | Lijst van de referentie clusterUser van een beheerde cluster |
-> | Bewerking | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/diagnosticSettings/read | De diagnostische instelling voor de resource van een beheerd cluster ophalen |
-> | Bewerking | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee maken of bijwerken van de diagnostische instelling voor een beheerde cluster-bron |
+> | Bewerking | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/diagnosticSettings/read | De diagnostische instelling voor een beheerde clusterresource ophalen |
+> | Bewerking | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor een beheerde clusterresource gemaakt of bijgewerkt |
 > | Bewerking | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/logDefinitions/read | De beschikbare logboeken opgehaald voor beheerd Cluster |
-> | Bewerking | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/metricDefinitions/read | Hiermee haalt u de beschikbare metrische gegevens voor beheerd Cluster |
+> | Bewerking | Microsoft.ContainerService/managedClusters/providers/Microsoft.Insights/metricDefinitions/read | Hiermee worden de beschikbare metrische gegevens voor het beheerde cluster opgehaald |
 > | Bewerking | Microsoft.ContainerService/managedClusters/read | Een beheerd cluster ophalen |
 > | Bewerking | Microsoft.ContainerService/managedClusters/upgradeprofiles/read | Het upgrade-profiel van het cluster opgehaald |
-> | Bewerking | Microsoft.ContainerService/managedClusters/write | Hiermee maakt u een nieuwe beheerde cluster of een bestaande bijgewerkt |
+> | Bewerking | Microsoft.ContainerService/managedClusters/write | Hiermee wordt een nieuw cluster gemaakt of wordt een bestaande bijgewerkt |
 > | Bewerking | Microsoft.ContainerService/operations/read | Een lijst met bewerkingen weergegeven die beschikbaar zijn op de Microsoft.ContainerService-resourceprovider |
 > | Bewerking | Microsoft.ContainerService/register/action | Hiermee wordt een abonnement bij de resourceprovider Microsoft.ContainerService |
 > | Bewerking | Microsoft.ContainerService/unregister/action | De registratie van abonnement bij de resourceprovider Microsoft.ContainerService |
@@ -1692,6 +1692,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DBforMySQL/servers/providers/Microsoft.Insights/metricDefinitions/read | Resultaattypen van metrische gegevens die beschikbaar voor databases zijn |
 > | Bewerking | Microsoft.DBforMySQL/servers/read | Retourneert de lijst met servers of haalt de eigenschappen voor de opgegeven server. |
 > | Bewerking | Microsoft.DBforMySQL/servers/recoverableServers/read | Retourneert de herstelbare gegevens van de MySQL-Server |
+> | Bewerking | Microsoft.DBforMySQL/servers/securityAlertPolicies/read | Gegevens van de server threat detection dat is geconfigureerd op een bepaalde server niet ophalen |
+> | Bewerking | Microsoft.DBforMySQL/servers/securityAlertPolicies/write | Het beleid voor detectie van bedreigingen server voor een bepaalde server wijzigen |
 > | Bewerking | Microsoft.DBforMySQL/servers/updateConfigurations/action | Configuraties voor de opgegeven server bijwerken |
 > | Bewerking | Microsoft.DBforMySQL/servers/virtualNetworkRules/delete | Hiermee verwijdert u een bestaande regel voor het virtuele netwerk |
 > | Bewerking | Microsoft.DBforMySQL/servers/virtualNetworkRules/read | Retourneert de lijst van het virtuele netwerk regels of haalt u de eigenschappen voor de regel van de opgegeven virtuele netwerk. |
@@ -1725,6 +1727,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/delete | Hiermee verwijdert u een bestaande regel voor het virtuele netwerk |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/read | Retourneert de lijst van het virtuele netwerk regels of haalt u de eigenschappen voor de regel van de opgegeven virtuele netwerk. |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/virtualNetworkRules/write | Hiermee maakt u een regel voor virtuele netwerken met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de regel van de opgegeven virtuele netwerk. |
+> | Bewerking | Microsoft.DBforPostgreSQL/servers/waitStatistics/read | Wacht statistieken voor een exemplaar retourneren |
 > | Bewerking | Microsoft.DBforPostgreSQL/servers/write | Hiermee maakt u een server met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de opgegeven server. |
 
 ## <a name="microsoftdevices"></a>Microsoft.Devices
@@ -2113,6 +2116,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
+> | Bewerking | Microsoft.HDInsight/clusters/applications/delete | Toepassing voor HDInsight-Cluster verwijderen |
+> | Bewerking | Microsoft.HDInsight/clusters/applications/read | Toepassing voor HDInsight-Cluster |
+> | Bewerking | Microsoft.HDInsight/clusters/applications/write | Toepassing voor HDInsight-Cluster maken of bijwerken |
 > | Bewerking | Microsoft.HDInsight/clusters/changerdpsetting/action | RDP-instelling voor HDInsight-Cluster wijzigen |
 > | Bewerking | Microsoft.HDInsight/clusters/configurations/action | Configuratie van het HDInsight-Cluster bijwerken |
 > | Bewerking | Microsoft.HDInsight/clusters/configurations/read | Configuraties van clusters op HDInsight ophalen |
@@ -2234,6 +2240,153 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Insights/LogProfiles/Delete | Een logboekprofiel voor het activiteitenlogboek verwijderen |
 > | Bewerking | Microsoft.Insights/LogProfiles/Read | Een logboekprofiel voor het activiteitenlogboek lezen |
 > | Bewerking | Microsoft.Insights/LogProfiles/Write | Een logboekprofiel voor het activiteitenlogboek maken of bijwerken |
+> | Bewerking | Microsoft.Insights/Logs/ADAssessmentRecommendation/Read | Gegevens lezen uit de tabel ADAssessmentRecommendation |
+> | Bewerking | Microsoft.Insights/Logs/ADReplicationResult/Read | Gegevens lezen uit de tabel ADReplicationResult |
+> | Bewerking | Microsoft.Insights/Logs/ADSecurityAssessmentRecommendation/Read | Gegevens lezen uit de tabel ADSecurityAssessmentRecommendation |
+> | Bewerking | Microsoft.Insights/Logs/Alert/Read | Gegevens lezen uit de tabel Alert |
+> | Bewerking | Microsoft.Insights/Logs/AlertHistory/Read | Gegevens lezen uit de tabel AlertHistory |
+> | Bewerking | Microsoft.Insights/Logs/ApplicationInsights/Read | Gegevens lezen uit de Application Insights-tabel |
+> | Bewerking | Microsoft.Insights/Logs/AzureActivity/Read | Gegevens lezen uit de tabel AzureActivity |
+> | Bewerking | Microsoft.Insights/Logs/AzureMetrics/Read | Gegevens lezen uit de tabel AzureMetrics |
+> | Bewerking | Microsoft.Insights/Logs/BoundPort/Read | Gegevens lezen uit de tabel BoundPort |
+> | Bewerking | Microsoft.Insights/Logs/CommonSecurityLog/Read | Gegevens lezen uit de tabel CommonSecurityLog |
+> | Bewerking | Microsoft.Insights/Logs/ComputerGroup/Read | Gegevens lezen uit de tabel ComputerGroup |
+> | Bewerking | Microsoft.Insights/Logs/ConfigurationChange/Read | Gegevens lezen uit de tabel ConfigurationChange |
+> | Bewerking | Microsoft.Insights/Logs/ConfigurationData/Read | Gegevens lezen uit de tabel ConfigurationData |
+> | Bewerking | Microsoft.Insights/Logs/ContainerImageInventory/Read | Gegevens lezen uit de tabel ContainerImageInventory |
+> | Bewerking | Microsoft.Insights/Logs/ContainerInventory/Read | Gegevens lezen uit de tabel ContainerInventory |
+> | Bewerking | Microsoft.Insights/Logs/ContainerLog/Read | Gegevens lezen uit de tabel ContainerLog |
+> | Bewerking | Microsoft.Insights/Logs/ContainerServiceLog/Read | Gegevens lezen uit de tabel ContainerServiceLog |
+> | Bewerking | Microsoft.Insights/Logs/CustomLogs/Read | Gegevens lezen van een aangepast logboek |
+> | Bewerking | Microsoft.Insights/Logs/DeviceAppCrash/Read | Gegevens lezen uit de tabel DeviceAppCrash |
+> | Bewerking | Microsoft.Insights/Logs/DeviceAppLaunch/Read | Gegevens lezen uit de tabel DeviceAppLaunch |
+> | Bewerking | Microsoft.Insights/Logs/DeviceCalendar/Read | Gegevens lezen uit de tabel DeviceCalendar |
+> | Bewerking | Microsoft.Insights/Logs/DeviceCleanup/Read | Gegevens lezen uit de tabel DeviceCleanup |
+> | Bewerking | Microsoft.Insights/Logs/DeviceConnectSession/Read | Gegevens lezen uit de tabel DeviceConnectSession |
+> | Bewerking | Microsoft.Insights/Logs/DeviceEtw/Read | Gegevens lezen uit de tabel DeviceEtw |
+> | Bewerking | Microsoft.Insights/Logs/DeviceHardwareHealth/Read | Gegevens lezen uit de tabel DeviceHardwareHealth |
+> | Bewerking | Microsoft.Insights/Logs/DeviceHealth/Read | Gegevens lezen uit de tabel de apparaatstatus |
+> | Bewerking | Microsoft.Insights/Logs/DeviceHeartbeat/Read | Gegevens lezen uit de tabel DeviceHeartbeat |
+> | Bewerking | Microsoft.Insights/Logs/DeviceSkypeHeartbeat/Read | Gegevens lezen uit de tabel DeviceSkypeHeartbeat |
+> | Bewerking | Microsoft.Insights/Logs/DeviceSkypeSignIn/Read | Gegevens lezen uit de tabel DeviceSkypeSignIn |
+> | Bewerking | Microsoft.Insights/Logs/DeviceSleepState/Read | Gegevens lezen uit de tabel DeviceSleepState |
+> | Bewerking | Microsoft.Insights/Logs/DHAppFailure/Read | Gegevens lezen uit de tabel DHAppFailure |
+> | Bewerking | Microsoft.Insights/Logs/DHAppReliability/Read | Gegevens lezen uit de tabel DHAppReliability |
+> | Bewerking | Microsoft.Insights/Logs/DHDriverReliability/Read | Gegevens lezen uit de tabel DHDriverReliability |
+> | Bewerking | Microsoft.Insights/Logs/DHLogonFailures/Read | Gegevens lezen uit de tabel DHLogonFailures |
+> | Bewerking | Microsoft.Insights/Logs/DHLogonMetrics/Read | Gegevens lezen uit de tabel DHLogonMetrics |
+> | Bewerking | Microsoft.Insights/Logs/DHOSCrashData/Read | Gegevens lezen uit de tabel DHOSCrashData |
+> | Bewerking | Microsoft.Insights/Logs/DHOSReliability/Read | Gegevens lezen uit de tabel DHOSReliability |
+> | Bewerking | Microsoft.Insights/Logs/DHWipAppLearning/Read | Gegevens lezen uit de tabel DHWipAppLearning |
+> | Bewerking | Microsoft.Insights/Logs/DnsEvents/Read | Gegevens lezen uit de tabel DnsEvents |
+> | Bewerking | Microsoft.Insights/Logs/DnsInventory/Read | Gegevens lezen uit de tabel DnsInventory |
+> | Bewerking | Microsoft.Insights/Logs/ETWEvent/Read | Gegevens lezen uit de tabel ETWEvent |
+> | Bewerking | Microsoft.Insights/Logs/Event/Read | Gegevens lezen uit de tabel Event |
+> | Bewerking | Microsoft.Insights/Logs/ExchangeAssessmentRecommendation/Read | Gegevens lezen uit de tabel ExchangeAssessmentRecommendation |
+> | Bewerking | Microsoft.Insights/Logs/ExchangeOnlineAssessmentRecommendation/Read | Gegevens lezen uit de tabel ExchangeOnlineAssessmentRecommendation |
+> | Bewerking | Microsoft.Insights/Logs/Heartbeat/Read | Lezen van gegevens van de Heartbeat-tabel |
+> | Bewerking | Microsoft.Insights/Logs/IISAssessmentRecommendation/Read | Gegevens lezen uit de tabel IISAssessmentRecommendation |
+> | Bewerking | Microsoft.Insights/Logs/InboundConnection/Read | Gegevens lezen uit de tabel InboundConnection |
+> | Bewerking | Microsoft.Insights/Logs/KubeNodeInventory/Read | Gegevens lezen uit de tabel KubeNodeInventory |
+> | Bewerking | Microsoft.Insights/Logs/KubePodInventory/Read | Gegevens lezen uit de tabel KubePodInventory |
+> | Bewerking | Microsoft.Insights/Logs/LinuxAuditLog/Read | Gegevens lezen uit de tabel LinuxAuditLog |
+> | Bewerking | Microsoft.Insights/Logs/MAApplication/Read | Gegevens lezen uit de tabel MAApplication |
+> | Bewerking | Microsoft.Insights/Logs/MAApplicationHealth/Read | Gegevens lezen uit de tabel MAApplicationHealth |
+> | Bewerking | Microsoft.Insights/Logs/MAApplicationHealthAlternativeVersions/Read | Gegevens lezen uit de tabel MAApplicationHealthAlternativeVersions |
+> | Bewerking | Microsoft.Insights/Logs/MAApplicationHealthIssues/Read | Gegevens lezen uit de tabel MAApplicationHealthIssues |
+> | Bewerking | Microsoft.Insights/Logs/MAApplicationInstance/Read | Gegevens lezen uit de tabel MAApplicationInstance |
+> | Bewerking | Microsoft.Insights/Logs/MAApplicationInstanceReadiness/Read | Gegevens lezen uit de tabel MAApplicationInstanceReadiness |
+> | Bewerking | Microsoft.Insights/Logs/MAApplicationReadiness/Read | Gegevens lezen uit de tabel MAApplicationReadiness |
+> | Bewerking | Microsoft.Insights/Logs/MADeploymentPlan/Read | Gegevens lezen uit de tabel MADeploymentPlan |
+> | Bewerking | Microsoft.Insights/Logs/MADevice/Read | Gegevens lezen uit de tabel MADevice |
+> | Bewerking | Microsoft.Insights/Logs/MADevicePnPHealth/Read | Gegevens lezen uit de tabel MADevicePnPHealth |
+> | Bewerking | Microsoft.Insights/Logs/MADevicePnPHealthAlternativeVersions/Read | Gegevens lezen uit de tabel MADevicePnPHealthAlternativeVersions |
+> | Bewerking | Microsoft.Insights/Logs/MADevicePnPHealthIssues/Read | Gegevens lezen uit de tabel MADevicePnPHealthIssues |
+> | Bewerking | Microsoft.Insights/Logs/MADeviceReadiness/Read | Gegevens lezen uit de tabel MADeviceReadiness |
+> | Bewerking | Microsoft.Insights/Logs/MADriverInstanceReadiness/Read | Gegevens lezen uit de tabel MADriverInstanceReadiness |
+> | Bewerking | Microsoft.Insights/Logs/MADriverReadiness/Read | Gegevens lezen uit de tabel MADriverReadiness |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeAddin/Read | Gegevens lezen uit de tabel MAOfficeAddin |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeAddinHealth/Read | Gegevens lezen uit de tabel MAOfficeAddinHealth |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeAddinHealthIssues/Read | Gegevens lezen uit de tabel MAOfficeAddinHealthIssues |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeAddinInstance/Read | Gegevens lezen uit de tabel MAOfficeAddinInstance |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeAddinInstanceReadiness/Read | Gegevens lezen uit de tabel MAOfficeAddinInstanceReadiness |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeAddinReadiness/Read | Gegevens lezen uit de tabel MAOfficeAddinReadiness |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeApp/Read | Gegevens lezen uit de tabel MAOfficeApp |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeAppHealth/Read | Gegevens lezen uit de tabel MAOfficeAppHealth |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeAppInstance/Read | Gegevens lezen uit de tabel MAOfficeAppInstance |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeAppReadiness/Read | Gegevens lezen uit de tabel MAOfficeAppReadiness |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeBuildInfo/Read | Gegevens lezen uit de tabel MAOfficeBuildInfo |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeCurrencyAssessment/Read | Gegevens lezen uit de tabel MAOfficeCurrencyAssessment |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeCurrencyAssessmentDailyCounts/Read | Gegevens lezen uit de tabel MAOfficeCurrencyAssessmentDailyCounts |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeDeploymentStatus/Read | Gegevens lezen uit de tabel MAOfficeDeploymentStatus |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeMacroHealth/Read | Gegevens lezen uit de tabel MAOfficeMacroHealth |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeMacroHealthIssues/Read | Gegevens lezen uit de tabel MAOfficeMacroHealthIssues |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeMacroIssueInstanceReadiness/Read | Gegevens lezen uit de tabel MAOfficeMacroIssueInstanceReadiness |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeMacroIssueReadiness/Read | Gegevens lezen uit de tabel MAOfficeMacroIssueReadiness |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeMacroSummary/Read | Gegevens lezen uit de tabel MAOfficeMacroSummary |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeSuite/Read | Gegevens lezen uit de tabel MAOfficeSuite |
+> | Bewerking | Microsoft.Insights/Logs/MAOfficeSuiteInstance/Read | Gegevens lezen uit de tabel MAOfficeSuiteInstance |
+> | Bewerking | Microsoft.Insights/Logs/MAProposedPilotDevices/Read | Gegevens lezen uit de tabel MAProposedPilotDevices |
+> | Bewerking | Microsoft.Insights/Logs/MAWindowsBuildInfo/Read | Gegevens lezen uit de tabel MAWindowsBuildInfo |
+> | Bewerking | Microsoft.Insights/Logs/MAWindowsCurrencyAssessment/Read | Gegevens lezen uit de tabel MAWindowsCurrencyAssessment |
+> | Bewerking | Microsoft.Insights/Logs/MAWindowsCurrencyAssessmentDailyCounts/Read | Gegevens lezen uit de tabel MAWindowsCurrencyAssessmentDailyCounts |
+> | Bewerking | Microsoft.Insights/Logs/MAWindowsDeploymentStatus/Read | Gegevens lezen uit de tabel MAWindowsDeploymentStatus |
+> | Bewerking | Microsoft.Insights/Logs/MAWindowsSysReqInstanceReadiness/Read | Gegevens lezen uit de tabel MAWindowsSysReqInstanceReadiness |
+> | Bewerking | Microsoft.Insights/Logs/NetworkMonitoring/Read | Gegevens lezen uit de tabel NetworkMonitoring |
+> | Bewerking | Microsoft.Insights/Logs/OfficeActivity/Read | Gegevens lezen uit de tabel OfficeActivity |
+> | Bewerking | Microsoft.Insights/Logs/Operation/Read | Gegevens lezen uit de tabel Operation |
+> | Bewerking | Microsoft.Insights/Logs/OutboundConnection/Read | Gegevens lezen uit de tabel OutboundConnection |
+> | Bewerking | Microsoft.Insights/Logs/Perf/Read | Gegevens lezen uit de prestatietabel |
+> | Bewerking | Microsoft.Insights/Logs/ProtectionStatus/Read | Gegevens lezen uit de tabel ProtectionStatus |
+> | Bewerking | Microsoft.Insights/Logs/Read | Gegevens lezen uit al uw logboeken |
+> | Bewerking | Microsoft.Insights/Logs/ReservedAzureCommonFields/Read | Gegevens lezen uit de tabel ReservedAzureCommonFields |
+> | Bewerking | Microsoft.Insights/Logs/ReservedCommonFields/Read | Gegevens lezen uit de tabel ReservedCommonFields |
+> | Bewerking | Microsoft.Insights/Logs/SCCMAssessmentRecommendation/Read | Gegevens lezen uit de tabel SCCMAssessmentRecommendation |
+> | Bewerking | Microsoft.Insights/Logs/SCOMAssessmentRecommendation/Read | Gegevens lezen uit de tabel SCOMAssessmentRecommendation |
+> | Bewerking | Microsoft.Insights/Logs/SecurityAlert/Read | Gegevens lezen uit de tabel SecurityAlert |
+> | Bewerking | Microsoft.Insights/Logs/SecurityBaseline/Read | Gegevens lezen uit de tabel SecurityBaseline |
+> | Bewerking | Microsoft.Insights/Logs/SecurityBaselineSummary/Read | Gegevens lezen uit de tabel SecurityBaselineSummary |
+> | Bewerking | Microsoft.Insights/Logs/SecurityDetection/Read | Gegevens lezen uit de tabel SecurityDetection |
+> | Bewerking | Microsoft.Insights/Logs/SecurityEvent/Read | Gegevens lezen uit de tabel SecurityEvent |
+> | Bewerking | Microsoft.Insights/Logs/ServiceFabricOperationalEvent/Read | Gegevens lezen uit de tabel ServiceFabricOperationalEvent |
+> | Bewerking | Microsoft.Insights/Logs/ServiceFabricReliableActorEvent/Read | Gegevens lezen uit de tabel ServiceFabricReliableActorEvent |
+> | Bewerking | Microsoft.Insights/Logs/ServiceFabricReliableServiceEvent/Read | Gegevens lezen uit de tabel ServiceFabricReliableServiceEvent |
+> | Bewerking | Microsoft.Insights/Logs/SfBAssessmentRecommendation/Read | Gegevens lezen uit de tabel SfBAssessmentRecommendation |
+> | Bewerking | Microsoft.Insights/Logs/SfBOnlineAssessmentRecommendation/Read | Gegevens lezen uit de tabel SfBOnlineAssessmentRecommendation |
+> | Bewerking | Microsoft.Insights/Logs/SharePointOnlineAssessmentRecommendation/Read | Gegevens lezen uit de tabel SharePointOnlineAssessmentRecommendation |
+> | Bewerking | Microsoft.Insights/Logs/SPAssessmentRecommendation/Read | Gegevens lezen uit de tabel SPAssessmentRecommendation |
+> | Bewerking | Microsoft.Insights/Logs/SQLAssessmentRecommendation/Read | Gegevens lezen uit de tabel SQLAssessmentRecommendation |
+> | Bewerking | Microsoft.Insights/Logs/SQLQueryPerformance/Read | Gegevens lezen uit de tabel SQLQueryPerformance |
+> | Bewerking | Microsoft.Insights/Logs/Syslog/Read | Gegevens lezen uit de Syslog-tabel |
+> | Bewerking | Microsoft.Insights/Logs/SysmonEvent/Read | Gegevens lezen uit de tabel SysmonEvent |
+> | Bewerking | Microsoft.Insights/Logs/UAApp/Read | Gegevens lezen uit de tabel UAApp |
+> | Bewerking | Microsoft.Insights/Logs/UAComputer/Read | Gegevens lezen uit de tabel UAComputer |
+> | Bewerking | Microsoft.Insights/Logs/UAComputerRank/Read | Gegevens lezen uit de tabel UAComputerRank |
+> | Bewerking | Microsoft.Insights/Logs/UADriver/Read | Gegevens lezen uit de tabel UADriver |
+> | Bewerking | Microsoft.Insights/Logs/UADriverProblemCodes/Read | Gegevens lezen uit de tabel UADriverProblemCodes |
+> | Bewerking | Microsoft.Insights/Logs/UAFeedback/Read | Gegevens lezen uit de tabel UAFeedback |
+> | Bewerking | Microsoft.Insights/Logs/UAHardwareSecurity/Read | Gegevens lezen uit de tabel UAHardwareSecurity |
+> | Bewerking | Microsoft.Insights/Logs/UAIESiteDiscovery/Read | Gegevens lezen uit de tabel UAIESiteDiscovery |
+> | Bewerking | Microsoft.Insights/Logs/UAOfficeAddIn/Read | Gegevens lezen uit de tabel UAOfficeAddIn |
+> | Bewerking | Microsoft.Insights/Logs/UAProposedActionPlan/Read | Gegevens lezen uit de tabel UAProposedActionPlan |
+> | Bewerking | Microsoft.Insights/Logs/UASysReqIssue/Read | Gegevens lezen uit de tabel UASysReqIssue |
+> | Bewerking | Microsoft.Insights/Logs/UAUpgradedComputer/Read | Gegevens lezen uit de tabel UAUpgradedComputer |
+> | Bewerking | Microsoft.Insights/Logs/Update/Read | Gegevens lezen uit de tabel Update |
+> | Bewerking | Microsoft.Insights/Logs/UpdateRunProgress/Read | Gegevens lezen uit de tabel UpdateRunProgress |
+> | Bewerking | Microsoft.Insights/Logs/UpdateSummary/Read | Gegevens lezen uit de tabel UpdateSummary |
+> | Bewerking | Microsoft.Insights/Logs/Usage/Read | Gegevens lezen uit de tabel Usage |
+> | Bewerking | Microsoft.Insights/Logs/W3CIISLog/Read | Gegevens lezen uit de tabel W3CIISLog |
+> | Bewerking | Microsoft.Insights/Logs/WaaSDeploymentStatus/Read | Gegevens lezen uit de tabel WaaSDeploymentStatus |
+> | Bewerking | Microsoft.Insights/Logs/WaaSInsiderStatus/Read | Gegevens lezen uit de tabel WaaSInsiderStatus |
+> | Bewerking | Microsoft.Insights/Logs/WaaSUpdateStatus/Read | Gegevens lezen uit de tabel WaaSUpdateStatus |
+> | Bewerking | Microsoft.Insights/Logs/WDAVStatus/Read | Gegevens lezen uit de tabel WDAVStatus |
+> | Bewerking | Microsoft.Insights/Logs/WDAVThreat/Read | Gegevens lezen uit de tabel WDAVThreat |
+> | Bewerking | Microsoft.Insights/Logs/WindowsClientAssessmentRecommendation/Read | Gegevens lezen uit de tabel WindowsClientAssessmentRecommendation |
+> | Bewerking | Microsoft.Insights/Logs/WindowsFirewall/Read | Gegevens lezen uit de tabel WindowsFirewall |
+> | Bewerking | Microsoft.Insights/Logs/WindowsServerAssessmentRecommendation/Read | Gegevens lezen uit de tabel WindowsServerAssessmentRecommendation |
+> | Bewerking | Microsoft.Insights/Logs/WireData/Read | Gegevens lezen uit de tabel WireData |
+> | Bewerking | Microsoft.Insights/Logs/WUDOAggregatedStatus/Read | Gegevens lezen uit de tabel WUDOAggregatedStatus |
+> | Bewerking | Microsoft.Insights/Logs/WUDOStatus/Read | Gegevens lezen uit de tabel WUDOStatus |
 > | Bewerking | Microsoft.Insights/MetricAlerts/Delete | Een waarschuwing voor metrische gegevens verwijderen |
 > | Bewerking | Microsoft.Insights/MetricAlerts/Read | Een waarschuwing voor metrische gegevens lezen |
 > | Bewerking | Microsoft.Insights/MetricAlerts/Status/Read | Status van waarschuwing voor metrische gegevens lezen |
@@ -2410,7 +2563,6 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | DataAction | Microsoft.LogAnalytics/logs/ContainerInventory/read | Gegevens lezen uit de tabel ContainerInventory |
 > | DataAction | Microsoft.LogAnalytics/logs/ContainerLog/read | Gegevens lezen uit de tabel ContainerLog |
 > | DataAction | Microsoft.LogAnalytics/logs/ContainerServiceLog/read | Gegevens lezen uit de tabel ContainerServiceLog |
-> | DataAction | Microsoft.LogAnalytics/logs/CustomLogs/read | Gegevens lezen van een aangepast logboek |
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceAppCrash/read | Gegevens lezen uit de tabel DeviceAppCrash |
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceAppLaunch/read | Gegevens lezen uit de tabel DeviceAppLaunch |
 > | DataAction | Microsoft.LogAnalytics/logs/DeviceCalendar/read | Gegevens lezen uit de tabel DeviceCalendar |
@@ -2512,6 +2664,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | DataAction | Microsoft.LogAnalytics/logs/SQLQueryPerformance/read | Gegevens lezen uit de tabel SQLQueryPerformance |
 > | DataAction | Microsoft.LogAnalytics/logs/Syslog/read | Gegevens lezen uit de Syslog-tabel |
 > | DataAction | Microsoft.LogAnalytics/logs/SysmonEvent/read | Gegevens lezen uit de tabel SysmonEvent |
+> | DataAction | Microsoft.LogAnalytics/logs/Tables.Custom/read | Gegevens lezen van een aangepast logboek |
 > | DataAction | Microsoft.LogAnalytics/logs/UAApp/read | Gegevens lezen uit de tabel UAApp |
 > | DataAction | Microsoft.LogAnalytics/logs/UAComputer/read | Gegevens lezen uit de tabel UAComputer |
 > | DataAction | Microsoft.LogAnalytics/logs/UAComputerRank/read | Gegevens lezen uit de tabel UAComputerRank |
@@ -2589,6 +2742,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Logic/integrationAccounts/write | Hiermee maakt u het integratieaccount of werkt u het bij. |
 > | Bewerking | Microsoft.Logic/integrationServiceEnvironments/delete | Hiermee kunt u de integratieserviceomgeving verwijderen. |
 > | Bewerking | Microsoft.Logic/integrationServiceEnvironments/join/action | Hiermee kunt u de integratieserviceomgeving koppelen. |
+> | Bewerking | Microsoft.Logic/integrationServiceEnvironments/managedApis/apiOperations/read | Hiermee wordt de bewerking van de door de integratieserviceomgeving beheerde API gelezen. |
+> | Bewerking | Microsoft.Logic/integrationServiceEnvironments/managedApis/read | Hiermee wordt de door de integratieserviceomgeving beheerde API gelezen. |
 > | Bewerking | Microsoft.Logic/integrationServiceEnvironments/read | Hiermee kunt u de integratieserviceomgeving lezen. |
 > | Bewerking | Microsoft.Logic/integrationServiceEnvironments/write | Hiermee kunt u de integratieserviceomgeving maken of bijwerken. |
 > | Bewerking | Microsoft.Logic/locations/workflows/validate/action | Hiermee wordt de werkstroom gevalideerd. |
@@ -2769,11 +2924,11 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > [!div class="mx-tdCol2BreakAll"]
 > | Actietype | Bewerking | Beschrijving |
 > | --- | --- | --- |
-> | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read | Retourneert een overeenkomst. |
-> | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | Een ondertekende overeenkomst accepteert. |
-> | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/importImage/action | Een installatiekopie naar ACR van de eindgebruiker geïmporteerd. |
-> | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/read | Retourneert een configuratie. |
-> | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/write | Hiermee slaat u een configuratie. |
+> | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/read | Hiermee wordt een overeenkomst geretourneerd. |
+> | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/agreements/write | Hiermee wordt een ondertekende overeenkomst geaccepteerd. |
+> | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/importImage/action | Hierme wordt een afbeelding geïmporteerd in het ACR van de eindgebuiker. |
+> | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/read | Hiermee wordt een configuratie geretourneerd. |
+> | Bewerking | Microsoft.Marketplace/offerTypes/publishers/offers/plans/configs/write | Hiermee wordt een configuratie opgeslagen. |
 
 ## <a name="microsoftmarketplaceapps"></a>Microsoft.MarketplaceApps
 
@@ -2937,6 +3092,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/applicationSecurityGroups/joinNetworkSecurityRule/action | Lid wordt van een beveiligingsregel voor beveiligingsgroepen voor toepassing. |
 > | Bewerking | Microsoft.Network/applicationSecurityGroups/read | Haalt een Toepassingsbeveiligingsgroep-ID. |
 > | Bewerking | Microsoft.Network/applicationSecurityGroups/write | Hiermee maakt u een Toepassingsbeveiligingsgroep of updates van een bestaande Toepassingsbeveiligingsgroep. |
+> | Bewerking | Microsoft.Network/azureFirewallFqdnTags/read | Firewall van Azure FQDN labels opgehaald |
 > | Bewerking | Microsoft.Network/azurefirewalls/delete | Verwijderen van de Firewall van Azure |
 > | Bewerking | Microsoft.Network/azurefirewalls/providers/Microsoft.Insights/logDefinitions/read | Hiermee haalt u de gebeurtenissen voor de Firewall van Azure |
 > | Bewerking | Microsoft.Network/azurefirewalls/providers/Microsoft.Insights/metricDefinitions/read | De beschikbare metrische gegevens opgehaald voor de Firewall van Azure |
@@ -3045,16 +3201,25 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/expressRoutePorts/delete | Hiermee verwijdert u ExpressRoutePorts |
 > | Bewerking | Microsoft.Network/expressRoutePorts/join/action | Joins ExpressRoutePorts |
 > | Bewerking | Microsoft.Network/expressRoutePorts/links/read | ExpressRouteLink opgehaald |
+> | Bewerking | Microsoft.Network/expressRoutePorts/providers/Microsoft.Insights/metricDefinitions/read | Haalt de metrische definities voor ExpressRoute-poorten |
 > | Bewerking | Microsoft.Network/expressRoutePorts/read | ExpressRoutePorts opgehaald |
 > | Bewerking | Microsoft.Network/expressRoutePorts/write | Hiermee maakt of ExpressRoutePorts werkt |
 > | Bewerking | Microsoft.Network/expressRoutePortsLocations/read | Get Express Route poorten locaties |
 > | Bewerking | Microsoft.Network/expressRouteServiceProviders/read | Express Route-serviceproviders opgehaald |
+> | Bewerking | Microsoft.Network/frontdoors/providers/Microsoft.Insights/diagnosticSettings/read | De diagnostische instelling voor de resource Frontdoor ophalen |
+> | Bewerking | Microsoft.Network/frontdoors/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee maakt of de diagnostische instelling voor de resource Frontdoor werkt |
+> | Bewerking | Microsoft.Network/frontdoors/providers/Microsoft.Insights/logDefinitions/read | Beschikbare logboeken voor Frontdoor resources ophalen |
+> | Bewerking | Microsoft.Network/frontdoors/providers/Microsoft.Insights/metricDefinitions/read | Beschikbare metrische gegevens voor Frontdoor resources ophalen |
 > | Bewerking | Microsoft.Network/frontdoors/read | Frontdoor ophalen |
 > | Bewerking | Microsoft.Network/getDnsResourceReference/action | DNS-alias resource afhankelijkheid aanvraag |
+> | Bewerking | Microsoft.Network/interfaceEndpoints/delete | Hiermee verwijdert u een eindpuntresource interface. |
+> | Bewerking | Microsoft.Network/interfaceEndpoints/read | Hiermee haalt u een eindpuntresource interface. |
+> | Bewerking | Microsoft.Network/interfaceEndpoints/write | Hiermee maakt u een nieuwe interface-eindpunt of een bestaand eindpunt van de interface-updates. |
 > | Bewerking | Microsoft.Network/internalNotify/action | DNS-alias resource-melding |
 > | Bewerking | Microsoft.Network/loadBalancers/backendAddressPools/join/action | Lid wordt van een load balancer-back-end-adresgroep |
 > | Bewerking | Microsoft.Network/loadBalancers/backendAddressPools/read | Een load balancer-back-end-adres-groepsdefinitie opgehaald |
 > | Bewerking | Microsoft.Network/loadBalancers/delete | Hiermee verwijdert u een load balancer |
+> | Bewerking | Microsoft.Network/loadBalancers/frontendIPConfigurations/join/action | Lid wordt van een Load Balancer-Frontend-IP-configuratie. |
 > | Bewerking | Microsoft.Network/loadBalancers/frontendIPConfigurations/read | Haalt een load balancer front-end IP-configuratie van definitie |
 > | Bewerking | Microsoft.Network/loadBalancers/inboundNatPools/join/action | Lid wordt van een load balancer binnenkomende nat-pool |
 > | Bewerking | Microsoft.Network/loadBalancers/inboundNatPools/read | Een load balancer wordt binnenkomende nat-groepsdefinitie |
@@ -3096,6 +3261,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/networkInterfaces/diagnosticIdentity/read | Diagnostische identiteit van de Resource opgehaald |
 > | Bewerking | Microsoft.Network/networkInterfaces/effectiveNetworkSecurityGroups/action | Netwerkbeveiligingsgroepen geconfigureerde op Network Interface van de Vm ophalen |
 > | Bewerking | Microsoft.Network/networkInterfaces/effectiveRouteTable/action | Routetabel geconfigureerd op de netwerkinterface van de virtuele machine ophalen |
+> | Bewerking | Microsoft.Network/networkInterfaces/ipconfigurations/join/action | Lid wordt van een IP-configuratie voor de netwerkinterface. |
 > | Bewerking | Microsoft.Network/networkInterfaces/ipconfigurations/read | Hiermee haalt u de definitie van de IP-configuratie voor een netwerk-interface.  |
 > | Bewerking | Microsoft.Network/networkInterfaces/join/action | Lid wordt van een virtuele Machine aan een netwerkinterface |
 > | Bewerking | Microsoft.Network/networkInterfaces/joinViaPrivateIp/action | Lid wordt van een resource aan een netwerkinterface via de koppeling van een Service |
@@ -3106,6 +3272,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/networkInterfaces/serviceAssociations/read | Een definitie voor de koppeling opgehaald |
 > | Bewerking | Microsoft.Network/networkInterfaces/serviceAssociations/validate/action | Valideert de koppeling van een Service |
 > | Bewerking | Microsoft.Network/networkInterfaces/serviceAssociations/write | Hiermee maakt u een nieuwe Service-koppeling of wijzigt u een bestaande Service-koppeling |
+> | Bewerking | Microsoft.Network/networkInterfaces/tapConfigurations/delete | Hiermee verwijdert u een configuratie voor de netwerkinterface te tikken. |
+> | Bewerking | Microsoft.Network/networkInterfaces/tapConfigurations/read | Hiermee haalt u een configuratie voor de netwerkinterface te tikken. |
+> | Bewerking | Microsoft.Network/networkInterfaces/tapConfigurations/write | Hiermee maakt u een Netwerkinterfaceconfiguratie voor tikt u op of een bestaande Tik Netwerkinterfaceconfiguratie bijgewerkt. |
 > | Bewerking | Microsoft.Network/networkInterfaces/write | Hiermee maakt u een netwerkinterface gemaakt of bijgewerkt van een bestaande netwerkinterface.  |
 > | Bewerking | Microsoft.Network/networkProfiles/delete | Hiermee verwijdert u een netwerkprofiel |
 > | Bewerking | Microsoft.Network/networkProfiles/read | Een netwerkprofiel opgehaald |
@@ -3157,6 +3326,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/networkWatchers/pingMeshes/start/action | PingMesh tussen de opgegeven virtuele machines starten |
 > | Bewerking | Microsoft.Network/networkWatchers/pingMeshes/stop/action | PingMesh tussen de opgegeven virtuele machines stoppen |
 > | Bewerking | Microsoft.Network/networkWatchers/pingMeshes/write | Hiermee maakt u een PingMesh |
+> | Bewerking | Microsoft.Network/networkWatchers/queryConnectionMonitors/action | Batchquery verbindingen tussen de opgegeven eindpunten controleren |
 > | Bewerking | Microsoft.Network/networkWatchers/queryFlowLogStatus/action | Hiermee wordt de status van de stroom zich aanmelden op een resource opgehaald. |
 > | Bewerking | Microsoft.Network/networkWatchers/queryTroubleshootResult/action | Het oplossen van problemen met resultaat van de eerder uitgevoerde of momenteel haalt probleemoplossing bewerking uitgevoerd. |
 > | Bewerking | Microsoft.Network/networkWatchers/read | De definitie van de netwerk-watcher ophalen |
@@ -3165,6 +3335,16 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/networkWatchers/troubleshoot/action | Start het oplossen van een resource netwerken in Azure. |
 > | Bewerking | Microsoft.Network/networkWatchers/write | Hiermee maakt u een network watcher of een bestaande netwerk-watcher-updates |
 > | Bewerking | Microsoft.Network/operations/read | Beschikbare bewerkingen ophalen |
+> | Bewerking | Microsoft.Network/p2sVpnGateways/delete | Hiermee verwijdert u een P2SVpnGateway. |
+> | Bewerking | Microsoft.Network/p2sVpnGateways/generatevpnprofile/action | Vpn-profiel voor P2SVpnGateway genereren |
+> | Bewerking | Microsoft.Network/p2sVpnGateways/read | Hiermee haalt u een P2SVpnGateway. |
+> | Bewerking | Microsoft.Network/p2sVpnGateways/write | Hebt u een P2SVpnGateway. |
+> | Bewerking | Microsoft.Network/privateLinkServices/delete | Hiermee verwijdert u de bron van een persoonlijke verbinding-service. |
+> | Bewerking | Microsoft.Network/privateLinkServices/interfaceEndpointConnections/delete | Hiermee verwijdert u de verbinding van een interface-eindpunt. |
+> | Bewerking | Microsoft.Network/privateLinkServices/interfaceEndpointConnections/read | Hiermee haalt u een definitie voor de interface-eindpunt verbinding. |
+> | Bewerking | Microsoft.Network/privateLinkServices/interfaceEndpointConnections/write | Hiermee maakt u een nieuwe interface eindpunt verbinding of updates van een bestaande verbinding van de interface-eindpunt. |
+> | Bewerking | Microsoft.Network/privateLinkServices/read | Hiermee haalt u de bron van een persoonlijke verbinding-service. |
+> | Bewerking | Microsoft.Network/privateLinkServices/write | Hiermee maakt u een nieuwe persoonlijke koppelingsservice of particuliere koppeling voor een bestaande service-updates. |
 > | Bewerking | Microsoft.Network/publicIPAddresses/delete | Hiermee verwijdert u een openbaar Ip-adres. |
 > | Bewerking | Microsoft.Network/publicIPAddresses/dnsAliases/delete | Hiermee verwijdert u een openbare DNS-Alias van de IP-adres-resource |
 > | Bewerking | Microsoft.Network/publicIPAddresses/dnsAliases/read | Met deze eigenschap een openbare DNS-Alias van de IP-adres-resource |
@@ -3261,6 +3441,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/virtualNetworkGateways/providers/Microsoft.Insights/metricDefinitions/read | Hiermee haalt u de beschikbare metrische gegevens voor de Gateway van virtueel netwerk |
 > | Bewerking | Microsoft.Network/virtualNetworkGateways/read | Een VirtualNetworkGateway opgehaald |
 > | Bewerking | Microsoft.Network/virtualnetworkgateways/reset/Action | Hiermee stelt u een virtualNetworkGateway |
+> | Bewerking | Microsoft.Network/virtualnetworkgateways/resetvpnclientsharedkey/Action | Opnieuw instellen zonder gedeelde sleutel voor VirtualNetworkGateway P2S-client. |
 > | Bewerking | Microsoft.Network/virtualnetworkgateways/setvpnclientipsecparameters/Action | Stel Vpnclient Ipsec-parameters voor VirtualNetworkGateway P2S-client. |
 > | Bewerking | Microsoft.Network/virtualnetworkgateways/supportedvpndevices/action | Een lijst met ondersteunde Vpn-apparaten |
 > | Bewerking | Microsoft.Network/virtualNetworkGateways/write | Hiermee maakt of een VirtualNetworkGateway werkt |
@@ -3303,10 +3484,20 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/virtualNetworks/write | Hiermee maakt u een virtueel netwerk of updates van een bestaand virtueel netwerk |
 > | Bewerking | Microsoft.Network/virtualNetworkTaps/delete | Tik op virtueel netwerk verwijderen |
 > | Bewerking | Microsoft.Network/virtualNetworkTaps/join/action | Lid wordt van een virtueel netwerk te tikken |
+> | Bewerking | Microsoft.Network/virtualNetworkTaps/networkInterfaceTapConfigurationProxies/delete | Hiermee verwijdert u een netwerkproxy Interface Tap-configuratie. |
+> | Bewerking | Microsoft.Network/virtualNetworkTaps/networkInterfaceTapConfigurationProxies/read | Hiermee haalt u een netwerkproxy Interface Tap-configuratie. |
+> | Bewerking | Microsoft.Network/virtualNetworkTaps/networkInterfaceTapConfigurationProxies/write | Hiermee maakt u een Network Interface tikt u op configuratie Proxy of updates van een bestaande netwerkinterface tikt u op configuratie-Proxy. |
 > | Bewerking | Microsoft.Network/virtualNetworkTaps/read | Tik op virtueel netwerk ophalen |
 > | Bewerking | Microsoft.Network/virtualNetworkTaps/write | Maken of bijwerken van Virtual Network Tap |
 > | Bewerking | Microsoft.Network/virtualWans/delete | Verwijdert een virtuele Wan |
+> | Bewerking | Microsoft.Network/virtualWans/p2sVpnGatewayProxies/delete | Hiermee verwijdert u een Proxy P2SVpnGateway |
+> | Bewerking | Microsoft.Network/virtualWans/p2sVpnGatewayProxies/read | De definitie van een Proxy P2SVpnGateway opgehaald |
+> | Bewerking | Microsoft.Network/virtualWans/p2sVpnGatewayProxies/write | Hiermee maakt u een Proxy P2SVpnGateway of een Proxy P2SVpnGateway updates |
+> | Bewerking | Microsoft.Network/virtualWans/p2sVpnServerConfigurations/delete | Hiermee verwijdert u een virtuele Wan P2SVpnServerConfiguration |
+> | Bewerking | Microsoft.Network/virtualWans/p2sVpnServerConfigurations/read | De definitie van een virtuele Wan P2SVpnServerConfiguration opgehaald |
+> | Bewerking | Microsoft.Network/virtualWans/p2sVpnServerConfigurations/write | Hiermee maakt u een virtuele Wan P2SVpnServerConfiguration of een bestaande virtuele Wan P2SVpnServerConfiguration updates |
 > | Bewerking | Microsoft.Network/virtualWans/read | Get a virtuele Wan |
+> | Bewerking | Microsoft.Network/virtualwans/supportedSecurityProviders/read | Haalt ondersteund VirtualWan Security Providers. |
 > | Bewerking | Microsoft.Network/virtualWans/virtualHubProxies/delete | Hiermee verwijdert u een virtuele Hub-proxy |
 > | Bewerking | Microsoft.Network/virtualWans/virtualHubProxies/read | Haalt de definitie van een virtuele Hub-proxy |
 > | Bewerking | Microsoft.Network/virtualWans/virtualHubProxies/write | Hiermee maakt u een virtuele Hub-proxy of updates van een virtuele Hub-proxy |
@@ -3318,7 +3509,10 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Network/virtualWans/vpnSites/read | Hiermee haalt u alle VPN-Sites die verwijzen naar een virtueel Wan. |
 > | Bewerking | Microsoft.Network/virtualWans/write | Maken of bijwerken van een virtueel Wan |
 > | Bewerking | Microsoft.Network/vpnGateways/delete | Hiermee verwijdert u een VPN-gateway. |
+> | Bewerking | Microsoft.Network/vpngateways/listvpnconnectionshealth/Action | Status van de verbinding opgehaald voor alle of een subset van verbindingen op een VPN-gateway |
 > | Bewerking | Microsoft.Network/vpnGateways/read | Hiermee haalt u een VPN-gateway. |
+> | Bewerking | Microsoft.Network/vpngateways/reset/Action | Hiermee stelt u een VPN-gateway |
+> | Bewerking | microsoft.network/vpnGateways/vpnConnections/delete | Hiermee verwijdert u een VPN-verbinding. |
 > | Bewerking | microsoft.network/vpnGateways/vpnConnections/read | Hiermee haalt u een VPN-verbinding. |
 > | Bewerking | microsoft.network/vpnGateways/vpnConnections/write | Hebt u een VPN-verbinding. |
 > | Bewerking | Microsoft.Network/vpnGateways/write | Hebt u een VPN-gateway. |
@@ -3451,6 +3645,155 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.OperationalInsights/workspaces/notificationSettings/read | Meldingsinstellingen van de gebruiker voor de werkruimte ophalen. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/notificationSettings/write | Instellen van de gebruiker meldingsinstellingen voor de werkruimte. |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/purge/action | Opgegeven gegevens uit de werkruimte verwijderen |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ADAssessmentRecommendation/read | Gegevens lezen uit de tabel ADAssessmentRecommendation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ADReplicationResult/read | Gegevens lezen uit de tabel ADReplicationResult |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ADSecurityAssessmentRecommendation/read | Gegevens lezen uit de tabel ADSecurityAssessmentRecommendation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/Alert/read | Gegevens lezen uit de tabel Alert |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/AlertHistory/read | Gegevens lezen uit de tabel AlertHistory |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ApplicationInsights/read | Gegevens lezen uit de Application Insights-tabel |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/AzureActivity/read | Gegevens lezen uit de tabel AzureActivity |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/AzureMetrics/read | Gegevens lezen uit de tabel AzureMetrics |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/BoundPort/read | Gegevens lezen uit de tabel BoundPort |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/CommonSecurityLog/read | Gegevens lezen uit de tabel CommonSecurityLog |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ComputerGroup/read | Gegevens lezen uit de tabel ComputerGroup |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ConfigurationChange/read | Gegevens lezen uit de tabel ConfigurationChange |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ConfigurationData/read | Gegevens lezen uit de tabel ConfigurationData |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ContainerImageInventory/read | Gegevens lezen uit de tabel ContainerImageInventory |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ContainerInventory/read | Gegevens lezen uit de tabel ContainerInventory |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ContainerLog/read | Gegevens lezen uit de tabel ContainerLog |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ContainerServiceLog/read | Gegevens lezen uit de tabel ContainerServiceLog |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceAppCrash/read | Gegevens lezen uit de tabel DeviceAppCrash |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceAppLaunch/read | Gegevens lezen uit de tabel DeviceAppLaunch |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceCalendar/read | Gegevens lezen uit de tabel DeviceCalendar |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceCleanup/read | Gegevens lezen uit de tabel DeviceCleanup |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceConnectSession/read | Gegevens lezen uit de tabel DeviceConnectSession |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceEtw/read | Gegevens lezen uit de tabel DeviceEtw |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceHardwareHealth/read | Gegevens lezen uit de tabel DeviceHardwareHealth |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceHealth/read | Gegevens lezen uit de tabel de apparaatstatus |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceHeartbeat/read | Gegevens lezen uit de tabel DeviceHeartbeat |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeHeartbeat/read | Gegevens lezen uit de tabel DeviceSkypeHeartbeat |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceSkypeSignIn/read | Gegevens lezen uit de tabel DeviceSkypeSignIn |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DeviceSleepState/read | Gegevens lezen uit de tabel DeviceSleepState |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DHAppFailure/read | Gegevens lezen uit de tabel DHAppFailure |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DHAppReliability/read | Gegevens lezen uit de tabel DHAppReliability |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DHDriverReliability/read | Gegevens lezen uit de tabel DHDriverReliability |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DHLogonFailures/read | Gegevens lezen uit de tabel DHLogonFailures |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DHLogonMetrics/read | Gegevens lezen uit de tabel DHLogonMetrics |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DHOSCrashData/read | Gegevens lezen uit de tabel DHOSCrashData |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DHOSReliability/read | Gegevens lezen uit de tabel DHOSReliability |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DHWipAppLearning/read | Gegevens lezen uit de tabel DHWipAppLearning |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DnsEvents/read | Gegevens lezen uit de tabel DnsEvents |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/DnsInventory/read | Gegevens lezen uit de tabel DnsInventory |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ETWEvent/read | Gegevens lezen uit de tabel ETWEvent |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/Event/read | Gegevens lezen uit de tabel Event |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ExchangeAssessmentRecommendation/read | Gegevens lezen uit de tabel ExchangeAssessmentRecommendation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ExchangeOnlineAssessmentRecommendation/read | Gegevens lezen uit de tabel ExchangeOnlineAssessmentRecommendation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/Heartbeat/read | Lezen van gegevens van de Heartbeat-tabel |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/IISAssessmentRecommendation/read | Gegevens lezen uit de tabel IISAssessmentRecommendation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/InboundConnection/read | Gegevens lezen uit de tabel InboundConnection |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/KubeNodeInventory/read | Gegevens lezen uit de tabel KubeNodeInventory |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/KubePodInventory/read | Gegevens lezen uit de tabel KubePodInventory |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/LinuxAuditLog/read | Gegevens lezen uit de tabel LinuxAuditLog |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAApplication/read | Gegevens lezen uit de tabel MAApplication |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealth/read | Gegevens lezen uit de tabel MAApplicationHealth |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealthAlternativeVersions/read | Gegevens lezen uit de tabel MAApplicationHealthAlternativeVersions |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAApplicationHealthIssues/read | Gegevens lezen uit de tabel MAApplicationHealthIssues |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAApplicationInstance/read | Gegevens lezen uit de tabel MAApplicationInstance |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAApplicationInstanceReadiness/read | Gegevens lezen uit de tabel MAApplicationInstanceReadiness |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAApplicationReadiness/read | Gegevens lezen uit de tabel MAApplicationReadiness |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADeploymentPlan/read | Gegevens lezen uit de tabel MADeploymentPlan |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADevice/read | Gegevens lezen uit de tabel MADevice |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealth/read | Gegevens lezen uit de tabel MADevicePnPHealth |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthAlternativeVersions/read | Gegevens lezen uit de tabel MADevicePnPHealthAlternativeVersions |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADevicePnPHealthIssues/read | Gegevens lezen uit de tabel MADevicePnPHealthIssues |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADeviceReadiness/read | Gegevens lezen uit de tabel MADeviceReadiness |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADriverInstanceReadiness/read | Gegevens lezen uit de tabel MADriverInstanceReadiness |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MADriverReadiness/read | Gegevens lezen uit de tabel MADriverReadiness |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddin/read | Gegevens lezen uit de tabel MAOfficeAddin |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealth/read | Gegevens lezen uit de tabel MAOfficeAddinHealth |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinHealthIssues/read | Gegevens lezen uit de tabel MAOfficeAddinHealthIssues |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstance/read | Gegevens lezen uit de tabel MAOfficeAddinInstance |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinInstanceReadiness/read | Gegevens lezen uit de tabel MAOfficeAddinInstanceReadiness |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeAddinReadiness/read | Gegevens lezen uit de tabel MAOfficeAddinReadiness |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeApp/read | Gegevens lezen uit de tabel MAOfficeApp |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppHealth/read | Gegevens lezen uit de tabel MAOfficeAppHealth |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppInstance/read | Gegevens lezen uit de tabel MAOfficeAppInstance |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeAppReadiness/read | Gegevens lezen uit de tabel MAOfficeAppReadiness |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeBuildInfo/read | Gegevens lezen uit de tabel MAOfficeBuildInfo |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessment/read | Gegevens lezen uit de tabel MAOfficeCurrencyAssessment |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeCurrencyAssessmentDailyCounts/read | Gegevens lezen uit de tabel MAOfficeCurrencyAssessmentDailyCounts |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeDeploymentStatus/read | Gegevens lezen uit de tabel MAOfficeDeploymentStatus |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealth/read | Gegevens lezen uit de tabel MAOfficeMacroHealth |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroHealthIssues/read | Gegevens lezen uit de tabel MAOfficeMacroHealthIssues |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueInstanceReadiness/read | Gegevens lezen uit de tabel MAOfficeMacroIssueInstanceReadiness |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroIssueReadiness/read | Gegevens lezen uit de tabel MAOfficeMacroIssueReadiness |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeMacroSummary/read | Gegevens lezen uit de tabel MAOfficeMacroSummary |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeSuite/read | Gegevens lezen uit de tabel MAOfficeSuite |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAOfficeSuiteInstance/read | Gegevens lezen uit de tabel MAOfficeSuiteInstance |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAProposedPilotDevices/read | Gegevens lezen uit de tabel MAProposedPilotDevices |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAWindowsBuildInfo/read | Gegevens lezen uit de tabel MAWindowsBuildInfo |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessment/read | Gegevens lezen uit de tabel MAWindowsCurrencyAssessment |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAWindowsCurrencyAssessmentDailyCounts/read | Gegevens lezen uit de tabel MAWindowsCurrencyAssessmentDailyCounts |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAWindowsDeploymentStatus/read | Gegevens lezen uit de tabel MAWindowsDeploymentStatus |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/MAWindowsSysReqInstanceReadiness/read | Gegevens lezen uit de tabel MAWindowsSysReqInstanceReadiness |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/NetworkMonitoring/read | Gegevens lezen uit de tabel NetworkMonitoring |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/OfficeActivity/read | Gegevens lezen uit de tabel OfficeActivity |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/Operation/read | Gegevens lezen uit de tabel Operation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/OutboundConnection/read | Gegevens lezen uit de tabel OutboundConnection |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/Perf/read | Gegevens lezen uit de prestatietabel |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ProtectionStatus/read | Gegevens lezen uit de tabel ProtectionStatus |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ReservedAzureCommonFields/read | Gegevens lezen uit de tabel ReservedAzureCommonFields |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ReservedCommonFields/read | Gegevens lezen uit de tabel ReservedCommonFields |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SCCMAssessmentRecommendation/read | Gegevens lezen uit de tabel SCCMAssessmentRecommendation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SCOMAssessmentRecommendation/read | Gegevens lezen uit de tabel SCOMAssessmentRecommendation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SecurityAlert/read | Gegevens lezen uit de tabel SecurityAlert |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SecurityBaseline/read | Gegevens lezen uit de tabel SecurityBaseline |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SecurityBaselineSummary/read | Gegevens lezen uit de tabel SecurityBaselineSummary |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SecurityDetection/read | Gegevens lezen uit de tabel SecurityDetection |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SecurityEvent/read | Gegevens lezen uit de tabel SecurityEvent |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ServiceFabricOperationalEvent/read | Gegevens lezen uit de tabel ServiceFabricOperationalEvent |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableActorEvent/read | Gegevens lezen uit de tabel ServiceFabricReliableActorEvent |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/ServiceFabricReliableServiceEvent/read | Gegevens lezen uit de tabel ServiceFabricReliableServiceEvent |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SfBAssessmentRecommendation/read | Gegevens lezen uit de tabel SfBAssessmentRecommendation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SfBOnlineAssessmentRecommendation/read | Gegevens lezen uit de tabel SfBOnlineAssessmentRecommendation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SharePointOnlineAssessmentRecommendation/read | Gegevens lezen uit de tabel SharePointOnlineAssessmentRecommendation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SPAssessmentRecommendation/read | Gegevens lezen uit de tabel SPAssessmentRecommendation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SQLAssessmentRecommendation/read | Gegevens lezen uit de tabel SQLAssessmentRecommendation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SQLQueryPerformance/read | Gegevens lezen uit de tabel SQLQueryPerformance |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/Syslog/read | Gegevens lezen uit de Syslog-tabel |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/SysmonEvent/read | Gegevens lezen uit de tabel SysmonEvent |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/Tables.Custom/read | Gegevens lezen van een aangepast logboek |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/UAApp/read | Gegevens lezen uit de tabel UAApp |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/UAComputer/read | Gegevens lezen uit de tabel UAComputer |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/UAComputerRank/read | Gegevens lezen uit de tabel UAComputerRank |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/UADriver/read | Gegevens lezen uit de tabel UADriver |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/UADriverProblemCodes/read | Gegevens lezen uit de tabel UADriverProblemCodes |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/UAFeedback/read | Gegevens lezen uit de tabel UAFeedback |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/UAHardwareSecurity/read | Gegevens lezen uit de tabel UAHardwareSecurity |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/UAIESiteDiscovery/read | Gegevens lezen uit de tabel UAIESiteDiscovery |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/UAOfficeAddIn/read | Gegevens lezen uit de tabel UAOfficeAddIn |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/UAProposedActionPlan/read | Gegevens lezen uit de tabel UAProposedActionPlan |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/UASysReqIssue/read | Gegevens lezen uit de tabel UASysReqIssue |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/UAUpgradedComputer/read | Gegevens lezen uit de tabel UAUpgradedComputer |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/Update/read | Gegevens lezen uit de tabel Update |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/UpdateRunProgress/read | Gegevens lezen uit de tabel UpdateRunProgress |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/UpdateSummary/read | Gegevens lezen uit de tabel UpdateSummary |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/Usage/read | Gegevens lezen uit de tabel Usage |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/VMBoundPort/read | Gegevens lezen uit de tabel VMBoundPort |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/VMConnection/read | Gegevens lezen uit de tabel VMConnection |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/W3CIISLog/read | Gegevens lezen uit de tabel W3CIISLog |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/WaaSDeploymentStatus/read | Gegevens lezen uit de tabel WaaSDeploymentStatus |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/WaaSInsiderStatus/read | Gegevens lezen uit de tabel WaaSInsiderStatus |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/WaaSUpdateStatus/read | Gegevens lezen uit de tabel WaaSUpdateStatus |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/WDAVStatus/read | Gegevens lezen uit de tabel WDAVStatus |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/WDAVThreat/read | Gegevens lezen uit de tabel WDAVThreat |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/WindowsClientAssessmentRecommendation/read | Gegevens lezen uit de tabel WindowsClientAssessmentRecommendation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/WindowsFirewall/read | Gegevens lezen uit de tabel WindowsFirewall |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/WindowsServerAssessmentRecommendation/read | Gegevens lezen uit de tabel WindowsServerAssessmentRecommendation |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/WireData/read | Gegevens lezen uit de tabel WireData |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/WorkloadMonitoringPerf/read | Gegevens lezen uit de tabel WorkloadMonitoringPerf |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/WUDOAggregatedStatus/read | Gegevens lezen uit de tabel WUDOAggregatedStatus |
+> | Bewerking | Microsoft.OperationalInsights/workspaces/query/WUDOStatus/read | Gegevens lezen uit de tabel WUDOStatus |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/read | Een bestaande werkruimte opgehaald |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/savedSearches/delete | Hiermee verwijdert u een opgeslagen zoekquery |
 > | Bewerking | Microsoft.OperationalInsights/workspaces/savedSearches/read | Een opgeslagen zoekquery opgehaald |
@@ -3494,7 +3837,13 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.PolicyInsights/policyStates/summarize/action | Samenvattingsinformatie over de meest recente beleidsstatussen opvragen. |
 > | Bewerking | Microsoft.PolicyInsights/policyStates/summarize/read | Samenvattingsinformatie over de meest recente beleidsstatussen opvragen. |
 > | Bewerking | Microsoft.PolicyInsights/policyStates/triggerEvaluation/action | Hiermee wordt een nieuwe evaluatie van de compatibiliteit voor het geselecteerde bereik geactiveerd. |
+> | Bewerking | Microsoft.PolicyInsights/policyTrackedResources/queryResults/read | Informatie opvragen over resources die zijn vereist door het beleid DeployIfNotExists beleid. |
 > | Bewerking | Microsoft.PolicyInsights/register/action | Hiermee wordt de resourceprovider voor policy insights geregistreerd en wordt acties uitgevoerd. |
+> | Bewerking | Microsoft.PolicyInsights/remediations/cancel/action | Beleidsherstelbewerkingen in uitvoering annuleren. |
+> | Bewerking | Microsoft.PolicyInsights/remediations/delete | Beleidsherstelbewerkingen verwijderen. |
+> | Bewerking | Microsoft.PolicyInsights/remediations/listDeployments/read | Hiermee wordt een lijst met implementaties gemaakt die vereist zijn voor een beleidsherstelbewerking. |
+> | Bewerking | Microsoft.PolicyInsights/remediations/read | Beleidsherstelbewerkingen ophalen. |
+> | Bewerking | Microsoft.PolicyInsights/remediations/write | Beleidsherstelbewerkingen maken of bijwerken. |
 
 ## <a name="microsoftportal"></a>Microsoft.Portal
 
@@ -4032,6 +4381,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Solutions/applications/delete | Hiermee verwijdert u een toepassing. |
 > | Bewerking | Microsoft.Solutions/applications/read | Hiermee wordt een lijst met toepassingen opgehaald. |
 > | Bewerking | Microsoft.Solutions/applications/write | Hiermee wordt een toepassing gemaakt. |
+> | Bewerking | Microsoft.Solutions/jitRequests/delete | Een JIT-aanvraag verwijderen |
+> | Bewerking | Microsoft.Solutions/jitRequests/read | Hiermee wordt een lijst met JIT-aanvragen opgehaald |
+> | Bewerking | Microsoft.Solutions/jitRequests/write | Een JIT-aanvraag maken |
 > | Bewerking | Microsoft.Solutions/locations/operationStatuses/read | Hiermee wordt de bewerkingsstatus voor de resource ingelezen. |
 > | Bewerking | Microsoft.Solutions/register/action | Registreren bij Solutions. |
 
@@ -4060,6 +4412,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Sql/locations/instanceFailoverGroups/forceFailoverAllowDataLoss/action | Geforceerde failover uitgevoerd in een bestaand exemplaar van failover-groep. |
 > | Bewerking | Microsoft.Sql/locations/instanceFailoverGroups/read | Retourneert de lijst met exemplaar failover groepen of haalt u de eigenschappen voor het opgegeven exemplaar van failover-groep. |
 > | Bewerking | Microsoft.Sql/locations/instanceFailoverGroups/write | Hiermee maakt u een exemplaar van failover-groep met de opgegeven parameters of de eigenschappen of labels voor de failovergroep opgegeven exemplaar bijgewerkt. |
+> | Bewerking | Microsoft.Sql/locations/interfaceEndpointProfileAzureAsyncOperation/read | Retourneert de gegevens van een specifieke interface-eindpunt Azure asynchrone bewerking |
+> | Bewerking | Microsoft.Sql/locations/interfaceEndpointProfileOperationResults/read | Retourneert de gegevens van de opgegeven interface eindpunt profiel bewerking |
 > | Bewerking | Microsoft.Sql/locations/longTermRetentionBackups/read | Geeft een lijst van de back-ups bewaren lange termijn voor elke database op elke server in een locatie |
 > | Bewerking | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionBackups/read | Geeft een lijst van de back-ups bewaren lange termijn voor elke database op een server |
 > | Bewerking | Microsoft.Sql/locations/longTermRetentionServers/longTermRetentionDatabases/longTermRetentionBackups/delete | Hiermee verwijdert u een back-up bewaren lange termijn |
@@ -4067,8 +4421,6 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Sql/locations/managedDatabaseRestoreAzureAsyncOperation/completeRestore/action | Beheerde database restore-bewerking is voltooid |
 > | Bewerking | Microsoft.Sql/locations/managedTransparentDataEncryptionAzureAsyncOperation/read | Opgehaald in lopende bewerkingen op een beheerde database transparante gegevensversleuteling |
 > | Bewerking | Microsoft.Sql/locations/managedTransparentDataEncryptionOperationResults/read | Opgehaald in lopende bewerkingen op een beheerde database transparante gegevensversleuteling |
-> | Bewerking | Microsoft.Sql/locations/networkInterfaceAzureAsyncOperation/read | Retourneert de gegevens van een specifieke netwerkinterface Azure asynchrone bewerking |
-> | Bewerking | Microsoft.Sql/locations/networkInterfaceOperationResults/read | Retourneert de gegevens van de opgegeven network interface-bewerking |
 > | Bewerking | Microsoft.Sql/locations/read | De beschikbare locaties voor een bepaald abonnement opgehaald |
 > | Bewerking | Microsoft.Sql/locations/syncAgentOperationResults/read | Resultaat van de synchronisatiebewerking voor de resource van agent ophalen |
 > | Bewerking | Microsoft.Sql/locations/syncDatabaseIds/read | De synchronisatie-database-id's voor een bepaalde regio en een abonnement ophalen |
@@ -4081,6 +4433,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Sql/managedInstances/administrators/read | Hiermee haalt u een lijst met beheerd exemplaar voor beheerders. |
 > | Bewerking | Microsoft.Sql/managedInstances/administrators/write | Hiermee of beheerder beheerd exemplaar bijwerken met de opgegeven parameters. |
 > | Bewerking | Microsoft.Sql/managedInstances/databases/delete | Hiermee verwijdert u een bestaande beheerde database |
+> | Bewerking | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee wordt de diagnostische instelling voor de resource opgehaald |
+> | Bewerking | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt |
+> | Bewerking | Microsoft.Sql/managedInstances/databases/providers/Microsoft.Insights/logDefinitions/read | Hiermee worden de beschikbare logboeken opgehaald voor databases met beheerd exemplaar |
 > | Bewerking | Microsoft.Sql/managedInstances/databases/read | Hiermee wordt opgehaald van bestaande beheerde database |
 > | Bewerking | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/read | De gegevens van de database threat detection dat is geconfigureerd op een bepaalde beheerde database ophalen |
 > | Bewerking | Microsoft.Sql/managedInstances/databases/securityAlertPolicies/write | De database threat detectiebeleid voor een bepaalde beheerde database wijzigen |
@@ -4105,10 +4460,18 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Sql/managedInstances/keys/write | Hiermee maakt u een sleutel met de opgegeven parameters of de eigenschappen of labels voor de sleutel opgegeven beheerde exemplaar bijwerken. |
 > | Bewerking | Microsoft.Sql/managedInstances/metricDefinitions/read | Metrische definities van beheerde exemplaar ophalen |
 > | Bewerking | Microsoft.Sql/managedInstances/metrics/read | Beheerd exemplaar van metrische gegevens ophalen |
+> | Bewerking | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee wordt de diagnostische instelling voor de resource opgehaald |
+> | Bewerking | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt |
+> | Bewerking | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/logDefinitions/read | De beschikbare logboeken opgehaald voor beheerde exemplaren |
+> | Bewerking | Microsoft.Sql/managedInstances/providers/Microsoft.Insights/metricDefinitions/read | Resultaattypen van metrische gegevens die beschikbaar voor beheerde exemplaren zijn |
 > | Bewerking | Microsoft.Sql/managedInstances/read | Retourneert de lijst met beheerde exemplaren of haalt de eigenschappen voor het opgegeven beheerde exemplaar. |
+> | Bewerking | Microsoft.Sql/managedInstances/restorableDroppedDatabases/read | Retourneert dat een lijst van die kunnen worden hersteld beheerde databases verwijderd. |
 > | Bewerking | Microsoft.Sql/managedInstances/securityAlertPolicies/read | De gegevens van de beheerde server threat detection dat is geconfigureerd op een bepaalde beheerde server ophalen |
 > | Bewerking | Microsoft.Sql/managedInstances/securityAlertPolicies/write | De beheerde server threat detection-beleid voor een bepaalde beheerde server wijzigen |
 > | Bewerking | Microsoft.Sql/managedInstances/tdeCertificates/action | Certificaat voor TDE maken/bijwerken |
+> | Bewerking | Microsoft.Sql/managedInstances/vulnerabilityAssessments/delete | De evaluatie van beveiligingsproblemen voor een bepaald beheerd exemplaar verwijderen |
+> | Bewerking | Microsoft.Sql/managedInstances/vulnerabilityAssessments/read | De gegevens van de evaluatie van beveiligingsproblemen geconfigureerd op een bepaald beheerd exemplaar ophalen |
+> | Bewerking | Microsoft.Sql/managedInstances/vulnerabilityAssessments/write | Wijzigen van de evaluatie van beveiligingsproblemen voor een bepaald beheerd exemplaar |
 > | Bewerking | Microsoft.Sql/managedInstances/write | Hiermee maakt u een beheerd exemplaar met de opgegeven parameters of de eigenschappen of labels voor de opgegeven beheerde exemplaar bijwerken. |
 > | Bewerking | Microsoft.Sql/operations/read | Beschikbare REST-bewerkingen opgehaald |
 > | Bewerking | Microsoft.Sql/register/action | Hiermee wordt het abonnement voor de Microsoft SQL Database-resourceprovider geregistreerd en wordt het maken van Microsoft SQL-Databases. |
@@ -4287,11 +4650,12 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Sql/servers/firewallRules/write | Hiermee maakt u een server firewall-regel met de opgegeven parameters, de eigenschappen voor de opgegeven regel bijwerken of alle bestaande regels overschrijven met de nieuwe server firewall-regels. |
 > | Bewerking | Microsoft.Sql/servers/import/action | Een nieuwe database op de server maken en implementeren van schema en de gegevens uit een DacPac-pakket |
 > | Bewerking | Microsoft.Sql/servers/importExportOperationResults/read | Haalt onderhanden import/export-bewerkingen |
+> | Bewerking | Microsoft.Sql/servers/interfaceEndpointProfiles/delete | Hiermee verwijdert u de opgegeven interface endpoint-profiel |
+> | Bewerking | Microsoft.Sql/servers/interfaceEndpointProfiles/read | Retourneert de eigenschappen voor de opgegeven interface endpoint-profiel |
+> | Bewerking | Microsoft.Sql/servers/interfaceEndpointProfiles/write | Hiermee maakt u een profiel van de eindpunt interface met de opgegeven parameters of de eigenschappen of labels voor het eindpunt van de opgegeven interface-updates |
 > | Bewerking | Microsoft.Sql/servers/keys/delete | Hiermee verwijdert u een bestaande serversleutel. |
 > | Bewerking | Microsoft.Sql/servers/keys/read | Retourneert de lijst met server sleutels of haalt u de eigenschappen voor de sleutel van de opgegeven server. |
 > | Bewerking | Microsoft.Sql/servers/keys/write | Hiermee maakt u een sleutel met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de sleutel van de opgegeven server. |
-> | Bewerking | Microsoft.Sql/servers/networkInterfaces/read | Retourneert de eigenschappen voor de opgegeven netwerkinterface |
-> | Bewerking | Microsoft.Sql/servers/networkInterfaces/write | Hiermee maakt u een netwerkinterface met de opgegeven parameters of de eigenschappen of labels voor de opgegeven netwerkinterface-updates |
 > | Bewerking | Microsoft.Sql/servers/operationResults/read | Haalt onderhanden serverbewerkingen |
 > | Bewerking | Microsoft.Sql/servers/providers/Microsoft.Insights/metricDefinitions/read | Resultaattypen van metrische gegevens die beschikbaar voor servers zijn |
 > | Bewerking | Microsoft.Sql/servers/read | Retourneert de lijst met servers of haalt de eigenschappen voor de opgegeven server. |
@@ -4314,6 +4678,9 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Sql/servers/virtualNetworkRules/delete | Hiermee verwijdert u een bestaande regel voor het virtuele netwerk |
 > | Bewerking | Microsoft.Sql/servers/virtualNetworkRules/read | Retourneert de lijst van het virtuele netwerk regels of haalt u de eigenschappen voor de regel van de opgegeven virtuele netwerk. |
 > | Bewerking | Microsoft.Sql/servers/virtualNetworkRules/write | Hiermee maakt u een regel voor virtuele netwerken met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de regel van de opgegeven virtuele netwerk. |
+> | Bewerking | Microsoft.Sql/servers/vulnerabilityAssessments/delete | De evaluatie van beveiligingsproblemen voor een bepaalde server verwijderen |
+> | Bewerking | Microsoft.Sql/servers/vulnerabilityAssessments/read | Gegevens van de evaluatie van beveiligingsproblemen geconfigureerd op een bepaalde server niet ophalen |
+> | Bewerking | Microsoft.Sql/servers/vulnerabilityAssessments/write | De evaluatie van beveiligingsproblemen voor een bepaalde server wijzigen |
 > | Bewerking | Microsoft.Sql/servers/write | Hiermee maakt u een server met de opgegeven parameters of bijwerken van de eigenschappen of labels voor de opgegeven server. |
 > | Bewerking | Microsoft.Sql/unregister/action | De registratie van het abonnement voor de resourceprovider van Microsoft SQL-Database en wordt het maken van Microsoft SQL-Databases. |
 > | Bewerking | Microsoft.Sql/virtualClusters/read | Retourneert de lijst met virtuele clusters of haalt de eigenschappen voor de opgegeven virtuele-cluster. |
@@ -4332,8 +4699,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Storage/skus/read | Hiermee wordt een lijst weergegeven van de SKU's die worden ondersteund door Microsoft.Storage. |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/add/action | Hiermee wordt het resultaat van het toevoegen van de blob-inhoud geretourneerd |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/delete | Hiermee wordt het resultaat van het verwijderen van een blob geretourneerd |
+> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/deleteAutomaticSnapshot/action | Hiermee wordt het resultaat geretourneerd van het verwijderen van een automatische momentopname |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/read | Hiermee wordt een blob of een lijst met blobs geretourneerd |
-> | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/runAsSuperUser/action | Hiermee wordt het resultaat van de blobopdracht geretourneerd |
 > | DataAction | Microsoft.Storage/storageAccounts/blobServices/containers/blobs/write | Hiermee wordt het resultaat van het schrijven van een blob geretourneerd |
 > | Bewerking | Microsoft.Storage/storageAccounts/blobServices/containers/clearLegalHold/action | Juridische bewaring van blobcontainer wissen |
 > | Bewerking | Microsoft.Storage/storageAccounts/blobServices/containers/delete | Hiermee wordt het resultaat van het verwijderen van een container geretourneerd |
@@ -4353,13 +4720,11 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Storage/storageAccounts/blobServices/read | Hiermee worden de eigenschappen van de Blob service of statistieken geretourneerd |
 > | Bewerking | Microsoft.Storage/storageAccounts/blobServices/write | Hiermee wordt het resultaat van de eigenschappen voor het plaatsen van de blobcontainer geretourneerd |
 > | Bewerking | Microsoft.Storage/storageAccounts/delete | Hiermee verwijdert u een bestaand opslagaccount. |
-> | Bewerking | Microsoft.Storage/storageAccounts/fileServices/fileShare/delete | De gebruiker toestaan de bestandsshare te verwijderen |
-> | Bewerking | Microsoft.Storage/storageAccounts/fileServices/fileShare/read | De gebruiker toestaan de bestandsshare te lezen |
-> | Bewerking | Microsoft.Storage/storageAccounts/fileServices/fileShare/write | De gebruiker toestaan naar een bestandsshare te schrijven |
 > | Bewerking | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee wordt de diagnostische instelling voor de resource opgehaald. |
 > | Bewerking | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt. |
 > | Bewerking | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/logDefinitions/read | Hiermee wordt de logboekdefinitie voor File opgehaald |
 > | Bewerking | Microsoft.Storage/storageAccounts/fileServices/providers/Microsoft.Insights/metricDefinitions/read | Vraag een lijst met definities voor metrische Microsoft-opslaggegevens op. |
+> | Bewerking | Microsoft.Storage/storageAccounts/lastsynctime/read |  |
 > | Bewerking | Microsoft.Storage/storageAccounts/listAccountSas/action | Hiermee wordt het SAS-token van het account geretourneerd voor het opgegeven opslagaccount. |
 > | Bewerking | Microsoft.Storage/storageAccounts/listkeys/action | Hiermee retourneert u de toegangssleutels voor het opgegeven opslagaccount. |
 > | Bewerking | Microsoft.Storage/storageAccounts/listServiceSas/action | Hiermee wordt het SAS-token van de service geretourneerd voor het opgegeven opslagaccount. |
@@ -4382,6 +4747,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Storage/storageAccounts/queueServices/write | Hiermee wordt het resultaat van het instellen van de eigenschappen van de Queue-service geretourneerd |
 > | Bewerking | Microsoft.Storage/storageAccounts/read | Hiermee retourneert u een lijst met opslagaccounts of haalt u de eigenschappen op voor het opgegeven opslagaccount. |
 > | Bewerking | Microsoft.Storage/storageAccounts/regeneratekey/action | Hiermee genereert u de toegangssleutels voor het opgegeven opslagaccount opnieuw. |
+> | Bewerking | Microsoft.Storage/storageAccounts/revokeUserDelegationKeys/action | Trekt alle gebruiker delegering sleutels voor het opgegeven opslagaccount. |
 > | Bewerking | Microsoft.Storage/storageAccounts/services/diagnosticSettings/write | Diagnostische instellingen van opslagaccount maken/bijwerken. |
 > | Bewerking | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee wordt de diagnostische instelling voor de resource opgehaald. |
 > | Bewerking | Microsoft.Storage/storageAccounts/tableServices/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt. |

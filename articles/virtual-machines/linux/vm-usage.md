@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 12/04/2017
 ms.author: memccror
-ms.openlocfilehash: ab56ad07bd3da17f105bd09f2484173207d30015
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d9df71f6fa2f64544cbefc7d9aca8c153c86ac98
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025061"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094252"
 ---
 # <a name="understanding-azure-virtual-machine-usage"></a>Inzicht in het gebruik van de virtuele machine van Azure
 Uw gebruik van Azure door gegevens te analyseren, krachtige verbruik inzichten kunnen worden verkregen – inzichten die mogelijk kosten beter beheer en de toewijzing binnen uw organisatie. Dit document bevat een dieper ingaan op de details van uw Azure Compute-gebruik. Voor meer informatie over algemene Azure-gebruik, gaat u naar [informatie over uw factuur](https://docs.microsoft.com/azure/billing/billing-understand-your-bill).
@@ -128,7 +128,7 @@ Het veld ImageType wordt alleen ingevuld voor een subset van afbeeldingen. Als u
 ### <a name="why-is-the-vmname-blank-in-the-additional-info"></a>Waarom is de VMName leeg in de aanvullende informatie?
 Het VMName wordt alleen ingevuld in het veld voor aanvullende informatie voor virtuele machines in een schaalset. Het veld InstanceID bevat de naam van de virtuele machine voor niet--VM's schaalset.
 ### <a name="what-does-computehr-mean-in-the-usagetype-field-in-the-additional-info"></a>Wat betekent ComputeHR in het veld UsageType in de aanvullende informatie?
-ComputeHR staat voor Rekenuur, waarmee de gebeurtenis gebruik van de kosten voor onderliggende infrasturcture wordt aangeduid. Als de UsageType ComputeHR\_SW, de gebeurtenis gebruik vertegenwoordigt de premium-software kosten in rekening gebracht voor de virtuele machine.
+ComputeHR staat voor Rekenuur waarmee de gebruiksgebeurtenis worden gerapporteerd voor de onderliggende infrastructuur hoeft te investeren. Als de UsageType ComputeHR\_SW, de gebeurtenis gebruik vertegenwoordigt de premium-software kosten in rekening gebracht voor de virtuele machine.
 ### <a name="how-do-i-know-if-i-am-charged-for-premium-software"></a>Hoe weet ik als ik kosten in rekening voor premium-software gebracht ben?
 Bij het verkennen van welke VM-installatiekopie best aansluit bij uw behoeften, lees dan zeker worden de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/compute). De afbeelding is de snelheid van software-abonnement. Als u 'Gratis' voor de snelheid, is er geen extra kosten voor de software. 
 ### <a name="what-is-the-difference-between-microsoftclassiccompute-and-microsoftcompute-in-the-consumed-service"></a>Wat is het verschil tussen Microsoft.ClassicCompute en Microsoft.Compute in de service verbruikt?

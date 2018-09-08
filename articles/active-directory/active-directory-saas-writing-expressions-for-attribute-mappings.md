@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: barbkess
-ms.openlocfilehash: 0fa8fc6408a81429dfa9e8d73ef842644591c144
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1c9fe9fb63b45233ed1a11bb63c0763c6103bc6d
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365936"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095178"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
 Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -173,7 +173,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **Bron** |Vereist |Reeks |**Bron** waarde om bij te werken. |
+| **Bron** |Vereist |Reeks |**bron** waarde om bij te werken. |
 
 - - -
 ### <a name="switch"></a>Switch
@@ -185,7 +185,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 
 | Naam | Vereiste / herhalende | Type | Opmerkingen |
 | --- | --- | --- | --- |
-| **Bron** |Vereist |Reeks |**Bron** waarde om bij te werken. |
+| **Bron** |Vereist |Reeks |**bron** waarde om bij te werken. |
 | **defaultValue** |Optioneel |Reeks |De standaardwaarde moet worden gebruikt wanneer de bron komt niet overeen met alle sleutels. Lege tekenreeks (""). |
 | **sleutel** |Vereist |Reeks |**Sleutel** vergelijken **bron** met de waarde. |
 | **value** |Vereist |Reeks |Vervangende waarde voor de **bron** die overeenkomt met de sleutel. |
@@ -207,7 +207,7 @@ Bijvoorbeeld, als het domein 'contoso.com' is, kan u de volgende expressie:
 Als u van een Sandbox met Salesforce gebruikmaakt, moet u mogelijk een extra achtervoegsel toevoegen aan uw gebruikersnamen voordat deze worden gesynchroniseerd.
 
 **Expressie:** <br>
-`Append([userPrincipalName], ".test"))`
+`Append([userPrincipalName], ".test")`
 
 **Voorbeeld van invoer/uitvoer:** <br>
 

@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: hero-article
+ms.topic: conceptual
 ms.date: 10/16/2017
 ms.author: barclayn
-ms.openlocfilehash: e7dcb3778de31258f4aa3c946ffa214d87cb858a
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: e86d68107278641e40346327fa3a8cb7059b7d71
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32178820"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159585"
 ---
 # <a name="azure-key-vault-logging"></a>Logboekregistratie van Azure Sleutelkluis
 Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen van Key Vault](https://azure.microsoft.com/pricing/details/key-vault/) voor meer informatie.
@@ -75,7 +75,7 @@ Zie [Azure PowerShell installeren en configureren](/powershell/azure/overview) v
 ## <a id="storage"></a>Een nieuw opslagaccount voor uw logboeken maken
 Hoewel u een bestaand opslagaccount voor uw logboeken kunt gebruiken, maken we hier een nieuw opslagaccount, speciaal voor Sleutelkluis-logboeken. Voor het gemak slaan we de details op in een variabele met de naam **sa**. Deze moeten we later namelijk opgeven.
 
-En om het ons nog gemakkelijker te maken, gebruiken we de resourcegroep die de sleutelkluis bevat. In de [zelfstudie Aan de slag](key-vault-get-started.md) heeft deze resourcegroep de naam **ContosoResourceGroup** en we gebruiken hier ook de locatie Oost-Azië. Vervang deze waarden voor uzelf, indien van toepassing:
+En om het ons nog gemakkelijker te maken, gebruiken we de resourcegroep die de sleutelkluis bevat. In de [zelfstudie Aan de slag](key-vault-get-started.md) heeft deze resourcegroep de naam **ContosoResourceGroup** en we gebruiken hier ook de locatie Azië - oost. Vervang deze waarden voor uzelf, indien van toepassing:
 
     $sa = New-AzureRmStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
 

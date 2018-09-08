@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.author: jingwang
-ms.openlocfilehash: 19ba4a97b93c01a049f921904d0f5aba4b8c0617
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 56f1721240d4b685133149d50dd7c2a0e6b7e974
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442051"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158838"
 ---
 # <a name="copy-data-from-and-to-salesforce-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Salesforce met behulp van Azure Data Factory
 > [!div class="op_single_selector" title1="Select the version of Data Factory service you are using:"]
@@ -293,7 +293,7 @@ Het kopiëren van gegevens uit Salesforce, kunt u SOQL query of SQL-query. Houd 
 | Kolom selecteren | Moet de velden die moeten worden gekopieerd in de query, bijvoorbeeld opsommen `SELECT field1, filed2 FROM objectname` | `SELECT *` naast de kolom selecteren wordt ondersteund. |
 | Aanhalingstekens | Gearchiveerde/objectnamen kunnen niet worden vermeld. | Veld/objectnamen kunnen tussen aanhalingstekens staan, bijvoorbeeld `SELECT "id" FROM "Account"` |
 | Datum-/ tijdindeling |  Raadpleeg de details [hier](https://developer.salesforce.com/docs/atlas.en-us.soql_sosl.meta/soql_sosl/sforce_api_calls_soql_select_dateformats.htm) en voorbeelden in de volgende sectie. | Raadpleeg de details [hier](https://docs.microsoft.com/sql/odbc/reference/develop-app/date-time-and-timestamp-literals?view=sql-server-2017) en voorbeelden in de volgende sectie. |
-| Booleaanse waarden | Weergegeven als `False` en `Ture`, bijvoorbeeld `SELECT … WHERE IsDeleted=True`. | Weergegeven als 0 of 1, bijvoorbeeld `SELECT … WHERE IsDeleted=1`. |
+| Booleaanse waarden | Weergegeven als `False` en `True`, bijvoorbeeld `SELECT … WHERE IsDeleted=True`. | Weergegeven als 0 of 1, bijvoorbeeld `SELECT … WHERE IsDeleted=1`. |
 | Naam van kolom wijzigen | Wordt niet ondersteund. | Ondersteund, bijvoorbeeld: `SELECT a AS b FROM …`. |
 | Relatie | Ondersteund, bijvoorbeeld `Account_vod__r.nvs_Country__c`. | Wordt niet ondersteund. |
 

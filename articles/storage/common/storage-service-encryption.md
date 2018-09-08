@@ -8,15 +8,15 @@ ms.topic: article
 ms.date: 08/01/2018
 ms.author: lakasa
 ms.component: common
-ms.openlocfilehash: 5b676bbc764cb5689a6c80e81f597776fe80413e
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: c6001b0c95186dff53f33c73833b4cea30688db2
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39520721"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094889"
 ---
 # <a name="azure-storage-service-encryption-for-data-at-rest"></a>Azure Storage-Serviceversleuteling voor data-at-rest
-Azure Storage-Serviceversleuteling voor data-at-rest kunt u uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen beveiligen. Met deze functie door het platform van Azure storage automatisch uw gegevens worden versleuteld voordat Azure Managed Disks, Azure Blob-opslag, Azure Files of Azure Queue storage opgeslagen en ontsleutelt de gegevens voor het ophalen van. De verwerking van versleuteling en versleuteling-at-rest, ontsleuteling en sleutelbeheer in Storage Service-versleuteling is transparant voor gebruikers. Alle gegevens die zijn geschreven naar het Azure storage-platform worden versleuteld met 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), een van de krachtigste blokversleutelingsmethoden die er bestaan.
+Azure Storage-Serviceversleuteling voor data-at-rest kunt u uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen beveiligen. Met deze functie door het platform van Azure storage automatisch uw gegevens worden versleuteld voordat Azure Managed Disks, Azure Blob, wachtrij of tabel storage of Azure-bestanden opgeslagen en ontsleutelt de gegevens voor het ophalen van. De verwerking van versleuteling en versleuteling-at-rest, ontsleuteling en sleutelbeheer in Storage Service-versleuteling is transparant voor gebruikers. Alle gegevens die zijn geschreven naar het Azure storage-platform worden versleuteld met 256-bits [AES-versleuteling](https://en.wikipedia.org/wiki/Advanced_Encryption_Standard), een van de krachtigste blokversleutelingsmethoden die er bestaan.
 
 Storage-Serviceversleuteling is ingeschakeld voor alle nieuwe en bestaande opslagaccounts en kan niet worden uitgeschakeld. Omdat uw gegevens beveiligd standaard, hoeft u niet te wijzigen van uw code of toepassingen om te profiteren van Storage Service Encryption.
 

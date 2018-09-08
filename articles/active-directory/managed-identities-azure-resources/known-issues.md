@@ -15,18 +15,21 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: a58905d4e6ab22af38bb06b41a4523e6e5ddf86e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 27f9e0a3875b8d7e9411517863f7d7c2f6982ab3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028184"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158633"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Veelgestelde vragen en bekende problemen met beheerde identiteiten voor Azure-resources
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 ## <a name="frequently-asked-questions-faqs"></a>Veelgestelde vragen
+
+> [!NOTE]
+> Beheerde identiteiten voor een azure-resources is de nieuwe naam voor de service die voorheen bekend als Managed Service Identity (MSI).
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Werkt beheerde identiteiten voor Azure-resources met Azure Cloud Services?
 
@@ -49,7 +52,7 @@ Bij gebruik van beheerde identiteiten voor Azure-resources met virtuele machines
 3. De certificaten die op beheerde identiteiten voor Azure-resources zijn niet meer aanwezig zijn in de virtuele machine. 
 4. Het eindpunt IMDS is een bekende niet-routeerbare IP-adres, alleen beschikbaar vanuit de virtuele machine. 
 
-De beheerde identiteiten voor VM-extensie nog steeds beschikbaar is voor gebruik vandaag nog; Azure-resources echter vooruit we standaard het IMDS-eindpunt. De beheerde identiteit voor Azure-resources VM-extensie wordt gestart op een afschaffing plan snel. 
+De beheerde identiteiten voor VM-extensie nog steeds beschikbaar is voor gebruik vandaag nog; Azure-resources echter vooruit we standaard het IMDS-eindpunt. De beheerde identiteiten voor VM-extensie voor Azure-resources worden afgeschaft in januari 2019. 
 
 Zie voor meer informatie over Azure Instance Metadata Service [IMDS-documentatie](https://docs.microsoft.com/azure/virtual-machines/windows/instance-metadata-service)
 
@@ -57,7 +60,7 @@ Zie voor meer informatie over Azure Instance Metadata Service [IMDS-documentatie
 
 Alle Linux-distributies ondersteund door Azure IaaS kunnen worden gebruikt met beheerde identiteiten voor Azure-resources via de IMDS-eindpunt. 
 
-Opmerking: De beheerde identiteit voor Azure-resources ondersteunt alleen de volgende Linux-distributies VM-extensie:
+Opmerking: De beheerde identiteit voor Azure-resources VM-extensie (gepland voor de afschaffing in januari 2019) biedt alleen ondersteuning voor de volgende Linux-distributies:
 - Stable van CoreOS
 - CentOS 7.1
 - Red Hat 7.2
@@ -87,9 +90,9 @@ Als beheerde identiteiten voor Azure-resources op een virtuele machine is ingesc
 
 ![Beheerde identiteiten voor een Azure-resources automatiseringsscript exportfout](./media/msi-known-issues/automation-script-export-error.png)
 
-De beheerde identiteiten voor VM-extensie voor Azure-resources biedt momenteel geen ondersteuning voor de mogelijkheid waarvan het schema exporteren naar een resourcegroepsjabloon. Als gevolg hiervan weergegeven de gegenereerde sjabloon niet. configuratieparameters voor het inschakelen van beheerde identiteiten voor Azure-resources op de resource. Deze secties kunnen handmatig worden toegevoegd aan de hand van de voorbeelden in [configureren beheerde identiteiten voor een Azure-resources op een Azure-VM met behulp van een sjablonen](qs-configure-template-windows-vm.md).
+De beheerde identiteiten voor VM-extensie (gepland voor de afschaffing in januari 2019) momenteel geen biedt Azure-resources bieden ondersteuning voor het bijbehorende schema exporteren naar een resourcegroepsjabloon. Als gevolg hiervan weergegeven de gegenereerde sjabloon niet. configuratieparameters voor het inschakelen van beheerde identiteiten voor Azure-resources op de resource. Deze secties kunnen handmatig worden toegevoegd aan de hand van de voorbeelden in [configureren beheerde identiteiten voor een Azure-resources op een Azure-VM met behulp van een sjablonen](qs-configure-template-windows-vm.md).
 
-Wanneer de schema-export-functionaliteit beschikbaar is voor de beheerde identiteiten voor VM-extensie voor Azure-resources, wordt deze weergegeven in [exporteren van resourcegroepen met VM-extensies](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
+Wanneer de schema-export-functionaliteit beschikbaar is voor de beheerde identiteiten voor VM-extensie van een Azure-resources (gepland voor de afschaffing in januari 2019), wordt deze weergegeven in [exporteren van resourcegroepen met VM-extensies](../../virtual-machines/extensions/export-templates.md#supported-virtual-machine-extensions).
 
 ### <a name="configuration-blade-does-not-appear-in-the-azure-portal"></a>Configuratieblade wordt niet weergegeven in de Azure-portal
 
@@ -125,11 +128,11 @@ az vm update -n <VM Name> -g <Resource Group> --remove tags.fixVM
 
 - de gebruiker toegewezen identiteit toewijzingen zijn alleen beschikbaar voor virtuele machine en VMSS. Belangrijk: de gebruiker toegewezen identiteit toewijzingen in de komende maanden wordt gewijzigd.
 - Dubbele gebruiker toegewezen identiteiten op de dezelfde VM/VMSS, zorgt ervoor dat de VM/VMSS mislukken. Dit omvat identiteiten die worden toegevoegd met een ander hoofdlettergebruik. bijvoorbeeld MyUserAssignedIdentity en myuserassignedidentity. 
-- Inrichting van de VM-extensie aan een virtuele machine kan mislukken vanwege DNS-lookup-fouten. Start de VM opnieuw op en probeer het opnieuw. 
+- Inrichting van de VM-extensie (gepland voor de afschaffing in januari 2019) aan een virtuele machine kan mislukken vanwege DNS-lookup-fouten. Start de VM opnieuw op en probeer het opnieuw. 
 - Toevoegen van een 'niet-bestaande' door de gebruiker toegewezen identiteit zorgt ervoor dat de virtuele machine mislukt. 
 - Het maken van een gebruiker toegewezen identiteit met speciale tekens (dat wil zeggen onderstrepingstekens) in de naam, wordt niet ondersteund.
 - Identiteitsnamen van de gebruiker toegewezen zijn beperkt tot 24 tekens in voor de end-to-end-scenario. de gebruiker toegewezen identiteiten met namen die langer dan 24 tekens worden niet worden toegewezen.
-- Als de extensie van de virtuele machine beheerde identiteit wordt gebruikt, is de ondersteunde limiet van 32 gebruiker toegewezen beheerde identiteiten. De ondersteunde limiet is zonder de extensie van de virtuele machine beheerde identiteit 512.  
+- Als u de extensie van de beheerde identiteit-virtuele machine (gepland voor de afschaffing in januari 2019) gebruikt, is de ondersteunde limiet van 32 gebruiker toegewezen beheerde identiteiten. De ondersteunde limiet is zonder de extensie van de virtuele machine beheerde identiteit 512.  
 - Bij het toevoegen van een tweede gebruiker toegewezen identiteit, de clientID mogelijk niet beschikbaar is voor aanvragen tokens voor de VM-extensie. Als een risicobeperking start opnieuw op de beheerde identiteiten voor VM-extensie voor Azure-resources met de volgende twee bash-opdrachten:
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler disable"`
  - `sudo bash -c "/var/lib/waagent/Microsoft.ManagedIdentity.ManagedIdentityExtensionForLinux-1.0.0.8/msi-extension-handler enable"`

@@ -9,17 +9,17 @@ editor: TomSh
 ms.assetid: 2431feba-3364-4a63-8e66-858926061dd3
 ms.service: security
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: edfabf1f93c78cf29ff3561f437053df11e15bd5
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
-ms.translationtype: HT
+ms.openlocfilehash: 21ad417b9b3b8d0354333962c4e811d0eebba4e9
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37857477"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159330"
 ---
 # <a name="security-management-in-azure"></a>Beveiligingsbeheer in Azure
 Azure-abonnees kunnen hun cloudomgevingen beheren vanaf meerdere apparaten, waaronder beheerwerkstations, de pc's van ontwikkelaars en zelfs apparaten van bevoegde eindgebruikers met taakspecifieke rechten. In sommige gevallen worden beheerfuncties uitgevoerd via op het web gebaseerde consoles, zoals de [Azure Portal](https://azure.microsoft.com/features/azure-portal/). In andere gevallen zijn er mogelijk rechtstreekse verbindingen naar Azure vanaf on-premises systemen via virtuele particuliere netwerken (VPN), Terminal Services, protocollen van clienttoepassingen of de Azure Service Management API (SMAPI) (via een programma). Clienteindpunten kunnen bovendien zowel in een domein zijn samengevoegd als op zichzelf staand en niet-beheerd zijn, zoals tablets en smartphones.

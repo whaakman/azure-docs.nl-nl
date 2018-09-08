@@ -10,12 +10,12 @@ ms.technology: luis
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: diberry
-ms.openlocfilehash: 355c1edd4fa7433e68a9c0e903f4f782203326fe
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 9c14f2121cd83cec802f4fd4a92661d58eb7efb3
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365875"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159568"
 ---
 # <a name="tutorial-improve-app-with-patterns"></a>Zelfstudie: Een app met patronen verbeteren
 
@@ -26,7 +26,7 @@ In deze zelfstudie gebruiken u patronen voor het verhogen van de intentie en ent
 * Over het maken van een patroon
 * Patroon voorspelling verbeteringen controleren
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
@@ -114,15 +114,15 @@ De hoeveelheid uitingen voorbeeld in deze intents is niet genoeg om te trainen L
 
 ## <a name="train-the-luis-app"></a>LUIS-app trainen
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
 ## <a name="query-the-endpoint-with-a-different-utterance"></a>Eindpunt opvragen met een andere utterance
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Ga naar het einde van de URL in het adres en voer `Who is the boss of Jill Jones?` in. De laatste parameter van de queryreeks is `q`, de utterance **query**. 
 
@@ -353,7 +353,7 @@ Het vorige patroon sjabloon uitingen in deze zelfstudie heeft een aantal voorbee
 
 Voorbeeld-uitingen zijn:
 
-|Doel|Voorbeeld-uitingen met optionele tekst en vooraf gemaakte entiteiten|
+|Intentie|Voorbeeld-uitingen met optionele tekst en vooraf gemaakte entiteiten|
 |:--|:--|
 |Organigram-Manager|`Who was Jill Jones manager on March 3?`|
 |Organigram-Manager|`Who is Jill Jones manager now?`|
@@ -363,7 +363,7 @@ Voorbeeld-uitingen zijn:
 Elk van deze voorbeelden gebruikt een tegenwoordige term `was`, `is`, `will be`, evenals een datum, `March 3`, `now`, en `in a month`, die LUIS moet correct te voorspellen. U ziet dat de laatste twee voorbeelden gebruikt u bijna dezelfde tekst, behalve voor `in` en `on`.
 
 Voorbeeld van de sjabloon uitingen:
-|Doel|Voorbeeld-uitingen met optionele tekst en vooraf gemaakte entiteiten|
+|Intentie|Voorbeeld-uitingen met optionele tekst en vooraf gemaakte entiteiten|
 |:--|:--|
 |Organigram-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?`]|
 |Organigram-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
@@ -396,7 +396,7 @@ Het gebruik van de optionele syntaxis van tussen vierkante haken, `[]`, kunt u d
 
 1. Terwijl u nog steeds in de **patronen** sectie van **bouwen**, verschillende nieuwe sjabloon uitingen patroon toevoegen. Selecteer **organigram-Manager** van de intentie vervolgkeuzelijst en voer elk van de volgende sjabloon uitingen:
 
-    |Doel|Voorbeeld-uitingen met optionele tekst en vooraf gemaakte entiteiten|
+    |Intentie|Voorbeeld-uitingen met optionele tekst en vooraf gemaakte entiteiten|
     |--|--|
     |Organigram-Manager|`who was {Employee}['s] manager [[on]{datetimeV2}?]`|
     |Organigram-Manager|`who is {Employee}['s] manager [[on]{datetimeV2}?]`|
@@ -424,7 +424,7 @@ Al deze uitingen de entiteiten gevonden binnen, dus ze overeenkomen met hetzelfd
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/04/2018
+ms.date: 09/06/2018
 ms.author: tomfitz
-ms.openlocfilehash: 35bd895636bcedf0fd3fad073819d238c7850326
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: e0a2e26fb3dd0afeb4d1f3d030cb42bdc181e63c
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783335"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094957"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -210,7 +210,7 @@ De services waarmee u verplaatsen naar een nieuwe resourcegroep en een abonnemen
 * Portal-dashboards
 * Power BI - zowel Power BI Embedded en Power BI-Werkruimteverzameling
 * Openbaar IP-adres - Zie [openbaar IP-beperkingen](#pip-limitations)
-* Redis Cache
+* Redis-Cache - als de Redis-Cache-exemplaar is geconfigureerd met een virtueel netwerk, het exemplaar kan niet worden verplaatst naar een ander abonnement. Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations).
 * Scheduler
 * Search
 * Service Bus

@@ -13,16 +13,16 @@ ms.topic: article
 ms.date: 07/24/2018
 ms.author: mabrigg
 ms.reviewer: johnhas
-ms.openlocfilehash: 65cae4d10a4683207474008a18bac39751ce8e96
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 9f042779e3463f0d75dc6327b3553156edbf162a
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "40234981"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162220"
 ---
 # <a name="test-parameters-for-validation-as-a-service-azure-stack"></a>Parameters voor de validatie als een Azure Stack-service testen
 
-[!INCLUDE[Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
+[!INCLUDE [Azure_Stack_Partner](./includes/azure-stack-partner-appliesto.md)]
 
 Voordat u een Test-Suite van validaties uitvoert als een service (VaaS), selecteert u een oplossing en maak een testronde.
 

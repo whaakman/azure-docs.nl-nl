@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/16/2018
 ms.author: jeedes
-ms.openlocfilehash: d140cbdb0548de869c7aab6ba5da281046a215f9
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: a235b85887e64e0a5ca35aae8f31734250a78bb5
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434109"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160231"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-xmatters-ondemand"></a>Zelfstudie: Azure Active Directory-integratie met xMatters OnDemand
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van xMatters OnDemand in Azure AD, moet 
 
 **Als u wilt toevoegen xMatters OnDemand uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -202,7 +202,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 ### <a name="creating-a-xmatters-ondemand-test-user"></a>Het maken van een gebruiker xMatters OnDemand testen
 
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in xMatters OnDemand. xMatters OnDemand ondersteunt automatisch gebruikers inrichten, dit is standaard ingeschakeld. Meer informatie vindt u [hier](xmatters-ondemand-provisioning-tutorial.md) voor het automatisch inrichten van gebruikers configureren.
+Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in xMatters OnDemand.
 
 **Als u moet de gebruiker handmatig hebt gemaakt, voert u de volgende stappen uit:**
 
@@ -269,7 +269,6 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
-* [Inrichten van gebruikers configureren](xmatters-ondemand-provisioning-tutorial.md)
 
 <!--Image references-->
 

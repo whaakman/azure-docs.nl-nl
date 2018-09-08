@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/15/2018
 ms.author: jeedes
-ms.openlocfilehash: 10f4749524c4d4b35b83e5637d35f4ef9a8f9ab6
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 7edfe5a115caf4ee6e4677e5fd7f324b8f3873ee
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39041327"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44159041"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-replicon"></a>Zelfstudie: Azure Active Directory-integratie met Replicon
 
@@ -60,7 +60,7 @@ Voor het configureren van de integratie van Replicon in Azure AD, moet u Replico
 
 **Als u wilt toevoegen Replicon uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram.
 
     ![De Azure Active Directory-knop][1]
 
@@ -177,7 +177,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 
 ### <a name="create-a-replicon-test-user"></a>Maak een testgebruiker Replicon
 
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Replicon. Replicon ondersteunt automatisch gebruikers inrichten, dit is standaard ingeschakeld. Meer informatie vindt u [hier](replicon-provisioning-tutorial.md) voor het automatisch inrichten van gebruikers configureren.
+Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Replicon.
 
 **Als u moet de gebruiker handmatig hebt gemaakt, voert u de volgende stappen uit:**
 
@@ -248,8 +248,7 @@ Zie voor meer informatie over het toegangsvenster, [Inleiding tot het toegangsve
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
-* [Inrichten van gebruikers configureren](replicon-provisioning-tutorial.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

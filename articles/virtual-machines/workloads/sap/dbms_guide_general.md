@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/12/2018
+ms.date: 09/06/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e7ad93cbfd096cacadaef8666b0ea5b31d7fd992
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e46503f8dc97f58db1cd5acfd2122e2895fb15b0
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42918798"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162305"
 ---
 # <a name="considerations-for-azure-virtual-machines-dbms-deployment-for-sap-workload"></a>Overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP
 [1114181]:https://launchpad.support.sap.com/#/notes/1114181
@@ -198,7 +198,7 @@ Voor Azure Standard-opslag zijn de mogelijke cache-typen:
 
 * Geen
 * Lezen
-* Lezen/Schrijven
+* Lezen/schrijven
 
 Om consistente en deterministisch prestaties, moet u instellen de cache op Azure Standard-opslag voor alle schijven met **DBMS-gerelateerde gegevensbestanden, bestanden log/opnieuw en ruimte voor tabel 'NONE'**. Het in cache plaatsen van de base VHD kan blijven met de standaardinstellingen.
 
@@ -272,6 +272,11 @@ Er zijn enkele aanbevolen procedures, heeft geleid uit honderden implementaties 
 - De virtuele machines binnen het VNet hebben een statische toewijzing van het particuliere IP-adres. Zie het artikel [IP-adres adrestypen en toewijzingsmethoden in Azure](https://docs.microsoft.com/azure/virtual-network/virtual-network-ip-addresses-overview-arm) als verwijzing.
 - Routering beperkingen naar en van de DBMS-VM's zijn **niet** instellen met een firewall is geïnstalleerd op de lokale DBMS-VM's. Routering van verkeer in plaats daarvan is gedefinieerd met [Azure Network Security groepen (NSG)](https://docs.microsoft.com/azure/virtual-network/security-overview)
 - Ten behoeve van elkaar te scheiden en te isoleren van verkeer voor de DBMS-VM, kunt u verschillende NIC's toewijzen aan de virtuele machine. Waar elke NIC heeft een ander IP-adres en elke NIC is een toegewezen aan een ander VNet-subnet is die verschillende NSG-regels. Houd er rekening mee dat de isolatie- of scheiding van netwerkverkeer zojuist een meting voor routering is en is niet toegestaan voor het instellen van quota voor de netwerkdoorvoer.
+
+> [!NOTE]
+> Moet u statische IP-adressen via Azure middelen toewijzen aan afzonderlijke vnic's. U moet statische IP-adressen binnen het gastbesturingssysteem niet toewijzen aan een vNIC. Sommige Azure-services zoals Azure Backup-Service is afhankelijk van het feit dat op minimaal de primaire vNIC is ingesteld op DHCP- en niet op de vaste IP-adressen. Zie ook het document [los problemen met Azure virtuele machine back-up](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#networking). Als u meerdere statische IP-adressen toewijzen aan een virtuele machine wilt, moet u meerdere vnic's toewijzen aan een virtuele machine.
+>
+>
 
 Met behulp van twee virtuele machines voor uw productie-implementatie van de DBMS-systemen binnen een Azure-Beschikbaarheidsset plus een afzonderlijke routering voor de SAP-toepassingslaag en het beheer en bewerkingen verkeer naar de twee DBMS-VM's, de ruwe diagram zou er als volgt uitzien:
 

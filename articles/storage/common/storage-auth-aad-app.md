@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/12/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: d065dd6db361c5c348713c6e1ceabe3a4c42c312
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 240bc114350d8464f234200d0ea972224114212f
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577701"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44095144"
 ---
 # <a name="authenticate-with-azure-active-directory-from-an-azure-storage-application-preview"></a>Verifiëren met Azure Active Directory vanaf een Azure Storage-toepassing (Preview)
 
@@ -25,10 +25,7 @@ Voordat u een beveiligings-principal van uw Azure Storage-toepassing verifiëren
 
 Zie voor een overzicht van de OAuth 2.0-stroom voor het verlenen van code, [autoriseren de toegang tot Azure Active Directory web-apps met behulp van de OAuth 2.0-code verlenen stroom](../../active-directory/develop/v1-protocols-oauth-code.md).
 
-> [!IMPORTANT]
-> In dit voorbeeld is bedoeld voor gebruik in niet-productieomgevingen alleen. Productie service level agreements (Sla's) worden pas beschikbaar als Azure AD-integratie voor Azure Storage algemeen beschikbaar is gedeclareerd. Als Azure AD-integratie wordt nog niet ondersteund voor uw scenario, echter ook doorgaan met de gedeelde sleutel autorisatie of SAS-tokens in uw toepassingen. Zie voor meer informatie over de Preview-versie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)](storage-auth-aad.md).
->
-> Tijdens de Preview-versie duurt RBAC-roltoewijzingen tot vijf minuten worden doorgegeven.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="register-your-application-with-an-azure-ad-tenant"></a>Uw toepassing registreren bij een Azure AD-tenant
 
@@ -176,7 +173,7 @@ CloudBlockBlob blob = new CloudBlockBlob(new Uri("https://storagesamples.blob.co
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer informatie over RBAC-rollen voor Azure-opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
-- Zie voor meer informatie over het gebruik van beheerde Service-identiteit met Azure Storage, [verifiëren met Azure AD vanuit een Azure Managed Service Identity (Preview)](storage-auth-aad-msi.md).
+- Zie voor meer informatie over het gebruik van beheerde identiteiten voor Azure-resources met Azure Storage, [verifiëren toegang tot blobs en wachtrijen met Azure beheerde identiteiten voor Azure-Resources (Preview)](storage-auth-aad-msi.md).
 - Als u wilt weten hoe u zich aanmeldt bij Azure CLI en PowerShell met een Azure AD-identiteit, Zie [gebruiken van een Azure AD-identiteit voor toegang tot Azure Storage met CLI of PowerShell (Preview)](storage-auth-aad-script.md).
 - Zie voor meer informatie over Azure AD-integratie voor Azure-Blobs en wachtrijen, de blog van het Azure Storage-team plaatst, [aankondiging van de Preview-versie van Azure AD-verificatie voor Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).
 

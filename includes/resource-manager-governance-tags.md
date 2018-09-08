@@ -8,16 +8,18 @@ ms.topic: include
 ms.date: 03/13/2018
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 69c67f437d2f0b7bd6c1f5311eb5ba1d962d889a
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: f6e9fc22a632b586e553d9ca4b587781c543e068
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38738876"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44169161"
 ---
-U past tags toe op uw Azure-resources om ze logisch te ordenen op categorieën. Elke tag bestaat uit een naam en een waarde. U kunt de naam Omgeving en de waarde Productie bijvoorbeeld toepassen op alle resources in de productie.
+U kunt tags toepassen op uw Azure-resources die ze logisch te ordenen in een taxonomie-metagegevens. Elke tag bestaat uit een naam en een waarde-paar. U kunt de naam Omgeving en de waarde Productie bijvoorbeeld toepassen op alle resources in de productie.
 
 Nadat u de tags hebt toegepast, kunt u alle resources in het abonnement ophalen met deze tagnaam en -waarde. Met tags kunt u verwante resources ophalen uit verschillende resourcegroepen bevinden. Deze aanpak is nuttig wanneer u resources moet ordenen voor facturering of beheer.
+
+Uw taxonomie moet rekening houden met een self-servicegebruikers metagegevens strategie naast een strategie voor automatisch labels op de werkbelasting van gebruikers en de nauwkeurigheid wordt verhoogd voor het labelen.
 
 Voor tags gelden de volgende beperkingen:
 

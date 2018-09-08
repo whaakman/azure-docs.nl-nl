@@ -11,16 +11,16 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: e7b07ba892f8f904b1b2127fa8e76649eb004388
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 776f98269e3e0c31766246ca96636528f60c3e09
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055476"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160623"
 ---
 # <a name="set-up-security-info-to-use-an-authenticator-app-preview"></a>Beveiligingsgegevens ingesteld voor het gebruik van een verificator-app (preview)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 Instellen van je beveiligingsgegevens, moet u zich aanmelden bij uw werk of school-account en klikt u vervolgens het registratieproces te voltooien. Als u nooit je beveiligingsgegevens hebt ingesteld, wordt u gevraagd dit nu doen.
 

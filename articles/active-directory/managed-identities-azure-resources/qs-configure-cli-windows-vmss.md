@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/15/2018
 ms.author: daveba
-ms.openlocfilehash: d5c285f13ce45047619b327b9440fbd69c18267e
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 2ec52adec85cc209cee07225cc753a2c40d874c0
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028181"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157630"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-virtual-machine-scale-set-using-azure-cli"></a>Configureren van beheerde identiteiten voor Azure-resources op een VM-schaalset met behulp van Azure CLI
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Beheerde identiteiten voor Azure-resources biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
 
@@ -109,7 +109,7 @@ Als u een virtuele machine die niet langer nodig door het systeem toegewezen beh
 az vmss update -n myVM -g myResourceGroup --set identity.type="none"
 ```
 
-U kunt de beheerde identiteiten voor VM-extensie voor Azure-resources verwijderen met [az vmss-identiteit verwijderen](/cli/azure/vmss/identity/#az-vmss-remove-identity) opdracht om te verwijderen door het systeem toegewezen identiteit beheerd vanaf een VMSS:
+Als u wilt verwijderen van de beheerde identiteiten voor VM-extensie van een Azure-resources (gepland voor de afschaffing in januari 2019), gebruikt u [az vmss-identiteit verwijderen](/cli/azure/vmss/identity/#az-vmss-remove-identity) opdracht om te verwijderen door het systeem toegewezen identiteit beheerd vanaf een VMSS:
 
 ```azurecli-interactive
 az vmss extension delete -n ManagedIdentityExtensionForWindows -g myResourceGroup -vmss-name myVMSS
@@ -131,7 +131,7 @@ In deze sectie helpt u bij het maken van een VMSS en de toewijzing van een behee
 
 2. Maak een beheerde identiteit gebruiker toegewezen met [az-identiteit maken](/cli/azure/identity#az-identity-create).  De `-g` parameter geeft u de resourcegroep waarin de gebruiker toegewezen beheerde identiteit wordt gemaakt, en de `-n` parameter geeft u de naam ervan. Vervang de parameterwaarden `<RESOURCE GROUP>` en `<USER ASSIGNED IDENTITY NAME>` door uw eigen waarden:
 
-   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+   [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
    ```azurecli-interactive
    az identity create -g <RESOURCE GROUP> -n <USER ASSIGNED IDENTITY NAME>

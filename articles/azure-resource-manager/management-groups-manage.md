@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/31/2018
 ms.author: rithorn
-ms.openlocfilehash: 04d5f5dc340d6be47a26baf05aa3d2f2ea7458ae
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: f7677d8b545c28522c370f3af422a55f3a656646
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39428815"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091183"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>Uw resources beheren met beheergroepen
 
@@ -167,7 +167,7 @@ Om te zien welke machtigingen u hebt, selecteert u de beheergroep en selecteer v
     ![Onderliggende items](media/management-groups/add_context_sub.png)
 1. Selecteer 'Opslaan'
 
-**Een abonnement verwijdert uit een beheergroep**
+**Een abonnement verplaatsen naar een andere beheergroep**
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com)
 2. Selecteer **alle services** > **beheergroepen** 

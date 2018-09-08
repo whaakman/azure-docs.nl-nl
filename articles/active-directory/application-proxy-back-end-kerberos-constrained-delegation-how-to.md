@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: ad2140d9d94cc4655043625200d42485b03c719b
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 258df8f784cf673d628e3e70874a89c8ade692bd
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39364288"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093682"
 ---
 # <a name="troubleshoot-kerberos-constrained-delegation-configurations-for-application-proxy"></a>Kerberos-beperkte overdracht configuraties voor Application Proxy oplossen
 
@@ -117,42 +117,42 @@ De gebruiker van het Kerberos-ticket dat is opgegeven door de connector. In deze
 
 3.  DevTools uitvoeren (**F12**) in Internet Explorer of gebruik [Fiddler](https://blogs.msdn.microsoft.com/crminthefield/2012/10/10/using-fiddler-to-check-for-kerberos-auth/) van de connector host. Ga naar de toepassing met behulp van de interne URL. Inspecteer de aangeboden www-autorisatie-header die worden geretourneerd in het antwoord van de toepassing om ervoor te zorgen dat een onderhandelen over of Kerberos aanwezig is. 
 
-    a. De volgende Kerberos-blob die wordt geretourneerd in het antwoord van de browser naar de toepassing wordt gestart met **YII**. Deze letters laat u weten dat Kerberos wordt uitgevoerd. Microsoft NT LAN Manager (NTLM) aan de andere kant wordt altijd gestart met **TlRMTVNTUAAB**, die NTLM Security Support Provider (NTLMSSP) bij het decoderen van Base64 leest. Als u ziet **TlRMTVNTUAAB** aan het begin van de blob, Kerberos is niet beschikbaar. Als er geen **TlRMTVNTUAAB**, Kerberos is het waarschijnlijk beschikbaar.
-
+    - De volgende Kerberos-blob die wordt geretourneerd in het antwoord van de browser naar de toepassing wordt gestart met **YII**. Deze letters laat u weten dat Kerberos wordt uitgevoerd. Microsoft NT LAN Manager (NTLM) aan de andere kant wordt altijd gestart met **TlRMTVNTUAAB**, die NTLM Security Support Provider (NTLMSSP) bij het decoderen van Base64 leest. Als u ziet **TlRMTVNTUAAB** aan het begin van de blob, Kerberos is niet beschikbaar. Als er geen **TlRMTVNTUAAB**, Kerberos is het waarschijnlijk beschikbaar.
+   
        > [!NOTE]
        > Als u Fiddler gebruikt, wordt deze methode moet u uitgebreide beveiliging van de configuratie van de toepassing in IIS tijdelijk uitschakelen.
-
-       ![Venster van de controle van de browser](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
-
-    b. De blob in deze afbeelding begint niet met **TIRMTVNTUAAB**. In dit voorbeeld Kerberos beschikbaar is en de Kerberos-blob begint niet met **YII**.
+      
+      ![Venster van de controle van de browser](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic6.png)
+   
+    - De blob in deze afbeelding begint niet met **TIRMTVNTUAAB**. In dit voorbeeld Kerberos beschikbaar is en de Kerberos-blob begint niet met **YII**.
 
 4.  Tijdelijk NTLM uit de lijst met providers op de IIS-site verwijderen. Toegang tot de app rechtstreeks vanuit Internet Explorer op de host van de connector. NTLM is niet langer in de lijst met providers. U kunt toegang tot de toepassing met behulp van Kerberos alleen. Als de toegang is mislukt, is het mogelijk dat er een probleem met de configuratie van de toepassing. Kerberos-verificatie wordt niet werkt.
 
-    a. Als Kerberos niet beschikbaar is, controleert u de verificatie-instellingen van de toepassing in IIS. Zorg ervoor dat **onderhandelen over** wordt weergegeven aan de bovenkant met NTLM alleen eronder. Als u ziet **niet onderhandelen over**, **Kerberos of onderhandelen over**, of **PKU2U**, alleen doorgaan als Kerberos functioneel is.
+    - Als Kerberos niet beschikbaar is, controleert u de verificatie-instellingen van de toepassing in IIS. Zorg ervoor dat **onderhandelen over** wordt weergegeven aan de bovenkant met NTLM alleen eronder. Als u ziet **niet onderhandelen over**, **Kerberos of onderhandelen over**, of **PKU2U**, alleen doorgaan als Kerberos functioneel is.
 
        ![Windows authentication-providers](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic7.png)
    
-    b. Met Kerberos en NTLM in plaats, kunt u vooraf-verificatie voor de toepassing in de portal tijdelijk uitschakelen. Probeer te openen vanaf het internet met behulp van de externe URL. U wordt gevraagd om te verifiëren. U kunt dit doen met hetzelfde account gebruikt in de vorige stap. Als dat niet het geval is, er is een probleem met de back-endtoepassing, niet KCD.
+    - Met Kerberos en NTLM in plaats, kunt u vooraf-verificatie voor de toepassing in de portal tijdelijk uitschakelen. Probeer te openen vanaf het internet met behulp van de externe URL. U wordt gevraagd om te verifiëren. U kunt dit doen met hetzelfde account gebruikt in de vorige stap. Als dat niet het geval is, er is een probleem met de back-endtoepassing, niet KCD.
 
-    c. Vooraf-verificatie in de portal opnieuw inschakelen. Er wordt geprobeerd verbinding maken met de toepassing via de externe URL voor het verifiëren via Azure. Als eenmalige aanmelding is mislukt, ziet u een niet-toegestane foutbericht wordt weergegeven in de browser en de gebeurtenis 13022 in het logboek:
+    - Vooraf-verificatie in de portal opnieuw inschakelen. Er wordt geprobeerd verbinding maken met de toepassing via de externe URL voor het verifiëren via Azure. Als eenmalige aanmelding is mislukt, ziet u een niet-toegestane foutbericht wordt weergegeven in de browser en de gebeurtenis 13022 in het logboek:
 
        *Microsoft AAD Application Proxy Connector kan de gebruiker kan niet verifiëren omdat de back-endserver op Kerberos-verificatie geprobeerd met een 401 HTTP-fout reageert.*
 
        ![HTTTP 401 fout is niet toegestaan](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic8.png)
-
-    d. Controleer de IIS-toepassing. Zorg ervoor dat de geconfigureerde groep van toepassingen en de SPN-naam zijn geconfigureerd voor het gebruik van hetzelfde account in Azure AD. Navigeer in IIS, zoals wordt weergegeven in de volgende afbeelding:
-
+   
+    - Controleer de IIS-toepassing. Zorg ervoor dat de geconfigureerde groep van toepassingen en de SPN-naam zijn geconfigureerd voor het gebruik van hetzelfde account in Azure AD. Navigeer in IIS, zoals wordt weergegeven in de volgende afbeelding:
+      
        ![Venster voor configuratie van IIS-toepassing](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic9.png)
-
+      
        Nadat u de identiteit, zorg er dan voor dat dit account is geconfigureerd met de betreffende SPN-naam. Een voorbeeld is `setspn –q http/spn.wacketywack.com`. Voer de volgende tekst in een opdrachtprompt:
-
+      
        ![SetSPN-opdrachtvenster](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic10.png)
-
-    e. Controleer de SPN-naam gedefinieerd voor de instellingen van de toepassing in de portal. Zorg ervoor dat de dezelfde SPN-naam geconfigureerd op de doel-Azure AD-account wordt gebruikt door de toepassingsgroep van de app.
+      
+    - Controleer de SPN-naam gedefinieerd voor de instellingen van de toepassing in de portal. Zorg ervoor dat de dezelfde SPN-naam geconfigureerd op de doel-Azure AD-account wordt gebruikt door de toepassingsgroep van de app.
 
        ![SPN-configuratie in Azure portal](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic11.png)
    
-    f. Ga in IIS en selecteer de **configuratie-Editor** optie voor de toepassing. Navigeer naar **system.webServer/security/authentication/windowsAuthentication**. Zorg ervoor dat de waarde **UseAppPoolCredentials** is **waar**.
+    - Ga in IIS en selecteer de **configuratie-Editor** optie voor de toepassing. Navigeer naar **system.webServer/security/authentication/windowsAuthentication**. Zorg ervoor dat de waarde **UseAppPoolCredentials** is **waar**.
 
        ![Referentie-optie voor app-groepen van IIS-configuratie](./media/application-proxy-back-end-kerberos-constrained-delegation-how-to/graphic12.png)
 

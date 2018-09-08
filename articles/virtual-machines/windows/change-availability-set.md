@@ -1,6 +1,6 @@
 ---
-title: Wijzigen van een beschikbaarheidsset VMs | Microsoft Docs
-description: Informatie over het wijzigen van de beschikbaarheidsset voor uw virtuele machines met behulp van Azure PowerShell en het Resource Manager-implementatiemodel.
+title: Een beschikbaarheidsset voor virtuele machines wijzigen | Microsoft Docs
+description: Informatie over het wijzigen van de beschikbaarheidsset voor uw virtuele machines met Azure PowerShell en het Resource Manager-implementatiemodel.
 keywords: ''
 services: virtual-machines-windows
 documentationcenter: ''
@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 2ce73ca0a50a9884337258be0fab00528800db27
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 8d11f81d5fea47ccef8689a84c06768c4ca36012
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701816"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162033"
 ---
-# <a name="change-the-availability-set-for-a-windows-vm"></a>Wijzig de beschikbaarheidsset voor een virtuele machine van Windows
-De volgende stappen beschrijven het wijzigen van de beschikbaarheidsset van een virtuele machine met Azure PowerShell. Een virtuele machine kan alleen worden toegevoegd aan een beschikbaarheidsset wanneer deze wordt gemaakt. Als u wilt wijzigen van de beschikbaarheid, moet u de te verwijderen en vervolgens opnieuw de virtuele machine. 
+# <a name="change-the-availability-set-for-a-windows-vm"></a>Wijzig de beschikbaarheidsset voor een Windows-VM
+De volgende stappen wordt beschreven hoe u de beschikbaarheidsset van een virtuele machine met behulp van Azure PowerShell wijzigen. Een virtuele machine kan alleen worden toegevoegd aan een beschikbaarheidsset wanneer deze wordt gemaakt. Als u wilt wijzigen van de beschikbaarheid instellen, moet u om te verwijderen en vervolgens de virtuele machine opnieuw maken. 
 
-## <a name="change-the-availability-set"></a>Wijzig de beschikbaarheidsset 
+## <a name="change-the-availability-set"></a>De beschikbaarheidsset wijzigen 
 
-Het volgende script geeft een voorbeeld van de vereiste gegevens verzamelen, worden verwijderd van de oorspronkelijke virtuele machine en vervolgens opnieuw te maken in een nieuwe beschikbaarheidsset.
+Het volgende script geeft een voorbeeld van de vereiste gegevens te verzamelen, het verwijderen van de oorspronkelijke virtuele machine en vervolgens opnieuw worden gemaakt in een nieuwe beschikbaarheidsset.
 
 ```powershell
 # Set variables
@@ -35,8 +35,8 @@ Het volgende script geeft een voorbeeld van de vereiste gegevens verzamelen, wor
     $vmName = "myVM"
     $newAvailSetName = "myAvailabilitySet"
 
-# Get VM Details
-    $originalVM = get-azurermvm `
+# Get the details of the VM to be moved to the Availablity Set
+    $originalVM = Get-AzureRmVM `
        -ResourceGroupName $resourceGroup `
        -Name $vmName
 
@@ -98,5 +98,5 @@ Het volgende script geeft een voorbeeld van de vereiste gegevens verzamelen, wor
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Extra opslagruimte toevoegen aan uw virtuele machine met het toevoegen van een extra [gegevensschijf](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
+Extra opslag toevoegen aan uw virtuele machine door het toevoegen van een extra [gegevensschijf](attach-managed-disk-portal.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json).
 

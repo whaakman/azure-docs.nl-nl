@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: 36460257b5c170c600ef08eff07bb3f64a391cd8
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 6827b01e72cd72d3f017df36205ccb985b4f242e
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028160"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157647"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-with-azure-sdks"></a>Over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM met Azure-SDK 's 
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]  
 In dit artikel bevat een lijst van de SDK-voorbeelden die laten gebruik van hun respectieve Azure SDK ondersteuning voor beheerde identiteiten voor Azure-resources zien.
 
 ## <a name="prerequisites"></a>Vereisten

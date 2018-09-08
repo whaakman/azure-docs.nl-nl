@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/29/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 56e7467443cb91f73a6b48f318d576345000a0e0
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b90050291a936027f66a76c14458e717b63c7257
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023094"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44090724"
 ---
 # <a name="use-an-azure-ad-identity-to-access-azure-storage-with-cli-or-powershell-preview"></a>Een Azure AD-identiteit gebruiken voor toegang tot Azure Storage met CLI of PowerShell (Preview)
 
@@ -21,12 +21,7 @@ Azure Storage biedt preview-extensies voor Azure CLI en PowerShell waarmee u zic
 
 Wanneer u zich aanmeldt bij Azure CLI of PowerShell met een Azure AD-identiteit, wordt een toegangstoken geretourneerd voor toegang tot Azure Storage onder die identiteit. Dit token wordt vervolgens automatisch gebruikt door de CLI of PowerShell om bewerkingen op Azure Storage. Voor ondersteunde bewerkingen hoeft u niet meer om door te geven van een sleutel of een SAS-token met de opdracht.
 
-> [!IMPORTANT]
-> In dit voorbeeld is bedoeld voor gebruik in niet-productieomgevingen alleen. Productie service level agreements (Sla's) worden pas beschikbaar als Azure AD-integratie voor Azure Storage algemeen beschikbaar is gedeclareerd. Als Azure AD-integratie wordt nog niet ondersteund voor uw scenario, echter ook doorgaan met de gedeelde sleutel autorisatie of SAS-tokens in uw toepassingen. Zie voor meer informatie over de Preview-versie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)](storage-auth-aad.md).
->
-> Tijdens de Preview-versie duurt RBAC-roltoewijzingen tot vijf minuten worden doorgegeven.
->
-> Azure AD-integratie met Azure Storage is vereist dat u HTTPS voor Azure Storage-bewerkingen gebruiken.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="supported-operations"></a>Ondersteunde bewerkingen
 
@@ -95,6 +90,6 @@ Get-AzureStorageBlob -Container $sample-container -Context $ctx
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie voor meer informatie over RBAC-rollen voor Azure-opslag, [beheren-toegangsrechten aan opslag van gegevens met RBAC (Preview)](storage-auth-aad-rbac.md).
-- Zie voor meer informatie over het gebruik van beheerde Service-identiteit met Azure Storage, [verifiëren met Azure AD vanuit een Azure Managed Service Identity (Preview)](storage-auth-aad-msi.md).
+- Zie voor meer informatie over het gebruik van beheerde identiteiten voor Azure-resources met Azure Storage, [verifiëren toegang tot blobs en wachtrijen met Azure beheerde identiteiten voor Azure-Resources (Preview)](storage-auth-aad-msi.md).
 - Zie voor informatie over het toestaan van toegang tot containers en wachtrijen van binnen uw storage-toepassingen, [gebruik Azure AD met opslagtoepassingen](storage-auth-aad-app.md).
 - Zie voor meer informatie over Azure AD-integratie voor Azure-Blobs en wachtrijen, de blog van het Azure Storage-team plaatst, [aankondiging van de Preview-versie van Azure AD-verificatie voor Azure Storage](https://azure.microsoft.com/blog/announcing-the-preview-of-aad-authentication-for-storage/).

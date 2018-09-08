@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: 5bdd764c3e3c273e3495085f2b684cfdd316706d
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 9021f65e3418ace408177e618390438d312cfed2
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028104"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158939"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-an-azure-vm-using-a-templates"></a>Configureren van beheerde identiteiten voor Azure-resources op een Azure-VM met behulp van een sjablonen
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Beheerde identiteiten voor Azure-resources biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
 
@@ -68,7 +68,7 @@ In deze sectie maakt u inschakelen en uitschakelen van een systeem toegewezen be
 3. (Optioneel) Toevoegen van de identiteit van de VM beheerd voor uitbreiding van de Azure-resources als een `resources` element. Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens.  Gebruik de volgende syntaxis:
 
    >[!NOTE] 
-   > Het volgende voorbeeld wordt ervan uitgegaan dat een Windows VM-extensie (`ManagedIdentityExtensionForWindows`) wordt geïmplementeerd. U kunt ook configureren voor Linux met behulp van `ManagedIdentityExtensionForLinux` in plaats daarvan voor de `"name"` en `"type"` elementen.
+   > Het volgende voorbeeld wordt ervan uitgegaan dat een Windows VM-extensie (`ManagedIdentityExtensionForWindows`) wordt geïmplementeerd. U kunt ook configureren voor Linux met behulp van `ManagedIdentityExtensionForLinux` in plaats daarvan voor de `"name"` en `"type"` elementen. De VM-extensie is gepland voor de afschaffing in januari 2019.
    >
 
    ```JSON
@@ -251,7 +251,7 @@ In deze sectie maakt u een gebruiker toegewezen beheerde identiteit met een Azur
    ```
        
 
-2. (Optioneel) Vervolgens onder de `resources` -element de volgende vermelding voor het toewijzen van de extensie beheerde identiteit aan uw virtuele machine toevoegen. Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens. Gebruik de volgende syntaxis:
+2. (Optioneel) Vervolgens onder de `resources` -element de volgende vermelding voor het toewijzen van de extensie beheerde identiteit aan uw virtuele machine (gepland voor de afschaffing in januari 2019) toevoegen. Deze stap is optioneel als u het eindpunt van de identiteit Azure Instance Metadata Service (IMDS) gebruiken kunt voor het ophalen en tokens. Gebruik de volgende syntaxis:
     ```json
     {
         "type": "Microsoft.Compute/virtualMachines/extensions",

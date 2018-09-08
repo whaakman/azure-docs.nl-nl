@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/07/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: 456f27b97ee644aef34f9bb9e2c0525bd61c1c84
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: a50f91d5cbbc0eac7080437c96144014dad651ee
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056880"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161762"
 ---
 # <a name="use-azure-resource-manager-templates-in-azure-stack"></a>Azure Resource Manager-sjablonen maken in Azure Stack
 
@@ -30,11 +30,11 @@ U kunt Azure Resource Manager-sjablonen gebruiken om te implementeren en inricht
 
 Deze sjablonen kunnen worden geïmplementeerd met de Microsoft Azure Stack-portal, PowerShell, de opdrachtregel en Visual Studio.
 
-De volgende Quick Start-sjablonen zijn beschikbaar op [GitHub](http://aka.ms/azurestackgithub).
+De volgende Quick Start-sjablonen zijn beschikbaar op [GitHub](http://aka.ms/azurestackgithub):
 
 ## <a name="deploy-sharepoint-server-non-high-availability-deployment"></a>Implementatie van SharePoint-Server (implementatie met hoge beschikbaarheid)
 
-Gebruik de PowerShell DSC-extensie om te maken van een SharePoint Server 2013-farm met de volgende bronnen:
+Gebruik de PowerShell DSC-extensie voor [maken van een SharePoint Server 2013-farm](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sharepoint-2013-non-ha) die omvat de volgende resources:
 
 * Een virtueel netwerk
 * Drie opslagaccounts
@@ -45,7 +45,7 @@ Gebruik de PowerShell DSC-extensie om te maken van een SharePoint Server 2013-fa
 
 ## <a name="deploy-ad-non-high-availability-deployment"></a>Implementeren van AD (niet-high-beschikbaarheid-implementatie)
 
-Gebruik de PowerShell DSC-extensie om te maken van een AD domain controller-server met de volgende bronnen:
+Gebruik de PowerShell DSC-extensie voor [maken van een AD-domeincontrollerserver](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/ad-non-ha) die omvat de volgende resources:
 
 * Een virtueel netwerk
 * Een storage-account
@@ -54,7 +54,7 @@ Gebruik de PowerShell DSC-extensie om te maken van een AD domain controller-serv
 
 ## <a name="deploy-adsql-non-high-availability-deployment"></a>Implementeren van AD/SQL (niet-high-beschikbaarheid-implementatie)
 
-Gebruik de PowerShell DSC-extensie om te maken van een zelfstandige server van SQL Server 2014 met de volgende bronnen:
+Gebruik de PowerShell DSC-extensie voor [maken van een zelfstandige server van SQL Server 2014](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/sql-2014-non-ha) die omvat de volgende resources:
 
 * Een virtueel netwerk
 * Twee opslagaccounts
@@ -68,15 +68,15 @@ Gebruik de PowerShell DSC-extensie aan een bestaande virtuele machine lokale Con
 
 ## <a name="create-a-virtual-machine-from-a-user-image"></a>Een virtuele machine maken van een gebruikersinstallatiekopie
 
-Een virtuele machine maken vanaf een aangepaste installatiekopie. Deze sjabloon implementeert ook een virtueel netwerk (met DNS), openbare IP-adres en een netwerkinterface.
+[Een virtuele machine maken van een aangepaste gebruikersinstallatiekopie](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-vm-from-user-image). Deze sjabloon implementeert ook een virtueel netwerk (met DNS), openbare IP-adres en een netwerkinterface.
 
 ## <a name="basic-virtual-machine"></a>Eenvoudige virtuele machine
 
-Implementeer een virtuele Windows-machine met een virtueel netwerk (met DNS), openbare IP-adres en een netwerkinterface.
+[Een Windows-VM implementeren](https://github.com/Azure/AzureStack-QuickStart-Templates/tree/AzureStackTechnicalPreview1/101-simple-windows-vm) die bestaat uit een virtueel netwerk (met DNS), openbare IP-adres en een netwerkinterface.
 
 ## <a name="cancel-a-running-template-deployment"></a>Annuleren van een actieve sjabloonimplementatie
 
-Als u wilt annuleren van een actieve sjabloonimplementatie, gebruiken de `Stop-AzureRmResourceGroupDeployment` PowerShell-cmdlet.
+Als u wilt annuleren van een actieve sjabloonimplementatie, gebruiken de [Stop-AzureRmResourceGroupDeployment](/powershell/module/azurerm.resources/stop-azurermresourcegroupdeployment) PowerShell-cmdlet.
 
 ## <a name="next-steps"></a>Volgende stappen
 

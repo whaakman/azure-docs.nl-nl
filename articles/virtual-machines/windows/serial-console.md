@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 4e93e455e309771ed3e33382ee49cdc144036fb1
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 196882cf4515be8afd129128402e9eaee322cb4b
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782410"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093580"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële Console van virtuele Machine (preview) 
 
@@ -75,7 +75,7 @@ Als de benodigde SAC kan offline worden ingeschakeld
 
 ### <a name="how-do-i-know-if-sac-is-enabled"></a>Hoe weet ik of SAC is ingeschakeld?
 
-Als [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) niet is ingeschakeld de seriële console wordt niet weergegeven voor de SAC-prompt. In sommige gevallen kan de VM-status gegevens worden weergegeven en in andere gevallen wordt het leeg zijn.  
+Als [SAC] (https://technet.microsoft.com/library/cc787940(v=ws.10).aspx) niet is ingeschakeld de seriële console wordt niet weergegeven voor de SAC-prompt. In sommige gevallen kan de VM-status gegevens worden weergegeven en in andere gevallen wordt het leeg zijn. Als u van een installatiekopie van Windows Server die zijn gemaakt vóór februari 2018 gebruikmaakt, wordt SAC waarschijnlijk niet worden ingeschakeld.
 
 ## <a name="enable-the-windows-boot-menu-in-serial-console"></a>Het opstartmenu Windows in de seriële Console inschakelen 
 
@@ -194,7 +194,7 @@ Er bestaat geen optie met virtual machine scale set exemplaar seriële console |
 Nadat de banner van de verbinding wordt niet weergegeven voor een logboek in de prompt te maken met invoeren | Raadpleeg deze pagina: [Hitting invoeren, gebeurt er niets](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Dit kan gebeuren als u een aangepaste virtuele machine uitvoert, beveiligde toestel of WORMGATEN configuratie die Windows causers als u wilt geen correct verbinding maken met de seriële poort.
 Alleen gegevens over de servicestatus wordt weergegeven bij het verbinden met een Windows-VM| Dit wordt weergegeven als de beheerconsole van speciale niet is ingeschakeld voor uw Windows-installatiekopie. Zie [toegang seriële Console voor Windows](#access-serial-console-for-windows) voor instructies over het handmatig inschakelen SAC op uw Windows-VM. Meer informatie kunnen u vinden op [Windows Health signalen](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Kan niet naar het type op SAC vragen als kernelfoutopsporing is ingeschakeld | RDP-verbinding VM en voer `bcdedit /debug {current} off` vanaf een opdrachtprompt met verhoogde bevoegdheid. Als u niet de RDP-verbinding kunt u in plaats daarvan de besturingssysteemschijf koppelen aan een andere Azure-virtuele machine en wijzigen terwijl gekoppeld als een gegevens-schijf met `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, klikt u vervolgens wisselen de schijf weer.
-Als de oorspronkelijke inhoud had een herhalende teken in PowerShell te plakken in SAC resulteert in een derde teken | Een tijdelijke oplossing is om te verwijderen van de module PSReadLine. `Remove-Module PSReadLine` verwijdert de PSReadLine-module uit de huidige sessie.
+Als de oorspronkelijke inhoud had een herhalende teken in PowerShell te plakken in SAC resulteert in een derde teken | Er is een tijdelijke oplossing voor het verwijderen van de module PSReadLine uit de huidige sessie. Voer `Remove-Module PSReadLine` te verwijderen van de module PSReadLine uit de huidige sessie - wordt dit niet verwijderen of de module verwijderen.
 Sommige invoer toetsenbord vreemd SAC uitvoer produceren (bijvoorbeeld `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) escapereeksen worden niet ondersteund door de SAC-prompt.
 Een antwoord 'Verboden' is opgetreden bij het openen van deze virtuele machine opstarten diagnostische storage-account. | Zorg ervoor dat diagnostische gegevens over de opstarten beschikt niet over een account-firewall. Een toegankelijke opstarten diagnostische storage-account is nodig voor de seriële console van functie.
 

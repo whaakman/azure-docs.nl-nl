@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 04/11/2018
 ms.author: rangv
-ms.openlocfilehash: 47a9b04e98337bb9ef4222b3f124d3fb063913a2
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6e668394bcb647df901dfac72c552475e56f20bf
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39187108"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44161098"
 ---
 # <a name="connect-raspberry-pi-to-azure-iot-hub-python"></a>Raspberry Pi verbinden met Azure IoT Hub (Python)
 
@@ -203,6 +203,6 @@ Gebruik een van de volgende SSH-clients vanaf uw hostcomputer verbinding maken m
 
 ## <a name="next-steps"></a>Volgende stappen
 
-U kunt een voorbeeld van toepassing voor het verzamelen van gegevens en verzenden naar uw IoT-hub hebt uitgevoerd. Zie voor de berichten die uw Raspberry Pi naar uw IoT-hub of verzenden berichten naar uw Raspberry Pi in een opdrachtregelinterface verzonden de [met iothub-explorer-zelfstudie berichten op cloudapparaten beheren](https://docs.microsoft.com/en-gb/azure/iot-hub/iot-hub-explorer-cloud-device-messaging).
+U kunt een voorbeeld van toepassing voor het verzamelen van gegevens en verzenden naar uw IoT-hub hebt uitgevoerd. Zie voor de berichten die uw Raspberry Pi naar uw IoT-hub of verzenden berichten naar uw Raspberry Pi verzonden de [gebruik Azure IoT Toolkit-extensie voor Visual Studio-Code voor het verzenden en ontvangen van berichten tussen uw apparaat en IoT-Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 [!INCLUDE [iot-hub-get-started-next-steps](../../includes/iot-hub-get-started-next-steps.md)]

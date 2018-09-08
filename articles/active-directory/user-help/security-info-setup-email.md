@@ -11,20 +11,20 @@ ms.component: user-help
 ms.topic: conceptual
 ms.date: 07/30/2018
 ms.author: lizross
-ms.openlocfilehash: 34696802735fd2a145cd6383dcdc7e4a4b6368e2
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 3f98b4e34c4c76efc33395530ef016b26e1ad523
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391406"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163036"
 ---
 # <a name="set-up-security-info-to-use-email-preview"></a>Beveiligingsgegevens ingesteld voor het gebruik van e-mailadres (preview)
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
 
 Instellen van je beveiligingsgegevens, moet u zich aanmelden bij uw werk of school-account en klikt u vervolgens het registratieproces te voltooien. Als u nooit je beveiligingsgegevens hebt ingesteld, wordt u gevraagd dit nu doen.
 
-## <a name="set-up-email"></a>Instellen van e-mail
+## <a name="set-up-email"></a>E-mail instellen
 
 Afhankelijk van instellingen van uw organisatie, u mogelijk gevraagd een e-mailadres toevoegen aan je beveiligingsgegevens, wanneer u zich aanmeldt. Anders wordt om te beginnen met het instellen van e-mailadres in beveiligingsgegevens, volg de stappen in [je beveiligingsgegevens beheren](security-info-manage-settings.md).
 

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/27/2017
 ms.author: daveba
-ms.openlocfilehash: c34e858f3dc798310778877ce282fbed2788c7ea
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 93ca9cd55d89b87f8436a632fb5a25657a4bfca6
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028101"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157733"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-virtual-machine-scale-sets-using-powershell"></a>Configureren van beheerde identiteiten voor Azure-resources op virtuele-machineschaalsets met behulp van PowerShell
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Beheerde identiteiten voor Azure-resources biedt Azure-services met een automatisch beheerde identiteit in Azure Active Directory. U kunt deze identiteit gebruiken om te verifiëren bij een service die ondersteuning biedt voor Azure AD-verificatie, zonder referenties in uw code. 
 
@@ -128,7 +128,7 @@ Een gebruiker toegewezen beheerde identiteit toewijzen aan een bestaande schaals
 
 2. Eerste ophalen, instellen van de virtuele-machineschaalset met behulp van de `Get-AzureRmVM` cmdlet. Als u wilt een beheerde identiteit voor de gebruiker toegewezen aan de virtuele-machineschaalset toewijst, gebruikt u de `-IdentityType` en `-IdentityID` overschakelen op de [Update-AzureRmVmss](/powershell/module/azurerm.compute/update-azurermvmss) cmdlet. Vervang `<VM NAME>`, `<SUBSCRIPTION ID>`, `<RESROURCE GROUP>`, `<USER ASSIGNED ID1>`, `USER ASSIGNED ID2` door uw eigen waarden.
 
-   [!INCLUDE[ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
+   [!INCLUDE [ua-character-limit](~/includes/managed-identity-ua-character-limits.md)]
 
    ```powershell
    Update-AzureRmVmss -ResourceGroupName <RESOURCE GROUP> -Name <VMSS NAME> -IdentityType UserAssigned -IdentityID "<USER ASSIGNED ID1>","<USER ASSIGNED ID2>"

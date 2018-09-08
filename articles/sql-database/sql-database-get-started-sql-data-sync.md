@@ -1,6 +1,6 @@
 ---
-title: Synchroniseren van Azure SQL-gegevens instellen | Microsoft Docs
-description: Deze zelfstudie ziet u het instellen van het synchroniseren van Azure SQL-gegevens
+title: Azure SQL Data Sync instellen | Microsoft Docs
+description: Deze zelfstudie leert u hoe u Azure SQL Data Sync instellen
 services: sql-database
 author: allenwux
 manager: craigg
@@ -10,276 +10,276 @@ ms.topic: conceptual
 ms.date: 04/10/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 7cb7ce0ea81cf99c2ee14a6f209864894563d237
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: ccdffaf0c224cc4579f24ca5f3ca60a6c53f3bd6
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37111776"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160400"
 ---
-# <a name="set-up-sql-data-sync"></a>Synchroniseren van de SQL-gegevens instellen
-In deze zelfstudie leert u het instellen van het synchroniseren van Azure SQL-gegevens door te maken van een hybride-groep voor synchronisatie met Azure SQL Database- en SQL Server-exemplaren. De nieuwe groep voor synchronisatie is volledig geconfigureerd en gesynchroniseerd volgens de planning die u instelt.
+# <a name="set-up-sql-data-sync"></a>SQL Data Sync instellen
+In deze zelfstudie leert u hoe u Azure SQL Data Sync instellen door het maken van een hybride synchronisatiegroep met zowel Azure SQL Database en SQL Server-exemplaren. De nieuwe groep voor synchronisatie volledig is geconfigureerd en gesynchroniseerd op de planning die u instelt.
 
-Deze zelfstudie wordt ervan uitgegaan dat er ten minste enige ervaring met SQL-Database en SQL Server. 
+In deze zelfstudie wordt ervan uitgegaan dat u ten minste enige ervaring met SQL-Database en SQL Server hebt. 
 
-Zie voor een overzicht van de SQL-gegevenssynchronisatie [synchroniseren van gegevens via meerdere cloud en on-premises databases met Azure SQL-gegevenssynchronisatie](sql-database-sync-data.md).
+Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
 
-Voor volledige PowerShell voorbeelden van het synchroniseren van de SQL-gegevens configureren, Zie de volgende artikelen:
+Voor volledige PowerShell-voorbeelden die laten hoe u SQL Data Sync configureert zien, Zie de volgende artikelen:
 -   [PowerShell gebruiken om meerdere Azure SQL-databases te synchroniseren](scripts/sql-database-sync-data-between-sql-databases.md)
 -   [PowerShell gebruiken om te synchroniseren tussen een Azure SQL-database en een on-premises database](scripts/sql-database-sync-data-between-azure-onprem.md)
 
-## <a name="step-1---create-sync-group"></a>Stap 1: het maken van de groep voor synchronisatie
+## <a name="step-1---create-sync-group"></a>Stap 1: maken van de groep voor synchronisatie
 
-### <a name="locate-the-data-sync-settings"></a>Zoek de instellingen van het synchroniseren van gegevens
+### <a name="locate-the-data-sync-settings"></a>Ga naar de Data Sync-instellingen
 
-1.  Ga in uw browser naar de Azure-portal.
+1.  Navigeer in uw browser naar de Azure-portal.
 
-2.  Zoek in de portal voor uw SQL-databases van het Dashboard of van het SQL-Databases-pictogram op de werkbalk.
+2.  Zoek in de portal voor uw SQL-databases uit uw Dashboard of het pictogram van de SQL-Databases op de werkbalk.
 
     ![Lijst met Azure SQL-databases](media/sql-database-get-started-sql-data-sync/datasync-preview-sqldbs.png)
 
-3.  Op de **SQL-databases** pagina, selecteert u de bestaande SQL-database die u wilt gebruiken als de hub-database voor het synchroniseren van gegevens. De pagina van de SQL-database wordt geopend.
+3.  Op de **SQL-databases** pagina, selecteert u de bestaande SQL-database die u wilt gebruiken als de hubdatabase voor het synchroniseren van gegevens. De pagina van de SQL-database wordt geopend.
 
-    De hub-database is het centrale eindpunt van de synchronisatie-topologie, waarin een groep voor synchronisatie met meerdere eindpunten van de database heeft. Alle andere database-eindpunten in de dezelfde sync groep - dat wil zeggen, alle lid databases - synchronisatie met de hub-database.
+    De hubdatabase is het centrale eindpunt van de synchronisatie-topologie, waarin een groep voor synchronisatie met meerdere eindpunten van de database heeft. Alle andere database-eindpunten in de dezelfde groep - dat wil zeggen, alle lid databases - synchronisatie-synchronisatie met de hubdatabase.
 
-4.  Selecteer op de pagina SQL-database voor de geselecteerde database **synchroniseren met andere databases**. De pagina voor het synchroniseren van gegevens wordt geopend.
+4.  Selecteer op de pagina SQL database voor de geselecteerde database **synchroniseren met andere databases**. De pagina Data Sync wordt geopend.
 
-    ![Met de optie van andere databases synchroniseren](media/sql-database-get-started-sql-data-sync/datasync-preview-newsyncgroup.png)
+    ![Synchroniseren met andere databases-optie](media/sql-database-get-started-sql-data-sync/datasync-preview-newsyncgroup.png)
 
-### <a name="create-a-new-sync-group"></a>Maak een nieuwe groep voor synchronisatie
+### <a name="create-a-new-sync-group"></a>Maak een nieuwe Synchronisatiegroep
 
-1.  Selecteer op de pagina gegevenssynchronisatie **groep voor synchronisatie met nieuwe**. De **groep voor synchronisatie met nieuwe** pagina wordt geopend met stap 1 **groep maken-sync**, gemarkeerde. De **groep voor synchronisatie maken** pagina ook wordt geopend.
+1.  Selecteer op de pagina Data Sync **nieuwe Synchronisatiegroep**. De **nieuwe synchronisatiegroep** pagina wordt geopend bij stap 1, **synchronisatiegroep maken**, gemarkeerd. De **Gegevenssynchronisatiegroep maken** pagina ook wordt geopend.
 
-2.  Op de **groep voor synchronisatie maken** pagina, het volgende doen:
+2.  Op de **Gegevenssynchronisatiegroep maken** pagina, doe dan het volgende:
 
-    1.  In de **Sync groepsnaam** en voer een naam voor de nieuwe groep voor synchronisatie.
+    1.  In de **Synchronisatiegroepsnaam** en voer een naam op voor de nieuwe groep voor synchronisatie.
 
-    2.  In de **metagegevens synchronisatiedatabase** sectie, kies of maak een nieuwe database (aanbevolen) of een bestaande database gebruiken.
+    2.  In de **metagegevensdatabase voor synchronisatie** sectie, kiest u of u wilt maken van een nieuwe database (aanbevolen) of een bestaande database wilt gebruiken.
 
         > [!NOTE]
-        > Microsoft raadt aan dat u een nieuwe, lege database om te gebruiken als de synchronisatiedatabase metagegevens maken. Synchroniseren van gegevens maakt tabellen in deze database en voert een regelmatige werkbelasting. Deze database wordt automatisch gedeeld als de synchronisatiedatabase metagegevens voor alle van de synchronisatie-groepen in de geselecteerde regio. U kunt de synchronisatiedatabase metagegevens of van de naam niet wijzigen zonder slepen en neerzetten.
+        > Microsoft raadt aan dat u maakt een nieuwe, lege database om te gebruiken als de metagegevensdatabase voor synchronisatie. Gegevenssynchronisatie tabellen in deze database maakt en een frequente werkbelasting wordt uitgevoerd. Deze database wordt automatisch gedeeld als de metagegevensdatabase voor synchronisatie voor al uw groepen synchroniseren in de geselecteerde regio. U kunt de metagegevensdatabase voor synchronisatie of de naam niet wijzigen zonder slepen en neerzetten.
 
-        Als u hebt gekozen **nieuwe database**, selecteer **nieuwe database maken.** De **SQL-Database** pagina wordt geopend. Op de **SQL-Database** pagina, Geef een naam en het configureren van de nieuwe database. Selecteer vervolgens **OK**.
+        Als u ervoor hebt gekozen **nieuwe database**, selecteer **nieuwe database maken.** De **SQL-Database** pagina wordt geopend. Op de **SQL-Database** pagina, een naam en het configureren van de nieuwe database. Selecteer vervolgens **OK**.
 
-        Als u hebt gekozen **bestaande database gebruiken**, selecteert u de database uit de lijst.
+        Als u ervoor hebt gekozen **bestaande database gebruiken**, selecteert u de database uit de lijst.
 
     3.  In de **automatische synchronisatie** sectie, selecteert u eerst **op** of **uit**.
 
-        Als u hebt gekozen **op**, in de **Synchronisatiefrequentie** sectie, voer een getal in en selecteert u seconden, minuten, uren of dagen.
+        Als u ervoor hebt gekozen **op**, in de **Synchronisatiefrequentie** sectie en voer een getal in seconden, minuten, uren of dagen selecteren.
 
-        ![Geef de synchronisatiefrequentie](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
+        ![Geef de frequentie van synchroniseren](media/sql-database-get-started-sql-data-sync/datasync-preview-syncfreq.png)
 
-    4.  In de **conflictoplossing** sectie, selecteert u 'Hub wins' of "WINS-lid."
+    4.  In de **conflictoplossing** sectie, selecteert u "Hub wins" of "WINS-lid."
 
-        'Hub wins' betekent dat, wanneer er een conflict optreedt, de gegevens in het hub-database de conflicterende gegevens in de liddatabase overschrijft. 'Lid wins' betekent dat, wanneer er een conflict optreedt, de gegevens in de liddatabase wordt overschreven de conflicterende gegevens in de database van de hub. 
+        'Hub wins' betekent dat, wanneer er een conflict optreedt, de gegevens in de hubdatabase de conflicterende gegevens in de liddatabase overschrijft. 'Lid wins' betekent dat, wanneer er een conflict optreedt, de gegevens in de database van de conflicterende gegevens in de hubdatabase overschrijft. 
 
-        ![Opgeven hoe conflicten worden opgelost](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
+        ![Opgeven hoe beleidsconflicten worden opgelost](media/sql-database-get-started-sql-data-sync/datasync-preview-conflictres.png)
 
-    5.  Selecteer **OK** en wacht tot de nieuwe groep voor synchronisatie kan worden gemaakt en geïmplementeerd.
+    5.  Selecteer **OK** en wacht tot de nieuwe groep voor synchronisatie moet worden gemaakt en geïmplementeerd.
 
-## <a name="step-2---add-sync-members"></a>Stap 2: synchronisatie leden toevoegen
+## <a name="step-2---add-sync-members"></a>Stap 2: synchronisatieleden toevoegen
 
-Nadat de nieuwe groep voor synchronisatie is gemaakt en geïmplementeerd, stap 2 **sync leden toevoegen**, is gemarkeerd in de **groep voor synchronisatie met nieuwe** pagina.
+Nadat de nieuwe groep voor synchronisatie wordt gemaakt en geïmplementeerd, stap 2, **synchronisatieleden toevoegen**, is gemarkeerd in de **nieuwe synchronisatiegroep** pagina.
 
-In de **Hub Database** sectie, voert u de bestaande referenties voor de SQL-Database-server waarop de hub-database zich bevindt. Voer geen *nieuwe* referenties in deze sectie.
+In de **Hubdatabase** sectie, voert u de bestaande referenties voor de SQL-Database-server waarop de hubdatabase zich bevindt. Voer niet *nieuwe* referenties in deze sectie.
 
-![Hub-database is toegevoegd aan de groep te synchroniseren](media/sql-database-get-started-sql-data-sync/datasync-preview-hubadded.png)
+![De hubdatabase is toegevoegd aan de synchronisatiegroep](media/sql-database-get-started-sql-data-sync/datasync-preview-hubadded.png)
 
-### <a name="add-an-azure-sql-database"></a>Toevoegen van een Azure SQL Database
+### <a name="add-an-azure-sql-database"></a>Een Azure SQL-Database toevoegen
 
-In de **Liddatabase** sectie optioneel een Azure SQL Database toevoegen aan de groep voor synchronisatie door te selecteren **toevoegen van een Azure-Database**. De **Azure-Database configureren** pagina wordt geopend.
+In de **Liddatabase** sectie, optioneel een Azure SQL Database toevoegen aan de groep voor synchronisatie hiervoor **toevoegen van een Azure-Database**. De **Azure-Database configureren** pagina wordt geopend.
 
-Op de **Azure-Database configureren** pagina, het volgende doen:
+Op de **Azure-Database configureren** pagina, doe dan het volgende:
 
-1.  In de **Sync lidnaam** veld, Geef een naam op voor het nieuwe lid van de synchronisatie. Deze naam verschilt van de naam van de database zelf.
+1.  In de **Synchronisatielidnaam** veld, Geef een naam op voor het nieuwe synchronisatielid. Deze naam is niet hetzelfde als van de naam van de database zelf.
 
-2.  In de **abonnement** veld, selecteert u de gekoppelde Azure-abonnement voor facturering.
+2.  In de **abonnement** veld, selecteert u het bijbehorende Azure-abonnement voor factureringsdoeleinden.
 
-3.  In de **Azure SQL Server** veld, selecteert u de bestaande SQL-databaseserver.
+3.  In de **Azure SQL-Server** veld, selecteert u de bestaande SQL database-server.
 
 4.  In de **Azure SQL Database** veld, selecteert u de bestaande SQL-database.
 
-5.  In de **Sync richtingen** veld, selecteer bidirectionele synchronisatie, naar de Hub of van de Hub.
+5.  In de **Synchronisatierichtingen** veld, selecteer bidirectionele synchronisatie, naar de Hub of van de Hub.
 
-    ![Het toevoegen van een nieuwe SQL-Database sync lid](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadding.png)
+    ![Toevoegen van een nieuwe SQL-Database-synchronisatielid](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadding.png)
 
-6.  In de **gebruikersnaam** en **wachtwoord** velden, geef de bestaande referenties voor de SQL-Database-server waarop de liddatabase zich bevindt. Voer geen *nieuwe* referenties in deze sectie.
+6.  In de **gebruikersnaam** en **wachtwoord** velden, voert u de bestaande referenties voor de SQL-Database-server waarop de liddatabase zich bevindt. Voer niet *nieuwe* referenties in deze sectie.
 
-7.  Selecteer **OK** en wachten op het nieuwe lid van de synchronisatie kan worden gemaakt en geïmplementeerd.
+7.  Selecteer **OK** en wachten op het nieuwe synchronisatielid moet worden gemaakt en geïmplementeerd.
 
-    ![Nieuw lid van de SQL-Database-synchronisatie is toegevoegd](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
+    ![Nieuwe SQL-Database synchronisatielid is toegevoegd](media/sql-database-get-started-sql-data-sync/datasync-preview-memberadded.png)
 
-### <a name="add-on-prem"></a> Toevoegen van een lokale SQL Server-database.
+### <a name="add-on-prem"></a> Een on-premises SQL Server-database toevoegen
 
-In de **Liddatabase** sectie eventueel een lokale SQL-Server toevoegen aan de groep voor synchronisatie door te selecteren **toevoegen van een On-Premises Database**. De **configureren On-Premises** pagina wordt geopend.
+In de **Liddatabase** sectie, optioneel een on-premises SQL-Server toevoegen aan de groep voor synchronisatie door te selecteren **toevoegen van een On-Premises Database**. De **On-Premises configureren** pagina wordt geopend.
 
-Op de **configureren On-Premises** pagina, het volgende doen:
+Op de **On-Premises configureren** pagina, doe dan het volgende:
 
-1.  Selecteer **kiezen de Gateway van de Agent Sync**. De **Sync-Agent Selecteer** pagina wordt geopend.
+1.  Selecteer **de Synchronisatieagentgateway kiezen**. De **synchronisatieagent selecteren** pagina wordt geopend.
 
-    ![Kies de synchronisatie-agent-gateway](media/sql-database-get-started-sql-data-sync/datasync-preview-choosegateway.png)
+    ![De synchronisatieagentgateway kiezen](media/sql-database-get-started-sql-data-sync/datasync-preview-choosegateway.png)
 
-2.  Op de **kiezen de Gateway van de Agent Sync** pagina, kies of u wilt het gebruik van een bestaande agent of maak een nieuwe agent.
+2.  Op de **de Synchronisatieagentgateway kiezen** pagina, kies of u wilt gebruikmaken van een bestaande agent of een nieuwe agent maken.
 
-    Als u hebt gekozen **bestaande agents**, selecteert u de bestaande agent in de lijst.
+    Als u ervoor hebt gekozen **bestaande agents**, selecteert u de bestaande agent uit de lijst.
 
-    Als u hebt gekozen **maken van een nieuwe agent**, het volgende doen:
+    Als u ervoor hebt gekozen **maken van een nieuwe agent**, doe dan het volgende:
 
-    1.  De clientsoftware van de synchronisatie-agent van de koppeling downloaden en installeren op de computer waarop de SQL-Server zich bevindt.
+    1.  De clientsoftware van de sync-agent downloaden via de koppeling die is opgegeven en installeer deze op de computer waar de SQL-Server zich bevindt.
  
         > [!IMPORTANT]
-        > U moet een uitgaande TCP-poort 1433 openen in de firewall te laten de clientagent communiceren met de server.
+        > U moet uitgaande TCP-poort 1433 openen in de firewall zodat de clientagent communiceren met de server.
 
 
     2.  Voer een naam voor de agent.
 
-    3.  Selecteer **maken en sleutel genereren**.
+    3.  Selecteer **maken en genereren van sleutel**.
 
-    4.  De agentcode naar het Klembord kopiëren.
+    4.  De agentsleutel kopiëren naar het Klembord.
         
-        ![Maken van een nieuwe sync-agent](media/sql-database-get-started-sql-data-sync/datasync-preview-selectsyncagent.png)
+        ![Het maken van een nieuwe synchronisatieagent](media/sql-database-get-started-sql-data-sync/datasync-preview-selectsyncagent.png)
 
-    5.  Selecteer **OK** sluiten de **Sync-Agent Selecteer** pagina.
+    5.  Selecteer **OK** sluiten de **synchronisatieagent selecteren** pagina.
 
-    6.  Zoek in de SQL Server-computer en voer de synchronisatie-Agent voor Client-app.
+    6.  Zoek in de SQL Server-computer en de synchronisatieagent van Client-app uitvoeren.
 
-        ![De gegevens synchroniseren client agent-app](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
+        ![De gegevens synchroniseren agent-client-app](media/sql-database-get-started-sql-data-sync/datasync-preview-clientagent.png)
 
-    7.  Selecteer in de app sync-agent **Agentcode indienen**. De **synchroniseren metagegevens databaseconfiguratie** dialoogvenster wordt geopend.
+    7.  Selecteer in de app sync-agent **Agentsleutel indienen**. De **synchroniseren metagegevens databaseconfiguratie** in het dialoogvenster wordt geopend.
 
-    8.  In de **synchroniseren metagegevens databaseconfiguratie** in het dialoogvenster Plakken in de agentcode gekopieerd van de Azure-portal. Geef ook de bestaande referenties voor de Azure SQL Database-server waarop de database met metagegevens zich bevindt. (Als u een nieuwe metagegevensdatabase gemaakt, wordt deze database is op dezelfde server als de database van de hub.) Selecteer **OK** en wacht tot de configuratie te voltooien.
+    8.  In de **synchroniseren metagegevens databaseconfiguratie** in het dialoogvenster Plakken in de agentsleutel die is opgehaald uit de Azure-portal. Geef ook de bestaande referenties voor de Azure SQL Database-server waarop de metagegevensdatabase zich bevindt. (Als u een nieuwe database met metagegevens gemaakt, wordt deze database zich op dezelfde server als de hubdatabase.) Selecteer **OK** en wacht tot de configuratie te voltooien.
 
-        ![Voer de referenties van sleutel- en agent](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
+        ![Voer de referenties van sleutel en server agent](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-enterkey.png)
 
         >   [!NOTE] 
-        >   Als u een Firewallfout op dit moment krijgt, hebt u een firewallregel maken op Azure inkomend verkeer van de SQL Server-computer. U kunt de regel maken in de portal, maar soms is het eenvoudiger om deze te maken in SQL Server Management Studio (SSMS). In SSMS, probeert u verbinding maken met de hub-database in Azure. Voer de naam als < hub_database_name >. database.windows.net. Volg de stappen in het dialoogvenster voor het configureren van de firewallregel op Azure. Keer vervolgens terug naar de Agent voor synchronisatie van Client-app.
+        >   Als u een firewall-fout optreedt op dit moment, hebt u een firewallregel maken in Azure voor het toestaan van binnenkomend verkeer van de SQL Server-computer. U kunt de regel maken in de portal, maar wellicht vindt u het eenvoudiger om deze te maken in SQL Server Management Studio (SSMS). In SSMS, probeert u verbinding maakt met de hubdatabase in Azure. Voer de naam < hub_database_name >. database.windows.net. Volg de stappen in het dialoogvenster voor het configureren van de Azure-firewallregel. Ga vervolgens terug naar de Agent voor Clientsynchronisatie-app.
 
-    9.  Klik in de app Client Sync-Agent op **registreren** registreren van een SQL Server-database met de agent. De **SQL Server-configuratiebestand** dialoogvenster wordt geopend.
+    9.  Klik in de app de Agent voor Clientsynchronisatie **registreren** voor het registreren van een SQL Server-database met de agent. De **SQL Server-configuratie** in het dialoogvenster wordt geopend.
 
         ![Toevoegen en configureren van een SQL Server-database](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-adddb.png)
 
-    10. In de **SQL Server-configuratiebestand** dialoogvenster Kies of u verbinding maken met behulp van SQL Server-verificatie of Windows-verificatie. Als u SQL Server-verificatie kiest, voert u de bestaande referenties. Geef de naam van de SQL Server en de naam van de database die u wilt synchroniseren. Selecteer **verbinding testen** voor het testen van uw instellingen. Selecteer vervolgens **Opslaan**. De geregistreerde database weergegeven in de lijst.
+    10. In de **SQL Server-configuratie** dialoogvenster vak, kies of u verbinding maakt met behulp van SQL Server-verificatie of Windows-verificatie. Als u SQL Server-verificatie hebt gekozen, voert u de bestaande referenties. Geef de naam van de SQL Server en de naam van de database die u wilt synchroniseren. Selecteer **verbinding testen** voor het testen van uw instellingen. Selecteer vervolgens **Opslaan**. De geregistreerde database wordt weergegeven in de lijst.
 
-        ![SQL Server-database is nu geregistreerd.](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-dbadded.png)
+        ![SQL Server-database is nu geregistreerd](media/sql-database-get-started-sql-data-sync/datasync-preview-agent-dbadded.png)
 
-    11. U kunt nu de synchronisatie-Agent voor Client-app sluiten.
+    11. U kunt de Agent voor Clientsynchronisatie app nu sluiten.
 
-    12. In de portal op de **configureren On-Premises** pagina **selecteert u de Database.** De **Database selecteren** pagina wordt geopend.
+    12. In de portal op de **On-Premises configureren** weergeeft, schakelt **selecteert u de Database.** De **Database selecteren** pagina wordt geopend.
 
-    13. Op de **Database selecteren** pagina in de **Sync lidnaam** veld, Geef een naam op voor het nieuwe lid van de synchronisatie. Deze naam verschilt van de naam van de database zelf. Selecteer de database uit de lijst. In de **Sync richtingen** veld, selecteer bidirectionele synchronisatie, naar de Hub of van de Hub.
+    13. Op de **Database selecteren** pagina, in de **Synchronisatielidnaam** veld, Geef een naam op voor het nieuwe synchronisatielid. Deze naam is niet hetzelfde als van de naam van de database zelf. Selecteer de database uit de lijst. In de **Synchronisatierichtingen** veld, selecteer bidirectionele synchronisatie, naar de Hub of van de Hub.
 
-        ![Selecteer de lokale-database op.](media/sql-database-get-started-sql-data-sync/datasync-preview-selectdb.png)
+        ![Selecteer de on-premises-database](media/sql-database-get-started-sql-data-sync/datasync-preview-selectdb.png)
 
-    14. Selecteer **OK** sluiten de **Database selecteren** pagina. Selecteer vervolgens **OK** sluiten de **configureren On-Premises** pagina en wachten op het nieuwe lid van de synchronisatie kan worden gemaakt en geïmplementeerd. Tot slot op **OK** sluiten de **sync leden selecteren** pagina.
+    14. Selecteer **OK** sluiten de **Database selecteren** pagina. Selecteer vervolgens **OK** sluiten de **On-Premises configureren** pagina en wachten op het nieuwe synchronisatielid moet worden gemaakt en geïmplementeerd. Klik tot slot, **OK** sluiten de **synchronisatieleden selecteren** pagina.
 
         ![Op de lokale database toegevoegd aan de groep voor synchronisatie](media/sql-database-get-started-sql-data-sync/datasync-preview-onpremadded.png)
 
-3.  Voor verbinding met het synchroniseren van de SQL-gegevens en de lokale agent, voegt u uw gebruikersnaam toe aan de rol `DataSync_Executor`. Synchroniseren van gegevens wordt deze rol op de SQL Server-exemplaar gemaakt.
+3.  Voor verbinding met SQL Data Sync en de lokale agent, kunt u uw gebruikersnaam toevoegt aan de rol `DataSync_Executor`. Data Sync maakt deze rol op de SQL Server-exemplaar.
 
-## <a name="step-3---configure-sync-group"></a>Stap 3 - groep voor synchronisatie configureren
+## <a name="step-3---configure-sync-group"></a>Stap 3: synchronisatiegroep configureren
 
-Nadat de nieuwe leden van de synchronisatie-groep worden gemaakt en geïmplementeerd, stap 3 **groep voor synchronisatie configureren**, is gemarkeerd in de **groep voor synchronisatie met nieuwe** pagina.
+Nadat de nieuwe leden van de synchronisatie-groep worden gemaakt en geïmplementeerd, stap 3, **synchronisatiegroep configureren**, is gemarkeerd in de **nieuwe synchronisatiegroep** pagina.
 
-1.  Op de **tabellen** pagina, selecteert u een database uit de lijst met leden van de beveiligingsgroep synchronisatie en selecteer vervolgens **schema vernieuwen**.
+1.  Op de **tabellen** pagina, selecteert u een database uit de lijst met leden van synchronisatie en selecteer vervolgens **schema vernieuwen**.
 
 2.  Selecteer de tabellen die u wilt synchroniseren in de lijst met beschikbare tabellen.
 
     ![Tabellen selecteren om te synchroniseren](media/sql-database-get-started-sql-data-sync/datasync-preview-tables.png)
 
-3.  Standaard worden alle kolommen in de tabel geselecteerd. Als u niet dat alle kolommen synchroniseren wilt, schakelt u het selectievakje voor de kolommen die u niet wilt synchroniseren. Zorg ervoor dat de primaire-sleutelkolom geselecteerd laat.
+3.  Standaard worden alle kolommen in de tabel geselecteerd. Als u niet wilt synchroniseren van alle kolommen, schakelt u het selectievakje voor de kolommen die u niet wilt synchroniseren. Zorg ervoor dat de primaire-sleutelkolom ingeschakeld laten.
 
     ![Velden selecteren om te synchroniseren](media/sql-database-get-started-sql-data-sync/datasync-preview-tables2.png)
 
-4.  Tot slot selecteert **opslaan**.
+4.  Selecteer ten slotte **opslaan**.
 
 ## <a name="faq-about-setup-and-configuration"></a>Veelgestelde vragen over de installatie en configuratie
 
-### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Hoe vaak kunt synchroniseren van gegevens mijn gegevens Synchroniseer? 
+### <a name="how-frequently-can-data-sync-synchronize-my-data"></a>Hoe vaak kan gegevenssynchronisatie mijn gegevens Synchroniseer? 
 De minimale frequentie is om de vijf minuten.
 
-### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL gegevenssynchronisatie volledig maken en inrichten van tabellen?
+### <a name="does-sql-data-sync-fully-create-and-provision-tables"></a>SQL Data Sync volledig maken en inrichten van tabellen?
 
-Als de synchronisatie-schema-tabellen worden niet in de doeldatabase zijn gemaakt, wordt deze door synchroniseren van gegevens van SQL maken met de kolommen die u hebt geselecteerd. Echter, dit gedrag resulteert niet in een schema volledige fidelity om de volgende redenen:
+Als de synchronisatie-schema-tabellen niet al in de doeldatabase gemaakt worden, worden deze in SQL Data Sync gemaakt met de kolommen die u hebt geselecteerd. Maar resulteert dit gedrag niet in een schema vol vertrouwen om de volgende redenen:
 
--   Alleen de kolommen die u hebt geselecteerd, worden gemaakt in de doeltabel. Als sommige kolommen in de brontabellen geen deel uit van de groep voor synchronisatie maken, worden deze kolommen in de doeltabellen niet ingericht.
+-   Alleen de kolommen die u hebt geselecteerd, worden gemaakt in de doeltabel. Als sommige kolommen in de brontabellen geen deel uit van de groep voor synchronisatie maken, kan deze kolommen niet in de doeltabellen zijn ingericht.
 
--   Indexen worden alleen gemaakt voor de geselecteerde kolommen. Als de tabel bronindex kolommen die geen deel uitmaken van de groep voor synchronisatie heeft, worden de indexen in de doeltabellen niet ingericht.
+-   Indexen worden gemaakt voor de geselecteerde kolommen. Als de index van de bron-tabel kolommen die geen deel uitmaken van de groep voor synchronisatie heeft, kan deze indexen niet in de doeltabellen zijn ingericht.
 
--   Indexen voor kolommen van het type XML zijn niet ingericht.
+-   Indexen voor kolommen van het gegevenstype XML zijn niet ingericht.
 
--   CHECK-beperkingen niet ingericht.
+-   CHECK-beperkingen zijn niet ingericht.
 
--   Bestaande triggers op de brontabellen zijn niet ingericht.
+-   Bestaande triggers op de tabellen in gegevensbronnen zijn niet ingericht.
 
 -   Weergaven en opgeslagen Procedures worden niet gemaakt op de doeldatabase.
 
 Vanwege deze beperkingen raden we aan de volgende zaken:
--   Voor productieomgevingen, richt het schema volledig gehandhaafd zelf.
--   Voor het uitproberen van de service, wordt de functie automatisch inrichten van het synchroniseren van de SQL-gegevens goed werkt.
+-   Voor productieomgevingen, richt het schema hoogwaardige zelf.
+-   Voor het uitproberen van de service, wordt de functie voor automatische inrichting van SQL Data Sync goed werkt.
 
-### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Waarom zie ik tabellen die ik niet hebt gemaakt?  
-Synchroniseren van gegevens maakt aan tabellen in de database voor het bijhouden. Deze niet verwijderen of werkt niet meer synchroniseren van gegevens.
+### <a name="why-do-i-see-tables-that-i-did-not-create"></a>Waarom zie ik tabellen die ik niet hebben gemaakt?  
+Data Sync maakt side tabellen in de database voor het bijhouden. Ze niet verwijderen of werkt niet meer synchroniseren.
 
-### <a name="is-my-data-convergent-after-a-sync"></a>Mijn gegevens convergente is na een synchronisatie?
+### <a name="is-my-data-convergent-after-a-sync"></a>Zijn mijn gegevens convergente na een synchronisatie?
 
-Dat hoeft niet. In een groep voor synchronisatie met een hub en drie spaken (A, B en C) zijn de synchronisaties Hub A, B Hub en Hub en c Als een wijziging wordt aangebracht in de database een *nadat* de Hub en een synchronisatie die wijzigen totdat de volgende sync-taak niet naar de database B of C-database worden geschreven.
+Dat hoeft niet. In een groep voor synchronisatie met een hub en drie knooppunten (A, B en C) zijn de synchronisaties Hub tot A, B-Hub en Hub en c Als een wijziging wordt aangebracht in de database een *nadat* de Hub kunt u een synchronisatie wijzigen totdat de volgende sync-taak niet naar de database B of C-database geschreven.
 
 ### <a name="how-do-i-get-schema-changes-into-a-sync-group"></a>Hoe krijg ik wijzigingen in het schema in een groep voor synchronisatie
 
-U moet maken en alle wijzigingen in het schema handmatig doorgeven.
-1. De schemawijzigingen handmatig naar de hub en gerepliceerd op alle leden van de synchronisatie.
-2. De synchronisatieschema bijwerken.
+U moet maken en alle wijzigingen in het schema handmatig doorgegeven.
+1. De wijzigingen in het schema handmatig naar de hub en repliceren naar alle synchronisatieleden van de.
+2. Werk het synchronisatieschema.
 
-**Toevoegen van nieuwe tabellen en kolommen**. De huidige synchronisatie niet van invloed op nieuwe tabellen en kolommen. Synchroniseren van gegevens wordt de nieuwe tabellen en kolommen genegeerd totdat u ze aan het synchronisatieschema toevoegt. Wanneer u nieuwe databaseobjecten toevoegt, is dit de aanbevolen volgorde te volgen:
-1. De nieuwe tabellen of kolommen toevoegen aan de hub en op alle leden van de synchronisatie.
+**Nieuwe tabellen en kolommen toe te voegen**. De huidige synchronisatie niet van invloed op nieuwe tabellen en kolommen. Data Sync wordt de nieuwe tabellen en kolommen genegeerd totdat u ze aan het synchronisatieschema toegevoegd. Wanneer u nieuwe objecten in de database toevoegt, is dit de aanbevolen volgorde te volgen:
+1. De nieuwe tabellen of kolommen toevoegen aan de hub en aan alle synchronisatieleden van de.
 2. De nieuwe tabellen of kolommen toevoegen aan het synchronisatieschema.
-3. Begin met het invoeren van waarden in de nieuwe tabellen en kolommen.
+3. Begin met het invoegen van waarden in de nieuwe tabellen en kolommen.
 
-**Het wijzigen van het gegevenstype van een kolom**. Wanneer u het gegevenstype van een bestaande kolom wijzigt, blijft synchroniseren van gegevens werken, zolang de nieuwe waarden aanpassen aan het oorspronkelijke gegevenstype dat is gedefinieerd in het synchronisatieschema. Bijvoorbeeld, als u het type in de brondatabase van wijzigen **int** naar **bigint**, synchroniseren van gegevens blijft werken totdat u een waarde die is te groot voor de **int** gegevenstype . Deze wijziging te voltooien, de schemawijziging handmatig repliceren naar de hub en op alle leden van de synchronisatie en werk vervolgens het synchronisatieschema.
+**Wijzigen van het gegevenstype van een kolom**. Wanneer u het gegevenstype van een bestaande kolom wijzigt, wordt Data Sync blijft werken als de nieuwe waarden aanpassen aan het oorspronkelijke type gedefinieerd in het synchronisatieschema. Bijvoorbeeld, als u het type in de brondatabase van wijzigen **int** naar **bigint**, Data Sync blijft werken totdat u een waarde die is te groot voor de **int** gegevenstype . De schemawijziging handmatig repliceren naar de hub en op alle synchronisatieleden voor het voltooien van de wijziging en werk vervolgens het synchronisatieschema.
 
 ### <a name="how-can-i-export-and-import-a-database-with-data-sync"></a>Hoe kan ik exporteren en importeren van een database met het synchroniseren van gegevens?
-Na het exporteren van een database als een `.bacpac` bestand en importeer het bestand om een nieuwe database te maken, moet u de volgende twee taken uitvoeren om te synchroniseren van gegevens in de nieuwe database te gebruiken:
-1.  Opschonen van de objecten synchroniseren van gegevens en de tabellen op de **nieuwe database** met behulp van [dit script](https://github.com/Microsoft/sql-server-samples/blob/master/samples/features/sql-data-sync/clean_up_data_sync_objects.sql). Dit script worden alle vereiste objecten synchroniseren van gegevens uit de database verwijderd.
-2.  Maak de groep voor synchronisatie met de nieuwe database opnieuw. Als u niet langer de oude groep voor synchronisatie, verwijderen.
+Na het exporteren van een database als een `.bacpac` bestand en importeer het bestand als een nieuwe database wilt maken, hebt u de volgende twee taken uitvoeren om te synchroniseren van gegevens in de nieuwe database gebruiken:
+1.  Opschonen van de Data Sync-objecten en side tabellen op de **nieuwe database** met behulp van [met dit script](https://github.com/vitomaz-msft/DataSyncMetadataCleanup/blob/master/Data%20Sync%20complete%20cleanup.sql). Met dit script worden alle van de vereiste Data Sync-objecten uit de database verwijderd.
+2.  Maak de groep voor synchronisatie met de nieuwe database opnieuw. Als u de oude groep voor synchronisatie niet meer nodig hebt, verwijderen.
 
 ## <a name="faq-about-the-client-agent"></a>Veelgestelde vragen over de clientagent
 
-### <a name="why-do-i-need-a-client-agent"></a>Waarom moet ik een clientagent
+### <a name="why-do-i-need-a-client-agent"></a>Waarom moet ik een clientagent?
 
-Het synchroniseren van gegevens van SQL-service communiceert met SQL Server-databases via de clientagent. Deze beveiligingsfunctie voorkomt dat directe communicatie met databases achter een firewall. Wanneer het synchroniseren van gegevens van SQL-service communiceert met de agent wordt uitgevoerd met behulp van versleutelde verbindingen en -token van een unieke of *agentcode*. De SQL Server-databases verifiëren de agent met de tekenreeks en agent verbindingssleutel. Dit ontwerp biedt een hoog niveau van beveiliging voor uw gegevens.
+De SQL Data Sync-service communiceert met SQL Server-databases via de clientagent. Deze beveiligingsfunctie voorkomt dat rechtstreekse communicatie met databases achter een firewall. Wanneer de SQL Data Sync-service communiceert met de agent, dit gebeurt met behulp van versleutelde verbindingen en een unieke token of *agentsleutel*. De agent met behulp van de connection string en agent sleutel worden geverifieerd door de SQL Server-databases. Dit ontwerp biedt een hoge mate van beveiliging voor uw gegevens.
 
-### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Hoeveel exemplaren van de lokale agent UI kan worden uitgevoerd?
+### <a name="how-many-instances-of-the-local-agent-ui-can-be-run"></a>Hoeveel exemplaren van de lokale agent gebruikersinterface kan worden uitgevoerd?
 
 Er kan slechts één exemplaar van de gebruikersinterface worden uitgevoerd.
 
 ### <a name="how-can-i-change-my-service-account"></a>Hoe kan ik mijn serviceaccount wijzigen?
 
-Nadat u een clientagent hebt geïnstalleerd, is de enige manier om de serviceaccount te wijzigen om te verwijderen en een nieuwe clientagent installeren met de nieuwe serviceaccount.
+Nadat u een clientagent hebt geïnstalleerd, is de enige manier om de serviceaccount te wijzigen voor de installatie ongedaan en een nieuwe clientagent installeren met het nieuwe serviceaccount.
 
-### <a name="how-do-i-change-my-agent-key"></a>Hoe kan ik mijn agentcode wijzigen?
+### <a name="how-do-i-change-my-agent-key"></a>Hoe kan ik mijn agentsleutel wijzigen?
 
-Een sleutel van de agent kan slechts eenmaal worden gebruikt door een agent. Deze kan niet opnieuw worden gebruikt wanneer u verwijderen en opnieuw installeren van een nieuwe agent, en kunnen worden gebruikt door meerdere agents. Als u een nieuwe sleutel maken voor een bestaande agent moet, moet u ervoor dat dezelfde sleutel wordt geregistreerd met de clientagent en met het synchroniseren van gegevens van SQL-service zijn.
+Een agentsleutel kan slechts één keer worden gebruikt door een agent. Het kan niet opnieuw worden gebruikt wanneer u verwijdert vervolgens een nieuwe agent opnieuw installeren en deze worden gebruikt door meerdere agents. Als u maken van een nieuwe sleutel voor een bestaande agent wilt, moet u ervoor dat dezelfde sleutel wordt vastgelegd met de clientagent en de SQL Data Sync-service zijn.
 
-### <a name="how-do-i-retire-a-client-agent"></a>Hoe ik een clientagent wilt intrekken?
+### <a name="how-do-i-retire-a-client-agent"></a>Hoe ik een clientagent buiten gebruik stellen?
 
-Opnieuw genereren van de sleutel in de portal wilt onmiddellijk ongeldig te maken of buiten gebruik stellen van een agent, maar niet verzenden in de gebruikersinterface van de Agent. Opnieuw genereren van een sleutel wordt de vorige sleutel ongeacht als de bijbehorende agent online of offline is ongeldig.
+Als u onmiddellijk ongeldig te maken of buiten gebruik stellen van een agent, de sleutel in de portal opnieuw genereren, maar niet indienen in de gebruikersinterface van de Agent. Een sleutel opnieuw genereren, wordt de vorige sleutel ongeacht als de bijbehorende agent online of offline is ongeldig.
 
-### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>Hoe kan ik een clientagent verplaatsen naar een andere computer?
+### <a name="how-do-i-move-a-client-agent-to-another-computer"></a>Hoe verplaats ik een clientagent naar een andere computer?
 
 Als u de lokale agent uitvoeren vanaf een andere computer wilt dan de momenteel op, kunt u het volgende doen:
 
 1. Installeer de agent op de gewenste computer.
 
-2. Aanmelden bij de portal voor het synchroniseren van de SQL-gegevens en een agent-sleutel opnieuw genereren voor de nieuwe agent.
+2. Meld u aan bij de portal voor SQL Data Sync en een agentsleutel genereren voor de nieuwe agent.
 
-3. De nieuwe agent UI gebruikt voor het verzenden van de nieuwe sleutel van de agent.
+3. De gebruikersinterface van de nieuwe agent gebruiken voor het indienen van de nieuwe agentsleutel.
 
-4. Wacht terwijl de clientagent downloadt de lijst met on-premises-databases die eerder zijn geregistreerd.
+4. Wacht terwijl de clientagent downloadt de lijst met on-premises databases die eerder zijn geregistreerd.
 
-5. Databasereferenties opgeven voor alle databases die worden weergegeven als niet bereikbaar. Deze databases moeten bereikbaar zijn vanaf de nieuwe computer waarop de agent is geïnstalleerd.
+5. Databasereferenties opgeven voor alle databases die worden weergegeven als niet bereikbaar. Deze databases moet bereikbaar is vanaf de nieuwe computer waarop de agent is geïnstalleerd.
 
 ## <a name="next-steps"></a>Volgende stappen
-Gefeliciteerd! U kunt een groep voor synchronisatie met zowel een exemplaar van SQL-Database en SQL Server-database hebt gemaakt.
+Gefeliciteerd! U kunt een groep voor synchronisatie met zowel een exemplaar van SQL Database en een SQL Server-database hebt gemaakt.
 
 Zie de volgende onderwerpen voor meer informatie over SQL Data Sync:
 

@@ -1,35 +1,31 @@
 ---
-title: Status van de aangepaste orchestration in duurzame functies - Azure
-description: Informatie over het configureren en gebruiken van aangepaste orchestration status voor duurzame functies.
+title: Status van de aangepaste indeling in duurzame functies - Azure
+description: Informatie over het configureren en gebruiken van de status van aangepaste indeling voor duurzame functies.
 services: functions
 author: kadimitr
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
-ms.tgt_pltfrm: multiple
-ms.workload: na
+ms.topic: conceptual
 ms.date: 04/24/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 840b96b9cfdb28ca1b17f54698677f4d491342c8
-ms.sourcegitcommit: 6e43006c88d5e1b9461e65a73b8888340077e8a2
+ms.openlocfilehash: c8eb2be6836e11ddbaed81970024ea7200ea819d
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/01/2018
-ms.locfileid: "32310349"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093088"
 ---
-# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Status van de aangepaste orchestration in duurzame functies (Azure-functies)
+# <a name="custom-orchestration-status-in-durable-functions-azure-functions"></a>Status van de aangepaste indeling in duurzame functies (Azure Functions)
 
-Aangepaste orchestration status kunt u een aangepaste statuswaarde instellen voor uw orchestrator-functie. Deze status wordt opgegeven via de HTTP-GetStatus API of de `DurableOrchestrationClient.GetStatusAsync` API.
+Status van aangepaste indeling kunt u een aangepaste statuswaarde instellen voor de orchestrator-functie. Deze status wordt geboden via de GetStatus HTTP-API of de `DurableOrchestrationClient.GetStatusAsync` API.
 
-## <a name="sample-use-cases"></a>Voorbeeld gebruiksvoorbeelden 
+## <a name="sample-use-cases"></a>Voorbeelden van use cases 
 
 ### <a name="visualize-progress"></a>Voortgang visualiseren
 
-Clients kunnen pollen van het eindpunt van de status en wordt weergegeven een gebruikersinterface voor het visualiseren van de huidige uitvoeringsfase. Het volgende voorbeeld toont de voortgang delen:
+Clients kunnen het eindpunt van de status controleren en een voortgang gebruikersinterface die worden gevisualiseerd met de huidige uitvoeringsfase weergeven. Het volgende voorbeeld ziet u voortgang delen:
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -56,7 +52,7 @@ public static string SayHello([ActivityTrigger] string name)
 }
 ```
 
-En vervolgens ontvangt de client de uitvoer van de orchestration alleen wanneer `CustomStatus` veld is ingesteld op 'Londen':
+En vervolgens ontvangt de client de uitvoer van de orchestration alleen wanneer `CustomStatus` veld is ingesteld op "Londen":
 
 ```csharp
 [FunctionName("HttpStart")]
@@ -89,9 +85,9 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
-### <a name="output-customization"></a>Aanpassing van de uitvoer 
+### <a name="output-customization"></a>Aanpassing van uitvoer 
 
-Een ander interessante scenario is gebruikers segmenteren door aangepaste uitvoer op basis van unieke kenmerken of interacties terug te keren. Met behulp van aangepaste orchestration status blijft de clientcode algemene. Alle wijzigingen van de belangrijkste gebeurt aan de serverzijde, zoals wordt weergegeven in het volgende voorbeeld:
+Een andere interessante scenario is gebruikers segmenteren door aangepaste uitvoer op basis van unieke kenmerken of interacties. Met behulp van de status van aangepaste indeling blijft de client-side-code algemene. Alle wijzigingen van de belangrijkste gebeurt op de server, zoals wordt weergegeven in het volgende voorbeeld:
 
 ```csharp
 [FunctionName("CityRecommender")]
@@ -131,7 +127,7 @@ public static void Run(
 
 ### <a name="instruction-specification"></a>Instructie-specificatie 
 
-De orchestrator kan unieke instructies bieden aan de clients via de aangepaste status. De instructies van de aangepaste status worden toegewezen aan de stappen in de orchestration-code:
+De orchestrator kan unieke instructies bieden aan de clients via de aangepaste status. De status van aangepaste instructies worden toegewezen aan de stappen in de orchestration-code:
 
 ```csharp
 [FunctionName("ReserveTicket")]
@@ -176,14 +172,14 @@ public static async Task SetStatusTest([OrchestrationTrigger] DurableOrchestrati
 }
 ```
 
-Terwijl de orchestration wordt uitgevoerd, kunnen externe clients deze aangepaste status ophalen:
+Terwijl de indeling wordt uitgevoerd, kunnen deze aangepaste status ophalen van externe clients:
 
 ```http
 GET /admin/extensions/DurableTaskExtension/instances/instance123
 
 ```
 
-Clients krijgen het volgende antwoord: 
+Clients ontvangt het volgende antwoord: 
 
 ```http
 {
@@ -197,7 +193,7 @@ Clients krijgen het volgende antwoord:
 ```
 
 > [!WARNING]
->  De status van de aangepaste nettolading is beperkt tot 16 KB aan UTF-16 JSON-tekst omdat het moet een kolom met Azure Table Storage. Ontwikkelaars kunnen externe opslag gebruiken als ze nodig hebben groter nettolading.
+>  De status van de aangepaste nettolading is beperkt tot 16 KB van UTF-16-JSON-tekst omdat deze kunnen zijn moet voor de kolom van een Azure-tabelopslag. Ontwikkelaars kunnen externe opslag gebruiken als ze nodig hebben grotere nettolading.
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -3,20 +3,18 @@ title: Microsoft Graph-bindingen voor Azure Functions
 description: Over het gebruik van Microsoft Graph-triggers en bindingen in Azure Functions.
 services: functions
 author: mattchenderson
-manager: cfowler
-editor: ''
-ms.service: functions
-ms.tgt_pltfrm: na
+manager: jeconnoc
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/20/2017
 ms.author: mahender
-ms.openlocfilehash: 06ee959d7b38f21684280a35cf770fdcc590b102
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 128e7f693755e7baf752d546fddd786b07c0de78
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287984"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093733"
 ---
 # <a name="microsoft-graph-bindings-for-azure-functions"></a>Microsoft Graph-bindingen voor Azure Functions
 
@@ -1382,7 +1380,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 |**Gebruikers-id**|**Gebruikers-id**  |Vereist als en alleen als _identiteit_ is ingesteld op `userFromId`. Een gebruiker principal-ID die is gekoppeld aan een eerder aangemelde gebruiker.|
 |**userToken**|**UserToken**|Vereist als en alleen als _identiteit_ is ingesteld op `userFromToken`. Een token geldig is voor de functie-app. |
 |**Actie**|**Actie**|Vereist: Hiermee geeft u de binding van de actie moet worden uitgevoerd. Een van de volgende waarden kan zijn:<ul><li><code>create</code> -Een nieuw abonnement registreert.</li><li><code>delete</code> -Verwijdert een opgegeven abonnement.</li><li><code>refresh</code> -Hiermee vernieuwt u een opgegeven abonnement om te voorkomen dat deze verloopt.</li></ul>|
-|**subscriptionResource**|**SubscriptionResource**|Vereist als en alleen als de _actie_ is ingesteld op `create`. Hiermee geeft u de Microsoft Graph-resource die wordt gecontroleerd op wijzigingen. Zie [werken met webhooks in Microsoft Graph]. |
+|**subscriptionResource**|**subscriptionResource**|Vereist als en alleen als de _actie_ is ingesteld op `create`. Hiermee geeft u de Microsoft Graph-resource die wordt gecontroleerd op wijzigingen. Zie [werken met webhooks in Microsoft Graph]. |
 |**changeType**|**ChangeType**|Vereist als en alleen als de _actie_ is ingesteld op `create`. Geeft het type wijziging in de geabonneerde resource waarmee een melding wordt geactiveerd. De ondersteunde waarden zijn: `created`, `updated`, `deleted`. Meerdere waarden kunnen worden gecombineerd met behulp van een door komma's gescheiden lijst.|
 
 ### <a name="webhook-output---usage"></a>Webhook uitvoer - gebruik

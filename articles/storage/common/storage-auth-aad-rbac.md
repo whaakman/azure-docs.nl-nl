@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/16/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 75b7ecac465fa12b1e19ca409d1535d89c755801
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7dde80d8134a6f30f4f32086a2dd030712051256
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44021884"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093139"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Beheer van rechten voor het Azure Storage-gegevens met RBAC (Preview)
 
@@ -34,10 +34,7 @@ Voor meer informatie over hoe u de ingebouwde rollen voor Azure Storage zijn ged
 
 U kunt ook aangepaste rollen voor gebruik met containers en wachtrijen definiëren. Zie voor meer informatie, [aangepaste rollen maken voor op rollen gebaseerd toegangsbeheer](https://docs.microsoft.com/azure/role-based-access-control/custom-roles). 
 
-> [!IMPORTANT]
-> In dit voorbeeld is bedoeld voor gebruik in niet-productieomgevingen alleen. Productie service level agreements (Sla's) worden pas beschikbaar als Azure AD-integratie voor Azure Storage algemeen beschikbaar is gedeclareerd. Als Azure AD-integratie wordt nog niet ondersteund voor uw scenario, echter ook doorgaan met de gedeelde sleutel autorisatie of SAS-tokens in uw toepassingen. Zie voor meer informatie over de Preview-versie, [verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)](storage-auth-aad.md).
->
-> Tijdens de Preview-versie duurt RBAC-roltoewijzingen tot vijf minuten worden doorgegeven.
+[!INCLUDE [storage-auth-aad-note-include](../../../includes/storage-auth-aad-note-include.md)]
 
 ## <a name="assign-a-role-to-a-security-principal"></a>Een rol toewijzen aan een beveiligings-principal
 

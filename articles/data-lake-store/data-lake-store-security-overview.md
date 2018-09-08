@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 3b836859dd2af45e84d0f53db06d2c7ab2828253
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 4ecc94f4ab5e9091db1705e99d4a5df6abbaf350
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057050"
+ms.locfileid: "44161081"
 ---
 # <a name="security-in-azure-data-lake-store"></a>Beveiliging in Azure Data Lake Store
 Veel ondernemingen profiteren van big data-analyses voor zakelijke inzichten zodat ze slimme besluiten. Een organisatie kan een complexe en gereguleerde omgeving, met een toenemend aantal diverse gebruikers hebben. Het is essentieel voor een onderneming om ervoor te zorgen dat kritieke bedrijfsgegevens veiliger, worden opgeslagen met het juiste niveau van toegang verleend aan individuele gebruikers. Azure Data Lake Store is ontworpen om te voldoen aan deze beveiligingsvereisten. In dit artikel meer informatie over de beveiligingsfuncties van Data Lake Store, met inbegrip van:
@@ -80,7 +80,7 @@ Azure Data Lake Store beschermt uw gegevens in de gehele levenscyclus. Data Lake
 
 Data Lake Store biedt ook versleuteling voor gegevens die zijn opgeslagen in het account. U kunt ervoor kiezen de gegevens te versleutelen of niet te versleutelen. Als u zich voor versleuteling aanmelden, worden gegevens die zijn opgeslagen in Data Lake Store is versleuteld vóór het opslaan op permanente media. In dat geval, Data Lake Store versleutelt automatisch gegevens voordat deze worden opgeslagen en ontsleutelt gegevens voordat ze worden opgehaald, dus het is volledig transparant voor de client toegang tot de gegevens. Er is er zijn geen codewijzigingen vereist op de client voor versleutelen/ontsleutelen van gegevens.
 
-Voor sleutelbeheer biedt Data Lake Store twee modi voor het beheren van uw hoofdversleutelingssleutels (MEK's), die vereist zijn voor het ontsleutelen van gegevens die zijn opgeslagen in de Data Lake Store. U kunt ofwel Data Lake Store beheren van de MEK's voor u, of kies eigendom van de MEK's met uw Azure Key Vault-account behouden. U opgeven de modus van Sleutelbeheer terwijl tijdens het maken van een Data Lake Store-account. Zie voor meer informatie over het bieden van versleuteling-gerelateerde configuratie [Aan de slag met Azure Data Lake Store met Azure Portal](data-lake-store-get-started-portal.md).
+Voor sleutelbeheer biedt Data Lake Store twee modi voor het beheren van uw hoofdversleutelingssleutels (MEK's), die vereist zijn voor het ontsleutelen van gegevens die zijn opgeslagen in de Data Lake Store. U kunt ofwel Data Lake Store beheren van de MEK's voor u, of kies eigendom van de MEK's met uw Azure Key Vault-account behouden. U kunt de modus van Sleutelbeheer opgeven tijdens het maken van een Data Lake Store-account. Zie voor meer informatie over het bieden van versleuteling-gerelateerde configuratie [Aan de slag met Azure Data Lake Store met Azure Portal](data-lake-store-get-started-portal.md).
 
 ## <a name="activity-and-diagnostic-logs"></a>Diagnostische logboeken en activiteit
 U kunt de activiteit of diagnostische logboeken, afhankelijk van of u op zoek naar de logboeken voor account-gerelateerde activiteiten of gegevens gerelateerde activiteiten.

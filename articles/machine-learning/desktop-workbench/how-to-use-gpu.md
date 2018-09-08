@@ -11,12 +11,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/14/2017
-ms.openlocfilehash: f3b6c4f6af14615511400650662fe7a350c172ba
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 09d8e3da543cdf4433d986b321697abcad88eb22
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42057279"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157987"
 ---
 # <a name="how-to-use-gpu-in-azure-machine-learning"></a>Over het gebruik van GPU in Azure Machine Learning
 Grafische verwerking Unit (GPU) wordt veel gebruikt voor het verwerken van rekenintensief zijn taken die doorgaans kunnen ontstaan bij het trainen van bepaalde deep neural network-modellen. Met behulp van GPU's, kunt u de trainingstijd van de modellen aanzienlijk verkorten. In dit document leert u hoe het configureren van Azure ML Workbench gebruiken [DSVM (Data Science Virtual Machine)](https://docs.microsoft.com/azure/machine-learning/data-science-virtual-machine/overview) uitgerust met GPU's als doel voor uitvoering. 
@@ -86,7 +86,7 @@ C:\MyProj> az ml computetarget attach remotedocker --name "my_dsvm" --address "m
 ### <a name="configure-azure-ml-workbench-to-access-gpu"></a>Azure ML Workbench voor toegang tot GPU configureren
 Ga terug naar het project en open **bestandsweergave**, en klik op de **vernieuwen** knop. Nu u twee nieuwe configuratiebestanden ziet `my_dsvm.compute` en `my_dsvm.runconfig`.
  
-Open de `my_dsvm.compute`. Wijzig de `baseDockerImage` naar `microsoft/mmlspark:plus-gpu-0.7.9` en voeg een nieuwe regel toe `nvidiaDocker: true`. Het bestand hebt zodat deze twee regels:
+Open de `my_dsvm.compute`. Wijzig de `baseDockerImage` naar `microsoft/mmlspark:plus-gpu-0.9.9` en voeg een nieuwe regel toe `nvidiaDocker: true`. Het bestand hebt zodat deze twee regels:
  
 ```yaml
 ...

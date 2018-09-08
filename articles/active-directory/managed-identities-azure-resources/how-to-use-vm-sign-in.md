@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/01/2017
 ms.author: daveba
-ms.openlocfilehash: a61dca8332a613176b01eb85b44cd743ff8b4085
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 0f8789d64b550d9f0a45aa65728fbc1db64d6def
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028188"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094923"
 ---
 # <a name="how-to-use-managed-identities-for-azure-resources-on-an-azure-vm-for-sign-in"></a>Over het gebruik van beheerde identiteiten voor Azure-resources op een Azure-VM voor aanmelden 
 
@@ -89,7 +89,7 @@ Antwoorden, zoals het volgende kunnen duiden dat de beheerde identiteit van de v
 Als u een van deze fouten ontvangt, terug naar de Azure-VM in de [Azure-portal](https://portal.azure.com) en:
 
 - Ga naar de **identiteit** pagina en zorg ervoor dat **systeem toegewezen** is ingesteld op "Ja".
-- Ga naar de **extensies** pagina en zorg ervoor dat de beheerde identiteit voor Azure-resources-extensie is geïmplementeerd.
+- Ga naar de **extensies** pagina en zorg ervoor dat de beheerde identiteit voor Azure-resources extensie **(gepland voor de afschaffing in januari 2019)** is geïmplementeerd.
 
 Als een onjuist is, moet u mogelijk opnieuw implementeren van de beheerde identiteit voor Azure-resources voor uw resource of problemen met de implementatie mislukt. Zie [configureren van beheerde identiteiten voor een Azure-resources op een virtuele machine met behulp van de Azure-portal](qs-configure-portal-windows-vm.md) als u hulp nodig met VM-configuratie.
 

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 08/17/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: b5adf161c99ebe6d7b8b2d7b0c7b5b73c67bec02
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 8ea63f7eee961d72ce2343fa92329d938a6fcd73
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42059163"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094872"
 ---
 # <a name="deploy-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>Een controller voor HTTPS binnenkomend verkeer op Azure Kubernetes Service (AKS) implementeren
 
@@ -24,7 +24,7 @@ In dit artikel leest u over het implementeren van de [controller voor binnenkome
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-In dit artikel maakt gebruik van Helm om de NGINX-controller voor binnenkomend verkeer, certificaat-manager en een voorbeeld-web-app te installeren. U moet hebben Helm geïnitialiseerd in uw AKS-cluster en het gebruik van een service-account voor Tiller. Zie voor meer informatie over het configureren en het gebruik van Helm [installeren van toepassingen met Helm in Azure Kubernetes Service (AKS)][use-helm].
+In dit artikel maakt gebruik van Helm om de NGINX-controller voor binnenkomend verkeer, certificaat-manager en een voorbeeld-web-app te installeren. U moet hebben Helm geïnitialiseerd in uw AKS-cluster en het gebruik van een service-account voor Tiller. Zorg ervoor dat u de nieuwste versie van Helm. Zie voor instructies voor de upgrade, de [Helm installeren docs][helm-install]. Zie voor meer informatie over het configureren en het gebruik van Helm [installeren van toepassingen met Helm in Azure Kubernetes Service (AKS)][use-helm].
 
 In dit artikel is ook vereist dat u de Azure CLI versie 2.0.41 worden uitgevoerd of hoger. Voer `az --version` uit om de versie te bekijken. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren][azure-cli-install].
 
@@ -297,6 +297,7 @@ In dit artikel bevat enkele externe onderdelen over AKS. Zie voor meer informati
 [cert-manager-issuer]: https://cert-manager.readthedocs.io/en/latest/reference/issuers.html
 [lets-encrypt]: https://letsencrypt.org/
 [nginx-ingress]: https://github.com/kubernetes/ingress-nginx
+[helm-install]: https://docs.helm.sh/using_helm/#installing-helm
 
 <!-- LINKS - internal -->
 [use-helm]: kubernetes-helm.md

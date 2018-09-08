@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 06/06/2018
+ms.date: 09/04/2018
 ms.author: juluk
-ms.openlocfilehash: 9a22b14df18e10342bb2a872b82b94ab4ea62d0a
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 606b36be4a2bbeff8dd226f41341d60e23f0d988
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859864"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44163274"
 ---
 [!INCLUDE [PersistingStorage-introblock](../../includes/cloud-shell-persisting-shell-storage-introblock.md)]
 
@@ -42,9 +42,7 @@ Met Bash in Cloud Shell, kunt u een opdracht uitvoeren `clouddrive`, waarmee u k
 #### <a name="prerequisites-for-manual-mounting"></a>Vereisten voor handmatige koppelen
 U kunt de bestandsshare die is gekoppeld aan Cloud Shell met behulp van bijwerken de `clouddrive mount` opdracht.
 
-Als u een bestaande bestandsshare koppelt, moet de storage-accounts:
-* Lokaal redundante opslag of geografisch redundante opslag voor de ondersteuning van bestandsshares.
-* Zich in uw regio toegewezen. Wanneer u onboarding, de regio die u bent toegewezen aan wordt vermeld in de naam van de resourcegroep `cloud-shell-storage-<region>`.
+Als u een bestaande bestandsshare koppelt, moeten u de storage-accounts zich in uw Selecteer Cloud Shell-regio. De locatie ophalen door het uitvoeren van `env` van Bash en controleren van de `ACC_LOCATION`.
 
 #### <a name="the-clouddrive-mount-command"></a>De `clouddrive mount` opdracht
 

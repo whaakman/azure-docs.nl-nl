@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: brenduns
 ms.reviewer: jiahan
-ms.openlocfilehash: 4fd2a26d9119e52fc75918abc1ca97e6f9888169
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: a2ad07809963560b1225ff07b095509c93618996
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028152"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160418"
 ---
 # <a name="azure-stack-managed-disks-differences-and-considerations"></a>Azure Stack-beheerde schijven: De verschillen en overwegingen met betrekking tot
 In dit artikel bevat een overzicht van de bekende verschillen tussen Azure Stack Managed Disks en Managed Disks voor Azure. Zie voor meer informatie over belangrijke verschillen tussen Azure Stack en Azure, de [belangrijke overwegingen met betrekking tot](azure-stack-considerations.md) artikel.
@@ -28,7 +28,7 @@ In dit artikel bevat een overzicht van de bekende verschillen tussen Azure Stack
 Beheerde schijven vereenvoudigt u Schijfbeheer voor IaaS-VM's door het beheer van de [opslagaccounts](/azure/azure-stack/azure-stack-manage-storage-accounts) die zijn gekoppeld aan de VM-schijven.
   
 
-## <a name="cheat-sheet-virtual-machine-differences"></a>Overzichtskaart: verschillen van de virtuele machine
+## <a name="cheat-sheet-managed-disk-differences"></a>Overzichtskaart: beheerde schijf verschillen
 
 | Functie | Azure (wereldwijd) | Azure Stack |
 | --- | --- | --- |

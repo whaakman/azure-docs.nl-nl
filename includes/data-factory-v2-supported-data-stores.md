@@ -5,15 +5,15 @@ services: data-factory
 author: linda33wj
 ms.service: data-factory
 ms.topic: include
-ms.date: 06/28/2018
+ms.date: 09/07/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 8486bd1d9fac7caced83536d81782690d4a9b6d0
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
-ms.translationtype: HT
+ms.openlocfilehash: d7a088db46d936d4a9626132254eb7bfbdd0f83f
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40026636"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44168513"
 ---
 | Categorie | Gegevensarchief | Ondersteund als een bron | Ondersteund als een sink | Ondersteund door [Azure IR](../articles/data-factory/concepts-integration-runtime.md#azure-integration-runtime) | Ondersteund door [zelf-hostende IR](../articles/data-factory/concepts-integration-runtime.md#self-hosted-integration-runtime) |
 |:--- |:--- |:--- |:--- |:--- |:--- |
@@ -69,12 +69,14 @@ ms.locfileid: "40026636"
 | &nbsp; |[Dynamics 365](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Dynamics CRM](../articles/data-factory/connector-dynamics-crm-office-365.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[GE Historian](../articles/data-factory/connector-odbc.md#ge-historian-source) |✓ | | |✓  |
+| &nbsp; |[Google AdWords (Preview)](../articles/data-factory/connector-google-adwords.md) |✓ | |✓ |✓  |
 | &nbsp; |[HubSpot (preview)](../articles/data-factory/connector-hubspot.md) |✓ | |✓ |✓  |
 | &nbsp; |[Jira (preview)](../articles/data-factory/connector-jira.md) |✓ | |✓ |✓  |
 | &nbsp; |[Magento (preview)](../articles/data-factory/connector-magento.md) |✓ | |✓ |✓  |
 | &nbsp; |[Marketo (preview)](../articles/data-factory/connector-marketo.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Eloqua (preview)](../articles/data-factory/connector-oracle-eloqua.md) |✓ | |✓ |✓  |
 | &nbsp; |[Oracle Responsys (preview)](../articles/data-factory/connector-oracle-responsys.md) |✓ | |✓ |✓  |
+| &nbsp; |[Oracle-Servicecloud (Preview)](../articles/data-factory/connector-oracle-service-cloud.md) |✓ | |✓ |✓  |
 | &nbsp; |[Paypal (preview)](../articles/data-factory/connector-paypal.md) |✓ | |✓ |✓  |
 | &nbsp; |[QuickBooks (preview)](../articles/data-factory/connector-quickbooks.md) |✓ | |✓ |✓  |
 | &nbsp; |[Salesforce](../articles/data-factory/connector-salesforce.md) |✓ |✓ |✓ |✓  |

@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 09/14/2017
 ms.author: daveba
-ms.openlocfilehash: b6423a80b0405bcaabd4f1fc8e26dc3be0adadb0
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: c2048583cde397ac3325fd149982b3a3db475566
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44028159"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44157276"
 ---
 # <a name="assign-a-managed-service-identity-access-to-a-resource-by-using-the-azure-portal"></a>Een beheerde Service-identiteit toegang tot een resource toewijzen met behulp van Azure portal
 
-[!INCLUDE[preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
+[!INCLUDE [preview-notice](../../../includes/active-directory-msi-preview-notice.md)]
 
 Nadat u hebt een Azure-resource geconfigureerd met een Managed Service Identity (MSI), kunt u de MSI toegang verlenen naar een andere resource, net als bij elke beveiligings-principal. Dit artikel ziet u hoe u een virtuele Azure-machine of VM-schaalset van MSI toegang geven tot een Azure storage-account met behulp van de Azure-portal.
 

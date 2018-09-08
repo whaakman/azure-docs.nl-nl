@@ -1,31 +1,27 @@
 ---
-title: Externe bestand bindingen voor Azure Functions (experimentele)
-description: Met behulp van extern bestand bindingen in de Azure-functies
+title: Extern bestand bindingen voor Azure Functions (experimenteel)
+description: Met behulp van extern bestand bindingen in Azure Functions
 services: functions
-documentationcenter: ''
 author: alexkarcher-msft
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: ''
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
+ms.service: azure-functions
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/27/2017
 ms.author: alkarche
-ms.openlocfilehash: 4e9c2c336df465d7488de84bd2a02cc5d9e42f30
-ms.sourcegitcommit: d6984ef8cc057423ff81efb4645af9d0b902f843
+ms.openlocfilehash: be2d34202b88d0d424eb23c4e078c2fdc45c6ab6
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/05/2018
-ms.locfileid: "27607918"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093767"
 ---
-# <a name="azure-functions-external-file-bindings-experimental"></a>Azure Functions-bestand met externe Bindingen (experimentele)
-Dit artikel laat zien hoe u kunt bestanden van verschillende aanbieders van SaaS (zoals Dropbox of Google Drive) in Azure Functions bewerken. Azure Functions ondersteunt activeren, invoer en uitvoer van de bindingen voor externe bestanden. Deze bindingen API-verbindingen met SaaS-providers maken of bestaande API-verbindingen van de resourcegroep van de functie-App gebruiken.
+# <a name="azure-functions-external-file-bindings-experimental"></a>Azure Functions-bestand met externe Bindingen (experimenteel)
+In dit artikel laat zien hoe om bestanden van verschillende SaaS-providers (zoals Dropbox of Google Drive) in Azure Functions te manipuleren. Azure Functions ondersteunt activeren, invoeren en uitvoerbindingen voor externe bestanden. Deze bindingen API-verbindingen met SaaS-providers maken of bestaande API-verbindingen van de resourcegroep van uw functie-App gebruiken.
 
 > [!IMPORTANT]
-> Het externe bestand-bindingen zijn experimentele en mogelijk nooit in het algemeen beschikbaar (GA) status bereikt. Ze zijn opgenomen in Azure alleen 1.x fungeert, en er zijn geen plannen om toe te voegen aan de Azure Functions 2.x. Voor scenario's waarvoor toegang tot gegevens in de SaaS-providers, kunt u overwegen [logische apps die gebruikmaken van functies](functions-twitter-email.md). Zie de [connector Logic Apps-bestandssysteem](../logic-apps/logic-apps-using-file-connector.md).
+> De bindingen voor externe bestanden zijn experimenteel en mogelijk nooit over het algemeen beschikbaar is (GA) status bereikt. Ze zijn opgenomen in Azure Functions 1.x en er zijn geen plannen om toe te voegen aan Azure Functions 2.x. Voor scenario's waarvoor toegang tot gegevens in SaaS-providers, kunt u overwegen [logische apps die gebruikmaken van functies](functions-twitter-email.md). Zie de [bestandssysteem voor Logic Apps connector](../logic-apps/logic-apps-using-file-connector.md).
 
 [!INCLUDE [intro](../../includes/functions-bindings-intro.md)]
 
@@ -33,7 +29,7 @@ Dit artikel laat zien hoe u kunt bestanden van verschillende aanbieders van SaaS
 
 |Connector|Trigger|Invoer|Uitvoer|
 |:-----|:---:|:---:|:---:|
-|[Vak](https://www.box.com)|x|x|x
+|[Box](https://www.box.com)|x|x|x
 |[Dropbox](https://www.dropbox.com)|x|x|x
 |[FTP](https://docs.microsoft.com/azure/app-service/app-service-deploy-ftp)|x|x|x
 |[OneDrive](https://onedrive.live.com)|x|x|x
@@ -46,7 +42,7 @@ Dit artikel laat zien hoe u kunt bestanden van verschillende aanbieders van SaaS
 
 ## <a name="trigger"></a>Trigger
 
-De trigger-bestand met externe kunt u een externe map bewaken en de functiecode uitvoeren als er wijzigingen worden gedetecteerd.
+De trigger-bestand met externe kunt u een externe map bewaken en voer uw functiecode aan te geven wanneer er wijzigingen worden gedetecteerd.
 
 ## <a name="trigger---example"></a>Trigger - voorbeeld
 
@@ -57,9 +53,9 @@ Zie het voorbeeld taalspecifieke:
 
 ### <a name="trigger---c-script-example"></a>Trigger - voorbeeld van C#-script
 
-Het volgende voorbeeld ziet u een extern bestand trigger binding in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie registreert de inhoud van elk bestand dat wordt toegevoegd aan de bewaakte map.
+Het volgende voorbeeld ziet u een extern bestand trigger binding in een *function.json* bestand en een [C#-scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie registreert de inhoud van elk bestand dat wordt toegevoegd aan de bewaakte map.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+Hier volgt de binding-gegevens de *function.json* bestand:
 
 ```json
 {
@@ -89,7 +85,7 @@ public static void Run(string myFile, TraceWriter log)
 
 Het volgende voorbeeld ziet u een extern bestand trigger binding in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie registreert de inhoud van elk bestand dat wordt toegevoegd aan de bewaakte map.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+Hier volgt de binding-gegevens de *function.json* bestand:
 
 ```json
 {
@@ -106,7 +102,7 @@ Dit zijn de bindingsgegevens de *function.json* bestand:
 }
 ```
 
-Hier volgt de JavaScript-code:
+Dit is de JavaScript-code:
 
 ```javascript
 module.exports = function(context) {
@@ -117,19 +113,19 @@ module.exports = function(context) {
 
 ## <a name="trigger---configuration"></a>Trigger - configuratie
 
-De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand.
+De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand.
 
 |de eigenschap Function.JSON | Beschrijving|
 |---------|---------|----------------------|
-|**type** | moet worden ingesteld op `apiHubFileTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
-|**richting** | moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
-|**naam** | De naam van de variabele die staat voor de gebeurtenis in de functiecode. | 
-|**verbinding**| Identificeert de app-instelling die de verbindingsreeks opslaat. De app-instelling wordt automatisch gemaakt wanneer u een verbinding in de integreren gebruikersinterface in de Azure portal toevoegen.|
-|**pad** | De map voor het bewaken van, en desgewenst een bestandsnaampatroon.|
+|**type** | Moet worden ingesteld op `apiHubFileTrigger`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
+|**direction** | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
+|**De naam** | De naam van de variabele die staat voor de gebeurtenis in de functiecode aan te geven. | 
+|**verbinding**| Hiermee geeft u de app-instelling waarin de verbindingsreeks. De app-instelling wordt automatisch gemaakt wanneer u een verbinding in de UI-integreren in Azure portal toevoegt.|
+|**Pad** | De map om te controleren, en eventueel een naampatroon.|
 
-### <a name="name-patterns"></a>Bestandsnaampatronen
+### <a name="name-patterns"></a>De naam van patronen
 
-U kunt opgeven dat een bestandsnaampatroon in de `path` eigenschap. De map waarnaar wordt verwezen, moet bestaan in de SaaS-provider.
+U kunt opgeven dat een bestandsnaampatroon in de `path` eigenschap. De map waarnaar wordt verwezen moet zich in de SaaS-provider.
 
 Voorbeelden:
 
@@ -137,7 +133,7 @@ Voorbeelden:
 "path": "input/original-{name}",
 ```
 
-Dit pad wilt zoeken naar een bestand met de naam *oorspronkelijke Bestand1.txt* in de *invoer* map en de waarde van de `name` variabele in functiecode zou worden `File1.txt`.
+Dit pad wordt een bestand met de naam gevonden *oorspronkelijke Bestand1.txt* in de *invoer* map en de waarde van de `name` variabele in functiecode `File1.txt`.
 
 Nog een voorbeeld:
 
@@ -145,7 +141,7 @@ Nog een voorbeeld:
 "path": "input/{filename}.{fileextension}",
 ```
 
-Dit pad zou ook een bestand met de naam vinden *oorspronkelijke Bestand1.txt*, en de waarde van de `filename` en `fileextension` variabelen in de functiecode zou worden *oorspronkelijke File1* en *txt* .
+Dit pad vindt ook een bestand met de naam *oorspronkelijke Bestand1.txt*, en de waarde van de `filename` en `fileextension` variabelen in functiecode zou worden *oorspronkelijke bestand1* en *txt* .
 
 U kunt het type van bestanden beperken met behulp van een vaste waarde voor de bestandsextensie. Bijvoorbeeld:
 
@@ -153,29 +149,29 @@ U kunt het type van bestanden beperken met behulp van een vaste waarde voor de b
 "path": "samples/{name}.png",
 ```
 
-In dit geval wordt alleen *PNG* bestanden in de *voorbeelden* map activeringsfunctie.
+In dit geval alleen *.png* bestanden in de *voorbeelden* map Activeer de functie.
 
-Accolades zijn speciale tekens in de naam van patronen. Dubbelklik om op te geven bestandsnamen die accolades hebben met de naam, de accolades.
+Accolades zijn speciale tekens in de naam van patronen. Dubbelklik om op te geven van bestandsnamen waarvoor accolades in de naam, de accolades.
 Bijvoorbeeld:
 
 ```json
 "path": "images/{{20140101}}-{name}",
 ```
 
-Dit pad wilt zoeken naar een bestand met de naam *{20140101}-soundfile.mp3* in de *installatiekopieën* map, en de `name` variabele waarde in de functiecode *soundfile.mp3*.
+Dit pad wordt een bestand met de naam gevonden  *{20140101}-soundfile.mp3* in de *installatiekopieën* map, en de `name` variabele waarde in de functiecode *soundfile.mp3*.
 
 ## <a name="trigger---usage"></a>Trigger - gebruik
 
-In de C# functies, bindt u tot de gegevens van het bestand voor invoer met behulp van een benoemde parameter in de functiehandtekening, zoals `<T> <name>`.
-Waar `T` is het gegevenstype dat u wilt deserialiseren van de gegevens in, en `paramName` is de naam die u hebt opgegeven in de [activeert JSON](#trigger). In een Node.js-functies, opent u het invoerbestand gegevens met `context.bindings.<name>`.
+In C#-functies, u koppelt aan de gegevens van het invoerbestand met behulp van een benoemde parameter in uw functiehandtekening, zoals `<T> <name>`.
+Waar `T` is het gegevenstype dat u wilt deserialiseer de gegevens in, en `paramName` is de naam die u hebt opgegeven in de [trigger JSON](#trigger). In Node.js-functies, opent u het invoerbestand gegevens met `context.bindings.<name>`.
 
 Het bestand kan worden gedeserialiseerd in een van de volgende typen:
 
-* Alle [Object](https://msdn.microsoft.com/library/system.object.aspx) - nuttig voor JSON-geserialiseerd bestandsgegevens.
-  Als u een aangepaste invoertype declareren (bijvoorbeeld `FooType`), Azure Functions geprobeerd te deserialiseren van de JSON-gegevens in het opgegeven type.
-* Tekenreeks - nuttig voor tekst-bestandsgegevens.
+* Alle [Object](https://msdn.microsoft.com/library/system.object.aspx) - handig voor gegevens uit een bestand met JSON-geserialiseerd.
+  Als u een aangepaste invoertype declareren (bijvoorbeeld `FooType`), Azure Functions probeert te deserialiseren van de JSON-gegevens in het opgegeven type.
+* Tekenreeks - handig voor gegevens uit een bestand tekst.
 
-U kunt ook binden aan een van de volgende typen in C#-functies, en de runtime van Functions geprobeerd te deserialiseren van de gegevens uit een bestand met behulp van dat type:
+U kunt ook gebonden aan een van de volgende typen in C#-functies, en de Functions-runtime probeert te deserialiseren van de gegevens uit een bestand met behulp van dat type:
 
 * `string`
 * `byte[]`
@@ -199,20 +195,20 @@ File receipts are stored in a folder named *azure-webjobs-hosts* in the Azure st
 To force reprocessing of a file, delete the file receipt for that file from the *azure-webjobs-hosts* folder manually.
 --->
 
-## <a name="trigger---poison-files"></a>Trigger - poison-bestanden
+## <a name="trigger---poison-files"></a>Trigger - onverwerkbare bestanden
 
-Wanneer een bestand met externe activeringsfunctie mislukt pogingen Azure Functions die functie maximaal 5 maal standaard (inclusief de eerste poging) voor een bepaald bestand.
-Als alle 5 pogingen mislukken, wordt een bericht met functies toegevoegd aan een opslagwachtrij met de naam *webjobs-apihubtrigger-poison*. Bericht uit de wachtrij voor verontreinigde bestanden is een JSON-object met de volgende eigenschappen:
+Wanneer een activeringsfunctie voor een extern bestand is mislukt, pogingen Azure Functions die functie maximaal 5 keer standaard (inclusief de eerste poging) voor een bepaald bestand.
+Als alle 5 pogingen mislukken, functies een bericht toevoegt aan een opslagwachtrij met de naam *webjobs-apihubtrigger-poison*. Bericht uit de wachtrij voor beheer van onverwerkbare bestanden is een JSON-object met de volgende eigenschappen:
 
-* FunctionId (in de notatie  *&lt;functie app-naam >*. Functies.  *&lt;functienaam >*)
+* FunctionId (in de indeling  *&lt;functie-appnaam >*. Functies.  *&lt;functienaam >*)
 * Bestandstype
 * Mapnaam
 * Bestandsnaam
-* ETag (een bestand versie-id, bijvoorbeeld: '0x8D1DC6E70A277EF')
+* ETag (een bestand versie-id, bijvoorbeeld: "0x8D1DC6E70A277EF")
 
 ## <a name="input"></a>Invoer
 
-De invoer binding Azure extern bestand kunt u een bestand te gebruiken vanaf een externe map in de functie.
+De Azure-bestand met externe Invoerbinding kunt u een bestand te gebruiken vanuit een externe map in uw functie.
 
 ## <a name="input---example"></a>Invoer - voorbeeld
 
@@ -223,9 +219,9 @@ Zie het voorbeeld taalspecifieke:
 
 ### <a name="input---c-script-example"></a>Invoer - voorbeeld van C#-script
 
-Het volgende voorbeeld ziet extern bestand invoer en uitvoer bindingen in een *function.json* bestand en een [C# scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie wordt een bestand voor invoer kopieert naar een bestand voor uitvoer.
+Het volgende voorbeeld ziet u extern bestand invoer- en uitvoerbindingen in een *function.json* bestand en een [C#-scriptfunctie](functions-reference-csharp.md) die gebruikmaakt van de binding. De functie kopieert een bestand voor invoer naar een uitvoerbestand.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+Hier volgt de binding-gegevens de *function.json* bestand:
 
 ```json
 {
@@ -268,9 +264,9 @@ public static void Run(string myQueueItem, string myInputFile, out string myOutp
 
 ### <a name="input---javascript-example"></a>Invoer - JavaScript-voorbeeld
 
-Het volgende voorbeeld ziet extern bestand invoer en uitvoer bindingen in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie wordt een bestand voor invoer kopieert naar een bestand voor uitvoer.
+Het volgende voorbeeld ziet u extern bestand invoer- en uitvoerbindingen in een *function.json* bestand en een [JavaScript-functie](functions-reference-node.md) die gebruikmaakt van de binding. De functie kopieert een bestand voor invoer naar een uitvoerbestand.
 
-Dit zijn de bindingsgegevens de *function.json* bestand:
+Hier volgt de binding-gegevens de *function.json* bestand:
 
 ```json
 {
@@ -301,7 +297,7 @@ Dit zijn de bindingsgegevens de *function.json* bestand:
 }
 ```
 
-Hier volgt de JavaScript-code:
+Dit is de JavaScript-code:
 
 ```javascript
 module.exports = function(context) {
@@ -313,27 +309,27 @@ module.exports = function(context) {
 
 ## <a name="input---configuration"></a>Invoer - configuratie
 
-De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand.
+De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand.
 
 |de eigenschap Function.JSON | Beschrijving|
 |---------|---------|----------------------|
-|**type** | moet worden ingesteld op `apiHubFile`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
-|**richting** | moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
-|**naam** | De naam van de variabele die staat voor de gebeurtenis in de functiecode. | 
-|**verbinding**| Identificeert de app-instelling die de verbindingsreeks opslaat. De app-instelling wordt automatisch gemaakt wanneer u een verbinding in de integreren gebruikersinterface in de Azure portal toevoegen.|
-|**pad** | Moet de naam van de map en de bestandsnaam bevatten. Als u hebt bijvoorbeeld een [wachtrij trigger](functions-bindings-storage-queue.md) in de functie, kunt u `"path": "samples-workitems/{queueTrigger}"` om te verwijzen naar een bestand in de `samples-workitems` map met een naam die overeenkomt met de bestandsnaam in het bericht trigger opgegeven.   
+|**type** | Moet worden ingesteld op `apiHubFile`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
+|**direction** | Moet worden ingesteld op `in`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
+|**De naam** | De naam van de variabele die staat voor de gebeurtenis in de functiecode aan te geven. | 
+|**verbinding**| Hiermee geeft u de app-instelling waarin de verbindingsreeks. De app-instelling wordt automatisch gemaakt wanneer u een verbinding in de UI-integreren in Azure portal toevoegt.|
+|**Pad** | Moet de naam van de map en de bestandsnaam bevatten. Als u hebt bijvoorbeeld een [wachtrijtrigger](functions-bindings-storage-queue.md) in uw functie, kunt u `"path": "samples-workitems/{queueTrigger}"` om te verwijzen naar een bestand in de `samples-workitems` map met de naam die overeenkomt met de naam van het opgegeven in de trigger-bericht.   
 
 ## <a name="input---usage"></a>Invoer - gebruik
 
-In de C# functies, bindt u tot de gegevens van het bestand voor invoer met behulp van een benoemde parameter in de functiehandtekening, zoals `<T> <name>`. `T`is het gegevenstype dat u wilt deserialiseren van de gegevens in, en `name` is de naam die u hebt opgegeven in de invoer binding. In een Node.js-functies, opent u het invoerbestand gegevens met `context.bindings.<name>`.
+In C#-functies, u koppelt aan de gegevens van het invoerbestand met behulp van een benoemde parameter in uw functiehandtekening, zoals `<T> <name>`. `T` is het gegevenstype dat u wilt deserialiseer de gegevens in, en `name` is de naam die u hebt opgegeven in de Invoerbinding. In Node.js-functies, opent u het invoerbestand gegevens met `context.bindings.<name>`.
 
 Het bestand kan worden gedeserialiseerd in een van de volgende typen:
 
-* Alle [Object](https://msdn.microsoft.com/library/system.object.aspx) - nuttig voor JSON-geserialiseerd bestandsgegevens.
-  Als u een aangepaste invoertype declareren (bijvoorbeeld `InputType`), Azure Functions geprobeerd te deserialiseren van de JSON-gegevens in het opgegeven type.
-* Tekenreeks - nuttig voor tekst-bestandsgegevens.
+* Alle [Object](https://msdn.microsoft.com/library/system.object.aspx) - handig voor gegevens uit een bestand met JSON-geserialiseerd.
+  Als u een aangepaste invoertype declareren (bijvoorbeeld `InputType`), Azure Functions probeert te deserialiseren van de JSON-gegevens in het opgegeven type.
+* Tekenreeks - handig voor gegevens uit een bestand tekst.
 
-U kunt ook binden aan een van de volgende typen in C#-functies, en de runtime van Functions geprobeerd te deserialiseren van de gegevens uit een bestand met behulp van dat type:
+U kunt ook gebonden aan een van de volgende typen in C#-functies, en de Functions-runtime probeert te deserialiseren van de gegevens uit een bestand met behulp van dat type:
 
 * `string`
 * `byte[]`
@@ -343,33 +339,33 @@ U kunt ook binden aan een van de volgende typen in C#-functies, en de runtime va
 
 ## <a name="output"></a>Uitvoer
 
-De Azure bestand met externe uitvoer binding kunt u bestanden naar een externe map in uw functie te schrijven.
+Het Azure externe bestand Uitvoerbinding kunt u bestanden naar een externe map in de functie te schrijven.
 
-## <a name="output---example"></a>Output - voorbeeld
+## <a name="output---example"></a>Uitvoer - voorbeeld
 
-Zie de [invoer binding voorbeeld](#input---example).
+Zie de [Invoerbinding voorbeeld](#input---example).
 
-## <a name="output---configuration"></a>Output - configuratie
+## <a name="output---configuration"></a>Uitvoer - configuratie
 
-De volgende tabel beschrijft de binding-configuratie-eigenschappen die u instelt in de *function.json* bestand.
+De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand.
 
 |de eigenschap Function.JSON | Beschrijving|
 |---------|---------|----------------------|
-|**type** | moet worden ingesteld op `apiHubFile`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt.|
-|**richting** | moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in de Azure-portal maakt. |
-|**naam** | De naam van de variabele die staat voor de gebeurtenis in de functiecode. | 
-|**verbinding**| Identificeert de app-instelling die de verbindingsreeks opslaat. De app-instelling wordt automatisch gemaakt wanneer u een verbinding in de integreren gebruikersinterface in de Azure portal toevoegen.|
-|**pad** | Moet de naam van de map en de bestandsnaam bevatten. Als u hebt bijvoorbeeld een [wachtrij trigger](functions-bindings-storage-queue.md) in de functie, kunt u `"path": "samples-workitems/{queueTrigger}"` om te verwijzen naar een bestand in de `samples-workitems` map met een naam die overeenkomt met de bestandsnaam in het bericht trigger opgegeven.   
+|**type** | Moet worden ingesteld op `apiHubFile`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
+|**direction** | Moet worden ingesteld op `out`. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
+|**De naam** | De naam van de variabele die staat voor de gebeurtenis in de functiecode aan te geven. | 
+|**verbinding**| Hiermee geeft u de app-instelling waarin de verbindingsreeks. De app-instelling wordt automatisch gemaakt wanneer u een verbinding in de UI-integreren in Azure portal toevoegt.|
+|**Pad** | Moet de naam van de map en de bestandsnaam bevatten. Als u hebt bijvoorbeeld een [wachtrijtrigger](functions-bindings-storage-queue.md) in uw functie, kunt u `"path": "samples-workitems/{queueTrigger}"` om te verwijzen naar een bestand in de `samples-workitems` map met de naam die overeenkomt met de naam van het opgegeven in de trigger-bericht.   
 
-## <a name="output---usage"></a>Output - gebruik
+## <a name="output---usage"></a>Uitvoer - gebruik
 
-In de C# functies, bindt u naar het uitvoerbestand met behulp van de benoemde `out` parameter in de functiehandtekening, zoals `out <T> <name>`, waarbij `T` is het gegevenstype dat u wilt serialiseren van de gegevens in, en `name` is de naam die u hebt opgegeven in de uitvoer-binding. In een Node.js-functies, opent u de uitvoer-bestand met `context.bindings.<name>`.
+In de C#-functies, bindt u naar het uitvoerbestand met behulp van de benoemde `out` parameter in uw functiehandtekening, zoals `out <T> <name>`, waarbij `T` is het gegevenstype dat u wilt de gegevens in, en `name` is de naam die u hebt opgegeven in de Uitvoerbinding. In Node.js-functies, opent u het uitvoerbestand met `context.bindings.<name>`.
 
 U kunt schrijven naar het uitvoerbestand met behulp van een van de volgende typen:
 
 * Alle [Object](https://msdn.microsoft.com/library/system.object.aspx) - nuttig voor JSON-serialisatie.
-  Als u een aangepaste uitvoertype declareren (bijvoorbeeld `out OutputType paramName`), Azure Functions probeert om object te serialiseren naar JSON. Als de output-parameter null is wanneer de functie wordt afgesloten, wordt in de runtime van Functions een bestand gemaakt als een null-object.
-* String - (`out string paramName`) nuttig voor tekst-bestandsgegevens. de runtime van Functions maakt een bestand alleen als de tekenreeksparameter niet-null wanneer de functie wordt afgesloten.
+  Als u een aangepaste uitvoertype declareren (bijvoorbeeld `out OutputType paramName`), Azure Functions wordt geprobeerd om object te serialiseren naar JSON. Als de output-parameter null is wanneer de functie wordt afgesloten, wordt een bestand in de Functions-runtime gemaakt als een null-object.
+* Tekenreeks - (`out string paramName`) handig voor gegevens uit een bestand tekst. de Functions-runtime maakt een bestand alleen als de queryreeks-parameter niet gelijk zijn aan nul is wanneer de functie wordt afgesloten.
 
 In C#-functies kunt u ook uitvoeren met een van de volgende typen:
 
@@ -383,4 +379,4 @@ In C#-functies kunt u ook uitvoeren met een van de volgende typen:
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Meer informatie over Azure functions triggers en bindingen](functions-triggers-bindings.md)
+> [Meer informatie over Azure functions-triggers en bindingen](functions-triggers-bindings.md)

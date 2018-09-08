@@ -4,23 +4,19 @@ description: Informatie over het gebruik van triggers en bindingen in Azure Func
 services: functions
 documentationcenter: na
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure-functies, functies, gebeurtenisverwerking, webhooks, dynamisch berekenen, architectuur zonder server
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 05/24/2018
 ms.author: glenga
-ms.openlocfilehash: 85b7248c9b4c61e29ce3c29b9432f94934255819
-ms.sourcegitcommit: 30fd606162804fe8ceaccbca057a6d3f8c4dd56d
+ms.openlocfilehash: e3f2cc24a3ff765a33d27bbe5a43ca9d5a229e1b
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/30/2018
-ms.locfileid: "39346599"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44092952"
 ---
 # <a name="azure-functions-triggers-and-bindings-concepts"></a>Azure Functions-triggers en bindingen concepten
 
@@ -28,7 +24,7 @@ Dit artikel is een conceptueel overzicht van triggers en bindingen in Azure Func
 
 ## <a name="overview"></a>Overzicht
 
-Een *trigger* definieert hoe een functie is aangeroepen. Een functie moet exact één trigger hebben. Triggers gekoppeld, gegevens, die meestal de nettolading die de functie geactiveerd.
+Een *trigger* definieert hoe een functie is aangeroepen. Een functie moet exact één trigger hebben. Aan triggers zijn gegevens gekoppeld. Meestal is dit de nettolading waarmee de functie is geactiveerd.
 
 Invoer en uitvoer *bindingen* bieden een declaratieve manier om verbinding maken met gegevens vanuit uw code. Bindingen zijn optioneel en een functie verschillende invoer beschikken en uitvoerbindingen. 
 

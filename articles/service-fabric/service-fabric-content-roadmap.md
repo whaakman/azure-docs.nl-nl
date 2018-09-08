@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/08/2017
 ms.author: ryanwi
-ms.openlocfilehash: d4b27feab5c1bb5913d2ba26f7f43aca9a899aa0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: b24860aaf10ba483aeab54d215816314a7d0bc36
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697666"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44162849"
 ---
 # <a name="so-you-want-to-learn-about-service-fabric"></a>Zo wilt u meer informatie over Service Fabric?
 Azure Service Fabric is een gedistribueerde systemen platform waarmee u gemakkelijk pakket, implementeren en beheren van schaalbare en betrouwbare microservices.  Service Fabric is een grote-gebied, en er is veel te leren.  In dit artikel biedt een overzicht van Service Fabric en beschrijft de belangrijkste concepten, programmeermodellen, levensduur van toepassingen, testen, clusters en statuscontrole. Lees de [overzicht](service-fabric-overview.md) en [wat zijn microservices?](service-fabric-overview-microservices.md) voor een inleiding en hoe Service Fabric kan worden gebruikt om te maken van microservices. In dit artikel bevat een uitgebreide lijst met inhoud, maar koppelen aan het overzicht en artikelen aan de slag voor elk gebied van Service Fabric. 
@@ -84,7 +84,7 @@ Waarom zijn stateful microservices, samen met de stateless die? De twee belangri
 Service Fabric biedt verschillende manieren om te schrijven en beheren van uw services. Services kunnen u de Service Fabric-API's gebruiken om te profiteren van de functies van het platform en de App-frameworks. Services kunnen ook worden alle gecompileerde uitvoerbaar programma geschreven in elke taal en die worden gehost op een Service Fabric-cluster. Zie voor meer informatie, [ondersteunde programmeermodellen](service-fabric-choose-framework.md).
 
 ### <a name="containers"></a>Containers
-Standaard wordt Service Fabric implementeert en services als processen wordt geactiveerd. Service Fabric kunnen ook implementeren van services in [containers](service-fabric-containers-overview.md). Bovendien kunt u services in processen en services in containers binnen dezelfde toepassing combineren. Service Fabric biedt ondersteuning voor Linux-containers Windows-containers implementeren op Windows Server 2016. U kunt bestaande toepassingen, stateless services of stateful services in containers kunt implementeren. 
+Standaard wordt Service Fabric implementeert en services als processen wordt geactiveerd. Service Fabric kunnen ook implementeren van services in [containers](service-fabric-containers-overview.md). Bovendien kunt u services in processen en services in containers binnen dezelfde toepassing combineren. Service Fabric biedt ondersteuning voor implementatie van Linux-containers en Windows-containers op Windows Server 2016. U kunt bestaande toepassingen, stateless services of stateful services in containers kunt implementeren. 
 
 ### <a name="reliable-services"></a>Reliable Services
 [Reliable Services](service-fabric-reliable-services-introduction.md) is een lichtgewicht framework voor het schrijven van services die integreren met het Service Fabric-platform en profiteren van de volledige set functies van het platform. Betrouwbare Services kunnen worden stateless (vergelijkbaar met de meeste service-platformen, zoals webservers of werkrollen in Azure Cloud Services), waarbij status is opgeslagen in een externe oplossing, zoals Azure DB of Azure-tabelopslag. Betrouwbare Services kunnen ook stateful, worden waar staat rechtstreeks in de service zelf met behulp van betrouwbare verzamelingen worden bewaard. Staat wordt gesteld [maximaal beschikbare](service-fabric-availability-services.md) door middel van replicatie en gedistribueerde via [partitioneren](service-fabric-concepts-partitioning.md), alle beheerde automatisch door Service Fabric.

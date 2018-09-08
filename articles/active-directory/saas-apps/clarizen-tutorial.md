@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/10/2017
 ms.author: jeedes
-ms.openlocfilehash: 510bf383848725f3864c40af02c2b309370237f0
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 855f147b0622ecc0831f2bc464e83d245af9e574
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438083"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158668"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-clarizen"></a>Zelfstudie: Azure Active Directory-integratie met Clarizen
 
@@ -188,7 +188,7 @@ Maken in Azure portal, een testgebruiker Britta Simon genoemd.
 
 ### <a name="create-a-clarizen-test-user"></a>Maak een testgebruiker Clarizen
 
-Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Clarizen. Clarizen ondersteunt automatisch gebruikers inrichten, dit is standaard ingeschakeld. Meer informatie vindt u [hier](clarizen-provisioning-tutorial.md) voor het automatisch inrichten van gebruikers configureren.
+Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in Clarizen.
 
 **Als u moet de gebruiker handmatig hebt gemaakt, kunt voert u de volgende stappen:**
 
@@ -196,11 +196,11 @@ Als u wilt dat Azure AD-gebruikers kunnen zich aanmelden bij Clarizen, moet u ge
 
 1. Meld u aan uw bedrijf Clarizen site als een beheerder.
 
-1. Klik op **mensen**.
+2. Klik op **mensen**.
 
     ![Te klikken op 'People'](./media/clarizen-tutorial/create_aaduser_001.png "personen")
 
-1. Klik op **gebruiker uitnodigen**.
+3. Klik op **gebruiker uitnodigen**.
 
     ![Knop 'Gebruiker uitnodigen'](./media/clarizen-tutorial/create_aaduser_002.png "gebruikers uitnodigen")
 
@@ -251,7 +251,6 @@ Wanneer u op de tegel Clarizen in het toegangsvenster, moet u worden automatisch
 
 * [Lijst met zelfstudies over het integreren van SaaS-apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
-* [Inrichten van gebruikers configureren](clarizen-provisioning-tutorial.md)
 
 <!--Image references-->
 
