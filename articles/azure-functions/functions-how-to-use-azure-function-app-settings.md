@@ -1,40 +1,36 @@
 ---
-title: Configureren van Azure functie App-instellingen | Microsoft Docs
-description: Informatie over het configureren van Azure functie app-instellingen.
+title: Azure-functie-App-instellingen configureren | Microsoft Docs
+description: Informatie over het configureren van instellingen voor Azure-functie-app.
 services: ''
 documentationcenter: .net
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: 81eb04f8-9a27-45bb-bf24-9ab6c30d205c
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: dotnet
-ms.devlang: na
-ms.topic: article
+ms.service: azure-functions
+ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 8974b2ca243da5dd2f7202c66602f7254496d040
-ms.sourcegitcommit: 34e0b4a7427f9d2a74164a18c3063c8be967b194
+ms.openlocfilehash: 90b5009b3b260a0f4245459467ae248f800ad818
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/30/2018
-ms.locfileid: "30283799"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44094532"
 ---
-# <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Het beheren van een functie-app in de Azure portal 
+# <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Over het beheren van een functie-app in Azure portal 
 
-In de Azure Functions biedt een functie-app de uitvoeringscontext voor uw afzonderlijke functies. De functie app-gedrag van toepassing op alle functies die worden gehost door een bepaalde functie-app. In dit onderwerp wordt beschreven hoe configureren en beheren van uw apps functie in de Azure-portal.
+In Azure Functions biedt een functie-app de uitvoeringscontext voor de afzonderlijke functies. Functie-app-gedrag van toepassing op alle functies die worden gehost door een bepaalde functie-app. In dit onderwerp wordt beschreven hoe configureren en beheren van uw functie-apps in Azure portal.
 
-Om te beginnen, gaat u naar de [Azure-portal](http://portal.azure.com) en meld u aan bij uw Azure-account. Typ de naam van uw functie-app in de zoekbalk boven in de portal en selecteer deze in de lijst. Na het selecteren van de functie-app, ziet u de volgende pagina:
+Als u wilt beginnen, gaat u naar de [Azure-portal](http://portal.azure.com) en meld u aan bij uw Azure-account. Typ de naam van uw functie-app in de zoekbalk boven in de portal en selecteer deze in de lijst. Na het selecteren van uw functie-app, ziet u de volgende pagina:
 
-![Overzicht van de functie-app in de Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
+![Overzicht van de functie-app in Azure portal](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-main.png)
 
 ## <a name="favorite"></a>Favoriete functies in de portal 
 
-Kan worden soms moeilijk te vinden van uw resources in de [Azure-portal]. Gemakkelijker te vinden van de functie-apps die u hebt gemaakt, toevoegen functie Apps aan uw Favorieten in de portal. 
+Kan worden soms moeilijk te vinden van uw resources in de [Azure Portal]. Als u wilt maken het gemakkelijker te vinden van de functie-apps die u hebt gemaakt, moet u functie-Apps toevoegen aan uw Favorieten in de portal. 
 
-1. Meld u aan bij [Azure-portal].
+1. Meld u aan bij [Azure Portal].
 
 2. Klik op de pijl linksonder om alle services uit te vouwen, typ `Functions` in het veld **Filter** en klik vervolgens op de ster naast **Functie-apps**.  
  
@@ -46,43 +42,43 @@ Kan worden soms moeilijk te vinden van uw resources in de [Azure-portal]. Gemakk
  
     ![Functie-Apps in Favorieten](./media/functions-how-to-use-azure-function-app-settings/functions-function-apps-hub.png)
  
-[Azure-portal]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 
-## <a name="manage-app-service-settings"></a>Tabblad voor de functie app-instellingen
+## <a name="manage-app-service-settings"></a>Tabblad instellingen van de functie-app
 
-![Overzicht van de functie app in de Azure portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
+![Overzicht van de functie-app in Azure portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-De **instellingen** tabblad is waarin u de functies runtime-versie die wordt gebruikt door de functie-app kunt bijwerken. Het is ook waar u de sleutels van de host gebruikt voor het beperken van HTTP-toegang tot alle functies die worden gehost door de functie-app beheren.
+De **instellingen** tabblad is waar u de runtimeversie van de functies die worden gebruikt door uw functie-app kunt bijwerken. Het is ook waar u de hostsleutels gebruikt om te beperken van HTTP-toegang tot alle functies die worden gehost door de functie-app beheren.
 
-Functies ondersteunt zowel verbruik die als host fungeert als App Service-hostingplannen. Zie voor meer informatie [Kies de juiste service-abonnement voor Azure Functions](functions-scale.md). Voor betere voorspelbaarheid in het plan verbruik functies kunt u platform-gebruik beperken door een dagelijkse gebruiksquotum instellen in gigabytes seconden. Zodra de dagelijkse gebruiksquotum is bereikt, wordt de functie-app is gestopt. Een functie-app gestopt als gevolg van de quota voor bestedingslimiet bereikt kan opnieuw worden ingeschakeld vanuit de context hetzelfde als het tot stand brengen van de dagelijkse quotum uitgaven zijn. Zie de [Azure Functions pagina met prijzen](http://azure.microsoft.com/pricing/details/functions/) voor meer informatie over de facturering.   
+Functions ondersteunt zowel verbruik die als host fungeert als App Service-hostingplannen. Zie voor meer informatie, [Kies de juiste service-plan voor Azure Functions](functions-scale.md). Functions voor het abonnement Consumption beter te voorspellen kunt u platformgebruik beperken door in te stellen van een dagelijks gebruiksquotum in gigabyte-seconden. Wanneer het quotum voor het dagelijkse gebruik wordt bereikt, wordt de functie-app is gestopt. Een functie-app gestopt als gevolg van het bestedingsquotum van bereiken kan opnieuw worden ingeschakeld vanuit dezelfde context als het tot stand brengen van de dagelijkse bestedingsquotum. Zie de [Azure Functions-pagina met prijzen](http://azure.microsoft.com/pricing/details/functions/) voor meer informatie over facturering.   
 
-## <a name="platform-features-tab"></a>Tabblad voor platform-onderdelen
+## <a name="platform-features-tab"></a>Tabblad voor platform-functies
 
-![De functie app platform functies tabblad.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
+![Tabblad voor functie-app-platform-functies.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-features-tab.png)
 
-Functie apps in uitgevoerd en worden beheerd, door de Azure App Service-platform. Als zodanig hebben uw functie apps toegang tot de meeste van de functies van Azure core webhosting-platform. De **platformfuncties** tabblad is waar u de vele nieuwe functies van de App Service-platform die u in uw apps functie gebruiken kunt toegang. 
+Functie-apps uitvoeren in, en worden beheerd, door het Azure App Service-platform. Daarom hebben uw functie-apps toegang tot de meeste van de functies van Azure kerngeheugens voor webhosting platform. De **platformfuncties** tabblad is waar u toegang hebben tot de vele functies van de App Service-platform die u in uw functie-apps gebruiken kunt. 
 
 > [!NOTE]
-> Niet alle App Service-functies zijn beschikbaar wanneer een functie-app wordt uitgevoerd op het verbruik hosting-plan.
+> Niet alle App Service-functies zijn beschikbaar wanneer een functie-app wordt uitgevoerd op het verbruik hostingplan.
 
-De rest van dit onderwerp richt zich op de volgende App Service-functies in de Azure-portal die handig voor functies zijn:
+De rest van dit onderwerp richt zich op de volgende App Service-functies in Azure portal die nuttig voor de functies zijn:
 
-+ [App Service editor](#editor)
++ [App Service-editor](#editor)
 + [Toepassingsinstellingen](#settings) 
 + [Console](#console)
-+ [Geavanceerde tools (Kudu)](#kudu)
++ [Geavanceerde hulpmiddelen (Kudu)](#kudu)
 + [Implementatie-opties](#deployment)
 + [CORS](#cors)
 + [Verificatie](#auth)
 + [API-definitie](#swagger)
 
-Zie voor meer informatie over het werken met App Service-instellingen, [Azure App Service-instellingen configureren](../app-service/web-sites-configure.md).
+Zie voor meer informatie over het werken met App Service-instellingen [Azure App Service-instellingen configureren](../app-service/web-sites-configure.md).
 
-### <a name="editor"></a>App Service Editor
+### <a name="editor"></a>App Service-Editor
 
 | | |
 |-|-|
-| ![De functie app-App Service-editor.](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | De App Service-editor is een geavanceerde in de portal-editor die u gebruiken kunt om JSON-configuratiebestanden en codebestanden die met te wijzigen. Als u deze optie kiest, wordt een afzonderlijke browsertabblad met een basic-editor gestart. Hiermee kunt u integreren met de Git-opslagplaats, uitvoeren en foutopsporing van code en de functie app-instellingen wijzigen. Deze editor biedt een verbeterde development environment voor uw functies vergeleken met de standaardblade voor de functie-app.    |
+| ![Functie-app-App Service-editor.](./media/functions-how-to-use-azure-function-app-settings/function-app-appsvc-editor.png)  | De App Service-editor is een geavanceerde portal-editor die u gebruiken kunt om JSON-configuratiebestanden en taxibedrijven codebestanden te wijzigen. Als u deze optie kiest, wordt een afzonderlijk browsertabblad met een basic-editor gestart. Hiermee kunt u integreren met de Git-opslagplaats, uitvoeren en fouten opsporen in code en functie-app-instellingen wijzigen. Deze editor bevat een uitgebreide ontwikkelomgeving voor uw functies in vergelijking met de standaardblade voor de functie-app.    |
 
 ![De App Service-editor](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-appservice-editor.png)
 
@@ -90,7 +86,7 @@ Zie voor meer informatie over het werken met App Service-instellingen, [Azure Ap
 
 | | |
 |-|-|
-| ![Toepassingsinstellingen voor functie-app.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | De App Service **toepassingsinstellingen** blade is waar u configureren en beheren van de framework-versies, foutopsporing op afstand, app-instellingen en verbindingsreeksen. Wanneer u de functie-app met andere Azure en services van derden integreren, kunt u deze instellingen hier wijzigen. Als u wilt verwijderen van een instelling, schuif naar rechts en selecteer de **X** pictogram aan de rechterkant van de regel (niet weergegeven in de volgende afbeelding).
+| ![Toepassingsinstellingen voor functie-app.](./media/functions-how-to-use-azure-function-app-settings/function-app-application-settings.png) | De App Service **toepassingsinstellingen** blade is waar u configureren en beheren van frameworkversies, foutopsporing op afstand, app-instellingen en verbindingsreeksen. Wanneer u uw functie-app met andere Azure- en services van derden integreren, kunt u deze instellingen hier wijzigen. Als u wilt verwijderen van een instelling, schuif naar de rechterkant en selecteer de **X** pictogram aan de rechterkant van de regel (niet weergegeven in de volgende afbeelding).
 
 ![Toepassingsinstellingen configureren](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-settings.png)
 
@@ -98,15 +94,15 @@ Zie voor meer informatie over het werken met App Service-instellingen, [Azure Ap
 
 | | |
 |-|-|
-| ![De functie app-console in de Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-console.png) | De console in de portal is een hulpprogramma developer ideaal als u liever om te communiceren met de functie-app vanaf de opdrachtregel. Veelgebruikte opdrachten zijn directory en maken van het bestand en navigatie, evenals batch-bestanden en scripts uitvoeren. |
+| ![Functie-app-console in de Azure-portal](./media/functions-how-to-use-azure-function-app-settings/function-app-console.png) | De console in de portal is een ideale developer-hulpprogramma als u liever om te communiceren met de functie-app vanaf de opdrachtregel. Veelgebruikte opdrachten zijn directory en maken van het bestand en navigatie, evenals batch-bestanden en scripts uitvoeren. |
 
-![De functie app-console](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
+![Functie-app-console](./media/functions-how-to-use-azure-function-app-settings/configure-function-console.png)
 
-### <a name="kudu"></a>Geavanceerde tools (Kudu)
+### <a name="kudu"></a>Geavanceerde hulpmiddelen (Kudu)
 
 | | |
 |-|-|
-| ![Functie-app Kudu in de Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | De geavanceerde hulpprogramma's voor App Service (ook wel bekend als Kudu) bieden toegang tot geavanceerde beheerfuncties van uw app in de functie. U beheert van kudu bovendien, systeemgegevens, app-instellingen, omgevingsvariabelen, site-uitbreidingen, HTTP-headers en servervariabelen. U kunt ook starten **Kudu** door te bladeren naar het eindpunt SCM voor uw app in de functie, zoals `https://<myfunctionapp>.scm.azurewebsites.net/` |
+| ![Functie-app Kudu in Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-advanced-tools.png) | De geavanceerde hulpprogramma's voor App Service (ook wel bekend als Kudu) bieden toegang tot geavanceerde beheerfuncties van uw functie-app. U beheert van kudu bovendien, systeemgegevens, app-instellingen, omgevingsvariabelen, site-uitbreidingen, HTTP-headers en servervariabelen. U kunt ook starten **Kudu** door te bladeren naar de SCM-eindpunt voor uw functie-app, zoals `https://<myfunctionapp>.scm.azurewebsites.net/` |
 
 ![Kudu configureren](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-kudu.png)
 
@@ -115,14 +111,14 @@ Zie voor meer informatie over het werken met App Service-instellingen, [Azure Ap
 
 | | |
 |-|-|
-| ![Opties voor de functie app-implementatie in de Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functies kunt u uw functiecode op uw lokale machine ontwikkelen. Vervolgens kunt u uw lokale functie app-project uploaden naar Azure. Naast het uploaden van de traditionele FTP-functies kunt u een functie-app met populaire continue integratie-oplossingen zoals GitHub, VSTS Dropbox, Bitbucket en anderen implementeren. Zie voor meer informatie [continue implementatie voor Azure Functions](functions-continuous-deployment.md). Als u wilt uploaden handmatig met behulp van FTP- of lokale Git, moet u ook [configureren van de referenties voor uw implementatie](functions-continuous-deployment.md#credentials). |
+| ![Opties voor de functie-app-implementatie in Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions kunt u bij ontwikkelen van uw functiecode aan te geven op uw lokale computer. Vervolgens kunt u uw lokale functie-app-project uploaden naar Azure. Naast de traditionele upload via FTP wordt Functions kunt u uw functie-app implementeren met populaire continue integratie-oplossingen, zoals GitHub, VSTS, Dropbox, Bitbucket en anderen. Zie voor meer informatie, [continue implementatie voor Azure Functions](functions-continuous-deployment.md). Als u wilt uploaden handmatig met behulp van FTP- of lokale Git, moet u ook [configureren van de referenties voor implementatie](functions-continuous-deployment.md#credentials). |
 
 
 ### <a name="cors"></a>CORS
 
 | | |
 |-|-|
-| ![Functie-app CORS in de Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | Om te voorkomen dat schadelijke code wordt uitgevoerd in uw services, blokkeert App Service aanroepen naar uw apps functie van externe bronnen. Functies biedt ondersteuning voor cross-origin-resource delen (CORS) zodat u het definiëren van een 'whitelist' toegestane oorsprongen waarvan van uw functies kunnen externe aanvragen accepteert.  |
+| ![Functie-app CORS in Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-cors.png) | Om te voorkomen dat schadelijke code wordt uitgevoerd in uw services, blokkeert App Service aanroepen naar uw functie-apps uit externe bronnen. Functions biedt ondersteuning voor cross-origin resource sharing (CORS) zodat u bij het definiëren van een '' goedgekeurde lijst met toegestane oorsprongen waaruit uw functies externe aanvragen kunnen accepteren.  |
 
 ![Functie-App configureren CORS](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-cors.png)
 
@@ -130,18 +126,18 @@ Zie voor meer informatie over het werken met App Service-instellingen, [Azure Ap
 
 | | |
 |-|-|
-| ![Verificatie van de functie app in de Azure-portal](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | Wanneer functies een HTTP-trigger gebruikt, kunt u vereisen aanroepen voor het eerst worden geverifieerd. App Service biedt ondersteuning voor Azure Active Directory-verificatie en meld u aan met sociale providers, zoals Microsoft, Facebook en Twitter. Zie voor meer informatie over het configureren van specifieke verificatieproviders [overzicht van Azure App Service-authenticatie](../app-service/app-service-authentication-overview.md). |
+| ![Verificatie van de functie-app in Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-authentication.png) | Wanneer functies een HTTP-trigger gebruikt, kunt u vereisen dat aanroepen voor het eerst worden geverifieerd. App Service biedt ondersteuning voor Azure Active Directory-verificatie en meld u aan met providers van sociale netwerken, zoals Facebook, Microsoft en Twitter. Zie voor meer informatie over het configureren van specifieke verificatieproviders [overzicht van Azure App Service-verificatie](../app-service/app-service-authentication-overview.md). |
 
-![Verificatie voor een functie-app configureren](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
+![Verificatie configureren voor een functie-app](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-authentication.png)
 
 
 ### <a name="swagger"></a>API-definitie
 
 | | |
 |-|-|
-| ![De functie app API swagger-definitie in de Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functies biedt ondersteuning voor Swagger wilt toestaan dat clients eenvoudiger uw HTTP-geactiveerde functies gebruiken. Bezoek voor meer informatie over het maken van API-definities met Swagger [Host een RESTful-API met CORS in Azure App Service](../app-service/app-service-web-tutorial-rest-api.md). U kunt ook functies proxy's gebruiken voor het definiëren van een één API-gebied voor meerdere functies. Zie voor meer informatie [werken met Azure Functions-proxy's](functions-proxies.md). |
+| ![Functie-app API swagger-definitie in Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-api-definition.png) | Functions biedt ondersteuning voor Swagger om toe te staan van clients op uw HTTP-geactiveerde functies eenvoudiger te gebruiken. Voor meer informatie over het maken van API-definities met Swagger, Bezoek [een RESTful API hosten met CORS in Azure App Service](../app-service/app-service-web-tutorial-rest-api.md). U kunt ook Functions-proxy's gebruiken voor het definiëren van een enkele API-gebied voor meerdere functies. Zie voor meer informatie, [werken met Azure Functions-proxy's](functions-proxies.md). |
 
-![API voor functie-App configureren](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
+![Functie-App-API configureren](./media/functions-how-to-use-azure-function-app-settings/configure-function-app-apidef.png)
 
 
 

@@ -5,24 +5,20 @@ services: functions
 documentationcenter: na
 author: ggailey777
 manager: jeconnoc
-editor: ''
-tags: ''
 keywords: Azure functions, functies, verbruiksabonnement, app service-plan, gebeurtenisverwerking, webhooks, dynamisch berekenen, architectuur zonder server
 ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 341756c91693bf9e53538aa8e284c79d289da293
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: b562b10be8add02d0a3c6eb95e8df8eb0711a208
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42057512"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44093529"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions-schaal en hosting
 
@@ -50,7 +46,7 @@ Wanneer u een verbruiksabonnement gebruikt, worden instanties van de Azure Funct
 > [!NOTE]
 > De standaardtime-out voor functies in een verbruiksabonnement is 5 minuten. De waarde voor de functie-App tot een maximum van tien minuten kan worden verhoogd met het wijzigen van de eigenschap `functionTimeout` in de [host.json](functions-host-json.md#functiontimeout) projectbestand.
 
-Facturering is gebaseerd op aantal uitvoeringen, uitvoeringstijd en geheugen dat wordt gebruikt. Facturering wordt samengevoegd voor alle functies in een functie-app. Zie voor meer informatie de [Azure Functions-pagina met prijzen].
+Facturering is gebaseerd op aantal uitvoeringen, uitvoeringstijd en geheugen dat wordt gebruikt. Facturering wordt samengevoegd voor alle functies in een functie-app. Zie voor meer informatie de [Pagina prijzen voor Azure Functions].
 
 Het verbruiksabonnement is de standaardinstelling hostingabonnement en biedt de volgende voordelen:
 
@@ -141,9 +137,9 @@ Er zijn veel aspecten van een functie-app die is van invloed op hoe goed deze wo
 
 ### <a name="billing-model"></a>Factureringsmodel
 
-De facturering voor het abonnement Consumption wordt in detail beschreven op de [Azure Functions-pagina met prijzen]. Gebruik op het niveau van de functie-app wordt geaggregeerd en telt alleen de tijd die de functiecode wordt uitgevoerd. Hier volgen de eenheden voor facturering:
+De facturering voor het abonnement Consumption wordt in detail beschreven op de [Pagina prijzen voor Azure Functions]. Gebruik op het niveau van de functie-app wordt geaggregeerd en telt alleen de tijd die de functiecode wordt uitgevoerd. Hier volgen de eenheden voor facturering:
 
 * **Resourceverbruik in gigabyte-seconden (GB-s)**. Berekend als een combinatie van de grootte van geheugen en de runtime voor alle functies in een functie-app. 
 * **Uitvoeringen**. Geteld telkens wanneer een functie wordt uitgevoerd in reactie op een trigger voor de gebeurtenis.
 
-[Azure Functions-pagina met prijzen]: https://azure.microsoft.com/pricing/details/functions
+[Pagina prijzen voor Azure Functions]: https://azure.microsoft.com/pricing/details/functions
