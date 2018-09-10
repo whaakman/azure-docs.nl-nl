@@ -9,12 +9,12 @@ ms.component: language-understanding
 ms.topic: tutorial
 ms.date: 08/02/2018
 ms.author: diberry
-ms.openlocfilehash: de295a93d395cee4c4dfbea4f2e7f7338036feb8
-ms.sourcegitcommit: eaad191ede3510f07505b11e2d1bbfbaa7585dbd
+ms.openlocfilehash: 3f23ade2b0256c72c344e2a619227a79e3c79a47
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39494370"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44160112"
 ---
 # <a name="tutorial-1-build-app-with-custom-domain"></a>Zelfstudie: 1. Web-app met aangepast domein
 In deze zelfstudie maakt u een app die laat zien hoe u **intents** gebruikt om de _bedoeling_ van de gebruiker te bepalen op basis van de utterance (tekst) die ze naar de app verzenden. Wanneer u klaar bent, hebt u een LUIS-eindpunt in de cloud.
@@ -32,7 +32,7 @@ Deze app is het eenvoudigste type LUIS-app omdat dit type geen gegevens uit de u
 > * Voorbeeldutterances toevoegen aan de ApplyForJob-intent 
 > * Eindpunt opnieuw trainen, publiceren en opvragen 
 
-[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
 ## <a name="purpose-of-the-app"></a>Doel van de app
 Deze app heeft enkele intents. De eerste intent, **`GetJobInformation`**, stelt vast wanneer een gebruiker informatie wil over vacatures binnen een bedrijf. De tweede intent, **`None`**, stelt elk ander type utterance vast. Verderop in de snelstart wordt een derde intent, `ApplyForJob`, toegevoegd. 
@@ -85,15 +85,15 @@ Deze app heeft enkele intents. De eerste intent, **`GetJobInformation`**, stelt 
 
 ## <a name="train-and-publish-the-app"></a>De app trainen en publiceren
 
-[!include[LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
+[!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
 ## <a name="publish-app-to-endpoint"></a>App publiceren naar eindpunt
 
-[!include[LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
+[!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)] 
 
 ## <a name="query-endpoint-for-getjobinformation-intent"></a>Query-eindpunt voor GetJobInformation-intent
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Ga naar het einde van de URL in het adres en voer `I'm looking for a job with Natual Language Processing` in. De laatste parameter van de queryreeks is `q`, de utterance**query**. Deze utterance is niet hetzelfde als een van de voorbeeld-utterances in stap 4. Daarom is dit een goede test die de intent `GetJobInformation` als belangrijkste scorings-intent moet geven. 
 
@@ -147,7 +147,7 @@ Ga terug naar het browsertabblad voor de website van LUIS en maak een nieuwe int
 
 ## <a name="query-endpoint-for-applyforjob-intent"></a>Query-eindpunt voor ApplyForJob-intent
 
-1. [!include[LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
+1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
 2. Voer in het nieuwe browservenster `Can I submit my resume for job 235986` in aan het einde van de URL. 
 
@@ -186,7 +186,7 @@ LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoal
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-[!include[LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
+[!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
 
