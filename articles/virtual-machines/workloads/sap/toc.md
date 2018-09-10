@@ -16,14 +16,21 @@
 ### [Netwerkarchitectuur](hana-network-architecture.md)
 ### [Opslagarchitectuur](hana-storage-architecture.md)
 ### [Scenario's met HLI-ondersteuning](hana-supported-scenario.md)
-## [Infrastructuur en connectiviteit](hana-overview-infrastructure-connectivity.md)
-## [SAP HANA installeren](hana-installation.md)
+## Infrastructuur en connectiviteit
+### [HLI-implementatie](hana-overview-infrastructure-connectivity.md)
+### [Azure-VM's verbinden met grote HANA-instanties](hana-connect-azure-vm-large-instances.md)
+### [Een VNet verbinden met grote HANA-instanties via ExpressRoute](hana-connect-vnet-express-route.md)
+### [Aanvullende netwerkvereisten](hana-additional-network-requirements.md)
+## SAP HANA installeren
+### [De configuratie valideren](hana-installation.md)
+### [Voorbeeld van HANA-installatie](hana-example-installation.md)
 ## [Hoge beschikbaarheid en herstel na noodgevallen](hana-overview-high-availability-disaster-recovery.md)
 ## [Probleemoplossing en bewaking](troubleshooting-monitoring.md)
 ## Procedures
 ### [HA met STONITH instellen](ha-setup-with-stonith.md)
 ### [Back-up van het besturingssysteem voor SKU's type II](os-backup-type-ii-skus.md)
 ### [Bijwerken van het besturingssysteem voor grote HANA-exemplaren](os-upgrade-hana-large-instance.md)
+### [SMT-server instellen voor SUSE Linux](hana-setup-smt.md)
 # SAP HANA in virtuele machines op Azure
 ## [SAP HANA-installatie met enkel exemplaar](hana-get-started.md)
 ## [Implementatiehandleiding voor S/4 HANA of BW/4 HANA SAP CAL](cal-s4h.md)
