@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/28/2018
 ms.author: glenga
 ms.custom: cc996988-fb4f-47
-ms.openlocfilehash: 90b5009b3b260a0f4245459467ae248f800ad818
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 18e4adb47ecf8e6d44edea873a4b3cc73492b273
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094532"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301480"
 ---
 # <a name="how-to-manage-a-function-app-in-the-azure-portal"></a>Over het beheren van een functie-app in Azure portal 
 
@@ -111,7 +111,7 @@ Zie voor meer informatie over het werken met App Service-instellingen [Azure App
 
 | | |
 |-|-|
-| ![Opties voor de functie-app-implementatie in Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions kunt u bij ontwikkelen van uw functiecode aan te geven op uw lokale computer. Vervolgens kunt u uw lokale functie-app-project uploaden naar Azure. Naast de traditionele upload via FTP wordt Functions kunt u uw functie-app implementeren met populaire continue integratie-oplossingen, zoals GitHub, VSTS, Dropbox, Bitbucket en anderen. Zie voor meer informatie, [continue implementatie voor Azure Functions](functions-continuous-deployment.md). Als u wilt uploaden handmatig met behulp van FTP- of lokale Git, moet u ook [configureren van de referenties voor implementatie](functions-continuous-deployment.md#credentials). |
+| ![Opties voor de functie-app-implementatie in Azure portal](./media/functions-how-to-use-azure-function-app-settings/function-app-deployment-source.png) | Functions kunt u bij ontwikkelen van uw functiecode aan te geven op uw lokale computer. Vervolgens kunt u uw lokale functie-app-project uploaden naar Azure. Naast de traditionele upload via FTP wordt Functions kunt u uw functie-app implementeren met populaire continue integratie-oplossingen, zoals GitHub, Azure DevOps, Dropbox, Bitbucket en anderen. Zie voor meer informatie, [continue implementatie voor Azure Functions](functions-continuous-deployment.md). Als u wilt uploaden handmatig met behulp van FTP- of lokale Git, moet u ook [configureren van de referenties voor implementatie](functions-continuous-deployment.md#credentials). |
 
 
 ### <a name="cors"></a>CORS

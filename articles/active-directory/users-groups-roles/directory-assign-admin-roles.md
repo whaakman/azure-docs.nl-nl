@@ -14,14 +14,14 @@ ms.date: 09/07/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 9aa8e5e6e683da0cb95583979e96c1d315dffff9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 2768ba4726ccaf5e2249e356e425aeafaaaf91f6
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094295"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349242"
 ---
-# <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
+# <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerdersrollen toewijzen in Azure Active Directory
 
 Met Azure Active Directory (Azure AD), kunt u afzonderlijke beheerders verschillende functies vervullen aanwijzen. Beheerders worden aangewezen in de Azure AD-portal om uit te voeren taken, zoals het toevoegen of wijzigen, gebruikers, beheerdersrollen toewijzen, gebruikerswachtwoorden opnieuw instellen, Gebruikerslicenties beheren en beheren van domeinnamen.
 
@@ -86,7 +86,7 @@ De volgende beheerdersrollen zijn beschikbaar:
 
 * **[Laag2-ondersteuning voor partner](#partner-tier2-support)**: niet gebruiken. Deze rol is afgeschaft en wordt verwijderd uit Azure AD in de toekomst. Deze rol is bedoeld voor gebruik door een klein aantal wederverkoop partners van Microsoft en is niet bedoeld voor algemeen gebruik.
 
-* **[Wachtwoordbeheerder / Helpdeskbeheerder](#helpdesk-administrator)**: gebruikers met deze rol kunnen wachtwoorden wijzigen, serviceaanvragen beheren en servicestatus controleren. Helpdesk-medewerkers kunnen alleen wachtwoorden wijzigen voor gebruikers en andere helpdeskbeheerders. 
+* **[Wachtwoordbeheerder / Helpdeskbeheerder](#helpdesk-administrator)**: gebruikers met deze rol kunnen wachtwoorden wijzigen, vernieuwingstokens ongeldig te maken, serviceaanvragen beheren en servicestatus controleren. Helpdesk-beheerders kunnen wachtwoorden wijzigen en vernieuwingstokens alleen voor gebruikers en andere helpdeskbeheerders ongeldig te maken. Ongeldig vernieuwingstoken zorgt ervoor dat de gebruiker zich opnieuw aanmelden.
 
   > [!NOTE]
   > In Microsoft Graph API, Azure AD Graph API en Azure AD PowerShell, wordt deze rol aangeduid als 'Helpdesk-beheerder'. 'Wachtwoordbeheerder' is in de [Azure-portal](https://portal.azure.com/).
@@ -126,7 +126,7 @@ De volgende beheerdersrollen zijn beschikbaar:
   >
   >
 
-* **[Beheerder van gebruikersaccounts](#user-account-administrator)**: gebruikers met deze rol kunnen maken en beheren van alle aspecten van gebruikers en groepen. Daarnaast bevat deze rol de mogelijkheid ondersteuningstickets beheren en servicestatus controleren. Er zijn enkele beperkingen zijn van toepassing. Deze rol kunnen bijvoorbeeld niet verwijderen van een globale beheerder. Gebruiker accountbeheerders kunnen wachtwoorden wijzigen voor gebruikers, helpdeskbeheerders en alleen de accountbeheerders van andere gebruiker.
+* **[Beheerder van gebruikersaccounts](#user-account-administrator)**: gebruikers met deze rol kunnen maken en beheren van alle aspecten van gebruikers en groepen. Daarnaast bevat deze rol de mogelijkheid ondersteuningstickets beheren en servicestatus controleren. Er zijn enkele beperkingen zijn van toepassing. Deze rol kunnen bijvoorbeeld niet verwijderen van een globale beheerder. Gebruiker accountbeheerders kunnen wachtwoorden wijzigen en vernieuwen van tokens voor gebruikers, helpdeskbeheerders en andere beheerders gebruikersaccount alleen ongeldig te maken. Ongeldig vernieuwingstoken zorgt ervoor dat de gebruiker zich opnieuw aanmelden.
 
 | Kan doen | Niet mogelijk is |
 | --- | --- |
@@ -140,7 +140,7 @@ De volgende rollen moeten niet worden gebruikt. Ze zijn afgeschaft en wordt verw
 * Toevoegen
 * Apparaatbeheerders
 * Gebruikers van apparaten
-* Maker van via e-mail geverifieerde gebruikers
+* Maker van geverifieerde e-mailgebruiker
 * Postvakbeheerder
 * Werkplekapparaat toevoegen
 
@@ -386,7 +386,7 @@ Kan alle aspecten beheren van Azure AD en Microsoft-services die Azure AD-identi
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 | microsoft.powerApps.dynamics365/allEntities/allTasks | Beheer alle aspecten van Dynamics 365. |
 
-### <a name="compliance-administrator"></a>Compliancebeheerder
+### <a name="compliance-administrator"></a>Beheerder voor naleving
 Kan nalevingsconfiguratie en -rapporten lezen en beheren in Azure AD en Office 365.
 
   > [!NOTE]
@@ -597,7 +597,7 @@ Alleen gebruikt door Azure AD Connect-service.
 | microsoft.aad.directory/servicePrincipals/policies/update | De eigenschap servicePrincipals.policies in Azure Active Directory bijgewerkt. |
 | microsoft.aad.directorySync/allEntities/allTasks | Voer alle acties uit in Azure AD Connect. |
 
-### <a name="directory-writers"></a>Adreslijstschrijvers
+### <a name="directory-writers"></a>Schrijvers van mappen
 Kan lezen en schrijven van basic directory-informatie. Voor het verlenen van toegang tot toepassingen
 
   > [!NOTE]
@@ -1060,7 +1060,7 @@ Kan gegevens over de servicestatus lezen en ondersteuningstickets beheren.
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
 | Microsoft.Office365.supportTickets/allEntities/allTasks | Maak en beheer tickets voor Office 365-ondersteuning. |
 
-### <a name="sharepoint-service-administrator"></a>SharePoint Service-beheerder
+### <a name="sharepoint-service-administrator"></a>SharePoint-servicebeheerder
 Kan alle aspecten van de SharePoint-service beheren.
 
   > [!NOTE]
@@ -1176,6 +1176,6 @@ De standaardrol van gebruikers. Kan alle lezen en schrijven van een beperkte set
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Als u meer wilt weten over het wijzigen van de beheerders van een Azure-abonnement, ziet u [Azure-beheerdersrollen toevoegen of wijzigen](../../billing/billing-add-change-azure-subscription-administrator.md)
+* Zie voor meer informatie over het toewijzen van een gebruiker als een beheerder van een Azure-abonnement, [toegang met RBAC en de Azure-portal beheren](../../role-based-access-control/role-assignments-portal.md)
 * Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Zie [Hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory](../fundamentals/active-directory-how-subscriptions-associated-directory.md) voor meer informatie over hoe Azure Active Directory aan uw Azure-abonnement wordt gekoppeld

@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: glenga
-ms.openlocfilehash: 294dea695f120ff47712e0ccf79072a41baca07b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: b33c9246bef2ca22542e338a1ec1f91a92aa300e
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092815"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324832"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Werken met Azure Functions Core Tools
 
@@ -26,11 +26,11 @@ Azure Functions Core Tools kunt u ontwikkelen en testen van uw functies op uw lo
 
 ## <a name="core-tools-versions"></a>Core-versies van de hulpprogramma 's
 
-Er zijn twee versies van Azure Functions Core Tools. De versie die u gebruikt, is afhankelijk van uw lokale ontwikkelomgeving, de keuze van taal en niveau van ondersteuning vereist:
+Er zijn twee versies van Azure Functions Core Tools. De versie die u gebruikt, is afhankelijk van uw lokale ontwikkelomgeving [keuze van taal](supported-languages.md), en het niveau van ondersteuning vereist:
 
-+ [Versie 1.x](#v1): biedt ondersteuning voor versie 1.x van de runtime, die algemeen beschikbaar (GA). Deze versie van de hulpprogramma's wordt alleen ondersteund op Windows-computers en wordt geïnstalleerd vanuit een [npm-pakket](https://docs.npmjs.com/getting-started/what-is-npm). Met deze versie kunt u functies maken in de experimentele talen die officieel niet worden ondersteund. Zie voor meer informatie, [ondersteunde talen in Azure Functions](supported-languages.md)
++ [Versie 1.x](#v1): biedt ondersteuning voor versie 1.x van de runtime, die algemeen beschikbaar (GA). Deze versie van de hulpprogramma's wordt alleen ondersteund op Windows-computers en wordt geïnstalleerd vanuit een [npm-pakket](https://docs.npmjs.com/getting-started/what-is-npm).
 
-+ [Versie 2.x](#v2): biedt ondersteuning voor [versie 2.x van de runtime](functions-versions.md). Deze versie biedt ondersteuning voor [Windows](#windows-npm), [macOS](#brew), en [Linux](#linux). Maakt gebruik van platform-specifieke pakketmanagers of npm voor installatie. Als de runtime 2.x is deze versie van de essentiële hulpprogramma momenteel in preview. 
++ [Versie 2.x](#v2): biedt ondersteuning voor [versie 2.x van de runtime](functions-versions.md). Deze versie biedt ondersteuning voor [Windows](#windows-npm), [macOS](#brew), en [Linux](#linux). Maakt gebruik van platform-specifieke pakketmanagers of npm voor installatie. Als de runtime 2.x is deze versie van de essentiële hulpprogramma momenteel in preview. In versie 2.x, alle functies in een functie-app moet worden gebruikt in de dezelfde taal.
 
 Tenzij anders vermeld, de voorbeelden in dit artikel zijn voor versie 2.x. Voor het ontvangen van belangrijke updates op versie 2.x, met inbegrip van belangrijke wijzigingen aankondigingen, bekijk de [Azure App Service-aankondigingen](https://github.com/Azure/app-service-announcements/issues) opslagplaats.
 

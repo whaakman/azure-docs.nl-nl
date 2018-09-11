@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2017
 ms.author: fhryo-msft
 ms.component: common
-ms.openlocfilehash: e560eb9e0bbce09c541bfc66ea760ea3e636f841
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 0807bc5df9d4ee8782ae017dbb7ed63c38a13443
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528711"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304676"
 ---
 # <a name="monitor-diagnose-and-troubleshoot-microsoft-azure-storage"></a>Microsoft Azure Storage bewaken, problemen opsporen en oplossen
 [!INCLUDE [storage-selector-portal-monitoring-diagnosing-troubleshooting](../../../includes/storage-selector-portal-monitoring-diagnosing-troubleshooting.md)]
@@ -73,7 +73,7 @@ Zie voor een praktische handleiding voor het oplossen van problemen in Azure Sto
   * [Bijlage 2: Wireshark gebruiken voor het vastleggen van netwerkverkeer]
   * [Bijlage 3: Microsoft Message Analyzer gebruiken om vast te leggen van netwerkverkeer]
   * [Bijlage 4: Met behulp van Excel metrische gegevens weergeven en gegevens aanmelden]
-  * [Bijlage 5: Bewaking met Application Insights voor Visual Studio teamservices]
+  * [Bijlage 5: Controleren met Application Insights voor Azure DevOps]
 
 ## <a name="introduction"></a>Inleiding
 Deze handleiding wordt beschreven hoe u functies zoals Azure Opslaganalyse, logboekregistratie in de Azure Storage-clientbibliotheek en andere hulpprogramma's van derden om te identificeren, onderzoeken en oplossen van Azure Storage client-side ' problemen met betrekking tot.
@@ -125,7 +125,7 @@ U kunt de [Azure-portal](https://portal.azure.com) om weer te geven van de statu
 De [Azure-portal](https://portal.azure.com) biedt ook meldingen van incidenten die invloed hebben op de verschillende Azure-services.
 Opmerking: Deze informatie eerder beschikbaar was, samen met historische gegevens, op de [servicedashboard van Azure](http://status.azure.com).
 
-Terwijl de [Azure-portal](https://portal.azure.com) verzamelt gegevens over de servicestatus van binnen de datacenters van Azure (binnen-out bewaking), u kunt ook heeft een buiten-in-benadering voor het genereren van synthetische transacties die regelmatig toegang hebben tot uw Azure gehoste web-App vanaf meerdere locaties. De services die worden aangeboden door [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) en Application Insights for Visual Studio Team Services zijn voorbeelden van deze benadering. Zie voor meer informatie over Application Insights voor Visual Studio Team Services, de bijlage '[bijlage 5: bewaking met Application Insights for Visual Studio teamservices](#appendix-5). "
+Terwijl de [Azure-portal](https://portal.azure.com) verzamelt gegevens over de servicestatus van binnen de datacenters van Azure (binnen-out bewaking), u kunt ook heeft een buiten-in-benadering voor het genereren van synthetische transacties die regelmatig toegang hebben tot uw Azure gehoste web-App vanaf meerdere locaties. De services die worden aangeboden door [Dynatrace](http://www.dynatrace.com/en/synthetic-monitoring) en Application Insights voor Azure DevOps zijn voorbeelden van deze benadering. Zie voor meer informatie over Application Insights voor Azure DevOps, de bijlage '[bijlage 5: controleren met Application Insights voor Azure DevOps](#appendix-5). "
 
 ### <a name="monitoring-capacity"></a>Bewaking van capaciteit
 Metrische gegevens van Storage slaat alleen metrische gegevens over capaciteit voor de blob-service omdat blobs doorgaans rekening voor het grootste deel van de opgeslagen gegevens (op het moment van schrijven, dit is niet mogelijk met gebruik van metrische gegevens van Storage voor het bewaken van de capaciteit van uw tabellen en wachtrijen). U vindt deze gegevens in de **$MetricsCapacityBlob** tabel als u bewaking voor de Blob-service hebt ingeschakeld. Metrische opslaggegevens registreert u deze gegevens eenmaal per dag en kunt u de waarde van de **RowKey** om te bepalen of de rij bevat een entiteit met betrekking tot gebruikersgegevens (waarde **gegevens**) of analytics-gegevens (waarde **analytics**). Elke entiteit opgeslagen bevat informatie over de hoeveelheid opslag die wordt gebruikt (**capaciteit** gemeten in bytes) en het huidige aantal containers (**ContainerCount**) en blobs (**ObjectCount** ) in het opslagaccount dat wordt gebruikt. Voor meer informatie over de metrische gegevens over de capaciteit die zijn opgeslagen in de **$MetricsCapacityBlob** tabel, Zie [tabelschema van metrische gegevens van Storage Analytics](http://msdn.microsoft.com/library/azure/hh343264.aspx).
@@ -471,9 +471,9 @@ Als u de clienttoepassing HTTP 403 (verboden) fouten genereren wordt, is een waa
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab-… |Bewerking met de primaire locatie per locatiemodus PrimaryOnly starten. |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Synchrone verzoek om te beginnen https://domemaildist.blob.core.windows.netazureimblobcontainer/blobCreatedViaSAS.txt?sv=2014-02-14&amp; sr = c&amp;si = mypolicy&amp;sig OFnd4Rd7z01fIvh % 2BmcR6zbudIH2F5Ikm % 2FyhNYZEmJNQ % = 3D&amp;api-versie 2014-02-14 =. |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Wachten op antwoord. |
-| Microsoft.WindowsAzure.Storage |Waarschuwing |2 |85d077ab -… |Uitzondering geretourneerd tijdens het wachten op antwoord: de externe server heeft een fout geretourneerd: (403)-verboden. |
+| Microsoft.WindowsAzure.Storage |Waarschuwing  |2 |85d077ab -… |Uitzondering geretourneerd tijdens het wachten op antwoord: de externe server heeft een fout geretourneerd: (403)-verboden. |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Antwoord ontvangen. Statuscode 403, aanvraag-ID = 9d67c64a-64ed-4b0d-9515-3b14bbcdc63d, inhoud MD5 = =, ETag =. |
-| Microsoft.WindowsAzure.Storage |Waarschuwing |2 |85d077ab -… |Uitzondering opgetreden tijdens de bewerking: de externe server heeft een fout geretourneerd: (403)-verboden... |
+| Microsoft.WindowsAzure.Storage |Waarschuwing  |2 |85d077ab -… |Uitzondering opgetreden tijdens de bewerking: de externe server heeft een fout geretourneerd: (403)-verboden... |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |Controleren als de bewerking opnieuw moet worden uitgevoerd. Aantal nieuwe pogingen = 0, HTTP-statuscode 403, uitzondering = = van de externe server heeft een fout geretourneerd: (403)-verboden... |
 | Microsoft.WindowsAzure.Storage |Informatie |3 |85d077ab -… |De volgende locatie is ingesteld op de primaire, op basis van de locatiemodus. |
 | Microsoft.WindowsAzure.Storage |Fout |1 |85d077ab -… |Beleid voor opnieuw proberen is niet toegestaan voor een nieuwe poging. Mislukt met de externe server heeft een fout geretourneerd: (403)-verboden. |
@@ -799,8 +799,8 @@ Uw opslag logboekregistratie om gegevens te importeren in Excel nadat u dit van 
 
 In stap 1 van de **Wizard Tekst importeren**, selecteer **puntkomma** als het enige scheidingsteken en kiest u dubbele-offerte als de **tekstscheidingsteken**. Klik vervolgens op **voltooien** en kies waar de gegevens in uw werkmap.
 
-### <a name="appendix-5"></a>Bijlage 5: Controleren met Application Insights voor Visual Studio teamservices
-U kunt ook de functie Application Insights voor Visual Studio Team Services gebruiken als onderdeel van de beschikbaarheidsbewaking van prestaties en. Dit hulpprogramma kunt doen:
+### <a name="appendix-5"></a>Bijlage 5: Controleren met Application Insights voor Azure DevOps
+U kunt ook de functie Application Insights voor Azure DevOps gebruiken als onderdeel van de beschikbaarheidsbewaking van prestaties en. Dit hulpprogramma kunt doen:
 
 * Zorg ervoor dat uw web-service beschikbaar is en reageert. Of de app is een website of een apparaat-app die gebruikmaakt van een webservice, kan deze test uw URL om de paar minuten vanaf locaties over de hele wereld en laat u weten of er een probleem is.
 * Analyseer snel eventuele problemen met prestaties of uitzonderingen in uw webservice. Bekijk als CPU- of andere bronnen worden uitgebreid, ontvang stack-traces van uitzonderingen en eenvoudig zoeken naar via logboektraceringen. Als de prestaties van de app onder aanvaardbare grenzen komt, Microsoft kunt u een e-mail verzenden. U kunt zowel .NET als Java web-services bewaken.
@@ -865,7 +865,7 @@ U vindt meer informatie op [wat is Application Insights](../../application-insig
 [Bijlage 2: Wireshark gebruiken voor het vastleggen van netwerkverkeer]: #appendix-2
 [Bijlage 3: Microsoft Message Analyzer gebruiken om vast te leggen van netwerkverkeer]: #appendix-3
 [Bijlage 4: Met behulp van Excel metrische gegevens weergeven en gegevens aanmelden]: #appendix-4
-[Bijlage 5: Bewaking met Application Insights voor Visual Studio teamservices]: #appendix-5
+[Bijlage 5: Controleren met Application Insights voor Azure DevOps]: #appendix-5
 
 <!--Image references-->
 [1]: ./media/storage-monitoring-diagnosing-troubleshooting/overview.png
