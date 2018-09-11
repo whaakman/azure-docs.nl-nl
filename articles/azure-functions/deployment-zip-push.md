@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: 53a5de98ccdae4d4a73d8dc7b150c8e333024b33
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095161"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347117"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>ZIP-implementatie voor Azure Functions
 
@@ -93,7 +93,7 @@ U kunt ook uw functies direct vanuit het pakketbestand van de implementatie uitg
 > [!NOTE]
 > De mogelijkheid om uit te voeren van uw functie-app van het implementatiepakket is in preview.
 
-ZIP-implementatie kan worden geïntegreerd met deze functie, die u inschakelen kunt door in te stellen van de functie app-instelling `WEBSITE_RUN_FROM_ZIP` op een waarde van `1`. Zie voor meer informatie, [uw functies worden uitgevoerd vanuit een pakketbestand implementatie](run-functions-from-deployment-package.md).
+ZIP-implementatie kan worden geïntegreerd met deze functie, die u inschakelen kunt door in te stellen van de functie app-instelling `WEBSITE_RUN_FROM_PACKAGE` op een waarde van `1`. Zie voor meer informatie, [uw functies worden uitgevoerd vanuit een pakketbestand implementatie](run-functions-from-deployment-package.md).
 
 [!INCLUDE [app-service-deploy-zip-push-custom](../../includes/app-service-deploy-zip-push-custom.md)]
 

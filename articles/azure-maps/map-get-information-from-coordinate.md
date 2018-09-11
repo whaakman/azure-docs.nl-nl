@@ -3,18 +3,18 @@ title: Informatie weergeven over een coördinaat met Azure Maps | Microsoft Docs
 description: Informatie over een adres op de kaart weergegeven wanneer een gebruiker een coördinaat selecteert
 author: jingjing-z
 ms.author: jinzh
-ms.date: 09/07/2018
+ms.date: 09/08/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: d1baa4adc555e65c4a25928d19f201dba6109142
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 993d1da4b2a99ec0f30a5a685835d9f6b6d35a9e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157681"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302891"
 ---
 # <a name="get-information-from-a-coordinate"></a>Informatie ophalen uit een coördinaat
 
@@ -22,7 +22,7 @@ Dit artikel ziet u hoe u omgekeerde-adres zoeken en bij een muisklik geven het a
 
 Er zijn twee manieren om een zoekactie omgekeerde-adres, een door het uitvoeren van query's is de [Azure Maps omgekeerde-adres zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchaddressreverse) via een service-module en de andere is door een [XMLHttpRequest](https://xhr.spec.whatwg.org/) aan de query-API de adres. We bespreken beide hieronder.
 
-## <a name="use-the-service-module-to-make-a-reverse-address-search"></a>De servicemodule gebruiken om een zoekactie omgekeerde-adres
+## <a name="making-a-reverse-search-request-via-service-module"></a>Maken van een zoekaanvraag omgekeerde via de servicemodule
 
 ### <a name="understand-the-code"></a>De code begrijpen
 
@@ -41,7 +41,7 @@ Het laatste blok van code voegt een gebeurtenislistener voor klikken met de muis
 
 Voor een geslaagde respons verzamelt het adres voor de locatie van het aantal malen aangeklikt en definieert de pop-upvenster inhoud en de positie via [setPopupOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest#setpopupoptions) functie van de klasse pop-upvenster.
 
-## <a name="use-xmlhttprequest-to-make-a-reverse-address-search"></a>XMLHTTPRequest gebruiken om te maken van een omgekeerde zoeken
+## <a name="making-a-reverse-search-request-via-xmlhttprequest"></a>Maken van een zoekaanvraag omgekeerde via XMLHttpRequest
 
 ### <a name="understand-the-code"></a>De code begrijpen
 

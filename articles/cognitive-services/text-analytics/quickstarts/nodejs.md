@@ -1,5 +1,6 @@
 ---
-title: Snelstartgids voor node.js voor Azure Cognitive Services Text Analytics-API | Microsoft Docs
+title: 'Snelstartgids: Met behulp van Node.js voor het aanroepen van de Tekstanalyse-API | Microsoft Docs'
+titleSuffix: Azure Cognitive Services
 description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Tekstanalyse-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -9,21 +10,21 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 9c4ff79384399cb7efd70393cb65f8ff055251ed
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 6cb02ea6c886b3c784826f41f6c3cb638e7104e0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840419"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297074"
 ---
-# <a name="quickstart-for-text-analytics-api-with-nodejs"></a>Snelstartgids voor Tekstanalyse-API met Node.js 
+# <a name="quickstart-using-nodejs-to-call-the-text-analytics-cognitive-service"></a>Snelstartgids: De Text Analytics Cognitive Service aanroepen met behulp van Node.js
 <a name="HOLTop"></a>
 
 In dit artikel ziet u hoe u aan [taal detecteren](#Detect), [stemming analyseren](#SentimentAnalysis), [Extraheer sleuteluitdrukkingen](#KeyPhraseExtraction), en [gekoppelde entiteiten identificeren](#Entities) gebruiken de [Tekstanalyse-API's](//go.microsoft.com/fwlink/?LinkID=759711) met behulp van Node.JS.
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Tekstanalyse-API**. U kunt de **gratis laag voor 5000 transacties per maand** om uit te voeren van deze Quick Start.
 
@@ -206,7 +207,7 @@ Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in he
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Belangrijke woordgroepen herkennen
+## <a name="extract-key-phrases"></a>Sleuteltermen ophalen
 
 De API-sleutel woordgroep extractie sleuteltermen geëxtraheerd uit een document, met behulp van de [sleuteltermen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Het volgende voorbeeld haalt sleuteltermen voor Engelse en Spaanse documenten.
 

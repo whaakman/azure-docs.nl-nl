@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 05/11/18
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: e382f53678806aa3442151703277c3a57bb30830
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 2e74e45761a2f21c522f80d453da48948e17de58
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302274"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347747"
 ---
 # <a name="what-is-the-myapps-portal"></a>Wat is de MyApps-portal?
 
@@ -49,7 +49,7 @@ U kunt een actieve of geverifieerde domeinnaam die is geconfigureerd in uw Azure
 
 Distribueer de URL voor alle gebruikers die zich aanmelden bij toepassingen die kunnen worden geïntegreerd met Azure AD.
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authenticatie
 
 Als u wilt de MyApps-portal is bereikt, moet u in Azure AD via een account voor werk- of schoolaccount te worden geverifieerd. U kunt worden geverifieerd bij Azure AD rechtstreeks. U kunt ook als een organisatie heeft federation geconfigureerd met behulp van Active Directory Federation Services (AD FS) of andere technologieën, kunt u worden geverifieerd door Windows Server Active Directory.
 
@@ -109,16 +109,6 @@ Het team van Azure Active Directory publiceert de mobiele app voor mijn Apps. Wa
 
 > [!NOTE]
 > U kunt aanmelden bij toepassingen die ondersteuning bieden voor federatie met Azure AD (inclusief Salesforce, Google Apps, Dropbox, Box, Concur, Workday, Office 365 en meer dan 70 anderen) op vrijwel elke webbrowser, op elk apparaat, zonder een invoegtoepassing of mobiele app. Moet worden gebruikt op een mobiel apparaat, de andere [MyApps-portal ervaringen](https://myapps.microsoft.com/) ook de Apps in mijn mobiele app niet vereist.
->
->
-
-### <a name="my-apps-for-android"></a>Mijn Apps voor Android
-
-Mijn Apps voor Android wordt ondersteund op een Android-apparaat dat Android-versie 4.1 of hoger wordt uitgevoerd.  
-
-Het is beschikbaar op de [Google Play store](https://play.google.com/store/apps/details?id=com.microsoft.myapps).
-
-![Mijn Apps voor Android][3]   
 
 ### <a name="my-apps-for-iphone-and-ipad"></a>Mijn Apps voor iPhone en iPad
 
@@ -129,13 +119,13 @@ Het is beschikbaar op de [Apple App Store](https://itunes.apple.com/us/app/my-ap
 ![Mijn Apps voor iOS][4]    
 
 
-## <a name="managed-browser-for-my-apps"></a>Beheerde browser voor mijn Apps
+## <a name="intune-managed-browser-for-my-apps"></a>Intune Managed Browser voor mijn Apps
 
-Mijn Apps is ook geïntegreerd met de Intune Managed Browser. De Intune Managed Browser voor iOS en Android-apparaten speelt een belangrijke rol bij het ervoor te zorgen dat gegevens op mobiele apparaten optimaal beveiligd blijft. De browser kunt u veilig weergeven en navigeer van webpagina's die mogelijk bedrijfsgegevens bevatten en het biedt een veilige websurfervaring.  
+Mijn Apps is ook geïntegreerd met de Intune Managed Browser. De Intune Managed Browser voor iOS en Android-apparaten helpt u bij het veilig weergeven en webpagina's die mogelijk bedrijfsgegevens, bevatten navigeren helpen om een veiliger surfen op het web ervaring te bieden.  
 
-Krijgt u snel toegang tot mijn Apps op uw startpagina van Managed Browser en in uw bladwijzers zodat minder klikken zijn vereist voor het bereiken van elke toepassing die u wilt openen.
+U kunt krijgen mijn Apps van zowel de startpagina van Managed Browser en uw bladwijzers, wat betekent dat er zijn minder klikken die nodig zijn voor het bereiken van uw apps.
 
-Intune Managed Browser is beschikbaar op de [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) en [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser&hl=en).
+Intune Managed Browser is beschikbaar op de [Apple App Store](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) en [Google Play Store](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser).
 
 ![Beheerde browser voor mijn Apps][5]    
 
@@ -216,11 +206,10 @@ Bijvoorbeeld, als een toepassing is geconfigureerd om gebruikers te verifiëren 
  
 - Zie voor meer informatie over het beheren van apps met Azure AD, de [single sign-on en beheren van app-toegang met Azure Active Directory-inleiding](../manage-apps/what-is-single-sign-on.md).
  
-- Zie voor meer informatie over het inrichten van gebruikers, [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen](../active-directory-saas-app-provisioning.md).
+- Zie voor meer informatie over het inrichten van gebruikers, [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen](../manage-apps/user-provisioning.md).
 
 <!--Image references-->
 [1]: ./media/active-directory-saas-access-panel-introduction/01.png
 [2]: ./media/active-directory-saas-access-panel-introduction/02.png
-[3]: ./media/active-directory-saas-access-panel-introduction/03.png
 [4]: ./media/active-directory-saas-access-panel-introduction/04.png
 [5]: ./media/active-directory-saas-access-panel-introduction/05.png

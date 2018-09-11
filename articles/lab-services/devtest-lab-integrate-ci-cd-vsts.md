@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 108abe45b4b296e0d7928f2da00a06ac43e1ccbe
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: b7ce07547eccd52a8b10d4cffecaf1456778da4a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39438780"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301205"
 ---
-# <a name="integrate-azure-devtest-labs-into-your-vsts-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs te integreren in uw VSTS continue integratie en van leveringspijplijn
-U kunt de *Azure DevTest Labs-taken* -extensie die in Visual Studio Team Services (VSTS) op eenvoudige wijze geïnstalleerd uw CI/CD-build-en release-pijplijn integreren met Azure DevTest Labs. De extensie installeert drie taken: 
+# <a name="integrate-azure-devtest-labs-into-your-azure-devops-continuous-integration-and-delivery-pipeline"></a>Azure DevTest Labs integreren in uw Azure DevOps, continue integratie en van leveringspijplijn
+U kunt de *Azure DevTest Labs-taken* -extensie die geïnstalleerd in Azure DevOps tot eenvoudig uw CI/CD-build-en release-pijplijn integreren met Azure DevTest Labs. De extensie installeert drie taken: 
 * Een virtuele machine maken
 * Een aangepaste installatiekopie van een virtuele machine maken
 * Een VM verwijderen 
@@ -85,16 +85,16 @@ In deze sectie wordt beschreven hoe u de Azure Resource Manager-sjabloon die u g
 
 1. Controleer het script in uw bronbeheersysteem. Noem het er ongeveer als **GetLabVMParams.ps1**.
 
-   Als u dit script uitvoert op de agent als onderdeel van de release-definitie, en als u de stappen zoals *Azure bestandskopie* of *PowerShell op de doelmachines*, het script de waarden die u nodig hebt om te worden verzameld uw app implementeren op de virtuele machine. Normaal gesproken gebruikt u deze taken om apps te implementeren met een Azure-VM. De taken vereist waarden zoals de naam van de VM-resourcegroep, het IP-adres en de volledig gekwalificeerde domeinnaam (FQDN).
+   Als u dit script uitvoert op de agent als onderdeel van de release-pijplijn, en als u de stappen zoals *Azure bestandskopie* of *PowerShell op de doelmachines*, het script de waarden die u nodig hebt om te worden verzameld uw app implementeren op de virtuele machine. Normaal gesproken gebruikt u deze taken om apps te implementeren met een Azure-VM. De taken vereist waarden zoals de naam van de VM-resourcegroep, het IP-adres en de volledig gekwalificeerde domeinnaam (FQDN).
 
-## <a name="create-a-release-definition-in-release-management"></a>Release-definitie maken in de Release Management
-Voor het maken van de release-definitie, het volgende doen:
+## <a name="create-a-release-pipeline-in-release-management"></a>In de Release Management maakt een release-pijplijn
+Voor het maken van de release-pijplijn, het volgende doen:
 
 1. Op de **Releases** tabblad van de **Build & Release** hub, selecteer de knop plusteken (+).
 1. In de **release-definitie maken** venster de **leeg** sjabloon en selecteer vervolgens **volgende**.
-1. Selecteer **Kies Later**, en selecteer vervolgens **maken** een nieuwe release-definitie maken met een standaard-omgeving en er is geen gekoppelde artefacten.
-1. Als u wilt openen in het snelmenu, in de nieuwe definitie van de release, selecteer het weglatingsteken (...) naast de omgevingsnaam van de, en selecteer vervolgens **variabelen configureren**. 
-1. In de **configureren - omgeving** venster voor de variabelen die u in de release-definitie-taken gebruikt, voer de volgende waarden:
+1. Selecteer **Kies Later**, en selecteer vervolgens **maken** naar een nieuwe release-pijplijn maken met een standaard-omgeving en er is geen gekoppelde artefacten.
+1. Als u wilt het snelmenu in de nieuwe release-pijplijn openen, selecteer het weglatingsteken (...) naast de omgevingsnaam van de en selecteer vervolgens **variabelen configureren**. 
+1. In de **configureren - omgeving** venster voor de variabelen die u in de release-pijplijn-taken gebruikt, voer de volgende waarden:
 
    a. Voor **vmName**, voer de naam die u hebt toegewezen aan de virtuele machine tijdens het maken van de Resource Manager-sjabloon in Azure portal.
 
@@ -106,13 +106,13 @@ Voor het maken van de release-definitie, het volgende doen:
 
 De volgende fase van de implementatie is het maken van de virtuele machine als de 'gouden installatiekopie' voor latere implementaties wilt gebruiken. U kunt de virtuele machine maken in uw Azure DevTest Lab-instantie met behulp van de taak die speciaal voor dit doel ontwikkeld. 
 
-1. Selecteer in de release-definitie **toevoegen taken**.
+1. Selecteer in de release-pijplijn **toevoegen taken**.
 1. Op de **implementeren** tabblad, voegt u een *Azure DevTest Labs maken VM* taak. De taak als volgt configureren:
 
    > [!NOTE]
    > Zie voor het maken van de virtuele machine moet worden gebruikt voor latere implementaties [Azure DevTest Labs-taken](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Voor **Azure RM-abonnement**, selecteert u een verbinding in de **beschikbare verbindingen van Azure Service** lijst of maak een meer beperkte machtigingen voor verbinding met uw Azure-abonnement. Zie voor meer informatie, [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Voor **Azure RM-abonnement**, selecteert u een verbinding in de **beschikbare verbindingen van Azure Service** lijst of maak een meer beperkte machtigingen voor verbinding met uw Azure-abonnement. Zie voor meer informatie, [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
    b. Voor **Labnaam**, selecteert u de naam van het exemplaar dat u eerder hebt gemaakt.
 
@@ -135,14 +135,14 @@ De volgende fase van de implementatie is het maken van de virtuele machine als d
    ```
 
 1. Voer het script dat u eerder hebt voor het verzamelen van de details van de DevTest Labs-virtuele machine gemaakt. 
-1. Selecteer in de release-definitie **toevoegen taken** en klik op de **implementeren** tabblad, voegt u een *Azure PowerShell* taak. De taak als volgt configureren:
+1. Selecteer in de release-pijplijn **toevoegen taken** en klik op de **implementeren** tabblad, voegt u een *Azure PowerShell* taak. De taak als volgt configureren:
 
    > [!NOTE]
    > Zie voor het verzamelen van de details van de virtuele machine DevTest-Labs, [implementeren: Azure PowerShell](https://github.com/Microsoft/vsts-tasks/tree/master/Tasks/AzurePowerShell) en voer het script uit.
 
    a. Voor **Azure verbindingstype**, selecteer **Azure Resource Manager**.
 
-   b. Voor **Azure RM-abonnement**, selecteer een verbinding in de lijst onder **beschikbare verbindingen van Azure Service**, of een meer beperkte machtigingen verbinding maken met uw Azure-abonnement. Zie voor meer informatie, [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   b. Voor **Azure RM-abonnement**, selecteer een verbinding in de lijst onder **beschikbare verbindingen van Azure Service**, of een meer beperkte machtigingen verbinding maken met uw Azure-abonnement. Zie voor meer informatie, [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
    c. Voor **scripttype**, selecteer **scriptbestand**.
  
@@ -154,22 +154,22 @@ De volgende fase van de implementatie is het maken van de virtuele machine als d
       ```
       -labVmId '$(labVMId)'
       ```
-    Het script worden de vereiste waarden verzameld en opgeslagen in omgevingsvariabelen in de release-definitie zodat u eenvoudig naar deze in de volgende stappen verwijzen kunt.
+    Het script worden de vereiste waarden verzameld en opgeslagen in omgevingsvariabelen in de release-pijplijn zodat u eenvoudig naar deze in de volgende stappen verwijzen kunt.
 
 1. Uw app implementeren in de nieuwe virtuele machine een DevTest-Labs. De taken die u normaal gesproken gebruikt om de app te implementeren zijn *Azure bestandskopie* en *PowerShell op de doelmachines*.
-   De informatie over de virtuele machine die u nodig hebt voor de parameters van deze taken wordt opgeslagen in drie variabelen met de naam **labVmRgName**, **labVMIpAddress**, en **labVMFqdn**binnen de release-definitie. Als u wilt dat alleen om te experimenteren met het maken van een DevTest Labs-virtuele machine en een aangepaste installatiekopie, zonder dat een app implementeren op deze, kunt u deze stap overslaan.
+   De informatie over de virtuele machine die u nodig hebt voor de parameters van deze taken wordt opgeslagen in drie variabelen met de naam **labVmRgName**, **labVMIpAddress**, en **labVMFqdn**binnen de release-pijplijn. Als u wilt dat alleen om te experimenteren met het maken van een DevTest Labs-virtuele machine en een aangepaste installatiekopie, zonder dat een app implementeren op deze, kunt u deze stap overslaan.
 
 ### <a name="create-an-image"></a>Een installatiekopie maken
 
 De volgende fase is het maken van een installatiekopie van de geïmplementeerde virtuele machine in uw Azure DevTest Labs-exemplaar. U kunt vervolgens de installatiekopie te maken van kopieën van de virtuele machine op aanvraag wanneer u wilt uitvoeren van een taak ontwikkelen of bepaalde tests worden uitgevoerd. 
 
-1. Selecteer in de release-definitie **toevoegen taken**.
+1. Selecteer in de release-pijplijn **toevoegen taken**.
 1. Op de **implementeren** tabblad, voegt u een **Azure DevTest Labs maken Custom-Image** taak. Configureer deze als volgt:
 
    > [!NOTE]
    > Zie voor het maken van de installatiekopie, [Azure DevTest Labs-taken](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Voor **Azure RM-abonnement**, in de **beschikbare verbindingen van Azure Service** lijst, selecteer een verbinding in de lijst of maak een meer beperkte machtigingen voor verbinding met uw Azure-abonnement. Zie voor meer informatie, [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Voor **Azure RM-abonnement**, in de **beschikbare verbindingen van Azure Service** lijst, selecteer een verbinding in de lijst of maak een meer beperkte machtigingen voor verbinding met uw Azure-abonnement. Zie voor meer informatie, [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
    b. Voor **Labnaam**, selecteert u de naam van het exemplaar dat u eerder hebt gemaakt.
 
@@ -185,17 +185,17 @@ De volgende fase is het maken van een installatiekopie van de geïmplementeerde 
 
 De laatste fase is het verwijderen van de virtuele machine die u hebt geïmplementeerd in uw Azure DevTest Labs-exemplaar. Normaal gesproken verwijdert u de virtuele machine nadat u de dev-taken uitvoeren of Voer de tests die u nodig hebt op de geïmplementeerde virtuele machine. 
 
-1. Selecteer in de release-definitie **toevoegen taken** en klik op de **implementeren** tabblad, voegt u een *Azure DevTest Labs verwijderen VM* taak. Configureer deze als volgt:
+1. Selecteer in de release-pijplijn **toevoegen taken** en klik op de **implementeren** tabblad, voegt u een *Azure DevTest Labs verwijderen VM* taak. Configureer deze als volgt:
 
       > [!NOTE]
       > Als u wilt verwijderen van de virtuele machine, Zie [Azure DevTest Labs-taken](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks).
 
-   a. Voor **Azure RM-abonnement**, selecteert u een verbinding in de **beschikbare verbindingen van Azure Service** lijst of maak een meer beperkte machtigingen voor verbinding met uw Azure-abonnement. Zie voor meer informatie, [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+   a. Voor **Azure RM-abonnement**, selecteert u een verbinding in de **beschikbare verbindingen van Azure Service** lijst of maak een meer beperkte machtigingen voor verbinding met uw Azure-abonnement. Zie voor meer informatie, [Azure Resource Manager-service-eindpunt](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
  
    b. Voor **Lab VM-ID**, als u de standaardnaam van de omgevingsvariabele die automatisch is gevuld met de ID van het lab VM door een eerdere taak gewijzigd hier bewerken. De standaardwaarde is **$(labVMId)**.
 
-1. Voer een naam voor de release-definitie en vervolgens op te slaan.
-1. Maken van een nieuwe versie, selecteert u de nieuwste build en deze implementeren in één omgeving in de definitie.
+1. Voer een naam voor de release-pijplijn en vervolgens op te slaan.
+1. Maak een nieuwe versie, selecteert u de nieuwste build en deze implementeren in één omgeving in de pijplijn.
 
 In elk stadium, vernieuw de weergave van uw DevTest Labs-exemplaar in de Azure-portal om weer te geven van de virtuele machine en de installatiekopie die worden gemaakt en de virtuele machine die opnieuw wordt verwijderd.
 
@@ -207,5 +207,5 @@ U kunt nu de aangepaste installatiekopie gebruiken op virtuele machines maken al
 ## <a name="next-steps"></a>Volgende stappen
 * Meer informatie over het [multi-VM-omgevingen maken met Resource Manager-sjablonen](devtest-lab-create-environment-from-arm.md).
 * Meer snelstartsjablonen van het type Resource Manager voor het automatiseren van DevTest Labs verkennen de [openbare DevTest Labs GitHub-opslagplaats](https://github.com/Azure/azure-quickstart-templates).
-* Indien nodig, Zie de [VSTS probleemoplossing](https://docs.microsoft.com/vsts/build-release/actions/troubleshooting) pagina.
+* Indien nodig, Zie de [probleemoplossing van Azure DevOps](https://docs.microsoft.com/azure/devops/pipelines/troubleshooting) pagina.
  

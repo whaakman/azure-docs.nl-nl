@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 01/19/2017
 ms.author: seanmck
-ms.openlocfilehash: 42910675bcf512a3d6c76369adc9f41215420a78
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 18aa5ab16a1690fdcead46ebc15d72837f62612d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972288"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302466"
 ---
 # <a name="cloud-foundry-on-azure"></a>Cloud Foundry op Azure
 
@@ -58,11 +58,11 @@ Cloud Foundry moedigt het ['12-factor app'](https://12factor.net/) methodologie 
 
 Als u van Pivotal Cloud Foundry gebruikmaakt, de service broker is ook [beschikbaar als een tegel](https://docs.pivotal.io/azure-sb/installing.html) vanaf het centrale netwerk.
 
-## <a name="related-resources"></a>Gerelateerde resources
+## <a name="related-resources"></a>Verwante resources
 
-### <a name="visual-studio-team-services-plugin"></a>Visual Studio Team Services-invoegtoepassing
+### <a name="azure-devops-services-plugin"></a>Azure DevOps-Services-invoegtoepassing
 
-Cloud Foundry is geschikt voor het ontwikkelen van flexibele software, waaronder het gebruik van continue integratie (CI) en continue levering (CD). Als u Visual Studio Team Services (VSTS) gebruiken voor het beheren van uw projecten en wilt instellen van een CI/CD-pijplijn die gericht is op Cloud Foundry, kunt u de [VSTS Cloud Foundry Maak extensie](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). De invoegtoepassing maakt het eenvoudig te configureren en het automatiseren van implementaties voor Cloud Foundry, of die worden uitgevoerd in Azure of een andere omgeving.
+Cloud Foundry is geschikt voor het ontwikkelen van flexibele software, waaronder het gebruik van continue integratie (CI) en continue levering (CD). Als u Azure DevOps-Services gebruiken om uw projecten te beheren en wilt instellen van een CI/CD-pijplijn die gericht is op Cloud Foundry, kunt u de [Azure DevOps Services Cloud Foundry Maak extensie](https://marketplace.visualstudio.com/items?itemName=ms-vsts.cloud-foundry-build-extension). De invoegtoepassing maakt het eenvoudig te configureren en het automatiseren van implementaties voor Cloud Foundry, of die worden uitgevoerd in Azure of een andere omgeving.
 
 ## <a name="next-steps"></a>Volgende stappen
 

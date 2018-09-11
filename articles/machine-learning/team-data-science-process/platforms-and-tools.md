@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 4b0c5d55c8a62dadbe11382997f4d258e66e1a31
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 0c5cfaad096b5702f321eead1f3da0d9225f4b53
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37951138"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302857"
 ---
-# <a name="platforms-and-tools-for-data-science-team-projects"></a>Platformen en hulpprogramma's voor data science-teamprojecten
+# <a name="platforms-and-tools-for-data-science-projects"></a>Platformen en hulpprogramma's voor data science-projecten
 
 Microsoft biedt een volledige spectrum van gegevens en analyses services en resources voor zowel de cloud of on-premises platforms. Ze kunnen worden geïmplementeerd als u de uitvoering van uw data science-projecten efficiënter en schaalbare. Richtlijnen voor het implementeren van data science-projecten in een herleidbare teams, versie beheerd en gezamenlijke manier wordt geleverd door de [Team Data Science Process](overview.md) (TDSP).  Zie voor een overzicht van de rollen personeel en de bijbehorende taken die worden beheerd door een data science team standaardiseren over dit proces, [Team Data Science Process rollen en taken](roles-tasks.md).
 
@@ -126,7 +126,7 @@ Voer de volgende bash-opdracht uit om Git te installeren op Linux (CentOS) virtu
 
 ### <a name="generate-public-ssh-key-on-linux-centos-machines"></a>Openbare SSH-sleutel op machines voor Linux (CentOS)
 
-Als u van machines voor Linux (CentOS gebruikmaakt) de git-opdrachten uitvoeren, moet u de openbare SSH-sleutel van uw computer toevoegen aan uw VSTS-server, zodat deze computer wordt herkend door de VSTS-server. Eerst moet u een openbare SSH-sleutel genereren en de sleutel toevoegen aan de openbare SSH-sleutels in uw VSTS-beveiligingspagina instelling. 
+Als u van machines voor Linux (CentOS gebruikmaakt) de git-opdrachten uitvoeren, moet u de openbare SSH-sleutel van uw computer toevoegen aan uw Azure DevOps-Services, zodat deze computer wordt herkend door het Azure DevOps-Services. Eerst moet u een openbare SSH-sleutel genereren en de sleutel toevoegen aan de openbare SSH-sleutels in de instellingenpagina van uw Azure DevOps-Services-beveiliging. 
 
 - Voer de volgende twee opdrachten voor het genereren van de SSH-sleutel: 
 
@@ -136,7 +136,7 @@ Als u van machines voor Linux (CentOS gebruikmaakt) de git-opdrachten uitvoeren,
 ![](./media/platforms-and-tools/resources-1-generate_ssh.png)
 
 - Kopieer de gehele ssh key inclusief *ssh-rsa*. 
-- Meld u aan bij uw VSTS-server. 
+- Meld u aan bij uw Azure DevOps-Services. 
 - Klik op **< naam van uw\>**  in de rechterbovenhoek van de pagina en klik op **security**. 
     
     ![](./media/platforms-and-tools/resources-2-user-setting.png)

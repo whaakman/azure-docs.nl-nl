@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: genli
-ms.openlocfilehash: 448622f0406eb709c8d94d60722edb4ef00f42de
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 1eb2a3c13a1bbf7f2fd7a9691d833fc9c4b3a2b8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669942"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294031"
 ---
 # <a name="understand-azure-spending-limit-and-how-to-remove-it"></a>Informatie over Azure-bestedingslimiet en hoe u deze kunt verwijderen
 
@@ -64,7 +64,7 @@ Ga als volgt te werk om de bestedingslimiet te verwijderen:
 
 De bestedingslimiet kan voorkomen dat u implementeren of bepaalde van derden en Microsoft-services gebruiken. Hieronder ziet u de scenario's waarin u het beste de bestedingslimiet van uw abonnement kunt verwijderen.
 
-* U bent van plan eigen installatiekopieën zoals Oracle en services zoals Visual Studio Team Services te implementeren. In dit scenario zorgt ervoor dat u uw bestedingslimiet bijna onmiddellijk overschrijden en zorgt ervoor dat uw abonnement wordt uitgeschakeld.
+* U wilt implementeren eigen installatiekopieën zoals Oracle en services zoals Azure DevOps-Services. In dit scenario zorgt ervoor dat u uw bestedingslimiet bijna onmiddellijk overschrijden en zorgt ervoor dat uw abonnement wordt uitgeschakeld.
 * U hebt services die niet mogen worden onderbroken.
 * U hebt services en bronnen met instellingen zoals virtuele IP-adressen die u niet wilt kwijtraken. Deze instellingen gaan verloren wanneer de services en bronnen toewijzing ongedaan gemaakt zijn.
 

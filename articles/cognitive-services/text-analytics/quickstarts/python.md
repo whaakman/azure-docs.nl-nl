@@ -1,6 +1,7 @@
 ---
-title: Snelstartgids voor Azure cognitieve Services, Text Analytics API Python | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met de tekst Analytics-API in Microsoft cognitieve Services in Azure.
+title: 'Snelstartgids: Met behulp van Python voor het aanroepen van de Tekstanalyse-API | Microsoft Docs'
+titleSuffix: Azure Cognitive Services
+description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Tekstanalyse-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
 author: ashmaka
 ms.service: cognitive-services
@@ -8,31 +9,31 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: ashmaka
-ms.openlocfilehash: b4c02767320b71912050ad511811767e6b5decf4
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8e570aac2c2d89a8147d179c4b0f9155497c5188
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344852"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298689"
 ---
-# <a name="quickstart-for-text-analytics-api-with-python"></a>Snelstartgids voor Tekstanalyse API met behulp van Python 
+# <a name="quickstart-using-python-to-call-the-text-analytics-cognitive-service"></a>Snelstartgids: Met behulp van Python voor het aanroepen van de Text Analytics-Cognitive Service
 <a name="HOLTop"></a>
 
-Dit overzicht toont u hoe aan [taal gedetecteerd](#Detect), [analyseren gevoel](#SentimentAnalysis), en [uitpakken van sleutel zinnen](#KeyPhraseExtraction) met behulp van de [tekst Analytics API's](//go.microsoft.com/fwlink/?LinkID=759711)met behulp van Python.
+In dit scenario ziet u hoe u aan [taal detecteren](#Detect), [stemming analyseren](#SentimentAnalysis), en [Extraheer sleuteluitdrukkingen](#KeyPhraseExtraction) met behulp van de [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711)met Python.
 
-U kunt in dit voorbeeld uitvoeren als een Jupyter-notebook op [MyBinder](https://mybinder.org) door te klikken op de lancering Binder badge: 
+In dit voorbeeld kunt u uitvoeren als een Jupyter-notebook op [MyBinder](https://mybinder.org) door te klikken op de lancering Binder badge: 
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=TextAnalytics.ipynb)
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Text Analytics API**. U kunt de **gratis laag voor 5000 transacties/maand** voor dit scenario.
+Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Tekstanalyse-API**. U kunt de **gratis laag voor 5000 transacties per maand** voor dit scenario.
 
-U moet ook beschikken over de [eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) die voor u is gegenereerd tijdens de registratie. 
+Ook moet u de [eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) die voor u is gegenereerd tijdens de registratie. 
 
-Om door te gaan met deze stapsgewijze Kennismaking vervangen `subscription_key` met een geldig abonnement-sleutel die u eerder hebt verkregen.
+Als u wilt doorgaan met dit scenario, Vervang `subscription_key` met een geldig abonnement-sleutel die u eerder hebt verkregen.
 
 
 ```python
@@ -40,7 +41,7 @@ subscription_key = None
 assert subscription_key
 ```
 
-Vervolgens controleren of de regio in `text_analytics_base_url` komt overeen met het abonnement dat u gebruikt bij het instellen van de service. Als u een gratis proefversie sleutel gebruikt, hoeft u geen wijzigen.
+Vervolgens controleren of de regio in `text_analytics_base_url` komt overeen met de versie die u hebt gebruikt bij het instellen van de service. Als u een gratis proefversie sleutel gebruikt, hoeft u niet wijzigen.
 
 
 ```python
@@ -51,7 +52,7 @@ text_analytics_base_url = "https://westcentralus.api.cognitive.microsoft.com/tex
 
 ## <a name="detect-languages"></a>Talen detecteren
 
-De API van taal detectie detecteert de taal van een document, met behulp van de [detecteren taal methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7). Het service-eindpunt van de taaldetectie API voor uw regio is beschikbaar via de volgende URL:
+De API voor taal detecteert de taal van een document, met behulp van de [taal detecteren methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7). Het service-eindpunt van de taaldetectie API voor uw regio is beschikbaar via de volgende URL:
 
 
 ```python
@@ -62,9 +63,9 @@ print(language_api_url)
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/languages
 
 
-De nettolading van de API bestaat uit een lijst met `documents`, elk van die op zijn beurt bevat een `id` en een `text` kenmerk. De `text` kenmerk slaat de tekst die moet worden geanalyseerd. 
+De nettolading voor de API bestaat uit een lijst met `documents`, elk van die op zijn beurt bevat een `id` en een `text` kenmerk. De `text` kenmerk slaat de tekst die moet worden geanalyseerd. 
 
-Vervang de `documents` woordenlijst door een andere tekst voor de taaldetectie. 
+Vervang de `documents` -woordenlijst met andere tekst voor de taaldetectie van. 
 
 
 ```python
@@ -75,7 +76,7 @@ documents = { 'documents': [
 ]}
 ```
 
-De volgende paar regels code houden met de taal detectie API via de `requests` bibliotheek in Python de taal in de documenten te bepalen.
+De volgende paar regels code aanroepen met de language detection-API via de `requests` bibliotheek in Python om te bepalen welke taal in de documenten.
 
 
 ```python
@@ -102,7 +103,7 @@ pprint(languages)
      'errors': []}
 
 
-De JSON-gegevens worden in de volgende regels code weergegeven als een HTML-tabel.
+De volgende regels code weergegeven de JSON-gegevens als een HTML-tabel.
 
 
 ```python
@@ -119,9 +120,9 @@ HTML("<table><tr><th>Text</th><th>Detected languages(scores)</th></tr>{0}</table
 
 ## <a name="analyze-sentiment"></a>Stemming analyseren
 
-De detexts gevoel Analysis API de gevoel van een reeks tekstrecords, met de [gevoel methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Het volgende voorbeeld scores twee documenten, één in het Engels en de andere in Spaans.
+De analyse-Gevoels-API-detexts het gevoel van een set tekstrecords, met behulp van de [Sentiment methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Het volgende voorbeeld beoordeelt twee documenten, één in het Engels en een andere in het Spaans.
 
-Het service-eindpunt voor gevoel analyse is beschikbaar voor uw regio via de volgende URL:
+Het service-eindpunt voor sentimentanalyse is beschikbaar voor uw regio via de volgende URL:
 
 
 ```python
@@ -132,7 +133,7 @@ print(sentiment_api_url)
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/sentiment
 
 
-Als u met het voorbeeld van de detectie taal de service is voorzien van een woordenboek met een `documents` sleutel die uit een lijst van documenten bestaat. Elk document is een tuple die bestaan uit de `id`, wordt de `text` worden geanalyseerd en de `language` van de tekst. U kunt de taaldetectie API uit de vorige sectie vult dit veld. 
+Zoals in het voorbeeld taal detectie van de service wordt aangeboden door een woordenlijst met een `documents` sleutel die uit een lijst met documenten bestaat. Elk document is een tuple die bestaat uit de `id`, wordt de `text` kunnen worden geanalyseerd en de `language` van de tekst. U kunt de taaldetectie API uit de vorige sectie voor het vullen van dit veld gebruiken. 
 
 
 ```python
@@ -144,7 +145,7 @@ documents = {'documents' : [
 ]}
 ```
 
-De gevoel API kan nu worden gebruikt voor het analyseren van de documenten voor hun patronen.
+Het sentiment-API kan nu worden gebruikt voor het analyseren van de documenten voor de bijbehorende sentimenten.
 
 
 ```python
@@ -160,15 +161,15 @@ pprint(sentiments)
      'errors': []}
 
 
-De score gevoel voor een document is tussen de 0 $$ $ $1, met een hogere score die wijzen op een positieve gevoel.
+De gevoelsscore voor een document is tussen $ $0 en $ $1, met een hogere score die wijzen op een positiever gevoel.
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Belangrijke woordgroepen herkennen
+## <a name="extract-key-phrases"></a>Sleuteltermen ophalen
 
-De API-sleutel woordgroep uitpakken van sleutel-zinnen haalt uit een tekst document, met behulp van de [sleutel zinnen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Deze sectie van de stapsgewijze Kennismaking extraheert sleutel zinnen voor Engelse en Spaanse documenten.
+De API-sleutel woordgroep extractie sleuteltermen geëxtraheerd uit een document, met behulp van de [sleuteltermen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). In dit gedeelte van het scenario extraheert sleuteltermen voor Engelse en Spaanse documenten.
 
-Het service-eindpunt voor het uitpakken van sleutel-zin-service wordt benaderd via de volgende URL:
+Het service-eindpunt voor de sleutel vindt er sleuteltermextractie plaats-service is toegankelijk via de volgende URL:
 
 
 ```python
@@ -179,7 +180,7 @@ print(key_phrase_api_url)
     https://westcentralus.api.cognitive.microsoft.com/text/analytics/v2.0/keyPhrases
 
 
-De verzameling van documenten is hetzelfde als die is gebruikt voor gevoel analyse.
+De verzameling van documenten is hetzelfde als voor sentimentanalyse zijn gebruikt.
 
 
 ```python
@@ -205,7 +206,7 @@ pprint(key_phrases)
     }
 
 
-De JSON-object kan opnieuw worden gerenderd als een HTML-tabel met behulp van de volgende regels code:
+Het JSON-object kan opnieuw worden weergegeven als een HTML-tabel met behulp van de volgende regels code:
 
 
 ```python
@@ -220,7 +221,7 @@ HTML("<table><tr><th>Text</th><th>Key phrases</th></tr>{0}</table>".format("\n".
 
 ## <a name="identify-linked-entities"></a>Gekoppelde entiteiten identificeren
 
-De API voor het koppelen van entiteit identificeert bekende entiteiten in een document, met behulp van de [entiteit koppelen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). Het volgende voorbeeld identificeert entiteiten voor de Engelse documenten.
+De Entity Linking API identificeert bekende entiteiten in een document, met behulp van de [entiteiten koppelen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). Het volgende voorbeeld identificeert entiteiten voor Engels-documenten.
 
 Het service-eindpunt voor de gekoppelde service van entiteit wordt benaderd via de volgende URL:
 
@@ -243,7 +244,7 @@ documents = {'documents' : [
 ]}
 ```
 
-De documenten kunnen nu worden verzonden naar de API van tekst Analytics voor het ontvangen van het antwoord.
+Nu, kunnen de documenten worden verzonden naar de Tekstanalyse-API voor het ontvangen van het antwoord.
 
 ```python
 headers   = {"Ocp-Apim-Subscription-Key": subscription_key}
@@ -311,9 +312,9 @@ entities = response.json()
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Tekstanalyse met Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Text Analytics met Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
 ## <a name="see-also"></a>Zie ook 
 
- [Overzicht van tekst Analytics](../overview.md)  
- [Veelgestelde vragen (FAQ)](../text-analytics-resource-faq.md)
+ [Text Analytics-overzicht](../overview.md)  
+ [Veelgestelde vragen](../text-analytics-resource-faq.md)

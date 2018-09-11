@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: jomolesk
-ms.openlocfilehash: 8411e9d2d4118c4e1f656b5bc6e9dafb311aeb26
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 8212788eb775e86918c7111265f3276c7bd99d91
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39391751"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304217"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-nist-special-publication-800-171"></a>Azure-beveiliging en naleving blauwdruk - PaaS-webtoepassing voor NIST Special Publication 800-171
 
@@ -48,7 +48,7 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Meer informatie vin
     - (1) /16 netwerk
     - (4) /24 netwerken
     - (4) de netwerkbeveiligingsgroepen
-- Application Gateway
+- Toepassingsgateway
     - Web Application Firewall
         - Firewallmodus: preventie
         - Regelset: OWASP
@@ -65,7 +65,7 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Meer informatie vin
 - Azure Security Center
 - Azure SQL Database
 - Azure Storage
-- Azure Log Analytics
+- Azure-logboekanalyse
 - Azure Automation
 - Azure Web App
 
@@ -83,7 +83,7 @@ Deze oplossing maakt u een virtuele machine als een domein bastionhost met de vo
 -   Een [beleid voor automatisch afsluiten](https://azure.microsoft.com/blog/announcing-auto-shutdown-for-vms-using-azure-resource-manager/) verkleind van resources van de virtuele machine als deze niet in gebruik
 -   [Windows Defender Credential Guard](https://docs.microsoft.com/windows/access-protection/credential-guard/credential-guard) ingeschakeld die referenties en andere geheimen in een beveiligde omgeving die is geïsoleerd van het besturingssysteem wordt uitgevoerd
 
-**Azure-Web-App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) kunnen klanten bouwen en hosten van webtoepassingen in de programmeertaal van hun keuze zonder het beheren van infrastructuur. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Visual Studio Team Services of een willekeurige Git-repo.
+**Azure-Web-App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) kunnen klanten bouwen en hosten van webtoepassingen in de programmeertaal van hun keuze zonder het beheren van infrastructuur. Het biedt automatisch schalen en hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux, en maakt automatische implementaties vanuit GitHub, Azure DevOps of een willekeurige Git-repo mogelijk.
 
 **Toepassing Service-omgeving v2**: de [Azure-toepassing Service-omgeving](https://docs.microsoft.com/azure/app-service/environment/intro) is een App Service-functie die een volledig geïsoleerde en toegewezen omgeving voor het veilig uitvoeren van App Service-toepassingen biedt een grote schaal.
 

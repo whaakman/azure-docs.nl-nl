@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/20/2017
 ms.author: deguhath
-ms.openlocfilehash: e44b21530cb3db8a2ba354ef19ebb3d2c557ecae
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 2cce0b883c18a813aed386186c825c26b0e4b674
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39125756"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303775"
 ---
 # <a name="what-is-the-team-data-science-process"></a>Wat is Team Data Science Process?
 
@@ -71,7 +71,7 @@ Het volgende diagram biedt een rasterweergave van de taken (in het blauw) en de 
 
 ## <a name="standardized-project-structure"></a>Gestandaardiseerde projectstructuur
 
-Met alle projecten delen van een mapstructuur en sjablonen gebruiken voor de project-documenten, kunt eenvoudig de teamleden voor informatie over hun projecten. Alle code en documenten worden opgeslagen in een versiebeheersysteem (Circuits), zoals Git, TFS of Subversion om in te schakelen samenwerking voor teams. Bijhouden van taken en -functies in een flexibel bijhouden van systeem zoals Jira projecten, Rally, Visual Studio Team Services van kunt is dichter bijhouden van de code voor afzonderlijke functies. Dergelijke bijhouden kan ook teams om op te halen beter kostenramingen. TDSP raadt aan om het maken van een aparte opslagplaats voor elk project in de Circuits voor versiebeheer, informatiebeveiliging en samenwerking. De gestandaardiseerde structuur voor alle projecten helpt met het bouwen van institutionele kennis in de hele organisatie.
+Met alle projecten delen van een mapstructuur en sjablonen gebruiken voor de project-documenten, kunt eenvoudig de teamleden voor informatie over hun projecten. Alle code en documenten worden opgeslagen in een versiebeheersysteem (Circuits), zoals Git, TFS of Subversion om in te schakelen samenwerking voor teams. Bijhouden van taken en -functies in een flexibele volgsysteem zoals Jira, Rally en Azure DevOps-project, kunt dichter in de buurt van de code voor afzonderlijke onderdelen bijhouden. Dergelijke bijhouden kan ook teams om op te halen beter kostenramingen. TDSP raadt aan om het maken van een aparte opslagplaats voor elk project in de Circuits voor versiebeheer, informatiebeveiliging en samenwerking. De gestandaardiseerde structuur voor alle projecten helpt met het bouwen van institutionele kennis in de hele organisatie.
 
 We bieden sjablonen voor de mapstructuur en de vereiste documenten in standaardlocaties. Deze mapstructuur organiseert de bestanden die code voor gegevensverkenning en het ophalen van functies bevatten en dat model iteraties opnemen. Deze sjablonen wordt het eenvoudiger voor teamleden om te begrijpen werk van anderen en nieuwe leden toevoegen aan teams. Het is gemakkelijk om te bekijken en bijwerken van sjablonen in markdown-indeling. Gebruik sjablonen om controlelijsten voorzien van belangrijke vragen voor elk project om ervoor te zorgen dat het probleem duidelijk gedefinieerd is en producten te voldoen aan de kwaliteit verwacht. Voorbeelden zijn:
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/29/2017
 ms.author: mbullwin
-ms.openlocfilehash: 4ae5adaf37f49e9909fa80fd31f088ed6ee1b081
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 91b5c2c23445e5cd3445d1d5b640cb3ecb8e5e7a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449867"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301188"
 ---
 # <a name="automate-application-insights-processes-by-using-logic-apps"></a>Application Insights-processen automatiseren met behulp van Logic Apps
 
@@ -25,7 +25,7 @@ Vind u uzelf herhaaldelijk uitvoeren van de dezelfde query's op de telemetriegeg
 
 Met deze integratie kunt kunt u veel processen automatiseren zonder één regel code te schrijven. U kunt een logische app maken met de Application Insights-connector voor het snel een Application Insights-proces te automatiseren. 
 
-U kunt ook aanvullende acties toevoegen. De functie logische Apps van Azure App Service maakt honderden acties beschikbaar. Bijvoorbeeld, met behulp van een logische app, kunt u automatisch een e-mailmelding verzenden of een bug in Visual Studio Team Services maken. U kunt ook een van de vele beschikbare gebruiken [sjablonen](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) om u te helpen versnellen van het proces voor het maken van uw logische app. 
+U kunt ook aanvullende acties toevoegen. De functie logische Apps van Azure App Service maakt honderden acties beschikbaar. Bijvoorbeeld, met behulp van een logische app, kunt u automatisch een e-mailmelding verzenden of een bug in Azure DevOps maken. U kunt ook een van de vele beschikbare gebruiken [sjablonen](https://docs.microsoft.com/azure/logic-apps/logic-apps-use-logic-app-templates) om u te helpen versnellen van het proces voor het maken van uw logische app. 
 
 ## <a name="create-a-logic-app-for-application-insights"></a>Een logische app maken voor Application Insights
 

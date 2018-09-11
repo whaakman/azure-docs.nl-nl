@@ -11,18 +11,18 @@ ms.assetid: d565873c-6b1b-4057-9250-cf81a96180ae
 ms.custom: vs-azure
 ms.topic: article
 ms.date: 08/01/2018
-ms.openlocfilehash: a69c129d5ae1405462e3a54a24cd2edbad2a86a7
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f5555d9a60934529bf8fed6db6a18dd783f46075
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126774"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297465"
 ---
 # <a name="build-your-first-serverless-app-with-azure-logic-apps-and-azure-functions---visual-studio"></a>Uw eerste serverloze app bouwen met Azure Logic Apps en Azure Functions - Visual Studio
 
 U kunt snel ontwikkelen en implementeren van cloud-apps met behulp van de serverloze hulpprogramma's en mogelijkheden in Azure, zoals [Azure Logic Apps](../logic-apps/logic-apps-overview.md) en [Azure Functions](../azure-functions/functions-overview.md). In dit artikel laat zien hoe om te beginnen het bouwen van een serverloze app, die gebruikmaakt van een logische app die een Azure-functie in Visual Studio-aanroepen. Zie voor meer informatie over de serverloze oplossingen in Azure, [Serverloze Azure Functions en Logic Apps](../logic-apps/logic-apps-serverless-overview.md).
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 Als u wilt een serverloze app bouwen in Visual Studio, moet u deze items:
 
@@ -122,7 +122,7 @@ Volg de stappen in het artikel voor het maken van uw Functions-project en de fun
 
 ## <a name="deploy-functions-from-visual-studio"></a>Functies van Visual Studio implementeren
 
-De sjabloon voor de implementatie wordt geïmplementeerd voor alle Azure-functies die u hebt in uw oplossing uit de Git-opslagplaats die opgegeven door de variabelen in de `azuredeploy.json` bestand. Als u maken en ontwerpen van uw Functions-project in uw oplossing, kunt u controleren dat project in de Git-bronbeheer, zoals GitHub of Visual Studio Team Services, en werk vervolgens de `repo` variabele zodat de sjabloon implementeert uw Azure-functie.
+De sjabloon voor de implementatie wordt geïmplementeerd voor alle Azure-functies die u hebt in uw oplossing uit de Git-opslagplaats die opgegeven door de variabelen in de `azuredeploy.json` bestand. Als u maken en ontwerpen van uw Functions-project in uw oplossing, kunt u controleren dat project in de Git-bronbeheer, zoals GitHub of Azure DevOps, en werk vervolgens de `repo` variabele zodat de sjabloon implementeert uw Azure-functie.
 
 ## <a name="manage-logic-apps-and-view-run-history"></a>Beheren van logic apps en de uitvoeringsgeschiedenis weergeven
 

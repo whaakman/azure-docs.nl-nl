@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: bb977df92cf0ada1e50a929a9ea714313a70165a
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 83e1fbfeee75534757dcb3c0275ca881e1eea517
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171473"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297992"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Over het implementeren van een bot Conversatiecursist
 
@@ -96,7 +96,7 @@ Publiceer uw bot Conversatiecursist die vergelijkbaar is met dezelfde manier als
 
 Zodra de bot wordt geïmplementeerd en uitgevoerd u verschillende kanalen verbinding mee kan maken, zoals Facebook, Teams, Skype enzovoort met behulp van een Azure Bot kanaal te registreren. Voor documentatie over dit proces Zie: https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart-registration
 
-Hieronder vindt u stapsgewijze instructies voor het implementeren van een cursist conversatie Bot naar Azure.  Deze instructies wordt ervan uitgegaan dat uw bot-bron is beschikbaar via een cloud-gebaseerde bron, zoals VSTS, GitHub, BitBucket of OneDrive, configureert u uw bot voor continue implementatie.
+Hieronder vindt u stapsgewijze instructies voor het implementeren van een cursist conversatie Bot naar Azure.  Deze instructies wordt ervan uitgegaan dat uw bot-bron is beschikbaar via een cloud-gebaseerde bron, zoals Azure DevOps-Services, GitHub, BitBucket of OneDrive, configureert u uw bot voor continue implementatie.
 
 1. Meld u aan bij Azure portal op https://portal.azure.com
 

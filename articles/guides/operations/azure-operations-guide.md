@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 08/24/2018
 ms.author: mibender
-ms.openlocfilehash: 06365e4397075d18150095f7e77367f457e3308c
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 28eeae8906480a5a160bfe11386da96b646f7427
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190422"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296853"
 ---
 # <a name="get-started-for-azure-it-operators"></a>Aan de slag voor Azure IT-operators
 
@@ -129,7 +129,7 @@ Services voor netwerken in Azure zowel tussen Azure en on-premises datacenters:
 
 - Azure Virtual Network
 
-- ExpressRoute van Azure
+- Azure ExpressRoute
 
 - Azure-provided DNS
 
@@ -149,9 +149,9 @@ Een van de beneﬁts van het gebruik van Azure is dat u uw toepassingen in versc
 
 ### <a name="azure-portal"></a>Azure Portal
 
-De Azure-portal is een webgebaseerde toepassing die kan worden gebruikt om te maken, beheren en verwijderen van Azure-resources en services. De Azure portal bevindt zich in [Shell.Azure.com](https://portal.azure.com). Het bevat een aanpasbaar dashboard en hulpprogramma's voor het beheren van Azure-resources. Het biedt ook informatie over facturering en abonnementen. Zie voor meer informatie, [overzicht van Microsoft Azure portal](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) en [Azure-resources beheren via portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
+De Azure-portal is een webgebaseerde toepassing die kan worden gebruikt om te maken, beheren en verwijderen van Azure-resources en services. De Azure portal bevindt zich in [portal.azure.com](https://portal.azure.com). Het bevat een aanpasbaar dashboard en hulpprogramma's voor het beheren van Azure-resources. Het biedt ook informatie over facturering en abonnementen. Zie voor meer informatie, [overzicht van Microsoft Azure portal](https://azure.microsoft.com/documentation/articles/azure-portal-overview/) en [Azure-resources beheren via portal](https://docs.microsoft.com/azure/azure-portal/resource-group-portal).
 
-### <a name="resources"></a>Resources
+### <a name="resources"></a>Bronnen
 
 Azure-resources zijn afzonderlijke compute, netwerken, gegevens of app die als host fungeert voor services die zijn geïmplementeerd in een Azure-abonnement. Sommige algemene resources zijn virtuele machines, storage-accounts of SQL-databases. Azure-services bestaan vaak uit meerdere verwante Azure-resources. Een virtuele Azure-machine kan bijvoorbeeld een virtuele machine, de storage-account, de netwerkadapter en het openbare IP-adres bevatten. Deze resources kunnen worden gemaakt, beheerd en afzonderlijk of als een groep verwijderd. Azure-resources worden behandeld in meer detail verderop in deze handleiding.
 
@@ -163,7 +163,7 @@ Een Azure-resourcegroep is een container met gerelateerde resources voor een Azu
 
 Een Azure Resource Manager-sjabloon is een JavaScript Object Notation (JSON)-bestand dat definieert een of meer resources om te implementeren in een resourcegroep. Het definieert ook de afhankelijkheden tussen de geïmplementeerde resources. Resource Manager-sjablonen worden behandeld in meer detail verderop in deze handleiding.
 
-### <a name="automation"></a>Automation
+### <a name="automation"></a>Automatisering
 
 Naast het maken, beheren en -resources verwijderen met behulp van Azure portal, kunt u deze activiteiten automatiseren met behulp van PowerShell of de Azure-opdrachtregelinterface (CLI).
 
@@ -185,7 +185,7 @@ Beheerders hebben toegang tot Azure PowerShell en Azure CLI via een browser toeg
 
 ## <a name="azure-subscriptions"></a>Azure-abonnementen
 
-Een abonnement is een logische groepering van Azure-services die is gekoppeld aan een Azure-account. Een afzonderlijke Azure-account kan meerdere abonnementen bevatten. Facturering voor Azure-services is uitgevoerd op basis van een per abonnement. Azure-abonnementen hebben een accountbeheerder, die volledige controle heeft over het abonnement en een servicebeheerder, die controle heeft over alle services in het abonnement. Naast de beheerders, individuele accounts kunnen worden verleend gedetailleerd beheer van Azure-resources via op rollen gebaseerd toegangsbeheer (RBAC).
+Een abonnement is een logische groepering van Azure-services die is gekoppeld aan een Azure-account. Een enkel Azure-account kan meerdere abonnementen bevatten. Facturering voor Azure-services is uitgevoerd op basis van een per abonnement. Azure-abonnementen hebben een accountbeheerder, die volledige controle over het abonnement heeft, en een Service-beheerder, die controle heeft over alle services in het abonnement. Zie voor meer informatie over klassieke abonnementsbeheerders [toevoegen of wijzigen Azure-abonnementbeheerders](../../billing/billing-add-change-azure-subscription-administrator.md). Naast de beheerders, individuele accounts kunnen worden verleend gedetailleerd beheer van Azure-resources met behulp van [op rollen gebaseerd toegangsbeheer (RBAC)](../../role-based-access-control/overview.md).
 
 ### <a name="select-and-enable-an-azure-subscription"></a>Selecteren en inschakelen van een Azure-abonnement
 
@@ -205,13 +205,9 @@ Als u de hoeveelheid tegoed overschrijdt, wordt uw service zijn uitgeschakeld to
 
 ### <a name="grant-administrative-access-to-an-azure-subscription"></a>Beheerderstoegang verlenen tot een Azure-abonnement
 
-Meerdere account beheerder functies zijn beschikbaar en kunnen op elk gewenst moment worden gewijzigd. Er zijn twee belangrijke functies:
+RBAC heeft diverse ingebouwde rollen die u gebruiken kunt om machtigingen te wijzen. Als u een gebruiker een beheerder van een Azure-abonnement, deze toewijzen de [eigenaar](../../role-based-access-control/built-in-roles.md#owner) rol op het abonnementsbereik. De rol eigenaar geeft de gebruiker volledige toegang tot alle resources in het abonnement, waaronder het recht op toegang aan anderen delegeren.
 
-- **Servicebeheerder**: deze rol is gemachtigd voor het beheren van Azure-services. Standaard krijgt het toegang tot hetzelfde account zijn als de accountbeheerder.
-
-- **CO-beheerder**: deze rol heeft dezelfde toegangsrechten als de service-beheerder. Deze rol kan echter de koppeling van een abonnement wijzigen naar Azure-mappen.
-
-Zie voor meer informatie, [toevoegen of wijzigen van de Azure-beheerdersrollen](../../billing/billing-add-change-azure-subscription-administrator.md).
+Zie voor meer informatie, [toegang met RBAC en de Azure-portal beheren](../../role-based-access-control/role-assignments-portal.md).
 
 ### <a name="view-billing-information-in-the-azure-portal"></a>Factureringsgegevens bekijken in de Azure portal
 
@@ -307,7 +303,7 @@ U kunt operationele toegang verlenen tot accounts voor gebruikers met een opgege
 
 Om toegang te verlenen, kunt u een rol toewijzen aan de gebruiker of groep. Er zijn veel vooraf gedefinieerde rollen. U kunt ook uw eigen aangepaste rollen definiëren.
 
-Hier volgen enkele voorbeeld van de rollen die zijn ingebouwd in Azure:
+Hier volgen enkele voorbeeld [ingebouwde rollen in Azure](../../role-based-access-control/built-in-roles.md):
 
 - **De eigenaar van**: een gebruiker met deze rol kan alles beheren, inclusief toegang.
 
@@ -317,11 +313,11 @@ Hier volgen enkele voorbeeld van de rollen die zijn ingebouwd in Azure:
 
 - **' SQL DB Contributor '**: een gebruiker met deze rol SQL-databases, maar niet hun beveiligingsbeleid kunt beheren.
 
-- **SQL-beveiligingsbeheer**: een gebruiker met deze rol kan het beveiligingsbeleid van de SQL-servers en databases beheren.
+- **SQL Security Manager**: een gebruiker met deze rol kan het beveiligingsbeleid van de SQL-servers en databases beheren.
 
-- **Inzender voor opslagaccounts**: een gebruiker met deze rol kan opslagaccounts beheren, maar niet de toegang tot de storage-accounts beheren.
+- **Inzender voor Opslagaccounts**: een gebruiker met deze rol kan opslagaccounts beheren, maar niet de toegang tot de storage-accounts beheren.
 
-Zie voor meer informatie, [roltoewijzingen gebruiken voor het beheren van toegang tot de resources van uw Azure-abonnement](../../role-based-access-control/role-assignments-portal.md).
+Zie voor meer informatie, [toegang met RBAC en de Azure-portal beheren](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="azure-virtual-machines"></a>Azure Virtual Machines
 
@@ -381,7 +377,7 @@ Azure storage-accounts kunnen worden geconfigureerd met verschillende niveaus va
 
 Elk opslagtype heeft een verschillende use case.
 
-#### <a name="blob-storage"></a>Blob Storage
+#### <a name="blob-storage"></a>Blobopslag
 
 Het woord *blob* is een acroniem voor *BLOB*. BLOBs zijn niet-gestructureerde bestanden zoals u die u op uw computer opslaat. In Blob Storage kan elk type tekst of binaire gegevens, zoals een document, mediabestand of toepassingsinstallatieprogramma, worden opgeslagen. U kunt Blob Storage zien als een vorm van objectopslag. Azure Blob-opslag bevat ook gegevensschijven van virtuele Machines van Azure.
 

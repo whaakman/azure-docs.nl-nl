@@ -16,18 +16,18 @@ ms.topic: article
 ms.date: 01/26/2018
 ms.author: asmalser
 ms.reviewer: asmalser
-ms.openlocfilehash: 9ab2b22840d162fc0194151c5eec02675aad92dc
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 26642fefbb86b2709e110b13d782286fd18d5e60
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39427649"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348052"
 ---
 # <a name="tutorial-configure-asana-for-automatic-user-provisioning"></a>Zelfstudie: Asana configureren voor het automatisch inrichten van gebruikers
 
 Het doel van deze zelfstudie is om u de stappen die u uitvoeren in Asana en Azure Active Directory (Azure AD wilt) voor het automatisch inrichten en verwijdering van gebruikersaccounts vanuit Azure AD naar Asana weer te geven.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
@@ -89,7 +89,7 @@ Deze sectie helpt u bij het verbinden van uw Azure AD aan Asana-gebruikersaccoun
 
 1. Onder de **toewijzingen** sectie, selecteer **synchroniseren Azure Active Directory: gebruikers aan Asana**.
 
-1. In de **kenmerktoewijzingen** sectie, controleert u de kenmerken van de gebruiker uit Azure AD worden gesynchroniseerd met Asana. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in Asana voor update-bewerkingen. Selecteer **opslaan** doorvoeren van wijzigingen. Zie voor meer informatie, [gebruiker inrichten kenmerktoewijzingen aanpassen](../active-directory-saas-customizing-attribute-mappings.md).
+1. In de **kenmerktoewijzingen** sectie, controleert u de kenmerken van de gebruiker uit Azure AD worden gesynchroniseerd met Asana. De kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen worden gebruikt zodat deze overeenkomen met de gebruikersaccounts in Asana voor update-bewerkingen. Selecteer **opslaan** doorvoeren van wijzigingen. Zie voor meer informatie, [gebruiker inrichten kenmerktoewijzingen aanpassen](../manage-apps/customize-application-attributes.md).
 
 1. Om in te schakelen van de Azure AD-inrichtingsservice voor Asana, in de **instellingen** sectie, wijzigt u **Inrichtingsstatus** naar **op**.
 
@@ -97,9 +97,9 @@ Deze sectie helpt u bij het verbinden van uw Azure AD aan Asana-gebruikersaccoun
 
 Nu de initiële synchronisatie wordt gestart voor alle gebruikers die zijn toegewezen aan Asana in de **gebruikers** sectie. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de service wordt uitgevoerd. Gebruik de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van activiteitenlogboeken. De auditlogboeken worden alle acties die worden uitgevoerd door de provisioning-service op uw app in Asana beschreven.
 
-Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapporteren over het inrichten van automatische gebruikersaccounts](../active-directory-saas-provisioning-reporting.md).
+Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapporteren over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

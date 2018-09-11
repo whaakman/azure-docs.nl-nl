@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: ca1ea5fb95ba1c49b5c1e3660c598e8f1443b43c
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 8680a8fa9c460983b88aa4845adcbe72d3a43abf
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666264"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325512"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Toegangsbeheer in Azure Data Lake Storage Gen1
 
@@ -60,7 +60,7 @@ De identiteiten van gebruikers en groepen zijn Azure Active Directory-identiteit
 
 De machtigingen voor een bestandssysteemobject zijn **Lezen**, **Schrijven** en **Uitvoeren**. Deze kunnen worden gebruikt voor bestanden en mappen zoals weergegeven in de onderstaande tabel:
 
-|            |    File     |   Map |
+|            |    Bestand     |   Map |
 |------------|-------------|----------|
 | **Lezen (L)** | Kan de inhoud van een bestand lezen | **Lezen** en **Uitvoeren** zijn vereist om de inhoud van de map weer te geven|
 | **Schrijven (S)** | Kan schrijven of toevoegen aan een bestand | **Schrijven** en **Uitvoeren** zijn vereist om onderliggende items in een map te maken |
@@ -121,19 +121,7 @@ Hieronder vindt u enkele algemene scenario's om te begrijpen welke machtigingen 
 * De aanroeper heeft **Lees- en uitvoeringsmachtigingen** nodig om de map op te sommen.
 * De aanroeper heeft **Uitvoeringsmachtigingen** nodig voor alle bovenliggende mappen.
 
-## <a name="viewing-permissions-in-the-azure-portal"></a>Weergavemachtigingen in de Azure Portal
 
-Uit de **Data Explorer** blade van de Gen1 van Data Lake Storage-account, klikt u op **toegang** om te zien van de ACL's voor het bestand of map die wordt weergegeven in de Data Explorer. Klik op **Toegang** om de ACL's te zien voor de map **Catalogus** in het **mydatastore**-account.
-
-![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
-
-Op deze blade ziet u in het bovenste gedeelte de machtigingen van de eigenaar. (Op de schermopname is Bob de gebruiker die eigenaar is.) Daarna worden de toegewezen toegangsbeheerlijsten weergegeven. 
-
-![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
-
-Klik op **Geavanceerde weergave** om een geavanceerdere weergave te openen waar de Standaard ACL's, Masker en een omschrijving van supergebruikers worden weergegeven.  Deze blade biedt ook een manier om Standaard-ACL's recursief in te stellen voor onderliggende bestanden en mappen op basis van de machtigingen van de huidige map.
-
-![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
 ## <a name="the-super-user"></a>De supergebruiker
 
@@ -227,30 +215,27 @@ def access_check( user, desired_perms, path ) :
   return ( (desired_perms & perms & mask ) == desired_perms)
 ```
 
-## <a name="the-mask-and-effective-permissions"></a>Het masker en 'effectieve machtigingen'
+## <a name="the-mask"></a>Het masker
 
-Het **masker** is een LSU-waarde die wordt gebruikt voor het beperken van de toegang voor **benoemde gebruikers**, de **groep die eigenaar is** en **benoemde groepen** bij het uitvoeren van het algoritme voor toegangscontrole. Dit zijn de belangrijkste concepten voor het masker.
-
-* Het masker maakt 'effectieve machtigingen'. Dat wil zeggen dat het de machtigingen wijzigt op het moment van de toegangscontrole.
-* Het masker kan rechtstreeks worden bewerkt door de bestandseigenaar en eventuele supergebruikers.
-* Het masker kan machtigingen verwijderen om de effectieve machtiging te maken. Het masker *kan geen* machtigingen toevoegen aan de effectieve machtiging.
-
-We bekijken enkele voorbeelden. In het volgende voorbeeld is het masker ingesteld op **LSU**. Dit betekent dat het masker machtigingen niet verwijdert. De effectieve machtigingen voor de benoemde gebruiker, de groep die eigenaar is en de benoemde groep worden niet gewijzigd tijdens de toegangscontrole.
-
-![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-mask-1.png)
-
-In het volgende voorbeeld is het masker ingesteld op **L-U**. Dit betekent dat het **de Schrijfmachtiging uitschakelt** voor **de benoemde gebruiker**, **de groep die eigenaar is** en **de benoemde groep** tijdens de toegangscontrole.
-
-![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-mask-2.png)
-
-Ter informatie: dit is waar het masker voor een bestand of map wordt weergegeven in Azure Portal.
-
-![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-show-acls-mask-view.png)
+Zoals wordt geïllustreerd in de algoritme voor het controleren van toegang, het masker beperkt de toegang voor **benoemde gebruikers**, wordt de **groep die eigenaar is**, en **benoemde groepen**.  
 
 > [!NOTE]
 > Voor een nieuw Data Lake Storage Gen1-account, is het masker voor de toegangs-ACL van de hoofdmap ('/') standaard ingesteld op LSU.
 >
 >
+
+### <a name="the-sticky-bit"></a>De vergrendelde bit
+
+De vergrendelde bit is een geavanceerdere functie van een POSIX-bestandssysteem. In de context van Data Lake Storage Gen1 is het onwaarschijnlijk dat de vergrendelde bit nodig is.
+
+In de volgende tabel laat zien hoe de vergrendelde bit in Data Lake Storage Gen1 werkt.
+
+| Gebruikersgroep         | Bestand    | Map |
+|--------------------|---------|-------------------------|
+| Vergrendelde bit **UIT** | Geen effect   | Geen effect.           |
+| Vergrendelde bit **AAN**  | Geen effect   | Zorgt ervoor dat niemand behalve **supergebruikers** en de **gebruiker die eigenaar is** van een onderliggend item het betreffende item kan verwijderen of hernoemen.               |
+
+De vergrendelde bit wordt niet weergegeven in Azure Portal.
 
 ## <a name="permissions-on-new-files-and-folders"></a>Machtigingen voor nieuwe bestanden en mappen
 
@@ -278,34 +263,37 @@ Als een onderliggende map wordt gemaakt onder een bovenliggende map, wordt de St
 
 Hier volgen een paar geavanceerde onderwerpen om te begrijpen hoe de ACL's voor Data Lake Storage Gen1 bestanden of mappen worden bepaald.
 
-### <a name="umasks-role-in-creating-the-access-acl-for-new-files-and-folders"></a>De rol van Umask bij het maken van de Toegangs-ACL voor nieuwe bestanden en mappen
+### <a name="umask"></a>umask
 
-In een POSIX-compatibel systeem geldt het volgende als algemeen concept: umask is een 9-bits waarde van de bovenliggende map die wordt gebruikt om de machtiging voor **de gebruiker die eigenaar is**, **de groep die eigenaar is** en **anderen** te transformeren op de Toegangs-ACL van een nieuw onderliggend bestand of een nieuwe onderliggende map. De bits van een umask identificeren welke bits moeten worden uitgeschakeld in de Toegangs-ACL van het onderliggende item. Deze wordt dus gebruikt om de verspreiding van machtigingen voor **de gebruiker die eigenaar is**, **de groep die eigenaar is** en **anderen** selectief te voorkomen.
+Bij het maken van een bestand of map, wordt umask wordt gebruikt om te wijzigen hoe de standaard-ACL's zijn ingesteld op het onderliggende item. umask is een 9 bits een 9-bits waarde van de bovenliggende mappen waarin een LSU-waarde voor **gebruiker die eigenaar is**, **groep die eigenaar is**, en **andere**.
 
-In een HDFS-systeem is de umask doorgaans een configuratieoptie voor de gehele site die wordt beheerd door beheerders. Maakt gebruik van Data Lake Storage Gen1 een **umask voor het hele account** kan niet worden gewijzigd. De volgende tabel geeft de umask van Data Lake Storage Gen1.
+De umask voor Azure Data Lake Storage Gen1 een constante waarde die is ingesteld op 007. Deze waarde wordt omgezet in
 
-| Gebruikersgroep  | Instelling | Invloed op de Toegangs-ACL van het nieuwe onderliggende item |
-|------------ |---------|---------------------------------------|
-| Gebruiker die eigenaar is | ---     | Geen effect                             |
-| Groep die eigenaar is| ---     | Geen effect                             |
-| Overige       | LSU     | Lezen + Schrijven + Uitvoeren verwijderen         |
+* umask.owning_user = 0 #---
+* umask.owning_group = 0 #---
+* umask.Other = 7 # LSU
 
-De volgende afbeelding geeft deze umask in actie weer. Het uiteindelijke resultaat is dat **Lezen + Schrijven + Uitvoeren** voor de **andere** gebruiker worden verwijderd. Aangezien de umask geen bits heeft opgegeven voor de **gebruiker die eigenaar is** en **de groep die eigenaar is**, worden deze machtigingen niet getransformeerd.
+Deze waarde umask betekent dat de waarde voor andere nooit standaard op de nieuwe onderliggende - ongeacht wat de standaard-ACL geeft aan dat wordt verzonden. 
 
-![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-umask.png)
+De volgende psuedocode laat zien hoe de umask wordt toegepast bij het maken van de ACL's voor een onderliggend item.
 
-### <a name="the-sticky-bit"></a>De vergrendelde bit
+```
+def set_default_acls_for_new_child(parent, child):
+    child.acls = []
+    foreach entry in parent.acls :
+        new_entry = None
+        if (entry.type == OWNING_USER) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))
+        elif (entry.type == OWNING_GROUP) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.owning_group))
+        elif (entry.type == OTHER) :
+            new_entry = entry.clone(perms = entry.perms & (~umask.other))
+        else :
+            new_entry = entry.clone(perms = entry.perms )
+        child_acls.add( new_entry )
+```
 
-De vergrendelde bit is een geavanceerdere functie van een POSIX-bestandssysteem. In de context van Data Lake Storage Gen1 is het onwaarschijnlijk dat de vergrendelde bit nodig is.
 
-In de volgende tabel laat zien hoe de vergrendelde bit in Data Lake Storage Gen1 werkt.
-
-| Gebruikersgroep         | File    | Map |
-|--------------------|---------|-------------------------|
-| Vergrendelde bit **UIT** | Geen effect   | Geen effect.           |
-| Vergrendelde bit **AAN**  | Geen effect   | Zorgt ervoor dat niemand behalve **supergebruikers** en de **gebruiker die eigenaar is** van een onderliggend item het betreffende item kan verwijderen of hernoemen.               |
-
-De vergrendelde bit wordt niet weergegeven in Azure Portal.
 
 ## <a name="common-questions-about-acls-in-data-lake-storage-gen1"></a>Veelgestelde vragen over ACL's in Data Lake Storage Gen1
 
@@ -348,15 +336,6 @@ Er wordt een GUID weergegeven wanneer een gebruiker niet meer bestaat in Azure A
 ### <a name="does-data-lake-storage-gen1-support-inheritance-of-acls"></a>Data Lake Storage Gen1 biedt ondersteuning voor overname van ACL's?
 
 Nee, maar Standaard ACL's kunnen worden gebruikt voor het instellen van ACL's voor onderliggende bestanden en mappen die nieuw zijn gemaakt onder de bovenliggende map.  
-
-### <a name="what-is-the-difference-between-mask-and-umask"></a>Wat is het verschil tussen een masker en een umask?
-
-| masker | umask|
-|------|------|
-| De eigenschap **masker** is beschikbaar op elk bestand en elke map. | De **umask** is een eigenschap van het Data Lake Storage Gen1-account. Er bevindt zich dus slechts één umask in de Data Lake Storage Gen1.    |
-| De eigenschap masker op een bestand of map kan worden gewijzigd door de gebruiker of groep die eigenaar is van een bestand, of door een supergebruiker. | De eigenschap umask kan niet worden gewijzigd door een gebruiker, zelfs niet door een supergebruiker. Het is een onveranderbare, constante waarde.|
-| De eigenschap masker wordt gebruikt om tijdens het algoritme toegangscontrole bij runtime te bepalen of een gebruiker een bewerking op een bestand of map uit mag voeren. De rol van het masker is om op het moment van toegangscontrole 'effectieve machtigingen' te maken. | De umask wordt helemaal niet gebruikt tijdens toegangscontrole. De umask wordt gebruikt om de Toegangs-ACL van nieuwe onderliggende items van een map te bepalen. |
-| Het masker is een LSU-waarde van 3-bits die van toepassing is op de benoemde gebruiker, de groep die eigenaar is en de benoemde groep op het moment van de toegangscontrole.| De umask is een 9-bits-waarde die van toepassing is op de gebruiker die eigenaar is, de groep die eigenaar is en **anderen** van een nieuw onderliggend element.|
 
 ### <a name="where-can-i-learn-more-about-posix-access-control-model"></a>Waar kan ik meer informatie over het POSIX-model voor toegangsbeheer?
 

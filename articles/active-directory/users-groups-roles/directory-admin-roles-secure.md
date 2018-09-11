@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: b52a447bf643510528e1bd8c6d473bf5d77731fe
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: ead6202b0365df770382077618795cd6b6e57cd2
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056883"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346726"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Beveiligen van bevoegde toegang voor cloud- en hybride implementaties in Azure AD
 
@@ -300,7 +300,7 @@ Azure-Logboekintegratie kunt u onbewerkte logboeken van uw Azure-resources van u
 
 #### <a name="implement-user-provisioning-for-connected-apps"></a>Gebruikers inrichten voor verbonden apps implementeren
 
-Azure AD kunt u het maken, onderhoud en verwijderen van gebruikers-id's in cloudtoepassingen (SaaS), zoals Dropbox, Salesforce, ServiceNow automatiseren, enzovoort. Zie voor meer informatie, [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure AD](../active-directory-saas-app-provisioning.md).
+Azure AD kunt u het maken, onderhoud en verwijderen van gebruikers-id's in cloudtoepassingen (SaaS), zoals Dropbox, Salesforce, ServiceNow automatiseren, enzovoort. Zie voor meer informatie, [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure AD](../manage-apps/user-provisioning.md).
 
 #### <a name="integrate-information-protection"></a>Information protection integreren
 

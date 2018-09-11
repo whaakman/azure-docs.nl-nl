@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/25/2017
 ms.author: mbullwin
-ms.openlocfilehash: 28228755f76f38ef2ed5e50c776a99427118e090
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 449a6274b67f3eb72ea6d8bd19f555fc59158d7e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424548"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299097"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Azure Application Insights processen automatiseren met de connector voor Microsoft Flow
 
@@ -25,7 +25,7 @@ Vind u uzelf herhaaldelijk uitvoeren van de dezelfde query's op de telemetriegeg
 
 Met deze integratie kunt kunt u veel processen automatiseren zonder één regel code te schrijven. Nadat u een stroom maken met behulp van een Application Insights-actie, wordt de stroom automatisch uw Application Insights Analytics-query uitgevoerd. 
 
-U kunt ook aanvullende acties toevoegen. Microsoft Flow kunt u honderden acties beschikbaar. Bijvoorbeeld, kunt u Microsoft Flow automatisch een e-mailmelding verzenden of een bug in Visual Studio Team Services maken. U kunt ook een van de vele gebruiken [sjablonen](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) die beschikbaar zijn voor de connector voor Microsoft Flow. Deze sjablonen versnellen kunt het proces voor het maken van een stroom. 
+U kunt ook aanvullende acties toevoegen. Microsoft Flow kunt u honderden acties beschikbaar. Bijvoorbeeld, kunt u Microsoft Flow automatisch een e-mailmelding verzenden of een bug in Azure DevOps maken. U kunt ook een van de vele gebruiken [sjablonen](https://ms.flow.microsoft.com/en-us/connectors/shared_applicationinsights/?slug=azure-application-insights) die beschikbaar zijn voor de connector voor Microsoft Flow. Deze sjablonen versnellen kunt het proces voor het maken van een stroom. 
 
 <!--The Application Insights connector also works with [Azure Power Apps](https://powerapps.microsoft.com/en-us/) and [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/?v=17.23h). --> 
 

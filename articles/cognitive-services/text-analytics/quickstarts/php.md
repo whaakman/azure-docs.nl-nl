@@ -1,5 +1,6 @@
 ---
-title: PHP-Quickstart voor Azure Cognitive Services Text Analytics-API | Microsoft Docs
+title: 'Snelstartgids: PHP gebruiken om aan te roepen van de Tekstanalyse-API | Microsoft Docs'
+titleSuffix: Azure Cognitive Services
 description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Tekstanalyse-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -9,21 +10,21 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 2f654736e998652ecaf8825b308c7ff3bf84a924
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 602988747f54c3dbdfa933986d47b631b757db65
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840767"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298706"
 ---
-# <a name="quickstart-for-text-analytics-api-with-php"></a>Snelstartgids voor Tekstanalyse-API met PHP 
+# <a name="quickstart-using-php-to-call-the-text-analytics-cognitive-service"></a>Snelstartgids: PHP gebruiken om aan te roepen de Text Analytics-Cognitive Service
 <a name="HOLTop"></a>
 
 In dit artikel ziet u hoe u aan [taal detecteren](#Detect), [stemming analyseren](#SentimentAnalysis), [Extraheer sleuteluitdrukkingen](#KeyPhraseExtraction), en [gekoppelde entiteiten identificeren](#Entities) gebruiken de [Tekstanalyse-API's](//go.microsoft.com/fwlink/?LinkID=759711) met PHP.
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Tekstanalyse-API**. U kunt de **gratis laag voor 5000 transacties per maand** om uit te voeren van deze Quick Start.
 
@@ -210,7 +211,7 @@ Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in he
 
 <a name="KeyPhraseExtraction"></a>
 
-## <a name="extract-key-phrases"></a>Belangrijke woordgroepen herkennen
+## <a name="extract-key-phrases"></a>Sleuteltermen ophalen
 
 De API-sleutel woordgroep extractie sleuteltermen geëxtraheerd uit een document, met behulp van de [sleuteltermen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Het volgende voorbeeld haalt sleuteltermen voor Engelse en Spaanse documenten.
 

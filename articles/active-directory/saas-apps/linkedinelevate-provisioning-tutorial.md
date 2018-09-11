@@ -1,6 +1,6 @@
 ---
-title: 'Zelfstudie: LinkedIn bevoegdheden configureren voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
-description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en gebruikersaccounts wilt uitbreiden LinkedIn ongedaan in te richten.
+title: 'Zelfstudie: Configureer LinkedIn met verhoogde bevoegdheden voor het automatisch gebruikers inrichten met Azure Active Directory | Microsoft Docs'
+description: Informatie over het configureren van Azure Active Directory voor het automatisch inrichten en inrichting ongedaan maken-gebruikersaccounts met LinkedIn met verhoogde bevoegdheden.
 services: active-directory
 documentationcenter: ''
 author: asmalser-msft
@@ -15,115 +15,115 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/28/2018
 ms.author: asmalser-msft
-ms.openlocfilehash: fdba165fc66c07c39ecb242b572fbbe12e96a720
-ms.sourcegitcommit: 16ddc345abd6e10a7a3714f12780958f60d339b6
+ms.openlocfilehash: 1dcc198c1a1cc798e991f489e6897d4b930c0593
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36215826"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348495"
 ---
-# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Zelfstudie: LinkedIn bevoegdheden configureren voor het automatisch gebruikers inrichten
+# <a name="tutorial-configure-linkedin-elevate-for-automatic-user-provisioning"></a>Zelfstudie: LinkedIn, met verhoogde bevoegdheden configureren voor het automatisch inrichten van gebruikers
 
 
-Het doel van deze zelfstudie is zodat u de stappen die u uitvoeren in LinkedIn uitbreiden en Azure AD wilt om automatisch inrichten en gebruikersaccounts vanuit Azure AD wilt uitbreiden LinkedIn ongedaan in te richten. 
+Het doel van deze zelfstudie is om weer te geven u de stappen die u uitvoeren in de LinkedIn met verhoogde bevoegdheden en Azure AD wilt voor het automatisch inrichten en verwijdering van gebruikersaccounts vanuit Azure AD naar LinkedIn met verhoogde bevoegdheden. 
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
 *   Een Azure Active Directory-tenant
-*   Een tenant LinkedIn uitbreiden 
-*   Een administrator-account in LinkedIn worden de bevoegdheden met toegang tot het LinkedIn-Accountcentrum
+*   Een tenant LinkedIn met verhoogde bevoegdheden uitvoeren 
+*   Een administrator-account in LinkedIn verhogen met toegang tot het Accountcentrum LinkedIn
 
 > [!NOTE]
-> Azure Active Directory is geïntegreerd met het gebruik van de bevoegdheden LinkedIn de [SCIM](http://www.simplecloud.info/) protocol.
+> Azure Active Directory kan worden geïntegreerd met het gebruik van LinkedIn met verhoogde bevoegdheden de [SCIM](http://www.simplecloud.info/) protocol.
 
-## <a name="assigning-users-to-linkedin-elevate"></a>Gebruikers toewijzen aan LinkedIn uitbreiden
+## <a name="assigning-users-to-linkedin-elevate"></a>Gebruikers toewijzen aan LinkedIn met verhoogde bevoegdheden uitvoeren
 
-Azure Active Directory gebruikt een concept 'toewijzingen' genoemd om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van automatische gebruikers account inrichten, worden alleen de gebruikers en groepen die '' tot een toepassing in Azure AD toegewezen zijn gesynchroniseerd. 
+Azure Active Directory maakt gebruik van een concept genaamd "toewijzingen" om te bepalen welke gebruikers krijgen toegang tot geselecteerde apps. In de context van het inrichten van automatische gebruikersaccounts, worden alleen de gebruikers en groepen die '' aan een toepassing in Azure AD toegewezen zijn gesynchroniseerd. 
 
-Voordat u configureren en inschakelen van de inrichting service, moet u bepalen welke gebruikers en/of groepen in Azure AD vertegenwoordigen de gebruikers die toegang nodig tot LinkedIn uitbreiden. Als besloten, kunt u deze gebruikers toewijzen aan LinkedIn verhogen door de volgende instructies te volgen:
+Voordat u configureren en inschakelen van de inrichtingsservice, moet u bepalen welke gebruikers en/of groepen in Azure AD vertegenwoordigen de gebruikers die toegang nodig tot LinkedIn met verhoogde bevoegdheden. Als besloten, kunt u deze gebruikers toewijzen aan LinkedIn met verhoogde bevoegdheden en volg de instructies hier:
 
 [Een gebruiker of groep toewijzen aan een enterprise-app](../manage-apps/assign-user-or-group-access-portal.md)
 
-### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Belangrijke tips voor het toewijzen van gebruikers wilt LinkedIn uitbreiden
+### <a name="important-tips-for-assigning-users-to-linkedin-elevate"></a>Belangrijke tips voor het toewijzen van gebruikers om te verhogen voor LinkedIn
 
-*   Het is raadzaam om één Azure AD-gebruiker worden toegewezen aan het LinkedIn bevoegdheden voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
+*   Het wordt aanbevolen dat één Azure AD-gebruiker worden toegewezen aan LinkedIn met verhoogde bevoegdheden voor het testen van de configuratie van de inrichting. Extra gebruikers en/of groepen kunnen later worden toegewezen.
 
-*   Bij het toewijzen van een gebruiker wilt LinkedIn uitbreiden, moet u de **gebruiker** rol in het dialoogvenster toewijzing. De rol 'Default toegang' werkt niet voor het inrichten.
-
-
-## <a name="configuring-user-provisioning-to-linkedin-elevate"></a>Configuratie van gebruikers inrichten wilt LinkedIn uitbreiden
-
-Deze sectie helpt u bij het verbinding maken met uw Azure AD LinkedIn worden de bevoegdheden van SCIM gebruikersaccount inrichten API en de inrichting service maken, bijwerken en uitschakelen configureren toegewezen gebruikersaccounts in LinkedIn worden de bevoegdheden op basis van gebruiker en groepstoewijzing in Azure AD.
-
-**Tip:** u kunt ook op basis van SAML eenmalige aanmelding is ingeschakeld voor het LinkedIn bevoegdheden, volgt de instructies in [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies elkaar aanvullen.
+*   Bij het toewijzen van een gebruiker op LinkedIn met verhoogde bevoegdheden, moet u de **gebruiker** rol in het dialoogvenster toewijzing. De rol 'standaardtoegang' werkt niet voor het inrichten.
 
 
-### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Voor het configureren van automatische account gebruikersaanvragen wilt LinkedIn uitbreiden in Azure AD:
+## <a name="configuring-user-provisioning-to-linkedin-elevate"></a>Configureren met het inrichten van gebruikers naar LinkedIn met verhoogde bevoegdheden uitvoeren
+
+Deze sectie helpt u bij uw Azure AD verbinden met LinkedIn met verhoogde bevoegdheden uitvoeren van SCIM gebruikersaccount Inrichtings-API en configureren van de provisioning-service voor het maken, bijwerken en uitschakelen toegewezen gebruikersaccounts in LinkedIn met verhoogde bevoegdheden op basis van gebruiker en groepstoewijzing in Azure AD.
+
+**Tip:** u kunt ook ingeschakeld SAML gebaseerde eenmalige aanmelding voor LinkedIn met verhoogde bevoegdheden, op. instructies hiervoor vindt [Azure-portal](https://portal.azure.com). Eenmalige aanmelding kan worden geconfigureerd onafhankelijk van automatische inrichting, hoewel deze twee functies elkaar aanvullen.
 
 
-De eerste stap is om op te halen van uw toegangstoken LinkedIn. Als u een ondernemingsadministrator bent, kunt u zelf een toegangstoken inrichten. Ga in uw accountcentrum naar **instellingen &gt; globale instellingen** en open de **SCIM Setup** Configuratiescherm.
+### <a name="to-configure-automatic-user-account-provisioning-to-linkedin-elevate-in-azure-ad"></a>Het configureren van automatische inrichten van gebruikersaccounts naar LinkedIn met verhoogde bevoegdheden in Azure AD:
+
+
+De eerste stap is om op te halen van uw LinkedIn-toegangstoken. Als u een Enterprise-beheerder bent, kunt u zelf een toegangstoken inrichten. In het accountcentrum, gaat u naar **instellingen &gt; globale instellingen** en open de **SCIM Setup** deelvenster.
 
 > [!NOTE]
-> Als u het account center rechtstreeks in plaats van via een koppeling opent, kunt u met behulp van de volgende stappen kunt bereiken.
+> Als u het accountcentrum rechtstreeks in plaats van via een koppeling opent, kunt u bereiken met behulp van de volgende stappen uit.
 
-1)  Aanmelden bij de Center-Account.
+1)  Aanmelden bij Account Center.
 
 2)  Selecteer **Admin &gt; beheerdersinstellingen** .
 
-3)  Klik op **integraties geavanceerde** op de links zijbalk. U omgeleid naar de account center.
+3)  Klik op **geavanceerde integraties** op de linkerzijbalk. U bent omgeleid naar het accountcentrum.
 
 4)  Klik op **+ toevoegen nieuwe SCIM configuratie** en volg de procedure door in elk veld te vullen.
 
 > Wanneer autoassign licenties niet is ingeschakeld, betekent dit dat alleen de gegevens van de gebruiker is gesynchroniseerd.
 
-![De inrichting van LinkedIn bevoegdheden](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
+![LinkedIn met verhoogde bevoegdheden ingericht](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate1.PNG)
 
-> Wanneer autolicense toewijzing is ingeschakeld, moet u het toepassingsexemplaar en licentietype. Licenties zijn toegewezen op een eerst komt, eerst basis fungeren totdat alle licenties worden gehaald.
+> Wanneer autolicense toewijzing is ingeschakeld, moet u de toepassingsexemplaar en het licentietype. Licenties zijn toegewezen op een eerst komt, eerst dienen uit te voeren totdat alle licenties zijn genomen.
 
-![De inrichting van LinkedIn bevoegdheden](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
+![LinkedIn met verhoogde bevoegdheden ingericht](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate2.PNG)
 
-5)  Klik op **Generate token**. U ziet uw access token weergegeven onder de **toegangstoken** veld.
+5)  Klik op **token genereren**. U ziet nu de toegang tot token wordt weergegeven onder de **toegangstoken** veld.
 
 6)  Sla uw toegangstoken op het Klembord of de computer voordat u de pagina verlaat.
 
-7) Vervolgens moet u zich aanmeldt bij de [Azure-portal](https://portal.azure.com), en blader naar de **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
+7) Vervolgens maakt u zich aanmeldt bij de [Azure-portal](https://portal.azure.com), en blader naar de **Azure Active Directory > zakelijke Apps > alle toepassingen** sectie.
 
-8) Als u al hebt geconfigureerd LinkedIn bevoegdheden voor eenmalige aanmelding, zoekt u uw exemplaar van het LinkedIn worden de bevoegdheden met het zoekveld. Selecteer anders **toevoegen** en zoek naar **LinkedIn bevoegdheden** in de galerie met toepassingen. Selecteer LinkedIn worden de bevoegdheden van de zoekresultaten en toe te voegen aan uw lijst met toepassingen.
+8) Als u al hebt geconfigureerd LinkedIn met verhoogde bevoegdheden voor eenmalige aanmelding, zoeken naar uw exemplaar van LinkedIn met verhoogde bevoegdheden uitvoeren met behulp van het zoekveld. Selecteer anders **toevoegen** en zoek naar de **LinkedIn met verhoogde bevoegdheden** in de toepassingengalerie. Selecteer LinkedIn met verhoogde bevoegdheden in de resultaten voor zoeken en toe te voegen aan uw lijst met toepassingen.
 
-9)  Selecteer uw exemplaar van de bevoegdheden LinkedIn en selecteer vervolgens de **inrichten** tabblad.
+9)  Selecteer uw exemplaar van LinkedIn met verhoogde bevoegdheden en selecteer vervolgens de **Provisioning** tabblad.
 
 10) Stel de **Inrichtingsmodus** naar **automatische**.
 
-![De inrichting van LinkedIn bevoegdheden](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
+![LinkedIn met verhoogde bevoegdheden ingericht](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate3.PNG)
 
 11)  Vul de volgende velden onder **beheerdersreferenties** :
 
 * In de **Tenant-URL** veld https://api.linkedin.com.
 
-* In de **geheim Token** veld, voer het toegangstoken dat u in stap 1 hebt gemaakt en klik op **testverbinding** .
+* In de **geheim Token** veld, voer het toegangstoken die u in stap 1 in en klikt u op **testverbinding** .
 
-* U ziet een melding met succes de upperright-zijde van de portal.
+* U ziet een melding succes upperright aan van de portal.
 
-12) Voer het e-mailadres van een persoon of groep die in inrichting fout meldingen moet ontvangen de **e-mailmelding** veld en schakel het selectievakje hieronder in.
+12) Voer het e-mailadres van een persoon of groep die inrichting fout meldingen moet ontvangen de **e-mailmelding** veld en schakel het onderstaande selectievakje in.
 
 13) Klik op **Opslaan**. 
 
-14) In de **kenmerktoewijzingen** sectie, controleert u de gebruikers- en groepskenmerken die worden gesynchroniseerd vanuit Azure AD wilt LinkedIn uitbreiden. Let op de kenmerken die zijn geselecteerd als **overeenkomend** eigenschappen overeenkomen met de gebruikersaccounts en groepen in het LinkedIn bevoegdheden voor update-bewerkingen worden gebruikt. Selecteer de knop Opslaan eventuele wijzigingen doorvoeren.
+14) In de **kenmerktoewijzingen** sectie, controleert u de gebruikers- en groepskenmerken die van Azure AD worden gesynchroniseerd met LinkedIn met verhoogde bevoegdheden. Houd er rekening mee dat de kenmerken die zijn geselecteerd als **overeenkomende** eigenschappen wordt gebruikt zodat deze overeenkomen met de gebruikersaccounts en groepen in LinkedIn met verhoogde bevoegdheden voor update-bewerkingen. Selecteer de knop Opslaan om door te voeren van eventuele wijzigingen.
 
-![De inrichting van LinkedIn bevoegdheden](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
+![LinkedIn met verhoogde bevoegdheden ingericht](./media/linkedinelevate-provisioning-tutorial/linkedin_elevate4.PNG)
 
-15) Om de Azure AD-service voor het uitbreiden van LinkedIn inricht, wijzigen de **inrichting Status** naar **op** in de **instellingen** sectie
+15) Als u wilt inschakelen in de Azure AD-inrichtingsservice voor LinkedIn met verhoogde bevoegdheden, wijzigen de **Inrichtingsstatus** naar **op** in de **instellingen** sectie
 
 16) Klik op **Opslaan**. 
 
-Hiermee start u de initiële synchronisatie van gebruikers en/of groepen die zijn toegewezen aan het LinkedIn uitbreiden in de sectie gebruikers en groepen. Houd er rekening mee dat de eerste synchronisatie langer dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden duurt als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en volg de koppelingen voor het inrichten van activiteitenlogboeken waarin alle acties die worden uitgevoerd door de inrichting service op uw app LinkedIn uitbreiden.
+Hiermee start u de initiële synchronisatie van alle gebruikers en/of groepen die zijn toegewezen aan LinkedIn met verhoogde bevoegdheden in de sectie gebruikers en groepen. Houd er rekening mee dat de eerste synchronisatie langer dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden duurt als de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van activiteitenlogboeken, waarin alle acties die worden uitgevoerd door de provisioning-service op uw app LinkedIn met verhoogde bevoegdheden worden beschreven.
 
-Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over automatische account gebruikersaanvragen](../active-directory-saas-provisioning-reporting.md).
+Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
-* [Het beheren van gebruikers account inrichten voor zakelijke Apps](../manage-apps/configure-automatic-user-provisioning-portal.md)
-* [Wat is de toegang tot toepassingen en eenmalige aanmelding bij Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

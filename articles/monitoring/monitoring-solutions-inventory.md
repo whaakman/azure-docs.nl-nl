@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: bwren
-ms.openlocfilehash: 40b8f51c66ebe98cd1c312002b7bd5e96e5032bd
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 3154a2f8b283f68ec3e10ba621ccba3ee6d77de2
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39112702"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324747"
 ---
 # <a name="data-collection-details-for-management-solutions-in-azure"></a>Details van de verzameling gegevens voor de beheeroplossingen in Azure
 In dit artikel bevat een lijst met [beheeroplossingen](monitoring-solutions.md) beschikbaar van Microsoft met koppelingen naar de gedetailleerde documentatie.  Het bevat ook informatie over hun methode en de frequentie van verzamelen van gegevens in Log Analytics.  Gebruik de informatie in dit artikel om te identificeren van de verschillende oplossingen beschikbaar en om te begrijpen van de stroom en verbinding eisen voor verschillende oplossingen. 
@@ -48,9 +48,9 @@ Uitleg van de kolommen zijn als volgt:
 | [Ontvang een waarschuwing Management](../log-analytics/log-analytics-solution-alert-management.md) (Nagios) |Linux |&#8226; | | | | |bij ontvangst |
 | [Ontvang een waarschuwing Management](../log-analytics/log-analytics-solution-alert-management.md) (Zabbix) |Linux |&#8226; | | | | |1 minuut |
 | [Ontvang een waarschuwing Management](../log-analytics/log-analytics-solution-alert-management.md) (Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3 minuten |
-| [Azure Site Recovery](../site-recovery/site-recovery-overview.md) | Azure | | | | | | N.v.t. |
+| [Azure Site Recovery](../site-recovery/site-recovery-overview.md) | Azure | | | | | | niet van toepassing |
 | [Application Insights-Connector (Preview)](../log-analytics/log-analytics-app-insights-connector.md) | Azure | | | |  |  | op de melding |
-| [Hybrid Worker voor Automation](../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | N.v.t. |
+| [Hybrid Worker voor Automation](../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | niet van toepassing |
 | [Azure Application Gateway Analytics](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | op de melding |
 | **Oplossing voor het beheer** | **Platform** | **Microsoft monitoring agent** | **Operations Manager-agent** | **Azure Storage** | **Operations Manager vereist?** | **Operations Manager-agent gegevens verzonden via de beheergroep** | **Verzamelingsfrequentie** |
 | [Azure Network Security Group Analytics (afgeschaft)](../log-analytics/log-analytics-azure-networking-analytics.md) | Azure |  |  |  |  |  | op de melding |
@@ -65,7 +65,7 @@ Uitleg van de kolommen zijn als volgt:
 | [Netwerkprestatiemeter](../log-analytics/log-analytics-network-performance-monitor.md) | Windows | &#8226; | &#8226; |  |  |  | Aantal-TCP-handshakes om de vijf seconden, gegevens verzonden om de 3 minuten |
 | [Office 365 Analytics (Preview)](../operations-management-suite/oms-solution-office-365.md) |Windows | | | | | |op de melding |
 | **Oplossing voor het beheer** | **Platform** | **Microsoft monitoring agent** | **Operations Manager-agent** | **Azure Storage** | **Operations Manager vereist?** | **Operations Manager-agent gegevens verzonden via de beheergroep** | **Verzamelingsfrequentie** |
-| [Service Fabric-analyse (Preview)](../log-analytics/log-analytics-service-fabric.md) |Windows | | |&#8226; | | |5 minuten |
+| [Service Fabric-analyse](../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5 minuten |
 | [Serviceoverzicht](../operations-management-suite/operations-management-suite-service-map.md) | Windows en Linux | &#8226; | &#8226; |  |  |  | 15 seconden |
 | [SQL-evaluatie](../log-analytics/log-analytics-sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 dagen |
 | [SurfaceHub](../log-analytics/log-analytics-surface-hubs.md) |Windows |&#8226; | | | | |bij ontvangst |

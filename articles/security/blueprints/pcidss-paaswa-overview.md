@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: ee1a127696f20e2d67d61be2c598e5ee9386c069
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: 523d326c3bfc799bc6a170275011ef8e134894a0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908089"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300763"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Azure-beveiliging en naleving blauwdruk: PaaS-Web-App voor het PCI DSS
 
@@ -50,7 +50,7 @@ Application Insights biedt bovendien toepassingsprestatiebeheer van realtime en 
 Deze oplossing maakt gebruik van de volgende Azure-services. Informatie van de implementatiearchitectuur vindt u in de [architectuur](#deployment-architecture) sectie.
 
 - App Service Environment v2
-- Application Gateway
+- Toepassingsgateway
   - (1) de web application firewall
     - Firewallmodus: preventie
     - Regelset: OWASP 3.0
@@ -103,7 +103,7 @@ Gebruik App Service-omgevingen voor de volgende besturingselementen/configuratie
 - [Web application firewall: gegevens beperken](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - Toestaan dat [verkeer van de Azure SQL Database](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-**Azure-Web-App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) kunnen klanten bouwen en hosten van webtoepassingen in de programmeertaal van hun keuze zonder het beheren van infrastructuur. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Visual Studio Team Services of een willekeurige Git-repo.
+**Azure-Web-App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) kunnen klanten bouwen en hosten van webtoepassingen in de programmeertaal van hun keuze zonder het beheren van infrastructuur. Het biedt automatisch schalen en hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux, en maakt automatische implementaties vanuit GitHub, Azure DevOps of een willekeurige Git-repo mogelijk.
 
 ### <a name="virtual-network"></a>Virtual Network
 
@@ -223,7 +223,7 @@ De [Azure-beveiliging en naleving blauwdruk – PCI DSS PaaS Web Application imp
 ## <a name="deploy-this-solution"></a>Deze oplossing implementeren
 Deze Azure-beveiliging en naleving blauwdruk Automation bestaat uit JSON-configuratiebestanden en PowerShell-scripts die worden verwerkt door Azure Resource Manager API-service om resources binnen Azure te implementeren. Gedetailleerde implementatie-instructies zijn beschikbaar [hier](https://aka.ms/pcidss-paaswa-repo).
 
-#### <a name="quickstart"></a>Snelstartgids
+#### <a name="quickstart"></a>Quick Start
 1. Klonen of downloaden [dit](https://aka.ms/pcidss-paaswa-repo) GitHub-opslagplaats naar uw lokale werkstation.
 
 2. 0-Setup-AdministrativeAccountAndPermission.md bekijken en de opgegeven opdrachten.

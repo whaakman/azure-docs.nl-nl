@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: genli
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b6055dbab85acb1e5fed9679a5072144bc84712c
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: f58c156019048a4e6b08267bf28325857ec69b3a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42917120"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302200"
 ---
 # <a name="transfer-ownership-of-an-azure-subscription-to-another-account"></a>Eigendom van een Azure-abonnement naar een ander account overdragen
 
@@ -33,7 +33,7 @@ Overdracht van uw abonnement aan een andere gebruiker in het Accountcentrum te w
 > Als u overdraagt van een abonnement op een nieuwe Azure AD-tenant, worden alle roltoewijzingen in [op rollen gebaseerd toegangsbeheer (RBAC)](../role-based-access-control/overview.md) permanent worden verwijderd uit de bron-tenant en worden niet gemigreerd naar de doel-tenant.
 
 > [!div class="nextstepaction"]
-> [Help bij het verbeteren van Azure-facturering documenten](https://go.microsoft.com/fwlink/p/?linkid=2010091)
+> [Help bij het verbeteren van documenten over Azure-facturering](https://go.microsoft.com/fwlink/p/?linkid=2010091)
 
 ## <a name="transfer-ownership-of-an-azure-subscription"></a>Eigendom van een Azure-abonnement overdragen
 
@@ -77,7 +77,7 @@ De Enterprise-beheerder kunt overdragen van abonnementen binnen een inschrijving
 
 ## <a name="next-steps-after-accepting-ownership-of-a-subscription"></a>Volgende stappen na de eigendom van een abonnement accepteren
 
-1. U bent nu de accountbeheerder. Controleren en bijwerken van de servicebeheerder, Co-beheerders en andere RBAC-rollen. Zie voor meer informatie, [toevoegen of wijzigen Azure-beheerdersrollen waarmee het abonnement of de services](billing-add-change-azure-subscription-administrator.md).
+1. U bent nu de accountbeheerder. Controleren en bijwerken van de servicebeheerder, Co-beheerders en andere RBAC-rollen. Zie voor meer informatie, [toevoegen of wijzigen Azure-abonnementbeheerders](billing-add-change-azure-subscription-administrator.md) en [toegang met RBAC en de Azure-portal beheren](../role-based-access-control/role-assignments-portal.md).
 1. Referenties van de update die is gekoppeld aan services van dit abonnement met inbegrip van:
    1. Van beheercertificaten die aan de gebruiker beheerdersrechten voor resources-abonnement. Zie voor meer informatie, [maken en uploaden van een certificaat voor Azure](../cloud-services/cloud-services-certs-create.md)
    1. Toegangssleutels voor services zoals opslag. Zie voor meer informatie, [over Azure storage-accounts](../storage/common/storage-create-storage-account.md)

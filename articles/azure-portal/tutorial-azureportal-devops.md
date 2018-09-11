@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/05/2016
 ms.author: mlearned
-ms.openlocfilehash: db3cc8bb546758402e4f0b3fe91449e597e754fa
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: d0bf66a224a8a42f813bc817f78321167e309bdb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42054045"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303520"
 ---
 # <a name="tutorial-devops-with-the-azure-portal"></a>Zelfstudie: DevOps met de Azure-portal
 Het Azure-platform bevat tal van flexibele DevOps-werkstromen. In deze zelfstudie leert u hoe u gebruik kunt maken van de mogelijkheden van de Azure portal om te ontwikkelen, testen, implementeren, problemen oplossen, bewaken en beheren van actieve toepassingen. Deze zelfstudie is gericht op het volgende:
@@ -82,7 +82,7 @@ Maak met [Azure App Service](https://azure.microsoft.com/services/app-service/) 
     
     ![image15][image15]
     
-    Inschakelen van continue implementatie met de Azure-portal is heel eenvoudig. U kunt ook complexere releasepijplijnen maken en vele andere technieken met bestaand broncodebeheer en continue integratiesystemen gebruiken om in Azure te implementeren, zoals het gebruik van systemen voor automatisch build- en releasebeheer.
+    Inschakelen van continue implementatie met de Azure-portal is heel eenvoudig. U kunt ook complexere releasepijplijnen maken en gebruiken van vele andere technieken met bestaand broncodebeheer en continue integratiesystemen implementeren in Azure, zoals het gebruik van geautomatiseerde systemen voor het beheren van pijplijnen voor Azure.
 
 ## <a name="develop-and-test-an-app"></a>Een app ontwikkelen en testen
 Vervolgens brengt u enkele wijzigingen in de code aan en gaat u deze wijzigingen snel implementeren. U wordt ook een aantal prestatietests voor de Web-app instellen.
@@ -99,7 +99,7 @@ Vervolgens brengt u enkele wijzigingen in de code aan en gaat u deze wijzigingen
 4. In het consolevenster kunt u live opdrachten geven voor uw app. Typ de opdracht dir en druk op Enter. Opdrachten waarvoor verhoogde bevoegdheden zijn vereist, werken echter niet.
    
    ![image19][image19]
-5. Ga terug naar de categorie Ontwikkelen en kies Visual Studio Online. Opmerking: Visual Studio Online heet nu Visual Studio Team Services.
+5. Ga terug naar de categorie Ontwikkelen en kies Visual Studio Online. Opmerking: Visual Studio Online heet nu Azure DevOps-Services.
    
    ![image20][image20]
 6. Schakel in-browser bewerken voor uw app in.
@@ -125,7 +125,7 @@ Vervolgens brengt u enkele wijzigingen in de code aan en gaat u deze wijzigingen
 12. Ga terug naar de blade Hulpprogramma’s en klik onder de categorie Ontwikkelen op Prestatietests.
     
     ![image28][image28]
-13. U moet een Team Services-account instellen. Hier ziet voor meer informatie: [maken van een Team Services-Account](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
+13. U moet een organisatie Azure DevOps Services instellen. Hier ziet voor meer informatie: [maken van een organisatie met Azure DevOps Services](https://docs.microsoft.com/vsts/organizations/accounts/create-organization-msa-or-work-student).
 14. Klik op Nieuw om een nieuwe prestatietest te maken.
     
     ![image29][image29]
@@ -259,7 +259,7 @@ Bij het beheer van toepassingen moet u vaak tal van activiteiten uitvoeren, zoal
     
      ![image69][image69]
 
-## <a name="summary"></a>Samenvatting
+## <a name="summary"></a>Overzicht
 In deze zelfstudie hebt u kennisgemaakt met enkele krachtige mogelijkheden van het Azure-platform: het snel kunnen inschakelen van continue implementatie voor een webtoepassing, het uitvoeren van verschillende ontwikkel- en testactiviteiten, het bewaken van live toepassingen en het oplossen van problemen, en tot slot het beheren belangrijke strategieën, zoals herstel na noodgevallen, identiteiten en op rollen gebaseerd toegangsbeheer. Het Azure-platform biedt een geïntegreerde ervaring voor deze DevOps-werkstromen en u kunt efficiënt werken doordat u taken in context uitvoert.
 
 ## <a name="next-steps"></a>Volgende stappen

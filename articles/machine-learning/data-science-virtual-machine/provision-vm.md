@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: gokuma
-ms.openlocfilehash: 8131122f78f743d04e332bfc8dfeba87a8c34236
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 37a30055e567b27f4e215dac162642d4447a8e49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782651"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298198"
 ---
 # <a name="provision-the-windows-data-science-virtual-machine-on-azure"></a>Inrichten van de Windows Data Science Virtual Machine van Azure
 De Microsoft Data Science Virtual Machine (DSVM) is een installatiekopie van Windows Azure virtuele machine (VM). Het is vooraf geïnstalleerd en geconfigureerd met verschillende hulpprogramma's die worden gebruikt voor gegevensanalyse en machine learning. De volgende hulpprogramma's zijn opgenomen:
@@ -40,7 +40,7 @@ De Microsoft Data Science Virtual Machine (DSVM) is een installatiekopie van Win
   * [Weka](http://www.cs.waikato.ac.nz/ml/weka/). Visual gegevensanalyse en machine learning-software in Java.
   * [Apache Drill](https://drill.apache.org/). Een schema's SQL query-engine voor Apache Hadoop-, NoSQL- en opslag in de cloud.  ODBC- en JDBC-interfaces worden ondersteund voor het uitvoeren van query's NoSQL en bestanden van standard BI-hulpprogramma's zoals Power BI, Microsoft Excel en Tableau.
 * Bibliotheken in R en Python voor gebruik in Azure Machine Learning en andere Azure-services.
-* GIT, met inbegrip van Git Bash, om te werken met broncodeopslagplaatsen, zoals GitHub en Visual Studio Team Services. GIT biedt verschillende populaire Linux-opdrachtregelprogramma's die toegankelijk zijn zowel op Git Bash en een opdrachtprompt. Voorbeelden zijn awk, sed, perl, grep, zoeken, wget en curl.
+* GIT, met inbegrip van Git Bash, om te werken met broncodeopslagplaatsen, zoals GitHub en DevOps met Azure. GIT biedt verschillende populaire Linux-opdrachtregelprogramma's die toegankelijk zijn zowel op Git Bash en een opdrachtprompt. Voorbeelden zijn awk, sed, perl, grep, zoeken, wget en curl.
 
 Wetenschappelijke gegevens omvat het doorlopen van een reeks taken:
 
@@ -205,7 +205,7 @@ Elke gebruiker van de workbench moet een eenmalige actie ondernemen. Dubbelklik 
 De [Microsoft Web Platform Installer](https://www.microsoft.com/web/downloads/platform.aspx) wordt gebruikt om te zoeken en downloaden van andere Microsoft-ontwikkelhulpprogramma's. Er is ook een snelkoppeling naar het hulpprogramma dat is opgegeven op het bureaublad van Microsoft Data Science Virtual Machine.  
 
 ## <a name="important-directories-on-the-vm"></a>Belangrijke mappen op de virtuele machine
-| Item | Directory |
+| Item | Map |
 | --- | --- |
 | Jupyter-Notebook server-configuraties | C:\ProgramData\jupyter |
 | Jupyter-Notebook voorbeelden basismap | c:\dsvm\notebooks en c:\users\<gebruikersnaam > \notebooks |

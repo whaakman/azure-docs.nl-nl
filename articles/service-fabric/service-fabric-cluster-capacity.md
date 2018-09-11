@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/27/2018
 ms.author: chackdan
-ms.openlocfilehash: dc70a20667db7e59f0fe77ec4d84831cfb7e75a5
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: d1d17ff331d3e770b77ce729904e57cf88ebc16c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617215"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348565"
 ---
 # <a name="service-fabric-cluster-capacity-planning-considerations"></a>Service Fabric-cluster overwegingen voor capaciteitsplanning
 Voor een productie-implementatie is plannen van capaciteit een belangrijke stap. Hier volgen enkele van de artikelen waarmee u rekening moet houden als onderdeel van dit proces.
@@ -51,7 +51,7 @@ Elk knooppunttype is een afzonderlijke scale ingesteld en kan worden opgeschaald
 
 Een Service Fabric-cluster kan bestaan uit meer dan één knooppunttype. In dat geval kan het cluster bestaat uit één primaire knooppunttype en knooppunttypen van een of meer niet-primaire.
 
-Één knooppunttype mag niet alleen meer dan 100 knooppunten per virtuele-machineschaalset. U moet mogelijk om toe te voegen van de virtuele-machineschaalsets voor de betreffende schaal en automatisch schalen kan geen automagically toevoegen van virtuele-machineschaalsets. Virtuele-machineschaalsets in-place toevoegen aan een live cluster is een lastige taak en vaak resulteert dit in gebruikers inrichten van nieuwe clusters met de juiste knooppunttypen ingericht tijdens het maken. 
+Een type één knooppunt kan niet op betrouwbare wijze te schalen dan 100 knooppunten per virtuele-machineschaalset voor SF-toepassingen. bereiken op betrouwbare wijze groter is dan 100 knooppunten, moet u extra virtuele-machineschaalsets toevoegen.
 
 ### <a name="primary-node-type"></a>Primaire knooppunttype
 
@@ -78,7 +78,7 @@ De duurzaamheidslaag wordt gebruikt om aan te geven aan het systeem de rechten v
 | ---------------- |  ----------------------------  | ---------------------------------------------------------------------------------- | ----------------------------------------------------------- | ------------------------------------------------------------------------------------------------------- |
 | Goudkleurig             | 5                              | Volledige-node-SKU's die zijn toegewezen aan één klant (bijvoorbeeld L32s, GS5, G5, DS15_v2, D15_v2) | Kan worden uitgesteld totdat goedgekeurd door de Service Fabric-cluster | Gedurende 2 uur per UD waarmee extra tijd voor replica's te herstellen van eerdere fouten kan worden onderbroken |
 | Zilver           | 5                              | Virtuele machines van één kern of hoger                                                        | Kan worden uitgesteld totdat goedgekeurd door de Service Fabric-cluster | Voor een aanzienlijke tijd actief kan niet worden uitgesteld                                                    |
-| Brons           | 1                              | Alle                                                                                | Niet worden door de Service Fabric-cluster vertraagd           | Voor een aanzienlijke tijd actief kan niet worden uitgesteld                                                    |
+| Brons           | 1                              | Alles                                                                                | Niet worden door de Service Fabric-cluster vertraagd           | Voor een aanzienlijke tijd actief kan niet worden uitgesteld                                                    |
 
 > [!WARNING]
 > Knooppunttypen met de duurzaamheid Brons verkrijgen _geen bevoegdheden_. Dit betekent dat infrastructuur-taken die invloed hebben op uw staatloze werkbelastingen worden niet worden gestopt of uitgesteld, kan dit gevolgen hebben voor uw workloads. Gebruik alleen Brons voor typen die alleen staatloze werkbelastingen worden uitgevoerd. Voor productieworkloads, Zilver uitgevoerd of hoger wordt aanbevolen. 

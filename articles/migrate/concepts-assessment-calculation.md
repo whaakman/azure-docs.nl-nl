@@ -4,14 +4,14 @@ description: Biedt een overzicht van evaluatie van berekeningen in de Azure Migr
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 07/25/2018
+ms.date: 09/10/2018
 ms.author: raynew
-ms.openlocfilehash: 092f0844854c13898fd7f07ce9b7ddea98ff01ed
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 24033431bc170969ccbdf1e993e4b6a5501acd81
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286270"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325393"
 ---
 # <a name="assessment-calculations"></a>Beoordelingsberekeningen
 
@@ -72,9 +72,6 @@ Besturingssysteem opgegeven als **andere** in vCenter-Server | Azure Migrate ide
 
 Nadat een virtuele machine is gemarkeerd als gereed voor Azure, Azure Migrate de grootte van de virtuele machine en de schijven voor Azure. Als het criterium voor het opgegeven in de evaluatie-eigenschappen instellen op prestaties gebaseerde groottebepaling te doen, Azure Migrate rekening gehouden met de prestatiegeschiedenis van de machine om te identificeren van de VM-grootte en de schijf type in Azure. Deze methode is handig in scenario's waarbij u de on-premises VM te veel hebt toegewezen, maar het gebruik van de laag is en u wilt de juiste grootte de virtuele machines in Azure om kosten te besparen.
 
-> [!NOTE]
-> Azure Migrate verzamelt de prestatiegeschiedenis van on-premises virtuele machines van vCenter-Server. Om ervoor te zorgen nauwkeurige juiste groottebepaling, zorg ervoor dat de instelling voor statistieken in vCenter-Server is ingesteld op niveau 3 en wacht ten minste een dag voor de detectie van de on-premises machines begon. Als de instelling voor statistieken in vCenter Server lager dan niveau 3 is, wordt de prestatiegegevens voor schijven en het netwerk niet verzameld.
-
 Als u niet wilt Houd rekening met de geschiedenis van geheugenprestaties voor VM-grootte en de virtuele machine als wilt-is naar Azure, kunt u het criterium voor het instellen als *zoals on-premises* en Azure Migrate wordt vervolgens het formaat van de virtuele machines op basis van de on-premises configuratie zonder rekening te houden de gegevens over het gebruik. Schijf grootte, in dit geval wordt uitgevoerd op basis van het type opslag dat u in de evaluatie-eigenschappen (Standard disk of Premium-schijf opgeeft)
 
 ### <a name="performance-based-sizing"></a>Prestatie gebaseerde schaling
@@ -106,7 +103,7 @@ Azure Migrate begint met de schijven die zijn gekoppeld aan de virtuele machine,
 ### <a name="as-on-premises-sizing"></a>Zoals on-premises formaat wijzigen
 Als het criterium voor groottebepaling *zoals on-premises '*, Azure Migrate houdt geen rekening met de prestatiegeschiedenis van de virtuele machines en schijven en een VM-SKU in Azure op basis van de on-premises toegewezen grootte kan worden toegewezen. Op dezelfde manier voor grootte van de schijf, het kijkt naar het Storage-type dat is opgegeven in de evaluatie-eigenschappen (Standard/Premium) en raadt het schijftype dienovereenkomstig aan. Opslagtype standaard is de Premium-schijven.
 
-### <a name="confidence-rating"></a>Betrouwbaarheidsclassificatie
+### <a name="confidence-rating"></a>Betrouwbaarheidswaardering
 Elke prestatie-evaluatie in Azure Migrate wordt gekoppeld aan een betrouwbaarheidsclassificatie van 1 ster tot 5 sterren (1 ster is de laagste score en 5 sterren de hoogste). De betrouwbaarheidsclassificatie wordt aan een evaluatie toegewezen op basis van de beschikbaarheid van de gegevenspunten die nodig zijn om de evaluatie te berekenen. De betrouwbaarheidsclassificatie van een evaluatie helpt u om de betrouwbaarheid in te schatten van de aanbevelingen voor de grootte die Azure Migrate geeft. Betrouwbaarheidsclassificatie is niet van toepassing op als on-premises evaluaties.
 
 Als u de grootte instelt op basis van de prestaties, heeft Azure Migrate de gebruiksgegevens nodig van de CPU en het geheugen van de virtuele machine. Voor elke schijf die aan de virtuele machine is gekoppeld, zijn de IOPS-gegevens van de schijf en de doorvoergegevens vereist. Ook heeft Azure Migrate voor iedere netwerkadapter die aan een VM is gekoppeld, gegevens over het inkomende/uitgaande netwerkverkeer nodig om de grootte in te kunnen stellen op basis van de prestaties. Als een of meer van de bovenstaande gebruiksgetallen niet beschikbaar zijn in vCenter Server, is de aanbeveling voor de grootte die Azure Migrate doet, mogelijk niet betrouwbaar. De betrouwbaarheidsclassificatie van de evaluatie wordt toegekend op basis van het percentage beschikbare gegevenspunten, zoals hieronder wordt weergegeven:
@@ -119,14 +116,24 @@ Als u de grootte instelt op basis van de prestaties, heeft Azure Migrate de gebr
    61%-80% | 4 sterren
    81%-100% | 5 sterren
 
-Het kan voorkomen dat niet alle gegevenspunten beschikbaar zijn voor een evaluatie. Dit kan de volgende oorzaken hebben:
-- De instelling voor statistieken in vCenter Server is niet ingesteld op niveau 3. Als de instelling voor statistieken in vCenter Server op een lager niveau dan niveau 3 is ingesteld, worden de prestatiegegevens voor de schijf en het netwerk niet verzameld vanuit vCenter Server. In dat geval wordt de aanbeveling van Azure Migrate voor de schijf en het netwerk niet gebaseerd op gebruik. Als er geen rekening wordt gehouden met de IOPS/doorvoer van de schijf, kan in Azure Migrate niet worden bepaald of voor de schijf een premium-schijf in Azure nodig is. In dat geval adviseert Azure Migrate Standard-schijven voor alle schijven.
-- De instelling voor statistieken in vCenter Server is korte tijd op niveau 3 ingesteld geweest voordat de detectie begon. Laten we het scenario als voorbeeld nemen waarin u het niveau van de instelling voor statistieken vandaag bijvoorbeeld op 3 zet en morgen (na 24 uur) met de detectie begint met behulp van het collector-apparaat. Als u een evaluatie voor één dag maakt, hebt u alle gegevenspunten en is de betrouwbaarheidsclassificatie van de evaluatie 5 sterren. Maar als u de duur van de prestaties in de evaluatie-eigenschappen wijzigt in één maand, gaat de betrouwbaarheidsclassificatie omlaag, omdat de prestatiegegevens voor schijven en netwerken voor de laatste maand niet beschikbaar zijn. Als u rekening wilt houden met de prestatiegegevens voor de laatste maand, kunt u het beste de instelling voor statistieken in vCenter Server op niveau 3 laten staan gedurende één maand voordat u met de detectie begint.
-- Er zijn enkele VM's uitgeschakeld geweest in de periode waarover de evaluatie wordt berekend. Als er VM's zijn die gedurende een bepaalde tijd uitgeschakeld zijn geweest, zal vCenter Server voor die periode geen prestatiegegevens hebben.
-- Er zijn enkele VM's gemaakt tijdens de periode waarover de evaluatie wordt berekend. Als u bijvoorbeeld een evaluatie maakt voor de prestatiegeschiedenis van de laatste maand, maar er een week geleden enkele VM's in de omgeving zijn gemaakt. In dergelijke gevallen is de prestatiegeschiedenis van de nieuwe virtuele machines niet voor de hele periode beschikbaar.
+   Hieronder worden de redenen waarom een evaluatie kan een laag betrouwbaarheidsclassificatie ophalen betreft:
 
-> [!NOTE]
-> Als de betrouwbaarheidsclassificatie van een evaluatie lager dan 4 sterren is, raden we u aan om de instelling voor statistieken in vCenter Server op 3 te zetten, te wachten gedurende de periode waarover u de evaluatie wilt uitvoeren (1 dag/1 week/1 maand) en vervolgens een detectie en evaluatie uit te voeren. Als de voorgaande stappen niet kunnen worden uitgevoerd, wordt de grootte mogelijk niet op betrouwbare wijze ingesteld. In dat geval doet u er verstandig aan over te schakelen naar *instelling van de grootte op basis van 'zoals on-premises'* door de evaluatie-eigenschappen te wijzigen.
+   **Eenmalige detectie**
+
+   - De instelling voor statistieken in vCenter Server is niet ingesteld op niveau 3. Omdat het model eenmalige detectie is afhankelijk van de instellingen voor statistieken in vCenter Server, als de statistieken in vCenter-Server instellen lager dan niveau 3 is, wordt prestatiegegevens voor schijven en het netwerk niet verzameld vanuit vCenter-Server. In dat geval wordt de aanbeveling van Azure Migrate voor de schijf en het netwerk niet gebaseerd op gebruik. Als er geen rekening wordt gehouden met de IOPS/doorvoer van de schijf, kan in Azure Migrate niet worden bepaald of voor de schijf een premium-schijf in Azure nodig is. In dat geval adviseert Azure Migrate Standard-schijven voor alle schijven.
+   - De instelling voor statistieken in vCenter Server is ingesteld op niveau 3 voor een kortere duur voordat de detectie begon. Laten we het scenario als voorbeeld nemen waarin u het niveau van de instelling voor statistieken vandaag bijvoorbeeld op 3 zet en morgen (na 24 uur) met de detectie begint met behulp van het collector-apparaat. Als u een evaluatie voor één dag maakt, hebt u alle gegevenspunten en is de betrouwbaarheidsclassificatie van de evaluatie 5 sterren. Maar als u de duur van de prestaties in de evaluatie-eigenschappen wijzigt in één maand, gaat de betrouwbaarheidsclassificatie omlaag, omdat de prestatiegegevens voor schijven en netwerken voor de laatste maand niet beschikbaar zijn. Als u rekening wilt houden met de prestatiegegevens voor de laatste maand, kunt u het beste de instelling voor statistieken in vCenter Server op niveau 3 laten staan gedurende één maand voordat u met de detectie begint.
+
+   **Continue detectie**
+
+   - U hebt uw omgeving geen profiel voor de periode waarvoor u de evaluatie wilt maken. Bijvoorbeeld, als u de evaluatie met de duur van de prestaties is ingesteld op 1 dag maakt, moet u na afloop van ten minste een dag nadat u te leren kennen voor alle gegevenspunten om op te halen die worden verzameld.
+
+   **Veelvoorkomende redenen**  
+
+   - Er zijn enkele VM's uitgeschakeld geweest in de periode waarover de evaluatie wordt berekend. Als alle virtuele machines gedurende een bepaalde tijd zijn uitgeschakeld, is er niet mogelijk voor het verzamelen van de prestatiegegevens voor die periode.
+   - Er zijn enkele VM's gemaakt tijdens de periode waarover de evaluatie wordt berekend. Als u bijvoorbeeld een evaluatie maakt voor de prestatiegeschiedenis van de laatste maand, maar er een week geleden enkele VM's in de omgeving zijn gemaakt. In dergelijke gevallen is de prestatiegeschiedenis van de nieuwe virtuele machines niet voor de hele periode beschikbaar.
+
+   > [!NOTE]
+   > Als de betrouwbaarheidsclassificatie van een evaluatie lager dan 4 sterren, voor detectie van eenmalige-model is, we raden u aan om de instelling voor vCenter Server statistieken op 3, wachten gedurende de periode die u wilt gebruiken voor de evaluatie van (1 dag/1 week/1 maand) en voer detectie en evaluatie. Wacht ten minste een dag voor het apparaat aan het profiel van de omgeving voor het model continue detectie en vervolgens *opnieuw berekenen* de evaluatie. Als de voorgaande kan niet worden uitgevoerd, prestatie gebaseerde schaling mogelijk niet betrouwbaar en het is raadzaam om over te schakelen naar *zoals on-premises '* door het veranderen van de evaluatie-eigenschappen.
 
 ## <a name="monthly-cost-estimation"></a>Schatting van de maandelijkse kosten
 

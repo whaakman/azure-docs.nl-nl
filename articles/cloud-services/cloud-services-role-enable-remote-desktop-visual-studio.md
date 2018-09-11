@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.workload: azure-vs
 ms.date: 03/06/2018
 ms.author: ghogen
-ms.openlocfilehash: 87c7029836bf28464fd48e17480119a4dcb1201c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 703e969fe31def329be60037cceba27864063b4e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054508"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304047"
 ---
 # <a name="enable-remote-desktop-connection-for-a-role-in-azure-cloud-services-using-visual-studio"></a>Verbinding met extern bureaublad inschakelen voor een rol in Azure Cloud Services met behulp van Visual Studio
 
@@ -30,7 +30,7 @@ Extern bureaublad kunt u toegang tot het bureaublad van een functie die wordt ui
 
 De wizard publiceren die Visual Studio voor cloudservices biedt bevat een optie voor het inschakelen van extern bureaublad gedurende het publicatieproces, met behulp van referenties die u opgeeft. Met deze optie is geschikt wanneer u Visual Studio 2017 versie 15.4 en eerdere versies.
 
-Met Visual Studio 2017 versie 15.5 of hoger, maar het verdient aanbeveling dat u extern bureaublad inschakelen via de wizard publiceren, tenzij u alleen als een ontwikkelaar van één werkt vermijden. Voor een situatie waarin het project kan worden geopend door andere ontwikkelaars, schakel u extern bureaublad in plaats daarvan via Azure portal, via PowerShell of via een release-definitie in een werkstroom voor continue implementatie. Deze aanbeveling is vanwege een wijziging in hoe Visual Studio met extern bureaublad op de cloudservice-VM, communiceert zoals in dit artikel wordt uitgelegd.
+Met Visual Studio 2017 versie 15.5 of hoger, maar het verdient aanbeveling dat u extern bureaublad inschakelen via de wizard publiceren, tenzij u alleen als een ontwikkelaar van één werkt vermijden. Voor een situatie waarin het project kan worden geopend door andere ontwikkelaars, schakel u extern bureaublad in plaats daarvan via Azure portal, via PowerShell of via een release-pijplijn in een werkstroom voor continue implementatie. Deze aanbeveling is vanwege een wijziging in hoe Visual Studio met extern bureaublad op de cloudservice-VM, communiceert zoals in dit artikel wordt uitgelegd.
 
 ## <a name="configure-remote-desktop-through-visual-studio-2017-version-154-and-earlier"></a>Configureren van extern bureaublad via Visual Studio 2017 versie 15.4 en lager
 
@@ -82,9 +82,9 @@ Als u het project met een team deelt, vervolgens het is raadzaam om te wissen va
 
 ### <a name="deploying-from-a-build-server-with-visual-studio-2017-version-155-and-later"></a>Implementeren vanaf een server maken met Visual Studio 2017 versie 15.5 of hoger
 
-U kunt een cloud service-project van een buildserver (bijvoorbeeld met Visual Studio Team Services) op welke Visual Studio 2017 versie 15.5 of hoger is geïnstalleerd in de build-agent implementeren. Met deze overeenkomst plaats implementatie op de computer waarop het versleutelingscertificaat dat beschikbaar is.
+U kunt een cloud service-project van een buildserver (bijvoorbeeld met Azure DevOps-Services) op welke Visual Studio 2017 versie 15.5 of hoger is geïnstalleerd in de build-agent implementeren. Met deze overeenkomst plaats implementatie op de computer waarop het versleutelingscertificaat dat beschikbaar is.
 
-Voor het gebruik van de RDP-extensie van Visual Studio Team Services, zijn onder andere de volgende gegevens in uw build-definitie:
+Voor het gebruik van de RDP-extensie van Azure DevOps-Services, zijn onder andere de volgende gegevens in de build-pijplijn:
 
 1. Opnemen `/p:ForceRDPExtensionOverPlugin=true` in uw MSBuild-argumenten om ervoor te zorgen dat de implementatie werkt met de RDP-extensie in plaats van de RDP-invoegtoepassing. Bijvoorbeeld:
 
@@ -146,6 +146,6 @@ Nadat u uw cloudservice op Azure publiceren en extern bureaublad hebt ingeschake
 
 3. Voer de gebruikersnaam en wachtwoord die u eerder hebt gemaakt. U bent nu aangemeld bij de externe sessie.
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 [Cloud Services configureren](cloud-services-how-to-configure-portal.md)

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 766f617f3534ffaccdc326e7de8155adb84a69ce
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: da5905af4a861502f190cd873033923d8fd0bfa7
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39162140"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349089"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
@@ -150,7 +150,7 @@ Als uw organisatie de NPS-extensie implementeert voor MFA on-premises toepassing
 
 | Azure AD-tenant-type | Vertrouwde IP-adressen functieopties |
 |:--- |:--- |
-| Managed |**Specifieke IP-adressen**: beheerders een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet opgeven.|
+| Beheerd |**Specifieke IP-adressen**: beheerders een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet opgeven.|
 | Federatief |**Alle federatieve gebruikers**: alle federatieve gebruikers die zich aanmelden vanaf binnen de organisatie kunnen verificatie in twee stappen overslaan. De gebruikers omzeilen verificatie met behulp van een claim dat is uitgegeven door Active Directory Federation Services (AD FS).<br/>**Specifieke IP-adressen**: beheerders een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet opgeven. |
 
 De goedgekeurde IP-adressen overslaan werkt alleen in het bedrijfsintranet. Als u selecteert de **alle federatieve gebruikers** optie en een gebruiker zich aanmeldt via buiten het bedrijfsintranet, de gebruiker heeft om te verifiëren met behulp van verificatie in twee stappen. Het proces is hetzelfde, zelfs als de gebruiker een AD FS claim geeft. 
@@ -200,7 +200,7 @@ Ongeacht of de goedgekeurde IP-adressen-functie is ingeschakeld, is verificatie 
 ### <a name="enable-the-trusted-ips-feature-by-using-service-settings"></a>De goedgekeurde IP-adressen inschakelen met behulp van service-instellingen
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers en groepen** > **alle gebruikers**.
+2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers**.
 3. Selecteer **multi-Factor Authentication**.
 4. Selecteer onder multi-factor Authentication, **service-instellingen**.
 5. Op de **Service-instellingen** pagina onder **goedgekeurde IP-adressen**, kiezen uit de volgende twee opties:
@@ -343,7 +343,7 @@ U kunt de verificatiemethoden die beschikbaar voor uw gebruikers met behulp van 
 
 Wanneer uw gebruikers hun account voor Azure multi-factor Authentication registreren, kiezen ze hun gewenste verificatiemethode uit de opties die u hebt ingeschakeld. Richtlijnen voor het registratieproces voor de gebruiker is opgegeven in [instellen van mijn account voor verificatie in twee stappen](../user-help/multi-factor-authentication-end-user-first-time.md).
 
-| Methode | Beschrijving |
+| Wijze | Beschrijving |
 |:--- |:--- |
 | Bellen naar telefoon |Plaatst een geautomatiseerd telefoongesprek. De gebruiker beantwoordt het gesprek en drukt # in het toetsenblok van de telefoon om te verifiëren. Het telefoonnummer is niet gesynchroniseerd met on-premises Active Directory. |
 | Sms-bericht naar telefoon |Verzendt een SMS-bericht met een verificatiecode. De gebruiker wordt gevraagd de verificatiecode invoeren in de interface van aanmelding. Dit proces heet SMS in één richting. SMS in twee richtingen betekent dat de gebruiker tekst weer een bepaalde code moet. SMS in twee richtingen is afgeschaft en wordt niet ondersteund na 14 November 2018. Gebruikers die zijn geconfigureerd voor SMS in twee richtingen worden automatisch overgeschakeld naar de _oproep naar telefoon_ verificatie op dat moment.|

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: 419b5d480ebd1f978eb2a870231d151b549b25ea
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: cc9b5810085d3300861735a95a94e577bf61d70e
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42054525"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346046"
 ---
 # <a name="azure-active-directory-faq"></a>Veelgestelde vragen over Azure Active Directory
 Azure Active Directory (Azure AD) is een uitgebreide IDaaS-oplossing (Identity as a Service) waarin alle aspecten van identiteit, toegangsbeheer en beveiliging zijn opgenomen.
@@ -48,14 +48,13 @@ Betaalde Azure AD-services zoals Enterprise Mobility + Security vormen een aanvu
 
 - - -
 
-**V: Wat zijn de verschillen tussen de rol Abonnementsbeheerder en de rol Directorybeheerder?**
+**V: wat zijn de verschillen tussen de eigenaar en de globale beheerder?**
 
-**A:** De rol Abonnementsbeheerder wordt standaard aan u toegewezen wanneer u zich registreert bij Azure. Een Abonnementsbeheerder kan een Microsoft-account of werk- of schoolaccount zijn uit de directory waaraan het Azure-abonnement is gekoppeld.  Deze rol is gemachtigd om services in Azure Portal te beheren.
+**A:** standaard de persoon die zich aanmeldt voor een Azure-abonnement de rol van eigenaar voor Azure-resources wordt toegewezen. Een eigenaar kunt gebruiken voor een Microsoft-account of een werk- of school-account uit de directory waaraan het Azure-abonnement is gekoppeld.  Deze rol is gemachtigd om services in Azure Portal te beheren.
 
-Als anderen zich moeten aanmelden en services willen gebruiken met hetzelfde abonnement, kunt u hen toevoegen als medebeheerders. Deze rol heeft dezelfde toegangsrechten als de rol Servicebeheerder, maar kan de koppeling van abonnementen aan Azure-directory's niet wijzigen.  Zie voor meer informatie over Abonnementsbeheerders [Beheerdersrollen in Azure toevoegen of wijzigen](https://docs.microsoft.com/azure/billing/billing-add-change-azure-subscription-administrator) en [Hoe Azure-abonnementen zijn gekoppeld aan Azure Active Directory](active-directory-how-subscriptions-associated-directory.md).
+Als anderen zich moeten aanmelden en toegang tot services met behulp van hetzelfde abonnement, kunt u ze toewijzen de juiste [ingebouwde rol](../../role-based-access-control/built-in-roles.md). Zie voor meer informatie, [toegang met RBAC en de Azure-portal beheren](../../role-based-access-control/role-assignments-portal.md).
 
-
-Azure AD heeft een andere set beheerdersrollen voor het beheren van de directory en identiteitsgerelateerde functies.  Deze beheerders hebben toegang tot verschillende functies in Azure Portal. De rol van de beheerder bepaalt welke acties hij kan uitvoeren, zoals gebruikers maken of bewerken, beheerdersrollen toewijzen aan anderen, gebruikerswachtwoorden herstellen, gebruikerslicenties beheren of domeinen beheren.  Zie [Beheerdersrollen toewijzen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md) voor meer informatie over Directorybeheerders en hun rollen in Azure AD.
+Standaard is de persoon die zich aanmeldt voor een Azure-abonnement de rol globale beheerder voor de map toegewezen. De globale beheerder heeft toegang tot alle functies van Azure AD-directory. Azure AD heeft een andere set beheerdersrollen voor het beheren van de directory en identiteitsgerelateerde functies. Deze beheerders hebben toegang tot verschillende functies in Azure portal. De rol van beheerder bepaalt wat ze kunnen doen, zoals het maken of bewerken van gebruikers, beheerdersrollen toewijzen aan anderen, gebruikerswachtwoorden opnieuw instellen, Gebruikerslicenties beheren of domeinen beheren.  Zie voor meer informatie over Azure AD-directorybeheerders en hun rollen, [een gebruiker toewijzen aan beheerdersrollen in Azure Active Directory](active-directory-users-assign-role-azure-portal.md) en [beheerdersrollen toewijzen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md).
 
 Daarnaast vormen betaalde Azure AD-services zoals Enterprise Mobility + Security een aanvulling op andere webservices, zoals Office 365 en Microsoft Azure, met uitgebreide oplossingen voor beheer en beveiliging die ook geschikt zijn voor grote organisaties.
 
@@ -163,7 +162,7 @@ Zie de [Active Directory Marketplace](https://azure.microsoft.com/marketplace/ac
 
 Zie voor meer informatie:
 
-* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../application-config-sso-how-to-configure-federated-sso-non-gallery.md) (Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie bevinden)
+* [Configuring single sign-on to applications that are not in the Azure Active Directory application gallery](../manage-apps/configure-federated-single-sign-on-non-gallery-applications.md) (Eenmalige aanmelding configureren voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie bevinden)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](../manage-apps/use-scim-to-provision-users-and-groups.md) (SCIM gebruiken om in te stellen dat gebruikers en groepen van Azure Active Directory automatisch worden ingericht voor toepassingen)
 
 - - -
@@ -208,7 +207,7 @@ Zie [Securing access to Office 365 and other apps connected to Azure Active Dire
 
 **A:** Met Azure AD kunt u het maken, onderhouden en verwijderen van gebruikers-ID's in veel populaire cloud-apps (SaaS) automatiseren.
 
-Zie [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../active-directory-saas-app-provisioning.md) (Automatisch gebruikers inrichten en de inrichting ongedaan maken voor SaaS-toepassingen met Azure Active Directory) voor meer informatie.
+Zie [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../manage-apps/user-provisioning.md) (Automatisch gebruikers inrichten en de inrichting ongedaan maken voor SaaS-toepassingen met Azure Active Directory) voor meer informatie.
 
 - - -
 **V: Kan ik een veilige LDAP-verbinding instellen met Azure AD?**

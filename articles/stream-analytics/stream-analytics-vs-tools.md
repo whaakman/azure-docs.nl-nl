@@ -9,12 +9,12 @@ ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 07/10/2018
-ms.openlocfilehash: 0df7c7680137be9a4b2c7c3cedb46330f4d3e5bd
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: dba0474e83c886edcad1101083e45ff39ee222dd
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42054533"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300220"
 ---
 # <a name="use-visual-studio-to-view-azure-stream-analytics-jobs"></a>Visual Studio gebruiken om Azure Stream Analytics-taken weer te geven
 
@@ -88,5 +88,5 @@ De **testverbinding** resultaten worden weergegeven in de **uitvoer** venster.
 
 * [Controleren en beheren van Azure Stream Analytics-taken met behulp van Visual Studio](stream-analytics-monitor-jobs-use-vs.md)
 * [Snelstart: Een Stream Analytics-taak met behulp van Visual Studio maken](stream-analytics-quick-create-vs.md)
-* [Zelfstudie: Een Azure Stream Analytics-taak implementeren met CI/CD met VSTS](stream-analytics-tools-visual-studio-cicd-vsts.md)
+* [Zelfstudie: Een Azure Stream Analytics-taak implementeren met CI/CD met behulp van Azure-pijplijnen](stream-analytics-tools-visual-studio-cicd-vsts.md)
 * [Continue integratie en ontwikkeling met Stream Analytics-hulpprogramma’s](stream-analytics-tools-for-visual-studio-cicd.md)

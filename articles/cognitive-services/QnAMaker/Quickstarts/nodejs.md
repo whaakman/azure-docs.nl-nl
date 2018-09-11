@@ -1,20 +1,21 @@
 ---
-title: Node.js Quick Start voor Microsoft QnA Maker-API (V4) - Azure Cognitive Services | Microsoft Docs
+title: 'Snelstartgids: Node.js voor QnA Maker-API (V4)'
+titleSuffix: Azure Cognitive Services
 description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Text-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 6da1ec00e04ea993923a97c4641880a5f31d18fa
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 1930315cae62081dae364d63e6b26ec26a69c654
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868171"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349004"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-nodejs"></a>Snelstartgids voor Microsoft QnA Maker-API met Node.js 
 <a name="HOLTop"></a>
@@ -36,7 +37,7 @@ In dit artikel leest u hoe u de [QnA Maker-API van Microsoft](../Overview/overvi
 - [De huidige set word wijzigingen ophalen.](#GetAlterations)
 - [Vervang de huidige reeks word wijzigingen.](#PutAlterations)
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 U moet [Node.js 6](https://nodejs.org/en/download/) deze code uit te voeren.
 

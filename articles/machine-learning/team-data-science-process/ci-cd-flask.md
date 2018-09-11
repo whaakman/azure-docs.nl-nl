@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/22/2018
 ms.author: jainr
-ms.openlocfilehash: 6de1832dde1764b2655d4c34643d6a026e198f64
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b0368e742c990feed626a1c4982bfedc35785b49
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052221"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304285"
 ---
 # <a name="devops-for-artificial-intelligence-ai-applications-creating-continuous-integration-pipeline-on-azure-using-docker-and-kubernetes"></a>DevOps voor kunstmatige intelligentie (AI)-toepassingen: het maken van de pijplijn voor continue integratie in Azure met behulp van Docker en Kubernetes
 Er zijn vaak twee stromen werkzaamheden, Data Scientists, het bouwen van machine learning-modellen en App-ontwikkelaars het bouwen van de toepassing en beschikbaar te maken voor eindgebruikers te gebruiken voor een toepassing AI. In dit artikel laten we zien hoe u voor het implementeren van een continue integratie (CI) / pijplijn voor continue levering (CD) voor een AI-toepassing. AI-toepassing is een combinatie van een model dat machine learning (ML) zijn ingebed toepassingscode. In dit artikel we bij het ophalen van een pretrained model vanuit een persoonlijke Azure-blob storage-account, wordt een AWS S3-account. Voor het artikel gebruiken we een eenvoudige python flask-toepassing.
@@ -35,7 +35,7 @@ U kunt de broncode van downloaden [GitHub](https://github.com/Azure/DevOps-For-A
 
 ## <a name="pre-requisites"></a>Vereisten
 Hier volgen de vereisten voor het volgen van de CI/CD-pijplijn die hieronder worden beschreven:
-* [Visual Studio Team Services-Account](https://docs.microsoft.com/vsts/accounts/create-account-msa-or-work-student)
+* [Azure DevOps-organisatie](https://docs.microsoft.com/azure/devops/organizations/accounts/create-organization-msa-or-work-student)
 * [Azure-CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Azure Container Service (AKS)-cluster met Kubernetes](https://docs.microsoft.com/azure/container-service/kubernetes/container-service-tutorial-kubernetes-deploy-cluster)
 * [Azure Container-register (ACR)-account](https://docs.microsoft.com/azure/container-registry/container-registry-get-started-portal)
@@ -53,12 +53,12 @@ De pijplijn-architectuur wordt hieronder.
 
 ## <a name="steps-of-the-cicd-pipeline"></a>Stappen voor de CI/CD-pijplijn
 1. Ontwikkelaar werken op de IDE van hun keuze in de toepassingscode.
-2. Ze doorvoeren de code in broncodebeheer van hun keuze (VSTS biedt goede ondersteuning voor verschillende besturingselementen voor gegevensbronnen)
+2. Ze doorvoeren de code in broncodebeheer van hun keuze (Azure DevOps biedt goede ondersteuning voor verschillende besturingselementen voor gegevensbronnen)
 3. Afzonderlijk, werken de gegevenswetenschapper over het ontwikkelen van hun model.
 4. Zodra tevreden, dat zij het model publiceren naar een model-opslagplaats, in dit geval gebruiken we een blob storage-account. Dit kan eenvoudig worden vervangen door de Azure ML Workbench Modelbeheer-service via de REST-API's.
-5. Een build wordt in VSTS op basis van het doorvoeren in GitHub gestart.
-6. VSTS Build-pijplijn haalt de nieuwste model uit Blob-container en wordt een container gemaakt.
-7. VSTS wordt de image gepusht naar persoonlijke installatiekopie-opslagplaats in Azure Container Registry
+5. Een bewerking wordt gestart in Azure DevOps op basis van het doorvoeren in GitHub.
+6. Azure DevOps-Build-pijplijn haalt de nieuwste model uit Blob-container en wordt een container gemaakt.
+7. Azure DevOps wordt de image gepusht naar persoonlijke installatiekopie-opslagplaats in Azure Container Registry
 8. Release-pijplijn wordt volgens een vast schema ('s nachts) gestart.
 9. Meest recente installatiekopie vanuit ACR is opgehaald en worden geïmplementeerd op de Kubernetes-cluster in ACS.
 10. Gebruikers-aanvraag voor de app gaat via DNS-server.

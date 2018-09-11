@@ -4,36 +4,20 @@ description: Een zelfondertekend basiscertificaat maken, de openbare sleutel exp
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jpconnock
-editor: ''
-tags: azure-resource-manager
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 02/12/2018
+ms.date: 09/05/2018
 ms.author: cherylmc
-ms.openlocfilehash: b2f31761e4560cf4b9b9a5b92f5de9982a663a75
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 3ff7e754a55e15a8fa8a32f846efbbbe5025e46e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38651784"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297856"
 ---
 # <a name="generate-and-export-certificates-for-point-to-site-connections-using-makecert"></a>Genereren en exporteren van certificaten voor punt-naar-Site-verbindingen met MakeCert
 
-Punt-naar-Site-verbindingen gebruiken certificaten om te verifiëren. Dit artikel leest u hoe te maken van een zelfondertekend basiscertificaat met MakeCert clientcertificaten genereren. Als u zoekt de configuratiestappen punt-naar-Site, zoals over het uploaden van basiscertificaten, selecteert u een van de artikelen ' configureren punt-naar-Site' in de volgende lijst:
-
-> [!div class="op_single_selector"]
-> * [Zelfondertekende certificaten maken - PowerShell](vpn-gateway-certificates-point-to-site.md)
-> * [Zelfondertekende certificaten - MakeCert maken](vpn-gateway-certificates-point-to-site-makecert.md)
-> * [Punt-naar-Site - Resource Manager - Azure-portal configureren](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-> * [Punt-naar-Site - Resource Manager - PowerShell configureren](vpn-gateway-howto-point-to-site-rm-ps.md)
-> * [Punt-naar-Site - klassiek - Azure portal configureren](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
-> 
-> 
+Punt-naar-Site-verbindingen gebruiken certificaten om te verifiëren. Dit artikel leest u hoe te maken van een zelfondertekend basiscertificaat met MakeCert clientcertificaten genereren. Als u naar ander certificaat-instructies zoekt, Zie [certificaten - PowerShell](vpn-gateway-certificates-point-to-site.md) of [certificaten - Linux](vpn-gateway-certificates-point-to-site-linux.md).
 
 Terwijl het wordt aangeraden de [Windows 10 PowerShell stappen](vpn-gateway-certificates-point-to-site.md) voor het maken van uw certificaten, bieden we deze MakeCert-instructies als optionele methode. De certificaten die u genereert met behulp van een van beide methoden kunnen worden geïnstalleerd op [een ondersteunde client-besturingssysteem](vpn-gateway-howto-point-to-site-resource-manager-portal.md#faq). MakeCert heeft echter de volgende beperkingen:
 

@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: 98dc33cc961c5c90fc3f6737a1cc470d4a753fd0
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: c731fd78ed7052697b3a5bd7c4da3a743e5a208d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048754"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299610"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Een project U-SQL-database gebruiken voor het ontwikkelen van een U-SQL-database voor Azure Data Lake
 
@@ -57,7 +57,7 @@ Het hulpprogramma biedt voor een assembly-object, een gebruiksvriendelijke gebru
 
 De uitvoer voor een project U-SQL-database de implementatiepakket voor een U-SQL-database is, met de naam met het achtervoegsel build `.usqldbpack`. De `.usqldbpack` pakket is een ZIP-bestand met alle DDL-componenten in een enkel U-SQL-script in de **DDL** map en alle dll's en extra bestanden voor assembly's in de **Temp** map.
 
-Meer informatie over [hoe het bouwen van een U-SQL-database-project met de MSBuild vanaf de opdrachtregel en een Visual Studio Team Services taak bouwen](data-lake-analytics-cicd-overview.md).
+Meer informatie over [hoe het bouwen van een U-SQL-database-project met de MSBuild vanaf de opdrachtregel en een Azure DevOps-Services taak bouwen](data-lake-analytics-cicd-overview.md).
 
 ## <a name="deploy-a-u-sql-database"></a>Een U-SQL-database implementeren
 
@@ -94,7 +94,7 @@ U kunt een U-SQL-database via een project U-SQL-database of een pakket .usqldbpa
 
 `PackageDeploymentTool.exe` biedt de programmering en opdrachtregelinterfaces die helpen bij het implementeren van U-SQL-databases. De SDK is opgenomen in de [U-SQL SDK Nuget-pakket](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), dat zich bevindt op `build/runtime/PackageDeploymentTool.exe`.
 
-[Meer informatie over de SDK en hoe u een CI/CD-pijplijn voor de implementatie van de U-SQL-database instellen](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-visual-studio-team-service).
+[Meer informatie over de SDK en hoe u een CI/CD-pijplijn voor de implementatie van de U-SQL-database instellen](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-azure-devops).
 
 ## <a name="reference-a-u-sql-database-project"></a>Verwijzen naar een U-SQL-database-project
 

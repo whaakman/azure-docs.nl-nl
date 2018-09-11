@@ -17,12 +17,12 @@ ms.date: 08/31/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: e5db7b9bed674011c2922f026c301172f347f53f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: d5c00e9df9c1bfee0c665cafc763c52a36f98052
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666305"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345842"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 
@@ -45,7 +45,7 @@ Azure Active Directory (Azure AD) is een identiteitsservice in de cloud gebaseer
 
 *  Klanten die SCIM gebruiken kunt voor dezelfde app wordt ingericht.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 - Voor federatieve toepassingen (Open-ID en SAML/WS-Federation), moet de toepassing ondersteunt de SaaS-model voor het ophalen van die worden vermeld in de galerie van Azure AD. De galerie bedrijfstoepassingen moeten configuraties met meerdere klanten en niet voor elke klant met een specifieke ondersteunen.
 
@@ -69,7 +69,7 @@ Als u een toepassing in de galerie met Azure AD-app, moet u eerst een van de vol
 
     * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** of **WS-Federation**: als uw app SAML 2.0 ondersteunt, u kunt deze rechtstreeks integreren met een Azure AD-tenant met behulp van de [instructies voor het toevoegen van een aangepaste toepassing](../active-directory-saas-custom-apps.md).
+*   **SAML 2.0** of **WS-Federation**: als uw app SAML 2.0 ondersteunt, u kunt deze rechtstreeks integreren met een Azure AD-tenant met behulp van de [instructies voor het toevoegen van een aangepaste toepassing](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
 
     ![Tijdlijn van SAML 2.0 of WS-Federation-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/saml.png)
 

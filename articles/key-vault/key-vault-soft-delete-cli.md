@@ -5,16 +5,16 @@ description: De aanvraag voorbeelden van voorlopig verwijderen gebruiken met CLI
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/04/2017
 ms.author: bryanla
-ms.openlocfilehash: c328726dfd6f6682e40ad8ff302bb23b78cac7db
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 0554e2e184ce3f3140d3b9e90eb33c20774ed789
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42054041"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303001"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>Key Vault-functie voor voorlopig verwijderen gebruiken met CLI
 
@@ -23,7 +23,7 @@ Functie voor voorlopig verwijderen van Azure Key Vault de maakt het herstellen v
 - Ondersteuning voor het herstelbare verwijderen van een key vault
 - Ondersteuning voor verwijdering van de herstelbare objecten van de sleutelkluis. sleutels, geheimen, en certificaten
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 - Azure CLI 2.0 - als u deze instelling voor uw omgeving hebt, Zie [Key Vault beheren met behulp van CLI 2.0](key-vault-manage-with-cli2.md).
 
@@ -37,7 +37,7 @@ Key Vault-bewerkingen worden afzonderlijk beheerd via machtigingen voor op rolle
 |:--|:--|:--|
 |Lijst|Een lijst met verwijderde sleutelkluizen.|Microsoft.KeyVault/deletedVaults/read|
 |Herstellen|Hiermee herstelt u een verwijderde key vault.|Microsoft.KeyVault/vaults/write|
-|Opschonen|Een verwijderde key vault en alle bijbehorende inhoud verwijderd permanent.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
+|Leegmaken|Een verwijderde key vault en alle bijbehorende inhoud verwijderd permanent.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
 Zie voor meer informatie over de machtigingen en access control [uw key vault beveiligen](key-vault-secure-your-key-vault.md).
 

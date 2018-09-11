@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0cc0ec79cf23d3bba01845ed64493df010c1ca66
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: b324d0a68fde8f47072a087330f2e40a99378984
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161693"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299471"
 ---
 # <a name="show-search-results-on-the-map"></a>Zoekresultaten weergeven op de kaart
 
@@ -22,7 +22,7 @@ In dit artikel wordt beschreven hoe u zoeken naar de locatie van belang en de li
 
 Er zijn twee manieren om te zoeken naar een locatie van belang, één manier is met behulp van een servicemodule om een zoekaanvraag en de andere is het maken van een zoekaanvraag via een [XMLHttpRequest](https://xhr.spec.whatwg.org/) naar [Azure Maps Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy). We bespreken beide hieronder.
 
-## <a name="use-service-module-to-make-a-search-request"></a>Servicemodule gebruiken voor het maken van een zoekaanvraag
+## <a name="making-a-search-request-via-service-module"></a>Maken van een zoekaanvraag via de servicemodule
 
 ### <a name="understand-the-code"></a>De code begrijpen
 
@@ -36,7 +36,7 @@ Het tweede blok van code maakt gebruik van Fuzzy zoekopdrachten [Azure Maps Fuzz
 Het laatste blok van code Hiermee past u de grenzen van de camera voor de kaart met behulp van de kaart [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) eigenschap.
 
 
-## <a name="search-by-xmlhttprequest"></a>Zoeken op XMLHttpRequest
+##  <a name="making-a-search-request-via-xmlhttprequest"></a>Maken van een zoekaanvraag via XMLHttpRequest
 
 ### <a name="understand-the-code"></a>De code begrijpen
 

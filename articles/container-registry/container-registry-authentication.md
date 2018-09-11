@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 01/23/2018
 ms.author: stevelas
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 30ca8fe89105584b1062c5a068e107bdfde154fc
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: be8adf9779c2d168c0ac7a0ed7dbc3e85935df68
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39579517"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44293725"
 ---
 # <a name="authenticate-with-a-private-docker-container-registry"></a>Verifiëren met een persoonlijk Docker-containerregister
 
@@ -48,7 +48,7 @@ Service-principals inschakelen ' headless ' verbinding met een register in zowel
 
   * *Lezer*: containerimplementaties vanuit een register op de orchestration-systemen, waaronder Kubernetes, DC/OS en Docker Swarm. U kunt ook ophaalt uit containerregisters naar gerelateerde Azure-services zoals [AKS](../aks/index.yml), [App Service](../app-service/index.yml), [Batch](../batch/index.yml), [Service Fabric](/azure/service-fabric/), en anderen.
 
-  * *Inzender*: continue integratie en implementatie-oplossingen zoals Visual Studio Team Services (VSTS) of Jenkins die installatiekopieën compileren en push ze naar een register.
+  * *Inzender*: continue integratie en implementatie-oplossingen zoals Azure DevOps of Jenkins die installatiekopieën compileren en push ze naar een register.
 
 > [!TIP]
 > U kunt het wachtwoord van een service-principal opnieuw genereren door het uitvoeren van de [az ad sp reset-credentials](/cli/azure/ad/sp?view=azure-cli-latest#az-ad-sp-reset-credentials) opdracht.
@@ -66,7 +66,7 @@ Afhankelijk van de versie van Docker die u hebt geïnstalleerd, ziet u een bevei
 
 Zie voor meer informatie over het gebruik van een service-principal voor ' headless ' verificatie bij ACR [Azure Container Registry-verificatie met service-principals](container-registry-auth-service-principal.md).
 
-## <a name="admin-account"></a>Beheeraccount
+## <a name="admin-account"></a>Beheerdersaccount
 
 Elke container registry bevat een beheeraccount is standaard uitgeschakeld. U kunt de gebruiker met beheerdersrechten inschakelen en beheren van de referenties in de [Azure-portal](container-registry-get-started-portal.md#create-a-container-registry), of met behulp van de Azure CLI.
 

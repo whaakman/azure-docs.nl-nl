@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: be2ab6d5-72a8-411f-878e-98dac21bc5cb
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: b93ad6793bb8e431ba318772c780a06c792dcd9a
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d8313ec66f8b71102e63751e7cf07885c899a7e8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126757"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301035"
 ---
 # <a name="azure-security-center-frequently-asked-questions-faq"></a>Veelgestelde vragen over Azure Security Center
 Deze Veelgestelde vragen vindt u antwoorden op vragen over Azure Security Center, een service die u bij het voorkomen helpt, detecteren en direct reageren op bedreigingen met verbeterde zichtbaarheid en controle over de beveiliging van uw Microsoft Azure-resources.
@@ -36,7 +36,7 @@ Azure Security Center helpt u bij het detecteren, voorkomen van en reageren op b
 ### <a name="how-do-i-get-azure-security-center"></a>Hoe krijg ik Azure Security Center?
 Azure Security Center is ingeschakeld met uw Microsoft Azure-abonnement en is toegankelijk vanuit de [Azure-portal](https://azure.microsoft.com/features/azure-portal/). ([Aanmelden bij de portal](https://portal.azure.com), selecteer **Bladeren**, en schuif naar **Security Center**).  
 
-## <a name="billing"></a>Billing
+## <a name="billing"></a>Facturering
 ### <a name="how-does-billing-work-for-azure-security-center"></a>Hoe werkt facturering voor Azure Security Center?
 Security Center wordt aangeboden in twee lagen:
 
@@ -285,7 +285,7 @@ De volgende Azure-resources worden bewaakt door Azure Security Center:
 * Virtuele machines (VM's) (met inbegrip van [Cloudservices](../cloud-services/cloud-services-choose-me.md))
 * Virtuele netwerken van Azure
 * Azure SQL-service
-* Azure Storage-account
+* Azure-opslagaccount
 * Azure-Web-Apps (in [App Service-omgeving](../app-service/environment/intro.md))
 * Oplossingen van partners die zijn geïntegreerd met uw Azure-abonnement, zoals een firewall voor webtoepassingen op virtuele machines en op App Service-omgeving
 

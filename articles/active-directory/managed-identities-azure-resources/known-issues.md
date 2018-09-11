@@ -15,12 +15,12 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 12/12/2017
 ms.author: daveba
-ms.openlocfilehash: 27f9e0a3875b8d7e9411517863f7d7c2f6982ab3
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 2a759aea4288af2e90335b47244408d6a537e24b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158633"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295578"
 ---
 # <a name="faqs-and-known-issues-with-managed-identities-for-azure-resources"></a>Veelgestelde vragen en bekende problemen met beheerde identiteiten voor Azure-resources
 
@@ -29,7 +29,7 @@ ms.locfileid: "44158633"
 ## <a name="frequently-asked-questions-faqs"></a>Veelgestelde vragen
 
 > [!NOTE]
-> Beheerde identiteiten voor een azure-resources is de nieuwe naam voor de service die voorheen bekend als Managed Service Identity (MSI).
+> Beheerde identiteiten voor een Azure-resources is de nieuwe naam voor de service die voorheen bekend als Managed Service Identity (MSI).
 
 ### <a name="does-managed-identities-for-azure-resources-work-with-azure-cloud-services"></a>Werkt beheerde identiteiten voor Azure-resources met Azure Cloud Services?
 

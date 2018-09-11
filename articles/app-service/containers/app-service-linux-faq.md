@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/26/2018
 ms.author: yili
-ms.openlocfilehash: cd107ddc5ac443daee592c40bbed451c913a8a3b
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: aba6a1f7028ac09cad8acf587fd56dcc2c16919b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39444586"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295715"
 ---
 # <a name="azure-app-service-on-linux-faq"></a>Azure App Service on Linux Veelgestelde vragen
 
@@ -74,7 +74,7 @@ Ja, moet u een app-instelling met de naam instellen `WEBSITE_WEBDEPLOY_USE_SCM` 
 
 Als uw Linux-web-app niet Git-implementatie, kies een van de volgende opties om de toepassingscode van uw te implementeren:
 
-- Gebruik de functie continue levering (Preview): U kunt de broncode van uw app opslaan in een Team Services Git-repo of een GitHub-opslagplaats naar Azure onafgebroken levering gebruikt. Zie voor meer informatie, [continue levering configureren voor Linux-web-app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
+- Gebruik de functie continue levering (Preview): U kunt de broncode van uw app opslaan in een Azure DevOps Git-repo of een GitHub-opslagplaats naar Azure onafgebroken levering gebruikt. Zie voor meer informatie, [continue levering configureren voor Linux-web-app](https://blogs.msdn.microsoft.com/devops/2017/05/10/use-azure-portal-to-setup-continuous-delivery-for-web-app-on-linux/).
 
 - Gebruik de [ZIP API implementeren](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file): Gebruik deze API [SSH in uw web-app](https://docs.microsoft.com/azure/app-service/containers/app-service-linux-ssh-support#making-a-client-connection) en Ga naar de map waar u om uw code te implementeren. Voer de volgende code:
 

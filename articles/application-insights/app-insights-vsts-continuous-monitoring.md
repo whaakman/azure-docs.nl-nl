@@ -1,59 +1,60 @@
 ---
-title: Doorlopende bewaking van uw DevOps-release-pijplijn met VSTS en Azure Application Insights | Microsoft Docs
-description: Bevat instructies voor het instellen van snel doorlopende bewaking met Application Insights
+title: Doorlopende bewaking van uw DevOps-release-pijplijn met Azure DevOps en Azure Application Insights | Microsoft Docs
+description: Hier vindt u instructies voor het snel instellen van doorlopende bewaking met Application Insights
 services: application-insights
-keywords: 
+keywords: ''
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/13/2017
 ms.service: application-insights
-ms.topic: article
+ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 5bfbdd0033f966422a84071a694845627827f016
-ms.sourcegitcommit: b07d06ea51a20e32fdc61980667e801cb5db7333
+ms.openlocfilehash: ecda8621640223f1c27f32834f2e4a098da4aba6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/08/2017
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301618"
 ---
-# <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Continue bewaking toevoegen aan uw pijplijn release
+# <a name="add-continuous-monitoring-to-your-release-pipeline"></a>Doorlopende bewaking toevoegen aan uw release-pijplijn
 
-Visual Studio Team Services (VSTS) kan worden geïntegreerd met Azure Application Insights om toe te staan doorlopende bewaking van uw DevOps release pijplijn gedurende de ontwikkelingscyclus software. 
+Azure DevOps-Services kan worden geïntegreerd met Azure Application Insights om toe te staan de voortdurende bewaking van uw DevOps-release-pijplijn gedurende de ontwikkelfase software. 
 
-VSTS biedt nu ondersteuning voor doorlopende bewaking waarbij release pijplijnen bewakingsgegevens van Application Insights en andere Azure-resources kunnen opnemen. Wanneer een waarschuwing Application Insights wordt gedetecteerd, wordt de implementatie kan blijven gated of teruggedraaid terug tot de waarschuwing is opgelost. Als alle controles doorgeven, kunnen implementaties doorgaan automatisch test helemaal naar productie zonder handmatige interventie nodig. 
+Azure DevOps-Services biedt nu ondersteuning voor doorlopende bewaking waarbij release-pijplijnen bewakingsgegevens van Application Insights en andere Azure-resources kunnen opnemen. Wanneer een Application Insights-waarschuwing wordt gedetecteerd, wordt de implementatie beperkt kan blijven of worden teruggedraaid terug tot de waarschuwing is opgelost. Als alle controles zijn voltooid, kunnen implementaties doorgaan automatisch van test naar productie zonder de noodzaak van handmatige tussenkomst. 
 
-## <a name="configure-continuous-monitoring"></a>Continue bewaking configureren
+## <a name="configure-continuous-monitoring"></a>Doorlopende bewaking configureren
 
-1. Selecteer een bestaand VSTS-Project.
+1. Selecteer een bestaande Azure DevOps-Services-Project.
 
-2. Beweeg de muisaanwijzer over **bouwen en de vrijgave van** > Selecteer **Releases** > Klik op de **plusteken** > **maken release definitie** > Zoeken naar **bewaking** > **-Azure App Service-implementatie met doorlopende bewaking.**
+2. Beweeg de muisaanwijzer over **Build and Release** > Selecteer **Releases** > Klik op de **plusteken** > **release-definitie maken** > Zoeken naar **bewaking** > **Azure App Service-implementatie met de voortdurende bewaking.**
 
-   ![Nieuwe VSTS Release-definitie](.\media\app-insights-continuous-monitoring\001.png)
+   ![Nieuwe Azure DevOps Services Release-pijplijn](.\media\app-insights-continuous-monitoring\001.png)
 
 3. Klik op **toepassen.**
 
-4. Naast de rood uitroepteken selecteert u de tekst in blauw weergegeven en **omgevingstaken weergeven.**
+4. Naast het rode uitroepteken selecteert u de tekst in het blauw naar **omgevingstaken weergeven.**
 
-   ![Omgeving-taken weergeven](.\media\app-insights-continuous-monitoring\002.png)
+   ![Taken van de omgeving weergeven](.\media\app-insights-continuous-monitoring\002.png)
 
-   Er verschijnt een configuratie-venster, gebruik de volgende tabel om de invoervelden in te vullen.
+   Configuratievenster, gebruik de volgende tabel om de invoervelden in te vullen.
 
     | Parameter        | Waarde |
    | ------------- |:-----|
-   | **De omgevingsnaam van de**      | Naam voor de definitie vrijgeven omgeving |
-   | **Azure-abonnement** | Vervolgkeuzelijst gevuld met de Azure-abonnementen gekoppeld aan het account VSTS|
-   | **Naam van App Service** | Handmatige invoer van een nieuwe waarde mogelijk zijn vereist voor dit veld afhankelijk van andere selecties |
-   | **Resourcegroep**    | Vervolgkeuzelijst gevuld met beschikbare resourcegroepen |
-   | **Resourcenaam van Application Insights** | Vervolgkeuzelijst wordt gevuld met alle Application Insights-resources die met de eerder geselecteerde resourcegroep overeenkomen.
+   | **Omgevingsnaam**      | De naam van die de release-pijplijn-omgeving beschrijft |
+   | **Azure-abonnement** | Vervolgkeuzelijst gevuld met alle Azure-abonnementen gekoppeld aan de organisatie Azure DevOps-Services|
+   | **Naam van App Service** | Handmatige invoer van een nieuwe waarde is mogelijk vereist voor dit veld, afhankelijk van andere instellingen |
+   | **Resourcegroep**    | Vervolgkeuzelijst vult met beschikbare resourcegroepen |
+   | **Application Insights-resourcenaam** | Er wordt een vervolgkeuzelijst met alle Application Insights-resources die met de eerder geselecteerde resourcegroep overeenkomen.
 
 5. Selecteer **Configure Application Insights-waarschuwingen**
 
-6. Standaardregels voor waarschuwing, selecteert u **opslaan** > Voer een korte beschrijving > klikt u op **OK**
+6. Selecteer voor waarschuwingsregels standaard, **opslaan** > Voer een korte beschrijving > klikt u op **OK**
 
 ## <a name="modify-alert-rules"></a>Regels voor waarschuwingen wijzigen
 
-1. Voor het wijzigen van de vooraf gedefinieerde instellingen voor waarschuwingen, klik in het vak met **weglatingstekens...**  rechts van **waarschuwing regels.**
+1. Als u wilt de vooraf gedefinieerde instellingen voor waarschuwingen wijzigen, klikt u op het vak met de **weglatingstekens...**  aan de rechterkant van **waarschuwingsregels.**
 
-   (Out of box vier waarschuwingsregels aanwezig zijn: beschikbaarheid, mislukte verzoeken, serverreactietijd, Server-uitzonderingen.)
+   (Out-of-box vier waarschuwingsregels aanwezig zijn: beschikbaarheid, mislukte aanvragen, serverreactietijd, serveruitzonderingen.)
 
 2. Klik op het symbool-omlaag naast **beschikbaarheid.**
 
@@ -63,30 +64,30 @@ VSTS biedt nu ondersteuning voor doorlopende bewaking waarbij release pijplijnen
 
 4. Selecteer **OK** > **opslaan** > Voer een korte beschrijving > klikt u op **OK.**
 
-## <a name="add-deployment-conditions"></a>Implementatie van voorwaarden toevoegen
+## <a name="add-deployment-conditions"></a>Voorwaarden toevoegen
 
-1. Klik op **pijplijn** > Selecteer de **Pre** of **na de implementatie voorwaarden** symbool, afhankelijk van de fase waarvoor een continue bewaking gate.
+1. Klikt u op **pijplijn** > Selecteer de **vooraf** of **na de implementatie voorwaarden** symbool, afhankelijk van de fase waarvoor een doorlopende monitoring-gate.
 
-   ![Voorafgaand aan de implementatie-voorwaarden](.\media\app-insights-continuous-monitoring\004.png)
+   ![Vóór de implementatie-voorwaarden](.\media\app-insights-continuous-monitoring\004.png)
 
-2. Stel **poorten** naar **ingeschakeld** > **goedkeuring poorten**> klikt u op **toevoegen.**
+2. Stel **Gates** naar **ingeschakeld** > **goedkeuring gates**> klikt u op **toevoegen.**
 
-3. Selecteer **Azure Monitor** (deze optie kunt u de toegang tot waarschuwingen zowel van Azure Monitor en Application Insights)
+3. Selecteer **Azure Monitor** (deze optie geeft u de mogelijkheid tot Toegangswaarschuwingen zowel van Azure Monitor en Application Insights)
 
     ![Azure Monitor](.\media\app-insights-continuous-monitoring\005.png)
 
-4. Voer een **poorten time-out** waarde.
+4. Voer een **Gates time-out** waarde.
 
-5. Voer een **steekproef nemen Interval.**
+5. Voer een **Interval van steekproeven.**
 
-## <a name="deployment-gate-status-logs"></a>Status van de implementatielogboeken-gate
+## <a name="deployment-gate-status-logs"></a>Implementatielogboeken gate-status
 
-Als u de implementatie poorten toevoegt, wordt in een waarschuwing in Application Insights die groter is dan de eerder gedefinieerde drempelwaarde uw implementatie van ongewenste release promotie beschermt. Als de waarschuwing opgelost is, kan de implementatie automatisch voortgezet.
+Als u implementatie gates toevoegt, wordt in een waarschuwing in Application Insights die groter is dan de eerder ingestelde drempel is gekomen, uw implementatie van ongewenste release promotie beschermt. Als de waarschuwing opgelost is, kan de implementatie automatisch voortgezet.
 
-Als u wilt dit gedrag observeren, selecteer **Releases** > Release met de rechtermuisknop op de naam **openen** > **Logboeken.**
+U ziet dat dit gedrag, selecteer **Releases** > Release met de rechtermuisknop op de naam **open** > **Logboeken.**
 
 ![Logboeken](.\media\app-insights-continuous-monitoring\006.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor meer informatie over VSTS bouwen en Release probeer deze [snelstartgidsen.](https://docs.microsoft.com/vsts/build-release/)
+Voor meer informatie over Azure-pijplijnen probeer deze [snelstartgidsen.](https://docs.microsoft.com/azure/devops/pipelines)

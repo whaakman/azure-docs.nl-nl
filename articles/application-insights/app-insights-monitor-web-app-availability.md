@@ -10,14 +10,16 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: get-started-article
+ms.topic: conceptual
 ms.date: 02/09/2018
-ms.author: sdash ; mbullwin
-ms.openlocfilehash: c97b45616a58035dd5a1d7e832212fb90694ccce
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
-ms.translationtype: HT
+ms.reviewer: sdash
+ms.author: mbullwin
+ms.openlocfilehash: 392abef7f92dce024ba6e4af091cf58fde5119b6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302388"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -113,7 +115,7 @@ Vanuit het resultaat van een beschikbaarheidstest kunt u:
 
 * De reactie inspecteren die is ontvangen van uw server.
 * De oorzaak van de fout vaststellen met behulp van telemetriegegevens van de server die zijn verzameld tijdens het verwerken van het mislukte aanvraagexemplaar.
-* Een probleem of werkitem registreren in Git of VSTS om het probleem te volgen. De bug bevat een koppeling naar deze gebeurtenis.
+* Meld een probleem of werkitem in Git of Azure DevOps voor het bijhouden van het probleem. De bug bevat een koppeling naar deze gebeurtenis.
 * Het webtestresultaat openen in Visual Studio.
 
 *Zien de resultaten er goed uit, maar wordt de test toch als mislukt aangeduid?* Zie [Veelgestelde vragen](#qna) voor manieren om ruis te beperken.
@@ -180,7 +182,9 @@ Gebruik Visual Studio Enterprise om een websessie op te nemen.
 
 Bekijk de testresultaten om mogelijke fouten te ontdekken. Dit doet u op dezelfde manier als voor tests met één URL.
 
-Bovendien kunt u de testresultaten downloaden om ze in Visual Studio weer te geven.
+U kunt ook de testresultaten om ze te bekijken in Visual Studio downloaden.
+
+Voor het downloaden van de testresultaten. Navigeer naar de samenvatting van Beschikbaarheidstest, klikt u op een resultaat in de grafiek om de beschikbaarheid van test resultaat-venster te openen en klik vervolgens op **Open in Visual Studio** voor het downloaden van de testresultaten.
 
 #### <a name="too-many-failures"></a>Te veel fouten?
 
@@ -253,7 +257,7 @@ Als uw test moet aanmelden met OAuth, is de algemene benadering:
 ## <a name="performance-tests"></a>Prestatietests
 U kunt een belastingtest op uw website uitvoeren. Zoals de beschikbaarheidstest kunt enkel- of meervoudige aanvragen sturen vanuit onze punten over de hele wereld verspreid. In tegenstelling tot een beschikbaarheidstest worden vele verzoeken verzonden, waarmee meerdere gelijktijdige gebruikers worden gesimuleerd.
 
-Open op de blade Overzicht **Instellingen**, **Prestatietests**. Als u een test maakt, wordt u uitgenodigd om verbinding te maken met een Visual Studio Team Services-account of om er een te maken.
+Open op de blade Overzicht **Instellingen**, **Prestatietests**. Wanneer u een test maakt, wordt u uitgenodigd om verbinding maken met of maak een organisatie Azure DevOps-Services.
 
 Wanneer de test voltooid is, worden de responstijden en succespercentages weergegeven.
 
@@ -264,7 +268,7 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 > Gebruik [Live Stream](app-insights-live-stream.md) en [Profiler](app-insights-profiler.md) om de effecten van een prestatietest te volgen.
 >
 
-## <a name="automation"></a>Automation
+## <a name="automation"></a>Automatisering
 * Gebruik [PowerShell-scripts om automatisch een beschikbaarheidstest in te stellen](app-insights-powershell.md#add-an-availability-test).
 * Stel een [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) in die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd.
 

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: cde70518164c386697127b079979b5b3b76ae088
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: cd95a1f1e0631340fa9844fd31c3d8c0af1168dd
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056882"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347049"
 ---
 # <a name="article-index-for-application-management-in-azure-active-directory"></a>Article Index for Application Management in Azure Active Directory (Engelstalig)
 Deze pagina bevat een uitgebreide lijst van elk document geschreven over de verschillende functies van de toepassing in Azure Active Directory (Azure AD).
@@ -42,7 +42,7 @@ In deze sectie biedt snel toegang tot relevante handleidingen voor probleemoplos
 | Functiegebied |  |
 |:---:| --- |
 | Federatieve eenmalige aanmelding |[Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](develop/howto-v1-debug-saml-sso-issues.md) |
-| Wachtwoord gebaseerde Single Sign-On |[Het oplossen van het Configuratiescherm-extensie voor toegang voor Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Wachtwoord gebaseerde Single Sign-On |[Het oplossen van het Configuratiescherm-extensie voor toegang voor Internet Explorer](manage-apps/manage-access-panel-browser-extension.md) |
 | Toepassingsproxy |[App-Proxy oplossen handleiding](manage-apps/application-proxy-troubleshoot.md) |
 | Eenmalige aanmelding tussen on-premises AD en Azure AD |[Oplossen van problemen met wachtwoord-Hashsynchronisatie](connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md#troubleshoot-password-hash-synchronization)<br /><br />[Oplossen van problemen met wachtwoord terugschrijven](authentication/active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) |
 | Lidmaatschap van dynamische groepen |[Het oplossen van lidmaatschap van dynamische groepen](users-groups-roles/groups-troubleshooting.md) |
@@ -56,7 +56,7 @@ Hiermee kunnen gebruikers toegang tot een aantal apps en services met behulp van
 | Een inleiding tot het onderwerp Federatie en andere typen van aanmelding |[Eenmalige aanmelding met Azure AD](manage-apps/what-is-single-sign-on.md) |
 | Duizenden SaaS-apps die vooraf geïntegreerd met Azure AD met zijn vereenvoudigde configuratie voor eenmalige aanmelding stappen |[Aan de slag met de Azure AD-toepassingsgalerie](manage-apps/what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery)<br /><br />[Volledige lijst met vooraf geïntegreerde Apps die ondersteuning bieden voor Federatie](saas-apps/tutorial-list.md)<br /><br />[Uw App toevoegen aan de App-galerie van Azure AD](develop/howto-app-gallery-listing.md) |
 | Meer dan 150 app-zelfstudies over het configureren van eenmalige aanmelding voor apps zoals [Salesforce](saas-apps/salesforce-tutorial.md), [ServiceNow](saas-apps/servicenow-tutorial.md), [Google Apps](saas-apps/google-apps-tutorial.md), [Workday](saas-apps/workday-tutorial.md), en nog veel meer |[Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](saas-apps/tutorial-list.md) |
-| Het handmatig instellen en aanpassen van uw configuratie voor eenmalige aanmelding |[Hoe om te configureren voor federatieve eenmalige aanmelding naar Apps die zich niet in de galerie van Azure Active Directory-toepassing](application-config-sso-how-to-configure-federated-sso-non-gallery.md)<br /><br />[In het SAML-Token voor vooraf geïntegreerde Apps uitgegeven Claims aanpassen](active-directory-saml-claims-customization.md) |
+| Het handmatig instellen en aanpassen van uw configuratie voor eenmalige aanmelding |[Hoe om te configureren voor federatieve eenmalige aanmelding naar Apps die zich niet in de galerie van Azure Active Directory-toepassing](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)<br /><br />[In het SAML-Token voor vooraf geïntegreerde Apps uitgegeven Claims aanpassen](active-directory-saml-claims-customization.md) |
 | Gids voor probleemoplossing voor federatieve apps die gebruikmaken van het SAML-protocol |[Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](develop/howto-v1-debug-saml-sso-issues.md) |
 | Vervaldatum van het certificaat van uw app configureren en hoe u uw certificaten vernieuwen |[Certificaten voor federatieve eenmalige aanmelding in Azure Active Directory beheren](manage-apps/manage-certificates-for-federated-single-sign-on.md) |
 
@@ -70,7 +70,7 @@ Om in te schakelen single sign-on bij toepassingen die bieden geen ondersteuning
 | Een inleiding tot hoe op wachtwoord gebaseerde SSO werkt en een korte technisch overzicht |[Wachtwoord gebaseerde eenmalige aanmelding met Azure AD](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on) |
 | Een samenvatting van de scenario's met betrekking tot het delen van account en hoe deze problemen worden opgelost door Azure AD |[Accounts delen met Azure AD](active-directory-sharing-accounts.md) |
 | Het wachtwoord voor bepaalde apps automatisch op een vast interval wijzigen |[Automatische Wachtwoordoverschakeling (preview)](https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/) |
-| Implementatie en probleemoplossing handleidingen voor de Internet Explorer versie van de Azure AD wachtwoord-beheeruitbreiding |[Over het implementeren van het Configuratiescherm-extensie voor toegang voor Internet Explorer met behulp van Groepsbeleid](active-directory-saas-ie-group-policy.md)<br /><br />[Het oplossen van het Configuratiescherm-extensie voor toegang voor Internet Explorer](active-directory-saas-ie-troubleshooting.md) |
+| Implementatie en probleemoplossing handleidingen voor de Internet Explorer versie van de Azure AD wachtwoord-beheeruitbreiding |[Over het implementeren van het Configuratiescherm-extensie voor toegang voor Internet Explorer met behulp van Groepsbeleid](manage-apps/deploy-access-panel-browser-extension.md)<br /><br />[Het oplossen van het Configuratiescherm-extensie voor toegang voor Internet Explorer](manage-apps/manage-access-panel-browser-extension.md) |
 
 Wachtwoord gebaseerde eenmalige aanmelding is beschikbaar voor alle edities van Azure AD voor maximaal tien apps per gebruiker. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) onbeperkt aantal toepassingen ondersteunt. Als uw organisatie heeft [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) of [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), kunt u [groepen gebruiken voor toegang tot toepassingen toewijzen](#managing-access-to-applications). Automatische wachtwoordoverschakeling is een [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) functie.
 
@@ -130,11 +130,11 @@ Automatiseer het maken, onderhoud en verwijderen van gebruikers-id's in SaaS-toe
 
 | Artikel-handleiding |  |
 |:---:| --- |
-| Meer informatie over hoe het werkt en vind antwoorden op veelgestelde vragen |[Gebruiker inrichting en ongedaan maken van inrichting voor SaaS-toepassingen automatiseren](active-directory-saas-app-provisioning.md) |
-| Configureren hoe gegevens tussen Azure AD is toegewezen en uw SaaS-app |[Kenmerktoewijzingen aanpassen](active-directory-saas-customizing-attribute-mappings.md)<br><br>[Expressies schrijven voor kenmerktoewijzingen](active-directory-saas-writing-expressions-for-attribute-mappings.md) |
+| Meer informatie over hoe het werkt en vind antwoorden op veelgestelde vragen |[Gebruiker inrichting en ongedaan maken van inrichting voor SaaS-toepassingen automatiseren](manage-apps/user-provisioning.md) |
+| Configureren hoe gegevens tussen Azure AD is toegewezen en uw SaaS-app |[Kenmerktoewijzingen aanpassen](manage-apps/customize-application-attributes.md)<br><br>[Expressies schrijven voor kenmerktoewijzingen](manage-apps/functions-for-customizing-application-data.md) |
 | Het inschakelen van geautomatiseerde inrichting naar alle Apps die ondersteuning biedt voor het protocol SCIM |[Instellen van geautomatiseerde Gebruikersinrichting naar alle Apps SCIM-Enabled](manage-apps/use-scim-to-provision-users-and-groups.md) |
-| Het rapport op en inrichten van gebruikers oplossen |[Rapportage over het automatisch inrichten van gebruikers](active-directory-saas-provisioning-reporting.md)<br><br>[Problemen met het inrichten van gebruikers oplossen](active-directory-application-provisioning-content-map.md) |
-| Beperken aan wie die voor een toepassing op basis van hun kenmerkwaarden opgehaald ingericht |[Bereikfilters](active-directory-saas-scoping-filters.md) |
+| Het rapport op en inrichten van gebruikers oplossen |[Rapportage over het automatisch inrichten van gebruikers](manage-apps/check-status-user-account-provisioning.md)<br><br>[Problemen met het inrichten van gebruikers oplossen](active-directory-application-provisioning-content-map.md) |
+| Beperken aan wie die voor een toepassing op basis van hun kenmerkwaarden opgehaald ingericht |[Bereikfilters](manage-apps/define-conditional-rules-for-provisioning-user-accounts.md) |
 
 Geautomatiseerde gebruikersinrichting is beschikbaar voor alle edities van Azure AD voor maximaal tien apps per gebruiker. [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/) onbeperkt aantal toepassingen ondersteunt. Als uw organisatie heeft [Azure AD Basic](https://azure.microsoft.com/pricing/details/active-directory/) of [Azure AD Premium](https://azure.microsoft.com/pricing/details/active-directory/), kunt u [groepen gebruiken voor het beheren van welke gebruikers ingericht](#managing-access-to-applications).
 

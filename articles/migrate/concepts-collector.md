@@ -4,21 +4,19 @@ description: Biedt een overzicht van het Collector-apparaat en hoe dit moet word
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/10/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: 74caf0ab052e1f6558dc20d15d84c01177b3f9cb
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: dae6cc9a55049e2b44291eb105288b33a1db9e7b
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43665577"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325529"
 ---
 # <a name="collector-appliance"></a>Collector-apparaat
 
 [Azure Migrate](migrate-overview.md) beoordeelt on-premises werkbelastingen voor migratie naar Azure. In dit artikel bevat informatie over het gebruik van het Collector-apparaat.
-
-
 
 ## <a name="overview"></a>Overzicht
 
@@ -27,6 +25,17 @@ Een Azure Migrate Collector is een lichtgewicht apparaat die kan worden gebruikt
 Het Collector-apparaat is een OVF die u via de Azure Migrate-project downloaden kunt. Het instantiëren van een virtuele VMware-machine met 4 kernen, 8 GB RAM-geheugen en één schijf van 80 GB. Het besturingssysteem van het apparaat is Windows Server 2012 R2 (64 bits).
 
 U kunt de Collector maken door de stappen te volgen hier: [over het maken van de Collector-VM](tutorial-assessment-vmware.md#create-the-collector-vm).
+
+## <a name="discovery-methods"></a>Detectiemethoden
+
+Er zijn twee manieren waarop u uw on-premises-omgeving detecteren:
+
+a. **Eenmalige detectie:** de collector voor dit model communiceert met de vCenter-Server voor het verzamelen van metagegevens over de virtuele machines. Voor het verzamelen van prestatiegegevens van de virtuele machines, het is afhankelijk van de van historische prestatiegegevens die zijn opgeslagen in de vCenter-Server en de prestatiegeschiedenis van de laatste maand verzamelt. In dit model, Azure Migrate verzamelt gemiddelde meteritem (versus piek teller) voor alle gegevens, [meer informatie] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) over de prestatiemeteritems die worden verzameld door Azure Migrate. Omdat dit een eenmalige detectie, het apparaat in dit geval is niet altijd verbonden zijn aan het project. Wijzigingen in de on-premises-omgeving worden dus niet weergegeven in Azure Migrate zodra de detectie voltooid is. Als u wilt dat de wijzigingen om weer te geven, die u moet een nieuwe detectie van dezelfde omgeving hetzelfde project doen.
+
+b. **Continue detectie:** het collector-apparaat voor dit model voortdurend is verbonden met het Azure Migrate-project. Deze profielen continu de on-premises omgeving voor het verzamelen van realtime gebruiksgegevens op elke 20 seconden. Het apparaat vervolgens rollen van de voorbeelden 20 seconden en maakt één gegevenspunt voor elke 15 minuten door de maximale waarde die wordt verzonden naar Azure te verzamelen. Dit model is niet afhankelijk van de instellingen voor statistieken in vCenter Server voor het verzamelen van prestatiegegevens. U kunt de continue profilering stoppen op elk gewenst moment van het apparaat.
+
+> [!NOTE]
+> De functionaliteit van de continue detectie is in preview.
 
 ## <a name="collector-communication-diagram"></a>Diagram van de collector-communicatie
 
@@ -39,13 +48,9 @@ U kunt de Collector maken door de stappen te volgen hier: [over het maken van de
 | Collector      | vCenter Server        | Standaard 443                             | Collector moet kunnen communiceren met de vCenter-server. Deze verbinding maakt met vCenter op 443 standaard. Als het vCenter op een andere poort luistert, is die poort beschikbaar als uitgaande poort in de collector |
 | Collector      | RDP|   | TCP 3389 | U kunt RDP bij de Collector-computer |
 
-
-
-
-
 ## <a name="collector-pre-requisites"></a>Collector-vereisten
 
-De Collector moet worden doorgegeven van enkele vereiste controles om ervoor te zorgen kan verbinding maken met de Azure Migrate-service en de gedetecteerde gegevens uploaden. In dit artikel wordt gekeken naar elk van de vereisten en weten waarom is het vereist.
+De Collector moet worden doorgegeven van enkele vereiste controles om ervoor te zorgen kan verbinding maken met de Azure Migrate-service en de gedetecteerde gegevens uploaden. In dit artikel wordt gekeken naar elk van de vereisten en begrijpt waarom dit is vereist.
 
 ### <a name="internet-connectivity"></a>Internetconnectiviteit
 
@@ -77,8 +82,8 @@ Als de proxy-server kunt u verbinding maken met internet een onderschept proxy i
 6. Kies de optie **alle certificaten in het onderstaande archief plaatsen**. Klik op **Bladeren** en selecteer **vertrouwde uitgevers** uit de lijst met certificaten die zijn beschikbaar. Klik op **Volgende**.
 
     ![Archief met certificaten](./media/concepts-intercepting-proxy/certificate-store.png)
-    
-7. Klik op **Voltooien**. Hiermee wordt het certificaat importeren. 
+
+7. Klik op **Voltooien**. Hiermee wordt het certificaat importeren.
 8. Desgewenst kunt u controleren of dat het certificaat wordt geïmporteerd door het openen van het hulpprogramma certificaten zoals in stap 1 en 2 hierboven.
 9. Controleer op de Azure Migrate collector-app of dat de controle van het internet verbinding is geslaagd.
 
@@ -166,7 +171,7 @@ Zodra de detectie is gestart, wordt de virtuele machines van vCenter worden gede
 
 ### <a name="what-data-is-collected"></a>Welke gegevens worden verzameld?
 
-De taak detecteert de volgende statische metagegevens over de geselecteerde virtuele machines.
+Het collector-apparaat wordt gedetecteerd dat de volgende statische metagegevens over de geselecteerde virtuele machines.
 
 1. VM-weergavenaam (op vCenter)
 2. Pad van de inventaris van de virtuele machine (host/map in vCenter)
@@ -177,12 +182,14 @@ De taak detecteert de volgende statische metagegevens over de geselecteerde virt
 6. Grootte van geheugen, schijf-grootten
 7. En prestatiemeteritems van de VM, schijf en netwerk, zoals vermeld in de onderstaande tabel.
 
-De volgende tabel bevat de prestatiemeteritems die worden verzameld en bevat ook de resultaten van de evaluatie die worden beïnvloed als een bepaald item is niet verzameld.
+Voor in-time-detectie-model bevat de volgende tabel de exacte prestatiemeteritems die worden verzameld en bevat ook de resultaten van de evaluatie die worden beïnvloed als een bepaald item is niet verzameld.
+
+Voor continue detectie de dezelfde prestatiemeteritems worden verzameld in realtime (20 seconden interval), zodat er geen afhankelijkheid op het niveau van de vCenter-statistieken. Het apparaat vervolgens rollen van de voorbeelden 20 seconden voor het maken van één gegevenspunt voor elke 15 minuten door de piekwaarde te selecteren in de voorbeelden 20 seconden en verzendt ze naar Azure.
 
 |Teller                                  |Niveau    |Het niveau van per apparaat  |Evaluatie van de impact                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|CPU.Usage.Average                        | 1       |N.v.t.                |Aanbevolen VM-grootte en kosten                    |
-|Mem.Usage.Average                        | 1       |N.v.t.                |Aanbevolen VM-grootte en kosten                    |
+|CPU.Usage.Average                        | 1       |N.V.T.                |Aanbevolen VM-grootte en kosten                    |
+|Mem.Usage.Average                        | 1       |N.V.T.                |Aanbevolen VM-grootte en kosten                    |
 |virtualDisk.read.average                 | 2       |2                 |Grootte van de schijf, opslagkosten en VM-grootte         |
 |virtualDisk.write.average                | 2       |2                 |Grootte van de schijf, opslagkosten en VM-grootte         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Grootte van de schijf, opslagkosten en VM-grootte         |
@@ -191,13 +198,17 @@ De volgende tabel bevat de prestatiemeteritems die worden verzameld en bevat ook
 |NET.transmitted.Average                  | 2       |3                 |VM-grootte en netwerk kosten                        |
 
 > [!WARNING]
-> Als u een hoger statistiekniveau zojuist hebt ingesteld, duurt om op een dag voor het genereren van de prestatiemeteritems. Dus aangeraden de detectie uit te voeren na één dag.
+> Voor eenmalige detectie als u hebt zojuist een hoger statistiekniveau, duurt het om op een dag voor het genereren van de prestatiemeteritems. Dus aangeraden de detectie uit te voeren na één dag. Wacht ten minste één dag na het starten van detectie voor het apparaat te profileren van de omgeving en vervolgens een evaluatie maken voor het model continue detectie.
 
 ### <a name="time-required-to-complete-the-collection"></a>Benodigde tijd voor het voltooien van de verzameling
 
-De Collector gegevens van de machine wordt alleen gedetecteerd en verzendt ze naar het project. Het project kan extra tijd voordat de gedetecteerde gegevens worden weergegeven in de portal en u kunt beginnen met het maken van een evaluatie duren.
+**Eenmalige detectie**
 
-Op basis van het aantal virtuele machines in het geselecteerde bereik, duurt het maximaal 15 minuten voor het verzenden van de metagegevens van de statische aan het project. Nadat de metagegevens van de statische beschikbaar via de portal is, kunt u het overzicht van de machines in de portal en beginnen met het maken van groepen. Een evaluatie kan niet worden gemaakt totdat de taak is voltooid en het project is verwerkt de gegevens. Nadat de taak voltooid op de Collector, duurt het maximaal één uur voor de prestatiegegevens beschikbaar zijn in de portal op basis van het aantal virtuele machines in de geselecteerde scope.
+In dit model, de collector verzamelt configuratie- en geschiedenis van virtuele machines van vCenter-Server en verzendt ze naar het project. Het apparaat in dit geval is niet altijd verbonden zijn aan het project. Op basis van het aantal virtuele machines in het geselecteerde bereik, duurt het maximaal 15 minuten voor het verzenden van de metagegevens van de configuratie aan het project. Nadat de metagegevens van de configuratie beschikbaar via de portal is, kunt u het overzicht van de machines in de portal en beginnen met het maken van groepen. Zodra de configuratiegegevens zijn verzameld, duurt het maximaal één uur voor de prestatiegegevens beschikbaar zijn in de portal op basis van het aantal virtuele machines in de geselecteerde scope.
+
+**Continue detectie**
+
+In dit model is de configuratiegegevens van de on-premises VM's beschikbaar na het starten van 1 uur aan het activeren van detectie-en prestatiegegevens wordt beschikbaar na twee uur. Omdat dit een continue model, de collector continu houdt prestatiegegevens verzenden naar de Azure Migrate-project.
 
 ## <a name="locking-down-the-collector-appliance"></a>Het collector-apparaat te vergrendelen
 Het is raadzaam die continu Windows-updates worden uitgevoerd op het collector-apparaat. Als een collector gedurende 60 dagen niet wordt bijgewerkt, is de collector automatisch-afsluiten van de machine gestart. Als een detectie wordt uitgevoerd, de machine wordt niet worden uitgeschakeld, zelfs als deze na de periode van 60 dagen. Na de detectietaak is voltooid, wordt de machine worden uitgeschakeld. Als u van de collector gedurende meer dan 45 dagen gebruikmaakt, raden wij houden van de machine bijgewerkt op alle tijden door actieve Windows update.

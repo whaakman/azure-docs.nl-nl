@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/07/2018
+ms.date: 09/05/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 97bf33cb882d5a121b9811a8e36a1d26f9a954f8
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 14ac23e6b69302ac412aac3ecab06345e5d722fd
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715366"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296343"
 ---
 # <a name="manage-access-using-rbac-and-the-azure-portal"></a>Toegang beheren met RBAC en Azure Portal
 
@@ -89,7 +89,7 @@ Toegang kan alleen efficiënt worden beheerd als u weet wie er toegang heeft, wa
 
     ![Blade toegangsbeheer (IAM) voor een abonnement](./media/role-assignments-portal/subscription-access-control.png)
 
-    Beheerders en co-beheerders van klassieke abonnementen worden beschouwd als eigenaar van het abonnement in het RBAC-model.
+    Klassieke abonnementsbeheerders en CO-beheerders worden beschouwd als eigenaar van het abonnement in het RBAC-model.
 
 ### <a name="list-role-assignments-for-a-management-group"></a>Lijst-roltoewijzingen voor een beheergroep
 
@@ -109,9 +109,9 @@ Toegang kan alleen efficiënt worden beheerd als u weet wie er toegang heeft, wa
 
 ## <a name="grant-access"></a>Toegang verlenen
 
-In RBAC verleent u toegang door een roltoewijzing te maken. Volg deze stappen voor het verlenen van toegang op verschillende niveaus.
+In RBAC, als u wilt toegang verlenen toewijzen u een rol. Volg deze stappen voor het verlenen van toegang op verschillende niveaus.
 
-### <a name="create-a-role-assignment-at-a-resource-group-scope"></a>Een roltoewijzing maken voor een resourcegroep
+### <a name="assign-a-role-at-a-resource-group-scope"></a>Een rol met een bereik van de groep resource toewijzen
 
 1. Kies **Resourcegroepen** in de navigatielijst.
 
@@ -131,11 +131,11 @@ In RBAC verleent u toegang door een roltoewijzing te maken. Volg deze stappen vo
 
 1. Selecteer in de lijst **Selecteren** een gebruiker, groep of toepassing. Als u de beveiligings-principal niet in de lijst ziet staan, kunt u tekst typen in het vak **Selecteren** om te zoeken naar weergavenamen, e-mailadressen en object-id's.
 
-1. Kies **Opslaan** om de roltoewijzing te maken.
+1. Kies **opslaan** aan de rol toe te wijzen.
 
    Na enkele ogenblikken wordt de rol op groepsniveau toegewezen aan de beveiligings-principal.
 
-### <a name="create-a-role-assignment-at-a-subscription-scope"></a>Een roltoewijzing maken voor een bepaald abonnement
+### <a name="assign-a-role-at-a-subscription-scope"></a>Een rol in het abonnementsbereik van een toewijzen
 
 1. Kies in Azure Portal de optie **Alle services** en vervolgens **Abonnementen**.
 
@@ -155,11 +155,37 @@ In RBAC verleent u toegang door een roltoewijzing te maken. Volg deze stappen vo
 
 1. Selecteer in de lijst **Selecteren** een gebruiker, groep of toepassing. Als u de beveiligings-principal niet in de lijst ziet staan, kunt u tekst typen in het vak **Selecteren** om te zoeken naar weergavenamen, e-mailadressen en object-id's.
 
-1. Kies **Opslaan** om de roltoewijzing te maken.
+1. Kies **opslaan** aan de rol toe te wijzen.
 
    Na enkele ogenblikken wordt de rol op abonnementsniveau toegewezen aan de beveiligings-principal.
 
-### <a name="create-a-role-assignment-at-a-management-group-scope"></a>Een roltoewijzing maken een beheergroepbereik
+### <a name="assign-a-user-as-an-administrator-of-a-subscription"></a>Een gebruiker toewijzen als een beheerder van een abonnement
+
+Als u een gebruiker een beheerder van een Azure-abonnement, deze toewijzen de [eigenaar](built-in-roles.md#owner) rol op het abonnementsbereik. De rol eigenaar geeft de gebruiker volledige toegang tot alle resources in het abonnement, waaronder het recht op toegang aan anderen delegeren. Deze stappen zijn hetzelfde als elke andere roltoewijzing.
+
+1. Kies in Azure Portal de optie **Alle services** en vervolgens **Abonnementen**.
+
+1. Kies uw abonnement.
+
+1. Kies **Toegangsbeheer (IAM)** om de huidige lijst met roltoewijzingen voor het abonnement te zien.
+
+   ![Blade toegangsbeheer (IAM) voor een abonnement](./media/role-assignments-portal/grant-subscription-access-control.png)
+
+1. Kies **Toevoegen** om het deelvenster **Machtigingen toevoegen** te openen.
+
+   Als u niet bevoegd bent om rollen toe te wijzen, ziet u de optie **Toevoegen** niet.
+
+   ![Het deelvenster Machtigingen toevoegen](./media/role-assignments-portal/add-permissions.png)
+
+1. In de **rol** vervolgkeuzelijst, selecteer de **eigenaar** rol.
+
+1. In de **Selecteer** , selecteert u een gebruiker. Als u de gebruiker in de lijst niet ziet, typt u de **Selecteer** in om te zoeken naar de map voor de weergavenamen en e-mailadressen.
+
+1. Kies **opslaan** aan de rol toe te wijzen.
+
+   Na enkele ogenblikken wordt de gebruiker de rol van eigenaar op het abonnementsbereik toegewezen.
+
+### <a name="assign-a-role-at-a-management-group-scope"></a>Een rol een beheergroepbereik toewijzen
 
 1. Kies in de Azure-portal **alle services** en vervolgens **beheergroepen**.
 
@@ -185,7 +211,7 @@ In RBAC verleent u toegang door een roltoewijzing te maken. Volg deze stappen vo
 
 1. Selecteer in de lijst **Selecteren** een gebruiker, groep of toepassing. Als u de beveiligings-principal niet in de lijst ziet staan, kunt u tekst typen in het vak **Selecteren** om te zoeken naar weergavenamen, e-mailadressen en object-id's.
 
-1. Kies **Opslaan** om de roltoewijzing te maken.
+1. Kies **opslaan** aan de rol toe te wijzen.
 
    Na enkele ogenblikken is de beveiligings-principal de rol op het beheerbereik van de groep toegewezen.
 

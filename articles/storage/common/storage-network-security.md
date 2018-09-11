@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 10/25/2017
 ms.author: cbrooks
 ms.component: common
-ms.openlocfilehash: 56c464b9fbc9fe5f2d9acd1a403333fd1c729113
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 05a7dda67ca9747c5d6205952bc9337af628de8f
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023389"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296734"
 ---
 # <a name="configure-azure-storage-firewalls-and-virtual-networks"></a>Azure Storage-Firewalls en virtuele netwerken configureren
 Azure Storage biedt een gelaagd beveiligingsmodel waarmee u uw storage-accounts naar een specifieke set toegestane netwerken beveiligen.  Als network-regels zijn geconfigureerd, kunnen alleen de toepassingen van toegestane netwerken toegang krijgen tot een storage-account.  Bij het aanroepen van een toegestane netwerk, blijven toepassingen juiste autorisatie (een geldige toegangssleutel of SAS-token) voor toegang tot het opslagaccount nodig.
@@ -208,7 +208,7 @@ IP-netwerkregels voor storage-accounts kunnen worden beheerd via de Azure portal
 2. Klik op het instellingenmenu met de naam **Firewalls en virtuele netwerken**.
 3. Zorg ervoor dat u ervoor gekozen hebt zodat toegang vanaf 'Geselecteerde netwerken'.
 4. Om te verlenen toegang tot een internet-IP-bereik, voer het IP-adres of adresbereik (in CIDR-indeling) onder Firewall-adresbereiken.
-5. Als u wilt verwijderen van een regel voor IP-netwerk, klikt u op '...' als u wilt open het contextmenu voor de regel en klikt u op 'Verwijderen'.
+5. Als u wilt verwijderen van een regel voor IP-netwerk, klikt u op het prullenbakpictogram naast de regel van het netwerk.
 6. Klik op *opslaan* de wijzigingen worden toegepast.
 
 #### <a name="powershell"></a>PowerShell

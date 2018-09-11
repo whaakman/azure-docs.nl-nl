@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/14/2018
 ms.author: bryanla
-ms.openlocfilehash: f36e0e3ddc605d960ed764252308cbf09578832c
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 60b8689e602f0716cdd1a383ab6568979a37e7c0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126139"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302942"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>Over sleutels, geheimen en certificaten
 Azure Key Vault kunnen gebruikers voor het opslaan en gebruiken van cryptografische sleutels binnen de Microsoft Azure-omgeving. Key Vault ondersteunt meerdere sleuteltypen en algoritmen, en maakt het gebruik van Hardware Security Modules (HSM) voor hoge waarde sleutels. Key Vault kunnen bovendien gebruikers geheimen veilig opslaan. Geheimen zijn geen specifieke semantiek beperkte grootte octet objecten. Key Vault biedt ook ondersteuning voor certificaten die zijn gebaseerd op de sleutels en geheimen en toevoegen van een functie voor automatische verlenging.
@@ -377,14 +377,14 @@ De volgende tabel geeft de toewijzing van x509 sleutelgebruik beleid effectieve 
 
 |**X509 sleutelgebruik wordt gemarkeerd**|**Key Vault-sleutel ops**|**Standaardgedrag**|
 |----------|--------|--------|
-|DataEncipherment|versleutelen, ontsleutelen| N/A |
-|DecipherOnly|ontsleutelen| N/A  |
+|DataEncipherment|versleutelen, ontsleutelen| NB |
+|DecipherOnly|ontsleutelen| NB  |
 |DigitalSignature|Meld u aan, controleert u of| Key Vault standaard zonder een specificatie voor gebruik tijdens de aanmaak van certificaat | 
-|EncipherOnly|encrypt| N/A |
-|KeyCertSign|Meld u aan, controleert u of|N/A|
+|EncipherOnly|encrypt| NB |
+|KeyCertSign|Meld u aan, controleert u of|NB|
 |Keyencipherment-bit|sleutel inpakken, sleutel uitpakken| Key Vault standaard zonder een specificatie voor gebruik tijdens de aanmaak van certificaat | 
-|Niet-afwijzing|Meld u aan, controleert u of| N/A |
-|crlsign|Meld u aan, controleert u of| N/A |
+|Niet-afwijzing|Meld u aan, controleert u of| NB |
+|crlsign|Meld u aan, controleert u of| NB |
 
 ###  <a name="BKMK_CertificateIssuer"></a> Certificaatverlener
 

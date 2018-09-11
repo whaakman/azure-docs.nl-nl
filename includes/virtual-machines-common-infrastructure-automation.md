@@ -10,8 +10,7 @@ Als u wilt maken en beheren van virtuele Azure-machines (VM's) op een consistent
     - [Azure Automation](#azure-automation) acties kunnen uitvoeren in uw Azure en on-premises infrastructuur.
 
 - Implementatie van toepassingen en -levering automatiseren
-    - Voorbeelden zijn onder meer [Visual Studio Team Services](#visual-studio-team-services) en [Jenkins](#jenkins).
-
+    - Voorbeelden zijn onder meer [Azure DevOps Services](#visual-studio-team-services) en [Jenkins](#jenkins).
 
 ## <a name="ansible"></a>Ansible
 [Ansible](https://www.ansible.com/) is een automatiseringsengine voor voor Configuratiebeheer, het maken van VM of implementatie van de toepassing. Ansible maakt gebruik van een model zonder agent, meestal met SSH-sleutels, om te verifiëren en beheren van doelmachines. Configuratietaken zijn gedefinieerd in playbooks, met een aantal Ansible-modules die beschikbaar zijn voor het uitvoeren van specifieke taken. Zie voor meer informatie, [hoe Ansible werkt](https://www.ansible.com/how-ansible-works).
@@ -49,11 +48,11 @@ Cloud-init werkt ook in distributies. U gebruikt bijvoorbeeld niet **apt-get ins
 
 | Uitgever | Aanbieding | SKU | Versie | cloud-init gereed
 |:--- |:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |16.04-LTS |meest recente |ja | 
-|Canonical |UbuntuServer |14.04.5-LTS |meest recente |ja |
-|CoreOS |CoreOS |Stabiel |meest recente |ja |
-|OpenLogic |CentOS |7-CI |meest recente |preview |
-|RedHat |RHEL |7-RAW-CI |meest recente |preview |
+|Canonical |UbuntuServer |16.04-LTS |nieuwste |ja | 
+|Canonical |UbuntuServer |14.04.5-LTS |nieuwste |ja |
+|CoreOS |CoreOS |Stabiel |nieuwste |ja |
+|OpenLogic |CentOS |7-CI |nieuwste |preview |
+|RedHat |RHEL |7-RAW-CI |nieuwste |preview |
 
 Meer informatie over cloud-init op Azure:
 
@@ -114,12 +113,12 @@ Leer hoe u het volgende doet:
 - [Gebruik van Azure Automation DSC](../articles/automation/automation-dsc-getting-started.md).
 
 
-## <a name="visual-studio-team-services"></a>Visual Studio Team Services
-[Team Services](https://www.visualstudio.com/team-services/) is een suite met hulpprogramma's waarmee u delen en bijhouden code, gebruikt u geautomatiseerde builds en een volledige continue integratie en (CI/CD)-ontwikkelingspijplijn te maken. Teamservices kan worden geïntegreerd met Visual Studio en andere editors voor het vereenvoudigen van gebruik. Teamservices kunnen ook maken en configureren van Azure-VM's en code te implementeren.
+## <a name="azure-devops-services"></a>Azure DevOps Services
+[Azure DevOps-Services](https://www.visualstudio.com/team-services/) is een suite met hulpprogramma's waarmee u delen en bijhouden code, gebruikt u geautomatiseerde builds en een volledige continue integratie en (CI/CD)-ontwikkelingspijplijn te maken. Azure DevOps-Services kan worden geïntegreerd met Visual Studio en andere editors voor het vereenvoudigen van gebruik. Azure DevOps-Services kan ook maken en configureren van Azure-VM's en code te implementeren.
 
 Leer hoe u het volgende doet:
 
-- [Maken van een pijplijn voor continue integratie met Team Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
+- [Maken van een pijplijn voor continue integratie met Azure DevOps Services](../articles/virtual-machines/windows/tutorial-vsts-iis-cicd.md).
 
 
 ## <a name="jenkins"></a>Jenkins

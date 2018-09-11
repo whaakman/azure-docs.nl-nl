@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: a771a3a1-2925-46ca-8e27-6f6a0746f58b
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: 34474892d35c2c0bc299bbc4a2fb6507ffb24ee9
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: a3988575074708a46138b5e550bfc0014ca3bd15
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022217"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44293929"
 ---
 # <a name="security-alerts-map-azure-security-center"></a>Beveiligingswaarschuwingen toewijzen Azure Security Center
 In dit artikel helpt u bij het gebruik van de Azure Security Center security waarschuwingen kaart en beveiliging op basis van gebeurtenissen bedreigingsinformatiekaart beveiligingsgerelateerde om problemen te verhelpen.
@@ -79,7 +79,7 @@ Als u de bedreigingsinformatiekaart op basis van onbewerkte beveiligingsgebeurte
 
 Ongeacht de tegel die u selecteert, is het dashboard dat wordt weergegeven altijd gebaseerd op het logboek van Zoeken in logboeken. Het enige verschil is het type query en het resultaat.
 
-### <a name="threat-types"></a>Bedreigingstypen
+### <a name="threat-types"></a>Typen bedreigingen
 Selecteer de tegel **Bedreigingstypen** om het dashboard **Zoeken in logboeken** te openen. U ziet filteropties aan de linkerkant en de queryresultaten aan de rechterkant.
 
 ![Zoeken in logboeken](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)

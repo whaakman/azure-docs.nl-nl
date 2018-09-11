@@ -15,18 +15,18 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 03/14/2017
 ms.author: roiyz
-ms.openlocfilehash: 2c228784e7a0a78f6dfdb93ce632bf340dea0ee9
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 94e45462a676f6a03e838f63ad37dfbf68839eb4
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414739"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325070"
 ---
 # <a name="log-analytics-virtual-machine-extension-for-windows"></a>Log Analytics VM-extensie voor Windows
 
 Log Analytics biedt mogelijkheden voor bewaking in de cloud en on-premises activa. De extensie voor de Log Analytics-Agent van een virtuele machine voor Windows is gepubliceerd en ondersteund door Microsoft. De extensie voor de Log Analytics-agent geïnstalleerd op virtuele Azure-machines en virtuele machines voor een bestaande Log Analytics-werkruimte worden ingeschreven. In dit document worden de ondersteunde platforms, configuraties en implementatie-opties voor de extensie van de Log Analytics-virtuele machine voor Windows.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 ### <a name="operating-system"></a>Besturingssysteem
 
@@ -74,8 +74,10 @@ De volgende JSON ziet u het schema voor de Log Analytics-Agent-extensie. De exte
 | Uitgever | Microsoft.EnterpriseCloud.Monitoring |
 | type | MicrosoftMonitoringAgent |
 | typeHandlerVersion | 1.0 |
-| werkruimte-id (bijvoorbeeld) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
+| werkruimte-id (e.g)* | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (bijvoorbeeld) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
+
+\* De werkruimte-id heet de consumerId in de Log Analytics-API.
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
 
@@ -157,7 +159,7 @@ Set-AzureRmVMExtension -ExtensionName "Microsoft.EnterpriseCloud.Monitoring" `
 
 ## <a name="troubleshoot-and-support"></a>Problemen oplossen en ondersteuning
 
-### <a name="troubleshoot"></a>Problemen oplossen
+### <a name="troubleshoot"></a>Probleem oplossen
 
 Gegevens over de status van extensie-implementaties kunnen worden opgehaald uit de Azure-portal en met behulp van de Azure PowerShell-module. Als wilt zien de implementatiestatus van extensies voor een bepaalde virtuele machine, voert u de volgende opdracht uit met behulp van de Azure PowerShell-module.
 

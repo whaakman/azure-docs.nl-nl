@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 2097ce5cf249e7ff895769142d63b6cf47eed06d
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 5d3833d3218a4b6252c9591bb67686ddc1c3cdf9
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39161004"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298571"
 ---
 # <a name="configure-azure-multi-factor-authentication-server-for-high-availability"></a>Azure multi-factor Authentication-Server configureren voor maximale beschikbaarheid
 
@@ -29,20 +29,20 @@ De architectuur van de service Azure MFA-Server bestaat uit verschillende onderd
 
 Een MFA-Server is een Windows-Server die de Azure multi-factor Authentication software is geïnstalleerd. Het MFA-Server-exemplaar moet worden geactiveerd door de MFA-Service in Azure naar functie. Meer dan één MFA-Server worden geïnstalleerd on-premises.
 
-De eerste MFA-Server die is geïnstalleerd, is de master MFA-Server bij de activering door de Azure MFA-Service standaard. De master MFA-server heeft een beschrijfbare kopie van de database PhoneFactor.pfdata. Volgende installaties van exemplaren van MFA-Server staat bekend als ondergeschikte servers. De MFA-slaves hebben een gerepliceerde alleen-lezen kopie van de database PhoneFactor.pfdata. MFA-servers repliceren met behulp van Remote Procedure Call (RPC) informatie. Alle MFA-servers moeten gezamenlijk lid zijn van een domein of zelfstandige om gegevens te repliceren.
+De eerste MFA-Server die is geïnstalleerd, is de master MFA-Server bij de activering door de Azure MFA-Service standaard. De master MFA-server heeft een beschrijfbare kopie van de database PhoneFactor.pfdata. Volgende installaties van exemplaren van MFA-Server staat bekend als onderliggende niveaus. De MFA-onderliggende niveaus hebben een gerepliceerde alleen-lezen kopie van de database PhoneFactor.pfdata. MFA-servers repliceren met behulp van Remote Procedure Call (RPC) informatie. Alle MFA-servers moeten gezamenlijk lid zijn van een domein of zelfstandige om gegevens te repliceren.
 
-MFA-master en slave MFA-Servers communiceren met de MFA-Service als tweeledige verificatie vereist is. Bijvoorbeeld, wanneer een gebruiker probeert toegang te krijgen tot een toepassing waarbij de verificatie met twee factoren, wordt de gebruiker eerst worden geverifieerd door een id-provider, zoals Active Directory (AD).
+Zowel MFA hoofd- en onderliggende MFA-Servers communiceren met de MFA-Service als tweeledige verificatie vereist is. Bijvoorbeeld, wanneer een gebruiker probeert toegang te krijgen tot een toepassing waarbij de verificatie met twee factoren, wordt de gebruiker eerst worden geverifieerd door een id-provider, zoals Active Directory (AD).
 
 Na een succesvolle verificatie met AD communiceert de MFA-Server met de MFA-Service. De MFA-Server wacht op een melding van de MFA-Service wilt toestaan of weigeren van de gebruikerstoegang tot de toepassing.
 
 Als de hoofd-MFA-server offline gaat, worden verificaties nog steeds kunnen worden verwerkt, maar bewerkingen waarvoor wijzigingen in de MFA-database kunnen niet worden verwerkt. (Voorbeelden zijn onder meer: het toevoegen van gebruikers, selfservice PINCODE wijzigen en wijzigen van gebruikersgegevens)
 
-## <a name="deployment"></a>Implementatie
+## <a name="deployment"></a>Distributie
 
 Houd rekening met de volgende belangrijke punten voor taakverdeling van Azure MFA-Server en de bijbehorende onderdelen.
 
 * **Met behulp van RADIUS-standaard voor hoge beschikbaarheid**. Als u van Azure MFA-Servers als RADIUS-servers gebruikmaakt, kunt u mogelijk een MFA-Server configureren als een RADIUS-doel voor primaire verificatie en andere Azure MFA-Servers als de doelen van de secundaire verificatie. Maar deze methode voor hoge beschikbaarheid mogelijk niet praktisch omdat u tot een time-outperiode wachten moet moet plaatsvinden wanneer verificatie op het doel van de primaire verificatie is mislukt voordat u op het doel van de secundaire verificatie kan worden geverifieerd. Het is efficiënter voor taakverdeling tussen de RADIUS-verkeer tussen de RADIUS-client en de RADIUS-Servers (in dit geval de Azure MFA-Servers die fungeren als RADIUS-servers) zodat u de RADIUS-clients met één URL die ze configureren kunt naar kunnen verwijzen.
-* **Moet handmatig promoveren MFA-slaves**. Als de master Azure MFA-server offline gaat, blijven de secundaire Servers voor Azure MFA om MFA-aanvragen te verwerken. Echter, totdat een master MFA-server beschikbaar is, beheerders kunnen geen gebruikers toevoegen of wijzigen van de MFA-instellingen en kunnen gebruikers niet met behulp van de gebruikersportal wijzigingen aanbrengen. Promoveren van een MFA ondergeschikte server aan de rol van master is altijd een handmatig proces.
+* **Moet handmatig promoveren MFA onderliggende niveaus**. Als de master Azure MFA-server offline gaat, blijven de secundaire Servers voor Azure MFA om MFA-aanvragen te verwerken. Echter, totdat een master MFA-server beschikbaar is, beheerders kunnen geen gebruikers toevoegen of wijzigen van de MFA-instellingen en kunnen gebruikers niet met behulp van de gebruikersportal wijzigingen aanbrengen. Promoveren van een MFA is ondergeschikt is aan de rol altijd een handmatig proces.
 * **Afscheidbaarheid van onderdelen**. De Azure MFA-Server bestaat uit verschillende onderdelen die kunnen worden geïnstalleerd op hetzelfde exemplaar van Windows Server of op verschillende exemplaren. Deze onderdelen zijn onder andere de Gebruikersportal, webservice voor mobiele App en de AD FS-adapter (agent). Deze Afscheidbaarheid maakt het mogelijk is de Web Application Proxy gebruiken om te publiceren van de Gebruikersportal en mobiele App-webserver uit het perimeternetwerk. Een dergelijke configuratie wordt toegevoegd aan de algehele beveiliging van uw ontwerp, zoals wordt weergegeven in het volgende diagram. De Gebruikersportal van MFA en Mobile App Web Server kan ook worden geïmplementeerd in HA met load balancing-configuraties.
 
    ![MFA-Server met een perimeternetwerk](./media/howto-mfaserver-deploy-ha/mfasecurity.png)
@@ -62,7 +62,7 @@ Houd er rekening mee de volgende items voor de overeenkomstige genummerde gebied
    ![Azure MFA-Server - HA-App-server](./media/howto-mfaserver-deploy-ha/mfaapp.png)
 
    > [!NOTE]
-   > Omdat de RPC dynamische poorten gebruikt, wordt het niet aanbevolen om te openen firewalls tot het bereik van dynamische poorten die RPC kan gebruiken. Als u een firewall hebt **tussen** uw MFA-toepassingsservers, moet u de MFA-Server om te communiceren op een statische poort voor het replicatieverkeer tussen de ondergeschikte en master-servers en die poort openen in uw firewall configureren. U kunt afdwingen dat de statische poort door het maken van een DWORD-registerwaarde op ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` met de naam ```Pfsvc_ncan_ip_tcp_port``` en als de waarde instelt op een beschikbare statische poort. Verbindingen zijn altijd wordt geïnitieerd door de slave MFA-Servers aan het model, de statische poort is alleen vereist op de hoofddoelserver, maar omdat u een ondergeschikte server om te worden van het model op elk gewenst moment verhogen kunt, moet u de statische poort ingesteld op alle MFA-Servers.
+   > Omdat de RPC dynamische poorten gebruikt, wordt het niet aanbevolen om te openen firewalls tot het bereik van dynamische poorten die RPC kan gebruiken. Als u een firewall hebt **tussen** uw MFA-toepassingsservers, moet u de MFA-Server om te communiceren op een statische poort voor het replicatieverkeer tussen de onderliggende en master-servers en die poort openen in uw firewall configureren. U kunt afdwingen dat de statische poort door het maken van een DWORD-registerwaarde op ```HKEY_LOCAL_MACHINE\SOFTWARE\Wow6432Node\Positive Networks\PhoneFactor``` met de naam ```Pfsvc_ncan_ip_tcp_port``` en als de waarde instelt op een beschikbare statische poort. Verbindingen zijn altijd wordt geïnitieerd door de onderliggende MFA-Servers aan het model, de statische poort is alleen vereist op de hoofddoelserver, maar omdat u een onderliggend niveau om te worden van het model op elk gewenst moment verhogen kunt, moet u de statische poort ingesteld op alle MFA-Servers.
 
 2. De twee mobiele App van gebruiker Portal/MFA-servers (MFA-UP-MAS1 en MFA-UP-MAS2) worden gelijkmatig verdeeld een **stateful** configuratie (mfa.contoso.com). Intrekken dat tijdelijke sessies zijn vereist voor de MFA-Gebruikersportal en mobiele App Service te verdelen.
    ![Azure MFA-Server - Gebruikersportal en mobiele App Service HA](./media/howto-mfaserver-deploy-ha/mfaportal.png)

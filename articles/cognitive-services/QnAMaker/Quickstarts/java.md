@@ -1,20 +1,21 @@
 ---
-title: Java-Quickstart voor Microsoft QnA Maker-API (v4) - Azure Cognitive Services | Microsoft Docs
+title: 'Snelstartgids: Java voor QnA Maker-API (v4)'
+titleSuffix: Azure Cognitive Services
 description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Text-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: d8df77d43441331bdda38814e4bddfb29d1576c1
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: b436cbc1efde2e28b388e6bfc1843af1808ea993
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868395"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346670"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-java"></a>Snelstartgids voor Microsoft QnA Maker-API met Java 
 <a name="HOLTop"></a>
@@ -36,7 +37,7 @@ In dit artikel leest u hoe u de [QnA Maker-API van Microsoft](../Overview/overvi
 - [De huidige set word wijzigingen ophalen.](#GetAlterations)
 - [Vervang de huidige reeks word wijzigingen.](#PutAlterations)
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 U moet [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) compileren en uitvoeren van deze code. U kunt een Java-IDE gebruiken als u een favoriet hebt, maar worden volstaan met een teksteditor.
 

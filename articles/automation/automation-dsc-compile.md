@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: dsc
 author: DCtheGeek
 ms.author: dacoulte
-ms.date: 08/08/2018
+ms.date: 09/10/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 03b22e3a4c2c0b8eb87ee0b61edba3c6f0923170
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: a78d2b0b2fa0b1968e6804fdfd5f2f325ed11bfb
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42443812"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347610"
 ---
 # <a name="compiling-dsc-configurations-in-azure-automation-state-configuration"></a>DSC-configuraties in Azure Automation-staat configuratie compileren
 
@@ -224,7 +224,7 @@ $ConfigData = @{
 Start-AzureRmAutomationDscCompilationJob -ResourceGroupName 'MyResourceGroup' -AutomationAccountName 'MyAutomationAccount' -ConfigurationName 'ConfigurationDataSample' -ConfigurationData $ConfigData
 ```
 
-## <a name="assets"></a>Assets
+## <a name="assets"></a>Activa
 
 Asset verwijzingen zijn hetzelfde als in runbooks en Azure Automation State Configuration. Zie het volgende voor meer informatie:
 
@@ -235,7 +235,7 @@ Asset verwijzingen zijn hetzelfde als in runbooks en Azure Automation State Conf
 
 ### <a name="credential-assets"></a>Referentieassets
 
-DSC-configuraties in Azure Automation kunnen verwijzen naar Automation referentieassets met behulp van `Get-AzureRmAutomationCredential`. Als een configuratie heeft een parameter waarvoor een **PSCredential** typt, en vervolgens kunt u de `Get-AutomationRmAutomationCredential` cmdlet doordat de naam van een Azure Automation-referentieasset worden doorgegeven aan de cmdlet voor het ophalen van de referentie. U kunt dit object vervolgens gebruiken voor het vereisen van de parameter de **PSCredential** object. De Azure Automation-referentieasset met die naam is achter de schermen, opgehaald en doorgegeven aan de configuratie. In het volgende voorbeeld ziet u dit in actie.
+DSC-configuraties in Azure Automation kunnen verwijzen naar Automation referentieassets met behulp van de `Get-AutomationPSCredential` cmdlet. Als een configuratie heeft een parameter waarvoor een **PSCredential** typt, en vervolgens kunt u de `Get-AutomationPSCredential` cmdlet doordat de naam van een Azure Automation-referentieasset worden doorgegeven aan de cmdlet voor het ophalen van de referentie. U kunt dit object vervolgens gebruiken voor het vereisen van de parameter de **PSCredential** object. De Azure Automation-referentieasset met die naam is achter de schermen, opgehaald en doorgegeven aan de configuratie. In het volgende voorbeeld ziet u dit in actie.
 
 Referenties te houden beveiligd in knooppuntconfiguraties (MOF configuratiedocumenten) is vereist voor het versleutelen van de referenties in het knooppunt van het MOF-configuratiebestand. Echter, momenteel u moet op de hoogte PowerShell DSC is goed om referenties als tekst zonder opmaak output tijdens het genereren van de configuratie MOF-knooppunt, omdat PowerShell DSC niet weten dat Azure Automation wordt worden versleutelen van het hele MOF-bestand nadat de generatie via een Compilatietaak.
 

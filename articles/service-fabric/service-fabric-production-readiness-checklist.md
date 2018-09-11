@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 7/10/2018
 ms.author: subramar
-ms.openlocfilehash: 5092bf377f6ab213a2db52e01fb7b89ff0c218ce
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: 6ebe83794f23ed3cf637f668d2810b9ba7521084
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39127584"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295867"
 ---
 # <a name="production-readiness-checklist"></a>Controlelijst voor productiegereedheid
 
@@ -45,7 +45,7 @@ Uw toepassing en het cluster gereed is voor productieverkeer? Uitvoeren en teste
 15. Een Recovery Point Objective (RPO) voor uw service tot stand brengen en instellen van een [noodherstelprocedure](service-fabric-disaster-recovery.md) en testen.
 16. Plannen voor [schalen](service-fabric-cluster-scaling.md) uw cluster handmatig of programmatisch.
 17. Plannen voor [patches](service-fabric-patch-orchestration-application.md) uw clusterknooppunten. 
-18. Stel een CI/CD-pijplijn zodat de meest recente wijzigingen voortdurend worden getest. Bijvoorbeeld, met behulp van [VSTS](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) of [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
+18. Stel een CI/CD-pijplijn zodat de meest recente wijzigingen voortdurend worden getest. Bijvoorbeeld, met behulp van [Azure DevOps](service-fabric-tutorial-deploy-app-with-cicd-vsts.md) of [Jenkins](service-fabric-cicd-your-linux-applications-with-jenkins.md)
 19. Test uw ontwikkeling- en staging-clusters onder belasting met de [Fault Analysis Service](service-fabric-testability-overview.md) en gecontroleerde veroorzaken [chaos](service-fabric-controlled-chaos.md). 
 20. Plannen voor [schalen](service-fabric-concepts-scalability.md) uw toepassingen. 
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 2/23/2018
 ms.author: subramar
-ms.openlocfilehash: 0238dce3f8cbf838e7fce3afefb866e3aaa791bc
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: c1005d60df0b1cfd3b24be954ab4ff1b18c8f7a8
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42054456"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348766"
 ---
 # <a name="service-fabric-application-upgrade-using-powershell"></a>Upgrade van de service Fabric-toepassing met behulp van PowerShell
 > [!div class="op_single_selector"]
@@ -46,7 +46,7 @@ Bouwt en publiceert u de toepassing met de rechtermuisknop op het toepassingspro
 > 
 > 
 
-Na het maken van het project in Visual Studio, kunt u de PowerShell-opdracht [kopie ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/copy-servicefabricapplicationpackage) het toepassingspakket kopiëren naar de ImageStore. Als u controleren of het app-pakket lokaal wilt, gebruikt u de [Test ServiceFabricApplicationPackage](/powershell/servicefabric/vlatest/test-servicefabricapplicationpackage) cmdlet. De volgende stap is het registreren van de toepassing met de Service Fabric-runtime via de [registreren ServiceFabricApplicationType](/powershell/servicefabric/vlatest/register-servicefabricapplicationtype) cmdlet. De volgende stap is het starten van een exemplaar van de toepassing met behulp van de [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet.  Deze drie stappen zijn vergelijkbaar met behulp van de **implementeren** menu-item in Visual Studio.  Nadat het inrichten is voltooid, moet u het gekopieerde toepassingspakket uit het installatiekopiearchief opschonen om te reduceren van de resources die nodig zijn.  Als een toepassingstype niet langer vereist is, moet dit ongedaan gemaakt zijn om dezelfde reden. Zie [implementeren en remove-toepassingen met behulp van PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) voor meer informatie.
+Na het maken van het project in Visual Studio, kunt u de PowerShell-opdracht [kopie ServiceFabricApplicationPackage](/powershell/module/servicefabric/copy-servicefabricapplicationpackage) het toepassingspakket kopiëren naar de ImageStore. Als u controleren of het app-pakket lokaal wilt, gebruikt u de [Test ServiceFabricApplicationPackage](/powershell/module/servicefabric/test-servicefabricapplicationpackage) cmdlet. De volgende stap is het registreren van de toepassing met de Service Fabric-runtime via de [registreren ServiceFabricApplicationType](/powershell/module/servicefabric/register-servicefabricapplicationtype) cmdlet. De volgende stap is het starten van een exemplaar van de toepassing met behulp van de [New-ServiceFabricApplication](/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet.  Deze drie stappen zijn vergelijkbaar met behulp van de **implementeren** menu-item in Visual Studio.  Nadat het inrichten is voltooid, moet u het gekopieerde toepassingspakket uit het installatiekopiearchief opschonen om te reduceren van de resources die nodig zijn.  Als een toepassingstype niet langer vereist is, moet dit ongedaan gemaakt zijn om dezelfde reden. Zie [implementeren en remove-toepassingen met behulp van PowerShell](service-fabric-application-upgrade-tutorial-powershell.md) voor meer informatie.
 
 Nu kunt u [Service Fabric Explorer om het cluster en de toepassing weer te geven](service-fabric-visualizing-your-cluster.md). De toepassing heeft een webservice die kan worden genavigeerd in Internet Explorer door te typen [ http://localhost:8081/visualobjects ](http://localhost:8081/visualobjects) in de adresbalk.  Hier ziet u enkele zwevende visual objecten in het scherm bladeren.  Bovendien kunt u [Get-ServiceFabricApplication](/powershell/module/servicefabric/get-servicefabricapplication?view=azureservicefabricps) om de toepassingsstatus te controleren.
 

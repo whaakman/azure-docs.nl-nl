@@ -6,14 +6,14 @@ author: saurabhsensharma
 manager: shivamg
 ms.service: backup
 ms.topic: conceptual
-ms.date: 8/6/2018
+ms.date: 9/7/2018
 ms.author: saurse
-ms.openlocfilehash: ddde297de49edb5f6543d03dfdb972771533301b
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: 20d2f289f4d40d773fde9f6b770dc49b87c34804
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39576182"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297244"
 ---
 # <a name="restore-files-to-a-windows-server-or-windows-client-machine-using-resource-manager-deployment-model"></a>Met het Resource Manager implementatiemodel bestanden herstellen op een Windows-server of Windows-clientcomputer
 
@@ -54,6 +54,9 @@ Als u per ongeluk een bestand verwijderd en u herstellen op dezelfde computer wi
 > [!IMPORTANT]
 > De optie om terug te zetten *afzonderlijke bestanden en mappen* vereist .NET Framework 4.5.2 of hoger. Als u niet ziet de *afzonderlijke bestanden en mappen* optie, moet u .NET Framework upgraden naar versie 4.5.2 of hoger en probeer het opnieuw.
 
+> [!TIP]
+> De *afzonderlijke bestanden en mappen* optie kunnen voor snelle toegang tot de herstelpuntgegevens. Is geschikt voor het herstellen van afzonderlijke bestanden met grootten niet meer dan 80 GB groot totaal en aanbiedingen overdracht/kopiëren versnelt maximaal 6 MBps tijdens het herstel. De *Volume* optie worden alle back-ups van gegevens in een bepaald Volume hersteld. Deze optie biedt snellere overdracht snelheden (maximaal 60 MBps), dat is ideaal voor het herstellen van groot formaat gegevens of hele volumes.
+
 5. Op de **Selecteer Volume en datum** deelvenster, selecteert u het volume met de bestanden en/of mappen die u wilt herstellen.
 
     Selecteer een herstelpunt op de kalender. U kunt herstellen vanaf een herstelpunt in de tijd. Datums in **vet** geven van de beschikbaarheid van ten minste één herstelpunt. Wanneer u een datum selecteert als er meerdere herstelpunten beschikbaar zijn, kiest u het specifieke herstelpunt uit de **tijd** vervolgkeuzelijst.
@@ -72,6 +75,7 @@ Als u per ongeluk een bestand verwijderd en u herstellen op dezelfde computer wi
 8. Kopieer de bestanden en/of mappen die u wilt herstellen en plak ze naar een locatie die lokaal op de server of de computer in Windows Verkenner. U kunt openen of de bestanden rechtstreeks vanuit het herstelvolume streamen en controleer of dat u de juiste versies herstelt.
 
     ![Bestanden en mappen van gekoppeld volume naar een lokale locatie kopiëren en plakken](./media/backup-azure-restore-windows-server/samemachine_copy_instantrestore.png)
+
 
 9. Als u hebt de bestanden en/of mappen terugzetten op de **bladeren en herstelbestanden** deelvenster, klikt u op **ontkoppelen**. Klik vervolgens op **Ja** om te bevestigen dat u wilt ontkoppelen van het volume.
 
@@ -120,7 +124,7 @@ De termen die in deze stappen bevat:
 
 7. Op de **Selecteer herstelmodus** deelvenster Selecteer **afzonderlijke bestanden en mappen** en klikt u op **volgende**.
 
-    ![Search](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
+    ![Zoeken](./media/backup-azure-restore-windows-server/alternatemachine_selectrecoverymode_instantrestore.png)
 
 8. Op de **Selecteer Volume en datum** deelvenster, selecteert u het volume met de bestanden en/of mappen die u wilt herstellen.
 

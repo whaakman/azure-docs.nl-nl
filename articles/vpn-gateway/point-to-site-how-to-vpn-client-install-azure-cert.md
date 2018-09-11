@@ -1,49 +1,45 @@
 ---
-title: Een clientcertificaat P2S installeren | Azure
-description: Een Mac of Windows-client het certificaat voor verificatie via certificaat P2S installeren.
+title: 'Een certificaat voor punt-naar-Site installeren: Azure | Microsoft Docs'
+description: Clientcertificaat voor P2S - verificatie van Windows, Mac en Linux installeren.
 services: vpn-gateway
 documentationcenter: na
 author: cherylmc
-manager: jeconnoc
-editor: ''
-tags: azure-resource-manager, azure-service-management
-ms.assetid: ''
 ms.service: vpn-gateway
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: infrastructure-services
-ms.date: 04/02/2018
+ms.date: 09/06/2018
 ms.author: cherylmc
-ms.openlocfilehash: bf2788fff64ab8b3a5ccf75b8a80f2bd5aba5151
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: eec15b84e4bdb8df3fe84a53909d5da4b39545ff
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30317990"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294439"
 ---
-# <a name="install-a-client-certificate-for-point-to-site-azure-certificate-authentication-connections"></a>Een clientcertificaat voor punt-naar-Site Azure certificaat verificatie verbindingen installeren
+# <a name="install-client-certificates-for-p2s-certificate-authentication-connections"></a>Installeer de clientcertificaten voor P2S verbindingen met verificatie via certificaat
 
-Alle clients die verbinding maken met een virtueel netwerk met Azure certificaatverificatie voor punt-naar-Site is een clientcertificaat vereist. In dit artikel helpt u bij het installeren van een clientcertificaat dat wordt gebruikt voor verificatie bij het verbinden met een VNet met P2S.
+Alle clients die verbinding maken met een virtueel netwerk met behulp van Azure-certificaatverificatie van punt-naar-Site is een clientcertificaat vereist. Dit artikel helpt u bij het installeren van een clientcertificaat dat wordt gebruikt voor verificatie bij het verbinden met een VNet maken via P2S.
 
-## <a name="generate"></a>Genereren en een clientcertificaat exporteren
+## <a name="generate"></a>Een certificaat verkrijgen
 
-U kunt een clientcertificaat van een basiscertificaat dat is gegenereerd met behulp van de oplossing van een CA voor ondernemingen of een zelfondertekend basiscertificaat genereren. Zie de [PowerShell](vpn-gateway-certificates-point-to-site.md) of [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md) instructies voor het stappen. Na het clientcertificaten worden gegenereerd, door ze te exporteren als pfx-bestanden. Zorg dat u de volledige certificaatketen meegenomen bij het exporteren.
+Ongeacht welke clientbesturingssysteem dat u verbinding wilt maken, moet u altijd een clientcertificaat hebben. U kunt een clientcertificaat genereren uit een basiscertificaat dat is gegenereerd met behulp van de oplossing van een CA voor ondernemingen, of een zelfondertekend basiscertificaat. Zie de [PowerShell](vpn-gateway-certificates-point-to-site.md), [MakeCert](vpn-gateway-certificates-point-to-site-makecert.md), of [Linux](vpn-gateway-certificates-point-to-site-linux.md) instructies voor de stappen om een clientcertificaat te genereren. 
 
-## <a name="installwin"></a>Certificaat - Windows installeren
+## <a name="installwin"></a>Windows
 
 [!INCLUDE [Install on Windows](../../includes/vpn-gateway-certificates-install-client-cert-include.md)]
 
-## <a name="installmac"></a>Certificaat - Mac installeren
+## <a name="installmac"></a>Mac
 
-Mac-VPN-clients worden ondersteund voor het Resource Manager-implementatiemodel alleen. Ze worden niet ondersteund voor het klassieke implementatiemodel.
+>[!NOTE]
+>Mac-VPN-clients worden ondersteund voor het Resource Manager-implementatiemodel alleen. Ze worden niet ondersteund voor het klassieke implementatiemodel.
+>
+>
 
 [!INCLUDE [Install on Mac](../../includes/vpn-gateway-certificates-install-mac-client-cert-include.md)]
 
+## <a name="installlinux"></a>Linux
+
+Het certificaat van de Linux-client is geïnstalleerd op de client als onderdeel van de configuratie van de client. Zie [clientconfiguratie - Linux](point-to-site-vpn-client-configuration-azure-cert.md#linuxinstallcli) voor instructies.
+
 ## <a name="next-steps"></a>Volgende stappen
 
-Ga door met de configuratiestappen voor punt-naar-Site.
-
-* [Azure Portal](vpn-gateway-howto-point-to-site-resource-manager-portal.md)
-* [PowerShell](vpn-gateway-howto-point-to-site-rm-ps.md)
-* [Azure Portal (klassiek)](vpn-gateway-howto-point-to-site-classic-azure-portal.md)
+Ga door met de stappen van de punt-naar-Site-configuratie voor het [Create and install VPN-clientconfiguratiebestanden](point-to-site-vpn-client-configuration-azure-cert.md).

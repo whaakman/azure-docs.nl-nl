@@ -1,20 +1,21 @@
 ---
-title: C#-Snelstartgids voor Microsoft QnA Maker-API (V4) - Azure Cognitive Services | Microsoft Docs
+title: 'Snelstartgids: C# voor QnA Maker-API (V4)'
+titleSuffix: Azure Cognitive Services
 description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Text-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 4bcc52547b5610bcb8dfa9b0cc56b2afc40e3c32
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 3c0248b08dbaa1d81843474fcc65590c719e8170
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37866080"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348307"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Snelstartgids voor Microsoft QnA Maker-API met C# 
 <a name="HOLTop"></a>
@@ -36,9 +37,9 @@ In dit artikel leest u hoe u de [QnA Maker-API van Microsoft](../Overview/overvi
 - [De huidige set word wijzigingen ophalen.](#GetAlterations)
 - [Vervang de huidige reeks word wijzigingen.](#PutAlterations)
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
-U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) om uit te voeren van deze code op Windows. (De gratis Community-editie blijft werken.)
+U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) om uit te voeren van deze code op Windows. (De gratis Community-editie volstaat.)
 
 Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **QnA Maker-API van Microsoft**. U moet een betaald abonnement-sleutel van uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 

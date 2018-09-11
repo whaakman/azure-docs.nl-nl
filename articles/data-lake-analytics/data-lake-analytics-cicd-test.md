@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: ae34355485f7d5081cc11ce4dd36df5ba81ae320
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 82ffcc6f891a64650375121b9418daad33dc2628
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041225"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301689"
 ---
 # <a name="test-your-azure-data-lake-analytics-code"></a>Testen van uw Azure Data Lake Analytics-code
 
@@ -111,11 +111,11 @@ Nadat u UDO functies aanroept, kunt u de resultaten in het schema en de rijenset
 
 Nadat u de testproject maakt, kunt u echter alle testcases uitvoeren **testen Explorer > afspeellijst**, of met de rechtermuisknop op het bestand .cs en kies **Tests uitvoeren**.
 
-## <a name="run-test-cases-in-visual-studio-team-service"></a>Testcases uitvoeren in Visual Studio Team Service
+## <a name="run-test-cases-in-azure-devops"></a>Testcases uitvoeren in Azure DevOps
 
-Beide **U-SQL-script-en Testprojecten** en **C# UDO en Testprojecten** C#-eenheid en Testprojecten overnemen. De [Visual Studio test taak](https://docs.microsoft.com/vsts/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Visual Studio Team Services deze testcases kunt uitvoeren. 
+Beide **U-SQL-script-en Testprojecten** en **C# UDO en Testprojecten** C#-eenheid en Testprojecten overnemen. De [Visual Studio test taak](https://docs.microsoft.com/azure/devops/pipelines/test/getting-started-with-continuous-testing?view=vsts) in Azure DevOps deze testcases kunt uitvoeren. 
 
-### <a name="run-u-sql-test-cases-in-visual-studio-team-service"></a>U-SQL-testcases uitvoeren in Visual Studio Team Service
+### <a name="run-u-sql-test-cases-in-azure-devops"></a>U-SQL-testcases uitvoeren in Azure DevOps
 
 Voor het testen van een U-SQL, zorg ervoor dat u hebt geladen `CPPSDK` op uw computer van de build, en vervolgens pas de `CPPSDK` pad naar USqlScriptTestRunner (cppSdkFolderFullPath: @"").
 
@@ -126,16 +126,16 @@ CPPSDK is een pakket met Microsoft Visual C++-14 en Windows SDK 10.0.10240.0. Di
 - Voor Visual Studio 2015 is onder `C:\Program Files (x86)\Microsoft Visual Studio 14.0\Common7\IDE\Extensions\Microsoft\Microsoft Azure Data Lake Tools for Visual Studio 2015\X.X.XXXX.X\CppSDK`
 - Voor Visual Studio 2017 is onder `C:\Program Files (x86)\Microsoft Visual Studio\2017\Enterprise\SDK\ScopeCppSDK`
 
-**CPPSDK voorbereiden in de Visual Studio Team Services build-agent**
+**CPPSDK voorbereiden in de Azure DevOps-build-agent**
 
-De meest voorkomende manier om voor te bereiden van de afhankelijkheid CPPSDK in Visual Studio Team Service is als volgt:
+De meest voorkomende manier om voor te bereiden van de afhankelijkheid CPPSDK in Azure DevOps is als volgt:
 
 1.  ZIP-de map die de CPPSDK-bibliotheken omvat.
 2.  Controleer in het ZIP-bestand in uw bronbeheersysteem. (Het ZIP-bestand zorgt ervoor dat u in alle bibliotheken onder de map CPPSDK controleren zodat bepaalde bestanden niet worden genegeerd door '.gitignore'.)   
 3.  Pak het ZIP-bestand in de build-pijplijn.
 4.  Punt `USqlScriptTestRunner` naar deze uitgepakte map op de build-machine.
 
-### <a name="run-c-udo-test-cases-in-visual-studio-team-services"></a>C# UDO testcases uitvoeren in Visual Studio Team Services
+### <a name="run-c-udo-test-cases-in-azure-devops"></a>C# UDO testcases uitvoeren in Azure DevOps
 
 Zorg dat u verwijst naar de volgende assembly's, die nodig zijn voor UDO's voor een C# UDO-test. Als u verwijst naar via [het Nuget-pakket Microsoft.Azure.DataLake.USQL.Interfaces](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.Interfaces/), zorg ervoor dat u een taak voor het herstellen van NuGet toevoegen in de build-pijplijn.
 

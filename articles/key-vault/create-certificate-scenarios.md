@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: 80f350b9b83438ee04540527cce0ea6821d148ca
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 0e24bd56123279a24a72b9b52d8cb51e2a3a5eae
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42055677"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300627"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>Het maken van certificaten controleren en beheren
 Is van toepassing op: Azure  
@@ -42,13 +42,13 @@ De scenario's / bewerkingen die worden beschreven in dit artikel zijn:
 
 ## <a name="request-a-kv-certificate-with-a-supported-issuer"></a>Een certificaat KV aanvragen met een ondersteunde verlener 
 
-|Methode|Aanvraag-URI|  
+|Wijze|Aanvraag-URI|  
 |------------|-----------------|  
-|VERZENDEN|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|  
+|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|  
 
 De volgende voorbeelden is een object met de naam 'mydigicert' al worden weergegeven in uw key vault met de provider van de uitgever als DigiCert vereist. Uitgever van het certificaat is een entiteit in Azure Key Vault (KV) als een resource CertificateIssuer weergegeven. Deze wordt gebruikt voor informatie over de oorzaak van een certificaat KV; naam van verlener, provider, referenties en andere administratieve informatie.  
 
-### <a name="request"></a>Aanvraag  
+### <a name="request"></a>Aanvragen  
 
 ```json
 {  
@@ -65,7 +65,7 @@ De volgende voorbeelden is een object met de naam 'mydigicert' al worden weergeg
 
 ```  
 
-### <a name="response"></a>Antwoord  
+### <a name="response"></a>Reactie  
 
 ```  
 StatusCode: 202, ReasonPhrase: 'Accepted'  
@@ -86,21 +86,21 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ## <a name="get-pending-request---request-status-is-inprogress"></a>Aanvraag in behandeling Get - aanvraagstatus is 'wordt uitgevoerd'
 
-|Methode|Aanvraag-URI|  
+|Wijze|Aanvraag-URI|  
 |------------|-----------------|  
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|  
 
-### <a name="request"></a>Aanvraag  
+### <a name="request"></a>Aanvragen  
  TOEVOEGEN `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`  
 
- OF  
+ OR  
 
  TOEVOEGEN `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`  
 
 > [!NOTE]
 >  Als *request_id* is opgegeven in de query, deze fungeert als een filter. Als de *request_id* in de query en het object in behandeling niet overeenkomen, http-statuscode 404 wordt geretourneerd.  
 
-### <a name="response"></a>Antwoord  
+### <a name="response"></a>Reactie  
 
 ```  
 StatusCode: 200, ReasonPhrase: 'OK'  
@@ -120,19 +120,19 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ## <a name="get-pending-request---request-status-is-complete"></a>Aanvraag in behandeling Get - de aanvraagstatus is 'voltooid'
 
-### <a name="request"></a>Aanvraag  
+### <a name="request"></a>Aanvragen  
 
-|Methode|Aanvraag-URI|  
+|Wijze|Aanvraag-URI|  
 |------------|-----------------|  
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|  
 
  TOEVOEGEN `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`  
 
- OF  
+ OR  
 
  TOEVOEGEN `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`  
 
-### <a name="response"></a>Antwoord  
+### <a name="response"></a>Reactie  
 
 ```  
 StatusCode: 200, ReasonPhrase: 'OK'  
@@ -152,19 +152,19 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ## <a name="get-pending-request---pending-request-status-is-canceled-or-failed"></a>Aanvraag - aanvraag in behandeling status is "geannuleerd" of "mislukt" in behandeling ophalen  
 
-### <a name="request"></a>Aanvraag  
+### <a name="request"></a>Aanvragen  
 
-|Methode|Aanvraag-URI|  
+|Wijze|Aanvraag-URI|  
 |------------|-----------------|  
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|  
 
  TOEVOEGEN `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`  
 
- OF  
+ OR  
 
  TOEVOEGEN  `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`  
 
-### <a name="response"></a>Antwoord  
+### <a name="response"></a>Reactie  
 
 ```  
 StatusCode: 200, ReasonPhrase: 'OK'  
@@ -193,18 +193,18 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="get-pending-request---pending-request-status-is-deleted-or-overwritten"></a>Aanvraag - aanvraag in behandeling in de status 'verwijderd' of 'overschreven' in behandeling ophalen  
  Een object in behandeling kan worden verwijderd of overschreven door een bewerking voor maken/importeren wanneer de status ervan niet "wordt uitgevoerd."
 
-|Methode|Aanvraag-URI|  
+|Wijze|Aanvraag-URI|  
 |------------|-----------------|  
 |GET|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|  
 
-### <a name="request"></a>Aanvraag  
+### <a name="request"></a>Aanvragen  
  TOEVOEGEN `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`  
 
- OF  
+ OR  
 
  TOEVOEGEN `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`  
 
-### <a name="response"></a>Antwoord  
+### <a name="response"></a>Reactie  
 
 ```  
 StatusCode: 404, ReasonPhrase: 'Not Found'  
@@ -232,11 +232,11 @@ StatusCode: 404, ReasonPhrase: 'Not Found'
 > [!NOTE]
 > Verwijderen van een object in behandeling kan of de x509 kunnen niet worden geannuleerd certificaataanvraag met de provider.  
 
-|Methode|Aanvraag-URI|  
+|Wijze|Aanvraag-URI|  
 |------------|-----------------|  
-|VERZENDEN|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|  
+|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|  
 
-### <a name="request"></a>Aanvraag  
+### <a name="request"></a>Aanvragen  
 
 ```json
 {  
@@ -252,7 +252,7 @@ StatusCode: 404, ReasonPhrase: 'Not Found'
 
 ```  
 
-### <a name="response"></a>Antwoord  
+### <a name="response"></a>Reactie  
 
 ```  
 StatusCode: 409, ReasonPhrase: 'Conflict'  
@@ -271,11 +271,11 @@ StatusCode: 409, ReasonPhrase: 'Conflict'
 
  Als de aanvraag voor het maken van de x509 certificaat is mislukt of geannuleerd voor een of andere reden, en als een x509 certificaat op een out-of-band manier kan worden opgehaald, een samenvoeging voor het voltooien van het certificaat KV kan worden gedaan.  
 
-|Methode|Aanvraag-URI|  
+|Wijze|Aanvraag-URI|  
 |------------|-----------------|  
-|VERZENDEN|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|  
+|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|  
 
-### <a name="request"></a>Aanvraag  
+### <a name="request"></a>Aanvragen  
 
 ```json
 {  
@@ -285,7 +285,7 @@ StatusCode: 409, ReasonPhrase: 'Conflict'
 
 ```  
 
-### <a name="response"></a>Antwoord  
+### <a name="response"></a>Reactie  
 
 ```json
 StatusCode: 403, ReasonPhrase: 'Forbidden'  
@@ -302,14 +302,14 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 ## <a name="request-a-cancellation-while-the-pending-request-status-is-inprogress"></a>Een annulering aanvragen terwijl de status van de aanvraag in behandeling is 'wordt uitgevoerd'  
  Bij een annulering kan alleen worden aangevraagd.  Een aanvraag kan of kan niet worden geannuleerd. Als een aanvraag is niet 'inProgress', wordt er een http-status van 400 (foute aanvraag) geretourneerd.  
 
-|Methode|Aanvraag-URI|  
+|Wijze|Aanvraag-URI|  
 |------------|-----------------|  
 |PATCH|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|  
 
-### <a name="request"></a>Aanvraag  
+### <a name="request"></a>Aanvragen  
  PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`  
 
- OF  
+ OR  
 
  PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`  
 
@@ -320,7 +320,7 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 
 ```  
 
-### <a name="response"></a>Antwoord  
+### <a name="response"></a>Reactie  
 
 ```  
 StatusCode: 200, ReasonPhrase: 'OK'  
@@ -343,18 +343,18 @@ StatusCode: 200, ReasonPhrase: 'OK'
 > [!NOTE]
 > Verwijderen van het object in behandeling kan of de x509 kunnen niet worden geannuleerd certificaataanvraag met de provider.  
 
-|Methode|Aanvraag-URI|  
+|Wijze|Aanvraag-URI|  
 |------------|-----------------|  
-|VERWIJDEREN|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|  
+|DELETE|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|  
 
-### <a name="request"></a>Aanvraag  
+### <a name="request"></a>Aanvragen  
  VERWIJDEREN `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`  
 
- OF  
+ OR  
 
  VERWIJDEREN `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`  
 
-### <a name="response"></a>Antwoord  
+### <a name="response"></a>Reactie  
 
 ```  
 StatusCode: 200, ReasonPhrase: 'OK'  
@@ -373,11 +373,11 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ## <a name="create-a-kv-certificate-manually"></a>Een certificaat KV handmatig maken  
  U kunt een certificaat uitgegeven met een Certificeringsinstantie van uw keuze via een proces voor het handmatig maken. De naam van de verlener ingesteld op 'Onbekend' of geef geen veld voor de uitgever.  
 
-|Methode|Aanvraag-URI|  
+|Wijze|Aanvraag-URI|  
 |------------|-----------------|  
-|VERZENDEN|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|  
+|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/create?api-version={api-version}`|  
 
-### <a name="request"></a>Aanvraag  
+### <a name="request"></a>Aanvragen  
 
 ```json
 {  
@@ -393,7 +393,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 ```  
 
-### <a name="response"></a>Antwoord  
+### <a name="response"></a>Reactie  
 
 ```  
 StatusCode: 202, ReasonPhrase: 'Accepted'  
@@ -413,11 +413,11 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ## <a name="merge-when-a-pending-request-is-created---manual-certificate-creation"></a>Wanneer een aanvraag in behandeling is gemaakt: maken van het certificaat handmatig samenvoegen  
 
-|Methode|Aanvraag-URI|  
+|Wijze|Aanvraag-URI|  
 |------------|-----------------|  
-|VERZENDEN|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|  
+|POST|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending/merge?api-version={api-version}`|  
 
-### <a name="request"></a>Aanvraag  
+### <a name="request"></a>Aanvragen  
 
 ```json
 {  
@@ -431,7 +431,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 |------------------|--------------|----------|-------------|-----------------|  
 |x5c|Ja|matrix|\<Inleiding tot versie >|X509 certificaatketen als base 64 tekenreeksmatrix.|  
 
-### <a name="response"></a>Antwoord  
+### <a name="response"></a>Reactie  
 
 ```  
 StatusCode: 201, ReasonPhrase: 'Created'  

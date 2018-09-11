@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: meladie
-ms.openlocfilehash: 7d200cfa6a529c33555a18cd6598183fedbfd2fc
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: ea9c9d773cb863c6ee2b052fcbd097275f00fc87
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818270"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300984"
 ---
 # <a name="azure-security-and-compliance-blueprint---paas-web-application-for-australia-protected"></a>Azure-beveiliging en naleving blauwdruk - PaaS-webtoepassing voor Australië beveiligd
 
@@ -42,7 +42,7 @@ Voor een betere beveiliging, worden alle Azure-resources in deze oplossing worde
 
 Deze oplossing maakt gebruik van de volgende Azure-services. Meer informatie vindt u in de [architectuur](#deployment-architecture) sectie.
 
-- Application Gateway
+- Toepassingsgateway
     - Web Application Firewall
         - Firewallmodus: preventie
         - Regelset: OWASP
@@ -59,7 +59,7 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Meer informatie vin
 - Azure Security Center
 - Azure SQL Database
 - Azure Storage
-- Azure Log Analytics
+- Azure-logboekanalyse
 - Azure Virtual Network
     - (1) /16 netwerk
     - (4) /24 netwerken
@@ -101,7 +101,7 @@ Gebruik van App Service-omgevingen voor deze architectuur toestaan voor de volge
 - [Web application firewall: gegevens beperken](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - Toestaan dat [verkeer van de Azure SQL Database](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-**Azure-Web-App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) kunnen klanten bouwen en hosten van webtoepassingen in de programmeertaal van hun keuze zonder het beheren van infrastructuur. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Visual Studio Team Services of een willekeurige Git-repo.
+**Azure-Web-App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) kunnen klanten bouwen en hosten van webtoepassingen in de programmeertaal van hun keuze zonder het beheren van infrastructuur. Het biedt automatisch schalen en hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux, en maakt automatische implementaties vanuit GitHub, Azure DevOps-Services of een willekeurige Git-repo mogelijk.
 
 ### <a name="virtual-network"></a>Virtual Network
 De architectuur definieert een particulier virtueel netwerk met een adresruimte van 10.200.0.0/16.
@@ -202,7 +202,7 @@ De volgende Log Analytics [beheeroplossingen](https://docs.microsoft.com/azure/l
 
 **Azure Monitor**: [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helpt gebruikers bij het bijhouden van prestaties, veiligheid en trends te identificeren doordat organisaties om te controleren, waarschuwingen maken en archiveren van gegevens, inclusief bijhouden API-aanroepen in hun Azure resources.
 
-Azure Network Watcher: [Azure Network Watcher] 9https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) voorziet in hulpprogramma's als u wilt bewaken, diagnosticeren, bekijk metrische gegevens, en in- of uitschakelen Logboeken voor resources in een Azure-netwerk.  Noordelijke entiteiten moeten Network Watcher-stroomlogboeken voor nsg's en virtuele Machines implementeren. Deze logboeken moeten worden opgeslagen in een speciale storage-account dat alleen beveiligingslogboeken worden opgeslagen in en toegang tot het opslagaccount dat moet worden beveiligd met rollen gebaseerd toegangsbeheer.
+Azure Network Watcher: [Azure Network Watcher] 9 https://docs.microsoft.com/en-us/azure/network-watcher/network-watcher-monitoring-overview) voorziet in hulpprogramma's als u wilt bewaken, diagnosticeren, bekijk metrische gegevens, en in- of uitschakelen Logboeken voor resources in een Azure-netwerk.  Noordelijke entiteiten moeten Network Watcher-stroomlogboeken voor nsg's en virtuele Machines implementeren. Deze logboeken moeten worden opgeslagen in een speciale storage-account dat alleen beveiligingslogboeken worden opgeslagen in en toegang tot het opslagaccount dat moet worden beveiligd met rollen gebaseerd toegangsbeheer.
 
 ## <a name="threat-model"></a>Risicomodel
 

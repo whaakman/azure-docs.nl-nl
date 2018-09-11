@@ -10,12 +10,12 @@ ms.reviewer: klam, LADocs
 ms.topic: article
 ms.assetid: e06311bc-29eb-49df-9273-1f05bbb2395c
 ms.date: 01/31/18
-ms.openlocfilehash: f35822351a1ff5176548d67c8d94ada02f470421
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 0d5a7cb97636b9ca3aabf6c4199ce9e41bc1665d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43123705"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304421"
 ---
 # <a name="common-scenarios-examples-tutorials-and-walkthroughs-for-azure-logic-apps"></a>Algemene scenario's, voorbeelden, zelfstudies en -scenario's voor Azure Logic Apps
 
@@ -76,7 +76,7 @@ Logische apps bevatten de uitgebreide mogelijkheden voor geavanceerde Controlest
 
 ## <a name="deploy-and-manage-logic-apps"></a>Logische apps implementeren en beheren
 
-U kunt volledig ontwikkelen en implementeren van logische apps met Visual Studio, Visual Studio Team Services, of een andere broncodebeheer en geautomatiseerde build-hulpprogramma's. Logische apps gebruiken ter ondersteuning van implementatie voor werkstromen en afhankelijke verbindingen in de resourcesjabloon van een, sjablonen voor Azure-resource-implementatie. Visual Studio-hulpprogramma's automatisch genereren van deze sjablonen die u broncodebeheer voor versiebeheer controleren kunt.
+U kunt volledig ontwikkelen en implementeren van logische apps met Visual Studio, Azure DevOps, of een andere broncodebeheer en geautomatiseerde build-hulpprogramma's. Logische apps gebruiken ter ondersteuning van implementatie voor werkstromen en afhankelijke verbindingen in de resourcesjabloon van een, sjablonen voor Azure-resource-implementatie. Visual Studio-hulpprogramma's automatisch genereren van deze sjablonen die u broncodebeheer voor versiebeheer controleren kunt.
 
 * [Maken en implementeren van logische apps met Visual Studio](../logic-apps/quickstart-create-logic-apps-with-visual-studio.md)
 * [Schakel bewaking, logboekregistratie en waarschuwingen voor logische apps](../logic-apps/logic-apps-monitor-your-logic-apps.md)

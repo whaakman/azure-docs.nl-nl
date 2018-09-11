@@ -11,28 +11,38 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.component: pim
-ms.date: 07/24/2018
+ms.date: 09/07/2018
 ms.author: rolyon
 ms.reviewer: hanki
 ms.custom: pim
-ms.openlocfilehash: 1a1635e0ba16bdc0fa6dc90aa0e1a417f43e04ac
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: de1d29d3ab1b370257c3a2d6b6ff9f677197fc2a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43190173"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303061"
 ---
 # <a name="email-notifications-in-pim"></a>E-mailmeldingen in PIM
 
-Als er belangrijke gebeurtenissen optreedt in Azure AD Privileged Identity Management (PIM), worden e-mailmeldingen verzonden naar de desbetreffende beheerder of gebruiker. PIM verzendt bijvoorbeeld e-mailberichten voor de volgende gebeurtenissen:
+Als er belangrijke gebeurtenissen optreedt in Azure AD Privileged Identity Management (PIM), worden e-mailmeldingen worden verzonden. PIM verzendt bijvoorbeeld e-mailberichten voor de volgende gebeurtenissen:
 
 - Wanneer een activering van bevoorrechte rollen is in afwachting van goedkeuring
-- Wanneer een aanvraag voor activering van bevoorrechte rol is goedgekeurd
+- Wanneer een aanvraag voor activering van bevoorrechte rol is voltooid
 - Wanneer een bevoorrechte rol wordt geactiveerd
 - Wanneer een bevoorrechte rol wordt toegewezen
 - Wanneer Azure AD PIM is ingeschakeld
 
-Beginnen aan het einde van juli 2018, heeft e-mailmeldingen verzonden via PIM een nieuw e-mailadres van afzender en een nieuw visueel ontwerp. Deze update is van invloed op beide PIM voor Azure AD en PIM voor Azure-resources. Alle gebeurtenissen die al waren geactiveerd een e-mailmelding blijft een e-mail verzenden. Sommige e-mailberichten inhoud hebt bijgewerkt met meer gerichte informatie.
+E-mailmeldingen worden verzonden naar de volgende beheerders:
+
+- Beheerder met bevoorrechte rol
+- Beveiligingsbeheerder
+
+E-mailmeldingen worden ook verzonden naar de eindgebruiker die de bevoorrechte rol voor de volgende gebeurtenissen:
+
+- Wanneer een aanvraag voor activering van bevoorrechte rol is voltooid
+- Wanneer een bevoorrechte rol wordt toegewezen
+
+Beginnen aan het einde van juli 2018, hebben e-mailmeldingen verzonden via PIM een nieuwe e-mailadres van afzender en een nieuw visueel ontwerp. Deze update is van invloed op beide PIM voor Azure AD en PIM voor Azure-resources. Alle gebeurtenissen die al waren geactiveerd een e-mailmelding blijft een e-mail verzenden. Sommige e-mailberichten inhoud hebt bijgewerkt met meer gerichte informatie.
 
 ## <a name="sender-email-address"></a>E-mailadres van afzender
 

@@ -16,12 +16,12 @@ ms.date: 03/20/2018
 ms.author: rolyon
 ms.reviewer: skwan
 ms.custom: it-pro
-ms.openlocfilehash: 58108bd2851050e96df1b5453ce96856374b7163
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: bd75ecde75d0f22dc66f047cd063dd85807f6f33
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37437032"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304438"
 ---
 # <a name="manage-access-for-external-users-using-rbac"></a>Toegang voor externe gebruikers met RBAC beheren
 
@@ -42,7 +42,7 @@ Er zijn twee algemene voorbeelden bij RBAC is gebruikt (maar niet tot beperkt):
 RBAC-rollen kunnen alleen worden verleend **eigenaren** van het abonnement. Daarom moet de beheerder zijn aangemeld als een gebruiker die deze rol heeft een vooraf toegewezen of het Azure-abonnement is gemaakt.
 
 Selecteer 'Abonnementen' in en kies het gewenste abonnement in Azure portal, nadat u zich hebt aangemeld als beheerder.
-![abonnementsblade in Azure portal](./media/role-assignments-external-users/0.png) standaard, als de gebruiker met beheerdersrechten heeft aangeschaft het Azure-abonnement, de gebruiker wordt weergegeven als **accountbeheerder**, dit wordt het abonnement de rol. Zie voor meer informatie over de functies van de Azure-abonnement, [toevoegen of wijzigen Azure-beheerdersrollen waarmee het abonnement of de services](../billing/billing-add-change-azure-subscription-administrator.md).
+![abonnementsblade in Azure portal](./media/role-assignments-external-users/0.png) standaard, als de gebruiker met beheerdersrechten heeft aangeschaft het Azure-abonnement, de gebruiker wordt weergegeven als **accountbeheerder**, dit wordt het abonnement de rol. Zie voor meer informatie over de functies van de Azure-abonnement, [toevoegen of wijzigen Azure-abonnementbeheerders](../billing/billing-add-change-azure-subscription-administrator.md).
 
 In dit voorbeeld wordt de gebruiker "alflanigan@outlook.com" is de **eigenaar** van de 'gratis' abonnement in de AAD-tenant 'tenant Azure Default'. Omdat deze gebruiker de maker van het Azure-abonnement met de eerste 'Outlook' van de Microsoft-Account is (Microsoft-Account = Outlook, etc. Live) de standaarddomeinnaam voor alle andere gebruikers die zijn toegevoegd in deze tenant worden **"\@ alflaniganuoutlook.onmicrosoft.com"**. Standaard de syntaxis van het nieuwe domein wordt gevormd door het samenstellen van de naam van de gebruikersnaam en het domein van de gebruiker die de tenant gemaakt en het toevoegen van de extensie **'. onmicrosoft.com "**.
 Daarnaast wordt kunnen gebruikers zich aanmelden met een aangepaste domeinnaam in de tenant na het toevoegen van en controle van de voor de nieuwe tenant. Zie voor meer informatie over het controleren van een aangepaste domeinnaam in een Azure Active Directory-tenant [een aangepaste domeinnaam toevoegen aan uw directory](/active-directory/active-directory-add-domain).

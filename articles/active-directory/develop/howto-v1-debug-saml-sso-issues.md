@@ -15,12 +15,12 @@ ms.date: 06/15/2018
 ms.author: celested
 ms.custom: aaddev
 ms.reviewer: hirsin, dastrock, smalser
-ms.openlocfilehash: 5895e918fbd3b67074069ccc81bd794a75725c9a
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 388337fa80d174cb17dae12fa9d5f2fbdfe7e737
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39620933"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347780"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Fouten opsporen in SAML gebaseerde eenmalige aanmelding voor toepassingen in Azure Active Directory
 
@@ -96,11 +96,11 @@ De fout kunt oplossen:
     - Uitgegeven claims in het token
     - Het certificaat is gebruikt voor het ondertekenen van het token. Zie voor meer informatie over het controleren van de SAML-reactie [Single Sign-On SAML-protocol](single-sign-on-saml-protocol.md).
 4. Zie voor meer informatie over het SAML-antwoord [Single Sign-on SAML-protocol](single-sign-on-saml-protocol.md).
-5. Nu dat u hebt de SAML-reactie gecontroleerd, Zie [fout op de pagina van een toepassing na de aanmelding](../application-sign-in-problem-application-error.md) voor hulp bij het oplossen van het probleem. 
+5. Nu dat u hebt de SAML-reactie gecontroleerd, Zie [fout op de pagina van een toepassing na de aanmelding](../manage-apps/application-sign-in-problem-application-error.md) voor hulp bij het oplossen van het probleem. 
 6. Als u nog niet aan te melden bij is, kunt u de leverancier van de toepassing vragen wat ontbreekt in het SAML-antwoord aan te geven.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat eenmalige aanmelding voor uw toepassing werkt, kunt u [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen](../active-directory-saas-app-provisioning.md), of [aan de slag met voorwaardelijke toegang](../conditional-access/app-based-conditional-access.md).
+Nu dat eenmalige aanmelding voor uw toepassing werkt, kunt u [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen](../manage-apps/user-provisioning.md), of [aan de slag met voorwaardelijke toegang](../conditional-access/app-based-conditional-access.md).
 
 

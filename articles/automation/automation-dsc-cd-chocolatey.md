@@ -9,12 +9,12 @@ ms.author: dacoulte
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: dc0e49f2857468338f6e1f16462ed814893ea6e7
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 100b3fa0e43be054a85ca9e32d9bb1b11033afb8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42058058"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296258"
 ---
 # <a name="usage-example-continuous-deployment-to-virtual-machines-using-automation-state-configuration-and-chocolatey"></a>Voorbeeld van gebruik: Continue implementatie voor virtuele Machines met behulp van de configuratie van de Automation-status en Chocolatey
 
@@ -182,7 +182,7 @@ Deze nuspec moet worden gecompileerd en opgeslagen in de NuGet-server. Dit proce
 ## <a name="step-6-tying-it-all-together"></a>Stap 6: Alles bij elkaar verbinden
 
 Telkens wanneer een versie QA is geslaagd en is goedgekeurd voor implementatie, het pakket wordt gemaakt, nuspec en nupkg bijgewerkt en worden geïmplementeerd voor de NuGet-server. Bovendien moet de configuratie (stap 4 hierboven) worden bijgewerkt akkoord gaat met het nieuwe versienummer. Het moet worden verzonden naar de pull-server en gecompileerd.
-Vanaf dat moment op is het aan de virtuele machines die afhankelijk van dat de configuratie zijn voor het ophalen van de update en installeer deze. Elk van deze updates zijn eenvoudige - alleen een line- of twee van PowerShell. In het geval van Visual Studio Team Services, zijn sommige van deze ingekapseld in de build-taken die u een worden samengevoegd in een build keten kunnen. Dit [artikel](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) vindt u meer informatie. Dit [GitHub-opslagplaats](https://github.com/Microsoft/vso-agent-tasks) details van de verschillende beschikbare build-taken.
+Vanaf dat moment op is het aan de virtuele machines die afhankelijk van dat de configuratie zijn voor het ophalen van de update en installeer deze. Elk van deze updates zijn eenvoudige - alleen een line- of twee van PowerShell. In het geval van Azure DevOps, zijn sommige van deze ingekapseld in de build-taken die u een worden samengevoegd in een build keten kunnen. Dit [artikel](https://www.visualstudio.com/docs/alm-devops-feature-index#continuous-delivery) vindt u meer informatie. Dit [GitHub-opslagplaats](https://github.com/Microsoft/vso-agent-tasks) details van de verschillende beschikbare build-taken.
 
 ## <a name="notes"></a>Opmerkingen
 

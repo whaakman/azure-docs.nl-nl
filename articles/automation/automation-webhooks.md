@@ -9,16 +9,16 @@ ms.author: gwallace
 ms.date: 06/04/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 241fd1f9168ce6bfb8a4dfe97bbb1ef45ddf3f74
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: a65a0b8e054b1d0bb6cd4cbeb2daf9be2b132a9e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42056628"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304525"
 ---
 # <a name="starting-an-azure-automation-runbook-with-a-webhook"></a>Een Azure Automation-runbook starten met een webhook
 
-Een *webhook* kunt u een bepaald runbook in Azure Automation starten via een afzonderlijke HTTP-aanvraag. Hierdoor kan externe services, zoals Visual Studio Team Services, GitHub, Azure Log Analytics of aangepaste toepassingen runbooks starten zonder het implementeren van een volledige oplossing met behulp van de API van Azure Automation.  
+Een *webhook* kunt u een bepaald runbook in Azure Automation starten via een afzonderlijke HTTP-aanvraag. Hierdoor kan externe services, zoals Azure DevOps-Services, GitHub, Azure Log Analytics of aangepaste toepassingen runbooks starten zonder het implementeren van een volledige oplossing met behulp van de API van Azure Automation.  
 ![WebhooksOverview](media/automation-webhooks/webhook-overview-image.png)
 
 U kunt vergelijken webhooks voor andere methoden voor het starten van een runbook in [een runbook starten in Azure Automation](automation-starting-a-runbook.md)
@@ -31,8 +31,8 @@ De volgende tabel beschrijft de eigenschappen die u voor een webhook configurere
 |:--- |:--- |
 | Naam |U kunt een willekeurige naam die u wilt gebruiken voor een webhook omdat deze geen toegang heeft tot de client opgeven. Dit wordt alleen gebruikt voor u om te identificeren van het runbook in Azure Automation. <br> Als een best practice, moet u de webhook geeft een naam die betrekking hebben op de client die wordt gebruikt. |
 | URL |De URL van de webhook is het unieke adres waarmee een client wordt aangeroepen met een HTTP POST naar het runbook dat is gekoppeld aan de webhook starten. Er wordt automatisch gegenereerd bij het maken van de webhook. U kunt een aangepaste URL niet opgeven. <br> <br> De URL bevat een beveiligingstoken waarmee het runbook worden aangeroepen door een derde partij zonder verdere verificatie. Daarom moet deze worden behandeld als een wachtwoord. Uit veiligheidsoverwegingen kunt u alleen de URL in de Azure-portal weergeven op het moment dat de webhook wordt gemaakt. Houd er rekening mee de URL op een veilige locatie op voor toekomstig gebruik. |
-| Verloopdatum |Als een certificaat heeft elke webhook een vervaldatum die op dat moment deze kan niet meer worden gebruikt. Deze datum van afloop voor kan worden gewijzigd nadat de webhook wordt gemaakt. |
-| Ingeschakeld |Een webhook is standaard ingeschakeld wanneer deze wordt gemaakt. Als u dit op uitgeschakeld instellen, zijn er geen client is kunnen gebruiken. U kunt instellen dat de **ingeschakeld** eigenschap wanneer u de webhook of op elk gewenst moment nadat deze is gemaakt. |
+| Vervaldatum |Als een certificaat heeft elke webhook een vervaldatum die op dat moment deze kan niet meer worden gebruikt. Deze datum van afloop voor kan worden gewijzigd nadat de webhook wordt gemaakt. |
+| Inschakelen |Een webhook is standaard ingeschakeld wanneer deze wordt gemaakt. Als u dit op uitgeschakeld instellen, zijn er geen client is kunnen gebruiken. U kunt instellen dat de **ingeschakeld** eigenschap wanneer u de webhook of op elk gewenst moment nadat deze is gemaakt. |
 
 ### <a name="parameters"></a>Parameters
 
@@ -109,7 +109,7 @@ De client ontvangt een van de volgende retourcodes van de POST-aanvraag.
 
 | Code | Tekst | Beschrijving |
 |:--- |:--- |:--- |
-| 202 |Geaccepteerd |De aanvraag is geaccepteerd en het runbook is met succes in de wachtrij geplaatst. |
+| 202 |Akkoord |De aanvraag is geaccepteerd en het runbook is met succes in de wachtrij geplaatst. |
 | 400 |Onjuiste aanvraag |De aanvraag is niet geaccepteerd voor een van de volgende redenen: <ul> <li>De webhook is verlopen.</li> <li>De webhook is uitgeschakeld.</li> <li>Het token in de URL is ongeldig.</li>  </ul> |
 | 404 |Niet gevonden |De aanvraag is niet geaccepteerd voor een van de volgende redenen: <ul> <li>De webhook is niet gevonden.</li> <li>Het runbook is niet gevonden.</li> <li>Het account is niet gevonden.</li>  </ul> |
 | 500 |Interne serverfout |De URL is geldig, maar er is een fout opgetreden. Verzend de aanvraag. |

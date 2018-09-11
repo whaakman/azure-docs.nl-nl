@@ -2,19 +2,19 @@
 ms.assetid: ''
 title: Azure Key Vault-Opslagaccountsleutels
 description: Opslagaccountsleutels bieden een seemless integratie tussen Azure Key Vault en toegang tot de sleutel op basis van Azure Storage-Account.
-ms.topic: article
+ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
 author: bryanla
 ms.author: bryanla
 manager: mbaldwin
 ms.date: 08/21/2017
-ms.openlocfilehash: 0112d48647c031845bc89ccebfcdd40954c59f14
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 7545a035541a4e464a6c82acb9fa9de18cf8e86d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061412"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304319"
 ---
 # <a name="azure-key-vault-storage-account-keys"></a>Azure Key Vault-Opslagaccountsleutels
 
@@ -126,7 +126,7 @@ Het volgende voorbeeld ziet u het maken van een Key Vault beheerde Azure Storage
 
 Zorg ervoor dat u hebt [instellen voor machtigingen voor op rollen gebaseerd toegangsbeheer (RBAC)](#setup-for-role-based-access-control-rbac-permissions).
 
-### <a name="setup"></a>Instellen
+### <a name="setup"></a>Installatie
 
 ```powershell
 # This is the name of our Key Vault

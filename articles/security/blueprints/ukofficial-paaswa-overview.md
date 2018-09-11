@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/13/2018
 ms.author: jomolesk
-ms.openlocfilehash: f465a6e6cb0642f64670a8d2727c939f91bad134
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 6fe85d7ac527179ab39e89739f5744f3aa1ef8e2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42617246"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297552"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-hosting-for-uk-official-workloads"></a>Azure-beveiliging en naleving blauwdruk: PaaS Web-toepassing die als host fungeert voor de officiële Workloads groot-Brittannië
 
@@ -27,7 +27,7 @@ Deze Azure-beveiliging en naleving blauwdruk biedt richtlijnen en automation-scr
 
 Deze blauwdruk is gecontroleerd door de UK nationale Cyber Security Center (NCSC) en overeenstemt met de NCSC 14 Cloud Security Principles.
 
-De architectuur maakt gebruik van Azure [platform als een service](https://azure.microsoft.com/overview/what-is-paas/) onderdelen voor het leveren van een omgeving waarmee klanten om te voorkomen dat de kosten en complexiteit van het aanschaffen van softwarelicenties, van het beheer van de onderliggende infrastructuur van toepassingen en middleware of de ontwikkelhulpprogramma's en andere bronnen. Klanten beheren de toepassingen en services die hij ontwikkelt, ligt de focus op het leveren van de waarde voor het bedrijf, terwijl Microsoft Azure de andere Azure-resources zoals virtuele machines, opslag beheert en netwerken, plaatsen van meer van de [deling van verantwoordelijkheid](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) voor infrastructuurbeheer u aan bij de Azure-platform. [Azure App Services](https://azure.microsoft.com/services/app-service/) automatisch schalen, hoge beschikbaarheid biedt, biedt ondersteuning voor Windows en Linux en maakt automatische implementaties vanuit GitHub, Visual Studio Team Services of een gitopslagplaats als standaard-services mogelijk. Door het gebruik van App Services, ontwikkelaars zich concentreren op het leveren van de waarde voor het bedrijf zonder de overhead van het beheer van infrastructuur. Het is mogelijk ontwikkel nieuwe toepassingen voor Java, PHP, Node.js, Python, HTML of C# web of ook voor het migreren van bestaande cloud of op lokale webtoepassingen voor Azure App Services (Hoewel grondige vanwege de zorgvuldigheid en testen om te bevestigen prestaties is vereist).
+De architectuur maakt gebruik van Azure [platform als een service](https://azure.microsoft.com/overview/what-is-paas/) onderdelen voor het leveren van een omgeving waarmee klanten om te voorkomen dat de kosten en complexiteit van het aanschaffen van softwarelicenties, van het beheer van de onderliggende infrastructuur van toepassingen en middleware of de ontwikkelhulpprogramma's en andere bronnen. Klanten beheren de toepassingen en services die hij ontwikkelt, ligt de focus op het leveren van de waarde voor het bedrijf, terwijl Microsoft Azure de andere Azure-resources zoals virtuele machines, opslag beheert en netwerken, plaatsen van meer van de [deling van verantwoordelijkheid](https://docs.microsoft.com/azure/security/security-paas-deployments#division-of-responsibility) voor infrastructuurbeheer u aan bij de Azure-platform. [Azure App Services](https://azure.microsoft.com/services/app-service/) automatisch schalen, hoge beschikbaarheid biedt, biedt ondersteuning voor Windows en Linux en maakt automatische implementaties vanuit GitHub, Azure DevOps of een gitopslagplaats als standaard-services mogelijk. Door het gebruik van App Services, ontwikkelaars zich concentreren op het leveren van de waarde voor het bedrijf zonder de overhead van het beheer van infrastructuur. Het is mogelijk ontwikkel nieuwe toepassingen voor Java, PHP, Node.js, Python, HTML of C# web of ook voor het migreren van bestaande cloud of op lokale webtoepassingen voor Azure App Services (Hoewel grondige vanwege de zorgvuldigheid en testen om te bevestigen prestaties is vereist).
 
 Deze blauwdruk is gericht op het inrichten van een veilige basis [platform als een service](https://azure.microsoft.com/overview/what-is-paas/) webinterface voor openbare en ook back-office-gebruikers. In dit scenario van blauwdruk ontwerp rekening gehouden met het gebruik van Azure die worden gehost op basis van web services waar een openbare gebruiker kunt veilig indienen, weergeven en beheren van gevoelige gegevens; ook dat een back-office of government-operator de gevoelige gegevens die de openbare gebruiker heeft ingediend veilig kunt verwerken. Use cases voor dit scenario kunnen zijn:
 
@@ -103,7 +103,7 @@ Gegevens zijn van doorvoer van buiten en tussen Azure-onderdelen worden bescherm
 
 #### <a name="azure-app-service"></a>Azure App Service
 
-Azure Web Apps biedt een volledig beheerde hostomgeving voor web-App ontwikkeld in Java, PHP, Node.js, Python, HTML- en C# zonder om infrastructuur te beheren. Het biedt automatisch schalen en hoge beschikbaarheid ondersteunt zowel Windows als Linux en maakt automatische implementaties van [Visual Studio Team Services](https://azure.microsoft.com/services/visual-studio-team-services/) of een willekeurige op basis van een Git-repo.
+Azure Web Apps biedt een volledig beheerde hostomgeving voor web-App ontwikkeld in Java, PHP, Node.js, Python, HTML- en C# zonder om infrastructuur te beheren. Het biedt automatisch schalen en hoge beschikbaarheid ondersteunt zowel Windows als Linux en maakt automatische implementaties van [Azure DevOps](https://azure.microsoft.com/services/visual-studio-team-services/) of een willekeurige op basis van een Git-repo.
 
 App Service is [ISO, SOC en PCI-](https://www.microsoft.com/TrustCenter/) en verificatie van gebruikers met [Azure Active Directory](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-active-directory-authentication) of via sociaal aanmelden ([Google](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-google-authentication), [Facebook](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-facebook-authentication), [Twitter](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-twitter-authentication), en [Microsoft authentication](https://docs.microsoft.com/azure/app-service/app-service-mobile-how-to-configure-microsoft-authentication).
 

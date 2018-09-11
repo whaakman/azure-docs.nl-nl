@@ -1,5 +1,6 @@
 ---
-title: C#-Snelstartgids voor Cognitive Services, Text Analytics-API | Microsoft Docs
+title: 'Snelstartgids: Met C# voor het aanroepen van de Tekstanalyse-API | Microsoft Docs'
+titleSuffix: Azure Cognitive Services
 description: Verkrijg de informatie en voorbeelden van code kunt u snel aan de slag met het gebruik van de Tekstanalyse-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
 documentationcenter: ''
@@ -9,21 +10,21 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 08/30/2018
 ms.author: ashmaka
-ms.openlocfilehash: 42a682898303b742a17b0a6d4d98c2b9fedf9003
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: b4d945b7495897caf1f4edd1e909581614798a23
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841691"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303018"
 ---
-# <a name="quickstart-for-the-text-analytics-api-with-c"></a>Snelstartgids voor de Tekstanalyse-API met C# 
+# <a name="quickstart-using-c-to-call-the-text-analytics-cognitive-service"></a>Snelstartgids: Met behulp van C# voor het aanroepen van de Text Analytics-Cognitive Service
 <a name="HOLTop"></a>
 
 Dit artikel leest u hoe u taal detecteren, sentiment analyseren en belangrijke woordgroepen met behulp van de [Tekstanalyse-API's](//go.microsoft.com/fwlink/?LinkID=759711) met C#. De code is geschreven om te werken op een .NET Core-toepassing, met minimale verwijzingen naar externe bibliotheken, dus u het ook in Linux of MacOS uitvoeren kunt.
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met de Tekstanalyse-API. U kunt de *gratis laag voor 5000 transacties per maand* om uit te voeren van deze Quick Start.
 
@@ -113,7 +114,7 @@ De API voor taal detecteert de taal van een document, met behulp van de [taal de
             }
 ```
 
-## <a name="extract-key-phrases"></a>Belangrijke woordgroepen herkennen
+## <a name="extract-key-phrases"></a>Sleuteltermen ophalen
 
 De API-sleutel woordgroep extractie sleuteltermen geëxtraheerd uit een document, met behulp van de [sleuteltermen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6).
 

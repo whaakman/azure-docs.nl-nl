@@ -1,5 +1,5 @@
 ---
-title: Compatibiliteit met Security Center-beleid met de REST API van Azure controleren | Microsoft Docs
+title: Controleren van naleving van het beleid met REST API van Azure Security Center | Microsoft Docs
 description: Informatie over het gebruik van Azure REST API's om te controleren van de huidige compatibiliteit met Security Center-beleid.
 services: security-center
 documentationcenter: na
@@ -9,24 +9,25 @@ editor: ''
 ms.assetid: 82D50B98-40F2-44B1-A445-4391EA9EBBAA
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/05/2017
 ms.author: alleonar
-ms.openlocfilehash: 6c6764eec59633f0bdd0fa396c1581117a0c1e1d
-ms.sourcegitcommit: fc64acba9d9b9784e3662327414e5fe7bd3e972e
+ms.openlocfilehash: 1443486590859aac5591aff2ab0551bed9228d7b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/12/2018
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301746"
 ---
-# <a name="review-security-center-policy-compliance-using-rest-apis"></a>Compatibiliteit controleren Security Center-beleid met REST API 's
+# <a name="review-security-center-policy-compliance-using-rest-apis"></a>Naleving van de beoordeling Security Center-beleid met behulp van REST-API 's
 
-Security Center valideert periodiek uw Azure-resources op basis van uw beveiligingsbeleid gedefinieerde. Security Center biedt ook een REST-API waarmee u het controleren van naleving van uw eigen toepassingen. u kunt de service rechtstreeks een query of importeren van JSON-resultaten in andere toepassingen. 
+Security Center valideert periodiek uw Azure-resources op basis van het gedefinieerde beveiligingsbeleid. Security Center biedt ook een REST-API waarmee u Controleer naleving van uw eigen toepassingen. u kunt de service rechtstreeks query of JSON-resultaten importeren in andere toepassingen. 
 
-Hier kunt u meer informatie op te halen van de huidige set met aanbevelingen uit alle Azure-resources die zijn gekoppeld aan een abonnement.
+Hier leert u de huidige set met aanbevelingen uit alle Azure-resources die zijn gekoppeld aan een abonnement ophalen.
 
-Voor het ophalen van de huidige set met aanbevelingen:
+De huidige set met aanbevelingen ophalen:
 ``` http
 GET https://management.azure.com/subscriptions/{subscription-id}/providers/Microsoft.Security/tasks?api-version={api-version}
 Content-Type: application/json   
@@ -35,20 +36,20 @@ Authorization: Bearer
 
 ## <a name="build-the-request"></a>De aanvraag voor het samenstellen  
 
-De `{subscription-id}` parameter is vereist en de abonnements-ID voor het definiëren van de beleidsregels voor Azure-abonnement moet bevatten. Als u meerdere abonnementen hebt, raadpleegt u [werken met meerdere abonnementen](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions).  
+De `{subscription-id}` -parameter is vereist en de abonnements-ID voor het definiëren van het beleid Azure-abonnement moet bevatten. Als u meerdere abonnementen hebt, raadpleegt u [werken met meerdere abonnementen](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest#working-with-multiple-subscriptions).  
 
-De `api-version` parameter is vereist. Op dit moment deze eindpunten worden alleen ondersteund voor `api-version=2015-06-01-preview`. 
+De `api-version` parameter is vereist. Op dit moment is deze eindpunten worden alleen ondersteund voor `api-version=2015-06-01-preview`. 
 
 De volgende headers zijn vereist: 
 
-|Aanvraag-header|Beschrijving|  
+|Aanvraagheader|Beschrijving|  
 |--------------------|-----------------|  
 |*Content-Type:*|Vereist. Ingesteld op `application/json`.|  
 |*Autorisatie:*|Vereist. Ingesteld op een geldige `Bearer` [toegangstoken](https://docs.microsoft.com/rest/api/azure/#authorization-code-grant-interactive-clients). |  
 
-## <a name="response"></a>Antwoord  
+## <a name="response"></a>Reactie  
 
-Statuscode 200 wordt (OK) geretourneerd voor een geslaagde reactie die een lijst met aanbevolen taken voor het beveiligen van uw Azure-resources bevat.
+Statuscode 200 wordt (OK) geretourneerd voor een geslaagde respons, die een lijst met aanbevolen taken voor het beveiligen van uw Azure-resources bevat.
 
 ``` json
 {  
@@ -70,17 +71,17 @@ Statuscode 200 wordt (OK) geretourneerd voor een geslaagde reactie die een lijst
 
 Elk item in **waarde** vertegenwoordigt een aanbeveling:
 
-|Eigenschap Response|Beschrijving|
+|Antwoord-eigenschap|Beschrijving|
 |----------------|----------|
-|**Status** | Hiermee wordt aangegeven of aanbeveling `active` of `resolved`. |
-|**CreationTimeUtc** | Datum en tijd in UTC, wordt weergegeven wanneer de aanbeveling is gemaakt. |
-|**lastStateChangeUtc** | Datum en tijd in UTV van de laatste statuswijziging, indien van toepassing. |
-|**securityTaskParameters** | Details van de aanbeveling; eigenschappen variëren afhankelijk van de onderliggende aanbeveling. |
+|**status** | Geeft aan of de aanbeveling `active` of `resolved`. |
+|**CreationTimeUtc** | De datum en tijd in UTC, weergegeven waarop de aanbeveling is gemaakt. |
+|**lastStateChangeUtc** | De datum en tijd in UTV van de laatste statuswijziging, indien van toepassing. |
+|**securityTaskParameters** | Details van de aanbeveling; eigenschappen, afhankelijk van de onderliggende aanbeveling. |
 ||
   
-Zie voor ondersteunde aanbevelingen [beveiligingsaanbevelingen implementeren](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
+Zie voor de momenteel ondersteunde aanbevelingen [aanbevelingen voor beveiliging implementeren](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
-Andere statuscodes duiden op fouten. In dergelijke gevallen bevat het response-object een beschrijving toe waarin wordt uitgelegd waarom de aanvraag is mislukt.
+Andere statuscodes duiden op fouten. In dergelijke gevallen bevat het antwoordobject voor een beschrijving waarin wordt uitgelegd waarom de aanvraag is mislukt.
 
 ``` json
 {  
@@ -139,13 +140,13 @@ Andere statuscodes duiden op fouten. In dergelijke gevallen bevat het response-o
 }  
 ```  
 
-Dit antwoord ziet u twee aanbevelingen; elk item in de lijst overeenkomt met een specifieke aanbeveling. De eerste aanbeveelt voor het versleutelen van opslag op een virtuele Linux-machine en de tweede wordt aangeraden dat u controle inschakelen voor een SQL-server.
+Dit antwoord bevat twee aanbevelingen; elk item in de lijst komt overeen met een specifieke aanbeveling. De eerste raadt aan om opslag op een virtuele Linux-machine versleutelen en de tweede kan erop wijzen dat u controle inschakelen voor een SQL-server.
 
-De aanbevelingen zijn afhankelijk van de beleidsregels die u hebt ingeschakeld. Zie voor meer informatie, met inbegrip van de momenteel beschikbare aanbevelingen [aanbevelingen voor beveiliging in Azure Security Center beheren](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
+De aanbevelingen afhankelijk van de beleidsregels die u hebt ingeschakeld. Zie voor meer informatie, met inbegrip van de momenteel beschikbare aanbevelingen [aanbevelingen voor beveiliging in Azure Security Center beheren](https://docs.microsoft.com/azure/security-center/security-center-recommendations).
 
 
 ## <a name="see-also"></a>Zie ook  
 - [Beveiligingsbeleid instellen](https://docs.microsoft.com/azure/security-center/security-center-policies-overview)
 - [Azure Security Resource provider REST-API](https://msdn.microsoft.com/library/azure/mt704034.aspx)   
-- [Aan de slag met Azure REST-API](https://docs.microsoft.com/rest/api/azure/)   
-- [Azure Security Center PowerShell-module](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.22)
+- [Aan de slag met REST API van Azure](https://docs.microsoft.com/rest/api/azure/)   
+- [PowerShell-module voor Azure Security Center](https://www.powershellgallery.com/packages/Azure-Security-Center/0.0.22)

@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4dfeff0e22a541a39a59c37c869af41a7e444fa6
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: c33d1fe1385619420215ec0f0fa3b0a2f90dddc0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842495"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299454"
 ---
 # <a name="add-hosting-servers-for-the-sql-resource-provider"></a>Hosting-servers voor de SQL-resourceprovider toevoegen
 
@@ -38,13 +38,16 @@ Voordat u een SQL server die als host fungeert, Controleer u de volgende verplic
 
 * Toe te wijzen aan het SQL-exemplaar voor gebruik door de resource-provider en gebruiker werkbelastingen. U kunt een SQL-exemplaar dat wordt gebruikt door een andere consument niet gebruiken. Deze beperking geldt ook voor App Services.
 * Een account met de juiste bevoegdheidsniveaus configureren voor de resourceprovider (Zie hieronder).
-* U bent verantwoordelijk voor het beheren van de SQL-instanties en hun hosts zijn.  Bijvoorbeeld, de resourceprovider niet updates toe te passen, back-ups worden verwerkt of verwerken rotatie van referenties.
+* U bent verantwoordelijk voor het beheren van de SQL-instanties en hun hosts.  Bijvoorbeeld, de resourceprovider niet updates toe te passen, back-ups worden verwerkt of verwerken rotatie van referenties.
 
 ### <a name="sql-server-virtual-machine-images"></a>SQL Server-installatiekopieën voor virtuele machines
 
 SQL IaaS-installatiekopieën voor virtuele machines zijn beschikbaar via de Marketplace-Management-functie. Deze installatiekopieën zijn hetzelfde als de SQL-VM's die beschikbaar in Azure zijn.
 
 Zorg ervoor dat u altijd downloaden de nieuwste versie van de **SQL IaaS-extensie** voordat u een SQL-VM met behulp van een Marketplace-item implementeert. De IaaS-extensie en de bijbehorende portal verbeteringen bieden aanvullende functies, zoals automatische toepassing van patches en back-up. Zie voor meer informatie over deze extensie [automatiseren van beheertaken op Azure Virtual Machines met de SQL Server Agent-extensie](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-sql-server-agent-extension).
+
+> [!NOTE]
+> De SQL IaaS-extensie is _vereist_ voor alle SQL op Windows-installatiekopieën in de marketplace, de virtuele machine geen implementeren als u de extensie niet hebt gedownload. Het wordt niet gebruikt met SQL op basis van Linux-installatiekopieën voor virtuele machines.
 
 Er zijn andere opties voor het implementeren van de SQL-VM's, met inbegrip van sjablonen in de [Azure Stack-Snelstartgalerie](https://github.com/Azure/AzureStack-QuickStart-Templates).
 
@@ -125,7 +128,7 @@ Om in te schakelen automatische seeding op alle instanties, bewerken en voer ver
   GO
   ```
 
-Houd er rekening mee dat de beschikbaarheidsgroep moet worden tussen vierkante haken.
+De beschikbaarheidsgroep moet tussen vierkante haken.
 
 Voer de volgende SQL-opdracht op de secundaire knooppunten:
 

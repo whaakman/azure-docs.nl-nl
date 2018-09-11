@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 03/16/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 90aa19d690b1b4ab28c3a65a287a10aaf6a03ac6
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 9358c7ba72e16ed54514d42c1366420ef2f37324
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37929029"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304268"
 ---
 # <a name="how-to-update-azure-powershell-modules-in-azure-automation"></a>Het bijwerken van Azure PowerShell-modules in Azure Automation
 
@@ -53,4 +53,4 @@ Als u van deze modules Azure PowerShell-cmdlets in uw runbooks gebruiken, wilt u
 
 * Zie voor meer informatie over integratiemodules en over het maken van aangepaste modules voor het verder Automation integreren met andere systemen, services of oplossingen, [integratiemodules](automation-integration-modules.md).
 
-* Overweeg het gebruik van bron besturingselement integratie [GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md) of [Visual Studio Team Services](automation-scenario-source-control-integration-with-vsts.md) centraal beheren en beheren van versies van uw Automation-runbook en de configuratie-portfolio.  
+* Overweeg het gebruik van bron besturingselement integratie [GitHub Enterprise](automation-scenario-source-control-integration-with-github-ent.md) of [Azure DevOps](automation-scenario-source-control-integration-with-vsts.md) centraal beheren en beheren van versies van uw Automation-runbook en de configuratie-portfolio.  

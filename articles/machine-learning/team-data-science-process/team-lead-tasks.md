@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: 9d2043808cbd61d5e2a69cbe0f2a5a611e3afa31
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 86ab49cb0acd9ffee47fb1f8f531c3a0cd6e6730
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34839755"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297958"
 ---
 # <a name="team-lead-tasks"></a>Team Lead taken
 
@@ -29,11 +29,11 @@ Een **teamleider** beheert een team in de data science-eenheid van een ondernemi
 
 ![1](./media/team-lead-tasks/team-leads-1-creating-teams.png)
 
->[AZURE.NOTE] De taken in blokken van 1 en 2 van de afbeelding zijn nodig als u Visual Studio Team Services (VSTS) gebruikt als de code die als host fungeert platform en u wilt een afzonderlijke teamproject voor uw eigen team hebben. Zodra deze taken zijn voltooid, kunnen alle opslagplaatsen van uw team onder dit teamproject worden gemaakt. 
+>[AZURE.NOTE] De taken in blokken van 1 en 2 van de afbeelding zijn nodig als u Azure DevOps gebruikt als het platform voor het hosten van code en als u wilt een afzonderlijke Azure DevOps-project voor uw eigen team. Zodra deze taken zijn voltooid, kunnen alle opslagplaatsen van uw team onder dit project worden gemaakt. 
 
 Na enkele vereisten taken die zijn opgegeven in de volgende sectie wordt voldaan door de manager van de groep, er worden de vijf belangrijkste taken (sommige optioneel) die u in deze zelfstudie hebt voltooid. Deze taken komen overeen met de belangrijkste genummerde secties van dit onderwerp:
 
-1. Maak een **teamproject** op van de groep VSTS-server van de groep en twee team opslagplaatsen in het project:
+1. Maak een **project** op van de groep Azure DevOps-Services van de groep en twee team opslagplaatsen in het project:
     - **ProjectTemplate opslagplaats** 
     - **TeamUtilities opslagplaats**
 2. Het team seed **ProjectTemplate** opslagplaats van de **GroupProjectTemplate** -opslagplaats die is ingesteld door de manager van uw groep. 
@@ -43,76 +43,76 @@ Na enkele vereisten taken die zijn opgegeven in de volgende sectie wordt voldaan
 4. (Optioneel) Koppelen van de Azure file storage om de **Data Science Virtual Machine** (DSVM) van het team te leiden en gegevensassets toevoegen op het.
 5. Instellen van de **beveiligingscontrole** door toe te voegen leden van een team en zijn bevoegdheden te configureren.
 
->[AZURE.NOTE] We een overzicht van de stappen die nodig zijn voor het instellen van een TDSP-team-omgeving met VSTS in de volgende instructies. We geven over het uitvoeren van deze taken met VSTS vanwege de manier waarop we TDSP bij Microsoft implementeert. Als een andere code die als host fungeert platform wordt gebruikt voor uw groep, worden de taken die moeten worden uitgevoerd door de teamleider in het algemeen niet wijzigen. Maar de manier om deze taken uit te voeren afwijken.
+>[AZURE.NOTE] We een overzicht van de stappen die nodig zijn voor het instellen van een TDSP-team-omgeving met behulp van Azure DevOps in de volgende instructies. We geven over het uitvoeren van deze taken met Azure DevOps vanwege de manier waarop we TDSP bij Microsoft implementeert. Als een andere code die als host fungeert platform wordt gebruikt voor uw groep, worden de taken die moeten worden uitgevoerd door de teamleider in het algemeen niet wijzigen. Maar de manier om deze taken uit te voeren afwijken.
 
 ## <a name="repositories-and-directories"></a>Opslagplaatsen en mappen
 
 In dit onderwerp maakt gebruik van verkorte namen voor opslagplaatsen en mappen. Deze namen maken het gemakkelijker zijn te volgen de bewerkingen tussen de opslagplaatsen en mappen. Deze notatie (**R** voor Git-opslagplaatsen en **D** voor lokale mappen op uw DSVM) wordt gebruikt in de volgende secties:
 
-- **R1**: de **GroupProjectTemplate** -opslagplaats in Git die de manager van de groep die is ingesteld op de server voor uw VSTS-groep.
+- **R1**: de **GroupProjectTemplate** -opslagplaats in Git die de manager van de groep die is ingesteld op de server van uw Azure DevOps-groep.
 - **R3**: het team **ProjectTemplate** -opslagplaats in Git die u instelt.
 - **R4**: de **TeamUtilities** -opslagplaats in Git die u instelt.
 - **D1**: de lokale map gekloond vanuit R1 en gekopieerd naar D3.
 - **D3**: de lokale map gekloond vanuit R3, aanpassen en worden gekopieerd naar R3.
 - **D4**: de lokale map gekloond vanuit R4, aanpassen en naar R4 gekopieerd.
 
-De namen opgegeven voor de opslagplaatsen en mappen in deze zelfstudie is te vinden op de veronderstelling dat het doel is het opzetten van een afzonderlijke teamproject voor uw eigen team binnen een grotere data science-groep. Maar er zijn andere opties voor u als teamleider openen:
+De namen opgegeven voor de opslagplaatsen en mappen in deze zelfstudie is te vinden op de veronderstelling dat het doel is het opzetten van een ander project voor uw eigen team binnen een grotere data science-groep. Maar er zijn andere opties voor u als teamleider openen:
 
-- De hele groep kunt maken van een enkele teamproject. Vervolgens zou alle projecten in alle teams van data science worden onder dit teamproject één. Om dit te doen, kunt u een beheerder git Volg deze instructies voor het maken van een enkele teamproject aanwijzen. In dit scenario is mogelijk geldig is, bijvoorbeeld voor:
+- De hele groep kunt maken van een enkel project. Vervolgens zou alle projecten in alle teams van data science worden onder dit één project. Om dit te doen, kunt u een git-beheerder om te volgen van deze instructies voor het maken van een enkel project aanwijzen. In dit scenario is mogelijk geldig is, bijvoorbeeld voor:
     -  een kleine data science-groep die beschikt niet over meerdere data science-teams 
     -  een grotere data science groep met meerdere data-scienceteams die niettemin wil de samenwerking tussen team met activiteiten, zoals op het niveau sprint plannen te optimaliseren. 
-- Teams kunnen ervoor kiezen teamspecifiek projectsjablonen of team-specifieke hulpprogramma's onder het één teamproject voor de hele groep. In dit geval moeten de leads team team project sjabloon opslagplaatsen en/of opslagplaatsen voor team-hulpprogramma's onder de dezelfde teamproject maken. Naam van de volgende opslagplaatsen *< TeamName\>ProjectTemplate* en *< TeamName\>hulpprogramma's voor*, bijvoorbeeld *TeamJohnProjectTemplate*en *TeamJohnUtilities*. 
+- Teams kunnen ervoor kiezen teamspecifiek projectsjablonen of team-specifieke hulpprogramma's onder het één project voor de hele groep. In dit geval moeten de leads team project sjabloon opslagplaatsen en/of opslagplaatsen voor team-hulpprogramma's onder hetzelfde project maken. Naam van de volgende opslagplaatsen *< TeamName\>ProjectTemplate* en *< TeamName\>hulpprogramma's voor*, bijvoorbeeld *TeamJohnProjectTemplate*en *TeamJohnUtilities*. 
 
-Team leads moeten in elk geval laat de teamleden weten welke sjabloon en hulpprogramma's voor opslagplaatsen vast te stellen wanneer ze zijn instellen en de opslagplaatsen project en hulpprogramma's voor het klonen. Project leads diende de [Project leiden taken voor een team van gegevenswetenschappers](project-lead-tasks.md) te maken project-opslagplaatsen, of onder de afzonderlijke teamprojecten of een enkel teamproject. 
+Team leads moeten in elk geval laat de teamleden weten welke sjabloon en hulpprogramma's voor opslagplaatsen vast te stellen wanneer ze zijn instellen en de opslagplaatsen project en hulpprogramma's voor het klonen. Project leads diende de [Project leiden taken voor een team van gegevenswetenschappers](project-lead-tasks.md) te maken project-opslagplaatsen, of onder de verschillende projecten of een enkel project. 
 
 
-## <a name="0-prerequisites"></a>0. Vereisten
+## <a name="0-prerequisites"></a>0. Vereiste onderdelen
 
 De vereisten wordt voldaan door het uitvoeren van de taken die zijn toegewezen aan uw groepmanager die worden beschreven in [groepsbeheerder taken voor een team van gegevenswetenschappers](group-manager-tasks.md). Om samen te vatten hier, moeten de volgende vereisten voldoen voordat u begint met het team lead taken: 
 
-- Uw **groep VSTS server** (of groepsaccount op sommige andere code die als host fungeert platform) is ingesteld door de manager van uw groep.
+- Uw **groep Azure DevOps Services** (of groepsaccount op sommige andere code die als host fungeert platform) is ingesteld door de manager van uw groep.
 - Uw **GroupProjectTemplate opslagplaats** (R1) is ingesteld op uw groepsaccount door de groepmanager van uw op de code die als host fungeert platform dat u van plan bent te gebruiken.
 - U zijn **geautoriseerd** op uw groepsaccount voor het maken van opslagplaatsen voor uw team.
 - GIT moet worden geïnstalleerd op uw computer. Als u gebruikmaakt van een Data Science Virtual Machine (DSVM), Git vooraf is geïnstalleerd en u bent klaar om te gaan. Raadpleeg anders de [platformen en hulpprogramma's voor bijlage](platforms-and-tools.md#appendix).  
 - Als u een **Windows DSVM**, moet u beschikken over [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) op uw computer geïnstalleerd. In het README.md-bestand, schuif omlaag naar de **Download en installeer** sectie en klikt u op de *nieuwste installatieprogramma van*. Hiermee gaat u naar de pagina van de meest recente installatieprogramma. Het .exe-installatieprogramma hier downloaden en uitvoeren. 
-- Als u **Linux-DSVM**, het maken van een openbare SSH-sleutel op uw DSVM en toe te voegen aan uw groep VSTS-server. Zie voor meer informatie over SSH, de **openbare maken van SSH-sleutel** sectie de [platformen en hulpprogramma's voor bijlage](platforms-and-tools.md#appendix). 
+- Als u **Linux-DSVM**, het maken van een openbare SSH-sleutel op uw DSVM en toe te voegen aan uw groep Azure DevOps-Services. Zie voor meer informatie over SSH, de **openbare maken van SSH-sleutel** sectie de [platformen en hulpprogramma's voor bijlage](platforms-and-tools.md#appendix). 
     
-## <a name="1-create-a-team-project-and-repositories"></a>1. Maak een teamproject en opslagplaatsen
+## <a name="1-create-a-project-and-repositories"></a>1. Maken van een project en -opslagplaatsen
 
-Voer deze stap als u VSTS als de code die als host fungeert platform voor versiebeheer en samenwerking. In deze sectie heeft u drie artefacten in het VSTS-server van uw groep maken:
+Voer deze stap als u Azure DevOps als de code die als host fungeert platform voor versiebeheer en samenwerking. In deze sectie heeft u drie artefacten in het Azure DevOps-Services van uw groep maken:
 
-- **MyTeam** project in VSTS
+- **MyTeam** -project in Azure DevOps
 - **MyProjectTemplate** opslagplaats (**R3**) van Git
 - **MyTeamUtilities** opslagplaats (**R4**) van Git
 
 ### <a name="create-the-myteam-project"></a>Het MyTeam-project maken
 
-- Ga naar de startpagina van van uw groep VSTS-server op de URL `https://<VSTS Server Name\>.visualstudio.com`. 
-- Klik op **nieuw** te maken van een teamproject. 
+- Ga naar de startpagina van Azure DevOps-Services van uw groep op de URL `https://<Azure DevOps Services Name\>.visualstudio.com`. 
+- Klik op **nieuw** om een project te maken. 
 
     ![2](./media/team-lead-tasks/team-leads-2-create-new-team.png)
 
-- Een venster maken team project vraagt u de naam van het Project (**MyTeam** in dit voorbeeld). Zorg ervoor dat u selecteert **Agile** als de **processjabloon** en **Git** als de **versiebeheer**. 
+- Een venster van het project maken, vraagt u de naam van het Project (**MyTeam** in dit voorbeeld). Zorg ervoor dat u selecteert **Agile** als de **processjabloon** en **Git** als de **versiebeheer**. 
 
     ![3](./media/team-lead-tasks/team-leads-3-create-new-team-2.png)
 
-- Klik op **project maken**. Uw teamproject **MyTeam** wordt gemaakt in minder dan 1 minuut. 
+- Klik op **project maken**. Uw project **MyTeam** wordt gemaakt in minder dan 1 minuut. 
 
-- Na het teamproject **MyTeam** is gemaakt, klikt u op **navigeren naar project** knop, om te worden omgeleid naar de startpagina van uw teamproject. 
+- Nadat het project **MyTeam** is gemaakt, klikt u op **navigeren naar project** knop, om te worden omgeleid naar de startpagina van uw project. 
 
     ![4](./media/team-lead-tasks/team-leads-4-create-new-team-3.png)
 
-- Als u ziet een **Gefeliciteerd!** pop-upvenster, klikt u op de **code toevoegen** (knop in met een rood kader). Klik anders op **Code** (in geel vak). Dit verwijst u naar de pagina van de Git-opslagplaats van uw teamproject. 
+- Als u ziet een **Gefeliciteerd!** pop-upvenster, klikt u op de **code toevoegen** (knop in met een rood kader). Klik anders op **Code** (in geel vak). Dit verwijst u naar de pagina van de Git-opslagplaats van uw project. 
 
     ![5](./media/team-lead-tasks/team-leads-5-team-project-home.png)
 
 ### <a name="create-the-myprojecttemplate-repository-r3-on-git"></a>Maken van de opslagplaats MyProjectTemplate (R3) van Git
 
-- Klik op de pijl-omlaag naast de naam van de opslagplaats op de pagina Git-opslagplaats van uw teamproject **MyTeam**, en selecteer **opslagplaatsen beheren...** .
+- Klik op de pijl-omlaag naast de naam van de opslagplaats op de pagina Git-opslagplaats van uw project **MyTeam**, en selecteer **opslagplaatsen beheren...** .
 
     ![6](./media/team-lead-tasks/team-leads-6-rename-team-project-repo.png)
 
-- Op de **versiebeheer** tabblad van het Configuratiescherm van uw teamproject, klikt u op **MyTeam**en selecteer vervolgens **opslagplaats wijzigen...** . 
+- Op de **versiebeheer** tabblad van het Configuratiescherm van uw project, klikt u op **MyTeam**en selecteer vervolgens **opslagplaats wijzigen...** . 
 
     ![7](./media/team-lead-tasks/team-leads-7-rename-team-project-repo-2.png)
 
@@ -122,7 +122,7 @@ Voer deze stap als u VSTS als de code die als host fungeert platform voor versie
 
 ### <a name="create-the-myteamutilities-repository-r4-on-git"></a>Maken van de opslagplaats MyTeamUtilities (R4) van Git
 
-- Het maken van een nieuwe opslagplaats *< Teamnaam van uw\>hulpprogramma's voor* onder uw teamproject, klikt u op **nieuwe opslagplaats...**  op de **versiebeheer** tab van uw teamproject in het Configuratiescherm.  
+- Het maken van een nieuwe opslagplaats *< Teamnaam van uw\>hulpprogramma's voor* onder uw project, klikt u op **nieuwe opslagplaats...**  op de **versiebeheer** tabblad van het Configuratiescherm van uw project.  
 
     ![9](./media/team-lead-tasks/team-leads-9-create-team-utilities.png)
 
@@ -130,7 +130,7 @@ Voer deze stap als u VSTS als de code die als host fungeert platform voor versie
 
     ![10](./media/team-lead-tasks/team-leads-10-create-team-utilities-2.png)
 
-- Bevestig dat u de twee nieuwe Git-opslagplaatsen gemaakt op basis van uw teamproject **MyTeam**. In dit voorbeeld: 
+- Bevestig dat u de twee nieuwe Git-opslagplaatsen gemaakt op basis van uw project **MyTeam**. In dit voorbeeld: 
 
 - **MyTeamProjectTemplate** (R3) 
 - **MyTeamUtilities** (R4).
@@ -138,7 +138,7 @@ Voer deze stap als u VSTS als de code die als host fungeert platform voor versie
     ![11](./media/team-lead-tasks/team-leads-11-two-repo-in-team.png)
 
 
-## <a name="2-seed-your-team-projecttemplate-and-teamutilities-repositories"></a>2. Uw team ProjectTemplate en TeamUtilities opslagplaatsen seed
+## <a name="2-seed-your-projecttemplate-and-teamutilities-repositories"></a>2. Uw opslagplaatsen ProjectTemplate en TeamUtilities seed
 
 De seeding procedure gebruikt de mappen op uw lokale DSVM als tussenliggende staging-sites. Als u nodig hebt om aan te passen uw **ProjectTemplate** en **TeamUtilities** opslagplaatsen om te voldoen aan bepaalde specifieke team nodig heeft, u dit doen in de voorlaatste stap van de volgende procedure. Hier volgt een samenvatting van de stappen voor het seeden van de inhoud van de **MyTeamProjectTemplate** en **MyTeamUtilities** opslagplaatsen voor een team van gegevenswetenschappers. De afzonderlijke stappen komen overeen met de subsecties in de seeding procedure:
 
@@ -151,7 +151,7 @@ De seeding procedure gebruikt de mappen op uw lokale DSVM als tussenliggende sta
 
 ### <a name="initialize-the-team-repositories"></a>Initialiseren van de opslagplaatsen team
 
-In deze stap maakt initialiseren u uw team sjabloon projectopslagplaats van de sjabloonopslagplaats groep project:
+In deze stap maakt initialiseren u uw project-opslagplaats voor sjablonen van de sjabloonopslagplaats groep project:
 
 - **MyTeamProjectTemplate** opslagplaats (**R3**) van uw **GroupProjectTemplate** (**R1**) opslagplaats
 
@@ -168,45 +168,45 @@ Om te beginnen met deze procedure:
 
 **Windows**
 
-    git clone https://<Your VSTS Server name>.visualstudio.com/GroupCommon/_git/GroupProjectTemplate
+    git clone https://<Your Azure DevOps Services name>.visualstudio.com/GroupCommon/_git/GroupProjectTemplate
     
 
 ![12](./media/team-lead-tasks/team-leads-12-create-two-group-repos.png)
 
 **Linux**
     
-    git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/GroupCommon/_git/GroupProjectTemplate
+    git clone ssh://<Your Azure DevOps Services name>@<Your Azure DevOps Services name>.visualstudio.com:22/GroupCommon/_git/GroupProjectTemplate
     
     
 ![13](./media/team-lead-tasks/team-leads-13-clone_two_group_repos_linux.png)
 
-Klonen van deze opdrachten uw **GroupProjectTemplate** (R1)-opslagplaats op uw groep VSTS-server naar een lokale map in **GitRepos\GroupCommon** op uw lokale computer. Na het kopiëren van de directory **GroupProjectTemplate** (D1) wordt gemaakt in de directory **GitRepos\GroupCommon**. Hier, nemen we aan dat de manager van uw groep gemaakt met een teamproject **GroupCommon**, en de **GroupProjectTemplate** opslagplaats is onder dit teamproject. 
+Klonen van deze opdrachten uw **GroupProjectTemplate** (R1)-opslagplaats voor uw groep Azure DevOps-Services naar een lokale map in **GitRepos\GroupCommon** op uw lokale computer. Na het kopiëren van de directory **GroupProjectTemplate** (D1) wordt gemaakt in de directory **GitRepos\GroupCommon**. Hier, nemen we aan dat de manager van uw groep een project gemaakt **GroupCommon**, en de **GroupProjectTemplate** opslagplaats onder dit project is. 
 
 
 ### <a name="clone-your-team-repositories-into-local-directories"></a>Uw team opslagplaatsen klonen naar lokale mappen
 
-Klonen van deze opdrachten uw **MyTeamProjectTemplate** (R3) en **MyTeamUtilities** (R4) opslagplaatsen onder uw teamproject **MyTeam** op uw VSTS-server van de groep aan de  **MyTeamProjectTemplate** (D3) en **MyTeamUtilities** (D4)-mappen in **GitRepos\MyTeam** op uw lokale computer. 
+Klonen van deze opdrachten uw **MyTeamProjectTemplate** (R3) en **MyTeamUtilities** (R4) opslagplaatsen onder uw project **MyTeam** voor uw groep Azure DevOps-Services naar de **MyTeamProjectTemplate** (D3) en **MyTeamUtilities** (D4)-mappen in **GitRepos\MyTeam** op uw lokale computer. 
 
 - Ga naar map **GitRepos\MyTeam**
 - Voer de volgende opdrachten, waar nodig, op het besturingssysteem van de lokale computer. 
 
 **Windows**
 
-    git clone https://<Your VSTS Server name>.visualstudio.com/<Your Team Name>/_git/MyTeamProjectTemplate
-    git clone https://<Your VSTS Server name>.visualstudio.com/<Your Team Name>/_git/MyTeamUtilities
+    git clone https://<Your Azure DevOps Services name>.visualstudio.com/<Your Team Name>/_git/MyTeamProjectTemplate
+    git clone https://<Your Azure DevOps Services name>.visualstudio.com/<Your Team Name>/_git/MyTeamUtilities
 
 ![14](./media/team-lead-tasks/team-leads-14-clone_two_empty_team_repos.png)
         
 **Linux**
     
-    git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamProjectTemplate
-    git clone ssh://<Your VSTS Server name>@<Your VSTS Server name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamUtilities
+    git clone ssh://<Your Azure DevOps Services name>@<Your Azure DevOps Services name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamProjectTemplate
+    git clone ssh://<Your Azure DevOps Services name>@<Your Azure DevOps Services name>.visualstudio.com:22/<Your Team Name>/_git/MyTeamUtilities
     
 ![15](./media/team-lead-tasks/team-leads-15-clone_two_empty_team_repos_linux.png)
 
-Na het kopiëren van de twee directory's **MyTeamProjectTemplate** (D3) en **MyTeamUtilities** (D4) worden gemaakt in map **GitRepos\MyTeam**. We hier hebben aangenomen dat u de naam van uw teamproject sjabloon en hulpprogramma's voor opslagplaatsen **MyTeamProjectTemplate** en **MyTeamUtilities**. 
+Na het kopiëren van de twee directory's **MyTeamProjectTemplate** (D3) en **MyTeamUtilities** (D4) worden gemaakt in map **GitRepos\MyTeam**. We hier hebben aangenomen dat u de naam van uw project sjabloon en hulpprogramma's voor opslagplaatsen **MyTeamProjectTemplate** en **MyTeamUtilities**. 
 
-### <a name="copy-the-group-project-template-content-to-the-local-team-project-template-directory"></a>De inhoud van de groep project sjabloon kopiëren naar de lokale team sjabloon projectmap
+### <a name="copy-the-group-project-template-content-to-the-local-project-template-directory"></a>De inhoud van de groep project sjabloon kopiëren naar de lokale projectmap sjabloon
 
 Om te kopiëren van de inhoud van de lokale **GroupProjectTemplate** (D1) map aan de lokale **MyTeamProjectTemplate** (D3), voer een van de volgende shell-scripts: 
 
@@ -228,7 +228,7 @@ Om te kopiëren van de inhoud van de lokale **GroupProjectTemplate** (D1) map aa
 De scripts uitsluiten de inhoud van de map .git. De scripts vraagt u om aan te bieden de **voltooien paden** naar de bronmap D1 en naar de doelmap D3.
         
 
-### <a name="customize-your-team-project-template-or-team-utilities-optional"></a>Aanpassen van uw team projectsjabloon, maken of een team-hulpprogramma's (optioneel)
+### <a name="customize-your-project-template-or-team-utilities-optional"></a>Aanpassen van uw project-sjabloon of het team-hulpprogramma's (optioneel)
 
 Pas uw **MyTeamProjectTemplate** (D3) en **MyTeamUtilities** (D4), indien nodig, in deze fase van het installatieproces. 
 
@@ -248,7 +248,7 @@ De inhoud in de (eventueel aangepaste) lokale mappen D3 en D4 toevoegen aan het 
     
 ![18](./media/team-lead-tasks/team-leads-18-push-to-group-server-2.png)
 
-De bestanden in de opslagplaats MyTeamProjectTemplate van van uw groep VSTS server worden bijna ogenblikkelijk gesynchroniseerd wanneer dit script wordt uitgevoerd.
+De bestanden in de opslagplaats MyTeamProjectTemplate van van uw groep Azure DevOps-Services worden bijna ogenblikkelijk gesynchroniseerd wanneer dit script wordt uitgevoerd.
 
 ![19](./media/team-lead-tasks/team-leads-19-push-to-group-server-showed-up.png)
 
@@ -299,7 +299,7 @@ Voer de naam van de Azure file storage om te maken. Alleen lager geval letters, 
 
 De gegevens van de Azure file storage in een tekstbestand opslaan om te kunnen koppelen, en het delen van deze opslag nadat deze is gemaakt, en noteer het pad naar de locatie. In het bijzonder, moet u dit bestand te koppelen van uw Azure file storage om uw Azure virtual machines in de volgende sectie. 
 
-Het is raadzaam om te controleren in dit tekstbestand in de opslagplaats van uw team ProjectTemplate. Het is raadzaam om te plaatsen in de map **Docs\DataDictionaries**. Daarom is deze gegevensasset toegankelijk door alle projecten in uw team. 
+Het is raadzaam om te controleren in dit bestand in uw opslagplaats ProjectTemplate. Het is raadzaam om te plaatsen in de map **Docs\DataDictionaries**. Daarom is deze gegevensasset toegankelijk door alle projecten in uw team. 
 
 ![26](./media/team-lead-tasks/team-leads-26-file-create-s5.png)
 
@@ -329,7 +329,7 @@ Voer de naam van de Azure-bestandsopslag te maken, alleen kleine letters, cijfer
 
 De gegevens van de Azure file storage in een tekstbestand opslaan om te kunnen verkrijgen van toegang tot deze opslag nadat deze is gemaakt, en noteer het pad naar de locatie. In het bijzonder, moet u dit bestand te koppelen van uw Azure file storage om uw Azure virtual machines in de volgende sectie.
 
-Het is raadzaam om te controleren in dit tekstbestand in de opslagplaats van uw team ProjectTemplate. Het is raadzaam om te plaatsen in de map **Docs\DataDictionaries**. Daarom is deze gegevensasset toegankelijk door alle projecten in uw team. 
+Het is raadzaam om te controleren in dit bestand in uw opslagplaats ProjectTemplate. Het is raadzaam om te plaatsen in de map **Docs\DataDictionaries**. Daarom is deze gegevensasset toegankelijk door alle projecten in uw team. 
 
 ![31](./media/team-lead-tasks/team-leads-31-file-create-linux-s5.png)
 
@@ -406,7 +406,7 @@ Bevestig dat een nieuw F-station is op uw computer is gekoppeld.
 
 ## <a name="5-set-up-security-control-policy"></a>5. Beheer van beveiligingsbeleid instellen 
 
-Vanaf de startpagina van uw groep VSTS-server, klikt u op de **tandwielpictogram** naast de naam van de gebruiker in de rechterbovenhoek, selecteert u vervolgens de **Security** tabblad. U kunt leden toevoegen aan uw team met verschillende machtigingen.
+Startpagina van uw groep Azure DevOps Services, klik op de **tandwielpictogram** naast de naam van de gebruiker in de rechterbovenhoek, selecteert u vervolgens de **Security** tabblad. U kunt leden toevoegen aan uw team met verschillende machtigingen.
 
 ![44](./media/team-lead-tasks/team-leads-44-add-team-members.png)
 

@@ -1,6 +1,6 @@
 ---
-title: Azure IoT rand continue integratie en continue implementatie | Microsoft Docs
-description: Overzicht van de continue integratie en continue implementatie voor Azure IoT rand
+title: Azure IoT Edge continue integratie en continue implementatie | Microsoft Docs
+description: Overzicht van de continue integratie en continue implementatie voor Azure IoT Edge
 author: shizn
 manager: ''
 ms.author: xshi
@@ -8,38 +8,38 @@ ms.date: 06/27/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 62d8d770f6b4c3a62a2395eb8c1505dbc3835c28
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 5099ca70503ba2ed4ae8f4969a9199816c4986fb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37047452"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302568"
 ---
-# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Continue integratie en continue implementatie naar Azure IoT rand
+# <a name="continuous-integration-and-continuous-deployment-to-azure-iot-edge"></a>Continue integratie en continue implementatie voor Azure IoT Edge
 
-Dit artikel wordt beschreven hoe u de continue integratie en functies voor continue implementatie van Visual Studio Team Services (VSTS) en Microsoft Team Foundation Server (TFS) gebruiken kunt om te bouwen, testen en implementeren van toepassingen snel en efficiënt in uw Azure IoT-rand. 
+In dit artikel laat zien hoe u continue integratie en continue implementatiefuncties van Azure DevOps-Services en Microsoft Team Foundation Server (TFS) bouwen, testen en implementeren van toepassingen snel en efficiënt aan uw Azure IoT Edge kunt gebruiken. 
 
-In dit artikel leert u hoe:
-* Maak en Controleer in een voorbeeld van een rand van de IoT-oplossing met eenheid tests.
-* Azure IoT Edge-extensie voor uw VSTS installeren.
-* Continue integratie (CI) naar de oplossing bouwen en uitvoeren van de eenheidstests configureren.
-* Doorlopende implementatie configureren (CD) om de oplossing implementeert en antwoorden weer.
+In dit artikel leert u hoe u:
+* Maken en controleren in een voorbeeld van een IoT Edge-oplossing met eenheid tests.
+* Azure IoT Edge-extensie voor uw Azure DevOps installeren.
+* Continue integratie (CI) aan de oplossing bouwen en uitvoeren van de eenheidstests configureren.
+* Configureer continue implementatie (CD) voor het implementeren van de oplossing en antwoorden weer.
 
 Het duurt 30 minuten om de stappen in dit artikel te voltooien.
 
 ![CI en CD](./media/how-to-ci-cd/cd.png)
 
-## <a name="create-a-sample-azure-iot-edge-solution-using-visual-studio-code"></a>Een voorbeeld-Edge van Azure IoT-oplossing met behulp van Visual Studio Code maken
+## <a name="create-a-sample-azure-iot-edge-solution-using-visual-studio-code"></a>Een voorbeeld van Azure IoT Edge-oplossing met behulp van Visual Studio Code maken
 
-In deze sectie maakt u een voorbeeld van een IoT-rand oplossing met controles die u als onderdeel van deze procedure kunt uitvoeren. Voer de stappen in voordat u de instructies in deze sectie, [ontwikkelen van een rand van de IoT-oplossing met meerdere modules in Visual Studio Code](tutorial-multiple-modules-in-vscode.md).
+In deze sectie maakt u een voorbeeld van een IoT Edge oplossing met eenheidstests dat kan worden uitgevoerd als onderdeel van het bouwproces. Voordat u de instructies in deze sectie, voer de stappen in [een IoT Edge-oplossing met meerdere modules in Visual Studio Code ontwikkelen](tutorial-multiple-modules-in-vscode.md).
 
-1. Typ in de VS Code opdracht palet en voer de opdracht **rand: nieuwe IoT oplossing**. Selecteer vervolgens uw werkruimtemap, geeft u de oplossingsnaam (de standaardnaam is **EdgeSolution**), en maak een C#-Module (**FilterModule**) als de eerste gebruikersmodule in deze oplossing. U moet ook de opslagplaats voor Dockerinstallatiekopieën opgeven voor de eerste module. De standaard-opslagplaats voor installatiekopieën is gebaseerd op een lokale Docker-register (`localhost:5000/filtermodule`). U moet het Azure Container register wijzigen (`<your container registry address>/filtermodule`) of Docker-Hub voor verdere continue integratie.
+1. Typ in het opdrachtenpalet van VS Code, en voer de opdracht **Edge: nieuwe IoT-Edge-oplossing**. Selecteer de werkruimtemap van uw, geeft u de oplossingsnaam (de standaardnaam is **EdgeSolution**), en maakt u een C#-Module (**FilterModule**) als de eerste gebruikersmodule in deze oplossing. U moet ook de opslagplaats voor Dockerinstallatiekopieën opgeven voor de eerste module. De standaard-opslagplaats voor installatiekopieën is gebaseerd op een lokale Docker-register (`localhost:5000/filtermodule`). U moet dit wijzigen in Azure Container Registry (`<your container registry address>/filtermodule`) of Docker-Hub voor verdere continue integratie.
 
-    ![Setup ACR](./media/how-to-ci-cd/acr.png)
+    ![ACR instellen](./media/how-to-ci-cd/acr.png)
 
-2. Het venster tegenover Code laadt uw werkruimte rand van de IoT-oplossing. U kunt eventueel typt en uitvoeren **rand: module toevoegen IoT rand** meer modules toevoegen. Er is een `modules` map, een `.vscode` map en een deployment manifest sjabloonbestand in de hoofdmap. Alle gebruikers module codes zijn submappen onder de map `modules`. De `deployment.template.json` is de deployment manifest-sjabloon. Sommige parameters in dit bestand wordt geparseerd uit de `module.json`, die bestaat in de modulemap van elke.
+2. Het venster VS Code, de werkruimte van uw IoT Edge-oplossing wordt geladen. U kunt eventueel typt en uitvoeren **Edge: toevoegen aan IoT Edge module** om toe te voegen meer modules. Er is een `modules` map, een `.vscode` map en een manifest-sjabloonbestand van de implementatie in de hoofdmap. Alle gebruiker module codes zijn submappen onder de map `modules`. De `deployment.template.json` is het manifest sjabloon voor de implementatie. Sommige van de parameters in dit bestand wordt geparseerd uit de `module.json`, waar zich bevindt in de modulemap voor elke.
 
-3. Uw voorbeeld rand van de IoT-oplossing is nu gereed. De standaard C#-module fungeert als een module pipe-bericht. In de `deployment.template.json`, ziet u deze oplossing bevat twee modules. Het bericht wordt gegenereerd op basis van de `tempSensor` -module, en wordt het rechtstreeks worden doorgegeven `FilterModule`, vervolgens naar uw IoT-hub zijn verzonden. Vervang de volledige **Program.cs** bestand met de onderstaande inhoud. Voor meer informatie over dit codefragment kunt u verwijzen naar [maken van een project IoT rand C# module](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module#create-an-iot-edge-module-project).
+3. Uw voorbeeld IoT Edge-oplossing is nu gereed. De standaard C#-module fungeert als een pipe bericht-module. In de `deployment.template.json`, ziet u deze oplossing bevat twee modules. Het bericht wordt gegenereerd op basis van de `tempSensor` -module, en wordt rechtstreeks kan worden doorgesluisd `FilterModule`, vervolgens naar uw IoT-hub zijn verzonden. Vervang de gehele **Program.cs** bestand met de volgende inhoud. Voor meer informatie over dit codefragment kunt u verwijzen naar [maken van een IoT Edge C# module-project](https://docs.microsoft.com/azure/iot-edge/tutorial-csharp-module#create-an-iot-edge-module-project).
 
     ```csharp
     namespace FilterModule
@@ -183,7 +183,7 @@ In deze sectie maakt u een voorbeeld van een IoT-rand oplossing met controles di
     }
     ```
 
-4. Maken van een .net Core eenheid testproject. Maak een nieuwe map in Verkenner tegenover Code **tests\FilterModuleTest** in uw werkruimte. Klik dan in VS-Code geïntegreerde terminal (**Ctrl + '**), voert u na de opdrachten voor het maken van een testproject xunit en verwijzing toevoegen aan de **FilterModule** project.
+4. Maken van een .net Core-eenheid test-project. Maak een nieuwe map in Verkenner van VS Code, **tests\FilterModuleTest** in uw werkruimte. Klik in VS Code geïntegreerde terminal (**Ctrl + '**), voert de volgende opdrachten voor het maken van een project xunit te testen en verwijzing toevoegen aan de **FilterModule** project.
 
     ```cmd
     cd tests\FilterModuleTest
@@ -193,7 +193,7 @@ In deze sectie maakt u een voorbeeld van een IoT-rand oplossing met controles di
 
     ![Mapstructuur](./media/how-to-ci-cd/add-test-project.png)
 
-5. In de **FilterModuleTest** map bijwerken van de bestandsnaam van **UnitTest1.cs** naar **FilterModuleTest.cs**. Selecteer en open **FilterModuleTest.cs**, vervang de volledige code met onderstaande codefragment die de eenheidstests op basis van het project FilterModule bevat.
+5. In de **FilterModuleTest** map bijwerken van de bestandsnaam van **UnitTest1.cs** naar **FilterModuleTest.cs**. Selecteer en open **FilterModuleTest.cs**, vervang de volledige code met onderstaande codefragment, waarin u de eenheidstests op basis van de FilterModule-project.
 
     ```csharp
     using Xunit;
@@ -270,103 +270,103 @@ In deze sectie maakt u een voorbeeld van een IoT-rand oplossing met controles di
     }
     ```
 
-6. In de geïntegreerde terminal kunt u opgeven na opdrachten lokaal eenheidstests uitvoeren. 
+6. In de geïntegreerde terminal, kunt u voert u de volgende opdrachten UnitTests lokaal uitvoeren. 
     ```cmd
     dotnet test
     ```
 
-    ![Testen van eenheden](./media/how-to-ci-cd/unit-test.png)
+    ![Test jednotky](./media/how-to-ci-cd/unit-test.png)
 
-7. Deze projecten opslaan en vervolgens controleren in uw opslagplaats VSTS of TFS.
+7. Sla deze projecten en bekijk het in de opslagplaats van uw Azure DevOps of TFS.
     
 
 > [!NOTE]
-> Voor meer informatie over het gebruik van VSTS code opslagplaatsen, Zie [delen van uw code met Visual Studio en VSTS Git](https://docs.microsoft.com/vsts/git/share-your-code-in-git-vs?view=vsts).
+> Zie voor meer informatie over het gebruik van Azure-opslagplaatsen [deel van uw code met Visual Studio en Azure-opslagplaatsen](https://docs.microsoft.com/azure/devops/repos/git/share-your-code-in-git-vs?view=vsts).
 
 
 ## <a name="configure-continuous-integration"></a>Continue integratie configureren
-In deze sectie maakt u een build-definitie die is geconfigureerd voor het automatisch uitvoeren als u wijzigingen in het voorbeeld rand van de IoT-oplossing inchecken en wordt automatisch uitvoeren van de UnitTests bevat.
+In deze sectie maakt u een build-pijplijn die is geconfigureerd voor het automatisch uitgevoerd wanneer u op wijzigingen in het voorbeeld IoT Edge-oplossing controleren en deze automatisch de eenheidstests hierop worden uitgevoerd.
 
-1. Meld u aan bij uw account VSTS (**https://**_uw account_**. visualstudio.com**) en open het project waar u dit selectievakje is ingeschakeld in de voorbeeld-app.
+1. Meld u aan bij uw organisatie Azure DevOps (**https://**_uw account_**. visualstudio.com**) en open het project waarin u dit selectievakje is ingeschakeld in de voorbeeld-app.
 
-    ![In-code](./media/how-to-ci-cd/init-project.png)
+    ![De code is ingecheckt](./media/how-to-ci-cd/init-project.png)
 
-1. Ga naar [Azure IoT rand voor VSTS](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) op VSTS Marketplace. Klik op **vraag gratis** en volg de wizard voor het installeren van deze extensie aan uw account VSTS of downloaden naar uw TFS.
+1. Ga naar [Azure IoT Edge voor Azure DevOps](https://marketplace.visualstudio.com/items?itemName=vsc-iot.iot-edge-build-deploy) op Azure DevOps-Marketplace. Klik op **gratis downloaden** en volg de wizard voor het installeren van deze extensie voor uw Azure DevOps-organisatie of downloaden naar uw TFS.
 
     ![De extensie installeren](./media/how-to-ci-cd/install-extension.png)
 
-1. Open in uw VSTS de **bouwen &amp; Release** hub en in de **Builds** Kies **+ nieuwe definitie**. Of, als u al build definities hebt, kiest u de **+ nieuw** knop. 
+1. Open in uw Azure DevOps, de **bouwen &amp; Release** hub en klik in de **bouwt** tabblad **+ nieuwe pijplijn**. Of, als u bouwen van pijplijnen al hebt, kiest u de **+ nieuw** knop. 
 
     ![Nieuwe build](./media/how-to-ci-cd/add-new-build.png)
 
-1. Als u wordt gevraagd, selecteert u de **VSTS Git** gegevensbrontype; selecteert u het project, de opslagplaats en de vertakking waar uw code bevindt. Kies **gaan**.
+1. Als u hierom wordt gevraagd, selecteert u de **Azure DevOps Git** gegevensbrontype, selecteert u het project, de opslagplaats en de vertakking waar uw code zich bevindt. Kies **blijven**.
 
-    ![VSTS git selecteren](./media/how-to-ci-cd/select-vsts-git.png)
+    ![Selecteer Azure DevOps git](./media/how-to-ci-cd/select-vsts-git.png)
 
-1. In **Selecteer een sjabloon** venster kiezen **beginnen met een leeg proces**.
+1. In **selecteert u een sjabloon** venster, kiest u **beginnen met een lege proces**.
 
-    ![Start leeg](./media/how-to-ci-cd/start-with-empty.png)
+    ![Start leeg zijn](./media/how-to-ci-cd/start-with-empty.png)
 
-1. Klik op **+** aan de rechterkant van **fase 1** een taak toevoegen aan de fase. Zoek en selecteer **.Net Core**, en klik op **toevoegen** deze taak toevoegen aan de fase.
+1. Klik op **+** aan de rechterkant van **fase 1** een taak wordt toegevoegd met de fase. Zoek en selecteer **.Net Core**, en klikt u op **toevoegen** deze taak wordt toegevoegd met de fase.
 
     ![Test voor DotNet](./media/how-to-ci-cd/add-dot-net-core.png)
 
-1. Update de **weergavenaam** naar **dotnet test**, en in de **opdracht** vervolgkeuzelijst, selecteer **testen**. Voeg onder het pad naar de **pad naar projecten**.
+1. Update de **weergavenaam** naar **dotnet test**, en klik in de **opdracht** vervolgkeuzelijst **testen**. Voeg onder het pad naar de **pad naar projecten**.
 
     ```
     tests/FilterModuleTest/*.csproj
     ```
 
-    ![Test dotnet configureren](./media/how-to-ci-cd/dotnet-test.png)
+    ![Dotnet test configureren](./media/how-to-ci-cd/dotnet-test.png)
 
-1. Klik op **+** aan de rechterkant van **fase 1** een taak toevoegen aan de fase. Zoek en selecteer **Azure IoT rand**, en klik op **toevoegen** knop **tweemaal** deze taken toevoegen aan de fase.
+1. Klik op **+** aan de rechterkant van **fase 1** een taak wordt toegevoegd met de fase. Zoek en selecteer **Azure IoT Edge**, en klikt u op **toevoegen** knop **tweemaal** deze taken toevoegen aan de fase.
 
     ![IoT Edge](./media/how-to-ci-cd/add-azure-iot-edge.png)
 
-1. In de eerste taak van de rand van Azure IoT bijwerken de **weergavenaam** naar **Module bouwen en Push**, en in de **actie** vervolgkeuzelijst, selecteer **bouwen enPush**. In de **Module.json bestand** tekstvak onder pad aan toe te voegen. Kies vervolgens **Container registertype**, zorg ervoor dat u configureert en selecteert u het register dezelfde in uw code. Deze taak bouwt en push alle modules in de oplossing en publiceren naar de container-registersleutel die u hebt opgegeven. Als uw modules wordt gepusht naar verschillende registers, kunt u meerdere laten **Module bouwen en Push** taken.
+1. In de eerste Azure IoT Edge-taak bijwerken de **weergavenaam** naar **Module bouwen en Push**, en klik in de **actie** vervolgkeuzelijst **maken en pushen van**. In de **Module.json bestand** tekstvak onder het pad aan toe te voegen. Kies vervolgens **Type Containerregister**, zorg ervoor dat u configureert en selecteert u de dezelfde register in uw code. Deze taak bouwt en pushen van alle modules in de oplossing en publiceren naar het containerregister dat u hebt opgegeven. Als uw modules naar verschillende registers gepusht, kunt u meerdere hebben **Module bouwen en Push** taken.
 
     ```
     **/module.json
     ```
 
-    ![Module Build en Push](./media/how-to-ci-cd/module-build-push.png)
+    ![Module-Build- en Push](./media/how-to-ci-cd/module-build-push.png)
 
-1. In de tweede taak van de rand van Azure IoT bijwerken de **weergavenaam** naar **implementeren in IoT randapparaat**, en in de **actie** vervolgkeuzelijst, selecteer **implementeren naar IoT rand apparaat**. Selecteer uw Azure-abonnement en voer de naam van uw IoT-Hub. U kunt een IoT-rand implementatie-ID en de implementatie van prioriteit opgeven. U kunt ook implementeren op een of meer apparaten. Als u meerdere apparaten implementeert, moet u de voorwaarde voor het doel van apparaat opgeven. Als u wilt een apparaat om labels te gebruiken als de voorwaarde, moet u bijvoorbeeld bijwerken van de betreffende apparaten labels voordat de implementatie. 
+1. In de tweede Azure IoT Edge-taak bijwerken de **weergavenaam** naar **implementeren in IoT Edge-apparaat**, en klik in de **actie** vervolgkeuzelijst **implementeren in IoT Edge apparaat**. Selecteer uw Azure-abonnement en voer de naam van uw IoT-Hub. U kunt een IoT Edge-implementatie-ID en de implementatie-prioriteit opgeven. U kunt ook kiezen voor implementatie op één of meerdere apparaten. Als u op meerdere apparaten implementeert, moet u de doelvoorwaarde apparaat opgeven. Bijvoorbeeld, als u wilt de apparaat-labels gebruiken als de voorwaarde, moet u de bijbehorende apparaten Tags voordat de implementatie bij te werken. 
 
     ![Implementeren naar rand](./media/how-to-ci-cd/deploy-to-edge.png)
 
-1. Klik op de **proces** en zorg ervoor dat uw **Agent wachtrij** is **gehost Linux Preview**.
+1. Klik op de **proces** en zorg ervoor dat uw **Fronta agenta** is **gehost Linux Preview**.
 
     ![Configureren](./media/how-to-ci-cd/configure-env.png)
 
-1. Open de **Triggers** tabblad en schakel de **continue integratie** trigger. Zorg ervoor dat de vertakking met uw code is opgenomen.
+1. Open de **Triggers** tabblad en schakelt u de **continue integratie** trigger. Zorg ervoor dat de vertakking met uw code is opgenomen.
 
     ![Trigger](./media/how-to-ci-cd/configure-trigger.png)
 
-1. Sla de nieuwe build-definitie en een nieuwe build in de wachtrij. Klik op de **opslaan en wachtrij** knop.
+1. Sla de nieuwe build-pijplijn en een nieuwe build in de wachtrij. Klik op de **opslaan en in de wachtrij** knop.
 
-1. Kies de koppeling naar de build in de berichtenbalk die wordt weergegeven. Of Ga naar de definitie voor de meest recente in de wachtrij build-taak maken.
+1. Kies de koppeling naar de build in de berichtenbalk die wordt weergegeven. Of Ga naar de pijplijn maken om te zien van de meest recente in de wachtrij build-taak.
 
-    ![Ontwikkelen](./media/how-to-ci-cd/build-def.png)
+    ![Build](./media/how-to-ci-cd/build-def.png)
 
-1. Nadat de build is voltooid, ziet u de samenvatting voor elke taak en de resultaten in het logboekbestand live. 
+1. Nadat de build is voltooid, ziet u het overzicht voor elke taak en de resultaten in het live logboekbestand. 
     
-    ![Voltooien](./media/how-to-ci-cd/complete.png)
+    ![Voltooid](./media/how-to-ci-cd/complete.png)
 
-1. U kunt teruggaan naar de Code van de VS en controleer of de IoT Hub apparaat explorer. Het apparaat aan de rand met de module moet beginnen met (Zorg ervoor dat u referenties van de registersleutel hebt toegevoegd aan de rand runtime).
+1. U kunt teruggaan naar VS Code en controleren van de IoT Hub apparaat-Verkenner. Het Edge-apparaat met de module moet beginnen met (Zorg ervoor dat u registerreferenties hebt toegevoegd aan de Edge-runtime).
 
-    ![Rand uitgevoerd](./media/how-to-ci-cd/edge-running.png)
+    ![Edge uitgevoerd](./media/how-to-ci-cd/edge-running.png)
 
-## <a name="continuous-deployment-to-iot-edge-devices"></a>Continue implementatie naar IoT Edge-apparaten
+## <a name="continuous-deployment-to-iot-edge-devices"></a>Continue implementatie voor IoT Edge-apparaten
 
-Zodat continue implementatie in feite moet u voor het instellen van de CI-taken met de randapparaten van juiste IoT, inschakelen van de **Triggers** voor uw vertakkingen in uw project. In klassieke DevOps uit veiligheidsoverwegingen bevat een project twee belangrijkste vertakkingen. De hoofdvertakking moet de stabiele versie van de code en de vertakking ontwikkelen bevat de meest recente codewijzigingen. Elke ontwikkelaar in het team moet vertakken vertakking ontwikkelen voor zijn of haar eigen functie vertakking als begonnen met de code, wat betekent dat alle doorvoeren bijwerken functie gebeurt vertakking uit de vertakking ontwikkelen. En elke pushed doorvoer via de CI-systeem moet worden getest. Nadat de code lokaal volledig getest, moet de functie vertakking naar de vertakking ontwikkelen via een pull-aanvraag worden samengevoegd. Wanneer de code op ontwikkelaars vertakking wordt getest via CI-systeem, kan het worden samengevoegd naar de hoofdvertakking via een pull-aanvraag.
+Om in te schakelen continue implementatie, in feite moet u het instellen van CI-taken met de juiste IoT Edge-apparaten inschakelen de **Triggers** voor uw vertakkingen in uw project. In een klassieke devops bevat een project twee belangrijkste vertakkingen. De master-vertakking moet de stabiele versie van de code en de vertakking ontwikkelen bevat de meest recente code hoeft te wijzigen. Elke ontwikkelaar in het team moet splitsen ontwikkelen vertakking voor zijn of haar eigen functie-vertakking als functie beginnen met het bijwerken van de code, wat betekent dat alle doorvoeringen gebeurt vertakkingen uit de vertakking ontwikkelen. En elke gepushte doorvoer moet worden getest via de CI-systeem. Nadat de code lokaal volledig getest, moet de functie filiaal worden samengevoegd op de vertakking ontwikkelen via een pull-aanvraag. Wanneer de code op de vertakking van de ontwikkelaar is getest via CI-systeem, kan deze kan worden samengevoegd op de master-vertakking via een pull-aanvraag.
 
-Dus bij het implementeren van de rand van de IoT-apparaten, zijn er drie belangrijkste omgevingen.
-- U kunt op de functie filiaal, gesimuleerde IoT randapparaat gebruiken op uw ontwikkelcomputer of implementeert op een fysieke rand van de IoT-apparaat.
-- Vertakking op ontwikkelen, moet u op een fysieke IoT Edge-apparaat implementeren.
-- Op de hoofdvertakking moet de doelapparaten IoT rand de productieapparaten.
+Dus wanneer u implementeert op IoT Edge-apparaten, zijn er drie belangrijkste omgevingen.
+- U kunt op de functie filiaal, gesimuleerde IoT Edge-apparaat gebruiken op uw ontwikkelcomputer of op een fysieke IoT Edge-apparaat implementeren.
+- Ontwikkelen op vertakking, moet u op een fysiek IoT Edge-apparaat implementeren.
+- Op de master-vertakking moet het doel IoT Edge-apparaten de productieapparaten.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Inzicht in de rand van de IoT-implementatie in [begrijpen IoT rand implementaties voor één apparaten of op grote schaal](module-deployment-monitoring.md)
-* Doorloop de stappen voor het maken, bijwerken of verwijderen van een implementatie in [implementeren en controleren van de rand van de IoT-modules op grote schaal](how-to-deploy-monitor.md).
+* Inzicht in de IoT Edge-implementatie in [inzicht in IoT Edge-implementaties voor individuele apparaten of op schaal](module-deployment-monitoring.md)
+* Doorloop de stappen voor het maken, bijwerken of verwijderen van een implementatie in [implementeren en controleren van IoT Edge-modules op schaal](how-to-deploy-monitor.md).

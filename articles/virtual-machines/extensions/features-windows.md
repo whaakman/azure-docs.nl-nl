@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 03/30/2018
 ms.author: roiyz
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fc2433b8ac12bc1d485b6f23b56f356041e5128e
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 4fd6175f68f98cce726e70e76b0b884a7a31fbda
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43783097"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325325"
 ---
 # <a name="virtual-machine-extensions-and-features-for-windows"></a>Extensies voor virtuele machines en functies voor Windows
 
@@ -41,7 +41,7 @@ Meerdere verschillende Azure-VM-extensies beschikbaar zijn, elk met een specifie
 
 Een aangepast Script-extensie is naast processpecifieke extensies beschikbaar voor zowel Windows als Linux virtuele machines. De aangepaste scriptextensie voor Windows kunt een PowerShell-script om te worden uitgevoerd op een virtuele machine. Aangepaste scripts zijn handig voor het ontwerpen van Azure-implementaties die moeten worden geconfigureerd dan welke systeemeigen Azure-hulpprogramma kan bieden. Zie voor meer informatie, [Windows VM Custom Script extension](custom-script-windows.md).
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 Voor het afhandelen van de extensie op de virtuele machine, moet u de Azure Windows-Agent is geïnstalleerd. Aantal afzonderlijke extensies hebben vereisten, zoals toegang tot bronnen of afhankelijkheden.
 
@@ -66,7 +66,7 @@ Bepaalde extensies worden niet ondersteund in alle besturingssystemen en verzend
 -Extensiepakketten zijn gedownload vanuit de opslagplaats van de extensie Azure Storage en extensie status uploaden naar Azure Storage worden geboekt. Als u [ondersteund](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) versie van de agents, hoeft u niet voor toegang tot Azure Storage in de regio van de virtuele machine, zoals de agent kan worden gebruikt zodat de communicatie worden omgeleid naar de Azure-infrastructuurcontroller voor communicatie van agent. Als u van een niet-ondersteunde versie van de agent gebruikmaakt, moet u de uitgaande toegang tot Azure storage in die regio van de virtuele machine toestaan.
 
 > [!IMPORTANT]
-> Als u toegang tot hebben geblokkeerd *168.63.129.1* met behulp van de Gast-firewall, extensies mislukt, ongeacht de bovenstaande.
+> Als u toegang tot hebben geblokkeerd *168.63.129.16* met behulp van de Gast-firewall, extensies mislukt, ongeacht de bovenstaande.
 
 Agents kunnen alleen worden gebruikt voor het downloaden van extensiepakketten en rapporteringsstatus. Bijvoorbeeld, als een extensie installeren moet een script downloaden vanuit GitHub (aangepast Script) of moet toegang tot Azure Storage (Azure Backup), klikt u vervolgens aanvullende firewall/Network Security Group-poorten moeten worden geopend. Verschillende extensies hebben verschillende vereisten, omdat ze toepassingen in hun eigen rechts. Voor uitbreidingen waarvoor toegang tot Azure Storage, kunt u toegang met behulp van Azure NSG servicetags voor [opslag](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
@@ -257,7 +257,7 @@ De Agents en -extensies delen de dezelfde updatemechanisme. Sommige updates vere
 Wanneer een update beschikbaar is, is deze alleen geïnstalleerd op de virtuele machine wanneer er een wijziging naar uitbreidingen en andere wijzigingen in het gegevensmodel van de virtuele machine, zoals:
 
 - Gegevensschijven
-- Extensies
+- Uitbreidingen
 - Boot diagnostics container
 - Gast-OS-geheimen
 - VM-grootte

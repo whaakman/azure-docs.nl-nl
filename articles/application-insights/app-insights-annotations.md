@@ -13,50 +13,50 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/16/2016
 ms.author: mbullwin
-ms.openlocfilehash: 660080a629e00884dd61a49bc0950ebe25b6a0c5
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: f943f0e371b3092717a62a2e83a98211723e5302
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060777"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304404"
 ---
 # <a name="annotations-on-metric-charts-in-application-insights"></a>Aantekeningen op grafieken met metrische gegevens in Application Insights
-Aantekeningen op [Metrics Explorer](app-insights-metrics-explorer.md) grafieken weergeven waar u een nieuwe build of andere belangrijke gebeurtenis hebt geïmplementeerd. Ze maken het gemakkelijk om te zien of uw wijzigingen geen effect op de prestaties van uw toepassing heeft. Ze automatisch kunnen worden gemaakt door de [bouwen van Visual Studio Team Services-systeem](https://docs.microsoft.com/vsts/pipelines/tasks/). U kunt ook maken met aantekeningen voor het markeren van een gebeurtenis die u met wilt [ze worden gemaakt vanuit PowerShell](#create-annotations-from-powershell).
+Aantekeningen op [Metrics Explorer](app-insights-metrics-explorer.md) grafieken weergeven waar u een nieuwe build of andere belangrijke gebeurtenis hebt geïmplementeerd. Ze maken het gemakkelijk om te zien of uw wijzigingen geen effect op de prestaties van uw toepassing heeft. Ze automatisch kunnen worden gemaakt door de [systeem bouwen voor Azure DevOps Services](https://docs.microsoft.com/azure/devops/pipelines/tasks/). U kunt ook maken met aantekeningen voor het markeren van een gebeurtenis die u met wilt [ze worden gemaakt vanuit PowerShell](#create-annotations-from-powershell).
 
 ![Voorbeeld van aantekeningen met zichtbaar correlatie met serverreactietijd](./media/app-insights-annotations/00.png)
 
 
 
-## <a name="release-annotations-with-vsts-build"></a>Release-aantekeningen met VSTS build
+## <a name="release-annotations-with-azure-devops-services-build"></a>Release-aantekeningen met Azure DevOps-Services-build
 
-Release-aantekeningen zijn een functie van de cloud gebaseerde build en release-service van Visual Studio Team Services. 
+Release-aantekeningen zijn een functie van de Azure-pijplijnen cloud-gebaseerde service van Azure DevOps-Services. 
 
 ### <a name="install-the-annotations-extension-one-time"></a>Installeer de extensie aantekeningen (één keer)
-Als u om release-aantekeningen te maken, moet u een van de vele beschikbare Team Service-extensies installeren in de Visual Studio Marketplace.
+Als u om release-aantekeningen te maken, moet u een van de beschikbare veel Services van Azure DevOps-extensies installeren in de Visual Studio Marketplace.
 
-1. Aanmelden bij uw [Visual Studio Team Services](https://visualstudio.microsoft.com/vso/) project.
-2. In Visual Studio Marketplace, [ophalen van de extensie Versieaantekeningen](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), en voeg deze toe aan uw Team Services-account.
+1. Aanmelden bij uw [Azure DevOps Services](https://visualstudio.microsoft.com/vso/) project.
+2. In Visual Studio Marketplace, [ophalen van de extensie Versieaantekeningen](https://marketplace.visualstudio.com/items/ms-appinsights.appinsightsreleaseannotations), en voeg deze toe aan uw organisatie Azure DevOps-Services.
 
-![AT rechtsboven in Team Services-webpagina, open Marketplace. Selecteer Visual Team Services en vervolgens Kies meer onder Build and Release.](./media/app-insights-annotations/10.png)
+![AT rechtsboven in de webpagina van Azure DevOps-Services, open Marketplace. Selecteer Azure DevOps-Services en onder Azure pijplijnen, en kies vervolgens meer.](./media/app-insights-annotations/10.png)
 
-U hoeft dit maar eenmaal te doen voor uw Visual Studio Team Services-account. Release-aantekeningen kunnen nu worden geconfigureerd voor elk project in uw account. 
+U hoeft dit maar eenmalig te doen voor uw organisatie Azure DevOps-Services. Release-aantekeningen kunnen nu worden geconfigureerd voor elk project in uw organisatie. 
 
 ### <a name="configure-release-annotations"></a>Configureer versieaantekeningen
 
-U moet een afzonderlijke API-sleutel voor elke VSTS release-sjabloon ophalen.
+U moet een afzonderlijke API-sleutel voor elke release-sjabloon van Azure DevOps-Services ophalen.
 
 1. Aanmelden bij de [Microsoft Azure Portal](https://portal.azure.com) en open de Application Insights-resource die wordt uw toepassing bewaakt. (Of [Maak nu een](app-insights-overview.md), als u dat nog niet hebt gedaan.)
 2. Open **API-toegang**, **Application Insights-Id**.
    
     ![Open uw Application Insights-resource in portal.azure.com en kies instellingen. Open API-toegang. Kopieer de toepassings-ID](./media/app-insights-annotations/20.png)
 
-4. Open (of maak) in een nieuw browservenster op de releasesjabloon die u uw implementaties van Visual Studio Team Services beheert. 
+4. Open (of maak) in een nieuw browservenster op de releasesjabloon die u uw implementaties van Azure DevOps-Services beheert. 
    
     Een taak toevoegen en selecteer de Application Insights-Release-aantekening-taak in het menu.
    
     Plak de **toepassings-Id** die u hebt gekopieerd uit de blade API-toegang.
    
-    ![In Visual Studio Team Services, versie openen, selecteert u een release-definitie en kiest u bewerken. Klik op taak toevoegen en selecteer Application Insights-Release-aantekening. Plak de Application Insights-id.](./media/app-insights-annotations/30.png)
+    ![In Azure DevOps-Services, versie openen, selecteert u een release-pijplijn en kiest u bewerken. Klik op taak toevoegen en selecteer Application Insights-Release-aantekening. Plak de Application Insights-id.](./media/app-insights-annotations/30.png)
 4. Stel de **APIKey** veld aan een variabele `$(ApiKey)`.
 
 5. Maak een nieuwe API-sleutel en een kopie van deze terug in het venster Azure.
@@ -69,19 +69,19 @@ U moet een afzonderlijke API-sleutel voor elke VSTS release-sjabloon ophalen.
    
     Plak uw API-sleutel voor de definitie van de ApiKey-variabele.
    
-    ![Selecteer het tabblad configuratie en klikt u op een variabele toevoegen in het venster Team Services. Stel de naam ApiKey en in de waarde, plak de sleutel die u zojuist hebt gemaakt en klik op het vergrendelingspictogram.](./media/app-insights-annotations/50.png)
-7. Ten slotte **opslaan** de release-definitie.
+    ![Selecteer het tabblad configuratie en klikt u op een variabele toevoegen in het venster Azure DevOps-Services. Stel de naam ApiKey en in de waarde, plak de sleutel die u zojuist hebt gemaakt en klik op het vergrendelingspictogram.](./media/app-insights-annotations/50.png)
+7. Ten slotte **opslaan** de release-pijplijn.
 
 
 ## <a name="view-annotations"></a>Aantekeningen bekijken
 Wanneer u de releasesjabloon gebruikt voor het implementeren van een nieuwe versie, worden er nu een aantekening worden verzonden naar Application Insights. De aantekeningen worden weergegeven op de grafieken in Metrics Explorer.
 
-Klik op een markering aantekening details over de release, met inbegrip van de aanvrager, besturingselement bronvertakking openen, release-definitie, milieu en meer.
+Klik op een markering aantekening details over de release, met inbegrip van de aanvrager, besturingselement bronvertakking openen, release-pijplijn, milieu en meer.
 
 ![Klik op een markering release-aantekening.](./media/app-insights-annotations/60.png)
 
 ## <a name="create-custom-annotations-from-powershell"></a>Aangepaste annotaties maken vanuit PowerShell
-U kunt ook aantekeningen maken van een proces dat u wilt (zonder dat met behulp van Visual Studio Team System). 
+U kunt ook aantekeningen maken van een proces dat u wilt (zonder dat het met Azure DevOps-Services). 
 
 
 1. Maak een lokale kopie van de [Powershell-script vanuit GitHub](https://github.com/Microsoft/ApplicationInsights-Home/blob/master/API/CreateReleaseAnnotation.ps1).

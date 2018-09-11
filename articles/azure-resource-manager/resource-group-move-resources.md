@@ -10,14 +10,14 @@ ms.workload: multiple
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/06/2018
+ms.date: 09/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: e0a2e26fb3dd0afeb4d1f3d030cb42bdc181e63c
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 807026d2de40de1b14d2eb1d9eeb9da0aade4ad7
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094957"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297751"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -163,16 +163,17 @@ Terwijl de bewerking wordt nog steeds uitgevoerd, wordt u voor het ontvangen van
 
 ## <a name="services-that-can-be-moved"></a>Services die kunnen worden verplaatst
 
-De services waarmee u verplaatsen naar een nieuwe resourcegroep en een abonnement zijn:
+De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen worden verplaatst naar een nieuwe resourcegroep en een abonnement. Zie voor meer details, [bewerking ondersteuning voor resources verplaatsen](move-support-resources.md).
 
 * Analysis Services
 * API Management
 * App Service-apps (web-apps) - Zie [beperkingen voor App Service](#app-service-limitations)
 * App Service Certificates
 * Application Insights
-* Automation
+* Automatisering
 * Azure Active Directory B2C
 * Azure Cosmos DB
+* Azure DevOps - Azure DevOps-organisaties met niet-Microsoft-extensie aankopen moet [hun aankopen annuleren](https://go.microsoft.com/fwlink/?linkid=871160) voordat hij verder kan het account voor abonnementen.
 * Azure Maps
 * Azure Relay
 * Azure Stack - registraties
@@ -182,7 +183,7 @@ De services waarmee u verplaatsen naar een nieuwe resourcegroep en een abonnemen
 * CDN
 * Cloud Services - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
 * Cognitive Services
-* Container Registry
+* Containerregister
 * Content Moderator
 * Cost Management
 * Customer Insights
@@ -212,7 +213,7 @@ De services waarmee u verplaatsen naar een nieuwe resourcegroep en een abonnemen
 * Openbaar IP-adres - Zie [openbaar IP-beperkingen](#pip-limitations)
 * Redis-Cache - als de Redis-Cache-exemplaar is geconfigureerd met een virtueel netwerk, het exemplaar kan niet worden verplaatst naar een ander abonnement. Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations).
 * Scheduler
-* Search
+* Zoeken
 * Service Bus
 * Service Fabric
 * Service Fabric Mesh
@@ -227,16 +228,15 @@ De services waarmee u verplaatsen naar een nieuwe resourcegroep en een abonnemen
 * Virtuele Machines (klassiek) - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
 * Virtual Machine Scale Sets - Zie [beperkingen van de virtuele Machines](#virtual-machines-limitations)
 * Virtuele netwerken - Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations)
-* Visual Studio teamservices - VSTS-accounts met niet-Microsoft-extensie aankopen moet [hun aankopen annuleren](https://go.microsoft.com/fwlink/?linkid=871160) voordat hij verder kan het account voor abonnementen.
 * VPN Gateway
 
 ## <a name="services-that-cannot-be-moved"></a>Services die kunnen niet worden verplaatst
 
-De services die momenteel niet mogelijk verplaatsen van een resource zijn:
+De volgende lijst bevat een algemeen overzicht van Azure-services die niet worden verplaatst naar een nieuwe resourcegroep en een abonnement. Zie voor meer details, [bewerking ondersteuning voor resources verplaatsen](move-support-resources.md).
 
 * AD Domain Services
 * Hybride AD Health-Service
-* Application Gateway
+* Toepassingsgateway
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure Database Migration
@@ -245,11 +245,11 @@ De services die momenteel niet mogelijk verplaatsen van een resource zijn:
 * Batch AI
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar de geüploade certificaten hebben [beperkingen](#app-service-limitations).
 * Container Instances
-* Container Service
+* Containerservice
 * Data Box
 * Dev-opslagruimten
 * Dynamics LCS
-* ExpressRoute
+* Express Route
 * Kubernetes Service
 * Lab-Services - verplaatsen naar de nieuwe resourcegroep in hetzelfde abonnement is ingeschakeld, maar de verplaatsing van kruislings abonnement is niet ingeschakeld.
 * Load Balancers - Zie [beperkingen van de Load Balancer](#lb-limitations)
@@ -314,9 +314,9 @@ Wanneer u een Web-App verplaatst _voor abonnementen_, gelden de volgende beperki
 
 - De doelresourcegroep mag geen bestaande App Service-resources. App Service-resources zijn onder andere:
     - Web Apps
-    - App Service-abonnementen
+    - App Service-plannen
     - Geüpload of geïmporteerd SSL-certificaten
-    - App Service-omgevingen
+    - App-serviceomgevingen
 - Alle App Service-resources in de resourcegroep, moeten tegelijk worden verplaatst.
 - App Service-resources kunnen alleen worden verplaatst uit de resourcegroep waarin ze oorspronkelijk zijn gemaakt. Als een resource App Service niet langer in de oorspronkelijke resourcegroep is, het moet worden teruggezet naar die oorspronkelijke resourcegroep eerst en vervolgens kunnen worden verplaatst tussen abonnementen.
 

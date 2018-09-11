@@ -10,15 +10,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/08/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: af7c0f9d7e02e4a3074f2fddbdf8a6e0ab52d423
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ec3b1f43c7b89a545ee5bb26c4cc0d068a993021
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024321"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295850"
 ---
 # <a name="use-api-version-profiles-with-azure-cli-20-in-azure-stack"></a>API-versieprofielen gebruiken met Azure CLI 2.0 in Azure Stack
 
@@ -160,8 +160,11 @@ Gebruik de volgende stappen uit om te verbinden met Azure Stack:
 
    ```azurecli
    az cloud update \
-     --profile 2017-03-09-profile
+     --profile 2018-03-01-hybrid
    ```
+
+    >[!NOTE]  
+    >Als u een versie van de Azure Stack voordat de 1808-build uitvoert, wordt u moet de API-versie-profiel gebruiken **2017-03-09-profiel** in plaats van de API-versie profiel **2018-03-01-hybride**.
 
 1. Aanmelden bij uw Azure Stack-omgeving met behulp van de `az login` opdracht. U kunt aanmelden bij de Azure Stack-omgeving als een gebruiker of als een [service-principal](https://docs.microsoft.com/azure/active-directory/develop/active-directory-application-objects). 
 

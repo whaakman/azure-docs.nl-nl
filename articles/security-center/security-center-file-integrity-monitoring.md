@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/06/2018
 ms.author: terrylan
-ms.openlocfilehash: 187253bc2ef4a61b7a241b8f5c121bf3eec73eae
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: e8455dddf62c16cb5ebcf20622580fad82d783a7
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44161999"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296225"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Bestandsintegriteit controleren in Azure Security Center
 Informatie over het configureren van bestand integriteit controleren (FIM) in Azure Security Center gebruikt deze stapsgewijze kennismaking.
@@ -175,7 +175,7 @@ Onder **voor het bijhouden van wijzigingen bewerken** kunt:
 
 4. Onder **Werkruimteconfiguratie**, selecteert u een groep waarin **ingeschakeld** is ingesteld op true.
 
-  ![Configuratie van de werkruimte][18]
+  ![Werkruimteconfiguratie][18]
 
 5. Onder **voor het bijhouden van wijzigingen bewerken** venster set **ingeschakeld** op False.
 

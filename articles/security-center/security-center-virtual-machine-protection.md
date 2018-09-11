@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: 47fa1f76-683d-4230-b4ed-d123fef9a3e8
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/28/2018
 ms.author: rkarlin
-ms.openlocfilehash: 7cf5f86d9a2d121ff54c40e27c6bc50847a4dfdf
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 1692e111d48a6e4574b2b114c0de84d9bc9f3203
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43133031"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299828"
 ---
 # <a name="protecting-your-machines-and-applications-in-azure-security-center"></a>Beveiligen van uw computers en toepassingen in Azure Security Center
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen. Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's) en computers, toepassingen, netwerken, SQL, en de identiteit en toegang.
@@ -115,7 +115,7 @@ Er zijn vier typen pictogrammen weergegeven in deze lijst:
 
 U kunt met het pictogram dat wordt weergegeven onder elke aanbeveling snel identificeren van de virtuele machine en de computer die aandacht vereisen en wat het type aanbeveling. U kunt ook de filteroptie gebruiken om te selecteren welke opties u in dit scherm ziet.
 
-![Filteren][12]
+![Filter][12]
 
 In het vorige voorbeeld heeft één VM een cruciale aanbeveling met betrekking tot eindpuntbeveiliging. Selecteer de virtuele machine voor meer informatie over het:
 
@@ -123,10 +123,10 @@ In het vorige voorbeeld heeft één VM een cruciale aanbeveling met betrekking t
 
 Hier ziet u de beveiligingsdetails voor de virtuele machine of computer. Onderin ziet u de aanbevolen actie en de ernst van elk probleem.
 
-### <a name="cloud-services"></a>Cloud services
+### <a name="cloud-services"></a>Cloudservices
 Voor cloudservices wordt een aanbeveling gemaakt wanneer de versie van het besturingssysteem verouderd is, zoals u ziet in de volgende schermafbeelding:
 
-![Cloud services][14]
+![Cloudservices][14]
 
 In een scenario waarin u een aanbeveling krijgt (wat is niet het geval is bij het vorige voorbeeld) hebt, moet u de stappen in de aanbeveling voor de versie van het besturingssysteem bij te werken. Wanneer een update beschikbaar is, ontvangt u een waarschuwing (rood of oranje, afhankelijk van de ernst van het probleem). Wanneer u deze waarschuwing selecteert in de WebRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS) of WorkerRole1 (Windows Server wordt uitgevoerd met uw web-app automatisch geïmplementeerd in IIS) rijen, ziet u meer informatie over deze aanbeveling, zoals wordt weergegeven in de Schermafbeelding van het volgende:
 
@@ -145,7 +145,7 @@ Als u een meer beschrijvende uitleg wilt zien over deze aanbeveling, klikt u op 
 
 Onder **App services**, vindt u een lijst van uw App service-omgevingen en samenvatting van de status op basis van de evaluatie van Security Center wordt uitgevoerd.
 
-![App-services][17]
+![App Services][17]
 
 Er zijn drie soorten pictogrammen weergegeven in deze lijst:
 

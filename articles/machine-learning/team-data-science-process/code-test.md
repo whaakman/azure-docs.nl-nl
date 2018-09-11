@@ -1,5 +1,5 @@
 ---
-title: Data science code testen op Azure met UCI volwassenen inkomsten voorspelling gegevensset - Team Data Science Process en Visual Studio Team Services
+title: Data science code testen op Azure met UCI volwassenen inkomsten voorspelling gegevensset - Team Data Science Process en Azure DevOps-Services
 description: Data science code testen met UCI volwassenen inkomsten voorspellingsgegevens
 services: machine-learning, team-data-science-process
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/19/2018
 ms.author: weig
-ms.openlocfilehash: 46d156ce09b1ebcdcceb27ede6e7fa1595d30da6
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: ad0a8b5b0bb9afbbe626c9481961f20ccd4797bf
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39439494"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294688"
 ---
 # <a name="data-science-code-testing-with-the-uci-adult-income-prediction-dataset"></a>Data science code testen met de gegevensset UCI volwassenen inkomsten voorspelling
 Dit artikel bevat voorlopige richtlijnen voor het testen van code in een werkstroom voor datatechnologie. Dergelijke test biedt gegevenswetenschappers een systematische en efficiënte manier om te controleren of de kwaliteit en de verwachte resultaten van hun code. We gebruiken een Team Data Science Process (TDSP) [project die gebruikmaakt van de gegevensset UCI volwassenen inkomsten](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) die we eerder gepubliceerd om weer te geven hoe het testen van code kan worden gedaan. 
@@ -37,8 +37,8 @@ In dit artikel vervangt de term 'eenheid testen"met"code testen." Deze gegevenss
 
 Dit artikel bevat verwijzingen naar als handige resources.
 
-## <a name="visual-studio-team-services-for-the-testing-framework"></a>Visual Studio Team Services voor het testen framework
-In dit artikel wordt beschreven hoe u uitvoeren en testen met behulp van Visual Studio Team Services (VSTS) te automatiseren. U kunt andere hulpprogramma's gebruiken. We laten ook zien hoe u een automatische build instellen met behulp van VSTS en build-agents. Voor de build-agents gebruiken we Azure Data Science Virtual Machines (Dsvm).
+## <a name="azure-devops-for-the-testing-framework"></a>Azure DevOps voor het testen framework
+In dit artikel wordt beschreven hoe u uitvoeren en testen met behulp van Azure DevOps te automatiseren. U kunt andere hulpprogramma's gebruiken. We laten ook zien hoe u een automatische build instellen met behulp van Azure DevOps en build-agents. Voor de build-agents gebruiken we Azure Data Science Virtual Machines (Dsvm).
 
 ## <a name="flow-of-code-testing"></a>Stroom van het testen van code
 De algemene werkstroom testen in een data science-project de code ziet er als volgt: 
@@ -48,7 +48,7 @@ De algemene werkstroom testen in een data science-project de code ziet er als vo
     
 ## <a name="detailed-steps"></a>Gedetailleerde stappen
 
-Gebruik de volgende stappen uit om te testen van code en een geautomatiseerde build op te zetten met behulp van een build-agent en VSTS en:
+Gebruik de volgende stappen uit om te stellen en het testen van code en een geautomatiseerde build uitvoeren met behulp van een build-agent en de Azure DevOps:
 
 1. Een project maken in de Visual Studio-bureaubladtoepassing:
 
@@ -60,7 +60,7 @@ Gebruik de volgende stappen uit om te testen van code en een geautomatiseerde bu
 
     ![Solution Explorer](./media/code-test/solution_explorer_in_vs.PNG)
 
-1. De projectcode van uw-feed in de codeopslagplaats van de VSTS-project: 
+1. De projectcode van uw in de opslagplaats met Azure DevOps-project code feed: 
 
     ![Codeopslagplaats project](./media/code-test/create_repo.PNG)
 
@@ -108,13 +108,13 @@ Gebruik de volgende stappen uit om te testen van code en een geautomatiseerde bu
 
     ![De tests worden uitgevoerd](./media/code-test/run_tests.PNG)
 
-1. Controleer in uw code in de projectopslagplaats met behulp van Git-opdrachten. Uw meest recente werk worden binnenkort in VSTS weergegeven.
+1. Controleer in uw code in de projectopslagplaats met behulp van Git-opdrachten. Uw meest recente werk worden, weergegeven over enkele ogenblikken in Azure DevOps.
 
     ![GIT-opdrachten voor het controleren van in de code](./media/code-test/git_check_in.PNG)
 
-    ![Meest recente werk in VSTS](./media/code-test/git_check_in_most_recent_work.PNG)
+    ![Meest recente werk in Azure DevOps](./media/code-test/git_check_in_most_recent_work.PNG)
 
-1. Instellen van automatische bouwen en testen in VSTS:
+1. Instellen van automatische bouwen en testen in Azure DevOps:
 
     a. Selecteer in de projectopslagplaats **Build and Release**, en selecteer vervolgens **+ nieuw** om een nieuwe buildproces te maken.
 
@@ -128,7 +128,7 @@ Gebruik de volgende stappen uit om te testen van code en een geautomatiseerde bu
 
        ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
 
-    d. De naam van de build en selecteer de agent. U kunt hier de standaardwaarde als u een DSVM gebruiken wilt voor het voltooien van het bouwproces. Zie voor meer informatie over de instelling agents [bouwen en uitbrengen agents](https://docs.microsoft.com/vsts/build-release/concepts/agents/agents?view=vsts).
+    d. De naam van de build en selecteer de agent. U kunt hier de standaardwaarde als u een DSVM gebruiken wilt voor het voltooien van het bouwproces. Zie voor meer informatie over de instelling agents [bouwen en uitbrengen agents](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts).
     
        ![Build and agent selections](./media/code-test/select_agent.PNG)
 
@@ -142,17 +142,17 @@ Gebruik de volgende stappen uit om te testen van code en een geautomatiseerde bu
     
        ![PowerShell details](./media/code-test/powershell_scripts.PNG)
 
-    g. Selecteer **opslaan en in de wachtrij** naar het build-definitie-proces te voltooien.
+    g. Selecteer **opslaan en in de wachtrij** naar het build-pijplijn-proces te voltooien.
 
        !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
 
 Nu telkens wanneer een nieuwe doorvoer wordt doorgestuurd naar de opslagplaats, wordt het bouwproces automatisch gestart. (Hier gebruiken we master als de opslagplaats, maar u kunt een vertakking definiëren.) Het proces wordt uitgevoerd de **test1.py** bestand in de agentcomputer om ervoor te zorgen dat alles gedefinieerd in de code correct wordt uitgevoerd. 
 
-Als meldingen correct zijn ingesteld, u krijgt een bericht in e-mailbericht wanneer de build is voltooid. U kunt ook de status van de build in VSTS controleren. Als dit mislukt, kunt u de details van de build en weten welk stuk verbroken is.
+Als meldingen correct zijn ingesteld, u krijgt een bericht in e-mailbericht wanneer de build is voltooid. U kunt ook de status van de build in Azure DevOps controleren. Als dit mislukt, kunt u de details van de build en weten welk stuk verbroken is.
 
 ![E-mailmelding van de build-geslaagd](./media/code-test/email_build_succeed.PNG)
 
-![VSTS-melding van slagen van de build](./media/code-test/vs_online_build_succeed.PNG)
+![Melding van slagen van de build van Azure DevOps](./media/code-test/vs_online_build_succeed.PNG)
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie de [UCI inkomsten voorspelling opslagplaats](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome) voor concrete voorbeelden van eenheidstests voor data science-scenario's.
@@ -161,5 +161,5 @@ Als meldingen correct zijn ingesteld, u krijgt een bericht in e-mailbericht wann
 ## <a name="references"></a>Verwijzingen
 * [Team Data Science Process](https://aka.ms/tdsp)
 * [Hulpprogramma's voor Visual Studio testen](https://www.visualstudio.com/vs/features/testing-tools/)
-* [Resources voor VSTS testen](https://www.visualstudio.com/team-services/)
+* [Resources voor Azure DevOps testen](https://www.visualstudio.com/team-services/)
 * [Virtuele Machines voor Datatechnologie](https://azure.microsoft.com/services/virtual-machines/data-science-virtual-machines/)

@@ -5,16 +5,16 @@ services: key-vault
 author: bryanla
 manager: mbaldwin
 ms.service: key-vault
-ms.topic: article
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: b4522d9eb2e9af782918f021c79bbcb155c5c383
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b8b51ed8cbaaaaaa463dd1ed841e6d5193fec40a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053618"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301912"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Handleiding voor ontwikkelaars van Azure Key Vault
 
@@ -149,7 +149,7 @@ Deze artikelen zijn voor andere scenario's en services die gebruikmaken van of i
 - [Overzicht van Key Vault storage account sleutels](key-vault-ovw-storage-keys.md) beschrijving van de sleutels van Key Vault-integratie Azure Storage-Accounts.
 - [Key Vault beveiligingswerelden](key-vault-ovw-security-worlds.md) beschrijft de relaties tussen regio's en aspecten van de beveiliging.
 
-## <a name="social"></a>Sociaal
+## <a name="social"></a>Sociale media
 
 - [Key Vault-Blog](http://aka.ms/kvblog)
 - [Key Vault-Forum](http://aka.ms/kvforum)

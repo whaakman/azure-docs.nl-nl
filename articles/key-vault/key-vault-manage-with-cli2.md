@@ -11,21 +11,21 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/28/2018
 ms.author: barclayn
-ms.openlocfilehash: 7d2b38a27644eed088f4a204cf989f44346e1654
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: f88e98561a88380fbe40ecc9627ffabe39b0071c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43126908"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295171"
 ---
 # <a name="manage-key-vault-using-cli-20"></a>Beheren van Key Vault met behulp van CLI 2.0
 
 In dit artikel wordt uitgelegd hoe u aan de slag met Azure Key Vault met behulp van de Azure CLI 2.0. U ziet informatie op:
 
-- Vereisten
+- Vereiste onderdelen
 - Over het maken van een geharde container (een kluis) in Azure
 - Een sleutel, het geheim of het certificaat toe te voegen aan de sleutelkluis
 - Een toepassing registreren bij Azure Active Directory
@@ -45,7 +45,7 @@ Azure Sleutelkluis is beschikbaar in de meeste regio's. Zie de pagina [Prijzen v
 Zie voor een overzicht van Azure Key Vault, [wat is Azure Key Vault?](key-vault-whatis.md)
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 Voor het gebruik van de Azure CLI-opdrachten in dit artikel, hebt u de volgende items:
 

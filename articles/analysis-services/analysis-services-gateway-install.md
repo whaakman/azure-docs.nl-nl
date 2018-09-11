@@ -5,20 +5,20 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/07/2018
+ms.date: 09/10/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 89b21af5303afc2082d3d56ddb9e894f3ae4c4b8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1ef5d51db34e0d0a947a4d6ba6c7e614b1ac3384
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158408"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348885"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>Installeren en configureren van een on-premises gegevensgateway
 Een on-premises gegevensgateway is vereist wanneer een of meer Azure Analysis Services-servers in dezelfde regio verbinding met on-premises gegevensbronnen maken. Zie voor meer informatie over de gateway, [On-premises gegevensgateway](analysis-services-gateway.md).
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 **Minimale vereisten:**
 
 * .NET 4.5 framework
@@ -35,9 +35,9 @@ Een on-premises gegevensgateway is vereist wanneer een of meer Azure Analysis Se
 * Tijdens de installatie bij het registreren van uw gateway met Azure, is de standaardregio voor uw abonnement geselecteerd. U kunt een andere regio. Als u servers in meer dan één regio hebt, moet u een gateway voor elke regio. 
 * De gateway kan niet worden geïnstalleerd op een domeincontroller.
 * Slechts één gateway kan worden geïnstalleerd op een enkele computer.
-* Standaard wordt met de gateway de account NT SERVICE\PBIEgwService gebruikt om aan te melden. Een ander account kan worden opgegeven tijdens de installatie van of in Services. Zorg ervoor dat instellingen voor Groepsbeleid kunnen dat het serviceaccount heeft logboek op als de service-bevoegdheden.
 * De gateway installeren op een computer die blijft op en gaat niet naar de slaapstand.
 * Moet u de gateway niet installeren op een computer draadloos zijn verbonden met uw netwerk. Prestaties kan worden verminderd.
+* Wanneer u de gateway installeert, moet het gebruikersaccount dat u bent aangemeld bij de computer met logboekbestand op als service bevoegdheden hebben. Wanneer de installatie is voltooid, de On-premises data gateway-service maakt gebruik van de account NT SERVICE\PBIEgwService als een service aan te melden. Een ander account kan alleen worden opgegeven tijdens de installatie van of in Services nadat setup voltooid is. Zorg ervoor dat instellingen voor Groepsbeleid kunnen het account dat u bent aangemeld bij het installeren van zowel het serviceaccount dat u hebt logboek op als service bevoegdheden.
 * Aanmelden bij Azure met een account in Azure AD voor dezelfde [tenant](https://msdn.microsoft.com/library/azure/jj573650.aspx#BKMK_WhatIsAnAzureADTenant) als het abonnement registreert u de gateway in. Azure B2B (Gast)-accounts worden niet ondersteund bij het installeren en registreren van een gateway.
 * Als de gegevensbronnen zijn in een Azure-netwerk (VNet), moet u configureren de [AlwaysUseGateway](analysis-services-vnet-gateway.md) servereigenschap.
 * De hier beschreven, (geïntegreerde) gateway wordt niet ondersteund in Azure Government, Azure Duitsland en Azure China soevereine regio's. Gebruik **toegewezen On-premises gateway voor Azure Analysis Services**geïnstalleerd vanuit van uw server **Quick Start** in de portal. 
@@ -79,7 +79,7 @@ Als u wilt een gateway-resource maken in Azure, moet u het lokale exemplaar dat 
 ## <a name="create-resource"></a>Maak een Azure-gateway-resource
 Nadat u hebt geïnstalleerd en geregistreerd van de gateway, moet u een gateway-resource maken in uw Azure-abonnement. Meld u bij Azure met hetzelfde account dat u gebruikt bij het registreren van de gateway.
 
-1. Klik in Azure portal op **maken van een nieuwe service** > **bedrijfsintegratie** > **On-premises gegevensgateway**  >   **Maak**.
+1. Klik in Azure portal op **een resource maken** > **integratie** > **On-premises gegevensgateway**.
 
    ![Een gateway-resource maken](media/analysis-services-gateway-install/aas-gateway-new-azure-resource.png)
 

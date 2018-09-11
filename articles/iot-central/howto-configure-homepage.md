@@ -8,26 +8,26 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 93f406a1d5e4a8c2ce5ad1db0c3936dd3ad2bfb9
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 1b4d97c1e8c4360028cb249b7e1a61f9fc26e9f2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991214"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300525"
 ---
 ## <a name="configuring-homepage"></a>Startpagina configureren
 
 De startpagina is de pagina die wordt geladen wanneer gebruikers die toegang hebben, navigeer naar de URL van de toepassing. Als u de "Voorbeeld Contoso" of "Voorbeeld Devkits" Toepassingssjablonen geselecteerd tijdens het maken van uw toepassing, zal uw toepassing zijn vooraf gedefinieerde startpagina's. Als aan de andere kant kunt u de sjabloon van de toepassing 'Aangepaste Application' geselecteerd, wordt uw startpagina niet leeg zijn.
 
-Bijvoorbeeld, als volgt de startpagina voor toepassingen op basis van de sjabloon 'Contoso voorbeeld'. Voor het aanpassen van de startpagina voor uw toepassing, voor het eerst inschakelt **op** **ontwerpmodus** in de rechterbovenhoek. 
+Bijvoorbeeld, als volgt de startpagina voor toepassingen op basis van de sjabloon 'Contoso voorbeeld'. Voor het aanpassen van de startpagina voor uw toepassing, selecteert u eerst **bewerken** in de rechterbovenhoek. 
 
 ![Startpagina voor toepassingen op basis van de sjabloon 'Contoso voorbeeld'](media\howto-configure-homepage\image1.png)
 
-Schakelen **ontwerpmodus** **op**, de bibliotheek voor het dashboard wordt geopend in een deelvenster aan de linkerkant. Er zijn veel soorten tegels en dashboard primitieven die kunnen worden toegevoegd aan het aanpassen van uw startpagina.
+Selecteren **bewerken**, de bibliotheek voor het dashboard wordt geopend in een deelvenster aan de linkerkant. Er zijn veel soorten tegels en dashboard primitieven die kunnen worden toegevoegd aan het aanpassen van uw startpagina.
 
 ![Bibliotheek voor het dashboard](media\howto-configure-homepage\image2.png)
 
-Bijvoorbeeld, u kunt toevoegen een **instellingen en eigenschappen** tegel om een selectie van de huidige waarden van instellingen en eigenschappen weer te geven. Om dit te doen, selecteert u eerst een **apparaat sjabloon** Selecteer vervolgens een **apparaatexemplaar**. Nadat u dat de tegel geeft een titel en selecteer een **instelling** of een **eigenschap** om weer te geven. In dit geval is geselecteerd **ventilatorsnelheid**. Te klikken op **opslaan** zorgt ervoor dat deze tegel worden weergegeven op de startpagina.
+Bijvoorbeeld, u kunt toevoegen een **instellingen en eigenschappen** tegel om een selectie van de huidige waarden van instellingen en eigenschappen weer te geven. Om dit te doen, selecteert u eerst een **apparaat sjabloon** Selecteer vervolgens een **apparaatexemplaar**. Nadat u dat de tegel geeft een titel en selecteer een **instelling** of een **eigenschap** om weer te geven. In dit geval is geselecteerd **ventilatorsnelheid**. Te klikken op **gedaan** zorgt ervoor dat deze tegel worden weergegeven op de startpagina.
 
 !['Apparaatdetails configureren' formulier met details voor instellingen en eigenschappen](media\howto-configure-homepage\image3.png)
 

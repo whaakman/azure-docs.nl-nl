@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: app-mgmt
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 3231792ed1cb7f80cd2a106faf3760c48dd13c19
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 47ce9729e25fdfe3b72f45b3090473bb7dbeaa7a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057257"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296326"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>Zelfstudie: Rapportage over het inrichten van automatische gebruikersaccounts
 
@@ -30,11 +30,11 @@ Dit artikel wordt beschreven hoe u controleert de status van het inrichten, nada
 
 ## <a name="overview"></a>Overzicht
 
-Inrichting connectors zijn ingesteld en geconfigureerd met behulp van de [Azure-portal](https://portal.azure.com), door de [documentatie opgegeven](saas-apps/tutorial-list.md) voor de ondersteunde toepassing. Wanneer geconfigureerd en actief, worden inrichten gerapporteerd over het gebruik van een van twee methoden:
+Inrichting connectors zijn ingesteld en geconfigureerd met behulp van de [Azure-portal](https://portal.azure.com), door de [documentatie opgegeven](./saas-apps/tutorial-list.md) voor de ondersteunde toepassing. Wanneer geconfigureerd en actief, worden inrichten gerapporteerd over het gebruik van een van twee methoden:
 
 * **Azure-beheerportal** -in dit artikel wordt voornamelijk beschreven bij het ophalen van rapportgegevens uit de [Azure-portal](https://portal.azure.com), waarmee u zowel een overzichtsrapport inrichten, evenals gedetailleerde inrichting auditlogboeken voor een bepaalde toepassing.
 
-* **Controle uitvoeren op API** -Azure Active Directory biedt ook een Audit-API die programmatische voor het ophalen van de inrichting gedetailleerde auditlogboeken. Zie [Azure Active Directory audit API-verwijzing](active-directory-reporting-api-audit-reference.md) voor documentatie die specifiek zijn voor het gebruik van deze API. Hoewel dit artikel omvat niet specifiek over het gebruik van de API, deze de typen gebeurtenissen die zijn vastgelegd in het auditlogboek inrichten gedetailleerd beschreven.
+* **Controle uitvoeren op API** -Azure Active Directory biedt ook een Audit-API die programmatische voor het ophalen van de inrichting gedetailleerde auditlogboeken. Zie [Azure Active Directory audit API-verwijzing](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/directoryaudit) voor documentatie die specifiek zijn voor het gebruik van deze API. Hoewel dit artikel omvat niet specifiek over het gebruik van de API, deze de typen gebeurtenissen die zijn vastgelegd in het auditlogboek inrichten gedetailleerd beschreven.
 
 ### <a name="definitions"></a>Definities
 
@@ -127,14 +127,14 @@ Voor de beste leesbaarheid in Azure portal, selecteert u de **kolommen** knop en
 * **Reden van de status** -een samenvatting van wat is er gebeurd in de inrichting gebeurtenis.
 
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 
 De inrichting logboeken voor het rapport en controle van samenvatting spelen een belangrijke rol helpt beheerders verschillende gebruikersaccount inrichten problemen oplossen.
 
-Zie voor instructies over het automatisch inrichten van gebruikers oplossen scenario's gebaseerde [problemen bij het configureren en inrichten van gebruikers voor een toepassing](active-directory-application-provisioning-content-map.md).
+Zie voor instructies over het automatisch inrichten van gebruikers oplossen scenario's gebaseerde [problemen bij het configureren en inrichten van gebruikers voor een toepassing](application-provisioning-config-problem.md).
 
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](manage-apps/configure-automatic-user-provisioning-portal.md)
 * [What is application access and single sign-on with Azure Active Directory?](manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

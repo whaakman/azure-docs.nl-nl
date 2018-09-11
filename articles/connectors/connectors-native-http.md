@@ -11,12 +11,12 @@ ms.assetid: e11c6b4d-65a5-4d2d-8e13-38150db09c0b
 ms.topic: article
 tags: connectors
 ms.date: 08/25/2018
-ms.openlocfilehash: e1561e3be95847efccf487c96bd9c9a8104f161b
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 95a039c990dc9b6c852a69518f0a71c51a4747b7
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43106445"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302619"
 ---
 # <a name="call-http-or-https-endpoints-with-azure-logic-apps"></a>Aanroepen van HTTP of HTTPS-eindpunten met Azure Logic Apps
 
@@ -28,7 +28,7 @@ U kunt de HTTP-actie als een andere stap in uw werkstroom voor het aanroepen van
 
 Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](../logic-apps/logic-apps-overview.md)
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 * Een Azure-abonnement. Als u nog geen abonnement op Azure hebt, <a href="https://azure.microsoft.com/free/" target="_blank">registreer u dan nu voor een gratis Azure-account</a>. 
 
@@ -77,11 +77,11 @@ Als u geen ervaring met logische apps, raadpleegt u [wat is Azure Logic Apps?](.
 
 1. Wanneer u klaar bent, zorg ervoor dat u uw logische app opslaat. Kies **Opslaan** op de werkbalk van de ontwerper. 
 
-## <a name="authentication"></a>Verificatie
+## <a name="authentication"></a>Authenticatie
 
 Om verificatie, kies **geavanceerde opties weergeven** in de actie of trigger. Zie voor meer informatie over beschikbare verificatietypen voor HTTP-triggers en acties [Trigger en actie typen verwijzing](../logic-apps/logic-apps-workflow-actions-triggers.md#connector-authentication).
 
-## <a name="get-support"></a>Ondersteuning krijgen
+## <a name="get-support"></a>Ondersteuning vragen
 
 * Ga naar het [Azure Logic Apps forum](https://social.msdn.microsoft.com/Forums/en-US/home?forum=azurelogicapps) (Forum voor Azure Logic Apps) als u vragen hebt.
 * Als u ideeën voor functies wilt indienen of erop wilt stemmen, gaat u naar de [website voor feedback van Logic Apps-gebruikers](http://aka.ms/logicapps-wish).

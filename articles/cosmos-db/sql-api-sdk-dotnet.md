@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/09/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: de0203a06e71a90223b864ab3ba059ad1ac9b5e3
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 26de3545c5d79c711703fa97cb796cd6c504f663
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052277"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346471"
 ---
 # <a name="azure-cosmos-db-net-sdk-for-sql-api-download-and-release-notes"></a>Azure Cosmos DB .NET SDK voor SQL-API: downloaden en opmerkingen bij de release
 > [!div class="op_single_selector"]
@@ -49,7 +49,16 @@ ms.locfileid: "44052277"
 <tr><td>**Huidige ondersteunde framework**</td><td>[Microsoft .NET Framework 4.5](https://www.microsoft.com/download/details.aspx?id=30653)</td></tr>
 </table></br>
 
-## <a name="release-notes"></a>Releaseopmerkingen
+## <a name="release-notes"></a>Opmerkingen bij de release
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+
+* Ondersteuning voor toegevoegde aanvraag annuleren.
+* Toegevoegde SetCurrentLocation naar ConnectionPolicy, die automatisch wordt ingevuld de gewenste locaties op basis van de regio.
+* Probleem opgelost in een Cross-partitie query's met Min/Max en een filter op dat overeenkomt met geen documenten op een afzonderlijke partitie.
+* DocumentClient methoden hebben nu pariteit met IDocumentClient.
+* Bijgewerkte direct TCP-transport-stack om te beperken van het aantal verbindingen tot stand gebracht.
+* Ondersteuning toegevoegd voor Direct via TCP-modus voor niet-Windows-clients.
+
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
 * Ondersteuning voor toegevoegde aanvraag annuleren.
@@ -309,8 +318,7 @@ De aanvragen die naar Azure Cosmos DB met behulp van een buiten gebruik gestelde
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
-| [2.0.0-preview2](#2.0.0-preview2) |26 juli 2018 |--- |
-| [2.0.0-Preview](#2.0.0-preview) |11 mei 2018 |--- |
+| [2.0.0](#2.0.0) |07 september 2018 |--- |
 | [1.22.0](#1.22.0) |19 april 2018 |--- |
 | [1.21.1](#1.20.1) |09 maart 2018 |--- |
 | [1.20.2](#1.20.1) |21 februari 2018 |--- |

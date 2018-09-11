@@ -11,15 +11,15 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/25/2016
 ms.author: glenga
-ms.openlocfilehash: 4561b343fa15346388572a70616840be0dd06679
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 7529d20535eedab92d164df5a0435efeda83fca2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095484"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301545"
 ---
 # <a name="continuous-deployment-for-azure-functions"></a>Doorlopende implementatie voor Azure Functions
-Azure Functions kunt eenvoudig uw functie-app met behulp van continue integratie van App Service implementeren. Functions integreert met BitBucket, Dropbox, GitHub en Visual Studio Team Services (VSTS). Hierdoor wordt een werkstroom waar functiecode updates die worden gemaakt met behulp van een van deze implementatie van de trigger geïntegreerde services naar Azure. Als u niet bekend bent met Azure Functions, begint u met [overzicht van Azure Functions](functions-overview.md).
+Azure Functions kunt eenvoudig uw functie-app met behulp van continue integratie van App Service implementeren. Functions integreert met BitBucket, Dropbox, GitHub en DevOps met Azure. Hierdoor wordt een werkstroom waar functiecode updates die worden gemaakt met behulp van een van deze implementatie van de trigger geïntegreerde services naar Azure. Als u niet bekend bent met Azure Functions, begint u met [overzicht van Azure Functions](functions-overview.md).
 
 Continue implementatie is een goede optie voor projecten waar meerdere en regelmatige bijdragen worden geïntegreerd. Ook kunt u de bron-controle voor uw functions-code behoudt. De volgende implementatiebronnen wordt momenteel ondersteund:
 
@@ -29,7 +29,7 @@ Continue implementatie is een goede optie voor projecten waar meerdere en regelm
 * [Lokale GIT-opslagplaats](../app-service/app-service-deploy-local-git.md)
 * [GitHub](https://github.com)
 * [OneDrive](https://onedrive.live.com/)
-* [Visual Studio Team Services](https://www.visualstudio.com/team-services/)
+* [Azure DevOps-Services](https://www.visualstudio.com/team-services/)
 
 Implementaties worden geconfigureerd op basis van per functie-app. Nadat u continue implementatie is ingeschakeld, toegang tot de functiecode in de portal is ingesteld op *alleen-lezen*.
 
@@ -39,10 +39,10 @@ In de implementatiebron van de voordat u continue implementatie instellen, moet 
 
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Als u wilt implementeren vanuit VSTS, moet u eerst uw VSTS-account koppelen aan uw Azure-abonnement. Zie voor meer informatie, [de facturering voor uw VSTS-account instellen](https://docs.microsoft.com/vsts/billing/set-up-billing-for-your-account-vs?view=vsts#set-up-billing-via-the-azure-portal).
+Als u wilt implementeren vanuit Azure DevOps, moet u eerst uw Azure DevOps-organisatie koppelen aan uw Azure-abonnement. Zie voor meer informatie, [de facturering voor uw organisatie Azure DevOps instellen](https://docs.microsoft.com/azure/devops/organizations/billing/set-up-billing-for-your-organization-vs?view=vsts#set-up-billing-via-the-azure-portal).
 
 ## <a name="set-up-continuous-deployment"></a>Doorlopende implementatie instellen
-Gebruik deze procedure om continue implementatie voor een bestaande functie-app te configureren. Deze stappen laten zien dat integratie met een GitHub-opslagplaats, maar gelijksoortige stappen gelden voor Visual Studio Team Services of andere implementatieservices.
+Gebruik deze procedure om continue implementatie voor een bestaande functie-app te configureren. Deze stappen laten zien dat integratie met een GitHub-opslagplaats, maar gelijksoortige stappen gelden voor Azure DevOps- of andere implementatieservices.
 
 1. In uw functie-app in de [Azure-portal](https://portal.azure.com), klikt u op **platformfuncties** en **implementatieopties**. 
    

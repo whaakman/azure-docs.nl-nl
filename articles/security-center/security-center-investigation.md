@@ -9,17 +9,17 @@ editor: ''
 ms.assetid: a8e894a9-8781-4749-ae8f-8c8e01658566
 ms.service: security-center
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: terrylan
-ms.openlocfilehash: 010c641c247552a8994c9d1c945cd585148fadf9
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: 8c236b995d71cd067546cea5eeaaebe6d5dc4fab
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37340787"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300644"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-preview"></a>Incidenten en waarschuwingen onderzoeken in Azure Security Center (Preview)
 In dit document wordt uitgelegd hoe u de onderzoeksfunctie van Azure Security Center gebruikt voor het onderzoeken van beveiligingsincidenten en waarschuwingen.
@@ -62,11 +62,11 @@ Het tabblad **Entiteiten** bevat alle gerelateerde entiteiten gegroepeerd op typ
 
 ![Entiteiten](./media/security-center-investigation/security-center-investigation-fig4.png)
 
-### <a name="search"></a>Search
+### <a name="search"></a>Zoeken
 
 Het tabblad **Zoeken** bevat alle typen logboeken die beschikbaar zijn voor de entiteit. Voor elk type logboek kunt u zien hoeveel records er zijn vastgelegd in het logboek. Klik op een type logboek om naar het zoekscherm te gaan. Hier kunt u uw zoekopdracht verfijnen en de verschillende zoekfuncties gebruiken, zoals het instellen van waarschuwingen. In de huidige versie is het tabblad Zoeken alleen beschikbaar voor de entiteiten gebruikers en computers.
 
-![Search](./media/security-center-investigation/security-center-investigation-fig5.png)
+![Zoeken](./media/security-center-investigation/security-center-investigation-fig5.png)
 
 ### <a name="exploration"></a>Verkennen
 

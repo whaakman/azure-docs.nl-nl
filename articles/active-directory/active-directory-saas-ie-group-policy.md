@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 70552e982ff4c21d02b5f52ea48f108ce7f3b97e
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: ce27f51dc5e80b4ce2bd83b5f9f6c75853a2ea73
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366806"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325274"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Over het implementeren van het Configuratiescherm-extensie voor toegang voor Internet Explorer met behulp van Groepsbeleid
 Deze zelfstudie laat zien hoe u kunt Groepsbeleid gebruiken om de extensie van het toegangsvenster voor Internet Explorer op afstand installeren op uw gebruikers virtuele machines. Deze uitbreiding is vereist voor Internet Explorer-gebruikers die u moeten zich aanmelden bij apps die zijn geconfigureerd met behulp van [wachtwoord gebaseerde eenmalige aanmelding](manage-apps/what-is-single-sign-on.md#password-based-single-sign-on).
@@ -29,7 +29,7 @@ Het verdient aanbeveling dat beheerders de implementatie van deze extensie wilt 
 
 De extensie van het toegangsvenster is ook beschikbaar voor [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) en [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998), geen van beide vereist beheerdersmachtigingen om te installeren.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 * U hebt ingesteld [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), en u hebt uw gebruikers machines toegevoegd aan uw domein.
 * U moet de machtiging 'Instellingen bewerken' voor het bewerken van het groepsbeleidsobject (GPO) hebben. Standaard hebben leden van de volgende beveiligingsgroepen deze machtiging: Domeinadministrators, Ondernemingsadministrators en beveiligingsgroep Maker Eigenaar Groepsbeleid. [Meer informatie.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
@@ -120,7 +120,7 @@ De extensie moet nu worden ingeschakeld voor de machines in de geselecteerde org
 ## <a name="step-5-optional-disable-remember-password-prompt"></a>Stap 5 (optioneel): "Wachtwoord onthouden" Prompt uitschakelen
 Wanneer gebruikers zich aanmelden met behulp van de uitbreiding van het deelvenster toegang tot websites, kan Internet Explorer het volgende bericht waarin wordt gevraagd 'Wilt u dat voor het opslaan van uw wachtwoord?' weergeven
 
-![](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
+![Wachtwoord wordt gevraagd](./media/active-directory-saas-ie-group-policy/remember-password-prompt.png)
 
 Als u voorkomen dat uw gebruikers zien deze prompt wilt, klikt u vervolgens de volgende stappen om te voorkomen dat automatisch aanvullen van onthouden wachtwoorden:
 

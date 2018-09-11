@@ -1,47 +1,47 @@
 ---
 title: Roaming en samenwerking in Azure Machine Learning Workbench | Microsoft Docs
-description: Informatie over het instellen van roaming en samenwerking in Machine Learning-Workbench.
+description: Meer informatie over het instellen van roaming en samenwerking in Machine Learning Workbench.
 services: machine-learning
 author: hning86
 ms.author: haining
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 11/16/2017
-ms.openlocfilehash: dd83fe3659779e7d49c36e6d906cc3b8019099a1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 0abc5e34d2bfa1cf2a9fc0569831e21ed295891c
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834206"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296496"
 ---
 # <a name="roaming-and-collaboration-in-azure-machine-learning-workbench"></a>Roaming en samenwerking in Azure Machine Learning Workbench
-Dit artikel wordt beschreven hoe u Azure Machine Learning Workbench projecten instellen voor roaming tussen computers en samenwerken met teamleden kunt gebruiken. 
+Dit artikel wordt beschreven hoe u Azure Machine Learning Workbench kunt gebruiken om te stellen projecten voor roaming tussen computers en samenwerken met teamleden. 
 
-Wanneer u een Azure Machine Learning-project met een externe Git-opslagplaats (opslagplaats) koppeling maakt, worden de project-metagegevens en momentopnamen worden opgeslagen in de cloud. U kunt de koppeling voor cloud gebruiken voor toegang tot het project vanaf een andere computer (roaming). Ook kunt u samenwerken met teamleden door hen toegang geven tot het project. 
+Wanneer u een Azure Machine Learning-project met een externe Git-opslagplaats (opslagplaats) koppeling maakt, worden de metagegevens van het project en de momentopnamen worden opgeslagen in de cloud. U kunt de koppeling van de cloud gebruiken voor toegang tot het project vanaf een andere computer (roaming). Ook kunt u samenwerken met teamleden door zodat ze toegang hebben tot het project. 
 
-## <a name="prerequisites"></a>Vereisten
-1. De Machine Learning-Workbench app installeren. Zorg ervoor dat u toegang tot een Azure Machine Learning-experimenten-account hebben. Zie voor meer informatie de [installatiehandleiding](../service/quickstart-installation.md).
+## <a name="prerequisites"></a>Vereiste onderdelen
+1. De Machine Learning Workbench-app installeren. Zorg ervoor dat u toegang tot een Azure Machine Learning experimenten-account hebt. Zie voor meer informatie de [installatiehandleiding](../service/quickstart-installation.md).
 
-2. Toegang [Visual Studio Team Services](https://www.visualstudio.com) (Team Services), en maak vervolgens een opslagplaats voor uw project om te koppelen. Zie voor meer informatie [met behulp van een Git-opslagplaats met een Machine Learning Workbench project](using-git-ml-project.md).
+2. Toegang tot [Azure DevOps](https://www.visualstudio.com) en maak vervolgens een opslagplaats voor uw project te koppelen. Zie voor meer informatie, [met behulp van een Git-opslagplaats met een Machine Learning Workbench-project](using-git-ml-project.md).
 
-## <a name="create-a-new-machine-learning-project"></a>Een nieuwe Machine Learning-project maken
-Machine Learning Workbench openen en maak vervolgens een nieuw project (bijvoorbeeld een project met de naam iris). In de **Visualstudio.com GIT-opslagplaats URL** Voer een geldige URL voor een Team Services Git-opslagplaats. 
+## <a name="create-a-new-machine-learning-project"></a>Een nieuw Machine Learning-project maken
+Machine Learning Workbench openen en maak vervolgens een nieuw project (bijvoorbeeld, een project met de naam iris). In de **Visualstudio.com GIT Repository URL** voert u een geldige URL voor een Azure DevOps Git-repo. 
 
 > [!IMPORTANT]
-> Als u de sjabloon leeg project kiest, kan de Git-opslagplaats die u wilt gebruiken al een hoofdvertakking hebben. Machine Learning kloont gewoon de hoofdvertakking lokaal. Deze wordt de map aml_config en andere metagegevens projectbestanden toegevoegd aan de lokale projectmap. 
+> Als u ervoor de lege projectsjabloon, maken kiest, is de Git-opslagplaats die u wilt gebruiken mogelijk al een master-vertakking. Machine Learning wordt gewoon de master-vertakking lokaal klonen. Dit wordt de map aml_config en andere metagegevens projectbestanden toegevoegd aan de lokale projectmap. 
 >
-> Als u een andere projectsjabloon, Git-opslagplaats *kan niet* hebt u al een hoofdvertakking. Als dit het geval is, ziet u een fout opgetreden. Het alternatief is de `az ml project create` opdracht het project te maken met een `--force` overschakelen. Dit wordt verwijderd van de bestanden in de oorspronkelijke hoofdvertakking en ze vervangen door de bestanden in de sjabloon die u kiest.
+> Als u een andere projectsjabloon, uw Git-repo *kan geen* hebt u al een master-vertakking. Als dit wel gebeurt, ziet u een fout. Het alternatief is het gebruik van de `az ml project create` opdracht voor het maken van het project met een `--force` overschakelen. Dit verwijdert de bestanden in de oorspronkelijke master-vertakking en wordt deze vervangen door de nieuwe bestanden in de sjabloon die u kiest.
 
-Nadat het project is gemaakt, indienen enkele wordt uitgevoerd op de scripts die zich in het project. Deze actie voert de projectstatus aan van de externe Git-opslagplaats uitvoeringsgeschiedenis vertakking. 
+Nadat het project is gemaakt, verzendt u een paar wordt uitgevoerd op alle scripts die zich in het project. Deze actie voert de projectstatus op vertakking van de uitvoeringsgeschiedenis van de externe Git-opslagplaats. 
 
 > [!NOTE] 
-> Alleen script uitgevoerd trigger doorvoeracties naar de vertakking uitvoeringsgeschiedenis. Gegevens voorbereiden uitvoering en laptop wordt uitgevoerd geen momentopnamen van het project in de vertakking uitvoeringsgeschiedenis activeren.
+> Trigger-doorvoeracties alleen script uitgevoerd op de vertakking van de uitvoeringsgeschiedenis. Dataprep worden uitgevoerd en een laptop uitvoeringen projectmomentopnamen in de vertakking van de uitvoeringsgeschiedenis niet activeren.
 
-Als u Git-verificatie hebt ingesteld, kunt u ook gebruiken in de hoofdvertakking. Of u een nieuwe vertakking kunt maken. 
+Als u een Git-verificatie hebt ingesteld, kunt u ook gebruiken in de master-vertakking. Of u kunt een nieuwe vertakking maken. 
 
 Voorbeeld: 
 ```
@@ -61,39 +61,39 @@ $ git push origin master
 ## <a name="roaming"></a>Roaming
 <a name="roaming"></a>
 
-### <a name="open-machine-learning-workbench-on-a-second-computer"></a>Machine Learning-Workbench op een tweede computer openen
-Nadat het Team Services Git-opslagplaats is gekoppeld aan uw project, kunt u het project iris kunt openen vanaf elke computer met Machine Learning-Workbench is geïnstalleerd een. 
+### <a name="open-machine-learning-workbench-on-a-second-computer"></a>Machine Learning Workbench op een tweede computer openen
+Nadat de Azure DevOps Git-opslagplaats is gekoppeld aan uw project, kunt u het iris-project openen vanaf elke computer met Machine Learning Workbench zijn geïnstalleerd. 
 
-Voor toegang tot het project iris op een andere computer, moet u zich bij de app aanmelden met dezelfde referenties die u hebt gebruikt om het project te maken. Ook moet u zich in hetzelfde account van de Machine Learning experimenteren en werkruimte. Het project iris wordt alfabetisch met andere projecten in de werkruimte weergegeven. 
+Voor toegang tot het iris-project op een andere computer, moet u zich aan de app aanmelden met dezelfde referenties die u hebt gebruikt om het project te maken. U moet ook worden in de werkruimte en hetzelfde Machine Learning experimenten-account. Het iris-project op alfabetische volgorde weergegeven met andere projecten in de werkruimte. 
 
 ### <a name="download-the-project-on-a-second-computer"></a>Het project op een tweede computer downloaden
-Wanneer u de werkruimte is geopend op de tweede computer, wordt het pictogram naast het project iris verschilt van het pictogram typische map. De downloadpictogram geeft aan dat de inhoud van het project in de cloud, en dat het project is gereed om te worden gedownload naar de huidige computer. 
+Wanneer u de werkruimte is geopend op de tweede computer, wordt het pictogram naast het iris-project verschilt van het pictogram van de typische map. Het downloadpictogram geeft aan dat de inhoud van het project zich in de cloud, en dat het project is gereed om te worden gedownload naar de huidige computer. 
 
 ![Project maken](./media/roaming-and-collaboration/downloadable-project.png)
 
-Selecteer het project iris om te beginnen met een download. Wanneer het downloaden is voltooid, is het project is gereed om te worden geopend op de tweede computer. 
+Selecteer het iris-project om te beginnen met een download. Wanneer het downloaden is voltooid, wordt het project is gereed om te worden geopend op de tweede computer. 
 
-In Windows, het project bevindt zich op C:\Users\\< gebruikersnaam\>\Documents\AzureML.
+Op Windows, het project bevindt zich in C:\Users\\< gebruikersnaam\>\Documents\AzureML.
 
-Op Mac OS, het project bevindt zich op /home/\<gebruikersnaam \> /documenten/AzureML.
+Op Mac OS, het project bevindt zich in /home/\<gebruikersnaam \> /documenten/AzureML.
 
-We zullen verbeteren functionaliteit zodat u kunt een doelmap selecteren in een toekomstige release. 
+We willen verbeteren van functies, zodat u kunt een doelmap selecteren in een toekomstige release. 
 
 > [!NOTE]
-> Als u een map in de map voor Machine Learning met exact dezelfde naam als het project hebt, mislukt het downloaden. U kunt dit probleem omzeilen, tijdelijk Wijzig de naam van de bestaande map.
+> Hebt u een map in de adreslijst voor Machine Learning met exact dezelfde naam als het project, mislukt het downloaden. U kunt dit probleem omzeilen, moet u tijdelijk de bestaande map wijzigen.
 
 
-### <a name="work-on-the-downloaded-project"></a>Werken aan het gedownloade project 
-De zojuist gedownloade project weerspiegelt de projectstatus op de laatste uitvoering in het project. Een momentopname van de projectstatus wordt automatisch doorgevoerd in de vertakking uitvoeringsgeschiedenis in het Team Services Git-opslagplaats telkens wanneer het verzenden van een uitvoering. De momentopname die is gekoppeld aan de meest recente uitvoeren wordt gebruikt voor het instantiëren van het project op de tweede computer. 
+### <a name="work-on-the-downloaded-project"></a>Werken op het gedownloade project 
+De zojuist gedownloade project weerspiegelt de projectstatus op de laatste uitvoering in het project. Een momentopname van de projectstatus is automatisch doorgevoerd op de vertakking van de uitvoeringsgeschiedenis in de Azure DevOps Git-opslagplaats telkens wanneer u een uitvoering verzenden. De momentopname die is gekoppeld aan de meest recente uitvoering wordt gebruikt voor het starten van het project op de tweede computer. 
  
 
 ## <a name="collaboration"></a>Samenwerking
-U kunt samenwerken met teamleden op projecten die zijn gekoppeld aan een Team Services Git-opslagplaats. U kunt machtigingen toewijzen aan gebruikers voor de Machine Learning-experimenten account werkruimte en project. Op dit moment kunt u Azure Resource Manager-opdrachten uitvoeren met behulp van Azure CLI. U kunt ook de [Azure-portal](https://portal.azure.com). Zie voor meer informatie [Azure portal gebruiken om toe te voegen gebruikers](#portal).    
+U kunt samenwerken met teamleden op projecten die zijn gekoppeld aan een Azure DevOps Git-repo. U kunt machtigingen toewijzen aan gebruikers voor de Machine Learning experimenten-account, een werkruimte en een project. Op dit moment kunt u Azure Resource Manager-opdrachten uitvoeren met behulp van Azure CLI. U kunt ook de [Azure-portal](https://portal.azure.com). Zie voor meer informatie, [Azure portal gebruiken om toe te voegen gebruikers](#portal).    
 
-### <a name="use-the-command-line-to-add-users"></a>Gebruik de opdracht gebruikers toevoegen
-Els is bijvoorbeeld de eigenaar van het project iris. Alice wil de toegang tot het project met Bob delen. 
+### <a name="use-the-command-line-to-add-users"></a>De opdrachtregel gebruiken voor het toevoegen van gebruikers
+Els wordt bijvoorbeeld de eigenaar van het iris-project. Alice wil de toegang tot het project delen met Bob. 
 
-Els selecteert de **bestand** menu en selecteert de **opdrachtprompt** menu-item. Het opdrachtpromptvenster geopend met het project iris. Els kunt vervolgens beslissen welk niveau van toegang wil ze geven tot Bob. Ze verleent machtigingen door het uitvoeren van de volgende opdrachten:  
+Els selecteert de **bestand** menu en selecteert de **opdrachtprompt** menu-item. Het opdrachtpromptvenster geopend met het iris-project. Els kunt vervolgens beslissen welk niveau van toegang die ze wil geven tot Bob. Ze verleent machtigingen door het uitvoeren van de volgende opdrachten:  
 
 ```azurecli
 # Find the Resource Manager ID of the Experimentation account.
@@ -111,34 +111,34 @@ az ml workspace show --query "id"
 az role assignment create --assignee bob@contoso.com --role Owner --scope <workspace Resource Manager ID>
 ```
 
-Na de roltoewijzing ziet rechtstreeks of door overname Bob het project in de lijst met Machine Learning-Workbench. Bob moet mogelijk opnieuw opstarten van de toepassing om te zien van het project. Bob kan downloadt u het project zoals beschreven in [Roaming](#roaming), en beginnen met Els samenwerken. 
+Na de roltoewijzing ziet rechtstreeks of door overname Bob het project in de lijst van de Machine Learning Workbench-project. Bob moet mogelijk opnieuw opstarten van de toepassing om te zien van het project. Berend klikt u vervolgens het project kunt downloaden zoals beschreven in [Roaming](#roaming), en beginnen met Els. 
 
-De uitvoeringsgeschiedenis voor alle gebruikers die aan een project samenwerken is doorgevoerd in de dezelfde externe Git-opslagplaats. Als Els wordt uitgevoerd een uitvoering, is Bob ziet de uitvoeren in de sectie uitvoeringsgeschiedenis van het project in de Workbench van Machine Learning-app. Bob kunt ook het project terugzetten naar de status van alle wordt uitgevoerd, met inbegrip van wordt uitgevoerd die Els gestart. 
+De uitvoeringsgeschiedenis voor alle gebruikers die aan een project samenwerken is doorgevoerd naar dezelfde externe Git-repo. Wanneer Els wordt uitgevoerd een uitvoering, is Bob ziet de uitvoering in de sectie van de uitvoeringsgeschiedenis van het project in de Machine Learning Workbench-app. Bob kunt ook het project terugzetten naar de status van elke uitvoering, inclusief de uitvoeringen die Alice gestart. 
 
-Een externe Git-opslagplaats voor het project wordt gedeeld, kunnen Alice en Bob ook samenwerken in de hoofdvertakking. Indien nodig, ze kunnen ook persoonlijke vertakkingen en maken en gebruiken Git pull-aanvragen samenvoegingen om samen te werken. 
+Een externe Git-opslagplaats voor het project wordt gedeeld, Els en Bob kunnen ook samenwerken in de master-vertakking. Indien nodig, kunnen ze ook persoonlijke vertakkingen maken en gebruiken en samenvoegen van Git pull-aanvragen om samen te werken. 
 
-### <a name="use-the-azure-portal-to-add-users"></a>De Azure portal gebruiken om gebruikers te voegen
+### <a name="use-the-azure-portal-to-add-users"></a>De Azure portal gebruiken voor het toevoegen van gebruikers
 <a name="portal"></a>
 
-Machine Learning-experimenten accounts, -werkruimten en projecten zijn Azure Resource Manager-resources. Als u wilt toewijzen van rollen kunt u de **toegangsbeheer** koppelen de [Azure-portal](https://portal.azure.com). 
+Machine Learning experimenten-accounts, werkruimten en projecten zijn Azure Resource Manager-resources. Als u wilt toewijzen van rollen, kunt u de **Access Control** herstelkoppeling in de [Azure-portal](https://portal.azure.com). 
 
-Vinden van de resource die u wilt dat gebruikers toevoegen aan met behulp van de **alle Resources** weergeven. Selecteer de **toegangsbeheer (IAM)** koppelen, en selecteer vervolgens **gebruikers toevoegen**. 
+Zoek de resource die u toevoegen van gebruikers wilt met behulp van de **alle Resources** weergeven. Selecteer de **toegangsbeheer (IAM)** koppelen en selecteer vervolgens **gebruikers toevoegen**. 
 
 <img src="./media/roaming-and-collaboration/iam.png" width="320px">
 
-## <a name="sample-collaboration-workflow"></a>Samenwerking voorbeeldwerkstroom
-Ter illustratie van de werkstroom samenwerking, kunt u een voorbeeld gaan we doorlopen. Contoso werknemers Alice en Bob wilt samenwerken aan een project van de wetenschappelijke gegevens met behulp van Machine Learning-Workbench. Hun identiteit deel uitmaken van dezelfde tenant Contoso Azure Active Directory (Azure AD). Hier volgen de stappen Alice en Bob nemen:
+## <a name="sample-collaboration-workflow"></a>Voorbeeldwerkstroom voor samenwerking
+Ter illustratie van de werkstroom voor samenwerking, gaan we nemen een voorbeeld. Contoso-werknemers Alice en Bob wilt samenwerken aan een data science-project met behulp van Machine Learning Workbench. De identiteit behoren tot dezelfde tenant Contoso Azure Active Directory (Azure AD). Hier volgen de stappen Alice en Bob nemen:
 
-1. Els maakt een lege Git-opslagplaats in een Team Services-project. Het Team Services-project moet zich in een Azure-abonnement dat wordt gemaakt onder de Contoso Azure AD-tenant. 
+1. Alice maakt een lege Git-repo in een Azure DevOps-project. Het Azure DevOps-project moet zich in een Azure-abonnement dat onder de Contoso Azure AD-tenant wordt gemaakt. 
 
-2. Els wordt gemaakt van een Machine Learning-experimenten, een werkruimte, en een Machine Learning Workbench-project op hun computers. Wanneer ze het project maakt, voert ze de URL van de Team Services Git-opslagplaats.
+2. Els wordt gemaakt van een Machine Learning experimenten-account, een werkruimte en een Machine Learning Workbench-project op haar computer. Wanneer ze het project maakt, voert ze de URL van het Azure DevOps Git-opslagplaats.
 
-3. Els begint te werken op het project. Ze sommige scripts maakt en voert een paar wordt uitgevoerd. Voor elke run wordt een momentopname van de hele projectmap automatisch doorgegeven als een doorvoer voor een vertakking uitvoeringsgeschiedenis van het Team Services Git-opslagplaats die Machine Learning-Workbench worden gemaakt.
+3. Els begint te werken op het project. Ze sommige scripts maakt en een paar runs wordt uitgevoerd. Voor elke uitvoering, wordt een momentopname van de hele projectmap automatisch doorgestuurd als een wijziging aan een vertakking van de uitvoeringsgeschiedenis van het Azure DevOps Git-repo die Machine Learning Workbench wordt gemaakt.
 
-4. Els is tevreden het onderhanden werk. Ze wil haar wijzigingen in de lokale hoofdvertakking en vervolgens toepassen op de hoofdvertakking voor Team Services Git-opslagplaats. Open het project en klik in Machine Learning Workbench, ze Hiermee opent u het opdrachtpromptvenster en voert deze opdrachten:
+4. Els wordt tevreden is met het werk in uitvoering. Ze wil haar wijzigingen aan in de lokale master-vertakking en push ze vervolgens naar Azure DevOps Git-opslagplaats master-vertakking. Open het project en klik in Machine Learning Workbench, ze opent u het venster opdrachtprompt en voert vervolgens deze opdrachten:
     
     ```sh
-    # Verify that the Git remote is pointing to the Team Services Git repo.
+    # Verify that the Git remote is pointing to the Azure DevOps Git repo.
     $ git remote -v
 
     # Verify that the current branch is master.
@@ -150,39 +150,39 @@ Ter illustratie van de werkstroom samenwerking, kunt u een voorbeeld gaan we doo
     # Commit changes with a comment.
     $ git commit -m "this is a good milestone"
 
-    # Push the commit to the master branch of the remote Git repo in Team Services.
+    # Push the commit to the master branch of the remote Git repo in Azure DevOps.
     $ git push
     ```
 
-5. Els wordt Bob toegevoegd aan de werkruimte als medewerker. Ze kan dit doen in de Azure portal of met behulp van de `az role assignment` opdracht, zoals eerder is uitgelegd. Els verleent ook Bob lezen/schrijven machtigingen voor het Team Services Git-opslagplaats.
+5. Els wordt Bob toegevoegd aan de werkruimte als een Bijdrager. Ze kan dit doen in Azure portal of met behulp van de `az role assignment` opdracht, zoals eerder is uitgelegd. Els biedt tevens Bob lezen/schrijven machtigingen op de Azure DevOps Git-opslagplaats.
 
-6. Bob zich aanmeldt bij Machine Learning-Workbench op deze computer. Hij kunt de werkruimte die Els gedeeld met hem zien. Hij kunt het iris project vermeld in deze werkruimte zien. 
+6. Bob op zijn computer, moet u zich aanmeldt bij Machine Learning Workbench. Hij ziet de werkruimte die Els met hem heeft gedeeld. Hij kunt het iris-project dat is vermeld in deze werkruimte zien. 
 
-7. Bob selecteert de naam van het project. Het project gedownload op deze computer.
-    * Het gedownloade project-bestanden zijn een kopie van de momentopname van de meest recente uitvoeren die zijn vastgelegd in de geschiedenis uitvoeren. Ze zijn niet het laatste doorvoeren op de hoofdvertakking.
-    * De lokale projectmap is ingesteld op de hoofdvertakking, met de unstaged wijzigingen.
+7. Bob selecteert de naam van het project. Het project wordt gedownload naar deze computer.
+    * Het gedownloade project-bestanden zijn een kopie van de momentopname van de meest recente uitvoering die vastgelegd in de uitvoeringsgeschiedenis. Ze zijn niet de laatste doorvoering van de master-vertakking.
+    * De lokale projectmap is ingesteld op de master-vertakking, met de niet-klaargezette wijzigingen.
 
-8. Bob kunt bladeren wordt uitgevoerd die zijn uitgevoerd door Els. Hij kunt herstellen momentopnamen van een eerder wordt uitgevoerd.
+8. Bob kunt bladeren wordt uitgevoerd die zijn uitgevoerd door Els. Hij kunt momentopnamen van een eerdere uitvoeringen herstellen.
 
-9. Bob wil ophalen van de meest recente wijzigingen die Els gepusht en start vervolgens werken in een ander filiaal. In Machine Learning Workbench, Bob opent een opdrachtpromptvenster en voert de volgende opdrachten:
+9. Bob wil ophalen van de meest recente wijzigingen die Alice gepusht en vervolgens beginnen met werken in een andere vertakking. In Machine Learning Workbench is Bob opent een opdrachtpromptvenster, en Hiermee voert u de volgende opdrachten:
 
     ```sh
-    # Verify that the Git remote is pointing to the Team Services Git repo.
+    # Verify that the Git remote is pointing to the Azure DevOps Git repo.
     $ git remote -v
 
     # Verify that the current branch is master.
     $ git branch
 
-    # Get the latest commit in the Team Services Git master branch and overwrite current files.
+    # Get the latest commit in the Azure DevOps Git master branch and overwrite current files.
     $ git pull --force
 
     # Create a new local branch named "bob" so that Bob's work is done in the "bob" branch
     $ git checkout -b bob
     ```
 
-10. Bob wijzigt van het project en verzendt nieuwe wordt uitgevoerd. De wijzigingen worden aangebracht op de vertakking bob. Berend wordt uitgevoerd wordt ook zichtbaar voor Els.
+10. Bob Hiermee wijzigt u het project en nieuwe uitvoeringen verzendt. De wijzigingen zijn aangebracht op de vertakking bob. Berend uitgevoerd wordt ook zichtbaar voor Els.
 
-11. Bob is gereed voor de push-zijn wijzigingen naar de externe Git-opslagplaats. Om te voorkomen, veroorzaken een conflict met de hoofdvertakking, waarbij Els werkt, duwt Berend zijn werk aan een nieuwe externe vertakking bob ook met de naam.
+11. Bob is gereed voor zijn wijzigingen naar de externe Git-opslagplaats te pushen. Om te voorkomen dat veroorzaken een conflict met de master-vertakking waar Els werkt, pushes Bob zijn werk aan een nieuwe externe vertakking, ook met de naam bob.
 
     ```sh
     # Verify that the current branch is "bob," and that it has unstaged changes.
@@ -194,11 +194,11 @@ Ter illustratie van de werkstroom samenwerking, kunt u een voorbeeld gaan we doo
     # Commit the changes with a comment.
     $ git commit -m "I found a cool new trick."
 
-    # Create a new branch on the remote Team Services Git repo, and then push the changes.
+    # Create a new branch on the remote Azure DevOps Git repo, and then push the changes.
     $ git push origin bob
     ```
 
-12. Om te laten Els over de handige nieuwe truc in diens code, maakt Bob een pull-aanvraag op de externe Git-opslagplaats van de vertakking bob naar de hoofdvertakking. Els kan vervolgens samenvoegen met de pull-aanvraag de hoofdvertakking.
+12. Als u wilt laten weten Els over de handige nieuwe truc in zijn code, maakt Bob een pull-aanvraag op de externe Git-opslagplaats van de vertakking bob naar de hoofdvertakking. Els kan vervolgens de pull-aanvraag samenvoegen in de master-vertakking.
 
 ## <a name="next-steps"></a>Volgende stappen
-- Meer informatie over [met behulp van een Git-opslagplaats met een Machine Learning Workbench project](using-git-ml-project.md).
+- Meer informatie over [met behulp van een Git-opslagplaats met een Machine Learning Workbench-project](using-git-ml-project.md).

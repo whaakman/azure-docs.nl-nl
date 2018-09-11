@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/09/2018
 ms.author: barbkess
-ms.openlocfilehash: 5236e9620d68d2ac4dcc544482d244c1e998be9d
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1e7b6c411fb834214c98e541343171e7ba226ca1
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365369"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325410"
 ---
 # <a name="how-to-choose-which-application-type-to-use-when-adding-an-application"></a>Kiezen welk toepassingstype moet worden gebruikt bij het toevoegen van een toepassing
 
@@ -65,7 +65,7 @@ De volgende functies worden ondersteund door een van de voorgaande vier typen in
 
 De volgende tabel beschrijft de verschillende single sign-on en inrichting modi ondersteund door elk van de voorgaande toepassingstypen. U kunt deze tabel om u te begrijpen welke toepassing die u toevoegen wilt ter ondersteuning van een bepaald doel te gebruiken.
 
-  ![Tabel met typen App](./media/application-tables/table1.png)
+  ![Tabel met typen App](./media/application-config-add-app-problem-how-to-choose-application-type/table1.png)
 
 ## <a name="how-to-choose-a-single-sign-on-mode"></a>Het kiezen van een modus voor eenmalige aanmelding
 

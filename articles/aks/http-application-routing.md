@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/25/2018
 ms.author: laevenso
-ms.openlocfilehash: 93b9075831db356607438288a7c153dde2f8b210
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 8934852fe3d95d0a96af0283c30bba4b3bdb411b
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42056888"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345876"
 ---
 # <a name="http-application-routing"></a>Routering van HTTP-toepassing
 
@@ -164,7 +164,7 @@ De HTTP-routering oplossing kan worden verwijderd met de Azure CLI. Voer de volg
 az aks disable-addons --addons http_application_routing --name myAKSCluster --resource-group myResourceGroup --no-wait
 ```
 
-## <a name="troubleshoot"></a>Problemen oplossen
+## <a name="troubleshoot"></a>Probleem oplossen
 
 Gebruik de [kubectl logboeken] [ kubectl-logs] opdracht om de toepassingslogboeken voor de externe DNS-toepassing weer te geven. De logboeken te bevestigen dat een A- en DNS TXT-record zijn gemaakt.
 
@@ -237,7 +237,7 @@ Zie voor meer informatie over het installeren van een HTTPS-beveiligde ingangsco
 <!-- LINKS - internal -->
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [az-aks-show]: /cli/azure/aks?view=azure-cli-latest#az-aks-show
-[ingress-https]: ./ingress.md
+[ingress-https]: ./ingress-tls.md
 [az-aks-enable-addons]: /cli/azure/aks#az-aks-enable-addons
 
 

@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: douglasl
-ms.openlocfilehash: 8bbc64a34b5ae95e044b95f921770adc9045574c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 57c691271c2b2673ade40d600162934341e18a81
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42054114"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300237"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Continue integratie en implementatie in Azure Data Factory
 
@@ -53,9 +53,9 @@ Selecteer **bestand laden** voor het selecteren van de geëxporteerde Resource M
 ![Open-code weer te geven van de verbindingsreeks](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
 ## <a name="continuous-integration-lifecycle"></a>Levenscyclus van continue integratie
-Hier wordt de hele levenscyclus voor doorlopende integratie en implementatie die u kunt gebruiken nadat u VSTS GIT-integratie in de Data Factory-gebruikersinterface ingeschakeld:
+Hier wordt de hele levenscyclus voor doorlopende integratie en implementatie die u kunt gebruiken nadat u Azure DevOps Services GIT-integratie in de Data Factory-gebruikersinterface ingeschakeld:
 
-1.  Instellen van een gegevensfactory ontwikkeling met VSTS waarin alle ontwikkelaars Data Factory-resources, zoals de pijplijnen en gegevenssets kunnen maken.
+1.  Instellen van een development data factory met Azure DevOps-Services waarin alle ontwikkelaars Data Factory-resources, zoals de pijplijnen en gegevenssets kunnen maken.
 
 1.  Ontwikkelaars kunnen vervolgens resources zoals pijplijnen wijzigen. Wanneer ze hun wijzigingen aanbrengt, kunnen ze selecteren **Debug** om te zien hoe de pijplijn wordt uitgevoerd met de meest recente wijzigingen.
 
@@ -67,25 +67,25 @@ Hier wordt de hele levenscyclus voor doorlopende integratie en implementatie die
 
 1.  De geëxporteerde Resource Manager-sjabloon kan worden geïmplementeerd met andere parameterbestanden voor de factory test en de productie-factory.
 
-## <a name="automate-continuous-integration-with-vsts-releases"></a>Continue integratie met VSTS Releases automatiseren
+## <a name="automate-continuous-integration-with-azure-devops-services-releases"></a>Continue integratie met Azure DevOps Services Releases automatiseren
 
-Hier volgen de stappen voor het instellen van een VSTS-Release, zodat u kunt de implementatie van een data factory om meerdere omgevingen te automatiseren.
+Hier volgen de stappen voor het instellen van een versie van Azure DevOps-Services, zodat u kunt de implementatie van een data factory om meerdere omgevingen te automatiseren.
 
-![Diagram van continue integratie met VSTS](media/continuous-integration-deployment/continuous-integration-image12.png)
+![Diagram van continue integratie met Azure DevOps-Services](media/continuous-integration-deployment/continuous-integration-image12.png)
 
 ### <a name="requirements"></a>Vereisten
 
--   Een Azure-abonnement is gekoppeld voor het gebruik van Team Foundation Server of VSTS de [ *Azure Resource Manager-service-eindpunt*](https://docs.microsoft.com/vsts/build-release/concepts/library/service-endpoints#sep-azure-rm).
+-   Een Azure-abonnement is gekoppeld voor het gebruik van Team Foundation Server of Azure DevOps-Services de [ *Azure Resource Manager-service-eindpunt*](https://docs.microsoft.com/azure/devops/pipelines/library/service-endpoints#sep-azure-rm).
 
--   Een Data Factory met VSTS Git geconfigureerd.
+-   Een Data Factory met Azure DevOps Services Git geconfigureerd.
 
 -   Een [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) met de geheimen.
 
-### <a name="set-up-a-vsts-release"></a>Een VSTS-versie instellen
+### <a name="set-up-a-azure-devops-services-release"></a>Instellen van een versie van Azure DevOps-Services
 
-1.  Ga naar uw VSTS-pagina in hetzelfde project als het account dat is geconfigureerd met de Data Factory.
+1.  Ga naar de pagina Azure DevOps-Services in hetzelfde project als het account dat is geconfigureerd met de Data Factory.
 
-1.  Klik op het bovenste menu **Build and Release** &gt; **Releases** &gt; **release-definitie maken**.
+1.  Klik op het bovenste menu **Azure pijplijnen** &gt; **Releases** &gt; **release-definitie maken**.
 
     ![](media/continuous-integration-deployment/continuous-integration-image6.png)
 
@@ -113,15 +113,15 @@ Hier volgen de stappen voor het instellen van een VSTS-Release, zodat u kunt de 
 
     ![](media/continuous-integration-deployment/continuous-integration-image9.png)
 
-1.  Sla de release-definitie.
+1.  Sla de release-pijplijn.
 
-1.  Maak een nieuwe versie van deze release-definitie.
+1.  Maak een nieuwe versie van deze release-pijplijn.
 
     ![](media/continuous-integration-deployment/continuous-integration-image10.png)
 
 ### <a name="optional---get-the-secrets-from-azure-key-vault"></a>Optioneel: de geheimen ophalen uit Azure Key Vault
 
-Als u geheimen om door te geven in een Azure Resource Manager-sjabloon hebt, raden wij met behulp van Azure Key Vault met de VSTS-release.
+Als u geheimen om door te geven in een Azure Resource Manager-sjabloon hebt, raden wij de release van Azure DevOps-Services met behulp van Azure Key Vault.
 
 Er zijn twee manieren voor het afhandelen van de geheimen:
 
@@ -148,7 +148,7 @@ Er zijn twee manieren voor het afhandelen van de geheimen:
 
     -   Het parameterbestand moet zich in de vertakking publiceren ook.
 
-1.  Voeg een [Azure Key Vault-taak](https://docs.microsoft.com/vsts/build-release/tasks/deploy/azure-key-vault) voordat u de Azure Resource Manager-implementatie in de vorige sectie beschreven:
+1.  Voeg een [Azure Key Vault-taak](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-key-vault) voordat u de Azure Resource Manager-implementatie in de vorige sectie beschreven:
 
     -   Selecteer de **taken** tabblad, een nieuwe taak maken, zoekt u **Azure Key Vault** en toe te voegen.
 
@@ -156,13 +156,13 @@ Er zijn twee manieren voor het afhandelen van de geheimen:
 
     ![](media/continuous-integration-deployment/continuous-integration-image8.png)
 
-### <a name="grant-permissions-to-the-vsts-agent"></a>Machtigingen verlenen voor de VSTS-agent
-De Azure Key Vault-taak mislukken de eerste keer met een foutbericht over geweigerde toegang. De logboeken voor de versie te downloaden, en Ga naar de `.ps1` -bestand met de opdracht uit om machtigingen te geven met de VSTS-agent. U kunt de opdracht rechtstreeks uitvoeren, of u kunt kopiëren van de principal-ID uit het bestand en het handmatig toevoegen van het toegangsbeleid in Azure portal. (*Ophalen* en *lijst* zijn de minimale machtigingen die zijn vereist).
+### <a name="grant-permissions-to-the-azure-devops-services-agent"></a>Machtigingen verlenen voor de Services van Azure DevOps-agent
+De Azure Key Vault-taak mislukken de eerste keer met een foutbericht over geweigerde toegang. De logboeken voor de versie te downloaden, en Ga naar de `.ps1` bestand met de opdracht machtigingen geven tot de Services van Azure DevOps-agent. U kunt de opdracht rechtstreeks uitvoeren, of u kunt kopiëren van de principal-ID uit het bestand en het handmatig toevoegen van het toegangsbeleid in Azure portal. (*Ophalen* en *lijst* zijn de minimale machtigingen die zijn vereist).
 
 ### <a name="update-active-triggers"></a>Actieve triggers bijwerken
 Implementatie kan mislukken als u probeert active triggers bijwerken. Voor het actieve triggers bijwerken, moet u handmatig ze stopt en start deze na de implementatie. U kunt een Azure Powershell-taak toevoegen voor dit doel, zoals wordt weergegeven in het volgende voorbeeld:
 
-1.  Zoek in het tabblad taken van de VSTS Release **Azure Powershell** en toe te voegen.
+1.  Zoek in het tabblad taken van de Release van Azure DevOps Services **Azure Powershell** en toe te voegen.
 
 1.  Kies **Azure Resource Manager** als de verbinding typt en selecteer uw abonnement.
 
@@ -180,7 +180,7 @@ U kunt uitvoeren van gelijksoortige stappen en vergelijkbare code gebruiken (met
 
 ## <a name="sample-deployment-template"></a>Voorbeeldsjabloon voor implementatie
 
-Hier volgt een voorbeeld-implementatiesjabloon die u in VSTS importeren kunt.
+Hier volgt een voorbeeld-implementatiesjabloon die u in Azure DevOps-Services importeren kunt.
 
 ```json
 {

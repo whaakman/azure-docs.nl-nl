@@ -15,12 +15,12 @@ ms.date: 06/26/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017; it-pro
-ms.openlocfilehash: 20cc91a1754c3d68b447430abf21a3aad5925e05
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: aa7962e3659618b8c5a4f161d667c5e90477acc9
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365345"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347644"
 ---
 # <a name="troubleshoot-application-proxy-problems-and-error-messages"></a>Oplossen van problemen met Application Proxy- en foutberichten
 Als er fouten optreden bij het openen van een gepubliceerde toepassing of in de publicatie van toepassingen, controleert u de volgende opties om te zien of Microsoft Azure AD Application Proxy correct werkt:
@@ -67,7 +67,7 @@ Deze tabel bevat informatie over de meest voorkomende fouten die afkomstig van d
 | 13016 - azure AD kan een Kerberos-ticket namens de gebruiker niet ophalen omdat er geen UPN in het randtoken of in de cookie toegang. | Er is een probleem met de STS-configuratie. Corrigeer de configuratie van de UPN-claim in de STS. |
 | 13019 - azure AD kan een Kerberos-ticket namens de gebruiker niet ophalen vanwege de volgende algemene API-fout. | Deze gebeurtenis kan duiden op een onjuiste configuratie tussen Azure AD en de domeincontrollerserver of een probleem in de configuratie van datum en tijd op beide computers. De domeincontroller afgewezen het Kerberos-ticket gemaakt door Azure AD. Controleer of dat door Azure AD en de back-end-toepassingsserver zijn correct geconfigureerd, met name de SPN-configuratie. Zorg ervoor dat de Azure AD is gekoppeld aan hetzelfde domein als de domeincontroller om ervoor te zorgen dat de domeincontroller wordt tot stand vertrouwensrelatie met Azure AD gebracht-domein. Zorg ervoor dat de configuratie datum en tijd op de Azure AD en de domeincontroller zijn gesynchroniseerd. |
 | 13020 - azure AD kan een Kerberos-ticket namens de gebruiker niet ophalen omdat de back-endserver SPN niet is gedefinieerd. | Deze gebeurtenis kan duiden op een onjuiste configuratie tussen Azure AD en de domeincontrollerserver of een probleem in de configuratie van datum en tijd op beide computers. De domeincontroller afgewezen het Kerberos-ticket gemaakt door Azure AD. Controleer of dat door Azure AD en de back-end-toepassingsserver zijn correct geconfigureerd, met name de SPN-configuratie. Zorg ervoor dat de Azure AD is gekoppeld aan hetzelfde domein als de domeincontroller om ervoor te zorgen dat de domeincontroller wordt tot stand vertrouwensrelatie met Azure AD gebracht-domein. Zorg ervoor dat de configuratie datum en tijd op de Azure AD en de domeincontroller zijn gesynchroniseerd. |
-| 13022 - azure AD kan de gebruiker kan niet verifiëren omdat de back-endserver op Kerberos-verificatie geprobeerd met een 401 HTTP-fout reageert. | Deze gebeurtenis kan duiden op een onjuiste configuratie tussen Azure AD en de back-end-toepassingsserver of een probleem in de configuratie van datum en tijd op beide computers. De back-endserver afgewezen het Kerberos-ticket gemaakt door Azure AD. Controleer of dat door Azure AD en de back-end-toepassingsserver correct zijn geconfigureerd. Zorg ervoor dat de configuratie datum en tijd op de Azure AD en de back-end-toepassingsserver zijn gesynchroniseerd. Zie voor meer informatie, [oplossen Kerberos-beperkte overdracht configuraties voor toepassingsproxy](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
+| 13022 - azure AD kan de gebruiker kan niet verifiëren omdat de back-endserver op Kerberos-verificatie geprobeerd met een 401 HTTP-fout reageert. | Deze gebeurtenis kan duiden op een onjuiste configuratie tussen Azure AD en de back-end-toepassingsserver of een probleem in de configuratie van datum en tijd op beide computers. De back-endserver afgewezen het Kerberos-ticket gemaakt door Azure AD. Controleer of dat door Azure AD en de back-end-toepassingsserver correct zijn geconfigureerd. Zorg ervoor dat de configuratie datum en tijd op de Azure AD en de back-end-toepassingsserver zijn gesynchroniseerd. Zie voor meer informatie, [oplossen Kerberos-beperkte overdracht configuraties voor toepassingsproxy](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).  |
 
 ## <a name="end-user-errors"></a>Eindgebruikers fouten
 

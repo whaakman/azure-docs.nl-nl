@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/04/2017
 ms.author: dstefan
-ms.openlocfilehash: 41d495e38a8360609afe924bb49ccf2f6aea086e
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 4c8f2966df9c33ec227b14c00996f84f39043cdb
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43340036"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349225"
 ---
 # <a name="azure-active-directory-proof-of-concept-playbook-building-blocks"></a>Azure Active Directory bewijs van concept playbook: bouwstenen
 
 ## <a name="catalog-of-roles"></a>Catalogus van rollen
 
-| Rol | Beschrijving | Proof-of-concept (PoC) verantwoordelijkheid |
+| Functie | Beschrijving | Proof-of-concept (PoC) verantwoordelijkheid |
 | --- | --- | --- |
 | **Architectuur voor cloudidentiteit / ontwikkelingsteam** | Dit team is meestal degene die de oplossing ontwerpt, prototypen implementeert, goedkeuringen-stations en ten slotte draagt bewerkingen | Ze bieden de omgevingen en die evalueert de verschillende scenario's vanuit het perspectief van de beheerbaarheid |
 | **On-Premises Identity operationele team** | Hiermee kunt u de andere identiteit on-premises bronnen beheren: Active Directory-Forests, LDAP-adreslijsten, HR-systemen en Federation-id-Providers. | Toegang tot on-premises resources die nodig zijn voor de PoC-scenario's.<br/>Ze moeten worden uitgevoerd voor zo min mogelijk|
@@ -39,7 +39,7 @@ ms.locfileid: "43340036"
 
 Hier volgen enkele vereisten die nodig zijn voor elk POC met Azure AD Premium.
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | Azure AD-tenant gedefinieerd met een geldig Azure-abonnement | [Een Azure Active Directory-tenant verkrijgen](develop/quickstart-create-new-tenant.md)<br/>**Opmerking:** als u al een omgeving met Azure AD Premium-licenties hebt, kunt u een nul cap-abonnement downloaden door te navigeren naar https://aka.ms/accessaad <br/>Meer informatie over: https://blogs.technet.microsoft.com/enterprisemobility/2016/02/26/azure-ad-mailbag-azure-subscriptions-and-azure-ad-2/ en https://technet.microsoft.com/library/dn832618.aspx |
 | Domeinen gedefinieerd en geverifieerd | [Een aangepaste domeinnaam toevoegen aan Azure Active Directory](active-directory-domains-add-azure-portal.md)<br/>**Opmerking:** sommige werkbelastingen zoals Power BI kunnen een azure AD-tenant op de achtergrond hebt ingericht. Als u wilt controleren of een bepaald domein gekoppeld aan een tenant is, gaat u naar https://login.microsoftonline.com/{domain}/v2.0/.well-known/openid-configuration. Als u een geslaagde respons ophalen en vervolgens het domein al aan een tenant toegewezen is en overnemen kunnen nodig zijn. Als dit het geval is, contact op met Microsoft voor verdere richtlijnen. Meer informatie over de overname opties op: [wat is Selfserviceregistratie voor Azure?](users-groups-roles/directory-self-service-signup.md) |
@@ -54,7 +54,7 @@ Geschatte tijd om te voltooien: één uur voor minder dan 1000 PoC-gebruikers
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | Server voor het uitvoeren van Azure AD Connect | [Vereisten voor Azure AD Connect](./connect/active-directory-aadconnect-prerequisites.md) |
 | POC-gebruikers in hetzelfde domein en dezelfde onderdeel van een beveiligingsgroep en organisatie-eenheid | [Aangepaste installatie van Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) |
@@ -63,7 +63,7 @@ Geschatte tijd om te voltooien: één uur voor minder dan 1000 PoC-gebruikers
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | Download de nieuwste versie van Azure AD Connect | [Microsoft Azure Active Directory Connect downloaden](https://www.microsoft.com/download/details.aspx?id=47594) |
 | Azure AD Connect installeren met het eenvoudigste pad: Express <br/>1. Filteren met de doel-organisatie-eenheid om de tijd Synchronisatiecyclus<br/>2. Doelset van gebruikers in de on-premises-groep kiezen.<br/>3. De functies die nodig zijn voor de andere POC-thema's implementeren | [Azure AD Connect: Aangepaste installatie: domein en OE filteren](./connect/active-directory-aadconnect-get-started-custom.md#domain-and-ou-filtering) <br/>[Azure AD Connect: Aangepaste installatie: groep filteren op basis van](./connect/active-directory-aadconnect-get-started-custom.md#sync-filtering-based-on-groups)<br/>[Azure AD Connect: Uw on-premises identiteiten integreren met Azure Active Directory: synchronisatie-functies configureren](./connect/active-directory-aadconnect.md#configure-sync-features) |
@@ -88,7 +88,7 @@ Geschatte tijd om te voltooien: 15 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | Activa (afbeeldingen, logo's, enz.); De activa hebben voor de beste visualisatie Zorg ervoor dat de aanbevolen groottes. | [Huisstijlwijzigingen naar de aanmeldingspagina in de Azure Active Directory](active-directory-branding-custom-signon-azure-portal.md) |
 | Optioneel: Als de omgeving een ADFS-server heeft, toegang tot de server om aan te passen van webthema | [AD FS sign-in aanpassing door gebruikers](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/ad-fs-user-sign-in-customization) |
@@ -97,7 +97,7 @@ Geschatte tijd om te voltooien: 15 minuten
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | Ga naar Azure AD-beheerportal | [Azure AD-beheerportal - huisstijl van bedrijf](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/LoginTenantBranding) |
 | Upload de items voor de aanmeldingspagina (hero-logo, kleine logo, labels, enz.). (Optioneel) hebt u AD FS, de dezelfde assets met AD FS-aanmeldingspagina's uitlijnen | [Voeg een huisstijl voor uw aanmelding en de Toegangsvensterpagina pagina's toe: aanpasbare elementen](fundamentals/customize-branding.md) |
@@ -116,13 +116,13 @@ Geschatte tijd om te voltooien: 10 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | Alle POC gebruikers maken deel uit van een beveiligingsgroep (cloud of on-premises) | [Een groep maken en leden toevoegen in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | Ga naar de blade licenties in Azure AD-beheerportal | [Azure AD-beheerportal: licentieverlening](https://portal.azure.com/#blade/Microsoft_AAD_IAM/LicensesMenuBlade/Products) |
 | De licenties toewijzen aan de beveiligingsgroep met de POC-gebruikers. | [Licenties toewijzen aan een groep gebruikers in Azure Active Directory](users-groups-roles/licensing-groups-assign.md) |
@@ -137,7 +137,7 @@ Geschatte tijd om te voltooien: 60 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | De testomgeving van de SaaS-toepassing beschikbaar. In deze handleiding gebruiken we ServiceNow als voorbeeld.<br/>Wij raden aan het gebruik van een exemplaar van de test om te beperken van problemen voor het navigeren door bestaande gegevens te waarborgen en toewijzingen. | Ga naar https://developer.servicenow.com/app.do#! / start het proces van het ophalen van een exemplaar van de test te starten |
 | Beheerderstoegang tot de beheerconsole voor ServiceNow | [Zelfstudie: Azure Active Directory-integratie met ServiceNow](saas-apps/servicenow-tutorial.md) |
@@ -145,7 +145,7 @@ Geschatte tijd om te voltooien: 60 minuten
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | De zelfstudie voor alle actoren van Microsoft Documentation delen  | [Zelfstudie: Azure Active Directory-integratie met ServiceNow](saas-apps/servicenow-tutorial.md) |
 | Stel een vergadering werken en volg de stappen in de zelfstudie met elke acteur. | [Zelfstudie: Azure Active Directory-integratie met ServiceNow](saas-apps/servicenow-tutorial.md) |
@@ -172,7 +172,7 @@ Geschatte tijd om te voltooien: 15 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | Testomgeving voor SaaS-toepassingen. Een voorbeeld van wachtwoord eenmalige aanmelding is HipChat en Twitter. Voor een andere toepassing moet u de exacte URL van de pagina met HTML-formulier aanmelding. | [Twitter op Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[HipChat op Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.hipchat) |
 | Testaccounts voor de toepassingen. | [Aanmelden voor Twitter](https://twitter.com/signup?lang=en)<br/>[Meld u gratis: HipChat](https://www.hipchat.com/sign_up) |
@@ -181,7 +181,7 @@ Geschatte tijd om te voltooien: 15 minuten
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | De browserextensie installeren | [Deelvenster-extensie voor toegang voor Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Deelvenster-extensie voor toegang voor Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Deelvenster-extensie voor toegang voor Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configureren van de toepassing van de galerie | [Wat is er nieuw in Enterprise Application management in Azure Active Directory: de nieuwe en verbeterde toepassingsgalerie](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
@@ -207,7 +207,7 @@ Geschatte tijd om te voltooien: 30 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | De lijst met doeltoepassingen en de exacte aanmelden URL tevoren. U kunt bijvoorbeeld Twitter. | [Twitter op Microsoft Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/aad.twitter)<br/>[Aanmelden voor Twitter](https://twitter.com/signup?lang=en) |
 | Referentie voor deze SaaS-toepassing wordt gedeeld. | [Delen van accounts met behulp van Azure AD](active-directory-sharing-accounts.md)<br/>[Azure AD geautomatiseerde wachtwoord worden meegenomen Facebook, Twitter en LinkedIn nu in preview. -Enterprise Mobility and Security-Blog] (https://blogs.technet.microsoft.com/enterprisemobility/2015/02/20/azure-ad-automated-password-roll-over-for-facebook-twitter-and-linkedin-now-in-preview/ ) |
@@ -216,7 +216,7 @@ Geschatte tijd om te voltooien: 30 minuten
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | De browserextensie installeren | [Deelvenster-extensie voor toegang voor Internet Explorer](https://account.activedirectory.windowsazure.com/Applications/Installers/x64/Access%20Panel%20Extension.msi)<br/>[Deelvenster-extensie voor toegang voor Chrome](https://go.microsoft.com/fwLink/?LinkID=311859&clcid=0x409)<br/>[Deelvenster-extensie voor toegang voor Firefox](https://go.microsoft.com/fwLink/?LinkID=626998&clcid=0x409) |
 | Configureren van de toepassing van de galerie | [Wat is er nieuw in Enterprise Application management in Azure Active Directory: de nieuwe en verbeterde toepassingsgalerie](active-directory-enterprise-apps-whats-new-azure-portal.md#improvements-to-the-azure-active-directory-application-gallery) |
@@ -240,7 +240,7 @@ Geschatte tijd om te voltooien: 20 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | Een Microsoft Azure AD basic of premium-abonnement en Azure AD-adreslijst waarvoor u een globale beheerder bent | [Azure Active Directory-edities](fundamentals/active-directory-whatis.md) |
 | Een webtoepassing die wordt gehost on-premises die u wilt configureren voor externe toegang |  |
@@ -251,7 +251,7 @@ Geschatte tijd om te voltooien: 20 minuten
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | Een connector op de server installeren | [Toepassingsproxy inschakelen in Azure portal: Installeer en registreer de Connector](manage-apps/application-proxy-enable.md#install-and-register-a-connector) |
 | De on-premises toepassing publiceren in Azure AD als een toepassing Application Proxy | [Toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](manage-apps/application-proxy-publish-azure-portal.md) |
@@ -273,7 +273,7 @@ Geschatte tijd om te voltooien: 60 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | Azure AD Connect geïnstalleerd en geconfigureerd | Bouwsteen: [synchronisatie van Directory - synchronisatie van Wachtwoordhashes](#directory-synchronization--password-hash-sync-phs--new-installation) |
 | ADLDS exemplaar voldoen aan vereisten | [Algemene LDAP-Connector technische documentatie: overzicht van de algemene LDAP-Connector](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#overview-of-the-generic-ldap-connector) |
@@ -282,7 +282,7 @@ Geschatte tijd om te voltooien: 60 minuten
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | Algemene LDAP-Connector toevoegen | [Algemene LDAP-Connector technische documentatie: een nieuwe Connector maken](https://docs.microsoft.com/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap#create-a-new-connector) |
 | Uitvoeringsprofielen maken voor de gemaakte connector (volledige import, delta-import, volledige synchronisatie, Deltasynchronisatie, exporteren) | [Maken van een beheerprofiel van het uitvoeren van Agent](https://technet.microsoft.com/library/jj590219(v=ws.10).aspx)<br/> [Met behulp van connectors met de Azure AD Connect Sync Service Manager](./connect/active-directory-aadconnectsync-service-manager-ui-connectors.md)|
@@ -303,7 +303,7 @@ Geschatte tijd om te voltooien: 10 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | SaaS-toepassing (federatieve SSO of wachtwoord SSO) is al geconfigureerd | Bouwsteen: [SaaS federatieve SSO-configuratie](#saas-federated-sso-configuration) |
 | Cloud-groep die toegang is toegewezen aan de toepassing in #1 wordt geïdentificeerd | Bouwsteen: [SaaS federatieve SSO-configuratie](#saas-federated-sso-configuration) <br/>[Een groep maken en leden toevoegen in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
@@ -313,7 +313,7 @@ Geschatte tijd om te voltooien: 10 minuten
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | Identificeren van de groep die toegang tot de toepassing is verleend en configureer de eigenaar van de opgegeven groep| [De instellingen voor een groep in Azure Active Directory beheren ](fundamentals/active-directory-groups-settings-azure-portal.md) |
 | Meld u aan als de Groepseigenaar van de, Zie het groepslidmaatschap op groepen-tabblad van het toegangsvenster | [Azure Active Directory-groepen Management-pagina](https://account.activedirectory.windowsazure.com/r#/groups) |
@@ -328,7 +328,7 @@ Als de toepassing heeft de inrichting ingeschakeld, moet u mogelijk Wacht een pa
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | SaaS-toepassing (federatieve SSO of wachtwoord SSO) is al geconfigureerd | Bouwsteen: [SaaS federatieve SSO-configuratie](#saas-federated-sso-configuration) |
 | Cloud-groep die toegang is toegewezen aan de toepassing in #1 wordt geïdentificeerd | Bouwsteen: [SaaS federatieve SSO-configuratie](#saas-federated-sso-configuration) <br/>[Een groep maken en leden toevoegen in Azure Active Directory](fundamentals/active-directory-groups-create-azure-portal.md) |
@@ -337,10 +337,10 @@ Als de toepassing heeft de inrichting ingeschakeld, moet u mogelijk Wacht een pa
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | De gebruiker te verwijderen uit de groep die de app is toegewezen aan | [Groepslidmaatschap voor gebruikers in uw Azure Active Directory-tenant beheren](fundamentals/active-directory-groups-members-azure-portal.md) |
-| Wacht een paar minuten voor het ongedaan maken inrichting | [Geautomatiseerde Gebruikersinrichting voor SaaS-App in Azure AD: hoe werkt automatische inrichting?](active-directory-saas-app-provisioning.md#how-does-automatic-provisioning-work) |
+| Wacht een paar minuten voor het ongedaan maken inrichting | [Geautomatiseerde Gebruikersinrichting voor SaaS-App in Azure AD: hoe werkt automatische inrichting?](manage-apps/user-provisioning.md#how-does-automatic-provisioning-work) |
 | Op een afzonderlijke browsersessie, meld u aan als de Informatiemedewerker naar Mijn apps-portal en controleer of deze tegel ontbreekt | http://myapps.microsoft.com |
 
 
@@ -354,14 +354,14 @@ Geschatte tijd om te voltooien: 10 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | POC-gebruikers die toegang tot de toepassingen als onderdeel van de beveiligingsgroep wordt aanvragen identificeren | Bouwsteen: [SaaS federatieve SSO-configuratie](#saas-federated-sso-configuration) |
 | Doeltoepassing geïmplementeerd | Bouwsteen: [SaaS federatieve SSO-configuratie](#saas-federated-sso-configuration) |
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | Ga naar de blade voor bedrijfstoepassingen in Azure AD-beheerportal | [Azure AD-beheerportal: Zakelijke toepassingen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) |
 | De toepassing van de vereisten met selfservice configureren | [Wat is er nieuw in Enterprise Application management in Azure Active Directory: toegang tot Self-servicetoepassingen configureren](active-directory-enterprise-apps-whats-new-azure-portal.md#configure-self-service-application-access) |
@@ -378,7 +378,7 @@ Geschatte tijd om te voltooien: 15 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | Schakel het beheer van de self-service voor wachtwoord in uw tenant. | [Azure Active Directory-wachtwoord opnieuw instellen voor IT-beheerders](user-help/active-directory-passwords-update-your-own-password.md) |
 | Schakel het terugschrijven van wachtwoorden van on-premises beheren. Houd er rekening mee moet hiervoor specifieke Azure Active Directory Connect versies | [Vereisten voor het terugschrijven van wachtwoorden](authentication/howto-sspr-writeback.md) |
@@ -387,7 +387,7 @@ Geschatte tijd om te voltooien: 15 minuten
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | Ga naar Azure AD-beheerportal: wachtwoord opnieuw instellen | [Azure AD-beheerportal: Wachtwoord opnieuw instellen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/PasswordReset) |
 | Bepaal dat het wachtwoord opnieuw instellen. Voor testdoeleinden Implementatiemodel, kunt u telefonische oproepen en Q & A. Het verdient aanbeveling om in te schakelen van registratie moet u aan te melden bij Toegangsvenster |  |
@@ -410,14 +410,14 @@ Geschatte tijd om te voltooien: 10 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | Identificeren van de POC-gebruikers met MFA  |  |
 | Telefoon met goede ontvangst voor MFA-controle  | [Wat is Azure Multi-Factor Authentication?](authentication/multi-factor-authentication.md) |
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | Navigeer naar 'Gebruikers en groepen' blade in Azure AD-beheerportal | [Azure AD-beheerportal: Gebruikers en groepen](https://portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/Overview/menuId/) |
 | Kies 'Alle gebruikers'-blade |  |
@@ -437,7 +437,7 @@ Geschatte tijd om te voltooien: 10 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | Identificeer PoC gebruikers wilt richten op het beleid. Deze gebruikers moeten zich in een beveiligingsgroep als bereik voor het beleid voor voorwaardelijke toegang | [SaaS van federatieve SSO-configuratie](#saas-federated-sso-configuration) |
 | SaaS-toepassing is al geconfigureerd |  |
@@ -449,7 +449,7 @@ Geschatte tijd om te voltooien: 10 minuten
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | Ga naar Azure AD-beheerportal: blade voorwaardelijke toegang | [Azure AD-beheerportal: Voorwaardelijke toegang](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ConditionalAccessBlade/Policies) |
 | Maak beleid voor voorwaardelijke toegang:<br/>-Gebruikers van de PoC target onder 'Gebruikers en groepen'<br/>-PoC doeltoepassing onder 'Cloud-apps'<br/>-Alle locaties doel alleen vertrouwde die onder "Omstandigheden"-"Locatie" > **Opmerking:** goedgekeurde IP-adressen zijn geconfigureerd in [MFA-Portal](https://account.activedirectory.windowsazure.com/UserManagement/MfaSettings.aspx)<br/>-Multi-factor authentication onder "Verlenen" vereisen | [Uw beleid voor voorwaardelijke toegang maken](https://docs.microsoft.com/azure/active-directory/conditional-access/app-based-mfa#create-your-conditional-access-policy) |
@@ -466,7 +466,7 @@ Geschatte tijd om te voltooien: 15 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | Identificeren van de globale beheerder, die deel van de POC voor PIM uitmaken | [Start met behulp van Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md) |
 | De globale beheerder die de beheerder van de beveiliging identificeren | [Start met behulp van Azure AD Privileged Identity Management](privileged-identity-management/pim-getting-started.md)<br/> [Andere beheerdersrollen in Azure Active Directory PIM](privileged-identity-management/pim-roles.md) |
@@ -475,7 +475,7 @@ Geschatte tijd om te voltooien: 15 minuten
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | Meld u aan bij https://portal.azure.com als een globale beheerder (GA) en een bootstrap de PIM-blade. De globale beheerder, waarmee u deze stap is gemaakt als de beveiligingsbeheerder van de.  Noemen we deze actor GA1 | [Met behulp van de beveiligingswizard in Azure AD Privileged Identity Management](privileged-identity-management/pim-security-wizard.md) |
 | Identificeren van de globale beheerder en ze verplaatsen van permanente naar in aanmerking komt. Dit moet een afzonderlijke admin van de die werd gebruikt in stap 1 voor de duidelijkheid zijn. Noemen we deze actor GA2 | [Azure AD Privileged Identity Management: Het toevoegen of verwijderen van een gebruikersrol](privileged-identity-management/pim-how-to-add-role-to-user.md)<br/>[Wat is Azure AD Privileged Identity Management?: Configureer de instellingen voor rolactivering](privileged-identity-management/pim-configure.md#configure-the-role-activation-settings)  |
@@ -497,14 +497,14 @@ Geschatte tijd om te voltooien: 20 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | Apparaat met Tor browser gedownload en geïnstalleerd | [Tor Browser downloaden](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Toegang tot POC gebruiker de aanmelding | [Playbook voor Azure Active Directory Identity Protection](identity-protection/playbook.md) |
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | Open tor-browser | [Tor Browser downloaden](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Meld u aan bij https://myapps.microsoft.com met de POC-gebruikersaccount | [Azure Active Directory Identity Protection-playbook: Risicogebeurtenissen simuleren](identity-protection/playbook.md#simulating-risk-events) |
@@ -522,7 +522,7 @@ Geschatte tijd om te voltooien: 10 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | Apparaat met Tor browser gedownload en geïnstalleerd | [Tor Browser downloaden](https://www.torproject.org/projects/torbrowser.html.en#downloads) |
 | Toegang als een gebruiker POC aan het logboek in testen |  |
@@ -531,7 +531,7 @@ Geschatte tijd om te voltooien: 10 minuten
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | Meld u aan als een globale beheerder zijn om https://portal.azure.com en open de blade Identity Protection | https://aka.ms/aadipgetstarted |
 | Een beleid voor aanmeldingsrisico als volgt inschakelen:<br/>-Toegewezen aan: POC-gebruiker<br/>-Voorwaarden: Aanmeldingsrisico middelgrote of hoger (aanmelding van de anonieme locatie als wordt beschouwd als een gemiddeld risico-niveau)<br/>-Besturingselementen: MFA vereisen | [Azure Active Directory Identity Protection-playbook: aanmeldingsrisico](identity-protection/playbook.md) |
@@ -549,7 +549,7 @@ Geschatte tijd in beslag: 20 minuten
 
 ### <a name="pre-requisites"></a>Vereisten
 
-| Vereiste | Resources |
+| Vereiste | Bronnen |
 | --- | --- |
 | Apparaat met gebruikerscertificaat ingericht (Windows, iOS of Android) van de Enterprise PKI | [Gebruikerscertificaten implementeren](https://msdn.microsoft.com/library/cc770857.aspx) |
 | Azure AD-domein gefedereerd met behulp van AD FS | [Azure AD Connect en federatie](./connect/active-directory-aadconnectfed-whatis.md)<br/>[Overzicht van Active Directory Certificate Services](https://technet.microsoft.com/library/hh831740.aspx)|
@@ -557,7 +557,7 @@ Geschatte tijd in beslag: 20 minuten
 
 ### <a name="steps"></a>Stappen
 
-| Stap | Resources |
+| Stap | Bronnen |
 | --- | --- |
 | "Verificatie met gebruikerscertificaat" op de AD FS inschakelen | [Verificatiebeleid configureren: Primaire authenticatie globaal in Windows Server 2012 R2 configureren](https://technet.microsoft.com/windows-server-docs/identity/ad-fs/operations/configure-authentication-policies#to-configure-primary-authentication-globally-in-windows-server-2012-r2) |
 | Optioneel: Authenticatie via certificaat inschakelen in Azure AD voor Exchange ActiveSync-clients | [Aan de slag met verificatie op basis van certificaten in Azure Active Directory](./authentication/active-directory-certificate-based-authentication-get-started.md) |

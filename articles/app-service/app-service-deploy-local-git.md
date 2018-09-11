@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: dariagrigoriu;cephalin
-ms.openlocfilehash: f461a9a7cc900ce5f8fdba7b255417b1790d3f4d
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: ae8739a65efbe7662a8f72e961d772fecaf4b527
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42056635"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303690"
 ---
 # <a name="local-git-deployment-to-azure-app-service"></a>Lokale Git-implementatie op de Azure App Service
 
@@ -26,7 +26,7 @@ In deze gebruiksaanwijzing ziet u hoe u implementeert uw code wordt [Azure App S
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 De stappen in deze gebruiksaanwijzing:
 
@@ -101,10 +101,10 @@ Runtime-specifieke automatisering in de uitvoer, zoals MSBuild voor ASP.NET, zie
 
 Blader naar uw app om te controleren dat de inhoud wordt geïmplementeerd.
 
-## <a name="deploy-from-local-git-with-vsts-builds"></a>Implementeren vanuit lokale Git met VSTS builds
+## <a name="deploy-from-local-git-with-azure-devops-services-builds"></a>Implementeren vanuit lokale Git met Azure DevOps-Services-builds
 
 > [!NOTE]
-> Voor App Service voor het maken van de benodigde build en release-definities in uw VSTS-account, moet uw Azure-account de rol van **eigenaar** in uw Azure-abonnement.
+> Voor App Service voor het maken van de benodigde Azure-pijplijnen in uw organisatie Azure DevOps-Services, moet uw Azure-account de rol van **eigenaar** in uw Azure-abonnement.
 >
 
 Om in te schakelen lokale Git-implementatie voor uw app met de Kudu-build-server, gaat u naar uw app in de [Azure-portal](https://portal.azure.com).
@@ -113,14 +113,14 @@ In het linkernavigatievenster van de app-pagina, klikt u op **Implementatiecentr
 
 ![](media/app-service-deploy-local-git/portal-enable.png)
 
-Klik op **VSTS continue levering** > **blijven**.
+Klik op **Azure DevOps-Services continue levering** > **blijven**.
 
 ![](media/app-service-deploy-local-git/vsts-build-server.png)
 
-In de **configureren** pagina, configureren van een nieuwe VSTS-account of een bestaand account opgeven. Wanneer u klaar bent, klikt u op **doorgaan**.
+In de **configureren** pagina, een nieuwe organisatie van Azure DevOps-Services configureren of een bestaande organisatie opgeven. Wanneer u klaar bent, klikt u op **doorgaan**.
 
 > [!NOTE]
-> Als u gebruiken van een bestaande VSTS-account dat niet wordt vermeld wilt, moet u [het VSTS-account koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Als u gebruiken van een bestaande organisatie van Azure DevOps-Services die niet wordt vermeld wilt, moet u [de Services van Azure DevOps-organisatie koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 In de **Test** pagina, kies of u wilt inschakelen load tests uit en klik vervolgens op **doorgaan**.
 
@@ -128,7 +128,7 @@ Afhankelijk van de [prijscategorie](https://azure.microsoft.com/pricing/details/
 
 In de **samenvatting** pagina, Controleer uw opties en klik op **voltooien**.
 
-Het duurt enkele minuten voor het VSTS-account klaar is. Wanneer dit klaar is, kopieert u de URL van de Git-opslagplaats in het midden van de implementatie.
+Het duurt een paar minuten voor de Services van Azure DevOps-organisatie gereed is. Wanneer dit klaar is, kopieert u de URL van de Git-opslagplaats in het midden van de implementatie.
 
 ![](media/app-service-deploy-local-git/vsts-repo-ready.png)
 
@@ -138,7 +138,7 @@ Voeg, eenmaal terug in het _lokale terminalvenster_, een externe Azure-instantie
 git remote add vsts <url>
 ```
 
-Push naar de externe Azure-instantie om uw app te implementeren met de volgende opdracht. Wanneer u hierom wordt gevraagd door Git Credential Manager, meldt u zich aan met uw gebruiker visualstudio.com. Zie voor aanvullende verificatiemethoden [VSTS verificatieoverzicht](/vsts/git/auth-overview?view=vsts).
+Push naar de externe Azure-instantie om uw app te implementeren met de volgende opdracht. Wanneer u hierom wordt gevraagd door Git Credential Manager, meldt u zich aan met uw gebruiker visualstudio.com. Zie voor aanvullende verificatiemethoden [Services van Azure DevOps-verificatieoverzicht](/vsts/git/auth-overview?view=vsts).
 
 ```bash
 git push vsts master
@@ -213,10 +213,10 @@ git config --global http.postBuffer 524288000
 
   * `npm ERR! \cmd "/c" "node-gyp rebuild"\ failed with 1`
 
-      OF
+      OR
   * `npm ERR! [modulename@version] preinstall: \make || gmake\`
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 * [Project Kudu-documentatie](https://github.com/projectkudu/kudu/wiki)
 * [Continue implementatie in Azure App Service](app-service-continuous-deployment.md)

@@ -9,22 +9,23 @@ editor: ''
 ms.assetid: ''
 ms.service: security
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 8/17/2018
+ms.date: 9/10/2018
 ms.author: tomsh
-ms.openlocfilehash: cc922762f84b3a0658d503c4bfa6eb0079173e4e
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: b6953cc45305cf0812b185187c01149f0345756d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841544"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346064"
 ---
 # <a name="azure-security-white-papers"></a>Azure Security technische documenten
 | | |
 |-|-|
 |[Inleiding&nbsp;naar&nbsp;Azure&nbsp;beveiliging](azure-security.md)|Legt uit de verzameling van beveiligingsmaatregelen die zijn geïmplementeerd in Azure van de klant en de Microsoft-bewerkingen perspectieven. Azure biedt een uitgebreid overzicht van de klantgerichte beveiligingsmechanismen beschikbaar.|
+|[Aanbevolen beveiligingsprocedures voor Azure-oplossingen](https://azure.microsoft.com/resources/security-best-practices-for-azure-solutions)|Een verzameling van aanbevolen procedures voor beveiliging moet worden gebruikt wanneer u bent het ontwerpen, implementeren en beheren van uw cloudoplossingen met behulp van Azure.|
 |[Geavanceerde detectie van bedreigingen](azure-threat-detection.md)|Handleidingen voor die u via de Azure tegen bedreigingen door een beveiligingslek beoordelingen, diagnostische gegevens en analyse nadert. Wordt uitgelegd hoe Microsoft maakt gebruik van geavanceerde threat detectiemechanismen voor het beveiligen van het platform. Ook wordt uitgelegd hoe Microsoft deze methoden bevat in openbare, internetgerichte functies en services.|
 |[Azure data encryption-at-rest](azure-security-encryption-atrest.md)|Richt zich op het beveiligen van gegevens in rust in Azure en de verschillende onderdelen die deel uitmaken van de implementatie van de bescherming van gegevens. Controleert de voor- en nadelen van de verschillende Sleutelbeheer protection-methoden.|
 |[Logboekregistratie en bewaking in Azure](azure-log-audit.md)|Bevat een inleiding voor het genereren, verzamelen en analyseren van beveiligingslogboeken van services die worden gehost op Azure. Deze logboeken kunt u inzicht kunnen verkrijgen in uw Azure-implementaties. |

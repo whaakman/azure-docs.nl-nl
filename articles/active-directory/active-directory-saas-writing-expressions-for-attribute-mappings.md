@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
-ms.openlocfilehash: 1c9fe9fb63b45233ed1a11bb63c0763c6103bc6d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a48b5aabdaf7f8f9e7269a995d92d046cca21786
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095178"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325563"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
 Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -67,7 +67,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 | **Uitvoerindeling** |Vereist |Reeks |Indeling van de uitvoerdatum. |
 
 - - -
-### <a name="join"></a>Koppelen
+### <a name="join"></a>Lid worden
 **Functie:**<br> Deelnemen aan (scheidingsteken, bron1, bron2,...)
 
 **Beschrijving:**<br> Join() is vergelijkbaar met Append(), behalve dat deze meerdere kunt combineren **bron** tekenreeks waarden in één tekenreeks en elke waarde wordt gescheiden door een **scheidingsteken** tekenreeks.
@@ -176,7 +176,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | **Bron** |Vereist |Reeks |**bron** waarde om bij te werken. |
 
 - - -
-### <a name="switch"></a>Switch
+### <a name="switch"></a>Schakeloptie
 **Functie:**<br> Switch (bron, defaultValue, key1, value1, key2, waarde2,...)
 
 **Beschrijving:**<br> Wanneer **bron** waarde komt overeen met een **sleutel**, retourneert **waarde** voor die **sleutel**. Als **bron** waarde komt niet overeen met alle sleutels, retourneert **defaultValue**.  **Sleutel** en **waarde** parameters moeten altijd zijn verkrijgbaar in paren. De functie verwacht altijd een even aantal parameters.
@@ -269,6 +269,6 @@ Als de status code komt niet overeen met een van de vooraf gedefinieerde opties,
 * [Kenmerktoewijzingen voor het inrichten van gebruikers aan te passen](active-directory-saas-customizing-attribute-mappings.md)
 * [Bereikfilters toevoegen voor het inrichten van gebruikers](active-directory-saas-scoping-filters.md)
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md) (SCIM gebruiken om in te stellen dat gebruikers en groepen van Azure Active Directory automatisch worden ingericht voor toepassingen)
-* [Meldingen over accountinrichting](active-directory-saas-account-provisioning-notifications.md)
+* [Meldingen over accountinrichting](active-directory-saas-app-provisioning.md)
 * [Lijst met zelfstudies over het integreren van SaaS-Apps](saas-apps/tutorial-list.md)
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/10/2018
 ms.author: apimpm
-ms.openlocfilehash: 1b52c64db29e17a0c52eb63721be81844e856b64
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: cd022677da59588eca910a508b2596aa513eff4b
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42057195"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302806"
 ---
 # <a name="how-to-authorize-developer-accounts-using-oauth-20-in-azure-api-management"></a>Hoe ontwikkelaarsaccounts authoriseren met OAuth 2.0 in Azure API Management
 
@@ -63,9 +63,9 @@ Deze handleiding laat zien hoe het configureren van uw API Management service-ex
 
     ![Nieuwe OAuth 2.0-server](./media/api-management-howto-oauth2/oauth-03.png)
 
-    Voor een Azure Active Directory OAuth 2.0-server de **Token-eindpunt-URL** heeft de volgende indeling hebben: waar `<APPID>` heeft de indeling van `yourapp.onmicrosoft.com`.
+    Voor een Azure Active Directory OAuth 2.0-server de **Token-eindpunt-URL** heeft de volgende indeling hebben: waar `<TenantID>` heeft de indeling van `yourapp.onmicrosoft.com`.
 
-    `https://login.microsoftonline.com/<APPID>/oauth2/token`
+    `https://login.microsoftonline.com/<TenantID>/oauth2/token`
 
     De standaardinstelling voor **methoden voor clientverificatie** is **Basic**, en **toegangstoken verzendmethode** is **autorisatie-header**. Deze waarden worden geconfigureerd op deze sectie van het formulier, samen met de **standaardbereik**.
 
@@ -95,7 +95,7 @@ Deze handleiding laat zien hoe het configureren van uw API Management service-ex
 
 Nadat u hebt uw OAuth 2.0-autorisatie-server geconfigureerd en uw API voor het gebruik van die server geconfigureerd, kunt u deze testen door te gaan naar de Portal voor ontwikkelaars en een API wordt aangeroepen.  Klik op **ontwikkelaarsportal** in het bovenste menu van uw Azure API Management-instantie **overzicht** pagina.
 
-![ontwikkelaarsportal][api-management-developer-portal-menu]
+![Ontwikkelaarsportal][api-management-developer-portal-menu]
 
 Klik op **API's** in het bovenste menu en selecteer **Echo-API**.
 

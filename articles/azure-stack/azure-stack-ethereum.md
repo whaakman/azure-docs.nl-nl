@@ -10,12 +10,12 @@ ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: 0e03b524834f528ddb7555a344fbebe720b4d9ff
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d3c89e2028986e05d5d3957c9805d22f07a840b3
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37446968"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298108"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum blockchain-oplossingssjablonen
 
@@ -23,18 +23,16 @@ De sjabloon van de Ethereum-oplossing is ontworpen voor u gemakkelijker en snell
 
 Met een aantal van de invoer van gebruikers en een implementatie met één klik via de portal van Azure Stack-tenant inrichten elk lid van de netwerk-footprint. Netwerk-voetafdruk van elk lid bestaat uit een set met load balancing transactie knooppunten met die een toepassing of de gebruiker communiceren kan om in te dienen transacties, een set knooppunten van de analysestructuur voor vastleggen van transacties en een Network Virtual Appliance (NVA). Een stap van de volgende verbinding maakt verbinding met de NVA's voor het maken van een volledig geconfigureerde meerdere leden blockchain-netwerk.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
-Downloaden van de volgende [vanuit de Marketplace](azure-stack-download-azure-marketplace-item.md):
+Download de meest recente items [vanuit de Marketplace](azure-stack-download-azure-marketplace-item.md):
 
-* Ubuntu Server 16.04 LTS versie 16.04.201802220
-* Windows Server 2016 
-* Aangepast Script voor Linux 2.0 
-* Aangepaste scriptextensie 
+* Ubuntu Server 16.04 LTS
+* Windows Server 2016
+* Aangepast Script voor Linux 2.0
+* Aangepaste Scriptextensie voor Windows
 
-Zie voor meer informatie over scenario's voor blockchain op Azure, [Ethereum bewijs van werk consortium oplossingssjabloon](../blockchain-workbench/ethereum-deployment-guide.md).
-
-Een Azure-abonnement dat u kunt ondersteuning voor de implementatie van meerdere virtuele machines is vereist. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
+Zie voor meer informatie over blockchainscenario's [Ethereum bewijs van werk consortium oplossingssjabloon](../blockchain-workbench/ethereum-deployment-guide.md).
 
 ## <a name="deployment-architecture"></a>Implementatie-architectuur
 
@@ -43,6 +41,7 @@ Deze oplossingssjabloon kan één of meerdere items lid Ethereum consortium netw
 ## <a name="deployment-use-cases"></a>Implementatie van use cases
 
 De sjabloon Ethereum consortium voor leider en lid join in tal van manieren kunt implementeren, zijn hier die we hebben getest:
+
 - Implementeren in een Azure-Stack van meerdere knooppunten, met Azure AD of AD FS, potentiële klanten en lid met behulp van hetzelfde abonnement of met verschillende abonnementen.
 - Implementeren in een Azure-Stack van één knooppunt (met Azure AD) potentiële klanten en lid met behulp van hetzelfde abonnement.
 

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 04/11/2018
 ms.author: markvi
 ms.reviewer: spunukol
-ms.openlocfilehash: 0055968e4333f5ac7653a37fcd728b040024ee55
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 6010ea7f4997e4604e72cdf4a993956ab76b1ef2
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629844"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296564"
 ---
 # <a name="azure-active-directory-conditional-access-settings-reference"></a>Azure Active Directory-instellingen voor voorwaardelijke toegang verwijst naar
 
@@ -64,7 +64,7 @@ U kunt een beleid voor voorwaardelijke toegang toewijzen aan de volgende cloud-a
 
 - Microsoft Power BI 
 
-- Microsoft Visual Studio teamservices
+- Azure DevOps
 
 - Microsoft Teams
 
@@ -123,7 +123,7 @@ In het beleid voor voorwaardelijke toegang, kunt u **Browsers** als client-app.
 Deze instelling werkt met alle browsers. Echter, om te voldoen aan een apparaatbeleid, zoals een vereiste compatibel apparaat, de volgende besturingssystemen en browsers worden ondersteund:
 
 
-| OS                     | Browsers                            | Ondersteuning     |
+| Besturingssysteem                     | Browsers                            | Ondersteuning     |
 | :--                    | :--                                 | :-:         |
 | Windows 10             | Internet Explorer, Edge, Chrome     | ![Selecteren][1] |
 | Windows 8 / 8.1        | Internet Explorer, Chrome           | ![Selecteren][1] |
@@ -132,7 +132,7 @@ Deze instelling werkt met alle browsers. Echter, om te voldoen aan een apparaatb
 | Android                | Chrome, Intune Managed Browser      | ![Selecteren][1] |
 | Windows Phone          | Internet Explorer, Edge             | ![Selecteren][1] |
 | Windows Server 2016    | Internet Explorer, Edge             | ![Selecteren][1] |
-| Windows Server 2016    | Chrome                              | Binnenkort beschikbaar |
+| Windows Server 2016    | Chrome                              | Binnenkort |
 | Windows Server 2012 R2 | Internet Explorer, Chrome           | ![Selecteren][1] |
 | Windows Server 2008 R2 | Internet Explorer, Chrome           | ![Selecteren][1] |
 | macOS                  | Chrome, Safari                      | ![Selecteren][1] |
@@ -192,7 +192,7 @@ Deze instelling heeft een invloed op een poging toegang van de volgende mobiele 
 |Mobiele app van Outlook|Office 365 Exchange Online|Android, iOS|
 |Power BI-app|Power BI-service|Windows 10, Windows 8.1, Windows 7, Android en iOS|
 |Skype voor Bedrijven|Office 365 Exchange Online|Android, IOS |
-|Visual Studio Team Services-app|Visual Studio Team Services|Windows 10, Windows 8.1, Windows 7, iOS en Android|
+|Azure DevOps-app|Azure DevOps|Windows 10, Windows 8.1, Windows 7, iOS en Android|
 
 
 

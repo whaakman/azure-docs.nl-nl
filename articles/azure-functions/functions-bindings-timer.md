@@ -10,15 +10,15 @@ ms.assetid: d2f013d1-f458-42ae-baf8-1810138118ac
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/08/2018
+ms.date: 09/08/2018
 ms.author: glenga
 ms.custom: ''
-ms.openlocfilehash: e6a3df79bf0786b536dc4c454d19beea2730125a
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c033a465bb6e8e03c909ac7bc5a233f6b8b4cd76
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093121"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298083"
 ---
 # <a name="timer-trigger-for-azure-functions"></a>Timertrigger voor Azure Functions 
 
@@ -187,14 +187,17 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 
 |de eigenschap Function.JSON | De kenmerkeigenschap |Beschrijving|
 |---------|---------|----------------------|
-|**type** | N.v.t. | Moet worden ingesteld op 'timerTrigger'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
-|**direction** | N.v.t. | Moet worden ingesteld op 'in'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
-|**De naam** | N.v.t. | De naam van de variabele die staat voor het timerobject in functiecode aan te geven. | 
+|**type** | niet van toepassing | Moet worden ingesteld op 'timerTrigger'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt.|
+|**direction** | niet van toepassing | Moet worden ingesteld op 'in'. Deze eigenschap wordt automatisch ingesteld wanneer u de trigger in Azure portal maakt. |
+|**De naam** | niet van toepassing | De naam van de variabele die staat voor het timerobject in functiecode aan te geven. | 
 |**schedule**|**ScheduleExpression**|Een [CRON-expressie](#cron-expressions) of een [TimeSpan](#timespan) waarde. Een `TimeSpan` kan alleen worden gebruikt voor een functie-app die wordt uitgevoerd op een App Service-Plan. U kunt de schema-expressie opnemen in een app-instelling en deze eigenschap instellen op de app-instelling van de naam van verpakt in **%** tekenen, zoals in dit voorbeeld: "% ScheduleAppSetting %". |
-|**runOnStartup**|**RunOnStartup**|Als `true`, de functie wordt aangeroepen wanneer de runtime wordt gestart. De runtime wordt bijvoorbeeld gestart wanneer de functie-app, ontwaakt nadat er een niet-actieve vanwege inactiviteit. Wanneer de functie-app opnieuw wordt gestart vanwege functie wijzigingen, en wanneer de functie-app wordt geschaald. Dus **runOnStartup** moet zelden of nooit worden ingesteld op `true`, zoals brengt de code uitvoeren op zeer onvoorspelbare tijdstippen.|
+|**runOnStartup**|**RunOnStartup**|Als `true`, de functie wordt aangeroepen wanneer de runtime wordt gestart. De runtime wordt bijvoorbeeld gestart wanneer de functie-app, ontwaakt nadat er een niet-actieve vanwege inactiviteit. Wanneer de functie-app opnieuw wordt gestart vanwege functie wijzigingen, en wanneer de functie-app wordt geschaald. Dus **runOnStartup** moet zelden of nooit worden ingesteld op `true`, met name in productie. |
 |**useMonitor**|**UseMonitor**|Ingesteld op `true` of `false` om aan te geven of het schema moet worden gecontroleerd. Bewaking van de planning zich blijft voordoen planning exemplaren om te helpen ervoor te zorgen dat de planning correct wordt bijgehouden, zelfs wanneer de functie app-exemplaren opnieuw starten. Als niet expliciet is ingesteld, de standaardinstelling is `true` voor schema's met een interval dat groter is dan 1 minuut. Voor schema's die meer dan één keer per minuut activeren is de standaardwaarde is `false`.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
+
+> [!CAUTION]
+> Instelling wordt aangeraden **runOnStartup** naar `true` in productie. Met deze instelling kunt u code uitvoeren op zeer onvoorspelbare tijdstippen. In bepaalde instellingen voor de productie kunnen deze extra uitvoeringen leiden tot aanzienlijk hogere kosten voor apps die worden gehost in verbruiksabonnementen. Bijvoorbeeld, met **runOnStartup** ingeschakeld de trigger in aangeroepen wanneer de functie-app wordt geschaald. Zorg ervoor dat u het gedrag van de productie van uw functies volledig begrijpen voordat u inschakelt **runOnStartup** in productie.   
 
 ## <a name="usage"></a>Gebruik
 
@@ -300,7 +303,7 @@ Als u een opslagaccount voor meerdere functie-apps deelt, zorg ervoor dat elke f
 
 In tegenstelling tot de wachtrijtrigger opnieuw niet de timertrigger nadat een functie is mislukt. Als een functie mislukt, is niet het op de planning die tot de volgende keer opnieuw genoemd.
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 
 Zie voor informatie over wat er moet gebeuren wanneer de timertrigger werkt niet zoals verwacht, [Investigating en rapporteren van problemen met timer geactiveerde functies niet geactiveerd,](https://github.com/Azure/azure-functions-host/wiki/Investigating-and-reporting-issues-with-timer-triggered-functions-not-firing).
 

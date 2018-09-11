@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: mbullwin
-ms.openlocfilehash: 1a343e238662393995404b8e4c705cf799866855
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 4d49b6c4fca668a6afe88ade5fbafb0ea9c02dfc
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39137370"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296156"
 ---
 # <a name="using-search-in-application-insights"></a>Zoeken in Application Insights gebruiken
 Search is een functie van [Application Insights](app-insights-overview.md) waarmee u kunt vinden en afzonderlijk telemetrie-items, zoals paginaweergaven, uitzonderingen, verkennen of webaanvragen. En u kunt weergeven, logboektraceringen en gebeurtenissen die u hebt gecodeerd.
@@ -133,13 +133,13 @@ Als uw app veel telemetrie genereert (en u de ASP.NET-SDK-versie 2.0.0-beta3 of 
 [Meer informatie over steekproeven](app-insights-sampling.md).
 
 ## <a name="create-work-item"></a>Werkitem maken
-U kunt een bug in GitHub of Visual Studio Team Services maken met de details van een telemetrie-item. 
+U kunt een bug in GitHub of Azure DevOps met de details van een telemetrie-item maken. 
 
 ![Klik op Nieuw werkitem, bewerkt u de velden en klik vervolgens op OK.](./media/app-insights-diagnostic-search/42.png)
 
-De eerste keer dat u dit doet, moet u gevraagd een koppeling naar uw Team Services-account en het project configureren.
+De eerste keer dat u dit doet, moet u gevraagd het configureren van een koppeling naar uw Azure DevOps-organisatie en uw project.
 
-![Vul de URL van uw Team Services-server en de naam van het Project en klik op autoriseren](./media/app-insights-diagnostic-search/41.png)
+![Vul de URL van uw Azure DevOps-Services en de naam van het Project en klik op autoriseren](./media/app-insights-diagnostic-search/41.png)
 
 (U kunt ook de koppeling configureren op de blade werkitems.)
 

@@ -11,15 +11,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f28c97fed2a5fa4990c1310e8389868c6b7dc20
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1da742f54a9a415c6078a6185a9605db700dffd5
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369084"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324951"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>Op kenmerken gebaseerde toepassing inrichten met bereikfilters
 Het doel van dit artikel is waarin wordt uitgelegd hoe u bereikfilters die zijn gebruikt om op kenmerken gebaseerde regels die bepalen welke gebruikers worden ingericht voor een toepassing te definiëren.
@@ -115,7 +115,7 @@ Bereikfilters zijn geconfigureerd als onderdeel van de kenmerktoewijzingen voor 
 * [Gebruiker-inrichting en ongedaan maken van inrichting voor SaaS-toepassingen automatiseren](active-directory-saas-app-provisioning.md)
 * [Kenmerktoewijzingen voor het inrichten van gebruikers aanpassen](active-directory-saas-customizing-attribute-mappings.md)
 * [Expressies schrijven voor kenmerktoewijzingen](active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Meldingen over accountinrichting](active-directory-saas-account-provisioning-notifications.md)
+* [Meldingen over accountinrichting](active-directory-saas-app-provisioning.md)
 * [SCIM gebruiken om in te schakelen automatische inrichting van gebruikers en groepen uit Azure Active Directory voor toepassingen](manage-apps/use-scim-to-provision-users-and-groups.md)
 * [Lijst met zelfstudies over het integreren van SaaS-apps](saas-apps/tutorial-list.md)
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: multiple
 ms.date: 07/22/2016
 ms.author: mlearned
-ms.openlocfilehash: 01741ba25ac3a6ab187a08636b7e26ee58dbee90
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 07a7c1e11d8ca20ff4f42abcb84961cb7cd9e0e1
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055261"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298202"
 ---
 # <a name="debugging-apps-in-a-local-docker-container"></a>Fouten in apps in een lokale Docker-container opsporen
 ## <a name="overview"></a>Overzicht
@@ -33,7 +33,7 @@ In dit artikel leest u ook hoe om in te stellen onderbrekingspunten voor foutops
 >
 >
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 De volgende hulpprogramma's moeten worden geïnstalleerd.
 
 * [Visual Studio 2017](https://www.visualstudio.com/downloads/)
@@ -44,7 +44,7 @@ U kunt de [Docker werkset](https://www.docker.com/products/docker-toolbox), hier
 
 Als u Docker-werkset gebruikt, moet u naar [de Docker-client configureren](vs-azure-tools-docker-setup.md)
 
-## <a name="1-create-a-web-app"></a>1. Een webtoepassing maken
+## <a name="1-create-a-web-app"></a>1. Een web-app maken
 [!INCLUDE [create-aspnet5-app](../includes/create-aspnet5-app.md)]
 
 ## <a name="2-add-docker-support"></a>2. Docker-ondersteuning toevoegen
@@ -89,14 +89,14 @@ Vaak moet wijzigingen verdere controle, gebruik te maken van de foutopsporing fu
 
    ![][2]
 
-## <a name="summary"></a>Samenvatting
+## <a name="summary"></a>Overzicht
 Met Docker-ondersteuning in Visual Studio 2017 krijgt u de productiviteit van lokaal, werken met de productie-realistischer van het ontwikkelen van binnen een Docker-container.
 
-## <a name="troubleshooting"></a>Problemen oplossen
+## <a name="troubleshooting"></a>Probleemoplossing
 [Oplossen van problemen met Visual Studio Docker-ontwikkeling](vs-azure-tools-docker-troubleshooting-docker-errors.md)
 
 ## <a name="more-about-docker-with-visual-studio-windows-and-azure"></a>Meer informatie over Docker met Visual Studio, Windows en Azure
-* [Docker-hulpprogramma's voor Visual Studio Team Services](http://aka.ms/dockertoolsforvsts) : bouwen en implementeren van docker-containers
+* [Docker-hulpprogramma's voor Azure DevOps](http://aka.ms/dockertoolsforvsts) : bouwen en implementeren van docker-containers
 * [Docker-hulpprogramma's voor Visual Studio Code](http://aka.ms/dockertoolsforvscode) -Language-services voor het bewerken van docker-bestanden, met meer e2e-scenario's die afkomstig zijn
 * [Informatie voor Windows-Container](http://aka.ms/containers)-informatie voor Windows Server en Nano Server
 * [Azure Containerservice](https://azure.microsoft.com/services/container-service/) - [Azure Container Service-inhoud](http://aka.ms/AzureContainerService)

@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 9c9cde23f8f8dc557b99d2f1508c923aaa2dce91
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054499"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346335"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>GRANT B2B-gebruikers in Azure AD-toegang tot uw on-premises toepassingen
 
@@ -27,7 +27,7 @@ Als uw on-premises app gebruikmaakt van verificatie op basis van SAML, kunt u de
 
 U moet het volgende doen:
 
-- De SAML-app integreren met behulp van de sjabloon van de toepassing buiten de galerie, zoals beschreven in [configureren van eenmalige aanmelding voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie](../active-directory-saas-custom-apps.md). Zorg ervoor dat te weten wat u gebruikt voor de **aanmeldings-URL** waarde.
+- De SAML-app integreren met behulp van de sjabloon van de toepassing buiten de galerie, zoals beschreven in [configureren van eenmalige aanmelding voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie](../manage-apps/configure-single-sign-on-non-gallery-applications.md). Zorg ervoor dat te weten wat u gebruikt voor de **aanmeldings-URL** waarde.
 -  Azure AD-toepassingsproxy gebruiken voor het publiceren van de app on-premises met **Azure Active Directory** geconfigureerd als de verificatiebron. Zie voor instructies [toepassingen publiceren die gebruikmaken van Azure AD-toepassingsproxy](../manage-apps/application-proxy-publish-azure-portal.md). 
 
    Wanneer u configureert de **interne Url** instellen, gebruikt u de aanmeldings-URL die u hebt opgegeven in de sjabloon van de toepassing buiten de galerie. Op deze manier kunnen gebruikers toegang krijgen tot de app vanuit buiten een grens van de organisatie. Application Proxy voert de SAML eenmalige aanmelding voor de on-premises-app.

@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: e90ffa0a7b5eb9e622a666fdcfa956763abd7633
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: d52ec316f9f5540d4d0d0fe0bc4e4bf778e1daf7
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162798"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345438"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>Azure Active Directory integreren in toepassingen aan de slag
 
@@ -85,7 +85,7 @@ Als u uw aangepaste toepassing toevoegen aan de galerie met Azure wilt, Zie ['Br
 De volgende artikelen beschreven manieren kunt u toegang tot toepassingen beheren nadat ze zijn geïntegreerd met Azure AD met behulp van Azure AD-Connectors en Azure AD.
 
 * [Beheer van toegang tot apps met behulp van Azure AD](what-is-access-management.md)
-* [Automatiseren met Azure AD-Connectors](../active-directory-saas-app-provisioning.md)
+* [Automatiseren met Azure AD-Connectors](user-provisioning.md)
 * [Gebruikers toewijzen aan een toepassing](../active-directory-applications-guiding-developers-assigning-users.md)
 * [Groepen toewijzen aan een toepassing](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [Accounts delen](../active-directory-sharing-accounts.md)

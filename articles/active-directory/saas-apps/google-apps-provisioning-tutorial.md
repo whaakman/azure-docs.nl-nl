@@ -14,21 +14,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/26/2018
 ms.author: jeedes
-ms.openlocfilehash: 26715c6abb9c2c940090c84b64a30f7fb701d059
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 924584a77d36ec41488d8c76d9631baf484ff494
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39445686"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346386"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>Zelfstudie: G Suite configureren voor het automatisch inrichten van gebruikers
 
 Er is het doel van deze zelfstudie leert u hoe u automatisch inrichten en de inrichting van gebruikersaccounts uit Azure Active Directory (Azure AD) met G Suite ongedaan maken.
 
 > [!NOTE]
-> Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](./../active-directory-saas-app-provisioning.md).
+> Deze zelfstudie beschrijft een connector die is gebaseerd op de Provisioning-Service van Azure AD-gebruiker. Zie voor belangrijke informatie over wat deze service biedt, hoe het werkt en veelgestelde vragen [automatiseren van gebruikersinrichting en -opheffing in SaaS-toepassingen met Azure Active Directory](../manage-apps/user-provisioning.md).
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 Voor het configureren van Azure AD-integratie met G Suite, moet u de volgende items:
 
@@ -148,7 +148,7 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
 
 1. Stel de **Inrichtingsmodus** naar **automatische**. 
 
-     ![Inrichten](./media/google-apps-provisioning-tutorial/provisioning.png)
+     ![Inrichting](./media/google-apps-provisioning-tutorial/provisioning.png)
 
 1. Onder de **beheerdersreferenties** sectie, selecteer **autoriseren**. Er wordt een dialoogvenster voor autorisatie van Google geopend in een nieuw browservenster.
 
@@ -172,9 +172,9 @@ Deze sectie helpt u bij het proces van het verbinden van uw Azure AD voor het ge
 
 Dit proces wordt gestart voor de initiële synchronisatie van gebruikers of groepen die zijn toegewezen aan G Suite in de sectie gebruikers en groepen. De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten plaatsvinden terwijl de service wordt uitgevoerd. U kunt de **synchronisatiedetails** sectie voortgang en koppelingen volgen voor het inrichten van activiteitenlogboeken. Deze logboeken worden alle acties die worden uitgevoerd met de provisioning-service op uw app beschreven.
 
-Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../active-directory-saas-provisioning-reporting.md).
+Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../manage-apps/check-status-user-account-provisioning.md).
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 * [Het inrichten van gebruikersaccounts voor bedrijfs-Apps beheren](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

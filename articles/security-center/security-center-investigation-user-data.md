@@ -1,6 +1,6 @@
 ---
-title: Gebruikersgegevens gevonden in Azure Security Center onderzoek beheren | Microsoft Docs
-description: " Informatie over het beheren van gegevens van de gebruiker in Azure Security Center onderzoek functie gevonden. "
+title: Beheren van gegevens van de gebruiker gevonden in een onderzoek in Azure Security Center | Microsoft Docs
+description: " Informatie over het beheren van gegevens van de gebruiker gevonden in de onderzoeksfunctie van Azure Security Center. "
 services: operations-management-suite
 documentationcenter: na
 author: TerryLanfear
@@ -9,44 +9,44 @@ editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
 ms.service: operations-management-suite
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/23/2018
 ms.author: terrylan
-ms.openlocfilehash: 6685db4eeda72928753c74c64b4b26539ccb1eb9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: d3b5f0ee4aa656fa66d577aa40f66fc98dff148d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34655226"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301647"
 ---
-# <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gebruikersgegevens gevonden in Azure Security Center onderzoek beheren
-In dit artikel bevat informatie over het beheren van de gebruikersgegevens gevonden in Azure Security Center onderzoek functie. Onderzoek gegevens worden opgeslagen in [Azure Log Analytics](../log-analytics/log-analytics-overview.md) en zijn beschikbaar in Security Center. Gebruikersgegevens beheren, biedt de mogelijkheid om te verwijderen of gegevens worden geëxporteerd.
+# <a name="manage-user-data-found-in-an-azure-security-center-investigation"></a>Gebruikersgegevens gevonden in een onderzoek in Azure Security Center beheren
+In dit artikel bevat informatie over het beheren van de gebruikersgegevens gevonden in de onderzoeksfunctie van Azure Security Center. Onderzoek gegevens worden opgeslagen in [Azure Log Analytics](../log-analytics/log-analytics-overview.md) en zichtbaar gemaakt in Security Center. Gebruikersgegevens beheren, biedt de mogelijkheid om te verwijderen of exporteren van gegevens.
 
 [!INCLUDE [gdpr-intro-sentence.md](../../includes/gdpr-intro-sentence.md)]
 
-## <a name="searching-for-and-identifying-personal-data"></a>Zoeken naar en persoonlijke gegevens worden geïdentificeerd
-In de Azure portal kunt u de Security Center [onderzoek functie](../security-center/security-center-investigation.md) om te zoeken naar persoonlijke gegevens. De functie onderzoek is beschikbaar onder **beveiligingswaarschuwingen**.
+## <a name="searching-for-and-identifying-personal-data"></a>Zoeken naar en het identificeren van persoonlijke gegevens
+In de Azure-portal, kunt u Security Center [onderzoeksfunctie](../security-center/security-center-investigation.md) om te zoeken naar persoonlijke gegevens. De onderzoeksfunctie bevindt zich onder **beveiligingswaarschuwingen**.
 
-De functie onderzoek toont alle entiteiten, gebruikersgegevens en -gegevens onder de **entiteiten** tabblad.
+De onderzoeksfunctie toont alle entiteiten, gebruikersgegevens en gegevens onder de **entiteiten** tabblad.
 
 ## <a name="securing-and-controlling-access-to-personal-information"></a>Beveiligen en beheren van toegang tot persoonlijke gegevens
-Security Center van een gebruiker de rol van de lezer, eigenaar, bijdrager of accountbeheerder toegang tot gegevens in het hulpprogramma van de klant.
+Een gebruiker met Security Center toegewezen de rol van lezer, eigenaar, bijdrager of accountbeheerder toegang heeft tot klantgegevens in het hulpprogramma.
 
-Zie [ingebouwde functies voor op rollen gebaseerd toegangsbeheer van Azure](../role-based-access-control/built-in-roles.md) voor meer informatie over de rollen lezer, de eigenaar en Inzender. Zie [Azure-abonnementbeheerders](../billing/billing-add-change-azure-subscription-administrator.md) voor meer informatie over de accountbeheerder-rol.
+Zie [ingebouwde rollen voor op rollen gebaseerd toegangsbeheer in Azure](../role-based-access-control/built-in-roles.md) voor meer informatie over de rollen lezer, eigenaar en Inzender. Zie [Azure-abonnementbeheerders](../billing/billing-add-change-azure-subscription-administrator.md) voor meer informatie over de accountbeheerder-rol.
 
-## <a name="deleting-personal-data"></a>Verwijderen van persoonlijke gegevens
-Security Center van een gebruiker de rol van eigenaar, bijdrager, toegewezen of accountbeheerder onderzoek gegevens kunt verwijderen.
+## <a name="deleting-personal-data"></a>Het verwijderen van persoonlijke gegevens
+Security Center van een gebruiker de rol van eigenaar, Inzender, toegewezen of beheerder van de informatie voor onderzoek kunt verwijderen.
 
-Als u wilt verwijderen een onderzoek, dient u een `DELETE` aanvraag voor de REST-API van Azure Resource Manager:
+Als u wilt verwijderen een onderzoek, kunt u indienen een `DELETE` aanvraag naar de Azure Resource Manager REST API:
 
 ```HTTP
 DELETE
 https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.OperationalInsights/workspaces/{workspaceName}/features/security/incidents/{incidentName}
 ```
 
-De `incidentName` invoer vindt lijst met alle incidenten met een `GET` aanvraag:
+De `incidentName` invoer kan worden gevonden door de lijst van alle incidenten met behulp van een `GET` aanvraag:
 
 ```HTTP
 GET
@@ -54,7 +54,7 @@ https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{reso
 ```
 
 ## <a name="exporting-personal-data"></a>Exporteren van persoonlijke gegevens
-Security Center van een gebruiker de rol van eigenaar, bijdrager, toegewezen of de beheerder van de informatie onderzoek kunt exporteren. Als u wilt exporteren onderzoek informatie, gaat u naar de **entiteiten** tabblad kopiëren en plakken van de relevante informatie.
+Security Center van een gebruiker de rol van eigenaar, Inzender, toegewezen of beheerder van de informatie voor onderzoek kunt exporteren. Als u wilt exporteren informatie voor onderzoek, gaat u naar de **entiteiten** tabblad kopiëren en plakken van de relevante informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over het beheren van gebruikersgegevens [gebruikersgegevens in Azure Security Center beheren](security-center-privacy.md).

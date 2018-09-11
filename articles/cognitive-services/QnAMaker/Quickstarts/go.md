@@ -1,20 +1,21 @@
 ---
-title: Quick Start gaat voor Microsoft QnA Maker-API (V4) - Azure Cognitive Services | Microsoft Docs
+title: 'Snelstartgids: Ga voor QnA Maker-API (V4)'
+titleSuffix: Azure Cognitive Services
 description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Text-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: nitinme
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jaswel
-ms.openlocfilehash: d68ff91d74a6c43c6d492aa07e916a842b50e96f
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 5daf4d5e971e840db020e35d1997615723f8e06d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37867586"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349038"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-go"></a>Snelstartgids voor Microsoft QnA Maker-API met Go 
 <a name="HOLTop"></a>
@@ -36,7 +37,7 @@ In dit artikel leest u hoe u de [QnA Maker-API van Microsoft](../Overview/overvi
 - [De huidige set word wijzigingen ophalen.](#GetAlterations)
 - [Vervang de huidige reeks word wijzigingen.](#PutAlterations)
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 U moet [1.10.1 gaat](https://golang.org/dl/) deze code uit te voeren.
 

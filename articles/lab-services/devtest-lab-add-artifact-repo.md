@@ -1,6 +1,6 @@
 ---
 title: Een Git-opslagplaats toevoegen aan een lab in Azure DevTest Labs | Microsoft Docs
-description: Informatie over het toevoegen van een GitHub- of Visual Studio Team Services Git-opslagplaats voor de bron van uw aangepaste artefacten in Azure DevTest Labs.
+description: Informatie over het toevoegen van een GitHub- of Azure DevOps Services Git-opslagplaats voor de bron van uw aangepaste artefacten in Azure DevTest Labs.
 services: devtest-lab,virtual-machines,visual-studio-online
 documentationcenter: na
 author: spelluru
@@ -14,35 +14,35 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: 80724a7d8d2b5cec19bdbce27cdafd4a9c09eb47
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e6c6f36d877f220bcc8d83b75750f54f85dcc198
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38452495"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299879"
 ---
 # <a name="add-a-git-repository-to-store-custom-artifacts-and-resource-manager-templates"></a>Een Git-opslagplaats voor het opslaan van aangepaste artefacten en Resource Manager-sjablonen toevoegen
 
-U kunt [maken van aangepaste artefacten](devtest-lab-artifact-author.md) voor de virtuele machines in uw testomgeving of [Azure Resource Manager-sjablonen gebruiken om te maken van een aangepaste testomgeving](devtest-lab-create-environment-from-arm.md). U moet een persoonlijke Git-opslagplaats voor de artefacten of Resource Manager-sjablonen die uw team maakt toevoegen. De opslagplaats kan worden gehost op [GitHub](https://github.com) of op [Visual Studio Team Services](https://visualstudio.com).
+U kunt [maken van aangepaste artefacten](devtest-lab-artifact-author.md) voor de virtuele machines in uw testomgeving of [Azure Resource Manager-sjablonen gebruiken om te maken van een aangepaste testomgeving](devtest-lab-create-environment-from-arm.md). U moet een persoonlijke Git-opslagplaats voor de artefacten of Resource Manager-sjablonen die uw team maakt toevoegen. De opslagplaats kan worden gehost op [GitHub](https://github.com) of op [Azure DevOps Services](https://visualstudio.com).
 
 We bieden een [GitHub-opslagplaats voor artefacten](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts) die u kunt implementeren als-is, of u kunt deze aanpassen voor uw labs. Wanneer u aanpassen of een artefact maken, kunt u het artefact niet opslaan in de openbare opslagplaats. U kunt uw eigen privé-opslagplaats voor aangepaste artefacten en artefacten die u maakt moet maken. 
 
 Wanneer u een virtuele machine maakt, kunt u de Resource Manager-sjabloon hebt opgeslagen, aanpassen als u wilt, en vervolgens later gebruiken om meer virtuele machines. U moet uw eigen privé-opslagplaats voor het opslaan van uw aangepaste Resource Manager-sjablonen maken.  
 
 * Zie voor meer informatie over het maken van een GitHub-opslagplaats, [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* Zie voor meer informatie over het maken van een Team Services-project met een Git-opslagplaats, [verbinding maken met Visual Studio Team Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* Zie voor meer informatie over het maken van een Services van Azure DevOps-project met een Git-opslagplaats, [verbinding maken met Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
 
 De volgende afbeelding is een voorbeeld van hoe een opslagplaats met artefacten in GitHub kunt zien:  
 
 ![Voorbeeld van een GitHub-opslagplaats voor artefacten](./media/devtest-lab-add-repo/devtestlab-github-artifact-repo-home.png)
 
 ## <a name="get-the-repository-information-and-credentials"></a>Verkrijg de informatie van de opslagplaats en de referenties
-Een opslagplaats toevoegen aan uw testomgeving, moet u eerst, belangrijke informatie ophalen uit uw opslagplaats. De volgende secties wordt beschreven hoe u aan de vereiste gegevens voor opslagplaatsen die worden gehost op GitHub of Visual Studio Team Services.
+Een opslagplaats toevoegen aan uw testomgeving, moet u eerst, belangrijke informatie ophalen uit uw opslagplaats. In de volgende secties wordt beschreven hoe u aan de vereiste gegevens voor opslagplaatsen die worden gehost op GitHub of Azure DevOps-Services.
 
 ### <a name="get-the-github-repository-clone-url-and-personal-access-token"></a>De GitHub-opslagplaats kloon-URL en Pat-token ophalen
 
 1. Ga naar de startpagina van de GitHub-opslagplaats die het artefact of Sjabloondefinities van de Resource Manager-bevat.
-2. Selecteer **klonen of downloaden**.
+2. Selecteer **Klonen of downloaden**.
 3. Als de URL naar het Klembord kopiëren, selecteert de **HTTPS kloon-url** knop. De URL voor later gebruik opslaan.
 4. Selecteer de installatiekopie van het profiel in de rechterbovenhoek van GitHub, en selecteer vervolgens **instellingen**.
 5. In de **persoonlijke instellingen** menu aan de linkerkant, selecteer **persoonlijke toegangstokens**.
@@ -52,7 +52,7 @@ Een opslagplaats toevoegen aan uw testomgeving, moet u eerst, belangrijke inform
 9. Sluit GitHub.   
 10. Blijven de [verbinding maken met uw lab in de opslagplaats](#connect-your-lab-to-the-repository) sectie.
 
-### <a name="get-the-visual-studio-team-services-repository-clone-url-and-personal-access-token"></a>De kloon-URL voor Visual Studio Team Services-opslagplaats en Pat-token ophalen
+### <a name="get-the-azure-repos-clone-url-and-personal-access-token"></a>De Azure-opslagplaatsen-kloon-URL en persoonlijk toegangstoken ophalen
 
 1. Ga naar de startpagina van uw team-verzameling (bijvoorbeeld https://contoso-web-team.visualstudio.com), en selecteer vervolgens uw project.
 2. Selecteer op de startpagina van project **Code**.
@@ -79,9 +79,9 @@ Een opslagplaats toevoegen aan uw testomgeving, moet u eerst, belangrijke inform
     ![De knop van de opslagplaats toevoegen](./media/devtest-lab-add-repo/devtestlab-add-repo.png)
 5. In het tweede **opslagplaatsen** pagina, geeft u de volgende informatie:
   1. **Naam**. Voer een naam voor de opslagplaats.
-  2. **GIT kloon-Url**. Voer de Git-HTTPS-kloon-URL die u eerder hebt gekopieerd vanuit GitHub of Visual Studio Team Services.
+  2. **GIT kloon-Url**. Voer de Git-HTTPS-kloon-URL die u eerder hebt gekopieerd vanuit GitHub of Azure DevOps-Services.
   3. **Vertakking**. Als u uw definities, voer de vertakking.
-  4. **Persoonlijk toegangstoken**. Voer in het persoonlijke toegangstoken dat u eerder hebt ontvangen van GitHub of Visual Studio Team Services.
+  4. **Persoonlijk toegangstoken**. Voer in het persoonlijke toegangstoken dat u eerder hebt ontvangen van GitHub of Azure DevOps-Services.
   5. **Mappaden**. Geef ten minste één pad ten opzichte van de kloon-URL die uw artefacten of Sjabloondefinities van de Resource Manager-bevat. Wanneer u een submap opgeeft, zorg ervoor dat u de schuine streep in het mappad.
 
      ![Opslagplaatsen gebied](./media/devtest-lab-add-repo/devtestlab-repo-blade.png)

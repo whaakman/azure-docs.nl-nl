@@ -14,12 +14,12 @@ ms.date: 07/16/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: 1ac15ce8f8abf2b30b42f02b300a17448f86fc40
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: d17b5967519bc51e4fb33a410149d17c82c28d10
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44052765"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347984"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?
 Eenmalige aanmelding betekent toegang te hebben tot alle toepassingen en bronnen die u nodig hebt om zaken te doen, aanmeldt slechts eenmaal met behulp van één gebruikersaccount. Nadat u bent aangemeld, u toegang hebt tot alle van de toepassingen die u nodig hebt zonder vereist is om te verifiëren (bijvoorbeeld, typ een wachtwoord) een tweede keer.
@@ -89,7 +89,7 @@ Voor bepaalde toepassingen, Azure AD maakt het mogelijk om geautomatiseerde gebr
 
 Wanneer een gebruiker wordt verwijderd of de gegevens worden gewijzigd in Azure AD, worden deze wijzigingen ook weergegeven in de SaaS-toepassing. Dit houdt in dat, is het configureren van geautomatiseerd beheer van identiteitslevenscycli kan beheerders om te bepalen en geautomatiseerde inrichting en ongedaan maken inrichting van SaaS-toepassingen. In Azure AD, wordt deze automatisering van beheer van identiteitslevenscycli ingeschakeld door het inrichten van gebruikers.
 
-Zie voor meer informatie, [geautomatiseerde Gebruikersinrichting en het opheffen van inrichting voor SaaS-toepassingen](../active-directory-saas-app-provisioning.md)
+Zie voor meer informatie, [geautomatiseerde Gebruikersinrichting en het opheffen van inrichting voor SaaS-toepassingen](user-provisioning.md)
 
 ## <a name="get-started-with-the-azure-ad-application-gallery"></a>Aan de slag met de Azure AD-toepassingsgalerie
 Klaar om te beginnen? Implementeren van eenmalige aanmelding tussen Azure AD en SaaS-toepassingen die uw organisatie gebruikt, volgt u deze richtlijnen.
@@ -109,7 +109,7 @@ Als u uw toepassing hebt gevonden, kunt u beginnen door het volgen van stapsgewi
 ### <a name="application-not-in-the-gallery"></a>De toepassing niet in de galerie?
 Als uw toepassing niet in de Azure AD-toepassingsgalerie gevonden is, hebt u deze opties:
 
-* **Toevoegen van een niet-vermelde app u** -gebruik van de aangepaste categorie in de app-galerie in Azure portal om een niet-vermelde toepassing die van uw organisatie gebruikmaakt verbinding te maken. U kunt elke toepassing die ondersteuning biedt voor SAML 2.0 als federatieve app of elke toepassing die is een op HTML gebaseerde aanmeldingspagina opgeven als wachtwoord SSO-app toevoegen. Zie voor meer informatie in dit artikel op [uw eigen toepassing toe te voegen](../application-config-sso-how-to-configure-federated-sso-non-gallery.md).
+* **Toevoegen van een niet-vermelde app u** -gebruik van de aangepaste categorie in de app-galerie in Azure portal om een niet-vermelde toepassing die van uw organisatie gebruikmaakt verbinding te maken. U kunt elke toepassing die ondersteuning biedt voor SAML 2.0 als federatieve app of elke toepassing die is een op HTML gebaseerde aanmeldingspagina opgeven als wachtwoord SSO-app toevoegen. Zie voor meer informatie in dit artikel op [uw eigen toepassing toe te voegen](configure-federated-single-sign-on-non-gallery-applications.md).
 * **Toevoegen aan uw eigen app die u ontwikkelt** : als u de toepassing hebt ontwikkeld zelf, volg de richtlijnen in de Azure AD-documentatie voor ontwikkelaars voor het implementeren van federatieve eenmalige aanmelding of inrichten met behulp van de Azure AD graph API. Zie de volgende bronnen voor meer informatie:
   
   * [Authentication Scenarios for Azure AD](../develop/authentication-scenarios.md) (Verificatiescenario's voor Azure AD)

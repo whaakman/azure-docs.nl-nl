@@ -1,6 +1,7 @@
 ---
-title: Java-Snelstartgids voor Azure cognitieve Services, Text Analytics API | Microsoft Docs
-description: Get-informatie en codevoorbeelden kunt u snel aan de slag met de tekst Analytics-API in Microsoft cognitieve Services in Azure.
+title: 'Snelstartgids: Java gebruiken voor het aanroepen van de Tekstanalyse-API | Microsoft Docs'
+titleSuffix: Azure Cognitive Services
+description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Tekstanalyse-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
 documentationcenter: ''
 author: ashmaka
@@ -9,35 +10,35 @@ ms.component: text-analytics
 ms.topic: article
 ms.date: 05/02/2018
 ms.author: ashmaka
-ms.openlocfilehash: 720459f65b9572a0599205c631d7de1b4d39f30b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9c08536c8bf5fc4d27c896c7eed00999d14b8872
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345351"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300497"
 ---
-# <a name="quickstart-for-text-analytics-api-with-java"></a>Snelstartgids voor Tekstanalyse API met Java 
+# <a name="quickstart-using-java-to-call-the-text-analytics-cognitive-service"></a>Snelstartgids: Java gebruiken om aan te roepen de Text Analytics-Cognitive Service
 <a name="HOLTop"></a>
 
-Dit artikel ziet u hoe aan [taal gedetecteerd](#Detect), [gevoel analyseren](#SentimentAnalysis), [uitpakken van sleutel zinnen](#KeyPhraseExtraction), en [gekoppelde entiteiten identificeren](#Entities) met de [Text Analytics-API's](//go.microsoft.com/fwlink/?LinkID=759711) met Java.
+In dit artikel ziet u hoe u aan [taal detecteren](#Detect), [stemming analyseren](#SentimentAnalysis), [Extraheer sleuteluitdrukkingen](#KeyPhraseExtraction), en [gekoppelde entiteiten identificeren](#Entities) gebruiken de [Tekstanalyse-API's](//go.microsoft.com/fwlink/?LinkID=759711) met behulp van Java.
 
 Raadpleeg de [API-definities](//go.microsoft.com/fwlink/?LinkID=759346) voor technische documentatie voor de API's.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Text Analytics API**. U kunt de **gratis laag voor 5000 transacties/maand** voltooien van deze snelstartgids.
-U moet ook beschikken over de [eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) die is gegenereerd voor u tijdens de aanmelding van. 
+Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Tekstanalyse-API**. U kunt de **gratis laag voor 5000 transacties per maand** om uit te voeren van deze Quick Start.
+Ook moet u de [eindpunt en de toegangssleutel](../How-tos/text-analytics-how-to-access-key.md) die is gegenereerd voor u tijdens het aanmelden van. 
 
 <a name="Detect"></a>
 
 ## <a name="detect-language"></a>Taal detecteren
 
-De API van taal detectie detecteert de taal van een document, met behulp van de [detecteren taal methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
+De API voor taal detecteert de taal van een document, met behulp van de [taal detecteren methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c7).
 
 1. Maak een nieuwe Java-project in uw favoriete IDE.
 2. Voeg de code hieronder.
 3. Vervang de `accessKey` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Vervang de locatie in `host` (momenteel `westus`) voor de regio die u zich heeft aangemeld.
+4. Vervang de locatie in `host` (momenteel `westus`) naar de regio die u zich heeft aangemeld.
 5. Voer het programma.
 
 ```java
@@ -158,9 +159,9 @@ public class DetectLanguage {
 }
 ```
 
-**Taal detectie antwoord**
+**Taal detecteren-antwoord**
 
-Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
 
 ```json
 
@@ -206,12 +207,12 @@ Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in h
 
 ## <a name="analyze-sentiment"></a>Stemming analyseren
 
-De detexts gevoel Analysis API de gevoel van een reeks tekstrecords, met de [gevoel methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Het volgende voorbeeld scores twee documenten, één in het Engels en de andere in Spaans.
+De analyse-Gevoels-API-detexts het gevoel van een set tekstrecords, met behulp van de [Sentiment methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c9). Het volgende voorbeeld beoordeelt twee documenten, één in het Engels en een andere in het Spaans.
 
 1. Maak een nieuwe Java-project in uw favoriete IDE.
 2. Voeg de code hieronder.
 3. Vervang de `accessKey` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Vervang de locatie in `uriBase` (momenteel `westus`) voor de regio die u zich heeft aangemeld.
+4. Vervang de locatie in `uriBase` (momenteel `westus`) naar de regio die u zich heeft aangemeld.
 5. Voer het programma.
 
 ```java
@@ -331,9 +332,9 @@ public class GetSentiment {
     }
 }
 ```
-**Gevoel analyse antwoord**
+**Sentiment-analyse antwoord**
 
-Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
 
 ```json
 {
@@ -355,12 +356,12 @@ Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in h
 
 ## <a name="extract-key-phrases"></a>Sleuteltermen ophalen
 
-De API-sleutel woordgroep uitpakken van sleutel-zinnen haalt uit een tekst document, met behulp van de [sleutel zinnen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Het volgende voorbeeld extraheert sleutel zinnen voor Engelse en Spaanse documenten.
+De API-sleutel woordgroep extractie sleuteltermen geëxtraheerd uit een document, met behulp van de [sleuteltermen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/56f30ceeeda5650db055a3c6). Het volgende voorbeeld haalt sleuteltermen voor Engelse en Spaanse documenten.
 
 1. Maak een nieuwe Java-project in uw favoriete IDE.
 2. Voeg de code hieronder.
 3. Vervang de `accessKey` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Vervang de locatie in `uriBase` (momenteel `westus`) voor de regio die u zich heeft aangemeld.
+4. Vervang de locatie in `uriBase` (momenteel `westus`) naar de regio die u zich heeft aangemeld.
 5. Voer het programma.
 
 ```java
@@ -481,9 +482,9 @@ public class GetKeyPhrases {
     }
 }
 ```
-**Sleutel woordgroep extractie antwoord**
+**Sleuteluitdrukkingen extraheren antwoord**
 
-Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
 
 ```json
 {
@@ -524,12 +525,12 @@ Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in h
 
 ## <a name="identify-linked-entities"></a>Gekoppelde entiteiten identificeren
 
-De API voor het koppelen van entiteit identificeert bekende entiteiten in een document, met behulp van de [entiteit koppelen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). Het volgende voorbeeld identificeert entiteiten voor de Engelse documenten.
+De Entity Linking API identificeert bekende entiteiten in een document, met behulp van de [entiteiten koppelen methode](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics.V2.0/operations/5ac4251d5b4ccd1554da7634). Het volgende voorbeeld identificeert entiteiten voor Engels-documenten.
 
 1. Maak een nieuwe Java-project in uw favoriete IDE.
 2. Voeg de code hieronder.
 3. Vervang de `accessKey` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Vervang de locatie in `uriBase` (momenteel `westus`) voor de regio die u zich heeft aangemeld.
+4. Vervang de locatie in `uriBase` (momenteel `westus`) naar de regio die u zich heeft aangemeld.
 5. Voer het programma.
 
 ```java
@@ -651,7 +652,7 @@ public class GetEntities {
 ```
 **Entiteit koppelen antwoord**
 
-Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
 
 ```json
 {
@@ -716,9 +717,9 @@ Een geslaagde reactie wordt geretourneerd als JSON, zoals wordt weergegeven in h
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Tekstanalyse met Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
+> [Text Analytics met Power BI](../tutorials/tutorial-power-bi-key-phrases.md)
 
 ## <a name="see-also"></a>Zie ook 
 
- [Overzicht van tekst Analytics](../overview.md)  
- [Veelgestelde vragen (FAQ)](../text-analytics-resource-faq.md)
+ [Text Analytics-overzicht](../overview.md)  
+ [Veelgestelde vragen](../text-analytics-resource-faq.md)

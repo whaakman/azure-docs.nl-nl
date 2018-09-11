@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: cherylmc
-ms.openlocfilehash: 5f40b4c9fff57b105b7d96de69780fea83871032
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 3e2648bc019612835baa172210984d8fc1c6d801
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43302293"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304069"
 ---
 # <a name="expressroute-faq"></a>Veelgestelde vragen ExpressRoute
 
@@ -66,15 +66,25 @@ ExpressRoute ondersteunt [drie Routeringsdomeinen](expressroute-circuit-peerings
 >Openbare peering is uitgeschakeld op nieuwe ExpressRoute-circuits. Azure-services zijn beschikbaar op Microsoft-peering.
 >
 
+* Power BI
+* Dynamics 365 voor Finance and Operations (voorheen bekend als Dynamics AX Online)
+* De meeste van de Azure-services worden ondersteund. Controleer of rechtstreeks met de service die u wilt gebruiken om te controleren of de ondersteuning.<br>
+  De volgende services worden niet ondersteund:
+    * CDN
+    * Laden van Azure DevOps-Services testen
+    * Multi-Factor Authentication
+    * Traffic Manager
+
 ### <a name="microsoft-peering"></a>Microsoft-peering
 
 * [Office 365](http://aka.ms/ExpressRouteOffice365)
 * Dynamics 365 
 * Power BI
 * Azure Active Directory
-* Visual Studio Team Services Belastingstests
+* Laden van Azure DevOps-Services testen
 * De meeste van de Azure-services worden ondersteund. Controleer of rechtstreeks met de service die u wilt gebruiken om te controleren of de ondersteuning.<br>De volgende services zijn **niet ondersteund**:
     * CDN
+    * Laden van Azure DevOps-Services testen
     * Multi-Factor Authentication
     * Traffic Manager
 

@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/05/2018
 ms.author: spelluru
-ms.openlocfilehash: 143d0d4b66fc8e6e62364090e3d3187c4aa7bb51
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: e53e3e551041ed5bb04ae8e692a3fe3baf2521f8
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919003"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44302236"
 ---
 # <a name="create-multi-vm-environments-and-paas-resources-with-azure-resource-manager-templates"></a>Multi-VM-omgevingen en PaaS-resources met Azure Resource Manager-sjablonen maken
 
 De [Azure-portal](http://go.microsoft.com/fwlink/p/?LinkID=525040) kunt u eenvoudig [één virtuele machine tegelijk toevoegen aan een lab](https://docs.microsoft.com/azure/devtest-lab/devtest-lab-add-vm). Als de omgeving meerdere virtuele machines bevat, moet elke virtuele machine echter worden afzonderlijk gemaakt. Voor scenario's zoals een Web-app voor meerdere lagen of een SharePoint-farm, een methode nodig om toe te staan voor het maken van meerdere virtuele machines in één stap. Met behulp van Azure Resource Manager-sjablonen, kunt u nu definieert de infrastructuur en configuratie van uw Azure-oplossing en herhaaldelijk implementeren meerdere virtuele machines in een consistente status. Deze functie biedt de volgende voordelen:
 
-- Azure Resource Manager-sjablonen worden geladen rechtstreeks vanuit uw resourcebeheerbibliotheek (GitHub of Team Services Git).
+- Azure Resource Manager-sjablonen worden geladen rechtstreeks vanuit uw resourcebeheerbibliotheek (GitHub of Azure DevOps Services Git).
 - Wanneer geconfigureerd, uw gebruikers een omgeving kunnen maken door het verzamelen van een Azure Resource Manager-sjabloon via Azure portal, net als bij andere soorten [VM-basissen](./devtest-lab-comparing-vm-base-image-types.md).
 - Azure PaaS-resources kunnen worden ingericht in een omgeving van een Azure Resource Manager-sjabloon naast de IaaS-VM's.
 - De kosten van omgevingen kan worden bijgehouden in het lab naast de afzonderlijke virtuele machines die zijn gemaakt door andere soorten databases.
@@ -42,7 +42,7 @@ Meer informatie over de vele [voordelen van het gebruik van Resource Manager-sja
 Azure DevTest Labs is een [openbare opslagplaats van Azure Resource Manager-sjablonen](https://github.com/Azure/azure-devtestlab/tree/master/Environments) die u kunt gebruiken om omgevingen te maken zonder verbinding maken met een externe bron van GitHub zelf. Deze opslagplaats bevat veelgebruikte sjablonen, zoals Azure Web Apps, Service Fabric-Cluster en development environment van de SharePoint-Farm. Deze functie is vergelijkbaar met de openbare opslagplaats voor artefacten die is opgenomen voor elke lab die u maakt. De opslagplaats van de omgeving kunt u snel aan de slag met vooraf opgestelde omgevingssjablonen met minimale invoer parameters, zodat u met een goede aan de slag te gaan ervaring te bieden voor PaaS-resources binnen labs. Zie voor meer informatie, [configureren en het gebruik openbare omgevingen in DevTest Labs](devtest-lab-configure-use-public-environments.md).
 
 ## <a name="configure-your-own-template-repositories"></a>Configureren van uw eigen sjabloon-opslagplaatsen
-Als een van de aanbevolen procedures met infrastructure-as-code en configuratie als code, moeten omgevingssjablonen worden beheerd in broncodebeheer. Azure DevTest Labs met deze procedure volgt en alle sjablonen van Azure Resource Manager rechtstreeks vanuit uw GitHub- of VSTS Git-opslagplaatsen laadt. Als gevolg hiervan kunnen Resource Manager-sjablonen worden gebruikt voor de volledige release-cyclus, vanuit de testomgeving aan de productie-omgeving.
+Als een van de aanbevolen procedures met infrastructure-as-code en configuratie als code, moeten omgevingssjablonen worden beheerd in broncodebeheer. Azure DevTest Labs met deze procedure volgt en alle sjablonen van Azure Resource Manager rechtstreeks vanuit uw GitHub- of Azure DevOps Services Git-opslagplaatsen laadt. Als gevolg hiervan kunnen Resource Manager-sjablonen worden gebruikt voor de volledige release-cyclus, vanuit de testomgeving aan de productie-omgeving.
 
 Bekijk de sjablonen die zijn gemaakt door de DevTest Labs-team in de [openbare GitHub-opslagplaats](https://github.com/Azure/azure-devtestlab/tree/master/Environments). In deze openbare opslagplaats, kunt u de sjablonen die worden gedeeld met anderen kunt u rechtstreeks gebruiken of pas ze aan uw eigen wensen aan weergeven. Nadat u de sjabloon hebt gemaakt, wordt dit opslaan in deze opslagplaats om deze te delen met anderen. U kunt ook uw eigen Git-opslagplaats met sjablonen die kunnen worden gebruikt voor het instellen van omgevingen in de cloud instellen. 
 
@@ -79,9 +79,9 @@ De volgende stappen helpen u bij het toevoegen van een opslagplaats aan uw testo
 1. Selecteer **toevoegen +** om toe te voegen van de opslagplaats voor uw Azure Resource Manager-sjablonen.
 1. Als de tweede **opslagplaatsen** deelvenster wordt geopend, voert u de benodigde gegevens als volgt:
     - **Naam** -Geef de naam van de opslagplaats die wordt gebruikt in het lab.
-    - **GIT-kloon-URL** -HTTPS GIT-kloon-URL invoeren van GitHub of Visual Studio Team Services.  
+    - **GIT-kloon-URL** -HTTPS GIT-kloon-URL invoeren van GitHub of Azure DevOps-Services.  
     - **Vertakking** -vertakking invoeren voor toegang tot de Sjabloondefinities van uw Azure Resource Manager-. 
-    - **Persoonlijk toegangstoken** -het persoonlijke toegangstoken veilig toegang krijgen tot de opslagplaats wordt gebruikt. Als u uw token vanuit Visual Studio Team Services, selecteer  **&lt;uwnaam >> Mijn profiel > Beveiliging > token voor openbare toegang**. Als u uw token vanuit GitHub, selecteert u uw avatar gevolgd door het selecteren van **instellingen > token voor openbare toegang**. 
+    - **Persoonlijk toegangstoken** -het persoonlijke toegangstoken veilig toegang krijgen tot de opslagplaats wordt gebruikt. Als u uw token van Azure DevOps-Services, selecteer  **&lt;uwnaam >> Mijn profiel > Beveiliging > token voor openbare toegang**. Als u uw token vanuit GitHub, selecteert u uw avatar gevolgd door het selecteren van **instellingen > token voor openbare toegang**. 
     - **Mappaden** -met een van de twee invoervelden, voer het pad dat begint met een slash - / - en is ten opzichte van de Git-kloon URI naar een artefact definities (eerste invoerveld) of de Sjabloondefinities van uw Azure Resource Manager- .   
     
         ![Openbare opslagplaats](./media/devtest-lab-create-environment-from-arm/repo-values.png)

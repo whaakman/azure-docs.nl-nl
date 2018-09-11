@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
-ms.openlocfilehash: 8817facc21d2a7ac86bdaf198aab3179a93c4914
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 25773124fcd479489f5d2d544cc5b6e3b11e325a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38718978"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301137"
 ---
 # <a name="deploy-your-application-on-virtual-machine-scale-sets"></a>Implementeer uw toepassing op virtuele-machineschaalsets
 Als u toepassingen wilt uitvoeren op de exemplaren van een virtuele machine (VM) in een schaalset, moet u eerst de toepassingsonderdelen en de vereiste bestanden installeren. Dit artikel bevat manieren voor het maken van een aangepaste VM-installatiekopie voor exemplaren in een schaalset instellen of installatiescripts op bestaande VM-exemplaren automatisch wordt uitgevoerd. U leert ook hoe u voor het beheren van toepassingen of updates van het besturingssysteem in een schaalset.
@@ -114,7 +114,7 @@ az vmss create \
 ### <a name="install-applications-with-os-updates"></a>Toepassingen met updates van het besturingssysteem installeren
 Wanneer er nieuwe OS releases beschikbaar zijn, u kunt gebruiken of een nieuwe aangepaste installatiekopie bouwen en [besturingssysteemupgrades implementeren](virtual-machine-scale-sets-upgrade-scale-set.md) ingesteld op een schaal. Elk VM-exemplaar is bijgewerkt naar de meest recente installatiekopie die u opgeeft. U kunt een aangepaste installatiekopie met de toepassing vooraf is geïnstalleerd, de aangepaste Scriptextensie of PowerShell DSC gebruiken om uw toepassing automatisch beschikbaar als u de upgrade uitvoert. Mogelijk moet u plannen voor het Toepassingonderhoud van als u dit proces om ervoor te zorgen dat er geen versie compatibiliteitsproblemen uitvoert.
 
-Als u een aangepaste VM-installatiekopie met de toepassing vooraf is geïnstalleerd, kunt u de updates van toepassingen kunt integreren met een implementatiepijplijn naar de nieuwe afbeeldingen bouwen en implementeren van upgrades voor het besturingssysteem van de schaalset. Deze aanpak kunt u de pijplijn voor het kiezen van de meest recente builds van toepassing, maken en valideren van een VM-installatiekopie en vervolgens de upgrade van de VM-exemplaren in de schaalset. Als u wilt uitvoeren van een implementatiepijplijn die u bouwt en implementeert u updates van toepassingen via aangepaste VM-installatiekopieën, kunt u [een Packer-installatiekopie maken en implementeren met Visual Studio Team Services](/vsts/pipelines/apps/cd/azure/deploy-azure-scaleset), of gebruik een ander platform, zoals [Spinnaker ](https://www.spinnaker.io/) of [Jenkins](https://jenkins.io/).
+Als u een aangepaste VM-installatiekopie met de toepassing vooraf is geïnstalleerd, kunt u de updates van toepassingen kunt integreren met een implementatiepijplijn naar de nieuwe afbeeldingen bouwen en implementeren van upgrades voor het besturingssysteem van de schaalset. Deze aanpak kunt u de pijplijn voor het kiezen van de meest recente builds van toepassing, maken en valideren van een VM-installatiekopie en vervolgens de upgrade van de VM-exemplaren in de schaalset. Als u wilt uitvoeren van een implementatiepijplijn die u bouwt en implementeert u updates van toepassingen via aangepaste VM-installatiekopieën, kunt u [een Packer-installatiekopie maken en implementeren met Azure DevOps Services](/azure/devops/pipelines/apps/cd/azure/deploy-azure-scaleset), of gebruik een ander platform, zoals [Spinnaker](https://www.spinnaker.io/) of [Jenkins](https://jenkins.io/).
 
 
 ## <a name="next-steps"></a>Volgende stappen

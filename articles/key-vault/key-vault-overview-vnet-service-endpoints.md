@@ -9,13 +9,13 @@ manager: mbaldwin
 ms.date: 08/31/2018
 ms.service: key-vault
 ms.workload: identity
-ms.topic: article
-ms.openlocfilehash: fd3a16841e9d3c9b8bfd9b0f53c42ad1e08b3d80
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.topic: conceptual
+ms.openlocfilehash: c2696d5eb22443b565c48ef4f96d6e4a25827606
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345149"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295001"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Virtual Network-Service-eindpunten voor Azure Key Vault
 
@@ -64,7 +64,7 @@ Hier volgt een lijst met vertrouwde-services die zijn toegestaan voor toegang to
 |Azure Backup|Toestaan dat back-up en herstel van de relevante sleutels en geheimen tijdens back-up van virtuele machine van Azure, met behulp van [Azure Backup](../backup/backup-introduction-to-azure-backup.md)|
 |Exchange Online en SharePoint Online|Toegang tot de klantsleutel toestaan voor Service-versleuteling met [Klantsleutel](https://support.office.com/en-us/article/Controlling-your-data-in-Office-365-using-Customer-Key-f2cd475a-e592-46cf-80a3-1bfb0fa17697).|
 |Azure Information Protection|Toegang tot de tenantsleutel voor [Azure Information Protection.](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)|
-|App-services|[Azure Web App Certificate via Key Vault implementeren](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)|
+|App Services|[Azure Web App Certificate via Key Vault implementeren](https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/)|
 |Azure SQL|[De Transparent Data Encryption met Bring Your Own Key-ondersteuning voor Azure SQL Database en Data Warehouse](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current)|
 |Azure Storage|[Versleuteling voor opslagservice met behulp van de klant beheerde sleutels in Azure Key Vault](../storage/common/storage-service-encryption-customer-managed-keys.md)|
 |Azure Data Lake Store|[Versleuteling van gegevens in Azure Data Lake Store](../data-lake-store/data-lake-store-encryption.md) met de klant beheerde sleutel|

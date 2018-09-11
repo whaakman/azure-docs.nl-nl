@@ -8,12 +8,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 08/31/2018
 ms.author: marsma
-ms.openlocfilehash: e78be76d68cf75cf9d59f5b5dff86c65524275a9
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 16349af5932987cc0db4295355a0365c8579fcbf
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697235"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345737"
 ---
 # <a name="network-configuration-in-azure-kubernetes-service-aks"></a>Configuratie van het netwerk in Azure Kubernetes Service (AKS)
 
@@ -78,7 +78,7 @@ Het standaard maximum aantal schillen per knooppunt in een AKS-cluster varieert 
 
 Dit zijn de *standaard* maximumwaarden bij het implementeren van een AKS-cluster zonder op te geven het maximum aantal schillen tijdens de implementatie:
 
-| Implementatiemethode | Basic | Geavanceerd | Kan worden geconfigureerd tijdens de implementatie |
+| Implementatiemethode | Standaard | Geavanceerd | Kan worden geconfigureerd tijdens de implementatie |
 | -- | :--: | :--: | -- |
 | Azure-CLI | 110 | 30 | Ja |
 | Resource Manager-sjabloon | 110 | 30 | Ja |
@@ -173,11 +173,14 @@ De volgende vragen en antwoorden van toepassing op de **Geavanceerd** netwerkcon
 
 Meer informatie over netwerken in AKS in de volgende artikelen:
 
-[Gebruik een statisch IP-adres aan de load balancer van Azure Kubernetes Service (AKS)](static-ip.md)
+- [Gebruik een statisch IP-adres aan de load balancer van Azure Kubernetes Service (AKS)](static-ip.md)
+- [Een interne load balancer gebruiken met Azure Container Service (AKS)](internal-lb.md)
 
-[HTTPS inkomend verkeer op Azure Container Service (AKS)](ingress.md)
-
-[Een interne load balancer gebruiken met Azure Container Service (AKS)](internal-lb.md)
+- [Een eenvoudige ingangscontroller met verbinding met het externe netwerk maken][aks-ingress-basic]
+- [De HTTP-aanvraag routering invoegtoepassing inschakelen][aks-http-app-routing]
+- [Een controller voor binnenkomend verkeer die gebruikmaakt van een privé-interne netwerken en IP-adres maken][aks-ingress-internal]
+- [Maken van een controller voor binnenkomend verkeer met een dynamische openbare IP-adres en we gaan coderen voor het automatisch genereren van TLS-certificaten configureren][aks-ingress-tls]
+- [Maken van een controller voor binnenkomend verkeer met een statisch openbaar IP-adres en we gaan coderen voor het automatisch genereren van TLS-certificaten configureren][aks-ingress-static-tls]
 
 ### <a name="acs-engine"></a>ACS-Engine
 
@@ -200,3 +203,8 @@ Kubernetes-clusters die zijn gemaakt met de ACS-Engine ondersteunen zowel de [ku
 [az-aks-create]: /cli/azure/aks?view=azure-cli-latest#az-aks-create
 [aks-ssh]: ssh.md
 [ManagedClusterAgentPoolProfile]: /azure/templates/microsoft.containerservice/managedclusters#managedclusteragentpoolprofile-object
+[aks-ingress-basic]: ingress-basic.md
+[aks-ingress-tls]: ingress-tls.md
+[aks-ingress-static-tls]: ingress-static-ip.md
+[aks-http-app-routing]: http-application-routing.md
+[aks-ingress-internal]: ingress-internal-ip.md

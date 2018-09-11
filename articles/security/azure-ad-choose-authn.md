@@ -9,12 +9,12 @@ ms.date: 04/12/2018
 ms.topic: article
 ms.service: active-directory
 ms.workload: identity
-ms.openlocfilehash: c6e82dfef55a49a8db70bdbefd0d7150b4fbac40
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: c08dba56e3a7d9590ea95e7e4c569839f3a32100
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43305179"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324849"
 ---
 # <a name="choose-the-right-authentication-method-for-your-azure-active-directory-hybrid-identity-solution"></a>Selecteer de juiste verificatiemethode voor uw Azure Active Directory-oplossing voor hybride identiteit 
 
@@ -171,7 +171,7 @@ De architectuur op hoog niveau onderdelen die vereist zijn voor elke methode voo
 |Wat zijn de opties voor voorwaardelijke toegang?|[Voorwaardelijke toegang van Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Voorwaardelijke toegang van Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)|[Voorwaardelijke toegang van Azure AD](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-azure-portal)<br><br>[AD FS claimregels](https://adfshelp.microsoft.com/AadTrustClaims/ClaimsGenerator)|
 |Blokkeert verouderde protocollen die worden ondersteund?|[Ja](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Ja](https://docs.microsoft.com/azure/active-directory/active-directory-conditional-access-conditions#legacy-authentication)|[Ja](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/access-control-policies-w2k12)|
 |Kunt u het logo, afbeelding en beschrijving op de aanmeldingspagina's aanpassen?|[Ja, met Azure AD Premium](https://docs.microsoft.com/azure/active-directory/customize-branding)|[Ja, met Azure AD Premium](https://docs.microsoft.com/azure/active-directory/customize-branding)|[Ja](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-management#customlogo)|
-|Welke geavanceerde scenario's worden ondersteund?|[Slimme wachtwoord vergrendelen](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[Gelekte referenties rapporten](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[Slimme wachtwoord vergrendelen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Meerdere locaties met lage latentie verificatiesysteem<br><br>[AD FS-extranetvergrendeling](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-lockout-protection)<br><br>[Integratie met derden identiteitssystemen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
+|Welke geavanceerde scenario's worden ondersteund?|[Slimme wachtwoord vergrendelen](https://docs.microsoft.com/azure/active-directory/active-directory-secure-passwords)<br><br>[Gelekte referenties rapporten](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-risk-events)|[Slimme wachtwoord vergrendelen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-pass-through-authentication-smart-lockout)|Meerdere locaties met lage latentie verificatiesysteem<br><br>[AD FS-extranetvergrendeling](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/configure-ad-fs-extranet-soft-lockout-protection)<br><br>[Integratie met derden identiteitssystemen](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-federation-compatibility)|
 
 > [!NOTE] 
 > Aangepaste besturingselementen in Azure AD voor voorwaardelijke toegang biedt momenteel geen ondersteuning voor het registreren van apparaten.

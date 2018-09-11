@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: 36307c86332ac331e444d65ba27c044585379e68
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d80914fcd1f667924b52122b39f95871c1e21532
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093394"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298009"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -67,13 +67,19 @@ module.exports = function(context) {
 ```
 context.bindings
 ```
-Retourneert een benoemde object dat al uw invoer- en gegevens bevat. Bijvoorbeeld, volgende definitie van de binding in uw *function.json* hebt u toegang de inhoud van de wachtrij van tot de `context.bindings.myInput` object. 
+Retourneert een benoemde object dat al uw invoer- en gegevens bevat. Bijvoorbeeld, de volgende bindingsdefinities in uw *function.json* hebt u toegang de inhoud van een wachtrij van tot `context.bindings.myInput` en uitvoer toewijzen aan een wachtrij met `context.bindings.myOutput`.
 
 ```json
 {
     "type":"queue",
     "direction":"in",
     "name":"myInput"
+    ...
+},
+{
+    "type":"queue",
+    "direction":"out",
+    "name":"myOutput"
     ...
 }
 ```
@@ -87,25 +93,27 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
+Houd er rekening mee dat u kiezen kunt voor het definiëren van uitvoer binding gegevens met de `context.done` methode in plaats van de `context.binding` object (Zie hieronder).
+
 ### <a name="contextdone-method"></a>methode context.Done
 ```
 context.done([err],[propertyBag])
 ```
 
-Informeert de runtime die uw code is voltooid. Als uw functie maakt gebruik van de `async function` declaratie (beschikbaar met behulp van knooppunt 8 + in functies versie 2.x), u niet wilt gebruiken `context.done()`. De `context.done` callback impliciet wordt genoemd.
+Informeert de runtime die uw code is voltooid. Als uw functie gebruikmaakt van de JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaratie (beschikbaar met behulp van knooppunt 8 + in functies versie 2.x), u hoeft niet te gebruiken `context.done()`. De `context.done` callback impliciet wordt genoemd.
 
 Als uw functie niet een functie asynchrone is **moet worden aangeroepen `context.done`**  om te informeren over de runtime die uw functie voltooid is. Als deze ontbreekt, wordt de uitvoering time-out.
 
-De `context.done` methode kunt u weer zowel een gebruiker gedefinieerde fout doorgeven aan de runtime en een eigenschappenverzameling van eigenschappen die de eigenschappen worden overschreven op het `context.bindings` object.
+De `context.done` methode kunt u weer zowel een gebruiker gedefinieerde fout doorgeven aan de runtime- en uitvoergegevens van de binding met een JSON-object. Eigenschappen doorgegeven aan `context.done` overschrijft alles instellen op de `context.bindings` object.
 
 ```javascript
 // Even though we set myOutput to have:
-//  -> text: hello world, number: 123
+//  -> text: 'hello world', number: 123
 context.bindings.myOutput = { text: 'hello world', number: 123 };
 // If we pass an object to the done function...
 context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 // the done method will overwrite the myOutput binding to be: 
-//  -> text: hello there, world, noNumber: true
+//  -> text: 'hello there, world', noNumber: true
 ```
 
 ### <a name="contextlog-method"></a>methode context.log  
@@ -113,22 +121,24 @@ context.done(null, { myOutput: { text: 'hello there, world', noNumber: true }});
 ```
 context.log(message)
 ```
-Kunt u schrijven naar de streaminglogboeken console op het standaardniveau voor tracering. Op `context.log`, extra logboekregistratie methoden zijn beschikbaar waarmee u naar het consolelogboek op andere traceringsniveaus schrijven:
+Kunt u schrijven naar de streaminglogboeken functie op het standaardniveau voor tracering. Op `context.log`, extra logboekregistratie methoden zijn beschikbaar waarmee u de functie Logboeken op andere traceringsniveaus:
 
 
-| Methode                 | Beschrijving                                |
+| Wijze                 | Beschrijving                                |
 | ---------------------- | ------------------------------------------ |
 | **fout (_bericht_)**   | Schrijft naar foutniveau logboekregistratie of lager.   |
 | **waarschuwing (_bericht_)**    | Schrijft naar waarschuwingsniveau logboekregistratie of lager. |
 | **Info (_bericht_)**    | Schrijft naar info-niveau logboekregistratie of lager.    |
 | **uitgebreide (_bericht_)** | Schrijft gegevens naar uitgebreide logboekregistratie op.           |
 
-Het volgende voorbeeld schrijft naar de console het traceerniveau waarschuwing:
+Het volgende voorbeeld schrijft u een logboek tijdens het traceerniveau waarschuwing:
 
 ```javascript
 context.log.warn("Something has happened."); 
 ```
-U kunt het traceerniveau drempelwaarde voor het registreren in het bestand host.json in te stellen of uitschakelen.  Zie de volgende sectie voor meer informatie over het schrijven naar de logboeken.
+U kunt [de drempelwaarde trace-niveau voor logboekregistratie configureren](#configure-the-trace-level-for-console-logging) in het bestand host.json. Zie voor meer informatie over het schrijven van Logboeken, [trace-uitvoer schrijven](#writing-trace-output-to-the-console) hieronder.
+
+Lezen [controlefuncties van Azure](functions-monitoring.md) voor meer informatie over het weergeven en uitvoeren van query's functielogboeken.
 
 ## <a name="binding-data-type"></a>Binding-gegevenstype
 
@@ -143,11 +153,11 @@ Voor het definiëren van het gegevenstype voor een Invoerbinding, de `dataType` 
 }
 ```
 
-Andere opties voor `dataType` zijn `stream` en `string`.
+Opties voor `dataType` zijn: `binary`, `stream`, en `string`.
 
 ## <a name="writing-trace-output-to-the-console"></a>Trace-uitvoer schrijven naar de console 
 
-In de functies, gebruikt u de `context.log` methoden trace-uitvoer schrijven naar de console. Op dit moment kunt u niet gebruiken `console.log` te schrijven naar de console.
+In de functies, gebruikt u de `context.log` methoden trace-uitvoer schrijven naar de console. In functies v1.x, u niet gebruiken `console.log` te schrijven naar de console. Traceren in v2.x van functies, ouputs via `console.log` zijn vastgelegd op het niveau van de functie-App. Dit betekent dat de uitvoer van `console.log` zijn niet gekoppeld aan een specifieke functie-aanroep.
 
 Als u aanroept `context.log()`, het bericht is geschreven naar de console op het standaardniveau van trace die is de _info_ traceerniveau. De volgende code schrijft naar de console op het traceerniveau informatie:
 
@@ -155,22 +165,21 @@ Als u aanroept `context.log()`, het bericht is geschreven naar de console op het
 context.log({hello: 'world'});  
 ```
 
-De bovenstaande code is gelijk aan de volgende code:
+Deze code is gelijk aan de bovenstaande code:
 
 ```javascript
 context.log.info({hello: 'world'});  
 ```
 
-De volgende code schrijft naar de console op het foutniveau van de:
+Deze code schrijft naar de console op het foutniveau van de:
 
 ```javascript
 context.log.error("An error has occurred.");  
 ```
 
-Omdat _fout_ is de hoogste niveau, deze tracering wordt geschreven naar de uitvoer op alle traceringsniveaus als logboekregistratie is ingeschakeld.  
+Omdat _fout_ is de hoogste niveau, deze tracering wordt geschreven naar de uitvoer op alle traceringsniveaus als logboekregistratie is ingeschakeld.
 
-
-Alle `context.log` methoden ondersteunen dezelfde parameter-indeling die wordt ondersteund door de op Node.js [util.format methode](https://nodejs.org/api/util.html#util_util_format_format). Houd rekening met de volgende code schrijft naar de console met behulp van het traceerniveau dat is standaard:
+Alle `context.log` methoden ondersteunen dezelfde parameter-indeling die wordt ondersteund door de op Node.js [util.format methode](https://nodejs.org/api/util.html#util_util_format_format). Houd rekening met de volgende code, die schrijft de functielogboeken met behulp van het traceerniveau dat is standaard:
 
 ```javascript
 context.log('Node.js HTTP trigger function processed a request. RequestUri=' + req.originalUrl);
@@ -204,7 +213,7 @@ HTTP- en webhook-triggers en HTTP-output bindingen met de aanvraag en respons ob
 
 ### <a name="request-object"></a>Request-object
 
-De `request` object heeft de volgende eigenschappen:
+De `context.req` (aanvraag)-object heeft de volgende eigenschappen:
 
 | Eigenschap      | Beschrijving                                                    |
 | ------------- | -------------------------------------------------------------- |
@@ -219,7 +228,7 @@ De `request` object heeft de volgende eigenschappen:
 
 ### <a name="response-object"></a>Antwoordobject
 
-De `response` object heeft de volgende eigenschappen:
+De `context.res` (antwoord)-object heeft de volgende eigenschappen:
 
 | Eigenschap  | Beschrijving                                               |
 | --------- | --------------------------------------------------------- |
@@ -230,13 +239,7 @@ De `response` object heeft de volgende eigenschappen:
 
 ### <a name="accessing-the-request-and-response"></a>Toegang tot de aanvraag en respons 
 
-Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en respons objecten in een van drie manieren openen:
-
-+ Van de benoemde invoer- en uitvoerbindingen. Op deze manier kunnen werken de HTTP-trigger en bindingen op dezelfde manier als andere bindingen. Het volgende voorbeeld wordt het antwoordobject met behulp van een benoemde `response` binding: 
-
-    ```javascript
-    context.bindings.response = { status: 201, body: "Insert succeeded." };
-    ```
+Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en respons objecten in een aantal manieren openen:
 
 + Van `req` en `res` eigenschappen op de `context` object. Op deze manier kunt u het gebruikelijke patroon voor toegang tot HTTP gegevens uit het contextobject, de volledige gebruiken in plaats van `context.bindings.name` patroon. Het volgende voorbeeld ziet u hoe u toegang tot de `req` en `res` objecten op de `context`:
 
@@ -247,7 +250,20 @@ Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en respons objecten i
     context.res = { status: 202, body: 'You successfully ordered more coffee!' }; 
     ```
 
-+ Door het aanroepen van `context.done()`. Een speciaal soort HTTP-binding retourneert het antwoord dat is doorgegeven aan de `context.done()` methode. De volgende HTTP-Uitvoerbinding definieert een `$return` uitvoerparameter:
++ Van de benoemde invoer- en uitvoerbindingen. Op deze manier kunnen werken de HTTP-trigger en bindingen op dezelfde manier als andere bindingen. Het volgende voorbeeld wordt het antwoordobject met behulp van een benoemde `response` binding: 
+
+    ```json
+    {
+        "type": "http",
+        "direction": "out",
+        "name": "response"
+    }
+    ```
+    ```javascript
+    context.bindings.response = { status: 201, body: "Insert succeeded." };
+    ```
+
++ [Alleen-antwoord] Door het aanroepen van `context.done()`. Een speciaal soort HTTP-binding retourneert het antwoord dat is doorgegeven aan de `context.done()` methode. De volgende HTTP-Uitvoerbinding definieert een `$return` uitvoerparameter:
 
     ```json
     {
@@ -256,15 +272,13 @@ Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en respons objecten i
       "name": "$return"
     }
     ``` 
-    Deze Uitvoerbinding wordt verwacht dat u om op te geven van het antwoord bij het aanroepen van `done()`, als volgt:
-
     ```javascript
      // Define a valid response object.
     res = { status: 201, body: "Insert succeeded." };
     context.done(null, res);   
     ```  
 
-## <a name="node-version-and-package-management"></a>Knooppunt-versie en package management
+## <a name="node-version"></a>De versie van knooppunt
 
 De volgende tabel ziet u de Node.js-versie die wordt gebruikt door elke primaire versie van de runtime van Functions:
 
@@ -275,6 +289,7 @@ De volgende tabel ziet u de Node.js-versie die wordt gebruikt door elke primaire
 
 U kunt zien dat de huidige versie die door de runtime wordt gebruikt door af te drukken `process.version` van elke functie.
 
+## <a name="package-management"></a>Pakketbeheer
 De volgende stappen kunnen u pakketten opnemen in uw functie-app: 
 
 1. Ga naar `https://<function_app_name>.scm.azurewebsites.net`.

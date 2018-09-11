@@ -1,6 +1,6 @@
 ---
-title: Gegevens wetenschap proces taken voor een afzonderlijke Inzender - Azure in een team | Microsoft Docs
-description: Een overzicht van de taken voor een afzonderlijke Inzender aan een project gegevens wetenschappelijke team.
+title: Team Data Science Process taken voor een individuele Inzender - Azure | Microsoft Docs
+description: Een overzicht van de taken voor een individuele Inzender van een data science-teamproject.
 documentationcenter: ''
 author: deguhath
 manager: cgronlun
@@ -14,67 +14,67 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/13/2017
 ms.author: deguhath
-ms.openlocfilehash: e431d89e5d74f5712f6f109075201c95dc233bd3
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: f21098381d75a4843e9300beaae687adc6ec107d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34838548"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303758"
 ---
-# <a name="individual-contributor-tasks"></a>Afzonderlijke Inzender taken
+# <a name="individual-contributor-tasks"></a>Individuele Inzender-taken
 
-Dit onderwerp die worden beschreven de taken die een afzonderlijke Inzender wordt verwacht voor hun wetenschappelijke Gegevensteam voltooien. Het doel is het opzetten van samenwerking teamomgeving die standaardiseert op de [Team gegevens wetenschap proces](overview.md) (TDSP). Voor een overzicht van de rollen personeel en de bijbehorende taken die worden verwerkt door een wetenschappelijke Gegevensteam standaardiseren op dit proces Zie [Team gegevens wetenschap proces rollen en taken](roles-tasks.md).
+In dit onderwerp bevat de taken die een individuele Inzender opslagbewerkingen uit te voeren voor hun team van gegevenswetenschappers. Het doel is het opzetten van collaboratief team-omgeving die standaardiseert op de [Team Data Science Process](overview.md) (TDSP). Voor een overzicht van de rollen personeel en de bijbehorende taken die worden beheerd door een team van gegevenswetenschappers standaardiseren over dit proces, Zie [Team Data Science Process rollen en taken](roles-tasks.md).
 
-De taken van project individuele gebruikers (gegevenswetenschappers) voor het instellen van de omgeving TDSP voor het project zijn als volgt afgebeeld: 
+De taken van project afzonderlijke inzenders (gegevenswetenschappers) voor het instellen van de TDSP-omgeving voor het project zijn als volgt weergegeven: 
 
 ![1](./media/project-ic-tasks/project-ic-1-tdsp-data-scientist.png)
 
-- **GroupUtilities** is de opslagplaats die het onderhoud van de groep voor het delen van nuttige hulpprogramma's in de hele groep. 
-- **TeamUtilities** is de opslagplaats die het onderhoud van uw team specifiek voor uw team. 
+- **GroupUtilities** is de opslagplaats die het onderhoud van de groep voor het delen van nuttige hulpprogramma's voor de hele groep. 
+- **TeamUtilities** is de opslagplaats die uw team voor het onderhoud van specifiek voor uw team. 
 
-Zie voor instructies over het uitvoeren van een project gegevens wetenschappelijke onder TDSP [uitvoering van de gegevens wetenschappelijke projecten](project-execution.md). 
+Zie voor instructies over het uitvoeren van een data science-project onder TDSP [uitvoering van wetenschappelijke Gegevensprojecten](project-execution.md). 
 
->[AZURE.NOTE] Overzicht van de stappen die nodig zijn voor het instellen van een omgeving met TDSP team met behulp van Visual Studio Team Services (VSTS) in de volgende instructies. We opgeven hoe u deze taken met VSTS omdat hoe we TDSP bij Microsoft implementeren. Als een ander platform code die als host fungeert voor de groep wordt gebruikt, worden de taken die moeten worden voltooid door de lead team in het algemeen niet wijzigen. Maar de manier om deze taken voltooien is het verstandig om verschillende.
+>[AZURE.NOTE] We een overzicht van de stappen die nodig zijn voor het instellen van een TDSP-team-omgeving met behulp van Azure DevOps in de volgende instructies. We geven over het uitvoeren van deze taken met Azure DevOps vanwege de manier waarop we TDSP bij Microsoft implementeert. Als een ander platform van de code die als host fungeert voor de groep wordt gebruikt, worden de taken die moeten worden uitgevoerd door de teamleider in het algemeen niet wijzigen. Maar de manier om deze taken uit te voeren afwijken.
 
 
-## <a name="repositories-and-directories"></a>-Opslagplaatsen en mappen
+## <a name="repositories-and-directories"></a>Opslagplaatsen en mappen
 
-Deze zelfstudie wordt afkortingen voor opslagplaatsen en mappen. Deze namen gemakkelijker te volgen de bewerkingen tussen de opslagplaatsen en mappen. Deze notation (**R** voor Git-opslagplaatsen en **D** voor lokale mappen op uw DSVM) wordt gebruikt in de volgende secties:
+In deze zelfstudie wordt de afgekorte naam voor opslagplaatsen en mappen. Deze namen maken het gemakkelijker zijn te volgen de bewerkingen tussen de opslagplaatsen en mappen. Deze notatie (**R** voor Git-opslagplaatsen en **D** voor lokale mappen op uw DSVM) wordt gebruikt in de volgende secties:
 
-- **R2**: de GroupUtilities opslagplaats op Git die uw groepsbeheerder is ingesteld op uw server VSTS groep.
-- **R4**: de TeamUtilities opslagplaats op Git die uw team lead heeft ingesteld.
-- **R5**: de Project-opslagplaats op Git die door uw project lead is ingesteld.
+- **R2**: de GroupUtilities-opslagplaats in Git die uw groepsbeheerder heeft ingesteld op de server van uw Azure DevOps-groep.
+- **R4**: de TeamUtilities-opslagplaats in Git die uw teamleider heeft ingesteld.
+- **R5**: de Project-opslagplaats in Git die is ingesteld door uw projectleider.
 - **D2**: de lokale map gekloond van R2.
-- **D4**: de lokale map gekloond van R4.
-- **D5**: de lokale map gekloond van R5.
+- **D4**: de lokale map gekloond vanuit R4.
+- **D5**: de lokale map gekloond vanuit R5.
 
 
 ## <a name="step-0-prerequisites"></a>Stap-0: vereisten
 
-De vereisten wordt voldaan door de taken die zijn toegewezen aan uw groepmanager die worden beschreven in [groepsbeheerder taken voor een wetenschappelijke Gegevensteam](group-manager-tasks.md). Om samen te vatten hier, moeten de volgende vereisten worden voldaan voordat u begint met het team lead taken: 
-- De manager van uw groep heeft ingesteld de **GroupUtilities** opslagplaats (indien aanwezig). 
-- Uw team lead heeft ingesteld de **TeamUtilities** opslagplaats (indien aanwezig).
-- Uw project lead is ingesteld in de project-opslagplaats. 
-- U hebt toegevoegd aan uw project-opslagplaats door uw lead project met de bevoegdheden van klonen en push terug naar de project-opslagplaats.
+De vereisten wordt voldaan door het uitvoeren van de taken die zijn toegewezen aan uw groepmanager die worden beschreven in [groepsbeheerder taken voor een team van gegevenswetenschappers](group-manager-tasks.md). Om samen te vatten hier, moeten de volgende vereisten worden voldaan voordat u begint met het team lead taken: 
+- De manager van uw groep heeft ingesteld dat de **GroupUtilities** opslagplaats (indien aanwezig). 
+- Uw teamleider heeft ingesteld dat de **TeamUtilities** opslagplaats (indien aanwezig).
+- Uw projectleider is ingesteld in de projectopslagplaats. 
+- U hebt toegevoegd aan de projectopslagplaats van uw door uw projectleider met de machtiging voor het klonen van en teruggeplaatst in de projectopslagplaats.
 
-De tweede **TeamUtilities** -opslagplaats, vereiste is optioneel, afhankelijk van of uw team een opslagplaats team-specifieke hulpprogramma heeft. Als een van de andere drie vereiste onderdelen is niet voltooid, contact op met uw team potentiële klanten, uw project lead of hun gemachtigden instellen door de instructies voor [Team leiden taken voor een wetenschappelijke Gegevensteam](team-lead-tasks.md) of voor [ Lead projecttaken voor een wetenschappelijke Gegevensteam](project-lead-tasks.md).
+De tweede **TeamUtilities** opslagplaats, vereiste is optioneel, afhankelijk van of uw team een hulpprogramma voor team-specifieke opslagplaats heeft. Als een van de andere drie vereisten is niet voltooid, contact op met uw team lead, uw projectleider of hun gemachtigden om in te stellen door de instructies voor [teamleider taken voor een team van gegevenswetenschappers](team-lead-tasks.md) of voor [ Project Lead taken voor een team van gegevenswetenschappers](project-lead-tasks.md).
 
-- GIT moet worden geïnstalleerd op uw computer. Als u gebruikmaakt van een virtuele Machine wetenschappelijke gegevens (DSVM), Git vooraf is geïnstalleerd en u bent klaar om te beginnen. Raadpleeg anders de [Platforms en hulpprogramma's bijlage](platforms-and-tools.md#appendix).  
-- Als u een **Windows DSVM**, moet u beschikken over [Git referentie Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) op deze computer geïnstalleerd. In het bestand README.md, schuif omlaag naar de **downloaden en installeren** sectie en klik op de *meest recente versie installer*. Hiermee gaat u naar de laatste pagina van het installatieprogramma. Het installatieprogramma .exe hier downloaden en uitvoeren. 
-- Als u **Linux DSVM**, een openbare SSH-sleutel op uw DSVM maken en toe te voegen aan uw groep VSTS-server. Zie voor meer informatie over SSH de **openbare maken SSH-sleutel** sectie het [Platforms en hulpprogramma's bijlage](platforms-and-tools.md#appendix). 
-- Als uw team en/of project lead kan sommige Azure bestandsopslag die u wilt koppelen aan uw DSVM heeft gemaakt, moet u de Azure file storage-gegevens ophalen uit deze. 
+- GIT moet worden geïnstalleerd op uw computer. Als u gebruikmaakt van een Data Science Virtual Machine (DSVM), Git vooraf is geïnstalleerd en u bent klaar om te gaan. Raadpleeg anders de [platformen en hulpprogramma's voor bijlage](platforms-and-tools.md#appendix).  
+- Als u een **Windows DSVM**, moet u beschikken over [Git Credential Manager (GCM)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) op uw computer geïnstalleerd. In het README.md-bestand, schuif omlaag naar de **Download en installeer** sectie en klikt u op de *nieuwste installatieprogramma van*. Hiermee gaat u naar de pagina van de meest recente installatieprogramma. Het .exe-installatieprogramma hier downloaden en uitvoeren. 
+- Als u **Linux-DSVM**, het maken van een openbare SSH-sleutel op uw DSVM en toe te voegen aan uw groep Azure DevOps-Services. Zie voor meer informatie over SSH, de **openbare maken van SSH-sleutel** sectie de [platformen en hulpprogramma's voor bijlage](platforms-and-tools.md#appendix). 
+- Als uw team en/of projectgroep lead bepaalde Azure-bestandsopslag die u wilt koppelen aan de DSVM gemaakt heeft, krijgt u de Azure informatie over de opslag van deze. 
 
-## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Stap 1-3: klonen van de groep, team en project-opslagplaatsen naar de lokale computer
+## <a name="step-1-3-clone-group-team-and-project-repositories-to-local-machine"></a>Stap 1-3: groep, teams en opslagplaatsen project naar de lokale computer klonen
 
-Deze sectie vindt u instructies voor het voltooien van de eerste drie taken van individuele gebruikers project: 
+Deze sectie vindt u instructies voor het voltooien van de eerste drie taken van de afzonderlijke inzenders project: 
 
-- Kloon de **GroupUtilities** te D2 opslagplaats R2
-- Kloon de **TeamUtilities** R4 te D4 opslagplaats 
-- Kloon de **Project** R5 te D5 opslagplaats.
+- Kloon de **GroupUtilities** opslagplaats R2 D2
+- Kloon de **TeamUtilities** opslagplaats R4 tot D4 
+- Kloon de **Project** opslagplaats R5 D5.
 
-Maak een map op uw lokale machine ***C:\GitRepos*** (voor Windows) of ***$home/GitRepos*** (forLinux) en wijzig vervolgens in die map. 
+Maak een map op uw lokale machine ***C:\GitRepos*** (voor Windows) of ***$home/GitRepos*** (forLinux), en wijzig vervolgens in die map. 
 
-Voer een van de volgende opdrachten (geschikt voor uw besturingssysteem) als u wilt klonen uw **GroupUtilities**, **TeamUtilities**, en **Project** opslagplaatsen tot mappen op uw lokale machine: 
+Een van de volgende opdrachten (als geschikt is voor uw besturingssysteem) worden uitgevoerd als u wilt klonen uw **GroupUtilities**, **TeamUtilities**, en **Project** opslagplaatsen met mappen op uw lokale computer: 
 
 **Windows**
     
@@ -84,7 +84,7 @@ Voer een van de volgende opdrachten (geschikt voor uw besturingssysteem) als u w
     
 ![2](./media/project-ic-tasks/project-ic-2-clone-three-repo-to-ic.png)
 
-Controleer of u de drie mappen onder uw projectmap.
+Controleer of de drie mappen in de projectmap van uw.
 
 ![3](./media/project-ic-tasks/project-ic-3-three-repo-cloned-to-ic.png)
 
@@ -96,20 +96,20 @@ Controleer of u de drie mappen onder uw projectmap.
 
 ![4](./media/project-ic-tasks/project-ic-4-clone-three-repo-to_ic-linux.png)
 
-Controleer of u de drie mappen onder uw projectmap.
+Controleer of de drie mappen in de projectmap van uw.
 
 ![5](./media/project-ic-tasks/project-ic-5-three-repo-cloned-to-ic-linux.png)
 
-## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>Stap 4 en 5: bestandsopslag op Azure koppelen aan uw DSVM (optioneel)
+## <a name="step-4-5-mount-azure-file-storage-to-your-dsvm-optional"></a>Stap 4 en 5: Azure file storage koppelen aan de DSVM (optioneel)
 
-Met mount-Azure file storage naar uw DSVM, Zie de instructies in sectie 4 van de [Team lead taken voor een wetenschappelijke Gegevensteam](team-lead-tasks.md)
+Met Azure file storage koppelen aan de DSVM, raadpleegt u de instructies in sectie 4 van de [Team lead taken voor een team van gegevenswetenschappers](team-lead-tasks.md)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Hier vindt u koppelingen naar de meer gedetailleerde beschrijvingen van de rollen en taken die zijn gedefinieerd door het Team gegevens wetenschap proces:
+Hier vindt u koppelingen naar de meer gedetailleerde beschrijvingen van de functies en taken die zijn gedefinieerd door het Team Data Science Process:
 
-- [Groep Manager-taken voor een wetenschappelijke Gegevensteam](group-manager-tasks.md)
-- [Team Lead taken voor een wetenschappelijke Gegevensteam](team-lead-tasks.md)
-- [Projecttaken Lead voor een wetenschappelijke Gegevensteam](project-lead-tasks.md)
-- [Project individuele gebruikers voor een wetenschappelijke Gegevensteam](project-ic-tasks.md)
+- [Groepsbeheerder taken voor een team van gegevenswetenschappers](group-manager-tasks.md)
+- [Team Lead taken voor een team van gegevenswetenschappers](team-lead-tasks.md)
+- [Project Lead taken voor een team van gegevenswetenschappers](project-lead-tasks.md)
+- [Afzonderlijke inzenders project voor een team van gegevenswetenschappers](project-ic-tasks.md)
 

@@ -13,21 +13,21 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: cephalin;dariagrigoriu
-ms.openlocfilehash: 4d3f1c66c6403720bf02c80af1d6833dc3cee3f1
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: bd440e0ef017e2bf116e80ad049883e2338efddb
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42058366"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44298944"
 ---
 # <a name="continuous-deployment-to-azure-app-service"></a>Continue implementatie in Azure App Service
-Dit artikel leest u hoe u continue implementatie voor [Azure App Service](app-service-web-overview.md). App Service kunt u continue implementatie vanuit BitBucket, GitHub, en [Visual Studio Team Services (VSTS)](https://www.visualstudio.com/team-services/) door te halen in de meest recente updates van uw bestaande opslagplaats in een van deze services.
+Dit artikel leest u hoe u continue implementatie voor [Azure App Service](app-service-web-overview.md). App Service kunt u continue implementatie vanuit BitBucket, GitHub, en [Azure DevOps Services](https://www.visualstudio.com/team-services/) door te halen in de meest recente updates van uw bestaande opslagplaats in een van deze services.
 
 Voor meer informatie over het configureren van continue implementatie handmatig vanuit de opslagplaats van een cloud niet vermeld in de Azure-portal (zoals [GitLab](https://gitlab.com/)), Zie [instellen van continue implementatie met behulp van handmatige stappen](https://github.com/projectkudu/kudu/wiki/Continuous-deployment#setting-up-continuous-deployment-using-manual-steps).
 
 [!INCLUDE [Prepare repository](../../includes/app-service-deploy-prepare-repo.md)]
 
-De voorbereide-opslagplaats publiceren naar een van de ondersteunde services. Zie [Een repo maken (GitHub)], [Een repo maken (BitBucket)] en [Aan de slag met VSTS] voor meer informatie over het publiceren van uw project bij deze services.
+De voorbereide-opslagplaats publiceren naar een van de ondersteunde services. Zie voor meer informatie over het publiceren van uw project met deze services [een repo maken (GitHub)], [een repo maken (BitBucket)], en [aan de slag met Azure DevOps-Services].
 
 ## <a name="deploy-continuously-from-github"></a>Doorlopend implementeren vanuit GitHub
 
@@ -47,18 +47,18 @@ In de **Build-provider** pagina, kies de build-provider en klikt u op > **doorga
 
 In de **configureren** pagina, selecteert u de organisatie, de opslagplaats en het vertakking waaruit u wilt continue implementatie. Wanneer u klaar bent, klikt u op **doorgaan**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Optie 2: VSTS constante levering gebruiken
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>Optie 2: gebruik continue levering van Azure DevOps-Services
 
 > [!NOTE]
-> Voor App Service voor het maken van de benodigde build en release-definities in uw VSTS-account, moet uw Azure-account de rol van **eigenaar** in uw Azure-abonnement.
+> Voor App Service voor het maken van de benodigde Azure-pijplijnen in uw organisatie Azure DevOps-Services, moet uw Azure-account de rol van **eigenaar** in uw Azure-abonnement.
 >
 
 In de **configureren** pagina, in de **Code** sectie, selecteer de organisatie, de opslagplaats en het vertakking waaruit u wilt continue implementatie. Wanneer u klaar bent, klikt u op **doorgaan**.
 
-In de **configureren** pagina, in de **bouwen** sectie, configureren van een nieuwe VSTS-account of een bestaand account opgeven. Wanneer u klaar bent, klikt u op **doorgaan**.
+In de **configureren** pagina, in de **bouwen** sectie, een nieuwe organisatie van Azure DevOps-Services configureren of een bestaande organisatie opgeven. Wanneer u klaar bent, klikt u op **doorgaan**.
 
 > [!NOTE]
-> Als u gebruiken van een bestaande VSTS-account dat niet wordt vermeld wilt, moet u [het VSTS-account koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Als u gebruiken van een bestaande organisatie van Azure DevOps-Services die niet wordt vermeld wilt, moet u [de Services van Azure DevOps-organisatie koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
 In de **Test** pagina, kies of u wilt inschakelen load tests uit en klik vervolgens op **doorgaan**.
 
@@ -90,11 +90,11 @@ In de **samenvatting** pagina, Controleer uw opties en klik op **voltooien**.
 
 Wanneer de configuratie is voltooid, worden voortdurend nieuwe doorvoeringen in de geselecteerde opslagplaats geïmplementeerd in uw App Service-app.
 
-## <a name="deploy-continuously-from-vsts"></a>Continu implementeren vanuit VSTS
+## <a name="deploy-continuously-from-azure-devops-services"></a>Doorlopend implementeren van Azure DevOps-Services
 
-Om in te schakelen doorlopende implementatie met VSTS, gaat u naar de pagina met uw App Service-app in de [Azure-portal](https://portal.azure.com).
+Om in te schakelen doorlopende implementatie met Azure DevOps-Services, gaat u naar de pagina met uw App Service-app in de [Azure-portal](https://portal.azure.com).
 
-Klik in het menu links op **Implementatiecentrum** > **VSTS** > **doorgaan**. 
+Klik in het menu links op **Implementatiecentrum** > **Azure DevOps Services** > **doorgaan**. 
 
 ![](media/app-service-continuous-deployment/vsts-choose-source.png)
 
@@ -102,20 +102,20 @@ In de **Build-provider** pagina, kies de build-provider en klikt u op > **doorga
 
 ### <a name="option-1-use-app-service-kudu-build-server"></a>Optie 1: gebruik die App Service Kudu server maken
 
-In de **configureren** pagina, selecteert u de VSTS-account, project-opslagplaats en vertakking waaruit u wilt continue implementatie. Wanneer u klaar bent, klikt u op **doorgaan**.
+In de **configureren** pagina, selecteert u de organisatie van Azure DevOps-Services, project-opslagplaats en vertakking waaruit u wilt continue implementatie. Wanneer u klaar bent, klikt u op **doorgaan**.
 
-### <a name="option-2-use-vsts-continuous-delivery"></a>Optie 2: VSTS constante levering gebruiken
+### <a name="option-2-use-azure-devops-services-continuous-delivery"></a>Optie 2: gebruik continue levering van Azure DevOps-Services
 
 > [!NOTE]
-> Voor App Service voor het maken van de benodigde build en release-definities in uw VSTS-account, moet uw Azure-account de rol van **eigenaar** in uw Azure-abonnement.
+> Voor App Service voor het maken van de benodigde Azure-pijplijnen in uw organisatie Azure DevOps-Services, moet uw Azure-account de rol van **eigenaar** in uw Azure-abonnement.
 >
 
-In de **configureren** pagina, in de **Code** sectie, selecteer de VSTS-account, project-opslagplaats en vertakking waaruit u wilt continue implementatie. Wanneer u klaar bent, klikt u op **doorgaan**.
+In de **configureren** pagina, in de **Code** sectie, selecteer de organisatie van Azure DevOps-Services, project-opslagplaats en vertakking waaruit u wilt continue implementatie. Wanneer u klaar bent, klikt u op **doorgaan**.
 
 > [!NOTE]
-> Als u gebruiken van een bestaande VSTS-account dat niet wordt vermeld wilt, moet u [het VSTS-account koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
+> Als u gebruiken van een bestaande organisatie van Azure DevOps-Services die niet wordt vermeld wilt, moet u [de Services van Azure DevOps-organisatie koppelen aan uw Azure-abonnement](https://github.com/projectkudu/kudu/wiki/Setting-up-a-VSTS-account-so-it-can-deploy-to-a-Web-App).
 
-In de **configureren** pagina, in de **bouwen** sectie, geeft u het taalframework die VSTS gebruiken moeten voor het uitvoeren van de build-taken voor de geselecteerde opslagplaats. Wanneer u klaar bent, klikt u op **doorgaan**.
+In de **configureren** pagina, in de **bouwen** sectie, geeft u het taalframework die Azure DevOps-Services gebruiken moeten voor het uitvoeren van de build-taken voor de geselecteerde opslagplaats. Wanneer u klaar bent, klikt u op **doorgaan**.
 
 In de **Test** pagina, kies of u wilt inschakelen load tests uit en klik vervolgens op **doorgaan**.
 
@@ -131,13 +131,13 @@ Wanneer de configuratie is voltooid, worden voortdurend nieuwe doorvoeringen in 
 
 Voor continue implementatie uitschakelen, gaat u naar de pagina met uw App Service-app in de [Azure-portal](https://portal.azure.com).
 
-Klik in het menu links op **Implementatiecentrum** > **GitHub** of **VSTS** of **BitBucket**  >  **Verbreken**.
+Klik in het menu links op **Implementatiecentrum** > **GitHub** of **Azure DevOps Services** of **BitBucket**  >  **Verbreken**.
 
 ![](media/app-service-continuous-deployment/disable.png)
 
 [!INCLUDE [What happens to my app during deployment?](../../includes/app-service-deploy-atomicity.md)]
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 * [Veelvoorkomende problemen met continue implementatie onderzoeken](https://github.com/projectkudu/kudu/wiki/Investigating-continuous-deployment)
 * [PowerShell voor Azure gebruiken]
@@ -153,4 +153,4 @@ Klik in het menu links op **Implementatiecentrum** > **GitHub** of **VSTS** of *
 
 [Een repo maken (GitHub)]: https://help.github.com/articles/create-a-repo
 [Een repo maken (BitBucket)]: https://confluence.atlassian.com/display/BITBUCKET/Create+an+Account+and+a+Git+Repo
-[Aan de slag met VSTS]: https://www.visualstudio.com/docs/vsts-tfs-overview
+[Aan de slag met Azure DevOps-Services]: https://www.visualstudio.com/docs/vsts-tfs-overview

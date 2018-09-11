@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 928e4811f15953313df167375043231478f5c11a
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 3dafef052f181a961cdf30cb647328ee1b2db601
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054871"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44299913"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configureren van eenmalige aanmelding voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie
 
@@ -42,17 +42,17 @@ Deze mogelijkheden, ook wel bekend als *sjablonen voor app-integratie*, op stand
 ## <a name="adding-an-unlisted-application"></a>Toevoegen van een niet-vermelde toepassing
 Als u wilt verbinding maken met een toepassing met behulp van een app-integratie-sjabloon, moet u zich aanmelden bij de Azure-portal met uw Azure Active Directory administrator-account. Blader naar de **Active Directory > bedrijfstoepassingen > nieuwe toepassing > niet in de galerij toepassing** sectie, selecteer **toevoegen**, en vervolgens **toevoegen van een toepassing uit de galerie** .
 
-  ![](./media/active-directory-saas-custom-apps/customapp1.png)
+  ![Toepassing toevoegen](./media/active-directory-saas-custom-apps/customapp1.png)
 
 In de app-galerie, kunt u een niet-vermelde app toevoegen door het selecteren van de **niet in de galerij toepassing** tegel die in de lijst met zoekresultaten wordt weergegeven als de gewenste app is niet gevonden. Na het invoeren van een naam voor uw toepassing, kunt u de opties voor eenmalige aanmelding en het gedrag configureren. 
 
 **Snelle tip**: als een best practice, kunt u de zoekfunctie gebruiken om te controleren om te zien als de toepassing bestaat al in de toepassingengalerie. Als de app wordt gevonden en de beschrijving eenmalige aanmelding noemt, wordt klikt u vervolgens de toepassing al ondersteund voor federatieve eenmalige aanmelding.
 
-  ![](./media/active-directory-saas-custom-apps/customapp2.png)
+  ![Zoeken](./media/active-directory-saas-custom-apps/customapp2.png)
 
 Toevoegen van een toepassing op deze manier biedt een vergelijkbare ervaring met de beschikbaar voor vooraf geïntegreerde toepassingen. Selecteer eerst **configureren Single Sign-On** of klik op **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing. Het volgende scherm geeft de opties voor het configureren van eenmalige aanmelding. De opties worden in de volgende secties van dit artikel beschreven.
   
-![](./media/active-directory-saas-custom-apps/customapp3.png)
+![Configuratie-opties](./media/active-directory-saas-custom-apps/customapp3.png)
 
 ## <a name="saml-based-single-sign-on"></a>Eenmalige aanmelding op basis van SAML
 Selecteer deze optie om te configureren op basis van SAML-verificatie voor de toepassing. Dit is vereist dat de toepassing SAML 2.0 ondersteunt. U dient informatie te verzamelen over het gebruik van de SAML-mogelijkheden van de toepassing voordat u doorgaat. Voer de volgende secties voor het configureren van eenmalige aanmelding in tussen de toepassing en Azure AD.
@@ -98,7 +98,7 @@ Wanneer een gebruiker wordt geverifieerd op de toepassing, wordt Azure AD een SA
 
 U kunt weergeven of bewerken van de claims die zijn verzonden in het SAML-token naar de toepassing onder de **kenmerken** tabblad.
 
-  ![](./media/active-directory-saas-custom-apps/customapp7.png)
+  ![Kenmerken](./media/active-directory-saas-custom-apps/customapp7.png)
 
 Er zijn twee redenen waarom u mogelijk de uitgegeven claims in het SAML-token bewerken:
 
@@ -138,7 +138,7 @@ Nadat uw toepassing is geconfigureerd voor het gebruik van Azure AD als een SAML
 
 Als u wilt een gebruiker of groep toewijzen aan uw toepassing, klikt u op de **gebruikers toewijzen** knop. Selecteer de gebruiker of groep die u wilt toewijzen en selecteer vervolgens de **toewijzen** knop.
 
-  ![](./media/active-directory-saas-custom-apps/customapp6.png)
+  ![Gebruikers toewijzen](./media/active-directory-saas-custom-apps/customapp6.png)
 
 Een gebruiker toewijst, kunnen Azure AD om uit te geven van een token voor de gebruiker. Het is ook ervoor zorgt dat een tegel voor deze toepassing wordt weergegeven in het toegangsvenster van de gebruiker. De tegel van een toepassing wordt ook weergegeven in het startprogramma voor Office 365-toepassingen als Office 365 wordt gebruikt door de gebruiker. 
 
@@ -175,5 +175,5 @@ Na het selecteren van **volgende**, wordt u gevraagd om in te voeren van de URL 
 
 - [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 - [In het SAML-Token voor vooraf geïntegreerde Apps uitgegeven Claims aanpassen](active-directory-saml-claims-customization.md)
-- [Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](active-directory-saml-debugging.md)
+- [Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](develop/howto-v1-debug-saml-sso-issues.md)
 

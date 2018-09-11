@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/13/2017
 ms.author: ccompy
-ms.openlocfilehash: b3550c771b4c2916987c66f318010e5bb246fa39
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 80abe29c80898b691aa6e5e47bf068a9e69e50e4
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39446847"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303367"
 ---
 # <a name="use-an-app-service-environment"></a>Een App Service-omgeving gebruiken #
 
@@ -136,7 +136,7 @@ Met een externe as-omgeving werken deze alle publicatieopties hetzelfde. Zie voo
 
 Het belangrijkste verschil met het publiceren is met betrekking tot een ILB as-omgeving. De publicatie-eindpunten zijn met een ILB as-omgeving, alle alleen beschikbaar via de ILB. De ILB is op een privé IP-adres in de ASE-subnet in het virtuele netwerk. Als u geen toegang tot het netwerk naar de ILB, kunt u alle apps in deze as-omgeving niet publiceren. Zoals vermeld in [maken en gebruiken een ILB as-omgeving][MakeILBASE], moet u DNS configureren voor de apps in het systeem. Dit is inclusief de SCM-eindpunt. Als ze zijn niet correct gedefinieerd, kunt u niet publiceren. Er moet ook uw IDE's netwerktoegang hebben tot de ILB om te kunnen publiceren naar deze.
 
-Op internet gebaseerde CI-systemen, zoals GitHub en Visual Studio Team Services, werken niet met een ILB as-omgeving omdat het publicatie-eindpunt niet toegankelijk is via Internet is. In plaats hiervan moet u een CI-systeem gebruiken dat gebruikmaakt van een pull-model, bijvoorbeeld Dropbox.
+Op internet gebaseerde CI-systemen, zoals GitHub en DevOps, Azure, werken niet met een ILB as-omgeving omdat het publicatie-eindpunt niet toegankelijk is via Internet is. In plaats hiervan moet u een CI-systeem gebruiken dat gebruikmaakt van een pull-model, bijvoorbeeld Dropbox.
 
 De publicatie-eindpunten voor apps in een ILB AS-omgeving maken gebruik van het domein waarmee de ILB AS-omgeving is gemaakt. U kunt dit zien in het publicatieprofiel van de app en in de portalblade van de app (in **overzicht** > **Essentials** en ook in **eigenschappen**). 
 

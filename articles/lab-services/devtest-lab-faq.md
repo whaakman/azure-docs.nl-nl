@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 04/17/2018
 ms.author: spelluru
-ms.openlocfilehash: a295cad2bf1cafce4dc64909174e9417daa7918e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 08b27acc2d3114486b86aa0c311b9396c0bed48f
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38235445"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297312"
 ---
 # <a name="azure-devtest-labs-faq"></a>Veelgestelde vragen over Azure DevTest Labs
 Vind antwoorden op enkele veelgestelde vragen over Azure DevTest Labs.
@@ -88,17 +88,17 @@ Zie voor een uitgebreide artikel over het maken van aangepaste rollen en machtig
 
 **CI/CD-integratie en automatisering**
 ## <a name="does-devtest-labs-integrate-with-my-cicd-toolchain"></a>DevTest Labs integreren in mijn CI/CD-toolchain?
-Als u Visual Studio Team Services gebruikt, kunt u een [DevTest Labs-taken extensie](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) voor het automatiseren van uw release-pijplijn in DevTest Labs. Enkele van de taken die u met deze extensie doen kunt zijn onder andere:
+Als u van Azure DevOps gebruikmaakt, kunt u een [DevTest Labs-taken extensie](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks) voor het automatiseren van uw release-pijplijn in DevTest Labs. Enkele van de taken die u met deze extensie doen kunt zijn onder andere:
 
-* Maak en implementeer een virtuele machine automatisch. U kunt ook de virtuele machine met de meest recente build configureren met behulp van Azure bestand kopiëren of PowerShell Team Services-taken.
+* Maak en implementeer een virtuele machine automatisch. U kunt ook de virtuele machine met de meest recente build configureren met behulp van Azure bestand kopiëren of PowerShell Azure DevOps-Services-taken.
 * De status van een virtuele machine automatisch vastleggen na het testen om te reproduceren een bug in dezelfde virtuele machine voor meer informatie.
 * De virtuele machine aan het einde van de release-pijplijn verwijderen wanneer deze niet meer nodig is.
 
-De volgende blogberichten bieden richtlijnen en informatie over het gebruik van de extensie voor Team Services:
+De volgende blogberichten bieden richtlijnen en informatie over het gebruik van de Services van Azure DevOps-extensie:
 
-* [DevTest Labs en de extensie voor Visual Studio Team Services](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
-* [Een nieuwe virtuele machine in een bestaande DevTest Labs-testomgeving van Team Services implementeren](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
-* [Met release management-Team-Services voor continue implementatie in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
+* [DevTest Labs en de Azure DevOps-extensie](https://blogs.msdn.microsoft.com/devtestlab/2016/06/15/azure-devtest-labs-vsts-extension/)
+* [Een nieuwe virtuele machine in een bestaande DevTest Labs-testomgeving van Azure DevOps-Services implementeren](http://www.visualstudiogeeks.com/blog/DevOps/Deploy-New-VM-To-Existing-AzureDevTestLab-From-VSTS)
+* [Met behulp van release management voor Azure DevOps-Services voor continue implementatie in DevTest Labs](http://www.visualstudiogeeks.com/blog/DevOps/Use-VSTS-ReleaseManagement-to-Deploy-and-Test-in-AzureDevTestLabs)
 
 Voor andere continue integratie (CI) / toolchains continue levering (CD), kunt u dezelfde scenario's door bereiken implementeren [Azure Resource Manager-sjablonen](https://aka.ms/dtlquickstarttemplate) met behulp van [Azure PowerShell-cmdlets](../azure-resource-manager/resource-group-template-deploy.md) en [.NET SDK's](https://www.nuget.org/packages/Microsoft.Azure.Management.DevTestLabs/). U kunt ook gebruiken [REST API's voor DevTest Labs](http://aka.ms/dtlrestapis) om te integreren met uw hulpprogrammaketen.  
 
@@ -112,7 +112,7 @@ Een aangepaste installatiekopie is een virtuele harde schijf (VHD). Een formule 
 
 ## <a name="how-do-i-create-multiple-vms-from-the-same-template-at-once"></a>Hoe maak ik meerdere virtuele machines met dezelfde sjabloon in één keer?
 U hebt twee opties voor het maken van meerdere virtuele machines tegelijkertijd uit dezelfde sjabloon:
-* U kunt de [extensie voor Visual Studio Team Services-taken](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
+* U kunt de [Azure DevOps-taken extensie](https://marketplace.visualstudio.com/items?itemName=ms-azuredevtestlabs.tasks). 
 * U kunt [genereren van een Resource Manager-sjabloon](devtest-lab-add-vm.md#save-azure-resource-manager-template) tijdens het maken van een virtuele machine, en [implementeren van de Resource Manager-sjabloon vanuit Windows PowerShell](../azure-resource-manager/resource-group-template-deploy.md).
 
 ## <a name="how-do-i-move-my-existing-azure-vms-into-my-devtest-labs-lab"></a>Hoe verplaats ik mijn bestaande Azure-VM's in mijn lab DevTest Labs?

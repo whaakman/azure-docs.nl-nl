@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2017
 ms.author: jeconnoc
-ms.openlocfilehash: 57109848bf78311ea4d601b135c5dd304d613aeb
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: ece3511d0d3c12be13a649385ea9b6dd5c75bfe0
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008124"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44303706"
 ---
 # <a name="how-to-create-and-deploy-a-cloud-service"></a>Over het maken en implementeren van een service in de cloud
 De Azure portal biedt twee manieren om u te maken en implementeren van een service in de cloud: *snelle invoer* en *aangepast maken*.
@@ -27,7 +27,7 @@ De Azure portal biedt twee manieren om u te maken en implementeren van een servi
 In dit artikel wordt uitgelegd hoe u gebruik van de methode Snelle invoer aan een nieuwe cloudservice maken en gebruik vervolgens **uploaden** om te uploaden en implementeren van een cloud service-pakket in Azure. Wanneer u deze methode gebruikt, maakt de Azure-portal beschikbaar handige koppelingen voor het voltooien van alle vereisten die u gaat. Als u klaar bent om uw cloudservice implementeren wanneer u deze maakt, kunt u beide op hetzelfde moment met behulp van aangepast maken kunt doen.
 
 > [!NOTE]
-> Als u van plan bent uw cloudservice van Visual Studio Team Services (VSTS) publiceren, gebruik Quick Create en stel vervolgens VSTS publiceren vanuit de Azure-Quickstart of het dashboard. Zie voor meer informatie, [onafgebroken levering naar Azure met behulp van Visual Studio Team Services][TFSTutorialForCloudService], of Zie help voor de **Quick Start** pagina.
+> Als u van plan bent voor het publiceren van uw cloudservice van Azure DevOps, snel kunt maken en vervolgens Azure DevOps-publicatie instellen vanuit de Azure-Quickstart of het dashboard. Zie voor meer informatie, [onafgebroken levering naar Azure met behulp van Azure DevOps][TFSTutorialForCloudService], of Zie help voor de **Quick Start** pagina.
 >
 >
 

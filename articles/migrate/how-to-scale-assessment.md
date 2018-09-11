@@ -4,26 +4,25 @@ description: Hierin wordt beschreven hoe u grote aantallen on-premises virtuele 
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 08/25/2018
+ms.date: 09/10/2018
 ms.author: raynew
-ms.openlocfilehash: 1f049b3e05ac17e416379762a0bced8340ae25d5
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 5f02393e6c8d5e094443e418b3fe7439d73ff837
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666540"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325019"
 ---
 # <a name="discover-and-assess-a-large-vmware-environment"></a>Een grote VMware-omgeving ontdekken en beoordelen
 
 Azure Migrate heeft een limiet van 1500 machines per project, in dit artikel wordt beschreven hoe u voor de beoordeling van grote aantallen on-premises virtuele machines (VM's) met behulp van [Azure Migrate](migrate-overview.md).   
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 - **VMware**: VM's die u wilt migreren, moet worden beheerd door vCenter-Server versie 5.5, 6.0 of 6.5. Daarnaast moet u één ESXi-host met versie 5.0 of hoger voor het implementeren van de collector-VM.
 - **vCenter-account**: U hebt een alleen-lezen-account voor toegang tot de vCenter-Server nodig. Azure Migrate gebruikt dit account om de on-premises virtuele machines te detecteren.
 - **Machtigingen**: In de vCenter-Server, moet u machtigingen voor het maken van een virtuele machine door het importeren van een bestand in OVA-indeling.
-- **Instellingen voor statistieken**: de instellingen voor statistieken voor de vCenter-Server moeten worden ingesteld op niveau 3 voordat u begint met implementatie. Het statistiekniveau van de is ingesteld op 3 voor elk van de dag, week en maand verzameling intervallen. Als het niveau lager dan 3 voor elk van de drie verzameling intervallen is, werkt de beoordeling wel, maar de prestatiegegevens voor appopslag en netwerken worden niet verzameld. De aanbevelingen voor de grootte wordt vervolgens worden gebaseerd op prestatiegegevens voor CPU en geheugen en configuratiegegevens voor schijf en netwerkadapters.
-
+- **Instellingen voor statistieken**: deze vereiste is alleen van toepassing op de [eenmalige detectie model](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods). Voor detectie van eenmalige-model, moeten de instellingen voor statistieken voor de vCenter-Server worden ingesteld op niveau 3 voordat u begint met implementatie. Het statistiekniveau van de is ingesteld op 3 voor elk van de dag, week en maand verzameling intervallen. Als het niveau lager dan 3 voor elk van de drie verzameling intervallen is, werkt de beoordeling wel, maar de prestatiegegevens voor appopslag en netwerken worden niet verzameld. De aanbevelingen voor de grootte wordt vervolgens worden gebaseerd op prestatiegegevens voor CPU en geheugen en configuratiegegevens voor schijf en netwerkadapters.
 
 ### <a name="set-up-permissions"></a>Machtigingen instellen
 
@@ -32,26 +31,28 @@ Azure Migrate heeft toegang nodig tot de VMware-servers, zodat de virtuele machi
 - Gebruikerstype: ten minste een alleen-lezen-gebruiker
 - Machtigingen: Datacentrumobject –> Doorgeven naar onderliggend object, rol=Alleen-lezen
 - Details: gebruiker wordt toegewezen op datacentrumniveau, en heeft toegang tot alle objecten in het datacentrum.
-- Wijs om de toegang te beperken de rol Geen toegang met het object Doorgeven naar onderliggend object toe aan de onderliggende objecten (vSphere-hosts, gegevensopslag, VM's en netwerken).
+- Toewijzen om toegang te beperken, de rol geen toegang met de doorgeven naar onderliggend object, aan de onderliggende objecten (vSphere-hosts, gegevensopslag, VM's en netwerken).
 
 Als u in een omgeving met tenants implementeert, als volgt één manier om in te stellen deze:
 
-1.  Maken van een gebruiker per tenant en het gebruik van [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), alleen-lezen machtigingen toewijzen aan van de VM dat tot een bepaalde tenant. Vervolgens gebruikt u deze referenties voor detectie. RBAC zorgt ervoor dat de bijbehorende vCenter-gebruiker toegang heeft tot alleen specifieke virtuele machine voor de tenantsleutel.
+1.  Maken van een gebruiker per tenant en het gebruik van [RBAC](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal), alleen-lezen machtigingen toewijzen aan alle virtuele machines die horen bij een bepaalde tenant. Vervolgens gebruikt u deze referenties voor detectie. RBAC zorgt ervoor dat de bijbehorende vCenter-gebruiker toegang tot alleen tenant-specifieke virtuele machines heeft.
 2. U RBAC instelt voor gebruikers van andere tenant zoals beschreven in het volgende voorbeeld voor 1 gebruiker en gebruiker #2:
 
     - In **gebruikersnaam** en **wachtwoord**, geef de referenties van het kenmerk alleen-lezen-account dat door de collector wordt gebruikt voor het detecteren van virtuele machines in
-    - Datacenter1 - geven alleen-lezen machtigingen voor 1 gebruiker en gebruiker nr. 2. Deze machtigingen op alle onderliggende objecten niet worden doorgevoerd omdat u machtigingen hebt ingesteld op afzonderlijke virtuele machine.
+    - Datacenter1 - geven alleen-lezen machtigingen voor 1 gebruiker en gebruiker nr. 2. Deze machtigingen op alle onderliggende objecten niet worden doorgevoerd omdat u machtigingen hebt ingesteld op afzonderlijke virtuele machines.
 
-      - VM1 (Tenant #1) (alleen machtiging voor lezen voor 1 gebruiker)
-      - VM2 (Tenant #1) (alleen machtiging voor lezen voor 1 gebruiker)
-      - VM3 (Tenant #2) (alleen de machtiging Lezen aan gebruiker 2)
-      - VM4 (Tenant #2) (alleen de machtiging Lezen aan gebruiker 2)
+      - VM1 (Tenant #1) (alleen-lezen-machtiging voor 1 gebruiker)
+      - VM2 (Tenant #1) (alleen-lezen-machtiging voor 1 gebruiker)
+      - VM3 (Tenant #2) (alleen-lezen-machtiging voor gebruiker nr. 2)
+      - VM4 (Tenant #2) (alleen-lezen-machtiging voor gebruiker nr. 2)
 
    - Als u detectie met behulp van referenties voor 1 gebruiker uitvoert, wordt u alleen VM1 en VM2 gedetecteerd.
 
 ## <a name="plan-your-migration-projects-and-discoveries"></a>Plan uw migratieprojecten en detecties
 
-Één Azure Migrate collector biedt ondersteuning voor detectie van meerdere vCenter-Servers (achter elkaar) en biedt ook ondersteuning voor detectie van verschillende migratieprojecten (achter elkaar). De collector werkt in een fire- en forget-model, zodra een detectie wordt uitgevoerd, kunt u de dezelfde collector gebruiken voor het verzamelen van gegevens uit een andere vCenter-Server of verzenden naar een andere migration-project.
+Één Azure Migrate collector biedt ondersteuning voor detectie van meerdere vCenter-Servers (achter elkaar) en biedt ook ondersteuning voor detectie van verschillende migratieprojecten (achter elkaar).
+
+De collector, in het geval van eenmalige detectie werkt in een fire- en forget-model, zodra een detectie wordt uitgevoerd, kunt u de dezelfde collector gebruiken voor het verzamelen van gegevens uit een andere vCenter-Server of verzenden naar een andere migration-project. Een apparaat is verbonden met een enkel project alleen in het geval van continu detectie, zodat u de dezelfde collector niet gebruiken voor het activeren van een tweede detectie.
 
 Plan uw detecties en evaluaties op basis van de volgende beperkingen:
 
@@ -59,7 +60,7 @@ Plan uw detecties en evaluaties op basis van de volgende beperkingen:
 | ---------- | ----------------- |
 | Project    | 1,500             |
 | Detectie  | 1,500             |
-| Evaluatie | 1,500             |
+| Beoordeling | 1,500             |
 
 Houd rekening met deze overwegingen bij het plannen:
 
@@ -70,20 +71,31 @@ Houd rekening met deze overwegingen bij het plannen:
 Afhankelijk van uw scenario, kunt u uw ontdekkingen kunnen splitsen, zoals voorgeschreven hieronder:
 
 ### <a name="multiple-vcenter-servers-with-less-than-1500-vms"></a>Meerdere vCenter-Servers met maximaal 1500 VM 's
+Als u meerdere vCenter-Servers in uw omgeving hebt en het totale aantal virtuele machines minder dan 1500 is, kunt u de volgende benadering op basis van uw scenario:
 
-Als u meerdere vCenter-Servers in uw omgeving hebt en het totale aantal virtuele machines minder dan 1500 is, kunt u een één-collector en een enkele migration-project voor het detecteren van alle virtuele machines voor alle vCenter-Servers. Omdat de collector heeft een VMware vCenter Server gedetecteerd op een tijdstip, kunt u de dezelfde collector uitvoeren op alle de vCenter-Servers elkaar en de collector verwijzen naar hetzelfde migratieproject. Als alle detecties voltooid zijn, kunt u vervolgens evaluaties voor de machines maken.
+**Eenmalige detectie:** kunt u een één-collector en een enkele migration-project voor het detecteren van alle virtuele machines voor alle vCenter-Servers. Omdat de collector eenmalige detectie een VMware vCenter Server op een tijdstip detecteert, kunt u de dezelfde collector uitvoeren op alle de vCenter-Servers elkaar en de collector verwijzen naar hetzelfde migratieproject. Als alle detecties voltooid zijn, kunt u vervolgens evaluaties voor de machines maken.
+
+**Continue detectie:** in het geval van continu detectie één apparaat kan worden verbonden met alleen een enkel project. Daarom moet u een apparaat voor elk van de vCenter-Servers implementeert en maakt u een project voor elk apparaat en elke trigger detecties dienovereenkomstig.
 
 ### <a name="multiple-vcenter-servers-with-more-than-1500-vms"></a>Meerdere vCenter-Servers met meer dan 1500 VM 's
 
-Als u meerdere vCenter-Servers met minder dan 1500 virtuele machines per vCenter-Server, maar meer dan 1500 VM's voor alle vCenter-Servers hebt, moet u meerdere migration-projecten (één migration-project kan bevatten alleen 1500 VM's) maken. U kunt dit doen door het maken van een migratieproject per vCenter-Server en de detecties splitsen. U kunt één collector gebruiken voor het detecteren van elke vCenter-Server (achter elkaar). Als u wilt dat de detecties te starten op hetzelfde moment, kunt u ook meerdere apparaten implementeren en de detecties parallel worden uitgevoerd.
+Als u meerdere vCenter-Servers met minder dan 1500 virtuele machines per vCenter-Server, maar meer dan 1500 VM's voor alle vCenter-Servers hebt, moet u meerdere migration-projecten (één migration-project kan bevatten alleen 1500 VM's) maken. U kunt dit doen door het maken van een migratieproject per vCenter-Server en de detecties splitsen.
+
+**Eenmalige detectie:** kunt u één collector voor het detecteren van elke vCenter-Server (achter elkaar). Als u wilt dat de detecties te starten op hetzelfde moment, kunt u ook meerdere apparaten implementeren en de detecties parallel worden uitgevoerd.
+
+**Continue detectie:** moet u meerdere collector-apparaten (één voor elke vCenter-Server) maken en verbinden met elk apparaat een project en trigger detectie dienovereenkomstig.
 
 ### <a name="more-than-1500-machines-in-a-single-vcenter-server"></a>Meer dan 1500 machines in een enkele vCenter-Server
 
-Als u meer dan 1500 virtuele machines in een enkele vCenter-Server hebt, moet u de detectie splitsen in meerdere migration-projecten. Als u wilt splitsen detecties, kunt u gebruikmaken van de Scope-veld in het toestel en geef de host, cluster, map of het datacenter die u wilt detecteren. Bijvoorbeeld, hebt u twee mappen in vCenter Server, een met 1000 VM's (Map1) en andere met 800 VM's (Folder2), kunt u één collector gebruiken en twee detecties uitvoeren. In de eerste detectie kunt u Map1 opgeven als het bereik en wijst u deze naar de eerste migratieproject zodra de eerste detectie is voltooid, kunt u de dezelfde collector gebruikt, wijzigen van het bereik in projectdetails Folder2 en migratie naar de tweede migration-project en de tweede detectie doen.
+Als u meer dan 1500 virtuele machines in een enkele vCenter-Server hebt, moet u de detectie splitsen in meerdere migration-projecten. Als u wilt splitsen detecties, kunt u gebruikmaken van de Scope-veld in het apparaat en geef de host, cluster, map, of het datacenter die u wilt detecteren. Bijvoorbeeld, hebt u twee mappen in vCenter Server, een met 1000 VM's (Map1) en andere met 800 VM's (Folder2), kunt u in het veld scope om op te splitsen de detecties tussen deze mappen.
+
+**Eenmalige detectie:** kunt u de dezelfde collector voor het activeren van zowel de detecties. In de eerste detectie kunt u Map1 opgeven als het bereik en wijst u deze naar de eerste migratieproject zodra de eerste detectie is voltooid, kunt u de dezelfde collector gebruikt, wijzigen van het bereik in projectdetails Folder2 en migratie naar de tweede migration-project en de tweede detectie doen.
+
+**Continue detectie:** In dit geval moet u twee collector toestellen maken voor de eerste collector, geef het bereik als Map1 en verbinden met de eerste migratieproject. U kunt parallel te leren kennen Folder2 met behulp van de tweede collector-apparaat en deze verbinden met de tweede migration-project.
 
 ### <a name="multi-tenant-environment"></a>Multitenant-omgeving
 
-Als u een omgeving die wordt gedeeld door tenants hebt en u niet wilt detecteren van de virtuele machines van één tenant in een andere tenant-abonnement, kunt u het veld bereik in het collector-apparaat als bereik voor de detectie. Als de tenants hosts delen, een referentie met alleen-lezen toegang tot alleen de virtuele machines die horen bij de specifieke tenant maken en deze referentie gebruiken in het collector-apparaat en het bereik opgeven als de host te doen de detectie. U kunt ook u kunt ook mappen maken in vCenter Server (Stel Map1 voor tenant1 en folder2 voor tenant2), onder de gedeelde host, de virtuele machines voor tenant1 in Map1 en tenant2 verplaatsen naar folder2 en vervolgens het bereik van de detecties in de collector dienovereenkomstig door op te geven op de juiste map.
+Als u een omgeving die wordt gedeeld door tenants hebt en u niet wilt detecteren van de virtuele machines van één tenant in een andere tenant-abonnement, kunt u het veld bereik in het collector-apparaat als bereik voor de detectie. Als de tenants hosts delen, een referentie met alleen-lezen toegang tot alleen de virtuele machines die horen bij de specifieke tenant maken en deze referentie gebruiken in het collector-apparaat en het bereik opgeven als de host te doen de detectie.
 
 ## <a name="discover-on-premises-environment"></a>On-premises omgeving detecteren
 
@@ -107,8 +119,16 @@ Azure Migrate maakt een on-premises virtuele machine die het collector-apparaat 
 
 Als u meerdere projecten hebt, moet u het collector-apparaat slechts één keer downloaden met vCenter-Server. Na het downloaden en instellen van het apparaat, u deze voor elk project uitvoeren en u de unieke project-ID en sleutel opgeven.
 
-1. Selecteer in de Azure Migrate-project **aan de slag** > **detecteren en evalueren** > **Machines detecteren**.
-2. In **machines detecteren**, selecteer **downloaden**, het OVA-bestand te downloaden.
+1. Klik in het Azure Migrate-project op **Aan de slag** > **Detecteren en evalueren** > **Machines detecteren**.
+2. In **machines detecteren**, er zijn twee opties beschikbaar zijn voor het apparaat, klikt u op **downloaden** voor het downloaden van het juiste apparaat op basis van uw voorkeur.
+
+    a. **Eenmalige detectie:** het apparaat voor dit model communiceert met de vCenter-Server voor het verzamelen van metagegevens over de virtuele machines. Voor het verzamelen van prestatiegegevens van de virtuele machines, het is afhankelijk van de van historische prestatiegegevens die zijn opgeslagen in de vCenter-Server en de prestatiegeschiedenis van de laatste maand verzamelt. In dit model, Azure Migrate verzamelt gemiddelde meteritem (versus piek teller) voor alle gegevens, [meer informatie] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected). Omdat dit een eenmalige detectie, worden wijzigingen in de on-premises omgeving niet weergegeven wanneer de detectie voltooid is. Als u wilt dat de wijzigingen om weer te geven, die u moet een nieuwe detectie van dezelfde omgeving hetzelfde project doen.
+
+    b. **Continue detectie:** het apparaat voor dit model profielen continu de on-premises omgeving voor het verzamelen van gegevens over het gebruik van realtime voor elke virtuele machine. In dit model worden piek prestatiemeteritems verzameld voor elke metrische gegevens (CPU-gebruik, geheugengebruik enz.). Dit model is niet afhankelijk van de instellingen voor statistieken in vCenter Server voor het verzamelen van prestatiegegevens. U kunt de continue profilering stoppen op elk gewenst moment van het apparaat.
+
+    > [!NOTE]
+    > De functionaliteit van de continue detectie is in preview.
+
 3. In **projectreferenties kopiëren**, kopieert u de ID en de sleutel voor het project. U hebt deze nodig tijdens de configuratie van collector.
 
 
@@ -126,53 +146,49 @@ Controleer dat het OVA-bestand beveiligd is voordat u deze implementeert:
 
 3. Zorg ervoor dat de gegenereerde hash komt overeen met de volgende instellingen.
 
-    Voor OVA-versie 1.0.9.14
+#### <a name="one-time-discovery"></a>Eenmalige detectie
 
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
-    SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
-    SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
-    
-    Voor OVA-versie 1.0.9.12
+Voor OVA-versie 1.0.9.14
 
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | d0363e5d1b377a8eb08843cf034ac28a
-    SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
-    SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
+**Algoritme** | **Hash-waarde**
+--- | ---
+MD5 | 6d8446c0eeba3de3ecc9bc3713f9c8bd
+SHA1 | e9f5bdfdd1a746c11910ed917511b5d91b9f939f
+SHA256 | 7f7636d0959379502dfbda19b8e3f47f3a4744ee9453fc9ce548e6682a66f13c
 
-    Voor OVA-versie 1.0.9.8
+Voor OVA-versie 1.0.9.12
 
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | b5d9f0caf15ca357ac0563468c2e6251
-    SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
-    SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
+**Algoritme** | **Hash-waarde**
+--- | ---
+MD5 | d0363e5d1b377a8eb08843cf034ac28a
+SHA1 | df4a0ada64bfa59c37acf521d15dcabe7f3f716b
+SHA256 | f677b6c255e3d4d529315a31b5947edfe46f45e4eb4dbc8019d68d1d1b337c2e
 
-    Voor OVA-versie 1.0.9.7
+Voor OVA-versie 1.0.9.8
 
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | d5b6a03701203ff556fa78694d6d7c35
-    SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
-    SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
+**Algoritme** | **Hash-waarde**
+--- | ---
+MD5 | b5d9f0caf15ca357ac0563468c2e6251
+SHA1 | d6179b5bfe84e123fabd37f8a1e4930839eeb0e5
+SHA256 | 09c68b168719cb93bd439ea6a5fe21a3b01beec0e15b84204857061ca5b116ff
 
-    Voor OVA-versie 1.0.9.5
+Voor OVA-versie 1.0.9.7
 
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | fb11ca234ed1f779a61fbb8439d82969
-    SHA1 | 5bee071a6334b6a46226ec417f0d2c494709a42e
-    SHA256 | b92ad637e7f522c1d7385b009e7d20904b7b9c28d6f1592e8a14d88fbdd3241c  
+**Algoritme** | **Hash-waarde**
+--- | ---
+MD5 | d5b6a03701203ff556fa78694d6d7c35
+SHA1 | f039feaa10dccd811c3d22d9a59fb83d0b01151e
+SHA256 | e5e997c003e29036f62bf3fdce96acd4a271799211a84b34b35dfd290e9bea9c
 
-    Voor OVA-versie 1.0.9.2
+#### <a name="continuous-discovery"></a>Continue detectie
 
-    **Algoritme** | **Hash-waarde**
-    --- | ---
-    MD5 | 7326020e3b83f225b794920b7cb421fc
-    SHA1 | a2d8d496fdca4bd36bfa11ddf460602fa90e30be
-    SHA256 | f3d9809dd977c689dda1e482324ecd3da0a6a9a74116c1b22710acc19bea7bb2  
+Voor OVA-versie 1.0.10.4
+
+**Algoritme** | **Hash-waarde**
+--- | ---
+MD5 | 2ca5b1b93ee0675ca794dd3fd216e13d
+SHA1 | 8c46a52b18d36e91daeae62f412f5cb2a8198ee5
+SHA256 | 3b3dec0f995b3dd3c6ba218d436be003a687710abab9fcd17d4bdc90a11276be
 
 ### <a name="create-the-collector-vm"></a>De collector-VM maken
 
@@ -199,25 +215,35 @@ Als u meerdere projecten hebt, moet u om te bepalen van de ID en sleutel voor el
     ![Projectreferenties kopiëren](./media/how-to-scale-assessment/copy-project-credentials.png)
 
 ### <a name="set-the-vcenter-statistics-level"></a>Stel het niveau van de vCenter-statistieken
-Hieronder volgt de lijst met prestatiemeteritems die worden verzameld tijdens de detectie. De prestatiemeteritems zijn standaard beschikbaar op verschillende niveaus in de vCenter-Server.
 
-U wordt aangeraden dat u de algemene krachtigste (3) voor het statistiekniveau zo instellen dat alle items correct worden verzameld. Als u ingesteld op een lager niveau vCenter hebt, mogelijk slechts een paar items volledig, worden verzameld met de rest is ingesteld op 0. De evaluatie kan onvolledige gegevens wordt weergegeven.
+Het collector-apparaat wordt gedetecteerd dat de volgende statische metagegevens over de geselecteerde virtuele machines.
 
-De volgende tabel bevat ook de resultaten van de evaluatie die worden beïnvloed als een bepaald item is niet verzameld.
+1. VM-weergavenaam (op vCenter)
+2. Pad van de inventaris van de virtuele machine (host/map in vCenter)
+3. IP-adres
+4. MAC-adres
+5. Besturingssysteem
+5. Aantal kernen, schijven, NIC 's
+6. Grootte van geheugen, schijf-grootten
+7. En prestatiemeteritems van de VM, schijf en netwerk, zoals vermeld in de onderstaande tabel.
 
-| Teller                                 | Niveau | Het niveau van per apparaat | Evaluatie van de impact                    |
-| --------------------------------------- | ----- | ---------------- | ------------------------------------ |
-| CPU.Usage.Average                       | 1     | N.v.t.               | Aanbevolen VM-grootte en kosten         |
-| Mem.Usage.Average                       | 1     | N.v.t.               | Aanbevolen VM-grootte en kosten         |
-| virtualDisk.read.average                | 2     | 2                | Grootte van de schijf, opslagkosten en VM-grootte |
-| virtualDisk.write.average               | 2     | 2                | Grootte van de schijf, opslagkosten en VM-grootte |
-| virtualDisk.numberReadAveraged.average  | 1     | 3                | Grootte van de schijf, opslagkosten en VM-grootte |
-| virtualDisk.numberWriteAveraged.average | 1     | 3                | Grootte van de schijf, opslagkosten en VM-grootte |
-| NET.Received.Average                    | 2     | 3                | VM-grootte en netwerk kosten             |
-| NET.transmitted.Average                 | 2     | 3                | VM-grootte en netwerk kosten             |
+Voor de detectie van eenmalige bevat de volgende tabel de exacte prestatiemeteritems die worden verzameld en bevat ook de resultaten van de evaluatie die worden beïnvloed als een bepaald item is niet verzameld.
+
+Voor continue detectie de dezelfde prestatiemeteritems worden verzameld in realtime (20 seconden), zodat er geen afhankelijkheid op het niveau van de vCenter-statistieken. Het apparaat vervolgens rollen van de voorbeelden 20 seconden voor het maken van één gegevenspunt voor elke 15 minuten door de piekwaarde te selecteren in de voorbeelden 20 seconden en verzendt ze naar Azure.
+
+|Teller                                  |Niveau    |Het niveau van per apparaat  |Evaluatie van de impact                               |
+|-----------------------------------------|---------|------------------|------------------------------------------------|
+|CPU.Usage.Average                        | 1       |N.V.T.                |Aanbevolen VM-grootte en kosten                    |
+|Mem.Usage.Average                        | 1       |N.V.T.                |Aanbevolen VM-grootte en kosten                    |
+|virtualDisk.read.average                 | 2       |2                 |Grootte van de schijf, opslagkosten en VM-grootte         |
+|virtualDisk.write.average                | 2       |2                 |Grootte van de schijf, opslagkosten en VM-grootte         |
+|virtualDisk.numberReadAveraged.average   | 1       |3                 |Grootte van de schijf, opslagkosten en VM-grootte         |
+|virtualDisk.numberWriteAveraged.average  | 1       |3                 |Grootte van de schijf, opslagkosten en VM-grootte         |
+|NET.Received.Average                     | 2       |3                 |VM-grootte en netwerk kosten                        |
+|NET.transmitted.Average                  | 2       |3                 |VM-grootte en netwerk kosten                        |
 
 > [!WARNING]
-> Als u een hoger statistiekniveau zojuist hebt ingesteld, duurt om op een dag voor het genereren van de prestatiemeteritems. Dus aangeraden de detectie uit te voeren na één dag.
+> Voor eenmalige detectie als u hebt zojuist een hoger statistiekniveau, duurt het om op een dag voor het genereren van de prestatiemeteritems. Dus aangeraden de detectie uit te voeren na één dag. Wacht ten minste één dag na het starten van detectie voor het apparaat te profileren van de omgeving en vervolgens een evaluatie maken voor het model continue detectie.
 
 ### <a name="run-the-collector-to-discover-vms"></a>De collector uitvoeren om virtuele machines te detecteren
 
@@ -249,9 +275,11 @@ Voor elke detectie die u nodig hebt om uit te voeren, moet u de collector voor h
 
 #### <a name="verify-vms-in-the-portal"></a>VM's verifiëren in de portal
 
-De detectietijd is afhankelijk van het aantal virtuele machines dat u detecteert. Normaal gesproken voor 100 virtuele machines, detectie is voltooid ongeveer een uur nadat de collector uitgevoerd is.
+Voor de detectie van eenmalige, de detectietijd is afhankelijk van hoeveel virtuele machines worden gedetecteerd. Normaal gesproken duurt voor 100 virtuele machines, nadat de collector is uitgevoerd, ongeveer een uur om de configuratie- en gegevens te verzamelen om te voltooien. U kunt een evaluatie maken (op basis van prestaties en als on-premises-evaluaties) direct na de detectie wordt uitgevoerd.
 
-1. Selecteer in het Migration Planner-project **beheren** > **Machines**.
+Voor continue discovery (in preview), de collector wordt continu profiel van de on-premises omgeving en worden de prestatiegegevens blijven verzenden met een interval dat uur. U kunt de machines in de portal controleren na een uur van de detectie begon. Het is raadzaam om te wachten op ten minste een dag voor het maken van alle evaluaties op basis van prestaties voor de virtuele machines.
+
+1. Klik in het migratieproject **beheren** > **Machines**.
 2. Controleer of de virtuele machines die u wilt detecteren in de portal worden weergegeven.
 
 

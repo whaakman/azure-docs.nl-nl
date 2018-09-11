@@ -11,15 +11,15 @@ ms.service: key-vault
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: bryanla
-ms.openlocfilehash: be076be95b62e2ea12dfc8786c50f36a5f434d2e
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: c7cd9dfa019ca0d8560833b10a3e8a1a37a1e1ac
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42057514"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296547"
 ---
 # <a name="authentication-requests-and-responses"></a>Verificatie, vragen en antwoorden
 
@@ -49,7 +49,7 @@ In dit onderwerp bevat informatie over specificaties voor de Azure Key Vault-ser
 
  Azure Key Vault-protocolversies voert u een datum nummering schema met behulp van een {DD}. {MM}. De indeling {yyyy}.  
 
-## <a name="request-body"></a>Aanvraagtekst  
+## <a name="request-body"></a>Hoofdtekst van de aanvraag  
  GET-bewerkingen mag geen aanvraagtekst aan de hand van de HTTP-specificatie en POST en PUT-bewerkingen moeten een aanvraagtekst hebben. De hoofdtekst van de bewerking verwijderen is optioneel in HTTP.  
 
  Tenzij anders vermeld in de beschrijving van de bewerking, wordt het inhoudstype van de aanvraag hoofdtekst moet application/json en een geserialiseerde JSON-object in overeenstemming inhoudstype moet bevatten.  
@@ -92,7 +92,7 @@ In dit onderwerp bevat informatie over specificaties voor de Azure Key Vault-ser
 
 ```  
 
-## <a name="authentication"></a>Verificatie  
+## <a name="authentication"></a>Authenticatie  
  Alle aanvragen naar de Azure Key Vault moet worden geverifieerd. Azure Key Vault ondersteunt Azure Active Directory-toegangstokens die kunnen worden verkregen met behulp van OAuth2 [[RFC6749](http://tools.ietf.org/html/rfc6749)]. 
  
  Zie voor meer informatie over het registreren van uw toepassing en verifiëren voor het gebruik van Azure Key Vault, [uw clienttoepassing registreren bij Azure AD](https://docs.microsoft.com/rest/api/azure/index#register-your-client-application-with-azure-ad).

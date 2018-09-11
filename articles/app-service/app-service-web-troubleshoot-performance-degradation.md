@@ -16,12 +16,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/03/2016
 ms.author: cephalin
-ms.openlocfilehash: 0f053c0293488f19adcd058f1ba8304d8d238738
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 3ec67488b238118067e771baf3dd5124308a84cf
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128303"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44296190"
 ---
 # <a name="troubleshoot-slow-web-app-performance-issues-in-azure-app-service"></a>Problemen met trage prestaties van web-app oplossen in Azure App Service oplossen
 Dit artikel helpt bij het oplossen van trage prestaties van web-app oplossen in [Azure App Service](http://go.microsoft.com/fwlink/?LinkId=529714).
@@ -39,7 +39,7 @@ Dit probleem wordt vaak veroorzaakt door problemen met toepassingen niveau, zoal
 * toepassing met behulp van hoge geheugen/CPU
 * toepassing is gecrasht vanwege een uitzondering
 
-## <a name="troubleshooting-steps"></a>Stappen voor probleemoplossing
+## <a name="troubleshooting-steps"></a>Stappen voor het oplossen van problemen
 Oplossen van problemen kan worden onderverdeeld in drie verschillende taken, in opeenvolgende volgorde:
 
 1. [Bekijk en werking van de toepassing controleren](#observe)
@@ -88,7 +88,7 @@ U kunt ook de toepassingsprestaties van uw bewaken met behulp van een *site-exte
 
 Elke App Service-web-app biedt een uitbreidbaar management-eindpunt waarmee u kunt het gebruiken van een krachtige set hulpprogramma's die zijn geïmplementeerd als site-uitbreidingen. Extensies zijn onder andere: 
 
-- Broncode-editors, zoals [Visual Studio Team Services](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
+- Broncode-editors, zoals [Azure DevOps](https://www.visualstudio.com/products/what-is-visual-studio-online-vs.aspx). 
 - Beheerhulpprogramma's voor verbonden bronnen, zoals een MySQL-database verbonden met een web-app.
 
 [Azure Application Insights](https://azure.microsoft.com/services/application-insights/) is een site-extensie die is ook beschikbaar voor prestatiebewaking. Opnieuw opbouwen uw code met een SDK voor het gebruik van Application Insights. U kunt ook een extensie die toegang tot aanvullende gegevens biedt installeren. De SDK kunt u code schrijven om te controleren van het gebruik en prestaties van uw app in meer detail. Zie voor meer informatie, [prestaties in webtoepassingen bewaken](../application-insights/app-insights-web-monitor-performance.md).
@@ -158,7 +158,7 @@ Enkele van de dingen die Kudu biedt, zijn:
 
 Een andere handige functie van Kudu is dat, als uw toepassing de eerste kans uitzonderingen genereren is, kunt u Kudu en dumpbestanden voor de SysInternals-hulpprogramma Procdump geheugen maken. Deze geheugendumps zijn momentopnamen van het proces en vaak kunt u meer gecompliceerde problemen oplossen met uw web-app.
 
-Zie voor meer informatie over functies die beschikbaar zijn in Kudu [Azure Websites-Team Services-hulpprogramma's die u moet weten over](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
+Zie voor meer informatie over functies die beschikbaar zijn in Kudu [Azure DevOps-hulpprogramma's die u moet weten over](https://azure.microsoft.com/blog/windows-azure-websites-online-tools-you-should-know-about/).
 
 <a name="mitigate" />
 

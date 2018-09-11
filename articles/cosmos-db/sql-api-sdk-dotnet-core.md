@@ -12,12 +12,12 @@ ms.topic: reference
 ms.date: 03/22/2018
 ms.author: rnagpal
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f3c0efe7fbeb3d3259d1e8505a965499cfb941e9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b1ab1381271391da9f4775488908af4eb1e47f5d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049385"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346267"
 ---
 # <a name="azure-cosmos-db-net-core-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB .NET Core SDK voor SQL-API: releaseopmerkingen en resources
 > [!div class="op_single_selector"]
@@ -52,6 +52,15 @@ ms.locfileid: "44049385"
 ## <a name="release-notes"></a>Releaseopmerkingen
 
 De Azure Cosmos DB .NET Core SDK heeft de functiepariteit met de meest recente versie van de [Azure Cosmos DB .NET SDK](sql-api-sdk-dotnet.md).
+
+### <a name="a-name200200"></a><a name="2.0.0"/>2.0.0
+
+* Ondersteuning voor toegevoegde aanvraag annuleren.
+* Toegevoegde SetCurrentLocation naar ConnectionPolicy, die automatisch wordt ingevuld de gewenste locaties op basis van de regio.
+* Probleem opgelost in een Cross-partitie query's met Min/Max en een filter op dat overeenkomt met geen documenten op een afzonderlijke partitie.
+* DocumentClient methoden hebben nu pariteit met IDocumentClient.
+* Bijgewerkte direct TCP-transport-stack om te beperken van het aantal verbindingen tot stand gebracht.
+* Ondersteuning toegevoegd voor Direct via TCP-modus voor niet-Windows-clients.
 
 ### <a name="a-name200-preview2200-preview2"></a><a name="2.0.0-preview2"/>2.0.0-preview2
 
@@ -186,8 +195,7 @@ Als u vragen met betrekking tot deze SDK hebt, post naar [StackOverflow](http://
 
 | Versie | Releasedatum | Vervaldatum |
 | --- | --- | --- |
-| [2.0.0-preview2](#2.0.0-preview2) |26 juli 2018 |--- |
-| [2.0.0-Preview](#2.0.0-preview) |11 mei 2018 |--- |
+| [2.0.0](#2.0.0) |07 september 2018 |--- |
 | [1.9.1](#1.9.1) |09 maart 2018 |--- |
 | [1.8.2](#1.8.2) |21 februari 2018 |--- |
 | [1.8.1](#1.8.1) |05 februari 2018 |--- |

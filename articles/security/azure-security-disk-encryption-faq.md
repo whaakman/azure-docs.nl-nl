@@ -1,24 +1,18 @@
 ---
 title: Azure Disk Encryption Veelgestelde vragen over | Microsoft Docs
 description: In dit artikel vindt u antwoorden op veelgestelde vragen over Microsoft Azure Disk Encryption voor Windows en Linux IaaS-VM's.
-services: security
-documentationcenter: na
 author: mestew
-manager: MBaldwin
-ms.assetid: 7188da52-5540-421d-bf45-d124dee74979
 ms.service: security
-ms.devlang: na
+ms.subservice: Azure Disk Encryption
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/24/2018
 ms.author: mstewart
-ms.openlocfilehash: b93ad4d6d4637b3060d92fb5e17747294c7e6211
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.date: 09/10/2018
+ms.openlocfilehash: 9d1414959ef8eae2277e530e6eca57ec06aaec37
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42885989"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345504"
 ---
 # <a name="azure-disk-encryption-faq"></a>Azure Disk Encryption Veelgestelde vragen
 
@@ -30,7 +24,7 @@ Azure Disk Encryption voor Windows en Linux IaaS-VM's is algemeen beschikbaar in
 
 ## <a name="what-user-experiences-are-available-with-azure-disk-encryption"></a>Welke gebruiker ondervindt zijn beschikbaar met Azure Disk Encryption?
 
-Azure Disk Encryption-algemene beschikbaarheid biedt ondersteuning voor Azure Resource Manager-sjablonen, Azure PowerShell en Azure CLI. De meerdere gebruikerservaringen bieden flexibiliteit. U hebt drie verschillende opties voor het inschakelen van schijfversleuteling voor IaaS-VM's. Zie voor meer informatie over de gebruikerservaring en stapsgewijze aanwijzingen die beschikbaar zijn in Azure Disk Encryption [inschakelen Azure Disk Encryption voor Windows](azure-security-disk-encryption-windows.md) en [Azure Disk Encryption inschakelen voor Linux](azure-security-disk-encryption-linux.md).
+Azure Disk Encryption-algemene beschikbaarheid biedt ondersteuning voor Azure Resource Manager-sjablonen, Azure PowerShell en Azure CLI. De andere gebruikerservaringen bieden flexibiliteit. U hebt drie verschillende opties voor het inschakelen van schijfversleuteling voor IaaS-VM's. Zie voor meer informatie over de gebruikerservaring en stapsgewijze aanwijzingen die beschikbaar zijn in Azure Disk Encryption [inschakelen Azure Disk Encryption voor Windows](azure-security-disk-encryption-windows.md) en [Azure Disk Encryption inschakelen voor Linux](azure-security-disk-encryption-linux.md).
 
 ## <a name="how-much-does-azure-disk-encryption-cost"></a>Wat kost Azure Disk Encryption?
 
@@ -82,7 +76,7 @@ Aan de slag, lees de [overzicht van Azure Disk Encryption](azure-security-disk-e
 
 Ja, kunt u de opstart- en volumes voor Windows en Linux IaaS-machines versleutelen. Voor Windows-VM's, kunt u de gegevens niet coderen zonder eerst het versleutelen van het volume met het besturingssysteem. Voor virtuele Linux-machines is het mogelijk voor het versleutelen van het gegevensvolume zonder te coderen volume met het besturingssysteem eerst. Nadat u hebt het volume met het besturingssysteem versleuteld voor Linux, wordt niet uitschakelen van versleuteling op een volume met het besturingssysteem voor Linux IaaS-VM's ondersteund.
 
-## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok-capability"></a>Azure Disk Encryption bent u in staat om de mogelijkheden van uw eigen sleutel (BYOK)?
+## <a name="does-azure-disk-encryption-allow-you-to-bring-your-own-key-byok"></a>Azure Disk Encryption bent u in staat uw eigen sleutel (BYOK)?
 
 Ja, kunt u uw eigen sleutels key-versleuteling opgeven. Deze sleutels worden beveiligd in Azure Key Vault, die het sleutelarchief voor Azure Disk Encryption is. Voor meer informatie over de belangrijkste versleutelingssleutels scenario's ondersteunen, Zie [vereisten voor Azure Disk Encryption](azure-security-disk-encryption-prerequisites.md).
 
@@ -106,7 +100,7 @@ Er zijn vereisten voor Azure Disk Encryption. Zie de [vereisten voor Azure Disk 
 Ja. Schijfversleuteling met behulp van een Azure AD-app wordt nog steeds ondersteund. Bij het versleutelen van nieuwe VM's wordt het echter aanbevolen dat u gebruikt de nieuwe methode in plaats van met een Azure AD-app te coderen. 
 
 ## <a name="can-i-migrate-vms-that-were-encrypted-with-an-azure-ad-app-to-encryption-without-an-azure-ad-app"></a>Kan ik virtuele machines die zijn versleuteld met een Azure AD-app voor de versleuteling zonder een Azure AD-app migreren?
-Er is op dit moment geen directe migratiepad voor machines die zijn versleuteld met een Azure AD-app voor de versleuteling zonder een Azure AD-app. Daarnaast is ook niet een rechtstreeks pad van versleuteling zonder een Azure AD-app naar de codering met een AD-app. 
+  Op dit moment is er geen een directe migratiepad voor machines die zijn versleuteld met een Azure AD-app voor de versleuteling zonder een Azure AD-app. Daarnaast is er geen een pad van de versleuteling zonder een Azure AD-app naar versleuteling met een AD-app. 
 
 ## <a name="what-version-of-azure-powershell-does-azure-disk-encryption-support"></a>Welke versie van Azure PowerShell biedt ondersteuning voor Azure Disk Encryption?
 
@@ -126,9 +120,9 @@ Ja, kunt u een update uitvoert, of te patchen van een Red Hat Linux-VM. Zie voor
 ## <a name="what-is-the-recommended-azure-disk-encryption-workflow-for-linux"></a>Wat is de aanbevolen Azure disk encryption-werkstroom voor Linux?
 
 De volgende werkstroom wordt aanbevolen om de beste resultaten op Linux:
-* Starten vanuit de ongewijzigd aandelen galerijafbeelding overeenkomt met de gewenste OS-distributie en -versie
-* Back-up van gekoppelde stations die worden versleuteld.  Hiermee wordt voor herstel als er een storing optreedt, bijvoorbeeld als de virtuele machine opnieuw opgestart is voordat de codering is voltooid.
-* Versleutelen (kan duren meerdere uren of zelfs dagen afhankelijk van de kenmerken van de virtuele machine en de grootte van alle gekoppelde gegevensschijven)
+* Starten vanuit de ongewijzigd aandelen galerijafbeelding overeenkomt met de benodigde OS-distributie en -versie
+* Back-up van gekoppelde stations die worden versleuteld.  Terug hierdoor tot herstellen als er een storing optreedt, bijvoorbeeld als de virtuele machine opnieuw opgestart is voordat de codering is voltooid.
+* Versleutelen (duurt enkele uren of zelfs dagen, afhankelijk van de kenmerken van de virtuele machine en de grootte van alle gekoppelde gegevensschijven)
 * Aanpassen en software toevoegen aan de installatiekopie, indien nodig.
 
 Als deze werkstroom niet mogelijk is, is afhankelijk [Storage Service Encryption](../storage/common/storage-service-encryption.md) (SSE) op de platform-opslag is mogelijk account laag een alternatief voor volledige schijfversleuteling met behulp van dm-crypt.
@@ -139,12 +133,15 @@ Als deze werkstroom niet mogelijk is, is afhankelijk [Storage Service Encryption
 > [!NOTE]
 > Niet verwijderen of bewerken van alle inhoud van deze schijf. De schijf niet worden ontkoppeld nadat de belangrijkste aanwezigheid codering nodig is voor versleutelingsbewerkingen op de IaaS-VM.
 
+## <a name="if-i-use-encryptformatall-and-specify-all-volume-types-will-it-erase-the-data-on-the-data-drives-that-we-already-encrypted"></a>Als ik EncryptFormatAll gebruiken en alle typen opgeeft, wordt deze de gegevens op de schijven die we al versleuteld wissen?
+Nee, wordt niet gegevens worden gewist van schijven die al zijn versleuteld met Azure Disk Encryption. Net als bij hoe EncryptFormatAll opnieuw de besturingssysteemschijf niet versleutelen, deze wordt niet het station al versleutelde gegevens opnieuw versleutelen. Zie voor meer informatie de [EncryptFormatAll criteria](azure-security-disk-encryption-linux.md#bkmk_EFACriteria).        
+
 ## <a name="where-can-i-go-to-ask-questions-or-provide-feedback"></a>Waar vind ik vragen of feedback geven?
 
 U kunt vragen of feedback geven over de [forum voor Azure Disk Encryption](https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureDiskEncryption).
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit document hebt u meer informatie over de meest voorkomende vragen met betrekking tot Azure Disk Encryption geleerd. Zie voor meer informatie over deze service en de mogelijkheden ervan, de volgende artikelen:
+In dit document hebt u meer informatie over de meest voorkomende vragen met betrekking tot Azure Disk Encryption geleerd. Zie de volgende artikelen voor meer informatie over deze service:
 
 - [Overzicht van Azure Disk Encryption](azure-security-disk-encryption-overview.md)
 - [Schijfversleuteling in Azure Security Center toepassen](https://docs.microsoft.com/azure/security-center/security-center-apply-disk-encryption)

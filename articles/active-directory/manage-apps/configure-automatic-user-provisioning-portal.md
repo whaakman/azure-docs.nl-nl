@@ -15,15 +15,15 @@ ms.workload: identity
 ms.date: 07/26/2017
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 2b2b44deacf8278b8e8c2554cc873c5d0b75f6f9
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 95d2f65e99b37b38f99ec5a750d74828661fe7ee
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366185"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349140"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Beheer van gebruikersaccount inrichten voor enterprise-apps in Azure portal
-In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com) om automatisch gebruikers inrichten en ongedaan maken inrichting voor toepassingen die ondersteuning bieden voor deze, met name zijn die zijn toegevoegd in de categorie 'aanbevolen' van de tebeheren[ Azure Active Directory-toepassingsgalerie](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Zie voor meer informatie over het inrichten van automatische gebruikersaccounts en hoe het werkt, [automatiseren van Gebruikersinrichting en het opheffen van inrichting voor SaaS-toepassingen met Azure Active Directory](../active-directory-saas-app-provisioning.md).
+In dit artikel wordt beschreven hoe u de [Azure-portal](https://portal.azure.com) om automatisch gebruikers inrichten en ongedaan maken inrichting voor toepassingen die ondersteuning bieden voor deze, met name zijn die zijn toegevoegd in de categorie 'aanbevolen' van de tebeheren[ Azure Active Directory-toepassingsgalerie](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery). Zie voor meer informatie over het inrichten van automatische gebruikersaccounts en hoe het werkt, [automatiseren van Gebruikersinrichting en het opheffen van inrichting voor SaaS-toepassingen met Azure Active Directory](user-provisioning.md).
 
 ## <a name="finding-your-apps-in-the-portal"></a>Uw apps zoeken in de portal
 Alle toepassingen die zijn geconfigureerd voor eenmalige aanmelding in een map door de beheerder van een directory met behulp van de [Azure Active Directory-toepassingsgalerie](what-is-single-sign-on.md#get-started-with-the-azure-ad-application-gallery), kan worden bekeken en beheerd in de [Azure-portal](https://portal.azure.com). De toepassingen kunnen u vinden in de **alle Services** &gt; **bedrijfstoepassingen** sectie van de portal. Zakelijke apps zijn apps die zijn geïmplementeerd en gebruikt binnen uw organisatie.
@@ -46,7 +46,7 @@ De **Provisioning** deelvenster begint met een **modus** in het menu dat laat zi
 Selecteren van de **automatische** optie wordt een scherm dat is onderverdeeld in vier secties:
 
 ### <a name="admin-credentials"></a>Referenties voor beheerder
-In dit gedeelte is waar de referenties vereist zijn voor Azure AD verbinding maken met het beheer van gebruikers van de toepassing API zijn ingevoerd. De invoer is vereist, is afhankelijk van de toepassing. Zie voor meer informatie over de referenties en de vereisten voor specifieke toepassingen, de [zelfstudie voor de configuratie voor de specifieke toepassing](../active-directory-saas-app-provisioning.md).
+In dit gedeelte is waar de referenties vereist zijn voor Azure AD verbinding maken met het beheer van gebruikers van de toepassing API zijn ingevoerd. De invoer is vereist, is afhankelijk van de toepassing. Zie voor meer informatie over de referenties en de vereisten voor specifieke toepassingen, de [zelfstudie voor de configuratie voor de specifieke toepassing](user-provisioning.md).
 
 Selecteren van de **verbinding testen** knop kunt u voor het testen van de referenties door Azure AD-poging verbinding maken met de app de app met behulp van de opgegeven referenties inrichten.
 
@@ -60,7 +60,7 @@ Er is een vooraf geconfigureerde set toewijzingen tussen Azure AD-gebruikersobje
 Ondersteunde aanpassingen zijn onder andere:
 
 * In- en uitschakelen van toewijzingen voor specifieke objecten, zoals de Azure AD-gebruiker-object aan van de SaaS-app-gebruikersobject.
-* De kenmerken die worden overgebracht van de Azure AD-gebruiker-object naar het gebruikersobject van de app bewerken. Zie voor meer informatie over kenmerktoewijzing [kenmerk toewijzing typen](../active-directory-saas-customizing-attribute-mappings.md#understanding-attribute-mapping-types).
+* De kenmerken die worden overgebracht van de Azure AD-gebruiker-object naar het gebruikersobject van de app bewerken. Zie voor meer informatie over kenmerktoewijzing [kenmerk toewijzing typen](customize-application-attributes.md#understanding-attribute-mapping-types).
 * Filter de inrichting acties die door Azure AD wordt uitgevoerd op de betreffende toepassing. In plaats van Azure AD volledig objecten synchroniseren, kunt u de acties die worden uitgevoerd te beperken. Bijvoorbeeld, door het selecteren van **Update**, Azure AD-alleen updates bestaande gebruikers-accounts in een toepassing en maakt geen nieuwe labels. Door het selecteren van **maken**, Azure alleen nieuwe gebruikersaccounts maakt, maar wordt de bestaande apparaten niet bijgewerkt. Deze functie kan beheerders verschillende toewijzingen voor het maken van accounts maken en bijwerken van werkstromen.
 
 ### <a name="settings"></a>Instellingen

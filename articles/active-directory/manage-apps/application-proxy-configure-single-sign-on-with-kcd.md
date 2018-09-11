@@ -15,12 +15,12 @@ ms.date: 05/24/2018
 ms.author: barbkess
 ms.reviewer: harshja
 ms.custom: H1Hack27Feb2017, it-pro
-ms.openlocfilehash: 4ce76f1156d4d8d85f5e10bb750b012f93ba7afb
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 1178d85f295c6ac01f367db8adc2c9b855cdc829
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39366677"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347820"
 ---
 # <a name="kerberos-constrained-delegation-for-single-sign-on-to-your-apps-with-application-proxy"></a>Beperkte Kerberos-delegering voor single sign-on bij uw apps met Application Proxy
 
@@ -42,7 +42,7 @@ In dit diagram wordt de stroom uitgelegd wanneer een gebruiker probeert te krijg
 7. De Connector verzendt de oorspronkelijke aanvraag naar de application server, met behulp van het Kerberos-token dat het ontvangen van AD.
 8. De toepassing stuurt het antwoord op de Connector, die vervolgens wordt geretourneerd naar de Application Proxy-service en ten slotte naar de gebruiker.
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 Voordat u aan de slag met eenmalige aanmelding voor geïntegreerde Windows-toepassingen, zorg er dan voor dat uw omgeving klaar is met de volgende instellingen en configuraties is:
 
 * Uw apps, zoals SharePoint Web-apps, zijn ingesteld op het gebruik van geïntegreerde Windows-verificatie. Zie voor meer informatie, [ondersteuning voor Kerberos-verificatie inschakelen](https://technet.microsoft.com/library/dd759186.aspx), of voor SharePoint Zie [plannen voor Kerberos-verificatie in SharePoint 2013](https://technet.microsoft.com/library/ee806870.aspx).
@@ -135,12 +135,12 @@ Als gedelegeerde Aanmeldingsidentiteit wordt gebruikt, kan de waarde niet uniek 
    * On-premises SAM-accountnaam is (afhankelijk van de configuratie van de domeincontroller)
 
 ### <a name="troubleshooting-sso-for-different-identities"></a>Oplossen van problemen met eenmalige aanmelding voor verschillende identiteiten
-Als er een fout is opgetreden in het proces voor eenmalige aanmelding, deze wordt weergegeven in het gebeurtenislogboek van de connector-computer, zoals wordt beschreven [probleemoplossing](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
+Als er een fout is opgetreden in het proces voor eenmalige aanmelding, deze wordt weergegeven in het gebeurtenislogboek van de connector-computer, zoals wordt beschreven [probleemoplossing](application-proxy-back-end-kerberos-constrained-delegation-how-to.md).
 Maar in sommige gevallen kan de aanvraag is verzonden naar de back-endtoepassing terwijl antwoorden op deze toepassing in verschillende HTTP-antwoorden. Het oplossen van dergelijke gevallen moet beginnen door te controleren gebeurtenisnummer 24029 op de connector-machine in het gebeurtenislogboek van de Application Proxy-sessie. De identiteit van de gebruiker die is gebruikt voor overdracht wordt weergegeven in het veld 'gebruiker' in de details van de gebeurtenis. Als u wilt inschakelen sessielogboek, selecteer **logboeken en foutopsporing weergeven analytische** in het menu Beeld van event viewer.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Een Application Proxy-toepassing voor het gebruik van Kerberos-beperkte overdracht configureren](../application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
+* [Een Application Proxy-toepassing voor het gebruik van Kerberos-beperkte overdracht configureren](application-proxy-back-end-kerberos-constrained-delegation-how-to.md)
 * [Oplossen van problemen met Application Proxy](application-proxy-troubleshoot.md)
 
 

@@ -13,18 +13,18 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 11/03/2017
 ms.author: ghogen
-ms.openlocfilehash: 561de3ac9073fe5cfdfadf2dc61d3f7807bf9e46
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: d5fd6041f21700ffddd3b2c4755b7ce01691681e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42055120"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304080"
 ---
 # <a name="publish-an-aspnet-web-app-to-an-azure-vm-from-visual-studio"></a>Een ASP.NET-Web-App publiceren naar een Azure-VM vanuit Visual Studio
 
 Dit document wordt beschreven hoe u voor het publiceren van een ASP.NET-webtoepassing op een virtuele Azure-machine (VM) met behulp van de **Microsoft Azure Virtual Machines** publiceerfunctie in Visual Studio 2017.  
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 Gebruik Visual Studio voor het publiceren van een ASP.NET-project met een Azure VM is de virtuele machine moet correct zijn ingesteld.
 
 - Machine moet worden geconfigureerd voor het uitvoeren van een ASP.NET-webtoepassing en Web Deploy geïnstalleerd hebben.
@@ -114,7 +114,7 @@ Uw instellingen moeten er ongeveer als volgt uit:
 
 ### <a name="set-up-cicd-for-automated-deployment-to-azure-vm"></a>CI/CD instellen voor automatische implementatie voor Azure-VM
 
-Als u een pipeline voor continue levering met Visual Studio Team Service instelt, Zie [implementeren met een Windows-VM](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
+Als u een pipeline voor continue levering met Azure-pijplijnen instelt, Zie [implementeren met een Windows-VM](https://docs.microsoft.com/vsts/build-release/apps/cd/deploy-webdeploy-iis-deploygroups).
 
 [VM Overview - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/VMOverviewDNSName.png
 [IP Address Config - DNS Name]: ../../../includes/media/publish-web-app-from-visual-studio/IPAddressConfigDNSName.png

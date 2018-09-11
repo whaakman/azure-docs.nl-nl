@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: codepen
-ms.openlocfilehash: 37323bacf47613c0faf7769701808ecef2645115
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: cb0d5d7239095b67235cc68233d9492377178362
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157950"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44295530"
 ---
 # <a name="show-directions-from-a-to-b"></a>Routebeschrijving van A naar B 
 
 Dit artikel ziet u hoe u een route indienen en de route weergeven op de kaart.
 
-Er zijn twee manieren om dit te doen, één manier is door een query uitgevoerd op de [Azure kaarten-Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) via een service-module en de andere is door een [XMLHttpRequest](https://xhr.spec.whatwg.org/) naar de API. Beide worden hieronder besproken.
+Er zijn twee manieren om dit te doen, één manier is door het opvragen van de [Azure kaarten-Route API](https://docs.microsoft.com/rest/api/maps/route/getroutedirections) via een service-module en de andere is door een [XMLHttpRequest](https://xhr.spec.whatwg.org/) naar de API. Beide worden hieronder besproken.
 
-## <a name="use-service-module-to-query-for-a-route"></a>Servicemodule op query gebruiken voor een route
+## <a name="querying-the-route-via-service-module"></a>Uitvoeren van query's de route via service-module
 
 ## <a name="understand-the-code"></a>De code begrijpen
 
@@ -43,7 +43,7 @@ Het zesde codeblok wordt een route-query.
 
 Het laatste blok van code de Azure Maps-service voor gebeurtenisroutering via query's de [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/services.route?view=azure-iot-typescript-latest#getroutedirections) methode voor het ophalen van een route tussen de begin- en doel het toegangspunt. Het antwoord wordt vervolgens geparseerd in de GeoJSON-notatie gebruiken de [getGeoJsonRoutes](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonroutedirectionsresponse?view=azure-iot-typescript-latest#getgeojsonroutes) methode. Alle regels op de kaart om weer te geven van de route wordt toegevoegd. U kunt zien [toevoegen van een regel op de kaart](./map-add-shape.md#addALine) voor meer informatie.
 
-## <a name="use-xmlhttprequest-to-query-for-a-route"></a>XMLHTTPRequest gebruiken voor de query voor een route
+## <a name="querying-the-route-via-xmlhttprequest"></a>De route via XMLHttpRequest uitvoeren van query 's
 
 ## <a name="understand-the-code"></a>De code begrijpen
 

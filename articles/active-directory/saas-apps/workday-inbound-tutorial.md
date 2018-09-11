@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 0df23d50fa208482e45d2d35555ec79c587cc80a
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 930ca49a63e34214ec197d8dd37f38361b34fe90
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42445657"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347032"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Zelfstudie: Configureren van Workday voor automatisch gebruikers inrichten (preview)
 
@@ -27,7 +27,7 @@ Het doel van deze zelfstudie is om weer te geven u de stappen die u uitvoeren wi
 
 ## <a name="overview"></a>Overzicht
 
-De [Azure Active Directory-gebruiker inrichtingsservice](../active-directory-saas-app-provisioning.md) kan worden geïntegreerd met de [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) om het inrichten van gebruikersaccounts. Azure AD maakt gebruik van deze verbinding om in te schakelen van de volgende gebruiker inrichten van werkstromen:
+De [Azure Active Directory-gebruiker inrichtingsservice](../manage-apps/user-provisioning.md) kan worden geïntegreerd met de [Workday Human Resources API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html) om het inrichten van gebruikersaccounts. Azure AD maakt gebruik van deze verbinding om in te schakelen van de volgende gebruiker inrichten van werkstromen:
 
 * **Inrichten van gebruikers voor Active Directory** -geselecteerde sets van gebruikers in Workday synchroniseren naar een of meer Active Directory-forests.
 
@@ -39,13 +39,13 @@ De [Azure Active Directory-gebruiker inrichtingsservice](../active-directory-saa
 
 De Workday gebruiker inrichting werkstromen die worden ondersteund door de inrichtingsservice voor Azure AD-gebruiker inschakelen van de volgende human resources en scenario's voor het beheer van identiteit lifecycle-automatisering:
 
-* **Nieuwe werknemers aanstellen** : wanneer een nieuwe werknemer wordt toegevoegd aan de werkdag, een gebruikersaccount wordt automatisch gemaakt in Active Directory, Azure Active Directory en eventueel Office 365 en [andere SaaS-toepassingen ondersteund door Azure AD](../active-directory-saas-app-provisioning.md), met terugschrijven van het e-mailadres Workday.
+* **Nieuwe werknemers aanstellen** : wanneer een nieuwe werknemer wordt toegevoegd aan de werkdag, een gebruikersaccount wordt automatisch gemaakt in Active Directory, Azure Active Directory en eventueel Office 365 en [andere SaaS-toepassingen ondersteund door Azure AD](../manage-apps/user-provisioning.md), met terugschrijven van het e-mailadres Workday.
 
-* **Updates voor het kenmerk en het profiel van werknemer** : wanneer een werknemerrecord wordt bijgewerkt in Workday (zoals de naam, titel of manager), hun gebruikersaccount, automatisch worden bijgewerkt in Active Directory, Azure Active Directory en eventueel Office 365 en [andere SaaS-toepassingen die worden ondersteund door Azure AD](../active-directory-saas-app-provisioning.md).
+* **Updates voor het kenmerk en het profiel van werknemer** : wanneer een werknemerrecord wordt bijgewerkt in Workday (zoals de naam, titel of manager), hun gebruikersaccount, automatisch worden bijgewerkt in Active Directory, Azure Active Directory en eventueel Office 365 en [andere SaaS-toepassingen die worden ondersteund door Azure AD](../manage-apps/user-provisioning.md).
 
-* **Werknemer afsluitingen** : wanneer een werknemer is beëindigd in Workday, hun gebruikersaccount is automatisch uitgeschakeld in Active Directory, Azure Active Directory en eventueel Office 365 en [andere SaaS-toepassingen die door Azure worden ondersteund AD](../active-directory-saas-app-provisioning.md).
+* **Werknemer afsluitingen** : wanneer een werknemer is beëindigd in Workday, hun gebruikersaccount is automatisch uitgeschakeld in Active Directory, Azure Active Directory en eventueel Office 365 en [andere SaaS-toepassingen die door Azure worden ondersteund AD](../manage-apps/user-provisioning.md).
 
-* **Werknemer opnieuw hires** : wanneer een werknemer is rehired in Workday, hun oude account kan worden automatisch geactiveerd of opnieuw ingericht (afhankelijk van uw voorkeur) naar Active Directory, Azure Active Directory, en eventueel Office 365 en [andere SaaS-toepassingen die worden ondersteund door Azure AD](../active-directory-saas-app-provisioning.md).
+* **Werknemer opnieuw hires** : wanneer een werknemer is rehired in Workday, hun oude account kan worden automatisch geactiveerd of opnieuw ingericht (afhankelijk van uw voorkeur) naar Active Directory, Azure Active Directory, en eventueel Office 365 en [andere SaaS-toepassingen die worden ondersteund door Azure AD](../manage-apps/user-provisioning.md).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>Wie is deze gebruiker inrichting oplossing het beste geschikt is voor?
 
@@ -67,7 +67,7 @@ Deze oplossing voor gebruikersinrichting van Workday bevindt zich momenteel in o
 
 Controleer de onderstaande vereisten voordat u begint met uw Workday-integratie, en lees de volgende richtlijnen over het afstemmen op uw huidige Active Directory-architectuur en gebruikers vereisten inrichten met de oplossing(en) geleverd door Azure Active Directory.
 
-### <a name="prerequisites"></a>Vereisten
+### <a name="prerequisites"></a>Vereiste onderdelen
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
@@ -200,9 +200,9 @@ In deze stap maakt u moet hiervoor toestemming domeinbeveiliging beleid voor de 
 | ---------- | ---------- | 
 | Get- en Put | Werknemersgegevens: Openbare Worker rapporten |
 | Get- en Put | Werknemersgegevens: Neem contact op met werkgegevens |
-| Ophalen | Werknemersgegevens: Alle functies |
-| Ophalen | Werknemersgegevens: Huidige bezetting van informatie |
-| Ophalen | Werknemersgegevens: Functie in werknemersprofiel |
+| Get | Werknemersgegevens: Alle functies |
+| Get | Werknemersgegevens: Huidige bezetting van informatie |
+| Get | Werknemersgegevens: Functie in werknemersprofiel |
 
 
 ### <a name="activate-security-policy-changes"></a>Wijzigingen in het beveiligingsbeleid activeren
@@ -327,7 +327,7 @@ In deze sectie configureert u hoe gegevens stromen van Workday naar Active Direc
 
          * **Constante** -schrijven van een statisch, constante string-waarde naar het AD-kenmerk
 
-         * **Expressie** – kunt u een aangepaste waarde schrijven naar de AD-kenmerk op basis van een of meer kenmerken van Workday. [Zie voor meer informatie in dit artikel voor expressies](../active-directory-saas-writing-expressions-for-attribute-mappings.md).
+         * **Expressie** – kunt u een aangepaste waarde schrijven naar de AD-kenmerk op basis van een of meer kenmerken van Workday. [Zie voor meer informatie in dit artikel voor expressies](../manage-apps/functions-for-customizing-application-data.md).
 
       * **Bronkenmerk** -het gebruikerskenmerk van de van Workday. Als het kenmerk dat u zoekt niet aanwezig is, raadpleegt u [aanpassen van de lijst met gebruikerskenmerken Workday](#customizing-the-list-of-workday-user-attributes).
 
@@ -356,7 +356,7 @@ In deze sectie configureert u hoe gegevens stromen van Workday naar Active Direc
 
 -   Het kenmerk userPrincipalName in Active Directory wordt gegenereerd door het samenvoegen van de gebruikers-ID van Workday met een domeinachtervoegsel
 
--   [Er wordt documentatie over het schrijven van expressies hier](../active-directory-saas-writing-expressions-for-attribute-mappings.md). Dit bevat voorbeelden over het verwijderen van speciale tekens.
+-   [Er wordt documentatie over het schrijven van expressies hier](../manage-apps/functions-for-customizing-application-data.md). Dit bevat voorbeelden over het verwijderen van speciale tekens.
 
   
 | WORKDAY KENMERK | ACTIVE DIRECTORY-KENMERK |  OVEREENKOMENDE ID? | MAKEN / BIJWERKEN |
@@ -490,7 +490,7 @@ Zodra de onderdelen 1-3 zijn voltooid, kun u de inrichtingsservice in Azure port
 
 3. Hiermee start u de initiële synchronisatie, wat een variabele aantal uren, afhankelijk van hoeveel gebruikers in Workday zijn kan duren.
 
-4. Controleer op elk gewenst moment de **auditlogboeken** tabblad in de Azure portal om te zien welke acties de provisioning-service heeft uitgevoerd. De auditlogboeken worden alle afzonderlijke synchronisatie gebeurtenissen die worden uitgevoerd door de provisioning-service, zoals welke gebruikers worden gelezen uit Workday en vervolgens later toegevoegd of bijgewerkt naar Active Directory. **[Zie de handleiding over rapportering inrichting voor gedetailleerde instructies over het lezen van de auditlogboeken](../active-directory-saas-provisioning-reporting.md)**
+4. Controleer op elk gewenst moment de **auditlogboeken** tabblad in de Azure portal om te zien welke acties de provisioning-service heeft uitgevoerd. De auditlogboeken worden alle afzonderlijke synchronisatie gebeurtenissen die worden uitgevoerd door de provisioning-service, zoals welke gebruikers worden gelezen uit Workday en vervolgens later toegevoegd of bijgewerkt naar Active Directory. **[Zie de handleiding over rapportering inrichting voor gedetailleerde instructies over het lezen van de auditlogboeken](../manage-apps/check-status-user-account-provisioning.md)**
 
 1.  Controleer de [Windows-gebeurtenislogboek](https://technet.microsoft.com/library/cc722404(v=ws.11).aspx) op de Windows-Server die als host fungeert voor de agent voor nieuwe fouten of waarschuwingen. Deze gebeurtenissen kunnen worden bekeken door te starten **Eventvwr.msc** op de server en selecteer **Windows Logboeken > toepassing**. Alle berichten met betrekking tot inrichting worden geregistreerd onder de bron **AADSyncAgent**.
 
@@ -581,7 +581,7 @@ In deze sectie configureert u hoe de gebruikersgegevens wordt stromen van Workda
 
       * **Constante** -schrijven van een statisch, constante string-waarde naar het AD-kenmerk
 
-      * **Expressie** – kunt u een aangepaste waarde schrijven naar de AD-kenmerk op basis van een of meer kenmerken van Workday. [Zie voor meer informatie in dit artikel voor expressies](../active-directory-saas-writing-expressions-for-attribute-mappings.md).
+      * **Expressie** – kunt u een aangepaste waarde schrijven naar de AD-kenmerk op basis van een of meer kenmerken van Workday. [Zie voor meer informatie in dit artikel voor expressies](../manage-apps/functions-for-customizing-application-data.md).
 
    * **Bronkenmerk** -het gebruikerskenmerk van de van Workday. Als het kenmerk dat u zoekt niet aanwezig is, raadpleegt u [aanpassen van de lijst met gebruikerskenmerken Workday](#customizing-the-list-of-workday-user-attributes).
 
@@ -611,7 +611,7 @@ Zodra de onderdelen 1-2 zijn voltooid, kunt u de provisioning-service starten.
 
 3. Hiermee start u de initiële synchronisatie, wat een variabele aantal uren, afhankelijk van hoeveel gebruikers in Workday zijn kan duren.
 
-4. Afzonderlijke synchronisatie gebeurtenissen kunnen worden weergegeven in de **auditlogboeken** tabblad. **[Zie de handleiding over rapportering inrichting voor gedetailleerde instructies over het lezen van de auditlogboeken](../active-directory-saas-provisioning-reporting.md)**
+4. Afzonderlijke synchronisatie gebeurtenissen kunnen worden weergegeven in de **auditlogboeken** tabblad. **[Zie de handleiding over rapportering inrichting voor gedetailleerde instructies over het lezen van de auditlogboeken](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. Een voltooid, wordt er een overzichtsrapport van de audit schrijven in de **Provisioning** tabblad, zoals hieronder wordt weergegeven.
 
@@ -669,7 +669,7 @@ Zodra de onderdelen 1-2 zijn voltooid, kunt u de provisioning-service starten.
 
 3. Hiermee start u de initiële synchronisatie, wat een variabele aantal uren, afhankelijk van hoeveel gebruikers in Workday zijn kan duren.
 
-4. Afzonderlijke synchronisatie gebeurtenissen kunnen worden weergegeven in de **auditlogboeken** tabblad. **[Zie de handleiding over rapportering inrichting voor gedetailleerde instructies over het lezen van de auditlogboeken](../active-directory-saas-provisioning-reporting.md)**
+4. Afzonderlijke synchronisatie gebeurtenissen kunnen worden weergegeven in de **auditlogboeken** tabblad. **[Zie de handleiding over rapportering inrichting voor gedetailleerde instructies over het lezen van de auditlogboeken](../manage-apps/check-status-user-account-provisioning.md)**
 
 5. Een voltooid, wordt er een overzichtsrapport van de audit schrijven in de **Provisioning** tabblad, zoals hieronder wordt weergegeven.
 
@@ -808,7 +808,7 @@ De oplossing wordt ingericht voor Active Directory Workday vereist een synchroni
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Meer informatie over het controleren van Logboeken en rapporten over het inrichten van activiteit ophalen](../active-directory-saas-provisioning-reporting.md)
+* [Meer informatie over het controleren van Logboeken en rapporten over het inrichten van activiteit ophalen](../manage-apps/check-status-user-account-provisioning.md)
 * [Meer informatie over het configureren van eenmalige aanmelding tussen Workday en Azure Active Directory](workday-tutorial.md)
 * [Meer informatie over andere SaaS-toepassingen integreren met Azure Active Directory](tutorial-list.md)
 

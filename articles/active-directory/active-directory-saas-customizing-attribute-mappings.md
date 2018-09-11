@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: barbkess
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: accc2e994e7ea361315d5dfb33b257e58410490c
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 4d3967acc7c6dc3b2c94236cc53e8b45e09e6b6d
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42057258"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325376"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>Kenmerktoewijzingen voor Gebruikersinrichting voor SaaS-toepassingen in Azure Active Directory aanpassen
 Microsoft Azure AD biedt ondersteuning voor het inrichten van gebruikers voor SaaS-toepassingen van derden zoals Salesforce, Google Apps en anderen. Als u hebt met het inrichten van gebruikers voor een SaaS-toepassing van derden ingeschakeld, bepaalt de Azure-portal de kenmerkwaarden in de vorm van kenmerk-toewijzingen.
@@ -33,18 +33,18 @@ Er is een vooraf geconfigureerde set kenmerken en kenmerktoewijzingen tussen Azu
 In de Azure AD-portal, kunt u deze functie openen door te klikken op een **toewijzingen** configuratie onder **Provisioning** in de **beheren** gedeelte van een  **Bedrijfstoepassing**.
 
 
-![SalesForce][5] 
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/21.png) 
 
 Te klikken op een **toewijzingen** -configuratie, is het gerelateerde geopend **kenmerktoewijzing** scherm. Er zijn kenmerktoewijzingen die voor een SaaS-toepassing vereist zijn te laten functioneren. Voor de vereiste kenmerken, de **verwijderen** functie is niet beschikbaar.
 
 
-![SalesForce][6]  
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/22.png)
 
 In het bovenstaande voorbeeld ziet u dat de **gebruikersnaam** kenmerk van een beheerd object in Salesforce wordt gevuld met de **userPrincipalName** waarde van de gekoppelde Azure Active Directory-Object.
 
 U kunt bestaande **kenmerktoewijzingen** door te klikken op een-toewijzing. Hiermee opent u de **kenmerk bewerken** scherm.
 
-![SalesForce][7]  
+![Salesforce](media/active-directory-saas-customizing-attribute-mappings/23.png)
 
 
 ### <a name="understanding-attribute-mapping-types"></a>Kenmerktoewijzing typen
@@ -77,7 +77,7 @@ Naast deze eigenschap ondersteunen kenmerktoewijzingen ook de volgende kenmerken
 
 Aantal toepassingen, zoals ServiceNow, Box en Google Apps, ondersteunen de mogelijkheid om in te richten groepsobjecten worden weergegeven naast gebruikersobjecten. Groepsobjecten kunnen bevatten groepseigenschappen zoals weergavenamen en e-aliassen, naast de groepsleden.
 
-![ServiceNow][8]  
+![ServiceNow](media/active-directory-saas-customizing-attribute-mappings/24.png)
 
 Inrichten van de groep kan worden eventueel ingeschakeld of uitgeschakeld door het selecteren van de toewijzing van apparaatgroepen onder **toewijzingen**, en de instelling **ingeschakeld** aan de gewenste optie in de **kenmerktoewijzing** scherm.
 
@@ -95,7 +95,7 @@ Sommige toepassingen ondersteunen echter aangepaste kenmerken. In de volgorde vo
 
 Toepassingen en systemen die ondersteuning bieden voor aanpassing van de lijst met kenmerken zijn onder andere:
 
-* SalesForce
+* Salesforce
 * ServiceNow
 * WorkDay
 * Azure Active Directory ([Azure AD Graph API standaardkenmerken](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) en aangepaste mapextensies worden ondersteund)
@@ -104,7 +104,7 @@ Toepassingen en systemen die ondersteuning bieden voor aanpassing van de lijst m
 >[!NOTE]
 >De lijst met ondersteunde kenmerken bewerken wordt alleen aanbevolen voor beheerders die het schema van hun toepassingen en systemen hebt aangepast en eerste hand kennis hebben van hoe de aangepaste kenmerken zijn gedefinieerd. Hiervoor moet soms vertrouwd zijn met de API's en ontwikkelaars-hulpprogramma's van een toepassing of het systeem. 
 
-![Editor][9]  
+![Editor](media/active-directory-saas-customizing-attribute-mappings/25.png) 
 
 Tijdens het bewerken van de lijst met ondersteunde kenmerken, vindt u de volgende eigenschappen:
 
@@ -152,10 +152,4 @@ Deze optie selecteert, wordt een hernieuwde synchronisatie van alle gebruikers e
 * [Using SCIM to enable automatic provisioning of users and groups from Azure Active Directory to applications](manage-apps/use-scim-to-provision-users-and-groups.md) (SCIM gebruiken om in te stellen dat gebruikers en groepen van Azure Active Directory automatisch worden ingericht voor toepassingen)
 * [Lijst met zelfstudies over het integreren van SaaS-Apps](saas-apps/tutorial-list.md)
 
-<!--Image references-->
-[5]: ./media/active-directory-saas-customizing-attribute-mappings/21.png
-[6]: ./media/active-directory-saas-customizing-attribute-mappings/22.png
-[7]: ./media/active-directory-saas-customizing-attribute-mappings/23.png
-[8]: ./media/active-directory-saas-customizing-attribute-mappings/24.png
-[9]: ./media/active-directory-saas-customizing-attribute-mappings/25.PNG
 

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 91ed29b100e0fab0f0e386f771dc6f71d7b424c6
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 7b1f937a71a0ff5b8030c922073dc463af3c8430
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44163410"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44349259"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -318,7 +318,7 @@ Microsoft Azure kunnen bedrijven aan te schaffen reken- en opslagresources in ee
 Dit technische document beschrijft de basisprincipes van Microsoft Azure-Machine en biedt een overzicht van de planning en implementatie-informatie voor SAP NetWeaver-installaties in Azure en daarom moet het document te lezen voordat u begint met daadwerkelijke implementaties van SAP NetWeaver op Azure.
 Het document is een aanvulling op de documentatie voor installatie van SAP en SAP-opmerkingen, die staan voor de primaire bronnen voor installaties en -implementaties van SAP-software op de opgegeven platforms.
 
-## <a name="summary"></a>Samenvatting
+## <a name="summary"></a>Overzicht
 Cloud Computing is een veelgebruikte term die wordt steeds vaker meer belang binnen de IT-sector voor kleine bedrijven tot grote en multinationale ondernemingen.
 
 Microsoft Azure is het Cloudserviceplatform van Microsoft, biedt een breed scala aan nieuwe mogelijkheden. Klanten zijn nu kunnen snel inrichten en ongedaan maken inrichting toepassingen als een service in de cloud, zodat ze niet beperkt tot technische of financiële beperkingen zijn. In plaats van de tijd en geld investeren in hardware-infrastructuur, bedrijven zich kunnen richten op de toepassing, bedrijfsprocessen en de voordelen voor klanten en gebruikers.
@@ -1562,7 +1562,7 @@ az vm unmanaged-disk attach --resource-group $rgName --vm-name SAPERPDemo --size
 az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 --disk datadisk --new
 ```
 
-##### <a name="template"></a>Template
+##### <a name="template"></a>Sjabloon
 U kunt de voorbeeldsjablonen gebruiken in de azure-quickstart-templates opslagplaats op github.
 
 * [Eenvoudige Linux-VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
@@ -1921,6 +1921,7 @@ De volgende Azure-constructies worden gebruikt voor de SAP NetWeaver-systeem, ef
 * Het volledige systeem wordt uitgevoerd binnen een Azure-abonnement (vereist).
 * Het volledige systeem wordt uitgevoerd binnen een Azure Virtual Network (vereist).
 * De scheiding van de virtuele machines van één SAP-systeem in drie Beschikbaarheidssets is het mogelijk zelfs met alle virtuele machines die behoren tot hetzelfde Virtueelnetwerk.
+* Elke laag (bijvoorbeeld DBMS-systemen, ASCS, toepassingsservers) moet gebruiken een specifieke Beschikbaarheidsset.
 * Alle virtuele machines DBMS-instanties van een SAP-systeem zich in een Beschikbaarheidsset. We gaan ervan uit dat er meer dan één VM met het DBMS-exemplaren per systeem sinds hoge beschikbaarheid van systeemeigen DBMS functies worden gebruikt, zoals SQL Server AlwaysOn of Oracle Data Guard.
 * Alle virtuele machines DBMS-instanties gebruiken hun eigen opslagaccount. DBMS-gegevens en logboekbestanden bestanden worden gerepliceerd van één opslagaccount naar een ander opslagaccount met behulp van DBMS hoge beschikbaarheid functies waarmee de gegevens worden gesynchroniseerd. Niet beschikbaar zijn van één opslagaccount zorgt ervoor dat de onbeschikbaarheid van één SQL-Windows-clusterknooppunt, maar niet de volledige SQL Server-service.
 * Alle virtuele machines met (A) SCS-exemplaar van een SAP-systeem zich in een Beschikbaarheidsset. Een Windows Server Failover Cluster (WSFC) is geconfigureerd op de desbetreffende VM's te beschermen van de (A) SCS-exemplaar.
@@ -2000,7 +2001,7 @@ Sinds Mid 2014 inschakelen uitbreidingen voor verschillende onderdelen om Hyper-
 
 Een blog met gedetailleerde informatie over het implementeren van deze oplossing wordt hier beschreven: <http://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>.
 
-## <a name="summary"></a>Samenvatting
+## <a name="summary"></a>Overzicht
 De belangrijkste punten van hoge beschikbaarheid voor SAP-systemen in Azure zijn:
 
 * Op dit moment, kan niet de SAP enkel storingspunt worden beveiligd, precies dezelfde manier zoals deze kan worden uitgevoerd in de on-premises implementaties. De reden is dat gedeelde schijf clusters nog in Azure kunnen niet worden gemaakt zonder het gebruik van 3e software van derden.

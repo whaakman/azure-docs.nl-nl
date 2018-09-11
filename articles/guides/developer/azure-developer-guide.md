@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 2c6db85763b448133d53b22c0600b27b533b2041
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 468c6486274b8bf1dc202716f525c39face91862
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39424225"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44297295"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -58,7 +58,7 @@ U kunt web-apps, back-ends voor mobiele Apps en API apps maken.
 
 Omdat alle drie app-typen de App Service-runtime delen, kunt u een website host, ondersteuning voor mobiele clients en beschikbaar maken van uw API's in Azure, allemaal met hetzelfde project of oplossing. Zie voor meer informatie over App Service, [wat is Azure Web Apps](../../app-service/app-service-web-overview.md).
 
-App Service is ontworpen met DevOps in gedachten. Ondersteunt verschillende hulpprogramma's voor publiceren en continue integratie-implementaties, met inbegrip van GitHub webhooks, Jenkins, Visual Studio Team Services, TeamCity en anderen.
+App Service is ontworpen met DevOps in gedachten. Ondersteunt verschillende hulpprogramma's voor publiceren en continue integratie-implementaties, met inbegrip van GitHub webhooks, Jenkins, Azure DevOps, TeamCity en anderen.
 
 U kunt uw bestaande toepassingen naar App Service kunt migreren met behulp van de [online migratiehulpprogramma](https://www.migratetoazure.net/).
 
@@ -154,7 +154,7 @@ Azure biedt verschillende manieren voor het gebruik van containers in uw toepass
 
     >**Aan de slag**: [gebruiken een aangepaste Docker-installatiekopie voor App Service on Linux](../../app-service/containers/quickstart-docker-go.md).
 
-### <a name="authentication"></a>Verificatie
+### <a name="authentication"></a>Authenticatie
 
 Is het cruciaal niet alleen weten wie uw toepassingen gebruikt, maar ook om te voorkomen dat onbevoegde toegang tot uw resources. Azure biedt verschillende manieren om uw app-clients te verifiëren.
 
@@ -172,7 +172,7 @@ Is het cruciaal niet alleen weten wie uw toepassingen gebruikt, maar ook om te v
 
 Zie voor meer informatie over aanbevolen procedures voor beveiliging in Azure, [Azure-beveiliging aanbevolen procedures en patronen](../../security/security-best-practices-and-patterns.md).
 
-### <a name="monitoring"></a>Bewaking
+### <a name="monitoring"></a>Controle
 
 Met uw toepassing en worden uitgevoerd in Azure, moet u kunnen zijn voor het bewaken van prestaties, Bekijk voor problemen en Zie hoe klanten uw app gebruiken. Azure biedt verschillende controle-opties.
 
@@ -186,7 +186,7 @@ Met uw toepassing en worden uitgevoerd in Azure, moet u kunnen zijn voor het bew
 
 ### <a name="devops-integration"></a>Integratie met DevOps
 
-Of het de inrichting van virtuele machines of publiceren van uw WebApps met continue integratie, Azure kan worden geïntegreerd met de meeste van de populaire DevOps-hulpprogramma's. Met ondersteuning voor hulpprogramma's zoals Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, VSTS en anderen, kunt u werken met de hulpprogramma's die u al hebt en uw bestaande ervaring te maximaliseren.
+Of het de inrichting van virtuele machines of publiceren van uw WebApps met continue integratie, Azure kan worden geïntegreerd met de meeste van de populaire DevOps-hulpprogramma's. Met ondersteuning voor hulpprogramma's zoals Jenkins, GitHub, Puppet, Chef, TeamCity, Ansible, Azure DevOps en anderen, kunt u werken met de hulpprogramma's die u al hebt en uw bestaande ervaring te maximaliseren.
 
 >**Nu uitproberen:** [uitproberen verschillende van de DevOps-integraties](https://azure.microsoft.com/try/devops/).
 
@@ -269,19 +269,7 @@ Naast het definiëren van afzonderlijke Azure-account identiteiten, ook wel geno
 
 ### <a name="manage-your-subscriptions"></a>Uw abonnementen beheren
 
-Een abonnement is een logische eenheid van de Azure-services die is gekoppeld aan een Azure-account. Elke gekoppelde account heeft een rol in een abonnement. Facturering voor Azure-services is uitgevoerd op basis van een per abonnement. Zie voor een lijst van de abonnementaanbiedingen beschikbaar per type [aanbiedingsdetails voor Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/).
-
-#### <a name="administrator-roles"></a>Beheerdersrollen
-
-Een Azure-abonnement heeft meerdere account beheerder functies, die u op elk gewenst moment kunt toewijzen.
-
--   **Accountbeheerder**: deze rol heeft volledige controle over het abonnement en is het account dat is verantwoordelijk voor de facturering.
-
--   **Servicebeheerder**: deze rol heeft controle over alle services in het abonnement. Standaard is dit hetzelfde account als de accountbeheerder.
-
--   **CO-beheerder**: deze rol heeft dezelfde toegangsrechten als de servicebeheerder, behalve dat deze de koppeling van het abonnement naar een Azure-adreslijst wijzigen kan.
-
-Zie voor meer informatie over beheerdersrollen [toevoegen of wijzigen van de Azure-beheerdersrollen](../../billing/billing-add-change-azure-subscription-administrator.md#add-an-admin-for-a-subscription).
+Een abonnement is een logische groepering van Azure-services die is gekoppeld aan een Azure-account. Een enkel Azure-account kan meerdere abonnementen bevatten. Facturering voor Azure-services is uitgevoerd op basis van een per abonnement. Zie voor een lijst van de abonnementaanbiedingen beschikbaar per type [aanbiedingsdetails voor Microsoft Azure](https://azure.microsoft.com/support/legal/offer-details/). Azure-abonnementen hebben een accountbeheerder, die volledige controle over het abonnement heeft, en een Service-beheerder, die controle heeft over alle services in het abonnement. Zie voor meer informatie over klassieke abonnementsbeheerders [toevoegen of wijzigen Azure-abonnementbeheerders](../../billing/billing-add-change-azure-subscription-administrator.md). Naast de beheerders, individuele accounts kunnen worden verleend gedetailleerd beheer van Azure-resources met behulp van [op rollen gebaseerd toegangsbeheer (RBAC)](../../role-based-access-control/overview.md).
 
 #### <a name="resource-groups"></a>Resourcegroepen
 
@@ -293,11 +281,11 @@ Azure Resource Explorer is een uitstekend hulpprogramma voor het visualiseren va
 
 Wanneer u toegang tot Azure-resources toestaan, maar het is altijd een aanbevolen procedure zodat gebruikers beschikken over de minimale bevoegdheden die is vereist voor het uitvoeren van een bepaalde taak.
 
--   **Op rollen gebaseerd toegangsbeheer (RBAC)**: In Azure, u kunt toegang verlenen tot gebruikersaccounts (principals) bij een opgegeven bereik: abonnement, resourcegroep of afzonderlijke resources. Met RBAC kunt u een set met resources implementeren in een resourcegroep en machtigingen verlenen aan een specifieke gebruiker of groep. Ook kunt u de toegang beperken tot alleen de resources die deel uitmaken van de doelresourcegroep. U kunt ook toegang verlenen tot een enkele resource, zoals een virtuele machine of virtuele netwerk. Om toegang te verlenen, kunt u een rol toewijzen aan de gebruiker, groep of service-principal. Er zijn veel vooraf gedefinieerde rollen, en u kunt ook uw eigen aangepaste rollen definiëren.
+-   **Op rollen gebaseerd toegangsbeheer (RBAC)**: In Azure, u kunt toegang verlenen tot gebruikersaccounts (principals) bij een opgegeven bereik: abonnement, resourcegroep of afzonderlijke resources. Met RBAC kunt u een set met resources implementeren in een resourcegroep en machtigingen verlenen aan een specifieke gebruiker of groep. Ook kunt u de toegang beperken tot alleen de resources die deel uitmaken van de doelresourcegroep. U kunt ook toegang verlenen tot een enkele resource, zoals een virtuele machine of virtuele netwerk. Om toegang te verlenen, kunt u een rol toewijzen aan de gebruiker, groep of service-principal. Er zijn veel vooraf gedefinieerde rollen, en u kunt ook uw eigen aangepaste rollen definiëren. Zie voor meer informatie, [wat is op rollen gebaseerd toegangsbeheer (RBAC)?](../../role-based-access-control/overview.md).
 
-    >**Wanneer u**: wanneer u over Geavanceerd toegangsbeheer moet voor gebruikers en groepen.
+    >**Wanneer u**: wanneer u over Geavanceerd toegangsbeheer voor gebruikers en groepen of als u wilt maken van een gebruiker een eigenaar van een abonnement nodig hebt.
 
-    >**Aan de slag**: Zie voor meer informatie, [aan de slag met toegangsbeheer in Azure portal](../../role-based-access-control/overview.md).
+    >**Aan de slag**: Zie voor meer informatie, [toegang met RBAC en de Azure-portal beheren](../../role-based-access-control/role-assignments-portal.md).
 
 -   **Service-principalobjecten**: naast het verlenen van toegang aan beveiligings-gebruikersprincipals en groepen, kunt u dezelfde toegang verlenen aan een service-principal.
 
@@ -307,7 +295,7 @@ Wanneer u toegang tot Azure-resources toestaan, maar het is altijd een aanbevole
 
 Azure Resource Manager kunt u aangepaste labels toewijzen aan afzonderlijke resources. Tags zijn sleutel-waardeparen, kunnen nuttig zijn wanneer u nodig hebt om resources voor facturering of bewaking te organiseren. Tags bieden een manier om bij te houden van resources in meerdere resourcegroepen. U kunt tags in de portal, in de Azure Resource Manager-sjabloon of via een programma, met behulp van de REST-API, Azure CLI of PowerShell. U kunt meerdere labels toewijzen aan elke resource. Zie voor meer informatie, [met tags voor het ordenen van uw Azure-resources](../../resource-group-using-tags.md).
 
-### <a name="billing"></a>Billing
+### <a name="billing"></a>Facturering
 
 Zijn belangrijke opmerkingen bij de verplaatsing van on-premises computers naar de cloud gehoste services, bijhouden en het gebruik van de service en de bijbehorende kosten schatten. Het is belangrijk dat u om in te schatten nieuwe resources kosten om uit te voeren op maandbasis. U moet ook mogelijk om te projecteren hoe de facturering eruitziet voor een bepaalde maand op basis van de huidige uitgaven.
 

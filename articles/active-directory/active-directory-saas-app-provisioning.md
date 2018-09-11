@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 07/30/2018
 ms.author: barbkess
 ms.reviewer: asmalser
-ms.openlocfilehash: 0d6f345a35275328212d6a245242083b809943b7
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 3ec19c2b8ef4ae75a28690fb7e38b80a454f8b0c
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144081"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44325308"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-saas-applications-with-azure-active-directory"></a>Gebruiker-inrichting en ongedaan maken van inrichting voor SaaS-toepassingen met Azure Active Directory automatiseren
 ## <a name="what-is-automated-user-provisioning-for-saas-apps"></a>Wat is geautomatiseerde gebruikersinrichting voor SaaS-apps?
@@ -90,7 +90,7 @@ Configuratie van de Azure AD-inrichtingsservice voor een geselecteerde toepassin
 
 * Gebruik de optie 'buiten de galerie application' voor aangepaste SCIM integraties
 
-![Gallery](./media/active-directory-saas-app-provisioning/gallery.png)
+![Galerie](./media/active-directory-saas-app-provisioning/gallery.png)
 
 In het scherm voor het beheren van toepassing inrichting is geconfigureerd in de **Provisioning** tabblad.
 
@@ -228,7 +228,7 @@ Zie voor informatie over hoe de lees de auditlogboeken beschikbaar zijn in Azure
 
 ##<a name="how-do-i-troubleshoot-issues-with-user-provisioning"></a>Hoe los ik problemen met het inrichten van gebruikers?
 
-Zie voor instructies over het automatisch inrichten van gebruikers oplossen scenario's gebaseerde [problemen bij het configureren en inrichten van gebruikers voor een toepassing](active-directory-application-provisioning-content-map.md).
+Zie voor instructies over het automatisch inrichten van gebruikers oplossen scenario's gebaseerde [problemen bij het configureren en inrichten van gebruikers voor een toepassing](application-provisioning-config-problem.md).
 
 
 ##<a name="what-are-the-best-practices-for-rolling-out-automatic-user-provisioning"></a>Wat zijn de aanbevolen procedures voor het implementeren van automatisch inrichten van gebruikers?

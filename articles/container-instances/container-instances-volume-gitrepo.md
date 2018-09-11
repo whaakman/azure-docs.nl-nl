@@ -8,12 +8,12 @@ ms.service: container-instances
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: marsma
-ms.openlocfilehash: 34036c5ec9ccd8c502104ce862e4749c59be62b9
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 86d85f9f84b8d3ae3c31ff59089ce264d5e3192e
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112999"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44304336"
 ---
 # <a name="mount-a-gitrepo-volume-in-azure-container-instances"></a>Koppelen van een volume gitRepo in Azure Container Instances
 
@@ -90,17 +90,17 @@ Bijvoorbeeld, de Azure CLI `--gitrepo-url` parameter voor een privé-GitHub-opsl
 --gitrepo-url https://gituser:abcdef1234fdsa4321abcdef@github.com/GitUser/some-private-repository
 ```
 
-Geef een gebruikersnaam (u kunt "vstsuser" gebruiken zoals in het volgende voorbeeld) in combinatie met een geldige PAT voor een VSTS Git-opslagplaats:
+Geef een gebruikersnaam (u kunt "azuredevopsuser" gebruiken zoals in het volgende voorbeeld) in combinatie met een geldige PAT voor een Azure DevOps Git-opslagplaats:
 
 ```azurecli
---gitrepo-url https://vstsuser:abcdef1234fdsa4321abcdef@vstsaccountname.visualstudio.com/_git/some-private-repository
+--gitrepo-url https://azuredevopsuser:abcdef1234fdsa4321abcdef@azuredevopsorganizationname.visualstudio.com/_git/some-private-repository
 ```
 
-Voor meer informatie over persoonlijke toegangstokens van GitHub en VSTS, Zie de volgende:
+Voor meer informatie over persoonlijke toegangstokens van GitHub en Azure DevOps, Zie de volgende:
 
 GitHub: [het maken van een persoonlijk toegangstoken voor de opdrachtregel][pat-github]
 
-VSTS: [persoonlijke toegangstokens voor het verifiëren van toegang maken][pat-vsts]
+Azure DevOps: [persoonlijke toegangstokens voor het verifiëren van toegang maken][pat-vsts]
 
 ## <a name="next-steps"></a>Volgende stappen
 

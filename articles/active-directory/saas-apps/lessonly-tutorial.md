@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/23/2017
 ms.author: jeedes
-ms.openlocfilehash: 050e8efed38c40d8c7da292c0d6865869a07c9f9
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 2a4bae196e956d92548944637509b23f78ceb5d2
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43121706"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44348001"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-lessonlycom"></a>Zelfstudie: Azure Active Directory-integratie met Lessonly.com
 
@@ -33,7 +33,7 @@ Lessonly.com integreren met Azure AD biedt u de volgende voordelen:
 
 Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD, Zie [wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](../manage-apps/what-is-single-sign-on.md).
 
-## <a name="prerequisites"></a>Vereisten
+## <a name="prerequisites"></a>Vereiste onderdelen
 
 Voor het configureren van Azure AD-integratie met Lessonly.com, moet u de volgende items:
 
@@ -126,7 +126,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
     | `https://<companyname>.lessonly.com/auth/saml/metadata`|
 
     > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Lessonly.com Client ondersteuningsteam](mailto:dev@lessonly.com) om deze waarden te verkrijgen. 
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL en -id. Neem contact op met [Lessonly.com Client ondersteuningsteam](mailto:support@lessonly.com) om deze waarden te verkrijgen. 
 
 1. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
@@ -165,7 +165,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/lessonly-tutorial/tutorial_lessonly.com_configure.png)
 
-1. Het configureren van eenmalige aanmelding op **Lessonly.com** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64)** en **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [Lessonly.com ondersteuningsteam](mailto:dev@lessonly.com).
+1. Het configureren van eenmalige aanmelding op **Lessonly.com** zijde, moet u voor het verzenden van de gedownloade **Certificate(Base64)** en **afmelding-URL, SAML-entiteit-ID en Single Sign-On Service URL voor SAML-** naar [Lessonly.com ondersteuningsteam](mailto:support@lessonly.com).
 
 > [!TIP]
 > U kunt nu een beknopte versie van deze instructies binnen lezen de [Azure-portal](https://portal.azure.com), terwijl het instellen van de app!  Na het toevoegen van deze app uit de **Active Directory > bedrijfstoepassingen** sectie, klikt u op de **Single Sign-On** tabblad en toegang tot de ingesloten documentatie via de  **Configuratie** sectie aan de onderkant. U kunt meer lezen over de documentatie voor embedded-functie: [embedded-documentatie voor Azure AD]( https://go.microsoft.com/fwlink/?linkid=845985)
@@ -208,7 +208,7 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker wordt gemaakt tijdens een poging tot toegang tot Lessonly.com als deze nog niet bestaat.
 
 > [!NOTE]
-> Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de [Lessonly.com ondersteuningsteam](mailto:dev@lessonly.com).
+> Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact op met de [Lessonly.com ondersteuningsteam](mailto:support@lessonly.com).
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 
@@ -246,7 +246,7 @@ Het doel van deze sectie is het testen van uw Azure AD eenmalige aanmelding conf
 
 Wanneer u op de tegel Lessonly.com in het toegangsvenster, u moet u automatisch aangemeld bij uw toepassing Lessonly.com.
 
-## <a name="additional-resources"></a>Aanvullende resources
+## <a name="additional-resources"></a>Aanvullende bronnen
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 7a60d800ce76f8ff9a903cc068fa7bc87cd33f3f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 1aab8dfd3a4bcc33cddb71dec08157ee7eb68f8d
+ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43700632"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44324645"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 
@@ -57,7 +57,7 @@ Bedrijfskritiek cluster biedt bovendien ingebouwde alleen-lezen-knooppunt kan wo
 
 ## <a name="zone-redundant-configuration-preview"></a>Zone-redundante configuratie (preview)
 
-De quorum-set replica's voor de lokale opslag-configuraties worden standaard gemaakt in hetzelfde datacenter. Dankzij de introductie van [Azure Availability Zones](../availability-zones/az-overview.md), hebt u de mogelijkheid om de verschillende replica's in de quorum-sets voor verschillende beschikbaarheidszones in dezelfde regio. Om te voorkomen een single point of failure, is de controle-ring ook gedupliceerd in meerdere zones als drie gateway ringen (GW). De routering naar een specifieke gateway ring wordt bepaald door [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Omdat de configuratie van de zone-redundante geen extra databaseredundantie, het gebruik van de Beschikbaarheidszones in de Premium maakt of bedrijfskritieke (preview) service-lagen beschikbaar is zonder extra kosten. Als u een zone-redundante database selecteert, kunt u uw Premium of bedrijfskritieke (preview) databases tegen een veel grotere set van fouten, met inbegrip van datacenter catastrofale uitval, zonder deze te wijzigen van de toepassingslogica. U kunt ook een bestaande Premium en bedrijfskritiek databases of pools (preview) converteren naar de configuratie van de zone-redundante.
+De quorum-set replica's voor de lokale opslag-configuraties worden standaard gemaakt in hetzelfde datacenter. Dankzij de introductie van [Azure Availability Zones](../availability-zones/az-overview.md), hebt u de mogelijkheid om de verschillende replica's in de quorum-sets voor verschillende beschikbaarheidszones in dezelfde regio. Om te voorkomen een single point of failure, is de controle-ring ook gedupliceerd in meerdere zones als drie gateway ringen (GW). De routering naar een specifieke gateway ring wordt bepaald door [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Omdat de configuratie van de zone-redundante geen extra databaseredundantie maakt, het gebruik van de Beschikbaarheidszones (preview) in de Servicelagen Premium en bedrijfskritiek is beschikbaar op zonder extra kosten. Als u een zone-redundante database selecteert, kunt u uw databases Premium en bedrijfskritiek flexibele aan een veel grotere set van fouten, met inbegrip van datacenter catastrofale uitval, zonder deze te wijzigen van de toepassingslogica. U kunt ook een bestaande Premium en bedrijfskritiek databases of pools converteren naar de configuratie van de zone-redundante.
 
 Omdat de redundante zone quorum-set replica's in verschillende datacenters met een onderlinge afstand heeft, kan de verhoogde netwerklatentie verhoogt de tijd die doorvoeren en dus van invloed zijn op de prestaties van sommige OLTP-workloads. U kunt altijd terugkeren naar de configuratie met één zone door de instelling van de redundantie zone uit te schakelen. Dit proces is een grootte van gegevens en is vergelijkbaar met de normale service level objective (SLO)-update. De database of pool aan het einde van het proces is gemigreerd vanuit een redundante ring zone naar een enkele zone-ring of vice versa.
 
@@ -69,13 +69,13 @@ De zone-redundante-versie van de architectuur voor hoge beschikbaarheid wordt aa
 ![hoge beschikbaarheid architectuur zone-redundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Uitschaling lezen
-Zoals wordt beschreven, Premium en bedrijfskritieke (preview) de service lagen gebruikmaken van quorum-sets en altijd op technologie voor hoge beschikbaarheid in één zone en de zone-redundante configuraties. Een van de voordelen van AlwaysOn is dat de replica's altijd de transactioneel consistente status hebben. Omdat de replica's hetzelfde prestatieniveau als de primaire hebben, de toepassing kan profiteren van deze extra capaciteit voor het onderhoud van de alleen-lezen werkbelastingen zonder extra kosten (lezen scale-out). Op deze manier de alleen-lezen query's worden geïsoleerd van de belangrijkste workload voor lezen / schrijven en heeft geen invloed op de prestaties. Lezen van de functie scale-out is bedoeld voor de toepassingen die logisch zijn gescheiden van alleen-lezen-werkbelastingen, zoals analytics en daarom kan gebruikmaken van deze extra capaciteit zonder verbinding te maken met de primaire. 
+Zoals wordt beschreven, Servicelagen Premium en bedrijfskritiek gebruikmaken van de quorum-sets en altijd op technologie voor hoge beschikbaarheid in één zone en de zone-redundante configuraties. Een van de voordelen van AlwaysOn is dat de replica's altijd de transactioneel consistente status hebben. Omdat de replica's hetzelfde prestatieniveau als de primaire hebben, de toepassing kan profiteren van deze extra capaciteit voor het onderhoud van de alleen-lezen werkbelastingen zonder extra kosten (lezen scale-out). Op deze manier de alleen-lezen query's worden geïsoleerd van de belangrijkste workload voor lezen / schrijven en heeft geen invloed op de prestaties. Lezen van de functie scale-out is bedoeld voor de toepassingen die logisch zijn gescheiden van alleen-lezen-werkbelastingen, zoals analytics en daarom kan gebruikmaken van deze extra capaciteit zonder verbinding te maken met de primaire. 
 
 Voor het gebruik van de functie Read Scale-Out met een bepaalde database, moet u expliciet deze activeren bij het maken van de database of later door het wijzigen van de configuratie met behulp van PowerShell door het aanroepen van de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) of de [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets of via de REST-API van Azure Resource Manager met behulp de [Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate) methode.
 
 Nadat Read Scale-Out is ingeschakeld voor een database, toepassingen die verbinding maken met deze database worden omgeleid naar de alleen-lezen-replica of naar een alleen-lezen replica van die database volgens de `ApplicationIntent` eigenschap geconfigureerd in van de toepassing de verbindingsreeks. Voor meer informatie over de `ApplicationIntent` eigenschap, Zie [Toepassingsintentie op te geven](https://docs.microsoft.com/sql/relational-databases/native-client/features/sql-server-native-client-support-for-high-availability-disaster-recovery#specifying-application-intent). 
 
-Als Read Scale-Out is uitgeschakeld of als u de eigenschap ReadScale in een niet-ondersteunde servicelaag instellen, alle verbindingen worden doorgestuurd naar de alleen-lezen replica, onafhankelijk van de `ApplicationIntent` eigenschap.  
+Als Read Scale-Out is uitgeschakeld of als u de eigenschap ReadScale in een niet-ondersteunde servicelaag instellen, alle verbindingen worden doorgestuurd naar de alleen-lezen replica, onafhankelijk van de `ApplicationIntent` eigenschap.
 
 ## <a name="conclusion"></a>Conclusie
 Azure SQL Database is nauw geïntegreerd met het Azure-platform en is sterk afhankelijk van de Service Fabric voor foutdetectie en herstel, op Azure Storage-Blobs voor gegevensbescherming en Beschikbaarheidszones voor hogere fouttolerantie. Op hetzelfde moment, maakt Azure SQL-database volledig gebruik van de technologie AlwaysOn-beschikbaarheidsgroep van SQL Server-vak product voor replicatie en failover. De combinatie van deze technologieën kan de toepassingen volledig profiteren van de voordelen van een gemengde opslagmodel en ondersteuning voor de meest veeleisende Sla's. 

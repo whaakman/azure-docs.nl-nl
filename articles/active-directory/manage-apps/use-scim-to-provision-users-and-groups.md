@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: b696325c19d4e1d9c9fe6b85a3c46add756340ea
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 4247ef1ffd1b8d5c5ec393e3ebff20c3e04e32b3
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39443508"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44347695"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Met behulp van systeem voor meerdere domeinen Identity Management (SCIM) voor het automatisch inrichten van gebruikers en groepen uit Azure Active Directory voor toepassingen
 
@@ -84,7 +84,7 @@ Toepassingen die ondersteuning bieden voor het SCIM-profiel dat wordt beschreven
 13. Klik op **opslaan** starten van de Azure AD-inrichtingsservice. 
 14. Als het synchroniseren van alleen toegewezen gebruikers en groepen (aanbevolen), moet u selecteren de **gebruikers en groepen** tabblad en wijs de gebruikers en/of groepen die u wilt synchroniseren.
 
-Nadat de initiële synchronisatie is gestart, kunt u de **auditlogboeken** tab om de voortgang bewaken, waarin alle acties die worden uitgevoerd door de provisioning-service op uw app. Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../active-directory-saas-provisioning-reporting.md).
+Nadat de initiële synchronisatie is gestart, kunt u de **auditlogboeken** tab om de voortgang bewaken, waarin alle acties die worden uitgevoerd door de provisioning-service op uw app. Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](check-status-user-account-provisioning.md).
 
 >[!NOTE]
 >De eerste synchronisatie langer duren om uit te voeren dan het volgende wordt gesynchroniseerd, die ongeveer elke 40 minuten optreden als de service wordt uitgevoerd. 
@@ -152,7 +152,7 @@ De eenvoudigste manier voor het implementeren van een eindpunt SCIM inrichting a
 13. Klik op **opslaan** starten van de Azure AD-inrichtingsservice. 
 14. Als het synchroniseren van alleen toegewezen gebruikers en groepen (aanbevolen), moet u selecteren de **gebruikers en groepen** tabblad en wijs de gebruikers en/of groepen die u wilt synchroniseren.
 
-Nadat de initiële synchronisatie is gestart, kunt u de **auditlogboeken** tab om de voortgang bewaken, waarin alle acties die worden uitgevoerd door de provisioning-service op uw app. Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](../active-directory-saas-provisioning-reporting.md).
+Nadat de initiële synchronisatie is gestart, kunt u de **auditlogboeken** tab om de voortgang bewaken, waarin alle acties die worden uitgevoerd door de provisioning-service op uw app. Zie voor meer informatie over het lezen van de Azure AD inrichting logboeken [rapportage over het inrichten van automatische gebruikersaccounts](check-status-user-account-provisioning.md).
 
 De laatste stap bij het controleren van het voorbeeld is de TargetFile.csv-bestand te openen in de map \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug op uw Windows-computer. Nadat het inrichtingsproces is uitgevoerd, wordt dit bestand bevat de details van alle toegewezen en ingericht gebruikers en groepen.
 
@@ -361,7 +361,7 @@ Groep resources worden aangeduid met de schema-id en http://schemas.microsoft.co
 | mailNickname |externalId |
 | beheerder |beheerder |
 | mobiele |phoneNumbers [type eq 'mobiel'] .value |
-| object-id |Id |
+| object-id |ID |
 | Postcode |adressen type eq 'werk'.postalCode |
 | proxy-adressen |e-mailberichten [Typ eq 'ander']. Waarde |
 | physical-Delivery-OfficeName |adressen [Typ eq 'ander']. Indeling |
@@ -377,7 +377,7 @@ Groep resources worden aangeduid met de schema-id en http://schemas.microsoft.co
 | mail |e-mailberichten [type eq 'werk'] .value |
 | mailNickname |displayName |
 | leden |leden |
-| object-id |Id |
+| object-id |ID |
 | proxyAddresses |e-mailberichten [Typ eq 'ander']. Waarde |
 
 ## <a name="user-provisioning-and-de-provisioning"></a>Inrichten van gebruikers en het ongedaan maken inrichting
@@ -692,11 +692,11 @@ De volgende afbeelding ziet u de berichten die Azure AcD naar een SCIM-service v
 
 ## <a name="related-articles"></a>Verwante artikelen:
 * [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
-* [Gebruiker inrichting/ongedaan maken van inrichting voor SaaS-toepassingen automatiseren](../active-directory-saas-app-provisioning.md)
-* [Kenmerktoewijzingen voor het inrichten van gebruikers aan te passen](../active-directory-saas-customizing-attribute-mappings.md)
-* [Expressies schrijven voor kenmerktoewijzingen](../active-directory-saas-writing-expressions-for-attribute-mappings.md)
-* [Bereikfilters toevoegen voor het inrichten van gebruikers](../active-directory-saas-scoping-filters.md)
-* [Meldingen over accountinrichting](../active-directory-saas-app-provisioning.md)
+* [Gebruiker inrichting/ongedaan maken van inrichting voor SaaS-toepassingen automatiseren](user-provisioning.md)
+* [Kenmerktoewijzingen voor het inrichten van gebruikers aan te passen](customize-application-attributes.md)
+* [Expressies schrijven voor kenmerktoewijzingen](functions-for-customizing-application-data.md)
+* [Bereikfilters toevoegen voor het inrichten van gebruikers](define-conditional-rules-for-provisioning-user-accounts.md)
+* [Meldingen over accountinrichting](user-provisioning.md)
 * [Lijst met zelfstudies over het integreren van SaaS-Apps](../saas-apps/tutorial-list.md)
 
 <!--Image references-->

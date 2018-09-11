@@ -2,19 +2,19 @@
 title: 'Azure Backup: Virtuele machines herstellen met behulp van Azure portal'
 description: Een virtuele Azure-machine herstellen vanaf een herstelpunt met behulp van Azure portal
 services: backup
-author: markgalioto
-manager: carmonm
+author: geethalakshmig
+manager: vijayts
 keywords: herstellen van back-up. het herstellen van; herstelpunt;
 ms.service: backup
 ms.topic: conceptual
 ms.date: 09/04/2017
-ms.author: markgal
-ms.openlocfilehash: 872bfc0027fd5b69bb42f391c036f7116789f529
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.author: geetha.g
+ms.openlocfilehash: c0dc738af450711c129b6c1802aec34c6b1da6ec
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39431144"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346216"
 ---
 # <a name="use-the-azure-portal-to-restore-virtual-machines"></a>De Azure portal gebruiken voor virtuele machines herstellen
 Bescherm uw gegevens door het maken van momentopnamen van uw gegevens met gedefinieerde intervallen. Deze momentopnamen zijn voorzien van herstelpunten en ze zijn opgeslagen in Recovery Services-kluizen. Als het nodig zijn om te herstellen of opnieuw opbouwen van een virtuele machine (VM), kunt u de virtuele machine herstellen uit een van de opgeslagen herstelpunten. Wanneer u een herstelpunt herstelt, kunt u het volgende doen:
