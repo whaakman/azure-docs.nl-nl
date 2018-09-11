@@ -8,15 +8,15 @@ ms.service: app-service
 ms.topic: article
 ms.date: 04/27/2017
 ms.author: sewatson
-ms.openlocfilehash: c01fcc7e69cf5af26b127519f183062ccf4923cc
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: 0d4121bd68611c1f3c6a8c89a0d60251401d670a
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39172741"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44301290"
 ---
 # <a name="app-service-documentation"></a>Documentatie over App Service
-Met Azure App Service kunt u webtoepassingen maken en hosten in een programmeertaal naar keuze zonder dat u de infrastructuur, taal of runtime van het webframework hoeft te beheren. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Visual Studio Team Services of een willekeurige Git-repo. Ontdek met onze snelstarts, zelfstudies en voorbeelden hoe u Azure App Service gebruikt.
+Met Azure App Service kunt u webtoepassingen maken en hosten in een programmeertaal naar keuze zonder dat u de infrastructuur, taal of runtime van het webframework hoeft te beheren. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Azure DevOps Services of een willekeurige Git-repo. Ontdek met onze snelstarts, zelfstudies en voorbeelden hoe u Azure App Service gebruikt.
 
 ## <a name="windows-linux-and-docker"></a>Windows, Linux en Docker
 [Web Apps](/app-service/app-service-web-overview) is het belangrijkste App Service-aanbod voor het maken en hosten van webtoepassingen met Windows-omgevingen. Ontwikkelaars die liever werken met Linux kunnen kiezen voor [App Service for Linux](/app-service/containers/app-service-linux-intro). Ontwikkelaars kunnen ook Docker-installatiekopieën rechtstreeks in App Service for Linux implementeren om aangepaste runtimes/frameworks te implementeren.

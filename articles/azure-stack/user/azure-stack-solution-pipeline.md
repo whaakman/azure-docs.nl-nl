@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 09/04/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 391cc4ca4b34149aeda54a60bfe6f6949e5a379b
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 773acd3a22244403548ef4ce35164291f5c0be7d
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697744"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44300832"
 ---
 # <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Zelfstudie: apps implementeren in Azure en Azure Stack
 
@@ -30,7 +30,7 @@ Leer hoe u een toepassing implementeren in Azure en Azure Stack met behulp van e
 In deze zelfstudie maakt u een Voorbeeldomgeving:
 
 > [!div class="checklist"]
-> * Start een nieuwe build op basis van de doorvoeringen code naar uw opslagplaats voor Visual Studio Team Services (VSTS).
+> * Start een nieuwe build op basis van de doorvoeringen code naar uw opslagplaats Azure DevOps-Services.
 > * Uw app automatisch implementeren op de globale Azure voor het testen van de acceptatie van de gebruiker.
 > * Wanneer uw code testen verstrijkt, moet u automatisch de app implementeren op Azure Stack.
 
@@ -81,30 +81,30 @@ In deze zelfstudie wordt ervan uitgegaan dat u enige basiskennis van Azure en Az
  * Maak [-Plan/aanbiedingen](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) in Azure Stack.
  * Maak een [tenant abonnement](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) in Azure Stack.
  * Een Web-App maken in de tenantabonnement. Noteer de URL van de nieuwe Web-App voor later gebruik.
- * VSTS virtuele Machine implementeren in de tenantabonnement.
+ * Virtuele Machine van Azure DevOps Services implementeren in de tenantabonnement.
 * Geef een installatiekopie van Windows Server 2016 met .NET 3.5 voor een virtuele machine (VM). Deze virtuele machine worden in uw Azure Stack samengesteld als een persoonlijke bouwagent.
 
 ### <a name="developer-tool-requirements"></a>Vereisten voor Developer-hulpprogramma
 
-* Maak een [VSTS werkruimte](https://docs.microsoft.com/vsts/repos/tfvc/create-work-workspaces). Het aanmeldingsproces maakt een project met de naam **MyFirstProject**.
-* [Installeer Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) en [aanmelden bij VSTS](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
+* Maak een [Azure DevOps-Services-werkruimte](https://docs.microsoft.com/azure/devops/repos/tfvc/create-work-workspaces). Het aanmeldingsproces maakt een project met de naam **MyFirstProject**.
+* [Installeer Visual Studio 2017](https://docs.microsoft.com/visualstudio/install/install-visual-studio) en [aanmelden bij Azure DevOps Services](https://www.visualstudio.com/docs/setup-admin/team-services/connect-to-visual-studio-team-services).
 * Verbinding maken met uw project en [deze lokaal klonen](https://www.visualstudio.com/docs/git/gitquickstart).
 
  > [!Note]
  > Uw Azure Stack-omgeving, moet de juiste afbeeldingen publiceren voor het uitvoeren van Windows Server en SQL Server. Ook moet het Appservice is geïmplementeerd.
 
-## <a name="prepare-the-private-build-and-release-agent-for-visual-studio-team-services-integration"></a>Voorbereiden van de privéversie en release-agent voor Visual Studio Team Services-integratie
+## <a name="prepare-the-private-azure-pipelines-agent-for-azure-devops-services-integration"></a>Voorbereiden van de persoonlijke Azure-pijplijnen-agent voor integratie met Azure DevOps-Services
 
 ### <a name="prerequisites"></a>Vereisten
 
-Visual Studio Team Services (VSTS) wordt geverifieerd op basis van Azure Resource Manager met behulp van een Service-Principal. VSTS moet hebben de **Inzender** rol inrichting van resources in een Azure Stack-abonnement.
+Azure DevOps-Services worden geverifieerd op basis van Azure Resource Manager met behulp van een Service-Principal. Azure DevOps-Services moet hebben de **Inzender** rol inrichting van resources in een Azure Stack-abonnement.
 
 De volgende stappen wordt beschreven wat is vereist om verificatie te configureren:
 
 1. Maken van een Service-Principal of gebruik een bestaande Service-Principal.
 2. Verificatiesleutels voor de Service-Principal maken.
 3. Valideren van de Azure Stack-abonnement via toegangsbeheer op basis van rollen om toe te staan van de Service SPN (Principal Name) moet deel uitmaken van de rol van de Inzender.
-4. De definitie van een nieuwe Service maken in VSTS met behulp van de Azure Stack-eindpunten en de SPN-informatie.
+4. De definitie van een nieuwe Service maken in Azure DevOps-Services met behulp van de Azure Stack-eindpunten en de SPN-informatie.
 
 ### <a name="create-a-service-principal"></a>Een Service-Principal maken
 
@@ -122,7 +122,7 @@ Een Service-Principal is een sleutel voor verificatie vereist. Gebruik de volgen
 
     ![Selecteer de toepassing](media\azure-stack-solution-hybrid-pipeline\000_01.png)
 
-2. Noteer de waarde van **toepassings-ID**. U gebruikt deze waarde bij het configureren van het service-eindpunt in VSTS.
+2. Noteer de waarde van **toepassings-ID**. U gebruikt deze waarde bij het configureren van het service-eindpunt in Azure DevOps-Services.
 
     ![Toepassings-id](media\azure-stack-solution-hybrid-pipeline\000_02.png)
 
@@ -144,7 +144,7 @@ Een Service-Principal is een sleutel voor verificatie vereist. Gebruik de volgen
 
 ### <a name="get-the-tenant-id"></a>Haal de tenant-ID
 
-Als onderdeel van de configuratie van de service-eindpunt, VSTS vereist de **Tenant-ID** die overeenkomt met de AAD-Directory dat is geïmplementeerd voor uw Azure Stack-stempel. Gebruik de volgende stappen om op te halen van de Tenant-ID.
+Als onderdeel van de configuratie van de service-eindpunt, Azure DevOps-Services is vereist de **Tenant-ID** die overeenkomt met de AAD-Directory dat is geïmplementeerd voor uw Azure Stack-stempel. Gebruik de volgende stappen om op te halen van de Tenant-ID.
 
 1. Selecteer **Azure Active Directory**.
 
@@ -194,20 +194,21 @@ U kunt het bereik instellen op het niveau van het abonnement, resourcegroep of r
 
 Azure Role-Based Access Control (RBAC) biedt verfijnd toegangsbeheer voor Azure. Met RBAC kunt kunt u het niveau van toegang die gebruikers nodig hebben om hun werk te doen beheren. Zie voor meer informatie over Role-Based Access Control [toegang beheren tot de Resources voor Azure-abonnement](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal?toc=%252fazure%252factive-directory%252ftoc.json).
 
-### <a name="vsts-agent-pools"></a>VSTS-Agentpools
+### <a name="azure-devops-services-agent-pools"></a>Agentpools van Azure DevOps-Services
 
-In plaats van elke agent afzonderlijk beheren, kunt u agents indelen in groepen van de agent. Een agentpool definieert de delen grens voor alle agents in die groep. Agentpools zijn in VSTS gericht op het VSTS-account, wat betekent dat u een agentpool-teamprojecten kunt delen. Zie voor meer informatie over agentpools [Agentpools maken en wachtrijen](https://docs.microsoft.com/vsts/build-release/concepts/agents/pools-queues?view=vsts).
+In plaats van elke agent afzonderlijk beheren, kunt u agents indelen in groepen van de agent. Een agentpool definieert de delen grens voor alle agents in die groep. Agentpools zijn in Azure DevOps-Services gericht op de organisatie Azure DevOps-Services, wat betekent dat u een agentpool projecten kunt delen. Zie voor meer informatie over agentpools [Agentpools maken en wachtrijen](https://docs.microsoft.com/azure/devops/pipelines/agents/pools-queues?view=vsts).
 
 ### <a name="add-a-personal-access-token-pat-for-azure-stack"></a>Toevoegen van een persoonlijk toegangstoken (PAT) voor Azure Stack
 
-Maak een persoonlijk toegangstoken voor toegang tot VSTS.
+Maak een persoonlijk toegangstoken voor toegang tot Azure DevOps-Services.
 
-1. Aanmelden bij uw VSTS-account en selecteer de naam van uw profiel.
+1. Aanmelden bij uw organisatie Azure DevOps-Services en selecteert u de naam van uw organisatie-profiel.
+
 2. Selecteer **beveiliging beheren** access token maken-pagina.
 
     ![Gebruikersaanmelding](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
-    ![Selecteer teamproject](media\azure-stack-solution-hybrid-pipeline\000_18.png)
+    ![Selecteer een project](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 
     ![Persoonlijk toegangstoken toevoegen](media\azure-stack-solution-hybrid-pipeline\000_18a.png)
 
@@ -220,7 +221,7 @@ Maak een persoonlijk toegangstoken voor toegang tot VSTS.
 
     ![Persoonlijk toegangstoken](media\azure-stack-solution-hybrid-pipeline\000_19.png)
 
-### <a name="install-the-vsts-build-agent-on-the-azure-stack-hosted-build-server"></a>Installatie van die de VSTS build-agent op de Azure Stack gehoste Server bouwen
+### <a name="install-the-azure-devops-services-build-agent-on-the-azure-stack-hosted-build-server"></a>Installeer die de Azure DevOps-Services agent in de Azure Stack bouwen gehoste Server bouwen
 
 1. Verbinding maken met uw Build-Server die u hebt geïmplementeerd op de Azure Stack-host.
 2. Downloaden en implementeren van de build-agent als een service met behulp van uw persoonlijke toegangstoken (PAT) en worden uitgevoerd als het account van de VM-beheer.
@@ -237,17 +238,17 @@ Maak een persoonlijk toegangstoken voor toegang tot VSTS.
 
     ![Bouw agent map update](media\azure-stack-solution-hybrid-pipeline\009_token_file.png)
 
-    Hier ziet u de agent in VSTS-map.
+    Hier ziet u de agent in de map Azure DevOps-Services.
 
 ## <a name="endpoint-creation-permissions"></a>Machtigingen voor het eindpunt maken
 
-Met het maken van eindpunten, implementeren een build van het Visual Studio Online (VSTO) Azure Service-apps met Azure Stack. VSTS verbindt met de build-agent, die verbinding met Azure Stack maakt.
+Met het maken van eindpunten, implementeren een build van het Visual Studio Online (VSTO) Azure Service-apps met Azure Stack. Azure DevOps-Services verbinding met de build-agent, die verbinding met Azure Stack maakt.
 
 ![Voorbeeld-app in VSTO NorthwindCloud](media\azure-stack-solution-hybrid-pipeline\012_securityendpoints.png)
 
 1. Aanmelden bij VSTO en navigeer naar de pagina app-instellingen.
 2. Op **instellingen**, selecteer **Security**.
-3. In **VSTS groepen**, selecteer **makers van eindpunt**.
+3. In **Azure DevOps-Services groepen**, selecteer **makers van eindpunt**.
 
     ![Makers van NorthwindCloud eindpunt](media\azure-stack-solution-hybrid-pipeline\013_endpoint_creators.png)
 
@@ -257,7 +258,7 @@ Met het maken van eindpunten, implementeren een build van het Visual Studio Onli
 
 5. In **gebruikers en groepen toevoegen**, voer een gebruikersnaam en selecteert u die gebruiker in de lijst van gebruikers.
 6. Selecteer **wijzigingen opslaan**.
-7. In de **VSTS groepen** in de lijst met **eindpunt beheerders**.
+7. In de **Azure DevOps-Services groepen** in de lijst met **eindpunt beheerders**.
 
     ![NorthwindCloud Endpoint-beheerders](media\azure-stack-solution-hybrid-pipeline\015_save_endpoint.png)
 
@@ -265,6 +266,7 @@ Met het maken van eindpunten, implementeren een build van het Visual Studio Onli
 9. In **gebruikers en groepen toevoegen**, voer een gebruikersnaam en selecteert u die gebruiker in de lijst van gebruikers.
 10. Selecteer **wijzigingen opslaan**.
 
+Nu informatie over het eindpunt bestaat, het Azure DevOps-Services op Azure Stack-verbinding is klaar voor gebruik. De build-agent in Azure Stack haalt de instructies van Azure DevOps-Services en vervolgens de agent voor de communicatie met Azure Stack-eindpuntgegevens overbrengen.
 ## <a name="create-an-azure-stack-endpoint"></a>Een Azure Stack-eindpunt maken
 
 U kunt de instructies in [een Azure Resource Manager-serviceverbinding met een bestaande service-principal maken ](https://docs.microsoft.com/vsts/pipelines/library/connect-to-azure?view=vsts#create-an-azure-resource-manager-service-connection-with-an-existing-service-principal) artikel een serviceverbinding met een bestaande service-principal maken en gebruiken van de volgende toewijzing:
@@ -285,18 +287,18 @@ Nu het eindpunt is gemaakt, de VSTS aan Azure Stack-verbinding is klaar voor geb
 
 In dit deel van de zelfstudie ziet u de:
 
-* Voeg code toe aan een VSTS-project.
+* Voeg code toe aan een Azure-Services voor DevOps-project.
 * Maken van zelfstandige web app-implementatie.
 * Het continue implementatie configureren
 
 > [!Note]
  > Uw Azure Stack-omgeving, moet de juiste afbeeldingen publiceren voor het uitvoeren van Windows Server en SQL Server. Ook moet het Appservice is geïmplementeerd. Raadpleeg de documentatie van de App Service sectie 'Vereisten' voor de vereisten voor Azure Stack-Operator.
 
-Hybride CI/CD kunt toepassen op zowel de toepassingscode als de infrastructuurcode. Gebruik [Azure Resource Manager-sjablonen, zoals web ](https://azure.microsoft.com/resources/templates/) app-code van VSTS om te implementeren voor beide clouds.
+Hybride CI/CD kunt toepassen op zowel de toepassingscode als de infrastructuurcode. Gebruik [Azure Resource Manager-sjablonen, zoals web ](https://azure.microsoft.com/resources/templates/) app-code van Azure DevOps-Services om te implementeren voor beide clouds.
 
-### <a name="add-code-to-a-vsts-project"></a>Voeg code toe aan een VSTS-project
+### <a name="add-code-to-an-azure-devops-services-project"></a>Voeg code toe aan een Azure-Services voor DevOps-project
 
-1. Meld u aan VSTS is gerelateerd aan met een account met rechten voor het project maken in Azure Stack. De volgende schermopname ziet hoe u verbinding maken met de HybridCICD-project.
+1. Meld u met Azure DevOps-Services met een organisatie met rechten voor het project maken in Azure Stack. De volgende schermopname ziet hoe u verbinding maken met de HybridCICD-project.
 
     ![Verbinding maken met een Project](media\azure-stack-solution-hybrid-pipeline\017_connect_to_project.png)
 
@@ -310,37 +312,38 @@ Hybride CI/CD kunt toepassen op zowel de toepassingscode als de infrastructuurco
 
     ![Runtimeidentifier configureren](media\azure-stack-solution-hybrid-pipeline\019_runtimeidentifer.png)
 
-2. Team Explorer gebruiken om te controleren of de code in VSTS.
+2. Team Explorer gebruiken om te controleren of de code in Azure DevOps-Services.
 
-3. Bevestig dat de code van de toepassing in Visual Studio Team Services is ingeschakeld.
+3. Bevestig dat de code van de toepassing in Azure DevOps-Services is ingeschakeld.
 
-### <a name="create-the-build-definition"></a>De build-definitie maken
+### <a name="create-the-build-pipeline"></a>De build-pijplijn maken
 
-1. Meld u aan VSTS is gerelateerd aan met een account dat een build-definitie kunt maken.
-2. Navigeer naar de **webtoepassing bouwen** pagina voor het project.
+1. Meld u met Azure DevOps-Services met een organisatie die een build-pijplijn kunt maken.
+
+2. Navigeer naar de **bouwen Web Applicaiton** pagina voor het project.
 
 3. In **argumenten**, toevoegen **win10 - r-x64** code. Dit is vereist voor het activeren van een onafhankelijke implementatie met .net Core.
 
-    ![Argument build-definitie toevoegen](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
+    ![Argument build-pijplijn toevoegen](media\azure-stack-solution-hybrid-pipeline\020_publish_additions.png)
 
 4. De build worden uitgevoerd. De [onafhankelijke implementatie build](https://docs.microsoft.com/dotnet/core/deploying/#self-contained-deployments-scd) proces artefacten die kunnen worden uitgevoerd op Azure en Azure Stack zal publiceren.
 
 ### <a name="use-an-azure-hosted-build-agent"></a>Gebruik een Azure gehost bouwagent
 
-Met behulp van de agent van een gehoste build in VSTS is een handige optie voor het bouwen en implementeren van web-apps. Automatisch worden onderhouden van de agent en upgrades uitgevoerd door Microsoft Azure, waarmee een doorlopende en ononderbroken ontwikkelingscyclus.
+Met behulp van een gehoste bouwagent in Azure DevOps-Services is een handige optie voor het bouwen en implementeren van web-apps. Automatisch worden onderhouden van de agent en upgrades uitgevoerd door Microsoft Azure, waarmee een doorlopende en ononderbroken ontwikkelingscyclus.
 
 ### <a name="configure-the-continuous-deployment-cd-process"></a>Het continue implementatie (CD) configureren
 
-Visual Studio Team Services (VSTS) en Team Foundation Server (TFS) bieden een pijplijn maximaal kunnen worden geconfigureerd en beheerd voor releases tot meerdere omgevingen zoals ontwikkeling, fasering, kwaliteit te waarborgen (QA) en productie. Dit proces kunt opnemen goedkeuringen vereisen specifieke stadia van de levenscyclus van toepassingen.
+Azure DevOps-Services en Team Foundation Server (TFS) bieden een pijplijn maximaal kunnen worden geconfigureerd en beheerd voor releases tot meerdere omgevingen zoals ontwikkeling, fasering, kwaliteit te waarborgen (QA) en productie. Dit proces kunt opnemen goedkeuringen vereisen specifieke stadia van de levenscyclus van toepassingen.
 
-### <a name="create-release-definition"></a>Release-definitie maken
+### <a name="create-release-pipeline"></a>Release-pijplijn maken
 
-Het maken van een release-definitie is de laatste stap in uw toepassing bouwproces. Deze release-definitie wordt gebruikt om een releaserecord maken en implementeren van een build.
+Het maken van een release-pijplijn, is de laatste stap in uw toepassing bouwproces. Deze release-pijplijn wordt gebruikt om een releaserecord maken en implementeren van een build.
 
-1. Aanmelden bij VSTS en navigeer naar **Build and Release** voor uw project.
+1. Aanmelden bij Azure DevOps-Services en navigeren naar **Azure pijplijnen** voor uw project.
 2. Op de **Releases** tabblad  **\[ +]** en kies dan **release-definitie maken**.
 
-   ![Release-definitie maken](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
+   ![Release-pijplijn maken](media\azure-stack-solution-hybrid-pipeline\021a_releasedef.png)
 
 3. Op **selecteert u een sjabloon**, kiest u **Azure App Service-implementatie**, en selecteer vervolgens **toepassen**.
 
@@ -427,11 +430,11 @@ Het maken van een release-definitie is de laatste stap in uw toepassing bouwproc
 23. Sla al uw wijzigingen op.
 
 > [!Note]
-> Sommige instellingen voor release taken kunnen automatisch gedefinieerd als [omgevingsvariabelen](https://docs.microsoft.com/vsts/build-release/concepts/definitions/release/variables?view=vsts#custom-variables) tijdens het maken van een release-definitie van een sjabloon. Deze instellingen kunnen niet worden gewijzigd in de taakinstellingen van de. U kunt echter deze instellingen in de omgeving bovenliggende items bewerken.
+> Sommige instellingen voor release taken kunnen automatisch gedefinieerd als [omgevingsvariabelen](https://docs.microsoft.com/azure/devops/pipelines/release/variables?view=vsts#custom-variables) tijdens het maken van een release-pijplijn met een sjabloon. Deze instellingen kunnen niet worden gewijzigd in de taakinstellingen van de. U kunt echter deze instellingen in de omgeving bovenliggende items bewerken.
 
 ## <a name="create-a-release"></a>Een releaserecord maken
 
-Nu u de wijzigingen in de release-definitie hebt voltooid, is het tijd om de implementatie te starten. Om dit te doen, moet u een versie van de release-definitie maken. Een release kan worden automatisch gemaakt. bijvoorbeeld, wordt de trigger voor continue implementatie instellen in de release-definitie. Dit betekent dat het wijzigen van de broncode van een nieuwe build wordt gestart en die een nieuwe versie. Echter, in deze sectie maakt u een nieuwe versie handmatig.
+Nu u de wijzigingen in de release-pijplijn hebt voltooid, is het tijd om de implementatie te starten. Om dit te doen, maakt u een versie van de release-pijplijn. Een release kan worden automatisch gemaakt. bijvoorbeeld, wordt de trigger voor continue implementatie instellen in de release-pijplijn. Dit betekent dat het wijzigen van de broncode van een nieuwe build wordt gestart en die een nieuwe versie. Echter, in deze sectie maakt u een nieuwe versie handmatig.
 
 1. Op de **pijplijn** tabblad, open de **Release** vervolgkeuzelijst lijst en kies **maken release**.
 
