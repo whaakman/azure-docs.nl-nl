@@ -238,12 +238,79 @@ items:
       items:
       - name: Releaseopmerkingen
         href: active-directory-b2c-developer-notes-custom.md
-      - name: Sessie-providers voor eenmalige aanmelding
-        href: active-directory-b2c-reference-sso-custom.md
-      - name: Taal aanpassen
-        href: active-directory-b2c-language-customization-custom.md
       - name: 'Vertrouwensframework: definitie'
         href: active-directory-b2c-reference-trustframeworks-defined-ief-custom.md
+      - name: Schema voor identiteitservaring-framework
+        items:
+        - name: TrustFrameworkPolicy
+          href: trustframeworkpolicy.md
+        - name: BuildingBlocks
+          href: buildingblocks.md
+          items:
+          - name: ClaimsSchema
+            href: claimsschema.md
+          - name: ClaimsTransformations
+            href: claimstransformations.md
+            items:
+            - name: Booleaans
+              href: boolean-transformations.md
+            - name: Date
+              href: date-transformations.md
+            - name: Algemeen
+              href: general-transformations.md
+            - name: Geheel getal
+              href: integer-transformations.md
+            - name: JSON
+              href: json-transformations.md
+            - name: Sociale accounts
+              href: social-transformations.md
+            - name: StringCollection
+              href: stringcollection-transformations.md
+            - name: Tekenreeks
+              href: string-transformations.md
+          - name: Predicaten
+            href: predicates.md
+          - name: ContentDefinitions
+            href: contentdefinitions.md
+          - name: Lokalisatie
+            href: localization.md
+            items:
+            - name: Lokalisatie van tekenreeks-id's
+              href: localization-string-ids.md
+        - name: ClaimsProviders
+          href: claimsproviders.md
+          items:
+          - name: TechnicalProfiles
+            href: technicalprofiles.md
+            items:
+            - name: Over technische profielen
+              href: technical-profiles-overview.md
+            - name: Azure Active Directory
+              href: active-directory-technical-profile.md
+            - name: Claimstransformatie
+              href: claims-transformation-technical-profile.md
+            - name: Uitgever van het JWT-token
+              href: jwt-issuer-technical-profile.md
+            - name: OAuth1
+              href: oauth1-technical-profile.md
+            - name: OAuth2
+              href: oauth2-technical-profile.md
+            - name: OpenID Connect
+              href: openid-connect-technical-profile.md
+            - name: REST
+              href: restful-technical-profile.md
+            - name: SAML
+              href: saml-technical-profile.md
+            - name: Zelf bevestigd
+              href: self-asserted-technical-profile.md
+            - name: SSO-sessie
+              href: active-directory-b2c-reference-sso-custom.md
+            - name: Validatie
+              href: validation-technical-profile.md
+        - name: UserJourneys
+          href: userjourneys.md
+        - name: RelyingParty
+          href: relyingparty.md
   - name: Naslaginformatie
     items:
     - name: Codevoorbeelden
@@ -280,9 +347,9 @@ items:
     href: active-directory-b2c-support.md
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory-b2c
-ms.openlocfilehash: 485e7c5bbcfb1bde0b6626cab45eb2ad533f229d
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 322272a48d228e102981b4e7f194704f39443953
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090622"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378683"

@@ -1,0 +1,126 @@
+items:
+- name: Documentatie over Azure AD-toepassingsbeheer
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Over toepassingsbeheer
+    href: what-is-application-management.md
+- name: Snelstartgidsen
+  items:
+  - name: Een toepassing toevoegen - portal
+    href: add-application-portal.md
+  - name: Tenant-apps bekijken - portal
+    href: view-applications-portal.md
+  expanded: true
+- name: Zelfstudies
+  items:
+  - name: Eenmalige aanmelding configureren - portal
+    href: configure-single-sign-on-portal.md
+- name: Concepten
+  items:
+  - name: Integratie van een cloud-app plannen
+    items:
+    - name: Wat gebeurt er wanneer u een app toevoegt?
+      href: plan-an-application-integration.md
+  - name: Integratie van een on-premises app plannen
+    items:
+    - name: Toepassingsproxy
+      href: application-proxy.md
+    - name: Connectors
+      href: application-proxy-connectors.md
+    - name: Connectorgroepen
+      href: application-proxy-connector-groups.md
+    - name: Beveiliging
+      href: application-proxy-security.md
+    - name: Netwerktopologie
+      href: application-proxy-network-topology.md
+    - name: Vergelijking van toegangsoplossingen op afstand
+      href: application-proxy-migration.md
+  - name: Gebruikers en groepen inrichten
+    items:
+    - name: Automatisch gebruikers inrichten
+      href: configure-automatic-user-provisioning-portal.md
+    - name: Apps die SCIM hebben ingeschakeld
+      href: use-scim-to-provision-users-and-groups.md
+  - name: Toepassingsbeveiliging
+    items:
+    - name: Opties voor apptoegang
+      href: what-is-access-management.md
+    - name: Opties voor certificaatondertekening
+      href: certificate-signing-options.md
+    - name: Certificaten beheren
+      href: manage-certificates-for-federated-single-sign-on.md
+  - name: Eenmalige aanmelding
+    items:
+    - name: SSO-methoden
+      href: application-proxy-single-sign-on.md
+    - name: Home Realm Discovery
+      href: configure-authentication-for-federated-users-portal.md
+    - name: Kerberos-beperkte overdracht (KCD)
+      href: application-proxy-configure-single-sign-on-with-kcd.md
+    - name: Wachtwoordkluis
+      href: application-proxy-configure-single-sign-on-password-vaulting.md
+    - name: Ping-toegang
+      href: application-proxy-configure-single-sign-on-with-ping-access.md
+- name: Handleidingen
+  items:
+  - name: Integratie van een cloud-app
+    items:
+    - name: Naam of logo wijzigen
+      href: change-name-or-logo-portal.md
+  - name: Integratie van een on-premises app
+    items:
+    - name: Toepassingsproxy inschakelen
+      href: application-proxy-enable.md
+    - name: App publiceren voor externe toegang
+      href: application-proxy-publish-azure-portal.md
+    - name: Connectors configureren
+      href: application-proxy-configure-connectors-with-proxy-servers.md
+    - name: Claimbewuste apps configureren
+      href: application-proxy-configure-for-claims-aware-applications.md
+    - name: Connector registreren - installatie op de achtergrond
+      href: application-proxy-register-connector-powershell.md
+    - name: Systeemeigen client-apps configureren
+      href: application-proxy-configure-native-client-application.md
+    - name: Aangepaste startpagina configureren
+      href: application-proxy-configure-custom-home-page.md
+    - name: Inlinelinks vertalen
+      href: application-proxy-configure-hard-coded-link-translation.md
+    - name: Publiceren met jokertekens
+      href: application-proxy-wildcard.md
+    - name: Persoonlijke gegevens verwijderen
+      href: application-proxy-remove-personal-data.md
+    - name: Aangepast domein configureren
+      href: application-proxy-configure-custom-domain.md
+    - name: Integreren via Extern bureaublad
+      href: application-proxy-integrate-with-remote-desktop-services.md
+    - name: Integreren met Sharepoint
+      href: application-proxy-integrate-with-sharepoint-server.md
+    - name: Integreren met OMS
+      href: application-proxy-integrate-with-teams.md
+    - name: Integreren met Tableau
+      href: application-proxy-integrate-with-tableau.md
+    - name: Integreren met Qlik
+      href: application-proxy-qlik.md
+    - name: Configuratiefouten
+      href: application-proxy-troubleshoot.md
+  - name: Toegang tot toepassingen
+    items:
+    - name: Een gebruiker toewijzen aan een app
+      href: assign-user-or-group-access-portal.md
+    - name: Toegang van een gebruiker of groep verwijderen
+      href: remove-user-or-group-access-portal.md
+    - name: Een app voor een gebruiker verbergen
+      href: hide-application-from-user-portal.md
+    - name: Gebruikersaanmelding uitschakelen
+      href: disable-user-sign-in-portal.md
+  - name: Migratie
+    items:
+    - name: Een ADFS-app migreren naar Azure
+      href: migrate-adfs-apps-to-azure.md
+ms.openlocfilehash: 57a377c56764272b70814bc78b31f718d3d902b7
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44381803"

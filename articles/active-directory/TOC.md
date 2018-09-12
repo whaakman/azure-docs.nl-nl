@@ -197,6 +197,7 @@
 #### [Beperkingen voor tenants](manage-apps/tenant-restrictions.md)
 #### [SCIM gebruiken voor het inrichten van gebruikers](manage-apps/use-scim-to-provision-users-and-groups.md)
 
+### [Inzicht in ervaringen met Azure AD-toepassingtoestemming](application-consent-experience.md)
 
 ### Problemen oplossen
 

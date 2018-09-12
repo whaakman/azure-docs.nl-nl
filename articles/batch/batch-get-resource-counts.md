@@ -6,14 +6,14 @@ author: dlepow
 manager: jeconnoc
 ms.service: batch
 ms.topic: article
-ms.date: 08/23/2018
+ms.date: 09/07/2018
 ms.author: danlep
-ms.openlocfilehash: 0ef3cc373b3b87bbd1dde5682fbc076e6b77d6a0
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: e1d6f2d6181e70fde75907191664dcf6cd0b7252
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43698380"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391756"
 ---
 # <a name="monitor-batch-solutions-by-counting-tasks-and-nodes-by-state"></a>Batch-oplossingen controleren door te tellen van taken en knooppunten per staat
 
@@ -53,11 +53,9 @@ Console.WriteLine("Failed task count: {0}", taskCounts.Failed);
 
 U kunt een soortgelijk patroon voor REST en andere ondersteunde talen aantallen van de taak voor een taak ophalen. 
 
-### <a name="counts-for-large-numbers-of-tasks"></a>Aantallen voor een groot aantal taken
-
-De bewerking ophalen voor de taak wordt geteld retourneert tellingen van taakstatuswaarden in het systeem op een bepaald tijdstip. Wanneer de taak een groot aantal taken heeft, kunnen de aantallen die wordt geretourneerd door de taak telt u de werkelijke taakstatuswaarden door maximaal een paar seconden vertraging. Batch zorgt ervoor dat de uiteindelijke consistentie tussen de resultaten van de taak telt ophalen en de werkelijke taakstatuswaarden (die u kunt een query via de lijst met taken API). Echter, als uw taak een zeer groot aantal taken is (> 200.000), raden wij aan dat u de lijst met taken API en een [gefilterde query](batch-efficient-list-queries.md) in plaats daarvan welke vindt u meer actuele informatie. 
-
-Batch-Service-API-versies voordat 2018-08-01.7.0 ook retourneren een `validationStatus` eigenschap in het antwoord ophalen voor de taak wordt geteld. Deze eigenschap geeft aan of Batch de status van de aantallen voor consistentie met de statussen gerapporteerd in de lijst met taken API ingeschakeld. Een waarde van `validated` alleen geeft aan dat de Batch gecontroleerd op consistentie ten minste één keer voor de taak. De waarde van de `validationStatus` eigenschap wordt niet aangegeven of de aantallen die u voor de taak wordt geteld als resultaat geeft op dat moment up-to-date zijn.
+> [!NOTE]
+> Batch-Service-API-versies voordat 2018-08-01.7.0 ook retourneren een `validationStatus` eigenschap in het antwoord ophalen voor de taak wordt geteld. Deze eigenschap geeft aan of Batch de status van de aantallen voor consistentie met de statussen gerapporteerd in de lijst met taken API ingeschakeld. Een waarde van `validated` alleen geeft aan dat de Batch gecontroleerd op consistentie ten minste één keer voor de taak. De waarde van de `validationStatus` eigenschap wordt niet aangegeven of de aantallen die u voor de taak wordt geteld als resultaat geeft op dat moment up-to-date zijn.
+>
 
 ## <a name="node-state-counts"></a>Status van knooppunt wordt geteld
 
