@@ -12,21 +12,21 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/10/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 41e75fcfd0b88d5c37bb8dd6fcc16b1767b34dba
-ms.sourcegitcommit: 068fc623c1bb7fb767919c4882280cad8bc33e3a
+ms.openlocfilehash: bc3b5cfc106fdb90e99fb918113f4f371f928b26
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39285354"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377952"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory naadloze eenmalige aanmelding
 
 ## <a name="what-is-azure-active-directory-seamless-single-sign-on"></a>Wat is Azure Active Directory naadloze eenmalige aanmelding?
 
-Azure Active Directory naadloze eenmalige aanmelding (Azure AD naadloze eenmalige aanmelding) zich automatisch gebruikers wanneer ze zijn op hun zakelijke apparaten die zijn verbonden met uw bedrijfsnetwerk. Wanneer dit is ingeschakeld, wordt gebruikers hoeft te typen in hun wachtwoord aanmelden bij Azure AD en meestal, zelfs in hun gebruikersnamen typt. Deze functie biedt uw gebruikers eenvoudig toegang tot uw cloud-toepassingen zonder extra on-premises onderdelen.
+Met Naadloze eenmalige aanmelding van Azure Active Directory (Naadloze SSO van Azure AD) worden gebruikers aangemeld als hun bedrijfsapparaten zijn verbonden met net bedrijfsnetwerk. Wanneer dit is ingeschakeld, wordt gebruikers hoeft te typen in hun wachtwoord aanmelden bij Azure AD en meestal, zelfs in hun gebruikersnamen typt. Deze functie biedt een gebruiker eenvoudig toegang tot cloudtoepassingen zonder dat er aanvullende on-premises onderdelen nodig zijn.
 
 >[!VIDEO https://www.youtube.com/embed/PyeAC85Gm7w]
 
@@ -62,13 +62,15 @@ Naadloze eenmalige aanmelding kan worden gecombineerd met ofwel de [wachtwoord-H
 
 | OS\Browser |Internet Explorer|Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|Ja|Nee|Ja|Ja\*|N/A
-|Windows 8.1|Ja|N/A|Ja|Ja\*|N/A
-|Windows 8|Ja|N/A|Ja|Ja\*|N/A
-|Windows 7|Ja|N/A|Ja|Ja\*|N/A
-|Mac OS X|N/A|N/A|Ja\*|Ja\*|Ja\*
+|Windows 10|Ja\*|Nee|Ja|Ja\*\*|N/A
+|Windows 8.1|Ja\*|N/A|Ja|Ja\*\*|N/A
+|Windows 8|Ja\*|N/A|Ja|Ja\*\*|N/A
+|Windows 7|Ja\*|N/A|Ja|Ja\*\*|N/A
+|Mac OS X|N/A|N/A|Ja\*\*|Ja\*\*|Ja\*
 
-\*Vereist [aanvullende configuratie](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
+\*Vereist Internet Explorer versie 10 of hoger
+
+\*\*Vereist [aanvullende configuratie](active-directory-aadconnect-sso-quick-start.md#browser-considerations)
 
 >[!NOTE]
 >Voor Windows 10, wordt de aanbeveling is het gebruik van [Azure AD Join](../active-directory-azureadjoin-overview.md) voor de optimale eenmalige aanmelding met Azure AD.

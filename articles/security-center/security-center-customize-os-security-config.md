@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 18/30/2018
 ms.author: rkarlin
-ms.openlocfilehash: f43ebff65cf32dce1dae6bb9a592b491e56c8810
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 08174a6781772abdebd9e203a3433a1a4ac82859
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295392"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378360"
 ---
 # <a name="customize-os-security-configurations-in-azure-security-center-preview"></a>Aanpassen van de beveiligingsconfiguraties OS in Azure Security Center (Preview)
 
@@ -69,9 +69,11 @@ Voor het aanpassen van de standaard OS-beveiligingsconfiguratie in Security Cent
    > Het configuratiebestand dat u hebt gedownload is standaard *json* indeling. Ga voor instructies over het wijzigen van dit bestand naar [het configuratiebestand aanpassen](#customize-the-configuration-file).
    >
 
-   Nadat u het bestand hebt opgeslagen, wordt de configuratie wordt toegepast op alle virtuele machines en computers die zijn verbonden met alle werkruimten onder het abonnement. Het proces is meestal duurt een paar minuten maar duurt langer, afhankelijk van de grootte van de infrastructuur.
-
 6. Selecteer voor het doorvoeren van de wijziging, **opslaan**. Anders wordt wordt het beleid niet opgeslagen.
+
+    ![De knop Opslaan](media/security-center-customize-os-security-config/save-successfully.png)
+
+   Nadat u het bestand hebt opgeslagen, wordt de configuratie wordt toegepast op alle virtuele machines en computers die zijn verbonden met de werkruimten onder het abonnement. Het proces is meestal duurt een paar minuten maar duurt langer, afhankelijk van de grootte van de infrastructuur.
 
 U kunt op elk gewenst moment de configuratie van het huidige beleid opnieuw op de standaardstatus heeft. Om dit te doen in de **regels voor beveiligingsconfiguratie bewerken OS** venster **opnieuw**. Deze optie om te bevestigen **Ja** in het pop-upvenster bevestiging.
 

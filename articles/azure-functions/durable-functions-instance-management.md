@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 08/31/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 72ea5e54bf86ce408700c0456f6d37f5f3c29924
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 70ea13c1badf79c86bed53a34d9036706dbbac6a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44091779"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378145"
 ---
 # <a name="manage-instances-in-durable-functions-azure-functions"></a>-Exemplaren in duurzame functies (Azure Functions) beheren
 
@@ -145,8 +145,6 @@ De parameters voor [RaiseEventAsync](https://azure.github.io/azure-functions-dur
 * **EventData**: een JSON-geserialiseerd nettolading verzenden naar het exemplaar.
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
 [FunctionName("RaiseEvent")]
 public static Task Run(
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -207,7 +205,8 @@ Er zijn twee mogelijke situaties, afhankelijk van de tijd die nodig is om op te 
             "id": "d3b72dddefce4e758d92f4d411567177",
             "sendEventPostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/raiseEvent/{eventName}?taskHub={taskHub}&connection={connection}&code={systemKey}",
             "statusQueryGetUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177?taskHub={taskHub}&connection={connection}&code={systemKey}",
-            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
+            "terminatePostUri": "http://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/terminate?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}",
+            "rewindPostUri": "https://localhost:7071/admin/extensions/DurableTaskExtension/instances/d3b72dddefce4e758d92f4d411567177/rewind?reason={text}&taskHub={taskHub}&connection={connection}&code={systemKey}"
         }
     ```
 
@@ -228,12 +227,12 @@ De methode retourneert een exemplaar van de [HttpManagementPayload](https://azur
 * **StatusQueryGetUri**: de URL van de status van de orchestration-instantie.
 * **SendEventPostUri**: de ' raise '-URL van de orchestration-instantie.
 * **TerminatePostUri**: de URL 'beëindigd' van de orchestration-exemplaar.
+* **RewindPostUri**: de URL 'terugspoelen' van de orchestration-exemplaar.
 
 Activiteitsfuncties kunnen een exemplaar van verzenden [HttpManagementPayload](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.Extensions.DurableTask.HttpManagementPayload.html#Microsoft_Azure_WebJobs_Extensions_DurableTask_HttpManagementPayload_) met externe systemen om te controleren of het genereren van gebeurtenissen naar een indeling:
 
 ```csharp
-#r "Microsoft.Azure.WebJobs.Extensions.DurableTask"
-
+[FunctionName("SendInstanceInfo")]
 public static void SendInstanceInfo(
     [ActivityTrigger] DurableActivityContext ctx,
     [OrchestrationClient] DurableOrchestrationClient client,
@@ -246,6 +245,29 @@ public static void SendInstanceInfo(
 
     // send the payload to Cosmos DB
     document = new { Payload = payload, id = ctx.InstanceId };
+}
+```
+
+## <a name="rewinding-instances-preview"></a>Terugspoelen exemplaren (preview)
+
+Een mislukte orchestration-exemplaar kan worden *teruggespoeld* in een eerder status in orde met de [RewindAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_RewindAsync_System_String_System_String_) API. Dit gebeurt door het plaatsen van de orchestration terug naar de *met* staat en opnieuw uitvoeren van de uitvoering van activiteit en/of subquery orchestration fouten, die de orchestration-fout heeft veroorzaakt.
+
+> [!NOTE]
+> Deze API is niet bedoeld om te worden van een vervanging voor de juiste foutafhandeling en beleid voor opnieuw proberen. In plaats daarvan is het bedoeld om te worden gebruikt alleen in gevallen waar de orchestration-instanties om onverwachte redenen mislukken. Zie voor meer informatie over beleid voor fout verwerking en probeer het opnieuw, de [foutafhandeling](durable-functions-error-handling.md) onderwerp.
+
+Een voorbeeld van de use-case voor *terugspoelen* is een werkstroom met betrekking tot een reeks [menselijke goedkeuringen](durable-functions-overview.md#pattern-5-human-interaction). Stel dat er zijn een reeks activiteitsfuncties zodat iemand op de hoogte dat hun goedkeuring is vereist en uit het realtime antwoord wachten. Nadat alle van de goedkeuring activiteiten hebben ontvangen antwoorden of is een time-out, een andere activiteit mislukt als gevolg van een toepassing onjuiste configuratie (bijvoorbeeld een ongeldige databaseverbindingsreeks). Het resultaat is een fout orchestration diep in de werkstroom. Met de `RewindAsync` API, fout in de configuratie voor een beheerder van de toepassing kunt oplossen en *terugspoelen* de mislukte orchestration terug naar de status direct vóór de fout. Geen van de stappen human interactie moet worden opnieuw goedgekeurde en de indeling kan nu worden uitgevoerd.
+
+> [!NOTE]
+> De *terugspoelen* terugspoelen orchestration exemplaren die gebruikmaken van duurzame timers wordt niet ondersteund door de functie.
+
+```csharp
+[FunctionName("RewindInstance")]
+public static Task Run(
+    [OrchestrationClient] DurableOrchestrationClient client,
+    [ManualTrigger] string instanceId)
+{
+    string reason = "Orchestrator failed and needs to be revived.";
+    return client.RewindAsync(instanceId, reason);
 }
 ```
 

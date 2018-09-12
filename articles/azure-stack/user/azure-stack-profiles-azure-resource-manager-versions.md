@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/24/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: 9d33ccf9262d4432ac7255121e97f318d00b5145
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bc57d445c334baeb32dbffda814cb10a35956d03
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43050646"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380213"
 ---
 # <a name="resource-provider-api-versions-supported-by-profiles-in-azure-stack"></a>Resource provider API-versies ondersteund door de profielen in Azure Stack
 
@@ -54,9 +54,9 @@ Zie voor een uitleg van de API-profielen en -versie worden uitgerold voor Azure 
 | Resources_Locks | 2016-10-01 |
 | Abonnementen | 2016-10-01 |
 
-Zie voor meer een lijst van de versies voor elk resourcetype voor de providers in het api-profiel, [Details voor de 2018-03-01-hybride](#details-for-the-2018-03-01-hybrid) profiel.
+Zie voor meer een lijst van de versies voor elk resourcetype voor de providers in het API-profiel, [Details voor de 2018-03-01-hybride](#details-for-the-2018-03-01-hybrid) profiel.
 
-## <a name="overview-of-2017-03-09-profile"></a>Overzicht van 2017-03-09-profiel
+## <a name="overview-of-2018-03-01-hybrid"></a>Overzicht van 2018-03-01-hybride
 
 | Resourceprovider | API-versie |
 |------------------------------------------------|------------------------------|
@@ -76,7 +76,7 @@ Zie voor meer een lijst van de versies voor elk resourcetype voor de providers i
 | Resources_Locks | 2016-09-01 |
 | Abonnementen | 1-06-2016 |
 
-Zie voor meer een lijst van de versies voor elk resourcetype voor de providers in het api-profiel, [Details voor de 2017-03-09-profiel](#details-for-the-2017-03-09-profile)
+Zie voor meer een lijst van de versies voor elk resourcetype voor de providers in het api-profiel, [Details voor de 2018-03-01-hybride](#details-for-the-2018-03-01-hybrid)
 
 ## <a name="details-for-the-2018-03-01-hybrid"></a>Details van de 2018-03-01-hybride
 
@@ -231,7 +231,7 @@ De Storage Resource Provider (SRP) kunt u uw storage-account en sleutels op prog
 | StorageAccounts | 2016-01-01 |
 | Het gebruik van | 2016-01-01 |
 
-## <a name="details-for-the-2017-03-09-profile"></a>Details voor de 2017-03-09-profiel
+## <a name="details-for-the-2018-03-01-hybrid"></a>Details van de 2018-03-01-hybride
 
 ### <a name="microsoft-authorization"></a>Microsoft-autorisatie
 

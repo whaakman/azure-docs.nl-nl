@@ -3,7 +3,7 @@ title: Azure-seriële Console voor het WORMGATEN en de modus voor één gebruike
 description: Met behulp van de seriële Console van wormgaten in virtuele machines van Azure.
 services: virtual-machines-linux
 documentationcenter: ''
-author: alsin
+author: asinn826
 manager: jeconnoc
 editor: ''
 tags: azure-resource-manager
@@ -14,15 +14,17 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 059cb0cbc7e62af16dbf95693be421feebcc1ee0
-ms.sourcegitcommit: 76797c962fa04d8af9a7b9153eaa042cf74b2699
+ms.openlocfilehash: 9952720e917dc9202630b2feda0fadd0402d9eb6
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055553"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377867"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Seriële Console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker
 Modus voor één gebruiker is een minimale omgeving met een minimale functionaliteit. Kan het nuttig zijn voor onderzoeken opstartproblemen of netwerkproblemen minder services kunnen worden uitgevoerd op de achtergrond en, afhankelijk van de (uitvoeringsniveau), een bestandssysteem kan niet ook worden automatisch gekoppeld. Dit is nuttig voor situaties zoals een beschadigd bestandssysteem, een verbroken fstab onderzoeken of de netwerkverbinding (onjuiste iptables configureren).
+
+Voor toegang tot WORMGATEN, moet u opnieuw opstarten van uw virtuele machine terwijl de seriële console-blade geopend. Dit kan worden gedaan met een SysRq `'b'` opdracht of knop door te klikken op de computer opnieuw op de blade overzicht. Bepaalde distributies moeten toetsenbordinvoer om weer te geven van WORMGATEN, terwijl anderen automatisch worden WORMGATEN voor een paar seconden bij het opstarten weergeven en invoer van de gebruiker om te annuleren de time-out met toetsenbordinvoer toestaan. 
 
 Bepaalde distributies automatisch meer doorlaat u in de modus voor één gebruiker of noodherstelmodus bevinden als de virtuele machine niet kan opstarten. Andere, nodig aanvullende instellingen echter voordat ze u automatisch in de modus voor één gebruiker of noodgevallen kunnen verwijderen.
 

@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: de9abac2839341e1744a694daaaa0befdff4e7fa
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 704534ed50e12e7f9290cb321ad3b9e1b99117d5
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43668577"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377885"
 ---
 # <a name="supported-languages-for-speech-service"></a>Ondersteunde talen voor spraak-service
 
@@ -29,13 +29,22 @@ De Microsoft-spraakherkenning API ondersteunt de volgende talen.
  ar-bijvoorbeeld | Arabisch (Egypte), moderne standard | Nee | Ja | Nee
  IT-IT | Italiaans (Italië) | Nee | Ja | Nee 
  de-DE | Duits (Duitsland) | Nee | Ja | Ja
- ja-JP | Japans (Japan) | Nee | Ja | Nee
- nl-NL | Engels (Verenigde Staten) | Ja | Ja | Ja
- pt-BR | Portugees (Brazilië) | Nee | Ja | Nee
- es-ES | Spaans (Spanje) | Nee | Ja | Nee
- ru-RU | Russisch (Rusland) | Nee | Ja | Nee
  fr-FR | Frans (Frankrijk) | Nee | Ja | Nee
+ nl-NL | Engels (Verenigde Staten) | Ja | Ja | Ja
+ en-GB | Engels (Brits) | Nee | Ja | Nee
+ NL-CA | Engels (Canada) | Nee | Ja | Nee
+ en-AU | Engels (Australië) | Nee | Ja | Nee
+ es-ES | Spaans (Spanje) | Nee | Ja | Nee
+ NL-NL | Nederlands (Nederland) | Nee | Ja | Nee
+ pt-PT | Portoguese (Portogal) | Nee | Ja | Nee
+ tr-TR | Turks (Turkije) | Nee | Ja | Nee
+ pt-BR | Portugees (Brazilië) | Nee | Ja | Nee
+ ru-RU | Russisch (Rusland) | Nee | Ja | Nee
  zh-CN | Chinees (Mandarijn, vereenvoudigd) | Nee | Ja | Nee
+ zh-HK | Chinees (Mandarijn, traditionele) | Nee | Ja | Nee
+ zh-TW | Chinees (Taiwan Mandarijn) | Nee | Ja | Nee
+ ja-JP | Japans (Japan) | Nee | Ja | Nee
+ ko-KR | Koreaans (Korea) | Nee | Ja | Nee
 
 ## <a name="text-to-speech"></a>Tekst naar spraak
 

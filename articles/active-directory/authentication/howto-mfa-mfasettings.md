@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: da5905af4a861502f190cd873033923d8fd0bfa7
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 890a6b9dd1ef63fcc59984686b2d6dec773cdb52
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349089"
+ms.locfileid: "44391841"
 ---
 # <a name="configure-azure-multi-factor-authentication-settings"></a>Azure multi-factor Authentication-instellingen configureren
 
@@ -150,7 +150,7 @@ Als uw organisatie de NPS-extensie implementeert voor MFA on-premises toepassing
 
 | Azure AD-tenant-type | Vertrouwde IP-adressen functieopties |
 |:--- |:--- |
-| Beheerd |**Specifieke IP-adressen**: beheerders een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet opgeven.|
+| Managed |**Specifieke IP-adressen**: beheerders een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet opgeven.|
 | Federatief |**Alle federatieve gebruikers**: alle federatieve gebruikers die zich aanmelden vanaf binnen de organisatie kunnen verificatie in twee stappen overslaan. De gebruikers omzeilen verificatie met behulp van een claim dat is uitgegeven door Active Directory Federation Services (AD FS).<br/>**Specifieke IP-adressen**: beheerders een bereik van IP-adressen die niet kunnen gebruikmaken van verificatie in twee stappen voor gebruikers die zich aanmelden vanaf het bedrijfsintranet opgeven. |
 
 De goedgekeurde IP-adressen overslaan werkt alleen in het bedrijfsintranet. Als u selecteert de **alle federatieve gebruikers** optie en een gebruiker zich aanmeldt via buiten het bedrijfsintranet, de gebruiker heeft om te verifiëren met behulp van verificatie in twee stappen. Het proces is hetzelfde, zelfs als de gebruiker een AD FS claim geeft. 
@@ -180,7 +180,7 @@ Ongeacht of de goedgekeurde IP-adressen-functie is ingeschakeld, is verificatie 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Selecteer aan de linkerkant **Azure Active Directory** > **voorwaardelijke toegang** > **benoemde locaties**.
 3. Selecteer **vertrouwde IP's voor MFA configureren**.
-4. Op de **Service-instellingen** pagina onder **goedgekeurde IP-adressen**, kiezen uit de volgende twee opties:
+4. Op de **Service-instellingen** pagina onder **goedgekeurde IP-adressen**, kiezen uit een van de volgende twee opties:
    
    * **Voor aanvragen van federatieve gebruikers die afkomstig zijn van mijn intranet**: als u wilt deze optie kiest, schakel het selectievakje in. Alle federatieve gebruikers die aanmelden met het bedrijfsnetwerk verificatie in twee stappen overslaan met behulp van een claim dat is uitgegeven door AD FS. Zorg ervoor dat AD FS een regel voor het toevoegen van de intranet-claim op het juiste verkeer. Als de regel niet bestaat, maakt u de volgende regel in AD FS:<br/>
 
@@ -203,7 +203,7 @@ Ongeacht of de goedgekeurde IP-adressen-functie is ingeschakeld, is verificatie 
 2. Selecteer aan de linkerkant **Azure Active Directory** > **gebruikers**.
 3. Selecteer **multi-Factor Authentication**.
 4. Selecteer onder multi-factor Authentication, **service-instellingen**.
-5. Op de **Service-instellingen** pagina onder **goedgekeurde IP-adressen**, kiezen uit de volgende twee opties:
+5. Op de **Service-instellingen** pagina onder **goedgekeurde IP-adressen**, kiest u een (of beide) van de volgende twee opties:
    
    * **Voor aanvragen van federatieve gebruikers op mijn intranet**: als u wilt deze optie kiest, schakel het selectievakje in. Alle federatieve gebruikers die aanmelden met het bedrijfsnetwerk verificatie in twee stappen overslaan met behulp van een claim dat is uitgegeven door AD FS. Zorg ervoor dat AD FS een regel voor het toevoegen van de intranet-claim op het juiste verkeer. Als de regel niet bestaat, maakt u de volgende regel in AD FS:<br/>
 
@@ -343,7 +343,7 @@ U kunt de verificatiemethoden die beschikbaar voor uw gebruikers met behulp van 
 
 Wanneer uw gebruikers hun account voor Azure multi-factor Authentication registreren, kiezen ze hun gewenste verificatiemethode uit de opties die u hebt ingeschakeld. Richtlijnen voor het registratieproces voor de gebruiker is opgegeven in [instellen van mijn account voor verificatie in twee stappen](../user-help/multi-factor-authentication-end-user-first-time.md).
 
-| Wijze | Beschrijving |
+| Methode | Beschrijving |
 |:--- |:--- |
 | Bellen naar telefoon |Plaatst een geautomatiseerd telefoongesprek. De gebruiker beantwoordt het gesprek en drukt # in het toetsenblok van de telefoon om te verifiëren. Het telefoonnummer is niet gesynchroniseerd met on-premises Active Directory. |
 | Sms-bericht naar telefoon |Verzendt een SMS-bericht met een verificatiecode. De gebruiker wordt gevraagd de verificatiecode invoeren in de interface van aanmelding. Dit proces heet SMS in één richting. SMS in twee richtingen betekent dat de gebruiker tekst weer een bepaalde code moet. SMS in twee richtingen is afgeschaft en wordt niet ondersteund na 14 November 2018. Gebruikers die zijn geconfigureerd voor SMS in twee richtingen worden automatisch overgeschakeld naar de _oproep naar telefoon_ verificatie op dat moment.|

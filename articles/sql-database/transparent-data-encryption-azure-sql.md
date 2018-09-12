@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: 0ed05fd2d55f1c4c80bec9f64925be2eddddc067
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: afc53fc1abce74b247ec2e25bc3e4845bc870860
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043770"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380196"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparante gegevensversleuteling voor SQL-Database en Data Warehouse
 
@@ -128,7 +128,7 @@ Voor het configureren van transparante gegevensversleuteling via de REST-API moe
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor een algemene beschrijving van transparante gegevensversleuteling [transparante gegevensversleuteling] ((https://docs.microsoft.com/sql/relational-databases/security/transparent-data-encryption).
+- Zie voor een algemene beschrijving van transparante gegevensversleuteling, [transparante gegevensversleuteling](https://docs.microsoft.com/sql/relational-databases/security/encryption/transparent-data-encryption).
 - Zie voor meer informatie over transparante gegevensversleuteling met Bring Your Own Key-ondersteuning voor SQL-Database en Data Warehouse, [Transparent data encryption met Bring Your Own Key support](transparent-data-encryption-byok-azure-sql.md).
 - Als u wilt gaan met transparent data encryption met Bring Your Own Key-ondersteuning, Zie de handleiding [transparante gegevensversleuteling inschakelen met behulp van uw eigen sleutel uit Key Vault met behulp van PowerShell](transparent-data-encryption-byok-azure-sql-configure.md).
 - Zie voor meer informatie over Key Vault, de [Key Vault-documentatiepagina](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault).

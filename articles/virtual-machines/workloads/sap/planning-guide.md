@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7b1f937a71a0ff5b8030c922073dc463af3c8430
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 274f9d89113f583cc7b65ae01f3132d35b82b920
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349259"
+ms.locfileid: "44380417"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>Azure virtuele Machines, planning en implementatie van SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -318,7 +318,7 @@ Microsoft Azure kunnen bedrijven aan te schaffen reken- en opslagresources in ee
 Dit technische document beschrijft de basisprincipes van Microsoft Azure-Machine en biedt een overzicht van de planning en implementatie-informatie voor SAP NetWeaver-installaties in Azure en daarom moet het document te lezen voordat u begint met daadwerkelijke implementaties van SAP NetWeaver op Azure.
 Het document is een aanvulling op de documentatie voor installatie van SAP en SAP-opmerkingen, die staan voor de primaire bronnen voor installaties en -implementaties van SAP-software op de opgegeven platforms.
 
-## <a name="summary"></a>Overzicht
+## <a name="summary"></a>Samenvatting
 Cloud Computing is een veelgebruikte term die wordt steeds vaker meer belang binnen de IT-sector voor kleine bedrijven tot grote en multinationale ondernemingen.
 
 Microsoft Azure is het Cloudserviceplatform van Microsoft, biedt een breed scala aan nieuwe mogelijkheden. Klanten zijn nu kunnen snel inrichten en ongedaan maken inrichting toepassingen als een service in de cloud, zodat ze niet beperkt tot technische of financiële beperkingen zijn. In plaats van de tijd en geld investeren in hardware-infrastructuur, bedrijven zich kunnen richten op de toepassing, bedrijfsprocessen en de voordelen voor klanten en gebruikers.
@@ -511,7 +511,7 @@ Met Azure Resource Manager kunt u uw toepassingen inrichten aan de hand van een 
 
 Meer informatie over het gebruik van Resource Manager-sjablonen vindt u hier:
 
-* [Implementeren en beheren van virtuele machines met behulp van Azure Resource Manager-sjablonen en de Azure CLI] [../../linux/create-ssh-secured-vm-from-template.md]
+* [Implementeren en beheren van virtuele machines met behulp van Azure Resource Manager-sjablonen en Azure CLI](../../linux/create-ssh-secured-vm-from-template.md)
 * [Virtuele machines beheren met Azure Resource Manager en PowerShell][virtual-machines-deploy-rmtemplates-powershell]
 * <https://azure.microsoft.com/documentation/templates/>
 
@@ -1562,7 +1562,7 @@ az vm unmanaged-disk attach --resource-group $rgName --vm-name SAPERPDemo --size
 az vm disk attach --resource-group $rgName --vm-name SAPERPDemo --size-gb 1023 --disk datadisk --new
 ```
 
-##### <a name="template"></a>Sjabloon
+##### <a name="template"></a>Template
 U kunt de voorbeeldsjablonen gebruiken in de azure-quickstart-templates opslagplaats op github.
 
 * [Eenvoudige Linux-VM](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-simple-linux)
@@ -2001,7 +2001,7 @@ Sinds Mid 2014 inschakelen uitbreidingen voor verschillende onderdelen om Hyper-
 
 Een blog met gedetailleerde informatie over het implementeren van deze oplossing wordt hier beschreven: <http://blogs.msdn.com/b/saponsqlserver/archive/2014/11/19/protecting-sap-solutions-with-azure-site-recovery.aspx>.
 
-## <a name="summary"></a>Overzicht
+## <a name="summary"></a>Samenvatting
 De belangrijkste punten van hoge beschikbaarheid voor SAP-systemen in Azure zijn:
 
 * Op dit moment, kan niet de SAP enkel storingspunt worden beveiligd, precies dezelfde manier zoals deze kan worden uitgevoerd in de on-premises implementaties. De reden is dat gedeelde schijf clusters nog in Azure kunnen niet worden gemaakt zonder het gebruik van 3e software van derden.

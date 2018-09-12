@@ -12,17 +12,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2017
+ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: d1987d6774b7fc831b26d6463f280259ee9f961a
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: ab0face3c211a8ea1477f40167f80330f0423498
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356706"
+ms.locfileid: "44379261"
 ---
-## <a name="problems-signing-in-to-a-microsoft-application"></a>Problemen met aanmelden bij een Microsoft-toepassing
+# <a name="problems-signing-in-to-a-microsoft-application"></a>Problemen met aanmelden bij een Microsoft-toepassing
 
 Microsoft Applications (zoals Office 365 Exchange, SharePoint, Yammer, enzovoort) worden toegewezen en beheerd iets anders dan 3e SaaS-toepassingen van derden of andere toepassingen die u integreren met Azure AD voor eenmalige aanmelding op.
 

@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 11/08/2017
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 06e3a596b60bf96319071fff68b0bf1655869559
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 791abd52ff4c016fe873288008e9d9b6adec6480
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003794"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378493"
 ---
 # <a name="azure-active-directory-identity-protection"></a>Azure Active Directory Identity Protection
 
@@ -83,7 +83,7 @@ Om taken te verdelen de beheeractiviteiten rond uw Identity Protection-implement
 | :--                          | ---                                |  ---   |
 | Globale beheerder         | Volledige toegang tot Identity Protection, onboarding Identity Protection| |
 | Beveiligingsbeheerder       | Volledige toegang tot Identity Protection | Onboarding Identity Protection, wachtwoorden opnieuw instellen voor een gebruiker |
-| Beveiligingslezer              | Alleen-lezen toegang tot Identity Protection | Onboarding Identity Protection, remidiate gebruikers,-beleid configureren, wachtwoorden opnieuw instellen |
+| Beveiligingslezer              | Alleen-lezen toegang tot Identity Protection | Onboarding Identity Protection, gebruikers herstellen, configureren van beleid, wachtwoorden opnieuw instellen |
 
 
 

@@ -10,15 +10,15 @@ ms.component: manage
 ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: befb4cc075841d45cae769b5ddf924434e65eff3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 3500754c7e9cb14ea86e9c0e562ec5f98fc1fc94
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307244"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377765"
 ---
 # <a name="troubleshooting-azure-sql-data-warehouse"></a>Oplossen van problemen met Azure SQL datawarehouse
-In dit onderwerp bevat algemene vraag voor het oplossen van problemen.
+In dit artikel geeft een lijst met veelgestelde vragen voor het oplossen van problemen.
 
 ## <a name="connecting"></a>Verbinding maken
 | Probleem | Oplossing |
@@ -27,7 +27,7 @@ In dit onderwerp bevat algemene vraag voor het oplossen van problemen.
 | De server principal 'MyUserName' is niet toegang hebben tot de database 'master' in de huidige beveiligingscontext. Kan de standaarddatabase van de gebruiker niet openen. Aanmelding mislukt. Aanmelden is mislukt voor gebruiker 'MyUserName'. (Microsoft SQL Server, fout: 916) |Deze fout treedt op wanneer een AAD-gebruiker probeert verbinding te maken met de hoofddatabase, maar heeft geen een gebruiker in de master.  Dit probleem oplossen door op de SQL Data Warehouse die u wilt verbinding maken met tijdens de verbinding of de gebruiker toevoegen aan de database master opgeven.  Zie [beveiligingsoverzicht] [ Security overview] artikel voor meer informatie. |
 | CTAIP fout |Deze fout kan optreden wanneer een aanmelding is gemaakt op de hoofddatabase van SQL server, maar niet in de SQL Data Warehouse-database.  Als u deze fout optreedt, kijk dan eens de [beveiligingsoverzicht] [ Security overview] artikel.  In dit artikel wordt uitgelegd hoe u een aanmelding en gebruiker maken op de master en over het maken van een gebruiker in de SQL Data Warehouse-database. |
 | Geblokkeerd door Firewall |Azure SQL-databases worden beveiligd door de server en database niveau firewalls om te controleren of alleen bekende IP-adressen die toegang hebben tot een database. De firewalls zijn beveiligd door standaard, wat betekent dat u expliciet moet inschakelen en IP-adres of adresbereik voordat u verbinding kunt maken.  U configureert de firewall om toegang te krijgen, volg de stappen in [server firewall-toegang configureren voor uw client-IP-] [ Configure server firewall access for your client IP] in de [inrichting instructies] [Provisioning instructions]. |
-| Kan geen verbinding maken met het hulpprogramma of het stuurprogramma |SQL Data Warehouse adviseert [SSMS][SSMS], [SSDT voor Visual Studio][SSDT for Visual Studio], of [sqlcmd] [ sqlcmd] aan uw gegevens op te vragen. Zie voor meer informatie over de stuurprogramma's en verbinding maken met SQL Data Warehouse [stuurprogramma's voor Azure SQL Data Warehouse] [ Drivers for Azure SQL Data Warehouse] en [verbinding maken met Azure SQL Data Warehouse] [ Connect to Azure SQL Data Warehouse] artikelen. |
+| Kan geen verbinding maken met het hulpprogramma of het stuurprogramma |SQL Data Warehouse adviseert [SSMS][SSMS], [SSDT voor Visual Studio][SSDT for Visual Studio], of [sqlcmd] [ sqlcmd] aan uw gegevens op te vragen. Zie voor meer informatie over stuurprogramma's en verbinding maken met SQL Data Warehouse [stuurprogramma's voor Azure SQL Data Warehouse] [ Drivers for Azure SQL Data Warehouse] en [verbinding maken met Azure SQL Data Warehouse] [ Connect to Azure SQL Data Warehouse] artikelen. |
 
 ## <a name="tools"></a>Hulpprogramma's
 | Probleem | Oplossing |
@@ -102,7 +102,7 @@ Voor meer hulp bij het vinden van oplossing voor uw probleem volgen hier enkele 
 [Unsupported data types]: sql-data-warehouse-tables-data-types.md#unsupported-data-types
 [Overview]: sql-data-warehouse-tables-overview.md
 [Data types]: sql-data-warehouse-tables-data-types.md
-[Distribute]:/sql-data-warehouse-tables-distribute.md
+[Distribute]: sql-data-warehouse-tables-distribute.md
 [Index]: sql-data-warehouse-tables-index.md
 [Partition]: sql-data-warehouse-tables-partition.md
 [Statistics]: sql-data-warehouse-tables-statistics.md

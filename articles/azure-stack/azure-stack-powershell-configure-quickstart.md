@@ -6,20 +6,19 @@ documentationcenter: ''
 author: mattbriggs
 manager: femila
 editor: ''
-ms.assetid: 6996DFC1-5E05-423A-968F-A9427C24317C
 ms.service: azure-stack
 ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 70c1fd72df437ade3bc12cd23db923f6d449e7fb
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 5d988e8a8a32924b8424a07cf20c75f0e8f8cf4d
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38465740"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391071"
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Aan de slag met PowerShell in Azure Stack
 
@@ -27,12 +26,14 @@ ms.locfileid: "38465740"
 
 In deze snelstartgids helpt u bij het installeren en configureren van een Azure Stack-omgeving met PowerShell. Het script waarmee we in dit artikel is afgestemd op de **Azure Stack-operators** alleen.
 
-In dit artikel is een verkorte versie van de stappen die worden beschreven in de [PowerShell installeren]( azure-stack-powershell-install.md), [hulpprogramma's downloaden]( azure-stack-powershell-download.md), en [voordeAzureStack-operatorsPowerShell-omgevingconfigureren]( azure-stack-powershell-configure-admin.md) artikelen. Met behulp van de scripts in dit onderwerp, kunt u PowerShell instellen voor Azure Stack-omgevingen die zijn geïmplementeerd met Azure Active Directory of Active Directory Federation Services (AD FS).  
+In dit artikel is een verkorte versie van de stappen die worden beschreven in de [PowerShell installeren]( azure-stack-powershell-install.md), [hulpprogramma's downloaden]( azure-stack-powershell-download.md), en [voordeAzureStack-operatorsPowerShell-omgevingconfigureren]( azure-stack-powershell-configure-admin.md) artikelen. Met behulp van de scripts in dit artikel, kunt u PowerShell instellen voor Azure Stack-omgevingen die zijn geïmplementeerd met Azure Active Directory of Active Directory Federation Services (AD FS).  
 
 
 ## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>PowerShell instellen voor implementaties op basis van Azure Active Directory
 
-Meld u aan uw Azure Stack Development Kit, of een externe Windows-client als u via VPN-verbinding verbonden bent. Open een PowerShell ISE-sessie met verhoogde bevoegdheden en voer het volgende script. Zorg ervoor dat u het bijwerken van de **TenantName**, **ArmEndpoint**, en **GraphAudience** variabelen die nodig zijn voor de configuratie van uw omgeving:
+<a name="sign-in-to-your-azure-stack-development-kit-or-a-windows-based-external-client-if-you-are-connected-through-vpn-open-an-elevated-powershell-ise-session-and-then-run-the-following-script"></a>Meld u aan uw Azure Stack Development Kit, of een externe Windows-client als u via VPN-verbinding verbonden bent. Open een PowerShell ISE-sessie met verhoogde bevoegdheden en voer het volgende script. 
+-  
+- Zorg ervoor dat u het bijwerken van de **TenantName**, **ArmEndpoint**, en **GraphAudience** variabelen die nodig zijn voor de configuratie van uw omgeving:
 
 ```powershell
 # Specify Azure Active Directory tenant name.

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 09/29/2017
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 3fa4f230f5e2d15e815c47792c3955aa93d29fc4
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 29fd4e62c13852e23e15f89ab6b4e2976fc42b25
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094736"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377137"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API's in duurzame functies (Azure Functions)
 
@@ -45,6 +45,7 @@ Deze voorbeeldfunctie levert de volgende gegevens van de JSON-antwoord. Het gege
 | statusQueryGetUri |De URL van de status van de orchestration-exemplaar. |
 | sendEventPostUri  |De URL 'raise gebeurtenis' van de orchestration-exemplaar. |
 | terminatePostUri  |De URL 'beëindigd' van de orchestration-exemplaar. |
+| rewindPostUri     |De URL 'terugspoelen' van de orchestration-exemplaar. |
 
 Hier volgt een voorbeeld van de reactie:
 
@@ -52,13 +53,14 @@ Hier volgt een voorbeeld van de reactie:
 HTTP/1.1 202 Accepted
 Content-Length: 923
 Content-Type: application/json; charset=utf-8
-Location: https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+Location: https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 
 {
     "id":"34ce9a28a6834d8492ce6a295f1a80e2",
-    "statusQueryGetUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "sendEventPostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
-    "terminatePostUri":"https://{host}/runtime/webhooks/DurableTaskExtension/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
+    "statusQueryGetUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "sendEventPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "terminatePostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/terminate?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX",
+    "rewindPostUri":"https://{host}/runtime/webhooks/durabletask/instances/34ce9a28a6834d8492ce6a295f1a80e2/rewind?reason={text}&taskHub=DurableFunctionsHub&connection=Storage&code=XXX"
 }
 ```
 > [!NOTE]
@@ -110,7 +112,7 @@ GET /admin/extensions/DurableTaskExtension/instances/{instanceId}?taskHub={taskH
 De indeling van Functions 2.0 heeft dezelfde parameters, maar een enigszins URL-voorvoegsel:
 
 ```http
-GET /runtime/webhooks/DurableTaskExtension/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
+GET /runtime/webhooks/durabletask/instances/{instanceId}?taskHub={taskHub}&connection={connection}&code={systemKey}&showHistory={showHistory}&showHistoryOutput={showHistoryOutput}
 ```
 
 #### <a name="response"></a>Antwoord
@@ -121,6 +123,7 @@ Verschillende mogelijke status codewaarden kunnen worden geretourneerd.
 * **HTTP 202 (aanvaard)**: het opgegeven exemplaar wordt uitgevoerd.
 * **HTTP 400 (ongeldige aanvraag)**: het opgegeven exemplaar is mislukt of is beëindigd.
 * **HTTP 404 (niet gevonden)**: het opgegeven exemplaar bestaat niet of is niet gestart.
+* **HTTP 500 (interne serverfout)**: het opgegeven exemplaar is mislukt met een onverwerkte uitzondering.
 
 De nettolading van de reactie voor de **HTTP 200** en **HTTP 202** gevallen is een JSON-object met de volgende velden:
 
@@ -206,7 +209,7 @@ GET /admin/extensions/DurableTaskExtension/instances/?taskHub={taskHub}&connecti
 De indeling van Functions 2.0 heeft dezelfde parameters, maar een enigszins URL-voorvoegsel: 
 
 ```http
-GET /runtime/webhooks/DurableTaskExtension/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
+GET /runtime/webhooks/durabletask/instances/?taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 #### <a name="response"></a>Antwoord
@@ -281,7 +284,7 @@ POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/raiseEvent/{e
 De indeling van Functions 2.0 heeft dezelfde parameters, maar een enigszins URL-voorvoegsel:
 
 ```http
-POST /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/raiseEvent/{eventName}?taskHub=DurableFunctionsHub&connection={connection}&code={systemKey}
 ```
 
 Aanvraag-parameters voor deze API bevatten de standaardset die eerder is vermeld en de volgende unieke parameters:
@@ -321,13 +324,13 @@ Een actief exemplaar van de orchestration beëindigt.
 Voor functies 1.0 is indeling van de aanvraag als volgt uit:
 
 ```http
-DELETE /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 De indeling van Functions 2.0 heeft dezelfde parameters, maar een enigszins URL-voorvoegsel:
 
 ```http
-DELETE /runtime/webhooks/DurableTaskExtension/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+POST /runtime/webhooks/durabletask/instances/{instanceId}/terminate?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
 ```
 
 Vragen om parameters voor deze API de standaardset die eerder is vermeld en de volgende unieke parameter bevatten.
@@ -347,7 +350,47 @@ Verschillende mogelijke status codewaarden kunnen worden geretourneerd.
 Hier volgt een voorbeeldaanvraag die een actief exemplaar wordt beëindigd en Hiermee geeft u een reden van de **buggy**:
 
 ```
-DELETE /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/terminate?reason=buggy&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
+```
+
+De antwoorden voor deze API bevatten niet alle inhoud.
+
+## <a name="rewind-instance-preview"></a>Terugspoelen exemplaar (preview)
+
+Herstelt een mislukte orchestration-instantie in een status running doorbrengt door af te spelen de meest recente mislukte bewerkingen.
+
+#### <a name="request"></a>Aanvraag
+
+Voor functies 1.0 is indeling van de aanvraag als volgt uit:
+
+```http
+POST /admin/extensions/DurableTaskExtension/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+De indeling van Functions 2.0 heeft dezelfde parameters, maar een enigszins URL-voorvoegsel:
+
+```http
+POST /runtime/webhooks/durabletask/instances/{instanceId}/rewind?reason={reason}&taskHub={taskHub}&connection={connection}&code={systemKey}
+```
+
+Vragen om parameters voor deze API de standaardset die eerder is vermeld en de volgende unieke parameter bevatten.
+
+| Veld       | Parametertype  | Gegevenstype | Beschrijving |
+|-------------|-----------------|-----------|-------------|
+| reason      | Querytekenreeks    | tekenreeks    | Optioneel. De reden voor de orchestration-instantie terugspoelen. |
+
+#### <a name="response"></a>Antwoord
+
+Verschillende mogelijke status codewaarden kunnen worden geretourneerd.
+
+* **HTTP 202 (aanvaard)**: de terugspoelen-aanvraag is geaccepteerd voor verwerking.
+* **HTTP 404 (niet gevonden)**: het opgegeven exemplaar is niet gevonden.
+* **HTTP 410 (verwijderd)**: het opgegeven exemplaar is voltooid of is beëindigd.
+
+Hier volgt een voorbeeldaanvraag die een mislukt exemplaar teruggespoeld en Hiermee geeft u een reden van de **vaste**:
+
+```
+POST /admin/extensions/DurableTaskExtension/instances/bcf6fb5067b046fbb021b52ba7deae5a/rewind?reason=fixed&taskHub=DurableFunctionsHub&connection=Storage&code=XXX
 ```
 
 De antwoorden voor deze API bevatten niet alle inhoud.

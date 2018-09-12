@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/18/2018
+ms.date: 09/10/2018
 ms.author: barbkess
 ms.reviewer: asteen
-ms.openlocfilehash: 505b3e7df64ef804448bd5753bdaa6148b22a2c3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 382b484f5ed1e45863d24635554cd7c3a55176a4
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356802"
+ms.locfileid: "44378411"
 ---
 # <a name="links-on-the-page-dont-work-for-an-application-proxy-application"></a>Koppelingen op de pagina werken niet voor een toepassingsproxy-toepassing
 
@@ -43,9 +43,7 @@ Er zijn drie manieren om dit probleem te verhelpen. De opties hieronder worden i
 
     Deze optie zorgt ervoor dat de koppelingen in uw toepassing extern toegankelijk zijn via de toepassingsproxy zijn omdat de koppelingen in de toepassing naar interne URL's ook extern worden herkend. Er moet nog steeds alle koppelingen te behoren tot een gepubliceerde toepassing. Echter met deze optie de koppelingen niet hoeft te behoren tot dezelfde toepassing en kunnen deel uitmaken van meerdere toepassingen.
 
-3.  Als geen van beide opties haalbaar is, kunt u een nieuwe functie die URL vertaling/herschrijven bekijken. Met deze functie zijn interne URL's of koppelingen die zijn opgenomen in de hoofdtekst HTML-code van uw toepassingen vertaald, of 'toegewezen', aan de gepubliceerde externe App Proxy-URL's. Deze omzetting werkt alleen op de koppelingen in de HTML- of CSS, en niet wordt opgelost als de koppeling is gegenereerd via JS. 
-
-Als gevolg hiervan wordt ten zeerste aangeraden de [aangepaste domeinen](application-proxy-configure-custom-domain.md) oplossing indien mogelijk. Als u deelnemen aan de preview wilt, stuurt u e-mail <aadapfeedback@microsoft.com> met de applicationId(s).
+3.  Als geen van beide opties haalbaar is zijn, zijn er meerdere opties voor het inschakelen van de vertaling van inline-koppeling. Deze opties zijn onder andere met behulp van de Intune Managed Browser, uitbreiding van mijn Apps, of de instelling van de vertaling koppeling op uw toepassing. Zie voor meer informatie over elk van deze opties en hoe u ze wilt inschakelen, [vastgelegd koppelingen voor apps die zijn gepubliceerd met Azure AD Application Proxy omleiden](application-proxy-configure-hard-coded-link-translation.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 [Werken met bestaande on-premises proxy-servers](application-proxy-configure-connectors-with-proxy-servers.md)

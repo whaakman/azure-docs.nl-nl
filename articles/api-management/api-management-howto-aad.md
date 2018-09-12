@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2018
 ms.author: apimpm
-ms.openlocfilehash: d4eb8f3e805d96a276851052b74cac90465d1185
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4c1696fc373975eb9857c40366829fbe6a535911
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056871"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391875"
 ---
 # <a name="authorize-developer-accounts-by-using-azure-active-directory-in-azure-api-management"></a>Ontwikkelaarsaccounts authoriseren met behulp van Azure Active Directory in Azure API Management
 
@@ -79,7 +79,10 @@ Dit artikel leest u hoe de developer-Portal voor gebruikers om toegang te krijge
 
     ![Selectievakjes voor machtigingen](./media/api-management-howto-aad/api-management-with-aad005.png)
 
+1. Selecteer **machtigingen verlenen** Toepassingsmachtigingen accepteren.
+
     Zie voor meer informatie over de machtigingen van de toepassing en gedelegeerde machtigingen [toegang tot de Graph API][Accessing the Graph API].
+    
 1. Kopieer in het linkerdeelvenster de **toepassings-ID** waarde.
 
     !["Toepassings-ID-waarde](./media/api-management-howto-aad/application-id.png)
@@ -98,6 +101,7 @@ Dit artikel leest u hoe de developer-Portal voor gebruikers om toegang te krijge
     > Maak een notitie van deze sleutel. Nadat u het deelvenster van de configuratie van Azure AD hebt gesloten, wordt de sleutel niet opnieuw weergeven.
     > 
     > 
+
 1. Ga terug naar uw API Management-toepassing. 
 
     In de **id-provider toevoegen** venster, plak de sleutel in de **clientgeheim** in het tekstvak.
@@ -106,6 +110,7 @@ Dit artikel leest u hoe de developer-Portal voor gebruikers om toegang te krijge
     > Zorg ervoor dat u het bijwerken van de **clientgeheim** voordat de sleutel is verlopen. 
     >  
     >
+
 1. De **id-provider toevoegen** venster bevat ook de **Tenants toegestaan** in het tekstvak. Er, geef de domeinen van de Azure AD-instanties die u wilt toegang verlenen tot de API's van de service-exemplaar van API Management. U kunt meerdere domeinen met vorm, spaties en komma's scheiden.
 
     Kunt u meerdere domeinen in de **Tenants toegestaan** sectie. Voordat elke gebruiker kan zich aanmelden vanaf een ander domein dan het oorspronkelijke domein waar de toepassing is geregistreerd, moet een globale beheerder van het andere domein machtiging voor de toepassing toegang heeft tot directory gegevens verlenen. Als u wilt machtigen, moet u de globale beheerder:

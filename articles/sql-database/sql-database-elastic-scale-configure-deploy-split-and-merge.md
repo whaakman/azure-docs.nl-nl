@@ -9,12 +9,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: sstein
-ms.openlocfilehash: 10ba369c9627f7492f9776a757d4bccb74013b5f
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: c7682b63689d9b47fce5fa65a3c0a2301d53502a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/11/2018
-ms.locfileid: "44349191"
+ms.locfileid: "44379194"
 ---
 # <a name="deploy-a-split-merge-service"></a>Een service voor splitsen en samenvoegen implementeren
 Het hulpprogramma voor splitsen en samenvoegen kunt u gegevens verplaatsen tussen shard-databases. Zie [om gegevens te verplaatsen tussen uitgeschaalde clouddatabases](sql-database-elastic-scale-overview-split-and-merge.md)
@@ -29,7 +29,7 @@ Het hulpprogramma voor splitsen en samenvoegen kunt u gegevens verplaatsen tusse
 
 De bestanden worden geplaatst in een map met de naam **Microsoft.Azure.SqlDatabase.ElasticScale.Service.SplitMerge.x.x.xxx.x** waar *x.x.xxx.x* geeft het versienummer. Zoeken naar de bestanden van de Service splitsen en samenvoegen in de **content\splitmerge\service** onderliggende map en de splitsen en samenvoegen PowerShell-scripts (en vereiste client-dll's) in de **content\splitmerge\powershell** onderliggende map.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 1. Maak een Azure SQL DB-database die wordt gebruikt als de status van splitsen en samenvoegen-database. Ga naar de [Azure Portal](https://portal.azure.com). Maak een nieuwe **SQL-Database**. Geef een naam op voor de database en maak een nieuwe beheerder en het wachtwoord. Zorg ervoor dat de naam en wachtwoord op voor later gebruik.
 2. Zorg ervoor dat uw Azure SQL-database-server kan Azure-Services tot stand te brengen. In de portal in de **Firewall-instellingen**, zorg ervoor dat de **toegang tot Azure-Services toestaan** is ingesteld op **op**. Klik op het pictogram 'opslaan'.
 3. Maak een Azure-opslagaccount voor diagnostische uitvoer.
@@ -143,7 +143,7 @@ Als de werkrol niet online is gekomen, maar uw Webrol is geslaagd, is het zeer w
 
 ## <a name="test-the-service-deployment"></a>De service-implementatie testen
 ### <a name="connect-with-a-web-browser"></a>Verbinding maken met een webbrowser
-Bepaal het eindpunt van uw service voor splitsen en samenvoegen op het web. U kunt dit vinden in de klassieke Azure portal door te gaan naar de **Dashboard** van uw cloudservice en Ga naar **Site-URL** aan de rechterkant. Vervang **http://** met **https://** omdat de standaardinstellingen van de beveiliging het HTTP-eindpunt uitschakelen. Laad de pagina voor deze URL in uw browser.
+Bepaal het eindpunt van uw service voor splitsen en samenvoegen op het web. U kunt dit vinden in de portal door te gaan naar de **overzicht** van uw cloudservice en Ga naar **Site-URL** aan de rechterkant. Vervang **http://** met **https://** omdat de standaardinstellingen van de beveiliging het HTTP-eindpunt uitschakelen. Laad de pagina voor deze URL in uw browser.
 
 ### <a name="test-with-powershell-scripts"></a>Testen met PowerShell-scripts
 De implementatie en uw omgeving kunnen worden getest door het uitvoeren van de opgenomen voorbeeld PowerShell-scripts.
@@ -307,7 +307,7 @@ Een voorbeeld hiervan kan worden weergegeven in het script SetupSampleSplitMerge
 
 De service voor splitsen en samenvoegen maakt geen de doeldatabase (of een schema voor alle tabellen in de database) voor u. Ze moeten zijn vooraf gemaakte voordat een aanvraag wordt verzonden naar de service.
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 Mogelijk ziet u de onderstaande bericht bij het uitvoeren van de powershell-voorbeeldscripts:
 
    ```

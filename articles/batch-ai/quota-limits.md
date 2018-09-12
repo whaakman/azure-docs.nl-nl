@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/08/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: e4b6d115aebfd96d127e0d72c0c99188bedd93e6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cade124cefbd4e2e63ab4cb6fa4f22b3bd672ad0
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057058"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391807"
 ---
 # <a name="batch-ai-service-quotas-and-limits"></a>Batch AI-service-quota en limieten
 
@@ -33,22 +33,7 @@ Als u van plan bent om uit te voeren van productieworkloads in Batch AI, moet u 
 
 ## <a name="resource-quotas"></a>Resourcequota
 
-In de Batch AI is er een standaard-quotumlimiet voor zowel het aantal kernen en het aantal clusters toegestaan per regio in een abonnement.
-
-| **Resource** | **Standaardlimiet** | **Maximumlimiet** |
-| --- | --- | --- |
-| Toegewezen kerngeheugens per regio | 10 - 24 uur per dag | N.v.t.<sup>1</sup> |
-| Kernen per regio met lage prioriteit | 10 - 24 uur per dag | N.V.T.<sup>2</sup> |
-| Clusters per regio | 20 | 200<sup>3</sup> |
-
-> [!NOTE]
-> Standaardlimieten variëren afhankelijk van het type abonnement die u hebt.
-
-<sup>1</sup> het aantal toegewezen kerngeheugens per Batch AI-abonnement kan worden vergroot, maar het maximum aantal is niet opgegeven. Neem contact op met ondersteuning van Azure wilt discussiëren over meer opties.
-
-<sup>2</sup> het aantal kernen per Batch AI-abonnement met lage prioriteit kan worden verhoogd, maar het maximum aantal is niet opgegeven. Neem contact op met ondersteuning van Azure wilt discussiëren over meer opties.
-
-<sup>3</sup> Neem contact op met Azure-ondersteuning als u wilt een verhoging boven deze limiet.
+[!INCLUDE [azure-batch-ai-limits](../../includes/azure-batch-ai-limits.md)]
 
 ## <a name="other-limits"></a>Andere limieten
 

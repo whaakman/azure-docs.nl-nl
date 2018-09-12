@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 4/26/2018
 ms.author: snmuvva
 ms.component: alerts
-ms.openlocfilehash: 4dba3d182c7c2927aa4feb88e70fe5711fcc6818
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 7289259214f90507c5b9cf527f19f0cf7026798c
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37932208"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391450"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Een waarschuwing voor metrische gegevens maken met een Resource Manager-sjabloon
 Dit artikel wordt beschreven hoe u kunt een [Azure Resource Manager-sjabloon](../azure-resource-manager/resource-group-authoring-templates.md) configureren [nieuwere metrische waarschuwingen](monitoring-near-real-time-metric-alerts.md) in Azure Monitor. Resource Manager-sjablonen kunnen u programmatisch waarschuwingen instellen op een consistente en reproduceerbare manier in uw omgevingen. Nieuwere metrische waarschuwingen zijn momenteel beschikbaar op [deze set resourcetypen](monitoring-near-real-time-metric-alerts.md#metrics-and-dimensions-supported).
@@ -409,12 +409,12 @@ Opslaan en het wijzigen van de onderstaande json als advancedmetricalert.paramet
                     "dimensions": [
                         {
                             "name":"ResponseType",
-                            "operator": "Includes",
+                            "operator": "Include",
                             "values": ["Success"]
                         },
                         {
                             "name":"ApiName",
-                            "operator": "Includes",
+                            "operator": "Include",
                             "values": ["GetBlob"]
                         }
                     ],
@@ -430,7 +430,7 @@ Opslaan en het wijzigen van de onderstaande json als advancedmetricalert.paramet
                 "dimensions": [
                     {
                         "name":"ApiName",
-                        "operator": "Includes",
+                        "operator": "Include",
                         "values": ["GetBlob"]
                     }
                 ],

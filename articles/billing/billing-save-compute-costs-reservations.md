@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/08/2018
 ms.author: yashar
-ms.openlocfilehash: 82b23f46acc94fefccc871583657200b90a33f05
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 9ca31a09cd14a8b05e6f98d05f552e202ca4a9fd
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43303559"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391858"
 ---
 # <a name="what-are-azure-reservations"></a>Wat zijn Azure-reserveringen?
 
@@ -69,6 +69,14 @@ Zie voor meer informatie over de invloed van reserveringen op uw facturering, de
 ## <a name="what-happens-when-the-reservation-term-expires"></a>Wat gebeurt er wanneer de reserveringstermijn is verlopen?
 
 De facturering korting verloopt aan het einde van de reserveringstermijn, en de virtuele machine, SQL-database of andere resource wordt gefactureerd voor de betaalt u Ga-prijs. Azure-reserveringen verlengen niet automatisch. Als u wilt doorgaan met het ophalen van de korting voor facturering, moet u een nieuwe reservering voor in aanmerking komende services en software kopen.
+
+## <a name="discount-applies-to-different-sizes-with-instance-size-flexibility"></a>Korting geldt voor verschillende grootten met een grootte-instantieflexibiliteit
+
+Wanneer u een reservering koopt, wordt de korting kunt toepassen op andere exemplaren met kenmerken die zich binnen de groep met dezelfde grootte. De flexibiliteit van de dekking van de korting is afhankelijk van het type reservering en de kenmerken die u kiest wanneer u de reservering kopen.
+
+- Gereserveerde VM-instanties: Wanneer u koopt de reservering, als u selecteert **geoptimaliseerd voor**: **exemplaar grootte flexibiliteit**, de dekking van de korting is afhankelijk van de VM-grootte die u selecteert. De reservering kunt toepassen op de grootten van virtuele machines (VM's) in de groep voor reeks van dezelfde grootte. Zie voor meer informatie, [VM-grootte flexibiliteit in combinatie met gereserveerde VM-instanties](../virtual-machines/windows/reserved-vm-instance-size-flexibility.md).
+- Plan voor SUSE Linux Enterprise software: de dekking van de korting is afhankelijk van de vcpu's van de virtuele machines waarop u de SUSE-software uitvoert. Zie voor meer informatie, [te begrijpen hoe de korting voor SUSE Linux Enterprise software plan wordt toegepast](billing-understand-suse-reservation-charges.md).
+- SQL-Database gereserveerde capaciteit: de dekking van de korting is afhankelijk van de prestatielaag die u kiest. Zie voor meer informatie, [te begrijpen hoe een Azure reserveringskorting wordt toegepast](billing-understand-reservation-charges.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

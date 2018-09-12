@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: ea8c275e5cc37f8c5ecd7c29491b7146669d00fb
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: c84977dacddcf9ccca7fde735ad4acb8a1523fa9
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092900"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378700"
 ---
 # <a name="function-chaining-in-durable-functions---hello-sequence-sample"></a>Werken in duurzame functies - Hallo reeks voorbeeld-koppeling
 
@@ -104,6 +104,9 @@ Om uit te voeren de `E1_HelloSequence` orchestration, verzenden de volgende HTTP
 ```
 POST http://{host}/orchestrators/E1_HelloSequence
 ```
+
+> [!NOTE]
+> Het vorige HTTP-fragment wordt ervan uitgegaan dat er is een item in de `host.json` -bestand dat Hiermee verwijdert u de standaard `api/` voorvoegsel van alle functies URL van de HTTP-trigger. U vindt de opmaak voor deze configuratie in de `host.json` bestand in de voorbeelden.
 
 Bijvoorbeeld, als u het voorbeeld uitvoert in een functie-app met de naam "myfunctionapp", vervangen door '{host}' 'myfunctionapp.azurewebsites.net'.
 

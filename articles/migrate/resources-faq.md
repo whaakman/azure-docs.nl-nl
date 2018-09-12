@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 09/03/2018
 ms.author: snehaa
-ms.openlocfilehash: f4ce2130b18b183f633c649f98fc1add30753a27
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 16fce3eb5ab3874f7106d05bf99dc795cc22a528
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296004"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377534"
 ---
 # <a name="azure-migrate---frequently-asked-questions-faq"></a>Azure Migrate - Asked Frequently Questions (FAQ)
 
@@ -48,13 +48,13 @@ Azure Migrate is een hulpprogramma voor migratieplanning en Azure Site Recovery 
 
 ### <a name="which-azure-regions-are-supported-by-azure-migrate"></a>Welke Azure-regio's worden ondersteund door Azure Migrate?
 
-Azure Migrate ondersteunt momenteel VS-Oost en West-Centraal VS als de locaties van migratie. Houd er rekening mee dat hoewel in West-Centraal VS en VS-Oost, u alleen migration-projecten maken kunt, kunt u nog steeds uw machines beoordelen voor [doellocaties voor meerdere](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). De projectlocatie wordt alleen gebruikt voor het opslaan van de gedetecteerde gegevens.
+Azure Migrate ondersteunt momenteel VS-Oost en West-Centraal VS als de locaties van migratie. Hoewel u alleen migration-projecten in West-Centraal VS en VS-Oost maken kunt, kunt u nog steeds uw machines voor beoordelen [doellocaties voor meerdere](https://docs.microsoft.com/azure/migrate/how-to-modify-assessment#edit-assessment-properties). De projectlocatie wordt alleen gebruikt voor het opslaan van de gedetecteerde gegevens.
 
 ### <a name="how-does-the-on-premises-site-connect-to-azure-migrate"></a>Hoe worden de on-premises site, maakt verbinding met Azure Migrate?
 
 De verbinding kan worden via internet of het gebruik van ExpressRoute met openbare peering.
 
-### <a name="can-i-harden-the-vm-set-up-with-the-ova-template"></a>Kan ik beveiliging van de virtuele machine instellen met de. OVA-sjabloon?
+### <a name="can-i-harden-the-vm-set-up-with-theova-template"></a>Kan ik beveiliging van de virtuele machine instellen met de. OVA-sjabloon?
 
 Extra onderdelen (zoals antivirusprogramma's) kunnen worden toegevoegd aan de. OVA-sjabloon is, zolang de communicatie en firewall-regels die zijn vereist voor het apparaat Azure Migrate werken worden gehandhaafd.   
 
@@ -90,7 +90,9 @@ De detectie op basis van een agent is een optie die beschikbaar zijn op de detec
 
 ### <a name="would-there-be-any-performance-impact-on-the-analyzed-esxi-host-environment"></a>Zou er prestatie-invloed op de geanalyseerde ESXi-host-omgeving?
 
-Omdat we de gegevens worden verzameld via de vCenter-server, moet u er geen invloed op de prestaties is op de ESXi-hosts. Zelfs op de vCenter-server is er bijna geen invloed op de prestaties.
+In het geval van de [benadering van de detectie één keer](https://docs.microsoft.com/azure/migrate/concepts-collector#discovery-methods), de prestatiegegevens worden verzameld het statistiekniveau van de voor de vCenter-server zelf zou moeten zijn ingesteld op 3. Instellen op dit niveau verzamelen over een grote hoeveelheid gegevens die in de vCenter-Server-database zouden worden opgeslagen voor probleemoplossing verzameld. Het kan dus leiden tot prestatieproblemen op de vCenter-Server. Er is minimaal effect heeft op de ESXi-host.
+
+Geïntroduceerd continue profileren van prestatiegegevens (dat zich in preview). Met continue-profilering, is er niet langer een hoeft te wijzigen van de vCenter Server statistiekniveau een analyse op basis van prestaties uit te voeren. Het collector-apparaat wordt nu de on-premises computers om te meten van de prestatiegegevens van de virtuele machines profileren. Dit zou bijna nul prestatie-invloed hebben op de ESXi-hosts, maar ook op de vCenter-Server.
 
 ### <a name="where-is-the-collected-data-stored-and-for-how-long"></a>Waar worden de verzamelde gegevens opgeslagen en hoe lang?
 

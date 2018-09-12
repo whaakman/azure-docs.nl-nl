@@ -10,12 +10,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 01/09/2018
 ms.author: kakampf
-ms.openlocfilehash: 120068cb9dcd92b2b18c2e175793d2072baa2724
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 95d6c392bb0fcb5dfef21fabde9b0bd44e2284a3
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43112160"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379482"
 ---
 # <a name="what-are-the-hadoop-components-and-versions-available-with-hdinsight"></a>Wat zijn de Hadoop-onderdelen en versies die beschikbaar met HDInsight?
 
@@ -242,7 +242,7 @@ De volgende tabellen worden de standaardgrootte van de virtuele machine (VM) voo
   | Edge: aanbevolen VM-grootte | | | | | |Windows: D12 v2, D13 v2, D14 v2; Linux: D4 v2, D12 v2, D13 v2, D14 v2 |
 * Brazilië-Zuid en Japan-West alleen (geen v2-grootte):
 
-  | Clustertype | Hadoop | HBase | Interactive Query |Storm | Spark | ML-Server |
+  | Clustertype | Hadoop | HBase | Interactive Query |Storm | Spark | ML-Service |
   | --- | --- | --- | --- | --- | --- | --- |
   | HEAD: standaard VM-grootte |D3 |D3  | D13, D14 |A3 |D12 |D12 |
   | HEAD: aanbevolen VM-grootten |D3, D4, D12 |D3, D4, D12  | D13, D14 |A3, A4, A5 |D12, D13, D14 |D12, D13, D14 |

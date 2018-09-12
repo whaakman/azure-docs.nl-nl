@@ -5,18 +5,18 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 10/11/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 8ba46223f0d0a4db7615bc94fe8a1bbfa18e57f8
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 9ed2614969952eab90dfec572d9b61071981c4bf
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37442335"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391620"
 ---
 # <a name="connecting-to-on-premises-data-sources-with-azure-on-premises-data-gateway"></a>Verbinding maken met on-premises gegevensbronnen met Azure On-premises gegevensgateway
-De on-premises gegevensgateway fungeert als een brug bieden veilige gegevensoverdracht tussen uw Azure Analysis Services-servers in de cloud en on-premises gegevensbronnen. Naast het werken met meerdere Azure Analysis Services-servers in dezelfde regio bevinden, worden de meest recente versie van de gateway ook werkt met Azure Logic Apps, Power BI, Powerapps en Microsoft Flow. U kunt meerdere services in dezelfde regio koppelen met een enkele gateway. 
+De on-premises gegevensgateway fungeert als een brug bieden veilige gegevensoverdracht tussen uw Azure Analysis Services-servers in de cloud en on-premises gegevensbronnen. Naast het werken met meerdere Azure Analysis Services-servers in dezelfde regio bevinden, worden de meest recente versie van de gateway ook werkt met Azure Logic Apps, Power BI, Powerapps en Microsoft Flow. U kunt meerdere services in hetzelfde abonnement en dezelfde regio koppelen met een enkele gateway. 
 
 Installatie met behulp van de gateway aan de eerste keer is een vierdelige proces:
 
@@ -26,7 +26,7 @@ Installatie met behulp van de gateway aan de eerste keer is een vierdelige proce
 
 - **Een gateway-resource maken in Azure** -In deze stap maakt u een gateway-resource maken in uw Azure-abonnement.
 
-- **Verbind uw servers met een resource van uw** -wanneer u een gateway-resource in uw abonnement hebt, kunt u beginnen met uw servers verbinden. U kunt meerdere servers en andere resources om deze te verbinden.
+- **Verbind uw servers met een resource van uw** -wanneer u een gateway-resource in uw abonnement hebt, kunt u beginnen met uw servers verbinden. Kunt u meerdere servers en andere resources, mits ze zich in hetzelfde abonnement en dezelfde regio bevinden.
 
 U meteen aan de slag, Zie [installeren en configureren van on-premises gegevensgateway](analysis-services-gateway-install.md).
 

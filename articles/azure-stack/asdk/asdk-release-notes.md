@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: fe6be5a041b87af2323c7978c5371e326b3cd3d6
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c1b88518f9e27093ff00ad020e470fa5670dfcd6
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051269"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391943"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Releaseopmerkingen voor Azure Stack Development Kit  
 In dit artikel bevat informatie over verbeteringen, correcties en bekende problemen in Azure Stack Development Kit. Als u niet zeker weet welke versie u uitvoert, kunt u [de portal gebruiken om te controleren](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -44,7 +44,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 - <!-- 2489570 | IS ASDK--> **Ondersteuning voor aangepaste configuraties voor beleid voor IPSec/IKE** voor [VPN-gateways in Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
 
 
-### <a name="fixed-issues"></a>Opgeloste problemen
+### <a name="fixed-issues"></a>Problemen opgelost
 - <!-- IS ASDK--> We het probleem voor het maken van een beschikbaarheidsset in de portal dat heeft geresulteerd in de set met een domein met fouten en een updatedomein van 1 is opgelost.
 
 - <!-- IS ASDK --> Instellingen voor het schalen van virtuele-machineschaalsets zijn nu beschikbaar in de portal.  
@@ -60,6 +60,8 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 - <!-- 1697698  | IS, ASDK --> *Zelfstudies* in de koppeling gebruiker portaldashboard nu relevante artikelen in de online documentatie voor Azure Stack.
 
 - <!-- 2515955   | IS ,ASDK--> *Alle services* vervangt *meer services* in de Azure Stack-beheerder en gebruiker portals. U kunt nu *alle services* als alternatief voor het navigeren in de Azure Stack-portals de dezelfde manier als in de Azure-portals.
+
+- <!-- TBD | IS, ASDK --> **+ Een resource maken** vervangt **+ nieuw** in de Azure Stack-beheerder en gebruiker portals.  U kunt nu *+ een resource maken* als alternatief voor het navigeren in de Azure Stack-portals de dezelfde manier als in de Azure-portals. 
 
 - <!--  TBD – IS, ASDK --> *Basic A* grootten van virtuele machines buiten gebruik worden gesteld voor [het maken van virtuele-machineschaalsets](.\.\azure-stack-compute-add-scalesets.md) (VMSS) via de portal. Als u wilt een VMSS te maken met deze grootte, PowerShell of een sjabloon te gebruiken. 
 
@@ -207,7 +209,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
  
 - <!-- 2536808 IS ASDK --> **Aanmaaktijd van de virtuele machine verbeterd** voor virtuele machines die zijn gemaakt met de installatiekopieën die u vanuit de Azure marketplace downloaden.
 
-### <a name="fixed-issues"></a>Opgeloste problemen
+### <a name="fixed-issues"></a>Problemen opgelost
 
 - <!-- TBD | ASDK, IS --> Er zijn verschillende verbeteringen aangebracht in het updateproces zodat deze betrouwbaarder. Bovendien zijn verbeteringen aangebracht aan onderliggende infrastructuur, wat zorgt voor betere knooppunt drain, waardoor de mogelijke downtime voor workloads tijdens het bijwerken worden geminimaliseerd.
 
@@ -375,7 +377,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
   Hoewel deze functie nog in preview, al dan niet mogen deze in een productieomgeving wordt vertrouwd.   
 
 
-### <a name="fixed-issues"></a>Opgeloste problemen
+### <a name="fixed-issues"></a>Problemen opgelost
 - We het probleem opgelost dat geblokkeerd [een nieuwe ondersteuningsaanvraag te openen in de vervolgkeuzelijst](.\.\azure-stack-manage-portals.md#quick-access-to-help-and-support) uit in de beheerportal. Nu deze optie werkt zoals bedoeld.
 
 - <!--  TBD ASDK --> De virtuele machine die als host fungeert voor het eindpunt van de bevoegdheden (PEP) is verhoogd tot 4GB. In de ASDK heet deze virtuele machine AzS-ERCS01.

@@ -1,6 +1,6 @@
 ---
-title: Vervangen van een fysieke schijf in Azure-Stack | Microsoft Docs
-description: Geeft een overzicht van het proces voor het vervangen van een fysieke schijf in Azure-Stack.
+title: Vervangen van een fysieke schijf in Azure Stack | Microsoft Docs
+description: Geeft een overzicht van het proces voor het vervangen van een fysieke schijf in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,69 +12,69 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: f168c005c729ae75a5369b80b3dc5eab03ee0243
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 7ce501be5458282273e51a5b2bc18482592d2333
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
-ms.locfileid: "30311318"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44376949"
 ---
-# <a name="replace-a-physical-disk-in-azure-stack"></a>Een fysieke schijf in de Azure-Stack vervangen
+# <a name="replace-a-physical-disk-in-azure-stack"></a>Vervangen van een fysieke schijf in Azure Stack
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-In dit artikel beschrijft het algemene proces ter vervanging van een fysieke schijf in Azure-Stack. Als een fysieke schijf uitvalt, moet u deze zo snel mogelijk vervangen.
+In dit artikel beschrijft het algemene proces ter vervanging van een fysieke schijf in Azure Stack. Als een fysieke schijf is mislukt, moet u deze zo snel mogelijk vervangen.
 
-U kunt deze procedure gebruiken voor geïntegreerde systemen, en development kit implementaties die hot verwisselbare schijven hebben.
+U kunt deze procedure gebruiken voor geïntegreerde systemen, en voor development kit implementaties met hot swappable schijven.
 
-Nieuwe werkelijke schijf stappen varieert gebaseerd op uw hardwareleverancier oorspronkelijke leveranciers (OEM). Raadpleeg uw leverancier veld FRU (replaceable unit)-documentatie voor gedetailleerde stappen die specifiek voor uw systeem zijn. 
+Nieuwe werkelijke schijf stappen verschillen, is afhankelijk van uw hardwareleverancier oorspronkelijke leveranciers (OEM). Zie van uw leverancier veld FRU (replaceable unit)-documentatie voor gedetailleerde stappen die specifiek voor uw systeem zijn. 
 
-## <a name="review-disk-alert-information"></a>Controleer waarschuwing schijfinformatie
-Als een schijf uitvalt, ontvangt u een waarschuwing dat aangeeft dat de verbinding verbroken met een fysieke schijf is. 
+## <a name="review-disk-alert-information"></a>Bekijk informatie over de waarschuwingen van schijf
+Wanneer u een schijf uitvalt, ontvangt u een waarschuwing die aangeeft dat de verbinding verbroken met een fysieke schijf is. 
 
- ![Waarschuwing weer verbinding met de fysieke schijf is verbroken](media/azure-stack-replace-disk/DiskAlert.png)
+ ![Waarschuwing weergeven verbinding met de fysieke schijf is verbroken](media/azure-stack-replace-disk/DiskAlert.png)
 
-Als u de waarschuwing opent, wordt de beschrijving van de waarschuwing bevat het scale unit-knooppunt en de locatie van de exacte fysieke sleuf voor de schijf die u moet vervangen. Azure Stack verder helpt u bij het identificeren van de defecte schijf gemaakt met behulp van LED indicator mogelijkheden.
+Als u de waarschuwing opent, wordt de beschrijving van de waarschuwing bevat het scale unit-knooppunt en de exacte fysieke sleuf locatie voor de schijf die u moet vervangen. Meer Azure Stack helpt u bij het identificeren van de niet-werkende schijf met behulp van LED indicator mogelijkheden.
 
- ## <a name="replace-the-disk"></a>Vervang de schijf
+ ## <a name="replace-the-disk"></a>De schijf vervangen
 
-Volg de OEM-hardwareleverancier FRU instructies voor de werkelijke schijf is vervangen.
+Ga als volgt uw OEM-hardwareleverancier FRU instructies voor het werkelijke schijf is vervangen.
 
 > [!note]
-> Schijven voor één scale unit knooppunt tegelijk vervangen. Wacht totdat de taken voor het herstellen van virtuele schijf voltooien voordat u doorgaat naar de volgende scale unit knooppunt
+> Vervang schijven voor een scale unit knooppunt tegelijk. Wacht totdat de taken voor het herstellen van virtuele schijf om te voltooien voordat u doorgaat met de volgende scale unit-knooppunt
 
-Om te voorkomen dat het gebruik van een niet-ondersteunde schijf in een geïntegreerd systeem, blokkeert het systeem worden niet ondersteund door de leverancier van uw schijven. Als u probeert een niet-ondersteunde schijf gebruiken, een nieuwe waarschuwing geeft aan dat een schijf heeft in quarantaine vanwege een niet-ondersteunde model of de firmware.
+Als u wilt voorkomen dat het gebruik van een niet-ondersteunde schijf in een geïntegreerd systeem, blokkeert het systeem worden niet ondersteund door de leverancier van uw schijven. Als u probeert om een niet-ondersteunde schijf te gebruiken, een nieuwe waarschuwing geeft aan dat een schijf is in quarantaine vanwege een niet-ondersteunde model of de firmware.
 
-Nadat u de schijf vervangt, wordt Azure Stack automatisch de nieuwe schijf detecteert en het herstelproces virtuele schijf wordt gestart.  
+Nadat u de schijf vervangt, Azure Stack automatisch de nieuwe schijf wordt gedetecteerd en wordt het reparatieproces virtuele schijf gestart.  
  
  ## <a name="check-the-status-of-virtual-disk-repair"></a>Controleer de status van de virtuele schijf herstellen
  
- Nadat u de schijf vervangt, kunt u de status van de virtuele schijf controleren en voortgang taak herstellen met behulp van de bevoegde eindpunt. Volg deze stappen vanaf elke computer die een netwerkverbinding met het bevoorrechte eindpunt heeft.
+ Nadat u de schijf vervangt, kunt u de status van de virtuele schijf controleren en taakvoortgang herstellen met behulp van het eindpunt van de bevoegdheden. Volg deze stappen vanaf elke computer die een netwerkverbinding met het eindpunt van de bevoegdheden heeft.
 
-1. Open een Windows PowerShell-sessie en verbinding maken met de bevoorrechte eindpunt.
+1. Open een Windows PowerShell-sessie en maak verbinding met het eindpunt van de bevoegdheden.
     ````PowerShell
         $cred = Get-Credential
         Enter-PSSession -ComputerName <IP_address_of_ERCS>`
           -ConfigurationName PrivilegedEndpoint -Credential $cred
     ```` 
   
-2. Voer de volgende opdracht om weer te geven van de status van de virtuele schijf:
+2. Voer de volgende opdracht om de status van virtuele schijf weer te geven:
     ````PowerShell
         Get-VirtualDisk -CimSession s-cluster
     ````
-   ![De uitvoer van de PowerShell-opdracht Get-VirtualDisk](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
+   ![PowerShell-uitvoer van de opdracht Get-VirtualDisk](media/azure-stack-replace-disk/GetVirtualDiskOutput.png)
 
-3. Voer de volgende opdracht om weer te geven van de huidige taakstatus van opslag:
+3. Voer de volgende opdracht om de huidige status van de opslag-taak weergeven:
     ```PowerShell
         Get-VirtualDisk -CimSession s-cluster | Get-StorageJob
     ````
-      ![De uitvoer van de PowerShell-opdracht Get-StorageJob](media/azure-stack-replace-disk/GetStorageJobOutput.png)
+      ![PowerShell-uitvoer van de opdracht Get-StorageJob](media/azure-stack-replace-disk/GetStorageJobOutput.png)
 
-## <a name="troubleshoot-virtual-disk-repair"></a>Reparatie van de virtuele schijf oplossen
+## <a name="troubleshoot-virtual-disk-repair"></a>Herstel van virtuele schijf oplossen
 
-De virtuele schijf repareren taak wordt weergegeven als vastgelopen, voer de volgende opdracht om de taak opnieuw starten:
+Als de virtuele schijf herstellen weergegeven taak vastgelopen, uitvoeren van de volgende opdracht uit om de taak opnieuw starten:
   ````PowerShell
         Get-VirtualDisk -CimSession s-cluster | Repair-VirtualDisk
   ```` 

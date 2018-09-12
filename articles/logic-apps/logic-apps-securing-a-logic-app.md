@@ -10,12 +10,12 @@ ms.reviewer: estfan, LADocs
 ms.assetid: 9fab1050-cfbc-4a8b-b1b3-5531bee92856
 ms.topic: article
 ms.date: 11/22/2016
-ms.openlocfilehash: fc4fdff5080e6ebe13850157e8d560a1d31e7719
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 1307b6df22c51af9710d44abb23178d65e3507aa
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43127476"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377391"
 ---
 # <a name="secure-access-in-azure-logic-apps"></a>Beveiligde toegang in Azure Logic Apps
 
@@ -77,7 +77,7 @@ Deze instelling kan worden geconfigureerd in de logische app-instellingen:
 1. Klik op de **Werkstroominstellingen** menu-item onder **instellingen**
 1. Geef de lijst met IP-adresbereiken worden geaccepteerd door de trigger
 
-Een geldig IP-bereik heeft de notatie `192.168.1.1/255`. Als u wilt dat de logische app alleen wordt geactiveerd als een geneste logische app, selecteert u de **alleen andere logische apps** optie. Deze optie schrijft een lege matrix naar de resource, betekenis alleen aanroepen van de service zelf (bovenliggende logische apps) is gestart.
+Een geldig IP-bereik heeft de notatie `192.168.1.1/32`. Als u wilt dat de logische app alleen wordt geactiveerd als een geneste logische app, selecteert u de **alleen andere logische apps** optie. Deze optie schrijft een lege matrix naar de resource, betekenis alleen aanroepen van de service zelf (bovenliggende logische apps) is gestart.
 
 > [!NOTE]
 > U kunt nog steeds een logische app uitvoeren met een trigger voor de aanvraag via de REST-API / Management `/triggers/{triggerName}/run` , ongeacht de IP. Dit scenario is vereist voor verificatie op basis van de Azure REST API en alle gebeurtenissen wordt weergegeven in het auditlogboek van Azure. Toegang instellen toegangsbeheerbeleid dienovereenkomstig.

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 196882cf4515be8afd129128402e9eaee322cb4b
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1bb6e464b748f2558cec35a95554bb3e08b667f0
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093580"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378326"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële Console van virtuele Machine (preview) 
 
@@ -98,7 +98,10 @@ De seriële Console kan worden gebruikt voor het verzenden van een NMI met een A
 Zie voor meer informatie over het configureren van Windows voor het maken van een crashdump wanneer deze een NMI ontvangt: [het genereren van een volledige crashdumpbestand of een kernel crashdumpbestand met behulp van een NMI op een Windows-systeem](https://support.microsoft.com/en-us/help/927069/how-to-generate-a-complete-crash-dump-file-or-a-kernel-crash-dump-file)
 
 ## <a name="disable-serial-console"></a>Seriële Console uitschakelen
-Standaard hebben alle abonnementen seriële console-toegang ingeschakeld voor alle virtuele machines. U kunt de seriële console van het abonnement of de VM-niveau uitschakelen.
+Standaard hebben alle abonnementen seriële console-toegang ingeschakeld voor alle virtuele machines. U kunt de seriële console van het abonnement of de VM-niveau uitschakelen. 
+
+> [!Note] 
+> Als u wilt in- of uitschakelen voor een abonnement op de seriële console, moet u hebt schrijfmachtigingen voor het abonnement. Dit omvat, maar is niet beperkt tot de beheerder of eigenaar van rollen. Aangepaste rollen kunnen ook schrijfmachtigingen hebben.
 
 ### <a name="subscription-level-disable"></a>Abonnementsniveau uitschakelen
 Seriële Console kan worden uitgeschakeld voor een volledige abonnement door via de [uitschakelen Console REST API-aanroep](https://aka.ms/disableserialconsoleapi). U kunt het 'Try It' functionaliteit die beschikbaar is op de pagina van de API-documentatie uitschakelen en inschakelen van de seriële Console voor een abonnement. Voer uw `subscriptionId`, 'standaard' in de `default` veld en klik op uitvoeren. Azure CLI-opdrachten zijn nog niet beschikbaar en wordt bezorgd moeten worden op een later tijdstip. [Probeer de REST-API-aanroep hier](https://aka.ms/disableserialconsoleapi).
@@ -190,7 +193,6 @@ Aangezien we nog steeds in de previewfase voor toegang tot de seriële console, 
 
 Probleem                             |   Oplossing 
 :---------------------------------|:--------------------------------------------|
-Er bestaat geen optie met virtual machine scale set exemplaar seriële console | Toegang tot de seriële console voor schaalsetinstanties virtuele machine wordt niet ondersteund op het moment van de Preview-versie.
 Nadat de banner van de verbinding wordt niet weergegeven voor een logboek in de prompt te maken met invoeren | Raadpleeg deze pagina: [Hitting invoeren, gebeurt er niets](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Dit kan gebeuren als u een aangepaste virtuele machine uitvoert, beveiligde toestel of WORMGATEN configuratie die Windows causers als u wilt geen correct verbinding maken met de seriële poort.
 Alleen gegevens over de servicestatus wordt weergegeven bij het verbinden met een Windows-VM| Dit wordt weergegeven als de beheerconsole van speciale niet is ingeschakeld voor uw Windows-installatiekopie. Zie [toegang seriële Console voor Windows](#access-serial-console-for-windows) voor instructies over het handmatig inschakelen SAC op uw Windows-VM. Meer informatie kunnen u vinden op [Windows Health signalen](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Kan niet naar het type op SAC vragen als kernelfoutopsporing is ingeschakeld | RDP-verbinding VM en voer `bcdedit /debug {current} off` vanaf een opdrachtprompt met verhoogde bevoegdheid. Als u niet de RDP-verbinding kunt u in plaats daarvan de besturingssysteemschijf koppelen aan een andere Azure-virtuele machine en wijzigen terwijl gekoppeld als een gegevens-schijf met `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, klikt u vervolgens wisselen de schijf weer.
@@ -203,9 +205,25 @@ Een antwoord 'Verboden' is opgetreden bij het openen van deze virtuele machine o
 
 A. Feedback geven als het probleem door te gaan naar https://aka.ms/serialconsolefeedback. U kunt ook minder (aanbevolen) feedback verzenden via azserialhelp@microsoft.com of in de categorie van de virtuele machine van de http://feedback.azure.com
 
-**Q. Ik ben geen toegang krijgen tot de seriële console, waar kan ik een ondersteuningsaanvraag bestand?**
+**Q. Biedt ondersteuning voor de seriële console kopiëren/plakken?**
 
-A. Deze preview-functie wordt behandeld via Azure Preview-voorwaarden. Ondersteuning voor dit is het beste worden opgelost via de kanalen die hierboven worden vermeld. 
+A. Ja doet. Gebruik Ctrl + Shift + C en Ctrl + Shift + V om te kopiëren en plakken in de terminal.
+
+**Q. Wie kunt inschakelen of uitschakelen van de seriële console voor mijn abonnement?**
+
+A. Als u wilt in- of uitschakelen van de seriële console op het niveau van een brede, door het abonnement, moet u hebt schrijfmachtigingen voor het abonnement. Rollen die gemachtigd te schrijven bevatten, maar niet beperkt zijn tot de beheerder of eigenaar van rollen. Aangepaste rollen kunnen ook schrijfmachtigingen hebben.
+
+**Q. Wie toegang heeft tot de seriële console voor mijn VM?**
+
+A. Hebt u toegang van Inzender-niveau of hoger met een virtuele machine voor toegang tot de seriële console van de virtuele machine. 
+
+**Q. Mijn seriële console niet wordt weergegeven van alles zijn, wat moet ik doen?**
+
+A. Uw installatiekopie is waarschijnlijk niet goed is geconfigureerd voor toegang tot de seriële console. Zie [seriële Console inschakelen in aangepaste of oudere installatiekopieën](#Enable-Serial-Console-in-custom-or-older-images) voor meer informatie over het configureren van de afbeelding om in te schakelen van de seriële console.
+
+**Q. Seriële console beschikbaar is voor Virtual Machine Scale Sets?**
+
+A. Toegang tot de seriële console voor schaalsetinstanties virtuele machine wordt niet ondersteund op dit moment.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Voor een uitgebreide handleiding voor het CMD- en PowerShell-opdrachten kunt u in de Windows-SAC, klikt u op [hier](serial-console-cmd-ps-commands.md).

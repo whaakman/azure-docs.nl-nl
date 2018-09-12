@@ -1,6 +1,6 @@
 ---
-title: '.NET SDK: Bestandssysteembewerkingen in Azure Data Lake Store | Microsoft Docs'
-description: Gebruik Azure Data Lake Store .NET SDK om bestandssysteembewerkingen uit te voeren op Data Lake Store, bijvoorbeeld om mappen te maken enzovoort.
+title: '.NET SDK: Bestandssysteembewerkingen in Azure Data Lake Storage Gen1 | Microsoft Docs'
+description: Gebruik Azure Data Lake Storage Gen1 .NET SDK voor het uitvoeren van bestandssysteembewerkingen in Data Lake Storage Gen1 zoals om mappen te maken enzovoort.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -8,18 +8,17 @@ manager: jhubbard
 editor: cgronlun
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/30/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 1094a5ea3c000707aa7736d22d4df0558da32b5e
-ms.sourcegitcommit: 088a8788d69a63a8e1333ad272d4a299cb19316e
-ms.translationtype: HT
+ms.openlocfilehash: 71ddbc2363075b721bfbd418bd29e5154baba866
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/27/2018
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391484"
 ---
-# <a name="filesystem-operations-on-azure-data-lake-store-using-net-sdk"></a>Bestandssysteembewerkingen in Azure Data Lake Store met behulp van .NET SDK
+# <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Bestandssysteembewerkingen in Azure Data Lake Storage Gen1 met .NET SDK
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java-SDK](data-lake-store-get-started-java-sdk.md)
@@ -28,16 +27,16 @@ ms.lasthandoff: 02/27/2018
 >
 >
 
-In dit artikel leert u hoe u .NET SDK gebruikt voor het uitvoeren van bestandssysteembewerkingen in Data Lake Store. Voorbeelden van bestandssysteembewerkingen zijn het maken van mappen in een Data Lake Store-account, het uploaden van bestanden, het downloaden van bestanden, enzovoort.
+In dit artikel leert u hoe u uitvoeren van bestandssysteembewerkingen in Data Lake Storage Gen1 met .NET SDK. Bestandssysteembewerkingen zijn het maken van mappen in een Data Lake Storage Gen1 account, het uploaden van bestanden, het downloaden van bestanden, enzovoort.
 
-Als u wilt weten hoe u .NET SDK gebruikt voor het uitvoeren van accountbeheerbewerkingen in Data Lake Store, raadpleegt u [Accountbeheerbewerkingen - Aan de slag met Azure Data Lake Store met .NET SDK](data-lake-store-get-started-net-sdk.md).
+Zie voor instructies over het uitvoeren van accountbeheerbewerkingen in Data Lake Storage Gen1 met .NET SDK [accountbeheerbewerkingen in Data Lake Storage Gen1 met .NET SDK](data-lake-store-get-started-net-sdk.md).
 
 ## <a name="prerequisites"></a>Vereisten
 * **Visual Studio 2013, 2015 of 2017**. In onderstaande instructies wordt Visual Studio 2017 gebruikt.
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Azure Data Lake Store-account**. Zie voor instructies over het maken van een account [Aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md)
+* **Azure Data Lake Storage Gen1 account**. Zie voor instructies over het maken van een account [aan de slag met Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
 ## <a name="create-a-net-application"></a>Een .NET-toepassing maken
 Dit codevoorbeeld beschikbaar [in GitHub](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted) doorloopt het proces waarin bestanden in het archief worden gemaakt, bestanden worden samengevoegd, een bestand wordt gedownload en een aantal bestanden uit het archief wordt verwijderd. In dit gedeelte van het artikel komen de belangrijkste onderdelen van de code aan bod.
@@ -48,7 +47,7 @@ Dit codevoorbeeld beschikbaar [in GitHub](https://github.com/Azure-Samples/data-
 
    | Eigenschap | Waarde |
    | --- | --- |
-   | Category |Templates/Visual C#/Windows |
+   | Categorie |Templates/Visual C#/Windows |
    | Template |Console Application |
    | Name |CreateADLApplication |
 
@@ -85,7 +84,7 @@ Dit codevoorbeeld beschikbaar [in GitHub](https://github.com/Azure-Samples/data-
         {
             class Program
             {
-                private static string _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net";        
+                private static string _adlsg1AccountName = "<DATA-LAKE-STORAGE-GEN1-NAME>.azuredatalakestore.net";        
             }
         }
 
@@ -93,21 +92,21 @@ In de rest van het artikel ziet u het gebruik van de beschikbare .NET-methoden v
 
 ## <a name="authentication"></a>Verificatie
 
-* Zie [End-user authentication with Data Lake Store using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md) (Eindgebruikersverificatie met Data Lake Store met behulp van .NET SDK) voor de verificatie van eindgebruikers voor uw toepassing.
-* Zie [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md) (Service-naar-serviceverificatie met Data Lake Store met behulp van .NET SDK) voor service-naar-serviceverificatie voor uw toepassing.
+* Zie voor verificatie van eindgebruikers voor uw toepassing, [eindgebruikersverificatie met Data Lake Storage Gen1 met .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
+* Zie voor service-naar-serviceverificatie voor uw toepassing, [Service-naar-serviceverificatie met Data Lake Storage Gen1 met .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 
 ## <a name="create-client-object"></a>Clientobject maken
-Met het volgende codefragment wordt het clientobject voor het bestandssysteem voor Data Lake Store gemaakt. Dit object wordt gebruikt voor het verzenden van aanvragen naar de service.
+Het volgende fragment wordt de Data Lake Storage Gen1 clientobject, dat wordt gebruikt voor het verzenden van aanvragen naar de service.
 
     // Create client objects
-    AdlsClient client = AdlsClient.CreateClient(_adlsAccountName, adlCreds);
+    AdlsClient client = AdlsClient.CreateClient(_adlsg1AccountName, adlCreds);
 
 ## <a name="create-a-file-and-directory"></a>Een bestand en map maken
 Voeg het volgende codefragment toe aan uw toepassing. Met dit codefragment wordt een bestand toegevoegd, evenals bovenliggende mappen die niet bestaan.
 
     // Create a file - automatically creates any parent directories that don't exist
-    // The AdlsOuputStream preserves record boundaries - it does not break records while writing to the store
+    // The AdlsOutputStream preserves record boundaries - it does not break records while writing to the store
     using (var stream = client.CreateFile(fileName, IfExists.Overwrite))
     {
         byte[] textByteArray = Encoding.UTF8.GetBytes("This is test data to write.\r\n");
@@ -118,7 +117,7 @@ Voeg het volgende codefragment toe aan uw toepassing. Met dit codefragment wordt
     }
 
 ## <a name="append-to-a-file"></a>Toevoegen aan een bestand
-Met het volgende codefragment worden gegevens toegevoegd aan het einde van een bestaand bestand in het Data Lake Store-account.
+Het volgende codefragment worden gegevens toegevoegd aan een bestaand bestand in Data Lake Storage Gen1-account.
 
     // Append to existing file
     using (var stream = client.GetAppendStream(fileName))
@@ -128,7 +127,7 @@ Met het volgende codefragment worden gegevens toegevoegd aan het einde van een b
     }
 
 ## <a name="read-a-file"></a>Een bestand lezen
-Met het volgende codefragment wordt de inhoud van een bestand in Data Lake Store gelezen.
+Het volgende codefragment wordt de inhoud van een bestand in Data Lake Storage Gen1 gelezen.
 
     //Read file contents
     using (var readStream = new StreamReader(client.GetReadStream(fileName)))
@@ -150,14 +149,14 @@ Het volgende codefragment retourneert de eigenschappen die zijn gekoppeld aan ee
 De definitie van de methode `PrintDirectoryEntry` is beschikbaar als onderdeel van de voorbeeld-[-code op Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted). 
 
 ## <a name="rename-a-file"></a>De naam van een bestand wijzigen
-In het volgende codefragment wordt de naam gewijzigd van een bestaand bestand in een Data Lake Store-account.
+Het volgende codefragment wijzigt de naam van een bestaand bestand in een Data Lake Storage Gen1-account.
 
     // Rename a file
     string destFilePath = "/Test/testRenameDest3.txt";
     client.Rename(fileName, destFilePath, true);
 
 ## <a name="enumerate-a-directory"></a>Een map opsommen
-In het volgende codefragment worden de mappen in een Data Lake Store-account opgesomd.
+Het volgende codefragment worden opgesomd mappen in een Data Lake Storage Gen1-account
 
     // Enumerate directory
     foreach (var entry in client.EnumerateDirectory("/Test"))
@@ -170,17 +169,17 @@ De definitie van de methode `PrintDirectoryEntry` is beschikbaar als onderdeel v
 ## <a name="delete-directories-recursively"></a>Mappen recursief verwijderen
 Met het volgende codefragment worden een map, en alle bijbehorende submappen, recursief verwijderd.
 
-    // Delete a directory and all it's subdirectories and files
+    // Delete a directory and all its subdirectories and files
     client.DeleteRecursive("/Test");
 
 ## <a name="samples"></a>Voorbeelden
-Hier volgen enkele voorbeelden van het gebruik van de bestandssysteem-SDK voor Data Lake Store.
+Hier volgen enkele voorbeelden over het gebruik van de Data Lake Storage Gen1 bestandssysteem-SDK.
 * [Eenvoudig voorbeeld op Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-get-started/tree/master/AdlsSDKGettingStarted)
 * [Geavanceerd voorbeeld op Github](https://github.com/Azure-Samples/data-lake-store-adls-dot-net-samples)
 
 ## <a name="see-also"></a>Zie ook
-* [Accountbeheerbewerkingen - Aan de slag met Azure Data Lake Store met .NET SDK](data-lake-store-get-started-net-sdk.md)
-* [Naslaginformatie over Data Lake Store .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Accountbeheerbewerkingen in Data Lake Storage Gen1 met .NET SDK](data-lake-store-get-started-net-sdk.md)
+* [Naslaginformatie over Data Lake Storage Gen1 .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
+* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)

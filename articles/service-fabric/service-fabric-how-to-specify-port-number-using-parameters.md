@@ -1,6 +1,6 @@
 ---
-title: Het poortnummer van een service met behulp van de parameters in Azure Service Fabric opgeven | Microsoft Docs
-description: Ziet u hoe u parameters gebruiken om op te geven van de poort voor een toepassing in Service Fabric
+title: Het opgeven van het poortnummer van een service met behulp van parameters in Azure Service Fabric | Microsoft Docs
+description: Ziet u hoe u kunt parameters gebruiken om op te geven van de poort voor een toepassing in Service Fabric
 documentationcenter: .net
 author: mikkelhegn
 manager: markfuss
@@ -12,28 +12,28 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 12/06/2017
 ms.author: mikhegn
-ms.openlocfilehash: 06cfb375c6c18082a0d0316cfcb742a7779fc8a8
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: d69e02126564388bf045693b9960e6e574307641
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34206375"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391331"
 ---
-# <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Het poortnummer van een service met behulp van de parameters in Service Fabric opgeven
+# <a name="how-to-specify-the-port-number-of-a-service-using-parameters-in-service-fabric"></a>Het opgeven van het poortnummer van een service met behulp van parameters in Service Fabric
 
-Dit artikel ziet u hoe u het poortnummer van een service met behulp van de parameters in Service Fabric opgeven met behulp van Visual Studio.
+Dit artikel ziet u hoe u het poortnummer van een service met behulp van parameters in Service Fabric met Visual Studio.
 
-## <a name="procedure-for-specifying-the-port-number-of-a-service-using-parameters"></a>Procedure voor het opgeven van het poortnummer van een service met parameters
+## <a name="procedure-for-specifying-the-port-number-of-a-service-using-parameters"></a>Procedure voor het opgeven van het poortnummer van een service met behulp van parameters
 
-In dit voorbeeld stelt u het poortnummer voor uw web-API met behulp van een parameter van asp.net core.
+In dit voorbeeld stelt u het poortnummer voor uw asp.net core web-API met behulp van een parameter.
 
 1. Open Visual Studio en maak een nieuwe Service Fabric-toepassing.
-1. Kies een sjabloon voor de staatloze ASP.NET Core.
-1. Kies de Web-API.
+1. Kies de Stateless ASP.NET Core-sjabloon.
+1. Kies Web-API.
 1. Open het bestand ServiceManifest.xml.
 1. Noteer de naam van het eindpunt dat is opgegeven voor uw service. De standaardwaarde is `ServiceEndpoint`.
 1. Open het bestand ApplicationManifest.xml
-1. In de `ServiceManifestImport` element, Voeg een nieuwe `RessourceOverrides` element met een verwijzing naar het eindpunt in uw bestand ServiceManifest.xml.
+1. In de `ServiceManifestImport` -element, toevoegen van een nieuwe `RessourceOverrides` element met een verwijzing naar het eindpunt in het bestand ServiceManifest.xml.
 
     ```xml
       <ServiceManifestImport>
@@ -47,7 +47,7 @@ In dit voorbeeld stelt u het poortnummer voor uw web-API met behulp van een para
       </ServiceManifestImport>
     ```
 
-1. In de `Endpoint` element, kunt u nu een kenmerk met een parameter overschrijven. In dit voorbeeld u `Port` en wordt ingesteld op een parameternaam met vierkante haken - bijvoorbeeld `[MyWebAPI_PortNumber]`
+1. In de `Endpoint` -element, kunt u nu een kenmerk met een parameter overschrijven. In dit voorbeeld geeft u `Port` en stel deze in op de naam van een parameter met behulp van de vierkante haken - bijvoorbeeld `[MyWebAPI_PortNumber]`
 
     ```xml
       <ServiceManifestImport>
@@ -61,7 +61,7 @@ In dit voorbeeld stelt u het poortnummer voor uw web-API met behulp van een para
       </ServiceManifestImport>
     ```
 
-1. Nog steeds in het bestand ApplicationManifest.xml, geeft u vervolgens de parameter in de `Parameters` element
+1. Nog steeds in het bestand ApplicationManifest.xml geeft u vervolgens de parameter in de `Parameters` element
 
     ```xml
       <Parameters>
@@ -78,17 +78,17 @@ In dit voorbeeld stelt u het poortnummer voor uw web-API met behulp van een para
     ```
 
 1. Open de map ApplicationParameters en de `Cloud.xml` bestand
-1. Geef een andere poort moet worden gebruikt bij het publiceren naar een externe cluster door moet u de parameter toevoegen met het poortnummer aan dit bestand.
+1. Als u wilt een andere poort moet worden gebruikt bij het publiceren naar een extern cluster opgeven, moet u de parameter toevoegen met het poortnummer dat aan dit bestand.
 
     ```xml
       <Parameters>
-        <Parameter Name="MyWebAPI_PortNumber" DefaultValue="80" />
+        <Parameter Name="MyWebAPI_PortNumber" Value="80" />
       </Parameters>
     ```
 
-Bij het publiceren van uw toepassing vanuit Visual Studio met behulp van de Cloud.xml publicatieprofiel, wordt de service is geconfigureerd om poort 80 te gebruiken. Als u de toepassing zonder op te geven van de parameter MyWebAPI_PortNumber implementeert, wordt de service poort 8080 gebruikt.
+Bij het publiceren van uw toepassing vanuit Visual Studio met behulp van de Cloud.xml publicatieprofiel, wordt uw service is geconfigureerd om poort 80 te gebruiken. Als u de toepassing implementeren zonder de parameter MyWebAPI_PortNumber op te geven, gebruikt de service poort 8080.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over een aantal van de belangrijkste concepten die worden beschreven in dit artikel, de [beheren van toepassingen voor artikelen in meerdere omgevingen](service-fabric-manage-multiple-environment-app-configuration.md).
+Zie voor meer informatie over een aantal van de belangrijkste concepten die in dit artikel worden besproken, de [beheren van toepassingen voor meerdere omgevingen artikelen](service-fabric-manage-multiple-environment-app-configuration.md).
 
 Zie voor meer informatie over de mogelijkheden van andere app-beheer die beschikbaar in Visual Studio zijn [beheren van uw Service Fabric-toepassingen in Visual Studio](service-fabric-manage-application-in-visual-studio.md).

@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: fb9193066c9501341efb779b9f9e2ccace02cccf
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: a43c52143f936eaefd4383714b1c67b6b74d34e8
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888201"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378666"
 ---
 # <a name="how-to-use-the-expected-entity-property-of-actions"></a>Het gebruik van de eigenschap 'Verwachte entiteit' van acties
 
@@ -65,7 +65,7 @@ Concrete invulling te geven, als het veld 'verwachte entiteit' van een actie is 
     - Deze waarde betekent dat als deze vraag wordt gesteld en de reactie van de gebruiker beschikt niet over de entiteiten die zijn gedetecteerd, de bot moet ervan uitgaan dat het geheel van het antwoord van de gebruiker is deze entiteit.
 2. Klik op acties en vervolgens een nieuwe actie voor het maken van een tweede actie.
 3. Typ in het antwoord 'Hallo $name'.
-    - De entiteit wordt automatisch toegevoegd als een vereiste entiteiten. 
+    - Houd er rekening mee dat de entiteit wordt automatisch toegevoegd als een vereiste entiteiten. 
 4. Klik op Opslaan.
 
 U hebt nu twee acties.

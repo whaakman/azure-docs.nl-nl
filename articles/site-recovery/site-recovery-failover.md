@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/11/2018
 ms.author: ponatara
-ms.openlocfilehash: 3ef52030f694b0f9ccf2bd10545918a4fae9f2ee
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: c9a2f258ca952ca36000e1ca0630fbde31ba7ba0
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37918302"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391314"
 ---
 # <a name="failover-in-site-recovery"></a>Failover in Site Recovery
 Dit artikel wordt beschreven hoe failover-virtuele machines en fysieke servers beveiligd door Site Recovery.
@@ -31,14 +31,14 @@ Gebruik de volgende tabel om te weten over de opties voor failover geleverd door
 
 
 ## <a name="run-a-failover"></a>Een failover uitvoeren
-Deze procedure wordt beschreven hoe u een failover uitvoeren voor een [herstelplan](site-recovery-create-recovery-plans.md). U kunt ook uitvoeren de failover voor een enkele virtuele machine of fysieke server uit de **gerepliceerde items** pagina
+Deze procedure wordt beschreven hoe u een failover uitvoeren voor een [herstelplan](site-recovery-create-recovery-plans.md). U kunt ook uitvoeren de failover voor een enkele virtuele machine of fysieke server uit de **gerepliceerde items** pagina zoals wordt beschreven [hier](vmware-azure-tutorial-failover-failback.md#run-a-failover-to-azure).
 
 
 ![Failover](./media/site-recovery-failover/Failover.png)
 
 1. Selecteer **herstelplannen** > *recoveryplan_name*. Klik op **Failover**
 2. Op de **Failover** scherm, selecteer een **herstelpunt** voor de failover. U kunt een van de volgende opties gebruiken:
-    1.  **Meest recente** (standaard): deze optie om de taak starten door eerst alle gegevens die is verzonden naar Site Recovery-service verwerkt. Verwerken van de gegevens, maakt een herstelpunt voor elke virtuele machine. Dit herstelpunt wordt gebruikt door de virtuele machine tijdens de failover. Deze optie biedt het laagste RPO (Recovery Point Objective) als de virtuele machine gemaakt nadat de failover heeft alle gegevens die is gerepliceerd naar de Site Recovery-service wanneer de failover werd geactiveerd.
+    1.  **Meest recente**: deze optie om de taak starten door eerst alle gegevens die is verzonden naar Site Recovery-service verwerkt. Verwerken van de gegevens, maakt een herstelpunt voor elke virtuele machine. Dit herstelpunt wordt gebruikt door de virtuele machine tijdens de failover. Deze optie biedt het laagste RPO (Recovery Point Objective) als de virtuele machine gemaakt nadat de failover heeft alle gegevens die is gerepliceerd naar de Site Recovery-service wanneer de failover werd geactiveerd.
     1.  **Laatst verwerkte**: deze optie wordt er een failover van alle virtuele machines van het herstelplan te gaan naar de meest recente herstelpunt dat al is verwerkt door Site Recovery-service. Wanneer u test-failover van een virtuele machine uitvoert, wordt ook de tijdstempel van de meest recente verwerkte herstelpunt weergegeven. Als u failover van een herstelplan te gaan doen, kunt u deze gaat u naar de afzonderlijke virtuele machine en bekijk **laatste herstelpunten** tegel om deze informatie te verkrijgen. Als er geen tijd besteed aan voor het verwerken van de niet-verwerkte gegevens, biedt deze optie een lage RTO (Recovery Time Objective) failover-optie.
     1.  **Laatste toepassingsconsistente**: deze optie wordt er een failover van alle virtuele machines van het herstelplan te gaan naar de meest recente toepassingsconsistente herstelpunt uitgevoerd die al is verwerkt door Site Recovery-service. Wanneer u test-failover van een virtuele machine uitvoert, wordt ook de tijdstempel van de meest recente toepassingsconsistente herstelpunt weergegeven. Als u failover van een herstelplan te gaan doen, kunt u deze gaat u naar de afzonderlijke virtuele machine en bekijk **laatste herstelpunten** tegel om deze informatie te verkrijgen.
     1.  **Meest recente verwerkte multi-VM**: deze optie is alleen beschikbaar voor herstelplannen met ten minste één virtuele machine met multi-VM-consistentie op. Virtuele machines die deel van een failover van de groep replicatie naar de meest recente toepassingsconsistente herstelpunt van algemene multi-VM uitmaken verwijzen. De failover van andere virtuele machines naar hun meest recente verwerkte herstelpunt.  
@@ -104,18 +104,19 @@ Failover van virtuele machines vereist in bepaalde gevallen, een extra tussensta
 
 In alle andere gevallen, deze tussenliggende stap is niet vereist en de gebruikte tijd voor de failover is lager.
 
-
-
-
-
 ## <a name="using-scripts-in-failover"></a>Met behulp van scripts tijdens Failover
 U kunt bepaalde acties automatiseren, terwijl u een failover uitvoert. U kunt scripts gebruiken of [Azure automation-runbooks](site-recovery-runbook-automation.md) in [herstelplannen](site-recovery-create-recovery-plans.md) om dat te doen.
 
 ## <a name="post-failover-considerations"></a>Overwegingen met betrekking tot post-failover
 Na een failover die kunt u de onderstaande aanbevelingen:
 ### <a name="retaining-drive-letter-after-failover"></a>Stationsletter behouden na een failover
-Als u wilt behouden de stationsletter op virtuele machines na een failover, kunt u instellen de **SAN-beleid** voor de virtuele machine **OnlineAll**. [Meer informatie](https://support.microsoft.com/en-us/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
+Als u wilt behouden de stationsletter op virtuele machines na een failover, kunt u instellen de **SAN-beleid** voor de virtuele machine **OnlineAll**. [Meer informatie](https://support.microsoft.com/help/3031135/how-to-preserve-the-drive-letter-for-protected-virtual-machines-that-are-failed-over-or-migrated-to-azure).
 
+## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Voorbereiden op het verbinden met virtuele Azure-machines na een failover
+
+Als u verbinding maken met virtuele Azure-machines met behulp van RDP/SSH na een failover wilt, volgt u de vereisten die worden samengevat in de tabel [hier](site-recovery-test-failover-to-azure.md#prepare-to-connect-to-azure-vms-after-failover).
+
+Volg de stappen [hier](site-recovery-failover-to-azure-troubleshoot.md) oplossen met connectiviteit problemen na een failover.
 
 
 ## <a name="next-steps"></a>Volgende stappen

@@ -1,6 +1,6 @@
 ---
-title: Scheduler-limieten en de standaardinstellingen
-description: Scheduler-limieten en de standaardinstellingen
+title: Scheduler-limieten en standaardinstellingen
+description: Scheduler-limieten en standaardinstellingen
 services: scheduler
 documentationcenter: .NET
 author: derek1ee
@@ -14,21 +14,21 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/18/2016
 ms.author: deli
-ms.openlocfilehash: db6b1c196cb468f41c7a7ce34758de346b522abb
-ms.sourcegitcommit: 6699c77dcbd5f8a1a2f21fba3d0a0005ac9ed6b7
+ms.openlocfilehash: 4be0695402b66fdb2a027bfbada0e0b26e02d36f
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 10/11/2017
-ms.locfileid: "23867813"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378717"
 ---
-# <a name="scheduler-limits-and-defaults"></a>Scheduler-limieten en de standaardinstellingen
-## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Scheduler-quota, limieten, standaardwaarden en vertragingen
+# <a name="scheduler-limits-and-defaults"></a>Scheduler-limieten en standaardinstellingen
+## <a name="scheduler-quotas-limits-defaults-and-throttles"></a>Quota's voor Scheduler, limieten, standaardwaarden en vertragingen in
 [!INCLUDE [scheduler-limits-table](../../includes/scheduler-limits-table.md)]
 
-## <a name="the-x-ms-request-id-header"></a>De Header x-ms-aanvraag-id
-Elke aanvraag ten opzichte van de Scheduler-service retourneert een antwoordheader genaamd**x-ms-aanvraag-id**. Deze koptekst bevat een ondoorzichtige waarde die een unieke identificatie van de aanvraag.
+## <a name="the-x-ms-request-id-header"></a>De Header x-ms-request-id
+Elke aanvraag ten opzichte van de Scheduler-service retourneert een antwoordheader met de naam **x-ms-request-id**. Deze header bevat een onduidelijke waarde die de aanvraag wordt aangeduid.
 
-Als een aanvraag consequent mislukt en u hebt gecontroleerd dat de aanvraag goed geformuleerd is, kunt u deze waarde mag gebruiken voor het rapporteren van de fout naar Microsoft. In het rapport bevatten de waarde van de x-ms-aanvraag-id, bij benadering de tijd die de aanvraag is ingediend, de id van het abonnement, taakverzameling, en/of de taak en het type van de bewerking waarmee is geprobeerd de aanvraag.
+Als een aanvraag voortdurend mislukken en u hebt gecontroleerd dat de aanvraag goed geformuleerd is, kunt u deze waarde mag gebruiken voor het rapporteren van de fout naar Microsoft. Opnemen in uw rapport, de waarde van de x-ms-request-id, bij benadering de tijd die het verzoek is gemaakt, de id van het abonnement, taakverzameling, en/of taak en het type bewerking waarmee is geprobeerd de aanvraag.
 
 ## <a name="see-also"></a>Zie ook
  [Wat is Scheduler?](scheduler-intro.md)

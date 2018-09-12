@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 857998c73abed76c9e20d5b3422ce607fb9f733d
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: ceaa61832212093ac52225fc34db1ed7f4571a18
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782877"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44380287"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële Console van virtuele Machine (preview) 
 
@@ -73,7 +73,7 @@ Ubuntu      | Ubuntu-installatiekopieën die beschikbaar zijn op Azure hebt toeg
 CoreOS      | CoreOS-installatiekopieën die beschikbaar zijn op Azure hebt toegang tot de console standaard ingeschakeld.
 SUSE        | Nieuwere SLES-installatiekopieën die beschikbaar zijn op Azure hebt toegang tot de console standaard ingeschakeld. Als u oudere versies (10 of lager) van SLES op Azure gebruikt, volgt u de [KB-artikel](https://www.novell.com/support/kb/doc.php?id=3456486) seriële console inschakelen. 
 Oracle Linux        | Oracle Linux-installatiekopieën die beschikbaar zijn op Azure hebt toegang tot de console standaard ingeschakeld.
-Aangepaste Linux-installatiekopieën     | Om in te schakelen voor uw aangepaste Linux-VM-installatiekopie de seriële console, schakel toegang tot de console in /etc/inittab om uit te voeren van een terminal op ttyS0. Hier volgt een voorbeeld om toe te voegen deze in het bestand inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Zie voor meer informatie over het maken van aangepaste installatiekopieën correct [een Linux-VHD in Azure maken en uploaden](https://aka.ms/createuploadvhd).
+Aangepaste Linux-installatiekopieën     | Om in te schakelen voor uw aangepaste Linux-VM-installatiekopie de seriële console, schakel toegang tot de console in `/etc/inittab` om uit te voeren van een terminal op `ttyS0`. Hier volgt een voorbeeld om toe te voegen deze in het bestand inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Zie voor meer informatie over het maken van aangepaste installatiekopieën correct [een Linux-VHD in Azure maken en uploaden](https://aka.ms/createuploadvhd).
 
 ## <a name="common-scenarios-for-accessing-serial-console"></a>Algemene scenario's voor toegang tot de seriële console 
 Scenario          | Acties in de seriële console                
@@ -87,6 +87,9 @@ Interactie met de bootloader | Toegang WORMGATEN via de seriële console. Ga naa
 
 ## <a name="disable-serial-console"></a>Seriële Console uitschakelen
 Standaard hebben alle abonnementen seriële console-toegang ingeschakeld voor alle virtuele machines. U kunt de seriële console van het abonnement of de VM-niveau uitschakelen.
+
+> [!Note] 
+> Als u wilt in- of uitschakelen voor een abonnement op de seriële console, moet u hebt schrijfmachtigingen voor het abonnement. Dit omvat, maar is niet beperkt tot de beheerder of eigenaar van rollen. Aangepaste rollen kunnen ook schrijfmachtigingen hebben.
 
 ### <a name="subscription-level-disable"></a>Abonnementsniveau uitschakelen
 Seriële console kan worden uitgeschakeld voor een volledige abonnement door via de [uitschakelen Console REST API-aanroep](https://aka.ms/disableserialconsoleapi). U kunt het 'Try It' functionaliteit die beschikbaar is op de pagina van de API-documentatie uitschakelen en inschakelen van de seriële Console voor een abonnement. Voer uw `subscriptionId`, 'standaard' in de `default` veld en klik op uitvoeren. Azure CLI-opdrachten zijn nog niet beschikbaar en wordt bezorgd moeten worden op een later tijdstip. [Probeer de REST-API-aanroep hier](https://aka.ms/disableserialconsoleapi).
@@ -167,7 +170,6 @@ Aangezien we nog steeds in de previewfase voor toegang tot de seriële console, 
 
 Probleem                           |   Oplossing 
 :---------------------------------|:--------------------------------------------|
-Er bestaat geen optie met virtual machine scale set exemplaar seriële console |  Toegang tot de seriële console voor schaalsetinstanties virtuele machine wordt niet ondersteund op het moment van de Preview-versie.
 Nadat de banner van de verbinding wordt niet weergegeven voor een logboek in de prompt te maken met invoeren | Raadpleeg deze pagina: [Hitting invoeren, gebeurt er niets](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Dit kan gebeuren als u een aangepaste VM, beperkte toestel of GRUB-configuratie die ervoor zorgt Linux dat mislukken correct verbinding maken met de seriële poort.
 Een antwoord 'Verboden' is opgetreden bij het openen van deze virtuele machine opstarten diagnostische storage-account. | Zorg ervoor dat diagnostische gegevens over de opstarten beschikt niet over een account-firewall. Een toegankelijke opstarten diagnostische storage-account is nodig voor de seriële console van functie.
 Tekst van de seriële console wordt alleen een gedeelte van de schermgrootte (vaak na met een teksteditor) | Dit is een bekend probleem met onbekende schermgrootte via serial-verbindingen. U wordt aangeraden instaling xterm of enige andere vergelijkbaar hulpprogramma waarmee u de opdracht 'grootte'. Uitvoeren van 'grootte' wordt dit opgelost.
@@ -178,18 +180,32 @@ Tekst van de seriële console wordt alleen een gedeelte van de schermgrootte (va
 
 A. Feedback geven als het probleem door te gaan naar https://aka.ms/serialconsolefeedback. U kunt ook minder (aanbevolen) feedback verzenden via azserialhelp@microsoft.com of in de categorie van de virtuele machine van de http://feedback.azure.com
 
-**Q. Ik ben geen toegang krijgen tot de seriële console, waar kan ik een ondersteuningsaanvraag bestand?**
+**Q. Biedt ondersteuning voor de seriële console kopiëren/plakken?**
 
-A. Deze preview-functie wordt behandeld via Azure Preview-voorwaarden. Ondersteuning voor dit is het beste worden opgelost via de kanalen die hierboven worden vermeld. 
+A. Ja doet. Gebruik Ctrl + Shift + C en Ctrl + Shift + V om te kopiëren en plakken in de terminal.
 
 **Q. Kan ik de seriële console in plaats van een SSH-verbinding gebruiken?**
 
 A. Terwijl dit technisch mogelijk lijkt, is de seriële console moet worden gebruikt als een hulpprogramma voor probleemoplossing in situaties waar connectiviteit via SSH niet mogelijk is voornamelijk bedoeld. We raden het af met de seriële console als een SSH-vervanging voor twee redenen:
 
-1. Seriële console hoeft niet zo veel bandbreedte in zoals ssh - dit is een verbinding alleen tekst, zodat meer GUI-zware interacties lastig om in de seriële console is.
+1. Seriële console hoeft niet zo veel bandbreedte in zoals SSH - dit is een verbinding alleen tekst, zodat meer GUI-zware interacties lastig om in de seriële console is.
 1. Toegang tot de seriële console is momenteel alleen door de gebruikersnaam en wachtwoord. SSH-sleutels zijn veel veiliger dan combinaties van gebruikersnaam en wachtwoord, dus vanuit beveiligingsoogpunt login SSH via de seriële console beste.
 
+**Q. Wie kunt inschakelen of uitschakelen van de seriële console voor mijn abonnement?**
 
+A. Als u wilt in- of uitschakelen van de seriële console op het niveau van een brede, door het abonnement, moet u hebt schrijfmachtigingen voor het abonnement. Rollen die gemachtigd te schrijven bevatten, maar niet beperkt zijn tot de beheerder of eigenaar van rollen. Aangepaste rollen kunnen ook schrijfmachtigingen hebben.
+
+**Q. Wie toegang heeft tot de seriële console voor mijn VM?**
+
+A. Hebt u toegang van Inzender-niveau of hoger met een virtuele machine voor toegang tot de seriële console van de virtuele machine. 
+
+**Q. Mijn seriële console niet wordt weergegeven van alles zijn, wat moet ik doen?**
+
+A. Uw installatiekopie is waarschijnlijk niet goed is geconfigureerd voor toegang tot de seriële console. Zie [seriële Console van de toegang voor Linux](#Access-Serial-Console-for-Linux) voor meer informatie over het configureren van de afbeelding om in te schakelen van de seriële console.
+
+**Q. Seriële console beschikbaar is voor Virtual Machine Scale Sets?**
+
+A. Toegang tot de seriële console voor schaalsetinstanties virtuele machine wordt niet ondersteund op dit moment.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Seriële Console te gebruiken [WORMGATEN opstart en geef de modus voor één gebruiker](serial-console-grub-single-user-mode.md)

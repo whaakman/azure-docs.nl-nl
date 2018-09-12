@@ -1,6 +1,6 @@
 ---
-title: Grote hoeveelheden gegevens uploaden naar Data Lake Store met behulp van offline methoden | Microsoft Docs
-description: Het hulpprogramma AdlCopy gebruiken om gegevens te kopiëren van Azure Storage-blobs naar Data Lake Store
+title: Uploaden van grote hoeveelheden gegevens naar Azure Data Lake Storage Gen1 met behulp van offline methoden | Microsoft Docs
+description: Het hulpprogramma AdlCopy gebruiken om gegevens uit Azure Storage-blobs kopiëren naar Azure Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,32 +12,32 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 2b3ae9e4ecb8b8db4eee109f0867c7884bea37c2
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 6430bf524ac81af242bf7afb4c2c8196309806ab
+ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625675"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44391672"
 ---
-# <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-data-lake-store"></a>Gebruik de Azure Import/Export-service voor offline kopiëren van gegevens naar Data Lake Store
-In dit artikel leert u hoe u kunt kopiëren van grote gegevenssets (> 200 GB) in een Azure Data Lake Store met behulp van methoden van offline-exemplaar, zoals de [Azure Import/Export-service](../storage/common/storage-import-export-service.md). Het bestand dat wordt gebruikt als voorbeeld in dit artikel is bijzonder 339,420,860,416 bytes of ongeveer 319 GB op schijf. Laten we dit bestand 319GB.tsv aanroepen.
+# <a name="use-the-azure-importexport-service-for-offline-copy-of-data-to-azure-data-lake-storage-gen1"></a>Gebruik de Azure Import/Export-service voor het offline kopiëren van gegevens naar Azure Data Lake Storage Gen1
+In dit artikel leert u hoe u wilt kopiëren van grote gegevenssets (> 200 GB) in Azure Data Lake Storage Gen1 met behulp van methoden voor offline-exemplaar, zoals de [Azure Import/Export-service](../storage/common/storage-import-export-service.md). Het bestand dat wordt gebruikt als voorbeeld in dit artikel is specifiek, 339,420,860,416 bytes of ongeveer 319 GB op schijf. Noemen we deze 319GB.tsv bestand.
 
-De Azure Import/Export-service helpt u om over te brengen grote hoeveelheden gegevens veiliger naar Azure Blob-opslag door back-upfunctie harde schijven naar een Azure-datacenter.
+De Azure Import/Export-service helpt u om over te brengen grote hoeveelheden gegevens veiliger naar Azure Blob storage door de verzending van harde schijven naar een Azure-datacenter.
 
 ## <a name="prerequisites"></a>Vereisten
-Voordat u begint, moet u het volgende hebben:
+Voordat u begint, moet u het volgende hebt:
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 * **Een Azure storage-account**.
-* **Een Azure Data Lake Store-account**. Zie voor instructies over het maken van een [aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md)
+* **Een account met Azure Data Lake Storage Gen1**. Zie voor instructies over het maken van een [aan de slag met Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md)
 
-## <a name="preparing-the-data"></a>Voorbereiden van de gegevens
+## <a name="preparing-the-data"></a>De gegevens voorbereiden
 
-Voordat u de Import/Export-service, verbreekt u het bestand kan worden overgedragen **in kopieën die kleiner zijn dan 200 GB zijn** in grootte. Het hulpprogramma voor importeren werkt niet met bestanden die groter zijn dan 200 GB. In deze zelfstudie wordt het bestand splitsen segmenten van 100 GB. U kunt dit doen met behulp van [Cygwin](https://cygwin.com/install.html). Cygwin biedt ondersteuning voor Linux-opdrachten. In dit geval gebruiken de volgende opdracht:
+Voordat u de Import/Export-service, verbreekt u het bestand om te worden overgedragen **naar exemplaren die kleiner is dan 200 GB** in grootte. Het hulpprogramma voor importeren werkt niet met bestanden die groter zijn dan 200 GB. In deze zelfstudie wordt het bestand in segmenten van 100 GB elk splitsen. U kunt dit doen met behulp van [Cygwin](https://cygwin.com/install.html). Cygwin biedt ondersteuning voor Linux-opdrachten. In dit geval gebruikt u de volgende opdracht:
 
     split -b 100m 319GB.tsv
 
-De splitsbewerking maakt bestanden met de volgende namen.
+De splitsbewerking worden bestanden met de volgende namen gemaakt.
 
     319GB.tsv-part-aa
 
@@ -48,30 +48,30 @@ De splitsbewerking maakt bestanden met de volgende namen.
     319GB.tsv-part-ad
 
 ## <a name="get-disks-ready-with-data"></a>Bereid u voor schijven met gegevens
-Volg de instructies in [via de Azure Import/Export-service](../storage/common/storage-import-export-service.md) (onder de **voorbereiden van uw schijven** sectie) voor het voorbereiden van de vaste schijven. Hier volgt de algemene volgorde:
+Volg de instructies in [met behulp van de Azure Import/Export-service](../storage/common/storage-import-export-service.md) (onder de **voorbereiden van uw schijven** sectie) voor het voorbereiden van uw harde schijven. Hier volgt de algemene volgorde:
 
-1. Schaft u een harde schijf die voldoet aan de vereisten voor de Azure Import/Export-service moet worden gebruikt.
-2. Identificeer waar de gegevens worden gekopieerd nadat deze is verzonden naar het Azure datacenter Azure storage-account.
-3. Gebruik de [Azure-hulpprogramma voor importeren/exporteren](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), een opdrachtregelprogramma. Hier volgt een voorbeeld-codefragment die laat zien hoe het hulpprogramma te gebruiken.
+1. Aanschaffen van een harde schijf die voldoet aan de vereisten voor de Azure Import/Export-service moet worden gebruikt.
+2. Identificeer de Azure storage-account waar de gegevens worden gekopieerd nadat deze is verzonden naar de Azure-datacenter.
+3. Gebruik de [Azure Import/Export-hulpprogramma](http://go.microsoft.com/fwlink/?LinkID=301900&clcid=0x409), een opdrachtregelprogramma. Hier volgt een voorbeeld-codefragment dat laat zien hoe u het hulpprogramma te gebruiken.
 
     ````
     WAImportExport PrepImport /sk:<StorageAccountKey> /t: <TargetDriveLetter> /format /encrypt /logdir:e:\myexportimportjob\logdir /j:e:\myexportimportjob\journal1.jrn /id:myexportimportjob /srcdir:F:\demo\ExImContainer /dstdir:importcontainer/vf1/
     ````
-    Zie [via de Azure Import/Export-service](../storage/common/storage-import-export-service.md) voor meer voorbeelden codefragmenten.
-4. De voorgaande opdracht maakt een journal-bestand op de opgegeven locatie. Dit logboek-bestand gebruiken voor het maken van een import-taak van de [Azure-portal](https://portal.azure.com).
+    Zie [met behulp van de Azure Import/Export-service](../storage/common/storage-import-export-service.md) voor meer voorbeelden codefragmenten.
+4. De voorgaande opdracht maakt een logboekbestand op de opgegeven locatie. Dit logboekbestand gebruiken om te maken van een import-taak uit de [Azure-portal](https://portal.azure.com).
 
 ## <a name="create-an-import-job"></a>Een importtaak maken
-U kunt nu een import-taak maken met behulp van de instructies in [via de Azure Import/Export-service](../storage/common/storage-import-export-service.md) (onder de **de Import-taak maken** sectie). Voor deze taak importeren met andere informatie, bieden ook het journaalbestand dat is gemaakt tijdens het voorbereiden van de schijfstations.
+U kunt nu een importtaak maken met behulp van de instructies in [met behulp van de Azure Import/Export-service](../storage/common/storage-import-export-service.md) (onder de **de Import-taak maken** sectie). Voor deze taak importeren met andere gegevens bieden ook de logboekbestand gemaakt tijdens het voorbereiden van de schijven.
 
-## <a name="physically-ship-the-disks"></a>De schijven fysiek verzenden
-U kunt nu de schijven voor een Azure-datacenter fysiek verzenden. Er, is via de gegevens gekopieerd naar de Azure Storage-blobs die u hebt opgegeven tijdens het maken van de import-taak. Ook bij het maken van de taak kunt als u hebt gekozen om de traceringsgegevens later, u nu gaat u terug naar uw import-taak en bijwerken het volgnummer.
+## <a name="physically-ship-the-disks"></a>Kies voor fysieke verzending van de schijven
+U kunt nu de schijven naar een Azure-datacenter fysiek verzenden. De gegevens is, gekopieerd naar de Azure Storage-blobs die u hebt opgegeven tijdens het maken van de import-taak. Ook tijdens het maken van de taak, kunt als u ervoor hebt gekozen voor de controle-informatie later, u nu gaat u terug naar uw import-taak en het traceringsnummer bijwerken.
 
-## <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-store"></a>Gegevens kopiëren van Azure Storage-blobs naar Azure Data Lake Store
-Nadat de toont de status van de import-taak voltooid, kunt u controleren of de gegevens zijn beschikbaar in de Azure Storage-blobs die u heeft opgegeven. Vervolgens kunt u een aantal methoden voor het verplaatsen van die gegevens van de blobs met Azure Data Lake Store. Zie voor alle beschikbare opties voor het uploaden van gegevens, [ophalen van gegevens in Data Lake Store](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-store).
+## <a name="copy-data-from-azure-storage-blobs-to-azure-data-lake-storage-gen1"></a>Gegevens kopiëren van Azure Storage-blobs naar Azure Data Lake Storage Gen1
+Nadat de status van de import-taak ziet u dat deze voltooid, kunt u controleren of de gegevens zijn beschikbaar in de Azure Storage-blobs die u heeft opgegeven. U kunt vervolgens verschillende methoden gebruiken die gegevens van de blobs naar Azure Data Lake Storage Gen1 verplaatsen. Zie voor alle beschikbare opties voor het uploaden van gegevens, [ophalen van gegevens in Data Lake Storage Gen1](data-lake-store-data-scenarios.md#ingest-data-into-data-lake-storage-gen1).
 
-In deze sectie bieden wij u met de JSON-definities die u gebruiken kunt voor het maken van een Azure Data Factory-pijplijn voor het kopiëren van gegevens. U kunt deze definities van de JSON van de [Azure-portal](../data-factory/v1/data-factory-copy-activity-tutorial-using-azure-portal.md), of [Visual Studio](../data-factory/v1/data-factory-copy-activity-tutorial-using-visual-studio.md), of [Azure PowerShell](../data-factory/v1/data-factory-copy-activity-tutorial-using-powershell.md).
+In deze sectie bieden wij u met de JSON-definities die u gebruiken kunt om te maken van een Azure Data Factory-pijplijn voor het kopiëren van gegevens. U kunt deze JSON-definities van de [Azure-portal](../data-factory/tutorial-copy-data-portal.md) of [Visual Studio](../data-factory/tutorial-copy-data-dot-net.md).
 
-### <a name="source-linked-service-azure-storage-blob"></a>Bron gekoppelde service (Azure Storage-blob)
+### <a name="source-linked-service-azure-storage-blob"></a>Gekoppelde bron-service (Azure Storage-blob)
 ````
 {
     "name": "AzureStorageLinkedService",
@@ -85,22 +85,22 @@ In deze sectie bieden wij u met de JSON-definities die u gebruiken kunt voor het
 }
 ````
 
-### <a name="target-linked-service-azure-data-lake-store"></a>Doel van de gekoppelde service (Azure Data Lake Store)
+### <a name="target-linked-service-azure-data-lake-storage-gen1"></a>Doel van de gekoppelde service (Azure Data Lake Storage Gen1)
 ````
 {
-    "name": "AzureDataLakeStoreLinkedService",
+    "name": "AzureDataLakeStorageGen1LinkedService",
     "properties": {
         "type": "AzureDataLakeStore",
         "description": "",
         "typeProperties": {
-            "authorization": "<Click 'Authorize' to allow this data factory and the activities it runs to access this Data Lake Store with your access rights>",
-            "dataLakeStoreUri": "https://<adls_account_name>.azuredatalakestore.net/webhdfs/v1",
+            "authorization": "<Click 'Authorize' to allow this data factory and the activities it runs to access this Data Lake Storage Gen1 account with your access rights>",
+            "dataLakeStoreUri": "https://<adlsg1_account_name>.azuredatalakestore.net/webhdfs/v1",
             "sessionId": "<OAuth session id from the OAuth authorization session. Each session id is unique and may only be used once>"
         }
     }
 }
 ````
-### <a name="input-data-set"></a>Invoer gegevensset
+### <a name="input-data-set"></a>Gegevensset voor invoer
 ````
 {
     "name": "InputDataSet",
@@ -127,7 +127,7 @@ In deze sectie bieden wij u met de JSON-definities die u gebruiken kunt voor het
 "properties": {
   "published": false,
   "type": "AzureDataLakeStore",
-  "linkedServiceName": "AzureDataLakeStoreLinkedService",
+  "linkedServiceName": "AzureDataLakeStorageGen1LinkedService",
   "typeProperties": {
     "folderPath": "/importeddatafeb8job/"
     },
@@ -187,12 +187,12 @@ In deze sectie bieden wij u met de JSON-definities die u gebruiken kunt voor het
     }
 }
 ````
-Zie voor meer informatie [verplaatsen van gegevens van Azure Storage-blob naar Azure Data Lake Store met Azure Data Factory](../data-factory/connector-azure-data-lake-store.md).
+Zie voor meer informatie, [gegevens verplaatsen van Azure Storage-blob naar Azure Data Lake Storage Gen1 met Azure Data Factory](../data-factory/connector-azure-data-lake-store.md).
 
-## <a name="reconstruct-the-data-files-in-azure-data-lake-store"></a>Reconstrueer de gegevensbestanden in Azure Data Lake Store
-We met een bestand dat is 319 GB en heeft deze niet actief in kleinere bestanden zodat deze kan worden overgedragen met behulp van de Azure Import/Export-service is gestart. Nu dat de gegevens zich in Azure Data Lake Store, kunnen we het bestand naar de oorspronkelijke grootte opnieuw opgebouwd. U kunt de volgende cmldts van Azure PowerShell gebruiken om dit te doen.
+## <a name="reconstruct-the-data-files-in-azure-data-lake-storage-gen1"></a>De gegevensbestanden in Azure Data Lake Storage Gen1 reconstrueren
+We zijn begonnen met een bestand dat 319 GB is, en deze naar beneden naar bestanden van de kleinere verbroken zodat deze kan worden overgedragen met behulp van de Azure Import/Export-service. Nu dat de gegevens zich in Azure Data Lake Storage Gen1, kunnen we het bestand naar de oorspronkelijke grootte reconstrueren. U kunt de volgende Azure PowerShell-cmdlets gebruiken om dit te doen.
 
-````
+```
 # Login to our account
 Connect-AzureRmAccount
 
@@ -204,10 +204,10 @@ Set-AzureRmContext -SubscriptionId
 Register-AzureRmResourceProvider -ProviderNamespace "Microsoft.DataLakeStore"
 
 # Join  the files
-Join-AzureRmDataLakeStoreItem -AccountName "<adls_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
+Join-AzureRmDataLakeStoreItem -AccountName "<adlsg1_account_name" -Paths "/importeddatafeb8job/319GB.tsv-part-aa","/importeddatafeb8job/319GB.tsv-part-ab", "/importeddatafeb8job/319GB.tsv-part-ac", "/importeddatafeb8job/319GB.tsv-part-ad" -Destination "/importeddatafeb8job/MergedFile.csv"
 ````
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
-* [Azure Data Lake Analytics gebruiken met Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Azure HDInsight gebruiken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Azure Data Lake Analytics gebruiken met Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Azure HDInsight gebruiken met Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

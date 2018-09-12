@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 04/30/2018
+ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 136316feab5a08308a9f10e499f645aaee0c90d3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 1d6160f8c66fd749942be581cb2992977da82911
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093240"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377986"
 ---
 # <a name="durable-functions-overview"></a>Overzicht van duurzame functies
 
@@ -334,7 +334,7 @@ Achter de schermen, wordt de extensie duurzame functies gebouwd boven de [duurza
 
 ### <a name="event-sourcing-checkpointing-and-replay"></a>' Event sourcing ', plaatsen van controlepunten en herhaling
 
-Orchestrator-functies de status van de scriptuitvoering met behulp van een cloud-ontwerppatroon bekend als betrouwbaar kunnen onderhouden [' Event sourcing '](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). In plaats van rechtstreeks opslaan van de *huidige* status van een indeling, de extensie duurzame een archief waaraan alleen gebruikt om vast te leggen de *volledige reeks acties* genomen door de functie-indeling. Dit heeft veel voordelen, waaronder verbetering van prestaties, schaalbaarheid en reactiesnelheid in vergelijking met de volledige runtime-state dumpen 'van'. Andere voordelen omvatten uiteindelijke consistentie voor transactiegegevens en onderhouden van volledige audittrails en geschiedenis. De audittrails zelf betrouwbare compenserende maatregelen mogelijk maken.
+Orchestrator-functies de status van de scriptuitvoering met behulp van een ontwerppatroon bekend als betrouwbaar kunnen onderhouden [' Event sourcing '](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing). In plaats van rechtstreeks opslaan van de *huidige* status van een indeling, de extensie duurzame een archief waaraan alleen gebruikt om vast te leggen de *volledige reeks acties* genomen door de functie-indeling. Dit heeft veel voordelen, waaronder verbetering van prestaties, schaalbaarheid en reactiesnelheid in vergelijking met de volledige runtime-state dumpen 'van'. Andere voordelen omvatten uiteindelijke consistentie voor transactiegegevens en onderhouden van volledige audittrails en geschiedenis. De audittrails zelf betrouwbare compenserende maatregelen mogelijk maken.
 
 Het gebruik van ' Event sourcing ' door deze uitbreiding is transparant. Op de achtergrond de `await` operator in een orchestrator-functie controle van de orchestrator-thread terug naar het verdeelprogramma duurzame taak Framework levert. De functie voor berichtverzending doorvoeringen vervolgens nieuwe maatregelen die tegen de orchestrator-functie gepland (zoals een of meer onderliggende functies aanroepen of een duurzame timer plannen) naar de opslag. Deze actie transparante doorvoeren wordt toegevoegd aan de *uitvoeringsgeschiedenis* van de orchestration-instantie. De geschiedenis wordt opgeslagen in een opslagtabel. De commit-actie vervolgens een bericht toevoegt aan een wachtrij voor het plannen van het echte werk. De orchestrator-functie kan op dit moment worden verwijderd uit het geheugen. Facturering voor deze stopt als u de Azure Functions-Verbruiksabonnement.  Wanneer er meer werk te doen, wordt de functie opnieuw is opgestart en wordt de status is opnieuw opgebouwd.
 
@@ -369,6 +369,8 @@ De extensie duurzame functies maakt gebruik van Azure Storage-wachtrijen, tabell
 Orchestrator-functies activiteitsfuncties plannen en hun antwoorden via de interne Wachtrijberichten ontvangen. Wanneer een functie-app wordt uitgevoerd in het verbruiksabonnement voor Azure Functions, deze wachtrijen worden gecontroleerd door de [Azure Functions schalen Controller](functions-scale.md#how-the-consumption-plan-works) en nieuwe compute-exemplaren naar behoefte worden toegevoegd. Wanneer geschaald naar meerdere virtuele machines, wordt een orchestrator-functie kan uitvoeren op één virtuele machine terwijl activiteitsfuncties wordt uitgevoerd op meerdere verschillende virtuele machines. U kunt meer informatie vinden over het gedrag van de schaal van duurzame functies in [prestaties en schaal](durable-functions-perf-and-scale.md).
 
 Table-opslag wordt gebruikt voor het opslaan van de uitvoeringsgeschiedenis voor orchestrator-accounts. Wanneer een exemplaar rehydrates op een bepaalde virtuele machine, haalt het de uitvoeringsgeschiedenis uit table storage ook zodat deze de status van de lokale kunt herstellen. Een van de handige dingen over een van de geschiedenis beschikbaar in de Table storage is dat u kunt bekijken en de geschiedenis van de indelingen met behulp van hulpprogramma's zoals [Microsoft Azure Storage Explorer](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer).
+
+Storage-blobs worden hoofdzakelijk als een leasemechanisme gebruikt voor de coördinatie van de scale-out van de orchestration-exemplaren op meerdere virtuele machines. Ze worden ook gebruikt voor het opslaan van gegevens voor grote berichten die rechtstreeks in de tabellen of wachtrijen kunnen niet worden opgeslagen.
 
 ![Azure Storage Explorer-schermafbeelding](media/durable-functions-overview/storage-explorer.png)
 

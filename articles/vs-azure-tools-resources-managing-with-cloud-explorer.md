@@ -12,12 +12,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 03/25/2017
 ms.author: ghogen
-ms.openlocfilehash: a4be3f063c51f26e1df9ecf4cca4ae0655554750
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 596db56a71d4cc73517b9a9cbfe9b97e536aa83a
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054308"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44378843"
 ---
 # <a name="manage-the-resources-associated-with-your-azure-accounts-in-visual-studio-cloud-explorer"></a>Beheren van de resources die zijn gekoppeld aan uw Azure-accounts in Visual Studio Cloud Explorer
 Cloud Explorer kunt u weergeven van uw Azure-resources en resourcegroepen, hun eigenschappen inspecteren en voert u belangrijke ontwikkelaar diagnostische gegevens over acties op basis van Visual Studio. 
@@ -40,9 +40,9 @@ Als u de resources die zijn gekoppeld aan een Azure-account, moet u eerst het ac
 
     ![Pictogram instellingen cloud Explorer Azure-account](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. Selecteer **nieuwe account toevoegt**. 
+1. Selecteer **accounts beheren**. 
 
-    ![Koppeling van cloud Explorer account toevoegen](media/vs-azure-tools-resources-managing-with-cloud-explorer/add-account-link.png)
+    ![Koppeling van cloud Explorer account toevoegen](media/vs-azure-tools-resources-managing-with-cloud-explorer/manage-accounts-link.png)
 
 1. Meld u aan bij de Azure-account aan waarvan bronnen die u wilt zoeken. 
 
@@ -56,13 +56,17 @@ Als u de resources die zijn gekoppeld aan een Azure-account, moet u eerst het ac
 
 ## <a name="remove-an-azure-account-from-cloud-explorer"></a>Een Azure-account verwijderen uit Cloud Explorer 
 
-1. In **Cloud Explorer**, selecteer **Azure-Accountinstellingen**.
+1. In **Cloud Explorer**, selecteer **accountbeheer**.
 
     ![Pictogram instellingen cloud Explorer Azure-account](media/vs-azure-tools-resources-managing-with-cloud-explorer/azure-account-settings.png)
 
-1. Naast het account dat u wilt verwijderen, selecteert u **verwijderen**.
+1. Naast het account dat u wilt verwijderen, selecteert u **Accounts beheren**.
 
     ![Pictogram instellingen cloud Explorer Azure-account](media/vs-azure-tools-resources-managing-with-cloud-explorer/remove-account.png)
+
+1. Kies **verwijderen** om een account te verwijderen.
+
+    ![Dialoogvenster cloud Explorer beheren-accounts](media/vs-azure-tools-resources-managing-with-cloud-explorer/accountmanage.PNG)
 
 ## <a name="view-resource-types-or-resource-groups"></a>Resourcetypen of resourcegroepen weergeven
 Als u uw Azure-resources, kunt u een **resourcetypen** of **resourcegroepen** weergeven.
