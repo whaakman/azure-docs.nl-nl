@@ -11,12 +11,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: carolz
-ms.openlocfilehash: 307f9988246f94c26e63bf8a26052890867aabbc
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 850ed1418a8880e30273f62aec3b3420c41b2ef6
+ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34608981"
+ms.lasthandoff: 09/10/2018
+ms.locfileid: "44294514"
 ---
 <div class="content">
     <h1>Cloud Foundry op Azure</h1>
@@ -38,7 +38,7 @@ Cloud Foundry is een open-source platform-as-a-service (PaaS) voor het bouwen, i
 <a href="https://pivotal.io/partners/microsoft">Pivotal Cloud Foundry op Azure</a><br/>
 <a href="/azure/cloudfoundry/how-cloud-foundry-integrates-with-azure">Cloud Foundry integreren met Azure</a><br/>
 <a href="https://docs.pivotal.io/pivotalcf/1-11/customizing/pcf_azure.html">Cloud Foundry op Azure installeren</a><br/>
-<a href="https://github.com/Microsoft/vsts-cloudfoundry">Visual Studio Team Services-invoegtoepassing voor Cloud Foundry</a><br/>
+<a href="https://github.com/Microsoft/vsts-cloudfoundry">Azure DevOps-invoegtoepassing voor Cloud Foundry</a><br/>
 <a href="https://github.com/Azure/oms-log-analytics-firehose-nozzle">Microsoft Log Analytics-pijp voor Cloud Foundry</a><br/>
 <a href="https://docs.cloudfoundry.org/">Meer informatie over Cloud Foundry</a><br/>
 </div>

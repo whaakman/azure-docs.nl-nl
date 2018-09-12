@@ -73,12 +73,21 @@ items:
       href: static-ip.md
     - name: Interne load balancer
       href: internal-lb.md
-    - name: Inkomend verkeer en TLS
-      href: ingress.md
+    - name: Inkomend verkeer
+      items:
+      - name: Een eenvoudige controller maken
+        href: ingress-basic.md
+      - name: Routering van HTTP-toepassing gebruiken
+        href: http-application-routing.md
+      - name: Intern netwerk gebruiken
+        href: ingress-internal-ip.md
+      - name: TLS gebruiken met Let's Encrypt
+        href: ingress-tls.md
+        items:
+        - name: Een statisch openbaar IP-adres gebruiken
+          href: ingress-static-ip.md
     - name: Uitgaand verkeer
       href: egress.md
-    - name: Routering van HTTP-toepassing
-      href: http-application-routing.md
   - name: Verificatie en beveiliging
     items:
     - name: Een service-principal maken
@@ -162,9 +171,9 @@ items:
     href: https://azure.microsoft.com/resources/videos/index/?services=container-service&sort=newest
   - name: Veelgestelde vragen
     href: faq.md
-ms.openlocfilehash: be17978b91f1664ea4917f7d9fcb0da5657d4832
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: d62907e0c9332975cb8361fc96698f75aa0f751d
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "41944099"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44345333"

@@ -25,7 +25,9 @@
 ### [De configuratie valideren](hana-installation.md)
 ### [Voorbeeld van HANA-installatie](hana-example-installation.md)
 ## [Hoge beschikbaarheid en herstel na noodgevallen](hana-overview-high-availability-disaster-recovery.md)
-## [Probleemoplossing en bewaking](troubleshooting-monitoring.md)
+## Probleemoplossing en bewaking
+### [Bewaking van HLI](troubleshooting-monitoring.md)
+### [Bewaken en problemen oplossen vanaf de HANA-zijde](hana-monitor-troubleshoot.md)
 ## Procedures
 ### [HA met STONITH instellen](ha-setup-with-stonith.md)
 ### [Back-up van het besturingssysteem voor SKU's type II](os-backup-type-ii-skus.md)
