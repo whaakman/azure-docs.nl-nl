@@ -10,12 +10,12 @@ ms.component: manage
 ms.date: 07/23/2018
 ms.author: twounder
 ms.reviewer: twounder
-ms.openlocfilehash: 6dff2d1886a560e3a7e2758816a884782e33787f
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 12023216575b08732f3ef2d04bac9e825621f720
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43287967"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44376966"
 ---
 # <a name="whats-new-in-azure-sql-data-warehouse-june-2018"></a>Wat is er nieuw in Azure SQL Data Warehouse? Juni 2018
 Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschrijft de nieuwe functies en wijzigingen die zijn geïntroduceerd in juni 2018. 
@@ -23,7 +23,7 @@ Azure SQL Data Warehouse ontvangt voortdurend verbeteringen. Dit artikel beschri
 ## <a name="user-defined-restore-points"></a>Herstelpunten gedefinieerd door de gebruiker
 SQL Data Warehouse maakt automatisch momentopnamen van uw datawarehouse om de 8 uur een acht uur beoogd herstelpunt (RPO) te garanderen. Deze momentopnamen eenvoudig op het werk te verrichten van het uitvoeren van uw datawarehouse geautomatiseerd, maar er is behoefte aan momentopnamen op kritieke perioden, op basis van uw zakelijke behoeften. Bijvoorbeeld: maken van een momentopname aan vóór de belasting van een aanzienlijke hoeveelheid gegevens of de implementatie van nieuwe scripts in de datawarehouse om in te schakelen van een herstelpunt aan vóór het opnieuw. 
 
-SQL Data Warehouse nu ondersteunt [herstelpunten die door de gebruiker gedefinieerde](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) via de [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoin) cmdlet.
+SQL Data Warehouse nu ondersteunt [herstelpunten die door de gebruiker gedefinieerde](https://azure.microsoft.com/blog/quick-recovery-time-with-sql-data-warehouse-using-user-defined-restore-points/) via de [New-AzureRmSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabaserestorepoint) cmdlet.
 
 ```PowerShell
 New-AzureRmSqlDatabaseRestorePoint
@@ -50,7 +50,7 @@ The SELECT permission was denied on the column 'SSN' of the object 'Membership',
 ```
 
 ## <a name="objectschemaname"></a>OBJECT_SCHEMA_NAME
-De [OBJECT_SCHEMA_NAME()]() functie retourneert de naam van de database-schema voor schema-objecten. Deze functie is gebruikelijk in ETL-hulpprogramma's geworden als schemavalidatie-object. 
+De [OBJECT_SCHEMA_NAME()](https://docs.microsoft.com/sql/t-sql/functions/object-schema-name-transact-sql) functie retourneert de naam van de database-schema voor schema-objecten. Deze functie is gebruikelijk in ETL-hulpprogramma's geworden als schemavalidatie-object. 
 
 ```sql
 SELECT

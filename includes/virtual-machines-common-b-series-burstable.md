@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 03/09/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 533fa1a8491a701571011f407b338e04fb6a7e8b
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14feb7ad09a24904034f9ae90cf4a54cf786a44c
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40183096"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369157"
 ---
 De B-serie VM-reeks kunt u kiezen welke VM-grootte biedt u de benodigde basisniveau prestaties voor uw werkbelasting, de mogelijkheid om uit te breiden CPU-prestaties tot 100% van een Intel® Broadwell E5-2673 v4-processors 2,3 GHz, of een Intel® Haswell 2,4 GHz E5-2673 v3-processor vCPU.
 
-De B-serie VM's zijn ideaal voor workloads die niet continu de volledige prestaties van de CPU nodig hebt, zoals webservers, kleine databases en de ontwikkeling en testomgevingen. Deze werkbelastingen hebben meestal ' burstable ' prestatie-eisen. De B-serie biedt u de mogelijkheid om aan te schaffen van een VM-grootte met basislijn en het VM-exemplaar maakt tegoed bij het gebruik van minder dan de basislijn. Wanneer de virtuele machine zijn tegoed verzameld, kan de virtuele machine burst boven de basislijn met maximaal 100% van de vCPU wanneer uw toepassing hogere CPU-prestaties vereist.
+De B-serie VM's zijn ideaal voor workloads die niet de volledige prestaties van de CPU, zoals webservers, bewijs van concepten, kleine databases en ontwikkeling build-omgevingen hoeft. Deze werkbelastingen hebben meestal ' burstable ' prestatie-eisen. De B-serie biedt u de mogelijkheid om aan te schaffen van een VM-grootte met basislijn en het VM-exemplaar maakt tegoed bij het gebruik van minder dan de basislijn. Wanneer de virtuele machine zijn tegoed verzameld, kan de virtuele machine burst boven de basislijn met maximaal 100% van de vCPU wanneer uw toepassing hogere CPU-prestaties vereist.
 
 De B-serie wordt geleverd in de volgende zes VM-grootten:
 
@@ -47,11 +47,11 @@ Zie voor meer informatie over toegang krijgen tot de metrische gegevens voor Azu
 ### <a name="q-how-are-credits-accumulated"></a>V: hoe kan ik tegoeden samengevoegd?
 **Een**: tarieven voor het aanleggen en verbruik van de virtuele machine zodanig zijn ingesteld dat een VM met het op exact het niveau van de algemene prestatiegegevens heeft een net opeenstapeling, noch verbruik van cloudbursting tegoed.  Een virtuele machine heeft een net toename in tegoed wanneer deze wordt uitgevoerd onder het niveau van de algemene prestatiegegevens en heeft een net afname in tegoed wanneer de virtuele machine wordt gebruikt door de CPU van meer dan de base prestatieniveau.
 
-**Voorbeeld**: ik een virtuele machine met behulp van de grootte van de B1ms voor mijn toepassing kleine tijd en aanwezigheid database implementeren. Deze grootte kan mijn toepassing maximaal 20% van een vCPU gebruiken als mijn basislijn.2 tegoed per minuut die ik kan gebruiken of een bank. 
+**Voorbeeld**: ik een virtuele machine met behulp van de grootte van de B1ms voor mijn toepassing kleine tijd en aanwezigheid database implementeren. Deze grootte kan mijn toepassing maximaal 20% van een vCPU gebruiken als de basislijn die 0,2 tegoed per minuut die ik kan gebruiken of een bank. 
 
-Mijn toepassing is bezet aan het begin en einde van de werkdag werknemers tussen 7:00-9:00 uur en 4:00-18:00 uur. In de andere 20 uur van de dag, mijn toepassing is doorgaans op inactief, alleen gebruiken 10% van de vCPU. Voor de niet-piekuren ik Verdien 0,2 tegoed per minuut, maar alleen gebruiken 0.l tegoed per minuut, zodat mijn virtuele machine wordt bank.1 x 60 = 6 tegoed per uur.  Voor de 20 uur dat ik buiten piektijden, zal ik 120 tegoed bank.  
+Mijn toepassing is bezet aan het begin en einde van de werkdag werknemers tussen 7:00-9:00 uur en 4:00-18:00 uur. In de andere 20 uur van de dag, mijn toepassing is doorgaans op inactief, alleen gebruiken 10% van de vCPU. Voor de niet-piekuren ik Verdien 0,2 tegoed per minuut, maar alleen gebruiken 0.l tegoed per minuut, zodat mijn virtuele machine wordt 0.1 x 60 = 6 bank tegoed per uur.  Voor de 20 uur dat ik buiten piektijden, zal ik 120 tegoed bank.  
 
-Tijdens piekuren mijn toepassing berekent het gemiddelde gebruik van 60% vCPU, ik nog steeds 0,2 tegoed per minuut behalen, maar ik 0,6 tegoed per minuut in beslag nemen, voor een net kosten.4 tegoed een minuut of.4 x 60 = 24 tegoed per uur. Ik heb 4 uur per dag van piekgebruik, zodat hiervoor 4 x 24 uur per dag = 96 kosten-tegoed voor mijn piekgebruik.
+Tijdens piekuren mijn toepassing berekent het gemiddelde gebruik van 60% vCPU, ik nog steeds 0,2 tegoed per minuut behalen, maar ik 0,6 tegoed per minuut in beslag nemen, voor een net kosten 0,4 tegoed een minuut of 0.4 x 60 = 24 tegoed per uur. Ik heb 4 uur per dag van piekgebruik, zodat hiervoor 4 x 24 uur per dag = 96 kosten-tegoed voor mijn piekgebruik.
 
 Als ik het 120 tegoed die ik verdiend buiten piektijden nemen en aftrekken van het 96 tegoed die ik voor mijn piektijden gebruikt, bank kan ik een extra 24 tegoed per dag dat ik kan gebruiken voor andere pieken van activiteit.
 

@@ -8,21 +8,24 @@ ms.topic: include
 ms.date: 07/06/2018
 ms.author: azcspmt;jonbeck;cynthn
 ms.custom: include file
-ms.openlocfilehash: 1606b5e38b79cb535108ca747783a05de1fbc982
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: eac6c6d76bcc3b3d9cfeda7d8ca4e52e28ba9d8f
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40026420"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44369330"
 ---
 VM-grootten voor algemeen gebruik bieden evenwichtige CPU-geheugenverhouding. Ideaal voor testen en ontwikkelen, kleine tot middelgrote databases en webservers met weinig of gemiddeld verkeer. In dit artikel bevat informatie over het aantal vcpu's, gegevensschijven en NIC's, evenals opslagdoorvoer voor grootten die in deze groepering. 
 
-- De Av2-serie VM's kunnen worden geïmplementeerd op diverse hardwaretypen en processors. De grootte is afhankelijk van de hardware, zodat er consistente processorprestaties voor het actieve exemplaar kunnen worden geboden, ongeacht de hardware waarop deze is geïmplementeerd. Om de fysieke hardware te bepalen waarop deze grootte is geïmplementeerd, vraagt u vanuit de virtuele machine gegevens over de virtuele hardware op.
+- De Av2-serie VM's kunnen worden geïmplementeerd op diverse hardwaretypen en processors. VM's uit de A-serie beschikken over CPU-prestaties en geheugenconfiguraties die uitermate geschikt zijn voor workloads op instapniveau, zoals ontwikkelen en testen. De grootte is afhankelijk van de hardware, zodat er consistente processorprestaties voor het actieve exemplaar kunnen worden geboden, ongeacht de hardware waarop deze is geïmplementeerd. Om de fysieke hardware te bepalen waarop deze grootte is geïmplementeerd, vraagt u vanuit de virtuele machine gegevens over de virtuele hardware op.
 
-- De Dv2-serie, de opvolger van de oorspronkelijke D-serie, heeft een krachtigere CPU. De CPU van de Dv2-serie is ongeveer 35% sneller dan de CPU van de D-serie. Deze is gebaseerd op de nieuwste generatie Intel Xeon® E5-2673 v3 2,4 GHz (Haswell)- of E5-2673 v4 2,3 GHz (Broadwell)-processors, en met Intel Turbo Boost Technology 2.0 kunnen liefst 3,1 GHz bereiken. De Dv2-serie heeft dezelfde geheugen- en schijfconfiguraties als de D-serie.
+  Voorbeelden van use cases omvatten ontwikkeling en testen van servers, webservers met weinig verkeer, kleine tot middelgrote databases, proof-of-concepts en opslagplaatsen voor codes.
+
+- Dv2-serie, een opvolger van de oorspronkelijke D-serie, is uitgerust met een krachtigere CPU en een optimale CPU-geheugenconfiguratie wat ze geschikt maakt voor de meeste productiewerkbelastingen. De CPU van de Dv2-serie is ongeveer 35% sneller dan de CPU van de D-serie. Deze is gebaseerd op de nieuwste generatie Intel Xeon® E5-2673 v3 2,4 GHz (Haswell)- of E5-2673 v4 2,3 GHz (Broadwell)-processors, en met Intel Turbo Boost Technology 2.0 kunnen liefst 3,1 GHz bereiken. De Dv2-serie heeft dezelfde geheugen- en schijfconfiguraties als de D-serie.
 
 - De Dv3-serie biedt de 2,4 GHz Intel Xeon® E5-2673 v3 (Haswell)-processor of de meest recente 2,3 GHz Intel XEON® E5-2673 v4 (Broadwell)-processor in een configuratie met hyper-threaded, bieden een betere toegevoegde waarde voor de meest algemene doeleinden-werkbelastingen.  Geheugen is (van ~3.5 GiB/vCPU naar 4 GiB/vCPU) uitgevouwen terwijl de schijf en netwerk limieten zijn aangepast op basis van per core om uit te lijnen met de overgang naar hyperthreading is.  De Dv3 heeft niet langer de hoge geheugen-VM-grootten van de D/Dv2-families, die zijn verplaatst naar de nieuwe Ev3-serie.
 
+  Voorbeeld van de D-serie van use cases zijn zakelijke toepassingen, relationele databases, caching in geheugen en analytics. 
 
 ## <a name="b-series"></a>B-serie
 
@@ -31,6 +34,8 @@ Premium Storage: ondersteund
 Premium Storage Caching: Niet ondersteund
 
 De VM's met burstfunctie B-serie zijn ideaal voor workloads die niet continu de volledige prestaties van de CPU nodig hebt, zoals webservers, kleine databases en de ontwikkeling en testomgevingen. Deze werkbelastingen hebben meestal ' burstable ' prestatie-eisen. De B-serie biedt deze klanten de mogelijkheid om aan te schaffen van een VM-grootte met een basislijn waarmee het VM-exemplaar om op te bouwen tegoed bij minder dan de algemene prestatiegegevens gebruik van de virtuele machine zich bewust van prijs. Wanneer de virtuele machine zijn tegoed verzameld, kan de virtuele machine burst boven van de VM-basislijn met tot 100% van de CPU wanneer uw toepassing hogere CPU-prestaties vereist.
+
+Voorbeelden van use cases omvatten ontwikkelings-en testservers, webservers met weinig verkeer, kleine databases, microservices, servers voor proof-of-concepts, buildservers.
 
 
 | Grootte             | vCPU  | Geheugen: GiB | Lokale SSD: GiB | Basis voor prestaties van een kern | Tegoed gestort / uur | Max gestort tegoed | Max. aantal gegevensschijven | Lokale schijf voor maximale prestaties: IOPS / MBps | Max zonder caching voor prestaties schijf: IOPS / MBps | Max. aantal NIC's |          

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/02/2018
 ms.author: rkarlin
-ms.openlocfilehash: e74a5a431144c303b0301c8b7a22417784ecb65b
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 50055befaa0a5f0bb03bda18e01edfb751e49369
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300493"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44379992"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>Onboarding van Azure Security Center Standard voor verbeterde beveiliging
 Upgrade uitvoeren naar Security Center Standard om te profiteren van verbeterde beveiligingsbeheer en bedreigingsbeveiliging voor uw hybride cloudworkloads.  U kunt standaard 60 dagen gratis uitproberen. Zie het Security Center [pagina met prijzen](https://azure.microsoft.com/pricing/details/security-center/) voor meer informatie.
@@ -103,7 +103,7 @@ U kunt een computer toevoegen aan de hand van de werkstroom van **Onboarding**, 
 
    ![Computers toevoegen][7]
 
- De **Direct Agent** blade bevat een koppeling voor het downloaden van een Windows- of Linux-agent en sleutels voor uw werkruimte-ID te gebruiken bij het configureren van de agent.   
+ De **Direct Agent** blade bevat een koppeling voor het downloaden van een Windows- of Linux-agent, evenals de werkruimte-ID en sleutels voor het gebruik van bij het configureren van de agent.   
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe u ingebouwde Azure en niet-Azure-resources om te profiteren van geavanceerde beveiliging van Security Center bevinden.  Als u wilt doen met Zie uw resources toegevoegd,
