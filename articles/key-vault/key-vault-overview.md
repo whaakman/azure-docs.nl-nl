@@ -14,22 +14,21 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 07/17/2018
 ms.author: barclayn
-ms.openlocfilehash: a55c99764cf9d77ab3ee269e3f5b0c2a13ec1ac7
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: b509bf9575c3fdeedd1673d4ffe1395d46e3d919
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42022592"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44051609"
 ---
 # <a name="what-is-azure-key-vault"></a>Wat is Azure Sleutelkluis?
 
-Azure Key Vault is een cloudservice die werkt als een beveiligd geheimenarchief.
+Met Azure Key Vault kunt u de volgende problemen oplossen
+- Met Azure Key Vault kunt u veilig de toegang tot tokens, wachtwoorden, certificaten, API-sleutels en andere geheimen opslaan en strikt beheren
+- U kunt Azure Key Vault ook gebruiken als een oplossing voor sleutelbeheer. Met Azure Key Vault kunt u eenvoudig de versleutelingssleutels maken en beheren waarmee uw gegevens worden versleuteld. 
+- Azure Key Vault is ook een service waarmee u eenvoudig openbare en persoonlijke SSL/TLS-certificaten (Secure Sockets Layer/Transport Layer Security) kunt inrichten, beheren en implementeren voor gebruik met Azure en uw interne verbonden bronnen. 
+- De geheimen en sleutels kunnen worden beveiligd door software of met FIPS 140-2 niveau 2-validatie-HSM's
 
-U hebt wachtwoorden, verbindingsreeksen en andere stukjes informatie die nodig zijn om uw toepassingen aan de praat te houden. U wilt ervoor zorgen dat deze informatie niet alleen beschikbaar, maar ook beveiligd is. En daar biedt Azure Key Vault uitkomst. Azure Key Vault kan u helpen bij het veilig opslaan en beheren van toepassingsgeheimen.
-
-Met Key Vault kunt u meerdere beveiligde containers maken, die kluizen worden genoemd. Deze kluizen worden ondersteund door hardware security modules (HSM's). Kluizen verminderen de kans op onbedoeld verlies van beveiligingsinformatie door de opslag van toepassingsgeheimen te centraliseren. Sleutelkluizen regelen en registreren ook de toegang tot alles wat erin is opgeslagen. Azure Key Vault kan het aanvragen en vernieuwen van Transport Layer Security-certificaten (TLS) verwerken, met behulp van de functies die vereist zijn voor een robuuste oplossing voor het beheren van de levenscyclus van certificaten.
-
- Azure Key vault is ontworpen ter ondersteuning van elk type geheim. Hiermee bedoelen we dat Key Vault kan worden gebruikt voor het opslaan van wachtwoorden, databasereferenties, API-sleutels en certificaten, die softwarematig of via HSM beveiligd kunnen zijn
 ## <a name="why-use-azure-key-vault"></a>Waarom zou ik Azure Key Vault gebruiken?
 
 ### <a name="centralize-application-secrets"></a>Toepassingsgeheimen centraliseren

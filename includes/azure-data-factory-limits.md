@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/20/2018
 ms.author: jingwang
 ms.custom: include file
-ms.openlocfilehash: 67144407b078a30c521201cbc31c6087c839fa26
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: 4aa4809c57eaf26b10053d432f9191580ec143a0
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39029966"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44381068"
 ---
 Data factory is een multitenant-service met de volgende standaardlimieten in plaats om te controleren of abonnementen van de gebruiker zijn beveiligd tegen elkaars werkbelastingen. Veel van de limieten kunnen worden eenvoudig gegenereerd voor uw abonnement tot de maximale limiet door contact op met ondersteuning.
 
@@ -28,7 +28,7 @@ Data factory is een multitenant-service met de volgende standaardlimieten in pla
 | Gelijktijdige pijplijnuitvoeringen per gegevensfactory | 10.000  | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Maximum aantal activiteiten per pijplijn (inclusief interne activiteiten voor containers) | 40 | 40 |
 | Maximum aantal parameters per pijplijn | 50 | 50 |
-| ForEach-items | 100,000 | 100,000 |
+| ForEach-items | 100.000 | 100.000 |
 | Parallelle uitvoering ForEach | 20 | 50 |
 | Tekens per expressie | 8.192 | 8.192 |
 | Minimale Tumblingvenstertriggers interval | 15 minuten | 15 minuten |
@@ -38,6 +38,8 @@ Data factory is een multitenant-service met de volgende standaardlimieten in pla
 | Integratie gegevenseenheden per uitvoering van activiteit kopiëren <sup>3</sup> | 256 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 | Schrijven van API-aanroepen | 2500/uur<br/><br/> Deze limiet is opgelegd door Azure Resource Manager, niet-Azure Data Factory. | [Neem contact op met ondersteuning voor](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/). |
 | Lezen API-aanroepen | 12.500/uur<br/><br/> Deze limiet is opgelegd door Azure Resource Manager, niet-Azure Data Factory. | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Bewaking van query's per minuut | 1000 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
+| Entiteit CRUD-bewerkingen per minuut | 50 | [Contact opnemen met ondersteuning](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/) |
 
 
 ### <a name="version-1"></a>Versie 1

@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 03/19/2018
+ms.date: 08/31/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 8c5f3114172a7d27685e7aee2972b43b9ebef4e9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 3f9bdcb67628a6780e42ef16acea2b91ca9817d9
+ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093003"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44377017"
 ---
 # <a name="install-the-durable-functions-extension-and-samples-azure-functions"></a>Installeer de extensie duurzame functies en voorbeelden (Azure Functions)
 
@@ -31,12 +31,12 @@ Visual Studio biedt momenteel de beste ervaring voor het ontwikkelen van apps di
 
 ### <a name="prerequisites"></a>Vereisten
 
-* Installeer de [meest recente versie van Visual Studio](https://www.visualstudio.com/downloads/) (versie 15.3 of hoger). Bevatten de **Azure-ontwikkeling** werkbelasting in uw installatieopties.
+* Installeer de [meest recente versie van Visual Studio](https://www.visualstudio.com/downloads/) (versie: 15,6 of hoger). Bevatten de **Azure-ontwikkeling** werkbelasting in uw installatieopties.
 
 ### <a name="start-with-sample-functions"></a>Beginnen met Voorbeeldfuncties 
 
 1. Download de [ZIP-bestand voor voorbeeld-App voor Visual Studio](https://azure.github.io/azure-functions-durable-extension/files/VSDFSampleApp.zip). U hoeft niet te de NuGet-verwijzing toevoegen omdat het voorbeeldproject al deze.
-2. Installeren en uitvoeren [Azure-Opslagemulator](https://docs.microsoft.com/azure/storage/storage-use-emulator) versie 5.2 of hoger. U kunt ook u kunt bijwerken de *local.appsettings.json* -bestand met echte Azure Storage-verbindingsreeksen.
+2. Installeren en uitvoeren [Azure-Opslagemulator](https://docs.microsoft.com/azure/storage/storage-use-emulator) versie 5.6 of hoger. U kunt ook u kunt bijwerken de *local.appsettings.json* -bestand met echte Azure Storage-verbindingsreeksen.
 3. Open het project in Visual Studio 2017. 
 4. Voor instructies over het uitvoeren van het voorbeeld beginnen met [functie chaining - reeks voorbeeld Hello](durable-functions-sequence.md). Het voorbeeld kan lokaal worden uitgevoerd of gepubliceerd naar Azure.
 
@@ -45,7 +45,7 @@ Visual Studio biedt momenteel de beste ervaring voor het ontwikkelen van apps di
 Volg de dezelfde richtlijnen als voor het beginnen met het voorbeeld, maar de volgende stappen uit in plaats van downloaden van de *.zip* bestand:
 
 1. Maak een functie-App-project.
-2. Zoeken naar de volgende NuGet pakket verwijzing met behulp van *NuGet-pakketten beheren* en voeg deze toe aan het project: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.5.0
+2. Zoeken naar de volgende NuGet pakket verwijzing met behulp van *NuGet-pakketten beheren* en voeg deze toe aan het project: Microsoft.Azure.WebJobs.Extensions.DurableTask v1.6.0
    
 ## <a name="visual-studio-code"></a>Visual Studio Code
 
@@ -63,7 +63,7 @@ Visual Studio Code biedt een lokale ontwikkeling die betrekking hebben op alle g
     >[!IMPORTANT]
     >Duurzame functies in JavaScript is vereist voor versie 2.x van Azure Functions Core Tools.
 
-*  Als u van een Windows-machine gebruikmaakt, installeren en uitvoeren [Azure-Opslagemulator](https://docs.microsoft.com/azure/storage/storage-use-emulator) versie 5.2 of hoger. U kunt ook u kunt bijwerken de *local.appsettings.json* bestand met echte Azure Storage-verbinding. 
+*  Als u van een Windows-machine gebruikmaakt, installeren en uitvoeren [Azure-Opslagemulator](https://docs.microsoft.com/azure/storage/storage-use-emulator) versie 5.6 of hoger. U kunt ook u kunt bijwerken de *local.appsettings.json* bestand met echte Azure Storage-verbinding. 
 
 
 ### <a name="start-with-sample-functions"></a>Beginnen met Voorbeeldfuncties
@@ -75,12 +75,12 @@ Visual Studio Code biedt een lokale ontwikkeling die betrekking hebben op alle g
 3. Azure Functions duurzame Extension installeren door te voeren van het volgende in een opdracht vragen / terminal-venster:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
     ```
 4. Azure Functions Twilio Extension installeren door te voeren van het volgende in een opdracht vragen / terminal-venster:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta5
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.Twilio -v 3.0.0-beta8
     ```
 5. Voer Azure-Opslagemulator of update de *local.appsettings.json* -bestand met echte Azure Storage-verbindingsreeks.
 6. Open het project in Visual Studio Code. 
@@ -97,7 +97,7 @@ Visual Studio Code biedt een lokale ontwikkeling die betrekking hebben op alle g
 3. Azure Functions duurzame Extension installeren door te voeren van het volgende in een opdracht vragen / terminal-venster:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
     ```
 4. Herstellen van de npm-pakketten door het uitvoeren van de volgende in een opdracht vragen / terminal-venster:
     
@@ -118,7 +118,7 @@ Visual Studio Code biedt een lokale ontwikkeling die betrekking hebben op alle g
 2. Azure Functions duurzame Extension installeren door te voeren van het volgende in een opdracht vragen / terminal-venster:
 
     ```bash
-    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.5.0
+    func extensions install -p Microsoft.Azure.WebJobs.Extensions.DurableTask -v 1.6.0
     ```
 3. Maak een functie-App-project met de volgende opdracht:
 

@@ -7,14 +7,14 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.topic: overview
-ms.date: 08/01/2018
+ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: f7a314b3de112ad1fa7a5a356c2325846e9371b1
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 6e793c0227300b836c0a14b4252eeaf63c1bc949
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413379"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054577"
 ---
 # <a name="what-is-the-azure-sql-database-service"></a>Wat is de service Azure SQL Database? 
 
@@ -177,8 +177,8 @@ SQL Database ondersteunt het maken van toepassingen met Python, Java, Node.js, P
 - Zie deze Quick Starts om snel aan de slag te gaan:
 
   - [Een SQL-database maken in Azure Portal](sql-database-get-started-portal.md)  
-  - [Een SQL-database maken met de Azure CLI](sql-database-get-started-cli.md)
-  - [Een SQL-database maken met PowerShell](sql-database-get-started-powershell.md)
+  - [Een SQL-database maken met de Azure CLI](sql-database-cli-samples.md)
+  - [Een SQL-database maken met PowerShell](sql-database-powershell-samples.md)
 
 - Zie de volgende artikelen voor een reeks Azure CLI- en PowerShell-voorbeelden:
   - [Azure CLI-voorbeelden voor SQL Database](sql-database-cli-samples.md)

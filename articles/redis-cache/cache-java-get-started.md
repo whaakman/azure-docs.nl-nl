@@ -15,12 +15,12 @@ ms.workload: tbd
 ms.date: 05/23/2018
 ms.author: wesmc
 ms.custom: mvc
-ms.openlocfilehash: f76f9f6280120f5c05cb304a0b87bba9ffaee043
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: cc1dd773d14aedb9a4e64a18a7b8f7963aca986b
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38703712"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44055274"
 ---
 # <a name="quickstart-how-to-use-azure-redis-cache-with-java"></a>Snelstartgids: Azure Redis Cache gebruiken met Java
 
@@ -140,6 +140,7 @@ Sla *App.java* op.
 Voer de volgende Maven-opdracht uit om de app te bouwen en uit te voeren:
 
 ```
+mvn compile
 mvn exec:java -D exec.mainClass=example.demo.App
 ```
 
@@ -158,7 +159,7 @@ Als u niet verder wilt met de voorbeeldtoepassing uit de snelstart, kunt u de Az
 > Het verwijderen van een resourcegroep kan niet ongedaan worden gemaakt. De resourcegroep en alle bijbehorende resources worden permanent verwijderd. Zorg ervoor dat u niet per ongeluk de verkeerde resourcegroep of resources verwijdert. Als u de resources voor het hosten van dit voorbeeld in een bestaande resourcegroep hebt gemaakt en deze groep ook resources bevat die u wilt behouden, kunt u elke resource afzonderlijk verwijderen via hun respectievelijke blade.
 >
 
-Meld u aan bij de [Azure-portal](https://portal.azure.com) en klik op **Resourcegroepen**.
+Meld u aan bij [Azure Portal](https://portal.azure.com) en klik op **Resourcegroepen**.
 
 Typ de naam van de resourcegroep in het tekstvak **Filteren op naam...**. In de instructies voor dit artikel is een resourcegroep met de naam *TestResources* gebruikt. Klik in de resourcegroep in de lijst met resultaten op **...** en vervolgens op **Resourcegroep verwijderen**.
 

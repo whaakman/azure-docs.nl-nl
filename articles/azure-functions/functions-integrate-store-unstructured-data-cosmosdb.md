@@ -4,25 +4,21 @@ description: Ongestructureerde gegevens opslaan met behulp van Azure Functions e
 services: functions
 documentationcenter: functions
 author: ggailey777
-manager: cfowler
-editor: ''
-tags: ''
+manager: jeconnoc
 keywords: Azure Functions, functies, gebeurtenisverwerking, Cosmos DB, dynamisch berekenen, architectuur zonder server
 ms.assetid: ''
-ms.service: functions
+ms.service: azure-functions
 ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: multiple
-ms.workload: na
 ms.date: 09/19/2017
 ms.author: glenga
 ms.custom: mvc
-ms.openlocfilehash: b9bb71adf85490fe68bf6b73133017c5e9c377e1
-ms.sourcegitcommit: 71fa59e97b01b65f25bcae318d834358fea5224a
+ms.openlocfilehash: ddd9a3186e86b1b5bd24c0c99f5fcb18c456119a
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/11/2018
-ms.locfileid: "27767550"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44091625"
 ---
 # <a name="store-unstructured-data-using-azure-functions-and-azure-cosmos-db"></a>Ongestructureerde gegevens opslaan met behulp van Azure Functions en Azure Cosmos DB
 

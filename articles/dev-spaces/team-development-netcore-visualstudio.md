@@ -13,12 +13,12 @@ ms.topic: tutorial
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: 1b603db552edd14dab2c86e6b005184eb88e74bb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 97b052833946b373e2333491c4b516b3a088130b
+ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42154812"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44158463"
 ---
 # <a name="team-development-with-azure-dev-spaces"></a>Teamontwikkeling met Azure Dev Spaces
 
@@ -163,6 +163,6 @@ Als u de nieuwe versie van `mywebapi` wilt testen samen met `webfrontend`, opent
 
 Voeg nu het gedeelte scott.s. toe aan de URL, zodat deze er ongeveer als volgt uitziet: http://scott.s.webfrontend.123456abcdef.eastus.aksapp.io. Vernieuw vervolgens de browser. Het onderbrekingspunt dat u hebt ingesteld in het `mywebapi`-project, wordt nu gevonden. Klik op F5 om door te gaan. In de browser ziet u nu het nieuwe bericht: Hello from webfrontend and mywebapi now says something new. Dit komt omdat het pad naar de bijgewerkte code in `mywebapi` wordt uitgevoerd in de `default/scott`-ruimte.
 
-[!INCLUDE[](includes/well-done.md)]
+[!INCLUDE [](includes/well-done.md)]
 
-[!INCLUDE[](includes/clean-up.md)]
+[!INCLUDE [](includes/clean-up.md)]

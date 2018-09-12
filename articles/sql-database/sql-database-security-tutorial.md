@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: mvc,security
 ms.topic: tutorial
-ms.date: 04/24/2018
+ms.date: 09/07/2018
 ms.author: daredis
-ms.openlocfilehash: 54ec3c1386d6ce2023106367a6af1915e754948f
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 6d805a39831ce2eea204689a4daa069d10b757e8
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193458"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054067"
 ---
 # <a name="secure-your-azure-sql-database"></a>Uw Azure SQL-database beveiligen
 
@@ -46,7 +46,7 @@ Zorg ervoor dat u over het volgende beschikt om deze zelfstudie te voltooien:
 
 - De nieuwste versie van [SQL Server Management Studio](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) is geïnstalleerd. 
 - Microsoft Excel is geïnstalleerd
-- Een Azure SQL-server en -database - Zie [Een Azure SQL-database maken in Azure Portal](sql-database-get-started-portal.md), [Een individuele Azure SQL-database maken met de Azure CLI](sql-database-get-started-cli.md) en [Een individuele Azure SQL Database maken met PowerShell](sql-database-get-started-powershell.md). 
+- Een Azure SQL-server en -database - Zie [Een Azure SQL-database maken in Azure Portal](sql-database-get-started-portal.md), [Een individuele Azure SQL-database maken met de Azure CLI](sql-database-cli-samples.md) en [Een individuele Azure SQL Database maken met PowerShell](sql-database-powershell-samples.md). 
 
 ## <a name="log-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 

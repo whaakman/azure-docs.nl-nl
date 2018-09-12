@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/14/2018
 ms.author: cherylmc
-ms.openlocfilehash: a96326e23a2ed913ccab8a23666a4f408157d3da
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: b662b9a1ed52a9475328d7178565a159f4d50f8f
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
-ms.locfileid: "31603977"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050354"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-using-powershell"></a>Een VPN-gatewayverbinding tussen VNets configureren met behulp van PowerShell
 
@@ -99,7 +99,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
 
 * VNet-naam: TestVNet1
 * Resourcegroep: TestRG1
-* Locatie: VS - oost
+* Locatie: US - oost
 * TestVNet1: 10.11.0.0/16 en 10.12.0.0/16
 * FrontEnd: 10.11.0.0/24
 * BackEnd: 10.12.0.0/24
@@ -119,7 +119,7 @@ In de voorbeelden worden de volgende waarden gebruikt:
 * BackEnd: 10.42.0.0/24
 * GatewaySubnet: 10.42.255.0/27
 * Resourcegroep: TestRG4
-* Locatie: VS - west
+* Locatie: US - west
 * GatewayName: VNet4GW
 * Openbare IP: VNet4GWIP
 * VPNType: op route gebaseerd
@@ -453,7 +453,7 @@ Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is de
   Maak verbinding met abonnement 1 voordat u het volgende voorbeeld uitvoert:
 
   ```powershell
-  $vnet5gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
+  $vnet5gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet5gw.Name = "VNet5GW"
   $vnet5gw.Id   = "/subscriptions/66c8e4f1-ecd6-47ed-9de7-7e530de23994/resourceGroups/TestRG5/providers/Microsoft.Network/virtualNetworkGateways/VNet5GW"
   $Connection15 = "VNet1toVNet5"
@@ -464,7 +464,7 @@ Omdat de gateways in dit voorbeeld tot verschillende abonnementen behoren, is de
   Maak verbinding met abonnement 5 voordat u het volgende voorbeeld uitvoert:
 
   ```powershell
-  $vnet1gw = New-Object Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
+  $vnet1gw = New-Object -TypeName Microsoft.Azure.Commands.Network.Models.PSVirtualNetworkGateway
   $vnet1gw.Name = "VNet1GW"
   $vnet1gw.Id = "/subscriptions/b636ca99-6f88-4df4-a7c3-2f8dc4545509/resourceGroups/TestRG1/providers/Microsoft.Network/virtualNetworkGateways/VNet1GW "
   $Connection51 = "VNet5toVNet1"

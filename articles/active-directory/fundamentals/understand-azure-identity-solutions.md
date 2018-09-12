@@ -14,12 +14,12 @@ ms.component: fundamentals
 ms.technology: ''
 ms.assetid: ''
 ms.custom: it-pro
-ms.openlocfilehash: 118f8258673c8a19d5f06e5fc62ff56d0fb44ea1
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: ec84cdb4e226eea4d16d28d63acd7be59241b973
+ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398361"
+ms.lasthandoff: 09/11/2018
+ms.locfileid: "44346913"
 ---
 # <a name="understand-azure-identity-solutions"></a>Inzicht in Azure-identiteitsoplossingen
 Microsoft Azure Active Directory (Azure AD) is een cloudoplossing voor identiteits- en toegangsbeheer die voorziet in adreslijstservices, identiteitsgovernance en toegangsbeheer voor toepassingen. Met Azure AD kunt u snel gebruikmaken van [eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) bij duizenden vooraf geïntegreerde commerciële en aangepaste apps in de [Azure AD-toepassingsgalerie](https://azure.microsoft.com/marketplace/active-directory/all/). Veel van deze apps gebruikt u waarschijnlijk al, bijvoorbeeld Office 365, Salesforce.com, Box, ServiceNow en Workday.
@@ -110,10 +110,10 @@ We bieden online tal van goede bronnen met allerlei informatie over Azure AD. Hi
 
 * [Uw directory geschikt maken voor hybride beheer met Azure AD Connect](../connect/active-directory-aadconnect.md)
 * [Extra beveiliging voor de verbonden wereld](../authentication/multi-factor-authentication.md)
-* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../active-directory-saas-app-provisioning.md) (Automatisch gebruikers inrichten en de inrichting ongedaan maken voor SaaS-toepassingen met Azure Active Directory)
+* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../manage-apps/user-provisioning.md) (Automatisch gebruikers inrichten en de inrichting ongedaan maken voor SaaS-toepassingen met Azure Active Directory)
 * [Overal uw wachtwoorden beheren](../user-help/active-directory-passwords-update-your-own-password.md)
 * [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
-* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../active-directory-saas-app-provisioning.md) (Automatisch gebruikers inrichten en de inrichting ongedaan maken voor SaaS-toepassingen met Azure Active Directory)
+* [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../manage-apps/user-provisioning.md) (Automatisch gebruikers inrichten en de inrichting ongedaan maken voor SaaS-toepassingen met Azure Active Directory)
 * [How to provide secure remote access to on-premises applications](../manage-apps/application-proxy.md) (Beveiligde externe toegang bieden voor on-premises toepassingen)
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md) (Toegang tot resources beheren met Azure Active Directory-groepen)
 * [Wat is Microsoft Azure Active Directory-licentieverlening?](active-directory-licensing-whatis-azure-portal.md)

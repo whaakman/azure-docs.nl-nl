@@ -11,12 +11,12 @@ ms.topic: tutorial
 ms.date: 08/09/2018
 ms.author: mlandzic
 manager: craigg
-ms.openlocfilehash: afecd69cdf9832e1c6dc294ca01968ee50a3eabd
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 73990d6feeed56114bc3c66164bbb53c093bbe21
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919773"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44050608"
 ---
 # <a name="migrate-certificate-of-tde-protected-database-to-azure-sql-managed-instance"></a>Certificaat van met TDE beveiligde database migreren naar met Azure SQL Database beheerd exemplaar
 
@@ -141,4 +141,4 @@ Het certificaat is nu beschikbaar voor het opgegeven beheerde exemplaar en de ba
 
 In dit artikel hebt u geleerd hoe u de certificaatversleutelingssleutel van de database met transparante gegevensbeveiliging (TDE) van de on-premises of IaaS SQL-server naar een met Azure SQL beheerd exemplaar migreert.
 
-Zie [Een databaseback-up terugzetten naar een met Azure SQL Database beheerd exemplaar](sql-database-managed-instance-restore-from-backup-tutorial.md) voor informatie over het terugzetten van een databaseback-up naar een met Azure SQL Database beheerd exemplaar.
+Zie [Een databaseback-up terugzetten naar een met Azure SQL Database beheerd exemplaar](sql-database-managed-instance-get-started-restore.md) voor informatie over het terugzetten van een databaseback-up naar een met Azure SQL Database beheerd exemplaar.

@@ -3,25 +3,20 @@ title: Een functie maken die kan worden geïntegreerd met Azure Logic Apps | Mic
 description: Maak een functie die met Azure Logic Apps en Azure Cognitive Services integreert om het gevoel van een tweet te categoriseren en meldingen te verzenden wanneer het gevoel slecht is.
 services: functions, logic-apps, cognitive-services
 keywords: werkstroom, cloud-apps, cloudservices, bedrijfsprocessen, systeemintegratie, enterprise application integration, EAI
-documentationcenter: ''
 author: ggailey777
-manager: cfowler
-editor: ''
+manager: jeconnoc
 ms.assetid: 60495cc5-1638-4bf0-8174-52786d227734
-ms.service: functions
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
+ms.service: azure-functions
 ms.topic: tutorial
 ms.date: 12/12/2017
 ms.author: glenga
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 16a46b4c49687186e25c399dcc2c5c168e7c5004
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 23db8d307892b100f291a1f32c9b77c73a60f23e
+ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38586871"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44090759"
 ---
 # <a name="create-a-function-that-integrates-with-azure-logic-apps"></a>Een functie maken die kan worden geïntegreerd met Azure Logic Apps
 
@@ -63,7 +58,7 @@ De Cognitive Services-API's zijn als afzonderlijke resources beschikbaar in Azur
     | Instelling      |  Voorgestelde waarde   | Beschrijving                                        |
     | --- | --- | --- |
     | **Naam** | MyCognitiveServicesAccnt | Kies een unieke naam voor het account. |
-    | **Locatie** | VS - west | Gebruik de dichtstbijzijnde locatie. |
+    | **Locatie** | US - west | Gebruik de dichtstbijzijnde locatie. |
     | **Prijscategorie** | F0 | Begin met de laagste categorie. Als u geen aanroepen meer hebt, schaalt u naar een hogere categorie.|
     | **Resourcegroep** | myResourceGroup | Gebruik dezelfde resourcegroep voor alle services in deze tutorial.|
 
@@ -144,7 +139,7 @@ U hebt nu een functie die gevoelsscores categoriseert. Maak vervolgens een logis
     | ----------------- | ------------ | ------------- |
     | **Naam** | TweetSentiment | Kies een passende naam voor uw app. |
     | **Resourcegroep** | myResourceGroup | Kies dezelfde bestaande resourcegroep als eerder. |
-    | **Locatie** | VS - oost | Kies een locatie dicht bij u in de buurt. |    
+    | **Locatie** | US - oost | Kies een locatie dicht bij u in de buurt. |    
 
 4. Schakel **Aan dashboard vastmaken** in en klik op **Maken** om uw logische app te maken. 
 
