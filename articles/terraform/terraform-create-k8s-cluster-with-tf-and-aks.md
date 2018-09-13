@@ -8,13 +8,13 @@ author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
 ms.topic: tutorial
-ms.date: 06/11/2018
-ms.openlocfilehash: 8a997c88943b0273d3136dbf02a784fbdb982527
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.date: 09/06/2018
+ms.openlocfilehash: cd1219fda7821fdc99e334de58826317113415d4
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666804"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44053638"
 ---
 # <a name="create-a-kubernetes-cluster-with-azure-kubernetes-service-and-terraform"></a>Een Kubernetes-cluster maken met Azure Kubernetes Service en Terraform
 [Azure Kubernetes Service (AKS)](/azure/aks/) beheert uw gehoste Kubernetes-omgeving en zorgt dat de implementatie en het beheer van toepassingen in containers snel en eenvoudig zijn en geen kennis over het beheer van containers vereisen. Het verlicht ook de last van actieve bewerkingen en onderhoud door inrichten, upgraden en bronnen op aanvraag schalen mogelijk te maken, zonder uw toepassingen offline te brengen.
@@ -76,7 +76,7 @@ Maak het Terraform-configuratiebestand waarin de Azure-provider wordt gedeclaree
 
     ```JSON
     provider "azurerm" {
-        version = "=1.5.0"
+        version = "~>1.5"
     }
 
     terraform {
@@ -129,7 +129,7 @@ Maak het Terraform-configuratiebestand waarin de resources voor het Kubernetes-c
         agent_pool_profile {
             name            = "default"
             count           = "${var.agent_count}"
-            vm_size         = "Standard_D2"
+            vm_size         = "Standard_DS2_v2"
             os_type         = "Linux"
             os_disk_size_gb = 30
         }
