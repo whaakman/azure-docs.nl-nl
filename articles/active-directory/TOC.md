@@ -232,11 +232,11 @@
 
 
 #### Een toepassing registreren
-##### [Geef de velden op voor het toepassingsobject](application-dev-registration-config-specific-application-property-how-to.md)
-##### [Standaardinstellingen levensduur van token wijzigen](application-dev-registration-config-change-token-lifetime-how-to.md)
+##### [Geef de velden op voor het toepassingsobject](develop/registration-config-specific-application-property-how-to.md)
+##### [Standaardinstellingen levensduur van token wijzigen](develop/registration-config-change-token-lifetime-how-to.md)
 
 #### Verificatie
-##### [Eindpunten configureren](application-dev-registration-config-how-to.md)
+##### [Eindpunten configureren](develop/registration-config-how-to.md)
 
 #### Voorwaardelijke toegang
 ##### [Klant voldeed niet aan voorvereisten voor apparaatregistratie](active-directory-conditional-access.md)
@@ -248,7 +248,7 @@
 ##### [In welke toepassingen wordt voorwaardelijke toegang ondersteund?](active-directory-conditional-access-supported-apps.md)
 
 #### Een API zoeken
-##### [Een API zoeken](application-dev-api-find-an-api-how-to.md)
+##### [Een API zoeken](develop/api-find-an-api-how-to.md)
 
 #### Toegang beheren
 ##### [Gebruikers en groepen toewijzen aan een app](manage-apps/methods-for-assigning-users-and-groups.md)
@@ -258,14 +258,14 @@
 ##### [Onverwachte app in de lijst met toepassingen](manage-apps/application-types.md)
 
 #### Apps met meerdere tenants
-##### [Een nieuwe app configureren](application-dev-setup-multi-tenant-app.md)
-##### [Toevoegen aan de app-galerie](application-dev-registration-config-multi-tenant-application-add-to-gallery-how-to.md)
+##### [Een nieuwe app configureren](develop/setup-multi-tenant-app.md)
+##### [Toevoegen aan de app-galerie](develop/registration-config-multi-tenant-application-add-to-gallery-how-to.md)
 
 #### Machtigingen
-##### [Machtigingen kiezen voor een API](application-dev-perms-for-given-api.md)
-##### [Machtigingen verlenen aan mijn app](application-dev-registration-config-grant-permissions-how-to.md)
-##### [Gedelegeerde vs. toepassingsmachtigingen](application-dev-delegated-and-app-perms.md)
-##### [Toepassingstoestemming](application-dev-consent-framework.md)
+##### [Machtigingen kiezen voor een API](develop/perms-for-given-api.md)
+##### [Machtigingen verlenen aan mijn app](develop/registration-config-grant-permissions-how-to.md)
+##### [Gedelegeerde vs. toepassingsmachtigingen](develop/delegated-and-app-perms.md)
+##### [Toepassingstoestemming](develop/consent-framework.md)
 
 #### Inrichten
 ##### [Hoelang het duurt](manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md)
@@ -278,7 +278,7 @@
 
 #### Eenmalige aanmelding
 ##### [Een methode kiezen](manage-apps/single-sign-on-modes.md)
-##### [Configureren](application-dev-registration-config-sso-how-to.md)
+##### [Configureren](develop/registration-config-sso-how-to.md)
 ##### [Federatief configureren - galerie-apps](manage-apps/configure-federated-single-sign-on-gallery-applications.md)
 ##### [Veelvoorkomende problemen bij federatief configureren - galerie-apps](manage-apps/configure-federated-single-sign-on-gallery-applications-problems.md)
 ##### [Federatief configureren - niet-galerie-apps](manage-apps/configure-federated-single-sign-on-non-gallery-applications.md)
@@ -303,7 +303,7 @@
 ##### [Probleem met on-premises app - toepassingsproxy](manage-apps/application-sign-in-problem-on-premises-application-proxy.md)
 
 ### [Apps ontwikkelen](active-directory-applications-guiding-developers-for-lob-applications.md)
-### [Documentbibliotheek](active-directory-apps-index.md)
+
 
 ## Uw directory beheren
 ### [Azure AD Connect](./connect/active-directory-aadconnect.md)
