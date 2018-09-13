@@ -1,6 +1,6 @@
 ---
-title: Storage-accounts in Azure-Stack | Microsoft Docs
-description: Informatie over het maken van een Azure-Stack storage-account.
+title: Storage-accounts in Azure Stack | Microsoft Docs
+description: Informatie over het maken van een Azure Stack-opslagaccount.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -11,25 +11,25 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 02/28/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: a599d809ba3da8487a6c5d115bf04922a546e6ad
-ms.sourcegitcommit: 782d5955e1bec50a17d9366a8e2bf583559dca9e
+ms.openlocfilehash: ae6539900e201f0559d998ad2d9be24c39d42e3b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/02/2018
-ms.locfileid: "29733720"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713490"
 ---
 # <a name="storage-accounts-in-azure-stack"></a>Opslagaccounts in Azure Stack
 Opslagaccounts bevatten Blob- en Tabelservices en de unieke naamruimte voor de objecten van uw opslaggegevens. De gegevens in uw account zijn standaard alleen beschikbaar voor u, de eigenaar van het opslagaccount.
 
-1. Op de Stack Implementatiemodel van Azure-computer, moet u zich aanmelden bij `https://adminportal.local.azurestack.external` als [een beheerder](azure-stack-connect-azure-stack.md), en klik vervolgens op **nieuw** > **gegevens en opslag**  >  **Opslagaccount**.
+1. Op de Azure Stack POC-computer, moet u zich aanmelden bij `https://adminportal.local.azurestack.external` als [beheerder](azure-stack-connect-azure-stack.md), en klik vervolgens op **+ een resource maken** > **gegevens en opslag**  >  **Opslagaccount**.
 
    ![](media/azure-stack-provision-storage-account/image01.png)
-2. In de **storage-account maken** blade, typ een naam voor uw opslagaccount. Maak een nieuwe **resourcegroep**, of een bestaande set selecteren en klik vervolgens op **maken** voor het maken van het opslagaccount.
+2. In de **storage-account maken** blade, typ een naam voor uw storage-account. Maak een nieuwe **resourcegroep**, of Selecteer een bestaande resourcegroep en klik vervolgens op **maken** om het opslagaccount te maken.
 
    ![](media/azure-stack-provision-storage-account/image02.png)
-3. Klik op een overzicht van uw nieuwe opslagaccount **alle resources**, zoekt u naar het storage-account en klik op de naam.
+3. Voor uw nieuwe storage-account, klikt u op **alle resources**, zoek vervolgens naar het storage-account en klik op de naam.
 
     ![](media/azure-stack-provision-storage-account/image03.png)
 
@@ -38,4 +38,4 @@ Opslagaccounts bevatten Blob- en Tabelservices en de unieke naamruimte voor de o
 
 [Meer informatie over Azure storage-accounts](../storage/common/storage-create-storage-account.md)
 
-[Download de Azure-Stack consistent zijn met Azure Storage validatie gids](http://aka.ms/azurestacktp1doc)
+[Download de handleiding Azure Stack Azure consistente validatie](http://aka.ms/azurestacktp1doc)

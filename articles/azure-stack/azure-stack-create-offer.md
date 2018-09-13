@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: efemmano
-ms.openlocfilehash: 66a89c3cb14dd642ae993cbf3c45885635f59759
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 7b26afa99e9ab14db83aee5c0487c1c405243962
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42139524"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719763"
 ---
 # <a name="create-an-offer-in-azure-stack"></a>Een aanbieding maken in Azure Stack
 
 [Biedt](azure-stack-key-features.md) zijn groepen van een of meer plannen die providers die aanwezig voor gebruikers om te kopen of zich abonneert zijn op. Dit document wordt beschreven hoe u een aanbieding met maakt de [plan dat u hebt gemaakt](azure-stack-create-plan.md). Deze aanbieding biedt abonnees de mogelijkheid voor het instellen van virtuele machines.
 
-1. Aanmelden bij de Azure Stack-beheerdersportal (https://adminportal.local.azurestack.external) en selecteer **nieuw** > **Tenant aanbiedingen + plannen** > **bieden**.
+1. Aanmelden bij de Azure Stack-beheerdersportal (https://adminportal.local.azurestack.external) en selecteer **+ een resource maken** > **Tenant aanbiedingen + plannen** > **bieden**.
 
    ![Een aanbieding maken](media/azure-stack-create-offer/image01.png)
   

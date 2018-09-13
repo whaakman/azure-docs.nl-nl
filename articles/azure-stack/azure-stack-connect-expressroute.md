@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 08/14/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 878b7952938c7ec534bc09e27ee8b859c1aaeefb
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: db9f19154668fa33bb94e59a4da6735b1a6d3d49
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139656"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720494"
 ---
 # <a name="connect-azure-stack-to-azure-using-azure-expressroute"></a>Verbinding maken met Azure Stack met behulp van Azure ExpressRoute
 
@@ -98,7 +98,7 @@ Gebruik de volgende procedures om u te maken van de vereiste netwerkresources in
 #### <a name="create-the-virtual-network-and-vm-subnet"></a>Het virtuele netwerk en VM-subnet maken
 
 1. Meld u aan bij de gebruikersportal aanmeldt met een gebruikersaccount (tenant).
-1. Selecteer in de portal **nieuw**.
+1. Selecteer in de portal **+ een resource maken**.
 
 1. Onder **Azure Marketplace**, selecteer **netwerken**.
 
@@ -131,7 +131,7 @@ Gebruik de volgende procedures om u te maken van de vereiste netwerkresources in
 
 #### <a name="create-the-virtual-network-gateway"></a>De gateway van het virtuele netwerk maken
 
-1. Selecteer in de gebruikersportal van Azure Stack **nieuw**.
+1. Selecteer in de gebruikersportal van Azure Stack **+ een resource maken**.
 1. Onder **Azure Marketplace**, selecteer **netwerken**.
 1. Selecteer **Gateway van het virtuele netwerk** in de lijst met netwerkresources.
 1. In de **naam** veld **GW1**.
@@ -146,7 +146,7 @@ Gebruik de volgende procedures om u te maken van de vereiste netwerkresources in
 
 De lokale netwerkgatewayresource identificeert de RAS-gateway op het andere uiteinde van de VPN-verbinding. In dit voorbeeld is de externe kant van de verbinding de Hiermee LAN van de router voor ExpressRoute. Voor Tenant-1, wordt weergegeven in *afbeelding 2*, het externe adres 10.60.3.255 is.
 
-1. Meld u aan bij de gebruikersportal van Azure Stack met uw gebruikersaccount en selecteer **nieuw**.
+1. Meld u aan bij de gebruikersportal van Azure Stack met uw gebruikersaccount en selecteer **+ een resource maken**.
 1. Onder **Azure Marketplace**, selecteer **netwerken**.
 1. Selecteer **lokale netwerkgateway** in de lijst met resources.
 1. In de **naam** veld **ER-Router-GW**.
@@ -163,7 +163,7 @@ De lokale netwerkgatewayresource identificeert de RAS-gateway op het andere uite
 
 #### <a name="create-the-connection"></a>De verbinding maken
 
-1. Selecteer in de gebruikersportal van Azure Stack **nieuw**.
+1. Selecteer in de gebruikersportal van Azure Stack **+ een resource maken**.
 1. Onder **Azure Marketplace**, selecteer **netwerken**.
 1. Selecteer **Verbinding** in de lijst met resources.
 1. Onder **basisbeginselen**, kiest u **Site-naar-site (IPSec)** als de **verbindingstype**.
@@ -187,7 +187,7 @@ Nadat u de gateway van virtueel netwerk hebt gemaakt, kunt u het openbare IP-adr
 
 Als u wilt testen gegevensverkeer via de VPN-verbinding, moet u virtuele machines te verzenden en ontvangen van gegevens in de Azure Stack-VNet. Een virtuele machine maken en deze implementeren in het VM-subnet voor het virtuele netwerk.
 
-1. Selecteer in de gebruikersportal van Azure Stack **nieuw**.
+1. Selecteer in de gebruikersportal van Azure Stack **+ een resource maken**.
 1. Onder **Azure Marketplace**, selecteer **Compute**.
 1. Selecteer in de lijst met installatiekopieën van virtuele machines, de **Windows Server 2016 Datacenter Eval** installatiekopie.
 

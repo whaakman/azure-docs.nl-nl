@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 7/10/2017
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: scottnap
 ROBOTS: NOINDEX
-ms.openlocfilehash: 6225a12b50ebb7bf0a0cb9244153800ba734d93a
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.openlocfilehash: a219f44cb27bb6ebe4e17079ad487457ae8852f0
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39006900"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718114"
 ---
 # <a name="create-a-site-to-site-vpn-connection-between-two-virtual-networks-in-different-azure-stack-development-kit-environments"></a>Maken van een site-naar-site VPN-verbinding tussen twee virtuele netwerken in verschillende Azure Stack Development Kit-omgevingen
 ## <a name="overview"></a>Overzicht
@@ -53,7 +53,7 @@ De volgende tabel geeft een overzicht van de netwerkconfiguratie voor beide omge
 **Netwerk-configuratietabel**
 |   |POC1|POC2|
 |---------|---------|---------|
-|Virtuele-netwerknaam     |VNET-01|VNET-02 |
+|Naam van virtueel netwerk     |VNET-01|VNET-02 |
 |Virtuele netwerkadresruimte |10.0.10.0/23|10.0.20.0/23|
 |Subnetnaam     |Subnet-01|Subnet-02|
 |Subnetadresbereik|10.0.10.0/24 |10.0.20.0/24 |
@@ -92,10 +92,7 @@ Een servicebeheerder kan zich aanmelden als tenant om te testen, het plannen, aa
 
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>Het virtuele netwerk en VM-subnet maken
 1. Gebruik een tenantaccount aan te melden bij de gebruikersportal aanmeldt.
-2. Selecteer in de gebruikersportal **nieuw**.
-
-    ![Nieuw virtueel netwerk maken](media/azure-stack-create-vpn-connection-one-node-tp2/image3.png)
-
+2. Selecteer in de gebruikersportal **+ een resource maken**.
 3. Ga naar **Marketplace**, en selecteer vervolgens **netwerken**.
 4. Selecteer **virtueel netwerk**.
 5. Voor **naam**, **adresruimte**, **subnetnaam**, en **subnetadresbereik**, gebruikt u de waarden die eerder in het netwerk wordt weergegeven van de configuratietabel.
@@ -118,7 +115,7 @@ Een servicebeheerder kan zich aanmelden als tenant om te testen, het plannen, aa
 6. Selecteer **OK** om het gatewaysubnet te maken.
 
 ### <a name="create-the-virtual-network-gateway"></a>De gateway van het virtuele netwerk maken
-1. Selecteer in de Azure portal, **nieuw**. 
+1. Selecteer in de Azure portal, **+ een resource maken**. 
 2. Ga naar **Marketplace**, en selecteer vervolgens **netwerken**.
 3. Selecteer in de lijst van netwerkbronnen **gateway van virtueel netwerk**.
 4. In **naam**, voer **GW1**.
@@ -140,7 +137,7 @@ Een manier om na te denken over dit meer algemeen, is dat de lokale netwerkgatew
 
 ### <a name="create-the-local-network-gateway-resource"></a>De lokale netwerkgatewayresource maken
 1. Meld u aan bij de fysieke machine van Azure Stack voor POC1.
-2. Selecteer in de gebruikersportal **nieuw**.
+2. Selecteer in de gebruikersportal **+ een resource maken**.
 3. Ga naar **Marketplace**, en selecteer vervolgens **netwerken**.
 4. Selecteer in de lijst met resources **lokale netwerkgateway**.
 5. In **naam**, voer **POC2-GW**.
@@ -149,7 +146,7 @@ Een manier om na te denken over dit meer algemeen, is dat de lokale netwerkgatew
 8. Controleer uw **abonnement**, **resourcegroep**, en **locatie** juist zijn, en selecteer vervolgens **maken**.
 
 ### <a name="create-the-connection"></a>De verbinding maken
-1. Selecteer in de gebruikersportal **nieuw**.
+1. Selecteer in de gebruikersportal **+ een resource maken**.
 2. Ga naar **Marketplace**, en selecteer vervolgens **netwerken**.
 3. Selecteer in de lijst met resources **verbinding**.
 4. Op de **basisbeginselen** instellingenblade voor de **verbindingstype**, selecteer **Site-naar-site (IPSec)**.
@@ -163,7 +160,7 @@ Een manier om na te denken over dit meer algemeen, is dat de lokale netwerkgatew
 ### <a name="create-a-vm"></a>Een virtuele machine maken
 Voor het valideren van de gegevens die worden uitgewisseld via de VPN-verbinding, moet u de virtuele machines te verzenden en ontvangen van gegevens in elke Azure Stack Development Kit. Maak nu een virtuele machine in POC1, en deze vervolgens in het virtuele netwerk op uw VM-subnet.
 
-1. Selecteer in de Azure portal, **nieuw**.
+1. Selecteer in de Azure portal, **+ een resource maken**.
 2. Ga naar **Marketplace**, en selecteer vervolgens **Compute**.
 3. Selecteer in de lijst met installatiekopieën van virtuele machines, de **Windows Server 2016 Datacenter Eval** installatiekopie.
 4. Op de **basisbeginselen** blade in **naam**, voer **VM01**.
@@ -185,7 +182,7 @@ Een servicebeheerder kan zich aanmelden als tenant om te testen, het plannen, aa
 ### <a name="create-the-virtual-network-and-vm-subnet"></a>Het virtuele netwerk en VM-subnet maken
 
 1. Meld u aan met behulp van een tenantaccount.
-2. Selecteer in de gebruikersportal **nieuw**.
+2. Selecteer in de gebruikersportal **+ een resource maken**.
 3. Ga naar **Marketplace**, en selecteer vervolgens **netwerken**.
 4. Selecteer **virtueel netwerk**.
 5. Gebruik de informatie die eerder in de tabel van de configuratie van netwerk weergegeven voor het identificeren van de waarden voor de POC2 **naam**, **adresruimte**, **subnetnaam**, en **Subnetadresbereik**.
@@ -205,7 +202,7 @@ Een servicebeheerder kan zich aanmelden als tenant om te testen, het plannen, aa
 6. Selecteer **OK** om het gatewaysubnet te maken.
 
 ### <a name="create-the-virtual-network-gateway"></a>De gateway van het virtuele netwerk maken
-1. Selecteer in de Azure portal, **nieuw**.  
+1. Selecteer in de Azure portal, **+ een resource maken**.  
 2. Ga naar **Marketplace**, en selecteer vervolgens **netwerken**.
 3. Selecteer in de lijst van netwerkbronnen **gateway van virtueel netwerk**.
 4. In **naam**, voer **GW2**.
@@ -218,7 +215,7 @@ Een servicebeheerder kan zich aanmelden als tenant om te testen, het plannen, aa
 
 ### <a name="create-the-local-network-gateway-resource"></a>De lokale netwerkgatewayresource maken
 
-1. Selecteer in de gebruikersportal POC2 **nieuw**. 
+1. Selecteer in de gebruikersportal POC2 **+ een resource maken**. 
 4. Ga naar **Marketplace**, en selecteer vervolgens **netwerken**.
 5. Selecteer in de lijst met resources **lokale netwerkgateway**.
 6. In **naam**, voer **POC1-GW**.
@@ -227,7 +224,7 @@ Een servicebeheerder kan zich aanmelden als tenant om te testen, het plannen, aa
 9. Controleer uw **abonnement**, **resourcegroep**, en **locatie** juist zijn, en selecteer vervolgens **maken**.
 
 ## <a name="create-the-connection"></a>De verbinding maken
-1. Selecteer in de gebruikersportal **nieuw**. 
+1. Selecteer in de gebruikersportal **+ een resource maken**. 
 2. Ga naar **Marketplace**, en selecteer vervolgens **netwerken**.
 3. Selecteer in de lijst met resources **verbinding**.
 4. Op de **Basic** instellingenblade voor de **verbindingstype**, kiest u **Site-naar-site (IPSec)**.
@@ -241,7 +238,7 @@ Een servicebeheerder kan zich aanmelden als tenant om te testen, het plannen, aa
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 Maak nu een virtuele machine in POC2 en plaats deze op uw VM-subnet in uw virtuele netwerk.
 
-1. Selecteer in de Azure portal, **nieuw**.
+1. Selecteer in de Azure portal, **+ een resource maken**.
 2. Ga naar **Marketplace**, en selecteer vervolgens **Compute**.
 3. Selecteer in de lijst met installatiekopieën van virtuele machines, de **Windows Server 2016 Datacenter Eval** installatiekopie.
 4. Op de **basisbeginselen** blade voor **naam**, voer **VM02**.

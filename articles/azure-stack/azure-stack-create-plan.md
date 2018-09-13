@@ -1,6 +1,6 @@
 ---
-title: Een plan maken in Azure-Stack | Microsoft Docs
-description: Als een cloudbeheerder een plan waarmee abonnees inrichten van virtuele machines te maken.
+title: Een plan maken in Azure Stack | Microsoft Docs
+description: Maak een plan waarmee abonnees virtuele machines voor inrichten als de beheerder van een cloud.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,33 +12,33 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 06/07/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: ''
-ms.openlocfilehash: 1fa01d23108ce92fbd7c854442c0474b19395d25
-ms.sourcegitcommit: 50f82f7682447245bebb229494591eb822a62038
+ms.openlocfilehash: 0795c3d833133e2881f3c1ba0ae56584a229a31f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/08/2018
-ms.locfileid: "35248700"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721242"
 ---
 # <a name="create-a-plan-in-azure-stack"></a>Een plan maken in Azure Stack
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-[Plannen](azure-stack-key-features.md) zijn pakketten van één of meer services. Als een provider, kunt u plannen om aan te bieden aan uw gebruikers. Uw gebruikers abonneren op zijn beurt op uw aanbiedingen plannen en services die ze gebruiken. Dit voorbeeld ziet u het maken van een abonnement met de compute, network en storage resourceproviders. Dit abonnement biedt abonnees de mogelijkheid voor het inrichten van virtuele machines.
+[Plannen](azure-stack-key-features.md) zijn pakketten van één of meer services. Als een provider, kunt u plannen om aan te bieden aan uw gebruikers maken. Uw gebruikers abonneren op zijn beurt op uw aanbiedingen te gebruiken van de abonnementen en services die ze bevatten. In dit voorbeeld ziet u het maken van een abonnement met de compute, network en storage resourceproviders. Dit abonnement biedt abonnees de mogelijkheid voor het inrichten van virtuele machines.
 
-1. Aanmelden bij de Azure-Stack-beheerdersportal (https://adminportal.local.azurestack.external).
+1. Aanmelden bij de Azure Stack-beheerdersportal (https://adminportal.local.azurestack.external).
 
-2. Voor het maken van een plan en een aanbieding die gebruikers kunnen zich abonneren op, selecteer **nieuw** > **biedt + plannen** > **Plan**.
+2. Voor het maken van een plan en aanbieding die gebruikers kunnen zich abonneren op, selecteer **+ een resource maken** > **aanbiedingen + plannen** > **Plan**.
   
-   ![Selecteer een plan](media/azure-stack-create-plan/select-plan.png)
+   ![Een abonnement selecteren](media/azure-stack-create-plan/select-plan.png)
 
-3. Onder **nieuw plan**, voer een **weergavenaam** en een **resourcenaam**. De weergegeven naam is van het plan beschrijvende naam die gebruikers kunnen zien. Alleen de beheerder kan de naam van de Resource die beheerders gebruiken om te werken met het plan als een Azure Resource Manager-resource zien.
+3. Onder **nieuw plan**, voer een **weergavenaam** en een **resourcenaam**. De weergavenaam is de beschrijvende naam van het plan die gebruikers kunnen zien. Alleen de beheerder kan zien de naam van de Resource, die beheerders gebruiken om te werken met het abonnement als een Azure Resource Manager-resource.
 
-   ![Geef details](media/azure-stack-create-plan/plan-name.png)
+   ![Geef details op](media/azure-stack-create-plan/plan-name.png)
 
-4. Maak een nieuwe **resourcegroep**, of Selecteer een bestaande, als een container voor het plan.
+4. Maak een nieuwe **resourcegroep**, of Selecteer een bestaand account, als een container voor het abonnement.
 
    ![Geef de resourcegroep](media/azure-stack-create-plan/resource-group.png)
 
@@ -46,29 +46,29 @@ ms.locfileid: "35248700"
   
    ![Services selecteren](media/azure-stack-create-plan/services.png)
 
-6. Selecteer **quota**, **Microsoft.Storage (lokaal)**, en kies vervolgens het standaardquotum- of selecteer **maken nieuwe quota** een aangepaste quota maken.
+6. Selecteer **quota**, **Microsoft.Storage (lokaal)**, en kies vervolgens de standaardquotum of selecteer **nieuw quotum maken** een aangepaste quota maken.
   
    ![Quota](media/azure-stack-create-plan/quotas.png)
 
-7. Als u een nieuwe quota maakt, voert u een **naam** voor het quotum > Geef de quotawaarden > Selecteer **OK**. De **maken quotum** dialoogvenster wordt gesloten.
+7. Als u een nieuw quotum maakt, voert u een **naam** voor het quotum > Geef de quotawaarden > Selecteer **OK**. De **maken quotum** dialoogvenster wordt gesloten.
 
    ![Nieuw quotum](media/azure-stack-create-plan/new-quota.png)
 
-   U wordt vervolgens de nieuwe quota die u hebt gemaakt. Selecteren van de quota toegewezen en wordt het dialoogvenster wordt gesloten.
+   U selecteert vervolgens de nieuwe quota die u hebt gemaakt. Het quotum selecteren wijst deze toe en sluit het dialoogvenster.
   
    ![Het quotum toewijzen](media/azure-stack-create-plan/assign-quota.png)
 
-8. Herhaal stap 6 en 7 maken en toewijzen van de quota voor **Microsoft.Network (lokaal)** en **Microsoft.Compute (lokaal)**. Wanneer alle drie de services toegewezen quota hebt, eruitzien ze zoals in het volgende voorbeeld.
+8. Herhaal stap 6 en 7 maken en toewijzen van quota's voor **Microsoft.Network (lokaal)** en **Microsoft.Compute (lokaal)**. Wanneer alle drie de services toegewezen quota hebt, eruitzien ze als in het volgende voorbeeld.
 
    ![Volledige quotum toewijzingen](media/azure-stack-create-plan/all-quotas-assigned.png)
 
-9. Onder **quota**, kies **OK**, en klik vervolgens onder **nieuw plan**, kies **maken** om het plan te maken.
+9. Onder **quota**, kiest u **OK**, en klik vervolgens onder **nieuw plan**, kiest u **maken** om het plan te maken.
 
     ![Het plan maken](media/azure-stack-create-plan/create.png)
 
-10. Overzicht van uw nieuwe schema, selecteer **alle resources**, zoekt u naar het plan en selecteert u de naam. Als uw lijst met resources te lang is, gebruikt u **Search** uw plan op naam vinden.
+10. Uw nieuwe abonnement Selecteer **alle resources**, zoek vervolgens naar het abonnement en selecteert u de naam. Als uw lijst met resources lang is, gebruikt u **zoeken** uw plan met de naam vinden.
 
-   ![De planning bekijken](media/azure-stack-create-plan/plan-overview.png)
+   ![Het plan bekijken](media/azure-stack-create-plan/plan-overview.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

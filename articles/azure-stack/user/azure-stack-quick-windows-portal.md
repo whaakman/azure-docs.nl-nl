@@ -6,16 +6,16 @@ author: mattbriggs
 manager: femila
 ms.service: azure-stack
 ms.topic: quickstart
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 7277aeb97409815e2e218da8f233cd836bccc72b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: e4e3fdbdd3bc9eb982f993a9be60ba0812c68a9d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022413"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713734"
 ---
 # <a name="quickstart-create-a-windows-server-virtual-machine-with-the-azure-stack-portal"></a>Snelstartgids: een Windows server-machine maken met de Azure Stack-portal
 
@@ -36,7 +36,7 @@ Aanmelden bij de Azure Stack-portal. Het adres van de Azure Stack-portal, is afh
 
 ## <a name="create-a-virtual-machine"></a>Een virtuele machine maken
 
-1. Klik op **nieuwe** > **Compute** > **Windows Server 2016 Datacenter: betalen als u-gebruik** > **maken**. Als er geen **Windows Server 2016 Datacenter: betalen als u-gebruik** vermelding, neem contact op met uw Azure Stack-operators. Vragen die ze aan de marketplace toevoegen, zoals wordt beschreven de [de Windows Server 2016-VM-installatiekopie toevoegen aan de Azure Stack marketplace](../azure-stack-add-default-image.md) artikel.
+1. Klik op **+ een resource maken** > **Compute** > **Windows Server 2016 Datacenter: betalen als u-gebruik**  >   **Maak**. Als er geen **Windows Server 2016 Datacenter: betalen als u-gebruik** vermelding, neem contact op met uw Azure Stack-operators. Vragen die ze aan de marketplace toevoegen, zoals wordt beschreven de [de Windows Server 2016-VM-installatiekopie toevoegen aan de Azure Stack marketplace](../azure-stack-add-default-image.md) artikel.
 
     ![Stappen voor het maken van een Windows-machine in de portal](media/azure-stack-quick-windows-portal/image01.png)
 2. Onder **basisbeginselen**, typ een **naam**, **gebruikersnaam**, en **wachtwoord**. Kies een **abonnement**. Maak een **resourcegroep**, of een bestaande één, selecteer een **locatie**, en klik vervolgens op **OK**.

@@ -12,16 +12,16 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: ''
 ms.custom: mvc
-ms.openlocfilehash: 09b9126125006fb70f5e2560f04b815b4a874405
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: d106d9f79498678f08142f952e09c5125c6e5d6c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027296"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721514"
 ---
 # <a name="tutorial-make-virtual-machines-available-to-your-azure-stack-users"></a>Zelfstudie: virtuele machines beschikbaar te maken voor uw Azure Stack-gebruikers
 
@@ -46,11 +46,11 @@ Zie voor meer informatie, [belangrijke functies en concepten in Azure Stack](azu
 
 Aanbiedingen zijn groepen van een of meer plannen die providers die aanwezig voor gebruikers aan te schaffen of zich abonneert zijn op. Het proces voor het maken van een aanbieding heeft een aantal stappen uitvoeren. Eerst gevraagd u te maken van de aanbieding en vervolgens een plan en ten slotte, quota's.
 
-1. [Meld u aan](azure-stack-connect-azure-stack.md) naar de portal als een cloudbeheerder en selecteer vervolgens **nieuw** > **aanbiedingen + plannen** > **bieden**.
+1. [Meld u aan](azure-stack-connect-azure-stack.md) naar de portal als een cloudbeheerder en selecteer vervolgens **+ een resource maken** > **aanbiedingen + plannen** > **bieden**.
 
    ![Nieuwe aanbieding](media/azure-stack-tutorial-tenant-vm/image01.png)
 
-1. In **nieuwe aanbieding**, voer een **weergavenaam** en **resourcenaam**, en vervolgens selecteert u een nieuwe of bestaande **resourcegroep**. De weergavenaam is de beschrijvende naam van de aanbieding. Alleen in de cloud-operator kan zien op de naam van de Resource. Dit is de naam die beheerders gebruiken om met de aanbieding te werken als Azure Resource Manager-resource.
+1. In **nieuwe aanbieding**, voer een **weergavenaam** en **resourcenaam**, en vervolgens selecteert u een nieuwe of bestaande **resourcegroep**. De weergavenaam is de beschrijvende naam van de aanbieding. Alleen de operator cloud ziet de naam van de Resource dit is de naam die beheerders gebruiken om te werken met de aanbieding als een Azure Resource Manager-resource.
 
    ![Weergavenaam](media/azure-stack-tutorial-tenant-vm/image02.png)
 
@@ -58,7 +58,7 @@ Aanbiedingen zijn groepen van een of meer plannen die providers die aanwezig voo
 
    ![Een plan toevoegen](media/azure-stack-tutorial-tenant-vm/image03.png)
 
-1. In de **nieuwe plannen** sectie, vul **weergavenaam** en **resourcenaam**. De weergavenaam is de beschrijvende naam van het plan die gebruikers te zien. Alleen in de cloud-operator kan zien op de naam van de Resource. Dit is de naam die cloudoperators gebruiken om te werken met het abonnement als een Azure Resource Manager-resource.
+1. In de **nieuw plan** sectie, vul **weergavenaam** en **resourcenaam**. De weergavenaam is de beschrijvende naam van het plan die gebruikers te zien. Alleen de operator cloud ziet de naam van de Resource dit is de naam die cloudoperators gebruiken om te werken met het abonnement als een Azure Resource Manager-resource.
 
    ![Weergavenaam van het plan](media/azure-stack-tutorial-tenant-vm/image04.png)
 
@@ -112,11 +112,11 @@ Nu dat u een aanbieding hebt gemaakt, kunt u deze testen. U kunt zich moet aanme
    - Voor een geïntegreerd systeem, de URL is afhankelijk van op de regio en het externe domeinnaam van de operator en bevindt zich in de indeling https://portal.&lt; *regio*&gt;.&lt; *FQDN*&gt;.
    - Als u de Azure Stack Development Kit, het adres van de portal is https://portal.local.azurestack.external.
 
-   ![Een abonnement nemen](media/azure-stack-subscribe-plan-provision-vm/image01.png)
+   ![Een abonnement nemen](media/azure-stack-tutorial-tenant-vm/image10.png)
 
    b. In **Neem een abonnement**, voer een naam in voor uw abonnement in de **weergavenaam** veld. Selecteer **bieden**, en kies vervolgens een van de aanbiedingen in de **Kies een aanbieding** lijst. Selecteer **Maken**.
 
-   ![Een aanbieding maken](media/azure-stack-subscribe-plan-provision-vm/image02.png)
+   ![Een aanbieding maken](media/azure-stack-tutorial-tenant-vm/image11.png)
 
    c. Als u het abonnement, selecteer **alle services**, en klik vervolgens onder de **algemene** categorie selecteren **abonnementen**. Selecteer uw nieuwe abonnement om te zien welke services deel uitmaken van het abonnement.
 
@@ -131,7 +131,7 @@ Nu dat u een aanbieding hebt gemaakt, kunt u deze testen. U kunt zich moet aanme
       - Voor een geïntegreerd systeem, de URL is afhankelijk van op de regio en het externe domeinnaam van de operator en bevindt zich in de indeling https://portal.&lt; *regio*&gt;.&lt; *FQDN*&gt;.
    - Als u de Azure Stack Development Kit, het adres van de portal is https://portal.local.azurestack.external.
 
-   b.  Selecteer op het dashboard, **nieuw** > **Compute** > **Windows Server 2016 Datacenter Eval**, en selecteer vervolgens **maken**.
+   b.  Selecteer op het dashboard, **+ een resource maken** > **Compute** > **Windows Server 2016 Datacenter Eval**, en selecteer vervolgens **Maken**.
 
    c. In **basisbeginselen**, geef de volgende informatie:
       - Voer een **naam**
@@ -151,14 +151,11 @@ Nu dat u een aanbieding hebt gemaakt, kunt u deze testen. U kunt zich moet aanme
 
    h. Selecteer **OK** in **instellingen** om op te slaan van de netwerkconfiguratie.
 
-   ![Virtueel netwerk maken](media/azure-stack-provision-vm/image04.png)
-
-   i. In **samenvatting**, selecteer **OK** te maken van de virtuele machine.  
+      i. In **samenvatting**, selecteer **OK** te maken van de virtuele machine.  
 
    j. Als u wilt zien van de nieuwe virtuele machine, selecteer **alle resources**. Zoeken naar de virtuele machine en selecteert u de naam van de lijst met zoekresultaten.
 
-   ![Alle resources](media/azure-stack-provision-vm/image06.png)
-
+   
 ## <a name="next-steps"></a>Volgende stappen
 
 In deze zelfstudie hebt u het volgende geleerd:

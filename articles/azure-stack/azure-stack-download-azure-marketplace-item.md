@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 290b3daf73e323b3f5a7e1ef81299e72bf1c5f1d
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
-ms.translationtype: MT
+ms.openlocfilehash: ddb1fcd91ff0c0018bcab9988a5ab063b882cf36
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024797"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714661"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
@@ -66,7 +66,7 @@ Uw Azure Stack-implementatie moet over een internetverbinding beschikt, en worde
 
     Nadat het downloaden is voltooid, kunt u de nieuwe marketplace-item als een Azure Stack-operators of een gebruiker kunt implementeren.
 
-5. Voor het implementeren van het gedownloade item, selecteer **+ nieuw**, en zoekt u tussen de categorieën voor het nieuwe marketplace-item. Vervolgens selecteert u het item om te beginnen met het implementatieproces. Het proces varieert voor verschillende marketplace-items. 
+5. Voor het implementeren van het gedownloade item, selecteer **+ een resource maken**, en zoekt u tussen de categorieën voor het nieuwe marketplace-item. Vervolgens selecteert u het item om te beginnen met het implementatieproces. Het proces varieert voor verschillende marketplace-items. 
 
 ## <a name="disconnected-or-a-partially-connected-scenario"></a>De verbinding verbroken of een gedeeltelijk verbonden scenario
 

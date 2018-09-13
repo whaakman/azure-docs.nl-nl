@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: sethm
-ms.openlocfilehash: a8d211992f52c9719cad76f16133e23eba24d422
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 9f229caa76059db403ced5b74c7a35ec2f0b8e9d
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42139504"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721877"
 ---
 # <a name="key-considerations-using-services-or-building-apps-for-azure-stack"></a>Belangrijke overwegingen: met behulp van services of het bouwen van apps voor Azure Stack
 
@@ -33,7 +33,7 @@ Uw Azure Stack-operators laat u weten welke services zijn beschikbaar voor u om 
 
 De Azure technische inhoud wordt ervan uitgegaan dat apps worden ontwikkeld voor een Azure-service in plaats van Azure Stack. Wanneer u apps bouwen en met Azure Stack implementeren, moet u enkele belangrijke verschillen, zoals begrijpen:
 
-* Azure Stack biedt een subset van de services en functies die beschikbaar in Azure zijn.
+* Azure Stack biedt een **subset** van de services en functies die beschikbaar in Azure zijn.
 * Uw bedrijf of service provider kunt kiezen welke services ze willen aanbieden. De beschikbare opties advies inwinnen bij aangepaste services of toepassingen. Ze kunnen hun eigen aangepaste documentatie bieden.
 * Moet u de juiste Azure Stack-specifieke eindpunten (bijvoorbeeld de URL's voor het adres van de portal en het eindpunt van de Azure Resource Manager).
 * U moet PowerShell en API-versies die worden ondersteund door Azure Stack. Met behulp van ondersteunde versies, zorgt u ervoor dat uw apps in zowel Azure als Azure Stack werkt.
@@ -75,11 +75,11 @@ Azure Stack biedt ondersteuning voor specifieke versies van Azure PowerShell en 
 Om ervoor te zorgen dat u een juiste versie van Azure PowerShell, gebruikt u [API-versieprofielen](azure-stack-version-profiles.md). Ontdek de build van Azure Stack u om te bepalen het meest recente versie profiel voor API die u kunt gebruiken. U kunt deze informatie krijgen van uw Azure Stack-beheerder.
 
 >[!NOTE]
- Als u de Azure Stack Development Kit en u beheerderstoegang hebben, Zie de sectie 'Bepalen van de huidige versie' van [-updates beheren](https://docs.microsoft.com/azure/azure-stack/azure-stack-updates#determine-the-current-version) om te bepalen van de Azure Stack-build.
+ Als u de Azure Stack Development Kit en u beheerderstoegang hebben, Zie de sectie 'Bepalen van de huidige versie' van [-updates beheren](../azure-stack-updates.md#determine-the-current-version) om te bepalen van de Azure Stack-build.
 
 Voor andere API's, voer de volgende PowerShell-opdracht om uit te voeren van de naamruimten, resourcetypen en API-versies die worden ondersteund in uw Azure Stack-abonnement. Zoals u ziet mogelijk nog steeds verschillen op het eigenschapniveau van een. (Voor deze opdracht te laten werken, moet u hebt al [geïnstalleerd](azure-stack-powershell-install.md) en [geconfigureerd](azure-stack-powershell-configure-user.md) PowerShell voor Azure Stack-omgeving. U moet ook een abonnement hebben op een aanbieding van Azure Stack.)
 
- ```powershell
+```powershell
 Get-AzureRmResourceProvider | Select ProviderNamespace -Expand ResourceTypes | Select * -Expand ApiVersions | `
 Select ProviderNamespace, ResourceTypeName, @{Name="ApiVersion"; Expression={$_}} 
 ```
