@@ -1,42 +1,43 @@
 ---
-title: Vooraf gedefinieerde ophalen van gegevens, natuurlijke taal, afbeelding verwerken vaardigheden (Azure Search) | Microsoft Docs
-description: Gegevens extraheren natuurlijke taal cognitieve vaardigheden verwerking van afbeeldingen toevoegen semantiek en structuur onbewerkte inhoud in een pijplijn Zoek in Azure.
+title: Vooraf gedefinieerde ophalen van gegevens, natuurlijke taal en afbeeldingsverwerking vaardigheden (Azure Search) | Microsoft Docs
+description: Ophalen van gegevens, natuurlijke taal, afbeeldingsverwerking cognitieve vaardigheden toevoegen semantiek en de structuur aan onbewerkte inhoud in een pijplijn met een Azure.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 870cf9629c7af8faee0ce5709199b64910b27ffb
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: cf02946c772ce2dfd04fcd0ae478a560d095c092
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790956"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35907418"
 ---
 # <a name="predefined-skills-for-content-enrichment-azure-search"></a>Vooraf gedefinieerde vaardigheden voor inhoud verrijking (Azure Search)
 
-In dit artikel leert u de cognitieve vaardigheden voorzien cognitieve zoeken. Een *cognitieve kwalificatie* is een bewerking die inhoud op een bepaalde manier worden omgezet. Het is vaak het geval is, een onderdeel dat haalt gegevens op of infereert structuur en daarom verbetert onze kennis van de invoergegevens. De uitvoer is bijna altijd op basis van tekst. Een *vaardigheden* is een verzameling van de vaardigheden die de pijplijn verrijking definiëren. 
+In dit artikel leert u over de cognitieve vaardigheden met Azure Search is opgegeven. Een *cognitieve vaardigheden* is een bewerking die inhoud op een bepaalde manier worden getransformeerd. Het is vaak het geval is, een onderdeel dat gegevens worden uitgepakt of bepaalt welke structuur en daarom verbetert ons een beeld vormen van de ingevoerde gegevens. De uitvoer is bijna altijd op basis van tekst. Een *vaardigheden* is een verzameling van vaardigheden die de pijplijn verrijking definiëren. 
 
 ## <a name="predefined-skills"></a>Vooraf gedefinieerde vaardigheden
 
-Er zijn verschillende vaardigheden flexibele in wat ze gebruiken of produceren. In het algemeen zijn zijn de meeste vaardigheden gebaseerd op vooraf getraind modellen, wat betekent dat u het model met behulp van uw eigen trainingsgegevens kan niet trainen. Zie voor instructies over het maken van een aangepaste kwalificatie [het definiëren van een aangepaste interface](cognitive-search-custom-skill-interface.md) en [voorbeeld: maken van een aangepaste kwalificatie](cognitive-search-create-custom-skill-example.md). De volgende tabel worden opgesomd en beschrijft de vaardigheden die is geleverd door Microsoft. 
+Verschillende vaardigheden zijn de flexibele in wat ze gebruiken of produceren. In het algemeen zijn de meeste vaardigheden gebaseerd op vooraf getrainde modellen, wat betekent dat u het model met behulp van uw eigen trainingsgegevens kan geen trainen. Zie voor instructies over het maken van een aangepaste vaardigheden [over het definiëren van een aangepaste interface](cognitive-search-custom-skill-interface.md) en [voorbeeld: het maken van een aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md). De volgende tabel worden opgesomd en beschrijft de vaardigheden die is geleverd door Microsoft. 
 
-| Kwalificatie | Beschrijving |
+| Vaardigheden | Beschrijving |
 |-------|-------------|
-| [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Deze kwalificatie maakt gebruik van een pretrained voor het detecteren van belangrijke zinnen op basis van de plaatsing van de termijn, taalkundige regels nabijheid tot andere voorwaarden en hoe ongebruikelijke de term is binnen de brongegevens. |
-| [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Deze kwalificatie maakt gebruik van een pretrained model voor het detecteren van welke taal wordt gebruikt (één taal-ID per document). Wanneer meerdere talen worden gebruikt binnen dezelfde tekst segmenten, is de uitvoer de LCID van de taal die voornamelijk gebruikt.|
+| [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | Deze vaardigheid maakt gebruik van een pretrained model voor het detecteren van belangrijke zinnen op basis van de termijn plaatsing, linguïstische regels, nabijheid tot andere voorwaarden en hoe ongebruikelijke de term is binnen de brongegevens. |
+| [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | Deze kwalificatie maakt gebruik van een pretrained model voor het detecteren van welke taal wordt gebruikt (één taal-ID per document). Wanneer meerdere talen worden gebruikt binnen dezelfde tekst segmenten, is de uitvoer de landinstelling-id van de taal die hoofdzakelijk wordt gebruikt.|
 | [Microsoft.Skills.Text.MergerSkill](cognitive-search-skill-textmerger.md) | Consolideert tekst uit een verzameling van velden in één veld.  |
-| [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md) | Deze kwalificatie maakt gebruik van een pretrained tot stand brengen van entiteiten voor een vaste set van categorieën: mensen, de locatie, de organisatie. |
-| [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Deze kwalificatie maakt gebruik van een pretrained voor de beoordeling van positieve of negatieve gevoel op basis van door een andere record. De score ligt tussen 0 en 1. Neutrale scores plaatsvinden voor zowel het geval is null wanneer gevoel kan niet worden gedetecteerd en voor de tekst die wordt beschouwd als neutrale.  |
-| [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Tekst splitst in pagina's, zodat u kunt aanvullen of inhoud incrementeel verbeteren. |
-| [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Deze kwalificatie maakt gebruik van een installatiekopie detectie-algoritme om te bepalen van de inhoud van een installatiekopie en genereren van een beschrijving. |
-| [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | OCR. |
-| [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Maps-uitvoer naar een complex type (een meerdelig gegevenstype, die kan worden gebruikt voor een volledige naam, een meerregelige-adres of een combinatie van achternaam en een persoonlijke id.) |
+| [Microsoft.Skills.Text.NamedEntityRecognitionSkill](cognitive-search-skill-named-entity-recognition.md) | Deze vaardigheid maakt gebruik van een pretrained model tot stand brengen van een vaste set categorieën entiteiten: mensen, locatie, organisatie. |
+| [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | Deze vaardigheid maakt gebruik van een pretrained model om positief of negatief gevoel te beoordelen op basis van de door een andere record. De score is tussen 0 en 1. Neutrale scores optreden voor zowel het geval is null wanneer sentiment niet kunnen worden gedetecteerd, en voor de tekst die wordt beschouwd als neutrale.  |
+| [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | Tekst splitst in pagina's, zodat u kunt verrijken of inhoud incrementeel te verbeteren. |
+| [Microsoft.Skills.Vision.ImageAnalysisSkill](cognitive-search-skill-image-analysis.md) | Deze vaardigheid maakt gebruik van een installatiekopie-detectie-algoritme om te bepalen van de inhoud van een afbeelding en genereren van een beschrijving. |
+| [Microsoft.Skills.Vision.OcrSkill](cognitive-search-skill-ocr.md) | Optische tekenherkenning. |
+| [Microsoft.Skills.Util.ShaperSkill](cognitive-search-skill-shaper.md) | Maps-uitvoer naar een complex type (een meerdelige gegevenstype, die kan worden gebruikt voor een volledige naam, een adres meerdere regels of een combinatie van achternaam en een persoonlijke id.) |
 
 ## <a name="see-also"></a>Zie ook
 
-+ [Het definiëren van een vaardigheden](cognitive-search-defining-skillset.md)
++ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
 + [Aangepaste vaardigheden interfacedefinitie](cognitive-search-custom-skill-interface.md)
-+ [Zelfstudie: Verrijkt met cognitieve search indexeren](cognitive-search-tutorial-blob.md)
++ [Zelfstudie: Verrijkt indexeren met cognitief zoeken](cognitive-search-tutorial-blob.md)

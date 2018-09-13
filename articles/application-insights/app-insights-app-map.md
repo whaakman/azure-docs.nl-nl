@@ -1,6 +1,6 @@
 ---
-title: Kaart van de toepassing in Azure Application Insights | Microsoft Docs
-description: Bewaken van complexe toepassingen topologieën met de toepassing-kaart
+title: Overzicht van de toepassing in Azure Application Insights | Microsoft Docs
+description: Topologieën voor complexe toepassingen met het overzicht van de toepassing bewaken
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -11,126 +11,85 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/14/2017
-ms.reviewer: Soubhagya.Dash
+ms.date: 06/14/2018
+ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 539becf272194a116355c6a0491042d40e1e7494
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
-ms.translationtype: HT
+ms.openlocfilehash: 32d735b24eef90f75e3ab4b9c1af58c4b6b02b15
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35293959"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643640"
 ---
-# <a name="application-map-triage-distributed-applications"></a>De toepassingstoewijzing: Sorteren gedistribueerde toepassingen
-De toepassingstoewijzing helpt u ter plaatse prestatieknelpunten of fout hotspots voor alle onderdelen van de gedistribueerde toepassing. Elk knooppunt op de kaart vertegenwoordigt een toepassingsonderdeel van de of de afhankelijkheden ervan; health KPI en heeft de status van waarschuwingen. U kunt via van elk onderdeel klikken om meer gedetailleerde diagnostische gegevens, zoals Application Insights-gebeurtenissen te. Als uw app gebruikmaakt van Azure-services, kunt u ook doorklikken naar Azure diagnostics, zoals SQL Database Advisor aanbevelingen.
+# <a name="application-map-triage-distributed-applications"></a>Overzicht van de toepassing: Sorteren gedistribueerde toepassingen
+
+Overzicht van de toepassing kunt u spot knelpunten of fout hotspots voor alle onderdelen van de gedistribueerde toepassing. Elk knooppunt op de kaart vertegenwoordigt een toepassingsonderdeel of de bijbehorende afhankelijkheden; en health KPI heeft en de status van waarschuwingen. U kunt de via elk onderdeel klikken voor meer gedetailleerde diagnostische gegevens, zoals Application Insights-gebeurtenissen. Als uw app gebruikmaakt van Azure-services, kunt u ook verder klikken naar Azure diagnostics, zoals SQL Database Advisor-aanbevelingen.
 
 ## <a name="what-is-a-component"></a>Wat is een onderdeel?
 
-Onderdelen zijn onafhankelijk implementeerbare onderdelen van uw toepassing gedistribueerd/microservices. Ontwikkelaars en operations teams hebben zichtbaarheid van de code-niveau of toegang tot de telemetrie die is gegenereerd door de onderdelen van deze toepassing. 
+Onderdelen zijn onafhankelijk implementeerbare onderdelen van uw toepassing gedistribueerd/microservices. Ontwikkelaars en uitvoerende teams hebben zichtbaarheid van de code op serverniveau of toegang tot telemetrie die is gegenereerd door de onderdelen van deze toepassing. 
 
-* Onderdelen zijn anders dan 'waargenomen' externe afhankelijkheden, zoals SQL, enz. EventHub die uw team/organisatie mogelijk geen toegang tot (code of telemetrie).
+* Onderdelen zijn anders dan 'waargenomen' externe afhankelijkheden, zoals SQL, EventHub enz. die uw team/organisatie mogelijk geen toegang tot (code of telemetrie).
 * Onderdelen worden uitgevoerd op een willekeurig aantal exemplaren van de rol-server-container.
-* Onderdelen kunnen worden afzonderlijke Application Insights-instrumentatiesleutels (zelfs als abonnementen verschillend zijn) of verschillende rollen die rapporteren aan een enkele Application Insights-instrumentatiesleutel. De ervaring voor de preview-kaart bevat de onderdelen ongeacht hoe ze zijn ingesteld.
+* Onderdelen kunnen worden afzonderlijke Application Insights-instrumentatiesleutels (zelfs als abonnementen verschillen) of verschillende rollen die rapporteren aan een enkele Application Insights-instrumentatiesleutel. De ervaring van de kaart voorbeeld ziet u de onderdelen onafhankelijk van de manier waarop ze zijn ingesteld.
 
-## <a name="composite-application-map-preview"></a>Samengestelde toepassingstoewijzing (Preview)
-*Dit is een vroege voorbeeld en er meer functies toevoegen aan deze kaart. We graag uw feedback over de nieuwe ervaring ophalen. U kunt eenvoudig schakelen tussen de preview en klassieke ervaringen.*
+## <a name="composite-application-map"></a>Samengestelde toepassingstoewijzing
 
-"De samengestelde toepassingstoewijzing" inschakelen via de [previews lijst](app-insights-previews.md), of klik op 'Preview kaart' in de wisselknop in de rechterbovenhoek. Overschakelen naar de klassieke ervaring kunt u deze in-of uitschakelen.
-![Inschakelen van de preview-kaart](media/app-insights-app-map/preview-from-classic.png)
+U ziet de volledige toepassing-topologie voor meerdere niveaus van gerelateerde toepassingsonderdelen. Onderdelen mogelijk op verschillende Application Insights-resources of verschillende rollen in een enkele resource. Het toepassingsoverzicht vindt onderdelen door de volgende HTTP-afhankelijkheidsaanroepen tussen servers met de Application Insights-SDK geïnstalleerd. 
 
->[!Note]
-Deze preview vervangt de voorafgaande "Meerdere toepassing rollenoverzicht" preview. Op dit moment gebruiken deze om de volledige topologie op meerdere niveaus van de toepassing onderdeel afhankelijkheden weer te geven. Geef ons uw feedback, we meer mogelijkheden vergelijkbaar met wat de klassieke kaart ondersteunt gaat toevoegen.
+Deze ervaring wordt gestart met progressieve detectie van de onderdelen. Wanneer u eerst het toepassingsoverzicht laadt, wordt een set van query's worden geactiveerd voor het detecteren van de onderdelen die betrekking hebben op dit onderdeel. Een knop in de linkerbovenhoek wordt bijgewerkt met het aantal onderdelen in uw toepassing zodra ze worden gedetecteerd. 
 
-U ziet de topologie van de volledige toepassing op meerdere niveaus van gerelateerde toepassingsonderdelen. Onderdelen worden verschillende Application Insights-bronnen of verschillende rollen in één resource. De kaart app zoekt onderdelen met de volgende HTTP-afhankelijkheidsaanroepen tussen servers met de Application Insights-SDK geïnstalleerd. 
+Op 'Toewijzingsonderdelen bijwerken' klikt, wordt de kaart met alle onderdelen die zijn gedetecteerd tot vernieuwd.
 
-Deze ervaring begint met het progressief detectie van de onderdelen. Wanneer u het voorbeeld voor het eerst laadt, wordt een set van query's worden geactiveerd voor het detecteren van de onderdelen die betrekking hebben op dit onderdeel. Een knop op de linkerbovenhoek wordt bijgewerkt met het aantal onderdelen in uw toepassing zodra ze worden gedetecteerd. 
-![Preview-kaart](media/app-insights-app-map/preview.png)
+Deze detectiestap is niet vereist als alle onderdelen van rollen binnen één Application Insights-resource. Het initiële laden voor dergelijke toepassing hebben alle onderdelen daarvan.
 
-Op "Update kaart-onderdelen" klikt, wordt de kaart met alle onderdelen die zijn gedetecteerd tot vernieuwd.
-![Preview geladen-kaart](media/app-insights-app-map/components-loaded-hierarchical.png)
+![Schermafbeelding van de toepassing-kaart](media/app-insights-app-map/001.png)
 
-Deze stap van de detectie is niet vereist als alle onderdelen rollen binnen één Application Insights-resource. De eerste belasting voor een dergelijke toepassing hebben alle onderdelen daarvan.
+Een van de belangrijkste doelstellingen met deze ervaring is het kunnen complexe topologieën met honderden onderdelen te visualiseren.
 
-Een van de belangrijkste doelstellingen met de nieuwe ervaring is mogelijk te visualiseren complexe topologieën met honderden of onderdelen. De nieuwe ervaring ondersteunt zoomen en details toegevoegd, zoals u inzoomen. U kunt uitzoomen om meer onderdelen in één oogopslag en nog steeds ter plaatse onderdelen met hogere snelheid van de fout te bekijken. 
+Klik op een onderdeel om te zien van verwante inzichten en gaat u naar de prestaties en de fout sorteren ervaring voor het betreffende onderdeel.
 
-![Zoomen niveaus](media/app-insights-app-map/zoom-levels.png)
+![Flyout](media/app-insights-app-map/application-map-001.png)
 
-Klik op een onderdeel om te zien van gerelateerde insights en gaat u naar de prestaties en de fout selectie ervaring voor dat onderdeel.
+### <a name="investigate-failures"></a>Mislukte pogingen onderzoeken
 
-![Doel](media/app-insights-app-map/preview-flyout.png)
+Selecteer **mislukte pogingen onderzoeken** om te starten van het deelvenster met fouten.
 
+![Schermafbeelding van de knop fouten onderzoeken](media/app-insights-app-map/investigate-failures.png)
 
-## <a name="classic-application-map"></a>Klassieke toepassingstoewijzing
+![Schermafbeelding van de ervaring van fouten](media/app-insights-app-map/failures.png)
 
-De kaart wordt weergegeven:
+### <a name="investigate-performance"></a>Prestaties onderzoeken
 
-* Beschikbaarheidstests
-* Client-side-onderdeel (bewaakt met de JavaScript SDK)
-* Server-side-onderdeel
-* Afhankelijkheden van de client en server-onderdelen
+Om op te lossen prestaties problemen Selecteer **prestaties onderzoeken**
 
-![App-kaart](./media/app-insights-app-map/02.png)
+![Schermafdruk van knop prestaties onderzoeken](media/app-insights-app-map/investigate-performance.png)
 
-U kunt uitvouwen en samenvouwen afhankelijkheid koppeling groepen:
+![Schermafbeelding van prestaties](media/app-insights-app-map/performance.png)
 
-![samenvouwen](./media/app-insights-app-map/03.png)
+### <a name="go-to-details"></a>Naar de details gaan
 
-Als er veel afhankelijkheden van een bepaald type (SQL, HTTP-enzovoort), kunnen ze gegroepeerde weergegeven. 
+Selecteer **Ga naar details** verkennen van de end-to-end-transactie-ervaring die weergaven die worden uitgevoerd op het niveau van de call stack kunt bieden.
 
-![gegroepeerde afhankelijkheden](./media/app-insights-app-map/03-2.png)
+![Schermafbeelding van de knop Ga voor meer informatie](media/app-insights-app-map/go-to-details.png)
 
-## <a name="spot-problems"></a>Ter plaatse problemen
-Elk knooppunt heeft relevante prestatie-indicatoren, zoals de belasting, prestaties en fout tarieven voor het desbetreffende onderdeel. 
+![Schermafbeelding van end-to-end-transactiedetails](media/app-insights-app-map/end-to-end-transaction.png)
 
-De pictogrammen waarschuwing Markeer mogelijke problemen. Een oranje waarschuwing betekent dat er fouten zijn in aanvragen, paginaweergaven of afhankelijkheidsaanroepen. Rood betekent een Faalpercentage 5% of hoger. Als u deze drempels aanpassen wilt, opent u de opties.
+### <a name="view-in-analytics"></a>Weergeven in Analytics
 
-![Fout pictogrammen](./media/app-insights-app-map/04.png)
+Query's uitvoeren en uw toepassingen gegevens verder klikken onderzoeken **weergeven in analytics**.
 
-Actieve waarschuwingen ook weergeven van: 
+![Schermafbeelding van de weergave in de knop analytics](media/app-insights-app-map/view-in-analytics.png)
 
-![actieve waarschuwingen](./media/app-insights-app-map/05.png)
+![Schermafbeelding van de analytics-ervaring](media/app-insights-app-map/analytics.png)
 
-Als u SQL Azure gebruikt, is er een pictogram dat ziet u wanneer er zijn aanbevelingen voor hoe u kunt de prestaties verbeteren. 
+### <a name="alerts"></a>Waarschuwingen
 
-![Azure aanbeveling](./media/app-insights-app-map/06.png)
+Als u wilt weergeven van actieve waarschuwingen en de onderliggende regels die ervoor zorgen de waarschuwingen dat moet deze worden geactiveerd, selecteer **waarschuwingen**.
 
-Klik op een pictogram voor meer informatie:
+![Schermafbeelding van de knop waarschuwingen](media/app-insights-app-map/alerts.png)
 
-![Azure aanbeveling](./media/app-insights-app-map/07.png)
-
-## <a name="diagnostic-click-through"></a>Diagnostische klik door
-Elk van de knooppunten op de kaart biedt gerichte klik door voor diagnostische gegevens. De opties variëren afhankelijk van het type van het knooppunt.
-
-![Serveropties](./media/app-insights-app-map/09.png)
-
-De opties omvatten voor onderdelen die worden gehost in Azure, directe koppelingen naar deze.
-
-## <a name="filters-and-time-range"></a>Filters en tijdsbereik
-Standaard de kaart bevat een overzicht van alle gegevens die beschikbaar zijn voor het gekozen tijdsbereik. Maar u kunt deze zodanig dat alleen de namen van de specifieke bewerking of afhankelijkheden filteren.
-
-* Naam van de bewerking: dit omvat zowel paginaweergaven en serverzijde aanvraagtypen. Met deze optie wordt de kaart de KPI op het knooppunt server-clientzijde voor de geselecteerde bewerkingen alleen. De afhankelijkheden aangeroepen in de context van deze specifieke bewerkingen worden weergegeven.
-* Basisnaam voor afhankelijkheid: dit omvat de AJAX browser afhankelijkheden en afhankelijkheden van de serverzijde. Als u aangepaste afhankelijkheidstelemetrie met de API TrackDependency rapporteert, weergegeven ze ook hier. U kunt de afhankelijkheden om weer te geven op de kaart selecteren. Deze selectie filteren op dit moment niet de aanvragen van de server of de client-side paginaweergaven.
-
-![Filters instellen](./media/app-insights-app-map/11.png)
-
-## <a name="save-filters"></a>Filters opslaan
-Pincode voor het opslaan van de filters die u hebt toegepast, de gefilterde weergave naar een [dashboard](app-insights-dashboards.md).
-
-![Vastmaken aan dashboard](./media/app-insights-app-map/12.png)
-
-## <a name="error-pane"></a>Foutvenster
-Wanneer u een knooppunt in het overzicht klikt, wordt een foutvenster weergegeven aan de rechterkant van fouten voor dat knooppunt samen te vatten. Fouten zijn gegroepeerd eerst op bewerkings-ID en vervolgens gegroepeerd op probleem-ID.
-
-![Foutvenster](./media/app-insights-app-map/error-pane.png)
-
-Op een fout te klikken, gaat u naar de meest recente exemplaar van deze fout.
-
-## <a name="resource-health"></a>Status van resources
-Voor sommige brontypen resourcestatus weergegeven aan de bovenkant van het deelvenster fout. Bijvoorbeeld, ziet te klikken op een SQL-knooppunt de status van de database en waarschuwingen die zijn gestart.
-
-![Status van resources](./media/app-insights-app-map/resource-health.png)
-
-U kunt klikken op de naam van de resource standaard overzicht metrische gegevens voor die bron weergeven.
+![Schermafbeelding van de analytics-ervaring](media/app-insights-app-map/alerts-view.png)
 
 ## <a name="video"></a>Video
 
@@ -139,8 +98,7 @@ U kunt klikken op de naam van de resource standaard overzicht metrische gegevens
 ## <a name="feedback"></a>Feedback
 Geef feedback via de portal feedbackoptie.
 
-![Afbeelding van MapLink-1](./media/app-insights-app-map/13.png)
-
+![Installatiekopie van het MapLink-1](./media/app-insights-app-map/13.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 

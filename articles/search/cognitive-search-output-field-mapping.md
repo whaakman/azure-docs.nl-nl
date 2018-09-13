@@ -1,23 +1,24 @@
 ---
-title: Kaart cognitieve zoeken verrijkt invoervelden aan uitvoervelden in Azure Search-index | Microsoft Docs
-description: Pak en bron gegevensvelden sitmuleren en toewijzen aan uitvoervelden in een Azure Search-index.
+title: Cognitieve zoekopdrachten kaart uitgebreid invoervelden naar de uitvoervelden in Azure Search-index | Microsoft Docs
+description: Pak en verrijken van velden voor bron en toewijzen aan uitvoervelden in een Azure Search-index.
 manager: pablocas
 author: luiscabrer
+services: search
 ms.service: search
 ms.devlang: NA
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 67e4798070a73eebb8f61b0b260e3104e9ae6237
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 77e7a1cc725dc56ee20d3c1999cfb7cf0039d67f
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790949"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35914124"
 ---
-# <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Het verrijkt velden toewijzen aan een doorzoekbare index
+# <a name="how-to-map-enriched-fields-to-a-searchable-index"></a>Verrijkt velden toewijzen aan een doorzoekbare index
 
-In dit artikel leert u hoe verrijkt invoervelden toewijzen aan uitvoervelden in een doorzoekbare index. Zodra u hebt [een vaardigheden gedefinieerd](cognitive-search-defining-skillset.md), moet u de uitvoervelden van een kwalificatie die rechtstreeks waarden aan een bepaald veld in uw zoekindex bijdraagt toewijzen. Veld-verwijzingen zijn vereist voor het verplaatsen van de inhoud van verrijkt documenten in de index.
+In dit artikel leert u hoe u geavanceerde invoervelden toewijzen aan velden in een doorzoekbare index uitvoeren. Als u eenmaal hebt [gedefinieerd van een set vaardigheden](cognitive-search-defining-skillset.md), moet u de uitvoervelden van een kwalificatie die rechtstreeks deel uitmaakt van de waarden aan een bepaald veld in uw search-index worden toegewezen. Veldtoewijzingen zijn vereist voor het verplaatsen van de inhoud van verrijkt documenten in de index.
 
 
 ## <a name="use-outputfieldmappings"></a>Gebruik outputFieldMappings
@@ -62,14 +63,14 @@ De hoofdtekst van de aanvraag is als volgt opgebouwd:
     ]
 }
 ```
-Voor elk uitvoerveld ingesteld toewijzing heeft de naam van de verrijkt veld (sourceFieldName) en de naam van het veld waarnaar wordt verwezen in de index (targetFieldName).
+Voor elk veld de toewijzing van uitvoer, stelt u de naam van de geavanceerde veld (sourceFieldName) en de naam van het veld waarnaar wordt verwezen in de index (targetFieldName).
 
-Het pad in een sourceFieldName kan één element of meerdere elementen vertegenwoordigen. In het bovenstaande voorbeeld ```/document/content/sentiment``` vertegenwoordigt een numerieke waarde, terwijl ```/document/content/organizations/*/description``` beschrijvingen van verschillende organisatie vertegenwoordigt. In gevallen waar er verschillende elementen zijn, ze worden "afgevlakt" in een matrix met elk van de elementen. Meer concrete invulling te geven, voor de ```/document/content/organizations/*/description``` voorbeeld, de gegevens in de *beschrijvingen* veld eruit als een platte matrix beschrijvingen van voordat deze wordt geïndexeerd:
+Het pad in een sourceFieldName kan één element of meerdere elementen vertegenwoordigen. In het bovenstaande voorbeeld ```/document/content/sentiment``` vertegenwoordigt een numerieke waarde, terwijl ```/document/content/organizations/*/description``` verschillende organisatie-beschrijvingen vertegenwoordigt. In gevallen waarbij er verschillende elementen, ze worden "afgevlakt" in een matrix met de elementen. Meer concrete invulling te geven, voor de ```/document/content/organizations/*/description``` voorbeeld, worden de gegevens in de *beschrijvingen* veld eruit als een platte-matrix van beschrijvingen voordat deze worden geïndexeerd:
 
 ```
  ["Microsoft is a company in Seattle","LinkedIn's office is in San Francisco"]
 ```
 ## <a name="next-steps"></a>Volgende stappen
-Nadat u uw verrijkt velden aan doorzoekbare velden toegewezen hebt, kunt u het veldkenmerken instellen voor elk van de doorzoekbare velden [als onderdeel van de indexdefinitie](search-what-is-an-index.md).
+Als u uw verrijkt velden aan doorzoekbare velden hebt toegewezen, kunt u het veldkenmerken instellen voor elk van de doorzoekbare velden [als onderdeel van de indexdefinitie](search-what-is-an-index.md).
 
-Zie voor meer informatie over veldtoewijzing [toewijzingen in Azure Search indexeerfuncties veld](search-indexer-field-mappings.md).
+Zie voor meer informatie over veldtoewijzing [veldtoewijzingen in Azure Search-indexeerfuncties](search-indexer-field-mappings.md).

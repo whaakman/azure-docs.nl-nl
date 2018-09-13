@@ -1,26 +1,26 @@
 ---
-title: Azure ML logboekregistratie API-referentiemateriaal | Microsoft Docs
-description: Logboekregistratie API-verwijzing.
+title: Azure ML logboekregistratie API-naslaginformatie | Microsoft Docs
+description: Logboekregistratie van API-verwijzing.
 services: machine-learning
 author: akshaya-a
 ms.author: akannava
 manager: mwinkle
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/25/2017
-ms.openlocfilehash: b9ea51139fded3d55f0a73024163b7fa943c0ebb
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 101c47f4916ca3fab56800eaf012c55150769302
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834689"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646242"
 ---
-# <a name="logging-api-reference"></a>Logboekregistratie van API-referentiemateriaal
+# <a name="logging-api-reference"></a>Logboekregistratie van API-verwijzing
 
-Azure ML logboekregistratie bibliotheek kan de metrische gegevens en bestanden die worden bijgehouden door de geschiedenisservice voor latere analyse verzenden. Op dit moment een paar eenvoudige typen metrische gegevens en bestanden worden ondersteund en wordt de grootte van de set met ondersteunde typen in toekomstige uitgebrachte versies van het Python-pakket.
+Azure ML-bibliotheek voor logboekregistratie kunt het programma om te verzenden van metrische gegevens en bestanden die worden bijgehouden door de geschiedenisservice voor latere analyse. Op dit moment een paar eenvoudige typen van metrische gegevens en bestanden worden ondersteund, en de set met ondersteunde typen zal toenemen met toekomstige versies van het Python-pakket.
 
 ## <a name="uploading-metrics"></a>Metrische gegevens uploaden
 
@@ -41,7 +41,7 @@ logger.log("simple string value", "this is a string metric")
 logger.log("chart data points", [1, 3, 5, 10, 6, 4])
 ```
 
-Standaard worden alle metrische gegevens asynchroon verzonden zodat de verzending van het programma-uitvoering niet belemmeren. Dit kan ordenen problemen veroorzaken wanneer meerdere metrische gegevens worden verzonden in geval van de rand. Een voorbeeld hiervan is twee metrische gegevens die zijn vastgelegd op hetzelfde moment, maar om een bepaalde reden dat de gebruiker liever exacte ordening worden bewaard. Een ander geval is bij de meetwaarde moet worden gevolgd voordat met code die bekend is dat mogelijk mislukken snel. In beide gevallen moet de oplossing is _wacht_ totdat de metriek wordt volledig vastgelegd voordat u verdergaat:
+Standaard worden alle metrische gegevens asynchroon verzonden zodat het verzenden van de programma-uitvoering niet belemmeren. Als meerdere metrische gegevens in de randgevallen worden verzonden, kan dit bestellen problemen veroorzaken. Een voorbeeld hiervan is twee metrische gegevens die zijn aangemeld op hetzelfde moment, maar om een bepaalde reden dat de gebruiker het liefst hun exacte volgorde worden bewaard. Een andere aanvraag is wanneer de metrische gegevens moet worden bijgehouden, voordat u met code die bekend is dat mogelijk snel mislukken. In beide gevallen wordt de oplossing is _wacht_ totdat de metrische gegevens volledig worden geregistreerd voordat u doorgaat:
 
 ```python
 # blocking call
@@ -49,9 +49,9 @@ logger.log("my metric 1", 1).wait()
 logger.log("my metric 2", 2).wait()
 ```
 
-## <a name="consuming-metrics"></a>Metrische gegevens verbruiken
+## <a name="consuming-metrics"></a>Metrische gegevens verbruikt
 
-De metrische gegevens zijn opgeslagen door de geschiedenisservice en gekoppeld aan de uitvoering waarmee ze worden geproduceerd. Het tabblad Geschiedenis worden uitgevoerd en de CLI onderstaande opdracht kunnen u ze (en artefacten hieronder) worden opgehaald nadat een uitvoering is voltooid.
+De metrische gegevens worden opgeslagen met de geschiedenisservice en gekoppeld aan het uitvoeren die ze heeft geproduceerd. Het tabblad Geschiedenis uitvoeren en de CLI-opdracht hieronder kunnen u ze (en onderstaande artefacten) ophalen nadat een uitvoering is voltooid.
 
 ```azurecli
 # show the last run
@@ -66,7 +66,7 @@ $ az ml history info -r <runid>
 
 ## <a name="artifacts-files"></a>Artefacten (bestanden)
 
-Naast de metrische gegevens en kan AzureML de gebruiker ook bestanden bijhouden. Standaard worden alle bestanden die zijn geschreven in de `outputs` map ten opzichte van de werkmap voor het programma (de projectmap in de context compute) worden geüpload naar de geschiedenisservice en bijgehouden worden voor latere analyse. Hoewel is dat de grootte van het afzonderlijke kleiner zijn dan 512 MB moet.
+Naast de metrische gegevens kan AzureML de gebruiker ook bestanden bijhouden. Standaard worden alle bestanden die worden weggeschreven naar de `outputs` map ten opzichte van de werkmap van het programma (de projectmap in de compute-context) worden geüpload naar de geschiedenisservice en bijgehouden voor latere analyse. Het nadeel is dat de individuele bestandsgrootte kleiner zijn dan 512 MB moet.
 
 
 ```Python
@@ -74,9 +74,9 @@ Naast de metrische gegevens en kan AzureML de gebruiker ook bestanden bijhouden.
 logger.upload("artifact/path", "This should be the contents of artifact/path in the service")
 ```
 
-## <a name="consuming-artifacts"></a>Verbruikt artefacten
+## <a name="consuming-artifacts"></a>Artefacten verbruikt
 
-De inhoud van een artefact dat is getraceerd om af te drukken gebruiker het tabblad Geschiedenis uitvoeren kunt gebruiken voor het opgegeven run naar **downloaden** of **opwaarderen** de artefacten, of gebruik de onderstaande CLI-opdrachten voor hetzelfde effect.
+Als u wilt afdrukken van de inhoud van een artefact dat is getraceerd, gebruiker het tabblad Geschiedenis uitvoeren kunt gebruiken voor de opgegeven uitvoering voor **downloaden** of **opwaarderen** het artefact, of gebruik de volgende CLI-opdrachten waarmee u hetzelfde resultaat bereiken.
 
 ```azurecli
 # show all artifacts generated by a run
@@ -86,5 +86,5 @@ $ az ml history info -r <runid> -a <artifact/path>
 $ az ml history promote -r <runid> -ap <artifact/prefix> -n <name of asset to create>
 ```
 ## <a name="next-steps"></a>Volgende stappen
-- Doorloop de [iris tutoria classificeren, deel 2](tutorial-classifying-iris-part-2.md) logboekregistratie API in actie zien.
-- Bekijk [gebruik uitvoeren geschiedenis en Model metrische gegevens in Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) diepere begrijpen hoe logboekregistratie API's kan worden gebruikt in de geschiedenis uitvoeren.
+- Doorloop de [classificeren van iris tutoria deel 2](tutorial-classifying-iris-part-2.md) API voor logboekregistratie in actie zien.
+- Beoordeling [gebruik Uitvoeringsgeschiedenis en metrische gegevens van Model in Azure Machine Learning Workbench](how-to-use-run-history-model-metrics.md) beter begrijpen hoe logboekregistratie van API's kan worden gebruikt in de geschiedenis uitvoeren.

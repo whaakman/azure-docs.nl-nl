@@ -1,6 +1,6 @@
 ---
-title: Azure diagnostische logboeken | Microsoft Docs
-description: De klant kunt logboekanalyse inschakelen voor Azure CDN.
+title: Diagnostische logboeken in Azure | Microsoft Docs
+description: Klant kunt logboekanalyse voor Azure CDN inschakelen.
 services: cdn
 documentationcenter: ''
 author: dksimpson
@@ -14,102 +14,102 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/06/2018
 ms.author: v-deasim
-ms.openlocfilehash: 98a7fc5c4607115811e17a7cf6acd4e867663833
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: b949b89c5181e9c804b7802323ee3b8e595a62e8
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35261301"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35907613"
 ---
 # <a name="azure-diagnostic-logs"></a>Diagnostische logboeken in Azure
 
-U kunt met Azure diagnoselogboeken basisanalyse bekijken en deze opslaan in een of meer bestemmingen, met inbegrip van:
+U kunt met diagnostische logboeken in Azure, core analytics bekijken en sla deze in een of meer doelen, met inbegrip van:
 
- - Azure-opslagaccount
+ - Azure Storage-account
  - Azure Event Hubs
  - [Log Analytics-werkruimte](https://docs.microsoft.com/azure/log-analytics/log-analytics-get-started)
  
-Deze functie is beschikbaar op de CDN-eindpunten voor alle Prijscategorieën. 
+Deze functie is beschikbaar op het CDN-eindpunten voor alle Prijscategorieën. 
 
-Logboeken met diagnostische gegevens van Azure kunnen u basisgebruik metrische gegevens exporteren van uw CDN-eindpunt naar een groot aantal bronnen, zodat u ze in een aangepaste manier gebruiken kunt. U kunt bijvoorbeeld de volgende soorten gegevens exporteren doen:
+Diagnostische logboeken van Azure kunnen u eenvoudige metrische gegevens exporteren van uw CDN-eindpunt naar een groot aantal bronnen, zodat u ze in een andere manier gebruiken kunt. U kunt bijvoorbeeld de volgende typen gegevens exporteren doen:
 
-- Exporteer gegevens voor blob-opslag, exporteren naar CSV en grafieken genereren in Excel.
-- Gegevens exporteren naar Event Hubs en correleren met gegevens van andere Azure-services.
-- Gegevens exporteren naar gegevens in uw eigen werkruimte voor logboekanalyse Log Analytics en weergeven
+- Exporteer gegevens voor blob-opslag, exporteren naar CSV en grafieken in Excel te genereren.
+- Gegevens exporteren naar Event Hubs en correleren met gegevens uit andere Azure-services.
+- Gegevens exporteren naar Log Analytics en de weergave gegevens in uw eigen werkruimte van Log Analytics
 
-Het volgende diagram toont een typische CDN core analytics weergave van gegevens.
+Het volgende diagram toont een typische CDN core analytics-weergave van gegevens.
 
 ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/01_OMS-workspace.png)
 
-*Afbeelding 1: CDN core analytics weergeven*
+*Afbeelding 1: core analytics-weergave van CDN*
 
 Zie voor meer informatie over diagnostische logboeken [diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
-## <a name="enable-logging-with-the-azure-portal"></a>Inschakelen van logboekregistratie met de Azure-portal
+## <a name="enable-logging-with-the-azure-portal"></a>Logboekregistratie inschakelen met de Azure-portal
 
-Volg deze stappen kunt logboekregistratie met CDN basisanalyse:
+Volg deze stappen kunt registreren met CDN core analytics:
 
-Meld u aan bij [Azure Portal](http://portal.azure.com). Als u niet dat u al CDN hebt ingeschakeld voor uw werkstroom [Maak een Azure CDN-profiel en een eindpunt](cdn-create-new-endpoint.md) voordat u doorgaat.
+Meld u aan bij [Azure Portal](http://portal.azure.com). Als u niet dat u al CDN hebt ingeschakeld voor uw werkstroom [maken van een Azure CDN-profiel en een eindpunt](cdn-create-new-endpoint.md) voordat u doorgaat.
 
-1. Navigeer in de Azure-portal naar **CDN-profiel**.
+1. In de Azure-portal, gaat u naar **CDN-profiel**.
 
-2. Zoeken naar een CDN-profiel in de Azure portal of Selecteer een van uw dashboard. Selecteer vervolgens het CDN-eindpunt waarvoor u wilt inschakelen van diagnostische logboeken.
+2. Zoeken naar een CDN-profiel in de Azure-portal, of Selecteer een van uw dashboard. Selecteer vervolgens het CDN-eindpunt waarvoor u wenst te logboeken met diagnostische gegevens inschakelen.
 
     ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/02_Browse-to-Diagnostics-logs.png)
 
-3. Selecteer **diagnostische logboeken** in de sectie bewaking.
+3. Selecteer **diagnoselogboeken** in de sectie bewaking.
 
-   De **diagnostische logboeken** pagina wordt weergegeven.
+   De **diagnoselogboeken** pagina wordt weergegeven.
 
     ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/03_Diagnostics-logs-options.png)
 
-### <a name="enable-logging-with-azure-storage"></a>Logboekregistratie met Azure Storage inschakelen
+### <a name="enable-logging-with-azure-storage"></a>Logboekregistratie inschakelen met Azure Storage
 
-Een opslagaccount gebruiken voor het opslaan van de logboeken als volgt te werk:
+Als u een opslagaccount wilt opslaan van de logboeken, de volgende stappen uit:
     
 1. Voor **naam**, voer een naam voor de instellingen diagnostische logboeken.
  
-2. Selecteer **archiveren naar een opslagaccount**, selecteer daarna **CoreAnalytics**. 
+2. Selecteer **archiveren naar een opslagaccount**en selecteer vervolgens **CoreAnalytics**. 
 
-2. Voor **bewaartermijn (dagen)**, kiest u het aantal dagen bewaren. Een bewaartermijn van nul dagen worden de logboeken voor onbepaalde tijd opgeslagen. 
+2. Voor **bewaarperiode (dagen)**, kiest u het aantal dagen bewaren. Een bewaarperiode van nul dagen worden de logboeken voor onbepaalde tijd opgeslagen. 
 
     ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/04_Diagnostics-logs-storage.png) 
 
 3. Selecteer **opslagaccount**.
 
-    De **Selecteer een opslagaccount** pagina wordt weergegeven.
+    De **selecteert u een opslagaccount** pagina wordt weergegeven.
 
 4. Selecteer een opslagaccount in de vervolgkeuzelijst en selecteer vervolgens **OK**.
 
     ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/cdn-select-storage-account.png)
 
-5. Nadat u de instellingen diagnostische logboeken hebt aangebracht, selecteert u **opslaan**.
+5. Nadat u uw instellingen voor diagnostische logboeken hebt aangebracht, selecteert u **opslaan**.
 
-### <a name="logging-with-log-analytics"></a>Logboekregistratie met logboekanalyse
+### <a name="logging-with-log-analytics"></a>Logboekregistratie met Log Analytics
 
-Log Analytics gebruiken voor het opslaan van de logboeken als volgt te werk:
+Aan de Log Analytics gebruiken voor het opslaan van de logboeken, als volgt te werk:
 
-1. Van de **diagnostische logboeken** pagina **verzenden met logboekanalyse**. 
+1. Uit de **diagnoselogboeken** weergeeft, schakelt **verzenden naar Log Analytics**. 
 
     ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/05_Ready-to-Configure.png)    
 
 2. Selecteer **configureren** Log Analytics-logboekregistratie configureren. 
 
-   De **OMS werkruimten** pagina wordt weergegeven.
+   De **OMS-werkruimten** pagina wordt weergegeven.
 
     ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/06_Choose-workspace.png)
 
-3. Selecteer **Maak nieuwe werkruimte**.
+3. Selecteer **nieuwe werkruimte maken**.
 
     De **OMS-werkruimte** pagina wordt weergegeven.
 
     ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/07_Create-new.png)
 
-4. Voor **OMS-werkruimte**, voer de naam van een OMS-werkruimte. Naam van de OMS-werkruimte moet uniek zijn en mag alleen letters, cijfers en afbreekstreepjes; spaties en onderstrepingstekens bevatten, zijn niet toegestaan. 
+4. Voor **OMS-werkruimte**, voer de naam van een OMS-werkruimte. De naam van de OMS-werkruimte moet uniek zijn en bevatten alleen letters, cijfers en afbreekstreepjes bevatten; spaties en onderstrepingstekens zijn niet toegestaan. 
 
 5. Voor **abonnement**, selecteer een bestaand abonnement in de vervolgkeuzelijst. 
 
-6. Voor **resourcegroep**, een nieuwe resourcegroep maken of een bestaande set selecteren.
+6. Voor **resourcegroep**, maak een nieuwe resourcegroep of Selecteer een bestaande resourcegroep.
 
 7. Voor **locatie**, selecteer een locatie in de lijst.
 
@@ -117,139 +117,136 @@ Log Analytics gebruiken voor het opslaan van de logboeken als volgt te werk:
 
 9. Selecteer **OK** om de configuratie te voltooien.
 
-    ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/08_Workspace-resource.png)
-
-10. Nadat uw werkruimte is gemaakt, keert u terug naar de **diagnostische logboeken** pagina. Controleer de naam van uw nieuwe werkruimte voor logboekanalyse.
+10. Nadat uw werkruimte is gemaakt, keert u terug naar de **diagnostische logboeken** pagina. Controleer of de naam van uw nieuwe Log Analytics-werkruimte.
 
     ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/09_Return-to-logging.png)
 
-11. Selecteer **CoreAnalytics**, selecteer daarna **opslaan**.
+11. Selecteer **CoreAnalytics**en selecteer vervolgens **opslaan**.
 
-12. Als u wilt uw nieuwe werkruimte voor logboekanalyse weergeven, selecteert u **analytics Core** van uw CDN-eindpunt pagina.
+12. Als u de nieuwe Log Analytics-werkruimte, selecteert u **Core analytics** van de pagina van uw CDN-eindpunt.
 
-    ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/11_OMS-dashboard.png) 
+    ![Portal - logboeken met diagnostische gegevens](./media/cdn-diagnostics-log/cdn-core-analytics-page.png) 
 
-    Uw werkruimte voor logboekanalyse is nu gereed om gegevens te registreren. Om die gegevens gebruiken, moet u een [Log Analytics-oplossing](#consuming-diagnostics-logs-from-a-log-analytics-workspace), gedekte verderop in dit artikel.
+    Werkruimte van Log Analytics is nu klaar om gegevens te registreren. Om die gegevens gebruiken, moet u een [Log Analytics-oplossing](#consuming-diagnostics-logs-from-a-log-analytics-workspace), bedekt verderop in dit artikel.
 
-Zie voor meer informatie over het logboek gegevens vertragingen [meld gegevens vertragingen](#log-data-delays).
+Zie voor meer informatie over het logboek gegevens vertragingen [zich gegevens vertragingen](#log-data-delays).
 
-## <a name="enable-logging-with-powershell"></a>Inschakelen van logboekregistratie met PowerShell
+## <a name="enable-logging-with-powershell"></a>Logboekregistratie inschakelen met PowerShell
 
 Het volgende voorbeeld ziet het inschakelen van diagnostische logboeken via de Azure PowerShell-Cmdlets.
 
-### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Inschakelen van diagnostische logboeken in een opslagaccount
+### <a name="enabling-diagnostic-logs-in-a-storage-account"></a>Inschakelen van diagnostische logboeken in een storage-account
 
-1. Meld u bij en selecteer een abonnement:
+1. Meld u en selecteer een abonnement:
 
-    Verbinding maken met AzureRmAccount 
+    Connect-AzureRmAccount 
 
     SELECT-AzureSubscription - abonnements-id 
 
-2. Om diagnostische logboeken in een opslagaccount, voer de volgende opdracht:
+2. Om in te schakelen logboeken met diagnostische gegevens in een Storage-account, voer de volgende opdracht:
 
     ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/{subscriptionId}/resourcegroups/{resourceGroupName}/providers/Microsoft.Cdn/profiles/{profileName}/endpoints/{endpointName}" -StorageAccountId "/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.ClassicStorage/storageAccounts/{storageAccountName}" -Enabled $true -Categories CoreAnalytics
     ```
 
-3. Om diagnostische logboeken in een werkruimte voor logboekanalyse, voer de volgende opdracht:
+3. Om in te schakelen diagnostische logboeken in Log Analytics-werkruimte, voer de volgende opdracht:
 
     ```powershell
     Set-AzureRmDiagnosticSetting -ResourceId "/subscriptions/`{subscriptionId}<subscriptionId>
     .<subscriptionName>" -WorkspaceId "/subscriptions/<workspaceId>.<workspaceName>" -Enabled $true -Categories CoreAnalytics 
     ```
 
-## <a name="consuming-diagnostics-logs-from-azure-storage"></a>Diagnostische logboeken van Azure Storage gebruiken
-Deze sectie beschrijft het schema van CDN core analytics, hoe deze binnen een Azure storage-account is ingedeeld en wordt een voorbeeldcode voor het downloaden van de logboeken in een CSV-bestand.
+## <a name="consuming-diagnostics-logs-from-azure-storage"></a>Diagnostische logboeken uit Azure Storage gebruiken
+Deze sectie beschrijft het schema van CDN core analytics, hoe deze binnen een Azure storage-account is georganiseerd en wordt een voorbeeldcode om de logboeken in een CSV-bestand te downloaden.
 
-### <a name="using-microsoft-azure-storage-explorer"></a>Met behulp van Microsoft Azure Opslagverkenner
-Voordat u de core analytische gegevens vanaf een Azure storage-account openen kunt, moet u eerst een hulpprogramma voor toegang tot de inhoud in een opslagaccount. Er zijn verschillende hulpprogramma's beschikbaar in de markt, is die het wordt aangeraden de Microsoft Azure Storage Explorer. Zie voor het downloaden van het hulpprogramma [Azure Opslagverkenner](http://storageexplorer.com/). Na het downloaden en installeren van de software, configureert u het gebruik van de Azure storage-account dat is geconfigureerd als doel naar de CDN diagnostische logboeken.
+### <a name="using-microsoft-azure-storage-explorer"></a>Met behulp van Microsoft Azure Storage Explorer
+Voordat u krijgt de core analytics-gegevens uit een Azure storage-account tot toegang, moet u eerst een hulpprogramma voor toegang tot de inhoud van een storage-account. Er zijn verschillende hulpprogramma's beschikbaar op de markt, is die het beste de Microsoft Azure Storage Explorer. Zie voor het downloaden van het hulpprogramma [Azure Storage Explorer](http://storageexplorer.com/). Na het downloaden en installeren van de software, moet u deze voor het gebruik van de Azure storage-account dat is geconfigureerd als een doel voor de diagnoselogboeken CDN configureren.
 
-1.  Open **Microsoft Azure Opslagverkenner**
-2.  Zoek de storage-account
-3.  Vouw de **Blob-Containers** knooppunt onder dit opslagaccount.
-4.  Selecteer de container met de naam *insights-logboeken-coreanalytics*.
-5.  Weergeven van resultaten in het rechterdeelvenster beginnen met het eerste niveau als *resourceId =*. Doorgaan met het selecteren van elk niveau totdat u het bestand *PT1H.json*. Zie de volgende *Blob padindeling* Opmerking voor een uitleg van het pad.
-6.  Elke blob *PT1H.json* bestand vertegenwoordigt de logboeken analytics gedurende één uur voor een specifieke CDN-eindpunt of het aangepaste domein.
+1.  Open **Microsoft Azure Storage Explorer**
+2.  Zoek het opslagaccount
+3.  Vouw de **Blobcontainers** knooppunt onder dit storage-account.
+4.  Selecteer de container met de naam *insights-logs-coreanalytics*.
+5.  Weergeven van resultaten in het rechter deelvenster, beginnen met het eerste niveau als *resourceId =*. Doorgaan met het selecteren van elk niveau totdat u het bestand *PT1H.json*. Zie voor een uitleg van het pad [Blob padindeling](cdn-azure-diagnostic-logs.md#blob-path-format).
+6.  Elke blob *PT1H.json* bestand vertegenwoordigt de analytics-logboeken voor één uur voor een specifieke CDN-eindpunt of het aangepaste domein.
 7.  Het schema van de inhoud van dit JSON-bestand wordt beschreven in de sectie schema van de core analytics-Logboeken.
 
 
-> [!NOTE]
-> **BLOB-padindeling**
-> 
-> Core analytics logboeken worden elk uur gegenereerd en de gegevens worden verzameld en opgeslagen binnen een enkele Azure blob-als een JSON-nettolading. Omdat het programma voor Storage explorer interpreteert '/' als een mapscheidingsteken en toont de hiërarchie, het pad naar de blob van Azure wordt weergegeven als er een hiërarchische structuur is en vertegenwoordigt de blob-naam. De naam van de blob volgt de volgende naamconventie: 
-    
-    resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json
+#### <a name="blob-path-format"></a>De padindeling BLOB
 
-**Beschrijving van velden:**
+Core analytics logboeken worden elk uur gegenereerd en de gegevens worden verzameld en opgeslagen binnen een enkel Azure-blob als een JSON-nettolading. Omdat het hulpprogramma Storage explorer interpreteert '/' als een mapscheidingsteken en toont de hiërarchie, het pad naar de Azure-blob wordt weergegeven als er een hiërarchische structuur is en de naam van de blob vertegenwoordigt. De naam van de blob volgt de volgende naamconventie gebruikt:   
+
+```resourceId=/SUBSCRIPTIONS/{Subscription Id}/RESOURCEGROUPS/{Resource Group Name}/PROVIDERS/MICROSOFT.CDN/PROFILES/{Profile Name}/ENDPOINTS/{Endpoint Name}/ y={Year}/m={Month}/d={Day}/h={Hour}/m={Minutes}/PT1H.json```
+
+**Beschrijving van de velden:**
 
 |Waarde|Beschrijving|
 |-------|---------|
-|Abonnements-id    |ID van het Azure-abonnement in Guid-indeling.|
-|Naam van brongroep |Naam van de resourcegroep waartoe het CDN-resources behoren.|
+|Abonnements-id    |ID van de Azure-abonnement in Guid-indeling.|
+|Naam van brongroep |De naam van de resourcegroep waartoe de CDN-resources behoren.|
 |Profielnaam |Naam van het CDN-profiel|
-|Naam van het eindpunt |Naam van het CDN-eindpunt|
+|De naam van eindpunt |Naam van het CDN-eindpunt|
 |Jaar|  Weergave van vier cijfers van het jaar, bijvoorbeeld 2017|
-|Maand| De weergave van de twee cijfers van het nummer van de maand. 01 januari =... 12 December =|
+|Maand| De weergave van de twee cijfers van het maandnummer. 01 januari =... 12 December =|
 |Dag|   Twee cijfers weergave van de dag van de maand|
-|PT1H.json| Werkelijke JSON-bestand waarin de analytische gegevens is opgeslagen|
+|PT1H.json| Werkelijke JSON-bestand waarin de analytics-gegevens is opgeslagen|
 
-### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>De core analytische gegevens exporteren naar een CSV-bestand
+### <a name="exporting-the-core-analytics-data-to-a-csv-file"></a>De core analytics-gegevens exporteren naar een CSV-bestand
 
-Als u eenvoudig toegang krijgen tot basisanalyse, is voorbeeldcode voor een hulpprogramma opgegeven. Dit hulpprogramma kunt downloaden van de JSON-bestanden in een platte door komma's gescheiden bestandsindeling, die kan worden gebruikt om grafieken of andere aggregaties te maken.
+Als u eenvoudig toegang krijgen tot basisanalyse, wordt voorbeeldcode voor een hulpprogramma geleverd. Dit hulpprogramma kunt de JSON-bestanden downloaden naar een bestandsindeling met door komma's gescheiden plat, die kan worden gebruikt om grafieken of andere aggregaties te maken.
 
 Dit is hoe u het hulpprogramma kunt gebruiken:
 
 1.  Ga naar de github-koppeling: [https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv ](https://github.com/Azure-Samples/azure-cdn-samples/tree/master/CoreAnalytics-ExportToCsv)
-2.  Download de code.
-3.  Volg de instructies voor het compileren en configureren.
-4.  Voer het hulpprogramma.
-5.  Het resulterende CSV-bestand bevat de analytische gegevens in een eenvoudige platte hiërarchie.
+2.  De code downloaden.
+3.  Volg de instructies om te compileren en configureren.
+4.  Het hulpprogramma uitvoeren.
+5.  Het resulterende CSV-bestand bevat de analytics-gegevens in een eenvoudige, platte hiërarchie.
 
-## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Diagnostische logboeken van een werkruimte voor logboekanalyse gebruiken
-Log Analytics is een Azure-service die wordt bewaakt uw cloud en on-premises omgevingen voor het onderhouden van de beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden. 
+## <a name="consuming-diagnostics-logs-from-a-log-analytics-workspace"></a>Diagnostische logboeken van Log Analytics-werkruimte gebruiken
+Log Analytics is een Azure-service die uw cloud en on-premises omgevingen voor het onderhouden van hun beschikbaarheid en prestaties. De service verzamelt gegevens afkomstig van resources in uw cloud- en on-premises omgevingen en van andere bewakingsprogramma's om analyse over meerdere resources aan te bieden. 
 
-Als u wilt gebruiken Log Analytics, moet u [logboekregistratie inschakelen](#enable-logging-with-azure-storage) naar de Azure Log Analytics-werkruimte die eerder in dit artikel wordt besproken.
+Voor het gebruik van Log Analytics, moet u [logboekregistratie inschakelen](#enable-logging-with-azure-storage) naar de Azure Log Analytics-werkruimte, die eerder in dit artikel wordt besproken.
 
-### <a name="using-the-log-analytics-workspace"></a>Met behulp van de werkruimte voor logboekanalyse
+### <a name="using-the-log-analytics-workspace"></a>Met behulp van de Log Analytics-werkruimte
 
  Het volgende diagram toont de architectuur van de invoer en uitvoer van de opslagplaats:
 
 ![Log Analytics-werkruimte](./media/cdn-diagnostics-log/12_Repo-overview.png)
 
-*Afbeelding 3 - Log Analytics-opslagplaats*
+*Afbeelding 3 - opslagplaats voor Log Analytics*
 
-U kunt de gegevens op verschillende manieren weergeven met behulp van oplossingen voor het beheer. Kunt u oplossingen voor het beheer van de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
+U kunt de gegevens op verschillende manieren weergeven met behulp van oplossingen voor beheer. U vindt oplossingen uit de [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/category/monitoring-management?page=1&subcategories=management-solutions).
 
-Kunt u oplossingen voor het beheer vanuit Azure marketplace installeren met het selecteren van de **nu downloaden** koppeling aan de onderkant van elke oplossing.
+U kunt oplossingen voor installeren via Azure marketplace door te selecteren de **nu downloaden** koppelen aan de onderkant van elke oplossing.
 
-### <a name="add-a-log-analytics-cdn-management-solution"></a>Toevoegen van een beheeroplossing Log Analytics CDN
+### <a name="add-a-log-analytics-cdn-management-solution"></a>Een beheeroplossing voor Log Analytics-CDN toevoegen
 
-Volg deze stappen voor het toevoegen van een Log Analytics Management-oplossing:
+Volg deze stappen voor het toevoegen van een beheeroplossing voor Log Analytics:
 
-1.   Meld u aan bij de Azure portal met behulp van uw Azure-abonnement en Ga naar uw dashboard.
+1.   Aanmelden bij Azure portal met uw Azure-abonnement en Ga naar uw dashboard.
     ![Azure-dashboard](./media/cdn-diagnostics-log/13_Azure-dashboard.png)
 
-2. In de **nieuw** pagina onder **Marketplace**, selecteer **bewaking + management**.
+2. In de **nieuw** pagina onder **Marketplace**, selecteer **bewaking en beheer**.
 
     ![Marketplace](./media/cdn-diagnostics-log/14_Marketplace.png)
 
-3. In de **bewaking + management** pagina **alle**.
+3. In de **bewaking en beheer** weergeeft, schakelt **alle**.
 
     ![Alles bekijken](./media/cdn-diagnostics-log/15_See-all.png)
 
-4. Zoeken naar de CDN in het zoekvak.
+4. Zoeken naar CDN in het zoekvak in.
 
     ![Alles bekijken](./media/cdn-diagnostics-log/16_Search-for.png)
 
-5. Selecteer **Azure CDN basisanalyse**. 
+5. Selecteer **basisanalyse van Azure CDN**. 
 
     ![Alles bekijken](./media/cdn-diagnostics-log/17_Core-analytics.png)
 
-6. Nadat u hebt geselecteerd **maken**, wordt u gevraagd te maken van een nieuwe werkruimte voor logboekanalyse of gebruik een bestaande. 
+6. Nadat u hebt geselecteerd **maken**, wordt u gevraagd een nieuwe Log Analytics-werkruimte maken of gebruik een bestaande resourcegroep. 
 
     ![Alles bekijken](./media/cdn-diagnostics-log/18_Adding-solution.png)
 
-7. Selecteer de werkruimte die u hebt gemaakt voordat. Vervolgens moet u een automation-account toevoegen.
+7. Selecteer de werkruimte die u eerder hebt gemaakt. Vervolgens moet u een automation-account toevoegen.
 
     ![Alles bekijken](./media/cdn-diagnostics-log/19_Add-automation.png)
 
@@ -257,29 +254,29 @@ Volg deze stappen voor het toevoegen van een Log Analytics Management-oplossing:
 
     ![Alles bekijken](./media/cdn-diagnostics-log/20_Automation.png)
 
-9. Nadat u het automation-account hebt gemaakt, bent u klaar voor het toevoegen van uw oplossing. Selecteer de knop **Create** (Maken).
+9. Als u het automation-account hebt gemaakt, bent u gereed voor het toevoegen van uw oplossing. Selecteer de knop **Create** (Maken).
 
     ![Alles bekijken](./media/cdn-diagnostics-log/21_Ready.png)
 
-10. Uw oplossing is nu toegevoegd aan uw werkruimte. Ga terug naar uw Azure-portaldashboard.
+10. Uw oplossing is nu is toegevoegd aan uw werkruimte. Ga terug naar uw Azure portal-dashboard.
 
     ![Alles bekijken](./media/cdn-diagnostics-log/22_Dashboard.png)
 
-    Selecteer de werkruimte voor logboekanalyse die u gaat u naar uw werkruimte hebt gemaakt. 
+    Selecteer de Log Analytics-werkruimte die u gaat u naar uw werkruimte hebt gemaakt. 
 
 11. Selecteer de **OMS-Portal** tegel voor uw nieuwe oplossing.
 
     ![Alles bekijken](./media/cdn-diagnostics-log/23_workspace.png)
 
-12. Uw portal ziet er nu als het volgende scherm:
+12. De portal moet er nu uitzien zoals het volgende scherm:
 
     ![Alles bekijken](./media/cdn-diagnostics-log/24_OMS-solution.png)
 
-    Selecteer een van de tegels voor een overzicht van verschillende weergaven in uw gegevens.
+    Selecteer een van de tegels om te zien van verschillende weergaven in uw gegevens.
 
     ![Alles bekijken](./media/cdn-diagnostics-log/25_Interior-view.png)
 
-    U kunt bladeren links of rechts om te zien van verdere tegels die afzonderlijke weergaven in de gegevens. 
+    U kunt bladeren links of rechts om te zien van verdere tegels voor afzonderlijke weergaven in de gegevens. 
 
     Selecteer een van de tegels voor meer informatie over uw gegevens.
 
@@ -287,71 +284,71 @@ Volg deze stappen voor het toevoegen van een Log Analytics Management-oplossing:
 
 ### <a name="offers-and-pricing-tiers"></a>Aanbiedingen en Prijscategorieën
 
-U kunt zien aanbiedingen en Prijscategorieën voor beheeroplossingen voor [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
+U kunt zien, aanbiedingen en Prijscategorieën voor oplossingen voor het beheer [hier](https://docs.microsoft.com/azure/log-analytics/log-analytics-add-solutions#offers-and-pricing-tiers).
 
 ### <a name="customizing-views"></a>Weergaven aanpassen
 
-U kunt de weergave aanpassen in uw gegevens met behulp van de **ontwerper**. Om te beginnen ontwerpen, Ga naar de werkruimte voor logboekanalyse en selecteer de **ontwerper** tegel.
+U kunt de weergave aanpassen in uw gegevens met behulp van de **Weergaveontwerper**. Om te beginnen met het ontwerpen, gaat u naar uw Log Analytics-werkruimte en selecteer de **Weergaveontwerper** tegel.
 
 ![Designer weergeven](./media/cdn-diagnostics-log/27_Designer.png)
 
-Slepen en neerzetten beschrijft de soorten grafieken en vul de gegevens u wilt analyseren.
+Slepen en neerzetten om de typen van grafieken en vul de gegevens details u wilt analyseren.
 
 ![Designer weergeven](./media/cdn-diagnostics-log/28_Designer.png)
 
     
 ## <a name="log-data-delays"></a>Logboek gegevens vertragingen
 
-De volgende tabel toont logboek gegevens vertragingen zijn voor **Azure CDN Standard van Microsoft**, **Azure CDN Standard van Akamai**, en **Azure CDN Standard/Premium van Verizon**.
+De volgende tabel toont logboek gegevens vertragingen voor **Azure CDN Standard van Microsoft**, **Azure CDN Standard van Akamai**, en **Azure CDN Standard/Premium van Verizon**.
 
-Microsoft logboek gegevens vertragingen | Verizon logboek gegevens vertragingen | Akamai logboek gegevens vertragingen
+Microsoft log gegevens vertragingen | Verizon logboek gegevens vertragingen | Akamai logboek gegevens vertragingen
 --- | --- | ---
-Uitgesteld 1 uur. | 1 uur vertraging en kan maximaal twee uur om te starten na voltooiing van de endpoint-doorgifte verschijnen. | Vertraging 24 uur; Als deze meer dan 24 uur geleden is gemaakt, duurt het tot 2 uur starten verschijnen. Als u onlangs is gemaakt, kan deze maximaal 25 uur voor de Logboeken starten verschijnen duren.
+1 uur vertraging. | 1 uur vertraging en kan maximaal twee uur om te starten na voltooiing van de eindpunt-doorgifte weergegeven. | 24 uur; vertraagd Als er meer dan 24 uur geleden is gemaakt, duurt het tot 2 uur weergegeven. Als er onlangs is gemaakt, duurt het maximaal 25 uur voor de logboeken om te starten worden weergegeven.
 
-## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>Diagnostische logboeken typen voor CDN-basisanalyse
+## <a name="diagnostic-log-types-for-cdn-core-analytics"></a>Typen diagnostische logboeken voor basisanalyse van CDN
 
-Microsoft biedt momenteel core analytics Logboeken alleen die met HTTP-antwoord statistieken en uitgaande zoals gezien vanaf de CDN POP's / randen metrische gegevens bevatten.
+Microsoft biedt momenteel core analytics Logboeken alleen die metrische gegevens van die HTTP-antwoord statistieken en uitgaand verkeer zoals te zien van het CDN POP's / randen bevatten.
 
 ### <a name="core-analytics-metrics-details"></a>Core analytics metrische gegevens
-De volgende tabel bevat een overzicht van metrische gegevens beschikbaar zijn in de kern van het analytics-logboeken voor **Azure CDN Standard van Microsoft**, **Azure CDN Standard van Akamai**, en **Azure CDN Standard/Premium van Verizon**. Niet alle metrische gegevens zijn beschikbaar in alle providers, hoewel deze verschillen minimaal zijn. De tabel ook geeft aan of een metriek beschikbaar via een provider is. De metrische gegevens zijn beschikbaar voor deze CDN-eindpunten die verkeer op deze hebben.
+De volgende tabel bevat een overzicht van metrische gegevens beschikbaar zijn in de core analytics-logboeken voor **Azure CDN Standard van Microsoft**, **Azure CDN Standard van Akamai**, en **Azure CDN Standard/Premium van Verizon**. Niet alle metrische gegevens zijn beschikbaar van alle providers, hoewel deze verschillen minimaal zijn. De tabel geeft ook aan of een bepaalde meetwaarde beschikbaar via een provider is. De metrische gegevens zijn beschikbaar voor de CDN-eindpunten die verkeer op deze hebben.
 
 
 |Gegevens                     | Beschrijving | Microsoft | Verizon | Akamai |
 |---------------------------|-------------|-----------|---------|--------|
 | RequestCountTotal         | Totaal aantal treffers in de aanvraag tijdens deze periode. | Ja | Ja |Ja |
-| RequestCountHttpStatus2xx | Telling van alle aanvragen dat heeft geresulteerd in een 2xx HTTP-code (bijvoorbeeld, 200, 202). | Ja | Ja |Ja |
-| RequestCountHttpStatus3xx | Telling van alle aanvragen dat heeft geresulteerd in een 3xx HTTP-code (bijvoorbeeld, 300, 302). | Ja | Ja |Ja |
-| RequestCountHttpStatus4xx | Telling van alle aanvragen dat heeft geresulteerd in een 4xx HTTP-code (bijvoorbeeld, 400, 404). | Ja | Ja |Ja |
-| RequestCountHttpStatus5xx | Telling van alle aanvragen dat heeft geresulteerd in een 5xx HTTP-code (bijvoorbeeld, 500, 504). | Ja | Ja |Ja |
+| RequestCountHttpStatus2xx | Telling van alle aanvragen dat heeft geresulteerd in een 2xx HTTP-code (bijvoorbeeld 200, 202). | Ja | Ja |Ja |
+| RequestCountHttpStatus3xx | Telling van alle aanvragen dat heeft geresulteerd in een 3xx HTTP-code (bijvoorbeeld: 300, 302). | Ja | Ja |Ja |
+| RequestCountHttpStatus4xx | Telling van alle aanvragen dat heeft geresulteerd in een 4xx HTTP-code (bijvoorbeeld: 400, 404). | Ja | Ja |Ja |
+| RequestCountHttpStatus5xx | Telling van alle aanvragen dat heeft geresulteerd in een code van de HTTP-5xx (bijvoorbeeld, 500, 504). | Ja | Ja |Ja |
 | RequestCountHttpStatusOthers | Telling van alle andere HTTP-codes (buiten 2xx-5xx). | Ja | Ja |Ja |
 | RequestCountHttpStatus200 | Telling van alle aanvragen dat heeft geresulteerd in een HTTP-antwoord voor 200 code. | Ja | Nee  |Ja |
 | RequestCountHttpStatus206 | Telling van alle aanvragen dat heeft geresulteerd in een HTTP-antwoord voor 206 code. | Ja | Nee  |Ja |
-| RequestCountHttpStatus302 | Telling van alle aanvragen dat heeft geresulteerd in een HTTP-antwoord voor 302 code. | Ja | Nee  |Ja |
+| RequestCountHttpStatus302 | Telling van alle aanvragen dat heeft geresulteerd in een HTTP-antwoord voor 302-code. | Ja | Nee  |Ja |
 | RequestCountHttpStatus304 | Telling van alle aanvragen dat heeft geresulteerd in een HTTP-antwoord voor 304 code. | Ja | Nee  |Ja |
-| RequestCountHttpStatus404 | Telling van alle aanvragen dat heeft geresulteerd in een 404 HTTP-code-antwoord. | Ja | Nee  |Ja |
-| RequestCountCacheHit | Telling van alle aanvragen dat heeft geresulteerd in een Cache heeft bereikt. De asset is geleverd rechtstreeks vanuit de pop-server naar de client. | Ja | Ja | Nee  |
-| RequestCountCacheMiss | Telling van alle aanvragen dat heeft geresulteerd in een Cache ontbreekt. Een Cache ontbreekt, betekent de asset is niet gevonden op de pop-server die het dichtst bij de client en daarom is opgehaald van de oorsprong. | Ja | Ja | Nee |
-| RequestCountCacheNoCache | Telling van alle aanvragen voor een asset die worden opgeslagen vanwege de Gebruikersconfiguratie van een op de rand worden voorkomen. | Ja | Ja | Nee |
-| RequestCountCacheUncacheable | Telling van alle aanvragen voor de activa die niet worden opgeslagen door de Cache-Control en Expires-koppen die aangeven dat deze mag niet worden opgeslagen op een pop-server of door de HTTP-client de asset. | Ja | Ja | Nee |
+| RequestCountHttpStatus404 | Telling van alle aanvragen dat heeft geresulteerd in een HTTP-antwoord voor 404-code. | Ja | Nee  |Ja |
+| RequestCountCacheHit | Telling van alle aanvragen dat heeft geresulteerd in een Cache is bereikt. De asset is rechtstreeks vanuit de pop-server uitgevoerd naar de client. | Ja | Ja | Nee  |
+| RequestCountCacheMiss | Telling van alle aanvragen dat heeft geresulteerd in een Cache ontbreekt. Een Cache ontbreekt, betekent dat de asset is niet gevonden op de pop-server die het dichtst bij de client, en daarom is opgehaald van de oorsprong. | Ja | Ja | Nee |
+| RequestCountCacheNoCache | Telling van alle aanvragen voor een asset die wordt voorkomen dat in de cache worden opgeslagen vanwege de Gebruikersconfiguratie van een aan de rand. | Ja | Ja | Nee |
+| RequestCountCacheUncacheable | Telling van alle aanvragen naar activa die in de cache wordt opgeslagen door de Cache-Control en Expires-koppen, waarin wordt aangegeven voorkomen dat deze moet niet worden opgeslagen in de cache op een pop-server of door de HTTP-client van de asset. | Ja | Ja | Nee |
 | RequestCountCacheOthers | Telling van alle aanvragen met de status van de cache niet wordt gedekt door hierboven. | Nee | Ja | Nee  |
 | EgressTotal | Uitgaande gegevensoverdracht in GB | Ja |Ja |Ja |
-| EgressHttpStatus2xx | Uitgaande gegevens overdracht * voor antwoorden met 2xx HTTP-statuscodes in GB. | Ja | Ja | Nee  |
+| EgressHttpStatus2xx | Uitgaande gegevensoverdracht * voor antwoorden met 2xx HTTP-statuscodes in GB. | Ja | Ja | Nee  |
 | EgressHttpStatus3xx | Uitgaande gegevensoverdracht voor antwoorden met 3xx HTTP-statuscodes in GB. | Ja | Ja | Nee  |
 | EgressHttpStatus4xx | Uitgaande gegevensoverdracht voor antwoorden met 4xx HTTP-statuscodes in GB. | Ja | Ja | Nee  |
 | EgressHttpStatus5xx | Uitgaande gegevensoverdracht voor antwoorden met 5xx HTTP-statuscodes in GB. | Ja | Ja | Nee |
 | EgressHttpStatusOthers | Uitgaande gegevensoverdracht voor antwoorden met andere HTTP-statuscodes in GB. | Ja | Ja | Nee  |
-| EgressCacheHit | Uitgaande gegevensoverdracht voor antwoorden die zijn geleverd rechtstreeks vanaf de CDN-cache op de CDN POP's / randen. | Ja | Ja | Nee |
-| EgressCacheMiss. | Uitgaande gegevensoverdracht voor reacties waarbij zijn niet gevonden op de dichtstbijzijnde POP-server en opgehaald uit de bronserver. | Ja | Ja | Nee |
-| EgressCacheNoCache | Uitgaande gegevensoverdracht voor bedrijfsmiddelen die niet worden opgeslagen vanwege de Gebruikersconfiguratie van een op de rand. | Ja | Ja | Nee |
-| EgressCacheUncacheable | Uitgaande gegevensoverdracht voor bedrijfsmiddelen die niet worden opgeslagen door de asset Cache-Control en/of Expires-koppen. Hiermee wordt aangegeven dat deze mag niet worden opgeslagen op een pop-server of door de HTTP-client. | Ja | Ja | Nee |
+| EgressCacheHit | Voor uitgaande gegevensoverdracht voor antwoorden die werden geleverd rechtstreeks vanuit de CDN-cache op de CDN POP's / randen. | Ja | Ja | Nee |
+| EgressCacheMiss. | Uitgaande gegevensoverdracht voor antwoorden die zijn niet gevonden op de dichtstbijzijnde POP-server, en opgehaald uit de oorspronkelijke server. | Ja | Ja | Nee |
+| EgressCacheNoCache | Uitgaande gegevensoverdracht voor activa die worden opgeslagen vanwege de Gebruikersconfiguratie van een aan de rand worden voorkomen. | Ja | Ja | Nee |
+| EgressCacheUncacheable | Uitgaande gegevensoverdracht voor activa die voorkomen in de cache wordt opgeslagen door van de asset Cache-Control en/of Expires-koppen. Geeft aan dat deze moet niet worden opgeslagen in de cache op een pop-server of door de HTTP-client. | Ja | Ja | Nee |
 | EgressCacheOthers | Uitgaande gegevensoverdracht voor andere scenario's met cache. | Nee | Ja | Nee |
 
-* Uitgaande gegevensoverdracht verwijst naar verkeer van CDN POP-servers aan de client geleverd.
+* Uitgaande gegevensoverdracht verwijst naar verkeer van CDN POP-servers aan de client wordt geleverd.
 
 
 ### <a name="schema-of-the-core-analytics-logs"></a>Schema van de core analytics-Logboeken 
 
-Alle logboeken worden opgeslagen in de JSON-indeling en elk item heeft tekenreeksvelden volgens het volgende schema:
+Alle logboeken worden opgeslagen in de JSON-indeling en elk item heeft tekenreeksvelden op basis van het volgende schema:
 
 ```json
     "records": [
@@ -396,7 +393,7 @@ Alle logboeken worden opgeslagen in de JSON-indeling en elk item heeft tekenreek
 }
 ```
 
-Waar *tijd* vertegenwoordigt de starttijd van de uur-grens waarvoor de statistieken is gemeld. Wanneer een waarde wordt niet ondersteund door een CDN-provider, in plaats van een dubbel of integer-waarde is een null-waarde. Deze null-waarde geeft de afwezigheid van een metriek en verschilt van de waarde 0. Er is een set met deze metrische gegevens per domein geconfigureerd op het eindpunt.
+Waar *tijd* vertegenwoordigt de begintijd van de grens van het uur waarvoor de statistieken is gemeld. Wanneer een metrische waarde wordt niet ondersteund door een CDN-provider, in plaats van een Double-waarde of een geheel getal-waarde, is er een null-waarde. Deze null-waarde geeft aan dat de afwezigheid van een metrische waarde en wijkt af van de waarde 0. Er is een set van deze metrische gegevens per domein geconfigureerd op het eindpunt.
 
 Van de Voorbeeldeigenschappen:
 
@@ -436,10 +433,10 @@ Van de Voorbeeldeigenschappen:
 
 ## <a name="additional-resources"></a>Aanvullende resources
 
-* [Azure diagnostische logboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
-* [Basisanalyse via de aanvullende portal Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
+* [Diagnostische logboeken in Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)
+* [Core analytics via de aanvullende portal van Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-analyze-usage-patterns)
 * [Azure Log Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview)
-* [Azure-logboekanalyse REST-API](https://docs.microsoft.com/rest/api/loganalytics)
+* [Azure Log Analytics REST-API](https://docs.microsoft.com/rest/api/loganalytics)
 
 
 

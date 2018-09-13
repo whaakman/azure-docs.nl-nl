@@ -1,5 +1,5 @@
 ---
-title: Azure Application Insights telemetrie gegevensmodel - Afhankelijkheidstelemetrie | Microsoft Docs
+title: Azure Application Insights Telemetry Data Model - Afhankelijkheidstelemetrie | Microsoft Docs
 description: Application Insights-gegevensmodel voor afhankelijkheidstelemetrie
 services: application-insights
 documentationcenter: .net
@@ -9,50 +9,52 @@ ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/17/2017
-ms.author: mbullwin; sergkanz
-ms.openlocfilehash: 019b24839c20e7f8f46eeccf4a7b9622d18b0ad6
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: sergkanz
+ms.author: mbullwin
+ms.openlocfilehash: 71634b8f321cb898fb648f94953b2880d8d6b597
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643644"
 ---
 # <a name="dependency-telemetry-application-insights-data-model"></a>Afhankelijkheidstelemetrie: Application Insights-gegevensmodel
 
-Afhankelijkheidstelemetrie (in [Application Insights](app-insights-overview.md)) vertegenwoordigt een interactie van het bewaakte onderdeel met een externe component zoals SQL of een HTTP-eindpunt.
+Afhankelijkheidstelemetrie (in [Application Insights](app-insights-overview.md)) vertegenwoordigt een interactie van het bewaakte onderdeel met een externe onderdeel, zoals SQL of een HTTP-eindpunt.
 
 ## <a name="name"></a>Naam
 
-De naam van de opdracht die is gestart met deze afhankelijkheidsaanroep. De kardinaliteit van de lage waarde. Voorbeelden zijn opgeslagen procedurenaam en sjabloon voor URL-pad.
+Naam van de opdracht die is gestart met deze afhankelijkheidsaanroep. De kardinaliteit van de lage waarde. Voorbeelden zijn opgeslagen procedurenaam worden opgegeven en pad van URL van de sjabloon.
 
 ## <a name="id"></a>Id
 
-Id van een exemplaar van de aanroep van afhankelijkheid. Gebruikt voor correlatie met de aanvraag telemetrie-item dat overeenkomt met deze afhankelijkheidsaanroep. Zie voor meer informatie [correlatie](application-insights-correlation.md) pagina.
+Id van een exemplaar van de aanroep van afhankelijkheid. Gebruikt voor correlatie met het verzoek telemetrie-item overeenkomt met deze afhankelijkheidsaanroep. Zie voor meer informatie, [correlatie](application-insights-correlation.md) pagina.
 
 ## <a name="data"></a>Gegevens
 
-Opdracht die door deze afhankelijkheidsaanroep gestart. Voorbeelden zijn SQL-instructie en HTTP-URL met alle queryparameters.
+De opdracht is gestart door deze afhankelijkheidsaanroep. Voorbeelden zijn SQL-instructie en HTTP-URL met alle queryparameters.
 
 ## <a name="type"></a>Type
 
-Afhankelijkheid typenaam. De waarde van de lage kardinaliteit voor logische groepering van afhankelijkheden en de interpretatie van andere velden zoals commandName en resultCode. Voorbeelden zijn SQL Azure-tabel en HTTP.
+Naam van afhankelijkheid. De kardinaliteit van de lage waarde voor de logische groepering van de afhankelijkheden en de interpretatie van andere velden, zoals commandName en resultCode. Voorbeelden zijn SQL-, Azure table- en HTTP.
 
 ## <a name="target"></a>Doel
 
-Site van het doel van een afhankelijkheidsaanroep van. Voorbeelden zijn servernaam, hostadres. Zie voor meer informatie [correlatie](application-insights-correlation.md) pagina.
+Doelsite van de afhankelijkheidsaanroep van een. Voorbeelden zijn de naam van de server, host-adres. Zie voor meer informatie, [correlatie](application-insights-correlation.md) pagina.
 
 ## <a name="duration"></a>Duur
 
-Duur in de indeling van aanvraag: `DD.HH:MM:SS.MMMMMM`. Moet kleiner zijn dan `1000` dagen.
+Duur in de indeling van aanvraag: `DD.HH:MM:SS.MMMMMM`. Moet minder dan `1000` dagen.
 
 ## <a name="result-code"></a>Resultaatcode
 
-De resultaatcode van een afhankelijkheidsaanroep van. Voorbeelden zijn SQL-foutcode en HTTP-statuscode.
+De resultaatcode van de afhankelijkheidsaanroep van een. Voorbeelden zijn SQL-foutcode en HTTP-statuscode.
 
 ## <a name="success"></a>Geslaagd
 
-De vermelding van geslaagde of mislukte aanroep.
+Vermelding van geslaagde of mislukte aanroep.
 
 ## <a name="custom-properties"></a>Aangepaste eigenschappen
 
@@ -67,6 +69,6 @@ De vermelding van geslaagde of mislukte aanroep.
 
 - Instellen voor bijhouden van afhankelijkheid [.NET](app-insights-asp-net-dependencies.md).
 - Instellen voor bijhouden van afhankelijkheid [Java](app-insights-java-agent.md).
-- [Aangepaste afhankelijkheidstelemetrie schrijven](app-insights-api-custom-events-metrics.md#trackdependency)
-- Zie [gegevensmodel](application-insights-data-model.md) voor Application Insights-typen en data model.
-- Bekijk [platforms](app-insights-platforms.md) ondersteund door de Application Insights.
+- [Schrijven van aangepaste afhankelijkheidstelemetrie](app-insights-api-custom-events-metrics.md#trackdependency)
+- Zie [gegevensmodel](application-insights-data-model.md) voor Application Insights-typen en -gegevensmodel.
+- Bekijk [platforms](app-insights-platforms.md) ondersteund door Application Insights.

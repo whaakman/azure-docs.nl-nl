@@ -1,11 +1,9 @@
 ---
-title: Gevoel cognitieve zoeken kwalificatie (Azure Search) | Microsoft Docs
-description: Gevoel extraheren uit tekst in een Azure Search verrijking-pijplijn.
+title: Sentiment cognitief zoeken vaardigheid (Azure Search) | Microsoft Docs
+description: Sentiment extraheren uit tekst in een Azure Search verrijking-pijplijn.
 services: search
 manager: pablocas
 author: luiscabrer
-documentationcenter: ''
-ms.assetid: ''
 ms.service: search
 ms.devlang: NA
 ms.workload: search
@@ -13,22 +11,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 1ddbba5b881cd05a997cd24a9396d5b722376e6f
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: f6a0214ce9bc1cdf6aefbd9cde86e72b7cf7b0f2
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790998"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35907193"
 ---
-#   <a name="sentiment-cognitive-skill"></a>Gevoel cognitieve kwalificatie
+#   <a name="sentiment-cognitive-skill"></a>Sentiment cognitieve vaardigheden
 
-De **gevoel** kwalificatie evalueert ongestructureerde tekst langs een positieve-negatief geheel worden beschouwd en voor elke record, een numerieke score tussen 0 en 1 geretourneerd. Scores dicht bij 1 geven een positieve stemming aan en scores dicht bij 0 geven een negatieve stemming aan.
+De **Sentiment** vaardigheid ongestructureerde tekst langs een positieve negatieve zorgcontinuüm, en voor elke record evalueert, retourneert een numerieke score tussen 0 en 1. Scores dicht bij 1 geven een positieve stemming aan en scores dicht bij 0 geven een negatieve stemming aan.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.SentimentSkill
 
-## <a name="data-limits"></a>Gegevenslimieten
-De maximale grootte van een record moet 5000 tekens gemeten door `String.Length`. Als u opsplitsen van uw gegevens wilt voordat deze wordt verzonden naar de gevoel analyzer, gebruik de [tekst Split-kwalificatie](cognitive-search-skill-textsplit.md).
+## <a name="data-limits"></a>Limieten voor gegevens
+De maximale grootte van een record moet 5000 tekens wordt gemeten door `String.Length`. Als u splitst u uw gegevens wilt voordat deze worden verzonden naar de analyzer sentiment, gebruik de [tekst splitsen vaardigheid](cognitive-search-skill-textsplit.md).
 
 
 ## <a name="skill-parameters"></a>Kwalificatie parameters
@@ -37,23 +35,23 @@ Parameters zijn hoofdlettergevoelig.
 
 | Parameternaam |                      |
 |----------------|----------------------|
-| defaultLanguageCode | (optioneel) De taalcode toegepast op documenten die taal niet expliciet opgeven. <br/> Zie [volledige lijst met ondersteunde talen](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
+| defaultLanguageCode | (optioneel) De taalcode om toe te passen op documenten die taal niet expliciet opgeven. <br/> Zie [volledige lijst met ondersteunde talen](../cognitive-services/text-analytics/text-analytics-supported-languages.md) |
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer 
 
-| Voer een naam | Beschrijving |
+| Voer een naam in | Beschrijving |
 |--------------------|-------------|
-| Tekst | De tekst die moet worden geanalyseerd.|
-| languageCode  |  (Optioneel) Een tekenreeks die de taal van de records aangeeft. Als deze parameter niet is opgegeven, is de standaardwaarde 'en'. <br/>Zie [volledige lijst met ondersteunde talen](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
+| tekst | De tekst die moet worden geanalyseerd.|
+| languageCode  |  (Optioneel) Een tekenreeks die aangeeft van de taal van de records. Als deze parameter niet is opgegeven, is de standaardwaarde 'en'. <br/>Zie [volledige lijst met ondersteunde talen](../cognitive-services/text-analytics/text-analytics-supported-languages.md).|
 
 ## <a name="skill-outputs"></a>Kwalificatie uitvoer
 
-| Naam voor uitvoer | Beschrijving |
+| Naam van de uitvoer | Beschrijving |
 |--------------------|-------------|
-| Score | Een waarde tussen 0 en 1 dat het gevoel over van de geanalyseerde tekst vertegenwoordigt. Waarden dicht bij 0 negatieve gevoel hebben, hebben bijna 0,5 neutrale gevoel en waarden bijna 1 positief gevoel hebben.|
+| score | Een waarde tussen 0 en 1 waarmee het gevoel van de geanalyseerde tekst. Waarden dicht bij 0 negatief gevoel hebben, hebben dicht bij 0,5 neutrale sentiment en -waarden dicht bij 1 positief gevoel hebben.|
 
 
-##  <a name="sample-definition"></a>Voorbeeld-definitie
+##  <a name="sample-definition"></a>Van voorbeelddefinitie
 
 ```json
 {
@@ -77,7 +75,7 @@ Parameters zijn hoofdlettergevoelig.
 }
 ```
 
-##  <a name="sample-input"></a>Voorbeeldinvoer
+##  <a name="sample-input"></a>Van Voorbeeldinvoer
 
 ```json
 {
@@ -110,12 +108,12 @@ Parameters zijn hoofdlettergevoelig.
 ```
 
 ## <a name="notes"></a>Opmerkingen
-Als u niets opgeeft, wordt een score gevoel niet voor deze records geretourneerd.
+Als dit leeg is, wordt een gevoelsscore wordt niet geretourneerd voor de records.
 
 ## <a name="error-cases"></a>Foutgevallen
-Als een andere taal wordt niet ondersteund, wordt een fout gegenereerd en geen score gevoel wordt geretourneerd.
+Als een taal wordt niet ondersteund, wordt een fout gegenereerd en er is geen gevoelsscore wordt geretourneerd.
 
 ## <a name="see-also"></a>Zie ook
 
 + [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md)
-+ [Het definiëren van een vaardigheden](cognitive-search-defining-skillset.md)
++ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)

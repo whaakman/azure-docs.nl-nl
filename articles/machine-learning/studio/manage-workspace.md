@@ -1,5 +1,5 @@
 ---
-title: Beheren van een Machine Learning-werkruimte | Microsoft Docs
+title: Een Machine Learning-werkruimte beheren | Microsoft Docs
 description: Toegang tot Azure Machine Learning-werkruimten, beheren en implementeren en beheren van ML API-webservices
 services: machine-learning
 documentationcenter: ''
@@ -15,21 +15,21 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 02/27/2017
-ms.openlocfilehash: 8c8e65d5fd7efd1f9212b76e1a72b91a0ea07272
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 6e1febfff211dd92f8990d1880562e64382de5f0
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34835063"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35644390"
 ---
 # <a name="manage-an-azure-machine-learning-workspace"></a>Een Azure Machine Learning-werkruimte beheren
 
 > [!NOTE]
-> Zie voor meer informatie over het beheren van Web-services in de portal voor Machine Learning-webservices [beheren van een webservice via de portal voor Azure Machine Learning-webservices](manage-new-webservice.md).
+> Zie voor meer informatie over het beheren van webservices in Machine Learning-webservicesportal [beheren van een webservice met behulp van de Azure Machine Learning-webserviceportal](manage-new-webservice.md).
 > 
 > 
 
-U kunt de werkruimten Machine Learning in Azure portal beheren.
+U kunt Machine Learning-werkruimten in Azure portal beheren.
 
 [!INCLUDE [machine-learning-free-trial](../../../includes/machine-learning-free-trial.md)]
 
@@ -37,21 +37,21 @@ U kunt de werkruimten Machine Learning in Azure portal beheren.
 
 Voor het beheren van een werkruimte in de Azure-portal:
 
-1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met een administrator-account Azure-abonnement.
-2. Voer in het zoekvak boven aan de pagina 'machine learning werkruimten' en selecteer vervolgens **Machine Learning-werkruimten**.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met een administrator-account van Azure-abonnement.
+2. Voer in het zoekvak boven aan de pagina 'werkruimten voor machine learning' en selecteer vervolgens **Machine Learning-werkruimten**.
 3. Klik op de werkruimte die u wilt beheren.
 
-Naast de standaard resourcegegevens voor beheer en de opties die beschikbaar zijn, kunt u het volgende doen:
+Naast de standaard resource management informatie en de opties die beschikbaar zijn, kunt u het volgende doen:
 
-- Weergave **eigenschappen** : deze pagina bevat de informatie van de werkruimte en resource en kunt u het abonnement en de resource-groep die deze werkruimte is verbonden met wijzigen.
-- **Opslagsleutels Resync** -de werkruimte onderhoudt sleutels naar het opslagaccount. Als het opslagaccount sleutels wijzigt vervolgens kunt u op **sleutels synchroniseren** de sleutels synchroniseren met de werkruimte.
+- Weergave **eigenschappen** : deze pagina wordt de werkruimte en resource-informatie weergegeven en kunt u de groep en de resourcegroep die deze werkruimte is gekoppeld aan.
+- **Opslagsleutels** -onderhoudt sleutels met de storage-account van de werkruimte. Als het opslagaccount sleutels wijzigt, en vervolgens klikt u op **sleutels opnieuw synchroniseren** om te synchroniseren van de sleutels met de werkruimte.
 
-Voor het beheren van de webservices die zijn gekoppeld aan deze werkruimte kunt u de Machine Learning-webservices-portal gebruiken. Zie [beheren van een webservice via de portal voor Azure Machine Learning-webservices](manage-new-webservice.md) voor volledige informatie.
+Voor het beheren van de webservices die zijn gekoppeld aan deze werkruimte gebruik van Machine Learning-webserviceportal. Zie [beheren van een webservice met behulp van de Azure Machine Learning-webserviceportal](manage-new-webservice.md) voor volledige informatie.
 
 > [!NOTE]
-> Als u wilt implementeren of beheren van nieuwe webservices als u een rol Inzender of -beheerder voor het abonnement waarop de webservice is geïmplementeerd zijn toegewezen. Als u een andere gebruiker voor een machine learning-werkruimte uitnodigen, moet u ze toewijzen aan een rol Inzender of -beheerder voor het abonnement voordat ze kunnen implementeren of beheren van webservices. 
+> Als u wilt implementeren of beheren van nieuwe webservices als u een rol Bijdrager of beheerder zijn op het abonnement waaraan de web-service is geïmplementeerd zijn toegewezen. Als u een andere gebruiker voor een machine learning-werkruimte kunt uitnodigen, moet u deze toewijzen aan een rol Bijdrager of beheerder zijn op het abonnement voordat u ze kunnen implementeren of beheren van webservices. 
 > 
->Zie voor meer informatie over toegangsmachtigingen instellen [toegangstoewijzingen weergeven voor gebruikers en groepen in de Azure portal](../../role-based-access-control/role-assignments-users.md).
+>Zie voor meer informatie over toegangsmachtigingen instellen [toegang met RBAC en de Azure-portal beheren](../../role-based-access-control/role-assignments-portal.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over [implementeren Machine Learning met Azure Resource Manager-sjablonen](deploy-with-resource-manager-template.md). 
+* Meer informatie over [Machine Learning met Azure Resource Manager-sjablonen implementeren](deploy-with-resource-manager-template.md). 

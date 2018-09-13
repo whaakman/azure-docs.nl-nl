@@ -1,6 +1,6 @@
 ---
-title: Prestatiebewaking voor Java-web-apps in Azure Application Insights | Microsoft Docs
-description: Uitgebreide bewaking van prestaties en gebruik van uw Java-website met Application Insights.
+title: Bewaking van toepassingsprestaties voor Java-web-apps in Azure Application Insights | Microsoft Docs
+description: Uitgebreide gebruiksbewaking van prestaties en van Java-website met Application Insights.
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -10,36 +10,37 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 3a771da2a1ef0333d49e1d83530b3d3032a550d2
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 366e79e7a58f45f5a5eeb318d3dd08427fbec0b0
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643775"
 ---
-# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Afhankelijkheden, bijgewerkt uitzonderingen en uitvoeringstijden methode in Java-web-apps bewaken
+# <a name="monitor-dependencies-caught-exceptions-and-method-execution-times-in-java-web-apps"></a>Afhankelijkheden, uitzonderingen onderschept en methode uitvoertijd in Java-web-apps bewaken
 
 
-Als u hebt [uw Java-web-app met Application Insights geïnstrumenteerd][java], kunt u de Java-Agent voor dieper inzicht, zonder codewijzigingen:
+Als u hebt [uw Java-web-app met Application Insights geïnstrumenteerd][java], kunt u de Java-Agent om meer inzicht te krijgen, zonder codewijzigingen:
 
-* **Afhankelijkheden:** gegevens over aanroepen waarmee uw toepassing op andere onderdelen, met inbegrip van:
-  * **REST-aanroepen** gedaan via HttpClient, OkHttp en RestTemplate (Spring) worden vastgelegd.
-  * **Redis** aanroepen via de client-Jedis worden vastgelegd.
-  * **[JDBC aanroepen](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server en Oracle DB opdrachten die automatisch worden geregistreerd. Als de oproep langer dan per 10 duurt, rapporteert de agent voor MySQL, het queryplan.
-* **Uitzonderingen wordt onderschept:** informatie over uitzonderingen die worden verwerkt door uw code.
-* **Uitvoeringstijd voor methode:** informatie over de tijd die nodig is voor specifieke methoden uitvoeren.
+* **Afhankelijkheden:** gegevens over gesprekken die uw toepassing voor andere onderdelen maakt, met inbegrip van:
+  * **REST-aanroepen** aangebracht via HttpClient, OkHttp en RestTemplate (Spring) worden vastgelegd.
+  * **Redis** aanroepen via de client Jedis worden vastgelegd.
+  * **[JDBC aanroepen](http://docs.oracle.com/javase/7/docs/technotes/guides/jdbc/)**  -MySQL, SQL Server en Oracle DB-opdrachten automatisch worden vastgelegd. Als de aanroep langer dan 10s duurt, rapporteert de agent voor MySQL, het queryplan.
+* **Uitzonderingen gevangen:** informatie over uitzonderingen die door uw code worden uitgevoerd.
+* **Methode uitvoeringstijd:** informatie over de tijd die nodig is voor het uitvoeren van specifieke methoden.
 
-Voor het gebruik van de Java-agent moet installeren u deze op uw server. Uw web-apps moeten zijn uitgerust met de [Application Insights-SDK voor Java][java]. 
+Voor het gebruik van de Java-agent, installeren u deze op uw server. Uw web-apps moeten zijn uitgerust met de [Application Insights Java SDK][java]. 
 
-## <a name="install-the-application-insights-agent-for-java"></a>Installeer de Application Insights-agent voor Java
-1. Op de computer waarop u uw server Java [de agent downloaden](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Zorg ervoor dat voor het downloaden van de dezelfde verson van Java-Agent als de pakketten core en web Application Insights-SDK voor Java.
-2. Het opstartscript van application server bewerken en de volgende JVM toevoegen:
+## <a name="install-the-application-insights-agent-for-java"></a>De Application Insights-agent voor Java installeren
+1. Op de computer waarop u uw Java-server wordt uitgevoerd [downloaden van de agent](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest). Zorg ervoor dat u het downloaden van de dezelfde verson van Java-Agent als de pakketten core- en web Application Insights Java SDK.
+2. Bewerk het opstartscript van de toepassing-server en toevoegen van de volgende JVM:
    
-    `javaagent:`*volledig pad naar het JAR-bestand van agent*
+    `javaagent:`*volledige pad naar het JAR-bestand van agent*
    
-    Bijvoorbeeld in Tomcat op een Linux-machine:
+    Bijvoorbeeld, in Tomcat op een Linux-machine:
    
     `export JAVA_OPTS="$JAVA_OPTS -javaagent:<full path to agent JAR file>"`
 3. Start de toepassingsserver van uw opnieuw.
@@ -47,7 +48,7 @@ Voor het gebruik van de Java-agent moet installeren u deze op uw server. Uw web-
 ## <a name="configure-the-agent"></a>De agent configureren
 Maak een bestand met de naam `AI-Agent.xml` en plaats deze in dezelfde map als de agent JAR-bestand.
 
-Stel de inhoud van het xml-bestand. Het volgende voorbeeld als u wilt opnemen in of uitsluiten van de functies die u wilt bewerken.
+Hiermee stelt u de inhoud van het xml-bestand. Het volgende voorbeeld als u wilt opnemen in of uitsluiten van de functies die u wilt bewerken.
 
 ```XML
 
@@ -86,16 +87,16 @@ Stel de inhoud van het xml-bestand. Het volgende voorbeeld als u wilt opnemen in
 
 ```
 
-U moet rapporten uitzondering en timing van de methode voor afzonderlijke methoden inschakelen.
+U moet inschakelen rapporten uitzondering en de timing van de methode voor de afzonderlijke methoden.
 
 Standaard `reportExecutionTime` is ingesteld op true en `reportCaughtExceptions` is ingesteld op false.
 
-## <a name="view-the-data"></a>De gegevens weergeven
-In de Application Insights-resource geaggregeerde externe afhankelijkheid en methode uitvoeringstijden weergegeven [onder de tegel prestaties][metrics].
+## <a name="view-the-data"></a>De gegevens bekijken
+In de Application Insights-resource, samengevoegde externe afhankelijkheden en de methode uitvoertijd weergegeven [onder de tegel prestaties][metrics].
 
-Als u wilt zoeken naar afzonderlijke exemplaren van afhankelijkheid en uitzondering methode rapporten, open [Search][diagnostic].
+Als u wilt zoeken naar afzonderlijke exemplaren van afhankelijkheden, uitzonderingen en methode rapporten, open [zoeken][diagnostic].
 
-[Diagnose afhankelijkheidsproblemen - meer](app-insights-asp-net-dependencies.md#diagnosis).
+[Vaststellen van afhankelijkheidsproblemen met - meer](app-insights-asp-net-dependencies.md#diagnosis).
 
 ## <a name="questions-problems"></a>Vragen? Problemen?
 * Zijn er geen gegevens? [Set firewall-uitzonderingen](app-insights-ip-addresses.md)

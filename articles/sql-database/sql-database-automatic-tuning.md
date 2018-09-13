@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 38b59c28096b23a22b216158d9e945a2881a4f41
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 999ac78427ae1202db584efeb7de538bcc1248c7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189255"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714799"
 ---
 # <a name="automatic-tuning-in-azure-sql-database"></a>Automatisch afstemmen in Azure SQL Database
 
@@ -27,7 +27,7 @@ Azure SQL Database automatisch afstemmen is mogelijk een van de belangrijkste fu
 
 ## <a name="what-can-automatic-tuning-do-for-you"></a>Wat kunt u automatisch afstemmen doen?
 
-- Prestaties automatisch afstemmen van Azure SQL-Databases
+- Prestaties automatisch afstemmen van Azure SQL-databases
 - Automatische verificatie van de prestaties verbeteren
 - Deze worden teruggedraaid omdat en zelf correctie
 - Afstemmingsgeschiedenis
@@ -38,7 +38,7 @@ Azure SQL Database automatisch afstemmen is mogelijk een van de belangrijkste fu
 
 ## <a name="safe-reliable-and-proven"></a>Veilige, betrouwbare en bewezen
 
-Afstemmen bewerkingen die worden toegepast op Azure SQL-Databases zijn volledig veilig is voor de prestaties van uw meest veeleisende workloads. Het systeem is ontworpen met zorg niet te leiden tot problemen met de werkbelasting van de gebruiker. Aanbevelingen voor automatische afstemming worden alleen op de tijden van een laag gebruik toegepast. Automatisch afstemmen bewerkingen voor het beveiligen van de prestaties van de werkbelastingen kunt ook tijdelijk uitschakelen door het systeem. In dit geval wordt "Uitgeschakeld door het systeem" bericht weergegeven in Azure portal. Automatisch afstemmen beschouwt workloads met de hoogste prioriteit voor de resource.
+Afstemmen van bewerkingen die worden toegepast op Azure SQL-databases zijn volledig veilig is voor de prestaties van uw meest veeleisende workloads. Het systeem is ontworpen met zorg niet te leiden tot problemen met de werkbelasting van de gebruiker. Aanbevelingen voor automatische afstemming worden alleen op de tijden van een laag gebruik toegepast. Automatisch afstemmen bewerkingen voor het beveiligen van de prestaties van de werkbelastingen kunt ook tijdelijk uitschakelen door het systeem. In dit geval wordt "Uitgeschakeld door het systeem" bericht weergegeven in Azure portal. Automatisch afstemmen beschouwt workloads met de hoogste prioriteit voor de resource.
 
 Mechanismen voor automatisch afstemmen zijn volwassen en zijn is perfect voor verschillende miljoen databases die worden uitgevoerd op Azure. Automatische afstemming bewerkingen toegepast worden automatisch gecontroleerd om ervoor te zorgen dat er een positieve verbetering in de prestaties van de werkbelastingen. Aanbevelingen voor verminderde prestaties zijn dynamisch gedetecteerd en onmiddellijk teruggedraaid. Via de afstemmen geschiedenis vastgelegd, bestaat er een duidelijke trace van verbeteringen aangebracht aan elke Azure SQL-Database afstemmen. 
 
@@ -81,5 +81,5 @@ Configureren van automatische afstemming van de opties op een server en -instell
 - Zie voor het handmatig controleren en automatisch aanbevelingen voor het afstemmen van toepassing, [zoeken en toepassen van aanbevelingen voor prestaties](sql-database-advisor-portal.md).
 - Zie voor meer informatie over het gebruik van T-SQL om te passen en automatisch afstemmen aanbevelingen weergeven, [beheren automatisch afstemmen via T-SQL](https://azure.microsoft.com/blog/automatic-tuning-introduces-automatic-plan-correction-and-t-sql-management/).
 - Zie voor meer informatie over het bouwen van e-mailmeldingen voor aanbevelingen voor automatische afstemming, [e-mailmeldingen voor automatisch afstemmen](sql-database-automatic-tuning-email-notifications.md).
-- Zie voor meer informatie over ingebouwde intelligentie die wordt gebruikt in het automatisch afstemmen, [kunstmatige intelligentie afgestemd Azure SQL-Databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
+- Zie voor meer informatie over ingebouwde intelligentie die wordt gebruikt in het automatisch afstemmen, [kunstmatige intelligentie afgestemd Azure SQL-databases](https://azure.microsoft.com/blog/artificial-intelligence-tunes-azure-sql-databases/).
 - Zie voor meer informatie over de werking van automatische afstemming werkt in Azure SQL Database en SQL server 2017, [automatisch afstemmen van SQL Server](https://docs.microsoft.com/sql/relational-databases/automatic-tuning/automatic-tuning).

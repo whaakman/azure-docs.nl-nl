@@ -1,58 +1,60 @@
 ---
-title: Azure Application Insights telemetrie-gegevensmodel | Microsoft Docs
-description: Overzicht beveiligingsmodel Application Insights-gegevens
+title: Gegevensmodel voor Azure Application Insights-telemetrie | Microsoft Docs
+description: Overzicht van Application Insights data model
 services: application-insights
 documentationcenter: .net
-author: SergeyKanzhelev
+author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: TBD
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/25/2017
+ms.reviewer: sergkanz
 ms.author: mbullwin
-ms.openlocfilehash: b14eea46e773a4b92ba20cd3121cd258f86307c9
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: aaff60e847e0e9908a4cd9c07cb6cd47630c5e3a
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643944"
 ---
-# <a name="application-insights-telemetry-data-model"></a>Application Insights telemetrie-gegevensmodel
+# <a name="application-insights-telemetry-data-model"></a>Gegevensmodel voor Application Insights-telemetrie
 
-[Azure Application Insights](app-insights-overview.md) verzendt telemetrie van uw webtoepassing bij de Azure portal, zodat u kunt de prestaties en het gebruik van uw toepassing analyseren. Het model telemetrie is gestandaardiseerd zodat het mogelijk te maken van platform en taalonafhankelijke bewaking. 
+[Azure Application Insights](app-insights-overview.md) verzendt telemetrie van uw webtoepassing met de Azure-portal, zodat u de prestaties en het gebruik van uw toepassing kunt analyseren. De telemetrie-model zijn gestandaardiseerd zodat het is mogelijk om platform en taal-onafhankelijke bewaking te maken. 
 
-Gegevens die worden verzameld door Application Insights modellen dit patroon van een typische toepassing kan worden uitgevoerd:
+Gegevens die zijn verzameld door Application Insights-modellen dit patroon van de uitvoering van typische toepassing:
 
 ![Application Insights-toepassingsmodel](./media/application-insights-data-model/application-insights-data-model.png)
 
-De volgende typen telemetrie worden gebruikt voor het bewaken van de uitvoering van uw app. De volgende drie typen worden doorgaans automatisch verzameld door de Application Insights-SDK van web application framework:
+De volgende typen telemetrie worden gebruikt voor het bewaken van de uitvoering van uw app. De volgende drie typen worden doorgaans automatisch verzameld door de Application Insights-SDK van het framework voor webtoepassingen:
 
-* [**Aanvraag** ](application-insights-data-model-request-telemetry.md) - gegenereerde aan te melden van een aanvraag ontvangen door uw app. Bijvoorbeeld, het Application Insights web SDK genereert automatisch een aanvraag telemetrie-item voor elke HTTP-aanvraag die uw web-app ontvangt. 
+* [**Aanvraag** ](application-insights-data-model-request-telemetry.md) - gegenereerde om aan te melden van een aanvraag die door uw app ontvangen. Bijvoorbeeld, het Application Insights web SDK genereert automatisch een telemetrie-item van de aanvraag voor elke HTTP-aanvraag die uw web-app ontvangt. 
 
-    Een **bewerking** is de threads van uitvoering die een aanvraag wordt verwerkt. U kunt ook [code schrijven](app-insights-api-custom-events-metrics.md#trackrequest) voor het bewaken van andere typen bewerking, zoals een 'ontwaken' in een web-taak of de functie die regelmatig gegevens verwerkt.  Een id heeft. elke bewerking Deze ID die kan worden gebruikt voor [groep](application-insights-correlation.md) alle telemetrie gegenereerd tijdens de aanvraag wordt verwerkt door uw app. Elke bewerking ofwel slaagt of mislukt en heeft een tijdsduur.
-* [**Uitzondering** ](application-insights-data-model-exception-telemetry.md) -vertegenwoordigt doorgaans een uitzondering dat ervoor zorgt dat een bewerking mislukt.
-* [**Afhankelijkheid** ](application-insights-data-model-dependency-telemetry.md) -vertegenwoordigt een aanroep van uw app met een externe service of de opslag, zoals een REST-API of de SQL. In ASP.NET, afhankelijkheidsaanroepen naar SQL worden gedefinieerd door `System.Data`. Aanroepen naar HTTP-eindpunten zijn gedefinieerd door `System.Net`. 
+    Een **bewerking** is het aantal threads van de uitvoering waarmee een aanvraag wordt verwerkt. U kunt ook [code schrijven](app-insights-api-custom-events-metrics.md#trackrequest) voor het bewaken van andere typen bewerking, zoals een 'ontwaken"in een web-taak of de functie die periodiek gegevens worden verwerkt.  Elke bewerking heeft een ID. Deze ID die kan worden gebruikt om [groep](application-insights-correlation.md) alle telemetrie die is gegenereerd tijdens uw app de aanvraag wordt verwerkt. Elke bewerking ofwel is geslaagd of mislukt en heeft een tijdsduur.
+* [**Uitzondering** ](application-insights-data-model-exception-telemetry.md) -vertegenwoordigt doorgaans een uitzondering die ervoor zorgt dat een bewerking is mislukt.
+* [**Afhankelijkheid** ](application-insights-data-model-dependency-telemetry.md) -Hiermee geeft u een aanroep vanuit uw app naar een externe service of de opslag, zoals een REST-API of SQL. In ASP.NET, afhankelijkheidsaanroepen naar SQL zijn gedefinieerd door `System.Data`. Aanroepen van HTTP-eindpunten zijn gedefinieerd door `System.Net`. 
 
 Application Insights biedt drie extra gegevenstypen voor aangepaste telemetrie:
 
-* [Tracering](application-insights-data-model-trace-telemetry.md) - gebruikt hetzij rechtstreeks of via een adapter voor het implementeren van logboekregistratie van diagnostische gegevens met behulp van een instrumentation framework dat u vertrouwd voorkomen, zoals is `Log4Net` of `System.Diagnostics`.
-* [Gebeurtenis](application-insights-data-model-event-telemetry.md) - worden meestal gebruikt voor het vastleggen van gebruikersinteractie met uw service, om gebruikspatronen te analyseren.
-* [Metriek](application-insights-data-model-metric-telemetry.md) : wordt gebruikt voor het rapport periodieke scalaire metingen.
+* [Tracering](application-insights-data-model-trace-telemetry.md) - gebruikt rechtstreeks of via een adapter voor het implementeren van logboekregistratie van diagnostische gegevens met behulp van een framework voor instrumentatie dat wordt vertrouwd mee bent, zoals `Log4Net` of `System.Diagnostics`.
+* [Gebeurtenis](application-insights-data-model-event-telemetry.md) : meestal wordt gebruikt om vast te leggen van gebruikersinteractie met de service, om gebruikspatronen te analyseren.
+* [Metrische gegevens](application-insights-data-model-metric-telemetry.md) : wordt gebruikt voor het rapport periodieke scalaire metingen.
 
-Elk telemetrie-item kunt definiëren de [contextgegevens](application-insights-data-model-context.md) toepassing versie of gebruiker sessie-id. Context is een reeks sterk getypeerde velden die blokkering bepaalde scenario's opgeheven. Wanneer de toepassingsversie correct is geïnitialiseerd, kan Application Insights nieuwe patronen in het gedrag van toepassingen opnieuw implementeren gaande gecorreleerd detecteren. Sessie-id kan worden gebruikt om de onderbreking of een probleem gevolgen voor gebruikers te berekenen. Afhankelijkheid unieke tellingen van sessie-id-waarden voor bepaalde berekenen mislukt, fouttracering of kritieke uitzondering biedt een goed inzicht botsingen.
+Elk telemetrie-item kunt definiëren de [contextinformatie](application-insights-data-model-context.md) , zoals van toepassing versie of een gebruiker sessie-id. Context is een set van sterk getypeerde velden die beter bepaalde scenario's zicht. Wanneer de toepassingsversie correct is geïnitialiseerd, kan Application Insights nieuwe patronen detecteren in werking van de toepassing verband houden met de opnieuw implementeren. Sessie-id kan worden gebruikt voor het berekenen van de storing of een probleem invloed op gebruikers. Afhankelijkheid tellingen van sessie-id-waarden voor bepaalde berekenen mislukt, fout trace- of kritieke uitzondering biedt een goed begrip van indruk.
 
-Application Insights telemetrie model definieert de manier waarop [correleren](application-insights-correlation.md) telemetrie voor de werking hiervan deel uitmaakt. Bijvoorbeeld, een aanvraag kunt u een SQL-Database-aanroepen en de geregistreerde diagnostische gegevens. U kunt de correlatie-context voor de telemetrie-items die deze aan de aanvraagtelemetrie opnieuw koppelen instellen.
+Application Insights-telemetrie model definieert de manier waarop [correleren](application-insights-correlation.md) telemetrie naar de bewerking die deel uitmaakt. Bijvoorbeeld een aanvraag voor een SQL-Database aanroepen en diagnostische gegevens vastgelegd. U kunt de correlatie-context voor de telemetrie-items die deze terug naar de aanvraagtelemetrie koppelen instellen.
 
 ## <a name="schema-improvements"></a>Schema-verbeteringen
 
-Application Insights-gegevensmodel is een eenvoudige en eenvoudige maar krachtige manier om te modelleren telemetrie van uw toepassing. Streven we ernaar te houden van het model, eenvoudig en dunne voor essentiële scenario's en toestaan dat het schema voor ervaren gebruikers uit te breiden.
+Gegevensmodel voor Application Insights is een eenvoudige en eenvoudige maar krachtige manier om telemetriegegevens van uw toepassing te modelleren. We streven ernaar te houden van het model, eenvoudige en slanke ter ondersteuning van essentiële scenario's en het uitbreiden van het schema voor ervaren gebruikers.
 
-Voor het rapporteren van problemen voor het model of het schema van gegevens en suggesties gebruiken GitHub [ApplicationInsights-startpagina](https://github.com/Microsoft/ApplicationInsights-Home/labels/schema) opslagplaats.
+Voor het rapporteren van problemen voor het model of het schema van gegevens en suggesties voor gebruik van GitHub [Application Insights-startpagina](https://github.com/Microsoft/ApplicationInsights-Home/labels/schema) opslagplaats.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Aangepaste telemetrie schrijven](app-insights-api-custom-events-metrics.md)
-- Meer informatie over hoe [uitbreiden en het filteren van telemetrie](app-insights-api-filtering-sampling.md).
+- [Schrijf aangepaste telemetrie](app-insights-api-custom-events-metrics.md)
+- Meer informatie over het [uitbreiden en telemetrie filteren](app-insights-api-filtering-sampling.md).
 - Gebruik [steekproeven](app-insights-sampling.md) om hoeveelheid telemetrie op basis van het gegevensmodel te minimaliseren.
-- Bekijk [platforms](app-insights-platforms.md) ondersteund door de Application Insights.
+- Bekijk [platforms](app-insights-platforms.md) ondersteund door Application Insights.

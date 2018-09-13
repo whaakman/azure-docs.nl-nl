@@ -1,6 +1,6 @@
 ---
-title: Detectie - fout-afwijkingen in Application Insights van smartcard | Microsoft Docs
-description: Hiermee wordt u gewezen op ongewone wijzigingen in de frequentie van mislukte aanvragen voor uw web-app en bevat diagnostische analyse. Is geen configuratie nodig.
+title: 'Slimme detectie: ongewone in Application Insights | Microsoft Docs'
+description: U gewaarschuwd voor ongebruikelijke wijzigingen in de frequentie van mislukte aanvragen naar uw web-app en diagnostische analyse biedt. Er is geen configuratie nodig.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -10,63 +10,65 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/09/2017
-ms.author: mbullwin; yossiy
-ms.openlocfilehash: 29ae81551d4bd4be4123c8e7780b8b5ecc259f09
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.reviewer: yossiy
+ms.author: mbullwin
+ms.openlocfilehash: 1987ebf76f06cb60e8ce1fb5c8215b6520d44d52
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35645722"
 ---
-# <a name="smart-detection---failure-anomalies"></a>Slimme detectie - fout afwijkingen
-[Application Insights](app-insights-overview.md) automatisch een melding in bijna realtime als uw web-app optreedt in een abnormale toename in de frequentie van mislukte aanvragen. Een ongewone stijging van de snelheid van HTTP-aanvragen of afhankelijkheidsaanroepen die worden gerapporteerd als mislukt wordt gedetecteerd. Voor aanvragen voor zijn mislukte aanvragen meestal die met reactiecodes van 400 of hoger. Om te sorteren en onderzoeken van het probleem, wordt een analyse van de kenmerken van de fouten en gerelateerde telemetrie beschikbaar in de melding. Er zijn ook koppelingen naar de Application Insights-portal voor verdere diagnose. Moet de functie geen installatie of de configuratie, zoals het machine learning-algoritmen gebruikt om te voorspellen van de normale Faalpercentage.
+# <a name="smart-detection---failure-anomalies"></a>Slimme detectie: afwijkende fouten
+[Application Insights](app-insights-overview.md) automatisch ontvangt u een melding in bijna realtime als er een abnormale toename van mislukte aanvragen optreedt in uw web-app. Een ongewone stijging van het aantal HTTP-aanvragen of afhankelijkheidsaanroepen die worden gerapporteerd als mislukt wordt gedetecteerd. Voor aanvragen zijn mislukte aanvragen meestal met responscodes van 400 of hoger. Als u wilt, kunt u sorteren en onderzoeken van het probleem een analyse van de kenmerken van de fouten en verwante telemetrie vindt u in de melding. Er zijn ook koppelingen naar de Application Insights-portal voor verdere diagnose. De functie moet geen installatie of configuratie, zoals het machine learning-algoritmen gebruikt om te voorspellen van de normaal foutpercentage.
 
-Deze functie werkt voor Java- en ASP.NET web-apps, die in de cloud of op uw eigen servers worden gehost. Werkt het ook voor elke app die aanvraag of een afhankelijkheid telemetrie - bijvoorbeeld genereert als u hebt een werkrol die aanroept [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) of [TrackDependency()](app-insights-api-custom-events-metrics.md#trackdependency).
+Deze functie werkt voor Java en ASP.NET-webtoepassingen, die worden gehost in de cloud of op uw eigen servers. Het werkt ook voor elke app die wordt bijvoorbeeld gegenereerd aanvraag of een afhankelijkheid telemetrie - hebt u een werkrol die worden aangeroepen [TrackRequest()](app-insights-api-custom-events-metrics.md#trackrequest) of [TrackDependency()](app-insights-api-custom-events-metrics.md#trackdependency).
 
-Na het instellen van [Application Insights voor uw project](app-insights-overview.md), en het opgegeven uw app in een bepaalde minimale hoeveelheid telemetrie genereert, Slimme detectie van de fout afwijkingen 24 uur voor meer informatie over de normale werking van uw app, voordat deze wordt duurt ingeschakeld en waarschuwingen kunt verzenden.
+Na het instellen van [Application Insights voor uw project](app-insights-overview.md), en mits uw app een bepaalde minimale hoeveelheid telemetrie genereert, Slimme detectie van afwijkende fouten 24 uur voor meer informatie over het normale gedrag van uw app, voordat dit duurt is ingeschakeld en meldingen kunt verzenden.
 
-Hier volgt een voorbeeld-waarschuwing.
+Hier volgt een waarschuwing voor een voorbeeld.
 
-![Voorbeeld Slimme detectie waarschuwing cluster analysis rond de fout wordt weergegeven](./media/app-insights-proactive-failure-diagnostics/013.png)
+![Voorbeeld van Slimme detectie waarschuwing cluster analyse om fouten heen weergeven](./media/app-insights-proactive-failure-diagnostics/013.png)
 
 > [!NOTE]
-> Standaard krijgt u een kortere indeling mail dan het volgende voorbeeld. Maar u kunt [overschakelen naar deze gedetailleerde indeling](#configure-alerts).
+> Standaard krijgt u een kortere indeling mail dan het volgende voorbeeld. Maar u kunt de [overschakelen naar deze gedetailleerde indeling](#configure-alerts).
 >
 >
 
-U ziet dat het vertelt u:
+U ziet dat u leest:
 
-* Het Faalpercentage vergeleken met een normale app-gedrag.
-* Hoeveel gebruikers zijn beïnvloed – zodat u hoeveel weet zorgen te maken.
-* Een kenmerkend patroon die zijn gekoppeld aan de fouten. In dit voorbeeld is een bepaalde responscode, de Aanvraagnaam (bewerking) en de app-versie worden gebruikt. Die vertelt onmiddellijk u waar u begint te zoeken in uw code. Andere mogelijkheden mogelijk een specifiek besturingssysteem browser of de client.
-* De uitzondering, logboektraceringen en afhankelijkheidsfout (databases of andere externe componenten) weergegeven die zijn gekoppeld aan de wordt gekenmerkt mislukt.
-* Koppelingen naar relevante zoekopdrachten voor de telemetrie in Application Insights.
+* Het aantal fouten in vergelijking met een normale app-gedrag.
+* Hoe veel gebruikers beïnvloedt –, zodat u hoeveel weet zorgen te maken.
+* Een kenmerkend patroon dat is gekoppeld aan de fouten. In dit voorbeeld wordt een bepaalde responscode, de naam (bewerking) en de app-versie. Die onmiddellijk informatie over waar u om te beginnen met zoeken in uw code. Andere mogelijkheden kunnen een specifiek besturingssysteem browser of de client zijn.
+* De uitzondering, logboektraceringen en afhankelijkheidsfout (databases of andere externe componenten) weergegeven die zijn gekoppeld aan de wordt gekenmerkt fouten.
+* Koppelingen naar relevante zoekopdrachten op de telemetrie in Application Insights.
 
 ## <a name="benefits-of-smart-detection"></a>Voordelen van Slimme detectie
-Gewone [metrische waarschuwingen](app-insights-alerts.md) zien er mogelijk een probleem. Maar Slimme detectie begint het diagnostische werk voor u het uitvoeren van veel van de analyse die u anders zelf zou moeten zelf. Krijgt u de resultaten netjes verpakt, zodat u snel aan de hoofdmap van het probleem.
+Gewone [metrische waarschuwingen](app-insights-alerts.md) zien er mogelijk een probleem. Maar Slimme detectie begint het diagnostische werk voor u veel van de analyse die u anders zelf zou moeten zelf doen uitvoeren. U krijgt de resultaten die netjes verpakt, zodat u snel aan de hoofdmap van het probleem.
 
 ## <a name="how-it-works"></a>Hoe werkt het?
-Slimme detectie bewaakt de telemetrie ontvangen van uw app en met name de tarieven is mislukt. Deze regel telt het aantal aanvragen waarvoor de `Successful request` eigenschap is ingesteld op false en het aantal afhankelijkheid aanroepen waarvoor de `Successful call` eigenschap is ingesteld op false. Voor aanvragen, standaard `Successful request == (resultCode < 400)` (tenzij u aangepaste code hebt geschreven [filter](app-insights-api-filtering-sampling.md#filtering) of genereren van uw eigen [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest) aanroepen). 
+Slimme detectie bewaakt de telemetrie ontvangen van uw app, en met name de foutpercentages. Deze regel telt het aantal aanvragen waarvoor de `Successful request` eigenschap is ingesteld op false, en het aantal afhankelijkheid aanroepen waarvoor de `Successful call` eigenschap is ingesteld op false. Voor aanvragen voor standaard `Successful request == (resultCode < 400)` (tenzij u aangepaste code hebt geschreven [filter](app-insights-api-filtering-sampling.md#filtering) of genereer uw eigen [TrackRequest](app-insights-api-custom-events-metrics.md#trackrequest) aanroepen). 
 
-Prestaties van uw app heeft een doorsnee patroon gedrag. Sommige aanvragen of afhankelijkheidsaanroepen worden meer gevoelig voor fouten dan andere; en de algehele Faalpercentage oplopen als de belasting toeneemt. Slimme detectie gebruikt machine learning deze afwijkingen vinden.
+Prestaties van uw app heeft een doorsnee patroon van gedrag. Sommige aanvragen of afhankelijkheidsaanroepen worden meer gevoelig voor fouten in dan andere; en het totale aantal fouten kan omhoog gaan wanneer de belasting toeneemt. Slimme detectie maakt gebruik van machine learning om deze afwijkingen vinden.
 
-Als telemetrie in Application Insights uit uw web-app afkomstig is, wordt het huidige gedrag in Slimme detectie vergeleken met de patronen gezien gedurende de afgelopen paar dagen. Als een abnormale toename in Faalpercentage wordt waargenomen ten opzichte van eerdere prestaties, wordt een analyse wordt geactiveerd.
+Als telemetrie in Application Insights uit uw web-app afkomstig is, wordt het huidige gedrag in Slimme detectie vergeleken met de patronen weergegeven gedurende de afgelopen paar dagen. Als er een afwijkende toename in aantal fouten is waargenomen ten opzichte van eerdere prestaties, wordt een analyse geactiveerd.
 
-Wanneer een analyse wordt geactiveerd, wordt in de service de analyse van een cluster uitvoert op de mislukte aanvragen, om te proberen een patroon van de waarden die kenmerkend zijn voor de fouten te identificeren. De analyse heeft gedetecteerd dat de meeste storingen over een specifieke resultaatcode, de Aanvraagnaam van de, Server-URL-host en rolinstantie zijn in het bovenstaande voorbeeld. De analyse is daarentegen is gedetecteerd dat de eigenschap van de client-besturingssysteem wordt gedistribueerd over meerdere waarden en zodat deze niet wordt weergegeven.
+Wanneer een analyse wordt geactiveerd, voert de service een analyse van het cluster op de mislukte aanvragen, om te proberen een patroon van waarden die kenmerkend zijn voor de fouten identificeren. De analyse heeft gedetecteerd dat de meeste fouten over een specifieke resultaatcode, de Aanvraagnaam van de, Server-URL-host en rolinstantie zijn in het bovenstaande voorbeeld. De analyse heeft daarentegen is gedetecteerd dat de eigenschap van de client-besturingssysteem wordt gedistribueerd over meerdere waarden en zodat deze niet wordt vermeld.
 
-Wanneer uw service is uitgerust met deze telemetrie-aanroepen, wordt de analyser gezocht naar een uitzondering en een afhankelijkheidsfout die zijn gekoppeld aan aanvragen in het cluster dat deze is geïdentificeerd, samen met een voorbeeld van alle traceringslogboeken zoeken die zijn gekoppeld aan deze aanvragen.
+Als uw service is uitgerust met deze telemetrie-aanroepen, wordt de analysator gezocht naar een uitzondering en een afhankelijkheidsfout die zijn gekoppeld aan aanvragen in het cluster dat het heeft geïdentificeerd, samen met een voorbeeld van alle logboeken met traceringen die zijn gekoppeld aan deze aanvragen.
 
 De resulterende analyse is naar u verzonden als waarschuwing, tenzij u deze niet op hebt geconfigureerd.
 
-Als de [waarschuwt u handmatig instellen](app-insights-alerts.md), u kunt de status van de waarschuwing te inspecteren en dit configureren op de blade waarschuwingen van uw Application Insights-resource. Maar in tegenstelling tot andere waarschuwingen, u hoeft niet te installeren of Slimme detectie configureren. Als u wilt, kunt u uitschakelen of wijzigen van de doel-e-mailadressen.
+Net als de [waarschuwingen die u handmatig ingesteld](app-insights-alerts.md), u kunt de status van de waarschuwing controleren en configureren op de blade waarschuwingen van de Application Insights-resource. Maar in tegenstelling tot andere waarschuwingen, u hoeft niet te installeren of configureren van Slimme detectie. Als u wilt, kunt u uitschakelen of wijzigen van de doel-e-mailadressen.
 
 ## <a name="configure-alerts"></a>Waarschuwingen configureren
 U kunt Slimme detectie uitschakelen, wijzigen van het e-mailontvangers, een webhook maken of meldt zich aan voor meer gedetailleerde waarschuwingsberichten.
 
-Open de pagina waarschuwingen. Fout afwijkingen is opgenomen samen met eventuele waarschuwingen die u handmatig hebt ingesteld en u kunt zien of deze zich momenteel in de status van de waarschuwing.
+Open de pagina met waarschuwingen. Afwijkende fouten is opgenomen, samen met eventuele waarschuwingen die u handmatig hebt ingesteld en u kunt zien of deze zich momenteel in de status van de waarschuwing.
 
-![Klik op de tegel waarschuwingen op de pagina overzicht. Of klik op de knop waarschuwingen op elke pagina metrische gegevens.](./media/app-insights-proactive-failure-diagnostics/021.png)
+![Op de pagina overzicht klikt u op de tegel waarschuwingen. Of klik op de knop meldingen op een willekeurige pagina metrische gegevens.](./media/app-insights-proactive-failure-diagnostics/021.png)
 
 Klik op de waarschuwing om deze te configureren.
 
@@ -75,79 +77,79 @@ Klik op de waarschuwing om deze te configureren.
 U ziet dat u Slimme detectie kunt uitschakelen, maar u kunt het niet verwijderen (of maak een nieuwe).
 
 #### <a name="detailed-alerts"></a>Gedetailleerde waarschuwingen
-Als u selecteert 'Meer gedetailleerde diagnostische gegevens ophalen' bevat het e-mailbericht meer diagnostische informatie. Soms zult u kunnen het probleem alleen van de gegevens in het e-mailadres op te sporen.
+Als u 'Meer gedetailleerde diagnostische gegevens ophalen' bevat het e-mailbericht meer diagnostische informatie. Soms zult u kunnen het probleem alleen van de gegevens in het e-mailadres op te sporen.
 
-Er is een lichte risico dat de meer gedetailleerde waarschuwing kan gevoelige gegevens bevatten, omdat deze uitzondering en tracering berichten bevat. Echter, dit gebeurt alleen als uw code gevoelige gegevens in deze berichten kunnen zou.
+Er is een lichte risico dat de meer gedetailleerde waarschuwing kan gevoelige gegevens bevatten, omdat deze uitzondering en tracering berichten bevat. Maar dit gebeurt alleen als uw code tot gevoelige informatie in deze berichten leiden kan.
 
-## <a name="triaging-and-diagnosing-an-alert"></a>Gesorteerd en het onderzoeken van een waarschuwing
-Een waarschuwing geeft aan dat een abnormale toename in het percentage mislukte aanvragen is gevonden. Is het waarschijnlijk dat er een probleem is met uw app of de omgeving.
+## <a name="triaging-and-diagnosing-an-alert"></a>Beoordelen en onderzoeken van een waarschuwing
+Een waarschuwing geeft aan dat een ongebruikelijke stijging in de Hoev. mislukte aanvragen is gedetecteerd. Het is zeer onwaarschijnlijk dat er een probleem met uw app of de omgeving.
 
-Van het percentage aanvragen en het aantal beïnvloede gebruikers, kunt u bepalen hoe urgente het probleem is. In het bovenstaande voorbeeld is het Faalpercentage van 22.5% worden vergeleken met een normale percentage van de % 1, geeft aan dat er een probleem op. Aan de andere kant zijn alleen 11 gebruikers beïnvloed. Als uw app, kunt u zou kunnen beoordelen hoe ernstig die is.
+Van het percentage van aanvragen en het aantal getroffen gebruikers, kunt u bepalen hoe dringend het probleem is. In het bovenstaande voorbeeld is het Faalpercentage van 22.5% vergeleken met een normale percentage van de % 1, geeft aan dat er een probleem op. Aan de andere kant zijn alleen 11 gebruikers beïnvloed. Als uw app, zou u mogelijk zijn om te evalueren hoe ernstig die is.
 
-In veel gevallen kunt u zich kunt het probleem snel uit Aanvraagnaam, uitzondering, afhankelijkheid fout- en traceringsbestanden gegevens op te sporen.
+In veel gevallen kunt u zich voor het vaststellen van het probleem snel van de naam, de uitzondering, de afhankelijkheid mislukt en gegevens traceren opgegeven.
 
-Er zijn een aantal andere aanwijzingen. Het Faalpercentage van afhankelijkheid in dit voorbeeld is hetzelfde als de uitzondering snelheid (89,3%). Dit kan erop wijzen dat de uitzondering zich rechtstreeks vanuit de afhankelijkheidsfout voordoet-zodat u een duidelijk beeld van waar u begint te zoeken in uw code.
+Er zijn enkele andere aanwijzingen. Het Faalpercentage van de afhankelijkheid in dit voorbeeld is bijvoorbeeld gelijk zijn aan het aantal uitzonderingen (89,3%). Dit kan erop wijzen dat de uitzondering zich rechtstreeks vanuit de afhankelijkheidsfout voordoet-zodat u een duidelijk inzicht in waar u wilt beginnen met zoeken in uw code.
 
-U kunt verder onderzoeken, de koppelingen in elke sectie gaat u rechtstreeks naar een [zoekpagina](app-insights-diagnostic-search.md) gefilterd op de relevante aanvragen, uitzonderingen, afhankelijkheid of traceringen. Of u kunt de [Azure-portal](https://portal.azure.com), navigeer naar de Application Insights-resource voor uw app en open de blade fouten.
+Nader onderzoeken, de koppelingen in elke sectie gaat u rechtstreeks naar een [zoekpagina](app-insights-diagnostic-search.md) gefilterd op de relevante aanvragen, uitzonderingen, afhankelijkheden of traceringen. Of u kunt de [Azure-portal](https://portal.azure.com), gaat u naar de Application Insights-resource voor uw app en opent u de blade fouten.
 
-In dit voorbeeld te klikken op de koppeling 'afhankelijkheid fouten details weergeven, opent u de Application Insights zoeken blade. De SQL-instructie een voorbeeld van de hoofdoorzaak bevat te zien: null-waarden zijn opgegeven op verplichte velden en kan niet worden gevalideerd tijdens het opslaan bewerking.
+In dit voorbeeld opent u de blade van Application Insights zoeken door op de koppeling 'View details van afhankelijkheid fouten' te klikken. Hier ziet u de SQL-instructie een voorbeeld van de hoofdoorzaak bevat: null-waarden zijn opgegeven op verplichte velden en kan niet worden gevalideerd tijdens de opslagbewerking bewerking.
 
 ![Diagnostische gegevens doorzoeken](./media/app-insights-proactive-failure-diagnostics/051.png)
 
 ## <a name="review-recent-alerts"></a>Recente waarschuwingen weergeven
 
-Klik op **Slimme detectie** naar de meest recente waarschuwing:
+Klik op **Slimme detectie** om te gaan naar de meest recente waarschuwing:
 
 ![Samenvatting van waarschuwingen](./media/app-insights-proactive-failure-diagnostics/070.png)
 
 
 ## <a name="whats-the-difference-"></a>Wat is het verschil...
-Slimme detectie van afwijkingen fout vormt een aanvulling op andere vergelijkbare maar verschillende functies van Application Insights.
+Slimme detectie van foutafwijkingen is een aanvulling op andere vergelijkbare maar verschillende functies van Application Insights.
 
-* [Metrische waarschuwingen](app-insights-alerts.md) worden ingesteld door u en een breed scala aan metrische gegevens zoals CPU-bezetting, aanvraag tarieven, laadtijden voor pagina's en enzovoort kunt bewaken. U kunt deze gebruiken om u te waarschuwen, bijvoorbeeld, als u wilt meer resources toevoegen. Daarentegen Slimme detectie van afwijkingen van de fout bevat informatie over een klein aantal belangrijke metrische gegevens (momenteel alleen frequentie van mislukte aanvragen), ontworpen om u te waarschuwen u in bijna realtime manier zodra uw web-app kan aanvragen tarief wordt verhoogd aanzienlijk vergeleken met de web-app normaal gedrag.
+* [Metrische waarschuwingen](app-insights-alerts.md) worden ingesteld door u en een breed scala aan metrische gegevens zoals CPU-bezetting, aanvragen, laadtijden voor pagina's en enzovoort kunt bewaken. U kunt deze gebruiken om u te waarschuwen, bijvoorbeeld, als u meer resources toevoegen. Daarentegen, Slimme detectie van afwijkende fouten bevat informatie over een klein aantal essentiële metrische gegevens (momenteel alleen Hoev. mislukte aanvragen), ontworpen om op de hoogte stellen u in bijna realtime manier zodra uw web-app is mislukt aanvragen tarief wordt verhoogd aanzienlijk in vergelijking met web-app normale gedrag.
 
-    Slimme detectie wordt de drempelwaarde in reactie op geldende voorwaarden automatisch aangepast.
+    Slimme detectie past automatisch de drempelwaarde in reactie op geldende voorwaarden.
 
     Slimme detectie begint het diagnostische werk voor u.
-* [Detectie van afwijkingen van smartcard](app-insights-proactive-performance-diagnostics.md) ook gebruikt intelligence voor het detecteren van ongewone patronen in de metrische gegevens van uw computer en is geen configuratie door u vereist. Maar in tegenstelling tot Slimme detectie fout afwijkingen kunnen worden gedetecteerd, het doel van Slimme detectie van afwijkingen is segmenten van uw gebruik verzamelbuis die mogelijk niet goed worden geleverd: bijvoorbeeld, als bepaalde pagina's op een specifiek type browser vinden. De analyse wordt dagelijks uitgevoerd en als een van de resultaten wordt gevonden, is het waarschijnlijk veel minder urgente dan een waarschuwing. Daarentegen is de analyse op afwijkingen fout continu wordt uitgevoerd op binnenkomende telemetriegegevens en u ontvangt een melding binnen enkele minuten als server uitvalpercentage groter zijn dan verwacht.
+* [Slimme detectie van prestatieafwijkingen](app-insights-proactive-performance-diagnostics.md) ook gebruikt machine intellligentie voor het detecteren van ongebruikelijke patronen in uw metrische gegevens en u geen configuratie is vereist. Maar in tegenstelling tot Slimme detectie van afwijkende fouten, het doel van Slimme detectie van prestatieafwijkingen is segmenten van uw gebruik verzamelbuis die mogelijk niet goed worden weergegeven: als u bijvoorbeeld bepaalde pagina's op een specifiek type browser vinden. De analyse wordt dagelijks uitgevoerd en als een resultaat wordt gevonden, is het waarschijnlijk veel minder urgente dan een waarschuwing. Daarentegen is de analyse voor afwijkende fouten op binnenkomende telemetriegegevens continu wordt uitgevoerd en u krijgt bericht binnen enkele minuten als server foutpercentages groter is dan verwacht.
 
-## <a name="if-you-receive-a-smart-detection-alert"></a>Als u een waarschuwing Slimme detectie ontvangt
+## <a name="if-you-receive-a-smart-detection-alert"></a>Als u een waarschuwing voor slimme detectie ontvangt
 *Waarom hebt ik deze waarschuwing ontvangen?*
 
-* Er is een abnormale toename in de frequentie van mislukte aanvragen vergeleken met de normale basislijn van de voorafgaande periode vastgesteld. Na analyse van de fouten en de bijbehorende telemetrie zien we er is een probleem dat u ziet in.
+* Er is een ongebruikelijke stijging in mislukte aanvragen tarief ten opzichte van de normale basislijn van de voorafgaande punt gedetecteerd. Na de analyse van de fouten en de bijbehorende telemetrie denken we dat er een probleem dat u ziet is in.
 
-*Betekent de melding dat er contact is een probleem?*
+*Betekent de melding dat er definitief is een probleem?*
 
-* We willen waarschuwing bij app onderbreking of vermindering, maar alleen u volledig inzicht in de semantiek en de impact op de app of gebruikers.
+* We proberen te waarschuwen bij app-onderbreking of vermindering, maar alleen u volledig inzicht in de semantiek en de gevolgen voor de app of gebruikers.
 
-*Ja, bekijkt u die mijn gegevens?*
+*Dus, kijken jullie mijn gegevens?*
 
-* Nee. De service is geheel automatisch. Alleen het ophalen van de meldingen. Uw gegevens [persoonlijke](app-insights-data-retention-privacy.md).
+* Nee. De service is volledig automatisch. Alleen krijgt u de meldingen. Uw gegevens [persoonlijke](app-insights-data-retention-privacy.md).
 
 *Heb ik om u te abonneren op deze waarschuwing?*
 
-* Nee. Elke toepassing dat verzendt telemetrie aanvragen heeft de waarschuwingsregel Slimme detectie.
+* Nee. Elke toepassing dat verzendt telemetrie aanvragen heeft de waarschuwingsregel voor slimme detectie.
 
-*Kan ik afmelden of de meldingen worden verzonden naar Mijn collega's in plaats daarvan ophalen?*
+*Kan ik zich afmelden of ophalen van de meldingen worden verzonden naar Mijn collega's in plaats daarvan?*
 
-* Ja, In waarschuwingsregels, klikt u op de regel Slimme detectie te configureren. U kunt de waarschuwing uitschakelen of geadresseerden voor de waarschuwing wijzigen.
+* Ja, In waarschuwingsregels, klikt u op de regel voor slimme detectie te configureren. U kunt de waarschuwing uitschakelen of geadresseerden voor de waarschuwing wijzigen.
 
-*Ik het e-mailbericht is verbroken. Waar vind ik de meldingen in de portal*
+*Kan ik het e-mailbericht is verbroken. Waar vind ik de meldingen in de portal?*
 
-* In de logboeken van de activiteit. In Azure, opent u de Application Insights-resource voor uw app en selecteer vervolgens activiteitenlogboeken.
+* In de activiteitenlogboeken. In Azure, opent u de Application Insights-resource voor uw app en selecteer vervolgens activiteitenlogboeken.
 
 *Sommige van de waarschuwingen zijn over bekende problemen en ik wil niet om ze te ontvangen.*
 
-* Waarschuwingsonderdrukking hebben we op onze achterstand.
+* We hebben waarschuwingsonderdrukking op gewerkt.
 
 ## <a name="next-steps"></a>Volgende stappen
-Deze diagnostische hulpprogramma's kunnen u de telemetrie van uw app te controleren:
+Deze diagnostische hulpprogramma's kunnen u de telemetrie van uw app controleren:
 
-* [Metrische explorer](app-insights-metrics-explorer.md)
+* [Metric explorer](app-insights-metrics-explorer.md)
 * [Search explorer](app-insights-diagnostic-search.md)
 * [Analytics - krachtige querytaal](app-insights-analytics-tour.md)
 
-Smart detecties zijn volledig automatisch. Maar misschien u sommige meer waarschuwingen instellen?
+Slimme detectie worden volledig automatisch uitgevoerd. Maar misschien u graag enkele meer waarschuwingen instellen?
 
 * [Handmatig geconfigureerde metrische waarschuwingen](app-insights-alerts.md)
 * [Webtests voor beschikbaarheid](app-insights-monitor-web-app-availability.md)

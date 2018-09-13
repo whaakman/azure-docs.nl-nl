@@ -6,16 +6,16 @@ author: hning86
 ms.author: haining
 manager: mwinkle
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: reference
 ms.date: 03/28/2018
-ms.openlocfilehash: 6085762f9f3874df8dd90866e387a581915dbbaf
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9c135c1db557393a26e6e071f92b61fcbf3ae477
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831598"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643972"
 ---
 # <a name="whats-new-in-azure-machine-learning"></a>Wat is nieuw in Azure Machine Learning?
 
@@ -25,60 +25,60 @@ In dit artikel meer informatie over de nieuwe releases van [Azure Machine Learni
 ## <a name="2018-05-sprint-5"></a>2018-05 (sprint 5)
 
 Met deze versie van Azure Machine Learning, kunt u het volgende doen:
-+ Featurize afbeeldingen met een quantized versie van ResNet 50, een classificatie op basis van deze functies, trainen en [model implementeren op een FPGA op Azure](../service/how-to-deploy-fpga-web-service.md) voor inferencing zeer lage latentie.
++ Parametriseer afbeeldingen met een quantized versie van ResNet 50, een classificatie op basis van deze functies, trainen en [dat model implementeert naar een FPGA op Azure](../service/how-to-deploy-fpga-web-service.md) voor inferentietaken zeer lage latentie.
 
-+ Snel bouwen en implementeren van maximaal nauwkeurige machine learning en grondige learning-modellen met [aangepaste Azure Machine Learning-pakketten](../service/reference-python-package-overview.md) voor de volgende gebieden:
++ Snel ontwikkelen en implementeren uiterst nauwkeurige machine learning en deep learning-modellen met behulp van [aangepaste Azure Machine Learning-pakketten](../service/reference-python-package-overview.md) voor de volgende domeinen:
   + [Computer Vision](../service/how-to-build-deploy-image-classification-models.md)
   + [Tekstanalyse](../service/how-to-build-deploy-text-classification-models.md)
   + [Prognose](../service/how-to-build-deploy-forecast-models.md)
 
 ## <a name="2018-03-sprint-4"></a>2018-03 (sprint 4)
-**Versienummer**: 0.1.1801.24353 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Versienummer**: 0.1.1801.24353 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([vinden van uw versie](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
 
-Veel van de volgende updates worden gedaan als directe resultaten van uw feedback. Zorg ervoor dat ze afkomstig zijn.
+Veel van de volgende updates zijn aangebracht als direct resultaten van uw feedback. Houd ze afkomstig zijn.
 
 **Belangrijke nieuwe functies en wijzigingen**
 
-- Ondersteuning voor het uitvoeren van scripts op externe Ubuntu VM's op uw eigen omgeving naast extern docker systeemeigen gebaseerd worden uitgevoerd.
-- Nieuwe omgeving ervaring in de Workbench-App kunt u compute-doelen maken en uitvoeren van de configuraties naast onze ervaring op basis van CLI.
+- Ondersteuning voor het uitvoeren van scripts op externe Ubuntu-VM's zelf op uw eigen omgeving naast de externe docker-op basis van kan worden uitgevoerd.
+- Nieuwe omgeving ervaring in Workbench-App kunt u de compute-doelen maken en uitvoeren van de configuraties naast onze ervaring op basis van CLI.
 ![Tabblad omgevingen](media/azure-machine-learning-release-notes/environment-page.png)
-- Geschiedenis van aanpasbare uitvoeren rapporten ![afbeelding van nieuwe uitvoeren Geschiedenisrapporten](media/azure-machine-learning-release-notes/new-run-history-reports.png)
+- Aanpasbare Run History rapporten ![afbeelding van het nieuwe uitvoeren rapporten over Apparaatgeschiedenis](media/azure-machine-learning-release-notes/new-run-history-reports.png)
 
 **Gedetailleerde Updates**
 
-Hier volgt een lijst met gedetailleerde updates voor elk onderdeel gebied in Azure Machine Learning in deze sprint.
+Hieronder volgt een lijst met gedetailleerde updates in elk gebied onderdeel van Azure Machine Learning in deze sprint.
 
-### <a name="workbench-ui"></a>Workbench gebruikersinterface
-- Aanpasbare rapporten van de geschiedenis uitvoeren
-  - Configuratie van de verbeterde grafiek voor rapporten van de geschiedenis uitvoeren
-    - De gebruikte toegangspunten kan worden gewijzigd.
+### <a name="workbench-ui"></a>Workbench UI
+- Aanpasbare rapporten over Apparaatgeschiedenis uitvoeren
+  - Configuratie van de verbeterde grafiek voor rapporten over Apparaatgeschiedenis uitvoeren
+    - De gebruikte toegangspunten kan worden gewijzigd
     - Op het hoogste niveau filters kunnen worden toegevoegd en gewijzigd ![Filters toevoegen](media/azure-machine-learning-release-notes/add-filters.jpg)
     - Grafieken en statistieken kunnen worden toegevoegd of gewijzigd (en slepen en neerzetten gerangschikt).
-    ![Nieuwe grafieken](media/azure-machine-learning-release-notes/configure-charts.png)
+    ![Het maken van nieuwe grafieken](media/azure-machine-learning-release-notes/configure-charts.png)
 
-  - CRUD voor rapporten van de geschiedenis uitvoeren
-  - Alle bestaande uitvoeringsgeschiedenis lijstweergave configuraties aan serverzijde rapporten, die fungeert als pijplijnen op wordt uitgevoerd vanuit de geselecteerde toegangspunten verplaatst.
+  - CRUD voor rapporten over Apparaatgeschiedenis uitvoeren
+  - Alle bestaande uitvoeringsgeschiedenis lijstweergave configuraties aan serverzijde rapporten, die fungeert als pijplijnen op wordt uitgevoerd in de geselecteerde toegangspunten verplaatst.
 
 - Tabblad omgevingen
-  - Nieuwe compute-doel toevoegen en voer configuratiebestanden aan uw project eenvoudig ![nieuw Compute-doel](media/azure-machine-learning-release-notes/add-new-environments.png)
-  - Beheren en de configuratiebestanden die met behulp van een eenvoudige, op basis van formulieren UX bijwerken
-  - Nieuwe knop voor het voorbereiden van uw omgeving voor uitvoering
+  - Eenvoudig toevoegen van nieuwe compute-doel en -configuratiebestanden uitvoeren aan uw project ![nieuwe Compute-doel](media/azure-machine-learning-release-notes/add-new-environments.png)
+  - Beheren en de van configuratiebestanden met behulp van een eenvoudige, formulier-gebaseerde UX niet bijwerken
+  - Nieuwe knop voor het voorbereiden van uw omgevingen voor uitvoering
 
-- Verbeterde prestaties aan de lijst van bestanden in de zijbalk
+- Prestatieverbeteringen aan de lijst met bestanden in de zijbalk
 
 ### <a name="data-preparation"></a>Gegevensvoorbereiding 
-- Azure Machine Learning Workbench kunt u nu om te zoeken naar een kolom met behulp van een bekende kolomnaam.
+- Azure Machine Learning Workbench kunt u nu mogelijk om te zoeken naar een kolom met behulp van de naam van een bekende kolom.
 
 
 ### <a name="experimentation"></a>Experiment
-- Azure Machine Learning Workbench ondersteunt nu uw scripts systeemeigen uitgevoerd op uw eigen omgeving python of pyspark. Voor deze mogelijkheid gebruiker maakt en beheert hun eigen omgeving op de externe virtuele machine en gebruiken van Azure Machine Learning Workbench hun scripts uitvoeren op die zijn gericht. Zie [configureren van Azure Machine Learning experimenteren Service](experimentation-service-configuration.md) 
+- Azure Machine Learning Workbench biedt nu ondersteuning voor het uitvoeren van uw scripts systeemeigen op uw eigen python of pyspark-omgeving. Voor deze functionaliteit, die gebruiker maakt en beheert op de externe VM-hun eigen omgeving en Azure Machine Learning Workbench gebruiken voor het uitvoeren van de scripts op die zijn gericht. Raadpleeg [configureren van Azure Machine Learning experimenten-Service](experimentation-service-configuration.md) 
 
 ### <a name="model-management"></a>Modelbeheer
-- Ondersteuning voor het aanpassen van de Containers geïmplementeerd: kan de container-afbeelding aanpassen zodat de installatie van externe bibliotheken met apt get, enzovoort. Het is niet meer beperkt tot pip installeerbare bibliotheken. Zie de [documentatie](model-management-custom-container.md) voor meer informatie.
-  - Gebruik de `--docker-file myDockerStepsFilename` vlag en de bestandsnaam de naam met het manifest, image of opdrachten voor het maken van service.
-  - Houd er rekening mee dat de basisinstallatiekopie Ubuntu is en kan niet worden gewijzigd.
-  - Voorbeeld: 
+- Ondersteuning voor het aanpassen van de Containers geïmplementeerd: kunt aanpassen van de containerinstallatiekopie door toe te staan van de installatie van externe bibliotheek via apt-get, enzovoort. Het is niet langer beperkt tot pip installeerbare bibliotheken. Zie de [documentatie](model-management-custom-container.md) voor meer informatie.
+  - Gebruik de `--docker-file myDockerStepsFilename` vlag en de naam met het manifest, image of opdrachten voor het maken van service.
+  - Houd er rekening mee dat de basisinstallatiekopie van Ubuntu en kan niet worden gewijzigd.
+  - Van de voorbeeldopdracht: 
   
       ```shell
       $ az ml image create -n myimage -m mymodel.pkl -f score.py --docker-file mydockerstepsfile
@@ -87,103 +87,103 @@ Hier volgt een lijst met gedetailleerde updates voor elk onderdeel gebied in Azu
 
 
 ## <a name="2018-01-sprint-3"></a>2018-01 (sprint 3) 
-**Versienummer**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Versienummer**: 0.1.1712.18263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([vinden van uw versie](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
-Hier volgen de updates en verbeteringen in deze sprint. Veel van deze updates worden gedaan als direct resultaat van feedback van gebruikers. 
+Hier volgen de updates en verbeteringen in deze sprint. Veel van deze updates worden gemaakt als direct resultaat van feedback van gebruikers. 
 
 
-Hier volgt een lijst met gedetailleerde updates voor elk onderdeel gebied in Azure Machine Learning in deze sprint.
+Hieronder volgt een lijst met gedetailleerde updates in elk gebied onderdeel van Azure Machine Learning in deze sprint.
 
-- Updates voor de verificatie-stack zorgt ervoor dat de selectie en -account voor aanmelding bij het opstarten
+- Updates voor de verificatie-stack zorgt ervoor dat de selectie van aanmelding en account bij het opstarten
 
 ### <a name="workbench"></a>Workbench
 - Mogelijkheid om te installeren/verwijderen van de app vanuit programma's toevoegen/verwijderen
-- Updates voor de verificatie-stack zorgt ervoor dat de selectie en -account voor aanmelding bij het opstarten
-- Verbeterde ervaring voor eenmalige aanmelding op (SSO) in Windows
-- Gebruikers die deel uitmaken van meerdere tenants met andere referenties zich nu aanmelden bij de Workbench
+- Updates voor de verificatie-stack zorgt ervoor dat de selectie van aanmelding en account bij het opstarten
+- Verbeterde ervaring voor eenmalige aanmelding (SSO) in Windows
+- Gebruikers die deel uitmaken van meerdere tenants met andere referenties worden nu Meld u aan bij Workbench
 
 ### <a name="ui"></a>GEBRUIKERSINTERFACE
 - Algemene verbeteringen en oplossingen voor problemen
 
-### <a name="notebooks"></a>Laptops
+### <a name="notebooks"></a>Notitieblokken
 - Algemene verbeteringen en oplossingen voor problemen
 
 ### <a name="data-preparation"></a>Gegevensvoorbereiding 
 - Verbeterde automatische suggesties tijdens het uitvoeren van transformaties door voorbeeld
 - Verbeterde algoritme voor het patroon frequentie inspector
-- Voorbeeldgegevens en feedback verzenden tijdens het uitvoeren van de voorbeeld-transformaties ![afbeelding van de koppeling van de feedback verzenden op afgeleid kolom transformatie](media/azure-machine-learning-release-notes/SendFeedbackFromDeriveColumn.png)
-- Spark Runtime-verbeteringen
+- Mogelijkheid voor het verzenden van voorbeeldgegevens en feedback tijdens het uitvoeren van transformaties voorbeeld ![afbeelding van de feedbackkoppeling verzenden op afleiden kolom transformeren](media/azure-machine-learning-release-notes/SendFeedbackFromDeriveColumn.png)
+- Verbeteringen voor Spark-Runtime
 - Scala is Pyspark vervangen
-- Vaste onvermogen om de gegevens niet van toepassing sluiten voor de Time Series-Inspector 
-- De tijd van de loopt vast voor de uitvoering van de gegevens Prep voor HDI opgelost
+- Vaste onvermogen om de gegevens niet van toepassing voor de Time Series-Inspector sluiten 
+- De tijd vastloopt voor gegevensvoorbereiding uitvoering voor de HDI opgelost
 
-### <a name="model-management-cli-updates"></a>Model Management CLI-updates 
-  - Eigendom van het abonnement is niet meer vereist voor het inrichten van resources. Inzender aan de resourcegroep worden voor toegang tot voldoende zijn voor het instellen van de implementatieomgeving.
-  - Ingeschakelde lokale omgeving gratis abonnementen instellen 
+### <a name="model-management-cli-updates"></a>Model Management CLI bijgewerkt 
+  - Eigendom van het abonnement is niet langer vereist voor de inrichting van resources. Inzender-toegang tot de resourcegroep is voldoende voor het instellen van de implementatieomgeving.
+  - Ingeschakelde lokale omgeving instellen voor gratis abonnementen 
 
 ## <a name="2017-12-sprint-2-qfe"></a>2017-12 (sprint 2 QFE) 
-**Versienummer**: 0.1.1711.15323 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Versienummer**: 0.1.1711.15323 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([vinden van uw versie](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
-Dit is de release QFE (Quick Fix Engineering) van een secundaire versie. Deze worden verschillende telemetrie problemen en helpt het productteam om beter te begrijpen hoe het product wordt gebruikt. De kennis kunt in toekomstige inspanningen voor het verbeteren van de productervaring gaan. 
+Dit is de versie van de QFE (Quick Fix Engineering), een secundaire versie. Het aantal telemetrie problemen opgelost en helpt bij het productteam om beter te begrijpen hoe het product wordt gebruikt. De kennis die kunt in toekomstige inspanningen voor het verbeteren van de productervaring gaan. 
 
 Bovendien zijn er twee belangrijke updates:
 
-- Een bug vast gegevens prep die voorkomen dat de time series-inspector weergeven in voorbereiding gegevenspakketten.
-- In het opdrachtregelprogramma hoeft niet langer te worden van een Azure-abonnement eigenaar voor het inrichten van Machine Learning Compute ACS-clusters. 
+- Een bug opgelost in gegevensvoorbereiding die voorkomen dat de time series-inspector in voorbereiding gegevenspakketten weergeven.
+- In de opdrachtregel-hulpprogramma moet u niet langer de eigenaar van een Azure-abonnement voor het inrichten van Machine Learning Compute ACS-clusters. 
 
 ## <a name="2017-12-sprint-2"></a>2017-12 (sprint 2)
-**Versienummer**: 0.1.1711.15263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Versienummer**: 0.1.1711.15263 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([vinden van uw versie](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
-Welkom bij de derde Azure Machine Learning-update. Deze update bevat verbeteringen in de workbench-app, de opdrachtregelinterface (CLI) en de back-end-services. Hartelijk dank voor het verzenden van Messenger en frowns. Veel van de volgende updates worden gedaan als directe resultaten van uw feedback. 
+Welkom bij de derde update van Azure Machine Learning. Deze update bevat verbeteringen in de workbench-app, de opdrachtregelinterface (CLI) en de back-end-services. Hartelijk dank voor het verzenden van Messenger en frowns. Veel van de volgende updates zijn aangebracht als direct resultaten van uw feedback. 
 
-**Belangrijke nieuwe functies**
+**Nieuwe functies die aandacht vereisen**
 - [Ondersteuning voor SQL Server en Azure SQL-database als een gegevensbron](data-prep-appendix2-supported-data-sources.md#types) 
-- [Grondige kennis op Spark met MMLSpark met GPU-ondersteuning](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
-- [Alle AML containers zijn compatibel met Azure IoT randapparaten wanneer geïmplementeerd (geen extra stappen vereist)](http://aka.ms/aml-iot-edge-blog)
-- Geregistreerd model lijst en details weergaven beschikbaar Azure-portal
-- Toegang tot compute-doelen met SSH-sleutel gebaseerde verificatie naast gebruikersnaam/wachtwoord gebaseerde toegang. 
-- Nieuwe patroon frequentie Inspector in de gegevens voorbereiden ervaring. 
+- [Deep Learning in Spark met GPU-ondersteuning met behulp van MMLSpark](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
+- [Alle AML-containers zijn compatibel met Azure IoT Edge-apparaten bij de implementatie (geen extra stappen vereist)](http://aka.ms/aml-iot-edge-blog)
+- Lijst met geregistreerde modellen en details bekijkt beschikbare Azure-portal
+- Toegang tot compute-doelen met behulp van SSH-sleutel gebaseerde verificatie naast de gebruikersnaam/wachtwoord gebaseerde toegang tot. 
+- Nieuwe patroon frequentie-Inspector in de gegevens voorbereiden ervaring. 
 
-**Gedetailleerde Updates** Hieronder volgt een lijst met gedetailleerde updates voor elk onderdeel gebied in Azure Machine Learning in deze sprint.
+**Updates gedetailleerde** Hieronder volgt een lijst met gedetailleerde updates in elk gebied onderdeel van Azure Machine Learning in deze sprint.
 
 ### <a name="installer"></a>Installatieprogramma
-- Installatieprogramma kan self update zodat die fouten oplossingen en nieuwe functies kunnen worden ondersteund zonder dat gebruiker opnieuw te installeren
+- Installatieprogramma kunnen zelf bijwerken, zodat die fouten voor problemen en nieuwe functies kunnen worden ondersteund zonder gebruiker opnieuw te installeren
 
-### <a name="workbench-authentication"></a>Workbench verificatie
-- Meerdere oplossingen voor verificatiesysteem. Laat ons weten als u nog steeds problemen met aanmelden ondervinden.
-- UI-wijzigingen die makkelijker te vinden de Manager van de Proxy-instellingen.
+### <a name="workbench-authentication"></a>Workbench-verificatie
+- Meerdere oplossingen voor verificatiesysteem. Laat het ons weten als u nog steeds problemen met aanmelden ondervindt.
+- Wijzigingen aan de gebruikersinterface die het eenvoudiger om te zoeken de Manager van de Proxy-instellingen.
 
 ### <a name="workbench"></a>Workbench
-- Weergave van alleen-lezen bestand heeft nu lichte blauwe achtergrond
-- Verplaatste knop Bewerken rechts detecteerbaar meer.
-- 'dsource', 'dprep' en 'ipynb' bestandsindelingen kunnen nu worden gerenderd onbewerkte tekst zonder opmaak
-- De workbench heeft nu een nieuwe bewerken ervaring dat de gebruiker naar het gebruik van externe IDE voor scripts bewerken en Workbench alleen gebruiken voor het bewerken van de bestandstypen die u een rijke bewerken-ervaring (zoals laptops, gegevensbronnen, voorbereiding gegevenspakketten hebt)
-- Bij het laden van de lijst met werkruimten en projecten waaraan de gebruiker toegang tot heeft is aanzienlijk sneller nu
+- Alleen-lezen weergave heeft nu lichte blauwe achtergrond
+- Verplaatste bewerken-knop aan de rechterkant zodat deze sneller wordt ontdekt.
+- "dsource", "dprep" en "ipynb" bestandsindelingen kunnen nu worden weergegeven in de indeling van de onbewerkte tekst
+- De workbench heeft nu een nieuwe bewerkingservaring die gebruikers leidt naar externe IDE's gebruiken om te bewerken van scripts en Workbench alleen gebruiken om te bewerken van bestandstypen die u een uitgebreide bewerkingservaring (zoals laptops, gegevensbronnen, gegevens voorbereiden pakketten hebt)
+- Het laden van de lijst met werkruimten en projecten die de gebruiker toegang tot heeft is aanzienlijk sneller nu
 
 ### <a name="data-preparation"></a>Gegevensvoorbereiding 
-- Een patroon frequentie Inspector om weer te geven van de tekenreeks patronen in een kolom. U kunt ook uw gegevens met behulp van deze patronen filteren. Hiermee geeft u een weergave vergelijkbaar met de waarde telt inspector. Het verschil is dat patroon frequentie het aantal van de unieke patronen van de gegevens in plaats van het aantal unieke gegevens toont. U kunt ook filteren in- of alle rijen die voldoen aan een bepaald patroon.
+- Een Inspector in frequentie van het patroon om de patronen tekenreeks in een kolom weer te geven. U kunt ook filteren op uw gegevens met behulp van deze patronen. Dit ziet u een weergave die vergelijkbaar is met de inspector waarde wordt geteld. Het verschil is dat patroon frequentie de aantallen van de unieke patronen van de gegevens in plaats van het aantal unieke gegevens bevat. U kunt ook filteren in- of alle rijen die overeenkomen met een bepaalde patroon.
 
-![Afbeelding van patroon frequentie inspector op nummer Product](media/azure-machine-learning-release-notes/pattern-inspector-product-number.png)
+![Afbeelding van het patroon frequentie inspector op Product](media/azure-machine-learning-release-notes/pattern-inspector-product-number.png)
 
-- Verbeterde prestaties bij het aanbevelen van rand aanvragen om te bekijken in de transformatie 'kolom afgeleid door voorbeeld'
+- Prestatieverbeteringen bij het aanbevelen randgevallen om te controleren in de transformatie kolom afleiden per voorbeeld
 
 - [Ondersteuning voor SQL Server en Azure SQL-database als een gegevensbron](data-prep-appendix2-supported-data-sources.md#types) 
 
 ![Afbeelding van het maken van een nieuwe SQL server-gegevensbron](media/azure-machine-learning-release-notes/sql-server-data-source.png)
 
-- 'In een oogopslag'-weergave van het aantal rijen en kolommen ingeschakeld
+- "In een oogopslag" weergave van het aantal rijen en kolommen ingeschakeld
 
 ![Afbeelding van de kolomaantal rijen in een respijtperiode](media/azure-machine-learning-release-notes/row-col-count.png)
 
-- Gegevens prep is ingeschakeld in alle compute-contexten
-- Gegevensbronnen die gebruikmaken van een SQL Server-database zijn ingeschakeld in alle compute-contexten
-- Gegevens voorbereiden raster kolommen kunnen worden gefilterd door het gegevenstype
-- Opgelost probleem met het converteren van meerdere kolommen tot datum
-- Probleem opgelost die gebruiker kan uitvoerkolom selecteren als een bron in kolom afgeleid door voorbeeld als gebruiker gewijzigd uitvoerkolomnaam in de geavanceerde modus.
+- Gegevensvoorbereiding is ingeschakeld in alle compute-context
+- Gegevensbronnen die gebruikmaken van een SQL Server-database zijn ingeschakeld in alle compute-context
+- Gegevens voorbereiden grid kolommen kunnen worden gefilterd door het gegevenstype
+- Probleem opgelost met meerdere kolommen converteren naar date
+- Probleem opgelost dat de gebruiker kan uitvoerkolom selecteren als een bron in de kolom afleiden per voorbeeld als gebruiker gewijzigd uitvoerkolomnaam in de geavanceerde modus.
 
 ### <a name="job-execution"></a>Uitvoeren van taak
-U kunt nu maken en toegang tot een remotedocker of cluster compute-doel SSH-sleutel verificatie op basis van deze stappen te volgen:
-- Een compute-doel met de volgende opdracht in de CLI koppelen
+U kunt nu maken en toegang tot een remotedocker of het cluster type compute-doel met behulp van SSH-sleutel-verificatie op basis van deze stappen te volgen:
+- Een compute-doel met de volgende opdracht in de CLI te koppelen
 
     ```azure-cli
     $ az ml computetarget attach remotedocker --name "remotevm" --address "remotevm_IP_address" --username "sshuser" --use-azureml-ssh-key
@@ -191,212 +191,212 @@ U kunt nu maken en toegang tot een remotedocker of cluster compute-doel SSH-sleu
 >[!NOTE]
 >-k optie (of---azureml-ssh-sleutel gebruiken) in de opdracht geeft om te genereren en gebruiken van SSH-sleutel.
 
-- Azure ML-Workbench gaat genereren van een openbare sleutel en uitvoer die in de console. Meld u aan bij de compute-doelserver met behulp van de dezelfde gebruikersnaam en ~/.ssh/authorized_keys toevoegen aan deze openbare sleutel.
+- Azure ML Workbench wordt een openbare sleutel genereren en uitvoer die in de console. Meld u aan bij de compute-doel met behulp van de dezelfde gebruikersnaam en toevoegen aan het bestand ~/.ssh/authorized_keys met deze openbare sleutel.
 
-- U kunt dit doel compute voorbereiden en deze gebruiken voor uitvoering en Azure ML-Workbench gebruikt deze sleutel voor verificatie.  
+- U kunt deze compute-doel voorbereiden en deze gebruiken voor de uitvoering en Azure ML Workbench gebruikt deze sleutel voor verificatie.  
 
-Zie voor meer informatie over het maken van de compute-doelen [configureren van Azure Machine Learning experimenteren Service](experimentation-service-configuration.md)
+Zie voor meer informatie over het maken van compute-doelen [configureren van Azure Machine Learning experimenten-Service](experimentation-service-configuration.md)
 
 ### <a name="visual-studio-tools-for-ai"></a>Visual Studio Tools voor AI
-- Ondersteuning toegevoegd voor [Visual Studio Tools for AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 
+- Ondersteuning toegevoegd voor [Visual Studio-hulpprogramma's voor AI](https://marketplace.visualstudio.com/items?itemName=ms-toolsai.vstoolsai-vs2017). 
 
 ### <a name="command-line-interface-cli"></a>Opdrachtregelinterface (CLI)
-- Toegevoegd `az ml datasource create` kan naar het bestand voor een gegevensbron maken vanaf de opdrachtregel
+- Toegevoegd `az ml datasource create` opdracht staat voor het maken van een gegevensbestand van de gegevensbron vanaf de opdrachtregel
 
-### <a name="model-management-and-operationalization"></a>Model Management en uitoefening
-- [Alle AML containers zijn compatibel met Azure IoT randapparaten wanneer geoperationaliseerd (geen extra stappen vereist)](http://aka.ms/aml-iot-edge-blog) 
-- Verbeteringen van foutberichten in de CLI o16n
+### <a name="model-management-and-operationalization"></a>Modelbeheer- en uitoefening
+- [Alle AML-containers zijn compatibel met Azure IoT Edge-apparaten wanneer geoperationaliseerd (geen extra stappen vereist)](http://aka.ms/aml-iot-edge-blog) 
+- Verbeteringen van de foutberichten in de CLI o16n
 - Oplossingen voor problemen in het beheerportal model UX  
-- Consistente letter hoofdlettergebruik voor model management kenmerken in de detailpagina
-- Score berekenen aanroepen time-out realtime ingesteld op 60 seconden
-- Geregistreerd model lijst en details weergaven die beschikbaar zijn in de Azure portal
+- Consistente letter hoofdlettergebruik voor model management kenmerken op de detailpagina met
+- Realtime scoren aanroepen time-out wordt ingesteld op 60 seconden
+- Geregistreerde model lijst en details weergaven die beschikbaar zijn in Azure portal
 
 ![details van het model in de portal](media/azure-machine-learning-release-notes/model-list.jpg)
 
-![overzicht van het model in de portal](media/azure-machine-learning-release-notes/model-overview-portal.jpg)
+![overzicht van het model in portal](media/azure-machine-learning-release-notes/model-overview-portal.jpg)
 
 ### <a name="mmlspark"></a>MMLSpark
 - Deep Learning in Spark met [GPU-ondersteuning](https://github.com/Azure/mmlspark/blob/master/docs/gpu-setup.md)
-- Ondersteuning voor Resource Manager-sjablonen voor eenvoudig resources implementeren
-- Ondersteuning voor het ecosysteem SparklyR
+- Ondersteuning voor Resource Manager-sjablonen voor eenvoudig resource-implementatie
+- Ondersteuning voor het SparklyR-ecosysteem
 - [AZTK-integratie](https://github.com/Azure/aztk/wiki/Spark-on-Azure-for-Python-Users#optional-set-up-mmlspark)
 
 ### <a name="sample-projects"></a>Voorbeeldprojecten
-- [IRIS](https://github.com/Azure/MachineLearningSamples-Iris) en [MMLSpark](https://github.com/Azure/mmlspark) voorbeelden bijgewerkt met de nieuwe versie van Azure ML-SDK
+- [IRIS](https://github.com/Azure/MachineLearningSamples-Iris) en [MMLSpark](https://github.com/Azure/mmlspark) voorbeelden bijgewerkt met de nieuwe Azure ML-SDK-versie
 
 ### <a name="breaking-changes"></a>Wijzigingen die fouten veroorzaken
-- Gepromoveerd de `--type` in switch `az ml computetarget attach` naar een subopdracht. 
+- Gepromoveerd de `--type` -switch in `az ml computetarget attach` naar een subopdracht. 
 
     - `az ml computetarget attach --type remotedocker` is nu `az ml computetarget attach remotedocker`
     - `az ml computetarget attach --type cluster` is nu `az ml computetarget attach cluster`
 
 ## <a name="2017-11-sprint-1"></a>2017-11 (sprint 1) 
-**Versienummer**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+**Versienummer**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([vinden van uw versie](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
-We hebben verbeteringen rond de beveiliging, stabiliteit en onderhoud in de workbench-app, de CLI en de back-end-services-laag aangebracht in deze release. Hartelijk dank voor het verzenden van Messenger en frowns. Veel van de onderstaande updates zijn aangebracht tijdens het direct resultaten van uw feedback. Houden afkomstig!
+In deze release, we verbeteringen aangebracht om beveiliging, de stabiliteit en onderhoud in de workbench-app, de CLI en de back-end-services-laag. Hartelijk dank enorm voor uw Messenger en frowns. Veel van de volgende updates zijn aangebracht als direct resultaten van uw feedback. Houd ze afkomstig zijn.
 
-### <a name="notable-new-features"></a>Belangrijke nieuwe functies
-- Azure ML is nu beschikbaar in twee nieuwe Azure-regio's: **West-Europa** en **Zuidoost-Azië**. Die lid worden van de vorige gebieden van **VS-Oost 2**, **West-Centraal VS**, en **Australië-Oost**, regio's tot vijf brengen van het totale aantal geïmplementeerd.
-- We Python code syntaxismarkering in de Workbench-app om het gemakkelijker te lezen en bewerken van broncode Python ingeschakeld. 
-- U kunt nu uw favoriete IDE rechtstreeks vanuit een bestand in plaats van vanaf het hele project starten.  Een bestand openen in de Workbench en vervolgens te klikken op 'Bewerken' Start uw IDE (momenteel tegenover Code en PyCharm worden ondersteund) naar het huidige bestand en het project.  U kunt ook klikken op de pijl naast de knop bewerken om te bewerken van het bestand in de teksteditor Workbench.  Bestanden zijn alleen-lezen, totdat u klikt u op bewerken, zo wordt voorkomen dat per ongeluk worden gewijzigd.
-- De populaire tekengebied bibliotheek `matplotlib` versie 2.1.0 wordt nu geleverd bij de Workbench-app.
-- We de versie van .NET Core bijgewerkt naar 2.0 voor de prep-engine. Deze verwijderd de vereiste voor openssl brew installeren tijdens de installatie van de app op Mac OS. Deze ook de weg wordt vrijgemaakt voor meer informatie vinden over interessante gegevens prep functies die u in de nabije toekomst worden geleverd. 
-- We hebben een startpagina versiespecifiek app ingeschakeld zodat u meer relevante releaseopmerkingen ophalen en wordt u gevraagd op basis van uw huidige versie van de app bijwerken.
-- Als de naam van uw lokale gebruiker een spatie erin heeft, kan de toepassing nu worden geïnstalleerd. 
+### <a name="notable-new-features"></a>Nieuwe functies die aandacht vereisen
+- Azure ML is nu beschikbaar in twee nieuwe Azure-regio's: **West-Europa** en **Zuidoost-Azië**. Ze deelnemen aan de vorige regio's van **VS-Oost 2**, **West-Centraal VS**, en **Australië-Oost**, waardoor het totale aantal regio's geïmplementeerd tot vijf.
+- We syntaxis van de Python-code markeren in de Workbench-app zodat u gemakkelijk te lezen en bewerken van Python-broncode ingeschakeld. 
+- U kunt nu uw favoriete IDE rechtstreeks vanuit een bestand in plaats van vanaf het gehele project starten.  Een bestand openen in de Workbench en vervolgens te klikken op 'Bewerken' Start uw IDE (momenteel VS Code en PyCharm worden ondersteund) naar het huidige bestand en het project.  U kunt ook klikken op de pijl naast de knop bewerken om te bewerken van het bestand in de teksteditor Workbench.  Bestanden zijn alleen-lezen, totdat u klikt u op bewerken, te voorkomen dat onbedoelde wijzigingen.
+- De populaire plotting-bibliotheek `matplotlib` versie 2.1.0 wordt nu geleverd met de Workbench-app.
+- We de .NET Core-versie hebt bijgewerkt naar 2.0 voor de data prep-engine. Dit verwijderd de vereisten voor homebrew-installatie openssl tijdens de appinstallatie op macOS. Deze ook de weg wordt vrijgemaakt voor meer interessante gegevens prep functies worden geleverd in de nabije toekomst. 
+- Is voorzien van de startpagina van een app voor specifieke versies, zodat u meer relevante opmerkingen bij de release krijgt en u wordt gevraagd op basis van uw huidige appversie bijwerken.
+- Als de naam van uw lokale gebruiker een spatie in het heeft, kan de toepassing nu worden geïnstalleerd. 
 
 ### <a name="detailed-updates"></a>Gedetailleerde Updates
-Hieronder ziet u een lijst met gedetailleerde updates voor elk onderdeel gebied in Azure Machine Learning in deze sprint.
+Hieronder volgt een lijst met gedetailleerde updates in elk gebied onderdeel van Azure Machine Learning in deze sprint.
 
 #### <a name="installer"></a>Installatieprogramma
-- App-installatieprogramma ruimt nu naar de installatiemap gemaakt door een oudere versie van de app.
-- Een fout die leidt installatieprogramma op 100% op Mac OS hoge Sierra te zitten vast.
-- Er is nu een directe koppeling naar de map installatieprogramma voor de gebruiker om te controleren installatieprogramma Logboeken als de installatie is mislukt.
+- App-installatieprogramma schoont nu de installatiemap gemaakt met oudere versie van de app.
+- Een opgelost die tot problemen leidt installatieprogramma op 100% in macOS High Sierra te zitten.
+- Er is nu een directe koppeling naar de map installatieprogramma voor de gebruiker om te controleren van Logboeken van installatieprogramma in het geval mislukt de installatie.
 - Installeer werkt nu voor gebruikers die ruimte in hun gebruikersnaam hebben.
 
-#### <a name="workbench-authentication"></a>Workbench verificatie
-- Ondersteuning voor verificatie in de Proxy-Manager.
-- Logboekregistratie in nu is geslaagd als de gebruiker zich achter een firewall. 
-- Als de gebruiker heeft experimenteren accounts in meerdere Azure-regio's, en als één regio gebeurt niet beschikbaar is, wordt de app niet meer loopt vast.
-- Wanneer verificatie is niet voltooid en het verificatiedialoogvenster nog steeds zichtbaar is, wordt de app niet langer probeert werkruimte laden vanuit de lokale cache.
+#### <a name="workbench-authentication"></a>Workbench-verificatie
+- Ondersteuning voor verificatie in de Proxy-beheer.
+- Nu aanmelden is geslaagd als de gebruiker zich achter een firewall bevindt. 
+- Als de gebruiker heeft de experimenten-accounts in meerdere Azure-regio's, en als één regio gebeurt niet beschikbaar is, wordt de app niet meer loopt vast.
+- Als verificatie is niet voltooid en het dialoogvenster voor verificatie nog steeds wordt weergegeven is, probeert app niet meer werkruimte laden uit de lokale cache.
 
-#### <a name="workbench-app"></a>Workbench App
+#### <a name="workbench-app"></a>Workbench-App
 - Syntaxismarkering voor Python-code is ingeschakeld in de teksteditor.
 - De knop bewerken in de teksteditor kunt u het bestand bewerken in een IDE (VS Code en PyCharm worden ondersteund) of in de ingebouwde teksteditor.
 - Er is een teksteditor in de modus alleen-lezen standaard. 
-- Knop visuele status nu wijzigingen opslaan uitgeschakeld nadat het huidige bestand opgeslagen en daarom niet meer gewijzigd is.
-- Hiermee slaat u Workbench _alle_ -bestanden opgeslagen wanneer u een run initieert.
-- Workbench onthoudt dat laatst gebruikte werkruimte op de lokale computer, zodat deze automatisch wordt geopend.
-- Nu slechts één exemplaar van Workbench mag worden uitgevoerd. Eerder kunnen meerdere exemplaren worden gestart die problemen veroorzaakt als het wordt uitgevoerd op hetzelfde project.
-- Nieuwe naam bestandsmenu 'Open Project...' aan 'Toevoegt bestaande map als Project...' 
+- Knop visual staat nu wijzigingen opslaan uitgeschakeld nadat het huidige bestand opgeslagen en kan daarom niet meer gewijzigd is.
+- Workbench wordt opgeslagen _alle_ niet-opgeslagen bestanden wanneer u een uitvoering starten.
+- Workbench onthoudt dat de laatst gebruikte werkruimte op de lokale computer, zodat deze automatisch wordt geopend.
+- Slechts één exemplaar van de Workbench is nu toegestaan om uit te voeren. Eerder kunnen meerdere exemplaren worden gestart die problemen veroorzaakt als het wordt uitgevoerd op hetzelfde project.
+- Hernoemd bestandsmenu 'Open Project...' op 'Toevoegen bestaande map als Project...' 
 - Tabblad overschakelen is nu veel sneller.
 - Help-koppelingen worden toegevoegd aan het dialoogvenster IDE configureren.
 - Het feedbackformulier onthoudt nu het e-mailadres dat u de laatste keer hebt.
-- Messenger- en frowns wordt tekst nu groter, zodat u kunt meer feedback sturen! 
-- De `--owner` help-tekst in te schakelen `az ml workspace create` is opgelost.
-- We hebben een 'Over' in het dialoogvenster zodat gebruikers eenvoudig bekijken en kopiëren van het versienummer van de app toegevoegd.
-- Een 'Een functie voorgesteld' menu-item is toegevoegd aan het menu Help.
-- Accountnaam experimenteren is nu zichtbaar in de app titelbalk, voorafgaand aan de naam van de app 'Azure Machine Learning Workbench'.
-- De startpagina van een versiespecifiek app weergegeven nu op basis van de versie van de app gedetecteerd.
+- Tekstgebied Messenger en frowns formulier is nu groter, zodat u ons meer feedback kunt verzenden. 
+- De `--owner` help-tekst in te schakelen `az ml workspace create` is gecorrigeerd.
+- Er is een 'Over' in het dialoogvenster zodat gebruikers eenvoudig bekijken en kopiëren van het versienummer van de app toegevoegd.
+- Een "Een functie voorstellen" menu-item wordt toegevoegd aan het menu Help.
+- De naam van de experimenten-account is nu zichtbaar in de app titelbalk, voorafgaand aan de naam van de app 'Azure Machine Learning Workbench'.
+- Een versie-specifieke app-startpagina wordt weergegeven nu gebaseerd op de versie van de app gedetecteerd.
 
 #### <a name="data-preparation"></a>Gegevensvoorbereiding 
-- Externe website kunnen niet meer worden geladen vanuit de kaart Inspector om te voorkomen dat mogelijke beveiligingsproblemen.
-- Histogram en aantal inspectors heeft nu de optie voor het weergeven van de grafiek in logaritmische schaal.
-- Wanneer een berekening wordt uitgevoerd, kwaliteit gegevensbalk nu ziet u een andere kleur aangegeven van de status 'berekenen'.
-- Kolom metrische gegevens worden nu statistieken voor categorische waarde kolommen weergeven.
-- Het laatste teken in naam van de gegevensbron niet meer wordt afgebroken.
-- Prep gegevenspakket blijft nu geopend wanneer u overschakelt van tabbladen, waardoor de merkbare prestaties verbeteren.
-- In de gegevensbron bij het schakelen tussen de gegevensweergave en metrische gegevens weergeven, verandert de volgorde van kolommen nu meer.
-- Openen van een ongeldig `.dprep` of `.dsource` bestand wordt niet langer Workbench vastlopen.
-- Prep gegevenspakket kunnen nu relatief pad gebruikt voor uitvoer in _schrijven naar CSV_ transformeren.
-- _Houd kolom_ transformatie staat nu de gebruiker toe te voegen extra kolommen als bewerkt.
-- _Vervang deze_ menu nu daadwerkelijk start _waarde vervangen_ in het dialoogvenster.
-- _Vervang de waarde_ transformeren nu functies zoals verwacht in plaats van de fout ArgumentOutOfRangeException.
-- Prep gegevenspakket gebruikt nu absoluut pad op bij verwijzingen naar gegevensbestanden buiten de projectmap, waardoor het mogelijk om uit te voeren van het pakket in de lokale context met het absolute pad naar het gegevensbestand.
-- _Volledige_ als een strategie voor steekproeven wordt nu ondersteund bij gebruik van Azure blob als gegevensbron.
-- Python-code (van prep gegevenspakket) gegenereerd zijn nu voor zowel CR als LF, zodat u beschrijvende in Windows.
-- _Kies de metrische gegevens_ dropdown eigenschap nu wordt verborgen wanneer u overschakelt naar de gegevensweergave.
-- Workbench kan zich nu proces parketvloeren bestanden zelfs bij het gebruik van Python-runtime. Eerder kan alleen Spark worden gebruikt bij het verwerken van parketvloeren bestanden. 
-- Filteren van waarden in een kolom met _datum_ gegevenstype wordt niet meer gegevens prep engine vastloopt.
-- Metriekweergave respecteert nu steekproeven strategie voor updates.
-- Externe taken nu steekproef werkt goed.
+- Externe website kunnen niet meer worden geladen van Kaartinspector om te voorkomen dat de mogelijke beveiligingsproblemen vaststellen.
+- Histogram en aantal waarden inspectors heeft nu de optie voor het weergeven van de grafiek in logaritmische schaal.
+- Wanneer een berekening wordt momenteel, data quality bar nu ziet u een andere kleur om aan te geven van de status 'berekenen'.
+- Kolom metrische gegevens worden nu statistieken voor kolommen met categorische waarden weergeven.
+- Het laatste teken in naam van de gegevensbron wordt niet meer afgekapt.
+- Pakket voor gegevensvoorbereiding blijft nu geopend wanneer u overschakelt van tabs, waardoor de merkbare prestaties verbeteren.
+- In de gegevensbron, bij het schakelen tussen de gegevensweergave en metrische gegevens weergeven, wijzigt de volgorde van kolommen nu meer.
+- Openen van een ongeldig `.dprep` of `.dsource` bestand wordt niet meer Workbench vastlopen.
+- Pakket voor gegevensvoorbereiding kunnen nu wordt relatief pad voor uitvoer in _schrijven naar CSV_ transformeren.
+- _Kolom behouden_ transformatie kunt nu gebruiker toe te voegen extra kolommen als bewerkt.
+- _Vervang dit_ menu nu daadwerkelijk wordt gestart _waarde vervangen_ in het dialoogvenster.
+- _Vervang de waarde_ transformeren nu functies zoals verwacht in plaats van de fout te genereren.
+- Pakket voor gegevensvoorbereiding gebruikt nu het absolute pad wanneer u verwijst naar bestanden buiten de projectmap, waardoor het mogelijk om uit te voeren van het pakket in de lokale context met het absolute pad naar het gegevensbestand.
+- _Volledig bestand_ als een samplingstrategie wordt nu ondersteund bij het gebruik van Azure blob als gegevensbron.
+- Python-code (van pakket voor gegevensvoorbereiding) gegenereerd voert nu zowel CR als LF, waardoor het beschrijvende in Windows.
+- _Metrische gegevens kiezen_ vervolgkeuzelijst nu de eigenschap wordt verborgen wanneer u overschakelt naar de gegevensweergave.
+- Workbench kunt nu proces parquet-bestanden, zelfs bij het gebruik van Python-runtime. Eerder kan alleen Spark worden gebruikt bij het verwerken van parquet-bestanden. 
+- Gefilterd op waarden in een kolom met _datum_ gegevenstype wordt niet meer gegevens prep engine vastloopt.
+- Weergave voor metrische respecteert nu steekproeven strategie voor updates.
+- Externe taken nu steekproeven werkt goed.
 
 #### <a name="job-execution"></a>Uitvoeren van taak
 - Argument is nu opgenomen in de uitvoeringsgeschiedenis record.
-- Taken gestarte CLI nu weergegeven in deelvenster voor historie taak uitvoeren automatisch.
-- Deelvenster van de taak wordt nu opdrachten aangemaakt door gastgebruikers toegevoegd aan de Azure AD-tenant.
-- Deelvenster taak annuleren en verwijderingsacties stabieler zijn.
-- Wanneer op de knop uitvoeren klikt, wordt nu foutbericht geactiveerd als de configuratiebestanden in een onjuiste notatie.
-- Taken in de CLI gestarte verstoort afsluitende app niet meer.
-- Taken gestarte CLI nu blijft spit uit de standard out zelfs na een uur van de uitvoering.
-- Betere foutberichten worden weergegeven wanneer de prep gegevenspakket uitvoeren in Python/PySpark mislukt.
-- `az ml experiment clean` ruimt nu Docker-afbeeldingen in ook externe VM.
-- `az ml experiment clean` nu werkt goed voor lokale doel op Mac OS.
-- Foutberichten wanneer die gericht is op lokale of externe Docker wordt uitgevoerd, worden opgeschoond omhoog en gemakkelijker te lezen.
-- Betere foutbericht wordt weergegeven wanneer de naam van het hoofdknooppunt voor HDInsight-cluster niet correct opgemaakt is als gekoppeld als een doel kan worden uitgevoerd.
-- Betere foutbericht wordt weergegeven wanneer het geheim is niet gevonden in de referentie-service. 
-- MMLSpark-bibliotheek is voor ondersteuning van Apache Spark 2.2 bijgewerkt.
-- MMLSpark omvatten nu een onderwerp codering transformatie (Mesh codering) voor medische documenten.
-- `matplotlib` versie 2.1.0 is nu verzonden out van het vak met Workbench.
+- Taken die worden gestart CLI nu wordt weergegeven in het deelvenster taak uitvoeren automatisch.
+- Deelvenster van de taak bevat nu opdrachten aangemaakt door gastgebruikers die zijn toegevoegd aan de Azure AD-tenant.
+- Deelvenster van de taak annuleren en verwijderingsacties stabieler zijn.
+- Wanneer te klikken op de knop uitvoeren, wordt nu foutbericht geactiveerd als de configuratiebestanden in een ongeldige indeling.
+- Afsluitende app functioneert taken gestart in de CLI niet meer.
+- Taken die worden gestart CLI nu blijft spit van standard-out ook na een uur worden uitgevoerd.
+- Betere foutberichten worden weergegeven wanneer de gegevensvoorbereidingspakket uitvoeren in Python/PySpark mislukt.
+- `az ml experiment clean` Nu opschonen van Docker-installatiekopieën in de externe virtuele machine ook.
+- `az ml experiment clean` nu naar behoren werkt voor lokale doel op macOS.
+- Foutberichten bij die gericht is op lokale of externe Docker wordt uitgevoerd, worden opgeschoond omhoog en gemakkelijker te lezen.
+- Verbeterd foutbericht wordt weergegeven wanneer de naam van het hoofdknooppunt voor HDInsight-cluster niet correct opgemaakt is als gekoppeld als een doel voor uitvoering.
+- Verbeterd foutbericht wordt weergegeven als geheim niet in de referentie-service gevonden is. 
+- MMLSpark-bibliotheek is bijgewerkt naar ondersteuning voor Apache Spark 2.2.
+- MMLSpark omvatten nu een onderwerp codering transformatie (Mesh-codering) voor medische documenten.
+- `matplotlib` versie 2.1.0 is nu verzonden kant-en-klare met Workbench.
 
 #### <a name="jupyter-notebook"></a>Jupyter Notebook
-- Zoekactie voor namen notebook nu werkt goed in de weergave laptops.
-- U kunt nu een laptop in de weergave laptops verwijderen.
-- Nieuwe magic `%upload_artifact` wordt toegevoegd voor het uploaden van bestanden die in de Notebook uitvoeringsomgeving in het gegevensarchief uitvoeringsgeschiedenis wordt geproduceerd.
-- Kernelfouten worden nu in de status van de Notebook taak voor het opsporen van eenvoudiger opgehaald.
-- Jupyter server nu correct wordt afgesloten wanneer de gebruiker zich aanmeldt bij de app.
+- Zoeken naar de servernaam van de notebook nu werkt naar behoren in de weergave notitieblokken.
+- U kunt nu een notitieblok in de weergave laptops verwijderen.
+- Nieuwe magic `%upload_artifact` wordt toegevoegd voor het uploaden van bestanden die in de uitvoeringsomgeving van de Notebook in het gegevensarchief uitvoeringsgeschiedenis wordt geproduceerd.
+- Kernelfouten worden nu in de taakstatus Notebook voor eenvoudiger foutopsporing opgehaald.
+- Jupyter server nu correct wordt afgesloten als een gebruiker zich aanmeldt bij de app afmelden.
 
 #### <a name="azure-portal"></a>Azure Portal
-- Account experimenteren en Model-Management-account kunnen nu worden gemaakt in twee nieuwe Azure-regio's: West-Europa en Zuidoost-Azië.
-- Model Management account DevTest plan nu is alleen beschikbaar wanneer dit het eerste item in het abonnement worden gemaakt. 
-- Help-koppeling in de Azure portal is bijgewerkt om te verwijzen naar de juiste documentatiepagina.
-- Beschrijvingsveld wordt verwijderd uit de detailpagina Docker-installatiekopie, omdat deze niet van toepassing.
-- Informatie over de instellingen voor AppInsights en automatisch schalen zoals worden toegevoegd aan de pagina met details.
-- Model management-pagina wordt nu gerenderd zelfs als cookies van derden zijn uitgeschakeld in de browser. 
+- Experimenten-account en Modelbeheer-account kunnen nu worden gemaakt in twee nieuwe Azure-regio's: West-Europa en Zuidoost-Azië.
+- DevTest-plan van model Management-account nu is alleen beschikbaar wanneer het is het eerste item in het abonnement worden gemaakt. 
+- Help-koppeling in de Azure-portal is bijgewerkt om te verwijzen naar de juiste documentatiepagina.
+- Beschrijvingsveld wordt verwijderd uit de pagina met details van Docker-installatiekopie, omdat deze niet van toepassing is.
+- Informatie zoals de instellingen voor Application Insights en automatisch schalen worden toegevoegd aan de detailpagina van het web-service.
+- Model-management-pagina wordt nu weergegeven, zelfs als in de browser cookies van derden zijn uitgeschakeld. 
 
-#### <a name="operationalization"></a>Uitoefening
-- Webservice met 'score' in de naam ervan niet meer is mislukt.
-- Gebruiker kan nu met het maken van een implementatieomgeving met alleen Inzender toegang tot een Azure-resourcegroep of het abonnement. Eigenaar toegang tot het hele abonnement is niet meer nodig.
-- Uitoefening CLI nu leuk vindt tabblad automatisch aanvullen op Linux.
-- Bouw afbeeldingsservice ondersteunt nu installatiekopieën van het gebouw voor Azure IoT services/apparaten.
+#### <a name="operationalization"></a>Operationaliseren
+- Webservice met 'score' in de naam niet langer.
+- Gebruiker kan nu met het maken van een implementatieomgeving met alleen Inzender-toegang tot een Azure-resourcegroep of het abonnement. De eigenaar van de toegang tot het hele abonnement is niet meer nodig.
+- Nu uitoefening CLI geniet tabblad automatisch aanvullen in Linux.
+- Image bouw-service ondersteunt nu installatiekopieën van het bouwen voor Azure IoT-services /-apparaten.
 
 #### <a name="sample-projects"></a>Voorbeeldprojecten
-- [_Classificeren van Iris_ ](./tutorial-classifying-iris-part-1.md) voorbeeldproject:
+- [_Iris classificeren_ ](./tutorial-classifying-iris-part-1.md) voorbeeldproject:
     - `iris_pyspark.py` is gewijzigd in `iris_spark.py`.
     - `iris_score.py` is gewijzigd in `score_iris.py`.
-    - `iris.dprep` en `iris.dsource` bijgewerkt op basis van de meest recente gegevens prep engine-updates.
+    - `iris.dprep` en `iris.dsource` zijn bijgewerkt naar aanleiding van de meest recente gegevens prep-engine-updates.
     - `iris.ipynb` Laptop is gewijzigd om te werken in HDInsight-cluster.
     - Uitvoeringsgeschiedenis is ingeschakeld in `iris.ipynb` Notebook cel.
-- [_Geavanceerde Prep van gegevens met behulp van de sharegegevens fiets_ ](./tutorial-bikeshare-dataprep.md) voorbeeldproject 'Foutwaarde verwerken' stap vast.
-- [_MMLSpark op volwassenen telling gegevens_ ](https://github.com/Azure/MachineLearningSamples-mmlspark) voorbeeldproject `docker.runconfig` bijgewerkt van JSON naar YAML indeling.
-- [_Gedistribueerde Hyperparameter afstemmen_ ](./scenario-distributed-tuning-of-hyperparameters.md) voorbeeldproject`docker.runconfig` bijgewerkt van JSON naar YAML indeling.
-- Nieuwe voorbeeldproject [ _installatiekopie classificatie met CNTK_](./scenario-image-classification-using-cntk.md).
+- [_Geavanceerde gegevensvoorbereiding met behulp van Bikeshare-gegevens_ ](./tutorial-bikeshare-dataprep.md) voorbeeldproject 'Foutwaarde verwerken' stap opgelost.
+- [_MMLSpark op volwassenen Tellinggegevens_ ](https://github.com/Azure/MachineLearningSamples-mmlspark) voorbeeldproject `docker.runconfig` indeling bijgewerkt van JSON naar YAML.
+- [_Gedistribueerd afstemmen Hyperparameter_ ](./scenario-distributed-tuning-of-hyperparameters.md) voorbeeldproject`docker.runconfig` indeling bijgewerkt van JSON naar YAML.
+- Nieuwe voorbeeldproject [ _classificatie van afbeeldingen met behulp van CNTK_](./scenario-image-classification-using-cntk.md).
 
 
-## <a name="2017-10-sprint-0"></a>2017 10 (sprint 0) 
-**Versienummer**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([uw versie vinden](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
+## <a name="2017-10-sprint-0"></a>2017-10 (sprint 0) 
+**Versienummer**: 0.1.1710.31013 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;([vinden van uw versie](../service/known-issues-and-troubleshooting-guide.md#find-the-workbench-build-number))
 
-Welkom bij de eerste update van Azure Machine Learning Workbench na de initiële openbare preview op de Conferentie Microsoft Ignite 2017. De belangrijkste updates in deze release zijn de betrouwbaarheid en stabilization worden opgelost.  Enkele van de kritieke problemen die we behandeld:
+Welkom bij de eerste update van Azure Machine Learning Workbench onze eerste preview-versie op de Conferentie Microsoft Ignite 2017 te volgen. De belangrijkste updates in deze release zijn de betrouwbaarheid en stabilization worden opgelost.  Enkele van de kritieke problemen die we gericht zijn:
 
 ### <a name="new-features"></a>Nieuwe functies
-- Mac OS hoge Sierra wordt nu ondersteund.
+- macOS High Sierra wordt nu ondersteund.
 
-### <a name="bug-fixes"></a>Oplossingen voor problemen
-#### <a name="workbench-experience"></a>Workbench ervaring
-- Slepen en neerzetten is een bestand in de Workbench zorgt ervoor dat de Workbench vastloopt.
-- Het terminalvenster in VS-Code is geconfigureerd als een IDE voor Workbench worden niet herkend door _az ml_ opdrachten.
+### <a name="bug-fixes"></a>Opgeloste fouten
+#### <a name="workbench-experience"></a>Workbench-ervaring
+- Slepen en neerzetten is een bestand in Workbench zorgt ervoor dat de Workbench vastloopt.
+- In het terminalvenster in VS-Code die zijn geconfigureerd als een IDE voor Workbench wordt niet herkend door _az ml_ opdrachten.
 
-#### <a name="workbench-authentication"></a>Workbench verificatie
-We een aantal updates voor het verbeteren van verschillende aanmelding en verificatie problemen die worden gerapporteerd aangebracht.
-- Verificatievenster houdt verschijnen-up, met name wanneer de verbinding met Internet is niet stabiel is.
-- Problemen met verbeterde betrouwbaarheid rond verificatietokens.
-- In sommige gevallen wordt verificatievenster tweemaal verschijnt.
-- Hoofdvenster Workbench nog steeds weergegeven 'verificatie' bericht wanneer de verificatie is voltooid en het pop-updialoogvenster al gesloten.
-- Als er geen verbinding met Internet, verschijnt de verificatiedialoog met een leeg scherm.
+#### <a name="workbench-authentication"></a>Workbench-verificatie
+Er zijn een aantal updates voor het verbeteren van verschillende problemen die aanmelding en verificatie worden gerapporteerd aangebracht.
+- Verificatievenster houdt Apparaatpagina-up, met name wanneer de verbinding met Internet is niet stabiel is.
+- Verbeterde betrouwbaarheidsproblemen rondom de verificatietokens.
+- In sommige gevallen wordt verificatievenster twee keer verschijnt.
+- Hoofdvenster Workbench wordt nog steeds weergegeven 'verifiëren' bericht wanneer de verificatie is voltooid en het pop-updialoogvenster al gesloten.
+- Als er geen verbinding met Internet, verschijnt het dialoogvenster voor verificatie van met een leeg scherm.
 
 #### <a name="data-preparation"></a>Gegevensvoorbereiding 
-- Wanneer een specifieke waarde is gefilterd, worden fouten en de ontbrekende waarden ook gefilterd.
-- Wijzigen van een strategie voor steekproeven Hiermee verwijdert u de volgende bestaande joinbewerkingen.
-- Vervangen van een ontbrekende waarde wordt transformatie geen rekening NaN.
-- De typeverwijzing datum genereert uitzondering wanneer null-waarde gedetecteerd.
+- Wanneer een specifieke waarde is gefilterd, fouten en ontbrekende waarden worden ook gefilterd.
+- Wijzigen van een samplingstrategie Hiermee verwijdert u de volgende bestaande join-bewerkingen.
+- Vervangen van een ontbrekende waarde neemt transformatie NaN in acht genomen.
+- Datum type Deductie uitzondering genereert als null-waarde aangetroffen.
 
 #### <a name="job-execution"></a>Uitvoeren van taak
-- Er is geen duidelijke foutmelding wanneer de taakuitvoering is mislukt voor het uploaden van de projectmap omdat de limiet is overschreden.
-- Als de werkmap voor Python-script van de gebruiker wordt gewijzigd, worden de bestanden die zijn geschreven naar uitvoer mappen worden niet bijgehouden. 
-- Als het actief Azure-abonnement anders dan het huidige project behoort is, resulteert de verzending van de taak een fout 403.
-- Wanneer Docker niet aanwezig is, wordt er is geen duidelijke foutbericht wordt geretourneerd als gebruiker probeert te Docker gebruiken als een doel kan worden uitgevoerd.
+- Er is geen duidelijke foutbericht bij het uitvoeren van taak is mislukt voor het uploaden van projectmap, omdat de limiet wordt overschreden.
+- Als de Python-script van de gebruiker de werkmap wordt gewijzigd, worden de bestanden die zijn geschreven voor uitvoer mappen niet bijgehouden. 
+- Als het actief Azure-abonnement anders is dan het huidige project behoort is, resulteert verzenden van taken een 403-fout.
+- Als Docker niet aanwezig is, wordt er geen duidelijke foutbericht wordt geretourneerd als gebruiker wil Docker gebruiken als een doel voor uitvoering.
 - .runconfig bestand wordt niet automatisch opgeslagen wanneer de gebruiker klikt op _uitvoeren_ knop.
 
 #### <a name="jupyter-notebook"></a>Jupyter Notebook
-- Laptop-server starten niet als gebruiker met bepaalde typen aanmelding gebruikt.
-- Foutberichten voor laptop-server doen niet surface in logboeken zichtbaar voor gebruiker.
+- Notebook-server kan niet starten als gebruiker met bepaalde typen aanmelding gebruikt.
+- Foutberichten voor notebook-server kunnen niet zichtbaar in logboeken zichtbaar voor gebruiker.
 
 #### <a name="azure-portal"></a>Azure Portal
-- Het donkere thema van Azure portal zorgt ervoor dat Model-Management-blade een zwart vak wordt weergegeven.
+- Het donkere thema van Azure-portal te selecteren zorgt ervoor dat de Modelbeheer-blade om weer te geven als een zwart vak.
 
-#### <a name="operationalization"></a>Uitoefening
-- Hergebruik van een manifest voor het bijwerken van een webservice zorgt ervoor dat een nieuwe Docker-installatiekopie gebouwd met een willekeurige naam.
-- Weblogboeken service kunnen niet worden opgehaald uit Kubernetes cluster.
-- Misleidend foutbericht wordt afgedrukt wanneer de gebruiker probeert te maken van een Model-Management-account of een ML Compute-account en problemen met machtigingen optreedt.
+#### <a name="operationalization"></a>Operationaliseren
+- Hergebruik van een manifest voor het bijwerken van een webservice wordt een nieuwe Docker-installatiekopie die zijn gebouwd met een willekeurige naam.
+- Weblogboeken service kunnen niet worden opgehaald van Kubernetes-cluster.
+- Misleidend foutbericht weergegeven wanneer de gebruiker probeert te maken van een Modelbeheer-account of een ML Compute wordt afgedrukt en aangetroffen problemen met machtigingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 

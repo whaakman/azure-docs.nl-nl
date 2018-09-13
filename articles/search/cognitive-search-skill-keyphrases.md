@@ -1,6 +1,6 @@
 ---
-title: Sleutel woordgroep extractie cognitieve zoeken kwalificatie (Azure Search) | Microsoft Docs
-description: Niet-gestructureerde tekst geëvalueerd en voor elke record, retourneert een lijst met belangrijke termen in een Azure Search verrijking-pijplijn.
+title: Belangrijke woordgroepen extractie cognitief zoeken vaardigheid (Azure Search) | Microsoft Docs
+description: Evalueert ongestructureerde tekst en voor elke record geeft als resultaat een lijst met belangrijke zinnen in een Azure Search verrijking-pijplijn.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,40 +10,40 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: a12efaa020e626e4a10a0708c9b84d8fe125588c
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: b1da16269a1cbe83c6c0c625aba13026b6a462d6
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33791033"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35916300"
 ---
-#   <a name="key-phrase-extraction-cognitive-skill"></a>Uitpakken van sleutel woordgroep cognitieve kwalificatie
+#   <a name="key-phrase-extraction-cognitive-skill"></a>Sleutel vindt er sleuteltermextractie plaats cognitieve vaardigheden
 
-De **uitpakken van sleutel woordgroep** kwalificatie ongestructureerde tekst geëvalueerd en voor elke record retourneert een lijst met belangrijke termen.
+De **sleutel vindt er sleuteltermextractie plaats** vaardigheid evalueert ongestructureerde tekst en voor elke record retourneert een lijst met sleuteltermen.
 
-Deze functie is handig als u hebt de belangrijkste gesproken punten in de record snel kan identificeren. Bijvoorbeeld bepaalde invoertekst 'de voeding delicious is en er zijn prachtige personeel', stuurt de service 'voeding' en 'prachtige personeel'.
+Deze functie is handig als u snel identificeren van de belangrijkste gespreksonderwerpen in de record. Bijvoorbeeld bepaalde invoertekst 'de voedselvoorzieningsketen delicious is en er waren prachtige personeel', de service 'voeding' en "personeel prachtige" retourneert.
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.KeyPhraseExtractionSkill 
 
-## <a name="data-limits"></a>Gegevenslimieten
-De maximale grootte van een record moet 50.000 tekens gemeten door `String.Length`. Als u opsplitsen van uw gegevens wilt voordat deze wordt verzonden naar de sleutel woordgroep zelfstandig uitpakken, overweeg dan de [tekst Split-kwalificatie](cognitive-search-skill-textsplit.md).
+## <a name="data-limits"></a>Limieten voor gegevens
+De maximale grootte van een record moet tussen de 50.000 tekens wordt gemeten door `String.Length`. Als u moet het opsplitsen van uw gegevens voordat deze naar de extractor sleuteluitdrukkingen verzonden, kunt u overwegen de [tekst splitsen vaardigheid](cognitive-search-skill-textsplit.md).
 
 ## <a name="skill-parameters"></a>Kwalificatie parameters
 
 Parameters zijn hoofdlettergevoelig.
 | Invoer                | Beschrijving |
 |---------------------|-------------|
-| defaultLanguageCode | (Optioneel) De taalcode toegepast op documenten die taal niet expliciet opgeven.  Als de standaardtaal is niet opgegeven, Engels (en) gebruikt als de standaard taal. <br/> Zie [volledige lijst met ondersteunde talen](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
-| maxKeyPhraseCount   | (Optioneel) Het maximum aantal belangrijke woordgroepen produceren. |
+| defaultLanguageCode | (Optioneel) De taalcode om toe te passen op documenten die taal niet expliciet opgeven.  Als de standaardtaalcode niet opgegeven, Engels is (en) gebruikt als de standaard taal. <br/> Zie [volledige lijst met ondersteunde talen](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages). |
+| maxKeyPhraseCount   | (Optioneel) Het maximum aantal sleuteltermen te produceren. |
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 | Invoer     | Beschrijving |
 |--------------------|-------------|
-| Tekst | De tekst die moet worden geanalyseerd.|
-| languageCode  |  Een tekenreeks die de taal van de records aangeeft. Als deze parameter niet is opgegeven, wordt de taalcode van de standaardwaarde gebruikt voor het analyseren van de records. <br/>Zie [volledige lijst met ondersteunde talen](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
+| tekst | De tekst die moet worden geanalyseerd.|
+| languageCode  |  Een tekenreeks die aangeeft van de taal van de records. Als deze parameter niet is opgegeven, wordt de standaardtaalcode worden gebruikt voor het analyseren van de records. <br/>Zie [volledige lijst met ondersteunde talen](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)|
 
-##  <a name="sample-definition"></a>Voorbeeld-definitie
+##  <a name="sample-definition"></a>Van voorbeelddefinitie
 
 ```json
  {
@@ -67,7 +67,7 @@ Parameters zijn hoofdlettergevoelig.
   }
 ```
 
-##  <a name="sample-input"></a>Voorbeeldinvoer
+##  <a name="sample-input"></a>Van Voorbeeldinvoer
 
 ```json
 {
@@ -110,11 +110,11 @@ Parameters zijn hoofdlettergevoelig.
 
 
 ## <a name="errors-and-warnings"></a>Fouten en waarschuwingen
-Als u een niet-ondersteunde taalcode opgeeft, wordt een fout gegenereerd en sleutel zinnen zijn niet uitgepakt.
-Als uw tekst leeg is, wordt er een waarschuwing geproduceerd.
-Als de tekst langer dan 50.000 tekens is, wordt alleen de eerste 50.000 tekens worden geanalyseerd en een waarschuwing worden uitgegeven.
+Als u een niet-ondersteunde taalcode opgeeft, wordt een fout gegenereerd en belangrijke zinnen zijn niet uitgepakt.
+Als uw tekst leeg is, kunt u een waarschuwing wordt geproduceerd.
+Als de tekst groter dan 50.000 tekens is, worden alleen de eerste 50.000 tekens worden geanalyseerd en wordt er een waarschuwing worden weergegeven.
 
 ## <a name="see-also"></a>Zie ook
 
 + [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md)
-+ [Het definiëren van een vaardigheden](cognitive-search-defining-skillset.md)
++ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)

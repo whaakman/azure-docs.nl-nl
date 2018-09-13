@@ -2,27 +2,26 @@
 title: '.NET SDK: Accountbeheerbewerkingen in Azure Data Lake Store | Microsoft Docs'
 description: Azure Data Lake Store .NET SDK gebruiken voor het uitvoeren van accountbeheerbewerkingen in de Data Lake Store
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: ea57d5a9-2929-4473-9d30-08227912aba7
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/30/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: cb44fb1cbc279f12f970237f1498a570a63544bd
-ms.sourcegitcommit: 9d317dabf4a5cca13308c50a10349af0e72e1b7e
-ms.translationtype: HT
+ms.openlocfilehash: ee3c528345232090227c413aebaebe7cc265bc76
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/01/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35644074"
 ---
 # <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Accountbeheerbewerkingen - Aan de slag met Azure Data Lake Store met .NET SDK
 > [!div class="op_single_selector"]
-> * [.NET-SDK](data-lake-store-get-started-net-sdk.md)
+> * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
 > * [Python](data-lake-store-get-started-python.md)
 >
@@ -44,7 +43,7 @@ Als u wilt weten hoe u .NET SDK gebruikt voor het uitvoeren van gegevensbeheerbe
 
    | Eigenschap | Waarde |
    | --- | --- |
-   | Category |Templates/Visual C#/Windows |
+   | Categorie |Templates/Visual C#/Windows |
    | Template |Console Application |
    | Name |CreateADLApplication |
 4. Klik op **OK** om het project aan te maken.

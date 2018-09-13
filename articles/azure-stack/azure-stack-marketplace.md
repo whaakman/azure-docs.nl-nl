@@ -1,6 +1,6 @@
 ---
-title: Een aangepaste marketplace-item publiceren in Azure-Stack (cloud-operator) | Microsoft Docs
-description: Als een Azure-Stack-operator, informatie over het publiceren van een aangepaste marketplace-item in de Azure-Stack.
+title: Een aangepast marketplace-item publiceren in Azure Stack (cloud-operator) | Microsoft Docs
+description: Als Azure Stack-operators, informatie over het publiceren van een aangepast marketplace-item in Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: brenduns
@@ -12,45 +12,45 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/23/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: 4ea23ed01e6432f24024d7e8cc07c2dfe42ac639
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: c16d8a282d489e7a2b5ee9908f52224aea6118d6
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34605566"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713388"
 ---
 # <a name="the-azure-stack-marketplace-overview"></a>Het overzicht van Azure Stack Marketplace
 
-*Van toepassing op: Azure Stack geïntegreerde systemen en Azure Stack Development Kit*
+*Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
-De Marketplace is een verzameling van services, toepassingen en bronnen worden aangepast voor Azure-Stack. Resources omvatten netwerken, virtuele machines en opslag. Gebruikers komen hier nieuwe resources maken en implementeren van nieuwe toepassingen. Beschouwen als een webwinkel catalogus waar gebruikers kunnen bladeren en kies de items die ze willen gebruiken. Voor het gebruik van een Marketplace-item, moeten gebruikers zich abonneren op een aanbieding die ze toegang tot het item verleent.
+De Marketplace is een verzameling van services, toepassingen en bronnen die is afgestemd op Azure Stack. Resources omvatten netwerken, virtuele machines en opslag. Gebruikers op ieder nieuwe resources maken en implementeren van nieuwe toepassingen. Het zien als een winkelwagen catalogus waar gebruikers kunnen bladeren en kies de items die ze willen gebruiken. Voor het gebruik van een Marketplace-item, moeten gebruikers zich abonneren op een aanbieding die ze toegang tot het item verleent.
 
-Als een Azure-Stack-operator, besluit u welke items om toe te voegen (publiceren) naar de Marketplace. U kunt items zoals databases en App-Services publiceren. Publicatie maakt deze zichtbaar voor alle gebruikers. Aangepaste items die u maakt, kunt u publiceren. U kunt ook items uit een groeiende publiceren [lijst met items van Azure Marketplace](azure-stack-marketplace-azure-items.md). Wanneer u een item in de Marketplace publiceert, kunnen gebruikers deze zien binnen vijf minuten.
+Als Azure Stack-operators, beslist u welke items om toe te voegen (publiceren) op de Marketplace. U kunt items zoals databases, App Services, enzovoort publiceren. Publicatie zorgt ervoor dat ze zichtbaar voor alle gebruikers. U kunt aangepaste items die u maakt. U kunt ook publiceren items uit een groeiend [lijst met items voor de Azure Marketplace](azure-stack-marketplace-azure-items.md). Wanneer u een item in de Marketplace publiceert, kunnen gebruikers ze bekijken binnen vijf minuten.
 
 > [!Caution]  
-> Alle galerie-item artefacten bekend als installatiekopieën en json-bestanden zijn toegankelijk zijn zonder verificatie na zodat ze beschikbaar zijn in de Stack van Azure marketplace. Zie voor meer overwegingen bij het publiceren van aangepaste marketplace-items [maken en publiceren van een Marketplace-item](azure-stack-create-and-publish-marketplace-item.md).
+> Alle galerie-item artefacten bekend als afbeeldingen en json-bestanden zijn toegankelijk zonder verificatie na zodat ze beschikbaar zijn in de Azure Stack marketplace. Zie voor meer overwegingen bij het publiceren van aangepaste marketplace-items [maken en publiceren van een Marketplace-item](azure-stack-create-and-publish-marketplace-item.md).
 
-Als de Marketplace, in de beheerconsole schakelt **nieuw**.
+Als u de Marketplace, in de beheerconsole schakelt **+ een resource maken**.
 
 ![](media/azure-stack-publish-custom-marketplace-item/image1.png)
 
 ## <a name="marketplace-items"></a>Items voor de Marketplace
-Een Azure-Stack Marketplace-item is een service, toepassing of resource die uw gebruikers kunnen downloaden en gebruiken. Alle Azure-Stack Marketplace-items zijn zichtbaar voor alle gebruikers, met inbegrip van beheeritems zoals plannen en aanbiedingen. Deze objecten hebben een abonnement op de weergave, maar zijn niet-functioneel voor gebruikers geen nodig.
+Een Azure Stack Marketplace-item is een service, toepassing of resource die uw gebruikers kunnen downloaden en gebruiken. Alle Azure Stack Marketplace-items zijn zichtbaar voor alle gebruikers, met inbegrip van beheeritems zoals plannen en aanbiedingen. Deze items nodig geen voor een abonnement om te bekijken, maar zijn niet functioneel voor gebruikers.
 
-Elk Marketplace-item heeft:
+Elke Marketplace-item heeft:
 
-* Een Azure Resource Manager-sjabloon voor het inrichten van resource
+* Een Azure Resource Manager-sjabloon voor de inrichting van resources
 * Metagegevens, zoals tekenreeksen, pictogrammen en andere marketingmateriaal
-* Opmaak van gegevens naar het item wordt weergegeven in de portal
+* Opmaak van gegevens om weer te geven van het item in de portal
 
-Elk item dat is gepubliceerd naar de Marketplace maakt gebruik van de Azure Gallery-pakket (.azpkg)-indeling. Toevoegen-implementatie of runtime bronnen (zoals code, zip-bestanden met software of installatiekopieën van virtuele machines) naar Azure Stack afzonderlijk, niet als onderdeel van de Marketplace-item. 
+Elk gepubliceerd naar de Marketplace-item maakt gebruik van de Azure Gallery-pakket (.azpkg)-indeling. Toevoegen-implementatie of runtime resources (zoals code, zip-bestanden met software of installatiekopieën van virtuele machines) met Azure Stack afzonderlijk, niet als onderdeel van de Marketplace-item. 
 
-Met versie 1803 en hoger, Azure Stack afbeeldingen worden geconverteerd naar sparse bestanden wanneer ze downloaden van Azure of wanneer u aangepaste installatiekopieën uploaden. Dit proces wordt toegevoegd tijd bij het toevoegen van een installatiekopie, maar databaseruimte en de implementatie van deze installatiekopieën sneller. Conversie is alleen van toepassing op nieuwe afbeeldingen.  Bestaande installatiekopieën worden niet gewijzigd. 
+Met versie 1803 of hoger, Azure Stack afbeeldingen worden geconverteerd naar sparse bestanden wanneer ze worden gedownload vanuit Azure of wanneer het uploaden van aangepaste installatiekopieën. Dit proces voegt tijd bij het toevoegen van een afbeelding, maar bespaart ruimte en versnelt de implementatie van deze installatiekopieën. Conversie is alleen van toepassing op nieuwe afbeeldingen.  Bestaande installatiekopieën worden niet gewijzigd. 
 
 ## <a name="next-steps"></a>Volgende stappen
-[Downloaden van de Marketplace-items](azure-stack-download-azure-marketplace-item.md)  
-[Maken en publiceren van een Marketplace-item](azure-stack-create-and-publish-marketplace-item.md)
+[Marketplace-items downloaden](azure-stack-download-azure-marketplace-item.md)  
+[Een Marketplace-item maken en publiceren](azure-stack-create-and-publish-marketplace-item.md)
 

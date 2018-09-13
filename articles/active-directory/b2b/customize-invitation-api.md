@@ -1,25 +1,25 @@
 ---
-title: Azure Active Directory B2B-samenwerking API en de aanpassing | Microsoft Docs
+title: Azure Active Directory B2B-samenwerking API en aanpassingen | Microsoft Docs
 description: Azure Active Directory B2B-samenwerking ondersteunt uw externe bedrijfsrelaties door zakelijke partners selectief toegang te verlenen tot uw zakelijke toepassingen
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 04/11/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: e53bac5bca199fe08d53f232416a1c6432148f34
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: a41eadaecc203f9371da3eee05367a4f77747253
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260042"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643780"
 ---
-# <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B-samenwerking API en de aanpassing
+# <a name="azure-active-directory-b2b-collaboration-api-and-customization"></a>Azure Active Directory B2B-samenwerking API en aanpassingen
 
-We hebben veel klanten laat ons weten dat ze willen aanpassen van het proces uitnodiging op een manier die het meest geschikt is voor hun organisatie gehad. Met onze API kunt u dat doen. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+We hebben veel klanten laat ons weten dat ze willen aanpassen van het uitnodigingsproces op een manier die het meest geschikt voor hun organisaties gehad. U kunt precies dat doen met onze API's. [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="capabilities-of-the-invitation-api"></a>Mogelijkheden van de uitnodiging API
 De API biedt de volgende mogelijkheden:
@@ -31,13 +31,13 @@ De API biedt de volgende mogelijkheden:
     "invitedUserEmailAddress": "gsamoogle@gmail.com"
     ```
 
-2. Aanpassen waar u uw gebruikers land wanneer ze hun uitnodiging hebt geaccepteerd.
+2. Aanpassen waar u uw gebruikers aan de grond nadat ze hun uitnodiging accepteren.
 
     ```
     "inviteRedirectUrl": "https://myapps.microsoft.com/"
     ```
 
-3. Kies de uitnodiging voor een standaard e-mail via ons
+3. Kies de e-mail standard uitnodiging via ons
 
     ```
     "sendInvitationMessage": true
@@ -49,31 +49,31 @@ De API biedt de volgende mogelijkheden:
     "customizedMessageBody": "Hello Sam, let's collaborate!"
     ```
 
-4. En kies met cc: mensen die u wilt behouden in de lus uw uitnodigen deze medewerker.
+4. En kies met cc: mensen die u behouden in de lus wilt over uw deze samenwerker uitnodigen.
 
-5. Of volledig aanpassen aan uw uitnodiging en werkstroom voorbereiden door te kiezen geen om meldingen te verzenden via Azure AD.
+5. Of volledig aanpassen aan uw uitnodiging en onboarding werkstroom door te kiezen niet om meldingen te verzenden via Azure AD.
 
     ```
     "sendInvitationMessage": false
     ```
 
-  In dit geval terughalen u een inwisseling-URL van de API die u in een e-mailsjabloon, IM of andere distributiemethode van uw keuze insluiten kunt.
+  In dit geval ontvangt u weer een URL voor inschrijving van de API die u in een e-mailsjabloon IM, of een andere methode voor het distribueren van uw keuze insluiten kunt.
 
-6. Ten slotte, als u een beheerder bent, kunt u om uit te nodigen van de gebruiker die lid is.
+6. Ten slotte, als u een beheerder bent, kunt u de gebruiker als lid uitnodigen.
 
     ```
     "invitedUserType": "Member"
     ```
 
 
-## <a name="authorization-model"></a>Autorisatie-model
-De API kan worden uitgevoerd in de volgende autorisatie-modi:
+## <a name="authorization-model"></a>Autorisatiemodel
+De API kan worden uitgevoerd in de volgende modi voor autorisatie:
 
 ### <a name="app--user-mode"></a>App + gebruikersmodus
-In deze modus is degene die de machtigingen om te worden uitnodigingen voor B2B met behulp van de behoeften van de API.
+In deze modus is degene die met behulp van de behoeften van de API de machtigingen hebben voor B2B-uitnodigingen worden gemaakt.
 
-### <a name="app-only-mode"></a>App alleen de modus
-De app moet in de app alleen context, het bereik User.Invite.All voor de uitnodiging te kunnen uitvoeren.
+### <a name="app-only-mode"></a>Alleen App-modus
+In de app alleen context moet de app het User.Invite.All bereik voor de uitnodiging te voltooien.
 
 Zie voor meer informatie: https://graph.microsoft.io/docs/authorization/permission_scopes
 
@@ -92,12 +92,12 @@ U kunt de volgende opties gebruiken:
 * -SendInvitationMessage
 * -InvitedUserMessageInfo
 
-U kunt ook de uitnodiging voor een API-verwijzing in uitchecken [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
+U kunt ook de uitnodiging voor API-verwijzing in uitchecken [https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Wat is Azure AD B2B-samenwerking?](what-is-b2b.md)
-- [De elementen van de uitnodigingsmail voor B2B-samenwerking](invitation-email-elements.md)
-- [B2B-samenwerking uitnodiging inwisseling](redemption-experience.md)
-- [B2B-samenwerking gebruikers zonder een uitnodiging toevoegen](add-user-without-invite.md)
+- [De elementen van de B2B-samenwerking uitnodigingse-mail](invitation-email-elements.md)
+- [B2B-samenwerking uitnodiging inwisselen](redemption-experience.md)
+- [Gebruikers van B2B-samenwerking zonder uitnodiging toevoegen](add-user-without-invite.md)
 

@@ -1,54 +1,55 @@
 ---
-title: Azure Application Insights schoorstenen
-description: Meer informatie over hoe u schoorstenen kunt gebruiken om te ontdekken hoe klanten communiceert met uw toepassing.
+title: Azure Application Insights Trechters
+description: Lees hoe u Trechters kunt gebruiken om te ontdekken hoe klanten zijn interactie met uw toepassing.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 07/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: bbb25af888f34737f6a61cf43890ff248c4cc4de
-ms.sourcegitcommit: cf42a5fc01e19c46d24b3206c09ba3b01348966f
+ms.openlocfilehash: 527f9d4a6086f92dcba8a342162b955431b8b315
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/29/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643632"
 ---
-# <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Hoe klanten uw toepassing gebruiken met Application Insights schoorstenen detecteren
+# <a name="discover-how-customers-are-using-your-application-with-application-insights-funnels"></a>Ontdek hoe klanten uw toepassing gebruiken met Application Insights Trechters
 
-Inzicht in de klantervaring is van het grootste belang voor uw bedrijf. Als uw toepassing meerdere fasen omvat, moet u weten als u de voortgang van de meeste klanten door het hele proces, of als ze beëindigt het proces op een bepaald moment. De voortgang door een reeks stappen in een webtoepassing wordt ook wel een *trechter*. U kunt Azure Application Insights schoorstenen gebruiken om inzicht in uw gebruikers te krijgen, en stapsgewijze conversie tarieven controleren. 
+Inzicht in de ervaring van de klant is van het grootste belang voor uw bedrijf. Als uw toepassing bestaat uit meerdere fasen, moet u weten als u de voortgang van de meeste klanten door het hele proces, of als ze zijn het proces op een bepaald moment beëindigen. De voortgang in een reeks stappen in een web-App wordt ook wel een *trechter*. U kunt het gebruiken van Azure Application Insights Trechters voor inzicht in uw gebruikers, en stapsgewijze conversieverhoudingen controleren. 
 
-## <a name="create-your-funnel"></a>Maken van de trechter
-Voordat u uw trechter maakt, kunt u beslissen over de vraag die u wilt beantwoorden. Bijvoorbeeld, u mogelijk wilt weten hoeveel gebruikers bekijkt de introductiepagina van een klantprofiel bekijken en het maken van een ticket. In dit voorbeeld wilt de eigenaars van het bedrijf Fabrikam Fiber weet het percentage van de klanten die een klant-ticket maken.
+## <a name="create-your-funnel"></a>Maken van uw trechter
+Voordat u uw trechter maakt, kunt u beslissen over de vraag die u wilt beantwoorden. Bijvoorbeeld, kunt u weten hoeveel gebruikers bekijkt de startpagina van een klantprofiel bekijken en het maken van een ticket. In dit voorbeeld wordt de eigenaren van het bedrijf Fabrikam-Fiber horen graag het percentage van de klanten die een klant-ticket maken.
 
 Hier volgen de stappen waarmee ze hun trechter maken.
 
-1. Selecteer in het hulpprogramma Application Insights schoorstenen **nieuw**.
-1. Van de **tijdsbereik** vervolgkeuzelijst, selecteer **laatste 90 dagen**. Selecteer een **mijn schoorstenen** of **schoorstenen gedeeld**.
-1. Van de **stap 1** vervolgkeuzelijst, selecteer **Index**. 
-1. Van de **stap 2** selecteert **klant**.
-1. Van de **stap 3** selecteert **maken**.
-1. Voeg een naam toe aan de trechter en selecteer **opslaan**.
+1. Selecteer in het hulpprogramma Application Insights Trechters **nieuw**.
+1. Uit de **tijdsbereik** vervolgkeuzelijst in het menu **afgelopen 90 dagen**. Selecteer een **mijn Trechters** of **gedeelde Trechters**.
+1. Uit de **stap 1** vervolgkeuzelijst, selecteer **Index**. 
+1. Uit de **stap 2** in de lijst met **klant**.
+1. Uit de **stap 3** in de lijst met **maken**.
+1. Een naam toevoegen aan de trechter en selecteer **opslaan**.
 
-De volgende Schermafbeelding toont dat een voorbeeld van het type gegevens het hulpprogramma schoorstenen genereert. De eigenaren van Fabrikam kunnen zien dat tijdens de afgelopen 90 dagen 54.3 procent van hun klanten die de startpagina van een klant-ticket gemaakt bezocht. Ze kunnen ook zien dat 2700 van hun klanten naar de index afkomstig zijn van de startpagina. Dit kan duiden op een probleem met vernieuwen.
+De volgende schermafbeelding ziet u dat een voorbeeld van het type gegevens het programma Trechters wordt gegenereerd. De eigenaren van Fabrikam kunnen zien dat tijdens de afgelopen 90 dagen, 54.3 procent van hun klanten, die de startpagina van een klant-ticket gemaakt bezocht. Ze kunnen ook zien dat 2700 van hun klanten vanaf de startpagina ging bij de index werken. Dit kan duiden op een probleem met vernieuwen.
 
 
-![Schermopname van schoorstenen hulpprogramma met gegevens](./media/app-insights-understand-usage-patterns/funnel1.png)
+![Schermafbeelding van Trechters met gegevens](./media/app-insights-understand-usage-patterns/funnel1.png)
 
-### <a name="funnels-features"></a>Schoorstenen functies
-De vorige schermafbeelding omvat vijf gemarkeerde gebieden. Dit zijn functies van schoorstenen. De volgende lijst worden meer over elk overeenkomend gebied in de schermafbeelding:
-1. Als uw app door actieve is, ziet u een banner steekproeven. De banner selecteren Hiermee opent u een deelvenster context waarin wordt uitgelegd hoe steekproeven om uit te schakelen. 
+### <a name="funnels-features"></a>Trechters functies
+De vorige schermafbeelding omvat vijf gemarkeerde gebieden. Dit zijn functies van Trechters. De volgende lijst over elk overeenkomend gebied in de schermafbeelding wordt toegelicht:
+1. Als uw app verzameld, ziet u een banner steekproeven. De banner te selecteren, wordt een deelvenster context, waarin wordt uitgelegd hoe u kunt uitschakelen van steekproeven geopend. 
 2. U kunt uw trechter om te exporteren [Power BI](app-insights-export-power-bi.md).
-3. Selecteer een stap voor meer informatie over het recht. 
-4. De conversie van historische grafiek toont de tarieven voor conversie gedurende de afgelopen 90 dagen. 
-5. Uw gebruikers betere door het openen van het hulpprogramma gebruikers begrijpen. U kunt filters gebruiken in elke stap. 
+3. Selecteer een stap voor meer informatie aan de rechterkant. 
+4. De historische conversie-grafiek toont de conversieverhoudingen gedurende de afgelopen 90 dagen. 
+5. Uw gebruikers beter begrijpen door het openen van het hulpprogramma gebruikers. U kunt filters gebruiken in elke stap. 
 
 ## <a name="next-steps"></a>Volgende stappen
-  * [Overzicht gebruik](app-insights-usage-overview.md)
+  * [Gebruiksoverzicht](app-insights-usage-overview.md)
   * [Gebruikers, sessies en gebeurtenissen](app-insights-usage-segmentation.md)
   * [Retentie](app-insights-usage-retention.md)
   * [Werkmappen](app-insights-usage-workbooks.md)

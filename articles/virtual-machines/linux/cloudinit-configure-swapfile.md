@@ -1,6 +1,6 @@
 ---
-title: Cloud-init gebruiken voor het configureren van een wisselbestand op een Linux-VM | Microsoft Docs
-description: Het gebruik van cloud-init voor het configureren van een wisselbestand in een Linux-VM tijdens het maken van met de Azure CLI 2.0
+title: Cloud-init gebruiken voor een wisselbestand configureren op een Linux-VM | Microsoft Docs
+description: Hoe u cloud-init gebruiken voor het configureren van een wisselbestand in een Linux-VM tijdens het maken van met de Azure CLI 2.0
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -14,22 +14,22 @@ ms.devlang: azurecli
 ms.topic: article
 ms.date: 11/29/2017
 ms.author: rclaus
-ms.openlocfilehash: 88a141922f113caf7ad67c89de48f84a821f7ba3
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
+ms.openlocfilehash: d58795182e432ef75604e4db18d05e8d2231e215
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29952595"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35755815"
 ---
-# <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Cloud-init gebruiken voor het configureren van een wisselbestand op een Linux-VM
-Dit artikel laat zien hoe u [cloud init](https://cloudinit.readthedocs.io) het wisselbestand configureren op verschillende Linux-distributies. Het wisselbestand is door de Linux Agent (WALA) op basis van welke distributies een vereist oudsher geconfigureerd.  Dit document wordt een overzicht van het proces voor het bouwen van het wisselbestand op aanvraag tijdens inrichting met behulp van cloud-init.  Zie voor meer informatie over hoe cloud init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud init-overzicht](using-cloud-init.md)
+# <a name="use-cloud-init-to-configure-a-swapfile-on-a-linux-vm"></a>Cloud-init gebruiken voor een wisselbestand configureren op een Linux VM
+In dit artikel leest u hoe u [cloud-init](https://cloudinit.readthedocs.io) voor het configureren van het wisselbestand op verschillende Linux-distributies. Het wisselbestand is door de Linux Agent (WALA) op basis van welke distributies een vereist traditioneel geconfigureerd.  Dit document wordt een overzicht van het proces voor het bouwen van het wisselbestand op de vraag tijdens inrichtingstijd cloud-init gebruiken.  Zie voor meer informatie over hoe cloud-init systeemeigen in Azure en de ondersteunde Linux-distributies werkt [cloud-init-overzicht](using-cloud-init.md)
 
 ## <a name="create-swapfile-for-ubuntu-based-images"></a>Wisselbestand voor Ubuntu op basis van installatiekopieën maken
-Ubuntu-afbeeldingen maken standaard op Azure, geen wisselbestanden. Configuratie van de wisseling bestand tijdens de VM-inrichting met behulp van cloud-init inschakelen-Zie de [AzureSwapPartitions document](https://wiki.ubuntu.com/AzureSwapPartitions) op de wiki Ubuntu.
+Standaard op Azure Maak Ubuntu galerie met installatiekopieën niet wisselbestanden. Om te wisselen bestandsconfiguratie tijdens VM inrichten met behulp van cloud-init inschakelen - Raadpleeg de [AzureSwapPartitions document](https://wiki.ubuntu.com/AzureSwapPartitions) op de wiki Ubuntu.
 
-## <a name="create-swapfile-for-redhat-and-centos-based-images"></a>Wisselbestand voor RedHat maken en CentOS op basis van installatiekopieën
+## <a name="create-swapfile-for-red-hat-and-centos-based-images"></a>Wisselbestand voor Red Hat en op basis van CentOS-installatiekopieën maken
 
-Maak een bestand in uw huidige shell met de naam *cloud_init_swapfile.txt* en plak de volgende configuratie. Bijvoorbeeld, het bestand te maken in de Cloud-Shell niet op uw lokale machine. U kunt elke editor die u wilt gebruiken. Voer `sensible-editor cloud_init_swapfile.txt` in voor het maken van het bestand en om een overzicht van beschikbare editors te zien. Kies #1 gebruiken de **nano** editor. Controleer of het hele cloud-init-bestand correct is gekopieerd met name de eerste regel.  
+Maak een bestand in uw huidige shell met de naam *cloud_init_swapfile.txt* en plak de volgende configuratie. In dit voorbeeld maakt u het bestand in de Cloud Shell niet op uw lokale computer. U kunt elke editor die u wilt gebruiken. Voer `sensible-editor cloud_init_swapfile.txt` in voor het maken van het bestand en om een overzicht van beschikbare editors te zien. Kies #1 gebruiken de **nano** editor. Zorg ervoor dat het hele cloud-init-bestand correct is gekopieerd, met name de eerste regel.  
 
 ```yaml
 #cloud-config
@@ -48,7 +48,7 @@ mounts:
   - ["ephemeral0.2", "none", "swap", "sw", "0", "0"]
 ```
 
-Voordat u deze installatiekopie implementeert, moet u maken van een resourcegroep met de [az groep maken](/cli/azure/group#az_group_create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS Oost*.
+Voordat u deze installatiekopie implementeert, moet u een resourcegroep maken met de [az-groep maken](/cli/azure/group#az_group_create) opdracht. Een Azure-resourcegroep is een logische container waarin Azure-resources worden geïmplementeerd en beheerd. In het volgende voorbeeld wordt een resourcegroep met de naam *myResourceGroup* gemaakt op de locatie *VS - oost*.
 
 ```azurecli-interactive 
 az group create --name myResourceGroup --location eastus
@@ -65,20 +65,20 @@ az vm create \
   --generate-ssh-keys 
 ```
 
-## <a name="verify-swapfile-was-created"></a>Controleer of het wisselbestand is gemaakt
-SSH kunt uitvoeren naar het openbare IP-adres van uw virtuele machine wordt weergegeven in de uitvoer van de voorgaande opdracht. Voer uw eigen **publicIpAddress** als volgt:
+## <a name="verify-swapfile-was-created"></a>Controleer of wisselbestand is gemaakt
+SSH naar het openbare IP-adres van uw virtuele machine wordt weergegeven in de uitvoer van de voorgaande opdracht. Voer uw eigen **publicIpAddress** als volgt:
 
 ```bash
 ssh <publicIpAddress>
 ```
 
-Zodra u SSH'ed in de virtuele machine hebt, moet u controleren of het wisselbestand is gemaakt
+Beschikt u SSH'ed in de virtuele machine, moet u controleren of het wisselbestand is gemaakt
 
 ```bash
 swapon -s
 ```
 
-De uitvoer van deze opdracht moet er als volgt uitzien:
+De uitvoer van deze opdracht moet er als volgt:
 
 ```text
 Filename                Type        Size    Used    Priority
@@ -86,12 +86,12 @@ Filename                Type        Size    Used    Priority
 ```
 
 > [!NOTE] 
-> Als u een bestaande Azure-installatiekopie die is van een wisselbestand geconfigureerd hebt en u wilt wijzigen van de configuratie van de wisseling-bestand voor installatiekopieën van het nieuwe, moet u het bestaande wisselbestand verwijderen. Zie 'Aanpassen afbeeldingen inrichten door cloud init' document voor meer informatie.
+> Als u een bestaande Azure-installatiekopie met een wisselbestand geconfigureerd hebt en u wilt dat de configuratie van het bestand wisselen voor nieuwe afbeeldingen te wijzigen, moet u de bestaande wisselbestand verwijderen. Raadpleeg het document 'Aanpassen installatiekopieën om in te richten van cloud-init' voor meer informatie.
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer cloud-init voorbeelden van wijzigingen in de configuratie, de volgende:
+Voor extra cloud-init-voorbeelden van wijzigingen in de configuratie, Zie de volgende:
  
-- [Een extra Linux-gebruiker toevoegen aan een virtuele machine](cloudinit-add-user.md)
-- [Voer een Pakketbeheer voor het bijwerken van bestaande pakketten op de eerste keer opstarten](cloudinit-update-vm.md)
-- [Wijzigen van de lokale hostnaam VM](cloudinit-update-vm-hostname.md) 
-- [Installeren van een toepassingspakket, het bijwerken van de configuratiebestanden en het invoeren van sleutels](tutorial-automate-vm-deployment.md)
+- [Een aanvullende Linux-gebruiker toevoegen aan een virtuele machine](cloudinit-add-user.md)
+- [Uitvoeren van een pakketbeheerder voor het bijwerken van bestaande pakketten bij de eerste keer opstarten](cloudinit-update-vm.md)
+- [Wijzigen van de lokale VM-hostnaam](cloudinit-update-vm-hostname.md) 
+- [Het installatiepakket voor een toepassing, het bijwerken van configuratiebestanden en het invoeren van sleutels](tutorial-automate-vm-deployment.md)

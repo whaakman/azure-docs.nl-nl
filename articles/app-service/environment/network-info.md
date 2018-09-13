@@ -1,6 +1,6 @@
 ---
 title: Aandachtspunten voor netwerken met een Azure App Service-omgeving
-description: Legt uit het netwerkverkeer van de as-omgeving en het nsg's en udr's met uw as-omgeving instellen
+description: Het netwerkverkeer van de as-omgeving en hoe nsg's en udr's met de as-omgeving instellen
 services: app-service
 documentationcenter: na
 author: ccompy
@@ -11,39 +11,40 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2018
+ms.date: 05/29/2018
 ms.author: ccompy
-ms.openlocfilehash: d099163cdc34624afd8f01b8f1978c5ee902d1ff
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: ef2288e2f756db6529f1ec5f7b3a49067b2998aa
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35644273"
 ---
-# <a name="networking-considerations-for-an-app-service-environment"></a>Overwegingen voor een App-serviceomgeving netwerken #
+# <a name="networking-considerations-for-an-app-service-environment"></a>Aandachtspunten voor netwerken voor een App Service Environment #
 
 ## <a name="overview"></a>Overzicht ##
 
- Azure [App Service-omgeving] [ Intro] een Azure App Service-implementatie in een subnet in uw Azure virtual network (VNet). Er zijn twee implementatietypen voor een App Service-omgeving (as-omgeving):
+ Azure [App Service-omgeving] [ Intro] is een implementatie van Azure App Service in een subnet in uw Azure-netwerk (VNet). Er zijn twee implementatietypen voor een App Service environment (ASE):
 
-- **Externe as-omgeving**: beschrijft de as-omgeving gehoste apps op internet toegankelijke IP-adres. Zie voor meer informatie [maken van een externe as-omgeving][MakeExternalASE].
-- **As-ILB omgeving**: beschrijft de as-omgeving gehoste apps op een IP-adres binnen uw VNet. Het interne eindpunt, is een interne load balancer (ILB) dat is waarom een ILB-as-omgeving is aangeroepen. Zie voor meer informatie [maken en gebruiken een ILB-as-omgeving][MakeILBASE].
+- **Externe as-omgeving**: beschrijft de as-omgeving gehoste apps op internet toegankelijk is via het IP-adres. Zie voor meer informatie, [maken van een externe as-omgeving][MakeExternalASE].
+- **ILB as-omgeving**: wordt aangegeven dat de apps as-omgeving worden gehost op een IP-adres in uw VNet. Het interne eindpunt is een interne load balancer (ILB), vandaar dat het een ILB as-omgeving wordt genoemd. Zie voor meer informatie, [maken en gebruiken een ILB as-omgeving][MakeILBASE].
 
-Er zijn nu twee versies van App Service-omgeving: ASEv1 en ASEv2. Zie voor informatie over ASEv1, [Inleiding tot de App Service-omgeving v1][ASEv1Intro]. ASEv1 kan worden geïmplementeerd in een klassiek of Resource Manager VNet. ASEv2 kan alleen worden geïmplementeerd in een Resource Manager VNet.
+Er zijn twee versies van App Service-omgeving: ASEv1 en ASEv2. Zie voor meer informatie over ASEv1 [Inleiding tot App Service Environment v1][ASEv1Intro]. ASEv1 kan worden geïmplementeerd in een klassieke of Resource Manager-VNet. ASEv2 kan alleen worden geïmplementeerd in een Resource Manager VNet.
 
-Alle aanroepen van een as-omgeving gaat u naar het internet laat het VNet via een VIP-adres toegewezen voor de as-omgeving. Het openbare IP-adres van deze VIP wordt vervolgens het bron-IP voor alle aanroepen van de as-omgeving die gaat u naar het internet. Als de apps in uw as-omgeving aanroepen naar resources in uw VNet of via een VPN, wordt de bron-IP is een van de IP-adressen in het subnet dat wordt gebruikt door uw as-omgeving. Omdat de as-omgeving binnen het VNet is, kan het ook toegang tot bronnen binnen het VNet zonder extra configuratie. Als het VNet is verbonden met uw on-premises netwerk, hebben-apps in uw as-omgeving ook toegang tot bronnen er. U hoeft niet te configureren van de as-omgeving of uw app ieder verder.
+Alle aanroepen van een as-omgeving die gaat u naar het internet laat u het VNet via een VIP-adres toegewezen voor de as-omgeving. Het openbare IP-adres van deze VIP is het bron-IP-adres voor alle aanroepen van de as-omgeving die gaat u naar het internet. Als de apps in de as-omgeving aanroepen naar resources in uw VNet of via een VPN kunt, wordt de bron-IP is een van de IP-adressen in het subnet dat wordt gebruikt door de as-omgeving. Omdat de as-omgeving binnen het VNet is, kan het ook toegang tot bronnen binnen het VNet zonder extra configuratie. Als het VNet is verbonden met uw on-premises netwerk, wordt ook toegang tot resources er zonder aanvullende configuratie in apps in de as-omgeving hebben.
 
 ![Externe as-omgeving][1] 
 
-Als u een externe as-omgeving hebt, wordt het openbare VIP is ook het eindpunt dat uw apps as-omgeving worden omgezet naar voor:
+Als u een externe as-omgeving hebt, wordt de openbare VIP is ook het eindpunt dat uw ASE-apps worden omgezet naar voor:
 
 * HTTP/S. 
 * FTP/S. 
-* Web-implementatie.
+* Webimplementatie.
 * Foutopsporing op afstand.
 
 ![ILB AS-OMGEVING][2]
 
-Als u een ILB-as-omgeving hebt, is het IP-adres van de ILB het eindpunt voor HTTP/S, FTP-/ S, web-implementatie en foutopsporing op afstand.
+Als u een ILB as-omgeving hebt, is het adres van de ILB het eindpunt voor HTTP/S, FTP/S, implementatie van web- en foutopsporing op afstand.
 
 De normale app-poorten zijn:
 
@@ -51,62 +52,64 @@ De normale app-poorten zijn:
 |----------|---------|-------------|
 |  HTTP/HTTPS  | Gebruiker worden geconfigureerd |  80, 443 |
 |  FTP/FTPS    | Gebruiker worden geconfigureerd |  21, 990, 10001-10020 |
-|  Visual Studio foutopsporing op afstand  |  Gebruiker worden geconfigureerd |  4016, 4018, 4020, 4022 |
+|  Visual Studio fouten opsporen op afstand  |  Gebruiker worden geconfigureerd |  4016, 4018, 4020, 4022 |
 
-Dit geldt als u op een externe as-omgeving of op een as ILB-omgeving. Als u op een externe as-omgeving, heeft deze poorten op het openbare VIP. Als u van een as ILB-omgeving gebruikmaakt, heeft deze poorten op de ILB. Als u poort 443 vergrendelen, kunnen er gevolgen heeft voor sommige functies die worden weergegeven in de portal. Zie voor meer informatie [Portal afhankelijkheden](#portaldep).
+Dit geldt als u op een externe as-omgeving of in een ILB as-omgeving bent. Als u een externe as-omgeving, kunt u deze poorten op de openbare VIP bereikt. Als u een ILB as-omgeving, kunt u deze poorten op de ILB bereikt. Als u poort 443 te vergrendelen, kan het zijn dat er van invloed op sommige functies die beschikbaar zijn in de portal hebt gemaakt. Zie voor meer informatie, [Portal afhankelijkheden](#portaldep).
 
-## <a name="ase-subnet-size"></a>As-omgeving subnetgrootte ##
+## <a name="ase-subnet-size"></a>Grootte van de ASE-subnet ##
 
-De grootte van het subnet dat wordt gebruikt voor het hosten van een as-omgeving kan niet worden gewijzigd nadat de as-omgeving is geïmplementeerd.  De as-omgeving maakt gebruik van een adres voor elke infrastructuurrol ook als voor elk exemplaar van geïsoleerde App Service-abonnement.  Bovendien zijn er 5 adressen die door het Azure-netwerken wordt gebruikt voor elk subnet dat is gemaakt.  Een as-omgeving met geen App Service-plannen op alle gebruikt 12 adressen voordat u een app maakt.  Als het een ILB-as-omgeving wordt het 13 adressen gebruiken voordat u een app in die as-omgeving maken. Als u uw App service-plannen uitschalen zijn er extra adressen nodig voor elke front-end dat is toegevoegd.  Standaard worden de Front-endservers toegevoegd voor exemplaren van elke 15 totale App Service-plan. 
+De grootte van het subnet dat wordt gebruikt voor het hosten van een as-omgeving kan niet worden gewijzigd nadat de as-omgeving is geïmplementeerd.  De as-omgeving maakt gebruik van een adres voor elke infrastructuurrol ook als die voor elk exemplaar geïsoleerd App Service-plan.  Bovendien zijn er 5-adressen die door Azure Networking gebruikt voor elk subnet dat is gemaakt.  Een as-omgeving met geen App Service-plannen helemaal wordt 12 adressen gebruiken voordat u een app maakt.  Als het een ILB as-omgeving wordt het 13 adressen gebruiken voordat u een app in deze as-omgeving maken. Als u uw as-omgeving uitbreiden, kan infrastructuur rollen elke meervoud van 15 en 20 van uw App Service-plan-exemplaren worden toegevoegd.
 
    > [!NOTE]
-   > Niets anders kan niet in het subnet, maar de as-omgeving. Zorg dat u kiest een adresruimte waarmee voor toekomstige groei. U kan niet deze instelling later wijzigen. Een grootte van het is raadzaam `/25` met 128 adressen.
+   > Niets anders kan zich in het subnet, maar de as-omgeving. Zorg dat u kiest een adresruimte waarmee voor toekomstige groei. U kunt geen deze instelling later wijzigen. We raden een grootte van `/24` met 256-adressen.
 
-## <a name="ase-dependencies"></a>Afhankelijkheden van de as-omgeving ##
+Als u omhoog of omlaag schalen, nieuwe rollen van de juiste grootte heeft toegevoegd en vervolgens uw workloads worden gemigreerd van de huidige grootte voor de doelgrootte. Nadat uw apps worden gemigreerd, worden de oorspronkelijke virtuele machines verwijderd. Dit betekent dat als u had een ASE met 100 ASP-instanties zou er een punt waar u dubbele het aantal virtuele machines nodig hebt.  Het is om deze reden die wij het gebruik van adviseren een slash (/ 24) voor alle wijzigingen die u mogelijk nodig hebt.  
 
-Een as-omgeving binnenkomende-afhankelijkheid is:
+## <a name="ase-dependencies"></a>As-omgeving afhankelijkheden ##
 
-| Gebruiken | Vanaf | Handeling |
-|-----|------|----|
-| Beheer | App Service management-adressen | As-omgeving subnet: 454, 455 |
-|  Interne communicatie as-omgeving | As-omgeving subnet: alle poorten | As-omgeving subnet: alle poorten
-|  Azure load balancer toestaan binnenkomende | Azure Load Balancer | As-omgeving subnet: alle poorten
-|  App toegewezen IP-adressen | App toegewezen adressen | As-omgeving subnet: alle poorten
-
-Het binnenkomende verkeer biedt opdracht en controle van de as-omgeving naast het controleren van het systeem. De bron-IP-adressen voor dit verkeer worden vermeld in de [as-omgeving Management adressen] [ ASEManagement] document. De netwerkconfiguratie van de beveiliging moet toegang vanaf alle IP-adressen op de poorten 454 en 455 toestaan.
-
-Binnen het as-omgeving subnet er veel poorten gebruikt voor interne onderdeel zijn kunnen communicatie en ze wijzigen.  Hiervoor moet alle poorten in het subnet van de as-omgeving voor toegang vanuit het subnet van de as-omgeving. 
-
-Voor de communicatie tussen de Azure load balancer en het subnet van de as-omgeving zijn de poorten die moeten worden geopend minimaal 454 en 455 van 16001. De 16001 poort wordt gebruikt voor keep alive verkeer tussen de load balancer en het as-omgeving. Als u van een as ILB-omgeving gebruikmaakt is, kunt u verkeer naar beneden op alleen de 454, 455, 16001 vergrendelen poorten.  Als u van een externe as-omgeving gebruikmaakt moet u rekening houden met het normale app-poorten.  Als u van app toegewezen adressen gebruikmaakt moet u deze naar alle poorten openen.  Als u een adres is toegewezen aan een specifieke app, gebruikt de load balancer-poorten die niet bekend zijn van vooraf HTTP en HTTPS-verkeer verzenden naar de as-omgeving.
-
-Als u app toegewezen IP-adressen die u wilt toestaan dat verkeer van de IP-adressen toegewezen aan uw apps op het subnet van de as-omgeving.
-
-Voor uitgaande toegang is een as-omgeving afhankelijk van meerdere externe systemen. Die afhankelijkheden systeem zijn gedefinieerd met behulp van DNS-namen en niet toewijzen aan een vaste set van IP-adressen. De as-omgeving is dus uitgaand verkeer van het subnet van de as-omgeving op alle externe IP-adressen in een groot aantal poorten vereist. Een as-omgeving heeft de volgende uitgaande afhankelijkheden:
+De as-omgeving binnenkomende toegang afhankelijkheden zijn:
 
 | Gebruiken | Vanaf | Handeling |
 |-----|------|----|
-| Azure Storage | As-omgeving subnet | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 is alleen nodig voor ASEv1.) |
-| Azure SQL Database | As-omgeving subnet | database.Windows.NET: 1433, 11000 11999, 14000 14999 (Zie voor meer informatie [SQL Database V12 Poortgebruik](../../sql-database/sql-database-develop-direct-route-ports-adonet-v12.md).)|
-| Azure management | As-omgeving subnet | Management.Core.Windows.NET, management.azure.com: 443 
-| Verificatie van SSL-certificaat |  As-omgeving subnet            |  OCSP.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443
-| Azure Active Directory        | As-omgeving subnet            |  Internet: 443
-| App Service-beheer        | As-omgeving subnet            |  Internet: 443
-| Azure DNS                     | As-omgeving subnet            |  Internet: 53
-| Interne communicatie as-omgeving    | As-omgeving subnet: alle poorten |  As-omgeving subnet: alle poorten
+| Beheer | Beheeradressen van App Service | ASE-subnet: 454, 455 |
+|  Interne communicatie as-omgeving | ASE-subnet: alle poorten | ASE-subnet: alle poorten
+|  Azure load balancer toegestaan binnenkomend verkeer | Azure Load Balancer | ASE-subnet: alle poorten
+|  App toegewezen IP-adressen | App toegewezen adressen | ASE-subnet: alle poorten
 
-Als de as-omgeving verliest toegang tot deze afhankelijkheden, werkt niet. Wanneer dit gebeurt lang genoeg hebt geklikt, wordt de as-omgeving is onderbroken.
+Het inkomend managementverkeer biedt opdracht en controle van de ASE naast het controleren van het systeem. De bronadressen voor dit verkeer worden vermeld in de [ASE Management adressen] [ ASEManagement] document. De netwerkconfiguratie van de beveiliging moet toegang vanaf alle IP-adressen op de poorten 454 en 455 is toegestaan. Als u toegang vanaf deze adressen blokkeert, wordt de as-omgeving wordt niet in orde en vervolgens worden onderbroken.
+
+Binnen de ASE-subnet er veel poorten die worden gebruikt voor interne onderdeel zijn kunnen communicatie en ze wijzigen.  Hiervoor moet alle poorten in de ASE-subnet voor toegang vanuit het ASE-subnet. 
+
+Voor de communicatie tussen de Azure load balancer en het ASE-subnet zijn de poorten die moeten open zijn minimaal 454 en 455 van 16001. De 16001 poort wordt gebruikt voor keep alive verkeer tussen de load balancer als de as-omgeving. Als u een ILB as-omgeving gebruikt, kunt u verkeer tot alleen de 454, 455, 16001 vergrendelen poorten.  Als u een externe as-omgeving moet u rekening mee dat de poorten van de toegang tot normale app.  Als u app toegewezen adressen die u wilt openen naar alle poorten.  Als u een adres wordt toegewezen aan een specifieke app, gebruikt de load balancer poorten die niet bekend zijn van tevoren HTTP en HTTPS-verkeer verzenden naar de as-omgeving.
+
+Als u app toegewezen IP-adressen die u wilt toestaan dat verkeer van de IP-adressen toegewezen aan uw apps op het ASE-subnet.
+
+Voor uitgaande toegang is een as-omgeving afhankelijk van meerdere externe systemen. Deze systeemafhankelijkheden met DNS-namen zijn gedefinieerd, en niet toewijzen aan een vaste set IP-adressen. De as-omgeving is dus uitgaand verkeer vanuit het ASE-subnet op alle externe IP-adressen in een groot aantal poorten vereist. Een as-omgeving heeft de volgende uitgaande afhankelijkheden:
+
+| Gebruiken | Vanaf | Handeling |
+|-----|------|----|
+| Azure Storage | ASE-subnet | Table.Core.Windows.NET, blob.core.windows.net, queue.core.windows.net, file.core.windows.net: 80, 443, 445 (445 is alleen nodig voor ASEv1.) |
+| Azure SQL Database | ASE-subnet | database.Windows.NET: 1433 |
+| Azure-beheer | ASE-subnet | Management.Core.Windows.NET, management.azure.com, admin.core.windows.net: 443 |
+| Verificatie van SSL-certificaat |  ASE-subnet            |  OCSP.msocsp.com, mscrl.microsoft.com, crl.microsoft.com: 443 |
+| Azure Active Directory        | ASE-subnet            |  Login.Windows.NET: 443 |
+| App Service-beheer        | ASE-subnet            |  GR-prod -<regionspecific>. cloudapp.net, az-prod.metrics.nsatc .net: 443 |
+| Azure DNS                     | ASE-subnet            |  Internet: 53 |
+| Interne communicatie as-omgeving    | ASE-subnet: alle poorten |  ASE-subnet: alle poorten |
+
+Als de as-omgeving de toegang tot deze afhankelijkheden verliest, werkt niet. In dat geval lang genoeg, wordt de as-omgeving is onderbroken.
 
 ### <a name="customer-dns"></a>Klant DNS ###
 
-Als het VNet is geconfigureerd met een klant gedefinieerde DNS-server, wordt het door de werkbelasting van de tenant gebruikt. De as-omgeving moet nog steeds communiceren met de Azure DNS voor beheerdoeleinden. 
+Als het VNet met een door de klant gedefinieerde DNS-server is geconfigureerd, wordt het door de tenantwerkbelastingen gebruiken. Er moet nog steeds de as-omgeving om te communiceren met Azure DNS voor beheerdoeleinden. 
 
-Als het VNet is geconfigureerd met een klant DNS op de andere zijde van een VPN, moet de DNS-server bereikbaar is vanuit het subnet waarin de as-omgeving zijn.
+Als het VNet is geconfigureerd met een klant DNS op de andere kant van een VPN-verbinding, moet de DNS-server bereikbaar is vanaf het subnet waarin de as-omgeving zijn.
 
 <a name="portaldep"></a>
 
 ## <a name="portal-dependencies"></a>Portal-afhankelijkheden ##
 
-Naast de functionele afhankelijkheden van de as-omgeving zijn er enkele extra artikelen die betrekking hebben op de ervaring van de portal. Enkele van de functies in de Azure-portal afhankelijk zijn van directe toegang tot _SCM site_. Er zijn twee URL's voor elke app in Azure App Service. De eerste URL is toegang tot uw app. De URL van de tweede is voor toegang tot de site SCM, ook wel genoemd de _Kudu-console_. Functies die gebruikmaken van de site SCM:
+Naast de functionele afhankelijkheden van de as-omgeving zijn er enkele extra items in verband met de portal-ervaring. Enkele van de mogelijkheden in Azure portal zijn afhankelijk van directe toegang tot _SCM-site_. Er zijn twee URL's voor elke app in Azure App Service. De eerste URL is voor toegang tot uw app. De URL van de tweede is voor toegang tot de SCM-site wordt ook wel genoemd de _Kudu-console_. Functies die gebruikmaken van de SCM-site zijn onder andere:
 
 -   Webtaken
 -   Functions
@@ -116,89 +119,95 @@ Naast de functionele afhankelijkheden van de as-omgeving zijn er enkele extra ar
 -   Procesverkenner
 -   Console
 
-Wanneer u een ILB-as-omgeving, wordt in de SCM-site internet toegankelijk van buiten het VNet niet. Wanneer uw app wordt gehost op een as ILB-omgeving, werken bepaalde functies niet vanuit de portal.  
+Als u een ILB as-omgeving gebruikt, niet de SCM-site internet toegankelijk van buiten het VNet. Wanneer uw app wordt gehost op een ILB as-omgeving, werken sommige mogelijkheden niet vanuit de portal.  
 
-Veel van deze mogelijkheden die afhankelijk van de site SCM zijn zijn eveneens beschikbaar rechtstreeks in de Kudu-console. U kunt verbinding maken voor haar rechtstreeks in plaats van via de portal. Als uw app wordt gehost in een ILB-as-omgeving, gebruikt u de referenties van uw publishing aan te melden. De URL voor toegang tot de SCM-site van een app die wordt gehost in een ILB-as-omgeving heeft de volgende indeling: 
+Veel van de functies die afhankelijk zijn van de SCM-site zijn ook beschikbaar rechtstreeks in de Kudu-console. U kunt verbinding maken op deze rechtstreeks in plaats van met behulp van de portal. Als uw app wordt gehost in een ILB as-omgeving, wordt aan te melden bij uw publicatiereferenties gebruiken. De URL voor toegang tot de SCM-site van een app die wordt gehost in een ILB as-omgeving heeft de volgende indeling: 
 
 ```
 <appname>.scm.<domain name the ILB ASE was created with> 
 ```
 
-Als u uw as ILB-omgeving is de domeinnaam *contoso.net* en de naam van uw app *testapp*, de app is bereikt op *testapp.contoso.net*. De SCM-site die u ermee gaat is bereikt op *testapp.scm.contoso.net*.
+Als uw ILB as-omgeving de domeinnaam *contoso.net* en de appnaam van uw is *testapp*, de app is bereikt op *testapp.contoso.net*. De SCM-site die u ermee gaat is bereikt op *testapp.scm.contoso.net*.
 
-## <a name="functions-and-web-jobs"></a>Functies en Web-taken ##
+## <a name="functions-and-web-jobs"></a>Functions en webjobs ##
 
-Zowel functies en Web taken afhankelijk zijn van de site SCM maar worden ondersteund voor gebruik in de portal, zelfs als uw apps in een ILB as-omgeving, zolang uw browser de SCM-site kan bereiken.  Als u van een zelfondertekend certificaat met de as ILB-omgeving gebruikmaakt, moet u uw browser te vertrouwen dat certificaat inschakelen.  Voor Internet Explorer en Edge betekent het certificaat dat moet worden in het computerarchief van de vertrouwensrelatie.  Als u Chrome vervolgens dit betekent dat u het certificaat in de browser eerder geaccepteerd dat door waarschijnlijk rechtstreeks roept de scm-site.  De beste oplossing is het gebruik van een commerciële certificaat dat is in de vertrouwensketen browser.  
+Zowel Functions als Web taken zijn afhankelijk van de SCM-site, maar worden ondersteund voor gebruik in de portal, zelfs als uw apps in een ILB as-omgeving, zo lang uw browser de SCM-site kunt bereiken.  Als u van een zelfondertekend certificaat met uw ILB as-omgeving gebruikmaakt, moet u uw browser naar het certificaat vertrouwd inschakelen.  Is in het computerarchief van de vertrouwensrelatie voor Internet Explorer en Edge dat betekent het certificaat dat.  Als u met chrome werkt en dat betekent dat u het certificaat in de browser eerder geaccepteerd dat door waarschijnlijk te maken met de scm-site rechtstreeks.  De beste oplossing is het gebruik van een commercieel certificaat in de vertrouwensketen van de browser.  
 
-## <a name="ase-ip-addresses"></a>As-omgeving IP-adressen ##
+## <a name="ase-ip-addresses"></a>ASE-IP-adressen ##
 
-Een as-omgeving heeft enkele IP-adressen moet houden. Dit zijn:
+Een as-omgeving heeft enkele IP-adressen rekening mee moet houden. Dit zijn:
 
-- **Openbare binnenkomende IP-adres**: gebruikt voor het verkeer van de app in een externe as-omgeving en beheer van verkeer in zowel een externe as-omgeving en een ILB-as-omgeving.
-- **Uitgaande openbare IP-adres**: gebruikt als het 'van' IP-adres voor uitgaande verbindingen van de as-omgeving die laat het VNet, die niet worden doorgestuurd naar beneden een VPN.
-- **ILB IP-adres**: als u een ILB-as-omgeving.
-- **App toegewezen SSL op basis van IP-adressen**: alleen mogelijk met een externe as-omgeving en het IP-gebaseerde SSL is geconfigureerd.
+- **Inkomende openbare IP-adres**: gebruikt voor appverkeer in een externe as-omgeving en beheer van verkeer in zowel een externe as-omgeving en een ILB as-omgeving.
+- **Uitgaande openbare IP-adres**: gebruikt als de 'van'-IP voor uitgaande verbindingen van de as-omgeving die het VNet, die niet worden doorgestuurd naar beneden een VPN-verbinding.
+- **ILB IP-adres**: als u een ILB as-omgeving.
+- **SSL op basis van IP-adressen toegewezen App**: alleen mogelijk met een externe as-omgeving en het IP-gebaseerd SSL is geconfigureerd.
 
-Deze IP-adressen zijn gemakkelijk zichtbaar zijn in een ASEv2 in de Azure portal van de gebruikersinterface van de as-omgeving. Als u een ILB-as-omgeving hebt, wordt het IP-adres voor de ILB vermeld.
+Deze IP-adressen zijn eenvoudig zichtbaar zijn in een ASEv2 in Azure portal vanuit de gebruikersinterface van de as-omgeving. Als u een ILB as-omgeving hebt, wordt het IP-adres voor de ILB wordt vermeld.
+
+   > [!NOTE]
+   > Deze IP-adressen worden niet gewijzigd, zolang de as-omgeving actief en werkend blijft.  Als de as-omgeving wordt onderbroken en hersteld, wijzigt u de adressen die worden gebruikt door de as-omgeving. De normale oorzaak voor een as-omgeving om te worden onderbroken is als u binnenkomende toegang tot of blokkeren van toegang tot een ASE-afhankelijkheid. 
 
 ![IP-adressen][3]
 
 ### <a name="app-assigned-ip-addresses"></a>App-toegewezen IP-adressen ###
 
-Met een externe as-omgeving, kunt u IP-adressen toewijzen aan afzonderlijke apps. U kunt geen dat doen met een ILB-as-omgeving. Zie voor meer informatie over het configureren van uw app om de eigen IP-adres hebben [een bestaande aangepaste SSL-certificaat binden aan Azure-web-apps](../app-service-web-tutorial-custom-ssl.md).
+Met een externe as-omgeving, kunt u IP-adressen toewijzen aan afzonderlijke apps. U kunt geen dat doen met een ILB as-omgeving. Zie voor meer informatie over het configureren van uw app een eigen IP-adres hebben [een bestaand aangepast SSL-certificaat binden aan Azure WebApps](../app-service-web-tutorial-custom-ssl.md).
 
-Wanneer een app zijn eigen SSL op basis van IP-adres heeft, behoudt de as-omgeving zich twee poorten toewijzen aan dat IP-adres. Een poort is voor de HTTP-verkeer en de andere poort is voor HTTPS. Deze poorten worden vermeld in de gebruikersinterface van de as-omgeving in het gedeelte van de IP-adressen. Verkeer moet kunnen deze poorten van de VIP bereiken of de apps niet toegankelijk zijn. Deze vereiste is belangrijk te weten bij het configureren van Netwerkbeveiligingsgroepen (nsg's).
+Wanneer een app een eigen SSL op basis van IP-adres heeft, behoudt de as-omgeving zich twee poorten toe te wijzen aan dat IP-adres. Een poort is voor de HTTP-verkeer, en de andere poort voor HTTPS. Deze poorten worden vermeld in de gebruikersinterface van de as-omgeving in het gedeelte van de IP-adressen. Verkeer moeten kunnen deze poorten van de VIP bereiken of de apps zijn niet toegankelijk. Deze vereiste is belangrijk te weten wanneer u Netwerkbeveiligingsgroepen (nsg's) configureren.
 
 ## <a name="network-security-groups"></a>Netwerkbeveiligingsgroepen ##
 
-[Netwerkbeveiligingsgroepen] [ NSGs] bieden de mogelijkheid om te beheren van toegang tot het netwerk binnen een VNet. Wanneer u de portal gebruikt, moet u er een regel voor weigeren impliciete is op de laagste prioriteit voor het weigeren van alles. Wat u bouwen zijn de regels voor toestaan.
+[Netwerkbeveiligingsgroepen] [ NSGs] bieden de mogelijkheid voor het beheren van toegang tot het netwerk binnen een VNet. Wanneer u de portal gebruikt, moet u er een regel voor weigeren impliciete is op de laagste prioriteit Alles weigeren. Wat u maken worden uw regels voor toestaan.
 
-In een as-omgeving hebt u geen toegang tot de virtuele machines gebruikt als host voor de as-omgeving zelf. Ze zich in een abonnement door Microsoft beheerd. Als u wilt toegang tot de apps op de as-omgeving te beperken, stelt u nsg's op het subnet van de as-omgeving. Hierbij moet u zorgvuldig aandacht schenken aan de afhankelijkheden van de as-omgeving. Als u eventuele afhankelijkheden blokkeert, werkt niet meer de as-omgeving.
+In een as-omgeving hebt u geen toegang aan de virtuele machines die worden gebruikt voor het hosten van de as-omgeving zelf. Ze in een beheerd door Microsoft abonnement. Als u beperken van toegang tot de apps op de as-omgeving wilt, stelt u nsg's op het ASE-subnet. In dat geval, betaalt u zorgvuldige aandacht aan de afhankelijkheden van de as-omgeving. Als u eventuele afhankelijkheden blokkeert, werkt niet meer de as-omgeving.
 
-Nsg's kunnen worden geconfigureerd via de Azure portal of via PowerShell. De informatie hier ziet u de Azure-portal. U maakt en nsg's in de portal beheren als een bron op het hoogste niveau onder **Networking**.
+Nsg's kunnen worden geconfigureerd via de Azure-portal of via PowerShell. De informatie hier ziet u de Azure-portal. U maakt en nsg's beheren in de portal als een resource op het hoogste niveau onder **netwerken**.
 
-Wanneer u de vereisten voor binnenkomend en uitgaand in aanmerking worden genomen, het nsg's zijn vergelijkbaar met het nsg's in dit voorbeeld wordt getoond. Het adresbereik van het VNet is _192.168.250.0/23_, en het subnet dat u het as-omgeving in _192.168.251.128/25_.
+Wanneer rekening met de vereisten voor binnenkomend en uitgaand gehouden, zijn de nsg's vergelijkbaar met de nsg's in dit voorbeeld wordt getoond. Het VNet-adresbereik _192.168.250.0/23_, en het subnet dat de as-omgeving in _192.168.251.128/25_.
 
-De eerste twee inkomende vereisten voor de as-omgeving naar de functie worden aan de bovenkant van de lijst in dit voorbeeld weergegeven. Deze as-omgeving beheer inschakelen en de as-omgeving om te communiceren met zichzelf toestaan. De andere vermeldingen zijn alle tenant kunnen worden geconfigureerd en toegang tot het netwerk naar de as-omgeving gehoste toepassingen kunnen bepalen. 
+De eerste twee inkomende vereisten voor de as-omgeving naar de functie worden weergegeven aan de bovenkant van de lijst in dit voorbeeld. Ze ASE-beheer inschakelen en de as-omgeving om te communiceren met zichzelf toestaan. De andere vermeldingen alle tenant kunnen worden geconfigureerd zijn en netwerktoegang tot de as-omgeving gehoste toepassingen kunnen beheren. 
 
 ![Inkomende beveiligingsregels][4]
 
-Een standaardregel kunt de IP-adressen in het VNet om te communiceren met het subnet van de as-omgeving. Een andere standaardregel kunnen de load balancer, ook wel bekend als het openbare VIP, om te communiceren met de as-omgeving. Overzicht van de standaardregels Selecteer **regels standaard** naast de **toevoegen** pictogram. Als u al het andere nadat de NSG regels weergegeven regel weigeren plaatst, voorkomt u verkeer tussen het VIP en de as-omgeving. Om te voorkomen dat verkeer dat afkomstig is van binnen het VNet, toevoegen inkomende van uw eigen regel om toe te staan. Een bron die gelijk is aan AzureLoadBalancer gebruiken met als bestemming **eventuele** en een poortbereik van **\***. Omdat de regel van het NSG wordt toegepast op het subnet van de as-omgeving, hoeft u niet te worden specifieke in het doel.
+Een standaardregel kunt de IP-adressen in het VNet om te communiceren met de ASE-subnet. Een andere standaardregel kunnen de load balancer, ook wel bekend als de openbare VIP en om te communiceren met de as-omgeving. De standaardregels Selecteer **standaardregels** naast de **toevoegen** pictogram. Als u een weigeren alle andere regel nadat de NSG-regels weergegeven, maar u voorkomen dat het verkeer tussen het VIP-adres en de as-omgeving. Om te voorkomen dat verkeer dat afkomstig is van binnen het VNet, Voeg uw eigen regel waarmee inkomend. Een bron die gelijk is aan AzureLoadBalancer gebruiken met een bestemming **eventuele** en een poortbereik van **\***. Omdat de NSG-regel wordt toegepast op het ASE-subnet, moet u geen specifieke worden in het doel.
 
-Als u een IP-adres aan uw app toegewezen, zorg er dan voor dat u de poorten open houden. Selecteer de poorten vindt **App Service-omgeving** > **IP-adressen**.  
+Als u een IP-adres aan uw app toegewezen, zorg ervoor dat u de poorten openen. De poorten Selecteer **App Service-omgeving** > **IP-adressen**.  
 
-Alle items weergegeven in de volgende uitgaande regels nodig zijn, met uitzondering van het laatste item. Hiermee kunt netwerktoegang tot de as-omgeving afhankelijkheden die eerder in dit artikel zijn vermeld. Als u een van deze blokkeert, werkt niet meer uw as-omgeving. Het laatste item in de lijst kunt uw as-omgeving om te communiceren met andere resources in uw VNet.
+Alle items die wordt weergegeven in de volgende regels voor uitgaand verkeer nodig zijn, met uitzondering van het laatste item. Ze inschakelen netwerktoegang tot de ASE-afhankelijkheden die eerder in dit artikel zijn vermeld. Als u een van deze blokkeert, werkt niet meer de as-omgeving. Het laatste item in de lijst kunt uw as-omgeving om te communiceren met andere resources in uw VNet.
 
 ![Uitgaande beveiligingsregels][5]
 
-Nadat uw nsg's zijn gedefinieerd, kunt u ze aan het subnet dat u uw as-omgeving op toewijzen. Als je het as-omgeving VNet of een subnet, kunt u het bekijken van de as-omgeving portal-pagina. Het NSG toewijzen aan uw subnet, gaat u naar de gebruikersinterface van het subnet en het NSG selecteren.
+Nadat uw nsg's zijn gedefinieerd, kunt u ze op het subnet dat uw ASE zich op toewijzen. Als u niet meer de as-omgeving VNet of subnet weet, ziet u deze in de portalpagina as-omgeving. De NSG aan het subnet toewijzen, gaat u naar de gebruikersinterface van het subnet en selecteert u de NSG.
 
 ## <a name="routes"></a>Routes ##
 
-Geforceerde tunneling is wanneer u routes in uw VNet instellen, zodat het uitgaande verkeer rechtstreeks naar het internet, maar ergens anders zoals een ExpressRoute-gateway of een virtueel apparaat niet kan worden verstuurd.  Als u wilt uw as-omgeving zodanig te configureren en vervolgens het document te lezen op [configureren van uw App Service-omgeving met geforceerde Tunneling][forcedtunnel].  Dit document ziet u de opties die beschikbaar zijn voor gebruik met ExpressRoute en geforceerde tunneling.
+Geforceerde tunneling is wanneer u routes in uw VNet instellen, zodat het uitgaande verkeer geen Ga rechtstreeks naar het internet, maar ergens anders, zoals een ExpressRoute-gateway of een virtueel apparaat.  Als u wilt uw ASE zodanig te configureren en vervolgens het document lezen op [uw App Service-omgeving configureren met geforceerde Tunneling][forcedtunnel].  Dit document ziet u de beschikbare opties voor het werken met ExpressRoute en geforceerde tunneling.
 
-Bij het maken van een as-omgeving in de portal maken we ook een aantal routetabellen op het subnet dat wordt gemaakt met de as-omgeving.  Routes die spreken gewoon uitgaand verkeer rechtstreeks naar het internet te verzenden.  
-Voor het maken van dezelfde routes handmatig, als volgt te werk:
+Wanneer u een as-omgeving in de portal maken maken we ook een set routetabellen op het subnet dat is gemaakt met de as-omgeving.  Routes die bijvoorbeeld gewoon naar het verzenden van uitgaand verkeer rechtstreeks naar het internet.  
+Als u wilt de dezelfde routes handmatig hebt gemaakt, de volgende stappen uit:
 
-1. Ga naar de Azure-portal. Selecteer **Networking** > **routetabellen**.
+1. Ga naar Azure Portal. Selecteer **netwerken** > **routetabellen**.
 
-2. Maak een nieuwe routetabel in dezelfde regio bevinden als uw VNet.
+2. Maak een nieuwe routetabel in dezelfde regio als uw VNet.
 
-3. In de routetabel gebruikersinterface, selecteer **Routes** > **toevoegen**.
+3. Vanuit uw routetabel gebruikersinterface, de optie **Routes** > **toevoegen**.
 
-4. Instellen de **volgende hop type** naar **Internet** en de **adresvoorvoegsel** naar **0.0.0.0/0**. Selecteer **Opslaan**.
+4. Stelt de **volgende hoptype** te **Internet** en de **adresvoorvoegsel** naar **0.0.0.0/0**. Selecteer **Opslaan**.
 
     Klik er ongeveer als volgt:
 
     ![Functionele routes][6]
 
-5. Nadat u de nieuwe routetabel hebt gemaakt, gaat u naar het subnet waarin uw as-omgeving. Selecteer de routetabel in de lijst in de portal. Nadat u de wijziging opslaat, klikt u vervolgens ziet u de nsg's en de routes die worden vermeld met uw subnet.
+5. Nadat u de nieuwe routetabel gemaakt, gaat u naar het subnet waarin de as-omgeving. Selecteer uw routetabel in de lijst in de portal. Nadat u de wijziging hebt opgeslagen, klikt u vervolgens ziet u de nsg's en de routes die worden vermeld met uw subnet.
 
-    ![Nsg's en -routes][7]
+    ![Nsg's en routes][7]
 
 ## <a name="service-endpoints"></a>Service-eindpunten ##
 
 Met service-eindpunten kunt u de toegang tot multitenant-services beperken tot een reeks virtuele Azure-netwerken en subnetten. In de documentatie [Virtual Network Service Endpoints][serviceendpoints] (Virtuele netwerkservice-eindpunten) vindt u meer informatie over service-eindpunten. 
+
+   > [!NOTE]
+   > Service-eindpunten met SQL werken niet met ASE in de regio's van de Amerikaanse overheid. Deze informatie is alleen geldig in de Azure openbare regio's.
 
 Wanneer u service-eindpunten voor een bron inschakelt, worden er routes gemaakt die een hogere prioriteit hebben dan alle andere routes. Als u service-eindpunten gebruikt met een ASE met geforceerde tunnels, maakt het managementverkeer van Azure SQL en Azure Storage geen gebruik van geforceerde tunnels. 
 

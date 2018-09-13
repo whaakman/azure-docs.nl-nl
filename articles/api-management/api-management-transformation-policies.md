@@ -1,6 +1,6 @@
 ---
-title: Azure API Management-claimtransformatiebeleidsinstellingen | Microsoft Docs
-description: Meer informatie over de claimtransformatiebeleidsinstellingen beschikbaar voor gebruik in Azure API Management.
+title: Azure API Management-transformatiebeleid | Microsoft Docs
+description: Meer informatie over de transformatiebeleid beschikbaar voor gebruik in Azure API Management.
 services: api-management
 documentationcenter: ''
 author: miaojiang
@@ -13,39 +13,39 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/27/2017
 ms.author: apimpm
-ms.openlocfilehash: 3eb9d6851c30f11980d47d4e48b158217e41995d
-ms.sourcegitcommit: d74657d1926467210454f58970c45b2fd3ca088d
-ms.translationtype: HT
+ms.openlocfilehash: 8f3dddd72ab8858a1e60389417cc0c7630df302f
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/28/2018
-ms.locfileid: "30233782"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35621650"
 ---
 # <a name="api-management-transformation-policies"></a>API Management-beleidsregels voor transformatie
-Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels. Zie voor meer informatie over het toevoegen en configureren van beleid [-beleid in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).
+Dit onderwerp bevat een verwijzing voor de volgende API Management-beleid. Zie voor meer informatie over het toevoegen en configureren van beleid [beleidsregels in API Management](http://go.microsoft.com/fwlink/?LinkID=398186).
 
-##  <a name="TransformationPolicies"></a> Claimtransformatiebeleidsinstellingen
+##  <a name="TransformationPolicies"></a> Transformatiebeleid
 
 -   [JSON converteren naar XML](api-management-transformation-policies.md#ConvertJSONtoXML) : zet aanvraag of antwoord body van JSON naar XML.
 
--   [XML niet converteren naar JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) : zet aanvraag of antwoord body van XML naar JSON.
+-   [XML converteren naar JSON](api-management-transformation-policies.md#ConvertXMLtoJSON) : zet aanvraag of antwoord body van XML naar JSON.
 
--   [Zoeken en vervangen tekenreeks in de hoofdtekst](api-management-transformation-policies.md#Findandreplacestringinbody) - zoeken naar een subtekenreeks aanvraag of antwoord en wordt vervangen door een andere subtekenreeks.
+-   [Zoeken en vervangen in de hoofdtekst van de tekenreeks](api-management-transformation-policies.md#Findandreplacestringinbody) - vindt u een aanvraag of antwoord subtekenreeks en vervangt deze door een andere subtekenreeks.
 
--   [URL's in de inhoud te maskeren](api-management-transformation-policies.md#MaskURLSContent) -koppelingen herschrijft (maskers) in het antwoord body zodat deze naar de equivalente koppeling via de gateway verwijzen.
+-   [URL's in de inhoud te maskeren](api-management-transformation-policies.md#MaskURLSContent) -herschrijft (maskers) koppelingen in het antwoord hoofdtekst zodat ze naar de equivalente koppeling via de gateway verwijzen.
 
--   [Stel de back-endservice](api-management-transformation-policies.md#SetBackendService) -wijzigingen van de back-endservice voor de binnenkomende aanvraag.
+-   [Instellen van back-endservice](api-management-transformation-policies.md#SetBackendService) -de back endservice voor een binnenkomende aanvraag wordt gewijzigd.
 
--   [Instantie ingesteld](api-management-transformation-policies.md#SetBody) -Hiermee stelt u de berichttekst voor binnenkomende en uitgaande aanvragen.
+-   [Hoofdtekst instellen](api-management-transformation-policies.md#SetBody) -Hiermee stelt u de berichttekst voor binnenkomende en uitgaande aanvragen.
 
--   [Set HTTP-header](api-management-transformation-policies.md#SetHTTPheader) : een waarde wordt toegewezen aan een bestaande antwoord en/of de aanvraag-header of voegt een nieuwe antwoord en/of de aanvraag-header.
+-   [Set HTTP-header](api-management-transformation-policies.md#SetHTTPheader) : een waarde toegewezen aan een bestaande antwoord en/of de aanvraagheader of voegt een nieuwe reactie en/of de aanvraag-header.
 
--   [Querytekenreeksparameter ingesteld](api-management-transformation-policies.md#SetQueryStringParameter) - wordt toegevoegd, vervangt de waarde van of verwijderd van de aanvraag queryreeksparameter opgeven.
+-   [Instellen van de queryreeks-parameter](api-management-transformation-policies.md#SetQueryStringParameter) - wordt toegevoegd, vervangt de waarde van of aanvraag queryreeks-parameter verwijderd.
 
--   [Herschrijven van URL](api-management-transformation-policies.md#RewriteURL) -converteert van een aanvraag-URL van de openbare vorm aan het formulier dat werd verwacht door de webservice.
+-   [Herschrijven van URL's](api-management-transformation-policies.md#RewriteURL) -converteert van een aanvraag-URL van de openbare vorm aan het formulier werd verwacht door de webservice.
 
--   [XML met behulp van een XSLT transformeren](api-management-transformation-policies.md#XSLTransform) -geldt een XSL-transformatie voor XML in de hoofdtekst van de aanvraag of antwoord.
+-   [Transformeer XML met behulp van een XSLT](api-management-transformation-policies.md#XSLTransform) -een XSL-transformatie is van toepassing op XML in de hoofdtekst van de aanvraag of antwoord.
 
-##  <a name="ConvertJSONtoXML"></a> JSON naar XML converteren
+##  <a name="ConvertJSONtoXML"></a> JSON converteren naar XML
  De `json-to-xml` beleid converteert de hoofdtekst van een aanvraag of antwoord van JSON naar XML.
 
 ### <a name="policy-statement"></a>Beleidsverklaring
@@ -72,25 +72,25 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 
 |Naam|Beschrijving|Vereist|
 |----------|-----------------|--------------|
-|json-to-xml|Hoofdelement.|Ja|
+|json-to-xml|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
 |Naam|Beschrijving|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
-|toepassen|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> conversie - altijd - altijd van toepassing.<br />convert-inhoud type-json - alleen als response Content-Type-header aanwezigheid van JSON aangeeft.|Ja|N/A|
-|Overweeg-accepteren-header|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -waar - conversie van toepassing als JSON is aangevraagd in aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|true|
-|Parse datum|Als de waarde `false` datumwaarden gewoon tijdens transformatie worden gekopieerd|Nee|true|
+|toepassen|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> conversie - altijd - altijd van toepassing.<br />-inhoud type-json - converteren alleen als antwoord Content-Type-header geeft aan dat de aanwezigheid van JSON.|Ja|N/A|
+|Houd rekening met-accepteren-header|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -true - conversie van toepassing als JSON is aangevraagd in de aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|true|
+|parseren van datum|Als de waarde `false` datumwaarden gewoon tijdens transformatie worden gekopieerd|Nee|true|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Beleid secties:** binnenkomende, uitgaande, bij fouten
+-   **Beleid secties:** binnenkomende, uitgaande, bij fout
 
--   **Beleid scopes:** wereldwijd, product, API, bewerking
+-   **Beleid bereiken:** wereldwijd, product, API, bewerking
 
-##  <a name="ConvertXMLtoJSON"></a> XML niet converteren naar JSON
- De `xml-to-json` beleid converteert de hoofdtekst van een aanvraag of antwoord van XML naar JSON. Dit beleid kan worden gebruikt voor API's op basis van de back-end van een alleen-XML-webservices moderniseren.
+##  <a name="ConvertXMLtoJSON"></a> XML converteren naar JSON
+ De `xml-to-json` beleid converteert de hoofdtekst van een aanvraag of antwoord van XML naar JSON. Dit beleid kan worden gebruikt om het moderniseren van API's op basis van XML-alleen back-end webservices.
 
 ### <a name="policy-statement"></a>Beleidsverklaring
 
@@ -116,25 +116,25 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 
 |Naam|Beschrijving|Vereist|
 |----------|-----------------|--------------|
-|xml-to-json|Hoofdelement.|Ja|
+|xml-to-json|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
 |Naam|Beschrijving|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
-|type|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -javascript-vriendelijk - de geconverteerde JSON heeft een formulier beschrijvende voor ontwikkelaars van JavaScript.<br />de geconverteerde JSON weerspiegelt - direct - structuur van het oorspronkelijke XML-document.|Ja|N/A|
-|toepassen|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -altijd - altijd converteren.<br />convert - inhoud-type-xml - alleen als response Content-Type-header aanwezigheid van XML aangeeft.|Ja|N/A|
-|Overweeg-accepteren-header|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -waar - conversie van toepassing als XML is aangevraagd in aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|true|
+|type|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -javascript-vriendelijk - de geconverteerde JSON heeft een formulier beschrijvende voor JavaScript-ontwikkelaars.<br />de geconverteerde JSON weerspiegelt - direct - structuur van het oorspronkelijke XML-document.|Ja|N/A|
+|toepassen|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -altijd - altijd converteren.<br />-inhoud-type-xml - converteren alleen als antwoord Content-Type-header geeft aan dat de aanwezigheid van XML.|Ja|N/A|
+|Houd rekening met-accepteren-header|Het kenmerk moet worden ingesteld op een van de volgende waarden.<br /><br /> -true - conversie van toepassing als XML is aangevraagd in de aanvraag Accept-header.<br />-ONWAAR - conversie altijd van toepassing.|Nee|true|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Beleid secties:** binnenkomende, uitgaande, bij fouten
+-   **Beleid secties:** binnenkomende, uitgaande, bij fout
 
--   **Beleid scopes:** wereldwijd, product, API, bewerking
+-   **Beleid bereiken:** wereldwijd, product, API, bewerking
 
-##  <a name="Findandreplacestringinbody"></a> Zoeken en vervangen tekenreeks in de hoofdtekst
- De `find-and-replace` beleid vindt u een aanvraag of antwoord subtekenreeks en vervangen door een andere subtekenreeks.
+##  <a name="Findandreplacestringinbody"></a> Zoeken en vervangen in de hoofdtekst van de tekenreeks
+ De `find-and-replace` beleid vindt u een aanvraag of antwoord subtekenreeks en vervangt deze door een andere subtekenreeks.
 
 ### <a name="policy-statement"></a>Beleidsverklaring
 
@@ -152,27 +152,27 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 
 |Naam|Beschrijving|Vereist|
 |----------|-----------------|--------------|
-|zoeken en vervangen|Hoofdelement.|Ja|
+|zoeken en vervangen|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
 |Naam|Beschrijving|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
-|uit|De tekenreeks om naar te zoeken.|Ja|N/A|
-|tot|De vervangende tekenreeks. Geef de vervangende tekenreekslengte van nul als u wilt verwijderen van de zoekreeks.|Ja|N/A|
+|uit|De tekenreeks die moet worden gezocht.|Ja|N/A|
+|tot|De vervangende tekenreeks. Geef een nul lengte van de vervangende tekenreeks als u wilt verwijderen van de zoektekenreeks.|Ja|N/A|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
 -   **Beleid secties:** inkomend, uitgaand back-end op fout
 
--   **Beleid scopes:** wereldwijd, product, API, bewerking
+-   **Beleid bereiken:** wereldwijd, product, API, bewerking
 
 ##  <a name="MaskURLSContent"></a> Masker URL's in de inhoud
- De `redirect-content-urls` beleid herschrijft koppelingen in de hoofdtekst van antwoord (maskers) zodat deze naar de equivalente koppeling via de gateway verwijzen. Gebruik in de sectie uitgaande antwoord hoofdtekst koppelingen zodat deze verwijzen naar de gateway opnieuw te schrijven. Gebruik in de binnenkomende sectie voor een tegenovergestelde effect.
+ De `redirect-content-urls` beleid herschrijft (maskers) koppelingen in de antwoordtekst zodat ze naar de equivalente koppeling via de gateway verwijzen. Gebruik in de sectie outbound opnieuw schrijven antwoord hoofdtekst koppelingen om ze verwijzen naar de gateway te maken. Gebruik in de sectie inbound voor een tegenovergestelde effect.
 
 > [!NOTE]
->  Dit beleid verandert niet een headerwaarden, zoals `Location` headers. Koptekst om waarden te wijzigen, gebruikt u de [set-header](api-management-transformation-policies.md#SetHTTPheader) beleid.
+>  Dit beleid verandert niet alle headerwaarden, zoals `Location` headers. Om headerwaarden te wijzigen, gebruikt u de [set-header](api-management-transformation-policies.md#SetHTTPheader) beleid.
 
 ### <a name="policy-statement"></a>Beleidsverklaring
 
@@ -190,17 +190,17 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
 
 |Naam|Beschrijving|Vereist|
 |----------|-----------------|--------------|
-|redirect-content-urls|Hoofdelement.|Ja|
+|Omleidings-inhoud-URL 's|Root-element.|Ja|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Beleid secties:** binnenkomende, uitgaande
+-   **Beleid secties:** inkomend, uitgaand
 
--   **Beleid scopes:** wereldwijd, product, API, bewerking
+-   **Beleid bereiken:** wereldwijd, product, API, bewerking
 
 ##  <a name="SetBackendService"></a> Back-end-service instellen
- Gebruik de `set-backend-service` beleid een inkomende aanvraag omleiden naar een andere back-end dan de opgegeven in de API-instellingen voor de bewerking. Dit beleid verandert de back-end service basis-URL van de inkomende aanvraag in de versie opgegeven in het beleid.
+ Gebruik de `set-backend-service` beleid een binnenkomende aanvraag omleiden naar een andere back-end dan de versie die is opgegeven in de API-instellingen voor deze bewerking. Dit beleid wijzigt de back-end-service basis-URL van de inkomende aanvraag naar de versie die is opgegeven in het beleid.
 
 ### <a name="policy-statement"></a>Beleidsverklaring
 
@@ -228,13 +228,13 @@ Dit onderwerp bevat een verwijzing voor de volgende API Management-beleidsregels
     </outbound>
 </policies>
 ```
-In dit voorbeeld routeert set back-end service beleid aanvragen op basis van de versiewaarde in de queryreeks doorgegeven aan een andere back-endservice dan een opgegeven in de API.
+In dit voorbeeld leidt het beleid instellen back-end-service aanvragen op basis van de versiewaarde in de query-tekenreeks doorgegeven aan een andere back-endservice dan degene die is opgegeven in de API.
 
-In eerste instantie is de back-end service basis-URL afgeleid van de instellingen voor de API. Dus de aanvraag-URL `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` wordt `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` waar `http://contoso.com/api/10.4/` is de back-end-service-URL opgegeven in de API-instellingen.
+In eerste instantie is de back-end-service basis-URL afgeleid van de instellingen voor de API. Dus de aanvraag-URL `https://contoso.azure-api.net/api/partners/15?version=2013-05&subscription-key=abcdef` wordt `http://contoso.com/api/10.4/partners/15?version=2013-05&subscription-key=abcdef` waar `http://contoso.com/api/10.4/` is de back-end-service-URL opgegeven in de API-instellingen.
 
-Wanneer de [< kiezen\> ](api-management-advanced-policies.md#choose) beleidsverklaring wordt toegepast. de back-end service basis-URL mag wijzigen opnieuw toekennen aan `http://contoso.com/api/8.2` of `http://contoso.com/api/9.1`, afhankelijk van de waarde van de queryparameter van de versie-aanvraag. Bijvoorbeeld, als de waarde is `"2013-15"` de laatste aanvraag URL wordt `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.
+Wanneer de [< Kies\> ](api-management-advanced-policies.md#choose) beleidsverklaring wordt toegepast. de back-end-service basis-URL kan worden gewijzigd opnieuw toekennen aan `http://contoso.com/api/8.2` of `http://contoso.com/api/9.1`, afhankelijk van de waarde van de queryparameter van de versie-aanvraag. Bijvoorbeeld, als de waarde is `"2013-15"` de laatste aanvraag URL wordt `http://contoso.com/api/8.2/partners/15?version=2013-05&subscription-key=abcdef`.
 
-Als verdere transformatie van de aanvraag gewenste, andere is [claimtransformatiebeleidsinstellingen](api-management-transformation-policies.md#TransformationPolicies) kan worden gebruikt. Om bijvoorbeeld te verwijderen van de version-queryparameter nu dat de aanvraag wordt gerouteerd naar een versie specifieke back-end van de [querytekenreeksparameter ingesteld](api-management-transformation-policies.md#SetQueryStringParameter) beleid kan worden gebruikt voor het versiekenmerk nu redundante verwijderen.
+Als meer transformatie van de aanvraag gewenste, andere is [transformatiebeleid](api-management-transformation-policies.md#TransformationPolicies) kan worden gebruikt. Bijvoorbeeld, om te verwijderen van de queryparameter versie nu dat de aanvraag wordt doorgestuurd naar een versie specifieke back-end, de [queryreeks-parameter ingesteld](api-management-transformation-policies.md#SetQueryStringParameter) beleid kan worden gebruikt voor het versiekenmerk nu redundante verwijderen.
 
 ### <a name="example"></a>Voorbeeld
 
@@ -248,47 +248,47 @@ Als verdere transformatie van de aanvraag gewenste, andere is [claimtransformati
     </outbound>
 </policies>
 ```
-In dit voorbeeld stuurt het beleid voor de aanvraag door naar een service fabric back-end van de queryreeks userId gebruikt als de partitiesleutel en de primaire replica van de partitie.
+In dit voorbeeld stuurt het beleid de aanvraag door naar een service fabric-back-end, met behulp van de gebruikers-id query-tekenreeks als de partitiesleutel en het gebruik van de primaire replica van de partitie.
 
 ### <a name="elements"></a>Elementen
 
 |Naam|Beschrijving|Vereist|
 |----------|-----------------|--------------|
-|set-backend-service|Hoofdelement.|Ja|
+|set-backend-service|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
 |Naam|Beschrijving|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
-|base-url|Nieuwe back-end service basis-URL.|Nee|N/A|
-|backend-id|Id van de back-end om naar te routeren.|Nee|N/A|
-|SF partitiesleutel|Alleen van toepassing wanneer de back-end een Service Fabric-service is en wordt opgegeven met behulp van back-end-id. Gebruikt voor het omzetten van een specifieke partitie van de service voor naamomzetting.|Nee|N/A|
-|SF-replica-type|Alleen van toepassing wanneer de back-end een Service Fabric-service is en wordt opgegeven met behulp van back-end-id. Bepaalt of de aanvraag moet gaan naar de primaire of secundaire replica van een partitie. |Nee|N/A|
-|SF-resolve-voorwaarde|Alleen van toepassing wanneer de back-end een Service Fabric-service is. Voorwaarde te identificeren als de aanroep naar Service Fabric-back-end moet worden herhaald met nieuwe resolutie.|Nee|N/A|
-|sf-service-instance-name|Alleen van toepassing wanneer de back-end een Service Fabric-service is. Kan service-exemplaren tijdens runtime te wijzigen. |Nee|N/A|
-|sf-listener-name|Alleen van toepassing wanneer de back-end een Service Fabric-service is en wordt opgegeven met behulp van back-end-id. Service Fabric Reliable Services kunt u meerdere listeners maken in een service. Dit kenmerk wordt gebruikt voor het selecteren van een specifieke listener wanneer een back-end betrouwbare Service meer dan één listener heeft. Als dit kenmerk niet is opgegeven, wordt API Management probeert te gebruiken van een listener zonder naam. Een listener zonder naam is Typerend voor Reliable Services die slechts één listener hebben. |Nee|N/A|
+|basis-url|Nieuwe back-end-service basis-URL.|Nee|N/A|
+|back-end-id|Id van de back-end om naar te routeren.|Nee|N/A|
+|SF-partitiesleutel|Alleen van toepassing wanneer de back-end een Service Fabric-service is en is opgegeven met behulp van back-end-id. Gebruikt voor het omzetten van een specifieke partitie van de name resolution-service.|Nee|N/A|
+|SF-replica-type|Alleen van toepassing wanneer de back-end een Service Fabric-service is en is opgegeven met behulp van back-end-id. Bepaalt of de aanvraag moet gaan naar de primaire of secundaire replica van een partitie. |Nee|N/A|
+|SF-oplossen-voorwaarde|Alleen van toepassing wanneer de back-end een Service Fabric-service is. Als de aanroep van Service Fabric-back-end moet worden herhaald met een resolutie van nieuwe identificeren-voorwaarde.|Nee|N/A|
+|SF-service-instance-name|Alleen van toepassing wanneer de back-end een Service Fabric-service is. Hiermee kunt u het wijzigen van de service-exemplaren tijdens runtime. |Nee|N/A|
+|SF-listener-naam|Alleen van toepassing wanneer de back-end een Service Fabric-service is en is opgegeven met behulp van back-end-id. Service Fabric Reliable Services kunt u meerdere listeners in een service maken. Dit kenmerk wordt gebruikt om te selecteren van een specifieke listener wanneer een back-end van de betrouwbare Service meer dan één listener heeft. Als dit kenmerk niet opgegeven is, probeert API Management te gebruiken van een listener zonder een naam. Een listener zonder naam is normaal voor Reliable Services die slechts één listener hebt. |Nee|N/A|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Beleid secties:** back-end voor binnenkomend verkeer
+-   **Beleid secties:** inkomende, back-end
 
--   **Beleid scopes:** wereldwijd, product, API, bewerking
+-   **Beleid bereiken:** wereldwijd, product, API, bewerking
 
-##  <a name="SetBody"></a> Set-instantie
- Gebruik de `set-body` in te stellen van de berichttekst voor binnenkomende en uitgaande aanvragen. Voor toegang tot de berichttekst kunt u de `context.Request.Body` eigenschap of de `context.Response.Body`, afhankelijk van of het beleid is in de sectie binnenkomend of uitgaand.
+##  <a name="SetBody"></a> Hoofdtekst instellen
+ Gebruik de `set-body` beleid om in te stellen de berichttekst voor binnenkomende en uitgaande aanvragen. Voor toegang tot de berichttekst kunt u de `context.Request.Body` eigenschap of de `context.Response.Body`, afhankelijk van of het beleid is in de sectie binnenkomend of uitgaand.
 
 > [!IMPORTANT]
->  Opmerking die standaard bij het openen van het bericht met behulp van body `context.Request.Body` of `context.Response.Body`, de oorspronkelijke berichttekst verloren en wordt door te retourneren van de hoofdtekst terug in de expressie moet worden ingesteld. Instellen dat de inhoud van de hoofdtekst wordt bewaard, de `preserveContent` -parameter voor `true` bij het openen van het bericht. Als `preserveContent` is ingesteld op `true` en een andere instantie wordt geretourneerd door de expressie de hoofdtekst van het geretourneerde wordt gebruikt.
+>  Houd er rekening mee dat standaard bij het openen van het bericht hoofdtekst met behulp van `context.Request.Body` of `context.Response.Body`, de hoofdtekst van het oorspronkelijke bericht is verloren en moet worden ingesteld door de instantie terug in de expressie worden geretourneerd. Als u wilt behouden in de hoofdtekst, stel de `preserveContent` parameter `true` bij het openen van het bericht. Als `preserveContent` is ingesteld op `true` en een andere instantie wordt geretourneerd door de expressie de hoofdtekst van het geretourneerde wordt gebruikt.
 >
->  Houd rekening met de volgende overwegingen wanneer u de `set-body` beleid.
+>  Houd er rekening mee de volgende overwegingen wanneer u de `set-body` beleid.
 >
->  -   Als u de `set-body` beleid om te retourneren van een nieuwe of bijgewerkte instantie die u hoeft niet in te stellen `preserveContent` naar `true` omdat u de inhoud van de nieuwe expliciet levert.
-> -   Behouden van de inhoud van een reactie op in de inkomende pijplijn logisch niet omdat er nog geen reactie is.
-> -   Behouden van de inhoud van een aanvraag in de uitgaande pijplijn logisch niet omdat de aanvraag al is verzonden naar de back-end op dit moment.
-> -   Als dit beleid wordt gebruikt wanneer er geen berichttekst, bijvoorbeeld in een inkomende GET een uitzondering opgetreden.
+>  -   Als u de `set-body` beleid om te retourneren van een nieuwe of bijgewerkte instantie die u niet nodig om in te stellen `preserveContent` naar `true` omdat u de inhoud van de nieuwe expliciet levert.
+> -   Behoud van de inhoud van een antwoord in de inkomende pijplijn zin geen omdat er nog geen reactie is.
+> -   Behoud van de inhoud van een aanvraag in de uitgaande pijplijn zin geen omdat de aanvraag is al is verzonden naar de back-end op dit moment.
+> -   Als dit beleid wordt gebruikt wanneer er geen hoofdtekst van het bericht, bijvoorbeeld in een inkomende GET, een uitzondering opgetreden.
 
- Zie voor meer informatie de `context.Request.Body`, `context.Response.Body`, en de `IMessage` secties in de [Context variabele](api-management-policy-expressions.md#ContextVariables) tabel.
+ Zie voor meer informatie de `context.Request.Body`, `context.Response.Body`, en de `IMessage` secties in het [contextvariabele](api-management-policy-expressions.md#ContextVariables) tabel.
 
 ### <a name="policy-statement"></a>Beleidsverklaring
 
@@ -304,7 +304,7 @@ In dit voorbeeld stuurt het beleid voor de aanvraag door naar een service fabric
 <set-body>Hello world!</set-body>
 ```
 
-#### <a name="example-accessing-the-body-as-a-string-note-that-we-are-preserving-the-original-request-body-so-that-we-can-access-it-later-in-the-pipeline"></a>Voorbeeld van de toegang tot de instantie als een tekenreeks. Houd er rekening mee dat we bewaard de oorspronkelijke aanvraagtekst blijven zodat we deze later in de pijplijn.
+#### <a name="example-accessing-the-body-as-a-string-note-that-we-are-preserving-the-original-request-body-so-that-we-can-access-it-later-in-the-pipeline"></a>Voorbeeld van de toegang tot de hoofdtekst als een tekenreeks. Houd er rekening mee dat we de hoofdtekst van de oorspronkelijke aanvraag worden behouden zodat we deze later in de pijplijn.
 
 ```xml
 <set-body>
@@ -318,7 +318,7 @@ In dit voorbeeld stuurt het beleid voor de aanvraag door naar een service fabric
 </set-body>
 ```
 
-#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Voorbeeld van de toegang tot de instantie een JObject. Merk op dat omdat we niet reserveren van de oorspronkelijke aanvraagtekst, toegang tot het verderop in de pijplijn zal leiden tot een uitzondering.
+#### <a name="example-accessing-the-body-as-a-jobject-note-that-since-we-are-not-reserving-the-original-request-body-accesing-it-later-in-the-pipeline-will-result-in-an-exception"></a>Voorbeeld van de toegang tot de hoofdtekst als een jobject is leeggemaakt. Merk op dat sinds we zijn niet reserveren van de oorspronkelijke aanvraagtekst, toegang tot deze later in de pijplijn leidt tot een uitzondering.
 
 ```xml
 <set-body> 
@@ -333,8 +333,8 @@ In dit voorbeeld stuurt het beleid voor de aanvraag door naar een service fabric
 
 ```
 
-#### <a name="filter-response-based-on-product"></a>Reactie op basis van product filteren
- Dit voorbeeld ziet u hoe u inhoud filteren van door gegevenselementen te verwijderen uit het antwoord ontvangen van de back-endservice bij gebruik van de `Starter` product. Zie voor een demonstratie van configureren en gebruiken van dit beleid [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en vooruit te 34:30. Start op 31:50 voor een overzicht van [de donker Sky Forecast API](https://developer.forecast.io/) gebruikt voor deze demonstratie.
+#### <a name="filter-response-based-on-product"></a>Filteren op basis van product
+ In dit voorbeeld laat zien hoe om uit te voeren met het filteren van inhoud door het verwijderen van elementen uit het antwoord ontvangen van de back endservice bij het gebruik van de `Starter` product. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: meer API Management functies met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 34:30. Beginnen bij 31:50 voor een overzicht van [de donkere Sky prognose API](https://developer.forecast.io/) gebruikt voor deze demo.
 
 ```xml
 <!-- Copy this snippet into the outbound section to remove a number of data elements from the response received from the backend service based on the name of the api product -->
@@ -352,18 +352,18 @@ In dit voorbeeld stuurt het beleid voor de aanvraag door naar een service fabric
 </choose>
 ```
 
-### <a name="using-liquid-templates-with-set-body"></a>Vloeibare sjablonen gebruiken bij set-instantie
-De `set-body` beleid kan worden geconfigureerd voor het gebruik van de [vloeibare](https://shopify.github.io/liquid/basics/introduction/) templating taal transfom de hoofdtekst van een aanvraag of antwoord. Dit kan zeer effectief zijn als u moet de indeling van uw bericht volledig vorm zijn.
+### <a name="using-liquid-templates-with-set-body"></a>Met behulp van Liquid sjablonen met hoofdtekst instellen
+De `set-body` beleid kan worden geconfigureerd voor het gebruik van de [Liquid](https://shopify.github.io/liquid/basics/introduction/) templating taal transfom de hoofdtekst van een aanvraag of antwoord. Dit kan zeer effectief zijn als u geheel nieuwe vorm geven de indeling van het bericht moet zijn.
 
 > [!IMPORTANT]
-> De implementatie van vloeistof gebruikt in de `set-body` beleid is geconfigureerd in de 'C#-modus'. Dit is vooral belangrijk bij het uitvoeren van bewerkingen zoals filteren. Als u bijvoorbeeld met een datumfilter vereist het gebruik van Pascal hoofd- en C#-datum notatie, bijvoorbeeld:
+> De implementatie van een vloeistof die wordt gebruikt de `set-body` beleid is geconfigureerd in de 'C#-modus'. Dit is vooral belangrijk bij het uitvoeren van handelingen zoals filteren. Een voorbeeld: met behulp van een filter vereist het gebruik van Pascal en kleine letters en C# datum bijvoorbeeld opmaak:
 >
-> {{body.foo.startDateTime| Date:"yyyyMMddTHH:mm:ddZ"}}
+> {{body.foo.startDateTime| Datum: "yyyyMMddTHH:mm:ddZ"}}
 
 > [!IMPORTANT]
-> Gebruiken om correct binden aan een XML-hoofdtekst met de vloeibare sjabloon, een `set-header` beleid Content-Type instellen op application/xml, text/xml (of een type eindigend op + xml), een JSON-hoofdtekst, het application/json, text/json (of een type eindigend op + json) moet worden.
+> Als u wilt correct binden aan een XML-instantie met de Liquid sjabloon, gebruiken een `set-header` beleid Content-Type instellen naar de application/xml, tekst/xml (of een type dat eindigt op + xml); voor een JSON-hoofdtekst moet application/json, tekst/json (of een type dat eindigt op + JSON).
 
-#### <a name="convert-json-to-soap-using-a-liquid-template"></a>JSON naar SOAP met een vloeibare sjabloon converteren
+#### <a name="convert-json-to-soap-using-a-liquid-template"></a>JSON converteren naar SOAP met behulp van een vloeistof sjabloon
 ```xml
 <set-body template="liquid">
     <soap:Envelope xmlns="http://tempuri.org/" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
@@ -376,7 +376,7 @@ De `set-body` beleid kan worden geconfigureerd voor het gebruik van de [vloeibar
 </set-body>
 ```
 
-#### <a name="tranform-json-using-a-liquid-template"></a>Tranform JSON met een vloeibare sjabloon
+#### <a name="tranform-json-using-a-liquid-template"></a>Tranform JSON met Liquid-sjabloon
 ```xml
 {
 "order": {
@@ -390,15 +390,15 @@ De `set-body` beleid kan worden geconfigureerd voor het gebruik van de [vloeibar
 
 |Naam|Beschrijving|Vereist|
 |----------|-----------------|--------------|
-|set-instantie|Hoofdelement. Bevat de platte tekst of een expressies die een instantie retourneert.|Ja|
+|hoofdtekst instellen|Root-element. Bevat de platte tekst of een expressies waarmee een instantie wordt geretourneerd.|Ja|
 
 ### <a name="properties"></a>Eigenschappen
 
 |Naam|Beschrijving|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
-|sjabloon|Gebruikt de modus templating die het beleid instellen instantie wordt uitgevoerd te wijzigen. Momenteel is de enige ondersteunde waarde:<br /><br />-vloeibare - de hoofdtekst-beleid instellen gebruikt de vloeibare templating-engine |Nee|vloeistof|
+|sjabloon|Gebruikt de templating van die het beleid van de hoofdtekst van de set wordt uitgevoerd in de modus te wijzigen. Momenteel is de enige ondersteunde waarde:<br /><br />-liquid - het beleid van de hoofdtekst van de set wordt de liquid templating-engine gebruiken |Nee|Liquid|
 
-Voor toegang tot informatie over de aanvraag en antwoord, kan de vloeibare sjabloon worden verbonden met een context-object met de volgende eigenschappen: <br />
+Voor toegang tot informatie over de aanvraag en respons, kan de Liquid sjabloon worden verbonden met een context-object met de volgende eigenschappen: <br />
 <pre>context.
     Request.
         Url
@@ -443,12 +443,12 @@ OriginalUrl.
 
 -   **Beleid secties:** inkomend, uitgaand back-end
 
--   **Beleid scopes:** wereldwijd, product, API, bewerking
+-   **Beleid bereiken:** wereldwijd, product, API, bewerking
 
 ##  <a name="SetHTTPheader"></a> Set HTTP-header
- De `set-header` beleid wordt een waarde toegewezen aan een bestaande antwoord en/of de aanvraag-header of voegt een nieuwe antwoord en/of de aanvraag-header.
+ De `set-header` beleid wordt een waarde toegewezen aan een bestaande antwoord en/of de aanvraagheader of voegt een nieuwe reactie en/of de aanvraag-header.
 
- Voegt een lijst met HTTP-headers in een HTTP-bericht. Wanneer in een inkomende pijplijn geplaatst, wordt de HTTP-headers voor de aanvraag wordt doorgegeven aan de doelservice ingesteld in dit beleid. Wanneer in een uitgaande pijplijn geplaatst, wordt in dit beleid wordt de HTTP-headers voor de reactie wordt verzonden naar de gateway-client ingesteld.
+ Voegt een lijst met HTTP-headers in een HTTP-bericht. Wanneer in een inkomende pijplijn geplaatst, wordt dit beleid de HTTP-headers voor de aanvraag wordt doorgegeven aan de doelservice. Wanneer in een uitgaande pijplijn geplaatst, wordt in dit beleid de HTTP-headers voor de reactie wordt verzonden naar de client van de gateway ingesteld.
 
 ### <a name="policy-statement"></a>Beleidsverklaring
 
@@ -468,8 +468,8 @@ OriginalUrl.
 </set-header>
 ```
 
-#### <a name="forward-context-information-to-the-backend-service"></a>Contextinformatie naar de back-endservice doorsturen
- In dit voorbeeld laat zien hoe beleid op het niveau van de API op te geven contextinformatie voor de back-endservice toepassen. Zie voor een demonstratie van configureren en gebruiken van dit beleid [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en vooruit tot en met 10:30. Bij 12:10 is er een demo voor het aanroepen van een bewerking in de portal voor ontwikkelaars, waar u het beleid op het werk kunt zien.
+#### <a name="forward-context-information-to-the-backend-service"></a>Doorsturen van contextgegevens naar de back-endservice
+ In dit voorbeeld laat zien hoe om toe te passen op de API-niveau contextinformatie naar de back endservice opgeven. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: meer API Management functies met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 10:30. Bij 12:10 is er een demo van het aanroepen van een bewerking in de portal voor ontwikkelaars, waar u het beleid op het werk kunt zien.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward some context information, user id and the region the gateway is hosted in, to the backend service for logging or evaluation -->
@@ -479,20 +479,34 @@ OriginalUrl.
 </set-header>
 ```
 
- Zie voor meer informatie [beleidsexpressies](api-management-policy-expressions.md) en [Context variabele](api-management-policy-expressions.md#ContextVariables).
+ Zie voor meer informatie, [beleidsexpressies](api-management-policy-expressions.md) en [contextvariabele](api-management-policy-expressions.md#ContextVariables).
+
+> [!NOTE]
+> Meerdere waarden van een koptekst worden samengevoegd met een CSV-tekenreeks, bijvoorbeeld:  
+> `headerName: value1,value2,value3`
+>
+> Uitzonderingen bestaan uit gestandaardiseerde kopteksten, welke waarden:
+> - komma's kunnen bevatten (`User-Agent`, `WWW-Authenticate`, `Proxy-Authenticate`),
+> - datum kan bevatten (`Cookie`, `Set-Cookie`, `Warning`),
+> - datum bevatten (`Date`, `Expires`, `If-Modified-Since`, `If-Unmodified-Since`, `Last-Modified`, `Retry-After`).
+>
+> In het geval van deze uitzonderingen, meerdere headerwaarden zal niet worden samengevoegd tot één tekenreeks en worden doorgegeven als afzonderlijke headers, bijvoorbeeld:  
+>`User-Agent: value1`  
+>`User-Agent: value2`  
+>`User-Agent: value3`
 
 ### <a name="elements"></a>Elementen
 
 |Naam|Beschrijving|Vereist|
 |----------|-----------------|--------------|
-|set-header|Hoofdelement.|Ja|
-|waarde|Hiermee geeft u de waarde van de header moet worden ingesteld. Voor meerdere headers met dezelfde naam extra toevoegen `value` elementen.|Ja|
+|set-header|Root-element.|Ja|
+|waarde|Hiermee geeft u de waarde van de header moet worden ingesteld. Voor meerdere headers met dezelfde naam voegt u extra `value` elementen.|Ja|
 
 ### <a name="properties"></a>Eigenschappen
 
 |Naam|Beschrijving|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
-|Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de header is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -onderdrukking - vervangt de waarde van de bestaande koptekst.<br />de waarde van de bestaande header vervangen - skip - niet.<br />-toevoeg - de waarde toegevoegd aan de bestaande headerwaarde.<br />-delete - verwijdert de header van de aanvraag.<br /><br /> Als de waarde `override` opnemen van meerdere vermeldingen met dezelfde naam resulteert in de koptekst wordt ingesteld in overeenstemming met alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|
+|Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de koptekst is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -override - vervangt de waarde van de bestaande koptekst.<br />-skip: is geen vervanging voor de bestaande waarde voor header.<br />-append - de waarde wordt toegevoegd aan de bestaande waarde voor header.<br />-delete - verwijdert de header van de aanvraag.<br /><br /> Als de waarde `override` meerdere vermeldingen met dezelfde naam opnemen resulteert in de koptekst wordt ingesteld op basis van alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|
 |naam|Hiermee geeft u de naam van de header moet worden ingesteld.|Ja|N/A|
 
 ### <a name="usage"></a>Gebruik
@@ -500,10 +514,10 @@ OriginalUrl.
 
 -   **Beleid secties:** inkomend, uitgaand back-end op fout
 
--   **Beleid scopes:** wereldwijd, product, API, bewerking
+-   **Beleid bereiken:** wereldwijd, product, API, bewerking
 
-##  <a name="SetQueryStringParameter"></a> Querytekenreeksparameter instellen
- De `set-query-parameter` beleid wordt toegevoegd, vervangt de waarde van, of verwijderingen querytekenreeksparameter aanvragen. Kan worden gebruikt voor het doorgeven van de query parameters verwacht door de back endservice die zijn optioneel of nooit voorkomen in de aanvraag.
+##  <a name="SetQueryStringParameter"></a> Queryreeks-setparameter
+ De `set-query-parameter` beleid wordt toegevoegd, vervangt de waarde van, of verwijderingen vraag queryreeks-parameter. Kan worden gebruikt voor het doorgeven van parameters verwacht door de back endservice die zijn optioneel query of nooit die aanwezig zijn in de aanvraag.
 
 ### <a name="policy-statement"></a>Beleidsverklaring
 
@@ -528,8 +542,8 @@ OriginalUrl.
 
 ```
 
-#### <a name="forward-context-information-to-the-backend-service"></a>Contextinformatie naar de back-endservice doorsturen
- In dit voorbeeld laat zien hoe beleid op het niveau van de API op te geven contextinformatie voor de back-endservice toepassen. Zie voor een demonstratie van configureren en gebruiken van dit beleid [Cloud hebben betrekking op aflevering 177: meer API-beheerfuncties met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en vooruit tot en met 10:30. Bij 12:10 is er een demo voor het aanroepen van een bewerking in de portal voor ontwikkelaars, waar u het beleid op het werk kunt zien.
+#### <a name="forward-context-information-to-the-backend-service"></a>Doorsturen van contextgegevens naar de back-endservice
+ In dit voorbeeld laat zien hoe om toe te passen op de API-niveau contextinformatie naar de back endservice opgeven. Zie voor een demonstratie van configureren en gebruiken van dit beleid, [Cloud Cover aflevering 177: meer API Management functies met Vlad Vinogradsky](https://azure.microsoft.com/documentation/videos/episode-177-more-api-management-features-with-vlad-vinogradsky/) en spoel vooruit naar 10:30. Bij 12:10 is er een demo van het aanroepen van een bewerking in de portal voor ontwikkelaars, waar u het beleid op het werk kunt zien.
 
 ```xml
 <!-- Copy this snippet into the inbound element to forward a piece of context, product name in this example, to the backend service for logging or evaluation -->
@@ -539,40 +553,40 @@ OriginalUrl.
 
 ```
 
- Zie voor meer informatie [beleidsexpressies](api-management-policy-expressions.md) en [Context variabele](api-management-policy-expressions.md#ContextVariables).
+ Zie voor meer informatie, [beleidsexpressies](api-management-policy-expressions.md) en [contextvariabele](api-management-policy-expressions.md#ContextVariables).
 
 ### <a name="elements"></a>Elementen
 
 |Naam|Beschrijving|Vereist|
 |----------|-----------------|--------------|
-|set-query-parameter|Hoofdelement.|Ja|
-|waarde|Hiermee geeft u de waarde van de query-parameter moet worden ingesteld. Voor meerdere queryparameters met dezelfde naam extra toevoegen `value` elementen.|Ja|
+|set-queryparameter|Root-element.|Ja|
+|waarde|Hiermee geeft u de waarde van de query-parameter moet worden ingesteld. Voor meerdere queryparameters met dezelfde naam voegt u extra `value` elementen.|Ja|
 
 ### <a name="properties"></a>Eigenschappen
 
 |Naam|Beschrijving|Vereist|Standaard|
 |----------|-----------------|--------------|-------------|
-|Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de queryparameter is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -onderdrukking - vervangt de waarde van de bestaande parameter.<br />-skip: de waarde van de bestaande query-parameter niet vervangen.<br />-toevoeg - voegt u de waarde met de waarde van de bestaande query.<br />de queryparameter verwijdert - delete - uit de aanvraag.<br /><br /> Als de waarde `override` opnemen van meerdere vermeldingen met dezelfde naam resulteert in de query-parameter worden ingesteld in overeenstemming met alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|
-|naam|Hiermee geeft u de naam van de queryparameter moet worden ingesteld.|Ja|N/A|
+|Er bestaat actie|Hiermee geeft u op welke actie moet worden uitgevoerd wanneer de queryparameter is al opgegeven. Dit kenmerk moet een van de volgende waarden hebben.<br /><br /> -override - vervangt de waarde van de bestaande parameter.<br />-skip: de waarde van de bestaande query-parameter niet vervangen.<br />-append - de waarde wordt toegevoegd aan de bestaande waarde van de queryparameter.<br />-delete - verwijdert de queryparameter van de aanvraag.<br /><br /> Als de waarde `override` meerdere vermeldingen met dezelfde naam opnemen resulteert in de queryparameter wordt ingesteld op basis van alle vermeldingen (die wordt vermeld meerdere keren); alleen de vermelde waarden worden ingesteld in het resultaat.|Nee|overschrijven|
+|naam|Hiermee geeft u de naam van de query-parameter moet worden ingesteld.|Ja|N/A|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Beleid secties:** back-end voor binnenkomend verkeer
+-   **Beleid secties:** inkomende, back-end
 
--   **Beleid scopes:** wereldwijd, product, API, bewerking
+-   **Beleid bereiken:** wereldwijd, product, API, bewerking
 
 ##  <a name="RewriteURL"></a> Herschrijven van URL 's
- De `rewrite-uri` beleid omgezet in een aanvraag-URL van de openbare vorm het formulier dat werd verwacht door de webservice, zoals wordt weergegeven in het volgende voorbeeld.
+ De `rewrite-uri` beleid omgezet in een aanvraag-URL van het formulier voor openbare van het formulier werd verwacht door de webservice, zoals wordt weergegeven in het volgende voorbeeld.
 
 -   Openbare URL- `http://api.example.com/storenumber/ordernumber`
 
--   Aanvraag-URL- `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
+-   Aanvraag-URL: `http://api.example.com/v2/US/hardware/storenumber&ordernumber?City&State`
 
- Dit beleid kan worden gebruikt wanneer een menselijke en/of beschrijvende browser-URL moet worden omgezet in de URL-indeling verwacht door de webservice. Dit beleid moet alleen worden toegepast bij het blootstellen van een andere URL-indeling, zoals schone URL's, RESTful-URL's, gebruiksvriendelijke URL's of Zoekmachineoptimalisatie gebruiksvriendelijke URL's die zijn uitsluitend structurele URL's die niet een queryreeks bevatten en in plaats daarvan alleen het pad van de resource (na het schema en de autoriteit) bevatten. Dit wordt vaak gedaan voor fraaie uiterlijk, bruikbaarheid of zoekmachine optimaliseringsdoeleinden (Zoekmachineoptimalisatie).
+ Dit beleid kan worden gebruikt wanneer een menselijke en/of beschrijvende browser-URL moet worden omgezet in de URL-indeling verwacht door de webservice. Dit beleid moet alleen worden toegepast als een alternatieve URL-indeling, zoals nieuwe URL's, RESTful URL's, gebruikersvriendelijke URL's of SEO-vriendelijk-URL's die zijn uitsluitend structurele URL's die geen querytekenreeks bevatten en alleen het pad van de resource (in plaats daarvan bevatten om vrij te geven Nadat het schema en de instantie). Dit wordt vaak gedaan voor fraaie uiterlijk, bruikbaarheid of zoekmachine optimaliseringsdoeleinden (SEO).
 
 > [!NOTE]
->  U kunt alleen queryreeksparameters met het beleid toevoegen. U kunt geen extra Sjabloonparameters voor pad toevoegen in de URL herschrijven.
+>  U kunt queryreeksparameters met behulp van het beleid alleen toevoegen. U kunt geen extra sjabloon padparameters toevoegen in de URL opnieuw schrijven.
 
 ### <a name="policy-statement"></a>Beleidsverklaring
 
@@ -624,23 +638,23 @@ OriginalUrl.
 
 |Naam|Beschrijving|Vereist|
 |----------|-----------------|--------------|
-|rewrite-uri|Hoofdelement.|Ja|
+|herschrijven-uri|Root-element.|Ja|
 
 ### <a name="attributes"></a>Kenmerken
 
 |Kenmerk|Beschrijving|Vereist|Standaard|
 |---------------|-----------------|--------------|-------------|
-|sjabloon|De werkelijke web service-URL met een queryreeks-parameters. Wanneer u expressies gebruikt, is het gehele getal moet een expressie.|Ja|N/A|
-|kopiëren niet-overeenkomende parameters|Hiermee geeft u op of de binnenkomende aanvraag niet aanwezig in de oorspronkelijke URL sjabloon queryparameters worden toegevoegd aan de URL die is gedefinieerd door de sjabloon opnieuw schrijven|Nee|true|
+|sjabloon|De werkelijke web service-URL met een queryreeksparameters. Wanneer u expressies, is de hele waarde moet een expressie.|Ja|N/A|
+|kopiëren-niet-overeenkomende parameters|Hiermee geeft u op of queryparameters in de inkomende aanvraag komt niet in de oorspronkelijke URL-sjabloon worden toegevoegd aan de URL die is gedefinieerd door de sjabloon opnieuw schrijven|Nee|true|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Beleid secties:** inkomende
+-   **Beleid secties:** inkomend
 
--   **Beleid scopes:** product, API-bewerking
+-   **Beleid bereiken:** product, API-bewerking
 
-##  <a name="XSLTransform"></a> XML met behulp van een XSLT transformeren
+##  <a name="XSLTransform"></a> Met behulp van een XSLT XML transformeren
  De `Transform XML using an XSLT` beleid geldt een XSL-transformatie voor XML in de hoofdtekst van de aanvraag of antwoord.
 
 ### <a name="policy-statement"></a>Beleidsverklaring
@@ -693,21 +707,21 @@ OriginalUrl.
 
 |Naam|Beschrijving|Vereist|
 |----------|-----------------|--------------|
-|XSL-transformatie|Hoofdelement.|Ja|
-|Parameter|Gebruikt voor het definiëren van variabelen die worden gebruikt in de transformatie|Nee|
-|xsl: Stylesheet|Hoofdelement opmaakmodel. Ga als volgt de standaard alle elementen en kenmerken die zijn gedefinieerd binnen [XSLT-specificatie](http://www.w3.org/TR/xslt)|Ja|
+|XSL-transformatie|Root-element.|Ja|
+|Parameter|Gebruikt voor het definiëren van variabelen die worden gebruikt bij de transformatie|Nee|
+|xsl: Stylesheet|Stylesheet hoofdelement. Ga als volgt de standaard alle elementen en kenmerken die zijn gedefinieerd binnen [XSLT-specificatie](http://www.w3.org/TR/xslt)|Ja|
 
 ### <a name="usage"></a>Gebruik
  Dit beleid kan worden gebruikt in het volgende beleid [secties](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#sections) en [scopes](http://azure.microsoft.com/documentation/articles/api-management-howto-policies/#scopes).
 
--   **Beleid secties:** binnenkomende, uitgaande
+-   **Beleid secties:** inkomend, uitgaand
 
--   **Beleid scopes:** wereldwijd, product, API, bewerking
+-   **Beleid bereiken:** wereldwijd, product, API, bewerking
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Zie de volgende onderwerpen voor meer informatie:
 
-+ [Beleidsregels in API Management](api-management-howto-policies.md)
-+ [Naslaginformatie over beleid](api-management-policy-reference.md) voor een volledige lijst van beleidsverklaringen en hun instellingen
++ [Beleid in API Management](api-management-howto-policies.md)
++ [Naslaginformatie over beleid voor](api-management-policy-reference.md) voor een volledige lijst van beleidsverklaringen en de bijbehorende instellingen
 + [Voorbeelden van beleid](policy-samples.md)

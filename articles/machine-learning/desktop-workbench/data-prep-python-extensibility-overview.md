@@ -1,38 +1,38 @@
 ---
-title: Python-uitbreidbaarheid gebruiken met Azure Machine Learning gegevens voorbereidingen | Microsoft Docs
-description: Dit document bevat een overzicht en gedetailleerde voorbeelden van het gebruik van Python-code uit te breiden de functionaliteit van het voorbereiden van gegevens
+title: Uitbreidbaarheid voor Python gebruiken met Azure Machine Learning Data Preparations | Microsoft Docs
+description: Dit document bevat een overzicht en gedetailleerde voorbeelden van hoe u Python-code gebruikt om uit te breiden de functionaliteit van gegevens voor te bereiden
 services: machine-learning
 author: euangMS
 ms.author: euang
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 05/09/2018
-ms.openlocfilehash: e91d3e4bfb1cba6f45b0106b3fabe5bef7e0e079
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: a713f5fcde31e0e25de080a65b71209011ef551d
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831421"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35645901"
 ---
-# <a name="data-preparations-python-extensions"></a>Gegevensextensies voorbereidingen Python
-Als een manier invullen van functionaliteit onderbrekingen tussen de ingebouwde functies bevat Azure Machine Learning gegevens voorbereidingen uitbreidbaarheid op meerdere niveaus. In dit document, geven we een overzicht op de uitbreidingsmogelijkheden via door de Python-script. 
+# <a name="data-preparations-python-extensions"></a>Data Preparations Python-extensies
+Als een manier om functionaliteit onderbrekingen tussen de ingebouwde functies invullen, bevat Azure Machine Learning Data Preparations uitbreidbaarheid op meerdere niveaus. In dit document beschrijven we de uitbreidbaarheid via Python-script. 
 
 ## <a name="custom-code-steps"></a>Aangepaste code stappen 
-Voorbereidingen voor gegevens heeft de volgende aangepaste stappen waarin gebruikers code kunnen schrijven:
+Data Preparations heeft de volgende aangepaste stappen waarin gebruikers code kunnen schrijven:
 
 * Kolom toevoegen
 * Geavanceerd filter
 * Gegevensstroom transformeren
 * Partitie transformeren
 
-## <a name="code-block-types"></a>Code blok typen 
-Wij ondersteunen twee typen van de code blok voor elk van deze stappen. Eerst wordt een bare Python-expressie die wordt uitgevoerd, omdat wordt ondersteund. Wij ondersteunen tweede, een Python-Module waar noemen we een specifieke functie met een bekende handtekening in de code die u opgeeft.
+## <a name="code-block-types"></a>Typen van code blokkeren 
+We ondersteunen twee typen van code blokkeren voor elk van deze stappen. Eerst wordt een bare Python-expressie die wordt uitgevoerd, wordt ondersteund. Ten tweede ondersteunen we een Python-Module wanneer een specifieke functie met een handtekening van bekende genoemd in de code die u opgeeft.
 
-U kunt bijvoorbeeld een nieuwe kolom die het logboek van een andere kolom berekend op de volgende twee manieren toevoegen:
+U kunt bijvoorbeeld een nieuwe kolom die het logboek van een andere kolom berekend in de volgende twee manieren toevoegen:
 
 Expressie 
 
@@ -48,14 +48,14 @@ def newvalue(row):
 ```
 
 
-De transformatie kolom toevoegen in de modus van de Module wordt verwacht dat een functie aangeroepen zoeken `newvalue` die een rij-variabele accepteert en retourneert de waarde voor de kolom. Deze module kan de hoeveelheid Python-code met andere functies, invoer, enzovoort bevatten.
+De transformatie kolom toevoegen in de modus van de Module wordt verwacht dat een functie met de naam zoeken `newvalue` die een rij-variabele accepteert en retourneert de waarde voor de kolom. Deze module kan een aantal van de Python-code met andere functies, invoer, enzovoort bevatten.
 
 De details van elk extensiepunt worden in de volgende secties besproken. 
 
 ## <a name="imports"></a>Invoer 
-Als u het blok Expressietype gebruikt, kunt u nog steeds toevoegen **importeren** instructies toe aan uw code. Al deze moeten worden gegroepeerd op de bovenste regels van uw code.
+Als u het type expressie blokkeren, kunt u nog steeds toevoegen **importeren** instructies toe aan uw code. Ze allemaal moeten worden gegroepeerd op de belangrijkste regels van uw code.
 
-Corrigeer 
+Corrigeren 
 
 ```python
 import math 
@@ -73,10 +73,10 @@ import numpy
 ```
  
  
-Als u het blok moduletype gebruikt, voert u de normale Python regels voor het gebruik van de **importeren** instructie. 
+Als u de Module Bloktype gebruikt, kunt u de normale Python regels voor het gebruik van volgen de **importeren** instructie. 
 
-## <a name="default-imports"></a>Standaard-invoer
-De volgende invoer zijn altijd opgenomen en kan worden gebruikt in uw code. U hoeft niet opnieuw importeren. 
+## <a name="default-imports"></a>Standaard invoer
+De volgende invoer zijn altijd inbegrepen en kan worden gebruikt in uw code. U hoeft niet opnieuw importeren. 
 
 ```python
 import math  
@@ -90,12 +90,12 @@ import scipy as sp
   
 
 ## <a name="install-new-packages"></a>Nieuwe pakketten installeren
-Voor het gebruik van een pakket dat niet standaard geïnstalleerd, moet u eerst installeren in de omgevingen die gegevens voorbereidingen gebruikt. Deze installatie moet worden uitgevoerd op uw lokale machine en compute doelen die u uitvoeren wilt op.
+Voor het gebruik van een pakket dat wordt niet standaard geïnstalleerd, moet u eerst om deze te installeren in de omgevingen die gebruikmaakt van Data Preparations. Deze installatie moet worden uitgevoerd op uw lokale computer, en ook op een compute-doelen die u uitvoeren wilt op.
 
-U hebt voor het installeren van uw pakketten in een compute-doel, het conda_dependencies.yml bestand zich in de map aml_config onder de hoofdmap van uw project te wijzigen.
+U hebt uw om pakketten te installeren in een compute-doel, om de conda_dependencies.yml-bestand zich in de map aml_config onder de hoofdmap van uw project te wijzigen.
 
 ### <a name="windows"></a>Windows 
-U vindt de locatie in Windows, de installatie van de app-specifiek van Python en de map scripts te vinden. De standaardlocatie is:  
+Als u de locatie op Windows zoekt, moet u de installatie van de app-specifieke van Python en de map scripts vinden. De standaardlocatie is:  
 
 `C:\Users\<user>\AppData\Local\AmlWorkbench\Python\Scripts` 
 
@@ -108,7 +108,7 @@ of
 `pip install <libraryname> `
 
 ### <a name="mac"></a>Mac 
-U vindt de locatie op een Mac, de installatie van de app-specifiek van Python en de map scripts te vinden. De standaardlocatie is: 
+U vindt de locatie op een Mac, moet u de installatie van de app-specifieke van Python en de map scripts vinden. De standaardlocatie is: 
 
 `/Users/<user>/Library/Caches/AmlWorkbench/Python/bin` 
 
@@ -131,7 +131,7 @@ from UserModule import ExtensionFunction1
 df = ExtensionFunction1(df)
 ```
 
-In de kolom toevoegen (Script), Code Bloktype instellen = Module en de volgende Python-code schrijven
+In de kolom toevoegen (Script), stelt u Code Bloktype = Module en de volgende Python-code schrijven
 
 ```python 
 import sys
@@ -142,11 +142,11 @@ from UserModule import ExtensionFunction2
 def newvalue(row):
     return ExtensionFunction2(row)
 ```
-Voor de uitvoering van verschillende wijs contexten (lokaal, Docker, Spark), absoluut pad de juiste plaats. U wilt gebruiken 'os.getcwd() + relativePath' terug te vinden.
+Voor de uitvoering van verschillende wijst contexten (lokaal, Docker, Spark), u het absolute pad op de juiste plaats. U wilt gebruiken 'os.getcwd() + relativePath' bij het zoeken.
 
 
 ## <a name="column-data"></a>Kolomgegevens 
-Kolomgegevens toegankelijk zijn vanuit een rij met puntnotatie of sleutel / waarde-notatie. Namen van kolommen die geen spaties of speciale tekens niet toegankelijk met puntnotatie. De `row` variabele moet altijd worden gedefinieerd in beide modi van Python-extensies (Module en expressie). 
+Kolomgegevens kunt toegankelijk vanaf een rij met behulp van een puntnotering of sleutel / waarde-notatie. Kolomnamen met spaties of speciale tekens kunnen niet worden geopend met behulp van een puntnotering. De `row` variabele moet altijd worden gedefinieerd in beide modi van Python-extensies (Module en expressie). 
 
 Voorbeelden 
 
@@ -157,10 +157,10 @@ Voorbeelden
 
 ## <a name="add-column"></a>Kolom toevoegen 
 ### <a name="purpose"></a>Doel
-Het extensiepunt kolom toevoegen kunt u Python voor het berekenen van een nieuwe kolom te schrijven. De code die u schrijft heeft toegang tot de volledige rij. Het moet een nieuwe waarde voor elke rij in de kolom retourneren. 
+De kolom toevoegen uitbreidingspunt kunt u Python voor het berekenen van een nieuwe kolom te schrijven. De code die u schrijft heeft toegang tot de volledige rij. Het moet een nieuwe waarde voor elke rij in de kolom retourneren. 
 
 ### <a name="how-to-use"></a>Gebruiksinstructies
-U kunt deze extensiepunt toevoegen met behulp van het blok kolom toevoegen (Script). Deze beschikbaar is op het hoogste niveau **transformaties** menu, ook als aan de **kolom** contextmenu. 
+U kunt deze uitbreidingspunt toevoegen met behulp van het blok kolom toevoegen (Script). Deze is beschikbaar op het hoogste niveau **transformaties** menu, ook als aan de **kolom** in het contextmenu. 
 
 ### <a name="syntax"></a>Syntaxis
 Expressie
@@ -179,10 +179,10 @@ def newvalue(row):
 
 ## <a name="advanced-filter"></a>Geavanceerd filter
 ### <a name="purpose"></a>Doel 
-Het extensiepunt Geavanceerde Filter kunt u een aangepast filter schrijven. U hebt toegang tot de hele rij en uw code moet True retourneren (inclusief de rij) of ONWAAR (uitsluiten de rij). 
+Het Geavanceerde Filter-extensiepunt kunt u een aangepast filter schrijven. U hebt toegang tot de hele rij en waar in uw code moet worden geretourneerd (inclusief de rij), of ONWAAR (uitsluiten de rij). 
 
 ### <a name="how-to-use"></a>Gebruiksinstructies
-U kunt deze extensiepunt toevoegen met behulp van het blok Geavanceerde Filter (Script). Deze beschikbaar is op het hoogste niveau **transformaties** menu. 
+U kunt deze uitbreidingspunt toevoegen met behulp van het blok Geavanceerd Filter (Script). Deze is beschikbaar op het hoogste niveau **transformaties** menu. 
 
 ### <a name="syntax"></a>Syntaxis
 
@@ -202,15 +202,15 @@ def includerow(row):
 
 ## <a name="transform-dataflow"></a>Gegevensstroom transformeren
 ### <a name="purpose"></a>Doel 
-De gegevensstroom transformeren extensiepunt kunt u de gegevensstroom volledig te transformeren. U hebt toegang tot een Pandas dataframe waarin alle kolommen en rijen dat u bent verwerken. Uw code moet een dataframe Pandas met de nieuwe gegevens retourneren. 
+De gegevensstroom transformeren uitbreidingspunt kunt u volledig Transformeren de gegevensstroom. U hebt toegang tot een Pandas dataframe waarin alle kolommen en rijen die u wilt verwerken. Uw code moet een Pandas dataframe met de nieuwe gegevens retourneren. 
 
 >[!NOTE]
->In Python is de gegevens in het geheugen worden geladen in een dataframe Pandas indien deze extensie wordt gebruikt. 
+>In Python, worden alle gegevens worden geladen in het geheugen zich in een Pandas dataframe als deze extensie wordt gebruikt. 
 >
->In Spark, alle gegevens worden verzameld op een enkele werkrolknooppunt. Als de gegevens erg groot is, kan een werknemer uitgevoerd onvoldoende geheugen. Zorgvuldig gebruikmaken.
+>In Spark worden alle gegevens worden verzameld op een enkele worker-knooppunt. Als de gegevens erg groot is, kan een werknemer onvoldoende geheugen uitvoeren. Gebruik deze zorgvuldig.
 
 ### <a name="how-to-use"></a>Gebruiksinstructies 
-U kunt deze extensiepunt toevoegen met behulp van de transformatie (Script) gegevensstroomblok. Deze beschikbaar is op het hoogste niveau **transformaties** menu. 
+U kunt deze uitbreidingspunt toevoegen met behulp van het blok gegevensstroom transformeren (Script). Deze is beschikbaar op het hoogste niveau **transformaties** menu. 
 ### <a name="syntax"></a>Syntaxis 
 
 Expressie
@@ -233,14 +233,14 @@ def transform(df):
 
 ## <a name="transform-partition"></a>Partitie transformeren  
 ### <a name="purpose"></a>Doel 
-De partitie transformeren extensiepunt kunt u een partitie van de gegevensstroom transformeren. U hebt toegang tot een Pandas dataframe waarin alle kolommen en rijen voor deze partitie. Uw code moet een dataframe Pandas met de nieuwe gegevens retourneren. 
+De partitie transformeren uitbreidingspunt kunt u een partitie van de gegevensstroom transformeren. U hebt toegang tot een Pandas dataframe dat alle kolommen en rijen voor deze partitie bevat. Uw code moet een Pandas dataframe met de nieuwe gegevens retourneren. 
 
 >[!NOTE]
->In Python loopt u het risico met één partitie of meerdere partities, afhankelijk van de grootte van uw gegevens. In Spark, kunt u werkt met een dataframe waarin de gegevens voor een partitie op een gegeven werkrolknooppunt. In beide gevallen kan niet u wordt ervan uitgegaan dat u toegang tot de volledige gegevensset hebben. 
+>In Python, kunt u uiteindelijk met één partitie of meerdere partities, afhankelijk van de grootte van uw gegevens. In Spark, kunt u werkt met een dataframe waarin de gegevens voor een partitie op een bepaalde worker-knooppunt. In beide gevallen kan niet u wordt ervan uitgegaan dat u toegang tot de volledige gegevensset hebt. 
 
 
 ### <a name="how-to-use"></a>Gebruiksinstructies
-U kunt deze extensiepunt toevoegen met behulp van het blok transformeren partitie (Script). Deze beschikbaar is op het hoogste niveau **transformaties** menu. 
+U kunt deze uitbreidingspunt toevoegen met behulp van het blok partitie transformeren (Script). Deze is beschikbaar op het hoogste niveau **transformaties** menu. 
 
 ### <a name="syntax"></a>Syntaxis 
 
@@ -266,18 +266,18 @@ def transform(df, index):
 
 ## <a name="datapreperror"></a>DataPrepError  
 ### <a name="error-values"></a>Foutwaarden  
-In de voorbereidingen voor gegevens bestaat het concept van foutwaarden. 
+In Data Preparations bestaat het concept van foutwaarden. 
 
-Het is mogelijk tegenkomen foutwaarden in aangepaste Python-code. Ze zijn exemplaren van een Python-klasse aangeroepen `DataPrepError`. Deze klasse een Python-uitzondering verpakt en een aantal eigenschappen heeft. De eigenschappen bevatten informatie over de fout is opgetreden tijdens het verwerken van de oorspronkelijke waarde, evenals de oorspronkelijke waarde. 
+Het is mogelijk tegenkomen foutwaarden in aangepaste Python-code. Ze zijn exemplaren van een Python-klasse genaamd `DataPrepError`. Deze klasse verpakt een Python-uitzondering en een aantal eigenschappen heeft. De eigenschappen bevatten informatie over de fout is opgetreden tijdens het verwerken van de oorspronkelijke waarde, evenals de oorspronkelijke waarde. 
 
 
-### <a name="datapreperror-class-definition"></a>De klassendefinitie DataPrepError
+### <a name="datapreperror-class-definition"></a>Definitie van de klasse DataPrepError
 ```python 
 class DataPrepError(Exception): 
     def __bool__(self): 
         return False 
 ``` 
-Het maken van een DataPrepError in het kader gegevens voorbereidingen Python ziet er in het algemeen als volgt uit: 
+Het maken van een DataPrepError in de Data Preparations Python-webstructuur ziet er in het algemeen als volgt uit: 
 ```python 
 DataPrepError({ 
    'message':'Cannot convert to numeric value', 
@@ -287,7 +287,7 @@ DataPrepError({
 }) 
 ``` 
 #### <a name="how-to-use"></a>Gebruiksinstructies 
-Het is mogelijk wanneer Python wordt uitgevoerd op een extensiepunt DataPrepErrors als retourwaarden genereren met behulp van de methode voor maken van de vorige. Het is veel meer waarschijnlijk dat DataPrepErrors zijn opgetreden tijdens het verwerken van gegevens op het moment van een uitbreiding. Op dit moment moet de aangepaste Python-code voor het afhandelen van een DataPrepError als een geldig gegevenstype.
+Het is mogelijk wanneer op een uitbreidingspunt voor het genereren van DataPrepErrors als retourwaarden met behulp van de vorige methode voor het maken van Python wordt uitgevoerd. Het is veel meer waarschijnlijk dat DataPrepErrors zijn opgetreden tijdens het verwerken van gegevens op het moment van een extensie. Op dit moment moet de aangepaste Python-code voor het afhandelen van een DataPrepError als een geldig gegevenstype.
 
 #### <a name="syntax"></a>Syntaxis 
 Expressie 

@@ -24,7 +24,11 @@
 ## SAP HANA installeren
 ### [De configuratie valideren](hana-installation.md)
 ### [Voorbeeld van HANA-installatie](hana-example-installation.md)
-## [Hoge beschikbaarheid en herstel na noodgevallen](hana-overview-high-availability-disaster-recovery.md)
+## Hoge beschikbaarheid en herstel na noodgevallen
+### [Opties en overwegingen](hana-overview-high-availability-disaster-recovery.md)
+### [Back-up en herstel](hana-backup-restore.md)
+### [Principes en voorbereiding](hana-concept-preparation.md)
+### [Procedure bij failover van het noodherstel](hana-failover-procedure.md)
 ## Probleemoplossing en bewaking
 ### [Bewaking van HLI](troubleshooting-monitoring.md)
 ### [Bewaken en problemen oplossen vanaf de HANA-zijde](hana-monitor-troubleshoot.md)

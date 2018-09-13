@@ -1,6 +1,6 @@
 ---
 title: Azure Application Insights-ondersteuning voor meerdere onderdelen, microservices en containers | Microsoft Docs
-description: Bewaken van apps die bestaan uit meerdere onderdelen of rollen voor prestaties en het gebruik.
+description: Bewaken van apps die bestaan uit meerdere onderdelen of functies voor prestaties en het gebruik.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,61 +9,62 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/17/2017
 ms.author: mbullwin
-ms.openlocfilehash: 9b03aff140eec5b355383447f0a815220d6408e3
-ms.sourcegitcommit: 20d103fb8658b29b48115782fe01f76239b240aa
+ms.openlocfilehash: 191913500daf7f1ab20f92c7e951f58598d5d14e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/03/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643947"
 ---
-# <a name="monitor-multi-component-applications-with-application-insights-preview"></a>De bewaking van meerdere onderdeel toepassingen met Application Insights (preview)
+# <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Bewaken van toepassingen met meerdere onderdelen met Application Insights (preview)
 
-U kunt apps die bestaan uit meerdere server-onderdelen, functies of services met bewaken [Azure Application Insights](app-insights-overview.md). De status van de onderdelen en hun onderlinge relaties worden weergegeven op een kaart met één toepassing. U kunt afzonderlijke bewerkingen via meerdere onderdelen met automatische HTTP correlatie traceren. Container diagnostische gegevens kan worden geïntegreerd en worden gecorreleerd met de toepassingstelemetrie. Gebruik één Application Insights-resource voor de onderdelen van uw toepassing. 
+U kunt de apps die bestaan uit meerdere server-onderdelen, functies of services met bewaken [Azure Application Insights](app-insights-overview.md). De status van de onderdelen en de relaties tussen deze worden weergegeven op één Toepassingsoverzicht. U kunt afzonderlijke bewerkingen via meerdere onderdelen met automatische HTTP correlatie traceren. Diagnostische gegevens over containers kunnen worden geïntegreerd en verband houden met de toepassingstelemetrie. Gebruik één Application Insights-resource voor alle onderdelen van uw toepassing. 
 
-![Meerdere onderdeel toepassingstoewijzing](./media/app-insights-monitor-multi-role-apps/app-map.png)
+![Overzicht van de toepassing met meerdere onderdelen](./media/app-insights-monitor-multi-role-apps/app-map.png)
 
-We gebruiken 'onderdeel' hier betekent een werkende deel van een grote aanvraag. Bijvoorbeeld: de meeste zakelijke toepassingen kan bestaan uit clientcode die wordt uitgevoerd in de webbrowser, praten met een of meer web-app services, die op zijn beurt back gebruiken-end services. Server-onderdelen in de cloud gehoste on-premises kunnen worden op Azure web- en werkrollen rollen kunnen worden of mogelijk worden uitgevoerd in containers zoals Docker of Service Fabric. 
+We gebruiken 'onderdeel' hier om een werkende deel van een grote toepassing. Bijvoorbeeld, een typische zakelijke toepassing kan bestaan uit de clientcode die wordt uitgevoerd in webbrowsers, communicatie met een of meer web-app services, die op zijn beurt back gebruiken-endservices. Server-onderdelen mogelijk on-premises gehost op in de cloud, of Azure-web- en werkrollen rollen kunnen worden, of kunnen uitvoeren in, zoals Docker of Service Fabric-containers. 
 
 ### <a name="sharing-a-single-application-insights-resource"></a>Een enkele Application Insights-resource delen 
 
-De belangrijke techniek hier is te verzenden van telemetrie van elk onderdeel in uw toepassing met de dezelfde Application Insights-bron, maar de `cloud_RoleName` eigenschap te onderscheiden van onderdelen indien nodig. Voegt de Application Insights-SDK de `cloud_RoleName` eigenschap in op de onderdelen telemetrie verzenden. Bijvoorbeeld: de SDK wordt toegevoegd een naam van de website of servicenaam rol is toegewezen aan de `cloud_RoleName` eigenschap. U kunt deze waarde met een telemetryinitializer overschrijven. De Map van de toepassing gebruikt de `cloud_RoleName` eigenschap om de onderdelen op de kaart te identificeren.
+De sleutel techniek hier is het verzenden van telemetrie van elk onderdeel in uw toepassing naar dezelfde Application Insights-resource, maar gebruikt u de `cloud_RoleName` eigenschap te onderscheiden van onderdelen indien nodig. De Application Insights-SDK wordt toegevoegd de `cloud_RoleName` eigenschap om de onderdelen van de telemetrie te verzenden. Bijvoorbeeld, de SDK wordt toegevoegd een naam van website of servicenaam die rol moet de `cloud_RoleName` eigenschap. U kunt deze waarde met een telemetryinitializer overschrijven. Het overzicht van de toepassing maakt gebruik van de `cloud_RoleName` eigenschap om de onderdelen op de kaart te identificeren.
 
-Voor meer informatie over het overschrijven de `cloud_RoleName` eigenschap Zie [eigenschappen toevoegen: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
+Voor meer informatie over hoe overschrijf de `cloud_RoleName` eigenschap Zie [eigenschappen toevoegen: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
 
-In sommige gevallen kan dit niet altijd geschikt en u mogelijk liever Gebruik afzonderlijke bronnen voor verschillende groepen van onderdelen. U wilt bijvoorbeeld verschillende bronnen worden gebruikt voor beheer of facturering doeleinden. Met behulp van afzonderlijke resources betekent dat er geen alle onderdelen weergegeven op een kaart met één toepassing; en dat u geen query uitvoeren voor onderdelen in [Analytics](app-insights-analytics.md). U moet ook de afzonderlijke resources instellen.
+In sommige gevallen kan dit niet altijd geschikt en u mogelijk liever gebruik van afzonderlijke resources voor verschillende groepen van onderdelen. Bijvoorbeeld, moet u mogelijk verschillende bronnen worden gebruikt voor beheer of facturering. Met behulp van afzonderlijke resources betekent dat er geen alle onderdelen weergegeven op één Toepassingsoverzicht; en dat u geen query uitvoeren voor onderdelen in [Analytics](app-insights-analytics.md). U hebt ook het instellen van de afzonderlijke resources.
 
-Met dat hoewel we gaan ervan uit dat in de rest van dit document die u wilt gegevens uit meerdere onderdelen te verzenden naar een Application Insights-resource.
+Met deze voorbehoud veronderstellen we in de rest van dit document dat u wilt verzenden van gegevens uit meerdere onderdelen naar een Application Insights-resource.
 
-## <a name="configure-multi-component-applications"></a>Meerdere onderdeel toepassingen configureren
+## <a name="configure-multi-component-applications"></a>Toepassingen met meerdere onderdelen configureren
 
-Als u een toepassing met meerdere onderdeel-kaart, moet u deze doelstellingen te bereiken:
+Als u een overzicht van de toepassing met meerdere onderdelen, moet u om deze doelstellingen te realiseren:
 
 * **Installeer de meest recente voorlopige versie** Application Insights-pakket in elk onderdeel van de toepassing. 
 * **Een enkele Application Insights-resource delen** voor alle onderdelen van uw toepassing.
-* **Inschakelen van samengestelde toepassingstoewijzing** in de blade Previews.
+* **Samengestelde toepassingstoewijzing inschakelen** in de blade Preview-versies.
 
-Configureer elk onderdeel van uw toepassing met de juiste methode voor het betreffende type. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), [JavaScript](app-insights-javascript.md).)
+Configureer elk onderdeel van uw toepassing met behulp van de juiste methode voor het betreffende type. ([ASP.NET](app-insights-asp-net.md), [Java](app-insights-java-get-started.md), [Node.js](app-insights-nodejs.md), [JavaScript](app-insights-javascript.md).)
 
-### <a name="1-install-the-latest-pre-release-package"></a>1. Het installatiepakket voor de meest recente voorlopige versie
+### <a name="1-install-the-latest-pre-release-package"></a>1. Het meest recente voorlopige versie-pakket installeren
 
-Bijwerken of installeer de Application Insights-pakketten in het project voor elk serveronderdeel. Als u Visual Studio:
+Bijwerken of installeren van de Application Insights-pakketten in het project voor elk serveronderdeel. Als u Visual Studio:
 
 1. Met de rechtermuisknop op een project en selecteer **NuGet-pakketten beheren**. 
 2. Selecteer **Include prerelease**.
-3. Als de Application Insights-pakketten in de Updates worden weergegeven, selecteert u deze. 
+3. Als Application Insights-pakketten in de Updates worden weergegeven, selecteert u deze. 
 
-    Anders zoeken en installeren van het juiste pakket:
+    Anders, zoeken en installeren van het juiste pakket:
     
     * Microsoft.ApplicationInsights.WindowsServer
-    * Microsoft.ApplicationInsights.ServiceFabric - voor de onderdelen die worden uitgevoerd als gast uitvoerbare bestanden en Docker-containers in Service Fabric-toepassing wordt uitgevoerd
-    * Microsoft.ApplicationInsights.ServiceFabric.Native - voor betrouwbare services in ServiceFabric toepassingen
-    * Microsoft.ApplicationInsights.Kubernetes voor onderdelen die worden uitgevoerd in Docker op Kubernetes
+    * Microsoft.ApplicationInsights.ServiceFabric - voor onderdelen die worden uitgevoerd als uitvoerbare gastbestanden en Docker-containers in Service Fabric-toepassing uitgevoerd
+    * Microsoft.ApplicationInsights.ServiceFabric.Native - voor betrouwbare services in service fabric-toepassingen
+    * Microsoft.ApplicationInsights.Kubernetes voor onderdelen die in Docker worden uitgevoerd in Kubernetes
 
 ### <a name="2-share-a-single-application-insights-resource"></a>2. Een enkele Application Insights-resource delen
 
-* In Visual Studio met de rechtermuisknop op een project en selecteer **Configure Application Insights**, of **Application Insights > configureren**. Gebruik de wizard voor het maken van een Application Insights-resource voor de eerste project. Voor toekomstige projecten, selecteert u dezelfde resource.
+* In Visual Studio met de rechtermuisknop op een project en selecteer **Application Insights configureren**, of **Application Insights > configureren**. Gebruik de wizard voor het eerste project om een Application Insights-resource te maken. Voor volgende projecten, selecteert u dezelfde resource.
 * Als er geen Application Insights-menu, handmatig configureren:
 
    1. In [Azure-portal](https://portal,azure.com), opent u de Application Insights-resource die u al hebt gemaakt voor een ander onderdeel.
@@ -73,13 +74,13 @@ Bijwerken of installeer de Application Insights-pakketten in het project voor el
 ![De instrumentatiesleutel kopiëren naar het .config-bestand](./media/app-insights-monitor-multi-role-apps/copy-instrumentation-key.png)
 
 
-### <a name="3-enable-composite-application-map"></a>3. Toewijzing van samengestelde toepassing inschakelen
+### <a name="3-enable-composite-application-map"></a>3. Samengestelde toepassingstoewijzing inschakelen
 
-Open de resource voor uw toepassing in de Azure-portal. Klik onder de kop configureren onderliggende voorbeelden om de blade Previews te openen. In de blade Previews inschakelen *samengestelde toepassingstoewijzing*.
+Open de resource voor uw toepassing in Azure portal. Onder de subkop configureren, klikt u op Preview-versies om de blade Preview-versies te openen. Schakel in de blade Preview-versies *samengestelde toepassingstoewijzing*.
 
 ### <a name="4-enable-docker-metrics-optional"></a>4. Docker metrische gegevens (optioneel) inschakelen 
 
-Als een onderdeel in een Docker gehost op een Windows Azure VM wordt uitgevoerd, kunt u aanvullende gegevens verzamelen van de container. Voeg dit in uw [Azure diagnostics](../monitoring-and-diagnostics/azure-diagnostics.md) configuratiebestand:
+Als een onderdeel in een Docker die worden gehost op een Windows VM in Azure wordt uitgevoerd, kunt u aanvullende metrische gegevens verzamelen uit de container. Voeg dit in uw [Azure diagnostics](../monitoring-and-diagnostics/azure-diagnostics.md) configuratiebestand:
 
 ```
 "DiagnosticMonitorConfiguration": {
@@ -107,22 +108,22 @@ Als een onderdeel in een Docker gehost op een Windows Azure VM wordt uitgevoerd,
 
 ## <a name="use-cloudrolename-to-separate-components"></a>Cloud_RoleName gebruiken voor het scheiden van onderdelen
 
-De `cloud_RoleName` eigenschap is gekoppeld aan alle telemetrie. Het onderdeel dat afkomstig is van de telemetrie - functie of service - verwijst. (Dit is niet hetzelfde zijn als cloud_RoleInstance die identiek functies die parallel worden uitgevoerd op meerdere serverprocessen of machines scheidt.)
+De `cloud_RoleName` eigenschap is gekoppeld aan alle telemetrie. Verwijst naar de component - functie of service - dat afkomstig is van de telemetrie. (Dit is niet gelijk zijn aan cloud_RoleInstance identieke functies die parallel worden uitgevoerd op meerdere serverprocessen of machines onderscheid.)
 
-U kunt filteren of segmenteren van uw telemetrie met deze eigenschap in de portal. In dit voorbeeld wordt de blade fouten gefilterd zodat alleen op de gegevens van de front-webservice, worden uitgefilterd fouten van de CRM-API-back-end:
+U kunt filteren of segmenteren van uw telemetrie met behulp van deze eigenschap in de portal. In dit voorbeeld wordt de blade fouten gefilterd zodat alleen op de gegevens van de front-end webservice, gefilterd op fouten van de back-end van de CRM-API:
 
-![Metrische gesegmenteerd op naam van de Cloud-rol-grafiek](./media/app-insights-monitor-multi-role-apps/cloud-role-name.png)
+![Grafiek met metrische gegevens gesegmenteerd op Cloudrolnaam](./media/app-insights-monitor-multi-role-apps/cloud-role-name.png)
 
-## <a name="trace-operations-between-components"></a>Trace-bewerkingen tussen onderdelen
+## <a name="trace-operations-between-components"></a>Transacties tussen onderdelen traceren
 
 U kunt traceren van het ene naar de andere, de aanroepen tijdens het verwerken van een afzonderlijke bewerking.
 
 
 ![Telemetrie voor bewerking weergeven](./media/app-insights-monitor-multi-role-apps/show-telemetry-for-operation.png)
 
-Klik op via een lijst gecorreleerde telemetrie voor deze bewerking op de front-endwebserver en de back-end-API:
+Klik door naar een lijst met gecorreleerde telemetrie voor deze bewerking via de front-end-webserver en de back-end-API:
 
-![Zoeken in onderdelen](./media/app-insights-monitor-multi-role-apps/search-across-components.png)
+![Doorzoek onderdelen](./media/app-insights-monitor-multi-role-apps/search-across-components.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen

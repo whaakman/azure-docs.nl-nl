@@ -1,6 +1,6 @@
 ---
-title: Cloud uitgebreide databases beheren | Microsoft Docs
-description: De service van de taak elastische database gebruiken voor het uitvoeren van een script voor een groep van databases.
+title: Uitgeschaalde clouddatabases beheren | Microsoft Docs
+description: De service van de taak elastische database gebruiken voor het uitvoeren van een script voor een groep databases.
 metakeywords: azure sql database elastic databases
 services: sql-database
 manager: craigg
@@ -8,36 +8,41 @@ author: stevestein
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 06/14/2018
 ms.author: sstein
-ms.openlocfilehash: 5e2c233ec631f6a3e57d2203a9678b42f909a885
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: 3fc9ab0505fda84464ead01b4937756707993cf0
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34646082"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35644351"
 ---
-# <a name="managing-scaled-out-cloud-databases"></a>Cloud uitgebreide databases beheren
-Voor het beheren van uitgebreide shard-databases, de **elastische Database taken** functie (preview) kunt u op betrouwbare wijze een (T-SQL) Transact-SQL-script uitvoeren in een groep van databases, met inbegrip van:
+# <a name="managing-scaled-out-cloud-databases"></a>Uitgeschaalde clouddatabases beheren
+
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+**Taken voor elastic Database** is een klant gehost Azure Cloud Service waarmee de uitvoering van de ad-hoc en geplande administratieve taken die worden aangeroepen **taken**. Met taken, u kunt eenvoudig en betrouwbaar grote groepen van Azure SQL-Databases beheren door het uitvoeren van Transact-SQL-scripts beheerbewerkingen wilt uitvoeren. 
+
+Voor het beheren van uitgeschaalde shard-databases, de **taken voor Elastic Database** functie (preview) kunt u op betrouwbare wijze een Transact-SQL (T-SQL)-script uitvoeren voor een groep databases, met inbegrip van:
 
 * een aangepaste verzameling van databases (Zie hieronder)
-* alle databases in een [elastische groep](sql-database-elastic-pool.md)
-* een set shard (gemaakt met behulp van [clientbibliotheek voor elastische Database](sql-database-elastic-database-client-library.md)). 
+* alle databases in een [elastische pool](sql-database-elastic-pool.md)
+* een shard-verzameling (gemaakt met behulp van [Elastic Database-clientbibliotheek](sql-database-elastic-database-client-library.md)). 
 
 ## <a name="documentation"></a>Documentatie
-* [Installeer de onderdelen van de taak elastische Database](sql-database-elastic-jobs-service-installation.md). 
-* [Aan de slag met elastische Database taken](sql-database-elastic-jobs-getting-started.md).
+* [Installeer de onderdelen van de taak Elastic Database](sql-database-elastic-jobs-service-installation.md). 
+* [Aan de slag met taken voor Elastic Database](sql-database-elastic-jobs-getting-started.md).
 * [Maken en beheren van taken met behulp van PowerShell](sql-database-elastic-jobs-powershell.md).
-* [Maken en beheren van geschaalde uit Azure SQL-Databases](sql-database-elastic-jobs-getting-started.md)
+* [Maken en beheren van schaal van Azure SQL-Databases](sql-database-elastic-jobs-getting-started.md)
 
-**Elastische Database taken** is momenteel een klant gehost Azure Cloud Service waarmee de uitvoering van de ad-hoc en geplande administratieve taken die worden aangeroepen **taken**. Met taken, kan eenvoudig en betrouwbaar grote groepen van Azure SQL-Databases beheren door het uitvoeren van Transact-SQL-scripts administratieve bewerkingen uit te voeren. 
 
-![Service voor elastische database-taak][1]
 
-## <a name="why-use-jobs"></a>Waarom taken gebruiken?
+![Elastische taak service][1]
+
+## <a name="why-use-jobs"></a>Waarom-taken gebruiken?
 **Beheren**
 
-Schemawijzigingen eenvoudig doen, Referentiebeheer, verwijzing Gegevensupdates, prestatiegegevens verzamelen of telemetrie tenantverzameling (klant).
+Eenvoudig doen schemawijzigingen, beheren van referenties, bijwerken van verwijzingsgegevens, verzamelen van prestatiegegevens of verzamelen van telemetriegegevens van tenants (klanten).
 
 **Rapporten**
 
@@ -45,93 +50,93 @@ Cumulatieve gegevens uit een verzameling van Azure SQL-Databases in een doeltabe
 
 **Overhead verminderen**
 
-Normaal gesproken moet u verbinding maken met elke database, onafhankelijk van elkaar om te kunnen uitvoeren van Transact-SQL-instructies of andere beheertaken. Een taak verwerkt de taak van het aanmelden bij elke database in de doelgroep. U ook definiëren, onderhouden en persistent maken van Transact-SQL-scripts moeten worden uitgevoerd in een groep van Azure SQL-Databases.
+Normaal gesproken moet u elke database apart verbinden om Transact-SQL-instructies of andere beheertaken te kunnen uitvoeren. Een taak handelt het aanmelden bij elke database in de doelgroep af. U ook definiëren, onderhouden en blijven Transact-SQL-scripts worden uitgevoerd voor een groep van Azure SQL-Databases.
 
 **Accounting**
 
-Taken het script uitvoert en de status van de uitvoering voor elke database wordt vastgelegd. Automatisch opnieuw wordt ook krijgen als er fouten optreden.
+Taken uitvoeren van het script en de status van de uitvoering voor elke database wordt vastgelegd. U krijgt automatische nieuwe pogingen in geval van mislukte pogingen.
 
 **Flexibiliteit**
 
-Aangepaste groepen van Azure SQL-Databases, en schema's voor het uitvoeren van een taak te definiëren.
+Definieer aangepaste groepen van Azure SQL-Databases en schema's voor het uitvoeren van een taak definiëren.
 
 > [!NOTE]
-> In de Azure portal is slechts een beperkte set functies beperkt tot SQL Azure elastische pools beschikbaar. Gebruik de PowerShell APIs voor toegang tot de volledige set van de huidige functionaliteit.
+> Alleen een beperkte set functies voor elastische pools voor SQL Azure beperkt is in de Azure-portal beschikbaar. Gebruik de PowerShell-APIs voor toegang tot de volledige set van huidige functionaliteit.
 > 
 > 
 
 ## <a name="applications"></a>Toepassingen
-* Administratieve taken uitvoeren, zoals het implementeren van een nieuw schema.
-* Algemene referentie gegevens product-informatie voor alle databases bijwerken. Of schema's automatische updates elke weekdag, na uur.
-* Samenstellen ter verbetering van de prestaties van query's. Het opnieuw opbouwen kan worden geconfigureerd om uit te voeren in een verzameling van databases op periodieke basis, zoals tijdens de daluren.
-* Queryresultaten uit een set van databases in een centrale tabel op basis van de lopende verzamelen. Prestaties van query's worden voortdurend uitgevoerd en geconfigureerd voor de trigger aanvullende taken worden uitgevoerd.
-* Langer actief gegevensverwerking-query's uitvoeren in een groot aantal databases, zoals het verzamelen van telemetrie van de klant. Resultaten worden verzameld in een doeltabel met één voor verdere analyse.
+* Uitvoeren van beheertaken, zoals het implementeren van een nieuw schema.
+* Naslaginformatie over data-productinformatie algemene bijwerken voor alle databases. Of planningen automatische updates elke weekdag, uur.
+* Bouw indexen opnieuw om queryprestaties te verbeteren. Het opnieuw opbouwen van kan worden geconfigureerd om uit te voeren in een verzameling van databases op periodieke basis, zoals tijdens de daluren.
+* Verzamel op continue basis queryresultaten uit een reeks databases in een centrale tabel. Prestatiequery's kunnen voortdurend worden uitgevoerd en geconfigureerd om de uitvoering van aanvullende taken te activeren.
+* Voer langer durende gegevensverwerkingsquery's uit voor een groot aantal databases, zoals het verzamelen van klanttelemetrie. Resultaten worden in één doeltabel verzameld voor verdere analyse.
 
-## <a name="elastic-database-jobs-end-to-end"></a>Elastische taken van de Database: end-to-end
-1. Installeer de **elastische Database taken** onderdelen. Zie voor meer informatie [elastische Database installeren taken](sql-database-elastic-jobs-service-installation.md). Als de installatie mislukt, raadpleegt u [verwijderen](sql-database-elastic-jobs-uninstall.md).
-2. Gebruik de PowerShell APIs voor toegang tot meer functionaliteit, bijvoorbeeld het maken van aangepaste database verzamelingen, schema's toe te voegen en/of resultatensets verzamelen. De portal gebruiken voor eenvoudige installatie en het maken/bewaking van taken die zijn beperkt tot uitvoering op basis van een **elastische pool**. 
-3. Gecodeerde referenties voor het uitvoeren van taak maken en [de gebruiker (of de rol) toevoegen aan elke database in de groep](sql-database-security-overview.md).
+## <a name="elastic-database-jobs-end-to-end"></a>Taken voor elastic Database: end-to-end
+1. Installeer de **taken voor Elastic Database** onderdelen. Zie voor meer informatie, [taken voor Elastic Database installeren](sql-database-elastic-jobs-service-installation.md). Als de installatie mislukt, raadpleegt u [verwijderen](sql-database-elastic-jobs-uninstall.md).
+2. Gebruik de PowerShell-APIs voor toegang tot meer functionaliteit, zoals het maken van aangepaste database verzamelingen, schema's toevoegen en/of resultatensets verzamelen. De portal te gebruiken voor eenvoudige installatie en het maken/beheren van taken die zijn beperkt tot uitvoering op basis van een **elastische pool**. 
+3. Versleutelde referenties voor het uitvoeren van taak maken en [de gebruiker (of de rol) toevoegen aan elke database in de groep](sql-database-security-overview.md).
 4. Maak een idempotent T-SQL-script dat kan worden uitgevoerd op elke database in de groep. 
-5. Volg deze stappen voor taken met de Azure portal maken: [maken en beheren van taken voor elastische Database](sql-database-elastic-jobs-create-and-manage.md). 
-6. Of PowerShell-scripts gebruiken: [maken en beheren van een SQL-Database elastische database taken met behulp van PowerShell (preview)](sql-database-elastic-jobs-powershell.md).
+5. Volg deze stappen voor het maken van taken met behulp van de Azure-portal: [maken en beheren van taken voor Elastic Database](sql-database-elastic-jobs-create-and-manage.md). 
+6. Of gebruik PowerShell-scripts: [maken en beheren van een SQL Database elastische databasetaken met behulp van PowerShell (preview)](sql-database-elastic-jobs-powershell.md).
 
-## <a name="idempotent-scripts"></a>De Idempotent-scripts
-De scripts moet [idempotent](https://en.wikipedia.org/wiki/Idempotence). Eenvoudige voorwaarden 'idempotent' betekent dat als het script is voltooid en opnieuw wordt uitgevoerd, wordt hetzelfde resultaat optreedt. Een script kan mislukken door tijdelijke netwerkproblemen. De taak wordt in dat geval wordt automatisch opnieuw uitvoeren van het script een vooraf ingestelde aantal keren voordat desisting. Een idempotent-script geeft hetzelfde resultaat, zelfs als is twee keer met succes is uitgevoerd. 
+## <a name="idempotent-scripts"></a>Idempotente scripts
+De scripts moeten [idempotent](https://en.wikipedia.org/wiki/Idempotence). Simpel gezegd betekent 'idempotent' als het script kan worden uitgevoerd, en deze opnieuw wordt uitgevoerd, wordt hetzelfde resultaat plaatsvindt. Een script kan mislukken door tijdelijke netwerkproblemen. In dat geval wordt automatisch een vooraf ingesteld aantal keer opnieuw geprobeerd om de taak uit te voeren alvorens het wordt afgebroken. Een script idempotent heeft hetzelfde resultaat, zelfs als is twee keer met succes is uitgevoerd. 
 
-Een eenvoudige e-mailbericht is om te testen op de aanwezigheid van een object voordat u deze maakt.  
+Een eenvoudige tactiek is te testen of een object bestaat voordat u het maakt.  
 
     IF NOT EXIST (some_object)
     -- Create the object 
     -- If it exists, drop the object before recreating it.
 
-Op dezelfde manier een script dat moet kunnen probleemloos worden uitgevoerd door logisch voor testen en tegen te gaan eventuele voorwaarden gevonden.
+Op dezelfde manier moet een script met succes kunnen worden uitgevoerd door logisch te testen op problemen en hierop te reageren.
 
-## <a name="failures-and-logs"></a>Logboeken en fouten
-Als een script na meerdere pogingen mislukt, wordt de taak de fout wordt vastgelegd en voortgezet. Nadat een taak is beëindigd kunt (wat betekent een uitgevoerd tegen alle databases in de groep), u controleren de lijst met mislukte pogingen. De logboeken vindt u informatie voor foutopsporing defecte scripts. 
+## <a name="failures-and-logs"></a>Fouten en Logboeken
+Als een script dat na meerdere pogingen is mislukt, wordt de taak de fout wordt vastgelegd en blijft. Nadat een taak is beëindigd kunt (wat betekent dat een uitvoering op basis van alle databases in de groep), u controleren de lijst met mislukte pogingen. De logboeken vindt u informatie fouten opsporen in scripts defect. 
 
 ## <a name="group-types-and-creation"></a>Groep typen en maken
 Er zijn twee soorten groepen: 
 
-1. Shard sets
+1. Shard-sets
 2. Aangepaste groepen
 
-Shard set groepen zijn gemaakt met behulp van de [hulpmiddelen voor elastische databases](sql-database-elastic-scale-introduction.md). Wanneer u een set shard groep maakt, worden de databases toegevoegd of verwijderd uit de groep automatisch. Bijvoorbeeld, is een nieuwe shard automatisch in de groep wanneer u deze aan de shard-toewijzing toevoegen. Een taak kan vervolgens worden uitgevoerd op de groep.
+Shard set groepen zijn gemaakt met behulp van de [hulpmiddelen voor Elastic Database](sql-database-elastic-scale-introduction.md). Wanneer u een shard set-groep maakt, worden de databases toegevoegd of verwijderd uit de groep automatisch. Bijvoorbeeld, een nieuwe shard worden automatisch in de groep wanneer u deze aan de shard-toewijzing toevoegen. Een taak kan vervolgens worden uitgevoerd op basis van de groep.
 
-Aangepaste groepen worden aan de andere kant streng gedefinieerd. U moet expliciet toevoegen of verwijderen van databases uit aangepaste groepen. Als een database in de groep wordt verwijderd, wordt het script uitvoeren op de database een problemen waardoor de taak proberen. Groepen die zijn gemaakt met behulp van de Azure-portal op dit moment zijn aangepaste groepen. 
+Aangepaste groepen, worden aan de andere kant streng gedefinieerd. U moet expliciet toevoegen of verwijderen van databases uit aangepaste groepen. Als een database in de groep wordt verwijderd, wordt de taak proberen het script uitvoeren op de database een uiteindelijke fout leidt. Groepen die zijn gemaakt met behulp van de Azure-portal op dit moment zijn aangepaste groepen. 
 
 ## <a name="components-and-pricing"></a>Onderdelen en prijzen
-De volgende onderdelen werken samen om het maken van een Azure-Cloud-service waarmee ad-hoc-uitvoering van administratieve taken. De onderdelen zijn geïnstalleerd en wordt automatisch geconfigureerd tijdens de installatie in uw abonnement. U kunt de services identificeren als ze allemaal dezelfde automatisch gegenereerde naam hebben. De naam uniek is en bestaat uit het voorvoegsel 'edj' gevolgd door 21 willekeurige tekens.
+De volgende onderdelen werken samen om u te maken van een Azure-Cloud-service waarmee ad-hoc uitvoeren van administratieve taken. De onderdelen zijn geïnstalleerd en wordt automatisch geconfigureerd tijdens de installatie in uw abonnement. Als ze allemaal dezelfde automatisch gegenereerde naam hebben, kunt u de services identificeren. De naam uniek is en bestaat uit het voorvoegsel "edj" gevolgd door 21 willekeurige tekens.
 
-* **Azure-Cloudservice**: taken voor elastische database (preview) wordt geleverd als een Azure-Cloud klant gehoste service voor uitvoering van de aangevraagde taken uitvoeren. De service is geïmplementeerd en gehost in uw Microsoft Azure-abonnement vanuit de portal. De standaardwaarde geïmplementeerd met het minimum van twee werkrollen voor hoge beschikbaarheid van de service wordt uitgevoerd. De standaardgrootte van elke worker-rol (ElasticDatabaseJobWorker) wordt uitgevoerd op een exemplaar van A0. Zie voor prijzen [cloudservices-prijzen](https://azure.microsoft.com/pricing/details/cloud-services/). 
-* **Azure SQL Database**: de service gebruikmaakt van een Azure SQL Database bekend als de **beheer database** voor het opslaan van alle metagegevens van de taak. De servicelaag standaard is een S0. Zie voor prijzen [prijzen SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
-* **Azure Service Bus**: een Azure Service Bus is voor de coördinatie van de werkzaamheden binnen de Azure-Cloudservice. Zie [Service Bus prijzen](https://azure.microsoft.com/pricing/details/service-bus/).
-* **Azure Storage**: een Azure Storage-account wordt gebruikt voor het opslaan van logboekregistratie van diagnostische uitvoer in het geval dat een probleem vereist meer foutopsporing (Zie [diagnostische gegevens inschakelen in Azure Cloud Services en virtuele Machines](../cloud-services/cloud-services-dotnet-diagnostics.md)). Zie voor prijzen [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
+* **Azure-Cloudservice**: taken voor elastic database (preview) wordt geleverd als een Azure-Cloud klant gehoste service uit te voeren van de aangevraagde taken. De service is geïmplementeerd en die worden gehost in uw Microsoft Azure-abonnement vanuit de portal. De standaardwaarde geïmplementeerd met het minimum van twee werkrollen voor hoge beschikbaarheid van de service wordt uitgevoerd. De standaardgrootte van elke worker-rol (ElasticDatabaseJobWorker) wordt uitgevoerd op een A0-exemplaar. Zie voor informatie over prijzen [prijsinformatie voor cloudservices](https://azure.microsoft.com/pricing/details/cloud-services/). 
+* **Azure SQL Database**: de service maakt gebruik van een Azure SQL Database ook wel de **control database** voor het opslaan van alle van de metagegevens van de taak. De standaardlaag van de service is een S0. Zie voor informatie over prijzen [prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/).
+* **Azure Service Bus**: een Azure Service Bus is voor de coördinatie van het werk binnen de Azure-Cloudservice. Zie [prijzen van Service Bus](https://azure.microsoft.com/pricing/details/service-bus/).
+* **Azure Storage**: een Azure Storage-account wordt gebruikt voor het opslaan van logboekregistratie van diagnostische uitvoer in het geval dat een probleem vereist aanvullende foutopsporing (Zie [diagnostische gegevens inschakelen in Azure Cloud Services en Virtual Machines](../cloud-services/cloud-services-dotnet-diagnostics.md)). Zie voor informatie over prijzen [prijzen voor Azure Storage](https://azure.microsoft.com/pricing/details/storage/).
 
-## <a name="how-elastic-database-jobs-work"></a>De werking van taken voor elastische Database
-1. Een Azure SQL Database is aangewezen een **beheer database** waarin alle gegevens in de metagegevens en de status wordt opgeslagen.
-2. De database worden geopend door de **service taak** starten en het bijhouden van taken uit te voeren.
+## <a name="how-elastic-database-jobs-work"></a>De werking van taken voor Elastic Database
+1. Een Azure SQL Database is aangewezen een **control database** waarin alle gegevens in de metagegevens en status wordt opgeslagen.
+2. De database wordt gebruikt door de **taak service** om te starten en bijhouden van taken om uit te voeren.
 3. Twee verschillende rollen communiceren met de database: 
-   * Controller: Hiermee wordt bepaald welke taken vereisen taken voor het uitvoeren van de aangevraagde taak en mislukte taken voor nieuwe pogingen door het maken van nieuwe taken.
-   * Taak taakuitvoering: Wordt uitgevoerd de taken.
+   * Domeincontroller: Hiermee bepaalt u welke taken uit te voeren van de aangevraagde taak en mislukte taken voor nieuwe pogingen door het maken van nieuwe taken taken vereisen.
+   * Taak uitvoeren van taak: Hiermee voert de taken van jobs.
 
 ### <a name="job-task-types"></a>Taak taaktypen
 Er zijn meerdere typen taken die de uitvoering van taken uitvoeren:
 
-* ShardMapRefresh: Een query de shard-kaart om te bepalen van alle databases die worden gebruikt als shards
-* ScriptSplit: Splitst het script via de GO'-instructies in batches
-* ExpandJob: Maakt onderliggende taken voor elke database uit een taak die gericht is op een groep met databases
-* ScriptExecution: Een script op basis van een bepaalde database met gedefinieerde referenties wordt uitgevoerd
+* ShardMapRefresh: Query's de shard-toewijzing om te bepalen van alle databases die worden gebruikt als shards
+* ScriptSplit: Hiermee wordt het script in 'Ga'-instructie in batches
+* ExpandJob: Maakt onderliggende taken voor elke database uit een taak die gericht is op een groep databases
+* ScriptExecution: Een script op basis van een bepaalde database met behulp van gedefinieerde referenties wordt uitgevoerd
 * Dacpac: Een DACPAC geldt voor een bepaalde database met behulp van bepaalde referenties
 
-## <a name="end-to-end-job-execution-work-flow"></a>End-to-end-taak kan worden uitgevoerd-werkstroom
-1. Met de Portal of de PowerShell-API's een taak wordt ingevoegd in de **beheer database**. De taak vraagt om de uitvoering van een Transact-SQL-script voor een groep van databases met behulp van specifieke referenties.
-2. De controller identificeert de nieuwe taak. Taken worden gemaakt en wordt uitgevoerd voor het splitsen van het script en vernieuwen van de groep databases. Ten slotte wordt een nieuwe taak gemaakt en de taak en nieuwe onderliggende taken waarbij elke onderliggende taak is opgegeven voor het uitvoeren van de Transact-SQL-script op een individuele database in de groep maken om te worden uitgevoerd.
-3. De controller identificeert de onderliggende taken. Voor elke taak de controller maakt en een taak voor het uitvoeren van het script op basis van een database wordt geactiveerd. 
-4. Nadat alle taken hebt voltooid, werkt de domeincontroller de taken naar een voltooide status. 
-   Op elk moment tijdens de taakuitvoering kan de PowerShell-API worden gebruikt om de huidige status van het uitvoeren van taak weer te geven. Alle tijden die zijn geretourneerd door de PowerShell APIs worden weergegeven in UTC. Indien gewenst, kunt een annuleringsverzoek worden gestart om een taak stoppen. 
+## <a name="end-to-end-job-execution-work-flow"></a>End-to-end-taak uitvoeren-werkstroom
+1. Met behulp van de Portal of de PowerShell-API, een taak wordt ingevoegd in de **control database**. De taak vraagt om de uitvoering van een Transact-SQL-script op basis van een groep databases met specifieke referenties.
+2. De controller identificeert de nieuwe taak. Taken worden gemaakt en uitgevoerd om te splitsen van het script en vernieuwen van de groep databases. Ten slotte wordt een nieuwe taak gemaakt en uitgevoerd om de taak uitvouwen en nieuwe onderliggende taken waarbij elke onderliggende taak is opgegeven voor het uitvoeren van de Transact-SQL-script op basis van een individuele database in de groep te maken.
+3. De controller identificeert de onderliggende taken. Voor elke taak, de controller maakt en activeert een taak voor het uitvoeren van het script voor een database. 
+4. Nadat alle taken hebt voltooid, wordt in de controller de taken bijgewerkt naar een onvoltooide status. 
+   Op elk gewenst moment tijdens het uitvoeren van taak, kan de PowerShell-API worden gebruikt om de huidige status van het uitvoeren van taak weer te geven. Alle tijden die zijn geretourneerd door de PowerShell-APIs worden weergegeven in UTC. Indien gewenst, kan een aanvraag voor annulering kan worden gestart als u wilt een taak te stoppen. 
 
 ## <a name="next-steps"></a>Volgende stappen
-[De onderdelen installeren](sql-database-elastic-jobs-service-installation.md), klikt u vervolgens [maken en toevoegen van een logbestand in elke database in de groep van databases](sql-database-manage-logins.md). Zie voor meer inzicht in taak maken en beheren, [maken en beheren van taken voor elastische database](sql-database-elastic-jobs-create-and-manage.md). Zie ook [aan de slag met elastische Database taken](sql-database-elastic-jobs-getting-started.md).
+[Installeer de onderdelen van](sql-database-elastic-jobs-service-installation.md), klikt u vervolgens [maken en een logboek in toevoegen aan elke database in de groep met databases](sql-database-manage-logins.md). Zie voor meer informatie over taak maken en beheren, [maken en beheren van taken voor elastic database](sql-database-elastic-jobs-create-and-manage.md). Zie ook [aan de slag met taken voor Elastic Database](sql-database-elastic-jobs-getting-started.md).
 
 [!INCLUDE [elastic-scale-include](../../includes/elastic-scale-include.md)]
 

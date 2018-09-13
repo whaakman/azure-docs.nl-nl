@@ -1,38 +1,38 @@
 ---
-title: De Container-installatiekopie gebruikt voor de implementatie van Azure ML-modellen aanpassen | Microsoft Docs
-description: In dit artikel wordt beschreven hoe u de installatiekopie van een container voor Azure Machine Learning-modellen
+title: De Containerinstallatiekopie die wordt gebruikt voor het implementeren van Azure ML-modellen aanpassen | Microsoft Docs
+description: In dit artikel wordt beschreven hoe u een containerinstallatiekopie voor Azure Machine Learning-modellen aanpassen
 services: machine-learning
 author: tedway
 ms.author: tedway
 manager: mwinkle
 ms.reviewer: mldocs, raymondl
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 3/26/2018
-ms.openlocfilehash: 715b4c1f02622b015e4118ac38edd9fe6a051ed7
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 7879cf1891e071da1a0ad3ddfc30f90fc7be8ca5
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34834706"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646161"
 ---
-# <a name="customize-the-container-image-used-for-azure-ml-models"></a>De container-installatiekopie die wordt gebruikt voor Azure ML modellen aanpassen
+# <a name="customize-the-container-image-used-for-azure-ml-models"></a>De containerinstallatiekopie die wordt gebruikt voor Azure ML-modellen aanpassen
 
-In dit artikel wordt beschreven hoe de installatiekopie van een container voor Azure Machine Learning-modellen aanpassen.  Azure ML-Workbench gebruikt containers voor het implementeren van machine learning-modellen. De modellen samen met hun afhankelijkheden zijn geïmplementeerd en Azure ML bouwt een installatiekopie van het model, de afhankelijkheden en de bijbehorende bestanden.
+In dit artikel wordt beschreven hoe u een containerinstallatiekopie voor Azure Machine Learning-modellen aanpassen.  Azure ML Workbench maakt gebruik van containers voor het implementeren van machine learning-modellen. De modellen worden geïmplementeerd plus de bijbehorende afhankelijkheden, en Azure ML bouwt een installatiekopie van het model, de afhankelijkheden en de bijbehorende bestanden.
 
-## <a name="how-to-customize-the-docker-image"></a>Het aanpassen van de Docker-afbeelding
-De Docker-installatiekopie die Azure ML implementeert met behulp van aanpassen:
+## <a name="how-to-customize-the-docker-image"></a>Over het aanpassen van de Docker-installatiekopie
+De Docker-installatiekopie die Azure ML wordt geïmplementeerd met behulp van aanpassen:
 
-1. Een `dependencies.yml` bestand: voor het beheren van de afhankelijkheden die installeerbare van zijn [PyPi]( https://pypi.python.org/pypi), kunt u de `conda_dependencies.yml` bestand van het project Workbench of maak uw eigen. Dit is de aanbevolen aanpak voor het installeren van Python-afhankelijkheden die geïnstalleerd met pip zijn.
+1. Een `dependencies.yml` bestand: voor het beheren van afhankelijkheden die geïnstalleerd vanuit zijn [PyPi]( https://pypi.python.org/pypi), kunt u de `conda_dependencies.yml` bestand van het Workbench-project, of maak uw eigen. Dit is de aanbevolen methode voor het installeren van Python-afhankelijkheden die geïnstalleerd met pip zijn.
 
    Voorbeeld van de CLI-opdracht:
    ```azurecli
    az ml image create -n <my Image Name> --manifest-id <my Manifest ID> -c amlconfig\conda_dependencies.yml
    ```
 
-   Voorbeeld conda_dependencies bestand: 
+   Voorbeeld van een conda_dependencies bestand: 
    ```yaml
    name: project_environment
    dependencies:
@@ -45,18 +45,18 @@ De Docker-installatiekopie die Azure ML implementeert met behulp van aanpassen:
         - matplotlib
    ```
         
-2. Een Docker bestand stappen: deze optie gebruikt, u de geïmplementeerde installatiekopie aanpassen door de installatie van afhankelijkheden die van PyPi kunnen niet worden geïnstalleerd. 
+2. Een Docker stappen bestand: met deze optie kunt u de geïmplementeerde installatiekopie aanpassen door de installatie van afhankelijkheden die van PyPi kunnen niet worden geïnstalleerd. 
 
-   Het bestand moet de installatiestappen Docker zoals een DockerFile bevatten. De volgende opdrachten zijn toegestaan in het bestand: 
+   Het bestand moet de installatiestappen Docker, zoals een docker-bestand bevatten. De volgende opdrachten zijn toegestaan in het bestand: 
 
-    UITVOERT, WEERGEVEN ENV, ARG, LABEL EN
+    UITVOERT, WEERGEVEN ENV, FUNC, LABEL
 
    Voorbeeld van de CLI-opdracht:
    ```azurecli
    az ml image create -n <my Image Name> --manifest-id <my Manifest ID> --docker-file <myDockerStepsFileName> 
    ```
 
-   Installatiekopie, het Manifest en Service-opdrachten de vlag docker-bestand accepteren.
+   Afbeelding, Manifest en Service-opdrachten de vlag docker-bestand accepteren.
 
    Voorbeeldbestand Docker stappen:
    ```docker
@@ -67,7 +67,7 @@ De Docker-installatiekopie die Azure ML implementeert met behulp van aanpassen:
    ```
 
 > [!NOTE]
-> De basisinstallatiekopie voor Azure ML-containers Ubuntu en kan niet worden gewijzigd. Als u een andere basisinstallatiekopie opgeeft, worden genegeerd.
+> De basisinstallatiekopie voor Azure ML-containers Ubuntu en kan niet worden gewijzigd. Als u verschillende installatiekopieën opgeeft, wordt dit genegeerd.
 
 ## <a name="next-steps"></a>Volgende stappen
-Nu dat u uw installatiekopie container hebt aangepast, kunt u deze kunt implementeren naar een cluster voor grootschalige gebruik.  Zie voor meer informatie over het instellen van een cluster voor web service-implementatie [Model Management Configuration](deployment-setup-configuration.md). 
+Nu dat u uw containerinstallatiekopie hebt aangepast, kunt u deze kunt implementeren in een cluster voor grootschalige gebruik.  Zie voor meer informatie over het instellen van een cluster voor de implementatie van de webservice [Model Management Configuration](deployment-setup-configuration.md). 

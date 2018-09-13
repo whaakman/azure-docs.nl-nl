@@ -1,58 +1,58 @@
 ---
-title: Overzicht van zakelijke continuïteit met Azure-Database voor MySQL
-description: Overzicht van zakelijke continuïteit met Azure-Database voor MySQL.
+title: Overzicht van bedrijfscontinuïteit met Azure Database for MySQL
+description: Overzicht van bedrijfscontinuïteit met Azure Database for MySQL.
 services: mysql
-author: kamathsun
-ms.author: sukamat
+author: ajlam
+ms.author: andrela
 manager: kfile
 editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: 127255514c434717be07886b1b1739027d3a14ea
-ms.sourcegitcommit: 1b8665f1fff36a13af0cbc4c399c16f62e9884f3
+ms.openlocfilehash: 8d0a8ac1aedcac26f6ac67e0e1f2a9d265a9b576
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35263561"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714340"
 ---
-# <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Overzicht van zakelijke continuïteit met Azure-Database voor MySQL
+# <a name="overview-of-business-continuity-with-azure-database-for-mysql"></a>Overzicht van bedrijfscontinuïteit met Azure Database for MySQL
 
-Dit overzicht beschrijft de mogelijkheden die Azure-Database voor MySQL voor bedrijfscontinuïteit en noodherstel biedt. Meer informatie over opties voor het herstellen van verstoren gebeurtenissen die kunnen leiden tot gegevensverlies van of ervoor zorgen dat uw database en de toepassing niet meer beschikbaar. Meer informatie over wat te doen wanneer een gebruiker of toepassing de fout is van invloed op de integriteit van gegevens, een Azure-regio een storing is of uw toepassing onderhoud vereist.
+Dit overzicht beschrijft de mogelijkheden die Azure Database for MySQL voor bedrijfscontinuïteit en herstel na noodgevallen biedt. Meer informatie over opties voor het herstellen van storingen die kunnen leiden tot gegevensverlies of ervoor zorgen dat uw databases en toepassingen niet meer beschikbaar zijn. Meer informatie over wat er gebeurt wanneer een gebruiker of toepassing-fout is van invloed op de integriteit van gegevens, een Azure-regio een storing heeft of uw toepassing onderhoud vereist.
 
 ## <a name="features-that-you-can-use-to-provide-business-continuity"></a>Functies die u gebruiken kunt voor bedrijfscontinuïteit
 
-Azure MySQL-Database biedt zakelijke continuïteit functies die zijn onder andere automatische back-ups en de mogelijkheid voor gebruikers voor het initiëren van geo-herstel. Elk heeft verschillende kenmerken voor geschatte herstel tijd (invoegen) en mogelijk gegevensverlies. Zodra u deze opties begrijpt, kunt u kiezen tussen deze en ze samen gebruiken voor verschillende scenario's. Tijdens het ontwikkelen van uw bedrijfscontinuïteitsplan, moet u de maximale toegestane tijd voordat de toepassing volledig hersteld na de gebeurtenis verstoren - dit uw herstel tijd Objective (RTO is) begrijpen. U moet ook de maximale hoeveelheid recente gegevens begrijpen updates (tijdsinterval) de toepassing kan tolereren verliezen tijdens het herstellen van na de gebeurtenis verstoren - dit is uw Recovery Point Objective (RPO).
+Azure Database for MySQL biedt functies voor bedrijfscontinuïteit, zoals geautomatiseerde back-ups en de mogelijkheid voor gebruikers voor het starten van geo-herstel. Elke functie heeft verschillende kenmerken voor geschatte Recovery tijd (ERT) en verlies van gegevens. Wanneer u bekend bent met deze opties, kunt u kiezen tussen deze en samen gebruiken voor verschillende scenario's. Tijdens het ontwikkelen van uw plan voor bedrijfscontinuïteit, moet u inzicht in de maximaal acceptabele tijd voordat de toepassing volledig is hersteld na de storing: dit uw Recovery Time Objective (RTO is). U moet ook weten wat de maximale hoeveelheid recente gegevens updates (tijdsinterval) de toepassing kan tolereren verliezen tijdens het herstellen na de storing: dit is uw Recovery Point Objective (RPO).
 
-De volgende tabel vergelijkt de invoegen en RPO voor de beschikbare functies:
+De volgende tabel worden de ERT en RPO vergeleken voor de beschikbare functies:
 
-| **Mogelijkheid tot** | **Basic** | **Voor algemene doeleinden** | **Geoptimaliseerd geheugen** |
+| **Mogelijkheid** | **Basic** | **Algemeen gebruik** | **Geoptimaliseerd geheugen** |
 | :------------: | :-------: | :-----------------: | :------------------: |
-| Herstel naar een bepaald tijdstip vanuit back-up | Een herstelpunt binnen de bewaarperiode | Een herstelpunt binnen de bewaarperiode | Een herstelpunt binnen de bewaarperiode |
-| Geo-herstel van back-ups geo-replicatie | Niet ondersteund | Invoegen < 12 uur<br/>RPO < 1 uur | Invoegen < 12 uur<br/>RPO < 1 uur |
+| Herstel naar een bepaald tijdstip vanuit back-up | Willekeurig herstelpunt binnen de bewaarperiode liggen | Willekeurig herstelpunt binnen de bewaarperiode liggen | Willekeurig herstelpunt binnen de bewaarperiode liggen |
+| Geo-herstellen vanaf back-ups via geo-replicatie | Niet ondersteund | ERT < 12 u<br/>RPO < 1 uur | ERT < 12 u<br/>RPO < 1 uur |
 
 > [!IMPORTANT]
-> Als u de server verwijdert, worden alle databases die deel uitmaken van de server worden ook verwijderd en kunnen niet worden hersteld. U kunt een verwijderde server niet herstellen.
+> Servers verwijderd **kan geen** worden hersteld. Als u de server verwijdert, worden alle databases die deel uitmaken van de server worden ook verwijderd en kunnen niet worden hersteld.
 
 ## <a name="recover-a-server-after-a-user-or-application-error"></a>Een server herstellen na een fout van gebruiker of toepassing
 
-U kunt back-ups van de service gebruiken voor het herstellen van een server uit diverse gebeurtenissen op verstoren. Een gebruiker mogelijk per ongeluk verwijdert sommige gegevens, onbedoeld verwijderen van een belangrijke tabel of zelfs een volledige database verwijderen. Een toepassing mogelijk per ongeluk de onbeschadigde gegevens overschrijven met beschadigde gegevens als gevolg van een toepassing defect, enzovoort.
+Back-ups van de service kunt u een server herstellen na diverse storingen. Een gebruiker mogelijk per ongeluk bepaalde gegevens verwijderen, per ongeluk een belangrijke tabel wissen of zelfs een volledige database verwijderen. Een toepassing mogelijk per ongeluk goede gegevens overschrijven met beschadigde gegevens vanwege een toepassingsfout, enzovoort.
 
-U kunt een punt-in-time-herstel uitvoeren voor het maken van een kopie van uw server naar een bekende goede punt in tijd. Dit punt in tijd moet binnen de Backup-bewaartermijn die u voor uw server hebt geconfigureerd. Nadat de gegevens is hersteld naar de nieuwe server, kunt u de oorspronkelijke server vervangen door de herstelde server of kopieer de benodigde gegevens van de herstelde server in de oorspronkelijke server.
+U kunt een punt-in-time-restore voor het maken van een kopie van uw server naar een bekend goed punt in tijd kan uitvoeren. Dit punt in tijd moet binnen de back-up bewaartermijn die u hebt geconfigureerd voor uw server. Nadat de gegevens naar de nieuwe server is hersteld, kunt u de oorspronkelijke server vervangen door de herstelde server of de benodigde gegevens van de herstelde server kopiëren naar de oorspronkelijke server.
 
-## <a name="recover-from-an-azure-regional-data-center-outage"></a>Herstellen van een storing van Azure regionale data center
+## <a name="recover-from-an-azure-regional-data-center-outage"></a>Herstellen van een Azure regionale datacenterstoring
 
-Hoewel zeldzaam, kan er een storing optreden in een Azure-datacenter. Wanneer er een storing optreedt, wordt er een onderbreking van de bedrijven die mogelijk slechts een paar minuten laatste, maar uur kan duren.
+Hoewel zeldzaam, kan er een storing optreden in een Azure-datacenter. Wanneer een storing optreedt, veroorzaakt deze een bedrijfsonderbreking die slechts een paar minuten kan duren, maar uren kan duren.
 
-Een mogelijkheid is om te wachten op de server weer online te krijgen als het datacentrum op. Dit werkt voor toepassingen die toestaan van de server offline zijn gedurende een bepaalde tijd, bijvoorbeeld een ontwikkelomgeving. Wanneer Datacenter een storing heeft, weet u niet hoe lang de storing kan duren, zodat u deze optie werkt alleen als u uw server voor een tijdje niet nodig.
+Een optie is na afloop van de server weer online komt wanneer de storing in het datacenter afgelopen is. Dit werkt voor toepassingen die niet erg is dat de server offline halen voor een bepaalde tijd, bijvoorbeeld een ontwikkelomgeving. Wanneer het datacenter een storing heeft, weet u niet hoe lang de storing kan duren, zodat u deze optie werkt alleen als u uw server even niet nodig.
 
-De andere mogelijkheid is het gebruik van de Azure-Database voor de MySQL geo-herstel functie die de server met geografisch redundante back-ups worden hersteld. Deze back-ups zijn toegankelijk, zelfs wanneer de regio die wordt gehost door de server offline is. U kunt deze back-ups terugzetten naar een andere regio en de server weer online brengen.
+De andere optie is het gebruik van de Azure Database voor MySQL van geo-restore-functie waarmee de server met behulp van geografisch redundante back-ups wordt hersteld. Deze back-ups zijn toegankelijk, zelfs wanneer de regio waarin die uw server wordt gehost in offline. U kunt herstellen vanuit deze back-ups naar elke andere regio en de server weer online brengen.
 
 > [!IMPORTANT]
-> Geo-herstel is alleen mogelijk als u de server met geografisch redundante back-upopslag ingericht.
+> Geo-herstel is alleen mogelijk als u de server met geografisch redundante back-upopslag hebt ingericht. Als u overschakelen van lokaal redundante naar geografisch redundante back-ups voor een bestaande server wilt, moet u een dump pg_dump van uw bestaande server met nemen en terugzet op een nieuwe server die is geconfigureerd met geografisch redundante back-ups.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over de geautomatiseerde back-ups, [back-ups in Azure-Database voor MySQL](concepts-backup.md).
-- Als u wilt herstellen naar een punt in tijd met de Azure portal, Zie [database herstellen naar een tijdstip met de Azure portal](howto-restore-server-portal.md).
-- Als u wilt herstellen naar een punt in tijd met Azure CLI, Zie [-database herstellen naar een punt in tijd met CLI](howto-restore-server-cli.md).
+- Zie voor meer informatie over de automatische back-ups, [back-ups in Azure Database for MySQL](concepts-backup.md).
+- Als u wilt herstellen naar een eerder tijdstip met behulp van de Azure-portal, Zie [database herstellen naar een eerder tijdstip met behulp van de Azure-portal](howto-restore-server-portal.md).
+- Als u wilt herstellen naar een eerder tijdstip met behulp van Azure CLI, Zie [database herstellen naar een eerder tijdstip met behulp van CLI](howto-restore-server-cli.md).

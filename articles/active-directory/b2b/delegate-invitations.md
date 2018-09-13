@@ -6,49 +6,49 @@ ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/23/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 0c7b0e3dd4d2ab98bc0f0bedc06424b7838fcf9e
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 40f6d3cdd3ab8926e48463beaae15b2580458cc1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34267409"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643756"
 ---
-# <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Gemachtigde uitnodigingen voor Azure Active Directory B2B-samenwerking
+# <a name="delegate-invitations-for-azure-active-directory-b2b-collaboration"></a>Uitnodigingen voor Azure Active Directory B2B-samenwerking delegeren
 
-Samenwerking van Azure Active Directory (Azure AD)-business-to-business (B2B), moet u beschikt niet over een globale beheerder uitnodigingen verzenden. In plaats daarvan kunt u beleidsregels gebruiken en uitnodigingen voor gebruikers waarvan rollen kunnen worden uitnodiging delegeren. Er is een belangrijke nieuwe manier om te delegeren Gast gebruiker uitnodigingen via de functie Gast uitnodiging antwoorden.
+Met business-to-business (B2B)-samenwerking van Azure Active Directory (Azure AD) hoeft u niet te worden van een globale beheerder zijn om uitnodigingen te verzenden. U kunt in plaats daarvan gebruik van beleid en delegeren uitnodigingen voor gebruikers wiens rollen toestaat om uitnodigingen te verzenden. Een belangrijke nieuwe manier om te delegeren uitnodigingen voor gasten is via de rol Gastuitnodiging.
 
-## <a name="guest-inviter-role"></a>Rol van Gast uitnodiging antwoorden
-We kan de gebruiker toewijzen aan de rol van Gast uitnodiging antwoorden uitnodigingen verzenden. U hoeft niet te worden lid van de rol globale beheerder uitnodigingen verzenden. Standaard aanroepen gewone gebruikers ook de uitnodiging-API als een globale beheerder uitgeschakeld uitnodigingen voor reguliere gebruikers. Een gebruiker kan ook de met de Azure-portal of PowerShell API aanroepen.
+## <a name="guest-inviter-role"></a>De rol Gastuitnodiging
+We kunnen de gebruiker toewijzen aan de rol Gastuitnodiging om uitnodigingen te verzenden. U hebt geen lid van de rol globale beheerder zijn om uitnodigingen te verzenden. Standaard aanroepen normale gebruikers ook de uitnodiging-API, tenzij een globale beheerder uitgeschakeld uitnodigingen voor reguliere gebruikers. Een gebruiker kan ook aanroepen voor de API met behulp van de Azure portal of PowerShell.
 
-Hier volgt een voorbeeld ziet u hoe u een gebruiker toevoegen aan de rol van Gast uitnodiging antwoorden met PowerShell:
+Hier volgt een voorbeeld waarin wordt uitgelegd hoe u PowerShell gebruiken voor het toevoegen van een gebruiker aan de rol Gastuitnodiging:
 
 ```
 Add-MsolRoleMember -RoleObjectId 95e79109-95c0-4d8e-aee3-d01accf2d47b -RoleMemberEmailAddress <RoleMemberEmailAddress>
 ```
 
-## <a name="control-who-can-invite"></a>Beheren wie kunt uitnodigen
+## <a name="control-who-can-invite"></a>Bepalen wie kan uitnodigingen versturen
 
-![Beheren hoe om uit te nodigen](media/delegate-invitations/control-who-to-invite.png)
+![Beheren hoe uitnodigen](media/delegate-invitations/control-who-to-invite.png)
 
-Een tenantbeheerder kan de volgende beleidsregels voor uitnodiging ingesteld met Azure AD B2B-samenwerking:
+Met Azure AD B2B-samenwerking kunt tenantbeheerder de volgende uitnodiging beleidsregels instellen:
 
 - Uitnodigingen uitschakelen
-- Alleen beheerders en gebruikers in de rol van Gast uitnodiging antwoorden kunnen uitnodigen
-- Beheerders, de rol van Gast uitnodiging antwoorden en leden kunnen uitnodigen
-- Alle gebruikers bevat, inclusief gasten, kunnen uitnodigen
+- Alleen beheerders en gebruikers in de rol Gastuitnodiging kunnen uitnodigingen versturen
+- Beheerders, de rol Gastuitnodiging en leden kunnen uitnodigingen versturen
+- Alle gebruikers, inclusief gasten, kunnen uitnodigingen versturen
 
-Tenants zijn standaard ingesteld op #4. (U kunnen B2B gebruikers uitnodigen voor alle gebruikers, met inbegrip van gastgebruikers.)
+Tenants zijn standaard ingesteld op #4. (U kunnen B2B-gebruikers uitnodigen voor alle gebruikers, inclusief gasten,.)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende artikelen over Azure AD B2B-samenwerking:
+Zie de volgende artikelen op Azure AD B2B-samenwerking:
 
 - [Wat is Azure AD B2B-samenwerking?](what-is-b2b.md)
-- [B2B-samenwerking gastgebruikers zonder een uitnodiging toevoegen](add-user-without-invite.md)
-- [Een B2B-samenwerking-gebruiker toe te voegen aan een rol](add-guest-to-role.md)
+- [B2B-samenwerking gastgebruikers toevoegen zonder uitnodiging](add-user-without-invite.md)
+- [B2B-samenwerking gebruiker toe te voegen aan een rol](add-guest-to-role.md)
 
 

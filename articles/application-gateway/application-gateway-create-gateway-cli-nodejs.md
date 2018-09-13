@@ -1,5 +1,5 @@
 ---
-title: Maken van een Azure Application Gateway - Azure CLI 1.0 | Microsoft Docs
+title: Een Azure Application Gateway maken - Azure CLI 1.0 | Microsoft Docs
 description: Informatie over het maken van een toepassingsgateway met behulp van de Azure CLI 1.0 in Resource Manager
 services: application-gateway
 documentationcenter: na
@@ -15,11 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/31/2017
 ms.author: victorh
-ms.openlocfilehash: 3d67e896da5e616e443fc4e1edd9aaafb0f0e2f9
-ms.sourcegitcommit: c47ef7899572bf6441627f76eb4c4ac15e487aec
+ms.openlocfilehash: 29eec4ad1883db9d824b416bdfc7e984a5af4fbe
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/04/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35644296"
 ---
 # <a name="create-an-application-gateway-by-using-the-azure-cli"></a>Een toepassingsgateway maken met behulp van de Azure CLI
 
@@ -33,53 +34,53 @@ ms.lasthandoff: 05/04/2018
 > 
 > 
 
-Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Toepassingsgateway bevat de volgende functies van de toepassing-levering: HTTP load balancing, sessie cookies gebaseerde affiniteit en Secure Sockets Layer (SSL)-offload, aangepaste statuscontroles en ondersteuning voor meerdere locaties.
+Azure Application Gateway is een load balancer in laag 7. De gateway biedt opties voor failovers en het routeren van HTTP-aanvragen tussen servers (on-premises en in de cloud). Application gateway biedt de volgende functies voor de levering van toepassingen: HTTP load balancing, cookies gebaseerde sessieaffiniteit en Secure Sockets Layer (SSL)-offload, aangepaste statustests en ondersteuning voor meerdere locaties.
 
 ## <a name="prerequisite-install-the-azure-cli"></a>Voorwaarde: Installeer de Azure CLI
 
 Als u wilt de stappen in dit artikel uitvoert, moet u [installeren van de Azure-opdrachtregelinterface voor Mac, Linux en Windows (Azure CLI)](../xplat-cli-install.md) en u moet [Meld u aan bij Azure](/cli/azure/authenticate-azure-cli). 
 
 > [!NOTE]
-> Als u geen Azure-account hebt, moet u een. U kunt zich [hier aanmelden voor een gratis proefversie](../active-directory/sign-up-organization.md).
+> Als u een Azure-account niet hebt, moet u een. U kunt zich [hier aanmelden voor een gratis proefversie](../active-directory/fundamentals/sign-up-organization.md).
 
 ## <a name="scenario"></a>Scenario
 
-In dit scenario wordt informatie over het maken van een toepassingsgateway met Azure portal.
+In dit scenario leert u hoe u een toepassingsgateway met behulp van de Azure portal maken.
 
-Dit scenario wordt:
+In dit scenario wordt:
 
 * Een middelgrote toepassingsgateway maken met twee exemplaren.
-* Maak een virtueel netwerk met de naam ContosoVNET met een gereserveerd CIDR-blok van 10.0.0.0/16.
+* Maak een virtueel netwerk met de naam ContosoVNET met een gereserveerde CIDR-blok van 10.0.0.0/16.
 * Maak een subnet met de naam subnet01 dat gebruikmaakt van 10.0.0.0/28 als CIDR-blok.
 
 > [!NOTE]
-> Aanvullende configuratie van de toepassingsgateway, met inbegrip van aangepaste health tests, adressen van de groep back-end en extra regels worden geconfigureerd nadat de toepassingsgateway is geconfigureerd en niet tijdens de eerste installatie.
+> Aanvullende configuratie van de toepassingsgateway, met inbegrip van de gezondheid van aangepaste tests, adressen van de back-end-groep en extra regels worden geconfigureerd nadat de application gateway is geconfigureerd en niet tijdens de initiële implementatie.
 
 ## <a name="before-you-begin"></a>Voordat u begint
 
-Azure Application Gateway vereist een eigen subnet. Zorg ervoor dat u onvoldoende adresruimte voor meerdere subnetten hebben laten bij het maken van een virtueel netwerk. Wanneer u een toepassingsgateway met een subnet implementeert, kunnen alleen andere Toepassingsgateways worden toegevoegd aan het subnet.
+Azure Application Gateway is een eigen subnet vereist. Bij het maken van een virtueel netwerk, zorg ervoor dat u onvoldoende adresruimte voor meerdere subnetten hebt verlaten. Wanneer u een toepassingsgateway met een subnet implementeert, kunnen alleen andere Toepassingsgateways worden toegevoegd aan het subnet.
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Open de **Microsoft Azure-opdrachtprompt**, en zich aanmelden. 
+Open de **Microsoft Azure-opdrachtprompt**, en zich aanmeldt. 
 
 ```azurecli-interactive
 azure login
 ```
 
-Wanneer u in het voorgaande voorbeeld typt, wordt een code opgegeven. Navigeer naar https://aka.ms/devicelogin in een browser om terug te gaan met de aanmelding.
+Wanneer u in het voorgaande voorbeeld typt, krijgt u een code. Navigeer naar https://aka.ms/devicelogin in een browser om door te gaan met de aanmelding.
 
-![cmd tonen apparaat aanmelding][1]
+![apparaataanmelding cmd-weergeven][1]
 
-Voer de code die u hebt ontvangen in de browser. U wordt omgeleid naar een aanmeldingspagina.
+Voer de code die u hebt ontvangen in de browser. U bent omgeleid naar een aanmeldingspagina.
 
 ![browser-code invoeren][2]
 
-Zodra de code is ingevoerd. u bent aangemeld, sluit de browser om door te gaan op met het scenario.
+Zodra de code is ingevoerd. u bent aangemeld, sluit de browser om door te gaan met het scenario.
 
 ![aangemeld][3]
 
-## <a name="switch-to-resource-manager-mode"></a>Overschakelen naar de modus Resource Manager
+## <a name="switch-to-resource-manager-mode"></a>Schakel over naar Resource Manager-modus
 
 ```azurecli-interactive
 azure config mode arm
@@ -87,7 +88,7 @@ azure config mode arm
 
 ## <a name="create-the-resource-group"></a>De resourcegroep maken
 
-Voordat u de toepassingsgateway maakt, wordt een resourcegroep gemaakt voor de toepassingsgateway. Hieronder ziet u de opdracht.
+Voordat u de toepassingsgateway maakt, een resourcegroep gemaakt waartoe de toepassingsgateway. Hieronder ziet u de opdracht.
 
 ```azurecli-interactive
 azure group create \
@@ -97,7 +98,7 @@ azure group create \
 
 ## <a name="create-a-virtual-network"></a>Een virtueel netwerk maken
 
-Zodra de resourcegroep is gemaakt, wordt een virtueel netwerk gemaakt voor de toepassingsgateway.  In het volgende voorbeeld is de adresruimte als 10.0.0.0/16 zoals gedefinieerd in de notities bij de voorgaande scenario.
+Nadat de resourcegroep is gemaakt, wordt een virtueel netwerk gemaakt voor de toepassingsgateway.  In het volgende voorbeeld is de adresruimte als 10.0.0.0/16 zoals gedefinieerd in de opmerkingen bij de voorgaande scenario.
 
 ```azurecli-interactive
 azure network vnet create \
@@ -109,7 +110,7 @@ azure network vnet create \
 
 ## <a name="create-a-subnet"></a>Een subnet maken
 
-Nadat het virtuele netwerk is gemaakt, wordt een subnet voor de toepassingsgateway toegevoegd.  Als u van plan bent gebruik toepassingsgateway met een web-app gehost in hetzelfde virtuele netwerk als de toepassingsgateway, zorg er dan voor dat onvoldoende ruimte is voor een ander subnet.
+Nadat het virtuele netwerk is gemaakt, wordt een subnet voor application gateway toegevoegd.  Als u van plan bent voor het gebruik van application gateway met een web-app die wordt gehost in hetzelfde virtuele netwerk bevinden als de toepassingsgateway, zorg er dan voor dat laat voldoende ruimte heeft voor een ander subnet.
 
 ```azurecli-interactive
 azure network vnet subnet create \
@@ -121,7 +122,7 @@ azure network vnet subnet create \
 
 ## <a name="create-the-application-gateway"></a>De toepassingsgateway maken
 
-Als het virtuele netwerk en het subnet zijn gemaakt, zijn de vereisten voor de toepassingsgateway zijn voltooid. Bovendien een eerder geëxporteerde pfx-certificaat en het wachtwoord voor het certificaat zijn vereist voor de volgende stap: het IP-adressen gebruikt voor de back-end zijn de IP-adressen voor uw back-endserver. Deze waarden kunnen worden persoonlijke IP-adressen in het virtuele netwerk, openbare IP-adressen of volledig gekwalificeerde domeinnamen voor uw back-endservers.
+Als het virtuele netwerk en subnet worden gemaakt, zijn de vereisten voor de toepassingsgateway zijn voltooid. Daarnaast een eerder geëxporteerd pfx-certificaat en het wachtwoord voor het certificaat zijn vereist voor de volgende stap: het IP-adressen die worden gebruikt voor de back-end zijn de IP-adressen voor uw back-endserver. Deze waarden kunnen worden persoonlijke IP-adressen in het virtuele netwerk, de openbare IP-adressen of de volledig gekwalificeerde domeinnamen voor uw back-endservers.
 
 ```azurecli-interactive
 azure network application-gateway create \
@@ -143,16 +144,16 @@ azure network application-gateway create \
 ```
 
 > [!NOTE]
-> Voor een lijst met parameters die kan worden opgegeven tijdens het maken van de volgende opdracht uitvoeren: **netwerk van azure-toepassingsgateway maken--help**.
+> Voor een lijst met parameters die kan worden opgegeven tijdens het maken van de volgende opdracht uitvoeren: **azure network application-gateway create--help**.
 
-In dit voorbeeld maakt een basic-toepassingsgateway met standaardinstellingen voor de listener, back-endpool, back-end-http-instellingen en -regels. U kunt deze instellingen aanpassen aan uw implementatie wanneer het inrichten voltooid is, kunt wijzigen.
-Als u al uw webtoepassing gedefinieerd met behulp van de back endpool in de voorgaande stappen hebt uitgevoerd, eenmaal is gemaakt, begint taakverdeling.
+In dit voorbeeld maakt een basic-toepassingsgateway met standaardinstellingen voor de listener, back-endpool, back-end-http-instellingen en regels. U kunt deze instellingen aan de behoeften van uw implementatie wanneer het inrichten voltooid is.
+Als u al uw webtoepassing die is gedefinieerd met behulp van de back-endpool in de voorgaande stappen hebt eenmaal is gemaakt, begint taakverdeling.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Informatie over het maken van aangepaste statuscontroles in via [een aangepaste health test maken](application-gateway-create-probe-portal.md)
+Informatie over het maken van aangepaste statustests recentst [een aangepaste statustest maken](application-gateway-create-probe-portal.md)
 
-Informatie over het configureren van SSL-Offloading en nemen de kostbare SSL-ontsleuteling uit uw webservers in via [SSL-Offload configureren](application-gateway-ssl-arm.md)
+Meer informatie over het configureren van SSL-Offloading, en past de kostbare SSL-ontsleuteling uit uw webservers naar de pagina [SSL-Offload configureren](application-gateway-ssl-arm.md)
 
 <!--Image references-->
 

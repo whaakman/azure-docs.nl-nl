@@ -1,8 +1,8 @@
 ---
-title: Detectie - ongewone stijging van de uitzondering volume in Azure Application Insights van smartcard | Microsoft Docs
-description: Toepassingsuitzonderingen met Azure Application Insights voor ongewone patronen in uitzondering volume bewaken.
+title: 'Slimme detectie: afwijkende toename van uitzonderingen, in Azure Application Insights | Microsoft Docs'
+description: Toepassingsuitzonderingen met Azure Application Insights voor ongebruikelijke patronen van uitzonderingen bewaken.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.assetid: ea2a28ed-4cd9-4006-bd5a-d4c76f4ec20b
@@ -10,30 +10,31 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/08/2017
 ms.author: mbullwin
-ms.openlocfilehash: 8030f3331a03170bb265c417a57725544bdc7d3f
-ms.sourcegitcommit: 42ee5ea09d9684ed7a71e7974ceb141d525361c9
+ms.openlocfilehash: 898cc0935051f65cb0f2977c7d90e998ec32cdd3
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 12/09/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643946"
 ---
-# <a name="abnormal-rise-in-exception-volume-preview"></a>Ongewone stijging van de uitzondering volume (preview)
+# <a name="abnormal-rise-in-exception-volume-preview"></a>Abnormale toename van uitzonderingen (preview)
 
-Application Insights automatisch analyseert de uitzonderingen die in uw toepassing en kunt u gewaarschuwd over ongewone patronen in uw uitzonderingstelemetrie.
+Application Insights automatisch analyseert de uitzonderingen in uw toepassing, en kunt u gewaarschuwd over ongebruikelijke patronen in uw uitzonderingstelemetrie.
 
-Dit onderdeel vereist geen speciale instellingen, anders dan [uitzondering rapportage configureren](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting) voor uw app. Het is actief wanneer uw app genoeg uitzonderingstelemetrie genereert.
+Deze functie is vereist geen speciale configuratie dan [uitzondering rapportage configureren](https://docs.microsoft.com/azure/application-insights/app-insights-asp-net-exceptions#set-up-exception-reporting) voor uw app. Deze is actief wanneer uw app zoveel uitzonderingstelemetrie genereert.
 
-## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Wanneer dit type Slimme detectie melding krijgt?
-U kunt dit type melding als uw app een abnormale toename in het aantal uitzonderingen van een bepaald type tijdens een dag vertoont, vergeleken met een basislijn berekend gedurende de afgelopen zeven dagen.
-Machine learning-algoritmen worden gebruikt voor het detecteren van de toename in aantal uitzondering, daarbij rekening houdend met een natuurlijke groei van uw gebruik van de toepassing.
+## <a name="when-would-i-get-this-type-of-smart-detection-notification"></a>Wanneer kan ik dit type melding voor slimme detectie krijgen?
+U kunt dit type melding krijgen als uw app een afwijkende toename van het aantal uitzonderingen van een bepaald type gedurende een dag ten opzichte van een basislijn berekend voor de afgelopen zeven dagen vertoont is.
+Machine learning-algoritmen worden gebruikt voor het detecteren van de toename van het aantal uitzonderingen, daarbij rekening houdend met een natuurlijke groei van het toepassingsgebruik van uw.
 
-## <a name="does-my-app-definitely-have-a-problem"></a>Beschikt over mijn app zeker een probleem?
-Nee, een melding betekent dat uw app zeker een probleem heeft niet. Hoewel een uitzonderlijk groot aantal uitzonderingen geeft meestal aan een toepassingsprobleem dat, kunnen deze uitzonderingen goedaardige en verwerkt door uw toepassing correct zijn.
+## <a name="does-my-app-definitely-have-a-problem"></a>Beschikt over mijn app absoluut een probleem?
+Nee, een melding betekent niet dat uw app beslist een probleem is. Hoewel een uitzonderlijk groot aantal uitzonderingen duidt meestal op een toepassingsprobleem, kunnen deze uitzonderingen goedaardige en verwerkt door uw toepassing correct zijn.
 
-## <a name="how-do-i-fix-it"></a>Hoe kan ik oplossen?
-Diagnostische gegevens voor de ondersteuning van het proces van diagnostische gegevens bevatten, de meldingen:
-1. **Selectie.** De melding ziet u hoeveel gebruikers of hoeveel aanvragen worden beïnvloed. Hiermee kunt u een prioriteit toewijzen aan het probleem.
-2. **De scope.** Het probleem invloed op alle verkeer, of een enkele bewerking? Deze informatie kan worden verkregen van de melding.
-3. **Diagnose.** De detectie bevat informatie over de methode van waaruit de uitzondering is opgetreden, evenals het uitzonderingstype. U kunt ook de verwante items en rapporten koppelen aan de ondersteunende informatie om u te helpen verder onderzoeken het probleem.
+## <a name="how-do-i-fix-it"></a>Hoe herstel ik deze?
+De meldingen betreffen: diagnostische gegevens voor de ondersteuning in het proces van diagnostische gegevens:
+1. **Sorteren.** De melding ziet u hoeveel gebruikers of het aantal aanvragen worden beïnvloed. Hiermee kunt u een prioriteit toewijzen aan het probleem.
+2. **De scope.** Het probleem invloed heeft op al het verkeer of slechts enkele bewerking? Deze gegevens kan worden opgehaald van de melding.
+3. **Diagnose.** De detectie bevat informatie over de methode die de uitzondering is opgetreden, evenals het uitzonderingstype. U kunt ook de verwante items en rapporten koppelen aan de ondersteunende informatie om u te helpen meer vaststellen van het probleem.

@@ -1,5 +1,5 @@
 ---
-title: Cloud toewijzingsfout bij het oplossen van problemen | Microsoft Docs
+title: Problemen met de Cloudservice toewijzing oplossen | Microsoft Docs
 description: Toewijzingsfouten oplossen die zijn opgetreden bij het implementeren van Cloud Services in Azure
 services: azure-service-management, cloud-services
 documentationcenter: ''
@@ -13,62 +13,62 @@ ms.workload: na
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 33d017d0e09e9b288b0514e85c8865f83a8a2fa1
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 22888c76b27d287a8d7fb0f0f1f0a0d39d92375d
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
-ms.locfileid: "23984113"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35917160"
 ---
 # <a name="troubleshooting-allocation-failure-when-you-deploy-cloud-services-in-azure"></a>Toewijzingsfouten oplossen die zijn opgetreden bij het implementeren van Cloud Services in Azure
 ## <a name="summary"></a>Samenvatting
-Als u exemplaren naar een Cloudservice distribueren of nieuwe web- of worker-rolexemplaren toevoegen, wijst Microsoft Azure compute-bronnen. Tijd tot tijd krijgt u fouten bij het uitvoeren van deze bewerkingen zelfs voordat u de Azure-abonnement limieten bereiken. Dit artikel wordt uitgelegd van de oorzaken van een deel van de algemene toewijzingsfouten en mogelijk doorvoeren wordt voorgesteld. De gegevens zijn mogelijk ook nuttig bij het plannen van de implementatie van uw services.
+Wanneer u exemplaren naar een Cloudservice distribueren of toevoegen van nieuwe web- of werkrolinstanties, wijst Microsoft Azure compute-resources. U ontvangt mogelijk af en toe fouten bij het uitvoeren van deze bewerkingen, zelfs voordat u de limieten van Azure-abonnement hebt bereikt. Dit artikel worden de oorzaken van enkele van de algemene toewijzingsfouten en mogelijke herstel voorgesteld. De informatie kan ook zijn nuttig wanneer u van plan de implementatie van uw services bent.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-### <a name="background--how-allocation-works"></a>Achtergrond – de werking van toewijzing
-De servers in Azure-datacenters worden in clusters gepartitioneerd. Een nieuwe toewijzingsaanvraag voor cloud-service wordt uitgevoerd in meerdere clusters. Wanneer de eerste instantie wordt geïmplementeerd op een cloudservice (in fasering of productie), die cloudservice opgehaald vastgemaakt aan een cluster. Eventuele verdere implementaties voor de cloudservice gebeurt in hetzelfde cluster. In dit artikel verwijzen we naar dit zoals 'vastgemaakt aan een cluster'. Afbeelding 1 hieronder ziet u dat het geval van een normale toewijzing die wordt uitgevoerd in meerdere clusters; Diagram 2 ziet u dat het geval van een toewijzing die is vastgemaakt aan Cluster 2 omdat waar de bestaande CS_1 voor Cloud-Service wordt gehost.
+### <a name="background--how-allocation-works"></a>Achtergrond: de werking van toewijzing
+De servers in Azure-datacenters worden in clusters gepartitioneerd. Een nieuwe cloud service toewijzingsaanvraag in meerdere clusters. Wanneer het eerste exemplaar is geïmplementeerd in een cloudservice (in fasering of productie), die service in de cloud wordt vastgemaakt aan een cluster. Eventuele verdere implementaties voor de cloudservice gebeurt in hetzelfde cluster. In dit artikel verwijzen we naar dit als 'vastgemaakt aan een cluster'. Afbeelding 1 hieronder ziet u dat het geval van een normale verdeling die wordt uitgevoerd in meerdere clusters. Diagram 2 ziet u het geval van een toewijzing die is vastgemaakt aan het Cluster 2 omdat daar waar de bestaande CS_1 voor Cloud-Service wordt gehost.
 
 ![Diagram van toewijzing](./media/cloud-services-allocation-failure/Allocation1.png)
 
 ### <a name="why-allocation-failure-happens"></a>Waarom toewijzingsfout gebeurt
-Wanneer een aanvraag voor geheugentoewijzing is vastgemaakt aan een cluster, is er een hogere kans niet te vinden van resources vrij, omdat de resourcegroep beschikbaar beperkt tot een cluster is. Bovendien als uw aanvraag voor geheugentoewijzing is vastgemaakt aan een cluster, maar het type resource dat u hebt aangevraagd wordt niet ondersteund door dit cluster, zal uw aanvraag mislukken zelfs als het cluster gratis resource heeft. Diagram 3 hieronder ziet u het geval waarbij een vastgezette toewijzing is mislukt omdat het cluster alleen candidate geen gratis resources. Diagram 4 ziet u het geval waarbij een vastgezette toewijzing is mislukt omdat het cluster alleen candidate biedt geen ondersteuning voor de aangevraagde VM-grootte, zelfs als het cluster resources vrij heeft.
+Wanneer een aanvraag voor geheugentoewijzing is vastgemaakt aan een cluster, is er een hogere kans niet te zoeken naar gratis bronnen omdat de resourcegroep beschikbaar beperkt tot een cluster is. Bovendien, als uw aanvraag voor geheugentoewijzing is vastgemaakt aan een cluster, maar het type resource dat u hebt aangevraagd niet wordt ondersteund door het cluster, uw aanvraag mislukt, zelfs als het cluster is, gratis resource. Afbeelding 3 hieronder ziet u dat het geval waarbij een vastgemaakte toewijzing is mislukt omdat het cluster alleen candidate heeft geen gratis resources. Diagram 4 ziet u het geval waarbij een vastgemaakte toewijzing is mislukt omdat het cluster alleen candidate biedt geen ondersteuning voor de aangevraagde VM-grootte, zelfs als het cluster gratis resources heeft.
 
-![Vastgemaakte geheugentoewijzing is mislukt](./media/cloud-services-allocation-failure/Allocation2.png)
+![Vastgemaakte toewijzingsfout](./media/cloud-services-allocation-failure/Allocation2.png)
 
 ## <a name="troubleshooting-allocation-failure-for-cloud-services"></a>Toewijzingsfouten voor cloudservices oplossen
 ### <a name="error-message"></a>Foutbericht
-U weergegeven het volgende foutbericht:
+U ziet mogelijk de volgende strekking weergegeven:
 
     "Azure operation '{operation id}' failed with code Compute.ConstrainedAllocationFailed. Details: Allocation failed; unable to satisfy constraints in request. The requested new service deployment is bound to an Affinity Group, or it targets a Virtual Network, or there is an existing deployment under this hosted service. Any of these conditions constrains the new deployment to specific Azure resources. Please retry later or try reducing the VM size or number of role instances. Alternatively, if possible, remove the aforementioned constraints or try deploying to a different region."
 
 ### <a name="common-issues"></a>Algemene problemen
-Hier volgen de algemene toewijzing scenario's die ertoe leiden dat een aanvraag voor geheugentoewijzing om te worden vastgemaakt aan één cluster.
+Hier volgen de algemene toewijzing scenario's die ertoe leiden dat een aanvraag voor geheugentoewijzing om te worden vastgemaakt aan een cluster.
 
-* Implementeren naar sleuf Staging - als een cloudservice een implementatie in een sleuf heeft, is klikt u vervolgens de volledige in de cloud-service vastgemaakt aan een specifiek cluster.  Dit betekent dat als een implementatie al in de productiesite bestaat, klikt u vervolgens een nieuwe implementatie van de test kan alleen worden toegewezen in hetzelfde cluster als de productiesite. Als het cluster heeft capaciteit bijna bereikt, kan het verzoek mislukken.
-* Schalen: nieuwe exemplaren toe te voegen aan een bestaande cloudservice moet toewijzen in hetzelfde cluster.  Kleine schaal aanvragen kan doorgaans worden verdeeld, maar niet altijd. Als het cluster heeft capaciteit bijna bereikt, kan het verzoek mislukken.
-* Affiniteitsgroep - een nieuwe implementatie met een leeg cloudservice kan worden toegewezen door de infrastructuurresources in een cluster in deze regio, tenzij de cloudservice is vastgemaakt aan een affiniteitsgroep. Implementaties van dezelfde affiniteitsgroep worden geprobeerd in hetzelfde cluster. Als het cluster heeft capaciteit bijna bereikt, kan het verzoek mislukken.
-* Affiniteitsgroep vNet - oudere virtuele netwerken zijn gekoppeld aan affiniteitsgroepen in plaats van de regio's en cloudservices in deze virtuele netwerken zou worden vastgemaakt aan het cluster affiniteitsgroep. Implementaties voor dit type virtueel netwerk wordt een poging op het cluster vastgemaakt. Als het cluster heeft capaciteit bijna bereikt, kan het verzoek mislukken.
+* Naar de Staging-site - implementeert als een service in de cloud een implementatie in een sleuf heeft, is klikt u vervolgens het hele cloudservice vastgemaakt aan een specifieke cluster.  Dit betekent dat als een implementatie al in de productiesite bestaat, dan kan een nieuwe faseringsimplementatie alleen worden toegewezen in hetzelfde cluster als de productiesite. Als het cluster heeft capaciteit bijna bereikt, mislukken de aanvraag.
+* Schalen: nieuwe exemplaren toe te voegen aan een bestaande cloudservice moet toewijzen in hetzelfde cluster.  Kleine schaalaanvragen kunnen doorgaans worden toegewezen, maar niet altijd. Als het cluster heeft capaciteit bijna bereikt, mislukken de aanvraag.
+* Affiniteitsgroep - een nieuwe implementatie in een lege cloudservice kan worden toegewezen door de infrastructuur in een cluster in deze regio, tenzij de cloudservice is vastgemaakt aan een affiniteitsgroep. Implementaties naar dezelfde affiniteitsgroep bevinden worden geprobeerd in hetzelfde cluster. Als het cluster heeft capaciteit bijna bereikt, mislukken de aanvraag.
+* Affiniteitsgroep vNet - oudere virtuele netwerken zijn gekoppeld aan affiniteitsgroepen in plaats van regio's en cloudservices in deze virtuele netwerken zou worden vastgemaakt aan het cluster affiniteitsgroep bevinden. Implementaties voor dit type virtueel netwerk worden geprobeerd op de vastgemaakte cluster. Als het cluster heeft capaciteit bijna bereikt, mislukken de aanvraag.
 
 ## <a name="solutions"></a>Oplossingen
-1. Implementeren naar een nieuwe cloudservice - deze oplossing is waarschijnlijk meest geslaagd omdat het platform kunt kiezen uit alle clusters in deze regio.
+1. Implementeren naar een nieuwe cloudservice - in deze oplossing is waarschijnlijk meest succesvolle omdat hiermee het platform om te kiezen uit alle clusters in die regio.
 
-   * De werkbelasting implementeren op een nieuwe cloudservice  
+   * De workload van een nieuwe cloudservice implementeren  
    * De CNAME- of een record verkeer verwijst naar de nieuwe cloudservice bijwerken
-   * Zodra de oude site nul verkeer gaat, kunt u de oude cloudservice verwijderen. Deze oplossing moet rekening worden gebracht zonder uitvaltijd.
-2. Verwijderen van de productie- en staging-sleuven: deze oplossing uw bestaande DNS-naam blijft behouden, maar zal leiden tot uitvaltijd voor uw toepassing.
+   * Zodra de oude site nul verkeer wordt gebruikt, kunt u de oude cloudservice kunt verwijderen. Deze oplossing moet in rekening worden gebracht zonder downtime.
+2. Verwijder zowel productie- als stagingsleuven - in deze oplossing behoudt de bestaande DNS-naam, maar zorgt ervoor dat de downtime voor uw toepassing.
 
-   * De productie- en staging-sleuven van een bestaande cloudservice zodat de cloudservice leeg is, verwijderen en vervolgens
-   * Maak een nieuwe implementatie in de bestaande cloudservice. Dit wordt opnieuw geprobeerd te toewijzing in alle clusters in de regio. Zorg ervoor dat de cloudservice is niet gekoppeld aan een affiniteitsgroep.
-3. Gereserveerd IP - behoudt deze oplossing voor uw bestaande IP-adres, maar zal leiden tot uitvaltijd voor uw toepassing.  
+   * Verwijderen van de productie- als stagingsleuven van een bestaande cloudservice zodat de cloudservice leeg is, en vervolgens
+   * Maak een nieuwe implementatie in de bestaande cloudservice. Dit wordt opnieuw geprobeerd te toewijzing op alle clusters in de regio. Zorg ervoor dat de cloudservice is niet gekoppeld aan een affiniteitsgroep.
+3. Gereserveerde IP-adres - deze oplossing behoudt de bestaande IP-adres, maar zorgt ervoor dat de downtime voor uw toepassing.  
 
-   * Maken van een ReservedIP voor uw bestaande implementatie met behulp van Powershell
+   * Maken van een gereserveerde IP-adres voor uw bestaande implementatie met behulp van Powershell
 
      ```
      New-AzureReservedIP -ReservedIPName {new reserved IP name} -Location {location} -ServiceName {existing service name}
      ```
-   * Ga als volgt #2 hierboven, alleen voor zorgen dat de nieuwe ReservedIP opgeven in de service CSCFG.
-4. Verwijder affiniteitsgroep voor nieuwe implementaties - Affiniteitsgroepen niet langer worden aanbevolen. Volg de stappen voor #1 hierboven voor het implementeren van een nieuwe cloudservice. Zorg ervoor dat cloudservice is niet in een affiniteitsgroep.
-5. Converteren naar een regionaal virtueel netwerk - Zie [van Affiniteitsgroepen migreren naar een regionaal virtueel netwerk (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).
+   * Ga als volgt #2 in het navolgende, zorg ervoor dat de nieuwe gereserveerde IP-adres in van de service CSCFG opgeven.
+4. Verwijder affiniteitsgroep voor nieuwe implementaties - Affiniteitsgroepen zijn niet meer wordt aanbevolen. Volg de stappen voor #1 hierboven voor het implementeren van een nieuwe cloudservice. Zorg ervoor dat cloudservice zich niet in een affiniteitsgroep.
+5. Converteren naar een regionaal Virtueelnetwerk - Zie [van Affiniteitsgroepen migreren naar een regionaal Virtueelnetwerk (VNet)](../virtual-network/virtual-networks-migrate-to-regional-vnet.md).

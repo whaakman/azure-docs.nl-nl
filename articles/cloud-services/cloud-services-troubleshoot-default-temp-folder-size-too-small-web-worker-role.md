@@ -1,6 +1,6 @@
 ---
-title: Standaard tijdelijke map is te klein voor een functie | Microsoft Docs
-description: De functie van een cloud-service heeft een beperkte hoeveelheid ruimte voor de map TEMP. Dit artikel vindt enkele suggesties voor het vermijden van buiten de ruimte die wordt uitgevoerd.
+title: Standaard TEMP-map is te klein voor een rol | Microsoft Docs
+description: Een cloud service-rol heeft een beperkte hoeveelheid ruimte voor de map TEMP. In dit artikel vindt u enkele suggesties voor het om te voorkomen dat wordt uitgevoerd geen schijfruimte meer.
 services: cloud-services
 documentationcenter: ''
 author: simonxjx
@@ -13,30 +13,30 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: v-six
-ms.openlocfilehash: 177438c4d6b416584f1797ec1ce744fc484ef688
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 5d60c5f2d759f3329997762270e9a0335ebbe1e9
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32154525"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35907559"
 ---
-# <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Standaard is tijdelijke map te klein voor een cloud service web/worker-rol
-De standaard tijdelijke map van een cloud service worker- of webserver-rol heeft een maximale grootte van 100 MB, die volledig op een bepaald moment kan worden. Dit artikel wordt beschreven hoe u voorkomt dat met de beschikbare ruimte voor de tijdelijke map.
+# <a name="default-temp-folder-size-is-too-small-on-a-cloud-service-webworker-role"></a>Standaard is TEMP map te klein voor een cloud service web/worker-rol
+De tijdelijke standaardmap van een werknemer of web cloudservicerol heeft een maximale grootte van 100 MB, die volledig op een bepaald moment kan vormen. In dit artikel wordt beschreven hoe om te voorkomen dat met de beschikbare ruimte voor de tijdelijke map.
 
 [!INCLUDE [support-disclaimer](../../includes/support-disclaimer.md)]
 
-## <a name="why-do-i-run-out-of-space"></a>Waarom kan ik geen ruimte meer uitvoeren?
-De standaard Windows-omgevingsvariabelen TEMP en TMP zijn beschikbaar voor de code die wordt uitgevoerd in uw toepassing. Zowel TEMP en TMP verwijzen naar één map met een maximale grootte van 100 MB. Alle gegevens die zijn opgeslagen in deze map is niet persistent over de levenscyclus van de cloudservice; Als de rolexemplaren in een cloudservice gerecycled worden, wordt de map verwijderd.
+## <a name="why-do-i-run-out-of-space"></a>Waarom kan ik geen schijfruimte meer uitvoeren?
+De standaard Windows-omgevingsvariabelen TEMP en TMP zijn beschikbaar voor de code die wordt uitgevoerd in uw toepassing. Zowel TEMP en TMP verwijzen naar één map met een maximale grootte van 100 MB. Alle gegevens die zijn opgeslagen in deze map is niet permanent opgeslagen in de levenscyclus van de cloudservice; Als de rolinstanties in een cloudservice gerecycled worden, wordt de map verwijderd.
 
-## <a name="suggestion-to-fix-the-problem"></a>Suggestie het probleem op te lossen
-Een van de volgende alternatieven implementeren:
+## <a name="suggestion-to-fix-the-problem"></a>Suggestie om het probleem te verhelpen
+Implementeer een van de volgende alternatieven:
 
-* Configureren van een resource voor lokale opslag en toegang tot deze rechtstreeks in plaats van TEMP of TMP. Aanroepen voor toegang tot een bron voor lokale opslag van code die wordt uitgevoerd in uw toepassing, de [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) methode.
-* De bron van een lokale opslag configureert en wijst u de mappen TEMP en TMP om te verwijzen naar het pad van de bron van de lokale opslag. Deze wijziging moet worden uitgevoerd binnen de [RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) methode.
+* Configureer een lokale opslag-resource en rechtstreeks in plaats van TEMP of TMP openen. Aanroepen voor toegang tot de resource van een lokale opslag van code die wordt uitgevoerd in uw toepassing, de [RoleEnvironment.GetLocalResource](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleenvironment.getlocalresource.aspx) methode.
+* Configureer een lokale opslag-resource en wijst u de mappen TEMP en TMP om te verwijzen naar het pad van de bron van de lokale opslag. Deze wijziging moet worden uitgevoerd binnen de [RoleEntryPoint.OnStart](https://msdn.microsoft.com/library/microsoft.windowsazure.serviceruntime.roleentrypoint.onstart.aspx) methode.
 
-De volgende voorbeeldcode laat zien hoe de doel-mappen wijzigen voor TEMP en TMP uit binnen de OnStart-methode:
+Het volgende codevoorbeeld laat zien hoe de doel-mappen voor TEMP en TMP uit binnen de OnStart-methode wijzigen:
 
 ```csharp
 using System;
@@ -71,8 +71,8 @@ namespace WorkerRole1
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Lees een blog die beschrijft [het verhogen van de grootte van de Azure-functie ASP.NET tijdelijke webmap](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
+Lees een blog waarin wordt beschreven [verhogen van de grootte van de Azure Web Role ASP.NET tijdelijke map](http://blogs.msdn.com/b/kwill/archive/2011/07/18/how-to-increase-the-size-of-the-windows-azure-web-role-asp-net-temporary-folder.aspx).
 
-Meer [probleemoplossing artikelen](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/vs-azure-tools-debugging-cloud-services-overview.md) voor cloudservices.
+Meer weergeven [artikelen over probleemoplossing](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/vs-azure-tools-debugging-cloud-services-overview.md) voor cloudservices.
 
-Voor informatie over het oplossen van problemen met de rol van de cloud service met behulp van de diagnostics-gegevens voor Azure PaaS-computer, geven [blogreeks van Kevin Williamson](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).
+Voor informatie over het oplossen van problemen met de rol van de cloud service met behulp van Azure PaaS computer diagnostische gegevens, bekijken [van Kevin Williamson blogserie](http://blogs.msdn.com/b/kwill/archive/2013/08/09/windows-azure-paas-compute-diagnostics-data.aspx).

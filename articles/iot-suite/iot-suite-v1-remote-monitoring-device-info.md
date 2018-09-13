@@ -15,51 +15,51 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/02/2017
 ms.author: dobett
-ms.openlocfilehash: 80f03a4cef1d79e819c59ca68a786776a5c4edb7
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 4efea316c05f566add3e175bc5bb18842225ede3
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34636093"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35758158"
 ---
 # <a name="device-information-metadata-in-the-remote-monitoring-preconfigured-solution"></a>Metagegevens van apparaten informatie in de vooraf geconfigureerde oplossing voor externe controle
 
-De Azure IoT Suite vooraf geconfigureerde oplossing voor externe controle demonstreert een benadering voor het beheren van metagegevens van apparaten. In dit artikel bevat een overzicht van de aanpak van die deze oplossing nodig is om te begrijpen:
+De Azure IoT Suite vooraf geconfigureerde oplossing voor externe controle ziet u een benadering voor het beheren van metagegevens van apparaten. In dit artikel bevat een overzicht van de aanpak van die deze oplossing nodig waarmee u kunt om te begrijpen:
 
 * De metagegevens van welke apparaten de oplossing worden opgeslagen.
-* Hoe de oplossing de metagegevens van de apparaten beheert.
+* De oplossing beheert hoe de metagegevens van apparaten.
 
 ## <a name="context"></a>Context
 
-Externe controle vooraf geconfigureerde oplossing maakt gebruik van [Azure IoT Hub] [ lnk-iot-hub] waarmee uw apparaten gegevens verzenden naar de cloud. De oplossing bevat gegevens over de apparaten in drie verschillende locaties:
+De externe controle vooraf geconfigureerde oplossing maakt gebruik van [Azure IoT Hub] [ lnk-iot-hub] om in te schakelen van uw apparaten om gegevens te verzenden naar de cloud. De informatie over apparaten worden opgeslagen in drie verschillende locaties:
 
 | Locatie | Gegevens die zijn opgeslagen | Implementatie |
 | -------- | ------------------ | -------------- |
-| ID-register | Apparaat-id, verificatiesleutels, de status ingeschakeld | Ingebouwd in IoT-Hub |
-| Apparaat horende | Metagegevens: gemelde eigenschappen, gewenste eigenschappen, tags | Ingebouwd in IoT-Hub |
-| Cosmos DB | Geschiedenis van de opdracht en methode | Aangepaste voor oplossing |
+| ID-register | Apparaat-id, verificatiesleutels, ingeschakelde status | Ingebouwd in IoT Hub |
+| Apparaatdubbels | Metagegevens: gerapporteerde eigenschappen, gewenste eigenschappen, tags | Ingebouwd in IoT Hub |
+| Cosmos DB | Geschiedenis van de opdracht en de methode | Aangepaste voor oplossing |
 
-IoT-Hub bevat een [register voor apparaat-id's] [ lnk-identity-registry] voor het beheren van toegang tot een IoT-hub en maakt gebruik van [apparaat horende] [ lnk-device-twin] voor het beheren van metagegevens van apparaten. Er is ook een externe controle oplossings-specifieke *apparaatregister* die worden opgeslagen geschiedenis van de opdracht en de methode. Maakt gebruik van de oplossing voor externe controle een [Cosmos DB] [ lnk-docdb] database voor het implementeren van een aangepast archief voor de opdracht en methode geschiedenis.
+IoT Hub bevat een [apparaatidentiteitsregister] [ lnk-identity-registry] voor het beheren van toegang tot een IoT-hub en maakt gebruik van [apparaatdubbels] [ lnk-device-twin] voor het beheren van metagegevens van apparaten. Er is ook een externe bewaking oplossingsspecifieke *apparaatregister* die worden opgeslagen geschiedenis van de opdracht en de methode. Maakt gebruik van de oplossing voor externe controle een [Cosmos DB] [ lnk-docdb] database voor het implementeren van een aangepast archief voor de opdracht en de methode geschiedenis.
 
 > [!NOTE]
-> De vooraf geconfigureerde oplossing voor externe controle houdt het register voor apparaat-id's gesynchroniseerd met de informatie in de database van de Cosmos-database. Beide dezelfde apparaat-id gebruiken voor het aanduiden van elk apparaat dat is verbonden met uw IoT-hub.
+> De vooraf geconfigureerde oplossing voor externe controle houdt u het register voor apparaat-id's gesynchroniseerd met de informatie in de Cosmos DB-database. Beide dezelfde apparaat-id gebruiken voor het aanduiden van elk apparaat dat is verbonden met uw IoT-hub.
 
 ## <a name="device-metadata"></a>Metagegevens van apparaten
 
-IoT Hub onderhoudt een [apparaat twin] [ lnk-device-twin] voor elke gesimuleerde en het fysieke apparaat is verbonden met een oplossing voor externe controle. De oplossing maakt gebruik van apparaat horende voor het beheren van de metagegevens gekoppeld aan apparaten. Een apparaat-twin is een JSON-document bijgehouden door de IoT Hub en de oplossing maakt gebruik van de IoT Hub-API om te communiceren met horende apparaten.
+IoT Hub onderhoudt een [apparaatdubbel] [ lnk-device-twin] voor elke gesimuleerde en fysieke apparaat dat is verbonden met een oplossing voor externe controle. De oplossing gebruikt apparaatdubbels voor het beheren van de metagegevens die zijn gekoppeld aan apparaten. Een apparaatdubbel is een JSON-document onderhouden door IoT Hub en de oplossing maakt gebruik van de IoT Hub-API om te communiceren met dubbele apparaten.
 
-Een apparaat-twin drie soorten metagegevens worden opgeslagen:
+Een apparaatdubbel slaat drie typen van de metagegevens van:
 
-- *Eigenschappen gerapporteerd* naar een IoT-hub worden verzonden door een apparaat. In de oplossing voor externe controle gesimuleerde apparaten verzenden gemelde eigenschappen bij het opstarten en in reactie op **Changedevicestate** opdrachten en -methoden. U kunt weergeven gemelde eigenschappen in de **lijst met apparaten** en **details apparaat** in de portal van de oplossing. Gerapporteerde eigenschappen zijn alleen-lezen.
-- *Eigenschappen gewenst* door apparaten worden opgehaald uit de IoT-hub. Het is de verantwoordelijkheid van het apparaat nodig configuratiewijziging op het apparaat. Het is ook de verantwoordelijkheid van het apparaat voor het rapporteren van de wijziging terug naar de hub als een eigenschap gemeld. U kunt een waarde van de gewenste eigenschap via de portal van de oplossing instellen.
-- *Labels* bestaan alleen in de apparaat-twin en zijn nooit gesynchroniseerd met een apparaat. U kunt in de oplossingsportal labelwaarden en ze gebruiken bij het filteren van de lijst met apparaten. De oplossing gebruikt ook een code voor het identificeren van het pictogram moet worden weergegeven voor een apparaat in de portal van de oplossing.
+- *Gerapporteerde eigenschappen* worden verzonden naar een IoT-hub door een apparaat. In de oplossing voor externe controle gesimuleerde apparaten verzenden gerapporteerde eigenschappen bij het opstarten en in reactie op **Changedevicestate** opdrachten en methoden. U vindt gerapporteerde eigenschappen in de **apparatenlijst** en **Apparaatdetails** in de portal van de oplossing. Gerapporteerde eigenschappen zijn alleen-lezen.
+- *Gewenste eigenschappen* door apparaten worden opgehaald uit de IoT-hub. Het is de verantwoordelijkheid van het apparaat voor het maken van een vereiste configuratie wijzigen op het apparaat. Het is ook de verantwoordelijkheid van het apparaat voor het rapporteren van de wijziging naar de hub als een gerapporteerde eigenschap. U kunt de waarde van een gewenste eigenschap via de oplossingsportal instellen.
+- *Tags* alleen in de apparaatdubbel bestaan en nooit worden gesynchroniseerd met een apparaat. U kunt tagwaarden in de portal van de oplossing en ze gebruiken wanneer u de lijst met apparaten filteren. De oplossing gebruikt ook een code voor het identificeren van het pictogram om weer te geven voor een apparaat in de portal van de oplossing.
 
-Voorbeeld gerapporteerd eigenschappen van de gesimuleerde apparaten zijn onder meer de fabrikant, modelnummer breedtegraad en lengtegraad. De lijst met ondersteunde methodes gesimuleerde apparaten ook geretourneerd als een eigenschap gemeld.
+Voorbeeld van de gerapporteerde eigenschappen van de gesimuleerde apparaten omvatten de fabrikant, modelnummer, breedtegraad en lengtegraad. De lijst van ondersteunde methoden gesimuleerde apparaten ook geretourneerd als een gerapporteerde eigenschap.
 
 > [!NOTE]
 > De code van het gesimuleerde apparaat gebruikt alleen de gewenste eigenschappen **Desired.Config.TemperatureMeanValue** en **Desired.Config.TelemetryInterval** om de gerapporteerde eigenschappen bij te werken die naar IoT Hub worden teruggestuurd. Alle andere gewenste eigenschap wijzigingsaanvragen worden genegeerd.
 
-Een apparaat informatie metagegevens JSON-document opgeslagen in de database apparaat register Cosmos DB heeft de volgende structuur:
+Een apparaat informatie metagegevens JSON-document die zijn opgeslagen in de apparaat-register Cosmos DB-database heeft de volgende structuur:
 
 ```json
 {
@@ -81,40 +81,40 @@ Een apparaat informatie metagegevens JSON-document opgeslagen in de database app
 ```
 
 > [!NOTE]
-> Gegevens van een apparaat kan ook betekenen metagegevens om te beschrijven de telemetrie die het apparaat naar IoT Hub verzendt. De oplossing voor externe controle gebruikt deze metagegevens telemetrie naar de weergave van het dashboard [dynamische telemetrie][lnk-dynamic-telemetry].
+> Gegevens van een apparaat kan ook metagegevens om te beschrijven van de telemetrie die het apparaat naar IoT Hub verzendt. Deze metagegevens telemetrie om aan te passen hoe worden weergegeven in het dashboard maakt gebruik van de oplossing voor externe controle [dynamische telemetrie][lnk-dynamic-telemetry].
 
 ## <a name="lifecycle"></a>Levenscyclus
 
-Wanneer u eerst een apparaat in de portal van de oplossing maakt, maakt de oplossing een vermelding in de database van de Cosmos-database voor het opslaan van de geschiedenis van de opdracht en de methode. De oplossing maakt op dit moment ook een vermelding voor het apparaat in het identiteitenregister van apparaten, waardoor de sleutels die het apparaat gebruikt om te verifiëren met IoT Hub worden gegenereerd. Dit leidt ook tot een apparaat-twin.
+Wanneer u eerst een apparaat in de portal van de oplossing maakt, maakt de oplossing een vermelding in de Cosmos DB-database voor het opslaan van de geschiedenis van de opdracht en de methode. De oplossing maakt een vermelding voor het apparaat op dit moment ook in het id-register van apparaat, waardoor de sleutels die het apparaat gebruikt om te verifiëren met IoT Hub worden gegenereerd. Het maakt ook een apparaatdubbel.
 
-Wanneer een apparaat is eerst verbinding met de oplossing maakt, stuurt het gerapporteerde eigenschappen en een informatiebericht van het apparaat. De gerapporteerde eigenschapswaarden worden automatisch opgeslagen in de apparaat-twin. De gerapporteerde eigenschappen zijn de fabrikant, modelnummer, serienummer en een lijst van ondersteunde methoden. Het apparaat informatie-bericht bevat de lijst met het apparaat inclusief informatie over alle parameters van de ondersteunt opdrachten. Wanneer de oplossing voor dit bericht ontvangt, wordt de informatie van de apparaten in de database van de Cosmos-database bijgewerkt.
+Wanneer een apparaat is eerst verbinding met de oplossing maakt, stuurt het gerapporteerde eigenschappen en een bericht met apparaatgegevens. De gerapporteerde eigenschapswaarden worden automatisch opgeslagen in de apparaatdubbel. De gerapporteerde eigenschappen bevatten de fabrikant van apparaat, modelnummer serienummer en een lijst met ondersteunde methoden. Het bericht met apparaatgegevens bevat de lijst met de opdrachten die ondersteuning biedt voor het apparaat inclusief informatie over de opdrachtparameters van elke. Wanneer de oplossing voor dit bericht ontvangt, werkt de apparaatgegevens in de Cosmos DB-database.
 
-### <a name="view-and-edit-device-information-in-the-solution-portal"></a>Apparaat-informatie in de oplossingsportal weergeven en bewerken
+### <a name="view-and-edit-device-information-in-the-solution-portal"></a>Weergeven en bewerken van gegevens van een apparaat in de portal van de oplossing
 
-De lijst met apparaten in de oplossingsportal standaard als kolommen in de volgende eigenschappen van de apparaten weergegeven: **Status**, **DeviceId**, **fabrikant**, **modelnummer**, **serienummer**, **Firmware**, **Platform**, **Processor**, en **geïnstalleerd RAM-geheugen**. U kunt de kolommen aanpassen door te klikken op **kolom editor**. Eigenschappen voor het apparaat **breedtegraad** en **lengtegraad** station van de locatie in de Bing-kaart op het dashboard.
+De lijst met apparaten in de portal van de oplossing wordt standaard weergegeven van de volgende apparaateigenschappen als kolommen: **Status**, **DeviceId**, **fabrikant**, **Model Aantal**, **serienummer**, **Firmware**, **Platform**, **Processor**, en  **Geïnstalleerd RAM-geheugen**. U kunt de kolommen aanpassen door te klikken op **kolomeditor**. De apparaateigenschappen **breedtegraad** en **lengtegraad** station van de locatie in de Bing-kaart op het dashboard.
 
-![Editor voor kolom in de lijst met apparaten][img-device-list]
+![Kolomeditor in de lijst met apparaten][img-device-list]
 
-In de **Apparaatdetails** deelvenster in de oplossingsportal kunt u de eigenschappen van de gewenste en labels bewerken (gerapporteerd eigenschappen zijn alleen-lezen).
+In de **Apparaatdetails** deelvenster in de oplossingsportal kunt u gewenste eigenschappen en tags bewerken (gerapporteerde eigenschappen zijn alleen-lezen).
 
 ![Deelvenster Apparaatdetails][img-device-edit]
 
-De oplossingsportal kunt u een apparaat verwijdert uit uw oplossing. Wanneer u een apparaat verwijdert, wordt de oplossing voor de apparaatvermelding verwijdert uit het identiteitenregister en verwijdert vervolgens de apparaat-twin. De oplossing ook verwijderd informatie met betrekking tot het apparaat uit de database van de Cosmos-database. Voordat u een apparaat verwijdert kunt, moet u deze uitschakelen.
+U kunt de portal van de oplossing gebruiken om een apparaat verwijderen uit uw oplossing. Wanneer u een apparaat verwijdert, wordt de oplossing verwijdert u de apparaatvermelding van id-register en verwijdert vervolgens het dubbele apparaat. De oplossing verwijdert u ook informatie met betrekking tot het apparaat van de Cosmos DB-database. Voordat u een apparaat verwijdert kunt, moet u deze uitschakelen.
 
 ![Apparaat verwijderen][img-device-remove]
 
 ## <a name="device-information-message-processing"></a>Apparaat informatie berichtverwerking
 
-Berichten met apparaatgegevens verzonden door een apparaat zijn telemetrieberichten. Berichten met apparaatgegevens omvatten de opdrachten die een apparaat kan reageren, en eventuele opdrachtgeschiedenis. IoT-Hub zelf heeft geen informatie over de metagegevens in het informatiebericht van een apparaat en het bericht verwerkt op dezelfde manier die alle apparaat-naar-cloud-berichten worden verwerkt. In de oplossing voor externe controle een [Azure Stream Analytics] [ lnk-stream-analytics] (ASA)-taak de berichten uit IoT Hub kan lezen. De **DeviceInfo** stream analytics-taak filters voor berichten met **'ObjectType': 'DeviceInfo'** en stuurt ze de **EventProcessorHost** hostexemplaar dat wordt uitgevoerd in een web-taak. Logica in de **EventProcessorHost** exemplaar gebruikt de apparaat-ID voor de Cosmos-DB-record vinden voor het specifieke apparaat en update voor de record.
+Berichten met apparaatgegevens verzonden door een apparaat, verschilt van berichten over telemetrie. Berichten met apparaatgegevens zijn de opdrachten die een apparaat kan reageren en de opdrachtgeschiedenis van elke. IoT-Hub zelf heeft geen kennis van de metagegevens die zijn opgenomen in een bericht met apparaatgegevens en verwerkt het bericht op dezelfde manier als die alle apparaat-naar-cloud-berichten worden verwerkt. In de oplossing voor externe controle een [Azure Stream Analytics] [ lnk-stream-analytics] (ASA)-taak de berichten uit IoT Hub kan lezen. De **DeviceInfo** filters voor berichten met stream analytics-taak **"ObjectType": "DeviceInfo"** en stuurt ze door de **EventProcessorHost** hostexemplaar die wordt uitgevoerd in een webtaak. Logica in de **EventProcessorHost** instantie de apparaat-ID gebruikt om te zoeken naar de Cosmos DB-record voor het specifieke apparaat en werk het record.
 
 > [!NOTE]
-> Een informatiebericht van het apparaat is een standaard apparaat-naar-cloud-bericht. De oplossing wordt onderscheid gemaakt tussen berichten met apparaatgegevens en telemetrieberichten met behulp van de ASA-query's.
+> Een bericht met apparaatgegevens is een standard-apparaat-naar-cloud-bericht. De oplossing wordt onderscheid gemaakt tussen berichten met apparaatgegevens en berichten over telemetrie met behulp van de ASA-query's.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nu u klaar bent met het leren hoe u de vooraf geconfigureerde oplossingen kunt aanpassen, vindt u enkele van de andere functies en mogelijkheden van de vooraf geconfigureerde IoT Suite-oplossingen:
+Nu u klaar bent met het leren hoe u de vooraf geconfigureerde oplossingen kunt aanpassen, kunt u enkele van de andere functies en mogelijkheden van de vooraf geconfigureerde IoT Suite-oplossingen verkennen:
 
-* [Overzicht van voorspeld onderhoud vooraf geconfigureerde oplossing][lnk-predictive-overview]
+* [Overzicht van de voorspeld onderhoud vooraf geconfigureerde oplossing][lnk-predictive-overview]
 * [Veelgestelde vragen over IoT Suite][lnk-faq]
 * [Fundamentele IoT-beveiliging][lnk-security-groundup]
 
@@ -132,4 +132,4 @@ Nu u klaar bent met het leren hoe u de vooraf geconfigureerde oplossingen kunt a
 
 [lnk-predictive-overview]:../iot-accelerators/iot-accelerators-predictive-overview.md
 [lnk-faq]: iot-suite-v1-faq.md
-[lnk-security-groundup]:../iot-accelerators/securing-iot-ground-up.md
+[lnk-security-groundup]:/azure/iot-fundamentals/iot-security-ground-up

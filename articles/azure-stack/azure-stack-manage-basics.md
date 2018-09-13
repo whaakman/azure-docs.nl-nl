@@ -1,6 +1,6 @@
 ---
-title: Basisbeginselen van Azure Stack beheer | Microsoft Docs
-description: Meer informatie over wat u moet weten voor het beheer van Azure-Stack.
+title: Basisbeginselen voor het beheer van Azure Stack | Microsoft Docs
+description: Meer informatie over wat u moet weten voor het beheer van Azure Stack.
 services: azure-stack
 documentationcenter: ''
 author: mattbriggs
@@ -12,138 +12,138 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/30/2018
+ms.date: 06/08/2018
 ms.author: mabrigg
-ms.openlocfilehash: 283d1c2a7ef3484cb4fd4d9a53b543a093e9baf8
-ms.sourcegitcommit: 3c3488fb16a3c3287c3e1cd11435174711e92126
+ms.openlocfilehash: 39dc48b1357b07932efbccaf002f54ca58edae24
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34850300"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35907204"
 ---
-# <a name="azure-stack-administration-basics"></a>Basisbeginselen van Azure Stack-beheer
-Er zijn verschillende dingen die u weten moet als u geen ervaring met Azure-Stack-beheer. In deze richtlijnen biedt een overzicht van uw rol als een Azure-Stack-operator en wat u moet uw gebruikers ze snel productief worden uitgelegd.
+# <a name="azure-stack-administration-basics"></a>Basisbeginselen voor het beheer van Azure Stack
+Er zijn verschillende dingen die u weten moet als u geen ervaring met Azure Stack-beheer. Deze handleiding biedt een overzicht van uw rol als Azure Stack-operators, en wat u moet uw gebruikers ze snel worden productief laten weten.
 
-## <a name="understand-the-builds"></a>De builds begrijpen
+## <a name="understand-the-builds"></a>Inzicht in de builds
 
 ### <a name="integrated-systems"></a>Geïntegreerde systemen
 
-Als u een Azure-Stack geïntegreerd systeem, worden de bijgewerkte versies van Azure-Stack verspreid via updatepakketten. U kunt deze pakketten te importeren en ze toepassen met behulp van de tegel Updates in de beheerdersportal.
+Als u een geïntegreerde Azure Stack-systeem, worden de bijgewerkte versies van Azure Stack gedistribueerd via updatepakketten. U kunt deze pakketten importeren en ze toepassen met behulp van de tegel Updates in de beheerdersportal.
  
 ### <a name="development-kit"></a>Development kit
 
-Als u de Azure-Stack Development Kit, raadpleegt u de [wat is Azure Stack?](.\asdk\asdk-what-is.md) artikel om ervoor te zorgen dat u het doel van de development kit en de beperkingen begrijpt. Als een 'sandbox,' kunt u Azure-Stack, evalueren en ontwikkelen en testen van uw apps in een niet-productieomgeving moet u de development kit. (Zie voor informatie over de implementatie de [Azure Stack Development Kit implementatie](.\asdk\asdk-install.md) artikel.)
+Als u de Azure Stack Development Kit, raadpleegt u de [wat is Azure Stack?](.\asdk\asdk-what-is.md) artikel om ervoor te zorgen dat u leert wat het doel van de development kit en de beperkingen. Als een "sandbox" waar u kunt Azure Stack, evalueren en ontwikkelt en test uw apps in een niet-productieomgeving moet u de development kit. (Zie voor informatie over de implementatie de [Azure Stack Development Kit implementatie](.\asdk\asdk-install.md) artikel.)
 
-Zoals Azure innoveren we snel. We je regelmatig nieuwe builds vrijgeven. Als u de development kit uitvoert en u verplaatsen naar de laatste build wilt, moet u [implementeren Azure Stack](.\asdk\asdk-redeploy.md). U kunt geen updatepakketten toepassen. Dit proces duurt, maar het voordeel is dat u de nieuwste functies kunt uitproberen. De documentatie development kit op onze website weerspiegelt de meest recente release-build.
+Zoals Azure innoveren we snel. We brengen regelmatig nieuwe builds. Als u de development kit uitvoert en u verplaatsen naar de nieuwste build wilt, moet u [Azure Stack opnieuw implementeren](.\asdk\asdk-redeploy.md). U kunt geen updatepakketten toepassen. Dit proces duurt, maar het voordeel is dat u de nieuwste functies kunt uitproberen. De documentatie development kit op onze website weerspiegelt de nieuwste release-build.
 
-## <a name="learn-about-available-services"></a>Meer informatie over de beschikbare services
+## <a name="learn-about-available-services"></a>Meer informatie over beschikbare services
 
-U moet een afhankelijkheid van welke services u beschikbaar voor uw gebruikers maken kunt. Azure-Stack ondersteunt een subset van de Azure-services. De lijst met ondersteunde services blijft ontwikkelen.
+U moet een bewustzijn van welke services u beschikbaar voor uw gebruikers maken kunt. Azure Stack biedt ondersteuning voor een subset van de Azure-services. De lijst met ondersteunde services blijven zich ontwikkelen.
 
 **Fundamentele services**
 
-Azure-Stack omvat standaard de volgende 'fundamentele services' wanneer u Azure-Stack implementeert:
+Azure Stack omvat standaard de volgende "fundamentele services" wanneer u Azure Stack implementeren:
 
 - Compute
 - Storage
 - Netwerken
 - Key Vault
 
-U kunt deze fundamentele Services Infrastructure-as-a-Service (IaaS) aanbieden aan uw gebruikers met een minimale configuratie.
+Met deze fundamentele services, kunt u de infrastructuur-as-a-Service (IaaS) bieden aan uw gebruikers met een minimale configuratie.
 
-**Extra services**
+**Aanvullende services**
 
-Op dit moment ondersteunen we de volgende aanvullende Platform-as-a-Service (PaaS)-services:
+Op dit moment ondersteunen we de volgende extra services voor Platform-as-a-Service (PaaS):
 
 - App Service
 - Azure Functions
 - SQL- en MySQL-databases
 
-Deze services vereisen aanvullende configuratie voordat u ze beschikbaar stelt aan uw gebruikers. Zie 'De zelfstudies' en de secties 'services How-to guides\Offer' Azure Stack operator documentatie voor meer informatie.
+Deze services, wordt er aanvullende configuratie vereisen voordat u deze beschikbaar voor uw gebruikers maken kunt. Zie de "zelfstudies' en de secties 'procedures guides\Offer services' van onze Azure Stack-operator-documentatie voor meer informatie.
 
-**Roadmap voor service**
+**Service-roadmap**
 
-Azure-Stack blijven voegt ondersteuning voor Azure-services. Zie voor de verwachte roadmap de [Azure Stack: een uitbreiding van Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) technisch document. U kunt ook bewaken de [Azure Stack blogberichten](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) voor nieuwe meldingen.
+Azure Stack, blijft het toevoegen van ondersteuning voor Azure-services. Zie voor het verwachte schema, de [Azure Stack: een uitbreiding van Azure](https://go.microsoft.com/fwlink/?LinkId=842846&clcid=0x409) technisch document. U kunt ook controleren de [Azure Stack-blogberichten](https://azure.microsoft.com/blog/tag/azure-stack-technical-preview) voor nieuwe meldingen.
 
 ## <a name="what-account-should-i-use"></a>Welk account moet ik gebruiken?
-Er zijn enkele aandachtspunten voor gebruikersaccounts die u houden moet rekening bij het beheren van Azure-Stack. Met name in implementaties met behulp van Windows Server Active Directory Federation Services (AD FS) als de id-provider in plaats van Azure Active Directory (Azure AD). De volgende aandachtspunten voor gebruikersaccounts van toepassing op Azure-Stack geïntegreerd systemen en ASDK implementaties:
+Er zijn enkele aandachtspunten voor gebruikersaccounts die u houden moet rekening bij het beheren van Azure Stack. Met name in implementaties met behulp van Windows Server Active Directory Federation Services (AD FS) als de id-provider in plaats van Azure Active Directory (Azure AD). De volgende aandachtspunten voor gebruikersaccounts van toepassing op zowel geïntegreerde Azure Stack-systemen en ASDK implementaties:
 
 
 |Account|Azure AD|AD FS|
 |-----|-----|-----|
-|Lokale beheerder (. \Administrator)|ASDK host beheerder|ASDK host beheerder|
-|AzureStack\AzureStackAdmin|ASDK host beheerder<br><br>Kan worden gebruikt voor aanmelding bij de Azure-Stack-beheerportal<br><br>Toegang tot bekijken en beheren van Service Fabric-ringen|ASDK host beheerder<br><br>Geen toegang tot de Stack van Azure-beheerportal<br><br>Toegang tot bekijken en beheren van Service Fabric-ringen<br><br>Niet langer eigenaar van de standaard Provider abonnement (DP's)|
-|AzureStack\CloudAdmin|Toegang tot en toegestane opdrachten binnen het bevoegde eindpunt uitvoeren|Toegang tot en toegestane opdrachten binnen het bevoegde eindpunt uitvoeren<br><br>Kan niet aanmelden bij de host ASDK<br><br>Eigenaar van de Provider standaardabonnement (DP's)|
-|Globale beheerder van Azure AD|Tijdens de installatie gebruikt<br><br>Eigenaar van de Provider standaardabonnement (DP's)|Niet van toepassing|
+|Lokale Administrator (. \Administrator)|ASDK host beheerder|ASDK host beheerder|
+|AzureStack\AzureStackAdmin|ASDK host beheerder<br><br>Kan worden gebruikt voor aanmelding bij de beheerportal van Azure Stack<br><br>Toegang tot het weergeven en beheren van Service Fabric-ringen|ASDK host beheerder<br><br>Geen toegang tot de Azure Stack-beheerportal<br><br>Toegang tot het weergeven en beheren van Service Fabric-ringen<br><br>Niet langer eigenaar van de standaard Provider abonnement (DPS)|
+|AzureStack\CloudAdmin|Toegang tot en toegestane opdrachten binnen het eindpunt van de bevoegdheden uitvoeren|Toegang tot en toegestane opdrachten binnen het eindpunt van de bevoegdheden uitvoeren<br><br>Kan niet aanmelden bij de host ASDK<br><br>Eigenaar van de Provider standaardabonnement (DPS)|
+|Globale Azure AD-beheerder|Tijdens de installatie gebruikt<br><br>Eigenaar van de Provider standaardabonnement (DPS)|Niet van toepassing|
 |
 
 ## <a name="what-tools-do-i-use-to-manage"></a>Welke hulpprogramma's kan ik gebruiken om te beheren?
  
-U kunt de [beheerdersportal](azure-stack-manage-portals.md) of PowerShell voor het beheren van Azure-Stack. De eenvoudigste manier om meer informatie over de basisconcepten is via de portal. Als u gebruiken van PowerShell wilt, zijn er voorbereidende stappen. U moet [installeren](azure-stack-powershell-install.md) PowerShell [downloaden](azure-stack-powershell-download.md) aanvullende modules en [configureren](azure-stack-powershell-configure-admin.md) PowerShell.
+U kunt de [beheerdersportal](azure-stack-manage-portals.md) of PowerShell voor het beheren van Azure Stack. De eenvoudigste manier voor meer informatie over de basisconcepten is via de portal. Als u PowerShell gebruiken wilt, zijn er stappen voor gegevensvoorbereiding. U moet [installeren](azure-stack-powershell-install.md) PowerShell, [downloaden](azure-stack-powershell-download.md) aanvullende modules en [configureren](azure-stack-powershell-configure-admin.md) PowerShell.
 
-Azure Stack maakt gebruik van Azure Resource Manager als de onderliggende implementatie, beheer en organisatie-mechanisme. Als u Azure-Stack beheren en ondersteuning aan gebruikers, moet u meer informatie over Resource Manager. Zie de [aan de slag met Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) technisch document.
+Azure Stack maakt gebruik van Azure Resource Manager als een onderliggende implementatie, beheer en organisatie-mechanisme. Als u Azure Stack beheren en ter ondersteuning van gebruikers, leert u over de Resource Manager. Zie de [aan de slag met Azure Resource Manager](http://download.microsoft.com/download/E/A/4/EA4017B5-F2ED-449A-897E-BD92E42479CE/Getting_Started_With_Azure_Resource_Manager_white_paper_EN_US.pdf) technisch document.
 
 ## <a name="your-typical-responsibilities"></a>Uw gebruikelijke verantwoordelijkheden
 
-Gebruikers willen services gebruiken. Uw belangrijkste functie is deze services hen ter beschikking vanuit het perspectief. U moet bepalen welke services te bieden en deze services beschikbaar maken door te plannen, aanbiedingen en quota's maken. Zie voor meer informatie [overzicht van services in Azure-Stack van aanbieding](azure-stack-offer-services-overview.md). 
+Uw gebruikers willen om services te gebruiken. Vanuit het perspectief is uw belangrijkste rol aan ze beschikbaar stellen van deze services. U moet beslissen welke services te bieden, en die services beschikbaar maken door te plannen, aanbiedingen en quota's maken. Zie voor meer informatie, [overzicht van services in Azure Stack-aanbieding](azure-stack-offer-services-overview.md). 
 
-U moet ook items toevoegen aan [de marketplace](azure-stack-marketplace.md), zoals installatiekopieën van virtuele machines. De eenvoudigste manier is het [downloaden marketplace-items van Azure naar Azure Stack](azure-stack-download-azure-marketplace-item.md).
+U moet ook items toevoegen aan [marketplace](azure-stack-marketplace.md), zoals installatiekopieën voor virtuele machines. De eenvoudigste manier is om te [marketplace-items van Azure naar Azure Stack downloaden](azure-stack-download-azure-marketplace-item.md).
 
 > [!NOTE]
-> Als u testen van uw abonnementen, aanbiedingen en services wilt, moet u de [gebruikersportal](azure-stack-manage-portals.md); niet de beheerdersportal.
+> Als u testen van uw plannen, aanbiedingen en services wilt, moet u de [gebruikersportal](azure-stack-manage-portals.md); niet de beheerdersportal.
 
-Naast het leveren van services, moet u alle normale taken van een operator te houden van Azure-Stack actief en werkend uitvoeren. Deze taken omvatten het volgende:
+Naast het leveren van services, moet u alle normale taken van een operator te houden van Azure Stack actief en werkend uitvoeren. Deze rechten omvatten het volgende:
 
-- Gebruikersaccounts toevoegen (voor [Azure Active Directory](azure-stack-add-new-user-aad.md) implementatie of voor [Active Directory Federation Services](azure-stack-add-users-adfs.md) implementatie)
-- [Toegang op rollen gebaseerde toegangsbeheer (RBAC) rollen toewijzen](azure-stack-manage-permissions.md) (dit is niet beperkt tot administrators.)
+- Voeg gebruikersaccounts toe (voor [Azure Active Directory](azure-stack-add-new-user-aad.md) implementatie of voor [Active Directory Federation Services](azure-stack-add-users-adfs.md) implementatie)
+- [Toegang op rollen gebaseerd beheer (RBAC) rollen toewijzen](azure-stack-manage-permissions.md) (dit is niet beperkt tot administrators.)
 - [Status van de groepsbeleidstructuur controleren](azure-stack-monitor-health.md)
 - Beheren [netwerk](azure-stack-viewing-public-ip-address-consumption.md) en [opslag](azure-stack-manage-storage-accounts.md) resources
-- Vervang de beschadigde hardware, bijvoorbeeld [een foutieve schijf vervangen](azure-stack-replace-disk.md).
+- Vervang de beschadigde hardware, bijvoorbeeld [vervangen door een niet-werkende schijf](azure-stack-replace-disk.md).
 
-## <a name="what-to-tell-your-users"></a>Wat u uw gebruikers vertelt
+## <a name="what-to-tell-your-users"></a>Wat uw gebruikers laten weten
 
-U moet uw gebruikers laten weten hoe werken met services in Azure-Stack, verbinding maken met de omgeving en abonneren op aanbiedingen. Dat kunt u uw gebruikers kunt u naast eventuele aangepaste documentatie gebruikers naar de Azure-documentatie voor Stack gebruikers site verwijzen.
+U moet uw gebruikers laten weten hoe u werkt met services in Azure Stack, verbinding maken met de omgeving en hoe u zich kunt abonneren op aanbiedingen. Dat kunt u uw gebruikers, kunt u naast eventuele aangepaste documentatie gebruikers aan de site van de documentatie voor Azure Stack-gebruikers sturen.
 
-**Begrijpen hoe werken met services in Azure-Stack**
+**Meer informatie over het werken met services in Azure Stack**
 
-Er is informatie die uw gebruikers begrijpen moeten voordat ze werken met services en bouwen van apps in Azure-Stack. Er zijn bijvoorbeeld specifieke vereisten voor PowerShell en API-versie. Er zijn ook enkele functie delta's tussen een service in Azure en de equivalente service in Azure-Stack. Zorg ervoor dat uw gebruikers Raadpleeg de volgende artikelen:
+Er is informatie die uw gebruikers begrijpen moeten voordat ze gebruik van services en bouwen van apps in Azure Stack. Er zijn bijvoorbeeld specifieke vereisten voor PowerShell en API-versie. Er zijn ook enkele functie verschillen tussen een service in Azure en de equivalente service in Azure Stack. Zorg ervoor dat uw gebruikers, Raadpleeg de volgende artikelen:
 
-- [Belangrijke overwegingen: met behulp van services of het ontwikkelen van apps voor Azure-Stack](user/azure-stack-considerations.md)
+- [Belangrijke overwegingen: met behulp van services of het bouwen van apps voor Azure Stack](user/azure-stack-considerations.md)
 - [Overwegingen voor virtuele Machines in Azure Stack](user/azure-stack-vm-considerations.md)
 - [Opslag: de verschillen en overwegingen met betrekking tot](user/azure-stack-acs-differences.md)
 
-De informatie in deze artikelen bevat een overzicht van de verschillen tussen een service in Azure en Azure-Stack. Er is een aanvulling op de informatie die beschikbaar is voor een Azure-service in de globale Azure-documentatie.
+De informatie in deze artikelen bevat een overzicht van de verschillen tussen een service in Azure en Azure Stack. Vormt een aanvulling op de informatie die beschikbaar is voor een Azure-service in de globale Azure-documentatie.
 
-**Verbinding maken met Azure-Stack als een gebruiker**
+**Verbinding maken met Azure Stack als een gebruiker**
 
-In een ontwikkelingsomgeving kit als een gebruiker geen toegang tot de extern bureaublad op de host van de kit ontwikkeling moeten ze configureren een virtueel particulier netwerk (VPN)-verbinding toegang te krijgen tot Azure-Stack. Zie [verbinding maken met Azure Stack](azure-stack-connect-azure-stack.md). 
+In een omgeving development kit als een gebruiker heeft geen extern bureaublad-toegang tot de host development kit ze moeten een virtueel particulier netwerk (VPN)-verbinding configureren voordat ze krijgen de Azure Stack tot toegang. Zie [verbinding maken met Azure Stack](azure-stack-connect-azure-stack.md). 
 
-Uw gebruikers wilt weten hoe [toegang tot de gebruikersportal ](user/azure-stack-use-portal.md) of verbinding maken via PowerShell. In een geïntegreerde systeemomgeving varieert portal adres van de gebruiker per implementatie. U moet uw gebruikers voorzien van de juiste URL.
+Uw gebruikers willen weten hoe u [toegang tot de gebruikersportal ](user/azure-stack-use-portal.md) of hoe u verbinding maakt via PowerShell. In een omgeving met geïntegreerde systemen verschilt de portal-mailadres van de gebruiker per implementatie. U moet uw gebruikers met de juiste URL opgeven.
 
-Als u PowerShell, gebruikers hebben mogelijk resourceproviders registreren voordat ze kunnen de services gebruiken. (Een service een resourceprovider beheert. For example, de netwerken resourceprovider-resources, zoals virtuele netwerken, netwerkinterfaces en netwerktaakverdelers beheert.) Ze moeten [installeren](user/azure-stack-powershell-install.md) PowerShell [downloaden](user/azure-stack-powershell-download.md) aanvullende modules en [configureren](user/azure-stack-powershell-configure-user.md) PowerShell (waaronder registratie resourceprovider).
+Als u PowerShell gebruikt, wordt gebruikers mogelijk resourceproviders registreren voordat ze de services kunnen gebruiken. (Een service een resourceprovider beheren. For example, resources zoals virtuele netwerken, netwerkinterfaces en load balancers worden beheerd door de VPN-resourceprovider.) Ze moeten [installeren](user/azure-stack-powershell-install.md) PowerShell, [downloaden](user/azure-stack-powershell-download.md) aanvullende modules en [configureren](user/azure-stack-powershell-configure-user.md) PowerShell (met registratie van de resourceprovider).
 
 **Abonneren op een aanbieding**
 
-Voordat een gebruiker toegang services tot, moeten zij [abonneren op een aanbieding](azure-stack-subscribe-plan-provision-vm.md) die u hebt gemaakt als een operator.
+Voordat een gebruiker toegang heeft tot de services, moeten zij [abonneren op een aanbieding](azure-stack-subscribe-plan-provision-vm.md) die u hebt gemaakt als een operator.
 
 ## <a name="where-to-get-support"></a>Waar u ondersteuning krijgen
 
 ### <a name="integrated-systems"></a>Geïntegreerde systemen
 
-Voor een geïntegreerde is er een gecoördineerde escalatie en omzettingsproces tussen Microsoft en onze hardwarepartners oorspronkelijke leveranciers (OEM).
+Voor een geïntegreerd systeem, moet u er een gecoördineerd escalatie- en oplossingsproces tussen Microsoft en onze hardwarepartners oorspronkelijke leveranciers (OEM) is.
 
-Als er een probleem met de cloud services, wordt ondersteuning geboden via Microsoft Customer ondersteunen Services (CSS). Als u klikt u op het pictogram Help en ondersteuning (vraagteken) in de rechterbovenhoek van de beheerdersportal en klik vervolgens op **nieuw ondersteuningsverzoek**, een site waar u kunt een ondersteuningsaanvraag rechtstreeks openen wordt geopend.
+Als er een probleem met de cloud services, wordt ondersteuning aangeboden via Microsoft de klant ondersteuning klantenondersteuning (CSS). Als u klikt u op het pictogram Help en ondersteuning (vraagteken) in de rechterbovenhoek van de beheerdersportal en klik vervolgens op **nieuwe ondersteuningsaanvraag**, Hiermee opent u een site waar kunt u rechtstreeks een ondersteuningsaanvraag openen.
 
-Als er een probleem met de implementatie, patch en bijwerken, hardware (inclusief veld replaceable units) en alle hardware huisstijl software, zoals software die wordt uitgevoerd op de host van de levenscyclus van hardware contact op met uw hardwareleverancier OEM eerst.
+Als er een probleem met de implementatie, patch en update, hardware (met inbegrip van veld replaceable units) en eventuele software merkproducten van hardware, zoals software die wordt uitgevoerd op de host van de levenscyclus van hardware contact op met uw hardwareleverancier OEM eerst.
 
-Voor andere doeleinden, contact op met Microsoft CSS.
+Voor iets anders, neem contact op met Microsoft CSS.
 
 ### <a name="development-kit"></a>Development kit
 
-Voor de development kit, u kunt vragen ondersteuning-gerelateerde in de [Microsoft forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Als u klikt u op het pictogram Help en ondersteuning (vraagteken) in de rechterbovenhoek van de beheerdersportal en klik vervolgens op **nieuw ondersteuningsverzoek**, Hiermee opent u de site forums rechtstreeks. Deze forums worden regelmatig bewaakt. Omdat de development kit een evaluatieomgeving is, is geen officiële ondersteuning die worden aangeboden via Microsoft CSS.
+Voor de development kit, kunt u vragen met betrekking tot ondersteuning vragen in de [Microsoft forums](https://social.msdn.microsoft.com/Forums/azure/home?forum=azurestack). Als u klikt u op het pictogram Help en ondersteuning (vraagteken) in de rechterbovenhoek van de beheerdersportal en klik vervolgens op **nieuwe ondersteuningsaanvraag**, Hiermee opent u de forums-site rechtstreeks. Deze forums worden regelmatig gecontroleerd. Omdat de development kit een evaluatieomgeving is, is er geen officiële ondersteuning aangeboden via Microsoft CSS.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Regio management in Azure-Stack](azure-stack-region-management.md)
+- [Regiobeheer in Azure Stack](azure-stack-region-management.md)
 
 

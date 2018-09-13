@@ -1,6 +1,6 @@
 ---
-title: Een Azure Media Services-account maken met CLI 2.0 | Microsoft Docs
-description: Volg de stappen van deze snelstartgids een Azure Media Services-account wilt maken.
+title: Een Azure Media Services-account maken met de Azure CLI | Microsoft Docs
+description: Volg de stappen van deze snelstartgids om een Azure Media Services-account te maken.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,31 +12,32 @@ ms.topic: article
 ms.custom: ''
 ms.date: 03/27/2018
 ms.author: juliako
-ms.openlocfilehash: a9660ac61bab9f8b9eb9563aab4cc584786b25ae
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: ca01f32709ce7c9fc49629415cd8697a9d9ba43a
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35914145"
 ---
 # <a name="create-an-azure-media-services-account"></a>Een Azure Media Services-account maken
 
-Als u wilt versleutelen, codering, analyseren, beheren en streaming mediainhoud in Azure start, moet u een Media Services-account maken. Op het moment dat u een Media Services-account maakt, maakt u ook een bijbehorend opslagaccount (of gebruikt u een bestaand account) in hetzelfde geografische gebied als het Media Services-account.
+Als u wilt beginnen met coderen, codering, analyseren, beheren en streamen van mediainhoud in Azure, moet u een Media Services-account maken. Op het moment dat u een Media Services-account maakt, maakt u ook een bijbehorend opslagaccount (of gebruikt u een bestaand account) in hetzelfde geografische gebied als het Media Services-account.
 
-Dit onderwerp beschrijft de stappen voor het maken van een nieuw Azure Media Services-account met CLI 2.0.  
+Dit onderwerp beschrijft de stappen voor het maken van een nieuwe Azure Media Services-account met de Azure CLI.  
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="log-in-to-azure"></a>Meld u aan bij Azure.
 
-Meld u aan bij de [Azure-portal](http://portal.azure.com) en start **CloudShell** CLI-opdrachten uitvoeren, zoals wordt weergegeven in de volgende stappen.
+Meld u aan bij [Azure Portal](http://portal.azure.com) en start **CloudShell** om CLI-opdrachten uitvoeren, zoals wordt beschreven in de volgende stappen.
 
 [!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
 
-Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u Azure CLI 2.0 wilt installeren of upgraden, raadpleegt u [Azure CLI 2.0 installeren]( /cli/azure/install-azure-cli). 
+Als u ervoor kiest om de CLI lokaal te installeren en te gebruiken, moet u voor dit onderwerp gebruikmaken van Azure CLI versie 2.0 of hoger. Voer `az --version` uit om te zien welke versie u hebt. Als u uw CLI wilt installeren of upgraden, raadpleegt u [De Azure CLI installeren](/cli/azure/install-azure-cli). 
 
 ## <a name="set-the-azure-subscription"></a>Het Azure-abonnement instellen
 
-Geef de Azure-abonnement-ID die u wilt gebruiken voor het Media Services-account in de volgende opdracht. U ziet een lijst met abonnementen die u toegang tot hebt door te navigeren naar [abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
+Geef in de volgende opdracht de id van het Azure-abonnement op dat u wilt gebruiken voor het Media Services-account. U kunt een lijst met abonnementen bekijken waartoe u toegang hebt door naar [Abonnementen](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) te gaan.
 
 ```azurecli-interactive
 az account set --subscription mySubscriptionId
@@ -47,4 +48,4 @@ az account set --subscription mySubscriptionId
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Een bestand Stream](stream-files-dotnet-quickstart.md)
+> [Een bestand streamen](stream-files-dotnet-quickstart.md)

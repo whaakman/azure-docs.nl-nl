@@ -1,84 +1,91 @@
 ---
-title: Azure Active Directory-auth - Azure SQL (overzicht) | Microsoft Docs
-description: Meer informatie over het gebruik van Azure Active Directory voor verificatie bij SQL-Database, exemplaar beheerd en SQL Data Warehouse
+title: Verificatie met Azure Active Directory - Azure SQL (overzicht) | Microsoft Docs
+description: Meer informatie over het gebruik van Azure Active Directory voor verificatie met SQL Database Managed Instance en SQL Data Warehouse
 services: sql-database
 author: GithubMirek
 manager: craigg
 ms.service: sql-database
+ms.prod_service: sql-database, sql-data-warehouse
 ms.custom: security
 ms.topic: conceptual
-ms.date: 03/07/2018
+ms.date: 06/13/2018
 ms.author: mireks
-ms.openlocfilehash: c016d593f62e2f0616b426a87baf8d9390645b4a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.reviewer: vanto
+ms.openlocfilehash: 460e0dac81ef6c1452f83e53c813a93de849b9b2
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645062"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35916470"
 ---
-# <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Azure Active Directory-verificatie gebruiken voor verificatie met SQL-Database, exemplaar beheerd of SQL Data Warehouse
-Azure Active Directory-verificatie is een mechanisme van verbinding maken met Microsoft Azure SQL Database en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) met behulp van identiteiten in Azure Active Directory (Azure AD). Azure AD-verificatie, kunt u de identiteit van gebruikers en andere Microsoft-services op één centrale locatie centraal beheren. Centrale ID-beheer biedt er één plaats is voor het beheren van databasegebruikers en vereenvoudigt het beheer van machtigingen. Voordelen zijn onder andere:
+# <a name="use-azure-active-directory-authentication-for-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Azure Active Directory-verificatie gebruiken voor verificatie met SQL Database Managed Instance of SQL Data Warehouse
+Azure Active Directory-verificatie is een mechanisme van verbinding maken met Azure [SQL-Database](sql-database-technical-overview.md) en [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) met behulp van identiteiten in Azure Active Directory (Azure AD). 
+
+> [!NOTE]
+> Dit onderwerp is van toepassing op Azure SQL-servers en op SQL Database- en SQL Data Warehouse-databases die op deze Azure SQL-servers worden gemaakt. Voor het gemak wordt de term 'SQL Database' gebruikt wanneer er wordt verwezen naar zowel SQL Database als SQL Data Warehouse.
+
+Met Azure AD-verificatie, kunt u de identiteit van databasegebruikers en andere Microsoft-services op één centrale locatie centraal beheren. Centrale ID-beheer biedt één plek voor het beheren van databasegebruikers en vereenvoudigt het beheer van machtigingen. Voordelen zijn:
 
 * Het biedt een alternatief voor SQL Server-verificatie.
-* Houdt de komst van gebruikersidentiteiten voor databaseservers.
-* Kan wachtwoord draaien op één plaats.
-* Klanten kunnen databasemachtigingen met externe (Azure AD) groepen beheren.
-* Deze kunt wachtwoorden moet opslaan voorkomen door het inschakelen van geïntegreerde Windows-verificatie en andere soorten authenticatie wordt ondersteund door Azure Active Directory.
-* Ingesloten databasegebruikers Azure AD-verificatie gebruikt voor het verifiëren van identiteiten op databaseniveau.
+* Houdt de verspreiding van gebruikers-id's in de database-servers.
+* Kan de wisseling van het wachtwoord op één plek.
+* Klanten kunnen de machtigingen van de database met behulp van externe (Azure AD)-groepen beheren.
+* Deze kunt wachtwoorden moet opslaan elimineren door in te schakelen van geïntegreerde Windows-verificatie en andere vormen van authenticatie wordt ondersteund door Azure Active Directory.
+* Azure AD-verificatie gebruikt ingesloten databasegebruikers om identiteiten op databaseniveau te verifiëren.
 * Azure AD biedt ondersteuning voor verificatie op basis van tokens voor toepassingen die verbinding maken met SQL-Database.
-* Azure AD-verificatie ondersteunt AD FS (domeinfederatie) of systeemeigen gebruikerswachtwoord verificatie voor een lokale Azure Active Directory zonder Domeinsynchronisatie.  
-* Azure AD ondersteunt verbindingen van SQL Server Management Studio die gebruikmaken van Universal verificatie van Active Directory, waaronder de multi-factor Authentication (MFA).  MFA sterke verificatie met een bereik van eenvoudige verificatie-opties bevat: telefoonoproep, tekstbericht, smartcards en pincode of mobiele app-melding. Zie voor meer informatie [SSMS ondersteuning voor Azure AD MFA met SQL-Database en SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).  
+* Azure AD-verificatie ondersteunt AD FS (domein Federatie) of systeemeigen gebruikerswachtwoord verificatie voor een lokale Azure Active Directory zonder synchronisatie van domein.  
+* Azure AD ondersteunt verbindingen van SQL Server Management Studio die gebruikmaken van Active Directory Universal-verificatie, waaronder multi-factor Authentication (MFA).  MFA omvat een robuuste verificatie met een scala aan gebruiksvriendelijke verificatieopties, telefonische oproepen, SMS-bericht, smartcards en pincode of mobiele app-meldingen. Zie voor meer informatie, [SSMS-ondersteuning voor Azure AD MFA met SQL Database en SQL Data Warehouse](sql-database-ssms-mfa-authentication.md).  
 
 >  [!NOTE]  
->  Verbinding maken met SQL Server wordt uitgevoerd op een Azure VM wordt niet ondersteund met een Azure Active Directory-account. Gebruik in plaats daarvan de Active Directory-account van een domein.  
+>  Verbinding maken met SQL Server die wordt uitgevoerd op een Azure-VM wordt niet ondersteund met behulp van Azure Active Directory-account. Gebruik in plaats daarvan een domein Active Directory-account.  
 
 De configuratiestappen omvat de volgende procedures om te configureren en gebruiken van Azure Active Directory-verificatie.
 
-1. Maken en Azure AD te vullen.
-2. Optioneel: Koppelen of wijzig de active directory die momenteel is gekoppeld aan uw Azure-abonnement.
-3. Een Azure Active Directory-beheerder voor de Azure SQL Database-server, het exemplaar beheerd maken of de [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
-4. De clientcomputers configureren.
-5. Ingesloten databasegebruikers maken in de database die is toegewezen aan Azure AD-identiteiten.
-6. Verbinding maken met de database met behulp van Azure AD-identiteiten.
+1. Maken en vullen van Azure AD.
+2. Optioneel: Koppelen of wijzigt u de active directory die is gekoppeld aan uw Azure-abonnement.
+3. Een Azure Active Directory-beheerder voor de Azure SQL Database-server, het beheerde exemplaar maken of de [Azure SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse/).
+4. Uw clientcomputers configureren.
+5. Maak ingesloten databasegebruikers in de database die is toegewezen aan Azure AD-identiteiten.
+6. Verbinding maken met uw database met behulp van Azure AD-identiteiten.
 
 > [!NOTE]
-> Zie voor informatie over het maken en Azure AD te vullen en vervolgens Azure AD configureren met Azure SQL Database, exemplaar beheerd en SQL Data Warehouse, [configureren Azure AD met Azure SQL Database](sql-database-aad-authentication-configure.md).
+> Zie voor informatie over het maken en vullen van Azure AD en Azure AD configureren met Azure SQL Database Managed Instance en SQL Data Warehouse, [configureren Azure AD met Azure SQL Database](sql-database-aad-authentication-configure.md).
 >
 
 ## <a name="trust-architecture"></a>Architectuur van vertrouwensrelatie
-Het volgende diagram op hoog niveau bevat een overzicht van de oplossingsarchitectuur van het gebruik van Azure AD-verificatie met Azure SQL Database. Dezelfde concepten die van toepassing op de SQL Data Warehouse. Ter ondersteuning van Azure AD systeemeigen gebruikerswachtwoord slechts het deel van de Cloud en de Azure AD/Azure SQL Database wordt beschouwd als. Ter ondersteuning van federatieve verificatie (of gebruikerswachtwoord voor Windows-referenties), de communicatie met AD FS-blok is vereist. De pijlen communicatiepaden aangeven.
+Het volgende diagram op hoog niveau bevat een overzicht van de oplossingsarchitectuur van het gebruik van Azure AD-verificatie met Azure SQL Database. Dezelfde concepten worden toegepast met SQL Data Warehouse. Ter ondersteuning van systeemeigen Azure AD-gebruikerswachtwoord, alleen het deel van de Cloud en de Azure AD/Azure SQL Database wordt beschouwd als. Ter ondersteuning van federatieve verificatie (of een gebruiker en wachtwoord voor Windows-referenties), de communicatie met AD FS-blok is vereist. De pijlen geven communicatiepaden.
 
-![AAD auth-diagram][1]
+![diagram van AAD-verificatie][1]
 
-Het volgende diagram geeft de Federatie, de vertrouwensrelatie en de hosting-relaties waarmee een client verbinding maakt met een database door het indienen van een token. Het token is geverifieerd door een Azure AD en wordt vertrouwd door de database. Klant 1 kan een Azure Active Directory met systeemeigen gebruikers of een Azure AD bij federatieve gebruikers vertegenwoordigen. Klant 2 vertegenwoordigt een mogelijke oplossing, inclusief geïmporteerde gebruikers. in dit voorbeeld afkomstig is van een federatieve Azure Active Directory met AD FS worden gesynchroniseerd met Azure Active Directory. Het is belangrijk te weten dat toegang tot een database met Azure AD-verificatie vereist dat de hosting-abonnement gekoppeld aan de Azure AD is. Hetzelfde abonnement moet worden gebruikt voor het maken van de SQL-Server die als host fungeert voor de Azure SQL Database of SQL Data Warehouse.
+Het volgende diagram geeft aan dat de Federatie, vertrouwen en hosting-relaties waarmee een client verbinding maakt met een database door het indienen van een token. Het token is geverifieerd door een Azure AD en wordt vertrouwd door de database. Klant 1 kan bestaan uit een Azure Active Directory met systeemeigen gebruikers of een Azure AD bij federatieve gebruikers. Klant 2 vertegenwoordigt een mogelijke oplossing, met inbegrip van geïmporteerde gebruikers. in dit voorbeeld die afkomstig zijn van een federatieve Azure Active Directory met AD FS worden gesynchroniseerd met Azure Active Directory. Het is belangrijk om te begrijpen dat toegang tot een database met behulp van Azure AD-verificatie is vereist dat de hosting-abonnement gekoppeld aan de Azure AD is. Hetzelfde abonnement moet worden gebruikt voor het maken van de SQL-Server die als host fungeert voor de Azure SQL Database of SQL Data Warehouse.
 
 ![abonnement-relatie][2]
 
 ## <a name="administrator-structure"></a>Structuur van de beheerder
-Wanneer u Azure AD-verificatie, zijn er twee beheerdersaccounts voor de SQL-databaseserver en het exemplaar beheerd; de oorspronkelijke SQL Server-beheerder en de Azure AD-beheerder. Dezelfde concepten die van toepassing op de SQL Data Warehouse. Alleen de beheerder op basis van een Azure AD-account kunt maken van de eerste databasegebruiker van Azure AD zijn opgenomen in een gebruikersdatabase. De aanmelding van Azure AD-beheerder kan een Azure AD-gebruiker of een Azure AD-groep zijn. Wanneer de beheerder een groepsaccount is, kan deze worden gebruikt door een groepslid, waardoor meerdere Azure AD-beheerders voor het SQL Server-exemplaar. Als een beheerder met behulp van groepsaccount beheerbaarheid verbetert doordat u centraal toevoegen en verwijderen van leden van de beveiligingsgroep in Azure AD zonder de gebruikers of de machtigingen in SQL-Database te wijzigen. Slechts één Azure AD-beheerder (een gebruiker of groep) kan op elk gewenst moment worden geconfigureerd.
+Wanneer u Azure AD-verificatie, zijn er twee beheerdersaccounts voor de SQL Database-server en de Managed Instance; de oorspronkelijke SQL Server-beheerder en de Azure AD-beheerder. Dezelfde concepten worden toegepast met SQL Data Warehouse. Alleen de beheerder op basis van een Azure AD-account kunt maken van de eerste databasegebruiker van Azure AD die zijn opgenomen in een gebruikersdatabase. De aanmeldingsnaam van de Azure AD-beheerder kan een Azure AD-gebruiker of een Azure AD-groep zijn. Als de beheerder een groepsaccount is, kan deze worden gebruikt door een groepslid, waardoor beheerders van meerdere Azure AD voor de SQL Server-exemplaar. Met behulp van groepsaccount als beheerder beheerbaarheid verbetert doordat u centraal toevoegen en verwijderen van leden van een beveiligingsgroep in Azure AD zonder de gebruikers of de machtigingen in SQL-Database te wijzigen. Slechts één Azure AD-beheerder (een gebruiker of groep) kan op elk gewenst moment worden geconfigureerd.
 
 ![structuur van de beheerder][3]
 
 ## <a name="permissions"></a>Machtigingen
-Voor het maken van nieuwe gebruikers, hebt u de `ALTER ANY USER` machtiging in de database. De `ALTER ANY USER` machtiging kan worden toegekend aan elke databasegebruiker. De `ALTER ANY USER` machtiging ook wordt vastgehouden door de server administrator-accounts en databasegebruikers met de `CONTROL ON DATABASE` of `ALTER ON DATABASE` machtigingen nodig voor deze database en door leden van de `db_owner` -databaserol.
+Voor het maken van nieuwe gebruikers, moet u de `ALTER ANY USER` machtiging in de database. De `ALTER ANY USER` machtiging kan worden verleend aan een databasegebruiker. De `ALTER ANY USER` machtiging ook wordt gehouden door de server administrator-accounts en gebruikers van de database met de `CONTROL ON DATABASE` of `ALTER ON DATABASE` machtiging voor die database, en door leden van de `db_owner` databaserol.
 
-Voor het maken van een ingesloten database-gebruiker in Azure SQL Database-exemplaar beheerd of SQL Data Warehouse, moet u verbinding met de database of instantie met een Azure AD-identiteit. Voor het maken van de eerste gebruiker van de ingesloten database, moet u verbinding met de database met behulp van een Azure AD-beheerder (die eigenaar is van de database). Dit wordt geïllustreerd in [configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse](sql-database-aad-authentication-configure.md). Elke Azure AD-verificatie is alleen mogelijk als de Azure AD-beheerder voor Azure SQL Database of SQL Data Warehouse-server is gemaakt. Als de beheerder van Azure Active Directory is verwijderd van de server, kunnen bestaande Azure Active Directory-gebruikers die zijn gemaakt eerder in SQL Server niet langer verbinding met de database met behulp van de Azure Active Directory-referenties.
+Als u wilt een ingesloten databasegebruiker maken in Azure SQL Database Managed Instance of SQL Data Warehouse, moet u verbinding maken met de database of het exemplaar met behulp van een Azure AD-identiteit. Als u wilt de eerste ingesloten databasegebruiker maken, moet u verbinding met de database met behulp van een Azure AD-beheerder (die de eigenaar van de database). Dit wordt geïllustreerd in [configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse](sql-database-aad-authentication-configure.md). Een Azure AD-verificatie is alleen mogelijk als de Azure AD-beheerder voor Azure SQL Database of SQL Data Warehouse-server is gemaakt. Als de Azure Active Directory-beheerder is verwijderd van de server, bestaande Active Directory-gebruikers die zijn gemaakt eerder in SQL Server kunnen niet meer verbinding maken met de database met behulp van hun Azure Active Directory-referenties.
 
 ## <a name="azure-ad-features-and-limitations"></a>Azure AD-functies en beperkingen
 De volgende leden van Azure AD kunnen worden ingericht in Azure SQL-server of SQL Data Warehouse:
 
-- Systeemeigen leden: lid gemaakt in Azure AD in het beheerde domein of in een domein van de klant. Zie voor meer informatie [uw eigen domeinnaam toevoegen aan Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
-- Federatieve domeinleden: lid gemaakt in Azure AD met een federatieve domein. Zie voor meer informatie [Microsoft Azure biedt nu ondersteuning voor federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
-- Geïmporteerde leden van andere Azure AD die systeemeigen of federatieve domeinleden zijn.
-- Active Directory-groepen als beveiligingsgroepen worden gemaakt.
+- Systeemeigen leden: een lid in Azure AD hebt gemaakt in het beheerde domein of in het domein van een klant. Zie voor meer informatie, [uw eigen domeinnaam toevoegen aan Azure AD](../active-directory/active-directory-domains-add-azure-portal.md).
+- Leden van een domein federatieve: lid gemaakt in Azure AD met een federatief domein. Zie voor meer informatie, [Microsoft Azure ondersteunt nu Federatie met Windows Server Active Directory](https://azure.microsoft.com/blog/2012/11/28/windows-azure-now-supports-federation-with-windows-server-active-directory/).
+- Geïmporteerde leden van andere Azure AD die leden van een systeemeigen of federatieve domein zijn.
+- Active Directory-groepen gemaakt als beveiligingsgroepen.
 
-Azure AD-beperkingen betrekking hebben op beheerde exemplaar:
-- Alleen Azure AD-beheerder van databases maken kan, Azure AD-gebruikers zijn gericht op een enkele DB en bent niet gemachtigd deze
+Azure AD-beperkingen met betrekking tot het beheerde exemplaar:
+- Alleen Azure AD-beheerder van databases maken kunt, Azure AD-gebruikers zijn gericht op een enkele database en bent niet gemachtigd deze
 - Database-eigenaar:
-  - Azure AD-principal eigendom van de database (AUTORISATIE ON DATABASE wijzigen) niet wijzigen en kan niet worden ingesteld als eigenaar.
+  - Azure AD-principal kan geen eigendom van de database (AUTORISATIE van DATABASE wijzigen) en kan niet worden ingesteld als eigenaar.
   - Voor databases die zijn gemaakt door Azure AD-beheerder geen eigenaar is ingesteld (0x1 owner_sid veld in sys.sysdatabases is).
-- SQL-Agent kan niet worden beheerd wanneer aangemeld met behulp van Azure AD-principals. 
-- Azure AD-beheerder kan niet worden geïmiteerd met EXECUTE AS
+- SQL Agent kan niet worden beheerd wanneer u bent aangemeld bij het gebruik van Azure AD-principals. 
+- Azure AD-beheerder kan niet worden geïmiteerd met behulp van EXECUTE AS
 - DAC-verbinding wordt niet ondersteund met Azure AD-principals. 
 
 Deze systeemfuncties retourneren NULL-waarden bij uitvoering onder Azure AD-principals:
@@ -90,7 +97,7 @@ Deze systeemfuncties retourneren NULL-waarden bij uitvoering onder Azure AD-prin
 
 ## <a name="connecting-using-azure-ad-identities"></a>Verbinding maken met behulp van Azure AD-identiteiten
 
-Azure Active Directory-verificatie ondersteunt de volgende methoden van verbinding maken met een database met behulp van Azure AD-identiteiten:
+Azure Active Directory-verificatie ondersteunt de volgende methoden voor het verbinden met een database met behulp van Azure AD-identiteiten:
 
 * Met behulp van geïntegreerde Windows-verificatie
 * Met behulp van een Azure AD-principal-naam en een wachtwoord
@@ -98,21 +105,21 @@ Azure Active Directory-verificatie ondersteunt de volgende methoden van verbindi
 
 ### <a name="additional-considerations"></a>Aanvullende overwegingen
 
-* Betere beheerbaarheid, wordt aangeraden inrichten van een specifieke Azure AD als een beheerder een groep.   
-* Slechts één Azure AD-beheerder (een gebruiker of groep) kan worden geconfigureerd voor een Azure SQL Database-server, exemplaar beheerd of Azure SQL Data Warehouse op elk gewenst moment.   
-* Alleen een Azure AD-beheerder voor SQL Server kan in eerste instantie verbinding maken met de Azure SQL Database-server, exemplaar beheerd of Azure SQL Data Warehouse met een Azure Active Directory-account. De Active Directory-beheerder kan de volgende Azure AD configureren gebruikers van de database.   
+* Ter verbetering van de beheerbaarheid, wordt aangeraden inrichten van een specifieke Azure AD als een beheerder een groep.   
+* Slechts één Azure AD-beheerder (een gebruiker of groep) kan worden geconfigureerd voor een Azure SQL Database-server, een beheerd exemplaar of een Azure SQL Data Warehouse op elk gewenst moment.   
+* Alleen een Azure AD-beheerder voor SQL Server kan in eerste instantie verbinding maken met de Azure SQL Database-server, een beheerd exemplaar of een Azure SQL Data Warehouse met behulp van Azure Active Directory-account. De Active Directory-beheerder kunt de volgende Azure AD configureren gebruikers van de database.   
 * U wordt aangeraden de verbindingstime-out ingesteld op 30 seconden.   
-* Azure Active Directory-verificatie wordt ondersteund door SQL Server 2016 Management Studio en SQL Server Data Tools voor Visual Studio 2015 (versie 14.0.60311.1April 2016 of hoger). (Azure AD-verificatie wordt ondersteund door de **.NET Framework-gegevensprovider voor SqlServer**; ten minste versie .NET Framework 4.6). Daarom de nieuwste versies van deze hulpprogramma's en -gegevenslaagtoepassingen (DAC en. Azure AD verifieert BACPAC) gebruikt.   
-* [ODBC versie 13,1](https://www.microsoft.com/download/details.aspx?id=53339) biedt echter ondersteuning voor Azure Active Directory-verificatie `bcp.exe` kan geen verbinding maken met Azure Active Directory-verificatie, omdat deze gebruikmaakt van een oudere ODBC-provider.   
-* `sqlcmd` biedt ondersteuning voor Azure Active Directory-verificatie die begint met versie 13,1 beschikbaar is via de [Downloadcentrum](http://go.microsoft.com/fwlink/?LinkID=825643).   
-* SQL Server Data Tools voor Visual Studio 2015 vereist ten minste de April 2016-versie van de Data Tools (versie 14.0.60311.1). Azure AD-gebruikers worden momenteel niet weergegeven in de Objectverkenner SSDT. Als tijdelijke oplossing de gebruikers in bekijken [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
+* Azure Active Directory-verificatie wordt ondersteund door SQL Server 2016 Management Studio en SQL Server Data Tools voor Visual Studio 2015 (versie 14.0.60311.1April 2016 of hoger). (Azure AD-verificatie wordt ondersteund door de **.NET Framework Data Provider Pro SqlServer**; ten minste versie .NET Framework 4.6). Daarom de nieuwste versies van deze hulpprogramma's en -gegevenslaagtoepassingen (DAC en. BACPAC) kunt Azure AD-verificatie gebruiken.   
+* [ODBC versie 13.1](https://www.microsoft.com/download/details.aspx?id=53339) biedt echter ondersteuning voor Azure Active Directory-verificatie `bcp.exe` kan geen verbinding maken met behulp van Azure Active Directory-verificatie, omdat deze een oudere ODBC-provider gebruikt.   
+* `sqlcmd` biedt ondersteuning voor Azure Active Directory-verificatie die begint met versie 13.1 beschikbaar is via de [Downloadcentrum](http://go.microsoft.com/fwlink/?LinkID=825643).   
+* SQL Server Data Tools voor Visual Studio 2015 vereist ten minste de April 2016-versie van de Data Tools (versie 14.0.60311.1). Azure AD-gebruikers worden momenteel niet weergegeven in SSDT-Objectverkenner. Als tijdelijke oplossing, bekijk de gebruikers in [sys.database_principals](https://msdn.microsoft.com/library/ms187328.aspx).   
 * [Microsoft JDBC-stuurprogramma 6.0 voor SQL Server](https://www.microsoft.com/download/details.aspx?id=11774) ondersteunt Azure AD-verificatie. Zie ook [instellen van de verbindingseigenschappen](https://msdn.microsoft.com/library/ms378988.aspx).   
 * PolyBase kan niet verifiëren met behulp van Azure AD-verificatie.   
-* Azure AD-verificatie voor SQL-Database wordt ondersteund door de Azure-portal **Database importeren** en **Database exporteren** blades. Importeren en exporteren met behulp van Azure AD-verificatie wordt ook ondersteund van de PowerShell-opdracht.   
-* Azure AD-verificatie wordt ondersteund voor SQL-Database, exemplaar beheerd en SQL Data Warehouse door gebruik CLI. Zie voor meer informatie [configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse](sql-database-aad-authentication-configure.md) en [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).
+* Azure AD-verificatie wordt ondersteund voor SQL-Database door de Azure-portal **Database importeren** en **Database exporteren** blades. Importeren en exporteren met behulp van Azure AD-verificatie wordt ook ondersteund vanuit de PowerShell-opdracht.   
+* Azure AD-verificatie wordt ondersteund voor SQL Database Managed Instance en SQL Data Warehouse met behulp van CLI. Zie voor meer informatie, [configureren en beheren van Azure Active Directory-verificatie met SQL-Database of SQL Data Warehouse](sql-database-aad-authentication-configure.md) en [SQL Server - az sql server](https://docs.microsoft.com/cli/azure/sql/server).
 
 ## <a name="next-steps"></a>Volgende stappen
-- Zie voor informatie over het maken en Azure AD te vullen en vervolgens Azure AD configureren met Azure SQL Database- of Azure SQL Data Warehouse, [configureren en beheren van Azure Active Directory-verificatie met SQL-Database, exemplaar beheerd of SQL Data Warehouse ](sql-database-aad-authentication-configure.md).
+- Zie voor informatie over het maken en vullen van Azure AD en Azure AD configureren met Azure SQL Database of Azure SQL Data Warehouse, [configureren en beheren van Azure Active Directory-verificatie met SQL Database Managed Instance of SQL Data Warehouse ](sql-database-aad-authentication-configure.md).
 - Zie [SQL Database-toegang en -beheer](sql-database-control-access.md) voor een overzicht van toegang en beheer in SQL Database.
 - Zie [Aanmeldingen, gebruikers en databaserollen](sql-database-manage-logins.md) voor een overzicht van aanmeldingen, gebruikers en databaserollen in SQL Database.
 - Zie [Principals](https://msdn.microsoft.com/library/ms181127.aspx) voor meer informatie over database-principals.

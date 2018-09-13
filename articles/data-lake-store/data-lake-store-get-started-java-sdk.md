@@ -2,23 +2,22 @@
 title: 'Java SDK: Bestandssysteembewerkingen in Azure Data Lake Store | Microsoft Docs'
 description: Gebruik Azure Data Lake Store Java SDK om bestandssysteembewerkingen uit te voeren op Data Lake Store, bijvoorbeeld om mappen te maken enzovoort.
 services: data-lake-store
-documentationcenter: 
+documentationcenter: ''
 author: nitinme
 manager: jhubbard
 editor: cgronlun
 ms.assetid: d10e09db-5232-4e84-bb50-52efc2c21887
 ms.service: data-lake-store
 ms.devlang: na
-ms.topic: get-started-article
-ms.tgt_pltfrm: na
-ms.workload: big-data
-ms.date: 01/09/2018
+ms.topic: conceptual
+ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: fdae36c3cbdda16f9392a113502c7c6c62b25534
-ms.sourcegitcommit: 9292e15fc80cc9df3e62731bafdcb0bb98c256e1
-ms.translationtype: HT
+ms.openlocfilehash: 8f2dd4d001ae7322a351844146925c23b90f0916
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 01/10/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646081"
 ---
 # <a name="filesystem-operations-on-data-lake-store-using-java-sdk"></a>Bestandssysteembewerkingen - Aan de slag met Azure Data Lake Store met Java SDK
 > [!div class="op_single_selector"]
@@ -59,7 +58,7 @@ Dit codevoorbeeld beschikbaar [in GitHub](https://azure.microsoft.com/documentat
           </dependency>
         </dependencies>
    
-    De eerste afhankelijkheid is om Data Lake Store SDK (`azure-data-lake-store-sdk`) vanuit de Maven-opslag te gebruiken. De tweede afhankelijkheid dient om op te geven welk framework voor logboekregistratie (`slf4j-nop`) voor deze toepassing moet worden gebruikt. De Data Lake Store SDK gebruikt een [slf4j](http://www.slf4j.org/)-façade voor logboekregistratie, waarmee u uit een aantal populaire frameworks voor logboekregistratie, zoals log4j, Java logging, logback enzovoort, of voor geen logboekregistratie kunt kiezen. In dit voorbeeld wordt logboekregistratie uitgeschakeld. Daarom wordt de binding **slf4j-nop** gebruikt. [Hier](http://www.slf4j.org/manual.html#projectDep) vindt u andere opties voor logboekregistratie voor uw toepassing.
+    De eerste afhankelijkheid is om Data Lake Store SDK (`azure-data-lake-store-sdk`) vanuit de Maven-opslag te gebruiken. De tweede afhankelijkheid dient om op te geven welk framework voor logboekregistratie (`slf4j-nop`) voor deze toepassing moet worden gebruikt. Maakt gebruik van de Data Lake Store SDK [slf4j](http://www.slf4j.org/) logboekregistratie gevel, kunt u kiezen uit een aantal populaire logboekregistratie frameworks als log4j, logback, enz., logboekregistratie Java of niet vastleggen. In dit voorbeeld wordt logboekregistratie uitgeschakeld. Daarom wordt de binding **slf4j-nop** gebruikt. [Hier](http://www.slf4j.org/manual.html#projectDep) vindt u andere opties voor logboekregistratie voor uw toepassing.
 
 3. Voeg de volgende importinstructies toe aan uw toepassing.
 

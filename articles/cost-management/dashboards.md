@@ -1,297 +1,300 @@
 ---
-title: De belangrijkste metrische gegevens weergeven in Azure kosten Management dashboards | Microsoft Docs
-description: Dit artikel wordt beschreven hoe dashboards de belangrijkste metrische gegevens weergeven in Azure kosten Management.
+title: Belangrijke metrische gegevens weergeven in Azure Cost Management dashboards | Microsoft Docs
+description: Dit artikel wordt beschreven hoe belangrijke metrische gegevens weergeven met dashboards in Azure Cost Management.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/05/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: b1dc2e2eca900ca0ae72329c3c373b2d24f1b2e0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 4f51598dd2b026f1c3a4b0d763b1547a44eedc7b
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35303485"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643772"
 ---
-# <a name="view-key-cost-metrics-with-dashboards"></a>Weergave sleutel kosten metrische gegevens met dashboards
+# <a name="view-key-cost-metrics-with-dashboards"></a>Kosten van metrische gegevens met dashboards weergeven-sleutel
 
-Dashboards in Cloudyn bieden een globaal overzicht van rapporten. Dashboards kunnen u de kosten van de belangrijkste metrische gegevens weergeven in één weergave. Ze bieden ook zakelijke trend gemarkeerd om te helpen u belangrijke zakelijke beslissingen te nemen.
+Dashboards in Cloudyn bieden een weergave op hoog niveau van rapporten. Dashboards kunnen u kosten voor belangrijke metrische gegevens weergeven in één weergave. Ze bieden ook zakelijke trend gemarkeerd om te helpen u belangrijke zakelijke beslissingen kunt komen.
 
-Dashboards worden ook gebruikt voor het maken van weergaven voor mensen met verschillende verantwoordelijkheden in uw organisatie, waaronder:
+Dashboards worden ook gebruikt om weergaven te maken voor mensen met verschillende verantwoordelijkheden in uw organisatie, waaronder:
 
-- Financiële-controller
+- Financieel controleur
 - Eigenaar van de toepassing of het project
-- DevOps engineering
+- DevOps-technicus
 - Leidinggevenden
 
-Dashboards zijn opgebouwd uit widgets en elke widget wordt in wezen een miniatuur rapport. Klik op een widget om het rapport te openen. Wanneer u rapporten wilt aanpassen, moet u deze opslaan op mijn rapporten en ze zijn toegevoegd aan het dashboard.
+Dashboards bestaan uit widgets en elke widget is in feite de miniatuur van een rapport. Klik op een widget om het rapport te openen. Wanneer u rapporten wilt aanpassen, moet u ze opslaat in Mijn rapporten en ze worden toegevoegd aan het dashboard.
 
-Dashboard versies verschillen voor beheer (MSP), Enterprise en Cloudyn Premium-gebruikers. De verschillen worden bepaald door de entiteit toegangsniveaus. Zie voor meer informatie over toegangsniveaus [toegangsniveaus entiteit](tutorial-user-access.md#entity-access-levels).
+Dashboard versies verschillen Management (MSP), Enterprise en Premium Cloudyn-gebruikers. De verschillen worden bepaald door de toegangsniveaus voor entiteiten. Zie voor meer informatie over toegangsniveaus [entiteit toegangsniveaus](tutorial-user-access.md#entity-access-levels).
 
-Dashboard beschikbaarheid, is afhankelijk van het type van de cloud serviceprovider account dat wordt gebruikt bij het weergeven van dashboards. Het type informatie beschikbaar is en die worden verzameld door Cloudyn is van invloed op de rapporten in dashboards. Voor bijvoorbeeld als u een AWS-account geen zien vervolgens u niet het dashboard S3 vastleggen. Op dezelfde manier als u Azure Resource Manager toegang tot Cloudyn niet inschakelen zien vervolgens u niet alle Azure-specifieke informatie in dashboardwidgets optimaliseren.
+Beschikbaarheid van het dashboard is afhankelijk van het type van cloud serviceprovider-account dat wordt gebruikt bij het weergeven van dashboards. Het type informatie beschikbaar is en die worden verzameld door Cloudyn is van invloed op rapporten in dashboards. Bijvoorbeeld, als u een AWS-account hebt weergegeven vervolgens niet de S3-tracering in-dashboard. Op dezelfde manier als u Azure Resource Manager-toegang tot Cloudyn niet inschakelt weergegeven vervolgens niet elke Azure-specifieke informatie in de dashboardwidgets optimaliseren.
 
-U kunt een van de vooraf gemaakte dashboards gebruiken of u kunt uw eigen dashboard met aangepaste rapporten maken. Als u niet bekend met Cloudyn rapporten bent, Zie [kostenbeheer gebruik rapporten](use-reports.md).
+U kunt een van de vooraf gemaakte dashboards gebruiken of u kunt uw eigen dashboard met aangepaste rapporten maken. Als u niet bekend met Cloudyn-rapporten bent, Zie [met Cost Management rapporten](use-reports.md).
 
-## <a name="create-a-custom-dashboard"></a>Een aangepaste dashboard maken
+## <a name="create-a-custom-dashboard"></a>Een aangepast dashboard maken
 
-U kunt een bestaande voor het gebruik van de eigenschappen ervan dupliceren om snel aan de slag met een aangepast dashboard. U kunt deze aanpassen aan uw behoeften. Klik op het dashboard dat u wilt kopiëren, **OpslaanAls**. U kunt alleen aangepaste dashboards dupliceren — u kunt de dashboards die deel van Cloudyn uitmaken niet dupliceren.
+Als u wilt snel aan de slag met een aangepast dashboard, kunt u een bestaande resourcegroep voor het gebruik van de eigenschappen ervan te dupliceren. Vervolgens kunt u deze om aan uw behoeften te wijzigen. Klik op het dashboard dat u wilt kopiëren, **OpslaanAls**. U kunt alleen aangepaste dashboards dupliceren — u kunt de dashboards die opgenomen in Cloudyn zijn niet dupliceren.
 
 Een aangepast dashboard maken:
 
-1. Klik op de startpagina **nieuwe toevoegen +**. De pagina Dashboard van mijn wordt weergegeven.  
+1. Klik op de startpagina, **nieuwe toevoegen +**. De pagina Mijn Dashboard wordt weergegeven.  
     ![Mijn dashboard](./media/dashboards/my-dashboard.png)
-2. Klik op **nieuw rapport toevoegen**. Het rapport toevoegen wordt weergegeven.
+2. Klik op **toevoegen van nieuwe rapport**. Het rapport toevoegen wordt weergegeven.
 3. Selecteer het rapport dat u wilt toevoegen aan het dashboard-object. De widget wordt toegevoegd aan het dashboard.
 4. Herhaal de voorgaande stappen totdat het dashboard voltooid is.
-5. Wijzig de naam van het dashboard, klikt u op de naam van het dashboard op de startpagina Dashboard en typ de nieuwe naam.
+5. Wijzig de naam van het dashboard, klikt u op de naam van het dashboard op de startpagina van het Dashboard en typ de nieuwe naam.
 
 ## <a name="modify-a-custom-dashboard"></a>Een aangepast dashboard wijzigen
 
-Zoals het maken van een aangepast dashboard kunt u de dashboards die deel uitmaakt van Cloudyn niet wijzigen. Een rapport aangepaste dashboard wijzigen:
+Zoals het maken van een aangepast dashboard, kunt u de dashboards die zijn opgenomen met Cloudyn niet wijzigen. Een aangepast dashboard voor een rapport wijzigen:
 
 1. Zoek in het dashboard, het rapport dat u wilt wijzigen en klik op **bewerken**. Het rapport wordt weergegeven.
-2. Breng eventuele wijzigingen die u wilt het rapport en klikt u op **opslaan**. Het rapport wordt bijgewerkt en uw wijzigingen.
+2. Aanbrengen van wijzigingen die u wilt aan het rapport en klikt u op **opslaan**. Het rapport wordt bijgewerkt en uw wijzigingen worden weergegeven.
 
-## <a name="share-a-custom-dashboard"></a>Een aangepast dashboard te delen
+## <a name="share-a-custom-dashboard"></a>Een aangepast dashboard delen
 
-U kunt een aangepast dashboard delen met anderen _openbare_ of _mijn entiteit_. Wanneer u naar openbaar deelt, kunnen alle gebruikers het dashboard te bekijken. Alleen gebruikers met toegang tot de huidige entiteit kunnen het dashboard weergeven bij het delen van mijn entiteit. De stappen voor het delen van een aangepast dashboard met openbare en Mijn entiteit zijn vergelijkbaar.
+U kunt een aangepast dashboard delen met anderen, _openbare_ of _mijn entiteit_. Wanneer u naar openbaar deelt, kunnen alle gebruikers kunnen het dashboard bekijken. Alleen gebruikers met toegang tot de huidige entiteit kunnen het dashboard weergeven wanneer u deze entiteit deelt. De stappen voor het delen van een aangepast dashboard met openbare en Mijn entiteit zijn vergelijkbaar.
 
-Een aangepast dashboard naar openbaar delen:
+Voor het delen van een aangepast dashboard voor publiek:
 
-1. In een dashboard, klikt u op **Dashboardinstellingen**. De instellingen van het Dashboard wordt weergegeven.  
-    ![dashboard-opties](./media/dashboards/dashboard-options.png)
-2. Klik op de pijl in het Dashboard-instellingen en klik vervolgens op **openbare**. Het openbare Dashboard bevestigingsdialoogvenster wordt weergegeven.
+1. In een dashboard, klikt u op **Dashboardinstellingen**. De instellingen voor Dashboard wordt weergegeven.  
+    ![Opties voor dashboard](./media/dashboards/dashboard-options.png)
+2. Klik op de pijl in het Dashboardinstellingen en klik vervolgens op **openbare**. Het dialoogvenster voor bevestiging van openbare Dashboard wordt weergegeven.
 3. Klik op **Ja**. Het dashboard is nu beschikbaar voor anderen.
 
-## <a name="delete-a-custom-dashboard-report"></a>Een rapport aangepaste dashboard verwijderen
+## <a name="delete-a-custom-dashboard-report"></a>Een aangepast dashboard voor een rapport verwijderen
 
-U kunt een aangepast rapport-onderdeel verwijderen vanuit het dashboard. Het rapport verwijderen vanuit het dashboard niet van het rapport in de rapportenlijst. In plaats daarvan het rapport verwijdert, wordt deze vanuit het dashboard alleen.
+U kunt een aangepast rapport-onderdeel verwijderen vanuit het dashboard. Verwijderen van het rapport vanuit het dashboard verwijderen niet uit de lijst met rapporten. In plaats daarvan het rapport verwijdert, wordt deze vanuit het dashboard alleen.
 
-Als u wilt verwijderen van een onderdeel dashboard, klikt u op het onderdeel dashboard, klikt u op **verwijderen**. Te klikken op **verwijderen** onmiddellijk worden verwijderd van het onderdeel van het dashboard.
+Als u wilt verwijderen van een onderdeel dashboard, klikt u op de dashboard-component, klikt u op **verwijderen**. Te klikken op **verwijderen** onmiddellijk gewist van het onderdeel van het dashboard.
 
-## <a name="share-a-dashboard-enterprise"></a>Delen van een dashboard (Enterprise)
+## <a name="share-a-dashboard-enterprise"></a>Een dashboard (Enterprise)
 
-U kunt aangepaste dashboards voor alle gebruikers in uw organisatie of met de gebruikers van de huidige entiteit delen. Een dashboard delen kan anderen geeft een overzicht op hoog niveau van de KPI. Wanneer u een dashboard deelt, worden automatisch het dashboard voor al uw Cloudyn entiteiten/klanten repliceert. Wijzigingen aan het gedeelde dashboard worden automatisch bijgewerkt.
+U kunt aangepaste dashboards voor alle gebruikers in uw organisatie of met de gebruikers van de huidige entiteit delen. Delen van een dashboard kan anderen geeft een overzicht op hoog niveau van de KPI. Wanneer u een dashboard deelt, worden automatisch het dashboard voor al uw Cloudyn entiteiten/klanten repliceert. Wijzigingen aan het gedeelde dashboard worden automatisch bijgewerkt.
 
-Een dashboard delen met alle gebruikers subentiteiten inclusief:
+Een dashboard delen met alle gebruikers, met inbegrip van subentiteiten:
 
 1. Klik op de startpagina dashboard **bewerken**.
 2. Klik op **Share** en selecteer vervolgens **openbare**.
-3. Globale openbare Dashboard bevestigingsvenster weergegeven.
-4. Klik op **Ja** het dashboard instellen als een globale openbare dashboard.
+3. Bevestigingsvenster globale openbare Dashboard wordt weergegeven.
+4. Klik op **Ja** aan het dashboard instellen als een globale openbare dashboard.
 
 Een dashboard delen met alle gebruikers van een huidige entiteit:
 
 1. Klik op de startpagina Dashboard **bewerken**.
 2. Klik op **Share** en selecteer vervolgens **mijn entiteit**.
-3. Klik op **Ja** het dashboard instellen als een openbare dashboard.
+3. Klik op **Ja** aan het dashboard instellen als een openbare dashboard.
 
 ## <a name="duplicate-a-custom-dashboard"></a>Een aangepast dashboard dupliceren
 
-Wanneer u een nieuw dashboard maakt, kunt u vergelijkbare eigenschappen uit een bestaand dashboard gebruiken. U kunt het dashboard voor het maken van een nieuwe dupliceren.
+Wanneer u een nieuw dashboard maakt, is het raadzaam om vergelijkbare eigenschappen van een bestaand dashboard te gebruiken. U kunt het dashboard voor het maken van een nieuwe dupliceren.
 
-U kunt alleen aangepaste dashboards dupliceren. U kunt standaard dashboards niet dupliceren.
+U kunt alleen aangepaste dashboards dupliceren. U kunt standard dashboards niet dupliceren.
 
-Moeten worden gedupliceerd (klonen) een aangepast dashboard:
+Voor het dupliceren van (gekloond) een aangepast dashboard:
 
 1. Klik op het Dashboard dat u wilt dupliceren, **OpslaanAls**. Een nieuw dashboard wordt geopend met dezelfde naam en een nummer.
-2. Wijzig de naam van het gedupliceerde dashboard en als u wilt wijzigen.
+2. Wijzig de naam van het dubbele dashboard en als u wilt wijzigen.
 
 - Of -
 
-1. Klik in de instellingen van Dashboard **OpslaanAls** op de regel van het dashboard dat u wilt dupliceren.
-2. Hiermee opent u het gedupliceerde dashboard.
+1. In de instellingen voor Dashboard, klikt u op **OpslaanAls** op de regel van het dashboard dat u wilt dupliceren.
+2. Het dubbele dashboard geopend.
 3. Wijzig de naam van het dashboard en als u wilt wijzigen.
 
 ## <a name="set-a-default-dashboard"></a>Een standaarddashboard instellen
 
-U kunt een dashboard als standaard instellen. Instellen op uw standaard kan worden weergegeven als het meest linkse tabblad in de lijst dashboard. De standaarddashboard worden weergegeven wanneer de Cloudyn portal openen.
+U kunt een dashboard instellen als standaard. Instellen op de standaard, kunt u als het meest linkse tabblad in de dashboardlijst weergegeven. De standaard-dashboard wordt weergegeven wanneer de Cloudyn-portal te openen.
 
-- Klik op het dashboardtabblad wilt ingesteld als standaard en klik vervolgens op **standaard** aan de rechterkant.
+- Klik op het dashboardtabblad dat u wilt instellen als standaard en klik vervolgens op **standaard** aan de rechterkant.
 
 - Of -
 
-1. Klik op **Dashboardinstellingen** de lijst met beschikbare dashboards zien en selecteren van het dashboard dat u wilt instellen als standaardbrowser.  
-    ![dashboard-opties](./media/dashboards/dashboard-options.png)
-2. Klik op **standaard** in de regel van het dashboard. Standaard Dashboard bevestigingsvenster weergegeven.
+1. Klik op **Dashboardinstellingen** de lijst met beschikbare dashboards weergeven en selecteren van het dashboard dat u wilt instellen als standaard.  
+    ![Opties voor dashboard](./media/dashboards/dashboard-options.png)
+2. Klik op **standaard** in de regel van het dashboard. Het Dashboard standaard bevestigingsvenster weergegeven.
 3. Klik op **Ja**. Het dashboard is ingesteld op standaard.
 
 ## <a name="management-dashboard"></a>Management Dashboard
-Het beheer (of MSP-dashboard voor MSP gebruikers) dashboard bevat licht van de belangrijkste rapporttypen.  
+Het beheer (of MSP-dashboard voor MSP-gebruikers) dashboard bevat belangrijke functies van de belangrijkste rapporttypen.  
 ![Management Dashboard](./media/dashboards/management-dash.png)
 
-### <a name="cost-entity-summary-enterprise-only"></a>Samenvatting van de kosten entiteit (alleen voor Enterprise)
-Deze widget bevat een overzicht van de kosten van beheerde entiteiten, waaronder het aantal entiteiten en aantal accounts.
+### <a name="cost-entity-summary-enterprise-only"></a>Overzicht Kostenentiteiten (alleen voor Enterprise)
+Deze widget bevat een overzicht van de kosten voor beheerde entiteiten, inclusief het aantal entiteiten en het aantal accounts.
 - Klik op de widget om de Details van de Enterprise-rapport te openen.
 
 ### <a name="cost-over-time"></a>Na verloop van tijd kosten
-Deze widget kunt u kosten trends herkennen. Deze handleiding komen de kosten voor de laatste dag op basis van de trend van de afgelopen 30 dagen.
-- Klik op de widget om de werkelijke kosten gedurende een periode rapport weergeven te openen en aanvullende gegevens te filteren.
+Aan de hand van deze widget kunt u kostentrends te spotten. Deze handleiding komen de kosten voor de laatste dag, op basis van de trend van de afgelopen 30 dagen.
+- Klik op de widget om te openen van het rapport Actual Cost Over Time om weer te geven en te filteren als u meer details.
 
-### <a name="asset-controller"></a>Asset-Controller
-Deze widget markeert het aantal actieve exemplaren van de vorige dag, boven de trend gebruik gedurende de afgelopen 30 dagen.
-- Klik op de widget om te openen van het dashboard Asset-Controller.
+### <a name="asset-controller"></a>Assetcontroller
+Deze widget ziet u het aantal actieve instanties van de vorige dag, boven de gebruikstrend gedurende de afgelopen 30 dagen.
+- Klik op de widget om te openen van het dashboard Assetcontroller.
 
-### <a name="unused-ri-detector"></a>Ongebruikte k detectie
-Deze widget markeert het aantal Amazon EC2 ongebruikte reserveringen.
-- Klik op de widget om te openen van het momenteel ongebruikte reserveringen rapport waar u de ongebruikte kunt bekijken reserveringen, kunt u wijzigen.
+### <a name="unused-ri-detector"></a>Detectie ongebruikte gereserveerde instanties
+Deze widget markeert het nummer van Amazon EC2 niet-gebruikte reserveringen.
+- Klik op de widget u opent de Currently Unused Reservations lijst hier u de niet-gebruikte vindt reserveringen die u kunt wijzigen.
 
 ### <a name="cost-by-service"></a>Kosten per Service
-Deze widget licht afgeschreven kosten door de service voor de afgelopen 30 dagen. Beweeg de muisaanwijzer over het cirkeldiagram om te zien van de kosten per service.
-- Klik op de widget om te openen van het rapport analyse van de werkelijke kosten.
+Deze widget licht afgeschreven kosten door de service voor de afgelopen 30 dagen. Beweeg de muisaanwijzer over de cirkeldiagram in op de kosten per service.
+- Klik op de widget om het rapport Actual Cost Analysis te openen.
 
-### <a name="potential-savings"></a>Besparing
-Deze widget bevat aanbevelingen voor Amazon EC2 en Amazon RDS. prijzen exemplaartype
-- Klik op de widget open het rapport analyse van besparingen. Hiermee geeft u de kosten per exemplaar typen met besparing.
+### <a name="potential-savings"></a>Potentiële besparingen
+Deze widget geeft prijsaanbevelingen voor Amazon EC2 en Amazon RDS. exemplaartype
+- Klik op de widget open het rapport analyse van de besparingen. Geeft de kosten per exemplaartypen met potentiële besparingen.
 
-### <a name="compute-instances---daily-trend"></a>COMPUTE exemplaren - dagelijkse Trend
-Deze widget geeft de actieve exemplaren per type voor de afgelopen 30 dagen.
-- Klik op de widget om te openen van het rapport exemplaren gedurende een periode, waar u een overzicht van alle exemplaren die worden uitgevoerd tijdens de afgelopen 30 dagen kunt bekijken.
+### <a name="compute-instances---daily-trend"></a>Rekeninstanties - Trend per dag
+Deze widget geeft de actieve exemplaren weer op type, voor de afgelopen 30 dagen.
+- Klik op de widget om te openen van het rapport instanties gedurende een periode, waar u een overzicht van alle exemplaren die worden uitgevoerd tijdens de afgelopen 30 dagen kunt bekijken.
 
 ### <a name="storage-by-department"></a>Opslag per afdeling
-Deze widget geeft de storage-services die worden gebruikt door afdelingen. Beweeg de muisaanwijzer over het cirkeldiagram om te zien van uw opslagverbruik per afdeling.
-- Klik op de widget om te openen van het dashboard S3 vastleggen.
+Deze widget geeft de storage-services die worden gebruikt door de afdelingen weer. Beweeg de muisaanwijzer over het cirkeldiagram om te zien van uw opslagverbruik per afdeling.
+- Klik op de widget om te openen, het vastleggen van de S3-dashboard.
 
-## <a name="cost-controller-dashboard"></a>Kosten Controller-dashboard
-Het dashboard kosten domeincontroller bevat vooraf ingestelde kosten toewijzing licht.  
-![Kosten Controller-dashboard](./media/dashboards/cost-controller-dashboard.png)
+## <a name="cost-controller-dashboard"></a>Kosten van de Controller-dashboard
+De kosten-Controller-dashboard ziet u vooraf ingestelde cost allocation hoogtepunten.  
+![Kosten van de Controller-dashboard](./media/dashboards/cost-controller-dashboard.png)
 
 ### <a name="cost-over-time"></a>Na verloop van tijd kosten
-Deze widget helpt u kosten trends herkennen. Deze handleiding komen de kosten voor de laatste dag op basis van de trend van de afgelopen 30 dagen.
-- Klik op de widget om de werkelijke kosten gedurende een periode rapport weergeven te openen en aanvullende gegevens te filteren.
+Deze widget helpt u kostentrends te spotten. Deze handleiding komen de kosten voor de laatste dag, op basis van de trend van de afgelopen 30 dagen.
+- Klik op de widget om te openen van het rapport Actual Cost Over Time om weer te geven en te filteren als u meer details.
 
 ### <a name="monthly-cost-trends"></a>Maandelijkse kosten Trends
-Deze widget worden gemarkeerd met het verwachte afgeschreven uitgaven en uw werkelijke besteden sinds het begin van de maand.
-- Klik op de widget om de huidige maand geschatte kosten-rapport waarmee kosten maand tot datum samenvatting te openen.
+Deze widget worden belicht afgeschreven geraamde uitgaven en uw werkelijke uitgaven sinds het begin van de maand.
+- Klik op het object als het rapport Current Month Projected Cost, waarmee u een overzicht van de kosten voor maand tot heden wilt openen.
 
-Dit rapport geeft de kosten van het begin van de maand, de kosten van vorige maand en de huidige maand geschatte kosten. De huidige maand geschatte kosten wordt berekend door de up-to-date maandelijkse kosten en projectie toe te voegen. De projectie is gebaseerd op de kosten bewaakt in de afgelopen 30 dagen.
+Dit rapport worden de kosten vanaf het begin van maand, de kosten van de vorige maand en de huidige maand geschatte kosten. De huidige maand geschatte kosten worden berekend door toe te voegen van de actuele maandelijkse kosten en de projectie. De projectie is gebaseerd op de kosten bewaakt in de afgelopen 30 dagen.
 
-### <a name="12-month-planner"></a>Planner voor 12 maanden
-Deze widget licht de geschatte kosten via de volgende 12 maanden en de besparing.
-- Klik op de widget om de jaarlijkse geschatte kosten-rapport te openen.
+### <a name="12-month-planner"></a>12 maanden Planner
+Deze widget markeert de geschatte kosten in de komende 12 maanden en de potentiële besparingen.
+- Klik op de widget om het rapport Annual Projected Cost te openen.
 
 ### <a name="cost-by-service"></a>Kosten per Service
 Deze widget licht afgeschreven kosten door de service voor de afgelopen 30 dagen.
-- Beweeg de muisaanwijzer over het cirkeldiagram om te zien van de kosten per service.
-- Klik op de widget om te openen van het rapport analyse van de werkelijke kosten.
+- Beweeg de muisaanwijzer over de cirkeldiagram in op de kosten per service.
+- Klik op de widget om het rapport Actual Cost Analysis te openen.
 
 ### <a name="cost-by-account"></a>Kosten per Account
 Deze widget markeert afgeschreven kosten door account voor de afgelopen 30 dagen.
-- Beweeg de muisaanwijzer over het cirkeldiagram om te zien van de kosten per account.
-- Klik op de widget om te openen van het rapport analyse van de werkelijke kosten.
+- Beweeg de muisaanwijzer over de cirkeldiagram in op de kosten per account.
+- Klik op de widget om het rapport Actual Cost Analysis te openen.
 
-### <a name="cost-trend-by-day"></a>Kosten Trend per dag
-Deze widget te besteden aan de licht gedurende de afgelopen 30 dagen.
+### <a name="cost-trend-by-day"></a>Kostentrend per dag
+Deze widget hoogtepunten in de afgelopen 30 dagen uitgaven.
 - Beweeg de muisaanwijzer over het staafdiagram om te zien van de kosten per dag.
-- Klik op de widget om de werkelijke kosten gedurende een periode-rapport te openen.
+- Klik op de widget om het rapport Actual Cost Over Time te openen.
 
-### <a name="cost-trend-by-month---last-6-months"></a>Trend van kosten per maand - laatste 6 maanden
+### <a name="cost-trend-by-month---last-6-months"></a>Trend kosten per maand: laatste 6 maanden
 
-Deze widget licht hoeven te besteden aan in de afgelopen zes maanden.
+Deze widget hoogtepunten in de afgelopen zes maanden uitgaven.
 - Beweeg de muisaanwijzer over het staafdiagram om te zien van de kosten per maand.
-- Klik op de widget om de werkelijke kosten gedurende een periode-rapport te openen.
+- Klik op de widget om het rapport Actual Cost Over Time te openen.
 
 ## <a name="asset-controller-dashboard"></a>Asset-Controller-dashboard
 
-Dit dashboard geeft het aantal actieve instanties, beschikbaar is en in gebruik schijven, distributie van het exemplaar typen en storage-gegevens weer.  
+Dit dashboard geeft het aantal actieve instanties, beschikbare en gebruikte schijven, distributie van exemplaartypen en storage-gegevens weer.  
 ![Asset-Controller-dashboard](./media/dashboards/asset-controller-dashboard.png)
 
-### <a name="compute-instances"></a>COMPUTE-exemplaren
-Deze widget geeft het aantal exemplaren op basis van de trend gebruik gedurende de afgelopen 30 dagen uitgevoerd.
-- Klik op de widget om het rapport exemplaren gedurende een periode te openen.
+### <a name="compute-instances"></a>Instanties
+Deze widget geeft het aantal instanties op basis van de gebruikstrend gedurende de afgelopen 30 dagen.
+- Klik op de widget om het rapport instanties gedurende een periode te openen.
 
 ### <a name="disks"></a>Disks
 Deze widget markeert het totale aantal en het volume van de schijven die in gebruik en beschikbaar zijn.
-- Klik op de widget om de schijven actieve rapport te openen.
+- Klik op de widget om de actieve schijven-rapport te openen.
 
 ### <a name="instance-type-distribution"></a>Exemplaar Type distributiepunt
-Deze widget licht de exemplaar-typen in een cirkeldiagram.
-- Klik op de widget om het rapport exemplaar distributie, waarmee u een overzicht van uw actieve exemplaren door de geselecteerde aggregatie te openen.
+Deze widget markeert de instantietypen in een cirkeldiagram.
+- Klik op de widget om het rapport exemplaar distributie, waarmee u een uitsplitsing van uw actieve instanties van de geselecteerde aggregatie te openen.
 
-### <a name="compute-instances---daily-trend"></a>COMPUTE exemplaren - dagelijkse Trend
-Deze widget licht de compute-exemplaren (ter plaatse, gereserveerde en op aanvraag) per dag voor de afgelopen 30 dagen.
-- Beweeg de muisaanwijzer over de grafiek om het aantal compute-exemplaren per type per dag weer te geven.
-- Klik op de widget om het rapport exemplaren gedurende een periode te openen.
+### <a name="compute-instances---daily-trend"></a>Rekeninstanties - Trend per dag
+Deze widget markeert de compute-exemplaren (spot, gereserveerde en op aanvraag) per dag voor de afgelopen 30 dagen.
+- Beweeg de muisaanwijzer over de grafiek om het aantal rekenprocessen, per type per dag weer te geven.
+- Klik op de widget om het rapport instanties gedurende een periode te openen.
 
 ### <a name="all-buckets-s3"></a>Alle Buckets (S3)
-Deze widget illustreert de totale S3 opslag en het aantal objecten die zijn opgeslagen.
-- Klik op de widget om te openen van het Dashboard van de tracering S3. Het dashboard kunt vinden, analyseren en weergave van uw huidige gebruik van opslag en trends.
+Deze widget illustreert de totale S3-opslag en het aantal objecten die zijn opgeslagen.
+- Klik op de widget om te openen van de S3-tracering in-Dashboard. Het dashboard kunt u zoeken, analyseren en weergeven van uw huidige gebruik van opslag en trends.
 
-### <a name="sql-db-instances-rds"></a>SQL database-exemplaren (RDS)
-Deze widget markeert het aantal actieve Amazon RDS-exemplaren op basis van de trend van de afgelopen 30 dagen.
-- Klik op de widget om het rapport RDS exemplaar gedurende een periode te openen.
+### <a name="sql-db-instances-rds"></a>SQL database-instanties (RDS)
+Deze widget ziet u het aantal actieve instanties van Amazon extern bureaublad-services op basis van de trend van de afgelopen 30 dagen.
+- Klik op de widget om het rapport extern bureaublad-services-exemplaar gedurende een periode te openen.
 
 ## <a name="optimizer-dashboard"></a>Optimalisatie van Dashboard
-Dit dashboard geeft aanbevelingen downsizing, niet-gebruikte resources en besparing.  
+Dit dashboard geeft de downsizing aanbevelingen, niet-gebruikte resources en potentiële besparingen.  
 ![Optimalisatie van dashboard](./media/dashboards/optimizer-dashboard.png)
 
-### <a name="ri-calculator"></a>K Rekenmachine
-Deze widget geeft het aantal k kopen aanbevelingen en markeert de jaarlijkse besparing.
-- Klik op de widget om te openen van de gereserveerde exemplaar Rekenmachine waar u wanneer bepalen kunt te gebruiken op aanvraag versus prijsstelling gereserveerd.
+### <a name="ri-calculator"></a>Gereserveerde instanties Calculator
+Deze widget geeft het aantal aanbeveling voor het kopen van gereserveerde instanties weer en markeert u de jaarlijkse besparingen.
+- Klik op de widget om te openen van de gereserveerde instantie Rekenmachine waar u wanneer bepalen kunt u on-demand versus gereserveerd prijzen en abonnementen.
 
 ### <a name="sizing"></a>Grootte aanpassen
 Deze widget worden de aanbevolen grootte en potentiële besparingen gemarkeerd als geïmplementeerd.
-- Klik op de widget om het rapport EC2 voordelige Sizing aanbevelingen te openen.
+- Klik op de widget om het rapport EC2 Cost Effective Sizing Recommendations te openen.
 
-### <a name="unused-ri-detector"></a>Ongebruikte k detectie
-Deze widget markeert het aantal Amazon EC2 ongebruikte reserveringen.
-- Klik op de widget u opent de momenteel ongebruikte reserveringen lijst Hier vindt u de ongebruikte reserveringen die u kunt wijzigen.
+### <a name="unused-ri-detector"></a>Detectie ongebruikte gereserveerde instanties
+Deze widget markeert het nummer van Amazon EC2 niet-gebruikte reserveringen.
+- Klik op de widget om de Currently Unused Reservations rapport Hier vindt u de niet-gebruikte reserveringen die u kunt aanpassen te openen.
 
 ###  <a name="available-disks"></a>Beschikbare schijven
-Deze widget markeert het aantal niet-gekoppelde schijven in uw implementatie.
+Deze widget ziet u het aantal niet-gekoppelde schijven in uw implementatie.
 - Klik op de widget om het rapport niet-gekoppelde schijven te openen.
 
-### <a name="rds-ri-calculator"></a>RDS k Rekenmachine
-Deze widget wordt het aantal reservering aanbevelingen voor uw Amazon RDS-exemplaren en de mogelijke besparingen gemarkeerd.
-- Klik op de widget u opent de RDS k kopen aanbevelingen lijst waarin u Cloudyn aanbevelingen voor het gereserveerde exemplaren gebruiken in plaats van exemplaren op aanvraag kunt zien.
+### <a name="rds-ri-calculator"></a>Extern bureaublad-services RI Calculator
+Deze widget markeert het nummer van de reservering aanbevelingen voor uw Amazon RDS-instanties en de potentiële besparingen.
+- Klik op de widget om te openen van de extern bureaublad-services RI Buying Recommendations-rapport waarin u de Cloudyn-aanbevelingen voor het gebruik van gereserveerde instanties in plaats van on-demand instanties kunt bekijken.
 
-### <a name="rds-sizing"></a>Formaat van RDS
-Deze widget geeft het aantal sizing aanbevelingen en de besparing.
-- Klik op de widget om het rapport RDS Sizing aanbevelingen, welke geeft gedetailleerde Amazon RDS aanbevelingen formaat te openen.
+### <a name="rds-sizing"></a>Grootte van de extern bureaublad-services
+Deze widget bevat het nummer van de aanbevelingen van de grootte en de potentiële besparingen.
+- Klik op de widget om het rapport extern bureaublad-services Sizing Recommendations, welke geeft gedetailleerde Amazon RDS formaat aanbevelingen te openen.
 
 De optimalisatie aanbevelingen zijn gebaseerd op het gebruik en prestaties gegevens bewaakt in de afgelopen maand.
 
-## <a name="s3-tracker-dashboard"></a>S3-tracering in-dashboard
-De tracering S3-dashboard kunt u vinden, analyseren en weergave van uw huidige gebruik van opslag en trends.  
-![S3-tracering in-dashboard](./media/dashboards/s3-tracker-dashboard.png)
+## <a name="s3-tracker-dashboard"></a>S3-tracering in dashboard
+Het vastleggen van de S3-dashboard kunt u zoeken, analyseren en weergeven van uw huidige gebruik van opslag en trends.  
+![S3-tracering in dashboard](./media/dashboards/s3-tracker-dashboard.png)
 
 ### <a name="all-buckets"></a>Alle Buckets
-Deze widget licht de totale grootte van alle uw buckets, GB, en het totale aantal objecten in uw buckets.
-- Klik op de widget om de distributie van de grootte van de S3-rapport te openen. Het rapport kunt u de grootte van uw S3 door bucket bronmap, opslag en de versieregistratietstatus analyseren.
+Deze widget markeert de totale grootte van alle uw buckets, in GB, en het totale aantal objecten in de buckets.
+- Klik op de widget om de distributie van de grootte van de S3-rapport te openen. Het rapport kunt u de grootte van uw S3 door bucket, op het hoogste niveau map, opslagklasse en versieregistratietstatus kunt analyseren.
 
 ### <a name="bucket-properties"></a>Bucket-eigenschappen
 Deze widget markeert het totale aantal buckets voor opslag.
-- Klik op de widget om de eigenschappen van S3-Bucket-rapport te bekijken.
+- Klik op de widget om de eigenschappen van de S3-Bucket-rapport weer te geven.
 
-### <a name="scan-status"></a>Scannen van Status
-Deze widget illustreert wanneer de laatste S3-scan is voltooid en wanneer er een wordt gestart.
+### <a name="scan-status"></a>Scanstatus
+Deze widget gemarkeerd wanneer de laatste scan voor S3 is uitgevoerd en wanneer het volgende object wordt gestart.
 - Klik op de widget om te openen van het statusrapport S3 scannen.
 
-### <a name="storage-by-bucket"></a>Opslag door Bucket
-Deze widget markeert het percentage dat elke klasse bucket-opslag gebruikt.
-- Klik op de widget om de distributie van de grootte van de S3-rapport te openen. Het rapport kunt u de grootte van uw S3 door bucket bronmap, opslag en de versieregistratietstatus analyseren.
+### <a name="storage-by-bucket"></a>Opslag per Bucket
+Deze widget markeert het percentage dat elke bucket opslag-klasse wordt gebruikt.
+- Klik op de widget om de distributie van de grootte van de S3-rapport te openen. Het rapport kunt u de grootte van uw S3 door bucket, op het hoogste niveau map, opslagklasse en versieregistratietstatus kunt analyseren.
 
-### <a name="number-of-objects-by-bucket"></a>Aantal objecten dat door Bucket
-Deze widget wordt het aantal objecten per bucket in werkelijke nummer en percentage gemarkeerd. Beweeg de muisaanwijzer over de bucket om te zien van het totale aantal objecten.
-- Klik op de widget om de distributie van de grootte van de S3-rapport (Scan gebaseerd) te openen.
+### <a name="number-of-objects-by-bucket"></a>Aantal objecten per Bucket
+Deze widget ziet u het aantal objecten per bucket in het werkelijke aantal en percentage. Beweeg de muisaanwijzer over de bucket om te zien van het totale aantal objecten.
+- Klik op de widget om de distributie van de grootte van de S3-rapport (Scan op basis van) te openen.
 
-## <a name="cloud-comparison-dashboard"></a>Dashboard voor cloud-vergelijking
-Het dashboard Cloud vergelijking helpt bij het vergelijken van kosten van verschillende cloud-providers op basis van de prijzen, het type van de CPU en RAM-geheugen.  
-![Dashboard voor cloud-vergelijking](./media/dashboards/cloud-comparison-dashboard.png)
+## <a name="cloud-comparison-dashboard"></a>Dashboard van cloud-vergelijking
+Het dashboard van de vergelijking van de Cloud helpt bij het vergelijken van de kosten van verschillende cloudproviders op basis van de prijzen, het type van de CPU en RAM-geheugen.  
+![Dashboard van cloud-vergelijking](./media/dashboards/cloud-comparison-dashboard.png)
 
-### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Kosten in Azure door Type sjabloonexemplaar
-Deze widget licht de afgelopen 30 dagen van gebruik in de tarieven voor op aanvraag. Deze comares de kosten met de huidige Amazon EC2 kosten tegenover eventuele kosten in Azure.
-- Beweeg de muisaanwijzer over de balken kosten per type sjabloonexemplaar vergelijken.
-- Klik op de widget om te openen van het overdragen van de implementatie – kosten analyserapport.
+### <a name="ec2-cost-in-azure-by-instance-type"></a>EC2 Kosten bij Azure door exemplaartype
+Deze widget markeert de afgelopen 30 dagen gebruikt is in on-demand-tarieven. De kosten met de huidige Amazon EC2-kosten versus de mogelijke in Azure kosten worden vergeleken.
+- Beweeg de muisaanwijzer over de balken kosten per Instantietype vergelijken.
+- Klik op de widget als u wilt het overdragen van de implementatie – kostenanalyserapport openen.
 
-### <a name="ec2-cost-in-azure"></a>EC2 Kosten in Azure
-Deze widget geeft de kosten van uw huidige Amazon EC2 en vergelijkt ze met Azure. De vergelijking is gebaseerd op de laatste 30 dagen van gebruik in de tarieven voor op aanvraag.
-- Klik op de widget om te openen van het overdragen van de implementatie - analyserapport kosten.
+### <a name="ec2-cost-in-azure"></a>EC2-Kosten in Azure
+Deze widget geeft uw huidige kosten van Amazon EC2 en vergelijkt ze met Azure. De vergelijking is gebaseerd op de afgelopen 30 dagen gebruikt is in on-demand-tarieven.
+- Klik op de widget als u wilt het overdragen van de implementatie - kostenanalyserapport openen.
 
-### <a name="ec2azure-instance-type-mapping"></a>Toewijzing van het Type EC2/Azure-exemplaar
-Deze widget licht de beste toewijzing van elastische compute-eenheden tussen Amazon EC2 en Azure.
+### <a name="ec2azure-instance-type-mapping"></a>Toewijzing van het Type EC2/Azure-instantie
+Deze widget markeert de beste toewijzing van elastische rekeneenheden tussen Amazon EC2 en Azure.
 - Klik op de widget om het rapport exemplaren Type toewijzing te openen.
+
+## <a name="next-steps"></a>Volgende stappen
+- Lees de [met Cost Management rapporten](use-reports.md) artikel voor meer informatie over rapporten.

@@ -1,6 +1,6 @@
 ---
 title: Azure InfoBox UI-element | Microsoft Docs
-description: Beschrijft het Microsoft.Common.TextBlock UI-element voor Azure-portal.
+description: Beschrijft de Microsoft.Common.TextBlock UI-element voor Azure-portal.
 services: managed-applications
 documentationcenter: na
 author: tfitzmac
@@ -11,17 +11,21 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/30/2018
+ms.date: 06/15/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9507280bf5df1e63c81f0b2488b9676784c69812
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
+ms.openlocfilehash: abd1329f2ebac90bf846dfd5fc5b307ddb5e52bd
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260871"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35916334"
 ---
 # <a name="microsoftcommoninfobox-ui-element"></a>Microsoft.Common.InfoBox UI-element
-Een besturingselement dat wordt toegevoegd een vak met informatie.
+Een besturingselement waarmee een informatievenster worden toegevoegd. Het vak bevat belangrijke tekst of waarschuwingen die gebruikers helpen om te begrijpen van de waarden die ze bieden. Het kan ook koppelen aan een URI voor meer informatie.
+
+## <a name="ui-sample"></a>Voorbeeld van de gebruikersinterface
+![Microsoft.Common.InfoBox](./media/managed-application-elements/microsoft.common.infobox.png)
+
 
 ## <a name="schema"></a>Schema
 ```json
@@ -39,7 +43,7 @@ Een besturingselement dat wordt toegevoegd een vak met informatie.
 
 ## <a name="remarks"></a>Opmerkingen
 
-* Voor `icon`, gebruik **geen**, **Info**, **waarschuwing**, of **fout**.
+* Voor `icon`, gebruikt u **geen**, **Info**, **waarschuwing**, of **fout**.
 * De `uri` eigenschap is optioneel.
 
 ## <a name="sample-output"></a>Voorbeelduitvoer
@@ -49,5 +53,5 @@ Een besturingselement dat wordt toegevoegd een vak met informatie.
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een inleiding tot het maken van de definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
+* Zie voor een inleiding tot het maken van definities van de gebruikersinterface, [aan de slag met CreateUiDefinition](create-uidefinition-overview.md).
 * Zie voor een beschrijving van de algemene eigenschappen in de UI-elementen, [CreateUiDefinition elementen](create-uidefinition-elements.md).

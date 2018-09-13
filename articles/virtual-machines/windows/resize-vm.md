@@ -1,6 +1,6 @@
 ---
 title: Grootte van een Windows-VM in Azure met PowerShell | Microsoft Docs
-description: Het formaat van een virtuele Windows-computer in het Resource Manager-implementatiemodel, met Azure Powershell hebt gemaakt.
+description: Het formaat van een Windows-machine hebt gemaakt in het Resource Manager-implementatiemodel, met behulp van Azure Powershell.
 services: virtual-machines-windows
 documentationcenter: ''
 author: cynthn
@@ -15,37 +15,37 @@ ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
 ms.author: cynthn
-ms.openlocfilehash: 8854f694ce067aaa80a159430a9f48440bcdd95a
-ms.sourcegitcommit: 59fffec8043c3da2fcf31ca5036a55bbd62e519c
+ms.openlocfilehash: 6bd41115f586bf2969dacb772f097d84654f0306
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "34701867"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646133"
 ---
-# <a name="resize-a-windows-vm"></a>Een Windows VM vergroten of verkleinen
+# <a name="resize-a-windows-vm"></a>Formaat van een Windows VM
 
-Dit artikel ziet u een virtuele machine verplaatsen naar een andere [VM-grootte](sizes.md) met Azure Powershell.
+Dit artikel leest u hoe u een virtuele machine verplaatsen naar een andere [VM-grootte](sizes.md) met behulp van Azure Powershell.
 
-Nadat u een virtuele machine (VM) gemaakt, u kunt de virtuele machine omhoog of omlaag schalen door het wijzigen van de VM-grootte. In sommige gevallen moet u eerst de VM ongedaan. Dit kan gebeuren als de nieuwe grootte is niet beschikbaar op de hardware-cluster waarop de virtuele machine wordt gehost.
+Nadat u een virtuele machine (VM) maakt, u kunt de virtuele machine omhoog of omlaag schalen door het veranderen van de VM-grootte. In sommige gevallen moet u eerst de virtuele machine toewijzing. Dit kan gebeuren als de nieuwe grootte is niet beschikbaar op de hardware-cluster dat momenteel als host voor de virtuele machine fungeert.
 
-Als uw VM Premium-opslag gebruikt, zorg ervoor dat u kiest een **s** versie van de grootte van de Premium-opslag ondersteuning krijgen. Bijvoorbeeld kiezen Standard_E4**s**_v3 in plaats van Standard_E4_v3.
+Als uw virtuele machine maakt gebruik van Premium Storage, zorgt u ervoor dat u kiest een **s** versie van de grootte voor Premium Storage-ondersteuning. Bijvoorbeeld, kiest u Standard_E4**s**_v3 in plaats van Standard_E4_v3.
 
-## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Een Windows-VM niet in een beschikbaarheidsset vergroten of verkleinen
+## <a name="resize-a-windows-vm-not-in-an-availability-set"></a>Formaat van een Windows-VM niet in een beschikbaarheidsset
 
-Sommige variabelen worden ingesteld. De waarden vervangt door uw eigen gegevens.
+Sommige variabelen instellen. Vervang de waarden door uw eigen gegevens.
 
 ```powershell
 $resourceGroup = "myResourceGroup"
 $vmName = "myVM"
 ```
 
-Lijst van de VM-grootten die beschikbaar zijn op de hardware-cluster waarop de virtuele machine wordt gehost. 
+Lijst met de VM-grootten die beschikbaar zijn op de hardware-cluster waar de virtuele machine wordt gehost. 
    
 ```powershell
 Get-AzureRmVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
 ```
 
-Als de gewenste grootte wordt weergegeven, voer de volgende opdrachten om het formaat van de virtuele machine aan. Als de gewenste grootte niet wordt weergegeven, gaat u naar stap 3.
+Als de gewenste grootte wordt weergegeven, voer de volgende opdrachten om het formaat van de virtuele machine aan. Als de gewenste grootte niet wordt vermeld, gaat u naar stap 3.
    
 ```powershell
 $vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName
@@ -53,7 +53,7 @@ $vm.HardwareProfile.VmSize = "<newVMsize>"
 Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
 ```
 
-Als de gewenste grootte niet wordt weergegeven, voer de volgende opdrachten toewijzing van de virtuele machine, het formaat en opnieuw opstarten van de virtuele machine. Replease **<newVMsize>** met de gewenste grootte.
+Als de gewenste grootte niet wordt weergegeven, voer de volgende opdrachten toewijzing van de virtuele machine, wijzig de grootte ervan, en start de VM opnieuw. Vervang **<newVMsize>** met de gewenste grootte.
    
 ```powershell
 Stop-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName -Force
@@ -64,26 +64,26 @@ Start-AzureRmVM -ResourceGroupName $resourceGroup -Name $vmName
 ```
 
 > [!WARNING]
-> Toewijzing van de virtuele machine versies dynamische IP-adressen toegewezen aan de virtuele machine. Het besturingssysteem en de gegevensschijven worden niet getroffen. 
+> De toewijzing van de virtuele machine ongedaan maken een dynamische IP-adressen toegewezen aan de virtuele machine worden vrijgegeven. Het besturingssysteem en gegevensschijven worden niet beïnvloed. 
 > 
 > 
 
-## <a name="resize-a-windows-vm-in-an-availability-set"></a>Een virtuele machine van Windows in een beschikbaarheidsset vergroten of verkleinen
+## <a name="resize-a-windows-vm-in-an-availability-set"></a>Formaat van een virtuele Windows-machine in een beschikbaarheidsset
 
-Als de nieuwe grootte voor een virtuele machine in een beschikbaarheidsset niet beschikbaar is op de hardware-cluster momenteel de virtuele machine host is, moet alle VM's in de beschikbaarheidsset aan om de grootte van de virtuele machine te ongedaan. Ook is het mogelijk om bij te werken van de grootte van andere virtuele machines in de beschikbaarheidsset nadat er één virtuele machine is gewijzigd. Als u een virtuele machine in een beschikbaarheidsset, moet u de volgende stappen uitvoeren.
+Als de nieuwe grootte voor een virtuele machine in een beschikbaarheidsset niet beschikbaar op de hardware-cluster op dit moment de virtuele machine die als host fungeert is, klikt u vervolgens moet alle virtuele machines in de beschikbaarheidsset ongedaan worden gemaakt om de grootte van de virtuele machine te. Ook is het mogelijk om bij te werken van de grootte van andere virtuele machines in de beschikbaarheidsset nadat een virtuele machine is gewijzigd. Als u wilt het formaat van een virtuele machine in een beschikbaarheidsset, moet u de volgende stappen uitvoeren.
 
 ```powershell
 $resourceGroup = "myResourceGroup"
 $vmName = "myVM"
 ```
 
-Lijst van de VM-grootten die beschikbaar zijn op de hardware-cluster waarop de virtuele machine wordt gehost. 
+Lijst met de VM-grootten die beschikbaar zijn op de hardware-cluster waar de virtuele machine wordt gehost. 
    
 ```powershell
 Get-AzureRmVMSize -ResourceGroupName $resourceGroup -VMName $vmName 
 ```
 
-Als de gewenste grootte wordt weergegeven, voer de volgende opdrachten om het formaat van de virtuele machine aan. Als deze niet wordt weergegeven, gaat u naar de volgende sectie.
+Als de gewenste grootte wordt weergegeven, voer de volgende opdrachten om het formaat van de virtuele machine aan. Als deze niet wordt vermeld, gaat u naar de volgende sectie.
    
 ```powershell
 $vm = Get-AzureRmVM -ResourceGroupName $resourceGroup -VMName $vmName 
@@ -91,9 +91,9 @@ $vm.HardwareProfile.VmSize = "<newVmSize>"
 Update-AzureRmVM -VM $vm -ResourceGroupName $resourceGroup
 ```
     
-Als de grootte die u wilt dat niet wordt weergegeven, gaat u verder met de volgende stappen uit op alle VM's in de beschikbaarheidsset ongedaan vergroten of verkleinen van virtuele machines en het opnieuw.
+Als de gewenste grootte niet wordt vermeld, gaat u verder met de volgende stappen voor toewijzing ongedaan maken van alle virtuele machines in de beschikbaarheidsset, vergroten of verkleinen van virtuele machines en start deze opnieuw.
 
-Stop alle VM's in de beschikbaarheidsset.
+Stop alle virtuele machines in de beschikbaarheidsset.
    
 ```powershell
 $as = Get-AzureRmAvailabilitySet -ResourceGroupName $resourceGroup
@@ -105,7 +105,7 @@ foreach ($vmId in $vmIDs){
     } 
 ```
 
-De grootte wijzigen en opnieuw opstarten van de virtuele machines in de beschikbaarheidsset.
+Het formaat en de virtuele machines opnieuw opstarten in de beschikbaarheidsset.
    
 ```powershell
 $newSize = "<newVmSize>"
@@ -123,5 +123,5 @@ $vmIds = $as.VirtualMachinesReferences
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Voor extra schaalbaarheid, meerdere exemplaren van de VM uitvoeren en uitbreiden. Zie voor meer informatie [automatisch schalen van Windows-machines in een virtuele-Machineschaalset](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
+Voor extra schaalbaarheid, uitvoeren van meerdere VM-exemplaren en de schaal vergroten. Zie voor meer informatie, [Windows-machines automatisch schalen in een virtuele-Machineschaalset](../../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md).
 

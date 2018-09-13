@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 097eba4f5bcbb74d4158cc8d4135255d31e03ebd
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 4e1456064e35b55871638e9eeb34859194cb869b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44027007"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714901"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Externe bewaking accelerator overzicht van de oplossing
 
@@ -50,7 +50,7 @@ U kunt fysieke apparaten vanuit het dashboard in de portal van de oplossing inri
 
 ### <a name="device-simulation-microservice"></a>Apparaat simulatie microservice
 
-De oplossing omvat de [apparaat simulatie microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation) waarmee u kunt een pool van gesimuleerde apparaten beheren vanaf het dashboard van de oplossing voor het testen van de end-to-end-stroom in de oplossing. De gesimuleerde apparaten:
+De oplossing omvat de [apparaat simulatie microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-simulation) waarmee u een groep gesimuleerde apparaten beheren vanuit de portal van de oplossing voor het testen van de end-to-end-stroom in de oplossing. De gesimuleerde apparaten:
 
 * Apparaat-naar-cloud telemetrie genereren.
 * Reageren op cloud-naar-apparaat methodeaanroepen van IoT-Hub.
@@ -87,9 +87,9 @@ Deze service wordt ook uitgevoerd IoT Hub query's om op te halen die behoren tot
 
 De microservices biedt een RESTful-eindpunt voor het beheren van apparaten en apparaatdubbels, aanroepen van methoden en IoT Hub-query's uitvoeren.
 
-### <a name="telemetry-microservice"></a>Telemetrie microservice
+### <a name="device-telemetry-microservice"></a>Apparaat telemetrie microservice
 
-De [telemetrie microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry) biedt een RESTful-eindpunt voor lezen-toegang tot telemetrie van apparaten, CRUD-bewerkingen op regels en de toegang voor lezen/schrijven voor definities van de waarschuwing uit de opslag.
+De [apparaat telemetrie microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/device-telemetry) biedt een RESTful-eindpunt voor lezen-toegang tot telemetrie van apparaten die zijn opgeslagen in Time Series Insights. De RESTful-eindpunt kan ook CRUD-bewerkingen op regels en toegang voor lezen/schrijven voor definities van de waarschuwing uit de opslag.
 
 ### <a name="storage-adapter-microservice"></a>Opslag-adapter microservice
 
@@ -99,21 +99,27 @@ Waarden zijn ingedeeld in verzamelingen. U kunt werken op de afzonderlijke waard
 
 De service biedt een RESTful-eindpunt voor CRUD-bewerkingen op sleutel / waarde-paren. Waarden
 
-### <a name="cosmos-db"></a>Cosmos DB
+### <a name="azure-cosmos-db"></a>Azure Cosmos DB
 
-Maakt gebruik van de standaardimplementatie van de solution accelerator [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) als de belangrijkste storage-service.
+Solution accelerator implementaties gebruiken [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/) voor het opslaan van regels, waarschuwingen, configuratie-instellingen en alle andere koude opslag.
 
 ### <a name="azure-stream-analytics-manager-microservice"></a>Azure Stream Analytics manager microservice
 
 De [Azure Stream Analytics manager microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/asa-manager) Azure Stream Analytics (ASA)-taken, inclusief het instellen van de configuratie hiervan, starten en stoppen en hun status controleren worden beheerd.
 
-De ASA-taak wordt ondersteund door twee sets van verwijzingsgegevens. Definieert u regels voor één gegevensset en een apparaatgroepen definieert. De referentiegegevens regels is gegenereerd op basis van de informatie die wordt beheerd door de telemetrie-microservice. De Azure Stream Analytics manager microservice transformeert telemetrie regels naar logica voor de verwerking van stromen.
+De ASA-taak wordt ondersteund door twee sets van verwijzingsgegevens. Definieert u regels voor één gegevensset en een apparaatgroepen definieert. De referentiegegevens regels is gegenereerd op basis van de informatie die wordt beheerd door het apparaat telemetrie-microservice. De Azure Stream Analytics manager microservice transformeert telemetrie regels naar logica voor de verwerking van stromen.
 
 De referentiegegevens voor groepen van apparaten wordt gebruikt om te bepalen welke groep van regels toe te passen op een binnenkomende telemetrie-bericht. De groepen apparaten worden beheerd door de configuratie van microservice en gebruik Azure IoT Hub apparaatdubbel-query's.
+
+De ASA-jobs ervoor zorgen dat de telemetrie van de verbonden apparaten Time Series Insights voor opslag en analyse.
 
 ### <a name="azure-stream-analytics"></a>Azure Stream Analytics
 
 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) is een engine voor gebeurtenisverwerking waarmee u grote volumes aan gegevensstromen van apparaten onderzoeken.
+
+### <a name="azure-time-series-insights"></a>Azure Time Series Insights
+
+[Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) winkels de telemetrie van de apparaten die zijn verbonden met de oplossingsversnellers. Ook kunt met visualiseren en query's telemetrie van apparaten in de web-UI van de oplossing.
 
 ### <a name="configuration-microservice"></a>Configuratie van microservice
 
@@ -125,7 +131,7 @@ De [verificatie en autorisatie microservice](https://github.com/Azure/remote-mon
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Maakt gebruik van de standaardimplementatie van de solution accelerator [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) als OpenID Connect-provider. Azure Active Directory gebruikersgegevens worden opgeslagen en vindt u certificaten voor het valideren van JWT-token handtekeningen. 
+Solution accelerator implementaties gebruiken [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/) als OpenID Connect-provider. Azure Active Directory gebruikersgegevens worden opgeslagen en vindt u certificaten voor het valideren van JWT-token handtekeningen.
 
 ## <a name="presentation"></a>Presentatie
 
@@ -142,13 +148,15 @@ De gebruikersinterface geeft alle functionaliteit van de solution accelerator en
 * De verificatie en autorisatie microservice om gebruikersgegevens te beschermen.
 * De IoT Hub manager microservice weergeven en beheren van de IoT-apparaten.
 
+De gebruikersinterface kan worden geïntegreerd met de Azure Time Series Insights-Verkenner om in te schakelen van query's en analyse van de telemetrie van apparaten.
+
 De configuratie van microservice kunt de gebruikersinterface voor het opslaan en ophalen van configuratie-instellingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 Als u de documentatie van de bron-code en ontwikkelaars verkennen wilt, begint u met een van de twee GitHub-opslagplaatsen:
 
-* [De oplossingsversneller voor externe controle met Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/).
+* [De oplossingsversneller voor externe controle met Azure IoT (.NET)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet).
 * [De oplossingsversneller voor externe controle met Azure IoT (Java)](https://github.com/Azure/azure-iot-pcs-remote-monitoring-java).
 
 Gedetailleerde oplossing architectuurdiagrammen:

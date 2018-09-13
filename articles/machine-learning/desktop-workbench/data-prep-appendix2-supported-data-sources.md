@@ -1,27 +1,27 @@
 ---
-title: Ondersteunde gegevensbronnen beschikbaar met voorbereiden van gegevens van Azure Machine Learning | Microsoft Docs
-description: Dit document bevat een volledige lijst met ondersteunde gegevensbronnen beschikbaar voor het voorbereiden van gegevens van Azure Machine Learning.
+title: Ondersteunde gegevensbronnen beschikbaar voor gegevensvoorbereiding van Azure Machine Learning | Microsoft Docs
+description: Dit document bevat een volledige lijst met ondersteunde gegevensbronnen beschikbaar voor gegevensvoorbereiding van Azure Machine Learning.
 services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 1a6ef0b928bd9a2d21db68a0d5476357b1d32dd1
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 88ed4fa43e5724cfe1d6f1555db947d77045cd2e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831544"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646469"
 ---
-# <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Ondersteunde gegevensbronnen voor Azure Machine Learning gegevens voorbereiden 
-In dit artikel bevat een overzicht van de momenteel ondersteunde gegevensbronnen voor Azure Machine Learning gegevens voorbereiden.
+# <a name="supported-data-sources-for-azure-machine-learning-data-preparation"></a>Ondersteunde gegevensbronnen voor gegevensvoorbereiding van Azure Machine Learning 
+In dit artikel bevat een overzicht van de momenteel ondersteunde gegevensbronnen voor gegevensvoorbereiding van Azure Machine Learning.
 
 De ondersteunde gegevensbronnen voor deze release zijn als volgt.
 
@@ -32,23 +32,23 @@ Lezen van on-premises SQL server of Azure SQL-database.
 
 #### <a name="options"></a>Opties
 - Serveradres
-- Servers (Even wanneer het certificaat op de server niet geldig is. Wees voorzichtig)
+- Vertrouwen van de Server (zelfs wanneer het certificaat op de server niet geldig is. Wees voorzichtig)
 - Verificatietype (Windows, Server)
 - Gebruikersnaam
 - Wachtwoord
-- Verbinding maken met database
+- Database verbinding maken met
 - SQL-Query
 
 #### <a name="notes"></a>Opmerkingen
-- SQL-variant-kolommen worden niet ondersteund
-- Time-kolom wordt geconverteerd naar datetime door toe te voegen tijd uit de database tot datum 1970/1/1
-- Uitgevoerd op Spark-cluster, alle gegevens van de bijbehorende kolommen (date, datetime, datetime2, datetimeoffset) onjuiste waarden voor datums vóór 1583 evalueren
-- Waarden in decimale kolommen mogelijk minder nauwkeurig vanwege conversie naar decimaal
+- SQL-variant kolommen worden niet ondersteund
+- Time-kolom wordt geconverteerd naar datum/tijd door toe te voegen van de tijd van de database op datum 1970/1/1
+- Uitgevoerd op Apache Spark-cluster, alle gegevens van de bijbehorende kolommen (datum, datum/tijd, datetime2, datetimeoffset) onjuiste waarden voor datums voordat 1583 evalueren
+- Waarden in decimale kolommen mogelijk minder nauwkeurig vanwege de conversie naar een decimaal
 
-### <a name="directory-vs-file"></a>Directory versus bestand
-Kies één bestand en het in het voorbereiden van gegevens gelezen. Het bestandstype wordt geparseerd om te bepalen van de standaardparameters voor de bestand-verbinding op het volgende scherm wordt weergegeven.
+### <a name="directory-vs-file"></a>Map en bestand
+Kies een enkel bestand en lezen in de gegevens voor te bereiden. Het bestandstype wordt geparseerd om te bepalen van de standaardparameters voor de verbinding van de bestanden in het volgende scherm wordt weergegeven.
 
-Kies een map of een aantal bestanden in een map (de bestandskiezer is meervoudige selectie). Met de methode worden de bestanden worden gelezen als een enkele gegevensstroom en worden toegevoegd aan elkaar met kopteksten verwijderd, indien nodig.
+Kies een map of een set van bestanden in een map (de bestandenkiezer is meervoudige selectie). Met beide benaderingen, worden de bestanden worden gelezen als een enkel gegevensstroom en worden toegevoegd aan elkaar worden verbonden, met de headers verwijderd, indien nodig.
 
 De ondersteunde bestandstypen zijn:
 - Gescheiden (CSV, .tsv, txt, enz.)
@@ -57,7 +57,7 @@ De ondersteunde bestandstypen zijn:
 - JSON-bestand
 
 ### <a name="csv-file"></a>CSV-bestand
-Een bestand met door komma's gescheiden waarden lezen uit de opslag.
+Leest een bestand met door komma's gescheiden waarden uit de opslag.
 
 #### <a name="options"></a>Opties
 - Scheidingsteken
@@ -65,45 +65,45 @@ Een bestand met door komma's gescheiden waarden lezen uit de opslag.
 - Headers
 - Decimaalteken
 - Bestandscodering
-- Regels over te slaan
+- Regels om over te slaan
 
-### <a name="tsv-file"></a>TSV bestand
-Een bestand tabblad's gescheiden waarden lezen uit de opslag.
+### <a name="tsv-file"></a>TSV-bestand
+Leest een bestand tabblad gescheiden waarden uit de opslag.
 
 #### <a name="options"></a>Opties
 - Opmerking
 - Headers
 - Bestandscodering
-- Regels over te slaan
+- Regels om over te slaan
 
 ### <a name="excel-xlsxlsx"></a>Excel (.xls/.xlsx)
-Een Excel-bestand een blad tegelijk lezen door bladnaam of nummer te geven.
+Een Excel-werkblad een op het bestand op een tijdstip gelezen door het de bladnaam of nummer op te geven.
 
 #### <a name="options"></a>Opties
-- Bladnaam of een cijfer
+- Bladnaam of nummer
 - Headers
-- Regels over te slaan
+- Regels om over te slaan
 
 ### <a name="json-file"></a>JSON-bestand
-Een JSON-bestand gelezen uit de opslag. Het bestand wordt "afgevlakt" bij lezen.
+Lees een JSON-bestand uit de opslag. Het bestand is "afgevlakt" op lezen.
 
 #### <a name="options"></a>Opties
 - Geen
 
-### <a name="parquet"></a>Parketvloeren
-Lees een gegevensset parketvloeren ofwel één bestand of map.
+### <a name="parquet"></a>Parquet
+Lees een verzameling Parquet, ofwel een enkel bestand of een map.
 
-Parketvloeren als een indeling verschillende vormen in de opslag aannemen kan. Een bestand één .parquet wordt soms gebruikt voor kleinere gegevenssets. Verschillende Python-bibliotheken ondersteuning voor lezen of schrijven naar één .parquet bestanden. Momenteel worden gegevens voorbereiden voor Azure Machine Learning afhankelijk van de PyArrow Python-bibliotheek voor het lezen van parketvloeren tijdens het gebruik van lokale interactieve. Het ondersteunt één .parquet-bestanden (zolang ze zijn geschreven als zodanig en niet als onderdeel van een grotere set gegevens), evenals parketvloeren gegevenssets.
+Parquet als een indeling verschillende vormen in de opslag aannemen kan. Voor kleinere gegevenssets, wordt een bestand één .parquet soms gebruikt. Verschillende Python-bibliotheken ondersteuning voor lezen of schrijven naar één .parquet bestanden. Dit moment is gegevensvoorbereiding van Azure Machine Learning afhankelijk van de PyArrow Python-clientbibliotheek voor het lezen van Parquet tijdens lokale interactief gebruik. Deze biedt ondersteuning voor één .parquet bestanden (zolang ze zijn geschreven als zodanig en niet als onderdeel van een grotere set gegevens), evenals Parquet-gegevenssets.
 
-Een gegevensset parketvloeren is een verzameling van meer dan één .parquet-bestand, die elk een kleinere partitie van een grotere set gegevens vertegenwoordigen. Gegevenssets gewoonlijk zijn opgenomen in een map en de indeling standaard parketvloeren uitvoer voor platforms zoals Spark en Hive zijn.
+Een gegevensset Parquet is een verzameling van meer dan één .parquet-bestand, die elk een kleinere partitie van een grotere set gegevens vertegenwoordigt. Data-sets gewoonlijk zijn opgenomen in een map en zijn de standaard parquet-uitvoerindeling voor platforms als Spark en Hive.
 
 >[!NOTE]
->Wanneer u parketvloeren gegevens die zich in een map met meerdere .parquet bestanden leest, is het veiligste selecteren de map voor lezen, en de **parketvloeren gegevensset** optie. Hierdoor kunt u de hele map in plaats van de afzonderlijke bestanden lezen PyArrow. Dit zorgt ervoor ondersteuning voor het ingewikkelder manieren van het parketvloeren opslaan op schijf, zoals het partitioneren van de map lezen.
+>Wanneer u Parquet-gegevens die zich in een map met meerdere .parquet bestanden leest, is het verstandig om te selecteren van de map om te lezen, en de **Parquet-gegevensset** optie. Hierdoor kunt u PyArrow lezen van de hele map in plaats van de afzonderlijke bestanden. Dit zorgt ervoor ondersteuning voor het lezen van complexe berekeningen manieren van het Parquet opslaan op schijf, zoals het partitioneren van de map.
 
-Uitvoering van de scale-out is afhankelijk van de Spark parketvloeren lezen van de mogelijkheden en ondersteunt afzonderlijke bestanden en mappen, vergelijkbaar met lokale interactief gebruik.
+Uitvoering van de scale-out is afhankelijk van de Spark-Parquet lezen van de mogelijkheden en biedt ondersteuning voor afzonderlijke bestanden en mappen, vergelijkbaar met lokale interactief gebruik.
 
 #### <a name="options"></a>Opties
-- Parketvloeren gegevensset. Deze optie wordt bepaald of gegevens voorbereiden voor Azure Machine Learning wordt een bepaalde directory uitgebreid en probeert dan te lezen van elk bestand afzonderlijk (de niet-geselecteerde modus), of of de map worden beschouwd als de volledige set gegevens (de geselecteerde modus). Met de geselecteerde modus kiest PyArrow de beste manier om de bestanden worden geïnterpreteerd.
+- Parquet-gegevensset. Deze optie bepaalt u of gegevensvoorbereiding van Azure Machine Learning gaat verder in een bepaalde directory en probeert te lezen van elk bestand afzonderlijk (de niet-geselecteerde modus), of of de map wordt beschouwd als de volledige set gegevens (de geselecteerde modus). Met de geselecteerde modus kiest PyArrow de beste manier om de bestanden worden geïnterpreteerd.
 
 
 ## <a name="locations"></a>Locaties
@@ -111,8 +111,8 @@ Uitvoering van de scale-out is afhankelijk van de Spark parketvloeren lezen van 
 Een lokale vaste schijf of een toegewezen netwerkstation opslaglocatie.
 
 ### <a name="sql-server"></a>SQL Server
-On-premises SQL Server gebruikt, of Azure SQL-database.
+On-premises SQL Server, of Azure SQL-database.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
-Azure Blob storage, een Azure-abonnement vereist.
+Azure Blob storage, waarmee een Azure-abonnement vereist.
 

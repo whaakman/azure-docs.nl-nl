@@ -1,6 +1,6 @@
 ---
-title: Analyse van de gebruiker bewaren voor webtoepassingen met Azure Application Insights | Microsoft docs
-description: Hoeveel gebruikers terug naar uw app?
+title: Analyse van de gebruikers bewaren voor web-apps met Azure Application Insights | Microsoft docs
+description: Hoeveel gebruikers terugkomen naar uw app?
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -9,45 +9,46 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2017
 ms.author: mbullwin
-ms.openlocfilehash: bafe9579cc783dbc5c851e626e3b9bea0c559520
-ms.sourcegitcommit: 870d372785ffa8ca46346f4dfe215f245931dae1
+ms.openlocfilehash: 6e042034d52551d58e290b54ca3547dedbc89c47
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/08/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643955"
 ---
-# <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analyse van de gebruiker bewaren voor webtoepassingen met Application Insights
+# <a name="user-retention-analysis-for-web-applications-with-application-insights"></a>Analyse van de gebruikers bewaren voor web-apps met Application Insights
 
-De functie bewaren in [Azure Application Insights](app-insights-overview.md) helpt u hoeveel gebruikers terug naar uw app en hoe vaak ze bepaalde taken uitvoeren of bereiken van doelen analyseren. Als u een game site uitvoert, kan u bijvoorbeeld de aantallen gebruikers die terug naar de site na het verlies van een game met het nummer en nadat winnen retourneren vergelijken. Deze informatie kunt u zowel uw gebruikerservaring en de bedrijfsstrategie verbeteren.
+De functie bewaren in [Azure Application Insights](app-insights-overview.md) helpt u hoeveel gebruikers terug naar uw app, en hoe vaak ze specifieke taken uitvoeren of bereiken van de doelstellingen analyseren. Als u een game site uitvoert, kan u bijvoorbeeld de nummers van gebruikers die naar de site terugkeert na het verlies van een spel met het nummer en nadat de winnende retourneren vergelijken. Aan de hand van deze kennis kunt u zowel uw gebruikerservaring en uw strategie voor zakelijke verbeteren.
 
 ## <a name="get-started"></a>Aan de slag
 
-Als er geen gegevens in het hulpprogramma bewaren in de Application Insights-portal nog [informatie over het aan de slag met het gebruik van hulpprogramma's voor](app-insights-usage-overview.md).
+Als er geen gegevens in het programma retentie in de Application Insights-portal nog [meer informatie over het aan de slag met de hulpprogramma's voor gebruik](app-insights-usage-overview.md).
 
-## <a name="the-retention-tool"></a>Het hulpprogramma bewaren
+## <a name="the-retention-tool"></a>Het programma retentie
 
 ![Retentie-informatie](./media/app-insights-usage-retention/retention.png)
 
-1. De werkbalk kan gebruikers maken van nieuwe bewaren, bestaande bewaren rapporten openen, huidige bewaren rapport opslaan of niet opslaan omdat wijzigingen aangebracht in de opgeslagen rapporten terug te draaien, gegevens in het rapport te vernieuwen, rapport via e-mail of directe koppeling te delen en toegang de documentatie tot pagina. 
-2. Standaard bevat bewaren alle gebruikers die u hebt vervolgens terug documentatie en iets anders heeft gedurende een periode. U kunt andere combinatie van gebeurtenissen naar toespitsen op specifieke gebruikersactiviteiten selecteren.
-3. Een of meer filters toevoegen op Eigenschappen. Bijvoorbeeld, kunt u zich richten op gebruikers in een bepaald land of regio. Klik op **Update** na het instellen van de filters. 
-4. De algehele bewaren grafiek bevat een overzicht van de gebruiker bewaren in de geselecteerde periode. 
-5. Het raster toont het aantal gebruikers dat volgens de opbouwfunctie voor query's in #2 wordt bewaard. Elke rij vertegenwoordigt een cohort van gebruikers die een gebeurtenis in de weergegeven tijd uitgevoerd. Elke cel in de rij bevat ten minste eenmaal in een latere periode hoeveel die cohort geretourneerd. Sommige gebruikers mogelijk geretourneerd uit meer dan één periode. 
-6. De kaarten insights weergeven bovenste vijf gang worden gezet en bovenste vijf geretourneerde gebeurtenissen om gebruikers een beter begrip van de retentie-rapport 
+1. De werkbalk kan gebruikers nieuwe bewaarperiode rapporten maken, bestaande retentie rapporten openen, huidige bewaarperiode rapport opslaan of opslaan als, wijzigingen aangebracht in de opgeslagen rapporten ongedaan maken, gegevens in het rapport vernieuwen, rapport via e-mail of een directe koppeling delen en toegang tot de documentatie de pagina. 
+2. Standaard toont de bewaarperiode alle gebruikers die u hebt vervolgens zijn teruggekomen en hebt iets anders gedurende een periode. U kunt andere combinatie van gebeurtenissen naar toespitsen op specifieke gebruikersactiviteiten selecteren.
+3. Voeg een of meer filters op Eigenschappen. Bijvoorbeeld, kunt u zich richten op gebruikers in een bepaald land of regio. Klik op **Update** na het instellen van de filters. 
+4. De grafiek met totale retentie bevat een overzicht van gebruikersretentie in de geselecteerde periode. 
+5. Het raster bevat het aantal gebruikers op basis van de opbouwfunctie voor query's in #2 wordt bewaard. Elke rij vertegenwoordigt een cohort van gebruikers die een gebeurtenis in de weergegeven tijd uitgevoerd. Elke cel in de rij laat zien hoe vaak deze cohort geretourneerd ten minste één keer in een latere periode. Sommige gebruikers kunnen in meer dan één punt retourneren. 
+6. De insights-kaarten weergeven top vijf initiërende gebeurtenissen en de top vijf geretourneerde gebeurtenissen, zodat gebruikers een beter begrip van hun rapport bewaren. 
 
-![Bewaartermijn muis aanwijzen](./media/app-insights-usage-retention/hover.png)
+![Aanwijzen met de muis bewaren](./media/app-insights-usage-retention/hover.png)
 
-Gebruikers kunnen de muisaanwijzer cellen in het hulpprogramma bewaren voor toegang tot het analytics-knop en knopinfo zijn waarin wordt uitgelegd wat de cel betekent. De knop Analytics, kunnen gebruikers voor het Analytics-hulpprogramma met een vooraf ingestelde query voor het genereren van gebruikers van de cel. 
+Gebruikers kunnen Beweeg de muisaanwijzer over de cellen in het programma retentie voor toegang tot de analytics-knop en knopinfo zijn waarin wordt uitgelegd wat de cel betekent. De knop Analytics leidt gebruikers naar het Analytics-hulpprogramma met een vooraf gevulde query voor het genereren van gebruikers van de cel. 
 
 ## <a name="use-business-events-to-track-retention"></a>Gebruik zakelijke gebeurtenissen bijhouden bewaren
 
-Als u de nuttigste retentie-analyse, meten gebeurtenissen waarbij aanzienlijke zakelijke activiteiten. 
+Als u de handigste retentie-analyse, meten gebeurtenissen die staan voor belangrijke zakelijke activiteiten. 
 
-Bijvoorbeeld: veel gebruikers mogelijk open een pagina in uw app zonder het spel dat wordt weergegeven. Alleen de paginaweergaven bijhouden, zou een onnauwkeurige schatting maken van hoeveel mensen terugkeren om in te spelen na eerder genieten daarom bieden. Als u een duidelijk beeld van spelers retourneren, moet uw app een aangepaste gebeurtenis wanneer een gebruiker daadwerkelijk speelt verzenden.  
+Veel gebruikers mogelijk een pagina bijvoorbeeld geopend in uw app zonder het spel dat wordt weergegeven. Alleen de paginaweergaven bijhouden, zou een onjuiste schatting van hoeveel mensen keer terug naar het spel spelen na eerder genieten daarom bieden. Als u een helder beeld van de spelers, moet uw app een aangepaste gebeurtenis wanneer een gebruiker daadwerkelijk wordt afgespeeld verzenden.  
 
-Het is raadzaam om aangepaste gebeurtenissen die belangrijke zakelijke acties vertegenwoordigt code en dit beleid gebruiken voor uw analyse bewaren. Voor het vastleggen van de game uitkomst, moet u een regel van een aangepaste gebeurtenis verzenden naar Application Insights-code schrijven. Als u deze in de code van de webpagina's of in Node.JS schrijft, als volgt uitziet:
+Het is raadzaam om Codeer aangepaste gebeurtenissen die staan voor belangrijke zakelijke acties en gebruik deze voor uw analyse bewaren. Voor het vastleggen van het spel resultaat, moet u een regel code voor het verzenden van een aangepaste gebeurtenis naar Application Insights schrijven. Als u dit in de code van de webpagina's of in Node.JS schrijven, wordt deze ziet er als volgt uit:
 
 ```JavaScript
     appinsights.trackEvent("won game");
@@ -63,8 +64,8 @@ Of in de servercode ASP.NET:
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Om in te schakelen ervaringen gebruik, beginnen met het verzenden [aangepaste gebeurtenissen](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) of [paginaweergaven](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
-- Als u al aangepaste gebeurtenissen of paginaweergaven verzendt, gebruik de informatie over het gebruik hulpprogramma's voor meer informatie over hoe gebruikers gebruiken voor uw service.
+- Om in te schakelen gebruik ervaringen, beginnen met het verzenden [aangepaste gebeurtenissen](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#trackevent) of [paginaweergaven](https://docs.microsoft.com/azure/application-insights/app-insights-api-custom-events-metrics#page-views).
+- Als u aangepaste gebeurtenissen of paginaweergaven al verzendt, Verken de hulpprogramma's voor gebruik als u wilt weten hoe gebruikers gebruiken voor uw service.
     - [Gebruikers, sessies, gebeurtenissen](app-insights-usage-segmentation.md)
     - [Trechters](usage-funnels.md)
     - [Gebruikersstromen](app-insights-usage-flows.md)

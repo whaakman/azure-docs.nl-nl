@@ -1,31 +1,31 @@
 ---
-title: Verbinding maken met Azure Cosmos DB als een gegevensbron in Azure Machine Learning-Workbench | Microsoft Docs
-description: Dit document bevat een voorbeeld over verbinding maken met Azure Cosmos DB via Azure Machine Learning Workbench
+title: Verbinding maken met Azure Cosmos DB als een gegevensbron in Azure Machine Learning Workbench | Microsoft Docs
+description: Dit document bevat een voorbeeld van hoe u verbinding maakt met Azure Cosmos DB via Azure Machine Learning Workbench
 services: machine-learning
 author: cforbe
 ms.author: cforbe
 manager: mwinkle
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 09/11/2017
-ms.openlocfilehash: 20e23f41310b90c62eacb7279ea3da0eec376683
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 2d9562582a94b7c7aac5b972a7ef57b84eb9aa9e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830687"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646590"
 ---
 # <a name="connecting-to-azure-cosmos-db-as-a-data-source"></a>Verbinding maken met Azure Cosmos DB als een gegevensbron
-Dit artikel bevat een python voorbeeld kunt u verbinding maken met de Cosmos-database in de Azure Machine Learning-Workbench.
+In dit artikel bevat een python voorbeeld kunt u verbinding maken met Cosmos DB in Azure Machine Learning Workbench.
 
-## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>Azure DB die Cosmos-gegevens laden in het voorbereiden van gegevens
+## <a name="load-azure-cosmos-db-data-into-data-preparation"></a>Azure Cosmos DB-gegevens laden in het voorbereiden van gegevens
 
-Een nieuwe stroom van gegevens op basis van een script maken en het volgende script vervolgens gebruiken voor het laden van de gegevens uit Azure Cosmos DB. 
+Maak een nieuwe gegevensstroom op basis van een script en het volgende script vervolgens gebruiken voor het laden van de gegevens uit Azure Cosmos DB. 
 
 ```python
 import pydocumentdb
@@ -54,5 +54,5 @@ docs = client.ReadDocuments(coll['_self'])
 df = pd.DataFrame(list(docs))
 ```
 
-## <a name="other-data-source-connections"></a>Andere gegevensbronverbindingen
-Lees voor andere voorbeelden [voorbeeld extra bron gegevensverbindingen](data-prep-appendix8-sample-source-connections-python.md)
+## <a name="other-data-source-connections"></a>Andere verbindingen van rapportgegevensbronnen
+Lees voor andere voorbeelden [verbindingen aanvullende bron voorbeeld](data-prep-appendix8-sample-source-connections-python.md)

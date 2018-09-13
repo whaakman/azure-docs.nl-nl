@@ -1,36 +1,37 @@
 ---
-title: Azure Application Insights telemetrie in uw Java-web-app filteren | Microsoft Docs
-description: Verminderen het verkeer van telemetrie door het filteren van de gebeurtenissen die u hoeft niet te bewaken.
+title: Azure Application Insights-telemetrie in uw Java-web-app filteren | Microsoft Docs
+description: Verminder Telemetrisch verkeer gefilterd op de gebeurtenissen die u niet wilt bewaken.
 services: application-insights
-documentationcenter: 
+documentationcenter: ''
 author: mrbullwinkle
 manager: carmonm
 ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/23/2016
 ms.author: mbullwin
-ms.openlocfilehash: f9e061c010667bc18ac54e6546cc25339e9c0e3e
-ms.sourcegitcommit: e462e5cca2424ce36423f9eff3a0cf250ac146ad
+ms.openlocfilehash: 8ea431b3ab1836626fc6c7551f3bee24e4a3db86
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/01/2017
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643659"
 ---
 # <a name="filter-telemetry-in-your-java-web-app"></a>Filteren van telemetrie in uw Java-web-app
 
-Filters bieden een manier om de telemetrie selecteren die uw [Java-web-app naar Application Insights verzendt](app-insights-java-get-started.md). Er zijn een aantal out-of-the-box-filters die u kunt gebruiken en u kunt ook uw eigen aangepaste filters schrijven.
+Filters bieden een manier om te selecteren van de telemetrie die uw [Java-web-app wordt verzonden naar Application Insights](app-insights-java-get-started.md). Er zijn enkele out-of-the-box-filters die u kunt gebruiken en u kunt ook uw eigen aangepaste filters schrijven.
 
-De out-of-the-box-filters omvatten:
+De out-of-the-box-filters zijn onder andere:
 
-* Traceerniveau ernst
-* Specifieke URL's, trefwoorden of reactiecodes
-* Snel op netwerkaanvragen - aanvragen dat wil zeggen, waarop uw app heeft geantwoord op snel
+* Ernst traceerniveau
+* Specifieke URL's, trefwoorden of responscodes
+* Snel op netwerkaanvragen - dat wil zeggen, aanvragen waarop uw app heeft gereageerd op snel
 * Namen van de specifieke gebeurtenis
 
 > [!NOTE]
-> Filters leiden tot onjuiste de metrische gegevens van uw app. U kunt bijvoorbeeld besluiten dat een filter te verwijderen van snelle responstijden om op te sporen trage reacties, wordt ingesteld. Maar u moet rekening houden dat de gemiddelde reactietijd van gerapporteerd door de Application Insights vervolgens lager dan de waarde true snelheid zijn en het aantal aanvragen wordt niet kleiner zijn dan het werkelijke aantal.
+> Filters scheeftrekken de metrische gegevens van uw app. U kunt bijvoorbeeld besluiten dat een filter te verwijderen van snelle responstijden om te kunnen vaststellen trage reacties, wordt ingesteld. Maar u moet zich op de hoogte dat de gemiddelde reactietijden gerapporteerd door Application Insights vervolgens lager dan de waarde true snelheid zijn en het aantal aanvragen kleiner dan het werkelijke aantal is.
 > Als dit een probleem is, gebruikt u [steekproeven](app-insights-sampling.md) in plaats daarvan.
 
 ## <a name="setting-filters"></a>Filters instellen
@@ -88,11 +89,11 @@ Voeg ApplicationInsights.xml, een `TelemetryProcessors` sectie zoals in dit voor
 
 
 
-[Inspecteer de volledige set van ingebouwde processors](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
+[Inspecteer de volledige set van processors die zijn ingebouwd](https://github.com/Microsoft/ApplicationInsights-Java/tree/master/core/src/main/java/com/microsoft/applicationinsights/internal/processor).
 
-## <a name="built-in-filters"></a>Ingebouwde filters
+## <a name="built-in-filters"></a>Als u ingebouwde filters
 
-### <a name="metric-telemetry-filter"></a>Metrische telemetrie-filter
+### <a name="metric-telemetry-filter"></a>Metrische telemetrie filteren
 
 ```XML
 
@@ -101,10 +102,10 @@ Voeg ApplicationInsights.xml, een `TelemetryProcessors` sectie zoals in dit voor
            </Processor>
 ```
 
-* `NotNeeded`-Met door komma's gescheiden lijst met aangepaste metrische namen.
+* `NotNeeded` -Met door komma's gescheiden lijst met namen van aangepaste metrische gegevens.
 
 
-### <a name="page-view-telemetry-filter"></a>Filter telemetrie van paginaweergaven
+### <a name="page-view-telemetry-filter"></a>Telemetrie van paginaweergaven filter
 
 ```XML
 
@@ -115,12 +116,12 @@ Voeg ApplicationInsights.xml, een `TelemetryProcessors` sectie zoals in dit voor
            </Processor>
 ```
 
-* `DurationThresholdInMS`-Duur verwijst naar de tijd om de pagina te laden. Als deze optie is ingesteld, worden pagina's die sneller dan de opgegeven tijd wordt geladen niet gerapporteerd.
-* `NotNeededNames`-Met door komma's gescheiden lijst met paginanamen.
-* `NotNeededUrls`-Door komma's gescheiden lijst met URL-fragmenten. Bijvoorbeeld: `"home"` gefilterd op alle pagina's die u hebt "home" in de URL.
+* `DurationThresholdInMS` -Duur verwijst naar de tijd die nodig om de pagina te laden. Als deze optie is ingesteld, worden pagina's die sneller dan de opgegeven tijd geladen niet gerapporteerd.
+* `NotNeededNames` -Met door komma's gescheiden lijst met paginanamen.
+* `NotNeededUrls` -Met door komma's gescheiden lijst met URL-fragmenten. Bijvoorbeeld, `"home"` gefilterd op alle pagina's met "home" in de URL.
 
 
-### <a name="request-telemetry-filter"></a>Telemetrie-Filter aanvragen
+### <a name="request-telemetry-filter"></a>Telemetrie filteren aanvragen
 
 
 ```XML
@@ -156,11 +157,11 @@ Telemetrie voor specifieke synthetische bronnen filteren:
            </Processor>
 ```
 
-* `NotNeeded`-Met door komma's gescheiden lijst met namen van synthetische gegevensbronnen.
+* `NotNeeded` -Met door komma's gescheiden lijst met namen van synthetische gegevensbronnen.
 
-### <a name="telemetry-event-filter"></a>Gebeurtenisfilter telemetrie
+### <a name="telemetry-event-filter"></a>Gebeurtenisfilter voor telemetrie
 
-Aangepaste gebeurtenissen gefilterd (vastgelegd met behulp van [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)).
+Aangepaste gebeurtenissen gefilterd (met behulp van het logboek geregistreerd [TrackEvent()](app-insights-api-custom-events-metrics.md#trackevent)).
 
 
 ```XML
@@ -171,12 +172,12 @@ Aangepaste gebeurtenissen gefilterd (vastgelegd met behulp van [TrackEvent()](ap
 ```
 
 
-* `NotNeededNames`-Met door komma's gescheiden lijst met gebeurtenisnamen.
+* `NotNeededNames` -Met door komma's gescheiden lijst met gebeurtenisnamen.
 
 
-### <a name="trace-telemetry-filter"></a>Tracering telemetrie filter
+### <a name="trace-telemetry-filter"></a>Tracering telemetrie filteren
 
-Meld u filters traceringen (vastgelegd met behulp van [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) of een [logboekregistratie framework collector](app-insights-java-trace-logs.md)).
+Logtraceringen-filters (met behulp van het logboek geregistreerd [TrackTrace()](app-insights-api-custom-events-metrics.md#tracktrace) of een [logboekregistratie framework collector](app-insights-java-trace-logs.md)).
 
 ```XML
 
@@ -185,13 +186,13 @@ Meld u filters traceringen (vastgelegd met behulp van [TrackTrace()](app-insight
            </Processor>
 ```
 
-* `FromSeverityLevel`geldige waarden zijn:
- *  BUITEN - alle traceringen filteren
- *  TRACE - geen filters. is gelijk aan het traceringsniveau
+* `FromSeverityLevel` Geldige waarden zijn:
+ *  UIT; alle traces filteren
+ *  TRACE - er wordt geen filtering. gelijk aan het traceringsniveau
  *  INFO - uitfilteren traceerniveau
- *  Waarschuwen - uitfilteren TRACE en gegevens
- *  Fout - uitfilteren waarschuwen, INFO, traceren
- *  KRITIEKE - filter uit alle kritieke
+ *  Waarschuwing - Filter TRACE en informatie
+ *  Fout - uitfilteren waarschuwen, gegevens, TRACERING
+ *  KRITIEKE - filter om alle essentiële
 
 
 ## <a name="custom-filters"></a>Aangepaste filters
@@ -235,7 +236,7 @@ Maak een klasse die wordt geïmplementeerd in uw code `TelemetryProcessor`:
 ```
 
 
-### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. Aanroepen van het filter in het configuratiebestand
+### <a name="2-invoke-your-filter-in-the-configuration-file"></a>2. Het filter in het configuratiebestand aanroepen
 
 In ApplicationInsights.xml:
 
@@ -258,8 +259,8 @@ In ApplicationInsights.xml:
 
 *Mijn filter werkt niet.*
 
-* Controleer of u geldige parameterwaarden hebt opgegeven. Duur moet bijvoorbeeld gehele getallen zijn. Ongeldige waarden zorgt ervoor dat het filter moet worden genegeerd. Als u een aangepaste filter er een uitzondering gegenereerd vanuit een constructor of een set-methode, worden genegeerd.
+* Controleer dat u geldige parameterwaarden hebt opgegeven. Bijvoorbeeld, de duur moeten gehele getallen zijn. Ongeldige waarden zorgt ervoor dat het filter moet worden genegeerd. Als uw aangepaste filter een uitzondering van een constructor of set-methode genereert, wordt dit genegeerd.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Steekproef nemen](app-insights-sampling.md) -steekproeven als alternatief die niet leiden tot metrische gegevens over uw onjuiste komt overwegen.
+* [Sampling](app-insights-sampling.md) -steekproeven als alternatief die heeft niet de metrische gegevens over scheeftrekken overwegen.

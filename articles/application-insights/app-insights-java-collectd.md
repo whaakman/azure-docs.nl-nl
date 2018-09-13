@@ -1,6 +1,6 @@
 ---
-title: Java-web-appprestaties op Linux - Azure controleren | Microsoft Docs
-description: Uitgebreide bewaking van toepassingsprestaties van uw Java-website met de invoegtoepassing CollectD voor Application Insights.
+title: Bewaken van prestaties van een Java-web-apps, op Linux - Azure | Microsoft Docs
+description: Uitgebreide bewaking van toepassingsprestaties van Java-website met de invoegtoepassing verzamelde voor Application Insights.
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -10,43 +10,43 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/24/2016
 ms.author: mbullwin
-ms.openlocfilehash: 56e30ff4ee7765cd0950293999d93a9cf1fe5d36
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
-ms.translationtype: HT
+ms.openlocfilehash: 61260674639a351a01cfea9dd695ce32795aa8c0
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32152415"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35644294"
 ---
-# <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Linux maatstaven voor prestaties in Application Insights
+# <a name="collectd-linux-performance-metrics-in-application-insights"></a>verzamelde: Linux-prestatiegegevens in Application Insights
 
 
-Om te verkennen systeemprestaties in Linux [Application Insights](app-insights-overview.md), installeren [collectd](http://collectd.org/), samen met de Application Insights-invoegtoepassing. Deze oplossing open source worden verschillende statistieken voor systeem- en netwerkgegevens verzameld.
+Om te verkennen van metrische gegevens voor prestaties Linux-systeem in [Application Insights](app-insights-overview.md), installeer [verzamelde](http://collectd.org/), samen met de bijbehorende Application Insights-invoegtoepassing. Deze open-source-oplossing worden verschillende systeem- en statistische gegevens verzameld.
 
-Doorgaans kunt u collectd als u al hebt [uw Java-webservice met Application Insights geïnstrumenteerd][java]. Dit biedt u meer gegevens kunt verbeteren de prestaties van uw app of het analyseren van problemen. 
+Doorgaans gebruikt u verzamelde als u al hebt [uw Java-webservice met Application Insights geïnstrumenteerd][java]. Dit biedt u meer gegevens u helpen bij het verbeteren van de prestaties van uw app of problemen diagnosticeren. 
 
-![voorbeeldgrafieken](./media/app-insights-java-collectd/sample.png)
+![Voorbeeldgrafieken](./media/app-insights-java-collectd/sample.png)
 
 ## <a name="get-your-instrumentation-key"></a>De instrumentatiesleutel ophalen
-In de [Microsoft Azure-portal](https://portal.azure.com), open de [Application Insights](app-insights-overview.md) resource waar u de gegevens wilt weergeven. (Of [Maak een nieuwe resource](app-insights-create-new-resource.md).)
+In de [Microsoft Azure portal](https://portal.azure.com), open de [Application Insights](app-insights-overview.md) resource waar u de gegevens worden weergegeven. (Of [Maak een nieuwe resource](app-insights-create-new-resource.md).)
 
-Duren voordat u een kopie van de instrumentatiesleutel die de resource identificeert.
+Neemt een kopie van de instrumentatiesleutel die de resource.
 
-![Alles bekijken, opent u de bron en klik vervolgens in de vervolgkeuzelijst Essentials selecteren en de Instrumentatiesleutel kopiëren](./media/app-insights-java-collectd/02-props.png)
+![Door alles bladeren, opent u de bron en klik vervolgens in de vervolgkeuzelijst Essentials Selecteer en kopieer de Instrumentatiesleutel](./media/app-insights-java-collectd/02-props.png)
 
-## <a name="install-collectd-and-the-plug-in"></a>Installeer collectd en de invoegtoepassing
-Op de Linux-servers:
+## <a name="install-collectd-and-the-plug-in"></a>Verzamelde en de invoegtoepassing installeren
+Op uw Linux-server-machines:
 
-1. Installeer [collectd](http://collectd.org/) versie 5.4.0 of hoger.
-2. Download de [Application Insights-invoegtoepassing voor collectd writer](https://aka.ms/aijavasdk). Noteer het versienummer.
+1. Installeer [verzamelde](http://collectd.org/) versie 5.4.0 of hoger.
+2. Download de [Application Insights verzamelde schrijver invoegtoepassing](https://aka.ms/aijavasdk). Houd er rekening mee het versienummer.
 3. Kopieer de invoegtoepassing JAR in `/usr/share/collectd/java`.
 4. Bewerken `/etc/collectd/collectd.conf`:
    * Zorg ervoor dat [de Java-invoegtoepassing](https://collectd.org/wiki/index.php/Plugin:Java) is ingeschakeld.
-   * De JVMArg voor de java.class.path zodanig dat de volgende JAR bijwerken. Update het versienummer overeenkomen met de naam die u hebt gedownload:
+   * De JVMArg voor de java.class.path om op te nemen van de volgende JAR bijwerken. Update het versienummer overeenkomen met de naam die u hebt gedownload:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
-   * In dit fragment, met behulp van de Instrumentatiesleutel van uw resource toevoegen:
+   * Dit fragment met behulp van de Instrumentatiesleutel van uw resource toevoegen:
 
 ```XML
 
@@ -56,7 +56,7 @@ Op de Linux-servers:
      </Plugin>
 ```
 
-Dit is onderdeel van een voorbeeldconfiguratiebestand:
+Hier maakt deel uit van een voorbeeld-configuratiebestand:
 
 ```XML
 
@@ -89,49 +89,49 @@ Dit is onderdeel van een voorbeeldconfiguratiebestand:
     ...
 ```
 
-Configureer andere [collectd plugins](https://collectd.org/wiki/index.php/Table_of_Plugins), dat kan verschillende gegevens verzamelen van verschillende gegevensbronnen.
+Configureer andere [verzamelde invoegtoepassingen](https://collectd.org/wiki/index.php/Table_of_Plugins), dat kan verschillende gegevens verzamelen uit verschillende bronnen.
 
-Opnieuw opstarten collectd volgens de [handmatige](https://collectd.org/wiki/index.php/First_steps).
+Opnieuw opstarten van verzamelde volgens de [handmatige](https://collectd.org/wiki/index.php/First_steps).
 
 ## <a name="view-the-data-in-application-insights"></a>De gegevens in Application Insights weergeven
-Open in uw Application Insights-resource [Metrics Explorer en grafieken toe te voegen][metrics], de metrische gegevens die u wilt zien, uit de categorie Aangepast selecteren.
+Open in uw Application Insights-resource [Metrics Explorer en grafieken toevoegen][metrics], de metrische gegevens die u wilt zien van de aangepaste categorie selecteren.
 
 ![](./media/app-insights-java-collectd/result.png)
 
-Standaard worden de metrische gegevens geaggregeerd alle host machines waaruit de metrische gegevens zijn verzameld. Om weer te geven de metrische gegevens per host in de grafiek details blade, schakelt u Grouping en kies vervolgens groeperen op CollectD-Host.
+Standaard worden de metrische gegevens worden samengevoegd voor alle hostmachines waarvan de metrische gegevens zijn verzameld. Als u wilt weergeven van de metrische gegevens per host, op de blade grafiek, schakelt u groeperen en kies vervolgens te groeperen op verzamelde-Host.
 
 ## <a name="to-exclude-upload-of-specific-statistics"></a>Uploaden van specifieke statistieken uitsluiten
-De Application Insights-invoegtoepassing verzendt standaard alle gegevens die door de ingeschakelde collectd lezen plugins verzameld. 
+Standaard verzendt de Application Insights-invoegtoepassing voor alle gegevens die door alle ingeschakelde verzamelde lezen invoegtoepassingen worden verzameld. 
 
 Gegevens uitsluiten van specifieke invoegtoepassingen of gegevensbronnen:
 
 * Het configuratiebestand bewerken. 
-* In `<Plugin ApplicationInsightsWriter>`, richtlijn regels als volgt toevoegen:
+* In `<Plugin ApplicationInsightsWriter>`, voeg richtlijn regels als volgt toe:
 
 | Richtlijn | Effect |
 | --- | --- |
-| `Exclude disk` |Uitsluiten van alle gegevens die worden verzameld door de `disk` invoegtoepassing |
-| `Exclude disk:read,write` |Uitsluiten van de bronnen met de naam `read` en `write` van de `disk` invoegtoepassing. |
+| `Exclude disk` |Uitsluiten van alle gegevens die zijn verzameld door de `disk` invoegtoepassing |
+| `Exclude disk:read,write` |Uitsluiten van de bronnen die met de naam `read` en `write` uit de `disk` invoegtoepassing. |
 
 Afzonderlijke richtlijnen met een nieuwe regel.
 
 ## <a name="problems"></a>Problemen?
-*Gegevens in de portal weergegeven niet*
+*Ik zie niet de gegevens in de portal*
 
-* Open [Search] [ diagnostic] om te zien als de onbewerkte gebeurtenissen zijn ontvangen. Soms duurt langer in metrics explorer wordt weergegeven.
-* Mogelijk moet u [firewalluitzonderingen voor uitgaande gegevens instellen](app-insights-ip-addresses.md)
-* Tracering in de Application Insights-invoegtoepassing inschakelen. Deze regel in te voegen `<Plugin ApplicationInsightsWriter>`:
+* Open [zoeken] [ diagnostic] om te zien als de ruwe gebeurtenissen zijn ontvangen. Soms duurt langer in metrics explorer worden weergegeven.
+* U moet mogelijk [instellen van firewalluitzonderingen voor uitgaande gegevens](app-insights-ip-addresses.md)
+* Tracering inschakelen in de Application Insights-invoegtoepassing. Voeg deze regel in `<Plugin ApplicationInsightsWriter>`:
   * `SDKLogger true`
-* Open een terminal en collectd starten in de uitgebreide modus om te zien of er problemen zijn meldt:
+* Open een terminal en verzamelde starten in de uitgebreide modus, om te zien van problemen met die het rapport is:
   * `sudo collectd -f`
 
-## <a name="known-issue"></a>Bekende problemen
+## <a name="known-issue"></a>Bekend probleem
 
-Het schrijven van Application Insights-invoegtoepassing is niet compatibel met bepaalde invoegtoepassingen lezen. Sommige invoegtoepassingen verzenden soms 'NaN', waarbij de Application Insights-invoegtoepassing een getal met drijvende komma verwacht.
+De invoegtoepassing Application Insights schrijven is niet compatibel met bepaalde invoegtoepassingen lezen. Sommige invoegtoepassingen verzenden soms "NaN" waar de Application Insights-invoegtoepassing wordt verwacht een getal met drijvende komma dat.
 
-Symptoom: Het logboek collectd bevat fouten die zijn 'AI:... SyntaxError: onverwacht token N ".
+Probleem: Het logboek verzamelde bevat fouten die zijn 'AI:... SyntaxError: onverwacht token N ".
 
-Tijdelijke oplossing: Uitsluiten gegevens die door het probleem schrijven plugins verzameld. 
+Tijdelijke oplossing: Uitsluiten gegevens die zijn verzameld door de probleem-invoegtoepassingen schrijven. 
 
 <!--Link references-->
 

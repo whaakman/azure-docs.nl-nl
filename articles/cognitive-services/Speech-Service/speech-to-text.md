@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/07/2018
 ms.author: v-jerkin
-ms.openlocfilehash: ba6710c8b5b8de1c63fa6778ea3853ab52365254
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: efdded28fa4554bf58399d997bf663781a08755e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39325333"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714698"
 ---
 # <a name="about-the-speech-to-text-api"></a>Informatie over de Speech to Text-API
 
@@ -36,7 +36,7 @@ De **spraak naar tekst** API biedt de volgende functies:
 
 ## <a name="api-capabilities"></a>API-functies
 
-Bepaalde functies van de **spraak naar tekst** API zijn niet beschikbaar via REST. De volgende tabel geeft een overzicht van de mogelijkheden van elke methode van de toegang tot de API.
+Veel van de mogelijkheden van de **spraak naar tekst** API - met name wat betreft aanpassing - zijn beschikbaar via REST. De volgende tabel geeft een overzicht van de mogelijkheden van elke methode van de toegang tot de API. Voor een volledige lijst van de mogelijkheden en -API. Raadpleeg details [Swagger](https://swagger/service/11ed9226-335e-4d08-a623-4547014ba2cc#/)
 
 | Use-case | REST | SDK's |
 |-----|-----|-----|----|
@@ -44,6 +44,16 @@ Bepaalde functies van de **spraak naar tekst** API zijn niet beschikbaar via RES
 | Transcriberen een langer utterance (> 15 s) | Nee | Ja |
 | Streaming audio met optionele tussentijdse resultaten transcriberen | Nee | Ja |
 | Sprekerherkenning intents via LUIS begrijpen | Nee\* | Ja |
+| Nauwkeurigheidstests maken | Ja | Nee |
+| Gegevenssets voor modelaanpassing uploaden | Ja | Nee |
+| Maken en beheren van modellen voor spraakherkenning | Ja | Nee |
+| Maken en beheren van modelimplementaties | Ja | Nee |
+| Abonnementen beheren | Ja | Nee |
+| Maken en beheren van modelimplementaties | Ja | Nee |
+| Maken en beheren van modelimplementaties | Ja | Nee |
+
+> [!NOTE]
+> De REST-API implementeert die de API-aanvragen voor 25 per van vijf seconden beperkingslimieten. Bericht hearders wordt op de hoogte van de limieten
 
 \* *LUIS intenties en entiteiten kunnen worden afgeleid met behulp van een afzonderlijk LUIS-abonnement. Met dit abonnement, de SDK LUIS-aanroep voor u en bieden entiteit en voor welk doel resultaten, evenals transcriptie van spraak. Met de REST-API, roept u LUIS zelf voor het afleiden van intenties en entiteiten met uw LUIS-abonnement.*
 

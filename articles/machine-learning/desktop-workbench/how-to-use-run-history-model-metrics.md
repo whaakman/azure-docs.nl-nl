@@ -1,40 +1,40 @@
 ---
-title: Hoe uitvoeren als gebruiken geschiedenis en Model metrische gegevens in Azure Machine Learning-Workbench | Microsoft Docs
-description: Handleiding voor de met de geschiedenis uitvoeren en metrische gegevens Model functies van Azure Machine Learning Workbench
+title: Hoe u uitvoeren geschiedenis en het Model metrische gegevens in Azure Machine Learning Workbench | Microsoft Docs
+description: Gids voor het gebruik van de Uitvoeringsgeschiedenis en metrische gegevens over Model functies van Azure Machine Learning Workbench
 services: machine-learning
 author: rastala
 ms.author: roastala
 manager: haining
 ms.reviewer: garyericson, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 09/07/2017
-ms.openlocfilehash: df29117235e890a9b20619744df6320f298a73b2
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 34fe72087a3de133d65ea4a4737ab5dba45242f4
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831861"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643818"
 ---
-# <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Het gebruik Uitvoeringsgeschiedenis en Model metrische gegevens in Azure Machine Learning Workbench
+# <a name="how-to-use-run-history-and-model-metrics-in-azure-machine-learning-workbench"></a>Het gebruik Uitvoeringsgeschiedenis en metrische gegevens van Model in Azure Machine Learning Workbench
 
-Azure Machine Learning Workbench ondersteunt experimenteren van wetenschappelijke gegevens via de **geschiedenis uitvoeren** en **Model metrische gegevens** functies.
-**Uitvoeringsgeschiedenis** biedt een manier voor het bijhouden van de uitvoer van uw machine learning-experimenten, en vervolgens kunt u filteren en vergelijking van de resultaten.
-**Metrische gegevens model** kunnen worden geregistreerd vanaf elk punt van uw scripts, bijhouden welke waarden in uw gegevens wetenschappelijke experimenten het belangrijkst zijn.
-Dit artikel wordt beschreven hoe u effectief gebruik van deze functies om de snelheid en de kwaliteit van uw gegevens wetenschappelijke experimenten te verhogen.
+Azure Machine Learning Workbench biedt ondersteuning voor data science experimenten via de **Run History** en **Model metrische gegevens** functies.
+**Uitvoeringsgeschiedenis** biedt een manier om bij te houden van de uitvoer van uw machine learning-experimenten, en klikt u vervolgens kunt filteren en vergelijking van de resultaten ervan.
+**Model metrische gegevens** kunnen worden geregistreerd op elk moment uw scripts, bijhouden welke waarden in uw data science-experimenten het belangrijkst zijn.
+Dit artikel wordt beschreven hoe u effectief gebruik van deze functies om de snelheid en de kwaliteit van uw data science-experimenten te verhogen.
 
 ## <a name="prerequisites"></a>Vereisten
-Om de stap in deze handleiding instructies, moet u:
+Als u wilt in deze gebruiksaanwijzing kunt doorlopen, moet u naar:
 * [Maak en installeer Azure Machine Learning](../service/quickstart-installation.md)
 - [Een Project maken](../service/quickstart-installation.md)
 
 
-## <a name="azure-ml-logging-api-overview"></a>Overzicht van Azure ML logboekregistratie API
-De [API van Azure ML-logboekregistratie](reference-logging-api.md) is beschikbaar via de **azureml.logging** -module in Python (die wordt geïnstalleerd met de Azure ML-Workbench.) Na het importeren van deze module kunt u de **get_azureml_logger** methode instantiëren van een **berichtenlogboek** object.
-Vervolgens gebruikt u het logboek **logboek** methode voor het opslaan van sleutel-waardeparen die wordt geproduceerd door uw Python-scripts.
-Op dit moment logboekregistratie model metrieken van scalaire en typen worden ondersteund zoals wordt weergegeven.
+## <a name="azure-ml-logging-api-overview"></a>API-overzicht van Azure ML-logboekregistratie
+De [API van Azure ML-logboekregistratie](reference-logging-api.md) is beschikbaar via de **azureml.logging** module in Python (die is geïnstalleerd met de Azure ML Workbench.) Na het importeren van deze module kunt u de **get_azureml_logger** methode voor het starten van een **logger** object.
+Vervolgens kunt u van het logboek **log** methode voor het opslaan van sleutel/waarde-paren die worden geproduceerd door uw Python-scripts.
+Op dit moment logboekregistratie model metrische gegevens van de scalaire en lijst met typen worden ondersteund zoals wordt weergegeven.
 
 ```Python
 # create a logger instance in already set up environment 
@@ -48,29 +48,29 @@ logger.log("simple value", 7)
 # log list
 logger.log("all values", [5, 6, 7])
 ```
-Eenvoudig te gebruiken van het logboek binnen uw projecten voor Azure ML-Workbench is en dit artikel wordt beschreven hoe u dit doet u.
+Het is eenvoudig te gebruiken van het logboek in uw Azure ML Workbench-projecten en in dit artikel leest u hoe om dit te doen.
 
-## <a name="create-a-project-in-azure-ml-workbench"></a>Maak een Project in Azure ML-Workbench
-Als u een project nog geen hebt, kunt u een van de [maken en installeer Quick Start](../service/quickstart-installation.md) van de **projectdashboard**, u kunt openen de **iris_sklearn.py** script () zoals wordt weergegeven.)
+## <a name="create-a-project-in-azure-ml-workbench"></a>Een Project maken in Azure ML Workbench
+Als u nog een project hebt, kunt u een van de [maken en snelstartgids installeren](../service/quickstart-installation.md) van de **projectdashboard**, kunt u openen de **iris_sklearn.py** script () zoals wordt weergegeven.)
 
-![toegang tot een script vanaf het tabblad bestanden](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)
+![toegang tot een script op het tabblad bestanden](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-01b.png)
 
-U kunt dit script gebruiken als richtlijn voor verwachte model metriek logboekregistratie in Azure ML-implementatie.
+U kunt dit script gebruiken als richtlijn voor de verwachte implementatie van model metrische gegevens in Azure ML logboekregistratie.
 
-## <a name="parameterize-and-log-model-metrics-from-script"></a>Parameter en meld u Model metrische gegevens uit het Script
-In de **iris_sklearn.py** script, het verwachte patroon import en het logboek in Python kan worden teruggebracht naar de volgende regels code constructie.
+## <a name="parameterize-and-log-model-metrics-from-script"></a>Parameteriseren en meld u Model metrische gegevens van Script
+In de **iris_sklearn.py** script, het verwachte patroon moet worden geïmporteerd om de logger in Python kan worden teruggebracht naar de volgende regels code voor te bereiden.
 
 ```Python
 from azureml.logging import get_azureml_logger
 run_logger = get_azureml_logger()
 ```
 
-Zodra gemaakt, kunt u aanroept de **logboek** methode met een naam/waarde-paar.
+Nadat u hebt gemaakt, kunt u aanroepen de **log** methode met een naam/waarde-paar.
 
-Wanneer ontwikkeling voltooid is, is het vaak nuttig om te voorzien van scripts zodat waarden kunnen worden doorgegeven via de opdrachtregel.
-Het onderstaande voorbeeld laat zien hoe opdrachtregelparameters (indien aanwezig) met behulp van Python standaardbibliotheken accepteren.
-Dit script gebruikt één parameter voor de frequentie regularisatie (*reg*) gebruikt voor het aanpassen van een classificatie-model in een poging om de *nauwkeurigheid* zonder te.
-Deze variabelen worden vervolgens geregistreerd als *regularisatie snelheid* en *nauwkeurigheid* zodat het model met optimale resultaten kunt terugvinden.
+Wanneer ontwikkeling voltooid is, is het vaak nuttig om te voorzien van scripts, zodat de waarden kunnen worden doorgegeven via de opdrachtregel.
+Het onderstaande voorbeeld laat zien hoe om te accepteren van opdrachtregelparameters (indien aanwezig) met behulp van standaard Python-bibliotheken.
+Met dit script wordt één parameter voor de Regularisatiesnelheid (*reg*) gebruikt voor het aanpassen van een model classificatie in een poging om de *nauwkeurigheid* zonder te.
+Deze variabelen worden vervolgens geregistreerd als *Regularisatiefrequentie* en *nauwkeurigheid* zodat het model met optimale resultaten gemakkelijk kan worden geïdentificeerd.
 
 ```Python
 # change regularization rate and you will likely get a different accuracy.
@@ -96,82 +96,82 @@ print ("Accuracy is {}".format(accuracy))
 run_logger.log("Accuracy", accuracy)
 ```
 
-Om optimaal gebruik van deze stappen in uw scripts inschakelen **uitvoeren geschiedenis**.
+Om optimaal gebruik van deze stappen in uw scripts inschakelen **Run History**.
 
-## <a name="launch-runs-from-project-dashboard"></a>Starten vanuit projectdashboard wordt uitgevoerd
-Wordt teruggezonden naar de **projectdashboard**, kunt u starten een **bijgehouden uitvoeren** door te selecteren de **iris_sklearn.py** script en in te voeren de **regularisatie snelheid**  parameter in de **argumenten** het invoervak.
+## <a name="launch-runs-from-project-dashboard"></a>Starten vanuit het projectdashboard wordt uitgevoerd
+Retourneren aan de **projectdashboard**, kunt u starten een **bijgehouden uitvoeren** door het selecteren van de **iris_sklearn.py** script en het invoeren van de **regularisatiefrequentie**  parameter in de **argumenten** vak bewerken.
 
-![u parameters kunt invoeren en het starten van wordt uitgevoerd](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-05.png)
+![parameters invoeren en starten van uitvoeringen](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-05.png)
 
-Omdat Azure ML-Workbench worden niet geblokkeerd als u starten bijgehouden wordt uitgevoerd, kunnen verschillende parallel worden gestart.
-De status van elke bijgehouden uitvoering is zichtbaar in de **deelvenster taken** zoals wordt weergegeven.
+Sinds het starten van bijgehouden wordt uitgevoerd, wordt Azure ML Workbench niet geblokkeerd, kunnen verschillende parallel worden gestart.
+De status van elke bijgehouden uitvoering wordt weergegeven in de **deelvenster Jobs** zoals wordt weergegeven.
 
-![bijhouden wordt uitgevoerd in het deelvenster Taken](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-06.png)
+![tracering wordt uitgevoerd in het deelvenster Taken](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-06.png)
 
-Hierdoor optimaal brongebruik zonder elke taak in een serie uit te voeren.
+Hiermee kunt optimaal gebruik van resources zonder elke taak wordt uitgevoerd in een serie.
 
-## <a name="view-results-in-run-history"></a>De resultaten weergeven in de geschiedenis uitvoeren
-Voortgang en resultaten van getraceerde wordt uitgevoerd, zijn beschikbaar voor analyse in Azure ML Workbench **uitvoeren geschiedenis**.
+## <a name="view-results-in-run-history"></a>Resultaten weergeven in de Uitvoeringsgeschiedenis
+Voortgang en resultaten van bijgehouden uitvoeringen zijn beschikbaar voor analyse in Azure ML Workbench **Run History**.
 **Uitvoeringsgeschiedenis** biedt drie verschillende weergaven:
 - Dashboard
 - Details
 - Vergelijking
 
-De **Dashboard** weergave bevat gegevens over alle sessies van een bepaald script, weergegeven in formulieren voor zowel grafische als in tabelvorm.
-De **Details** weergave bevat alle gegevens die zijn gegenereerd op basis van een specifieke uitvoering van een bepaald script, met inbegrip van de aangemelde metrische gegevens en uitvoerbestanden (zoals weergegeven worden uitgezet.) De **vergelijking** stelt resultaten van twee of drie uitgevoerd om te worden bekeken side-by-side, waaronder ook metrische gegevens in het logboek geregistreerd en uitvoerbestanden.
+De **Dashboard** weergave bevat gegevens over alle uitvoeringen van een bepaald script, gerenderd in formulieren voor zowel grafische als in tabelvorm.
+De **Details** weergave bevat alle gegevens die zijn gegenereerd op basis van een specifieke uitvoering van een bepaald script, met inbegrip van geregistreerde metrische gegevens en uitvoerbestanden (zoals weergegeven die zichtbaar zijn.) De **vergelijking** weergave kunt u resultaten van twee of drie runs worden bekeken side-by-side, ook met inbegrip van geregistreerde metrische gegevens en uitvoerbestanden.
 
-Bijgehouden uitvoert in acht **iris_sklearn.py**, waarden voor de **regularisatie snelheid** parameter en **nauwkeurigheid** resultaat zijn geregistreerd om te zien hoe de uitvoeren als gebruiken Geschiedenis van weergaven.
+Bijgehouden in acht uitvoeringen van **iris_sklearn.py**, waarden voor de **regularisatiefrequentie** parameter en **nauwkeurigheid** resultaat zijn geregistreerd om u te laten zien hoe u de uitvoeren als gebruiken Geschiedenis van weergaven.
 
-### <a name="run-history-dashboard"></a>Dashboard van de geschiedenis uitvoeren
-De resultaten van alle acht wordt uitgevoerd, zijn zichtbaar in de **uitvoeren geschiedenis Dashboard**.
-Als **iris_sklearn.py** logboeken *regularisatie snelheid* en *nauwkeurigheid*, wordt de **uitvoeren geschiedenis Dashboard** diagrammen voor deze waarden worden weergegeven Standaard.
+### <a name="run-history-dashboard"></a>Uitvoeringsgeschiedenisdashboard
+De resultaten van alle acht uitvoeringen zijn zichtbaar in de **Run geschiedenis Dashboard**.
+Als **iris_sklearn.py** logboeken *Regularisatiefrequentie* en *nauwkeurigheid*, wordt de **Run geschiedenis Dashboard** diagrammen voor deze waarden worden weergegeven Standaard.
 
-![dashboard van de geschiedenis uitvoeren](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-07.png)
+![uitvoeringsgeschiedenisdashboard](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-07.png)
 
-De **uitvoeren geschiedenis Dashboard** kan worden aangepast zodat vastgelegde waarden worden ook in het raster weergegeven.  Te klikken op de **aanpassen** pictogram wordt weergegeven de **weergave aanpassing** dialoog, zoals wordt weergegeven.
+De **Run geschiedenis Dashboard** kan worden aangepast zodat vastgelegde waarden worden ook in het raster weergegeven.  Te klikken op de **aanpassen** pictogram wordt weergegeven de **aanpassing van weergave** dialoog, zoals wordt weergegeven.
 
 ![uitvoeringsgeschiedenis dashboard raster aanpassen](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-08.png)
 
-Alle waarden die zijn vastgelegd tijdens bijgehouden wordt uitgevoerd zijn beschikbaar voor weergeven en selecteren **regularisatie snelheid** en **nauwkeurigheid** voegt deze toe aan het raster.
+Alle waarden die zijn vastgelegd tijdens bijgehouden uitvoeringen zijn beschikbaar om weer te geven en te selecteren **Regularisatiefrequentie** en **nauwkeurigheid** toegevoegd aan het raster.
 
 ![vastgelegde waarden in aangepaste raster](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-09.png)
 
-Het is gemakkelijk te vinden interessante wordt uitgevoerd door de muiswijzer op punten in de grafieken.  Voer 7 hebben in dit geval een goede nauwkeurigheid samen met een lage duur opgeleverd.
+Het is gemakkelijk te vinden van interessante wordt uitgevoerd door de muiswijzer op punten in de grafieken.  In dit geval resulteerde 7 uitvoert in een goede nauwkeurigheid in combinatie met een lage duur.
 
 ![zoeken naar een interessante uitvoeren](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-10.png)
 
-Te klikken op een punt die zijn gekoppeld aan 7 worden uitgevoerd in een grafiek of de koppeling tot en met 7 worden uitgevoerd in het raster geeft de **Details uitvoering van geschiedenis**.
+Een punt dat is gekoppeld aan 7 worden uitgevoerd in een grafiek of de koppeling tot en met 7 worden uitgevoerd in het raster wordt weergegeven op de **Details uitvoering van geschiedenis**.
 
-### <a name="run-history-details"></a>Geschiedenisdetails uitvoeren
-In deze weergave worden de volledige resultaten van de 7 uitvoeren samen met alle artefacten die zijn geproduceerd door 7 uitvoeren weergegeven.
+### <a name="run-history-details"></a>Geschiedenisdetails van de uitvoering
+In deze weergave worden de volledige resultaten van de 7 worden uitgevoerd, samen met alle artefacten die worden geproduceerd door 7 uitvoert weergegeven.
 
-![geschiedenisdetails uitvoeren](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-11.png)
+![geschiedenisdetails van de uitvoering](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-11.png)
 
-De **Details uitvoering van geschiedenis** weergave biedt tevens de mogelijkheid om te **downloaden** bestanden geschreven naar de **. / levert** map (deze bestanden worden ondersteund door Azure ML Workbench cloud-opslag voor de geschiedenis uitvoeren, die het onderwerp van een ander artikel.)
+De **Details uitvoering van geschiedenis** weergave biedt ook de mogelijkheid voor **downloaden** alle bestanden die zijn geschreven naar de **. / levert** map (deze bestanden worden ondersteund door Azure ML Workbench opslag in de cloud voor Run History, namelijk het onderwerp van een ander artikel.)
 
-Ten slotte **Details uitvoering van geschiedenis** biedt een manier om te herstellen van uw project de status op het moment van dit wordt uitgevoerd.
-Te klikken op de **herstellen** knop een bevestiging dialoog weergegeven, zoals wordt weergegeven.
+Ten slotte **Details uitvoering van geschiedenis** biedt een manier om te herstellen van uw project de status op het moment van deze uitvoering.
+Te klikken op de **herstellen** knop wordt een dialoogvenster voor het bevestigen, zoals wordt weergegeven.
 
 ![herstel uitvoeren bevestigen](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-13.png)
 
-Als bevestigd, worden de bestanden kunnen worden overschreven of verwijderd, dus zorgvuldig gebruikmaken van deze functie.
+Als bevestigd, worden de bestanden worden overschreven of verwijderd, dus gebruik van deze functie zorgvuldig.
 
 ### <a name="run-history-comparison"></a>Vergelijking van de geschiedenis uitvoeren
-Twee of drie selecteren die u uitvoert de **uitvoeren geschiedenis Dashboard** en te klikken op **vergelijken** keert u terug naar de **uitvoeren geschiedenis vergelijking** weergeven.
-U kunt ook klikken op **vergelijken** en het selecteren van een uitvoering binnen de **Details uitvoering van geschiedenis** weergave ook keert u terug naar de **uitvoeren geschiedenis vergelijking** weergeven.
-In beide gevallen moet de **uitvoeren geschiedenis vergelijking** weergave biedt een manier om te zien van de aangemelde resultaten en de artefacten van twee of drie wordt uitgevoerd naast elkaar.
+Selecteer twee of drie wordt uitgevoerd in de **Run geschiedenis Dashboard** en te klikken op **vergelijken** keert u terug naar de **vergelijking van de geschiedenis uitvoeren** weergeven.
+U kunt ook klikken **vergelijken** en selecteren van een uitvoeren binnen de **Details uitvoering van geschiedenis** weergave ook keert u terug naar de **vergelijking van de geschiedenis uitvoeren** weergeven.
+In beide gevallen moet de **vergelijking van de geschiedenis uitvoeren** weergave biedt een manier om te zien van de geregistreerde resultaten en de artefacten van twee of drie runs naast elkaar.
 
 ![vergelijking van de geschiedenis uitvoeren](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-12.png)
 
-Deze weergave is vooral nuttig voor vergelijking van waarnemingspunten, maar in het algemeen alle eigenschappen van wordt uitgevoerd, hier kunnen worden vergeleken.
+In deze weergave is vooral handig voor vergelijking van grafieken, maar in het algemeen alle eigenschappen van uitvoeringen hier kunnen worden vergeleken.
 
 ### <a name="command-line-interface"></a>Opdrachtregelinterface
 Azure Machine Learning Workbench biedt ook toegang tot de geschiedenis uitvoeren via de **Command Line Interface**.
-Voor toegang tot de **Command Line Interface**, klikt u op de **opdrachtprompt openen** menu zoals wordt weergegeven.
+Toegang krijgen tot de **Command Line Interface**, klikt u op de **Open Command Prompt** menu zoals wordt weergegeven.
 
 ![opdrachtprompt openen](media/how-to-use-run-history-model-metrics/how-to-use-run-history-model-metrics-14.png)
 
-De opdrachten die beschikbaar zijn voor de geschiedenis uitvoeren toegankelijk zijn `az ml history`, met de online help beschikbaar door toe te voegen de `-h` vlag.
+De opdrachten die beschikbaar zijn voor de Run History zijn toegankelijk via `az ml history`, met de online help beschikbaar door toe te voegen de `-h` vlag.
 ```
 $ az ml history -h
 
@@ -186,7 +186,7 @@ Commands:
     list    : List runs.
     promote : Promote Artifacts.
 ```
-Deze opdrachten bieden dezelfde voorzieningen en dezelfde gegevens weergegeven retourneren de **uitvoeren geschiedenis weergaven**.
+Deze opdrachten bieden dezelfde voorzieningen en terug te keren dezelfde gegevens die worden weergegeven de **uitvoeren geschiedenis weergaven**.
 De resultaten van de laatste uitvoering kunnen bijvoorbeeld worden weergegeven als een JSON-object.
 ```
 $ az ml history last
@@ -215,7 +215,7 @@ $ az ml history last
   "user_id": "e9fafe06-b0e4-4154-8374-aae34f9977b2"
 }
 ```
-De lijst met alle sessies kan ook worden weergegeven in tabelvorm.
+De lijst met alle uitvoeringen kan ook worden weergegeven in tabelvorm.
 ```
 $ az ml history list -o table
   Accuracy    Regularization Rate  Duration        Run_id                  Script_name      Start_time_utc                    Status
@@ -230,10 +230,10 @@ $ az ml history list -o table
   0.641509              10         0:00:06.059082  IrisDemo_1504832109906  iris_sklearn.py  2017-09-08T00:55:14.739806+00:00  Completed
 
 ```
-De **Command Line Interface** is een alternatief pad voor toegang tot de macht van Azure Machine Learning-Workbench.
+De **Command Line Interface** is een alternatieve route voor toegang tot de kracht van Azure Machine Learning Workbench.
 
 ## <a name="next-steps"></a>Volgende stappen
-Deze functies zijn beschikbaar om te helpen bij het proces van gegevens wetenschappelijke experimenteren.
-We hopen dat u ze nuttig vinden en zouden aanzienlijk waarderen uw feedback.
-Dit is slechts onze initiële implementatie en hebben we veel verbeteringen die zijn gepland.
-We graag continu ze af te leveren de Azure Machine Learning-Workbench. 
+Deze functies zijn beschikbaar om te helpen met het proces van data science experimenten.
+We hopen dat u ze handig vinden en zou aanzienlijk waarderen uw feedback.
+Dit is slechts onze eerste implementatie, en we hebben veel verbeteringen gepland.
+We hopen dat deze continu te leveren aan de Azure Machine Learning Workbench. 

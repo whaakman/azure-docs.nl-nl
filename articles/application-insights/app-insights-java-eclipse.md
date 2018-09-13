@@ -1,6 +1,6 @@
 ---
-title: Aan de slag met Azure Application Insights met behulp van Java in Eclipse | Microsoft docs
-description: Gebruik de Eclipse-invoegtoepassing prestaties en bewaking van het gebruik aan uw Java-website met Application Insights toevoegen
+title: Aan de slag met Azure Application Insights met Java in Eclipse | Microsoft docs
+description: De Eclipse-invoegtoepassing gebruiken om toe te voegen, prestaties en gebruik toezicht aan uw Java-website met Application Insights
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -10,44 +10,44 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/12/2016
 ms.author: mbullwin
-ms.openlocfilehash: 8e8e63b053cb5bd504a41da9b537354a1dd42968
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: ebcfe02eb8d969af26f5121bda85e4610302e838
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34795557"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643915"
 ---
-# <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Aan de slag met Application Insights met behulp van Java in Eclipse
-De Application Insights-SDK verzendt telemetrie van uw Java-webtoepassing, zodat u gebruik en prestaties kan analyseren. De Eclipse-invoegtoepassing voor Application Insights installeert automatisch de SDK in uw project, zodat u zich buiten de telemetrie vak, plus een API die u kunt aangepaste telemetrie schrijven.   
+# <a name="get-started-with-application-insights-with-java-in-eclipse"></a>Aan de slag met Application Insights met Java in Eclipse
+De Application Insights SDK verzendt telemetrie van uw Java-webtoepassing, zodat u gebruik en de prestaties kan analyseren. De Eclipse-invoegtoepassing voor Application Insights installeert automatisch de SDK in uw project, zodat u beschikt de box-telemetrie, plus een API die u kunt gebruiken om aangepaste telemetrie te schrijven.   
 
 ## <a name="prerequisites"></a>Vereisten
 Op dit moment de invoegtoepassing werkt voor Maven-projecten en dynamische webprojecten in Eclipse.
-([Application Insights toevoegen aan andere typen van Java-project][java].)
+([Application Insights toevoegen aan andere typen Java-project][java].)
 
 U hebt het volgende nodig:
 
-* 1.7 JRE of 1.8
+* JRE 1.7 of 1.8
 * Een abonnement op [Microsoft Azure](https://azure.microsoft.com/).
 * [Eclipse IDE voor Java EE-ontwikkelaars](http://www.eclipse.org/downloads/), Indigo of hoger.
 * Windows 7 of hoger, of WindowsServer 2008 of hoger
 
-Als u liever het framework Spring probeert de [een app Spring opstarten initialisatiefunctie voor het gebruik van Application Insights-handleiding configureren](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
+Als u de voorkeur geeft aan het Spring-framework, kunt u de handleiding gebruiken voor het [configureren van een Spring Boot-app voor initialisatie om Application Insights te gebruiken](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
 
-## <a name="install-the-sdk-on-eclipse-one-time"></a>De SDK niet installeren op Eclipse (eenmaal)
-U hoeft alleen te doen dit één keer per computer. Deze stap installeert een werkset waarmee vervolgens de SDK aan elke dynamisch webproject toevoegen kunt.
+## <a name="install-the-sdk-on-eclipse-one-time"></a>De SDK installeren voor Eclipse (één keer)
+U hoeft alleen te dit één keer per machine uitvoeren. Deze stap installeert een werkset waarmee vervolgens de SDK aan elke Dynamic-webproject toevoegen kunt.
 
-1. Klik op Help, nieuwe Software installeren in Eclipse.
+1. Klik op Help, Install New Software in Eclipse.
 
-    ![Help, installeert u nieuwe Software](./media/app-insights-java-eclipse/0-plugin.png)
+    ![Help, nieuwe Software installeren](./media/app-insights-java-eclipse/0-plugin.png)
 2. De SDK is in http://dl.microsoft.com/eclipse, onder Azure Toolkit.
-3. Schakel het selectievakje **Neem contact op met alle updatewebsites...**
+3. Schakel het selectievakje **Neem contact op met alle updatesites...**
 
-    ![Voor Application Insights-SDK, schakelt u contact op met bijwerken alle sites](./media/app-insights-java-eclipse/1-plugin.png)
+    ![Voor Application Insights-SDK, schakelt u contact op met alle updatesites](./media/app-insights-java-eclipse/1-plugin.png)
 
-De resterende stappen voor elk Java-project.
+Volg de resterende stappen voor elke Java-project.
 
 ## <a name="create-an-application-insights-resource-in-azure"></a>Een Application Insights-resource maken in Azure
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
@@ -67,20 +67,20 @@ De resterende stappen voor elk Java-project.
 
     ![Op Eigenschappen klikken in het overzicht van de nieuwe resource en de instrumentatiesleutel kopiëren](./media/app-insights-java-eclipse/03-ikey.png)
 
-De sleutel samen met elk telemetrie-item is verzonden en instrueert Application Insights weer te geven in de resource.
+De sleutel, samen met elk telemetrie-item wordt verzonden en instrueert Application Insights weer te geven in uw resource.
 
-## <a name="run-the-application-and-see-metrics"></a>Voer de toepassing en metrische gegevens
-Voer uw toepassing.
+## <a name="run-the-application-and-see-metrics"></a>De toepassing uitvoert en metrische gegevens weergeven
+Voer uw toepassing uit.
 
 Ga terug naar uw Application Insights-resource in Microsoft Azure.
 
 Gegevens van HTTP-aanvragen worden weergegeven op de overzichtsblade. (Als dit niet het geval is, wacht u een paar seconden en klikt u vervolgens op Vernieuwen.)
 
-![Reactie van server, telt het aantal aanvragen en fouten ](./media/app-insights-java-eclipse/5-results.png)
+![Ongeldige reactie van server, aantal aanvragen en fouten ](./media/app-insights-java-eclipse/5-results.png)
 
 Klik in een grafiek voor gedetailleerdere metrische gegevens.
 
-![Het aantal aanvragen met de naam](./media/app-insights-java-eclipse/6-barchart.png)
+![Geef het aantal aanvragen op naam](./media/app-insights-java-eclipse/6-barchart.png)
 
 [Meer informatie over metrische gegevens.][metrics]
 
@@ -88,15 +88,15 @@ En wanneer u de eigenschappen van een aanvraag bekijkt, ziet u de telemetriegebe
 
 ![Alle traces voor deze aanvraag](./media/app-insights-java-eclipse/7-instance.png)
 
-## <a name="client-side-telemetry"></a>Telemetrie-clientzijde
-Klik op code ophalen voor het bewaken van mijn webpagina's op de blade snel aan de slag:
+## <a name="client-side-telemetry"></a>Client-side-telemetrie
+Klik op code ophalen voor het bewaken van mijn webpagina's op de blade Snelstartgids:
 
 ![Kies op de overzichtsblade van uw app de optie Snel starten, Code ophalen voor het bewaken van mijn webpagina’s. Kopieer het script.](./media/app-insights-java-eclipse/02-monitor-web-page.png)
 
 Voeg het volgende codefragment in de kop van de HTML-bestanden.
 
-#### <a name="view-client-side-data"></a>Client-side '-gegevens weergeven
-Open uw bijgewerkte webpagina's en ze gebruiken. Wacht een minuut of twee, en vervolgens terug naar Application Insights en open de blade informatie over het gebruik. (De blade overzicht Schuif naar beneden en klik op informatie over het gebruik.)
+#### <a name="view-client-side-data"></a>Client-side-gegevens weergeven
+Open uw bijgewerkte webpagina's en ze gebruiken. Wacht een minuut of twee en vervolgens gaat u terug naar Application Insights en open de blade gebruik. (De blade overzicht, schuif omlaag en klikt u op gebruik.)
 
 Pagina metrische gegevens weergeven, de gebruiker en de sessie wordt weergegeven op de blade gebruik:
 
@@ -133,9 +133,9 @@ Voor het verzamelen van gegevens over andere uitzonderingen hebt u twee opties:
 [Installeer de Java-agent](app-insights-java-agent.md) om gespecificeerde interne methoden en oproepen via JDBC vast te leggen, inclusief timinggegevens.
 
 ## <a name="performance-counters"></a>Prestatiemeteritems
-Op de overzichtsblade Schuif naar beneden en klik op de **Servers** tegel. Hier ziet u een groot aantal prestatiemeteritems.
+Op de blade overzicht, schuif naar beneden en klik op de **Servers** tegel. Hier ziet u een groot aantal prestatiemeteritems.
 
-![Schuif helemaal naar klikt u op die de Servers tegel](./media/app-insights-java-eclipse/11-perf-counters.png)
+![Schuif omlaag naar klikt u op die de Servers tegel](./media/app-insights-java-eclipse/11-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>Het verzamelen van prestatiemeteritems aanpassen
 Als u het verzamelen van de standaardset prestatiemeteritems wilt uitschakelen, voegt u de volgende code toe onder het hoofdknooppunt van het ApplicationInsights.xml-bestand:
@@ -196,7 +196,7 @@ De prestatiemeteritems zijn zichtbaar als aangepaste metrische gegevens in [Metr
 * [Installeer collectd met de Application Insights-invoegtoepassing](app-insights-java-collectd.md) om een scala aan systeem- en netwerkgegevens op te halen.
 
 ## <a name="availability-web-tests"></a>Webtests voor beschikbaarheid
-Application Insights kan uw website regelmatig testen om te controleren of deze actief is en goed reageert. [Voor het instellen van][availability], schuift u omlaag en klikt u op beschikbaarheid.
+Application Insights kan uw website regelmatig testen om te controleren of deze actief is en goed reageert. [Voor het instellen van][availability], schuif omlaag naar klikt u op beschikbaarheid.
 
 ![Omlaag schuiven, op Beschikbaarheid klikken en vervolgens op Webtest toevoegen klikken](./media/app-insights-java-eclipse/31-config-web-test.png)
 
@@ -207,27 +207,27 @@ Er worden grafieken weergegeven met reactietijden en u ontvangt e-mailmeldingen 
 [Meer informatie over de webtests voor beschikbaarheid.][availability]
 
 ## <a name="diagnostic-logs"></a>Diagnostische logboeken
-Als u Logback en Log4J (versie 1.2 of 2.0) voor voor tracering, hebt u uw traceerlogboeken automatisch verzonden naar Application Insights waar u kunt verkennen en op te zoeken.
+Als u Logback en Log4J (versie 1.2 of 2.0) voor tracering, kunt u uw logboeken met traceringen automatisch verzonden naar Application Insights waar u kunt verkennen en zoeken op deze hebt.
 
 [Meer informatie over diagnostische logboeken][javalogs]
 
 ## <a name="custom-telemetry"></a>Aangepaste telemetrie
-Voeg een paar regels code in uw Java-webtoepassing om erachter te komen wat gebruikers met het doen of om u te helpen bij het analyseren van problemen.
+Voeg een paar regels code in uw Java-webtoepassing om erachter te komen wat gebruikers met deze doen of om problemen vast te stellen.
 
-U kunt de code kunt invoegen in webpagina's, JavaScript en in de Java-serverzijde.
+U kunt code invoegen in webpagina's, JavaScript en in de Java-serverzijde.
 
 [Meer informatie over aangepaste telemetrie][track]
 
 ## <a name="next-steps"></a>Volgende stappen
-#### <a name="detect-and-diagnose-issues"></a>Detecteren en onderzoeken van problemen
-* [Voeg telemetrie van de webclient] [ usage] prestatietelemetrie van de webclient ophalen.
+#### <a name="detect-and-diagnose-issues"></a>Problemen detecteren en onderzoeken
+* [Voeg telemetrie van de webclient] [ usage] om prestatietelemetrie te ontvangen van de webclient.
 * [Stel webtests in][availability] om te controleren of de toepassing live en responsief blijft.
 * [Doorzoek gebeurtenissen en logboeken][diagnostic] om problemen beter te kunnen analyseren.
 * [Vastleggen van traces Log4J of Logback][javalogs]
 
 #### <a name="track-usage"></a>Bijhouden van gebruik
-* [Voeg telemetrie van de webclient] [ usage] bewaken van paginaweergaven en metrische gegevens over basic-gebruikers.
-* [Aangepaste gebeurtenissen en metrische gegevens bijhouden](app-insights-web-track-usage.md) voor meer informatie over hoe uw toepassing wordt gebruikt, zowel op de client en de server.
+* [Voeg telemetrie van de webclient] [ usage] bewaken van paginaweergaven en metrische gegevens over eenvoudige gebruikers.
+* [Houd aangepaste gebeurtenissen en metrische gegevens](app-insights-web-track-usage.md) voor meer informatie over hoe uw toepassing worden gebruikt, zowel op de client en de server.
 
 <!--Link references-->
 

@@ -1,6 +1,6 @@
 ---
 title: PowerShell-script voor het maken van een Application Insights-resource | Microsoft Docs
-description: Maken van de Application Insights-resources automatiseren.
+description: Maken van Application Insights-resources automatiseren.
 services: application-insights
 documentationcenter: windows
 author: mrbullwinkle
@@ -10,31 +10,32 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/19/2016
 ms.author: mbullwin
-ms.openlocfilehash: d06b44246b694c0d2a83503ecd1ae0cedfadd9ec
-ms.sourcegitcommit: 59914a06e1f337399e4db3c6f3bc15c573079832
+ms.openlocfilehash: c6ef869bd211b156ba17d2aa8f384d15269b6d59
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/19/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643638"
 ---
 # <a name="powershell-script-to-create-an-application-insights-resource"></a>PowerShell-script om een Application Insights-resource te maken
 
 
-Als u wilt bewaken van een nieuwe toepassing- of een nieuwe versie van een toepassing - met [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), instellen van een nieuwe resource in Microsoft Azure. Deze resource wordt waarbij de telemetriegegevens vanuit uw app geanalyseerd en weergegeven. 
+Indien u wenst te bewaken van een nieuwe toepassing- of een nieuwe versie van een toepassing - met [Azure Application Insights](https://azure.microsoft.com/services/application-insights/), instellen van een nieuwe resource in Microsoft Azure. Deze resource is waar de telemetriegegevens van uw app is geanalyseerd en weergegeven. 
 
 U kunt het maken van een nieuwe resource automatiseren met behulp van PowerShell.
 
-Als u een mobiel apparaat-app ontwikkelt, is het bijvoorbeeld waarschijnlijk dat op elk gewenst moment zal er verschillende versies van uw app wordt gebruikt door uw klanten zijn gepubliceerd. U wilt niet dat de resultaten van de telemetrie van verschillende versies verward ophalen. Zo kunt u uw buildproces voor het maken van een nieuwe bron voor elk build ophalen.
+Bijvoorbeeld, als u een mobiel apparaat-app ontwikkelt, waarschijnlijk dat op elk gewenst moment, zullen er verschillende gepubliceerde versies van uw app wordt gebruikt door uw klanten. U wilt niet dat de resultaten van de telemetrie van verschillende versies verward ophalen. Je krijgt dus uw buildproces voor het maken van een nieuwe resource voor elke build.
 
 > [!NOTE]
-> Als u maken van een set resources allemaal op hetzelfde moment wilt, overweeg dan [maken van de resources met een Azure-sjabloon](app-insights-powershell.md).
+> Als u maken van een set met resources allemaal op hetzelfde moment wilt, kunt u overwegen [maken van de resources met behulp van een Azure-sjabloon](app-insights-powershell.md).
 > 
 > 
 
 ## <a name="script-to-create-an-application-insights-resource"></a>Script voor het maken van een Application Insights-resource
-Zie de specificaties van de relevante cmdlet:
+Zie de specificaties van de desbetreffende cmdlet:
 
 * [New-AzureRmResource](https://msdn.microsoft.com/library/mt652510.aspx)
 * [New-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt678995.aspx)
@@ -98,8 +99,8 @@ Write-Host "IKey = " $resource.Properties.InstrumentationKey
 
 ```
 
-## <a name="what-to-do-with-the-ikey"></a>Wat te doen met de sleutel
-Elke bron wordt geïdentificeerd door de instrumentatiesleutel (iKey). De sleutel is de uitvoer van een script voor het maken van de resource. Uw script build leveren dat de iKey naar Application Insights-SDK is ingesloten in uw app.
+## <a name="what-to-do-with-the-ikey"></a>Wat te doen met de iKey
+Elke resource wordt geïdentificeerd door de instrumentatiesleutel (iKey). De iKey is een uitvoer van een script voor het maken van de resource. Uw build-script moet bieden dat de iKey naar de Application Insights SDK ingesloten in uw app.
 
 Er zijn twee manieren om de iKey beschikbaar te maken met de SDK:
 
@@ -110,7 +111,7 @@ Er zijn twee manieren om de iKey beschikbaar te maken met de SDK:
     TelemetryConfiguration.Active.InstrumentationKey = "`*iKey*`";`
 
 ## <a name="see-also"></a>Zie ook
-* [Application Insights en test webbronnen van sjablonen maken](app-insights-powershell.md)
-* [Instellen van de bewaking van Azure diagnostics met PowerShell](app-insights-powershell-azure-diagnostics.md) 
+* [Application Insights en test bronnen op het web maken met sjablonen](app-insights-powershell.md)
+* [Controle van Azure diagnostics met PowerShell instellen](app-insights-powershell-azure-diagnostics.md) 
 * [Waarschuwingen instellen met behulp van PowerShell](app-insights-powershell-alerts.md)
 

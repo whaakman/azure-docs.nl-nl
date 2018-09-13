@@ -1,7 +1,7 @@
 ---
 title: Optimaliseren van uw virtuele Linux-machine in Azure | Microsoft Docs
-description: Meer informatie over een aantal optimalisatietips om ervoor te zorgen dat u uw Linux-VM voor optimale prestaties in Azure hebt ingesteld
-keywords: virtuele Linux-machine, linux virtuele machine, ubuntu virtuele machine
+description: Meer optimalisatietips voor om ervoor te zorgen dat u uw Linux-VM voor optimale prestaties op Azure hebt ingesteld
+keywords: virtuele Linux-machine, virtuele machine linux, virtuele ubuntu-machine
 services: virtual-machines-linux
 documentationcenter: ''
 author: rickstercdn
@@ -16,57 +16,57 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/06/2016
 ms.author: rclaus
-ms.openlocfilehash: 75bba953a7a5737f0388e53a9f6f38dd8324eb83
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 10e39a205950d50794169e9bedaa65f480f1e9b5
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33944533"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35756036"
 ---
 # <a name="optimize-your-linux-vm-on-azure"></a>Uw Linux VM optimaliseren voor Azure
-Maken van virtuele Linux-machine (VM) is eenvoudig doen vanaf de opdrachtregel of in de portal. Deze zelfstudie laat zien hoe u om te controleren of u dit hebt ingesteld om de prestaties van het Microsoft Azure-platform te optimaliseren. In dit onderwerp maakt gebruik van een virtuele Ubuntu Server-machine, maar u kunt ook maken Linux virtuele machine met [uw eigen installatiekopieën die u als sjabloon](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
+Het maken van een Linux virtuele machine (VM) is heel gemakkelijk vanaf de opdrachtregel of vanuit de portal. Deze zelfstudie leert u hoe u om te controleren of u dit hebt ingesteld om de prestaties van de Microsoft Azure-platform te optimaliseren. In dit onderwerp wordt gebruikgemaakt van een Ubuntu-Server-VM, maar u kunt ook maken gebruik van Linux virtuele machine [uw eigen installatiekopieën als sjablonen](create-upload-generic.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).  
 
 ## <a name="prerequisites"></a>Vereisten
-In dit onderwerp wordt ervan uitgegaan dat u hebt al een werkende Azure-abonnement ([gratis proefversie te registreren](https://azure.microsoft.com/pricing/free-trial/)) en u hebt al een virtuele machine ingericht in uw Azure-abonnement. Zorg ervoor dat u de meest recente hebt [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij uw Azure-abonnement met [az aanmelding](/cli/azure/reference-index#az_login) voordat u [een virtuele machine maken](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
+In dit onderwerp wordt ervan uitgegaan dat u al een werkende Azure-abonnement hebt ([registreren voor een gratis proefversie](https://azure.microsoft.com/pricing/free-trial/)) en een virtuele machine al in uw Azure-abonnement hebt ingericht. Zorg ervoor dat u de meest recente [Azure CLI 2.0](/cli/azure/install-az-cli2) geïnstalleerd en aangemeld bij uw Azure-abonnement met [az login](/cli/azure/reference-index#az_login) voordat u [maken van een virtuele machine](quick-create-cli.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json).
 
 ## <a name="azure-os-disk"></a>Azure Besturingssysteemschijf
-Wanneer u een Linux-VM in Azure maakt, heeft deze twee schijven zijn gekoppeld. **/ dev/sda** staat voor de schijf OS **/dev/sdb** staat voor de tijdelijke schijf.  Gebruik niet de belangrijkste besturingssysteemschijf (**/dev/sda**) voor alles behalve het besturingssysteem die is geoptimaliseerd voor snelle VM-opstarten en biedt geen goede prestaties voor uw werkbelastingen. U wilt een of meer schijven toevoegen aan uw virtuele machine persistent ophalen en opslag van uw gegevens geoptimaliseerd. 
+Als u een Linux-VM in Azure maakt, heeft twee schijven zijn gekoppeld. **/ dev/sda** is van de besturingssysteemschijf **/dev/sdb** is de tijdelijke schijf.  Gebruik niet de belangrijkste OS-schijf (**/dev/sda**) voor alles wat met uitzondering van het besturingssysteem die is geoptimaliseerd voor snelle VM boot-tijd en biedt geen goede prestaties voor uw workloads. U wilt een of meer schijven aansluiten op uw virtuele machine om op te halen permanente en geoptimaliseerd voor opslag voor uw gegevens. 
 
-## <a name="adding-disks-for-size-and-performance-targets"></a>Het toevoegen van schijven voor grootte- en prestatiedoelen
-Op basis van de VM-grootte, kunt u maximaal 16 extra schijven op een A-serie, 32 schijven op een D-reeks koppelen en 64 schijven op een G-serie machine - elke maximaal 1 TB groot. U kunt extra schijven toevoegen naar behoefte per uw ruimte en de vereisten voor IOps. Elke schijf heeft een prestatiedoel van 500 IOps voor Standard-opslag en maximaal 5000 IOP's per schijf voor Premium-opslag.  Zie voor meer informatie over Premium-opslag schijven [Premium-opslag: krachtige opslag voor Azure Virtual machines](../windows/premium-storage.md)
+## <a name="adding-disks-for-size-and-performance-targets"></a>Schijven toe te voegen voor grootte- en prestatiedoelen
+Op basis van de VM-grootte, kunt u maximaal 16 extra schijven op een A-serie, 32 schijven op een D-serie koppelen en 64 schijven op een G-serie-machine - elke tot 1 TB in grootte. U kunt extra schijven toevoegen per ruimte en IOps-vereisten van uw behoefte. Elke schijf heeft een prestatiedoel van 500 IOps voor Standard-opslag en maximaal 5000 IOP's per schijf voor Premium-opslag.  Zie voor meer informatie over Premium Storage-schijven, [Premium Storage: hoogwaardige opslag voor virtuele Azure-machines](../windows/premium-storage.md)
 
-Als u de hoogste IOps op schijven met Premium-opslag waar de cache-instellingen zijn ingesteld op **ReadOnly** of **geen**, moet u uitschakelen **barrières** tijdens het koppelen van het bestandssysteem in Linux. U hoeft niet barrières omdat schrijfbewerkingen naar de Premium-opslag ondersteund schijven duurzame voor deze cache-instellingen.
+Om te kunnen de hoogste IOps op waar de cache-instellingen zijn ingesteld op Premium Storage-schijven **ReadOnly** of **geen**, moet u uitschakelen **barrières** tijdens het koppelen het bestandssysteem in Linux. U hoeft niet barrières omdat de schrijfbewerkingen naar Premium-opslag ondersteund schijven duurzame voor deze cache-instellingen.
 
-* Als u **reiserFS**, barrières van uitschakelen met de optie koppelpunt `barrier=none` (gebruikt voor het inschakelen van barrières `barrier=flush`)
-* Als u **ext3/ext4**, barrières van uitschakelen met de optie koppelpunt `barrier=0` (gebruikt voor het inschakelen van barrières `barrier=1`)
-* Als u **XFS**, barrières van uitschakelen met de optie koppelpunt `nobarrier` (Gebruik de optie voor het inschakelen van barrières `barrier`)
+* Als u **reiserFS**, uitschakelen hindernissen bij met de optie koppelpunt `barrier=none` (gebruikt voor het inschakelen van barrières `barrier=flush`)
+* Als u **ext3/ext4**, uitschakelen hindernissen bij met de optie koppelpunt `barrier=0` (gebruikt voor het inschakelen van barrières `barrier=1`)
+* Als u **XFS**, uitschakelen hindernissen bij met de optie koppelpunt `nobarrier` (Gebruik de optie voor het inschakelen van barrières `barrier`)
 
-## <a name="unmanaged-storage-account-considerations"></a>Aandachtspunten voor gebruikersaccounts onbeheerde opslag
-De standaardactie wanneer u een virtuele machine met de Azure CLI 2.0 maken is het gebruik van beheerde Azure-schijven.  Deze schijven worden verwerkt door de Azure-platform en hoeven niet de voorbereidings- of locatie om op te slaan.  Niet-beheerde schijven vereisen een opslagaccount en hebben enkele aanvullende prestatie-overwegingen.  Zie voor meer informatie over beheerde schijven [overzicht Azure Managed Disks](../windows/managed-disks-overview.md).  De volgende sectie bevat een overzicht van prestatie-overwegingen wanneer u het niet-beheerde schijven gebruikt.  Opnieuw, de standaardwaarde en aanbevolen opslagoplossing beheerde schijven te gebruiken.
+## <a name="unmanaged-storage-account-considerations"></a>Aandachtspunten voor gebruikersaccounts van niet-beheerde opslag
+De standaardactie wanneer u een virtuele machine met de Azure CLI 2.0 maken is het gebruik van Azure Managed Disks.  Deze schijven worden verwerkt door het Azure-platform en vereisen geen geen voorbereiding of locatie op te slaan.  Niet-beheerde schijven vereisen een storage-account en hebben enkele aanvullende prestatie-overwegingen.  Zie voor meer informatie over beheerde schijven [overzicht Azure Managed Disks](../windows/managed-disks-overview.md).  De volgende sectie bevat een overzicht van prestatie-overwegingen wanneer u het niet-beheerde schijven gebruikt.  Nogmaals, de standaardinstelling en aanbevolen oplossing is het gebruik van beheerde schijven.
 
-Als u een virtuele machine met niet-beheerde schijven maakt, zorg er dan voor dat u Koppel de schijven van de storage-accounts die zich in dezelfde regio bevinden als uw virtuele machine om te controleren dicht en netwerklatentie minimaliseren.  Elk Standard-opslag-account is een maximum van 20 k IOps en een capaciteit van de grootte van 500 TB.  Deze limiet werkt ongeveer 40 intensief gebruikte schijven, inclusief de besturingssysteemschijf en eventuele gegevensschijven die u maakt. Er is geen limiet voor de maximale IOps voor Premium Storage-accounts, maar er is een limiet van 32 TB. 
+Als u een virtuele machine met niet-beheerde schijven maken, zorg er dan voor dat u schijven koppelen van storage-accounts die zich bevinden in dezelfde regio als uw virtuele machine om te controleren dicht en minimale netwerklatentie.  Elke Standard-opslagaccount heeft maximaal 20 k IOP's en een capaciteit van de grootte van 500 TB.  Deze limiet werkt op ongeveer 40 intensief gebruikte schijven, waaronder zowel schijf met het besturingssysteem en eventuele gegevensschijven die u maakt. Er is geen maximale IOps-limiet voor Premium Storage-accounts, maar er is een limiet van 32 TB. 
 
-Wanneer het omgaan met een hoge IOps werkbelastingen en u hebt ervoor gekozen Standard-opslag voor uw schijven, moet u mogelijk de schijven verdelen over meerdere opslagaccounts om ervoor te zorgen dat u hebt niet de 20.000 IOps-limiet voor Standard-opslag-accounts bereikt. Uw virtuele machine kan een combinatie van schijven uit tussen verschillende opslagaccounts en opslagaccounttypen bereiken van de optimale configuratie bevatten.
+Bij het afhandelen van hoge IOps werkbelastingen en u ervoor hebt gekozen voor Standard-opslag voor uw schijven, moet u mogelijk de schijven verdeeld over meerdere opslagaccounts om ervoor te zorgen dat u hebt niet bereikt voor de 20.000 IOps-limiet voor Standard Storage-accounts. Uw virtuele machine kan een combinatie van schijven uit tussen verschillende opslagaccounts en storage-accounttypen om de optimale configuratie bevatten.
  
 
-## <a name="your-vm-temporary-drive"></a>De VM tijdelijke schijf
-Wanneer u een virtuele machine, maakt Azure biedt standaard u met een besturingssysteemschijf (**/dev/sda**) en een tijdelijke schijf (**/dev/sdb**).  Alle aanvullende schijven u, weergeven als toevoegen **/dev/sdc**, **/dev/sdd**, **/dev/sde** enzovoort. Alle gegevens op de tijdelijke schijf (**/dev/sdb**) is niet duurzame, en kunnen verloren gaan als specifieke gebeurtenissen, zoals VM-grootte, opnieuw installeren, of onderhoud zorgt ervoor uw virtuele machine opnieuw wordt opgestart dat.  De grootte en het type van de tijdelijke schijf is gekoppeld aan de VM-grootte die u hebt gekozen tijdens de implementatie. Alle premium het formaat van virtuele machines (DS, G en DS_V2-serie) het tijdelijke station worden ondersteund door een lokale SSD voor extra prestaties van maximaal 48k IOps. 
+## <a name="your-vm-temporary-drive"></a>Uw virtuele machine tijdelijk station
+Standaard bij het maken van een virtuele machine, biedt Azure u een besturingssysteemschijf (**/dev/sda**) en een tijdelijke schijf (**/dev/sdb**).  Alle extra schijven u, weergeven als toevoegen **/dev/sdc**, **/dev/sdd**, **/dev/sde** enzovoort. Alle gegevens op de tijdelijke schijf (**/dev/sdb**) is niet duurzame, en kunnen verloren gaan als specifieke gebeurtenissen, zoals VM-formaat, opnieuw te implementeren of onderhoud zorgt ervoor dat uw virtuele machine opnieuw worden opgestart.  De grootte en het type van de tijdelijke schijf is gekoppeld aan de VM-grootte die u hebt gekozen tijdens de implementatie. Alle van de premium-grootte van virtuele machines (DS, G en DS_V2-serie) het tijdelijke station worden ondersteund door een lokale SSD voor extra prestaties van maximaal 48 kB IOps. 
 
-## <a name="linux-swap-file"></a>Wisselbestand van Linux
-Als uw Azure VM van een installatiekopie van een Ubuntu of virtuele CoreOS is, kunt u CustomData gebruiken om te verzenden van een cloud-config naar cloud init. Als u [geüpload een aangepaste installatiekopie van Linux](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) die gebruikmaakt van cloud-init, u ook configureren met behulp van cloud-init swap-partities.
+## <a name="linux-swap-file"></a>Wisselbestand voor Linux
+Als uw Azure-VM van een installatiekopie van een Ubuntu of CoreOS is, kunt u CustomData gebruiken voor het verzenden van een cloud-configuratie voor cloud-init. Als u [geüpload van een aangepaste installatiekopie van Linux](upload-vhd.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) die gebruikmaakt van cloud-init, u swap-partities cloud-init gebruiken voor het ook configureren.
 
-Ubuntu Cloud afbeeldingen, moet u cloud-init gebruiken voor het configureren van de wisseling partitie. Zie voor meer informatie [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
+Op Ubuntu Cloud-installatiekopieën, moet u cloud-init gebruiken voor het configureren van de swap-partitie. Zie voor meer informatie, [AzureSwapPartitions](https://wiki.ubuntu.com/AzureSwapPartitions).
 
-Voor installatiekopieën zonder ondersteuning voor cloud-init zijn VM-installatiekopieën die zijn geïmplementeerd vanuit Azure Marketplace een VM-Linux-Agent geïntegreerd met het besturingssysteem. Deze agent kan de virtuele machine om te communiceren met verschillende Azure-services. Ervan uitgaande dat u een standaardinstallatiekopie vanuit Azure Marketplace hebt geïmplementeerd, moet u volgt te werk om instellingen voor het wisselbestand Linux correct te configureren:
+Voor afbeeldingen zonder ondersteuning voor cloud-init hebt geïmplementeerd op Azure Marketplace VM-installatiekopieën een virtuele machine Linux-Agent geïntegreerd met het besturingssysteem. Deze agent kan de virtuele machine om te communiceren met verschillende Azure-services. Ervan uitgaande dat u een standard-installatiekopie uit de Azure Marketplace hebt geïmplementeerd, moet u voor het correct configureren van instellingen voor het wisselbestand Linux als volgt:
 
-Zoek en wijzigen van twee vermeldingen in de **/etc/waagent.conf** bestand. Ze bepalen de aanwezigheid van een speciale wisselbestand en grootte van het wisselbestand. De parameters die u wilt wijzigen zijn `ResourceDisk.EnableSwap=N` en `ResourceDisk.SwapSizeMB=0` 
+Zoek en wijzigen van twee vermeldingen in de **/etc/waagent.conf** bestand. Ze bepalen het bestaan van een toegewezen wisselbestand en de grootte van het wisselbestand. De parameters die u wilt wijzigen zijn `ResourceDisk.EnableSwap=N` en `ResourceDisk.SwapSizeMB=0` 
 
 Wijzig de parameters voor de volgende instellingen:
 
 * ResourceDisk.EnableSwap=Y
-* ResourceDisk.SwapSizeMB={size in MB voor uw behoeften} 
+* ResourceDisk.SwapSizeMB={size in MB om te voldoen aan uw behoeften} 
 
-Zodra u de wijziging hebt aangebracht, moet u moet de waagent of opnieuw opstarten van uw Linux-VM om deze wijzigingen weer te geven.  U weet dat de wijzigingen zijn uitgevoerd en er is een wisselbestand gemaakt wanneer u de `free` opdracht voor het weergeven van de vrije ruimte. Het volgende voorbeeld heeft een wisselbestand van 512MB gemaakt naar aanleiding van het wijzigen van de **waagent.conf** bestand:
+Nadat u de wijziging hebt aangebracht, moet u moet de waagent of opnieuw opstarten van uw Linux-VM om de wijzigingen weer te geven.  U weet dat de wijzigingen die zijn geïmplementeerd en er is een wisselbestand gemaakt wanneer u de `free` opdracht om beschikbare ruimte weer te geven. Het volgende voorbeeld heeft een wisselbestand voor 512MB gemaakt als gevolg van het wijzigen van de **waagent.conf** bestand:
 
 ```bash
 azuseruser@myVM:~$ free
@@ -76,8 +76,8 @@ Mem:       3525156     804168    2720988        408       8428     633192
 Swap:       524284          0     524284
 ```
 
-## <a name="io-scheduling-algorithm-for-premium-storage"></a>I/o-planning algoritme voor Premium-opslag
-Met de 2.6.18 Linux kernel, de standaard i/o planning algoritme is gewijzigd van de Deadline in CFQ (volledig evenredige queuing algoritme). Er is te verwaarlozen verschil in prestatieverschillen tussen CFQ en de Deadline voor willekeurige toegang i/o-patronen.  Overschakelen naar het algoritme Nooperation of Deadline leveren betere i/o-prestaties voor SSD-schijven op basis van waar de schijf-i/o-patroon hoofdzakelijk sequentieel is.
+## <a name="io-scheduling-algorithm-for-premium-storage"></a>Planning algoritme voor Premium-opslag i/o
+Met de 2.6.18 Linux-kernel, de standaard i/o planning algoritme is gewijzigd van de Deadline in CFQ (volledig geoorloofd queuing algoritme). Er is voor willekeurige toegang i/o-patronen, te verwaarlozen verschil in prestatieverschillen tussen CFQ en Deadline.  Overschakelen naar het algoritme Nooperation of Deadline bereiken betere i/o-prestaties voor SSD-schijven op basis van waar de schijf-i/o-patroon voornamelijk sequentieel is.
 
 ### <a name="view-the-current-io-scheduler"></a>De huidige i/o-planner weergeven
 Gebruik de volgende opdracht:  
@@ -86,13 +86,13 @@ Gebruik de volgende opdracht:
 cat /sys/block/sda/queue/scheduler
 ```
 
-U ziet na uitvoer, waarmee wordt aangegeven van de huidige Taakplanner.  
+U ziet de volgende uitvoer geeft de huidige Taakplanner.  
 
 ```bash
 noop [deadline] cfq
 ```
 
-### <a name="change-the-current-device-devsda-of-io-scheduling-algorithm"></a>Wijzigen van het huidige apparaat (/ dev/sda) van i/o algoritme plannen
+### <a name="change-the-current-device-devsda-of-io-scheduling-algorithm"></a>Het huidige apparaat (/ dev/sda) van i/o algoritme planning wijzigen
 Gebruik de volgende opdrachten:  
 
 ```bash
@@ -103,9 +103,9 @@ root@myVM:~# update-grub
 ```
 
 > [!NOTE]
-> Toepassen van deze instelling voor **/dev/sda** alleen is niet handig. Ingesteld op alle gegevensschijven waar opeenvolgende i/o zomaar het i/o-patroon.  
+> Toepassen van deze instelling voor **/dev/sda** alleen is niet nuttig. Ingesteld op alle gegevensschijven waar opeenvolgende i/o bepaalt de i/o-patroon.  
 
-U ziet de volgende uitvoer, die aangeeft dat **grub.cfg** met succes is opnieuw opgebouwd en dat de planner standaard is bijgewerkt naar Nooperation.  
+U ziet de uitvoer van de volgende die aangeeft dat **grub.cfg** met succes is opnieuw opgebouwd en dat de scheduler standaard is bijgewerkt naar Nooperation.  
 
 ```bash
 Generating grub configuration file ...
@@ -118,21 +118,21 @@ Found memtest86+ image: /memtest86+.bin
 done
 ```
 
-Voor de distributie-familie van Redhat hoeft u alleen de volgende opdracht:   
+Voor de distributie-familie van Red Hat hoeft u alleen de volgende opdracht uit:   
 
 ```bash
 echo 'echo noop >/sys/block/sda/queue/scheduler' >> /etc/rc.local
 ```
 
-## <a name="using-software-raid-to-achieve-higher-iops"></a>Met behulp van Software-RAID bereiken hoger ik / Ops
-Als uw werkbelastingen meer IOps vereisen dan één schijf kan bieden, moet u een software-RAID-configuratie van meerdere schijven gebruiken. Omdat Azure al tolerantie van de schijf op de lokale fabric-laag voert, kunt u het hoogste niveau van de prestaties van een configuratie van RAID-0 striping van bereiken.  Inrichten en schijven te maken in de Azure-omgeving en deze koppelt aan uw Linux-VM voordat partitioneren, formatteren en koppelen van de stations.  Meer informatie over het configureren van een software-RAID-instellingen op uw Linux-VM in azure vindt u in de **[configureren van Software-RAID op Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** document.
+## <a name="using-software-raid-to-achieve-higher-iops"></a>Met behulp van Software-RAID voor een hoger ik / Ops
+Als uw werkbelastingen meer IOps vereisen dan één schijf kan bieden, moet u een software-RAID-configuratie van meerdere schijven gebruiken. Omdat Azure al tolerantie van de schijf op het niveau van de lokale infrastructuur voert, kunt u het hoogste niveau van de prestaties van een configuratie van RAID-0 striping van bereiken.  Inrichten en maken van schijven in de Azure-omgeving en koppelt u ze aan uw Linux-VM voordat u partitioneren, formatteren en het koppelen van de stations.  Meer informatie over het configureren van een software-RAID-instellingen op uw Linux-VM in azure vindt u de **[Software-RAID configureren onder Linux](configure-raid.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)** document.
 
 ## <a name="next-steps"></a>Volgende stappen
-Denk eraan dat als met alle optimalisatie discussies die u nodig hebt voor het uitvoeren van de tests voor en na elke wijziging voor het meten van de gevolgen heeft voor de wijziging.  Optimalisatie wordt stap voor stap processen met verschillende resultaten op verschillende computers in uw omgeving.  Wat werkt voor één configuratie werkt niet voor anderen.
+Denk eraan dat als met alle optimalisatie discussies, u moet het uitvoeren van tests voor en na elke wijziging voor het meten van de impact is van de wijziging.  Optimalisatie is een stapsgewijze proces dat bestaat uit verschillende resultaten op verschillende computers in uw omgeving.  Wat werkt voor één configuratie werkt niet voor andere gebruikers.
 
-Sommige nuttig koppelingen naar aanvullende bronnen: 
+Sommige handige koppelingen naar aanvullende bronnen: 
 
 * [Premium Storage: opslag met hoge prestaties voor de werkbelasting van virtuele Azure-machines](premium-storage.md)
-* [Gebruikershandleiding voor Azure Linux-Agent](../extensions/agent-linux.md)
-* [MySQL-prestaties op Azure Linux virtuele machines optimaliseren](classic/optimize-mysql.md)
-* [Configureren van Software-RAID op Linux](configure-raid.md)
+* [Gebruikershandleiding voor Azure Linux Agent](../extensions/agent-linux.md)
+* [MySQL-prestaties op virtuele Azure Linux-machines optimaliseren](classic/optimize-mysql.md)
+* [Software-RAID op Linux configureren](configure-raid.md)

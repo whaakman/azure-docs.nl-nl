@@ -1,33 +1,33 @@
 ---
-title: Ondersteund inspectors beschikbaar met Azure Machine Learning gegevens voorbereiden | Microsoft Docs
-description: Dit document bevat een volledige lijst van inspecteurs beschikbaar voor Azure Machine Learning gegevens voorbereiden
+title: Inspectors beschikbaar voor gegevensvoorbereiding van Azure Machine Learning ondersteund | Microsoft Docs
+description: Dit document bevat een volledige lijst van inspectors beschikbaar voor gegevensvoorbereiding van Azure Machine Learning
 services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: ca9b46335105e62b023e7db16e0ead4061fbfd00
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: ef5f6f3dc7ae0c555b2afe000b54c443313800f1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34830711"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35645734"
 ---
 # <a name="supported-inspectors-for-the-azure-machine-learning-data-preparation-preview"></a>Inspectors ondersteund voor de preview van Azure Machine Learning gegevens voorbereiden
-Dit document bevat een overzicht van de reeks inspectors die beschikbaar in deze preview zijn.
+Dit document bevat een overzicht van de set inspectors die beschikbaar in deze Preview-versie zijn.
 
 ## <a name="the-halo-effect"></a>Het halo-effect 
-Sommige inspectors ondersteuning voor het effect halo. Daartoe maakt gebruik van twee verschillende kleuren om de wijziging van een transformatie visueel onmiddellijk weer te geven. De grijze vertegenwoordigt de waarde hebben voorafgaand aan de meest recente transformatie, en de blauwe wordt de huidige waarde. Hiertoe worden ingeschakeld en in de opties uitgeschakeld.
+Sommige inspectors ondersteuning voor het halo-effect. Dit effect maakt gebruik van twee verschillende kleuren om de wijziging visueel ten opzichte van een transformatie onmiddellijk weer te geven. De grijze vertegenwoordigt de waarde hebben voorafgaand aan de meest recente transformatie, en de blauwe ziet u de huidige waarde. Dit effect kan worden ingeschakeld en in de opties uitgeschakeld.
 
 ## <a name="graphical-filtering"></a>Grafische filteren 
-Sommige van de inspecteurs ondersteuning voor het filteren van gegevens met behulp van de inspector als een editor. Met behulp van de inspector als een editor omvat een grafische elementen te selecteren en vervolgens via de werkbalk in de rechterbovenhoek van het venster inspector te filteren in of uit de geselecteerde waarden. 
+Enkele van de inspectors ondersteuning voor het filteren van gegevens met behulp van de inspector als een editor. De inspector gebruikt als een editor omvat grafische elementen te selecteren en vervolgens met behulp van de werkbalk in de rechterbovenhoek van het venster inspector om te filteren in of uit de geselecteerde waarden. 
 
 ## <a name="column-statistics"></a>Kolomstatistieken
 Deze controle biedt voor numerieke kolommen tal van verschillende statistieken over de kolom. Statistieken zijn onder andere de volgende metingen: 
@@ -44,44 +44,44 @@ Deze controle biedt voor numerieke kolommen tal van verschillende statistieken o
 - Geen
 
 ## <a name="histogram"></a>Histogram 
-Wordt berekend en een histogram van een enkele numerieke kolom wordt weergegeven. Het aantal buckets dat wordt berekend met behulp van Scott regel. De regel kan echter via de opties worden genegeerd.
+Berekent en ziet u een histogram van één numerieke kolom. Het aantal buckets wordt berekend met behulp van de regel Scott's. De regel kan echter via de opties worden genegeerd.
 
-Deze controle ondersteunt het effect halo.
+Deze controle biedt ondersteuning voor het halo-effect.
 
 
 ### <a name="options"></a>Opties
 - Minimum aantal buckets (dit geldt zelfs wanneer bucketing standaard is ingeschakeld)
-- Standaardaantal buckets (van Scott regel) 
+- Standaardaantal buckets (regel Scott's) 
 - Halo weergeven
-- Kernel dichtheid tekent overlay (Gaussiaans kernel) 
+- Kernel dichtheid plot overlay (Gaussiaans kernel) 
 - Logaritmische schaal gebruiken
 
 
 ### <a name="actions"></a>Acties
-Deze controle biedt ondersteuning voor filteren via buckets, met inbegrip van enkelvoudige of meervoudige selectie buckets. Zoals eerder beschreven filters toepassen.
+Deze controle biedt ondersteuning voor filteren via buckets, waaronder de enkelvoudige of meervoudige selectie buckets. Zoals eerder beschreven filters toepassen.
 
 ## <a name="value-counts"></a>Telt het aantal waarde
-Deze controle geeft een Frequentietabel van waarden voor de kolom die momenteel is geselecteerd. De standaardweergave is voor de eerste zes waarden. U kunt echter de limiet wijzigen op een willekeurig getal. U kunt ook de weergave voor het tellen van onderaf in plaats van de top instellen. Deze controle ondersteunt het effect halo.
+Deze controle geeft een Frequentietabel van de waarden voor de kolom die momenteel is geselecteerd. De standaardweergave is voor de eerste zes waarden. U kunt echter de limiet wijzigen op een willekeurig getal. U kunt ook de weergave te tellen van het laagste in plaats van de top instellen. Deze controle biedt ondersteuning voor het halo-effect.
 
 ### <a name="options"></a>Opties 
 - Aantal bovenste waarden
 - Aflopend
-- Null/fout waarden bevatten
+- Null/fout-waarden bevatten
 - Halo weergeven
 - Logaritmische schaal gebruiken
 
 
 ### <a name="actions"></a>Acties 
-Deze controle biedt ondersteuning voor filteren via staven, met inbegrip van enkelvoudige of meervoudige selectie balken. Zoals eerder beschreven filters toepassen.
+Deze controle biedt ondersteuning voor filteren via staven, waaronder de enkelvoudige of meervoudige selectie balken. Zoals eerder beschreven filters toepassen.
 
 ## <a name="box-plot"></a>BoxPlot 
-Een whisker BoxPlot van een numerieke kolom.
+Een vak whisker-grafiek van een numerieke kolom.
 
 ### <a name="options"></a>Opties 
 - Groeperen op kolom
 
-## <a name="scatter-plot"></a>Spreiding van de grafiek
-Spreidingsgrafiek tekent voor twee numerieke kolommen. De gegevens wordt-oogpunt van prestaties. Grootte van de steekproef kan worden genegeerd in de opties.
+## <a name="scatter-plot"></a>Spreidingsplot
+Een spreidingsdiagram voor twee numerieke kolommen. De gegevens wordt-voor betere prestaties. De grootte van de steekproef kan worden genegeerd in de opties.
 
 ### <a name="options"></a>Opties  
 - X-as-kolom
@@ -91,16 +91,16 @@ Spreidingsgrafiek tekent voor twee numerieke kolommen. De gegevens wordt-oogpunt
 
 
 ## <a name="time-series"></a>Tijdreeks
-Een lijndiagram waarin de afhankelijkheid van de tijd op de x-as.
+Een lijndiagram met awareness tijd op de x-as.
 
 ### <a name="options"></a>Opties
 - Datumkolom
-- Numerieke kolom
+- De numerieke kolommen
 - De grootte van steekproef
 
 
 ### <a name="actions"></a>Acties
-Deze controle biedt ondersteuning voor filteren via een methode klikken en slepen select om een bereik op de grafiek te selecteren. Nadat u de selectie hebt voltooid, toepassen van filters zoals eerder beschreven.
+Deze controle biedt ondersteuning voor filteren via een methode klikken en slepen select om een bereik in de grafiek te selecteren. Nadat u de selectie hebt voltooid, toepassen van filters zoals eerder is beschreven.
 
 
 ## <a name="map"></a>Kaart 
@@ -114,14 +114,14 @@ Een kaart met punten die worden getekend, ervan uitgaande dat de breedtegraad en
 
 
 ### <a name="actions"></a>Acties
-Deze controle biedt ondersteuning voor filteren via de selectie op de kaart. Druk op de **Ctrl** sleutel, en klik en sleep met de muis naar het formulier een vierkant rond de punten. Zoals eerder beschreven filters vervolgens toepassen.
+Deze controle biedt ondersteuning voor filteren via de selectie op de kaart. Druk op de **Ctrl** sleutel, en klik en sleep met de muis om te vormen een vierkant rond de punten. Zoals eerder beschreven filters toepassen.
 
-U kunt snel het formaat van de kaart zodanig dat alleen de mogelijke punten door op de **E** aan de linkerkant van de kaart.
+U kunt snel het formaat van de kaart om weer te geven alleen de mogelijke punten door te drukken de **E** aan de linkerkant van de kaart.
 
 
 ## <a name="pattern-frequency"></a>Patroon frequentie 
 
-Deze controle wordt een lijst met patronen in de geselecteerde kolom in de tekenreeks. De patronen worden weergegeven met een reguliere expressie zoals syntaxis. Muiswijzer op het patroon, ziet u de voorbeelden van waarden die worden vertegenwoordigd door dit patroon. De geschatte coverages in termen van percentage wordt ook weergegeven samen met de patronen.
+Deze controle wordt een lijst van patronen in de geselecteerde kolom met tekenreeksen. De patronen worden weergegeven met een reguliere expressie, zoals syntaxis. Aanwijzen van het patroon, ziet u de voorbeelden van waarden die worden vertegenwoordigd door dit patroon. De geschatte coverages in termen van percentage wordt ook weergegeven samen met de patronen.
 
 ![Afbeelding van het patroon inspector](media/data-prep-appendix4-supported-inspectors/PatternInspectorProductNumber.png)
 
@@ -131,4 +131,4 @@ Deze controle wordt een lijst met patronen in de geselecteerde kolom in de teken
 - Halo weergeven
 
 ### <a name="actions"></a>Acties
-Deze controle biedt ondersteuning voor filteren op basis van patronen weergegeven. Druk op de **Ctrl** sleutel en selecteer vervolgens de gevulde balken in patroon inspector. Zoals eerder beschreven filters vervolgens toepassen. Als gevolg van de acion gebruiker wordt een stap geavanceerde filter toegevoegd. U kunt zien en de gegenereerde Python-code wijzigen door het aanroepen van de optie voor het bewerken van de geavanceerde Filter-stap.
+Deze controle biedt ondersteuning voor filteren op basis van patronen weergegeven. Druk op de **Ctrl** sleutel, en selecteer vervolgens de gevulde balken in patroon inspector. Zoals eerder beschreven filters toepassen. Als gevolg van de gebruiker acion, wordt een geavanceerd filterstap toegevoegd. U kunt zien en de gegenereerde Python-code wijzigen door de optie voor het bewerken van de stap Geavanceerd Filter aan te roepen.

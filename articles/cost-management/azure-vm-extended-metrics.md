@@ -1,80 +1,85 @@
 ---
 title: Uitgebreide metrische gegevens voor Azure virtual machines toevoegen | Microsoft Docs
-description: In dit artikel helpt u bij het inschakelen en configureren van uitgebreide diagnostische gegevens metrische gegevens voor uw Azure VM's.
+description: Dit artikel helpt u bij het inschakelen en metrische gegevens over uitgebreide diagnostische gegevens configureren voor uw Azure VM's.
 services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 06/07/2018
+ms.date: 06/12/2018
 ms.topic: conceptual
 ms.service: cost-management
 manager: dougeby
 ms.custom: ''
-ms.openlocfilehash: 58245478cf49c030c435b487e233bbc893a2b9a3
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: b7e4665dc3579f357ce1e28bf34be35c931736bd
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35296353"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643935"
 ---
 # <a name="add-extended-metrics-for-azure-virtual-machines"></a>Uitgebreide metrische gegevens voor Azure virtual machines toevoegen
 
-Kosten Management maakt gebruik van Azure metrische gegevens van uw Azure VM's om weer te geven dat u gedetailleerde informatie over hun resources. Metrische gegevens, prestatiemeteritems, ook wel wordt gebruikt door kostenbeheer om rapporten te genereren. Echter kostenbeheer wordt niet automatisch alle Azure metrische gegevens verzamelen van Gast-VM's, moet u metrische verzameling inschakelen. In dit artikel helpt u bij het inschakelen en configureren van aanvullende diagnostische gegevens metrische gegevens voor uw Azure VM's.
+Cost Management maakt gebruik van Azure metrische gegevens van uw Azure-VM's om u gedetailleerde informatie over hun resources weer te geven. Metrische gegevens, prestatiemeteritems, ook met de naam wordt gebruikt door Cost Management om rapporten te genereren. Echter Cost Management wordt niet automatisch verzamelen van alle Azure metrische gegevens van Gast-VM's, moet u metrische gegevens verzameling inschakelen. Dit artikel helpt u bij het inschakelen en configureren van aanvullende metrische gegevens voor uw Azure VM's.
 
-Nadat u metrische verzameling inschakelt, kunt u:
+Nadat u het verzamelen van metrische gegevens inschakelt, kunt u het volgende doen:
 
-- Weten wanneer uw virtuele machines hun geheugen, schijf- en CPU-limieten zijn bereikt.
-- Trends in gebruik en afwijkingen gedetecteerd.
-- De kosten beheren door sizing volgens de informatie over het gebruik.
-- Kosten effectieve sizing optimalisatie aanbevelingen uit het beheer van kosten worden opgehaald.
+- Op de hoogte wanneer uw virtuele machines hun geheugen, schijf en CPU-limieten zijn bereikt.
+- Detecteer trends in gebruik en afwijkingen.
+- Uw kosten te beheren door de grootte op basis van gebruik.
+- Get kosten-effectieve formaat aanbevelingen van de optimalisatie van Cost Management.
 
-U wilt bewaken van de CPU-percentage en geheugen-% van uw Azure VM's. De virtuele machine van Azure metrische gegevens komen overeen met _[Host] Percentage CPU_ en _[Gast] geheugenpercentage_.
+Bijvoorbeeld, als u wilt het % CPU en geheugen-% van uw virtuele Azure-machines bewaken. De metrische gegevens van virtuele Azure-machine komen overeen met _[Host] Percentage CPU_ en _[Gast] geheugenpercentage_.
+
+> [!NOTE]
+> Uitgebreide metrische gegevensverzameling wordt alleen ondersteund met Azure-bewaking op gastniveau. Kostenbeheer is niet compatibel met de Log Analytics VM-extensie.
 
 ## <a name="verify-that-metrics-are-enabled-on-vms"></a>Controleer of metrische gegevens zijn ingeschakeld op virtuele machines
 
 1. Meld u aan bij Azure Portal op http://portal.azure.com.
-2. Onder **virtuele machines**, selecteert u een virtuele machine en klik vervolgens onder **bewaking**, selecteer **metrische gegevens**. Een lijst met beschikbare metrische gegevens weergegeven.
-3. Selecteer enkele metrische gegevens en een grafiek voor deze gegevens worden weergegeven.  
-    ![Voorbeeld metriek – host percentage CPU](./media/azure-vm-extended-metrics/metric01.png)
+2. Onder **virtuele machines**, selecteert u een virtuele machine en klik vervolgens onder **bewaking**, selecteer **metrische gegevens**. Een lijst met beschikbare metrische gegevens wordt weergegeven.
+3. Sommige metrische gegevens selecteren en een grafiek voor deze gegevens worden weergegeven.  
+    ![Voorbeeld van de metrische gegevens: host percentage CPU](./media/azure-vm-extended-metrics/metric01.png)
 
-Een beperkte set van standaard metrische gegevens beschikbaar zijn voor uw hosts in het voorgaande voorbeeld, maar geheugen metrische gegevens zijn niet. Metrische gegevens geheugen uitmaken deel van uitgebreide metrische gegevens. Een aantal extra stappen uitvoeren om uitgebreide metrische gegevens inschakelen, moet u uitvoeren. De volgende informatie helpt u bij deze wilt inschakelen.
+In het voorgaande voorbeeld wordt een beperkte set van standaard metrische gegevens zijn beschikbaar voor uw hosts, maar geheugen metrische gegevens zijn niet. Geheugen metrische gegevens maken deel uit van de uitgebreide metrische gegevens. U moet enkele extra stappen voor het inschakelen van uitgebreide metrische gegevens uitvoeren. De volgende informatie helpt u om hen in staat.
 
-## <a name="enable-extended-metrics-in-the-azure-portal"></a>Uitgebreide metrische gegevens in de Azure portal inschakelen
+## <a name="enable-extended-metrics-in-the-azure-portal"></a>Uitgebreide metrische gegevens in Azure portal inschakelen
 
-Standaard metrische gegevens zijn host computer metrische gegevens. De _[Host] Percentage CPU_ metriek is een voorbeeld. Er zijn ook basismetrieken voor gast-VM's en uitgebreide metrische gegevens ook genoemd. Voorbeelden van uitgebreide metrische gegevens zijn _[Gast] geheugenpercentage_ en _[] Gastgeheugen beschikbaar_.
+Standaard metrische gegevens zijn computer metrische gegevens voor hosts. De _[Host] Percentage CPU_ meetwaarde is een voorbeeld. Er zijn ook eenvoudige metrische gegevens voor de Gast-VM's en uitgebreide metrische gegevens ook genoemd. Voorbeelden van uitgebreide metrische gegevens zijn _[Gast] geheugenpercentage_ en _[] Gastgeheugen beschikbaar_.
 
-Het inschakelen van uitgebreide metrische gegevens is eenvoudig. Voor elke VM gastniveau-controle inschakelen. Wanneer u gastniveau monitoring inschakelt, wordt de Azure diagnostics-agent is geïnstalleerd op de virtuele machine. Het volgende proces is hetzelfde voor klassieke en reguliere VM's en hetzelfde voor Windows en Linux-machines.
+Het inschakelen van uitgebreide metrische gegevens is eenvoudig. Voor elke virtuele machine, schakel de bewaking op gastniveau. Wanneer u de bewaking op gastniveau inschakelt, wordt de Azure diagnostics-agent is geïnstalleerd op de virtuele machine. Het volgende proces is hetzelfde voor klassieke en reguliere virtuele machines en hetzelfde voor Windows en Linux-VM's.
 
-### <a name="enable-guest-level-monitoring-on-existing-vms"></a>Gastniveau bewaking op bestaande virtuele machines inschakelen
+Houd er rekening mee dat Azure- en Linux bewaking op gastniveau zijn vereist voor een opslagaccount. Wanneer u bewaking op gastniveau, inschakelt als u een bestaand opslagaccount niet kiezen, is klikt u vervolgens een gemaakt voor u.
 
-1. In **virtuele Machines**, een lijst met uw virtuele machines en selecteer vervolgens een virtuele machine.
+### <a name="enable-guest-level-monitoring-on-existing-vms"></a>Bewaking op gastniveau op bestaande virtuele machines inschakelen
+
+1. In **virtuele Machines**, uw lijst met uw virtuele machines weergeven en selecteer vervolgens een virtuele machine.
 2. Onder **bewaking**, selecteer **metrische gegevens**.
 3. Klik op **diagnostische instellingen**.
-4. Klik op de pagina van de instellingen voor diagnostische gegevens **gastniveau bewaking inschakelen**. Virtuele Linux-machines vereisen een bestaand opslagaccount. Als u een opslagaccount niet voor een virtuele machine van Windows kiezen, is voor u een gemaakt.  
+4. Klik op de instellingenpagina van diagnostische gegevens **bewaking op gastniveau inschakelen**.  
     ![Gast niveau bewaking inschakelen](./media/azure-vm-extended-metrics/enable-guest-monitoring.png)
-5. Na een paar minuten, is de Azure diagnostics-agent geïnstalleerd op de virtuele machine. Vernieuw de pagina en de lijst met beschikbare metrische gegevens is bijgewerkt met de Gast metrische gegevens.  
+5. Na een paar minuten is de Azure diagnostics-agent geïnstalleerd op de virtuele machine. De pagina vernieuwd en de lijst met beschikbare metrische gegevens is bijgewerkt met metrische gegevens voor gasten.  
     ![Uitgebreide metrische gegevens](./media/azure-vm-extended-metrics/extended-metrics.png)
 
-### <a name="enable-guest-level-monitoring-on-new-vms"></a>Gastniveau controle op de nieuwe virtuele machines inschakelen
+### <a name="enable-guest-level-monitoring-on-new-vms"></a>Bewaking op gastniveau op nieuwe virtuele machines inschakelen
 
-Zorg ervoor dat u selecteert wanneer u nieuwe virtuele machines maakt, **Gastbesturingssysteem diagnostics**. Virtuele Linux-machines vereisen een bestaand opslagaccount. Als u een opslagaccount niet voor een virtuele machine van Windows kiezen, is voor u een gemaakt.
+Zorg ervoor dat u selecteert wanneer u nieuwe virtuele machines maakt, **diagnostische gegevens van Guest OS**.
 
 ![Gastbesturingssysteem diagnostische gegevens inschakelen](./media/azure-vm-extended-metrics/new-enable-diag.png)
 
 ## <a name="resource-manager-credentials"></a>Resource Manager-referenties
 
-Nadat u uitgebreide metrische gegevens inschakelen, zorg ervoor dat kostenbeheer toegang tot heeft uw [Resource Manager referenties](activate-subs-accounts.md). Uw referenties zijn vereist voor het beheren van de kosten voor het verzamelen en prestatiegegevens weergegeven voor uw virtuele machines. Deze worden ook gebruikt voor het maken van kosten optimalisatie aanbevelingen. Beheer van kosten moet ten minste drie dagen van de prestatiegegevens van een exemplaar om te bepalen of deze geschikt is voor een aanbeveling downsizing.
+Nadat u uitgebreide metrische gegevens inschakelt, zorg ervoor dat Cost Management toegang tot heeft uw [Resource Manager-referenties](activate-subs-accounts.md). Uw referenties zijn vereist voor het beheren van de kosten voor het verzamelen en prestatiegegevens weergegeven voor uw VM's. Ze worden ook gebruikt om te maken van kosten optimalisatie aanbevelingen. Kostenbeheer moet ten minste drie dagen van de prestatiegegevens van een exemplaar om te bepalen of een kandidaat voor een aanbeveling downsizing.
 
-## <a name="enable-vm-metrics-with-a-script"></a>Metrische gegevens van virtuele machine met een script inschakelen
+## <a name="enable-vm-metrics-with-a-script"></a>De metrische gegevens van een virtuele machine met een script inschakelen
 
-U kunt metrische gegevens van virtuele machine met Azure PowerShell-scripts inschakelen. Wanneer u veel virtuele machines die u wilt inschakelen, metrische gegevens hebt, kunt u een script kunt gebruiken om het proces te automatiseren. Voorbeeldscripts zijn op GitHub op [Azure inschakelen Diagnostics](https://github.com/Cloudyn/azure-enable-diagnostics).
+U kunt metrische gegevens van virtuele machine met Azure PowerShell-scripts inschakelen. Wanneer u veel virtuele machines die u wilt inschakelen, metrische gegevens hebt, kunt u een script kunt gebruiken om het proces te automatiseren. Van de voorbeeldscripts zijn op GitHub op [Azure inschakelen Diagnostics](https://github.com/Cloudyn/azure-enable-diagnostics).
 
-## <a name="view-azure-performance-metrics"></a>Metrische gegevens weergeven Azure prestaties
+## <a name="view-azure-performance-metrics"></a>Metrische gegevens weergeven-prestaties van Azure
 
-Als u wilt weergeven maatstaven voor prestaties voor uw Azure-exemplaren in de portal Cloudyn, gaat u naar **activa** > **Compute** > **exemplaar Explorer**. Vouw een exemplaar in de lijst met VM-instanties, en vouw een resource om details te bekijken.
+Als u wilt weergeven van metrische gegevens voor prestaties op uw Azure-exemplaren in de Cloudyn-portal, gaat u naar **activa** > **Compute** > **exemplaar Explorer**. In de lijst met VM-exemplaren, vouw een exemplaar en vouw vervolgens een resource om details te bekijken.
 
-![Exemplaar Explorer](./media/azure-vm-extended-metrics/instance-explorer.png)
+![Exemplaar-Explorer](./media/azure-vm-extended-metrics/instance-explorer.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Als u dit nog niet hebt Azure Resource Manager-API-toegang al ingeschakeld voor uw accounts, gaat u verder met [activeren Azure-abonnementen en accounts](activate-subs-accounts.md)
+- Als u dit nog niet hebt Azure Resource Manager API-toegang al ingeschakeld voor uw accounts, gaat u verder met [Activate Azure-abonnementen en accounts](activate-subs-accounts.md).

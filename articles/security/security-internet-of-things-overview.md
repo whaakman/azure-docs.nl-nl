@@ -1,6 +1,6 @@
 ---
-title: Beveiligen van uw Internet der dingen (IoT) in Azure | Microsoft Docs
-description: " Azure internet der dingen (IoT)-services bieden een breed scala aan mogelijkheden. In dit artikel helpt u begrijpen hoe voor het beveiligen van uw IoT-oplossingen in Azure. "
+title: Beveiligen van uw Internet of Things (IoT) in Azure | Microsoft Docs
+description: " Azure internet der dingen (IoT)-services bieden een breed scala aan mogelijkheden. In dit artikel vindt u informatie over het beveiligen van uw IoT-oplossingen in Azure. "
 services: security
 documentationcenter: na
 author: TomShinder
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: d5c1cb22fdfe59bd8409f9595b2fa4c3a0df771e
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 41e422d0808cafb45b182c5f0a6bb7176a35516f
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34641234"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35758617"
 ---
-# <a name="internet-of-things-security-overview"></a>Overzicht van Internet of Things-beveiliging
+# <a name="internet-of-things-security-overview"></a>Overzicht van de beveiliging van Internet of Things
 Azure internet der dingen (IoT)-services bieden een breed scala aan mogelijkheden. Met deze hoogwaardige services kunt u het volgende doen:
 
 * Gegevens van apparaten verzamelen
@@ -30,41 +30,41 @@ Azure internet der dingen (IoT)-services bieden een breed scala aan mogelijkhede
 * Gegevens in realtime en historische gegevens visualiseren
 * Integraties met back-officesystemen uitvoeren
 
-Voor deze mogelijkheden, Azure IoT-oplossing accelerators pakket samen meerdere Azure-services met aangepaste extensies als vooraf geconfigureerde oplossingen. Deze vooraf geconfigureerde oplossingen zijn basisimplementaties van algemene patronen van IoT-oplossingen die u helpen de tijd voor het leveren van uw IoT-oplossingen te verkorten. Met behulp van de IoT-SDK's, kunt u aanpassen en uitbreiden van deze oplossingen om te voldoen aan uw eigen vereisten. U kunt deze oplossingen gebruiken als voorbeelden of sjablonen als u nieuwe IoT-oplossingen ontwikkelt.
+Voor deze mogelijkheden, Azure IoT-oplossing accelerators pakket samen meerdere Azure-services met aangepaste extensies als vooraf geconfigureerde oplossingen. Deze vooraf geconfigureerde oplossingen zijn basisimplementaties van algemene patronen van IoT-oplossingen die u helpen de tijd voor het leveren van uw IoT-oplossingen te verkorten. Met behulp van de IoT-software development kits, kunt u aanpassen en uitbreiden van deze oplossingen om te voldoen aan uw eigen vereisten. U kunt deze oplossingen gebruiken als voorbeelden of sjablonen als u nieuwe IoT-oplossingen ontwikkelt.
 
-De Azure IoT-oplossing accelerators zijn krachtige oplossingen voor uw IoT-behoeften. Het is echter van upmost belang dat uw IoT-oplossingen zijn ontworpen met beveiligd zijn vanaf het begin. Alle beveiligingsincidenten vanwege het grote aantal IoT-apparaten, kan snel een wijdverbreid gebeurtenis met grote gevolgen worden.
+De Azure IoT-oplossingsversnellers zijn krachtige oplossingen voor uw IoT-behoeften. Het is echter van belang zijn upmost dat uw IoT-oplossingen zijn ontworpen met beveiliging waarmee u rekening moet vanaf het begin. Vanwege het grote aantal IoT-apparaten, alle beveiligingsincidenten kunt korte tijd uitgegroeid tot een wijdverbreide gebeurtenis met aanzienlijke gevolgen.
 
-We hebben de volgende informatie om te begrijpen hoe u voor het beveiligen van uw IoT-oplossingen.
+We hebben de volgende informatie als u wilt, kunt u meer informatie over het beveiligen van uw IoT-oplossingen.
 
 ## <a name="security-architecture"></a>Beveiligingsarchitectuur
-Bij het ontwerpen van een systeem, is het belangrijk om te begrijpen van de mogelijke bedreigingen tot dat systeem en dienovereenkomstig juiste beveiliging niet toevoegen als het systeem is ontworpen en ontworpen. Het is belangrijk voor het ontwerpen van het product vanaf het begin rekening met beveiliging omdat informatie over hoe een aanvaller mogelijk een systeem kunt u ervoor dat de juiste oplossingen in plaats vanaf het begin.
+Bij het ontwerpen van een systeem, is het belangrijk dat u de potentiële bedreigingen voor dat systeem te begrijpen en dienovereenkomstig, juiste beveiliging toevoegen wanneer het systeem worden ontworpen en ontworpen. Het is belangrijk om te ontwerpen van het product vanaf het begin rekening met beveiliging omdat informatie over hoe een aanvaller kan mogelijk een systeem kunt u ervoor dat de juiste oplossingen worden in plaats van het begin.
 
-U kunt meer informatie over IoT-beveiligingsarchitectuur door te lezen [Internet van dingen beveiligingsarchitectuur](../iot-accelerators/iot-security-architecture.md).
+Vindt u informatie over IoT-beveiligingsarchitectuur door te lezen [Internet van dingen beveiligingsarchitectuur](/azure/iot-fundamentals/iot-security-architecture).
 
 Dit artikel wordt beschreven in de volgende onderwerpen:
 
-* [Beveiliging begint met een risicomodel](../iot-accelerators/iot-security-architecture.md#security-starts-with-a-threat-model)
-* [Beveiliging in IoT](../iot-accelerators/iot-security-architecture.md#security-in-iot)
-* [Threat Modeling de naslaginformatie over Azure IoT-architectuur](../iot-accelerators/iot-security-architecture.md#threat-modeling-the-azure-iot-reference-architecture)
+* [Beveiliging begint met een risicomodel](/azure/iot-fundamentals/iot-security-architecture#security-starts-with-a-threat-model)
+* [Beveiliging in IoT](/azure/iot-fundamentals/iot-security-architecture#security-in-iot)
+* [Threat Modeling van de Azure IoT Reference Architecture](/azure/iot-fundamentals/iot-security-architecture#threat-modeling-the-azure-iot-reference-architecture)
 
 ## <a name="security-from-the-ground-up"></a>Fundamentele beveiliging
-De IoT vormt unieke beveiliging, privacy en naleving uitdagingen voor bedrijven overal ter wereld. In tegenstelling tot traditionele cyberbeveiliging technologie waar deze problemen gebaseerd op software- en hoe deze wordt geïmplementeerd, IoT heeft betrekking op wat er gebeurt wanneer de cyberbeveiliging en de fysieke werelden convergeren. Beveiligen van IoT-oplossingen vereist gezorgd beveiligde inrichting van de apparaten, beveiligde verbindingen tussen deze apparaten en de cloud en de bescherming van de beveiligde gegevens in de cloud tijdens verwerking en opslag. Werken met dergelijke functionaliteit, zijn echter resource beperkte apparaten, geografische verdeling van implementaties en veel apparaten binnen een oplossing.
+De IoT vormt unieke uitdagingen voor de beveiliging, privacy en naleving voor bedrijven over de hele wereld. In tegenstelling tot traditionele cyber-technologie waar deze problemen draaien om software en hoe deze is geïmplementeerd, IoT heeft betrekking op wat er gebeurt wanneer de cyberaanvallen en de fysieke werelden geconvergeerd. IoT-oplossingen beveiligen, moet ervoor te zorgen dat beveiligde inrichting van apparaten, veilige connectiviteit tussen deze apparaten en de cloud en de bescherming van de beveiligde gegevens in de cloud tijdens verwerking en opslag. Deze functionaliteit werkt, zijn echter apparaten resource beperkt, geografische verdeling van implementaties en veel apparaten binnen een oplossing.
 
-U leert hoe beveiliging in de volgende gebieden verwerkt door te lezen [beveiliging van Internet der dingen van een compleet nieuwe](../iot-accelerators/securing-iot-ground-up.md).
+U kunt leren hoe u beveiliging op deze gebieden worden verwerkt door te lezen [beveiliging van Internet of Things vanaf de grond](/azure/iot-fundamentals/iot-security-ground-up).
 
-Het artikel worden de volgende onderwerpen:
+Het artikel wordt beschreven in de volgende onderwerpen:
 
-* [Beveiligde infrastructuur niet vanuit een compleet nieuwe](../iot-accelerators/securing-iot-ground-up.md#secure-infrastructure-from-the-ground-up)
-* [Microsoft Azure: beveiligde IoT-infrastructuur voor uw bedrijf](../iot-accelerators/securing-iot-ground-up.md#microsoft-azure---secure-iot-infrastructure-for-your-business)
+* [Veilige infrastructuur implementeren vanaf het begin te beginnen](/azure/iot-fundamentals/iot-security-ground-up#secure-infrastructure-from-the-ground-up)
+* [Microsoft Azure: beveiligde IoT-infrastructuur voor uw bedrijf](/azure/iot-fundamentals/iot-security-ground-up#microsoft-azure---secure-iot-infrastructure-for-your-business)
 
 ## <a name="best-practices"></a>Beste praktijken
-Een IoT-infrastructuur beveiligen vereist een strengere beveiliging-in-depth-strategie. Elke laag is gebaseerd, is groter beveiligingscontrole in de algehele infrastructuur van de beveiliging van gegevens in de cloud, de integriteit van de gegevens onderweg te beschermen via het openbare internet, voor het inrichten van apparaten, veilig.
+Een IoT-infrastructuur beveiligen, is een strenge beveiliging in de diepte strategie vereist. Van de beveiliging van gegevens in de cloud, beveiligt de integriteit van gegevens onderweg zijn via het openbare internet, voor het veilig inrichten van apparaten, maakt elke laag groter beveiligingscontrole in de algehele infrastructuur.
 
-U kunt meer informatie over beveiliging van Internet der dingen aanbevolen procedures door te lezen [aanbevolen beveiligingsprocedures voor Internet der dingen](../iot-accelerators/iot-security-best-practices.md).
+Vindt u informatie over Internet of Things security best practices voor door te lezen [best practices voor beveiliging van Internet of Things](/azure/iot-fundamentals/iot-security-best-practices).
 
-Het artikel worden de volgende onderwerpen:
+Het artikel wordt beschreven in de volgende onderwerpen:
 
-* [IoT hardware fabrikant/integrator](../iot-accelerators/iot-security-best-practices.md#iot-hardware-manufacturerintegrator)
-* [Ontwikkelaars van IoT-oplossing](../iot-accelerators/iot-security-best-practices.md#iot-solution-developer)
-* [Implementatie van IoT-oplossing](../iot-accelerators/iot-security-best-practices.md#iot-solution-deployer)
-* [IoT-oplossing operator](../iot-accelerators/iot-security-best-practices.md#iot-solution-operator)
+* [IoT hardware fabrikant/integrator](/azure/iot-fundamentals/iot-security-best-practices#iot-hardware-manufacturerintegrator)
+* [Ontwikkelaarshandleiding voor IoT-oplossing](/azure/iot-fundamentals/iot-security-best-practices#iot-solution-developer)
+* [Implementatie van IoT-oplossing](/azure/iot-fundamentals/iot-security-best-practices#iot-solution-deployer)
+* [Operator voor IoT-oplossing](/azure/iot-fundamentals/iot-security-best-practices#iot-solution-operator)

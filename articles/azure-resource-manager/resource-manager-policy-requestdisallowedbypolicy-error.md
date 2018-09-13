@@ -1,6 +1,6 @@
 ---
-title: Fout bij het bronbeleid Azure RequestDisallowedByPolicy | Microsoft Docs
-description: Beschrijft de oorzaak van de fout RequestDisallowedByPolicy.
+title: RequestDisallowedByPolicy-fout opgetreden bij het Azure-resource-beleid | Microsoft Docs
+description: Beschrijving van de oorzaak van de RequestDisallowedByPolicy-fout.
 services: azure-resource-manager
 documentationcenter: ''
 author: genlin
@@ -13,19 +13,20 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 03/09/2018
 ms.author: genli
-ms.openlocfilehash: 474400d92660b68fd7fef906216b8e37c6e8c94d
-ms.sourcegitcommit: b6319f1a87d9316122f96769aab0d92b46a6879a
+ms.openlocfilehash: a9993942c20f2c33d944b74fb124a363d0663ced
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/20/2018
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643936"
 ---
-# <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>Fout bij het bronbeleid Azure RequestDisallowedByPolicy
+# <a name="requestdisallowedbypolicy-error-with-azure-resource-policy"></a>RequestDisallowedByPolicy-fout opgetreden bij het Azure-resource-beleid
 
-In dit artikel beschrijft de oorzaak van de fout RequestDisallowedByPolicy, het bevat ook oplossing voor deze fout.
+In dit artikel beschrijft de oorzaak van de RequestDisallowedByPolicy-fout, ook biedt deze oplossing voor deze fout.
 
 ## <a name="symptom"></a>Symptoom
 
-Tijdens de implementatie, verschijnt er een **RequestDisallowedByPolicy** fout waardoor het maken van de resources. Het volgende voorbeeld ziet u de volgende fout:
+Tijdens de implementatie, ontvangt u mogelijk een **RequestDisallowedByPolicy** fout waarmee wordt voorkomen dat u het maken van de resources. Het volgende voorbeeld ziet u de volgende fout:
 
 ```json
 {
@@ -38,11 +39,11 @@ Tijdens de implementatie, verschijnt er een **RequestDisallowedByPolicy** fout w
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Voor het ophalen van gegevens over het beleid dat uw implementatie geblokkeerd, gebruik de volgende methoden:
+Als u wilt ophalen van informatie over het beleid dat uw implementatie geblokkeerd, gebruik de volgende uitvoer van de methoden:
 
 ### <a name="powershell"></a>PowerShell
 
-In PowerShell bieden die beleids-id als de `Id` parameter voor het ophalen van informatie over het beleid dat uw implementatie geblokkeerd.
+In PowerShell, geef deze beleids-id als de `Id` parameter om op te halen van meer informatie over het beleid dat uw implementatie geblokkeerd.
 
 ```PowerShell
 (Get-AzureRmPolicyDefinition -Id "/subscriptions/{guid}/providers/Microsoft.Authorization/policyDefinitions/regionPolicyDefinition").Properties.policyRule | ConvertTo-Json
@@ -50,7 +51,7 @@ In PowerShell bieden die beleids-id als de `Id` parameter voor het ophalen van i
 
 ### <a name="azure-cli"></a>Azure-CLI
 
-Geef de naam van de beleidsdefinitie in Azure CLI 2.0:
+Geef de naam van de beleidsdefinitie in de Azure CLI:
 
 ```azurecli
 az policy definition show --name regionPolicyAssignment
@@ -58,10 +59,10 @@ az policy definition show --name regionPolicyAssignment
 
 ## <a name="solution"></a>Oplossing
 
-Voor beveiliging of naleving wijst de abonnementbeheerders van uw mogelijk beleidsregels die beperken hoe resources worden geïmplementeerd. Uw abonnement kan bijvoorbeeld een beleid waardoor het niet openbaar IP-adressen, Netwerkbeveiligingsgroepen, door de gebruiker gedefinieerde Routes maken of routetabellen. Het foutbericht in de **symptomen** sectie ziet u de naam van het beleid.
-U lost dit probleem, Controleer de bronbeleid en bepalen hoe resources die aan deze beleidsregels voldoen implementeren.
+Voor beveiliging of naleving wijst de abonnementbeheerders van uw mogelijk beleidsregels die beperken hoe resources worden geïmplementeerd. Uw abonnement kan bijvoorbeeld een beleid waarmee wordt voorkomen dat het openbare IP-adressen, Network Security Groups, door de gebruiker gedefinieerde Routes maken of routetabellen. Het foutbericht in de **symptomen** sectie ziet u de naam van het beleid.
+U lost dit probleem, Controleer de resource-beleidsregels en te bepalen hoe resources die aan de beleidsregels voldoen te implementeren.
 
 Raadpleeg voor meer informatie de volgende artikelen:
 
-- [Wat is Azure beleid?](../azure-policy/azure-policy-introduction.md)
-- [Beleidsregels voor het afdwingen van compatibiliteit maken en beheren](../azure-policy/create-manage-policy.md)
+- [Wat is Azure Policy?](../azure-policy/azure-policy-introduction.md)
+- [Maken en beheren van beleidsregels voor het afdwingen van naleving](../azure-policy/create-manage-policy.md)

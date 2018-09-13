@@ -4,17 +4,16 @@ description: Ondersteund door Azure Maps kaartstijlen
 author: walsehgal
 ms.author: v-musehg
 ms.date: 08/28/2018
-ms.topic: concepts
+ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.custom: mvc
-ms.openlocfilehash: 04c8f43e3b484ceeb942ae13ea95baf7f0215b53
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 8f0910e9040c962bae30a33b91a93e71e692dfdb
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43344832"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713439"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps ondersteunde kaartstijlen
 Azure maps ondersteunen vier verschillende ingebouwde kaartstijlen. De stijlen, samen met de bijbehorende beschrijvingen worden hieronder vermeld.

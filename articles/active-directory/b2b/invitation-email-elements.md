@@ -1,78 +1,78 @@
 ---
-title: De elementen van de uitnodigingsmail B2B-samenwerking - Azure Active Directory | Microsoft Docs
-description: Azure Active Directory B2B-samenwerking uitnodiging voor een e-mailsjabloon
+title: De elementen van de B2B-samenwerking uitnodigingse-mail - Azure Active Directory | Microsoft Docs
+description: Azure Active Directory B2B-samenwerking uitnodiging e-mailsjabloon
 services: active-directory
 ms.service: active-directory
 ms.component: B2B
 ms.topic: article
 ms.date: 05/23/2017
-ms.author: twooley
-author: twooley
+ms.author: mimart
+author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: e8285779154914bd09513c057d8e5ae0b6388831
-ms.sourcegitcommit: 96089449d17548263691d40e4f1e8f9557561197
-ms.translationtype: HT
+ms.openlocfilehash: 97015706ec883777deba3398910c0c83b88ecde1
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/17/2018
-ms.locfileid: "34260028"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643643"
 ---
-# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>De elementen van Azure Active Directory een uitnodiging voor e-mail in B2B - samenwerking
+# <a name="the-elements-of-the-b2b-collaboration-invitation-email---azure-active-directory"></a>De elementen van de B2B-samenwerking uitnodigingse-mail - Azure Active Directory
 
-Een uitnodiging voor e-mailberichten zijn een essentieel onderdeel op te zetten van partners aan boord als B2B-samenwerking gebruikers in Azure AD. U kunt deze gebruiken om te verhogen van de geadresseerde vertrouwensrelatie. u kunt legitimiteit toevoegen en sociale bewijs in de e-mail om te controleren of de ontvanger werkt bekendheid met het selecteren van de **aan de slag** knop de uitnodiging te accepteren. Deze vertrouwensrelatie is dat een sleutel betekent dat u wilt delen wrijving verminderen. En u wilt er ook voor het e-mailadres er fantastisch uitzien!
+Uitnodigingen per e-mail zijn een essentieel onderdeel om partners aan boord als gebruikers van B2B-samenwerking in Azure AD. U kunt ze gebruiken te verhogen van de vertrouwensrelatie van de ontvanger. u kunt geldigheid toevoegen en het e-mailbericht, om te controleren of de ontvanger het sociale bewijs lijkt vertrouwd bent met het selecteren van de **aan de slag** knop de uitnodiging te accepteren. Deze vertrouwensrelatie is dat een sleutel betekent dat u wilt delen wrijving verminderen. En u ook wilt maken van het e-mailbericht er fantastisch uitzien.
 
-![Azure AD B2b-uitnodigingsmail](media/invitation-email-elements/invitation-email.png)
+![Azure AD B2b uitnodigingse-mail](media/invitation-email-elements/invitation-email.png)
 
 ## <a name="explaining-the-email"></a>Het e-mailbericht waarin wordt uitgelegd
-Bekijk enkele elementen van het e-mailadres zodat u hoe het beste weet hun mogelijkheden gebruiken.
+We kijken naar enkele elementen van het e-mailbericht, zodat u hoe het beste weet om hun mogelijkheden te gebruiken.
 
 ### <a name="subject"></a>Onderwerp
-Het onderwerp van het e-mailbericht volgt u de volgende notatie: U bent uitgenodigd voor de &lt;tenantname&gt; organisatie
+Het onderwerp van het e-mailbericht bevat het volgende patroon: U bent uitgenodigd voor de &lt;tenantname&gt; organisatie
 
 ### <a name="from-address"></a>Van adres
-We gebruiken een LinkedIn patroon voor het adres van de afzender.  U moet wissen die afzender van de uitnodiging is en waaruit de bedrijfsportal en ook verduidelijken dat het e-mailbericht afkomstig is van een Microsoft e-mailadres. De indeling is: &lt;weergavenaam van de uitnodiging antwoorden&gt; van &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
+We gebruiken een LinkedIn-patroon voor het adres van de afzender.  U moet wissen die de afzender van de uitnodiging is en waaruit de bedrijfsportal, en ook verduidelijken dat de e-mail afkomstig is van een Microsoft e-mailadres. De indeling is: &lt;weergavenaam op van de afzender van de uitnodiging&gt; van &lt;tenantname&gt; (via Microsoft) <invites@microsoft.com>
 
 ### <a name="reply-to"></a>Antwoorden op
-Het antwoord aan e-mailbericht is ingesteld op van de afzender van de uitnodiging e indien beschikbaar, zodat u het e-mailbericht beantwoordt een e-mailbericht teruggestuurd naar de uitnodiging antwoorden wordt.
+Het antwoordadres e-mailbericht is ingesteld op van de afzender van de uitnodiging e indien beschikbaar, zodat u het e-mailbericht beantwoordt een e-mailbericht naar de afzender van de uitnodiging verzendt.
 
-### <a name="branding"></a>De huisstijl
-De uitnodiging voor een e-mailberichten van uw gebruik van de tenant de huisstijl die u mogelijk hebt ingesteld voor uw tenant. Als u wilt profiteren van deze mogelijkheid [hier](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) vindt u de details over het configureren van deze. Het logo in banner wordt weergegeven in het e-mailbericht. Voer de grootte van de installatiekopie en kwaliteit instructies [hier](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) voor de beste resultaten. Bovendien de bedrijfsnaam wordt ook weergegeven in de aanroep aan de actie.
+### <a name="branding"></a>Huisstijl
+De uitnodigingen per e-mail van uw gebruik van de tenant de huisstijl die u mogelijk hebt ingesteld voor uw tenant. Als u wilt profiteren van deze mogelijkheid [hier](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) vindt u de details over het configureren van deze. Het bannerlogo wordt weergegeven in het e-mailbericht. Voer de grootte van de installatiekopie en kwaliteit instructies [hier](https://docs.microsoft.com/azure/active-directory/active-directory-branding-custom-signon-azure-portal) voor de beste resultaten. Bovendien de bedrijfsnaam wordt ook weergegeven in de aanbieding.
 
-### <a name="call-to-action"></a>Aanroep van bewerking
-De aanroep van bewerking bestaat uit twee delen: waarin wordt uitgelegd waarom de ontvanger het e-mailbericht heeft ontvangen en wat de ontvanger is wordt gevraagd om u te doen.
-- De sectie 'Waarom' kan worden aangepakt met behulp van het volgende patroon volgen: U bent uitgenodigd voor toegang tot toepassingen in de &lt;tenantname&gt; organisatie
+### <a name="call-to-action"></a>Aanzetten tot actie
+De aanroep van actie bestaat uit twee delen: waarin wordt uitgelegd waarom de ontvanger het e-mailbericht heeft ontvangen en wat de ontvanger is verzocht te doen.
+- De sectie 'Waarom' kan worden aangepakt met behulp van het volgende patroon: U bent uitgenodigd voor toegang tot toepassingen in de &lt;tenantname&gt; organisatie
 
-- En de 'wat u wordt gevraagd om te doen' sectie wordt aangegeven door de aanwezigheid van de **aan de slag** knop. Als de ontvanger zonder de noodzaak van uitnodigingen is toegevoegd, weergegeven deze knop niet.
+- En de 'wat u wordt gevraagd om te doen"sectie wordt aangegeven door de aanwezigheid van de **aan de slag** knop. Als de ontvanger is toegevoegd zonder de noodzaak voor uitnodigingen, wordt niet deze knop weergegeven.
 
-### <a name="inviters-information"></a>De uitnodiging antwoorden informatie
-Weergavenaam van de afzender van de uitnodiging is opgenomen in het e-mailbericht. En daarnaast als u een profielfoto voor uw Azure AD-account hebt ingesteld, het uitnodigen e-mailbericht omvatten ook afbeelding. Beide zijn bedoeld om meer vertrouwen in de e-mail van de geadresseerde.
+### <a name="inviters-information"></a>Afzender van de uitnodiging van informatie
+De weergavenaam van de afzender van de uitnodiging is opgenomen in het e-mailbericht. En verder als u een profielfoto voor uw Azure AD-account hebt ingesteld, nodigen e-mailbericht bevat ook afbeelding. Beide zijn bedoeld om vergroot het vertrouwen van de ontvanger in het e-mailbericht.
 
-Als u nog uw profielfoto niet hebt ingesteld, wordt een pictogram met de initialen van de afzender van de uitnodiging in plaats van de afbeelding wordt weergegeven:
+Als u uw eigen profielfoto nog hebt ingesteld, ziet u een pictogram met de initialen van de afzender van de uitnodiging in plaats van de afbeelding:
 
   ![Initialen van de afzender van de uitnodiging weergeven](media/invitation-email-elements/inviters-initials.png)
 
 ### <a name="body"></a>Hoofdtekst
-De hoofdtekst van bevat het bericht dat de afzender van de uitnodiging stelt het bericht of wordt doorgegeven aan de uitnodiging API. Het is een tekstgebied, zodat deze geen HTML-tags uit veiligheidsoverwegingen verwerkt.
+De hoofdtekst bevat het bericht dat de afzender van de uitnodiging stelt het bericht of de uitnodiging API wordt doorgegeven. Dit is een tekstgebied zodat HTML-codes uit veiligheidsoverwegingen worden niet verwerkt.
 
-### <a name="footer-section"></a>Voettekstsectie
-De voettekst bevat van de Microsoft-bedrijfsmerk en stelt de ontvanger weten of het e-mailbericht is verzonden vanaf een niet-bewaakte alias. Speciale gevallen:
+### <a name="footer-section"></a>Voettekst
+De voettekst bevat de huisstijl van het Microsoft-bedrijf en kan de geadresseerde weten als het e-mailbericht is verzonden vanaf een niet-gecontroleerde alias. Speciale gevallen:
 
-- De uitnodiging antwoorden geen een e-mailadres in de uitnodiging tenancymodus
+- De afzender van de uitnodiging geen een e-mailadres in de uitnodigende tenancy
 
-  ![afbeelding van uitnodiging antwoorden geen een e-mailadres in de uitnodiging tenancymodus](media/invitation-email-elements/inviter-no-email.png)
+  ![afbeelding van afzender van de uitnodiging geen een e-mailadres in de uitnodigende tenancy](media/invitation-email-elements/inviter-no-email.png)
 
 
-- De ontvanger hoeft niet te nemen van de uitnodiging
+- De ontvanger nodig niet om in te wisselen van de uitnodiging
 
-  ![Wanneer de ontvanger niet hoeft te uitnodiging inwisselen](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
+  ![Wanneer de ontvanger hoeft niet te uitnodiging inwisselen](media/invitation-email-elements/when-recipient-doesnt-redeem.png)
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie de volgende artikelen over Azure AD B2B-samenwerking:
+Zie de volgende artikelen op Azure AD B2B-samenwerking:
 
 - [Wat is Azure AD B2B-samenwerking](what-is-b2b.md)
-- [Hoe voeg beheerders van Azure Active Directory B2B-samenwerking gebruikers?](add-users-administrator.md)
-- [Hoe kunnen IT-medewerkers B2B-samenwerking gebruikers toevoegen](add-users-information-worker.md)
-- [B2B-samenwerking uitnodiging inwisseling](redemption-experience.md)
-- [B2B-samenwerking gebruikers zonder een uitnodiging toevoegen](add-user-without-invite.md)
+- [Hoe voeg beheerders van Azure Active Directory gebruikers van B2B-samenwerking toe?](add-users-administrator.md)
+- [Hoe voeg informatiemedewerkers gebruikers van B2B-samenwerking toe?](add-users-information-worker.md)
+- [B2B-samenwerking uitnodiging inwisselen](redemption-experience.md)
+- [Gebruikers van B2B-samenwerking zonder uitnodiging toevoegen](add-user-without-invite.md)

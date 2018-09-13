@@ -1,27 +1,27 @@
 ---
-title: Ondersteunde gegevens doelen en uitvoer beschikbaar met voorbereiden van gegevens van Azure Machine Learning | Microsoft Docs
-description: Dit document bevat een volledige lijst met ondersteunde doelen en levert als beschikbaar voor Azure Machine Learning gegevens voorbereiden
+title: Ondersteunde gegevensbestemmingen en uitvoer beschikbaar voor gegevensvoorbereiding van Azure Machine Learning | Microsoft Docs
+description: Dit document bevat een volledige lijst van ondersteunde bestemmingen en levert beschikbaar voor gegevensvoorbereiding van Azure Machine Learning
 services: machine-learning
 author: euangMS
 ms.author: euang
 manager: lanceo
 ms.reviewer: jmartens, jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: ''
 ms.devlang: ''
 ms.topic: article
 ms.date: 02/01/2018
-ms.openlocfilehash: 4aee24150524c270084ae8ec22f09df94b6e9f36
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 123328010758eea6e7eadce29440e204f91dcef6
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831707"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35643767"
 ---
-# <a name="supported-data-exports-for-this-preview"></a>Uitvoer van de gegevens voor deze preview ondersteund 
-Het is mogelijk om te exporteren naar verschillende indelingen. U kunt deze indelingen gebruiken voor het bewaren van de tussenliggende resultaten van het voorbereiden van gegevens voordat u de resultaten in de rest van de Machine Learning-werkstroom integreren.
+# <a name="supported-data-exports-for-this-preview"></a>Uitvoer van de gegevens voor deze Preview-versie ondersteund 
+Het is mogelijk om te exporteren naar verschillende indelingen. U kunt deze indelingen behouden van de tussenliggende resultaten van de gegevens voor te bereiden voordat u de resultaten in de rest van de Machine Learning-werkstromen integreren.
 
 ## <a name="types"></a>Typen 
 ### <a name="csv-file"></a>CSV-bestand 
@@ -34,18 +34,18 @@ Een bestand met door komma's gescheiden waarden schrijven naar de opslag.
 - Scheidingsteken
 
 
-### <a name="parquet"></a>Parketvloeren 
-Een gegevensset niet schrijven naar de opslag als parketvloeren.
+### <a name="parquet"></a>Parquet 
+Een gegevensset schrijven naar de opslag als Parquet.
 
-Parketvloeren als een indeling verschillende vormen in de opslag aannemen kan. Een bestand één .parquet wordt soms gebruikt voor kleinere gegevenssets. Verschillende Python-bibliotheken ondersteuning voor lezen en schrijven naar één .parquet bestanden. 
+Parquet als een indeling verschillende vormen in de opslag aannemen kan. Een bestand één .parquet wordt soms gebruikt voor kleinere gegevenssets. Verschillende Python-bibliotheken ondersteuning voor lezen en schrijven naar één .parquet bestanden. 
 
-Azure Machine Learning-Workbench is op dit moment is afhankelijk van de PyArrow Python-bibliotheek voor het uitschrijven van parketvloeren tijdens het gebruik van lokale interactieve. Dit betekent dat één bestand parketvloeren is momenteel alleen parketvloeren indeling van de uitvoer die tijdens het gebruik van lokale interactieve wordt ondersteund.
+Azure Machine Learning Workbench is momenteel, afhankelijk van de PyArrow Python-clientbibliotheek voor het schrijven van Parquet tijdens lokale interactief gebruik. Dit betekent dat één bestand Parquet zich momenteel de enige Parquet-uitvoerindeling die tijdens het gebruik van lokale interactieve wordt ondersteund.
 
-Tijdens de scale-out wordt uitgevoerd (op Spark) afhankelijk Azure Machine Learning Workbench is van Spark parketvloeren lezen en schrijven van mogelijkheden. Van Spark standaardindeling uitvoer voor parketvloeren (momenteel de enige ondersteunde) lijkt qua structuur naar een Hive-gegevensset. Dit betekent dat een map veel .parquet bestanden bevat die elk een kleinere partitie van een grotere gegevensset. 
+Tijdens de scale-out wordt uitgevoerd (op Spark) afhankelijk Azure Machine Learning Workbench van van Spark Parquet lezen en schrijven van mogelijkheden. De standaarduitvoerindeling van Spark voor Parquet (momenteel het enige account ondersteund) is lijkt qua structuur op een Hive-gegevensset. Dit betekent dat een map bevat veel .parquet-bestanden die elk een kleinere partitie van een grotere gegevensset. 
 
 #### <a name="caveats"></a>Aanvullende opmerkingen 
-Parketvloeren als een indeling relatief jonge is en sommige implementatie inconsistenties tussen verschillende tapewisselaars. Bijvoorbeeld, Spark beperkingen waarop tekens geldig in kolomnamen zijn bij het schrijven van naar parketvloeren wordt geplaatst. PyArrow doet dit niet. De volgende tekens mogen niet in een kolomnaam: 
-- ,
+Parquet als een indeling nog relatief jong is en sommige implementatie-inconsistenties tussen verschillende tapewisselaars. Spark plaatst bijvoorbeeld beperkingen op welke tekens geldig in de namen van kolommen zijn bij het schrijven van naar Parquet. PyArrow doet dit niet. In een kolomnaam mag niet de volgende tekens bevatten: 
+- , 
 - ;
 - {}
 - ()
@@ -54,15 +54,15 @@ Parketvloeren als een indeling relatief jonge is en sommige implementatie incons
 - =
 
 >[!NOTE]
->- Compatibiliteit met Spark, zodat elk gewenst moment schrijven van gegevens naar parketvloeren, instanties van deze tekens in kolomnamen worden vervangen door en onderstrepingstekens (_).
->- De consistentie tussen lokale en scale-out wordt uitgevoerd, geen gegevens geschreven naar parketvloeren, via de app, Python of Spark, heeft de kolomnamen opgeschoonde Spark compatibiliteit te garanderen. Verwijder verwachte kolomnamen bij het schrijven naar parketvloeren tekens in Spark, zodat de ongeldige ingesteld van de kolommen gebufferd voordat ze uit.
+>- Om ervoor te zorgen compatibiliteit met Spark, telkens wanneer die u gegevens naar Parquet schrijven, instanties van deze tekens in de namen van kolommen zijn vervangen door en onderstrepingstekens (_).
+>- Als u wilt zorgen voor consistentie tussen lokale en scale-out wordt uitgevoerd, geen gegevens geschreven naar Parquet, via de app, Python of Spark, heeft de kolomnamen opgeschoond Spark compatibiliteit te garanderen. Om ervoor te zorgen verwachte kolomnamen bij het schrijven naar een Parquet-tekens in Spark, verwijder de ongeldige uit de kolommen instellen voordat u ze uitschrijven van.
 
 
 
 ## <a name="locations"></a>Locaties 
 ### <a name="local"></a>Lokaal 
-Lokale harde schijf of locatie voor de opslag toegewezen netwerkpad.
+Lokale harde schijf of toegewezen netwerk opslaglocatie.
 
 ### <a name="azure-blob-storage"></a>Azure Blob Storage
-Azure Blob storage is een Azure-abonnement vereist.
+Azure Blob-opslag is een Azure-abonnement vereist.
 

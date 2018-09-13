@@ -1,6 +1,6 @@
 ---
 title: Application Insights voor Java-web-apps die al live
-description: Bewaking van een webtoepassing die al wordt uitgevoerd op uw server starten
+description: De bewaking van een webtoepassing die al wordt uitgevoerd op uw server starten
 services: application-insights
 documentationcenter: java
 author: mrbullwinkle
@@ -10,34 +10,34 @@ ms.service: application-insights
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
-ms.topic: article
+ms.topic: conceptual
 ms.date: 11/10/2016
 ms.author: mbullwin
-ms.openlocfilehash: edefb6637dae2ff00144f0b7c07ad974430d096b
-ms.sourcegitcommit: 6116082991b98c8ee7a3ab0927cf588c3972eeaa
+ms.openlocfilehash: e0c2eca1e776f8dac34810dcbc306f5f2c7b9c8d
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/05/2018
-ms.locfileid: "34794544"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35644265"
 ---
 # <a name="application-insights-for-java-web-apps-that-are-already-live"></a>Application Insights voor Java-web-apps die al live
 
-Als u een webtoepassing die al wordt uitgevoerd op uw J2EE-server hebt, kunt u starten met bewaking [Application Insights](app-insights-overview.md) zonder te hoeven codewijzigingen aanbrengen of opnieuw moet compileren uw project. Met deze optie krijgt u informatie over HTTP-aanvragen verzonden naar uw server, niet-verwerkte uitzonderingen en prestatiemeteritems.
+Als u een webtoepassing die al wordt uitgevoerd op uw J2EE-server hebt, kun u bewaking met [Application Insights](app-insights-overview.md) zonder codewijzigingen of compileer uw project. Met deze optie krijgt u informatie over HTTP-aanvragen verzonden naar uw server, niet-verwerkte uitzonderingen en prestatiemeteritems.
 
 U hebt een abonnement op [Microsoft Azure](https://azure.com) nodig.
 
 > [!NOTE]
-> De procedure op deze pagina voegt de SDK toe aan uw web-app tijdens runtime. Deze instrumentation runtime is handig als u niet wilt bijwerken of opnieuw opbouwen van de broncode. Maar indien mogelijk, raden we u [de SDK toevoegen aan de broncode](app-insights-java-get-started.md) in plaats daarvan. Dat kunt u meer opties zoals het schrijven van code voor het bijhouden van gebruikersactiviteit.
+> De procedure op deze pagina wordt de SDK toegevoegd aan uw web-app tijdens runtime. Deze instrumentatie runtime is handig als u niet wilt bijwerken of opnieuw opbouwen van uw broncode. Maar als u kunt, raden we u [de SDK toevoegen aan de broncode](app-insights-java-get-started.md) in plaats daarvan. Dat biedt u meer opties, zoals code schrijven voor het bijhouden van gebruikersactiviteit.
 > 
 > 
 
 ## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Een Application Insights-instrumentatiesleutel ophalen
-1. Aanmelden bij de [Microsoft Azure-portal](https://portal.azure.com)
-2. Maak een nieuwe Application Insights-resource en het toepassingstype ingesteld op Java-webtoepassing.
+1. Aanmelden bij de [Microsoft Azure portal](https://portal.azure.com)
+2. Maak een nieuwe Application Insights-resource en het type ingesteld op Java-webtoepassing.
    
     ![Een naam invoeren, Java-web-app kiezen en op Maken klikken](./media/app-insights-java-live/02-create.png)
 
-    De resource is gemaakt binnen een paar seconden.
+    De resource is gemaakt in een paar seconden.
 
 4. Open de nieuwe resource en de instrumentatiesleutel ophalen. U moet deze sleutel zo dadelijk in de code van uw project plakken.
    
@@ -45,12 +45,12 @@ U hebt een abonnement op [Microsoft Azure](https://azure.com) nodig.
 
 ## <a name="2-download-the-sdk"></a>2. De SDK downloaden
 1. Download de [Application Insights-SDK voor Java](https://aka.ms/aijavasdk). 
-2. Pak op uw server, de SDK-inhoud naar de map van waaruit u de binaire project worden geladen. Als u Tomcat, zou deze map normaal zijn onder `webapps/<your_app_name>/WEB-INF/lib`
+2. Pak de SDK-inhoud naar de map van waaruit de binaire bestanden van uw project worden geladen op uw server. Als u Tomcat, zou deze map meestal worden onder `webapps/<your_app_name>/WEB-INF/lib`
 
 Houd er rekening mee dat u moet dit herhalen op elke server-exemplaar en voor elke app.
 
-## <a name="3-add-an-application-insights-xml-file"></a>3. Een Application Insights XML-bestand toevoegen
-ApplicationInsights.xml maken in de map waarin u de SDK hebt toegevoegd. De volgende XML-code in het geplaatst.
+## <a name="3-add-an-application-insights-xml-file"></a>3. Een Application Insights-xml-bestand toevoegen
+Maak ApplicationInsights.xml in de map waarin u de SDK hebt toegevoegd. Het volgende XML-bestand in het plaatsen.
 
 Vervang de instrumentatiesleutel die u in de Azure Portal hebt verkregen.
 
@@ -89,10 +89,10 @@ Vervang de instrumentatiesleutel die u in de Azure Portal hebt verkregen.
 
 * De instrumentatiesleutel wordt samen met alle telemetrie-items verzonden en instrueert Application Insights om deze in de resource weer te geven.
 * Het onderdeel voor de HTTP-aanvraag is optioneel. Het verzendt automatisch telemetrie over aanvragen en reactietijden naar de portal.
-* Correlatie tussen gebeurtenissen is een aanvulling op het onderdeel voor de HTTP-aanvraag. Deze aanvulling wijst een id toe aan elke aanvraag die door de server wordt ontvangen en voegt deze id als de eigenschap 'Operation.Id' toe aan elk telemetrie-item. Hiermee kunt u correlaties zichtbaar maken tussen de telemetrie die is gekoppeld aan elke aanvraag door een filter in te stellen [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md).
+* Correlatie tussen gebeurtenissen is een aanvulling op het onderdeel voor de HTTP-aanvraag. Deze aanvulling wijst een id toe aan elke aanvraag die door de server wordt ontvangen en voegt deze id als de eigenschap 'Operation.Id' toe aan elk telemetrie-item. Hiermee kunt u correlaties zichtbaar maken tussen de telemetrie die is gekoppeld aan elke aanvraag door het instellen van een filter in [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md).
 
 ## <a name="4-add-an-http-filter"></a>4. Een HTTP-filter toevoegen
-Zoek en open het web.xml-bestand in uw project en samenvoegen van het volgende codefragment onder het knooppunt web-app, waar de toepassingsfilters zijn geconfigureerd.
+Open het web.xml-bestand in uw project en samenvoegen van het volgende codefragment onder het knooppunt voor web-app, waar de toepassingsfilters zijn geconfigureerd.
 
 Voor de nauwkeurigste resultaten moet het filter vóór alle andere filters worden toegewezen.
 
@@ -111,7 +111,7 @@ Voor de nauwkeurigste resultaten moet het filter vóór alle andere filters word
 ```
 
 ## <a name="5-check-firewall-exceptions"></a>5. Controleer de firewall-uitzonderingen
-Mogelijk moet u [uitzonderingen uitgaande gegevens verzenden instellen](app-insights-ip-addresses.md).
+U moet mogelijk [-uitzonderingen voor het verzenden van uitgaande gegevens instellen](app-insights-ip-addresses.md).
 
 ## <a name="6-restart-your-web-app"></a>6. Opnieuw opstarten van uw web-app
 ## <a name="7-view-your-telemetry-in-application-insights"></a>7. Uw telemetrie in Application Insights weergeven
@@ -133,7 +133,7 @@ En wanneer u de eigenschappen van een aanvraag bekijkt, ziet u de telemetriegebe
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Voeg telemetrie toe aan uw webpagina's](app-insights-javascript.md) bewaken van paginaweergaven en metrische gegevens over gebruikers.
-* [Webtests instellen](app-insights-monitor-web-app-availability.md) om ervoor te zorgen dat uw toepassing blijft live en responsief.
+* [Stel webtests](app-insights-monitor-web-app-availability.md) om te controleren of live en responsief blijft van uw toepassing.
 * [Logboektraceringen vastleggen](app-insights-java-trace-logs.md)
-* [Zoek naar gebeurtenissen en logboeken](app-insights-diagnostic-search.md) om u te helpen bij het analyseren van problemen.
-* [Een opstartinstallatiekopie Spring initialisatiefunctie-app configureren](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)
+* [Doorzoek gebeurtenissen en logboeken](app-insights-diagnostic-search.md) om problemen vast te stellen.
+* [Een Spring Boot-initialisatie-app configureren](https://docs.microsoft.com/java/azure/spring-framework/configure-spring-boot-java-applicationinsights)

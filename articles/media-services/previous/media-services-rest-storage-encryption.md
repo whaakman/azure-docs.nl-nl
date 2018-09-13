@@ -1,6 +1,6 @@
 ---
-title: Versleutelen van uw inhoud met storage encryption met AMS REST-API
-description: Informatie over hoe u uw inhoud codeert met storage encryption met AMS REST-API's.
+title: Uw inhoud versleutelen met opslagversleuteling op basis van AMS REST-API
+description: Leer hoe u uw inhoud versleutelen met opslagversleuteling op basis van AMS REST-API's.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -12,58 +12,70 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 06/17/2018
 ms.author: juliako
-ms.openlocfilehash: 2fd4c91a8151067c0e9cc9000c158e48cb2cd8a5
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 12c7559f0fab2cda9a97c2edf3e3206448b787c7
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790466"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35755866"
 ---
-# <a name="encrypting-your-content-with-storage-encryption"></a>Versleutelen van uw inhoud met versleuteling van opslag
+# <a name="encrypting-your-content-with-storage-encryption"></a>Uw inhoud versleutelen met opslagversleuteling
 
-Het is raadzaam voor het versleutelen van uw inhoud lokaal met AES-256-bitsversleuteling en vervolgens uploaden naar Azure Storage wordt bewaard in rust versleuteld.
+Het is raadzaam voor het versleutelen van uw inhoud lokaal via AES-256-bits codering en vervolgens te uploaden naar Azure Storage waar deze zijn opgeslagen in rust versleuteld.
 
-Dit artikel geeft een overzicht van de versleuteling van opslag AMS en ziet u hoe de inhoud versleuteld opslag te uploaden:
+In dit artikel biedt een overzicht van AMS storage-versleuteling en ziet u hoe u de inhoud van de opslag versleuteld uploaden:
 
 * Maak een inhoudssleutel.
-* Maak een Asset. Stel de AssetCreationOption op StorageEncryption bij het maken van de Asset.
+* Maak een Asset. Ingesteld op StorageEncryption de AssetCreationOption bij het maken van de Asset.
   
-     Versleutelde activa zijn gekoppeld aan inhoud sleutels.
-* De inhoudssleutel koppelen aan de asset.  
-* De parameters versleutelingsgerelateerde instellen op de AssetFile-entiteiten.
+     Versleutelde assets zijn gekoppeld aan inhoud sleutels.
+* Koppel de inhoudssleutel aan de asset.  
+* De parameters versleuteling-gerelateerde instellen op de AssetFile-entiteiten.
 
 ## <a name="considerations"></a>Overwegingen 
 
-Als u een gecodeerde asset opslag leveren wilt, moet u de asset leveringsbeleid voor configureren. Voordat uw asset kan worden gestreamd, wordt de streaming-server verwijdert u de versleuteling van opslag en uw inhoud met behulp van het opgegeven leveringsbeleid streams. Zie voor meer informatie [Asset leveringsbeleid configureren](media-services-rest-configure-asset-delivery-policy.md).
+Als u een versleutelde activabeheer voor opslag leveren wilt, moet u het leveringsbeleid voor Assets configureren. Voordat uw asset kan worden gestreamd, wordt de server voor streaming Hiermee verwijdert u de versleuteling van opslag en uw inhoud met behulp van het opgegeven leveringsbeleid streams. Zie voor meer informatie, [leveringsbeleid voor Assets configureren](media-services-rest-configure-asset-delivery-policy.md).
 
-Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie [Setup voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md). 
+Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie, [instellen voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md). 
+
+### <a name="storage-side-encryption"></a>Versleuteling van opslag aan de serverzijde
+
+|Optie voor opslagversleuteling|Beschrijving|Media Services v2|Media Services v3|
+|---|---|---|---|
+|Media Services-Storage-versleuteling|AES-256-codering, sleutel beheerd door Media Services|Ondersteund<sup>(1)</sup>|Niet ondersteund<sup>(2)</sup>|
+|[Storage Service Encryption voor Data-at-Rest](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Versleuteling op de server die worden aangeboden door Azure Storage, sleutel beheerd door Azure of door de klant|Ondersteund|Ondersteund|
+|[Client-Side-versleuteling van opslag](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Clientversleuteling die worden aangeboden door Azure-opslag, beheerd door de klant in Key Vault sleutel|Niet ondersteund|Niet ondersteund|
+
+<sup>1</sup> terwijl Media Services biedt ondersteuning voor de verwerking van inhoud in de wissen/zonder enige vorm van versleuteling, als dit dus niet aanbevolen.
+
+<sup>2</sup> in Media Services v3, versleuteling van opslag (AES-256-codering) wordt alleen ondersteund voor achterwaartse compatibiliteit bij uw activa zijn gemaakt met Media Services v2. Dit betekent dat v3 werkt met bestaande opslag versleuteld activa, maar staat niet toe dat het maken van nieuwe labels.
 
 ## <a name="connect-to-media-services"></a>Verbinding met Media Services maken
 
-Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+Zie voor meer informatie over het verbinding maken met de AMS-API [toegang tot de API van Azure Media Services met Azure AD-verificatie](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a name="storage-encryption-overview"></a>Overzicht van de Storage-versleuteling
-De versleuteling van het AMS-opslag is van toepassing **AES CTR** modus versleuteling op het hele bestand.  AES-CTR modus is een blokcodering versleutelen van willekeurige lengtegegevens zonder dat nodig is voor de opvulling. Dit werkt door het versleutelen van een blok van de teller met de AES-algoritme en XOR-ing de uitvoer van AES met de gegevens te versleutelen of ontsleutelen.  Het item dat wordt gebruikt door de waarde van de InitializationVector kopiëren naar bytes 0 tot en met 7 van de waarde van het prestatiemeteritem is samengesteld en bytes 8 tot en met 15 van de waarde worden ingesteld op nul. Van het blok 16 bytes teller bytes 8 tot 15 (dat wil zeggen, de minst significante bytes) gebruikt als een eenvoudige 64-bits geheel getal zonder teken die wordt verhoogd met één voor elke volgende blok gegevens verwerkt en wordt opgeslagen in de bytevolgorde netwerk. Als dit geheel getal bereikt de maximumwaarde (0xFFFFFFFFFFFFFFFF), vervolgens en oplopend in stappen wordt de teller blok nul (in bytes 8 tot en met 15) Hiermee stelt u zonder de 64 bits van de teller (dat wil zeggen bytes 0 tot en met 7).   Om de beveiliging van de versleuteling van de modus AES CTR behouden, de InitializationVector-waarde voor een opgegeven sleutel-id voor elke inhoudssleutel moet uniek zijn voor elk bestand en bestanden moet minder zijn dan 2 ^ 64 blokken in lengte.  Deze unieke waarde is om ervoor te zorgen dat een itemwaarde nooit met een opgegeven sleutel wordt opnieuw gebruikt. Zie voor meer informatie over de modus CTR [deze wikipagina](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (het wiki-artikel wordt de term 'Nonce' in plaats van 'InitializationVector' gebruikt).
+## <a name="storage-encryption-overview"></a>Overzicht van Storage-versleuteling
+De versleuteling van de AMS-opslag is van toepassing **AES-CTR** modus versleuteling op het hele bestand.  AES-CTR modus is een blokcodering versleutelen van willekeurige lengtegegevens zonder dat nodig is voor de opvulling. Deze werkt door het versleutelen van een prestatiemeteritem blok met de AES-algoritme en XOR-ing de uitvoer van AES met de gegevens te versleutelen of ontsleutelen.  Het item dat wordt gebruikt door de waarde van de InitializationVector kopiëren naar bytes 0 tot en met 7 van de waarde van het prestatiemeteritem is samengesteld en bytes 8 tot 15 van de waarde van het prestatiemeteritem zijn ingesteld op nul. Van het blok 16 bytes teller bytes 8 tot 15 (dat wil zeggen, de minst significante bytes) gebruikt als een eenvoudige 64-bits geheel getal zonder teken dat wordt verhoogd door een voor elke volgende gegevensblok verwerkt en wordt opgeslagen in de netwerkbytevolgorde. Als dit geheel getal bereikt de maximale waarde (0xFFFFFFFFFFFFFFFF), stelt deze vervolgens te verhogen de teller blok nul (bytes 8 tot 15) zonder gevolgen voor de 64 bits van de teller (dat wil zeggen bytes 0 tot en met 7).   Als u wilt behouden de beveiliging van de AES-CTR modus versleuteling, de waarde InitializationVector voor een opgegeven sleutel-id voor elke inhoudssleutel moet uniek zijn voor elk bestand en bestanden moeten minder dan 2 ^ 64 blokken in lengte.  Deze unieke waarde is om ervoor te zorgen dat een waarde van het prestatiemeteritem nooit opnieuw wordt gebruikt met een opgegeven sleutel. Zie voor meer informatie over de modus CTR [deze wiki-pagina](https://en.wikipedia.org/wiki/Block_cipher_mode_of_operation#CTR) (in de wiki-artikel wordt de term 'Nonce' in plaats van 'InitializationVector' gebruikt).
 
-Gebruik **Opslagversleuteling** voor het versleutelen van uw versleutelde inhoud lokaal via AES-256-bits codering en uploaden naar Azure Storage wordt bewaard in rust versleuteld. Beveiligd met storage encryption activa zijn automatisch niet-versleuteld geplaatst in een versleuteld bestandssysteem voordat ze worden gecodeerd en eventueel opnieuw worden versleuteld voordat geüpload als een nieuwe uitvoerasset. Het primaire gebruiksvoorbeeld storage Encryption is wanneer u wilt uw invoer van hoge kwaliteit mediabestanden beveiligen met sterke codering in rust op schijf.
+Gebruik **Opslagversleuteling** voor het versleutelen van uw niet-versleutelde inhoud lokaal via AES-256-bits codering en vervolgens te uploaden naar Azure Storage waar deze zijn opgeslagen in rust versleuteld. Activa die worden beveiligd met storage encryption worden automatisch niet-versleuteld en geplaatst in een versleuteld bestandssysteem voordat ze worden gecodeerd en eventueel opnieuw worden versleuteld voordat ze worden geüpload weer als een nieuwe uitvoerasset. De primaire use-case voor storage-versleuteling is als u wilt uw invoer media van hoge kwaliteit bestanden beveiligen met sterke versleuteling in rust op schijf.
 
-Voor het leveren van een gecodeerde asset opslag, moet u beleid voor de levering van de asset configureren zodat Media Services weet hoe u wilt uw inhoud leveren. Voordat uw asset kan worden gestreamd, wordt de streaming-server verwijdert u de versleuteling van opslag en streams van uw inhoud met behulp van het opgegeven leveringsbeleid (bijvoorbeeld, AES, common encryption of er wordt geen versleuteling).
+Voor het leveren van een versleutelde activabeheer voor opslag, moet u het leveringsbeleid voor Assets configureren zodat mediaservices weet hoe u wilt dat uw inhoud kunt leveren. Voordat uw asset kan worden gestreamd, wordt de server voor streaming Hiermee verwijdert u de versleuteling van opslag en gegevensstromen van uw inhoud met behulp van het opgegeven leveringsbeleid (bijvoorbeeld: AES, algemene versleuteling of geen versleuteling).
 
-## <a name="create-contentkeys-used-for-encryption"></a>ContentKeys gebruikt voor versleuteling maken
-Versleutelde activa zijn gekoppeld aan de sleutels voor versleuteling van opslag. De inhoud sleutel moet worden gebruikt voor versleuteling voordat u de assetbestanden maken. Deze sectie beschrijft het maken van een inhoudssleutel.
+## <a name="create-contentkeys-used-for-encryption"></a>Gebruikt voor versleuteling Inhoudssleutels maken
+Versleutelde assets zijn gekoppeld aan de sleutels voor versleuteling van opslag. De inhoudssleutel moet worden gebruikt voor versleuteling voor het maken van de assetbestanden maken. In deze sectie wordt beschreven hoe u een inhoudssleutel maken.
 
-Hieronder vindt u algemene stappen voor het genereren van inhoud sleutels die u koppelen aan de activa die u wilt worden versleuteld. 
+Hier volgen de algemene stappen voor het genereren van inhoudssleutels dat u koppelt aan activa die u wilt worden versleuteld. 
 
-1. Storage Encryption willekeurig een 32-byte AES-sleutel genereren. 
+1. Voor versleuteling van opslag, kunt u een 32-byte-AES-sleutel willekeurig genereren. 
    
     De 32-byte AES-sleutel is de inhoudssleutel voor uw asset, wat betekent dat alle bestanden die zijn gekoppeld aan die asset moeten dezelfde inhoud sleutel gebruiken tijdens het ontsleutelen. 
-2. Roep de [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) en [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methoden voor het ophalen van het juiste X.509-certificaat dat moet worden gebruikt om uw inhoud sleutel te versleutelen.
-3. Codeer uw inhoud sleutel met de openbare sleutel van het X.509-certificaat. 
+2. Roep de [GetProtectionKeyId](https://docs.microsoft.com/rest/api/media/operations/rest-api-functions#getprotectionkeyid) en [GetProtectionKey](https://msdn.microsoft.com/library/azure/jj683097.aspx#getprotectionkey) methoden voor het ophalen van het juiste X.509-certificaat dat moet worden gebruikt voor het versleutelen van uw inhoudssleutel.
+3. Codeer uw inhoudssleutel met de openbare sleutel van het X.509-certificaat. 
    
-   Media Services .NET SDK gebruikmaakt van RSA met OAEP bij het uitvoeren van de codering.  U ziet een voorbeeld van een .NET in de [EncryptSymmetricKeyData functie](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-4. Maak een controlesomwaarde berekend met behulp van de sleutel-id en de inhoudssleutel. Het volgende voorbeeld met .NET berekent de controlesom met de GUID-deel van de sleutel-id en de inhoudssleutel wissen.
+   Media Services .NET SDK gebruikt RSA OAEP bij het uitvoeren van de versleuteling.  Ziet u een .NET-voorbeeld in de [EncryptSymmetricKeyData functie](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+4. Maak een controlesomwaarde berekend met behulp van de sleutel-id en de inhoudssleutel. De volgende .NET-voorbeeld berekent de controlesom met behulp van het GUID-gedeelte van de sleutel-id en de wissen inhoudssleutel.
 
     ```csharp
             public static string CalculateChecksum(byte[] contentKey, Guid keyId)
@@ -93,22 +105,22 @@ Hieronder vindt u algemene stappen voor het genereren van inhoud sleutels die u 
             }
     ```
 
-5. Maak de inhoudssleutel met de **EncryptedContentKey** (geconverteerd naar base64-gecodeerde tekenreeks), **ProtectionKeyId**, **ProtectionKeyType**, **ContentKeyType**, en **controlesom** waarden die u in de vorige stappen hebt ontvangen.
+5. Maak de inhoudssleutel met de **EncryptedContentKey** (geconverteerd naar base64-gecodeerde tekenreeks), **ProtectionKeyId**, **ProtectionKeyType**,  **ContentKeyType**, en **controlesom** waarden die u in de vorige stappen hebt ontvangen.
 
-    Voor de versleuteling van opslag, moeten de volgende eigenschappen worden opgenomen in de aanvraagtekst.
+    Voor de versleuteling van opslag, moeten de volgende eigenschappen in de aanvraagtekst worden opgenomen.
 
-    De eigenschap body aanvraag    | Beschrijving
+    Hoofdtekst van de aanvraageigenschap    | Beschrijving
     ---|---
-    Id | De ContentKey Id wordt gegenereerd met de volgende indeling hebben: ' nb:kid:UUID:<NEW GUID>'.
-    ContentKeyType | Het inhoudstype van de sleutel is een geheel getal dat de sleutel wordt gedefinieerd. Voor opslagindeling voor versleuteling is de waarde 1.
-    EncryptedContentKey | We maken een nieuwe inhoud sleutelwaarde die de waarde van een 256-bits (32 bytes). De sleutel is versleuteld met behulp van het X.509-certificaat voor opslag versleuteling we uit Microsoft Azure Media Services ophalen door het uitvoeren van een HTTP GET-aanvraag voor de GetProtectionKeyId en GetProtectionKey methoden. Zie de volgende .NET-code als een voorbeeld: de **EncryptSymmetricKeyData** methode gedefinieerd [hier](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
-    ProtectionKeyId | Dit is de key protection-id voor de opslag versleuteling X.509-certificaat dat is gebruikt voor het versleutelen van onze inhoudssleutel.
-    ProtectionKeyType | Dit is het versleutelingstype voor de beveiliging sleutel die is gebruikt voor het versleutelen van de inhoudssleutel. Deze waarde is StorageEncryption(1) in ons voorbeeld.
-    Controlesom |De controlesom voor berekende MD5 voor de inhoudssleutel. Deze wordt berekend door de inhoud-Id met de inhoudssleutel te versleutelen. De voorbeeldcode laat zien hoe de controlesom berekenen.
+    Id | De ID ContentKey wordt gegenereerd met behulp van de volgende indeling hebben: "nb:kid:UUID:<NEW GUID>'.
+    ContentKeyType | Het inhoudstype key is een geheel getal dat de sleutel wordt gedefinieerd. Voor de indeling van de versleuteling van opslag is de waarde 1.
+    EncryptedContentKey | We maken een nieuwe inhoud sleutelwaarde die een waarde is 256-bits (32 bytes). De sleutel is gecodeerd met behulp van de storage-versleuteling X.509-certificaat dat door het uitvoeren van een HTTP GET-aanvraag voor de GetProtectionKeyId en GetProtectionKey methoden van Microsoft Azure Media Services worden opgehaald. Een voorbeeld: Zie de volgende .NET-code: de **EncryptSymmetricKeyData** methode die is gedefinieerd [hier](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs).
+    ProtectionKeyId | Dit is de beveiliging sleutel-ID voor de opslag versleuteling X.509-certificaat dat is gebruikt om onze inhoud sleutel te versleutelen.
+    ProtectionKeyType | Dit is het versleutelingstype voor de beveiliging-sleutel die is gebruikt voor het versleutelen van de inhoudssleutel. Deze waarde is StorageEncryption(1) in ons voorbeeld.
+    Checksum |De controlesom voor berekende MD5 voor de inhoudssleutel. Deze wordt berekend door het versleutelen van de inhoud-ID met de inhoudssleutel. De voorbeeldcode ziet u hoe u de controlesom berekenen.
 
 
 ### <a name="retrieve-the-protectionkeyid"></a>De ProtectionKeyId ophalen
-Het volgende voorbeeld laat zien hoe de ProtectionKeyId, de vingerafdruk van een certificaat voor het certificaat dat moet u bij het versleutelen van uw inhoudssleutel ophalen. Voer deze stap uit om ervoor te zorgen dat u al het juiste certificaat op uw computer.
+Het volgende voorbeeld laat zien hoe de ProtectionKeyId, de vingerafdruk van een certificaat voor het certificaat dat moet u bij het versleutelen van uw inhoudssleutel ophalen. Voer deze stap uit om ervoor te zorgen dat u al het juiste certificaat op uw computer hebt.
 
 Aanvraag:
 
@@ -121,7 +133,7 @@ Aanvraag:
     x-ms-version: 2.17
     Host: media.windows.net
 
-Antwoord:
+Reactie:
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -139,7 +151,7 @@ Antwoord:
     {"odata.metadata":"https://wamsbayclus001rest-hs.cloudapp.net/api/$metadata#Edm.String","value":"7D9BB04D9D0A4A24800CADBFEF232689E048F69C"}
 
 ### <a name="retrieve-the-protectionkey-for-the-protectionkeyid"></a>De ProtectionKey voor de ProtectionKeyId ophalen
-Het volgende voorbeeld laat zien hoe voor het ophalen van het X.509-certificaat met behulp van de ProtectionKeyId dat u in de vorige stap hebt ontvangen.
+Het volgende voorbeeld laat zien hoe de X.509-certificaat met behulp van de ProtectionKeyId dat u in de vorige stap hebt ontvangen op te halen.
 
 Aanvraag:
 
@@ -153,7 +165,7 @@ Aanvraag:
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
-Antwoord:
+Reactie:
 
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -173,11 +185,11 @@ Antwoord:
     "value":"MIIDSTCCAjGgAwIBAgIQqf92wku/HLJGCbMAU8GEnDANBgkqhkiG9w0BAQQFADAuMSwwKgYDVQQDEyN3YW1zYmx1cmVnMDAxZW5jcnlwdGFsbHNlY3JldHMtY2VydDAeFw0xMjA1MjkwNzAwMDBaFw0zMjA1MjkwNzAwMDBaMC4xLDAqBgNVBAMTI3dhbXNibHVyZWcwMDFlbmNyeXB0YWxsc2VjcmV0cy1jZXJ0MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzR0SEbXefvUjb9wCUfkEiKtGQ5Gc328qFPrhMjSo+YHe0AVviZ9YaxPPb0m1AaaRV4dqWpST2+JtDhLOmGpWmmA60tbATJDdmRzKi2eYAyhhE76MgJgL3myCQLP42jDusWXWSMabui3/tMDQs+zfi1sJ4Ch/lm5EvksYsu6o8sCv29VRwxfDLJPBy2NlbV4GbWz5Qxp2tAmHoROnfaRhwp6WIbquk69tEtu2U50CpPN2goLAqx2PpXAqA+prxCZYGTHqfmFJEKtZHhizVBTFPGS3ncfnQC9QIEwFbPw6E5PO5yNaB68radWsp5uvDg33G1i8IT39GstMW6zaaG7cNQIDAQABo2MwYTBfBgNVHQEEWDBWgBCOGT2hPhsvQioZimw8M+jOoTAwLjEsMCoGA1UEAxMjd2Ftc2JsdXJlZzAwMWVuY3J5cHRhbGxzZWNyZXRzLWNlcnSCEKn/dsJLvxyyRgmzAFPBhJwwDQYJKoZIhvcNAQEEBQADggEBABcrQPma2ekNS3Wc5wGXL/aHyQaQRwFGymnUJ+VR8jVUZaC/U/f6lR98eTlwycjVwRL7D15BfClGEHw66QdHejaViJCjbEIJJ3p2c9fzBKhjLhzB3VVNiLIaH6RSI1bMPd2eddSCqhDIn3VBN605GcYXMzhYp+YA6g9+YMNeS1b+LxX3fqixMQIxSHOLFZ1G/H2xfNawv0VikH3djNui3EKT1w/8aRkUv/AAV0b3rYkP/jA1I0CPn0XFk7STYoiJ3gJoKq9EMXhit+Iwfz0sMkfhWG12/XO+TAWqsK1ZxEjuC9OzrY7pFnNxs4Mu4S8iinehduSpY+9mDd3dHynNwT4="}
 
 ### <a name="create-the-content-key"></a>De inhoudssleutel maken
-Nadat u hebt opgehaald van het X.509-certificaat en de openbare sleutel voor het versleutelen van uw inhoud sleutel gebruikt, maakt u een **ContentKey** entiteit en stel de eigenschap dienovereenkomstig waarden.
+Nadat u hebt opgehaald van het X.509-certificaat en de openbare sleutel hebt gebruikt voor het versleutelen van uw inhoudssleutel, maakt u een **ContentKey** entiteit en stel de eigenschap dienovereenkomstig waarden.
 
-Een van de waarden die u wanneer instellen moet de inhoud maken sleutel is van het type. Wanneer u de versleuteling van opslag, moet de waarde worden ingesteld op '1'. 
+Een van de waarden die u wanneer instellen moet maakt u de inhoud is van het type sleutel. Wanneer u versleuteling van opslag, moet de waarde worden ingesteld op '1'. 
 
-Het volgende voorbeeld ziet u het maken van een **ContentKey** met een **ContentKeyType** ingesteld voor de versleuteling van opslag ('1') en de **ProtectionKeyType** ingesteld op '0' om aan te geven dat de sleutel beveiliging Id de vingerafdruk van het X.509-certificaat.  
+Het volgende voorbeeld ziet u hoe u maakt een **ContentKey** met een **ContentKeyType** instellen voor versleuteling van opslag ("1") en de **ProtectionKeyType** ingesteld op '0' om aan te geven die de key protection-ID is de vingerafdruk van het X.509-certificaat.  
 
 Aanvraag
 
@@ -200,7 +212,7 @@ Aanvraag
     "Checksum":"calculated checksum"
     }
 
-Antwoord:
+Reactie:
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -227,7 +239,7 @@ Antwoord:
     "Checksum":"calculated checksum"}
 
 ## <a name="create-an-asset"></a>Maak een asset
-Het volgende voorbeeld laat zien hoe een asset te maken.
+Het volgende voorbeeld ziet hoe u een asset te maken.
 
 **HTTP-aanvraag**
 
@@ -274,7 +286,7 @@ Als dit lukt, wordt het volgende antwoord geretourneerd:
     }
 
 ## <a name="associate-the-contentkey-with-an-asset"></a>De ContentKey koppelen aan een Asset
-Na het maken van de ContentKey koppelen aan uw Asset met behulp van de bewerking $links, zoals wordt weergegeven in het volgende voorbeeld:
+Na het maken van de ContentKey, koppel deze aan uw Asset met behulp van de bewerking $links, zoals wordt weergegeven in het volgende voorbeeld:
 
 Aanvraag:
 
@@ -290,16 +302,16 @@ Aanvraag:
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
 
-Antwoord:
+Reactie:
 
     HTTP/1.1 204 No Content 
 
 ## <a name="create-an-assetfile"></a>Een AssetFile maken
-De [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entiteit vertegenwoordigt een video of audio-bestand dat is opgeslagen in een blob-container. Een assetbestand is altijd gekoppeld aan een asset en een asset kan een of meer assetbestanden bevatten. De taak Media Services-Encoder mislukt als een object van het bestand asset niet gekoppeld aan een digitaal bestand in een blob-container is.
+De [AssetFile](https://docs.microsoft.com/rest/api/media/operations/assetfile) entiteit vertegenwoordigt een video of audio-bestand dat is opgeslagen in een blob-container. Een assetbestand is altijd gekoppeld aan een asset en een asset kan een of meer assetbestanden bevatten. De Media Services Encoder-taak mislukt als een object van het bestand asset niet gekoppeld aan een digitaal bestand in een blob-container is.
 
-De **AssetFile** exemplaar en de werkelijke mediabestand zijn twee verschillende objecten. Het exemplaar AssetFile bevat metagegevens over het mediabestand terwijl het mediabestand de werkelijke media-inhoud bevat.
+De **AssetFile** instantie en de werkelijke mediabestand zijn twee verschillende objecten. Het exemplaar AssetFile bevat metagegevens over de mediabestand, terwijl het bestand de werkelijke media-inhoud bevat.
 
-Nadat u uw digitale media-bestand naar een blobcontainer uploadt, gebruikt u de **samenvoegen** HTTP-aanvraag voor de AssetFile bijgewerkt met gegevens over uw mediabestand (niet weergegeven in dit artikel). 
+Nadat u uw digitale media-bestand naar een blob-container uploaden, gebruikt u de **samenvoegen** HTTP-aanvraag voor het bijwerken van de AssetFile met informatie over uw media-bestand (niet weergegeven in dit artikel). 
 
 **HTTP-aanvraag**
 

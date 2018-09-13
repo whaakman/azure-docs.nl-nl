@@ -1,6 +1,6 @@
 ---
-title: Ondersteuning van Azure Virtual machines toevoegen aan de bestaande beschikbaarheidsset instellen | Microsoft Docs
-description: Ondersteuning van Azure Virtual machines toevoegen aan een bestaande beschikbaarheidsset.
+title: Ondersteuning voor het Azure-VM's toe te voegen aan een bestaande beschikbaarheidsset instellen | Microsoft Docs
+description: Ondersteuning voor het Azure-VM's toe te voegen aan een bestaande beschikbaarheidsset.
 services: virtual-machines-linux
 documentationcenter: ''
 author: Deland-Han
@@ -12,22 +12,22 @@ ms.workload: virtual-machines
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 11/03/2017
+ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 8bf2a55563772e26239445732b2b08df677436ef
-ms.sourcegitcommit: 3df3fcec9ac9e56a3f5282f6c65e5a9bc1b5ba22
+ms.openlocfilehash: 13448f4b335d84264d4141cb4fb8c3eadcf0303e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/04/2017
-ms.locfileid: "23987717"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35914767"
 ---
-# <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Ondersteuning van Azure Virtual machines toevoegen aan een bestaande beschikbaarheidsset
+# <a name="supportability-of-adding-azure-vms-to-an-existing-availability-set"></a>Ondersteuning voor het Azure-VM's toe te voegen aan een bestaande beschikbaarheidsset
 
-Van tijd tot tijd kan verschijnen beperkingen wanneer u nieuwe virtuele machines (VM's) toevoegen aan een bestaande beschikbaarheidsset. Het volgende diagram details over welke VM-reeks u in dezelfde beschikbaarheidsset mengen kunt.
+Af en toe kunnen optreden beperkingen wanneer u nieuwe virtuele machines (VM's) toevoegen aan een bestaande beschikbaarheidsset. Het volgende diagram wordt uitgelegd welke VM-reeks die u in dezelfde beschikbaarheidsset combineren kunt.
 
-Dit is de matrix ondersteuningsmogelijkheden mix van verschillende typen van virtuele machines:
+Dit is de matrix supportability om verschillende typen virtuele machines:
 
-Reeks & Beschikbaarheidsset|Tweede VM|A|Av2|D|Dv2|Dv3|
+Reeks & Beschikbaarheidsset|Tweede virtuele machine|A|Av2|D|Dv2|Dv3|
 |---|---|---|---|---|---|---|
 |Eerste VM|||||||
 |A||OK|OK|OK|OK|OK|
@@ -38,4 +38,4 @@ Reeks & Beschikbaarheidsset|Tweede VM|A|Av2|D|Dv2|Dv3|
 
 Alle andere reeks kan niet worden in dezelfde beschikbaarheidsset omdat ze een specifieke hardware vereist.
 
-A8/A9-VM-grootte kan niet worden gecombineerd vanwege requirment op speciaal RDMA back-end-netwerk.
+A8/A9 VM-grootte kan niet worden gecombineerd vanwege requirment op toegewezen RDMA-back-endnetwerk.

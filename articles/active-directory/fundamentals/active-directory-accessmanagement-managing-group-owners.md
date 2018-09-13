@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 09/12/2017
+ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: bdc8754253ce2567d957b4d6240fe52242aea2ea
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: d84c3b556f27366c249382a37e0a8227726110cf
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449820"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714681"
 ---
 # <a name="managing-owners-for-a-group"></a>Eigenaars voor een groep beheren
 Wanneer een resource-eigenaar heeft toegang tot een resource aan een Azure AD-groep worden toegewezen, wordt het lidmaatschap van de groep wordt beheerd door de eigenaar van de groep. De eigenaar van de resource delegeert effectief de machtiging voor het toewijzen van gebruikers aan de resource toe aan de eigenaar van de groep.
@@ -42,6 +42,6 @@ Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md) (Toegang tot resources beheren met Azure Active Directory-groepen)
 * [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) (Azure Active Directory-cmdlets voor het configureren van groepsinstellingen)
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
-* [What is Azure Active Directory?](active-directory-whatis.md) (Wat is Azure Active Directory?)
+* [Toepassingsbeheer in Azure Active Directory](../manage-apps/what-is-application-management.md)
+* [Wat is Azure Active Directory?](active-directory-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](../connect/active-directory-aadconnect.md)

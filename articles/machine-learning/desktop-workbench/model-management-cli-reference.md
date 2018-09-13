@@ -1,27 +1,27 @@
 ---
-title: Naslaginformatie over Azure Machine Learning-Model Management opdrachtregelinterface | Microsoft Docs
-description: Azure Machine Learning-Model Management opdrachtregelinterface verwijzing.
+title: Naslaginformatie over Azure Machine Learning Modelbeheer-opdrachtregelinterface | Microsoft Docs
+description: Azure Machine Learning Modelbeheer-opdrachtregelinterface verwijzing.
 services: machine-learning
 author: aashishb
 ms.author: aashishb
 manager: hjerez
 ms.reviewer: jasonwhowell, mldocs
 ms.service: machine-learning
-ms.component: desktop-workbench
+ms.component: core
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 11/08/2017
-ms.openlocfilehash: 540f22e38201ec488d8e2c1d7494bc83d7b83a7e
-ms.sourcegitcommit: 944d16bc74de29fb2643b0576a20cbd7e437cef2
+ms.openlocfilehash: 9e69f2e71cce6d689669838785ce992fbbcfa940
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/07/2018
-ms.locfileid: "34831918"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35646606"
 ---
-# <a name="model-management-command-line-interface-reference"></a>Verwijzing naar een model management opdrachtregelinterface
+# <a name="model-management-command-line-interface-reference"></a>Naslaginformatie over objectmodel management opdrachtregelinterface
 
-## <a name="base-cli-concepts"></a>Concepten van Base CLI:
+## <a name="base-cli-concepts"></a>Algemene CLI-concepten:
 
     account : Manage model management accounts. 
     env     : Manage compute environments.
@@ -31,7 +31,7 @@ ms.locfileid: "34831918"
     service : Manage operationalized services.
 
 ## <a name="account-commands"></a>Account-opdrachten
-Een model-management-account is vereist voor het gebruik van de services waarmee u kunt implementeren en beheren van modellen. Gebruik `az ml account modelmanagement -h` om te zien in de volgende lijst:
+Een modelbeheeraccount is vereist voor het gebruik van de services, waarin u kunt modellen implementeren en beheren. Gebruik `az ml account modelmanagement -h` om te zien van de volgende lijst:
 
     create: Create a Model Management Account.
     delete: Delete a specified Model Management Account.
@@ -40,9 +40,9 @@ Een model-management-account is vereist voor het gebruik van de services waarmee
     show  : Show a Model Management Account.
     update: Update an existing Model Management Account.
 
-**Model Management-Account maken**
+**Modelbeheer-Account maken**
 
-Maak een model-management-account voor facturering met de volgende opdracht:
+Maak een Modelbeheer-account voor facturering met de volgende opdracht:
 
 `az ml account modelmanagement create --location [Azure region e.g. eastus2] --name [new account name] --resource-group [resource group name to store the account in]`
 
@@ -58,7 +58,7 @@ Lokale argumenten:
     --tags -t                     : Tags for the model management account.  Default: {}.
     -v                            : Verbosity flag.
 
-## <a name="environment-commands"></a>Omgeving opdrachten
+## <a name="environment-commands"></a>Omgeving-opdrachten
 
     cluster        : Switch the current execution context to 'cluster'.
     delete         : Delete an MLCRP-provisioned resource.
@@ -70,15 +70,15 @@ Lokale argumenten:
     show           : Show an MLC resource; if resource_group or cluster_name are not provided, shows
                      the active MLC env.
 
-**De implementatie-omgeving instellen**
+**Stel de omgeving voor implementatie**
 
-De setup-opdracht moet u bijdrager toegang hebben tot het abonnement. Als u die niet hebt, moet u minimaal toegangsrechten van een bijdrager hebben voor de resourcegroep waarin u wilt implementeren. Als u dat laatste wilt doen, moet u de naam van de resourcegroep opgeven als onderdeel van de installatieopdracht via de vlag `-g`. 
+De setup-opdracht moet u Inzender-toegang tot het abonnement hebben. Als u die niet hebt, moet u minimaal toegangsrechten van een bijdrager hebben voor de resourcegroep waarin u wilt implementeren. Als u dat laatste wilt doen, moet u de naam van de resourcegroep opgeven als onderdeel van de installatieopdracht via de vlag `-g`. 
 
-Er zijn twee opties voor implementatie: *lokale* en *cluster*. Instellen van de `--cluster` (of `-c`) vlag schakelt Clusterimplementatie, die voorziet in een ACS-cluster. De syntaxis van de basisinstellingen is als volgt:
+Er zijn twee opties voor implementatie: *lokale* en *cluster*. Instellen van de `--cluster` (of `-c`) vlag kunt implementeren in de cluster, die een ACS-cluster wordt ingericht. De syntaxis van de eenvoudige configuratie is als volgt:
 
 `az ml env setup [-c] --location [location of environment resources] --name[name of environment]`
 
-Met deze opdracht wordt geïnitialiseerd voor uw Azure machine learning-omgeving met een opslagaccount, ACR-register en App Insights-service gemaakt in uw abonnement. Standaard wordt de omgeving geïnitialiseerd voor alleen lokale implementaties (geen ACS) als er geen vlag is opgegeven. Als u schalen, service wilt, geeft u de `--cluster` (of `-c`) vlag voor het maken van een ACS-cluster.
+Met deze opdracht initialiseert de Azure machine learning-omgeving met een storage-account, het ACR-register en de App Insights-service gemaakt in uw abonnement. De omgeving is geïnitialiseerd voor alleen lokale implementaties (geen ACS) standaard, als er geen vlag is opgegeven. Als u nodig hebt om service te schalen, geeft u de `--cluster` (of `-c`) vlag voor het maken van een ACS-cluster.
 
 Opdrachtdetails van de:
 
@@ -106,13 +106,13 @@ Algemene argumenten
     --query                        : JMESPath query string. See http://jmespath.org/ for more information and examples.
     --verbose                      : Increase logging verbosity. Use --debug for full debug logs.
 ```
-## <a name="model-commands"></a>Model opdrachten
+## <a name="model-commands"></a>Model-opdrachten
 
     list
     register
     show
 
-**Registreren van een model**
+**Een model registreren**
 
 Opdracht voor het registreren van het model.
 
@@ -143,7 +143,7 @@ Algemene argumenten
     list
     show
 
-**Maken van het manifest**
+**Maak het manifest.**
 
 De volgende opdracht maakt een manifestbestand voor het model. 
 
@@ -162,7 +162,7 @@ Opdrachtdetails van de:
     -p                           : A pip requirements.txt file needed by the code file.
     -v                           : Verbosity flag.
 
-Geregistreerd Model argumenten
+Geregistreerde Model argumenten
 
     --model-id -i                : [Required] Id of previously registered model to add to manifest.
                                    Multiple models can be specified with additional -i arguments.
@@ -183,7 +183,7 @@ Algemene argumenten
     --verbose                    : Increase logging verbosity. Use --debug for full debug logs.
 
 
-## <a name="image-commands"></a>Opdrachten van afbeeldingen
+## <a name="image-commands"></a>Installatiekopie-opdrachten
 
     create: Creates a docker image with the model and its dependencies. This command has two different sets of
             required arguments, depending on if you want to use a previously created manifest.
@@ -197,7 +197,7 @@ U kunt een installatiekopie maken met de optie van de manifest voordat hebben ge
 
 `az ml image create -n [image name] --manifest-id [the manifest ID]`
 
-Of u kunt maken van het manifest en de installatiekopie met één opdracht. 
+Of u kunt maken van het manifest en installatiekopieën met één opdracht. 
 
 `az ml image create -n [image name] --model-file [model file or folder path] -f [code file, e.g. the score.py file] -r [the runtime eg.g. spark-py which is the Docker container image base]`
 
@@ -225,7 +225,7 @@ Niet-geregistreerde Manifest argumenten
 
 
 ## <a name="service-commands"></a>Service-opdrachten
-De volgende opdrachten worden ondersteund voor de Service. Als de parameters voor elke opdracht weergeven, gebruikt u de optie -h. Bijvoorbeeld: `az ml service create realtime -h` om te zien opdrachtdetails maken.
+De volgende opdrachten worden ondersteund voor de Service. Als de parameters voor elke opdracht weergeven, gebruikt u de optie -h. Gebruik bijvoorbeeld `az ml service create realtime -h` om te zien opdrachtdetails maken.
 
     create
     delete
@@ -239,11 +239,11 @@ De volgende opdrachten worden ondersteund voor de Service. Als de parameters voo
 
 **Een service maken**
 
-Als een service maken met een installatiekopie van een eerder gemaakte, gebruik de volgende opdracht:
+Voor het maken van een service met een eerder gemaakte installatiekopie, gebruikt u de volgende opdracht uit:
 
 `az ml service create realtime --image-id [image to deploy] -n [service name]`
 
-Gebruik de volgende opdracht voor het maken van een service manifest en de installatiekopie met één opdracht:
+Gebruik de volgende opdracht voor het maken van een service manifest en de installatiekopie met een enkele opdracht:
 
 `az ml service create realtime --model-file [path to model file(s)] -f [path to model scoring file, e.g. score.py] -n [service name] -r [run time included in the image, e.g. spark-py]`
 
@@ -289,13 +289,13 @@ Algemene argumenten
     --verbose                         : Increase logging verbosity. Use --debug for full debug logs.
 
 
-Houd er rekening mee op de `-d` vlag voor het koppelen van afhankelijkheden: als u de naam van een map die nog niet gebundeld (zip, tar, enzovoort), die map automatisch tar'ed opgehaald en wordt doorgegeven samen en vervolgens automatisch zonder op het andere uiteinde. 
+Houd er rekening mee op de `-d` vlag voor het koppelen van afhankelijkheden: als u de naam van een map die nog niet is gebundeld (zip, tar, enzovoort), die map automatisch tar'ed opgehaald en wordt doorgegeven en wordt automatisch zonder op het andere uiteinde. 
 
-Als u in een map die al is gebundeld doorgeeft, wordt de map behandeld als een bestand en is doorgegeven. Het is automatisch; afzonderlijke ervan uitgegaan dat u voor het afhandelen van die in uw code.
+Als u in een map die al is gebundeld doorgeeft, wordt de map behandeld als een bestand en is doorgegeven. Het is afzonderlijke automatisch; u wordt opgenomen in uw code.
 
-**Servicedetails van ophalen**
+**Servicedetails van de ophalen**
 
-Details van de service-URL, gebruik (inclusief voorbeeldgegevens als een schema is gemaakt) waaronder ophalen.
+Servicedetails van de met inbegrip van de URL, gebruik (inclusief voorbeeldgegevens als een schema is gemaakt) ophalen.
 
 `az ml service show realtime --name [service name]`
 
@@ -335,7 +335,7 @@ Opdracht
 
     az ml service run realtime
 
-Argumenten--id -i: [vereist] te beoordelen op basis van de service-id.
+Argumenty--id -i: (vereist) om te beoordelen op basis van de service-id.
 -d: de gegevens te gebruiken voor het aanroepen van de webservice.
 -v: uitgebreidheid vlag.
 
