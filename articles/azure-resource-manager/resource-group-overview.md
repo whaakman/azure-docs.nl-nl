@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/16/2018
+ms.date: 08/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: 9b8f87f3cf09fef020ceed0166dd1652617ef605
-ms.sourcegitcommit: b9786bd755c68d602525f75109bbe6521ee06587
+ms.openlocfilehash: d04625fe78c423c995460afa29a81d96c6ce9cfb
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39126606"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43337970"
 ---
 # <a name="azure-resource-manager-overview"></a>Overzicht van Azure Resource Manager
 De infrastructuur voor uw toepassing bestaat meestal uit veel onderdelen, zoals een virtuele machine, een opslagaccount en een virtueel netwerk, of een webtoepassing, database, databaseserver en services van derden. Deze onderdelen moet u niet zien als afzonderlijke entiteiten, maar als onderdelen die één entiteit vormen en aan elkaar zijn gerelateerd en afhankelijk zijn van elkaar. U implementeert, beheert en bewaakt deze onderdelen als groep. Met Azure Resource Manager kunt u met de resources als groep in uw oplossing werken. U kunt alle resources voor uw oplossing implementeren, bijwerken of verwijderen in een enkele, gecoördineerde bewerking. Voor implementatie gebruikt u een sjabloon. Deze sjabloon kan voor verschillende omgevingen worden gebruikt, zoals testen, faseren en productie. Resource Manager biedt beveiliging, controle en tagfuncties die u na de implementatie helpen bij het beheren van uw resources. 
@@ -52,8 +52,6 @@ Resource Manager biedt diverse voordelen:
 * U kunt toegangsbeheer toepassen op alle services in de resourcegroep omdat op rollen gebaseerd toegangsbeheer (RBAC) is geïntegreerd in het beheerplatform.
 * U kunt tags toepassen op de resources om alle resources in uw abonnement op een logische manier te organiseren.
 * U kunt de facturering van uw organisatie transparanter maken door te kijken naar de kosten voor een groep resources met dezelfde tag.  
-
-Resource Manager biedt een nieuwe manier om uw oplossingen te implementeren en te beheren. Als u het eerdere implementatiemodel hebt gebruikt en meer te weten wilt komen over de wijzigingen, leest u [Resource Manager-implementatie en klassieke implementatie begrijpen](resource-manager-deployment-model.md).
 
 ## <a name="guidance"></a>Richtlijnen
 Met de volgende tips kunt u profiteren van alle mogelijkheden die Resource Manager voor uw oplossingen biedt.
@@ -88,9 +86,9 @@ De naam van een resourcetype heeft deze syntaxis: **{resourceprovider}/{resource
 Voordat u aan de slag gaat met de implementatie van uw resources, dient u inzicht te hebben in de beschikbare resourceproviders. Als u de namen van resourceproviders en resources kent, bent u beter in staat resources te definiëren die u wilt implementeren in Azure. Bovendien moet u voor elk resourcetype de geldige locaties en API-versies weten. Zie [Resourceproviders en -typen](resource-manager-supported-services.md) voor meer informatie.
 
 ## <a name="template-deployment"></a>Sjabloonimplementatie
-Met Resource Manager kunt u een sjabloon maken (in JSON-indeling) waarmee de infrastructuur en configuratie van uw Azure-oplossing worden gedefinieerd. Door het gebruik van een sjabloon kunt u gedurende de levenscyclus de oplossing herhaaldelijk implementeren en erop vertrouwen dat uw resources consistent worden geïmplementeerd. Wanneer u een oplossing vanaf de portal maakt, bevat de oplossing automatisch een sjabloon voor de implementatie. U hoeft de sjabloon niet helemaal zelf te maken. U kunt beginnen met de sjabloon voor uw oplossing en deze aanpassen aan uw specifieke behoeften. U kunt een sjabloon voor een bestaande resourcegroep ophalen door de huidige status van de resourcegroep te exporteren of door de sjabloon die is gebruikt voor een bepaalde implementatie, weer te geven. Raadplegen van de [geëxporteerde sjabloon](resource-manager-export-template.md) is een handige manier om de syntaxis van de sjabloon te leren kennen.
+Met Resource Manager kunt u een sjabloon maken (in JSON-indeling) waarmee de infrastructuur en configuratie van uw Azure-oplossing worden gedefinieerd. Door het gebruik van een sjabloon kunt u gedurende de levenscyclus de oplossing herhaaldelijk implementeren en erop vertrouwen dat uw resources consistent worden geïmplementeerd. Wanneer u een oplossing vanaf de portal maakt, bevat de oplossing automatisch een sjabloon voor de implementatie. U hoeft de sjabloon niet helemaal zelf te maken. U kunt beginnen met de sjabloon voor uw oplossing en deze aanpassen aan uw specifieke behoeften. Voor een voorbeeld raadpleegt u [Snelstartgids: Azure Resource Manager-sjablonen maken en implementeren via Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md). U kunt ook een sjabloon voor een bestaande resourcegroep ophalen door de huidige status van de resourcegroep te exporteren of door de sjabloon die is gebruikt voor een bepaalde implementatie weer te geven. Raadplegen van de [geëxporteerde sjabloon](resource-manager-export-template.md) is een handige manier om de syntaxis van de sjabloon te leren kennen.
 
-Voor meer informatie over de indeling van de sjabloon en hoe u deze samenstelt, raadpleegt u [Uw eerste Azure Resource Manager-sjabloon maken](resource-manager-create-first-template.md). Als u de JSON-syntaxis voor resourcetypen wilt bekijken, raadpleegt u [Define resources in Azure Resource Manager templates](/azure/templates/) (Resources definiëren in Azure Resource Manager-sjablonen).
+Voor meer informatie over de opmaak van de sjabloon en de wijze waarop u deze samenstelt, raadpleegt u [Snelstartgids: Azure Resource Manager-sjablonen maken en implementeren via Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md). Als u de JSON-syntaxis voor resourcetypen wilt bekijken, raadpleegt u [Define resources in Azure Resource Manager templates](/azure/templates/) (Resources definiëren in Azure Resource Manager-sjablonen).
 
 De sjabloon wordt via Resource Manager verwerkt zoals alle andere aanvragen (zie de afbeelding voor [Consistente beheerlaag](#consistent-management-layer)). De sjabloon wordt geparseerd en de bijbehorende syntaxis wordt geconverteerd naar REST API-bewerkingen voor de juiste resourceproviders. Bijvoorbeeld wanneer Resource Manager een sjabloon ontvangt met de volgende resourcedefinitie:
 
@@ -277,19 +275,11 @@ Zie voor informatie over het gebruik van deze talen met uw resources:
 
 > [!NOTE]
 > Als de SDK niet de vereiste functionaliteit biedt, kunt u ook de [Azure REST API](https://docs.microsoft.com/rest/api/resources/) ook rechtstreeks aanroepen.
-> 
-> 
+
 
 ## <a name="next-steps"></a>Volgende stappen
-* Zie voor een eenvoudige introductie in het werken met sjablonen [Een Azure Resource Manager-sjabloon uit bestaande resources exporteren](resource-manager-export-template.md).
-* Voor een uitgebreider overzicht van hoe u een sjabloon maakt, raadpleegt u [Uw eerste Azure Resource Manager-sjabloon maken](resource-manager-create-first-template.md).
-* Zie [Sjabloonfuncties](resource-group-template-functions.md) voor inzicht in de functies die u in een sjabloon kunt gebruiken.
-* Zie voor meer informatie over het gebruik van Visual Studio met Resource Manager [Azure-resourcegroepen maken en implementeren met Visual Studio](vs-azure-tools-resource-groups-deployment-projects-create-deploy.md).
-* Raadpleeg [Migrate from Classic to Azure Resource Manager](resource-manager-deployment-model.md#migrate-from-classic-to-resource-manager) (Migreren van Classic naar Azure Resource Manager) voor meer informatie over het migreren van resources van Classic naar ARM.
 
-Hier volgt een videodemonstratie van dit overzicht:
+In dit artikel hebt u geleerd hoe u Azure Resource Manager gebruikt voor de implementatie, het beheer en het toegangsbeheer van resources in Azure. Ga door naar het volgende artikel om te zien hoe u uw eerste Azure Resource Manager-sjabloon maakt.
 
->[!VIDEO https://channel9.msdn.com/Blogs/Azure-Documentation-Shorts/Azure-Resource-Manager-Overview/player]
-
-
-[powershellref]: https://docs.microsoft.com/powershell/resourcemanager/azurerm.resources/v3.2.0/azurerm.resources
+> [!div class="nextstepaction"]
+> [Snelstartgids: Azure Resource Manager-sjablonen maken en implementeren via Azure Portal](./resource-manager-quickstart-create-templates-use-the-portal.md)

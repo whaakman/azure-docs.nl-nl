@@ -1,62 +1,108 @@
 ---
-title: Oproep- en antwoord - Ruby Quick Start voor Azure cognitieve Services, zoekopdracht Bing-Web-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met de Bing Web Search-API in Microsoft cognitieve Services in Azure.
+title: 'Snelstartgids: Ruby gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API'
+description: In deze snelstartgids leert u hoe u voor het eerst de Bing Webzoekopdrachten-API aanroept met Ruby en een JSON-antwoord ontvangt.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-ms.openlocfilehash: b0f5c395fcdf043f4111f63ef16f0d33d5257e74
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: a60bf0ef12272be3b224fdbf9f9819057fe4aa55
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344740"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888702"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-in-ruby"></a>Oproep- en -antwoord: uw eerste Bing Web-zoekopdracht in Ruby
+# <a name="quickstart-use-ruby-to-call-the-bing-web-search-api"></a>Snelstartgids: Ruby gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
 
-De Bing Web zoeken-API biedt een vergelijkbaar met Bing.com/Search ervaring door te retourneren zoekresultaten die Bing bepaalt relevant zijn voor de query van de gebruiker. De resultaten kunnen webpagina's, afbeeldingen, video's, nieuws en entiteiten, samen met verwante zoekquery's, correcties tijdzones, eenheidconversie, vertalingen en berekeningen bevatten. Het soort u resultaten zijn gebaseerd op hun relevantie en de laag van de Bing zoeken-API's waarop u bent geabonneerd.
+Gebruik deze snelstartgids om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en binnen tien minuten een JSON-antwoord te ontvangen.  
 
-Dit artikel bevat een eenvoudige consoletoepassing die voert een query zoeken Bing-Web-API en de geretourneerde onbewerkte zoekresultaten in het JSON-indeling weergegeven. Terwijl deze toepassing is geschreven in Ruby, is de API een compatibel is met elke programmeertaal die kunt maken van HTTP-aanvragen en parseren van JSON RESTful-Web-service. 
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [Ruby 2.4 of hoger](https://www.ruby-lang.org/en/downloads/) de voorbeeldcode uit te voeren.
+U moet over het volgende beschikken voordat u verdergaat met deze snelstartgids:
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
+* [Ruby 2.4 of hoger](https://www.ruby-lang.org/en/downloads/)
+* Een abonnementssleutel
 
-## <a name="running-the-application"></a>De toepassing uitvoeren
+## <a name="create-a-project-and-declare-required-modules"></a>Een project maken en de vereiste modules declareren
 
-Volg deze stappen voor het uitvoeren van deze toepassing.
+Maak een nieuw Ruby-project in uw favoriete IDE of editor. Stel vervolgens `net/https` als vereiste voor aanvragen, `uri` voor de verwerking van URI's en `json` voor het parseren van het antwoord.
 
-1. Maak een nieuwe Ruby project in uw favoriete IDE of -editor.
-2. Voeg de opgegeven code.
-3. Vervang de `accessKey` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+```ruby
+require 'net/https'
+require 'uri'
+require 'json'
+```
+
+## <a name="define-variables"></a>Variabelen definiëren
+
+Er moet een aantal variabelen worden ingesteld voordat we verder kunnen gaan. Controleer of de `$uri` en het `path` geldig zijn en vervang de waarde `accessKey` door een geldige abonnementssleutel uit uw Azure-account. U kunt de zoekquery gerust aanpassen door de waarde voor `term` te vervangen.
+
+```ruby
+accessKey = "YOUR_SUBSCRIPTION_KEY"
+uri  = "https://api.cognitive.microsoft.com"
+path = "/bing/v7.0/search"
+term = "Microsoft Cognitive Services"
+
+if accessKey.length != 32 then
+    puts "Invalid Bing Search API subscription key!"
+    puts "Please paste yours into the source code."
+    abort
+end
+```
+
+## <a name="make-a-request"></a>Een aanvraag maken
+
+Gebruik de volgende code om een aanvraag te maken en het antwoord te verwerken.
+
+```ruby
+# Construct the endpoint uri.
+uri = URI(uri + path + "?q=" + URI.escape(term))
+puts "Searching the Web for: " + term
+
+# Create the request.
+request = Net::HTTP::Get.new(uri)
+request['Ocp-Apim-Subscription-Key'] = accessKey
+
+# Get the response.
+response = Net::HTTP.start(uri.host, uri.port, :use_ssl => uri.scheme == 'https') do |http|
+    http.request(request)
+end
+```
+
+## <a name="print-the-response"></a>Het antwoord weergeven
+
+Valideer de headers, maak de antwoordgegevens op in de JSON-indeling en geef de resultaten weer.
+
+```ruby
+puts "\nRelevant Headers:\n\n"
+response.each_header do |key, value|
+    # Header names are lower-cased.
+    if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
+        puts key + ": " + value
+    end
+end
+
+puts "\nJSON Response:\n\n"
+puts JSON::pretty_generate(JSON(response.body))
+```
+
+## <a name="put-it-all-together"></a>Alles samenvoegen
+
+De laatste stap bestaat uit het valideren van uw code en het uitvoeren hiervan. Als u uw code wilt vergelijken met die van ons, volgt hier het volledige programma:
 
 ```ruby
 require 'net/https'
 require 'uri'
 require 'json'
 
-# **********************************************
-# *** Update or verify the following values. ***
-# **********************************************
-
-# Replace the accessKey string value with your valid access key.
 accessKey = "enter key here"
-
-# Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-# search APIs.  In the future, regional endpoints may be available.  If you
-# encounter unexpected authorization errors, double-check this value against
-# the endpoint for your Bing Web search instance in your Azure dashboard.
-
 uri  = "https://api.cognitive.microsoft.com"
 path = "/bing/v7.0/search"
-
 term = "Microsoft Cognitive Services"
 
 if accessKey.length != 32 then
@@ -66,7 +112,6 @@ if accessKey.length != 32 then
 end
 
 uri = URI(uri + path + "?q=" + URI.escape(term))
-
 puts "Searching the Web for: " + term
 
 request = Net::HTTP::Get.new(uri)
@@ -78,7 +123,6 @@ end
 
 puts "\nRelevant Headers:\n\n"
 response.each_header do |key, value|
-    # header names are coerced to lowercase
     if key.start_with?("bingapis-") or key.start_with?("x-msedge-") then
         puts key + ": " + value
     end
@@ -88,9 +132,9 @@ puts "\nJSON Response:\n\n"
 puts JSON::pretty_generate(JSON(response.body))
 ```
 
-## <a name="json-response"></a>JSON-antwoord
+## <a name="sample-response"></a>Voorbeeldantwoord
 
-Er volgt een voorbeeldantwoord. Als u wilt beperken de lengte van de JSON, alleen een enkelvoudig resultaat wordt verkregen wordt weergegeven en andere onderdelen van het antwoord is afgekapt. 
+Antwoorden afkomstig van de Bing Webzoekopdrachten-API worden geretourneerd in de JSON-indeling. Dit voorbeeldantwoord is ingekort zodat één resultaat wordt weergegeven.
 
 ```json
 {
@@ -217,11 +261,6 @@ Er volgt een voorbeeldantwoord. Als u wilt beperken de lengte van de JSON, allee
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Bing Web search één pagina app-zelfstudie](../tutorial-bing-web-search-single-page-app.md)
+> [Zelfstudie voor app met één pagina voor Bing Web Search](../tutorial-bing-web-search-single-page-app.md)
 
-## <a name="see-also"></a>Zie ook 
-
-[Overzicht van Bing webpagina's zoeken](../overview.md)  
-[Probeer deze](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[Een gratis proefversie toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
-[Bing Web Search API-verwijzingen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]

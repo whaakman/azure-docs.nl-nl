@@ -1,60 +1,54 @@
 ---
-title: Oproep- en antwoord - Python Quick Start voor Azure cognitieve Services, zoekopdracht Bing-Web-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met de Bing Web Search-API in Microsoft cognitieve Services in Azure.
+title: 'Snelstartgids: Python gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API'
+description: In deze snelstartgids leert u hoe u voor het eerst de Bing Webzoekopdrachten-API aanroept met Python en een JSON-antwoord ontvangt.
 services: cognitive-services
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 8d4df9db60c7a74a5b9e53d4622528c0054b4f19
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: cd53a323a07617284e82004a6b3feed57b6e15e2
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344759"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888604"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-in-python"></a>Oproep- en -antwoord: uw eerste Bing Web-zoekopdracht in Python
+# <a name="quickstart-use-python-to-call-the-bing-web-search-api"></a>Snelstartgids: Python gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
 
-De Bing Web zoeken-API biedt een vergelijkbaar met Bing.com/Search ervaring door te retourneren zoekresultaten die Bing bepaalt relevant zijn voor de query van de gebruiker. De resultaten kunnen webpagina's, afbeeldingen, video's, nieuws en entiteiten, samen met verwante zoekquery's, correcties tijdzones, eenheidconversie, vertalingen en berekeningen bevatten. Het soort u resultaten zijn gebaseerd op hun relevantie en de laag van de Bing zoeken-API's waarop u bent geabonneerd.
+Gebruik deze snelstartgids om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en binnen tien minuten een JSON-antwoord te ontvangen.  
 
-Raadpleeg de [API-referentiemateriaal](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) voor technische informatie over de API's.
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
-U kunt in dit voorbeeld uitvoeren als een Jupyter-notebook op [MyBinder](https://mybinder.org) door te klikken op de lancering Binder badge: 
+Dit voorbeeld wordt uitgevoerd als een Jupyter-notitieblok in [MyBinder](https://mybinder.org). Klik op de badge voor het lanceren van Binder:
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingWebSearchAPI.ipynb)
 
+## <a name="define-variables"></a>Variabelen definiëren
 
-## <a name="prerequisites"></a>Vereisten
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
-
-## <a name="running-the-walkthrough"></a>De procedure wordt uitgevoerd
-
-Stel `subscription_key` naar uw API-sleutel voor de Bing-API-service.
-
+Vervang de waarde `subscription_key` door een geldige abonnementssleutel uit uw Azure-account.
 
 ```python
-subscription_key = None
+subscription_key = "YOUR_ACCESS_KEY"
 assert subscription_key
 ```
 
-Controleer vervolgens de `search_url` eindpunt juist is. In dit artikel wordt slechts één eindpunt voor Bing zoeken-API's gebruikt. Als u autorisatie fouten optreden, controleer dan deze waarde voor het eindpunt Bing zoeken in uw Azure-dashboard.
-
+Declareer het eindpunt voor de Bing Webzoekopdrachten-API. Als er autorisatiefouten optreden, moet u deze waarde controleren ten aanzien van het eindpunt voor zoeken met Bing in uw Azure-dashboard.
 
 ```python
 search_url = "https://api.cognitive.microsoft.com/bing/v7.0/search"
 ```
 
-Stel `search_term` aan query Bing voor cognitieve Microsoft-Services.
-
+U kunt de zoekquery gerust aanpassen door de waarde voor `search_term` te vervangen.
 
 ```python
-search_term = "Microsoft Cognitive Services"
+search_term = "Azure Cognitive Services"
 ```
 
-De volgende blokkeren maakt gebruik van de `requests` bibliotheek in Python aanroepen uit de Bing zoeken-API's en de resultaten worden geretourneerd als een JSON-object. Zien dat wordt doorgegeven in de API-sleutel via de `headers` woordenlijst en de zoekopdracht benaming de `params` woordenlijst. Zie de volledige lijst met opties die kunnen worden gebruikt om zoekresultaten te filteren, de [REST-API](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) documentatie.
+## <a name="make-a-request"></a>Een aanvraag maken
 
+Dit blok maakt gebruik van de `requests`-bibliotheek om de Bing Webzoekopdrachten-API aan te roepen en de resultaten als een JSON-object te retourneren. De API-sleutel wordt doorgegeven in de `headers`-woordenlijst, en de zoekterm en queryparameters worden doorgegeven in de `params`-woordenlijst. Raadpleeg de documentatie voor [Bing Webzoekopdrachten-API v7](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference) voor een volledige lijst met opties en parameters.
 
 ```python
 import requests
@@ -66,8 +60,9 @@ response.raise_for_status()
 search_results = response.json()
 ```
 
-De `search_results` object bevat de lijst met zoekresultaten samen met de rijke metagegevens zoals verwante query's en pagina's. De volgende regels code de eerste pagina's die door de query-indeling.
+## <a name="format-and-display-the-response"></a>Het antwoord opmaken en weergeven
 
+Het object `search_results` bevat de zoekresultaten en metagegevens, zoals gerelateerde query's en pagina's. Deze code maakt gebruikt van de `IPython.display`-bibliotheek om het antwoord in uw browser op te maken en weer te geven.
 
 ```python
 from IPython.display import HTML
@@ -80,14 +75,13 @@ rows = "\n".join(["""<tr>
 HTML("<table>{0}</table>".format(rows))
 ```
 
+## <a name="sample-code-on-github"></a>Voorbeeldcode in GitHub
+
+Als u deze code lokaal wilt uitvoeren, vindt u het volledige [voorbeeld op GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/nodejs/Search/BingWebSearchv7.js).
+
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Bing Web search één pagina app-zelfstudie](../tutorial-bing-web-search-single-page-app.md)
+> [Zelfstudie voor app met één pagina voor Bing Web Search ](../tutorial-bing-web-search-single-page-app.md)
 
-## <a name="see-also"></a>Zie ook 
-
-[Overzicht van Bing webpagina's zoeken](../overview.md)  
-[Probeer deze](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[Verkrijgen van een gratis proefversie toegangssleutel](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)
-[Bing Web Search API-verwijzingen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]
