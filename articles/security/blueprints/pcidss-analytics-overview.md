@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: 9ee5bf94b13b671dc6be89ce07c37d28d24650db
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: fbab6d1f35aeb2d81581b39b19a6ea93214f3486
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37908103"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719542"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-pci-dss"></a>Azure-beveiliging en naleving blauwdruk: Analytics voor het PCI DSS
 
@@ -31,7 +31,7 @@ Deze Azure-beveiliging en naleving blauwdruk biedt een platform voor streamingan
 
 Azure biedt tal van services voor rapportage en analyse voor de klanten. Deze oplossing bevat Azure Machine Learning-services in combinatie met Azure SQL Database om snel door gegevens bladeren en snellere resultaten via slimmer modellen leveren. Azure Machine Learning verhoogt query snelheden worden bereikt door het detecteren van nieuwe relaties tussen gegevenssets. Zodra de gegevens is getraind via verschillende statistische functies, maximaal 7 extra query kunnen pools (8 totale met inbegrip van de klantserver) worden gesynchroniseerd met de dezelfde tabellaire modellen om Verdeel querywerkbelastingen en responstijden te verminderen.
 
-Voor geavanceerde analyse en rapportage, kan Azure SQL-Databases worden geconfigureerd met columnstore-indexen. Zowel Azure Machine Learning en Azure SQL-Databases kan omhoog of omlaag geschaald of volledig afgesloten in reactie op klanten te worden gebruikt. Alle SQL-verkeer wordt versleuteld met SSL door de toevoeging van zelfondertekende certificaten. Als een best practice raadt Azure het gebruik van een vertrouwde certificeringsinstantie voor verbeterde beveiliging.
+Voor geavanceerde analyse en rapportage, kunnen Azure SQL-databases worden geconfigureerd met columnstore-indexen. Azure Machine Learning- en Azure SQL-databases kunnen omhoog of omlaag geschaald of volledig afgesloten in reactie op klanten te worden gebruikt. Alle SQL-verkeer wordt versleuteld met SSL door de toevoeging van zelfondertekende certificaten. Als een best practice raadt Azure het gebruik van een vertrouwde certificeringsinstantie voor verbeterde beveiliging.
 
 Wanneer gegevens worden geüpload naar de Azure SQL Database en getraind door Azure Machine Learning, is het ontsloten door zowel de operationele gebruiker en de beheerder van de SQL-gegevens met Power BI. Power BI gegevens intuïtief worden weergegeven en informatie verzamelt over meerdere gegevenssets te tekenen meer inzicht krijgen. De hoge mate van aanpasbaarheid en eenvoudige integratie met Azure SQL Database zorgt ervoor dat klanten configureren kunnen voor het afhandelen van een breed scala aan scenario's zoals vereist door de zakelijke behoeften.
 

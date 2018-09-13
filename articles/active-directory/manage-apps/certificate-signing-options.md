@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/07/2017
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: jeedes
 ms.custom: aaddev
-ms.openlocfilehash: c7f2892586dd78f3e4b102deb8c51b9979ed07e2
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: e7488abb3e82f90f63fa338b84a6516202e504ec
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348171"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714527"
 ---
 # <a name="advanced-certificate-signing-options-in-the-saml-token-for-gallery-apps-in-azure-active-directory"></a>Geavanceerde opties in het SAML-token voor galerie-apps in Azure Active Directory voor Certificaatondertekening
 Vandaag nog Azure Active Directory (Azure AD) biedt ondersteuning voor duizenden vooraf geïntegreerde toepassingen in de App-galerie van Azure Active Directory. Dit is inclusief meer dan 500 toepassingen die ondersteuning bieden voor eenmalige aanmelding met behulp van het SAML 2.0-protocol. Als een gebruiker zich bij een toepassing via Azure AD verifieert met behulp van SAML, worden in Azure AD een token verzonden naar de toepassing (via een HTTP POST). De toepassing wordt vervolgens valideert en gebruikt het token voor aanmelding bij de gebruiker in plaats van dat u wordt gevraagd een gebruikersnaam en wachtwoord. Deze SAML-tokens zijn ondertekend met de unieke certificaat dat gegenereerd in Azure AD en door specifieke standard algoritmen.
@@ -35,7 +35,7 @@ Azure AD biedt ondersteuning voor geavanceerde instellingen voor Certificaatonde
 
 Nadat u dit selectievakje inschakelt, kunt u opties voor Certificaatondertekening en het algoritme voor ondertekening certificaat instellen.
 
-## <a name="certificate-signing-options"></a>Opties voor Certificaatondertekening
+## <a name="certificate-signing-options"></a>Opties voor certificaatondertekening
 
 Azure AD ondersteunt drie opties voor het ondertekenen van certificaat:
 
@@ -45,7 +45,7 @@ Azure AD ondersteunt drie opties voor het ondertekenen van certificaat:
 
 * **SAML-antwoord en -bewering ondertekenen**. Als deze optie is geselecteerd, Azure AD als een id-provider het hele SAML-token met de X509 ondertekend certificaat van de toepassing. Ook wordt gebruikt het algoritme voor ondertekening, die is geselecteerd in de **algoritme voor ondertekening** vervolgkeuzelijst.
 
-    ![Opties voor Certificaatondertekening](./media/certificate-signing-options/saml-signing-options.png)
+    ![Opties voor certificaatondertekening](./media/certificate-signing-options/saml-signing-options.png)
 
 ## <a name="certificate-signing-algorithms"></a>Algoritmen voor Certificaatondertekening
 
@@ -60,7 +60,6 @@ Azure AD biedt ondersteuning voor twee algoritmes voor ondertekening om te onder
     ![Certificaat SHA-1 handtekeningalgoritme](./media/certificate-signing-options/saml-signing-algo-sha1.png)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Artikelenindex voor Toepassingsbeheer in Azure Active Directory](../active-directory-apps-index.md)
 * [Configureren van eenmalige aanmelding voor toepassingen die zich niet in de App-galerie van Azure Active Directory](configure-federated-single-sign-on-non-gallery-applications.md)
 * [Oplossen van SAML gebaseerde eenmalige aanmelding](../develop/howto-v1-debug-saml-sso-issues.md)
 

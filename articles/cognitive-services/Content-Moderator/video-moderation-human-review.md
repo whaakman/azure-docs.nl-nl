@@ -1,6 +1,6 @@
 ---
-title: Inhoud beheerder Azure - Video toezicht | Microsoft Docs
-description: Video toezicht machine ondersteund en menselijke revisie hulpprogramma's gebruiken gemiddeld ongeschikte inhoud
+title: Azure Content Moderator - toezicht op Video | Microsoft Docs
+description: Geautomatiseerd beheer van video- en programma's voor menselijke beoordeling gebruiken om te modereren ongepaste inhoud melden
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,30 +9,30 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 01/20/2018
 ms.author: sajagtap
-ms.openlocfilehash: fb26c9af55381c80a3f520b1a0068d8f72c91061
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: d9c01d4c2590535a4106e8e4ee79a12bdc60d956
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/25/2018
-ms.locfileid: "35344457"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714493"
 ---
 # <a name="video-moderation"></a>Beheer van video
 
-Gebruik inhoud beheerder machine ondersteunde [video toezicht](video-moderation-api.md) en [menselijke revisie hulpprogramma](Review-Tool-User-Guide/human-in-the-loop.md) gemiddeld video's en transcripties voor volwassene (expliciete) en mooie (suggestieve) inhoud ophalen van de beste resultaten voor uw bedrijf.
+Gebruik Content Moderator geautomatiseerd [videotoezicht](video-moderation-api.md) en [hulpprogramma voor menselijke beoordeling](Review-Tool-User-Guide/human-in-the-loop.md) matige video's en Transcripten voor volwassenen (expliciete) en ongepaste inhoud (suggestieve) de beste resultaten voor uw bedrijf.
 
-## <a name="video-trained-classifier"></a>Video getraind classificatie
+## <a name="video-trained-classifier-preview"></a>Video-getraind classificatie (preview)
 
-Video classificatie machine ondersteunde wordt ofwel met installatiekopie getraind modellen of video getraind modellen bereikt. In tegenstelling tot de video classificaties installatiekopie getraind is van Microsoft volwassenen en mooie video classificatie getraind met video's. Deze methode resulteert in betere kwaliteit van de overeenkomst.
+Video classificatie geautomatiseerd wordt ofwel met afbeelding getrainde modellen of video getrainde modellen bereikt. In tegenstelling tot video classificaties getraind met een installatiekopie wordt Microsofts erotische en ongepaste video classificatie getraind met video's. Deze methode resulteert in betere kwaliteit van de overeenkomst.
 
-## <a name="shot-detection"></a>Schermopname detectie
+## <a name="shot-detection"></a>Opnamedetectie
 
-Bij het uitvoeren van de details van de classificatie, kunt u extra video intelligence meer flexibiliteit bij het analyseren van video's. In plaats van alleen de frames uitvoeren, biedt de service van Microsoft video toezicht informatie voor de opname te. U hebt nu de optie voor het analyseren van uw video's op de schermopname niveau en de frame.
+Bij het uitvoeren van de details van de classificatie, kunt u aanvullende video intelligence meer flexibiliteit bij het analyseren van video's. In plaats van alleen de frames die worden uitgevoerd, biedt van Microsoft-service voor videotoezicht shot-niveau te. U hebt nu de optie voor het analyseren van uw video's op het niveau van de schermopname en het niveau van het kader.
  
-## <a name="key-frame-detection"></a>Sleutelframe detectie
+## <a name="key-frame-detection"></a>Detectie van sleutel
 
-In plaats van frames met regelmatige tussenpozen worden uitgevoerd, wordt de video toezicht service identificeert en levert mogelijk alleen volledige (goed) frames. De functie kunt efficiënt frame generatie voor de analyse volwassenen en mooie frame-niveau.
+In plaats van frames met regelmatige tussenpozen worden uitgevoerd, wordt de service voor videotoezicht identificeert en mogelijk alleen volledige (goed) frames levert. De functie kunt efficiënt frame genereren voor de analyse erotische en ongepaste frame-niveau.
 
-Het volgende extract ziet u een gedeeltelijk antwoord met mogelijke schermafbeeldingen, keyframes en volwassenen en mooie scores:
+Een gedeeltelijk antwoord met potentiële foto's, belangrijke frames en erotische en ongepaste scores ziet u het volgende uittreksel:
 
     "fragments": [
     {
@@ -74,36 +74,36 @@ Het volgende extract ziet u een gedeeltelijk antwoord met mogelijke schermafbeel
       ]
 
 
-## <a name="visualization-for-human-reviews"></a>De visualisatie voor menselijke revisies
+## <a name="visualization-for-human-reviews"></a>Visualisatie voor onlinebeoordelingen door mensen
 
-Voor meer nuanced gevallen bedrijven een menselijke revisie-oplossing nodig voor het opbouwen van de video, de frames en labels machine is toegewezen. De menselijke moderators controleren video's en frames een compleet overzicht van de inzichten te verkrijgen, labels wijzigen en hun beslissingen verzenden.
+Voor meer genuanceerde gevallen bedrijven nodig hebben een oplossing voor menselijke beoordeling voor het renderen van de video, de frames en tags machine toegewezen. De menselijke moderators redigeren van video's en de frames een compleet beeld van de inzichten te verkrijgen, labels wijzigen en het verzenden van hun beslissingen.
 
 ![video revisie hulpprogramma standaardweergave](images/video-review-default-view.png)
 
-## <a name="player-view-for-video-level-review"></a>Player weergave voor het controleren van de video-niveau
+## <a name="player-view-for-video-level-review"></a>Weergave van de speler voor video-niveau van controle
 
-Video-niveau binaire beslissingen met weergave-speler ziet u potentiële volwassenen en mooie frames mogelijk. De menselijke revisoren gaat de video met verschillende snelheid opties voor het onderzoeken van de schermen. Zij bevestigen hun beslissingen door het uitschakelen van de labels.
+Video-niveau binaire beslissingen mogelijk is met een videospeler weergave ziet u mogelijk erotische en ongepaste frames. De menselijke revisoren gaat u de video met verschillende snelheid opties voor het onderzoeken van de schermen. Zij bevestigen hun beslissingen door het omschakelen van de labels.
 
 ![video revisie hulpprogramma player weergeven](images/video-review-player-view.PNG)
 
-## <a name="frames-view-for-detailed-reviews"></a>Frames weergeven voor gedetailleerde revisies
+## <a name="frames-view-for-detailed-reviews"></a>Weergave voor gedetailleerde recensies frames
 
-Een gedetailleerde video revisie voor analyse van de frame-voor-frame wordt gemaakt met een weergave op basis van het frame mogelijk. De menselijke revisoren bekijken en selecteer een of meer frames en labels om te bevestigen dat hun beslissingen in-of uitschakelen. Een optionele volgende stap is redactie van de aanstootgevende frames of de inhoud.
+Een gedetailleerde video beoordeling van frame-voor-frame analyse wordt mogelijk is met een weergave op basis van een frame uitgevoerd. De menselijke revisoren bekijken en selecteer een of meer frames en tags om te bevestigen van hun beslissingen in-of uitschakelen. Een optionele volgende stap is onherkenbaar maken van de aanstootgevende frames of de inhoud.
 
 ![video revisie hulpprogramma frames weergeven](images/video-review-frames-view-apply-tags.PNG)
 
-## <a name="transcript-moderation"></a>De tekst van toezicht
+## <a name="transcript-moderation"></a>Transcript toezicht
 
-Video's hebben doorgaans voice over die controle ook nodig voor aanstootgevende spraak. U kunt de service Azure Media Indexer spraak naar tekst wilt converteren en inhoud beheerder revisie API gebruikt voor het verzenden van de tekst voor de controle van de tekst in het hulpprogramma voor beoordeling van de.
+Video's hebben doorgaans voice over die beheer ook nodig voor aanstootgevende spraak heeft. U kunt de service Azure Media Indexer Converteer spraak naar tekst en Content Moderator revisie API gebruiken voor het indienen van het transcript voor beheer van tekst binnen het beoordelingsprogramma.
 
-![de tekst van de weergave in video controleren](images/video-review-transcript-view.png)
+![video revisie hulpprogramma transcript weergeven](images/video-review-transcript-view.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Aan de slag met de [video toezicht Quick Start](video-moderation-api.md). 
+Aan de slag met de [videotoezicht snelstartgids](video-moderation-api.md). 
 
 Meer informatie over het genereren van [video bekijkt](video-reviews-quickstart-dotnet.md) voor uw menselijke revisoren van de gecontroleerde uitvoer.
 
-Voeg [de tekst van de video bekijkt](video-transcript-reviews-quickstart-dotnet.md) op uw video beoordelingen.
+Voeg [videotranscriptie beoordeelt](video-transcript-reviews-quickstart-dotnet.md) op uw video beoordelingen.
 
-Bekijk de gedetailleerde zelfstudie over het ontwikkelen van een [voltooien video toezicht oplossing](video-transcript-moderation-review-tutorial-dotnet.md). 
+Bekijk de gedetailleerde zelfstudie over het ontwikkelen van een [videotoezicht oplossing voltooien](video-transcript-moderation-review-tutorial-dotnet.md). 

@@ -3,19 +3,19 @@ title: 'Snelstartgids: C# voor QnA Maker-API (V4)'
 titleSuffix: Azure Cognitive Services
 description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Text-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
-author: nitinme
+author: diberry
 manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: 3c0248b08dbaa1d81843474fcc65590c719e8170
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: eba6b82d9378d3dd9713a8d17284b5ceac0d1cde
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348307"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717774"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-c"></a>Snelstartgids voor Microsoft QnA Maker-API met C# 
 <a name="HOLTop"></a>
@@ -37,7 +37,7 @@ In dit artikel leest u hoe u de [QnA Maker-API van Microsoft](../Overview/overvi
 - [De huidige set word wijzigingen ophalen.](#GetAlterations)
 - [Vervang de huidige reeks word wijzigingen.](#PutAlterations)
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) om uit te voeren van deze code op Windows. (De gratis Community-editie volstaat.)
 

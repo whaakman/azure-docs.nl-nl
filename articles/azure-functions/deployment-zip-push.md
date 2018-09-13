@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 08/12/2018
 ms.author: glenga
-ms.openlocfilehash: d7396ddb94017048247050726f83b0302e946633
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 03cb9384beba1afcb97a765824e63e79ca34aa62
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347117"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717215"
 ---
 # <a name="zip-deployment-for-azure-functions"></a>ZIP-implementatie voor Azure Functions
 
@@ -89,9 +89,6 @@ Wanneer u met behulp van Azure CLI op uw lokale computer, `<zip_file_path>` is h
 ## <a name="run-functions-from-the-deployment-package"></a>Functies van het implementatiepakket uitvoeren
 
 U kunt ook uw functies direct vanuit het pakketbestand van de implementatie uitgevoerd. Deze methode slaat de implementatiestap van het kopiëren van bestanden van het pakket naar de `wwwroot` map van uw functie-app. In plaats daarvan het pakketbestand is gekoppeld met de Functions-runtime en de inhoud van de `wwwroot` directory alleen-lezen.  
-
-> [!NOTE]
-> De mogelijkheid om uit te voeren van uw functie-app van het implementatiepakket is in preview.
 
 ZIP-implementatie kan worden geïntegreerd met deze functie, die u inschakelen kunt door in te stellen van de functie app-instelling `WEBSITE_RUN_FROM_PACKAGE` op een waarde van `1`. Zie voor meer informatie, [uw functies worden uitgevoerd vanuit een pakketbestand implementatie](run-functions-from-deployment-package.md).
 

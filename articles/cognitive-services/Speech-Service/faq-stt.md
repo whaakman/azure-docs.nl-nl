@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 31515d6867fc5524df1b081932dd2a28b0cf989c
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 0a30cce92de4b96b7dc0d29ce12f409df3e895df
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022155"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721873"
 ---
 # <a name="speech-to-text-frequently-asked-questions"></a>Veelgestelde vragen over spraak naar tekst
 
@@ -71,6 +71,10 @@ Contact met ons opnemen als u een hogere schaal nodig hebt.
 **V: Mijn aanvragen in het logboek geregistreerd zijn?**
 
 **Een**: U hebt de keuze bij het maken van een implementatie tracering uitschakelen. Op dat moment worden geen audio- of transcripties geregistreerd. Anders aanvragen worden gewoonlijk is geregistreerd in Azure in veilige opslag. 
+
+**V: Mijn aanvragen beperkt zijn?**
+
+**Een**: aanvragen voor 25 per vijf seconden Hiermee beperkt u de REST-API. Meer informatie vindt u in onze pagina's voor [spraak naar tekst](speech-to-text.md). 
 
 Als u nog meer vragen over privacy leiden die voorkomen dat u met behulp van de aangepaste spraakservice hebt, neem contact op met een van de ondersteuningskanalen.
 

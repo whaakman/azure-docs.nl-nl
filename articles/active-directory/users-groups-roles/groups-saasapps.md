@@ -14,12 +14,12 @@ ms.date: 03/14/2017
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 8c04f2723466ea7abc8ea3c3cc1f1efb953da764
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 45882e4d107ffd9ece2bfa6caac43b3bb2f60add
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449971"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720239"
 ---
 # <a name="using-a-group-to-manage-access-to-saas-applications"></a>Een groep gebruiken om SaaS-toepassingen te beheren
 Met behulp van Azure Active Directory (Azure AD) met een Azure AD Premium of Azure AD Basic-licentie, kunt u groepen gebruiken voor toegang toewijzen tot een SaaS-toepassing die geïntegreerd met Azure AD. Bijvoorbeeld, als u toegang toewijzen voor de marketingafdeling vijf verschillende SaaS-toepassingen gebruiken wilt, kunt u een groep met de gebruikers van de marketingafdeling maken, en vervolgens die groep toewijzen aan deze vijf SaaS-toepassingen die nodig zijn voor de marketingafdeling. Op deze manier kunt u tijd besparen door het lidmaatschap van de marketingafdeling op één locatie beheren. Gebruikers worden vervolgens toegewezen aan de toepassing wanneer ze worden toegevoegd als leden van de groep marketing en hun toewijzingen verwijderd uit de toepassing wanneer ze worden verwijderd uit de groep marketing. Deze mogelijkheid kan worden gebruikt met honderden toepassingen die u uit binnen de Azure AD-Toepassingsgalerie kunt toevoegen.
@@ -40,7 +40,7 @@ Met behulp van Azure Active Directory (Azure AD) met een Azure AD Premium of Azu
 Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
 
 * [Managing access to resources with Azure Active Directory groups](../fundamentals/active-directory-manage-groups.md) (Toegang tot resources beheren met Azure Active Directory-groepen)
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
+* [Toepassingsbeheer in Azure Active Directory](../manage-apps/what-is-application-management.md)
 * [Azure Active Directory cmdlets for configuring group settings](groups-settings-cmdlets.md) (Azure Active Directory-cmdlets voor het configureren van groepsinstellingen)
 * [Wat is Azure Active Directory?](../fundamentals/active-directory-whatis.md)
 * [Uw on-premises identiteiten integreren met Azure Active Directory](../connect/active-directory-aadconnect.md)

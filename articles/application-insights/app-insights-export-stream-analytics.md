@@ -1,6 +1,6 @@
 ---
-title: Exporteren met behulp van de Stream Analytics uit Azure Application Insights | Microsoft Docs
-description: Stream Analytics kunt continu transformeren, filteren en doorsturen van de gegevens die u uit de Application Insights exporteren.
+title: Exporteren met behulp van Stream Analytics van Azure Application Insights | Microsoft Docs
+description: Stream Analytics kunt continu transformeren, filteren en de gegevens die u vanuit Application Insights exporteren te routeren.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -13,49 +13,49 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/04/2018
 ms.author: mbullwin
-ms.openlocfilehash: 874a338c27262de29b1806352ec3ade068c188e0
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 86e37a186536a2037d3cc46cb1cc69c1a7a651f6
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294231"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719423"
 ---
-# <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Gebruik van Stream Analytics voor het verwerken van de geëxporteerde gegevens van Application Insights
-[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is het ideaal hulpprogramma voor het verwerken van gegevens [geëxporteerd uit de Application Insights](app-insights-export-telemetry.md). Stream Analytics kunt ophalen van gegevens uit verschillende bronnen. U kunt transformeren en filter de gegevens en vervolgens doorsturen naar een groot aantal Put.
+# <a name="use-stream-analytics-to-process-exported-data-from-application-insights"></a>Stream Analytics gebruiken voor het verwerken van de geëxporteerde gegevens van Application Insights
+[Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/) is het ideaal hulpprogramma voor het verwerken van gegevens [geëxporteerd uit Application Insights](app-insights-export-telemetry.md). Stream Analytics kunt u gegevens ophalen uit een groot aantal bronnen. Deze kunt transformeren en de gegevens filteren en vervolgens te routeren naar een verscheidenheid aan Put.
 
-In dit voorbeeld maakt u een netwerkadapter die worden gegevens uit de Application Insights, naam en het doorgesluisd naar Power BI sommige velden worden verwerkt.
+In dit voorbeeld maken we een adapter die neemt gegevens uit Application Insights, naam en sommige velden worden verwerkt en geeft het in Power BI.
 
 > [!WARNING]
-> Er zijn veel beter en eenvoudiger [aanbevolen manieren Application Insights-gegevens weergeven in Power BI](app-insights-export-power-bi.md). Het pad hier geïllustreerd is slechts een voorbeeld ter illustratie van de geëxporteerde gegevens verwerken.
+> Er zijn veel beter en eenvoudiger [aanbevolen manier om weer te geven van Application Insights-gegevens in Power BI](app-insights-export-power-bi.md). Het pad dat hier wordt geïllustreerd is slechts een voorbeeld ter illustratie van de geëxporteerde gegevens te verwerken.
 > 
 > 
 
-![Diagram voor exporteren via SA naar PBI blokkeren](./media/app-insights-export-stream-analytics/020.png)
+![Diagram voor exporteren via Software Assurance voor aan PBI blokkeren](./media/app-insights-export-stream-analytics/020.png)
 
-## <a name="create-storage-in-azure"></a>Maken van opslag in Azure
-Continue export levert altijd gegevens aan een Azure Storage-account, dus u moet de opslag om eerst te maken.
+## <a name="create-storage-in-azure"></a>Opslag maken in Azure
+Continue export voert altijd gegevens uit naar een Azure Storage-account, dus moet u eerst de opslag maken.
 
-1. Een 'klassiek' storage-account maken in uw abonnement in de [Azure-portal](https://portal.azure.com).
+1. Een 'klassieke' storage-account maken in uw abonnement in de [Azure-portal](https://portal.azure.com).
    
-   ![Kies nieuw, gegevens, opslag in Azure-portal](./media/app-insights-export-stream-analytics/030.png)
+   ![Kies in Azure portal, nieuw, gegevens, opslag](./media/app-insights-export-stream-analytics/030.png)
 2. Een container maken
    
-    ![In de nieuwe opslag Containers selecteren, klikt u op de tegel Containers en toevoegen](./media/app-insights-export-stream-analytics/040.png)
+    ![In de nieuwe opslag Containers selecteren, klikt u op de Containers tegel en klik vervolgens op toevoegen](./media/app-insights-export-stream-analytics/040.png)
 3. De toegangssleutel voor opslag kopiëren
    
-    U moet deze snel voor het instellen van de invoer van de stream analytics-service.
+    U moet deze beschikbaar voor het instellen van de invoer voor de stream analytics-service.
    
-    ![Instellingen, sleutels, open in de opslag, en een kopie van de primaire toegangssleutel](./media/app-insights-export-stream-analytics/045.png)
+    ![In de opslag, open instellingen, sleutels, en een kopie van de primaire toegangssleutel](./media/app-insights-export-stream-analytics/045.png)
 
-## <a name="start-continuous-export-to-azure-storage"></a>Start de continue export naar Azure-opslag
-[Continue export](app-insights-export-telemetry.md) worden gegevens uit de Application Insights in Azure-opslag verplaatst.
+## <a name="start-continuous-export-to-azure-storage"></a>Start de continue export naar Azure storage
+[Continue export](app-insights-export-telemetry.md) verplaatst gegevens van Application Insights in Azure storage.
 
-1. Blader naar de Application Insights-resource die u hebt gemaakt voor uw toepassing in de Azure-portal.
+1. In de Azure-portal, blader naar de Application Insights-resource die u hebt gemaakt voor uw toepassing.
    
-    ![Kies Bladeren, Application Insights uw toepassing](./media/app-insights-export-stream-analytics/050.png)
+    ![Kies Bladeren, Application Insights, uw toepassing](./media/app-insights-export-stream-analytics/050.png)
 2. Maak een continue export.
    
-    ![Instellingen voor continue Export toevoegen](./media/app-insights-export-stream-analytics/060.png)
+    ![Kies instellingen, continue Export toevoegen](./media/app-insights-export-stream-analytics/060.png)
 
     Selecteer het opslagaccount dat u eerder hebt gemaakt:
 
@@ -63,27 +63,27 @@ Continue export levert altijd gegevens aan een Azure Storage-account, dus u moet
 
     Stel de typen gebeurtenissen die u wilt zien:
 
-    ![Gebeurtenistypen kiezen](./media/app-insights-export-stream-analytics/080.png)
+    ![Kies gebeurtenistypen](./media/app-insights-export-stream-analytics/080.png)
 
-1. Laat een aantal gegevens worden verzameld. Terug zitten en toestaan dat uw toepassing een tijdje gebruiken. Telemetrie wordt geleverd in en ziet u statistische grafieken in [metrische explorer](app-insights-metrics-explorer.md) en afzonderlijke gebeurtenissen in [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md). 
+1. Sommige gegevens worden verzameld, kunnen. Begint en laat mensen uw toepassing een tijdje gebruiken. Telemetrie komt en ziet u statistische grafieken in [metric explorer](app-insights-metrics-explorer.md) en afzonderlijke gebeurtenissen in [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md). 
    
     En ook de gegevens worden geëxporteerd naar uw opslag. 
-2. Inspecteer de geëxporteerde gegevens. Kies in Visual Studio **weergeven / Cloud Explorer**, en open Azure / opslag. (Als u deze optie niet hebt, moet u de Azure SDK installeren: Open het dialoogvenster New Project en Visual C# / Cloud / ophalen van Microsoft Azure SDK voor .NET.)
+2. Inspecteer de geëxporteerde gegevens. Kies in Visual Studio **weergeven / Cloud Explorer**, en open Azure / Storage. (Als u deze optie niet hebt, moet u de Azure SDK installeren: Open het dialoogvenster Nieuw Project en Visual C# / Cloud / Microsoft Azure SDK voor .NET ophalen.)
    
     ![](./media/app-insights-export-stream-analytics/04-data.png)
    
-    Noteer het algemene gedeelte van de padnaam die is afgeleid van de sleutel voor naam en instrumentatie van toepassing. 
+    Maak een notitie van het algemene gedeelte van de naam van het pad, die is afgeleid van de sleutel van de naam en -instrumentatie in de toepassing. 
 
-De gebeurtenissen worden geschreven naar de blob-bestanden in de JSON-indeling. Elk bestand kan een of meer gebeurtenissen bevatten. Dus willen we gelezen gegevens van de gebeurtenis en de velden die we wilt filteren. Er zijn alle soorten wat die we met de gegevens doen kan, maar onze plan is vandaag de dag Stream Analytics gebruiken naar de gegevens met Power BI pipe.
+De gebeurtenissen worden geschreven naar de blob-bestanden in de JSON-indeling. Elk bestand kan een of meer gebeurtenissen bevatten. Dus graag we lezen van gegevens van de gebeurtenis en de velden die we willen filteren. Er zijn allerlei dingen die we met de gegevens kan doen, maar ons abonnement is vandaag nog aan Stream Analytics gebruiken voor het doorgeven van de gegevens naar Power BI.
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Azure Stream Analytics-exemplaar maken
-Van de [Azure-portal](https://portal.azure.com/), selecteer de Azure Stream Analytics-service en een nieuwe Stream Analytics-taak maken:
+Uit de [Azure-portal](https://portal.azure.com/), selecteert u de Azure Stream Analytics-service en een nieuwe Stream Analytics-taak te maken:
 
 ![](./media/app-insights-export-stream-analytics/SA001.png)
 
 ![](./media/app-insights-export-stream-analytics/SA002.png)
 
-Wanneer de nieuwe taak is gemaakt, selecteert u **gaat u naar de resource**.
+Wanneer de nieuwe taak is gemaakt, selecteert u **naar de resource gaan**.
 
 ![](./media/app-insights-export-stream-analytics/SA003.png)
 
@@ -91,47 +91,47 @@ Wanneer de nieuwe taak is gemaakt, selecteert u **gaat u naar de resource**.
 
 ![](./media/app-insights-export-stream-analytics/SA004.png)
 
-Stel deze in op invoer van uw blob continue Export nemen:
+Instellen om te ondernemen invoer van de continue Export-blob:
 
-![](./media/app-insights-export-stream-analytics/SA005.png)
+![](./media/app-insights-export-stream-analytics/SA0005.png)
 
-Nu moet u de primaire toegangssleutel van uw Opslagaccount die u eerder hebt genoteerd. Stel dit in als de sleutel van het Opslagaccount.
+Nu moet u de primaire toegangssleutel van uw Opslagaccount, die u eerder hebt genoteerd. Stel dit in als de Opslagaccountsleutel.
 
-### <a name="set-path-prefix-pattern"></a>Set pad voorvoegselpatroon
+### <a name="set-path-prefix-pattern"></a>Set-voorvoegsel padpatroon
 
-**Zorg ervoor dat de datumnotatie ingesteld op jjjj-MM-DD (met streepjes).**
+**Zorg ervoor dat de datumnotatie ingesteld op DD-MM-jjjj (met streepjes).**
 
-Het pad naar het voorvoegsel patroon geeft aan waar de invoerbestanden in Stream Analytics worden gevonden in de opslag. U moet worden ingesteld in overeenstemming met continue Export hoe de gegevens opslaat. Stel deze als volgt:
+Het pad naar het voorvoegsel patroon geeft aan waar de invoerbestanden in Stream Analytics worden gevonden in de opslag. U moet deze overeenkomen met het continue Export hoe de gegevens opslaat in te stellen. Doet u het als volgt:
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 In dit voorbeeld:
 
-* `webapplication27` de naam van de Application Insights-resource **alle kleine letters**.
+* `webapplication27` de naam van de Application Insights-resource **alleen kleine letters**.
 * `1234...` de instrumentatiesleutel van de Application Insights-resource is **weglaten streepjes**. 
-* `PageViews` is het type gegevens dat u wilt analyseren. De beschikbare typen, is afhankelijk van het filter dat u in de continue Export instellen. De geëxporteerde gegevens om de beschikbare typen Zie en bekijk de [exporteren gegevensmodel](app-insights-export-data-model.md).
-* `/{date}/{time}` een patroon er wordt letterlijk geschreven.
+* `PageViews` is het type gegevens dat u wilt analyseren. De beschikbare typen, is afhankelijk van het filter dat u in de continue Export instellen. Bekijk de geëxporteerde gegevens om te zien van de beschikbare typen en Zie de [gegevensmodel exporteren](app-insights-export-data-model.md).
+* `/{date}/{time}` een patroon is letterlijk geschreven.
 
 > [!NOTE]
 > Inspecteer de opslag om ervoor te zorgen dat u het pad naar rechts.
 > 
 
 ## <a name="add-new-output"></a>Nieuwe uitvoer toevoegen
-Nu uw taak selecteren > **uitvoer** > **toevoegen**.
+Selecteer nu uw taak > **uitvoer** > **toevoegen**.
 
 ![](./media/app-insights-export-stream-analytics/SA006.png)
 
 
-![Selecteer het nieuwe kanaal, klikt u op de uitvoer, toevoegen, Power BI](./media/app-insights-export-stream-analytics/SA010.png)
+![Selecteer het nieuwe kanaal, uitvoer, toevoegen, Power BI](./media/app-insights-export-stream-analytics/SA010.png)
 
-Geef uw **werk- of schoolaccount** voor het autoriseren van Stream Analytics voor toegang tot uw Power BI-bron. Vervolgens tot een naam voor de uitvoer en voor de Power BI-gegevensset doel en de tabel.
+Geef uw **werk- of schoolaccount** te machtigen van Stream Analytics voor toegang tot uw Power BI-resource. Vervolgens tot een naam op voor de uitvoer en voor de doel-Power BI-gegevensset en de tabel.
 
 ## <a name="set-the-query"></a>Instellen van de query
 De query bepaalt de vertaling van invoer om uit te voeren.
 
-Gebruik de functie Test om te controleren dat u de uitvoer van de juiste krijgt. Geef deze de voorbeeldgegevens die u hebt gemaakt van de invoer-pagina. 
+Gebruik de functie testen om te controleren dat u de juiste uitvoer krijgen. Wijs hieraan de voorbeeldgegevens die u hebt gemaakt op de pagina invoer. 
 
-### <a name="query-to-display-counts-of-events"></a>Query voor het aantal gebeurtenissen weergeven
+### <a name="query-to-display-counts-of-events"></a>Query om aantallen gebeurtenissen weer te geven
 Plak deze query:
 
 ```SQL
@@ -147,11 +147,11 @@ Plak deze query:
     GROUP BY TumblingWindow(minute, 1), flat.ArrayValue.name
 ```
 
-* export-invoer is de alias die wordt gestuurd naar de stroom invoer
-* pbi-uitvoer is de uitvoeralias die is gedefinieerd
-* We gebruiken [buitenste toepassen GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) omdat de gebeurtenisnaam van de in een geneste JSON-matrix is. Selecteer hervat vervolgens de naam van de gebeurtenis, samen met een telling van het aantal exemplaren met die naam aanwezig in de periode. De [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) component elementen gegroepeerd in perioden van één minuut.
+* exporteren-invoer is de alias die we naar de stroom invoer heeft gegeven
+* pbi-uitvoer is de uitvoeralias die we hebben gedefinieerd
+* We gebruiken [buitenste toepassen GetElements](https://msdn.microsoft.com/library/azure/dn706229.aspx) omdat de naam van de gebeurtenis in een geneste JSON-matrix. Selecteer hervat vervolgens de naam van de gebeurtenis, samen met een telling van het aantal instanties met die naam bestaat in de periode. De [Group By](https://msdn.microsoft.com/library/azure/dn835023.aspx) component groepen de elementen in perioden van één minuut.
 
-### <a name="query-to-display-metric-values"></a>Query voor metrische waarden weergeven
+### <a name="query-to-display-metric-values"></a>Query voor het weergeven van metrische waarden
 ```SQL
 
     SELECT
@@ -166,7 +166,7 @@ Plak deze query:
 
 ``` 
 
-* Deze query ingezoomd in de telemetrie van de metrische gegevens ophalen van de tijd van de gebeurtenis en de metrische waarde. De metrische waarden zijn binnen een matrix, zodat we het buitenste toepassen GetElements-patroon gebruiken om op te halen van de rijen. 'myMetric' is de naam van de metrische gegevens in dit geval. 
+* Deze query ingezoomd in de telemetrie van metrische gegevens om de tijd van de gebeurtenis en de metrische waarde te verkrijgen. De metrische waarden zijn in een matrix, zodat we het buitenste toepassen GetElements-patroon gebruiken om op te halen van de rijen. "myMetric" is in dit geval de naam van de metrische gegevens. 
 
 ### <a name="query-to-include-values-of-dimension-properties"></a>Query voor het opnemen van waarden van de dimensie-eigenschappen
 ```SQL
@@ -188,22 +188,22 @@ Plak deze query:
 
 ```
 
-* Deze query bevat de waarden van de dimensie-eigenschappen zonder afhankelijk van een bepaalde dimensie wordt op een vaste index in de dimensiematrix.
+* Deze query bevat waarden van de dimensie-eigenschappen zonder afhankelijk van een bepaalde dimensie wordt bij een vaste index in de dimensiematrix.
 
-## <a name="run-the-job"></a>Voer de taak
+## <a name="run-the-job"></a>De taak uitvoeren
 U kunt een datum selecteren in het verleden om de taak uit te starten. 
 
-![De taak te selecteren en klik op de Query. Plak het onderstaande voorbeeld.](./media/app-insights-export-stream-analytics/SA008.png)
+![Selecteer de taak en klik op de Query. Plak het onderstaande voorbeeld.](./media/app-insights-export-stream-analytics/SA008.png)
 
 Wacht totdat de taak wordt uitgevoerd.
 
-## <a name="see-results-in-power-bi"></a>Weergeven van resultaten in Power BI
+## <a name="see-results-in-power-bi"></a>Resultaten worden weergegeven in Power BI
 > [!WARNING]
-> Er zijn veel beter en eenvoudiger [aanbevolen manieren Application Insights-gegevens weergeven in Power BI](app-insights-export-power-bi.md). Het pad hier geïllustreerd is slechts een voorbeeld ter illustratie van de geëxporteerde gegevens verwerken.
+> Er zijn veel beter en eenvoudiger [aanbevolen manier om weer te geven van Application Insights-gegevens in Power BI](app-insights-export-power-bi.md). Het pad dat hier wordt geïllustreerd is slechts een voorbeeld ter illustratie van de geëxporteerde gegevens te verwerken.
 > 
 > 
 
-Power BI openen met uw werk of school-account en selecteer de gegevensset en de tabel die u hebt gedefinieerd als de uitvoer van de Stream Analytics-taak.
+Open Power BI met uw werk of school-account en selecteer de gegevensset en de tabel die u hebt gedefinieerd als de uitvoer van de Stream Analytics-taak.
 
 ![Selecteer uw gegevensset en de velden in Power BI.](./media/app-insights-export-stream-analytics/200.png)
 
@@ -212,10 +212,10 @@ Nu kunt u deze gegevensset in rapporten en dashboards in [Power BI](https://powe
 ![Selecteer uw gegevensset en de velden in Power BI.](./media/app-insights-export-stream-analytics/210.png)
 
 ## <a name="no-data"></a>Zijn er geen gegevens?
-* Controleer dat u [datumnotatie instellen](#set-path-prefix-pattern) correct naar jjjj-MM-DD (met streepjes).
+* Controleer dat u [datumnotatie instellen](#set-path-prefix-pattern) correct aan jjjj-MM-jjjj (met streepjes).
 
 ## <a name="video"></a>Video
-Noam Ben Zeev laat zien hoe geëxporteerde gegevens met behulp van de Stream Analytics verwerken.
+Noam Ben Zeev laat zien hoe voor het verwerken van de geëxporteerde gegevens met behulp van Stream Analytics.
 
 > [!VIDEO https://channel9.msdn.com/Blogs/Azure/Export-to-Power-BI-from-Application-Insights/player]
 > 
@@ -223,6 +223,6 @@ Noam Ben Zeev laat zien hoe geëxporteerde gegevens met behulp van de Stream Ana
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Continue export](app-insights-export-telemetry.md)
-* [Gedetailleerde gegevens model verwijzing voor de eigenschaptypen en waarden.](app-insights-export-data-model.md)
+* [Gedetailleerde gegevens modelleren verwijzing voor de typen eigenschappen en waarden.](app-insights-export-data-model.md)
 * [Application Insights](app-insights-overview.md)
 

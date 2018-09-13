@@ -1,6 +1,6 @@
 ---
-title: Inhoud beheerder Azure - video toezicht | Microsoft Docs
-description: Video toezicht gebruiken om te scannen op mogelijke inhoud voor volwassenen en mooie.
+title: Azure Content Moderator - videotoezicht | Microsoft Docs
+description: Videotoezicht gebruiken om te scannen mogelijk erotische en ongepaste inhoud.
 services: cognitive-services
 author: sanjeev3
 manager: mikemcca
@@ -9,48 +9,48 @@ ms.component: content-moderator
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: sajagtap
-ms.openlocfilehash: ef58f5990d4a0a19ab2b8c61b42ab2a0754dc6fa
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 27e189d93573dea139c2b67c237c376a28100c2b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345646"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714306"
 ---
 # <a name="video-moderation"></a>Beheer van video
 
-Vandaag de dag genereren online viewers miljarden video weergaven in populaire en regionale sociale media-websites en verhogen. Door het toepassen van machine learning gebaseerde services om te voorspellen potentiële inhoud voor volwassenen en mooie, moet u de kosten van uw inspanningen toezicht verlagen.
+Vandaag de dag online viewers genereren miljarden videoweergaven populaire en regionale sociale media-websites en verhogen. Door toe te passen op basis van machine-learning-services om te voorspellen van mogelijk erotische en ongepaste inhoud, moet u de kosten van uw inspanningen toezicht verlagen.
 
-## <a name="sign-up-for-the-content-moderator-media-processor-public-preview"></a>Aanmelden voor de inhoud beheerder Mediaprocessor (openbare preview)
+## <a name="sign-up-for-the-content-moderator-media-processor-preview"></a>Aanmelden voor de Content Moderator-media-processor (preview)
 
 ### <a name="create-a-free-azure-account"></a>Maak een gratis Azure-account
 
-[Begin hier](https://azure.microsoft.com/free/) te maken van een gratis Azure-account als u nog niet hebt.
+[Begin hier](https://azure.microsoft.com/free/) te maken van een gratis Azure-account als u er nog geen hebt.
 
 ### <a name="create-an-azure-media-services-account"></a>Een Azure Media Services-account maken
 
-De inhoud beheerder video mogelijkheid is beschikbaar als een openbare preview **Mediaprocessor** in Azure Media Services (AMS) zonder kosten.
+De Content Moderator video mogelijkheid is beschikbaar als openbare preview **Mediaprocessor** in Azure Media Services (AMS) gratis.
 
-[Een Azure Media Services-account maken](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) in uw Azure-abonnement.
+[Maak een Azure Media Services-account](https://docs.microsoft.com/azure/media-services/media-services-portal-create-account) in uw Azure-abonnement.
 
 ### <a name="get-azure-active-directory-credentials"></a>Azure Active Directory-referenties ophalen
 
-   1. Lees de [Azure Media Services-portal artikel](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad) voor informatie over het gebruik van de Azure-portal om uw Azure AD-referenties voor verificatie.
+   1. Lees de [Azure Media Services-portal artikel](https://docs.microsoft.com/azure/media-services/media-services-portal-get-started-with-aad) voor meer informatie over het gebruik van Azure portal om op te halen van de referenties van uw Azure AD-verificatie.
    1. Lees de [Azure Media Services .NET-artikel](https://docs.microsoft.com/azure/media-services/media-services-dotnet-get-started-with-aad) voor informatie over het gebruik van uw Azure Active Directory-referenties met de .NET SDK.
 
    > [!NOTE]
-   > De voorbeeldcode in deze snelstartgids wordt gebruikt de **verificatie van de service-principal** in zowel de artikelen beschreven methode.
+   > De voorbeeldcode in deze snelstartgids maakt gebruik van de **service-principal verificatie** methode die wordt beschreven in zowel de artikelen.
 
-Nadat u uw AMS-referenties ophalen, zijn er twee manieren om te proberen de inhoud beheerder media-processor.
+Wanneer u uw AMS-referenties, zijn er twee manieren om te proberen de processor van de media Content Moderator.
 
-## <a name="use-azure-media-services-explorer"></a>Gebruik Azure Media Services Explorer
+## <a name="use-azure-media-services-explorer"></a>Azure Media Services Explorer gebruiken
 
-De interactieve [Azure Media Services (AMS) explorer](https://azure.microsoft.com/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) om te bladeren naar uw AMS-account, video's uploaden en scannen met de beheerder inhoud media-processor. [Download en installeer deze](https://github.com/Azure/Azure-Media-Services-Explorer/releases) vanuit GitHub en [de broncode Bladeren](http://github.com/Azure/Azure-Media-Services-Explorer) te ontwerpen met behulp van het AMS-SDK.
+Gebruik de interactieve [Azure Media Services (AMS) explorer](https://azure.microsoft.com/blog/managing-media-workflows-with-the-new-azure-media-services-explorer-tool/) als u uw AMS-account, video's uploaden en scannen met de media Content Moderator processor. [Download en installeer deze](https://github.com/Azure/Azure-Media-Services-Explorer/releases) vanuit GitHub, en [de broncode Bladeren](http://github.com/Azure/Azure-Media-Services-Explorer) voor alles met de AMS-SDK.
 
-![Azure Media Services explorer met de beheerder van inhoud](images/ams-explorer-content-moderator.PNG)
+![Azure Media Services explorer met Content Moderator](images/ams-explorer-content-moderator.PNG)
 
-## <a name="net-quickstart-with-visual-studio-and-c"></a>.NET snel aan de slag met Visual Studio en C#
+## <a name="net-quickstart-with-visual-studio-and-c"></a>Snelstartgids voor .NET met Visual Studio en C#
 
-1. Voeg een nieuwe **Console-app (.NET Framework)** project om uw oplossing.
+1. Toevoegen van een nieuwe **Console-app (.NET Framework)** project aan uw oplossing.
 
    Noem het project in de voorbeeldcode **VideoModeration**.
 
@@ -58,14 +58,14 @@ De interactieve [Azure Media Services (AMS) explorer](https://azure.microsoft.co
 
 ### <a name="install-required-packages"></a>De vereiste pakketten installeren
 
-Installeren van de volgende NuGet-pakketten beschikbaar zijn op [NuGet](https://www.nuget.org/).
+Installeren van de volgende NuGet-pakketten beschikbaar op [NuGet](https://www.nuget.org/).
 
 - windowsazure.mediaservices
 - windowsazure.mediaservices.Extensions
 
-### <a name="update-the-programs-using-statements"></a>Update van het programma de using-instructies
+### <a name="update-the-programs-using-statements"></a>Update het programma de using-instructies
 
-Wijzig het programma de using-instructies.
+Wijzig het programma de using-instructies toe.
 
     using System;
     using System.Linq;
@@ -110,7 +110,7 @@ De volgende statische velden toevoegen aan de **programma** klasse in Program.cs
     private const string INPUT_FILE = "VIDEO FILE NAME";
     private const string OUTPUT_FOLDER = "";
 
-### <a name="create-a-preset-file-json"></a>Een vooraf ingestelde (json)-bestand maken
+### <a name="create-a-preset-file-json"></a>Maak een vooraf ingestelde bestand (json)
 
 Maak een JSON-bestand in de huidige map met het versienummer.
 
@@ -121,11 +121,11 @@ Maak een JSON-bestand in de huidige map met het versienummer.
     //        }
     private static readonly string CONTENT_MODERATOR_PRESET_FILE = "preset.json";
 
-### <a name="add-the-following-code-to-the-main-method"></a>Voeg de volgende code aan de belangrijkste methode
+### <a name="add-the-following-code-to-the-main-method"></a>Voeg de volgende code toe aan de belangrijkste methode
 
-De belangrijkste methode maakt eerst de Context van een Azure-Media en vervolgens de Context van een Azure-opslag voor het geval uw video's in de blob-opslag zijn.
-De resterende code scant een video van een lokale map, blob of meerdere blobs in een Azure storage-container.
-U kunt alle opties door de andere regels code uit te schakelen.
+De belangrijkste methode maakt eerst de Context van een Azure-Media en vervolgens een Azure Storage-Context voor het geval uw video's in blob-opslag zijn.
+De resterende code scant een video van een lokale map, blob of meerdere blobs binnen een Azure storage-container.
+Door de opmerkingen bij de andere regels code kunt u alle opties proberen.
 
     // Create Azure Media Context
     CreateMediaContext();
@@ -168,8 +168,8 @@ U kunt alle opties door de andere regels code uit te schakelen.
         _context = new CloudMediaContext(new Uri(REST_API_ENDPOINT), tokenProvider);
     }
 
-### <a name="add-the-code-to-create-an-azure-storage-context"></a>Voeg de code voor het maken van de Context van een Azure-opslag
-De opslag-Context is gemaakt op basis van de referenties van uw opslag, kunt u toegang tot de blob-opslag.
+### <a name="add-the-code-to-create-an-azure-storage-context"></a>Voeg de code voor het maken van een Azure Storage-Context
+U de opslag-Context wordt gemaakt op basis van uw Storage-referenties gebruiken voor toegang tot de blob-opslag.
 
     /// <summary>
     /// Creates a storage context from the AMS associated storage name and key
@@ -184,8 +184,8 @@ De opslag-Context is gemaakt op basis van de referenties van uw opslag, kunt u t
         _StorageAccount = new CloudStorageAccount(_StorageCredentials, false);
     }
 
-### <a name="add-the-code-to-create-azure-media-assets-from-local-file-and-blob"></a>Voeg de code voor het maken van Azure Media-elementen van een lokale bestands- en blob
-De processor van de media-inhoud beheerder taken wordt uitgevoerd op **activa** binnen het Azure Media Services-platform.
+### <a name="add-the-code-to-create-azure-media-assets-from-local-file-and-blob"></a>Voeg de code voor het maken van Azure Media-activa in lokale bestands- en blob
+De processor van de media Content Moderator voert taken uit volgens **activa** binnen het Azure Media Services-platform.
 Deze methoden maken de activa van een lokaal bestand of een bijbehorende blob.
 
     /// <summary>
@@ -208,7 +208,7 @@ Deze methoden maken de activa van een lokaal bestand of een bijbehorende blob.
         return _context.Assets.CreateFromBlob(Blob, _StorageCredentials, AssetCreationOptions.None);
     }
 
-### <a name="add-the-code-to-scan-a-collection-of-videos-as-blobs-within-a-container"></a>Voeg de code voor het doorzoeken van een verzameling van video's (als BLOB's) binnen een container
+### <a name="add-the-code-to-scan-a-collection-of-videos-as-blobs-within-a-container"></a>De code voor het scannen van een verzameling van video's (als blobs) binnen een container toevoegen
 
     /// <summary>
     /// Runs the Content Moderator Job on all Blobs in a given container name
@@ -247,7 +247,7 @@ Deze methoden maken de activa van een lokaal bestand of een bijbehorende blob.
         return blobList;
     }
 
-### <a name="add-the-method-to-run-the-content-moderator-job"></a>De methode voor het uitvoeren van de inhoud beheerder taak toevoegen
+### <a name="add-the-method-to-run-the-content-moderator-job"></a>De methode voor het uitvoeren van de Content Moderator-taak toevoegen
 
     /// <summary>
     /// Run the Content Moderator job on the designated Asset from local file or blob storage
@@ -314,9 +314,9 @@ Deze methoden maken de activa van een lokaal bestand of een bijbehorende blob.
         DownloadAsset(job.OutputMediaAssets.First(), OUTPUT_FOLDER);
     }
 
-### <a name="add-a-couple-of-helper-functions"></a>Een aantal hulpfuncties toevoegen
+### <a name="add-a-couple-of-helper-functions"></a>Toevoegen van een aantal ondersteunende functies
 
-Deze methoden downloaden van het uitvoerbestand inhoud beheerder (JSON) van de asset Azure Media Services en de status van de taak toezicht bijhouden, zodat het programma kan een actieve status Meld u aan de console.
+Deze methoden de Content Moderator-uitvoer-bestand (JSON) downloaden van de Azure Media Services-activa en het bijhouden van de status van de taak voor beheer, zodat het programma kan een actieve status Meld u aan de console.
 
     static void DownloadAsset(IAsset asset, string outputDirectory)
     {
@@ -355,21 +355,21 @@ Deze methoden downloaden van het uitvoerbestand inhoud beheerder (JSON) van de a
         }
     }
 
-### <a name="run-the-program-and-review-the-output"></a>Voer het programma en controleer de uitvoer
+### <a name="run-the-program-and-review-the-output"></a>Voer het programma uit en controleer de uitvoer
 
-Nadat de inhoud toezicht-taak is voltooid, Analyseer het JSON-antwoord. Er bestaat een van deze elementen:
+Nadat de taak Content Moderation is voltooid, Analyseer het JSON-antwoord. Er bestaat een van deze elementen bevatten:
 
-- Gegevens over de video samenvatting
-- **Schermafbeeldingen** als '**fragmenten**'
-- **Sleutel frames** als '**gebeurtenissen**' met een **reviewRecommended ' (= waar of ONWAAR) '** vlag op basis van **volwassenen** en **Racy** scores
-- **Start**, **duur**, **totalDuration**, en **tijdstempel** zijn in 'maatstreepjes'. Delen door **tijdschaal** ophalen van het nummer in seconden.
+- Informatie over de video samenvatting
+- **Foto's** als '**fragmenten**"
+- **Sleutel frames** als '**gebeurtenissen**"met een **reviewRecommended ' (= true of false)"** vlag op basis van **volwassenen** en **Racy** scores
+- **Start**, **duur**, **totalDuration**, en **timestamp** in 'maatstreepjes' zijn. Delen door **tijdschaal** om op te halen van het getal in seconden.
  
 > [!NOTE]
 
-> - `adultScore` Hiermee geeft u de mogelijke aanwezigheid en voorspelling score van inhoud die kan worden beschouwd als seksueel expliciete of volwassenen in bepaalde situaties.
-> - `racyScore` Hiermee geeft u de mogelijke aanwezigheid en voorspelling score van inhoud die kan worden beschouwd als seksuele suggestieve of volwassen in bepaalde situaties.
-> - `adultScore` en `racyScore` moet tussen 0 en 1 liggen. Hoe hoger de score, hoe groter het model is voorspellen van de categorie mogelijk van toepassing. Dit voorbeeld is afhankelijk van een statistische model in plaats van handmatig gecodeerde resultaten. U wordt aangeraden testen door uw eigen inhoud om te bepalen hoe elke categorie wordt uitgelijnd aan uw vereisten.
-> - `reviewRecommended` waar of ONWAAR afhankelijk van de interne score drempelwaarden is. Klanten dient te beoordelen of wilt gebruiken deze waarde of op aangepaste drempelwaarden op basis van hun inhoud beleidsregels bepalen.
+> - `adultScore` Hiermee geeft u de mogelijke aanwezigheid en voorspelling score van inhoud die kan worden beschouwd als seksueel expliciet of volwassenen in bepaalde situaties.
+> - `racyScore` Hiermee geeft u de mogelijke aanwezigheid en voorspelling score van inhoud die kan worden beschouwd als seksueel suggestieve of volwassen in bepaalde situaties.
+> - `adultScore` en `racyScore` zijn tussen 0 en 1. Hoe hoger de score, hoe hoger het model is voorspellen van de categorie mogelijk van toepassing zijn. Deze Preview-versie, is afhankelijk van een statistische model in plaats van handmatig gecodeerde resultaten. Het is raadzaam om eerst te testen met uw eigen inhoud om te bepalen hoe elke categorie overeenstemt met uw vereisten.
+> - `reviewRecommended` waar of ONWAAR afhankelijk van de interne score drempelwaarden is. Klanten moeten beoordelen of u wilt deze waarde wordt gebruikt of moet u besluiten welke aangepaste drempelwaarden op basis van hun inhoud beleid.
 >
 
     {
@@ -424,10 +424,10 @@ Nadat de inhoud toezicht-taak is voltooid, Analyseer het JSON-antwoord. Er besta
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over het genereren van [video bekijkt](video-reviews-quickstart-dotnet.md) uit de uitvoer van de controle.
+Meer informatie over het genereren van [video bekijkt](video-reviews-quickstart-dotnet.md) uit de uitvoer van uw beheer.
 
-Voeg [de tekst van toezicht](video-transcript-moderation-review-tutorial-dotnet.md) op uw video beoordelingen.
+Voeg [transcript toezicht](video-transcript-moderation-review-tutorial-dotnet.md) op uw video beoordelingen.
 
-Bekijk de gedetailleerde zelfstudie over het bouwen een [voltooien video's en de tekst van toezicht oplossing](video-transcript-moderation-review-tutorial-dotnet.md).
+Bekijk de gedetailleerde zelfstudie op over het bouwen van een [voltooien van de oplossing voor video- en transcript toezicht](video-transcript-moderation-review-tutorial-dotnet.md).
 
-[Downloaden van de Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere inhoud beheerder snelstartgidsen voor .NET.
+[Downloaden van de Visual Studio-oplossing](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/ContentModerator) voor deze en andere Content Moderator-snelstartgidsen voor .NET.

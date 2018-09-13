@@ -6,12 +6,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: raynew
-ms.openlocfilehash: 6eb28ad918f9d95c26d91c05d8ee9556ef768bd3
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c500a1ecc817e4d95e39ca0ac985e1d90ffc8a78
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43125849"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721260"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>Zakelijke continuïteit en herstel na noodgevallen (BCDR): Azure gekoppelde regio's
 
@@ -73,7 +73,7 @@ Zoals in afbeelding 2 genoemd.
 
 ![Opslag](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** -geografisch redundante opslag (GRS) is standaard geconfigureerd als een Azure Storage-account is gemaakt. Met GRS worden uw gegevens automatisch driemaal gerepliceerd binnen de primaire regio en driemaal in de gekoppelde regio. Zie voor meer informatie, [opslagopties van Azure voor redundantie](storage/common/storage-redundancy.md).
 
-![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL-Databases** – met Azure SQL Standard Geo-replicatie, kunt u asynchrone replicatie van de transacties naar een gekoppelde regio. Met premium-geo-replicatie, kunt u replicatie in elke regio ter wereld; configureren we raden echter aan dat u deze resources in een gekoppelde regio voor de meeste herstel na noodgevallen implementeren. Zie voor meer informatie, [Geo-replicatie in Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
+![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – met Azure SQL Database Geo-replicatie, kunt u asynchrone replicatie van transacties in elke regio ter wereld; we raden u echter aan implementeren van deze resources in een gekoppelde regio voor de meeste herstel na noodgevallen. Zie voor meer informatie, [Geo-replicatie in Azure SQL Database](sql-database/sql-database-geo-replication-overview.md).
 
 ![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** -Resource Manager biedt logische isolatie van de onderdelen van service management inherent tussen regio's. Dit betekent dat logische fouten in één regio waarschijnlijk minder invloed op een andere.
 

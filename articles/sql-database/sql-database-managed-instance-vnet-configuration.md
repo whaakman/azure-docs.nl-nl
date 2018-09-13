@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 08/21/2018
+ms.date: 09/12/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 748489785241c0eab6022e3585164974f330d6f9
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 1ec4a6033fad643c75cdf9f7ebc5cdb1f4bab9c3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049670"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717145"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Een VNet configureren voor het beheerde exemplaar van Azure SQL Database
 
@@ -38,31 +38,31 @@ Plan hoe het implementeren van een beheerd exemplaar in virtueel netwerk met beh
 
 ## <a name="requirements"></a>Vereisten
 
-Voor het maken van een beheerd exemplaar moet u toe te wijzen aan een subnet binnen het VNet dat voldoet aan de volgende vereisten:
-- **Toegewezen subnet**: het subnet moet een andere cloudservice die is gekoppeld aan het niet bevatten en mag geen gatewaysubnet. Kunt u zich niet beheerd exemplaar maakt in het subnet met andere resources dan beheerd exemplaar of andere bronnen binnen het subnet later toevoegen.
-- **Er is geen NSG**: het subnet moet een Netwerkbeveiligingsgroep die is gekoppeld aan deze niet hebben. 
-- **Hebt u specifieke routetabel**: het subnet moet een gebruiker Route tabel (UDR) met 0.0.0.0/0 Next Hop Internet hebben als de enige route die is toegewezen. Zie voor meer informatie, [de vereiste routetabel maken en deze koppelen](#create-the-required-route-table-and-associate-it)
-3. **Optionele aangepaste DNS**: als aangepaste DNS is opgegeven in het VNet, recursieve resolvers IP-adres (zoals 168.63.129.16) van Azure moet worden toegevoegd aan de lijst. Zie voor meer informatie, [configureren van aangepaste DNS](sql-database-managed-instance-custom-dns.md).
-4. **Er is geen Service-eindpunten**: het subnet moet een Service-eindpunt dat is gekoppeld aan deze niet hebben. Zorg ervoor dat de Service-eindpunten-optie is uitgeschakeld bij het maken van VNet.
-5. **Voldoende IP-adressen**: het subnet moet de minimumwaarde van 16 IP-adressen (aanbevolen minimum is 32 IP-adressen). Zie voor meer informatie, [bepaalt de grootte van het subnet voor beheerde instanties](#determine-the-size-of-subnet-for-managed-instances)
+Voor het maken van een beheerd exemplaar, maakt u een toegewezen subnet (de Managed Instance-subnet) binnen het virtuele netwerk dat aan de volgende vereisten voldoet:
+- **Toegewezen subnet**: de Managed Instance-subnet mag geen andere cloud-services die zijn gekoppeld aan deze bevatten en moet niet een gatewaysubnet. Kunt u zich niet aan een beheerd exemplaar maakt in een subnet met andere resources dan Managed Instance en u de andere resources in het subnet niet op de later kunt toevoegen.
+- **Compatibel Netwerkbeveiligingsgroep (NSG)**: een NSG die is gekoppeld aan een Managed Instance-subnet moet de regels die wordt weergegeven in de volgende tabellen (verplichte beveiligingsregels voor binnenkomend verkeer en verplichte uitgaande beveiligingsregels) voor alle andere regels bevatten. U kunt een NSG gebruiken voor het beheren van toegang tot het eindpunt van de gegevens Managed Instance volledig door te filteren van het verkeer op poort 1433. 
+- **Tabel compatibel is door de gebruiker gedefinieerde route (UDR)**: beheerd exemplaar van het subnet moet de routetabel van een gebruiker met **0.0.0.0/0 Next Hop Internet** als de verplichte UDR zijn toegewezen. Bovendien kunt u een UDR dat verkeer van routes met on-premises privé IP-adresbereiken als een doel via de gateway van virtueel netwerk of een virtueel netwerkapparaat (NVA) toevoegen. 
+- **Optionele aangepaste DNS**: als een aangepaste DNS-server is opgegeven op thevirtual netword, recursieve naamomzetting IP-adres (zoals 168.63.129.16) van Azure moet worden toegevoegd aan de lijst. Zie voor meer informatie, [configureren van aangepaste DNS](sql-database-managed-instance-custom-dns.md). De aangepaste DNS-server moeten kunnen omzetten van hostnamen in de volgende domeinen bevinden en hun subdomeinen: *microsoft.com*, *windows.net*, *windows.com*, *msocsp.com*, *digicert.com*, *live.com*, *microsoftonline.com*, en *microsoftonline-p.com*. 
+- **Er is geen service-eindpunten**: beheerd exemplaar van het subnet moet een service-eindpunt dat is gekoppeld aan deze niet hebben. Zorg ervoor dat de service-eindpunten-optie is uitgeschakeld bij het maken van het virtuele netwerk.
+- **Voldoende IP-adressen**: beheerd exemplaar van het subnet moet de minimumwaarde van 16 IP-adressen (aanbevolen minimum is 32 IP-adressen). Zie voor meer informatie, [bepaalt de grootte van het subnet voor beheerde instanties](#determine-the-size-of-subnet-for-managed-instances)
 
 > [!IMPORTANT]
-> Kunt u zich niet implementeren van nieuwe beheerd exemplaar als het doelsubnet niet compatibel met alle van de bovenstaande vereisten is. De doel-Vnet en het subnet moeten zijn opgeslagen in overeenstemming met deze voorwaarden Managed Instance (vóór en na de implementatie), inbreuk kan ertoe leiden dat exemplaar beschadigde status heeft en niet beschikbaar. Herstellen vanaf dat staat, moet u nieuwe sessie maken in een VNet aan het nalevingsbeleid voor netwerken, serviceniveau-Instantiegegevens opnieuw maken en herstellen van uw databases. Dit introduceert significante downtime voor uw toepassingen.
+> Kunt u zich niet aan het implementeren van een nieuwe beheerd exemplaar als het doelsubnet niet compatibel met alle van de volgende vereisten is. Als u een beheerd exemplaar maakt, een *bedoeling netwerkbeleid* wordt toegepast op het subnet om te voorkomen dat niet-compatibele wijzigingen aan de configuratie van netwerken. Nadat het laatste exemplaar is verwijderd uit het subnet, de *bedoeling netwerkbeleid* ook is verwijderd
 
-Met de introductie van _bedoeling netwerkbeleid_, u kunt een netwerkbeveiligingsgroep (NSG) op een Managed Instance-subnet toevoegen nadat het beheerde exemplaar is gemaakt.
-
-U kunt nu een NSG gebruiken om te beperken de IP-adresbereiken waaruit toepassingen en gebruikers kunnen doorzoeken en beheren de gegevens door het filteren van netwerkverkeer dat wordt omgeleid naar poort 1433. 
-
-> [!IMPORTANT]
-> Wanneer u de NSG-regels die de toegang tot poort 1433 wordt beperkt configureert, moet u ook de hoogste prioriteit heeft regels voor binnenkomende verbindingen worden weergegeven in de onderstaande tabel invoegen. Anders kunt u lezen wat netwerkbeleid Hiermee blokkeert u de wijziging als niet compatibel zijn.
+### <a name="mandatory-inbound-security-rules"></a>Verplichte beveiligingsregels voor binnenkomend verkeer 
 
 | NAAM       |PORT                        |PROTOCOL|BRON           |BESTEMMING|ACTIE|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|beheer  |9000, 9003, 1438, 1440, 1452|Alle     |Alle              |Alle        |Toestaan |
+|beheer  |9000, 9003, 1438, 1440, 1452|TCP     |Alle              |Alle        |Toestaan |
 |mi_subnet   |Alle                         |Alle     |MI-SUBNET        |Alle        |Toestaan |
 |health_probe|Alle                         |Alle     |AzureLoadBalancer|Alle        |Toestaan |
 
-De routering-ervaring is ook verbeterd zodat naast het 0.0.0.0/0 volgende hoptype Internet route, kunt u nu UDR voor het routeren van verkeer naar uw on-premises privé IP-adresbereiken via de gateway van virtueel netwerk of een virtueel netwerkapparaat (NVA) toevoegen.
+### <a name="mandatory-outbound-security-rules"></a>Verplichte uitgaande beveiligingsregels 
+
+| NAAM       |PORT          |PROTOCOL|BRON           |BESTEMMING|ACTIE|
+|------------|--------------|--------|-----------------|-----------|------|
+|beheer  |80, 443, 12000|TCP     |Alle              |Alle        |Toestaan |
+|mi_subnet   |Alle           |Alle     |Alle              |MI-SUBNET  |Toestaan |
 
 ##  <a name="determine-the-size-of-subnet-for-managed-instances"></a>De grootte van het subnet voor beheerde instanties bepalen
 

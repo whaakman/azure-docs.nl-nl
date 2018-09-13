@@ -17,12 +17,12 @@ ms.topic: conceptual
 ms.date: 08/07/2017
 ms.author: rebeccaz
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: feb187101ec02d6e765d6b025f518dc416f55b8b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: cc52b9ee290ca362c51f7a30cc09056e66df3c55
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "40043766"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719814"
 ---
 # <a name="remove-a-transparent-data-encryption-tde-protector-using-powershell"></a>Verwijderen van de beveiliging van een transparante gegevensversleuteling (TDE) met behulp van PowerShell
 ## <a name="prerequisites"></a>Vereisten
@@ -40,8 +40,8 @@ Als een sleutel is ooit mogelijke gevaar lopen, zodat een service of de gebruike
 Houd er rekening mee dat als de TDE-beveiliging wordt verwijderd in Key Vault, **alle verbindingen met de versleutelde databases op de server worden geblokkeerd en deze databases gaan offline en verwijderd binnen 24 uur**. Oude back-ups die zijn versleuteld met de waarmee is geknoeid sleutel zijn niet meer toegankelijk.
 
 In deze gebruiksaanwijzing gaat via twee benaderingen, afhankelijk van het gewenste resultaat na de respons op incidenten:
-- Om de Azure SQL-Databases / Data Warehouses **toegankelijk is**
-- Om te maken van de Azure SQL-Databases / Data Warehouses **niet toegankelijk**
+- Om de Azure SQL-databases / Data Warehouses **toegankelijk is**
+- Om te maken van de Azure SQL-databases / Data Warehouses **niet toegankelijk**
 
 ## <a name="to-keep-the-encrypted-resources-accessible"></a>De versleutelde resources om beschikbaar te houden
 1. Maak een [nieuwe sleutel in Key Vault](https://docs.microsoft.com/powershell/module/azurerm.keyvault/add-azurekeyvaultkey?view=azurermps-4.1.0). Zorg ervoor dat deze nieuwe sleutel gemaakt in een afzonderlijke key vault vanuit de potentieel aangetast TDE-beveiliging, omdat het toegangsbeheer is ingericht op het kluisniveau van een. 

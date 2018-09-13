@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: 42e8f8bd3f921686c3ba13f4c752d52e3067fbbe
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 16c4ab4601dbe57e014bfcb06ff9b35d02c60cfa
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40177592"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721905"
 ---
 # <a name="common-questions---hyper-v-to-azure-replication"></a>Veelgestelde vragen - Hyper-V naar Azure-replicatie
 
@@ -64,7 +64,7 @@ Ja, zowel versleuteling-in-transit en [versleuteling in Azure](https://docs.micr
 
 ### <a name="what-do-i-need-on-premises"></a>Wat kan ik on-premises nodig?
 
-U moet een of meer virtuele machines wordt uitgevoerd op een of meer zelfstandige of geclusterde Hyper-V-hosts. U kunt ook virtuele machines die worden uitgevoerd op hosts die worden beheerd door System Center Virtual Machine Manager (VMM) repliceren. U kunt ook virtuele machines die worden uitgevoerd op hosts die worden beheerd door System Center Virtual Machine Manager (VMM) repliceren.
+U moet een of meer virtuele machines wordt uitgevoerd op een of meer zelfstandige of geclusterde Hyper-V-hosts. U kunt ook virtuele machines die worden uitgevoerd op hosts die worden beheerd door System Center Virtual Machine Manager (VMM) repliceren.
     - Als u bent VMM, niet wordt uitgevoerd tijdens de implementatie van Site Recovery, deelt u Hyper-V-hosts en clusters in Hyper-V-sites. U installeert de Site Recovery-agents (Azure Site Recovery Provider en Recovery Services agent) op elke Hyper-V-host.
     - Als Hyper-V-hosts zich in een VMM-cloud bevinden, kunt u replicatie in VMM indelen. U kunt de Site Recovery Provider installeren op de VMM-server en de Recovery Services-agent op elke Hyper-V-host. U toewijzen tussen VMM logische/VM-netwerken en Azure VNets.
     - 
@@ -166,11 +166,6 @@ Site Recovery moet toegang hebben tot Hyper-V-hosts voor het repliceren van de v
 ### <a name="what-does-site-recovery-install-on-hyper-v-vms"></a>Wat Site Recovery op Hyper-V-machines installeren?
 
 Site Recovery wordt expliciet niets mee geïnstalleerd op de Hyper-V-machines die zijn ingeschakeld voor replicatie.
-- Tijdens de replicatie communiceren de virtuele machines als volgt met Site Recovery:
-    - Virtuele machines communiceren met de configuratieserver op poort 443 voor HTTPS voor het replicatiebeheer van.
-    - Virtuele machines verzenden replicatiegegevens naar de processerver op HTTPS-poort 9443 (kan worden gewijzigd).
-    - Als u multi-VM-consistentie inschakelt, wordt de status van virtuele machines communiceren met elkaar via poort 20004.
-
 
 
 
@@ -211,7 +206,7 @@ Nadat uw on-premises infrastructuur opnieuw actief is, kunt u failover terug. Fa
 5. Nadat de werkbelastingen terug zijn mislukt, schakelt u omgekeerde replicatie, zodat de on-premises VM's naar Azure opnieuw repliceren.
 
 ### <a name="can-i-fail-back-to-a-different-location"></a>Kan ik een failback uitvoeren naar een andere locatie?
-Ja, als u een failover naar Azure, kunt u failover naar een andere locatie als de oorspronkelijke map is niet beschikbaar. [Meer informatie](concepts-types-of-failback.md#alternate-location-recovery-alr).
+Ja, als u een failover naar Azure, kunt u failover naar een andere locatie als de oorspronkelijke map is niet beschikbaar. [Meer informatie](hyper-v-azure-failback.md#failback-to-an-alternate-location-in-hyper-v-environment).
 
 
 

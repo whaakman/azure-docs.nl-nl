@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 11/13/2017
+ms.date: 09/11/2018
 ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: c8d7f1f5b793fcb684e9896bb93213a23d489860
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 163972329161f90ad364b25e7e60e9e5a04324d5
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448540"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720001"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Accounts delen met Azure AD
 ## <a name="overview"></a>Overzicht
@@ -71,7 +71,7 @@ Voor het gebruik van Azure AD voor het delen van een account, moet u naar:
 U kunt ook uw gedeelde account beter beveiligen met multi-factor Authentication (MFA) (meer informatie over [met Azure AD-toepassingen beveiligen](authentication/concept-mfa-whichversion.md)) en kunt u de mogelijkheid om te beheren wie toegang heeft tot de toepassing met behulp van delegeren[ Azure AD-selfservice](users-groups-roles/groups-self-service-management.md) groepsbeheer.
 
 ## <a name="related-articles"></a>Verwante artikelen:
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
+* [Toepassingsbeheer in Azure Active Directory](manage-apps/what-is-application-management.md)
 * [Beveiligen van apps met voorwaardelijke toegang](active-directory-conditional-access-azure-portal.md)
 * [Groepsbeheer met Self-Service management/SSAA](users-groups-roles/groups-self-service-management.md)
 

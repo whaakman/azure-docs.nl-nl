@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.component: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 05/11/18
+ms.date: 09/11/2018
 ms.author: lizross
 ms.reviewer: asteen
-ms.openlocfilehash: 2e74e45761a2f21c522f80d453da48948e17de58
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1caf69ee822ec11e8797ca23c9c163d36344edc7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347747"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719984"
 ---
 # <a name="what-is-the-myapps-portal"></a>Wat is de MyApps-portal?
 
@@ -49,7 +49,7 @@ U kunt een actieve of geverifieerde domeinnaam die is geconfigureerd in uw Azure
 
 Distribueer de URL voor alle gebruikers die zich aanmelden bij toepassingen die kunnen worden geïntegreerd met Azure AD.
 
-## <a name="authentication"></a>Authenticatie
+## <a name="authentication"></a>Verificatie
 
 Als u wilt de MyApps-portal is bereikt, moet u in Azure AD via een account voor werk- of schoolaccount te worden geverifieerd. U kunt worden geverifieerd bij Azure AD rechtstreeks. U kunt ook als een organisatie heeft federation geconfigureerd met behulp van Active Directory Federation Services (AD FS) of andere technologieën, kunt u worden geverifieerd door Windows Server Active Directory.
 
@@ -200,7 +200,7 @@ Bijvoorbeeld, als een toepassing is geconfigureerd om gebruikers te verifiëren 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Een lijst met alle onderwerpen met betrekking tot toepassingsbeheer, Zie de [artikelenindex voor Toepassingsbeheer in Azure Active Directory](../active-directory-apps-index.md).
+- Zie voor meer informatie over toepassingsbeheer, [Application Management in Azure Active Directory](../manage-apps/what-is-application-management.md).
  
 - Zie voor meer informatie over het integreren van een SaaS-app met Azure AD, de [lijst met zelfstudies over het integreren van SaaS-apps](../saas-apps/tutorial-list.md).
  

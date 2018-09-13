@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: cea59d061dadfa3e10330cbce7b6005a286524cc
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 975c5c2c5f0da7a6db946c6d1032b485947134d2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024163"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717695"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Met behulp van de beheerdersportal in Azure Stack
 
@@ -70,7 +70,7 @@ De beheerder en gebruiker portals worden ondersteund door afzonderlijke exemplar
 
 ### <a name="customize-the-dashboard"></a>Het dashboard aanpassen
 
-Het dashboard bevat een reeks standaardtegels. U kunt selecteren **dashboard bewerken** wijzigen van het standaarddashboard, of selecteer **nieuw dashboard** om toe te voegen een aangepast dashboard. U kunt eenvoudig tegels toevoegen aan een dashboard. Bijvoorbeeld, kunt u **nieuw**, met de rechtermuisknop op **aanbiedingen + plannen**, en selecteer vervolgens **vastmaken aan dashboard**.
+Het dashboard bevat een reeks standaardtegels. U kunt selecteren **dashboard bewerken** wijzigen van het standaarddashboard, of selecteer **nieuw dashboard** om toe te voegen een aangepast dashboard. U kunt eenvoudig tegels toevoegen aan een dashboard. Bijvoorbeeld, kunt u **+ een resource maken**, met de rechtermuisknop op **aanbiedingen + plannen**, en selecteer vervolgens **vastmaken aan dashboard**.
 
 ### <a name="quick-access-to-online-documentation"></a>Snelle toegang tot de online documentatie
 

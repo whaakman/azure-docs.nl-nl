@@ -7,15 +7,15 @@ manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/09/2018
+ms.date: 09/11/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 06a79250bac977fc4ade7853594c5307bb11d983
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 614198b959c447e7b7c8d116eaa800759fc80cca
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43336942"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718250"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Instellen van zich kunnen registreren en aanmelden met een Weibo-account met behulp van Azure Active Directory B2C
 
@@ -45,19 +45,15 @@ Als u wilt een Weibo-account gebruiken als een id-provider in Azure Active Direc
 6. Selecteer**保存以上信息**(opslaan).
 7. Selecteer**高级信息**(geavanceerde informatie over).
 8. Selecteer**编辑**(bewerken) naast het veld voor OAuth 2.0**授权设置**(Omleidings-URL).
-9. Voer `https://{tenant_name}.b2clogin.com/te/{tenant_name}.onmicrosoft.com/oauth2/authresp` voor OAuth 2.0**授权设置**(Omleidings-URL). Bijvoorbeeld, als uw `tenant_name` is contoso, de URL die moet worden ingesteld `https://contoso.b2clogin.com/te/contoso.onmicrosoft.com/oauth2/authresp`.
+9. Voer `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp` voor OAuth 2.0**授权设置**(Omleidings-URL). Bijvoorbeeld, als de tenantnaam van uw contoso is, de URL die moet worden ingesteld `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`.
 10. Selecteer**提交**(verzenden).  
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Een account Weibo configureren als een id-provider
 
 1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als globale beheerder van uw Azure AD B2C-tenant.
-2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant gebruikt door hiernaar over te schakelen rechtsboven in de Azure Portal. Selecteer de abonnementsgegevens en selecteer vervolgens **Schakelen tussen mappen**. 
+2. Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen.  
 
     ![Overschakelen naar de Azure AD B2C-tenant](./media/active-directory-b2c-setup-weibo-app/switch-directories.png)
-
-    Kies de map met uw tenant.
-
-    ![Map selecteren](./media/active-directory-b2c-setup-weibo-app/select-directory.png)
 
 3. Kies **Alle services** linksboven in de Azure Portal, zoek **Azure AD B2C** en selecteer deze.
 4. Selecteer **id-providers**, en selecteer vervolgens **toevoegen**.

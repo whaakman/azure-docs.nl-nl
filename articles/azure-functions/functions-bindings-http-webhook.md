@@ -11,16 +11,16 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: glenga
-ms.openlocfilehash: 41870f4f3cf4a0aba461021b4787e1ba004e5ead
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: eef84e8c5fb67faef99beec934f29e55365ce811
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095110"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715955"
 ---
 # <a name="azure-functions-http-and-webhook-bindings"></a>Azure Functions-HTTP- en webhook-bindingen
 
-In dit artikel wordt uitgelegd hoe u werkt met Azure Functions-HTTP-bindingen. Azure Functions ondersteunt HTTP-triggers en uitvoerbindingen.
+In dit artikel wordt uitgelegd hoe u werken met HTTP-triggers en uitvoerbindingen in Azure Functions. Azure Functions ondersteunt HTTP-triggers en uitvoerbindingen.
 
 Een HTTP-trigger kan worden aangepast om te reageren op [webhooks](https://en.wikipedia.org/wiki/Webhook). Een webhook-trigger accepteert alleen een JSON-nettolading en valideert de JSON. Er zijn speciale versies van de webhook-trigger die het eenvoudiger om af te handelen webhooks van bepaalde providers, zoals GitHub en Slack.
 
@@ -276,7 +276,7 @@ module.exports = function(context, req) {
 
 ### <a name="trigger---java-example"></a>Trigger - Java-voorbeeld
 
-Het volgende voorbeeld ziet u de binding van een trigger in een *function.json* bestand en een [Java functie](functions-reference-java.md) die gebruikmaakt van de binding. De functie retourneert een HTTP-status code 200-antwoord met arequest-instantie die in de hoofdtekst van de activerende aanvraag met een "Hallo," prefixen begroeting.
+Het volgende voorbeeld ziet u de binding van een trigger in een *function.json* bestand en een [Java functie](functions-reference-java.md) die gebruikmaakt van de binding. De functie retourneert een HTTP-status code 200-antwoord met een aanvraagtekst die de hoofdtekst van de activerende aanvraag met een "Hallo," prefixen begroeting.
 
 
 Hier volgt de *function.json* bestand:
@@ -504,7 +504,7 @@ De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt
 
 ## <a name="trigger---usage"></a>Trigger - gebruik
 
-Voor C# en F #-functies, kunt u het type van de invoer voor een trigger declareren `HttpRequestMessage` of een aangepast type. Als u ervoor kiest `HttpRequestMessage`, krijgt u volledige toegang tot het request-object. Voor een type aangepaste functies probeert parseren van de hoofdtekst van de JSON-aanvraag voor het instellen van eigenschappen van het object. 
+Voor C# en F #-functies, kunt u het type van de invoer voor een trigger declareren `HttpRequestMessage` of een aangepast type. Als u ervoor kiest `HttpRequestMessage`, krijgt u volledige toegang tot het request-object. Voor een type aangepaste probeert de runtime parseren van de hoofdtekst van de JSON-aanvraag voor het instellen van eigenschappen van het object.
 
 De Functions-runtime biedt voor JavaScript-functies, de hoofdtekst van de aanvraag in plaats van het request-object. Zie voor meer informatie de [JavaScript trigger voorbeeld](#trigger---javascript-example).
 
@@ -603,47 +603,70 @@ Standaard alle functie-routes worden voorafgegaan door *api*. U kunt ook aanpass
 
 ### <a name="authorization-keys"></a>Sleutels voor de verificatieregel
 
-HTTP-triggers kunnen u sleutels gebruiken voor extra beveiliging. Een standaard HTTP-trigger kunt gebruiken als een API-sleutel, die de sleutel moet aanwezig zijn op de aanvraag. Webhooks kunt sleutels gebruiken voor het toestaan van aanvragen in verschillende manieren, afhankelijk van wat de provider ondersteunt.
+Functions kunt u sleutels gebruiken voor het moeilijker voor toegang tot uw HTTP-eindpunten voor de functie tijdens de ontwikkeling.  Een standaard HTTP-trigger mogelijk dat die een API-sleutel worden gebruikt in de aanvraag. Webhooks kunnen sleutels gebruiken voor het toestaan van aanvragen in verschillende manieren, afhankelijk van wat de provider ondersteunt.
 
-> [!NOTE]
-> Als functies lokaal uitvoert, de autorisatie is uitgeschakeld ongeacht de `authLevel` instellen in `function.json`. Als u op Azure Functions publiceren, de `authLevel` onmiddellijk van kracht.
-
-Sleutels worden opgeslagen als onderdeel van uw functie-app in Azure en in rust worden versleuteld. Als u uw sleutels, nieuwe te maken of sleutels Ga naar de nieuwe waarden, gaat u naar een van uw functies in de portal en selecteer 'Beheren'. 
+> [!IMPORTANT]
+> Terwijl de sleutels kunnen helpen uw HTTP-eindpunten, onleesbaar maakt tijdens de ontwikkeling, zijn ze niet bedoeld als een manier voor het beveiligen van een HTTP-trigger in de productieomgeving. Zie voor meer informatie, [beveiligen van een HTTP-eindpunt in de productieomgeving](#secure-an-http-endpoint-in-production).
 
 Er zijn twee soorten sleutels:
 
-- **Hostsleutels**: deze sleutels worden gedeeld door alle functies in de functie-app. Wanneer gebruikt als een API-sleutel, geven deze toegang tot een functie binnen de functie-app.
-- **Functietoetsen**: deze sleutels alleen van toepassing op de specifieke functies waarin ze zijn gedefinieerd. Wanneer gebruikt als een API-sleutel, geven alleen toegang tot die functie.
+* **Hostsleutels**: deze sleutels worden gedeeld door alle functies in de functie-app. Wanneer gebruikt als een API-sleutel, geven deze toegang tot een functie binnen de functie-app.
+* **Functietoetsen**: deze sleutels alleen van toepassing op de specifieke functies waarin ze zijn gedefinieerd. Wanneer gebruikt als een API-sleutel, geven alleen toegang tot die functie.
 
 Elke sleutel is met de naam van verwijzing en er is een standaard-sleutel (met de naam 'standaard') op het niveau van de functie en de host. Functietoetsen hebben voorrang op de hostsleutels. Wanneer er twee sleutels zijn gedefinieerd met dezelfde naam, wordt de sleutel van de functie altijd gebruikt.
 
-De **hoofdsleutel** is een standaard host-sleutel met de naam '_master' die is gedefinieerd voor elke functie-app. Deze sleutel kan niet worden ingetrokken. Het biedt beheerderstoegang tot de runtime-API's. Met behulp van `"authLevel": "admin"` in de binding JSON is deze sleutel kan worden weergegeven in de aanvraag; vereist een andere toets naar Autorisatiefout leidt.
+Elke functie-app heeft ook een speciale **hoofdsleutel**. Deze sleutel is de hostsleutel van een met de naam `_master`, waarmee u beheerderstoegang tot de runtime-API's. Deze sleutel kan niet worden ingetrokken. Tijdens het instellen van een autorisatie van `admin`, aanvragen moeten de hoofdsleutel; gebruiken een andere toets Autorisatiefout leidt.
 
-> [!IMPORTANT]  
-> Vanwege de verhoogde machtigingen verleend door de hoofdsleutel, moet u niet met derden delen van deze sleutel of deze in native clienttoepassingen te distribueren. Wees voorzichtig bij het kiezen van het autorisatieniveau van de beheerder.
+> [!CAUTION]  
+> Vanwege de verhoogde machtigingen in uw functie-app met de hoofdsleutel is verleend, moet u niet met derden delen van deze sleutel of deze in native clienttoepassingen te distribueren. Wees voorzichtig bij het kiezen van het autorisatieniveau van de beheerder.
+
+### <a name="obtaining-keys"></a>Het verkrijgen van sleutels
+
+Sleutels worden opgeslagen als onderdeel van uw functie-app in Azure en in rust worden versleuteld. Als u uw sleutels, nieuwe te maken of sleutels Ga naar de nieuwe waarden, gaat u naar een van uw HTTP-geactiveerde functies in de [Azure-portal](https://portal.azure.com) en selecteer **beheren**.
+
+![Functie-sleutels in de portal beheren.](./media/functions-bindings-http-webhook/manage-function-keys.png)
+
+Er is geen ondersteunde API om via een programma te verkrijgen functietoetsen.
 
 ### <a name="api-key-authorization"></a>Autorisatiebeleid API
 
-Een HTTP-trigger moet standaard een API-sleutel in de HTTP-aanvraag. Dus lijkt de HTTP-aanvraag normaal op het volgende:
+De meeste HTTP-trigger sjablonen vereisen een API-sleutel in de aanvraag. Dus lijkt de HTTP-aanvraag normaal op de volgende URL:
 
     https://<yourapp>.azurewebsites.net/api/<function>?code=<ApiKey>
 
-De sleutel kan worden opgenomen in een queryreeks-variabele met de naam `code`, zoals hierboven, of kunnen worden opgenomen in een `x-functions-key` HTTP-header. De waarde van de sleutel kan zijn een functie-sleutel gedefinieerd voor de functie of een willekeurige toets host.
+De sleutel kan worden opgenomen in een queryreeks-variabele met de naam `code`, zoals hierboven. Kan ook worden opgenomen in een `x-functions-key` HTTP-header. De waarde van de sleutel kan zijn een functie-sleutel gedefinieerd voor de functie of een willekeurige toets host.
 
 U kunt anonieme aanvragen, waarvoor geen sleutels. U kunt ook vereisen dat de hoofdsleutel worden gebruikt. U het standaardniveau voor autorisatie wijzigen met behulp van de `authLevel` eigenschap in de JSON van de binding. Zie voor meer informatie, [Trigger - configuratie](#trigger---configuration).
 
+> [!NOTE]
+> Wanneer u functies lokaal uitvoert, is autorisatie, ongeacht de instelling voor het opgegeven verificatietype uitgeschakeld. Nadat deze is gepubliceerd naar Azure, de `authLevel` instelling in de trigger wordt afgedwongen.
+
 ### <a name="keys-and-webhooks"></a>Sleutels en webhooks
 
-Autorisatie van de Webhook wordt verwerkt door het onderdeel van de ontvanger webhook, onderdeel van de HTTP-trigger, en het mechanisme is afhankelijk van het webhooktype. Elke mechanisme heeft, maar afhankelijk zijn van een sleutel. De functie-sleutel met de naam 'standaard' wordt standaard gebruikt. Voor het gebruik van een andere productcode, de webhook-provider voor het verzenden van de naam van de sleutel met de aanvraag in een van de volgende manieren te configureren:
+Autorisatie van de Webhook wordt verwerkt door het onderdeel van de ontvanger webhook, onderdeel van de HTTP-trigger, en het mechanisme is afhankelijk van het webhooktype. Elke methode zijn afhankelijk van een sleutel. De functie-sleutel met de naam 'standaard' wordt standaard gebruikt. Voor het gebruik van een andere productcode, de webhook-provider voor het verzenden van de naam van de sleutel met de aanvraag in een van de volgende manieren te configureren:
 
-- **Querytekenreeks**: de provider geeft de naam van de sleutel in de `clientid` query-tekenreeksparameter, zoals `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
-- **Aanvraagkoptekst**: de provider geeft de naam van de sleutel in de `x-functions-clientid` header.
+* **Querytekenreeks**: de provider geeft de naam van de sleutel in de `clientid` query-tekenreeksparameter, zoals `https://<yourapp>.azurewebsites.net/api/<funcname>?clientid=<keyname>`.
+* **Aanvraagkoptekst**: de provider geeft de naam van de sleutel in de `x-functions-clientid` header.
+
+Zie voor een voorbeeld van een webhook die is beveiligd met een sleutel, [een door een GitHub-webhook geactiveerde functie maken](functions-create-github-webhook-triggered-function.md).
+
+### <a name="secure-an-http-endpoint-in-production"></a>Beveiligen van een HTTP-eindpunt in de productieomgeving
+
+Als u wilt uw functie-eindpunten in de productieomgeving volledig te beveiligen, moet u overwegen implementatie van een van de volgende opties voor functie-app-beveiliging:
+
+* Schakel in App Service-verificatie/verificatie voor uw functie-app. Het App Service-platform kunt Azure Active Directory (AAD), service-principal verificatie en vertrouwde externe id-providers gebruiken om gebruikers te verifiëren. Met deze functie is ingeschakeld, kunnen alleen geverifieerde gebruikers toegang tot uw functie-app. Zie voor meer informatie, [configureren van uw App Service-app voor het gebruik van Azure Active Directory-aanmelding](../app-service/app-service-mobile-how-to-configure-active-directory-authentication.md).
+
+* Azure API Management (APIM) gebruiken om aanvragen te verifiëren. APIM biedt een verscheidenheid aan opties voor API-beveiliging voor binnenkomende aanvragen. Zie voor meer informatie, [API Management-verificatiebeleid](../api-management/api-management-authentication-policies.md). Met APIM op locatie, kunt u uw functie-app voor het accepteren van aanvragen van het PI-adres van de APIM-instantie te configureren. Zie voor meer informatie, [IP-adresbeperkingen](ip-addresses.md#ip-address-restrictions).
+
+* Uw functie-app implementeren naar een Azure App Service Environment (ASE). As-omgeving biedt een toegewezen hosting omgeving waarin u kunt uw functies worden uitgevoerd. As-omgeving kunt u configureren van één front-gateway die u gebruiken kunt om alle inkomende aanvragen te verifiëren. Zie voor meer informatie, [configureren van een Web Application Firewall (WAF) voor App Service Environment](../app-service/environment/app-service-app-service-environment-web-application-firewall.md).
+
+Wanneer u een van deze functie op app-niveau beveiligingsmethoden, moet u de verificatie van de HTTP-geactiveerde functie op instellen `anonymous`.
 
 ## <a name="trigger---limits"></a>Trigger - limieten
 
-De lengte van de HTTP-aanvraag is beperkt tot 100MB (104,857,600 bytes) en de URL-lengte is beperkt tot 4KB (4096 bytes). Deze limieten zijn opgegeven door de `httpRuntime` element van de runtime van [Web.config-bestand](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
+De lengte van de HTTP-aanvraag is beperkt tot 100 MB (104,857,600 bytes) en de URL-lengte is beperkt tot 4 KB (4096 bytes). Deze limieten zijn opgegeven door de `httpRuntime` element van de runtime van [Web.config-bestand](https://github.com/Azure/azure-webjobs-sdk-script/blob/v1.x/src/WebJobs.Script.WebHost/Web.config).
 
-Als een functie die wordt gebruikt niet de HTTP-trigger binnen ongeveer 2,5 minuten, de time-out van de gateway wordt voltooid en retourneert een HTTP 502-fout. De functie blijft actief, maar kan niet naar een HTTP-antwoord retourneren. Voor langlopende functies, wordt aangeraden dat u gaat u als volgt de asynchrone patronen en retourneert een locatie waar u de status van de aanvraag kunt pingen. Zie voor informatie over hoe lang een functie kunt uitvoeren, [schaal en hosting - verbruiksabonnement](functions-scale.md#consumption-plan). 
+Als een functie die wordt gebruikt niet de HTTP-trigger binnen ongeveer 2,5 minuten, de time-out van gateway wordt voltooid en retourneert een HTTP 502-fout. De functie blijft actief, maar kan niet naar een HTTP-antwoord retourneren. Voor langlopende functies, wordt aangeraden dat u gaat u als volgt de asynchrone patronen en retourneert een locatie waar u de status van de aanvraag kunt pingen. Zie voor informatie over hoe lang een functie kunt uitvoeren, [schaal en hosting - verbruiksabonnement](functions-scale.md#consumption-plan). 
 
 ## <a name="trigger---hostjson-properties"></a>Trigger - eigenschappen voor host.json
 
@@ -657,7 +680,7 @@ Gebruik de HTTP-Uitvoerbinding om te reageren op de afzender van HTTP-aanvraag. 
 
 ## <a name="output---configuration"></a>Uitvoer - configuratie
 
-De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand. Voor C#-klasse bibliotheken er zijn geen kenmerkeigenschappen die met deze overeenkomen *function.json* eigenschappen. 
+De volgende tabel beschrijft de binding configuratie-eigenschappen die u instelt in de *function.json* bestand. Voor C#-klassebibliotheken, zijn er geen kenmerkeigenschappen die overeenkomen met deze *function.json* eigenschappen. 
 
 |Eigenschap  |Beschrijving  |
 |---------|---------|

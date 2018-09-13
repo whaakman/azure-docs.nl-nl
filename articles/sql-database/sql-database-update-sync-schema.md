@@ -10,16 +10,16 @@ ms.author: xiwu
 ms.reviewer: douglasl
 manager: craigg
 ms.custom: data-sync
-ms.openlocfilehash: eca5e308399b9fb694a8e5060d72c12790a8f78d
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6859784dcb3b3905459e83cfcb7812d7f23ac630
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39434955"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721854"
 ---
 # <a name="automate-the-replication-of-schema-changes-in-azure-sql-data-sync"></a>De replicatie van schemawijzigingen in Azure SQL Data Sync automatiseren
 
-SQL Data Sync kunnen gebruikers gegevens synchroniseren tussen Azure SQL-Databases en on-premises SQL Server in één richting of in beide richtingen. Een van de huidige beperkingen van SQL Data Sync is een gebrek aan ondersteuning voor de replicatie van wijzigingen in het schema. Telkens wanneer u het tabelschema wijzigt, moet u de wijzigingen handmatig op alle eindpunten, met inbegrip van de hub en alle leden, en werk vervolgens het synchronisatieschema.
+SQL Data Sync kunnen gebruikers gegevens synchroniseren tussen Azure SQL-databases en on-premises SQL Server in één richting of in beide richtingen. Een van de huidige beperkingen van SQL Data Sync is een gebrek aan ondersteuning voor de replicatie van wijzigingen in het schema. Telkens wanneer u het tabelschema wijzigt, moet u de wijzigingen handmatig op alle eindpunten, met inbegrip van de hub en alle leden, en werk vervolgens het synchronisatieschema.
 
 Dit artikel bevat een oplossing voor wijzigingen in het schema automatisch repliceren naar alle SQL Data Sync-eindpunten.
 1. Deze oplossing gebruikt een DDL-trigger voor het bijhouden van wijzigingen in het schema.

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/05/2018
 ms.author: adpick
-ms.openlocfilehash: 2bfa9944d85fde65ad8dbd73ddda11fa405df2f8
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 90823eded03f298dd912735fb0170fd8002328f3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39358349"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715887"
 ---
 # <a name="programmatically-create-azure-enterprise-subscriptions-preview"></a>Via een programma maken Azure Enterprise-abonnementen (preview)
 
@@ -176,7 +176,7 @@ New-AzureRmSubscription -OfferType MS-AZR-0017P -Name "Dev Team Subscription" -E
 | `EnrollmentAccountObjectId`      | Ja       | Reeks | Object-ID van de voor apparaatregistratie-account dat het abonnement is gemaakt op basis van en kosten in rekening gebracht aan. Deze waarde is een GUID die u via `Get-AzureRmEnrollmentAccount`. |
 | `OwnerObjectId`      | Nee       | Reeks | Object-ID van elke gebruiker die u toevoegen als een RBAC-eigenaar van het abonnement wilt wanneer deze wordt gemaakt.  |
 | `OwnerSignInName`    | Nee       | Reeks | Het e-mailadres van elke gebruiker die u toevoegen als een RBAC-eigenaar van het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `OwnerObjectId`.|
-| `OwnerApplicationId` | Nee       | Reeks | De toepassings-ID van een service-principal die u toevoegen als een RBAC-eigenaar van het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `OwnerObjectId`.| 
+| `OwnerApplicationId` | Nee       | Reeks | De toepassings-ID van een service-principal die u toevoegen als een RBAC-eigenaar van het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `OwnerObjectId`. Wanneer u deze parameter, de service-principal moet hebben [leestoegang tot de map](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
 Zie voor een volledige lijst met alle parameters [New-AzureRmSubscription](/powershell/module/azurerm.subscription.preview).
 
@@ -197,7 +197,7 @@ az account create --offer-type "MS-AZR-0017P" --display-name "Dev Team Subscript
 | `enrollment-account-object-id`      | Ja       | Reeks | Object-ID van de voor apparaatregistratie-account dat het abonnement is gemaakt op basis van en kosten in rekening gebracht aan. Deze waarde is een GUID die u via `az billing enrollment-account list`. |
 | `owner-object-id`      | Nee       | Reeks | Object-ID van elke gebruiker die u toevoegen als een RBAC-eigenaar van het abonnement wilt wanneer deze wordt gemaakt.  |
 | `owner-upn`    | Nee       | Reeks | Het e-mailadres van elke gebruiker die u toevoegen als een RBAC-eigenaar van het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `owner-object-id`.|
-| `owner-spn` | Nee       | Reeks | De toepassings-ID van een service-principal die u toevoegen als een RBAC-eigenaar van het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `owner-object-id`.| 
+| `owner-spn` | Nee       | Reeks | De toepassings-ID van een service-principal die u toevoegen als een RBAC-eigenaar van het abonnement wilt wanneer deze wordt gemaakt. U kunt deze parameter in plaats van `owner-object-id`. Wanneer u deze parameter, de service-principal moet hebben [leestoegang tot de map](/powershell/azure/active-directory/signing-in-service-principal?view=azureadps-2.0#give-the-service-principal-reader-access-to-the-current-tenant-get-azureaddirectoryrole).| 
 
 Zie voor een volledige lijst met alle parameters [az account maken](/cli/azure/ext/subscription/account?view=azure-cli-latest#-ext-subscription-az-account-create).
 

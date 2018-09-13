@@ -3,7 +3,7 @@ title: Lijst met updates die zijn toegepast op de Azure-Gastbesturingssysteem | 
 description: De lijst met updates die zijn toegepast op de Gast OS releases
 services: cloud-services
 documentationcenter: na
-author: raiye
+author: RichardScheel
 manager: timlt
 editor: ''
 ms.assetid: d0a272a9-ed01-4f4c-a0b3-bd5e841bdd77
@@ -12,17 +12,40 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 8/3/2018
-ms.author: raiye
-ms.openlocfilehash: aa7ee049177fccbcca7d648ca749eb9fb35a0f53
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.date: 9/12/2018
+ms.author: RichardScheel
+ms.openlocfilehash: 4ef49fe978db5c9b04bf9c8271e192fa60433d4b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522302"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722296"
 ---
 # <a name="azure-guest-os"></a>Azure-Gastbesturingssysteem
 De volgende tabellen tonen de updates van de Microsoft Security Response Center (MSRC) toegepast op de Azure-Gastbesturingssysteem. Zoeken in dit artikel om te bepalen als een bepaalde update van toepassing op de Gast-besturingssysteem dat u gebruikt. Updates altijd overdragen voor de betreffende [familie] [ family-explain] ze zijn geïntroduceerd in.
+
+## <a name="august-guest-os"></a>Augustus Guest OS
+| Productcategorie | Bovenliggende KB-artikel | Beschrijving van beveiligingsproblemen | Gastbesturingssysteem | Datum voor het eerst geïntroduceerd |
+| --- | --- | --- | --- | --- |
+| Rel 18-08 | [4343887] | Windows 10-beveiliging | 5.22 | 14 augustus 2018 |
+| Rel 18-08 | [4343899] | Alleen Windows-beveiliging | 2,77 | 14 augustus 2018 |
+| Rel 18-08 | [4343896] | Alleen Windows-beveiliging | 3.64 | 14 augustus 2018 |
+| Rel 18-08 | [4343888] | Alleen Windows-beveiliging | 4.57 | 14 augustus 2018 |
+| Rel 18-08 | [4344177], [4344173] | .NET 3.5, 4.5 beveiliging | 2,77 | 14 augustus 2018 |
+| Rel 18-08 | [4344175], [4344172] | .NET 3.5, 4.x-beveiliging | 3.64 | 14 augustus 2018 |
+| Rel 18-08 | [4344178], [4344171] | .NET 3.5, 4.x-beveiliging | 4.57 | 14 augustus 2018 |
+| Rel 18-08 | [4346742], [4346739] | .NET 3.5, OOB-versie 4.x | 3.64 | 30 juli 2018 |
+| Rel 18-08 | [4346745], [4346408] | .NET 3.5, OOB-versie 4.x | 4.57 | 30 juli 2018 |
+| Rel 18-08 | [4343902] | Flash | 3.64, 4.57, 5.22 | 14 augustus 2018 |
+| Rel 18-08 | [4343205] | Internet Explorer | 2,77, 3.64, 4.57 | 14 augustus 2018 |
+| N/A | [4338818] |Updatepakket van juli niet voor beveiliging |2,77 | 10 juli 2018 |
+| N/A | [4019990] |D3D Compiler update voor .NET |2,77 | 10 juli 2018 |
+| N/A | [4338830] |Updatepakket van juli niet voor beveiliging |3.64 | 10 juli 2018 |
+| N/A | [4338421] |Juli niet voor beveiliging .NET 3.5-updatepakket |3.64 | 10 juli 2018 |
+| N/A | [4338416] |Juli niet voor beveiliging .NET 4 x rollup |3.64 | 10 juli 2018 |
+| N/A | [4338815] |Updatepakket van juli niet voor beveiliging |4.57 | 10 juli 2018 |
+| N/A | [4338424] |Juli niet voor beveiliging .NET 3.5-updatepakket |3.64 | 10 juli 2018 |
+| N/A | [4338415] |Juli niet voor beveiliging .NET 4 x rollup |3.64 | 10 juli 2018 |
 
 
 ## <a name="july-guest-os"></a>Juli Guest OS
@@ -696,6 +719,31 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 | N/A |[2896881] |Lange aanmelding bij het gebruik van de opdracht AddPrinterConnection VBScript printers voor gebruikers worden toegewezen tijdens het aanmeldingsproces in Windows |4.15, 3.22, 2.34 |Jan 13, 2015 |
 
 
+[4343887]: http://support.microsoft.com/kb/4343887
+[4343899]: http://support.microsoft.com/kb/4343899
+[4343896]: http://support.microsoft.com/kb/4343896
+[4343888]: http://support.microsoft.com/kb/4343888
+[4344177]: http://support.microsoft.com/kb/4344177
+[4344173]: http://support.microsoft.com/kb/4344173
+[4344175]: http://support.microsoft.com/kb/4344175
+[4344172]: http://support.microsoft.com/kb/4344172
+[4344178]: http://support.microsoft.com/kb/4344178
+[4344171]: http://support.microsoft.com/kb/4344171
+[4346742]: http://support.microsoft.com/kb/4346742
+[4346739]: http://support.microsoft.com/kb/4346739
+[4346745]: http://support.microsoft.com/kb/4346745
+[4346408]: http://support.microsoft.com/kb/4346408
+[4343902]: http://support.microsoft.com/kb/4343902
+[4343205]: http://support.microsoft.com/kb/4343205
+[4338818]: http://support.microsoft.com/kb/4338818
+[4019990]: http://support.microsoft.com/kb/4019990
+[4338830]: http://support.microsoft.com/kb/4338830
+[4338421]: http://support.microsoft.com/kb/4338421
+[4338416]: http://support.microsoft.com/kb/4338416
+[4338815]: http://support.microsoft.com/kb/4338815
+[4338424]: http://support.microsoft.com/kb/4338424
+[4338415]: http://support.microsoft.com/kb/4338415
+
 
 [4338814]: http://support.microsoft.com/kb/4338814
 [4338823]: http://support.microsoft.com/kb/4338823
@@ -1303,7 +1351,6 @@ De volgende tabellen tonen de updates van de Microsoft Security Response Center 
 [3057839]:http://support.microsoft.com/kb/3057839
 [3062577]:http://support.microsoft.com/kb/3062577
 [3063858]:http://support.microsoft.com/kb/3063858
-
 
 
 [archive]: https://msdn.microsoft.com/library/azure/dn391773.aspx

@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 88a6e1a66390b2b317e1e30a71455ad693e6d7df
-ms.sourcegitcommit: a5eb246d79a462519775a9705ebf562f0444e4ec
+ms.openlocfilehash: 70af437fb7baa461b63430747cf5252be3503c0e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/26/2018
-ms.locfileid: "39264651"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714782"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Algemeen beschikbare services met behulp van Azure SQL-Database ontwerpen
 
@@ -160,4 +160,4 @@ Uw strategie voor herstel na noodgevallen specifieke cloud kunt combineren of ui
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor een overzicht voor zakelijke continuïteit en scenario's, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md)
 * Zie voor meer informatie over geo-replicatie en failover-groepen, [actieve geo-replicatie](sql-database-geo-replication-overview.md)  
-* Zie voor meer informatie over actieve geo-replicatie met elastische Pools [strategieën voor noodherstel elastische Pool](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
+* Zie voor meer informatie over actieve geo-replicatie met elastische pools [strategieën voor noodherstel elastische pool](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

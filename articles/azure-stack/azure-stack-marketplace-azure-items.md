@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: bb2dc0d5500778372de674c749b44267fb512a2e
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 406d5965c02ceddc617c8729bad95ac7819af30e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701150"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722058"
 ---
 # <a name="azure-marketplace-items-available-for-azure-stack"></a>Azure Marketplace-items beschikbaar voor Azure Stack
 
@@ -101,6 +101,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 
 |  | Itemnaam | Beschrijving | Uitgever |
 | --- | --- | --- | --- |
+| ![Arista vEOS Router](media/azure-stack-marketplace-azure-items/arista.png) | [Arista vEOS Router](https://azuremarketplace.microsoft.com/marketplace/apps/arista-networks.veos-router) | De Arista vEOS Router is een functie uitgebreid met meerdere cloud en multi-hypervisor virtual router waarmee ondernemingen en cloudproviders om op te bouwen consistente, zeer veilige en schaalbare hybride netwerken. | Arista Networks |
 | ![AbanteCart](media/azure-stack-marketplace-azure-items/abantecart.png) | [AbanteCart](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.abantecart) | Open-source ecommerce winkelwagen. | Bitnami |
 | ![ActiveMQ](media/azure-stack-marketplace-azure-items/activemq.png) | [ActiveMQ](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.activemq) | Open-source berichtenbroker in Java. | Bitnami |
 | ![Akeneo](media/azure-stack-marketplace-azure-items/akeneo.png) | [Akeneo](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.akeneo) | Krachtige PIM ontworpen voor het vereenvoudigen van processen. | Bitnami |
@@ -156,6 +157,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![Memcached meerdere exemplaren](media/azure-stack-marketplace-azure-items/memcached.png) | [Memcached meerdere exemplaren](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.memcached-multipleinstances) | Memcached is een krachtige en gedistribueerde Geheugenobjecten. Deze oplossing bepalingen meerdere Memcached knooppunten voor het maken van een hoge prestaties, fout-mailbeveiliging gedistribueerde cache voor uw toepassing. **Deze oplossingssjabloon vereist ook Debian 8 en aangepast Script voor Linux 2.0-extensie.** | Bitnami |
 | ![MODX](media/azure-stack-marketplace-azure-items/modx.png) | [MODX](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.modx) | Intuïtieve Web CMS. | Bitnami |
 | ![MongoDB](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mongodb) | Krachtige open-source NoSQL-database is geschreven in C++. | Bitnami |
+| ![MongoDB met replicatie](media/azure-stack-marketplace-azure-items/mongodb.png) | [MongoDB met replicatie](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-mongodb) | Krachtige open-source NoSQL-database is geschreven in C++. **Deze oplossingssjabloon uw Azure-Stack op 1807 of hoger vereist en vereist ook Debian 8 en aangepast Script voor Linux 2.0-extensie.** | Bitnami |
 | ![Moodle](media/azure-stack-marketplace-azure-items/moodle.png) | [Moodle](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.moodle) | Effectieve CMS is ontworpen voor online leren community's. | Bitnami |
 | ![Multicraft](media/azure-stack-marketplace-azure-items/multicraft.png) | [Multicraft](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.multicraft) | Minecraft-server die als host fungeert deelvenster oplossing en controle. | Bitnami |
 | ![MyBB](media/azure-stack-marketplace-azure-items/mybb.png) | [MyBB](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.mybb) | Gratis en open-source-Software-Forum. | Bitnami |
@@ -194,6 +196,7 @@ Microsoft Azure Stack biedt ondersteuning voor de volgende virtuele machines van
 | ![RabbitMQ-Cluster](media/azure-stack-marketplace-azure-items/rabbitmq.png) | [RabbitMQ-Cluster](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.rabbitmq-cluster) | RabbitMQ is een berichtbroker die toepassingen een gemeenschappelijk platform biedt voor het verzenden en ontvangen van berichten en een veilige plaats op live totdat ontvangen berichten. Deze oplossing maakt gebruik van meerdere virtuele machines voor het inrichten van meerdere knooppunten in een RabbitMQ Cluster om te vormen van een enkele logische broker. **Deze oplossingssjabloon vereist ook Debian 8 en aangepast Script voor Linux 2.0-extensie.** | Bitnami |
 | ![Re: streepje](media/azure-stack-marketplace-azure-items/redash.png) | [Re: streepje](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redash) | Open-source gegevensvisualisatie en samenwerkingsplatform. | Bitnami |
 | ![Redis](media/azure-stack-marketplace-azure-items/redis.png) | [Redis](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redis) | Krachtige opensource-sleutel / waarde-archief. | Bitnami |
+| ![Redis hoge beschikbaarheid](media/azure-stack-marketplace-azure-items/redis.png) | [Redis hoge beschikbaarheid](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.production-redis) | Krachtige opensource-sleutel / waarde-archief. **Deze oplossingssjabloon uw Azure-Stack op 1807 of hoger vereist en vereist ook Debian 8 en aangepast Script voor Linux 2.0-extensie.** | Bitnami |
 | ![Redmine](media/azure-stack-marketplace-azure-items/redmine.png) | [Redmine](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmine) | Krachtige project management web-app | Bitnami |
 | ![Redmine + flexibele](media/azure-stack-marketplace-azure-items/redmineagile.png) | [Redmine+Agile](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.redmineplusagile) | Project management-toepassing vooraf is geconfigureerd met flexibele-invoegtoepassing. | Bitnami |
 | ![ReportServer-Community](media/azure-stack-marketplace-azure-items/reportserver.png) | [ReportServer-Community](https://azuremarketplace.microsoft.com/marketplace/apps/bitnami.reportserver) | Open-source business intelligence-platform. | Bitnami |

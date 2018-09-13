@@ -8,20 +8,20 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 03/12/2018
 ms.author: dobett
-ms.openlocfilehash: 710de8021abfa5b1fc17491af6b8b9f2bdd3a19f
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: b57a448459101150363d595910cefcde991f1f92
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42919034"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721806"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Begrijpen en gebruiken van Azure IoT Hub SDK 's
 
 Er zijn twee soorten software development kits (SDK's) voor het werken met IoT Hub:
 
-* **Apparaat-SDK's** kunt u het bouwen van apps die worden uitgevoerd op uw IoT-apparaten. Deze apps verzenden van telemetrie naar uw IoT-hub en eventueel berichten, taak, methode of dubbele updates ontvangen van uw IoT-hub.
+* **Apparaat-SDK's** kunt u het bouwen van apps die worden uitgevoerd op uw IoT-apparaten met behulp van apparaatclient of module. Deze apps verzenden van telemetrie naar uw IoT-hub en eventueel berichten, taak, methode of dubbele updates ontvangen van uw IoT-hub.  U kunt ook module client schrijven [modules](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) voor [Azure IoT Edge-runtime](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge).
 
-* **Service-SDK's** kunt u uw IoT-hub, beheren en (optioneel) berichten te verzenden, taken plannen, directe methoden aanroepen of gewenste eigenschap updates verzenden naar uw IoT-apparaten.
+* **Service-SDK's** kunt u uw IoT-hub, beheren en (optioneel) berichten te verzenden, taken plannen, directe methoden aanroepen of gewenste eigenschap updates verzenden naar uw IoT-apparaten of modules.
 
 Meer informatie over de voordelen van het ontwikkelen met behulp van Azure IoT SDK's [hier][lnk-benefits-blog].
 
@@ -35,21 +35,25 @@ Azure IoT Hub apparaat-SDK voor .NET:
 * Installeren van [Nuget][lnk-nuget-csharp-device]
 * [Broncode][lnk-dotnet-sdk]
 * [API-verwijzing][lnk-dotnet-ref]
+* [Moduleverwijzing] [https://docs.microsoft.com/dotnet/api/microsoft.azure.devices.client.moduleclient?view=azure-dotnet]
 
 Azure IoT Hub device-SDK voor C: die zijn geschreven in C ANSI (C99) voor portabiliteit en brede platformcompatibiliteit
 * Installeren van [apt-get, MBED, Arduino IDE of Nuget][lnk-c-package]
 * [Broncode][lnk-c-sdk]
 * [API-verwijzing][lnk-c-ref]
+* [Moduleverwijzing] [https://github.com/Azure/azure-iot-sdk-c/blob/master/iothub_client/inc/iothub_module_client.h]
 
 Azure IoT Hub apparaat-SDK voor Java: 
 * Toevoegen aan [Maven] [ lnk-maven-device] project
 * [Broncode][lnk-java-sdk]
 * [API-verwijzing][lnk-java-ref]
+* [Moduleverwijzing] [https://docs.microsoft.com/java/api/com.microsoft.azure.sdk.iot.device._module_client?view=azure-java-stable]
 
 Azure IoT Hub apparaat-SDK voor Node.js: 
 * Installeren van [npm][lnk-npm-device]
 * [Broncode][lnk-node-sdk]
 * [API-verwijzing][lnk-node-ref]
+* [Moduleverwijzing] [https://docs.microsoft.com/javascript/api/azure-iot-device/moduleclient?view=azure-node-latest]
 
 Azure IoT Hub apparaat-SDK voor Python: 
 * Installeren van [pip][lnk-pip-device]

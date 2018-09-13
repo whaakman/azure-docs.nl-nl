@@ -1,6 +1,6 @@
 ---
-title: Bedreigingsinformatie in Azure Security Center | Microsoft Docs
-description: In dit document wordt uitgelegd hoe u de mogelijkheden van bedreigingsinformatie in Azure Security Center gebruikt voor het identificeren van mogelijke bedreigingen op uw virtuele machines en computers.
+title: Threat intelligence en beveiliging waarschuwing toewijzen in Azure Security Center | Microsoft Docs
+description: Informatie over het gebruik van de correct waarschuwing kaart en bedreigingen van bedreigingsinformatie in Azure Security Center voor het identificeren van mogelijke bedreigingen in uw virtuele machines en computers.
 services: security-center
 documentationcenter: na
 author: rkarlin
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/3/2018
 ms.author: rkarlin
-ms.openlocfilehash: a3988575074708a46138b5e550bfc0014ca3bd15
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d82d52e05d85fbd5197f84f032a55dd9c74f9d1f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44293929"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714425"
 ---
-# <a name="security-alerts-map-azure-security-center"></a>Beveiligingswaarschuwingen toewijzen Azure Security Center
+# <a name="security-alerts-map-and-threat-intelligence"></a>Beveiligingswaarschuwingen kaart en bedreigingsinformatie
 In dit artikel helpt u bij het gebruik van de Azure Security Center security waarschuwingen kaart en beveiliging op basis van gebeurtenissen bedreigingsinformatiekaart beveiligingsgerelateerde om problemen te verhelpen.
 
 ## <a name="how-the-security-alerts-map-works"></a>Hoe werkt in de beveiligingswaarschuwingen worden toegewezen
@@ -49,7 +49,8 @@ Als u wilt de huidige bedreigingen in uw omgeving visualiseren, open de toewijzi
 De toewijzing van de waarschuwingen beveiliging is gebaseerd op waarschuwingen. Deze waarschuwingen zijn gebaseerd op activiteiten die voor welk netwerk communicatie is gekoppeld aan een IP-adres dat is opgelost, is al dan niet het IP-adres een bekende riskante IP-adres (bijvoorbeeld, een bekende cryptominer is) of een IP-adres dat wordt niet herkend eerder als riskant. De kaart bevat waarschuwingen over abonnementen die u eerder hebt geselecteerd in Azure. 
 
 De waarschuwingen op de kaart worden weergegeven op basis van de geografische locatie waar ze worden gedetecteerd als zijnde afkomstig van, en ze hebben een kleurcode op basis van ernst. 
- 
+    ![Informatie over bedreigingen](./media/security-center-threat-intel/security-center-alert-map.png)
+
 ## <a name="viewing-the-event-based-threat-intelligence-dashboard"></a>Het dashboard Bedreigingsinformatie op basis van gebeurtenissen weergeven
 Als u de bedreigingsinformatiekaart op basis van onbewerkte beveiligingsgebeurtenissen, kunt u deze procedure te volgen. Deze kaart bevat alleen de gebeurtenissen die betrekking hebben op een IP-adres dat wordt beschouwd als risico's, bijvoorbeeld een IP-adres van een bekend botnet.
 
@@ -79,7 +80,7 @@ Als u de bedreigingsinformatiekaart op basis van onbewerkte beveiligingsgebeurte
 
 Ongeacht de tegel die u selecteert, is het dashboard dat wordt weergegeven altijd gebaseerd op het logboek van Zoeken in logboeken. Het enige verschil is het type query en het resultaat.
 
-### <a name="threat-types"></a>Typen bedreigingen
+### <a name="threat-types"></a>Bedreigingstypen
 Selecteer de tegel **Bedreigingstypen** om het dashboard **Zoeken in logboeken** te openen. U ziet filteropties aan de linkerkant en de queryresultaten aan de rechterkant.
 
 ![Zoeken in logboeken](./media/security-center-threat-intel/security-center-threat-intel-fig3.png)

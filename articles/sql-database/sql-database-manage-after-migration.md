@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 133cba72a93d692851043f1c66d6a4a38e18b324
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d82cc3ee1074e326c9e4dee7fd65e338cb95e19f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379455"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722228"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud, beheer van uw database in Azure SQL Database
 
@@ -209,7 +209,7 @@ U kunt ook waarschuwingen door middel van deze grafiek configureren. Deze waarsc
 
    ![Inzicht in queryprestaties](./media/sql-database-manage-after-migration/query-performance-insight.png)
 
-- **Azure SQL Analytics (Preview) in Log Analytics**: [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md) kunt u voor het verzamelen en visualiseren van de belangrijkste prestatiegegevens voor Azure SQL Azure, ondersteuning biedt voor maximaal 150.000 SQL-Databases en 5000 elastische SQL-Pools per werkruimte. U kunt deze gebruiken om te controleren en meldingen ontvangen. U kunt controleren op SQL-Database en elastische pool metrische gegevens op meerdere Azure-abonnementen en elastische pools en kan worden gebruikt voor het identificeren van problemen in elke laag van een toepassingsstack.
+- **Azure SQL Analytics (Preview) in Log Analytics**: [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md) kunt u voor het verzamelen en visualiseren van de belangrijkste prestatiegegevens voor Azure SQL Azure, ondersteuning biedt voor maximaal 150.000 SQL-Databases en 5000 elastische SQL-pools per werkruimte. U kunt deze gebruiken om te controleren en meldingen ontvangen. U kunt controleren op SQL-Database en elastische pool metrische gegevens op meerdere Azure-abonnementen en elastische pools en kan worden gebruikt voor het identificeren van problemen in elke laag van een toepassingsstack.
 
 ### <a name="i-am-noticing-performance-issues-how-does-my-sql-database-troubleshooting-methodology-differ-from-sql-server"></a>Ik ben dat u prestatieproblemen: hoe mijn SQL-Database voor probleemoplossing methodologie verschilt van SQL Server?
 Een belangrijk deel van de technieken voor het oplossen van problemen die u zou gebruiken voor het vaststellen van de query en prestatieproblemen met de database blijven hetzelfde. Nadat de dezelfde SQL Server engine wordt gebruikt door de cloud. Echter is de platform, Azure SQL DB gebouwd in 'intelligentie'. U kunt oplossen en diagnosticeren van prestatieproblemen nog eenvoudiger. Het kan enkele van deze corrigerende acties ook uitvoeren op uw naam en in sommige gevallen, ze - automatisch proactief verhelpen. 
@@ -234,7 +234,7 @@ SQL Database biedt verschillende Servicelagen Basic, Standard en Premium. Elke s
 
 Om te controleren of dat u op het juiste prestatieniveau bent, kunt u het gebruik van de resources query's en -database via een van de bovengenoemde manieren 'Hoe controleer ik het gebruik van de prestaties en resource in SQL-Database' controleren. U vindt dat uw query's / databases consistent worden uitgevoerd op CPU/geheugen enz. u kunt omhoog schalen naar een hoger prestatieniveau ' hot '. Op dezelfde manier als u Houd er rekening mee dat, zelfs tijdens de piekuren die hebt u gebruikt u de resources zo veel mogelijk; Houd rekening met van het huidige prestatieniveau omlaag te schalen. 
 
-Als u een patroon van SaaS-app of een database consolidatie scenario hebt, kunt u overwegen een elastische Pool om kosten te optimaliseren. Elastische pool is een uitstekende manier om de consolidatie van de database en kosten optimaliseren te realiseren. Meer informatie over het beheren van meerdere databases met behulp van de elastische Pool, Zie: [pools en databases beheren](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
+Als u een patroon van SaaS-app of een database consolidatie scenario hebt, kunt u overwegen een elastische pool om kosten te optimaliseren. Elastische pool is een uitstekende manier om de consolidatie van de database en kosten optimaliseren te realiseren. Meer informatie over het beheren van meerdere databases met behulp van de elastische Pool, Zie: [pools en databases beheren](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 
 ### <a name="how-often-do-i-need-to-run-database-integrity-checks-for-my-database"></a>Hoe vaak moet ik database integriteitscontroles voor mijn database uitvoeren?
 SQL-Database maakt gebruik van sommige slimme technieken die toe te staan om bepaalde klassen van beschadiging van gegevens automatisch en zonder verlies van gegevens te verwerken. Deze technieken zijn ingebouwd in de service en worden gebruikt door de service wanneer moet zich voordoet. Uw databaseback-ups via de service zijn er regelmatig getest door deze terug te zetten en DBCC CHECKDB uitvoeren. Als er problemen zijn, lost SQL-Database proactief ze. [Automatisch herstel](/sql/sql-server/failover-clusters/automatic-page-repair-availability-groups-database-mirroring) wordt gebruikt voor het oplossen van pagina's die zijn beschadigd of problemen met de gegevensintegriteit. De database-pagina's worden altijd geverifieerd met de standaardinstelling van de CONTROLESOM die controleert of de integriteit van de pagina. SQL-Database proactief bewaakt en controleert de integriteit van gegevens van uw database en, als er zich problemen voordoen, lost ze met de hoogste prioriteit. Naast deze kunt u desgewenst uw eigen integriteitscontroles op wordt uitgevoerd.  Zie voor meer informatie, [integriteit van gegevens in SQL-Database](https://azure.microsoft.com/blog/data-integrity-in-azure-sql-database/)

@@ -1,5 +1,5 @@
 ---
-title: Beheren van Azure SQL-Databases met Azure Automation | Microsoft Docs
+title: Beheren van Azure SQL-databases met Azure Automation | Microsoft Docs
 description: Meer informatie over hoe Azure Automation-service kan worden gebruikt voor het beheren van Azure SQL-databases op schaal.
 services: sql-database, automation
 author: CarlRabeler
@@ -9,14 +9,14 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: c68a493f439b5bc54cb04162de88ef31058d25f3
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 43476cfcae2035c3b8e94b4a5e264a0c8ff424e0
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42057192"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715445"
 ---
-# <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure SQL-Databases met Azure Automation beheren
+# <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure SQL-databases met Azure Automation beheren
 Deze handleiding vindt u de Azure Automation-service en hoe deze kan worden gebruikt voor het vereenvoudigen van beheer van uw Azure SQL-databases.
 
 ## <a name="what-is-azure-automation"></a>Wat is Azure Automation?
@@ -31,7 +31,7 @@ Azure SQL-Database kunnen worden beheerd in Azure Automation met behulp van de [
 
 Azure Automation biedt ook de mogelijkheid om te communiceren met de SQL-servers rechtstreeks met behulp van SQL-opdrachten met behulp van PowerShell.
 
-De [Azure Automation runbook gallery](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) bevat tal van product-team en community-runbooks om te beginnen met het automatiseren van beheer van Azure SQL-Databases, andere Azure-services en 3e systemen van derden. Runbooks uit de galerie zijn onder andere:
+De [Azure Automation runbook gallery](https://azure.microsoft.com/blog/2014/10/07/introducing-the-azure-automation-runbook-gallery/) bevat tal van product-team en community-runbooks om te beginnen met het automatiseren van beheer van Azure SQL-databases, andere Azure-services en 3e systemen van derden. Runbooks uit de galerie zijn onder andere:
 
 * [SQL-query's uitvoeren op een SQL Server-database](https://gallery.technet.microsoft.com/scriptcenter/How-to-use-a-SQL-Command-be77f9d2)
 * [Verticaal schalen (omhoog of omlaag) een Azure SQL-Database volgens een schema](https://gallery.technet.microsoft.com/scriptcenter/Azure-SQL-Database-e957354f)

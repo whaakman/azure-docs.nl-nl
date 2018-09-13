@@ -10,12 +10,12 @@ ms.topic: article
 ms.date: 07/31/2018
 ms.reviewer: jonfan, LADocs
 ms.suite: integration
-ms.openlocfilehash: 4ce65f1b5dd22da031ebf6730b5efad2d04f91a0
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: 001dc4d5057767191003697c5fb819e53a8658f2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39365584"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719933"
 ---
 # <a name="migrate-biztalk-server-edi-solutions-to-biztalk-services-technical-guide"></a>BizTalk Server EDI-oplossingen migreren naar BizTalk Services: technische handleiding
 
@@ -55,7 +55,7 @@ De belangrijkste verschillen en overeenkomsten tussen een EDI-oplossingsstroom i
   
     In BizTalk Services, nadat de EDI ontvangen bridge verwerkt de EDI-bericht, wordt het bericht naar een extern proces gerouteerd. De extern proces kan worden uitgevoerd op Microsoft Azure of on-premises. De extern proces moet het bericht routeren naar de EDI verzenden brug; het bericht niet inherent wordt opgehaald door de brug verzenden. Na het verwerken van het bericht, stuurt de brug EDI-verzenden het bericht naar de trading partner.
 
-BizTalk Services biedt een eenvoudig te gebruiken configuratie-ervaring voor het snel maken en implementeren van een B2B-overeenkomst tussen handelspartners zonder configureren van een Microsoft Azure Compute-exemplaren (Web- of Worker-rollen), een Microsoft Azure SQL-Databases of een Microsoft Azure storage-accounts. Complexere scenario's verbinden in werkstromen of andere service-verwerking is vereist 'rond de randen' van een Trading Partner-overeenkomst, dat wil zeggen, vóór of na de verwerking van Trading Partner Agreement EDI-brug. In de details, wordt de volgende reeks gebeurtenissen optreden tijdens een EDI-berichtverwerking in BizTalk Services.
+BizTalk Services biedt een eenvoudig te gebruiken configuratie-ervaring voor het snel maken en implementeren van een B2B-overeenkomst tussen handelspartners zonder een Microsoft Azure Compute-exemplaren (Web- of Worker-rollen), een Microsoft Azure SQL-database of een configuratie Microsoft Azure storage-accounts. Complexere scenario's verbinden in werkstromen of andere service-verwerking is vereist 'rond de randen' van een Trading Partner-overeenkomst, dat wil zeggen, vóór of na de verwerking van Trading Partner Agreement EDI-brug. In de details, wordt de volgende reeks gebeurtenissen optreden tijdens een EDI-berichtverwerking in BizTalk Services.
 
 1. Een EDI-bericht wordt ontvangen van trading partner, Fabrikam.  BizTalk Services biedt voor EDI-berichten ontvangen van handelspartners, ondersteuning van transportprotocollen, zoals FTP-, SFTP-, AS2- en HTTP/S.
 2. De trading partner agreement schalen aan de verwerking worden ontleed de EDI-bericht naar XML-indeling.  U kunt het EDI-bericht (in XML-indeling) versturen naar Service Bus-eindpunten, zoals een Service Bus Relay-eindpunt, Service Bus-onderwerp, Service Bus-wachtrij of een brug BizTalk Services.

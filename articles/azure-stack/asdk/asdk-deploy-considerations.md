@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/10/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: f3cf1232861239069894a8e5fa60c911053f038d
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 41d27b9a173cc019549f1dea0c66ffcaa51fbb10
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841978"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719440"
 ---
 # <a name="azure-stack-deployment-planning-considerations"></a>Azure Stack-implementatie planningsoverwegingen
 Voordat u de Azure Stack Development Kit (ASDK) implementeert, controleert u uw development kit host-computer voldoet aan de vereisten die worden beschreven in dit artikel.
@@ -93,6 +93,8 @@ Voor het Azure Stack implementeren met behulp van een Azure AD-account, moet u e
    | Microsoft-account met geldig openbaar Azure-abonnement |Ja |
    | Account voor werk of school met geldig Azure-abonnement van China |Ja |
    | Account voor werk of school met geldig US Government Azure-abonnement |Ja |
+
+Na de implementatie is Azure Active Directory-globale beheerder toestemming niet vereist. Bepaalde bewerkingen is echter mogelijk de referentie van de globale beheerder. Bijvoorbeeld, een resource provider installatieprogramma script of een nieuwe functie die een machtiging worden verleend. U kunt tijdelijk opnieuw installeren van de account hoofdbeheerder machtigingen of gebruik een afzonderlijke globale beheerder-account dat is eigenaar van de *providerabonnement standaard*.
 
 ## <a name="network"></a>Netwerk
 ### <a name="switch"></a>Switch

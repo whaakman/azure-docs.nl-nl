@@ -1,19 +1,18 @@
 ---
 title: Wijzigen en opnieuw implementeren van een microservice | Microsoft Docs
 description: Deze zelfstudie leert u hoe u kunt wijzigen en opnieuw implementeren van een microservice in externe controle
-author: giyeh
-manager: hegate
-ms.author: giyeh
+author: dominicbetts
+ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 04/19/2018
 ms.topic: conceptual
-ms.openlocfilehash: e15e17a499ad33a270b220fa7483d96c2945f6bb
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 561c5b0f49c36cf15e85e3a334c7a8aa326f70a9
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43338074"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715054"
 ---
 # <a name="customize-and-redeploy-a-microservice"></a>Een microservice aanpassen en opnieuw implementeren
 
@@ -47,14 +46,15 @@ In dit gedeelte maakt aanroepen u de standaard IoT hub manager microservice API.
 2. Zoek waar u Postman hebt gedownload en open deze.
 3. In Postman, voert u het volgende in de GET: http://localhost:8080/iothubmanager/v1/status.
 4. Het rendement weergeven en u ziet, 'Status': ' OK: Alive en goed '.
-![Actief en goed Postman-bericht](./media/iot-accelerators-microservices-example/postman-alive-well.png)
+
+    ![Actief en goed Postman-bericht](./media/iot-accelerators-microservices-example/postman-alive-well.png)
 
 ## <a name="change-the-status-and-build-the-image"></a>Wijzig de status en de installatiekopie bouwen
 
 Wijzig nu het statusbericht van de Iot Hub-beheer microservice "Nieuwe wijzigingen aangebracht hier!" en vervolgens opnieuw de docker-installatiekopie met de nieuwe status. Als u hier problemen ondervindt, raadpleegt u onze [probleemoplossing](#Troubleshoot) sectie.
 
 1. Zorg ervoor dat uw terminal is geopend en Ga naar de map waar u de oplossing voor externe controle hebt gekloond. 
-2. Wijzig de directory in '.. azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/WebService/v1/Controllers'.
+2. Wijzig de directory naar 'azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/WebService/v1/Controllers'.
 3. StatusController.cs in een teksteditor of IDE die u wilt openen. 
 4. Zoek de volgende code:
 
@@ -68,7 +68,7 @@ Wijzig nu het statusbericht van de Iot Hub-beheer microservice "Nieuwe wijziging
     return new StatusApiModel(true, "New Edits Made Here!");
     ```
 
-5. Ga terug naar uw terminal maar nu wijzigen in de volgende map: "... azure-iot-pcs-remote-monitoring-dotnet/iothub-manager/scripts/docker '.
+5. Ga terug naar uw terminal maar nu wijzigen in de volgende map: 'azure-iot-pcs-remote-monitoring-dotnet/services/iothub-manager/scripts/docker'.
 6. Voor het bouwen van uw nieuwe docker-installatiekopie, typt u het volgende:
 
     ```cmd/sh
@@ -113,7 +113,7 @@ Voordat u uw nieuwe docker-installatiekopie naar een docker-hub pushen kunt, is 
 ## <a name="update-your-remote-monitoring-solution"></a>Bijwerken van uw oplossing voor externe controle
 Nu moet u uw lokale docker-compose.yml om op te halen van de nieuwe docker-installatiekopie van uw docker hub bijwerken. Als u hier problemen ondervindt, raadpleegt u onze [probleemoplossing](#Troubleshoot) sectie.
 
-1. Ga terug naar de terminal en Ga naar de volgende map: ".. Azure-IOT-PCs-Remote-Monitoring-DotNet/scripts/local'.
+1. Ga terug naar de terminal en Ga naar de volgende map: 'azure-iot-pcs-remote-monitoring-dotnet/services/scripts/local'.
 2. Docker-compose.yml in een teksteditor of IDE die u wilt openen.
 3. Zoek de volgende code:
 
@@ -130,7 +130,7 @@ Nu moet u uw lokale docker-compose.yml om op te halen van de nieuwe docker-insta
 ## <a name="view-the-new-response-status"></a>De nieuwe antwoordstatus weergeven
 Voltooien door een lokaal exemplaar van de oplossing voor externe controle opnieuw te implementeren en de nieuwe status reactie in Postman te bekijken.
 
-1. Ga terug naar de terminal en Ga naar de volgende map: ".. Azure-IOT-PCs-Remote-Monitoring-DotNet/scripts/local'.
+1. Ga terug naar de terminal en Ga naar de volgende map: 'azure-iot-pcs-remote-monitoring-dotnet/scripts/local'.
 2. Start uw lokale exemplaar van de oplossing voor externe controle door de volgende opdracht te typen in de terminal:
 
     ```cmd/sh

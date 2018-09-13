@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser,luleon
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 860ca62e6e5ed544fabb1667d6e63c8221f5683e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: fc7510fdc635de03ac4dd4f64118bc5be040e969
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356666"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719406"
 ---
 # <a name="configure-single-sign-on-to-applications-that-are-not-in-the-azure-active-directory-application-gallery"></a>Configureren van eenmalige aanmelding voor toepassingen die zich niet in de Azure Active Directory-toepassingsgalerie
 
@@ -48,7 +48,7 @@ In de app-galerie, kunt u een niet-vermelde app toevoegen door het selecteren va
 
 **Snelle tip**: als een best practice, kunt u de zoekfunctie gebruiken om te controleren om te zien als de toepassing bestaat al in de toepassingengalerie. Als de app wordt gevonden en de beschrijving eenmalige aanmelding noemt, wordt klikt u vervolgens de toepassing al ondersteund voor federatieve eenmalige aanmelding.
 
-  ![Zoeken](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
+  ![Search](./media/configure-single-sign-on-non-gallery-applications/customapp2.png)
 
 Toevoegen van een toepassing op deze manier biedt een vergelijkbare ervaring met de beschikbaar voor vooraf geïntegreerde toepassingen. Selecteer eerst **configureren Single Sign-On** of klik op **eenmalige aanmelding** in het navigatiemenu aan de van de toepassing. Het volgende scherm geeft de opties voor het configureren van eenmalige aanmelding. De opties worden in de volgende secties van dit artikel beschreven.
   
@@ -172,8 +172,6 @@ Na het selecteren van **volgende**, wordt u gevraagd om in te voeren van de URL 
 >
 
 ## <a name="related-articles"></a>Gerelateerde artikelen
-
-- [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 - [In het SAML-Token voor vooraf geïntegreerde Apps uitgegeven Claims aanpassen](../develop/active-directory-saml-claims-customization.md)
 - [Oplossen van problemen met SAML gebaseerde eenmalige aanmelding](../develop/howto-v1-debug-saml-sso-issues.md)
 

@@ -3,23 +3,22 @@ title: Informatie over Azure Stack-beveiligingsmechanismen | Microsoft Docs
 description: Als servicebeheerder meer informatie over de beveiligingsmaatregelen die is toegepast op Azure Stack
 services: azure-stack
 documentationcenter: ''
-author: mattbriggs
+author: PatAltimore
 manager: femila
 editor: ''
-ms.assetid: cccac19a-e1bf-4e36-8ac8-2228e8487646
 ms.service: azure-stack
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/12/2018
-ms.author: mabrigg
-ms.openlocfilehash: a3bd314a1df3c45c76b2e3a5acb31c1474d0fdf5
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
+ms.date: 09/12/2018
+ms.author: patricka
+ms.openlocfilehash: 048a2e8204b3b8776b5a7e0e425dbc5fdf3d504c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39008830"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719015"
 ---
 # <a name="azure-stack-infrastructure-security-posture"></a>Azure-infrastructuur stack-beveiliging
 
@@ -76,7 +75,7 @@ Beheer in Azure Stack wordt beheerd door het gebruik van drie toegangspunten, el
 2. Azure Resource Manager wordt aangegeven dat alle beheerbewerkingen van de Beheerdersportal via een REST-API, die worden gebruikt door PowerShell en Azure CLI. 
 3. Voor bepaalde bewerkingen op laag niveau, bijvoorbeeld data center-integratie of ondersteuning van scenario's, Azure Stack wordt aangegeven dat een PowerShell-eindpunt met de naam [bevoegde eindpunt](azure-stack-privileged-endpoint.md). Dit eindpunt wordt alleen een goedgekeurde set cmdlets en het is sterk gecontroleerd.
 
-## <a name="network-controls"></a>Netwerkbeveiliging
+## <a name="network-controls"></a>Netwerkbesturingselementen
 Azure Stack-infrastructuur wordt geleverd met meerdere lagen van network Access Control List(ACL). De ACL's voorkomt ongeoorloofde toegang tot de onderdelen van de infrastructuur en infrastructuur voor communicatie met alleen de paden die vereist voor de werking ervan zijn te beperken. 
 
 Netwerk-ACL's worden afgedwongen in drie lagen:
@@ -87,3 +86,5 @@ Netwerk-ACL's worden afgedwongen in drie lagen:
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Meer informatie over het draaien van uw geheimen in Azure Stack](azure-stack-rotate-secrets.md)
+- [PCI-DSS en CSA-CCM documenten voor Azure Stack](https://servicetrust.microsoft.com/ViewPage/TrustDocuments)
+- [Amerikaanse ministerie van defensie en NIST-documenten voor Azure Stack](https://servicetrust.microsoft.com/ViewPage/Blueprint)

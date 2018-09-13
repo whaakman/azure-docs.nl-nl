@@ -10,12 +10,12 @@ ms.component: implement
 ms.date: 04/11/2018
 ms.author: elbutter
 ms.reviewer: igorstan
-ms.openlocfilehash: fcc3fd39f9ea4de64faa3a53af98ff9909dc32f3
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: d861e1d4cd891e1f1e1be3209ae4dfdbf4420165
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247950"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718279"
 ---
 # <a name="best-practices-for-using-elastic-query-in-azure-sql-database-to-access-data-in-azure-sql-data-warehouse"></a>Aanbevolen procedures voor het gebruik van elastische query's in Azure SQL Database voor toegang tot gegevens in Azure SQL Data Warehouse
 Informatie over aanbevolen procedures voor het gebruik van elastische query's voor toegang tot gegevens in Azure SQL Data Warehouse vanuit Azure SQL-Database. 
@@ -125,9 +125,9 @@ Gebruik van Azure SQL Database als:
 
 ## <a name="faq"></a>Veelgestelde vragen
 
-V: kan ik databases gebruiken in een elastische Pool met elastische Query?
+V: kan ik databases gebruiken in een elastische pool met elastische Query?
 
-A: Ja. SQL-Databases in een elastische Pool kan elastische query's kunt gebruiken. 
+A: Ja. SQL-Databases in een elastische pool kan elastische query's kunt gebruiken. 
 
 V: is er een limiet voor het aantal databases dat ik voor een elastische Query gebruiken kan?
 

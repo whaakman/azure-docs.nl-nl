@@ -13,12 +13,12 @@ ms.workload: identity
 ms.date: 09/06/2018
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 7e66f9a0f22103c01e947c028a5c8355cb4d0e15
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: dc362dba62e8fd41b33e10368483577d8166f300
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095569"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722330"
 ---
 # <a name="azure-resource-manager-resource-provider-operations"></a>Azure Resource Manager-resourceproviderbewerkingen
 
@@ -391,24 +391,24 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | --- | --- | --- |
 > | Bewerking | Microsoft.Authorization/checkAccess/action | Hiermee wordt gecontroleerd of de aanroeper is gemachtigd een bepaalde actie uit te voeren |
 > | Bewerking | Microsoft.Authorization/classicAdministrators/delete | Hiermee wordt de beheerder verwijderd uit het abonnement. |
-> | Bewerking | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Hiermee worden de bewerkingsstatussen van de beheerder opgehaald. |
+> | Bewerking | Microsoft.Authorization/classicAdministrators/operationstatuses/read | Hiermee haalt u de verder statussen van het abonnement. |
 > | Bewerking | Microsoft.Authorization/classicAdministrators/read | Hiermee worden de beheerders voor het abonnement ingelezen. |
 > | Bewerking | Microsoft.Authorization/classicAdministrators/write | Hiermee wordt de beheerder gewijzigd of aan een abonnement toegevoegd. |
-> | Bewerking | Microsoft.Authorization/denyAssignments/delete | Een opdracht tot weigeren van een toewijzing verwijderen uit het opgegeven bereik. |
-> | Bewerking | Microsoft.Authorization/denyAssignments/read | Informatie ophalen over het weigeren van een toewijzing. |
-> | Bewerking | Microsoft.Authorization/denyAssignments/write | Een opdracht tot weigeren van een toewijzing maken in het opgegeven bereik. |
-> | Bewerking | Microsoft.Authorization/elevateAccess/action | Hiermee wordt oproepende functie de rechten van Administrator voor gebruikerstoegang gegeven voor het tenantbereik |
+> | Bewerking | Microsoft.Authorization/denyAssignments/delete | Verwijder de toewijzing van een weigeren bij het opgegeven bereik. |
+> | Bewerking | Microsoft.Authorization/denyAssignments/read | Informatie ophalen over een toewijzing weigeren. |
+> | Bewerking | Microsoft.Authorization/denyAssignments/write | Maak de toewijzing van een weigeren bij het opgegeven bereik. |
+> | Bewerking | Microsoft.Authorization/elevateAccess/action | De oproepende functie verleent toegang bij het tenantbereik Administrator voor gebruikerstoegang |
 > | Bewerking | Microsoft.Authorization/locks/delete | De vergrendelingen bij het opgegeven bereik worden verwijderd. |
 > | Bewerking | Microsoft.Authorization/locks/read | De vergrendelingen bij het opgegeven bereik worden opgehaald. |
 > | Bewerking | Microsoft.Authorization/locks/write | Hiermee worden vergrendelingen toegevoegd bij het opgegeven bereik. |
-> | Bewerking | Microsoft.Authorization/operations/read | Hiermee haalt u de lijst met bewerkingen op |
+> | Bewerking | Microsoft.Authorization/operations/read | De lijst met bewerkingen opgehaald |
 > | Bewerking | Microsoft.Authorization/permissions/read | Hiermee worden alle machtigingen van de beller voor een bepaald bereik weergegeven in een lijst. |
 > | Bewerking | Microsoft.Authorization/policyAssignments/delete | Een beleidstoewijzing verwijderen bij het opgegeven bereik. |
 > | Bewerking | Microsoft.Authorization/policyAssignments/read | Informatie ophalen over een beleidstoewijzing. |
 > | Bewerking | Microsoft.Authorization/policyAssignments/write | Een beleidstoewijzing maken bij het opgegeven bereik. |
 > | Bewerking | Microsoft.Authorization/policyDefinitions/delete | Een beleidsdefinitie verwijderen. |
 > | Bewerking | Microsoft.Authorization/policyDefinitions/read | Informatie ophalen over een beleidsdefinitie. |
-> | Bewerking | Microsoft.Authorization/policyDefinitions/write | Een aangepaste beleidsdefinitie maken. |
+> | Bewerking | Microsoft.Authorization/policyDefinitions/write | De definitie van een aangepast beleid maken. |
 > | Bewerking | Microsoft.Authorization/policySetDefinitions/delete | Een beleidssetdefinitie verwijderen. |
 > | Bewerking | Microsoft.Authorization/policySetDefinitions/read | Informatie ophalen over een beleidssetdefinitie. |
 > | Bewerking | Microsoft.Authorization/policySetDefinitions/write | Een aangepaste beleidssetdefinitie maken. |
@@ -418,7 +418,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Authorization/roleAssignments/write | Een roltoewijzing bij het opgegeven bereik maken. |
 > | Bewerking | Microsoft.Authorization/roleDefinitions/delete | De opgegeven aangepaste roldefinitie verwijderen. |
 > | Bewerking | Microsoft.Authorization/roleDefinitions/read | Informatie ophalen over een roldefinitie. |
-> | Bewerking | Microsoft.Authorization/roleDefinitions/write | Een aangepaste roldefinitie maken of bijwerken met opgegeven machtigingen of toewijsbare bereiken. |
+> | Bewerking | Microsoft.Authorization/roleDefinitions/write | Maken of bijwerken van een aangepaste roldefinitie met opgegeven machtigingen of toewijsbare bereiken. |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
 
@@ -542,8 +542,8 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | --- | --- | --- |
 > | Bewerking | Microsoft.AzureActiveDirectory/b2cDirectories/delete | B2C-mapresource verwijderen |
 > | Bewerking | Microsoft.AzureActiveDirectory/b2cDirectories/read | B2C-mapresource weergeven |
-> | Bewerking | Microsoft.AzureActiveDirectory/b2cDirectories/write | B2C-mapresource maken of bijwerken |
-> | Bewerking | Microsoft.AzureActiveDirectory/operations/read | Alle API-bewerkingen lezen die beschikbaar zijn voor de resourceprovider Microsoft.AzureActiveDirectory |
+> | Bewerking | Microsoft.AzureActiveDirectory/b2cDirectories/write | Maken of bijwerken van de B2C-mapresource |
+> | Bewerking | Microsoft.AzureActiveDirectory/operations/read | Alle API-bewerkingen lezen beschikbaar voor de resourceprovider Microsoft.AzureActiveDirectory |
 > | Bewerking | Microsoft.AzureActiveDirectory/register/action | Abonnement voor de resourceprovider Microsoft.AzureActiveDirectory registreren |
 
 ## <a name="microsoftazurestack"></a>Microsoft.AzureStack
@@ -591,7 +591,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Batch/batchAccounts/pools/upgradeOs/action | Upgrades van het besturingssysteem van een Batch-pool-account |
 > | Bewerking | Microsoft.Batch/batchAccounts/pools/write | Hiermee maakt u een nieuwe groep in een Batch-account of een bestaande pool-updates |
 > | Bewerking | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/read | Hiermee wordt de diagnostische instelling voor de resource opgehaald |
-> | Bewerking | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee wordt de diagnostische instelling voor de resource gemaakt of bijgewerkt |
+> | Bewerking | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/diagnosticSettings/write | Hiermee maken of bijwerken van de diagnostische instelling voor de resource |
 > | Bewerking | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/logDefinitions/read | De beschikbare logboeken opgehaald voor de Batch-service |
 > | Bewerking | Microsoft.Batch/batchAccounts/providers/Microsoft.Insights/metricDefinitions/read | Hiermee haalt u de beschikbare metrische gegevens voor de Batch-service |
 > | Bewerking | Microsoft.Batch/batchAccounts/read | Geeft een lijst van Batch-accounts of haalt u de eigenschappen van een Batch-account |
@@ -4455,7 +4455,7 @@ De resource provider-bewerkingen zijn altijd nog in ontwikkeling. Als u de meest
 > | Bewerking | Microsoft.Sql/managedInstances/delete | Hiermee verwijdert u een bestaande beheerde exemplaar. |
 > | Bewerking | Microsoft.Sql/managedInstances/encryptionProtector/read | Retourneert een lijst van de server encryption Protector of haalt u de eigenschappen voor de opgegeven server versleutelingsbeveiliging. |
 > | Bewerking | Microsoft.Sql/managedInstances/encryptionProtector/write | De eigenschappen voor de opgegeven Server Encryption Protector bijgewerkt. |
-> | Bewerking | Microsoft.Sql/managedInstances/keys/delete | Hiermee verwijdert u een bestaande Azure SQL Managed Instance-sleutel. |
+> | Bewerking | Microsoft.Sql/managedInstances/keys/delete | Hiermee verwijdert u een bestaande Azure SQL Database Managed Instance-sleutel. |
 > | Bewerking | Microsoft.Sql/managedInstances/keys/read | Retourneert de lijst met beheerd exemplaar sleutels of haalt u de eigenschappen voor de sleutel opgegeven beheerde exemplaar. |
 > | Bewerking | Microsoft.Sql/managedInstances/keys/write | Hiermee maakt u een sleutel met de opgegeven parameters of de eigenschappen of labels voor de sleutel opgegeven beheerde exemplaar bijwerken. |
 > | Bewerking | Microsoft.Sql/managedInstances/metricDefinitions/read | Metrische definities van beheerde exemplaar ophalen |

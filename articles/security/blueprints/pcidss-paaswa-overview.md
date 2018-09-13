@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 07/03/2018
 ms.author: meladie
-ms.openlocfilehash: 523d326c3bfc799bc6a170275011ef8e134894a0
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 833ee7d1ade317240757a41f2e9e1e6ef20e95dc
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300763"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715513"
 ---
 # <a name="azure-security-and-compliance-blueprint-paas-web-application-for-pci-dss"></a>Azure-beveiliging en naleving blauwdruk: PaaS-Web-App voor het PCI DSS
 
@@ -35,7 +35,7 @@ Klik op [hier](https://aka.ms/pcidss-paaswa-repo) voor implementatie-instructies
 
 Deze Azure-beveiliging en naleving blauwdruk Automation implementeert een referentiearchitectuur voor een PaaS-webtoepassing met een Azure SQL Database-back-end. De web-App wordt gehost in een geïsoleerde Azure App Service Environment, dit een exclusieve privéomgeving in een Azure-datacenter is. De omgeving verdeelt verkeer voor de web-App voor virtuele machines die worden beheerd door Azure. Deze architectuur bevat ook netwerkbeveiligingsgroepen, een Application Gateway, Azure DNS en Load Balancer.
 
-Voor geavanceerde analyse en rapportage, kan Azure SQL-Databases worden geconfigureerd met columnstore-indexen. Azure SQL-Databases kan omhoog of omlaag geschaald of volledig afgesloten in reactie op klanten te worden gebruikt. Alle SQL-verkeer wordt versleuteld met SSL door de toevoeging van zelfondertekende certificaten. Als een best practice raadt Azure het gebruik van een vertrouwde certificeringsinstantie voor verbeterde beveiliging.
+Voor geavanceerde analyse en rapportage, kunnen Azure SQL-databases worden geconfigureerd met columnstore-indexen. Azure SQL-databases kunnen omhoog of omlaag geschaald of volledig afgesloten in reactie op klanten te worden gebruikt. Alle SQL-verkeer wordt versleuteld met SSL door de toevoeging van zelfondertekende certificaten. Als een best practice raadt Azure het gebruik van een vertrouwde certificeringsinstantie voor verbeterde beveiliging.
 
 De oplossing maakt gebruik van Azure Storage-accounts, die klanten configureren kunnen met Storage Service Encryption kunt onderhouden van de vertrouwelijkheid van gegevens in rust. Azure slaat drie kopieën van gegevens binnen de geselecteerde datacenter van een klant voor tolerantie. Geografisch redundante opslag zorgt ervoor dat gegevens worden gerepliceerd naar een secundair datacenter honderden van mijl opslaan en opnieuw als drie kopieën binnen die datacenter opgeslagen, zo wordt voorkomen dat een negatieve gebeurtenis in het primaire datacenter van de klant dit resulteert in een verlies van de gegevens.
 
@@ -50,7 +50,7 @@ Application Insights biedt bovendien toepassingsprestatiebeheer van realtime en 
 Deze oplossing maakt gebruik van de volgende Azure-services. Informatie van de implementatiearchitectuur vindt u in de [architectuur](#deployment-architecture) sectie.
 
 - App Service Environment v2
-- Toepassingsgateway
+- Application Gateway
   - (1) de web application firewall
     - Firewallmodus: preventie
     - Regelset: OWASP 3.0
@@ -103,7 +103,7 @@ Gebruik App Service-omgevingen voor de volgende besturingselementen/configuratie
 - [Web application firewall: gegevens beperken](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-web-application-firewall)
 - Toestaan dat [verkeer van de Azure SQL Database](https://docs.microsoft.com/azure/app-service-web/app-service-app-service-environment-network-architecture-overview)
 
-**Azure-Web-App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) kunnen klanten bouwen en hosten van webtoepassingen in de programmeertaal van hun keuze zonder het beheren van infrastructuur. Het biedt automatisch schalen en hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux, en maakt automatische implementaties vanuit GitHub, Azure DevOps of een willekeurige Git-repo mogelijk.
+**Azure-Web-App**: [Azure Web Apps](https://docs.microsoft.com/azure/app-service/) kunnen klanten bouwen en hosten van webtoepassingen in de programmeertaal van hun keuze zonder het beheren van infrastructuur. Het biedt automatisch schalen en een hoge beschikbaarheid, ondersteuning voor zowel Windows als Linux en maakt automatische implementaties mogelijk vanuit GitHub, Azure DevOps of een willekeurige Git-repo.
 
 ### <a name="virtual-network"></a>Virtual Network
 
@@ -223,7 +223,7 @@ De [Azure-beveiliging en naleving blauwdruk – PCI DSS PaaS Web Application imp
 ## <a name="deploy-this-solution"></a>Deze oplossing implementeren
 Deze Azure-beveiliging en naleving blauwdruk Automation bestaat uit JSON-configuratiebestanden en PowerShell-scripts die worden verwerkt door Azure Resource Manager API-service om resources binnen Azure te implementeren. Gedetailleerde implementatie-instructies zijn beschikbaar [hier](https://aka.ms/pcidss-paaswa-repo).
 
-#### <a name="quickstart"></a>Quick Start
+#### <a name="quickstart"></a>Snelstartgids
 1. Klonen of downloaden [dit](https://aka.ms/pcidss-paaswa-repo) GitHub-opslagplaats naar uw lokale werkstation.
 
 2. 0-Setup-AdministrativeAccountAndPermission.md bekijken en de opgegeven opdrachten.

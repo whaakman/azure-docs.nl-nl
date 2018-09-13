@@ -10,13 +10,13 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 03/07/2018
 ms.author: mireks
-ms.reviewer: carlrab
-ms.openlocfilehash: a648071d4d98f500e70557b330d5c79dba747a1f
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.reviewer: vanto
+ms.openlocfilehash: d123cb2d272f1c360d12e9d71eec6dc5ca508ebd
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345194"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718743"
 ---
 # <a name="configure-and-manage-azure-active-directory-authentication-with-sql-database-managed-instance-or-sql-data-warehouse"></a>Configureren en beheren van Azure Active Directory-verificatie met SQL Database Managed Instance of SQL Data Warehouse
 
@@ -189,7 +189,7 @@ Het volgende voorbeeld verwijdert u een Azure AD-beheerder:
 Remove-AzureRmSqlServerActiveDirectoryAdministrator -ResourceGroupName "Group-23" -ServerName "demo_server"
 ```
 
-U kunt ook Azure Active Directory-beheerder inrichten met behulp van de REST API's. Zie voor meer informatie, [Service Management REST API-verwijzing en bewerkingen voor Azure SQL-Databases bewerkingen voor Azure SQL-Databases](https://msdn.microsoft.com/library/azure/dn505719.aspx)
+U kunt ook Azure Active Directory-beheerder inrichten met behulp van de REST API's. Zie voor meer informatie, [Service Management REST API-verwijzing en bewerkingen voor Azure SQL Database-bewerkingen voor Azure SQL Database](https://msdn.microsoft.com/library/azure/dn505719.aspx)
 
 ### <a name="cli"></a>CLI  
 U kunt ook een Azure AD-beheerder inrichten door het aanroepen van de volgende CLI-opdrachten:

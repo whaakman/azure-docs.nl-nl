@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 07/30/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b13b5a7d5366a0bce97d8e735dbf3822186d21cb
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9ebd949460f826c9529b9f392bc4a7f4918ee170
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356750"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715037"
 ---
 # <a name="troubleshooting-the-access-panel-extension-for-internet-explorer"></a>Het oplossen van het Configuratiescherm-extensie voor toegang voor Internet Explorer
 Dit artikel helpt u de volgende problemen op te lossen:
@@ -91,7 +91,6 @@ De extensie Toegangsvenster van uw computer verwijderen:
 Als er problemen zijn met de extensie verwijderen is, kunt u ook verwijderen met behulp van de [Microsoft Fix It](https://go.microsoft.com/?linkid=9779673) hulpprogramma.
 
 ## <a name="related-articles"></a>Gerelateerde artikelen
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 * [Toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](what-is-single-sign-on.md)
 * [Over het implementeren van het Configuratiescherm-extensie voor toegang voor Internet Explorer met behulp van Groepsbeleid](deploy-access-panel-browser-extension.md)
 

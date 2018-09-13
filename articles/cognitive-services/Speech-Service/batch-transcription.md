@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: b6fb39ef5941157cfe0d18324deeb9d836d7ab09
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 02af95859bcbdc3dd9fdd6d6354cae9cdf99eae8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377618"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717944"
 ---
 # <a name="batch-transcription"></a>Batchtranscriptie
 
@@ -59,36 +59,38 @@ Voor stereo audiostreams, wordt de linker- en -kanaal in Batch transcriptie gesp
 
 ## <a name="authorization-token"></a>Autorisatietoken
 
-Bij het met alle functies van de Spraakservice Unified maken van een abonnementssleutel van de [Azure-portal](https://portal.azure.com). Bovendien kunt u een API-sleutel van de portal voor spraak aanschaffen: 
+Bij het met alle functies van de Spraakservice Unified maken van een abonnementssleutel van de [Azure-portal](https://portal.azure.com). Volg deze 6 eenvoudige stappen.
 
-1. Aanmelden bij [aangepaste spraak](https://customspeech.ai).
+1. De sleutel van een abonnement gemaakt in Azure volgende onze [Get-Started guide](get-started.md) 
 
-2. Selecteer **Abonnementen**.
+2. Aanmelden bij [aangepaste spraak](https://customspeech.ai).
 
-3. Selecteer **API-sleutel genereren**.
+3. Selecteer **Abonnementen**.
+
+4. Selecteer **verbinding maken met bestaande abonnement**.
+
+5. De abonnementssleutel en een alias toevoegen in de weergave die wordt weergegeven
 
     ![Schermafbeelding van de aangepaste spraak abonnementen pagina](media/stt/Subscriptions.jpg)
 
-4. Kopieer en plak deze sleutel in de clientcode in het volgende voorbeeld.
+6. Kopieer en plak deze sleutel in de clientcode in het volgende voorbeeld.
 
 > [!NOTE]
-> Als u van plan bent te gebruiken van een aangepast model, moet u de ID van dit model te. Houd er rekening mee dat dit is geen ID van de implementatie of -eindpunt dat u op de detailweergave van het eindpunt vinden. Het is de model-ID die u ophalen kunt wanneer u de details van dit model selecteert.
+> Als u van plan bent te gebruiken van een aangepast model, moet u de ID van dit model te. Houd er rekening mee dat dit niet de eindpunt-ID die u op de detailweergave van het eindpunt vinden is. Het is de model-ID die u ophalen kunt wanneer u de details van dit model selecteert.
 
 ## <a name="sample-code"></a>Voorbeeldcode
 
 Pas de volgende voorbeeldcode met een abonnementssleutel en een API-sleutel. Hiermee kunt u een bearer-token verkrijgen.
 
 ```cs
-    public static async Task<CrisClient> CreateApiV1ClientAsync(string username, string key, string hostName, int port)
+     public static CrisClient CreateApiV2Client(string key, string hostName, int port)
+
         {
             var client = new HttpClient();
             client.Timeout = TimeSpan.FromMinutes(25);
             client.BaseAddress = new UriBuilder(Uri.UriSchemeHttps, hostName, port).Uri;
-
-            var tokenProviderPath = "/oauth/ctoken";
-            var clientToken = await CreateClientTokenAsync(client, hostName, port, tokenProviderPath, username, key).ConfigureAwait(false);
-            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("bearer", clientToken.AccessToken);
-
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", key);
+         
             return new CrisClient(client);
         }
 ```

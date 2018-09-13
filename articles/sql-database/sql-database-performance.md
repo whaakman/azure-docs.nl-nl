@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 8a458af27bd517be7c3ce0b5ad30c6d575d494c0
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 5d739787d5b268ddfcf5bb9e6494c3cba6b3cdc2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522438"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718777"
 ---
 # <a name="monitor-and-improve-performance"></a>Prestaties bewaken en verbeteren
 Azure SQL Database geeft mogelijke problemen in uw database en wordt aanbevolen acties die prestaties van uw workload verbeteren kunnen door intelligente acties en aanbevelingen te geven.
@@ -56,7 +56,7 @@ U vindt hier ook volledige geschiedenis van het afstemmen van de acties die zijn
 Meer informatie over het vinden van een item voor toepassen aanbevelingen voor prestaties in [zoeken en toepassen van aanbevelingen voor prestaties](sql-database-advisor-portal.md) artikel.
 
 ## <a name="automatic-tuning"></a>Automatisch instellen
-Azure SQL-Databases kan automatisch afstemmen van prestaties van de database door toe te passen [aanbevelingen voor prestaties](sql-database-advisor.md). Voor meer informatie lezen [automatisch afstemmen artikel](sql-database-automatic-tuning.md). Als u wilt inschakelen, lezen [het inschakelen van automatisch afstemmen](sql-database-automatic-tuning-enable.md).
+Azure SQL-databases kunnen automatisch afstemmen van prestaties van de database door toe te passen [aanbevelingen voor prestaties](sql-database-advisor.md). Voor meer informatie lezen [automatisch afstemmen artikel](sql-database-automatic-tuning.md). Als u wilt inschakelen, lezen [het inschakelen van automatisch afstemmen](sql-database-automatic-tuning-enable.md).
 
 ## <a name="query-performance-insight"></a>Inzicht in queryprestaties
 [Query Performance Insight](sql-database-query-performance.md) kunt u minder tijd door het oplossen van prestaties van de database door te geven:

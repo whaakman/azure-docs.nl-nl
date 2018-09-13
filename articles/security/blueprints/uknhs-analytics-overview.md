@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 06/15/2018
 ms.author: jomolesk
-ms.openlocfilehash: 8885eba0d69c869ad5d298094b835f0351d8d94d
-ms.sourcegitcommit: 4597964eba08b7e0584d2b275cc33a370c25e027
+ms.openlocfilehash: d05be48da296b0d088e38b4c7474103b02e6d5cd
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/02/2018
-ms.locfileid: "37342942"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721072"
 ---
 # <a name="azure-security-and-compliance-blueprint-data-analytics-for-uk-nhs"></a>Azure-beveiliging en naleving blauwdruk: gegevensanalyse voor UK NHS
 
@@ -29,7 +29,7 @@ Deze oplossing biedt een platform voor streaminganalyse waarop klanten hun eigen
 
 Azure biedt tal van services voor rapportage en analyse voor de klant. Deze oplossing bevat echter Azure Analysis Services in combinatie met Azure SQL Database om snel door gegevens bladeren en snellere resultaten via slimmer modelleren van gegevens van de klant. Azure Analytics-Services is een vorm van machine learning is bedoeld om te verhogen query snelheden worden bereikt door het detecteren van nieuwe relaties tussen gegevenssets. Zodra de gegevens is getraind via verschillende statistische functies, maximaal 7 extra query kunnen pools (8 totale met inbegrip van de klantserver) worden gesynchroniseerd met de dezelfde tabellaire modellen om werkbelasting van query's te verspreiden en responstijden te verminderen.
 
-Voor geavanceerde analyse en rapportage, kan Azure SQL-Databases worden geconfigureerd met columnstore-indexen. Zowel analyseservices van Azure en Azure SQL-Databases kan omhoog of omlaag geschaald of volledig afgesloten in reactie op klanten te worden gebruikt. Alle SQL-verkeer wordt versleuteld met SSL door de toevoeging van zelfondertekende certificaten. Als een best practice raadt Azure het gebruik van een vertrouwde certificeringsinstantie voor verbeterde beveiliging.
+Voor geavanceerde analyse en rapportage, kunnen Azure SQL-databases worden geconfigureerd met columnstore-indexen. Zowel analyseservices van Azure en Azure SQL-databases kunnen omhoog of omlaag geschaald of volledig afgesloten in reactie op klanten te worden gebruikt. Alle SQL-verkeer wordt versleuteld met SSL door de toevoeging van zelfondertekende certificaten. Als een best practice raadt Azure het gebruik van een vertrouwde certificeringsinstantie voor verbeterde beveiliging.
 
 Wanneer gegevens worden geüpload naar de Azure SQL Database en getraind door Azure Analysis Services, is het ontsloten door zowel de operationele gebruiker en de beheerder van de SQL-gegevens met Power BI. Power BI gegevens intuïtief worden weergegeven en informatie verzamelt over meerdere gegevenssets te tekenen meer inzicht krijgen. De hoge mate van aanpasbaarheid en eenvoudige integratie met Azure SQL Database zorgt ervoor dat klanten configureren kunnen voor het afhandelen van een breed scala aan scenario's zoals vereist door de zakelijke behoeften.
 

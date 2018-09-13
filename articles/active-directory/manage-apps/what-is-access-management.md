@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/16/2017
 ms.author: barbkess
-ms.openlocfilehash: d39df136c6c81e380ccbe7fa2c050d906dc4c182
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: cec1b3089403966cbf738b372a4380bdacf264b7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39367042"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718274"
 ---
 # <a name="managing-access-to-apps"></a>Toegang tot apps beheren
 Beheer van continue toegang, gebruik evaluatie en rapportage blijven lastig zijn om nadat een app is geïntegreerd in identiteitssysteem van uw organisatie. In veel gevallen hebben IT-beheerders of de helpdesk te nemen van een doorlopende actieve rol bij het beheren van toegang tot uw apps. Toewijzing wordt soms uitgevoerd door een algemene of divisie IT-team. Vaak de beslissing van de toewijzing is bedoeld om te worden overgedragen aan de zakelijke besluitvormer, waarvoor ze worden goedgekeurd voordat IT heeft de toewijzing.  Andere organisaties investeren in integratie met een bestaande geautomatiseerde identiteits- en toegangsbeheer management-systeem, zoals Role-Based Access Control (RBAC) of op kenmerken gebaseerde Access Control (ABAC). De integratie en de ontwikkeling van de regel zijn meestal gespecialiseerde en dure. Controleren of rapportage over beide benaderingen management is een eigen afzonderlijke, dure en complexe investering.
@@ -54,7 +54,5 @@ In dit geval zouden alle toegewezen gebruikers worden automatisch ingericht met 
 Beheerders kunnen gebruikmaken van [voorwaardelijke toegang voor Azure AD](../active-directory-conditional-access-azure-portal.md) toegangsbeleid voor specifieke rollen instellen. Deze beleidsregels kunnen opnemen of toegang is toegestaan buiten de bedrijfsomgeving en zelfs multi-factor Authentication of het apparaat vereisten voor toegang in verschillende gevallen bereiken.
 
 ## <a name="next-steps"></a>Volgende stappen
-
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 * [Beveiligen van apps met voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md)
 * [Groepsbeheer met Self-Service management/SSAA](../users-groups-roles/groups-self-service-management.md)

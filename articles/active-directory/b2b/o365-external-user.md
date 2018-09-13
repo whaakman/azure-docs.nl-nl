@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7e0a65e4a5807cb9a6b39feecfd2d5b2643ea4a9
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 1ab7518ff5a9524dbfe1b258a51b7ad0ef5c9765
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330902"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716771"
 ---
 # <a name="office-365-external-sharing-and-azure-active-directory-b2b-collaboration"></a>Extern delen van Office 365 en Azure Active Directory B2B-samenwerking
 
@@ -38,9 +38,14 @@ Voor het beheren van extern delen in OneDrive/SharePoint Online met Azure AD B2B
 
 ![De OneDrive/SharePoint Online extern delen van instelling](media/o365-external-user/odsp-sharing-setting.png)
 
+Na het inschakelen van extern delen, is de mogelijkheid om te zoeken naar bestaande gastgebruikers ook kunnen in de SharePoint Online (SPO) personen selecteren uitgeschakeld zodat deze overeenkomen met de verouderde gedrag standaard.
+
+U kunt deze functie inschakelen met behulp van de instelling 'ShowPeoplePickerSuggestionsForGuestUsers' op het niveau van de verzameling tenant en de site. U kunt de functie met de cmdlets Set-SPOTenant en Set-SPOSite waarmee leden om te zoeken naar alle bestaande gastgebruikers ook kunnen in de map instellen. Wijzigingen in het tenantbereik is niet van invloed op al ingerichte SPO-sites.
+
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Wat is Azure AD B2B-samenwerking?](what-is-b2b.md)
 * [B2B-samenwerking gebruiker toe te voegen aan een rol](add-guest-to-role.md)
 * [B2B-samenwerking uitnodigingen delegeren](delegate-invitations.md)
 * [Dynamische groepen en B2B-samenwerking](use-dynamic-groups.md)
+* [Oplossen van problemen met Azure Active Directory B2B-samenwerking](troubleshoot.md)

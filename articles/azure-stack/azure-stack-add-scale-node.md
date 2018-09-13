@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/20/2018
+ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: thoroet
-ms.openlocfilehash: 02602243bcb4e426ebf4984e387da8e8c148232e
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 0899b1784c796e5f6265dda842ca8955615a1584
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058746"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718086"
 ---
 # <a name="add-additional-scale-unit-nodes-in-azure-stack"></a>Extra scale unit knooppunten toevoegen in Azure Stack
 
@@ -64,7 +64,7 @@ U kunt de admin-portal of PowerShell gebruiken om toe te voegen nieuwe knooppunt
 ### <a name="use-the-admin-portal"></a>Gebruik de beheerportal
 
 1. Meld u aan de Azure Stack-beheerportal als Azure Stack-operators.
-2. Navigeer naar **nieuwe** > **capaciteit** > **schalen eenheid knooppunt**.
+2. Navigeer naar **+ een resource maken** > **capaciteit** > **Scale Unit knooppunt**.
    ![Schaal eenheid knooppunt](media/azure-stack-add-scale-node/select-node1.png)
 3. Op de **toevoegen knooppunt** venster de *regio*, en selecteer vervolgens de *schaaleenheid* dat u wilt toevoegen van het knooppunt. Geef ook de *BMC IP-adres* voor het schalen eenheid knooppunt dat u wilt toevoegen. U kunt slechts één knooppunt tegelijk toevoegen.
    ![Knooppuntdetails toevoegen](media/azure-stack-add-scale-node/select-node2.png)

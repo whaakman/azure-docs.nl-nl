@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asteen
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 948a0d6a3d6fb6b6f3f7c13be6340c8ac364ee57
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 4540b68dedc3086c3ea0fb12ebbe3cfe2344698b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356759"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718794"
 ---
 # <a name="how-to-deploy-the-access-panel-extension-for-internet-explorer-using-group-policy"></a>Over het implementeren van het Configuratiescherm-extensie voor toegang voor Internet Explorer met behulp van Groepsbeleid
 Deze zelfstudie laat zien hoe u kunt Groepsbeleid gebruiken om de extensie van het toegangsvenster voor Internet Explorer op afstand installeren op uw gebruikers virtuele machines. Deze uitbreiding is vereist voor Internet Explorer-gebruikers die u moeten zich aanmelden bij apps die zijn geconfigureerd met behulp van [wachtwoord gebaseerde eenmalige aanmelding](what-is-single-sign-on.md#password-based-single-sign-on).
@@ -29,7 +29,7 @@ Het verdient aanbeveling dat beheerders de implementatie van deze extensie wilt 
 
 De extensie van het toegangsvenster is ook beschikbaar voor [Chrome](https://go.microsoft.com/fwLink/?LinkID=311859) en [Firefox](https://go.microsoft.com/fwLink/?LinkID=626998), geen van beide vereist beheerdersmachtigingen om te installeren.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 * U hebt ingesteld [Active Directory Domain Services](https://msdn.microsoft.com/library/aa362244%28v=vs.85%29.aspx), en u hebt uw gebruikers machines toegevoegd aan uw domein.
 * U moet de machtiging 'Instellingen bewerken' voor het bewerken van het groepsbeleidsobject (GPO) hebben. Standaard hebben leden van de volgende beveiligingsgroepen deze machtiging: Domeinadministrators, Ondernemingsadministrators en beveiligingsgroep Maker Eigenaar Groepsbeleid. [Meer informatie.](https://technet.microsoft.com/library/cc781991%28v=ws.10%29.aspx)
 
@@ -162,7 +162,6 @@ Volg de stappen hieronder om te controleren of als de implementatie van de uitbr
     ![Controleer of dat de uitbreiding van het Configuratiescherm toegang is geïnstalleerd en ingeschakeld.](./media/deploy-access-panel-browser-extension/verify-install.png)
 
 ## <a name="related-articles"></a>Gerelateerde artikelen
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 * [Toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory](what-is-single-sign-on.md)
 * [Het oplossen van het Configuratiescherm-extensie voor toegang voor Internet Explorer](manage-access-panel-browser-extension.md)
 

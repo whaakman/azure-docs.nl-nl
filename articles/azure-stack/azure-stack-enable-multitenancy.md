@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/23/2018
+ms.date: 09/11/2018
 ms.author: patricka
-ms.openlocfilehash: e61b4457cd88c236145ce7595ee7db4340538465
-ms.sourcegitcommit: 7ad9db3d5f5fd35cfaa9f0735e8c0187b9c32ab1
+ms.openlocfilehash: 0a10662e359379356ecc8d82af1b7d6331c41a65
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/27/2018
-ms.locfileid: "39330867"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720052"
 ---
 # <a name="multi-tenancy-in-azure-stack"></a>Multitenancy in Azure Stack
 
@@ -101,6 +101,18 @@ Register-AzSWithMyDirectoryTenant `
 > Als uw Azure Stack-beheerder in de toekomst nieuwe services of updates installeert, moet u mogelijk met dit script opnieuw uitvoeren.
 >
 > Voer dit script opnieuw uit op elk gewenst moment om te controleren of de status van de Azure Stack-toepassingen in uw directory.
+
+
+### <a name="activate-the-administrator-and-tenant-portals"></a>De beheerder en tenant-portals activeren
+Na de implementaties die gebruikmaken van Azure AD, moet u zowel de Azure Stack-beheerder en tenant de portals activeren. Deze activering toestemming heeft om op te geven van de Azure Stack-portal en Azure Resource Manager de juiste machtigingen (die worden vermeld op de pagina toestemming) voor alle gebruikers van de map.
+
+- Voor de beheerdersportal, gaat u naar https://adminportal.local.azurestack.external/guest/signup, lees de informatie en klik vervolgens op accepteren. Nadat u hebt geaccepteerd, kunt u servicebeheerders die geen ook tenantbeheerders directory toevoegen.
+- Voor de tenantportal, gaat u naar https://portal.local.azurestack.external/guest/signup, lees de informatie en klik vervolgens op accepteren. Nadat u hebt geaccepteerd, kunnen gebruikers in de map kunnen aanmelden bij de tenantportal. 
+ 
+> [!NOTE] 
+> Als de portals zijn niet geactiveerd, kunt alleen de directory-beheerder zich aanmelden en de portals gebruiken. Als een andere gebruiker zich aangemeld heeft, zien ze een foutbericht dat aangeeft dat de beheerder geen machtigingen heeft verleend aan andere gebruikers. Als de beheerder van de systeemeigen niet tot de map die Azure Stack is geregistreerd behoort bij, moet de Azure Stack-map worden toegevoegd aan de activerings-URL. Bijvoorbeeld, als Azure Stack is geregistreerd bij fabrikam.onmicrosoft.com en de gebruiker met beheerdersrechten is admin@contoso.com, gaat u naar https://portal.local.azurestack.external/guest/signup/fabrikam.onmicrosoft.com activeren van de portal.
+
+
 
 ### <a name="direct-users-to-sign-in"></a>Directe gebruikers zich aanmelden
 

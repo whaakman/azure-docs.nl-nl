@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/09/2018
+ms.date: 09/11/2018
 ms.author: barbkess
-ms.openlocfilehash: fd42d2d7f3a277f9ea568e255ab5ba5eb76476ae
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: cf0e94b859b49eddb8e2471d5319b3cc4a2c17ba
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44356841"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720290"
 ---
 # <a name="writing-expressions-for-attribute-mappings-in-azure-active-directory"></a>Expressies schrijven voor kenmerktoewijzingen in Azure Active Directory
 Bij het configureren van inrichting tot een SaaS-toepassing, is een van de typen kenmerktoewijzingen die u kunt opgeven een expressie-toewijzing. Voor deze, moet u een script-achtige-expressie waarmee u uw gebruikers om gegevens te transformeren naar indelingen die meer geschikt is voor de SaaS-toepassing kunt schrijven.
@@ -67,7 +67,7 @@ De syntaxis voor expressies voor kenmerktoewijzingen is doet denken aan van Visu
 | **Uitvoerindeling** |Vereist |Reeks |Indeling van de uitvoerdatum. |
 
 - - -
-### <a name="join"></a>Lid worden
+### <a name="join"></a>Koppelen
 **Functie:**<br> Deelnemen aan (scheidingsteken, bron1, bron2,...)
 
 **Beschrijving:**<br> Join() is vergelijkbaar met Append(), behalve dat deze meerdere kunt combineren **bron** tekenreeks waarden in één tekenreeks en elke waarde wordt gescheiden door een **scheidingsteken** tekenreeks.
@@ -176,7 +176,7 @@ Vervangt waarden binnen een tekenreeks. Het werkt anders, afhankelijk van de opg
 | **Bron** |Vereist |Reeks |**bron** waarde om bij te werken. |
 
 - - -
-### <a name="switch"></a>Schakeloptie
+### <a name="switch"></a>Switch
 **Functie:**<br> Switch (bron, defaultValue, key1, value1, key2, waarde2,...)
 
 **Beschrijving:**<br> Wanneer **bron** waarde komt overeen met een **sleutel**, retourneert **waarde** voor die **sleutel**. Als **bron** waarde komt niet overeen met alle sleutels, retourneert **defaultValue**.  **Sleutel** en **waarde** parameters moeten altijd zijn verkrijgbaar in paren. De functie verwacht altijd een even aantal parameters.
@@ -264,7 +264,6 @@ Als de status code komt niet overeen met een van de vooraf gedefinieerde opties,
 * **UITVOER**: "Australië/Brisbane"
 
 ## <a name="related-articles"></a>Gerelateerde artikelen
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 * [Gebruiker inrichting/ongedaan maken van inrichting voor SaaS-toepassingen automatiseren](user-provisioning.md)
 * [Kenmerktoewijzingen voor het inrichten van gebruikers aan te passen](customize-application-attributes.md)
 * [Bereikfilters toevoegen voor het inrichten van gebruikers](define-conditional-rules-for-provisioning-user-accounts.md)

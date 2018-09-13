@@ -12,12 +12,12 @@ ms.workload: On Demand
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: ce0684f9ab06b5362ccdf25aeaff15ea668ce96c
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: c653f1f5366e7dac43f51d5daf1f0b13d93674ce
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444145"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721979"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
@@ -101,7 +101,7 @@ Deze functie wordt gebruikt om te beveiligen tegen bedrijfsonderbreking geval va
 * Heeft een hoge frequentie van gegevenswijziging en een uur aan gegevensverlies is niet acceptabel.
 * De extra kosten van actieve geo-replicatie zijn lager dan de mogelijke financiële verplichting en het bijbehorende bedrijfsverlies.
 
-Wanneer u actie onderneemt, hoe lang duurt het om te herstellen en hoeveel verlies van gegevens in rekening worden gebracht afhankelijk van hoe u bepaalt het gebruik van deze functies voor bedrijfscontinuïteit in uw toepassing. U wilt immers een combinatie van databaseback-ups en actieve geo-replicatie, al naar gelang de vereisten van uw toepassing gebruiken. Zie [Een toepassing ontwerpen voor noodherstel via de cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) en [Strategieën voor noodherstel voor elastische groepen](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md) voor een bespreking van overwegingen voor het ontwerp van toepassingen voor zelfstandige databases en voor elastische pools met behulp van deze functies voor bedrijfscontinuïteit.
+Wanneer u actie onderneemt, hoe lang duurt het om te herstellen en hoeveel verlies van gegevens in rekening worden gebracht afhankelijk van hoe u bepaalt het gebruik van deze functies voor bedrijfscontinuïteit in uw toepassing. U wilt immers een combinatie van databaseback-ups en actieve geo-replicatie, al naar gelang de vereisten van uw toepassing gebruiken. Zie voor een bespreking van ontwerpoverwegingen voor toepassingen voor zelfstandige databases en elastische pools met behulp van deze functies voor bedrijfscontinuïteit, [een toepassing ontwerpen voor noodherstel voor cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) en [elastische strategieën voor noodherstel van toepassingen](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).
 
 De volgende secties bevatten een overzicht van de stappen voor het herstellen met behulp van de databaseback-ups of actieve geo-replicatie. Zie voor gedetailleerde stappen, waaronder planningsvereisten vereisten, stappen na herstel en informatie over het simuleren van een storing om uit te voeren een Dr-herstelanalyse [een SQL-Database herstellen na een storing](sql-database-disaster-recovery.md).
 
@@ -142,4 +142,4 @@ Na herstel via een van beide herstelmechanismen moet u de volgende aanvullende t
 Soms moet een toepassing offline worden genomen vanwege gepland onderhoud, zoals een toepassingsupgrade. [Toepassingsupgrades beheren](sql-database-manage-application-rolling-upgrade.md) wordt beschreven hoe u actieve geo-replicatie voor het inschakelen van rolling upgrades van uw cloudtoepassing uitvaltijd tijdens upgrades en een herstelpad kunt opgeven als er iets misgaat. 
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie [Een toepassing ontwerpen voor noodherstel via de cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) en [Strategieën voor noodherstel voor elastische pools](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md) voor een bespreking van overwegingen voor het ontwerp van toepassingen voor zelfstandige databases en voor elastische groepen.
+Zie voor een bespreking van ontwerpoverwegingen voor toepassingen voor zelfstandige databases en elastische pools, [een toepassing ontwerpen voor noodherstel voor cloud](sql-database-designing-cloud-solutions-for-disaster-recovery.md) en [elastische pool strategieën voor noodherstel](sql-database-disaster-recovery-strategies-for-applications-with-elastic-pool.md).

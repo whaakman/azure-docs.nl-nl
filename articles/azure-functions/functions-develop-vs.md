@@ -8,14 +8,14 @@ manager: jeconnoc
 ms.service: azure-functions
 ms.custom: vs-azure
 ms.topic: conceptual
-ms.date: 05/23/2018
+ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 39745991f7ab3b181f892bbaa59283d92737ecf3
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 63213e38dab5ef2edd5150fe0adb620fecb2041c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093870"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714442"
 ---
 # <a name="develop-azure-functions-using-visual-studio"></a>Ontwikkel Azure Functions met Visual Studio  
 
@@ -96,7 +96,7 @@ De verbindingsreeks voor opslag instellen:
 
 3. Herhaal de vorige stap om toe te voegen unieke sleutels zijn aan de **waarden** matrix voor alle andere verbindingen die vereist zijn door uw functies.
 
-## <a name="create-a-function"></a>Een functie maken
+## <a name="add-a-function-to-your-project"></a>Een functie toevoegen aan uw project
 
 De bindingen die worden gebruikt door de functie worden in de vooraf gecompileerde functies gedefinieerd door het toepassen van kenmerken in de code. Wanneer u de Azure Functions-hulpprogramma's om te maken van uw functies van de opgegeven sjablonen gebruikt, worden deze kenmerken worden toegepast voor u. 
 

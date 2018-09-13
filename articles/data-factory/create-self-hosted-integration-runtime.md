@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 01/15/2018
 ms.author: abnarain
-ms.openlocfilehash: 7948b54bd6402cf238c5709d270087746ed4fa95
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 7cd5fc965a57052323d4b916f0f2b7dbc0feb7b3
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380366"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715411"
 ---
 # <a name="how-to-create-and-configure-self-hosted-integration-runtime"></a>Over het maken en configureren van zelfgehoste Cloudintegratieruntime
 De Integration Runtime (IR) is de rekeninfrastructuur die door Azure Data Factory gebruikt om u te bieden mogelijkheden voor gegevensintegratie in verschillende netwerkomgevingen. Zie voor meer informatie over IR [overzicht van Integration Runtime](concepts-integration-runtime.md).
@@ -57,7 +57,7 @@ Hier volgt een gegevensstroom op hoog niveau voor een samenvatting van de stappe
 
 ## <a name="considerations-for-using-self-hosted-ir"></a>Overwegingen voor het gebruik van zelf-hostende IR
 
-- Een enkele zelf-hostende integratieruntime kan worden gebruikt voor meerdere on-premises gegevensbronnen. Echter, een **één zelf-hostende integratieruntime is gekoppeld aan slechts één Azure data factory** en kan niet worden gedeeld met een andere data factory.
+- Een enkele zelf-hostende integratieruntime kan worden gebruikt voor meerdere on-premises gegevensbronnen. Een **één zelf-hostende integratieruntime kan** worden gedeeld met een andere data factory binnen dezelfde Azure Active Directory-tenant. Zie voor meer informatie, [delen van een zelf-hostende integratieruntime](#sharing-the-self-hosted-integration-runtime-ir-with-multiple-data-factories).
 - U kunt hebben **slechts één exemplaar van de zelf-hostende integratieruntime** op één computer geïnstalleerd. Stel dat u hebt twee data factory's die nodig hebt voor toegang tot on-premises gegevensbronnen, moet u zelf-hostende integratieruntime installeren op twee on-premises computers. Met andere woorden, is een zelf-hostende integratieruntime gekoppeld aan een specifieke data factory
 - De **zelf-hostende integratieruntime niet hoeft te worden op dezelfde computer als de gegevensbron**. Echter, dat u hoeft zelf-hostende integratieruntime dichter bij de gegevensbron verkort de termijn voor de zelf-hostende integratieruntime verbinding maken met de gegevensbron. Het is raadzaam dat u installeert de zelf-hostende integratieruntime op een computer die verschilt van de hosts on-premises gegevensbron. Wanneer de zelf-hostende integration runtime en de gegevensbron zich op verschillende computers bevinden, kunnen de zelf-hostende integratieruntime niet concurreren voor resources met de gegevensbron.
 - U kunt hebben **meerdere zelf-hostende integratieruntimes op verschillende computers verbinding maken met dezelfde on-premises gegevensbron**. Bijvoorbeeld, u hebt twee zelf-hostende integratieruntime voor de twee data factory's maar dezelfde on-premises gegevensbron is geregistreerd bij de gegevensfactory.

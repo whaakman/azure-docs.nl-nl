@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 08/17/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 5fcdf02fe75905fb3e492671ba44adb65dfd0da7
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: a4bf21f972da1aa92d6f127e8cbabb89a9c31489
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058134"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719950"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database-modellen en -bronnen aanschaffen 
 
@@ -61,7 +61,7 @@ Voor een individuele Azure SQL-database op een bepaald prestatieniveau binnen ee
 
 ![selectiekader](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-Dtu's zijn handig voor het begrijpen van de relatieve hoeveelheid resources tussen Azure SQL-Databases op verschillende prestatieniveaus en service-lagen. Bijvoorbeeld, verdubbeling van het aantal dtu's door het verhogen van het prestatieniveau van een database is gelijk aan de set met resources waarover die database verdubbelen. Zo biedt een Premium P11-database met 1750 DTU's 350 keer meer DTU aan rekenvermogen dan een Basic-database met 5 DTU's.  
+Dtu's zijn handig voor het begrijpen van de relatieve hoeveelheid resources tussen Azure SQL-databases op verschillende prestatieniveaus en service-lagen. Bijvoorbeeld, verdubbeling van het aantal dtu's door het verhogen van het prestatieniveau van een database is gelijk aan de set met resources waarover die database verdubbelen. Zo biedt een Premium P11-database met 1750 DTU's 350 keer meer DTU aan rekenvermogen dan een Basic-database met 5 DTU's.  
 
 Gebruiken om te krijgen van inzicht in het gebruik van resources (DTU) van uw werkbelasting, [Azure SQL Database Query Performance Insight](sql-database-query-performance.md) aan:
 

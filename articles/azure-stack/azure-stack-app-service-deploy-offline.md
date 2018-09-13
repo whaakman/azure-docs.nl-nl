@@ -12,14 +12,14 @@ ms.workload: app-service
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/12/2018
 ms.author: anwestg
-ms.openlocfilehash: 9e36e470c3516c55089ce1e44540b6b1eacbb6b2
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4b6ad2e237d73d5d8ca414bffc3a679ee552105f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056632"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718726"
 ---
 # <a name="add-an-app-service-resource-provider-to-a-disconnected-azure-stack-environment-secured-by-ad-fs"></a>Een App Service-resourceprovider toevoegen aan een niet-verbonden Azure Stack-omgeving beveiligd door AD FS
 
@@ -226,7 +226,7 @@ U *moet* een tenantabonnement te maken van toepassingen die gebruikmaken van App
 >
 Vanaf de derde technical preview, voor het maken van web-API en Azure Functions apps, moet u de tenantportal te gebruiken en een tenantabonnement hebt.
 
-1. Klik in de portal voor Azure Stack-tenant op **nieuw** > **Web en mobiel** > **Web-App**.
+1. Klik in de portal voor Azure Stack-tenant op **+ een resource maken** > **Web en mobiel** > **Web-App**.
 
 2. Op de **Web-App** blade, typ een naam in de **Web-app** vak.
 

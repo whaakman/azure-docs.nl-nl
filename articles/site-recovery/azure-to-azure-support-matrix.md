@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 43955cd516e9779200b66608270797a66565f53b
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 105c1d97a812841e82a0c364ec7dda097c0dd399
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378462"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717366"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -38,7 +38,7 @@ In dit artikel bevat een overzicht van ondersteunde configuraties en -onderdelen
 --- | --- | ---
 **Kluis verplaatsen tussen resourcegroepen** | Niet ondersteund<br/><br/> U kunt een Recovery services-kluis niet verplaatsen tussen resourcegroepen.
 **Compute/opslagnetwerk resources verplaatsen tussen resourcegroepen** | Wordt niet ondersteund.<br/><br/> Als u een virtuele machine of de bijbehorende onderdelen, zoals opslag/netwerk verplaatsen wanneer deze wordt gerepliceerd, moet u replicatie uitschakelen en weer inschakelen replicatie voor de virtuele machine.
-**Virtuele Azure-machines repliceren van één abonnement naar een andere voor herstel na noodgevallen** | Binnen dezelfde Azure Active Directory-tenant voor 'Resource manager-implementatiemodel' virtuele machines wordt ondersteund. Wordt niet ondersteund voor 'Klassieke implementatiemodel' virtuele machines.
+**Virtuele Azure-machines repliceren van één abonnement naar een andere voor herstel na noodgevallen** | Ondersteund binnen dezelfde Azure Active Directory-tenant. Niet ondersteund voor klassieke virtuele machines.
 **Virtuele machines migreren tussen regio's binnen de ondersteunde geografische clusters (binnen en tussen abonnementen)** | Binnen dezelfde Azure Active Directory-tenant voor 'Resource manager-implementatiemodel' virtuele machines wordt ondersteund. Wordt niet ondersteund voor 'Klassieke implementatiemodel' virtuele machines.
 **Migreren van VM's binnen dezelfde regio** | Wordt niet ondersteund.
 
@@ -207,7 +207,7 @@ Geverifieerde Proxy | Niet ondersteund | Als de virtuele machine van een geverif
 Site-naar-Site-VPN met on-premises (met of zonder ExpressRoute)| Ondersteund | Zorg ervoor dat de Udr en nsg's zodanig dat het Site recovery-verkeer niet wordt doorgestuurd naar on-premises zijn geconfigureerd. Raadpleeg [leidraad voor netwerken.](site-recovery-azure-to-azure-networking-guidance.md)  
 VNET-naar-VNET-verbinding | Ondersteund | Raadpleeg [leidraad voor netwerken.](site-recovery-azure-to-azure-networking-guidance.md)  
 Service-eindpunten voor virtueel netwerk | Ondersteund | Azure Storage-firewalls voor virtuele netwerken worden niet ondersteund. Toestaan van toegang tot specifieke Azure-netwerken op cacheopslagaccounts gebruikt voor het opslaan van gerepliceerde gegevens wordt niet ondersteund.
-Versneld netwerken | Niet ondersteund | Een virtuele machine met versnelde netwerken ingeschakeld kan worden gerepliceerd, maar de failover VM geen versnelde netwerken ingeschakeld. Versneld netwerken worden ook uitgeschakeld voor de bron-VM voor failback.
+Versneld netwerken | Ondersteund | Versneld netwerken moet zijn ingeschakeld op de bron-VM. [Meer informatie](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 ## <a name="next-steps"></a>Volgende stappen

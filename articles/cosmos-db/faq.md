@@ -10,12 +10,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: sngun
-ms.openlocfilehash: 2f18840802a39f03659792a4d5b33ad3a73c5961
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 85d8eb555d96b1c50da0ed00ae1f06c3eec1a5ba
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051439"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722200"
 ---
 # <a name="azure-cosmos-db-faq"></a>Veelgestelde vragen over Azure Cosmos DB
 ## <a name="azure-cosmos-db-fundamentals"></a>Grondbeginselen van Azure Cosmos DB
@@ -118,6 +118,10 @@ Container en de inrichting van de database-level doorvoer zijn aparte aanbieding
 
 Op dit moment kunt u verzameling met de doorvoer van een partitie maken met behulp van de [CreatePartitionedCollection](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/CollectionManagement/Program.cs#L118) methode van de .net SDK of met behulp van de [Azure CLI](https://docs.microsoft.com/cli/azure/cosmosdb/collection?view=azure-cli-latest#az-cosmosdb-collection-create). Het maken van een vaste verzameling met behulp van Azure portal is niet momenteel wordt ondersteund.  
 
+### <a name="does-azure-cosmosdb-support-time-series-analysis"></a>Azure cosmos DB biedt ondersteuning voor tijdseries analyseren? 
+Ja Azure cosmos DB biedt ondersteuning voor tijdseries analyseren, ziet u hier een voorbeeld van [reeks tijdpatroon](https://github.com/Azure/azure-cosmosdb-dotnet/tree/master/samples/Patterns). Dit voorbeeld laat zien hoe u kunt gebruiken voor het bouwen van geaggregeerde weergaven via time series-gegevens-wijzigingenfeed. U kunt deze benadering uitbreiden met behulp van spark streaming of een andere processor voor streaming-gegevens.
+
+
 ## <a name="sql-api"></a>SQL-API
 
 ### <a name="how-do-i-start-developing-against-the-sql-api"></a>Hoe start ik ontwikkelen op basis van de SQL-API?
@@ -208,6 +212,10 @@ Naast de algemene foutcodes voor MongoDB heeft de MongoDB-API een eigen specifie
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | Het totale aantal gebruikte aanvraageenheden het ingerichte aanvraageenheid-tarief voor de verzameling heeft overschreden en is beperkt. | Houd rekening met schaal de doorvoer toegewezen opnieuw aan een container of een set van containers met de Azure-portal of opnieuw proberen. |
 | ExceededMemoryLimit | 16501 | Als een service met meerdere tenants, heeft de bewerking van de client geheugen toegewezen overschreden. | Verklein het bereik van de bewerking door meer beperkende querycriteria of neem contact op met ondersteuning van de [Azure-portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade). <br><br>Voorbeeld:  *&nbsp; &nbsp; &nbsp; &nbsp;db.getCollection('users').aggregate ([<br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$match: {naam: "Andy"}}, <br> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;{$sort: {leeftijd: -1} }<br>&nbsp;&nbsp;&nbsp;&nbsp;])*) |
+
+### <a name="is-the-simba-driver-for-mongodb-supported-for-use-with-azure-cosmosdb-mongodb-api"></a>Is het stuurprogramma Simba voor MongoDB ondersteund voor gebruik met Azure cosmos DB MongoDB-API?
+Ja, u Simba van Mongo ODBC-stuurprogramma kunt gebruiken met Azure cosmos DB MongoDB-API
+
 
 ## <a id="table"></a>Tabel-API
 
@@ -458,7 +466,7 @@ Azure Cosmos DB maakt gebruik van [horizontale partitionering](partition-data.md
 
 ### <a name="how-can-i-protect-against-injection-attacks-using-gremlin-drivers"></a>Hoe kan ik beveiligen tegen aanvallen via injectie met behulp van Gremlin-stuurprogramma's? 
 
-Meest systeemeigen Tinkerpop Gremlin-stuurprogramma's kunnen de optie voor een woordenlijst met de parameters voor uitvoeren van query's. Dit is een voorbeeld van hoe u dit doen [Gremlin.Net]() en [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
+Meest systeemeigen Tinkerpop Gremlin-stuurprogramma's kunnen de optie voor een woordenlijst met de parameters voor uitvoeren van query's. Dit is een voorbeeld van hoe u dit doen [Gremlin.Net]((http://tinkerpop.apache.org/docs/3.2.7/reference/#gremlin-DotNet)) en [Gremlin-Javascript](https://github.com/Azure-Samples/azure-cosmos-db-graph-nodejs-getting-started/blob/master/app.js).
 
 ### <a name="why-am-i-getting-the-gremlin-query-compilation-error-unable-to-find-any-method-error"></a>Waarom krijg ik de ' Fout bij Schemacompilatie Gremlin-Query: kan niet vinden van elke methode "fout?
 

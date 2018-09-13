@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 4e08abedf9b60f229865bf935d50443782bd928c
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 330acf3e1258951f0129a1ba47f03c5140c30adf
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024462"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719049"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Veelgestelde vragen over de tekst naar spraak
 
@@ -55,6 +55,10 @@ We bieden extra services om te helpen bij het voorbereiden van scripts voor de o
 **V: kan ik mijn model downloaden en lokaal uitvoeren?**
 
 **Een**: modellen niet kunnen worden gedownload en lokaal worden uitgevoerd.
+
+**V: Mijn aanvragen beperkt zijn?**
+
+**Een**: aanvragen voor 25 per vijf seconden Hiermee beperkt u de REST-API. Meer informatie vindt u in onze pagina's voor [tekst naar spraak](text-to-speech.md). 
 
 ## <a name="next-steps"></a>Volgende stappen
 

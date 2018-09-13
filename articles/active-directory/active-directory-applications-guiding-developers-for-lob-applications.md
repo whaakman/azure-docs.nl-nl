@@ -12,15 +12,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/14/2018
+ms.date: 09/11/2018
 ms.author: kgremban
 ms.custom: seohack1
-ms.openlocfilehash: e3b22c0c602e8f3d47fbfc179fb8d0fb985d55d6
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 57f4fa0179668bccc39098a1eb9816403d00db57
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39619318"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716567"
 ---
 # <a name="develop-line-of-business-apps-for-azure-active-directory"></a>Line-of-business-apps ontwikkelen voor Azure Active Directory
 Deze handleiding bevat een overzicht van het ontwikkelen van line-of-business (LoB)-toepassingen voor Azure Active Directory (AD). De doelgroep is globale beheerders van Active Directory/Office 365.
@@ -80,4 +80,4 @@ Zie voor meer informatie over de toestemming van de gebruiker en de toestemming-
 ## <a name="related-articles"></a>Gerelateerde artikelen
 * [Veilige externe toegang tot on-premises toepassingen met Azure AD-toepassingsproxy inschakelen](manage-apps/application-proxy.md)
 * [Beheer van toegang tot apps met Azure AD](manage-apps/what-is-access-management.md)
-* [Article Index for Application Management in Azure Active Directory](active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
+

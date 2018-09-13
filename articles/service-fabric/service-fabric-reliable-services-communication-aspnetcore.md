@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: required
 ms.date: 08/29/2018
 ms.author: vturecek
-ms.openlocfilehash: afd682625d7bb74f9a4b726a534508b805562e7f
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 384d0fa32b64706c9d9d9baa0e2e0bbb2ac3c522
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701531"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719593"
 ---
 # <a name="aspnet-core-in-service-fabric-reliable-services"></a>ASP.NET Core in Service Fabric Reliable Services
 
@@ -54,12 +54,12 @@ Normaal gesproken zelf-hostend ASP.NET Core-toepassingen maken een WebHost in he
 
 Het toegangspunt dat van toepassing is echter niet de juiste plaats voor het maken van een WebHost in een betrouwbare Service omdat het toegangspunt voor de toepassing alleen gebruikt wordt voor het registreren van een servicetype met de Service Fabric-runtime, zodat deze exemplaren van dat servicetype kan maken. De WebHost moet worden gemaakt in een betrouwbare Service zelf. Binnen het hostproces van de service gaat service-exemplaren en/of replica's via meerdere levenscycli. 
 
-Een betrouwbare Service-exemplaar wordt vertegenwoordigd door uw serviceklasse die is afgeleid van `StatelessService` of `StatefulService`. De communicatiestack voor een service is opgenomen in een `ICommunicationListener` -implementatie in uw serviceklasse. De `Microsoft.ServiceFabric.Services.AspNetCore.*` NuGet-pakketten bevatten implementaties van `ICommunicationListener` die starten en beheren van de ASP.NET Core WebHost voor Kestrel of HttpSys in een betrouwbare Service.
+Een betrouwbare Service-exemplaar wordt vertegenwoordigd door uw serviceklasse die is afgeleid van `StatelessService` of `StatefulService`. De communicatiestack voor een service is opgenomen in een `ICommunicationListener` -implementatie in uw serviceklasse. De `Microsoft.ServiceFabric.AspNetCore.*` NuGet-pakketten bevatten implementaties van `ICommunicationListener` die starten en beheren van de ASP.NET Core WebHost voor Kestrel of HttpSys in een betrouwbare Service.
 
 ![ASP.NET Core in een betrouwbare Service die als host fungeert][1]
 
 ## <a name="aspnet-core-icommunicationlisteners"></a>ASP.NET Core ICommunicationListeners
-De `ICommunicationListener` implementaties voor Kestrel en HttpSys in de `Microsoft.ServiceFabric.Services.AspNetCore.*` NuGet-pakketten zijn vergelijkbaar gebruikspatronen maar enigszins verschillende acties die specifiek zijn voor elke webserver uitvoeren. 
+De `ICommunicationListener` implementaties voor Kestrel en HttpSys in de `Microsoft.ServiceFabric.AspNetCore.*` NuGet-pakketten zijn vergelijkbaar gebruikspatronen maar enigszins verschillende acties die specifiek zijn voor elke webserver uitvoeren. 
 
 Beide communicatielisteners bieden een constructor die de volgende argumenten neemt:
  - **`ServiceContext serviceContext`**: De `ServiceContext` object dat informatie over de service bevat.
@@ -67,7 +67,7 @@ Beide communicatielisteners bieden een constructor die de volgende argumenten ne
  - **`Func<string, AspNetCoreCommunicationListener, IWebHost> build`**: een lambda die u implementeert in die u maakt en retourneren een `IWebHost`. Hiermee kunt u configureren `IWebHost` de manier waarop u dat gewend bent in een ASP.NET Core-toepassing. De lambda-biedt een URL die wordt gegenereerd voor u, afhankelijk van de Service Fabric-integratie u opties gebruiken en de `Endpoint` configuratie die u opgeeft. Die URL vervolgens kan worden gewijzigd of als gebruikt-is om te beginnen de webserver.
 
 ## <a name="service-fabric-integration-middleware"></a>Service Fabric-integratiemiddleware
-De `Microsoft.ServiceFabric.Services.AspNetCore` NuGet-pakket bevat de `UseServiceFabricIntegration` uitbreidingsmethode op `IWebHostBuilder` die Service Fabric-bewuste middleware toevoegt. Deze middleware configureert de Kestrel of HttpSys `ICommunicationListener` voor het registreren van een unieke service-URL met de Service Fabric Naming-Service en vervolgens valideert aanvragen van clients zodat clients verbinding maken met de juiste service. Dit is nodig in een gedeelde-host-omgeving, zoals Service Fabric, waarbij meerdere webtoepassingen kunnen uitvoeren op de dezelfde fysieke of virtuele machine, maar gebruik geen unieke hostnamen, om te voorkomen dat clients per ongeluk verbinding maken met de verkeerde service. In dit scenario wordt beschreven in de volgende sectie in meer detail.
+De `Microsoft.ServiceFabric.AspNetCore` NuGet-pakket bevat de `UseServiceFabricIntegration` uitbreidingsmethode op `IWebHostBuilder` die Service Fabric-bewuste middleware toevoegt. Deze middleware configureert de Kestrel of HttpSys `ICommunicationListener` voor het registreren van een unieke service-URL met de Service Fabric Naming-Service en vervolgens valideert aanvragen van clients zodat clients verbinding maken met de juiste service. Dit is nodig in een gedeelde-host-omgeving, zoals Service Fabric, waarbij meerdere webtoepassingen kunnen uitvoeren op de dezelfde fysieke of virtuele machine, maar gebruik geen unieke hostnamen, om te voorkomen dat clients per ongeluk verbinding maken met de verkeerde service. In dit scenario wordt beschreven in de volgende sectie in meer detail.
 
 ### <a name="a-case-of-mistaken-identity"></a>Een aanvraag van onjuiste identiteit
 Service-replica's, ongeacht het protocol, luisteren op een combinatie van unieke IP: poort. Nadat de replica van een service is gestart op een eindpunt IP: poort luistert, rapporteert deze die eindpuntadres aan de Service Fabric Naming-Service waar deze kan worden gedetecteerd door clients of andere services. Als services toepassingspoorten dynamisch wordt toegewezen, kan een service-replica hetzelfde IP: poort-eindpunt van een andere service die eerder op de dezelfde fysieke of virtuele machine was tegelijk gebruiken. Hierdoor kan een client mistakely verbinding maken met de verkeerde service. Dit kan gebeuren als de volgende reeks gebeurtenissen treedt op:
@@ -310,7 +310,7 @@ Wanneer toegang heeft tot het Internet, moet een stateless service een bekende e
 
 |  |  | **Opmerkingen** |
 | --- | --- | --- |
-| Webserver | Kestrel | Kestrel is de gewenste webserver, omdat het wordt ondersteund in Windows en Linux. |
+| Webserver | kestrel | Kestrel is de gewenste webserver, omdat het wordt ondersteund in Windows en Linux. |
 | Poortconfiguratie | statisch | Een bekende statische poort moet worden geconfigureerd in de `Endpoints` configuratie van ServiceManifest.xml, zoals 80 voor HTTP en 443 voor HTTPS. |
 | ServiceFabricIntegrationOptions | Geen | De `ServiceFabricIntegrationOptions.None` optie moet worden gebruikt bij het configureren van Service Fabric-integratiemiddleware zodat de service niet probeert te valideren van binnenkomende aanvragen voor een unieke id. Externe gebruikers van uw toepassing weet niet de unieke identificerende gegevens die worden gebruikt door de middleware. |
 | Aantal instanties | -1 | In standaard use cases, moet het aantal instanties instellen worden ingesteld op "-1" zodat een exemplaar is beschikbaar op alle knooppunten die verkeer van een load balancer ontvangen. |
@@ -335,7 +335,7 @@ Stateless services die binnen het cluster alleen worden aangeroepen vanuit de un
 
 |  |  | **Opmerkingen** |
 | --- | --- | --- |
-| Webserver | Kestrel | Hoewel HttpSys kunnen worden gebruikt voor interne stateless services, is Kestrel de aanbevolen om toe te staan van meerdere exemplaren van de service voor het delen van een host.  |
+| Webserver | kestrel | Hoewel HttpSys kunnen worden gebruikt voor interne stateless services, is Kestrel de aanbevolen om toe te staan van meerdere exemplaren van de service voor het delen van een host.  |
 | Poortconfiguratie | dynamisch wordt toegewezen | Meerdere replica's van een stateful service kunnen een hostproces of het hostbesturingssysteem delen en dus moet unieke poorten. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Met dynamische poorttoewijzing, deze instelling voorkomt u dat het onjuiste identiteit probleem die eerder zijn beschreven. |
 | InstanceCount | willekeurig | Het aantal instanties instelling kan worden ingesteld op een willekeurige waarde die nodig zijn om de service. |
@@ -345,7 +345,7 @@ Stateful services die alleen worden opgeroepen binnen het cluster moeten dynamis
 
 |  |  | **Opmerkingen** |
 | --- | --- | --- |
-| Webserver | Kestrel | De `HttpSysCommunicationListener` is niet bedoeld voor gebruik door stateful services waarin de replica's een hostproces delen. |
+| Webserver | kestrel | De `HttpSysCommunicationListener` is niet bedoeld voor gebruik door stateful services waarin de replica's een hostproces delen. |
 | Poortconfiguratie | dynamisch wordt toegewezen | Meerdere replica's van een stateful service kunnen een hostproces of het hostbesturingssysteem delen en dus moet unieke poorten. |
 | ServiceFabricIntegrationOptions | UseUniqueServiceUrl | Met dynamische poorttoewijzing, deze instelling voorkomt u dat het onjuiste identiteit probleem die eerder zijn beschreven. |
 

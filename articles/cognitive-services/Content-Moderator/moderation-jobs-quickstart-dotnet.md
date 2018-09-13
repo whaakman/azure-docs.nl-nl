@@ -7,14 +7,14 @@ manager: mikemcca
 ms.service: cognitive-services
 ms.component: content-moderator
 ms.topic: article
-ms.date: 01/06/2018
+ms.date: 09/10/2018
 ms.author: sajagtap
-ms.openlocfilehash: d936ff91cd2b7db6a88c4adb0a6f332205b814bb
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 0402d9dc1dfee5e146d3550d095f4fb53e52f12b
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022063"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720925"
 ---
 # <a name="start-moderation-jobs-using-net"></a>Start beheer van taken met behulp van .NET
 
@@ -59,8 +59,6 @@ U kunt de naam van de werkstroom gebruiken in uw code waarmee de beheer-taak wor
 
 1. Selecteer dit project als opstartproject één voor de oplossing.
 
-1. Voeg een verwijzing naar de **ModeratorHelper** project assembly die u hebt gemaakt in de [Content Moderator client helper snelstartgids](content-moderator-helper-quickstart-dotnet.md).
-
 ### <a name="install-required-packages"></a>De vereiste pakketten installeren
 
 Installeer de volgende NuGet-pakketten:
@@ -73,14 +71,64 @@ Installeer de volgende NuGet-pakketten:
 
 Wijzig het programma de using-instructies toe.
 
+    using Microsoft.Azure.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator;
     using Microsoft.CognitiveServices.ContentModerator.Models;
-    using ModeratorHelper;
     using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     using System.IO;
     using System.Threading;
+
+### <a name="create-the-content-moderator-client"></a>De Content Moderator-client maken
+
+Voeg de volgende code voor het maken van een Content Moderator-client voor uw abonnement.
+
+> [!IMPORTANT]
+> Update de **Azureregio** en **CMSubscriptionKey** velden met de waarden van uw regio-id en de abonnement-sleutel.
+
+
+    /// <summary>
+    /// Wraps the creation and configuration of a Content Moderator client.
+    /// </summary>
+    /// <remarks>This class library contains insecure code. If you adapt this 
+    /// code for use in production, use a secure method of storing and using
+    /// your Content Moderator subscription key.</remarks>
+    public static class Clients
+    {
+        /// <summary>
+        /// The region/location for your Content Moderator account, 
+        /// for example, westus.
+        /// </summary>
+        private static readonly string AzureRegion = "YOUR API REGION";
+
+        /// <summary>
+        /// The base URL fragment for Content Moderator calls.
+        /// </summary>
+        private static readonly string AzureBaseURL =
+            $"https://{AzureRegion}.api.cognitive.microsoft.com";
+
+        /// <summary>
+        /// Your Content Moderator subscription key.
+        /// </summary>
+        private static readonly string CMSubscriptionKey = "YOUR API KEY";
+
+        /// <summary>
+        /// Returns a new Content Moderator client for your subscription.
+        /// </summary>
+        /// <returns>The new client.</returns>
+        /// <remarks>The <see cref="ContentModeratorClient"/> is disposable.
+        /// When you have finished using the client,
+        /// you should dispose of it either directly or indirectly. </remarks>
+        public static ContentModeratorClient NewClient()
+        {
+            // Create and initialize an instance of the Content Moderator API wrapper.
+            ContentModeratorClient client = new ContentModeratorClient(new ApiKeyServiceClientCredentials(CMSubscriptionKey));
+
+            client.BaseUrl = AzureBaseURL;
+            return client;
+        }
+    }
 
 ### <a name="initialize-application-specific-settings"></a>Initialiseren van toepassingsspecifieke instellingen
 
@@ -90,7 +138,7 @@ Voeg de volgende constanten en statische velden die u wilt de **programma** klas
 > U de constante TeamName ingesteld op de naam die u hebt gebruikt toen u uw abonnement Content Moderator gemaakt. Ophalen van TeamName uit de [website Content Moderator](https://westus.contentmoderator.cognitive.microsoft.com/).
 > Zodra u zich aanmeldt, selecteert u **referenties** uit de **instellingen** (tandwielpictogram)-menu.
 >
-> De teamnaam van uw is de waarde van de **ID** veld in de **API** sectie.
+> De teamnaam van uw is de waarde van de **Id** veld in de **API** sectie.
 
 
     /// <summary>

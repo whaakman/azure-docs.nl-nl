@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 9/10/2018
 ms.author: tomsh
-ms.openlocfilehash: b6953cc45305cf0812b185187c01149f0345756d
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9ecdc0b7d2d21962dbfc7c14e9fff3fd969dd018
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346064"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721089"
 ---
 # <a name="azure-security-white-papers"></a>Azure Security technische documenten
 | | |
@@ -33,7 +33,7 @@ ms.locfileid: "44346064"
 |[Azure Functions en serverloos platformbeveiliging](https://gallery.technet.microsoft.com/Azure-Functions-and-c6449f8d/file/202175/1/Microsoft%20Serverless%20Platform.pdf)|Deze downloadbare whitepaper gaat over de voordelen van serverloze computing terwijl beveiligingsoverwegingen en oplossingen in de context van Azure. |
 |[Beveiliging van de container in Microsoft Azure](abstract-container-security-microsoft-azure.md)|Beschrijving van containers, containerimplementatie en beheer en systeemeigen platform-services. Ook wordt beschreven runtime beveiligingsproblemen die met het gebruik van containers op het Azure-platform optreden. |
 |[Azure operationele beveiliging](abstract-azure-operational-security.md)|Azure biedt een uitgebreid overzicht van de klantgerichte operationele beveiligingstechnologieën en -services die beschikbaar zijn.|
-|[Technische mogelijkheden van Azure-beveiliging](azure-security-technical-capabilities.md)|Richt zich op de beveiligingsfuncties en -functionaliteit met ondersteuning voor Azure Storage, Azure SQL-Databases, het model virtuele Azure-machine en de hulpprogramma's en infrastructuur die alles.|
+|[Technische mogelijkheden van Azure-beveiliging](azure-security-technical-capabilities.md)|Richt zich op de beveiligingsfuncties en -functionaliteit met ondersteuning voor Azure Storage, Azure SQL Database, het model virtuele Azure-machine en de hulpprogramma's en infrastructuur die alles.|
 |[Veiligheidsgids voor Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-security-guide?toc=%2fazure%2fsecurity%2ftoc.json) |Bevat een overzicht van elk van de beveiligingsfuncties die kunnen worden gebruikt met Azure Storage. Bevat informatie over management vlak van beveiliging, gegevensbeveiliging vlak, versleuteling-at-rest, versleuteling van vertragingen van vluchten en opslaganalyse.|
 |[Gegevensclassificatie voor cloudvoorbereiding](https://gallery.technet.microsoft.com/Data-Classification-for-51252f03/file/172083/1/Data%20Classification%20for%20Cloud%20Readiness%20(2017-04-11).pdf)  |Dit downloadbare document introduceert de basisbeginselen van gegevensclassificatie en de waarde ervan in de context van cloud computing. Organisaties beoordelen van cloud computing voor toekomstig gebruik of organisaties die momenteel met cloudservices en zoek naar manieren om te optimaliseren van data management wordt profiteren het meest van dit document.|
 |[Governance in Azure](governance-in-azure.md)|Legt uit de beveiliging en governance-functies die zijn ingebouwd in Azure. De belangrijkste governance-problemen die worden beschreven zijn: beleidsregels, processen en procedures implementatie voor de doelstellingen van uw organisatie; beveiliging en continue naleving van standaarden van de organisatie; waarschuwingen en bewaking.

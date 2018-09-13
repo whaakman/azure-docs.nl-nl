@@ -13,15 +13,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/11/2018
+ms.date: 09/12/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c12a8d342e2fec41cb2318ac7abfe1d3fce31cef
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: ae03e1498d948e7d044561c3e6bea8c343d7b165
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391681"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713966"
 ---
 # <a name="sap-hana-availability-across-azure-regions"></a>Beschikbaarheid van SAP HANA op Azure-regio 's
 
@@ -46,7 +46,7 @@ Als u van het scenario gebruikmaakt voor het delen van het doel voor herstel na 
 - Er zijn twee [bewerkingsmodi](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/627bd11e86c84ec2b9fcdf585d24011c.html) met delta_datashipping en logreplay, die beschikbaar zijn voor dit scenario zijn
 - Beide bewerkingsmodi hebben verschillende geheugenvereisten zonder vooraf laden van gegevens
 - Delta_datashipping mogelijk hebt u aanzienlijk minder geheugen zonder de optie vooraf dan logreplay nodig. Zie hoofdstuk 4.3 van de SAP-document [hoe aan uitvoeren System Replication voor SAP HANA](https://archive.sap.com/kmuuid2/9049e009-b717-3110-ccbd-e14c277d84a3/How%20to%20Perform%20System%20Replication%20for%20SAP%20HANA.pdf)
-- De geheugenvereiste van de bewerkingsmodus logreplay zonder vooraf laden is niet deterministisch en is afhankelijk van de columnstore-structuren geladen
+- De geheugenvereiste van de bewerkingsmodus logreplay zonder vooraf laden is niet deterministisch en is afhankelijk van de columnstore-structuren geladen. In uitzonderlijke gevallen mogelijk 50% van het geheugen van het primaire exemplaar. Het geheugen voor de bewerkingsmodus logreplay is niet afhankelijk van of u hebt gekozen om de gegevens vooraf ingesteld of niet.
 
 
 ![Diagram van twee virtuele machines via twee regio 's](./media/sap-hana-availability-two-region/two_vm_HSR_async_2regions_nopreload.PNG)

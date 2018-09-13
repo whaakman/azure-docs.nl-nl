@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: ceaa61832212093ac52225fc34db1ed7f4571a18
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 8a4b29cf8f2a5a79c68bad3631a54449d3ada09a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380287"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717859"
 ---
 # <a name="virtual-machine-serial-console-preview"></a>Seriële Console van virtuele Machine (preview) 
 
@@ -172,7 +172,7 @@ Probleem                           |   Oplossing
 :---------------------------------|:--------------------------------------------|
 Nadat de banner van de verbinding wordt niet weergegeven voor een logboek in de prompt te maken met invoeren | Raadpleeg deze pagina: [Hitting invoeren, gebeurt er niets](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Dit kan gebeuren als u een aangepaste VM, beperkte toestel of GRUB-configuratie die ervoor zorgt Linux dat mislukken correct verbinding maken met de seriële poort.
 Een antwoord 'Verboden' is opgetreden bij het openen van deze virtuele machine opstarten diagnostische storage-account. | Zorg ervoor dat diagnostische gegevens over de opstarten beschikt niet over een account-firewall. Een toegankelijke opstarten diagnostische storage-account is nodig voor de seriële console van functie.
-Tekst van de seriële console wordt alleen een gedeelte van de schermgrootte (vaak na met een teksteditor) | Dit is een bekend probleem met onbekende schermgrootte via serial-verbindingen. U wordt aangeraden instaling xterm of enige andere vergelijkbaar hulpprogramma waarmee u de opdracht 'grootte'. Uitvoeren van 'grootte' wordt dit opgelost.
+Tekst van de seriële console wordt alleen een gedeelte van de schermgrootte (vaak na met een teksteditor) | Seriële consoles bieden geen ondersteuning voor het onderhandelen over venstergrootte ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), wat betekent dat er geen signaal SIGWINCH worden verzonden naar het bijwerken van de grootte van het scherm en de virtuele machine heeft geen kennis van de grootte van de terminal. U wordt aangeraden instaling xterm of enige andere vergelijkbaar hulpprogramma waarmee u de opdracht 'grootte'. Uitvoeren van 'grootte' wordt dit opgelost.
 
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen 

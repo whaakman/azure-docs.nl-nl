@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/06/2018
 ms.author: mabrigg
 ms.reviewer: ppacent
-ms.openlocfilehash: dacfa738a99eb2d580d825957d09b2b1a3111e93
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: b0fe9acc187aab87e8ee0528cf998e2ef923f897
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051388"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722007"
 ---
 # <a name="rotate-secrets-in-azure-stack"></a>Geheimen in Azure Stack draaien
 
@@ -110,6 +110,8 @@ Externe een interne geheim draaien:
     Een beveiligde tekenreeks van het wachtwoord gebruikt voor alle van de pfx-certificaatbestanden gemaakt.
 4. Een ogenblik geduld terwijl uw geheimen draaien.  
 Wanneer deze geheime rotatie is voltooid, de console weergegeven **algemene actiestatus: geslaagd**. 
+    > [!note]  
+    > Als de geheime rotatie is mislukt, volg de instructies in het foutbericht en opnieuw uitvoeren start-secretrotation met de **-opnieuw uitvoeren** Parameter. Neem contact op met ondersteuning als u ondervindt herhaald geheime rotatie fouten. 
 5. Na voltooiing van de geheime rotatie, uw certificaten verwijderen uit de share in de vooraf stap hebt gemaakt en op te slaan in de veilige back-uplocatie. 
 
 ## <a name="walkthrough-of-secret-rotation"></a>Overzicht van het geheim draaien
@@ -136,6 +138,10 @@ Alleen interne geheimen met Azure-Stack draaien:
 
 1. Maken van een PowerShell-sessie met de [bevoegde eindpunt](https://docs.microsoft.com/azure/azure-stack/azure-stack-privileged-endpoint).
 2. Uitvoeren in de sessie bevoegde eindpunt **Start SecretRotation** zonder argumenten.
+3. Een ogenblik geduld terwijl uw geheimen draaien.  
+Wanneer deze geheime rotatie is voltooid, de console weergegeven **algemene actiestatus: geslaagd**. 
+    > [!note]  
+    > Als geheim rotatie is mislukt, volg de instructies in het foutbericht en opnieuw starten-secretrotation met de **-opnieuw** Parameter. Neem contact op met ondersteuning als u ondervindt herhaald geheime rotatie fouten. 
 
 ## <a name="start-secretrotation-reference"></a>Start-SecretRotation verwijzing
 

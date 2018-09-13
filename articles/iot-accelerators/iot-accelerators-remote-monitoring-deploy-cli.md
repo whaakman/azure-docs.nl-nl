@@ -6,14 +6,14 @@ manager: timlt
 ms.author: dobett
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.date: 01/29/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: dd696330c9ee78ef84ac9fcf85946c837ad5b824
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 56f233afed8c403d19c9b668e98ecfec45470b64
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39188007"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721616"
 ---
 # <a name="deploy-the-remote-monitoring-solution-accelerator-using-the-cli"></a>De oplossingsversnellers bewaking op afstand met behulp van de CLI implementeren
 
@@ -54,7 +54,7 @@ Wanneer u de oplossingsversneller implementeert, zijn er verschillende opties di
 | SKU    | `basic`, `standard`, `local` | Een _basic_ implementatie bedoeld is voor testen en demonstraties, deze alle microservices op een enkele virtuele machine implementeert. Een _standard_ implementatie bedoeld is voor productie, deze implementeert de microservices naar meerdere virtuele machines. Een _lokale_ implementatie configureert u een Docker-container voor het uitvoeren van de microservices op uw lokale computer en maakt gebruik van Azure-services, zoals storage en Cosmos DB, in de cloud. |
 | Runtime | `dotnet`, `java` | Hiermee selecteert u de implementatie van de taal van de microservices. |
 
-Zie voor meer informatie over het gebruik van de lokale implementatie [die lokaal wordt uitgevoerd de oplossing voor externe controle](https://github.com/Azure/azure-iot-pcs-remote-monitoring-dotnet/wiki/Running-the-Remote-Monitoring-Solution-Locally#deploy-azure-services-and-set-environment-variables).
+Zie voor meer informatie over het gebruik van de lokale implementatie [die lokaal wordt uitgevoerd de oplossing voor externe controle](iot-accelerators-remote-monitoring-deploy-local.md).
 
 ## <a name="basic-vs-standard-deployments"></a>Basic vs. Standard-implementaties
 
@@ -69,9 +69,16 @@ Het maken van een eenvoudige oplossing zal leiden tot de volgende Azure-services
 |-------|--------------------------------|--------------|----------|
 | 1     | [Virtuele Linux-Machine](https://azure.microsoft.com/services/virtual-machines/) | Standard D1 V2  | Microservices die als host fungeert |
 | 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                  | S1, Standard-laag | Beheer van apparaten en communicatie |
-| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Opslaan van configuratiegegevens en telemetrie van apparaten, zoals regels, waarschuwingen en berichten |  
+| 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)              | Standard        | Opslaan van configuratiegegevens, regels, waarschuwingen en andere koude opslag |  
 | 1     | [Azure Storage-Account](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)  | Standard        | Opslag voor virtuele machine en de controlepunten streaming |
 | 1     | [Web-App](https://azure.microsoft.com/services/app-service/web/)        |                 | Front-endwebtoepassing die als host fungeert |
+| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Het beheren van identiteiten en beveiliging |
+| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Asset-locaties weergeven |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 eenheden              | Realtime analyses inschakelen |
+| 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Inrichten van apparaten op schaal |
+| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1: 1 eenheid              | Opslag voor analyse van berichten gegevens en maakt uitgebreide telemetrie |
+
+
 
 ### <a name="standard"></a>Standard
 De standaardimplementatie is een gereed is voor productie-implementatie een ontwikkelaar kunt aanpassen en uitbreiden om te voldoen aan hun behoeften. Voor de betrouwbaarheid en schaal toepassing microservices worden gebouwd als Docker-containers en geïmplementeerd met behulp van een orchestrator ([Kubernetes](https://kubernetes.io/) standaard). De orchestrator is verantwoordelijk voor de implementatie, schaling en beheer van de toepassing.
@@ -82,10 +89,15 @@ Het maken van een standaardoplossing zal leiden tot de volgende Azure-services i
 |-------|----------------------------------------------|-----------------|----------|
 | 4     | [Virtuele Linux-machines](https://azure.microsoft.com/services/virtual-machines/)   | Standard D2 V2  | 1 master en 3 agents voor het hosten van microservices met redundantie |
 | 1     | [Azure Container Service](https://azure.microsoft.com/services/container-service/) |                 | [Kubernetes](https://kubernetes.io) orchestrator |
-| 1     | [Azure IoT Hub] [https://azure.microsoft.com/services/iot-hub/]                     | S2-Standard-laag | Beheer van apparaten, de opdracht en controle |
+| 1     | [Azure IoT Hub](https://azure.microsoft.com/services/iot-hub/)                     | S2-Standard-laag | Beheer van apparaten, de opdracht en controle |
 | 1     | [Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/)                 | Standard        | Opslaan van configuratiegegevens en telemetrie van apparaten, zoals regels, waarschuwingen en berichten |
 | 5     | [Azure Storage-Accounts](https://docs.microsoft.com/azure/storage/common/storage-introduction#types-of-storage-accounts)    | Standard        | 4 voor VM-opslag en 1 voor de streaming controlepunten |
 | 1     | [App Service](https://azure.microsoft.com/services/app-service/web/)             | S1 Standard     | Toepassingsgateway via SSL |
+| 1     | [Azure Active Directory](https://azure.microsoft.com/services/active-directory/)        |                 | Het beheren van identiteiten en beveiliging |
+| 1     | [Azure Maps](https://azure.microsoft.com/services/azure-maps/)        | Standard                | Asset-locaties weergeven |
+| 1     | [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)        |   3 eenheden              | Realtime analyses inschakelen |
+| 1     | [Azure Device Provisioning Service](https://docs.microsoft.com/azure/iot-dps/)        |       S1          | Inrichten van apparaten op schaal |
+| 1     | [Azure Time Series Insights](https://azure.microsoft.com/services/time-series-insights/)        |   S1: 1 eenheid              | Opslag voor analyse van berichten gegevens en maakt uitgebreide telemetrie |
 
 > Informatie over de prijzen voor deze services vindt [hier](https://azure.microsoft.com/pricing). Gebruiksbedragen en factureringsgegevens voor uw abonnement kunnen worden gevonden in de [Azure Portal](https://portal.azure.com/).
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/01/2017
 ms.author: TomSh
-ms.openlocfilehash: 6643db7b732cc5b01ce7602eb3d679c130c46720
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: eab55f6e2bf909ccdbdb30a8ced34dbc58d3954a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972193"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721325"
 ---
 # <a name="azure-security-technical-capabilities"></a>Technische mogelijkheden van Azure-beveiliging
 
@@ -43,7 +43,7 @@ Met Microsoft Azure, kunt u het volgende doen:
 
 ## <a name="scope"></a>Bereik
 
-Het centrale punt van dit technisch document heeft betrekking op beveiligingsfuncties en -functionaliteit met ondersteuning van de kernonderdelen van Microsoft Azure, namelijk [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL-Databases](https://docs.microsoft.com/azure/sql-database/), [ Van Microsoft Azure virtuele machine model](https://docs.microsoft.com/azure/virtual-machines/), en de hulpprogramma's en de infrastructuur die alles. In dit technisch document wordt de focus op Microsoft Azure technische mogelijkheden beschikbaar is als klanten te voldoen aan hun rol bij het beschermen van de beveiliging en privacy van gegevens.
+Het centrale punt van dit technisch document heeft betrekking op beveiligingsfuncties en -functionaliteit met ondersteuning van de kernonderdelen van Microsoft Azure, namelijk [Microsoft Azure Storage](https://docs.microsoft.com/azure/storage/storage-introduction), [Microsoft Azure SQL Database](https://docs.microsoft.com/azure/sql-database/), [ Van Microsoft Azure virtuele machine model](https://docs.microsoft.com/azure/virtual-machines/), en de hulpprogramma's en de infrastructuur die alles. In dit technisch document wordt de focus op Microsoft Azure technische mogelijkheden beschikbaar is als klanten te voldoen aan hun rol bij het beschermen van de beveiliging en privacy van gegevens.
 
 Het belang van inzicht in deze gedeelde verantwoordelijkheid-model is het essentieel is voor klanten die worden verplaatst naar de cloud. Cloudproviders bieden aanzienlijke voordelen voor beveiliging en naleving inspanningen, maar deze voordelen niet absolve doen voor de klant van het beveiligen van hun gebruikers, toepassingen en service-aanbiedingen.
 
@@ -63,7 +63,7 @@ Azure helpt u zakelijke en persoonlijke gegevens beveiligen doordat u gebruikers
 
 ### <a name="azure-active-directory"></a>Azure Active Directory
 
-Identiteits- en toegangsbeheer management solutions Help bij Microsoft IT toegang beveiligen tot toepassingen en bronnen in het datacenter van de zakelijke en naar de cloud, extra niveaus van validatie, zoals meervoudige verificatie en voorwaardelijke toegang inschakelen beleidsregels. Bewaking verdachte activiteiten via geavanceerde beveiliging reporting, controle en waarschuwingen helpt bij het beperken potentiële beveiligingsproblemen met zich mee. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) biedt eenmalige aanmelding voor duizenden cloud-apps (SaaS) en toegang tot web-apps die u on-premises uitvoert.
+Identiteits- en toegangsbeheer management solutions Help bij Microsoft IT toegang beveiligen tot toepassingen en bronnen in het datacenter van de zakelijke en naar de cloud, extra niveaus van validatie, zoals meervoudige verificatie en voorwaardelijke toegang inschakelen beleidsregels. Het controleren van verdachte activiteiten via geavanceerde beveiligingsrapportage, controle en waarschuwingen, helpt om potentiële beveiligingsproblemen te verminderen. [Azure Active Directory Premium](https://docs.microsoft.com/azure/active-directory/active-directory-editions) biedt eenmalige aanmelding voor duizenden cloud-apps (SaaS) en toegang tot web-apps die u on-premises uitvoert.
 
 De voordelen van de beveiliging van Azure Active Directory (Azure AD) zijn de mogelijkheid om:
 
@@ -171,7 +171,7 @@ Beveiliging-georiënteerde bedrijven moeten zich richten op uw werknemers de exa
 
 ![Toegang tot beveiligde bronnen ](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig4.png)
 
-Met RBAC kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers die nodig is om de taken uit te voeren. In plaats van zodat iedereen onbeperkte machtigingen in uw Azure-abonnement of resources, kunt u alleen bepaalde acties toestaan. Bijvoorbeeld, RBAC gebruiken om één werknemer virtuele machines in een abonnement beheren terwijl een andere SQL-databases binnen hetzelfde abonnement kunt beheren.
+Met op rollen gebaseerd toegangsbeheer kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers die nodig is om de taken uit te voeren. In plaats van zodat iedereen onbeperkte machtigingen in uw Azure-abonnement of resources, kunt u alleen bepaalde acties toestaan. Bijvoorbeeld, RBAC gebruiken om één werknemer virtuele machines in een abonnement beheren terwijl een andere SQL-databases binnen hetzelfde abonnement kunt beheren.
 
 ![Toegang tot beveiligde resources in Azure (RBAC)](media/azure-security-technical-capabilities/azure-security-technical-capabilities-fig5.png)
 

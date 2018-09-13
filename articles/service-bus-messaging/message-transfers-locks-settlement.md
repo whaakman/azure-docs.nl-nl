@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/25/2018
 ms.author: spelluru
-ms.openlocfilehash: d4f387d484fe895d8b6c5196c3a5527947ee3925
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: de3f23f58ef34bdd5f9769f820d64ed7e00ca7d8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43702058"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44715071"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>Berichten overdragen, vergrendelen en verwerken
 
@@ -62,7 +62,7 @@ for (int i = 0; i < 100; i++)
 {
   tasks.Add(client.SendAsync(…));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 Het is belangrijk te weten dat alle asynchrone programmeermodellen gebruiken een vorm van geheugen, verborgen wachtrij waarin de bewerkingen in behandeling. Wanneer [SendAsync](/dotnet/api/microsoft.azure.servicebus.queueclient.sendasync#Microsoft_Azure_ServiceBus_QueueClient_SendAsync_Microsoft_Azure_ServiceBus_Message_) (C#) of **verzenden** (Java) retourneren, de taak verzenden is in de wachtrij in deze wachtrij, maar het protocol-gebaar alleen begint zodra deze is van de taak inschakelen om uit te voeren. Voor de code die doorgaans push pieken van berichten en waar de betrouwbaarheid van belang is, moet men niet te veel berichten in één keer 'tijdens de vlucht"zijn geplaatst omdat alle verzonden berichten geheugen duren totdat ze feitelijk zijn opgeslagen op de kabel.
@@ -79,7 +79,7 @@ for (int i = 0; i < 100; i++)
 
   tasks.Add(client.SendAsync(…).ContinueWith((t)=>semaphore.Release()));
 }
-await Task.WhenAll(tasks.ToArray());
+await Task.WhenAll(tasks);
 ```
 
 Apps moeten **nooit** initiëren van een bewerking voor het verzenden van asynchrone op een manier 'geactiveerd en vergeten' zonder op te halen van het resultaat van de bewerking. In dat geval kunt u de interne en onzichtbaar takenwachtrij tot uitputting geheugen laden, en voorkomen dat de toepassing verzenden fouten worden opgespoord:

@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/12/2018
 git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: c1b88518f9e27093ff00ad020e470fa5670dfcd6
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 1d3e4724820f7109eb9b695fe06d221a2796c26f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391943"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44722196"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Releaseopmerkingen voor Azure Stack Development Kit  
 In dit artikel bevat informatie over verbeteringen, correcties en bekende problemen in Azure Stack Development Kit. Als u niet zeker weet welke versie u uitvoert, kunt u [de portal gebruiken om te controleren](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -42,6 +42,10 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 - <!-- IS, ASDK --> **Virtuele-Machineschaalset schalen**.  U kunt de portal gebruiken om [schaal van een virtuele-Machineschaalset](/azure/azure-stack/azure-stack-compute-add-scalesets.md#scale-a-virtual-machine-scale-set) (VMSS).   
 
 - <!-- 2489570 | IS ASDK--> **Ondersteuning voor aangepaste configuraties voor beleid voor IPSec/IKE** voor [VPN-gateways in Azure Stack](/azure/azure-stack/azure-stack-vpn-gateway-about-vpn-gateways).
+
+- <!-- | IS ASDK--> **Marketplace-item voor Kubernetes**. U kunt nu met behulp van Kubernetes-clusters implementeren de [Kubernetes Marketplace-item](/azure/azure-stack/azure-stack-solution-template-kubernetes-cluster-add). Gebruikers kunnen selecteert u het Kubernetes-item en vul een aantal parameters voor het implementeren van een Kubernetes-cluster in Azure Stack. Het doel van de sjablonen is het eenvoudig te voor gebruikers voor setup dev/test Kubernetes-implementaties in een paar stappen.
+
+- <!-- | IS ASDK--> **Blockchain sjablonen**. U kunt nu uitvoeren [Ethereum consortium implementaties](/azure/azure-stack/azure-stack-ethereum) in Azure Stack. Vindt u drie nieuwe sjablonen in de [Azure Stack Quick Start-sjablonen](https://github.com/Azure/AzureStack-QuickStart-Templates). Hiermee kunt de gebruiker om te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk met minimale kennis van Azure en Ethereum. Het doel van de sjablonen is het eenvoudig te voor gebruikers voor setup dev/test Blockchain-implementaties in een paar stappen.
 
 
 ### <a name="fixed-issues"></a>Problemen opgelost
@@ -68,6 +72,8 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 ### <a name="known-issues"></a>Bekende problemen
 
 #### <a name="portal"></a>Portal  
+- <!-- 2967387 – IS, ASDK --> Het account waarmee u zich aanmeldt bij de portal voor Azure Stack-beheerder of gebruiker worden weergegeven als **onbekende gebruiker**. Dit treedt op wanneer het account beschikt niet over een een *eerste* of *laatste* naam die is opgegeven. U kunt dit probleem omzeilen, het gebruikersaccount voor de naam van de eerste of laatste te bewerken. U moet vervolgens Meld u af en meld u vervolgens terug naar de portal. 
+
 -  <!--  2873083 - IS ASDK --> Wanneer gebruikt u de portal voor het maken van een virtuele-machineschaalset instellen (VMSS), de *exemplaargrootte* vervolgkeuzelijst niet juist geladen wanneer u Internet Explorer gebruikt. U kunt dit probleem omzeilen, gebruikt u een andere browser tijdens het gebruik van de portal voor het maken van een VMSS.  
 
 - <!-- TBD  ASDK --> De standaardtijdzone voor alle Azure Stack-implementaties zijn nu instellen op Coordinated Universal Time (UTC). U kunt een tijdzone selecteren bij het installeren van Azure Stack, maar dan automatisch wordt overgeschakeld naar UTC als standaardwaarde tijdens de installatie.

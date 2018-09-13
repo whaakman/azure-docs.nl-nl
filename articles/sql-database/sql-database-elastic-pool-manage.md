@@ -11,12 +11,12 @@ ms.date: 08/01/2018
 ms.author: ninarn
 ms.topic: conceptual
 ms.reviewer: carlrab
-ms.openlocfilehash: cbfbe02926907ca3ca5b6c13932c8b67862c8456
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 4c5bb0ab3431fa951871e64d7bdd8a3a313f480f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842020"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721497"
 ---
 # <a name="create-and-manage-elastic-pools-in-azure-sql-database"></a>Elastische pools in Azure SQL Database maken en beheren
 
@@ -99,13 +99,13 @@ Als u wilt maken en beheren van SQL Database elastische pools en gepoolde databa
 
 | Opdracht | Beschrijving |
 | --- | --- |
-|[Elastische Pools - maken of bijwerken](/rest/api/sql/elasticpools/createorupdate)|Hiermee maakt u een nieuwe elastische pool of een bestaande elastische pool-updates.|
-|[Elastische Pools - verwijderen](/rest/api/sql/elasticpools/delete)|Hiermee verwijdert u de elastische pool.|
-|[Elastische Pools - Get](/rest/api/sql/elasticpools/get)|Hiermee haalt u een elastische pool.|
-|[Elastische Pools - lijst met door de Server](/rest/api/sql/elasticpools/listbyserver)|Retourneert een lijst van elastische pools in een server.|
-|[Elastische Pools - Update](/rest/api/sql/elasticpools/update)|Een bestaande elastische pool-updates.|
-|[Elastische Pool-activiteiten](/rest/api/sql/elasticpoolactivities)|Retourneert de elastische groep activiteiten.|
-|[Elastische Pool Database-activiteiten](/rest/api/sql/elasticpooldatabaseactivities)|Retourneert de activiteit voor databases binnen een elastische pool.|
+|[Elastische pools - maken of bijwerken](/rest/api/sql/elasticpools/createorupdate)|Hiermee maakt u een nieuwe elastische pool of een bestaande elastische pool-updates.|
+|[Elastische pools - verwijderen](/rest/api/sql/elasticpools/delete)|Hiermee verwijdert u de elastische pool.|
+|[Elastische pools - Get](/rest/api/sql/elasticpools/get)|Hiermee haalt u een elastische pool.|
+|[Elastische pools - lijst door Server](/rest/api/sql/elasticpools/listbyserver)|Retourneert een lijst van elastische pools in een server.|
+|[Elastische pools - Update](/rest/api/sql/elasticpools/update)|Een bestaande elastische pool-updates.|
+|[Elastische pool activiteiten](/rest/api/sql/elasticpoolactivities)|Retourneert de elastische groep activiteiten.|
+|[Elastische pool Database-activiteiten](/rest/api/sql/elasticpooldatabaseactivities)|Retourneert de activiteit voor databases binnen een elastische pool.|
 |[Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate)|Maakt een nieuwe database gemaakt of bijgewerkt van een bestaande database.|
 |[Databases - Get](/rest/api/sql/databases/get)|Hiermee haalt u een database.|
 |[Databases - lijst op de elastische Pool](/rest/api/sql/databases/listbyelasticpool)|Retourneert een lijst met databases in een elastische pool.|

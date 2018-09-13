@@ -1,6 +1,6 @@
 ---
-title: Intelligent Insights diagnostics prestatielogboek - Azure SQL Database | Microsoft Docs
-description: Intelligent Insights voorziet in een logboek diagnostische gegevens van prestatieproblemen met de Azure SQL Database
+title: Intelligent Insights prestaties diagnoselogboek - Azure SQL Database | Microsoft Docs
+description: Intelligent Insights biedt een logboekbestanden met diagnostische gegevens van prestatieproblemen met de Azure SQL Database
 services: sql-database
 author: danimir
 manager: craigg
@@ -10,22 +10,22 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/04/2018
 ms.author: v-daljep
-ms.openlocfilehash: 3d1a9045ed89bd3e5714762add7cb9568c46e44f
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 36b7c3775bb4e9addc5b3c9780805ddfe56249bf
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34648238"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717995"
 ---
-# <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>De Intelligent Insights Azure SQL Database prestaties diagnostische logboeken gebruikt
+# <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Gebruik het diagnoselogboek voor Intelligent Insights Azure SQL Database-prestaties
 
-Deze pagina bevat informatie over het gebruik van de Azure SQL Database prestaties diagnostics logboek gegenereerd door [Intelligent Insights](sql-database-intelligent-insights.md), de indeling en de gegevens voor uw aangepaste ontwikkeling. U kunt dit logboek diagnostische gegevens naar verzenden [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), of een oplossing van derden voor aangepaste DevOps waarschuwingen en rapportages mogelijkheden.
+Deze pagina vindt u informatie over het gebruik van de Azure SQL Database performance logboekbestanden met diagnostische gegevens die worden gegenereerd door [Intelligent Insights](sql-database-intelligent-insights.md), de indeling en de daarin opgenomen voor de ontwikkeling van uw aangepaste gegevens. U kunt deze logboekbestanden met diagnostische gegevens te verzenden [Azure Log Analytics](../log-analytics/log-analytics-azure-sql.md), [Azure Event Hubs](../monitoring-and-diagnostics/monitoring-stream-diagnostic-logs-to-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage), of een oplossing van derden voor aangepaste DevOps waarschuwingen en rapporten mogelijkheden.
 
 ## <a name="log-header"></a>Logboekheader
 
-Het logboek diagnostics gebruikt standaard JSON-indeling naar uitvoer Intelligent Insights bevindingen. De eigenschap exacte categorie voor toegang tot een logboek Intelligent Insights is de vaste waarde 'SQLInsights'.
+De logboekbestanden met diagnostische gegevens wordt standaard JSON-indeling gebruikt om uit te voeren van Intelligent Insights bevindingen. De exacte categorie-eigenschap voor toegang tot een Intelligent Insights-logboek is het vaste waarde 'SQLInsights'.
 
-De koptekst van het logboek is gebruikelijk en bestaat uit de tijdstempel (TimeGenerated) die wordt aangegeven wanneer er een vermelding is gemaakt. Dit omvat ook een resource-ID (ResourceId) die naar de vermelding is gekoppeld verwijst aan de specifieke SQL-Database. De categorie (categorie), het niveau (niveau) en de naam van de bewerking (OperationName) vast eigenschappen waarvan de waarden niet wijzigen. Ze geven aan dat de logboekvermelding informatief is en dat ze afkomstig zijn van Intelligent Insights (SQLInsights).
+De koptekst van het logboek is normaal en bestaat uit het tijdstempel (TimeGenerated) waarin wordt weergegeven wanneer een item is gemaakt. Dit omvat ook een resource-ID (ResourceId) die naar de specifieke SQL-Database het item is gekoppeld verwijst aan. De categorie (categorie), het niveau (niveau) en de naam van de bewerking (OperationName) zijn opgelost voor eigenschappen waarvan de waarden niet wijzigen. Ze geven aan dat de logboekvermelding informatief is en dat het afkomstig van Intelligent Insights (SQLInsights is).
 
 ```json
 "TimeGenerated" : "2017-9-25 11:00:00", // time stamp of the log entry
@@ -35,15 +35,15 @@ De koptekst van het logboek is gebruikelijk en bestaat uit de tijdstempel (TimeG
 "OperationName" : "Insight", // fixed property
 ```
 
-## <a name="issue-id-and-database-affected"></a>Probleem-ID en van invloed op een database
+## <a name="issue-id-and-database-affected"></a>Probleem-ID en -database worden beïnvloed
 
-De eigenschap in probleem-id (issueId_d) biedt een manier voor het unieke prestatieproblemen bijhouden totdat ze zijn opgelost. Intelligent Insights toetsenbordinvoer elk probleem lifecycle als 'Active', 'Controleren' of 'Voltooid'. Door elk van deze fasen status vastleggen Intelligent Insights meerdere gebeurtenisrecords in het logboek. Voor elk van deze vermeldingen blijft het probleem id-nummer uniek zijn. Intelligent Insights houdt het probleem gedurende de levensduur en genereert een beter inzicht in het logboek voor diagnostische gegevens om de 15 minuten.
+De probleem-id-eigenschap (issueId_d) biedt een manier om een unieke prestatieproblemen bijhouden totdat ze zijn opgelost. Intelligent Insights observeert de levenscyclus van elk probleem als 'Active', 'Controleren' of 'Voltooid'. Tot en met elk van deze fasen status vastleggen Intelligent Insights meerdere gebeurtenisrecords in het logboek. Voor elk van deze items blijft de probleem-id uniek. Intelligent Insights houdt het probleem gedurende de levensduur en genereert een beter inzicht in de logboekbestanden met diagnostische gegevens om de 15 minuten.
 
-Nadat een prestatieprobleem wordt gedetecteerd en voor zo lang duurt, het probleem wordt gerapporteerd als 'Actief' onder de statuseigenschap (status_s). Nadat een gedetecteerde probleem is verholpen, heeft gecontroleerd en gerapporteerd als 'Controleren' onder de statuseigenschap (status_s). Als het probleem zich niet langer aanwezig, rapporteert de statuseigenschap (status_s) dit probleem als 'Voltooid'.
+Nadat een prestatieprobleem is gedetecteerd en zo lang duurt, het probleem is gerapporteerd als 'Active' onder de statuseigenschap (status_s). Nadat een gedetecteerd probleem is verholpen, heeft gecontroleerd en gerapporteerd als 'Controleren' onder de statuseigenschap (status_s). Als het probleem niet meer aanwezig is, rapporteert de statuseigenschap (status_s) dit probleem als 'Voltooid'.
 
-Het logboek diagnostics rapporten samen met de ID van het probleem, de begintijd (intervalStartTime_t) en de tijdstempels einde (intervalEndTme_t) van de specifieke gebeurtenis met betrekking tot een probleem dat wordt gerapporteerd in het logboek voor diagnostische gegevens.
+Samen met de probleem-ID rapporteert de logboekbestanden met diagnostische gegevens het begin (intervalStartTime_t) en de tijdstempels einde (intervalEndTme_t) van de gebeurtenis die betrekking hebben op een probleem dat in de logboekbestanden met diagnostische gegevens wordt gerapporteerd.
 
-De eigenschap elastische pool (elasticPoolName_s) geeft aan welke elastische groep die de database van een probleem behoort. Als de database geen deel uitmaakt van een elastische pool, is deze eigenschap heeft geen waarde. De database waarin een probleem is gedetecteerd wordt in de database-naameigenschap (databaseName_s) vermeld.
+De eigenschap elastische pool (elasticPoolName_s) geeft aan welke elastische pool de database met een probleem behoort. Als de database geen deel uitmaken van een elastische pool, is deze eigenschap heeft geen waarde. De database waarin een probleem is gedetecteerd, wordt vermeld in de eigenschap van de database-naam (databaseName_s).
 
 ```json
 "intervalStartTime_t": "2017-9-25 11:00", // start of the issue reported time stamp
@@ -56,9 +56,9 @@ De eigenschap elastische pool (elasticPoolName_s) geeft aan welke elastische gro
 
 ## <a name="detected-issues"></a>Gedetecteerde problemen
 
-De volgende sectie van het logboek van de prestaties Intelligent Insights bevat prestatieproblemen die zijn gedetecteerd via ingebouwde kunstmatige intelligence. Detecties worden vermeld in de eigenschappen in het logboek van JSON diagnostische gegevens. Deze detecties bestaan uit de categorie van een probleem, de impact van het probleem en de query's die van invloed op de metrische gegevens. De eigenschappen detecties bevat mogelijk meerdere prestatieproblemen die zijn gedetecteerd.
+De volgende sectie van het logboekbestand voor Intelligent Insights-prestaties bevat prestatieproblemen die zijn gedetecteerd via ingebouwde kunstmatige intelligentie. Detecties worden vermeld in de eigenschappen in de JSON-diagnoselogboek. Deze detecties bestaan uit de categorie van een probleem, de impact van het probleem, de query's die worden beïnvloed en de metrische gegevens. De detectie-eigenschappen kunnen bevatten meerdere prestatieproblemen die zijn gedetecteerd.
 
-Gedetecteerde prestatieproblemen worden gerapporteerd met de volgende detecties eigenschap structuur:
+De van de gedetecteerde prestatieproblemen worden gemeld met de volgende structuur van de detectie-eigenschap:
 
 ```json
 "detections_s" : [{
@@ -68,41 +68,41 @@ Gedetecteerde prestatieproblemen worden gerapporteerd met de volgende detecties 
 }] 
 ```
 
-Prestatiepatronen waarneembaar en de details die zijn gegenereerd in het logboek van diagnostische gegevens vindt u in de volgende tabel.
+Detecteerbare prestatiepatronen en de details die zijn gegenereerd aan de logboekbestanden met diagnostische gegevens zijn opgegeven in de volgende tabel.
 
-### <a name="detection-category"></a>Detectie-categorie
+### <a name="detection-category"></a>Detectie van categorie
 
-De eigenschap category (categorie) beschrijving van de categorie van waarneembaar prestatiepatronen. Zie de volgende tabel voor alle mogelijke categorieën van waarneembaar prestatiepatronen. Zie voor meer informatie [oplossen van prestatieproblemen met de database met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
+De eigenschap category (categorie) beschrijft de categorie van detecteerbare prestatiepatronen. Zie de volgende tabel voor alle mogelijke categorieën van detecteerbare prestatiepatronen. Zie voor meer informatie, [oplossen van prestatieproblemen met de database met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
 
-Afhankelijk van het prestatieprobleem gedetecteerd, de details in de diagnostische gegevens output logboekbestand dienovereenkomstig verschillen.
+Afhankelijk van het prestatieprobleem gedetecteerd, de details in de diagnostische gegevens over output logboekbestand dienovereenkomstig verschillen.
 
-| Prestatiepatronen waarneembaar | Details output |
+| Detecteerbare prestatiepatronen | Details van output |
 | :------------------- | ------------------- |
-| Limieten voor bereikt | <li>Resources die van invloed op een</li><li>Query-hashes</li><li>Percentage van resource-verbruik</li> |
-| Toename van de werkbelasting | <li>Aantal query's waarvan de uitvoering verhoogd</li><li>Query-hashes van query's met de grootste bijdrage aan de toename van de werkbelasting</li> |
+| Bronlimieten bereikt | <li>Betrokken resources</li><li>Query-hashes</li><li>Percentage van resource-verbruik</li> |
+| Toename van de werkbelasting | <li>Aantal query's waarvan de uitvoering is verhoogd</li><li>Query-hashes van query's met de grootste bijdrage aan de toename van de werkbelasting</li> |
 | Geheugendruk | <li>Geheugen-clerk</li> |
-| Vergrendelen | <li>Query-hashes van invloed op</li><li>Query-hashes worden geblokkeerd</li> |
-| Verbeterde MAXDOP | <li>Query-hashes</li><li>Wachttijden CXP</li><li>Wachttijden</li> |
+| Vergrendelen | <li>Query-hashes worden beïnvloed</li><li>Query-hashes blokkeren</li> |
+| Verbeterde MAXDOP | <li>Query-hashes</li><li>CXP wachttijden</li><li>Wachttijden</li> |
 | Pagelatch conflicten | <li>Query-hashes van query's veroorzaken conflicten</li> |
 | Ontbrekende Index | <li>Query-hashes</li> |
-| Nieuwe query | <li>Query-hash van de nieuwe query 's</li> |
-| Ongebruikelijke wacht statistiek | <li>Ongebruikelijke wacht typen</li><li>Query-hashes</li><li>Wachttijden query</li> |
-| TempDB conflicten | <li>Query-hashes van query's veroorzaken conflicten</li><li>Toekenning van de query voor de algehele database pagelatch conflicten wachttijd [%]</li> |
-| DTU tekort aan resources van elastische groep | <li>Elastische groep</li><li>Bovenste DTU verbruikende database</li><li>Percentage van de groep van toepassingen die worden gebruikt door de bovenste consument DTU</li> |
-| Regressie plannen | <li>Query-hashes</li><li>Goed plan-id 's</li><li>Ongeldige abonnement-id 's</li> |
-| Database-Scoped waarde configuratiewijziging | <li>Database-scoped configuratiewijzigingen vergeleken met de standaardwaarden</li> |
+| Nieuwe query | <li>Queryhash van de nieuwe query 's</li> |
+| Ongebruikelijke wacht statistiek | <li>Ongebruikelijke wait-typen</li><li>Query-hashes</li><li>Query-wachttijden</li> |
+| TempDB conflicten | <li>Query-hashes van query's veroorzaken conflicten</li><li>Query attribution aan de algehele database pagelatch conflicten wachttijd [%]</li> |
+| Elastische pool-DTU tekort | <li>Elastische pool</li><li>Bovenste DTU verbruikt database</li><li>Procent van de groep van toepassingen die worden gebruikt door de bovenste consument DTU</li> |
+| Regressie plannen | <li>Query-hashes</li><li>Goede plan-id 's</li><li>Ongeldige abonnement-id 's</li> |
+| Het wijzigen van de database Scoped Configuration | <li>Database-scoped configuratiewijzigingen in vergelijking met de standaardwaarden</li> |
 | Trage Client | <li>Query-hashes</li><li>Wachttijden</li> |
-| Laag Downgrade prijzen | <li>Tekstmelding</li> |
+| Downgrade van laag-prijzen | <li>Tekstmelding</li> |
 
 ### <a name="impact"></a>Impact
 
-De impact (impact) eigenschap beschrijft hoeveel gedetecteerde gedrag hebben bijgedragen aan het probleem dat een database heeft. Effecten bereik van 1 tot 3, 3 al de hoogste bijdrage, 2 als matig en 1 als de laagste bijdrage. De waarde van invloed kan worden gebruikt als invoer voor aangepaste waarschuwingen automation, afhankelijk van uw specifieke behoeften. De eigenschap query's betrokken (QueryHashes) bieden een lijst van de query hashes die is van invloed op een bepaalde detectie.
+De impact (invloed) eigenschap beschrijft hoeveel een gedetecteerd probleem hebben bijgedragen aan het probleem dat een database heeft. Heeft gevolgen voor het bereik van 1 tot 3, met 3 als de hoogste bijdrage, Gemiddeld, 2 en 1 als de bijdrage van de laagste. De waarde van de impact kan worden gebruikt als invoer voor aangepaste waarschuwingen automatisering, afhankelijk van uw specifieke behoeften. De eigenschap query's betrokken (QueryHashes) bieden een overzicht van de query-hashes die door een bepaalde detectie.
 
 ### <a name="impacted-queries"></a>Betrokken query 's
 
-De volgende sectie van het logboek Intelligent Insights bevat informatie over bepaalde query's die is van invloed op de gedetecteerde prestatieproblemen. Deze informatie wordt vermeld als een matrix met objecten die zijn ingesloten in de eigenschap impact_s. De eigenschap invloed bestaat uit entiteiten en metrische gegevens. Entiteiten verwijst naar een bepaalde query (Type: Query). De unieke query-hash wordt vermeld onder de eigenschap value (waarde). De query's vermeld wordt bovendien gevolgd door een waarde en een waarde die wijzen op een gedetecteerde prestatieprobleem.
+De volgende sectie van het logboek Intelligent Insights bevat informatie over bepaalde query's die worden beïnvloed door de gedetecteerde prestatieproblemen. Deze informatie wordt vermeld als een matrix met objecten die zijn ingesloten in de eigenschap impact_s. De eigenschap gevolgen bestaat uit entiteiten en metrische gegevens. Entiteiten verwijst naar een bepaalde query (Type: Query). De unieke queryhash wordt vermeld onder de eigenschap value (waarde). Bovendien wordt elk van de query's vermeld gevolgd door een metrische waarde en een waarde die wijzen op een prestatieprobleem aangetroffen.
 
-De query met de hash-0x9102EXZ4 aangetroffen in het volgende voorbeeld van de logboekbestanden hebben een hogere duur van de uitvoering van (metriek: DurationIncreaseSeconds). De waarde van 110 seconden geeft aan dat deze bepaalde query heeft meer 110 seconden geduurd om uit te voeren. Omdat er meerdere query's kunnen worden gedetecteerd, kan in deze sectie logboek meerdere query vermeldingen bevatten.
+In het volgende voorbeeld voor het logboek worden de query's uitvoeren met de hash-0x9102EXZ4 is aangetroffen op een verbeterde duur van de uitvoering van (metrische gegevens: DurationIncreaseSeconds). De waarde van 110 seconden geeft aan dat deze bepaalde query 110 seconden langer duurde om uit te voeren. Omdat meerdere query's kunnen worden gedetecteerd, kan deze bepaalde uplogboekgedeelte meerdere query vermeldingen bevatten.
 
 ```json
 "impact" : [{
@@ -116,18 +116,18 @@ De query met de hash-0x9102EXZ4 aangetroffen in het volgende voorbeeld van de lo
 
 ### <a name="metrics"></a>Metrische gegevens
 
-De maateenheid voor elke metriek gerapporteerd wordt verstrekt onder de eigenschap metriek (metrisch) met de mogelijke waarden van seconden, het aantal en percentage. De waarde van een gemeten metriek wordt vermeld in de eigenschap value (waarde).
+De maateenheid voor alle gegevens die zijn gerapporteerd is opgegeven bij de eigenschap metrische gegevens (meeteenheid) met de mogelijke waarden van seconden, aantal en percentage. De waarde van een gemeten metrische waarde wordt vermeld in de eigenschap value (waarde).
 
-De eigenschap DurationIncreaseSeconds bevat de maateenheid in seconden. De maateenheid CriticalErrorCount is een getal dat een aantal fouten.
+De eigenschap DurationIncreaseSeconds bevat de maateenheid in seconden. De CriticalErrorCount maateenheid is een getal dat staat voor een aantal fouten.
 
 ```json
 "metric" : "DurationIncreaseSeconds", // issue metric type – possible values: DurationIncreaseSeconds, CriticalErrorCount, WaitingSeconds
 "value" : 102 // value of the measured metric (in this case seconds)
 ```
 
-## <a name="root-cause-analysis-and-improvement-recommendations"></a>Hoofdmap oorzaak analyse en verbetering aanbevelingen
+## <a name="root-cause-analysis-and-improvement-recommendations"></a>Hoofdmap oorzaak aanbevelingen voor analyse en verbetering van de gebruikerservaring
 
-Het laatste deel van het logboek van de prestaties Intelligent Insights is voor de analyse van de geautomatiseerde hoofdmap oorzaak van het geïdentificeerde prestatieprobleem vermindering van toepassing. De informatie wordt weergegeven in human-vriendelijk bewoordingen in de eigenschap root oorzaak analysis (rootCauseAnalysis_s). Verbetering aanbevelingen zijn opgenomen in het logboek, waar mogelijk.
+Het laatste deel van het logboek van de prestaties van Intelligent Insights heeft betrekking op de geautomatiseerde hoofdoorzaakanalyses van het geïdentificeerde degradatie prestatieprobleem. De informatie wordt weergegeven in human-vriendelijk bewoordingen in de eigenschap root oorzaak analysis (rootCauseAnalysis_s). Aanbevelingen voor prestatieverbetering zijn opgenomen in het logboek waar mogelijk.
 
 ```json
 // example of reported root cause analysis of the detected performance issue, in a human-readable format
@@ -135,13 +135,13 @@ Het laatste deel van het logboek van de prestaties Intelligent Insights is voor 
 "rootCauseAnalysis_s" : "High data IO caused performance to degrade. It seems that this database is missing some indexes that could help."
 ```
 
-U kunt het logboek van de prestaties Intelligent Insights met [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) of een oplossing van derden voor aangepaste DevOps waarschuwingen en rapportagemogelijkheden.
+U kunt het logboekbestand voor de prestaties van Intelligent Insights met [Azure Log Analytics]( https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql) of een oplossing van derden voor aangepaste DevOps waarschuwingen en rapportagemogelijkheden.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Meer informatie over [Intelligent Insights](sql-database-intelligent-insights.md) concepten.
-- Meer informatie over hoe [oplossen van prestatieproblemen Azure SQL Database met Intelligent Insights](sql-database-intelligent-insights-troubleshoot-performance.md).
-- Meer informatie over hoe [Azure SQL Database bewaken met behulp van Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
-- Meer informatie over hoe [verzamelen en gebruiken van de logboekgegevens van uw Azure-resources](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
+- Meer informatie over het [oplossen van prestatieproblemen met de Azure SQL Database met intelligente inzichten](sql-database-intelligent-insights-troubleshoot-performance.md).
+- Meer informatie over het [Azure SQL Database controleren met behulp van Azure SQL Analytics](https://docs.microsoft.com/azure/log-analytics/log-analytics-azure-sql).
+- Meer informatie over het [verzamelen en gebruiken van logboekgegevens van uw Azure-resources](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs).
 
 
 

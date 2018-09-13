@@ -1,6 +1,6 @@
 ---
-title: Configureer back-up langdurig bewaren - Azure SQL Database | Microsoft Docs
-description: Meer informatie over het automatische back-ups opslaan in de Azure Recovery Services-kluis en te herstellen van de Azure Recovery Services-kluis
+title: Langetermijnretentie - Azure SQL Database configureren | Microsoft Docs
+description: Leer hoe u voor het opslaan van geautomatiseerde back-ups in de Azure Recovery Services-kluis en kunt herstellen vanuit de Azure Recovery Services-kluis
 services: sql-database
 author: anosov1960
 manager: craigg
@@ -10,28 +10,28 @@ ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: feefe68fbe6681ee4b450503606ac8c4f25d5a39
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: c908e73a225f90227f09a8bb806a62c690de7632
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37130257"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718845"
 ---
-# <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configureren en herstel van back-up langdurig bewaren van Azure SQL Database worden met behulp van de Azure Recovery Services-kluis
+# <a name="configure-and-restore-from-azure-sql-database-long-term-backup-retention-using-azure-recovery-services-vault"></a>Configureren en herstellen van back-up op lange termijn retentie van Azure SQL Database worden met behulp van Azure Recovery Services-kluis
 
-U kunt de Azure Recovery Services-kluis voor het opslaan van back-ups van Azure SQL database en vervolgens een database herstelt via back-ups behouden in de kluis die met de Azure-portal of PowerShell configureren.
+U kunt de Azure Recovery Services-kluis voor het opslaan van back-ups van Azure SQL database en vervolgens met de back-ups behouden in de kluis met de Azure portal of PowerShell een database te herstellen.
 
 > [!NOTE]
-> Als onderdeel van de initiële versie van de evaluatieversie van langdurig bewaren van back-up in oktober 2016, zijn back-ups opgeslagen in de kluis van Azure Services Recovery Service. Deze update verwijdert u deze afhankelijkheid, maar voor achterwaartse compatibiliteit de oorspronkelijke API tot en met 31 mei 2018 wordt ondersteund. Als u nodig hebt om te communiceren met back-ups in de Azure-Services Recovery-kluis, Zie [langdurig back-up bewaren met behulp van Azure Services Recovery Service kluis](sql-database-long-term-backup-retention-configure-vault.md). 
+> Als onderdeel van de eerste release van de Preview-versie van langetermijnretentie in oktober 2016, zijn back-ups opgeslagen in de Recovery-Service van Azure-Services-kluis. Deze update verwijdert deze afhankelijkheid, maar voor achterwaartse compatibiliteit de oorspronkelijke API tot en met 31 mei 2018 wordt ondersteund. Als u nodig hebt om te communiceren met back-ups in de Azure-Recovery Services-kluis, Zie [langetermijnretentie met behulp van Azure Services Recovery Services-kluis](sql-database-long-term-backup-retention-configure-vault.md). 
 
 
 ## <a name="azure-portal"></a>Azure Portal
 
-De volgende secties laten zien hoe de Azure portal gebruiken voor het configureren van de Azure Recovery Services-kluis, back-ups weergeven in de kluis en terugzetten van de kluis.
+De volgende secties laten zien hoe u de Azure portal gebruiken voor het configureren van de Azure Recovery Services-kluis, back-ups weergeven in de kluis en terugzetten van de kluis.
 
-### <a name="configure-the-vault-register-the-server-and-select-databases"></a>Configureren van de kluis, de-server registreren en databases selecteren
+### <a name="configure-the-vault-register-the-server-and-select-databases"></a>Configureren van de kluis, de server te registreren en databases selecteren
 
-Configureren van een Azure Recovery Services-kluis [automatische back-ups behouden](sql-database-long-term-retention.md) gedurende een periode langer is dan de bewaarperiode voor de servicetier. 
+Configureren van een Azure Recovery Services-kluis [automatische back-ups](sql-database-long-term-retention.md) voor een periode die langer is dan de retentietermijn van uw servicecategorie. 
 
 1. Open de **SQL Server** pagina voor uw server.
 
@@ -41,25 +41,25 @@ Configureren van een Azure Recovery Services-kluis [automatische back-ups behoud
 
    ![koppeling langetermijnretentie](./media/sql-database-get-started-backup-recovery/long-term-backup-retention-link.png)
 
-3. Op de **lange bewaartermijn van de back-** pagina voor uw server, lees en accepteer de preview-voorwaarden (tenzij u hebben gedaan - of deze functie niet langer in preview is).
+3. Op de **langetermijnretentie** pagina voor uw server, lees en accepteer onder de preview-voorwaarden (tenzij u nog hebt gedaan, - of deze functie niet langer in de Preview-versie is).
 
    ![voorwaarden voor weergeven van een voorbeeld accepteren](./media/sql-database-get-started-backup-recovery/accept-the-preview-terms.png)
 
-4. Lange bewaartermijn van de back-up configureren, dat de database in het raster selecteren en klik vervolgens op **configureren** op de werkbalk.
+4. Langetermijnretentie van back-up configureren, selecteert u die database in het raster en klik vervolgens op **configureren** op de werkbalk.
 
    ![database selecteren voor langetermijnretentie](./media/sql-database-get-started-backup-recovery/select-database-for-long-term-backup-retention.png)
 
-5. Op de **configureren** pagina, klikt u op **vereiste instellingen configureren** onder **Recovery-kluis service**.
+5. Op de **configureren** pagina, klikt u op **vereiste instellingen configureren** onder **Recovery Services-kluis**.
 
    ![koppeling kluis](./media/sql-database-get-started-backup-recovery/configure-vault-link.png)
 
 6. Op de **Recovery services-kluis** pagina, selecteert u een bestaande kluis, indien van toepassing. Als er voor uw abonnement geen Recovery Services-kluis is gevonden, klikt u om de werkstroom af te sluiten en een Recovery Services-kluis te maken.
 
-   ![koppeling van de kluis maken](./media/sql-database-get-started-backup-recovery/create-new-vault-link.png)
+   ![koppeling kluis maken](./media/sql-database-get-started-backup-recovery/create-new-vault-link.png)
 
 7. Op de **Recovery Services-kluizen** pagina, klikt u op **toevoegen**.
 
-   ![kluis koppeling toevoegen](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
+   ![koppeling kluis toevoegen](./media/sql-database-get-started-backup-recovery/add-new-vault-link.png)
    
 8. Op de **Recovery Services-kluis** pagina, Geef een geldige naam voor de Recovery Services-kluis.
 
@@ -79,14 +79,14 @@ Configureren van een Azure Recovery Services-kluis [automatische back-ups behoud
 
    ![bestaande kluis selecteren](./media/sql-database-get-started-backup-recovery/select-existing-vault.png)
 
-12. Op de **configureren** pagina, Geef een geldige naam voor de nieuw bewaarbeleid, het bewaarbeleid standaard zo nodig wijzigen en klik vervolgens op **OK**.
+12. Op de **configureren** pagina, Geef een geldige naam voor het nieuwe retentiebeleid, het standaardretentiebeleid desgewenst wijzigen en klik vervolgens op **OK**.
 
    ![retentiebeleid definiëren](./media/sql-database-get-started-backup-recovery/define-retention-policy.png)
    
    >[!NOTE]
-   >Bewaarperiode beleidsnamen zijn een aantal tekens, inclusief spaties niet toegestaan.
+   >Retentie beleidsnamen toestaan niet van bepaalde tekens, inclusief spaties.
 
-13. Op de **lange bewaartermijn van de back-** pagina voor uw database, klikt u op **opslaan** en klik vervolgens op **OK** de lange termijn bewaren van back-beleid toepassen op alle geselecteerde databases.
+13. Op de **langetermijnretentie** pagina voor uw database, klikt u op **opslaan** en klik vervolgens op **OK** de lange termijn back-upretentie beleid toepassen op alle geselecteerde databases.
 
    ![retentiebeleid definiëren](./media/sql-database-get-started-backup-recovery/save-retention-policy.png)
 
@@ -98,11 +98,11 @@ Configureren van een Azure Recovery Services-kluis [automatische back-ups behoud
 > Na de configuratie worden back-ups in de kluis binnen de komende zeven dagen weergegeven. Ga pas verder met deze zelfstudie als er back-ups in de kluis worden weergegeven.
 >
 
-### <a name="view-backups-in-long-term-retention-using-azure-portal"></a>Back-ups weergeven in lange bewaartermijn met Azure portal
+### <a name="view-backups-in-long-term-retention-using-azure-portal"></a>Back-ups weergeven in met behulp van Azure portal met een langetermijnbewaarperiode
 
-Informatie weergeven over uw databaseback-ups in [lange bewaartermijn van de back-](sql-database-long-term-retention.md). 
+Informatie weergeven over uw databaseback-ups in [langetermijnretentie](sql-database-long-term-retention.md). 
 
-1. Open uw Azure Recovery Services-kluis voor back-ups van uw database in de Azure-portal (Ga naar **alle resources** en selecteert u deze in de lijst met resources voor uw abonnement) om weer te geven van de hoeveelheid opslagruimte die wordt gebruikt door uw back-ups in de kluis.
+1. Open in de Azure-portal, de Azure Recovery Services-kluis voor uw databaseback-ups (Ga naar **alle resources** en selecteer deze in de lijst met resources voor uw abonnement) om weer te geven van de hoeveelheid opslag die wordt gebruikt door uw databaseback-ups in de kluis.
 
    ![recovery services-kluis weergeven met back-ups](./media/sql-database-get-started-backup-recovery/view-recovery-services-vault-with-data.png)
 
@@ -114,17 +114,17 @@ Informatie weergeven over uw databaseback-ups in [lange bewaartermijn van de bac
 
    ![werkbalk herstellen](./media/sql-database-get-started-backup-recovery/restore-toolbar.png)
 
-4. Klik op de pagina terugzetten **op lange termijn**.
+4. Klik op de gelijknamige pagina **op lange termijn**.
 
 5. Klik onder de back-ups van de Azure kluis op **Een back-up selecteren** om de beschikbare databaseback-ups met langetermijnretentie weer te geven.
 
    ![back-ups in kluis](./media/sql-database-get-started-backup-recovery/view-backups-in-vault.png)
 
-### <a name="restore-a-database-from-a-backup-in-long-term-backup-retention-using-the-azure-portal"></a>Een database herstellen vanaf een back-up in lange Backup-bewaartermijn met de Azure portal
+### <a name="restore-a-database-from-a-backup-in-long-term-backup-retention-using-the-azure-portal"></a>Een database herstellen vanuit een back-ups uit langetermijnretentie met behulp van de Azure portal
 
 U kunt de database herstellen naar een nieuwe database vanuit een back-up in de Azure Recovery Services-kluis.
 
-1. Op de **Azure kluis back-ups** pagina, klikt u op de back-up herstellen en klik vervolgens op **Selecteer**.
+1. Op de **back-ups Azure kluis** pagina, klikt u op de back-up om te herstellen en klik vervolgens op **Selecteer**.
 
    ![back-up in kluis selecteren](./media/sql-database-get-started-backup-recovery/select-backup-in-vault.png)
 
@@ -148,11 +148,11 @@ U kunt de database herstellen naar een nieuwe database vanuit een back-up in de 
 
 ## <a name="powershell"></a>PowerShell
 
-De volgende secties laten zien hoe PowerShell gebruiken voor het configureren van de Azure Recovery Services-kluis, back-ups weergeven in de kluis en terugzetten van de kluis.
+De volgende secties laten zien hoe u PowerShell gebruiken voor het configureren van de Azure Recovery Services-kluis, back-ups weergeven in de kluis en terugzetten van de kluis.
 
 ### <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 
-Gebruik de [nieuw AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) voor het maken van een recovery services-kluis.
+Gebruik de [New-AzureRmRecoveryServicesVault](/powershell/module/azurerm.recoveryservices/new-azurermrecoveryservicesvault) naar een recovery services-kluis maken.
 
 > [!IMPORTANT]
 > De kluis moet zich bevinden in dezelfde regio als de logische Azure SQL-server en moet dezelfde resourcegroep gebruiken als de logische server.
@@ -169,9 +169,9 @@ $vault = New-AzureRmRecoveryServicesVault -Name $recoveryServiceVaultName -Resou
 Set-AzureRmRecoveryServicesBackupProperties -BackupStorageRedundancy LocallyRedundant -Vault $vault
 ```
 
-### <a name="set-your-server-to-use-the-recovery-vault-for-its-long-term-retention-backups"></a>Stel uw server met de recovery-kluis voor de lange termijn bewaren van back-ups
+### <a name="set-your-server-to-use-the-recovery-vault-for-its-long-term-retention-backups"></a>Stel uw server met de recovery-kluis voor de lange termijn bewaren back-ups
 
-Gebruik de [Set AzureRmSqlServerBackupLongTermRetentionVault](/powershell/module/azurerm.sql/set-azurermsqlserverbackuplongtermretentionvault) cmdlet een eerder gemaakte recovery services-kluis koppelen aan een specifieke Azure SQL-server.
+Gebruik de [Set-AzureRmSqlServerBackupLongTermRetentionVault](/powershell/module/azurerm.sql/set-azurermsqlserverbackuplongtermretentionvault) cmdlet naar een eerder gemaakte recovery services-kluis koppelen aan een specifieke Azure SQL-server.
 
 ```PowerShell
 # Set your server to use the vault to for long-term backup retention 
@@ -181,10 +181,10 @@ Set-AzureRmSqlServerBackupLongTermRetentionVault -ResourceGroupName $resourceGro
 
 ### <a name="create-a-retention-policy"></a>Retentiebeleid maken
 
-In een retentiebeleid stelt u in hoe lang een databaseback-up moet worden bewaard. Gebruik de [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/resourcemanager/azurerm.recoveryservices.backup/v2.3.0/get-azurermrecoveryservicesbackupretentionpolicyobject) cmdlet ophalen van het bewaarbeleid standaard moet worden gebruikt als de sjabloon voor het maken van beleid. In deze sjabloon is de bewaarperiode ingesteld voor 2 jaar. Voer vervolgens de [nieuw AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) ten slotte het beleid te maken. 
+In een retentiebeleid stelt u in hoe lang een databaseback-up moet worden bewaard. Gebruik de [Get-AzureRmRecoveryServicesBackupRetentionPolicyObject](https://docs.microsoft.com/powershell/module/azurerm.recoveryservices.backup/get-azurermrecoveryservicesbackupretentionpolicyobject) cmdlet om op te halen van het standaardretentiebeleid moet worden gebruikt als de sjabloon voor het maken van beleid. In deze sjabloon is de bewaarperiode ingesteld gedurende twee jaar. Voer vervolgens de [New-AzureRmRecoveryServicesBackupProtectionPolicy](/powershell/module/azurerm.recoveryservices.backup/new-azurermrecoveryservicesbackupprotectionpolicy) ten slotte het beleid te maken. 
 
 > [!NOTE]
-> Sommige cmdlets vereisen dat u de context van de kluis voordat u ingesteld ([Set AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) zodat u deze cmdlet in enkele verwante codefragmenten zien. U stelt u de context omdat het beleid deel uit van de kluis maakt. U kunt meerdere beleidsregels voor retentie maken voor elke kluis en vervolgens het gewenste beleid toepassen op specifieke databases. 
+> Sommige cmdlets moet u voordat u de context van de kluis in te stellen ([Set-AzureRmRecoveryServicesVaultContext](/powershell/module/azurerm.recoveryservices/set-azurermrecoveryservicesvaultcontext)) zodat u deze cmdlet in enkele gerelateerde fragmenten te zien. U stelt de context omdat het beleid deel uit van de kluis maakt. U kunt meerdere beleidsregels voor retentie maken voor elke kluis en vervolgens het gewenste beleid toepassen op specifieke databases. 
 
 
 ```PowerShell
@@ -206,7 +206,7 @@ $policy
 
 ### <a name="configure-a-database-to-use-the-previously-defined-retention-policy"></a>Een database configureren voor gebruik van het eerder gedefinieerde retentiebeleid
 
-Gebruik de [Set AzureRmSqlDatabaseBackupLongTermRetentionPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabasebackuplongtermretentionpolicy) cmdlet naar het nieuwe beleid toepassen op een specifieke database.
+Gebruik de [Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy](/powershell/module/azurerm.sql/set-azurermsqldatabasebackuplongtermretentionpolicy) cmdlet om het nieuwe beleid toepassen op een specifieke database.
 
 ```PowerShell
 # Enable long-term retention for a specific SQL database
@@ -216,7 +216,7 @@ Set-AzureRmSqlDatabaseBackupLongTermRetentionPolicy -ResourceGroupName $resource
 
 ### <a name="view-backup-info-and-backups-in-long-term-retention"></a>Back-upinformatie en back-ups met langetermijnretentie weergeven
 
-Informatie weergeven over uw databaseback-ups in [lange bewaartermijn van de back-](sql-database-long-term-retention.md). 
+Informatie weergeven over uw databaseback-ups in [langetermijnretentie](sql-database-long-term-retention.md). 
 
 De volgende cmdlets gebruiken om back-informatie weer te geven:
 
@@ -247,7 +247,7 @@ $availableBackups
 
 ### <a name="restore-a-database-from-a-backup-in-long-term-backup-retention"></a>Een database herstellen vanuit een back-up met langetermijnretentie
 
-Terugzetten vanaf een lange bewaartermijn van de back-up gebruikt de [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) cmdlet.
+Herstellen vanuit een langetermijnretentie voor back-up gebruikt de [Restore-AzureRmSqlDatabase](/powershell/module/azurerm.sql/restore-azurermsqldatabase) cmdlet.
 
 ```PowerShell
 # Restore the most recent backup: $availableBackups[0]
@@ -264,11 +264,11 @@ $restoredDb
 
 
 > [!NOTE]
-> Hier kunt u verbinding kunt maken met de herstelde database met SQL Server Management Studio benodigde taken uit te voeren, zoals het ophalen van een bits van gegevens uit de herstelde database kopiëren naar de bestaande database of verwijder de bestaande database en de naam van de herstelde de database is de naam van de bestaande database. Zie [punt in tijd terugzetten](sql-database-recovery-using-backups.md#point-in-time-restore).
+> Hier kunt u verbinding kunt maken met de herstelde database met behulp van SQL Server Management Studio om uit te voeren van de noodzakelijke taken, zoals het ophalen van een deel van de gegevens uit de herstelde database te kopiëren naar de bestaande database of te verwijderen van de bestaande database en wijzig de naam van de herstelde de database de naam van de bestaande database. Zie [punt in tijd herstel](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>Het opruimen van back-ups in Recovery Services-kluis
+## <a name="how-to-cleanup-backups-in-recovery-services-vault"></a>Het opruimen back-ups in Recovery Services-kluis
 
-Vanaf 1 juli 2018 de LTR V1 API is afgeschaft en alle bestaande-ups in Recovery Services-kluizen zijn gemigreerd naar de LTR storage-containers die worden beheerd door de SQL-Database. Om ervoor te zorgen dat u niet meer in rekening voor de oorspronkelijke back-ups gebracht bent, zijn ze verwijderd uit de kluizen na de migratie. Wanneer u een vergrendeling op uw kluis geplaatst blijven de back-ups echter er. Om te voorkomen de onnodige kosten, kunt u de oude back-ups handmatig verwijderen uit de Recovery Services-kluis met het volgende script. 
+Vanaf 1 juli 2018 de LTR-V1-API is gedeprecieerd en alle uw bestaande back-ups in Recovery Services-kluizen zijn gemigreerd naar de LTR storage-containers die worden beheerd door de SQL-Database. Om ervoor te zorgen dat u niet meer in rekening voor de oorspronkelijke back-ups gebracht bent, zijn ze verwijderd uit de kluizen na de migratie. Echter, als u een vergrendeling voor uw kluis hebt geplaatst de back-ups blijven er. Als u wilt de overbodige kosten voorkomen, kunt u handmatig de oude back-ups verwijderen uit de Recovery Services-kluis met het volgende script. 
 
 ```PowerShell
 <#

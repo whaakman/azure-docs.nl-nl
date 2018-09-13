@@ -1,6 +1,6 @@
 ---
-title: Transcriptie richtlijnen voor spraak-training
-description: Informatie over het voorbereiden van tekst om aan te passen akoestische en taalmodellen en spraakstijlen voor de Speech-service.
+title: Transcriptie richtlijnen voor de Service voor spraak-training
+description: Informatie over het voorbereiden van de tekst die moet worden akoestische en taalmodellen en spraakstijlen aanpassen voor de Speech-Service.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
 author: PanosPeriorellis
@@ -9,26 +9,26 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 07/01/2018
 ms.author: panosper
-ms.openlocfilehash: db324b6c5444955debdc6a3e09906a0de47ff819
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: f9cb205b5111e981ee70adca715139402c9e31a4
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41987560"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721809"
 ---
-# <a name="transcription-guidelines-for-using-speech-service"></a>Transcriptie richtlijnen voor het gebruik van spraak-service
+# <a name="transcription-guidelines-for-using-the-speech-service"></a>Transcriptie richtlijnen voor het gebruik van de Speech-Service
 
-Om aan te passen **spraak naar tekst** of **tekst naar spraak**, moet u de tekst en spraak. Elke regel in de tekst die overeenkomt met een enkele utterance. De tekst moet exact de gesproken tekst als mogelijk. De tekst heet een *transcript*, en moet u deze maken in een specifieke indeling.
+Om aan te passen **spraak naar tekst** of **tekst naar spraak**, moet u de tekst en spraak. Elke regel in de tekst die overeenkomt met een enkele utterance. De tekst moet de gesproken tekst zoveel mogelijk overeenkomen met. De tekst heet een *transcript*, en moet u deze maken in een specifieke indeling.
 
-De spraakservice normaliseert de invoer voor tekst consistent te houden. 
+De Spraakservice normaliseert de invoer voor tekst consistent te houden. 
 
 Dit artikel wordt beschreven voor beide typen normalizations. De richtlijnen verschillen voor verschillende talen.
 
-## <a name="us-english-en-us"></a>Amerikaans-Engels (en-US)
+## <a name="us-english-en-us"></a>Amerikaans-Engels (en-us)
 
 Tekstgegevens moet één utterance per regel, worden geschreven als tekst zonder opmaak, met behulp van alleen de ASCII-tekenset.
 
-Vermijd het gebruik van uitgebreide (Latijns-1) of Unicode-tekens. Deze tekens worden opgenomen per ongeluk tijdens het voorbereiden van de gegevens in een tekstverwerkingsprogramma of slijmen gegevens van webpagina's. Deze vervangen door de juiste ASCII-vervangingen. Bijvoorbeeld:
+Vermijd het gebruik van uitgebreide (Latijns-1) of Unicode-tekens. Deze tekens worden opgenomen per ongeluk bij het voorbereiden van de gegevens in een tekstverwerkingsprogramma of kan verzamelen van gegevens van webpagina's. De tekens vervangen door de juiste ASCII-vervangingen. Bijvoorbeeld:
 
 | Tekens om te voorkomen | Vervanging |
 |----- | ----- |
@@ -38,13 +38,13 @@ Vermijd het gebruik van uitgebreide (Latijns-1) of Unicode-tekens. Deze tekens w
 
 ### <a name="text-normalization-rules-for-english"></a>Tekst normalisering regels voor Engels
 
-De spraak-service wordt uitgevoerd de volgende normalisatieregels.
+De spraak-Service wordt uitgevoerd de volgende normalisatieregels:
 
-*   Kleine hoofdlettergebruik alle tekst
-*   Alle interpunctie met uitzondering van word-interne apostroffen verwijderen
-*   Uitbreiding van de getallen in gesproken formulier, met inbegrip van dollar bedragen
+* Kleine letters gebruikt voor alle tekst
+* Alle interpunctie met uitzondering van word-interne apostroffen verwijderen
+* Getallen uit te breiden naar gesproken formulier, met inbegrip van dollar bedragen
 
-Hier volgen enkele voorbeelden
+Hier volgen enkele voorbeelden:
 
 | Oorspronkelijke tekst | Na normaliseren |
 |----- | ----- |
@@ -57,13 +57,13 @@ Hier volgen enkele voorbeelden
 | Pi is ongeveer 3,14 | pi is ongeveer drie punt een vier |
 | Het kost $3,14 | kosten hiervoor drie 14 |
 
-De volgende normalisering van toepassing op uw Transcripten tekst.
+De volgende normalisering van toepassing op uw Transcripten tekst:
 
-*   Afkortingen moeten worden uitgeschreven in woorden
-*   Niet-standaard numerieke tekenreeksen (zoals een bepaalde datum of accounting formulieren) moeten worden uitgeschreven in woorden
-*   Woorden met niet-alfabetische tekens of gemengde alfanumerieke tekens moeten worden omgezet als uitgesproken
-*   Afkortingen uitgesproken als woorden ongewijzigd laten. Bijvoorbeeld, radar laser, RAM, NAVO.
-*   Schrijven afkortingen uitgesproken als afzonderlijke letters, met letters die worden gescheiden door spaties. Bijvoorbeeld, IBM, CPU, FBI, nog te bepalen, NaN. 
+* Afkortingen moeten worden uitgeschreven in woorden.
+* Niet-standaard numerieke tekenreeksen (zoals een bepaalde datum of accounting formulieren) moeten worden uitgeschreven in woorden.
+* Woorden met niet-alfabetische tekens of gemengde alfanumerieke tekens moeten worden omgezet als uitgesproken.
+* Afkortingen die worden uitgesproken als woorden ongewijzigd laat (bijvoorbeeld 'radar","laserprinter", 'RAM-geheugen' of 'NAVO').
+* Schrijf aanmaningen afkortingen die worden uitgesproken als afzonderlijke, met letters die worden gescheiden door spaties (bijvoorbeeld 'IBM,""CPU,""FBI", 'Nog te bepalen' of 'NaN'). 
 
 Hier volgen enkele voorbeelden:
 
@@ -80,27 +80,27 @@ Hier volgen enkele voorbeelden:
 | OU812 door Van Halen afspelen | O U 8 1 2 Halen Van afspelen |
 | UTF-8 met stuklijst | U T F 8 met stuklijst |
 
-## <a name="chinese-zh-cn"></a>Chinees (zh-CN)
+## <a name="chinese-zh-cn"></a>Chinees (zh-cn)
 
-Tekstgegevens die zijn geüpload naar de Custom Speech Service moet gebruiken UTF-8-codering met de bytevolgorde markering. Het bestand moet worden geschreven als één utterance per regel.
+Tekstgegevens die wordt geüpload naar de Custom Speech Service moet gebruiken UTF-8-codering met een bytevolgorde markering. Het bestand moet worden geschreven als één utterance per regel.
 
-Vermijd het gebruik van de halve breedte leestekens. Deze tekens worden opgenomen per ongeluk tijdens het voorbereiden van de gegevens in een tekstverwerkingsprogramma of slijmen gegevens van webpagina's. Vervang ze door geschikte volledige breedte vervangingen. Bijvoorbeeld:
+Vermijd het gebruik van de halve breedte leestekens. Deze tekens worden opgenomen per ongeluk bij het voorbereiden van de gegevens in een tekstverwerkingsprogramma of kan verzamelen van gegevens van webpagina's. Vervang ze door geschikte volledige breedte vervangingen. Bijvoorbeeld:
 
 | Tekens om te voorkomen | Vervanging |
 |----- | ----- |
-| "你好" (openen en sluiten dubbele aanhalingstekens) | "你好' (dubbele aanhalingstekens) |
+| "你好" (openen en sluiten van dubbele aanhalingstekens) | "你好' (dubbele aanhalingstekens) |
 | 需要什么帮助? (vraagteken) | 需要什么帮助? |
 
 ### <a name="text-normalization-rules-for-chinese"></a>Tekst normalisering regels voor Chinees
 
-De spraak-service wordt uitgevoerd de volgende normalisatieregels.
+De spraak-Service wordt uitgevoerd de volgende normalisatieregels:
 
-*   Alle interpunctie verwijderen
-*   Getallen uit te breiden naar gesproken formulier
-*   Volledige breedte letters converteren naar halve breedte letters
-*   Alle hoofdletters hoofdlettergebruik Nederlandse woorden
+* Alle interpunctie verwijderen
+* Getallen uit te breiden naar gesproken formulier
+* Volledige breedte letters converteren naar halve breedte letters
+* Hoofdletters gebruikt voor alle Nederlandse woorden
 
-Hier volgen enkele voorbeelden.
+Hier volgen enkele voorbeelden:
 
 | Oorspronkelijke tekst | Na normaliseren |
 |----- | ----- |
@@ -112,12 +112,12 @@ Hier volgen enkele voorbeelden.
 | 下午5:00的航班 | 下午 五点 的 航班 |
 | 我今年21岁 | 我 今年 二十 一 岁 |
 
-De volgende normalisering van toepassing op uw tekst voordat u ze importeert.
+Voordat u uw tekst importeren, gelden de volgende normalisering:
 
-*   Afkortingen moeten worden uitgeschreven in woorden (zoals in gesproken formulier)
-*   Numerieke tekenreeksen in gesproken vorm uitschrijven.
+* Afkortingen moeten worden uitgeschreven in woorden (zoals in gesproken formulier).
+* Numerieke tekenreeksen in gesproken vorm uitschrijven.
 
-Hier volgen enkele voorbeelden.
+Hier volgen enkele voorbeelden:
 
 | Oorspronkelijke tekst | Na normaliseren |
 |----- | ----- |
@@ -126,22 +126,22 @@ Hier volgen enkele voorbeelden.
 
 ## <a name="other-languages"></a>Andere talen
 
-Gegevens geüpload naar de **spraak naar tekst** service UTF-8-codering met de bytevolgorde markering moet gebruiken. Het bestand moet worden geschreven als één utterance per regel.
+Gegevens geüpload naar de **spraak naar tekst** service UTF-8-codering met een markering bytevolgordemarkering moet gebruiken. Het bestand moet worden geschreven als één utterance per regel.
 
 > [!NOTE]
-> Deze voorbeelden gebruiken Duits. Deze richtlijnen gelden echter voor alle talen die geen Amerikaans Engels of Chinees.
+> De volgende voorbeelden gebruiken Duits. Echter, de richtlijnen gelden voor alle talen die geen Amerikaans Engels of Chinees.
 
 ### <a name="text-normalization-rules-for-german"></a>Tekst normalisering regels voor Duitsland
 
-De spraak-service wordt uitgevoerd de volgende normalisatieregels.
+De spraak-Service wordt uitgevoerd de volgende normalisatieregels:
 
-*   Kleine hoofdlettergebruik alle tekst
-*   Verwijderen van alle interpunctie, met inbegrip van verschillende typen aanhalingstekens ('test', 'test', 'test' of «testen» zijn ok)
-*   Verwijderen van rijen met speciale tekens uit de set ¢ ¤ ¥ ¦ artikel © ª ¬­® ° + ² µ × ÿ Ø¬¬
-*   Uitbreiding van de getallen in word-formulier, met inbegrip van dollar of euro bedragen
-*   Umlauts worden geaccepteerd alleen voor een, o u; anderen wordt vervangen door "do" of worden verwijderd
+* Kleine letters gebruikt voor alle tekst
+* Verwijderen van alle interpunctie, met inbegrip van verschillende typen tussen aanhalingstekens ('test', 'test', 'test' en «testen» zijn OK)
+* Verwijderen van rijen met speciale tekens uit de set ¢ ¤ ¥ ¦ artikel © ª ¬­® ° + ² µ × ÿ Ø¬¬
+* Getallen uit te breiden naar word-formulier, met inbegrip van dollar of eurobedragen
+* Umlauts accepteert alleen voor een, o, en u; anderen wordt vervangen door "do" of worden verwijderd
 
-Hier volgen enkele voorbeelden
+Hier volgen enkele voorbeelden:
 
 | Oorspronkelijke tekst | Na normaliseren |
 |----- | ----- |
@@ -149,25 +149,25 @@ Hier volgen enkele voorbeelden
 | ¡EINE Frage! | een frage |
 | WIR, haben | WIR haben |
 
-De volgende normalisering van toepassing op uw tekst voordat u ze importeert.
+Voordat u uw tekst importeren, gelden de volgende normalisering:
 
-*   Decimale punt moet ', 'en niet'. '
-*   Tijdscheidingsteken tussen de uren en minuten moet ': 'en niet'. ': 12:00 Uhr
-*   Afkortingen zoals 'ca'. worden niet vervangen. Het is raadzaam dat het volledige formulier te gebruiken.
-*   De vier belangrijkste rekenkundige operators worden verwijderd: +, -, \*, /. Het is raadzaam deze te vervangen door hun letterlijke vorm: plus, min, mal, geteilt.
-*   Hetzelfde geldt voor vergelijkingsoperators (=, <>,) - Tautologisch, kleiner als, grösser als
-*   Gebruik fracties, zoals 3/4, word-indeling (zoals 'drei viertel' in plaats van ¾)
-*   Het symbool € vervangen door de word-indeling "Euro"
+* Decimale punten moet ', 'en niet'. '.
+* Scheidingstekens tijd tussen het aantal uren en minuten moet ': 'en niet'. ' (bijvoorbeeld 12:00 Uhr).
+* Afkortingen zoals "ca". worden niet vervangen. U wordt aangeraden dat u het volledige formulier gebruiken.
+* De vier belangrijkste rekenkundige operators (+, -, \*, en /), worden verwijderd. Het is raadzaam deze te vervangen door hun letterlijke vorm: "plus," "min," "onjuist" en "geteilt."
+* Dezelfde regel van toepassing op vergelijkingsoperators (=, <, en >). Het is raadzaam deze te vervangen door "Tautologisch", "kleiner als," en 'grösser als'.
+* Gebruik fracties, zoals 3/4, word-indeling (bijvoorbeeld ' drei viertel' in plaats van ¾).
+* Het symbool € vervangen door de word-indeling "Euro."
 
-Hier volgen enkele voorbeelden.
+Hier volgen enkele voorbeelden:
 
 | Oorspronkelijke tekst | Na de normalisering van gebruiker | Nadat system normalisering
 |--------  | ----- | -------- |
-| ES is 12.23Uhr | ES is 12:23Uhr | ES is zwölf uhr drei en zwanzig uhr |
+| ES is 12.23 Uhr | ES is 12:23 Uhr | ES is zwölf uhr drei en zwanzig uhr |
 | {12,45} | {12,45} | zwölf komma vier fünf ||
 | 2 + 3-4 | 2 en 3 min 4 | u plus drei min vier|
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- [Uw proefabonnement voor Speech ophalen](https://azure.microsoft.com/try/cognitive-services/)
+- [Uw proefabonnement Speech Service ophalen](https://azure.microsoft.com/try/cognitive-services/)
 - [Water in C#](quickstart-csharp-dotnet-windows.md)

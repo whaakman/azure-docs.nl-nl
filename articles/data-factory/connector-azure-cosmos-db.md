@@ -11,14 +11,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/28/2018
+ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: 1afd64fbd7019164f0e1f5c850f2dcd8250cdbfc
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: eb290dffd7bdd86b9776d4f30b6fd09a2a952a46
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39600333"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720018"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Cosmos DB met behulp van Azure Data Factory
 
@@ -34,10 +34,14 @@ U kunt gegevens kopiëren van Azure Cosmos DB naar een ondersteunde sink-gegeven
 
 Deze connector Azure Cosmos DB ondersteunt name:
 
-- Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Gegevens kopiëren van/naar Cosmos DB [SQL API](https://docs.microsoft.com/azure/cosmos-db/documentdb-introduction).
+- Schrijven naar Cosmos DB als UPSERT of invoegen.
 - JSON-documenten als importeren/exporteren-is of kopiëren van gegevens van/naar de gegevensset in tabelvorm zoals SQL-database, CSV-bestanden, enzovoort. Documenten om te kopiëren als-is naar/van JSON-bestanden of een andere Cosmos DB-verzameling, Zie [Import/Export-JSON-documenten](#importexport-json-documents).
 
 Data Factory kan worden geïntegreerd met [Cosmos DB bulksgewijs executor-bibliotheek](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) voor de beste prestaties schrijven in Cosmos DB.
+
+>[!TIP]
+>Bekijk [in deze video](https://www.youtube.com/watch?v=5-SRNiC_qOU&t=760s) die helpt bij het kopiëren van gegevens uit Azure Blob-opslag met Cosmos DB en een beschrijving van overwegingen voor het ophalen van gegevens in het algemeen in Cosmos DB afstemmen van de prestaties.
 
 ## <a name="getting-started"></a>Aan de slag
 

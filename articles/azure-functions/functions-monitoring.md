@@ -11,12 +11,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/15/2017
 ms.author: glenga
-ms.openlocfilehash: 9c39d621bfc8df338a4556fd412ae54489982074
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 89f222d28a284abff50e60b12c691be2f8691255
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092764"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718947"
 ---
 # <a name="monitor-azure-functions"></a>Azure Functions controleren
 
@@ -234,7 +234,7 @@ In dit voorbeeld stelt u de volgende regels:
 
 De categoriewaarde in *host.json* bepaalt de logboekregistratie voor alle categorieën die met dezelfde waarde beginnen. Bijvoorbeeld, 'Host' *host.json* bepaalt de logboekregistratie voor "Host.General", "Host.Executor", "Host.Results", enzovoort.
 
-Als *host.json* omvat meerdere categorieën die met de dezelfde tekenreeks beginnen langer die eerst worden vergeleken. Stel bijvoorbeeld dat u wilt dat alles, van de runtime, behalve 'Host.Aggregator' om aan te melden bij `Error` niveau, terwijl 'Host.Aggregator' zich op `Information` niveau:
+Als *host.json* omvat meerdere categorieën die met de dezelfde tekenreeks beginnen langer die eerst worden vergeleken. Stel bijvoorbeeld dat u wilt dat alles, van de runtime, behalve 'Host.Aggregator' om aan te melden bij `Error` niveau, maar u wilt dat 'Host.Aggregator' om aan te melden bij de `Information` niveau:
 
 ```json
 {
@@ -298,7 +298,7 @@ Als in de vorige sectie hebt genoteerd, combineert de runtime gegevens over de f
 
 ## <a name="configure-sampling"></a>Steekproeven configureren
 
-Application Insights is een [steekproeven](../application-insights/app-insights-sampling.md) functie die u beschermen kunt tegen het produceren van te veel telemetriegegevens op tijdstippen van de piekbelasting. Wanneer het aantal telemetrie-items dat groter is dan een opgegeven snelheid, wordt Application Insights willekeurig negeren enkele van de binnenkomende items. De standaardinstelling voor het maximum aantal items per seconde is 5. U kunt configureren van lijnen in *host.json*.  Hier volgt een voorbeeld:
+Application Insights is een [steekproeven](../application-insights/app-insights-sampling.md) functie die u beschermen kunt tegen het produceren van te veel telemetriegegevens op tijdstippen van de piekbelasting. Wanneer het aantal binnenkomende telemetriegegevens een opgegeven drempelwaarde overschrijdt, wordt de Application Insights willekeurig negeert een aantal inkomende objecten gestart. De standaardinstelling voor het maximum aantal items per seconde is 5. U kunt configureren van lijnen in *host.json*.  Hier volgt een voorbeeld:
 
 ```json
 {
@@ -457,11 +457,6 @@ namespace functionapp0915
                 };
             UpdateTelemetryContext(dependency.Context, context, name);
             telemetryClient.TrackDependency(dependency);
-            
-            return name == null
-                ? req.CreateResponse(HttpStatusCode.BadRequest, 
-                    "Please pass a name on the query string or in the request body")
-                : req.CreateResponse(HttpStatusCode.OK, "Hello " + name);
         }
         
         // This correllates all telemetry with the current Function invocation
@@ -499,18 +494,6 @@ module.exports = function (context, req) {
     client.trackDependency({target:"http://dbname", name:"select customers proc", data:"SELECT * FROM Customers", duration:231, resultCode:0, success: true, dependencyTypeName: "ZSQL", tagOverrides:{"ai.operation.id": context.invocationId}});
     client.trackRequest({name:"GET /customers", url:"http://myserver/customers", duration:309, resultCode:200, success:true, tagOverrides:{"ai.operation.id": context.invocationId}});
 
-    if (req.query.name || (req.body && req.body.name)) {
-        context.res = {
-            // status: 200, /* Defaults to 200 */
-            body: "Hello " + (req.query.name || req.body.name)
-        };
-    }
-    else {
-        context.res = {
-            status: 400,
-            body: "Please pass a name on the query string or in the request body"
-        };
-    }
     context.done();
 };
 ```

@@ -11,16 +11,16 @@ ms.date: 08/01/2018
 ms.author: markgal
 ms.custom: H1Hack27Feb2017
 keywords: back-ups; VM-back-up
-ms.openlocfilehash: c3bb198a65f907080023af707080f60c9c1fccbf
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: fee0e20e232621764ba10d714b7ddfe9c759dafc
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398886"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717910"
 ---
 # <a name="back-up-azure-virtual-machines-to-recovery-services-vault"></a>Back-up van virtuele Azure-machines naar Recovery Services-kluis
 
-Dit artikel wordt uitgelegd hoe met het configureren van beveiliging voor een virtuele machine van de virtuele machines operations menu of de Recovery Services-kluis. Recovery Services-kluizen beveiligen:
+In dit artikel wordt uitgelegd hoe u de beveiliging van een virtuele machine van de virtuele machines operations menu of de Recovery Services-kluis configureren. Recovery Services-kluizen beveiligen:
 
 * VM's die zijn geïmplementeerd met Azure Resource Manager
 * Klassieke VM's

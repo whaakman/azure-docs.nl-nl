@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/11/2018
 ms.author: jeffgilb
 ms.reviewer: misainat
-ms.openlocfilehash: 24f237a04d19d03ab7357db6fb9c7ab60036f3d2
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 4eadbe38eede505a3339d4b6090d0a34c12a5fc2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390990"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721956"
 ---
 # <a name="post-asdk-installation-configuration-tasks"></a>Na de installatie van de ASDK configuratietaken
 
@@ -162,6 +162,11 @@ Set-ADDefaultDomainPasswordPolicy -MaxPasswordAge 180.00:00:00 -Identity azurest
 
 ![Console Groepsbeleidsbeheer](media/asdk-post-deploy/gpmc.png)
 
+## <a name="enable-multi-tenancy"></a>Multitenancy inschakelen
+Voor implementaties met Azure AD, moet u [multitenancy inschakelen](.\.\azure-stack-enable-multitenancy.md#enable-multi-tenancy) voor uw installatie ASDK.
+
+> [!NOTE]
+> Als beheerder of gebruiker-accounts uit andere domeinen dan het account dat wordt gebruikt voor het registreren van Azure Stack worden gebruikt voor het aanmelden bij een Azure Stack-portal, de domeinnaam die wordt gebruikt voor het registreren van Azure Stack moet worden toegevoegd aan de portal url. Bijvoorbeeld, als Azure Stack is geregistreerd bij fabrikam.onmicrosoft.com en de account van de gebruiker zich aanmeldt is admin@contoso.com, de URL te gebruiken om aan te melden bij de gebruikersportal: https://portal.local.azurestack.external/fabrikam.onmicrosoft.com.
 
 ## <a name="next-steps"></a>Volgende stappen
 [De ASDK registreren bij Azure](asdk-register.md)

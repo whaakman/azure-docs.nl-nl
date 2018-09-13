@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/16/2018
 ms.author: dobett
 ms.custom: include file
-ms.openlocfilehash: c6e57d5094f455983b8b474b6930f628d654e457
-ms.sourcegitcommit: e45b2aa85063d33853560ec4bc867f230c1c18ce
+ms.openlocfilehash: 9196648d7e3d2ea717b1a61cbca959805649ed2f
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43371217"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44754435"
 ---
 In het eerste scenario, voegt u een nieuw telemetrietype naar Contoso de bestaande **Koelunit** apparaattype.
 
@@ -73,6 +73,7 @@ Als u wilt in deze gebruiksaanwijzing volgen, hebt u het volgende nodig:
 
 * Visual Studio Code. U kunt [Visual Studio Code downloaden voor Mac, Linux en Windows](https://code.visualstudio.com/download).
 * .NET core. U kunt downloaden [.NET Core voor Mac, Linux en Windows](https://www.microsoft.com/net/download).
+* [C# voor Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * Postman. U kunt downloaden [Postman voor Mac, Windows of Linux](https://www.getpostman.com/apps).
 * Een [IoT-hub die zijn geïmplementeerd in uw Azure-abonnement](../articles/iot-hub/iot-hub-create-through-portal.md). U moet de IoT-hub-verbindingsreeks voor de stappen in deze handleiding. U kunt de verbindingsreeks ophalen vanuit de Azure-portal.
 * Een Cosmos DB-database die gebruikmaakt van de SQL-API en die is geconfigureerd voor [sterke consistentie](../articles/cosmos-db/manage-account.md). U moet de verbindingsreeks van de Cosmos DB-database voor de stappen in deze handleiding. U kunt de verbindingsreeks ophalen vanuit de Azure-portal.
@@ -89,13 +90,11 @@ De instructies in dit artikel wordt ervan uitgegaan dat u gebruikmaakt van Windo
 
 ### <a name="download-the-microservices"></a>Download de microservices
 
-Downloaden en pak deze uit de [opslag adapter microservice](https://github.com/Azure/pcs-storage-adapter-dotnet/archive/master.zip) vanuit GitHub naar een geschikte locatie op uw lokale computer.
-
-Downloaden en pak deze uit de [apparaat simulatie microservice](https://github.com/Azure/device-simulation-dotnet/archive/master.zip) vanuit GitHub naar een geschikte locatie op uw lokale computer.
+Downloaden en pak deze uit de [voor externe controle van microservices](https://github.com/Azure/remote-monitoring-services-dotnet/archive/master.zip) vanuit GitHub naar een geschikte locatie op uw lokale computer.
 
 ### <a name="run-the-storage-adapter-microservice"></a>De opslag-adapter microservice uitvoeren
 
-Open de **pc's-opslag-adapter-dotnet-master** map in Visual Studio Code. Klik op een **herstellen** knoppen om op te lossen dat alle afhankelijkheden niet opgelost.
+Open de **remote-monitoring-services-dotnet-master\storage-adapter** map in Visual Studio Code. Klik op een **herstellen** knoppen om op te lossen dat alle afhankelijkheden niet opgelost.
 
 Open de **.vscode/launch.json** bestands- en toewijzen van uw Cosmos DB-verbindingsreeks voor de **PCS_STORAGEADAPTER_DOCUMENTDB_CONNSTRING** omgevingsvariabele.
 
@@ -420,7 +419,7 @@ In deze sectie maakt testen u de typen apparaten die u hebt gemaakt in de vorige
 
 ### <a name="run-the-device-simulation-microservice"></a>De simulatie apparaat microservice uitvoeren
 
-Open de **apparaat-simulatie-dotnet-master** map die u hebt gedownload van GitHub in een nieuw exemplaar van Visual Studio Code. Klik op een **herstellen** knoppen om op te lossen dat alle afhankelijkheden niet opgelost.
+Open de **remote-monitoring-services-dotnet-master\device-simulation** map die u hebt gedownload van GitHub in een nieuw exemplaar van Visual Studio Code. Klik op een **herstellen** knoppen om op te lossen dat alle afhankelijkheden niet opgelost.
 
 Open de **.vscode/launch.json** bestands- en toewijzen van uw IoT Hub-verbindingsreeks voor de **PCS_IOTHUB_CONNSTRING** omgevingsvariabele.
 

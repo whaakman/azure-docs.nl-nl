@@ -10,16 +10,16 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.author: carlrab
-ms.openlocfilehash: 20039c32ed7bb740ba5d1185d195d7590cff39e2
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: bb0efe83cb18f25317911361de79378298e591b7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051252"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717608"
 ---
 # <a name="create-and-manage-logical-servers-and-single-databases-in-azure-sql-database"></a>Logische servers en individuele databases in Azure SQL Database maken en beheren 
 
-U kunt maken en beheren van Azure SQL-Databases logische servers en één met de Azure portal, PowerShell, Azure CLI, REST-API en Transact-SQL-databases.
+U kunt maken en beheren van logische Azure SQL database-servers en één met de Azure portal, PowerShell, Azure CLI, REST-API en Transact-SQL-databases.
 
 ## <a name="azure-portal-manage-logical-servers-and-databases"></a>Azure-portal: logische servers en databases beheren
 

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: 956cb80ddbf96f23585dd52f3dc1013c7a665113
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: fccdc4ac40878060b94d495b8895e2a128c9477c
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42886307"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716108"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Op rollen gebaseerd toegangsbeheer in de oplossingsverbetering voor externe controle configureren
 
@@ -134,11 +134,11 @@ De volgende stappen wordt beschreven hoe u een rol toevoegt aan een toepassing i
 
 ### <a name="define-a-policy-for-the-new-role"></a>Een beleid voor de nieuwe rol definiëren
 
-Nadat de functie toevoegen aan de app in Azure portal, moet u een beleid in definiëren [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/pcs-auth/Services/data/policies/roles.json) voor de rol die de machtiging die nodig zijn om apparaten te beheren.
+Nadat de functie toevoegen aan de app in Azure portal, moet u een beleid in definiëren [roles.json](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/auth/Services/data/policies/roles.json) voor de rol die de machtiging die nodig zijn om apparaten te beheren.
 
-1. Kloon de [verificatie en autorisatie microservice](https://github.com/Azure/pcs-auth-dotnet) opslagplaats van GitHub naar uw lokale computer.
+1. Kloon de [Microservices voor externe bewaking](https://github.com/Azure/remote-monitoring-services-dotnet) opslagplaats van GitHub naar uw lokale computer.
 
-1. Bewerk de **Services/data/policies/roles.json** bestand om toe te voegen van het beleid voor de **ManageDevices** rol zoals wordt weergegeven in het volgende codefragment. De **ID** en **rol** waarden moeten overeenkomen met de roldefinitie van de in het app-manifest van de vorige sectie. De lijst met toegestane acties kan iemand in de **ManageDevices** rol die u wilt maken, bijwerken en verwijderen van apparaten die zijn verbonden met de oplossing:
+1. Bewerk de **auth/Services/data/policies/roles.json** bestand om toe te voegen van het beleid voor de **ManageDevices** rol zoals wordt weergegeven in het volgende codefragment. De **ID** en **rol** waarden moeten overeenkomen met de roldefinitie van de in het app-manifest van de vorige sectie. De lijst met toegestane acties kan iemand in de **ManageDevices** rol die u wilt maken, bijwerken en verwijderen van apparaten die zijn verbonden met de oplossing:
 
     ```json
     {
@@ -184,7 +184,7 @@ Nadat de functie toevoegen aan de app in Azure portal, moet u een beleid in defi
 
 ### <a name="how-the-web-ui-enforces-permissions"></a>Hoe machtigingen worden afgedwongen in de web-UI
 
-De web UI gebruikt de [verificatie en autorisatie microservice](https://github.com/Azure/pcs-auth-dotnet) om te bepalen welke acties van een gebruiker is toegestaan om door te nemen en welke besturingselementen worden weergegeven in de gebruikersinterface. Bijvoorbeeld, als uw oplossing heet **contoso-rm4**, de web-UI wordt een lijst van toegestane acties voor de huidige gebruiker opgehaald door de volgende aanvraag te verzenden:
+De web UI gebruikt de [verificatie en autorisatie microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/auth) om te bepalen welke acties van een gebruiker is toegestaan om door te nemen en welke besturingselementen worden weergegeven in de gebruikersinterface. Bijvoorbeeld, als uw oplossing heet **contoso-rm4**, de web-UI wordt een lijst van toegestane acties voor de huidige gebruiker opgehaald door de volgende aanvraag te verzenden:
 
 ```http
 http://contoso-rm4.azurewebsites.net/v1/users/current
@@ -226,7 +226,7 @@ Zie voor meer informatie, [beveiligde onderdelen](https://github.com/Azure/pcs-r
 
 De microservices ook controleren machtigingen om te beveiligen tegen onbevoegde API-aanvragen. Wanneer een microservice een API-aanvraag ontvangt, decodeert en valideert de JWT-token om op te halen van de gebruikers-ID en de machtigingen die zijn gekoppeld aan de gebruikersrol.
 
-Het volgende fragment van het [DevicesController.cs](https://github.com/Azure/iothub-manager-dotnet/blob/master/WebService/v1/Controllers/DevicesController.cs) -bestand in de [IoTHub Manager microservice](https://github.com/Azure/iothub-manager-dotnet), ziet u hoe de machtigingen worden toegepast:
+Het volgende fragment van het [DevicesController.cs](https://github.com/Azure/remote-monitoring-services-dotnet/blob/master/iothub-manager/WebService/v1/Controllers/DevicesController.cs) -bestand in de [IoTHub Manager microservice](https://github.com/Azure/remote-monitoring-services-dotnet/tree/master/iothub-manager), ziet u hoe de machtigingen worden toegepast:
 
 ```csharp
 [HttpDelete("{id}")]

@@ -5,15 +5,15 @@ author: dkamstra
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 06/1/2018
+ms.date: 09/12/2018
 ms.author: dukek
 ms.component: alerts
-ms.openlocfilehash: 441469e24de5324fb5bed40c75f9a6b26f85bcc5
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 6163a099894a823614355f71a3e1af4a6a9026ec
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325053"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717672"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Actiegroepen in Azure portal maken en beheren
 ## <a name="overview"></a>Overzicht ##
@@ -33,9 +33,9 @@ Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen c
 1. In de [portal](https://portal.azure.com), selecteer **Monitor**. De **Monitor** blade consolideert alle controle-instellingen en gegevens in één weergave.
 
     ![De service 'Controleren'](./media/monitoring-action-groups/home-monitor.png)
-1. In de **instellingen** sectie, selecteer **actiegroepen**.
+1. Selecteer **waarschuwingen** Selecteer **actiegroepen beheren**.
 
-    ![Het tabblad "Actiegroepen"](./media/monitoring-action-groups/action-groups-blade.png)
+    ![Actiegroepen knop beheren](./media/monitoring-action-groups/manage-action-groups.png)
 1. Selecteer **actiegroep toevoegen**, en vul de velden in.
 
     ![De opdracht 'Actiegroep toevoegen'](./media/monitoring-action-groups/add-action-group.png)
@@ -97,6 +97,17 @@ Zie voor meer informatie over het gebruik van Azure Resource Manager-sjablonen c
 <dt>Webhook</dt>
 <dd>Mogelijk hebt u maximaal 10 Webhook-acties in een actiegroep
 <dd>Logica voor opnieuw proberen - de time-outperiode voor een antwoord 10 seconden is. De webhook-aanroep is geprobeerd een maximum van 2 tijden wanneer de volgende HTTP-statuscodes worden geretourneerd: 408, 429, 503, 504 of het HTTP-eindpunt reageert niet. De eerste poging gebeurt na tien seconden. De tweede en laatste poging gebeurt na 100 seconden.</dd>
+<dd>Bron-IP-adresbereiken
+<ul>
+    <li>13.106.57.181</li>
+    <li>13.106.54.3</li>
+    <li>13.106.54.19</li>
+    <li>13.106.38.142</li>
+    <li>13.106.38.148</li>
+    <li>13.106.57.196</li>
+</ul>
+Voor het ontvangen van updates over wijzigingen in deze IP-adressen aangeraden dat u configureert een [statuswaarschuwing voor de Service](./monitoring-service-notifications.md) die voor informatieve meldingen over de service actiegroepen bewaakt.
+</dd>
 </dl>
 
 ## <a name="manage-your-action-groups"></a>Beheren van uw actiegroepen ##

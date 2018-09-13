@@ -11,15 +11,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: waltero
-ms.openlocfilehash: 9287eb0925556d382410f95caf16a9ca478ca2da
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c9429f5909e5ba3fd66681fa62cf16125922d075
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44054414"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721769"
 ---
 # <a name="add-a-kubernetes-cluster-to-the-azure-stack-marketplace"></a>Een Kubernetes-Cluster toevoegen aan de Azure Stack Marketplace
 
@@ -48,7 +48,7 @@ Maak een plan, een aanbieding en een abonnement voor het Kubernetes-Cluster Mark
 
 1. Selecteer **in een statuswijziging**. Selecteer **openbare**.
 
-1. Selecteer **+ nieuw** > **aanbiedingen en abonnementen** > **abonnement** naar een nieuw abonnement maken.
+1. Selecteer **+ een resource maken** > **aanbiedingen en abonnementen** > **abonnement** naar een nieuw abonnement maken.
 
     a. Voer een **weergavenaam**.
 

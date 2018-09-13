@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.date: 07/09/2018
 ms.author: aliceku
 monikerRange: = azuresqldb-current || = azure-sqldw-latest || = sqlallproducts-allversions
-ms.openlocfilehash: afc53fc1abce74b247ec2e25bc3e4845bc870860
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 9e743dc2d5b6c2305bf071fecec58fcf13d5c92e
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44380196"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717723"
 ---
 # <a name="transparent-data-encryption-for-sql-database-and-data-warehouse"></a>Transparante gegevensversleuteling voor SQL-Database en Data Warehouse
 
-Transparante gegevensversleuteling (TDE) helpt Azure SQL Database en Azure Data Warehouse beveiligen tegen de dreiging van schadelijke activiteiten. Het voert realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden in rust zonder wijzigingen aan de toepassing. TDE is standaard ingeschakeld voor alle geïmplementeerde Azure SQL-Databases. TDE kan niet worden gebruikt voor het versleutelen van de logische **master** database in SQL-Database.  De **master** -database bevat objecten die nodig zijn om uit te voeren van de TDE-bewerkingen op de gebruikersdatabases.
+Transparante gegevensversleuteling (TDE) helpt Azure SQL Database en Azure Data Warehouse beveiligen tegen de dreiging van schadelijke activiteiten. Het voert realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogboekbestanden in rust zonder wijzigingen aan de toepassing. TDE is standaard ingeschakeld voor alle geïmplementeerde Azure SQL-databases. TDE kan niet worden gebruikt voor het versleutelen van de logische **master** database in SQL-Database.  De **master** -database bevat objecten die nodig zijn om uit te voeren van de TDE-bewerkingen op de gebruikersdatabases.
 
 TDE moet handmatig worden ingeschakeld voor oudere databases of Azure SQL Data Warehouse.  
 

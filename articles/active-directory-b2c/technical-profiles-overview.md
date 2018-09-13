@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 4dc88abda0f19896b8f1ed6465fe0fc39ac81b72
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: aad6aa788e9d7c7ca2c438bdeb63e77e91e4791a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381360"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714465"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Over technische profielen in Azure Active Directory B2C aangepast beleid
 
@@ -37,7 +37,6 @@ Een technisch profiel kunt dit soort scenario's:
 - [Restful-provider](restful-technical-profile.md) -oproepen naar REST-API-services, zoals het valideren van de invoer van de gebruiker, gebruikersgegevens duidelijker maken of integreren in line-of-business-toepassingen.
 - [SAML2](saml-technical-profile.md) -Federatie met de id-provider van een SAML-protocol.
 - [Zelf een door de bevestigde](self-asserted-technical-profile.md) -communiceren met de gebruiker. Bijvoorbeeld verzamelen referentie op die van de gebruiker moet zich aanmelden, weergegeven van de pagina voor het registreren of wachtwoord opnieuw instellen.
-- [Token verlener](jwt-issuer-technical-profile.md) -uitgeven van een toegangstoken.
 - **WsFed** -Federatie met eventuele WsFed protocol id-provider. 
 - **Sessiebeheer** -verschillende soorten sessies worden verwerkt. 
 - **Provider van gebruiker reis context**

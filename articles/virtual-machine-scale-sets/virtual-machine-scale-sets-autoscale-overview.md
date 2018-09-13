@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 05/29/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 48e64f0cc65ade870425f73989209e8bef8ec8d5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 4c33466af6e57264e02a7d5c298f7f1f9fbf4ed8
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38630283"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44717298"
 ---
 # <a name="overview-of-autoscale-with-azure-virtual-machine-scale-sets"></a>Overzicht van automatisch schalen met Azure VM-schaalset wordt ingesteld
 Een schaalset voor virtuele machine van Azure kan automatisch vergroten of verkleinen van het aantal VM-exemplaren die uw toepassing wordt uitgevoerd. Dit gedrag van automatische en flexibele vermindert de overhead voor het bewaken en optimaliseren van de prestaties van uw toepassing. U maakt regels die de aanvaardbare prestaties voor een positieve gebruikerservaring bepalen. Wanneer de gedefinieerde drempelwaarden wordt voldaan, maatregelen regels voor automatisch schalen om aan te passen van de capaciteit van uw schaalset. U kunt ook gebeurtenissen automatisch te vergroten of verkleinen, de capaciteit van uw schaalset op tijden vaste plannen. Dit artikel bevat een overzicht van welke prestaties metrische gegevens beschikbaar zijn en welke acties voor automatisch schalen kan uitvoeren.
@@ -106,7 +106,7 @@ Wanneer een regel voor automatisch schalen triggers wordt uw schaalset kunt auto
 | Aantal verhogen met   | Een vast aantal VM-exemplaren te maken. Dit is handig in schaalsets met een kleiner aantal virtuele machines.                                           |
 | Percentage verhogen met | Een toename op basis van een percentage van de VM-exemplaren. Goed voor grotere schaal wordt ingesteld wanneer een toename van de vaste niet merkbaar om prestaties te optimaliseren. |
 | Aantal verhogen tot   | Maken omdat het aantal VM-exemplaren moeten een gewenste bedrag voor het maximum bereikt.                                                            |
-| Aantal verlagen tot   | Een vast aantal VM-exemplaren te verwijderen. Dit is handig in schaalsets met een kleiner aantal virtuele machines.                                           |
+| Aantal verlagen met   | Een vast aantal VM-exemplaren te verwijderen. Dit is handig in schaalsets met een kleiner aantal virtuele machines.                                           |
 | Percentage verlagen met | Een verkleinen op basis van een percentage van de VM-exemplaren. Goed voor grotere schaal wordt ingesteld op waar een toename van de vaste mogelijk niet merkbaar resourceverbruik en kosten verminderen. |
 | Aantal verlagen tot   | Worden verwijderd omdat het aantal VM-exemplaren een gewenste minimum aan nodige bereiken zijn vereist.                                                            |
 

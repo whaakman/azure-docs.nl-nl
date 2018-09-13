@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 09/05/2018
 ms.author: raynew
-ms.openlocfilehash: 9a9bcc25a0ab6c50ebce394a43edd7bfcd764bed
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 7c96f362793ca2697eb2c92c07ff38d2fe6caad2
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304710"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716873"
 ---
 # <a name="contoso-migration-rehost-an-on-premises-app-on-azure-vms-and-sql-server-alwayson-availability-group"></a>Migratie van Contoso: een on-premises-app op Azure VM's en SQL Server AlwaysOn-beschikbaarheidsgroep Rehost
 
@@ -107,7 +107,7 @@ Contoso evalueert het voorgestelde ontwerp door het samenstellen van een lijst m
 **Overweging** | **Details**
 --- | ---
 **Professionals** | WEBVM wordt verplaatst naar Azure zonder wijzigingen, waardoor de migratie eenvoudig.<br/><br/> De SQL Server-laag wordt uitgevoerd op SQL Server 2017 en Windows Server 2016. De huidige Windows Server 2008 R2-besturingssysteem wordt hierdoor en uitvoeren van SQL Server 2017 biedt ondersteuning voor de technische vereisten en de doelstellingen van Contoso. IT is 100% compatibel tijdens het verplaatsen van SQL Server 2008 R2.<br/><br/> Contoso kan gebruikmaken van hun investering in Software Assurance, met behulp van Azure Hybrid Benefit.<br/><br/> Een SQL Server-implementatie in Azure met hoge beschikbaarheid biedt fouttolerantie, zodat de gegevenslaag van de app niet langer een single point of failover is.
-**Nadelen** | WEBVM wordt Windows Server 2008 R2 uitgevoerd. Het besturingssysteem wordt ondersteund door Azure voor specifieke rollen (juli 2018). [Meer informatie](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).<br/><br/> De weblaag van de app blijft een single point of failover.</br><br/> Contoso moet doorgaan met ondersteuning van de weblaag als een Azure-VM in plaats van verplaatsen naar een beheerde service zoals Azure App Service.<br/><br/> Met de oplossing voor gekozen moet Contoso doorgaan met twee SQL Server-VM's beheren in plaats van verplaatsen naar een beheerd platform, zoals Azure SQL Managed Instance. Contoso kan bovendien met Software Assurance wisselen hun bestaande licenties voor gereduceerde tarieven voor Azure SQL Managed Instance.
+**Nadelen** | WEBVM wordt Windows Server 2008 R2 uitgevoerd. Het besturingssysteem wordt ondersteund door Azure voor specifieke rollen (juli 2018). [Meer informatie](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines).<br/><br/> De weblaag van de app blijft een single point of failover.</br><br/> Contoso moet doorgaan met ondersteuning van de weblaag als een Azure-VM in plaats van verplaatsen naar een beheerde service zoals Azure App Service.<br/><br/> Met de oplossing voor gekozen moet Contoso doorgaan met twee SQL Server-VM's beheren in plaats van verplaatsen naar een beheerd platform, zoals Azure SQL Database Managed Instance. Contoso kan bovendien met Software Assurance wisselen hun bestaande licenties voor gereduceerde tarieven voor Azure SQL Database Managed Instance.
 
 
 ### <a name="azure-services"></a>Azure-services
@@ -134,7 +134,7 @@ Beheerders van Contoso, wordt de VM's van de app migreren naar Azure.
 
 ![Migratieproces](media/contoso-migration-rehost-vm-sql-ag/migration-process.png) 
  
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Hier volgt wat Contoso nodig heeft voor dit scenario te laten doen.
 
@@ -606,7 +606,7 @@ Als laatste stap in het instellen van de SQL-implementatie, beheerders van Conto
 ![Cluster-listener](media/contoso-migration-rehost-vm-sql-ag/cluster-listener.png)
 
 
-### <a name="verify-the-configuration"></a>Controleer de configuratie
+### <a name="verify-the-configuration"></a>De configuratie controleren
 
 Alles wat u instelt, heeft Contoso nu een functionele beschikbaarheidsgroep in Azure die gebruikmaakt van de gemigreerde database. Beheerders wordt dit controleren door verbinding te maken met de interne load balancer in SQL Management Studio.
 

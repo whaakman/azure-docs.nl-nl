@@ -1,6 +1,6 @@
 ---
 title: Exporteren naar SQL van Azure Application Insights | Microsoft Docs
-description: Continu Application Insights gegevens exporteren naar SQL met Stream Analytics.
+description: Continu Application Insights-gegevens exporteren naar SQL met Stream Analytics.
 services: application-insights
 documentationcenter: ''
 author: mrbullwinkle
@@ -11,56 +11,56 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 03/06/2015
+ms.date: 09/11/2017
 ms.author: mbullwin
-ms.openlocfilehash: 7d4bf0c5beeba22569e0000b28b007fb5b0ff68f
-ms.sourcegitcommit: 6f6d073930203ec977f5c283358a19a2f39872af
+ms.openlocfilehash: 70086cdff3ed313d2b6851139ca8c8a937426aab
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/11/2018
-ms.locfileid: "35294173"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716788"
 ---
-# <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Overzicht: Exporteren naar SQL van Application Insights met Stream Analytics
-Dit artikel laat zien hoe u verplaatst uw telemetriegegevens van [Azure Application Insights] [ start] in een Azure SQL database met behulp van [continue Export] [ export] en [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
+# <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>Walkthrough: Exporteren naar SQL van Application Insights met behulp van Stream Analytics
+Dit artikel wordt beschreven hoe u uw telemetriegegevens van verplaatst [Azure Application Insights] [ start] in een Azure SQL-database met behulp van [continue Export] [ export] en [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/). 
 
-Continue export verplaatst de telemetriegegevens naar Azure Storage in JSON-indeling. We parseren van de JSON-objecten met behulp van Azure Stream Analytics en rijen in een databasetabel te maken.
+Continue export worden de telemetriegegevens verplaatst naar Azure Storage in JSON-indeling. We parseren van de JSON-objecten met behulp van Azure Stream Analytics en rijen in een databasetabel maken.
 
-(Meer in het algemeen continue Export is de manier om uw eigen analyse van de telemetrie die uw apps naar Application Insights verzenden. U kunt dit codevoorbeeld hiervoor andere mogelijkheden met de geëxporteerde telemetriegegevens, zoals aggregatie van gegevens worden aanpassen.)
+(Meer over het algemeen continue Export is de manier om uw eigen analyse van de telemetrie die uw apps naar Application Insights verzenden. U kunt dit codevoorbeeld hiervoor andere dingen met de geëxporteerde telemetriegegevens, zoals aggregatie van gegevens worden aanpassen.)
 
 We beginnen met de veronderstelling dat u al hebt de app die u wilt bewaken.
 
-We gebruiken de gegevens van de pagina in dit voorbeeld, maar dit patroon kan gemakkelijk worden uitgebreid naar andere gegevenstypen zoals aangepaste gebeurtenissen en uitzonderingen. 
+In dit voorbeeld gebruiken we de gegevens van de pagina weergeven, maar hetzelfde patroon kan eenvoudig worden uitgebreid naar andere gegevenstypen, zoals aangepaste gebeurtenissen en uitzonderingen. 
 
 ## <a name="add-application-insights-to-your-application"></a>Application Insights toevoegen aan uw toepassing
 Aan de slag gaan:
 
 1. [Application Insights instellen voor uw webpagina's](app-insights-javascript.md). 
    
-    (In dit voorbeeld we ligt de nadruk op gegevens van de pagina weergeven in de clientbrowsers verwerking, maar u kunt Application Insights instellen voor de serverkant van uw [Java](app-insights-java-get-started.md) of [ASP.NET](app-insights-asp-net.md) -app en verwerking van aanvragen, afhankelijkheden en andere servertelemetrie.)
+    (In dit voorbeeld, ligt de focus op het verwerken van gegevens van de pagina weergeven in de clientbrowsers, maar u kunt Application Insights instellen voor de serverkant van uw [Java](app-insights-java-get-started.md) of [ASP.NET](app-insights-asp-net.md) app en de proces-aanvraag afhankelijkheid en andere servertelemetrie.)
 2. Uw app publiceren en bekijk de telemetrische gegevens verschijnen in uw Application Insights-resource.
 
-## <a name="create-storage-in-azure"></a>Maken van opslag in Azure
-Continue export levert altijd gegevens aan een Azure Storage-account, dus u moet de opslag om eerst te maken.
+## <a name="create-storage-in-azure"></a>Opslag maken in Azure
+Continue export voert altijd gegevens uit naar een Azure Storage-account, dus moet u eerst de opslag maken.
 
-1. Een opslagaccount maken in uw abonnement in de [Azure-portal][portal].
+1. Een storage-account maken in uw abonnement in de [Azure-portal][portal].
    
-    ![Kies nieuw, gegevens, opslag in Azure-portal. Klassieke selecteert, kiest u maken. Geef een opslagnaam.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
+    ![Kies nieuw, gegevens, opslag in Azure portal. Selecteer klassiek, kiest u maken. Geef een opslagnaam.](./media/app-insights-code-sample-export-sql-stream-analytics/040-store.png)
 2. Een container maken
    
-    ![In de nieuwe opslag Containers selecteren, klikt u op de tegel Containers en toevoegen](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
+    ![In de nieuwe opslag Containers selecteren, klikt u op de Containers tegel en klik vervolgens op toevoegen](./media/app-insights-code-sample-export-sql-stream-analytics/050-container.png)
 3. De toegangssleutel voor opslag kopiëren
    
-    U moet deze snel voor het instellen van de invoer van de stream analytics-service.
+    U moet deze beschikbaar voor het instellen van de invoer voor de stream analytics-service.
    
-    ![Instellingen, sleutels, open in de opslag, en een kopie van de primaire toegangssleutel](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
+    ![In de opslag, open instellingen, sleutels, en een kopie van de primaire toegangssleutel](./media/app-insights-code-sample-export-sql-stream-analytics/21-storage-key.png)
 
-## <a name="start-continuous-export-to-azure-storage"></a>Start de continue export naar Azure-opslag
-1. Blader naar de Application Insights-resource die u hebt gemaakt voor uw toepassing in de Azure-portal.
+## <a name="start-continuous-export-to-azure-storage"></a>Start de continue export naar Azure storage
+1. In de Azure-portal, blader naar de Application Insights-resource die u hebt gemaakt voor uw toepassing.
    
-    ![Kies Bladeren, Application Insights uw toepassing](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
+    ![Kies Bladeren, Application Insights, uw toepassing](./media/app-insights-code-sample-export-sql-stream-analytics/060-browse.png)
 2. Maak een continue export.
    
-    ![Instellingen voor continue Export toevoegen](./media/app-insights-code-sample-export-sql-stream-analytics/070-export.png)
+    ![Kies instellingen, continue Export toevoegen](./media/app-insights-code-sample-export-sql-stream-analytics/070-export.png)
 
     Selecteer het opslagaccount dat u eerder hebt gemaakt:
 
@@ -68,31 +68,31 @@ Continue export levert altijd gegevens aan een Azure Storage-account, dus u moet
 
     Stel de typen gebeurtenissen die u wilt zien:
 
-    ![Gebeurtenistypen kiezen](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
+    ![Kies gebeurtenistypen](./media/app-insights-code-sample-export-sql-stream-analytics/085-types.png)
 
 
-1. Laat een aantal gegevens worden verzameld. Terug zitten en toestaan dat uw toepassing een tijdje gebruiken. Telemetrie wordt geleverd in en ziet u statistische grafieken in [metrische explorer](app-insights-metrics-explorer.md) en afzonderlijke gebeurtenissen in [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md). 
+1. Sommige gegevens worden verzameld, kunnen. Begint en laat mensen uw toepassing een tijdje gebruiken. Telemetrie komt en ziet u statistische grafieken in [metric explorer](app-insights-metrics-explorer.md) en afzonderlijke gebeurtenissen in [diagnostische gegevens doorzoeken](app-insights-diagnostic-search.md). 
    
     En ook de gegevens worden geëxporteerd naar uw opslag. 
-2. Inspecteer de geëxporteerde gegevens in de portal - kiezen **Bladeren**, selecteer uw storage-account en vervolgens **Containers** - of in Visual Studio. Kies in Visual Studio **weergeven / Cloud Explorer**, en open Azure / opslag. (Als u deze optie niet hebt, moet u de Azure SDK installeren: Open het dialoogvenster New Project en Visual C# / Cloud / ophalen van Microsoft Azure SDK voor .NET.)
+2. Inspecteer de geëxporteerde gegevens in de portal - kiezen **Bladeren**, selecteer uw opslagaccount, en vervolgens **Containers** - of in Visual Studio. Kies in Visual Studio **weergeven / Cloud Explorer**, en open Azure / Storage. (Als u deze optie niet hebt, moet u de Azure SDK installeren: Open het dialoogvenster Nieuw Project en Visual C# / Cloud / Microsoft Azure SDK voor .NET ophalen.)
    
     ![Open in Visual Studio Server Browser, Azure, opslag](./media/app-insights-code-sample-export-sql-stream-analytics/087-explorer.png)
    
-    Noteer het algemene gedeelte van de padnaam die is afgeleid van de sleutel voor naam en instrumentatie van toepassing. 
+    Maak een notitie van het algemene gedeelte van de naam van het pad, die is afgeleid van de sleutel van de naam en -instrumentatie in de toepassing. 
 
-De gebeurtenissen worden geschreven naar de blob-bestanden in de JSON-indeling. Elk bestand kan een of meer gebeurtenissen bevatten. Dus willen we gelezen gegevens van de gebeurtenis en de velden die we wilt filteren. Er zijn alle soorten wat die we met de gegevens doen kan, maar onze plan is vandaag de dag Stream Analytics gebruiken de gegevens worden verplaatst naar een SQL-database. Die wordt maakt het eenvoudig om uit te voeren veel interessante query's.
+De gebeurtenissen worden geschreven naar de blob-bestanden in de JSON-indeling. Elk bestand kan een of meer gebeurtenissen bevatten. Dus graag we lezen van gegevens van de gebeurtenis en de velden die we willen filteren. Er zijn allerlei dingen die we met de gegevens kan doen, maar ons abonnement is vandaag nog aan Stream Analytics gebruiken voor het verplaatsen van de gegevens naar een SQL-database. Dit maakt het eenvoudig uitvoeren van tal van interessante query's.
 
-## <a name="create-an-azure-sql-database"></a>Een Azure SQL-Database maken
-Opnieuw starten vanuit uw abonnement in [Azure-portal][portal], de database maken (en een nieuwe server, tenzij u er al hebt verkregen) die u gaat het om gegevens te schrijven.
+## <a name="create-an-azure-sql-database"></a>Maak een Azure SQL Database
+Opnieuw starten van uw abonnement in [Azure-portal][portal], de database maken (en een nieuwe server, tenzij u al een hebt) op die u de gegevens schrijft.
 
 ![Nieuw, gegevens, SQL](./media/app-insights-code-sample-export-sql-stream-analytics/090-sql.png)
 
-Zorg ervoor dat de database-server staat de toegang tot Azure-services:
+Zorg ervoor dat de database-server toegang tot Azure-services geeft:
 
-![Bladeren, Servers, uw server, instellingen, Firewall, toegang tot Azure toestaan](./media/app-insights-code-sample-export-sql-stream-analytics/100-sqlaccess.png)
+![Bladeren, Servers, uw server, instellingen, Firewall, toegang geven tot Azure](./media/app-insights-code-sample-export-sql-stream-analytics/100-sqlaccess.png)
 
 ## <a name="create-a-table-in-azure-sql-db"></a>Een tabel maken in Azure SQL DB
-Verbinding maken met de database gemaakt in de vorige sectie met het beheerprogramma van uw voorkeur. In dit overzicht we gebruiken [SQL Server Management Tools](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
+Verbinding maken met de database hebt gemaakt in de vorige sectie met uw favoriete beheerprogramma. In dit scenario gebruiken we [SQL Server Management Tools](https://msdn.microsoft.com/ms174173.aspx) (SSMS).
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/31-sql-table.png)
 
@@ -138,48 +138,48 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/34-create-table.png)
 
-In dit voorbeeld gebruiken we gegevens van paginaweergaven. Overzicht van de gegevens beschikbaar Inspecteer de JSON-uitvoer en Zie de [exporteren gegevensmodel](app-insights-export-data-model.md).
+In dit voorbeeld gebruiken we gegevens uit de paginaweergaven. Als u wilt zien van de andere beschikbare gegevens, uw JSON-uitvoer controleren en zien het [gegevensmodel exporteren](app-insights-export-data-model.md).
 
 ## <a name="create-an-azure-stream-analytics-instance"></a>Azure Stream Analytics-exemplaar maken
-Van de [Azure-portal](https://portal.azure.com/), selecteer de Azure Stream Analytics-service en een nieuwe Stream Analytics-taak maken:
+Uit de [Azure-portal](https://portal.azure.com/), selecteert u de Azure Stream Analytics-service en een nieuwe Stream Analytics-taak te maken:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
+![Instellingen voor Stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/SA001.png)
 
 ![](./media/app-insights-code-sample-export-sql-stream-analytics/SA002.png)
 
-Wanneer de nieuwe taak is gemaakt, selecteert u **gaat u naar de resource**.
+Wanneer de nieuwe taak is gemaakt, selecteert u **naar de resource gaan**.
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
+![Instellingen voor Stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/SA003.png)
 
 #### <a name="add-a-new-input"></a>Een nieuwe invoer toevoegen
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
+![Instellingen voor Stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/SA004.png)
 
-Stel deze in op invoer van uw blob continue Export nemen:
+Instellen om te ondernemen invoer van de continue Export-blob:
 
-![](./media/app-insights-code-sample-export-sql-stream-analytics/SA005.png)
+![Instellingen voor Stream analytics](./media/app-insights-code-sample-export-sql-stream-analytics/SA0005.png)
 
-Nu moet u de primaire toegangssleutel van uw Opslagaccount die u eerder hebt genoteerd. Stel dit in als de sleutel van het Opslagaccount.
+Nu moet u de primaire toegangssleutel van uw Opslagaccount, die u eerder hebt genoteerd. Stel dit in als de Opslagaccountsleutel.
 
-#### <a name="set-path-prefix-pattern"></a>Set pad voorvoegselpatroon
+#### <a name="set-path-prefix-pattern"></a>Set-voorvoegsel padpatroon
 
-**Zorg ervoor dat de datumnotatie ingesteld op jjjj-MM-DD (met streepjes).**
+**Zorg ervoor dat de datumnotatie ingesteld op DD-MM-jjjj (met streepjes).**
 
-Het pad naar het voorvoegsel patroon geeft aan hoe de invoerbestanden in Stream Analytics worden gevonden in de opslag. U moet worden ingesteld in overeenstemming met continue Export hoe de gegevens opslaat. Stel deze als volgt:
+Het pad naar het voorvoegsel patroon geeft aan hoe de invoerbestanden in Stream Analytics worden gevonden in de opslag. U moet deze overeenkomen met het continue Export hoe de gegevens opslaat in te stellen. Doet u het als volgt:
 
     webapplication27_12345678123412341234123456789abcdef0/PageViews/{date}/{time}
 
 In dit voorbeeld:
 
-* `webapplication27` de naam van de Application Insights-resource **allemaal in kleine letters**. 
+* `webapplication27` de naam van de Application Insights-resource **alles in kleine letters**. 
 * `1234...` de instrumentatiesleutel van de Application Insights-resource is **met streepjes verwijderd**. 
-* `PageViews` is het type gegevens wilt analyseren. De beschikbare typen, is afhankelijk van het filter dat u in de continue Export instellen. De geëxporteerde gegevens om de beschikbare typen Zie en bekijk de [exporteren gegevensmodel](app-insights-export-data-model.md).
-* `/{date}/{time}` een patroon er wordt letterlijk geschreven.
+* `PageViews` is het type gegevens wilt analyseren. De beschikbare typen, is afhankelijk van het filter dat u in de continue Export instellen. Bekijk de geëxporteerde gegevens om te zien van de beschikbare typen en Zie de [gegevensmodel exporteren](app-insights-export-data-model.md).
+* `/{date}/{time}` een patroon is letterlijk geschreven.
 
-Als u de naam en sleutel van uw Application Insights-resource, Essentials open op de overzichtspagina, of instellingen.
+Als u de naam en sleutel van uw Application Insights-resource, open Essentials op de overzichtspagina, of instellingen.
 
 > [!TIP]
-> De voorbeeld-functie gebruiken om te controleren of u het ingevoerde pad correct hebt ingesteld. Als dit mislukt: Controleer of er gegevens in de opslag voor de voorbeeld-periode die u hebt gekozen. Bewerk de definitie van de invoer en controleer u de storage-account, het pad voorvoegsel ingesteld en datumnotatie correct.
+> De voorbeeld-functie gebruiken om te controleren of u het invoerpad juist zijn ingesteld. Als dit mislukt: Controleer of er gegevens in de opslag voor de voorbeeld-tijdsbereik dat u hebt gekozen. De definitie van de invoer bewerken en controleer u de storage-account, het padvoorvoegsel instellen en datumnotatie voor de juiste manier.
 > 
 > 
 ## <a name="set-query"></a>Set-query
@@ -223,36 +223,36 @@ Vervang de standaardquery met:
 
 ```
 
-U ziet dat de eerste enkele eigenschappen specifiek voor paginaweergavegegevens zijn. Uitvoer van andere typen telemetrie heeft andere eigenschappen. Zie de [gedetailleerde gegevens modelverwijzing voor de eigenschaptypen en waarden.](app-insights-export-data-model.md)
+U ziet dat de eerste paar eigenschappen specifiek voor paginaweergavegegevens zijn. Uitvoer van de andere telemetrietypen hebben verschillende eigenschappen. Zie de [gedetailleerde naslaginformatie over gegevensmodellen voor de typen eigenschappen en waarden.](app-insights-export-data-model.md)
 
-## <a name="set-up-output-to-database"></a>Instellen van uitvoer naar de database
-Selecteer SQL als uitvoer.
+## <a name="set-up-output-to-database"></a>Uitvoer naar de database instellen
+Selecteer SQL als de uitvoer.
 
 ![Selecteer in de stream analytics, uitvoer](./media/app-insights-code-sample-export-sql-stream-analytics/SA006.png)
 
 Geef de SQL-database.
 
-![Vul de details van de database](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
+![Vul de gegevens van uw database](./media/app-insights-code-sample-export-sql-stream-analytics/SA007.png)
 
 De wizard te sluiten en wachten op een melding dat de uitvoer is ingesteld.
 
 ## <a name="start-processing"></a>Verwerking starten
-Start de taak van de actiebalk:
+Start de taak in de actiebalk:
 
-![Klik op Start in de stream analytics,](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
+![In stream analytics, klik op Start](./media/app-insights-code-sample-export-sql-stream-analytics/SA008.png)
 
-U kunt kiezen of verwerken van de gegevens vanaf nu of beginnen met oudere gegevens wordt gestart. De laatste is handig als u hebt continue Export is al een tijdje wordt uitgevoerd.
+U kunt kiezen of u wilt beginnen met het verwerken van de gegevens die vanaf nu of beginnen met oudere gegevens. De laatste is handig als u de continue Export is al uitgevoerd voor een tijdje hebt gehad.
 
-Ga terug naar SQL Server-beheerprogramma's na een paar minuten en bekijk de gegevens die. Gebruik bijvoorbeeld een query als volgt:
+Na een paar minuten, gaat u terug naar SQL Server-beheerhulpprogramma's en bekijk de gegevens die. Bijvoorbeeld, gebruikt u een query als volgt:
 
     SELECT TOP 100 *
     FROM [dbo].[PageViewsTable]
 
 
 ## <a name="related-articles"></a>Verwante artikelen:
-* [Exporteren naar Power BI met Stream Analytics](app-insights-export-power-bi.md)
-* [Gedetailleerde gegevens model verwijzing voor de eigenschaptypen en waarden.](app-insights-export-data-model.md)
-* [Continue Export in de Application Insights](app-insights-export-telemetry.md)
+* [Exporteren naar Power BI met behulp van Stream Analytics](app-insights-export-power-bi.md)
+* [Gedetailleerde gegevens modelleren verwijzing voor de typen eigenschappen en waarden.](app-insights-export-data-model.md)
+* [Continue Export in Application Insights](app-insights-export-telemetry.md)
 * [Application Insights](https://azure.microsoft.com/services/application-insights/)
 
 <!--Link references-->

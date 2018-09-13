@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 114413d65bb8b1d70bad21badb9508c5f942845c
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 72bc0408ed1eba2d959d246a55677ee9964ef106
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391110"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44718811"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Toegangsbeheer in Azure Data Lake Storage Gen1
 
@@ -69,10 +69,10 @@ De machtigingen voor een bestandssysteemobject zijn **Lezen**, **Schrijven** en 
 
 | Numerieke vorm | Verkorte vorm |      Wat het betekent     |
 |--------------|------------|------------------------|
-| 7            | LSU        | Lezen + Schrijven + Uitvoeren |
-| 5            | L-U        | Lezen + Uitvoeren         |
-| 4            | L--        | Lezen                   |
-| 0            | ---        | Geen machtigingen         |
+| 7            | `RWX`        | Lezen + Schrijven + Uitvoeren |
+| 5            | `R-X`        | Lezen + Uitvoeren         |
+| 4            | `R--`        | Lezen                   |
+| 0            | `---`        | Geen machtigingen         |
 
 
 ### <a name="permissions-do-not-inherit"></a>Machtigingen worden niet overgenomen
@@ -85,13 +85,13 @@ Hieronder vindt u enkele algemene scenario's om te begrijpen welke machtigingen 
 
 |    Bewerking             |    /    | Seattle / | Portland / | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
-| Data.txt lezen            |   --X   |   --X    |  --X      | L--          |
-| Toevoegen aan Data.txt       |   --X   |   --X    |  --X      | RW-          |
-| Data.txt verwijderen          |   --X   |   --X    |  -WX      | ---          |
-| Data.txt maken          |   --X   |   --X    |  -WX      | ---          |
-| Lijst met /                   |   L-U   |   ---    |  ---      | ---          |
-| Lijst met /Seattle/           |   --X   |   L-U    |  ---      | ---          |
-| Lijst met /Seattle/Portland /  |   --X   |   --X    |  L-U      | ---          |
+| Data.txt lezen            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
+| Toevoegen aan Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
+| Data.txt verwijderen          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Data.txt maken          |   `--X`   |   `--X`    |  `-WX`      | `---`          |
+| Lijst met /                   |   `R-X`   |   `---`    |  `---`      | `---`          |
+| Lijst met /Seattle/           |   `--X`   |   `R-X`    |  `---`      | `---`          |
+| Lijst met /Seattle/Portland /  |   `--X`   |   `--X`    |  `R-X`      | `---`          |
 
 
 > [!NOTE]
@@ -99,25 +99,6 @@ Hieronder vindt u enkele algemene scenario's om te begrijpen welke machtigingen 
 >
 >
 
-### <a name="permissions-needed-to-enumerate-a-folder"></a>Vereiste machtigingen om een map op te sommen
-
-![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-acls-6.png)
-
-* De aanroeper heeft **Lees- en uitvoeringsmachtigingen** nodig om de map op te sommen.
-* De aanroeper heeft **Uitvoeringsmachtigingen** nodig voor alle bovenliggende mappen.
-
-
-Uit de **Data Explorer** blade van de Gen1 van Data Lake Storage-account, klikt u op **toegang** om te zien van de ACL's voor het bestand of map die wordt weergegeven in de Data Explorer. Klik op **toegang** om te zien van de ACL's voor de **catalogus** map onder de **mydatastorage** account.
-
-![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-show-acls-1.png)
-
-Op deze blade ziet u in het bovenste gedeelte de machtigingen van de eigenaar. (Op de schermopname is Bob de gebruiker die eigenaar is.) Daarna worden de toegewezen toegangsbeheerlijsten weergegeven. 
-
-![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-show-acls-simple-view.png)
-
-Klik op **Geavanceerde weergave** om een geavanceerdere weergave te openen waar de Standaard ACL's, Masker en een omschrijving van supergebruikers worden weergegeven.  Deze blade biedt ook een manier om Standaard-ACL's recursief in te stellen voor onderliggende bestanden en mappen op basis van de machtigingen van de huidige map.
-
-![Data Lake Storage Gen1 ACL 's](./media/data-lake-store-access-control/data-lake-store-show-acls-advance-view.png)
 
 ## <a name="the-super-user"></a>De supergebruiker
 
@@ -127,13 +108,8 @@ Een supergebruiker heeft de meeste rechten van alle gebruikers in het Data Lake 
 * kan de machtigingen voor elk bestand en elke map wijzigen,
 * kan de eigenaar of groep die eigenaar is van een bestand of map wijzigen.
 
-In Azure heeft een Gen1 van Data Lake Storage-account meerdere Azure-rollen, met inbegrip van:
+Alle gebruikers die deel van uitmaken de **eigenaren** rol voor een Data Lake Storage Gen1-account worden automatisch een supergebruiker.
 
-* Eigenaren
-* Inzenders
-* Lezers
-
-Iedereen in de **eigenaren** rol voor een Data Lake Storage Gen1-account wordt automatisch een supergebruiker voor dat account. Zie [Op rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md) voor meer informatie.
 Als u aangepast op rollen gebaseerd toegangsbeheer (RBAC) wilt maken met supergebruikersmachtigingen, moet dit de volgende machtigingen hebben:
 - Microsoft.DataLakeStore/accounts/Superuser/action
 - Microsoft.Authorization/roleAssignments/write
@@ -153,11 +129,16 @@ De gebruiker die het item heeft gemaakt, wordt automatisch de gebruiker die eige
 
 ## <a name="the-owning-group"></a>De groep die eigenaar is
 
+**Achtergrond**
+
 In de POSIX ACL's is elke gebruiker gekoppeld aan een 'hoofdgroep'. Gebruiker 'Els' kan bijvoorbeeld behoren tot de groep 'Financiën'. Els kan behoren tot meerdere groepen, maar één groep is altijd ingesteld als haar hoofdgroep. Wanneer Els in POSIX een bestand maakt, wordt de groep die eigenaar van het bestand is als haar hoofdgroep ingesteld. In dit geval is dit 'Financiën'. De groep die eigenaar is, gedraagt zich op dezelfde manier als toegewezen machtigingen voor andere gebruikers/groepen.
 
-De groep die eigenaar is voor een nieuw bestand of map toewijzen:
+**De groep die eigenaar is voor een nieuw bestand of map toewijzen**
+
 * **Voorbeeld 1**: de hoofdmap '/'. Deze map wordt gemaakt wanneer een Gen1 van Data Lake Storage-account is gemaakt. In dit geval is de groep die eigenaar is, ingesteld op de gebruiker die het account heeft gemaakt.
 * **Voorbeeld 2** (alle andere gevallen): wanneer een nieuw item wordt gemaakt, wordt de groep die eigenaar is, gekopieerd van de bovenliggende map.
+
+**De groep die eigenaar is wijzigen**
 
 De groep die eigenaar is kan worden gewijzigd door:
 * Alle supergebruikers.
@@ -179,30 +160,32 @@ def access_check( user, desired_perms, path ) :
   # path is the file or folder
   # Note: the "sticky bit" is not illustrated in this algorithm
   
-# Handle super users
-    if (is_superuser(user)) :
-      return True
+# Handle super users.
+  if (is_superuser(user)) :
+    return True
 
-  # Handle the owning user. Note that mask is not used.
-    if (is_owning_user(path, user))
-      perms = get_perms_for_owning_user(path)
-      return ( (desired_perms & perms) == desired_perms )
+  # Handle the owning user. Note that mask IS NOT used.
+  entry = get_acl_entry( path, OWNER )
+  if (user == entry.identity)
+      return ( (desired_perms & e.permissions) == desired_perms )
 
-  # Handle the named user. Note that mask is used.
-  if (user in get_named_users( path )) :
-      perms = get_perms_for_named_user(path, user)
-      mask = get_mask( path )
-      return ( (desired_perms & perms & mask ) == desired_perms)
+  # Handle the named users. Note that mask IS used.
+  entries = get_acl_entries( path, NAMED_USERS )
+  for entry in entries:
+      if (user == entry.identity ) :
+          mask = get_mask( path )
+          return ( (desired_perms & entry.permmissions & mask) == desired_perms)
 
   # Handle groups (named groups and owning group)
-  belongs_to_groups = [g for g in get_groups(path) if is_member_of(user, g) ]
-  if (len(belongs_to_groups)>0) :
-    group_perms = [get_perms_for_group(path,g) for g in belongs_to_groups]
-    perms = 0
-    for p in group_perms : perms = perms | p # bitwise OR all the perms together
-    mask = get_mask( path )
-    return ( (desired_perms & perms & mask ) == desired_perms)
-
+  member_count = 0
+  perms = 0
+  for g in get_groups(path) :
+    if (user_is_member_of_group(user, g)) :
+      member_count += 1
+      perms | =  get_perms_for_group(path,g)
+  if (member_count>0) :
+    return ((desired_perms & perms & mask ) == desired_perms)
+ 
   # Handle other
   perms = get_perms_for_other(path)
   mask = get_mask( path )
@@ -218,7 +201,7 @@ Zoals wordt geïllustreerd in de algoritme voor het controleren van toegang, het
 >
 >
 
-#### <a name="the-sticky-bit"></a>De vergrendelde bit
+### <a name="the-sticky-bit"></a>De vergrendelde bit
 
 De vergrendelde bit is een geavanceerdere functie van een POSIX-bestandssysteem. In de context van Data Lake Storage Gen1 is het onwaarschijnlijk dat de vergrendelde bit nodig is. Kortom, als de vergrendelde bit is ingeschakeld op een map, kan een onderliggend item alleen worden verwijderd of gewijzigd door de gebruiker die eigenaar is van het onderliggende item.
 
@@ -239,9 +222,9 @@ De umask voor Azure Data Lake Storage Gen1 een constante waarde die is ingesteld
 
 | umask onderdeel     | Numerieke vorm | Verkorte vorm | Betekenis |
 |---------------------|--------------|------------|---------|
-| umask.owning_user   |    0         |   ---      | Voor de gebruiker die eigenaar is, de bovenliggende standaard-ACL naar de toegangs-ACL van het onderliggende item kopiëren | 
-| umask.owning_group  |    0         |   ---      | Voor de groep die eigenaar is, de bovenliggende standaard-ACL naar de toegangs-ACL van het onderliggende item kopiëren | 
-| umask.Other         |    7         |   LSU      | Voor andere, verwijdert u alle machtigingen op de toegangs-ACL van het onderliggende item |
+| umask.owning_user   |    0         |   `---`      | Voor de gebruiker die eigenaar is, de bovenliggende standaard-ACL naar de toegangs-ACL van het onderliggende item kopiëren | 
+| umask.owning_group  |    0         |   `---`      | Voor de groep die eigenaar is, de bovenliggende standaard-ACL naar de toegangs-ACL van het onderliggende item kopiëren | 
+| umask.Other         |    7         |   `RWX`      | Voor andere, verwijdert u alle machtigingen op de toegangs-ACL van het onderliggende item |
 
 De waarde van de umask effectief gebruikt door Azure Data Lake Storage Gen1 betekent dat de waarde voor andere nooit standaard op de nieuwe onderliggende - ongeacht wat de standaard-ACL geeft aan dat wordt verzonden. 
 

@@ -5,17 +5,17 @@ services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 07/03/2018
+ms.date: 09/12/2018
 ms.topic: article
 ms.service: azure-stack
 ms.reviewer: coborn
 manager: femila
-ms.openlocfilehash: d3c89e2028986e05d5d3957c9805d22f07a840b3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: b4c8ff113ff76586cc4a91adfe568b07327a2d94
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298108"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721975"
 ---
 # <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum blockchain-oplossingssjablonen
 
@@ -23,7 +23,7 @@ De sjabloon van de Ethereum-oplossing is ontworpen voor u gemakkelijker en snell
 
 Met een aantal van de invoer van gebruikers en een implementatie met één klik via de portal van Azure Stack-tenant inrichten elk lid van de netwerk-footprint. Netwerk-voetafdruk van elk lid bestaat uit een set met load balancing transactie knooppunten met die een toepassing of de gebruiker communiceren kan om in te dienen transacties, een set knooppunten van de analysestructuur voor vastleggen van transacties en een Network Virtual Appliance (NVA). Een stap van de volgende verbinding maakt verbinding met de NVA's voor het maken van een volledig geconfigureerde meerdere leden blockchain-netwerk.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Download de meest recente items [vanuit de Marketplace](azure-stack-download-azure-marketplace-item.md):
 
@@ -50,7 +50,7 @@ De sjabloon Ethereum consortium voor leider en lid join in tal van manieren kunt
 De sjabloon van de leider consortium Hiermee configureert u het eerste lid footprint in het netwerk. 
 
 1. Download de [leider-sjabloon](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/ConsortiumLeader/mainTemplate.json)
-2. Selecteer in de beheerportal van Azure Stack **New > sjabloonimplementatie** om vanuit een aangepaste sjabloon te implementeren.
+2. Selecteer in de beheerportal van Azure Stack **+ een resource maken > sjabloonimplementatie** om vanuit een aangepaste sjabloon te implementeren.
 3. Selecteer **template bewerken** naar de nieuwe aangepaste sjabloon te bewerken.
 4. In het deelvenster bewerken aan de rechterkant, kopieer en plak de JSON die u eerder hebt gedownload van de leider-sjabloon.
     
@@ -105,7 +105,7 @@ Bladeren om te controleren of de implementatie van de leider, beheer-site van de
 ### <a name="joining-consortium-member-deployment"></a>Implementatie van consortium lid toevoegen
 
 1. Download de [consortium lid sjabloon vanuit GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/JoiningMember/mainTemplate.json)
-2. Selecteer in de beheerportal van Azure Stack **New > sjabloonimplementatie** om vanuit een aangepaste sjabloon te implementeren.
+2. Selecteer in de beheerportal van Azure Stack **+ een resource maken > sjabloonimplementatie** om vanuit een aangepaste sjabloon te implementeren.
 3. Selecteer **template bewerken** naar de nieuwe aangepaste sjabloon te bewerken.
 4. In het deelvenster bewerken aan de rechterkant, kopieer en plak de JSON die u eerder hebt gedownload van de leider-sjabloon.
 5. Selecteer **Opslaan**.
@@ -157,7 +157,7 @@ Zoals weergegeven in de afbeelding, de status van de knooppunten van het lid is 
 Deze sjabloon maakt een verbinding van de leider aan een extern lid. 
 
 1. Download de [verbinding maken met sjabloon lid en leider vanuit GitHub](https://raw.githubusercontent.com/Azure/AzureStack-QuickStart-Templates/master/ethereum-consortium-blockchain/marketplace/Connection/mainTemplate.json)
-2. Selecteer in de beheerportal van Azure Stack **New > sjabloonimplementatie** om vanuit een aangepaste sjabloon te implementeren.
+2. Selecteer in de beheerportal van Azure Stack **+ een resource maken > sjabloonimplementatie** om vanuit een aangepaste sjabloon te implementeren.
 3. Selecteer **template bewerken** naar de nieuwe aangepaste sjabloon te bewerken.
 4. In het deelvenster bewerken aan de rechterkant, kopieer en plak de JSON die u eerder hebt gedownload van de leider-sjabloon.
     

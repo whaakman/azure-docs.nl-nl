@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 08/09/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: ba1fdcf64592bdfe23195e781a21d7a2db693325
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: ab5d042517716ee2b155d99803f4058772622036
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42055073"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721446"
 ---
 # <a name="sync-data-across-multiple-cloud-and-on-premises-databases-with-sql-data-sync"></a>Gegevens synchroniseren tussen meerdere cloud en on-premises databases met SQL Data Sync
 
@@ -47,9 +47,9 @@ Een groep voor synchronisatie heeft de volgende eigenschappen:
 
 ## <a name="when-to-use-data-sync"></a>Wanneer u Data Sync
 
-Gegevenssynchronisatie is handig in gevallen waarbij gegevens moeten worden up-to-date gehouden over meerdere Azure SQL-Databases of SQL Server-databases. Hier volgen de belangrijkste gebruiksvoorbeelden voor Data Sync:
+Gegevenssynchronisatie is handig in gevallen waarbij gegevens moeten worden up-to-date gehouden over meerdere Azure SQL-databases of SQL Server-databases. Hier volgen de belangrijkste gebruiksvoorbeelden voor Data Sync:
 
--   **Hybride gegevenssynchronisatie:** met het synchroniseren van gegevens, kunt u gegevens worden gesynchroniseerd tussen uw on-premises database en Azure SQL-Databases voor hybride toepassingen. Deze mogelijkheid kan beroep instellen op klanten die van plan bent te verplaatsen naar de cloud en wil graag enkele van de toepassing in Azure te plaatsen.
+-   **Hybride gegevenssynchronisatie:** met het synchroniseren van gegevens, kunt u gegevens worden gesynchroniseerd tussen uw on-premises database en Azure SQL-databases om hybride toepassingen. Deze mogelijkheid kan beroep instellen op klanten die van plan bent te verplaatsen naar de cloud en wil graag enkele van de toepassing in Azure te plaatsen.
 
 -   **Gedistribueerde toepassingen:** In veel gevallen is het nuttig zijn voor het scheiden van verschillende werkbelastingen voor verschillende databases. Bijvoorbeeld, als u een grote productiedatabase hebt, maar u moet ook een rapport of de analytics-workload wordt uitgevoerd op deze gegevens, is het handig om een tweede database voor deze extra belasting. Deze aanpak minimaliseert de prestatie-invloed op uw productie-werkbelasting. Data Sync kunt u deze twee databases gesynchroniseerd houden.
 

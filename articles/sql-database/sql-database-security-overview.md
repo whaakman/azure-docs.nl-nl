@@ -1,55 +1,55 @@
 ---
 title: Overzicht van Azure SQL Database-beveiliging| Microsoft Docs
-description: Meer informatie over Azure SQL Database en SQL Server-beveiliging, met inbegrip van de verschillen tussen de cloud en SQL Server on-premises.
+description: Meer informatie over de beveiliging van een Azure SQL Database en SQL Server, met inbegrip van de verschillen tussen de cloud en on-premises SQL Server.
 services: sql-database
 author: giladm
 manager: craigg
-ms.reviewer: carlrab
+ms.reviewer: vanto
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
 ms.date: 04/20/2018
 ms.author: giladm
-ms.openlocfilehash: 929c05901c54ef0e7fe0d4af28c5ba45c92091f0
-ms.sourcegitcommit: 0fa8b4622322b3d3003e760f364992f7f7e5d6a9
+ms.openlocfilehash: 27870b5ab36cb9bbd191c130ab9035ad00205404
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37021137"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44716907"
 ---
 # <a name="securing-your-sql-database"></a>Uw SQL Database beveiligen
 
-In dit artikel worden de basisbeginselen van het beveiligen van de gegevenslaag van een toepassing met behulp van Azure SQL Database besproken. In het bijzonder helpt in dit artikel u op weg met resources voor het beveiligen van gegevens, het beheren van toegang en proactieve controle. 
+In dit artikel worden de basisbeginselen van het beveiligen van de gegevenslaag van een toepassing met behulp van Azure SQL Database besproken. In het bijzonder, helpt in dit artikel u op weg met resources voor gegevensbeveiliging, toegangsbeheer en proactieve controle. 
 
 Zie het [Beveiligingscentrum voor SQL Server Database Engine en Azure SQL Database](https://msdn.microsoft.com/library/bb510589) voor een volledig overzicht van beveiligingsfuncties die beschikbaar zijn in alle versies van SQL. In het [technische rapport over beveiliging en Azure SQL Database](https://download.microsoft.com/download/A/C/3/AC305059-2B3F-4B08-9952-34CDCA8115A9/Security_and_Azure_SQL_Database_White_paper.pdf) (PDF-Bestand) is ook aanvullende informatie beschikbaar.
 
 ## <a name="protect-data"></a>Gegevens beveiligen
 
 ### <a name="encryption"></a>Versleuteling
-SQL-Database beveiligt uw gegevens dankzij de codering voor gegevens in beweging met [Transport Layer Security](https://support.microsoft.com/kb/3135244), voor gegevens in rust met [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql), en voor gegevens die in gebruik en [ Altijd versleuteld](https://msdn.microsoft.com/library/mt163865.aspx). 
+Uw gegevens worden beveiligd met SQL Database via gegevensversleuteling. Voor gegevens die in beweging zijn, wordt [Transport Layer Security](https://support.microsoft.com/kb/3135244) gebruikt, voor data-at-rest [Transparent Data Encryption](/sql/relational-databases/security/encryption/transparent-data-encryption-azure-sql) en voor gebruikte gegevens [Altijd versleuteld](https://msdn.microsoft.com/library/mt163865.aspx). 
 
 > [!IMPORTANT]
->Alle verbindingen met Azure SQL Database vereisen te allen tijde versleuteling (SSL/TLS) wanneer gegevens naar en vanuit de database worden verzonden. In de verbindingsreeks van uw toepassing, moet u de parameters voor het versleutelen van de verbinding opgeven en *niet* het servercertificaat (dit geldt voor u als u de verbindingsreeks buiten de Azure-portal kopieert), anders vertrouwt de verbinding verifieert de identiteit van de server niet en is vatbaar voor 'man-in-the-middle'-aanvallen. Voor het stuurprogramma ADO.NET zijn deze verbindingsreeksparameters bijvoorbeeld **Encrypt=True** en **TrustServerCertificate=False**. Zie voor meer informatie over de TLS- en connectiviteit [TLS-overwegingen](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
+>Alle verbindingen met Azure SQL Database vereisen te allen tijde versleuteling (SSL/TLS) wanneer gegevens naar en vanuit de database worden verzonden. In de verbindingsreeks van uw toepassing, moet u parameters voor het versleutelen van de verbinding opgeven en *niet* vertrouwen het servercertificaat (dit doet u als u de verbindingsreeks buiten de Azure-portal kopieert), anders de verbinding controleert niet of de identiteit van de server en is vatbaar voor 'man-in-the-middle'-aanvallen. Voor het stuurprogramma ADO.NET zijn deze verbindingsreeksparameters bijvoorbeeld **Encrypt=True** en **TrustServerCertificate=False**. Zie voor meer informatie over de TLS- en -connectiviteit [TLS-overwegingen](sql-database-connect-query.md#tls-considerations-for-sql-database-connectivity)
 
 Andere manieren om uw gegevens te versleutelen die u kunt overwegen:
 
 * [Versleuteling op celniveau](https://msdn.microsoft.com/library/ms179331.aspx) om specifieke kolommen of zelfs cellen met gegevens met verschillende versleutelingssleutels te versleutelen.
 * Als u een Hardware Security Module of centraal beheer van uw versleutelingssleutelhiërarchie nodig heeft, kunt u overwegen om [Azure Key Vault met SQL Server in een virtuele Azure-machine](http://blogs.technet.com/b/kv/archive/2015/01/12/using-the-key-vault-for-sql-server-encryption.aspx) te gebruiken.
 
-### <a name="data-discovery--classification"></a>Detectie van de gegevens & classificatie
-Detectie van de gegevens & classificatie (momenteel in preview) biedt geavanceerde mogelijkheden die zijn ingebouwd in Azure SQL Database voor het detecteren, classificeren, labelen en beveiligen van de gevoelige gegevens in uw databases. Detecteren en classificeren van uw zoveel mogelijk gevoelige gegevens (business/financiële, gezondheidszorg, PII, enz.) kan een belangrijke rol spelen in uw organisatie Information protection-status. Deze kan dienen als infrastructuur voor:
+### <a name="data-discovery--classification"></a>Gegevensdetectie en classificatie
+Gegevensdetectie en -classificatie (momenteel in preview) biedt geavanceerde mogelijkheden van ingebouwd in Azure SQL Database voor het detecteren, classificeren, labelen en beveiligen van de gevoelige gegevens in uw databases. Detecteren en classificeren van uw zoveel mogelijk gevoelige gegevens (business/financiële, gezondheidszorg, persoonlijke gegevens, enzovoort) kan een cruciale rol spelen in uw organisatie Information protection waarmee kan worden voldaan. Deze kan dienen als infrastructuur voor:
 
-- Verschillende security-scenario's, zoals controle (controleren) en waarschuwingen voor afwijkende toegang tot gevoelige gegevens.
-- Toegang tot beheren en beperken van de beveiliging van databases met gevoelige gegevens.
-- Helpt voldoen aan gegevens privacystandaarden en regelgeving.
+- Verschillende security-scenario's, zoals bewaking (controle) en waarschuwingen voor afwijkende toegang tot gevoelige gegevens.
+- Toegang tot beheren en beperken van de beveiliging van databases met zeer vertrouwelijke gegevens.
+- Helpen voldoen aan de privacystandaarden en wettelijke vereisten.
 
-Zie voor meer informatie [aan de slag met detectie van SQL DB Data & classificatie](sql-database-data-discovery-and-classification.md). 
+Zie voor meer informatie, [aan de slag met SQL DB-gegevensdetectie en classificatie](sql-database-data-discovery-and-classification.md). 
 
 ## <a name="control-access"></a>Toegang beheren
 Uw gegevens worden beveiligd met SQL Database door de toegang tot uw database te beperken met behulp van firewallregels, verificatiemechanismen die vereisen dat gebruikers hun identiteit bewijzen, en autorisatie voor gegevens via lidmaatschappen en machtigingen op basis van rollen. Ook wordt gebruikgemaakt van beveiliging op rijniveau en dynamische gegevensmaskering. Zie [Toegang beheren](sql-database-control-access.md) voor een discussie over het gebruik van functies voor toegangsbeheer in SQL Database.
 
 > [!IMPORTANT]
-> Het beheer van databases en logische servers in Azure wordt bepaald door de roltoewijzingen voor uw Portal-gebruikersaccount. Zie voor meer informatie over dit artikel [toegangsbeheer op basis van rollen in Azure-portal](../role-based-access-control/overview.md).
+> Het beheer van databases en logische servers in Azure wordt bepaald door de roltoewijzingen voor uw Portal-gebruikersaccount. Zie voor meer informatie over dit artikel [rollen gebaseerd toegangsbeheer in Azure portal](../role-based-access-control/overview.md).
 >
 
 ### <a name="firewall-and-firewall-rules"></a>Firewall en firewallregels
@@ -67,7 +67,7 @@ Autorisatie verwijst naar wat een gebruiker kan doen binnen een Azure SQL Databa
 Met beveiliging op rijniveau kunnen klanten de toegang tot rijen in een databasetabel beheren op basis van de kenmerken van de gebruiker die een query uitvoert (bijvoorbeeld groepslidmaatschap of uitvoeringscontext). Zie [Beveiliging op rijniveau](https://msdn.microsoft.com/library/dn765131) voor meer informatie.
 
 ### <a name="dynamic-data-masking"></a>Dynamische gegevensmaskering 
-Gevoelige gegevens blootstelling SQL-Database dynamische-gegevensmaskering beperkt door het maskeren voor onbevoegde gebruikers. Dynamische-gegevensmaskering automatisch gedetecteerd potentieel gevoelige gegevens in Azure SQL Database en aanbevelingen actie worden uitgevoerd om te maskeren van deze velden, met minimale gevolgen voor de toepassingslaag. Dit werkt als volgt: de gevoelige gegevens in de resultatenset van een query die is uitgevoerd op toegewezen databasevelden, worden bedekt, terwijl de gegevens in de database niet worden gewijzigd. Zie voor meer informatie [aan de slag met SQL-Database dynamische-gegevensmaskering](sql-database-dynamic-data-masking-get-started.md).
+SQL Database dynamische gegevensmaskering blootstelling van gevoelige gegevens door deze te maskeren voor niet-gemachtigde gebruikers. Dynamische gegevensmaskering automatisch detecteert mogelijk gevoelige gegevens in Azure SQL Database en worden bruikbare aanbevelingen gedaan om te maskeren van deze velden, met minimale gevolgen voor de toepassingslaag. Dit werkt als volgt: de gevoelige gegevens in de resultatenset van een query die is uitgevoerd op toegewezen databasevelden, worden bedekt, terwijl de gegevens in de database niet worden gewijzigd. Zie voor meer informatie, [aan de slag met SQL Database dynamische gegevensmaskering](sql-database-dynamic-data-masking-get-started.md).
 
 ## <a name="proactive-monitoring"></a>Proactieve controle
 Uw gegevens worden beveiligd met SQL Database met behulp van mogelijkheden voor controle en detectie van dreigingen. 
@@ -76,28 +76,28 @@ Uw gegevens worden beveiligd met SQL Database met behulp van mogelijkheden voor 
 SQL Database Auditing houdt databaseactiviteiten bij en helpt u bij de naleving van regelgeving door databasegebeurtenissen vast te leggen in een auditlogboek in uw Azure Storage-account. Door te controleren krijgt u informatie over actieve databaseactiviteiten. Het helpt u ook bij het analyseren en onderzoeken van activiteiten uit het verleden. Op deze manier kunt u mogelijke dreigingen, vermoedelijk misbruik of schendingen van de beveiliging identificeren. Zie [Get started with SQL Database Auditing](sql-database-auditing.md) (Aan de slag met SQL Database Auditing) voor aanvullende informatie.  
 
 ### <a name="threat-detection"></a>Detectie van bedreigingen
-Detectie van dreigingen is een aanvulling op controle, dankzij een extra laag van beveiliging intelligence ingebouwd in de Azure SQL Database-service die ongebruikelijke en potentieel schadelijke probeert detecteert te openen of misbruik van databases. U wordt gewaarschuwd over verdachte activiteiten, potentiële beveiligingslekken naar voren SQL-injectieaanvallen en database afwijkende toegangspatronen. Dagelijks geconstateerde waarschuwingen kunnen bekeken worden vanuit [Azure Security Center](https://azure.microsoft.com/services/security-center/) en Geef details op van de verdachte activiteit en actie voor het onderzoeken en het risico dat het beste. Detectie van dreigingen kosten $15/server/maand. Het is gratis voor de eerste 60 dagen. Zie [Aan de slag met SQL Database Threat Detection](sql-database-threat-detection.md) voor meer informatie.
+Controle, door te geven van een extra laag met beveiligingsinformatie die is ingebouwd in de Azure SQL Database-service die ongebruikelijke en potentieel schadelijke pogingen om toegang tot of misbruik te maken van databases detecteert wordt aangevuld door detectie van bedreigingen. U wordt gewaarschuwd over verdachte activiteiten, potentiële kwetsbaarheden SQL-injectieaanvallen en afwijkende patronen voor databasetoegang. Waarschuwingen van Threat Detection kunnen worden bekeken via [Azure Security Center](https://azure.microsoft.com/services/security-center/) en Geef details op van verdachte activiteiten en geven aanbevelingen voor het onderzoeken en tegenhouden. Detectie van bedreigingen kost $15/server/maand. Het is gratis voor de eerste 60 dagen. Zie [Aan de slag met SQL Database Threat Detection](sql-database-threat-detection.md) voor meer informatie.
  
 ## <a name="compliance"></a>Naleving
-Naast de bovenstaande functies en functionaliteit die kan helpen bij uw toepassing ook voorzien van verschillende beveiligingsvereisten, Azure SQL Database deel uitmaakt van de reguliere audits en tegen een aantal nalevingsstandaards is gecertificeerd. Zie het [Vertrouwenscentrum van Microsoft Azure](https://azure.microsoft.com/support/trust-center/), waar u de meest recente lijst met [SQL Database-nalevingscertificeringen](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) vindt, voor meer informatie.
+Naast de bovenstaande functies en functionaliteit waarmee u kunt uw toepassing ook te voldoen aan verschillende beveiligingsvereisten, Azure SQL Database wordt regelmatig gecontroleerd en is gecertificeerd volgens diverse nalevingsstandaarden. Zie het [Vertrouwenscentrum van Microsoft Azure](https://azure.microsoft.com/support/trust-center/), waar u de meest recente lijst met [SQL Database-nalevingscertificeringen](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) vindt, voor meer informatie.
 
 
 ## <a name="security-management"></a>Beveiligingsbeheer
 
-SQL-Database helpt u bij de beveiliging van uw gegevens dankzij de database-scans en een gecentraliseerde beveiliging dashboard met [SQL Vulnerability Assessment](sql-vulnerability-assessment.md).
+SQL Database helpt u bij het beheren van de beveiliging van uw gegevens door te geven van de database-scans en een gecentraliseerde beveiliging dashboard met [evaluatie van beveiligingsproblemen SQL](sql-vulnerability-assessment.md).
 
-**Controle op beveiligingslekken**: [SQL Vulnerability Assessment](sql-vulnerability-assessment.md) (momenteel in preview) is een eenvoudig hulpprogramma ingebouwd in Azure SQL Database kunt u detecteren, bijhouden en herstellen van mogelijke database configureren beveiligingsproblemen. De beoordeling wordt uitgevoerd een beveiligingslek scan van uw database en genereert een rapport waarmee u inzicht in uw beveiligingsstatus, met inbegrip van bruikbare stappen voor het oplossen van beveiligingsproblemen en verbeter de databasebeveiliging van uw. Rapport van de beoordeling kan worden aangepast voor uw omgeving door een acceptabele basislijn voor de machtiging configuraties, configuraties en instellingen van de database. Dit kan u helpen bij:
+**Evaluatie van beveiligingsproblemen**: [evaluatie van beveiligingsproblemen SQL](sql-vulnerability-assessment.md) (momenteel in preview) is een eenvoudig te configureren dat is ingebouwd in Azure SQL Database waarmee u ontdekken, volgen en herstellen van mogelijke database door beveiligingslekken. De evaluatie wordt uitgevoerd een scan door een beveiligingslek in uw database en genereert een rapport dat u meer inzicht in uw beveiligingsstatus hebt, inclusief stappen voor het oplossen van beveiligingsproblemen met zich mee en verbeter de beveiliging van uw database. Het evaluatierapport kan worden aangepast voor uw omgeving door in te stellen van een acceptabele basislijn voor de machtiging configuraties, configuratie en database-instellingen. Dit kan u te helpen:
 
-- Voldoen aan nalevingsvereisten die database scan rapporten nodig hebt. 
+- Voldoen aan nalevingsvereisten die nodig Scanrapporten database hebben. 
 
-- Voldoen aan gegevens privacy normen. 
+- Aan de privacystandaarden voor gegevens. 
 
-- Bewaken van een dynamische database-omgeving waarin wijzigingen moeilijk zijn te volgen.
+- Bewaken van een dynamische database-omgeving waarin wijzigingen zijn moeilijk zijn om bij te houden.
 
-Zie voor meer informatie [SQL Vulnerability Assessment](sql-vulnerability-assessment.md).
+Zie voor meer informatie, [evaluatie van beveiligingsproblemen SQL](sql-vulnerability-assessment.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Zie [Toegang beheren](sql-database-control-access.md) voor een discussie over het gebruik van functies voor toegangsbeheer in SQL Database.
-- Zie voor een beschrijving van de Databasecontrole, [SQL Database auditing](sql-database-auditing.md).
-- Zie voor een beschrijving van de detectie van dreigingen [SQL-Database de detectie van dreigingen](sql-database-threat-detection.md).
+- Zie voor een bespreking van de Databasecontrole [SQL Database auditing](sql-database-auditing.md).
+- Zie voor een bespreking van de detectie van bedreigingen, [SQL Database threat detection](sql-database-threat-detection.md).

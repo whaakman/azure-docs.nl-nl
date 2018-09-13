@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/14/2018
 ms.author: kgremban
-ms.openlocfilehash: 068e9a3379bd2762455aade1761592fa70a09a20
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 3c12e98137f44ac094adaae282b5d56d30061e60
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43144375"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44719848"
 ---
 # <a name="react-to-iot-hub-events-by-using-event-grid-to-trigger-actions"></a>Reageren op gebeurtenissen van IoT-Hub met behulp van Event Grid om acties starten
 
@@ -34,12 +34,11 @@ IoT Hub publiceert de volgende typen gebeurtenissen:
 | Gebeurtenistype | Beschrijving |
 | ---------- | ----------- |
 | Microsoft.Devices.DeviceCreated | Gepubliceerd wanneer een apparaat is geregistreerd bij een IoT-hub. |
-| Microsoft.Devices.DeviceDeleted | Wanneer een apparaat wordt verwijderd uit een IoT-hub gepubliceerd. | 
-| Microsoft.Devices.DeviceConnected | Wanneer een apparaat is verbonden met een IoT-hub gepubliceerd. | 
-| Microsoft.Devices.DeviceDisconnected | Gepubliceerd wanneer een apparaat niet is verbonden met een IoT-hub. | 
-Houd er rekening mee dat apparaat is verbonden en apparaat gebeurtenissen verbroken wordt binnenkort ingeschakeld voor regio's Canada-Oost en VS-Oost.
+| Microsoft.Devices.DeviceDeleted | Wanneer een apparaat wordt verwijderd uit een IoT-hub gepubliceerd. |
+| Microsoft.Devices.DeviceConnected | Wanneer een apparaat is verbonden met een IoT-hub gepubliceerd. |
+| Microsoft.Devices.DeviceDisconnected | Gepubliceerd wanneer een apparaat niet is verbonden met een IoT-hub. |
 
-Gebruik de Azure portal of Azure CLI om te configureren welke gebeurtenissen om te publiceren vanaf elke IoT-hub. Raadpleeg de zelfstudie voor een voorbeeld [e-mailmeldingen verzenden over Azure IoT Hub-gebeurtenissen met Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md). 
+Gebruik de Azure portal of Azure CLI om te configureren welke gebeurtenissen om te publiceren vanaf elke IoT-hub. Raadpleeg de zelfstudie voor een voorbeeld [e-mailmeldingen verzenden over Azure IoT Hub-gebeurtenissen met Logic Apps](../event-grid/publish-iot-hub-events-to-logic-apps.md).
 
 ## <a name="event-schema"></a>Gebeurtenisschema
 
@@ -146,7 +145,7 @@ Toepassingen die werken met IoT Hub-gebeurtenissen moeten deze aanbevolen proced
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Raadpleeg de zelfstudie IoT Hub-gebeurtenissen](../event-grid/publish-iot-hub-events-to-logic-apps.md)
-* [Meer informatie over het apparaat is verbonden en gebeurtenissen verbroken](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
+* [Informatie over het rangschikken van gebeurtenissen ‘apparaat verbonden’ en ‘verbinding met apparaat verbroken’.](../iot-hub/iot-hub-how-to-order-connection-state-events.md)
 * [Meer informatie over Event Grid][lnk-eg-overview]
 * [Vergelijk de verschillen tussen routering IoT Hub-gebeurtenissen en -berichten][lnk-eg-compare]
 

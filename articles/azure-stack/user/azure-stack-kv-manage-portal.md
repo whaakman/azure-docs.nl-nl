@@ -12,14 +12,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: sethm
-ms.openlocfilehash: 91035f84d02810d838127ecf6a2f6424ef5df6cf
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 51c04a567ff953c4e84930e3feae448f78627683
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42056634"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44713932"
 ---
 # <a name="manage-key-vault-in-azure-stack-by-using-the-portal"></a>Key Vault in Azure Stack met behulp van de portal beheren
 
@@ -33,7 +33,7 @@ U moet zich abonneren op een aanbieding met inbegrip van de Azure Key Vault-serv
 
 1. Aanmelden bij de [gebruikersportal](https://portal.local.azurestack.external).
 
-2. Selecteer in het dashboard, **nieuw** > **beveiliging en identiteit** > **Key Vault**.
+2. Selecteer in het dashboard, **+ een resource maken** > **beveiliging en identiteit** > **Key Vault**.
 
     ![Key Vault-scherm](media/azure-stack-kv-manage-portal/image1.png)
 
@@ -41,7 +41,7 @@ U moet zich abonneren op een aanbieding met inbegrip van de Azure Key Vault-serv
 
 4. Kies een **abonnement** uit de lijst met beschikbare abonnementen. Alle abonnementen die worden geboden door de service Key Vault worden weergegeven in de vervolgkeuzelijst.
 
-5. Selecteer een bestaande **resourcegroep** of maak een nieuwe.
+5. Selecteer een bestaande **Resourcegroep** of maak een nieuwe.
 
 6. Selecteer de **prijscategorie**.
     >[!NOTE]

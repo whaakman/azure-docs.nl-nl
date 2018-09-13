@@ -1,6 +1,7 @@
 ---
 title: Aan de slag met de SDK van de apparaten spraak
 description: Vereisten en instructies voor het aan de slag met de SDK van de apparaten spraak.
+titleSuffix: Azure Cognitive Services
 services: cognitive-services
 author: v-jerkin
 ms.service: cognitive-services
@@ -8,112 +9,116 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/18/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 463a015b7c01dafc5b30de56b95fa0510ffb98e4
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 068f0a0d9202174faf5d54bebf5cf5f8fae86766
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42424366"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720993"
 ---
 # <a name="get-started-with-the-speech-devices-sdk"></a>Aan de slag met de SDK van de apparaten spraak
 
-In dit artikel wordt beschreven hoe u ontwikkeling van uw PC en uw spraak apparaat development kit voor het ontwikkelen van spraak ingeschakelde apparaten met behulp van de SDK van spraak apparaten configureren. U wordt vervolgens bouwen en implementeren van een voorbeeld van toepassing op het apparaat. 
+In dit artikel wordt beschreven hoe u uw PC-ontwikkeling en spraak apparaat development kit voor het ontwikkelen van spraak ingeschakelde apparaten met behulp van de SDK van spraak apparaten configureren. Vervolgens kunt u bouw en implementeer een voorbeeld van toepassing op het apparaat. 
 
-De broncode voor de voorbeeldtoepassing is opgenomen in de SDK van de apparaten spraak en is ook [beschikbaar op GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
+De broncode voor de voorbeeldtoepassing is opgenomen in de SDK van de apparaten spraak. Het is ook [beschikbaar op GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
 ## <a name="prerequisites"></a>Vereisten
 
-Verzamel de informatie en de software u moet, voordat u begint met ontwikkelen met de SDK van de apparaten spraak.
+Voordat u begint met ontwikkelen met de SDK van de apparaten spraak, verzamel de informatie en de software die u nodig hebt:
 
-* Verkrijgen van een development kit [van Roobo](http://ddk.roobo.com/). Kits zijn beschikbaar voor lineaire of ronde microfoon matrix configuraties. Kies de juiste oplossing voor uw behoeften.
+* Krijgen een [development kit van ROOBO](http://ddk.roobo.com/). Kits zijn beschikbaar met lineaire of ronde microfoon matrix configuraties. Kies de juiste configuratie voor uw behoeften.
 
     |Development kit configuratie|Locatie van de spreker|
     |-----------------------------|------------|
     |Kringverwijzing|Elke richting van het apparaat|
     |Lineair|In het zicht van het apparaat|
 
-* De meest recente versie van de apparaten SDK, spraak, met inbegrip van een Android-voorbeeld-app van de spraakherkenning apparaten SDK [downloadsite](https://shares.datatransfer.microsoft.com/). Pak het ZIP-bestand naar een lokale map (zoals `C:\SDSDK`).
+* De meest recente versie van de SDK van de apparaten spraak, die voorziet in een Android-voorbeeld-app van de [site voor het downloaden van spraak Devices SDK](https://shares.datatransfer.microsoft.com/). Pak het ZIP-bestand naar een lokale map, zoals C:\SDSDK.
 
 * Installeer [Android Studio](https://developer.android.com/studio/) en [Vysor](http://vysor.io/download/) op uw PC.
 
-* Een spraakservice ophalen [abonnementssleutel](get-started.md). U kunt verkrijgen van een gratis proefversie van 30 dagen of ophalen van een sleutel in uw Azure-dashboard.
+* Krijgen een [Speech-service-abonnementssleutel](get-started.md). U kunt een gratis proefversie van 30 dagen of u een sleutel van uw Azure-dashboard.
 
 * Als u gebruiken van de spraakservice intentieherkenning wilt, zich abonneren op de [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) (LUIS) en [ophalen van een abonnementssleutel](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/azureibizasubscription). 
 
-    U kunt [maken een eenvoudige LUIS-model](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) of gebruik het voorbeeld LUIS-model, `LUIS-example.json`, beschikbaar is via de SDK van de apparaten spraak [site downloaden](https://shares.datatransfer.microsoft.com/). Uploaden van uw model JSON-bestand naar de [LUIS portal](https://www.luis.ai/home) door te klikken op **importeren nieuwe app** en het kiezen van het JSON-bestand.
+    U kunt [maken een eenvoudige LUIS-model](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/) of gebruik het voorbeeld LUIS-model, LUIS-example.json. Het voorbeeld LUIS-model beschikbaar via is de [site voor het downloaden van spraak Devices SDK](https://shares.datatransfer.microsoft.com/). Voor het uploaden van uw model JSON-bestand naar de [LUIS portal](https://www.luis.ai/home), selecteer **importeren nieuwe app**, en selecteer vervolgens het JSON-bestand.
 
 ## <a name="set-up-the-development-kit"></a>Instellen van de development kit
 
-1. Stroom van de dev kit met behulp van een mini USB-kabel verbonden met een PC of een adptor power. Een indicator groen power moet onder het bovenste bord beschikbaar stellen.
+1. Verbinding maken met de dev kit op een PC of het samenstellen van de adapter met behulp van een miniwerkbalk USB-kabel. Wanneer de dev kit is verbonden, beschikbaar een groene power-indicator onder het bovenste bord.
 
 1. De development kit verbinden met een computer met behulp van een tweede mini USB-kabel.
 
     ![de dev kit verbinding te maken](media/speech-devices-sdk/qsg-1.png)
 
-1. Plaatsen op de juiste wijze uw development kit.
+1. Uw development kit voor de configuratie van cirkelvormige of lineaire plaatsen.
 
     |Development kit configuratie|Afdrukstand|
     |-----------------------------|------------|
     |Kringverwijzing|Rechtop, met microfoons geconfronteerd met het maximum|
-    |Lineair|Aan de zijde, met microfoons u (Zie hieronder)|
+    |Lineair|Aan de zijde met microfoons gericht u (weergegeven in de volgende afbeelding)|
 
     ![lineaire dev kit afdrukstand](media/speech-devices-sdk/qsg-2.png)
 
-1. Installeer de certificaten en het bestand wake word (trefwoord) tabel en stel de machtigingen van het apparaat. Typ de volgende opdrachten in een opdrachtvenster.
+1. Installeer de certificaten en het bestand wake word (trefwoord) tabel en stel de machtigingen van het apparaat. Typ de volgende opdrachten in een opdrachtpromptvenster:
+
+   ```
+   adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/ 
+   adb shell
+   cd /data/ 
+   chmod 777 roobo_setup.sh
+   ./roobo_setup.sh
+   exit
+   ```
 
     > [!NOTE]
-    > Deze opdrachten gebruiken de brug Android foutopsporing `adb.exe`, deze maakt deel uit van de Android Studio-installatie. Dit hulpprogramma kunt u vinden in `C:\Users\[user name]\AppData\Local\Android\Sdk\platform-tools`. U kunt deze map toevoegen aan uw path zodat het eenvoudiger om aan te roepen `adb`. Anders moet u het volledige pad naar uw installatie van `adb.exe` in elke opdracht die wordt aangeroepen `adb`.
-
-    ```
-    adb push C:\SDSDK\Android-Sample-Release\scripts\roobo_setup.sh /data/ 
-    adb shell
-    cd /data/ 
-    chmod 777 roobo_setup.sh
-    ./roobo_setup.sh
-    exit
-    ```
+    > Deze opdrachten gebruiken de brug in Android foutopsporing, adb.exe, deze maakt deel uit van de Android Studio-installatie. Dit hulpprogramma bevindt zich in C:\Users\[gebruikersnaam] \AppData\Local\Android\Sdk\platform-hulpprogramma's. U kunt deze map toevoegen aan het pad naar het eenvoudig om aan te roepen kunnen `adb`. Anders moet u het volledige pad naar uw installatie van adb.exe in elke opdracht die wordt aangeroepen `adb`.
 
     > [!TIP]
-    > De microfoon van uw PC en de spreker dempen. Op deze manier kunt u zeker zijn u werkt met de development kit microfoons, en u het apparaat met audio van de PC per ongeluk wordt niet activeren.
+    > De microfoon van uw PC en de spreker om ervoor te zorgen dat u werkt met de development kit microfoons dempen. Op deze manier wordt niet u per ongeluk het apparaat met audio van de PC activeren.
     
-1.  Start Vysor op uw computer.
+1.  Vysor op uw computer starten.
 
     ![Vysor](media/speech-devices-sdk/qsg-3.png)
 
-1.  Uw apparaat moet worden weergegeven onder 'Kies een apparaat'. Klik op de **weergave** knop ernaast. 
+1.  Uw apparaat moet worden weergegeven onder **Kies een apparaat**. Selecteer de **weergave** knop naast het apparaat. 
  
-1.  Verbinding maken met het draadloze netwerk door te klikken op het pictogram van de map, klikt u vervolgens **instellingen**, klikt u vervolgens **WLAN**.
+1.  Verbinding maken met het draadloze netwerk door het mappictogram te selecteren en selecteer vervolgens **instellingen** > **WLAN**.
 
     ![Vysor WLAN](media/speech-devices-sdk/qsg-4.png)
  
- > [!NOTE]
- > Als uw bedrijf beleidsregels heeft met betrekking tot verbindende apparaten aan het Wi-Fi-systeem, moet u het Mac-adres verkrijgen en neem contact op met uw IT-afdeling over het verbinden met uw Wi-Fi-systeem. Als u het Mac-adres van de dev kit zoekt, klikt u op het mappictogram op het bureaublad van de dev kit, klikt u vervolgens **instellingen**, zoeken naar 'Mac-adres', klikt u op **Mac-adres** toegang te krijgen tot **geavanceerde WLAN** , noteert u de Mac-adres gevonden aan de onderkant. Sommige bedrijven mogelijk ook een limiet van hoe lang een apparaat kan worden verbonden met de Wi-Fi-systemen tijd. Mogelijk moet u de registratie van de dev kit met uw Wi-Fi-systeem, na een bepaald aantal dagen uitbreiden.  
- 
- 
-   ![Bestandsmap Vysor](media/speech-devices-sdk/qsg-10.png)
-   
-   ![Vysor Mac-adres](media/speech-devices-sdk/qsg-11.png)
-   
-   
- > Als u wilt een spreker koppelen aan de dev kit, kunt u het verbinding maken met de lijn-Audio uit. U moet ook een goede kwaliteit 3,5 mm spreker kiezen.
- 
-   ![Vysor Audio](media/speech-devices-sdk/qsg-14.png)
+    > [!NOTE]
+    > Als uw bedrijf beleid heeft over het verbinden van apparaten met het Wi-Fi-systeem, moet u het MAC-adres verkrijgen en neem contact op met uw IT-afdeling over het verbinden van uw bedrijf Wi-Fi. 
+    >
+    > Als u het MAC-adres van de dev kit zoekt, selecteer het mappictogram op het bureaublad van de dev kit.
+    >
+    >  ![Bestandsmap Vysor](media/speech-devices-sdk/qsg-10.png)
+    >
+    > Selecteer **instellingen**. Zoek naar 'mac-adres' en selecteer vervolgens **Mac-adres** > **WLAN geavanceerde**. Noteer het MAC-adres dat wordt weergegeven aan de onderkant van het dialoogvenster. 
+    >
+    > ![Vysor MAC-adres](media/speech-devices-sdk/qsg-11.png)
+    >
+    > Sommige bedrijven hebben mogelijk een tijdslimiet op hoe lang een apparaat kan zijn verbonden met de Wi-Fi-systeem. Mogelijk moet u de registratie van de dev kit met uw Wi-Fi-systeem uitbreiden na een bepaald aantal dagen.
+    > 
+    > Als u wilt een spreker koppelen aan de dev kit, kunt u het verbinding maken met de lijn-audio uit. U moet een goede kwaliteit, 3.5-mm-spreker kiezen.
+    >
+    > ![Vysor audio](media/speech-devices-sdk/qsg-14.png)
  
 ## <a name="run-a-sample-application"></a>Een voorbeeld-App uitvoeren
 
-Als u wilt de Roobo tests uitvoeren en uw development kit valideren, bouwen en de voorbeeld-App installeren.
+De ROOBO tests uitvoeren en uw development kit valideren, bouwen en installeren van de voorbeeldtoepassing:
 
 1.  Android Studio starten.
 
-1.  Kies een bestaand Android Studio-project openen.
+1.  Selecteer **een bestaand Android Studio-project openen**.
 
-    ![Android studio - project openen bestaande](media/speech-devices-sdk/qsg-5.png)
+    ![Android Studio - een bestaand project openen](media/speech-devices-sdk/qsg-5.png)
  
-1.  Blader naar `C:\SDSDK\Android-Sample-Release\example`, klikt u vervolgens op **OK** om de voorbeeldproject te openen.
+1.  Ga naar C:\SDSDK\Android-Sample-Release\example. Selecteer **OK** om de voorbeeldproject te openen.
  
-1.  Uw abonnementssleutel spraak toevoegen aan de broncode. Als u uitproberen intentieherkenning wilt, voegt u ook uw [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) abonnementssleutel en de toepassing-id. 
+1.  Uw abonnementssleutel spraak toevoegen aan de broncode. Als u proberen intentieherkenning wilt, voegt u ook uw [Language Understanding service](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) abonnementssleutel en de toepassing-id. 
 
-    Uw sleutels en toepassingsgegevens wordt in de volgende regels in het bronbestand `MainActivity.java`.
+    De toepassingsgegevens van uw sleutels en gaat u in de volgende regels in het bronbestand MainActivity.java:
 
     ```java
     // Subscription
@@ -121,16 +126,16 @@ Als u wilt de Roobo tests uitvoeren en uw development kit valideren, bouwen en d
     private static final String SpeechRegion = "westus";
     private static final String LuisSubscriptionKey = "[your LUIS key]";
     private static final String LuisRegion = "westus2.api.cognitive.microsoft.com";
-    private static final String LuisAppId = "[your LUIS app id]"
+    private static final String LuisAppId = "[your LUIS app ID]"
     ```
 
-1. Het standaard wake woord (trefwoord) is 'Computer'.  Als u dat wilt, kunt u proberen een van de andere opgegeven wake woorden, 'Machine' en 'Assistent'. De bronbestanden voor deze alternatieve woorden kunnen worden gevonden in de SDK van de apparaten spraak in de map 'sleutelwoord'. Bijvoorbeeld, `C:\SDSDK\Android-Sample-Release\keyword\Computer` bevat de bestanden die worden gebruikt voor 'Computer'.
+1. Het standaard wake woord (trefwoord) is 'Computer'. U kunt ook een van de opgegeven andere woorden, zoals 'Machine' of 'Assistent' activeren. De bronbestanden voor deze alternatieve wake-woorden zijn in de SDK van de spraak-apparaten in de map trefwoord. C:\SDSDK\Android-Sample-Release\keyword\Computer bevat bijvoorbeeld de bestanden die worden gebruikt voor de wake-woord 'Computer'.
 
     U kunt ook [maken van een aangepaste wake-woord](speech-devices-sdk-create-kws.md).
 
-    Voor het installeren van de gewenste wake word:
+    Voor het installeren van het woord wake die u wilt gebruiken:
  
-    * Maak een `keyword` in de map \data\ op het apparaat door het uitvoeren van de volgende opdrachten in het opdrachtvenster.
+    * Maak een map sleutelwoord in de gegevensmap op het apparaat door het uitvoeren van de volgende opdrachten in een opdrachtpromptvenster:
 
         ```
         adb shell
@@ -139,7 +144,7 @@ Als u wilt de Roobo tests uitvoeren en uw development kit valideren, bouwen en d
         exit
         ```
 
-    * Kopieer de bestanden `kws.table`, `kws_g.fst`, `kws_k.fst`, en `words_kw.txt`) van het apparaat \data\keyword\ map. Voer de volgende opdrachten in het opdrachtvenster o. Als u hebt gemaakt een [aangepaste wake word](speech-devices-sdk-create-kws.md), het kws.table-bestand gegenereerd op basis van de website wordt gebruikt in dezelfde map als `kws.table`, `kws_g.fst`, `kws_k.fst`, en `words_kw.txt` bestanden zijn. Gebruik adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table/data/sleutelwoord opdracht het bestand kws.table in plaats daarvan naar de dev kit pushen.
+    * Kopieer de bestanden kws.table, kws_g.fst, kws_k.fst en words_kw.txt naar \data\keyword-map van het apparaat. Voer de volgende opdrachten in een opdrachtpromptvenster. Als u hebt gemaakt een [aangepaste wake word](speech-devices-sdk-create-kws.md), het kws.table-bestand gegenereerd op basis van het web zich in dezelfde map als de bestanden kws.table, kws_g.fst kws_k.fst en words_kw.txt. Voor een aangepaste wake-woord, gebruikt u de `adb push C:\SDSDK\Android-Sample-Release\keyword\[wake_word_name]\kws.table /data/keyword` opdracht naar het bestand kws.table push naar de dev kit:
 
         ```
         adb push C:\SDSDK\Android-Sample-Release\keyword\kws.table /data/keyword
@@ -148,7 +153,7 @@ Als u wilt de Roobo tests uitvoeren en uw development kit valideren, bouwen en d
         adb push C:\SDSDK\Android-Sample-Release\keyword\Computer\words_kw.txt /data/keyword
         ```
     
-    * Verwijzen naar deze bestanden in de voorbeeldtoepassing. Zoek naar de volgende regels in `MainActivity.java`. Zorg ervoor dat het opgegeven trefwoord is de URL die u gebruikt en dat het pad naar verwijst de `kws.table` -bestand dat u naar het apparaat gepusht.
+    * Verwijzen naar deze bestanden in de voorbeeldtoepassing. De volgende regels in MainActivity.java vinden. Zorg ervoor dat het opgegeven trefwoord is de URL die u gebruikt en dat het pad verwijst naar de `kws.table` -bestand dat u naar het apparaat gepusht.
         
         ```java
         private static final String Keyword = "Computer";
@@ -156,48 +161,61 @@ Als u wilt de Roobo tests uitvoeren en uw development kit valideren, bouwen en d
         ```
 
         > [!NOTE]
-        > In uw eigen code kunt u de `kws.table` dat u wilt maken van een sleutelwoord model-exemplaar en start erkenning als volgt.
+        > In uw eigen code kunt u het bestand kws.table te maken van een sleutelwoord model exemplaar opname starten:
         >
         > ```java
         > KeywordRecognitionModel km = KeywordRecognitionModel.fromFile(KeywordModel);
         > final Task<?> task = reco.startKeywordRecognitionAsync(km);
         > ```
 
-1.  Werk de volgende regels met de microfoon matrix geometrie-instellingen.
+1.  De volgende regels de microfoon matrix geometrie-instellingen bevatten bijwerken:
 
     ```java
     private static final String DeviceGeometry = "Circular6+1";
     private static final String SelectedGeometry = "Circular6+1";
     ```
-
+    De volgende tabel beschrijft de beschikbare waarden:
+    
     |Variabele|Betekenis|Beschikbare waarden|
     |--------|-------|----------------|
-    |`DeviceGeometry`|Fysieke mic-configuratie|`Circular6+1` voor de ronde dev kit|
-    ||| `Linear4` voor lineaire dev kit|
-    |`SelectedGeometry`|De softwareconfiguratie voor de mic|`Circular6+1` met behulp van alle microfoons voor circulaire dev kit|
-    |||`Circular3+1` met behulp van vier microfoons voor circulaire dev kit|
-    |||`Linear4` met behulp van alle microfoons voor lineaire dev kit|
-    |||`Linear2` met behulp van twee microfoons voor lineaire dev kit|
+    |`DeviceGeometry`|Fysieke mic-configuratie|Voor een circulaire dev kit: `Circular6+1` |
+    |||Voor een lineaire dev kit: `Linear4`|
+    |`SelectedGeometry`|De softwareconfiguratie voor de mic|Voor een circulaire dev kit die gebruikmaakt van alle microfoon: `Circular6+1`|
+    |||Voor een circulaire dev kit die gebruikmaakt van vier microfoon: `Circular3+1`|
+    |||Voor een lineaire dev kit die gebruikmaakt van alle microfoon: `Linear4`|
+    |||Voor een lineaire dev kit die gebruikmaakt van twee microfoon: `Linear2`|
 
 
-1.  Maken van de toepassing door te kiezen **uitvoeren 'app'** in het menu uitvoeren. Het implementatiedoel selecteert u het dialoogvenster wordt weergegeven. Kies uw apparaat en klikt u op **OK** om de toepassing op het apparaat te implementeren.
+1.  De toepassing te bouwen, op de **uitvoeren** in het menu **uitvoeren 'app'**. De **implementatiedoel Selecteer** in het dialoogvenster wordt weergegeven. 
 
-    ![implementatiedoel selecteren](media/speech-devices-sdk/qsg-7.png)
+1. Selecteer uw apparaat en selecteer vervolgens **OK** om de toepassing op het apparaat te implementeren.
+
+    ![Het dialoogvenster implementatiedoel selecteren](media/speech-devices-sdk/qsg-7.png)
  
-1.  De voorbeeldtoepassing met spraak Devices SDK wordt gestart, voor het weergeven van de opties die hier worden weergegeven.
+1.  De voorbeeldtoepassing met spraak Devices SDK wordt gestart en worden de volgende opties weergegeven:
 
-    ![voorbeeldapparaattoepassing spraak](media/speech-devices-sdk/qsg-8.png)
+    ![Voorbeeld van de voorbeeldtoepassing spraak Devices SDK en opties](media/speech-devices-sdk/qsg-8.png)
 
-1. U kunt experimenteren met het!
+1. Experiment!
 
 ## <a name="troubleshooting"></a>Problemen oplossen
 
-Als er certificaatfouten bij het gebruik van de spraakservice, zorg er dan voor dat het apparaat heeft de juiste datum en tijd. Ga naar **instellingen**, klikt u op **datum en tijd** onder System en **Selecteer tijdzone** moet uw huidige tijdzone. Houd **automatische datum en tijd** op. Als u ziet de ontwikkelingsset tijd overeenkomt met de tijd van uw PC en vervolgens hebt u wellicht de dev kit is verbonden met internet. 
+### <a name="certificate-failures"></a>Certificaatfouten
 
- ![Bestandsmap Vysor](media/speech-devices-sdk/qsg-12.png)
- 
- ![Bestandsmap Vysor](media/speech-devices-sdk/qsg-13.png)
+Als er certificaatfouten wanneer u de Speech-service gebruikt, zorg ervoor dat uw apparaat de juiste datum en tijd heeft:
 
-Zie voor meer informatie over ontwikkelingen, van Roobo [development guide](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
+1. Ga naar **instellingen**. Onder **System**, selecteer **datum en tijd**.
 
-Roobo voorziet in een hulpprogramma waarmee alle audio Flash-geheugen, die helpen kan bij het oplossen van problemen met audio wordt vastgelegd. Een versie van het hulpprogramma is opgegeven voor de configuratie van elke development kit. Kies uw apparaat bij [de site Roobo](http://ddk.roobo.com/), klikt u vervolgens op de **ROOBO extra** koppelen aan de onderkant van de pagina.
+    ![Selecteer onder instellingen voor datum en tijd](media/speech-devices-sdk/qsg-12.png)
+
+1. Houd de **automatische datum en tijd** optie is geselecteerd. Onder **Selecteer tijdzone**, selecteert u uw huidige tijdzone. 
+
+    ![Selecteer opties voor datum en tijdzone](media/speech-devices-sdk/qsg-13.png)
+
+    Wanneer u ziet dat de ontwikkelingsset tijd overeenkomt met de tijd op uw PC, wordt de dev kit is verbonden met internet. 
+    
+    Zie voor meer informatie over ontwikkelingen, de [ROOBO development guide](http://dwn.roo.bo/server_upload/ddk/ROOBO%20Dev%20Kit-User%20Guide.pdf).
+
+### <a name="audio"></a>Audio
+
+ROOBO voorziet in een hulpprogramma waarmee alle audio Flash-geheugen wordt vastgelegd. Het kan helpen bij het oplossen van problemen met audio. Een versie van het hulpprogramma is opgegeven voor de configuratie van elke development kit. Op de [ROOBO site](http://ddk.roobo.com/), selecteer uw apparaat en selecteer vervolgens de **ROOBO extra** koppelen aan de onderkant van de pagina.

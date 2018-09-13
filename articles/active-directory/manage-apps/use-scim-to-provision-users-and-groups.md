@@ -16,12 +16,12 @@ ms.date: 12/12/2017
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: aaddev;it-pro;seohack1
-ms.openlocfilehash: 4247ef1ffd1b8d5c5ec393e3ebff20c3e04e32b3
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: d99996bb4177a11342f0897d2cf69f82a5b81bf7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347695"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721225"
 ---
 # <a name="using-system-for-cross-domain-identity-management-scim-to-automatically-provision-users-and-groups-from-azure-active-directory-to-applications"></a>Met behulp van systeem voor meerdere domeinen Identity Management (SCIM) voor het automatisch inrichten van gebruikers en groepen uit Azure Active Directory voor toepassingen
 
@@ -361,7 +361,7 @@ Groep resources worden aangeduid met de schema-id en http://schemas.microsoft.co
 | mailNickname |externalId |
 | beheerder |beheerder |
 | mobiele |phoneNumbers [type eq 'mobiel'] .value |
-| object-id |ID |
+| object-id |Id |
 | Postcode |adressen type eq 'werk'.postalCode |
 | proxy-adressen |e-mailberichten [Typ eq 'ander']. Waarde |
 | physical-Delivery-OfficeName |adressen [Typ eq 'ander']. Indeling |
@@ -377,7 +377,7 @@ Groep resources worden aangeduid met de schema-id en http://schemas.microsoft.co
 | mail |e-mailberichten [type eq 'werk'] .value |
 | mailNickname |displayName |
 | leden |leden |
-| object-id |ID |
+| object-id |Id |
 | proxyAddresses |e-mailberichten [Typ eq 'ander']. Waarde |
 
 ## <a name="user-provisioning-and-de-provisioning"></a>Inrichten van gebruikers en het ongedaan maken inrichting
@@ -691,7 +691,6 @@ De volgende afbeelding ziet u de berichten die Azure AcD naar een SCIM-service v
 *Afbeelding 6: Inrichting van de groep en het ongedaan maken inrichting reeks*
 
 ## <a name="related-articles"></a>Verwante artikelen:
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 * [Gebruiker inrichting/ongedaan maken van inrichting voor SaaS-toepassingen automatiseren](user-provisioning.md)
 * [Kenmerktoewijzingen voor het inrichten van gebruikers aan te passen](customize-application-attributes.md)
 * [Expressies schrijven voor kenmerktoewijzingen](functions-for-customizing-application-data.md)

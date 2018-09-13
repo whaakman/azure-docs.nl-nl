@@ -6,17 +6,17 @@ ms.service: azure-dev-spaces
 ms.component: azds-kubernetes
 author: ghogen
 ms.author: ghogen
-ms.date: 05/11/2018
+ms.date: 09/11/2018
 ms.topic: article
 description: Snelle Kubernetes-ontwikkeling met containers en microservices in Azure
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, containers
 manager: douge
-ms.openlocfilehash: b66e43c0f40f184bfb2c62327f5742346ff8b187
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: c6ca3003c1338f3e057c76d9e04d8b0cbd2210c7
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841606"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44721191"
 ---
 # <a name="troubleshooting-guide"></a>Handleiding voor het oplossen van problemen
 
@@ -26,9 +26,13 @@ Deze handleiding bevat informatie over veelvoorkomende problemen die mogelijk he
 
 Om te kunnen oplossen van problemen effectiever, mogelijk kunt u meer gedetailleerde logboeken voor controle maken.
 
-Voor de extensie voor Visual Studio, u kunt dit doen door in te stellen de `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` omgevingsvariabele op 1. Zorg ervoor dat opnieuw opstarten van Visual Studio voor de omgeving in te voeren. Eenmaal is ingeschakeld, gedetailleerde logboeken worden geschreven naar uw `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
+Voor de extensie voor Visual Studio, stelt u de `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` omgevingsvariabele op 1. Zorg ervoor dat opnieuw opstarten van Visual Studio voor de omgeving in te voeren. Eenmaal is ingeschakeld, gedetailleerde logboeken worden geschreven naar uw `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` directory.
 
 In de CLI, kunt u meer informatie tijdens de uitvoering van de opdracht uitvoeren met behulp van de `--verbose` overschakelen.
+
+## <a name="debugging-services-with-multiple-instances"></a>Foutopsporing van services met meerdere exemplaren
+
+Op dit moment ondersteunt Azure Dev spaties foutopsporing alleen op een enkele instantie (schil). Het bestand azds.yaml bevat een instelling, replicaCount, die aangeeft van het aantal exemplaren die voor uw service wordt uitgevoerd. Als u de replicaCount wijzigt voor het configureren van uw app voor het uitvoeren van meerdere exemplaren voor een bepaalde service, het gedrag van het foutopsporingsprogramma mogelijk niet zoals verwacht.
 
 ## <a name="error-failed-to-create-azure-dev-spaces-controller"></a>Fout 'Failed to Azure Dev spaties controller maken'
 
@@ -67,14 +71,14 @@ Bij het gebruik van _azds.exe_, gebruikt u de--uitgebreide opdrachtregeloptie te
 
 In Visual Studio:
 
-1. Open **Extra > opties** en klikt u onder **projecten en oplossingen**, kiezen en **bouwen en uitvoeren**.
+1. Open **Extra > opties** en klikt u onder **projecten en oplossingen**, kiest u **bouwen en uitvoeren**.
 2. Wijzig de instellingen voor **MSBuild-project build uitvoer uitgebreidheid** naar **gedetailleerd** of **diagnostische**.
 
     ![Schermafbeelding van de opties in menu Extra](media/common/VerbositySetting.PNG)
     
 ## <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>DNS-naamomzetting voor een openbare URL die is gekoppeld aan een Dev-Spaces-service is mislukt
 
-Wanneer dit het geval is, ziet u mogelijk een 'Pagina kan niet worden weergegeven' of "deze site kan niet worden bereikt" fout in uw webbrowser wanneer er wordt geprobeerd verbinding maken met de openbare URL die is gekoppeld aan een service Dev spaties.
+Wanneer DNS-naamomzetting is mislukt, ziet u mogelijk een 'Pagina kan niet worden weergegeven' of "deze site kan niet worden bereikt" fout in uw webbrowser wanneer er wordt geprobeerd verbinding maken met de openbare URL die is gekoppeld aan een service Dev spaties.
 
 ### <a name="try"></a>Probeer:
 
@@ -84,7 +88,7 @@ U kunt de volgende opdracht uit om alle URL's die zijn gekoppeld aan uw opslagru
 azds list-uris
 ```
 
-Als een URL in de *in behandeling* staat, betekent dit dat Dev spaties nog voor DNS-registratie te voltooien. Soms duurt het enkele minuten duren voordat dit mag gebeuren. Dev opslagruimten wordt ook geopend wanneer u een tunnel ' localhost ' voor elke service, die u gebruiken kunt tijdens het wachten op DNS-registratie.
+Als een URL in de *in behandeling* staat, betekent dit dat Dev spaties nog voor DNS-registratie te voltooien. Soms duurt een paar minuten voor de registratie te voltooien. Dev opslagruimten wordt ook geopend wanneer u een tunnel ' localhost ' voor elke service, die u gebruiken kunt tijdens het wachten op DNS-registratie.
 
 Als een URL in blijft de *in behandeling* status voor meer dan 5 minuten, kan dit wijzen op een probleem met de externe DNS-schil die het openbare eindpunt worden gemaakt en/of de schil nginx ingress-controller die krijgt van het openbare eindpunt. U kunt de volgende opdrachten gebruiken om te verwijderen van deze schillen. Ze zullen automatisch worden gemaakt.
 
@@ -121,7 +125,7 @@ Azure Dev opslagruimten biedt systeemeigen ondersteuning voor C# en Node.js. Bij
 U kunt nog steeds gebruik van Azure Dev spaties met code die in andere talen zijn geschreven, maar moet u de docker-bestand zelf maken vóór actief *azds van* voor de eerste keer.
 
 ### <a name="try"></a>Probeer:
-Als uw toepassing is geschreven in een taal dat Azure Dev spaties geen systeemeigen ondersteuning biedt, moet u voor een juiste docker-bestand voor het bouwen van een containerinstallatiekopie uitvoeren van uw code. Docker biedt een [lijst met aanbevolen procedures voor het schrijven van docker-bestanden](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) , evenals een [Dockerfile-referentiemateriaal](https://docs.docker.com/engine/reference/builder/) die kunt u dit kunt doen.
+Als uw toepassing is geschreven in een taal dat Azure Dev spaties geen systeemeigen ondersteuning biedt, moet u voor een juiste docker-bestand voor het bouwen van een containerinstallatiekopie uitvoeren van uw code. Docker biedt een [lijst met aanbevolen procedures voor het schrijven van docker-bestanden](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) , evenals een [Dockerfile-referentiemateriaal](https://docs.docker.com/engine/reference/builder/) die kunnen helpen bij het schrijven van een docker-bestand dat aansluit op uw behoeften.
 
 Wanneer u een juiste Dockerfile geïmplementeerd hebt, kunt u doorgaan met uitvoeren *azds van* voor het uitvoeren van uw toepassing in Azure Dev spaties.
 
@@ -152,7 +156,7 @@ U moet uitvoeren `azds up` vanuit de hoofdmap van de code die u wilt uitvoeren, 
 1. Als u nog geen een _azds.yaml_ bestand in de map code uitvoeren `azds prep` voor het genereren van Docker, Kubernetes en Azure Dev spaties activa.
 
 ## <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>Fout: 'de pipe programma azds onverwacht afgesloten met code 126.'
-Starten van het foutopsporingsprogramma VS Code kan soms leiden tot deze fout. Dit is een bekend probleem.
+Starten van het foutopsporingsprogramma VS Code kan soms leiden tot deze fout.
 
 ### <a name="try"></a>Probeer:
 1. Sluiten en opnieuw openen van VS Code.
@@ -162,7 +166,7 @@ Starten van het foutopsporingsprogramma VS Code kan soms leiden tot deze fout. D
 Het foutopsporingsprogramma VS Code wordt uitgevoerd, rapporteert de fout: `Failed to find debugger extension for type:coreclr.`
 
 ### <a name="reason"></a>Reden
-U hebt niet de VS Code-extensie voor C# geïnstalleerd op uw ontwikkelcomputer waaronder foutopsporing ondersteuning voor .net Core (CoreCLR).
+U hebt niet de VS Code-extensie voor C# geïnstalleerd op uw ontwikkelcomputer. De C#-extensie bevat foutopsporing ondersteuning voor .net Core (CoreCLR).
 
 ### <a name="try"></a>Probeer:
 Installeer de [VS Code-extensie voor C#](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp).

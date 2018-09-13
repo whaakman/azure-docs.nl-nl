@@ -5,15 +5,15 @@ services: site-recovery
 author: rayne-wiselman
 ms.service: site-recovery
 ms.topic: article
-ms.date: 07/06/2018
+ms.date: 09/12/2018
 ms.author: raynew
 ms.custom: MVC
-ms.openlocfilehash: fb820d124fd9b5e882cad538ad436532d7865fbc
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: f1899817ee2d0efec4ab561a64f24e49cb173c29
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921540"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720766"
 ---
 # <a name="prepare-on-premises-hyper-v-servers-for-disaster-recovery-to-azure"></a>On-premises Hyper-V-servers voorbereiden op herstel na noodgevallen naar Azure
 
@@ -60,13 +60,15 @@ Voorbereiden op VMM netwerktoewijzing als volgt:
 ## <a name="verify-internet-access"></a>Controleer of u toegang tot internet
 
 1. Voor de doeleinden van de zelfstudie is de eenvoudigste configuratie voor de Hyper-V-hosts en VMM-server rechtstreeks toegang tot internet hebben zonder een proxy. 
-2. Zorg ervoor dat Hyper-V-hosts en de VMM-server, indien van toepassing, toegang tot deze URL's: 
-
-    [!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
-    
+2. Zorg ervoor dat Hyper-V-hosts en de VMM-server, indien van toepassing, toegang tot de vereiste URL's die hieronder.   
 3. Als u bent toegangsbeheer op basis van IP-adres, controleert u of:
     - IP-adressen gebaseerde firewallregels kunnen verbinding maken met [Azure Datacenter IP-adresbereiken](https://www.microsoft.com/download/confirmation.aspx?id=41653), en de poort HTTPS (443).
     - Toestaan dat IP-adresbereiken voor de Azure-regio van uw abonnement.
+    
+### <a name="required-urls"></a>Vereiste URL 's
+
+
+[!INCLUDE [site-recovery-URLS](../../includes/site-recovery-URLS.md)]
 
 
 ## <a name="prepare-to-connect-to-azure-vms-after-failover"></a>Voorbereiden op het verbinden met virtuele Azure-machines na een failover

@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.component: users-groups-roles
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/11/2018
 ms.author: barbkess
 ms.reviewer: asmalser
 ms.custom: it-pro
-ms.openlocfilehash: d17b5967519bc51e4fb33a410149d17c82c28d10
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: db008953b9aa596a64aceccacc0e4632ebfff596
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347984"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44720120"
 ---
 # <a name="what-is-application-access-and-single-sign-on-with-azure-active-directory"></a>Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?
 Eenmalige aanmelding betekent toegang te hebben tot alle toepassingen en bronnen die u nodig hebt om zaken te doen, aanmeldt slechts eenmaal met behulp van één gebruikersaccount. Nadat u bent aangemeld, u toegang hebt tot alle van de toepassingen die u nodig hebt zonder vereist is om te verifiëren (bijvoorbeeld, typ een wachtwoord) een tweede keer.
@@ -191,7 +191,6 @@ Wanneer een geautoriseerde gebruiker op een van deze koppelingen toepassingsspec
 Deze koppelingen de mechanismen voor hetzelfde besturingselement gebruiken als het toegangsvenster en de Office 365, en alleen deze gebruikers of groepen die zijn toegewezen aan de toepassing in Azure portal is mogelijk om te verifiëren. Elke gebruiker die niet gemachtigd is zien echter een bericht waarin wordt uitgelegd dat ze geen toegang is verleend en een koppeling naar het laden van het toegangsvenster als u wilt weergeven van beschikbare toepassingen waarvoor ze toegang hebben, krijgen.
 
 ## <a name="related-articles"></a>Verwante artikelen:
-* [Article Index for Application Management in Azure Active Directory](../active-directory-apps-index.md) (Artikelindex voor toepassingsbeheer in Azure Active Directory)
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](../saas-apps/tutorial-list.md)
 * [Cloud Discovery instellen](/cloud-app-security/set-up-cloud-discovery)
 * [Inleiding tot het beheren van toegang tot Apps](what-is-access-management.md)
