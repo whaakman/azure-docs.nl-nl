@@ -132,7 +132,7 @@ De **Application Insights** pakket wordt nu weergegeven in het project en correc
 In de Azure-portal, de web-app-bot zoeken en te openen. De volgende stappen uit drie verschillende weergaven van de web-app-bot gebruiken. Het is mogelijk beter te hebben van drie afzonderlijke tabbladen in de browser openen: 
   
 >  * Testen in chatten
->  * Build/Open online code-editor -> App Service-Editor
+>  * Online code-editor maken/openen -> App Service-editor
 >  * App Service-Editor is geopend/Kudu-console -> Diagnostic-Console
 
 ## <a name="modify-basicluisdialogcs-code"></a>BasicLuisDialog.cs-code wijzigen
