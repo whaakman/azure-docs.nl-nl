@@ -83,6 +83,7 @@
 
 ## [Groepen en leden beheren](fundamentals/active-directory-manage-groups.md)
 ### [Groepen beheren](fundamentals/active-directory-groups-create-azure-portal.md)
+### [Een groep en de leden ervan verwijderen](fundamentals/active-directory-groups-delete-group.md)
 ### [Groepsinstellingen beheren](fundamentals/active-directory-groups-settings-azure-portal.md)
 ## [Rapporten beheren](reports-monitoring/overview-reports.md)
 ### [Aanmeldingsactiviteit](reports-monitoring/concept-sign-ins.md)
@@ -346,6 +347,7 @@
 #### [Aanmeldingservaring](identity-protection/flows.md)
 #### [Risicogebeurtenissen simuleren](identity-protection/playbook.md)
 #### [Gebruikers deblokkeren](identity-protection/howto-unblock-user.md)
+#### [Toegang blokkeren wanneer er een sessierisico wordt gedetecteerd](identity-protection/quickstart-sign-in-risk-policy.md)
 #### [Veelgestelde vragen](identity-protection/faqs.md)
 #### [Woordenlijst](identity-protection/glossary.md)
 #### [Microsoft Graph](identity-protection/graph-get-started.md)

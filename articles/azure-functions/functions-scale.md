@@ -13,12 +13,12 @@ ms.topic: reference
 ms.date: 08/09/2018
 ms.author: glenga
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: b562b10be8add02d0a3c6eb95e8df8eb0711a208
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 7168db80593426977e238fa2b8a5f09638cf0fdf
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093529"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542156"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions-schaal en hosting
 
@@ -124,7 +124,7 @@ De eenheid van de schaal is de functie-app. Wanneer de functie-app is uitgebreid
 
 Schalen kan variëren van een aantal factoren, en schaal anders op basis van de trigger en taal selecteren. Maar er zijn een aantal aspecten van de schaal die aanwezig zijn in het systeem vandaag:
 
-* Een enkele functie-app alleen omhoog wordt geschaald uitgaande maximaal 200 exemplaren. Slechts één exemplaar kan meer dan één bericht of aanvraag tegelijk verwerken, dus er is een limiet instellen voor het aantal gelijktijdige uitvoeringen niet.
+* Een enkele functie-app alleen omhoog wordt geschaald uitgaande tot een maximum van 100 exemplaren. Slechts één exemplaar kan meer dan één bericht of aanvraag tegelijk verwerken, dus er is een limiet instellen voor het aantal gelijktijdige uitvoeringen niet.
 * Nieuwe instanties wordt alleen maximaal elke 10 seconden worden toegewezen.
 
 Verschillende triggers mogelijk ook andere limieten voor schalen, evenals gedocumenteerde hieronder:

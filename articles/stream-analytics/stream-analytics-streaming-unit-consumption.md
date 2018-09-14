@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/12/2018
-ms.openlocfilehash: 482f0403cfd4bbd6587ba7e3e936cdac7f82b54a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: b7abbd486e9c357a5bdba093214a3801f88c39ab
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228014"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575895"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>Begrijpen en aanpassen van Streaming-eenheden
 
@@ -46,7 +46,7 @@ Bereken de verwachte doorvoer van de werkbelasting. Als de doorvoer kleiner is d
 
 Het aantal vereiste su's voor een bepaalde taak kiezen, is afhankelijk van de partitieconfiguratie voor de invoer en de query die gedefinieerd in de taak. De **schaal** op de pagina kunt u het juiste aantal su's instellen. Er is een aanbevolen procedure om toe te wijzen meer SUs dan nodig is. De Stream Analytics-verwerkingsengine is geoptimaliseerd voor latentie en doorvoer leiden bij het toewijzen van extra geheugen.
 
-In het algemeen is de aanbevolen procedure is om te beginnen met 6 su's voor query's die geen gebruik **PARTITION BY**. Vervolgens kunt u de positie sweet bepalen met behulp van een methode voor vallen en opstaan waarin u het aantal SUs wijzigen nadat u representatieve hoeveelheden gegevens doorgeven en het SU-% gebruik metrische gegevens bekijkt. Het maximum aantal streamingeenheden dat kan worden gebruikt door een Stream Analytics-taak is afhankelijk van het aantal stappen in de query die is gedefinieerd voor de taak en het aantal partities in elke stap. U kunt meer informatie over de limieten [hier](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
+In het algemeen is de aanbevolen procedure is om te beginnen met 6 su's voor query's die geen gebruik **PARTITION BY**. Vervolgens kunt u de positie sweet bepalen met behulp van een methode voor vallen en opstaan waarin u het aantal SUs wijzigen nadat u representatieve hoeveelheden gegevens doorgeven en het SU-% gebruik metrische gegevens bekijkt. Het maximum aantal streamingeenheden dat kan worden gebruikt door een Stream Analytics-taak is afhankelijk van het aantal stappen in de query die is gedefinieerd voor de taak en het aantal partities in elke stap. U kunt meer informatie over de limieten [hier](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#calculate-the-maximum-streaming-units-of-a-job).
 
 Zie voor meer informatie over het kiezen van het juiste aantal su's op deze pagina: [Scale Azure Stream Analytics-taken om doorvoer te vergroten](stream-analytics-scale-jobs.md)
 
@@ -85,7 +85,7 @@ Om te voorkomen die samenhangen problemen veroorzaakt door hoge kardinaliteit in
 
    ```sql
    SELECT count(*) 
-   FROM PARTITION BY PartitionId
+   FROM input PARTITION BY PartitionId
    GROUP BY PartitionId, clusterid, tumblingwindow (minutes, 5)
    ```
 
