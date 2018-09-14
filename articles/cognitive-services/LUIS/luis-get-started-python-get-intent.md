@@ -1,33 +1,36 @@
 ---
-title: 'Zelfstudie: een LUIS-app (Language Understanding) aanroepen met behulp van Python | Microsoft Docs'
-description: In deze zelfstudie leert u hoe u een LUIS-app aanroept met behulp van Python.
+title: 'Snelstart: een LUIS-app (Language Understanding) aanroepen met behulp van Python | Microsoft Docs'
+description: In deze snelstart leert u hoe u een LUIS-app aanroept met behulp van Python.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 8671e81f6d8c18c17f34843d2c1b8460306daeb5
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 06/27/2018
+ms.author: diberry
+ms.openlocfilehash: bc7ae912d762a98c34b9a1b2d6a82d5630c4794b
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36264581"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "43770003"
 ---
-# <a name="tutorial-call-a-luis-endpoint-using-python"></a>Zelfstudie: Een LUIS-eindpunt aanroepen met behulp van Python
-Lees hoe u utterances doorgeeft aan een LUIS-eindpunt en intenties en entiteiten terugkrijgt.
+# <a name="quickstart-call-a-luis-endpoint-using-python"></a>Snelstart: Een LUIS-eindpunt aanroepen met behulp van Python
+In deze snelstart leest u hoe u utterances doorgeeft aan een LUIS-eindpunt en intenties en entiteiten terugkrijgt.
 
 <!-- green checkmark -->
+<!--
 > [!div class="checklist"]
-> * Een LUIS-abonnement maken en de sleutelwaarde kopiëren voor later gebruik
-> * LUIS eindpuntresultaten bekijken vanuit browser naar openbare IoT-voorbeeld-app
-> * Visual Studio C#-console-app maken om HTTPS-aanroepen te versturen naar LUIS eindpunt
+> * Create LUIS subscription and copy key value for later use
+> * View LUIS endpoint results from browser to public sample IoT app
+> * Create Visual Studio C# console app to make HTTPS call to LUIS endpoint
+-->
 
-Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om de LUIS-toepassing te maken.
+Voor dit artikel hebt u een gratis [LUIS](luis-reference-regions.md#luis-website)-account nodig om uw LUIS-toepassing te creëren.
 
-## <a name="create-luis-subscription-key"></a>LUIS-abonnementssleutel maken
+<a name="create-luis-subscription-key"></a>
+## <a name="create-luis-endpoint-key"></a>LUIS-eindpuntsleutel maken
 U hebt een Cognitive Services API-sleutel nodig om aanroepen te doen naar de LUIS-voorbeeld-app die wordt gebruikt in dit scenario. 
 
 Voer de volgende stappen uit om een API-sleutel op te halen: 
@@ -36,7 +39,7 @@ Voer de volgende stappen uit om een API-sleutel op te halen:
 
 2. Meld u aan bij Azure Portal op https://portal.azure.com. 
 
-3. Volg de stappen in [Abonnementssleutels maken met behulp van Azure](./luis-how-to-azure-subscription.md) om een sleutel op te halen.
+3. Volg de stappen in [Eindpuntsleutels maken met behulp van Azure](./luis-how-to-azure-subscription.md) om een sleutel op te halen.
 
 4. Ga terug naar de [LUIS](luis-reference-regions.md)-website en meld u aan met uw Azure-account. 
 
@@ -46,7 +49,7 @@ Voer de volgende stappen uit om een API-sleutel op te halen:
 
 Om inzicht te krijgen in wat een LUIS-app retourneert, kunt u de URL van een LUIS-voorbeeld-app in een browservenster plakken. De voorbeeld-app is een IoT-app die detecteert of de gebruiker lampen wil inschakelen of uitschakelen.
 
-1. Het eindpunt van de voorbeeld-app heeft deze indeling: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Kopieer de URL en vervang de waarde van het veld `subscription-key` door uw abonnementssleutel.
+1. Het eindpunt van de voorbeeld-app heeft deze indeling: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Kopieer de URL en vervang de waarde van het veld `subscription-key` door uw eindpuntsleutel.
 2. Plak de URL in een browservenster en druk op Enter. In de browser wordt een JSON-resultaat weergegeven dat aangeeft dat LUIS de intent `HomeAutomation.TurnOn` en de entiteit `HomeAutomation.Room` met de waarde `bedroom` detecteert.
 
     ![JSON-resultaat detecteert de intent TurnOn](./media/luis-get-started-node-get-intent/turn-on-bedroom.png)
@@ -59,25 +62,24 @@ Om inzicht te krijgen in wat een LUIS-app retourneert, kunt u de URL van een LUI
 
 U kunt Python gebruiken voor toegang tot de resultaten die u in het browservenster in de vorige stap hebt gezien.
 
-1. Kopieer een van de volgende codefragmenten:
+1. Kopieer een van de volgende codefragmenten naar een bestand met de naam `quickstart-call-endpoint.py`:
 
-   [!code-python[Console app code that calls a LUIS endpoint for Python 2.7](~/samples-luis/documentation-samples/endpoint-api-samples/python/quickstart-call-endpoint-2-7.py)]
+   [!code-python[Console app code that calls a LUIS endpoint for Python 2.7](~/samples-luis/documentation-samples/quickstarts/analyze-text/python/2.x/quickstart-call-endpoint-2-7.py)]
 
-   [!code-python[Console app code that calls a LUIS endpoint for Python 3.6](~/samples-luis/documentation-samples/endpoint-api-samples/python/quickstart-call-endpoint-3-6.py)]
+   [!code-python[Console app code that calls a LUIS endpoint for Python 3.6](~/samples-luis/documentation-samples/quickstarts/analyze-text/python/3.x/quickstart-call-endpoint-3-6.py)]
 
+2. Vervang de waarde van het veld `Ocp-Apim-Subscription-Key` door de sleutel van uw LUIS-eindpunt.
 
-2. Vervang de waarde van het veld `Ocp-Apim-Subscription-Key`-door de sleutel van uw LUIS-abonnement.
+3. Installeer afhankelijkheden met `pip install requests`.
 
-3. Voer het script uit. De uitvoer bestaat uit de JSON die u eerder hebt gezien in het browservenster.
+4. Voer het script uit met behulp van `python ./quickstart-call-endpoint.py`. De uitvoer bestaat uit de JSON die u eerder hebt gezien in het browservenster.
 <!-- 
 ![Console window displays JSON result from LUIS](./media/luis-get-started-python-get-intent/console-turn-on.png)
 -->
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-De twee resources die in deze zelfstudie zijn gemaakt, zijn de LUIS-abonnementssleutel en het JavaScript-project. Verwijder de LUIS-abonnementssleutel uit Azure Portal. Sluit het Visual Studio-project en verwijder de map uit het bestandssysteem. 
+De twee resources die in deze zelfstudie zijn gemaakt, zijn de LUIS-eindpuntsleutel en het C#-project. Verwijder de LUIS-eindpuntsleutel uit Azure Portal. Sluit het Visual Studio-project en verwijder de map uit het bestandssysteem. 
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Utterances toevoegen](luis-get-started-python-add-utterance.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

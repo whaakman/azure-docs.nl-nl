@@ -12,15 +12,15 @@ ms.devlang: java
 ms.topic: tutorial
 ms.tgt_pltfrm: NA
 ms.workload: NA
-ms.date: 02/26/2018
+ms.date: 09/01/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: a8522dbe20f302a1819b89eaea92562a2dcf43a5
-ms.sourcegitcommit: 5a7f13ac706264a45538f6baeb8cf8f30c662f8f
+ms.openlocfilehash: e4552157cab846356c57a135d4e273f5a545bce9
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37114122"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667214"
 ---
 # <a name="tutorial-create-an-application-with-a-java-web-api-front-end-service-and-a-stateful-back-end-service-on-service-fabric"></a>Zelfstudie: Een toepassing met een Java web-API front-endservice en een stateful back-endservice maken voor Service Fabric
 
@@ -55,13 +55,13 @@ Voor u met deze zelfstudie begint:
 
 Maak eerst de webfront-end van de stemtoepassing. De stateless Java-service draait op een lichtgewicht HTTP-server die een webgebruikersinterface host die wordt aangedreven door AngularJS. Aanvragen van een gebruiker worden door deze stateless service verwerkt en als een externe procedureaanroep naar de stateful service verzonden om de stemmen op te slaan. 
 
-1. Eclipse starten
+1. Start Eclipse.
 
-2. Maak een project via **File**->**New**->**Other**->**Service Fabric**->**Service Fabric Project**
+2. Maak een project via **File**->**New**->**Other**->**Service Fabric**->**Service Fabric Project**.
 
     ![Dialoogvenster voor nieuw project in Eclipse](./media/service-fabric-tutorial-create-java-app/create-sf-proj-wizard.png)
 
-3. Geef in het dialoogvenster **ServiceFabric Project Wizard** het project de naam **Voting** en klik op **Next**
+3. Geef in het dialoogvenster **ServiceFabric Project Wizard** het project de naam **Voting** en klik op **Next**.
 
     ![Stateless Java-service kiezen in het dialoogvenster voor een nieuwe service](./media/service-fabric-tutorial-create-java-app/name-sf-proj-wizard.png) 
 
@@ -89,9 +89,9 @@ Om een gebruikersinterface toe te voegen die kan worden weergegeven door de stat
 
 1. Vouw de map *VotingApplication* uit en ga naar de map *VotingWebPkg-VotingApplication-Code*.
 
-2. Klik met de rechtermuisknop op de map *Code* en klik op **New**->**Other**.
+2. Klik met de rechtermuisknop op de map *Code* en klik op **New**->**Folder**.
 
-3. Maak een map met de naam *wwwroot* en klik op **Finish**.
+3. Noem de map *wwwroot* en klik op **Finish**.
 
     ![Een wwwroot-map maken voor Eclipse](./media/service-fabric-tutorial-create-java-app/create-wwwroot-folder.png)
 
@@ -205,9 +205,9 @@ app.controller("VotingAppController", ['$rootScope', '$scope', '$http', '$timeou
 </html>
 ```
 
-### <a name="update-the-votingwebservicejava-file"></a>Het bestand VotingWebService.java bijwerken
+### <a name="update-the-votingwebjava-file"></a>Het bestand VotingWeb.java bijwerken
 
-Open in het subproject **VotingWeb** het bestand *VotingWeb/src/statelessservice/VotingWebService.java*. De **VotingWebService** is de gateway naar de stateless service en is verantwoordelijk voor het instellen van de communicatielistener voor de front-end-API.
+Open in het subproject **VotingWeb** het bestand *VotingWeb/src/statelessservice/VotingWeb.java*. De service **VotingWeb** is de gateway naar de stateless service en is verantwoordelijk voor het instellen van de communicatielistener voor de front-end-API.
 
 Vervang de inhoud van de methode **createServiceInstanceListeners** in het bestand door de volgende en sla de wijzigingen op.
 
@@ -226,7 +226,7 @@ protected List<ServiceInstanceListener> createServiceInstanceListeners() {
 
 ### <a name="add-the-httpcommunicationlistenerjava-file"></a>Het bestand HTTPCommunicationListener.java toevoegen
 
-De HTTP-communicatielistener fungeert als een domeincontroller die de HTTP-server instelt en de API's die stemacties definiëren weergeeft. Klik met de rechtermuisknop op het pakket *statelessservice* in de map *VotingWeb/src/statelessservice*, selecteer **New->Other...->General->File** en klik op **Next**.  Noem het bestand *HttpCommunicationListener.java* en klik op **Finish**.
+De HTTP-communicatielistener fungeert als een domeincontroller die de HTTP-server instelt en de API's die stemacties definiëren weergeeft. Klik met de rechtermuisknop op het pakket *statelessservice* in de map *VotingWeb/src/statelessservice* en selecteer **New->File**.  Noem het bestand *HttpCommunicationListener.java* en klik op **Finish**.
 
 Vervang de bestandsinhoud door het volgende en sla uw wijzigingen op.  Verderop, in [Het bestand HttpCommunicationListener.java bijwerken](#updatelistener_anchor), wordt dit bestand gewijzigd voor het weergeven, lezen en schrijven van stemgegevens vanaf de back-endservice.  Op dit moment retourneert de listener eenvoudigweg de statische HTML-code voor de stem-app.
 
@@ -387,7 +387,7 @@ public class HttpCommunicationListener implements CommunicationListener {
 
 ### <a name="configure-the-listening-port"></a>De luisterpoort configureren
 
-Wanneer de front-end VotingWeb-service is gemaakt, selecteert Service Fabric willekeurig een poort voor de service om op te luisteren.  De VotingWeb-service fungeert als de front-end voor deze toepassing en accepteert extern verkeer, dus gaan we die service met een vaste en bekende poort verbinden. Open in Package Explorer *VotingWebService/VotingWebServicePkg/ServiceManifest.xml*.  Zoek de resource **Endpoint** op in de sectie **Resources** en wijzig de waarde van **Port** in 8080 of een andere poort. Als u de toepassing lokaal wilt implementeren en uitvoeren, moet de luisterende poort van de toepassing open zijn en beschikbaar zijn op uw computer. Plak het volgende codefragment onder de tag **ServiceManifest**.
+Wanneer de front-endservice VotingWeb-service is gemaakt, selecteert Service Fabric een poort voor de service om op te luisteren.  De VotingWeb-service fungeert als de front-end voor deze toepassing en accepteert extern verkeer, dus gaan we die service met een vaste en bekende poort verbinden. Open in Package Explorer *VotingApplication/VotingWebPkg/ServiceManifest.xml*.  Zoek de resource **Endpoint** op in de sectie **Resources** en wijzig de waarde van **Port** in 8080 of een andere poort. Als u de toepassing lokaal wilt implementeren en uitvoeren, moet de luisterende poort van de toepassing open zijn en beschikbaar zijn op uw computer. Plak het volgende codefragment in het element **ServiceManifest** (dat wil zeggen pal onder het element ```<DataPackage>```).
 
 ```xml
 <Resources>
@@ -408,9 +408,7 @@ Service Fabric biedt u de mogelijkheid om uw gegevens consistent en betrouwbaar 
 
 1. Klik in Package Explorer met de rechtermuisknop op **Voting** binnen het toepassingsproject en kies **Service Fabric > Add Service Fabric Service**.
 
-2. Kies in het dialoogvenster **Add Service** de optie **Stateful Service**, geef de service de naam **VotingData** en klik op **Add Service**.
-
-    ![Een nieuwe service toevoegen aan een bestaande toepassing](./media/service-fabric-tutorial-create-java-app/addstatefuljava.png)
+2. Kies in het dialoogvenster **Add Service** de optie **Stateful Service**, geef de service de naam **VotingDataService** en klik op **Add Service**.
 
     Nadat uw serviceproject is gemaakt, hebt u twee services in uw toepassing. Als u doorgaat met het bouwen van uw toepassing, kunt u op dezelfde manier meer services toevoegen. Elk kan onafhankelijke versies en upgrades hebben.
 
@@ -420,7 +418,7 @@ Service Fabric biedt u de mogelijkheid om uw gegevens consistent en betrouwbaar 
 
 ### <a name="add-the-votingdataservicejava-file"></a>Het bestand VotingDataService.java toevoegen
 
-Het bestand *VotingDataService.java* bevat de methoden die logica bevatten voor het ophalen, toevoegen en verwijderen van stemmen uit de betrouwbare verzamelingen. Voeg de volgende methoden toe aan de klasse **VotingDataService** in het bestand *VotingDataService/src/statefulservice/VotingDataService.java* dat is gemaakt.
+Het bestand *VotingDataService.java* bevat de methoden die logica bevatten voor het ophalen, toevoegen en verwijderen van stemmen uit de betrouwbare verzamelingen. Voeg de volgende **VotingDataService**-klassemethoden toe aan het bestand *VotingDataService/src/statefulservice/VotingDataService.java*.
 
 ```java
 package statefulservice;
@@ -553,9 +551,7 @@ class VotingDataService extends StatefulService implements VotingRPC {
 
 De basis voor de front-end stateless service en de back-endservice is nu gemaakt. De volgende stap bestaat uit het verbinden van de twee services. De front-end- en back-endservices maken beide gebruik van een interface met de naam VotingRPC die de bewerkingen van de stemtoepassing definieert. Deze interface is geïmplementeerd door de front-end- en back-endservice om externe procedureaanroepen (RPC) tussen de twee services in te schakelen. Omdat Eclipse geen ondersteuning biedt voor het toevoegen van Gradle-subprojecten, moet het pakket met deze interface handmatig worden toegevoegd.
 
-1. Klik met de rechtermuisknop op het **Voting**-project in the Package Explorer en klik op **New -> Other ...**
-
-2. Klik in de wizard op **General -> Folder** en geef de map de naam **VotingRPC/src/rpcmethods** 
+1. Klik met de rechtermuisknop op het **Voting**-project in the Package Explorer en klik op **New -> Folder**. Noem de map **VotingRPC/src/rpcmethods**.
 
     ![VotingRPC-pakket maken](./media/service-fabric-tutorial-create-java-app/createvotingrpcpackage.png)
 
@@ -580,7 +576,7 @@ De basis voor de front-end stateless service en de back-endservice is nu gemaakt
     }
     ``` 
 
-4. Maak een bestand met de naam *build.gradle* onder de map *Voting/VotingRPC* en plak het volgende erin. Dit gradle-bestand wordt gebruikt om het jar-bestand te bouwen dat door de andere services wordt geïmporteerd. 
+4. Maak een bestand met de naam *build.gradle* in de map *Voting/VotingRPC* en plak het volgende erin. Dit gradle-bestand wordt gebruikt om het jar-bestand te bouwen dat door de andere services wordt geïmporteerd. 
 
     ```gradle
     apply plugin: 'java'
@@ -632,7 +628,7 @@ De basis voor de front-end stateless service en de back-endservice is nu gemaakt
     include ':VotingRPC'
     ```
 
-6. Vervang in het bestand *Voting/VotingWebService/src/statelessservice/HttpCommunicationListener.java* het opmerkingenblok door het volgende.  
+6. Vervang in het bestand *Voting/VotingWeb/src/statelessservice/HttpCommunicationListener.java* het opmerkingenblok door het volgende.  
 
     ```java
     server.createContext("/getStatelessList", new HttpHandler() {
@@ -746,7 +742,7 @@ In deze sectie worden de Gradle-scripts voor het project geconfigureerd.
     defaultTasks 'clean', 'jar', 'copyDeps'
     ```
 
-2. Vervang de inhoud van het bestand *Voting/VotingWeb/build.gradle*.
+2. Vervang de inhoud van het bestand *Voting/VotingWeb/build.gradle* door het volgende.
 
     ```gradle
     apply plugin: 'java'
@@ -816,7 +812,7 @@ In deze sectie worden de Gradle-scripts voor het project geconfigureerd.
     defaultTasks 'clean', 'jar', 'copyDeps'
     ``` 
 
-3. Vervang de inhoud van het bestand *Voting/VotingData/build.gradle*. 
+3. Vervang de inhoud van het bestand *Voting/VotingDataService/build.gradle*. 
 
     ```gradle
     apply plugin: 'java'

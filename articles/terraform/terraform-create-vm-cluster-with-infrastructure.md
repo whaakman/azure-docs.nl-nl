@@ -1,50 +1,50 @@
 ---
-title: Maken van een VM-cluster met Terraform en de lijst met compatibele hardware
-description: Gebruik Terraform en HashiCorp configuratie taal (lijst met compatibele hardware) te maken van een virtuele Linux-machine-cluster met een load balancer in Azure
+title: Een VM-cluster maken met Terraform en HCL
+description: Gebruik Terraform en HashiCorp Configuration Language (HCL) om een cluster virtuele Linux-machines met een load balancer te maken in Azure
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, virtuele machine, netwerk, modules
 author: tomarcher
-manager: routlaw
-ms.service: virtual-machines-linux
-ms.custom: devops
-ms.topic: article
-ms.date: 11/13/2017
+manager: jeconnoc
 ms.author: tarcher
-ms.openlocfilehash: 2435d694e6a1671a234d02f90860e5cafe98c2df
-ms.sourcegitcommit: 659cc0ace5d3b996e7e8608cfa4991dcac3ea129
-ms.translationtype: MT
+ms.topic: tutorial
+ms.date: 11/13/2017
+ms.openlocfilehash: fffaf275a98791885b87ee8ffdc275e911b26341
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 11/13/2017
-ms.locfileid: "24518797"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667597"
 ---
-# <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Maken van een VM-cluster met Terraform en de lijst met compatibele hardware
+# <a name="create-a-vm-cluster-with-terraform-and-hcl"></a>Een VM-cluster maken met Terraform en HCL
 
-In deze zelfstudie wordt het maken van een kleine compute cluster met de [HashiCorp configuratie taal](https://www.terraform.io/docs/configuration/syntax.html) (lijst met compatibele hardware). De configuratie maakt een load balancer, twee Linux VM's in een [beschikbaarheidsset](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy), en alle benodigde netwerkresources.
+In deze zelfstudie wordt gedemonstreerd hoe u een klein rekencluster maakt met behulp van de [HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html) (HCL). Met deze configuratie maakt u een load balancer, twee Linux-VM's in een [beschikbaarheidsset](/azure/virtual-machines/windows/manage-availability#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) en alle vereiste netwerkresources.
 
 In deze zelfstudie hebt u:
 
 > [!div class="checklist"]
 > * Azure-verificatie instellen
-> * Een configuratiebestand Terraform maken
+> * Een Terraform-configuratiebestand maken
 > * Terraform initialiseren
-> * Een uitvoeringsplan Terraform maken
-> * Het uitvoeringsplan Terraform toepassen
+> * Een Terraform-uitvoeringsplan maken
+> * Een Terraform-uitvoeringsplan toepassen
 
 ## <a name="1-set-up-azure-authentication"></a>1. Azure-verificatie instellen
 
 > [!NOTE]
-> Als u [Terraform omgevingsvariabelen gebruiken](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables), of het uitvoeren van deze zelfstudie in de [Azure Cloud Shell](terraform-cloud-shell.md), kunt u deze sectie overslaan.
+> Als u [Terraform-omgevingsvariabelen](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) gebruikt of deze zelfstudie uitvoert in de [Azure Cloud Shell](terraform-cloud-shell.md), slaat u deze sectie over.
 
-In deze sectie maakt u een Azure-service principal en genereren twee Terraform-configuratiebestanden met de referenties van de beveiligings-principal.
+In deze sectie genereert u een Azure service-principal en twee Terraform-configuratiebestanden die de referenties van de beveiligingsprincipal bevatten.
 
-1. [Instellen van een Azure AD-service-principal](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) Terraform inrichten bronnen inschakelen in Azure. Tijdens het maken van de principal Noteer de waarden voor de abonnements-ID, de tenant, de appId en het wachtwoord.
+1. [Stel een Microsoft Azure AD-service-principal in](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure) zodat via Terraform resources kunnen worden ingericht in Azure. Noteer tijdens het maken van de principal de waarden voor de abonnements-id, de tenant, de toepassings-id en het wachtwoord.
 
 2. Open een opdrachtprompt.
 
-3. Maak een lege map waarin u uw Terraform-bestanden op te slaan.
+3. Maak een lege map om uw Terraform-bestanden in op te slaan.
 
-4. Maak een nieuw bestand waarin de variabelen-declaraties. U kunt dit bestand een willekeurige naam met een `.tf` extensie.
+4. Maak een nieuw bestand voor de declaraties voor de variabelen. U kunt dit bestand elke gewenste naam geven, met de extensie `.tf`.
 
-5. Kopieer de volgende code in het bestand variabelen declareren:
+5. Kopieer de volgende code in uw bestand met variabelendeclaraties:
 
   ```tf
   variable subscription_id {}
@@ -60,9 +60,9 @@ In deze sectie maakt u een Azure-service principal en genereren twee Terraform-c
   }
   ```
 
-6. Maak een nieuw bestand met de waarden voor uw Terraform-variabelen. Is het gebruikelijk dat als naam voor uw variabelebestand Terraform `terraform.tfvars` die Terraform automatisch een bestand met de naam geladen `terraform.tfvars` (of een patroon van de volgende `*.auto.tfvars`) indien aanwezig in de huidige map. 
+6. Maak een nieuw bestand voor de waarden voor uw Terraform-variabelen. Het is gebruikelijk om uw bestand met Terraform-variabelen de naam `terraform.tfvars` te geven, omdat in Terraform automatisch elk bestand met de naam `terraform.tfvars` (of met het patroon `*.auto.tfvars`) wordt geladen, indien aanwezig in de huidige map. 
 
-7. Kopieer de volgende code in uw bestand variabelen. Vervang de tijdelijke aanduidingen als volgt: voor `subscription_id`, gebruikt u de Azure-abonnement-ID die u hebt opgegeven bij het uitvoeren van `az account set`. Voor `tenant_id`, gebruiken de `tenant` geretourneerde waarde van `az ad sp create-for-rbac`. Voor `client_id`, gebruiken de `appId` geretourneerde waarde van `az ad sp create-for-rbac`. Voor `client_secret`, gebruiken de `password` geretourneerde waarde van `az ad sp create-for-rbac`.
+7. Kopieer de volgende code in uw variabelenbestand. Vervang de tijdelijke aanduidingen als volgt: voor `subscription_id` gebruikt u de Azure-abonnements-id die u hebt opgegeven bij het uitvoeren van `az account set`. Voor `tenant_id` gebruikt u de waarde `tenant` die is geretourneerd vanuit `az ad sp create-for-rbac`. Voor `client_id` gebruikt u de waarde `appId` die is geretourneerd vanuit `az ad sp create-for-rbac`. Voor `client_secret` gebruikt u de waarde `password` die is geretourneerd vanuit `az ad sp create-for-rbac`.
 
   ```tf
   subscription_id = "<azure-subscription-id>"
@@ -71,13 +71,13 @@ In deze sectie maakt u een Azure-service principal en genereren twee Terraform-c
   client_secret = "<password-returned-from-creating-a-service-principal>"
   ```
 
-## <a name="2-create-a-terraform-configuration-file"></a>2. Een configuratiebestand Terraform maken
+## <a name="2-create-a-terraform-configuration-file"></a>2. Een Terraform-configuratiebestand maken
 
-In deze sectie maakt u een bestand met de definities van de bron voor uw infrastructuur.
+In deze sectie maakt u een bestand dat de resourcedefinities voor uw infrastructuur bevat.
 
 1. Maak een nieuw bestand met de naam `main.tf`. 
 
-2. Kopiëren resourcedefinities voorbeeld te volgen in de zojuist gemaakte `main.tf` bestand: 
+2. Kopieer de volgende voorbeelden van resourcedefinities in het zojuist gemaakte bestand `main.tf`: 
 
   ```tf
   resource "azurerm_resource_group" "test" {
@@ -220,62 +220,62 @@ In deze sectie maakt u een bestand met de definities van de bron voor uw infrast
 
 ## <a name="3-initialize-terraform"></a>3. Terraform initialiseren 
 
-De [terraform init opdracht](https://www.terraform.io/docs/commands/init.html) wordt gebruikt voor het initialiseren van een map waarin de configuratiebestanden Terraform - de bestanden die u hebt gemaakt met de vorige secties. U moet altijd worden uitgevoerd de `terraform init` opdracht na het schrijven van een nieuwe Terraform-configuratie. 
+De opdracht [terraform init](https://www.terraform.io/docs/commands/init.html) wordt gebruikt om een map voor de Terraform-configuratiebestanden te initialiseren. Dit zijn de bestanden die u in de vorige secties hebt gemaakt. Het is raadzaam de opdracht `terraform init` altijd uit te voeren nadat u een nieuwe Terraform-configuratie hebt gemaakt. 
 
 > [!TIP]
-> De `terraform init` opdracht, wat betekent dat deze kan worden aangeroepen tijdens het opstellen van hetzelfde resultaat idempotent is. Als u in een samenwerkingsomgeving werkt en u denkt dat de configuratiebestanden is gewijzigd, daarom altijd een goed idee om aan te roepen de `terraform init` opdracht voor het uitvoeren van of toepassen van een plan.
+> De opdracht `terraform init` is idempotent. Dit betekent dat deze herhaaldelijk kan worden aangeroepen met hetzelfde resultaat. Als u in een samenwerkingsomgeving werkt en u denkt dat de configuratiebestanden kunnen zijn gewijzigd, is het daarom altijd verstandig om de opdracht `terraform init` aan te roepen voordat u een plan uitvoert of toepast.
 
-Als u wilt initialiseren Terraform, voer de volgende opdracht:
+Voer de volgende opdracht uit om Terraform te initialiseren:
 
   ```cmd
   terraform init
   ```
 
-  ![Tijdens de initialisatie van Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-init.png)
+  ![Terraform initialiseren](media/terraform-create-vm-cluster-with-infrastructure/terraform-init.png)
 
-## <a name="4-create-a-terraform-execution-plan"></a>4. Een uitvoeringsplan Terraform maken
+## <a name="4-create-a-terraform-execution-plan"></a>4. Een Terraform-uitvoeringsplan maken
 
-De [terraform plan opdracht](https://www.terraform.io/docs/commands/plan.html) gebruikt voor het maken van een plan kan worden uitgevoerd. Voor het genereren van een uitvoeringsplan Terraform aggregeert alle de `.tf` bestanden in de huidige map. 
+De opdracht [terraform plan](https://www.terraform.io/docs/commands/plan.html) wordt gebruikt om een uitvoeringsplan te maken. Voor het genereren van een uitvoeringsplan worden in Terraform alle bestanden `.tf` in de huidige map geaggregeerd. 
 
-Als u werkt in een samenwerkingsomgeving waarin de configuratie kan wijzigen tussen het moment dat u het uitvoeringsplan maakt en de tijd u het uitvoeringsplan toepassen, moet u de [terraform plan opdracht-uitvoerparameter](https://www.terraform.io/docs/commands/plan.html#out-path)het uitvoeringsplan opslaan in een bestand. Anders, als u in een omgeving met één persoon werkt, kunt u weglaten de `-out` parameter.
+Als u in een samenwerkingsomgeving werkt waarin de configuratie kan worden gewijzigd tussen het tijdstip waarop u het uitvoeringsplan maakt en het tijdstip waarop u het uitvoert, moet u de [parameter -out bij de opdracht 'terraform plan'](https://www.terraform.io/docs/commands/plan.html#out-path) gebruiken om het uitvoeringsplan op te slaan in een bestand. Als u daarentegen in een omgeving met één persoon werkt, kunt u de parameter `-out` weglaten.
 
-De naam van uw Terraform variabelen-bestand is niet als `terraform.tfvars` en deze niet voldoen aan de `*.auto.tfvars` patroon, moet u het bestand met de naam met opgeven de [terraform plan opdracht var - bestand parameter](https://www.terraform.io/docs/commands/plan.html#var-file-foo) bij het uitvoeren van de `terraform plan`opdracht.
+Als de naam van uw Terraform-variabelenbestand niet `terraform.tfvars` is en niet het patroon `*.auto.tfvars` volgt, moet u de bestandsnaam opgeven met de [parameter -var-file bij de opdracht 'terraform plan'](https://www.terraform.io/docs/commands/plan.html#var-file-foo) als u de opdracht `terraform plan` uitvoert.
 
-Bij het verwerken van de `terraform plan` opdracht Terraform vernieuwd en bepaalt welke acties nodig zijn voor het bereiken van de gewenste status die is opgegeven in uw configuratiebestanden.
+Bij het verwerken van de opdracht `terraform plan` wordt Terraform vernieuwd en wordt bepaald welke acties nodig zijn om de gewenste status te bereiken die is opgegeven in uw configuratiebestanden.
 
-Als u niet opslaan van uw plan kan worden uitgevoerd wilt, voert u de volgende opdracht:
+Als u uw uitvoeringsplan niet wilt opslaan, voert u de volgende opdracht uit:
 
   ```cmd
   terraform plan
   ```
 
-Als u wilt bewaren van uw plan kan worden uitgevoerd, moet de volgende opdracht uitvoeren (vervangt de &lt;pad > aanduiding voor items met de gewenste uitvoerpad):
+Als u uw uitvoeringsplan wel wilt opslaan, voert u de volgende opdracht uit (vervang de tijdelijke aanduiding &lt;path> door het gewenste uitvoerpad):
 
   ```cmd
   terraform plan -out=<path>
   ```
 
-![Maken van een uitvoeringsplan Terraform](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
+![Een Terraform-uitvoeringsplan maken](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
-## <a name="5-apply-the-terraform-execution-plan"></a>5. Het uitvoeringsplan Terraform toepassen
+## <a name="5-apply-the-terraform-execution-plan"></a>5. Een Terraform-uitvoeringsplan toepassen
 
-De laatste stap van deze zelfstudie is met de [terraform opdracht toepassen](https://www.terraform.io/docs/commands/apply.html) toepassen van de set acties die worden gegenereerd door de `terraform plan` opdracht.
+De laatste stap van deze zelfstudie bestaat uit het gebruiken van de opdracht [terraform apply](https://www.terraform.io/docs/commands/apply.html) om de set acties toe te passen die zijn gegenereerd door de opdracht `terraform plan`.
 
-Als u toepassen van de meest recente uitvoeringsplan wilt, voert u de volgende opdracht:
+Als u het meest recente uitvoeringsplan wilt toepassen, voert u de volgende opdracht uit:
 
   ```cmd
   terraform apply
   ```
 
-Als u toepassen van een eerder opgeslagen uitvoeringsplan wilt, de volgende opdracht uitvoeren (vervangt de &lt;pad > aanduiding voor items met het pad dat het opgeslagen uitvoeringsplan bevat):
+Als u een eerder opgeslagen uitvoeringsplan wilt uitvoeren, voert u de volgende opdracht uit (vervang de tijdelijke aanduiding &lt;path> door het pad naar het opgeslagen uitvoeringsplan):
 
   ```cmd
   terraform apply <path>
   ```
 
-![Een uitvoeringsplan Terraform toepassen](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
+![Een Terraform-uitvoeringsplan toepassen](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bladeren in de lijst van [Azure Terraform modules](https://registry.terraform.io/modules/Azure)
-- Maak een [virtuele-machineschaalset met Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
+- Door de lijst met [Azure Terraform-modules](https://registry.terraform.io/modules/Azure) bladeren
+- [Een virtuele-machineschaalset maken met Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)

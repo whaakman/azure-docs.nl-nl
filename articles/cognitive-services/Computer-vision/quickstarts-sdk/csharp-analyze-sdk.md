@@ -1,0 +1,174 @@
+---
+title: 'Snelstart: Een afbeelding analyseren - SDK, C# - Computer Vision'
+titleSuffix: Azure Cognitive Services
+description: In deze snelstart analyseert u een afbeelding met behulp van de Computer Vision Windows C#-clientbibliotheek in Cognitive Services.
+services: cognitive-services
+author: noellelacharite
+manager: nolachar
+ms.service: cognitive-services
+ms.component: computer-vision
+ms.topic: quickstart
+ms.date: 08/28/2018
+ms.author: v-deken
+ms.openlocfilehash: ad0b6bfc1c576e54c819937d0af4ff6cc4b38b06
+ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/06/2018
+ms.locfileid: "43841485"
+---
+# <a name="quickstart-analyze-an-image---sdk-c35---computer-vision"></a>Snelstart: Een afbeelding analyseren - SDK, C&#35; - Computer Vision
+
+In deze snelstart analyseert u zowel een lokale als een externe afbeelding om visuele functies te extraheren met behulp van de Computer Vision Windows-clientbibliotheek.
+
+## <a name="prerequisites"></a>Vereisten
+
+* Als u Computer Vision wilt gebruiken, moet u een abonnementssleutel hebben. Zie [Abonnementssleutels verkrijgen](../Vision-API-How-to-Topics/HowToSubscribe.md).
+* Een versie van [Visual Studio 2015 of 2017](https://www.visualstudio.com/downloads/).
+* Het NuGet-pakket van de [Microsoft.Azure.CognitiveServices.Vision.ComputerVision](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Vision.ComputerVision)-clientbibliotheek. U hoeft het pakket niet te downloaden. Hieronder vindt u de installatie-instructies.
+
+## <a name="analyzeimageasync-method"></a>De AnalyzeImageAsync-methode
+
+De methoden `AnalyzeImageAsync` en `AnalyzeImageInStreamAsync` gebruiken de [Analyse Image API](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) voor respectievelijk externe en lokale afbeeldingen. U kunt deze methoden gebruiken om visuele functies te extraheren op basis van de inhoud van afbeeldingen en kiezen welke functies u wilt terugkrijgen, zoals:
+
+* Een gedetailleerde lijst met tags die betrekking hebben op de afbeeldingsinhoud.
+* Een beschrijving van de afbeeldingsinhoud in een volledige zin.
+* De coördinaten, het geslacht en de leeftijd die bij de gezichten horen die in de afbeelding voorkomen.
+* Het type afbeelding (illustratie of een lijntekening).
+* De overheersende kleur, de accentkleur en of een afbeelding in zwart-wit is.
+* De categorie die is gedefinieerd in deze [taxonomie](../Category-Taxonomy.md).
+* Bevat de afbeelding erotische of seksueel suggestieve inhoud?
+
+U kunt het voorbeeld uitvoeren aan de hand van de volgende stappen:
+
+1. Maak in Visual Studio een nieuwe Visual C#-console-app.
+1. Installeer het NuGet-pakket van de Computer Vision-clientbibliotheek.
+    1. Klik in het menu op **Extra**, selecteer **NuGet Package Manager** en vervolgens **NuGet-pakketten voor oplossing beheren**.
+    1. Klik op het tabblad **Bladeren** en typ "Microsoft.Azure.CognitiveServices.Vision.ComputerVision" in het vak **Zoeken**.
+    1. Selecteer **Microsoft.Azure.CognitiveServices.Vision.ComputerVision** zodra dit wordt weergegeven, klik op het selectievakje naast uw projectnaam en klik op **Installeren**.
+1. Vervang `Program.cs` door de volgende code.
+1. Vervang `<Subscription Key>` door uw geldige abonnementssleutel.
+1. Wijzig indien nodig `computerVision.AzureRegion = AzureRegions.Westcentralus` in de locatie waar u uw abonnementssleutels hebt verkregen.
+1. Vervang `<LocalImage>` door het pad en de bestandsnaam van een lokale afbeelding.
+1. Stel eventueel `remoteImageUrl` in op een andere afbeelding.
+1. Voer het programma uit.
+
+```csharp
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision;
+using Microsoft.Azure.CognitiveServices.Vision.ComputerVision.Models;
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Threading.Tasks;
+
+namespace ImageAnalyze
+{
+    class Program
+    {
+        // subscriptionKey = "0123456789abcdef0123456789ABCDEF"
+        private const string subscriptionKey = "<SubscriptionKey>";
+
+        // localImagePath = @"C:\Documents\LocalImage.jpg"
+        private const string localImagePath = @"<LocalImage>";
+
+        private const string remoteImageUrl =
+            "http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg";
+
+        // Specify the features to return
+        private static readonly List<VisualFeatureTypes> features =
+            new List<VisualFeatureTypes>()
+        {
+            VisualFeatureTypes.Categories, VisualFeatureTypes.Description,
+            VisualFeatureTypes.Faces, VisualFeatureTypes.ImageType,
+            VisualFeatureTypes.Tags
+        };
+
+        static void Main(string[] args)
+        {
+            ComputerVisionAPI computerVision = new ComputerVisionAPI(
+                new ApiKeyServiceClientCredentials(subscriptionKey), 
+                new System.Net.Http.DelegatingHandler[] { });
+
+            // You must use the same region as you used to get your subscription
+            // keys. For example, if you got your subscription keys from westus,
+            // replace "Westcentralus" with "Westus".
+            //
+            // Free trial subscription keys are generated in the westcentralus
+            // region. If you use a free trial subscription key, you shouldn't
+            // need to change the region.
+
+            // Specify the Azure region
+            computerVision.AzureRegion = AzureRegions.Westcentralus;
+
+            Console.WriteLine("Images being analyzed ...");
+            var t1 = AnalyzeRemoteAsync(computerVision, remoteImageUrl);
+            var t2 = AnalyzeLocalAsync(computerVision, localImagePath);
+
+            Task.WhenAll(t1, t2).Wait(5000);
+            Console.WriteLine("Press any key to exit");
+            Console.ReadLine();
+        }
+
+        // Analyze a remote image
+        private static async Task AnalyzeRemoteAsync(
+            ComputerVisionAPI computerVision, string imageUrl)
+        {
+            if (!Uri.IsWellFormedUriString(imageUrl, UriKind.Absolute))
+            {
+                Console.WriteLine(
+                    "\nInvalid remoteImageUrl:\n{0} \n", imageUrl);
+                return;
+            }
+
+            ImageAnalysis analysis =
+                await computerVision.AnalyzeImageAsync(imageUrl, features);
+            DisplayResults(analysis, imageUrl);
+        }
+
+        // Analyze a local image
+        private static async Task AnalyzeLocalAsync(
+            ComputerVisionAPI computerVision, string imagePath)
+        {
+            if (!File.Exists(imagePath))
+            {
+                Console.WriteLine(
+                    "\nUnable to open or read localImagePath:\n{0} \n", imagePath);
+                return;
+            }
+
+            using (Stream imageStream = File.OpenRead(imagePath))
+            {
+                ImageAnalysis analysis = await computerVision.AnalyzeImageInStreamAsync(
+                    imageStream, features);
+                DisplayResults(analysis, imagePath);
+            }
+        }
+
+        // Display the most relevant caption for the image
+        private static void DisplayResults(ImageAnalysis analysis, string imageUri)
+        {
+            Console.WriteLine(imageUri);
+            Console.WriteLine(analysis.Description.Captions[0].Text + "\n");
+        }
+    }
+}
+```
+
+## <a name="analyzeimageasync-response"></a>AnalyzeImageAsync-antwoord
+
+Een geslaagd antwoord geeft het meest relevante bijschrift voor elke afbeelding.
+
+Zie [API : een lokale afbeelding analyseren met C#](../QuickStarts/CSharp-analyze.md#analyze-image-response) voor een voorbeeld van onbewerkte JSON-uitvoer.
+
+```cmd
+http://upload.wikimedia.org/wikipedia/commons/3/3c/Shaki_waterfall.jpg
+a large waterfall over a rocky cliff
+```
+
+## <a name="next-steps"></a>Volgende stappen
+
+Bekijk de Computer Vision-API's die worden gebruikt om een afbeelding te analyseren, beroemdheden en oriëntatiepunten te detecteren, een miniatuur te maken en gedrukte en handgeschreven tekst te verkrijgen.
+
+> [!div class="nextstepaction"]
+> [De Computer Vision-API's bekijken](https://westus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44)

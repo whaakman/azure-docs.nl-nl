@@ -11,17 +11,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/04/2018
+ms.date: 09/12/2018
 ms.author: mabrigg
 ms.reviewer: Anjay.Ajodha
-ms.openlocfilehash: 773acd3a22244403548ef4ce35164291f5c0be7d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: ad40f3efc123d313b2fd759889b0aa2621b3d7aa
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300832"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542498"
 ---
-# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Zelfstudie: apps implementeren in Azure en Azure Stack
+# <a name="tutorial-deploy-apps-to-azure-and-azure-stack"></a>Zelfstudie: Apps implementeren in Azure en Azure Stack
 
 *Is van toepassing op: geïntegreerde Azure Stack-systemen en Azure Stack Development Kit*
 
@@ -81,7 +81,7 @@ In deze zelfstudie wordt ervan uitgegaan dat u enige basiskennis van Azure en Az
  * Maak [-Plan/aanbiedingen](https://docs.microsoft.com/azure/azure-stack/azure-stack-plan-offer-quota-overview) in Azure Stack.
  * Maak een [tenant abonnement](https://docs.microsoft.com/azure/azure-stack/azure-stack-subscribe-plan-provision-vm) in Azure Stack.
  * Een Web-App maken in de tenantabonnement. Noteer de URL van de nieuwe Web-App voor later gebruik.
- * Virtuele Machine van Azure DevOps Services implementeren in de tenantabonnement.
+ * Implementeer een Windows Server 2012-Machine in de tenantabonnement. U kunt deze server wilt gebruiken als uw buildserver en Azure DevOps-Services uit te voeren.
 * Geef een installatiekopie van Windows Server 2016 met .NET 3.5 voor een virtuele machine (VM). Deze virtuele machine worden in uw Azure Stack samengesteld als een persoonlijke bouwagent.
 
 ### <a name="developer-tool-requirements"></a>Vereisten voor Developer-hulpprogramma
@@ -206,7 +206,7 @@ Maak een persoonlijk toegangstoken voor toegang tot Azure DevOps-Services.
 
 2. Selecteer **beveiliging beheren** access token maken-pagina.
 
-    ![Gebruikersaanmelding](media\azure-stack-solution-hybrid-pipeline\000_17.png)
+    ![Aanmelding door gebruiker](media\azure-stack-solution-hybrid-pipeline\000_17.png)
 
     ![Selecteer een project](media\azure-stack-solution-hybrid-pipeline\000_18.png)
 

@@ -1,35 +1,37 @@
 ---
-title: Terraform gebruiken met Azure-Cloud-Shell
-description: Terraform met Azure Cloud Shell gebruiken om verificatie en sjabloonconfiguratie te vereenvoudigen.
-keywords: terraform, devops, schalen ingesteld, virtuele machine, netwerk, opslag, modules
-ms.service: virtual-machines-linux
-author: dcaro
-ms.author: dcaro
+title: Terraform gebruiken met Azure Cloud Shell
+description: Gebruik Terraform met Azure Cloud Shell om verificatie en configuratie van sjablonen te vereenvoudigen.
+services: terraform
+ms.service: terraform
+keywords: terraform, devops, schaalset, virtuele machine, netwerk, opslag, modules
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 10/19/2017
-ms.topic: article
-ms.openlocfilehash: 5157066086f1bdfa580c1946942bda4505e48935
-ms.sourcegitcommit: 059dae3d8a0e716adc95ad2296843a45745a415d
-ms.translationtype: MT
+ms.openlocfilehash: 107a6dd82465ce1455a3c2922c8f9cba6b73dd64
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/09/2018
-ms.locfileid: "29121522"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43667959"
 ---
 # <a name="terraform-cloud-shell-development"></a>Terraform Cloud Shell-ontwikkeling 
 
-Terraform prima oplossing vanaf een opdrachtregel Bash zoals Mac OS Terminal of Bash op Windows of Linux. Met uw Terraform configuraties in de Bash ervaring van de [Azure Cloud Shell](/azure/cloud-shell/overview) heeft enkele unieke voordelen om ontwikkelingscyclus te versnellen.
+Terraform werkt goed vanaf een Bash-opdrachtregel zoals macOS Terminal of Bash op Windows of Linux. Wanneer u uw Terraform-configuraties uitvoert in de Bash-ervaring van de [Azure Cloud Shell](/azure/cloud-shell/overview), profiteert u van een aantal unieke voordelen om de ontwikkelingscyclus te versnellen.
 
-In dit artikel concepten bevat informatie over functies waarmee u scripts kan schrijven Terraform waarmee in Azure implementeren Cloud-Shell.
+In dit conceptartikel leest u meer over Cloud Shell-functies waarmee u Terraform-scripts kunt schrijven die naar Azure worden geïmplementeerd.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="automatic-credential-configuration"></a>Automatische verwijzingsconfiguratie
+## <a name="automatic-credential-configuration"></a>Automatische configuratie van referenties
 
-Terraform is geïnstalleerd en wordt onmiddellijk beschikbaar in de Cloud-Shell. Terraform scripts verifiëren met Azure wanneer aangemeld bij de Shell Cloud om infrastructuur zonder extra configuratie te beheren. Automatische verificatie wordt overgeslagen moet handmatig een Active Directory service-principal maken en configureren van de provider Azure Terraform variabelen.
+Terraform wordt geïnstalleerd en is direct beschikbaar in Cloud Shell. Terraform-scripts worden geverifieerd bij Azure wanneer u zich aanmeldt bij Cloud Shell om de infrastructuur te beheren zonder extra configuratie. Met automatische verificatie hoeft u niet langer handmatig een Directory-service-principal te maken en variabelen voor de Azure Terraform-provider te configureren.
 
 
-## <a name="using-modules-and-providers"></a>Modules en-Providers
+## <a name="using-modules-and-providers"></a>Modules en providers gebruiken
 
-Azure Terraform modules nodig referenties voor toegang tot en wijzigingen aanbrengen in de resources in uw Azure-abonnement. Als u werkt in de Cloud-Shell, moet u de volgende code toevoegen aan uw scripts Azure Terraform modules in de Cloud-Shell gebruiken:
+Azure Terraform-modules hebben referenties nodig om toegang te krijgen tot en wijzigingen aan te brengen in de resources in uw Azure-abonnement. Wanneer u in de Cloud Shell werkt, moet u de volgende code aan uw scripts toevoegen om Azure Terraform-modules in de Cloud Shell te kunnen gebruik:
 
 ```tf
 # Configure the Microsoft Azure Provider
@@ -37,16 +39,16 @@ provider "azurerm" {
 }
 ```
 
-De Cloud-Shell stuurt de vereiste waarden voor de `azurerm` provider door omgevingsvariabelen wanneer u een van de `terraform` CLI-opdrachten.
+De Cloud Shell geeft vereiste waarden voor de `azurerm`-provider door via omgevingsvariabelen wanneer een van de CLI-opdrachten van `terraform` wordt gebruikt.
 
-## <a name="other-cloud-shell-developer-tools"></a>Andere hulpprogramma's voor ontwikkelaars van Cloud-Shell
+## <a name="other-cloud-shell-developer-tools"></a>Andere hulpmiddelen voor Cloud Shell-ontwikkelaars
 
-Bestanden en shell-statussen bewaard in Azure Storage tussen sessies van Cloud-Shell. Gebruik [Azure Opslagverkenner](/azure/vs-azure-tools-storage-manage-with-storage-explorer) te kopiëren bestanden uploaden naar de Cloud-Shell uit uw lokale computer.
+Bestand en shellstatussen blijven bewaard in Azure Storage tussen verschillende Cloud Shell-sessies. Gebruik [Azure Storage Explorer](/azure/vs-azure-tools-storage-manage-with-storage-explorer) om bestanden te kopiëren en naar de Cloud Shell te uploaden vanaf uw lokale computer.
 
-De Azure CLI 2.0 is beschikbaar in de Cloud-Shell en is een uitstekend hulpprogramma voor het testen van configuraties en controleren van uw werk na een `terraform apply` of `terraform destroy` is voltooid.
+De Azure CLI 2.0 is beschikbaar in de Cloud Shell; dit is een uitstekend hulpmiddel om configuraties te testen en uw werk te controleren zodra `terraform apply` of `terraform destroy` is voltooid.
 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Maak een kleine VM-cluster met behulp van het register van de Module](terraform-create-vm-cluster-module.md)
-[een kleine VM-cluster met behulp van aangepaste lijst maken](terraform-create-vm-cluster-with-infrastructure.md)
+[Een klein VM-cluster maken met behulp van Module Registry](terraform-create-vm-cluster-module.md)
+[Een klein VM-cluster maken met behulp van aangepaste HCL](terraform-create-vm-cluster-with-infrastructure.md)

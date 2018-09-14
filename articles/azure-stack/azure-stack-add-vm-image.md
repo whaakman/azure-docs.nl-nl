@@ -15,12 +15,12 @@ ms.topic: get-started-article
 ms.date: 09/05/2018
 ms.author: mabrigg
 ms.reviewer: kivenkat
-ms.openlocfilehash: ba4c53f03350995544eb95917102bd7123a077d2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7a5c6875f080655e69f549e45ec474958128754f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022761"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575810"
 ---
 # <a name="make-a-virtual-machine-image-available-in-azure-stack"></a>De installatiekopie van een virtuele machine beschikbaar maken in Azure Stack
 
@@ -75,7 +75,7 @@ Afbeeldingen moeten kunnen worden verwezen door een blob storage-URI. De install
 ## <a name="add-a-vm-image-to-the-marketplace-by-using-powershell"></a>Een VM-installatiekopie toevoegen aan de Marketplace met behulp van PowerShell
 
 > [!Note]  
-> Als u toevoegt op basis van een installatiekopie van het is alleen beschikbaar voor Azure Resource Manager-sjablonen en PowerShell-implementaties. Om beschikbaar te maken van een installatiekopie van een uw gebruikers als een marketplace-item publiceren de marketplace-item met de stappen in het artikel [maken en publiceren van een Marketplace-item](https://docs.microsoft.com/en-us/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
+> Als u toevoegt op basis van een installatiekopie van het is alleen beschikbaar voor Azure Resource Manager-sjablonen en PowerShell-implementaties. Om beschikbaar te maken van een installatiekopie van een uw gebruikers als een marketplace-item publiceren de marketplace-item met de stappen in het artikel [maken en publiceren van een Marketplace-item](https://docs.microsoft.com/azure/azure-stack/azure-stack-create-and-publish-marketplace-item)
 
 1. [Installeren van PowerShell voor Azure Stack](azure-stack-powershell-install.md).  
 

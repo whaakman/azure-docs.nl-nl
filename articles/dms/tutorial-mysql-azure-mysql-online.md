@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/27/2018
-ms.openlocfilehash: 88cd390e37273c95304dab5ba3153e8a63270ab1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 08/31/2018
+ms.openlocfilehash: 2df3f19759229e017ab934082cef46d18816934b
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042683"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43338963"
 ---
 # <a name="migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>MySQL online migreren naar Azure Database for MySQL met behulp van DMS
 U kunt de Azure Database Migration Service gebruiken om de databases met minimale downtime te migreren van een on-premises MySQL-exemplaar naar [Azure Database for MySQL](https://docs.microsoft.com/azure/mysql/). Met andere woorden, de migratie is mogelijk met minimale downtime van de toepassing. In deze studieles migreert u de voorbeelddatabase **Werknemers** van een on-premises exemplaar van MySQL 5.7 naar Azure Database for MySQL met behulp van een online migratieactiviteit in de Azure Database Migration Service.
@@ -28,6 +28,9 @@ In deze zelfstudie leert u het volgende:
 > * Een migratieproject maken met behulp van de Azure Database Migration Service.
 > * De migratie uitvoeren.
 > * De migratie controleren.
+
+> [!IMPORTANT]
+> Voor een optimale migratie-ervaring raadt Microsoft u aan een exemplaar van de Azure Database Migration Service te maken in dezelfde Azure-regio als de doeldatabase. Het verplaatsen van gegevens naar regio's of geografieën kan het migratieproces vertragen en fouten veroorzaken.
 
 ## <a name="prerequisites"></a>Vereisten
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:
@@ -155,7 +158,7 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
  
 3. Selecteer + **Nieuw migratieproject**.
 4. Geef in het scherm **Nieuw migratieproject** een naam op voor het project, selecteer in het tekstvak **bronservertype** de optie **MySQL** en selecteer in het tekstvak **doelservertype** de optie **AzureDbForMySQL**.
-5. Selecteer in de sectie **Het type activiteit kiezen** de optie **Onlinegegevensmigratie**.
+5. Selecteer in de sectie **Het type activiteit kiezen** de optie **Onlinegegevensmigratie**
 
     ![Azure Database Migration Service-project maken](media\tutorial-mysql-to-azure-mysql-online\dms-create-project4.png)
 
@@ -180,7 +183,7 @@ Nadat de service is gemaakt, zoek deze op in de Azure-portal, open hem en maak v
 
     ![Toewijzen aan doeldatabases](media\tutorial-mysql-to-azure-mysql-online\dms-map-target-details.png)
 
-3.  Selecteer **Opslaan**, geef op het scherm **Migratieoverzicht** in het tekstvak **Naam activiteit** een naam op voor de migratieactiviteit, en controleer vervolgens het overzicht om te verzekeren dat de bron- en doeldetails overeenkomen met wat u eerder hebt opgegeven.
+3.  Selecteer **Opslaan**, geef in het scherm **Migratieoverzicht** in het tekstvak **Naam activiteit** een naam op voor de migratieactiviteit en controleer het overzicht om ervoor te zorgen dat de bron- en doeldetails overeenkomen met wat u eerder hebt opgegeven.
 
     ![Migratieoverzicht](media\tutorial-mysql-to-azure-mysql-online\dms-migration-summary.png)
 
@@ -211,7 +214,7 @@ Nadat de eerste volledige lading is voltooid, worden de databases gemarkeerd als
  
 2.  Zorg dat u alle transacties stopt die bij de brondatabase binnenkomen; wacht totdat de teller van **Wijzigingen in behandeling** op **0** staat.
 3.  Selecteer **Bevestigen** en selecteer vervolgens **Toepassen**.
-4. Wanneer de databasemigratiestatus **Voltooid** toont, verbindt u uw toepassingen met de nieuwe doel-Azure SQL Database.
+4. Wanneer de databasemigratie de status **Voltooid** heeft, verbindt u uw toepassingen met de nieuwe Azure SQL-doeldatabase.
  
 ## <a name="next-steps"></a>Volgende stappen
 - Raadpleeg het artikel [Bekende problemen/beperkingen met online migraties naar Azure Database for MySQL](known-issues-azure-mysql-online.md) voor informatie over bekende problemen en beperkingen bij het uitvoeren van online migraties naar Azure Database for MySQL.

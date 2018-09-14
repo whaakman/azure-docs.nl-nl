@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: get-started-article
-ms.date: 09/12/2018
+ms.date: 09/13/2018
 ms.author: brenduns
 ms.reviewer: jeffgo
-ms.openlocfilehash: ddb1fcd91ff0c0018bcab9988a5ab063b882cf36
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
-ms.translationtype: HT
+ms.openlocfilehash: e396fc82754188ea655c70b44d4bf937a3c3163c
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714661"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544208"
 ---
 # <a name="download-marketplace-items-from-azure-to-azure-stack"></a>Marketplace-items van Azure naar Azure Stack downloaden
 
@@ -148,9 +148,9 @@ Er zijn twee onderdelen voor dit scenario:
 ### <a name="import-the-download-and-publish-to-azure-stack-marketplace"></a>Het downloaden van het importeren en publiceren op Azure Stack Marketplace
 1. De bestanden voor installatiekopieën van virtuele machines of sjablonen voor oplossingen die u hebt [eerder gedownloade](#use-the-marketplace-syndication-tool-to-download-marketplace-items) moeten lokaal beschikbaar zijn voor uw Azure Stack-omgeving worden gemaakt.  
 
-2. De beheerportal gebruiken voor het uploaden van het pakket in de marketplace-item (de .azpkg-bestand) naar Azure Stack-Blob-opslag. Uploaden van het pakket maakt ze beschikbaar voor Azure Stack, zodat u kunt het item later publiceren Azure Stack Marketplace.
+2. De beheerportal de marketplace-item-pakket (de .azpkg-bestand) en de installatiekopie van virtuele harde schijf (.vhd-bestand) uploaden naar Azure Stack-Blob-opslag gebruiken. Het uploaden van het pakket en schijf-bestanden maakt ze beschikbaar voor Azure Stack, zodat u kunt het item later publiceren naar de Azure Stack Marketplace.
 
-   Uploaden, moet u een opslagaccount met een openbaar toegankelijke container hebt (Zie de vereisten voor dit scenario)   
+   Uploaden, moet u een opslagaccount met een openbaar toegankelijke container hebt (Zie de vereisten voor dit scenario).  
    1. In de Azure Stack-beheerportal, gaat u naar **alle services** en klik vervolgens onder de **gegevens en opslag** categorie, selecteer **opslagaccounts**.  
    
    2. Selecteer een opslagaccount van uw abonnement en klik vervolgens onder **BLOB-SERVICE**, selecteer **Containers**.  
@@ -159,7 +159,7 @@ Er zijn twee onderdelen voor dit scenario:
    3. Selecteer de container die u wilt gebruiken en selecteer vervolgens **uploaden** openen de **blob uploaden** deelvenster.  
       ![Container](media/azure-stack-download-azure-marketplace-item/container.png)  
    
-   4. Blader in het deelvenster van de blob uploaden naar de bestanden die u wilt laden in opslag en selecteer vervolgens **uploaden**.  
+   4. Blader in het deelvenster van de blob uploaden naar de pakket- en schijf-bestanden wilt laden in opslag en selecteer vervolgens **uploaden**.  
       ![upload](media/azure-stack-download-azure-marketplace-item/upload.png)  
 
    5. Bestanden die u uploadt, worden weergegeven in het deelvenster van de container. Selecteer een bestand en kopieer vervolgens de URL van de **Blob-eigenschappen** deelvenster. U gebruikt deze URL in de volgende stap bij het importeren van de marketplace-item in Azure Stack.  In de volgende afbeelding is de container is *blob-opslag-testen* en het bestand is *Microsoft.WindowsServer2016DatacenterServerCore ARM.1.0.801.azpkg*.  Het bestand dat de URL is *https://testblobstorage1.blob.local.azurestack.external/blob-test-storage/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg*.  
@@ -169,7 +169,7 @@ Er zijn twee onderdelen voor dit scenario:
 
    U krijgt de *publisher*, *bieden*, en *sku* waarden van de installatiekopie van het tekstbestand dat wordt gedownload met het bestand AZPKG. Het tekstbestand dat is opgeslagen in de doellocatie. De *versie* waarde is de versie die u bij het downloaden van het item van Azure in de vorige procedure hebt genoteerd. 
  
-   In het volgende voorbeeldscript worden waarden voor de Windows Server 2016 Datacenter - Server Core-virtuele machine gebruikt. Vervang *URI_path* met het pad naar de locatie van de blob-opslag voor het item.
+   In het volgende voorbeeldscript worden waarden voor de Windows Server 2016 Datacenter - Server Core-virtuele machine gebruikt. De waarde voor *- Osuri* is een van voorbeeldpad naar de locatie van de blob-opslag voor het item.
 
    ```PowerShell  
    Add-AzsPlatformimage `
@@ -178,7 +178,7 @@ Er zijn twee onderdelen voor dit scenario:
     -sku "2016-Datacenter-Server-Core" `
     -osType Windows `
     -Version "2016.127.20171215" `
-    -OsUri "URI_path"  
+    -OsUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.vhd"  
    ```
    **Over oplossingssjablonen:** sommige sjablonen kunnen een klein 3 MB bevatten. VHD-bestand met de naam van de **fixed3.vhd**. U hoeft niet te importeren dat bestand in Azure Stack. Fixed3.VHD.  Dit bestand is opgenomen in sommige oplossingssjablonen om te voldoen aan vereisten voor de Azure Marketplace voor publiceren.
 
@@ -198,7 +198,7 @@ Er zijn twee onderdelen voor dit scenario:
      -GalleryItemUri "https://mystorageaccount.blob.local.azurestack.external/cont1/Microsoft.WindowsServer2016DatacenterServerCore-ARM.1.0.801.azpkg" `
      –Verbose
     ```
-5. Nadat u een galerie-item, deze door te gaan naar publiceren **alle services**. Vervolgens onder de **algemene** categorie, selecteer **Marketplace**.  Als uw download een oplossingssjabloon is, zorg er dan voor dat u eventuele afhankelijke VHD-installatiekopie voor deze oplossingssjabloon toevoegen.  
+5. Nadat u een galerij-item hebt gepubliceerd, is het nu beschikbaar voor gebruik. Om te bevestigen dat het galerie-item wordt gepubliceerd, gaat u naar **alle services**, en klik vervolgens onder de **algemene** categorie, selecteer **Marketplace**.  Als uw download een oplossingssjabloon is, zorg er dan voor dat u eventuele afhankelijke VHD-installatiekopie voor deze oplossingssjabloon toevoegen.  
   ![Weergave marketplace](media/azure-stack-download-azure-marketplace-item/view-marketplace.png)  
 
 > [!NOTE]

@@ -1,77 +1,75 @@
 ---
-title: 'Zelfstudie: een LUIS-app (Language Understanding) aanroepen met behulp van C# | Microsoft Docs'
-description: In deze zelfstudie leert u een LUIS-app aan te roepen met behulp van C#.
+title: Tekst in natuurlijke taal analyseren in Language Understanding (LUIS) met C# - Azure Cognitive Services | Microsoft Docs
+description: In deze snelstart gebruikt u een beschikbare openbare LUIS-app om de intentie van een gebruiker te bepalen aan de hand van beschrijvende tekst. Gebruik C# om de intentie van de gebruiker als tekst naar het HTTP-voorspellingseindpunt van de openbare app te verzenden. Bij het eindpunt past LUIS het model van de openbare app toe om de betekenis van tekst in natuurlijke taal te analyseren. Hiermee wordt de algehele intentie bepaald en worden gegevens geëxtraheerd die relevant zijn voor het onderwerpdomein van de app.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 0416d19d27810a2ab8eeb20e16b2f921fc7826ee
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/23/2018
+ms.author: diberry
+ms.openlocfilehash: 676546a215bbb8964f1cb2d26ae0fb9fd2ed9289
+ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263486"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "43769948"
 ---
-# <a name="tutorial-call-a-luis-endpoint-using-c"></a>Zelfstudie: Een LUIS-eindpunt aanroepen met behulp van C#
+# <a name="quickstart-analyze-text-using-c"></a>Snelstart: Tekst analyseren met C#
 
-Lees hoe u utterances doorgeeft aan een LUIS-eindpunt en intenties en entiteiten terugkrijgt.
+[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Een LUIS-abonnement maken en de sleutelwaarde kopiëren voor later gebruik
-> * LUIS eindpuntresultaten bekijken vanuit browser naar openbare IoT-voorbeeld-app
-> * Visual Studio C#-console-app maken om HTTPS-aanroepen te versturen naar LUIS eindpunt
+<a name="create-luis-subscription-key"></a>
 
-<!-- link to free account --> Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om uw LUIS-toepassing te creëren.
+## <a name="prerequisites"></a>Vereisten
 
-## <a name="create-luis-subscription-key"></a>LUIS-abonnementssleutel maken
-1. U moet eerst een [Cognitive Services API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in Azure Portal maken. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-
-2. Meld u aan bij Azure Portal op https://portal.azure.com. 
-
-3. Volg de stappen in [Abonnementssleutels maken met behulp van Azure](./luis-how-to-azure-subscription.md) om een sleutel op te halen.
-
-4. Ga terug naar de [LUIS](luis-reference-regions.md)-website. Meld u aan met uw Azure-account. 
-
-    [![](media/luis-get-started-cs-get-intent/app-list.png "Schermopname van de lijst met apps")](media/luis-get-started-cs-get-intent/app-list.png)
-
-## <a name="understand-what-luis-returns"></a>Inzicht in wat LUIS retourneert
-
-Om inzicht te krijgen in wat een LUIS-app retourneert, kunt u de URL van een LUIS-voorbeeld-app in een browservenster plakken. De voorbeeld-app is een IoT-app die detecteert of de gebruiker lampen wil inschakelen of uitschakelen.
-
-1. Het eindpunt van de voorbeeld-app heeft deze indeling: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Kopieer de URL en vervang de waarde van het veld `subscription-key` door uw abonnementssleutel.
-2. Plak de URL in een browservenster en druk op Enter. In de browser wordt een JSON-resultaat weergegeven dat aangeeft dat LUIS de intent `HomeAutomation.TurnOn` en de entiteit `HomeAutomation.Room` met de waarde `bedroom` detecteert.
-
-    ![JSON-resultaat detecteert de intent TurnOn](./media/luis-get-started-cs-get-intent/turn-on-bedroom.png)
-3. Wijzig de waarde van de parameter `q=` in de URL in `turn off the living room light` en druk op Enter. Het resultaat geeft nu aan dat LUIS de intent `HomeAutomation.TurnOff` en de entiteit `HomeAutomation.Room` met waarde `living room` heeft gedetecteerd. 
-
-    ![JSON-resultaat detecteert de intent TurnOff](./media/luis-get-started-cs-get-intent/turn-off-living-room.png)
+* [Visual Studio Community 2017-editie](https://visualstudio.microsoft.com/vs/community/)
+* C#-programmeertaal (meegeleverd met VS Community 2017)
+* Id van openbare app: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 
-## <a name="consume-a-luis-result-using-the-endpoint-api-with-c"></a>Een LUIS-resultaat gebruiken met behulp van de eindpunt-API met C# 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
-U kunt C# gebruiken voor toegang tot de dezelfde resultaten die u in het browservenster in de vorige stap hebt gezien. 
+## <a name="get-luis-key"></a>LUIS-sleutel ophalen
 
-1. Maak in Visual Studio een nieuwe consoletoepassing. Kopieer de volgende code en sla deze op in een *.cs-bestand:
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+
+## <a name="analyze-text-with-browser"></a>Tekst analyseren met browser
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+
+## <a name="analyze-text-with-c"></a>Tekst analyseren met behulp van C# 
+
+Gebruik C# om een query uit te voeren voor de GET [API](https://westus.dev.cognitive.microsoft.com/docs/services/5819c76f40a6350ce09de1ac/operations/5819c77140a63516d81aee78) van het voorspellingseindpunt om dezelfde resultaten te behalen als die u kreeg in het browservenster in het vorige gedeelte. 
+
+1. Maak in Visual Studio een nieuwe consoletoepassing. 
+
+    ![Toegang tot menu voor LUIS-gebruikersinstellingen](media/luis-get-started-cs-get-intent/visual-studio-console-app.png)
+
+2. Selecteer de optie **Referentie toevoegen** in het Visual Studio-project in de Solutions Explorer en selecteer vervolgens **System.Web** op het tabblad Assembly's.
+
+    ![Toegang tot menu voor LUIS-gebruikersinstellingen](media/luis-get-started-cs-get-intent/add-system-dot-web-to-project.png)
+
+3. Overschrijf Program.cs met de volgende code:
     
-   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/csharp/Program.cs)]
-1. Vervang de waarde van de `subscriptionKey`-variabele door de sleutel van uw LUIS-abonnement.
+   [!code-csharp[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/csharp/Program.cs)]
 
-3. Voeg in het Visual Studio-project een verwijzing toe naar **System.Web**.
+4. Vervang de waarde van `YOUR_KEY` door uw LUIS-sleutel.
 
-4. Voer de consoletoepassing uit. De uitvoer bestaat uit de JSON die u eerder hebt gezien in het browservenster.
+5. Bouw en voer de consoletoepassing uit. De uitvoer bestaat uit de JSON die u eerder hebt gezien in het browservenster.
 
-![In het consolevenster wordt het JSON-resultaat van LUIS weergegeven](./media/luis-get-started-cs-get-intent/console-turn-on.png)
+    ![In het consolevenster wordt het JSON-resultaat van LUIS weergegeven](./media/luis-get-started-cs-get-intent/console-turn-on.png)
+
+## <a name="luis-keys"></a>LUIS-sleutels
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-De twee resources die in deze zelfstudie zijn gemaakt, zijn de LUIS-abonnementssleutel en het JavaScript-project. Verwijder de LUIS-abonnementssleutel uit Azure Portal. Sluit het Visual Studio-project en verwijder de map uit het bestandssysteem. 
+
+Wanneer u klaar bent met deze snelstart, sluit u het Visual Studio-project en verwijdert u de projectmap uit het bestandssysteem. 
 
 ## <a name="next-steps"></a>Volgende stappen
-> [!div class="nextstepaction"]
-> [Utterances toevoegen](luis-get-started-cs-add-utterance.md)
 
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website
+> [!div class="nextstepaction"]
+> [Utterances toevoegen en trainen met C#](luis-get-started-cs-add-utterance.md)

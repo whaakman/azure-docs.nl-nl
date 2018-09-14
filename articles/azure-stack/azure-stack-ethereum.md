@@ -1,27 +1,34 @@
 ---
 title: Azure Stack Ethereum blockchain-oplossingssjabloon
-description: Gebruik aangepaste oplossingssjablonen te implementeren en configureren van een consortium Ethereum blockchain-netwerk in Azure Stack
+description: Zelfstudie-een aangepaste oplossing-sjablonen gebruiken om te implementeren en configureren van een consortium Ethereum blockchain-netwerk in Azure Stack
 services: azure-stack
 keywords: ''
 author: PatAltimore
 ms.author: patricka
-ms.date: 09/12/2018
-ms.topic: article
+ms.date: 09/13/2018
+ms.topic: tutorial
 ms.service: azure-stack
-ms.reviewer: coborn
+ms.reviewer: seyadava
+ms.custom: mvc
 manager: femila
-ms.openlocfilehash: b4c8ff113ff76586cc4a91adfe568b07327a2d94
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b21a9ca58fc29a3da62ea08e81e628368fe5385f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721975"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580766"
 ---
-# <a name="azure-stack-ethereum-blockchain-solution-templates"></a>Azure Stack Ethereum blockchain-oplossingssjablonen
+# <a name="tutorial-use-the-azure-stack-ethereum-blockchain-solution-template"></a>Zelfstudie: Gebruik de sjabloon van de Azure Stack Ethereum blockchain-oplossing
 
 De sjabloon van de Ethereum-oplossing is ontworpen voor u gemakkelijker en sneller om te implementeren en configureren van een consortium voor meerdere leden Ethereum blockchain-netwerk met minimale kennis van Azure en Ethereum.
 
 Met een aantal van de invoer van gebruikers en een implementatie met één klik via de portal van Azure Stack-tenant inrichten elk lid van de netwerk-footprint. Netwerk-voetafdruk van elk lid bestaat uit een set met load balancing transactie knooppunten met die een toepassing of de gebruiker communiceren kan om in te dienen transacties, een set knooppunten van de analysestructuur voor vastleggen van transacties en een Network Virtual Appliance (NVA). Een stap van de volgende verbinding maakt verbinding met de NVA's voor het maken van een volledig geconfigureerde meerdere leden blockchain-netwerk.
+
+Dit als u wilt instellen, u het volgende doen:
+
+> [!div class="checklist"]
+> * Kies een implementatiearchitectuur
+> * Een zelfstandige, consortium leider of consortium lid netwerk implementeren
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -198,5 +205,13 @@ Nadat de implementatie is voltooid, duurt het enkele minuten voordat de leider e
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over Ethereum- en Azure, [Blockchain-technologie en toepassingen | Microsoft Azure](https://azure.microsoft.com/solutions/blockchain/).
-- Zie voor meer informatie over scenario's voor blockchain op Azure, [Ethereum bewijs van werk consortium oplossingssjabloon](../blockchain-workbench/ethereum-deployment-guide.md).
+In deze zelfstudie heeft u het volgende geleerd:
+
+> [!div class="checklist"]
+> * Kies een implementatiearchitectuur
+> * Een zelfstandige, consortium leider of consortium lid netwerk implementeren
+
+Zie voor meer informatie over Ethereum- en Azure:
+
+> [!div class="nextstepaction"]
+> [Blockchain-technologie en toepassingen](https://azure.microsoft.com/solutions/blockchain/)
