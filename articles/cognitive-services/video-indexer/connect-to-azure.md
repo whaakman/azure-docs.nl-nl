@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: c598fdae40b4552e1d4dc29b8558d82d0830160a
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 229624f4070c931b6ad892533aad269af49c738b
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43841830"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544182"
 ---
 # <a name="create-a-video-indexer-account-connected-to-azure"></a>Maken van een Video Indexer-account dat is verbonden met Azure
 
@@ -52,16 +52,18 @@ In dit artikel laat zien hoe een Video Indexer-account dat gekoppeld aan een Azu
 
 ## <a name="connect-to-azure"></a>Verbinding maken met Azure
 
-1. Aanmelden bij [ https://www.videoindexer.ai/ ](https://www.videoindexer.ai/) en klik op de **verbinding maken met Azure** knop:
+1. Blader naar de [Video Indexer](https://www.videoindexer.ai/) website en meld u aan.
+
+2. Klik op de **verbinding maken met Azure** knop:
 
     ![Verbinding maken met Azure](./media/create-account/connect-to-azure.png)
 
-2. Wanneer de abonnementenlijst met wordt weergegeven, selecteert u het abonnement dat u wilt gebruiken. 
+3. Wanneer de abonnementenlijst met wordt weergegeven, selecteert u het abonnement dat u wilt gebruiken. 
 
     ![Video Indexer verbinden met Azure](./media/create-account/connect-vi-to-azure-subscription.png)
 
-3. Selecteer een Azure-regio van de ondersteunde locaties: VS-West 2, Noord-Europa of Oost-Azië.
-4. Onder **Azure Media Services-account**, kies een van de volgende opties:
+4. Selecteer een Azure-regio van de ondersteunde locaties: VS-West 2, Noord-Europa of Oost-Azië.
+5. Onder **Azure Media Services-account**, kies een van de volgende opties:
 
     * Voor het maken van een nieuwe Media Services-account selecteert **nieuwe resourcegroep maken**. Geef een naam voor de resourcegroep.
 
@@ -85,13 +87,13 @@ In dit artikel laat zien hoe een Video Indexer-account dat gekoppeld aan een Azu
         |Toepassings-id|De toepassings-ID voor Azure AD met machtigingen voor de opgegeven Media Services-account. Zie voor meer informatie, [gebruik service-principal verificatie](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
         |Toepassingssleutel|Zie voor meer informatie, [gebruik service-principal verificatie](../../media-services/previous/media-services-portal-get-started-with-aad.md#service-principal-authentication).|
 
-5. Wanneer u klaar bent, kiest u **Connect**. Met deze bewerking kan enkele minuten duren. 
+6. Wanneer u klaar bent, kiest u **Connect**. Met deze bewerking kan enkele minuten duren. 
 
     Nadat u met Azure verbonden bent, wordt uw nieuwe Video Indexer-account wordt weergegeven in de lijst met accounts:
 
     ![nieuw account](./media/create-account/new-account.png)
 
-6. Blader naar uw nieuwe account: 
+7. Blader naar uw nieuwe account: 
 
     ![Video Indexer-account](./media/create-account/vi-account.png)
 

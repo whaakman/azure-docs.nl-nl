@@ -1,33 +1,34 @@
 ---
-title: Het maken van een niet-Engelse knowledge base - QnA Maker - cognitieve Azure-Services | Microsoft Docs
-description: Het maken van een niet-Engelse knowledge base.
+title: Niet-Engelse knowledge base - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: QnA Maker biedt ondersteuning voor knowledge base-inhoud in vele talen. Elke QnA Maker-service moet echter worden gereserveerd voor één taal. De eerste knowledge base gemaakt die gericht is op een bepaalde QnA Maker-service Hiermee stelt u de taal van de betreffende service.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: 3fbd590229044af0daa60968fd8d556d539a58c9
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9f5ece2b996f922437d36a6087c63859f89e0c55
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345297"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543502"
 ---
-# <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Taalondersteuning voor QnA Maker van knowledge base-inhoud
-QnA Maker ondersteunt knowledge base-inhoud in vele talen. Elke QnA Maker-service moet echter worden gereserveerd voor één taal. De eerste knowledge base gemaakt die gericht is op een bepaalde QnA Maker-service wordt ingesteld voor de taal van die service. Zie [hier](../Overview/languages-supported.md) voor de lijst met ondersteunde talen.
+# <a name="language-support-of-knowledge-base-content-for-qna-maker"></a>Taalondersteuning van knowledge base-inhoud voor QnA Maker
+QnA Maker biedt ondersteuning voor knowledge base-inhoud in vele talen. Elke QnA Maker-service moet echter worden gereserveerd voor één taal. De eerste knowledge base gemaakt die gericht is op een bepaalde QnA Maker-service Hiermee stelt u de taal van de betreffende service. Zie [hier](../Overview/languages-supported.md) voor een lijst van ondersteunde talen.
 
-De taal van de inhoud van de gegevensbronnen die zijn geëxtraheerd automatisch herkend. Wanneer u een nieuwe QnA Maker-Service en een nieuwe Knowledge Base in die service maakt, kunt u controleren of de taal correct is ingesteld.
+De taal wordt automatisch herkend van de inhoud van de gegevensbronnen die worden geëxtraheerd. Als u een nieuwe QnA Maker-Service en een nieuwe Knowledge Base in die service maakt, kunt u controleren of de taal correct is ingesteld.
 
 1. Navigeer naar de [Azure-Portal](https://portal.azure.com/).
 
 2. Selecteer **resourcegroepen** en navigeer naar de resourcegroep waar de QnA Maker-service geïmplementeerd en selecteer is de **Azure Search** resource.
 
-    ![Selecteer Azure Search-resource](../media/qnamaker-how-to-language-kb/select-azsearch.png)
+    ![Azure Search-resource selecteren](../media/qnamaker-how-to-language-kb/select-azsearch.png)
 
-3. Selecteer de **testkb** index. Deze Azure Search-index is altijd de eerste gemaakt en bevat de opgeslagen inhoud van de kennis bases in die service. 
+3. Selecteer de **testkb** index. Deze Azure Search-index is altijd het eerste certificaat gemaakt en bevat de opgeslagen inhoud van alle knowledge bases in die service. 
 
     ![Selecteer de Test KB](../media/qnamaker-how-to-language-kb/select-testkb.png)
 
@@ -39,11 +40,11 @@ De taal van de inhoud van de gegevensbronnen die zijn geëxtraheerd automatisch 
 
     ![Selecteer Analyzer](../media/qnamaker-how-to-language-kb/select-analyzer.png)
 
-6. U ziet dat de Analyzer is ingesteld op een bepaalde taal. Deze taal is automatisch gedetecteerd tijdens de stap voor het maken van knowledge base. Deze taal kan niet worden gewijzigd zodra de resource is gemaakt.
+6. U ziet dat de Analyzer is ingesteld op een bepaalde taal. Deze taal is automatisch gedetecteerd tijdens de stap knowledge base. Deze taal kan niet worden gewijzigd nadat de resource is gemaakt.
 
     ![Geselecteerde Analyzer](../media/qnamaker-how-to-language-kb/selected-analyzer.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Een bot QnA maken met Azure Bot Service](../Tutorials/create-qna-bot.md)
+> [Een QnA bot maken met Azure Bot Service](../Tutorials/create-qna-bot.md)

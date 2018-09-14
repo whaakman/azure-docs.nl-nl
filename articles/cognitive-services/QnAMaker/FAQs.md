@@ -1,92 +1,92 @@
 ---
-title: Veelgestelde vragen over - cognitieve Services van Microsoft | Microsoft Docs
-titleSuffix: Azure
-description: Veelgestelde vragen
+title: Veelgestelde vragen - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Lijst met veelgestelde vragen over QnA Maker-service
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
-ms.author: saneppal
-ms.openlocfilehash: a6bf32549715d0357771b3f3b0ff72f64788ec20
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.date: 09/12/2018
+ms.author: nstulasi
+ms.openlocfilehash: 0af93682c4a1be4de4d92e9c44e10586f740d8bf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345307"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576677"
 ---
 # <a name="frequently-asked-questions"></a>Veelgestelde vragen
 
-## <a name="why-is-my-urlsfiles-is-not-extracting-question-answer-pairs"></a>Waarom wordt mijn URL('s) / vragen antwoorden paren is niet uitpakken van bestanden?
+## <a name="why-is-my-urlsfiles-is-not-extracting-question-answer-pairs"></a>Waarom wordt mijn URL('s) / paren met vraag-antwoord is niet uitpakken van bestanden?
 
-Het is mogelijk dat QnA Maker kan niet automatisch-extract vraag en antwoord (QnA) inhoud van geldige Veelgestelde vragen over de URL's. In dergelijke gevallen kunt u de inhoud QnA plakken in een txt-bestand en ziet als het hulpprogramma, het opnemen kan. U kunt ook redactioneel inhoud toevoegen aan uw knowledge base.
+Het is mogelijk dat QnA Maker kan niet automatisch-extract vraag en antwoord (QnA) inhoud van geldige Veelgestelde vragen over URL's. In dergelijke gevallen kunt u de QnA-inhoud plakken in een txt-bestand en ziet als het hulpprogramma kan voorverwerkingsstappen toe. U kunt ook redactioneel inhoud toevoegen aan uw knowledge base.
 
 ## <a name="how-large-a-knowledge-base-can-i-create"></a>Hoe groot mag de Knowledge Base zijn die ik maak?
 
-De grootte van de knowledge base, is afhankelijk van de SKU van Azure search die u bij het maken van de service QnA Maker kiezen. Lees [hier](./Tutorials/choosing-capacity-qnamaker-deployment.md) voor meer informatie.
+De grootte van de knowledge base, is afhankelijk van de SKU van Azure search die u bij het maken van de QnA Maker-service. Lezen [hier](./Tutorials/choosing-capacity-qnamaker-deployment.md) voor meer informatie.
 
-## <a name="why-do-i-not-see-anything-in-the-drop-down-for-when-i-try-to-create-a-new-knowledge-base"></a>Waarom kan ik niet zien in de vervolgkeuzelijst voor niets wanneer ik probeer te maken van een nieuwe knowledge base?
+## <a name="why-do-i-not-see-anything-in-the-drop-down-for-when-i-try-to-create-a-new-knowledge-base"></a>Waarom zie ik geen alles in de vervolgkeuzelijst voor wanneer ik wil een nieuw kennisdatabase maken?
 
-U nog niet hebt nog QnA Maker-services in Azure gemaakt. Lees [hier](./How-To/set-up-qnamaker-service-azure.md) hoe u dat doet.
+U kunt de QnA Maker-services nog niet hebt nog gemaakt in Azure. Lezen [hier](./How-To/set-up-qnamaker-service-azure.md) hoe u dat doet.
 
-## <a name="how-do-i-share-a-knowledge-base-with-other"></a>Hoe kan ik een kennisdatabase met andere delen
+## <a name="how-do-i-share-a-knowledge-base-with-other"></a>Hoe moet ik een kennisdatabase delen met andere?
 
-Delen werkt op het niveau van een service QnA Maker, worden dat wil zeggen alle kennis basissen in de services gedeeld. Lees [hier](./How-To/collaborate-knowledge-base.md) hoe samenwerken aan een knowledge base.
+Delen werkt op het niveau van een QnA Maker-service, worden dat wil zeggen alle knowledge bases in de services gedeeld. Lezen [hier](./How-To/collaborate-knowledge-base.md) hoe u kunt samenwerken op een knowledge base.
 
-## <a name="how-can-i-change-the-default-message-when-no-good-match-is-found"></a>Hoe kan ik het standaardbericht wijzigen wanneer er geen goede overeenkomst wordt gevonden?
+## <a name="how-can-i-change-the-default-message-when-no-good-match-is-found"></a>Hoe kan ik het standaardbericht wijzigen wanneer er geen goede overeenkomst is gevonden?
 
-Het standaardbericht is onderdeel van de instellingen in App service.
-- Ga naar de uw App service-resource in de Azure-portal
+Het standaardbericht is onderdeel van de instellingen in uw appservice.
+- Ga naar de uw App service-resource in Azure portal
 
-![qnamaker appservice](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
+![Azure App service qnamaker](./media/qnamaker-faq/qnamaker-resource-list-appservice.png)
 - Klik op de **instellingen** optie
 
-![qnamaker appservice-instellingen](./media/qnamaker-faq/qnamaker-appservice-settings.png)
+![Azure App service-instellingen voor qnamaker](./media/qnamaker-faq/qnamaker-appservice-settings.png)
 - Wijzig de waarde van de **DefaultAnswer** instelling
 - Uw App-service opnieuw starten
 
-![qnamaker appservice opnieuw opstarten](./media/qnamaker-faq/qnamaker-appservice-restart.png)
+![qnamaker appservice-opnieuw opstarten](./media/qnamaker-faq/qnamaker-appservice-restart.png)
 
 ## <a name="why-is-my-sharepoint-link-not-getting-extracted"></a>Waarom wordt Mijn SharePoint-koppeling niet ophalen van opgehaald?
 
-Het hulpprogramma alleen openbare URL's parseert en biedt geen ondersteuning voor geverifieerde gegevensbronnen op dit moment. U kunt ook de optie-bestand uploaden en downloaden van het bestand uitpakken vragen en antwoorden.
+Het hulpprogramma alleen openbare URL's worden geparseerd en biedt geen ondersteuning voor geverifieerde gegevensbronnen op dit moment. U kunt ook het bestand te downloaden en het uploaden van bestand-optie gebruiken om aan te vragen en antwoorden extraheren.
 
 
-## <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>De updates die ik mijn kennisdatabase aangebracht worden niet doorgevoerd op publiceren. Waarom niet?
+## <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>De updates die ik heb in mijn knowledge base aangebracht worden niet weergegeven bij publicatie. Waarom niet?
 
-Elke bewerking moet in een tabel-update-, test- of -instellingen, worden opgeslagen voordat deze kan worden gepubliceerd. Moet u op het opslaan en trainen knop na elke bewerking.
+Elke bewerking moet in een tabelupdate-, test- of -instellingen worden opgeslagen voordat deze kan worden gepubliceerd. Zorg dat op het opslaan en trainen knop na elke bewerking.
 
 ## <a name="when-should-i-refresh-my-endpoint-keys"></a>Wanneer moet ik mijn endpoint-sleutels vernieuwen?
 
-Als u vermoedt dat ermee is geknoeid, moet u uw sleutels eindpunt vernieuwen.
+Als u vermoedt dat ermee is geknoeid, moet u uw eindpunt-sleutels vernieuwen.
 
-## <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>Ondersteunt het knowledge base-ondersteuning voor uitgebreide gegevens of multimedia?
+## <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>Is de opgemaakte ondersteuningsgegevens in knowledge base of multimedia?
 
-De Knowledge Base ondersteunt Markdown. De automatische-extractie van URL's is echter HTML-Markdown-conversie functionaliteit beperkt. Als u gebruiken Markdown met een volwaardig wilt, kunt u uw inhoud rechtstreeks in de tabel wijzigen of een kennisdatabase met de uitgebreide inhoud uploaden.
+De Knowledge Base ondersteunt Markdown. De automatische extractie van URL's is echter HTML naar Markdown converteren functionaliteit beperkt. Als u gebruiken van de volledige Markdown wilt, kunt u uw inhoud rechtstreeks in de tabel wijzigen of een kennisdatabase met de opgemaakte inhoud uploaden.
 
 Multimedia, zoals afbeeldingen en video's, wordt niet ondersteund op dit moment.
 
-## <a name="does-qna-maker-support-non-english-languages"></a>QnA Maker biedt ondersteuning voor niet-Engelse talen?
+## <a name="does-qna-maker-support-non-english-languages"></a>Ondersteunt QnA Maker niet-Engelse talen?
 
-Meer details weergeven over [ondersteunde talen](./Overview/languages-supported.md).
+Zie meer informatie over [ondersteunde talen](./Overview/languages-supported.md).
 
-Als u de inhoud van meerdere talen hebt, moet u een afzonderlijke service maken voor elke taal.
+Als u de inhoud van meerdere talen hebt, maakt u een afzonderlijke service voor elke taal worden.
 
 ## <a name="do-i-need-to-use-bot-framework-in-order-to-use-qna-maker"></a>Moet ik Bot Framework gebruiken om QnA Maker te kunnen gebruiken?
 
-Nee, u niet wilt gebruiken van het Framework Bot met QnA Maker. Echter wordt QnA Maker aangeboden als een van de verschillende sjablonen in Azure Bot-Service. Bot-Service biedt snelle intelligent bot ontwikkeling via Microsoft Bot Framework en deze wordt uitgevoerd in een server minder omgeving.
+Nee, hoeft u niet de Bot Framework gebruiken met QnA Maker. QnA Maker wordt echter aangeboden als een van verschillende sjablonen in Azure Bot Service. Botservice kunt snelle, intelligente bot-ontwikkeling via Microsoft Bot Framework en deze wordt uitgevoerd op een server minder omgeving.
 
-## <a name="how-can-i-create-a-bot-with-qna-maker"></a>Hoe kan ik een bot met QnA Maker maken?
+## <a name="how-can-i-create-a-bot-with-qna-maker"></a>Hoe maak ik een bot met QnA Maker?
 
 Volg de instructies in [dit](./Tutorials/create-qna-bot.md) documentatie voor het maken van uw Bot met Azure Bot.
 
 ## <a name="how-do-i-embed-the-qna-maker-service-in-my-website"></a>Hoe sluit ik de QnA Maker-service in op mijn website?
 
-Volg deze stappen voor de service QnA Maker als webchat besturingselement insluiten in uw website:
+Volg deze stappen voor het insluiten van de QnA Maker-service als een besturingselement voor web-chat in uw website:
 
-1. De veelgestelde vragen over bot maken door de instructies volgen [hier](./Tutorials/create-qna-bot.md).
-2. De chatten inschakelen door de stappen te volgen [hier](https://docs.microsoft.com/en-us/azure/bot-service/bot-service-channel-connect-webchat)
+1. Maken van uw bot Veelgestelde vragen over door de instructies te volgen [hier](./Tutorials/create-qna-bot.md).
+2. De web-chat inschakelen met de volgende stappen [hier](https://docs.microsoft.com/azure/bot-service/bot-service-channel-connect-webchat)
 
 

@@ -1,27 +1,28 @@
 ---
-title: QnA Maker - limieten voor Azure Cognitive Services | Microsoft Docs
-description: QnA Maker-limieten
+title: Limieten en grenzen - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Uitgebreide lijst met limieten voor QnA Maker.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: 93471faab9aac94616c770cbee21fb0364f73639
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.date: 09/12/2018
+ms.author: nstulasi
+ms.openlocfilehash: da1de0c36033823bd8f615411eed183ffe9701b6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501857"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574544"
 ---
 # <a name="qna-maker-limits"></a>QnA Maker-limieten
 Uitgebreide lijst met limieten voor QnA Maker.
 
 ## <a name="knowledge-bases"></a>Knowledge Bases
 
-* Maximum aantal knowledge bases op basis van [categorielimieten Azure Search](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity)
+* Maximum aantal knowledge bases op basis van [categorielimieten Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
 
 |**Azure Search tier** | **Gratis** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|
@@ -32,7 +33,7 @@ Uitgebreide lijst met limieten voor QnA Maker.
 * Maximum aantal deep-koppelingen die kunnen worden benaderd voor extractie van vragen en antwoorden supereenvoudig van veelgestelde vragen over het HTML-pagina's: 20
 
 ## <a name="metadata-limits"></a>Limieten voor metagegevens
-* Maximum aantal metagegevensvelden per knowledge base op basis van [categorielimieten Azure Search](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity)
+* Maximum aantal metagegevensvelden per knowledge base op basis van [categorielimieten Azure Search](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity)
 
 |**Azure Search tier** | **Gratis** | **Basic** |**S1** | **S2**| **S3** |**S3 HD**|
 |---|---|---|---|---|---|----|

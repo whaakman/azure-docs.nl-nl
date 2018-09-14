@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 04/25/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 52582a6fe3f6c8ccc22c57268e20a94139be9e6f
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 669a436293ddf6f13760db5e6802aaae82ddd74b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094855"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577510"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>Prestaties en schaalbaarheid in duurzame functies (Azure Functions)
 
@@ -27,13 +27,13 @@ Voor meer informatie over het gedrag van de schaal, moet u enkele van de details
 
 De **geschiedenis** tabel is een Azure Storage-tabel met de van geschiedenisgebeurtenissen voor alle orchestration-exemplaren in een hub-taak. De naam van deze tabel is in het formulier *TaskHubName*geschiedenis. Als de exemplaren worden uitgevoerd, worden nieuwe rijen zijn toegevoegd aan deze tabel. De partitiesleutel van deze tabel is afgeleid van de exemplaar-ID van de indeling. Exemplaar-ID wordt een willekeurige in de meeste gevallen, waardoor de optimale distributie van interne partities in Azure Storage.
 
-Wanneer een exemplaar van de indeling moet worden uitgevoerd, worden de juiste rijen van de tabel met de geschiedenis in het geheugen geladen. Deze *geschiedenisgebeurtenissen* vervolgens opnieuw worden afgespeeld in de orchestrator-functiecode voor deze toegang krijgen tot de vorige controlepunt staat. Het gebruik van uitvoeringsgeschiedenis te bouwen staat op deze manier wordt beïnvloed door de [patroon gebeurtenisbronnen](https://docs.microsoft.com/en-us/azure/architecture/patterns/event-sourcing).
+Wanneer een exemplaar van de indeling moet worden uitgevoerd, worden de juiste rijen van de tabel met de geschiedenis in het geheugen geladen. Deze *geschiedenisgebeurtenissen* vervolgens opnieuw worden afgespeeld in de orchestrator-functiecode voor deze toegang krijgen tot de vorige controlepunt staat. Het gebruik van uitvoeringsgeschiedenis te bouwen staat op deze manier wordt beïnvloed door de [patroon gebeurtenisbronnen](https://docs.microsoft.com/azure/architecture/patterns/event-sourcing).
 
 ## <a name="instances-table"></a>Exemplaren tabel
 
 De **exemplaren** tabel is een andere Azure Storage-tabel met de status van alle orchestration-exemplaren in een hub-taak. Als de exemplaren worden gemaakt, worden nieuwe rijen zijn toegevoegd aan deze tabel. De partitiesleutel van deze tabel is de orchestration-exemplaar-ID en de rijsleutel is een vaste constante. Er is één rij per orchestration-exemplaar.
 
-Deze tabel wordt gebruikt om te voldoen aan de queryaanvragen exemplaar van de [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API, evenals de [status query HTTP API](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-http-api#get-instance-status). Deze opgeslagen uiteindelijk consistent zijn met de inhoud van de **geschiedenis** tabel eerder is vermeld. Het gebruik van een afzonderlijke Azure Storage-tabel om te voorzien in efficiënt querybewerkingen exemplaar op deze manier wordt beïnvloed door de [patroon Command and Query Responsibility Segregation (CQRS)](https://docs.microsoft.com/en-us/azure/architecture/patterns/cqrs).
+Deze tabel wordt gebruikt om te voldoen aan de queryaanvragen exemplaar van de [GetStatusAsync](https://azure.github.io/azure-functions-durable-extension/api/Microsoft.Azure.WebJobs.DurableOrchestrationClient.html#Microsoft_Azure_WebJobs_DurableOrchestrationClient_GetStatusAsync_System_String_) API, evenals de [status query HTTP API](https://docs.microsoft.com/azure/azure-functions/durable-functions-http-api#get-instance-status). Deze opgeslagen uiteindelijk consistent zijn met de inhoud van de **geschiedenis** tabel eerder is vermeld. Het gebruik van een afzonderlijke Azure Storage-tabel om te voorzien in efficiënt querybewerkingen exemplaar op deze manier wordt beïnvloed door de [patroon Command and Query Responsibility Segregation (CQRS)](https://docs.microsoft.com/azure/architecture/patterns/cqrs).
 
 ## <a name="internal-queue-triggers"></a>Interne queue-triggers
 

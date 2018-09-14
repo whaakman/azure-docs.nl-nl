@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: c0ad9f71665e503fe794c68200b90a8474750823
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: b048509f38356b19d52507f4dfb5bfa61122f9f6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173622"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576422"
 ---
 # <a name="default-values-and-boundaries"></a>Standaardwaarden en -grenzen
 
@@ -35,8 +35,8 @@ API ontwerpen, max HTTP-aanroepen per maand | 5 MIN.
 API ontwerpen, max HTTP-aanroepen per seconde | 25
 Sessie-API, max HTTP-aanroepen per maand | 500.000
 Sessie-API, max HTTP-aanroepen per seconde | 10
-Maximumaantal aangepaste (niet-programmatische) entiteiten per model | Zie [LUIS grenzen doc](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries); in de praktijk werkelijke nummer is mogelijk iets kleinere
-Maximumaantal vooraf gemaakte entiteiten per model | Zie [LUIS grenzen doc-bestand](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-boundaries)
+Maximumaantal aangepaste (niet-programmatische) entiteiten per model | Zie [LUIS grenzen doc](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries); in de praktijk werkelijke nummer is mogelijk iets kleinere
+Maximumaantal vooraf gemaakte entiteiten per model | Zie [LUIS grenzen doc-bestand](https://docs.microsoft.com/azure/cognitive-services/luis/luis-boundaries)
 Maximumaantal per model-entiteiten (in totaal) | 100
 Maximumaantal acties per model | 32
 Maximumaantal van de trein dialogen per model | 1000

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 04/27/2018
-ms.openlocfilehash: 9fa71c221b276e2173694e2c1e86673e52677e63
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: 2da388ef2fc0df8b08658900fe91ecc9d440fd3a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39389820"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579289"
 ---
 # <a name="stream-data-as-input-into-stream-analytics"></a>Stream-gegevens als invoer in Stream Analytics
 
@@ -29,7 +29,7 @@ Deze invoer resources kunnen bevinden zich in hetzelfde Azure-abonnement als uw 
 Stream Analytics biedt ondersteuning voor compressie voor alle stream input gegevensbronnen. Momenteel ondersteunde verwijzingstypen zijn: None, GZip, en Deflate-compressie. Ondersteuning voor compressie is niet beschikbaar voor referentiegegevens. Als de invoerindeling Avro-gegevens die zijn gecomprimeerd is, wordt dit transparant verwerkt. U hoeft niet te geven van compressietype met Avro-serialisatie. 
 
 ## <a name="create-edit-or-test-inputs"></a>Maken, bewerken of invoer testen
-U kunt de [Azure-portal](https://portal.azure.com) naar [nieuwe invoer maken](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) en weergeven of bewerken van bestaande invoer op uw streaming-taak. U kunt ook de invoer-verbindingen testen en [query's testen](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-manage-job#test-your-query) van voorbeeldgegevens. Wanneer u een query schrijven, wordt een lijst van de invoer in de component FROM. U krijgt de lijst met beschikbare invoer van de **Query** pagina in de portal. Als u gebruiken van meerdere invoergegevens wilt, kunt u `JOIN` ze of meerdere schrijven `SELECT` query's.
+U kunt de [Azure-portal](https://portal.azure.com) naar [nieuwe invoer maken](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-quick-create-portal#configure-input-to-the-job) en weergeven of bewerken van bestaande invoer op uw streaming-taak. U kunt ook de invoer-verbindingen testen en [query's testen](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-manage-job#test-your-query) van voorbeeldgegevens. Wanneer u een query schrijven, wordt een lijst van de invoer in de component FROM. U krijgt de lijst met beschikbare invoer van de **Query** pagina in de portal. Als u gebruiken van meerdere invoergegevens wilt, kunt u `JOIN` ze of meerdere schrijven `SELECT` query's.
 
 
 ## <a name="stream-data-from-event-hubs"></a>Gegevens streamen vanuit Event Hubs

@@ -8,15 +8,15 @@ ms.topic: conceptual
 ms.date: 07/25/2018
 ms.author: johnkem
 ms.component: ''
-ms.openlocfilehash: 9d4d7633428cd174a31214db2db6b6d9928230bd
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: dde8881fc446eef0dd6ca0735e5e23a5a19328fa
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39627913"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578348"
 ---
 # <a name="stream-azure-diagnostic-logs-to-an-event-hub"></a>Stream Azure diagnostische logboeken naar een event hub
-**[Diagnostische logboeken in Azure](monitoring-overview-of-diagnostic-logs.md) ** kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde 'Exporteren naar Event Hubs'-optie in de Portal of door in te schakelen van de Event Hub autorisatie regel-ID in een diagnostische instelling via de Azure PowerShell-Cmdlets of Azure CLI 2.0.
+**[Diagnostische logboeken in Azure](monitoring-overview-of-diagnostic-logs.md)**  kan worden gestreamd in bijna realtime voor elke toepassing met behulp van de ingebouwde 'Exporteren naar Event Hubs'-optie in de Portal of door in te schakelen van de Event Hub autorisatie regel-ID in een diagnostische instelling via de Azure PowerShell-Cmdlets of Azure CLI 2.0.
 
 ## <a name="what-you-can-do-with-diagnostics-logs-and-event-hubs"></a>U kunt doen met diagnostische logboeken en Event Hubs
 Hier volgen een paar manieren waarop u de streaming-mogelijkheden voor diagnostische logboeken kunt gebruiken:
@@ -41,7 +41,7 @@ Hier volgen een paar manieren waarop u de streaming-mogelijkheden voor diagnosti
 
 ## <a name="enable-streaming-of-diagnostic-logs"></a>Streaming van logboeken met diagnostische gegevens inschakelen
 
-U kunt inschakelen via een programma, via de portal van diagnostische logboeken streamen of met behulp van de [Azure Monitor REST API's](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). In beide gevallen maakt u een diagnostische instelling in die u geeft een Event Hubs-naamruimte en de logboekcategorieën en metrische gegevens die u verzenden wilt in de naamruimte. Een event hub wordt gemaakt in de naamruimte voor elke logboekcategorie die u inschakelt. Een diagnose **logboekcategorie** is een type logboek dat een resource kan verzamelen.
+U kunt inschakelen via een programma, via de portal van diagnostische logboeken streamen of met behulp van de [Azure Monitor REST API's](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). In beide gevallen maakt u een diagnostische instelling in die u geeft een Event Hubs-naamruimte en de logboekcategorieën en metrische gegevens die u verzenden wilt in de naamruimte. Een event hub wordt gemaakt in de naamruimte voor elke logboekcategorie die u inschakelt. Een diagnose **logboekcategorie** is een type logboek dat een resource kan verzamelen.
 
 > [!WARNING]
 > Inschakelen en logboeken met diagnostische gegevens van de Compute-resources (bijvoorbeeld virtuele machines of Service Fabric) streaming [vereist een andere reeks stappen](../event-hubs/event-hubs-streaming-azure-diags-data.md).
@@ -93,7 +93,7 @@ Regel-ID voor de Event Hub-autorisatie is een tekenreeks zijn met deze indeling:
 
 ### <a name="via-azure-cli-20"></a>Via Azure CLI 2.0
 
-Om in te schakelen streaming via de [Azure CLI 2.0](https://docs.microsoft.com/en-us/cli/azure/monitor?view=azure-cli-latest), kunt u de [az monitor diagnostic-settings maken](https://docs.microsoft.com/en-us/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) opdracht.
+Om in te schakelen streaming via de [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/monitor?view=azure-cli-latest), kunt u de [az monitor diagnostic-settings maken](https://docs.microsoft.com/cli/azure/monitor/diagnostic-settings?view=azure-cli-latest#az-monitor-diagnostic-settings-create) opdracht.
 
 ```azurecli
 az monitor diagnostic-settings create --name <diagnostic name> \

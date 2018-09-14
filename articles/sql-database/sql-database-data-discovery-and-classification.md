@@ -8,18 +8,18 @@ ms.reviewer: vanto
 ms.service: sql-database
 ms.custom: security
 ms.topic: conceptual
-ms.date: 07/10/2018
+ms.date: 09/10/2018
 ms.author: giladm
-ms.openlocfilehash: a69142ebabc4af8b8543dc5dd276b99130620470
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: aca01e67339d5f6d003021cb17f1787093b79eda
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714969"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543959"
 ---
 # <a name="azure-sql-database-data-discovery-and-classification"></a>Azure SQL-databasegegevens detectie en classificatie
 Gegevensdetectie en -classificatie (momenteel in preview) biedt geavanceerde mogelijkheden van ingebouwd in Azure SQL Database voor **detecteren**, **classificeren**, **labels**  &  **beveiligen** de gevoelige gegevens in uw databases.
-Detecteren en classificeren van uw meest gevoelige gegevens (business, financiën, gezondheidszorg, persoonlijke gegevens, enzovoort) kan een cruciale rol spelen in uw organisatie informatie protection-status. Deze kan dienen als infrastructuur voor:
+Detecteren en classificeren van uw meest gevoelige gegevens (business, financiële, gezondheidszorg, persoonlijke gegevens (PII) en enz.) kunnen een cruciale rol spelen in uw organisatie informatie protection-status. Deze kan dienen als infrastructuur voor:
 * Helpen voldoen aan de privacystandaarden en wettelijke vereisten.
 * Verschillende security-scenario's, zoals bewaking (controle) en waarschuwingen voor afwijkende toegang tot gevoelige gegevens.
 * Toegang tot beheren en beperken van de beveiliging van databases met zeer gevoelige gegevens.
@@ -42,6 +42,17 @@ Het volgende gedeelte bevat de stappen voor het detecteren, classificeren en lab
 De classificatie bevat twee metagegevens kenmerken:
 * Labels: de kenmerken van de belangrijkste classificatie, gebruikt voor het definiëren van het vertrouwelijkheidsniveau van de gegevens die zijn opgeslagen in de kolom.  
 * Informatietypen: bieden meer granulatie in het type van de gegevens die zijn opgeslagen in de kolom.
+
+## <a name="define-and-customize-your-classification-taxonomy"></a>Definiëren en aanpassen van uw taxonomie classificatie
+
+SQL-gegevensdetectie en classificatie wordt geleverd met een ingebouwde set gevoeligheidslabels en een ingebouwde verzameling informatietypen en logica voor detectie. U hebt nu de mogelijkheid deze taxonomie aanpassen en het definiëren van een set en de rangorde van classification constructies specifiek voor uw omgeving.
+
+Definitie- en aanpassen van uw taxonomie classificatie wordt uitgevoerd in één centrale locatie voor uw hele Azure-tenant. Dat locatie bevindt zich in [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro), als onderdeel van uw beveiligingsbeleid. Alleen gebruikers met beheerdersrechten op de Tenant root management-groep kunt met deze taak uitvoeren.
+
+Als onderdeel van de Information Protection-beleidsbeheer, kunt u aangepaste etiketten zijn gedefinieerd, ze rangschikken en deze koppelen aan een geselecteerde set informatietypen. U kunt ook uw eigen aangepaste gegevens toevoegen en configureren met de tekenreeks patronen die zijn toegevoegd aan de detectie-logica voor het identificeren van dit type gegevens in uw databases.
+Meer informatie over het aanpassen en beheren van uw beleid in de [Information Protection-beleid gebruiksaanwijzing](https://go.microsoft.com/fwlink/?linkid=2009845&clcid=0x409).
+
+Zodra de tenant-brede, door het beleid is gedefinieerd, kunt u doorgaan met de classificatie van afzonderlijke databases met behulp van uw aangepaste beleid.
 
 ## <a name="classify-your-sql-database"></a>Classificeren van uw SQL-Database
 

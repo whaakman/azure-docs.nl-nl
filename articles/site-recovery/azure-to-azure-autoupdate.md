@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: rajanaki
-ms.openlocfilehash: 81dbb61d696da84febc89563f946581315fdf527
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 9f0a299fb8221554a3b0c9a19a616d5ba7613a67
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921435"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574399"
 ---
 # <a name="automatic-update-of-the-mobility-service-in-azure-to-azure-replication"></a>Automatische update van de Mobility-Service in Azure naar Azure-replicatie
 
@@ -79,8 +79,8 @@ Als de knop herstellen niet beschikbaar is, raadpleegt u het foutbericht dat wor
 
  - **Fout**: de uitvoeren als-account beschikt niet over de machtiging voor toegang tot de recovery services-resource.
 
-    **Aanbevolen actie**: verwijderen en vervolgens [opnieuw uitvoeren als-account maken](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account) of zorg ervoor dat het Automation uitvoeren als-account van Azure Active Directory-toepassing toegang tot de recovery services-resource heeft.
+    **Aanbevolen actie**: verwijderen en vervolgens [opnieuw uitvoeren als-account maken](https://docs.microsoft.com/azure/automation/automation-create-runas-account) of zorg ervoor dat het Automation uitvoeren als-account van Azure Active Directory-toepassing toegang tot de recovery services-resource heeft.
 
 - **Fout**: uitvoeren als-account is niet gevonden. Een van deze is verwijderd of is niet gemaakt: Azure Active Directory-toepassing, Service-Principal, rol, Automation-certificaatasset, Automation-verbindingsasset- of de vingerafdruk is niet identiek certificaat en de verbinding. 
 
-    **Aanbevolen actie**: verwijderen en [en maak opnieuw uitvoeren als-account](https://docs.microsoft.com/en-us/azure/automation/automation-create-runas-account).
+    **Aanbevolen actie**: verwijderen en [en maak opnieuw uitvoeren als-account](https://docs.microsoft.com/azure/automation/automation-create-runas-account).

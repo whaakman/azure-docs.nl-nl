@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: mabrigg
-ms.openlocfilehash: 4d8a79862dac53429acda14f81818f92a96df529
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 5b0dbf5ad78ff345d386024ff873618a781917ac
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44376847"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579034"
 ---
 # <a name="manage-updates-in-azure-stack-overview"></a>Updates beheren in Azure Stack-overzicht
 
@@ -34,7 +34,7 @@ De leverancier van de oorspronkelijke leveranciers (OEM)-hardware brengt-updates
 Om te voorkomen dat uw systeem onder ondersteuning, moet u Azure Stack is bijgewerkt naar een specifieke versie. Zorg ervoor dat u de [Azure Stack servicebeleid](azure-stack-servicing-policy.md).
 
 > [!NOTE]
-> U kunt Azure Stack-updatepakketten niet toepassen op Azure Stack Development Kit. De updatepakketten zijn ontworpen voor geïntegreerde systemen. Zie voor meer informatie, [opnieuw implementeren van de ASDK](https://docs.microsoft.com/en-us/azure/azure-stack/asdk).
+> U kunt Azure Stack-updatepakketten niet toepassen op Azure Stack Development Kit. De updatepakketten zijn ontworpen voor geïntegreerde systemen. Zie voor meer informatie, [opnieuw implementeren van de ASDK](https://docs.microsoft.com/azure/azure-stack/asdk).
 
 ## <a name="the-update-resource-provider"></a>De resourceprovider voor Update
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 09/12/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 1ec4a6033fad643c75cdf9f7ebc5cdb1f4bab9c3
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 559859e1f844cae37b0baaf48b0ad7c5cc2d4b0a
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717145"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542428"
 ---
 # <a name="configure-a-vnet-for-azure-sql-database-managed-instance"></a>Een VNet configureren voor het beheerde exemplaar van Azure SQL Database
 
@@ -101,7 +101,7 @@ De eenvoudigste manier om te maken en configureren van virtueel netwerk is met A
 
 3. Netwerkomgeving configureren. U kunt parameters van uw netwerkomgeving configureren op de volgende notatie:
 
-![Azure-netwerk configureren](./media/sql-database-managed-instance-get-started/create-mi-network-arm.png)
+![Azure-netwerk configureren](./media/sql-database-managed-instance-vnet-configuration/create-mi-network-arm.png)
 
 U mogelijk de namen wijzigen van het VNet en subnetten en IP-adresbereiken die zijn gekoppeld aan uw netwerkresources aanpassen. Zodra u op "Aankoop" knop drukt, wordt dit formulier maken en configureren van uw omgeving. Als u geen twee subnetten kunt u de standaardwaarde kunt verwijderen. 
 

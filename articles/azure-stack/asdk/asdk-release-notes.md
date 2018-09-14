@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/12/2018
 git ms.author: brenduns
 ms.reviewer: misainat
-ms.openlocfilehash: 1d3e4724820f7109eb9b695fe06d221a2796c26f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c9b93b5e7877d853a2f27678af61774171c01cb
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722196"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543324"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Releaseopmerkingen voor Azure Stack Development Kit  
 In dit artikel bevat informatie over verbeteringen, correcties en bekende problemen in Azure Stack Development Kit. Als u niet zeker weet welke versie u uitvoert, kunt u [de portal gebruiken om te controleren](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -65,7 +65,7 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 
 - <!-- 2515955   | IS ,ASDK--> *Alle services* vervangt *meer services* in de Azure Stack-beheerder en gebruiker portals. U kunt nu *alle services* als alternatief voor het navigeren in de Azure Stack-portals de dezelfde manier als in de Azure-portals.
 
-- <!-- TBD | IS, ASDK --> **+ Een resource maken** vervangt **+ nieuw** in de Azure Stack-beheerder en gebruiker portals.  U kunt nu *+ een resource maken* als alternatief voor het navigeren in de Azure Stack-portals de dezelfde manier als in de Azure-portals. 
+- <!-- TBD | IS, ASDK --> *+ Een resource maken* vervangt *+ nieuw* in de Azure Stack-beheerder en gebruiker portals.  U kunt nu *+ een resource maken* als alternatief voor het navigeren in de Azure Stack-portals de dezelfde manier als in de Azure-portals. 
 
 - <!--  TBD – IS, ASDK --> *Basic A* grootten van virtuele machines buiten gebruik worden gesteld voor [het maken van virtuele-machineschaalsets](.\.\azure-stack-compute-add-scalesets.md) (VMSS) via de portal. Als u wilt een VMSS te maken met deze grootte, PowerShell of een sjabloon te gebruiken. 
 

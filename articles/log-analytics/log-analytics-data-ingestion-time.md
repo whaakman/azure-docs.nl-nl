@@ -11,20 +11,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/10/2018
+ms.date: 09/12/2018
 ms.author: bwren
-ms.openlocfilehash: 0e513cc4f6a7d5d030ded807870de9eb0fdc0ed8
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 97cf5c06372d416037b875078809aebb7e633456
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38972640"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542834"
 ---
 # <a name="data-ingestion-time-in-log-analytics"></a>Tijd van de gegevens opnemen in Log Analytics
 Azure Log Analytics is een service voor grootschalige die duizenden klanten terabytes aan gegevens per maand verzenden in een groeiende tempo fungeert. Er zijn vaak vragen over de tijd die nodig zijn voor gegevens beschikbaar in Log Analytics nadat deze verzameld. In dit artikel wordt uitgelegd dat de verschillende factoren die invloed hebben op deze latentie.
 
 ## <a name="typical-latency"></a>Normale latentie
-Latentie verwijst naar de tijd waarop gegevens worden gemaakt op het bewaakte systeem en de tijd die wordt geleverd beschikbaar om te analyseren in Log Analytics. De typische latentie voor het opnemen van gegevens in Log Analytics is tussen de 3 en 10 minuten met 95% van de gegevens die zijn opgenomen in minder dan 7 minuten. De specifieke latentie voor een bepaalde gegevens varieert, afhankelijk van diverse factoren die hieronder wordt uitgelegd.
+Latentie verwijst naar de tijd waarop gegevens worden gemaakt op het bewaakte systeem en de tijd die wordt geleverd beschikbaar om te analyseren in Log Analytics. De typische latentie voor het opnemen van gegevens in Log Analytics is tussen 2 en 5 minuten. De specifieke latentie voor een bepaalde gegevens varieert, afhankelijk van diverse factoren die hieronder wordt uitgelegd.
 
 ## <a name="sla-for-log-analytics"></a>SLA voor Log Analytics
 De [Log Analytics Service Level Agreement (SLA)](https://azure.microsoft.com/support/legal/sla/log-analytics/v1_1/) is een binding juridische overeenkomst waarmee wordt gedefinieerd wanneer Microsoft klanten restituties wanneer de service niet voldoet aan de doelen. Dit is niet gebaseerd op de normale prestaties van het systeem, maar het ergste geval-accounts voor mogelijke catastrofale situaties.
@@ -60,7 +60,7 @@ Sommige oplossingen geen hun gegevens worden verzameld uit een agent en een meth
 Raadpleeg de documentatie voor elke oplossing om te bepalen van de verzamelingsfrequentie.
 
 ### <a name="pipeline-process-time"></a>Tijd van de pijplijn-proces
-Wanneer records in logboek registreren in Log Analytics-pijplijn zijn opgenomen, wordt deze zijn geschreven naar de tijdelijke opslag om te controleren of isolatie van tenants en om ervoor te zorgen dat gegevens niet verloren gaan. Dit proces wordt doorgaans 5 tot 15 seconden. Sommige oplossingen implementeren zwaardere algoritmen voor het samenvoegen van gegevens en inzichten worden afgeleid omdat gegevensstromen. Bijvoorbeeld, aggregeert de Netwerkprestatiemeter binnenkomende gegevens gedurende 3 minuten durende intervallen, effectief toe te voegen 3 minuten latentie.
+Wanneer records in logboek registreren in Log Analytics-pijplijn zijn opgenomen, wordt deze zijn geschreven naar de tijdelijke opslag om te controleren of isolatie van tenants en om ervoor te zorgen dat gegevens niet verloren gaan. Dit proces wordt doorgaans 5 tot 15 seconden. Sommige oplossingen implementeren zwaardere algoritmen voor het samenvoegen van gegevens en inzichten worden afgeleid omdat gegevensstromen. Bijvoorbeeld, aggregeert de Netwerkprestatiemeter binnenkomende gegevens gedurende 3 minuten durende intervallen, effectief toe te voegen 3 minuten latentie. Een ander proces dat wordt toegevoegd latentie is het proces die verantwoordelijk is voor aangepaste logboeken. In sommige gevallen kan dit proces enkele minuten met een latentie van toevoegen aan de logboeken die worden verzameld van bestanden door de agent.
 
 ### <a name="new-custom-data-types-provisioning"></a>Nieuwe aangepaste gegevenstypen inrichten
 Wanneer een nieuw type aangepaste gegevens is gemaakt op basis van een [aangepast logboek](../log-analytics/log-analytics-data-sources-custom-logs.md) of de [Data Collector API](../log-analytics/log-analytics-data-collector-api.md), een toegewezen opslagcontainer wordt gemaakt. Dit is een eenmalige overhead die wordt uitgevoerd alleen op de eerste weergave van dit gegevenstype.

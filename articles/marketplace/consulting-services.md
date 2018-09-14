@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 03/9/2018
 ms.author: ellacroi
-ms.openlocfilehash: d89fef56a9fdab799170ed1ccd3261470d66bf95
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 104ef98aac3e34e30a86854a0d759cf11106b55b
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39414698"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575294"
 ---
 # <a name="azure-marketplace-consulting-services"></a>Azure Marketplace Consulting Services
 Adviesservices op Azure Marketplace biedt Microsoft-partners het doel van het verbinden van klanten met services te ondersteunen en uitbreiden van hun gebruik van Azure. De Azure Marketplace biedt ondersteuning voor de aanbieding van consulting-service-aanbiedingen van partners van Microsoft System Integrator (SI). 
@@ -73,7 +73,7 @@ Zie voor meer informatie, [vaardigheden via Microsoft Partner Network](https://p
 De lancering van Azure Marketplace adviesservices gaat live in specifieke geografische regio. Eerste keer opstarten is: Verenigde Staten, Canada, het Verenigd Koninkrijk en Australië. De catalogi voor andere landen wordt na enkele nuttige live gaan en boeiende selectie van service-aanbiedingen zijn ingediend door partners en goedgekeurd door Microsoft.
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace"></a>Hoe u zich registreren voor Consulting Services op Azure Marketplace
-Begin met het registreren van uw adviesservices met [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Uitgevers kunnen verwijzen naar [geworden van een uitgever op Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher), voor een volledige lijst van vereisten voor apparaatregistratie. 
+Begin met het registreren van uw adviesservices met [Azure Marketplace](https://azuremarketplace.microsoft.com/en-us/sell/signup). Uitgevers kunnen verwijzen naar [geworden van een uitgever op Marketplace](https://docs.microsoft.com/azure/marketplace/become-publisher), voor een volledige lijst van vereisten voor apparaatregistratie. 
 
 **Wat te verwachten na registratie** het Voorbereidingsteam neemt contact met 1-3 werkdagen met een welkomstbericht per e-mail, waaronder de aanmeldingsgegevens voor de Cloud Partner Portal (CPP). [Cloud Partner-Portal](https://cloudpartner.azure.com) is de aanbieding aanbieding portal waar uitgevers aanbieding en inzendingen indienen. 
 
@@ -150,7 +150,7 @@ Bij het beoordelen van bieden beschrijvingen en samenvattingen bieden, geldt het
 |**Testen van Concept**    |    Welke technische wijzigingen, technische artefacten of andere artefacten die een klant als de resultaten van de engagement verwachten kunt bewoordingen     | Optimaliseren van uw aanbieding samenvatting met uw belangrijkste Search Engine Optimization trefwoorden        |
 |**Workshop**    |   Een gedetailleerde agenda dagelijks, wekelijks of maandelijks, afhankelijk van de geselecteerde duur van uw aanbieding opnemen. Bewoordingen aan het learning-doelen of andere producten van uw workshop zijn     |   Optimaliseren van uw aanbieding samenvatting met uw belangrijkste zoekmachine optimalisatie trefwoorden      |
 
-In de Cloud Partner-Portal, kunt u toevoegen opmaak die voldoet aan uw aanbieding met behulp van [Markdown](https://docs.microsoft.com/en-us/contribute/how-to-write-use-markdown). Dit is een lichtgewicht ontwerptaal waarmee Pools toevoegen aan uw aanbieding. 
+In de Cloud Partner-Portal, kunt u toevoegen opmaak die voldoet aan uw aanbieding met behulp van [Markdown](https://docs.microsoft.com/contribute/how-to-write-use-markdown). Dit is een lichtgewicht ontwerptaal waarmee Pools toevoegen aan uw aanbieding. 
 
 **Opmerkingen bij de voorbeeld Markdown**
 *   Voeg * aan begin en einde van de kopie-blok - zonder een spatie cursief maken (Ex: *inhoud*)

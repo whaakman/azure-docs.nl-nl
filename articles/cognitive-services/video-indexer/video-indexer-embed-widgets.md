@@ -7,41 +7,45 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 08/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: b8de9e8d73ba899fb7f3036d871c5d30daf101de
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 6ee87b6d7c89745472bf6000de66f682cbf2cca9
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049353"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544111"
 ---
 # <a name="embed-video-indexer-widgets-into-your-applications"></a>Video Indexer widgets insluiten in uw toepassingen
 
-Video Indexer biedt ondersteuning voor insluiten twee typen widgets in uw toepassing: **cognitieve inzichten** en **Player**. 
+Dit artikel wordt beschreven hoe kunt u Video Indexer widgets insluiten in uw toepassingen. Video Indexer biedt ondersteuning voor insluiten twee typen widgets in uw toepassing: **cognitieve inzichten** en **Player**. 
+## <a name="widget-types"></a>Widget typen
 
-* Een **cognitieve inzichten** widget bevat alle visual inzichten die zijn opgehaald uit uw video verwerken indexeren. 
-    De widget insights ondersteunt de volgende optionele parameters van URL:
+### <a name="cognitive-insights-widget"></a>Cognitieve inzichten widget
 
-    |Naam|Definitie|Beschrijving|
-    |---|---|---|
-    |widgets|Tekenreeksen gescheiden door komma 's|Kunt u voor het beheren van de inzichten die u wilt weergeven. <br/>Voorbeeld: **widgets personen, merken =** worden weergegeven alleen personen en merken ui-inzichten<br/>Beschikbare opties: personen, trefwoorden, aantekeningen, merken, Sentimenten, Transcript, zoeken | 
-* Een **Player** widget kunt u de video die gebruikmaakt van adaptieve bitrate stream.
+Een **cognitieve inzichten** widget bevat alle visual inzichten die zijn opgehaald uit uw video verwerken indexeren. De widget insights ondersteunt de volgende optionele parameters van URL:
 
-    De widget player ondersteunt de volgende optionele parameters van URL:
+|Naam|Definitie|Beschrijving|
+|---|---|---|
+|widgets|Tekenreeksen gescheiden door komma 's|Kunt u voor het beheren van de inzichten die u wilt weergeven. <br/>Voorbeeld: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search` worden weergegeven alleen personen en merken UI-inzichten<br/>Beschikbare opties: mensen, trefwoorden, aantekeningen, merken, sentimenten, transcript, zoeken.<br/>niet ondersteund via de URL op versie 2 =<br/><br/>**Opmerking:** de **widgets** URL-parameter wordt niet ondersteund als **versie 2 =** wordt gebruikt. |
+|versie|Versies van de **cognitieve inzichten** widget|Als u de laatste inzichten widget updates, toevoegen `?version=2` param naar de url van de ingesloten query. Bijvoorbeeld: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?version=2` <br/> Als u de oudere versie, verwijdert de `version=2` van de URL.
 
-    |Naam|Definitie|Beschrijving|
-    |---|---|---|
-    |t|Seconden vanaf het begin|Maakt de speler afspelen starten vanaf het moment dat bepaalde verwijzen.<br/>Voorbeeld: t = 60|
-    |bijschriften|Taalcode|Het bijschrift in de opgegeven taal kan worden opgehaald tijdens de widget zijn beschikbaar in het menu van bijschriften wordt geladen.<br/>Voorbeeld: bijschriften = en-Us|
-    |showCaptions|Een Booleaanse waarde|Maakt de speler laden met de bijschriften al ingeschakeld.<br/>Voorbeeld: showCaptions = true|
-    |type||Hiermee activeert u de weergave van een audiospeler (video onderdeel wordt verwijderd).<br/>Bijvoorbeeld: Typ = audio|
-    |automatisch afspelen|Een Booleaanse waarde|Bepalen of de speler het afspelen van video starten moet wanneer geladen (de standaardinstelling is true).<br/>Voorbeeld: automatisch afspelen = false|
-    |Taal|Taalcode|Besturingselement de speler te lokaliseren besturingselementen (standaard is en-US)<br/>Voorbeeld: taal = nl-nl|
+### <a name="player-widget"></a>Player-widget
+
+Een **Player** widget kunt u de video die gebruikmaakt van adaptieve bitrate stream. De widget player ondersteunt de volgende optionele parameters van URL:
+
+|Naam|Definitie|Beschrijving|
+|---|---|---|
+|t|Seconden vanaf het begin|Maakt de speler afspelen starten vanaf het moment dat bepaalde verwijzen.<br/>Voorbeeld: t = 60|
+|bijschriften|Taalcode|Het bijschrift in de opgegeven taal kan worden opgehaald tijdens de widget zijn beschikbaar in het menu van bijschriften wordt geladen.<br/>Voorbeeld: bijschriften = en-US|
+|showCaptions|Een Booleaanse waarde|Maakt de speler laden met de bijschriften al ingeschakeld.<br/>Voorbeeld: showCaptions = true|
+|type||Hiermee activeert u de weergave van een audiospeler (video onderdeel wordt verwijderd).<br/>Bijvoorbeeld: Typ = audio|
+|automatisch afspelen|Een Booleaanse waarde|Geeft aan of de speler het afspelen van video starten moet wanneer geladen (de standaardinstelling is true).<br/>Voorbeeld: automatisch afspelen = false|
+|Taal|Taalcode|Hiermee bepaalt u de player-taal (de standaardinstelling is en-US)<br/>Voorbeeld: taal = nl-nl|
 
 ## <a name="embedding-public-content"></a>Openbare inhoud insluiten
 
-1. Aanmelden bij uw [Video Indexer](https://api-portal.videoindexer.ai/) account. 
+1. Blader naar de [Video Indexer](https://www.videoindexer.ai/) website en meld u aan.
 2. Klik op de knop 'ingesloten' wordt weergegeven onder de video.
 
     ![Widget](./media/video-indexer-embed-widgets/video-indexer-widget01.png)
@@ -60,9 +64,9 @@ U kunt u insluiten-codes van insluiten pop-ups (zoals weergegeven in de vorige s
 
 Als u wilt insluiten een **persoonlijke** video's die u hebt om door te geven van een toegangstoken in de **iframe**van **src** kenmerk:
 
-     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<VideoId>/?accessToken=<accessToken>
+     https://www.videoindexer.ai/embed/[insights | player]/<accountId>/<videoId>/?accessToken=<accessToken>
     
-Gebruik de [ **ophalen Insights Widget** ](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) API om op te halen van de inhoud van de widget cognitieve inzichten of gebruik [ **Video Access Token ophalen** ](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) en toe te voegen die als een query param naar de url, zoals hierboven. Geef deze URL als de **iframe**van **src** waarde.
+Gebruik de [ **ophalen Insights Widget** ](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) API voor de inhoud van de widget cognitieve inzichten, of gebruik [ **Video Access Token ophalen** ](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) en toe te voegen die als een query param naar de URL, zoals hierboven. Geef deze URL als de **iframe**van **src** waarde.
 
 Als u wilt bewerken insights-mogelijkheden (zoals we in de webtoepassing hebben) in uw ingesloten widget bieden, moet u doorgeven van een toegangstoken met machtigingen voor bewerken. Gebruik [ **ophalen Insights Widget** ](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-insights-widget?) of [ **Video Access Token ophalen** ](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) met **& bewerken = true**. 
 
@@ -216,24 +220,24 @@ U kunt de typen inzichten die u wilt dat door deze op te geven als een waarde ki
 
 De mogelijke waarden zijn: mensen, trefwoorden, sentimenten, transcript, zoeken.
 
-Bijvoorbeeld, als u wilt insluiten een widget alleen inzichten voor personen en zoek het iframe insluitings-URL die er als volgt: https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?widgets=people, zoeken
+Bijvoorbeeld, als u wilt insluiten een widget alleen inzichten voor personen en zoek het iframe insluitings-URL die er als volgt: https://www.videoindexer.ai/embed/insights/ <accountId> / <videoId>/? widgets = mensen zoeken
 
-De titel van het venster iframe kan ook worden aangepast door te geven **& titel =** <YourTitle> naar de url van de iframe. (Deze wordt de HTML-code aanpassen \<titel > waarde).
-Bijvoorbeeld, als u wilt uw iframe-venster geeft de titel 'MyInsights', de url er als volgt: https://www.videoindexer.ai/embed/insights/c4c1ad4c9a/?title=MyInsights. U ziet dat deze optie alleen relevant voor gevallen is wanneer moet u de inzichten in een nieuw venster openen.
+De titel van het venster iframe kan ook worden aangepast door te geven **& titel =** <YourTitle> naar de URL van de iframe. (Deze wordt de HTML-code aanpassen \<titel > waarde).
+Bijvoorbeeld, als u wilt uw iframe-venster geeft de titel 'MyInsights', de URL er als volgt: https://www.videoindexer.ai/embed/insights/ <accountId> / <videoId>/? titel = MyInsights. U ziet dat deze optie alleen relevant voor gevallen is wanneer moet u de inzichten in een nieuw venster openen.
 
 ### <a name="player-widget"></a>Player-widget
-Als het insluiten van Video Indexer-speler kunt u de grootte van de speler kiezen door op te geven van de grootte van de iframe.
+Als u bij het insluiten van Video Indexer-speler kunt u de grootte van de speler door de grootte van de iframe op te geven.
 
 Bijvoorbeeld:
 
-    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/{id}” frameborder="0" allowfullscreen />
+    <iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />
 
 Door Video Indexer-standaardspeler wordt hebt automatisch gegenereerde ondertiteling op basis van het transcript van de video die is geëxtraheerd uit de video met de source-taal die is geselecteerd bij de video is geüpload.
 
-Als u wilt insluiten met een andere taal kunt u toevoegen **& bijschriften = < taal | 'alle' | "false" >** op de ingesloten speler-URL of put 'alle' als de waarde als u wilt dat alle beschikbare talen bijschriften.
-Als u wilt dat de ondertiteling moet worden weergegeven standaard kunt u doorgeven **& showCaptions = true**
+Als u insluiten met een andere taal wilt, kunt u toevoegen **& bijschriften = < taal | 'alle' | "false" >** op de ingesloten speler-URL of put 'alle' als de waarde als u wilt dat alle beschikbare talen bijschriften.
+Als u wilt dat de ondertiteling moet worden standaard weergegeven, kunt u doorgeven **& showCaptions = true**
 
-De ingesloten URL vervolgens wordt er als volgt: https://www.videoindexer.ai/embed/player/9a296c6ec3/?captions=italian. Als u wilt uitschakelen bijschriften kunt u 'false' als waarde voor bijschriften parameter doorgeven.
+De ingesloten URL vervolgens wordt er als volgt: https://www.videoindexer.ai/embed/player/ <accountId> / <videoId>/? bijschriften = Italiaans. Als u bijschriften uitschakelen wilt, kunt u 'false' als waarde voor bijschriften parameter doorgeven.
 
 Automatisch afspelen – standaard die de speler de video wordt afgespeeld. u kunt geen door te geven & automatisch afspelen = false om de ingesloten URL hierboven.
 

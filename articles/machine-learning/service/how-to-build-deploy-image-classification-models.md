@@ -9,12 +9,12 @@ ms.reviewer: jmartens
 ms.author: netahw
 author: nhaiby
 ms.date: 04/23/2018
-ms.openlocfilehash: 6b7f73573cb1465b89e54e30894b3549153e4acb
-ms.sourcegitcommit: 11321f26df5fb047dac5d15e0435fce6c4fde663
+ms.openlocfilehash: 1188ff040c12fd431cfcef5eea982647df6b9a71
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37888429"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576388"
 ---
 # <a name="build-and-deploy-image-classification-models-with-azure-machine-learning"></a>Bouw en implementeer modellen voor classificatie van de installatiekopie met Azure Machine Learning
 
@@ -174,7 +174,7 @@ display(annotation_ui.ui)
 
 ## <a name="augment-images"></a>Afbeeldingen verbeteren
 
-De [ `augmentation` module](https://docs.microsoft.com/en-us/python/api/cvtk.augmentation) biedt functionaliteit uitbreiden-object voor een gegevensset met behulp van de transformaties die zijn beschreven in de [imgaug](https://github.com/aleju/imgaug) bibliotheek. Afbeelding transformaties kunnen worden gegroepeerd in één pijplijn, in welk geval alle transformaties in de pijplijn tegelijkertijd worden toegepast elke afbeelding. 
+De [ `augmentation` module](https://docs.microsoft.com/python/api/cvtk.augmentation) biedt functionaliteit uitbreiden-object voor een gegevensset met behulp van de transformaties die zijn beschreven in de [imgaug](https://github.com/aleju/imgaug) bibliotheek. Afbeelding transformaties kunnen worden gegroepeerd in één pijplijn, in welk geval alle transformaties in de pijplijn tegelijkertijd worden toegepast elke afbeelding. 
 
 Als u wilt andere uitdiepen stappen afzonderlijk toegepast, of op een andere manier kunt u meerdere pijplijnen definiëren en ze doorgeven aan de *augment_dataset* functie. Zie voor meer informatie en voorbeelden van afbeelding uitdiepen, de [imgaug documentatie](https://github.com/aleju/imgaug).
 

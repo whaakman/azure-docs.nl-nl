@@ -8,24 +8,24 @@ author: johnsta
 ms.author: johnsta
 ms.date: 05/11/2018
 ms.topic: article
-description: Gebruik een aangepaste NuGet feed te openen en gebruiken van NuGet-pakketten in een Azure-Dev-ruimte.
-keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, containers
+description: Gebruik een aangepaste NuGet feed te openen en gebruiken van NuGet-pakketten in een Azure Dev-ruimte.
+keywords: Docker, Kubernetes, Azure, AKS, Azure-Containerservice, containers
 manager: ghogen
-ms.openlocfilehash: 3badd15bcfd09c97b43744a20c5df05f4ff57e84
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 04b89f6d12c58e2f4915a84d3e0a7988d0e3192f
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34199106"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579189"
 ---
-#  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Gebruik een aangepaste NuGet-kanaal in een Azure-Dev-ruimte
+#  <a name="use-a-custom-nuget-feed-in-an-azure-dev-space"></a>Gebruik een aangepaste NuGet-feed in een Azure Dev-ruimte
 
-Een NuGet-feed biedt een handige manier om op te nemen pakket bronnen in een project. Azure Dev spaties moeten toegang kunnen krijgen tot deze feed in de volgorde voor afhankelijkheden goed worden geïnstalleerd in de Docker-container.
+Een NuGet-feed biedt een gemakkelijke manier om pakketbronnen opnemen in een project. Azure Dev spaties moet toegang krijgen tot deze feed opdat afhankelijkheden correct worden geïnstalleerd in de Docker-container.
 
-## <a name="set-up-a-nuget-feed"></a>Stel een NuGet-kanaal
+## <a name="set-up-a-nuget-feed"></a>Instellen van een NuGet-feed
 
-Voor het instellen van een NuGet-kanaal:
-1. Voeg een [verwijzing van het pakket](https://docs.microsoft.com/en-us/nuget/consume-packages/package-references-in-project-files) in de `*.csproj` bestand onder de `PackageReference` knooppunt.
+Een NuGet-feed instellen:
+1. Voeg een [pakket verwijzing](https://docs.microsoft.com/nuget/consume-packages/package-references-in-project-files) in de `*.csproj` bestand onder de `PackageReference` knooppunt.
 
    ```xml
    <ItemGroup>
@@ -35,9 +35,9 @@ Voor het instellen van een NuGet-kanaal:
    </ItemGroup>
    ```
 
-2. Maak een [NuGet.Config](https://docs.microsoft.com/en-us/nuget/reference/nuget-config-file) bestand in de projectmap.
-     * Gebruik de `packageSources` sectie om te verwijzen naar uw locatie feed NuGet. Belangrijk: De NuGet-feed moet openbaar toegankelijk.
-     * Gebruik de `packageSourceCredentials` gedeelte referenties voor gebruikersnaam en het wachtwoord configureren. 
+2. Maak een [NuGet.Config](https://docs.microsoft.com/nuget/reference/nuget-config-file) bestand in de projectmap.
+     * Gebruik de `packageSources` sectie om te verwijzen naar uw locatie feed NuGet. Belangrijk: De feed NuGet moet openbaar toegankelijk zijn.
+     * Gebruik de `packageSourceCredentials` sectie referenties voor gebruikersnaam en wachtwoord configureren. 
 
    ```xml
    <packageSources>
@@ -52,9 +52,9 @@ Voor het instellen van een NuGet-kanaal:
    </packageSourceCredentials>
    ```
 
-3. Als u beheer van broncode:
-    - Verwijzing `NuGet.Config` in uw `.gitignore` bestand zodat u niet per ongeluk referenties naar uw opslagplaats bron doorvoert.
-    - Open de `azds.yaml` bestand in uw project en zoek de `build` sectie en voeg het volgende fragment om ervoor te zorgen dat de `NuGet.Config` bestand worden gesynchroniseerd naar Azure zodat deze tijdens het maken container installatiekopie gebruikt. (Standaard Azure Dev spaties niet synchroniseren bestanden die overeenkomen met `.gitignore` en `.dockerignore` regels.)
+3. Als u broncodebeheer:
+    - Naslaginformatie over `NuGet.Config` in uw `.gitignore` bestand, zodat u niet per ongeluk referenties in uw opslagplaats doorvoeren.
+    - Open de `azds.yaml` -bestand in uw project, en Ga naar de `build` uit en voeg het volgende fragment om ervoor te zorgen dat de `NuGet.Config` bestand wordt gesynchroniseerd naar Azure zodat deze tijdens het bouwproces van container-installatiekopie gebruikt. (Standaard Azure Dev opslagruimten wordt niet gesynchroniseerd bestanden die overeenkomen met `.gitignore` en `.dockerignore` regels.)
 
         ```yaml
         build:
@@ -66,5 +66,5 @@ Voor het instellen van een NuGet-kanaal:
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Nadat u de bovenstaande stappen hebt voltooid, de volgende keer dat u uitvoert `azds up` (of druk op `F5` in VSCode of Visual Studio), Azure Dev spaties synchroniseert de `NuGet.Config` bestand naar Azure, die vervolgens wordt gebruikt door `dotnet restore` pakket te installeren afhankelijkheden in de container.
+Nadat u de bovenstaande stappen hebt voltooid, de volgende keer dat u uitvoert `azds up` (of druk op `F5` in VSCode of Visual Studio), worden gesynchroniseerd met Azure Dev spaties de `NuGet.Config` -bestand naar Azure, die vervolgens wordt gebruikt door `dotnet restore` om pakket te installeren afhankelijkheden in de container.
 

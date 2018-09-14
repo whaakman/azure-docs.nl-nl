@@ -1,6 +1,6 @@
 ---
-title: Verwijderen van de resourceprovider MySQL op Azure-Stack | Microsoft Docs
-description: Meer informatie over hoe u de MySQL-resourceprovider van uw Azure-Stack-implementatie kunt verwijderen.
+title: Verwijderen van de resourceprovider van MySQL in Azure Stack | Microsoft Docs
+description: Meer informatie over hoe u de MySQL-resourceprovider kunt verwijderen uit uw Azure Stack-implementatie.
 services: azure-stack
 documentationCenter: ''
 author: jeffgilb
@@ -11,32 +11,32 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 06/27/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: d3a615e3b92a62709a787d0463dfa3148f14d07e
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: cd0195796189158650c9c2655062950b71130ad7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37085794"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578477"
 ---
-# <a name="remove-the-mysql-resource-provider"></a>Verwijder de MySQL-resourceprovider
+# <a name="remove-the-mysql-resource-provider"></a>Verwijderen van de MySQL-resourceprovider
 
 Voordat u de MySQL-resourceprovider verwijdert, moet u alle afhankelijkheden van de provider verwijderen. U moet ook een kopie van het implementatiepakket dat is gebruikt voor het installeren van de resourceprovider.
 
-## <a name="dependency-cleanup"></a>Afhankelijkheid opschonen
+## <a name="dependency-cleanup"></a>Opschonen van de afhankelijkheid
 
-Er zijn verschillende Opschoningstaken moet doen voordat u de DeployMySqlProvider.ps1 script uitvoeren om te verwijderen van de resourceprovider.
+Er zijn verschillende Opschoningstaken moet doen voordat u het script DeployMySqlProvider.ps1 als u wilt verwijderen van de resourceprovider uitvoert.
 
-De tenants zijn die verantwoordelijk is voor de volgende Opschoningstaken:
+De tenants zijn verantwoordelijk voor de volgende Opschoningstaken:
 
-* Verwijder alle hun databases van de resourceprovider. (De tenant-databases niet verwijderen van de gegevens.)
-* Registratie verwijderen uit de naamruimte van de provider.
+* Verwijder alle hun databases uit de resourceprovider. (Als het verwijderen van de tenant-databases, niet de gegevens verwijderd.)
+* De registratie ongedaan maken van de naamruimte van de provider.
 
 De beheerder is verantwoordelijk voor de volgende Opschoningstaken:
 
-* Hiermee verwijdert u de hosting-servers van de MySQL-Adapter.
+* Hiermee verwijdert de host-servers uit de MySQL-Adapter.
 * Hiermee verwijdert u de schema's die verwijzen naar de MySQL-Adapter.
 * Hiermee verwijdert u geen quota's die gekoppeld aan de MySQL-Adapter zijn.
 
@@ -45,18 +45,19 @@ De beheerder is verantwoordelijk voor de volgende Opschoningstaken:
 1. Controleer of u alle bestaande MySQL resource provider afhankelijkheden hebt verwijderd.
 
    >[!NOTE]
-   >Verwijderen van de MySQL-resourceprovider wordt voortgezet zelfs als afhankelijke resources de resourceprovider momenteel gebruikt.
+   >Verwijderen van de MySQL-resourceprovider wordt voortgezet zelfs als afhankelijke resources zijn op dit moment met behulp van de resourceprovider.
   
-2. Een kopie van de resourceprovider MySQL binaire krijgen en voer vervolgens de zelfstandig uitpakken om de inhoud naar een tijdelijke map te pakken.
-3. Een kopie van de SQL-resourceprovider binaire krijgen en voer vervolgens de zelfstandig uitpakken om de inhoud naar een tijdelijke map te pakken.
-4. Open een nieuw verhoogde PowerShell-console-venster en Ga naar de map waar u de binaire bestanden van MySQL resource provider hebt uitgepakt.
+2. Ontvang een kopie van de MySQL-resourceprovider binaire en voer vervolgens de zelfstandige extractor om de inhoud uitpakken naar een tijdelijke map.
+3. Ontvang een kopie van de SQL-resourceprovider binaire en voer vervolgens de zelfstandige extractor om de inhoud uitpakken naar een tijdelijke map.
+4. Open een nieuw verhoogde PowerShell-console-venster en Ga naar de map waar u de binaire bestanden voor MySQL resource provider hebt uitgepakt.
 5. Voer het script DeployMySqlProvider.ps1 is met de volgende parameters:
     - **Verwijder**. Hiermee verwijdert u de resourceprovider en alle bijbehorende resources.
-    - **PrivilegedEndpoint**. De IP-adres of de DNS-naam van het bevoegde eindpunt.
-    - **CloudAdminCredential**. De referentie voor de beheerder van de cloud, moet u toegang tot de bevoegde eindpunt.
+    - **PrivilegedEndpoint**. De IP-adres of de DNS-naam van het eindpunt van de bevoegdheden.
+    - **Azure-omgeving**. De Azure-omgeving gebruikt voor het implementeren van Azure Stack. Alleen vereist voor Azure AD-implementaties.
+    - **CloudAdminCredential**. De referentie voor de beheerder van de cloud, die nodig zijn voor toegang tot de bevoorrechte eindpunt.
     - **DirectoryTenantID**
-    - **AzCredential**. De referentie voor de Azure-Stack-admin-serviceaccount. Gebruik dezelfde referenties die u gebruikt voor de implementatie van Azure-Stack.
+    - **AzCredential**. De referentie voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties die u gebruikt voor het implementeren van Azure Stack.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[App-Services bieden als PaaS](azure-stack-app-service-overview.md)
+[App-Services als PaaS aanbieden](azure-stack-app-service-overview.md)

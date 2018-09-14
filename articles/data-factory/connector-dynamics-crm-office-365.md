@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: jingwang
-ms.openlocfilehash: e4ebddc35b402d7a8997d899ce97577e93a27b84
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: e8e106bc71b87af8cd36f7edb0fe64fcddd6133e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42444857"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574671"
 ---
 # <a name="copy-data-from-and-to-dynamics-365-common-data-service-or-dynamics-crm-by-using-azure-data-factory"></a>Gegevens kopiëren van en naar Dynamics 365 (Common Data Service) of Dynamics CRM met behulp van Azure Data Factory
 
@@ -279,7 +279,7 @@ Om gegevens te kopiëren naar Dynamics, stelt u het sink-type in de kopieeractiv
 >[!NOTE]
 >De standaardwaarde van de sink "**writeBatchSize**'en de kopieeractiviteit'**[parallelCopies](copy-activity-performance.md#parallel-copy)**' zijn beide 10 voor de Dynamics-sink. 100 records worden daarom verzonden naar Dynamics het gelijktijdig.
 
-Voor Dynamics 365 online, er geldt een limiet van [2 gelijktijdige batch-aanroepen per organisatie](https://msdn.microsoft.com/en-us/library/jj863631.aspx#Run-time%20limitations). Als deze limiet wordt overschreden, wordt een 'Server bezet'-fout is opgetreden voordat de eerste aanvraag ooit wordt uitgevoerd. Houden 'writeBatchSize' kleiner dan of gelijk aan 10 wilt voorkomen dat dergelijke beperking van gelijktijdige aanroepen.
+Voor Dynamics 365 online, er geldt een limiet van [2 gelijktijdige batch-aanroepen per organisatie](https://msdn.microsoft.com/library/jj863631.aspx#Run-time%20limitations). Als deze limiet wordt overschreden, wordt een 'Server bezet'-fout is opgetreden voordat de eerste aanvraag ooit wordt uitgevoerd. Houden 'writeBatchSize' kleiner dan of gelijk aan 10 wilt voorkomen dat dergelijke beperking van gelijktijdige aanroepen.
 
 De optimale combinatie van '**writeBatchSize**'en'**parallelCopies**"is afhankelijk van het schema van uw entiteit bijvoorbeeld het aantal kolommen, rijgrootte, aantal plugins/werkstromen/workflow-activiteiten die zijn gekoppeld deze aanroepen, enzovoort. De standaardinstelling van 10 writeBatchSize * 10 parallelCopies is de aanbeveling op basis van Dynamics-service, die zou moeten werken voor de meeste Dynamics-entiteiten echter mogelijk niet optimale prestaties. U kunt de prestaties afstemmen door aan te passen van de combinatie van argumenten in de instellingen voor de kopieeractiviteit.
 

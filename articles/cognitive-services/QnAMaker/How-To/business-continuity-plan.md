@@ -1,43 +1,43 @@
 ---
-title: Maken van een plan voor continuty voor uw service QnA Maker - cognitieve Microsoft-Services | Microsoft Docs
-titleSuffix: Azure
-description: Het maken van een plan voor bedrijfscontinuïteit voor uw service QnA Maker
+title: Plan voor bedrijfscontinuïteit - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Het primaire doel van het plan voor bedrijfscontinuïteit is het maken van een robuuste knowledge base-eindpunt, wat dat zonder uitvaltijd voor de Bot of de toepassing die wordt verbruikt.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: ca6e54b8a8ca8b38e8ef6b1a148f8b2c54bd43da
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c65ef07f3644004c6e453f6a19035115df9d5764
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345275"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573974"
 ---
-# <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Maken van een plan voor bedrijfscontinuïteit voor uw service QnA Maker
+# <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>Een plan voor bedrijfscontinuïteit voor uw QnA Maker-service maken
 
-Het primaire doel van het plan voor bedrijfscontinuïteit is het maken van een robuuste knowledge base-eindpunt dat erop toezien dat geen uitvaltijd voor de Bot of het gebruiken van deze toepassing.
+Het primaire doel van het plan voor bedrijfscontinuïteit is het maken van een robuuste knowledge base-eindpunt, wat dat zonder uitvaltijd voor de Bot of de toepassing die wordt verbruikt.
 
-![QnA Maker bcp plannen](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
+![QnA Maker bcp-plan](../media/qnamaker-how-to-bcp-plan/qnamaker-bcp-plan.png)
 
-Het idee op hoog niveau is zoals wordt weergegeven boven als volgt:
+Het idee op hoog niveau is zoals voorgesteld hierboven als volgt:
 
-1. Instellen van twee parallel [QnA Maker services](../How-To/set-up-qnamaker-service-azure.md) in [Azure regio's gekoppeld](https://docs.microsoft.com/en-us/azure/best-practices-availability-paired-regions).
+1. Instellen van twee parallelle [QnA Maker services](../How-To/set-up-qnamaker-service-azure.md) in [gekoppelde Azure-regio's](https://docs.microsoft.com/azure/best-practices-availability-paired-regions).
 
-2. De primaire en secundaire Azure zoekindexen synchroon te houden. Gebruik het voorbeeld github [hier](https://github.com/pchoudhari/QnAMakerBackupRestore) om te zien hoe Azure indexen back-up-herstel.
+2. De primaire en secundaire Azure search-indexen gesynchroniseerd te houden. Gebruik het voorbeeld github [hier](https://github.com/pchoudhari/QnAMakerBackupRestore) om te zien hoe u back-up-restore Azure indexen.
 
-3. Back-up van de Application Insights met [continue export](https://docs.microsoft.com/en-us/azure/application-insights/app-insights-export-telemetry).
+3. Back-up van de Application Insights met [continue export](https://docs.microsoft.com/azure/application-insights/app-insights-export-telemetry).
 
-4. Zodra de primaire en secundaire stapels zijn ingesteld, gebruikt u [traffic manager](https://docs.microsoft.com/en-us/azure/traffic-manager/) voor het configureren van de twee eindpunten en het instellen van een methode voor het doorsturen.
+4. Zodra de primaire en secundaire-stacks zijn ingesteld, gebruikt u [traffic manager](https://docs.microsoft.com/azure/traffic-manager/) voor het configureren van de twee eindpunten en routeringsmethode instellen.
 
-5. U moet een SSL-certificaat voor uw traffic manager-eindpunt te maken. [De SSL-certificaat binden](https://docs.microsoft.com/en-us/azure/app-service/app-service-web-tutorial-custom-ssl) in uw App-services.
+5. U moet een SSL-certificaat voor uw traffic manager-eindpunt maken. [De SSL-certificaat binden](https://docs.microsoft.com/azure/app-service/app-service-web-tutorial-custom-ssl) in uw App-services.
 
 6. Gebruik tot slot de traffic manager-eindpunt in uw Bot of App.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Kies de capaciteit voor uw implementatie QnA Maker](../Tutorials/choosing-capacity-qnamaker-deployment.md)
+> [Capaciteit voor uw implementatie QnA Maker kiezen](../Tutorials/choosing-capacity-qnamaker-deployment.md)

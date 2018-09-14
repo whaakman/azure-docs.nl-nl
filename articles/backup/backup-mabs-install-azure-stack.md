@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 6/5/2018
 ms.author: markgal
-ms.openlocfilehash: eda3e95c1bd8fb7eef97ee9db10c217c2885198f
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
+ms.openlocfilehash: 5092a677bcbeac179e26fa0591b6a1cfbc3263d4
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38970880"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576694"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Backup Server installeren op Azure Stack
 
@@ -310,7 +310,7 @@ Azure Backup Server deelt code met Data Protection Manager. Hier ziet u verwijzi
 
 ## <a name="add-backup-storage"></a>Backup storage toevoegen
 
-De eerste back-up wordt opgeslagen op opslag die is gekoppeld aan de Azure Backup-Server-machine. Zie voor meer informatie over het toevoegen van schijven [toevoegen Modern Backup storage](https://docs.microsoft.com/en-us/system-center/dpm/add-storage?view=sc-dpm-1801).
+De eerste back-up wordt opgeslagen op opslag die is gekoppeld aan de Azure Backup-Server-machine. Zie voor meer informatie over het toevoegen van schijven [toevoegen Modern Backup storage](https://docs.microsoft.com/system-center/dpm/add-storage?view=sc-dpm-1801).
 
 > [!NOTE]
 > U moet back-upopslag toevoegen, zelfs als u van plan bent om gegevens te verzenden naar Azure. In de Azure Backup-Server-architectuur, de Recovery Services-kluis bevat de *tweede* kopie van de gegevens tijdens de lokale opslag bevat de eerste (en verplichte) back-up.
@@ -328,10 +328,10 @@ Zodra u weet de status van de Azure-connectiviteit en van het Azure-abonnement d
 | Status connectiviteit | Azure-abonnement | Back-up naar Azure | Back-up naar schijf | Herstellen van Azure | Terugzetten vanaf schijf |
 | --- | --- | --- | --- | --- | --- |
 | Verbonden |Actief |Toegestaan |Toegestaan |Toegestaan |Toegestaan |
-| Verbonden |Verlopen |Gestopt |Gestopt |Toegestaan |Toegestaan |
+| Verbonden |Vervallen |Gestopt |Gestopt |Toegestaan |Toegestaan |
 | Verbonden |De inrichting ongedaan gemaakt |Gestopt |Gestopt |Gestopt en Azure herstelpunten verwijderd |Gestopt |
 | Verbinding is verbroken > 15 dagen |Actief |Gestopt |Gestopt |Toegestaan |Toegestaan |
-| Verbinding is verbroken > 15 dagen |Verlopen |Gestopt |Gestopt |Toegestaan |Toegestaan |
+| Verbinding is verbroken > 15 dagen |Vervallen |Gestopt |Gestopt |Toegestaan |Toegestaan |
 | Verbinding is verbroken > 15 dagen |De inrichting ongedaan gemaakt |Gestopt |Gestopt |Gestopt en Azure herstelpunten verwijderd |Gestopt |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>Herstellen uit het verlies van connectiviteit
@@ -360,10 +360,10 @@ U kunt ook verwijzen naar [Azure back-up die betrekking hebben Veelgestelde vrag
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Het artikel [uw omgeving voorbereiden voor DPM](https://docs.microsoft.com/en-us/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), informatie over ondersteunde configuraties voor Azure Backup Server bevat.
+Het artikel [uw omgeving voorbereiden voor DPM](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1801), informatie over ondersteunde configuraties voor Azure Backup Server bevat.
 
 U kunt de volgende artikelen een dieper inzicht te krijgen van werkbelastingsbescherming met Microsoft Azure Backup Server gebruiken.
 
-- [Back-up van SQL Server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
-- [Back-up van SharePoint server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Back-up van SQL Server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)
+- [Back-up van SharePoint server](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
 - [Alternatieve server back-up](backup-azure-alternate-dpm-server.md)

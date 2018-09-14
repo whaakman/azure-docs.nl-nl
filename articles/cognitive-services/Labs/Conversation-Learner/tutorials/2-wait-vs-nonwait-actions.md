@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: a8f7ccf79e750c9f3c21c25c50c3e275db7e4195
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: f349dab23b9156d3a5656e8275533ebe6a82cdf9
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39173081"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540897"
 ---
 # <a name="wait-and-non-wait-actions"></a>Wacht even en acties voor niet-wait
 
@@ -33,7 +33,7 @@ In deze zelfstudie is vereist dat de algemene zelfstudie bot wordt uitgevoerd
 ## <a name="details"></a>Details
 
 - Actie wachten: nadat het systeem heeft een actie 'wait', wordt niet meer acties en wachten op invoer van de gebruiker.
-- Niet-wait-actie: nadat het systeem heeft een actie 'niet-wait', wordt deze onmiddellijk nog een actie kiezen (zonder te wachten gebruiker inpu eerst op).
+- Niet-wait-actie: nadat het systeem heeft een actie 'niet-wait', wordt deze onmiddellijk nog een actie kiezen (zonder te wachten op gebruikersinvoer eerst).
 
 ## <a name="steps"></a>Stappen
 

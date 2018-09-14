@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 07/11/2018
 ms.author: meirm
 ms.component: na
-ms.openlocfilehash: 7898af1a8d516fa74deef5614b5373f1dbd22f5a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: ec35cece8da8eaaa89b11a35b0fc1e55d0cdfee8
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378599"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573488"
 ---
 # <a name="log-analytics-for-service-providers"></a>Log Analytics voor serviceproviders
 Log Analytics kunt providers van beheerde services (MSP's), grote ondernemingen, onafhankelijke softwareleveranciers (ISV's) en hosting serviceproviders servers in van de klant on-premises of cloud-infrastructuur beheren en controleren. 
@@ -31,16 +31,16 @@ Voor partners en leveranciers van de service die deel uitmaken van de [Cloud Sol
 
 ## <a name="architectures-for-service-providers"></a>Architecturen voor serviceproviders
 
-Log Analytics-werkruimten bieden een methode voor de beheerder bepalen de stroom en de isolatie van de logboeken en het maken van een architectuur met logboekbestanden die de specifieke zakelijke behoeften. [In dit artikel](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-manage-access) wordt de algemene aandachtspunten rond de Werkruimtebeheer beschreven. Serviceproviders zijn aanvullende overwegingen.
+Log Analytics-werkruimten bieden een methode voor de beheerder bepalen de stroom en de isolatie van de logboeken en het maken van een architectuur met logboekbestanden die de specifieke zakelijke behoeften. [In dit artikel](https://docs.microsoft.com/azure/log-analytics/log-analytics-manage-access) wordt de algemene aandachtspunten rond de Werkruimtebeheer beschreven. Serviceproviders zijn aanvullende overwegingen.
 
 Er zijn drie mogelijke architecturen voor serviceproviders met betrekking tot de Log Analytics-werkruimten:
 
 ### <a name="1-distributed---logs-are-stored-in-workspaces-located-in-the-customers-tenant"></a>1. Gedistribueerd - worden logboeken opgeslagen in werkruimten die zich in de tenant van de klant 
 
-Een werkruimte wordt in deze architectuur wordt geïmplementeerd in de tenant van de klant die wordt gebruikt voor de logboeken van de betreffende klant. De serviceprovider-beheerders krijgen toegangsrechten voor het gebruik van deze werkruimte [gastgebruikers van Azure Active Directory (B2B)](https://docs.microsoft.com/en-us/azure/active-directory/b2b/what-is-b2b). De serviceprovider-beheerders hebben om over te schakelen naar de map van de klant in Azure portal om toegang tot deze werkruimten te kunnen.
+Een werkruimte wordt in deze architectuur wordt geïmplementeerd in de tenant van de klant die wordt gebruikt voor de logboeken van de betreffende klant. De serviceprovider-beheerders krijgen toegangsrechten voor het gebruik van deze werkruimte [gastgebruikers van Azure Active Directory (B2B)](https://docs.microsoft.com/azure/active-directory/b2b/what-is-b2b). De serviceprovider-beheerders hebben om over te schakelen naar de map van de klant in Azure portal om toegang tot deze werkruimten te kunnen.
 
 De voordelen van deze architectuur zijn:
-* De klant kunt beheren de toegang tot de logboeken met behulp van hun eigen [op basis van de rol](https://docs.microsoft.com/en-us/azure/role-based-access-control/overview).
+* De klant kunt beheren de toegang tot de logboeken met behulp van hun eigen [op basis van de rol](https://docs.microsoft.com/azure/role-based-access-control/overview).
 * Elke klant kan hebben verschillende instellingen voor hun werkruimte zoals bewaren en gegevens beperking.
 * Isolatie tussen klanten voor regelgeving en nalevingsbeleid.
 * De kosten in rekening gebracht voor elke werkruimte worden doorgevoerd in het abonnement van de klant.
@@ -74,7 +74,7 @@ De derde architectuur combineren tussen de twee opties. Deze is gebaseerd op de 
 
 Er zijn twee opties voor het implementeren van de centrale locatie in Log Analytics:
 
-1. Centrale werkruimte: de serviceprovider kunt maken van een werkruimte in de tenant en gebruiken van een script dat gebruikmaakt van de [Query-API](https://dev.loganalytics.io/) met de [Data Collection API](log-analytics-data-collector-api.md) om de gegevens uit de verschillende werkruimten aan deze centrale locatie. Een andere optie, dan een script, is het gebruik [Azure Logic Apps](https://docs.microsoft.com/en-us/azure/logic-apps/logic-apps-overview).
+1. Centrale werkruimte: de serviceprovider kunt maken van een werkruimte in de tenant en gebruiken van een script dat gebruikmaakt van de [Query-API](https://dev.loganalytics.io/) met de [Data Collection API](log-analytics-data-collector-api.md) om de gegevens uit de verschillende werkruimten aan deze centrale locatie. Een andere optie, dan een script, is het gebruik [Azure Logic Apps](https://docs.microsoft.com/azure/logic-apps/logic-apps-overview).
 
 2. Power BI als een centrale locatie: Power BI kan fungeren als de centrale locatie als de verschillende werkruimten gegevens exporteren naar met behulp van de integratie tussen Log Analytics en [Power BI](log-analytics-powerbi.md). 
 

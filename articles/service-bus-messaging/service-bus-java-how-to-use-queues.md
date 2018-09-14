@@ -11,23 +11,30 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 09/13/2018
 ms.author: spelluru
-ms.openlocfilehash: e4099c8228e9434276242a3c49ebcb4fc2e995b2
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 804e0dd4b510b40c1ebbc5790308a429c2715724
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43696462"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573311"
 ---
 # <a name="how-to-use-service-bus-queues-with-java"></a>Over het gebruik van Service Bus-wachtrijen met Java
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 
 In dit artikel wordt het gebruik van de Service Bus-wachtrijen beschreven. De voorbeelden zijn geschreven in Java en gebruik de [Azure SDK voor Java][Azure SDK for Java]. De behandelde scenario's zijn **maken van wachtrijen**, **verzenden en ontvangen van berichten**, en **verwijderen van wachtrijen**.
 
+> [!NOTE]
+> U vindt Java-voorbeelden op GitHub in de [azure-service-bus repository](https://github.com/Azure/azure-service-bus/tree/master/samples/Java).
+
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
+## <a name="create-a-service-bus-namespace"></a>Een Service Bus-naamruimte maken
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]
+
+## <a name="create-a-service-bus-queue"></a>Een Service Bus-wachtrij maken
+[!INCLUDE [service-bus-create-queue-portal](../../includes/service-bus-create-queue-portal.md)]
 
 ## <a name="configure-your-application-to-use-service-bus"></a>Uw toepassing configureren voor het gebruik van Service Bus
 Zorg ervoor dat u hebt geïnstalleerd het [Azure SDK voor Java] [ Azure SDK for Java] voordat u dit voorbeeld maakt. Als u Eclipse gebruikt, kunt u de [Azure Toolkit voor Eclipse] [ Azure Toolkit for Eclipse] waarin de Azure SDK voor Java. Vervolgens kunt u toevoegen de **Microsoft Azure-bibliotheken voor Java** aan uw project:
@@ -38,83 +45,72 @@ Voeg de volgende `import` instructies toe aan het begin van de Java-bestand:
 
 ```java
 // Include the following imports to use Service Bus APIs
-import com.microsoft.windowsazure.services.servicebus.*;
-import com.microsoft.windowsazure.services.servicebus.models.*;
-import com.microsoft.windowsazure.core.*;
-import javax.xml.datatype.*;
+import com.google.gson.reflect.TypeToken;
+import com.microsoft.azure.servicebus.*;
+import com.microsoft.azure.servicebus.primitives.ConnectionStringBuilder;
+import com.google.gson.Gson;
+
+import static java.nio.charset.StandardCharsets.*;
+
+import java.time.Duration;
+import java.util.*;
+import java.util.concurrent.*;
+
+import org.apache.commons.cli.*;
+
 ```
-
-## <a name="create-a-queue"></a>Een wachtrij maken
-Bewerkingen voor Service Bus-wachtrijen kunnen worden uitgevoerd via de **ServiceBusContract** klasse. Een **ServiceBusContract** object is gemaakt met een geschikte configuratie die de SAS-token met machtigingen kapselt voor beheer, en de **ServiceBusContract** klasse is het enige storingspunt communicatie met Azure.
-
-De **ServiceBusService** klasse biedt methoden voor het maken, opsommen en verwijderen van wachtrijen. Het voorbeeld hieronder toont hoe een **ServiceBusService** object kan worden gebruikt voor het maken van een wachtrij met de naam `TestQueue`, met een naamruimte met de naam `HowToSample`:
-
-```java
-Configuration config =
-    ServiceBusConfiguration.configureWithSASAuthentication(
-            "HowToSample",
-            "RootManageSharedAccessKey",
-            "SAS_key_value",
-            ".servicebus.windows.net"
-            );
-
-ServiceBusContract service = ServiceBusService.create(config);
-QueueInfo queueInfo = new QueueInfo("TestQueue");
-try
-{
-    CreateQueueResult result = service.createQueue(queueInfo);
-}
-catch (ServiceException e)
-{
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
-```
-
-Er zijn methoden op `QueueInfo` waarmee eigenschappen van de wachtrij om te worden afgestemd op (bijvoorbeeld: om in te stellen van de standaard time-to-live (TTL) waarde moet worden toegepast op berichten die worden verzonden naar de wachtrij). Het volgende voorbeeld laat zien hoe een wachtrij met de naam maken `TestQueue` met een maximale grootte van 5 GB:
-
-````java
-long maxSizeInMegabytes = 5120;
-QueueInfo queueInfo = new QueueInfo("TestQueue");
-queueInfo.setMaxSizeInMegabytes(maxSizeInMegabytes);
-CreateQueueResult result = service.createQueue(queueInfo);
-````
-
-Let op: u kunt de `listQueues` methode voor **ServiceBusContract** objecten om te controleren of een wachtrij met een opgegeven naam al in een Servicenaamruimte bestaat.
 
 ## <a name="send-messages-to-a-queue"></a>Berichten verzenden naar een wachtrij
-Als u wilt een bericht verzenden naar een Service Bus-wachtrij, uw toepassing verkrijgt een **ServiceBusContract** object. De volgende code laat zien hoe u een bericht verzenden voor de `TestQueue` wachtrij eerder hebt gemaakt de `HowToSample` naamruimte:
+Om berichten te verzenden naar een Service Bus-wachtrij, uw toepassing maakt een **QueueClient** object en berichten asynchroon worden verzonden. De volgende code toont hoe u een bericht verzendt voor een wachtrij die is gemaakt via de portal.
 
 ```java
-try
-{
-    BrokeredMessage message = new BrokeredMessage("MyMessage");
-    service.sendQueueMessage("TestQueue", message);
+public void run() throws Exception {
+    // Create a QueueClient instance and then asynchronously send messages.
+    // Close the sender once the send operation is complete.
+    QueueClient sendClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
+    this.sendMessageAsync(sendClient).thenRunAsync(() -> sendClient.closeAsync());
+
+    sendClient.close();
 }
-catch (ServiceException e)
-{
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
+
+    CompletableFuture<Void> sendMessagesAsync(QueueClient sendClient) {
+        List<HashMap<String, String>> data =
+                GSON.fromJson(
+                        "[" +
+                                "{'name' = 'Einstein', 'firstName' = 'Albert'}," +
+                                "{'name' = 'Heisenberg', 'firstName' = 'Werner'}," +
+                                "{'name' = 'Curie', 'firstName' = 'Marie'}," +
+                                "{'name' = 'Hawking', 'firstName' = 'Steven'}," +
+                                "{'name' = 'Newton', 'firstName' = 'Isaac'}," +
+                                "{'name' = 'Bohr', 'firstName' = 'Niels'}," +
+                                "{'name' = 'Faraday', 'firstName' = 'Michael'}," +
+                                "{'name' = 'Galilei', 'firstName' = 'Galileo'}," +
+                                "{'name' = 'Kepler', 'firstName' = 'Johannes'}," +
+                                "{'name' = 'Kopernikus', 'firstName' = 'Nikolaus'}" +
+                                "]",
+                        new TypeToken<List<HashMap<String, String>>>() {}.getType());
+
+        List<CompletableFuture> tasks = new ArrayList<>();
+        for (int i = 0; i < data.size(); i++) {
+            final String messageId = Integer.toString(i);
+            Message message = new Message(GSON.toJson(data.get(i), Map.class).getBytes(UTF_8));
+            message.setContentType("application/json");
+            message.setLabel("Scientist");
+            message.setMessageId(messageId);
+            message.setTimeToLive(Duration.ofMinutes(2));
+            System.out.printf("\nMessage sending: Id = %s", message.getMessageId());
+            tasks.add(
+                    sendClient.sendAsync(message).thenRunAsync(() -> {
+                        System.out.printf("\n\tMessage acknowledged: Id = %s", message.getMessageId());
+                    }));
+        }
+        return CompletableFuture.allOf(tasks.toArray(new CompletableFuture<?>[tasks.size()]));
+    }
+
 ```
 
-Berichten verzonden naar en ontvangen van Service Bus-wachtrijen zijn exemplaren van de [BrokeredMessage] [ BrokeredMessage] klasse. [BrokeredMessage] [ BrokeredMessage] objecten hebben een aantal standaardeigenschappen (zoals [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label#Microsoft_ServiceBus_Messaging_BrokeredMessage_Label) en [TimeToLive](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.timetolive#Microsoft_ServiceBus_Messaging_BrokeredMessage_TimeToLive)), een woordenlijst die wordt gebruikt voor het opslaan van aangepaste toepassingsspecifieke eigenschappen, en een hoofdtekst met willekeurige toepassingsgegevens. Een toepassing kan de hoofdtekst van het bericht instellen door elk serialiseerbaar object doorgeven aan de constructor van het [BrokeredMessage][BrokeredMessage], en de juiste serializer wordt vervolgens gebruikt om het object te serialiseren. U kunt ook opgeven een **java. I/O. InputStream** object.
+Berichten verzonden naar en ontvangen van Service Bus-wachtrijen zijn exemplaren van de [bericht](/java/api/com.microsoft.azure.servicebus._message?view=azure-java-stable) klasse. Berichtobjecten hebben een aantal standaardeigenschappen (zoals Label en TimeToLive), een woordenlijst die wordt gebruikt om aangepaste toepassingsspecifieke eigenschappen te bewaren, en een hoofdtekst met willekeurige toepassingsgegevens. Een toepassing kan de hoofdtekst van het bericht instellen door elk serialiseerbaar object doorgeven aan de constructor van het bericht en de juiste serializer wordt vervolgens gebruikt om het object te serialiseren. U kunt ook opgeven een **java. I/O. InputStream** object.
 
-Het volgende voorbeeld ziet u hoe u voor het verzenden van vijf testberichten naar het `TestQueue` **MessageSender** we hebt verkregen in het vorige codefragment:
-
-```java
-for (int i=0; i<5; i++)
-{
-     // Create message, passing a string message for the body.
-     BrokeredMessage message = new BrokeredMessage("Test message " + i);
-     // Set an additional app-specific property.
-     message.setProperty("MyProperty", i);
-     // Send message to the queue
-     service.sendQueueMessage("TestQueue", message);
-}
-```
 
 Service Bus-wachtrijen ondersteunen een maximale berichtgrootte van 256 kB in de [Standard-laag](service-bus-premium-messaging.md) en 1 MB in de [Premium-laag](service-bus-premium-messaging.md). De koptekst, die de standaard- en aangepaste toepassingseigenschappen bevat, kan maximaal 64 kB groot zijn. Er is geen limiet voor het aantal berichten in een wachtrij, maar er is een limiet voor de totale grootte van de berichten in een wachtrij. De grootte van de wachtrij wordt gedefinieerd tijdens het aanmaken, met een bovengrens van 5 GB.
 
@@ -122,63 +118,60 @@ Service Bus-wachtrijen ondersteunen een maximale berichtgrootte van 256 kB in de
 De belangrijkste manier om berichten te ontvangen van een wachtrij is met een **ServiceBusContract** object. Ontvangen berichten kunnen werken in twee verschillende modi: **ReceiveAndDelete** en **PeekLock**.
 
 Wanneer u de **ReceiveAndDelete** modus, ontvangen een bewerking is voor één - dat wil zeggen, Service Bus een leesaanvraag voor een bericht in een wachtrij ontvangt, wordt het bericht als verbruikt gemarkeerd en geeft dit terug aan de toepassing. **ReceiveAndDelete** modus (dit is de standaardmodus) is het eenvoudigste model en werkt het beste voor scenario's waarin een toepassing kan tolereren niet verwerken van een bericht bij een storing. Neem bijvoorbeeld een scenario waarin de consument de ontvangstaanvraag uitgeeft en het systeem vervolgens vastloopt voordat de aanvraag wordt verwerkt.
-Omdat Service Bus het bericht als verbruikt heeft gemarkeerd, klikt u vervolgens wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint, ontbreekt het bericht dat voor het vastlopen is verbruikt.
+Omdat Service Bus kan het bericht als verbruikt heeft gemarkeerd, klikt u vervolgens ontbreekt wanneer de toepassing opnieuw wordt opgestart en het verbruik van berichten opnieuw begint het het bericht dat voor het vastlopen is verbruikt.
 
-In **PeekLock** modus, ontvangen een bewerking met twee fasen, waardoor er toepassingen kunnen worden ondersteund die geen ontbrekende berichten kunnen tolereren. Als Service Bus een aanvraag ontvangt, wordt het volgende te verbruiken bericht gevonden, wordt het bericht vergrendeld om te voorkomen dat andere consumenten het ontvangen en wordt het bericht vervolgens naar de toepassing geretourneerd. Nadat de toepassing klaar is met het verwerken van bericht (of deze op betrouwbare wijze voor toekomstige verwerking slaat), is de tweede fase van het ontvangstproces voltooid door het aanroepen van **verwijderen** voor het ontvangen bericht. Wanneer Service Bus ziet de **verwijderen** aanroep, wordt het bericht als verbruikt markeren en verwijderen uit de wachtrij.
+In **PeekLock** modus, ontvangen een bewerking met twee fasen, waardoor er toepassingen kunnen worden ondersteund die geen ontbrekende berichten kunnen tolereren. Als Service Bus een aanvraag ontvangt, wordt het volgende te verbruiken bericht gevonden, wordt het bericht vergrendeld om te voorkomen dat andere consumenten het ontvangen en wordt het bericht vervolgens naar de toepassing geretourneerd. Nadat de toepassing klaar is met het verwerken van bericht (of deze op betrouwbare wijze voor toekomstige verwerking slaat), is de tweede fase van het ontvangstproces voltooid door het aanroepen van **verwijderen** voor het ontvangen bericht. Wanneer Service Bus ziet de **verwijderen** -aanroep wordt gemarkeerd het bericht als verbruikt en verwijderen uit de wachtrij.
 
 Het volgende voorbeeld laat zien hoe berichten kunnen worden ontvangen en verwerkt met behulp **PeekLock** -modus (niet de standaardinstelling). In het volgende voorbeeld wordt een oneindige lus en berichten worden verwerkt wanneer ze binnenkomen in onze `TestQueue`:
 
 ```java
-try
-{
-    ReceiveMessageOptions opts = ReceiveMessageOptions.DEFAULT;
-    opts.setReceiveMode(ReceiveMode.PEEK_LOCK);
+    public void run() throws Exception {
+        // Create a QueueClient instance for receiving using the connection string builder
+        // We set the receive mode to "PeekLock", meaning the message is delivered
+        // under a lock and must be acknowledged ("completed") to be removed from the queue
+        QueueClient receiveClient = new QueueClient(new ConnectionStringBuilder(ConnectionString, QueueName), ReceiveMode.PEEKLOCK);
+        this.registerReceiver(receiveClient);
 
-    while(true)  {
-         ReceiveQueueMessageResult resultQM =
-                 service.receiveQueueMessage("TestQueue", opts);
-        BrokeredMessage message = resultQM.getValue();
-        if (message != null && message.getMessageId() != null)
-        {
-            System.out.println("MessageID: " + message.getMessageId());
-            // Display the queue message.
-            System.out.print("From queue: ");
-            byte[] b = new byte[200];
-            String s = null;
-            int numRead = message.getBody().read(b);
-            while (-1 != numRead)
-            {
-                s = new String(b);
-                s = s.trim();
-                System.out.print(s);
-                numRead = message.getBody().read(b);
-            }
-            System.out.println();
-            System.out.println("Custom Property: " +
-                message.getProperty("MyProperty"));
-            // Remove message from queue.
-            System.out.println("Deleting this message.");
-            //service.deleteMessage(message);
-        }  
-        else  
-        {
-            System.out.println("Finishing up - no more messages.");
-            break;
-            // Added to handle no more messages.
-            // Could instead wait for more messages to be added.
-        }
+        // shut down receiver to close the receive loop
+        receiveClient.close();
     }
-}
-catch (ServiceException e) {
-    System.out.print("ServiceException encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
-catch (Exception e) {
-    System.out.print("Generic exception encountered: ");
-    System.out.println(e.getMessage());
-    System.exit(-1);
-}
+    void registerReceiver(QueueClient queueClient) throws Exception {
+        // register the RegisterMessageHandler callback
+        queueClient.registerMessageHandler(new IMessageHandler() {
+        // callback invoked when the message handler loop has obtained a message
+            public CompletableFuture<Void> onMessageAsync(IMessage message) {
+            // receives message is passed to callback
+                if (message.getLabel() != null &&
+                    message.getContentType() != null &&
+                    message.getLabel().contentEquals("Scientist") &&
+                    message.getContentType().contentEquals("application/json")) {
+
+                        byte[] body = message.getBody();
+                        Map scientist = GSON.fromJson(new String(body, UTF_8), Map.class);
+
+                        System.out.printf(
+                            "\n\t\t\t\tMessage received: \n\t\t\t\t\t\tMessageId = %s, \n\t\t\t\t\t\tSequenceNumber = %s, \n\t\t\t\t\t\tEnqueuedTimeUtc = %s," +
+                            "\n\t\t\t\t\t\tExpiresAtUtc = %s, \n\t\t\t\t\t\tContentType = \"%s\",  \n\t\t\t\t\t\tContent: [ firstName = %s, name = %s ]\n",
+                            message.getMessageId(),
+                            message.getSequenceNumber(),
+                            message.getEnqueuedTimeUtc(),
+                            message.getExpiresAtUtc(),
+                            message.getContentType(),
+                            scientist != null ? scientist.get("firstName") : "",
+                            scientist != null ? scientist.get("name") : "");
+                    }
+                    return CompletableFuture.completedFuture(null);
+                }
+
+                // callback invoked when the message handler has an exception to report
+                public void notifyException(Throwable throwable, ExceptionPhase exceptionPhase) {
+                    System.out.printf(exceptionPhase + "-" + throwable.getMessage());
+                }
+        },
+        // 1 concurrent call, messages are auto-completed, auto-renew duration
+        new MessageHandlerOptions(1, true, Duration.ofMinutes(1)));
+    }
+
 ```
 
 ## <a name="how-to-handle-application-crashes-and-unreadable-messages"></a>Het vastlopen van de toepassing en onleesbare berichten afhandelen

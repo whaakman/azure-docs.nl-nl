@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/24/2017
 ms.author: cherylmc
-ms.openlocfilehash: e61e41c41888d8d2ca65961dd5bea73fd9b6bd21
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: d23ed383bee3346cfbb20c6935dd3630e137c179
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37927686"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573894"
 ---
 # <a name="reset-a-vpn-gateway"></a>Een VPN-gateway opnieuw instellen
 
@@ -75,7 +75,7 @@ Wanneer u een geretourneerd resultaat ontvangt, kunt u ervan uitgaan dat de gate
 
 ### <a name="resetclassic"></a>Klassieke implementatiemodel
 
-De cmdlet voor het opnieuw instellen van een gateway is **Reset-AzureVNetGateway**. Voordat u een opnieuw instellen, zorg ervoor dat u hebt de nieuwste versie van de [SM (Service Management) PowerShell-cmdlets](https://docs.microsoft.com/en-us/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Het volgende voorbeeld wordt de gateway voor een virtueel netwerk met de naam 'ContosoVNet':
+De cmdlet voor het opnieuw instellen van een gateway is **Reset-AzureVNetGateway**. Voordat u een opnieuw instellen, zorg ervoor dat u hebt de nieuwste versie van de [SM (Service Management) PowerShell-cmdlets](https://docs.microsoft.com/powershell/azure/servicemanagement/install-azure-ps?view=azuresmps-4.0.0#azure-service-management-cmdlets). Het volgende voorbeeld wordt de gateway voor een virtueel netwerk met de naam 'ContosoVNet':
 
 ```powershell
 Reset-AzureVNetGateway –VnetName “ContosoVNet”

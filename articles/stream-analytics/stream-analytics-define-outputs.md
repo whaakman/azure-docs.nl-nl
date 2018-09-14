@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 05/14/2018
-ms.openlocfilehash: 4fd85135ea16a5183b1b0d5220d1c160044e8841
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: d717737bc2b15e57ae32faffaece96f78a7cc013
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701011"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577817"
 ---
 # <a name="understand-outputs-from-azure-stream-analytics"></a>Inzicht in de uitvoer van Azure Stream Analytics
 Dit artikel beschrijft de verschillende typen uitvoer beschikbaar voor een Azure Stream Analytics-taak. Uitvoer kunnen u opslaan en sla de resultaten van de Stream Analytics-taak. De uitvoergegevens die worden gebruikt, kunt u doen verdere bedrijfsanalyses en datawarehousing van uw gegevens. 
@@ -299,7 +299,7 @@ De volgende tabel geeft een overzicht van de partitie ondersteuning en het aanta
 | Azure Data Lake Store | Ja | Gebruik {date} en {time} tokens in het patroon voor het voorvoegsel van pad. Kies de notatie voor datum, zoals jjjj/MM/DD, jjjj/MM/jjjj, MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). | 
 | Azure SQL Database | Nee | Geen | Niet van toepassing. | 
 | Azure Blob Storage | Ja | Gebruik {date} en {time} tokens van de gebeurtenis velden in het pad-patroon. Kies de notatie voor datum, zoals jjjj/MM/DD, jjjj/MM/jjjj, MM-DD-JJJJ. HH wordt gebruikt voor de tijdnotatie. Als onderdeel van de [preview](https://aka.ms/ASAPreview), blob-uitvoer kan worden gepartitioneerd op een kenmerk met één aangepaste gebeurtenis {fieldname} of {datum/tijd:\<aanduiding >}. | De invoer voor het partitioneren van volgt [volledig worden opgestart query's](stream-analytics-scale-jobs.md). | 
-| Azure Event Hub | Ja | Ja | Is afhankelijk van de uitlijning van de partitie.</br> Als uitvoer van de uitvoer Event Hub-partitiesleutel is even uitgelijnd met upstream (vorige) querystap is het aantal schrijvers is hetzelfde van het aantal Event Hub-partities. Elke schrijver maakt gebruik van de EventHub [EventHubSender klasse](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) voor het verzenden van gebeurtenissen naar de specifieke partitie. </br> Wanneer de uitvoer Event Hub-partitiesleutel is niet uitgelijnd met upstream (vorige) querystap is het aantal schrijvers is hetzelfde als het aantal partities in die de vorige stap. EventHubClient maakt gebruik van elke schrijver [SendBatchAsync klasse](https://docs.microsoft.com/en-us/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) gebeurtenissen verzenden naar alle partities van de uitvoer. |
+| Azure Event Hub | Ja | Ja | Is afhankelijk van de uitlijning van de partitie.</br> Als uitvoer van de uitvoer Event Hub-partitiesleutel is even uitgelijnd met upstream (vorige) querystap is het aantal schrijvers is hetzelfde van het aantal Event Hub-partities. Elke schrijver maakt gebruik van de EventHub [EventHubSender klasse](/dotnet/api/microsoft.servicebus.messaging.eventhubsender?view=azure-dotnet) voor het verzenden van gebeurtenissen naar de specifieke partitie. </br> Wanneer de uitvoer Event Hub-partitiesleutel is niet uitgelijnd met upstream (vorige) querystap is het aantal schrijvers is hetzelfde als het aantal partities in die de vorige stap. EventHubClient maakt gebruik van elke schrijver [SendBatchAsync klasse](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventhubclient.sendasync?view=azure-dotnet) gebeurtenissen verzenden naar alle partities van de uitvoer. |
 | Power BI | Nee | Geen | Niet van toepassing. | 
 | Azure Table Storage | Ja | Elke uitvoerkolom.  | De invoer voor het partitioneren van volgt [volledig geparallelliseerd query's](stream-analytics-scale-jobs.md). | 
 | Azure Service Bus-onderwerp | Ja | Automatisch gekozen. Het aantal partities is gebaseerd op de [Service Bus-SKU's en grootte](../service-bus-messaging/service-bus-partitioning.md). Partitiesleutel is een unieke integer-waarde voor elke partitie.| Hetzelfde als het aantal partities in het onderwerp van de uitvoer.  |

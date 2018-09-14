@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: shlo
-ms.openlocfilehash: 37c2c96ad14741fba2733765640f8d6d9ef3fee2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 73bc8b6954470d11d6369bc733bb7c6f794ce892
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716416"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577129"
 ---
 # <a name="azure-data-factory-faq"></a>Azure Data Factory Veelgestelde vragen
 In dit artikel vindt u antwoorden op veelgestelde vragen over Azure Data Factory.  
@@ -82,7 +82,7 @@ Data Factory heeft de volgende functies toegevoegd voor SSIS sinds de eerste ope
 -   Azure SQL-database met VNet-service-eindpunten
 -   Beheerd exemplaar (MI)
 -   Elastische pool
--   Ondersteuning voor Azure Resource Manager-netwerk (VNet) boven op klassieke VNet dat in de toekomst – worden afgeschaft Hiermee kunt u uw Azure-SSIS Integration Runtime (IR) met een VNet dat is geconfigureerd voor Azure SQL-database met VNet-service-eindpunten/MI invoeren/join / on-premises gegevenstoegang, Zie: https://docs.microsoft.com/en-us/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
+-   Ondersteuning voor Azure Resource Manager-netwerk (VNet) boven op klassieke VNet dat in de toekomst – worden afgeschaft Hiermee kunt u uw Azure-SSIS Integration Runtime (IR) met een VNet dat is geconfigureerd voor Azure SQL-database met VNet-service-eindpunten/MI invoeren/join / on-premises gegevenstoegang, Zie: https://docs.microsoft.com/azure/data-factory/join-azure-ssis-integration-runtime-virtual-network 
 -   Ondersteuning voor verificatie van Azure Active Directory (AAD) boven op SQL-verificatie verbinding maken met de SSISDB - Hiermee kunt u AAD-verificatie gebruiken met uw ADF Managed Service Identity (MSI)
 -   Ondersteuning om uw eigen on-premises SQL Server-licentie om te winnen aanzienlijke kostenbesparingen via de optie Azure Hybrid Benefit (AHB)
 -   Ondersteuning voor Enterprise-editie van Azure-SSIS IR waarmee u gebruik geavanceerde/premium-functies, aangepaste setup te installeren van extra onderdelen/extensies en 3e partij-ecosysteem, Zie: https://blogs.msdn.microsoft.com/ssis/2018/04/27/enterprise-edition-custom-setup-and-3rd-party-extensibility-for-ssis-in-adf/ 

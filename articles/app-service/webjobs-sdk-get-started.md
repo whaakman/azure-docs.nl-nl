@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/27/2018
 ms.author: glenga
-ms.openlocfilehash: 72f7090c285e629149519920ac82f0fe962abc48
-ms.sourcegitcommit: 615403e8c5045ff6629c0433ef19e8e127fe58ac
+ms.openlocfilehash: e2f9bee2adcebfd47ca088a1bbe76b870e285044
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39577302"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580429"
 ---
 # <a name="get-started-with-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>Aan de slag met de Azure WebJobs-SDK voor verwerking op de achtergrond gebeurtenisgestuurde
 
@@ -102,7 +102,7 @@ De `JobHost` -object is de container runtime van functions: er wordt geluisterd 
 
 ## <a name="enable-console-logging"></a>Console-logboekregistratie inschakelen
 
-Er zijn verschillende opties voor logboekregistratie in de WebJobs SDK-project. Het is raadzaam een de [framework voor logboekregistratie die is ontwikkeld voor ASP.NET Core](https://docs.microsoft.com/en-us/aspnet/core/fundamentals/logging). Dit framework biedt betere prestaties en meer flexibiliteit in de opslagmedia en filteren. 
+Er zijn verschillende opties voor logboekregistratie in de WebJobs SDK-project. Het is raadzaam een de [framework voor logboekregistratie die is ontwikkeld voor ASP.NET Core](https://docs.microsoft.com/aspnet/core/fundamentals/logging). Dit framework biedt betere prestaties en meer flexibiliteit in de opslagmedia en filteren. 
 
 In deze sectie maakt instellen u console-aanmelding die gebruikmaakt van de nieuwe framework.
 

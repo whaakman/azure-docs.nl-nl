@@ -12,12 +12,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 48c21638fe5756e6527288ed0fdc73dd9e331afd
-ms.sourcegitcommit: baed5a8884cb998138787a6ecfff46de07b8473d
+ms.openlocfilehash: 667636aac49d2622ba1a6b45d7c8af61b9609c55
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "35622215"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579177"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Afbeeldingsclassificatie met behulp van Azure Machine Learning Workbench
 
@@ -95,7 +95,7 @@ Deze stappen uitvoert, maakt de projectstructuur die hieronder wordt weergegeven
 
 ## <a name="data-description"></a>Beschrijving van de gegevens
 
-Deze zelfstudie wordt gebruikt als voorbeeld een bovenste hoofdtekst kleding patroon gegevensset die bestaan uit maximaal 428 installatiekopieën wordt uitgevoerd. Elke installatiekopie is gemarkeerd als een van drie verschillende structuren (onderbroken, striped, leopard). We het aantal afbeeldingen kleine opgeslagen zodat deze zelfstudie kan snel worden uitgevoerd. De code is echter goed geteste en werkt samen met tienduizenden afbeeldingen of meer. Alle installatiekopieën zijn die is geëxtraheerd met behulp van de Bing afbeeldingen zoeken en hand-aangetekend zoals wordt uitgelegd in [deel 3](#using-a-custom-dataset). De URL's met hun respectieve kenmerken worden weergegeven in afbeelding de */resources/fashionTextureUrls.tsv* bestand.
+Deze zelfstudie wordt gebruikt als voorbeeld een bovenste hoofdtekst kleding patroon gegevensset die bestaan uit maximaal 428 installatiekopieën wordt uitgevoerd. Elke installatiekopie is gemarkeerd als een van drie verschillende structuren (onderbroken, striped, leopard). We het aantal afbeeldingen kleine opgeslagen zodat deze zelfstudie kan snel worden uitgevoerd. De code is echter goed geteste en werkt samen met tienduizenden afbeeldingen of meer. Alle installatiekopieën zijn zoals wordt uitgelegd in voorraad aantekeningen [deel 3](#using-a-custom-dataset). De URL's met hun respectieve kenmerken worden weergegeven in afbeelding de */resources/fashionTextureUrls.tsv* bestand.
 
 Het script `0_downloadData.py` downloadt alle installatiekopieën op de *DATA_DIR/afbeeldingen/fashionTexture/* directory. Sommige van de 428 URL's zijn waarschijnlijk verbroken. Dit is niet een probleem en houdt in dat we iets minder installatiekopieën hebben voor trainings- en testdoeleinden. Alle scripts die zijn opgegeven in dit voorbeeld moeten lokaal worden uitgevoerd en niet op bijvoorbeeld een docker externe omgeving.
 
@@ -263,11 +263,11 @@ Enkele van de meest veelbelovende mogelijkheden voor verbeteringen zijn:
 
 ## <a name="part-3---custom-dataset"></a>Deel 3 - aangepaste gegevensset
 
-In deel 1 en 2, we getraind en geëvalueerd van een installatiekopie classificeringsmodel met behulp van de opgegeven hoofdtekst van de bovenste kleding structuren afbeeldingen. Nu laten we zien hoe u een aangepaste gebruiker gemaakte gegevensset in plaats daarvan gebruikt. Of, als deze niet beschikbaar zijn, hoe om te genereren en aantekeningen toevoegen aan deze een gegevensset met behulp van de Bing afbeeldingen zoeken.
+In deel 1 en 2, we getraind en geëvalueerd van een installatiekopie classificeringsmodel met behulp van de opgegeven hoofdtekst van de bovenste kleding structuren afbeeldingen. Nu laten we zien hoe u een aangepaste gebruiker gemaakte gegevensset in plaats daarvan gebruikt. 
 
 ### <a name="using-a-custom-dataset"></a>Met behulp van een aangepaste gegevensset
 
-Eerst hebben we een overzicht van de mappenstructuur voor de gegevens van de structuur kleding. Houd er rekening mee hoe alle installatiekopieën voor de verschillende kenmerken zijn in de bijbehorende submappen *gestippelde*, * leopard, en *striped* op *DATA_DIR/afbeeldingen/fashionTexture/*. U ziet ook hoe de naam van de installatiekopie-map vindt ook plaats de `PARAMETERS.py` bestand:
+Eerst hebben we een overzicht van de mappenstructuur voor de gegevens van de structuur kleding. Houd er rekening mee hoe alle installatiekopieën voor de verschillende kenmerken zijn in de bijbehorende submappen *gestippelde*, *leopard*, en *striped* op *DATA_DIR/images / fashionTexture /*. U ziet ook hoe de naam van de installatiekopie-map vindt ook plaats de `PARAMETERS.py` bestand:
 ```python
 datasetName = "fashionTexture"
 ```
@@ -280,14 +280,23 @@ Het is belangrijk dat elke installatiekopie kan worden toegewezen aan exact éé
 
 ### <a name="image-scraping-and-annotation"></a>Afbeelding afschrapen en aantekening
 
-Verzamelen van een voldoende aantal interpretaties installatiekopieën voor trainings- als testdoeleinden kan lastig zijn. Er is een manier om dit probleem oplossen bij installatiekopieën van het Internet. Zie bijvoorbeeld onder de Bing afbeeldingen zoeken-resultaten voor de query *t-shirt striped*. Zoals verwacht, meeste afbeeldingen inderdaad worden striped t-shirt. Het paar onjuist of niet-eenduidige afbeeldingen (zoals kolom 1, 1; rij of kolom 3, rij 2) kunnen worden geïdentificeerd en eenvoudig worden verwijderd:
+Verzamelen van een voldoende aantal interpretaties installatiekopieën voor trainings- als testdoeleinden kan lastig zijn. Er is een manier om dit probleem oplossen bij installatiekopieën van het Internet.
+
+> [!IMPORTANT] 
+> Voor alle installatiekopieën die u gebruikt, zorg ervoor dat schenden geen u auteursrechten. 
+
+<!--
+For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:
 <p align="center">
 <img src="media/scenario-image-classification-using-cntk/bing_search_striped.jpg" alt="alt text" width="600"/>
 </p>
+-->
 
 Voor het genereren van een grote en diverse gegevensset moeten meerdere query's worden gebruikt. Bijvoorbeeld: 7\*3 = 21-query's kunnen worden gemaakt met automatisch alle combinaties van kleding items {bloes, hoodie, aangebreide, trui, shirt, t-shirt, uitoefenbaarheid} en {striped, decimale, leopard} kenmerken. Vervolgens downloaden van de bovenste 50 afbeeldingen per query zou leiden tot een maximum van 21 * 50 = 1050 installatiekopieën.
 
-In plaats van handmatig afbeeldingen worden gedownload van de Bing afbeeldingen zoeken, is het veel eenvoudiger te gebruiken in plaats daarvan de [Cognitive Services Bing afbeeldingen zoeken-API](https://www.microsoft.com/cognitive-services/bing-image-search-api) die retourneert een set met afbeelding-URL's die een queryreeks opgegeven.
+<!--
+Rather than manually downloading images from Bing Image Search, it is much easier to instead use the [Cognitive Services Bing Image Search API](https://www.microsoft.com/cognitive-services/bing-image-search-api) which returns a set of image URLs given a query string.
+-->
 
 Sommige van de gedownloade afbeeldingen exact of in de buurt van dubbele waarden zijn (bijvoorbeeld door installatiekopie resolutie of jpg-artefacten verschillen). Deze dubbele vermeldingen moeten worden verwijderd zodat de splitsing trainings- en testset niet dezelfde afbeeldingen bevatten. Verwijderen van dubbele installatiekopieën kan worden bereikt met behulp van een hash-gebaseerde benadering waarmee u in twee stappen werkt: (i) eerst de tekenreeks hash wordt berekend voor alle installatiekopieën. (ii) in een tweede keer via de installatiekopieën, zijn alleen afbeeldingen worden bewaard met een hash-tekenreeks is die nog niet zichtbaar. Alle andere installatiekopieën worden verwijderd. We vinden het `dhash` benadering in de Python-bibliotheek `imagehash` en die worden beschreven in deze [blog](http://www.hackerfactor.com/blog/index.php?/archives/529-Kind-of-Like-That.html) om uit te voeren, met de parameter `hash_size` is ingesteld op 16. Het is OK onjuist verwijderen van enkele afbeeldingen unieke, zolang het merendeel van de echte dubbele records worden verwijderd.
 

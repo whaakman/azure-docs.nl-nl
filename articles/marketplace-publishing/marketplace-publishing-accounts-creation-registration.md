@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/04/2017
 ms.author: hascipio
-ms.openlocfilehash: 642e4a2d11ef5a92f5ab46bc4872414966b04c0d
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 24dc50a6c78769877bdc07b9521a9d2e33837937
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715655"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579612"
 ---
 # <a name="create-a-microsoft-developer-account"></a>Een Microsoft Developer-account maken
 Dit artikel helpt u bij het maken van de benodigde account en het registratieproces om te worden van een goedgekeurde Microsoft Developer voor de Azure Marketplace.
@@ -38,7 +38,7 @@ Het adres dat de gebruikersnaam vormt, moet zich op uw domein en beheerd door uw
 Bij het maken van een bedrijfsaccount, volgt u deze richtlijnen als meer dan één persoon moet toegang tot het account door aan te melden met de Microsoft-account dat het account wordt geopend.
 
 > [!Important]
-> Toestaan dat meerdere gebruikers toegang tot uw account Dev Center belangrijk, wordt u aangeraden Azure Active Directory het toewijzen van rollen naar afzonderlijke gebruikers, wie toegang heeft tot het account dat u zich aanmeldt met zijn eigen Azure AD-referenties. Zie voor meer informatie, [accountgebruikers beheren](https://msdn.microsoft.com/en-us/windows/uwp/publish/manage-account-users).
+> Toestaan dat meerdere gebruikers toegang tot uw account Dev Center belangrijk, wordt u aangeraden Azure Active Directory het toewijzen van rollen naar afzonderlijke gebruikers, wie toegang heeft tot het account dat u zich aanmeldt met zijn eigen Azure AD-referenties. Zie voor meer informatie, [accountgebruikers beheren](https://msdn.microsoft.com/windows/uwp/publish/manage-account-users).
 
 * Uw Microsoft-account met behulp van een e-mailadres die deel uitmaakt van het domein van uw bedrijf, maar niet aan een één persoon maken — bijvoorbeeld windowsapps@fabrikam.com.
 * Beperkt de toegang tot dit Microsoft-account aan het kleinste aantal ontwikkelaars.
@@ -50,7 +50,7 @@ Bij het maken van een bedrijfsaccount, volgt u deze richtlijnen als meer dan é�
 
 Uw developer-account moet worden benaderd voornamelijk van vertrouwde pc's. Dit is belangrijk omdat er een limiet aan het aantal codes dat per account per week wordt gegenereerd geldt. Hiermee wordt ook de meest naadloze aanmeldingservaring.
 
-Klik voor meer informatie over aanvullende developer-account richtlijnen en beveiliging [hier](https://msdn.microsoft.com/en-us/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
+Klik voor meer informatie over aanvullende developer-account richtlijnen en beveiliging [hier](https://msdn.microsoft.com/windows/uwp/publish/opening-a-developer-account#additional-guidelines-for-company-accounts).
 
 ### <a name="instructions"></a>Instructies
 1. Open een nieuwe Incognito Chrome of Internet Explorer InPrivate-browsersessie om ervoor te zorgen dat u zich niet bent aangemeld bij een bestaand account.

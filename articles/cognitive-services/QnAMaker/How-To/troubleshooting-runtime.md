@@ -1,56 +1,56 @@
 ---
-title: Het oplossen van QnAMaker | Microsoft Docs
-titleSuffix: Azure
-description: Het oplossen van uw QnAMaker runtime
+title: Probleemoplossing - QnAMaker
+titlesuffix: Azure Cognitive Services
+description: QnAMaker bestaat uit onderdelen die worden gehost in Azure-account van de gebruiker. Foutopsporing kan vereisen dat gebruikers wijzigingen aanbrengen in de QnAMaker-Azure-resources of QnAMaker-ondersteuningsteam bieden met aanvullende informatie over de installatie.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 06/04/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: 23847c81a39ea392b6e64575406c9dc338b852de
-ms.sourcegitcommit: c722760331294bc8532f8ddc01ed5aa8b9778dec
+ms.openlocfilehash: 35ae2f5362b8432b94a05f3d86252d35f6f025ad
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/04/2018
-ms.locfileid: "35345950"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543874"
 ---
-# <a name="qnamaker-troubleshooting"></a>QnAMaker probleemoplossing
-QnAMaker omvat van onderdelen die worden gehost in Azure-account van de gebruiker. Foutopsporing, kan gebruikers hun QnAMaker Azure-resources te manipuleren, of geef ondersteuningsteam QnAMaker met aanvullende informatie over het instellen van vereisen.
+# <a name="qnamaker-troubleshooting"></a>Het oplossen van QnAMaker
+QnAMaker bestaat uit onderdelen die worden gehost in Azure-account van de gebruiker. Foutopsporing kan vereisen dat gebruikers wijzigingen aanbrengen in de QnAMaker-Azure-resources of QnAMaker-ondersteuningsteam bieden met aanvullende informatie over de installatie.
 
-## <a name="how-to-get-latest-qnamaker-runtime-updates"></a>Het ophalen van de meest recente updates voor QnAMaker runtime
-QnAMaker runtime maakt deel uit van de Azure App Service geïmplementeerd wanneer u [maken van een service QnAMaker](./set-up-qnamaker-service-azure.md) in Azure-portal. Zijn er updates periodiek naar de runtime. Als u wilt toepassen op de meest recente updates worden toegepast op uw instellingen QnAMaker, moet u de App-Service opnieuw.
+## <a name="how-to-get-latest-qnamaker-runtime-updates"></a>Over het verkrijgen van de meest recente updates voor QnAMaker-runtime
+QnAMaker runtime maakt deel uit van de Azure App Service geïmplementeerd wanneer u [maken van een service QnAMaker](./set-up-qnamaker-service-azure.md) in Azure portal. Updates worden periodiek gesteld in de runtime. Als u wilt toepassen op de meest recente updates worden toegepast op de QnAMaker-configuratie, moet u de App-Service opnieuw.
 1. Ga naar uw QnAMaker-service (resourcegroep) in de [Azure-portal](https://portal.azure.com)
 
-    ![QnAMaker Azure-resourcegroep](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+    ![QnAMaker-Azure-resourcegroep](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
 
-2. Klik op de App Service en open de sectie overzicht
+2. Klik op de Service-App en opent u de sectie overzicht
 
      ![QnAMaker App Service](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
-3. De App-service opnieuw starten. Het moet binnen een paar seconden worden voltooid. Let op: uw downstream-toepassingen/bots voor deze QnAMaker-service bouwen is niet beschikbaar is voor eindgebruikers tijdens deze periode opnieuw opstarten.
+3. Start de App-service. Het zou binnen een paar seconden voltooid. Houd er rekening mee dat uw downstream-toepassingen/bots voor deze QnAMaker-service bouwen is niet beschikbaar is voor eindgebruikers tijdens deze periode opnieuw opstarten.
 
-    ![QnAMaker appservice opnieuw opstarten](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
+    ![QnAMaker appservice-opnieuw opstarten](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
-## <a name="how-to-get-the-qnamaker-service-hostname"></a>Het ophalen van de hostnaam van de service QnAMaker
-QnAMaker service hostnaam is handig voor foutopsporing als u contact op met ondersteuning voor QnAMaker of UserVoice. De hostnaam is een URL van dit formulier: https://*{hostnaam}*. azurewebsites.net.
+## <a name="how-to-get-the-qnamaker-service-hostname"></a>Over het verkrijgen van de hostnaam van de service QnAMaker
+Hostnaam van de QnAMaker-service is handig voor de foutopsporing als u contact op met ondersteuning voor QnAMaker of UserVoice. De hostnaam is een URL met deze indeling: https://*{hostnaam}*. azurewebsites.net.
     
 1. Ga naar uw QnAMaker-service (resourcegroep) in de [Azure-portal](https://portal.azure.com)
 
-    ![QnAMaker Azure-resourcegroep](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
+    ![QnAMaker-Azure-resourcegroep](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
 
-2. Klik op App Service
+2. Klik op de App Service
 
      ![QnAMaker App Service](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-appservice.png)
 
 3. De URL van de hostnaam is beschikbaar in de sectie overzicht
 
-    ![QnAMaker hostnaam](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
+    ![QnAMaker-hostnaam](../media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
     
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [QnAMaker API gebruiken](./upgrade-qnamaker-service.md)
+> [QnAMaker-API gebruiken](./upgrade-qnamaker-service.md)

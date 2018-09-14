@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: 9ebc3a8cb01d93fc6cec5d208c5a10020413cec2
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: d825ddd75bfc829aa82bab4cede0381dda2d36da
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631092"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575287"
 ---
 # <a name="enable-automatic-tuning"></a>Automatisch instellen inschakelen
 
@@ -86,7 +86,7 @@ Verbinding maken met de database voor het configureren van afzonderlijke opties 
    
 De afzonderlijke afstemmingsoptie instellen op ON, overschrijven de instellingen die van de database overgenomen en de afstemmingsoptie inschakelen. Instellen op uitgeschakeld, worden ook alle instellingen die van de database overgenomen onderdrukken en de afstemmingsoptie uitschakelen. Optie voor automatisch afstemmen, waarvoor de STANDAARDWAARDE is opgegeven, wordt de configuratie van het databaseniveau van de automatisch afstemmen van de instelling overnemen.  
 
-Zoeken naar onze meer maar T-SQL-opties voor het configureren van automatisch afstemmen, Zie [ALTER DATABASE SET Options (Transact-SQL) voor de logische SQL Database-server](https://docs.microsoft.com/en-us/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1).
+Zoeken naar onze meer maar T-SQL-opties voor het configureren van automatisch afstemmen, Zie [ALTER DATABASE SET Options (Transact-SQL) voor de logische SQL Database-server](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=sql-server-2017&tabs=sqldbls#arguments-1).
 
 ## <a name="disabled-by-the-system"></a>Uitgeschakeld door het systeem
 Alle acties die het duurt voor de database automatisch afstemmen wordt bewaakt en in sommige gevallen kan bepalen dat automatisch afstemmen correct op de database kan niet werken. In dit geval worden, afstemmingsoptie uitgeschakeld door het systeem. In de meeste gevallen is dit gebeurt omdat Query Store is niet ingeschakeld of deze heeft de status alleen-lezen op een specifieke database.

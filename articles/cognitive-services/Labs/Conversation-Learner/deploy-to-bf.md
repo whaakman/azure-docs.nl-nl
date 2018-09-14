@@ -10,12 +10,12 @@ ms.component: conversation-learner
 ms.topic: article
 ms.date: 04/30/2018
 ms.author: v-jaswel
-ms.openlocfilehash: 83e1fbfeee75534757dcb3c0275ca881e1eea517
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 0bcb6262201b3399ca4d759bb306a570bea33b00
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297992"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578766"
 ---
 # <a name="how-to-deploy-a-conversation-learner-bot"></a>Over het implementeren van een bot Conversatiecursist
 
@@ -94,7 +94,7 @@ De bot wordt nu lokaal uitgevoerd.  U kunt openen met de emulator Bot Framework.
 
 Publiceer uw bot Conversatiecursist die vergelijkbaar is met dezelfde manier als die u een andere bot wilt publiceren. Op hoog niveau, uw code te uploaden naar een gehoste website, de juiste configuratie-waarden instellen en vervolgens de bot registreren met verschillende kanalen. Gedetailleerde instructies vindt u in deze video waarin wordt getoond hoe uw bot met behulp van Azure Bot Service publiceren.
 
-Zodra de bot wordt geïmplementeerd en uitgevoerd u verschillende kanalen verbinding mee kan maken, zoals Facebook, Teams, Skype enzovoort met behulp van een Azure Bot kanaal te registreren. Voor documentatie over dit proces Zie: https://docs.microsoft.com/en-us/bot-framework/bot-service-quickstart-registration
+Zodra de bot wordt geïmplementeerd en uitgevoerd u verschillende kanalen verbinding mee kan maken, zoals Facebook, Teams, Skype enzovoort met behulp van een Azure Bot kanaal te registreren. Voor documentatie over dit proces Zie: https://docs.microsoft.com/bot-framework/bot-service-quickstart-registration
 
 Hieronder vindt u stapsgewijze instructies voor het implementeren van een cursist conversatie Bot naar Azure.  Deze instructies wordt ervan uitgegaan dat uw bot-bron is beschikbaar via een cloud-gebaseerde bron, zoals Azure DevOps-Services, GitHub, BitBucket of OneDrive, configureert u uw bot voor continue implementatie.
 

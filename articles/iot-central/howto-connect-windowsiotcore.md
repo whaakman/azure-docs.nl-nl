@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 73a23ace23d2373e238c6887c4a41c6037d233de
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 517de578e2a3c6350bbb18d756a8740ceb6f1d23
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43189001"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576371"
 ---
 # <a name="connect-a-windows-iot-core-device-to-your-azure-iot-central-application"></a>Een Windows IoT Core-apparaat verbinden met uw Azure IoT Central-toepassing
 
@@ -66,7 +66,7 @@ De clienttoepassing uit de vorige stap op uw Windows 10 IoT-apparaat om te kunne
 * Sla de verbindingsreeks in een tekstbestand met de naam connection.string.iothub op het bureaublad.
 * Kopieer het tekstbestand naar de map document van het apparaat: `[device-IP-address]\C$\Data\Users\DefaultAccount\Documents\connection.string.iothub`
 
-Zodra u dat hebt gedaan, moet u opent de [Windows Device Portal](https://docs.microsoft.com/en-us/windows/iot-core/manage-your-device/deviceportal) door te typen in http://[device-IP-address]:8080 in elke browser.
+Zodra u dat hebt gedaan, moet u opent de [Windows Device Portal](https://docs.microsoft.com/windows/iot-core/manage-your-device/deviceportal) door te typen in http://[device-IP-address]:8080 in elke browser.
 
 Vanaf daar en, zoals weergegeven in de als hieronder, moet u doen:
 1. Vouw het knooppunt 'Apps' aan de linkerkant.

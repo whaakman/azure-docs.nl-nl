@@ -16,12 +16,12 @@ ms.workload: infrastructure
 ms.date: 07/15/2018
 ms.author: msjuergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0960f569f2a582d9712473081f66205272cfe31a
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: ca089672cf645af58952205dada66aa96ba0b65d
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39117418"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578240"
 ---
 # <a name="sap-business-one-on-azure-virtual-machines"></a>SAP Business één op virtuele Machines van Azure
 Dit document biedt richtlijnen voor het implementeren van SAP Business One on Azure Virtual Machines. De documentatie is geen vervanging voor documentatie voor de installatie van bedrijf voor SAP. De documentatie zijn voor algemene richtlijnen voor de planning en implementatie voor de Azure-infrastructuur voor het uitvoeren van een zakelijke toepassingen op.
@@ -30,7 +30,7 @@ Business One ondersteunt twee verschillende databases:
 - SQL Server - Zie [SAP Opmerking #928839 - Inhoudsrelease: Planning voor Microsoft SQL Server](https://launchpad.support.sap.com/#/notes/928839)
 - SAP HANA - voor exacte SAP Business One ondersteuningsmatrix voor SAP HANA, bekijk de [SAP-Product beschikbaarheid Matrix](https://support.sap.com/pam)
 
-SQL Server, de basisimplementatie overwegingen met betrekking tot zoals beschreven in de [Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/dbms-guide) is van toepassing. voor SAP HANA, worden de overwegingen met betrekking tot vermeld in dit document.
+SQL Server, de basisimplementatie overwegingen met betrekking tot zoals beschreven in de [Azure virtuele Machines DBMS-implementatie voor SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide) is van toepassing. voor SAP HANA, worden de overwegingen met betrekking tot vermeld in dit document.
 
 ## <a name="prerequisites"></a>Vereisten
 Voor het gebruik van deze handleiding, moet u basiskennis hebt van de volgende Azure-onderdelen:
@@ -41,7 +41,7 @@ Voor het gebruik van deze handleiding, moet u basiskennis hebt van de volgende A
 - [Azure-netwerken en virtuele netwerken met CLI ](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-virtual-network)
 - [Azure-schijven beheren met de Azure CLI 2.0](https://docs.microsoft.com/azure/virtual-machines/linux/tutorial-manage-disks)
 
-Zelfs als u geïnteresseerd in bedrijven een bent alleen het document [Azure Virtual Machines planning en implementatie van SAP NetWeaver](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/planning-guide) mag een goede bron van informatie.
+Zelfs als u geïnteresseerd in bedrijven een bent alleen het document [Azure Virtual Machines planning en implementatie van SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/planning-guide) mag een goede bron van informatie.
 
 De veronderstelling is dat u als de implementatie van SAP Business One-exemplaar:
 
@@ -89,23 +89,23 @@ In principe is het altijd het beste de meest recente versies van het besturingss
 In de volgende paar hoofdstukken stuks de infrastructuur van dit onderwerp voor het implementeren van SAP.
 
 ### <a name="azure-network-infrastructure"></a>De infrastructuur van Azure-netwerk
-De netwerkinfrastructuur die u wilt implementeren in Azure, is afhankelijk van of u een enkel Business One systeem zelf implementeren. Of of u nu een hoster die als host fungeert voor tientallen Business One systemen voor klanten. Ook kunnen er kleine wijzigingen in het ontwerp op of hoe u verbinding met Azure maken. Doorlopen verschillende mogelijkheden, een ontwerp waar u een VPN-verbinding naar Azure hebt en waar u uw Active Directory via uitbreiden [VPN](https://docs.microsoft.com/en-us/azure/vpn-gateway/vpn-gateway-plan-design) of [ExpressRoute](https://docs.microsoft.com/en-us/azure/expressroute/expressroute-introduction) in Azure.
+De netwerkinfrastructuur die u wilt implementeren in Azure, is afhankelijk van of u een enkel Business One systeem zelf implementeren. Of of u nu een hoster die als host fungeert voor tientallen Business One systemen voor klanten. Ook kunnen er kleine wijzigingen in het ontwerp op of hoe u verbinding met Azure maken. Doorlopen verschillende mogelijkheden, een ontwerp waar u een VPN-verbinding naar Azure hebt en waar u uw Active Directory via uitbreiden [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-plan-design) of [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) in Azure.
 
 ![Eenvoudige netwerkconfiguratie met Business One](./media/business-one-azure/simple-network-with-VPN.PNG)
 
 De vereenvoudigde configuratie weergegeven introduceert meerdere exemplaren van beveiliging waarmee beheer- en limiet routering. Deze begint met 
 
 - De router/firewall op de on-premises klant.
-- Het volgende exemplaar is de [Azure Network Security Group](https://docs.microsoft.com/en-us/azure/virtual-network/security-overview) die u gebruiken kunt om te introduceren van Routering en beveiligingsregels voor de Azure-VNet die u in uw SAP Business één configuratie worden uitgevoerd.
+- Het volgende exemplaar is de [Azure Network Security Group](https://docs.microsoft.com/azure/virtual-network/security-overview) die u gebruiken kunt om te introduceren van Routering en beveiligingsregels voor de Azure-VNet die u in uw SAP Business één configuratie worden uitgevoerd.
 - Om te voorkomen dat gebruikers van Business One-client ook de server kunnen zien met de zakelijke één server, die de database wordt uitgevoerd, scheidt u de virtuele machine die als host fungeert voor de bedrijven een client en de business server in twee verschillende subnetten binnen het VNet.
 - U zou Azure NSG toegewezen aan de twee verschillende subnetten opnieuw gebruiken om te beperken van toegang tot de zakelijke één server.
 
-Een meer geavanceerde versie van de configuratie van een Azure-netwerk is gebaseerd op de Azure [beschreven aanbevolen procedures van hub en spoke-architectuur](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Het architectuurpatroon van de hub en spoke zou de eerste vereenvoudigde configuratie naar een als volgt wijzigen:
+Een meer geavanceerde versie van de configuratie van een Azure-netwerk is gebaseerd op de Azure [beschreven aanbevolen procedures van hub en spoke-architectuur](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke). Het architectuurpatroon van de hub en spoke zou de eerste vereenvoudigde configuratie naar een als volgt wijzigen:
 
 
 ![Hub en spoke-configuratie met Business One](./media/business-one-azure/hub-spoke-network-with-VPN.PNG)
 
-Voor gevallen waarin de gebruikers verbinding via het internet zonder particuliere connectiviteit in Azure maken, moet het ontwerp van het netwerk in Azure worden uitgelijnd met de principes die worden beschreven in de Azure-referentiearchitectuur voor [DMZ tussen Azure en het Internet](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
+Voor gevallen waarin de gebruikers verbinding via het internet zonder particuliere connectiviteit in Azure maken, moet het ontwerp van het netwerk in Azure worden uitgelijnd met de principes die worden beschreven in de Azure-referentiearchitectuur voor [DMZ tussen Azure en het Internet](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-dmz).
 
 ### <a name="business-one-database-server"></a>Zakelijke één database-server
 SQL Server en SAP HANA zijn beschikbaar voor het databasetype. Onafhankelijk van de DBMS-systemen, moet u het document lezen [overwegingen voor Azure Virtual Machines DBMS-implementatie voor de werkbelasting van SAP](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general) om op te halen van een algemeen begrip van de DBMS-implementaties in azure VM's en de bijbehorende netwerken en opslag onderwerpen.
@@ -151,7 +151,7 @@ Voor SAP HANA back-up en herstellen van strategieën, moet u het document lezen 
 ### <a name="business-one-client-server"></a>Business één client-server
 Voor deze onderdelen zijn opslagoverwegingen niet het belangrijkste aandachtspunt. echter, wilt u beschikken over een betrouwbaar platform. Daarom moet u Azure Premium Storage gebruiken voor deze virtuele machine, zelfs voor de basis-VHD. Grootte van de virtuele machine, met de gegevens die zijn opgegeven in [SAP Business één Hardware Requirements Guide](https://help.sap.com/http.svc/rc/011000358700000244612011e/9.3/en-US/B1_Hardware_Requirements_Guide.pdf). Voor Azure moet u zich concentreren en aan de vereisten vermeld in het hoofdstuk 2.4 van het document te berekenen. Als u de vereisten voor berekenen, moet u ze te vergelijken met de volgende documenten kunnen de ideale VM zoeken:
 
-- [Grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/windows/sizes)
+- [Grootten voor Windows virtuele machines in Azure](https://docs.microsoft.com/azure/virtual-machines/windows/sizes)
 - [SAP-notitie 1928533 #](https://launchpad.support.sap.com/#/notes/1928533)
 
 Vergelijk aantal CPU's en geheugen die nodig zijn voor wat wordt beschreven door Microsoft. Ook de netwerkdoorvoer in waarmee u rekening moet houden bij het kiezen van de virtuele machines.

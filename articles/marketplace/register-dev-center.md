@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: 3eca9e416a18e7389a6ce45cccd3cc99707e9806
-ms.sourcegitcommit: 0b05bdeb22a06c91823bd1933ac65b2e0c2d6553
+ms.openlocfilehash: ffc2a9fb7b0ed516645c833f87c9ef5c95ca20ff
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39070431"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580749"
 ---
 # <a name="register-in-dev-center"></a>Registreren in Dev Center  
 Om te controleren of u bent niet aangemeld bij een account persoonlijke browser, open een nieuw InPrivate van Internet Explorer of Chrome Incognito browsersessie.  
@@ -108,11 +108,11 @@ Als u problemen met de registratie van het Dev Center hebt, voert u deze stappen
 > Uitgever die zijn gepubliceerd in Transact type aanbieding: VM, Azure-apps: oplossingssjablonen en beheerde apps.  
 
 *   **Waarom is het Dev Center-account nodig?**
-> Dev Center-account is een vereist zodat Microsoft de klant van de uitgever namens een factuur voor Transact type aanbieding. Dev Center-account registratie kan Microsoft voor het valideren van de juridische afdeling, fiscale en bankgegevens voor uw bedrijf. Voor meer informatie over meer Klik [hier.](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#register-in-dev-center)
+> Dev Center-account is een vereist zodat Microsoft de klant van de uitgever namens een factuur voor Transact type aanbieding. Dev Center-account registratie kan Microsoft voor het valideren van de juridische afdeling, fiscale en bankgegevens voor uw bedrijf. Voor meer informatie over meer Klik [hier.](https://docs.microsoft.com/azure/marketplace/become-publisher#register-in-dev-center)
 
 *   **Hoe ga ik aan de slag met de registratie van het Dev Center?**
 > Om te voorkomen dat dubbele, Controleer of dat uw bedrijf nog geen een Dev Center-account dat is geregistreerd. U moet zijn aangemeld met het Microsoft-account dat u wilt koppelen aan uw developer-account. Als u nog een Microsoft-account hebt, kunt u een nieuw account maken [hier.](https://signup.live.com/signup?contextid=AEB123C8F2B1DA7A&bk=1529968434&ru=https%3a%2f%2flogin.live.com%2flogin.srf%3fcontextid%3dAEB123C8F2B1DA7A%26mkt%3dEN-US%26lc%3d1033%26bk%3d1529968434&uiflavor=web&uaid=9987e727fedb459780d95c1b9e46c82c&mkt=EN-US&lc=1033&lic=1) (voorbeeld: contoso_marketplace@live.com) als u wilt aanmelden en registreren, gaat u naar https://dev.windows.com/en-us/registration?accountProgram=Azure
-<br>Voor meer informatie over het registratieproces klikt u op meer [hier.](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center)</br>
+<br>Voor meer informatie over het registratieproces klikt u op meer [hier.](https://docs.microsoft.com/azure/marketplace/register-dev-center)</br>
 
 *   **Moet ik kiezen 'Afzonderlijk' of 'Bedrijf' accounttype?**
 > Als u wilt een transact-aanbieding op Marketplace publiceert, moet u bedrijfsaccount selecteren tijdens het registreren van uw Dev Center-account.
@@ -143,7 +143,7 @@ Als u problemen met de registratie van het Dev Center hebt, voert u deze stappen
 > Toewijzen van een tijdelijke bedrijfsnaam, neem contact op met ondersteuning van op [developer.microsoft.com/windows/support](https://developer.microsoft.com/windows/support) en geeft u de registratie van zakelijke documenten.
 
 *   **Hoe kan ik mijn gegevens belasting en payout toevoegen**
-> Kunt u zich niet kunnen publiceren transact van aanbiedingen zonder het voltooien van de belasting en bank informatie in uw Dev Center-account.  Bezoek voor meer informatie over het toevoegen van accountgegevens [hoe u informatie over de bank toevoegen en belasting.](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
+> Kunt u zich niet kunnen publiceren transact van aanbiedingen zonder het voltooien van de belasting en bank informatie in uw Dev Center-account.  Bezoek voor meer informatie over het toevoegen van accountgegevens [hoe u informatie over de bank toevoegen en belasting.](https://docs.microsoft.com/azure/marketplace/register-dev-center#how-to-add-bank-and-tax-information)
 
 *   **Kan ik de aanmeldingsaccount van het Dev Center Microsoft wijzigen?**
 > Nee. Zodra een Dev Center is gemaakt, kan de van eigenaarsaccount kan niet worden gewijzigd. U moet beginnen met een gloednieuwe Dev Center-account met het gewenste Microsoft-account.

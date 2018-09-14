@@ -7,20 +7,20 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 161a47f72a0f8038a515c09f25ec2a8e8a520547
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a713a85a3301b211f922268d6afc4d047bd12023
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390837"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541698"
 ---
 # <a name="create-highlights-from-existing-videos"></a>Hoogtepunten maken van bestaande video 's
 
 Dit onderwerp ziet u hoe u kunt maken en inzichten in video's op basis van bepaalde andere video publiceren.
 
-1. Aanmelden bij uw [Video Indexer](https://api-portal.videoindexer.ai/) account.
+1. Blader naar de [Video Indexer](https://www.videoindexer.ai/) website en meld u aan.
 2. Zoek een video van waaruit u wilt maken van uw inzichten in video's.
 3. Druk op **afspelen**.
 
@@ -52,8 +52,8 @@ Dit onderwerp ziet u hoe u kunt maken en inzichten in video's op basis van bepaa
 
 Als u de nieuwe afspeellijst maakt, kunt u doorgaan met het verwerken, zoals beschreven in een van de volgende onderwerpen: 
 
-- [Verwerken met Video Indexer REST-API-inhoud](video-indexer-use-apis.md)
-- [Visual widgets insluiten in uw toepassing](video-indexer-embed-widgets.md)
+- [REST-API van Video Indexer gebruiken](video-indexer-use-apis.md)
+- [Video Indexer-widgets insluiten in uw toepassingen](video-indexer-embed-widgets.md)
 
 ## <a name="see-also"></a>Zie ook
 

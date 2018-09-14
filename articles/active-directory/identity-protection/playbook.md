@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 06/27/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 02d402b7de82631ce459c60cb42e5335c7e7cfe3
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 5c2a37f3753292c6db847a4a9152bd4506f8fa5e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003297"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580483"
 ---
 # <a name="azure-active-directory-identity-protection-playbook"></a>Playbook voor Azure Active Directory Identity Protection
 
@@ -116,7 +116,7 @@ Deze sectie bevat stappen voor het testen van het gebruikersrisico en het beveil
 
 ### <a name="user-risk-security-policy"></a>Beleid voor gebruikersrisico's security
 
-Zie voor meer informatie, [beleid voor gebruikersrisico's security](overview.md#user-risk-security-policy).
+Zie voor meer informatie, [het configureren van het beleid voor gebruikersrisico's](howto-user-risk-policy.md).
 
 ![Gebruikersrisico](./media/playbook/02.png "Playbook")
 
@@ -141,7 +141,7 @@ Zie voor meer informatie, [beleid voor gebruikersrisico's security](overview.md#
 
 ### <a name="sign-in-risk-security-policy"></a>Beveiligingsbeleid voor aanmeldingsrisico
 
-Zie voor meer informatie, [beleid voor gebruikersrisico's security](overview.md#user-risk-security-policy).
+Zie voor meer informatie, [het configureren van het beleid voor aanmeldingsrisico](howto-sign-in-risk-policy.md).
 
 ![Aanmeldingsrisico](./media/playbook/01.png "Playbook")
 

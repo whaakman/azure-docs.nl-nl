@@ -1,6 +1,6 @@
 ---
-title: Ondersteunde talen in Bing spellen controleren-API (Microsoft cognitieve Services in Azure) | Microsoft Docs
-description: Lijst met algemeen beschikbaar en preview taal ondersteuning voor Bing spellen controleren API-bewerkingen.
+title: Ondersteunde talen in Bing Spell Check-API (Microsoft Cognitive Services op Azure) | Microsoft Docs
+description: Lijst met algemeen beschikbaar en de taal van de preview ondersteunen voor Bing Spell Check-API-bewerkingen.
 services: cognitive-services
 author: noellelacharite
 manager: nolachar
@@ -9,18 +9,18 @@ ms.component: bing-spell-check
 ms.topic: conceptual
 ms.date: 05/08/2018
 ms.author: nolachar
-ms.openlocfilehash: 7cab8e0471151cd2ae7c2e31406f2460fdff6a0b
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: a62980f563c8fad525696aca73f8c036382fa820
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37050383"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573787"
 ---
-# <a name="supported-language-list-and-status"></a>Lijst met ondersteunde taal en status
+# <a name="supported-language-list-and-status"></a>Lijst met ondersteunde talen en status
 
-Deze talen worden ondersteund door de Bing-API voor het controleren van spellen (alleen `spell` modus). 
+Deze talen worden ondersteund door de Bing Spell Check-API (alleen in `spell` modus). 
 
-Houd er rekening mee dat werkt met een andere taal dan `en-US`, wordt de `mkt` moet worden ingesteld en beide `Accept-Language` of `setLang` moet worden ingesteld als deze is beschreven in [spellen controleren API v7-verwijzing](https://docs.microsoft.com/en-us/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
+Houd er rekening mee dat werkt met een andere taal dan `en-US`, wordt de `mkt` moet worden ingesteld en ofwel `Accept-Language` of `setLang` moet worden ingesteld als deze zijn beschreven in [Spell Check-API voor Bing versie 7 verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-spell-check-api-v7-reference)
 
 | Taal    | Taalcode |
 |:----------- |:-------------:|
@@ -67,5 +67,5 @@ Houd er rekening mee dat werkt met een andere taal dan `en-US`, wordt de `mkt` m
 
 ## <a name="see-also"></a>Zie ook
 
-- [Cognitieve Services-documentatie pagina](https://docs.microsoft.com/azure/cognitive-services/)
-- [Cognitieve Services productpagina](https://azure.microsoft.com/services/cognitive-services/)
+- [Documentatiepagina van Cognitive Services](https://docs.microsoft.com/azure/cognitive-services/)
+- [Productpagina van Cognitive Services](https://azure.microsoft.com/services/cognitive-services/)

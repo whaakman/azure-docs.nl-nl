@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/14/2018
 ms.author: aljo
-ms.openlocfilehash: 52730ae24f4917ab593914c390df798f7f58dbde
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: e791ddd3ade2ff486f1c3ec123695ecc155353d6
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42055126"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541901"
 ---
 # <a name="service-fabric-cluster-security-scenarios"></a>Service Fabric-clusterbeveiligingsscenario 's
 Een Azure Service Fabric-cluster is een resource waarvan u eigenaar bent. Het is uw verantwoordelijkheid voor het beveiligen van uw clusters om te voorkomen dat onbevoegde gebruikers verbinding maken met deze. Een beveiligd cluster is vooral belangrijk wanneer u bij het uitvoeren van productieworkloads op het cluster. Hoewel het mogelijk te maken van een niet-beveiligd cluster als-beheereindpunten met het openbare internet wordt aangegeven dat het cluster, anonieme gebruikers verbinding mee kunnen maken. Niet-beveiligde clusters worden niet ondersteund voor productieworkloads. 
@@ -92,6 +92,7 @@ Enkele belangrijke aandachtspunten voor:
 * Gebruik voor het maken van certificaten voor clusters die productieworkloads worden uitgevoerd, een correct geconfigureerde certificaatservice van Windows Server of in een goedgekeurde [certificeringsinstantie (CA)](https://en.wikipedia.org/wiki/Certificate_authority).
 * Gebruik nooit een tijdelijke of certificaten die u maakt met behulp van hulpprogramma's zoals MakeCert.exe in een productie-omgeving te testen.
 * U kunt een zelfondertekend certificaat, maar alleen in een testcluster. Gebruik niet een zelfondertekend certificaat in de productieomgeving.
+* Bij het genereren van de certificaatvingerafdruk van het, moet u een vingerafdruk van het SHA1 genereren. SHA1 is wat wordt gebruikt bij het configureren van de vingerafdrukken van Client en het Cluster.
 
 ### <a name="cluster-and-server-certificate-required"></a>Cluster en de server-certificaat (vereist)
 Deze certificaten (één primair knooppunt en eventueel een secundaire) zijn vereist voor het beveiligen van een cluster en voorkomt ongeoorloofde toegang tot deze. Deze certificaten bieden cluster en de server-verificatie.

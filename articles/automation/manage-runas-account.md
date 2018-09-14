@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 08/16/2018
+ms.date: 09/12/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 2d6b58c95b918d820e207e801e62e7897c2ee366
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 32a7b7026df1522abe2ca3dc7b212b06e08ff905
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "40246108"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544274"
 ---
 # <a name="manage-azure-automation-run-as-accounts"></a>Azure Automation uitvoeren als-accounts beheren
 
@@ -349,9 +349,8 @@ Ga als volgt te werk om het certificaat te vernieuwen:
 
     ![Certificaat vernieuwen voor Uitvoeren als-account](media/manage-runas-account/automation-account-renew-runas-certificate.png)
 
-1. Terwijl het certificaat wordt gemaakt, kunt u in het menu onder **Meldingen** de voortgang hiervan volgen.
+1. Terwijl het certificaat wordt gemaakt, kunt u in het menu onder **Meldingen** de voortgang hiervan volgen. 
 
-Als u niet kunt het Run As-certificaat vernieuwen
 ## <a name="limiting-run-as-account-permissions"></a>Uitvoeren als-accountmachtigingen beperken
 
 Als u wilt beheren die zijn gericht op van automation voor resources in Azure Automation, krijgt de uitvoeren als-account standaard Inzender-rechten in het abonnement. Als u nodig hebt om te beperken wat de RunAs-service-principal kunt doen, kunt u het account verwijderen uit de inzendersrol aan het abonnement en dit toevoegen als een bijdrager aan de resourcegroepen die u wilt opgeven.

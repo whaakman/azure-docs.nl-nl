@@ -10,12 +10,12 @@ ms.devlang: multiple
 ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 29fd4e62c13852e23e15f89ab6b4e2976fc42b25
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: c6d7268a8501c602354d21edc5a0feaae9b1a0b2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377137"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575471"
 ---
 # <a name="http-apis-in-durable-functions-azure-functions"></a>HTTP-API's in duurzame functies (Azure Functions)
 
@@ -266,7 +266,7 @@ Hier volgt een voorbeeld van antwoordpayloads, met inbegrip van de orchestration
 ```
 
 > [!NOTE]
-> Met deze bewerking kan zeer kostbaar in termen van Azure-opslag i/o zijn als er een groot aantal rijen in de tabel exemplaren. Meer informatie over exemplaar tabel vindt u de [prestaties en schaalbaarheid in duurzame functies (Azure Functions)](https://docs.microsoft.com/en-us/azure/azure-functions/durable-functions-perf-and-scale#instances-table) documentatie.
+> Met deze bewerking kan zeer kostbaar in termen van Azure-opslag i/o zijn als er een groot aantal rijen in de tabel exemplaren. Meer informatie over exemplaar tabel vindt u de [prestaties en schaalbaarheid in duurzame functies (Azure Functions)](https://docs.microsoft.com/azure/azure-functions/durable-functions-perf-and-scale#instances-table) documentatie.
 > 
 
 ### <a name="raise-event"></a>Gebeurtenis

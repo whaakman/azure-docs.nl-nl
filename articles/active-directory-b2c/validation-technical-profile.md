@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: 07a5c378ddf73f245104f64e1dae945525a1e01a
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: f08d5732939e853785e2cce1d1e9ed8eea7f9ad7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44381197"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543136"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Een profiel van de technische definiëren in een aangepast beleid voor Azure Active Directory B2C
 
@@ -53,8 +53,8 @@ De **ValidationTechnicalProfile** element bevat het volgende kenmerk:
 | Kenmerk | Vereist | Beschrijving |
 | --------- | -------- | ----------- |
 | referenceId | Ja | Een id van een technisch profiel al gedefinieerd in het beleid of het bovenliggende beleid. |
-|ContinueOnError|Nee| Geeft aan of validatie van de validatie van de volgende technische profielen blijven moet als deze validaiton technisch profiel wordt een fout gegenereerd. Maximale waarden: `ture` of `false` (standaard de verwerking van verdere validatie profielen wordt gestopt en is een fout geretourneerd). 
-|ContinueOnSuccess | Nee | Geeft aan of validatie van de validatie van de volgende profielen blijven moet als deze technische validatieprofiel is geslaagd. Maximale waarden: `ture` of `false`. De standaardwaarde is `true`, wat inhoudt dat de verwerking van verdere validatie profielen blijft. |
+|ContinueOnError|Nee| Geeft aan of validatie van de validatie van de volgende technische profielen blijven moet als deze validaiton technisch profiel wordt een fout gegenereerd. Maximale waarden: `true` of `false` (standaard de verwerking van verdere validatie profielen wordt gestopt en is een fout geretourneerd). 
+|ContinueOnSuccess | Nee | Geeft aan of validatie van de validatie van de volgende profielen blijven moet als deze technische validatieprofiel is geslaagd. Maximale waarden: `true` of `false`. De standaardwaarde is `true`, wat inhoudt dat de verwerking van verdere validatie profielen blijft. |
 
 De **ValidationTechnicalProfile** element bevat het volgende element:
 

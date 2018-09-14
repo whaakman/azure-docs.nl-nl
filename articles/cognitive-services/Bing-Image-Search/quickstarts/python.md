@@ -1,37 +1,41 @@
 ---
-title: "Snelstartgids: Verzenden zoekquery's met de REST-API voor de Bing afbeeldingen zoeken-API in Python"
-description: In deze Quick Start stuurt u zoekopdrachten naar de Bing webzoekopdrachten-API om een lijst met relevante afbeeldingen met behulp van Python.
+title: "Snelstartgids: Verzenden zoekquery's met de Bing afbeeldingen zoeken-API en Python"
+description: In deze Quick Start stuurt u zoekopdrachten naar de Bing webzoekopdrachten-API voor een lijst van afbeeldingen met behulp van Python.
 services: cognitive-services
-author: v-jerkin
+author: aahill
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
-ms.date: 9/21/2017
-ms.author: v-jerkin
-ms.openlocfilehash: bc527ba39b580935f113f56aa63f7bdd283ba304
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.date: 8/20/2018
+ms.author: aahi
+ms.openlocfilehash: 42b9af2d6c7223dc3f5d269dd2003f1c99d8c7da
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "41988790"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578324"
 ---
 # <a name="quickstart-send-search-queries-using-the-rest-api-and-python"></a>Snelstartgids: Verzenden zoekquery's met behulp van de REST-API en Python
 
-De Bing afbeeldingen zoeken-API biedt een ervaring die vergelijkbaar is met Bing.com/Images doordat u kunt een zoekquery voor de gebruiker naar Bing te verzenden en een lijst met relevante afbeeldingen teruggaan.
+Gebruik deze Quick Start voor het maken van de eerste aanroep van de Bing afbeeldingen zoeken-API en een JSON-antwoord ontvangen. Deze eenvoudige Python-toepassing een zoekquery verzendt naar de API en de onbewerkte resultaten worden weergegeven.
 
-Dit scenario ziet u een eenvoudig voorbeeld van de aanroep naar de Bing afbeeldingen zoeken-API en nabewerking het resulterende JSON-object. Zie voor meer informatie, [Bing afbeeldingen zoeken-documentatie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference).
+Terwijl deze toepassing is geschreven in Python, de API is een RESTful-Web-compatibel is met de meeste moderne programmeertalen.
 
 In dit voorbeeld kunt u uitvoeren als een Jupyter-notebook op [MyBinder](https://mybinder.org) door te klikken op de lancering Binder badge: 
 
 [![Binder](https://mybinder.org/badge.svg)](https://mybinder.org/v2/gh/Microsoft/cognitive-services-notebooks/master?filepath=BingImageSearchAPI.ipynb)
 
+
+Daarnaast de broncode voor dit voorbeeld is beschikbaar [op GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/python/Search/BingImageSearchv7.py).
+
 ## <a name="prerequisites"></a>Vereisten
 
 [!INCLUDE [cognitive-services-bing-image-search-signup-requirements](../../../../includes/cognitive-services-bing-image-search-signup-requirements.md)]
 
-## <a name="running-the-walkthrough"></a>De procedures uitvoeren
-Om door te gaan met deze stapsgewijze Kennismaking instelt `subscription_key` tot uw API-sleutel voor de Bing API-service.
+## <a name="running-the-quickstart"></a>Uitvoeren van de Snelstartgids
 
+Aan de slag stelt `subscription_key` naar een geldig abonnement-sleutel voor de Bing API-service.
 
 ```python
 subscription_key = None
@@ -72,7 +76,7 @@ De `search_results` -object bevat de werkelijke hoeveelheid installatiekopieën 
 thumbnail_urls = [img["thumbnailUrl"] for img in search_results["value"][:16]]
 ```
 
-Vervolgens, gebruiken we de `PIL` bibliotheek voor het downloaden van de miniaturen en de `matplotlib` bibliotheek om ze in een raster $4 \times 4$ weer te geven.
+Gebruik vervolgens de `PIL` bibliotheek voor het downloaden van de miniatuurafbeeldingen en de `matplotlib` bibliotheek om ze in een raster $4 \times 4$ weer te geven.
 
 
 ```python
@@ -89,6 +93,55 @@ for i in range(4):
         image = Image.open(BytesIO(image_data.content))        
         axes[i][j].imshow(image)
         axes[i][j].axis("off")
+plt.show()
+```
+
+## <a name="sample-json-response"></a>Voorbeeld van JSON-antwoord
+
+Antwoorden van de Bing afbeeldingen zoeken-API worden geretourneerd als JSON. Dit voorbeeldantwoord is ingekort zodat één resultaat wordt weergegeven.
+
+```json
+{
+"_type":"Images",
+"instrumentation":{
+    "_type":"ResponseInstrumentation"
+},
+"readLink":"images\/search?q=tropical ocean",
+"webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=tropical ocean&FORM=OIIARP",
+"totalEstimatedMatches":842,
+"nextOffset":47,
+"value":[
+    {
+        "webSearchUrl":"https:\/\/www.bing.com\/images\/search?view=detailv2&FORM=OIIRPO&q=tropical+ocean&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&simid=608027248313960152",
+        "name":"My Life in the Ocean | The greatest WordPress.com site in ...",
+        "thumbnailUrl":"https:\/\/tse3.mm.bing.net\/th?id=OIP.fmwSKKmKpmZtJiBDps1kLAHaEo&pid=Api",
+        "datePublished":"2017-11-03T08:51:00.0000000Z",
+        "contentUrl":"https:\/\/mylifeintheocean.files.wordpress.com\/2012\/11\/tropical-ocean-wallpaper-1920x12003.jpg",
+        "hostPageUrl":"https:\/\/mylifeintheocean.wordpress.com\/",
+        "contentSize":"897388 B",
+        "encodingFormat":"jpeg",
+        "hostPageDisplayUrl":"https:\/\/mylifeintheocean.wordpress.com",
+        "width":1920,
+        "height":1200,
+        "thumbnail":{
+        "width":474,
+        "height":296
+        },
+        "imageInsightsToken":"ccid_fmwSKKmK*mid_8607ACDACB243BDEA7E1EF78127DA931E680E3A5*simid_608027248313960152*thid_OIP.fmwSKKmKpmZtJiBDps1kLAHaEo",
+        "insightsMetadata":{
+        "recipeSourcesCount":0,
+        "bestRepresentativeQuery":{
+            "text":"Tropical Beaches Desktop Wallpaper",
+            "displayText":"Tropical Beaches Desktop Wallpaper",
+            "webSearchUrl":"https:\/\/www.bing.com\/images\/search?q=Tropical+Beaches+Desktop+Wallpaper&id=8607ACDACB243BDEA7E1EF78127DA931E680E3A5&FORM=IDBQDM"
+        },
+        "pagesIncludingCount":115,
+        "availableSizesCount":44
+        },
+        "imageId":"8607ACDACB243BDEA7E1EF78127DA931E680E3A5",
+        "accentColor":"0050B2"
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
@@ -98,7 +151,8 @@ for i in range(4):
 
 ## <a name="see-also"></a>Zie ook 
 
-[Overzicht van de Bing afbeeldingen zoeken](../overview.md)  
-[Nu uitproberen](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-[Een gratis proefversie toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
-[Bing afbeeldingen zoeken-API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Wat is de Bing afbeeldingen zoeken?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
+* [Probeer een online interactieve demo](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
+* [Een gratis Cognitive Services-toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)  
+* [Documentatie voor Azure Cognitive Services](https://docs.microsoft.com/azure/cognitive-services)
+* [Bing afbeeldingen zoeken-API-verwijzing](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)

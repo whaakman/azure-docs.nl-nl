@@ -9,12 +9,12 @@ ms.component: custom-speech
 ms.topic: article
 ms.date: 06/11/2018
 ms.author: panosper
-ms.openlocfilehash: 330acf3e1258951f0129a1ba47f03c5140c30adf
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 2068bcb796b660847d0ea9b1126e64a9003ca871
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719049"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576847"
 ---
 # <a name="text-to-speech-frequently-asked-questions"></a>Veelgestelde vragen over de tekst naar spraak
 
@@ -28,11 +28,11 @@ Als u geen antwoorden op uw vragen in deze Veelgestelde vragen vinden, bekijk da
 
 **V: waar begin ik als ik wil een standard voice-model gebruiken?**
 
-**Een**: meer dan 80 standard voice-modellen in meer dan 45 talen zijn beschikbaar via HTTP-aanvragen. Haal eerst een [abonnementssleutel](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/get-started). Als u de REST-aanroepen naar de predeployed voice-modellen, Zie de [REST-API](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
+**Een**: meer dan 80 standard voice-modellen in meer dan 45 talen zijn beschikbaar via HTTP-aanvragen. Haal eerst een [abonnementssleutel](https://docs.microsoft.com/azure/cognitive-services/speech-service/get-started). Als u de REST-aanroepen naar de predeployed voice-modellen, Zie de [REST-API](https://docs.microsoft.com/azure/cognitive-services/speech-service/rest-apis#text-to-speech).
 
 **Vraag: als ik wil een aangepaste spraak-model gebruiken, is de API hetzelfde als de waarde die wordt gebruikt voor standard stemmen?**
 
-**Een**: wanneer een aangepaste spraak-model wordt gemaakt en geïmplementeerd, krijgt u een unieke eindpunt voor uw model. Voor het gebruik van de stem te spreken in uw apps, moet u het eindpunt opgeven in de HTTP-aanvragen. Dezelfde functionaliteit die beschikbaar is in de REST-API voor de Text to Speech-service is beschikbaar voor uw aangepast eindpunt. Meer informatie over het [maken en gebruiken van uw aangepast eindpunt](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
+**Een**: wanneer een aangepaste spraak-model wordt gemaakt en geïmplementeerd, krijgt u een unieke eindpunt voor uw model. Voor het gebruik van de stem te spreken in uw apps, moet u het eindpunt opgeven in de HTTP-aanvragen. Dezelfde functionaliteit die beschikbaar is in de REST-API voor de Text to Speech-service is beschikbaar voor uw aangepast eindpunt. Meer informatie over het [maken en gebruiken van uw aangepast eindpunt](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#create-and-use-a-custom-endpoint).
 
 **V: heb ik nodig om voor te bereiden van de trainingsgegevens aangepaste gesproken om modellen te maken op mijn eigen?**
 
@@ -40,7 +40,7 @@ Als u geen antwoorden op uw vragen in deze Veelgestelde vragen vinden, bekijk da
 
 Een verzameling spraakgegevens is vereist voor het maken van een aangepaste spraak-model. Deze verzameling bestaat uit een set van audio-bestanden van opnamen van spraak en een tekstbestand met de schrijffouten van elk bestand audio. Het resultaat van uw digitale stem is sterk afhankelijk van de kwaliteit van uw trainingsgegevens. Voor het produceren van een goede tekst-naar-spraak, is het belangrijk dat de opnamen die worden aangebracht in een stille ruimte met een hoge kwaliteit, permanente microfoon. Een consistente volume spreken snelheid en spreekstijl inspiratie en zelfs consistentie in expressieve gebaren van spraak zijn essentieel voor het bouwen van een geweldige digitale stem. Wij raden de stemmen op te nemen in een opname-studio.
 
-We niet op dit moment bieden ondersteuning voor online registratie of registratie studio aanbevelingen hebt. Zie voor de vereiste indeling [voorbereiden opnamen en transcripties](https://docs.microsoft.com/en-us/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
+We niet op dit moment bieden ondersteuning voor online registratie of registratie studio aanbevelingen hebt. Zie voor de vereiste indeling [voorbereiden opnamen en transcripties](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-customize-voice-font#prepare-recordings-and-transcripts).
 
 **V: voor welke scripts moet ik gebruiken om vast te leggen van de gegevens die via spraak voor aangepaste gesproken training?**
 

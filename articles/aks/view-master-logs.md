@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/26/2018
 ms.author: iainfou
-ms.openlocfilehash: 04afd71183bcb8001d017b0027f29338b8d67ddb
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 50de43fd6f9ca579b501c47514c9f8fca4f53ae8
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42442364"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540965"
 ---
 # <a name="enable-and-review-kubernetes-master-node-logs-in-azure-kubernetes-service-aks"></a>Inschakelen en controleren van Kubernetes-hoofdknooppunt in Azure Kubernetes Service (AKS registreert)
 
@@ -75,8 +75,7 @@ Het duurt een paar minuten voor de diagnostische logboeken om te worden ingescha
 Aan de linkerkant, kies **zoeken in logboeken**. Om weer te geven de *kube-apiserver*, voert u de volgende query in het tekstvak in:
 
 ```
-search *
-| where Type == "AzureDiagnostics"
+AzureDiagnostics
 | where Category == "kube-apiserver"
 | project log_s
 ```
@@ -84,8 +83,7 @@ search *
 Veel logboeken worden waarschijnlijk geretourneerd voor de API-server. Als u wilt richten op de query voor het weergeven van de logboeken over de NGINX-schil in de vorige stap hebt gemaakt, voegt u een extra *waar* instructie om te zoeken naar *schillen/nginx* zoals wordt weergegeven in de volgende voorbeeldquery:
 
 ```
-search *
-| where Type == "AzureDiagnostics"
+AzureDiagnostics
 | where Category == "kube-apiserver"
 | where log_s contains "pods/nginx"
 | project log_s

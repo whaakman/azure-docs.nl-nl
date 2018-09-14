@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 04/25/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: e834a1cfa7eba3c1ff12523982e6704c73ef8078
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 92ebd399cea88440e0f76ee1f34cb5930d3121d9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38488505"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578681"
 ---
 # <a name="automate-resources-in-your-datacenter-or-cloud-by-using-hybrid-runbook-worker"></a>Resources in uw datacentrum en de cloud automatiseren met behulp van Hybrid Runbook Worker
 
@@ -97,7 +97,7 @@ Als u wilt een groep verwijderen, moet u eerst de Hybrid Runbook Worker verwijde
 
 De Hybrid Runbook Worker verbinding maken met en registreren met Log Analytics, moet de toegang tot het poortnummer en de URL's die worden beschreven in deze sectie hebben. Deze toegang is een aanvulling op de [poorten en URL's die zijn vereist voor Microsoft Monitoring Agent](../log-analytics/log-analytics-agent-windows.md) verbinding maken met Log Analytics. 
 
-Als u een proxyserver voor communicatie tussen de agent en de Log Analytics-service gebruikt, moet u controleren of de juiste resources toegankelijk zijn. Als u een firewall gebruikt voor toegang tot internet te beperken, moet u uw firewall zodanig toegang configureren. Als u de OMS-gateway als een proxy gebruikt, controleert u of dat deze is geconfigureerd voor hybrid workers. Zie voor instructies over hoe u dit doet, [de OMS-Gateway configureren voor Automation Hybrid Workers](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
+Als u een proxyserver voor communicatie tussen de agent en de Log Analytics-service gebruikt, moet u controleren of de juiste resources toegankelijk zijn. Als u een firewall gebruikt voor toegang tot internet te beperken, moet u uw firewall zodanig toegang configureren. Als u de OMS-gateway als een proxy gebruikt, controleert u of dat deze is geconfigureerd voor hybrid workers. Zie voor instructies over hoe u dit doet, [de OMS-Gateway configureren voor Automation Hybrid Workers](https://docs.microsoft.com/azure/log-analytics/log-analytics-oms-gateway#configure-for-automation-hybrid-workers).
 
 De volgende poort en URL's zijn vereist voor de Hybrid Runbook Worker-rol om te communiceren met Automation:
 
@@ -112,14 +112,14 @@ Als u een Automation-account dat gedefinieerd voor een specifieke regio hebt, ku
 
 | **Regio** | **DNS-record** |
 | --- | --- |
-| West-centraal VS | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
-| Zuid-centraal VS |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
-| VS - oost 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
+| US - west-centraal | wcus-jobruntimedata-prod-su1.azure-automation.net</br>wcus-agentservice-prod-1.azure-automation.net |
+| US - zuid-centraal |scus-jobruntimedata-prod-su1.azure-automation.net</br>scus-agentservice-prod-1.azure-automation.net |
+| US - oost 2 |eus2-jobruntimedata-prod-su1.azure-automation.net</br>eus2-agentservice-prod-1.azure-automation.net |
 | Canada - midden |cc-jobruntimedata-prod-su1.azure-automation.net</br>cc-agentservice-prod-1.azure-automation.net |
-| West-Europa |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
-| Noord-Europa |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
-| Zuidoost-Azië |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
-| Centraal-India |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
+| Europa -west |we-jobruntimedata-prod-su1.azure-automation.net</br>we-agentservice-prod-1.azure-automation.net |
+| Europa - noord |ne-jobruntimedata-prod-su1.azure-automation.net</br>ne-agentservice-prod-1.azure-automation.net |
+| Azië - zuidoost |sea-jobruntimedata-prod-su1.azure-automation.net</br>sea-agentservice-prod-1.azure-automation.net|
+| India - centraal |cid-jobruntimedata-prod-su1.azure-automation.net</br>cid-agentservice-prod-1.azure-automation.net |
 | Japan - oost |jpe-jobruntimedata-prod-su1.azure-automation.net</br>jpe-agentservice-prod-1.azure-automation.net |
 | Australië - zuidoost |ase-jobruntimedata-prod-su1.azure-automation.net</br>ase-agentservice-prod-1.azure-automation.net |
 | Verenigd Koninkrijk Zuid | uks-jobruntimedata-prod-su1.azure-automation.net</br>uks-agentservice-prod-1.azure-automation.net |

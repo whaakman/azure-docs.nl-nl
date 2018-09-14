@@ -15,38 +15,38 @@ ms.topic: article
 ms.date: 06/28/2018
 ms.author: v-deasim
 ms.custom: ''
-ms.openlocfilehash: b52cad1f32cc3d16cf70bb81640dcb1d9f8614bf
-ms.sourcegitcommit: 5892c4e1fe65282929230abadf617c0be8953fd9
+ms.openlocfilehash: 88739cb299e453e32c69f5d0d0189da849b345a7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/29/2018
-ms.locfileid: "37132940"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573872"
 ---
 # <a name="set-up-failover-across-multiple-azure-cdn-endpoints-with-azure-traffic-manager"></a>Instellen van failover tussen meerdere Azure CDN-eindpunten met Azure Traffic Manager
 
-Wanneer u Azure Content Delivery Network (CDN) configureert, kunt u de optimale provider en de prijscategorie voor uw behoeften. Azure CDN maakt met de globaal gedistribueerde infrastructuur standaard lokale en geografische redundantie en globale taakverdeling ter verbetering van de servicebeschikbaarheid en prestaties. Als u een locatie is niet beschikbaar voor het leveren van inhoud, aanvragen automatisch worden doorgestuurd naar een andere locatie en de optimale pop-server (gebaseerd op factoren als werklast locatie en server) wordt gebruikt voor elke clientaanvraag. 
+Wanneer u Azure Content Delivery Network (CDN) configureert, kunt u de optimale provider en de prijscategorie selecteren voor uw behoeften. Azure CDN, maakt met de wereldwijd gedistribueerde infrastructuur standaard lokale en geografische redundantie en globale taakverdeling om beschikbaarheid van de service en prestaties te verbeteren. Als een locatie niet beschikbaar is voor het leveren van inhoud, aanvragen worden automatisch doorgestuurd naar een andere locatie en de optimale pop-server (op basis van factoren zoals de locatie en de server aanvraagbelasting) wordt gebruikt om elke clientaanvraag. 
  
-Als u meerdere CDN-profielen hebt, kunt u de beschikbaarheid en prestaties met Azure Traffic Manager verder verbeteren. U kunt Azure Traffic Manager met Azure CDN gebruiken om taken te verdelen over meerdere CDN-eindpunten voor failover, taakverdeling en andere geo load-scenario's. In een typische failover-scenario worden eerst alle aanvragen van clients omgeleid naar de primaire CDN-profiel. Als het profiel niet beschikbaar is, worden aanvragen vervolgens doorgegeven aan de secundaire CDN-profiel tot uw primaire CDN-profiel weer online is. Met behulp van Azure Traffic Manager op deze manier zorgt ervoor dat uw webtoepassing is altijd beschikbaar. 
+Als u meerdere CDN-profielen hebt, kunt u de beschikbaarheid en prestaties met Azure Traffic Manager verder verbeteren. U kunt Azure Traffic Manager met Azure CDN gebruiken om taken te verdelen tussen meerdere CDN-eindpunten voor failover, geo-load balancing en andere scenario's. In een typische failover-scenario, worden eerst alle aanvragen van clients omgeleid naar het primaire CDN-profiel. Als het profiel niet beschikbaar is, worden aanvragen vervolgens doorgegeven aan het secundaire CDN-profiel totdat uw primaire CDN-profiel weer online is. Met behulp van Azure Traffic Manager op deze manier zorgt ervoor dat uw web-App is altijd beschikbaar. 
 
-Dit artikel vindt u richtlijnen en een voorbeeld van het instellen van de failover met **Azure CDN Standard van Verizon** en **Azure CDN Standard van Akamai** profielen.
+In dit artikel bevat richtlijnen en een voorbeeld van het instellen van failover met **Azure CDN Standard van Verizon** en **Azure CDN Standard van Akamai** profielen.
 
 ## <a name="set-up-azure-cdn"></a>Instellen van Azure CDN 
-Twee of meer Azure CDN-profielen en eindpunten maken met verschillende providers.
+Maak twee of meer Azure CDN-profielen en -eindpunten met andere providers.
 
-1. Maak een **Azure CDN Standard van Verizon** en **Azure CDN Standard van Akamai** profiel door de stappen in [Maak een nieuw CDN-profiel](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
+1. Maken een **Azure CDN Standard van Verizon** en **Azure CDN Standard van Akamai** profiel met de volgende stappen in [maken van een nieuw CDN-profiel](cdn-create-new-endpoint.md#create-a-new-cdn-profile).
  
    ![CDN meerdere profielen](./media/cdn-traffic-manager/cdn-multiple-profiles.png)
 
-2. In elk van de nieuwe profielen door ten minste één eindpunt te maken door de stappen in [een nieuw CDN-eindpunt maken](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
+2. In elk van de nieuwe profielen, maakt u ten minste één eindpunt met de volgende stappen in [maken van een nieuw CDN-eindpunt](cdn-create-new-endpoint.md#create-a-new-cdn-endpoint).
 
 ## <a name="set-up-azure-traffic-manager"></a>Stel Azure Traffic Manager
-Een Azure Traffic Manager-profiel maken en taakverdeling over uw CDN-eindpunten instellen. 
+Een Azure Traffic Manager-profiel maken en instellen van taakverdeling over uw CDN-eindpunten. 
 
-1. Een Azure Traffic Manager-profiel maken door de stappen in [een Traffic Manager-profiel maken](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#create-a-traffic-manager-profile-1). 
+1. Een Azure Traffic Manager-profiel maken met de volgende stappen in [een Traffic Manager-profiel maken](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#create-a-traffic-manager-profile-1). 
 
     Voor **routeringsmethode**, selecteer **prioriteit**.
 
-2. Uw CDN-eindpunten in uw Traffic Manager-profiel toevoegen door de stappen in [toevoegen Traffic Manager-eindpunten](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)
+2. Toevoegen van uw CDN-eindpunten in uw Traffic Manager-profiel met de volgende stappen in [toevoegen Traffic Manager-eindpunten](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-create-profile#add-traffic-manager-endpoints)
 
     Voor **Type**, selecteer **externe eindpunten**. Voor **prioriteit**, voer een getal.
 
@@ -55,44 +55,44 @@ Een Azure Traffic Manager-profiel maken en taakverdeling over uw CDN-eindpunten 
    ![CDN-eindpunten voor traffic manager](./media/cdn-traffic-manager/cdn-traffic-manager-endpoints.png)
 
 
-## <a name="set-up-custom-domain-on-azure-cdn-and-azure-traffic-manager"></a>Aangepast domein op Azure CDN en Azure Traffic Manager instellen
-Na het instellen van uw CDN en Traffic Manager-profielen, volg deze stappen voor het toevoegen van DNS-toewijzing en registreren van aangepast domein naar de CDN-eindpunten. Voor dit voorbeeld wordt de aangepaste domeinnaam is *cdndemo101.dustydogpetcare.online*.
+## <a name="set-up-custom-domain-on-azure-cdn-and-azure-traffic-manager"></a>Aangepast domein in Azure CDN en Azure Traffic Manager instellen
+Na het instellen van uw CDN- en Traffic Manager-profielen, volg deze stappen voor het toevoegen van DNS-toewijzing en het registreren van aangepast domein aan het CDN-eindpunten. Voor dit voorbeeld wordt de aangepaste domeinnaam is *cdndemo101.dustydogpetcare.online*.
 
 1. Ga naar de website voor de domeinprovider van uw aangepaste domein, zoals GoDaddy, en twee DNS CNAME-vermeldingen te maken. 
 
-    a. De eerste CNAME-vermelding voor uw aangepaste domein met het subdomein cdnverify worden toegewezen aan uw CDN-eindpunt. Dit item is een vereiste stap registreren van het aangepaste domein naar de CDN-eindpunt dat u aan Traffic Manager toegevoegd in stap 2.
+    a. Voor de eerste CNAME-vermelding, uw aangepaste domein, met het subdomein cdnverify, worden toegewezen aan uw CDN-eindpunt. Dit item is een vereiste stap voor het registreren van het aangepaste domein naar het CDN-eindpunt dat u hebt toegevoegd aan Traffic Manager in stap 2.
 
       Bijvoorbeeld: 
 
       `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101akamai.azureedge.net`  
 
-    b. De tweede CNAME-vermelding voor uw aangepaste domein, zonder het subdomein cdnverify worden toegewezen aan uw CDN-eindpunt. Dit item wordt het aangepaste domein toegewezen aan Traffic Manager. 
+    b. Voor de tweede CNAME-vermelding, uw aangepaste domein, zonder dat het subdomein cdnverify, worden toegewezen aan uw CDN-eindpunt. Dit item wordt het aangepaste domein toegewezen aan Traffic Manager. 
 
       Bijvoorbeeld: 
       
       `cdndemo101.dustydogpetcare.online  CNAME  cdndemo101.trafficmanager.net`   
 
     > [!NOTE]
-    > Als uw domein momenteel live is en kan niet worden onderbroken, voert u deze stap laatst in. Controleren of de CDN-eindpunten en traffic manager domeinen live zijn voordat u uw aangepaste DNS-domein aan Traffic Manager bijwerken.
+    > Als uw domein momenteel live is en kan niet worden onderbroken, voert u deze stap laatste. Controleer of het CDN-eindpunten en traffic manager domeinen live zijn voordat u uw aangepaste domein DNS op Traffic Manager bijwerken.
     >
 
 
-2.  Selecteer de eerste CDN-eindpunt (Akamai) in uw Azure CDN-profiel. Selecteer **aangepaste domein toevoegen** en invoer *cdndemo101akamai.azureedge.net*. Controleer of het selectievakje voor het valideren van het aangepaste domein groen is. 
+2.  Selecteer het eerste CDN-eindpunt (Akamai) in uw Azure CDN-profiel. Selecteer **aangepast domein toevoegen** en invoer *cdndemo101akamai.azureedge.net*. Controleer of het vinkje om te valideren van het aangepaste domein is groen. 
 
-    Maakt gebruik van Azure CDN de *cdnverify* subdomein valideren van de DNS-toewijzing voor het voltooien van het registratieproces. Zie voor meer informatie [maakt u een DNS CNAME-record](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). Deze stap kunt Azure CDN voor het herkennen van het aangepaste domein zodat deze op de aanvragen reageren kan.
+    Maakt gebruik van Azure CDN de *cdnverify* subdomein voor het valideren van de DNS-toewijzing voor het voltooien van het registratieproces. Zie voor meer informatie, [maakt u een CNAME-DNS-record](cdn-map-content-to-custom-domain.md#create-a-cname-dns-record). In deze stap kunt Azure CDN voor het herkennen van het aangepaste domein, zodat deze op de aanvragen reageren kan.
 
-3.  Terug naar de website voor de domeinprovider van uw aangepaste domein en bijwerken van de eerste DNS-toewijzing die u hebt gemaakt in, zodat het aangepaste domein is toegewezen aan uw tweede CDN-eindpunt.
+3.  Terug naar de website voor de domeinprovider van uw aangepaste domein en bijwerken van de eerste DNS-toewijzing die u hebt gemaakt, zodat het aangepaste domein is toegewezen aan uw tweede CDN-eindpunt.
                              
     Bijvoorbeeld: 
 
     `cdnverify.cdndemo101.dustydogpetcare.online  CNAME  cdnverify.cdndemo101verizon.azureedge.net`  
 
-4. Selecteer het tweede CDN-eindpunt (Verizon) en herhaalt u stap 2 van uw Azure CDN-profiel. Selecteer **aangepaste domein toevoegen**, en invoer *cdndemo101akamai.azureedge.net*.
+4. Van uw Azure CDN-profiel, selecteer het tweede CDN-eindpunt (Verizon) en Herhaal stap 2. Selecteer **aangepast domein toevoegen**, en invoer *cdndemo101akamai.azureedge.net*.
  
-Nadat u deze stappen hebt voltooid, is uw multi-CDN-service met failover-mogelijkheden ingesteld met Azure Traffic Manager. Voor toegang tot de test kunt URL's van uw aangepaste domein. Uitschakelen van de primaire CDN-eindpunt waarmee de functionaliteit, en controleer of dat de aanvraag correct naar de secundaire CDN-eindpunt verplaatst is. 
+Nadat u deze stappen hebt voltooid, is uw multi-CDN-service met failover-functionaliteit ingesteld met Azure Traffic Manager. U moet toegang hebben tot de test worden URL's van uw aangepaste domein. De functionaliteit voor het testen, het primaire CDN-eindpunt uitschakelen en controleer of dat de aanvraag juist is overgezet naar het secundaire CDN-eindpunt. 
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt ook instellen andere methoden voor het doorsturen, zoals geografische voor de taakverdeling tussen verschillende CDN-eindpunten. Zie voor meer informatie [configureren van de geografische verkeersrouteringsmethode met Traffic Manager](https://docs.microsoft.com/en-us/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
+U kunt ook instellen andere methoden voor het doorsturen, zoals geografische om taken te verdelen tussen verschillende CDN-eindpunten. Zie voor meer informatie, [configureren van de geografische verkeersrouteringsmethode met Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-configure-geographic-routing-method).
 
 
 

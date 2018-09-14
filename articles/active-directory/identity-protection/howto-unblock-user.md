@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/15/2018
 ms.author: markvi
 ms.reviewer: nigu
-ms.openlocfilehash: 1bfc70680ecef2ee4fe162f81aac71430c773740
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: c5f251f2de938d4441672c8aa1a6dbc6bd616155
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40005075"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575488"
 ---
 # <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection - blokkering opheffen van gebruikers
 Met Azure Active Directory Identity Protection, kunt u beleid voor het blokkeren van gebruikers als de geconfigureerde voorwaarden is voldaan. Normaal gesproken een geblokkeerde gebruiker contactpersonen helpdesk om te worden opgeheven. In dit artikel worden de stappen beschreven die u kunt uitvoeren om een geblokkeerde gebruiker deblokkeren.
@@ -52,8 +52,8 @@ Als u wilt deblokkeren een verdachte aanmelding, hebt u de volgende opties:
 ## <a name="unblocking-accounts-at-risk"></a>Blokkering accounts lopen risico
 Als u wilt deblokkeren van een account op risico's, hebt u de volgende opties:
 
-1. **Wachtwoord opnieuw instellen** -kunt u van de gebruiker-wachtwoord opnieuw instellen. Zie voor meer informatie, [handmatige beveiligd wachtwoord opnieuw instellen](overview.md#manual-secure-password-reset).
-2. **Alle risicogebeurtenissen verwijderen** : de gebruiker beleid blokken van het risico van een gebruiker als de geconfigureerde gebruiker voor het blokkeren van toegang tot de risiconiveau is bereikt. U kunt een gebruiker beperken het risiconiveau door handmatig sluiten risicogebeurtenissen die worden gerapporteerd. Zie voor meer informatie, [risicogebeurtenissen handmatig sluiten](overview.md#closing-risk-events-manually).
+1. **Wachtwoord opnieuw instellen** -kunt u van de gebruiker-wachtwoord opnieuw instellen. 
+2. **Alle risicogebeurtenissen verwijderen** : de gebruiker beleid blokken van het risico van een gebruiker als de geconfigureerde gebruiker voor het blokkeren van toegang tot de risiconiveau is bereikt. U kunt een gebruiker beperken het risiconiveau door handmatig sluiten risicogebeurtenissen die worden gerapporteerd. 
 3. **Uitsluiten van beleid** : als u denkt dat de huidige configuratie van uw beleid aanmelden wordt veroorzaakt door problemen voor specifieke gebruikers, kunt u de gebruikers uitsluiten van deze. Zie voor meer informatie, [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 4. **Beleid uitschakelen** : als u denkt dat uw beleidsconfiguratie wordt veroorzaakt door problemen voor al uw gebruikers, kunt u het beleid uitschakelen. Zie voor meer informatie, [Azure Active Directory Identity Protection](../active-directory-identityprotection.md).
 

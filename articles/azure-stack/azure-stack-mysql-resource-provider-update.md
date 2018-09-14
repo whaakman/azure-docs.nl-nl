@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: fb9f022f0af821d81e5b61b99ecb52b7f7151b5f
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 5ea865a6a0f3f671d92d9ef3bf60cd8cfe90bddb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391552"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578885"
 ---
 # <a name="update-the-mysql-resource-provider"></a>Bijwerken van de MySQL-resourceprovider 
 
@@ -62,6 +62,9 @@ $domain = "AzureStack"
 # For integrated systems, use the IP address of one of the ERCS virtual machines 
 $privilegedEndpoint = "AzS-ERCS01" 
 
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
+
 # Point to the directory where the resource provider installation files were extracted. 
 $tempDir = 'C:\TEMP\MYSQLRP' 
 
@@ -87,6 +90,7 @@ $tempDir\UpdateMySQLProvider.ps1 -AzCredential $AdminCreds `
 -VMLocalCredential $vmLocalAdminCreds ` 
 -CloudAdminCredential $cloudAdminCreds ` 
 -PrivilegedEndpoint $privilegedEndpoint ` 
+-AzureEnvironment $AzureEnvironment `
 -DefaultSSLCertificatePassword $PfxPass ` 
 -DependencyFilesLocalPath $tempDir\cert ` 
 -AcceptLicense 
@@ -101,7 +105,7 @@ U kunt deze parameters opgeven vanaf de opdrachtregel. Als u dit niet doet, of a
 | **AzCredential** | De referenties voor de beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties als u hebt gebruikt voor het implementeren van Azure Stack. | _Vereist_ | 
 | **VMLocalCredential** |De referenties voor het lokale administrator-account van de SQL-resourceprovider VM. | _Vereist_ | 
 | **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het eindpunt van de bevoegdheden. |  _Vereist_ | 
-| **Azure-omgeving** | De azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist als het is niet ADFS. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een China Azure Active Directory gebruikt, **AzureChinaCloud**. | AzureCloud |
+| **Azure-omgeving** | De Azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist voor Azure AD-implementaties. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure AD-China **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | Uw certificaat-pfx-bestand moet worden geplaatst in deze map ook. | _Optionele_ (_verplichte_ voor meerdere knooppunten) | 
 | **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat. | _Vereist_ | 
 | **MaxRetryCount** | Het aantal keren dat die u wilt dat elke bewerking wordt uitgevoerd als er een fout is.| 2 | 

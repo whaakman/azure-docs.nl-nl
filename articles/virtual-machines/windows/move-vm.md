@@ -13,22 +13,22 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 12/06/2017
+ms.date: 09/12/2018
 ms.author: cynthn
-ms.openlocfilehash: 168ba57399b2649af29820f7321dd0151618346e
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: 1daf04e3f878d0748bfa0904259c7b7187481843
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37436477"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580479"
 ---
 # <a name="move-a-windows-vm-to-another-azure-subscription-or-resource-group"></a>Een Windows-VM verplaatsen naar een andere Azure-abonnement of resourcegroep groep
-In dit artikel leert u hoe u een Windows-VM verplaatsen tussen resourcegroepen of abonnementen. Verplaatsen tussen abonnementen kan handig zijn als u een virtuele machine hebt gemaakt in een persoonlijke abonnement en wil verplaatsen naar het abonnement van uw bedrijf kunnen doorgaan met uw werk.
+In dit artikel leert u hoe u een Windows virtuele machine (VM) verplaatsen tussen resourcegroepen of abonnementen. Verplaatsen tussen abonnementen kan handig zijn als u een virtuele machine hebt gemaakt in een persoonlijke abonnement en wil verplaatsen naar het abonnement van uw bedrijf kunnen doorgaan met uw werk.
 
 > [!IMPORTANT]
->U kunt beheerde schijven op dit moment niet verplaatsen. 
+>U kunt Azure Managed Disks op dit moment niet verplaatsen. 
 >
->Nieuwe resource-id's worden gemaakt als onderdeel van de verplaatsing. Zodra de virtuele machine is verplaatst, moet u de hulpprogramma's en scripts gebruikmaken van de nieuwe resource-id's bijwerken. 
+>Nieuwe resource-id's worden gemaakt als onderdeel van de verplaatsing. Nadat de virtuele machine is verplaatst, moet u de hulpprogramma's en scripts gebruikmaken van de nieuwe resource-id's bijwerken. 
 > 
 > 
 
@@ -36,16 +36,15 @@ In dit artikel leert u hoe u een Windows-VM verplaatsen tussen resourcegroepen o
 
 ## <a name="use-powershell-to-move-a-vm"></a>Powershell gebruiken voor het verplaatsen van een virtuele machine
 
-Om een virtuele machine naar een andere resourcegroep verplaatsen, moet u ervoor zorgen dat u ook alle van de afhankelijke resources verplaatsen. Voor het gebruik van de cmdlet Move-AzureRMResource, moet u de ResourceId van elk van de resources. Krijgt u een lijst van de ResourceId met behulp van de [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet.
+Om een virtuele machine naar een andere resourcegroep verplaatsen, moet u ervoor zorgen dat u ook alle van de afhankelijke resources verplaatsen. Als u een lijst met de resource-ID van elk van deze resources, gebruikt de [Get-AzureRMResource](/powershell/module/azurerm.resources/get-azurermresource) cmdlet.
 
 ```azurepowershell-interactive
  Get-AzureRMResource -ResourceGroupName <sourceResourceGroupName> | Format-table -Property ResourceId 
 ```
 
-We moeten voor het verplaatsen van een virtuele machine om meerdere resources te verplaatsen. We kunnen de uitvoer van Get-AzureRMResource gebruiken voor het maken van een door komma's gescheiden lijst met de ResourceIds en dat doorgeven aan [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) om ze te verplaatsen naar de bestemming. 
+U kunt de uitvoer van de vorige opdracht gebruiken als een door komma's gescheiden lijst van resource-id's [Move-AzureRMResource](/powershell/module/azurerm.resources/move-azurermresource) elke resource verplaatsen naar de bestemming. 
 
 ```azurepowershell-interactive
-
 Move-AzureRmResource -DestinationResourceGroupName "<myDestinationResourceGroup>" `
     -ResourceId <myResourceId,myResourceId,myResourceId>
 ```
@@ -59,8 +58,8 @@ Move-AzureRmResource -DestinationSubscriptionId "<myDestinationSubscriptionID>" 
 ```
 
 
-U wordt gevraagd om te bevestigen dat u wilt verplaatsen van de opgegeven resources. 
+Wanneer u wordt gevraagd te bevestigen dat u wilt verplaatsen van de opgegeven resources, voer **Y** om te bevestigen.
 
 ## <a name="next-steps"></a>Volgende stappen
-U kunt verschillende soorten resources verplaatsen tussen resourcegroepen en abonnementen. Zie voor meer informatie [Resources verplaatsen naar een nieuwe resourcegroep of een nieuw abonnement](../../resource-group-move-resources.md).    
+U kunt verschillende soorten resources verplaatsen tussen resourcegroepen en abonnementen. Zie voor meer informatie, [resources verplaatsen naar een nieuwe resourcegroep of abonnement](../../resource-group-move-resources.md).    
 

@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 04/24/2017
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: b4fda38834782be502e2581b7b3d1097000b07bb
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: 0ac9b98a9dfe06492775481cd590bfb4d0db4b55
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37440660"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542579"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>Walkthrough: Integreer claims worden uitgewisseld REST-API in uw Azure AD B2C de gebruikersbeleving als validatie op invoer van de gebruiker
 
@@ -118,7 +118,7 @@ De claimuitwisseling die aan de zelf-gecontroleerde technisch profiel toevoegen:
 
 1. Open het bestand TrustFrameworkBase.xml en zoeken naar `<TechnicalProfile Id="SelfAsserted-ProfileUpdate">`.
 2. Controleer de configuratie van deze technische profiel. Bekijk hoe de uitwisseling van de gebruiker is gedefinieerd als claims die van de gebruiker (invoerclaims) wordt gevraagd en claims die wordt verwacht van de zelf-gecontroleerde provider (uitvoerclaims).
-3. Zoeken naar `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`, en u ziet dat dit profiel wordt aangeroepen als de orchestration-stap 4 van `<UserJourney Id="ProfileEdit">`.
+3. Zoeken naar `TechnicalProfileReferenceId="SelfAsserted-ProfileUpdate`, en u ziet dat dit profiel wordt aangeroepen als de orchestration-stap 5 van `<UserJourney Id="ProfileEdit">`.
 
 ## <a name="step-4-upload-and-test-the-profile-edit-rp-policy-file"></a>Stap 4: Uploaden en testen van het profiel bewerken RP-beleidsbestand
 

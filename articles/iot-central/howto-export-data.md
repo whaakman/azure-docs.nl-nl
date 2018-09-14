@@ -8,12 +8,12 @@ ms.date: 07/3/2018
 ms.topic: article
 ms.prod: azure-iot-central
 manager: peterpr
-ms.openlocfilehash: 3ca2bc56c03e5bbabbd9b2f17edc621bdd94b02f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 5defbf7021936e3cc77250ccc453cb3887c77617
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622480"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576439"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Uw gegevens in Azure IoT Central exporteren
 
@@ -33,7 +33,7 @@ In dit artikel wordt beschreven hoe u de functie continue export gebruiken in Az
 
 ### <a name="measurements"></a>Metingen
 
-De metingen die apparaten verzenden worden naar uw opslagaccount eenmaal per minuut geëxporteerd. De gegevens hebben de nieuwe berichten ontvangen met IoT Central van alle apparaten in die tijd. De geëxporteerde AVRO-bestanden gebruiken dezelfde indeling als de berichtbestanden geëxporteerd door [IoT Hub-berichtroutering](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) naar Blob-opslag.
+De metingen die apparaten verzenden worden naar uw opslagaccount eenmaal per minuut geëxporteerd. De gegevens hebben de nieuwe berichten ontvangen met IoT Central van alle apparaten in die tijd. De geëxporteerde AVRO-bestanden gebruiken dezelfde indeling als de berichtbestanden geëxporteerd door [IoT Hub-berichtroutering](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) naar Blob-opslag.
 
 > [!NOTE]
 > De apparaten die het verzenden van de metingen worden vertegenwoordigd door de apparaat-id's (Zie de volgende gedeelten). Als u de namen van de apparaten, de apparaat-momentopnamen te exporteren. Elke berichtenrecord correleren met behulp van de **connectionDeviceId** die overeenkomt met de apparaat-ID.

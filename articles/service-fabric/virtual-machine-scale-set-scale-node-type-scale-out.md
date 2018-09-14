@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/21/2018
 ms.author: ryanwi
-ms.openlocfilehash: 8e1c194ea2ebc0e06918c8389c9ee6f72afb3e86
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: fb7ec0a6e96a9665782f85cf8a7fc496e20a9a5e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42887785"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576026"
 ---
 # <a name="scale-a-service-fabric-cluster-out-by-adding-a-virtual-machine-scale-set"></a>Schalen van een Service Fabric-cluster af door het toevoegen van een virtuele-Machineschaalset opgehaald
 In dit artikel wordt beschreven hoe u een Azure Service Fabric-cluster schalen door een nieuwe virtuele-machineschaalset aan een bestaand cluster toe te voegen. Een Service Fabric-cluster is een netwerk verbonden reeks virtuele of fysieke machines waarop uw microservices worden geïmplementeerd en beheerd. Een machine of virtuele machine die deel uitmaakt van een cluster, heet een knooppunt. Virtuele-machineschaalsets vormen een Azure compute-resource die u gebruikt om te implementeren en beheren van een verzameling van virtuele machines als een set. Elk knooppunttype die is gedefinieerd in een Azure-cluster is [instellen als een afzonderlijke schaalset](service-fabric-cluster-nodetypes.md). Vervolgens kan elk knooppunttype afzonderlijk worden beheerd. Na het maken van een Service Fabric-cluster, kunt u een cluster-knooppunttype verticaal schalen (de bronnen van de knooppunten wijzigen), werk het besturingssysteem van het knooppunttype VM's of een nieuwe virtuele-machineschaalset aan een bestaand cluster toe te voegen.  U kunt het cluster schalen op elk gewenst moment, zelfs wanneer workloads worden uitgevoerd op het cluster.  Als het cluster wordt geschaald, wordt uw toepassingen automatisch ook schalen.
@@ -34,7 +34,7 @@ In dit artikel wordt beschreven hoe u een Azure Service Fabric-cluster schalen d
 Dit is het proces voor het bijwerken van de VM-grootte en het besturingssysteem van het primaire knooppunttype VM's.  Na de upgrade, het primaire knooppunttype VM's zijn standaard D4_V2 grootte en de actieve Windows Server 2016 Datacenter met Containers.
 
 > [!WARNING]
-> Voordat u deze procedure op een productiecluster, wordt aangeraden dat u de voorbeeldsjablonen bestuderen en controleer of het proces voor een testcluster. Het cluster is ook niet beschikbaar is gedurende een periode.
+> Voordat u deze procedure op een productiecluster, wordt aangeraden dat u de voorbeeldsjablonen bestuderen en controleer of het proces voor een testcluster. Het cluster is ook niet beschikbaar is gedurende een periode. U kunt geen wijzigingen aanbrengen in meerdere VMSS gedeclareerd als het dezelfde NodeType in parrallel; u moet gescheiden implementatiebewerkingen om wijzigingen te laten aan elke VMSS NodeType afzonderlijk uit te voeren.
 
 1. Het eerste cluster met twee typen en twee scale sets (één schaalset per knooppunttype) implementeren met behulp van deze voorbeeld [sjabloon](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.json) en [parameters](https://github.com/Azure/service-fabric-scripts-and-templates/blob/master/templates/nodetype-upgrade/Deploy-2NodeTypes-2ScaleSets.parameters.json) bestanden.  Beide schaalsets zijn grootte Standard D2_V2 en actieve Windows Server 2012 R2 Datacenter.  Wachten op het cluster om de basislijnupgrade te voltooien.   
 2. Optioneel: een voorbeeld van een stateful aan het cluster implementeren.

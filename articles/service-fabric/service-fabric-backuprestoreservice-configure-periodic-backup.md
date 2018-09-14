@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/01/2018
 ms.author: hrushib
-ms.openlocfilehash: 8cfa0e2a5aa1d7f560fe84f4eda18349f5d1d8b4
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: 4aeb37d656dcb5ebca1a48253c418186dfca0a7a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38991245"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575409"
 ---
 # <a name="understanding-periodic-backup-configuration-in-azure-service-fabric"></a>Informatie over periodieke back-upconfiguratie in Azure Service Fabric
 
@@ -182,19 +182,19 @@ Back-upbeleid kunnen worden uitgeschakeld als er geen moeten back-upgegevens. Ba
 ## <a name="suspend--resume-backup"></a>Onderbreken en hervatten van back-up
 Bepaalde situatie kan tijdelijke onderbreking van periodieke back-up van gegevens van de vraag. In deze situatie, afhankelijk van het vereiste onderbreken back-up API kan worden gebruikt bij een _toepassing_, _Service_, of _partitie_. Periodieke back-up onderbreking kan worden overgedragen via een substructuur van de hiërarchie van de toepassing vanaf het punt dat deze wordt toegepast. 
 
-* Wanneer de onderbreking is toegepast op een _toepassing_ met behulp van [toepassing back-onderbreken](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API en vervolgens alle services en partities in deze toepassing zijn onderbroken voor periodieke back-up van gegevens.
+* Wanneer de onderbreking is toegepast op een _toepassing_ met behulp van [toepassing back-onderbreken](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendapplicationbackup) API en vervolgens alle services en partities in deze toepassing zijn onderbroken voor periodieke back-up van gegevens.
 
-* Wanneer de onderbreking is toegepast op een _Service_ met behulp van [Service back-onderbreken](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendservicebackup) API en vervolgens alle partities in deze service wordt onderbroken voor periodieke back-up van gegevens.
+* Wanneer de onderbreking is toegepast op een _Service_ met behulp van [Service back-onderbreken](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendservicebackup) API en vervolgens alle partities in deze service wordt onderbroken voor periodieke back-up van gegevens.
 
-* Wanneer de onderbreking is toegepast op een _partitie_ met behulp van [partitie back-onderbreken](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) API en vervolgens onderbreekt u partities in deze service wordt onderbroken voor periodieke back-up van gegevens.
+* Wanneer de onderbreking is toegepast op een _partitie_ met behulp van [partitie back-onderbreken](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-suspendpartitionbackup) API en vervolgens onderbreekt u partities in deze service wordt onderbroken voor periodieke back-up van gegevens.
 
 Zodra de noodzaak van opschorting uitgevoerd is, kan klikt u vervolgens de gegevens op periodieke back-up worden hersteld met behulp van de back-up API respectieve hervatten. Periodieke back-up moet worden hervat tegelijkertijd _toepassing_, _service_, of _partitie_ waar deze werd onderbroken.
 
-* Als de onderbreking is toegepast op een _toepassing_, en vervolgens moet worden hervat met behulp van [toepassing back-up hervatten](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) API. 
+* Als de onderbreking is toegepast op een _toepassing_, en vervolgens moet worden hervat met behulp van [toepassing back-up hervatten](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeapplicationbackup) API. 
 
-* Als de onderbreking is toegepast op een _Service_, en vervolgens moet worden hervat met behulp van [Service back-up hervatten](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
+* Als de onderbreking is toegepast op een _Service_, en vervolgens moet worden hervat met behulp van [Service back-up hervatten](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumeservicebackup) API.
 
-* Als de onderbreking is toegepast op een _partitie_, en vervolgens moet worden hervat met behulp van [partitie back-up hervatten](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
+* Als de onderbreking is toegepast op een _partitie_, en vervolgens moet worden hervat met behulp van [partitie back-up hervatten](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-resumepartitionbackup) API.
 
 ## <a name="auto-restore-on-data-loss"></a>Automatisch herstel op verlies van gegevens
 De servicepartitie kan gegevens vanwege onverwachte fouten worden verbroken. Bijvoorbeeld, wordt de schijf voor twee van de drie replica's voor een partitie (met inbegrip van de primaire replica) beschadigd of wordt gewist.
@@ -202,7 +202,7 @@ De servicepartitie kan gegevens vanwege onverwachte fouten worden verbroken. Bij
 Bij het Service Fabric detecteert dat de partitie bevindt zich in het verlies van gegevens, roept het `OnDataLossAsync` interface-methode voor de partitie en wordt verwacht dat de partitie om de vereiste actie afkomstig zijn uit het verlies van gegevens te ondernemen. In dit geval, als de effectieve back-upbeleid op de partitie heeft `AutoRestoreOnDataLoss` vlag ingesteld op `true` en vervolgens de herstelbewerking automatisch met behulp van meest recente beschikbare back-up voor deze partitie wordt geactiveerd.
 
 ## <a name="get-backup-configuration"></a>Back-upconfiguratie ophalen
-Afzonderlijke API's beschikbaar worden gesteld aan back-upconfiguratie informatie op een _toepassing_, _service_, en _partitie_ bereik. [Informatie over de configuratie van de toepassing back-up](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Service back-up-configuratie-informatie ophalen](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo), en [partitie back-up-configuratie-informatie ophalen](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) zijn deze respectievelijk API's. Deze API's retourneren voornamelijk van toepassing back-upbeleid, bereik waarop de back-upbeleid toegepast en back-up onderbreking details is. Hieronder volgt een korte beschrijving over geretourneerde resultaten van deze API's.
+Afzonderlijke API's beschikbaar worden gesteld aan back-upconfiguratie informatie op een _toepassing_, _service_, en _partitie_ bereik. [Informatie over de configuratie van de toepassing back-up](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackupconfigurationinfo), [Service back-up-configuratie-informatie ophalen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackupconfigurationinfo), en [partitie back-up-configuratie-informatie ophalen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackupconfigurationinfo) zijn deze respectievelijk API's. Deze API's retourneren voornamelijk van toepassing back-upbeleid, bereik waarop de back-upbeleid toegepast en back-up onderbreking details is. Hieronder volgt een korte beschrijving over geretourneerde resultaten van deze API's.
 
 - Back-upconfiguratie toepassingsgegevens: bevat de details van back-upbeleid toegepast op de toepassing en alle te veel ridden beleidsregels op services en partities die behoren tot de toepassing. Dit omvat ook de onderbreking-informatie voor de toepassing en -services, en partities.
 
@@ -218,11 +218,11 @@ Deze API's bieden ook ondersteuning voor paginering van de resultaten als _MaxRe
 
 Hieronder volgt de beknopte informatie over de ondersteunde varianten.
 
-- [Lijst met back-up van toepassingen ophalen](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): retourneert een lijst met back-ups beschikbaar voor elke partitie die behoren tot de opgegeven Service Fabric-toepassing.
+- [Lijst met back-up van toepassingen ophalen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getapplicationbackuplist): retourneert een lijst met back-ups beschikbaar voor elke partitie die behoren tot de opgegeven Service Fabric-toepassing.
 
-- [Overzicht van Service-back-up](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getservicebackuplist): retourneert een lijst met back-ups beschikbaar voor elke partitie die behoren tot de opgegeven Service Fabric-service.
+- [Overzicht van Service-back-up](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getservicebackuplist): retourneert een lijst met back-ups beschikbaar voor elke partitie die behoren tot de opgegeven Service Fabric-service.
  
-- [Lijst met back-up van partitie ophalen](https://docs.microsoft.com/en-us/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): retourneert een lijst met back-ups beschikbaar voor de opgegeven partitie.
+- [Lijst met back-up van partitie ophalen](https://docs.microsoft.com/rest/api/servicefabric/sfclient-api-getpartitionbackuplist): retourneert een lijst met back-ups beschikbaar voor de opgegeven partitie.
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Naslaginformatie over REST API voor back-up terugzetten](https://docs.microsoft.com/rest/api/servicefabric/sfclient-index-backuprestore)

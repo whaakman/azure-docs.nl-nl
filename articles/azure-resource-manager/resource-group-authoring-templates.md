@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 05/30/2018
 ms.author: tomfitz
-ms.openlocfilehash: e1964b7f46259e54c65aeb46aa795713922c3504
-ms.sourcegitcommit: 7827d434ae8e904af9b573fb7c4f4799137f9d9b
+ms.openlocfilehash: 129d02bea6fe3668a308da0ab2a46ca8b59928e7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39114609"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542241"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Informatie over de structuur en de syntaxis van Azure Resource Manager-sjablonen
 Dit artikel beschrijft de structuur van een Azure Resource Manager-sjabloon. Deze geeft de verschillende secties van een sjabloon en de eigenschappen die beschikbaar in deze secties zijn. De sjabloon bestaat uit JSON en uitdrukkingen die u gebruiken kunt om waarden voor uw implementatie samen te stellen. Zie voor een stapsgewijze zelfstudie over het maken van een sjabloon, [uw eerste Azure Resource Manager-sjabloon maken](resource-manager-create-first-template.md).
@@ -33,7 +33,7 @@ In de meest eenvoudige structuur heeft een sjabloon voor de volgende elementen:
     "contentVersion": "",
     "parameters": {  },
     "variables": {  },
-    "functions": {  },
+    "functions": [  ],
     "resources": [  ],
     "outputs": {  }
 }
@@ -313,4 +313,4 @@ U kunt sommige limieten sjabloon met behulp van een geneste sjabloon overschrijd
 * Zie de [Azure-snelstartsjablonen](https://azure.microsoft.com/documentation/templates/) voor volledige sjablonen voor verschillende soorten oplossingen.
 * Zie voor meer informatie over de functies die u uit in een sjabloon gebruiken kunt [Azure Resource Manager-sjabloonfuncties](resource-group-template-functions.md).
 * Als u wilt combineren meerdere sjablonen tijdens de implementatie, Zie [gekoppelde sjablonen gebruiken met Azure Resource Manager](resource-group-linked-templates.md).
-* Zie voor aanbevelingen voor het maken van Resource Manager-sjablonen die u voor algemene Azure, Azure soevereine clouds en Azure Stack gebruiken kunt [ontwikkelen van Azure Resource Manager-sjablonen voor de consistentie van de cloud](templates-cloud-consistency.md).
+* Raadpleeg [Develop Azure Resource Manager templates for cloud consistency](templates-cloud-consistency.md) (Azure Resource Manager-sjablonen ontwikkelen voor consistentie in de cloud) voor aanbevelingen voor het maken van Resource Manager-sjablonen die u kunt gebruiken in Azure, in onafhankelijke Azure-clouds en in Azure Stack.

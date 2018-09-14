@@ -8,12 +8,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 6/5/2018
 ms.author: adigan
-ms.openlocfilehash: a9eca3c3aeaa8d9d0d3d7728f8aebd63543cb604
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: acbd1bb98fd9a3eb24b7b3262c3fe9fe47200385
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617112"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579181"
 ---
 # <a name="back-up-files-on-azure-stack"></a>Back-up van bestanden in Azure Stack
 U kunt Azure Backup gebruiken om te beveiligen (of een back-up) bestanden en toepassingen in Azure Stack. Als u wilt back-up van bestanden en toepassingen, Microsoft Azure Backup Server te installeren als een virtuele machine die wordt uitgevoerd op Azure Stack. U kunt de bestanden op een willekeurige Azure Stack-server in hetzelfde virtuele netwerk beveiligen. Nadat u Azure Backup-Server hebt geïnstalleerd, voegt Azure-schijven om te verhogen van de lokale opslag beschikbaar voor gegevensback-up op korte termijn. Azure Backup-Server maakt gebruik van Azure storage voor langdurige bewaarperioden.
@@ -49,7 +49,7 @@ Open de Azure Backup Server-console voor het configureren van Azure Backup Serve
 
     ![Wizard nieuwe beveiligingsgroep wordt geopend](./media/backup-mabs-files-applications-azure-stack/5-select-group-members.png)
 
-    Microsoft raadt aan om alle gegevens die een beveiligingsbeleid in een beveiligingsgroep delen. Voor volledige informatie over het plannen en implementeren van beveiligingsgroepen, Zie het artikel System Center DPM [beveiligingsgroepen implementeren](https://docs.microsoft.com/en-us/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
+    Microsoft raadt aan om alle gegevens die een beveiligingsbeleid in een beveiligingsgroep delen. Voor volledige informatie over het plannen en implementeren van beveiligingsgroepen, Zie het artikel System Center DPM [beveiligingsgroepen implementeren](https://docs.microsoft.com/system-center/dpm/create-dpm-protection-groups?view=sc-dpm-1801).
 
 4. In de **methode voor gegevensbeveiliging selecteren** scherm, typt u een naam voor de beveiligingsgroep. Schakel het selectievakje voor **ik wil kortetermijnbeveiliging met:** en **ik Kies voor online beveiliging**. Klik op **Volgende**.
 
@@ -135,5 +135,5 @@ Als u wilt weergeven van Azure Backup Server entiteiten in Azure Portal, kunt u 
 
 ## <a name="see-also"></a>Zie ook
 Zie een van de volgende artikelen voor meer informatie over het gebruik van Azure Backup Server ter bescherming van andere workloads:
-- [Back-up van SharePoint-farm](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sharepoint-azure-stack)
-- [Back-up van SQL server](https://docs.microsoft.com/en-us/azure/backup/backup-mabs-sql-azure-stack)
+- [Back-up van SharePoint-farm](https://docs.microsoft.com/azure/backup/backup-mabs-sharepoint-azure-stack)
+- [Back-up van SQL server](https://docs.microsoft.com/azure/backup/backup-mabs-sql-azure-stack)

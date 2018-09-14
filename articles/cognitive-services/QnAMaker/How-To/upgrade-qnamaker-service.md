@@ -1,68 +1,68 @@
 ---
-title: Upgrade uw service QnA Maker - cognitieve Microsoft-Services | Microsoft Docs
-titleSuffix: Azure
-description: Het bijwerken van uw QnA Maker-service
+title: Upgrade uw QnA Maker-service - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: U kunt kiezen om bij te werken van afzonderlijke onderdelen van de QnA Maker-stack nadat de initiële is gemaakt.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: e8d3713d6729c4e30da9a64a382e9d5a647dfefd
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6d8940389e72ee3924c036e8d4833a20464d628e
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345295"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543272"
 ---
-# <a name="upgrade-your-qna-maker-service"></a>Upgrade uw QnA Maker-service
-U kunt afzonderlijke onderdelen van de stack QnA Maker upgrade na het aanvankelijk maken. Zie de details van de afhankelijke onderdelen en SKU selectie [hier](https://aka.ms/qnamaker-docs-capacity).
+# <a name="upgrade-your-qna-maker-service"></a>Een upgrade uw QnA Maker-service uitvoeren
+U kunt kiezen om bij te werken van afzonderlijke onderdelen van de QnA Maker-stack nadat de initiële is gemaakt. Bekijk de details van de afhankelijke onderdelen en de SKU-selectie [hier](https://aka.ms/qnamaker-docs-capacity).
 
-## <a name="upgrade-qna-maker-management-sku"></a>Upgrade QnA Maker Management SKU
-De QnA Maker management SKU upgraden:
-1. Ga naar uw QnA Maker-resource in de Azure-portal en selecteer **prijscategorie**.
+## <a name="upgrade-qna-maker-management-sku"></a>QnA Maker Management SKU upgraden
+Upgrade de QnA Maker management SKU:
+1. Ga naar uw QnA Maker-resource in Azure portal en selecteer **prijscategorie**.
 
     ![QnA Maker-resource](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource.png)
 
 2. Kies de juiste SKU en druk op **Selecteer**.
 
-    ![QnA Maker prijzen](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
+    ![Prijzen voor QnA Maker](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-pricing-page.png)
 
-## <a name="upgrade-app-service"></a>Upgrade van App service
-U kunt [opschalen](https://docs.microsoft.com/azure/app-service/web-sites-scale) of terugschroeven App service.
+## <a name="upgrade-app-service"></a>Appservice bijwerken
+U kunt [omhoog schalen](https://docs.microsoft.com/azure/app-service/web-sites-scale) of verkleinen van de appservice.
 
-1. Ga naar de resource voor de App-service in de Azure portal en selecteer **opschalen** of **omlaag schalen** opties zoals vereist.
+1. Ga naar de resource voor de App-service in Azure portal en selecteer **omhoog schalen** of **omlaag schalen** opties zoals vereist.
 
-    ![Schaal van QnA Maker-app service](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
+    ![QnA Maker app service schalen](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-scale.png)
 
-## <a name="upgrade-azure-search-service"></a>Upgrade van Azure Search-service
-Het is momenteel niet mogelijk om uit te voeren van een in-place upgrade van de Azure SKU zoeken. U kunt echter Maak een nieuwe Azure search-resource met de gewenste SKU, de gegevens herstellen naar de nieuwe resource en vervolgens te koppelen aan de stack QnA Maker.
+## <a name="upgrade-azure-search-service"></a>Azure Search-service upgraden
+Het is momenteel niet mogelijk om uit te voeren van een in-place upgrade van de Azure SKU zoeken. U kunt echter een nieuwe resource van Azure search maken met de gewenste SKU, de gegevens te herstellen naar de nieuwe resource en vervolgens koppelen aan de QnA Maker-stack.
 
-1. Maak een nieuwe Azure search-resource in de Azure portal en kies de gewenste SKU.
+1. Maak een nieuwe Azure search-resource in Azure portal en kies de gewenste SKU.
 
     ![QnA Maker Azure search-resource](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-new.png)
 
-2. De indexen van de oorspronkelijke bron van de Azure search terugzetten naar de nieuwe. Zie de voorbeeldcode van de back-up terugzetten [hier](https://github.com/pchoudhari/QnAMakerBackupRestore).
+2. De indexen van uw oorspronkelijke Azure search-resource op de nieuwe terugzetten. Bekijk de voorbeeldcode van de back-up terugzetten [hier](https://github.com/pchoudhari/QnAMakerBackupRestore).
 
-3. Zodra de gegevens is hersteld, gaat u naar uw nieuwe Azure search-resource, worden Selecteer **sleutels**, en noteer de **naam** en de **administratorsleutel**.
+3. Nadat de gegevens is hersteld, gaat u naar uw nieuwe Azure search-resource, worden Selecteer **sleutels**, en noteer de **naam** en de **administratorsleutel**.
 
     ![QnA Maker Azure search-sleutels](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-azuresearch-keys.png)
 
-4. Als u wilt de nieuwe Azure search-resource een koppeling naar de stack QnA Maker, gaat u naar de QnA Maker-App service.
+4. Als u wilt de nieuwe Azure search-resource een koppeling naar de QnA Maker-stack, gaat u naar de QnA Maker App service.
 
     ![QnA Maker appservice](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-resource-list-appservice.png)
 
 5. Selecteer **toepassingsinstellingen** en vervang de **AzureSearchName** en **AzureSearchAdminKey** velden uit stap 3.
 
-    ![QnA Maker appservice-instelling](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-settings.png)
+    ![QnA Maker Azure App service-instelling](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-settings.png)
 
-6. De App-service opnieuw starten.
+6. Start de App-service.
 
     ![QnA Maker appservice opnieuw opstarten](../media/qnamaker-how-to-upgrade-qnamaker/qnamaker-appservice-restart.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [QnA Maker API gebruiken](../Quickstarts/csharp.md)
+> [Gebruik QnA Maker-API](../Quickstarts/csharp.md)

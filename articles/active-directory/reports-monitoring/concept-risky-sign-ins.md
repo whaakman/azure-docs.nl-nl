@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 11/14/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 4546734cd1b5bf2f4aaddc6477310128c9e62d51
-ms.sourcegitcommit: 1af4bceb45a0b4edcdb1079fc279f9f2f448140b
+ms.openlocfilehash: 3fab0648a2ad0e0a4c193d37875913dd27bf9af4
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "42060560"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574268"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Het rapport Riskante aanmeldingen in de Azure Active Directory-portal
 
@@ -29,9 +29,9 @@ Azure AD detecteert verdachte activiteit die is gekoppeld aan uw gebruikersaccou
 
 De gedetecteerde risico's worden gebruikt om het volgende te berekenen:
 
-- **Riskante aanmeldingen** - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. Zie [Riskante aanmeldingen](../identity-protection/overview.md#risky-sign-ins) voor meer informatie. 
+- **Riskante aanmeldingen** - Een riskante aanmelding is een indicator van een aanmeldingspoging die mogelijk is uitgevoerd door iemand die geen rechtmatige eigenaar van een gebruikersaccount is. Zie voor meer informatie, [het configureren van het beleid voor aanmeldingsrisico](../identity-protection/howto-sign-in-risk-policy.md). 
 
-- **Gebruikers voor wie wordt aangegeven dat ze risico lopen** - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. Zie [Gebruikers voor wie wordt aangegeven dat ze risico lopen](../identity-protection/overview.md#users-flagged-for-risk) voor meer informatie.  
+- **Gebruikers voor wie wordt aangegeven dat ze risico lopen** - Een riskante gebruiker is een indicator van een gebruikersaccount dat mogelijk is aangetast. Zie voor meer informatie, [het configureren van het beleid voor gebruikersrisico's](../identity-protection/howto-user-risk-policy.md).  
 
 In [Azure Portal](https://portal.azure.com) kunt u de beveiligingsrapporten vinden op de blade **Azure Active Directory** in het gedeelte **Beveiliging**. 
 
@@ -73,7 +73,7 @@ Op basis van uw onderzoek van de riskante aanmelding kunt u uw feedback naar Azu
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/21.png)
 
-Zie voor meer informatie [Risico's handmatig sluiten](../identity-protection/overview.md#closing-risk-events-manually).
+
 
 Dit rapport biedt de volgende mogelijkheden:
 
@@ -98,13 +98,13 @@ Het rapport Riskante aanmeldingen in de Azure Active Directory-portal biedt u he
 
 Wanneer u een risicogebeurtenis selecteert, krijgt u een gedetailleerde rapportweergave voor deze risicogebeurtenis waarmee u het volgende kunt:
 
-- Een optie voor het configureren van een [beleid voor herstel van gebruikersrisico's](../identity-protection/overview.md#user-risk-security-policy)  
+- Een optie voor het configureren van een [beleid voor herstel van gebruikersrisico's](../identity-protection/howto-user-risk-policy.md)  
 
 - De detectietijdlijn voor de risicogebeurtenis bekijken  
 
 - Een lijst met gebruikers bekijken waarvoor deze risicogebeurtenis is gedetecteerd
 
-- [Risicogebeurtenissen handmatig sluiten](../identity-protection/overview.md#closing-risk-events-manually) of een handmatig gesloten risicogebeurtenis opnieuw activeren. 
+- Risicogebeurtenissen handmatig sluiten. 
 
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/457.png)
@@ -124,7 +124,7 @@ Wanneer u een gebruiker selecteert, krijgt u een gedetailleerde rapportweergave 
 
 
 Selecteer in de lijst de risicogebeurtenis die u wilt onderzoeken.  
-Hiermee opent u de blade **Details** voor deze risicogebeurtenis. Op de blade **Details** kunt u een [risicogebeurtenis handmatig sluiten](../identity-protection/overview.md#closing-risk-events-manually) of een handmatig gesloten risicogebeurtenis opnieuw activeren. 
+Hiermee opent u de blade **Details** voor deze risicogebeurtenis. Op de **Details** blade, u hebt de optie voor het handmatig gesloten risicogebeurtenis of een handmatig gesloten risicogebeurtenis opnieuw activeren. 
 
 
 ![Riskante aanmeldingen](./media/concept-risky-sign-ins/325.png)

@@ -8,12 +8,12 @@ ms.date: 09/07/2018
 ms.topic: conceptual
 ms.service: active-directory
 ms.component: b2c
-ms.openlocfilehash: a9faece909bba89714deef9d229ab86bd351b445
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: bdacbe425aa3140f8a3d60fdf121712d1e6eda3e
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347134"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541599"
 ---
 # <a name="solutions-and-training-for-azure-active-directory-b2c"></a>Oplossingen en Training voor Azure Active Directory B2C
 
@@ -25,7 +25,4 @@ Azure Active Directory (Azure AD) B2C kunnen organisaties bedrijfsoplossingen wa
 | [Verkrijgen van Expertise in Azure AD B2C: een cursus voor ontwikkelaars](https://aka.ms/learnAADB2C) | In deze end-to-end-cursus leert ontwikkelaars via een volledige gaan gebruiken in het ontwikkelen van toepassingen met Azure AD B2C als verificatiemechanisme. Tien uitgebreide modules met labs dekken alles van het instellen van een Azure-abonnement voor het maken van aangepaste beleid dat definieert de transporten die uw klanten te bereiken. |
 | [Inschakelen van partners, leveranciers en klanten toegang tot toepassingen met Azure active Directory](https://aka.ms/aadexternalidentities) | Elke organisatie geslaagd, ongeacht de grootte, de bedrijfstak, of de naleving en de beveiligingspostuur, is afhankelijk van organisatie-mogelijkheid om te werken samen met andere organisaties en verbinding maken met klanten.<br><br>Bundeling van Azure AD, Azure AD B2C, en Azure AD B2B-samenwerking, deze handleiding wordt de waarde voor het bedrijf en het mechanisme van gebouw een toepassing of web-ervaring die voorziet in een geconsolideerde verificatie-ervaring die zijn afgestemd op de context van uw werknemers, zakelijke partners en leveranciers en klanten. |
 | [Migreren toepassing verificatie bij Azure AD B2C in een hybride omgeving](https://aka.ms/MigratetoAADB2C) | In moderne organisaties vandaag, digitale transformatie en verplaatst naar de cloud gebeurt in fasen, die de meeste organisaties werkt met ten minste tijdelijk een hybride identiteit-omgeving.<br><br>Deze handleiding is gericht op het maken van het migratieplan voor het verplaatsen van uw eerste toepassing in Azure AD B2C en bevat informatie over de overwegingen voor het in dat geval in een hybride identiteit-omgeving. |
-
-<!-- 
-| [General Data protection Regulation (GDPR) Considerations for Customer Facing Applications](https://aka.ms/AADB2CandGDPR) | For any customer facing applications, GDPR must be taken into consideration by all organizations that embark on projects that hold personal data and serve EU citizens.<br><br>This solution Guide focuses on how Azure AD B2C can be used as a flexible component of your overall GDPR compliance approach, including how AAD B2C components support each of the key GDPR rights for individuals. | 
--->
+| [General Data protection Regulation (GDPR) overwegingen voor internetgerichte toepassingen van klanten](https://aka.ms/AADB2CandGDPR) | Voor elke klantgerichte van toepassingen moet GDPR in aanmerking worden genomen door alle organisaties die begint op projecten die persoonlijke gegevens bevatten en burgers van de EU fungeren.<br><br>Deze handleiding is gericht op de manier waarop Azure AD B2C kunnen worden gebruikt als een flexibele onderdeel van uw algehele gang voor GDPR compliance, met inbegrip van hoe onderdelen van Azure AD B2C ondersteuning bieden voor elk van de belangrijkste GDPR-rechten voor personen. |

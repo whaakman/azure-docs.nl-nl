@@ -9,28 +9,20 @@ ms.service: cognitive-services
 ms.topic: article
 ms.date: 07/31/2018
 ms.author: juliako
-ms.openlocfilehash: 224c8b05027f51fb99c8d58be34c3604032c0f77
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 67bbb7046d71b904dfdcaad0e44024e8f30ac288
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399492"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543696"
 ---
 # <a name="video-indexer-concepts"></a>Video Indexer-concepten
  
-Dit onderwerp worden enkele concepten van de Video Indexer-service.
+Dit artikel worden enkele concepten van de Video Indexer-service.
     
 ## <a name="summarized-insights"></a>Samengevatte insights
 
-Samengevatte insights bevat een samengevoegde weergave van de gegevens: gezichten, trefwoorden, sentimenten. Bijvoorbeeld, in plaats van gaan over elk van de duizenden tijdsbereik en waarin gezichten worden weergegeven in het te controleren, de samengevatte inzichten bevat alle gezichten en voor elk adres, het tijdsbereik dat deze wordt weergegeven in en het percentage van de tijd die wordt weergegeven.
-
-## <a name="topicskeywords"></a>Onderwerpen/trefwoorden
-
-Er zijn onderwerpen/trefwoorden in de lijst met belangrijke zinnen die Video Indexer worden geëxtraheerd uit de tekst. Bijvoorbeeld, een video van Scott Guthrie de volgende onderwerpen/trefwoorden kan bevatten: beveiliging, Azure, Microsoft Cloud, omzet.
-
-## <a name="sentiments"></a>sentimenten
-
-Wanneer Video Indexer transcripties analyseert, wordt ook sentimenten gedetecteerd. Bijvoorbeeld, is 'Dit is een spannende gebeurtenis' een positieve stemming.
+Samengevatte insights bevat een samengevoegde weergave van de gegevens: gezichten, onderwerpen en emoties. Bijvoorbeeld, in plaats van gaan over elk van de duizenden tijdsbereik en waarin gezichten worden weergegeven in het te controleren, de samengevatte inzichten bevat alle gezichten en voor elk adres, het tijdsbereik dat deze wordt weergegeven in en het percentage van de tijd die wordt weergegeven.
 
 ## <a name="time-range-vs-adjusted-time-range"></a>tijdsbereik versus aangepast tijdsbereik
 

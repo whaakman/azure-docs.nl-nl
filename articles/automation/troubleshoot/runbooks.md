@@ -8,12 +8,12 @@ ms.date: 07/13/2018
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 78f9ba817008a28e63ec167c4e2ccc7f3859be16
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 1954393c9fe544c33919c8f9fb8ee04e430e7639
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42054724"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542562"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Fouten met runbooks oplossen
 
@@ -216,17 +216,19 @@ Deze fout kan worden veroorzaakt door de volgende redenen:
 
 1. Limiet voor geheugen. Er zijn voorgeschreven limiet op hoeveel geheugen toegewezen aan een Sandbox [Automation Servicelimieten](../../azure-subscription-service-limits.md#automation-limits) , zodat een taak uitvoeren kan als er meer dan 400 MB aan geheugen.
 
-2. Module die incompatibel is. Dit kan gebeuren als de module-afhankelijkheden niet juist zijn en als dat niet het geval is, uw runbook doorgaans retourneert 'Opdracht niet gevonden' of 'Kan niet binden parameter'-bericht.
+1. Netwerk-Sockets. Azure-sandboxes geladen zijn beperkt tot 1000 gelijktijdige netwerk sockets, zoals beschreven op [Automation Servicelimieten](../../azure-subscription-service-limits.md#automation-limits).
+
+1. Module die incompatibel is. Dit kan gebeuren als de module-afhankelijkheden niet juist zijn en als dat niet het geval is, uw runbook doorgaans retourneert 'Opdracht niet gevonden' of 'Kan niet binden parameter'-bericht.
 
 #### <a name="resolution"></a>Oplossing
 
 Een van de volgende oplossingen het probleem wordt opgelost:
 
-* Voorgestelde methoden voor het werk binnen de geheugenlimiet zijn de werkbelasting tussen meerdere runbooks splitsen, niet zo veel gegevens in het geheugen, om onnodige uitvoer schrijven in uw runbooks niet te verwerken of houd rekening met het aantal controlepunten u in uw PowerShell-werkstroom schrijven runbooks.  
+* Voorgestelde methoden voor het werk binnen de geheugenlimiet zijn de werkbelasting tussen meerdere runbooks splitsen, niet zo veel gegevens in het geheugen, om onnodige uitvoer schrijven in uw runbooks niet te verwerken of houd rekening met het aantal controlepunten u in uw PowerShell-werkstroom schrijven runbooks. U kunt de methode clear zoals `$myVar.clear()` om te wissen van de variabele en gebruik `[GC]::Collect()` om uit te voeren garbagecollection onmiddellijk zo beperkt u het geheugengebruik van het runbook tijdens runtime.
 
 * Uw Azure-modules bijwerken met de volgende stappen [het bijwerken van Azure PowerShell-modules in Azure Automation](../automation-update-azure-modules.md).  
 
-* Een andere oplossing is om uit te voeren van het runbook op een [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers worden niet beperkt door de [evenredige deel](../automation-runbook-execution.md#fair-share) beperkt dat Azure-sandboxes geladen zijn.
+* Een andere oplossing is om uit te voeren van het runbook op een [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md). Hybrid Workers zijn niet beperkt door de limieten voor geheugen en het netwerk die Azure-sandboxes geladen zijn.
 
 ### <a name="fails-deserialized-object"></a>Scenario: Runbook is mislukt vanwege gedeserialiseerde object
 

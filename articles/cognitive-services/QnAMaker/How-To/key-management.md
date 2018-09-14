@@ -1,58 +1,58 @@
 ---
-title: Sleutelbeheer - cognitieve Microsoft-Services | Microsoft Docs
-titleSuffix: Azure
-description: Het beheren van uw sleutels QnA Maker
+title: Resource en de sleutel-management - QnA Maker
+titleSuffix: Azure Cognitive Services
+description: Uw service QnA Maker omgaat met twee soorten sleutels, abonnementssleutels en eindpunt sleutels.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: b402187f4949dac34fa476648c81b980ba3efc96
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9134819fc4610daadb617e123d861673e8cbfd32
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345306"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543431"
 ---
 # <a name="key-management"></a>Sleutelbeheer
 
-Uw service QnA Maker omgaat met twee soorten sleutels, **abonnement sleutels** en **eindpunt sleutels**.
+Uw service QnA Maker omgaat met twee soorten sleutels, **abonnementssleutels** en **eindpunt sleutels**.
 
 ![Sleutelbeheer](../media/qnamaker-how-to-key-management/key-management.png)
 
-1. **Abonnement sleutels**: deze sleutels worden gebruikt voor toegang tot de [QnA Maker management-service API's](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Deze API's kunt u verschillende CRUD-bewerkingen voor uw knowledge base uitvoeren.  
+1. **Abonnementssleutels**: deze sleutels worden gebruikt voor toegang tot de [QnA Maker management-service API's](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff). Deze API's kunt u verschillende CRUD-bewerkingen op uw knowledge base uitvoeren.  
 
-2. **Eindpunt sleutels**: deze sleutels worden gebruikt voor toegang tot het eindpunt knowledge base voor een antwoord voor een gebruiker vraag. Doorgaans gebruikt u dit eindpunt in uw chat bot/App-code die de service QnA Maker verbruikt.
+2. **Eindpunt sleutels**: deze sleutels worden gebruikt voor toegang tot het eindpunt van de knowledge base voor een antwoord voor de vraag van een gebruiker. Doorgaans gebruikt u dit eindpunt in de chat bot/App-code die de QnA Maker-service worden verbruikt.
  
-## <a name="subscription-keys"></a>Abonnement-sleutels
-U kunt weergeven en opnieuw instellen van uw sleutels abonnement vanuit de Azure-portal waar u de resource QnA Maker hebt gemaakt. 
-1. Ga naar de QnA Maker-bron in de Azure portal.
+## <a name="subscription-keys"></a>Abonnementssleutels
+U kunt weergeven en opnieuw instellen van uw abonnementssleutels vanuit de Azure-portal waar u de QnA Maker-resource hebt gemaakt. 
+1. Ga naar de QnA Maker-resource in Azure portal.
 
-    ![Lijst met resources QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
+    ![Lijst met resources voor QnA Maker](../media/qnamaker-how-to-key-management/qnamaker-resource-list.png)
 
 2. Ga naar **sleutels**.
 
-    ![abonnementssleutel](../media/qnamaker-how-to-key-management/subscription-key.PNG)
+    ![Abonnementssleutel](../media/qnamaker-how-to-key-management/subscription-key.PNG)
 
-## <a name="endpoint-keys"></a>Sleutels voor eindpunt
+## <a name="endpoint-keys"></a>Eindpunt-sleutels
 
-Eindpunt sleutels kunnen worden beheerd vanaf de [QnA Maker portal](https://qnamaker.ai).
+Eindpunt-sleutels kunnen worden beheerd vanuit de [QnA Maker portal](https://qnamaker.ai).
 
 1. Meld u aan bij de [QnA Maker portal](https://qnamaker.ai), en Ga naar **sleutels beheren**.
 
-    ![eindpuntsleutel](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
+    ![Eindpuntsleutel](../media/qnamaker-how-to-key-management/Endpoint-keys.png)
 
 2. Weergeven of opnieuw instellen van uw sleutels.
 
-    ![de belangrijkste manager eindpunt](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
+    ![belangrijkste endpoint-beheerder](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
 
     >[!NOTE]
-    >Uw sleutels vernieuwen als u denkt dat ermee is geknoeid. Hiervoor moet mogelijk de bijbehorende wijzigingen aan uw App/Bot-code.
+    >Als u denkt dat ze zijn aangetast, vernieuwt u uw sleutels. Dit is mogelijk bijbehorende wijzigingen in uw App-Bot-code.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Een knowledge base in een andere taal maken](./language-knowledge-base.md)
+> [Een kennisdatabase maken in een andere taal](./language-knowledge-base.md)

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 04/05/2018
 ms.author: gwallace
 ms.custom: include file
-ms.openlocfilehash: e0ab3476713b1fc491c7c8f2e02263c283d42440
-ms.sourcegitcommit: ebb460ed4f1331feb56052ea84509c2d5e9bd65c
+ms.openlocfilehash: 34cae9172d9b024bd6866742d39d82ad496bfc52
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "43435598"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45570424"
 ---
 | Resource | Maximumaantal |Opmerkingen|
 | --- | --- |---|
@@ -29,6 +29,7 @@ ms.locfileid: "43435598"
 | Maximumaantal Automation-Accounts in een abonnement |Geen limiet ||
 |Maximumaantal gelijktijdige taken die worden uitgevoerd op een enkele Hybrid Runbook Worker|50 ||
 | Maximale Runbook Job parameters grootte   | 512 kb||
+| Maximale Runbook-parameters   | 50|U kunt een JSON of XML-tekenreeks doorgeven aan een parameter en parseren met het runbook als u de parameterlimiet van 50 bereikt|
 | Maximumgrootte van webhook-nettolading |  512 kb|
 
 **<sup>1</sup>**  een sandbox is een gedeelde omgeving die kan worden gebruikt door meerdere taken, taken met behulp van de sandbox zijn gebonden aan de resourcebeperkingen van de sandbox.

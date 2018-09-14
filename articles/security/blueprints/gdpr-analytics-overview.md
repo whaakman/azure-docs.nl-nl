@@ -8,12 +8,12 @@ ms.service: security
 ms.topic: article
 ms.date: 05/14/2018
 ms.author: jomolesk
-ms.openlocfilehash: a2dadbd0b9e68b07ed098b8ffc338d09531b1e50
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b4f40dfced7060dd01df7410d07ac5b7cfdf3176
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715377"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580698"
 ---
 # <a name="azure-security-and-compliance-blueprint-analytics-for-gdpr"></a>Azure-beveiliging en naleving blauwdruk: Analytics Avg
 
@@ -70,13 +70,13 @@ Deze oplossing maakt gebruik van de volgende Azure-services. Informatie van de i
 De volgende sectie bevat de elementen van de implementatie en uitvoering.
 
 **Azure Event Grid**
-[Azure Event Grid](https://docs.microsoft.com/en-us/azure/event-grid/overview) kunnen klanten eenvoudig toepassingen met op gebeurtenissen gebaseerde architecturen. Gebruikers selecteren de Azure-resource die ze graag willen abonneren op en geef de gebeurtenis-handler of webhook een eindpunt voor het verzenden van de gebeurtenis. Klanten kunnen webhook-eindpunten beveiligen door queryparameters toevoegen aan de webhook-URL bij het maken van een gebeurtenisabonnement. Azure Event Grid ondersteunt alleen webhook-HTTPS-eindpunten. Azure Event Grid kunnen klanten voor het beheren van het niveau van toegang krijgen tot verschillende gebruikers verschillende beheerbewerkingen zoals gebeurtenisabonnementen lijst, een nieuwe maken en genereren van sleutels. Event Grid maakt gebruik van op rollen gebaseerd toegangsbeheer (RBAC).
+[Azure Event Grid](https://docs.microsoft.com/azure/event-grid/overview) kunnen klanten eenvoudig toepassingen met op gebeurtenissen gebaseerde architecturen. Gebruikers selecteren de Azure-resource die ze graag willen abonneren op en geef de gebeurtenis-handler of webhook een eindpunt voor het verzenden van de gebeurtenis. Klanten kunnen webhook-eindpunten beveiligen door queryparameters toevoegen aan de webhook-URL bij het maken van een gebeurtenisabonnement. Azure Event Grid ondersteunt alleen webhook-HTTPS-eindpunten. Azure Event Grid kunnen klanten voor het beheren van het niveau van toegang krijgen tot verschillende gebruikers verschillende beheerbewerkingen zoals gebeurtenisabonnementen lijst, een nieuwe maken en genereren van sleutels. Event Grid maakt gebruik van op rollen gebaseerd toegangsbeheer (RBAC).
 
 **Azure Functions**
-[Azure Functions](https://docs.microsoft.com/en-us/azure/azure-functions/functions-overview) is een server zonder compute-service waarmee gebruikers code op aanvraag uitvoeren zonder expliciet inrichten of beheren van infrastructuur. Met Azure Functions kunt u een script of een stukje code uitvoeren in reactie op diverse gebeurtenissen.
+[Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) is een server zonder compute-service waarmee gebruikers code op aanvraag uitvoeren zonder expliciet inrichten of beheren van infrastructuur. Met Azure Functions kunt u een script of een stukje code uitvoeren in reactie op diverse gebeurtenissen.
 
 **Azure Machine Learning**
-[Azure Machine Learning](https://docs.microsoft.com/en-us/azure/machine-learning/preview/) is een techniek van gegevenswetenschap die computers kunnen bestaande gegevens om toekomstig gedrag, resultaten en trends prognoses te gebruiken.
+[Azure Machine Learning](https://docs.microsoft.com/azure/machine-learning/preview/) is een techniek van gegevenswetenschap die computers kunnen bestaande gegevens om toekomstig gedrag, resultaten en trends prognoses te gebruiken.
 
 **Azure Data Catalog**: [Data Catalog](https://docs.microsoft.com/azure/data-catalog/data-catalog-what-is-data-catalog) gegevensbronnen gemakkelijk kunnen worden gedetecteerd en begrijpelijk is door de gebruikers die de gegevens beheren. Algemene gegevensbronnen kunnen worden geregistreerd, gelabeld en gezocht naar persoonlijke gegevens. De gegevens blijven in de bestaande locatie, maar een kopie van de metagegevens wordt toegevoegd aan Data Catalog, samen met een verwijzing naar de locatie van de gegevens. Deze metagegevens worden ook geïndexeerd zodat elke gegevensbron gemakkelijk kan worden gedetecteerd via zoekopdrachten, en begrijpelijk is voor gebruikers die de gegevensbron detecteren.
 
@@ -88,7 +88,7 @@ Deze referentiearchitectuur definieert een persoonlijke VNet met een adresruimte
   - Een NSG voor de werkbelasting
 
 Elk van de nsg's zijn bepaalde poorten en protocollen openen, zodat de oplossing kunt veilig en goed werken. Bovendien zijn de volgende configuraties voor elke NSG ingeschakeld:
-  - [Diagnostische logboeken en gebeurtenissen](https://docs.microsoft.com/en-us/azure/virtual-network/virtual-network-nsg-manage-log) zijn ingeschakeld en die zijn opgeslagen in een storage-account
+  - [Diagnostische logboeken en gebeurtenissen](https://docs.microsoft.com/azure/virtual-network/virtual-network-nsg-manage-log) zijn ingeschakeld en die zijn opgeslagen in een storage-account
   - OMS Log Analytics is verbonden met de [NSG van diagnostische gegevens](https://github.com/krnese/AzureDeploy/blob/master/AzureMgmt/AzureMonitor/nsgWithDiagnostics.json)
 
 **Subnetten**: elk subnet is gekoppeld aan de bijbehorende NSG.
@@ -134,7 +134,7 @@ De volgende technologieën bieden mogelijkheden voor het beheren van toegang tot
 - Diagnostische logboeken voor Key Vault worden ingeschakeld met een bewaarperiode van ten minste 365 dagen.
 - Toegestane cryptografiebewerkingen voor sleutels zijn beperkt tot die nodig is.
 
-**Beveiligingswaarschuwingen**: [Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) kunnen klanten om verkeer te controleren, logboeken te verzamelen en analyseren van gegevensbronnen voor bedreigingen. Azure Security Center heeft bovendien toegang tot bestaande configuratie van Azure-services voor configuratie en de serviceaanbevelingen om u te helpen bij het beveiligingspostuur verbeteren en persoonlijke gegevens beschermen. Azure Security Center bevat een [threat intelligence-rapport](https://docs.microsoft.com/en-us/azure/security-center/security-center-threat-report) voor elke bedreigingen gedetecteerde te helpen incident response teams onderzoeken en bedreigingen verhelpen.
+**Beveiligingswaarschuwingen**: [Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) kunnen klanten om verkeer te controleren, logboeken te verzamelen en analyseren van gegevensbronnen voor bedreigingen. Azure Security Center heeft bovendien toegang tot bestaande configuratie van Azure-services voor configuratie en de serviceaanbevelingen om u te helpen bij het beveiligingspostuur verbeteren en persoonlijke gegevens beschermen. Azure Security Center bevat een [threat intelligence-rapport](https://docs.microsoft.com/azure/security-center/security-center-threat-report) voor elke bedreigingen gedetecteerde te helpen incident response teams onderzoeken en bedreigingen verhelpen.
 
 ### <a name="logging-and-auditing"></a>Logboekregistratie en controle
 
@@ -152,13 +152,13 @@ Bovendien is de volgende OMS-oplossingen, opgenomen als onderdeel van deze archi
 -   [Updatebeheer](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-update-management): de updatebeheer-oplossing maakt Klantenbeheer van de beveiligingsupdates besturingssysteem, met inbegrip van de status van de beschikbare updates en het installatieproces van vereiste updates.
 -   [Status van agent](https://docs.microsoft.com/azure/operations-management-suite/oms-solution-agenthealth): oplossing status van de Agent rapporteert het aantal agents zijn geïmplementeerd en hun geografische verdeling, evenals hoeveel agents die niet meer reageert en het aantal agents die zijn operationele gegevens kan verzenden.
 -   [Azure-activiteitenlogboeken](https://docs.microsoft.com/azure/log-analytics/log-analytics-activity): de Activity Log Analytics-oplossing biedt ondersteuning voor analyse van de Azure-activiteitenlogboeken voor alle Azure-abonnementen voor een klant.
--   [Wijzigingen bijhouden](https://docs.microsoft.com/en-us/azure/automation/automation-change-tracking): de functie Wijzigingen bijhouden kan klanten eenvoudig wijzigingen in de omgeving identificeren.
+-   [Wijzigingen bijhouden](https://docs.microsoft.com/azure/automation/automation-change-tracking): de functie Wijzigingen bijhouden kan klanten eenvoudig wijzigingen in de omgeving identificeren.
 
 **Azure Monitor**
-[Azure Monitor](https://docs.microsoft.com/en-us/azure/monitoring-and-diagnostics/) helpt klanten bijhouden van prestaties, veiligheid en trends te identificeren doordat organisaties om te controleren, waarschuwingen maken en archiveren van gegevens, zoals het bijhouden van API oproepen in Azure-resources van klanten.
+[Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/) helpt klanten bijhouden van prestaties, veiligheid en trends te identificeren doordat organisaties om te controleren, waarschuwingen maken en archiveren van gegevens, zoals het bijhouden van API oproepen in Azure-resources van klanten.
 
 **Application Insights**
-[Application Insights](https://docs.microsoft.com/en-us/azure/application-insights/) is een uitbreidbare service voor Application Performance Management (APM) voor webontwikkelaars op meerdere platforms. Gebruik dit voor het bewaken van live web-App. Het detecteert afwijkende prestaties en bevat krachtige analysehulpmiddelen om problemen vast te stellen en om te begrijpen wat gebruikers daadwerkelijk doen met de app. Het is ontworpen om u te helpen gebruikers prestaties en bruikbaarheid continu te verbeteren.
+[Application Insights](https://docs.microsoft.com/azure/application-insights/) is een uitbreidbare service voor Application Performance Management (APM) voor webontwikkelaars op meerdere platforms. Gebruik dit voor het bewaken van live web-App. Het detecteert afwijkende prestaties en bevat krachtige analysehulpmiddelen om problemen vast te stellen en om te begrijpen wat gebruikers daadwerkelijk doen met de app. Het is ontworpen om u te helpen gebruikers prestaties en bruikbaarheid continu te verbeteren.
 
 ## <a name="threat-model"></a>Risicomodel
 
@@ -176,17 +176,17 @@ De [Azure-beveiliging en naleving blauwdruk - AVG Data Analytics-implementatie M
 ### <a name="vpn-and-expressroute"></a>VPN en ExpressRoute
 Een beveiligde VPN-tunnel of [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) moet worden geconfigureerd voor een veilig verbinding met de resources die zijn geïmplementeerd als onderdeel van deze gegevens analytics referentie-architectuur. Door op de juiste wijze instellen van een VPN of ExpressRoute, toevoegen klanten een beveiligingslaag voor gegevens in transit.
 
-Door het implementeren van een beveiligde VPN-tunnel met Azure, kan een virtuele particuliere verbinding tussen een on-premises netwerk en een Azure-netwerk worden gemaakt. Deze verbinding vindt plaats via Internet en kan klanten veilig 'tunnel' gegevens in een gecodeerde verbinding tussen het netwerk en Azure van de klant. Site-naar-Site VPN is een veilige, volwassen technologie die is geïmplementeerd door bedrijven van alle groottes decennia. De [IPsec-tunnelmodus](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) bij deze optie als een versleutelingsmechanisme voor wordt gebruikt.
+Door het implementeren van een beveiligde VPN-tunnel met Azure, kan een virtuele particuliere verbinding tussen een on-premises netwerk en een Azure-netwerk worden gemaakt. Deze verbinding vindt plaats via Internet en kan klanten veilig 'tunnel' gegevens in een gecodeerde verbinding tussen het netwerk en Azure van de klant. Site-naar-Site VPN is een veilige, volwassen technologie die is geïmplementeerd door bedrijven van alle groottes decennia. De [IPsec-tunnelmodus](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2003/cc786385(v=ws.10)) bij deze optie als een versleutelingsmechanisme voor wordt gebruikt.
 
 Omdat het verkeer binnen de VPN-tunnel via Internet met een site-naar-site-VPN, biedt Microsoft een andere verbinding nog veiliger optie. Azure ExpressRoute is een speciale WAN koppeling tussen Azure en een on-premises locatie of een Exchange-hostingprovider. Als het ExpressRoute-verbindingen gaan niet via het Internet, bieden deze verbindingen een meer betrouwbaarheid, hogere snelheden, kortere wachttijden en hogere beveiliging dan gebruikelijke verbindingen via Internet. Bovendien, omdat dit een rechtstreekse verbinding van de klant telecommunicatie-provider, de gegevens niet via Internet kan worden verzonden en daarom geen toegang heeft tot deze.
 
-Aanbevolen procedures voor het implementeren van een beveiligd hybride netwerk dat een on-premises netwerk naar Azure uitbreidt zijn [beschikbaar](https://docs.microsoft.com/en-us/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
+Aanbevolen procedures voor het implementeren van een beveiligd hybride netwerk dat een on-premises netwerk naar Azure uitbreidt zijn [beschikbaar](https://docs.microsoft.com/azure/architecture/reference-architectures/dmz/secure-vnet-hybrid).
 
 ### <a name="extract-transform-load-etl-process"></a>Proces extract-Transform-Load (ETL)
-[PolyBase](https://docs.microsoft.com/en-us/sql/relational-databases/polybase/polybase-guide) kunnen gegevens laden in Azure SQL Database zonder de noodzaak voor een afzonderlijke ETL of hulpprogramma voor importeren. PolyBase biedt toegang tot gegevens via T-SQL-query's. Microsoft business intelligence en analyse-stack, evenals hulpprogramma's van derden die compatibel is met SQL Server, kunnen worden gebruikt met PolyBase.
+[PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide) kunnen gegevens laden in Azure SQL Database zonder de noodzaak voor een afzonderlijke ETL of hulpprogramma voor importeren. PolyBase biedt toegang tot gegevens via T-SQL-query's. Microsoft business intelligence en analyse-stack, evenals hulpprogramma's van derden die compatibel is met SQL Server, kunnen worden gebruikt met PolyBase.
 
 ### <a name="azure-active-directory-setup"></a>Installatie van de Azure Active Directory
-[Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/active-directory-whatis) is essentieel voor het beheren van de implementatie en inrichting van toegang tot personeel interactie met de omgeving. Een bestaande Windows Server Active Directory kunnen worden geïntegreerd met AAD in [vier klikken](https://docs.microsoft.com/en-us/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Klanten kunnen ook de geïmplementeerde Active Directory-infrastructuur (domeincontrollers) koppelen aan een bestaande AAD doordat de geïmplementeerde Active Directory-infrastructuur een subdomein van een AAD-forest.
+[Azure Active Directory](https://docs.microsoft.com/azure/active-directory/active-directory-whatis) is essentieel voor het beheren van de implementatie en inrichting van toegang tot personeel interactie met de omgeving. Een bestaande Windows Server Active Directory kunnen worden geïntegreerd met AAD in [vier klikken](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect-get-started-express). Klanten kunnen ook de geïmplementeerde Active Directory-infrastructuur (domeincontrollers) koppelen aan een bestaande AAD doordat de geïmplementeerde Active Directory-infrastructuur een subdomein van een AAD-forest.
 
 ## <a name="disclaimer"></a>Vrijwaring
 

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 06/25/2018
 ms.author: fryu
 ms.component: common
-ms.openlocfilehash: 47cc38226799c5fd3afa2e13e7731a7683b736ba
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 86331f60e1be7d55c39e5d59f85b0f090a322587
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527514"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573855"
 ---
 # <a name="enable-secure-tls-for-azure-storage-client"></a>Beveiligde TLS voor Azure Storage-client inschakelen
 
@@ -25,7 +25,7 @@ Om ervoor te zorgen beveiligd en compatibel verbinding met Azure Storage, moet u
 
 ## <a name="enable-tls-12-in-net-client"></a>TLS 1.2 in .NET-client inschakelen
 
-Voor de client om te onderhandelen over TLS 1.2, het besturingssysteem en de .NET Framework-versie moeten beide ondersteunen TLS 1.2. Zie voor meer informatie [ondersteuning voor TLS 1.2](https://docs.microsoft.com/en-us/dotnet/framework/network-programming/tls#support-for-tls-12).
+Voor de client om te onderhandelen over TLS 1.2, het besturingssysteem en de .NET Framework-versie moeten beide ondersteunen TLS 1.2. Zie voor meer informatie [ondersteuning voor TLS 1.2](https://docs.microsoft.com/dotnet/framework/network-programming/tls#support-for-tls-12).
 
 Het volgende voorbeeld laat zien hoe voor het inschakelen van TLS 1.2 in uw .NET-client.
 

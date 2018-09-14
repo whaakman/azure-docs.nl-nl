@@ -10,12 +10,12 @@ ms.component: QnAMaker
 ms.topic: article
 ms.date: 04/21/2018
 ms.author: saneppal
-ms.openlocfilehash: 18eae69867dc9774f63b11c762b22df4595bdce6
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: b923e7c39ccd96bd9b158c98507f961ea2dc3e02
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43781744"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576762"
 ---
 # <a name="integrate-qna-maker-and-luis-to-distribute-your-knowledge-base"></a>QnA Maker en LUIS voor het distribueren van uw knowledge base integreren
 Als uw QnA Maker knowledge base grote groeit, wordt het moeilijk te onderhouden als één monolithische ingesteld en er behoefte aan de knowledge base splitsen in kleinere logische segmenten.
@@ -29,14 +29,14 @@ Het is eenvoudig te maken van meerdere knowledge bases in QnA Maker, moet u bepa
 In dit scenario, QnA Maker eerst de bedoeling van de binnenkomende vraag opgehaald uit een LUIS-model, en gebruik vervolgens die aan deze wordt doorgestuurd naar de juiste QnA Maker knowledge base.
 
 ## <a name="prerequisites"></a>Vereisten
-- Meld u aan bij de [LUIS](https://www.luis.ai/) portal en [maken van een app](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/create-new-app).
-- [Intents toevoegen](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/add-intents) aan de hand van uw scenario.
-- [Train](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-how-to-train) en [publiceren](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/publishapp) uw LUIS-App.
+- Meld u aan bij de [LUIS](https://www.luis.ai/) portal en [maken van een app](https://docs.microsoft.com/azure/cognitive-services/luis/create-new-app).
+- [Intents toevoegen](https://docs.microsoft.com/azure/cognitive-services/luis/add-intents) aan de hand van uw scenario.
+- [Train](https://docs.microsoft.com/azure/cognitive-services/luis/luis-how-to-train) en [publiceren](https://docs.microsoft.com/azure/cognitive-services/luis/publishapp) uw LUIS-App.
 - Meld u aan bij [QnA Maker](https://qnamaker.ai) en [maken](https://www.qnamaker.ai/Create) knowledge bases aan de hand van uw scenario.
 - Testen en publiceren van de knowledge bases.
 
 ## <a name="qna-maker--luis-bot"></a>QnA Maker + LUIS-Bot
-1. Eerst een bot-Web-App maken met de sjabloon LUIS, een koppeling met de LUIS-app die u hierboven hebt gemaakt en de intenties wijzigen. Zie de gedetailleerde stappen [hier](https://docs.microsoft.com/en-us/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
+1. Eerst een bot-Web-App maken met de sjabloon LUIS, een koppeling met de LUIS-app die u hierboven hebt gemaakt en de intenties wijzigen. Zie de gedetailleerde stappen [hier](https://docs.microsoft.com/azure/cognitive-services/luis/luis-csharp-tutorial-build-bot-framework-sample).
 
 2. Afhankelijkheden toevoegen aan het begin van het bestand, met de andere afhankelijkheden:
 

@@ -8,16 +8,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/11/2018
+ms.date: 09/12/2018
 ms.author: curtand
 ms.reviewer: beengen
 ms.custom: it-pro
-ms.openlocfilehash: b6b7f6f51e848223adcf618ebbc47df08e7ea7ef
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: c9728b63545450fe9160c3e4a79bace254ccc533
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44392246"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543842"
 ---
 # <a name="user-consent-and-linkedin-account-connections-data-sharing"></a>Toestemming van de gebruiker en LinkedIn account verbindingen gegevens delen
 
@@ -31,7 +31,7 @@ LinkedIn-gegevens in Microsoft-apps en -services wilt bekijken, moeten gebruiker
 
 Toegang tot de gegevens van LinkedIn binnen Microsoft-apps en services maakt het gemakkelijker voor uw gebruikers te verbinden, betrekken en professionele relaties bouwen met collega's, klanten en partners binnen en buiten uw organisatie. Nieuwe gebruikers kunnen krijgen op weg te helpen sneller door verbinding te maken met collega's, meer informatie over deze en eenvoudige toegang tot meer informatie. Hier volgt een voorbeeld van hoe LinkedIn-informatie wordt weergegeven op de Profielkaart in Microsoft-apps:
 
-![LinkedIn-accountverbindingen inschakelen](./media/linkedin-user-consent/display-example-02.png)
+![LinkedIn-accountverbindingen inschakelen](./media/linkedin-user-consent/display-example.png)
 
 ## <a name="enable-and-announce-linkedin-account-connections"></a>Inschakelen en LinkedIn-accountverbindingen aankondigen
 

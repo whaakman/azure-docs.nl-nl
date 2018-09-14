@@ -1,56 +1,65 @@
 ---
-title: De leden van een groep beheren in Azure AD | Microsoft Docs
-description: Gebruikers en apparaten toevoegen aan of verwijderen uit een groep in Azure Active Directory
+title: Toevoegen of verwijderen van leden van beveiligingsgroep met Azure Active Directory | Microsoft Docs
+description: Informatie over het toevoegen of verwijderen van gebruikers en apparaten uit een groep met behulp van Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 08/28/2017
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
 ms.custom: it-pro
 ms.reviewer: krbain
-ms.openlocfilehash: 947b0c11aba211530e3ae25d6617079bcaf2995f
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
-ms.translationtype: HT
+ms.openlocfilehash: f9244e1285396a2d5de40b596d47e311efa50b83
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37860396"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45574230"
 ---
-# <a name="manage-group-membership-for-users-in-your-azure-active-directory-tenant"></a>Groepslidmaatschap beheren voor gebruikers in uw Azure Active Directory-tenant
-In dit artikel wordt uitgelegd hoe u de leden van een groep beheert in Azure AD (Azure Active Directory).
+# <a name="how-to-add-or-remove-group-members-using-azure-active-directory"></a>Hoe: toevoegen of verwijderen van leden van beveiligingsgroep met Azure Active Directory
+Met Azure Active Directory, kunt u blijven toevoegen en verwijderen van leden van de beveiligingsgroep.
 
-## <a name="how-do-i-find-the-members-and-manage-them"></a>Hoe kan ik leden zoeken en ze beheren?
-1. Meld u aan bij [Azure Portal](https://portal.azure.com) met een account van een globale beheerder voor de directory.
-2. Selecteer **Alle services**, typ **Gebruikers en groepen** in het tekstvak en selecteer vervolgens **Enter**.
+## <a name="to-add-group-members"></a>Groepsleden toevoegen
 
-   ![Gebruikersbeheer openen](./media/active-directory-groups-members-azure-portal/search-user-management.png)
-3. Selecteer **Alle groepen** op de blade **Gebruikers en groepen**.
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een globale beheerdersaccount voor de map.
 
-   ![De blade Groepen openen](./media/active-directory-groups-members-azure-portal/view-groups-blade.png)
-4. Selecteer een groep op de blade **Gebruikers en groepen - alle groepen**.
-5. Selecteer op de blade **Groepen - *groepsnaam*** de optie **Leden**.
+2. Selecteer **Azure Active Directory**, en selecteer vervolgens **groepen**.
 
-   ![De blade Leden openen](./media/active-directory-groups-members-azure-portal/view-group-members.png)
-6. Als u leden wilt toevoegen aan de groep, selecteert u op de blade **Groepen - leden** de optie **Leden toevoegen**.
+3. Uit de **groepen - alle groepen** pagina, zoek en selecteer de groep die u wilt toevoegen van het lid. In dit geval gebruikt u de eerder gemaakte groep **MDM-beleid - West**.
 
-   ![Opdracht Leden toevoegen](./media/active-directory-groups-members-azure-portal/add-group-members-command.png)
-7. Selecteer op de blade **Leden** een of meer gebruikers of apparaten die u wilt toevoegen aan de groep, en selecteer vervolgens onder aan de blade de knop **Selecteren** om ze aan de groep toe te voegen. Met het vak **Gebruiker** wordt de weergave gefilterd op basis van overeenkomsten tussen uw invoer en (een deel van) de naam van een gebruiker of apparaat. U kunt geen jokertekens gebruiken in dit vak.
-8. Als u leden wilt verwijderen uit de groep, selecteert u een lid op de blade **Groep - leden**.
-9. Selecteer op de blade **lidnaam** de opdracht ***Verwijderen*** en bevestig uw keuze wanneer u hierom wordt gevraagd.
+    ![Pagina groepen-alle groepen in de naam van de groep is gemarkeerd](media/active-directory-groups-members-azure-portal/group-all-groups-screen.png)
 
-   ![opdracht Leden verwijderen](./media/active-directory-groups-members-azure-portal/remove-group-members-command.png)
-10. Wanneer u klaar bent met het wijzigen van leden voor de groep, selecteert u **Opslaan**.
+4. Uit de **MDM-beleid - West-overzicht** weergeeft, schakelt **leden** uit de **beheren** gebied.
 
-## <a name="additional-information"></a>Aanvullende informatie
-Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
+    ![Beleid voor MDM - West overzichtspagina met leden-optie is gemarkeerd](media/active-directory-groups-members-azure-portal/group-overview-blade.png)
 
-* [Bestaande groepen weergeven](active-directory-groups-view-azure-portal.md)
-* [Een nieuwe groep maken en leden toevoegen](active-directory-groups-create-azure-portal.md)
-* [Instellingen van een groep beheren](active-directory-groups-settings-azure-portal.md)
-* [Lidmaatschappen van een groep beheren](active-directory-groups-membership-azure-portal.md)
-* [Dynamische regels voor gebruikers in een groep beheren](../users-groups-roles/groups-dynamic-membership.md)
+5. Selecteer **leden toevoegen**, en vervolgens zoekt en selecteert u elk van de leden die u wilt toevoegen aan de groep en kies vervolgens **Selecteer**.
+
+    U krijgt een bericht weergegeven dat de leden zijn toegevoegd.
+
+    ![Ledenpagina toevoegen met gezocht lid wordt weergegeven](media/active-directory-groups-members-azure-portal/update-members.png)
+
+6. Vernieuwen van het scherm om alle van de namen van leden toegevoegd aan de groep te zien.
+
+## <a name="to-remove-group-members"></a>Groepsleden verwijderen
+
+1. Uit de **groepen - alle groepen** pagina, zoek en selecteer de groep die u wilt voor het lid in verwijderen. Het opnieuw gebruiken we, **MDM-beleid - West**.
+
+2. Selecteer **leden** uit de **beheren** gebied, zoekt en selecteert u de naam van het lid wilt verwijderen en selecteer vervolgens **verwijderen**.
+
+    ![De pagina van het lid info, met de optie verwijderen](media/active-directory-groups-members-azure-portal/remove-members-from-group.png)
+
+## <a name="next-steps"></a>Volgende stappen
+
+- [Uw groepen en leden weergeven](active-directory-groups-view-azure-portal.md)
+
+- [Instellingen van uw groep bewerken](active-directory-groups-settings-azure-portal.md)
+
+- [Toegang tot resources met behulp van groepen beheren](active-directory-manage-groups.md)
+
+- [Dynamische regels voor gebruikers in een groep beheren](../users-groups-roles/groups-create-rule.md)
+
+- [Koppelen of een Azure-abonnement toevoegen aan Azure Active Directory](active-directory-how-subscriptions-associated-directory.md)

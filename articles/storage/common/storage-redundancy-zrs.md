@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeking
 ms.component: common
-ms.openlocfilehash: 0bca4825c757604ab15838aac585603be0616582
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: dfd5058b17a211adf97eb8729158b2b65d7b6975
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025332"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579510"
 ---
 # <a name="zone-redundant-storage-zrs-highly-available-azure-storage-applications"></a>Zone-redundante opslag (ZRS): toepassingen met hoge beschikbaarheid Azure Storage
 [!INCLUDE [storage-common-redundancy-ZRS](../../../includes/storage-common-redundancy-zrs.md)]
 
 ## <a name="support-coverage-and-regional-availability"></a>Ondersteuning en regionale beschikbaarheid
-ZRS biedt momenteel ondersteuning voor standaard [voor algemeen gebruik v2 (GPv2)](storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#general-purpose-v2-accounts) -accounttypen. ZRS is beschikbaar voor blok-blobs, niet-schijf-pagina-blobs, bestanden, tabellen en wachtrijen. Daarnaast al uw [Opslaganalyse](storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json) logboeken en [metrische opslaggegevens](storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
+ZRS biedt momenteel ondersteuning voor standaard [voor algemeen gebruik v2 (GPv2)](storage-account-options.md#general-purpose-v2-accounts) -accounttypen. ZRS is beschikbaar voor blok-blobs, niet-schijf-pagina-blobs, bestanden, tabellen en wachtrijen. Daarnaast al uw [Opslaganalyse](storage-analytics.md) logboeken en [metrische opslaggegevens](storage-enable-and-view-metrics.md)
 
 ZRS is algemeen beschikbaar in de volgende regio's:
 
@@ -37,7 +37,7 @@ Microsoft blijft ZRS in extra Azure-regio's inschakelen. Controleer de [Azure Se
 ## <a name="what-happens-when-a-zone-becomes-unavailable"></a>Wat gebeurt er wanneer een zone niet beschikbaar?
 Uw gegevens blijven flexibele als een zone niet beschikbaar is. Microsoft raadt aan dat u Volg de procedures voor tijdelijke fouten afhandelen blijven, zoals het implementeren van beleid voor opnieuw proberen met exponentieel uitstel. Wanneer een zone niet beschikbaar is, zal Azure VPN-updates, zoals DNS repointing. Deze updates kunnen van invloed op uw toepassing als u toegang uw gegevens tot voordat u ze hebt voltooid.
 
-ZRS mag niet uw gegevens beveiligen tegen een regionaal noodgeval waar meerdere zones permanent worden beïnvloed. ZRS biedt flexibiliteit voor uw gegevens in plaats daarvan als deze tijdelijk niet beschikbaar wordt. Voor de bescherming tegen regionale noodsituaties, Microsoft adviseert geografisch redundante opslag (GRS). Zie voor meer informatie over GRS [geografisch redundante opslag (GRS): replicatie voor Azure Storage-overschrijdende](storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json).
+ZRS mag niet uw gegevens beveiligen tegen een regionaal noodgeval waar meerdere zones permanent worden beïnvloed. ZRS biedt flexibiliteit voor uw gegevens in plaats daarvan als deze tijdelijk niet beschikbaar wordt. Voor de bescherming tegen regionale noodsituaties, Microsoft adviseert geografisch redundante opslag (GRS). Zie voor meer informatie over GRS [geografisch redundante opslag (GRS): replicatie voor Azure Storage-overschrijdende](storage-redundancy-grs.md).
 
 ## <a name="converting-to-zrs-replication"></a>Converteren naar ZRS-replicatie
 Vandaag, kunt u de Azure-portal of de Storage Resource Provider API uw van redundantie om accounttype te wijzigen, zolang u naar of van LRS, GRS en RA-GRS migreert. Met ZRS vindt migratie echter niet als eenvoudige manier omdat deze de fysieke gegevensverplaatsing van een enkele opslagstempel naar meerdere stempels binnen een regio. 
@@ -80,7 +80,7 @@ Een ondersteuningsmedewerker worden vervolgens in contact met u. Deze persoon zi
 >
 > Wanneer ZRS wordt [algemeen beschikbaar](#support-coverage-and-regional-availability) in een regio en klanten wordt niet langer ZRS Classic-accounts maken vanuit de portal in die regio. ZRS Classic-accounts maken met behulp van Microsoft PowerShell en Azure CLI wordt ondersteund als ZRS Classic is afgeschaft.
 
-ZRS Classic worden gegevens asynchroon gerepliceerd tussen datacenters binnen één tot twee regio's. Een replica is mogelijk niet beschikbaar tenzij Microsoft failover naar de secundaire initieert. ZRS Classic is alleen beschikbaar voor **blok-blobs** in [voor algemeen gebruik V1 (GPv1)](storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json#general-purpose-v1-accounts) storage-accounts. Een klassiek ZRS-account kan niet worden geconverteerd naar of van LRS of GRS en heeft geen metrische gegevens of logboek-functionaliteit.
+ZRS Classic worden gegevens asynchroon gerepliceerd tussen datacenters binnen één tot twee regio's. Een replica is mogelijk niet beschikbaar tenzij Microsoft failover naar de secundaire initieert. ZRS Classic is alleen beschikbaar voor **blok-blobs** in [voor algemeen gebruik V1 (GPv1)](storage-account-options.md#general-purpose-v1-accounts) storage-accounts. Een klassiek ZRS-account kan niet worden geconverteerd naar of van LRS of GRS en heeft geen metrische gegevens of logboek-functionaliteit.
 
 ZRS Classic-accounts kunnen niet worden geconverteerd naar of van LRS, GRS of RA-GRS. ZRS Classic-accounts ook ondersteunen geen metrische gegevens of logboekregistratie.
 

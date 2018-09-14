@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/1/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: f272ac7ee6432b43d0c9a72daf620a46e52366f8
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 99329dd812ad47cf98845ba794bc108d26d85352
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399046"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543693"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>VM's starten/stoppen buiten kantooruren oplossing in Azure Automation
 
@@ -53,14 +53,14 @@ De volgende stappen uitvoeren om de VM's starten/stoppen buiten kantooruren oplo
 
    ![Oplossing toevoegen voor VM beheren pagina](media/automation-solution-vm-management/azure-portal-add-solution-01.png)
 
-1. Op de **oplossing toevoegen** weergeeft, schakelt **werkruimte**. Selecteer een Log Analytics-werkruimte die gekoppeld aan hetzelfde Azure-abonnement dat het Automation-account in. Als u een werkruimte hebt, selecteert u **nieuwe werkruimte maken**. Op de **OMS-werkruimte** pagina, voert u de volgende stappen uit:
-   - Geef een naam op voor de nieuwe **OMS-werkruimte**.
+1. Op de **oplossing toevoegen** weergeeft, schakelt **werkruimte**. Selecteer een Log Analytics-werkruimte die gekoppeld aan hetzelfde Azure-abonnement dat het Automation-account in. Als u een werkruimte hebt, selecteert u **nieuwe werkruimte maken**. Op de **Log Analytics-werkruimte** pagina, voert u de volgende stappen uit:
+   - Geef een naam voor de nieuwe **Log Analytics-werkruimte**.
    - Selecteer een **abonnement** om te koppelen aan door in de vervolgkeuzelijst te selecteren of de geselecteerde standaardwaarde niet geschikt is.
    - Voor **resourcegroep**, u kunt maken van een nieuwe resourcegroep of Selecteer een bestaande resourcegroep.
    - Selecteer een **locatie**. Op dit moment de enige beschikbare locaties zijn **Australië-Zuidoost**, **Canada-centraal**, **centraal-India**, **VS-Oost**, **Japan (Oost)**, **Zuidoost-Azië**, **UK-Zuid**, en **West-Europa**.
    - Selecteer een **prijscategorie**. Kies de **Per GB (zelfstandig)** optie. Log Analytics is bijgewerkt [prijzen](https://azure.microsoft.com/pricing/details/log-analytics/) en de Per GB-laag is de enige optie.
 
-1. Na het opgeven van de vereiste gegevens op de **OMS-werkruimte** pagina, klikt u op **maken**. U kunt de voortgang bijhouden onder **meldingen** in het menu dat gaat u terug naar de **oplossing toevoegen** pagina wanneer u klaar bent.
+1. Na het opgeven van de vereiste gegevens op de **Log Analytics-werkruimte** pagina, klikt u op **maken**. U kunt de voortgang bijhouden onder **meldingen** in het menu dat gaat u terug naar de **oplossing toevoegen** pagina wanneer u klaar bent.
 1. Op de **oplossing toevoegen** weergeeft, schakelt **Automation-account**. Als u een nieuwe Log Analytics-werkruimte maakt, kunt u een nieuw Automation-account worden gekoppeld aan het maken of Selecteer een bestaand Automation-Account die nog niet is gekoppeld aan een werkruimte voor Log u. Selecteer een bestaand Automation-Account of klik op **maken van een Automation-account**, en klik op de **Automation-account toevoegen** pagina, geef de volgende informatie:
    - Voer in het veld **Naam** de naam van het Automation-account in.
 
@@ -184,7 +184,7 @@ Alle bovenliggende runbooks bevatten de _WhatIf_ parameter. Als de waarde **waar
 |AutoStop_Disable | geen | Hiermee schakelt u AutoStop waarschuwingen en standaardschema.|
 |AutoStop_StopVM_Child | WebHookData | Met de naam van het bovenliggende runbook. Waarschuwingsregels aanroepen met dit runbook als u wilt stoppen van de virtuele machine.|
 |Bootstrap_Main | geen | Één keer gebruikt voor het instellen van de bootstrap-configuraties, zoals webhookURI, die doorgaans niet toegankelijk vanuit Azure Resource Manager. Dit runbook wordt automatisch verwijderd na de implementatie is voltooid.|
-|ScheduledStartStop_Child | VMName <br> Actie: Starten of stoppen <br> ResourceGroupName | Met de naam van het bovenliggende runbook. Een actie starten of stoppen voor de geplande stoppen wordt uitgevoerd.|
+|ScheduledStartStop_Child | VM-naam <br> Actie: Starten of stoppen <br> ResourceGroupName | Met de naam van het bovenliggende runbook. Een actie starten of stoppen voor de geplande stoppen wordt uitgevoerd.|
 |ScheduledStartStop_Parent | Actie: Starten of stoppen <br>VMList <br> WhatIf: Waar of ONWAAR | Dit is van invloed op alle virtuele machines in het abonnement. Bewerk de **External_Start_ResourceGroupNames** en **External_Stop_ResourceGroupNames** gericht alleen uitvoeren op deze resourcegroepen. U kunt ook specifieke virtuele machines uitsluiten door het bijwerken van de **External_ExcludeVMNames** variabele.<br> VMList: Door komma's gescheiden lijst met virtuele machines. Bijvoorbeeld, _vm1, vm2, vm3_.<br> _WhatIf_ valideert de runbooklogica zonder uit te voeren.|
 |SequencedStartStop_Parent | Actie: Starten of stoppen <br> WhatIf: Waar of ONWAAR<br>VMList| Met de naam-tags maken **klikvolgorde** en **SequenceStop** op elke virtuele machine waarvoor u te sequence starten/stoppen-activiteit wenst. De waarde van de tag moet een positief geheel getal zijn (1, 2, 3) die overeenkomt met de volgorde waarin u wilt starten of stoppen. <br> VMList: Door komma's gescheiden lijst met virtuele machines. Bijvoorbeeld, _vm1, vm2, vm3_. <br> _WhatIf_ valideert de runbooklogica zonder uit te voeren. <br> **Houd er rekening mee**: virtuele machines, moeten zich binnen de resourcegroepen die zijn gedefinieerd als External_Start_ResourceGroupNames External_Stop_ResourceGroupNames en External_ExcludeVMNames in Azure Automation-variabelen. Ze beschikken over de juiste tags voor acties die moeten worden van kracht.|
 

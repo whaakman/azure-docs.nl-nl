@@ -11,16 +11,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2017
+ms.date: 09/12/2018
 ms.author: barbkess
-ms.reviewer: harshja
+ms.reviewer: japere
 ms.custom: it-pro
-ms.openlocfilehash: 7f9d74ce60d2a433f6bb63be4f131ac430452036
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: e67428116c66c05d83efbb217d7ec81f75124051
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39363411"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540835"
 ---
 # <a name="work-with-existing-on-premises-proxy-servers"></a>Werken met bestaande on-premises proxy-servers
 
@@ -77,7 +77,7 @@ Als gevolg van dat u hoeft alleen uitgaand verkeer, is er niet nodig om binnenko
 
 Als WPAD is ingeschakeld in de omgeving en op de juiste wijze geconfigureerd, wordt de connector automatisch detecteert de uitgaande proxy-server en de poging om deze te gebruiken. U kunt echter expliciet de connector te gaan via een uitgaande proxy configureren.
 
-Om dit te doen, bewerk het bestand C:\Program Files\Microsoft AAD-App Proxy Connector\ApplicationProxyConnectorService.exe.config en voeg de *system.net* sectie in dit voorbeeld wordt weergegeven. Wijziging *proxyserver:8080* in overeenstemming met de naam van uw lokale proxy-server of IP-adres en de poort waarop deze luistert.
+Om dit te doen, bewerk het bestand C:\Program Files\Microsoft AAD-App Proxy Connector\ApplicationProxyConnectorService.exe.config en voeg de *system.net* sectie in dit voorbeeld wordt weergegeven. Wijziging *proxyserver:8080* in overeenstemming met de naam van uw lokale proxy-server of IP-adres en de poort waarop deze luistert. De waarde moet het voorvoegsel http:// hebben, zelfs als u een IP-adres.
 
 ```xml
 <?xml version="1.0" encoding="utf-8" ?>

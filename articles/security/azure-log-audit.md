@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: TomSh
-ms.openlocfilehash: a499f609e517d880b3a942ac6dc3eb0dc10b69e7
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 93b0a7e382c27cab5f050166ec8fa89fc7cf6b96
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42055053"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576099"
 ---
 # <a name="azure-logging-and-auditing"></a>Logboekregistratie en bewaking in Azure
 
@@ -45,7 +45,7 @@ De volgende tabel bevat de belangrijkste typen logboeken beschikbaar zijn in Azu
 |[Activiteitenlogboeken](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|Besturingselement vlak gebeurtenissen op Azure Resource Manager-resources|   Biedt inzicht in de bewerkingen die zijn uitgevoerd op resources in uw abonnement.|    De rest-API, [Azure Monitor](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs)|
 |[Diagnostische logboeken van Azure](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|Regelmatig gegevens over de werking van Azure Resource Manager-resources in het abonnement|    Biedt inzicht in bewerkingen die uw resource zelf uitgevoerd.| Azure Monitor, [Stream](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-of-diagnostic-logs)|
 |[Azure AD-rapportage](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)|Logboeken en rapporten | Rapporten aanmelden gebruikersactiviteiten en informatie over gebruikers- en groepsbeheer systeemactiviteit.|[Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api-quickstart)|
-|[Virtuele machines en cloudservices](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows Event Log-service en de Linux Syslog|    Systeemgegevens en logboekregistratie op de virtuele machines vastgelegd en die gegevens overdraagt naar een storage-account van uw keuze.|   Windows (met behulp van Windows Azure Diagnostics [[WAD](https://docs.microsoft.com/azure/azure-diagnostics)] opslag) en Linux in Azure Monitor|
+|[Virtuele machines en cloudservices](https://docs.microsoft.com/azure/log-analytics/log-analytics-quick-collect-azurevm)|Windows Event Log-service en de Linux Syslog|  Systeemgegevens en logboekregistratie op de virtuele machines vastgelegd en die gegevens overdraagt naar een storage-account van uw keuze.|   Windows (met behulp van Windows Azure Diagnostics [[WAD](https://docs.microsoft.com/azure/azure-diagnostics)] opslag) en Linux in Azure Monitor|
 |[Azure Storage Analytics](https://docs.microsoft.com/rest/api/storageservices/fileservices/storage-analytics)|Logboekregistratie van opslag, biedt metrische gegevens voor een storage-account|Biedt inzicht in de trace-aanvragen, analyseert trends in gebruik en vaststellen van problemen met uw storage-account.|   REST-API of de [-clientbibliotheek](https://msdn.microsoft.com/library/azure/mt347887.aspx)|
 |[Stroomlogboeken van Netwerkbeveiligingsgroep (NSG)](https://docs.microsoft.com/azure/network-watcher/network-watcher-nsg-flow-logging-overview)|JSON-indeling, ziet u binnenkomende en uitgaande stromen op basis van per regel|Geeft informatie weer over de inkomende en uitgaande IP-verkeer via een Netwerkbeveiligingsgroep.|[Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview)|
 |[Application Insights](https://docs.microsoft.com/azure/application-insights/app-insights-overview)|Logboeken, uitzonderingen en aangepaste diagnoses|   Biedt een application performance monitoring (APM)-service voor webontwikkelaars op meerdere platforms.| REST-API, [Power BI](https://powerbi.microsoft.com/documentation/powerbi-azure-and-power-bi/)|

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 12/11/2017
 ms.author: kuhussai
 ms.component: blobs
-ms.openlocfilehash: b3279006d1ff947b76dd8fbba1438972e5f3ad8b
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: d7d7a6d67efd5ed230750be87450760498f9b877
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630959"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576236"
 ---
 # <a name="azure-blob-storage-hot-cool-and-archive-storage-tiers"></a>Azure Blob Storage: dynamische, statische en archiefopslaglaag
 
@@ -73,7 +73,7 @@ Blobs in alle drie de opslaglagen kunnen naast elkaar bestaan binnen hetzelfde a
 > Archiefopslag en laaginstelling op blobniveau ondersteunen alleen blok-blobs. U kunt evenmin de laag wijzigen van een blok-blob die momentopnamen bevat.
 
 ### <a name="blob-lifecycle-management"></a>Beheer van de BLOB-levenscyclus
-BLOB Storage lifecycle management (Preview) biedt een uitgebreide, op basis van regels beleid die u gebruiken kunt voor de overgang van uw gegevens naar de beste toegangslaag en verloopt gegevens aan het einde van de levenscyclus. Zie [beheren van de levenscyclus van de Azure Blob-opslag](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts) voor meer informatie.  
+BLOB Storage lifecycle management (Preview) biedt een uitgebreide, op basis van regels beleid die u gebruiken kunt voor de overgang van uw gegevens naar de beste toegangslaag en verloopt gegevens aan het einde van de levenscyclus. Zie [beheren van de levenscyclus van de Azure Blob-opslag](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts) voor meer informatie.  
 
 ### <a name="blob-level-tiering-billing"></a>Facturering van laaginstelling op blobniveau
 
@@ -191,7 +191,7 @@ Gegevensopslag en andere limieten worden ingesteld op het accountniveau en niet 
 
 [De beschikbaarheid controleren van de dynamische, statische en archieflaag per regio](https://azure.microsoft.com/regions/#services)
 
-[De levenscyclus van de Azure Blob storage beheren](https://docs.microsoft.com/en-us/azure/storage/common/storage-lifecycle-managment-concepts)
+[De levenscyclus van de Azure Blob storage beheren](https://docs.microsoft.com/azure/storage/common/storage-lifecycle-managment-concepts)
 
 [Gebruik van de huidige opslagaccounts evalueren door metrische gegevens voor Azure Storage in te schakelen](../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 

@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/13/2018
 ms.author: ellacroi
-ms.openlocfilehash: a85cd5287f6947ec17dc19291a70d6dd081e1827
-ms.sourcegitcommit: 04fc1781fe897ed1c21765865b73f941287e222f
+ms.openlocfilehash: b64a35f6b7422b1e24812c1041305dab2ebad6c0
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39035857"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578494"
 ---
 # <a name="determine-your-publishing-option"></a>Uw publicatieoptie bepalen
 De publicatieoptie die u voor uw aanbieding kiest is gekoppeld aan rechtstreeks aan de vereisten voor geschiktheid en de marketplace GTM-voordelen. De selectie van de optie en aanbiedingtype publiceren in de Cloud Partner-Portal definieert nog belangrijker, hoe gebruikers in uw aanbieding van marketplace zullen werken.
@@ -80,7 +80,7 @@ Voordat u een aanbieding maken kunt, moet u een aanbiedingtype. Het aanbiedingty
 
 Een type één aanbieding kan anders worden geconfigureerd in de Cloud Partner-Portal om in te schakelen van verschillende opties voor publiceren, aanroepen naar actie inrichten of prijzen. De optie voor publiceren en de configuratie van het aanbiedingtype afgestemd ook op de aanbieding in aanmerking te komen en technische vereisten. 
 
-Zorg ervoor dat de webwinkel controleren en vereisten voor gegevenstypen in aanmerking te komen in deze aanbieding [Uitgevershandleiding voor](https://docs.microsoft.com/en-us/azure/marketplace/marketplace-publishers-guide) en de technische vereisten voordat u het maken van uw aanbieding publiceren.
+Zorg ervoor dat de webwinkel controleren en vereisten voor gegevenstypen in aanmerking te komen in deze aanbieding [Uitgevershandleiding voor](https://docs.microsoft.com/azure/marketplace/marketplace-publishers-guide) en de technische vereisten voordat u het maken van uw aanbieding publiceren.
 
 ## <a name="next-steps"></a>Volgende stappen
 

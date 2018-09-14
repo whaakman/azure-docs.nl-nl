@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 08/08/2018
 ms.reviewer: mbullwin
 ms.author: Evgeny.Ternovsky
-ms.openlocfilehash: 31e37efc1aad3d355bdd8391535f317ec137f5d7
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 6d19c64c74a01a012bac3d867e2d65393ae21cd3
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "40162039"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577768"
 ---
 # <a name="correlating-application-insights-data-with-custom-data-sources"></a>Application Insights-gegevens te correleren met aangepaste gegevensbronnen
 
@@ -51,7 +51,7 @@ Om te beginnen met het verzenden van gegevens in Log Analytics. Er zijn diverse 
 
 ## <a name="correlating-data"></a>Correleren van gegevens
 
-Application Insights is gebaseerd op het platform voor Log Analytics. We kunnen daarom gebruiken [meerdere bronnen joins](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search) correleren van gegevens we die zijn opgenomen in Log Analytics met onze Application Insights-gegevens.
+Application Insights is gebaseerd op het platform voor Log Analytics. We kunnen daarom gebruiken [meerdere bronnen joins](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search) correleren van gegevens we die zijn opgenomen in Log Analytics met onze Application Insights-gegevens.
 
 Bijvoorbeeld, kunnen we onze lab-inventaris en de locaties in een tabel met de naam 'LabLocations_CL' in een Log Analytics-werkruimte met de naam 'myLA' opnemen. Als we vervolgens wilden onze aanvragen worden bijgehouden in Application Insights-app met de naam 'myAI' bekijken en de namen van de machines die de aanvragen naar de locatie van deze machines die zijn opgeslagen in de eerder genoemde aangepaste tabel behandeld correleren, kunnen we de volgende query uit uitvoeren de Application Insights of Log Analytics-context:
 
@@ -66,4 +66,4 @@ app('myAI').requests
 ## <a name="next-steps"></a>Volgende stappen
 
 - Bekijk de [Data Collector API](https://docs.microsoft.com/azure/log-analytics/log-analytics-data-collector-api) verwijzing.
-- Voor meer informatie over [meerdere bronnen joins](https://docs.microsoft.com/en-us/azure/log-analytics/log-analytics-cross-workspace-search).
+- Voor meer informatie over [meerdere bronnen joins](https://docs.microsoft.com/azure/log-analytics/log-analytics-cross-workspace-search).

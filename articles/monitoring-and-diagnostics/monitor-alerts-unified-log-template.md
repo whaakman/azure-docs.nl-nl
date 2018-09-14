@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: vinagara
 ms.component: alerts
-ms.openlocfilehash: 588a0686eda1966582b82a4673a8b6805453c94c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 6096833381db7ef0d2f011d517aaad4ae63ce4d6
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39441439"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576864"
 ---
 # <a name="create-a-log-alert-with-a-resource-manager-template"></a>Een waarschuwing voor een logboek maken met een Resource Manager-sjabloon
 Dit artikel wordt beschreven hoe u kunt beheren [waarschuwingen voor activiteitenlogboeken](monitor-alerts-unified-log.md) via een programma op schaal in Azure met [Azure Resource Manager-sjabloon](..//azure-resource-manager/resource-group-authoring-templates.md) via [Azure Powershell](../azure-resource-manager/resource-group-template-deploy.md) en [Azure CLI](../azure-resource-manager/resource-group-template-deploy-cli.md). Momenteel Azure-waarschuwingen ondersteunt waarschuwingen voor activiteitenlogboeken op query's uit de [Azure Log Analytics](../log-analytics/log-analytics-tutorial-viewdata.md) en [Azure Application Insights](../application-insights/app-insights-analytics-tour.md).
@@ -35,12 +35,12 @@ De Log Analytics Alert REST-API is RESTful en zijn toegankelijk via de Azure Res
 Meer informatie over [maken en beheren van regels voor waarschuwingen in Log Analytics met REST-API](../log-analytics/log-analytics-api-alerts.md), inclusief voorbeelden van toegang tot de API vanuit Powershell.
 
 ## <a name="managing-log-alert-on-application-insights"></a>Waarschuwing voor Application Insights beheren
-Waarschuwingen voor Azure Application Insights zijn geïntroduceerd als onderdeel van de nieuwe Azure-waarschuwingen onder Azure Monitor. Daarom deze wordt uitgevoerd onder de API van Azure Monitor als [queryregels gepland](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) groep voor REST-bewerking.
+Waarschuwingen voor Azure Application Insights zijn geïntroduceerd als onderdeel van de nieuwe Azure-waarschuwingen onder Azure Monitor. Daarom deze wordt uitgevoerd onder de API van Azure Monitor als [queryregels gepland](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) groep voor REST-bewerking.
 
 ### <a name="using-azure-resource-manager-template"></a>Met behulp van Azure Resource Manager-sjabloon
-Waarschuwing voor Application Insights-resources heeft een type `Microsoft.Insights/scheduledQueryRules/`. Zie voor meer informatie over dit brontype [Azure Monitor - gepland Query regels API-verwijzing](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/).
+Waarschuwing voor Application Insights-resources heeft een type `Microsoft.Insights/scheduledQueryRules/`. Zie voor meer informatie over dit brontype [Azure Monitor - gepland Query regels API-verwijzing](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/).
 
-Hieronder volgt de structuur voor [queryregels gepland maken](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/createorupdate) op basis van resource-sjabloon met de voorbeeld-gegevensset als variabelen.
+Hieronder volgt de structuur voor [queryregels gepland maken](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) op basis van resource-sjabloon met de voorbeeld-gegevensset als variabelen.
 
 ```json
 {
@@ -113,7 +113,7 @@ Hieronder volgt de structuur voor [queryregels gepland maken](https://docs.micro
 }
 ```
 > [!IMPORTANT]
-> Label-veld met verborgen-koppeling naar de doelresource is verplicht in het gebruik van [queryregels gepland ](https://docs.microsoft.com/en-us/rest/api/monitor/scheduledqueryrules/) sjabloon voor API-oproep of een resource. 
+> Label-veld met verborgen-koppeling naar de doelresource is verplicht in het gebruik van [queryregels gepland ](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/) sjabloon voor API-oproep of een resource. 
 
 Het bovenstaande voorbeeld-json als (bijvoorbeeld) sampleScheduledQueryRule.json ten behoeve van dit scenario kunnen worden opgeslagen en kunnen worden geïmplementeerd met [Azure Resource Manager in Azure portal](../azure-resource-manager/resource-group-template-deploy-portal.md#deploy-resources-from-custom-template).
 

@@ -1,80 +1,80 @@
 ---
-title: Het bewerken van een knowledge base - cognitieve Microsoft-Services | Microsoft Docs
-titleSuffix: Azure
-description: Het bewerken van een knowledge base
+title: Een kennisdatabase - QnA Maker bewerken
+titleSuffix: Azure Cognitive Services
+description: QnA Maker kunt u de inhoud van uw knowledge base beheren door op te geven van een bewerkingservaring eenvoudig te gebruiken.
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 04/21/2018
+ms.date: 09/12/2018
 ms.author: saneppal
-ms.openlocfilehash: eaa65bf3d257399fceadaa42f0d9ddbbf8afe234
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 919a7dbcb3ea898182e19e4cd0de793e7a80dea9
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345311"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543289"
 ---
 # <a name="edit-a-knowledge-base"></a>Een knowledge base bewerken
 
-QnA Maker kunt u de inhoud van de knowledge base beheren door te geven van een bewerking ervaring eenvoudig te gebruiken.
+QnA Maker kunt u de inhoud van uw knowledge base beheren door op te geven van een bewerkingservaring eenvoudig te gebruiken.
 
 ## <a name="edit-your-knowledge-base-content"></a>Uw knowledge base-inhoud bewerken
 
-1.  Selecteer **mijn basissen knowledge** in de bovenste navigatiebalk. 
+1.  Selecteer **mijn knowledge bases** in de bovenste navigatiebalk. 
 
-    U kunt zien dat alle services die u hebt gemaakt of gedeeld met u gesorteerd in aflopende volgorde van de **laatst gewijzigd** datum.
+    Ziet u alle services die u hebt gemaakt of gedeeld met u gesorteerd in aflopende volgorde van de **het laatst is gewijzigd** datum.
 
-    ![Mijn basissen kennis](../media/qnamaker-how-to-edit-kb/my-kbs.png)
+    ![Mijn Knowledge Bases](../media/qnamaker-how-to-edit-kb/my-kbs.png)
 
-2. Selecteer een KB bepaalde wijzigingen aanbrengen.
+2. Selecteer een bepaalde kennisdatabase wijzigingen aanbrengen.
 
-3. Wanneer u klaar bent met het aanbrengen van wijzigingen in de kennisdatabase, klik op **opslaan en trainen** in de rechterbovenhoek van de pagina om de wijzigingen behouden blijven.    
+3. Als u klaar bent met het aanbrengen van wijzigingen in de Knowledge base, klikt u op **opslaan en trainen** in de rechterbovenhoek van de pagina om de wijzigingen te behouden.    
 
     ![Opslaan en trainen](../media/qnamaker-how-to-edit-kb/save-and-train.png)
 
     >[!NOTE]
-    Als u de pagina voordat u op bij het opslaan en de trein bewaard de wijzigingen niet.
+    Verlaat de pagina voordat u op bij het opslaan en train, blijven de wijzigingen niet behouden.
 
 ## <a name="add-a-qna-pair"></a>Een set QnA toevoegen
 
-Selecteer **QnA toevoegen paar** naar een nieuwe rij toegevoegd aan de tabel knowledge base.
+Selecteer **QnA toevoegen paar** naar een nieuwe rij toevoegt aan de tabel knowledge base.
 
-![QnA set toevoegen](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
+![QnA paar toevoegen](../media/qnamaker-how-to-edit-kb/add-qnapair.png)
 
-## <a name="delete-a-qna-pair"></a>Verwijderen van een paar QnA
+## <a name="delete-a-qna-pair"></a>Een paar QnA verwijderen
 
-Als u wilt een QnA verwijderen, klikt u op de **verwijderen** pictogram op de rechterkant van de rij QnA.
+Als u wilt een QnA verwijderen, klikt u op de **verwijderen** pictogram aan de rechterkant van de QnA-rij.
 
 ![QnA paar verwijderen](../media/qnamaker-how-to-edit-kb/delete-qnapair.png)
 
 ## <a name="add-alternate-questions"></a>Alternatieve vragen toevoegen
 
-Alternatieve vragen toevoegen aan een bestaande QnA paar voor het verbeteren van de kans op een overeenkomst aan een gebruikersquery.
+Alternatieve vragen toevoegen aan een bestaande QnA-paar voor het verbeteren van de kans op een overeenkomst aan een gebruikersquery.
 
 ![Alternatieve vragen toevoegen](../media/qnamaker-how-to-edit-kb/add-alternate-question.png)
 
-## <a name="add-metadata"></a>Metagegevens toevoegen
+## <a name="add-metadata"></a>metagegevens toevoegen
 
 
-Metagegevens paren toevoegen door te selecteren van het filterpictogram
+Metagegevens paren toevoegen door het filterpictogram selecteren
 
 ![Metagegevens toevoegen](../media/qnamaker-how-to-edit-kb/add-metadata.png)
 
 > [!TIP]
-> Zorg ervoor dat periodiek opslaan en de knowledge base trainen nadat u deze bewerkingen te voorkomen dat wijzigingen verloren gaan.
+> Zorg ervoor dat u regelmatig opslaan en de kennisdatabase trainen na het aanbrengen van wijzigingen om te voorkomen dat wijzigingen verloren gaan.
 
-## <a name="manage-large-knowledge-bases"></a>Grote kennis basissen beheren
+## <a name="manage-large-knowledge-bases"></a>Beheren van grote knowledge bases
 
-1. De QnAs zijn **gegroepeerd** door de gegevensbron waaruit ze zijn uitgepakt. U kunt uitvouwen of samenvouwen van de gegevensbron.
-2. U kunt **search** de knowledge base door te typen in het tekstvak aan de bovenkant van de tabel Knowledge Base. Klik op enter als u wilt zoeken op de vraag, antwoord of metagegevens van inhoud. Klik op het pictogram X het zoekfilter verwijderen.
-3. **Paginering** kunt u grote kennis basissen beheren
+1. De vragen en antwoorden supereenvoudig zijn **gegroepeerd** door de gegevensbron waaruit deze zijn geëxtraheerd. U kunt uitvouwen of samenvouwen van de gegevensbron.
+2. U kunt **zoeken** de knowledge base door te typen in het tekstvak aan de bovenkant van de Knowledge Base-tabel. Klik op enter om te zoeken op de vraag, antwoord of de metagegevens van inhoud. Klik op het pictogram X om de search-filter te verwijderen.
+3. **Paginering** kunt u voor het beheren van grote knowledge bases
 
     ![Zoeken, pagineren, groep](../media/qnamaker-how-to-edit-kb/search-paginate-group.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Samenwerken aan een knowledge base](./collaborate-knowledge-base.md)
+> [Samenwerken aan een kennisdatabase](./collaborate-knowledge-base.md)

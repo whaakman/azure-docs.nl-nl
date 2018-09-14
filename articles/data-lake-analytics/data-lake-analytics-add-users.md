@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: db35f16e-1565-4873-a851-bd987accdc58
 ms.topic: conceptual
 ms.date: 05/24/2018
-ms.openlocfilehash: 0386406f5fc81a007d55bd5358e7a6b333f63b04
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: f48dc07e27c6cb01a842f1f6d720ed6476028ef7
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048330"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542309"
 ---
 # <a name="adding-a-user-in-the-azure-portal"></a>Een gebruiker toe te voegen in de Azure-portal
 
@@ -31,12 +31,12 @@ ms.locfileid: "43048330"
 Verlenen van 'L' of "LSU", indien nodig, op mappen met invoergegevens- en uitvoergegevens.
 
 
-## <a name="optionally-add-the-user-to-the-azure-data-lake-store-role-reader-role"></a>(Optioneel) de gebruiker toevoegen aan de rol van Azure Data Lake Store **lezer** rol.
-1.  Zoek uw Azure Data Lake Store-account.
+## <a name="optionally-add-the-user-to-the-azure-data-lake-storage-gen1-role-reader-role"></a>(Optioneel) de gebruiker toevoegen aan de rol van Azure Data Lake Storage Gen1 **lezer** rol.
+1.  De account van uw Azure Data Lake Storage Gen1 vinden.
 2.  Klik op **gebruikers**.
 3. Klik op **Add**.
 4.  Selecteer een Azure RBAC-rol aan deze groep worden toegewezen.
-5.  Toewijzen aan de rol van lezer. Deze rol is de minimale set machtigingen die vereist zijn voor het bladeren/beheren van gegevens die zijn opgeslagen in ADLS. Toewijzen aan deze rol als de groep is niet bedoeld voor het beheren van Azure-services.
+5.  Toewijzen aan de rol van lezer. Deze rol heeft het minimale aantal vereiste machtigingen voor gegevens die zijn opgeslagen in ADLSGen1 Bladeren/beheren. Toewijzen aan deze rol als de groep is niet bedoeld voor het beheren van Azure-services.
 6.  Typ de naam van de groep.
 7.  Klik op **OK**.
 

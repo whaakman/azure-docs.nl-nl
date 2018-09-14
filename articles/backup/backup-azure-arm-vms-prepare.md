@@ -9,12 +9,12 @@ ms.service: backup
 ms.topic: conceptual
 ms.date: 9/10/2018
 ms.author: markgal
-ms.openlocfilehash: dc9d7b924f51fb3a4e9662dfa7ad4b9557b481bc
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 80987408e65785afba1df2d2f6b6fc9981fd2dbf
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346998"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542817"
 ---
 # <a name="prepare-your-environment-to-back-up-resource-manager-deployed-virtual-machines"></a>Uw omgeving voorbereiden op door Resource Manager geïmplementeerde virtuele machines
 
@@ -184,7 +184,7 @@ Als u problemen met back-ups van de Azure-VM hebt, gebruikt u de volgende tabel 
 | --- | --- | --- |
 | De VM-agent installeren |Download en installeer de [agent-MSI](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409). U hebt Administrator-bevoegdheden nodig om de installatie te kunnen uitvoeren. |<li> Installeer de meest recente [Linux-agent](../virtual-machines/extensions/agent-linux.md). U hebt Administrator-bevoegdheden nodig om de installatie te kunnen uitvoeren. U wordt aangeraden de installatie van agent vanuit de opslagplaats van uw distributie. We **wordt niet aanbevolen** installeren Linux VM-agent rechtstreeks vanuit github.  |
 | De VM-agent bijwerken |Om de VM-agent bij te werken hoeft u alleen de [binaire bestanden voor de VM-agent](http://go.microsoft.com/fwlink/?LinkID=394789&clcid=0x409) opnieuw te installeren. <br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |Volg de instructies voor het [bijwerken van de Linux VM-agent](../virtual-machines/linux/update-agent.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json). Het is raadzaam om de agent vanuit de opslagplaats van uw distributie bijwerken. We **wordt niet aanbevolen** bijwerken Linux VM-agent rechtstreeks vanuit github.<br>Zorg ervoor dat er geen back-upbewerking wordt uitgevoerd terwijl de VM-agent wordt bijgewerkt. |
-| De installatie van de VM-agent valideren |<li>Ga naar de map *C:\WindowsAzure\Packages* in de Azure VM. <li>Het bestand WaAppAgent.exe moet hier aanwezig zijn.<li> Klik met de rechtermuisknop op het bestand, ga naar **Eigenschappen** en selecteer vervolgens het tabblad **Details**. In het veld Productversie moet versie 2.6.1198.718 of hoger worden weergegeven. |NB |
+| De installatie van de VM-agent valideren |<li>Ga naar de map *C:\WindowsAzure\Packages* in de Azure VM. <li>Het bestand WaAppAgent.exe moet hier aanwezig zijn.<li> Klik met de rechtermuisknop op het bestand, ga naar **Eigenschappen** en selecteer vervolgens het tabblad **Details**. In het veld Productversie moet versie 2.6.1198.718 of hoger worden weergegeven. |N/A |
 
 ### <a name="backup-extension"></a>Backup-extensie
 Nadat de VM-agent is geïnstalleerd op de virtuele machine, wordt in de Azure Backup-service de Backup-extensie in de VM-agent geïnstalleerd. De Backup-service wordt naadloos upgrades en patches van de Backup-extensie.
@@ -215,8 +215,8 @@ De volgende video leidt u door de stapsgewijze procedure servicetags configurere
 
 >[!VIDEO https://www.youtube.com/embed/1EjLQtbKm1M]
 
-> [!WARNING]
-> Opslag servicetags zijn alleen beschikbaar in bepaalde regio's en zijn beschikbaar als preview. Zie voor een lijst met regio's, [servicetags voor opslag](../virtual-network/security-overview.md#service-tags).
+> [!NOTE]
+> Zie voor een lijst van storage service-tags en regio's, [servicetags voor opslag](../virtual-network/security-overview.md#service-tags).
 
 ### <a name="use-an-http-proxy-for-vm-backups"></a>Een HTTP-proxy gebruiken voor back-ups van virtuele machine
 Wanneer u een back-up van een virtuele machine, verzendt de Backup-extensie op de virtuele machine de opdrachten voor het beheer van momentopname naar Azure Storage met behulp van een HTTPS-API. Routeren het verkeer Backup-extensie de HTTP-proxy, omdat dit het enige onderdeel dat is geconfigureerd voor toegang tot het openbare internet.

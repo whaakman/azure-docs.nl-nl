@@ -1,11 +1,9 @@
 ---
-title: Volgende stappen voor het toegangsbeheer van met behulp van groepen - Azure AD | Microsoft Docs
-description: Hoe geavanceerde-om de van voor het beheren van beveiligingsgroepen en hoe u kunt deze groepen gebruiken voor het beheren van toegang tot een resource.
+title: Toevoegen of verwijderen van eigenaren van Azure Active Directory-groepen | Microsoft Docs
+description: Informatie over het toevoegen of verwijderen van eigenaren van groepen met behulp van Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
@@ -13,35 +11,61 @@ ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: lizross
 ms.custom: it-pro
-ms.openlocfilehash: d84c3b556f27366c249382a37e0a8227726110cf
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5ca2115e8f5f2e18c31477135aa94bc04d6d9256
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714681"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45577392"
 ---
-# <a name="managing-owners-for-a-group"></a>Eigenaars voor een groep beheren
-Wanneer een resource-eigenaar heeft toegang tot een resource aan een Azure AD-groep worden toegewezen, wordt het lidmaatschap van de groep wordt beheerd door de eigenaar van de groep. De eigenaar van de resource delegeert effectief de machtiging voor het toewijzen van gebruikers aan de resource toe aan de eigenaar van de groep.
+# <a name="how-to-add-or-remove-group-owners-in-azure-active-directory"></a>Hoe: toevoegen of verwijderen van eigenaren van groepen in Azure Active Directory
+Azure Active Directory (Azure AD)-beveiligingsgroepen zijn eigendom van en beheerd door eigenaren van groepen. Eigenaren van groepen worden toegewezen voor het beheren van een groep en de bijbehorende leden van een resource-eigenaar (beheerder). Groepseigenaren hoeven te worden leden van de groep. Nadat de Groepseigenaar van een is toegewezen, kunt alleen de eigenaar van een resource toevoegen of eigenaren verwijderen.
+
+In sommige gevallen besluiten u als de beheerder toe te wijzen een eigenaar van de groep. In dit geval kunt u de eigenaar van de groep worden. Bovendien kunnen eigenaren van andere eigenaren toewijzen aan de groep, tenzij u dit hebt beperkt in de instellingen voor de.
 
 ## <a name="add-an-owner-to-a-group"></a>Eigenaar toevoegen aan een groep
+Aanvullende groepseigenaren toevoegen aan een groep met behulp van Azure AD.
 
-1. In de [Azure AD-beheercentrum](https://aad.portal.azure.com), selecteer **gebruikers en groepen**.
-2. Selecteer **alle groepen**, en open vervolgens de groep die u wilt dat eigenaren aan toe te voegen.
-3. Selecteer **eigenaren toevoegen**.
-4. Op de **eigenaren toevoegen** pagina, selecteert u de gebruiker die u wilt toevoegen als de eigenaar van deze groep en zorg ervoor dat deze naam wordt toegevoegd aan de **geselecteerde** deelvenster.
+### <a name="to-add-a-group-owner"></a>De Groepseigenaar van een toevoegen
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een globale beheerdersaccount voor de map.
+
+2. Selecteer **Azure Active Directory**, selecteer **groepen**, en selecteer vervolgens de groep waarvoor u wilt een eigenaar toevoegen (in dit voorbeeld _MDM-beleid - West_).
+
+3. Op de **MDM-beleid - West-overzicht** weergeeft, schakelt **eigenaren**.
+
+    ![Beleid voor MDM - West-overzichtspagina met eigenaren-optie is gemarkeerd](media/active-directory-accessmanagement-managing-group-owners/add-owners-option-overview-blade.png)
+
+4. Op de **eigenaar van de Groepsbeleid - West - MDM** weergeeft, schakelt **eigenaren toevoegen**, en vervolgens zoekt en selecteert u de gebruiker die eigenaar van de nieuwe groep en kies vervolgens **Selecteer**.
+
+    ![MDM - West - beleid eigenaars-pagina met de optie eigenaren toevoegen gemarkeerd](media/active-directory-accessmanagement-managing-group-owners/add-owners-owners-blade.png)
+
+    Nadat u de nieuwe eigenaar selecteren, kunt u vernieuwen de **eigenaren** pagina en ziet de naam toegevoegd aan de lijst met eigenaren.
 
 ## <a name="remove-an-owner-from-a-group"></a>Een eigenaar verwijderen uit een groep
+Een eigenaar verwijderen uit een groep met behulp van Azure AD.
 
-1. In de [Azure AD-beheercentrum](https://aad.portal.azure.com), selecteer **gebruikers en groepen**.
-2. Selecteer **alle groepen**, en open vervolgens de groep van waaruit u wilt verwijderen van eigenaren.
-3. Selecteer de **eigenaren** tabblad.
-4. Selecteer de eigenaar die u wilt verwijderen uit deze groep, en selecteer vervolgens **verwijderen**.
+### <a name="to-remove-an-owner"></a>Een eigenaar verwijderen
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com) met behulp van een globale beheerdersaccount voor de map.
 
-## <a name="additional-information"></a>Aanvullende informatie
-Deze artikelen bevatten aanvullende informatie over Azure Active Directory.
+2. Selecteer **Azure Active Directory**, selecteer **groepen**, en selecteer vervolgens de groep waarvoor u wilt een eigenaar toevoegen (in dit voorbeeld _MDM-beleid - West_).
 
-* [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md) (Toegang tot resources beheren met Azure Active Directory-groepen)
-* [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) (Azure Active Directory-cmdlets voor het configureren van groepsinstellingen)
-* [Toepassingsbeheer in Azure Active Directory](../manage-apps/what-is-application-management.md)
-* [Wat is Azure Active Directory?](active-directory-whatis.md)
-* [Uw on-premises identiteiten integreren met Azure Active Directory](../connect/active-directory-aadconnect.md)
+3. Op de **MDM-beleid - West-overzicht** weergeeft, schakelt **eigenaren**.
+
+    ![Beleid voor MDM - West-overzichtspagina met eigenaren-optie is gemarkeerd](media/active-directory-accessmanagement-managing-group-owners/remove-owners-option-overview-blade.png)
+
+4. Op de **eigenaar van de Groepsbeleid - West - MDM** pagina, selecteert u de gebruiker die u wilt verwijderen als Groepseigenaar van een, kies **verwijderen** uit de pagina met informatie van de gebruiker en selecteer **Ja** om te bevestigen uw beslissing.
+
+    ![Informatie-pagina van de gebruiker met de optie verwijderen gemarkeerd](media/active-directory-accessmanagement-managing-group-owners/remove-owner-info-blade.png)
+
+    Nadat u de eigenaar van de verwijdert, kunt u terugkeren naar de **eigenaren** pagina en ziet de naam is verwijderd uit de lijst met eigenaren.
+
+## <a name="next-steps"></a>Volgende stappen
+- [Managing access to resources with Azure Active Directory groups](active-directory-manage-groups.md) (Toegang tot resources beheren met Azure Active Directory-groepen)
+
+- [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-cmdlets.md) (Azure Active Directory-cmdlets voor het configureren van groepsinstellingen)
+
+- [Groepen gebruiken voor toegang tot een geïntegreerde SaaS-app toewijzen](../users-groups-roles/groups-saasapps.md)
+
+- [Uw on-premises identiteiten integreren met Azure Active Directory](../connect/active-directory-aadconnect.md)
+
+- [Azure Active Directory cmdlets for configuring group settings](../users-groups-roles/groups-settings-v2-cmdlets.md) (Azure Active Directory-cmdlets voor het configureren van groepsinstellingen)

@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 07/06/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 412872e607f62f710e013d88822cddc59255992e
-ms.sourcegitcommit: 0b4da003fc0063c6232f795d6b67fa8101695b61
+ms.openlocfilehash: 0e9d57c224150454677a03462368038ed8c63edf
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/05/2018
-ms.locfileid: "37859949"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576490"
 ---
 # <a name="supported-scenarios-for-hana-large-instances"></a>Ondersteunde scenario's voor HANA grote instanties
 Dit document beschrijft de ondersteunde scenario's, samen met de details van de architectuur voor de HANA grote instanties (HLI).
@@ -198,7 +198,7 @@ De volgende quorumbron: vooraf zijn geconfigureerd:
 
 ### <a name="key-considerations"></a>Belangrijkste overwegingen
 - /usr/SAP/SID is een symbolische koppeling naar /hana/shared/SID.
-- Verdeling van volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
+- Verdeling van volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
 
 ## <a name="3-single-node-with-dr-normal"></a>3. Één knooppunt met DR (normaal)
  
@@ -235,9 +235,9 @@ De volgende quorumbron: vooraf zijn geconfigureerd:
 
 ### <a name="key-considerations"></a>Belangrijkste overwegingen
 - /usr/SAP/SID is een symbolische koppeling naar /hana/shared/SID.
-- Voor MCOS: Verdeling van Volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
+- Voor MCOS: Verdeling van Volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
 - Aan de DR: de volumes en stel de volgende parameter zijn geconfigureerd (gemarkeerd als 'Is vereist voor de installatie van HANA') voor de installatie van de HANA-exemplaar op de eenheid voor DR HLI voor productie. 
-- Aan de DR: de gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) voor meer informatie.
+- Aan de DR: de gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) voor meer informatie.
 - Opstartvolume voor **SKU-Type ik klasse** worden gerepliceerd naar de DR-knooppunt.
 
 
@@ -284,9 +284,9 @@ De volgende quorumbron: vooraf zijn geconfigureerd:
 
 ### <a name="key-considerations"></a>Belangrijkste overwegingen
 - /usr/SAP/SID is een symbolische koppeling naar /hana/shared/SID.
-- Voor MCOS: Verdeling van Volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
+- Voor MCOS: Verdeling van Volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
 - Aan de DR: de volumes en stel de volgende parameter zijn geconfigureerd (gemarkeerd als 'Is vereist voor de installatie van HANA') voor de installatie van de HANA-exemplaar op de eenheid voor DR HLI voor productie. 
-- Aan de DR: de gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) voor meer informatie. 
+- Aan de DR: de gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) voor meer informatie. 
 - Aan de DR: de gegevens, logbackups, log, gedeelde volumes voor QA (gemarkeerd als 'QA exemplaar installatie') zijn geconfigureerd voor de installatie van de QA-exemplaar.
 - Opstartvolume voor **SKU-Type ik klasse** worden gerepliceerd naar de DR-knooppunt.
 
@@ -335,7 +335,7 @@ De volgende quorumbron: vooraf zijn geconfigureerd:
 
 ### <a name="key-considerations"></a>Belangrijkste overwegingen
 - /usr/SAP/SID is een symbolische koppeling naar /hana/shared/SID.
-- Voor MCOS: Verdeling van Volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
+- Voor MCOS: Verdeling van Volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
 - Stonith instellen: Een SBD is geconfigureerd voor de installatie van de stonith instellen. Er is echter een gebruik van stonith instellen optioneel.
 
 
@@ -391,11 +391,11 @@ De volgende quorumbron: vooraf zijn geconfigureerd:
 
 ### <a name="key-considerations"></a>Belangrijkste overwegingen
 - /usr/SAP/SID is een symbolische koppeling naar /hana/shared/SID.
-- Voor MCOS: Verdeling van Volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
+- Voor MCOS: Verdeling van Volume grootte is gebaseerd op de grootte van de database in het geheugen. Raadpleeg de [overzicht en architectuur](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) sectie voor meer informatie over welke database-grootten in het geheugen worden ondersteund met multisid-omgeving.
 - Stonith instellen: Een SBD is geconfigureerd voor de installatie van de stonith instellen. Er is echter een gebruik van stonith instellen optioneel.
 - Aan de DR: **twee sets met opslagvolumes die zijn vereist** voor replicatie van primaire en secundaire knooppunt.
 - Aan de DR: de volumes en stel de volgende parameter zijn geconfigureerd (gemarkeerd als 'Is vereist voor de installatie van HANA') voor de installatie van de HANA-exemplaar op de eenheid voor DR HLI voor productie. 
-- Aan de DR: de gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) voor meer informatie. 
+- Aan de DR: de gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) voor meer informatie. 
 - Aan de DR: de gegevens, logbackups, log, gedeelde volumes voor QA (gemarkeerd als 'QA exemplaar installatie') zijn geconfigureerd voor de installatie van de QA-exemplaar.
 - Opstartvolume voor **SKU-Type ik klasse** worden gerepliceerd naar de DR-knooppunt.
 
@@ -559,10 +559,10 @@ De volgende quorumbron: vooraf zijn geconfigureerd:
 ### <a name="key-considerations"></a>Belangrijkste overwegingen
 - /usr/SAP/SID is een symbolische koppeling naar /hana/shared/SID.
 -  Aan de DR: de volumes en stel de volgende parameter zijn geconfigureerd (gemarkeerd als 'Is vereist voor de installatie van HANA') voor de installatie van de HANA-exemplaar op de eenheid voor DR HLI voor productie. 
-- Aan de DR: de gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) voor meer informatie. 
+- Aan de DR: de gegevens, logbackups en gedeelde volumes (gemarkeerd als 'Storage-replicatie') worden gerepliceerd via momentopname van de productiesite. Deze volumes worden gekoppeld tijdens de failover-tijd. Lees voor meer informatie het document [failover noodherstelprocedure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery#disaster-recovery-failover-procedure) voor meer informatie. 
 - Opstartvolume voor **SKU-Type ik klasse** worden gerepliceerd naar de DR-knooppunt.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Raadpleeg [infrastructuur en connectiviteit](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) voor HLI
-- Raadpleeg [hoge beschikbaarheid en herstel na noodgevallen](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) voor HLI
+- Raadpleeg [infrastructuur en connectiviteit](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity) voor HLI
+- Raadpleeg [hoge beschikbaarheid en herstel na noodgevallen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery) voor HLI

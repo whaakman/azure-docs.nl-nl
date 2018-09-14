@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/04/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: jeffgo
-ms.openlocfilehash: 3517114d5bc267aa32cea49161d0d34156a2ed1e
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 84306d832464249d614942d85a1069ad42dd2eba
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44390906"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578120"
 ---
 # <a name="update-the-sql-resource-provider"></a>Bijwerken van de SQL-resourceprovider
 
@@ -38,8 +38,8 @@ Voor het bijwerken van de resourceprovider, gebruikt u de *UpdateSQLProvider.ps1
 
 De *UpdateSQLProvider.ps1* script maakt u een nieuwe virtuele machine (VM) met de meest recente code van de resource-provider.
 
->[!NOTE]
->Het is raadzaam dat u de meest recente installatiekopie van Windows Server 2016 Core uit het beheer van de Marketplace downloaden. Als u een update installeert wilt, kunt u plaatsen een **één** MSU-pakket in het afhankelijkheidspad van de lokale. Het script mislukken als er meer dan één MSU-bestand op deze locatie.
+> [!NOTE]
+> Het is raadzaam dat u de meest recente installatiekopie van Windows Server 2016 Core uit het beheer van de Marketplace downloaden. Als u een update installeert wilt, kunt u plaatsen een **één** MSU-pakket in het afhankelijkheidspad van de lokale. Het script mislukken als er meer dan één MSU-bestand op deze locatie.
 
 Na de *UpdateSQLProvider.ps1* script maakt u een nieuwe virtuele machine, het script worden de volgende instellingen gemigreerd van de oude VM-provider:
 
@@ -49,9 +49,9 @@ Na de *UpdateSQLProvider.ps1* script maakt u een nieuwe virtuele machine, het sc
 
 ### <a name="update-script-powershell-example"></a>Voorbeeld van PowerShell-script bijwerken
 
-<a name="you-can-edit-and-run-the-following-script-from-an-elevated-powershell-ise"></a>U kunt bewerken en voer het volgende script vanaf een verhoogde PowerShell ISE. 
--  
-- Vergeet niet om de accountgegevens en wachtwoorden als nodig zijn voor uw omgeving te wijzigen.
+U kunt bewerken en voer het volgende script vanaf een verhoogde PowerShell ISE. 
+
+Vergeet niet om de accountgegevens en wachtwoorden als nodig zijn voor uw omgeving te wijzigen.
 
 > [!NOTE]
 > Het bijwerkproces is alleen van toepassing op systemen met integratie van Azure Stack.
@@ -66,6 +66,9 @@ $domain = "AzureStack"
 
 # For integrated systems, use the IP address of one of the ERCS virtual machines.
 $privilegedEndpoint = "AzS-ERCS01"
+
+# Provide the Azure environment used for deploying Azure Stack. Required only for Azure AD deployments. Supported environment names are AzureCloud, AzureUSGovernment, or AzureChinaCloud. 
+$AzureEnvironment = "<EnvironmentName>"
 
 # Point to the directory where the resource provider installation files were extracted.
 $tempDir = 'C:\TEMP\SQLRP'
@@ -92,6 +95,7 @@ $PfxPass = ConvertTo-SecureString "P@ssw0rd1" -AsPlainText -Force
   -VMLocalCredential $vmLocalAdminCreds `
   -CloudAdminCredential $cloudAdminCreds `
   -PrivilegedEndpoint $privilegedEndpoint `
+  -AzureEnvironment $AzureEnvironment `
   -DefaultSSLCertificatePassword $PfxPass `
   -DependencyFilesLocalPath $tempDir\cert `
 
@@ -107,7 +111,7 @@ U kunt de volgende parameters vanaf de opdrachtregel opgeven wanneer u het scrip
 | **AzCredential** | De referenties voor het beheerdersaccount van de Azure Stack-service. Gebruik de dezelfde referenties die u gebruikt voor het implementeren van Azure Stack. | _Vereist_ |
 | **VMLocalCredential** | De referenties voor het lokale administrator-account van de SQL-resourceprovider VM. | _Vereist_ |
 | **PrivilegedEndpoint** | De IP-adres of de DNS-naam van het eindpunt van de bevoegdheden. |  _Vereist_ |
-| **Azure-omgeving** | De azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist als het is niet ADFS. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een China Azure Active Directory gebruikt, **AzureChinaCloud**. | AzureCloud |
+| **Azure-omgeving** | De Azure-omgeving van het serviceaccount van de beheerder die u gebruikt voor het implementeren van Azure Stack. Alleen vereist voor Azure AD-implementaties. Omgevingsnamen van de ondersteunde zijn **AzureCloud**, **AzureUSGovernment**, of als een Azure AD-China **AzureChinaCloud**. | AzureCloud |
 | **DependencyFilesLocalPath** | U moet uw certificaat-pfx-bestand ook plaatsen in deze map. | _Optioneel voor één knooppunt, maar verplicht voor meerdere knooppunten_ |
 | **DefaultSSLCertificatePassword** | Het wachtwoord voor het pfx-certificaat. | _Vereist_ |
 | **MaxRetryCount** | Het aantal keren dat die u wilt dat elke bewerking wordt uitgevoerd als er een fout is.| 2 |

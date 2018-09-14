@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 08/29/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 231a9876c7a84953a7d9a88b761a1da9475d1f48
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: 9cb2b0bdb036b26fbd355ff4bd84885b7e15507d
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43248138"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541970"
 ---
 # <a name="manage-updates-for-multiple-machines"></a>Updates voor meerdere machines beheren
 
@@ -50,7 +50,7 @@ Updatebeheer wordt ondersteund op de volgende besturingssystemen:
 
 Linux-agents moeten toegang hebben tot een opslagplaats voor updates.
 
-Deze oplossing biedt geen ondersteuning voor een Operations Management Suite (OMS)-Agent voor Linux die geconfigureerd voor rapportage aan meerdere Azure Log Analytics-werkruimten.
+Deze oplossing biedt geen ondersteuning voor een Log Analytics-Agent voor Linux die geconfigureerd voor rapportage aan meerdere Azure Log Analytics-werkruimten.
 
 ## <a name="enable-update-management-for-azure-virtual-machines"></a>Inschakelen van updatebeheer voor virtuele machines van Azure
 
@@ -127,7 +127,7 @@ In de **nieuwe update-implementatie** in het deelvenster de volgende informatie 
 
 - **Naam**: Voer een unieke naam voor het identificeren van de update-implementatie.
 - **Besturingssysteem**: Selecteer **Windows** of **Linux**.
-- **Bij te werken computers**: Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of selecteer Machines om te kiezen op de computers die u wilt bijwerken. Als u ervoor kiest **Machines**, de gereedheid van de machine wordt weergegeven in de **gereedheid voor UPDATE-AGENT** kolom. U ziet de status van de machine voordat u de update-implementatie plannen. Zie voor meer informatie over de verschillende methoden voor het maken van computergroepen in Log Analytics, [computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md)
+- **Bij te werken computers**: Selecteer een opgeslagen zoekopdracht, geïmporteerd groep, of selecteer Machines om te kiezen op de computers die u wilt bijwerken. Als u **Computers** selecteert, wordt de gereedheid van de computer weergegeven in de kolom **GEREEDHEID VOOR UPDATE-AGENT**. U ziet de status van de machine voordat u de update-implementatie plannen. Zie [Computergroepen in Log Analytics](../log-analytics/log-analytics-computer-groups.md) voor meer informatie over de verschillende manieren waarop u computergroepen kunt maken in Log Analytics
 
   ![Deelvenster met nieuwe update-implementatie](./media/manage-update-multi/update-select-computers.png)
 

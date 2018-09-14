@@ -7,14 +7,14 @@ author: juliako
 manager: cfowler
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 43cc02417fad8a2fa46bd309235951393cd55b8a
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 14e308f04450999fcec91a7882a22868c8c824ce
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41987527"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579001"
 ---
 # <a name="examine-the-video-indexer-output-produced-by-v2-api"></a>Bekijk de Video Indexer-uitvoer geproduceerd door de v2-API
 
@@ -23,7 +23,7 @@ ms.locfileid: "41987527"
 
 Wanneer u aanroepen de **Video-Index ophalen** API en de status van het antwoord is OK, kunt u een gedetailleerde JSON-uitvoer als de inhoud van de reactie. De JSON-inhoud bevat details van de opgegeven inzichten in video's. De inzichten dimensies zoals bevatten: transcripties, optisch, gezichten, onderwerpen, blokken, enzovoort. De afmetingen zijn instanties van tijd bereiken die worden weergegeven wanneer elke dimensie wordt weergegeven in de video.  
 
-U kunt ook visueel overzicht van de video-inzichten bekijken door te drukken de **afspelen** knop op de video in de Video Indexer-portal. Zie voor meer informatie, [weergeven en bewerken inzichten in video's](video-indexer-view-edit.md).
+U kunt ook visueel overzicht van de video-inzichten bekijken door te drukken de **afspelen** knop op de video op de [Video Indexer](https://www.videoindexer.ai/) website. Zie voor meer informatie, [weergeven en bewerken inzichten in video's](video-indexer-view-edit.md).
 
 ![Inzichten](./media/video-indexer-output-json/video-indexer-summarized-insights.png)
 
@@ -82,7 +82,7 @@ In deze sectie bevat een overzicht van de inzichten.
 |privacyMode|Uitsplitsing van uw kan hebben een van de volgende modi: **persoonlijke**, **openbare**. **Openbare** -de video is zichtbaar voor iedereen in uw account en iedereen met een koppeling naar de video. **Persoonlijke** -de video is zichtbaar voor iedereen in uw account.|
 |duur|Bevat een duur van de beschrijving van de tijd die een inzicht is opgetreden. Er is een duur in seconden.|
 |thumbnailVideoId|De ID van de video van waaruit de miniatuur is gehaald.
-|thumbnailId|Miniatuur van de video-id. Om op te halen van de werkelijke miniaturen aanroep Get-miniatuur (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) en deze doorgeven thumbnailVideoId en thumbnailId.|
+|thumbnailId|Miniatuur van de video-id. Als u wilt de miniatuur van het werkelijke, roep Get-miniatuur (https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-thumbnail) en deze doorgeven thumbnailVideoId en thumbnailId.|
 |gezichten|Kan nul of meer gezichten bevatten. Zie voor meer informatie, [gezichten](#faces).|
 |trefwoorden|Kan nul of meer trefwoorden bevatten. Zie voor meer informatie, [trefwoorden](#keywords).|
 |sentimenten|Kan nul of meer sentimenten bevatten. Zie voor meer informatie, [sentimenten](#sentiments).|
@@ -90,6 +90,8 @@ In deze sectie bevat een overzicht van de inzichten.
 |labels| Kan nul of meer labels bevatten. Zie voor meer informatie, [labels](#labels).|
 |merken| Kan nul of meer merken bevatten. Zie voor meer informatie, [merken](#brands).|
 |statistieken | Zie voor meer informatie, [statistieken](#statistics).|
+|emoties| Kan nul of meer emoties bevatten. Zie voor meer informatie, [emoties](#emotions).|
+|onderwerpen|Kan nul of meer onderwerpen bevatten. De [onderwerpen](#topics) dimensie.|
 
 ## <a name="videos"></a>video's
 
@@ -165,6 +167,8 @@ Een gezicht mogelijk een ID, een naam, een miniatuur, andere metagegevens en een
 |sentimenten|De [sentimenten](#sentiments) dimensie.|
 |visualContentModeration|De [visualContentModeration](#visualcontentmoderation) dimensie.|
 |textualConentModeration|De [textualConentModeration](#textualconentmoderation) dimensie.|
+|emoties| De [emoties](#emotions) dimensie.|
+|onderwerpen|De [onderwerpen](#topics) dimensie.|
 
 Voorbeeld:
 
@@ -320,7 +324,6 @@ Voorbeeld:
     ]
 }
 ] 
-
 ```
 
 #### <a name="faces"></a>gezichten
@@ -444,7 +447,7 @@ Voorbeeld:
           "id": 0,
           "instances": [
             {
-          "thumbnailId": "00000000-0000-0000-0000-000000000000",
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",
               "start": "00: 00: 00.1670000",
               "end": "00: 00: 00.2000000"
             }
@@ -453,7 +456,7 @@ Voorbeeld:
       ],
       "instances": [
         {
-       "thumbnailId": "00000000-0000-0000-0000-000000000000",   
+            "thumbnailId": "00000000-0000-0000-0000-000000000000",  
           "start": "00: 00: 00.2000000",
           "end": "00: 00: 05.0330000"
         }
@@ -466,7 +469,7 @@ Voorbeeld:
           "id": 1,
           "instances": [
             {
-          "thumbnailId": "00000000-0000-0000-0000-000000000000",        
+                "thumbnailId": "00000000-0000-0000-0000-000000000000",      
               "start": "00: 00: 05.2670000",
               "end": "00: 00: 05.3000000"
             }
@@ -667,10 +670,144 @@ Video's die zijn gevonden voor volwassenen of ongepaste inhoud mogelijk beschikb
 |bannedWordsCount |Het nummer van verboden woorden.|
 |bannedWordsRatio |De verhouding van het totale aantal woorden.|
 
+#### <a name="emotions"></a>emoties
+
+Video Indexer identificeert willekeurige emoties op basis van de spraak- en audio-hints. De geïdentificeerde emoties kan zijn: zelf, verdriet, boosheid of angst.
+
+|Naam|Beschrijving|
+|---|---|
+|id|De emotion-ID.|
+|type|De emotion-even die is geïdentificeerd op basis van de spraak- en audio hints. De emotion kan zijn: zelf, verdriet, boosheid of angst.|
+|instanties|Een lijst met tijdsbereik waar deze emoties werd weergegeven.|
+
+```json
+"emotions": [{
+    "id": 0,
+    "type": "Fear",
+    "instances": [{
+      "adjustedStart": "0:00:39.47",
+      "adjustedEnd": "0:00:45.56",
+      "start": "0:00:39.47",
+      "end": "0:00:45.56"
+    },
+    {
+      "adjustedStart": "0:07:19.57",
+      "adjustedEnd": "0:07:23.25",
+      "start": "0:07:19.57",
+      "end": "0:07:23.25"
+    }]
+  },
+  {
+    "id": 1,
+    "type": "Anger",
+    "instances": [{
+      "adjustedStart": "0:03:55.99",
+      "adjustedEnd": "0:04:05.06",
+      "start": "0:03:55.99",
+      "end": "0:04:05.06"
+    },
+    {
+      "adjustedStart": "0:04:56.5",
+      "adjustedEnd": "0:05:04.35",
+      "start": "0:04:56.5",
+      "end": "0:05:04.35"
+    }]
+  },
+  {
+    "id": 2,
+    "type": "Joy",
+    "instances": [{
+      "adjustedStart": "0:12:23.68",
+      "adjustedEnd": "0:12:34.76",
+      "start": "0:12:23.68",
+      "end": "0:12:34.76"
+    },
+    {
+      "adjustedStart": "0:12:46.73",
+      "adjustedEnd": "0:12:52.8",
+      "start": "0:12:46.73",
+      "end": "0:12:52.8"
+    },
+    {
+      "adjustedStart": "0:30:11.29",
+      "adjustedEnd": "0:30:16.43",
+      "start": "0:30:11.29",
+      "end": "0:30:16.43"
+    },
+    {
+      "adjustedStart": "0:41:37.23",
+      "adjustedEnd": "0:41:39.85",
+      "start": "0:41:37.23",
+      "end": "0:41:39.85"
+    }]
+  },
+  {
+    "id": 3,
+    "type": "Sad",
+    "instances": [{
+      "adjustedStart": "0:13:38.67",
+      "adjustedEnd": "0:13:41.3",
+      "start": "0:13:38.67",
+      "end": "0:13:41.3"
+    },
+    {
+      "adjustedStart": "0:28:08.88",
+      "adjustedEnd": "0:28:18.16",
+      "start": "0:28:08.88",
+      "end": "0:28:18.16"
+    }]
+  }
+],
+```
+
+#### <a name="topics"></a>onderwerpen
+
+Video Indexer maakt Deductie van de belangrijkste onderwerpen uit transcripties. Indien mogelijk, niveau van de 1e [IPTC](https://iptc.org/standards/media-topics/) taxonomie is opgenomen. 
+
+|Naam|Beschrijving|
+|---|---|
+|id|De onderwerp-ID.|
+|naam|Het onderwerp naam, bijvoorbeeld: 'Pharmaceuticals'.|
+|referenceId|Breadcrumbs zetten op basis van de hiërarchie van onderwerpen. Bijvoorbeeld: ' status en wellbeing / medicijnen en gezondheidszorg / Pharmaceuticals '.|
+|vertrouwen|De betrouwbaarheidsscore binnen het bereik [0,1]. Hoger is meer vertrouwen hebben.|
+|Taal|De taal die wordt gebruikt in het onderwerp.|
+|iptcName|De media IPTC code naam, als wordt gedetecteerd.|
+|instanties |Video Indexer biedt op dit moment niet een onderwerp tijdsintervallen, indexeren, zodat de gehele video wordt gebruikt als het interval.|
+
+```json
+"topics": [{
+    "id": 0,
+    "name": "INTERNATIONAL RELATIONS",
+    "referenceId": "POLITICS AND GOVERNMENT/FOREIGN POLICY/INTERNATIONAL RELATIONS",
+    "referenceType": "VideoIndexer",
+    "confidence": 1,
+    "language": "en-US",
+    "instances": [{
+        "adjustedStart": "0:00:00",
+        "adjustedEnd": "0:03:36.25",
+        "start": "0:00:00",
+        "end": "0:03:36.25"
+    }]
+}, {
+    "id": 1,
+    "name": "Politics and Government",
+    "referenceType": "VideoIndexer",
+    "iptcName": "Politics",
+    "confidence": 0.9041,
+    "language": "en-US",
+    "instances": [{
+        "adjustedStart": "0:00:00",
+        "adjustedEnd": "0:03:36.25",
+        "start": "0:00:00",
+        "end": "0:03:36.25"
+    }]
+}]
+. . .
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Video Indexer-API](https://api-portal.videoindexer.ai)
+[Video Indexer-Portal voor ontwikkelaars](https://api-portal.videoindexer.ai)
 
 Zie voor meer informatie over het widgets insluiten in uw toepassing [widgets insluiten van Video Indexer in uw toepassingen](video-indexer-embed-widgets.md). 
 

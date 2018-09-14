@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/11/2018
 ms.author: jingwang
-ms.openlocfilehash: eb290dffd7bdd86b9776d4f30b6fd09a2a952a46
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: db2f3086da41e990e6f87d8086d6e8defa447532
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720018"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45543432"
 ---
 # <a name="copy-data-to-or-from-azure-cosmos-db-using-azure-data-factory"></a>Gegevens kopiëren naar of van Azure Cosmos DB met behulp van Azure Data Factory
 
@@ -41,7 +41,7 @@ Deze connector Azure Cosmos DB ondersteunt name:
 Data Factory kan worden geïntegreerd met [Cosmos DB bulksgewijs executor-bibliotheek](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started) voor de beste prestaties schrijven in Cosmos DB.
 
 >[!TIP]
->Bekijk [in deze video](https://www.youtube.com/watch?v=5-SRNiC_qOU&t=760s) die helpt bij het kopiëren van gegevens uit Azure Blob-opslag met Cosmos DB en een beschrijving van overwegingen voor het ophalen van gegevens in het algemeen in Cosmos DB afstemmen van de prestaties.
+>Bekijk [in deze video](https://youtu.be/5-SRNiC_qOU) die helpt bij het kopiëren van gegevens uit Azure Blob-opslag met Cosmos DB en een beschrijving van overwegingen voor het ophalen van gegevens in het algemeen in Cosmos DB afstemmen van de prestaties.
 
 ## <a name="getting-started"></a>Aan de slag
 

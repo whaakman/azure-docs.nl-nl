@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: tomsh
-ms.openlocfilehash: 361905b4c1e0c9e596cb7cf1cd5a730268d81bd0
-ms.sourcegitcommit: 96f498de91984321614f09d796ca88887c4bd2fb
+ms.openlocfilehash: 706e946e61f7d5f48ce5071e90d724af717449d9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39413406"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575215"
 ---
 # <a name="azure-operational-security-overview"></a>Overzicht van Azure operationele beveiliging
 [Azure operational security](https://docs.microsoft.com/azure/security/azure-operational-security) verwijst naar de services, besturingselementen en functies die beschikbaar zijn voor gebruikers voor het beveiligen van hun gegevens, toepassingen en andere items in Microsoft Azure. Er is een structuur waarin de kennis opgedaan uit een verscheidenheid aan functies die uniek voor Microsoft zijn. Deze mogelijkheden omvatten de Microsoft Security Development Lifecycle (SDL), het programma Microsoft Security Response Center en diep besef van het landschap van cyberveiligheidsbedreigingen.
@@ -68,7 +68,7 @@ Azure AD bevat ook een volledige reeks [mogelijkheden voor identiteitsbeheer](ht
 Met Azure Active Directory, alle toepassingen die u voor uw partners en klanten (bedrijven of consumenten publiceert) hebben dezelfde identiteit en toegang tot de mogelijkheden voor beheer. Hiermee kunt u uw operationele kosten aanzienlijk verlagen.
 
 ## <a name="azure-security-center"></a>Azure Security Center
-[Azure Security Center](https://docs.microsoft.com/en-us/azure/security-center/security-center-intro) helpt u bij het voorkomen, detecteren, en reageer op bedreigingen met verbeterde zichtbaarheid (en controle over) de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw abonnementen. Het helpt bedreigingen detecteren die anders onopgemerkt en het werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
+[Azure Security Center](https://docs.microsoft.com/azure/security-center/security-center-intro) helpt u bij het voorkomen, detecteren, en reageer op bedreigingen met verbeterde zichtbaarheid (en controle over) de beveiliging van uw Azure-resources. Het biedt geïntegreerde beveiligingsbewaking en beleidsbeheer voor uw abonnementen. Het helpt bedreigingen detecteren die anders onopgemerkt en het werkt met een uitgebreid ecosysteem van beveiligingsoplossingen.
 
 [Bescherming van gegevens van virtuele machines (VM)](https://docs.microsoft.com/azure/security-center/security-center-linux-virtual-machine) in Azure door te geven inzicht in de beveiligingsinstellingen van de virtuele machine en controleren op bedreigingen. Security Center kan uw virtuele machines controleren op:
 

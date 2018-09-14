@@ -12,12 +12,12 @@ ms.date: 12/14/2017
 ms.author: glenga
 ms.reviewer: sunayv
 ms.custom: ''
-ms.openlocfilehash: 55de3cd8830834a2af512661d5389952d927ef9f
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 49000d4fd61e7cd061b415d50545a7f5ee56f3fb
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094312"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579120"
 ---
 # <a name="call-a-function-from-powerapps"></a>Een functie van PowerApps aanroepen
 De [PowerApps](https://powerapps.microsoft.com) platform is ontworpen voor zakelijke deskundigen om apps zonder traditionele toepassingscode te bouwen. Professionele ontwikkelaars kunnen Azure Functions gebruiken om uit te breiden de functionaliteit van PowerApps, terwijl het afschermen van PowerApps-appbouwers van de technische details.
@@ -41,7 +41,7 @@ In dit onderwerp leert u hoe u:
 
 ## <a name="prerequisites"></a>Vereisten
 
-+ Een actief [PowerApps-account](https://docs.microsoft.com/en-us/powerapps/maker/signup-for-powerapps) met hetzelfde teken in referenties als uw Azure-account. 
++ Een actief [PowerApps-account](https://docs.microsoft.com/powerapps/maker/signup-for-powerapps) met hetzelfde teken in referenties als uw Azure-account. 
 + Excel en de [Excel-voorbeeldbestand](https://procsi.blob.core.windows.net/docs/turbine-data.xlsx) die u wilt gebruiken als een gegevensbron voor uw app.
 + Voltooi de zelfstudie [OpenAPI-definitie voor een functie maken](functions-openapi-definition.md).
 

@@ -6,16 +6,16 @@ author: jeffgilb
 manager: femila
 ms.service: azure-stack
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: jeffgilb
 ms.reviewer: wamota
 keywords: ''
-ms.openlocfilehash: 26ee1c8f02a0a4e5aa5048a7a02929c448106ffd
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 253598373512b1508482235be028b12163a85a9a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024955"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580681"
 ---
 # <a name="azure-stack-datacenter-integration---publish-endpoints"></a>Azure Stack-datacenter-integratie - eindpunten publiceren
 
@@ -32,9 +32,8 @@ Een set met infrastructuur voor VIP's is vereist voor publicatie Azure Stack-ein
 
 Interne infrastructuur voor VIP's worden niet weergegeven omdat ze niet vereist voor publiceren op Azure Stack.
 
-> [!NOTE]
+> [!Note]  
 > Gebruiker VIP's zijn dynamisch, gedefinieerd door de gebruikers zelf geen controle door de Azure Stack-operator.
-
 
 |Eindpunt (VIP)|DNS-host A-record|Protocol|Poorten|
 |---------|---------|---------|---------|
@@ -66,6 +65,8 @@ Interne infrastructuur voor VIP's worden niet weergegeven omdat ze niet vereist 
 
 Azure Stack ondersteunt alleen transparante proxy-servers. In een implementatie waarbij een transparante proxy uplinks met een traditionele proxyserver, moet u toestaan de volgende poorten en URL's voor uitgaande communicatie:
 
+> [!Note]  
+> Azure Stack biedt geen ondersteuning voor het bereiken van de Azure-services die worden vermeld in de volgende tabel met Express Route.
 
 |Doel|URL|Protocol|Poorten|
 |---------|---------|---------|---------|

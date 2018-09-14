@@ -7,20 +7,20 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 1cffa067d8028adab4dbcc82c529f77d980ce6be
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 72f110c0c98e6fb6ee5fca684fdc74c6986e032c
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39397540"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45541404"
 ---
 # <a name="find-exact-moments-within-videos"></a>Exacte momenten in video's zoeken
 
 Dit onderwerp leest u de zoekopties waarmee u kunt exacte momenten in video's zoeken.
 
-1. Aanmelden bij uw [Video Indexer](https://api-portal.videoindexer.ai/) account.
+1. Blader naar de [Video Indexer](https://www.videoindexer.ai/) website en meld u aan.
 2. Zoeken in alle video's in uw account.
 
     In het volgende voorbeeld wordt gezocht voor alle video's die zijn gemaakt door de Channel 9 met Scott Hanselman.
@@ -49,8 +49,8 @@ Dit onderwerp leest u de zoekopties waarmee u kunt exacte momenten in video's zo
 Als u de video die u werken wilt met hebt gevonden, kunt u blijven verwerken van de video, zoals beschreven in een van de volgende onderwerpen: 
 
 - [Nieuwe inzichten in video's op basis van bestaande video maken](video-indexer-create-new.md)
-- [Verwerken met Video Indexer REST-API-inhoud](video-indexer-use-apis.md)
-- [Visual widgets insluiten in uw toepassing](video-indexer-embed-widgets.md)
+- [REST-API van Video Indexer gebruiken](video-indexer-use-apis.md)
+- [Video Indexer-widgets insluiten in uw toepassingen](video-indexer-embed-widgets.md)
 
 ## <a name="see-also"></a>Zie ook
 

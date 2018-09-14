@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 03/16/2018
 ms.author: v-daljep
 ms.reviewer: carlrab
-ms.openlocfilehash: ba305b66d4b7230f2706136587c4183f81c5e9c3
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: aa031b87df51bd9f7dec40a6c3e56023e2d82d96
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39525498"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579493"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Metrische gegevens van Azure SQL-Database en logboekregistratie van diagnostische gegevens 
 Azure SQL-Database kan metrische en diagnostische gegevens verzenden logboeken voor de bewaking vergemakkelijken. U kunt SQL Database configureren voor het opslaan van resourcegebruik, werkrollen en sessies, en connectiviteit in een van deze Azure-resources:
@@ -157,7 +157,7 @@ U kunt deze parameters voor het inschakelen van meerdere uitvoeropties combinere
 
 ### <a name="rest-api"></a>REST-API
 
-Meer informatie over hoe u [diagnostische instellingen wijzigen met behulp van de Azure Monitor REST API](https://docs.microsoft.com/en-us/rest/api/monitor/diagnosticsettings). 
+Meer informatie over hoe u [diagnostische instellingen wijzigen met behulp van de Azure Monitor REST API](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings). 
 
 ### <a name="resource-manager-template"></a>Resource Manager-sjabloon
 
@@ -264,7 +264,7 @@ Meer informatie over het [metrische en diagnostische gegevens logboeken download
 |**Resource**|**Metrische gegevens**|
 |---|---|
 |Database|DTU-percentage, DTU gebruikt, DTU limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, geslaagd/mislukt/geblokkeerd door firewallverbindingen, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, percentage van XTP-opslag, en impassen |
-|Elastische groep|eDTU-percentage, eDTU gebruikt, eDTU-limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, limiet voor opslag, XTP-opslagpercentage |
+|Elastische pool|eDTU-percentage, eDTU gebruikt, eDTU-limiet, CPU-percentage, fysieke gegevens lezen percentage logboek schrijven percentage, sessies percentage, percentage van de werknemers, opslag, opslagpercentage, limiet voor opslag, XTP-opslagpercentage |
 |||
 
 ### <a name="logs"></a>Logboeken

@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 2c06463d95467543a426079addf981aa42d53eb6
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: c98a90aa44166d6453612f9b73287966851df6ce
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630633"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578154"
 ---
 # <a name="plan-your-azure-time-series-insights-environment"></a>Uw Azure Time Series Insights-omgeving plannen
 
@@ -101,11 +101,11 @@ Als een Azure-service biedt Time Series Insights hoge beschikbaarheid (HA) met b
 
 Time Series Insights heeft geen ingebouwde noodherstel (BCDR).  Klanten die behoefte BCDR hebben kunnen echter nog steeds een strategie voor herstel implementeren. Een tweede Time Series Insights-omgeving in een Azure-regio van de back-up maken en gebeurtenissen verzenden naar deze secundaire omgeving van de bron van de primaire gebeurtenis, gebruik te maken van een tweede speciale klantengroep en van de bron van die gebeurtenis BCDR richtlijnen.  
 
-1.  In de tweede regio omgeving te maken.  Meer informatie over het maken van een Time Series Insights-omgeving [hier](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-get-started).
-2.  Maken van een tweede speciale klantengroep voor uw gebeurtenisbron en de bron van die gebeurtenis verbinden met de nieuwe omgeving.  Zorg ervoor dat de tweede, toegewezen consumergroep aanwijzen.  U meer informatie over dit door een [IoT Hub-documentatie](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) of [Event hub-documentatie](https://docs.microsoft.com/en-us/azure/time-series-insights/time-series-insights-data-access).
+1.  In de tweede regio omgeving te maken.  Meer informatie over het maken van een Time Series Insights-omgeving [hier](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-get-started).
+2.  Maken van een tweede speciale klantengroep voor uw gebeurtenisbron en de bron van die gebeurtenis verbinden met de nieuwe omgeving.  Zorg ervoor dat de tweede, toegewezen consumergroep aanwijzen.  U meer informatie over dit door een [IoT Hub-documentatie](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-how-to-add-an-event-source-iothub) of [Event hub-documentatie](https://docs.microsoft.com/azure/time-series-insights/time-series-insights-data-access).
 3.  Als uw primaire regio uitvallen tijdens een incident na noodgevallen, zijn overgestapt van bewerkingen aan de back-up Time Series Insights-omgeving.  
 
-Ga voor meer informatie over het beleid voor IoT-Hub BCDR [hier](https://docs.microsoft.com/en-us/azure/iot-hub/iot-hub-ha-dr).  Ga voor meer informatie over het beleid van de Event hub BCDR [hier](https://docs.microsoft.com/en-us/azure/event-hubs/event-hubs-geo-dr).  
+Ga voor meer informatie over het beleid voor IoT-Hub BCDR [hier](https://docs.microsoft.com/azure/iot-hub/iot-hub-ha-dr).  Ga voor meer informatie over het beleid van de Event hub BCDR [hier](https://docs.microsoft.com/azure/event-hubs/event-hubs-geo-dr).  
 
 ## <a name="next-steps"></a>Volgende stappen
 - [Een Event Hub-gebeurtenisbron toevoegen](time-series-insights-how-to-add-an-event-source-eventhub.md)

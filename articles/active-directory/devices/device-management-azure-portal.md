@@ -16,17 +16,17 @@ ms.topic: article
 ms.date: 08/25/2018
 ms.author: markvi
 ms.reviewer: jairoc
-ms.openlocfilehash: ff1d51021038909c132bef4cb680589b9951f218
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 7aa7cd2e5b1cf1346a5a7b1f82ec9c7933dd1112
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43041422"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542477"
 ---
 # <a name="how-to-manage-devices-using-the-azure-portal"></a>Over het beheren van apparaten met behulp van de Azure-portal
 
 
-Met Apparaatbeheer in Azure Active Directory (Azure AD), kunt u ervoor zorgen dat uw gebruikers toegang hebben tot de bronnen van apparaten die voldoen aan uw normen voor beveiliging en naleving. 
+Met apparaatbeheer in Azure Active Directory (Azure AD) kunt u ervoor zorgen dat uw gebruikers toegang tot uw bronnen hebben vanaf apparaten die voldoen aan uw normen voor beveiliging en naleving. 
 
 Dit artikel:
 
@@ -123,7 +123,7 @@ Als beheerder, kunt u de geregistreerde of gekoppelde apparaten beheren. In deze
 
 ### <a name="manage-an-intune-device"></a>Een Intune-apparaat beheren
 
-Als u een Intune-beheerder bent, kunt u apparaten die zijn gemarkeerd als beheren **Microsoft Intune**. Extra apparaat door een beheerder kan zien 
+Als u een Intune-beheerder bent, kunt u apparaten die zijn gemarkeerd als beheren **Microsoft Intune**. 
 
 ![Een Intune-apparaat beheren](./media/device-management-azure-portal/31.png)
 
@@ -251,7 +251,7 @@ Naast de filters, kunt u zoeken naar specifieke vermeldingen.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Inleiding tot Apparaatbeheer in Azure Active Directory](overview.md)
+* [Inleiding tot apparaatbeheer in Azure Active Directory](overview.md)
 
 
 

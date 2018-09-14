@@ -13,18 +13,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 06/20/2018
 ms.author: apimpm
-ms.openlocfilehash: 2b0db6f9a1e9cd660ce1b1e7af3e7e1c85815c16
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 5983e6236d1aee80b2cc5b83b65dd2f7945039a1
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43045245"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579958"
 ---
 # <a name="how-to-secure-back-end-services-using-client-certificate-authentication-in-azure-api-management"></a>Over het beveiligen van back-endservices met behulp van client-certificaatverificatie in Azure API Management
 
 API Management kunnen voor het beveiligen van toegang tot de back-end-service van een API met behulp van clientcertificaten. Deze handleiding wordt beschreven hoe u voor het beheren van certificaten in de Azure API Management-service-exemplaar in de Azure-portal. Ook wordt uitgelegd hoe u een API voor het gebruik van een certificaat voor toegang tot een back-end-service configureren.
 
-Zie voor meer informatie over het beheren van certificaten met behulp van de API Management REST API <a href="https://docs.microsoft.com/en-us/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API-Beheercertificaat entiteit</a>.
+Zie voor meer informatie over het beheren van certificaten met behulp van de API Management REST API <a href="https://docs.microsoft.com/rest/api/apimanagement/apimanagementrest/azure-api-management-rest-api-certificate-entity">Azure API Management REST API-Beheercertificaat entiteit</a>.
 
 ## <a name="prerequisites"> </a>Vereisten
 

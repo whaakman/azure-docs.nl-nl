@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/12/2018
 ms.author: brenduns
 ms.reviewer: justini
-ms.openlocfilehash: e6127ce37e2aba4c0c68bcc0a1712501c0b92ff0
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: cb8f88721495376ba1bf31ac5781e4037cc3d16a
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715094"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45544257"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -75,6 +75,8 @@ Deze update bevat de volgende verbeteringen voor Azure Stack.
 - <!-- 1697698  | IS, ASDK --> *Zelfstudies* in de koppeling gebruiker portaldashboard nu relevante artikelen in de online documentatie voor Azure Stack.
 
 - <!-- 2515955   | IS ,ASDK--> *Alle services* vervangt *meer services* in de Azure Stack-beheerder en gebruiker portals. U kunt nu *alle services* als alternatief voor het navigeren in de Azure Stack-portals de dezelfde manier als in de Azure-portals.
+
+- <!-- TBD | IS, ASDK --> *+ Een resource maken* vervangt *+ nieuw* in de Azure Stack-beheerder en gebruiker portals.  U kunt nu *+ een resource maken* als alternatief voor het navigeren in de Azure Stack-portals de dezelfde manier als in de Azure-portals.  
 
 - <!--  TBD – IS, ASDK --> *Basic A* grootten van virtuele machines buiten gebruik worden gesteld voor [het maken van virtuele-machineschaalsets](azure-stack-compute-add-scalesets.md) (VMSS) via de portal. Als u wilt een VMSS te maken met deze grootte, PowerShell of een sjabloon te gebruiken.  
 

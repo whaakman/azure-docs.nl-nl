@@ -6,20 +6,20 @@ documentationcenter: ''
 author: juliako
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 797c09d72402cfc1ee2524e7792cc1310a53fb1e
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: 11bd61387bfe6fe07cd41806f165eed9575622b4
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39399474"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45540891"
 ---
 # <a name="view-and-edit-video-indexer-insights"></a>Video Indexer-inzichten weergeven en bewerken
 
 Dit onderwerp ziet u hoe u kunt weergeven en bewerken van de Video Indexer-inzichten van een video.
 
-1. Aanmelden bij uw [Video Indexer](https://api-portal.videoindexer.ai/) account.
+1. Blader naar de [Video Indexer](https://www.videoindexer.ai/) website en meld u aan.
 2. Zoek een video van waaruit u wilt maken van uw Video Indexer-inzichten. Zie voor meer informatie, [exacte momenten in video's zoeken](video-indexer-search.md).
 3. Druk op **afspelen**.
 

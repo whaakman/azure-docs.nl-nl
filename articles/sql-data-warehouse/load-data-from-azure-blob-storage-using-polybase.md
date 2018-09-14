@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.component: implement
-ms.date: 04/17/2018
+ms.date: 09/12/2018
 ms.author: cakarst
 ms.reviewer: igorstan
-ms.openlocfilehash: 06d889686c673adc3941ac7303ab52a6fff408a8
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: b9c42f5b0fc6fb9468d8fd0a1c34270d1734391a
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288121"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45579908"
 ---
 # <a name="tutorial-load-new-york-taxicab-data-to-azure-sql-data-warehouse"></a>Zelfstudie: Over taxi's in New York Load gegevens naar Azure SQL Data Warehouse
 
@@ -529,7 +529,7 @@ Het script gebruikt de T-SQL-instructie [CREATE TABLE AS SELECT (CTAS)](/sql/t-s
         s.request_id,
         r.status,
         count(distinct input_name) as nbr_files,
-        sum(s.bytes_processed)/1024/1024/1024 as gb_processed
+        sum(s.bytes_processed)/1024/1024/1024.0 as gb_processed
     FROM 
         sys.dm_pdw_exec_requests r
         INNER JOIN sys.dm_pdw_dms_external_work s
@@ -561,16 +561,6 @@ Het script gebruikt de T-SQL-instructie [CREATE TABLE AS SELECT (CTAS)](/sql/t-s
 
     ![Geladen tabellen weergeven](media/load-data-from-azure-blob-storage-using-polybase/view-loaded-tables.png)
 
-## <a name="create-statistics-on-newly-loaded-data"></a>Statistieken maken voor nieuw geladen gegevens
-
-SQL Data Warehouse bevat geen functionaliteit voor het automatisch maken of bijwerken van statistieken. Voor hoge queryprestaties is het dan ook belangrijk dat u voor elke kolom in elke tabel statistieken maakt nadat de tabel de eerste keer is geladen. Het is ook belangrijk dat de statistieken worden bijgewerkt wanneer gegevens substantieel zijn gewijzigd.
-
-Voer deze opdrachten uit om statistieken te maken voor kolommen die kunnen worden gebruikt in joins.
-
-    ```sql
-    CREATE STATISTICS [dbo.Date DateID stats] ON dbo.Date (DateID);
-    CREATE STATISTICS [dbo.Trip DateID stats] ON dbo.Trip (DateID);
-    ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 

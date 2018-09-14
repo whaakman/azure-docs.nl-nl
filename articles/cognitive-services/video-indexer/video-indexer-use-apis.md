@@ -7,14 +7,14 @@ author: juliako
 manager: erikre
 ms.service: cognitive-services
 ms.topic: article
-ms.date: 07/25/2018
+ms.date: 09/09/2018
 ms.author: juliako
-ms.openlocfilehash: 73359955861b88f2bc5ca297c32fa78c2632148c
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: bd0f9e01257bec2d39ef0c8e13b68c4a7a13637d
+ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39449464"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "45542919"
 ---
 # <a name="use-azure-video-indexer-api"></a>Gebruik Azure Video Indexer-API
 
@@ -23,15 +23,13 @@ ms.locfileid: "39449464"
 
 Video Indexer consolideert verschillende audio en video kunstmatige intelligentie (AI)-technologieën die worden aangeboden door Microsoft in één geïntegreerde service, wat het ontwikkelen eenvoudiger. De API's zijn ontworpen voor ontwikkelaars zich richten op de Media AI-technologieën gebruiken zonder u zorgen te maken over schalen, globale bereiken inschakelen, beschikbaarheid en betrouwbaarheid van cloud-platform. De API kunt u uw bestanden uploaden, ophalen, gedetailleerde inzichten in video's, URL's van inzicht en de ingesloten speler widgets ophalen als u wilt deze insluiten in uw toepassing en andere taken.
 
-Als u een Video Indexer-account maakt, kunt u een gratis proefaccount (waar u aan een bepaald aantal gratis indexering minuten) of een betaalde optie (waarbij u bent niet beperkt door het quotum). Met gratis proefversie Video Indexer biedt maximaal 600 minuten gratis worden geïndexeerd voor gebruikers van de website en maximaal 2400 minuten gratis indexing voor een API-gebruikers. Betaalde optie, maakt u een Video Indexer-account dat is [verbonden met uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt voor minuten geïndexeerd, evenals de Media-Account gekoppeld kosten in rekening gebracht. 
+Als u een Video Indexer-account maakt, kunt u een gratis proefaccount (waar u aan een bepaald aantal gratis indexering minuten) of een betaalde optie (waarbij u bent niet beperkt door het quotum). Met gratis proefversie Video Indexer biedt maximaal 600 minuten gratis worden geïndexeerd voor gebruikers van de website en maximaal 2400 minuten gratis indexing voor een API-gebruikers. Betaalde optie, maakt u een Video Indexer-account dat is [verbonden met uw Azure-abonnement en een Azure Media Services-account](connect-to-azure.md). U betaalt voor de minuten geïndexeerd, evenals de Azure Media Services account gerelateerde kosten in rekening gebracht. 
 
-Dit artikel wordt beschreven hoe de ontwikkelaars kunnen profiteren van de [Video Indexer-API](https://api-portal.videoindexer.ai/). Een meer gedetailleerd overzicht van de Video Indexer-service, Zie de [overzicht](video-indexer-overview.md) artikel.
+Dit artikel wordt beschreven hoe de ontwikkelaars kunnen profiteren van de [Video Indexer-API](https://api-portal.videoindexer.ai/).
 
 ## <a name="subscribe-to-the-api"></a>Abonneer u op de API
 
-1. Aanmelden.
-
-    Als u wilt beginnen met het ontwikkelen met Video Indexer, moet u eerst aanmelden bij de [Video Indexer](https://api-portal.videoindexer.ai/) portal. 
+1. Aanmelden bij [Video Indexer-Ontwikkelaarsportal](https://api-portal.videoindexer.ai/).
     
     ![Aanmelden](./media/video-indexer-use-apis/video-indexer-api01.png)
 
@@ -39,7 +37,6 @@ Dit artikel wordt beschreven hoe de ontwikkelaars kunnen profiteren van de [Vide
     > * U moet de dezelfde provider die u hebt gebruikt toen u zich hebt geregistreerd voor Video Indexer gebruiken.
     > * Persoonlijke Google en Microsoft (outlook/live) accounts kunnen alleen worden gebruikt voor proefaccounts. Accounts die zijn verbonden met Azure vereist Azure AD.
     > * Er mag slechts één actieve account per E-Mail. Als een gebruiker probeert om aan te melden met user@gmail.com voor LinkedIn en daarna met user@gmail.com voor Google de later een foutpagina weergeven, dat de gebruiker al bestaat.
-
 
 2. Zich abonneren.
 
@@ -91,15 +88,15 @@ De waarden die worden beschreven in de volgende tabel zijn van toepassing. De **
 
 De Account-ID-parameter is vereist in alle operationele API-aanroepen. Account-ID is een GUID die kan worden verkregen in een van de volgende manieren:
 
-* De Video Indexer-portal gebruiken om op te halen van de Account-ID:
+* Gebruik de **Video Indexer-website** om op te halen van de Account-ID:
 
-    1. Aanmelden bij [videoindexer](https://www.videoindexer.ai/).
+    1. Blader naar de [Video Indexer](https://www.videoindexer.ai/) website en meld u aan.
     2. Blader naar de **instellingen** pagina.
     3. Kopieer de account-ID.
 
         ![Account-id](./media/video-indexer-use-apis/account-id.png)
 
-* Gebruik de API om via een programma krijgen de Account-ID.
+* Gebruik **Video Indexer-Ontwikkelaarsportal** om op te halen via een programma de Account-ID.
 
     Gebruik de [accounts ophalen](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API.
     
@@ -225,7 +222,5 @@ Debug.WriteLine(playerWidgetLink);
 ## <a name="next-steps"></a>Volgende stappen
 
 [Details van de JSON-uitvoer onderzoeken](video-indexer-output-json.md).
-
-## <a name="see-also"></a>Zie ook
 
 [Video Indexer-overzicht](video-indexer-overview.md)

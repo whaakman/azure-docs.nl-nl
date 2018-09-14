@@ -9,12 +9,12 @@ ms.custom: monitor & tune
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: carlrab
-ms.openlocfilehash: 43476cfcae2035c3b8e94b4a5e264a0c8ff424e0
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 0636a4daf06e4d476935773e65cd388f94d99986
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44715445"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578257"
 ---
 # <a name="managing-azure-sql-databases-using-azure-automation"></a>Azure SQL-databases met Azure Automation beheren
 Deze handleiding vindt u de Azure Automation-service en hoe deze kan worden gebruikt voor het vereenvoudigen van beheer van uw Azure SQL-databases.
@@ -27,7 +27,7 @@ Azure Automation biedt een uiterst betrouwbare en maximaal beschikbare engine vo
 Lagere operationele overhead en vrij IT / DevOps-personeel te concentreren op werk dat wordt toegevoegd business value door te verplaatsen van uw cloud-beheertaken automatisch wordt uitgevoerd door Azure Automation.
 
 ## <a name="how-can-azure-automation-help-manage-azure-sql-databases"></a>Hoe u kunt Azure Automation beheren van Azure SQL-databases?
-Azure SQL-Database kunnen worden beheerd in Azure Automation met behulp van de [Azure SQL Database PowerShell-cmdlets](https://docs.microsoft.com/en-us/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql) die beschikbaar zijn in de [Azure PowerShell-hulpprogramma's](/powershell/azure/overview). Azure Automation heeft deze Azure SQL Database PowerShell-cmdlets beschikbaar gebruiksklaar, zodat u al uw SQL-database-beheertaken in de service kunt uitvoeren. U kunt ook deze cmdlets in Azure Automation met de cmdlets voor andere Azure-services voor het automatiseren van complexe taken in Azure-services en 3e systemen van derden worden gekoppeld.
+Azure SQL-Database kunnen worden beheerd in Azure Automation met behulp van de [Azure SQL Database PowerShell-cmdlets](https://docs.microsoft.com/powershell/module/servicemanagement/azure/?view=azuresmps-4.0.0#sql) die beschikbaar zijn in de [Azure PowerShell-hulpprogramma's](/powershell/azure/overview). Azure Automation heeft deze Azure SQL Database PowerShell-cmdlets beschikbaar gebruiksklaar, zodat u al uw SQL-database-beheertaken in de service kunt uitvoeren. U kunt ook deze cmdlets in Azure Automation met de cmdlets voor andere Azure-services voor het automatiseren van complexe taken in Azure-services en 3e systemen van derden worden gekoppeld.
 
 Azure Automation biedt ook de mogelijkheid om te communiceren met de SQL-servers rechtstreeks met behulp van SQL-opdrachten met behulp van PowerShell.
 

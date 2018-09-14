@@ -1,6 +1,6 @@
 ---
-title: Overzicht van emotion-API | Microsoft Docs
-description: Gebruik de algoritme van Microsoft geavanceerde, cloud-gebaseerde emotion erkenning meer persoonlijke apps met de Emotion-API in cognitieve Services maken.
+title: Overzicht van de emotion-API | Microsoft Docs
+description: De Microsoft baanbrekende, op de cloud gebaseerde emoties opname-algoritme gebruiken voor apps bouwen die persoonlijker, met de Emotion-API in Cognitive Services.
 services: cognitive-services
 author: anrothMSFT
 manager: corncar
@@ -9,30 +9,30 @@ ms.component: emotion-api
 ms.topic: article
 ms.date: 02/06/2017
 ms.author: anroth
-ms.openlocfilehash: 8383370cba3f78060e809f444f4ad3dab7380f4e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 210990b0f436fd75cb36e71ea28928c457a5232e
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344801"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45573551"
 ---
 # <a name="what-is-emotion-api"></a>Wat is Emotion-API?
 
 > [!IMPORTANT]
-> Emotion-API is op 30 oktober 2017 afgeschaft. De functionaliteit is nu onderdeel van [Face-API](https://docs.microsoft.com/en-us/azure/cognitive-services/face/).
+> Emotion-API is op 30 oktober 2017 afgeschaft. De functionaliteit is nu onderdeel van [Face-API](https://docs.microsoft.com/azure/cognitive-services/face/).
 
-Welkom bij de Emotion-API van Microsoft, zodat u meer persoonlijke apps met Microsoft cloud-gebaseerde emotion erkenning algoritme maken.
+Welkom bij de Emotion-API van Microsoft, waarmee u apps bouwen die persoonlijker met van Microsoft cloud-gebaseerde emoties erkenning algoritme.
 
-### <a name="emotion-recognition"></a>Emotion opname
+### <a name="emotion-recognition"></a>Herkenning van emoties
 
-De bètaversie Emotion-API wordt een afbeelding als invoer en retourneert het vertrouwen van een set emoties voor elk vlak in de installatiekopie, evenals een selectiekader voor het vlak van de Face-API. De emoties gedetecteerd zijn gelukkig, sadness, onverwacht, volgt uitzien, bang, contempt, beantwoord of neutrale. Deze emoties cross-culturally en universeel worden doorgegeven via de dezelfde basic bedacht, waar zijn geïdentificeerd door Emotion-API. 
+De bètaversie van de Emotion-API wordt een afbeelding als invoer en retourneert de betrouwbaarheid voor een set emoties voor elk gezicht in de afbeelding, evenals een begrenzingsvak voor het gezicht van de Face-API. De gedetecteerde emoties zijn blijdschap, verdriet, verrassing, boosheid, angst, minachting, walging of neutraal. Deze emoties worden gecommuniceerd tussen verschillende culturen en worden universeel via de dezelfde basic gezichtsuitdrukkingen, indien worden aangeduid met de Emotion-API. 
 
-**Interpreteren resultaten:** 
+**Resultaten interpreteren:** 
 
-In het interpreteren van de resultaten van de Emotion-API, de emotion gedetecteerd moet worden geïnterpreteerd als de emotion met de hoogste score zoals scores zijn genormaliseerd aan som naar een. Gebruikers kunnen ervoor kiezen om in te stellen van een drempelwaarde voor hogere betrouwbaarheid in de toepassing, afhankelijk van hun behoeften. 
+In het interpreteren van de resultaten van de Emotion-API, de emoties gedetecteerd moet worden geïnterpreteerd als de emoties met de hoogste score, terwijl scores zijn genormaliseerd op som naar een. Gebruikers kunnen ervoor kiezen om in te stellen van een drempelwaarde voor hogere betrouwbaarheid in de toepassing, afhankelijk van hun behoeften. 
 
-Zie voor meer informatie over emotiedetectie de API-verwijzing: 
-  * Basic: Als een gebruiker al voor de Face-API aangeroepen is, kunnen indienen van de rechthoek face als invoer en met de basisstaffel. [API-naslaginformatie](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f23eb019845524ec61c4d7)
-  * Standaard: Als een rechthoek face worden niet door een gebruiker worden verzonden, moeten ze standaardmodus gebruiken.  [API-naslaginformatie](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)
+Zie voor meer informatie over detectie van emoties in de API-verwijzing: 
+  * Basic: Als een gebruiker al voor de Face-API aangeroepen is, ze kunnen indienen van het gezichtsrechthoek als invoer en de basic-laag. [API-naslaginformatie](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/56f23eb019845524ec61c4d7)
+  * Standaard: Als een gebruiker niet een gezichtsrechthoek verzenden is, moeten ze standaardmodus gebruiken.  [API-naslaginformatie](https://westus.dev.cognitive.microsoft.com/docs/services/5639d931ca73072154c1ce89/operations/563b31ea778daf121cc3a5fa)
 
-Zie voor een voorbeeld over het interpreteren van streaming video met Emotion-API [video's in realtime analyseren hoe](https://docs.microsoft.com/azure/cognitive-services/emotion/emotion-api-how-to-topics/howtoanalyzevideo_emotion).
+Zie voor een voorbeeld over het interpreteren van streaming video met de Emotion-API, [hoe u video's analyseren in Real Time](https://docs.microsoft.com/azure/cognitive-services/emotion/emotion-api-how-to-topics/howtoanalyzevideo_emotion).

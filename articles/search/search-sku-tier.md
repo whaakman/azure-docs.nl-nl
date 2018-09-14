@@ -9,12 +9,12 @@ ms.service: search
 ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: heidist
-ms.openlocfilehash: f7cf471a69395cef0aef7d5dd2e3c77218bf97a3
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: 140daf4903c64d734182545cd4dc58db60274852
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715277"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45576117"
 ---
 # <a name="choose-a-pricing-tier-for-azure-search"></a>Kies een prijscategorie voor Azure Search
 
@@ -104,7 +104,7 @@ Ervan uitgaande dat het voorbeeld is zowel vertegenwoordiger en tien procent van
 
 Sommige klanten de voorkeur geeft aan om te beginnen met toegewezen resources die kunnen grotere steekproeven en verwerkingstijden en realistische maakt een schatting van de index aantal, de grootte en de query volumes tijdens het ontwikkelen van ontwikkelen. In eerste instantie een service is ingericht op basis van een schatting inschatting en vervolgens als het project voor de ontwikkeling zich verder ontwikkelt, teams meestal weten of de bestaande service boven of onder de capaciteit voor geplande productieworkloads. 
 
-1. [Bekijk Servicelimieten op elke laag](https://docs.microsoft.com/en-us/azure/search/search-limits-quotas-capacity#index-limits) om te bepalen of het aantal indexen, u moet kunnen ondersteuning voor lagere niveaus. In de **Basic**-**S1**- **S2** index limieten voor de lagen zijn 15-50-200, respectievelijk.
+1. [Bekijk Servicelimieten op elke laag](https://docs.microsoft.com/azure/search/search-limits-quotas-capacity#index-limits) om te bepalen of het aantal indexen, u moet kunnen ondersteuning voor lagere niveaus. In de **Basic**-**S1**- **S2** index limieten voor de lagen zijn 15-50-200, respectievelijk.
 
 1. [Een service maken op een factureerbare laag](search-create-service-portal.md):
 

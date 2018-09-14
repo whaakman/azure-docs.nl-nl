@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/21/2017
 ms.author: terrylan
-ms.openlocfilehash: 21ad417b9b3b8d0354333962c4e811d0eebba4e9
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: efab734cc7d6facf82f622b95c12a1a27e99c5f7
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159330"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45575929"
 ---
 # <a name="security-management-in-azure"></a>Beveiligingsbeheer in Azure
 Azure-abonnees kunnen hun cloudomgevingen beheren vanaf meerdere apparaten, waaronder beheerwerkstations, de pc's van ontwikkelaars en zelfs apparaten van bevoegde eindgebruikers met taakspecifieke rechten. In sommige gevallen worden beheerfuncties uitgevoerd via op het web gebaseerde consoles, zoals de [Azure Portal](https://azure.microsoft.com/features/azure-portal/). In andere gevallen zijn er mogelijk rechtstreekse verbindingen naar Azure vanaf on-premises systemen via virtuele particuliere netwerken (VPN), Terminal Services, protocollen van clienttoepassingen of de Azure Service Management API (SMAPI) (via een programma). Clienteindpunten kunnen bovendien zowel in een domein zijn samengevoegd als op zichzelf staand en niet-beheerd zijn, zoals tablets en smartphones.
@@ -225,7 +225,7 @@ Naast de specifieke items waarnaar in dit artikel wordt verwezen, zijn ook de vo
 
 * [Bevoegde toegang beveiligen](https://technet.microsoft.com/library/mt631194.aspx): technische informatie over het ontwerpen en bouwen van een beveiligd beheerwerkstation voor Azure-beheer
 * [Microsoft Trust Center](https://microsoft.com/en-us/trustcenter/cloudservices/azure): informatie over de functionaliteit van het Azure-platform voor het beschermen van de Azure-infrastructuur en de in Azure uitgevoerde workloads
-* [Microsoft Security Response Center](https://technet.microsoft.com/en-us/security/dn440717.aspx): hier kunt u beveiligingsproblemen met Microsoft-services (waaronder Azure) rapporteren. Dit kan ook via e-mail: [secure@microsoft.com](mailto:secure@microsoft.com)
+* [Microsoft Security Response Center](https://technet.microsoft.com/security/dn440717.aspx): hier kunt u beveiligingsproblemen met Microsoft-services (waaronder Azure) rapporteren. Dit kan ook via e-mail: [secure@microsoft.com](mailto:secure@microsoft.com)
 * [Azure-beveiligingsblog](http://blogs.msdn.com/b/azuresecurity/): blijf op de hoogte van het laatste nieuws op het gebied van Azure-beveiliging
 
 <!--Image references-->

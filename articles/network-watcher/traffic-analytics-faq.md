@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
 ms.author: jdial
-ms.openlocfilehash: 9f7fb5009468dccae50190ee40a53d11040d0348
-ms.sourcegitcommit: d551ddf8d6c0fd3a884c9852bc4443c1a1485899
+ms.openlocfilehash: debefb329304235818b7b441122b90ae9a2834a9
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/07/2018
-ms.locfileid: "37903744"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45578307"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>Veelgestelde vragen over Traffic analytics
 
@@ -58,7 +58,7 @@ Om te controleren of de rol is toegewezen aan een gebruiker voor een abonnement:
 
 3. U kunt alle functies die zijn toegewezen aan een opgegeven gebruiker gebruiken **Get-AzureRmRoleAssignment - SignInName [e-mailadres gebruiker] - IncludeClassicAdministrators**. 
 
-Als u geen uitvoer niet ziet, moet u contact op met de beheerder van het betreffende abonnement voor toegang tot de opdrachten worden uitgevoerd. Zie voor meer informatie, [op rollen gebaseerd toegangsbeheer met Azure PowerShell beheren](https://docs.microsoft.com/en-us/azure/role-based-access-control/role-assignments-powershell).
+Als u geen uitvoer niet ziet, moet u contact op met de beheerder van het betreffende abonnement voor toegang tot de opdrachten worden uitgevoerd. Zie voor meer informatie, [op rollen gebaseerd toegangsbeheer met Azure PowerShell beheren](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-powershell).
 
 
 ## <a name="in-which-azure-regions-are-traffic-analytics-available"></a>In welke Azure regio's zijn verkeersanalyse beschikbaar?
@@ -196,7 +196,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 
 Traffic analytics wordt gemeten. De meting is gebaseerd op de verwerking van logboekgegevens van de stroom door de service en opslaan van de resulterende uitgebreide Logboeken in Log Analytics-werkruimte. 
 
-Bijvoorbeeld, volgens de [prijsplan](https://azure.microsoft.com/en-us/pricing/details/network-watcher/), de regio West-Centraal VS, overwegen als gegevens die zijn opgeslagen in een storage-account dat is verwerkt door Traffic Analytics stroomlogboeken is 10 GB en uitgebreide logboeken die zijn opgenomen in Log Analytics-werkruimte is 1 GB en vervolgens de kosten van toepassing zijn: 10 x 2.3$ + 1 x 2.76$ 25.76 = $
+Bijvoorbeeld, volgens de [prijsplan](https://azure.microsoft.com/pricing/details/network-watcher/), de regio West-Centraal VS, overwegen als gegevens die zijn opgeslagen in een storage-account dat is verwerkt door Traffic Analytics stroomlogboeken is 10 GB en uitgebreide logboeken die zijn opgenomen in Log Analytics-werkruimte is 1 GB en vervolgens de kosten van toepassing zijn: 10 x 2.3$ + 1 x 2.76$ 25.76 = $
 
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>Hoe kan ik Navigeer met behulp van het toetsenbord in de geografische kaartweergave?
 

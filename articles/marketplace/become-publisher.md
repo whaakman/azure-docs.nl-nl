@@ -14,12 +14,12 @@ ms.devlang: ''
 ms.topic: article
 ms.date: 06/05/2018
 ms.author: ellacroi
-ms.openlocfilehash: c6f074b84b099f6ea5023967fdae7e44d5e9d545
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 7aadb7b89cf1b338a257846882e34ff796df74b2
+ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43666381"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45580715"
 ---
 # <a name="become-a-cloud-marketplace-publisher"></a>Word een Cloud-Marketplace-uitgever
 
@@ -28,11 +28,11 @@ In dit artikel bevat informatie over registreren als een cloud-marketplace-uitge
 
 |  | Registratiestap | Duur | Details |  
 |:--- |:--- |:--- |:--- |  
-| 1 | Registreren in Microsoft Partner Network | 15 minuten | [Registreren in Microsoft Partner Network](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
-| 2 | Een Microsoft-Account maken <ul>(vereist voor Azure Marketplace biedt transact; aanbevolen voor anderen)</ul> | 15 minuten | [Maken van een Microsoft-ID](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
-| 3 | Het registratieformulier marketplace verzenden | 15 minuten | [De marketplace-nominatieformulier verzenden](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
-| 4 |  Meld u aan bij de Cloud Partner-Portal | 1-3 dagen | [Meld u aan bij de Cloud Partner-Portal](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
-| 5 | Registreren in Microsoft Developer Center (Dev Center) (voor Azure Marketplace transact aanbiedingen) | 5-10 dagen | [Registreren in Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
+| 1 | Registreren in Microsoft Partner Network | 15 minuten | [Registreren in Microsoft Partner Network](https://docs.microsoft.com/azure/marketplace/become-publisher#1-register-in-microsoft-partner-network) |  
+| 2 | Een Microsoft-Account maken <ul>(vereist voor Azure Marketplace biedt transact; aanbevolen voor anderen)</ul> | 15 minuten | [Maken van een Microsoft-ID](https://docs.microsoft.com/azure/marketplace/become-publisher#2-create-a-microsoft-account) |  
+| 3 | Het registratieformulier marketplace verzenden | 15 minuten | [De marketplace-nominatieformulier verzenden](https://docs.microsoft.com/azure/marketplace/become-publisher#3-submit-the-marketplace-registration-form) |  
+| 4 |  Meld u aan bij de Cloud Partner-Portal | 1-3 dagen | [Meld u aan bij de Cloud Partner-Portal](https://docs.microsoft.com/azure/marketplace/become-publisher#4-sign-into-cloud-partner-portal) |  
+| 5 | Registreren in Microsoft Developer Center (Dev Center) (voor Azure Marketplace transact aanbiedingen) | 5-10 dagen | [Registreren in Dev Center](https://docs.microsoft.com/azure/marketplace/become-publisher#5-register-in-dev-center-for-transact-publishing-option-only) |  
 
 
 ## <a name="1-register-in-microsoft-partner-network"></a>1. Registreren in Microsoft Partner Network  
@@ -54,9 +54,9 @@ Een Microsoft-account, bijvoorbeeld *@outlook.com of @live.com*, wordt gebruikt 
 [! [Belangrijk] Let op dat een Microsoft-account dat is gekoppeld aan uw zakelijke e-mailadres niet kunt u toegang tot de portal.
 
 >[!Note]
->Als u al een Microsoft-account hebt, raadpleegt u de [richtlijnen voor het maken van een Microsoft-ID voor het beheren van een marketplace-account](https://review.docs.microsoft.com/en-us/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) om te bepalen als deze kan worden gebruikt voor marketplace-publicatie. 
+>Als u al een Microsoft-account hebt, raadpleegt u de [richtlijnen voor het maken van een Microsoft-ID voor het beheren van een marketplace-account](https://review.docs.microsoft.com/azure/marketplace/guidelines#guidelines-for-creating-a-microsoft-id-to-manage-a-marketplace-account) om te bepalen als deze kan worden gebruikt voor marketplace-publicatie. 
 
->Gebruikers met een bedrijfsaccount van Azure Active Directory federated moeten lezen [in dit artikel](https://review.docs.microsoft.com/en-us/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) voordat u probeert te maken of gebruik uw bestaande Microsoft-Account.
+>Gebruikers met een bedrijfsaccount van Azure Active Directory federated moeten lezen [in dit artikel](https://review.docs.microsoft.com/azure/marketplace/guidelines#issue-microsoft-id-in-an-azure-ad-federated-domain) voordat u probeert te maken of gebruik uw bestaande Microsoft-Account.
 
 *   Voor meer informatie over het maken of beheren van uw Microsoft-account, gaat u naar de [pagina's van Microsoft-account help ondersteuning](https://support.microsoft.com/en-us/products/microsoft-account?category=manage-account).
 
@@ -100,12 +100,12 @@ Wanneer u hebt de [Dev Center](https://developer.microsoft.com/en-us/store/regis
 >Om te vervallen de kosten $99 Developer Center registratie, vul het registratieformulier marketplace en u ontvangt een e-mail met uw promotiecode. 
 
 >[!Important]
->Voordat u een Microsoft Developer Center-account maakt, Controleer of dat uw organisatie nog geen een Dev Center-account om te voorkomen dat dubbele accounts. Voor meer informatie gaat u naar de [registreren in Dev Center](https://docs.microsoft.com/en-us/azure/marketplace/register-dev-center) sectie.
+>Voordat u een Microsoft Developer Center-account maakt, Controleer of dat uw organisatie nog geen een Dev Center-account om te voorkomen dat dubbele accounts. Voor meer informatie gaat u naar de [registreren in Dev Center](https://docs.microsoft.com/azure/marketplace/register-dev-center) sectie.
 
 
 ## <a name="next-steps"></a>Volgende stappen
-* Meer informatie over de marketplace-storefronts: [AppSource vergelijken en de Azure Marketplace](https://docs.microsoft.com/en-us/azure/marketplace/comparing-appsource-azure-marketplace)
-*   [Het type aanbieding voor uw oplossing bepalen](https://docs.microsoft.com/en-us/azure/marketplace/determine-your-listing-type)
+* Meer informatie over de marketplace-storefronts: [AppSource vergelijken en de Azure Marketplace](https://docs.microsoft.com/azure/marketplace/comparing-appsource-azure-marketplace)
+*   [Het type aanbieding voor uw oplossing bepalen](https://docs.microsoft.com/azure/marketplace/determine-your-listing-type)
 
  
 ---  
