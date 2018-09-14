@@ -1,39 +1,39 @@
 ---
-title: Terraform-modules gebruiken voor het maken van een VM-cluster in Azure
-description: Informatie over het gebruik van Terraform modules maken van een Windows-cluster voor virtuele machine in Azure
+title: Terraform-modules gebruiken om een ​​VM-cluster op Azure te maken
+description: Leer hoe u Terraform-modules kunt gebruiken om een cluster met ​​virtuele Windows-machines in Azure te maken
+services: terraform
+ms.service: terraform
 keywords: terraform, devops, virtuele machine, netwerk, modules
-author: rloutlaw
-ms.service: virtual-machines-linux
-ms.topic: article
-ms.workload: infrastructure
+author: tomarcher
+manager: jeconnoc
+ms.author: tarcher
+ms.topic: tutorial
 ms.date: 10/19/2017
-ms.custom: devops
-ms.author: routlaw
-ms.openlocfilehash: e33aef252413eeb243b03543f171d5f1e2385b48
-ms.sourcegitcommit: 8aab1aab0135fad24987a311b42a1c25a839e9f3
-ms.translationtype: MT
+ms.openlocfilehash: 03c09e190fce9cbbd98cea3565dd2437f79dadf1
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 03/16/2018
-ms.locfileid: "29952214"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666630"
 ---
-# <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Maak een VM-cluster met Terraform met het register van de Module
+# <a name="create-a-vm-cluster-with-terraform-using-the-module-registry"></a>Een VM-cluster maken met Terraform met behulp van het moduleregister
 
-Dit artikel begeleidt u bij een klein VM-cluster maken met de Terraform [Azure compute module](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2). In deze zelfstudie leert u het volgende: 
+Dit artikel begeleidt u bij het maken van een klein VM-cluster met de [Azure compute module](https://registry.terraform.io/modules/Azure/compute/azurerm/1.0.2) van Terraform. In deze zelfstudie leert u het volgende: 
 
 > [!div class="checklist"]
-> * Verificatie met Azure instellen
-> * De sjabloon Terraform maken
-> * De wijzigingen die u van plan te visualiseren
-> * De configuratie voor het maken van de VM-cluster toe te passen
+> * Verificatie bij Azure instellen
+> * De Terraform-sjabloon maken
+> * De wijzigingen visualiseren met plan
+> * De configuratie toepassen om het VM-cluster te maken
 
-Zie voor meer informatie over Terraform de [Terraform documentatie](https://www.terraform.io/docs/index.html).
+Zie voor meer informatie over Terraform de [documentatie van Terraform](https://www.terraform.io/docs/index.html).
 
-## <a name="set-up-authentication-with-azure"></a>Verificatie met Azure instellen
+## <a name="set-up-authentication-with-azure"></a>Verificatie bij Azure instellen
 
 > [!TIP]
-> Als u [Terraform omgevingsvariabelen gebruiken](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) of het uitvoeren van deze zelfstudie in de [Azure Cloud Shell](/azure/cloud-shell/overview), deze stap overslaan.
+> Als u [Terraform-omgevingsvariabelen](/azure/virtual-machines/linux/terraform-install-configure#set-environment-variables) gebruikt of deze zelfstudie uitvoert in de [Azure Cloud Shell](/azure/cloud-shell/overview), slaat u deze stap over.
 
- Bekijk [Terraform installeren en configureren van toegang tot Azure](/azure/virtual-machines/linux/terraform-install-configure) een Azure-service-principal maken. Gebruik deze service-principal voor het vullen van een nieuw bestand `azureProviderAndCreds.tf` in een lege map met de volgende code:
+ Lees [Terraform installeren en de toegang tot Azure configureren](/azure/virtual-machines/linux/terraform-install-configure) om een ​​Azure-service-principal te maken. Gebruik deze service-principal om een ​​nieuw bestand, `azureProviderAndCreds.tf`, in een lege map te vullen met de volgende code:
 
 ```tf
 variable subscription_id {}
@@ -51,7 +51,7 @@ provider "azurerm" {
 
 ## <a name="create-the-template"></a>De sjabloon maken
 
-Maak een nieuwe Terraform sjabloon met de naam `main.tf` met de volgende code:
+Maak een nieuwe Terraform-sjabloon met de naam `main.tf` met de volgende code:
 
 ```tf
 module mycompute {
@@ -85,24 +85,24 @@ output "vm_private_ips" {
 }
 ```
 
-Voer `terraform init` in uw directory configuratie. Met een versie Terraform van ten minste 0.10.6 ziet u de volgende uitvoer:
+Voer `terraform init` uit in uw configuratiedirectory. Als u Terraform-versie 0.10.6 of hoger gebruikt, ziet u de volgende uitvoer:
 
 ![Terraform Init](media/terraformInitWithModules.png)
 
-## <a name="visualize-the-changes-with-plan"></a>De wijzigingen die u van plan te visualiseren
+## <a name="visualize-the-changes-with-plan"></a>De wijzigingen visualiseren met plan
 
-Voer `terraform plan` voorbeeld van de infrastructuur van de virtuele machine gemaakt door de sjabloon.
+Voer `terraform plan` uit om een ​​voorbeeld te bekijken van de virtuele machine-infrastructuur die door de sjabloon is gemaakt.
 
-![Terraform plannen](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
+![Terraform Plan](media/terraform-create-vm-cluster-with-infrastructure/terraform-plan.png)
 
 
-## <a name="create-the-virtual-machines-with-apply"></a>De virtuele machines maken met toepassen
+## <a name="create-the-virtual-machines-with-apply"></a>De virtuele machines maken met apply
 
-Voer `terraform apply` voor het inrichten van de virtuele machines in Azure.
+Voer `terraform apply` uit om de virtuele machines in te richten in Azure.
 
-![Terraform toepassen](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
+![Terraform Apply](media/terraform-create-vm-cluster-with-infrastructure/terraform-apply.png)
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Bladeren in de lijst van [Azure Terraform modules](https://registry.terraform.io/modules/Azure)
-- Maak een [virtuele-machineschaalset met Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)
+- Door de lijst met [Azure Terraform-modules ](https://registry.terraform.io/modules/Azure) bladeren
+- [Een virtuele-machineschaalset maken met Terraform](terraform-create-vm-scaleset-network-disks-hcl.md)

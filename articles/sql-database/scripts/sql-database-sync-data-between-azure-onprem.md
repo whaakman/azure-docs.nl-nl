@@ -17,26 +17,27 @@ ms.workload: database
 ms.date: 04/01/2018
 ms.author: xiwu
 ms.reviewer: douglasl
-ms.openlocfilehash: 650303918e6aac1d4d16549f0b1ca976f0e6bf11
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: f616cfb32164950b85a559d4e06b273212aec4b6
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43663880"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44049430"
 ---
 # <a name="use-powershell-to-sync-between-a-sql-database-and-a-sql-server-on-premises-database"></a>PowerShell gebruiken om te synchroniseren tussen een SQL-database en een on-premises SQL Server-database
 
 Met dit PowerShell-voorbeeld wordt Data Sync geconfigureerd voor synchronisatie tussen een Azure SQL-database en een on-premises SQL Server-database. 
 
-Voor dit voorbeeld is versie 4.2 of hoger van Azure PowerShell vereist. Voer `Get-Module -ListAvailable AzureRM` uit om te kijken welke versie is geïnstalleerd. Als u PowerShell wilt installeren of upgraden, raadpleegt u [De Azure PowerShell-module installeren](https://docs.microsoft.com/powershell/azure/install-azurerm-ps).
- 
-Voer `Connect-AzureRmAccount` uit om een verbinding op te zetten met Azure.
+[!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
+[!INCLUDE [cloud-shell-powershell.md](../../../includes/cloud-shell-powershell.md)]
+
+Als u ervoor kiest om PowerShell lokaal te installeren en te gebruiken, moet u moduleversie 5.7.0 of hoger van Azure PowerShell gebruiken voor deze zelfstudie. Voer `Get-Module -ListAvailable AzureRM` uit om de versie te bekijken. Als u PowerShell wilt upgraden, raadpleegt u [De Azure PowerShell-module installeren](/powershell/azure/install-azurerm-ps). Als u PowerShell lokaal uitvoert, moet u ook `Connect-AzureRmAccount` uitvoeren om verbinding te kunnen maken met Azure.
 
 Zie [Gegevens synchroniseren tussen meerdere cloud- en on-premises databases met SQL Data Sync](../sql-database-sync-data.md) voor een overzicht van SQL Data Sync.
 
 ## <a name="sample-script"></a>Voorbeeldscript
 
-```powershell
+```powershell-interactive
 # prerequisites: 
 # 1. Create an Azure Database from AdventureWorksLT sample database as hub database
 # 2. Create an Azure Database in the same region as sync database

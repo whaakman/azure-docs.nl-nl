@@ -11,18 +11,27 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 0535f956e0a7a981bee441c0eb4ae103ca5d0cec
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e218dccee322b6e387e78c04dba5afb9677c1b4b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38612794"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702017"
 ---
 # <a name="azure-cosmos-db-create-a-document-database-using-java-and-the-azure-portal"></a>Azure Cosmos DB: een document maken met behulp van Java en Azure Portal
 
+> [!div class="op_single_selector"]
+> * [.NET](create-sql-api-dotnet.md)
+> * [Java](create-sql-api-java.md)
+> * [Node.js](create-sql-api-nodejs.md)
+> * [Node.js- v2](create-sql-api-nodejs-preview.md)
+> * [Python](create-sql-api-python.md)
+> * [Xamarin](create-sql-api-xamarin-dotnet.md)
+>  
+
 Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. Met behulp van Azure Cosmos DB kunt u snel beheerde databases voor documenten, tabellen en grafieken maken en doorzoeken.
 
-In deze snelstart wordt een documentdatabase gemaakt met behulp van de hulpprogramma's voor de Azure Cosmos DB [SQL-API](sql-api-introduction.md) in Azure Portal. In deze snelstartgids leest u ook hoe u snel een Java-console-app kunt maken via de [SQL Java API](sql-api-sdk-java.md). De instructies in deze snelstartgids kunnen worden uitgevoerd in elk besturingssysteem waarmee Java kan worden uitgevoerd. Als u deze quickstart hebt voltooid, weet u hoe u documentdatabaseresources kunt maken en wijzigen in de UI of via een programma, afhankelijk van uw voorkeur.
+In deze snelstart wordt een documentdatabase gemaakt met behulp van de hulpprogramma's voor de Azure Cosmos DB [SQL-API](sql-api-introduction.md) in Azure Portal. In deze snelstartgids leest u ook hoe u snel een Java-console-app kunt maken via de [SQL Java API](sql-api-sdk-java.md). De instructies in deze snelstartgids kunnen worden uitgevoerd in elk besturingssysteem waarmee Java kan worden uitgevoerd. Als u deze snelstart hebt voltooid, weet u hoe u documentdatabaseresources kunt maken en wijzigen in de UI of via een programma, afhankelijk van uw voorkeur.
 
 ## <a name="prerequisites"></a>Vereisten
 

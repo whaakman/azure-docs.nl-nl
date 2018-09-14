@@ -11,21 +11,22 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 03/23/2018
 ms.author: sngun
-ms.openlocfilehash: cdf3edf5bfd8d13f71c25b8bf0bbf0ea3d992a5d
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f7f41e9d77e0687c6c8b25a4163348a7310aa40c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628151"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697320"
 ---
 # <a name="_Toc395783175"></a>Een Node.js-webtoepassing bouwen met Azure Cosmos DB
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js - v2.0 Preview](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 In deze zelfstudie over Node.js wordt uitgelegd hoe u met Azure Cosmos DB en de SQL-API toegang kunt krijgen tot gegevens uit een Node.js Express-toepassing die wordt gehost op Azure Websites en hoe u deze gegevens kunt opslaan. U bouwt een eenvoudige webtoepassing voor taakbeheer, een taken-app, waarmee u taken kunt maken, ophalen en voltooien. De taken worden opgeslagen als JSON-documenten in Azure Cosmos DB. Deze zelfstudie begeleidt u bij het maken en implementeren van de app en legt uit wat er gebeurt in elk fragment.

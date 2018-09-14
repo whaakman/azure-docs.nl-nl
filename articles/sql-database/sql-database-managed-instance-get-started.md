@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: quickstart
-ms.date: 08/13/2018
+ms.date: 08/31/2018
 ms.author: jovanpop-msft
-ms.openlocfilehash: cb378c2d2773096992ef688653fd77b2625f8754
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 4271f0cef31b0e028ed1f9408166c37d4cbbe109
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42023806"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381995"
 ---
 # <a name="create-an-azure-sql-managed-instance"></a>Een Azure SQL Managed Instance maken
 
@@ -60,7 +60,7 @@ In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt nadat u
 2. Zoek naar **Managed Instance** en selecteer vervolgens **Azure SQL Database Managed Instance (preview)**.
 3. Klik op **Create**.
 
-   ![Beheerd exemplaar maken](./media/sql-database-managed-instance-tutorial/managed-instance-create.png)
+   ![Beheerd exemplaar maken](./media/sql-database-managed-instance-get-started/managed-instance-create.png)
 
 4. Selecteer uw abonnement en controleer of er onder Preview-voorwaarden **Geaccepteerd** staat.
 
@@ -77,26 +77,21 @@ In de volgende stappen wordt uitgelegd hoe u een beheerd exemplaar maakt nadat u
    |**Locatie**|De locatie die u eerder hebt geselecteerd|Zie [Azure-regio's](https://azure.microsoft.com/regions/) voor informatie over regio's.|
    |**Virtueel netwerk**|Het virtuele netwerk dat u eerder hebt gemaakt| Kies het item **MyNewVNet/ManagedInstances** als u in de vorige stap niet de namen hebt gewijzigd. Kies anders de VNet-naam en het beheerde exemplaar-subnet die u hebt ingevoerd in de vorige sectie. **Gebruik het Standaard-subnet niet, omdat dit niet is geconfigureerd voor het hosten van beheerde exemplaren**. |
 
-   ![formulier beheerd exemplaar maken](./media/sql-database-managed-instance-tutorial/managed-instance-create-form.png)
+   ![formulier beheerd exemplaar maken](./media/sql-database-managed-instance-get-started/managed-instance-create-form.png)
 
 6. Klik op **Prijscategorie** om reken- en opslagresources toe te wijzen en de opties voor prijscategorieën te bekijken. Standaard krijgt het exemplaar 32 GB gratis opslagruimte, **maar mogelijk is dit niet voldoende voor uw toepassingen**.
 7. Gebruik de schuifregelaars of tekstvakken om de hoeveelheid opslagruimte en het aantal virtuele kernen op te geven. 
-   ![prijscategorie beheerde instantie](./media/sql-database-managed-instance-tutorial/managed-instance-pricing-tier.png)
+   ![prijscategorie beheerde instantie](./media/sql-database-managed-instance-get-started/managed-instance-pricing-tier.png)
 
 8. Wanneer u klaar bent, klikt u op **Toepassen** om uw selectie op te slaan.  
 9. Klik op **Maken** om het beheerde exemplaar te implementeren.
 10. Klik op het pictogram voor **Meldingen** om de status van de implementatie te bekijken.
- 
-   ![voortgang implementatie](./media/sql-database-managed-instance-tutorial/deployment-progress.png)
-
 11. Klik op **Implementatie wordt uitgevoerd** om het venster Beheerd exemplaar te openen. Hier kunt u details van de voortgang van de implementatie controleren.
- 
-   ![voortgang implementatie 2](./media/sql-database-managed-instance-tutorial/managed-instance.png)
 
 Terwijl de implementatie wordt uitgevoerd, kunt u doorgaan met de volgende procedure.
 
 > [!IMPORTANT]
-> Het eerste exemplaar in een subnet kent doorgaans een veel langere implementatietijd dan verdere exemplaren. Het kan meer dan 24 uur duren voordat de implementatie is voltooid. Annuleer de implementatiebewerking niet omdat deze langer duurt dan verwacht. De implementatieduur voor uw eerste exemplaar is een tijdelijke situatie. U kunt kort na begin van de openbare preview een aanzienlijke verbetering van de implementatietijd verwachten. Het maken van het tweede beheerde exemplaar in het subnet duurt enkele minuten.
+> Het eerste exemplaar in een subnet kent doorgaans een veel langere implementatietijd dan volgende exemplaren. Annuleer de implementatiebewerking niet omdat deze langer duurt dan verwacht. Het maken van het tweede beheerde exemplaar in het subnet duurt enkele minuten.
 
 ## <a name="prepare-client-machine"></a>Client-computer voorbereiden
 

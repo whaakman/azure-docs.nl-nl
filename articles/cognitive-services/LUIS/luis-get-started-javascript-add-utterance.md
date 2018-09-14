@@ -1,53 +1,48 @@
 ---
-title: 'Zelfstudie: utterances toevoegen aan een LUIS-app met behulp van JavaScript | Microsoft Docs'
-description: In deze zelfstudie leert u een LUIS-app aan te roepen met behulp van JavaScript.
+title: 'Snelstart: Utterances toevoegen aan een LUIS-app met behulp van JavaScript - Azure Cognitive Services| Microsoft Docs'
+description: In deze snelstart leert u hoe u een LUIS-app aanroept met behulp van JavaScript.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/18/2017
-ms.author: v-geberr
-ms.openlocfilehash: b6d021dcfdddb5449aa989c6aa06d7faf326befb
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/24/2018
+ms.author: diberry
+ms.openlocfilehash: ffc19d12c1d3fbb24c514ac87f298d1a52d23eb8
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265456"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43770080"
 ---
-# <a name="tutorial-add-utterances-to-app-using-javascript"></a>Zelfstudie: utterances toevoegen aan een app met behulp van JavaScript
-In deze zelfstudie schrijft u een programma om een utterance aan een intentie toe te voegen met behulp van de creatie-API's in JavaScript.
+# <a name="quickstart-change-model-using-javascript"></a>Snelstart: Model wijzigen met behulp van JavaScript
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Een Visual Studio-consoleproject maken 
-> * Methode toevoegen voor het aanroepen van de LUIS-API om een utterance toe te voegen en een app te trainen
-> * JSON-bestand toevoegen met voorbeeldutterances voor BookFlight-intentie
-> * Console uitvoeren en trainingsstatus weergeven voor utterances
-
-Zie voor meer informatie de technische documentatie voor de API’s voor het [toevoegen van voorbeeldutterances aan intenties](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [trainen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) en [trainingsstatus](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46).
-
-Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om de LUIS-toepassing te maken.
+[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>Vereisten
-* Uw LUIS-[**creatiesleutel**](luis-concept-keys.md#authoring-key). 
-* Uw bestaande LUIS-**toepassings-id** en **-versie-id**. 
-* Een nieuw bestand met de naam `add-utterances.html`-project in VSCode.
 
-> [!NOTE] 
-> Het volledige `add-utterances.html`-bestand is beschikbaar in de Github-opslagplaats [**LUIS Samples**](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/javascript/add-utterance.html).
+[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
+* [Visual Studio Code](https://code.visualstudio.com/).
+
+[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
+
+## <a name="example-utterances-json-file"></a>JSON-bestand met voorbeeldutterances
+
+[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
 
-## <a name="write-the-code"></a>De code schrijven
+## <a name="create-quickstart-code"></a>Snelstartcode maken
+
 Maak `add-utterances.html` en voeg de volgende code toe:
 
-   [!code-javascript[Java Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/javascript/add-utterance.html "Java Dependencies")]
+   [!code-html[Html code](~/samples-luis/documentation-samples/quickstarts/change-model/javascript/add-utterance.html "Javascript code")]
 
-## <a name="view-in-browser"></a>Bekijken in browser
+## <a name="run-code"></a>Code uitvoeren
+
 1. Open het bestand in een browser.
 
-2. Voeg uw LUIS-creatie-id en uw LUIS-toepassings-id toe, en wijzig de versie als deze niet `0.1` is
+2. Voeg uw authoring-id en toepassings-id van LUIS toe.
 
 3. Wijzig de **matrix met utterances** om aan uw toepassing toe te voegen. Deze worden opgeslagen in de variabele utteranceJSON. Wijzig deze waarden voor uw eigen domein- en utterance-behoeften. 
 
@@ -80,13 +75,11 @@ Maak `add-utterances.html` en voeg de volgende code toe:
 
 6. Selecteer de knop `Train Status` om de trainingsstatus te bekijken. 
 
-![Add-utterances.html](./media/luis-quickstart-javascript-add-utterance/add-utterance.png)
+    ![Add-utterances.html](./media/luis-quickstart-javascript-add-utterance/add-utterance.png)
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u klaar bent met de zelfstudie, verwijdert Visual Studio en de console-toepassing als u deze niet meer nodig hebt. 
+Verwijder wanneer u klaar bent met de snelstart alle bestanden die in de snelstart zijn gemaakt. 
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [LUIS integreren met een bot](luis-csharp-tutorial-build-bot-framework-sample.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

@@ -5,16 +5,16 @@ services: iot-edge
 author: kgremban
 manager: timlt
 ms.author: kgremban
-ms.date: 08/22/2018
+ms.date: 08/30/2018
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 7e02caf9706a5127d3729256fcc238f467eb2991
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 2b393a5b60ba534fba8115ab3ef0f35a26ad3ed4
+ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143497"
+ms.lasthandoff: 08/30/2018
+ms.locfileid: "43300350"
 ---
 # <a name="tutorial-store-data-at-the-edge-with-sql-server-databases"></a>Zelfstudie: gegevens opslaan aan de rand met SQL Server-databases
 
@@ -176,7 +176,11 @@ Een [distributiemanifest](module-composition.md) declareert welke modules de IoT
 
 1. Open in de Visual Studio Code Explorer het bestand **deployment.template.json**. 
 2. Zoek de sectie **moduleContent. $edgeAgent.properties.desired.modules** op. Er zouden twee modules moeten worden vermeld: **tempSensor**, die gesimuleerde gegevens genereert, en uw **sqlFunction**-module.
-3. Voeg de volgende code toe om een ​​derde module te declareren:
+3. Als u Windows-containers gebruikt, wijzigt u de sectie **sqlFunction.settings.image**.
+    ```json
+    "image": "${MODULES.sqlFunction.windows-amd64}"
+    ```
+4. Voeg de volgende code toe om een ​​derde module te declareren. Voeg een komma toe achter de sectie sqlFunction en voeg het volgende in:
 
    ```json
    "sql": {
@@ -191,16 +195,18 @@ Een [distributiemanifest](module-composition.md) declareert welke modules de IoT
    }
    ```
 
-4. Afhankelijk van het besturingssysteem van uw IoT Edge-apparaat, werkt u de parameter in **sql.settings** bij met de volgende code:
+   Hier volgt een voorbeeld voor het geval er verwarring is met het toevoegen van een JSON-element. ![SQL Server-container toevoegen](./media/tutorial-store-data-sql-server/view_json_sql.png)
 
-   * Windows:
+5. Werk de **sql.settings**-parameters bij met de volgende code, afhankelijk van het type Docker-containers op uw IoT Edge-apparaat:
+
+   * Windows-containers:
 
       ```json
       "image": "microsoft/mssql-server-windows-developer",
-      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"MSSQL_SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
+      "createOptions": "{\"Env\": [\"ACCEPT_EULA=Y\",\"SA_PASSWORD=Strong!Passw0rd\"],\"HostConfig\": {\"Mounts\": [{\"Target\": \"C:\\\\mssql\",\"Source\": \"sqlVolume\",\"Type\": \"volume\"}],\"PortBindings\": {\"1433/tcp\": [{\"HostPort\": \"1401\"}]}}}"
       ```
 
-   * Linux:
+   * Linux-containers:
 
       ```json
       "image": "microsoft/mssql-server-linux:2017-latest",
@@ -210,28 +216,20 @@ Een [distributiemanifest](module-composition.md) declareert welke modules de IoT
    >[!Tip]
    >Telkens wanneer u een SQL Server-container in een productieomgeving maakt, moet u [het standaardwachtwoord van de systeembeheerder](https://docs.microsoft.com/sql/linux/quickstart-install-connect-docker#change-the-sa-password)wijzigen.
 
-5. Sla het bestand **deployment.template.json** op. 
+6. Sla het bestand **deployment.template.json** op.
 
 ## <a name="build-your-iot-edge-solution"></a>Uw IoT Edge-oplossing bouwen
 
 In de voorgaande secties hebt u een oplossing met één module gemaakt en er vervolgens nog een toegevoegd aan de distributiemanifestsjabloon. Nu moet u de oplossing bouwen, containerinstallatiekopieën voor de modules maken en de installatiekopieën naar uw containerregister pushen. 
 
-1. Geef in het bestand deployment.template.json de IoT Edge runtime uw registerreferenties, zodat deze toegang heeft tot uw module-installatiekopieën. Zoek de sectie **moduleContent.$edgeAgent.properties.desired.runtime.settings** op. 
-2. Voeg de volgende JSON-code toe na de **loggingOptions**:
+1. Geef in het bestand deployment.template.json de IoT Edge runtime uw registerreferenties, zodat deze toegang heeft tot uw module-installatiekopieën. Zoek de secties **CONTAINER_REGISTRY_USERNAME** en **CONTAINER_REGISTRY_PASSWORD** op en voeg uw referenties toe na het gelijkteken: 
 
-   ```JSON
-   "registryCredentials": {
-       "myRegistry": {
-           "username": "",
-           "password": "",
-           "address": ""
-       }
-   }
+   ```env
+   CONTAINER_REGISTRY_USERNAME_yourContainerReg=<username>
+   CONTAINER_REGISTRY_PASSWORD_yourContainerReg=<password>
    ```
-
-3. Voeg uw registratiegegevens in de velden **gebruikersnaam**, **wachtwoord**en **adres** in. Gebruik de waarden die u hebt gekopieerd toen u aan het begin van de zelfstudie uw Azure Container Registry hebt gemaakt.
-4. Sla het bestand **deployment.template.json** op.
-5. Meld uw containerregister aan in Visual Studio Code, zodat u uw installatiekopieën naar uw register kunt pushen. Gebruik dezelfde referenties die u zojuist aan het distributiemanifest hebt toegevoegd. Voer de volgende opdracht in de geïntegreerde terminal in: 
+2. Sla het .env-bestand op.
+3. Meld u aan bij uw containerregister in Visual Studio Code, zodat u uw installatiekopieën naar uw register kunt pushen. Gebruik dezelfde referenties die u aan het .env-bestand hebt toegevoegd. Voer de volgende opdracht in de geïntegreerde terminal in:
 
     ```csh/sh
     docker login -u <ACR username> <ACR login server>
@@ -243,7 +241,7 @@ In de voorgaande secties hebt u een oplossing met één module gemaakt en er ver
     Login Succeeded
     ```
 
-6. Klik in VS Code Explorer met de rechtermuisknop op het bestand **deployment.template.json** en selecteer **IoT Edge-oplossing bouwen**. 
+4. Klik in VS Code Explorer met de rechtermuisknop op het bestand **deployment.template.json** en selecteer **Build and Push IoT Edge solution**. 
 
 ## <a name="deploy-the-solution-to-a-device"></a>De oplossing implementeren op een apparaat
 
@@ -287,7 +285,7 @@ Deze sectie leidt u door het instellen van de SQL-database voor het opslaan van 
    * Windows-container:
 
       ```cmd
-      sqlcmd -S localhost -U SA -P 'Strong!Passw0rd'
+      sqlcmd -S localhost -U SA -P "Strong!Passw0rd"
       ```
 
    * Linux-container: 

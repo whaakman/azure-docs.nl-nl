@@ -11,14 +11,23 @@ ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/2/2017
 ms.author: sclyon
-ms.openlocfilehash: f9ef92f5f0bb1a0b15302a7dc578c47cfc6ee970
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: faba9b2999445152f700ddfa1a7e56983cbb03f4
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42024028"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43700666"
 ---
 # <a name="azure-cosmos-db-build-a-flask-app-with-the-mongodb-api"></a>Azure Cosmos DB: een Flask-app maken met de MongoDB-API
+
+> [!div class="op_single_selector"]
+> * [.NET](create-mongodb-dotnet.md)
+> * [Java](create-mongodb-java.md)
+> * [Node.js](create-mongodb-nodejs.md)
+> * [Python](create-mongodb-flask.md)
+> * [Xamarin](create-mongodb-xamarin.md)
+> * [Golang](create-mongodb-golang.md)
+>  
 
 Azure Cosmos DB is de globaal gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query’s op uitvoeren. Deze databases genieten allemaal het voordeel van de globale distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.
 
@@ -157,7 +166,7 @@ Als u van deze opslagplaats geen fork wilt maken, kunt u ook op de knop Implemen
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze quickstart hebt u geleerd hoe een Azure Cosmos DB-account kunt maken en een Flask-app kunt uitvoeren met de API voor MongoDB. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren.
+In deze snelstart hebt u geleerd hoe een Azure Cosmos DB-account kunt maken en een Flask-app kunt uitvoeren met de API voor MongoDB. Nu kunt u aanvullende gegevens in uw Cosmos DB-account importeren.
 
 > [!div class="nextstepaction"]
 > [Gegevens importeren in Azure Cosmos DB voor de MongoDB-API](mongodb-migrate.md)

@@ -1,78 +1,67 @@
 ---
-title: 'Zelfstudie: een LUIS-app (Language Understanding) aanroepen met behulp van Java | Microsoft Docs'
-description: In deze zelfstudie leert u een LUIS-app aan te roepen met behulp van Java.
-services: cognitive-services
-author: v-geberr
-manager: kaiqb
+title: Tekst in natuurlijke taal analyseren in LUIS (Language Understanding) met Java - Cognitive Services - Azure Cognitive Services | Microsoft Docs
+description: In deze snelstart gebruikt u een beschikbare openbare LUIS-app om de intentie van een gebruiker te bepalen aan de hand van beschrijvende tekst. Gebruik Java om de intentie van de gebruiker als tekst naar het HTTP-voorspellingseindpunt van de openbare app te verzenden. Bij het eindpunt wordt via LUIS het model van de openbare app toegepast om de betekenis van tekst in natuurlijke taal te analyseren. Hiermee wordt de algehele intentie bepaald en worden gegevens geëxtraheerd die relevant zijn voor het onderwerpdomein van de app.
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 7d27b464c86e979132dd44c0edcf981a475040b3
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 06/27/2018
+ms.author: diberry
+ms.openlocfilehash: 559c0e5832249b095b923fe88467f8f4c5ffa5e1
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263717"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "43770011"
 ---
-# <a name="tutorial-call-a-luis-endpoint-using-java"></a>Zelfstudie: Een LUIS-eindpunt aanroepen met behulp van Java
-Lees hoe u utterances doorgeeft aan een LUIS-eindpunt en intenties en entiteiten terugkrijgt.
+# <a name="quickstart-analyze-text-using-java"></a>Snelstart: tekst analyseren met Java
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Een LUIS-abonnement maken en de sleutelwaarde kopiëren voor later gebruik
-> * LUIS eindpuntresultaten bekijken vanuit browser naar openbare IoT-voorbeeld-app
-> * Visual Studio C#-console-app maken om HTTPS-aanroepen te versturen naar LUIS eindpunt
+[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om de LUIS-toepassing te maken.
+<a name="create-luis-subscription-key"></a>
 
-## <a name="create-luis-subscription-key"></a>LUIS-abonnementssleutel maken
-U hebt een Cognitive Services API-sleutel nodig om aanroepen te doen naar de LUIS-voorbeeld-app die wordt gebruikt in dit scenario. 
+## <a name="prerequisites"></a>Vereisten
 
-Voer de volgende stappen uit om een API-sleutel op te halen: 
-1. U moet eerst een [Cognitive Services API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in Azure Portal maken. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-
-2. Meld u aan bij Azure Portal op https://portal.azure.com. 
-
-3. Volg de stappen in [Abonnementssleutels maken met behulp van Azure](./luis-how-to-azure-subscription.md) om een sleutel op te halen.
-
-4. Ga terug naar de [LUIS](luis-reference-regions.md)-website en meld u aan met uw Azure-account. 
-
-    [![](media/luis-get-started-java-get-intent/app-list.png "Schermopname van de lijst met apps")](media/luis-get-started-java-get-intent/app-list.png)
-
-## <a name="understand-what-luis-returns"></a>Inzicht in wat LUIS retourneert
-
-Om inzicht te krijgen in wat een LUIS-app retourneert, kunt u de URL van een LUIS-voorbeeld-app in een browservenster plakken. De voorbeeld-app is een IoT-app die detecteert of de gebruiker lampen wil inschakelen of uitschakelen.
-
-1. Het eindpunt van de voorbeeld-app heeft deze indeling: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light` Kopieer de URL en vervang de waarde van het veld `subscription-key` door uw abonnementssleutel.
-2. Plak de URL in een browservenster en druk op Enter. In de browser wordt een JSON-resultaat weergegeven dat aangeeft dat LUIS de intent `HomeAutomation.TurnOn` en de entiteit `HomeAutomation.Room` met de waarde `bedroom` detecteert.
-
-    ![JSON-resultaat detecteert de intent TurnOn](./media/luis-get-started-java-get-intent/turn-on-bedroom.png)
-3. Wijzig de waarde van de parameter `q=` in de URL in `turn off the living room light` en druk op Enter. Het resultaat geeft nu aan dat LUIS de intent `HomeAutomation.TurnOff` en de entiteit `HomeAutomation.Room` met waarde `living room` heeft gedetecteerd. 
-
-    ![JSON-resultaat detecteert de intent TurnOff](./media/luis-get-started-java-get-intent/turn-off-living-room.png)
+* [JDK SE](http://www.oracle.com/technetwork/java/javase/downloads/index.html) (Java Development Kit, Standard Edition)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* Id van openbare app: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 
-## <a name="consume-a-luis-result-using-the-endpoint-api-with-java"></a>Een LUIS-resultaat gebruiken met behulp van de eindpunt-API met Java 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
+
+## <a name="get-luis-key"></a>LUIS-sleutel ophalen
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+
+## <a name="analyze-text-with-browser"></a>Tekst analyseren met browser
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+
+## <a name="analyze-text-with-java"></a>Tekst analyseren met Java 
 
 U kunt Java gebruiken voor toegang tot de dezelfde resultaten die u in het browservenster in de vorige stap hebt gezien. 
-1. Kopieer de volgende code om een klasse te maken in uw IDE:
 
-   [!code-java[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/java/call-endpoint.java)]
-2. Vervang de waarde van de `SubscriptionKey`-variabele door de sleutel van uw LUIS-abonnement.
+1. Kopieer de volgende code om een klasse te maken in een bestand met de naam `LuisGetRequest.java`:
 
-3. Voeg in uw IDE verwijzingen toe naar de bibliotheken `httpclient` en `httpcore`.
+   [!code-java[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/java/call-endpoint.java)]
 
-4. Voer de consoletoepassing uit. De uitvoer bestaat uit de JSON die u eerder hebt gezien in het browservenster.
+2. Vervang de waarde van de variabele `YOUR-KEY` door de LUIS-sleutel.
 
-![In het consolevenster wordt het JSON-resultaat van LUIS weergegeven](./media/luis-get-started-java-get-intent/console-turn-on.png)
+3. Compileer het Java-programma met `javac -cp ":lib/*" LuisGetRequest.java`. 
+
+4. Voer de toepassing uit met `java -cp ":lib/*" LuisGetRequest.java`. De uitvoer bestaat uit de JSON die u eerder hebt gezien in het browservenster.
+
+    ![In het consolevenster wordt het JSON-resultaat van LUIS weergegeven](./media/luis-get-started-java-get-intent/console-turn-on.png)
+    
+## <a name="luis-keys"></a>LUIS-sleutels
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-De twee resources die in deze zelfstudie zijn gemaakt, zijn de LUIS-abonnementssleutel en het JavaScript-project. Verwijder de LUIS-abonnementssleutel uit Azure Portal. Sluit het Visual Studio-project en verwijder de map uit het bestandssysteem.
+
+Verwijder het Java-bestand. 
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Utterances toevoegen](luis-get-started-java-add-utterance.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

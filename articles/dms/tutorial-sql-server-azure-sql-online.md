@@ -10,13 +10,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: mvc, tutorial
 ms.topic: article
-ms.date: 08/27/2018
-ms.openlocfilehash: 90d5ce098241dfc207356a8594a3c8c2d268ad83
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 08/31/2018
+ms.openlocfilehash: b4cbc7fc7e031fcbd25229792488dbb4002ea23e
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43049077"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43340208"
 ---
 # <a name="migrate-sql-server-to-azure-sql-database-online-using-dms"></a>SQL Server online migreren naar Azure SQL Database met behulp van DMS
 U kunt de Azure Database Migration Service gebruiken voor het migreren van de databases van een on-premises SQL Server-exemplaar naar [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) met minimale downtime. In deze zelfstudie migreert u de database **Adventureworks2012** hersteld naar een on-premises exemplaar van SQL Server 2016 (of hoger) met een Azure SQL Database met behulp van de Azure Database Migration Service.
@@ -30,6 +30,9 @@ In deze zelfstudie leert u het volgende:
 > * De migratie uitvoeren.
 > * De migratie controleren.
 > * Een migratierapport downloaden.
+
+> [!IMPORTANT]
+> Voor een optimale migratie-ervaring raadt Microsoft u aan een exemplaar van de Azure Database Migration Service te maken in dezelfde Azure-regio als de doeldatabase. Het verplaatsen van gegevens naar regio's of geografieën kan het migratieproces vertragen en fouten veroorzaken.
 
 ## <a name="prerequisites"></a>Vereisten
 Voor het voltooien van deze zelfstudie hebt u het volgende nodig:

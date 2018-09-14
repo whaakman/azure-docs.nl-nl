@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: hero-article
-ms.date: 05/10/2017
+ms.date: 08/31/2018
 ms.author: ambapat
-ms.openlocfilehash: df577222fb8f9d13bd33c5705e6234362519d351
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: 9b8b0da6e1572ab79ffb369497f64aad2cd249b9
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41920049"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343459"
 ---
 # <a name="secure-your-key-vault"></a>Uw Key Vault beveiligen
 Azure Key Vault is een cloudservice die versleutelingssleutels en geheimen (zoals certificaten, verbindingsreeksen en wachtwoorden) voor uw cloudtoepassingen beveiligt. Omdat deze gegevens vertrouwelijk en essentieel voor uw bedrijf zijn, is het belangrijk om de toegang tot uw Key Vaults te beveiligen, zodat alleen gemachtigde toepassingen en gebruikers toegang hebben tot Key Vault. In dit artikel wordt een overzicht gegeven van het toegangsmodel van Key Vault, verificatie en autorisatie worden uitgelegd en met een voorbeeld wordt veilige toegang tot Key Vault voor uw cloud-toepassingen geïllustreerd.
@@ -94,8 +94,8 @@ Met toegangsbeleid van Key Vault kunt u machtigingen voor sleutels, geheimen en 
 
 > [!IMPORTANT]
 > Houd er rekening mee dat toegangsbeleid voor Key Vault wordt toegevoegd op het niveau van de Key Vault. Wanneer een gebruiker bijvoorbeeld is gemachtigd voor het maken en verwijderen van sleutels, kan hij deze bewerkingen uitvoeren op alle sleutels in die Key Vault.
-> 
-> 
+
+Naast toegangsbeleid kan toegang tot de gegevenslaag ook worden beperkt met behulp van [Virtual Network-Service-eindpunten voor Azure Key Vault](key-vault-overview-vnet-service-endpoints.md) door [firewalls en regels voor virtuele netwerken](key-vault-network-security.md) te configureren voor een extra beveiligingslaag.
 
 ## <a name="example"></a>Voorbeeld
 Stel dat u een toepassing ontwikkelt die gebruikmaakt van een certificaat voor SSL, Azure Storage voor het opslaan van gegevens, en een RSA 2048 bits-sleutel voor tekenbewerkingen. Stel dat deze toepassing wordt uitgevoerd in een VM (of een schaalset voor VM’s). U kunt een Key Vault gebruiken voor het opslaan van alle geheimen van de toepassing en Key Vault voor het opslaan van het bootstrap-certificaat dat door de toepassing wordt gebruikt voor verificatie met Azure Active Directory.
@@ -201,8 +201,8 @@ In dit voorbeeld ziet u een eenvoudig scenario. In de praktijk zijn scenario's m
 
 > [!NOTE]
 > Opmerking: Dit voorbeeld toont hoe toegang tot de Key Vault wordt vergrendeld tijdens de productie. De ontwikkelaars moeten hun eigen abonnement of resourcegroep hebben waarin ze volledige machtigingen hebben voor het beheren van hun kluizen, VM's en het opslagaccount waarin ze de toepassing ontwikkelen.
-> 
-> 
+
+Het wordt nadrukkelijk aanbevolen de toegang tot uw sleutelkluis verder te beveiligen door [Key Vault-firewalls en virtuele netwerken te configureren](key-vault-network-security.md).
 
 ## <a name="resources"></a>Resources
 * [Toegangsbeheer op basis van rollen in Azure Active Directory](../role-based-access-control/role-assignments-portal.md)
@@ -243,6 +243,8 @@ In dit voorbeeld ziet u een eenvoudig scenario. In de praktijk zijn scenario's m
   Koppelingen naar referentiedocumentatie voor PowerShell-cmdlets voor het beheren van toegangsbeleid voor Key Vault.
 
 ## <a name="next-steps"></a>Volgende stappen
+[Key Vault-firewalls en virtuele netwerken configureren](key-vault-network-security.md)
+
 Zie [Aan de slag met Azure Key Vault](key-vault-get-started.md) voor een inleidende zelfstudie voor beheerders.
 
 Zie [Logboekregistratie van Azure Key Vault](key-vault-logging.md) voor meer informatie over de gebruiksregistratie voor Key Vault.

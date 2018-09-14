@@ -10,12 +10,12 @@ ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.component: B2C
-ms.openlocfilehash: fffffbf7ce654c263976378da01f032599145a94
-ms.sourcegitcommit: 1f0587f29dc1e5aef1502f4f15d5a2079d7683e9
+ms.openlocfilehash: 4953cb0db428de19268cdd90661f7818b06b6945
+ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/07/2018
-ms.locfileid: "39591564"
+ms.lasthandoff: 08/31/2018
+ms.locfileid: "43343859"
 ---
 # <a name="tutorial-enable-single-page-app-authentication-with-accounts-using-azure-active-directory-b2c"></a>Zelfstudie: verificatie van apps met één pagina inschakelen met behulp van Azure Active Directory B2C
 
@@ -24,24 +24,24 @@ Deze zelfstudie laat u zien hoe u Azure Active Directory B2C (Azure AD) kunt geb
 In deze zelfstudie leert u het volgende:
 
 > [!div class="checklist"]
-> * Registreer een voorbeeldtoepassing met één pagina in uw Azure AD B2C-tenant.
+> * Een voorbeeldtoepassing met één pagina registreren in uw Azure AD B2C-directory.
 > * Beleid te maken voor gebruikersregistratie, -aanmelding, het bewerken van een profiel en het opnieuw instellen van een wachtwoord.
-> * Configureer de voorbeeld-app om uw Azure AD B2C-tenant te gebruiken.
+> * De voorbeeld-app configureren voor gebruik van uw Azure AD B2C-directory.
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-* U moet uw eigen [Azure AD B2C-tenant](active-directory-b2c-get-started.md) maken.
+* Maak uw eigen [Azure AD B2C-directory](active-directory-b2c-get-started.md)
 * U moet [Visual Studio 2017](https://www.visualstudio.com/downloads/) met de **ASP.NET- en webontwikkelworkload** installeren.
 * [.NET Core 2.0.0 SDK](https://www.microsoft.com/net/core) of hoger
 * [Node.js](https://nodejs.org/en/download/) installeren
 
 ## <a name="register-single-page-app"></a>Registreer de app met één pagina
 
-Toepassingen moeten worden [geregistreerd](../active-directory/develop/developer-glossary.md#application-registration) in uw tenant voordat ze [toegangstokens](../active-directory/develop/developer-glossary.md#access-token) van Azure Active Directory kunnen ontvangen. Als een app wordt geregistreerd, wordt een [toepassings-id](../active-directory/develop/developer-glossary.md#application-id-client-id) voor de app in uw tenant gemaakt. 
+Toepassingen moeten worden [geregistreerd](../active-directory/develop/developer-glossary.md#application-registration) in uw directory voordat ze [toegangstokens](../active-directory/develop/developer-glossary.md#access-token) van Azure Active Directory kunnen ontvangen. Als een app wordt geregistreerd, wordt er een [toepassings-id](../active-directory/develop/developer-glossary.md#application-id-client-id) voor de app in uw directory gemaakt. 
 
-Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](https://portal.azure.com/).
+Meld u als globale beheerder van de Azure AD B2C-directory aan bij [Azure Portal](https://portal.azure.com/).
 
 [!INCLUDE [active-directory-b2c-switch-b2c-tenant](../../includes/active-directory-b2c-switch-b2c-tenant.md)]
 
@@ -49,7 +49,7 @@ Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](h
 
 2. Klik in de B2C-instellingen op **Toepassingen** en klik vervolgens op **Toevoegen**. 
 
-    Gebruik de volgende instellingen voor het registreren van de voorbeeld-web-app in uw tenant.
+    Gebruik de volgende instellingen voor het registreren van de voorbeeld-web-app in uw directory:
     
     ![Een nieuw app toevoegen](media/active-directory-b2c-tutorials-spa/spa-registration.png)
     
@@ -63,7 +63,7 @@ Meld u als globale beheerder van de Azure AD B2C-tenant aan bij [Azure Portal](h
     
 3. Klik op **Maken** om uw app te registreren.
 
-Geregistreerde apps worden weergegeven in de lijst met toepassingen voor de Azure AD B2C-tenant. Selecteer de app met één pagina in de lijst. Het deelvenster met de eigenschappen van de geregistreerde app met één pagina wordt weergegeven.
+Geregistreerde apps worden weergegeven in de lijst met toepassingen voor de Azure AD B2C-directory. Selecteer de app met één pagina in de lijst. Het deelvenster met de eigenschappen van de geregistreerde app met één pagina wordt weergegeven.
 
 ![Eigenschappen van een app met één pagina](./media/active-directory-b2c-tutorials-spa/b2c-spa-properties.png)
 
@@ -127,25 +127,25 @@ Als u wilt dat het wachtwoord voor uw toepassing opnieuw kan worden ingesteld, m
 
 ## <a name="update-single-page-app-code"></a>Code van een app met één pagina bijwerken
 
-Nadat u een app hebt geregistreerd en beleid hebt gemaakt, moet u uw app configureren voor het gebruik van uw Azure AD B2C-tenant. In deze zelfstudie gaat u een voorbeeld NSPA JavaScript-app configureren die u kunt downloaden vanuit GitHub. 
+Nadat u een app hebt geregistreerd en beleid hebt gemaakt, moet u uw app configureren voor het gebruik van uw Azure AD B2C-directory. In deze zelfstudie gaat u een voorbeeld NSPA JavaScript-app configureren die u kunt downloaden vanuit GitHub. 
 
 [Download een ZIP-bestand ](https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp/archive/master.zip) of kloon de voorbeeld-web-app vanuit GitHub.
 
 ```
 git clone https://github.com/Azure-Samples/active-directory-b2c-javascript-msal-singlepageapp.git
 ```
-De voorbeeldapp laat zien hoe een app met één pagina Azure AD B2C gebruikt voor gebruikersregistratie, aanmelding en om een beveiligde web-API aan te roepen. U moet wijzigingen aanbrengen aan de app om de app-registratie in uw tenant te kunnen gebruiken en het gemaakte beleid te configureren. 
+De voorbeeldapp laat zien hoe een app met één pagina Azure AD B2C gebruikt voor gebruikersregistratie, aanmelding en om een beveiligde web-API aan te roepen. U moet wijzigingen aanbrengen aan de app om de app-registratie in uw directory te kunnen gebruiken en het gemaakte beleid te configureren. 
 
 De app-instellingen wijzigen:
 
 1. Open het bestand `index.html` in de Node.js-voorbeeld-app van één pagina.
-2. Configureer het voorbeeld met de registratiegegevens voor Azure AD B2C-tenant. Wijzig de volgende regels code:
+2. Configureer het voorbeeld met de registratiegegevens voor Azure AD B2C-directory. Wijzig de volgende regels met code (vervang de waarden door de namen van uw directory en API's):
 
     ```javascript
-    // The current application coordinates were pre-registered in a B2C tenant.
+    // The current application coordinates were pre-registered in a B2C directory.
     var applicationConfig = {
         clientID: '<Application ID for your SPA obtained from portal app registration>',
-        authority: "https://login.microsoftonline.com/tfp/<your-tenant-name>.onmicrosoft.com/B2C_1_SiUpIn",
+        authority: "https://fabrikamb2c.b2clogin.com/tfp/fabrikamb2c.onmicrosoft.com/B2C_1_SiUpIn",
         b2cScopes: ["https://fabrikamb2c.onmicrosoft.com/demoapi/demo.read"],
         webApi: 'https://fabrikamb2chello.azurewebsites.net/hello',
     };
@@ -185,20 +185,20 @@ De standaard-app biedt ondersteuning voor gebruikersregistratie, -aanmelding, he
 
     ![Aanmeldingswerkstroom](media/active-directory-b2c-tutorials-desktop-app/sign-up-workflow.png)
 
-4. Klik op **Maken** als u een lokaal account wilt maken in de Azure AD B2C-tenant.
+4. Klik op **Maken** om een lokaal account te maken in de Azure AD B2C-directory.
 
 Gebruikers kunnen nu hun e-mailadres gebruiken om zich aan te melden en de SPA-app te gebruiken.
 
 > [!NOTE]
-> Na aanmelding geeft de app de foutmelding 'onvoldoende machtigingen'. U ontvangt deze foutmelding omdat u toegang probeert te krijgen tot een resource van de demo-tenant. Omdat uw toegangstoken alleen geldig is voor uw Azure AD-tenant, is de API-aanroep niet geautoriseerd. Ga door met de volgende zelfstudie voor het maken van een beveiligde web-API voor uw tenant. 
+> Na aanmelding geeft de app de foutmelding 'onvoldoende machtigingen'. U krijgt deze foutmelding omdat u toegang probeert te krijgen tot een resource van de demo-directory. Omdat uw toegangstoken alleen geldig is voor uw Azure AD-directory, is de API-aanroep niet geautoriseerd. Ga door met de volgende zelfstudie voor het maken van een beveiligde web-API voor uw directory. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
-U kunt uw Azure AD B2C-tenant gebruiken voor andere zelfstudies voor Azure AD B2C. Als u deze niet meer nodig hebt, kunt u [uw Azure AD B2C-tenant verwijderen](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
+U kunt uw Azure AD B2C-directory gebruiken voor andere zelfstudies voor Azure AD B2C. Als u deze niet meer nodig hebt, kunt u [uw Azure AD B2C-directory verwijderen](active-directory-b2c-faqs.md#how-do-i-delete-my-azure-ad-b2c-tenant).
 
 ## <a name="next-steps"></a>Volgende stappen
 
-In deze zelfstudie hebt u geleerd hoe u een Azure AD B2C-tenant maakt, beleid maakt, en de app met één pagina moet bijwerken om uw Azure AD B2C-tenant te gebruiken. Ga verder met de volgende zelfstudie als u meer wilt weten over het registreren, configureren en aanroepen van een ASP.NET-web-API vanaf een desktop-app.
+In deze zelfstudie hebt u geleerd hoe u een Azure AD B2C-directory maakt, beleid maakt, en de app met één pagina moet bijwerken om uw Azure AD B2C-directory te gebruiken. Ga verder met de volgende zelfstudie als u meer wilt weten over het registreren, configureren en aanroepen van een ASP.NET-web-API vanaf een desktop-app.
 
 > [!div class="nextstepaction"]
 > 

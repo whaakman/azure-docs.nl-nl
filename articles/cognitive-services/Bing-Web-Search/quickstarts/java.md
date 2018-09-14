@@ -1,147 +1,172 @@
 ---
-title: Oproep- en antwoord - Java-Snelstartgids voor Azure cognitieve Services, zoekopdracht Bing-Web-API | Microsoft Docs
-description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met de Bing Web Search-API in Microsoft cognitieve Services in Azure.
+title: 'Snelstart: Java gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API'
+description: In deze snelstart leert u hoe u voor het eerst de Bing Webzoekopdrachten-API aanroept met Java en een JSON-antwoord ontvangt.
 services: cognitive-services
-documentationcenter: ''
-author: v-jerkin
+author: erhopf
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
-ms.date: 9/18/2017
-ms.author: v-jerkin
-ms.openlocfilehash: 275c21738b563f9408115f88eafde92695f72fa7
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
-ms.translationtype: MT
+ms.topic: quickstart
+ms.date: 8/16/2018
+ms.author: erhopf
+ms.openlocfilehash: 8d3e01aef8efdf1503ad7056220e0cba9fb38ed3
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344751"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "42888221"
 ---
-# <a name="call-and-response-your-first-bing-web-search-query-in-java"></a>Oproep- en -antwoord: uw eerste Bing Web-zoekopdracht in Java
+# <a name="quickstart-use-java-to-call-the-bing-web-search-api"></a>Snelstart: Java gebruiken voor het aanroepen van de Bing Webzoekopdrachten-API  
 
-De Bing Web zoeken-API biedt een vergelijkbaar met Bing.com/Search ervaring door te retourneren zoekresultaten die Bing bepaalt relevant zijn voor de query van de gebruiker. De resultaten kunnen webpagina's, afbeeldingen, video's, nieuws en entiteiten, samen met verwante zoekquery's, correcties tijdzones, eenheidconversie, vertalingen en berekeningen bevatten. Het soort u resultaten zijn gebaseerd op hun relevantie en de laag van de Bing zoeken-API's waarop u bent geabonneerd.
+Gebruik deze snelstart om voor het eerst de Bing Webzoekopdrachten-API aan te roepen en een JSON-antwoord te ontvangen.  
 
-Dit artikel bevat een eenvoudige consoletoepassing die voert een query zoeken Bing-Web-API en de geretourneerde onbewerkte zoekresultaten in het JSON-indeling weergegeven. Terwijl deze toepassing is geschreven in Java, is de API een compatibel is met elke programmeertaal die kunt maken van HTTP-aanvragen en parseren van JSON RESTful-Web-service. 
+[!INCLUDE [bing-web-search-quickstart-signup](../../../../includes/bing-web-search-quickstart-signup.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
-U moet [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) compileren en uitvoeren van deze code. U mag een IDE voor Java gebruiken als u een favoriet hebben, maar worden volstaan met een teksteditor.
+Voordat u verdergaat met deze snelstart moet u beschikken over:
 
-U moet hebben een [cognitieve Services API account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Bing zoeken-API's**. De [gratis proefversie](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api) voldoende is voor deze snelstartgids. U moet de toegangssleutel die is opgegeven bij het activeren van uw gratis proefversie of u kunt de sleutel van een betaald abonnement van uw Azure-dashboard.
+* [JDK 7 of 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html)
+* [GSON-bibliotheek](https://github.com/google/gson)
+* Een abonnementssleutel
 
-## <a name="running-the-application"></a>De toepassing uitvoeren
+## <a name="create-a-project-and-import-dependencies"></a>Een project maken en afhankelijkheden importeren
 
-Volg deze stappen voor het uitvoeren van deze toepassing.
-
-1. Downloaden en installeren de [gson bibliotheek](https://github.com/google/gson). U kunt deze ook ophalen via Maven.
-2. Maak een nieuwe Java-project in uw favoriete IDE of -editor.
-3. De opgegeven code toevoegen in een bestand met de naam `BingWebSearch.java`.
-4. Vervang de `subscriptionKey` waarde met een geldige toegangssleutel voor uw abonnement.
-5. Voer het programma.
+Maak een nieuw Java-project in uw favoriete IDE of editor en importeer de volgende bibliotheken. GSON is vereist om Java-objecten te converteren naar de JSON-indeling.
 
 ```java
 import java.net.*;
 import java.util.*;
 import java.io.*;
 import javax.net.ssl.HttpsURLConnection;
-
-/*
- * Gson: https://github.com/google/gson
- * Maven info:
- *     groupId: com.google.code.gson
- *     artifactId: gson
- *     version: 2.8.1
- *
- * Once you have compiled or downloaded gson-2.8.1.jar, assuming you have placed it in the
- * same folder as this file (BingWebSearch.java), you can compile and run this program at
- * the command line as follows.
- *
- * javac BingWebSearch.java -classpath .;gson-2.8.1.jar -encoding UTF-8
- * java -cp .;gson-2.8.1.jar BingWebSearch
- */
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+```
 
+### <a name="declare-gson-in-the-maven-pom-file"></a>GSON declareren in het Maven POM-bestand
+
+Als u Maven gebruikt, declareert u GSON in de `POM.xml`. Sla deze stap over als u GSON lokaal hebt geïnstalleerd.
+
+```xml
+<dependency>
+    <groupId>com.google.code.gson</groupId>
+    <artifactId>gson</artifactId>
+    <version>2.8.1</version>
+</dependency>
+```
+
+## <a name="declare-the-bingwebsearch-class"></a>De klasse BingWebSearch declareren
+
+Declareer de klasse `BingWebSearch`. Deze bevat de meeste code die we in deze snelstart bekijken, inclusief de methode `main`.  
+
+```java
 public class BingWebSearch {
 
-// ***********************************************
-// *** Update or verify the following values. ***
-// **********************************************
+// The code in the following sections goes here.
 
-    // Replace the subscriptionKey string value with your valid subscription key.
-    static String subscriptionKey = "enter key here";
+}
+```
 
-    // Verify the endpoint URI.  At this writing, only one endpoint is used for Bing
-    // search APIs.  In the future, regional endpoints may be available.  If you
-    // encounter unexpected authorization errors, double-check this value against
-    // the endpoint for your Bing Web search instance in your Azure dashboard.
-    static String host = "https://api.cognitive.microsoft.com";
-    static String path = "/bing/v7.0/search";
+## <a name="define-variables"></a>Variabelen definiëren
 
-    static String searchTerm = "Microsoft Cognitive Services";
+Met deze code worden de `subscriptionKey`, `host`, `path` en `searchTerm` ingesteld. Controleer of het eindpunt juist is en vervang de waarde `subscriptionKey` door een geldige abonnementssleutel uit uw Azure-account. U kunt de zoekquery gerust aanpassen door de waarde voor `searchTerm` te vervangen.
 
-    public static SearchResults SearchWeb (String searchQuery) throws Exception {
-        // construct URL of search request (endpoint + query string)
-        URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
-        HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
-        connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+```java
+// Enter a valid subscription key.
+static String subscriptionKey = "enter key here";
 
-        // receive JSON body
-        InputStream stream = connection.getInputStream();
-        String response = new Scanner(stream).useDelimiter("\\A").next();
+/*
+ * If you encounter unexpected authorization errors, double-check these values
+ * against the endpoint for your Bing Web search instance in your Azure
+ * dashboard.
+ */
+static String host = "https://api.cognitive.microsoft.com";
+static String path = "/bing/v7.0/search";
+static String searchTerm = "Microsoft Cognitive Services";
+```
 
-        // construct result object for return
-        SearchResults results = new SearchResults(new HashMap<String, String>(), response);
+## <a name="construct-a-request"></a>Een aanvraag samenstellen
 
-        // extract Bing-related HTTP headers
-        Map<String, List<String>> headers = connection.getHeaderFields();
-        for (String header : headers.keySet()) {
-            if (header == null) continue;      // may have null key
-            if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")) {
-                results.relevantHeaders.put(header, headers.get(header).get(0));
-            }
+Met deze methode uit de klasse `BingWebSearch` wordt de `url` samengesteld, wordt het antwoord ontvangen en geparseerd, en worden de Bing-HTTP-headers uitgepakt.  
+
+```java
+public static SearchResults SearchWeb (String searchQuery) throws Exception {
+    // Construct the URL.
+    URL url = new URL(host + path + "?q=" +  URLEncoder.encode(searchQuery, "UTF-8"));
+
+    // Open the connection.
+    HttpsURLConnection connection = (HttpsURLConnection)url.openConnection();
+    connection.setRequestProperty("Ocp-Apim-Subscription-Key", subscriptionKey);
+
+    // Receive the JSON response body.
+    InputStream stream = connection.getInputStream();
+    String response = new Scanner(stream).useDelimiter("\\A").next();
+
+    // Construct the result object.
+    SearchResults results = new SearchResults(new HashMap<String, String>(), response);
+
+    // Extract Bing-related HTTP headers.
+    Map<String, List<String>> headers = connection.getHeaderFields();
+    for (String header : headers.keySet()) {
+        if (header == null) continue;      // may have null key
+        if (header.startsWith("BingAPIs-") || header.startsWith("X-MSEdge-")){
+            results.relevantHeaders.put(header, headers.get(header).get(0));
         }
+    }
+    stream.close();
+    return results;
+}
+```
 
-        stream.close();
-        return results;
+## <a name="handle-the-response"></a>Het antwoord verwerken
+
+Gebruik GSON om het antwoord te parseren en opnieuw te serialiseren.
+
+```java
+public static String prettify(String json_text) {
+    JsonParser parser = new JsonParser();
+    JsonObject json = parser.parse(json_text).getAsJsonObject();
+    Gson gson = new GsonBuilder().setPrettyPrinting().create();
+    return gson.toJson(json);
+}
+```
+
+## <a name="declare-the-main-method"></a>De hoofdmethode declareren
+
+Deze methode is vereist en is de eerste methode die wordt aangeroepen wanneer het programma wordt gestart. In deze toepassing wordt hiermee de `subscriptionKey` gevalideerd, een aanvraag gemaakt, en het JSON-antwoord afgedrukt.
+
+```java
+public static void main (String[] args) {
+    // Confirm the subscriptionKey is valid.
+    if (subscriptionKey.length() != 32) {
+        System.out.println("Invalid Bing Search API subscription key!");
+        System.out.println("Please paste yours into the source code.");
+        System.exit(1);
     }
 
-    // pretty-printer for JSON; uses GSON parser to parse and re-serialize
-    public static String prettify(String json_text) {
-        JsonParser parser = new JsonParser();
-        JsonObject json = parser.parse(json_text).getAsJsonObject();
-        Gson gson = new GsonBuilder().setPrettyPrinting().create();
-        return gson.toJson(json);
+    // Call the SearchWeb method and print the response.
+    try {
+        System.out.println("Searching the Web for: " + searchTerm);
+        SearchResults result = SearchWeb(searchTerm);
+        System.out.println("\nRelevant HTTP Headers:\n");
+        for (String header : result.relevantHeaders.keySet())
+        System.out.println(header + ": " + result.relevantHeaders.get(header));
+        System.out.println("\nJSON Response:\n");
+        System.out.println(prettify(result.jsonResponse));
     }
-
-    public static void main (String[] args) {
-        if (subscriptionKey.length() != 32) {
-            System.out.println("Invalid Bing Search API subscription key!");
-            System.out.println("Please paste yours into the source code.");
-            System.exit(1);
-        }
-
-        try {
-            System.out.println("Searching the Web for: " + searchTerm);
-
-            SearchResults result = SearchWeb(searchTerm);
-
-            System.out.println("\nRelevant HTTP Headers:\n");
-            for (String header : result.relevantHeaders.keySet())
-                System.out.println(header + ": " + result.relevantHeaders.get(header));
-
-            System.out.println("\nJSON Response:\n");
-            System.out.println(prettify(result.jsonResponse));
-        }
-        catch (Exception e) {
-            e.printStackTrace(System.out);
-            System.exit(1);
-        }
+    catch (Exception e) {
+        e.printStackTrace(System.out);
+        System.exit(1);
     }
 }
+```
 
-// Container class for search results encapsulates relevant headers and JSON data
+## <a name="create-a-container-class-for-search-results"></a>Een containerklasse maken voor zoekresultaten
+
+De containerklasse `SearchResults` bevindt zich buiten de klasse `BingWebSearch`. Het omvat relevante headers en JSON-gegevens voor het antwoord.
+
+```java
 class SearchResults{
     HashMap<String, String> relevantHeaders;
     String jsonResponse;
@@ -152,9 +177,20 @@ class SearchResults{
 }
 ```
 
-## <a name="json-response"></a>JSON-antwoord
+## <a name="put-it-all-together"></a>Alles samenvoegen
 
-Er volgt een voorbeeldantwoord. Als u wilt beperken de lengte van de JSON, alleen een enkelvoudig resultaat wordt verkregen wordt weergegeven en andere onderdelen van het antwoord is afgekapt. 
+De laatste stap bestaat uit het compileren van de code. Daarna kunt u deze uitvoeren. Dit zijn de opdrachten:
+
+```powershell
+javac BingWebSearch.java -classpath ./gson-2.8.1.jar -encoding UTF-8
+java -cp ./gson-2.8.1.jar BingWebSearch
+```
+
+Als u uw code wilt vergelijken met de onze, is er [voorbeeldcode beschikbaar op GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/blob/master/java/Search/BingWebSearchv7.java).
+
+## <a name="sample-response"></a>Voorbeeldantwoord
+
+Antwoorden afkomstig van de Bing Webzoekopdrachten-API worden geretourneerd in de JSON-indeling. Dit voorbeeldantwoord is ingekort zodat één resultaat wordt weergegeven.
 
 ```json
 {
@@ -281,11 +317,6 @@ Er volgt een voorbeeldantwoord. Als u wilt beperken de lengte van de JSON, allee
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Bing Web search één pagina app-zelfstudie](../tutorial-bing-web-search-single-page-app.md)
+> [Zelfstudie voor app met één pagina voor Bing Web Search](../tutorial-bing-web-search-single-page-app.md)
 
-## <a name="see-also"></a>Zie ook 
-
-[Overzicht van Bing webpagina's zoeken](../overview.md)  
-[Probeer deze](https://azure.microsoft.com/services/cognitive-services/bing-web-search-api/)  
-[Een gratis proefversie toegangssleutel ophalen](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api)  
-[Bing Web Search API-verwijzingen](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference)
+[!INCLUDE [bing-web-search-quickstart-see-also](../../../../includes/bing-web-search-quickstart-see-also.md)]  

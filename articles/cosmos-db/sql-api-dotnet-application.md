@@ -13,21 +13,22 @@ ms.topic: tutorial
 ms.date: 08/03/2017
 ms.author: sngun
 ms.custom: devcenter, vs-azure
-ms.openlocfilehash: f62388c649d576cc4b52ebea0af1e9c8743f3127
-ms.sourcegitcommit: fab878ff9aaf4efb3eaff6b7656184b0bafba13b
+ms.openlocfilehash: 6fbe043e0232701d2aabcbc09606864b5cc27450
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "42440286"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702507"
 ---
 # <a name="_Toc395809351"></a>ASP.NET MVC-zelfstudie: webtoepassingsontwikkeling met Azure Cosmos DB
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-dotnet-application.md)
-> * [Node.js](sql-api-nodejs-application.md)
-> * [Node.js - v2.0 Preview](sql-api-nodejs-application-preview.md)
 > * [Java](sql-api-java-application.md)
+> * [Node.js](sql-api-nodejs-application.md)
+> * [Node.js- v2](sql-api-nodejs-application-preview.md)
 > * [Python](sql-api-python-application.md)
-> 
+> * [Xamarin](mobile-apps-with-xamarin.md)
 > 
 
 Dit artikel biedt een end-to-end-overzicht waarin wordt getoond hoe u met Azure Cosmos DB een to-do-app kunt maken. Zo ziet u hoe u effectief kunt gebruikmaken van Azure Cosmos DB voor het opslaan van en uitvoeren van query's voor JSON-documenten. De taken worden opgeslagen als JSON-documenten in Azure Cosmos DB.

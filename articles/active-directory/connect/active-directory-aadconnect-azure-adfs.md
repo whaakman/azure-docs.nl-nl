@@ -17,12 +17,12 @@ ms.date: 07/17/2017
 ms.component: hybrid
 ms.author: billmath
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2ebe6c7a70e4e574ea4953ca9ed01801190f80e
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 924269e16ab09cfd144955d3bd462cab7b37aaaf
+ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37917132"
+ms.lasthandoff: 09/01/2018
+ms.locfileid: "43381751"
 ---
 # <a name="deploying-active-directory-federation-services-in-azure"></a>Active Directory Federation Services in Azure implementeren
 AD FS biedt vereenvoudigde, beveiligde identiteitsfederatie en mogelijkheden voor eenmalige webaanmelding (SSO of Single Sign-on). Federatie met Azure AD of O365 biedt gebruikers de mogelijkheid om zich te verifiëren met on-premises referenties en toegang te krijgen tot alle bronnen in de cloud. Daarom is het echter wel heel belangrijk dat u beschikt over een maximaal beschikbare AD FS-infrastructuur voor toegang tot zowel on-premises resources als resources in de cloud. De implementatie van AD FS in Azure kan helpen met minimale inspanningen de vereiste hoge beschikbaarheid te bewerkstelligen.
@@ -187,12 +187,14 @@ Selecteer de zojuist gemaakte ILB in het deelvenster Load Balancers. Het instell
 
 **6.3. Test configureren**
 
-Selecteer Tests in het instellingenvenster ILB-instellingen.
+Selecteer Tests in het venster met ILB-instellingen.
 
 1. Klik op Toevoegen
-2. Geef details op voor test a. **Naam**: naam van test b. **Protocol**: TCP c. **Poort**: 443 (HTTPS) d. **Interval**: 5 (standaardwaarde). Dit is het interval waarmee de machines in de back-endpool e door ILB worden getest. **Drempelwaarde voor onjuiste status**: 2 (standaardwaarde). Dit is het aantal opeenvolgende mislukte tests waarna ILB een virtuele machine in de back-endpool beschouwt als niet-reagerend en geen verkeer meer naar die machine verzendt.
+2. Geef details op voor test a. **Naam**: naam van test b. **Protocol**: HTTP c. **Poort**: 80 (HTTP) d. **Pad**: /adfs/probe e. **Interval**: 5 (standaardwaarde). Dit is het interval waarmee de machines in de back-endpool f door ILB worden getest. **Drempelwaarde voor onjuiste status**: 2 (standaardwaarde). Dit is het aantal opeenvolgende mislukte tests waarna ILB een virtuele machine in de back-endpool beschouwt als niet-reagerend en geen verkeer meer naar die machine verzendt.
 
 ![Test ILB configureren](./media/active-directory-aadconnect-azure-adfs/ilbdeployment4.png)
+
+We gebruiken het eindpunt /adfs/probe dat expliciet voor statuscontroles is gemaakt in een AD FS-omgeving waarin een volledige controle van het HTTPS-pad niet mogelijk is.  Dit is aanzienlijk beter dan een standaardcontrole van poort 443, waarmee niet nauwkeurig de status van een moderne AD FS-implementatie kan worden aangegeven.  Meer informatie hierover vindt u op https://blogs.technet.microsoft.com/applicationproxyblog/2014/10/17/hardware-load-balancer-health-checks-and-web-application-proxy-ad-fs-2012-r2/.
 
 **6.4. Taakverdelingsregels maken**
 
@@ -323,7 +325,7 @@ U kunt een bestaand virtueel netwerk gebruiken of een nieuw VNET maken tijdens h
 
 | Parameter | Beschrijving |
 |:--- |:--- |
-| Locatie |De regio voor het implementeren van de resources, bijvoorbeeld VS - oost. |
+| Locatie |De regio voor het implementeren van de resources, bijvoorbeeld US - oost. |
 | StorageAccountType |Het type opslagaccount dat wordt gemaakt |
 | VirtualNetworkUsage |Geeft aan of een nieuw virtueel netwerk wordt gemaakt of een bestaand wordt gebruikt |
 | VirtualNetworkName |De naam van het virtuele netwerk dat wordt gemaakt, verplicht voor gebruik van zowel een bestaand als nieuw virtueel netwerk |

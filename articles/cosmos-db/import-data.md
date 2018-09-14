@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.date: 03/30/2018
 ms.author: dech
 ms.custom: mvc
-ms.openlocfilehash: ea8bb1db53deaa546f4174ddc04d9a270aa96d9a
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: 771c4a33603ddf262df3b35992d318d34de6c2dc
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43187780"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698108"
 ---
 # <a name="use-data-migration-tool-to-migrate-your-data-to-azure-cosmos-db"></a>Hulpprogramma voor gegevensmigratie gebruiken voor het migreren van uw gegevens naar Azure Cosmos DB 
 
@@ -28,7 +28,7 @@ Welke API gaat u gebruiken met Azure Cosmos DB?
 * **[SQL-API](documentdb-introduction.md)**: u kunt een van de bronopties in het hulpprogramma voor gegevensmigratie gebruiken om gegevens te importeren.
 * **[Tabel-API](table-introduction.md)**: u kunt het hulpprogramma voor gegevensmigratie of AzCopy gebruiken om gegevens te importeren. Zie [Gegevens importeren voor gebruik met de Azure Cosmos DB Table-API](table-import.md) voor meer informatie.
 * **[MongoDB-API](mongodb-introduction.md)**: het hulpprogramma voor gegevensmigratie ondersteunt momenteel Azure Cosmos DB MongoDB-API niet als een bron of als een doel. Als u de gegevens wilt migreren naar of uit MongoDB-API-verzamelingen in Azure Cosmos DB, raadpleegt u [Azure Cosmos DB: gegevens migreren voor de MongoDB-API](mongodb-migrate.md) voor instructies. U kunt het hulpprogramma voor gegevensmigratie nog wel gebruiken om gegevens vanaf MongoDB te exporteren naar Azure Cosmos DB SQL-API-verzamelingen voor gebruik met de SQL-API. 
-* **[Graph API](graph-introduction.md)**: het hulpprogramma voor gegevensmigratie is momenteel geen ondersteund importprogramma voor Graph API-accounts. 
+* **[Gremlin-API](graph-introduction.md)**: het hulpprogramma voor gegevensmigratie is momenteel geen ondersteund importprogramma voor Gremlin API-accounts. 
 
 Deze zelfstudie bestaat uit de volgende taken:
 

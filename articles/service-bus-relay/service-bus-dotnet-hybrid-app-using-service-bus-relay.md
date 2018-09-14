@@ -14,12 +14,12 @@ ms.devlang: dotnet
 ms.topic: hero-article
 ms.date: 11/02/2017
 ms.author: spelluru
-ms.openlocfilehash: 23e0e487914b6e8810d8db00462c353c99955665
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: fa8c4b07f79564a1e9aa4e78b2323789283d4e73
+ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43697465"
+ms.lasthandoff: 09/07/2018
+ms.locfileid: "44054618"
 ---
 # <a name="net-on-premisescloud-hybrid-application-using-azure-wcf-relay"></a>Hybride .NET on-premises/cloudtoepassing met Azure WCF Relay
 
@@ -232,7 +232,7 @@ In deze sectie bouwt u een eenvoudige ASP.NET-toepassing op waarmee gegevens wor
     ![][18]
 
 7. Klik terug in het dialoogvenster **Nieuwe ASP.NET-webtoepassing** op **OK** om de MVC-app te maken.
-8. U moet nu Azure-resources configureren voor een nieuwe web-app. Volg de stappen in [het gedeelte Publiceren naar Azure van dit artikel](../app-service/app-service-web-get-started-dotnet-framework.md#publish-to-azure). Ga vervolgens terug naar deze zelfstudie en ga door met de volgende stap.
+8. U moet nu Azure-resources configureren voor een nieuwe web-app. Volg de stappen in [het gedeelte Publiceren naar Azure van dit artikel](../app-service/app-service-web-get-started-dotnet-framework.md#launch-the-publish-wizard). Ga vervolgens terug naar deze zelfstudie en ga door met de volgende stap.
 10. Klik in Solution Explorer met de rechtermuisknop op **Modellen** en klik achtereenvolgens op **Toevoegen** en **Klasse**. Typ in het vak **Naam** de naam **Product.cs**. Klik vervolgens op **Toevoegen**.
 
     ![][17]

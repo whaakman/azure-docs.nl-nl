@@ -1,79 +1,65 @@
 ---
-title: 'Zelfstudie: een LUIS-app (Language Understanding) aanroepen met behulp van Node.js | Microsoft Docs'
-description: In deze zelfstudie leert u hoe u een LUIS-app aanroept met behulp van Node.js.
+title: Tekst in natuurlijke taal analyseren in LUIS (Language Understanding) met JavaScript- Cognitive Services - Azure Cognitive Services | Microsoft Docs
+description: In deze snelstart gebruikt u een beschikbare openbare LUIS-app om de intentie van een gebruiker te bepalen aan de hand van beschrijvende tekst. Gebruik JavaScript om de intentie van de gebruiker als tekst naar het HTTP-voorspellingseindpunt van de openbare app te verzenden. Bij het eindpunt wordt via LUIS het model van de openbare app toegepast om de betekenis van tekst in natuurlijke taal te analyseren. Hiermee wordt de algehele intentie bepaald en worden gegevens geëxtraheerd die relevant zijn voor het onderwerpdomein van de app.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 62c6816e753ee2c29aee0b8f68dec0ebd9f4be44
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/23/2018
+ms.author: diberry
+ms.openlocfilehash: 10210c3759611a77c4430a97896a19a6b97b9fa9
+ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36265401"
+ms.lasthandoff: 08/24/2018
+ms.locfileid: "43769979"
 ---
-# <a name="tutorial-call-a-luis-endpoint-using-javascript"></a>Zelfstudie: Een LUIS-eindpunt aanroepen met behulp van JavaScript
-Lees hoe u utterances doorgeeft aan een LUIS-eindpunt en intenties en entiteiten terugkrijgt.
+# <a name="quickstart-analyze-text-using-javascript"></a>Snelstart: tekst analyseren met JavaScript
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Een LUIS-abonnement maken en de sleutelwaarde kopiëren voor later gebruik
-> * LUIS eindpuntresultaten bekijken vanuit browser naar openbare IoT-voorbeeld-app
-> * Visual Studio C#-console-app maken om HTTPS-aanroepen te versturen naar LUIS eindpunt
+[!include[Quickstart introduction for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
-Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om de LUIS-toepassing te maken.
+<a name="create-luis-subscription-key"></a>
 
-## <a name="create-luis-subscription-key"></a>LUIS-abonnementssleutel maken
-U hebt een Cognitive Services API-sleutel nodig om aanroepen te doen naar de LUIS-voorbeeld-app die wordt gebruikt in dit scenario. 
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-luis-repo-note.md)]
 
-Voer de volgende stappen uit om een API-sleutel op te halen: 
+## <a name="prerequisites"></a>Vereisten
 
-1. U moet eerst een [Cognitive Services API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) in Azure Portal maken. Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
-
-2. Meld u aan bij Azure Portal op https://portal.azure.com. 
-
-3. Volg de stappen in [Abonnementssleutels maken met behulp van Azure](./luis-how-to-azure-subscription.md) om een sleutel op te halen.
-
-4. Ga terug naar de [LUIS](luis-reference-regions.md)-website en meld u aan met uw Azure-account. 
-
-    [![](media/luis-get-started-node-get-intent/app-list.png "Schermopname van app-lijst maken")](media/luis-get-started-node-get-intent/app-list.png)
-
-## <a name="understand-what-luis-returns"></a>Inzicht in wat LUIS retourneert
-
-Om inzicht te krijgen in wat een LUIS-app retourneert, kunt u de URL van een LUIS-voorbeeld-app in een browservenster plakken. De voorbeeld-app is een IoT-app die detecteert of de gebruiker lampen wil inschakelen of uitschakelen.
-
-1. Het eindpunt van de voorbeeld-app heeft deze indeling: `https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=<YOUR_API_KEY>&verbose=false&q=turn%20on%20the%20bedroom%20light`. Kopieer de URL en vervang de abonnementssleutel door de waarde van het veld `subscription-key`.
-
-2. Plak de URL in een browservenster en druk op Enter. In de browser wordt een JSON-resultaat weergegeven dat aangeeft dat LUIS de intent `HomeAutomation.TurnOn` en de entiteit `HomeAutomation.Room` met de waarde `bedroom` detecteert.
-
-    ![JSON-resultaat detecteert de intent TurnOn](./media/luis-get-started-node-get-intent/turn-on-bedroom.png)
-
-3. Wijzig de waarde van de parameter `q=` in de URL in `turn off the living room light` en druk op Enter. Het resultaat geeft nu aan dat LUIS de intent `HomeAutomation.TurnOff` en de entiteit `HomeAutomation.Room` met waarde `living room` heeft gedetecteerd. 
-
-    ![JSON-resultaat detecteert de intent TurnOff](./media/luis-get-started-node-get-intent/turn-off-living-room.png)
+* [Visual Studio Code](https://code.visualstudio.com/)
+* Id van openbare app: df67dcdb-c37d-46af-88e1-8b97951ca1c2
 
 
-## <a name="consume-a-luis-result-using-the-endpoint-api-with-javascript"></a>Een LUIS-resultaat gebruiken met behulp van de eindpunt-API met JavaScript 
+## <a name="get-luis-key"></a>LUIS-sleutel ophalen
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-get-key-para.md)]
+
+## <a name="analyze-text-with-browser"></a>Tekst analyseren met browser
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-browser-para.md)]
+
+## <a name="analyze-text-with-javascript"></a>Tekst analyseren met JavaScript 
 
 U kunt JavaScript gebruiken voor toegang tot dezelfde resultaten die u in het browservenster in de vorige stap hebt gezien. 
+
 1. Kopieer de volgende code en sla deze op in een HTML-bestand:
 
-   [!code-javascript[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/endpoint-api-samples/javascript/call-endpoint.html)]
-2. Vervang `"YOUR SUBSCRIPTION KEY"` door uw abonnementssleutel in deze regel met code: `xhrObj.setRequestHeader("Ocp-Apim-Subscription-Key","YOUR SUBSCRIPTION KEY");`
+   [!code-html[Console app code that calls a LUIS endpoint](~/samples-luis/documentation-samples/quickstarts/analyze-text/javascript/call-endpoint.html)]
 
-3. Open het bestand dat u hebt opgeslagen met een webbrowser.  Er wordt een waarschuwingsvenster weergegeven met de tekst `Detected the following intent: TurnOn`.
+2. Open het bestand in een browser. Voer de LUIS-eindpuntsleutel in het formulier in en selecteer **Verzenden**.
 
-![Pop-upvenster met de melding dat lampen worden ingeschakeld](./media/luis-get-started-node-get-intent/popup-turn-on.png)
+    ![HTML-voorbeeld weergegeven in de browser met LUIS-resultaten voor de app Huisautomatisering](./media/luis-get-started-js-get-intent/html-results.png)
+
+    Het resultaat wordt weergegeven onder het formulier. 
+
+## <a name="luis-keys"></a>LUIS-sleutels
+
+[!include[Use authoring key for endpoint](../../../includes/cognitive-services-luis-qs-endpoint-key-usage-para.md)]
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-De twee resources die in deze zelfstudie zijn gemaakt, zijn de LUIS-abonnementssleutel en het JavaScript-project. Verwijder de LUIS-abonnementssleutel uit Azure Portal. Sluit het Visual Studio-project en verwijder de map uit het bestandssysteem. 
+
+Verwijder het JavaScript-bestand.
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"]
 > [Utterances toevoegen](luis-get-started-javascript-add-utterance.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

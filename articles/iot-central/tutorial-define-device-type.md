@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 4c850cd98280940c53a07c70c9c478f9e20e2963
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a2601f55bbc7e99321689afdafcab3135b94bd5b
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "41919383"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702541"
 ---
 # <a name="tutorial-define-a-new-device-type-in-your-azure-iot-central-application"></a>Zelfstudie: Een nieuw apparaattype definiëren in uw Azure IoT Central-toepassing
 
@@ -280,22 +280,22 @@ U gebruikt *instellingen* om een operator in staat te stellen configuratiegegeve
 
 ## <a name="use-properties--device-properties"></a>Eigenschappen / apparaateigenschappen gebruiken
 
-U gebruikt *eigenschappen* om gegevens over uw apparaat in de toepassing op te slaan. In deze sectie voegt u apparaateigenschappen toe aan uw apparaatsjabloon **Aangesloten airconditioner** om het serienummer en de firmwareversie voor het apparaat op te slaan. Opmerking: Beide eigenschappen hebben het kenmerk Alleen-lezen zoals gemeld op het apparaat. U kunt aan deze eigenschappen geen waarden toewijzen. Eigenschappen die u mogelijk gebruikt waaraan u waarden kunt toewijzen, zijn onder andere de locatie van het apparaat, informatie over de eigenaar en de laatste servicedatum/-tijd voor het apparaat.
+U gebruikt *eigenschappen* om gegevens over uw apparaat in de toepassing op te slaan. In deze sectie voegt u cloudeigenschappen toe aan uw apparaatsjabloon **Aangesloten airconditioner** om de locatie van het apparaat en de laatste servicedatum op te slaan. Dit zijn beide bewerkbare eigenschappen van het apparaat. Er worden ook alleen-lezen-eigenschappen gemeld door het apparaat, die niet kunnen worden gewijzigd, zoals het serienummer van het apparaat en de firmwareversie.
  
 1. Ga naar de pagina **Eigenschappen** voor uw apparaatsjabloon **Aangesloten airconditioner**:
 
     ![Toevoegen van een eigenschap voorbereiden](./media/tutorial-define-device-type/deviceaddproperty.png)
 
-    U kunt apparaateigenschappen maken van verschillende typen, zoals getallen of tekst. Kies **Tekst** om de eigenschap Serienummer aan uw apparaatsjabloon toe te voegen.
+    U kunt apparaateigenschappen maken van verschillende typen, zoals getallen of tekst. Kies **Locatie**om een locatie-eigenschap aan uw apparaatsjabloon toe te voegen.
 
-2. Gebruik de informatie in de volgende tabel om uw eigenschap Serienummer te configureren:
+2. Gebruik de informatie in de volgende tabel om uw locatie-eigenschap te configureren:
 
     | Veld                | Waarde                |
     | -------------------- | -------------------- |
-    | Weergavenaam         | Serienummer        |
-    | Veldnaam           | Serienummer         |
-    | Initiële waarde        | cac00001             |
-    | Beschrijving          | Serienummer van apparaat |
+    | Weergavenaam         | Locatie             |
+    | Veldnaam           | locatie             |
+    | Initiële waarde        | Seattle, WA          |
+    | Beschrijving          | Locatie apparaat      |
 
     Laat andere velden op de standaardwaarde staan.
 
@@ -303,16 +303,16 @@ U gebruikt *eigenschappen* om gegevens over uw apparaat in de toepassing op te s
 
     Kies **Opslaan**.
 
-3. Kies **Tekst** om een firmwareversie toe te voegen aan de apparaateigenschappen voor de apparaatsjabloon.
+3. Kies **Datum** om een eigenschap voor de laatste servicedatum aan uw apparaatsjabloon toe te voegen.
 
-4. Gebruik de informatie in de volgende tabel om de apparaateigenschap Firmwareversie te configureren:
+4. Gebruik de informatie in de volgende tabel om uw eigenschap Laatste servicedatum te configureren:
 
     | Veld                | Waarde                   |
     | -------------------- | ----------------------- |
-    | Weergavenaam         | Firmwareversie        |
-    | Veldnaam           | firmwareversie         |
-    | Initiële waarde        | 0.1                     |
-    | Beschrijving          | Firmwareversie apparaat |
+    | Weergavenaam         | Laatste servicedatum       |
+    | Veldnaam           | Servicedatum             |
+    | Initiële waarde        | 1-1-2018                |
+    | Beschrijving          | Laatste servicebeurt           |
 
     ![De apparaateigenschappen configureren](./media/tutorial-define-device-type/configureproperties2.png)
 

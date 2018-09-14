@@ -1,118 +1,81 @@
 ---
-title: 'Zelfstudie: utterances toevoegen aan een LUIS-app met behulp van PHP | Microsoft Docs'
-description: In deze zelfstudie leert u hoe u een LUIS-app aanroept met behulp van PHP.
+title: Snelstart Model wijzigen en LUIS-app trainen met behulp van PHP - Azure Cognitive Services | Microsoft Docs
+description: Voeg in deze PHP-snelstart voorbeeldutterances toe aan een Home Automation-app en train de app. Voorbeeldutterances zijn teksten uit gesprekken met gebruikers die worden toegewezen aan een intentie. Door voorbeeldutterances op te geven voor intenties leert u LUIS welke soorten door de gebruiker geleverde tekst bij welke intentie horen.
 services: cognitive-services
-author: v-geberr
-manager: kaiqb
+author: diberry
+manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
-ms.topic: tutorial
-ms.date: 12/13/2017
-ms.author: v-geberr
-ms.openlocfilehash: 59150b7ed6782c28f243041be2ed6aa17e69cc01
-ms.sourcegitcommit: 301855e018cfa1984198e045872539f04ce0e707
+ms.topic: quickstart
+ms.date: 08/24/2018
+ms.author: diberry
+ms.openlocfilehash: ae2d3624cb3f8314a613af356730fb1d8b5d4b29
+ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/19/2018
-ms.locfileid: "36263777"
+ms.lasthandoff: 08/27/2018
+ms.locfileid: "43770048"
 ---
-# <a name="tutorial-add-utterances-to-app-using-php"></a>Zelfstudie: utterances toevoegen aan een app met behulp van PHP 
-In deze zelfstudie schrijft u een programma om een utterance aan een intentie toe te voegen met behulp van de creatie-API's in PHP.
+# <a name="quickstart-change-model-using-php"></a>Snelstart: Model wijzigen met behulp van PHP 
 
-<!-- green checkmark -->
-> [!div class="checklist"]
-> * Een Visual Studio-consoleproject maken 
-> * Methode toevoegen voor het aanroepen van de LUIS-API om een utterance toe te voegen en een app te trainen
-> * JSON-bestand toevoegen met voorbeeldutterances voor BookFlight-intentie
-> * Console uitvoeren en trainingsstatus weergeven voor utterances
-
-Zie voor meer informatie de technische documentatie voor de API’s voor het [toevoegen van voorbeeldutterances aan intenties](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c08), [trainen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c45) en [trainingsstatus](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c46).
-
-Voor dit artikel hebt u een gratis [LUIS][LUIS]-account nodig om de LUIS-toepassing te maken.
+[!include[Quickstart introduction for change model](../../../includes/cognitive-services-luis-qs-endpoint-intro-para.md)]
 
 ## <a name="prerequisites"></a>Vereisten
 
+[!include[Quickstart prerequisites for changing model](../../../includes/cognitive-services-luis-qs-change-model-prereq.md)]
 * Meest recente [**PHP**](http://php.net/).
 * Zorg ervoor dat openssl beschikbaar is als een afhankelijkheid voor PHP.  
-* Uw LUIS-**[creatiesleutel](luis-concept-keys.md#authoring-key)**. U vindt deze sleutel onder Accountinstellingen op de website van [LUIS](luis-reference-regions.md).
-* Uw bestaande LUIS-[**toepassings-id**](./luis-get-started-create-app.md). De toepassings-id wordt weergegeven op het toepassingsdashboard. De LUIS-toepassing met de intenties en entiteiten die in het `utterances.json`-bestand worden gebruikt, moet bestaan ​​voordat de code in `add-utterances.php` wordt uitgevoerd. De intenties en entiteiten worden niet gemaakt met de code in dit artikel. Deze code voegt alleen de utterances toe voor bestaande intenties en entiteiten. 
-* De **versie-id** in de toepassing die de utterances ontvangt. De standaard-id is '0.1'
-* Maak een nieuw bestand met de naam `add-utterances.php`-project in VSCode.
 
-> [!NOTE] 
-> Het volledige `add-utterances.cs`-bestand en een voorbeeld-`utterances.json`-bestand zijn beschikbaar in de Github-opslagplaats [**LUIS-Samples**](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/authoring-api-samples/php/).
+[!include[Code is available in LUIS-Samples Github repo](../../../includes/cognitive-services-luis-qs-change-model-luis-repo-note.md)]
 
+## <a name="example-utterances-json-file"></a>JSON-bestand met voorbeeldutterances
 
-## <a name="write-the-php-code"></a>De PHP-code schrijven
+[!include[Quickstart explanation of example utterance JSON file](../../../includes/cognitive-services-luis-qs-change-model-json-ex-utt.md)]
 
-Voeg de afhankelijkheden toe aan het bestand.
+## <a name="create-quickstart-code"></a>Snelstartcode maken 
 
-   [!code-php[PHP and LUIS Dependencies](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=10-29 "PHP and LUIS Dependencies")]
+Voeg de afhankelijkheden toe aan het bestand `add-utterances.php`.
+
+   [!code-php[PHP and LUIS Dependencies](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=1-22 "PHP and LUIS Dependencies")]
 
 Voeg de GET-aanvraag toe die wordt gebruikt voor de trainingsstatus.
 
-   [!code-php[SendGet](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=31-50 "SendGet")]
+   [!code-php[SendGet](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=24-43 "SendGet")]
 
 Voeg de POST-aanvraag toe die wordt gebruikt om utterances te maken of om te beginnen met trainen. 
 
-   [!code-php[SendPost](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=52-72 "SendPost")]
+   [!code-php[SendPost](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=45-65 "SendPost")]
 
 Voeg de `AddUtterances`-functie toe.
 
-   [!code-php[AddUtterances method](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=74-79 "AddUtterances method")]
+   [!code-php[AddUtterances method](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=67-72 "AddUtterances method")]
 
 
 Voeg de `Train`-functie toe. 
 
-   [!code-php[Train](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=81-88 "Train")]
+   [!code-php[Train](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=74-81 "Train")]
 
 Voeg de `Status`-functie toe.
 
-   [!code-php[Status](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=90-94 "Status")]
+   [!code-php[Status](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=83-87 "Status")]
 
-Voeg het hoofdcodeblok toe om de opdrachtregelargumenten te beheren.
+Voeg het main-codeblok toe om de opdrachtregelargumenten te beheren.
 
-   [!code-php[Main code](~/samples-luis/documentation-samples/authoring-api-samples/php/add-utterances.php?range=96-120 "Main code")]
+   [!code-php[Main code](~/samples-luis/documentation-samples/quickstarts/change-model/php/add-utterances.php?range=89-93 "Main code")]
 
-## <a name="specify-utterances-to-add"></a>Toe te voegen utterances opgeven
-Maak en bewerk het bestand `utterances.json` om de **matrix met utterances** op te geven die u aan de LUIS-app wilt toevoegen. De intentie en entiteiten **moeten** al aanwezig zijn in de LUIS-app.
-
-> [!NOTE]
-> De LUIS-toepassing met de intenties en entiteiten die in het `utterances.json`-bestand worden gebruikt, moet bestaan ​​voordat de code in `add-utterances.php` wordt uitgevoerd. De intenties en entiteiten worden niet gemaakt met de code in dit artikel. Deze code voegt alleen de utterances toe voor bestaande intenties en entiteiten.
-
-Het veld `text` bevat de tekst van de utterance. Het veld `intentName` moet overeenkomen met de naam van een intentie in de LUIS-app. Het veld `entityLabels` is vereist. Als u geen entiteiten wilt labelen, geeft u een lege lijst op, zoals in het volgende voorbeeld:
-
-Als de lijst met entityLabels niet leeg is, moeten `startCharIndex` en `endCharIndex` de entiteit markeren waarnaar wordt verwezen in het veld `entityName`. Beide indices worden vanaf 0 geteld, wat betekent dat 6 in het bovenste voorbeeld verwijst naar de 'S' van Seattle en niet naar de spatie vóór de hoofdletter S.
-
-```json
-[
-    {
-        "text": "go to Seattle",
-        "intentName": "BookFlight",
-        "entityLabels": [
-            {
-                "entityName": "Location::LocationTo",
-                "startCharIndex": 6,
-                "endCharIndex": 12
-            }
-        ]
-    },
-    {
-        "text": "book a flight",
-        "intentName": "BookFlight",
-        "entityLabels": []
-    }
-]
-```
-
-## <a name="add-an-utterance-from-the-command-line"></a>Toevoegen van een utterance vanaf de opdrachtregel
+## <a name="run-code"></a>Code uitvoeren
 
 Voer de toepassing vanaf een opdrachtregel uit met PHP.
 
-Het aanroepen van `add-utterances.php` met alleen de utterance.json als argument voegt de nieuwe utterances toe, maar traint LUIS er niet mee.
-````
-> php add-utterances.php ./utterances.json
-````
+### <a name="add-an-utterance-from-the-command-line"></a>Toevoegen van een utterance vanaf de opdrachtregel
+
+Voer de toepassing vanaf een opdrachtregel uit met PHP.
+
+Door `add-utterances.php` aan te roepen worden de utterances toegevoegd, wordt de toepassing getraind en wordt de trainingsstatus opgehaald.
+
+```CMD
+> php add-utterances.php 
+```
 
 De API-aanroep add-utterances retourneert de volgende JSON. Het veld `response` heeft deze notatie voor utterances die zijn toegevoegd. `hasError` is onwaar, wat aangeeft dat de utterance is toegevoegd.  
 
@@ -135,17 +98,8 @@ De API-aanroep add-utterances retourneert de volgende JSON. Het veld `response` 
     ]
 ```
 
-## <a name="add-an-utterance-and-train-from-the-command-line"></a>Een utterance toevoegen en trainen vanaf de opdrachtregel
-Roep `add-utterance.php` aan ​​met het argument `-train` om een aanvraag om te trainen te verzenden. 
-
-````
-> php add-utterances.php ./utterances.json -train
-````
-
-> [!NOTE]
-> Dubbele utterances worden niet opnieuw toegevoegd, maar veroorzaken geen fout. De `response` bevat de id van de oorspronkelijke utterance.
-
 Het volgende toont het resultaat van een succesvolle trainingsaanvraag:
+
 ```json
 {
     "request": null,
@@ -156,16 +110,8 @@ Het volgende toont het resultaat van een succesvolle trainingsaanvraag:
 }
 ```
 
-Nadat de trainingsaanvraag in de wachtrij is geplaatst, kan het even duren voordat de training is voltooid.
 
-## <a name="get-training-status-from-the-command-line"></a>Trainingsstatus ophalen vanaf de opdrachtregel
-Roep de app aan met het argument `-status` om de trainingsstatus te controleren en statusdetails weer te geven.
-
-````
-> php add-utterances.php -status
-````
-
-```
+```JSON
 Requested training status.
 [
    {
@@ -262,10 +208,9 @@ Requested training status.
 ```
 
 ## <a name="clean-up-resources"></a>Resources opschonen
-Wanneer u klaar bent met de zelfstudie, verwijdert Visual Studio en de console-toepassing als u deze niet meer nodig hebt. 
+
+Verwijder wanneer u klaar bent met de snelstart alle bestanden die in de snelstart zijn gemaakt. 
 
 ## <a name="next-steps"></a>Volgende stappen
 > [!div class="nextstepaction"] 
 > [Programmatisch een LUIS-app bouwen](luis-tutorial-node-import-utterances-csv.md)
-
-[LUIS]: https://docs.microsoft.com/azure/cognitive-services/luis/luis-reference-regions#luis-website

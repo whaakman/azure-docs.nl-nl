@@ -13,16 +13,16 @@ ms.topic: tutorial
 ms.date: 01/02/2018
 ms.author: lbosq
 ms.custom: mvc
-ms.openlocfilehash: ad38976f439c399d839d6c5ee9dcd6ade7726c71
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: e3ed90d0b706e742588a5a0966d9ac3bda44ecbd
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37081904"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697439"
 ---
-# <a name="tutorial-query-azure-cosmos-db-graph-api-by-using-gremlin"></a>Zelfstudie: Azure Cosmos DB Graph API opvragen met Gremlin
+# <a name="tutorial-query-azure-cosmos-db-gremlin-api-by-using-gremlin"></a>Zelfstudie: Azure Cosmos DB Gremlin-API opvragen met Gremlin
 
-De Azure Cosmos DB [Graph API](graph-introduction.md) ondersteunt [Gremlin](https://github.com/tinkerpop/gremlin/wiki)-query's. Dit artikel bevat voorbeelddocumenten en query's waarmee u direct aan de slag kunt. Een gedetailleerde Gremlin-verwijzing vindt u in het artikel [Gremlin-ondersteuning](gremlin-support.md).
+De Azure Cosmos DB [Gremlin-API](graph-introduction.md) ondersteunt [Gremlin](https://github.com/tinkerpop/gremlin/wiki)-query's. Dit artikel bevat voorbeelddocumenten en query's waarmee u direct aan de slag kunt. Een gedetailleerde Gremlin-verwijzing vindt u in het artikel [Gremlin-ondersteuning](gremlin-support.md).
 
 Dit artikel behandelt de volgende taken: 
 

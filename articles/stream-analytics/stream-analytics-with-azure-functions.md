@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.date: 04/09/2018
 ms.author: jasonh
 ms.reviewer: jasonh
-ms.openlocfilehash: 1d33c3f0a4c36dc681aaa42bc68ae56eec234401
-ms.sourcegitcommit: 9cdd83256b82e664bd36991d78f87ea1e56827cd
+ms.openlocfilehash: 0408ea6ead1ddf482ce0a07c21859af80ab6ca43
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/16/2018
-ms.locfileid: "31416020"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43697812"
 ---
 # <a name="run-azure-functions-from-azure-stream-analytics-jobs"></a>Azure Functions uitvoeren vanuit Azure Stream Analytics-taken 
 
@@ -48,7 +48,7 @@ Voor deze taak moeten de volgende stappen worden gezet:
 
 ## <a name="create-a-stream-analytics-job-with-event-hubs-as-input"></a>Een Stream Analytics-taak maken met Event Hubs als invoer
 
-Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-detection.md) om een Event Hub te maken, de gebeurtenisgenerator te starten en een Stream Analytics-taak te maken. (Sla de stappen voor het maken van de query en de uitvoer over. Raadpleeg in plaats daarvan de volgende secties voor het instellen van de Azure Functions-uitvoer.)
+Volg de zelfstudie [Realtime fraudedetectie](stream-analytics-real-time-fraud-detection.md) om een Event Hub te maken, de gebeurtenisgenerator te starten en een Stream Analytics-taak te maken. (Sla de stappen voor het maken van de query en de uitvoer over. Raadpleeg in plaats daarvan de volgende secties voor het instellen van Functions-uitvoer.)
 
 ## <a name="create-an-azure-redis-cache-instance"></a>Een Azure Redis Cache-exemplaar maken
 

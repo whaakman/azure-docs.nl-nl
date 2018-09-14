@@ -1,73 +1,75 @@
 ---
-title: Gebruik Terraform om te maken van de schaal van een virtuele machine van Azure instellen
-description: Zelfstudie over het gebruik van Terraform configureren en de versie van de schaal van een virtuele Azure-machine instellen op voltooid met een virtueel netwerk en beheerd gekoppelde schijven
-keywords: terraform, devops, virtuele machines, Azure, schaal instellen, netwerk, opslag, modules
+title: Terraform gebruiken om een virtuele-machineschaalset te maken in Azure
+description: Zelfstudie over het gebruiken van Terraform voor het configureren en versioneren van een virtuele-machineschaalset in Azure, compleet met een virtueel netwerk en beheerde gekoppelde schijven
+services: terraform
+ms.service: terraform
+keywords: terraform, devops, virtuele machines, Azure, schaalset, netwerk, opslag, modules
 author: tomarcher
 manager: jeconnoc
 ms.author: tarcher
+ms.topic: tutorial
 ms.date: 06/04/2018
-ms.topic: article
-ms.openlocfilehash: 5922bad24c50a9d315aae42ce11a33801b9dbcaf
-ms.sourcegitcommit: f606248b31182cc559b21e79778c9397127e54df
-ms.translationtype: MT
+ms.openlocfilehash: 9b6a7187827622443c3cb29566dfb5eef840d595
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38971830"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43666192"
 ---
-# <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Gebruik Terraform om te maken van de schaal van een virtuele machine van Azure instellen
+# <a name="use-terraform-to-create-an-azure-virtual-machine-scale-set"></a>Terraform gebruiken om een virtuele-machineschaalset te maken in Azure
 
-[Azure virtuele-machineschaalsets](/azure/virtual-machine-scale-sets) kunt u maken en beheren van een groep identieke, laden met gelijke taakverdeling virtuele machines waarbij het aantal exemplaren van virtuele machines kan automatisch vergroten of afnemen in reactie op aanvraag of volgens een ingesteld schema. 
+Met [virtuele-machineschaalsets in Azure](/azure/virtual-machine-scale-sets) kunt u een groep identieke, load-balanced virtuele machines maken en beheren, waarbij het aantal exemplaren van virtuele machines automatisch kan toenemen of afnemen afhankelijk van de vraag of volgens een gedefinieerd schema. 
 
-In deze zelfstudie leert u hoe u [Azure Cloud Shell](/azure/cloud-shell/overview) naar de volgende taken uitvoeren:
+In deze zelfstudie leert u hoe u [Azure Cloud Shell](/azure/cloud-shell/overview) kunt gebruiken om de volgende taken uit te voeren:
 
 > [!div class="checklist"]
-> * Instellen van een implementatie met Terraform
-> * Gebruik van variabelen en uitvoer voor de implementatie van Terraform 
-> * Maken en implementeren van de netwerkinfrastructuur
-> * Maken en implementeren van een virtuele-machineschaalset en deze koppelen aan het netwerk
-> * Maken en implementeren van een jumpbox verbinding maken met de virtuele machines via SSH
+> * Een Terraform-implementatie instellen
+> * Variabelen en uitvoer voor Terraform-implementatie gebruiken 
+> * Netwerkinfrastructuur maken en implementeren
+> * Een virtuele-machineschaalset maken en implementeren, en deze koppelen aan het netwerk
+> * Een jumpbox maken en implementeren om verbinding te maken met de VM's via SSH
 
 > [!NOTE]
-> De meest recente versie van de Terraform-configuratiebestanden gebruikt in dit artikel zijn in de [geweldige Terraform-bibliotheek op Github](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
+> De meest recente versies van de Terraform-configuratiebestanden die in dit artikel worden gebruikt, bevinden zich in de [Awesome Terraform-opslagplaats op Github](https://github.com/Azure/awesome-terraform/tree/master/codelab-vmss).
 
 ## <a name="prerequisites"></a>Vereisten
 
 - **Azure-abonnement**: als u nog geen abonnement op Azure hebt, maakt u een [gratis Azure-account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) aan voordat u begint.
 
-- **Terraform installeren**: Volg de aanwijzingen in het artikel [Terraform en toegang tot Azure configureren](/azure/virtual-machines/linux/terraform-install-configure)
+- **Terraform installeren**: volg de aanwijzingen in het artikel [Terraform en toegang tot Azure configureren](/azure/virtual-machines/linux/terraform-install-configure)
 
-- **Een SSH-sleutelpaar maken**: als u een SSH-sleutelpaar, volg de instructies in het artikel nog niet hebt [maken en gebruiken van de openbare en persoonlijke sleutelpaar voor een SSH voor virtuele Linux-machines in Azure](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys).
+- **Een SSH-sleutelpaar maken**: als u nog geen SSH-sleutelpaar hebt, volgt u de instructies in het artikel [Een sleutelpaar met een openbare en persoonlijke SSH-sleutel voor virtuele Linux-machines maken en gebruiken](https://docs.microsoft.com/en-us/azure/virtual-machines/linux/mac-create-ssh-keys).
 
-## <a name="create-the-directory-structure"></a>De mapstructuur maken
+## <a name="create-the-directory-structure"></a>De directorystructuur maken
 
 1. Blader naar de [Azure-portal](http://portal.azure.com).
 
-1. Open [Azure Cloudshell](/azure/cloud-shell/overview). Als u een omgeving niet eerder hebt geselecteerd, selecteert u **Bash** als uw omgeving.
+1. Open [Azure Cloud Shell](/azure/cloud-shell/overview). Als u nog geen omgeving hebt geselecteerd, selecteert u **Bash** als uw omgeving.
 
     ![Cloud Shell-prompt](./media/terraform-create-vm-scaleset-network-disks-hcl/azure-portal-cloud-shell-button-min.png)
 
-1. Wijzig de mappen op de `clouddrive` directory.
+1. Maak `clouddrive` de actieve directory.
 
     ```bash
     cd clouddrive
     ```
 
-1. Maak een map met de naam `vmss`.
+1. Maak een directory met de naam `vmss`.
 
     ```bash
     mkdir vmss
     ```
 
-1. Wijzig de mappen in de nieuwe map:
+1. Maak de nieuwe directory de actieve directory:
 
     ```bash
     cd vmss
     ```
 
-## <a name="create-the-variables-definitions-file"></a>De variabelen voor de definities van bestand maken
-In deze sectie definieert u de variabelen die de resources die zijn gemaakt door Terraform aanpassen.
+## <a name="create-the-variables-definitions-file"></a>Het definitiebestand voor variabelen maken
+In deze sectie definieert u de variabelen waarmee de met Terraform gemaakte resources worden aangepast.
 
-In de Azure Cloud Shell, moet u de volgende stappen uitvoeren:
+Voer in Azure Cloud Shell de volgende stappen uit:
 
 1. Maak een bestand met de naam `variables.tf`.
 
@@ -75,7 +77,7 @@ In de Azure Cloud Shell, moet u de volgende stappen uitvoeren:
     vi variables.tf
     ```
 
-1. Voer de invoegmodus door het selecteren van de sleutel.
+1. Activeer de invoegmodus door op de toets I te drukken.
 
 1. Plak de volgende code in de editor:
 
@@ -99,18 +101,18 @@ In de Azure Cloud Shell, moet u de volgende stappen uitvoeren:
   }
   ```
 
-1. Afsluiten invoegen modus door het selecteren van de Esc-toets.
+1. Verlaat de invoegmodus door op Esc te drukken.
 
-1. Sla het bestand op en sluit de editor vi met de volgende opdracht:
+1. Sla het bestand op en sluit vi Editor af met de volgende opdracht:
 
     ```bash
     :wq
     ```
 
-## <a name="create-the-output-definitions-file"></a>Het uitvoerbestand definities maken
-In deze sectie maakt u het bestand met een beschrijving van de uitvoer na de implementatie.
+## <a name="create-the-output-definitions-file"></a>Het bestand met uitvoerdefinities maken
+In deze sectie maakt u het bestand dat de uitvoer na de implementatie beschrijft.
 
-In de Azure Cloud Shell, moet u de volgende stappen uitvoeren:
+Voer in Azure Cloud Shell de volgende stappen uit:
 
 1. Maak een bestand met de naam `output.tf`.
 
@@ -118,9 +120,9 @@ In de Azure Cloud Shell, moet u de volgende stappen uitvoeren:
     vi output.tf
     ```
 
-1. Voer de invoegmodus door het selecteren van de sleutel.
+1. Activeer de invoegmodus door op de toets I te drukken.
 
-1. Plak de volgende code in de editor om de volledig gekwalificeerde domeinnaam (FQDN) voor de virtuele machines zichtbaar te maken. :
+1. Plak de volgende code in de editor om de volledig gekwalificeerde domeinnaam (FQDN) voor de virtuele machines beschikbaar te maken. :
 
   ```JSON
     output "vmss_public_ip" {
@@ -128,32 +130,32 @@ In de Azure Cloud Shell, moet u de volgende stappen uitvoeren:
     }
   ```
 
-1. Afsluiten invoegen modus door het selecteren van de Esc-toets.
+1. Verlaat de invoegmodus door op Esc te drukken.
 
-1. Sla het bestand op en sluit de editor vi met de volgende opdracht:
+1. Sla het bestand op en sluit vi Editor af met de volgende opdracht:
 
     ```bash
     :wq
     ```
 
 ## <a name="define-the-network-infrastructure-in-a-template"></a>De netwerkinfrastructuur definiëren in een sjabloon
-In deze sectie maakt maken u de volgende netwerkinfrastructuur in een nieuwe Azure-resourcegroep: 
+In deze sectie maakt u de volgende netwerkinfrastructuur in een nieuwe Azure-resourcegroep: 
 
-  - Een virtueel netwerk (VNET) met de adresruimte van 10.0.0.0/16 
-  - Een subnet met de adresruimte van 10.0.2.0/24
-  - Twee openbare IP-adressen. Een door de virtual machine scale set load balancer, de andere gebruikt voor verbinding met de jumpbox SSH gebruikt.
+  - Eén virtueel netwerk (VNET) met de adresruimte 10.0.0.0/16 
+  - Eén subnet met de adresruimte 10.0.2.0/24
+  - Twee openbare IP-adressen. Eén hiervan wordt gebruikt door de load balancer van de virtuele-machineschaalset, en het andere wordt gebruikt om verbinding te maken met de SSH-jumpbox.
 
-In de Azure Cloud Shell, moet u de volgende stappen uitvoeren:
+Voer in Azure Cloud Shell de volgende stappen uit:
 
-1. Maak een bestand met de naam `vmss.tf` instellen om te beschrijven van de virtuele-machineschaalset infrastructuur.
+1. Maak een bestand met de naam `vmss.tf` om de infrastructuur van de virtuele-machineschaalset te beschrijven.
 
     ```bash
     vi vmss.tf
     ```
 
-1. Voer de invoegmodus door het selecteren van de sleutel.
+1. Activeer de invoegmodus door op de toets I te drukken.
 
-1. Plak de volgende code aan het einde van het bestand om de volledig gekwalificeerde domeinnaam (FQDN) voor de virtuele machines zichtbaar te maken. 
+1. Plak de volgende code aan het einde van het bestand om de volledig gekwalificeerde domeinnaam (FQDN) voor de virtuele machines beschikbaar te maken. 
 
   ```JSON
   resource "azurerm_resource_group" "vmss" {
@@ -194,59 +196,59 @@ In de Azure Cloud Shell, moet u de volgende stappen uitvoeren:
   }
   ```
 
-1. Afsluiten invoegen modus door het selecteren van de Esc-toets.
+1. Verlaat de invoegmodus door op Esc te drukken.
 
-1. Sla het bestand op en sluit de editor vi met de volgende opdracht:
+1. Sla het bestand op en sluit vi Editor af met de volgende opdracht:
 
   ```bash
   :wq
   ```
 
 ## <a name="provision-the-network-infrastructure"></a>De netwerkinfrastructuur inrichten
-Met behulp van de Azure Cloud Shell uit de map waar u de configuratiebestanden (.tf) hebt gemaakt, voer de volgende stappen uit:
+Gebruik de Azure Cloud Shell vanuit de directory waar u de configuratiebestanden (.tf) hebt gemaakt om de volgende stappen uit te voeren:
 
-1. Terraform initialiseren.
+1. Initialiseer Terraform.
 
   ```bash
   terraform init 
   ```
 
-1. Voer de volgende opdracht om de gedefinieerde infrastructuur in Azure te implementeren.
+1. Voer de volgende opdracht uit om de gedefinieerde infrastructuur in Azure te implementeren.
 
   ```bash
   terraform apply
   ```
 
-  Terraform vraagt u om een waarde van "locatie" Als de **locatie** variabele is gedefinieerd in `variables.tf`, maar deze nooit ingesteld. U kunt elke geldige locatie, bijvoorbeeld VS-West' gevolgd door het selecteren van Enter invoeren. (Gebruik een waarde tussen haakjes met spaties).
+  Terraform vraagt ​​u om een '​​locatie' -waarde omdat de variabele **locatie** wordt gedefinieerd in `variables.tf`, maar deze wordt nooit ingesteld. U kunt elke geldige locatie, bijvoorbeeld 'US - west', invoeren, gevolgd door Enter. (Plaats waarden die spaties bevatten tussen haakjes.)
 
-1. De uitvoer van Terraform worden afgedrukt zoals gedefinieerd in de `output.tf` bestand. Zoals weergegeven in de volgende schermafbeelding, de FQDN-naam heeft de vorm &lt;id >.&lt; locatie >. cloudapp.azure.com. De id-waarde is een berekende waarde en de locatie is de waarde die u opgeeft bij het uitvoeren van Terraform.
+1. Terraform drukt de uitvoer af zoals gedefinieerd in het bestand `output.tf`. Zoals te zien is in de volgende schermafbeelding, heeft de FQDN de vorm &lt;id>.&lt;locatie>.cloudapp.azure.com. De id-waarde is een berekende waarde, en de locatie is de waarde die u opgeeft bij het uitvoeren van Terraform.
 
-  ![Virtuele-machineschaalset FQDN-naam op voor openbare IP-adres](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
+  ![Volledig gekwalificeerde domeinnaam van virtuele-machineschaalset voor openbaar IP-adres](./media/terraform-create-vm-scaleset-network-disks-hcl/fqdn.png)
 
-1. Selecteer in het menu van Azure portal **resourcegroepen** in het hoofdmenu.
+1. Selecteer in Azure Portal **Resourcegroepen** in het hoofdmenu.
 
-1. Op de **resourcegroepen** tabblad **myResourceGroup** om de resources die zijn gemaakt door Terraform weer te geven.
-  ![Virtuele-machineschaalset netwerkbronnen](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
+1. Selecteer **myResourceGroup** op het tabblad **Resourcegroepen** om de door Terraform gemaakte resources te bekijken.
+  ![Netwerkresources voor virtuele-machineschaalset](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-resources.png)
 
-## <a name="add-a-virtual-machine-scale-set"></a>Toevoegen van een virtuele-machineschaalset
+## <a name="add-a-virtual-machine-scale-set"></a>Een virtuele-machineschaalset toevoegen
 
-In deze sectie leert u hoe u de volgende bronnen toevoegen aan de sjabloon:
+In deze sectie leert u hoe u de volgende resources kunt toevoegen aan de sjabloon:
 
-- Een Azure load balancer en regels voor het leveren van de toepassing en deze koppelen aan het openbare IP-adres geconfigureerd eerder in dit artikel
-- Een Azure-back-end-adresgroep en wijs deze toe aan de load balancer 
-- Een health testpoort die wordt gebruikt door de toepassing en geconfigureerd op de load balancer 
-- Een virtuele-machineschaalset zitten achter de load balancer die wordt uitgevoerd op de VNET die eerder in dit artikel is geïmplementeerd
-- [Nginx](http://nginx.org/) op de knooppunten van de virtuele machine schaal met [cloud-init](http://cloudinit.readthedocs.io/en/latest/).
+- Een Azure load balancer en regels voor het leveren van de toepassing en deze koppelen aan het eerder in dit artikel geconfigureerde openbare IP-adres
+- Een Azure backend-adresgroep en deze toewijzen aan de load balancer 
+- Een statustestpoort die door de toepassing wordt gebruikt en wordt geconfigureerd op de load balancer 
+- Een virtuele machineschaalset die zich achter de load balancer bevindt die wordt uitgevoerd op het eerder in dit artikel geïmplementeerde VNET
+- [Nginx](http://nginx.org/) op de knooppunten van de virtuele-machineschaalset met [cloud-init](http://cloudinit.readthedocs.io/en/latest/).
 
-In Cloud Shell, voert u de volgende stappen uit:
+Voer in Cloud Shell de volgende stappen uit:
 
-1. Open de `vmss.tf` configuratiebestand.
+1. Open het configuratiebestand `vmss.tf`.
 
   ```bash
   vi vmss.tf
   ```
 
-1. Ga naar het einde van het bestand en voer modus toevoegen door het selecteren van de A-toets.
+1. Ga naar het einde van het bestand en ga naar de toevoegmodus door de A-toets te selecteren.
 
 1. Plak de volgende code aan het einde van het bestand:
 
@@ -348,21 +350,21 @@ In Cloud Shell, voert u de volgende stappen uit:
 }
   ```
 
-1. Afsluiten invoegen modus door het selecteren van de Esc-toets.
+1. Verlaat de invoegmodus door op Esc te drukken.
 
-1. Sla het bestand op en sluit de editor vi met de volgende opdracht:
+1. Sla het bestand op en sluit vi Editor af met de volgende opdracht:
 
     ```bash
     :wq
     ```
 
-1. Maak een bestand met de naam `web.conf` om te fungeren als de cloud-init-configuratie voor de virtuele machines die deel van de schaalset uitmaken. 
+1. Maak een bestand met de naam `web.conf` om te dienen als de cloud-init-configuratie voor de virtuele machines die deel uitmaken van de schaalset. 
 
     ```bash
     vi web.conf
     ```
 
-1. Voer de invoegmodus door het selecteren van de sleutel.
+1. Activeer de invoegmodus door op de toets I te drukken.
 
 1. Plak de volgende code in de editor:
 
@@ -372,23 +374,23 @@ In Cloud Shell, voert u de volgende stappen uit:
     - nginx
   ```
 
-1. Afsluiten invoegen modus door het selecteren van de Esc-toets.
+1. Verlaat de invoegmodus door op Esc te drukken.
 
-1. Sla het bestand op en sluit de editor vi met de volgende opdracht:
+1. Sla het bestand op en sluit vi Editor af met de volgende opdracht:
 
     ```bash
     :wq
     ```
 
-1. Open de `variables.tf` configuratiebestand.
+1. Open het configuratiebestand `variables.tf`.
 
   ```bash
   vi variables.tf
   ```
 
-1. Ga naar het einde van het bestand en voer modus toevoegen door het selecteren van de A-toets.
+1. Ga naar het einde van het bestand en ga naar de toevoegmodus door de A-toets te selecteren.
 
-1. De implementatie aanpassen door de volgende code aan het einde van het bestand te plakken:
+1. Pas de implementatie aan door de volgende code aan het einde van het bestand te plakken:
 
   ```JSON
   variable "application_port" {
@@ -406,52 +408,52 @@ In Cloud Shell, voert u de volgende stappen uit:
   }
   ``` 
 
-1. Afsluiten invoegen modus door het selecteren van de Esc-toets.
+1. Verlaat de invoegmodus door op Esc te drukken.
 
-1. Sla het bestand op en sluit de editor vi met de volgende opdracht:
+1. Sla het bestand op en sluit vi Editor af met de volgende opdracht:
 
     ```bash
     :wq
     ```
 
-1. Maak een plan Terraform voor het visualiseren van de implementatie van virtuele machines scale set. (U moet een wachtwoord van uw keuze, evenals de locatie voor uw resources opgeven.)
+1. Maak een Terraform-plan om de implementatie van de virtuele-machineschaalset te visualiseren. (U moet een wachtwoord van uw keuze opgeven, evenals de locatie voor uw resources.)
 
   ```bash
   terraform plan
   ```
 
-  De uitvoer van de opdracht is vergelijkbaar met de volgende schermafbeelding:
+  De uitvoer van de opdracht ziet er ongeveer uit als in deze schermafbeelding:
 
-  ![Uitvoer van de virtuele-machineschaalset maken](./media/terraform-create-vm-scaleset-network-disks-hcl/add-mvss-plan.png)
+  ![Uitvoer van het maken van de virtuele-machineschaalset](./media/terraform-create-vm-scaleset-network-disks-hcl/add-mvss-plan.png)
 
-1. De nieuwe resources in Azure implementeren.
+1. Implementeer de nieuwe resources in Azure.
 
   ```bash
   terraform apply 
   ```
 
-  De uitvoer van de opdracht is vergelijkbaar met de volgende schermafbeelding:
+  De uitvoer van de opdracht ziet er ongeveer uit als in deze schermafbeelding:
 
-  ![Terraform machineschaalset virtuele-resourcegroep](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
+  ![Terraform virtuele-machineschaalset-resourcegroep](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents.png)
 
-1. Open een browser en maak verbinding met de FQDN-naam die is geretourneerd door de opdracht. 
+1. Open een browser en maak verbinding met de FQDN die is geretourneerd door de opdracht. 
 
-  ![Resultaten van bladeren naar de FQDN-naam](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
+  ![Resultaten van bladeren naar de FQDN](./media/terraform-create-vm-scaleset-network-disks-hcl/browser-fqdn.png)
 
 ## <a name="add-an-ssh-jumpbox"></a>Een SSH-jumpbox toevoegen
-Een SSH *jumpbox* is een enkele server die u "gaan" via toegang tot andere servers in het netwerk. In deze stap configureert u de volgende bronnen:
+Een SSH-*jumpbox* is één server waar u 'doorheen springt' om toegang te krijgen tot andere servers op het netwerk. In deze stap configureert u de volgende resources:
 
-- Een netwerkinterface (of een jumpbox) verbonden met hetzelfde subnet als de virtuele-machineschaalset.
+- Een netwerkinterface (of jumpbox) verbonden met hetzelfde subnet als de virtuele-machineschaalset.
 
-- Een virtuele machine aan deze netwerkinterface worden gekoppeld. Deze 'jumpbox' is extern toegankelijk. Eenmaal verbinding hebben, kunt u SSH op elk van de virtuele machines in de schaalset.
+- Een virtuele machine die aan deze netwerkinterface wordt gekoppeld. Deze 'jumpbox' is extern toegankelijk. Wanneer u verbinding hebt, kunt u SSH gebruiken om toegang te krijgen tot elk van de van de virtuele machines in de schaalset.
 
-1. Open de `vmss.tf` configuratiebestand.
+1. Open het configuratiebestand `vmss.tf`.
 
   ```bash
   vi vmss.tf
   ```
 
-1. Ga naar het einde van het bestand en voer modus toevoegen door het selecteren van de A-toets.
+1. Ga naar het einde van het bestand en ga naar de toevoegmodus door de A-toets te selecteren.
 
 1. Plak de volgende code aan het einde van het bestand:
 
@@ -515,15 +517,15 @@ Een SSH *jumpbox* is een enkele server die u "gaan" via toegang tot andere serve
   }
   ```
 
-1. Open de `output.tf` configuratiebestand.
+1. Open het configuratiebestand `output.tf`.
 
   ```bash
   vi output.tf
   ```
 
-1. Ga naar het einde van het bestand en voer modus toevoegen door het selecteren van de A-toets.
+1. Ga naar het einde van het bestand en ga naar de toevoegmodus door de A-toets te selecteren.
 
-1. Plak de volgende code aan het einde van het bestand om weer te geven van de hostnaam van de jumpbox wanneer de implementatie voltooid is:
+1. Plak de volgende code aan het einde van het bestand om de hostnaam van de jumpbox weer te geven wanneer de implementatie is voltooid:
 
   ```
   output "jumpbox_public_ip" {
@@ -531,9 +533,9 @@ Een SSH *jumpbox* is een enkele server die u "gaan" via toegang tot andere serve
   }
   ```
 
-1. Afsluiten invoegen modus door het selecteren van de Esc-toets.
+1. Verlaat de invoegmodus door op Esc te drukken.
 
-1. Sla het bestand op en sluit de editor vi met de volgende opdracht:
+1. Sla het bestand op en sluit vi Editor af met de volgende opdracht:
 
     ```bash
     :wq
@@ -545,27 +547,27 @@ Een SSH *jumpbox* is een enkele server die u "gaan" via toegang tot andere serve
   terraform apply 
   ```
 
-Als de implementatie is voltooid, de inhoud van de resourcegroep lijkt op die wordt weergegeven in de volgende schermafbeelding:
+Als de implementatie is voltooid, lijkt de inhoud van de resourcegroep op wat wordt weergegeven in de volgende schermafbeelding:
 
-![Terraform machineschaalset virtuele-resourcegroep](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents-final.png)
+![Terraform virtuele-machineschaalset-resourcegroep](./media/terraform-create-vm-scaleset-network-disks-hcl/resource-group-contents-final.png)
 
 > [!NOTE]
-> De mogelijkheid om aan te melden met een wachtwoord is uitgeschakeld op de jumpbox en de virtuele-machineschaalset die u hebt geïmplementeerd. Aanmelden met SSH voor toegang tot de virtuele machines.
+> De mogelijkheid om in te loggen met een wachtwoord wordt uitgeschakeld op de jumpbox en de virtuele-machineschaalset die u hebt geïmplementeerd. Meld u aan met SSH om toegang te krijgen tot de virtuele machine(s).
 
 ## <a name="environment-cleanup"></a>Opschonen van de omgeving 
 
-De Terraform om resources te verwijderen die zijn gemaakt in deze zelfstudie, voer de volgende opdracht in Cloud Shell:
+Voer in Cloud Shell de volgende opdracht in om de Terraform-resources te verwijderen die in deze zelfstudie zijn gemaakt:
 
 ```bash
 terraform destroy
 ```
 
-De vernietiging-proces kan enkele minuten duren.
+Het vernietigingsproces kan enkele minuten in beslag nemen.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe u een schaalset voor virtuele Azure-machine maken met Terraform. Hier volgen enkele aanvullende resources waarmee u meer informatie over Terraform op Azure: 
+In dit artikel hebt u geleerd Terraform te gebruiken om een virtuele-machineschaalset te maken in Azure. Hier volgen enkele aanvullende resources met meer informatie over Terraform in Azure: 
 
- [Terraform-Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
- [Documentatie voor Terraform Azure-provider](http://aka.ms/terraform)  
- [Bron van Terraform Azure-provider](http://aka.ms/tfgit)  
+ [Terraform Hub in Microsoft.com](https://docs.microsoft.com/azure/terraform/)  
+ [Documentatie voor Terraform Azure-providers](http://aka.ms/terraform)  
+ [Gegevensbron voor Terraform Azure-providers](http://aka.ms/tfgit)  
  [Terraform Azure-modules](http://aka.ms/tfmodules)

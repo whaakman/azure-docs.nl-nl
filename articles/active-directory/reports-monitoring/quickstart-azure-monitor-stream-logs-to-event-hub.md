@@ -16,12 +16,12 @@ ms.component: report-monitor
 ms.date: 07/13/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f6f3d9625e5469823a9c0c6eb6b549a6eaaeb0e9
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 1a7f91a0d15dd67d86f83485b4aad01a3bae37b3
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "41920988"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43699066"
 ---
 # <a name="tutorial-stream-azure-ad-logs-to-an-azure-event-hub-preview"></a>Zelfstudie: Azure AD-logboeken streamen naar een Azure Event Hub (preview)
 
@@ -34,7 +34,7 @@ U hebt het volgende nodig om deze functie te gebruiken:
 * Een Azure-abonnement. Als u nog geen Azure-abonnement hebt, kunt u zich registreren voor een [gratis proefversie](https://azure.microsoft.com/free/).
 * Een Azure AD-tenant.
 * Een gebruiker die een *globale beheerder* of *beveiligingsbeheerder* voor de Azure-tenant is.
-* Een naamruimte van Event Hubs en een Event Hub in uw Azure-abonnement. Informatie over het [maken van een Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create.md).
+* Een naamruimte van Event Hubs en een Event Hub in uw Azure-abonnement. Informatie over het [maken van een Event Hub](https://docs.microsoft.com/azure/event-hubs/event-hubs-create).
 
 ## <a name="archive-logs-to-an-event-hub"></a>Logboeken in een Event Hub archiveren
 
@@ -87,6 +87,6 @@ Nadat gegevens in de Event Hub worden weergegeven, kunt u de gegevens op twee ma
 ## <a name="next-steps"></a>Volgende stappen
 
 * [Integrate Azure AD logs with Splunk by using Azure Monitor](tutorial-integrate-activity-logs-with-splunk.md) (Azure AD-logboeken integreren met Splunk met behulp van Azure Monitor)
-* [Install the Azure AD Sumo Logic App and view dashboards](https://help.sumologic.com/Send-Data/Applications-and-Other-Data-Sources/Azure_Active_Directory/Install_the_Azure_Active_Directory_App_and_View_the_Dashboards) (Azure AD Sumo Logic-app installeren en dashboards weergeven)
+* [Integrate Azure AD logs with SumoLogic by using Azure Monitor](howto-integrate-activity-logs-with-sumologic.md) (Azure AD-logboeken integreren met SumoLogic met behulp van Azure Monitor)
 * [Interpret audit logs schema in Azure Monitor](reference-azure-monitor-audit-log-schema.md) (Auditlogboekenschema interpreteren in Azure Monitor)
 * [Interpret sign-in logs schema in Azure Monitor](reference-azure-monitor-sign-ins-log-schema.md) (Aanmeldingslogboekenschema interpreteren in Azure Monitor)

@@ -11,21 +11,22 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 05/22/2017
 ms.author: sngun
-ms.openlocfilehash: 11831ad6e80c86c3c276fea0524af522046f1a03
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c69aefa6271f9766687ce3b63f959dd4e414b98c
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38299758"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696673"
 ---
 # <a name="nosql-tutorial-build-a-sql-api-java-console-application"></a>NoSQL-zelfstudie: een SQL-API Java-consoletoepassing maken
+
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js voor MongoDB](mongodb-samples.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
 > * [Java](sql-api-java-get-started.md)
->  
+> * [Async Java](sql-api-async-java-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
 > 
 
 Welkom bij de NoSQL-zelfstudie over de SQL-API voor Azure Cosmos DB Java SDK. Wanneer u deze zelfstudie hebt voltooid, beschikt u over een consoletoepassing waarmee u Azure Cosmos DB-resources kunt maken en er query's op kunt uitvoeren.
@@ -182,7 +183,7 @@ Als u `mvn package` uitvoert, wordt de nieuwste Azure Cosmos DB-bibliotheek vanu
 
     mvn exec:java -D exec.mainClass=GetStarted.Program
 
-Gefeliciteerd. U hebt de NoSQL-zelfstudie voltooid en beschikt nu over een werkende Java-consoletoepassing.
+Gefeliciteerd! U hebt de NoSQL-zelfstudie voltooid en beschikt nu over een werkende Java-consoletoepassing.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Wilt u een zelfstudie voor Java-web-apps volgen? Zie [Build a web application with Java using Azure Cosmos DB](sql-api-java-application.md) (Een Java-web-app maken met Azure Cosmos DB).

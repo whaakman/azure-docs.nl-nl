@@ -10,12 +10,12 @@ ms.topic: overview
 ms.date: 04/08/2018
 ms.author: sngun
 ms.custom: mvc
-ms.openlocfilehash: 488ec66eb485761d484e305c298dfb9117745a42
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: b9c4c2595bb7d5347397bff95c90fbdc91902bcd
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145278"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43696445"
 ---
 # <a name="welcome-to-azure-cosmos-db"></a>Welkom bij Azure Cosmos DB
 
@@ -40,7 +40,7 @@ Als een wereldwijd gedistribueerde databaseservice maakt Azure Cosmos DB het een
         * [SQL-API](sql-api-introduction.md): een JSON-database-engine zonder schema met uitgebreide SQL-querymogelijkheden.
         * [MongoDB-API](mongodb-introduction.md): een zeer schaalbare *MongoDB-as-a-Service*, mogelijk gemaakt door een Azure Cosmos DB-platform. Compatibel met bestaande bibliotheken, stuurprogramma's, hulpprogramma's en toepassingen van MongoDB.
         * [Cassandra-API](cassandra-introduction.md): een wereldwijd gedistribueerde Cassandra-as-a-Service, mogelijk gemaakt door een Azure Cosmos DB-platform. Compatibel met bestaande bibliotheken, stuurprogramma's, hulpprogramma's en toepassingen van [Apache Cassandra](https://cassandra.apache.org/).
-        * [Gremlin-API](graph-introduction.md): een volledig beheerd, horizontaal schaalbare grafiekdatabaseservice waarmee u eenvoudig toepassingen kunt bouwen en uitvoeren die werken met maximaal verbonden gegevenssets met ondersteuning voor Open Graph-API's (op basis van de [Apache TinkerPop-specificatie](http://tinkerpop.apache.org/), Apache Gremlin).
+        * [Gremlin-API](graph-introduction.md): een volledig beheerd, horizontaal schaalbare grafiekdatabaseservice waarmee u eenvoudig toepassingen kunt bouwen en uitvoeren die werken met maximaal verbonden gegevenssets met ondersteuning voor Open Gremlin-API's (op basis van de [Apache TinkerPop-specificatie](http://tinkerpop.apache.org/), Apache Gremlin).
         * [Table-API](table-introduction.md): een sleutelwaarde-databaseservice, ontwikkeld om premium mogelijkheden te bieden (zoals automatisch indexeren, gegarandeerde lage latentie, wereldwijde distributie) voor bestaande Azure Table-opslagtoepassingen zonder dat er wijzigingen in de toepassingen zijn vereist.
         * Aanvullende gegevensmodellen en API's zijn binnenkort beschikbaar.
 

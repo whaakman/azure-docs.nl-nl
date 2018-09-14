@@ -11,12 +11,12 @@ ms.reviewer: daviste
 ms.custom: mvc
 ms.topic: quickstart
 manager: carmonm
-ms.openlocfilehash: fd594e65de79844720462996a89477e0a6237ceb
-ms.sourcegitcommit: df50934d52b0b227d7d796e2522f1fd7c6393478
+ms.openlocfilehash: e69cf8753fb0cc9326e047ec97cbe08ee6f26610
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/12/2018
-ms.locfileid: "38988922"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43668458"
 ---
 # <a name="start-analyzing-your-mobile-app-with-app-center-and-application-insights"></a>Mobiele app analyseren met App Center en Application Insights
 
@@ -68,9 +68,9 @@ Om er zeker van te zijn dat uw aangepaste gebeurtenissen worden ontvangen, gaat 
 Wanneer uw app aangepaste gebeurtenissen verzendt en deze gebeurtenissen worden ontvangen door App Center, moet u in Azure Portal een Application Insights-resource van het type App Center maken:
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com/).
-2. Selecteer **Een resource maken** > **Controle en Beheer** > **Application Insights**.
+2. Selecteer **Een resource maken** > **Hulpprogramma's voor beheer** > **Application Insights**.
 
-    ![Application Insights-resource toevoegen](./media/app-insights-mobile-center-quickstart/add.png)
+    ![Application Insights-resource toevoegen](./media/app-insights-mobile-center-quickstart/add-b.png)
 
     Er verschijnt een configuratievenster. Gebruik de onderstaande tabel om de velden in te vullen.
 

@@ -12,22 +12,23 @@ ms.devlang: nodejs
 ms.topic: tutorial
 ms.date: 07/30/2018
 ms.author: dech
-ms.openlocfilehash: f959bec42bf225f6893a5f29135dde37e5b9ebba
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: bb7c5c48a137c559cd0276de69cc2964bb6ed574
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43043013"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43698227"
 ---
 # <a name="nodejs-tutorial-create-a-nodejs-console-application-with-azure-cosmos-db-sql-api-and-javascript-sdk-20-preview"></a>Node.js-zelfstudie: een Node.js-consoletoepassing met Azure Cosmos DB SQL API en JavaScript SDK 2.0 (preview)
 
 > [!div class="op_single_selector"]
 > * [.NET](sql-api-get-started.md)
 > * [.NET Core](sql-api-dotnetcore-get-started.md)
-> * [Node.js](sql-api-nodejs-get-started.md)
-> * [Node.js - v2.0 Preview](sql-api-nodejs-get-started-preview.md)
-> * [Node.js voor MongoDB](mongodb-samples.md)
 > * [Java](sql-api-java-get-started.md)
+> * [Async Java](sql-api-async-java-get-started.md)
+> * [Node.js](sql-api-nodejs-get-started.md)
+> * [Node.js- v2](sql-api-nodejs-get-started-preview.md) 
+> 
 
 
 Welkom bij de Node.js-zelfstudie over de Azure Cosmos DB JavaScript-SDK. Wanneer u deze zelfstudie hebt voltooid, beschikt u over een consoletoepassing waarmee u Azure Cosmos DB-resources kunt maken en er query's op kunt uitvoeren.

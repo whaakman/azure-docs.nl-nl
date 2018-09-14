@@ -10,12 +10,12 @@ ms.workload: data-services
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 04/04/2018
-ms.openlocfilehash: 39b39a1d00c91e0ff114a28c13da0d4b6920ec13
-ms.sourcegitcommit: bf522c6af890984e8b7bd7d633208cb88f62a841
+ms.openlocfilehash: 6b924e0555ea7a57f8d5e5309a266b6d2fb44f44
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39186227"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702524"
 ---
 # <a name="create-a-stream-analytics-job-to-analyze-phone-call-data-and-visualize-results-in-a-power-bi-dashboard"></a>Een Stream Analytics-taak maken om gegevens van telefoongesprekken te analyseren en de resultaten te visualiseren in een Power BI-dashboard
  
@@ -61,7 +61,7 @@ Voordat Stream Analytics de gegevensstroom van frauduleuze gesprekken kan analys
    ![Event hub-naamruimte maken](media/stream-analytics-manage-job/create-ehns.png)
 
 5. Nadat de naamruimte is geïmplementeerd, gaat u naar **Alle resources** > zoekt u naar 'myEventHubNS' in de lijst met Azure-resources > selecteer om dit te openen.  
-6. Selecteer vervolgens **+Event Hub** > **en noem** de event hub 'MyEventHub'. U kunt ook een andere naam gebruiken. Gebruik standaardopties voor resterende instellingen, selecteer **Maken** en wacht tot de implementatie is voltooid.
+6. Selecteer vervolgens **+Event Hub** > **Naam** en noem de event hub 'MyEventHub'. U kunt ook een andere naam gebruiken. Gebruik standaardopties voor resterende instellingen, selecteer **Maken** en wacht tot de implementatie is voltooid.
 
    ![Event hub maken](media/stream-analytics-manage-job/create-eh.png)
 
@@ -69,7 +69,7 @@ Voordat Stream Analytics de gegevensstroom van frauduleuze gesprekken kan analys
 
 Voordat een toepassing gegevens naar Azure Event Hubs kan verzenden, moet de event hub een beleid hebben waarmee de juiste toegang wordt verleend. Het toegangsbeleid genereert een verbindingsreeks die autorisatiegegevens bevat.
 
-1. Navigeer naar de **Event Hub** 'MyEventHub', die u in de vorige stap hebt gemaakt > selecteer **Gedeeld toegangsbeleid** in het deelvenster van de event hub > selecteer **+Toevoegen**.  
+1. Navigeer naar de **event hub** 'MyEventHub', die u in de vorige stap hebt gemaakt > selecteer **Gedeeld toegangsbeleid** in het deelvenster van de event hub > selecteer **+Toevoegen**.  
 2. Stel de naam van het beleid in op **Mypolicy** > en selecteer **Beheren** > selecteer **Maken**.  
 
    ![Gedeeld toegangsbeleid voor event hub maken](media/stream-analytics-manage-job/create-ehpolicy.png)

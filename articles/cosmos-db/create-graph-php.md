@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Graph API met PHP - Azure Cosmos DB | Microsoft Docs'
-description: In deze quickstart ziet u hoe u de Graph API in Azure Cosmos DB gebruikt om een toepassing te maken met Azure Portal en PHP
+title: 'Snelstart: Gremlin API met PHP - Azure Cosmos DB | Microsoft Docs'
+description: In deze snelstart ziet u hoe u de Gremlin API in Azure Cosmos DB gebruikt om een toepassing te maken met Azure Portal en PHP
 services: cosmos-db
 author: luisbosquez
 manager: kfile
@@ -11,16 +11,25 @@ ms.devlang: php
 ms.topic: quickstart
 ms.date: 01/05/2018
 ms.author: lbosq
-ms.openlocfilehash: 2dabaf5650619ed2ec8d73c88deec136c25e544e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 06f54429957a84de81e3dfaae00c6126b5340b74
+ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38310268"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43702490"
 ---
 # <a name="azure-cosmos-db-create-a-graph-database-using-php-and-the-azure-portal"></a>Azure Cosmos DB: een grafiekdatabase maken met behulp van PHP en Azure Portal
 
-Deze quickstart laat zien hoe u PHP en de [Graph API](graph-introduction.md) van Azure Cosmos DB gebruikt om een console-app te maken door een voorbeeld uit GitHub te klonen. Deze quickstart begeleidt u ook bij het maken van een Azure Cosmos DB-account via Azure Portal op het web.   
+> [!div class="op_single_selector"]
+> * [Gremlin-console](create-graph-gremlin-console.md)
+> * [.NET](create-graph-dotnet.md)
+> * [Java](create-graph-java.md)
+> * [Node.js](create-graph-nodejs.md)
+> * [Python](create-graph-python.md)
+> * [PHP](create-graph-php.md)
+>  
+
+Deze snelstart laat zien hoe u PHP en de [Gremlin API](graph-introduction.md) van Azure Cosmos DB gebruikt om een console-app te maken door een voorbeeld uit GitHub te klonen. Deze snelstart begeleidt u ook bij het maken van een Azure Cosmos DB-account via Azure Portal op het web.   
 
 Azure Cosmos DB is de wereldwijd gedistribueerde multimodel-databaseservice van Microsoft. U kunt snel databases maken van documenten, sleutel/waarde-paren en grafieken en hier query's op uitvoeren. Deze databases genieten allemaal het voordeel van de wereldwijde distributie en horizontale schaalmogelijkheden die ten grondslag liggen aan Azure Cosmos DB.  
 
@@ -44,7 +53,7 @@ Voordat u een grafiekdatabase kunt maken, moet u een Gremlin-databaseaccount (Gr
 
 ## <a name="clone-the-sample-application"></a>De voorbeeldtoepassing klonen
 
-Nu gaan we werken met code. We gaan nu een Graph API-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren. U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken.  
+Nu gaan we werken met code. We gaan nu een Gremlin API-app klonen vanaf GitHub, de verbindingsreeks instellen en de app uitvoeren U zult zien hoe gemakkelijk het is om op een programmatische manier met gegevens te werken.  
 
 1. Open een opdrachtprompt, maak een nieuwe map met de naam git-samples en sluit vervolgens de opdrachtprompt.
 

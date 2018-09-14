@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 06/18/2018
 ms.author: cephalin
 ms.custom: mvc
-ms.openlocfilehash: 5c0aa042f97e10f90787b1cdf8e03cd6d849441e
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 30199005db93f9a43a37d2c72bb34dd772265419
+ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38461636"
+ms.lasthandoff: 09/04/2018
+ms.locfileid: "43664884"
 ---
 # <a name="tutorial-map-an-existing-custom-dns-name-to-azure-web-apps"></a>Zelfstudie: Een bestaande aangepaste DNS-naam toewijzen aan Azure Web Apps
 
@@ -37,8 +37,6 @@ In deze zelfstudie leert u het volgende:
 > * Een wildcard-domein toewijzen (bijvoorbeeld `*.contoso.com`) met behulp van een CNAME-record
 > * Standaard-URL omleiden naar een aangepaste map
 > * Domeintoewijzing met scripts automatiseren
-
-Zie voor het migreren van een live site en de DNS-domeinnaam naar App Service, [Een actieve DNS-naam migreren naar Azure App Service](app-service-custom-domain-name-migrate.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -304,6 +302,10 @@ Als u een HTTP 404 (niet gevonden)-fout ontvangt bij het bladeren naar de URL va
 - De browserclient heeft het oude IP-adres van uw domein in de cache. Leeg de cache en test DNS-omzetting opnieuw. Op een Windows-computer, leegt u de cache met `ipconfig /flushdns`.
 
 <a name="virtualdir"></a>
+
+## <a name="migrate-an-active-domain"></a>Een actief domein migreren
+
+Zie voor het zonder downtime migreren van een live site en de DNS-domeinnaam naar App Service [Een actieve DNS-naam migreren naar Azure App Service](app-service-custom-domain-name-migrate.md).
 
 ## <a name="redirect-to-a-custom-directory"></a>Een aangepaste map omleiden
 

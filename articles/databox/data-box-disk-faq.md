@@ -13,14 +13,14 @@ ms.topic: overview
 ms.custom: mvc
 ms.tgt_pltfrm: NA
 ms.workload: TBD
-ms.date: 08/28/2018
+ms.date: 09/04/2018
 ms.author: alkohli
-ms.openlocfilehash: 931b3fd4730ed9ca3a901b423d6c804dfa7e5305
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: 26f8f59d940c1e4a25e24229c2a3df75052e63e4
+ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143539"
+ms.lasthandoff: 09/05/2018
+ms.locfileid: "43783282"
 ---
 # <a name="what-is-azure-data-box-disk-preview"></a>Wat is Azure Data Box Disk? (Preview)
 
@@ -48,7 +48,7 @@ A. Met Azure Data Box Disks kunt u terabytes aan gegevens snel, goedkoop en veil
 Schijven worden versleuteld met Microsoft BitLocker-stationsversleuteling en uw encryptiesleutels worden beheerd in Azure Portal. Vervolgens kopieert u de gegevens vanuit de servers van de klant. In het datacenter worden uw gegevens naar de cloud gemigreerd met behulp van een snelle uploadkoppeling via een privénetwerk en naar Azure geüpload.
 
 ### <a name="q-when-should-i-use-data-box-disks"></a>V. Wanneer moet ik Data Box Disks gebruiken?
-A. Als u 35 TB (of minder) aan gegevens naar Azure wilt overdragen, hebt u baat bij het gebruik van Data Box Disks.
+A. Als u 40 TB (of minder) aan gegevens naar Azure wilt overdragen, hebt u baat bij het gebruik van Data Box Disks.
 
 ### <a name="q-what-is-the-price-of-data-box-disks"></a>V. Wat kost Data Box Disks?
 A. Tijdens de previewfase is de Data Box Disks kosteloos. De verzending van de schijven is ook gratis, maar er zijn wel kosten verbonden aan de Azure-opslag.
@@ -60,10 +60,10 @@ A.  U registreert u eerst voor de [previewversie van Data Box Disk](http://aka.m
 A. Bij vijf schijven van 8 TB (7 TB aan bruikbare capaciteit), bedraagt de maximaal bruikbare capaciteit 35 TB. U kunt dus 35 TB aan gegevens in één keer overdragen.  Als u meer gegevens wilt overdragen, dient u meer schijven te bestellen.
 
 ### <a name="q-how-can-i-check-if-data-box-disks-are-available-in-my-region"></a>V. Hoe kan ik controleren of Data Box Disks in mijn regio beschikbaar is? 
-A.  Data Box Disks is tijdens de previewfase beschikbaar in de V.S., Canada en alle landen in de Europese Unie.  
+A.  Data Box Disks is tijdens de previewfase beschikbaar in de V.S., Canada, Australië en alle landen in de Europese Unie.  
 
 ### <a name="q-which-regions-can-i-store-data-in-with-data-box-disks"></a>V. In welke regio's kan ik gegevens opslaan met Data Box Disks?
-A. Data Box Disk wordt voor preview ondersteund in alle regio's binnen de V.S., Canada en West- en Noord-Europa. Alleen de Azure-regio's met een openbare cloud worden ondersteund. Azure Government of andere onafhankelijke clouds worden niet ondersteund.
+A. Data Box Disk wordt voor preview ondersteund in alle regio's binnen de V.S., Canada, Australië, en West- en Noord-Europa. Alleen de Azure-regio's met een openbare cloud worden ondersteund. Azure Government of andere onafhankelijke clouds worden niet ondersteund.
 
 ### <a name="q-whom-should-i-contact-if-i-encounter-any-issues--with-data-box-disks"></a>V. Met wie moet ik contact opnemen als ik een probleem krijg met Data Box-schijven?
 A. Bij problemen met Data Box-schijven neemt u contact op met [Data Box Disk Support](mailto:expresspodsupport@microsoft.com).
