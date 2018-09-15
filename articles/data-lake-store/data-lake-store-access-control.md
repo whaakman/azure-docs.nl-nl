@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 0810aff364f8a015e93d7513b13ac7dcb5379556
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 335c3fe4e27ce6025ad889cc7958a32223dc85f8
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45544095"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629921"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen1"></a>Toegangsbeheer in Azure Data Lake Storage Gen1
 
@@ -40,18 +40,6 @@ Toegangs-ACL's en Standaard-ACL's hebben dezelfde structuur.
 > Als u de Standaard-ACL voor een bovenliggend item wijzigt, heeft dit geen invloed op de Toegangs-ACL of de Standaard ACL van bestaande onderliggende items.
 >
 >
-
-## <a name="users-and-identities"></a>Gebruikers en identiteiten
-
-Alle bestanden en mappen beschikken over verschillende machtigingen voor de volgende identiteiten:
-
-* De gebruiker die eigenaar is
-* De groep die eigenaar is
-* Benoemde gebruikers
-* Benoemde groepen
-* Alle andere gebruikers
-
-De identiteiten van gebruikers en groepen zijn Azure Active Directory-identiteiten (Azure AD). Dus tenzij anders vermeld, een 'gebruiker' in de context van Data Lake Storage Gen1, kan een Azure AD-gebruiker of een Azure AD-beveiligingsgroep betekenen.
 
 ## <a name="permissions"></a>Machtigingen
 
@@ -100,7 +88,19 @@ Hieronder vindt u enkele algemene scenario's om te begrijpen welke machtigingen 
 >
 
 
-## <a name="the-super-user"></a>De supergebruiker
+## <a name="users-and-identities"></a>Gebruikers en identiteiten
+
+Alle bestanden en mappen beschikken over verschillende machtigingen voor de volgende identiteiten:
+
+* De gebruiker die eigenaar is
+* De groep die eigenaar is
+* Benoemde gebruikers
+* Benoemde groepen
+* Alle andere gebruikers
+
+De identiteiten van gebruikers en groepen zijn Azure Active Directory-identiteiten (Azure AD). Dus tenzij anders vermeld, een 'gebruiker' in de context van Data Lake Storage Gen1, kan een Azure AD-gebruiker of een Azure AD-beveiligingsgroep betekenen.
+
+### <a name="the-super-user"></a>De supergebruiker
 
 Een supergebruiker heeft de meeste rechten van alle gebruikers in het Data Lake Storage Gen1-account. Een supergebruiker:
 
@@ -115,7 +115,7 @@ Als u aangepast op rollen gebaseerd toegangsbeheer (RBAC) wilt maken met superge
 - Microsoft.Authorization/roleAssignments/write
 
 
-## <a name="the-owning-user"></a>De gebruiker die eigenaar is
+### <a name="the-owning-user"></a>De gebruiker die eigenaar is
 
 De gebruiker die het item heeft gemaakt, wordt automatisch de gebruiker die eigenaar is van het item. Een gebruiker die eigenaar is kan:
 
@@ -127,7 +127,7 @@ De gebruiker die het item heeft gemaakt, wordt automatisch de gebruiker die eige
 >
 >
 
-## <a name="the-owning-group"></a>De groep die eigenaar is
+### <a name="the-owning-group"></a>De groep die eigenaar is
 
 **Achtergrond**
 
@@ -234,7 +234,7 @@ De volgende pseudocode laat zien hoe de umask wordt toegepast bij het maken van 
 ```
 def set_default_acls_for_new_child(parent, child):
     child.acls = []
-    foreach entry in parent.acls :
+    for entry in parent.acls :
         new_entry = None
         if (entry.type == OWNING_USER) :
             new_entry = entry.clone(perms = entry.perms & (~umask.owning_user))

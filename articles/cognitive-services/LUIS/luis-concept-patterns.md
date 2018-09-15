@@ -1,24 +1,24 @@
 ---
-title: Informatie over hoe patronen nauwkeurigheid vergroten | Microsoft Docs
-titleSuffix: Azure
-description: Informatie over het ontwerpen van patronen te verhogen intentie voorspelling scores en entiteiten te vinden.
+title: Informatie over hoe patronen nauwkeurigheid vergroten
+titleSuffix: Azure Cognitive Services
+description: Patronen zijn ontworpen voor betere nauwkeurigheid wanneer verschillende uitingen vergelijkbaar zijn. Een patroon kunt u meer nauwkeurigheid voor een doel zonder op te geven veel meer uitingen krijgen.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: c08419e3fb5b25284121a0eac30c38c8ba7570f1
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 0a61ec4407a23e8cc515c2343a92bd77460d424b
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225214"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631409"
 ---
 # <a name="patterns-improve-prediction-accuracy"></a>Patronen verbeteren nauwkeurigheid
-Patronen zijn ontworpen voor betere nauwkeurigheid wanneer verschillende uitingen vergelijkbaar zijn. Doordat een patroon voor de utterance hebben LUIS een hoge betrouwbaarheid in de voorspelling. 
+Patronen zijn ontworpen voor betere nauwkeurigheid wanneer verschillende uitingen vergelijkbaar zijn.  Een patroon kunt u meer nauwkeurigheid voor een doel zonder op te geven veel meer uitingen krijgen. 
 
 ## <a name="patterns-solve-low-intent-confidence"></a>Patronen oplossen lage intentie vertrouwen
 Houd rekening met een Human Resources-app die in de organisatie-grafiek ten opzichte van een werknemer-rapporten. Gezien de naam en de relatie van een werknemer, retourneert LUIS de werknemers die betrokken zijn. Houd rekening met een werknemer, Tom, met een manager naam Els en een team van onderliggende niveaus met de naam: Michael Rebecca en Carl.
@@ -60,25 +60,25 @@ Entiteiten in de patronen zijn omgeven door accolades, `{}`. Patronen kunnen bes
 ### <a name="syntax-to-add-an-entity-to-a-pattern-template"></a>Syntaxis voor een entiteit toevoegen aan een patroon-sjabloon
 Als u wilt toevoegen een entiteit in de sjabloon voor het patroon, zoals de naam van de entiteit met behulp van accolades, rondom `Who does {Employee} manage?`. 
 
-```
-Who does {Employee} manage?
-```
+|Patroon met entiteit|
+|--|
+|`Who does {Employee} manage?`|
 
 ### <a name="syntax-to-add-an-entity-and-role-to-a-pattern-template"></a>Syntaxis voor het toevoegen van een entiteit en een rol aan een patroon-sjabloon
 De entiteitsrol van een wordt aangeduid als `{entity:role}` met de naam van de entiteit gevolgd door een dubbele punt, gevolgd door de rolnaam. Als u wilt toevoegen een entiteit met een rol in de sjabloon voor het patroon, moet u de naam van de entiteit en de rolnaam met behulp van accolades, zoals `Book a ticket from {Location:Origin} to {Location:Destination}`. 
 
-```
-Book a ticket from {Location:Origin} to {Location:Destination}
-```
+|Patroon met behulp van entiteit|
+|--|
+|`Book a ticket from {Location:Origin} to {Location:Destination}`|
 
 ### <a name="syntax-to-add-a-patternany-to-pattern-template"></a>Syntaxis voor het toevoegen van een pattern.any aan patroon sjabloon
 De entiteit Pattern.any kunt u een entiteit van de verschillende lengten toevoegen aan het patroon. Als de sjabloon patroon wordt gevolgd, mag de pattern.any een willekeurige lengte. 
 
 Om toe te voegen een **Pattern.any** entiteit in de sjabloon patroon rondom de Pattern.any-entiteit met de accolades, zoals `How much does {Booktitle} cost and what format is it available in?`.  
 
-```
-How much does {Booktitle} cost and what format is it available in?
-```
+|Patroon met Pattern.any entiteit|
+|--|
+|`How much does {Booktitle} cost and what format is it available in?`|
 
 |Titels in het patroon|
 |--|
@@ -107,9 +107,9 @@ U kunt met het oplossen van deze uitzondering op het patroon, toevoegen `the man
 ### <a name="syntax-to-mark-optional-text-in-a-template-utterance"></a>Syntaxis voor het markeren van optionele tekst in een sjabloon utterance
 Optionele tekst in de utterance met behulp van de syntaxis van reguliere expressie vierkant haakje sluiten, markeert `[]`. De optionele tekst kunt vierkante haken maximaal twee vierkante haken nesten.
 
-```
-[find] email about {subject} [from {person}]
-```
+|Patroon met optionele tekst|
+|--|
+|`[find] email about {subject} [from {person}]`|
 
 Leestekens zoals `.`, `!`, en `?` kan worden genegeerd met behulp van de vierkante haken. Als u wilt deze markeringen negeren, moet elke is ingeschakeld in een afzonderlijke patroon. De syntaxis van de optionele ondersteunt momenteel geen een item in een lijst van meerdere items worden genegeerd.
 

@@ -1,22 +1,23 @@
 ---
-title: Test uw LUIS-app - Azure | Microsoft Docs
-description: Met Language Understanding (LUIS) kunt werken continu op uw toepassing het verfijnen en verbeteren van de taal begrijpen.
+title: Uw LUIS-app testen
+titleSuffix: Azure Cognitive Services
+description: Testen, is het proces van LUIS voorbeeld uitingen die en het ophalen van een reactie van LUIS herkend intenties en entiteiten. U kunt interactief, LUIS testen één utterance tegelijkertijd, of geef een batch van uitingen. Met het testen, moet u het huidige actieve model naar het gepubliceerde model vergelijken.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/14/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d231eaf98358e3f8237a820e59433558d293872f
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 41ba968eb68f2104a2183917c4ef850b2b6a9edc
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224344"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629947"
 ---
-# <a name="testing-in-luis"></a>Testen in LUIS
+# <a name="testing-example-utterances-in-luis"></a>Voorbeeld-uitingen testen in LUIS
 
 Testen, is het proces van LUIS voorbeeld uitingen die en het ophalen van een reactie van LUIS herkend intenties en entiteiten. 
 
@@ -25,6 +26,7 @@ U kunt [testen](luis-interactive-test.md) LUIS interactief, één utterance tege
 <a name="A-test-score"></a>
 <a name="Score-all-intents"></a>
 <a name="E-(exponent)-notation"></a>
+
 ## <a name="what-is-a-score-in-testing"></a>Wat is een score in de testfase?
 Zie [voorspelling score](luis-concept-prediction-score.md) concepten voor meer informatie over de scores voorspelling.
 

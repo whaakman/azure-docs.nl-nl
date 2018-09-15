@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/31/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b867d2c6c2bd586e0844d4ad149ac4a73399ed7b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 215f8305c19f0b12a8b240abb16a30f0ce852502
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023231"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629012"
 ---
 # <a name="luis-boundaries"></a>LUIS grenzen
 LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#model-boundaries), welke besturingselementen intents, entiteiten en functies van LUIS. Het tweede gedeelte [quotalimieten](#key-limits) op basis van het type sleutel. Is van een derde deel van de grenzen van de [combinatie op het toetsenbord](#keyboard-controls) voor het beheren van de website van LUIS. Een vierde gebied is de [world regiotoewijzing](luis-reference-regions.md) tussen de LUIS website ontwerpen en de LUIS [eindpunt](luis-glossary.md#endpoint) API's. 
@@ -30,7 +30,7 @@ LUIS heeft verschillende gebieden van de grens. De eerste is de [model grens](#m
 | **[Samengestelde](./luis-concept-entity-types.md)|100 met maximaal 10 onderliggende items |
 | Expliciete lijst | 50 per toepassing|
 | **[Hiërarchische](./luis-concept-entity-types.md) |100 met maximaal 10 onderliggende items |
-| [Intents][intents]|500 per toepassing<br>[Op basis van verzending](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) toepassing heeft een bijbehorende 500 verzending bronnen|
+| [Intents][intents]|500 per toepassing<br>[Op basis van verzending](https://aka.ms/dispatch-tool) toepassing heeft een bijbehorende 500 verzending bronnen|
 | [Lijst met entiteiten](./luis-concept-entity-types.md) | Bovenliggende: 50, onderliggende: maximaal 20.000 items. Canonieke naam is * standaard teken max. Synoniem waarden hebben geen lengtebeperking. |
 | [Patronen](luis-concept-patterns.md)|500 patronen per toepassing.<br>Maximale lengte van het patroon is 400 tekens.<br>3 Pattern.any entiteiten per patroon<br>Maximaal 2 geneste optionele tekst in het patroon|
 | [Pattern.any](./luis-concept-entity-types.md)|100 per toepassing, 3 pattern.any entiteiten per patroon |

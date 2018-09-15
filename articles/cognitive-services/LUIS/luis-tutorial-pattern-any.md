@@ -1,42 +1,29 @@
 ---
-title: Zelfstudie over het gebruiken van pattern.any entiteit voor het verbeteren van LUIS voorspellingen - Azure | Microsoft Docs
-titleSuffix: Cognitive Services
-description: In deze zelfstudie, gebruikt u de entiteit pattern.any voor het verbeteren van LUIS intentie en entiteit voorspellingen.
+title: 'Zelfstudie 5: Pattern.any entiteit voor vrije tekst'
+titleSuffix: Azure Cognitive Services
+description: De entiteit pattern.any gebruiken om gegevens te extraheren uit uitingen waar de uitingen goed opgemaakte is en waar het einde van de gegevens kan eenvoudig kan worden verward met de resterende woorden van de utterance.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 43f169ae11191c2e98c4538189bce781821de980
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: dce75710137f4d4160cb2f55f856066c7c93ac78
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44157851"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628978"
 ---
-# <a name="tutorial-improve-app-with-patternany-entity"></a>Zelfstudie: Een app met pattern.any entiteit verbeteren
+# <a name="tutorial-5-extract-free-form-data"></a>Zelfstudie: 5. Vrije-gegevens ophalen
 
-In deze zelfstudie, gebruikt u de entiteit pattern.any intentie en entiteit voorspelling verhogen.  
+In deze zelfstudie, gebruikt u de entiteit pattern.any om gegevens te extraheren uit uitingen waar de uitingen zich goed opgemaakte en waar het einde van de gegevens kan eenvoudig kan worden verward met de resterende woorden van de utterance. 
 
-> [!div class="checklist"]
-* Meer informatie over wanneer en hoe u pattern.any
-* Patroon die gebruikmaakt van pattern.any maken
-* Voorspelling verbeteringen controleren
+De entiteit pattern.any kunt u vrije om gegevens te vinden waar de tekst van de entiteit waardoor het lastig is om te bepalen van het einde van de entiteit op basis van de rest van de utterance. 
 
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Voordat u begint
-Als u geen de Human Resources-app vanuit de [patroon rollen](luis-tutorial-pattern-roles.md) zelfstudie [importeren](luis-how-to-start-new-app.md#import-new-app) de JSON naar een nieuwe app in de [LUIS](luis-reference-regions.md#luis-website) website. De app voor het importeren is gevonden in de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-roles-HumanResources.json) GitHub-opslagplaats.
-
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `patt-any`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
-
-## <a name="the-purpose-of-patternany"></a>Het doel van pattern.any
-De entiteit pattern.any kunt u vrije indeling om gegevens te vinden waar de tekst van de entiteit waardoor het lastig is om te bepalen van het einde van de entiteit op basis van de rest van de utterance. 
-
-Deze Human Resources-app helpt medewerkers bedrijf formulieren zoeken. Formulieren zijn toegevoegd de [reguliere expressie zelfstudie](luis-quickstart-intents-regex-entity.md). De namen van de vorm van deze zelfstudie gebruikt een reguliere expressie om op te halen van de naam van een formulier die goed opgemaakte zoals de naam van het formulier is vet in de volgende utterance-tabel:
+Deze Human Resources-app helpt medewerkers bedrijf formulieren zoeken. 
 
 |Utterance|
 |--|
@@ -54,11 +41,38 @@ Uitingen met de naam van het aangepaste formulier er als volgt uitzien:
 |Auteur **'Verplaatsing van werknemer bekend bent met de bedrijfsversie 2018 5 aanvragen'**?|
 |**Verplaatsing van werknemer bekend bent met de bedrijfsversie 2018 5 aanvragen** is gepubliceerd in het Frans?|
 
-De verschillende lengten bevat zinnen die verwarrend kunnen zijn LUIS over waar de entiteit eindigt. Met behulp van een entiteit Pattern.any in een patroon, kunt u het begin en einde van de naam van het formulier opgeven, zodat de naam van het formulier in LUIS correct worden geëxtraheerd.
+De verschillende lengten bevat woorden die verwarrend kunnen zijn LUIS over waar de entiteit eindigt. Met behulp van een entiteit Pattern.any in een patroon, kunt u het begin en einde van de naam van het formulier opgeven, zodat de naam van het formulier in LUIS correct worden geëxtraheerd.
 
-**Terwijl patronen u minder voorbeeld uitingen kunnen, als de entiteiten niet worden gedetecteerd, wordt het patroon komt niet overeen.**
+|Voorbeeld van de sjabloon utterance|
+|--|
+|Waar is {FormName} [?]|
+|{FormName} [?] auteur|
+|{FormName} is gepubliceerd in het Frans [?]|
 
-## <a name="add-example-utterances-to-the-existing-intent-findform"></a>Voorbeeld utterances toevoegen met de bestaande intent FindForm 
+**In deze zelfstudie leert u hoe u:**
+
+> [!div class="checklist"]
+> * Gebruik bestaande zelfstudie-app
+> * Voorbeeld utterances toevoegen aan bestaande entiteit
+> * Pattern.any entiteit maken
+> * Patroon maken
+> * Trainen
+> * Test nieuwe patroon
+
+[!include[LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Gebruik bestaande app
+Ga door met de app hebt gemaakt in de laatste zelfstudie, met de naam **Personeelszaken**. 
+
+Als u de app Personeelszaken uit de vorige zelfstudie hebt, gebruikt u de volgende stappen uit:
+
+1.  Download en sla [app JSON-bestand](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-roles-HumanResources.json).
+
+2. De JSON importeren in een nieuwe app.
+
+3. Uit de **beheren** sectie, op de **versies** tabblad en noem het klonen van de versie `patt-any`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam van de wordt gebruikt als onderdeel van de URL-route, kan niet de naam van de tekens die niet toegestaan in een URL zijn bevatten.
+
+## <a name="add-example-utterances"></a>Voorbeeld utterances toevoegen 
 De vooraf gedefinieerde keyPhrase entiteit verwijderen als het is moeilijk te maken en de entiteit FormName te labelen. 
 
 1. Selecteer **bouwen** via de bovenste navigatiebalk, selecteert u vervolgens **Intents** in linkernavigatiebalk.
@@ -128,6 +142,8 @@ De entiteit Pattern.any extraheert entiteiten met verschillende lengten. Dit wer
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
+
+In deze zelfstudie voorbeeld uitingen toegevoegd aan een bestaande doel wordt gemaakt van een nieuwe Pattern.any voor naam van het formulier. De zelfstudie wordt vervolgens een patroon voor de bestaande doel gemaakt met de nieuwe voorbeeld-uitingen en de entiteit. Interactieve testen hebt u geleerd dat het patroon en de bedoeling zijn voorspeld omdat de entiteit is gevonden. 
 
 > [!div class="nextstepaction"]
 > [Informatie over het gebruik van functies met een patroon](luis-tutorial-pattern-roles.md)

@@ -3,7 +3,7 @@ title: Het gebruik en facturering voor Azure Stack als een Cloudserviceprovider 
 description: Beknopt overzicht van Azure Stack registreren als een Cloud-Provider (CSP) en het toevoegen van klanten voor facturering.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,14 +12,14 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/30/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredo
-ms.openlocfilehash: 9bb4a4ea81f2dc0fb11e2f7cae1b9d02b0edfdde
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: b8c00795c7777e5485f4725e1da63fc764973f43
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43341432"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628927"
 ---
 # <a name="manage-usage-and-billing-for-azure-stack-as-a-cloud-service-provider"></a>Het gebruik en facturering voor Azure Stack als een Cloudserviceprovider beheren 
 

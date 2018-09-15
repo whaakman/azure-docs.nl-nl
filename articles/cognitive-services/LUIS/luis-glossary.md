@@ -1,5 +1,6 @@
 ---
-title: Verklarende woordenlijst voor de API-Service van Language Understanding (LUIS) | Microsoft Docs
+title: Verklarende woordenlijst voor de Language Understanding (LUIS) API-Service
+titleSuffix: Azure Cognitive Services
 description: De verklarende woordenlijst verklaart de termen die u kunt tegenkomen wanneer u met de LUIS-API-Service werkt.
 services: cognitive-services
 author: diberry
@@ -7,16 +8,17 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 3f99e58a38bbe9ecc87165b5e6fa24a5a49e5e4a
-ms.sourcegitcommit: e3d5de6d784eb6a8268bd6d51f10b265e0619e47
+ms.openlocfilehash: a66eb42ac03b96757a0363c9dd442adc5ca75023
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39390055"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634356"
 ---
 # <a name="glossary"></a>Woordenlijst
+De Language Understanding (LUIS) verklarende woordenlijst wordt uitgelegd dat de voorwaarden die u kunt tegenkomen wanneer u met de LUIS-API-Service werkt.
 
 ## <a name="active-version"></a>Actieve versie
 
@@ -72,7 +74,7 @@ In de context van LUIS, een **domein** is een gebied van kennis. Uw domein is sp
 
 ## <a name="endpoint"></a>Eindpunt
 
-De [LUIS eindpunt](https://aka.ms/luis-endpoint-apis) -URL is waar het indienen van LUIS-query's na de [LUIS-app](#luis-app) is geautoriseerd en gepubliceerd. De eindpunt-URL bevat de regio van de gepubliceerde app, evenals de app-ID. U vindt het eindpunt op de **[publiceren](luis-how-to-publish-app.md)** pagina van uw app, in de tabel Resources en sleutels of u krijgt de eindpunt-URL van de [App-informatie ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
+De [LUIS eindpunt](https://aka.ms/luis-endpoint-apis) -URL is waar het indienen van LUIS-query's na de [LUIS-app](#luis-app) is geautoriseerd en gepubliceerd. De eindpunt-URL bevat de regio van de gepubliceerde app, evenals de app-ID. U vindt het eindpunt op de **[sleutels en eindpunten](/luis-how-to-manage-keys.md)** pagina van uw app, of u krijgt de eindpunt-URL van de [App-informatie ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/5890b47c39e2bb17b84a55ff/operations/5890b47c39e2bb052c5b9c37) API.
 
 Een eindpunt voorbeeld lijkt:
 
@@ -167,7 +169,7 @@ Spraak voorbereiden kan uw spraakherkenning service gereed worden gemaakt met uw
 
 ## <a name="spelling-correction"></a>Correctie
 
-Schakel op de publicatiepagina [Bing spellingcontrole](luis-how-to-publish-app.md#enable-bing-spell-checker) te corrigeren van verkeerd gespelde woorden in de uitingen voordat voorspelling. 
+Schakel de spellingcontrole van Bing om te corrigeren van verkeerd gespelde woorden in de uitingen voordat voorspelling. 
 
 ## <a name="starter-key"></a>Starter-sleutel
 
@@ -175,7 +177,7 @@ Hetzelfde als [programmatische sleutel](#programmatic-key), hernoemd in Authorin
 
 ## <a name="subscription-key"></a>Abonnementssleutel
 
-De abonnementssleutel is de **eindpunt** sleutel die is gekoppeld met de service LUIS [u hebt gemaakt in Azure](luis-how-to-azure-subscription.md). Deze sleutel is niet de [ontwerpen sleutel](#programmatic-key). Als u een eindpuntsleutel hebt, moet het worden gebruikt voor een eindpunt-aanvragen in plaats van de sleutel van de ontwerphandleiding. U kunt uw huidige eindpuntsleutel binnen de eindpunt-URL aan de onderkant van zien [ **App publiceren** pagina](luis-how-to-publish-app.md) in [LUIS](luis-reference-regions.md) website. Dit is de waarde van **-abonnementssleutel** naam/waarde-paar. 
+De abonnementssleutel is de **eindpunt** sleutel die is gekoppeld met de service LUIS [u hebt gemaakt in Azure](luis-how-to-azure-subscription.md). Deze sleutel is niet de [ontwerpen sleutel](#programmatic-key). Als u een eindpuntsleutel hebt, moet het worden gebruikt voor een eindpunt-aanvragen in plaats van de sleutel van de ontwerphandleiding. U kunt uw huidige eindpuntsleutel binnen de eindpunt-URL aan de onderkant van zien [ **sleutels en eindpunten** pagina](luis-how-to-manage-keys.md) in [LUIS](luis-reference-regions.md) website. Dit is de waarde van **-abonnementssleutel** naam/waarde-paar. 
 
 ## <a name="test"></a>Test
 

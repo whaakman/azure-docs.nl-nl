@@ -8,14 +8,15 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 160752cd0467ef307f7a45b1e0d703c7ddd5d773
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9122a349fd81cf723e21cd17e09e15d1d9f64503
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720800"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634758"
 ---
 # <a name="choose-a-map-style-in-azure-maps"></a>Kies een stijl kaart op Azure-kaarten
+
 Azure Maps heeft vier verschillende maps stijlen om uit te kiezen. Zie voor meer informatie over de kaartstijlen [kaartstijlen ondersteund in Azure Maps](./supported-map-styles.md). Dit artikel leest hoe u de functies met betrekking tot stijl voor een stijl instellen bij het laden van de kaart, de stijl van een nieuwe instellen en gebruiken van een besturingselement voor het kiezen van de stijl.
 
 ## <a name="setting-style-on-map-load"></a>Stijl instellen bij het laden van de kaart
@@ -47,14 +48,17 @@ Een stijl kiezen kunt stijl selectie voor de kaart. Het derde codeblok wordt de 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de klassen en methoden die in dit artikel worden gebruikt: 
-* [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [setStyle](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setstyle)
-    * [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol)
+Voor meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 
-* [Atlas](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas?view=azure-iot-typescript-latest)
-    * [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol)
-    
-Zie de volgende artikelen voor meer codevoorbeelden van toevoegen aan uw kaarten:
-* [Kaart-besturingselementen toevoegen](./map-add-controls.md)
-* [Toevoegen van een pincode](./map-add-pin.md)
+> [!div class="nextstepaction"]
+> [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+Besturingselement voor toevoegen aan uw kaarten:
+
+> [!div class="nextstepaction"]
+> [Kaart-besturingselementen toevoegen](./map-add-controls.md)
+
+Voeg een kaart pincode:
+
+> [!div class="nextstepaction"]
+> [Toevoegen van een pincode](./map-add-pin.md)

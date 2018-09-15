@@ -10,12 +10,12 @@ ms.date: 08/31/2018
 ms.topic: conceptual
 manager: carmonm
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0707726ec86b0a0c69d1ec752ebd6761327f3f0f
-ms.sourcegitcommit: 31241b7ef35c37749b4261644adf1f5a029b2b8e
+ms.openlocfilehash: 713c0f676067cb32a84361dd7801031295e2244f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/04/2018
-ms.locfileid: "43669480"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634435"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>Bijhouden van wijzigingen in uw omgeving met de oplossing wijzigingen bijhouden
 
@@ -33,13 +33,23 @@ De volgende versies van het Windows-besturingssysteem worden officieel ondersteu
 
 De volgende Linux-distributies zijn officieel ondersteund. De Linux-agent kan echter ook uitvoeren in een andere distributie niet wordt vermeld. Tenzij anders vermeld, worden alle secundaire versies worden ondersteund voor elke primaire versie weergegeven.  
 
-* Amazon Linux 2012.09-2015.09 (x86/x64)
-* CentOS Linux 5, 6 en 7 (x86/x64)  
-* Oracle Linux 5, 6 en 7 (x86/x64)
-* Red Hat Enterprise Linux Server 5, 6 en 7 (x86/x64)
-* Debian GNU/Linux 6, 7 en 8 (x86/x64)
-* Ubuntu 12.04 LTS, 14.04 LTS, 16.04 LTS (x86/x64)
-* SUSE Linux Enterprise Server 11 en 12 (x86/x64)
+### <a name="64-bit"></a>64-bits
+
+* CentOS 6 en 7
+* Amazon Linux 2017.09
+* Oracle Linux 6 en 7
+* Red Hat Enterprise Linux Server 6 en 7
+* Debian GNU/Linux 8 en 9
+* Ubuntu Linux 14.04 LTS, 16.04 LTS en 18.04 LTS
+* SUSE Linux Enterprise Server 12
+
+### <a name="32-bit"></a>32-bits
+
+* CentOS 6
+* Oracle Linux 6
+* Red Hat Enterprise Linux Server 6
+* Debian GNU/Linux 8 en 9
+* Ubuntu Linux 14.04 LTS en 16.04 LTS
 
 ## <a name="enable-change-tracking-and-inventory"></a>Wijzigingen bijhouden en Inventaris inschakelen
 
@@ -93,7 +103,7 @@ Gebruik de volgende stappen uit om te configureren op Windows-computers bijhoude
 |Ingeschakeld     | Hiermee bepaalt u als de instelling wordt toegepast.        |
 |Itemnaam     | Beschrijvende naam van het bestand moet worden bijgehouden.        |
 |Groep     | De groepsnaam van een voor logisch groeperen van bestanden.        |
-|Pad invoeren     | Het pad om te controleren op het bestand bijvoorbeeld: "c:\temp\\\*.txt '<br>U kunt ook omgevingsvariabelen zoals gebruiken ' %winDir%\System32\\\*. * "       |
+|Pad invoeren     | Het pad voor het controleren op het bestand, bijvoorbeeld: "C:\temp\\\*.txt"<br>U kunt ook omgevingsvariabelen gebruiken zoals ' %winDir%\System32\\\*. * "       |
 |Recursie     | Bepaalt of recursie wordt gebruikt bij het zoeken naar het item dat moet worden bijgehouden.        |
 |Bestandsinhoud uploaden voor alle instellingen| Schakelt uploaden van bestandsinhoud bij bijgehouden wijzigingen in of uit. Beschikbare opties: **Waar** of **Onwaar**.|
 
@@ -146,6 +156,7 @@ Andere beperkingen:
 De oplossing wijzigingen bijhouden is momenteel de volgende problemen:
 
 * Hotfix-updates worden niet verzameld voor Windows 10 Creators Update en Windows Server 2016 Core RS3 machines.
+* Voor Windows-bestanden detecteert wijzigingen bijhouden niet op dit moment wanneer een nieuw bestand is toegevoegd aan een bijgehouden mappad
 
 ## <a name="change-tracking-data-collection-details"></a>Traceergegevens gegevens verzameling wijzigen
 

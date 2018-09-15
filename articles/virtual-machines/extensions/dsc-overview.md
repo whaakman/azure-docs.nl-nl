@@ -1,9 +1,9 @@
 ---
 title: Desired State Configuration voor een overzicht van Azure
-description: Informatie over het gebruik van de Microsoft Azure-extensie-handler voor PowerShell Desired State Configuration (DSC). Het artikel bevat vereisten, architectuur en cmdlets.
+description: Informatie over het gebruik van de Microsoft Azure-extensie-handler voor PowerShell Desired State Configuration (DSC). Het artikel bevat vereisten, architectuur en -cmdlets.
 services: virtual-machines-windows
 documentationcenter: ''
-author: DCtheGeek
+author: bobbytreed
 manager: carmonm
 editor: ''
 tags: azure-resource-manager
@@ -15,84 +15,85 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 05/02/2018
-ms.author: dacoulte
-ms.openlocfilehash: 60560a4a656d0ad5df15208261ab8462f4271ec5
-ms.sourcegitcommit: 909469bf17211be40ea24a981c3e0331ea182996
+ms.author: robreed
+ms.openlocfilehash: 18d6478763fd6551cc8baac6ea54e8d91f1a28e6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629965"
 ---
-# <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Inleiding tot de handler van de extensie Azure Desired State Configuration
+# <a name="introduction-to-the-azure-desired-state-configuration-extension-handler"></a>Inleiding tot de handler Azure Desired State Configuration-extensie
 
-De Azure VM-Agent en de bijbehorende extensies uitmaken deel van Microsoft Azure-infrastructuurservices. VM-extensies zijn softwareonderdelen die VM-functionaliteit uitbreiden en verschillende bewerkingen VM vereenvoudigen.
+De Azure VM-Agent en de bijbehorende extensies zijn onderdeel van Microsoft Azure infrastructuurservices. VM-extensies zijn software-onderdelen die breiden de functionaliteit van de virtuele machine en verschillende bewerkingen voor VM-beheer te vereenvoudigen.
 
-De primaire gebruiksvoorbeeld voor de extensie Azure Desired State Configuration (DSC) wordt bootstrap van een virtuele machine naar de [Azure Automation DSC-service](../../automation/automation-dsc-overview.md). Een virtuele machine uitvoeren van de bootstrap biedt [voordelen](/powershell/dsc/metaconfig#pull-service) die voortdurend beheer van de VM-configuratie en integratie met andere operationele's, zoals Azure-bewaking bevatten.
+De primaire use-case voor de extensie Azure Desired State Configuration (DSC) is een virtuele machine opstarten de [service van Azure Automation DSC](../../automation/automation-dsc-overview.md). Opstarten van een virtuele machine biedt [voordelen](/powershell/dsc/metaconfig#pull-service) die voortdurend beheer van de VM-configuratie en integratie met andere operationele's, zoals Azure Monitoring bevatten.
 
-U kunt de DSC-uitbreiding onafhankelijk van de service Automation DSC. Dit omvat echter een enkelvoud actie op die tijdens de implementatie plaatsvindt. Er zijn geen actieve rapportage of Configuratiebeheer is beschikbaar, anders dan lokaal in de virtuele machine.
+U kunt de DSC-extensie onafhankelijk van de service Automation DSC kunt gebruiken. Dit omvat echter een enkel actie op die tijdens de implementatie plaatsvindt. Er zijn geen doorlopende rapport of Configuratiebeheer is beschikbaar, anders dan lokaal in de virtuele machine.
 
-In dit artikel bevat informatie over beide scenario's: met behulp van de DSC-uitbreiding voor het voorbereiden van Automation en het gebruik van de DSC-extensie als een hulpprogramma voor configuraties toewijzen aan virtuele machines met behulp van de Azure SDK.
+In dit artikel bevat informatie over beide scenario's: de DSC-extensie gebruiken voor het voorbereiden van Automation en de DSC-extensie gebruiken als een hulpprogramma voor het toewijzen van configuraties aan virtuele machines met behulp van de Azure SDK.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- **Lokale machine**: om te kunnen communiceren met de Azure VM-extensie, moet u de Azure-portal of de SDK van Azure PowerShell gebruiken.
-- **Gastagent**: de virtuele machine van Azure die geconfigureerd door de DSC-configuratie moet een besturingssysteem dat ondersteuning biedt voor Windows Management Framework (WMF) 4.0 of hoger. Zie voor een volledige lijst met ondersteunde versies van het besturingssysteem, de [versiegeschiedenis van DSC-uitbreiding](/powershell/dsc/azuredscexthistory).
+- **Lokale computer**: om te communiceren met de Azure VM-extensie, moet u de Azure-portal of de SDK van Azure PowerShell gebruiken.
+- **Gastagent**: de Azure-VM die geconfigureerd door de DSC-configuratie moet een besturingssysteem dat ondersteuning biedt voor Windows Management Framework (WMF) 4.0 of hoger. Zie voor de volledige lijst van ondersteunde versies van het besturingssysteem, de [versiegeschiedenis van DSC-extensie](/powershell/dsc/azuredscexthistory).
 
 ## <a name="terms-and-concepts"></a>Termen en begrippen
 
-Deze handleiding wordt ervan uitgegaan dat bekend bent met de volgende concepten:
+Deze handleiding wordt ervan uitgegaan dat bekend zijn met de volgende concepten:
 
 - **Configuratie**: een DSC-configuratie-document.
-- **Knooppunt**: een doel voor een DSC-configuratie. In dit document, *knooppunt* altijd verwijst naar een Azure VM.
-- **Configuratiegegevens**: een .psd1-bestand dat milieu gegevens voor een configuratie bevat.
+- **Knooppunt**: een doel voor een DSC-configuratie. In dit document, *knooppunt* altijd verwijst naar een Azure-VM.
+- **Configuratiegegevens**: een .psd1-bestand met uitwerking gegevens voor een configuratie.
 
 ## <a name="architecture"></a>Architectuur
 
-De extensie Azure DSC maakt gebruik van het framework Azure VM-Agent te leveren, nemen en een rapport over DSC-configuraties die zijn uitgevoerd op Azure Virtual machines. De DSC-uitbreiding accepteert een configuratie-document en een aantal parameters. Als geen bestand is opgegeven, een [standaard configuratiescript](#default-configuration-script) met de extensie is ingesloten. Een script voor de configuratie van de standaard wordt alleen gebruikt om het instellen van metagegevens in [Local Configuration Manager](/powershell/dsc/metaconfig).
+De Azure-DSC-extensie gebruikmaakt van het framework van de Azure VM-Agent te leveren, gerapporteerd en rapporteren van DSC-configuraties die worden uitgevoerd op virtuele Azure-machines. De DSC-extensie accepteert een configuratiedocument en een aantal parameters. Als er geen bestand is opgegeven, een [standaard configuratiescript](#default-configuration-script) met de extensie is ingesloten. Een script voor de configuratie van de standaard wordt alleen gebruikt om het instellen van metagegevens in [Local Configuration Manager](/powershell/dsc/metaconfig).
 
 Als de extensie voor het eerst wordt aangeroepen, wordt een versie van WMF geïnstalleerd met behulp van de volgende logica:
 
-- Als het besturingssysteem van de Azure-virtuele machine Windows Server 2016 is, wordt geen actie ondernomen. Windows Server 2016 heeft al de meest recente versie van PowerShell is geïnstalleerd.
-- Als de **wmfVersion** eigenschap is opgegeven, die versie van WMF is geïnstalleerd, tenzij u die versie is niet compatibel met het besturingssysteem van de VM.
+- Als de Azure VM-besturingssysteem Windows Server 2016 is, wordt geen actie ondernomen. Windows Server 2016 is al de meest recente versie van PowerShell is geïnstalleerd.
+- Als de **wmfVersion** eigenschap is opgegeven, die versie van WMF is geïnstalleerd, tenzij die versie is niet compatibel met het besturingssysteem van de virtuele machine.
 - Als er geen **wmfVersion** eigenschap is opgegeven, wordt de meest recente toepasselijke versie van WMF is geïnstalleerd.
 
-Installeren van WMF opnieuw worden opgestart. Start opnieuw op en de uitbreiding downloadt het ZIP-bestand dat opgegeven in de **modulesUrl** eigenschap als opgegeven. Als deze locatie zich in Azure Blob-opslag, kunt u een SAS-token in de **sasToken** eigenschap voor toegang tot het bestand. Nadat de .zip is gedownload en uitgepakt, de configuratie-functie moet worden gedefinieerd **configurationFunction** wordt uitgevoerd om een MOF-bestand te genereren. De extensie voert `Start-DscConfiguration -Force` met behulp van het gegenereerde MOF-bestand. De extensie uitvoer vastgelegd en schrijft deze naar de status van de Azure-kanaal.
+Installeren van WMF moet opnieuw worden opgestart. Na het opnieuw is opgestart, worden de extensie gedownload het ZIP-bestand dat opgegeven in de **modulesUrl** eigenschap, indien opgegeven. Als deze locatie zich in Azure Blob-opslag, kunt u een SAS-token in de **sasToken** eigenschap voor toegang tot het bestand. Nadat de ZIP is gedownload en uitgepakt, de configuratie van de functie moet worden gedefinieerd in **configurationFunction** wordt uitgevoerd voor het genereren van een MOF-bestand. De extensie vervolgens uitgevoerd `Start-DscConfiguration -Force` met behulp van het gegenereerde MOF-bestand. De extensie wordt uitvoer vastgelegd en schrijft deze naar de status van Azure-kanaal.
 
 ### <a name="default-configuration-script"></a>Standaard-configuratiescript
 
-De extensie Azure DSC bevat een standaard-configuratiescript die is bedoeld om te worden gebruikt wanneer u met het voorbereiden een virtuele machine met de service Azure Automation DSC. De scriptparameters zijn uitgelijnd met de configureerbare eigenschappen van [Local Configuration Manager](/powershell/dsc/metaconfig). Zie voor scriptparameters [standaard configuratiescript](dsc-template.md#default-configuration-script) in [Desired State Configuration-extensie met Azure Resource Manager-sjablonen](dsc-template.md). Zie voor het volledige script de [Azure quickstart-sjabloon in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+De Azure-DSC-extensie bevat een standaard-configuratiescript die is bedoeld om te worden gebruikt wanneer u met het voorbereiden een virtuele machine met de service Azure Automation DSC. De scriptparameters zijn uitgelijnd met de configureerbare eigenschappen van [Local Configuration Manager](/powershell/dsc/metaconfig). Zie voor de scriptparameters, [standaard configuratiescript](dsc-template.md#default-configuration-script) in [Desired State Configuration-extensie met Azure Resource Manager-sjablonen](dsc-template.md). Zie voor het volledige script de [Azure quickstart-sjabloon in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
 
-## <a name="dsc-extension-in-resource-manager-templates"></a>DSC-extensie in de Resource Manager-sjablonen
+## <a name="dsc-extension-in-resource-manager-templates"></a>DSC-extensie in Resource Manager-sjablonen
 
-In de meeste gevallen zijn Resource Manager-implementatiesjablonen van de verwachte manier om te werken met de DSC-extensie. Zie voor meer informatie en voorbeelden van het opnemen van de DSC-uitbreiding in de Resource Manager-implementatiesjablonen [Desired State Configuration-extensie met Azure Resource Manager-sjablonen](dsc-template.md).
+In de meeste gevallen zijn sjablonen van Resource Manager-implementatie de verwachte manier om te werken met de DSC-extensie. Zie voor meer informatie en voorbeelden van de DSC-extensie opnemen in Resource Manager-sjablonen voor implementatie, [Desired State Configuration-extensie met Azure Resource Manager-sjablonen](dsc-template.md).
 
 ## <a name="dsc-extension-powershell-cmdlets"></a>DSC-extensie PowerShell-cmdlets
 
-De PowerShell-cmdlets die worden gebruikt voor het beheren van de DSC-uitbreiding zijn best gebruiken in interactieve probleemoplossing en scenario's de gegevens te verzamelen. De cmdlets kunt u het pakket, publiceren en DSC-extensie-implementaties controleren. Cmdlets voor de DSC-uitbreiding nog niet zijn bijgewerkt om te werken met de [configuratiescript standaard](#default-configuration-script).
+De PowerShell-cmdlets die worden gebruikt voor het beheren van de DSC-extensie worden best gebruikt in de interactieve oplossen van problemen en scenario's voor verzamelen van informatie. U kunt de cmdlets kunnen worden verpakt, publiceren en DSC-extensie-implementaties controleren. Cmdlets voor de DSC-extensie nog niet zijn bijgewerkt om te werken met de [configuratiescript standaard](#default-configuration-script).
 
-De **publiceren AzureRmVMDscConfiguration** cmdlet duurt in een configuratiebestand voor afhankelijke DSC-resources wordt gescand en maakt vervolgens een ZIP-bestand. Het ZIP-bestand bevat de configuratie en DSC-resources die nodig zijn voor het nemen van de configuratie. De cmdlet kunt ook het pakket maken lokaal met behulp van de *- OutputArchivePath* parameter. Anders wordt de cmdlet publiceert van het ZIP-bestand naar de blob storage en beveiligt het met een SAS-token.
+De **publiceren AzureRmVMDscConfiguration** cmdlet maakt in een configuratiebestand, scant deze voor afhankelijke DSC-resources en maakt vervolgens een ZIP-bestand. Het ZIP-bestand bevat de configuratie en DSC-resources die nodig zijn voor de configuratie wordt gerapporteerd. De cmdlet Maak ook het pakket lokaal met behulp van de *- OutputArchivePath* parameter. Anders wordt de cmdlet publiceert het ZIP-bestand voor de blob-opslag en beveiligt het met een SAS-token.
 
-Het configuratiescript .ps1 die de cmdlet maakt is in het ZIP-bestand in de hoofdmap van de archiefmap. De modulemap wordt geplaatst in de archiefmap in resources.
+Het configuratiescript .ps1 die de cmdlet maakt is in het ZIP-bestand in de hoofdmap van de archiefmap. De modulemap wordt geplaatst in de archiefmap van resources.
 
-De **Set AzureRmVMDscExtension** cmdlet injects de instellingen die de PowerShell DSC-uitbreiding vereist in een VM-configuratie-object.
+De **Set AzureRmVMDscExtension** cmdlet injects de instellingen die de PowerShell DSC-extensie is vereist in een VM-configuratieobject.
 
 De **Get-AzureRmVMDscExtension** cmdlet haalt de status van de DSC-extensie van een specifieke virtuele machine.
 
-De **Get-AzureRmVMDscExtensionStatus** cmdlet haalt de status van de DSC-configuratie die wordt gepubliceerd door de handler van DSC-uitbreiding. Deze actie kan worden uitgevoerd op een enkele virtuele machine of op een groep VM's.
+De **Get-AzureRmVMDscExtensionStatus** cmdlet wordt de status van de DSC-configuratie die wordt gepubliceerd door de handler voor DSC-extensie opgehaald. Deze actie kan worden uitgevoerd op een enkele virtuele machine of op een groep virtuele machines.
 
-De **verwijderen AzureRmVMDscExtension** cmdlet verwijdert de extensie-handler van een specifieke virtuele machine. Deze cmdlet biedt *niet* verwijderen van de configuratie, WMF verwijderen of wijzigen van de toegepaste instellingen op de virtuele machine. Alleen de handler voor de uitbreiding wordt verwijderd. 
+De **Remove-AzureRmVMDscExtension** cmdlet wordt de extensie-handler van een specifieke virtuele machine. Deze cmdlet biedt *niet* verwijderen van de configuratie, WMF verwijderen of wijzigen van de toegepaste instellingen op de virtuele machine. Alleen de handler extensie wordt verwijderd. 
 
-Belangrijke informatie over cmdlets van Resource Manager DSC-extensie:
+Belangrijke informatie over het Resource Manager-DSC-extensie-cmdlets:
 
 - Azure Resource Manager-cmdlets worden synchroon.
-- De *ResourceGroupName*, *VMName*, *ArchiveStorageAccountName*, *versie*, en *locatie*parameters zijn vereist.
-- *ArchiveResourceGroupName* is een optionele parameter. U kunt deze parameter opgeven wanneer uw storage-account hoort bij een andere resourcegroep dan die waarop de virtuele machine is gemaakt.
-- Gebruik de **AutoUpdate** overschakelen naar het automatisch bijwerken van de handler uitbreiding naar de nieuwste versie wanneer deze beschikbaar is. Deze parameter heeft opnieuw opstarten op de VM veroorzaken wanneer er een nieuwe versie van WMF wordt uitgebracht.
+- De *ResourceGroupName*, *VMName*, *ArchiveStorageAccountName*, *versie*, en *locatie*parameters zijn alle vereiste.
+- *ArchiveResourceGroupName* is een optionele parameter. U kunt deze parameter wanneer uw storage-account behoort tot een andere resourcegroep dan de versie waarin de virtuele machine wordt gemaakt.
+- Gebruik de **AutoUpdate** overschakelen naar de extensie-handler automatisch wordt bijgewerkt naar de meest recente versie wanneer deze beschikbaar is. Deze parameter heeft de mogelijkheid ervoor zorgen dat opnieuw wordt gestart op de virtuele machine wanneer er een nieuwe versie van WMF wordt uitgebracht.
 
 ### <a name="get-started-with-cmdlets"></a>Aan de slag met cmdlets
 
-De extensie Azure DSC kunt documenten van DSC-configuratie gebruiken om rechtstreeks Azure VM's configureren tijdens de implementatie. Deze stap registreren niet het knooppunt om automatisering te. Het knooppunt is *niet* centraal beheerde.
+De Azure-DSC-extensie kunt documenten voor DSC-configuratie gebruiken om Azure-VM's rechtstreeks configureren tijdens de implementatie. Deze stap registreren niet het knooppunt om Automation te. Het knooppunt is *niet* centraal beheerd.
 
-Het volgende voorbeeld toont een eenvoudig voorbeeld van een configuratie. De configuratie van de lokaal opslaan als IisInstall.ps1.
+Het volgende voorbeeld ziet een eenvoudig voorbeeld van een configuratie. De configuratie van de lokaal opslaan als IisInstall.ps1.
 
 ```powershell
 configuration IISInstall
@@ -108,7 +109,7 @@ configuration IISInstall
 }
 ```
 
-De volgende opdrachten wordt het script IisInstall.ps1 plaatsen op de opgegeven virtuele machine. De opdrachten uitvoeren ook de configuratie en vervolgens rapporteren over de status.
+De volgende opdrachten wordt het script IisInstall.ps1 plaats op de opgegeven virtuele machine. De opdrachten uitgevoerd ook de configuratie en vervolgens rapporteren over de status.
 
 ```powershell
 $resourceGroup = 'dscVmDemo'
@@ -121,40 +122,40 @@ Publish-AzureRmVMDscConfiguration -ConfigurationPath .\iisInstall.ps1 -ResourceG
 Set-AzureRmVMDscExtension -Version '2.76' -ResourceGroupName $resourceGroup -VMName $vmName -ArchiveStorageAccountName $storageName -ArchiveBlobName 'iisInstall.ps1.zip' -AutoUpdate $true -ConfigurationName 'IISInstall'
 ```
 
-## <a name="azure-portal-functionality"></a>Azure portal-functionaliteit
+## <a name="azure-portal-functionality"></a>Functionaliteit van Azure portal
 
 DSC instellen in de portal:
 
 1. Ga naar een virtuele machine.
-2. Onder **instellingen**, selecteer **extensies**.
+2. Selecteer onder **Instellingen** de optie **Extensies**.
 3. Selecteer in de nieuwe pagina die wordt gemaakt, **+ toevoegen**, en selecteer vervolgens **PowerShell Desired State Configuration**.
-4. Klik op **maken** onder aan de pagina van de gegevens van extensie.
+4. Klik op **maken** onderaan de pagina van de gegevens van extensie.
 
 De portal worden de volgende invoer verzameld:
 
-- **Configuratie-Modules of Script**: dit veld is verplicht (het formulier is niet bijgewerkt voor de [standaard configuratiescript](#default-configuration-script)). Configuratie-modules en -scripts moeten een .ps1-bestand met een configuratiescript of een ZIP-bestand met een .ps1-configuratiescript in de hoofdmap. Als u een ZIP-bestand gebruikt, moeten alle afhankelijke resources worden opgenomen in de mappen in het ZIP-module. U kunt het ZIP-bestand maken met behulp van de **publiceren AzureVMDscConfiguration - OutputArchivePath** opgenomen in de SDK van Azure PowerShell-cmdlet. Het ZIP-bestand is geüpload naar de gebruiker blob-opslag en beveiligd door een SAS-token.
+- **Configuratie van Modules of Script**: dit veld is verplicht (het formulier is niet bijgewerkt voor de [standaard configuratiescript](#default-configuration-script)). Configuratie-modules en -scripts vereist een .ps1-bestand met een configuratiescript of een ZIP-bestand met een .ps1-configuratiescript in de hoofdmap. Als u een ZIP-bestand gebruikt, moeten alle afhankelijke resources worden opgenomen in de mappen in het ZIP-module. U kunt het ZIP-bestand maken met behulp van de **publiceren AzureVMDscConfiguration - OutputArchivePath** opgenomen in de SDK van Azure PowerShell-cmdlet. Het ZIP-bestand is geüpload naar uw blob-opslag van gebruiker en beveiligd door een SAS-token.
 
-- **Naam van configuratie modulegekwalificeerde**: U kunt meerdere configuratie-functies opnemen in een .ps1-bestand. Voer de naam van het configuratiescript .ps1 gevolgd door \\ en de naam van de configuratie-functie. Bijvoorbeeld, als het script .ps1 de naam configuration.ps1 en de configuratie heeft is **IisInstall**, voer **configuration.ps1\IisInstall**.
+- **Naam van de configuratie modulegekwalificeerde**: U kunt meerdere configuratiefuncties opnemen in een .ps1-bestand. Voer de naam van het configuratiescript .ps1 gevolgd door \\ en de naam van de configuratie-functie. Bijvoorbeeld, als uw .ps1-script de naam configuration.ps1 en de configuratie heeft is **IisInstall**, voer **configuration.ps1\IisInstall**.
 
-- **Configuratie argumenten**: als de functie configuratie argumenten aanneemt, voert u deze hier in de indeling **argumentName1 = value1, argumentName2 = value2**. Dit is een andere indeling waarin configuratie-argumenten in PowerShell-cmdlets of de Resource Manager-sjablonen worden geaccepteerd.
+- **Configuratie van argumenten**: als de functie configuratie argumenten kunt gebruiken, voert u deze hier in de notatie **argumentName1 = value1, argumentName2 = value2**. Deze indeling is een andere indeling waarin de configuratie argumenten in PowerShell-cmdlets of Resource Manager-sjablonen worden geaccepteerd.
 
-- **Bestand met configuratiegegevens PSD1**: dit veld is optioneel. Als uw configuratie een configuratiebestand voor de gegevens in .psd1 vereist, moet u dit veld gebruiken om te selecteren van het gegevensveld en uploaden naar de gebruiker blob-opslag. Het configuratiebestand van de gegevens wordt beveiligd door een SAS-token in de blob-opslag.
+- **PSD1 Configuratiegegevensbestand**: dit veld is optioneel. Als uw configuratie een configuratiebestand van de gegevens in het .psd1 vereist, moet u dit veld gebruiken voor het selecteren van het gegevensveld en uploaden naar de gebruiker blob-opslag. Het configuratiebestand van de gegevens wordt beveiligd door een SAS-token in blob-opslag.
 
-- **Versie van WMF**: Hiermee geeft u de versie van Windows Management Framework (WMF) die moet worden geïnstalleerd op de virtuele machine. Deze eigenschap instelt op de meest recente installeert de meest recente versie van WMF. De enige mogelijke waarden voor deze eigenschap zijn momenteel 4.0, 5.0, 5.1 en de nieuwste. Deze mogelijke waarden zijn onderworpen aan updates. De standaardwaarde is **nieuwste**.
+- **Versie van WMF**: Hiermee geeft u de versie van Windows Management Framework (WMF) die moet worden geïnstalleerd op de virtuele machine. Als u deze eigenschap instelt op nieuwste installeert de meest recente versie van WMF. Op dit moment de enige mogelijke waarden voor deze eigenschap worden 4.0, 5.0, 5.1, en de nieuwste. Deze mogelijke waarden zijn afhankelijk van updates. De standaardwaarde is **nieuwste**.
 
-- **Gegevensverzameling**: als de extensie telemetrie verzamelt bepaalt. Zie voor meer informatie [Azure DSC-uitbreiding gegevensverzameling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
+- **Het verzamelen van gegevens**: Hiermee bepaalt u als de extensie de telemetrie verzamelt. Zie voor meer informatie, [Azure DSC-extensie gegevensverzameling](https://blogs.msdn.microsoft.com/powershell/2016/02/02/azure-dsc-extension-data-collection-2/).
 
-- **Versie**: Hiermee geeft u de versie van de DSC-uitbreiding te installeren. Zie voor meer informatie over versies [versiegeschiedenis van DSC-uitbreiding](/powershell/dsc/azuredscexthistory).
+- **Versie**: Hiermee geeft u de versie van de DSC-extensie te installeren. Zie voor meer informatie over versies [versiegeschiedenis van DSC-extensie](/powershell/dsc/azuredscexthistory).
 
-- **Secundaire versie upgraden automatisch**: dit veld wordt toegewezen aan de **AutoUpdate** in de cmdlets-switch, waardoor de uitbreiding voor het automatisch bijwerken naar de nieuwste versie tijdens de installatie. **Ja** instructies voor de extensie-handler voor het gebruik van de meest recente versie en **Nee** forceert de **versie** opgegeven moet worden geïnstalleerd. Als u geen van beide **Ja** noch **Nee** is hetzelfde als het selecteren van **Nee**.
+- **Automatische Upgrade van secundaire versie**: dit veld wordt toegewezen aan de **AutoUpdate** -switch in de cmdlets en de extensie voor het automatisch wordt bijgewerkt naar de meest recente versie tijdens de installatie maakt. **Ja** instructies voor gebruik van de meest recente beschikbare versie van de handler extensie en **Nee** forceert de **versie** opgegeven om te worden geïnstalleerd. Geen van beide selecteren **Ja** noch **Nee** is hetzelfde als het selecteren van **Nee**.
 
 ## <a name="logs"></a>Logboeken
 
-Logboeken voor de uitbreiding worden opgeslagen in de volgende locatie: `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
+Logboeken voor de extensie worden opgeslagen in de volgende locatie: `C:\WindowsAzure\Logs\Plugins\Microsoft.Powershell.DSC\<version number>`
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - Voor meer informatie over PowerShell DSC, gaat u naar de [PowerShell-documentatiecentrum](/powershell/dsc/overview).
-- Bekijk de [Resource Manager-sjabloon voor de uitbreiding van DSC](dsc-template.md).
-- Ga voor meer functionaliteit die u beheren kunt met behulp van PowerShell DSC, en voor meer DSC-resources, het [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
-- Zie voor meer informatie over gevoelige parameters doorgeven in configuraties [beheren van referenties veilig met de DSC-uitbreiding handler](dsc-credentials.md).
+- Bekijk de [Resource Manager-sjabloon voor de DSC-extensie](dsc-template.md).
+- Ga voor meer functionaliteit die u beheren kunt met behulp van PowerShell DSC, evenals meer DSC-resources, het [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
+- Zie voor meer informatie over gevoelige parameters doorgeven in configuraties [beheren van referenties veilig met de DSC-extensie-handler](dsc-credentials.md).

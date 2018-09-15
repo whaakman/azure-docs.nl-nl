@@ -1,6 +1,6 @@
 ---
-title: Gegevens kopiëren van de Oracle-Eloqua met behulp van Azure Data Factory | Microsoft Docs
-description: Ontdek hoe u gegevens kopiëren van Oracle Eloqua naar gegevensarchieven ondersteunde sink met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
+title: Gegevens kopiëren van Oracle Eloqua met Azure Data Factory (Preview) | Microsoft Docs
+description: Leer hoe u gegevens kopiëren van Oracle Eloqua naar ondersteunde sink-gegevensopslag met behulp van een kopieeractiviteit in een Azure Data Factory-pijplijn.
 services: data-factory
 documentationcenter: ''
 author: linda33wj
@@ -13,31 +13,31 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/22/2018
 ms.author: jingwang
-ms.openlocfilehash: 821e345933ba52ed2c71251bab3ba159e5412568
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: f260cd274c7d70872d0002c93780f553feef69d9
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37048370"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629862"
 ---
-# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory"></a>Gegevens kopiëren van de Oracle-Eloqua met behulp van Azure Data Factory
+# <a name="copy-data-from-oracle-eloqua-using-azure-data-factory"></a>Gegevens kopiëren van Oracle Eloqua met Azure Data Factory
 
-In dit artikel bevat een overzicht van het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens van Oracle Eloqua kopiëren. Dit is gebaseerd op de [activiteit overzicht kopiëren](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
+In dit artikel bevat een overzicht over het gebruik van de Kopieeractiviteit in Azure Data Factory om gegevens te kopiëren van Oracle Eloqua. Dit is gebaseerd op de [overzicht kopieeractiviteit](copy-activity-overview.md) artikel met daarin een algemeen overzicht van de kopieeractiviteit.
 
 > [!IMPORTANT]
 > Deze connector is momenteel in preview. U kunt uitproberen en feedback geven. Neem contact op met de [ondersteuning van Azure](https://azure.microsoft.com/support/) als u een afhankelijkheid van preview-connectors wilt opnemen in uw oplossing.
 
 ## <a name="supported-capabilities"></a>Ondersteunde mogelijkheden
 
-U kunt gegevens uit Oracle Eloqua kopiëren naar een ondersteunde sink-gegevensarchief. Zie voor een lijst van opgeslagen gegevens die worden ondersteund als bronnen/put door met de kopieerbewerking de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
+U kunt gegevens uit Oracle Eloqua kopiëren naar een ondersteunde sink-gegevensopslag. Zie voor een lijst met gegevensarchieven die worden ondersteund als bronnen/put door de kopieeractiviteit, de [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats) tabel.
 
-Azure Data Factory biedt een ingebouwde stuurprogramma's zodat connectiviteit, dus u hoeft niet te gebruik van deze connector stuurprogramma handmatig installeren.
+Azure Data Factory biedt een ingebouwde stuurprogramma als connectiviteit wilt inschakelen, dus hoeft u stuurprogramma voor gebruik van deze connector handmatig installeren.
 
 ## <a name="getting-started"></a>Aan de slag
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
-De volgende secties bevatten informatie over de eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten specifieke met Oracle Eloqua-connector.
+De volgende secties bevatten meer informatie over eigenschappen die worden gebruikt voor het definiëren van Data Factory-entiteiten die specifiek op Oracle Eloqua connector.
 
 ## <a name="linked-service-properties"></a>Eigenschappen van de gekoppelde service
 
@@ -46,12 +46,12 @@ De volgende eigenschappen worden ondersteund voor Oracle Eloqua gekoppelde servi
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
 | type | De eigenschap type moet worden ingesteld op: **Eloqua** | Ja |
-| endpoint | Het eindpunt van de server Eloqua. Eloqua ondersteunt meerdere datacenters, om te bepalen van uw eindpunt, meld u aan bij https://login.eloqua.com met uw referenties, Kopieer de **basis-URL** gedeelte van de omgeleide URL met het patroon van `xxx.xxx.eloqua.com`. | Ja |
+| endpoint | Het eindpunt van de Eloqua-server. Eloqua biedt ondersteuning voor meerdere datacenters, om te bepalen van uw eindpunt, meld u aan bij https://login.eloqua.com met uw referentie, Kopieer de **basis-URL** gedeelte van de URL van de omgeleide met het patroon van `xxx.xxx.eloqua.com`. | Ja |
 | gebruikersnaam | De sitenaam en de gebruikersnaam van uw account Eloqua in het formulier: `SiteName\Username` bijvoorbeeld `Eloqua\Alice`.  | Ja |
-| wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory of [verwijzen naar een geheim dat is opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
-| useEncryptedEndpoints | Geeft aan of de eindpunten van de gegevensbron zijn versleuteld via HTTPS. De standaardwaarde is true.  | Nee |
-| useHostVerification | Geeft aan of de hostnaam in het certificaat van de server overeenkomen met de hostnaam van de server om verbinding te maken via SSL vereisen. De standaardwaarde is true.  | Nee |
-| usePeerVerification | Geeft aan of de identiteit van de server te verifiëren wanneer u verbinding maakt via SSL. De standaardwaarde is true.  | Nee |
+| wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Ja |
+| useEncryptedEndpoints | Hiermee geeft u op of de eindpunten van de gegevensbron zijn versleuteld met behulp van HTTPS. De standaardwaarde is true.  | Nee |
+| useHostVerification | Hiermee geeft u op of de hostnaam van de in het certificaat van de server zodat deze overeenkomen met de hostnaam van de server wanneer u verbinding maakt via SSL vereist. De standaardwaarde is true.  | Nee |
+| usePeerVerification | Hiermee geeft u op of u wilt controleren of de identiteit van de server wanneer u verbinding maakt via SSL. De standaardwaarde is true.  | Nee |
 
 **Voorbeeld:**
 
@@ -74,9 +74,9 @@ De volgende eigenschappen worden ondersteund voor Oracle Eloqua gekoppelde servi
 
 ## <a name="dataset-properties"></a>Eigenschappen van gegevensset
 
-Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door Oracle Eloqua dataset.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van gegevenssets, de [gegevenssets](concepts-datasets-linked-services.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Oracle Eloqua gegevensset.
 
-Stel de eigenschap type van de gegevensset om gegevens te kopiëren van Oracle Eloqua, **EloquaObject**. Er is geen aanvullende typespecifieke-eigenschap in dit type dataset.
+Om gegevens te kopiëren van Oracle Eloqua, stel de eigenschap type van de gegevensset in **EloquaObject**. Er is geen aanvullende typespecifieke-eigenschap in dit type gegevensset.
 
 **Voorbeeld**
 
@@ -95,11 +95,11 @@ Stel de eigenschap type van de gegevensset om gegevens te kopiëren van Oracle E
 
 ## <a name="copy-activity-properties"></a>Eigenschappen van de kopieeractiviteit
 
-Zie voor een volledige lijst met secties en de eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die ondersteund worden door Oracle Eloqua bron.
+Zie voor een volledige lijst van de secties en eigenschappen die beschikbaar zijn voor het definiëren van activiteiten, de [pijplijnen](concepts-pipelines-activities.md) artikel. Deze sectie bevat een lijst met eigenschappen die worden ondersteund door Oracle Eloqua bron.
 
 ### <a name="eloquasource-as-source"></a>EloquaSource als bron
 
-Om gegevens te kopiëren van Oracle Eloqua, stelt u het brontype in de kopieerbewerking naar **EloquaSource**. De volgende eigenschappen worden ondersteund in de kopieerbewerking **bron** sectie:
+Om gegevens te kopiëren van Oracle Eloqua, stelt u het brontype in de kopieeractiviteit naar **EloquaSource**. De volgende eigenschappen worden ondersteund in de kopieeractiviteit **bron** sectie:
 
 | Eigenschap | Beschrijving | Vereist |
 |:--- |:--- |:--- |
@@ -139,4 +139,4 @@ Om gegevens te kopiëren van Oracle Eloqua, stelt u het brontype in de kopieerbe
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor een lijst met ondersteunde gegevens die zijn opgeslagen door Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).
+Zie voor een lijst van ondersteunde gegevens die zijn opgeslagen door Azure Data Factory, [ondersteunde gegevensarchieven](copy-activity-overview.md#supported-data-stores-and-formats).

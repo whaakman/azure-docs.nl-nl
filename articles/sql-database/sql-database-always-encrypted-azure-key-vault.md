@@ -10,12 +10,12 @@ ms.custom: security
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: vanto
-ms.openlocfilehash: d8f8a823f19ff233d05d09c126cf2524a0aa532e
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 5149b4cbd1e86bfca3ad7d628d129a08aff60a98
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45542190"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604299"
 ---
 # <a name="always-encrypted-protect-sensitive-data-in-sql-database-and-store-your-encryption-keys-in-azure-key-vault"></a>Altijd versleuteld: Bescherming van gevoelige gegevens in SQL-Database en uw versleutelingssleutels opslaan in Azure Key Vault
 
@@ -595,7 +595,9 @@ U kunt zien dat de versleutelde kolommen geen gegevens als tekst zonder opmaak b
 
    ![Nieuwe consoletoepassing](./media/sql-database-always-encrypted-azure-key-vault/ssms-encrypted.png)
 
-Als u SSMS wilt krijgen tot de gegevens als tekst zonder opmaak, kunt u toevoegen de *Versleutelingsinstelling kolom = ingeschakeld* parameter voor de verbinding.
+Als u SSMS wilt krijgen tot de gegevens als tekst zonder opmaak, moet u eerst om ervoor te zorgen dat de gebruiker de juiste machtigingen voor de Azure Key Vault heeft: *ophalen*, *unwrapKey*, en *controleren*. Zie voor gedetailleerde informatie [maken en Store hoofdsleutels voor kolom (Always Encrypted)](https://docs.microsoft.com/en-us/sql/relational-databases/security/encryption/create-and-store-column-master-keys-always-encrypted?view=sql-server-2017).
+
+Voeg de *Versleutelingsinstelling kolom = ingeschakeld* parameter tijdens de verbinding.
 
 1. In SSMS, met de rechtermuisknop op uw server in **Objectverkenner** en kies **verbinding verbreken**.
 2. Klik op **Connect** > **Database-Engine** te openen de **verbinding maken met Server** venster en klikt u op **opties**.

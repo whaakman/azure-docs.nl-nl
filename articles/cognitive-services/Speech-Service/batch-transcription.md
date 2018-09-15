@@ -8,12 +8,12 @@ ms.technology: Speech to Text
 ms.topic: article
 ms.date: 04/26/2018
 ms.author: panosper
-ms.openlocfilehash: 02af95859bcbdc3dd9fdd6d6354cae9cdf99eae8
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: fcc57ea7729f8a907fd39fe346270cc52c148f07
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717944"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605576"
 ---
 # <a name="batch-transcription"></a>Batchtranscriptie
 
@@ -59,21 +59,21 @@ Voor stereo audiostreams, wordt de linker- en -kanaal in Batch transcriptie gesp
 
 ## <a name="authorization-token"></a>Autorisatietoken
 
-Bij het met alle functies van de Spraakservice Unified maken van een abonnementssleutel van de [Azure-portal](https://portal.azure.com). Volg deze 6 eenvoudige stappen.
+Bij het met alle functies van de Spraakservice Unified maken van een abonnementssleutel van de [Azure-portal](https://portal.azure.com) volgende onze [Get-Started guide](get-started.md). Als u van plan bent om op te halen transcripties van onze basislijn-modellen vervolgens is dit alles die wat u nodig om te doen. 
 
-1. De sleutel van een abonnement gemaakt in Azure volgende onze [Get-Started guide](get-started.md) 
+Als u van plan bent aanpassen en het gebruik van een aangepast model moet u deze sleutel subscritpion als volgt toevoegen aan de portal voor aangepaste spraak:
 
-2. Aanmelden bij [aangepaste spraak](https://customspeech.ai).
+1. Aanmelden bij [aangepaste spraak](https://customspeech.ai).
 
-3. Selecteer **Abonnementen**.
+2. Selecteer **Abonnementen**.
 
-4. Selecteer **verbinding maken met bestaande abonnement**.
+3. Selecteer **verbinding maken met bestaande abonnement**.
 
-5. De abonnementssleutel en een alias toevoegen in de weergave die wordt weergegeven
+4. De abonnementssleutel en een alias toevoegen in de weergave die wordt weergegeven
 
     ![Schermafbeelding van de aangepaste spraak abonnementen pagina](media/stt/Subscriptions.jpg)
 
-6. Kopieer en plak deze sleutel in de clientcode in het volgende voorbeeld.
+5. Kopieer en plak deze sleutel in de clientcode in het volgende voorbeeld.
 
 > [!NOTE]
 > Als u van plan bent te gebruiken van een aangepast model, moet u de ID van dit model te. Houd er rekening mee dat dit niet de eindpunt-ID die u op de detailweergave van het eindpunt vinden is. Het is de model-ID die u ophalen kunt wanneer u de details van dit model selecteert.
@@ -101,7 +101,7 @@ Nadat u het token verkregen, moet u de SAS-URI die verwijst naar het audiobestan
    static async Task TranscribeAsync()
         { 
             private const string SubscriptionKey = "<your Speech[Preview] subscription key>";
-            private const string HostName = "cris.ai";
+            private const string HostName = "westus.cris.ai";
             private const int Port = 443;
     
             // Creating a Batch transcription API Client

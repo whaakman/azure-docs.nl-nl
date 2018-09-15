@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dobett
-ms.openlocfilehash: 227723ecea1401247f0df87bccfe058fb2273647
-ms.sourcegitcommit: 727a0d5b3301fe20f20b7de698e5225633191b06
+ms.openlocfilehash: 4e9a5808a718909b21698b551f516a238e3934b0
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39145346"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605773"
 ---
 # <a name="control-access-to-iot-hub"></a>Toegang tot IoT Hub regelen
 
@@ -42,8 +42,8 @@ U kunt verlenen [machtigingen](#iot-hub-permissions) in de volgende manieren:
   | iothubowner | Alle machtigingen |
   | service | **ServiceConnect** machtigingen |
   | apparaat | **DeviceConnect** machtigingen |
-  | RegistryRead | **RegistryRead** machtigingen |
-  | RegistryReadWrite | **RegistryRead** en **RegistryWrite** machtigingen |
+  | registryRead | **RegistryRead** machtigingen |
+  | registryReadWrite | **RegistryRead** en **RegistryWrite** machtigingen |
 
 * **Beveiligingsreferenties per apparaat**. Elke IoT-Hub bevat een [id-register][lnk-identity-registry]. Voor elk apparaat in deze id-register, kunt u beveiligingsreferenties op die verlenen **DeviceConnect** machtigingen binnen het bereik van de bijbehorende apparaat-eindpunten.
 
@@ -328,7 +328,7 @@ Als u bijvoorbeeld een service genereren met behulp van de vooraf gemaakte gedee
 
 ```nodejs
 var endpoint ="myhub.azure-devices.net/devices";
-var policyName = 'device';
+var policyName = 'registryRead';
 var policyKey = '...';
 
 var token = generateSasToken(endpoint, policyKey, policyName, 60);
@@ -431,8 +431,8 @@ De volgende tabel bevat de machtigingen die u gebruiken kunt voor het beheren va
 
 | Machtiging | Opmerkingen |
 | --- | --- |
-| **RegistryRead** |Verleent leestoegang tot het id-register. Zie voor meer informatie, [id-register][lnk-identity-registry]. <br/>Deze machtiging wordt gebruikt door de back-end cloudservices. |
-| **RegistryReadWrite** |Verleent lezen en schrijven naar het id-register. Zie voor meer informatie, [id-register][lnk-identity-registry]. <br/>Deze machtiging wordt gebruikt door de back-end cloudservices. |
+| **registryRead** |Verleent leestoegang tot het id-register. Zie voor meer informatie, [id-register][lnk-identity-registry]. <br/>Deze machtiging wordt gebruikt door de back-end cloudservices. |
+| **registryReadWrite** |Verleent lezen en schrijven naar het id-register. Zie voor meer informatie, [id-register][lnk-identity-registry]. <br/>Deze machtiging wordt gebruikt door de back-end cloudservices. |
 | **ServiceConnect** |Verleent toegang tot de cloud service gerichte communicatie en -eindpunten worden gecontroleerd. <br/>Een machtiging verleend voor apparaat-naar-cloud-berichten ontvangen, cloud-naar-apparaat-berichten verzenden en ophalen van de bijbehorende delivery-bevestigingen. <br/>Verleent toestemming om op te halen van de levering van bevestigingen voor het bestand wordt geüpload. <br/>Geeft het recht op toegang dubbels bijwerken labels en gewenste eigenschappen, gerapporteerde eigenschappen ophalen en query's uitvoeren. <br/>Deze machtiging wordt gebruikt door de back-end cloudservices. |
 | **DeviceConnect** |Verleent toegang tot apparaat gerichte eindpunten. <br/>Een machtiging verleend voor apparaat-naar-cloud-berichten verzenden en ontvangen van berichten van cloud-naar-apparaat. <br/>Verleent machtiging voor het uploaden van bestanden vanaf een apparaat uitvoeren. <br/>Verleent toestemming voor het apparaat apparaatdubbel-gewenste eigenschap meldingen ontvangen en bijwerken van de apparaatdubbel gerapporteerde eigenschappen. <br/>Verleent machtiging voor het uitvoeren van bestand wordt geüpload. <br/>Deze machtiging wordt gebruikt door apparaten. |
 

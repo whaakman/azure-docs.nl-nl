@@ -3,7 +3,7 @@ title: Azure Stack 1805 Update | Microsoft Docs
 description: Meer informatie over wat is er nieuw in de update 1805 voor geïntegreerde Azure Stack-systemen, met inbegrip van de bekende problemen en waar u de update te downloaden.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 08/27/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 4db0ce5e877f3054cc41e8940e8d9e672f7632c6
-ms.sourcegitcommit: f6e2a03076679d53b550a24828141c4fb978dcf9
+ms.openlocfilehash: 60b4658d18d39797d30055e86cb21689cfb661fa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43110345"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631653"
 ---
 # <a name="azure-stack-1805-update"></a>Azure Stack 1805 update
 
@@ -57,7 +57,7 @@ Deze update bevat de volgende verbeteringen voor Azure Stack.
 
 
 
-### <a name="fixed-issues"></a>Opgeloste problemen
+### <a name="fixed-issues"></a>Problemen opgelost
 
 <!-- # - applicability -->
 - We het probleem opgelost dat geblokkeerd [een nieuwe ondersteuningsaanvraag te openen in de vervolgkeuzelijst](azure-stack-manage-portals.md#quick-access-to-help-and-support) uit in de beheerportal. Nu deze optie werkt zoals bedoeld. 

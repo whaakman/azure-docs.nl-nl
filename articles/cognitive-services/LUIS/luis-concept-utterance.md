@@ -1,20 +1,21 @@
 ---
-title: Uitingen in LUIS-apps in Azure | Microsoft Docs
-description: Utterances toevoegen in Language Understanding Intelligent Service (LUIS)-apps.
+title: Uitingen in LUIS-apps
+titleSuffix: Azure Cognitive Services
+description: Uitingen zijn invoer van de gebruiker die uw app moet worden geïnterpreteerd. Items waarvan u denkt dat gebruikers verzamelen. Uitingen die dezelfde betekenis, maar zijn samengesteld anders opnemen in word lengte en de plaatsing van word.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/13/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 6f962d0aaf631051c841be29d2854a89bf58ac25
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: c455296348e3b4378a2912fa5388098b206b3ea4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224412"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632310"
 ---
 # <a name="utterances-in-luis"></a>Uitingen in LUIS
 
@@ -35,12 +36,14 @@ Bij het kiezen van uitingen er rekening mee dat wat u denkt dat een algemene ter
 U vindt dat zelfs als u inspanningen voor het maken van uiteenlopende zin patronen, u nog steeds herhaald sommige vocabulaire.
 
 Deze voorbeeld-uitingen nemen:
-```
-how do I get a computer?
-Where do I get a computer?
-I want to get a computer, how do I go about it?
-When can I have a computer? 
-```
+
+|Voorbeelden van utterances|
+|--|
+|hoe krijg ik een computer?|
+|Waar vind ik een computer?|
+|Ik wil ophalen van een computer, hoe gaat het erover?|
+|Wanneer kan ik een computer hebben?| 
+
 De term core hier is 'computer', niet gewijzigd. Ze konden zeggen desktopcomputer, laptop, werkstation of zelfs alleen machine. LUIS afleidt op intelligente wijze synoniemen uit de context, maar wanneer u uitingen voor training maakt, is het nog steeds beter ze variëren.
 
 ## <a name="example-utterances-in-each-intent"></a>Voorbeeld-uitingen in elk doel

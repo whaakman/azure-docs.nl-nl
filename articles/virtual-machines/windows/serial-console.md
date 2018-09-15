@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 1bb6e464b748f2558cec35a95554bb3e08b667f0
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 785b0137624cc6d940f4944e0357d0a5774561df
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44378326"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634707"
 ---
-# <a name="virtual-machine-serial-console-preview"></a>Seriële Console van virtuele Machine (preview) 
+# <a name="virtual-machine-serial-console"></a>Seriële Console van virtuele Machine
 
 
 De seriële Console van de virtuele Machine op Azure biedt toegang tot een op tekst gebaseerde console voor Windows-machines. Deze seriële verbinding is met de seriële poort COM1 van de virtuele machine, toegang tot de virtuele machine die onafhankelijk is van het netwerk of de staat van besturingssysteem van een virtuele machine. Toegang tot de seriële console voor een virtuele machine op dit moment kunnen alleen worden uitgevoerd via Azure portal en alleen voor gebruikers die VM-Inzender hebben of hoger toegang tot de virtuele machine is toegestaan. 
@@ -29,7 +29,7 @@ De seriële Console van de virtuele Machine op Azure biedt toegang tot een op te
 Voor de seriële console-documentatie voor virtuele Linux-machines [Klik hier](../linux/serial-console.md).
 
 > [!Note] 
-> Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord met de gebruiksvoorwaarden van gaat is. Zie voor meer informatie [Microsoft Azure aanvullende gebruiksvoorwaarden voor Microsoft Azure-Previews.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Deze service is momenteel **preview-versie** en toegang tot de seriële console voor virtuele machines is beschikbaar voor globale Azure-regio's. Seriële console is op dit moment niet beschikbaar Azure Government, Azure Duitsland en Azure China-cloud.
+> Seriële Console voor virtuele machines is algemeen beschikbaar in de globale Azure-regio's. Op dit moment is seriële console nog niet beschikbaar Azure Government or Azure China-cloud.
 
  
 
@@ -51,7 +51,7 @@ Seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal
   1. De Azure-portal openen
   2. Selecteer de virtuele machines in het menu links.
   3. Klik op de virtuele machine in de lijst. De overzichtspagina voor de virtuele machine wordt geopend.
-  4. Schuif omlaag naar de ondersteuning en probleemoplossing sectie en klik op de optie voor de seriële console (Preview). Een nieuw deelvenster met de seriële console opent en start de verbinding.
+  4. Schuif omlaag naar de ondersteuning en probleemoplossing sectie en klik op de optie 'Seriële console'. Een nieuw deelvenster met de seriële console opent en start de verbinding.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
@@ -187,18 +187,18 @@ U hebt niet de vereiste machtigingen voor het gebruik van de seriële console va
 Kan niet bepalen van de resourcegroep voor het opslagaccount van de diagnostische gegevens over opstarten '<STORAGEACCOUNTNAME>'. Controleer of u diagnostische gegevens over opstarten is ingeschakeld voor deze virtuele machine en u toegang hebt tot dit opslagaccount wordt gebruikt. | Toegang tot de seriële console moet bepaalde machtiging voor toegang tot. Zie [vereisten](#prerequisites) voor meer informatie
 Een antwoord 'Verboden' is opgetreden bij het openen van deze virtuele machine opstarten diagnostische storage-account. | Zorg ervoor dat diagnostische gegevens over de opstarten beschikt niet over een account-firewall. Een toegankelijke opstarten diagnostische storage-account is nodig voor de seriële console van functie.
 Web socket is gesloten of kan niet worden geopend. | U moet mogelijk aan lijst met geaccepteerde `*.console.azure.com`. Een meer gedetailleerde maar langer aanpak is het whitelist de [Microsoft Azure Datacenter IP-bereiken](https://www.microsoft.com/en-us/download/details.aspx?id=41653), waardoor vrij regelmatig worden gewijzigd.
+Alleen gegevens over de servicestatus wordt weergegeven bij het verbinden met een Windows-VM| Dit wordt weergegeven als de beheerconsole van speciale niet is ingeschakeld voor uw Windows-installatiekopie. Zie [toegang seriële Console voor Windows](#access-serial-console-for-windows) voor instructies over het handmatig inschakelen SAC op uw Windows-VM. Meer informatie kunnen u vinden op [Windows Health signalen](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 
 ## <a name="known-issues"></a>Bekende problemen 
-Aangezien we nog steeds in de previewfase voor toegang tot de seriële console, we werken via een aantal bekende problemen, hieronder ziet u de lijst met mogelijke oplossingen 
+We zijn ons bewust van enkele problemen met de seriële console. Hier volgt een lijst van deze problemen beschreven en stappen voor risicobeperking.
 
 Probleem                             |   Oplossing 
 :---------------------------------|:--------------------------------------------|
 Nadat de banner van de verbinding wordt niet weergegeven voor een logboek in de prompt te maken met invoeren | Raadpleeg deze pagina: [Hitting invoeren, gebeurt er niets](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Dit kan gebeuren als u een aangepaste virtuele machine uitvoert, beveiligde toestel of WORMGATEN configuratie die Windows causers als u wilt geen correct verbinding maken met de seriële poort.
-Alleen gegevens over de servicestatus wordt weergegeven bij het verbinden met een Windows-VM| Dit wordt weergegeven als de beheerconsole van speciale niet is ingeschakeld voor uw Windows-installatiekopie. Zie [toegang seriële Console voor Windows](#access-serial-console-for-windows) voor instructies over het handmatig inschakelen SAC op uw Windows-VM. Meer informatie kunnen u vinden op [Windows Health signalen](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Windows_Health_Info.md).
 Kan niet naar het type op SAC vragen als kernelfoutopsporing is ingeschakeld | RDP-verbinding VM en voer `bcdedit /debug {current} off` vanaf een opdrachtprompt met verhoogde bevoegdheid. Als u niet de RDP-verbinding kunt u in plaats daarvan de besturingssysteemschijf koppelen aan een andere Azure-virtuele machine en wijzigen terwijl gekoppeld als een gegevens-schijf met `bcdedit /store <drive letter of data disk>:\boot\bcd /debug <identifier> off`, klikt u vervolgens wisselen de schijf weer.
 Als de oorspronkelijke inhoud had een herhalende teken in PowerShell te plakken in SAC resulteert in een derde teken | Er is een tijdelijke oplossing voor het verwijderen van de module PSReadLine uit de huidige sessie. Voer `Remove-Module PSReadLine` te verwijderen van de module PSReadLine uit de huidige sessie - wordt dit niet verwijderen of de module verwijderen.
 Sommige invoer toetsenbord vreemd SAC uitvoer produceren (bijvoorbeeld `[A`, `[3~`) | [VT100](https://aka.ms/vtsequences) escapereeksen worden niet ondersteund door de SAC-prompt.
-Een antwoord 'Verboden' is opgetreden bij het openen van deze virtuele machine opstarten diagnostische storage-account. | Zorg ervoor dat diagnostische gegevens over de opstarten beschikt niet over een account-firewall. Een toegankelijke opstarten diagnostische storage-account is nodig voor de seriële console van functie.
+Het plakken van zeer lange tekenreeksen werkt niet | Seriële console beperkt de lengte van tekenreeksen in de terminal naar 2048 tekens geplakt. Zo wordt voorkomen dat de bandbreedte van de seriële poort wordt belast.
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen 
 **Q. Hoe kan ik feedback verzenden?**

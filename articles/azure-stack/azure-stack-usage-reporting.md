@@ -1,9 +1,9 @@
 ---
-title: Azure-Stack gebruiksgegevens rapporteren aan Azure | Microsoft Docs
-description: Informatie over het instellen van rapportage in Azure Stack gebruiksgegevens.
+title: Azure Stack-gebruiksgegevens naar Azure rapport | Microsoft Docs
+description: Meer informatie over het instellen van gebruiksgegevens rapportage in Azure Stack.
 services: azure-stack
 documentationcenter: ''
-author: brenduns
+author: sethmanheim
 manager: femila
 editor: ''
 ms.service: azure-stack
@@ -12,101 +12,101 @@ pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/30/2018
-ms.author: brenduns
+ms.author: sethm
 ms.reviewer: alfredop
-ms.openlocfilehash: daaaf6c574c4b169c19ebec42ad68e2d818ca1cb
-ms.sourcegitcommit: 680964b75f7fff2f0517b7a0d43e01a9ee3da445
+ms.openlocfilehash: 54a81e6c5c6e1fe5c37b985e40174dc369edfe6d
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34603699"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630406"
 ---
-# <a name="report-azure-stack-usage-data-to-azure"></a>Azure Stack gebruiksgegevens rapporteren naar Azure 
+# <a name="report-azure-stack-usage-data-to-azure"></a>Rapport van Azure Stack-gebruiksgegevens naar Azure 
 
-Gegevens over het gebruik, ook wel verbruiksgegevens, vertegenwoordigt de hoeveelheid resources die worden gebruikt. 
+Gegevens over gebruik, ook wel genoemd verbruiksgegevens, vertegenwoordigt de hoeveelheid resources die worden gebruikt. 
 
-Azure Stack met meerdere knooppunten systemen die gebruikmaken van facturering model op basis van verbruik moeten gebruiksgegevens rapporteren aan Azure voor facturering doel.  Azure Stack-operators moeten hun Azure Stack instantie geconfigureerd met gebruiksgegevens rapport naar Azure.
+Azure Stack met meerdere knooppunten systemen die gebruikmaken van facturering van maandabonnementen op basis van gebruik moeten gegevens over gebruik rapporteren naar Azure voor factureringsdoeleinden.  Azure Stack-operators moeten hun Azure Stack-exemplaar om rapport gebruiksgegevens naar Azure te configureren.
 
 > [!NOTE]
-> Gegevens gebruiksrapportage is vereist voor de Azure-Stack met meerdere knooppunten-gebruikers die een licentie onder het Pay-as-u-use-model. Dit is optioneel voor klanten die een licentie onder het model capaciteit (Zie de [aanschaffen pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Voor gebruikers van Azure Stack Development Kit Azure Stack operators gebruiksgegevens rapporteren en testen van de functie. Echter gebruikers wordt niet in rekening gebracht voor enig gebruik die ze rekening worden gebracht. 
+> Rapportage van gebruik van gegevens is vereist voor de gebruikers van de Azure Stack-meerdere knooppunten met een licentie onder het model betalen als u-gebruik. Het is optioneel voor klanten die een licentie onder het model capaciteit (Zie de [over het aanschaffen van pagina](https://azure.microsoft.com/overview/azure-stack/how-to-buy/). Voor gebruikers van Azure Stack Development Kit, Azure Stack-operators rapporteren van gegevens over gebruik en de functie testen. Echter gebruikers niet gefactureerd voor het gebruik die ze in rekening worden gebracht. 
 
 
 ![Facturering stroom](media/azure-stack-usage-reporting/billing-flow.png)
 
-Gegevens over het gebruik van Azure-Stack verzonden naar Azure via de Azure-brug. In Azure, wordt het systeem commerce verwerkt de gebruiksgegevens en genereert de factuur. Nadat de factuur is gegenereerd, de eigenaar van de Azure-abonnement kunt weergeven en downloaden via de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions). Raadpleeg voor meer informatie over hoe Azure-Stack is in licentie gegeven aan de [Azure Stack verpakken en prijzen document](https://go.microsoft.com/fwlink/?LinkId=842847&clcid=0x409).
+Gegevens over het gebruik wordt naar Azure via de Azure-brug verzonden vanaf Azure Stack. In Azure, de commerce-systeem verwerkt de gegevens over gebruik en de factuur wordt gegenereerd. Nadat de factuur is gegenereerd, de eigenaar van de Azure-abonnement kunt weergeven en downloaden via de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions). Raadpleeg voor meer informatie over hoe Azure Stack is een licentie heeft, de [Azure Stack verpakking en prijzen document](https://go.microsoft.com/fwlink/?LinkId=842847&clcid=0x409).
 
-## <a name="set-up-usage-data-reporting"></a>Gegevens gebruiksrapportage instellen
+## <a name="set-up-usage-data-reporting"></a>Gebruiksrapportage voor gegevens instellen
 
-Als u gegevens gebruiksrapportage instelt, moet u [registreren van uw Azure-Stack-exemplaar met Azure](azure-stack-register.md). Als onderdeel van het registratieproces, is het onderdeel Azure Bridge van Azure-Stack die Azure-Stack verbindt met Azure en de gebruiksgegevens verzendt, geconfigureerd. De volgende gegevens over het gebruik wordt door Azure Stack verzonden naar Azure:
+Als u gegevens gebruiksrapportage instelt, moet u [registreren van uw Azure Stack-exemplaar met Azure](azure-stack-register.md). Als onderdeel van het registratieproces, is het Azure-Bridge-onderdeel van Azure Stack, die verbinding maakt Azure Stack met Azure en verzendt gegevens over gebruik, geconfigureerd. De volgende gegevens over gebruik wordt verzonden vanaf de Azure Stack naar Azure:
 
 - **ID meten** – unieke ID voor de resource die is verbruikt.
-- **Aantal** – hoeveelheid Resourcegebruik.
-- **Locatie** – locatie waar de huidige Azure-Stack-resource is geïmplementeerd.
+- **Aantal** – hoeveelheid van het gebruik van bronnen.
+- **Locatie** – de locatie waar de huidige Azure Stack-resource is geïmplementeerd.
 - **Resource-URI** – volledig gekwalificeerde URI van de resource waarvoor gebruik wordt gerapporteerd.
-- **Abonnements-ID** – abonnement-ID van de Azure-Stack gebruiker, namelijk abonnement op de lokale (Azure-Stack).
-- **Tijd** – begin- en tijd van de gebruiksgegevens. Er is enige vertraging tussen het moment wanneer deze bronnen worden verbruikt in Azure-Stack en wanneer de gebruiksgegevens naar commerce wordt gemeld. Duurt enkele uren in een andere Azure Stack statistische gegevens over het gebruik voor elke 24 uur reporting gegevens en gebruiksgegevens om commerce pijplijn in Azure. Dus gebruik deze gebeurtenis treedt op vóór middernacht kort mogelijk weergegeven in Azure de volgende dag.
+- **Abonnements-ID** – abonnements-ID van de Azure Stack-gebruiker die de lokale (Azure Stack)-abonnement.
+- **Tijd** : begin- en -tijd van de gebruiksgegevens. Er is enige vertraging tussen het moment wanneer deze resources worden gebruikt in Azure Stack, waarbij de gebruiksgegevens wordt gerapporteerd aan commerce. Duurt enkele uren in een andere Azure Stack statistische functies gebruiksgegevens voor elke 24 uur en rapportage gebruiksgegevens aan commerce-pijplijn in Azure. Dus gebruik die wordt weergegeven over enkele ogenblikken vóór middernacht mogelijk weergegeven in Azure de volgende dag.
 
-## <a name="generate-usage-data-reporting"></a>Rapportage over het gebruik gegevens genereren
+## <a name="generate-usage-data-reporting"></a>Rapportage van gebruik gegevens genereren
 
-1. Als u wilt testen gebruiksgegevens reporting, een paar resources te maken in Azure-Stack. Bijvoorbeeld, kunt u een [opslagaccount](azure-stack-provision-storage-account.md), [Windows Server-VM](azure-stack-provision-vm.md) en een Linux-VM met Basic en Standard-SKU's om te zien hoe core gebruik wordt gemeld. De gebruiksgegevens voor verschillende soorten resources zijn onder andere meters gerapporteerd.
+1. Als u wilt testen rapportage over gebruiksgegevens, enkele resources te maken in Azure Stack. Bijvoorbeeld, kunt u een [opslagaccount](azure-stack-provision-storage-account.md), [Windows Server-VM](azure-stack-provision-vm.md) en een Linux-VM met Basic en Standard-SKU's om te zien hoe core-gebruik wordt gerapporteerd. Gegevens over gebruik voor verschillende soorten resources worden onder een andere manier gerapporteerd.
 
-2. Laat uw resources voor uitvoering voor enkele uren. Gebruiksgegevens worden verzameld ongeveer één keer per uur. Na het verzamelen, worden deze gegevens verzonden naar Azure en verwerkt in de Azure commerce-systeem. Dit proces kan enkele uren duren.
+2. Laat uw resources voor een paar uur uitgevoerd. Informatie over het gebruik is ongeveer één keer per uur worden verzameld. Na het verzamelen, is deze gegevens naar Azure verzonden en verwerkt in het Azure commerce-systeem. Dit proces kan enkele uren duren.
 
-## <a name="view-usage---csp-subscriptions"></a>Gebruik in de weergave - CSP-abonnementen
+## <a name="view-usage---csp-subscriptions"></a>Gebruik van weergeven - CSP-abonnementen
 
-Als u uw Azure-Stack met behulp van een CSP-abonnement hebt geregistreerd, kunt u uw gebruik en de kosten kunt weergeven op dezelfde manier waarop u Azure-verbruik weergeven. Azure Stack-gebruik worden opgenomen in uw factuur is vermeld en in het bestand afstemming via [Partnercentrum](https://partnercenter.microsoft.com/partner/home). Het bestand afstemming wordt maandelijks bijgewerkt. Als u nodig hebt voor toegang tot gebruiksgegevens van recente Azure Stack, kunt u de Partner Center API's.
+Als u uw Azure-Stack met behulp van een CSP-abonnement hebt geregistreerd, kunt u uw gebruik en kosten bekijken op dezelfde manier als waarop u Azure-verbruik bekijken. Gebruik van Azure Stack worden opgenomen in uw factuur en in het afstemmingsbestand, beschikbaar via [Partner Center](https://partnercenter.microsoft.com/partner/home). Het afstemmingsbestand wordt maandelijks bijgewerkt. Als u nodig hebt voor toegang tot gebruiksgegevens van recente Azure Stack, kunt u de Partner Center API's gebruiken.
 
    ![partnercentrum](media/azure-stack-usage-reporting/partner-center.png)
 
 
-## <a name="view-usage--enterprise-agreement-subscriptions"></a>Gebruik in de weergave-Enterprise Agreement abonnementen
+## <a name="view-usage--enterprise-agreement-subscriptions"></a>Gebruik van weergave: Enterprise Agreement-abonnementen
 
-Als u uw Azure-Stack met behulp van een Enterprise Agreement-abonnement hebt geregistreerd, vindt u de informatie over het gebruik en de kosten in de [EA Portal](https://ea.azure.com/). Azure Stack-gebruik worden opgenomen in de geavanceerde downloads samen met Azure gebruik onder de sectie rapporten in de portal EA. 
+Als u uw Azure-Stack met behulp van een Enterprise Agreement-abonnement hebt geregistreerd, kunt u bekijken uw gebruik en de kosten in de [EA-Portal](https://ea.azure.com/). Gebruik van Azure Stack worden opgenomen in de geavanceerde downloads samen met gebruik van Azure onder de sectie rapporten in de EA-portal. 
 
-## <a name="view-usage--other-subscriptions"></a>Gebruik in de weergave-andere abonnementen
+## <a name="view-usage--other-subscriptions"></a>Gebruik van weergave: andere abonnementen
 
-Als u uw Azure-Stack met behulp van een ander abonnementstype, bijvoorbeeld een abonnement omslagstelsel geregistreerd kunt u informatie over het gebruik en kosten weergeven in het Azure-accountcentrum. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) beheerder als de Azure-account in en selecteer de Azure-abonnement dat u gebruikt voor het registreren van de Azure-Stack. U kunt de Azure-Stack-gebruiksgegevens het bedrag in rekening gebracht voor elk van de gebruikte resources, zoals wordt weergegeven in de volgende afbeelding kunt bekijken:
+Als u uw Azure-Stack met behulp van een andere abonnementstype, bijvoorbeeld een betalen naar gebruik-abonnement, geregistreerd kunt u gebruik en kosten bekijken in het Azure-accountcentrum. Aanmelden bij de [Azure-Accountcentrum](https://account.windowsazure.com/Subscriptions) als de Azure account beheerder en selecteert u de Azure-abonnement dat u gebruikt voor het registreren van de Azure Stack. U vindt de gebruiksgegevens van Azure Stack, het bedrag in rekening gebracht voor elk van de gebruikte resources, zoals wordt weergegeven in de volgende afbeelding:
 
    ![Facturering stroom](media/azure-stack-usage-reporting/pricing-details.png)
 
-Voor de Azure-Stack Development Kit Stack Azure-resources zijn niet in rekening gebracht zodat de prijs wordt weergegeven als $0,00.
+Voor de Azure Stack Development Kit, Azure Stack-resources worden niet in rekening gebracht, zodat de prijs wordt weergegeven als $0,00.
 
-## <a name="which-azure-stack-deployments-are-charged"></a>Welke Azure-Stack-implementaties worden in rekening gebracht?
+## <a name="which-azure-stack-deployments-are-charged"></a>Welke Azure Stack-implementaties worden in rekening gebracht?
 
-Resourcegebruik is gratis voor Azure Stack Development Kit. Terwijl voor systemen met meerdere knooppunten Azure Stack, werkbelasting van virtuele machines, Storage-services en App-Services in rekening gebracht worden.
+Resourcegebruik is gratis voor Azure Stack Development Kit. Dat voor Azure Stack-systemen met meerdere knooppunten, werkbelasting van virtuele machines, Storage-services en App-Services in rekening gebracht worden.
 
-## <a name="are-users-charged-for-the-infrastructure-vms"></a>Worden gebruikers in rekening gebracht voor de infrastructuur van virtuele machines?
+## <a name="are-users-charged-for-the-infrastructure-vms"></a>Zijn gebruikers in rekening gebracht voor de infrastructuur-VM's?
 
-Nee. Gebruiksgegevens voor sommige Azure Stack-resourceprovider virtuele machines in Azure wordt gerapporteerd, maar er zijn geen kosten voor deze virtuele machines, noch voor de virtuele machines gemaakt tijdens de implementatie zodat de Azure-Stack-infrastructuur.  
+Nee. Gegevens over gebruik voor sommige Azure Stack-resourceprovider VM's wordt gerapporteerd aan Azure, maar er zijn geen kosten voor deze virtuele machines, noch voor de virtuele machines die zijn gemaakt tijdens de implementatie om in te schakelen van de Azure Stack-infrastructuur.  
 
-Gebruikers worden alleen kosten in rekening gebracht voor virtuele machines die worden uitgevoerd onder de tenant-abonnementen. Alle werkbelastingen moeten worden geïmplementeerd onder tenant abonnementen om te voldoen aan de licentievoorwaarden van Azure-Stack.
+Gebruikers betalen alleen voor virtuele machines die worden uitgevoerd onder de tenant-abonnementen. Alle werkbelastingen moeten worden geïmplementeerd onder de tenant-abonnementen om te voldoen aan de licentievoorwaarden van Azure Stack.
 
-## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Ik heb een Windows Server-licentie die ik wil op Azure-Stack gebruiken, hoe kan ik dat doen?
+## <a name="i-have-a-windows-server-license-i-want-to-use-on-azure-stack-how-do-i-do-it"></a>Ik heb een Windows Server-licentie die ik wil gebruiken in Azure Stack, hoe kan ik dat doen?
 
-Met behulp van de bestaande licenties voorkomt gebruik meters genereren. Bestaande Windows Server-licenties kunnen worden gebruikt in Azure-Stack, zoals beschreven in de sectie 'Met behulp van bestaande software met Azure Stack' van [de Azure-handleiding voor het licentieverlening van Stack](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Klanten willen hun virtuele machines van Windows Server implementeren, zoals beschreven in de [hybride-voordeel voor Windows Server-licentie](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) artikel om te kunnen gebruiken hun bestaande licenties.
+Met behulp van de bestaande licenties voorkomt het genereren van meters in gebruik. Bestaande Windows Server-licenties kunnen worden gebruikt in Azure Stack, zoals beschreven in de sectie 'Met behulp van bestaande software met Azure Stack' van [de handleiding Azure Stack-licentieverlening](https://go.microsoft.com/fwlink/?LinkId=851536&clcid=0x409). Klanten moeten hun virtuele machines van Windows Server implementeren, zoals beschreven in de [Hybrid benefit voor Windows Server-licentie](https://docs.microsoft.com/azure/virtual-machines/windows/hybrid-use-benefit-licensing) artikel om te kunnen hun bestaande licenties te gebruiken.
 
-## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Welke abonnement wordt in rekening gebracht voor de resources die worden gebruikt?
-Het abonnement dat is geleverd wanneer [Azure Stack registreren bij Azure](azure-stack-register.md) wordt in rekening gebracht.
+## <a name="which-subscription-is-charged-for-the-resources-consumed"></a>Welk abonnement wordt in rekening gebracht voor de resources die nodig zijn?
+Het abonnement dat is opgegeven bij [Azure Stack registreren bij Azure](azure-stack-register.md) wordt in rekening gebracht.
 
 ## <a name="what-types-of-subscriptions-are-supported-for-usage-data-reporting"></a>Welke typen abonnementen worden ondersteund voor het gebruik van gegevens melden?
 
-Voor Azure-Stack-multinode worden Enterprise Agreement (EA) en CSP-abonnementen ondersteund. Voor de Azure-Stack Development Kit ondersteuning voor Enterprise Agreement (EA), betalen naar gebruik, CSP en MSDN-abonnementen gebruiksrapportage van gegevens.
+Voor Azure Stack multinode, worden Enterprise Agreement (EA) en CSP-abonnementen ondersteund. Voor de Azure Stack Development Kit ondersteuning voor Enterprise Agreement (EA), betalen per gebruik, CSP en MSDN-abonnementen gegevens rapportage over het gebruik.
 
-## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Werk in soevereine clouds reporting gebruiksgegevens ondersteunt?
+## <a name="does-usage-data-reporting-work-in-sovereign-clouds"></a>Werk in onafhankelijke clouds rapportage over gebruiksgegevens gebruikt?
 
-In de Azure-Stack Development Kit, gegevens gebruiksrapportage abonnementen die zijn gemaakt in het globale Azure systeem vereist. Abonnementen die zijn gemaakt in een van de soevereine clouds (Azure Government, Duitse Azure en Azure voor China clouds) kunnen niet worden geregistreerd met Azure, zodat ze niet gebruiksrapportage van gegevens ondersteunen.
+In de Azure Stack Development Kit vereist gebruiksrapportage voor gegevens abonnementen die zijn gemaakt in de globale Azure-systeem. Abonnementen die zijn gemaakt in een van de soevereine clouds (Azure Government, Azure Duitsland en Azure China clouds) kunnen niet worden geregistreerd met Azure, zodat ze bieden geen ondersteuning voor rapportage van gegevens over het gebruik.
 
-## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Hoe kunnen gebruikers Azure Stack gebruiksgegevens in de Azure portal facturering identificeren?
+## <a name="how-can-users-identify-azure-stack-usage-data-in-the-azure-billing-portal"></a>Hoe kunnen gebruikers gegevens over gebruik Azure Stack in de Azure-factureringsportal identificeren?
 
-Gebruikers kunnen zien van de Azure-Stack-gebruiksgegevens in het gegevensbestand van het gebruik. Als u wilt weten over het ophalen van het gegevensbestand van het gebruik, verwijzen naar de [gebruik bestand downloaden van het Azure-Accountcentrum artikel](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Het gebruik van details-bestand bevat de Azure-Stack meters die Azure-Stack opslag en virtuele machines te identificeren. Alle resources die worden gebruikt in Azure-Stack worden gerapporteerd in het gebied met de naam 'Azure Stack'.
+Gebruikers kunnen de Azure Stack-gebruiksgegevens in het gebruik van informatie bestand zien. Als u wilt weten over het ophalen van het gebruiksbestand voor meer informatie, raadpleegt u de [gebruiksbestand downloaden van het artikel Azure-Accountcentrum](https://docs.microsoft.com/azure/billing/billing-download-azure-invoice-daily-usage-date#download-usage-from-the-account-center-csv). Het gebruik van informatie bestand bevat de Azure Stack-meters die Azure Stack-opslag en virtuele machines identificeren. Alle resources die worden gebruikt in Azure Stack worden gerapporteerd in de regio met de naam "Azure Stack."
 
-## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Waarom niet het-gebruik gerapporteerd in de Azure-Stack overeenkomt met het rapport is gegenereerd op basis van de Azure-Accountcentrum?
+## <a name="why-doesnt-the-usage-reported-in-azure-stack-match-the-report-generated-from-azure-account-center"></a>Waarom niet het gebruik in Azure Stack gerapporteerd overeenkomt met het rapport gegenereerd op basis van Azure-Accountcentrum?
 
-Er is altijd een vertraging tussen de gebruiksgegevens die zijn gerapporteerd door het gebruik van Azure-Stack API's en de gebruiksgegevens die zijn gerapporteerd door het Azure-Accountcentrum. Dit uitstel is de tijd die nodig zijn voor het uploaden van gebruiksgegevens van Azure-Stack naar Azure commerce. Als gevolg van deze vertraging gebruik binnenkort voor middernacht die mogelijk weergegeven in Azure de volgende dag. Als u de [API's voor informatie over het gebruik van Azure-Stack](azure-stack-provider-resource-api.md), en de resultaten met het gebruik gerapporteerd in de Azure-facturering portal vergelijken, ziet u een verschil.
+Er is altijd een vertraging tussen de gebruiksgegevens die zijn gerapporteerd door het gebruik van Azure Stack API's en het van gebruiksgegevens die zijn gerapporteerd door het Azure-Accountcentrum. Deze vertraging is de tijd die nodig is voor het uploaden van gebruiksgegevens van Azure Stack op Azure commerce. Vanwege deze vertraging gebruik die wordt weergegeven over enkele ogenblikken vóór middernacht mogelijk weergegeven in Azure de volgende dag. Als u de [API's voor gebruik van Azure-Stack](azure-stack-provider-resource-api.md), en vergelijk de resultaten het gebruik van gerapporteerd in de Azure-factureringsportal, ziet u een verschil.
 
 ## <a name="next-steps"></a>Volgende stappen
 
 * [API voor providergebruik](azure-stack-provider-resource-api.md)  
 * [API voor tenantgebruik](azure-stack-tenant-resource-usage-api.md)
 * [Veelgestelde vragen over gebruik](azure-stack-usage-related-faq.md)
-* [Beheren van het gebruik en facturering als een Cloudserviceprovider](azure-stack-add-manage-billing-as-a-csp.md)
+* [Beheren van gebruik en facturering als een Cloudserviceprovider](azure-stack-add-manage-billing-as-a-csp.md)

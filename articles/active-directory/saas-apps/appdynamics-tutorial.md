@@ -11,14 +11,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/09/2018
+ms.date: 09/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 3600e83d18f8cabd03c46af2ef47445c588cbdb5
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: 7f24dad3cfefd5ecb0b1c78f4a2b242c99a01239
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38548272"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605824"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-appdynamics"></a>Zelfstudie: Azure Active Directory-integratie met AppDynamics
 
@@ -59,7 +59,7 @@ Voor het configureren van de integratie van AppDynamics in Azure AD, moet u AppD
 
 **Als u wilt toevoegen AppDynamics uit de galerie, moet u de volgende stappen uitvoeren:**
 
-1. In de  **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
+1. In de **[Azure-portal](https://portal.azure.com)**, klik in het navigatievenster aan de linkerkant op **Azure Active Directory** pictogram. 
 
     ![Active Directory][1]
 
@@ -112,7 +112,7 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Eenmalige aanmelding configureren](./media/appdynamics-tutorial/tutorial_appdynamics_url.png)
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname>.saas.appdynamics.com`
+    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname>.saas.appdynamics.com?accountName=<companyname>`
 
     b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<companyname>.saas.appdynamics.com/controller`
 
@@ -189,6 +189,7 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
 ### <a name="creating-an-appdynamics-test-user"></a>Het maken van een testgebruiker AppDynamics
 
 Het doel van deze sectie is het maken van een gebruiker met de naam van Britta Simon in AppDynamics. AppDynamics biedt ondersteuning voor just-in-time inrichting, dit is standaard ingeschakeld. Er is geen actie-item voor u in deze sectie. Een nieuwe gebruiker is gemaakt tijdens een poging tot toegang tot AppDynamics als deze nog niet bestaat.
+
 >[!Note]
 >Als u maken van een gebruiker handmatig wilt, neem dan contact op met [AppDynamics Client ondersteuningsteam](https://www.appdynamics.com/support/).
 
@@ -231,7 +232,7 @@ Wanneer u op de tegel AppDynamics in het toegangsvenster, u moet u automatisch a
 ## <a name="additional-resources"></a>Aanvullende resources
 
 * [Lijst met zelfstudies over het integreren van SaaS-Apps met Azure Active Directory](tutorial-list.md)
-* [Wat is toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory?](../manage-apps/what-is-single-sign-on.md)
+* [What is application access and single sign-on with Azure Active Directory?](../manage-apps/what-is-single-sign-on.md) (Wat houden toegang tot toepassingen en eenmalige aanmelding met Azure Active Directory in?)
 
 <!--Image references-->
 

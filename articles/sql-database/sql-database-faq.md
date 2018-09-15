@@ -9,12 +9,12 @@ ms.custom: reference
 ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: carlrab
-ms.openlocfilehash: a7837ac6af82b5c67ea5779340aedc16cb78d156
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 218bd9031193d4987fdc1e0ae2bf302bdb028673
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43286329"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604498"
 ---
 # <a name="sql-database-faq"></a>Veelgestelde vragen over SQL Database
 
@@ -71,7 +71,7 @@ SQL Database-klanten hebben de volgende rechten voor in verband met Azure Hybrid
 De kosten zijn de totale compute-capaciteit die is ingericht voor de toepassing. Automatisch toewijzen we in de laag bedrijfskritiek service ten minste 3 Always ON-replica's. Aanleiding van deze extra toewijzing van compute-resources, is de prijs vCore ongeveer 2.7 x hoger in bedrijfskritiek. De hogere opslag prijs per GB in de laag bedrijfskritiek is om dezelfde reden inclusief de hoge i/o- en lage latentie van de SSD-opslag. Op hetzelfde moment is niet de kosten voor back-upopslag verschillend, omdat in beide gevallen we een klasse standard-opslag gebruiken.
 
 ## <a name="how-am-i-charged-for-storage---based-on-what-i-configure-upfront-or-on-what-the-database-uses"></a>Hoe moet ik dan betalen voor opslag - gebaseerd op wat kan ik vooraf configureren of wat de database wordt gebruikt?
-Verschillende typen opslag worden anders gefactureerd. Voor opslag van gegevens in rekening gebracht voor de ingerichte opslag op basis van de database of pool maximumgrootte die u selecteert. De kosten wordt niet gewijzigd, tenzij u verlagen of te die maximaal verhogen. Back-upopslag hoort bij geautomatiseerde back-ups van uw exemplaar. Door de retentieperiode van uw back-ups te vergroten, zal er meer back-upopslag door uw exemplaar worden verbruikt. Er worden geen extra kosten in rekening gebracht voor back-upopslag voor maximaal 100% van uw totale ingerichte serveropslag. Voor aanvullend verbruik van back-upopslag wordt in rekening gebracht in GB per maand. Als u bijvoorbeeld een database-opslag van 100 GB hebt, krijgt u 100 GB aan back-upopslag, zonder extra kosten. Maar als de back-up 110 GB is, betaalt u voor de extra 10 GB.
+Verschillende typen opslag worden anders gefactureerd. Voor opslag van gegevens in rekening gebracht voor de ingerichte opslag op basis van de database of pool maximumgrootte die u selecteert. De kosten wordt niet gewijzigd, tenzij u verlagen of te die maximaal verhogen. Back-upopslag hoort bij geautomatiseerde back-ups van uw exemplaar en dynamisch wordt toegewezen. Door de retentieperiode van uw back-ups te vergroten, zal er meer back-upopslag door uw exemplaar worden verbruikt. Er worden geen extra kosten in rekening gebracht voor back-upopslag voor maximaal 100% van uw totale ingerichte serveropslag. Voor aanvullend verbruik van back-upopslag wordt in rekening gebracht in GB per maand. Als u bijvoorbeeld een database-opslag van 100 GB hebt, krijgt u 100 GB aan back-upopslag, zonder extra kosten. Maar als de back-up 110 GB is, betaalt u voor de extra 10 GB. 
 
 Voor back-upopslag van één database in rekening gebracht op het pro rata gefactureerd voor de opslag die is toegewezen aan de databaseback-ups minus de grootte van de database. Voor back-upopslag van een elastische pool in rekening gebracht op het pro rata gefactureerd voor de opslag die is toegewezen aan de databaseback-ups van alle databases in de groep minus de maximale grootte van de elastische pool. Een toename van de grootte van de database of elastische pool of een toename van de Transactiesnelheid meer opslag vereist en dus verhoogt uw back-upopslag-factuur.  Als u de maximale gegevensgrootte verhoogt, wordt deze nieuwe bedrag afgetrokken van de grootte van de back-upopslag worden gefactureerd.
 

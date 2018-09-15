@@ -11,15 +11,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/09/2018
+ms.date: 09/13/2018
 ms.reviewer: sdash
 ms.author: mbullwin
-ms.openlocfilehash: 392abef7f92dce024ba6e4af091cf58fde5119b6
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: cf5f85d4f7e9dbe1278e9dc4290967d781b398f3
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44302388"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632820"
 ---
 # <a name="monitor-availability-and-responsiveness-of-any-web-site"></a>De beschikbaarheid en reactiesnelheid van een website bewaken
 Nadat u uw webtoepassing of website hebt geïmplementeerd op een server, kunt u tests instellen om de beschikbaarheid en responsiviteit te bewaken. [Azure Application Insights](app-insights-overview.md) verzendt regelmatig webaanvragen naar uw toepassing vanaf verschillende punten over de hele wereld. U wordt gewaarschuwd als uw toepassing niet of langzaam reageert.
@@ -33,11 +33,6 @@ Er zijn twee soorten beschikbaarheidstests:
 
 Per toepassingsresource kunt u maximaal 100 beschikbaarheidstests maken.
 
-
-> [!NOTE] 
-> * De locaties voor de beschikbaarheidstest zijn onlangs verplaatst naar de datacenters van Azure. Hierdoor kunnen locaties worden toegevoegd voor het toenemende netwerk van Azure-datacenters.  
-> * U hoeft geen tests bij te werken. Alle tests worden gemigreerd en uitgevoerd vanaf de nieuwe locaties. 
->* Raadpleeg de [service-update](https://blogs.msdn.microsoft.com/applicationinsights-status/2018/01/24/application-insights-availability-monitoring-test-locations-updated/) voor meer informatie.
 
 ## <a name="create"></a>Een resource openen voor uw beschikbaarheidstestrapporten
 
@@ -55,15 +50,17 @@ Open de blade Beschikbaarheid en voeg een test toe.
 ![Vul in elk geval de URL van uw website in](./media/app-insights-monitor-web-app-availability/13-availability.png)
 
 * **De URL** kan iedere webpagina zijn die u wilt testen, maar deze moet zichtbaar zijn vanaf het openbare internet. De URL kan een queryreeks bevatten. Zo kunt u bijvoorbeeld oefenen met uw database. Als de URL naar een omleiding is opgelost, kunnen we deze tot maximaal 10 omleidingen opvolgen.
-* **Parseren van afhankelijke aanvragen**: als deze optie is ingeschakeld, vraagt de test om afbeeldingen, scripts, stijlbestanden en andere bestanden die deel van de geteste webpagina uitmaken. De opgenomen reactietijd is inclusief de tijd die nodig is om deze bestanden op te halen. De test mislukt als al deze resources niet succesvol kunnen worden gedownload binnen de timeout voor de hele test. 
-
-    Als de optie niet is ingeschakeld, vraagt de test alleen het bestand op van de URL die u hebt opgegeven.
+* **Parseren van afhankelijke aanvragen**: als deze optie is ingeschakeld, vraagt de test om afbeeldingen, scripts, stijlbestanden en andere bestanden die deel van de geteste webpagina uitmaken. De opgenomen reactietijd is inclusief de tijd die nodig is om deze bestanden op te halen. De test mislukt als al deze resources niet succesvol kunnen worden gedownload binnen de timeout voor de hele test. Als de optie niet is ingeschakeld, vraagt de test alleen het bestand op van de URL die u hebt opgegeven.
 
 * **Nieuwe pogingen inschakelen**: als deze optie is ingeschakeld, wordt de test, als de test is mislukt, na een korte periode opnieuw uitgevoerd. Fouten worden pas gerapporteerd als er drie opeenvolgende pogingen mislukken. Daaropvolgende tests worden vervolgens met de gebruikelijke testfrequentie uitgevoerd. Volgende pogingen worden tijdelijk uitgesteld tot er weer een test slaagt. Deze regel wordt onafhankelijk toegepast op elke testlocatie. Deze optie wordt aangeraden. Gemiddeld verdwijnt ongeveer 80% van de fouten na het opnieuw proberen.
 
 * **Testfrequentie**: stel in hoe vaak de test wordt uitgevoerd vanaf elke testlocatie. Met een standaardfrequentie van vijf minuten en vijf testlocaties wordt uw site gemiddeld per minuut getest.
 
 * **Testlocaties** zijn de plaatsen van waaraf onze servers webaanvragen verzenden naar uw URL. Kies meer dan één testlocatie, zodat u problemen met uw website kunt onderscheiden van netwerkproblemen. U kunt maximaal 16 locaties selecteren.
+
+> [!NOTE] 
+> * Het is raadzaam testen vanaf meerdere locaties, om te voorkomen dat vals alarm die voortvloeien uit de tijdelijke problemen met een specifieke locatie.
+> * De optie 'Afhankelijke aanvragen parseren' leidt tot een strengere controle inschakelen. De test kan mislukken voor aanvragen die mogelijk geen merkbare bij het handmatig bladeren door de site.
 
 * **Criteria voor succes**:
 
@@ -72,58 +69,6 @@ Open de blade Beschikbaarheid en voeg een test toe.
     **HTTP-antwoord**: de geretourneerde statuscode die staat voor een geslaagde test. 200 is de code die aangeeft dat er een normale webpagina is geretourneerd.
 
     **Inhoudsovereenkomst**: een tekenreeks, zoals 'Welkom!' Er wordt getest of er in elke respons een exacte (hoofdlettergevoelige) overeenkomst wordt gevonden. Het moet een eenvoudige tekenreeks zijn, zonder jokertekens. Als uw pagina-inhoud wordt gewijzigd, moet u deze tekenreeks mogelijk ook bijwerken.
-* Standaard ontvangt u een **waarschuwing** als er op drie locaties gedurende vijf minuten fouten worden geregistreerd. Als er slechts op één locatie een fout wordt geregistreerd, kan dat ook aan het netwerk liggen en niet per se aan uw site. U kunt de drempel wijzigen om de testgevoeligheid te verhogen of te verlagen. Ook kunt u wijzigen naar wie de e-mails worden verzonden.
-
-    U kunt een [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) instellen die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd. (Merk op dat, momenteel, queryparameters niet worden doorgegeven als Eigenschappen.)
-
-### <a name="test-more-urls"></a>Meer URL’s testen
-Voeg meer tests toe. U kunt bijvoorbeeld uw startpagina testen of controleren of uw database wordt uitgevoerd, door de URL te testen voor een zoekopdracht.
-
-
-## <a name="monitor"></a>De resultaten van uw beschikbaarheidstest bekijken
-
-Klik na een paar minuten op **Vernieuwen** om de testresultaten weer te geven. 
-
-![Samenvatting van de resultaten op de Startblade](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
-
-Het spreidingsdiagram laat u voorbeelden van de testresultaten met details over de diagnostische teststappen zien. De testengine slaat diagnostische gegevens op voor tests met fouten. Bij geslaagde tests wordt diagnostische informatie voor een subset van de uitvoeringen opgeslagen. Beweeg de muisaanwijzer over een van de groene/rode punten om de tijdstempel, duur, locatie en naam van de test te bekijken. Klik op een punt in het spreidingsdiagram om de details van een testresultaat te bekijken.  
-
-Selecteer een bepaalde test of locatie, of verklein de periode om meer resultaten te zien uit de periode die voor u van belang is. Gebruik Search Explorer om resultaten van alle uitvoeringen weer te geven, of gebruik Analytics-query's om aangepaste rapporten uit te voeren op deze gegevens.
-
-Naast de onbewerkte resultaten kunt u twee metrische beschikbaarheidsgegevens gebruiken in Metrics Explorer: 
-
-1. Beschikbaarheid: percentage van de tests die zijn geslaagd, bekeken over alle testuitvoeringen. 
-2. Testduur: gemiddelde testduur van alle testuitvoeringen.
-
-U kunt filters toepassen op de testnaam of -locatie om trends van een bepaalde test en/of locatie te analyseren.
-
-## <a name="edit"></a> Tests bekijken en bewerken
-
-Selecteer op de pagina Overzicht een specifieke test. Hier kunt u de specifieke resultaten bekijken en de test bewerken of tijdelijk uitschakelen.
-
-![Een webtest bewerken of uitschakelen](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
-
-Het is verstandig beschikbaarheidstests of de regels voor waarschuwingen die eraan zijn gekoppeld uit te schakelen wanneer u onderhoud uitvoert op uw service. 
-
-## <a name="failures"></a>Als u mislukte tests ziet
-Klik op een rode punt.
-
-![Op een rode punt klikken](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
-
-
-Vanuit het resultaat van een beschikbaarheidstest kunt u:
-
-* De reactie inspecteren die is ontvangen van uw server.
-* De oorzaak van de fout vaststellen met behulp van telemetriegegevens van de server die zijn verzameld tijdens het verwerken van het mislukte aanvraagexemplaar.
-* Meld een probleem of werkitem in Git of Azure DevOps voor het bijhouden van het probleem. De bug bevat een koppeling naar deze gebeurtenis.
-* Het webtestresultaat openen in Visual Studio.
-
-*Zien de resultaten er goed uit, maar wordt de test toch als mislukt aangeduid?* Zie [Veelgestelde vragen](#qna) voor manieren om ruis te beperken.
-
-
-> [!TIP]
-> Het is raadzaam om voor een betrouwbare controle vanuit minimaal 2 locaties te testen.
->
 
 ## <a name="multi-step-web-tests"></a>Webtests met meerdere stappen
 U kunt een scenario bewaken dat bestaat uit een reeks URL's. Als u bijvoorbeeld een verkoopwebsite bewaakt, kunt u testen of het toevoegen van items aan de winkelwagen goed werkt.
@@ -178,22 +123,6 @@ Gebruik Visual Studio Enterprise om een websessie op te nemen.
 
     Stel de testlocaties, frequentie en waarschuwingsparameters op dezelfde manier in als voor pingtests.
 
-#### <a name="3-see-the-results"></a>3. De resultaten weergeven
-
-Bekijk de testresultaten om mogelijke fouten te ontdekken. Dit doet u op dezelfde manier als voor tests met één URL.
-
-U kunt ook de testresultaten om ze te bekijken in Visual Studio downloaden.
-
-Voor het downloaden van de testresultaten. Navigeer naar de samenvatting van Beschikbaarheidstest, klikt u op een resultaat in de grafiek om de beschikbaarheid van test resultaat-venster te openen en klik vervolgens op **Open in Visual Studio** voor het downloaden van de testresultaten.
-
-#### <a name="too-many-failures"></a>Te veel fouten?
-
-* Een veelvoorkomende reden voor het mislukken van een test is dat het uitvoeren ervan te lang duurt. Het uitvoeren van de test mag niet langer dan twee minuten duren.
-
-* Vergeet niet dat alle resources van een pagina correct moeten laden om de test de doen slagen, inclusief scripts, stijlsheets, afbeeldingen enz.
-
-* De webtest moet volledig zijn opgenomen in het .webtest-script. U kunt in de test geen gecodeerde functies gebruiken.
-
 ### <a name="plugging-time-and-random-numbers-into-your-multi-step-test"></a>Tijd en willekeurige cijfers invoegen in uw test met meerdere stappen
 Stel dat u een hulpprogramma test dat tijdsafhankelijke gegevens ontvangt van een externe feed (bijvoorbeeld een feed met aandelenkoersen). Wanneer u uw webtest opneemt, moet u specifieke tijden gebruiken, maar u stelt deze in als testparameters: StartTime en EndTime.
 
@@ -216,6 +145,87 @@ Web Test invoegtoepassingen bieden de manier om parameters voor tijden toe te vo
     ![Gebruik in de testparameter {{plug-in name}}.](./media/app-insights-monitor-web-app-availability/appinsights-72webtest-plugin-name.png)
 
 Upload uw test nu naar de portal. Het gebruikt de dynamische waarden bij elke uitvoering van de test.
+
+
+## <a name="monitor"></a>De resultaten van uw beschikbaarheidstest bekijken
+
+Klik na een paar minuten op **Vernieuwen** om de testresultaten weer te geven. 
+
+![Samenvatting van de resultaten op de Startblade](./media/app-insights-monitor-web-app-availability/14-availSummary-3.png)
+
+Het spreidingsdiagram laat u voorbeelden van de testresultaten met details over de diagnostische teststappen zien. De testengine slaat diagnostische gegevens op voor tests met fouten. Bij geslaagde tests wordt diagnostische informatie voor een subset van de uitvoeringen opgeslagen. Beweeg de muisaanwijzer over een van de groene/rode punten om de tijdstempel, duur, locatie en naam van de test te bekijken. Klik op een punt in het spreidingsdiagram om de details van een testresultaat te bekijken.  
+
+Selecteer een bepaalde test of locatie, of verklein de periode om meer resultaten te zien uit de periode die voor u van belang is. Gebruik Search Explorer om resultaten van alle uitvoeringen weer te geven, of gebruik Analytics-query's om aangepaste rapporten uit te voeren op deze gegevens.
+
+Naast de onbewerkte resultaten kunt u twee metrische beschikbaarheidsgegevens gebruiken in Metrics Explorer: 
+
+1. Beschikbaarheid: percentage van de tests die zijn geslaagd, bekeken over alle testuitvoeringen. 
+2. Testduur: gemiddelde testduur van alle testuitvoeringen.
+
+U kunt filters toepassen op de testnaam of -locatie om trends van een bepaalde test en/of locatie te analyseren.
+
+## <a name="edit"></a> Tests bekijken en bewerken
+
+Selecteer op de pagina Overzicht een specifieke test. Hier kunt u de specifieke resultaten bekijken en de test bewerken of tijdelijk uitschakelen.
+
+![Een webtest bewerken of uitschakelen](./media/app-insights-monitor-web-app-availability/19-availEdit-3.png)
+
+Het is verstandig beschikbaarheidstests of de regels voor waarschuwingen die eraan zijn gekoppeld uit te schakelen wanneer u onderhoud uitvoert op uw service. 
+
+## <a name="failures"></a>Als u mislukte tests ziet
+Klik op een rode punt.
+
+![Op een rode punt klikken](./media/app-insights-monitor-web-app-availability/open-instance-3.png)
+
+In een resultaat van beschikbaarheidstest ziet u de details van transacties voor alle onderdelen. U kunt hier het volgende doen:
+
+* De reactie inspecteren die is ontvangen van uw server.
+* Fout vaststellen met gecorreleerde telemetrie aan de serverzijde die zijn verzameld tijdens het verwerken van de beschikbaarheidstest is mislukt.
+* Een probleem of werkitem registreren in Git of VSTS om het probleem te volgen. De bug bevat een koppeling naar deze gebeurtenis.
+* Het webtestresultaat openen in Visual Studio.
+
+Meer informatie over de diagnostische gegevens over de end-to-transactie-ervaring [hier](app-insights-transaction-diagnostics.md).
+
+Klik op de uitzonderingsrij om de details van de server-side-uitzondering waardoor de van synthetische beschikbaarheidstest mislukt te bekijken. U krijgt ook de [momentopname voor foutopsporing](app-insights-snapshot-debugger.md) voor uitgebreidere code niveau diagnostische gegevens.
+
+![Server side diagnostische gegevens](./media/app-insights-monitor-web-app-availability/open-instance-4.png)
+
+## <a name="alerts"></a> Beschikbaarheid van waarschuwingen
+U kunt de volgende typen regels voor waarschuwingen op de beschikbaarheid van gegevens met behulp van de ervaring voor klassieke waarschuwingen hebben:
+1. X van Y-locaties rapportage van fouten in een bepaalde periode
+2. Beschikbaarheid van het totale percentage val onder een drempelwaarde
+3. Gemiddelde duur toeneemt buiten een drempelwaarde
+
+### <a name="alert-on-x-out-of-y-locations-reporting-failures"></a>Waarschuwing bij X van Y-locaties die fouten rapporteren
+De X van Y-locaties waarschuwingsregel is standaard ingeschakeld in de [nieuwe waarschuwingen van geïntegreerde ervaring](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), wanneer u een nieuwe beschikbaarheidstest maken. U kunt zich afmelden op de optie 'klassieke' te selecteren of uitschakelen van de waarschuwingsregel te kiezen.
+
+![Ontwikkel-ervaring](./media/app-insights-monitor-web-app-availability/appinsights-71webtestUpload.png)
+
+**Belangrijke**: met de [nieuwe geïntegreerde waarschuwingen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), de voorkeuren waarschuwingsregel ernst en meldingen met [actiegroepen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) **moet** geconfigureerd in de waarschuwingen optreden. Zonder de volgende stappen maakt u alleen in de portal meldingen ontvangt. 
+
+1. Na het opslaan van de beschikbaarheidstest, klik op de nieuwe testnaam om naar de details ervan te gaan. Klik op 'waarschuwing bewerken' ![bewerken na het opslaan](./media/app-insights-monitor-web-app-availability/editaftersave.png)
+
+2. De gewenste ernst, de beschrijving van regel en bovenal - de actiegroep waarvoor de voorkeuren voor meldingen die u wilt gebruiken voor deze waarschuwingsregel instellen.
+![Bewerken na het opslaan](./media/app-insights-monitor-web-app-availability/setactiongroup.png)
+
+
+> [!NOTE]
+> * Configureer de actiegroepen voor het ontvangen van meldingen wanneer de waarschuwing wordt geactiveerd door de bovenstaande stappen te volgen. Zonder deze stap wordt u alleen in de portal-meldingen ontvangen wanneer de regel wordt geactiveerd.
+>
+### <a name="alert-on-availability-metrics"></a>Waarschuwing op basis van metrische gegevens over beschikbaarheid
+Met behulp van de [nieuwe geïntegreerde waarschuwingen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), kunt u waarschuwingen over de beschikbaarheid van gesegmenteerde statistische en duur van de metrische gegevens ook testen:
+
+1. Selecteer een Application Insights-resource in de ervaring voor metrische gegevens en een beschikbaarheid van metrische waarde selecteren: ![selectie van de metrische gegevens over beschikbaarheid](./media/app-insights-monitor-web-app-availability/selectmetric.png)
+
+2. Optie in het menu, u naar de nieuwe ervaring waarin u kunt selecteren specifieke tests of locaties gaat voor het instellen van de waarschuwingsregel op waarschuwingen configureren. U kunt ook de actiegroepen voor deze waarschuwingsregel hier configureren.
+    ![Configuratie van de beschikbaarheid van waarschuwingen](./media/app-insights-monitor-web-app-availability/availabilitymetricalert.png)
+
+### <a name="alert-on-custom-analytics-queries"></a>Waarschuwing bij aangepaste analytics-query 's
+Met behulp van de [nieuwe geïntegreerde waarschuwingen](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts), u kunt waarschuwingen op [aangepaste logboeken-query's](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log). Met aangepaste query's, kunt u erop wijzen op een willekeurige voorwaarde die helpt u bij het ophalen van de meest betrouwbare signaal van problemen met de beschikbaarheid. Dit is ook vooral van toepassing, als u aangepaste beschikbaarheidsresultaten met behulp van de SDK TrackAvailability verzendt. 
+
+> [!Tip]
+> * De metrische gegevens over de van beschikbaarheidsgegevens bevatten een aangepaste beschikbaarheidsresultaten die u door het aanroepen van onze SDK TrackAvailability kan indienen. U kunt de waarschuwingen voor de ondersteuning voor metrische gegevens op de waarschuwing op de van de aangepaste beschikbaarheidsresultaten.
+>
 
 ## <a name="dealing-with-sign-in"></a>Omgaan met aanmelden
 Als uw gebruikers zich aanmelden bij uw app, hebt u verschillende functies om de aanmelding te simuleren, zodat u pagina’s na het aanmelden kunt testen. Welke aanpak u gebruikt, hangt af van het type beveiliging van de app.
@@ -253,11 +263,10 @@ Als uw test moet aanmelden met OAuth, is de algemene benadering:
 * Maak parameters van de tokens. Stel de parameter in wanneer er een token wordt geretourneerd van de verificator en gebruik deze in de query voor de site.
   (Visual Studio probeert de testparameters toe te voegen, maar voegt de parameters voor de tokens niet correct toe.)
 
-
 ## <a name="performance-tests"></a>Prestatietests
 U kunt een belastingtest op uw website uitvoeren. Zoals de beschikbaarheidstest kunt enkel- of meervoudige aanvragen sturen vanuit onze punten over de hele wereld verspreid. In tegenstelling tot een beschikbaarheidstest worden vele verzoeken verzonden, waarmee meerdere gelijktijdige gebruikers worden gesimuleerd.
 
-Open op de blade Overzicht **Instellingen**, **Prestatietests**. Wanneer u een test maakt, wordt u uitgenodigd om verbinding maken met of maak een organisatie Azure DevOps-Services.
+Open op de blade Overzicht **Instellingen**, **Prestatietests**. Wanneer u een test maakt, wordt u uitgenodigd om verbinding maken met of maak een Azure DevOps-account.
 
 Wanneer de test voltooid is, worden de responstijden en succespercentages weergegeven.
 
@@ -268,54 +277,72 @@ Wanneer de test voltooid is, worden de responstijden en succespercentages weerge
 > Gebruik [Live Stream](app-insights-live-stream.md) en [Profiler](app-insights-profiler.md) om de effecten van een prestatietest te volgen.
 >
 
-## <a name="automation"></a>Automatisering
+## <a name="automation"></a>Automation
 * Gebruik [PowerShell-scripts om automatisch een beschikbaarheidstest in te stellen](app-insights-powershell.md#add-an-availability-test).
 * Stel een [webhook](../monitoring-and-diagnostics/insights-webhooks-alerts.md) in die wordt aangeroepen wanneer er een waarschuwing wordt gegenereerd.
 
-## <a name="qna"></a>Vragen? Problemen?
+## <a name="qna"></a> FAQ
+
+* *Site er goed uitziet, maar ik Zie storingen testen? Waarom is Application Insights waarschuwingen mij?*
+
+    * Heeft uw test 'Parseren van afhankelijke aanvragen' ingeschakeld? Die resulteert in een strikte controle van resources, scripts, zoals afbeeldingen, enzovoort. Dit soort fouten is mogelijk niet zichtbaar zijn in een browser. Controleer alle afbeeldingen, scripts, stijlmodellen en andere bestanden geladen door de pagina. Als één van deze mislukt, wordt de test gerapporteerd als mislukt, zelfs als de html-pagina correct laadt. Als u de test ongevoelig wilt maken voor dergelijke storingen, schakelt u de optie 'Afhankelijke aanvragen parseren' in de testconfiguratie uit. 
+
+    * Als u kans op ruis van tijdelijke netwerkproblemen enzovoort wilt verminderen, schakelt u de optie 'Nieuwe pogingen inschakelen voor mislukte webtesten' in. U kunt ook testen vanaf meer locaties en de waarschuwingsregeldrempel dienovereenkomstig beheren om te voorkomen dat de locatiespecifieke problemen onnodige waarschuwingen veroorzaken.
+
+    * Klik op een van de rode punten uit de ervaring van de beschikbaarheid of een storing van de beschikbaarheid van de Search explorer om de details van waarom we gerapporteerd dat de fout te bekijken. Het testresultaat, samen met de gecorreleerde telemetrie aan de serverzijde (indien ingeschakeld) kan helpen te begrijpen waarom de test is mislukt. Veelvoorkomende oorzaken van problemen van voorbijgaande aard zijn problemen met de netwerkverbinding of de verbinding. 
+
+    * Heeft de time-out voor de test? We tests na 2 minuten worden afgebroken. Als uw ping of een test met meerdere stappen langer dan twee minuten duurt, zullen we die rapporteren als mislukt. Houd rekening met de test verdelen in meerdere degene die kunnen worden voltooid in korter duurt.
+
+    * Alle locaties melden dat mislukt, of slechts enkele van deze? Als er slechts enkele fouten gemeld, mogelijk vanwege problemen met de netwerk-/ CDN. Nogmaals, te klikken op de rode punten moet te begrijpen waarom de locatie fouten gerapporteerd.
+
+* *Ik krijg geen een e-mailbericht wanneer de waarschuwing geactiveerd of opgelost of beide?*
+
+    Controleer de configuratie van de klassieke waarschuwingen om te bevestigen dat uw e-mailadres is rechtstreeks worden weergegeven, of een distributielijst met u is geconfigureerd voor het ontvangen van meldingen. Als dit het geval is, controleert u de configuratie van de lijst met distributiepunten om te bevestigen dat kan de externe e-mailberichten ontvangen. Controleer ook als de mailbeheerder van uw e-mogelijk beleid geconfigureerd dat dit probleem kunnen veroorzaken.
+
+* *De webhook-melding is niet weergegeven?*
+
+    Controleer of de toepassing die de webhook-meldingen ontvangen is beschikbaar en is de webhook-aanvragen worden verwerkt. Zie [dit](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitor-alerts-unified-log-webhook) voor meer informatie.
+
 * *Onregelmatige testfout met een protocolfout?*
 
     De fout 'Schending van protocol... CR moet worden gevolgd door LF' geeft een probleem met de server (of afhankelijkheden) aan. Dit gebeurt wanneer onjuist gevormde headers zijn ingesteld in het antwoord. Dit kan worden veroorzaakt door load balancers of CDN's. Meer in het bijzonder maken enkele headers mogelijk geen gebruik CRLF om het einde van de regel aan te geven, wat in strijd is met de HTTP-specificatie en waardoor validatie op het niveau van .NET-WebRequest mislukt. Controleer het antwoord om headers te signaleren die mogelijk fouten bevatten.
     
     Opmerking: de URL mislukt mogelijk niet in browsers die een beperkte validatie van HTTP-headers hebben. Zie dit blogbericht voor een gedetailleerde uitleg van dit probleem: http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/  
-* *De site ziet er goed uit, maar ik constateer testfouten*
-
-    * Controleer alle afbeeldingen, scripts, stijlmodellen en andere bestanden geladen door de pagina. Als één van deze mislukt, wordt de test gerapporteerd als mislukt, zelfs als de html-pagina correct laadt. Als u de test ongevoelig wilt maken voor dergelijke storingen, schakelt u de optie 'Afhankelijke aanvragen parseren' in de testconfiguratie uit. 
-
-    * Als u kans op ruis van tijdelijke netwerkproblemen enzovoort wilt verminderen, schakelt u de optie 'Nieuwe pogingen inschakelen voor mislukte webtesten' in. U kunt ook testen vanaf meer locaties en de waarschuwingsregeldrempel dienovereenkomstig beheren om te voorkomen dat de locatiespecifieke problemen onnodige waarschuwingen veroorzaken.
     
 * *Ik zie geen gerelateerde telemetriegegevens van de server om testfouten vast te stellen*
     
-    Als u Application Insights hebt ingesteld voor uw app aan serverzijde, kan dit komen doordat er [steekproeven](app-insights-sampling.md) worden uitgevoerd.
+    Als u Application Insights hebt ingesteld voor uw app aan serverzijde, kan dit komen doordat er [steekproeven](app-insights-sampling.md) worden uitgevoerd. Selecteer een andere beschikbaarheidsset-resultaat.
+
 * *Kan ik code aanroepen via mijn webtest?*
 
     Nee. De stappen van de test moeten zich in het bestand .webtest bevinden. U kunt geen andere webtests aanroepen of lussen gebruiken. Maar er zijn verschillende invoegtoepassingen die nuttig kunnen zijn.
+
 * *Wordt HTTPS ondersteund?*
 
     ondersteunen TLS 1.1 en TLS 1.2.
 * *Is er een verschil tussen webtests en beschikbaarheidstests?*
 
     De twee voorwaarden kunnen door elkaar worden gebruikt. 'Beschikbaarheidstest' is een algemenere term waar niet alleen webtests met meerdere stappen, maar ook tests met enkele URL-ping onder vallen.
+    
 * *Ik wil graag beschikbaarheidstests gebruiken op onze interne server die achter een firewall wordt uitgevoerd.*
 
     Er zijn twee mogelijke oplossingen:
     
     * Configureer uw firewall om binnenkomende aanvragen van de [IP-adressen van onze webtestagents](app-insights-ip-addresses.md) toe te staan.
     * Schrijf uw eigen code om uw interne server periodiek te testen. Voer de code uit als achtergrondproces op een testserver achter de firewall. De resultaten van het testproces kunnen worden verzonden naar Application Insights door de API [TrackAvailability()](https://docs.microsoft.com/dotnet/api/microsoft.applicationinsights.telemetryclient.trackavailability) te gebruiken in het SDK-kernpakket. Hiervoor moet uw testserver uitgaande toegang hebben tot het opname-eindpunt van Application Insights, maar dit is een veel kleiner beveiligingsrisico dan wanneer u binnenkomende aanvragen toestaat. De resultaten worden niet weergegeven in de blades voor de beschikbaarheidswebtests, maar worden weergegeven als beschikbaarheidsresultaten in Analytics, Search en Metric Explorer.
+
 * *Het uploaden van een webtest met meerdere stappen mislukt*
 
-    Er is een limiet van 300 K.
+    Enkele redenen dat dit kan gebeuren:
+    * Er is een limiet van 300 K.
+    * Lussen worden niet ondersteund.
+    * Verwijzingen naar andere webtests worden niet ondersteund.
+    * Gegevensbronnen worden niet ondersteund.
 
-    Lussen worden niet ondersteund.
-
-    Verwijzingen naar andere webtests worden niet ondersteund.
-
-    Gegevensbronnen worden niet ondersteund.
 * *Mijn test met meerdere stappen wordt niet voltooid*
 
-    Er is een limiet van 100 aanvragen per test.
+    Er is een limiet van 100 aanvragen per test. De test wordt ook gestopt als deze wordt meer dan twee minuten uitgevoerd.
 
-    De test wordt gestopt als deze meer dan twee minuten wordt uitgevoerd.
 * *Hoe voer ik een test uit met clientcertificaten?*
 
     Dat wordt niet ondersteund.

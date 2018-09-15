@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 0813/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 57c6b52df3e8f6c47eb794cda4b47bfa2d7de374
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: c35fdb391f3ec3f0af3a7c916cb22cb58c90dd64
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44051235"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604656"
 ---
 # <a name="azure-sql-database-managed-instance-t-sql-differences-from-sql-server"></a>Azure SQL Database Managed Instance T-SQL-verschillen van SQL Server 
 
@@ -267,7 +267,7 @@ Externe tabellen verwijzen naar de bestanden in HDFS of Azure blob-opslag worden
 
 ### <a name="replication"></a>Replicatie 
  
-Replicatie wordt ondersteund op Managed Instance. Zie voor meer informatie over replicatie [SQL Server-replicatie](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
+Replicatie is beschikbaar voor openbare preview-versie op Managed Instance. Zie voor meer informatie over replicatie [SQL Server-replicatie](http://docs.microsoft.com/sql/relational-databases/replication/replication-with-sql-database-managed-instance).
  
 ### <a name="restore-statement"></a>Instructie herstellen 
  
@@ -335,23 +335,24 @@ Zie voor meer informatie over de Restore-instructies [herstellen instructies](ht
 - `sp_attach_db`, `sp_attach_single_file_db`, en `sp_detach_db` worden niet ondersteund. Zie [sp_attach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-db-transact-sql), [sp_attach_single_file_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-attach-single-file-db-transact-sql), en [sp_detach_db](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-detach-db-transact-sql).
 - `sp_renamedb` wordt niet ondersteund. Zie [sp_renamedb](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-renamedb-transact-sql).
 
-### <a name="sql-server-agent"></a>SQL Server Agent 
- 
+### <a name="sql-server-agent"></a>SQL Server Agent
+
 - SQL Agent-instellingen zijn alleen-lezen. Procedure `sp_set_agent_properties` wordt niet ondersteund in het beheerde exemplaar.  
-- Taken - alleen de stappen van T-SQL-taak worden momenteel ondersteund (meer stappen worden toegevoegd tijdens de openbare preview).
- - SSIS is nog niet ondersteund. 
- - Replicatie wordt nog niet ondersteund.  
-  - Logboek voor databasetransacties lezer is nog niet ondersteund.  
-  - Momentopname is nog niet ondersteund.  
-  - Distributor is nog niet ondersteund.  
-  - Samenvoegen wordt niet ondersteund.  
+- Taken - T-SQL-taakstappen worden momenteel ondersteund.
+- Andere typen taak stappen momenteel niet zijn ondersteund (meer stap typen worden toegevoegd tijdens de openbare preview).
+  - Replicatietaken niet ondersteund met inbegrip van:
+    - Transactie-log reader.  
+    - Een momentopname.
+    - Distributor.  
+    - Samenvoegen.  
+  - SSIS is nog niet ondersteund. 
   - Lezer van de wachtrij wordt niet ondersteund.  
- - Opdrachtshell is nog niet ondersteund. 
+  - Opdrachtshell is nog niet ondersteund. 
   - Beheerd exemplaar heeft geen toegang tot externe bronnen (bijvoorbeeld netwerkshares via robocopy).  
- - PowerShell is nog niet ondersteund.
- - Analyseservices worden niet ondersteund.  
+  - PowerShell is nog niet ondersteund.
+  - Analyseservices worden niet ondersteund.  
 - Meldingen worden gedeeltelijk ondersteund.
- - E-mailmelding wordt ondersteund, is vereist voor het configureren van een Database-e-mailprofiel. Er mag slechts één database-e-mailprofiel en moet worden aangeroepen `AzureManagedInstance_dbmail_profile` in openbare preview-versie (tijdelijke beperking).  
+- E-mailmelding wordt ondersteund, is vereist voor het configureren van een Database-e-mailprofiel. Er mag slechts één database-e-mailprofiel en moet worden aangeroepen `AzureManagedInstance_dbmail_profile` in openbare preview-versie (tijdelijke beperking).  
  - Pager wordt niet ondersteund.  
  - Net Send wordt niet ondersteund. 
  - Waarschuwingen worden nog niet niet ondersteund.

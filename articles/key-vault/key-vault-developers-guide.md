@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/05/2018
 ms.author: bryanla
-ms.openlocfilehash: b8b51ed8cbaaaaaa463dd1ed841e6d5193fec40a
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 3dc80c97a43c35295deacefc37a76471912c9b42
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44301912"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603988"
 ---
 # <a name="azure-key-vault-developers-guide"></a>Handleiding voor ontwikkelaars van Azure Key Vault
 
@@ -129,7 +129,7 @@ Geef taak-specifieke richtlijnen voor het werken met Azure Key Vault de volgende
 - [Certificaten implementeren op virtuele machines uit de Sleutelkluis](https://blogs.technet.microsoft.com/kv/2015/07/14/deploy-certificates-to-vms-from-customer-managed-key-vault/) - een cloudtoepassing in een virtuele machine wordt uitgevoerd op de behoeften voor Azure een certificaat. Hoe krijgt u dit certificaat in deze virtuele machine vandaag?
 - [Key Vault instellen met end-to-end sleutelrotatie en controle](key-vault-key-rotation-log-monitoring.md) : Dit helpt u bij het instellen van sleutelrotatie en controle met Azure Key Vault.
 - [Implementatie van Azure Web App Certificate via Key Vault]( https://blogs.msdn.microsoft.com/appserviceteam/2016/05/24/deploying-azure-web-app-certificate-through-key-vault/) vindt u stapsgewijze instructies voor het implementeren van certificaten die zijn opgeslagen in Key Vault als onderdeel van [App Service Certificate](https://azure.microsoft.com/blog/internals-of-app-service-certificate/) bieden.
-- [Veel toepassingen om een key vault toegang te verlenen tot](key-vault-group-permissions-for-apps.md) toegangsbeleid voor Key Vault biedt alleen ondersteuning voor 16 vermeldingen. U kunt echter een Azure Active Directory-beveiligingsgroep maken. Alle gekoppelde service-principals toevoegen aan deze beveiligingsgroep en vervolgens toegang verlenen aan deze beveiligingsgroep aan Key Vault.
+- [Veel toepassingen om een key vault toegang te verlenen tot](key-vault-group-permissions-for-apps.md) toegangsbeleid voor Key Vault ondersteunt maximaal 1024 vermeldingen. U kunt echter een Azure Active Directory-beveiligingsgroep maken. Alle gekoppelde service-principals toevoegen aan deze beveiligingsgroep en vervolgens toegang verlenen aan deze beveiligingsgroep aan Key Vault.
 - Zie voor meer taakspecifieke begeleiding voor het integreren van en het gebruik van Sleutelkluizen met Azure, [Ryan Jones Azure Resource Manager-sjabloonvoorbeelden voor Key Vault](https://github.com/rjmax/ArmExamples/tree/master/keyvaultexamples).
 - [Key Vault-functie voor voorlopig verwijderen gebruiken met CLI](key-vault-soft-delete-cli.md) begeleidt u bij het gebruik en de levenscyclus van een key vault en verschillende key vault-objecten met voorlopig verwijderen ingeschakeld.
 - [Key Vault-functie voor voorlopig verwijderen gebruiken met PowerShell](key-vault-soft-delete-powershell.md) begeleidt u bij het gebruik en de levenscyclus van een key vault en verschillende key vault-objecten met voorlopig verwijderen ingeschakeld.
@@ -149,7 +149,7 @@ Deze artikelen zijn voor andere scenario's en services die gebruikmaken van of i
 - [Overzicht van Key Vault storage account sleutels](key-vault-ovw-storage-keys.md) beschrijving van de sleutels van Key Vault-integratie Azure Storage-Accounts.
 - [Key Vault beveiligingswerelden](key-vault-ovw-security-worlds.md) beschrijft de relaties tussen regio's en aspecten van de beveiliging.
 
-## <a name="social"></a>Sociale media
+## <a name="social"></a>Sociaal
 
 - [Key Vault-Blog](http://aka.ms/kvblog)
 - [Key Vault-Forum](http://aka.ms/kvforum)

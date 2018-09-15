@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/20/2018
 ms.author: daveba
-ms.openlocfilehash: 8d897e9948a241f39d06968c3438ce2d3b0c6940
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 259e22607887d4aae43c46a410edb6efa8a5e497
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347816"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45637658"
 ---
 # <a name="configure-managed-identities-for-azure-resources-on-a-azure-virtual-machine-scale-using-a-template"></a>Configureren van beheerde identiteiten voor Azure-resources op een virtuele machine van Azure-schaal met behulp van een sjabloon
 
@@ -31,13 +31,15 @@ In dit artikel leert u hoe u voor het uitvoeren van de volgende beheerde identit
 - In- en uitschakelen van de door het systeem toegewezen beheerde identiteit in een schaalset voor virtuele Azure-machine
 - Toevoegen en verwijderen van een gebruiker toegewezen beheerde identiteit in een schaalset voor virtuele Azure-machine
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 - Als u niet bekend met beheerde identiteiten voor Azure-resources bent, lees de [overzichtssectie](overview.md). **Lees de [verschil tussen een beheerde identiteit door het systeem is toegewezen en de gebruiker toegewezen](overview.md#how-does-it-work)**.
 - Als u nog geen Azure-account hebt, [registreer u dan voor een gratis account](https://azure.microsoft.com/free/) voordat u verdergaat.
 - Als u wilt de beheerbewerkingen in dit artikel uitvoert, moet uw account de volgende Azure op basis van rollen access control-toewijzingen:
+
     > [!NOTE]
     > Er zijn geen extra Azure AD directory-roltoewijzingen is vereist.
+
     - [Inzender voor virtuele machines](/azure/role-based-access-control/built-in-roles#virtual-machine-contributor) aan een virtuele-machineschaalset maken en inschakelen en verwijderen van systeem en/of de gebruiker toegewezen beheerde identiteit van een virtuele-machineschaalset.
     - [Beheerde identiteit Inzender](/azure/role-based-access-control/built-in-roles#managed-identity-contributor) rol te maken van een gebruiker toegewezen beheerde identiteit.
     - [Beheerde identiteit Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) rol die u wilt toewijzen en verwijderen van een gebruiker toegewezen beheerde identiteit van en naar een virtuele-machineschaalset.
@@ -61,7 +63,7 @@ In deze sectie maakt u inschakelen en uitschakelen van de door het systeem toege
 
 1. Of u zich aanmeldt bij Azure lokaal of via de Azure portal, gebruikt u een account dat is gekoppeld aan het Azure-abonnement met de virtuele-machineschaalset.
    
-2. Om in te schakelen op het systeem toegewezen beheerde identiteit, het laden van de sjabloon in een editor, Ga naar de `Microsoft.Compute/virtualMachinesScaleSets` resource van belang zijn binnen de resources sectie en voeg de `identity` eigenschap op hetzelfde niveau als het `"type": "Microsoft.Compute/virtualMachines"` eigenschap. Gebruik de volgende syntaxis:
+2. Om in te schakelen op het systeem toegewezen beheerde identiteit, het laden van de sjabloon in een editor, Ga naar de `Microsoft.Compute/virtualMachinesScaleSets` resource van belang zijn binnen de resources sectie en voeg de `identity` eigenschap op hetzelfde niveau als het `"type": "Microsoft.Compute/virtualMachinesScaleSets"` eigenschap. Gebruik de volgende syntaxis:
 
    ```JSON
    "identity": { 

@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 09/07/2018
-ms.openlocfilehash: f209aa201dafb3383ae71dd4ebff3d2ab76a9020
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: f337679279f4a3eb6d01808f15a59fee4c8f3cd1
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345061"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630573"
 ---
 # <a name="supported-postgresql-database-versions"></a>Ondersteunde PostgreSQL-Database-versies
 Microsoft beoogt ter ondersteuning van n-2 versies van de PostgreSQL-engine in de Azure Database for PostgreSQL-service, wat betekent dat de huidige uitgebrachte primaire versie (n) en de twee voorgaande primaire versies (-2).
@@ -31,7 +31,7 @@ Raadpleeg de [PostgreSQL documentatie](https://www.postgresql.org/docs/9.6/stati
 Raadpleeg de [PostgreSQL documentatie](https://www.postgresql.org/docs/9.5/static/release-9-5-13.html) voor meer informatie over verbeteringen en oplossingen in deze secundaire versie.
 
 ## <a name="managing-updates-and-upgrades"></a>Beheren van updates en upgrades
-Azure Database voor PostgreSQL beheert automatisch patches voor secundaire versie-updates. Primaire versie-upgrade is op dit moment niet ondersteund. Bijvoorbeeld, wordt een upgrade van PostgreSQL 9.5 naar PostgreSQL 9.6 niet ondersteund.
+Azure Database voor PostgreSQL beheert automatisch patches voor secundaire versie-updates. Primaire versie-upgrade is op dit moment niet ondersteund. Bijvoorbeeld, wordt een upgrade van PostgreSQL 9.5 naar PostgreSQL 9.6 niet ondersteund. Als u wilt upgraden naar de volgende primaire versie, een [dump maken en terugzetten](./howto-migrate-using-dump-and-restore.md) deze naar een server die is gemaakt met de versie van de nieuwe engine.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie voor meer informatie over de ondersteuning van verschillende PostgreSQL-extensies [PostgreSQL-extensies](concepts-extensions.md).

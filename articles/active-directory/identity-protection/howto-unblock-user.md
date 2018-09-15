@@ -1,5 +1,5 @@
 ---
-title: Azure Active Directory Identity Protection - blokkering opheffen van gebruikers | Microsoft Docs
+title: Hoe gebruikers met Azure Active Directory Identity Protection | Microsoft Docs
 description: Informatie over hoe de blokkering opheffen gebruikers die zijn geblokkeerd door een Azure Active Directory Identity Protection-beleid.
 services: active-directory
 keywords: Azure active directory identity protection, deblokkeren van gebruiker
@@ -13,17 +13,18 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/15/2018
+ms.date: 09/13/2018
 ms.author: markvi
-ms.reviewer: nigu
-ms.openlocfilehash: c5f251f2de938d4441672c8aa1a6dbc6bd616155
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.reviewer: raluthra
+ms.openlocfilehash: f8bf983033407bbf597af15f18f28ecf33b7558f
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45575488"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631681"
 ---
-# <a name="azure-active-directory-identity-protection---how-to-unblock-users"></a>Azure Active Directory Identity Protection - blokkering opheffen van gebruikers
+# <a name="how-to-unblock-users"></a>Procedure: Gebruikers deblokkeren
+
 Met Azure Active Directory Identity Protection, kunt u beleid voor het blokkeren van gebruikers als de geconfigureerde voorwaarden is voldaan. Normaal gesproken een geblokkeerde gebruiker contactpersonen helpdesk om te worden opgeheven. In dit artikel worden de stappen beschreven die u kunt uitvoeren om een geblokkeerde gebruiker deblokkeren.
 
 ## <a name="determine-the-reason-for-blocking"></a>Bepaal de oorzaak voor het blokkeren van

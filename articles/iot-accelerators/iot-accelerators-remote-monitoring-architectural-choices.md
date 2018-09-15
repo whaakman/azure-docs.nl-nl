@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 09/12/2018
 ms.topic: conceptual
-ms.openlocfilehash: 709886e77819adca961a44f65fe6402dd7d20d53
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 09c5981701ffdee5f2e5dba47cc98c91d5df7526
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716295"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603903"
 ---
 # <a name="remote-monitoring-architectural-choices"></a>Architectuurkeuzes voor externe bewaking
 
@@ -43,7 +43,7 @@ Voor stream verwerken van de oplossing voor externe controle maakt gebruik van A
 Voor opslag gebruikt de oplossingsverbetering voor externe controle zowel Azure Time Series Insights en Azure Cosmos DB. Azure Time Series Insights slaat de berichten van uw verbonden apparaten via IoT Hub. De oplossingsversnellers maakt gebruik van Azure Cosmos DB voor alle andere opslag zoals koude opslag, definities van regels, waarschuwingen en configuratie-instellingen. Azure Cosmos DB is de aanbevolen instellingen voor de opslag voor algemeen gebruik warm-oplossing voor IoT-toepassingen al oplossingen zoals Azure Time Series Insights en Azure Data Lake geschikt voor veel van use cases zijn. Met Azure Time Series Insights krijgt u meer inzicht in uw time series-sensorgegevens door het ontdekken van trends en afwijkingen, zodat u kunt oorzaak-gevolganalyses uitvoeren en kostbare stilstand te vermijden. 
 
 > [!NOTE]
-> Azure Time Series Insights voor de oplossingsverbetering voor externe controle is momenteel in preview en is alleen beschikbaar in [regio's selecteren](https://azure.microsoft.com/global-infrastructure/services/). Als u de oplossingsverbetering voor externe bewaking buiten deze regio's implementeert, Cosmos DB de is de standaardoptie voor opslag.
+> Time Series Insights is momenteel niet beschikbaar in de Azure China-cloud. Nieuwe Remote Monitoring solution accelerator implementaties in de cloud met Azure China Cosmos DB gebruiken voor alle opslag.
 
 ### <a name="business-integration"></a>Integratie van Business
 Integratie van de bedrijven in de oplossing voor externe controle is beperkt tot het genereren van waarschuwingen die in de warme opslag worden geplaatst. Zakelijke integraties kunnen verder worden uitgevoerd door de oplossing te integreren met Azure Logic Apps.

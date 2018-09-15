@@ -8,21 +8,21 @@ ms.date: 09/12/2018
 ms.topic: conceptual
 ms.service: iot-accelerators
 services: iot-accelerators
-ms.openlocfilehash: 6d41b4347eac29144743a22cb83e508cdab9b164
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: ba6d79661a2c07ba3eef1f16a117992a858830b5
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45552373"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605926"
 ---
-# <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integreer Azure Time Series Insights met externe controle
+# <a name="integrate-azure-time-series-insights-with-remote-monitoring"></a>Integreer Azure Time Series Insights met Externe bewaking
 
 Azure Time Series Insights is een volledig beheerde analyse-, opslag- en visualisatieservice waarmee u tijdseriegegevens op IoT-schaal kunt beheren in de cloud. U kunt de Time Series Insights gebruiken opslaan en beheren van tijdseriegegevens, verkennen en visualiseren gebeurtenissen tegelijkertijd, uitvoeren van de hoofdoorzaak wordt onderzocht, en om meerdere sites en assets te vergelijken.
 
 De oplossingsverbetering voor externe controle biedt nu de automatische implementatie en integratie met Time Series Insights. In deze procedures leert u hoe het configureren van Time Series Insights voor een bestaande oplossing voor externe controle die nog geen Time Series Insights.
 
 > [!NOTE]
-> Time Series Insights is nog niet beschikbaar in Azure China-Cloud. Nieuwe implementaties in Azure China-Cloud echter ook doorgaan met Cosmos DB voor alle opslag.
+> Time Series Insights is momenteel niet beschikbaar in de Azure China-cloud. Nieuwe Remote Monitoring solution accelerator implementaties in de cloud met Azure China Cosmos DB gebruiken voor alle opslag.
 
 ## <a name="prerequisites"></a>Vereisten
 

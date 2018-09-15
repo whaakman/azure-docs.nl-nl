@@ -8,12 +8,12 @@ services: iot-accelerators
 ms.topic: conceptual
 ms.date: 11/10/2017
 ms.author: dobett
-ms.openlocfilehash: 4e1456064e35b55871638e9eeb34859194cb869b
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: f059c57396610a10f9e35a6dad8408c6be1d89cb
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44714901"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604300"
 ---
 # <a name="remote-monitoring-solution-accelerator-overview"></a>Externe bewaking accelerator overzicht van de oplossing
 
@@ -120,6 +120,9 @@ De ASA-jobs ervoor zorgen dat de telemetrie van de verbonden apparaten Time Seri
 ### <a name="azure-time-series-insights"></a>Azure Time Series Insights
 
 [Azure Time Series Insights](https://docs.microsoft.com/azure/time-series-insights/) winkels de telemetrie van de apparaten die zijn verbonden met de oplossingsversnellers. Ook kunt met visualiseren en query's telemetrie van apparaten in de web-UI van de oplossing.
+
+> [!NOTE]
+> Time Series Insights is momenteel niet beschikbaar in de Azure China-cloud. Nieuwe Remote Monitoring solution accelerator implementaties in de cloud met Azure China Cosmos DB gebruiken voor alle opslag.
 
 ### <a name="configuration-microservice"></a>Configuratie van microservice
 

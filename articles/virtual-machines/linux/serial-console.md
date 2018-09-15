@@ -14,14 +14,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 8a4b29cf8f2a5a79c68bad3631a54449d3ada09a
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 69dea0aa3eaa9de3ed94b934e5fa3c6e6a3ec24d
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717859"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632837"
 ---
-# <a name="virtual-machine-serial-console-preview"></a>Seriële Console van virtuele Machine (preview) 
+# <a name="virtual-machine-serial-console"></a>Seriële Console van virtuele Machine
 
 
 De seriële Console van de virtuele Machine op Azure biedt toegang tot een op tekst gebaseerde console voor virtuele Linux-machines. Deze seriële verbinding is met de seriële poort COM1 van de virtuele machine, toegang tot de virtuele machine die onafhankelijk is van het netwerk of de staat van besturingssysteem van een virtuele machine. Toegang tot de seriële console voor een virtuele machine op dit moment kunnen alleen worden uitgevoerd via Azure portal en alleen voor gebruikers die VM-Inzender hebben of hoger toegang tot de virtuele machine is toegestaan. 
@@ -29,7 +29,7 @@ De seriële Console van de virtuele Machine op Azure biedt toegang tot een op te
 Voor de seriële console-documentatie voor Windows-VM's, [Klik hier](../windows/serial-console.md).
 
 > [!Note] 
-> Previews worden voor u beschikbaar gesteld op voorwaarde dat u akkoord met de gebruiksvoorwaarden van gaat is. Zie voor meer informatie [Microsoft Azure aanvullende gebruiksvoorwaarden voor Microsoft Azure-Previews.] (https://azure.microsoft.com/support/legal/preview-supplemental-terms/) Deze service is momenteel **preview-versie** en toegang tot de seriële console voor virtuele machines is beschikbaar voor globale Azure-regio's. Seriële console is op dit moment niet beschikbaar Azure Government, Azure Duitsland en Azure China-cloud.
+> Seriële Console voor virtuele machines is algemeen beschikbaar in de globale Azure-regio's. Op dit moment is seriële console nog niet beschikbaar Azure Government or Azure China-cloud.
 
 
 ## <a name="prerequisites"></a>Vereisten 
@@ -54,7 +54,7 @@ Seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal
   1. De Azure-portal openen
   2. Selecteer de virtuele machines in het menu links.
   3. Klik op de virtuele machine in de lijst. De overzichtspagina voor de virtuele machine wordt geopend.
-  4. Schuif omlaag naar de ondersteuning en probleemoplossing sectie en klik op de optie seriële console (Preview). Een nieuw deelvenster met de seriële console opent en start de verbinding.
+  4. Schuif omlaag naar de ondersteuning en probleemoplossing sectie en klik op de optie 'Seriële console'. Een nieuw deelvenster met de seriële console opent en start de verbinding.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
@@ -62,7 +62,7 @@ Seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal
 > [!NOTE] 
 > Seriële console vereist een lokale gebruiker met een wachtwoord dat is geconfigureerd. VM's alleen worden geconfigureerd met een openbare SSH-sleutel wordt op dit moment geen toegang tot de seriële console. Gebruik voor het maken van een lokale gebruiker met wachtwoord de [VM-extensie voor toegang](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (ook beschikbaar in de portal door te klikken op 'Wachtwoord opnieuw instellen') en een lokale gebruiker te maken met een wachtwoord.
 
-## <a name="access-serial-console-for-linux"></a>Seriële Console van de toegang voor Linux
+## <a name="serial-console-linux-distro-availability"></a>Seriële Console Linux-distributie-beschikbaarheid
 In de volgorde voor de seriële console te laten functioneren, moet het gastbesturingssysteem worden geconfigureerd om te lezen en schrijven van consoleberichten naar de seriële poort. De meeste [Azure Linux-distributies die zijn goedgekeurd](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) hebben van de seriële console standaard geconfigureerd. Eenvoudig te klikken op de seriële Console-sectie in Azure portal biedt toegang tot de console. 
 
 Distributie      | Toegang tot de seriële Console
@@ -73,7 +73,7 @@ Ubuntu      | Ubuntu-installatiekopieën die beschikbaar zijn op Azure hebt toeg
 CoreOS      | CoreOS-installatiekopieën die beschikbaar zijn op Azure hebt toegang tot de console standaard ingeschakeld.
 SUSE        | Nieuwere SLES-installatiekopieën die beschikbaar zijn op Azure hebt toegang tot de console standaard ingeschakeld. Als u oudere versies (10 of lager) van SLES op Azure gebruikt, volgt u de [KB-artikel](https://www.novell.com/support/kb/doc.php?id=3456486) seriële console inschakelen. 
 Oracle Linux        | Oracle Linux-installatiekopieën die beschikbaar zijn op Azure hebt toegang tot de console standaard ingeschakeld.
-Aangepaste Linux-installatiekopieën     | Om in te schakelen voor uw aangepaste Linux-VM-installatiekopie de seriële console, schakel toegang tot de console in `/etc/inittab` om uit te voeren van een terminal op `ttyS0`. Hier volgt een voorbeeld om toe te voegen deze in het bestand inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Zie voor meer informatie over het maken van aangepaste installatiekopieën correct [een Linux-VHD in Azure maken en uploaden](https://aka.ms/createuploadvhd).
+Aangepaste Linux-installatiekopieën     | Om in te schakelen voor uw aangepaste Linux-VM-installatiekopie de seriële console, schakel toegang tot de console in `/etc/inittab` om uit te voeren van een terminal op `ttyS0`. Hier volgt een voorbeeld om toe te voegen deze in het bestand inittab: `S0:12345:respawn:/sbin/agetty -L 115200 console vt102`. Zie voor meer informatie over het maken van aangepaste installatiekopieën correct [een Linux-VHD in Azure maken en uploaden](https://aka.ms/createuploadvhd). Als u een aangepaste kernel bouwt, sommige kernel vlaggen Overweeg in te schakelen worden `CONFIG_SERIAL_8250=y` en `CONFIG_MAGIC_SYSRQ_SERIAL=y`. Het configuratiebestand dat bevindt vaak zich onder /boot/ voor verder onderzoek.
 
 ## <a name="common-scenarios-for-accessing-serial-console"></a>Algemene scenario's voor toegang tot de seriële console 
 Scenario          | Acties in de seriële console                
@@ -165,20 +165,22 @@ De virtuele machine is gestopt toewijzing ongedaan gemaakt. Start de virtuele ma
 U hebt niet de vereiste machtigingen voor deze virtuele machine de seriële console gebruiken. Zorg ervoor dat u ten minste beschikken over machtigingen van de rol Inzender voor virtuele machine.| Toegang tot de seriële console moet bepaalde machtiging voor toegang tot. Zie [vereisten](#prerequisites) voor meer informatie
 Kan niet bepalen van de resourcegroep voor het opslagaccount van de diagnostische gegevens over opstarten '<STORAGEACCOUNTNAME>'. Controleer of u diagnostische gegevens over opstarten is ingeschakeld voor deze virtuele machine en u toegang hebt tot dit opslagaccount wordt gebruikt. | Toegang tot de seriële console moet bepaalde machtiging voor toegang tot. Zie [vereisten](#prerequisites) voor meer informatie
 Web socket is gesloten of kan niet worden geopend. | U moet mogelijk aan lijst met geaccepteerde `*.console.azure.com`. Een meer gedetailleerde maar langer aanpak is het whitelist de [Microsoft Azure Datacenter IP-bereiken](https://www.microsoft.com/en-us/download/details.aspx?id=41653), waardoor vrij regelmatig worden gewijzigd.
+Een antwoord 'Verboden' is opgetreden bij het openen van deze virtuele machine opstarten diagnostische storage-account. | Zorg ervoor dat diagnostische gegevens over de opstarten beschikt niet over een account-firewall. Een toegankelijke opstarten diagnostische storage-account is nodig voor de seriële console van functie.
+
 ## <a name="known-issues"></a>Bekende problemen 
-Aangezien we nog steeds in de previewfase voor toegang tot de seriële console, wordt er geprobeerd via enkele bekende problemen. Hieronder volgt de lijst met mogelijke oplossingen:
+We zijn ons bewust van enkele problemen met de seriële console. Hier volgt een lijst van deze problemen beschreven en stappen voor risicobeperking.
 
 Probleem                           |   Oplossing 
 :---------------------------------|:--------------------------------------------|
 Nadat de banner van de verbinding wordt niet weergegeven voor een logboek in de prompt te maken met invoeren | Raadpleeg deze pagina: [Hitting invoeren, gebeurt er niets](https://github.com/Microsoft/azserialconsole/blob/master/Known_Issues/Hitting_enter_does_nothing.md). Dit kan gebeuren als u een aangepaste VM, beperkte toestel of GRUB-configuratie die ervoor zorgt Linux dat mislukken correct verbinding maken met de seriële poort.
-Een antwoord 'Verboden' is opgetreden bij het openen van deze virtuele machine opstarten diagnostische storage-account. | Zorg ervoor dat diagnostische gegevens over de opstarten beschikt niet over een account-firewall. Een toegankelijke opstarten diagnostische storage-account is nodig voor de seriële console van functie.
 Tekst van de seriële console wordt alleen een gedeelte van de schermgrootte (vaak na met een teksteditor) | Seriële consoles bieden geen ondersteuning voor het onderhandelen over venstergrootte ([RFC 1073](https://www.ietf.org/rfc/rfc1073.txt)), wat betekent dat er geen signaal SIGWINCH worden verzonden naar het bijwerken van de grootte van het scherm en de virtuele machine heeft geen kennis van de grootte van de terminal. U wordt aangeraden instaling xterm of enige andere vergelijkbaar hulpprogramma waarmee u de opdracht 'grootte'. Uitvoeren van 'grootte' wordt dit opgelost.
+Het plakken van zeer lange tekenreeksen werkt niet | Seriële console beperkt de lengte van tekenreeksen in de terminal naar 2048 tekens geplakt. Zo wordt voorkomen dat de bandbreedte van de seriële poort wordt belast.
 
 
 ## <a name="frequently-asked-questions"></a>Veelgestelde vragen 
 **Q. Hoe kan ik feedback verzenden?**
 
-A. Feedback geven als het probleem door te gaan naar https://aka.ms/serialconsolefeedback. U kunt ook minder (aanbevolen) feedback verzenden via azserialhelp@microsoft.com of in de categorie van de virtuele machine van de http://feedback.azure.com
+A. Feedback geven als het probleem door te gaan naar https://aka.ms/serialconsolefeedback. U kunt ook feedback via (minder bij voorkeur), verzenden azserialhelp@microsoft.com of in de categorie van de virtuele machine van de http://feedback.azure.com
 
 **Q. Biedt ondersteuning voor de seriële console kopiëren/plakken?**
 

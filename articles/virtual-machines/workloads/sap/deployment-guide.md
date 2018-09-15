@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/08/2016
 ms.author: sedusch
-ms.openlocfilehash: eb2b26333647d464a3a18cd07bf1576251fb3830
-ms.sourcegitcommit: d16b7d22dddef6da8b6cfdf412b1a668ab436c1f
+ms.openlocfilehash: a2daf75e5a75a4fb0be06986903a2f4f9be8adf0
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39715400"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634843"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>Azure Virtual Machines-implementatie voor SAP NetWeaver
 [767598]:https://launchpad.support.sap.com/#/notes/767598
@@ -483,7 +483,7 @@ Voer de volgende parameters voor de sjabloon in de Azure-portal:
   * **Gebruikersnaam van beheerder** en **beheerderswachtwoord**: een gebruikersnaam en wachtwoord.
     Een nieuwe gebruiker is gemaakt, voor aanmelding bij de virtuele machine.
   * **Nieuw of bestaand subnet**: bepaalt of een nieuw virtueel netwerk en subnet worden gemaakt of een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
-  * **Subnet-ID**: de ID van het subnet in de virtuele machines verbinding maken. Selecteer het subnet van uw virtueel particulier netwerk (VPN) of het virtuele netwerk van Azure ExpressRoute te gebruiken voor de virtuele machine verbinding met uw on-premises netwerk. De ID meestal er als volgt uitzien: /subscriptions/&lt;abonnements-id > /resourceGroups/&lt;groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
+  * **Subnet-ID**: als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal er als volgt uitzien: /subscriptions/&lt;abonnements-id > /resourceGroups/&lt;groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
 
 1. **Voorwaarden en bepalingen**:  
     Lees en accepteer de juridische bepalingen.
@@ -614,9 +614,7 @@ Voer de volgende parameters voor de sjabloon in de Azure-portal:
 
     Een nieuwe gebruiker is gemaakt, voor aanmelding bij de virtuele machine.
   * **Nieuw of bestaand subnet**: bepaalt of een nieuw virtueel netwerk en een subnet wordt gemaakt of een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
-  * **Subnet-ID**: de ID van het subnet waarop de virtuele machines verbinding maken. Selecteer het subnet van het virtuele netwerk voor VPN of ExpressRoute te gebruiken voor de virtuele machine verbinding met uw on-premises netwerk. De ID ziet er meestal als volgt uit:
-
-    /Subscriptions/&lt;abonnements-id > /resourceGroups/&lt;groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
+  * **Subnet-ID**: als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal er als volgt uitzien: /subscriptions/&lt;abonnements-id > /resourceGroups/&lt;groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
 
 1. **Voorwaarden en bepalingen**:  
     Lees en accepteer de juridische bepalingen.
@@ -697,9 +695,7 @@ Voer de volgende parameters voor de sjabloon in de Azure-portal:
   * **OS-schijf VHD-URI** (alleen voor niet-beheerde schijf-sjabloon): de URI van de persoonlijke besturingssysteemschijf, bijvoorbeeld: https://&lt;accountname >.blob.core.windows.net/vhds/osdisk.vhd.
   * **Beheerde schijf-Id van de besturingssysteemschijf** (alleen voor beheerde schijf-sjabloon): de Id van de beheerde schijf besturingssysteemschijf, /subscriptions/92d102f7-81a5-4df7-9877-54987ba97dd9/resourceGroups/group/providers/Microsoft.Compute/disks/WIN
   * **Nieuw of bestaand subnet**: bepaalt of een nieuw virtueel netwerk en subnet worden gemaakt of in een bestaand subnet wordt gebruikt. Als u al een virtueel netwerk dat is verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
-  * **Subnet-ID**: de ID van het subnet waarop de virtuele machines verbinding maken. Selecteer het subnet van het virtuele netwerk voor VPN of Azure ExpressRoute te gebruiken voor de virtuele machine verbinding met uw on-premises netwerk. De ID ziet er meestal als volgt uit:
-
-    /Subscriptions/&lt;abonnements-id > /resourceGroups/&lt;groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
+  * **Subnet-ID**: als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal er als volgt uitzien: /subscriptions/&lt;abonnements-id > /resourceGroups/&lt;groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/&lt;virtuele-netwerknaam > /subnets/&lt;subnetnaam >
 
 1. **Voorwaarden en bepalingen**:  
     Lees en accepteer de juridische bepalingen.
@@ -835,7 +831,7 @@ De stappen die u moet het configureren van de proxy in Windows verschillen van d
 Proxy-instellingen moeten correct worden ingesteld voor het lokale systeemaccount gebruikt voor toegang tot het Internet. Als de proxy-instellingen zijn niet ingesteld met Groepsbeleid, kunt u de instellingen voor het lokale systeemaccount configureren.
 
 1. Ga naar **Start**, voer **gpedit.msc**, en selecteer vervolgens **Enter**.
-1. Selecteer **Computerconfiguratie** > **Beheersjablonen** > **Windows-onderdelen**  >  ** Internet Explorer**. Zorg ervoor dat de instelling **proxy maken instellingen per computer (in plaats per gebruiker)** is uitgeschakeld of niet is geconfigureerd.
+1. Selecteer **Computerconfiguratie** > **Beheersjablonen** > **Windows-onderdelen**  >   **Internet Explorer**. Zorg ervoor dat de instelling **proxy maken instellingen per computer (in plaats per gebruiker)** is uitgeschakeld of niet is geconfigureerd.
 1. In **Configuratiescherm**, gaat u naar **Netwerkcentrum** > **Internetopties**.
 1. Op de **verbindingen** tabblad de **LAN-instellingen** knop.
 1. Schakel de **-instellingen automatisch detecteren** selectievakje.

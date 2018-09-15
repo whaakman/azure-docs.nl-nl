@@ -1,20 +1,21 @@
 ---
-title: Informatie over hoe functies worden gebruikt in op basis van een patroon entiteiten - Azure | Microsoft Docs
-description: Meer informatie over hoe een rol wordt gebruikt in een entiteit op basis van een patroon voor een subtype contextuele entiteit een naam geven.
+title: Informatie over hoe functies worden gebruikt in entiteiten op basis van het patroon
+titleSuffix: Azure Cognitive Services
+description: Rollen zijn met de naam, contextuele subtypen van een entiteit die alleen in de patronen gebruikt. Bijvoorbeeld, in de utterance kopen een ticket van de New York naar Londen, New York zowel Londen steden zijn maar elk een andere betekenis heeft in de zin. New York is de plaats van de oorsprong en Londen is de plaats van bestemming.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 06/08/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d2692cdce9da7428bd7b30c4feaf7347792618f5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: aabd3a22498e0e33993d715e7a5882dde7aacf37
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39222700"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632480"
 ---
 # <a name="entity-roles-in-patterns-are-contextual-subtypes"></a>Rollen van de entiteit in de patronen zijn contextuele subtypen
 Rollen zijn met de naam, contextuele subtypen van een entiteit gebruikt alleen in [patronen](luis-concept-patterns.md).
@@ -31,9 +32,10 @@ Functies bieden een naam op die verschillen:
 ## <a name="how-are-roles-used-in-patterns"></a>Hoe worden de rollen in patronen gebruikt?
 Rollen worden gebruikt in een patroon van sjabloon utterance, binnen de utterance: 
 
-```
-buy a ticket from {Location:origin} to {Location:destination}
-```
+|Patroon met behulp van entiteit|
+|--|
+|`buy a ticket from {Location:origin} to {Location:destination}`|
+
 
 ## <a name="role-syntax-in-patterns"></a>Syntaxis van de rol van patronen
 De entiteit en de rol worden tussen haakjes, `{}`. De entiteit en de rol worden gescheiden door een dubbele punt. 

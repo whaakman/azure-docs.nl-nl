@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/28/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: d6d68842b5e519201f7990a9c361710115de7fea
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: ec149b0f100ae3e170f39911eafc399f24509dfa
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022947"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630389"
 ---
 # <a name="entities-in-luis"></a>Entiteiten in LUIS
 
@@ -46,10 +46,10 @@ Als het woord keuze of word-indeling hetzelfde is, maar geen betekent dit hetzel
 
 De volgende uitingen, het woord `fair` een homograaf is. Deze hetzelfde is gespeld, maar heeft een andere betekenis:
 
-```
-What kind of county fairs are happening in the Seattle area this summer?
-Is the current rating for the Seattle review fair?
-```
+|Utterance|
+|--|
+|Wat voor soort county beurzen plaatsvinden in het gebied van Seattle zomer van dit jaar?|
+|Is de huidige classificatie voor de beoordeling Seattle geoorloofd?|
 
 Als u een entiteit gebeurtenis te vinden van alle gegevens van de gebeurtenis, een label het woord `fair` in de eerste utterance, maar niet in de tweede.
 

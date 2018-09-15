@@ -8,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/05/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 010efdf0fbfabb92b7465e37cb678a64810c8979
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 80d73620d11312a386a406d9a49d9223295b42f3
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025245"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631375"
 ---
 # <a name="enterprise-strategies-for-a-luis-app"></a>Enterprise-strategieën voor een LUIS-app
 Bekijk deze ontwerpstrategieën voor uw enterprise-app.
@@ -51,9 +51,7 @@ Gebruik de [verzending] [ dispatch-tool] opdrachtregelprogramma, gevonden in [Bo
 
 ![Conceptuele afbeelding van verzending van de architectuur](./media/luis-concept-enterprise/dispatch-architecture.png)
 
-Het bovenliggende domein wordt vermeld in LUIS als een **V verzending** app. 
-
-![Lijst met apps met LUIS-app gemaakt met verzending hulpprogramma Screenshot van LUIS](./media/luis-concept-enterprise/dispatch.png)
+Het bovenliggende domein wordt vermeld in LUIS met een versie met de naam `Dispatch` in de lijst met apps. 
 
 De chatbot ontvangt de utterance en vervolgens verzendt naar de bovenliggende LUIS-app voor voorspelling. De bovenste voorspelde intentie van de bovenliggende app bepaalt welke onderliggende LUIS-app wordt vervolgens genoemd. De chatbot verzendt de utterance naar de onderliggende-app voor een meer specifieke voorspelling.
 
@@ -67,4 +65,4 @@ Een toepassing verzending heeft 500 verzending bronnen, gelijk aan 500 intents a
 * Meer informatie over het [testen van een batch](luis-how-to-batch-test.md)
 
 [dispatcher-application-tutorial]: https://aka.ms/bot-dispatch
-[dispatch-tool]: https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch
+[dispatch-tool]: https://aka.ms/dispatch-tool

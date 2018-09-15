@@ -12,12 +12,12 @@ ms.component: core
 ms.workload: data-services
 ms.topic: article
 ms.date: 10/17/2017
-ms.openlocfilehash: 667636aac49d2622ba1a6b45d7c8af61b9609c55
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a8c258a9bc8e006d5bbae4b7bbb61c7ef6e95412
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579177"
+ms.locfileid: "45605943"
 ---
 # <a name="image-classification-using-azure-machine-learning-workbench"></a>Afbeeldingsclassificatie met behulp van Azure Machine Learning Workbench
 
@@ -283,7 +283,7 @@ Het is belangrijk dat elke installatiekopie kan worden toegewezen aan exact éé
 Verzamelen van een voldoende aantal interpretaties installatiekopieën voor trainings- als testdoeleinden kan lastig zijn. Er is een manier om dit probleem oplossen bij installatiekopieën van het Internet.
 
 > [!IMPORTANT] 
-> Voor alle installatiekopieën die u gebruikt, zorg ervoor dat schenden geen u auteursrechten. 
+> Voor alle afbeeldingen die u gebruikt, zorg ervoor dat u niet schenden van de afbeelding copyright en licenties. 
 
 <!--
 For example, see below the Bing Image Search results for the query *t-shirt striped*. As expected, most images indeed are striped t-shirts. The few incorrect or ambiguous images (such as column 1, row 1; or column 3, row 2) can be identified and removed easily:

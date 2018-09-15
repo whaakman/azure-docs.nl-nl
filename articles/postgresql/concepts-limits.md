@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: 52dfac826de86f67b3143cce49c35088547c4b39
-ms.sourcegitcommit: 4e5ac8a7fc5c17af68372f4597573210867d05df
+ms.openlocfilehash: e096a67d953860ec2e9601f25dbd9ca92a8fb4a3
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/20/2018
-ms.locfileid: "39171769"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633774"
 ---
 # <a name="limitations-in-azure-database-for-postgresql"></a>Beperkingen in Azure Database for PostgreSQL
 De volgende secties beschrijven de capaciteits- en functionele limieten in de database-service.
@@ -47,7 +47,7 @@ De Azure-systeem is vijf verbindingen voor het bewaken van de Azure Database for
 - Verkleinen server storage is momenteel niet ondersteund.
 
 ### <a name="server-version-upgrades"></a>Server-versie-upgrades
-- Automatische migratie tussen versies van de primaire database-engine wordt momenteel niet ondersteund.
+- Automatische migratie tussen versies van de primaire database-engine wordt momenteel niet ondersteund. Als u wilt upgraden naar de volgende primaire versie, een [dump maken en terugzetten](./howto-migrate-using-dump-and-restore.md) deze naar een server die is gemaakt met de versie van de nieuwe engine.
 
 ### <a name="subscription-management"></a>Abonnementsbeheer
 - Dynamisch servers verplaatsen tussen abonnementen en resourcegroepen wordt momenteel niet ondersteund.

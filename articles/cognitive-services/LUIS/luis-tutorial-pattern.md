@@ -1,76 +1,56 @@
 ---
-title: Zelfstudie over het gebruiken van patronen voor het verbeteren van LUIS voorspellingen - Azure | Microsoft Docs
-titleSuffix: Cognitive Services
-description: In deze zelfstudie, gebruikt u patroon voor intents voor het verbeteren van LUIS intentie en entiteit voorspellingen.
+title: 'Zelfstudie 3: Patronen voor het verbeteren van LUIS voorspellingen'
+titleSuffix: Azure Cognitive Services
+description: Patronen gebruiken voor het verhogen van intentie en entiteit voorspelling terwijl er minder voorbeeld uitingen. Het patroon wordt geboden via een sjabloon utterance-voorbeeld, waarin u de syntaxis voor het identificeren van entiteiten en ignorable tekst bevat.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 07/30/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 9c14f2121cd83cec802f4fd4a92661d58eb7efb3
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 3b41105a20b765abd084fc387370a49b657d1cba
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159568"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634724"
 ---
-# <a name="tutorial-improve-app-with-patterns"></a>Zelfstudie: Een app met patronen verbeteren
+# <a name="tutorial-3-add-common-utterance-formats"></a>Zelfstudie: 3. Algemene utterance indelingen toevoegen
 
-In deze zelfstudie gebruiken u patronen voor het verhogen van de intentie en entiteit voorspelling.  
+In deze zelfstudie gebruiken u patronen voor het verhogen van de intentie en entiteit voorspelling terwijl er minder voorbeeld uitingen. Het patroon wordt geboden via een sjabloon utterance-voorbeeld, waarin u de syntaxis voor het identificeren van entiteiten en ignorable tekst bevat. Een patroon is een combinatie van de expressie die overeenkomen met en machine learning.  Het voorbeeld van een sjabloon utterance, samen met de intentie uitingen geven LUIS een beter beeld van welke uitingen past het doel. 
+
+**In deze zelfstudie leert u hoe u:**
 
 > [!div class="checklist"]
-* Identificeren dat een patroon waarmee uw app
-* Over het maken van een patroon
-* Patroon voorspelling verbeteringen controleren
+> * Gebruik bestaande zelfstudie-app 
+> * Doel maken
+> * Trainen
+> * Publiceren
+> * Intenties en entiteiten ophalen van eindpunt
+> * Een patroon maken
+> * Controleer of patroon voorspelling verbeteringen
+> * Tekst markeren als ignorable en nesten binnen patroon
+> * Test deelvenster gebruiken om te controleren of patroon is geslaagd
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Voordat u begint
+## <a name="use-existing-app"></a>Gebruik bestaande app
 
-Als u geen de Human Resources-app vanuit de [batch test](luis-tutorial-batch-testing.md) zelfstudie [importeren](luis-how-to-start-new-app.md#import-new-app) de JSON naar een nieuwe app in de [LUIS](luis-reference-regions.md#luis-website) website. De app voor het importeren is gevonden in de [LUIS-Samples](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-batchtest-HumanResources.json) GitHub-opslagplaats.
+Ga door met de app hebt gemaakt in de laatste zelfstudie, met de naam **Personeelszaken**. 
 
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `patterns`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
+Als u de app Personeelszaken uit de vorige zelfstudie hebt, gebruikt u de volgende stappen uit:
 
-## <a name="patterns-teach-luis-common-utterances-with-fewer-examples"></a>Patronen leren LUIS algemene uitingen met minder voorbeelden
+1.  Download en sla [app JSON-bestand](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-batchtest-HumanResources.json).
 
-Vanwege de aard van het Human resources-domein, moet u er een paar algemene manieren om vragen over werknemer relaties in organisaties zijn. Bijvoorbeeld:
+2. De JSON importeren in een nieuwe app.
 
-|Utterances|
-|--|
-|Wie Jill Jones rapporteren aan?|
-|Die rapporteert aan Jill Jones?|
-
-Deze uitingen zijn te dicht bij de contextuele Uniekheid van elk zonder op te geven veel utterance voorbeelden bepalen. Door toe te voegen een patroon voor een doel, LUIS algemene utterance-patronen leert herkennen voor een doel zonder op te geven veel utterance voorbeelden. 
-
-Voorbeeld van de sjabloon uitingen hiervoor intentie zijn:
-
-|Voorbeeld van de sjabloon uitingen|
-|--|
-|Wie komt {werknemer} rapporteren aan?|
-|Die rapporteert aan {werknemer}?|
-
-Het patroon wordt geboden via een sjabloon utterance-voorbeeld, waarin u de syntaxis voor het identificeren van entiteiten en ignorable tekst bevat. Een patroon is een combinatie van reguliere expressie die overeenkomen met en machine learning.  Het voorbeeld van een sjabloon utterance, samen met de intentie uitingen geven LUIS een beter beeld van welke uitingen past het doel.
-
-Opdat een patroon worden vergeleken met een utterance, moeten de entiteiten in de utterance eerst de entiteiten in de sjabloon utterance overeenkomen. Echter, de sjabloon niet helpen bij het voorspellen entiteiten, alleen intents. 
-
-**Terwijl patronen u minder voorbeeld uitingen kunnen, als de entiteiten niet worden gedetecteerd, wordt het patroon komt niet overeen.**
-
-Houd er rekening mee dat werknemers zijn gemaakt de [lijst entiteit zelfstudie](luis-quickstart-intent-and-list-entity.md).
+3. Uit de **beheren** sectie, op de **versies** tabblad en noem het klonen van de versie `patterns`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam van de wordt gebruikt als onderdeel van de URL-route, kan niet de naam van de tekens die niet toegestaan in een URL zijn bevatten.
 
 ## <a name="create-new-intents-and-their-utterances"></a>Nieuwe intents en hun uitingen maken
 
-Twee nieuwe intents toevoegen: `OrgChart-Manager` en `OrgChart-Reports`. LUIS retourneert één keer een voorspelling op de clientapp, de naam van de intentie kan worden gebruikt als de naam van een functie in de client-app en dat de werknemer-entiteit kan worden gebruikt als een parameter voor deze functie.
-
-```Javascript
-OrgChart-Manager(employee){
-    ///
-}
-```
-
-1. Zorg ervoor dat uw Human Resources-app zich in de sectie **Build** van LUIS bevindt. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Selecteer **Create new intent** op de pagina **Intents**. 
 
@@ -110,17 +90,17 @@ OrgChart-Manager(employee){
 
 ## <a name="caution-about-example-utterance-quantity"></a>Waarschuwing over voorbeeld utterance hoeveelheid
 
-De hoeveelheid uitingen voorbeeld in deze intents is niet genoeg om te trainen LUIS goed. In een echte app, moet elk doel hebben een minimum van 15 uitingen met tal van word keuze en utterance lengte. Deze enkele uitingen zijn geselecteerd specifiek voor het markeren van patronen. 
+[!include[Too few examples](../../../includes/cognitive-services-luis-too-few-example-utterances.md)]
 
-## <a name="train-the-luis-app"></a>LUIS-app trainen
+## <a name="train"></a>Trainen
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
+## <a name="publish"></a>Publiceren
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint-with-a-different-utterance"></a>Eindpunt opvragen met een andere utterance
+## <a name="get-intent-and-entities-from-endpoint"></a>Doel en entiteiten ophalen van eindpunt
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -215,13 +195,53 @@ Patronen gebruiken om de juiste intentie score aanzienlijk hoger percentage en v
 
 Laat dit tweede browservenster geopend. Deze gebruikt u het later opnieuw in de zelfstudie. 
 
-## <a name="add-the-template-utterances"></a>De sjabloon utterances toevoegen
+## <a name="template-utterances"></a>Uitingen van sjabloon
+Vanwege de aard van het Human resources-domein, moet u er een paar algemene manieren om vragen over werknemer relaties in organisaties zijn. Bijvoorbeeld:
+
+|Utterances|
+|--|
+|Wie Jill Jones rapporteren aan?|
+|Die rapporteert aan Jill Jones?|
+
+Deze uitingen zijn te dicht bij de contextuele Uniekheid van elk zonder op te geven veel utterance voorbeelden bepalen. Door toe te voegen een patroon voor een doel, LUIS algemene utterance-patronen leert herkennen voor een doel zonder op te geven veel utterance voorbeelden. 
+
+Voorbeelden van de sjabloon utterance hiervoor intentie zijn:
+
+|Uitingen sjabloonvoorbeelden|syntaxis van de betekenis|
+|--|--|
+|Wie komt {werknemer} rapporteren aan [?]|verwisselbaar {werknemer}, negeren [?]}|
+|Die rapporteert aan {werknemer} [?]|verwisselbaar {werknemer}, negeren [?]}|
+
+De `{Employee}` syntaxis van de locatie van de entiteit in de sjabloon utterance als het goed als welke entiteit is gemarkeerd. De syntaxis van de optionele `[?]`, markeert u woorden of leestekens die optioneel zijn. LUIS komt overeen met de utterance, de optionele tekst tussen haakjes worden genegeerd.
+
+Hoewel de syntaxis er zoals reguliere expressies uitziet, is deze niet reguliere expressies. Alleen de accolade `{}`, en vierkant haakje sluiten, `[]`, syntaxis wordt ondersteund. Ze kunnen maximaal twee niveaus worden genest.
+
+Opdat een patroon worden vergeleken met een utterance, moeten de entiteiten in de utterance eerst de entiteiten in de sjabloon utterance overeenkomen. Echter, de sjabloon niet helpen bij het voorspellen entiteiten, alleen intents. 
+
+**Terwijl patronen u minder voorbeeld uitingen kunnen, als de entiteiten niet worden gedetecteerd, wordt het patroon komt niet overeen.**
+
+In deze zelfstudie voegt u twee nieuwe intents: `OrgChart-Manager` en `OrgChart-Reports`. 
+
+|Intentie|Utterance|
+|--|--|
+|Organigram-Manager|Wie Jill Jones rapporteren aan?|
+|Organigram-rapporten|Die rapporteert aan Jill Jones?|
+
+LUIS retourneert één keer een voorspelling op de clientapp, de naam van de intentie kan worden gebruikt als de naam van een functie in de client-app en dat de werknemer-entiteit kan worden gebruikt als een parameter voor deze functie.
+
+```Javascript
+OrgChartManager(employee){
+    ///
+}
+```
+
+Houd er rekening mee dat werknemers zijn gemaakt de [lijst entiteit zelfstudie](luis-quickstart-intent-and-list-entity.md).
 
 1. Selecteer **bouwen** in het bovenste menu.
 
 2. In het linker navigatiedeelvenster, onder **verbeterde app-prestaties**, selecteer **patronen** in de linkernavigatiebalk.
 
-3. Selecteer de **organigram-Manager** doel, voert u de volgende sjabloon uitingen, één voor één, selecteren enter na elke utterance sjabloon:
+3. Selecteer de **organigram-Manager** doel, voert u de volgende sjabloon uitingen:
 
     |Uitingen van sjabloon|
     |:--|
@@ -232,17 +252,13 @@ Laat dit tweede browservenster geopend. Deze gebruikt u het later opnieuw in de 
     |Wie is de supervisor {werknemer} [de] [?]|
     |Wie is de baas van {werknemer} [?]|
 
-    De `{Employee}` syntaxis van de locatie van de entiteit in de sjabloon utterance als het goed als welke entiteit is gemarkeerd. 
-
     Entiteiten met behulp van syntaxis die de rolnaam van de bevat, en worden behandeld in een [afzonderlijke zelfstudie voor rollen](luis-tutorial-pattern-roles.md). 
-
-    De syntaxis van de optionele `[]`, markeert u woorden of leestekens die optioneel zijn. LUIS komt overeen met de utterance, de optionele tekst tussen haakjes worden genegeerd.
 
     Als u de sjabloon utterance, LUIS kunt u in de entiteit bij het invoeren van de accolade links `{`.
 
     [![Schermafbeelding van het invoeren van de sjabloon-uitingen voor doel](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png)](./media/luis-tutorial-pattern/hr-pattern-missing-entity.png#lightbox)
 
-4. Selecteer de **organigram-rapporten** doel, voert u de volgende sjabloon uitingen, één voor één, selecteren enter na elke utterance sjabloon:
+4. Selecteer de **organigram-rapporten** doel, voert u de volgende sjabloon uitingen:
 
     |Uitingen van sjabloon|
     |:--|
@@ -427,6 +443,8 @@ Al deze uitingen de entiteiten gevonden binnen, dus ze overeenkomen met hetzelfd
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
+
+In deze zelfstudie voegt twee intents voor uitingen die moeilijk te voorspellen met hoge nauwkeurigheid zijn zonder veel voorbeeld uitingen toe. Toe te voegen patronen voor deze toegestane LUIS kunt u het beste het doel met een aanzienlijk hogere score te voorspellen. LUIS het patroon toepassen op een groter aantal uitingen markeren van entiteiten en ignorable tekst worden toegestaan.
 
 > [!div class="nextstepaction"]
 > [Informatie over het gebruik van functies met een patroon](luis-tutorial-pattern-roles.md)

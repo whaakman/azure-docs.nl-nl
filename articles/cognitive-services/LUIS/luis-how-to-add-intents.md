@@ -1,25 +1,26 @@
 ---
-title: Intents toevoegen in toepassingen LUIS | Microsoft Docs
-description: Language Understanding (LUIS) om toe te voegen intents om apps te begrijpen van gebruikersaanvragen en reageren op deze correct te gebruiken.
+title: Intents toevoegen in toepassingen LUIS
+titleSuffix: Azure Cognitive Services
+description: Intents toevoegen aan uw LUIS-app voor het identificeren van groepen van vragen of de opdrachten die het hetzelfde doel hebben.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.component: language-understanding
 ms.topic: article
-ms.date: 05/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
 ms.service: cognitive-services
-ms.openlocfilehash: 0ebf15ea49467674ab3c56aa7983131593cf5c9a
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 687cbad9d1e493e07fc5f813fdd7c52dee3b97d4
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225883"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634622"
 ---
 # <a name="manage-intents"></a>Intents beheren 
 Voeg [intents](luis-concept-intent.md) aan uw LUIS-app voor het identificeren van groepen van vragen of de opdrachten die het hetzelfde doel hebben. 
 
-U toevoegen en beheren van uw intenties van de **Intents** pagina beschikbaar is via **Intents** in het linkerdeelvenster van LUIS. 
+Intents worden beheerd vanuit de **bouwen** sectie in de bovenste werkbalk. U toevoegen en beheren van uw intenties van de **Intents** pagina, beschikbaar in het linkerdeelvenster. 
 
 De volgende procedure laat zien hoe u het doel "Bookflight" in de app TravelAgent toevoegen.
 
@@ -28,7 +29,6 @@ De volgende procedure laat zien hoe u het doel "Bookflight" in de app TravelAgen
 1. Open uw app (bijvoorbeeld TravelAgent) door te klikken op de naam ervan op **mijn Apps** pagina en klik vervolgens op **Intents** in het linkerpaneel. 
 2. Op de **Intents** pagina, klikt u op **maken van nieuwe bedoeling**.
 
-    ![Intents lijst](./media/luis-how-to-add-intents/IntentsList.png)
 3. In de **maken van nieuwe bedoeling** in het dialoogvenster, type de bedoeling naam 'BookFlight' en klikt u op **gedaan**.
 
     ![Doel toevoegen](./media/luis-how-to-add-intents/Addintent-dialogbox.png)
@@ -105,7 +105,7 @@ Verschillende uitingen verwijderen:
 2. Selecteer **gedaan** in de **uitingen verwijderen?** pop-upvenster.
 
 ## <a name="search-in-utterances-on-intent-page"></a>Zoeken in uitingen op intentie pagina
-U kunt zoeken in een doel voor uitingen die tekst (woorden of zinsdelen) bevatten. Bijvoorbeeld, ziet u mogelijk een foutbericht weergegeven dat betrekking heeft op een bepaald woord, en u wilt alle voorbeelden die bepaald woord bevatten. 
+U kunt zoeken naar uitingen die tekst (woorden of zinsdelen) bevatten in van de intentie utterance lijst. Bijvoorbeeld, ziet u mogelijk een foutbericht weergegeven dat betrekking heeft op een bepaald woord, en u wilt alle voorbeelden die bepaald woord bevatten. 
 
 1. Selecteer het pictogram met Vergrootglas in de werkbalk.
 

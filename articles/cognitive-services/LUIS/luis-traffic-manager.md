@@ -1,20 +1,21 @@
 ---
-title: Microsoft Azure Traffic Manager gebruiken voor het verhogen van quota voor eindpunt in Language Understanding (LUIS) - Azure | Microsoft Docs
-description: Gebruik Microsoft Azure Traffic Manager naar het eindpunt quotum verdeeld over verschillende abonnementen in Language Understanding (LUIS) om eindpunt quotum te verhogen
+title: Microsoft Azure Traffic Manager gebruiken voor het verhogen van quota voor eindpunt in Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: Language Understanding (LUIS) biedt de mogelijkheid om het quotum van de aanvraag eindpunt meer dan één sleutel quotum te verhogen. Dit wordt gedaan door het maken van meer sleutels voor LUIS en deze toevoegen aan de LUIS-toepassing op de **publiceren** pagina in de **Resources en sleutels** sectie.
 author: diberry
 manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 06/07/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 909c32452db216f79633b94c31f39350b7a6ee20
-ms.sourcegitcommit: 156364c3363f651509a17d1d61cf8480aaf72d1a
+ms.openlocfilehash: 69e9ad14dd2efaecd587140f6d49550e6daf5e5c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39248625"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634950"
 ---
 # <a name="use-microsoft-azure-traffic-manager-to-manage-endpoint-quota-across-keys"></a>Microsoft Azure Traffic Manager gebruiken voor het beheer van eindpunt quotum voor sleutels
 Language Understanding (LUIS) biedt de mogelijkheid om het quotum van de aanvraag eindpunt meer dan één sleutel quotum te verhogen. Dit wordt gedaan door het maken van meer sleutels voor LUIS en deze toevoegen aan de LUIS-toepassing op de **publiceren** pagina in de **Resources en sleutels** sectie. 
@@ -44,9 +45,7 @@ New-AzureRmResourceGroup -Name luis-traffic-manager -Location "West US"
 
     ![Schermopname van het Azure-portal met twee LUIS sleutels in de resourcegroep van luis-traffic-manager](./media/traffic-manager/luis-keys.png)
 
-2. In de [LUIS] [ LUIS] website op de **publiceren** pagina, sleutels toevoegen aan de app en publiceer de app opnieuw. 
-
-    ![Schermafbeelding van LUIS-portal met twee LUIS sleutels op pagina publiceren](./media/traffic-manager/luis-keys-in-luis.png)
+2. In de [LUIS] [ LUIS] website in de **beheren** sectie, op de **sleutels en eindpunten** pagina, sleutels toewijzen aan de app en de app door te publiceren selecteren van de **publiceren** knop in het menu rechtsboven. 
 
     De voorbeeld-URL in de **eindpunt** kolom gebruikt een GET-aanvraag met de eindpuntsleutel als een queryparameter. Kopieer de twee nieuwe sleutels eindpunt-URL's. Ze worden gebruikt als onderdeel van de configuratie van Traffic Manager verderop in dit artikel.
 
@@ -350,7 +349,7 @@ dns.resolveAny('luis-dns-parent.trafficmanager.net', (err, ret) => {
 
 De geslaagde respons met het eindpunt van LUIS is:
 
-```cmd
+```json
 [
     {
         value: 'westus.api.cognitive.microsoft.com', 

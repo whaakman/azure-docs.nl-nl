@@ -2,19 +2,19 @@
 title: Azure Data Lake Tools voor Visual Studio Code gebruiken
 description: Informatie over het gebruik van Azure Data Lake Tools voor Visual Studio Code om te maken, testen en uitvoeren van U-SQL-scripts.
 services: data-lake-analytics
+ms.service: data-lake-analytics
 author: Jejiang
 ms.author: jejiang
 ms.reviewer: jasonwhowell
 ms.assetid: dc9b21d8-c5f4-4f77-bcbc-eff458f48de2
-ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: b06b4c4484e3f41b64ff2d60ce558726c555a2e3
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: e470d27ccfea68f628b793f9afd695bb363e295a
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047908"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630832"
 ---
 # <a name="use-azure-data-lake-tools-for-visual-studio-code"></a>Azure Data Lake Tools voor Visual Studio Code gebruiken
 
@@ -24,7 +24,7 @@ In dit artikel, leert u hoe u kunt Azure Data Lake Tools voor Visual Studio Code
 
 ## <a name="prerequisites"></a>Vereisten
 
-Azure Data Lake Tools voor VS Code biedt ondersteuning voor Windows, Linux en MacOS.  
+Azure Data Lake Tools voor VS Code biedt ondersteuning voor Windows, Linux en macOS. U-SQL lokaal uitvoeren en lokale foutopsporing werkt alleen in Windows.
 
 - [Visual Studio Code](https://www.visualstudio.com/products/code-vs.aspx)
 
@@ -220,6 +220,8 @@ U-SQL lokaal uitvoeren Test uw lokale gegevens en uw script lokaal wordt gevalid
 - Fouten opsporen in uw C#-code-behind. 
 - De code doorlopen. 
 - Uw script lokaal valideren.
+
+De functie lokaal fouten opsporen en lokaal worden uitgevoerd alleen werkt in Windows-omgevingen, en wordt niet ondersteund in macOS en Linux-besturingssystemen.
 
 Zie voor instructies voor het lokaal uitvoeren en lokaal fouten opsporen, [U-SQL lokaal uitvoeren en lokaal fouten opsporen met Visual Studio Code](data-lake-tools-for-vscode-local-run-and-debug.md).
 

@@ -16,12 +16,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 238f411ca1a1bb1aa3c89a515edd2091162512a2
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 02a12cc9fc614a642a5dad37e21bd8343c669aad
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379756"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631137"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server voor SAP-toepassingen
 
@@ -73,7 +73,7 @@ Lees eerst de volgende SAP-opmerkingen en documenten
 * SAP-notitie [1999351] bevat aanvullende informatie over probleemoplossing voor de Azure uitgebreide controle-extensie voor SAP.
 * [SAP-Community WIKI](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) bevat alle SAP-opmerkingen voor Linux vereist.
 * [Azure virtuele Machines, planning en implementatie van SAP op Linux][planning-guide]
-* [Azure Virtual Machines-implementatie voor SAP op Linux (in dit artikel)][deployment-guide]
+* [Azure Virtual Machines-implementatie voor SAP op Linux][deployment-guide]
 * [Azure virtuele Machines DBMS-implementatie voor SAP op Linux][dbms-guide]
 * [SUSE SAP HA gidsen met aanbevolen procedures] [ suse-ha-guide] de handleidingen bevatten alle benodigde informatie voor het instellen van Netweaver HA en SAP HANA-Systeemreplicatie on-premises. Gebruik deze handleidingen als een algemene basislijn. Ze bieden nog veel meer gedetailleerde informatie.
 
@@ -149,7 +149,7 @@ U kunt een van de snelstartsjablonen van op GitHub gebruiken om alle vereiste re
    9. Gebruikersnaam voor de beheerder en het wachtwoord van beheerder  
       Een nieuwe gebruiker wordt gemaakt die kan worden gebruikt voor aanmelding bij de machine.
    10. Subnet-ID  
-   De ID van het subnet waarmee de virtuele machines moet worden verbonden.  Laat leeg als u wilt een nieuw virtueel netwerk maken of selecteren van hetzelfde subnet bevinden die u hebt gebruikt of gemaakt als onderdeel van de implementatie van de NFS-server. De ID is meestal ziet eruit als /subscriptions/**&lt;abonnements-ID&gt;**/resourceGroups/**&lt;groepsnaam voor accountresources&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;virtuele-netwerknaam&gt;**/subnets/**&lt;subnetnaam&gt;**
+   Als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID is meestal ziet eruit als /subscriptions/**&lt;abonnements-ID&gt;**/resourceGroups/**&lt;groepsnaam voor accountresources&gt;**/providers/ Microsoft.Network/virtualNetworks/**&lt;virtuele-netwerknaam&gt;**/subnets/**&lt;subnetnaam&gt;**
 
 ### <a name="deploy-linux-manually-via-azure-portal"></a>Handmatig implementeren van Linux via Azure portal
 

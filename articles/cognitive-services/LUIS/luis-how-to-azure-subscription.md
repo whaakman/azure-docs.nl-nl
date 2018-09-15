@@ -1,5 +1,6 @@
 ---
-title: Azure-eindpunt-abonnement te beheren | Microsoft Docs
+title: Beheer van de eindpunt-abonnementen in LUIS
+titleSuffix: Azure Cognitive Services
 description: In dit artikel maakt u een eindpuntsleutel met een datalimiet voor uw LUIS-account voor onbeperkte verkeer naar het eindpunt een betalingsplannen te volgen.
 services: cognitive-services
 author: diberry
@@ -7,14 +8,14 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/21/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 0b735499ae589e44c2ce5076fce38ec47ddd69c7
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: dcee5ce7ce103db734cf4b63c26944945efed0ea
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223276"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630899"
 ---
 # <a name="manage-azure-endpoint-subscription-keys"></a>Azure-eindpunt abonnementssleutels beheren
 
@@ -26,7 +27,7 @@ Gebruik voor testen en prototype alleen de gratis laag van (F0). Gebruik voor pr
 <a name="create-luis-service"></a>
 ## <a name="create-luis-endpoint-key"></a>LUIS-eindpuntsleutel maken
 
-1. Aanmelden bij  **[Microsoft Azure](https://ms.portal.azure.com/)** 
+1. Aanmelden bij  **[Microsoft Azure](https://ms.portal.azure.com/)**. 
 2. Klik op de groene **+** zich in de bovenste linkerdeelvenster en zoek naar 'LUIS' in de marketplace, en klik vervolgens op **Language Understanding** en volg de **ervaring maken**  een LUIS-abonnement-account maken. 
 
     ![Azure Search](./media/luis-azure-subscription/azure-search.png) 
@@ -40,8 +41,7 @@ Gebruik voor testen en prototype alleen de gratis laag van (F0). Gebruik voor pr
     ![Azure-sleutels](./media/luis-azure-subscription/azure-keys.png)
 
     > [!Note] 
-    > * Meld u aan bij uw regio [LUIS](luis-reference-regions.md) website en [toevoegen van de nieuwe LUIS-eindpuntsleutel](luis-how-to-manage-keys.md#assign-endpoint-key). 
-    > * U moet onthouden van de naam van de Azure-service die u hebt gemaakt om te selecteren op het gebied van [LUIS](luis-reference-regions.md) pagina publiceren.  
+    > Meld u aan bij van uw regio [LUIS](luis-reference-regions.md) website en [toewijzen van de nieuwe LUIS eindpuntsleutel](luis-how-to-manage-keys.md#assign-endpoint-key). U moet de naam van het abonnement LUIS uit stap 3.
 
 ## <a name="change-luis-pricing-tier"></a>Wijziging LUIS-prijscategorie
 

@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/14/2018
 ms.author: mabrigg
-ms.openlocfilehash: 3d856f4fad845dfdd4d9a30fa176a4c0bfbc875b
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: b6196ec434d00a6fbc6714095fa4182ede98ce91
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024339"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633432"
 ---
 # <a name="how-to-consume-monitoring-data-from-azure-stack"></a>Het gebruik van bewakingsgegevens van Azure Stack
 
@@ -35,7 +35,7 @@ U kunt gegevens op één plek met de Azure Monitor-pijplijn, net zoals Azure Mon
 | Metrische opslaggegevens | Metrische gegevens | Azure Storage | Storage-tabel:<br>Storage Analytics |
 | Activiteitenlogboek | Gebeurtenissen | Alle Azure-Services | REST-API:<br>Azure Monitor Event-API |
 | COMPUTE Gast OS-Logboeken (bijvoorbeeld, IIS, ETW, syslogs) | Gebeurtenissen | Windows en Linux-Machines | - Of blob Storage-tabel:<br>Windows- of Linux Azure Diagnostics <br>Event Hub:<br>Windows Azure Diagnostics |
-| Opslaglogboeken | Gebeurtenissen | Azure Storage | Storage-tabel:<br>Storage Analytics<br>`Vita: how about hybrid OMS/AppInsights, shall we mention?` |
+| Opslaglogboeken | Gebeurtenissen | Azure Storage | Storage-tabel:<br>Storage Analytics |
 
 ## <a name="next-steps"></a>Volgende stappen
 

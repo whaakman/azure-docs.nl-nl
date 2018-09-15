@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 09/13/2018
 ms.author: markvi
 ms.reviewer: raluthra
-ms.openlocfilehash: cadcc806b9aaeea4f2fc68c911e09c7e35926623
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 6879822e8451e6170bf17fff4ab66b672f711a93
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45552405"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632384"
 ---
 # <a name="quickstart-block-access-when-a-session-risk-is-detected-with-azure-active-directory-identity-protection"></a>Snelstartgids: Toegang blokkeren als er een sessie risico's met Azure Active Directory Identity Protection wordt gedetecteerd  
 
@@ -29,7 +29,7 @@ Om te voorkomen dat uw omgeving beveiligd, is het raadzaam om verdachte gebruike
 
 Deze snelstartgids leest hoe het configureren van een beleid voor aanmeldingsrisico voorwaardelijke toegang die blokkeert een aanmelding als een gemiddeld en hoger aanmeldingsrisico niveau is gedetecteerd. 
 
-![Beleid maken](./media/quickstart-sign-in-risk-policy/1003.png)
+![Beleid maken](./media/quickstart-sign-in-risk-policy/1004.png)
 
 
 Als u nog geen abonnement op Azure hebt, maak dan een [gratis account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) aan voordat u begint.
@@ -46,7 +46,7 @@ Als u wilt het scenario in deze zelfstudie hebt voltooid, hebt u het volgende no
 
 - **Tor Browser** : de [Tor Browser](https://www.torproject.org/projects/torbrowser.html.en) is ontworpen om u te helpen u uw privacy online beschermen. Identity Protection detecteert een aanmelding vanuit een Tor Browser als **aanmeldingen vanaf anonieme IP-adressen**, die is voorzien van een gemiddeld risico-niveau. Zie [Risicogebeurtenissen in Azure Active Directory](../reports-monitoring/concept-risk-events.md) voor meer informatie.  
 
-- **Een testaccount met de naam Alain Charon** : als u niet hoe ik een testaccount maakt weet, Zie [cloudgebruikers toevoegen](../fundamentals/add-users-azure-active-directory.md#add-cloud-based-users).
+- **Een testaccount met de naam Alain Charon** : als u niet hoe ik een testaccount maakt weet, Zie [een nieuwe gebruiker toevoegen](../fundamentals/add-users-azure-active-directory.md#add-a-new-user).
 
 
 ## <a name="test-your-sign-in"></a>Test de aanmelding 
@@ -82,35 +82,31 @@ Deze sectie wordt beschreven hoe u de vereiste aanmeldingsrisico-beleid voor voo
 
 1. Aanmelden bij uw [Azure-portal](https://portal.azure.com) als globale beheerder.
 
-2. Klik in de Azure-portal op de navigatiebalk links op **alle services**. 
-
-4. In de **Filter** tekstvak, type **identiteitsbeveiliging**.
-
-5. Klik op **Azure AD Identity Protection**.   
+2. Ga naar de [Azure AD Identity Protection-pagina](https://portal.azure.com/#blade/Microsoft_AAD_ProtectionCenter/IdentitySecurityDashboardMenuBlade/Overview).
  
-6. Op de **Azure AD Identity Protection** pagina, in de **configureren** sectie, klikt u op **aanmelden beleid voor gebruikersrisico's**.
+3. Op de **Azure AD Identity Protection** pagina, in de **configureren** sectie, klikt u op **aanmelden beleid voor gebruikersrisico's**.
  
-5. Op de beleidspagina in de **toewijzingen** sectie, klikt u op **gebruikers**.
+4. Op de beleidspagina in de **toewijzingen** sectie, klikt u op **gebruikers**.
 
-6. Op de **gebruikers** pagina, klikt u op **gebruikers selecteren**.
+5. Op de **gebruikers** pagina, klikt u op **gebruikers selecteren**.
 
-7. Op de **gebruikers selecteren** pagina, selecteert u **Alain Charon**, en klik vervolgens op **Selecteer**.
+6. Op de **gebruikers selecteren** pagina, selecteert u **Alain Charon**, en klik vervolgens op **Selecteer**.
 
-8. Op de **gebruikers** pagina, klikt u op **gedaan**. 
+7. Op de **gebruikers** pagina, klikt u op **gedaan**. 
 
-9. Op de beleidspagina in de **toewijzingen** sectie, klikt u op **voorwaarden**.
+8. Op de beleidspagina in de **toewijzingen** sectie, klikt u op **voorwaarden**.
 
-10. Op de **voorwaarden** pagina, klikt u op **aanmeldingsrisico**.
+9. Op de **voorwaarden** pagina, klikt u op **aanmeldingsrisico**.
 
-11. Op de **aanmeldingsrisico** weergeeft, schakelt **gemiddeld en hoger**, en klik vervolgens op **Selecteer**. 
+10. Op de **aanmeldingsrisico** weergeeft, schakelt **gemiddeld en hoger**, en klik vervolgens op **Selecteer**. 
 
-12. Op de **voorwaarden** pagina, klikt u op **gedaan**.
+11. Op de **voorwaarden** pagina, klikt u op **gedaan**.
 
-13. Op de beleidspagina in de **besturingselementen** sectie, klikt u op **toegang**.
+12. Op de beleidspagina in de **besturingselementen** sectie, klikt u op **toegang**.
 
-14. Op de **toegang** pagina, klikt u op **toegang toestaan**, selecteer **meervoudige verificatie vereisen**, en klik vervolgens op **Selecteer**.
+13. Op de **toegang** pagina, klikt u op **toegang toestaan**, selecteer **meervoudige verificatie vereisen**, en klik vervolgens op **Selecteer**.
 
-15. Klik op de beleidspagina **opslaan**.  
+14. Klik op de beleidspagina **opslaan**.  
 
 
 ## <a name="test-your-conditional-access-policy"></a>Testen van uw beleid voor voorwaardelijke toegang
@@ -124,7 +120,7 @@ Als u wilt testen van uw beleid, willen aanmelden bij uw [Azure-portal](https://
 
 Wanneer u niet meer nodig hebt, verwijdert u de testgebruiker, de Tor-Browser en het aanmeldingsrisico-beleid voor voorwaardelijke toegang uitschakelen:
 
-- Als u niet hoe u een Azure AD-gebruiker verwijdert weet, Zie [gebruikers verwijderen uit Azure AD](../fundamentals/add-users-azure-active-directory.md#delete-users-from-azure-ad).
+- Als u niet hoe u een Azure AD-gebruiker verwijdert weet, Zie [toevoegen of verwijderen van gebruikers](../fundamentals/add-users-azure-active-directory.md#delete-a-user).
 
 - Zie voor instructies voor het verwijderen van de Tor Browser, [verwijderen](https://tb-manual.torproject.org/en-US/uninstalling.html).
 

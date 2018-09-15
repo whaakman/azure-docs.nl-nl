@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 06/19/2018
 ms.author: davidmu
 ms.component: B2C
-ms.openlocfilehash: cc48cd3eb40d93c26a68caf843a89f7bbfb46c6c
-ms.sourcegitcommit: 194789f8a678be2ddca5397137005c53b666e51e
+ms.openlocfilehash: d5831d868bec940c4e38f62e70e456ae84903ada
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/25/2018
-ms.locfileid: "39236890"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604907"
 ---
 # <a name="tutorial-create-an-azure-active-directory-b2c-tenant"></a>Zelfstudie: Een Azure Active Directory B2C-tenant maken
 
@@ -49,17 +49,13 @@ Als u wilt beginnen met het beheren van uw nieuwe tenant, klikt u op het woord *
 
 U moet uw Azure AD B2C-tenant koppelen aan uw Azure-abonnement om te beschikken over alle functionaliteit en te betalen voor gebruikskosten. Als u niet uw tenant aan uw abonnement koppelt, werkt uw toepassingen niet correct.
 
-1. Zorg ervoor dat u de map waarin het abonnement dat u wilt koppelen aan de nieuwe tenant door over te schakelen van de map in de rechterbovenhoek van de Azure-portal.
+Zorg ervoor dat u de map met uw Azure AD B2C-tenant door te klikken op de **map- en abonnementsfilter** in het bovenste menu en de map waarin uw tenant te kiezen. 
 
-    ![Schakelen tussen mappen](./media/tutorial-create-tenant/switch-directories.png)
+![Overschakelen naar de Azure AD B2C-tenant](./media/tutorial-create-tenant/switch-directories.png)
 
-    En selecteer vervolgens de map waarin u uw abonnement.
-
-    ![Map selecteren](./media/tutorial-create-tenant/select-directory.png)
-
-2. Kies **een resource maken** in de linkerbovenhoek van de linkerbovenhoek van de Azure-portal.
-3. Zoek in het zoekvak boven de lijst van Azure Marketplace-resources, en selecteer **Active Directory B2C**, en klik vervolgens op **maken**.
-4. Kies **koppeling een bestaande Azure AD B2C-Tenant aan mijn Azure-abonnement**, selecteert u de tenant die u hebt gemaakt, selecteert u uw abonnement, voer *myContosoTenantRG* accepteren om de naam van de resourcegroep, de locatie en klik vervolgens op **maken**.
+1. Kies **een resource maken** in de linkerbovenhoek van de linkerbovenhoek van de Azure-portal.
+2. Zoek in het zoekvak boven de lijst van Azure Marketplace-resources, en selecteer **Active Directory B2C**, en klik vervolgens op **maken**.
+3. Kies **koppeling een bestaande Azure AD B2C-Tenant aan mijn Azure-abonnement**, selecteert u de tenant die u hebt gemaakt, selecteert u uw abonnement, voer *myContosoTenantRG* accepteren om de naam van de resourcegroep, de locatie en klik vervolgens op **maken**.
 
 ## <a name="next-steps"></a>Volgende stappen
 

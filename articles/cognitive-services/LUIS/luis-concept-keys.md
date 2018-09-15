@@ -1,20 +1,21 @@
 ---
-title: Informatie over de sleutels van uw LUIS - Azure | Microsoft Docs
-description: Language Understanding (LUIS) sleutels gebruiken voor het ontwerpen van uw app en uw endpoing query.
+title: Inzicht in uw LUIS-sleutels
+titleSuffix: Azure Cognitive Services
+description: LUIS maakt gebruik van twee sleutels, het ontwerpen en het eindpunt. De ontwerphandleiding sleutel wordt automatisch voor u gemaakt wanneer u uw LUIS-account maakt. Wanneer u klaar om uw LUIS-app te publiceren bent, moet u maken van de eindpuntsleutel toewijzen aan uw LUIS-app, en deze gebruiken met de eindpunt-query.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/23/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: b40ca74999be1821ffa329224ff419646591960e
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 3049d073c691fca69844f68e8d70234c331ae152
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39225173"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629162"
 ---
 # <a name="keys-in-luis"></a>Sleutels in LUIS
 LUIS maakt gebruik van twee sleutels: [ontwerpen](#programmatic-key) en [eindpunt](#endpoint-key). De ontwerphandleiding sleutel wordt automatisch voor u gemaakt wanneer u uw LUIS-account maakt. Wanneer u klaar om uw LUIS-app te publiceren bent, moet u [maken van de eindpuntsleutel](luis-how-to-azure-subscription.md#create-luis-endpoint-key), [toewijzen](luis-how-to-manage-keys.md#assign-endpoint-key) aan uw LUIS-app en [gebruiken met de query eindpunt](#use-endpoint-key-in-query). 
@@ -22,7 +23,7 @@ LUIS maakt gebruik van twee sleutels: [ontwerpen](#programmatic-key) en [eindpun
 |Sleutel|Doel|
 |--|--|
 |[Sleutel ontwerpen](#programmatic-key)|Ontwerpen, publiceren, beheren van deelnemers, versiebeheer|
-|[Eindpuntsleutel](#endpoint-key)| Uitvoeren van query 's|
+|[Eindpuntsleutel](#endpoint-key)| Uitvoeren van query's|
 
 Het is belangrijk om te maken van LUIS-apps in [regio's](luis-reference-regions.md#publishing-regions) waar u ook wilt publiceren en op te vragen.
 
@@ -35,15 +36,15 @@ Als u wilt zoeken in de ontwerphandleiding sleutel, moet u zich aanmelden bij [L
 
 ![Sleutel ontwerpen](./media/luis-concept-keys/programatic-key.png)
 
-Als u wilt maken **productie-eindpunt-query's**, maak een Azure [LUIS abonnement](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). 
+Als u wilt maken **productie-eindpunt-query's**, maken van de Azure [LUIS abonnement](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/). 
 
 > [!CAUTION]
 > Voor het gemak veel van de voorbeelden de sleutel ontwerpen gebruiken omdat het een paar eindpunt aanroepen in biedt de [quotum](luis-boundaries.md#key-limits).  
 
 ## <a name="endpoint-key"></a>Eindpuntsleutel
- Wanneer u moet **productie-eindpunt-query's**, maak een [LUIS sleutel](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) in Azure portal. Vergeet niet de naam die wordt gebruikt om de sleutel te maken, u hebt deze nodig wanneer u de sleutel toevoegen aan de app...
+ Wanneer u moet **productie-eindpunt-query's**, maak een [LUIS sleutel](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) in Azure portal. Vergeet niet de naam die wordt gebruikt om de sleutel te maken, u hebt deze nodig wanneer u de sleutel toevoegen aan de app.
 
-Wanneer het proces van LUIS-abonnement is voltooid, [toevoegen de sleutel](luis-how-to-manage-keys.md#assign-endpoint-key) met de app op de **publiceren** pagina. 
+Wanneer het proces van LUIS-abonnement is voltooid, [toewijzen van de sleutel](luis-how-to-manage-keys.md#assign-endpoint-key) naar de app. 
 
 De eindpuntsleutel kan een quotum van eindpunt treffers op basis van het gebruik-abonnement dat u hebt opgegeven bij het maken van de sleutel. Zie [prijzen van Cognitive Services](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/?v=17.23h) voor informatie over prijzen.
 
@@ -73,6 +74,10 @@ Publicatie-regio's wijken af van het ontwerpen van regio's. Zorg ervoor dat u ee
 
 ## <a name="key-limit-errors"></a>Belangrijkste limiet fouten
 Als u meer dan uw per seconde quotum, ontvangt u fout HTTP 429. Als u meer dan uw per maand quotum, ontvangt u een HTTP 403-fout. Los de fouten met het ophalen van een LUIS [eindpunt](#endpoint-key) sleutel [toe te wijzen](luis-how-to-manage-keys.md#assign-endpoint-key) de sleutel met de app op de **publiceren** pagina van de [LUIS](luis-reference-regions.md#luis-website) website.
+
+## <a name="automating-assignment-of-the-endpoint-key"></a>Toewijzing van de eindpuntsleutel automatiseren
+
+Als u wilt de eindpuntsleutel aan een LUIS-app toewijst, moet u de website van LUIS gebruiken voor de juiste ontwerpen en publicatie [regio's](luis-reference-regions.md). Er is **geen** geautomatiseerde methode van dit te doen, ongeacht het mechanisme zoals met een Azure resource manager-script, Azure CLI, programmatische SDK, of met de API's.
 
 ## <a name="next-steps"></a>Volgende stappen
 

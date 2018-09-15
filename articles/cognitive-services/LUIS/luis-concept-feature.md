@@ -1,20 +1,21 @@
 ---
-title: Informatie over functies in LUIS-apps in Azure | Microsoft Docs
-description: Meer informatie over functies die een LUIS-app-prestaties te verbeteren. Functies omvatten woordgroep lijsten en patronen voor het herkennen van reguliere expressies.
+title: Functies van LUIS-apps in Azure Cognitive Services
+titleSuffix: Azure Cognitive Services
+description: Functies toevoegen aan een taalmodel voor tips over het herkennen van de invoer die u wilt een label of classificeren. De functies kunt LUIS herkent zowel intenties en entiteiten.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 04/18/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 8d3f006f27d1d728f89458deba27e1c1a63b6de5
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 906e63c94666d2e24b486f5ae34f99133408c4dc
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39224925"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45628706"
 ---
 # <a name="phrase-list-features-in-luis"></a>Woordgroep lijst met functies in LUIS
 

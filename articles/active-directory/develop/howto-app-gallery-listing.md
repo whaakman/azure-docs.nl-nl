@@ -13,21 +13,20 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/31/2018
+ms.date: 09/14/2018
 ms.author: celested
 ms.reviewer: elisol, bryanla
 ms.custom: aaddev
-ms.openlocfilehash: d5c00e9df9c1bfee0c665cafc763c52a36f98052
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6e15a2c940778427c953bd0a3d469ef55f7e3187
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44345842"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45632055"
 ---
 # <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Uw toepassing weergeven in de Azure Active Directory-toepassingsgalerie
 
-
-##  <a name="what-is-the-azure-ad-application-gallery"></a>Wat is de Azure AD-toepassingsgalerie?
+## <a name="what-is-the-azure-ad-application-gallery"></a>Wat is de Azure AD-toepassingsgalerie?
 
 Azure Active Directory (Azure AD) is een identiteitsservice in de cloud gebaseerde. De [Azure AD-toepassingsgalerie](https://azure.microsoft.com/marketplace/active-directory/all/) is in de Azure Marketplace appstore, waar alle toepassingsconnectoren voor eenmalige aanmelding en inrichten van gebruikers worden gepubliceerd. Klanten die gebruikmaken van Azure AD als id-provider vinden de verschillende SaaS-toepassing connectors gepubliceerd hier. IT-beheerders connectors toevoegen vanuit de app-galerie, en vervolgens configureren en gebruiken van de connectors voor eenmalige aanmelding en de inrichting. Azure AD ondersteunt alle belangrijke federation-protocollen voor eenmalige aanmelding, met inbegrip van SAML 2.0, OpenID Connect, OAuth en WS-Federation.
 
@@ -45,7 +44,7 @@ Azure Active Directory (Azure AD) is een identiteitsservice in de cloud gebaseer
 
 *  Klanten die SCIM gebruiken kunt voor dezelfde app wordt ingericht.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 - Voor federatieve toepassingen (Open-ID en SAML/WS-Federation), moet de toepassing ondersteunt de SaaS-model voor het ophalen van die worden vermeld in de galerie van Azure AD. De galerie bedrijfstoepassingen moeten configuraties met meerdere klanten en niet voor elke klant met een specifieke ondersteunen.
 
@@ -57,7 +56,28 @@ Azure Active Directory (Azure AD) is een identiteitsservice in de cloud gebaseer
 
 - Voor aanvragen automatisch gebruikers inrichten moet toepassing worden weergegeven in de galerie met één functie aanmelding ingeschakeld met behulp van een van de federation-protocol die hierboven worden beschreven. U kunt aanvragen voor eenmalige aanmelding en gebruiker samen in de portal wordt ingericht als deze nog niet wordt weergegeven.
 
-##  <a name="implementing-sso-using-federation-protocol"></a>Eenmalige aanmelding met behulp van de federation-protocol implementeren
+## <a name="submit-the-request-in-the-portal"></a>Dien de aanvraag in de portal
+
+Nadat u hebt getest of de toepassingsintegratie van uw met Azure AD werkt, uw aanvraag indienen voor toegang op onze [Portal voor App-netwerk](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Als u een Office 365-account hebt, kunt u die zich aanmeldt bij deze portal gebruiken. Als dat niet het geval is, moet u uw Microsoft-account (zoals Outlook of Hotmail) gebruikt om te melden.
+
+Als de volgende pagina wordt weergegeven na het aanmelden, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>) en geef het e-mailaccount dat u gebruiken wilt voor het indienen van de aanvraag. Azure AD-team wordt vervolgens het account toegevoegd in de Portal voor Microsoft-toepassing netwerk.
+
+![Aanvraag voor toegang tot op SharePoint-portal](./media/howto-app-gallery-listing/errorimage.png)
+
+Nadat het account is toegevoegd, kunt u zich aanmelden bij de Portal voor Microsoft App-netwerk.
+
+Als de volgende pagina wordt weergegeven na het aanmelden, een zakelijke reden voor toegang in het tekstvak te hoeven opgeven en selecteer vervolgens **verzoeken tot toegang**.
+
+  ![Aanvraag voor toegang tot op SharePoint-portal](./media/howto-app-gallery-listing/accessrequest.png)
+
+Ons team controleert de details en hebt die u toegang dienovereenkomstig. Zodra uw aanvraag is goedgekeurd, kunt u zich aanmeldt bij de portal en dien de aanvraag door te klikken op de **indienen aanvraag (ISV)** tegel formulier de startpagina.
+
+![Startpagina van de SharePoint-portal](./media/howto-app-gallery-listing/homepage.png)
+
+> [!NOTE]
+> Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
+
+## <a name="implementing-sso-using-federation-protocol"></a>Eenmalige aanmelding met behulp van de federation-protocol implementeren
 
 Als u een toepassing in de galerie met Azure AD-app, moet u eerst een van de volgende federation protocollen die worden ondersteund door Azure AD te implementeren en akkoord gaat met Azure AD-toepassing galerie voorwaarden en bepalingen. Lees de voorwaarden en bepalingen van de Azure AD-toepassingsgalerie van [hier](https://azure.microsoft.com/en-us/support/legal/active-directory-app-gallery-terms/).
 
@@ -69,7 +89,7 @@ Als u een toepassing in de galerie met Azure AD-app, moet u eerst een van de vol
 
     * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-*   **SAML 2.0** of **WS-Federation**: als uw app SAML 2.0 ondersteunt, u kunt deze rechtstreeks integreren met een Azure AD-tenant met behulp van de [instructies voor het toevoegen van een aangepaste toepassing](../manage-apps/configure-single-sign-on-non-gallery-applications.md).
+*   **SAML 2.0** of **WS-Federation**: als uw app SAML 2.0 ondersteunt, u kunt deze rechtstreeks integreren met een Azure AD-tenant met behulp van de [instructies voor het toevoegen van een aangepaste toepassing](../active-directory-saas-custom-apps.md).
 
     ![Tijdlijn van SAML 2.0 of WS-Federation-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/saml.png)
 
@@ -87,7 +107,7 @@ Maak een webtoepassing met een HTML-aanmeldingspagina configureren [wachtwoord g
 
 * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
 
-##  <a name="updateremove-existing-listing"></a>Bestaande aanbieding bijwerken/verwijderen
+## <a name="updateremove-existing-listing"></a>Bestaande aanbieding bijwerken/verwijderen
 
 Als u wilt bijwerken of verwijderen van een bestaande toepassing in de galerie van Azure AD-app, moet u eerst dien de aanvraag in de [Portal voor App-netwerk](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Als u een Office 365-account hebt, kunt u die zich aanmeldt bij deze portal gebruiken. Als dat niet het geval is, moet u uw Microsoft-account (zoals Outlook of Hotmail) gebruikt om te melden.
 
@@ -101,18 +121,8 @@ Als u wilt bijwerken of verwijderen van een bestaande toepassing in de galerie v
 
     * Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>). 
 
-## <a name="submit-the-request-in-the-portal"></a>Dien de aanvraag in de portal
-
-Nadat u hebt getest of de toepassingsintegratie van uw met Azure AD werkt, uw aanvraag indienen voor toegang op onze [Portal voor App-netwerk](https://microsoft.sharepoint.com/teams/apponboarding/Apps). Als u een Office 365-account hebt, kunt u die zich aanmeldt bij deze portal gebruiken. Als dat niet het geval is, moet u uw Microsoft-account (zoals Outlook of Hotmail) gebruikt om te melden.
-
-Nadat u zich hebt aangemeld, wordt de volgende pagina wordt weergegeven. Een zakelijke reden voor toegang in het tekstvak te hoeven opgeven en selecteer vervolgens **verzoeken tot toegang**. Ons team controleert de details en hebt die u toegang dienovereenkomstig. Hierna kunt u zich aanmeldt bij de portal en uw gedetailleerde indienen voor de toepassing.
-
-Als u problemen met betrekking tot toegang hebt, neem dan contact op met de [Team van Azure AD-eenmalige aanmelding integratie](<mailto:SaaSApplicationIntegrations@service.microsoft.com>).
-
-![Aanvraag voor toegang tot op SharePoint-portal](./media/howto-app-gallery-listing/accessrequest.png)
-
 ## <a name="timelines"></a>Tijdlijnen
-    
+
 De tijdlijn voor het proces van de aanbieding van een SAML 2.0 of WS-Federation-toepassing in de galerie is 7-10 werkdagen.
 
    ![Tijdlijn van saml-toepassing in de galerie vermelden](./media/howto-app-gallery-listing/timeline.png)

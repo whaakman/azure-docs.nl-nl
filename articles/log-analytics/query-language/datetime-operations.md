@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 833548a4bfca83a8ee6971f05a4f308cc54d5b5d
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 3a0e2b78de8cea3929ac457bab3d5e07a2b85401
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190158"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603376"
 ---
 # <a name="working-with-date-time-values-in-log-analytics-queries"></a>Werken met datum-/ tijdwaarden in Log Analytics-query 's
 
 > [!NOTE]
 > U moet voltooien [aan de slag met de Analytics-portal](get-started-analytics-portal.md) en [aan de slag met query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Dit artikel wordt beschreven hoe u werkt met de datum en tijd waarop gegevens in Log Analytics-query's.
 
@@ -47,33 +49,33 @@ Timespans worden uitgedrukt als een decimaal getal gevolgd door een tijdeenheid:
 
 Datum/tijd kunnen worden gemaakt met het gebruik van een tekenreeks met de `todatetime` operator. Bijvoorbeeld, als u wilt controleren van de virtuele machine heartbeats verzonden in een specifiek tijdsbestek, kunt u het gebruik van de [tussen operator](https://docs.loganalytics.io/docs/Language-Reference/Scalar-operators/between-operator) dit is handig om op te geven van een tijdsbereik...
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated between(datetime("2018-06-30 22:46:42") .. datetime("2018-07-01 00:57:27"))
 ```
 
 Een ander gebruikelijk scenario is een datum/tijd om deze te vergelijken. Bijvoorbeeld, als u wilt zien alle heartbeats in de afgelopen twee minuten, kunt u de `now` operator samen met een TimeSpan-waarde die aangeeft van twee minuten:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > now() - 2m
 ```
 
 Een snelkoppeling is ook beschikbaar voor deze functie:
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > now(-2m)
 ```
 
 Hoewel de kortste en meest leesbare methode wordt gebruikt de `ago` operator:
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(2m)
 ```
 
 Stel in plaats van de begin- en -tijd, te weten dat de begintijd en de duur. U kunt Herschrijf de query als volgt:
 
-```OQL
+```KQL
 let startDatetime = todatetime("2018-06-30 20:12:42.9");
 let duration = totimespan(25m);
 Heartbeat
@@ -84,7 +86,7 @@ Heartbeat
 ## <a name="converting-time-units"></a>Tijdseenheden converteren
 Kan het nuttig zijn om een datum/tijd of de periode in een tijdeenheid dan de standaardwaarde. Bijvoorbeeld: Stel dat u bij het controleren van foutgebeurtenissen van de laatste 30 minuten en moet een berekende kolom die laat zien hoe lang gelden de gebeurtenis heeft plaatsgevonden:
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -93,7 +95,7 @@ Event
 
 U ziet de _timeAgo_ kolom bevat waarden, zoals: '00:09:31.5118992', wat betekent dat ze zijn opgemaakt als hh:mm:ss.fffffff. Als u wilt opmaken van deze waarden naar de _numver_ minuten sinds de begintijd, te delen die waarde door 'minuut':
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(30m)
 | where EventLevelName == "Error"
@@ -107,7 +109,7 @@ Een andere zeer gangbaar scenario is de noodzaak om statistische gegevens gedure
 
 Gebruik de volgende query uit om het aantal gebeurtenissen die hebben plaatsgevonden om de 5 minuten gedurende de afgelopen half uur:
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(30m)
 | summarize events_count=count() by bin(TimeGenerated, 5m) 
@@ -125,7 +127,7 @@ Dit resulteert in de volgende tabel:
 
 Een andere manier om te maken van de buckets van resultaten, is met functies, zoals `startofday`:
 
-```OQL
+```KQL
 Event
 | where TimeGenerated > ago(4d)
 | summarize events_count=count() by startofday(TimeGenerated) 
@@ -145,7 +147,7 @@ Dit resulteert in de volgende resultaten:
 ## <a name="time-zones"></a>Tijdzones
 Omdat alle datum-/ tijdwaarden worden uitgedrukt in UTC, is het vaak nuttig om te converteren naar de lokale tijdzone. Deze berekening bijvoorbeeld gebruiken om te converteren van UTC naar PST tijden:
 
-```OQL
+```KQL
 Event
 | extend localTimestamp = TimeGenerated - 8h
 ```
@@ -154,7 +156,7 @@ Event
 
 | Categorie | Functie |
 |:---|:---|
-| Gegevenstypen converteren | [ToDateTime](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/todatetime())[totimespan  ](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/totimespan())  |
+| Gegevenstypen converteren | [ToDateTime](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/todatetime())[totimespan](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/totimespan())  |
 | Ronde waarde die u wilt de grootte van opslaglocatie | [opslaglocatie](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/bin()) |
 | Ophalen van een bepaalde datum of tijd | [geleden](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/ago()) [nu](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/now())   |
 | Onderdeel van de waarde ophalen | [datetime_part](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/datetime_part()) [getmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/getmonth()) [monthofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/monthofyear()) [getyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/getyear()) [dayofmonth](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofmonth()) [dayofweek](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofweek()) [dayofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/dayofyear()) [weekofyear](https://docs.loganalytics.io/docs/Language-Reference/Scalar-functions/weekofyear()) |

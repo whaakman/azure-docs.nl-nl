@@ -1,62 +1,88 @@
 ---
-title: Gebruikers toevoegen of verwijderen in Azure Active Directory | Microsoft Docs
-description: Legt uit hoe u nieuwe gebruikers toevoegt of bestaande gebruikers verwijdert in Azure Active Directory
+title: Toevoegen of verwijderen van gebruikers in Azure Active Directory | Microsoft Docs
+description: Leer hoe u nieuwe gebruikers toevoegen of verwijderen van bestaande gebruikers met Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 01/08/2018
+ms.topic: conceptual
+ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: e6e21ea09909a3bd92a21e15428af347e3f20b93
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+ms.openlocfilehash: 533c02f842918c5c27aaaf421a4f828022de6b8f
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767395"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45604959"
 ---
-# <a name="quickstart-add-new-users-to-azure-active-directory"></a>Snelstart: Nieuwe gebruikers toevoegen aan Azure Active Directory
-In dit artikel wordt uitgelegd hoe u gebruikers in uw organisatie kunt verwijderen uit of toevoegen aan de Azure AD-tenant (Azure Active Directory) met behulp van Azure Portal of door de gegevens van uw on-premises Windows Server AD-gebruikersaccounts te synchroniseren. 
+# <a name="how-to-add-or-delete-users-using-azure-active-directory"></a>Hoe: toevoegen of verwijderen van gebruikers met Azure Active Directory
+Nieuwe gebruikers toevoegen of verwijderen van bestaande gebruikers in uw Azure Active Directory (Azure AD)-tenant met behulp van Azure AD.
 
-## <a name="add-cloud-based-users"></a>Cloudgebruikers toevoegen
-1. Meld u aan bij het [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met een account met globale beheerdersrechten voor de directory.
-2. Selecteer **Azure Active Directory** en vervolgens **Gebruikers en groepen**.
-3. Selecteer in **Gebruikers en groepen** de optie **Alle gebruikers**. Selecteer vervolgens **Nieuwe gebruiker**.
-   ![De opdracht Toevoegen selecteren](./media/add-users-azure-active-directory/add-user.png)
-4. Voer de details voor de gebruiker in, zoals **Naam** en **Gebruikersnaam**. De domeinnaam die deel uitmaakt van de gebruikersnaam, moet de eerste standaarddomeinnaam zijn, [domeinnaam].onmicrosoft.com, of een geverifieerde, niet-gefedereerde [aangepaste domeinnaam](add-custom-domain.md), zoals contoso.com.
-5. Kopieer of noteer het gegenereerde gebruikerswachtwoord zodat u dit aan de gebruiker kunt doorgeven nadat dit proces is voltooid.
-6. U kunt er ook voor kiezen om de informatie bij **Profiel**, **Groepen** of **Directory-rol** in te vullen voor de gebruiker. Zie [Assigning administrator roles in Azure AD](../users-groups-roles/directory-assign-admin-roles.md) (Engelstalig) voor meer informatie over gebruikers- en beheerdersrollen.
-7. Selecteer bij **Gebruiker** de optie **Maken**.
-8. Distribueer het gegenereerde wachtwoord op een veilige manier naar de nieuwe gebruiker zodat deze zich kan aanmelden.
+## <a name="add-a-new-user"></a>Een nieuwe gebruiker toevoegen
+U kunt een nieuwe gebruiker met de Azure Active Directory maken.
 
-> [!TIP]
-> U kunt de gegevens van het gebruikersaccount ook synchroniseren vanuit on-premises Windows Server AD. De identiteitsoplossingen van Microsoft omvatten mogelijkheden voor zowel on-premises als in de cloud. Er wordt één gebruikersidentiteit gemaakt voor verificatie en autorisatie bij alle resources, ongeacht hun locatie. We noemen dit hybride identiteit. [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/connect/active-directory-aadconnect) kan worden gebruikt om uw on-premises directory's te integreren met Azure Active Directory voor hybride identiteitsscenario’s. Hiermee kunt u uw gebruikers een algemene identiteit bieden voor Office 365, Azure en SaaS toepassingen die zijn geïntegreerd met Azure AD. 
+### <a name="to-add-a-new-user"></a>Een nieuwe gebruiker toe te voegen
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) als een globale beheerder of Gebruikerbeheerder voor de map.
 
-## <a name="delete-users-from-azure-ad"></a>Gebruikers verwijderen uit Azure AD
-1. Meld u aan bij het [Azure Active Directory-beheercentrum](https://aad.portal.azure.com) met een account met globale beheerdersrechten voor de directory.
-2. Selecteer **Gebruikers en groepen**.
-3. Selecteer op de blade **Gebruikers en groepen** de gebruiker die u wilt verwijderen uit de lijst. 
-4. Selecteer op de blade voor de geselecteerde gebruiker de optie **Overzicht** en selecteer vervolgens **Verwijderen** in de opdrachtbalk.
-   ![De opdracht Toevoegen selecteren](./media/add-users-azure-active-directory/delete-user.png)
+2. Selecteer **Azure Active Directory**, selecteer **gebruikers**, en selecteer vervolgens **nieuwe gebruiker**.
 
+    ![Gebruikers - pagina voor alle gebruikers met de nieuwe gebruiker is gemarkeerd](media/add-users-azure-active-directory/new-user-all-users-blade.png)
 
-### <a name="learn-more"></a>Meer informatie 
-* [Gastgebruikers uit een andere directory toevoegen](../b2b/what-is-b2b.md) 
-* [Een rol toewijzen aan een gebruiker in Azure AD](active-directory-users-assign-role-azure-portal.md)
-* [Gebruikersprofielen beheren](active-directory-users-profile-azure-portal.md)
-* [Een verwijderde gebruiker herstellen](active-directory-users-restore.md)
+3. Op de **gebruiker** pagina, de vereiste gegevens invullen.
 
+    ![Nieuwe gebruiker, met gebruikersgegevens op de pagina gebruiker toevoegen](media/add-users-azure-active-directory/new-user-user-blade.png)
 
+    - **Naam (vereist).** De eerste en laatste naam van de nieuwe gebruiker. Bijvoorbeeld, Mary Parker.
+
+    - **Gebruikersnaam (vereist).** De gebruikersnaam van de nieuwe gebruiker. Bijvoorbeeld mary@contoso.com. 
+    
+        Het domeingedeelte van de gebruikersnaam moet een van beide de aanvankelijke standaarddomeinnaam, gebruiken <_uwdomeinnaam_>. onmicrosoft.com of een aangepaste domeinnaam, bijvoorbeeld contoso.com. Zie voor meer informatie over het maken van een aangepaste domeinnaam [een aangepaste domeinnaam toevoegen aan Azure Active Directory](add-custom-domain.md).
+
+    - **Profiel.** U kunt desgewenst meer informatie over de gebruiker toevoegen. U kunt ook gebruikersgegevens op een later tijdstip toevoegen. Zie voor meer informatie over het toevoegen van gebruikersgegevens [toevoegen of wijzigen van de informatie uit gebruikersprofielen](active-directory-users-profile-azure-portal.md).
+
+    - **Groepen.** U kunt eventueel de gebruiker toevoegen aan een of meer bestaande groepen. U kunt ook de gebruiker toevoegen aan groepen op een later tijdstip. Zie voor meer informatie over het toevoegen van gebruikers aan groepen [hoe u een basisgroep maken en leden toevoegen](active-directory-groups-create-azure-portal.md).
+
+    - **Directory-rol.** U kunt eventueel de gebruiker toevoegen aan een directory-rol. U kunt de gebruiker moet een globale beheerder, of aan een of meer van de andere beheerdersrollen in Azure AD. Zie voor meer informatie over het toewijzen van rollen [rollen toewijzen aan gebruikers](active-directory-users-assign-role-azure-portal.md).
+
+4. Kopieer de automatisch gegenereerde wachtwoord opgegeven in de **wachtwoord** vak. U moet dit wachtwoord geven aan de gebruiker voor de initiële aanmeldingsproces.
+
+5. Selecteer **Maken**.
+
+    De gebruiker is gemaakt en toegevoegd aan uw Azure AD-tenant.
+
+## <a name="add-a-new-user-within-a-hybrid-environment"></a>Voeg een nieuwe gebruiker in een hybride omgeving
+Als u een omgeving met zowel Azure Active Directory (cloud) en Windows Server Active Directory (on-premises) hebt, kunt u nieuwe gebruikers toevoegen door te synchroniseren van de bestaande gegevens van de gebruiker-account. Zie voor meer informatie over hybride omgevingen en gebruikers [uw on-premises directory's integreren met Azure Active Directory](../connect/active-directory-aadconnect.md).
+
+## <a name="delete-a-user"></a>Een gebruiker verwijderen
+U kunt een bestaande gebruiker met behulp van Azure Active Directory verwijderen.
+
+### <a name="to-delete-a-user"></a>Een gebruiker verwijderen
+1. Aanmelden bij de [Azure-portal](https://portal.azure.com/) met behulp van een globale beheerdersaccount voor de map.
+
+2. Selecteer **Azure Active Directory**, selecteer **gebruikers**, en vervolgens zoekt en selecteert u de gebruiker die u wilt verwijderen uit uw Azure AD-tenant. Bijvoorbeeld, _Mary Parker_.
+
+3. Selecteer **gebruiker verwijderen**.
+
+    ![Gebruikers - pagina voor alle gebruikers met gebruiker verwijderen gemarkeerd](media/add-users-azure-active-directory/delete-user-all-users-blade.png)
+
+    De gebruiker wordt verwijderd en niet meer wordt weergegeven op de **gebruikers: alle gebruikers** pagina. De gebruiker kan worden weergegeven in de **verwijderde gebruikers** pagina voor de komende 30 dagen en gedurende deze tijd kunnen worden hersteld. Zie voor meer informatie over het herstellen van een gebruiker [herstellen of permanent verwijderen van een onlangs verwijderde gebruiker](active-directory-users-restore.md).
+
+    >[!Note]
+    >U moet Windows Server Active Directory gebruiken om bij te werken van de identiteit, contactgegevens of taakgegevens voor waarvan u de bron van de instantie Windows Server Active Directory is-gebruikers. Nadat u de update hebt voltooid, moet u de volgende synchronisatiecyclus uitvoeren voordat u de wijzigingen ziet wachten.
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze snelstart hebt u geleerd hoe u nieuwe gebruikers toevoegt in Azure AD Premium. 
+Nadat u uw gebruikers hebt toegevoegd, kunt u de volgende basis-processen uitvoeren:
 
-U kunt de volgende koppeling gebruiken om een nieuwe gebruiker in Azure AD te maken vanuit Azure Portal.
+- [Toevoegen of wijzigen van de profielgegevens](active-directory-users-profile-azure-portal.md)
 
->[!div class="nextstepaction"]
->[Gebruikers toevoegen aan Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/UserManagementMenuBlade/)
+- [Rollen toewijzen aan gebruikers](active-directory-users-assign-role-azure-portal.md)
+
+- [Een basisgroep maken en leden toevoegen](active-directory-groups-create-azure-portal.md)
+
+- [Werken met dynamische groepen en gebruikers](../users-groups-roles/groups-create-rule.md)
+
+Of u kunt andere taken voor het beheer van gebruikers, zoals uitvoeren [gastgebruikers toevoegen van een andere directory](../b2b/what-is-b2b.md) of [herstellen van een verwijderde gebruiker](active-directory-users-restore.md). Zie voor meer informatie over andere beschikbare acties [Azure Active Directory management gebruikersdocumentatie](../users-groups-roles/index.yml).

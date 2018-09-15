@@ -15,24 +15,26 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 359e5e671287c4d330deeb2d3573877d9ee5d1c5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: acf51056a084abc08bda2d7f73b561f442f57784
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190123"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605522"
 ---
 # <a name="creating-charts-and-diagrams-from-log-analytics-queries"></a>Het maken van grafieken en diagrammen van Log Analytics-query 's
 
 > [!NOTE]
 > U moet voltooien [geavanceerde aggregaties in Log Analytics-query's](advanced-aggregations.md) voordat het voltooien van deze les gaat uitvoeren.
 
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
+
 Dit artikel beschrijft de verschillende visualisaties in Azure Log Analytics om uw gegevens op verschillende manieren weer te geven.
 
 ## <a name="charting-the-results"></a>De resultaten voor grafieken
 Aan de hand van het aantal computers per besturingssysteem, in het afgelopen uur gelden starten:
 
-```OQL
+```KQL
 Heartbeat
 | where TimeGenerated > ago(1h)
 | summarize count(Computer) by OSType  
@@ -50,7 +52,7 @@ Als u een beter beeld, selecteer **grafiek**, en kies de **Pie** optie voor het 
 ## <a name="timecharts"></a>Timecharts
 De gemiddelde, het 50e en 95th percentielen van de processortijd in bins van 1 uur weergeven. De query genereert meerdere reeksen en vervolgens kunt u selecteren welke reeks om weer te geven in de grafiek:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -65,7 +67,7 @@ Selecteer de **regel** weergaveoptie grafiek:
 
 Een referentielijn kunt u eenvoudig bepalen of de metrische gegevens een bepaalde drempelwaarde wordt overschreden. Een regel toevoegen aan een grafiek, breiden de gegevensset met een constante kolom:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(1d) 
 | where CounterName == "% Processor Time" 
@@ -78,7 +80,7 @@ Perf
 ## <a name="multiple-dimensions"></a>Meerdere dimensies
 Meerdere expressies in de `by` -component van `summarize` meerdere rijen in de resultaten, één voor elke combinatie van waarden maken.
 
-```OQL
+```KQL
 SecurityEvent
 | where TimeGenerated > ago(1d)
 | summarize count() by tostring(EventID), AccountType, bin(TimeGenerated, 1h)

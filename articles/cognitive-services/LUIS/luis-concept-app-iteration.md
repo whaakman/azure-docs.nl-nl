@@ -1,21 +1,21 @@
 ---
-title: LUIS iteratieve app-ontwerp - Language Understanding begrijpen
-description: LUIS leert beste in een iteratief cyclus van wijzigingen in het gegevensmodel, utterance voorbeelden, publiceren en verzamelen van gegevens van eindpunt query's.  LUIS-apps vereisen ontwerp iteraties met het trainen van LUIS om op te halen van de beste gegevensextractie.
+title: Iteratieve app-ontwerp in Language Understanding (LUIS)
 titleSuffix: Azure Cognitive Services
+description: LUIS leert beste in een iteratief cyclus van wijzigingen in het gegevensmodel, utterance voorbeelden, publiceren en verzamelen van gegevens van eindpunt query's.  LUIS-apps vereisen ontwerp iteraties met het trainen van LUIS om op te halen van de beste gegevensextractie.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 02/12/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 7c267d53c9057ac05427ff14a7e3c25d56ab1f62
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 5eba6867bdf6ca6ca362bcd6bb3ab747780d1a5e
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44025424"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634214"
 ---
 # <a name="authoring-cycle"></a>Ontwerpcyclus
 LUIS leert beste in een iteratief cyclus van wijzigingen in het gegevensmodel, utterance voorbeelden, publiceren en verzamelen van gegevens van eindpunt query's. 
@@ -33,15 +33,12 @@ Het model bevat doel, entiteiten.
 LUIS moet voorbeeld uitingen in de intents. De voorbeelden moeten voldoende variatie van word keuze en woordvolgorde kunnen om te bepalen op welk doel de utterance is bedoeld voor. Elke voorbeeld-utterance moet alle vereiste gegevens gelabeld als entiteiten bevatten. 
 
 U LUIS negeren uitingen die niet relevant zijn voor het domein van uw app door toe te wijzen de utterance te instrueren de **geen** intentie. Woorden of zinsdelen u niet hoeft opgehaald uit een utterance hoeft te worden met het label. Er is geen label naar woorden of zinsdelen te negeren. 
-<!--
-## Not just yet
-Do not add features such as a [phrase list](luis-concept-feature.md) feature in your first cycle. Phrase lists are phrases that would be specific to your app's subject area.  
--->
+
 ## <a name="train-and-publish-the-app"></a>De app trainen en publiceren
-Zodra u verschillende uitingen van 10 tot en met 15 in elk doel, met de vereiste entiteiten met het label hebt, u LUIS trainen en publiceren om op te halen van de eindpunten. Zorg ervoor dat u uw app maken en publiceren van uw app zodat deze beschikbaar zijn in de [eindpunt regio's](luis-reference-regions.md) u nodig hebt. 
+Zodra u verschillende uitingen van 10 tot en met 15 in elk doel hebt, met de vereiste entiteiten met het label, trainen en publiceren. Gebruik de koppeling om op te halen van de eindpunten van de melding publiceren geslaagd. Zorg ervoor dat u uw app maken en publiceren van uw app zodat deze beschikbaar zijn in de [eindpunt regio's](luis-reference-regions.md) u nodig hebt. 
 
 ## <a name="https-endpoint-testing"></a>HTTPS-eindpunt testen
-U kunt testen uw LUIS-app van het HTTPS-eindpunt weergegeven op de **[publiceren](luis-how-to-publish-app.md)** pagina. Testen van het eindpunt kunt LUIS alle uitingen met laag-vertrouwen ter beoordeling te kiezen.  
+U kunt uw LUIS-app van het HTTPS-eindpunt testen. Testen van het eindpunt kunt LUIS alle uitingen met laag-vertrouwen ter beoordeling te kiezen.  
 
 ## <a name="recycle"></a>Prullenbak
 Wanneer u klaar bent met een cyclus van het ontwerpen, kunt u opnieuw beginnen. Beginnen met het controleren van endpoint-uitingen die LUIS gemarkeerd met weinig vertrouwen. Controleer deze uitingen voor zowel de intentie en de entiteit. Zodra u uitingen bekijkt, moet de beoordeling-lijst niet leeg zijn.  

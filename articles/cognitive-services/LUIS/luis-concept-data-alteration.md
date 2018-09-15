@@ -1,5 +1,5 @@
 ---
-title: Gegevens wijziging concepten in LUIS - termenarchief begrijpen
+title: Gegevens wijziging concepten in LUIS - Language Understanding
 titleSuffix: Azure Cognitive Services
 description: Informatie over hoe gegevens kunnen worden gewijzigd voordat voorspellingen in Language Understanding (LUIS)
 services: cognitive-services
@@ -8,17 +8,17 @@ manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 2949f7afa5d04d9f7ea738ad6f7b9333bfaf958f
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: f3caac697bad0bdb1401e85ac032fe167c25e112
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44023014"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45631256"
 ---
 # <a name="data-alterations"></a>Wijzigingen van gegevens
-LUIS biedt methoden voor het bewerken van de utterance vóór of tijdens de voorspelling. 
+LUIS biedt methoden voor het bewerken van de utterance vóór of tijdens de voorspelling. Het gaat hierbij spelling, en het verhelpen van problemen met de tijdzone voor prebuild datetimeV2 oplossen. 
 
 ## <a name="correct-spelling-errors-in-utterance"></a>Corrigeren van spelfouten in utterance
 Maakt gebruik van LUIS [Bing spellingcontrole controleren-API-versie 7](https://azure.microsoft.com/services/cognitive-services/spell-check/) te corrigeren van spelfouten in de utterance. LUIS moet de sleutel die is gekoppeld aan die service. De sleutel maken en vervolgens de sleutel toevoegen als een queryreeksparameter aan de [eindpunt](https://aka.ms/luis-endpoint-apis). 
@@ -48,6 +48,9 @@ Wanneer [Bing spellingcontrole controleren-API-versie 7](https://azure.microsoft
 }
 ```
  
+### <a name="whitelist-words"></a>Lijst met toegestane adressen woorden
+De Bing spell check-API die wordt gebruikt in LUIS biedt geen ondersteuning voor een wit-lijst met woorden worden genegeerd tijdens de spelling controleren op wijzigingen. Als u witte lijst woorden of afkortingen wilt, verwerkt de utterance in de clienttoepassing met een witte lijst voordat de utterance worden verzonden naar LUIS voor intentie voorspelling.
+
 ## <a name="change-time-zone-of-prebuilt-datetimev2-entity"></a>Tijdzone van de vooraf gedefinieerde datetimeV2 entiteit wijzigen
 Wanneer een LUIS-app maakt gebruik van de vooraf gedefinieerde datetimeV2 entiteit, kan een datum / tijdwaarde in het antwoord voorspelling worden geretourneerd. De tijdzone van de aanvraag wordt gebruikt om te bepalen van de juiste datum/tijd om terug te keren. Als de aanvraag afkomstig is van een bot of een andere gecentraliseerde toepassing voorafgaand aan LUIS, corrigeer dan de tijdzone die LUIS gebruikt. 
 

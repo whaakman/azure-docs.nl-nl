@@ -1,44 +1,59 @@
 ---
-title: Zelfstudie voor het maken van een samengestelde entiteit om uit te pakken van complexe gegevens - Azure | Microsoft Docs
-description: Informatie over het maken van een samengestelde entiteit in uw LUIS-app om op te halen van verschillende typen entiteitsgegevens.
+title: 'Zelfstudie 6: Samengestelde gegevens met LUIS samengestelde entiteit ophalen'
+titleSuffix: Azure Cognitive Services
+description: Voeg een samengestelde entiteit die u wilt de opgehaalde gegevens van verschillende typen te bundelen in een enkele containerentiteit. De clienttoepassing kan door de gegevens bundeling, gerelateerde gegevens in verschillende gegevenstypen eenvoudig extraheren.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.component: luis
+ms.component: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 17a8110624975d8053ad69c5bf30477e6d715ee8
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 192be1561559ac17ae98ae24ee92b292f38313a9
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44159823"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629131"
 ---
-# <a name="tutorial-6-add-composite-entity"></a>Zelfstudie: 6. Samengestelde entiteit toevoegen 
-In deze zelfstudie voegt u een samengestelde entiteit die u wilt de opgehaalde gegevens in een entiteit met bundelen.
+# <a name="tutorial-6-group-and-extract-related-data"></a>Zelfstudie 6: Groeperen en gerelateerde gegevens ophalen
+In deze zelfstudie voegt u een samengestelde entiteit die u wilt de opgehaalde gegevens van verschillende typen in een enkele containerentiteit bundelen. De clienttoepassing kan door de gegevens bundeling, gerelateerde gegevens in verschillende gegevenstypen eenvoudig extraheren.
 
-In deze zelfstudie leert u het volgende:
+Het doel van de samengestelde entiteit is het groeperen van gerelateerde entiteiten in een entiteit van bovenliggende categorie. De informatie bestaat als afzonderlijke entiteiten voordat een samengestelde wordt gemaakt. Het is vergelijkbaar met hiërarchische entiteit, maar u kunt verschillende typen entiteiten bevatten. 
+
+De samengestelde entiteit is geschikt voor dit type gegevens omdat de gegevens:
+
+* Aan elkaar zijn gerelateerd. 
+* Verschillende Entiteitstypen gebruiken.
+* Moet worden gegroepeerd en verwerkt door de client-app als een eenheid met gegevens.
+
+**In deze zelfstudie leert u hoe u:**
 
 <!-- green checkmark -->
 > [!div class="checklist"]
-> * Samengestelde entiteiten begrijpen 
-> * Samengestelde entiteit om gegevens te extraheren toevoegen
-> * App trainen en publiceren
-> * Eindpunt van app opvragen om JSON-antwoord van LUIS te zien
+> * Gebruik bestaande zelfstudie-app
+> * Een samengestelde entiteit toevoegen 
+> * Trainen
+> * Publiceren
+> * Intenties en entiteiten ophalen van eindpunt
 
 [!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
 
-## <a name="before-you-begin"></a>Voordat u begint
-Als u geen Human Resources-app uit de zelfstudie over de [entiteit Hierarchical](luis-quickstart-intent-and-hier-entity.md) hebt, [importeert](luis-how-to-start-new-app.md#import-new-app) u de JSON in een nieuwe app op de [LUIS](luis-reference-regions.md#luis-website)-website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-hier-HumanResources.json).
+## <a name="use-existing-app"></a>Gebruik bestaande app
+Ga door met de app hebt gemaakt in de laatste zelfstudie, met de naam **Personeelszaken**. 
 
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `composite`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd.  
+Als u de app Personeelszaken uit de vorige zelfstudie hebt, gebruikt u de volgende stappen uit:
 
-## <a name="composite-entity-is-a-logical-grouping"></a>Samengestelde entiteit is een logische groepering 
-Het doel van de samengestelde entiteit is het groeperen van gerelateerde entiteiten in een entiteit van bovenliggende categorie. De informatie bestaat als afzonderlijke entiteiten voordat een samengestelde wordt gemaakt. Het is vergelijkbaar met hiërarchische entiteit, maar u kunt meer typen entiteiten bevatten. 
+1.  Download en sla [app JSON-bestand](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-hier-HumanResources.json).
 
- Maak een samengestelde entiteit als afzonderlijke entiteiten kunnen logisch worden gegroepeerd en deze logische groepering is het handig om de clienttoepassing. 
+2. De JSON importeren in een nieuwe app.
+
+3. Uit de **beheren** sectie, op de **versies** tabblad en noem het klonen van de versie `composite`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam van de wordt gebruikt als onderdeel van de URL-route, kan niet de naam van de tekens die niet toegestaan in een URL zijn bevatten.
+
+
+## <a name="composite-entity"></a>Samengestelde entiteit
+Maak een samengestelde entiteit als afzonderlijke entiteiten kunnen logisch worden gegroepeerd en deze logische groepering is het handig om de clienttoepassing. 
 
 In deze app, de naam van de werknemer is gedefinieerd in de **werknemer** lijst entiteit en omvat de synoniemen van de naam, e-mailadres, bedrijf toestelnummer, mobiele telefoonnummer en VS Federale btw-nummer. 
 
@@ -51,12 +66,38 @@ Voorbeeld-uitingen in de **MoveEmployee** bedoeling opnemen:
 |John W verplaatsen. Smith naar a-2345|
 |verplaats x12345 naar h-1234 morgen|
  
-De verplaatsingsaanvraag moet ten minste bevatten de werknemer (met behulp van een synoniem) en de locatie van de laatste gebouw en office. De aanvraag kan ook de oorspronkelijke office, evenals een datum die het verplaatsen moet gebeuren. 
+De verplaatsingsaanvraag moet bevatten van de medewerkers (met behulp van een synoniem) en de locatie van de laatste gebouw en office. De aanvraag kan ook de oorspronkelijke office, evenals een datum die het verplaatsen moet gebeuren. 
 
-De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en deze op in een `RequestEmployeeMove` samengestelde entiteit. 
+De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en terug in de `RequestEmployeeMove` samengestelde entiteit:
 
-## <a name="create-composite-entity"></a>Samengestelde entiteit maken
-1. Zorg ervoor dat uw Human Resources-app zich in de sectie **Build** van LUIS bevindt. U kunt naar deze sectie gaan door **Build** te selecteren in de menubalk rechtsboven. 
+```JSON
+"compositeEntities": [
+  {
+    "parentType": "RequestEmployeeMove",
+    "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
+    "children": [
+      {
+        "type": "builtin.datetimeV2.datetime",
+        "value": "march 3 2 p.m"
+      },
+      {
+        "type": "Locations::Destination",
+        "value": "z - 2345"
+      },
+      {
+        "type": "Employee",
+        "value": "jill jones"
+      },
+      {
+        "type": "Locations::Origin",
+        "value": "a - 1234"
+      }
+    ]
+  }
+]
+```
+
+1. [!include[Start in Build section](../../../includes/cognitive-services-luis-tutorial-build-section.md)]
 
 2. Op de **Intents** weergeeft, schakelt **MoveEmployee** intentie. 
 
@@ -75,17 +116,23 @@ De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en deze op i
     [![](media/luis-tutorial-composite-entity/hr-create-entity-1.png "Schermafbeelding van LUIS op 'MoveEmployee' bedoeling eerste entiteit selecteren in samengestelde gemarkeerd")](media/luis-tutorial-composite-entity/hr-create-entity-1.png#lightbox)
 
 
-6. Selecteer vervolgens de laatste entiteit onmiddellijk `datetimeV2` in de utterance. Een groene menubalk wordt onder de geselecteerde woorden die wijzen op een samengestelde entiteit getekend. Voer in het pop-upmenu, de naam van de samengestelde `RequestEmployeeMove` Selecteer **maken nieuwe samengestelde** op in het pop-upmenu. 
+6. Selecteer vervolgens de laatste entiteit onmiddellijk `datetimeV2` in de utterance. Een groene menubalk wordt onder de geselecteerde woorden die wijzen op een samengestelde entiteit getekend. Voer in het pop-upmenu, de naam van de samengestelde `RequestEmployeeMove` en selecteer enter. 
 
     [![](media/luis-tutorial-composite-entity/hr-create-entity-2.png "Schermafbeelding van LUIS op 'MoveEmployee' doel selecteren van de laatste entiteit in samengestelde en het maken van het entiteit is gemarkeerd")](media/luis-tutorial-composite-entity/hr-create-entity-2.png#lightbox)
 
 7. In **welk type entiteit wilt u maken?**, bijna alle velden die vereist zijn in de lijst. Alleen de oorspronkelijke locatie ontbreekt. Selecteer **toevoegen van een onderliggende entiteit**, selecteer **Locations::Origin** uit de lijst met bestaande entiteiten, selecteert u vervolgens **gedaan**. 
 
+    U ziet dat de vooraf gedefinieerde entiteit, een getal is toegevoegd aan de samengestelde entiteit. Als u een vooraf gedefinieerde entiteit weergegeven tussen het begin en einde van de tokens van een samengestelde entiteit hebt kan, moet de samengestelde entiteit die vooraf gemaakte entiteiten bevatten. Als de vooraf gemaakte entiteiten niet opgenomen zijn, de samengestelde entiteit niet correct wordt voorspeld, maar elk afzonderlijk element is.
+
     ![Schermafbeelding van LUIS op een andere entiteit in het pop-upvenster toe te voegen 'MoveEmployee'-doel](media/luis-tutorial-composite-entity/hr-create-entity-ddl.png)
 
 8. Selecteer het Vergrootglas in de werkbalk om het filter te verwijderen. 
 
+9. Verwijder het woord `tomorrow` van het filter, zodat u alle uitingen van het voorbeeld opnieuw kunt zien. 
+
 ## <a name="label-example-utterances-with-composite-entity"></a>Label voorbeeld uitingen met samengestelde entiteit
+
+
 1. Selecteer de meest linkse-entiteit die in de samengestelde worden moet in elke utterance voorbeeld. Selecteer vervolgens **verpakken in samengestelde entiteit**.
 
     [![](media/luis-tutorial-composite-entity/hr-label-entity-1.png "Schermafbeelding van LUIS op 'MoveEmployee' bedoeling eerste entiteit selecteren in samengestelde gemarkeerd")](media/luis-tutorial-composite-entity/hr-label-entity-1.png#lightbox)
@@ -98,15 +145,15 @@ De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en deze op i
 
     [![](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png "Schermafbeelding van LUIS op 'MoveEmployee' met alle uitingen met het label")](media/luis-tutorial-composite-entity/hr-all-utterances-labeled.png#lightbox)
 
-## <a name="train-the-luis-app"></a>LUIS-app trainen
+## <a name="train"></a>Trainen
 
 [!INCLUDE [LUIS How to Train steps](../../../includes/cognitive-services-luis-tutorial-how-to-train.md)]
 
-## <a name="publish-the-app-to-get-the-endpoint-url"></a>App publiceren om eindpunt-URL op te vragen
+## <a name="publish"></a>Publiceren
 
 [!INCLUDE [LUIS How to Publish steps](../../../includes/cognitive-services-luis-tutorial-how-to-publish.md)]
 
-## <a name="query-the-endpoint"></a>Query uitvoeren op het eindpunt 
+## <a name="get-intent-and-entities-from-endpoint"></a>Doel en entiteiten ophalen van eindpunt 
 
 1. [!INCLUDE [LUIS How to get endpoint first step](../../../includes/cognitive-services-luis-tutorial-how-to-get-endpoint.md)]
 
@@ -247,7 +294,7 @@ De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en deze op i
         },
         {
           "entity": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
-          "type": "requestemployeemove",
+          "type": "RequestEmployeeMove",
           "startIndex": 5,
           "endIndex": 54,
           "score": 0.4027723
@@ -255,7 +302,7 @@ De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en deze op i
       ],
       "compositeEntities": [
         {
-          "parentType": "requestemployeemove",
+          "parentType": "RequestEmployeeMove",
           "value": "jill jones from a - 1234 to z - 2345 on march 3 2 p . m",
           "children": [
             {
@@ -276,28 +323,19 @@ De opgehaalde gegevens van het eindpunt moet deze gegevens bevatten en deze op i
             }
           ]
         }
-      ],
-      "sentimentAnalysis": {
-        "label": "neutral",
-        "score": 0.5
-      }
+      ]
     }
     ```
 
   Deze utterance retourneert een matrix samengestelde entiteiten. Elke entiteit is een type en de waarde opgegeven. Ga voor meer precisie voor elke onderliggende entiteit, gebruiken de combinatie van het type en de waarde van het matrixitem samengestelde aan het bijbehorende item niet vinden in de matrix entiteiten.  
-
-## <a name="what-has-this-luis-app-accomplished"></a>Wat is er met deze LUIS-app bereikt?
-Deze app een natuurlijke taal query voornemen geïdentificeerd en de opgehaalde gegevens als een benoemde groep geretourneerd. 
-
-Uw chatbot heeft nu voldoende gegevens om te bepalen van de primaire actie en de bijbehorende details in de utterance. 
-
-## <a name="where-is-this-luis-data-used"></a>Waar worden deze gegevens van LUIS gebruikt? 
-LUIS hoeft niets meer te doen met deze aanvraag. De aanroepende toepassing, zoals een chatbot, kan het resultaat topScoringIntent nemen plus de gegevens van de entiteit om de volgende stap uit te voeren. LUIS is niet verantwoordelijk voor die programmatische werken voor de bot of aanroepende toepassing. LUIS bepaalt alleen wat de bedoeling van de gebruiker is. 
 
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
+
+In deze zelfstudie hebt gemaakt van een samengestelde entiteit om in te kapselen bestaande entiteiten. Hiermee wordt de clienttoepassing een reeks gerelateerde gegevens zoeken in verschillende gegevenstypen om door te gaan van de conversatie. Een clienttoepassing voor deze app Human Resources vragen welke dag en tijd het verplaatsen moet beginnen en eindigen. Het kan ook over andere logistiek van de movesuch stellen als een fysieke telefoon. 
+
 > [!div class="nextstepaction"] 
 > [Informatie over het toevoegen van een enkele entiteit met een woordgroepenlijst met](luis-quickstart-primary-and-secondary-data.md)  

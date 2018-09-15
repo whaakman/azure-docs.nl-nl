@@ -6,13 +6,13 @@ ms.service: security
 ms.subservice: Azure Disk Encryption
 ms.topic: article
 ms.author: mstewart
-ms.date: 09/10/2018
-ms.openlocfilehash: ea72e4ac778e52d4f6e4f5597d38a1de59ba43fc
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.date: 09/14/2018
+ms.openlocfilehash: 193aa8f87a90eb7bbf1e2c49132ad480881d41fe
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348936"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633466"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms"></a>Azure Disk Encryption voor IaaS-VM 's 
 Microsoft Azure is het belangrijk ervoor te zorgen dat de privacy van gegevens, gegevensonafhankelijkheid en zodat u kunt om te bepalen uw door Azure gehoste gegevens door een bereik met geavanceerde technologieën voor het coderen, beheren en beheren van versleutelingssleutels en controle en audit toegang tot gegevens. Dit besturingselement biedt Azure-klanten de flexibiliteit om de oplossing die het beste aan hun behoeften van uw bedrijf te kiezen. In dit artikel vindt u een technologieoplossing, 'Azure schijf versleuteling voor Windows en Linux IaaS VM's ', om te beschermen en beveiligen van uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsverplichtingen. 
@@ -78,7 +78,10 @@ De oplossing biedt geen ondersteuning voor de volgende scenario's, functies en -
 * IaaS-VM's die zijn gemaakt met behulp van de klassieke methode voor het maken van de virtuele machine
 * Inschakelen van versleuteling op Linux IaaS-VM's klanten aangepaste installatiekopieën
 * Integratie met uw on-premises Key Management Service
-* Azure Files (gedeelde bestandssysteem), Network File System (NFS), dynamische volumes en virtuele machines van Windows die zijn geconfigureerd met software gebaseerde RAID-systemen
+* Azure Files (gedeelde bestandssysteem)
+* Network File System (NFS)
+* Dynamische volumes
+* Windows-VM's die zijn geconfigureerd met software gebaseerde RAID-systemen
 
 ## <a name="encryption-features"></a>Versleutelingsfuncties
 Als u inschakelt en implementeren van Azure Disk Encryption voor Azure IaaS VM's, worden de volgende mogelijkheden ingeschakeld, afhankelijk van de opgegeven configuratie:

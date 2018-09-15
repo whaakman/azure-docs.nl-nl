@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 08/16/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 562fdc82e0b814fc759bda7b853492b47d073925
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: f72fb6f654b4699214a22a7f96431c605af52f2d
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "40190126"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603670"
 ---
 # <a name="aggregations-in-log-analytics-queries"></a>Aggregaties in Log Analytics-query 's
 
 > [!NOTE]
 > U moet voltooien [aan de slag met de Analytics-portal](get-started-analytics-portal.md) en [aan de slag met query's](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Dit artikel wordt beschreven aggregatiefuncties in Log Analytics-query's die nuttige manieren om uw gegevens te analyseren. Deze alle functies werken met de `summarize` operator die hiermee een tabel met samengevoegde resultaten van de invoertabel wordt.
 
@@ -35,13 +37,13 @@ Dit artikel wordt beschreven aggregatiefuncties in Log Analytics-query's die nut
 Telt het aantal rijen in de resultatenset nadat alle filters zijn toegepast. Het volgende voorbeeld wordt het totale aantal rijen in de _Perf_ tabel uit de laatste 30 minuten. Het resultaat wordt geretourneerd in een kolom met de naam *count_* , tenzij u deze een specifieke naam toewijzen:
 
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize count()
 ```
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | summarize num_of_records=count() 
@@ -49,7 +51,7 @@ Perf
 
 Een visualisatie tijdgrafiek kan nuttig zijn voor een trend Zie na verloop van tijd:
 
-```OQL
+```KQL
 Perf 
 | where TimeGenerated > ago(30m) 
 | summarize count() by bin(TimeGenerated, 5m)
@@ -64,7 +66,7 @@ De uitvoer van dit voorbeeld toont het aantal records voor prestaties trendlijn 
 ### <a name="dcount-dcountif"></a>DCount, dcountif
 Gebruik `dcount` en `dcountif` aan het aantal distinctieve waarden in een specifieke kolom. De volgende query wordt geëvalueerd als het aantal afzonderlijke computers in het afgelopen uur heartbeats worden verzonden:
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcount(Computer)
@@ -72,7 +74,7 @@ Heartbeat
 
 Als u wilt tellen alleen de Linux-computers die heartbeats worden verzonden, gebruik `dcountif`:
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize dcountif(Computer, OSType=="Linux")
@@ -81,7 +83,7 @@ Heartbeat
 ### <a name="evaluating-subgroups"></a>Subgroepen evalueren
 Om uit te voeren een aantal of andere aggregaties op subgroepen in uw gegevens, gebruikt u de `by` trefwoord. Als u bijvoorbeeld voor het tellen van het aantal verschillende Linux-computers die in elk land heartbeats worden verzonden:
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry
@@ -98,7 +100,7 @@ Heartbeat
 
 Voor het analyseren van kleinere subgroepen van uw gegevens, extra kolomnamen toevoegen aan de `by` sectie. U wilt bijvoorbeeld de afzonderlijke computers uit elk land per OSType tellen:
 
-```OQL
+```KQL
 Heartbeat 
 | where TimeGenerated > ago(1h) 
 | summarize distinct_computers=dcountif(Computer, OSType=="Linux") by RemoteIPCountry, OSType
@@ -110,7 +112,7 @@ Bij het evalueren van numerieke waarden, een normaal worden bij deze gemiddelde 
 ### <a name="percentile"></a>Percentiel
 Als u de mediaanwaarde zoekt, gebruikt u de `percentile` functie met een waarde op te geven van de percentiel:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -119,7 +121,7 @@ Perf
 
 U kunt ook verschillende percentielen om een samengevoegd resultaat voor elke opgeven:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -131,7 +133,7 @@ Dit kan laten zien dat een computer CPU's vergelijkbare mediaan waarden hebben, 
 ### <a name="variance"></a>Afwijking
 Om te evalueren rechtstreeks de variantie van een waarde, gebruikt u de standaarddeviatie en variantie methoden:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(30m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 
@@ -140,7 +142,7 @@ Perf
 
 Er is een goede manier om de stabiliteit van het CPU-gebruik analyseren stdev combineren met de berekening van de mediaan:
 
-```OQL
+```KQL
 Perf
 | where TimeGenerated > ago(130m) 
 | where CounterName == "% Processor Time" and InstanceName == "_Total" 

@@ -4,15 +4,15 @@ description: Biedt een overzicht van het Collector-apparaat en hoe dit moet word
 author: ruturaj
 ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 09/10/2018
+ms.date: 09/14/2018
 ms.author: ruturajd
 services: azure-migrate
-ms.openlocfilehash: dae6cc9a55049e2b44291eb105288b33a1db9e7b
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: 6822bd149d5542d577fa18db3c9f50007ae48d35
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44325529"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605059"
 ---
 # <a name="collector-appliance"></a>Collector-apparaat
 
@@ -30,12 +30,17 @@ U kunt de Collector maken door de stappen te volgen hier: [over het maken van de
 
 Er zijn twee manieren waarop u uw on-premises-omgeving detecteren:
 
-a. **Eenmalige detectie:** de collector voor dit model communiceert met de vCenter-Server voor het verzamelen van metagegevens over de virtuele machines. Voor het verzamelen van prestatiegegevens van de virtuele machines, het is afhankelijk van de van historische prestatiegegevens die zijn opgeslagen in de vCenter-Server en de prestatiegeschiedenis van de laatste maand verzamelt. In dit model, Azure Migrate verzamelt gemiddelde meteritem (versus piek teller) voor alle gegevens, [meer informatie] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) over de prestatiemeteritems die worden verzameld door Azure Migrate. Omdat dit een eenmalige detectie, het apparaat in dit geval is niet altijd verbonden zijn aan het project. Wijzigingen in de on-premises-omgeving worden dus niet weergegeven in Azure Migrate zodra de detectie voltooid is. Als u wilt dat de wijzigingen om weer te geven, die u moet een nieuwe detectie van dezelfde omgeving hetzelfde project doen.
+a. **Eenmalige detectie:** de collector voor dit model communiceert met de vCenter-Server voor het verzamelen van metagegevens over de virtuele machines. Voor het verzamelen van prestatiegegevens van de virtuele machines, het is afhankelijk van de van historische prestatiegegevens die zijn opgeslagen in de vCenter-Server en de prestatiegeschiedenis van de laatste maand verzamelt. In dit model met een Azure Migrate gemiddelde teller (versus piek teller) voor alle gegevens verzamelt. Omdat dit een eenmalige detectie, het apparaat in dit geval is niet altijd verbonden zijn aan het project. Wijzigingen in de on-premises-omgeving worden dus niet weergegeven in Azure Migrate zodra de detectie voltooid is. Als u wilt dat de wijzigingen om weer te geven, die u moet een nieuwe detectie van dezelfde omgeving hetzelfde project doen.
+
+> [!NOTE]
+> Deze methode moet u de instellingen voor statistieken in vCenter-Server op niveau 3 ingesteld en wachten op ten minste een dag voordat u een vliegende start de detectie voor het verzamelen van de maatstaven voor prestaties vereist.
 
 b. **Continue detectie:** het collector-apparaat voor dit model voortdurend is verbonden met het Azure Migrate-project. Deze profielen continu de on-premises omgeving voor het verzamelen van realtime gebruiksgegevens op elke 20 seconden. Het apparaat vervolgens rollen van de voorbeelden 20 seconden en maakt één gegevenspunt voor elke 15 minuten door de maximale waarde die wordt verzonden naar Azure te verzamelen. Dit model is niet afhankelijk van de instellingen voor statistieken in vCenter Server voor het verzamelen van prestatiegegevens. U kunt de continue profilering stoppen op elk gewenst moment van het apparaat.
 
 > [!NOTE]
-> De functionaliteit van de continue detectie is in preview.
+> De functionaliteit van de continue detectie is in preview. Als u de vCenter-statistieken van de Server-instellingen is ingesteld op niveau 3 hebt, raden wij u deze methode wilt gebruiken.
+
+[Meer informatie] (https://docs.microsoft.com/azure/migrate/concepts-collector#what-data-is-collected) over de prestatiemeteritems die worden verzameld door Azure Migrate.
 
 ## <a name="collector-communication-diagram"></a>Diagram van de collector-communicatie
 
@@ -188,8 +193,8 @@ Voor continue detectie de dezelfde prestatiemeteritems worden verzameld in realt
 
 |Teller                                  |Niveau    |Het niveau van per apparaat  |Evaluatie van de impact                               |
 |-----------------------------------------|---------|------------------|------------------------------------------------|
-|CPU.Usage.Average                        | 1       |N.V.T.                |Aanbevolen VM-grootte en kosten                    |
-|Mem.Usage.Average                        | 1       |N.V.T.                |Aanbevolen VM-grootte en kosten                    |
+|CPU.Usage.Average                        | 1       |N.v.t.                |Aanbevolen VM-grootte en kosten                    |
+|Mem.Usage.Average                        | 1       |N.v.t.                |Aanbevolen VM-grootte en kosten                    |
 |virtualDisk.read.average                 | 2       |2                 |Grootte van de schijf, opslagkosten en VM-grootte         |
 |virtualDisk.write.average                | 2       |2                 |Grootte van de schijf, opslagkosten en VM-grootte         |
 |virtualDisk.numberReadAveraged.average   | 1       |3                 |Grootte van de schijf, opslagkosten en VM-grootte         |

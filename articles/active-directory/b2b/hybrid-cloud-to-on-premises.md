@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: b7b1279dbb1256269705da3f8be6f6d2c1151368
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 9b04f6bc2158f88b54bb4ed086c2f74b5a28eedd
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346335"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605212"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>GRANT B2B-gebruikers in Azure AD-toegang tot uw on-premises toepassingen
 
@@ -63,7 +63,7 @@ Het volgende diagram biedt een overzicht van hoe Azure AD Application Proxy en d
 U kunt de on-premises B2B-gebruikersobjecten via lifecycle management-beleid beheren. Bijvoorbeeld:
 
 - U kunt multi-factor authentication (MFA)-beleidsregels voor de gastgebruiker instellen zodat MFA tijdens de Application Proxy-verificatie wordt gebruikt. Zie voor meer informatie, [voorwaardelijke toegang voor gebruikers van B2B-samenwerking](conditional-access.md).
-- Alle sponsoring, beoordelingen, account verificaties, enzovoort die worden uitgevoerd op de cloud B2B gebruiker van toepassing op de on-premises gebruikers. Bijvoorbeeld, als de gebruiker van de cloud via uw lifecycle management-beleid wordt verwijderd, wordt de on-premises-gebruiker ook verwijderd door MIM Sync of Azure AD Connect sync. Zie voor meer informatie, [gasttoegang beheren met Azure AD-toegang beoordeelt](../active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md).
+- Alle sponsoring, beoordelingen, account verificaties, enzovoort die worden uitgevoerd op de cloud B2B gebruiker van toepassing op de on-premises gebruikers. Bijvoorbeeld, als de gebruiker van de cloud via uw lifecycle management-beleid wordt verwijderd, wordt de on-premises-gebruiker ook verwijderd door MIM Sync of Azure AD Connect sync. Zie voor meer informatie, [gasttoegang beheren met Azure AD-toegang beoordeelt](../governance/manage-guest-access-with-access-reviews.md).
 
 ### <a name="create-b2b-guest-user-objects-through-mim-preview"></a>Gebruikersobjecten van B2B-Gast via MIM (Preview) maken
 

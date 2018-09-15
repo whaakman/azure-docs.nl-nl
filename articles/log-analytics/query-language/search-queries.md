@@ -15,17 +15,19 @@ ms.topic: conceptual
 ms.date: 08/06/2018
 ms.author: bwren
 ms.component: na
-ms.openlocfilehash: 6a375da3c97790bd6a7a6fa505de82b2fc298385
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: 2ccef960378190f10e64318f91039871657a1a46
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057202"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45603750"
 ---
 # <a name="search-queries-in-log-analytics"></a>Zoekquery's in Log Analytics
 
 > [!NOTE]
-> U moet voltooien [aan de slag met query's in Log Analytics](get-started-queries.md) voordat het voltooien van deze zelfstudie.
+> U moet voltooien [aan de slag met query's in Log Analytics](get-started-queries.md) voordat het voltooien van deze les gaat uitvoeren.
+
+[!INCLUDE [log-analytics-demo-environment](../../../includes/log-analytics-demo-environment.md)]
 
 Azure Log Analytics-query's kunnen beginnen met een tabelnaam wordt opgegeven of een zoekopdracht uitvoeren. In deze zelfstudie bevat informatie over query's op basis van zoeken. Er zijn voordelen voor elke methode.
 
@@ -34,7 +36,7 @@ Query's op basis van een tabel begin met het bereik van de query en daarom meest
 ## <a name="search-a-term"></a>Een term zoeken
 De **zoeken** opdracht wordt doorgaans gebruikt om te zoeken naar een specifieke term. In het volgende voorbeeld worden alle kolommen in alle tabellen worden gescand op de term "error":
 
-```OQL
+```KQL
 search "error"
 | take 100
 ```
@@ -44,13 +46,13 @@ Terwijl ze eenvoudig te gebruiken, wordt buiten het bereik vallen query's zoals 
 ### <a name="table-scoping"></a>Tabel scoping
 Als u wilt een zoekterm in een specifieke tabel toevoegen `in (table-name)` direct na de **zoeken** operator:
 
-```OQL
+```KQL
 search in (Event) "error"
 | take 100
 ```
 
 of in meerdere tabellen:
-```OQL
+```KQL
 search in (Event, SecurityEvent) "error"
 | take 100
 ```
@@ -58,7 +60,7 @@ search in (Event, SecurityEvent) "error"
 ### <a name="table-and-column-scoping"></a>Tabel en kolom scoping
 Standaard **zoeken** evalueren alle kolommen in de gegevensset. Als u wilt zoeken naar alleen een specifieke kolom, gebruik de volgende syntaxis:
 
-```OQL
+```KQL
 search in (Event) Source:"error"
 | take 100
 ```
@@ -69,7 +71,7 @@ search in (Event) Source:"error"
 ## <a name="case-sensitivity"></a>Hoofdlettergevoeligheid
 Term zoeken is standaard niet-hoofdlettergevoelig, dus resultaten zoals "DNS", "dns" of "Dns" zoeken "dns" kan opleveren. Als u de zoekopdracht hoofdlettergevoelig, gebruikt u de `kind` optie:
 
-```OQL
+```KQL
 search kind=case_sensitive in (Event) "DNS"
 | take 100
 ```
@@ -78,26 +80,26 @@ search kind=case_sensitive in (Event) "DNS"
 De **zoeken** opdracht ondersteunt jokertekens, aan het begin, einde of het midden van een term.
 
 Om te zoeken naar termen die met 'win' beginnen:
-```OQL
+```KQL
 search in (Event) "win*"
 | take 100
 ```
 
 Om te zoeken naar termen die eindigen op '.com':
-```OQL
+```KQL
 search in (Event) "*.com"
 | take 100
 ```
 
 Om te zoeken naar termen die 'www' bevatten:
-```OQL
+```KQL
 search in (Event) "*www*"
 | take 100
 ```
 
 Om te zoeken naar termen die begint met "corp" en eindigt op '.com', zoals "corp.mydomain.com" "
 
-```OQL
+```KQL
 search in (Event) "corp*.com"
 | take 100
 ```
@@ -110,21 +112,21 @@ U kunt ook opvragen alles in een tabel met alleen een jokerteken: `search in (Ev
 ## <a name="add-and--or-to-search-queries"></a>Voeg *en* / *of* om te zoeken naar query's
 Gebruik **en** om te zoeken naar records die meerdere termen bevatten:
 
-```OQL
+```KQL
 search in (Event) "error" and "register"
 | take 100
 ```
 
 Gebruik **of** om op te halen records met ten minste één van de voorwaarden:
 
-```OQL
+```KQL
 search in (Event) "error" or "register"
 | take 100
 ```
 
 Als u meerdere zoekvoorwaarden hebt, kunt u ze kunt combineren in dezelfde query met behulp van haakjes:
 
-```OQL
+```KQL
 search in (Event) "error" and ("register" or "marshal*")
 | take 100
 ```
@@ -134,7 +136,7 @@ De resultaten van dit voorbeeld zou de records die de term "error" bevatten en o
 ## <a name="pipe-search-queries"></a>Doorgeven van zoekquery 's
 Net als bij een andere opdracht **zoeken** kan worden doorgesluisd, zodat de zoekresultaten kunnen worden gefilterd, gesorteerd en samengevoegd. Bijvoorbeeld, om het aantal *gebeurtenis* records met 'win':
 
-```OQL
+```KQL
 search in (Event) "win"
 | count
 ```

@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/05/2018
+ms.date: 09/13/2018
 ms.author: jeedes
-ms.openlocfilehash: 08114fc52665eb336844a1072df8bd3f2591dd07
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: fc4ea2538ebe5876e8f3572ab8ad76c4b3b44b8c
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093461"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634333"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-huddle"></a>Zelfstudie: Azure Active Directory-integratie met kruipen dicht
 
@@ -56,6 +56,7 @@ In deze zelfstudie test u de Azure AD eenmalige aanmelding in een testomgeving. 
 2. Configureren en testen van Azure AD eenmalige aanmelding
 
 ## <a name="adding-huddle-from-the-gallery"></a>Toe te voegen kruipen dicht in de galerie
+
 Voor het configureren van de integratie van kruipen dicht bij Azure AD, moet u kruipen dicht in de galerie aan uw lijst met beheerde SaaS-apps toevoegen.
 
 **Als u wilt toevoegen kruipen dicht in de galerie, moet u de volgende stappen uitvoeren:**
@@ -67,7 +68,7 @@ Voor het configureren van de integratie van kruipen dicht bij Azure AD, moet u k
 2. Navigeer naar **bedrijfstoepassingen**. Ga vervolgens naar **alle toepassingen**.
 
     ![Toepassingen][2]
-    
+
 3. Nieuwe toepassing toevoegen, klikt u op **nieuwe toepassing** knop boven aan het dialoogvenster.
 
     ![Toepassingen][3]
@@ -80,24 +81,18 @@ Voor het configureren van de integratie van kruipen dicht bij Azure AD, moet u k
 
     ![Het maken van een Azure AD-testgebruiker](./media/huddle-tutorial/tutorial_huddle_addfromgallery.png)
 
-##  <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
+## <a name="configuring-and-testing-azure-ad-single-sign-on"></a>Configureren en testen van Azure AD eenmalige aanmelding
 
 In deze sectie kunt u configureren en testen Azure AD eenmalige aanmelding met kruipen dicht op basis van een testgebruiker met de naam "Britta Simon."
 
 Voor eenmalige aanmelding om te werken, moet Azure AD om te weten wat de gebruiker equivalent in kruipen dicht is aan een gebruiker in Azure AD. Met andere woorden, moet een koppeling relatie tussen een Azure AD-gebruiker en de gerelateerde gebruiker in kruipen dicht tot stand worden gebracht.
 
-In het kruipen dicht, wijs de waarde van de **gebruikersnaam** in Azure AD als de waarde van de **gebruikersnaam** de relatie van de koppeling tot stand brengen.
-
 Als u wilt configureren en testen van Azure AD eenmalige aanmelding met kruipen dicht, u nodig hebt voor de volgende bouwstenen:
 
 1. **[Configureren van Azure AD eenmalige aanmelding](#configuring-azure-ad-single-sign-on)**  : als u wilt dat uw gebruikers kunnen deze functie gebruiken.
-
 2. **[Het maken van een Azure AD-testgebruiker](#creating-an-azure-ad-test-user)**  - voor het testen van Azure AD eenmalige aanmelding met Britta Simon.
-
 3. **[Het maken van een testgebruiker kruipen dicht](#creating-a-huddle-test-user)**  : als u wilt een equivalent van Britta Simon in kruipen dicht die is gekoppeld aan de Azure AD-weergave van de gebruiker hebben.
-
 4. **[Toewijzen van de Azure AD-testgebruiker](#assigning-the-azure-ad-test-user)**  - Britta Simon gebruik van Azure AD eenmalige aanmelding inschakelen.
-
 5. **[Eenmalige aanmelding testen](#testing-single-sign-on)**  : als u wilt controleren of de configuratie werkt.
 
 ### <a name="configuring-azure-ad-single-sign-on"></a>Azure AD eenmalige aanmelding configureren
@@ -111,10 +106,13 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
     ![Eenmalige aanmelding configureren][4]
 
 2. Op de **eenmalige aanmelding** dialoogvenster, selecteer **modus** als **SAML gebaseerde aanmelding** eenmalige aanmelding inschakelen.
- 
+
     ![Eenmalige aanmelding configureren](./media/huddle-tutorial/tutorial_huddle_samlbase.png)
 
 3. Op de **kruipen dicht domein en URL's** sectie, voert u de volgende stappen uit als u wilt configureren van de toepassing in **IDP** modus gestart:
+
+    > [!NOTE]
+    > Uw exemplaar kruipen dicht worden automatisch gedetecteerd in het domein dat u hieronder.
 
     ![Kruipen dicht domein en URL's één aanmeldings-informatie](./media/huddle-tutorial/tutorial_huddle_url.png)
 
@@ -122,16 +120,16 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
 
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.com`|
-    | `https://us.huddle.com` |
+    | `https://<customsubdomain>.huddle.net`|
+    | `https://my.huddle.net` |
     | |
 
     b. In de **antwoord-URL** tekstvak typt u een van de URL met behulp van het volgende patroon:
 
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.com/saml/idp-initiated-sso`|
-    | `https://us.huddle.com/saml/idp-initiated-sso`|
+    | `https://<customsubdomain>.huddle.net/saml/idp-initiated-sso`|
+    | `https://my.huddle.net/saml/idp-initiated-sso`|
     | |
 
 4. Controleer **geavanceerde URL-instellingen weergeven** en voer de volgende stap als u wilt configureren van de toepassing in **SP** modus gestart:
@@ -139,15 +137,14 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
     ![Kruipen dicht domein en URL's één aanmeldings-informatie](./media/huddle-tutorial/tutorial_huddle_url1.png)
 
     In de **aanmeldings-URL** tekstvak typt u een van de URL met behulp van het volgende patroon:
-    
+
     | | |
     |--|--|
-    | `https://<customsubdomain>.huddle.com`|
-    | `https://us.huddle.com`|
+    | `https://<customsubdomain>.huddle.net`|
     | |
 
-    > [!NOTE] 
-    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [kruipen dicht Client ondersteuningsteam](https://huddle.zendesk.com) om deze waarden te verkrijgen. 
+    > [!NOTE]
+    > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke-id, de antwoord-URL en aanmeldings-URL. Neem contact op met [kruipen dicht Client ondersteuningsteam](https://huddle.zendesk.com) om deze waarden te verkrijgen.
 
 5. Op de **SAML-handtekeningcertificaat** sectie, klikt u op **Certificate(Base64)** en slaat u het certificaatbestand op uw computer.
 
@@ -157,15 +154,15 @@ In deze sectie maakt u Azure AD eenmalige aanmelding in de Azure-portal inschake
 
     ![Eenmalige aanmelding configureren](./media/huddle-tutorial/tutorial_general_400.png)
 
-7. Op de **kruipen dicht configuratie** sectie, klikt u op **configureren kruipen dicht** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.** 
+7. Op de **kruipen dicht configuratie** sectie, klikt u op **configureren kruipen dicht** openen **aanmelding configureren** venster. Kopiëren de **SAML entiteit-ID en Single Sign-On Service URL voor SAML-** uit de **Naslaggids sectie.**
 
     ![Eenmalige aanmelding configureren](./media/huddle-tutorial/tutorial_huddle_configure.png) 
-    
+
 8. Voor het configureren van eenmalige aanmelding op kruipen dicht zijde, moet u voor het verzenden van de gedownloade **certificaat**, **Single Sign-On Service URL voor SAML**, en **SAML entiteit-ID** naar [ Client-ondersteuningsteam kruipen dicht](https://huddle.zendesk.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.  
-   
+
     >[!NOTE]
-    > Eenmalige aanmelding moet worden ingeschakeld door het ondersteuningsteam kruipen dicht. U ontvangt een melding wanneer de configuratie is voltooid. 
-    > 
+    > Eenmalige aanmelding moet worden ingeschakeld door het ondersteuningsteam kruipen dicht. U ontvangt een melding wanneer de configuratie is voltooid.
+    >
 
 ### <a name="creating-an-azure-ad-test-user"></a>Het maken van een Azure AD-testgebruiker
 

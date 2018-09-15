@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 03/20/2018
 ms.author: jeking
 ms.component: common
-ms.openlocfilehash: be3d0d32e60e23b2b2d7d414d2297b86dec62f1d
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: eee9998280f2105fee5144b520bc8000b086f941
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576830"
+ms.locfileid: "45603922"
 ---
 # <a name="geo-redundant-storage-grs-cross-regional-replication-for-azure-storage"></a>Geografisch redundante opslag (GRS): regio-overschrijdend-replicatie voor Azure Storage
 [!INCLUDE [storage-common-redundancy-GRS](../../../includes/storage-common-redundancy-grs.md)]
@@ -41,9 +41,9 @@ Enkele overwegingen waarmee u rekening moet houden bij het gebruik van RA-GRS:
    * De tijd Microsoft vereist om te bepalen of de gegevens kunnen worden hersteld op de primaire locatie, of als failover nodig is.
    * De tijd om uit te voeren van de failover van het opslagaccount dat door het veranderen van de primaire DNS-vermeldingen om te verwijzen naar de secundaire locatie.
 
-   Microsoft neemt de verantwoordelijkheid van de ernstig waarmee uw gegevens behouden blijven. Als er een kans van het herstellen van de gegevens in de primaire regio, wordt Microsoft vertraging van de failover en richt u bij het herstellen van uw gegevens. Een toekomstige versie van de service kunt u een failover op het accountniveau van een te activeren zodat u kunt de RTO bepaalt zelf beheren.
+   Microsoft neemt de verantwoordelijkheid van de ernstig waarmee uw gegevens behouden blijven. Als er een kans van het herstellen van de gegevens in de primaire regio, wordt Microsoft vertraging van de failover en richt u bij het herstellen van uw gegevens. 
 
-## <a name="paired-regions"></a>Gekoppelde regio 's 
+## <a name="paired-regions"></a>Gekoppelde regio's 
 Als u een opslagaccount maakt, selecteert u de primaire regio voor het account. De gekoppelde secundaire regio wordt bepaald op basis van de primaire regio, en kan niet worden gewijzigd. Zie voor actuele informatie over regio's ondersteund door Azure [zakelijke continuïteit en herstel na noodgevallen (BCDR): gekoppelde regio's Azure](../../best-practices-availability-paired-regions.md).
 
 ## <a name="see-also"></a>Zie ook

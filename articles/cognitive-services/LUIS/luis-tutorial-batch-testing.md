@@ -1,51 +1,27 @@
 ---
-title: Testen van batch gebruiken voor het verbeteren van LUIS voorspellingen | Microsoft Docs
-titleSuffix: Azure
-description: Een belastingtest uit batch, bekijk de resultaten en verbeteren van LUIS voorspellingen te wijzigen.
+title: 'Zelfstudie 2: Batch testen met 1000 uitingen set '
+titleSuffix: Azure Cognitive Services
+description: Deze zelfstudie wordt gedemonstreerd hoe u met batch testen utterance voorspelling problemen in uw app vinden en corrigeren.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 08/02/2018
+ms.date: 09/09/2018
 ms.author: diberry
-ms.openlocfilehash: 5abaeaee87d54e82df29e75b89c83522b8746730
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: 1f1055b84a83d71931ebd0ca11b5bcd1bd16ad02
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158242"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630970"
 ---
-# <a name="improve-app-with-batch-test"></a>De app verbeteren met batch-test
+# <a name="tutorial--2-batch-test-data-sets"></a>Zelfstudie: 2. Gegevenssets voor batch-test
 
-Deze zelfstudie wordt gedemonstreerd hoe u met batch testen utterance voorspelling problemen vinden.  
-
-In deze zelfstudie leert u het volgende:
-
-<!-- green checkmark -->
-> [!div class="checklist"]
-* Maak een batchbestand testen 
-* Een batch-test uitvoeren
-* Bekijk de resultaten
-* Fouten herstellen 
-* Testen van de batch
-
-[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
-
-## <a name="before-you-begin"></a>Voordat u begint
-
-Als u geen de Human Resources-app vanuit de [bekijken eindpunt uitingen](luis-tutorial-review-endpoint-utterances.md) zelfstudie [importeren](luis-how-to-start-new-app.md#import-new-app) de JSON naar een nieuwe app in de [LUIS](luis-reference-regions.md#luis-website) website. De app die kan worden geïmporteerd bevindt zich in de GitHub-opslagplaats met [voorbeelden van LUIS](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/quickstarts/custom-domain-review-HumanResources.json).
-
-Als u de oorspronkelijke Human Resources-app wilt gebruiken, kloont u de versie op de pagina [Settings](luis-how-to-manage-versions.md#clone-a-version) en wijzigt u de naam in `batchtest`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. 
-
-De app trainen.
-
-## <a name="purpose-of-batch-testing"></a>Doel van het testen van batch
+Deze zelfstudie wordt gedemonstreerd hoe u met batch testen utterance voorspelling problemen in uw app vinden en corrigeren.  
 
 Batch testen, kunt u voor het valideren van de actieve status van het model met een bekende set gelabelde uitingen en entiteiten getraind. In de JSON-indeling batch-bestand, de utterances toevoegen en instellen van de entiteit-labels die u nodig hebt binnen de utterance voorspeld. 
-
-<!--The recommended test strategy for LUIS uses three separate sets of data: example utterances provided to the model, batch test utterances, and endpoint utterances. --> Wanneer u een app dan in deze zelfstudie gebruikt, zorg ervoor dat u *niet* met behulp van de voorbeeld-uitingen al toegevoegd aan een doel. Om te controleren of uw batch-test-uitingen op basis van de voorbeeld-uitingen [exporteren](luis-how-to-start-new-app.md#export-app) de app. Vergelijk de app voorbeeld utterance van aan de test-uitingen van batch. 
 
 Vereisten voor het testen van batch:
 
@@ -53,13 +29,42 @@ Vereisten voor het testen van batch:
 * Geen dubbele waarden. 
 * Entiteitstypen toegestaan: alleen veilig geleerde entiteiten van eenvoudige, hiërarchische (bovenliggende alleen-), en samengesteld. Testen van de batch is alleen nuttig voor het veilig geleerd intenties en entiteiten.
 
-## <a name="create-a-batch-file-with-utterances"></a>Maak een batchbestand met uitingen
+Wanneer u een app dan in deze zelfstudie gebruikt, doen *niet* gebruikt u de voorbeeld-uitingen al toegevoegd aan een doel. 
 
-1. Maak `HumanResources-jobs-batch.json` in een teksteditor zoals [VSCode](https://code.visualstudio.com/). 
+**In deze zelfstudie leert u hoe u:**
+
+<!-- green checkmark -->
+> [!div class="checklist"]
+> * Gebruik bestaande zelfstudie-app
+> * Maak een batchbestand testen 
+> * Een batch-test uitvoeren
+> * Bekijk de resultaten
+> * Fouten herstellen 
+> * Testen van de batch
+
+[!INCLUDE [LUIS Free account](../../../includes/cognitive-services-luis-free-key-short.md)]
+
+## <a name="use-existing-app"></a>Gebruik bestaande app
+
+Ga door met de app hebt gemaakt in de laatste zelfstudie, met de naam **Personeelszaken**. 
+
+Als u de app Personeelszaken uit de vorige zelfstudie hebt, gebruikt u de volgende stappen uit:
+
+1.  Download en sla [app JSON-bestand](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/custom-domain-review-HumanResources.json).
+
+2. De JSON importeren in een nieuwe app.
+
+3. Uit de **beheren** sectie, op de **versies** tabblad en noem het klonen van de versie `batchtest`. Klonen is een uitstekende manier om te experimenteren met verschillende functies van LUIS zonder dat de oorspronkelijke versie wordt gewijzigd. Omdat de versienaam van de wordt gebruikt als onderdeel van de URL-route, kan niet de naam van de tekens die niet toegestaan in een URL zijn bevatten. 
+
+4. De app trainen.
+
+## <a name="batch-file"></a>Batch-bestand
+
+1. Maak `HumanResources-jobs-batch.json` in een teksteditor of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-jobs-batch.json) deze. 
 
 2. In het JSON-indeling batchbestand utterances met toevoegen de **bedoeling** gewenste voorspelde in de test. 
 
-   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
+   [!code-json[Add the intents to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-jobs-batch.json "Add the intents to the batch test file")]
 
 ## <a name="run-the-batch"></a>Voer de batch
 
@@ -73,13 +78,13 @@ Vereisten voor het testen van batch:
 
     [![Schermafbeelding van LUIS-app met importeren gegevensset gemarkeerd](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png)](./media/luis-tutorial-batch-testing/hr-import-dataset-button.png#lightbox)
 
-4. Kies de locatie van het bestand system van de `HumanResources-jobs-batch.json` bestand.
+4. Kies de locatie van het bestand van de `HumanResources-jobs-batch.json` bestand.
 
 5. Naam van de gegevensset `intents only` en selecteer **gedaan**.
 
     ![Bestand selecteren](./media/luis-tutorial-batch-testing/hr-import-new-dataset-ddl.png)
 
-6. Selecteer de knop **Run**. Wacht totdat de test is voltooid.
+6. Selecteer de knop **Run**. 
 
 7. Selecteer **resultaten**.
 
@@ -109,7 +114,7 @@ U ziet dat beide intents de dezelfde telling van fouten hebben. Een onjuiste voo
 
 De bijbehorende boven uitingen punt in de **fout-positief** sectie zijn `Can I apply for any database jobs with this resume?` en `Can I apply for any database jobs with this resume?`. Voor de eerste utterance, het woord `resume` is alleen gebruikt **ApplyForJob**. Voor de tweede utterance, het woord `apply` is alleen gebruikt de **ApplyForJob** intentie.
 
-## <a name="fix-the-app-based-on-batch-results"></a>Herstellen van de app op basis van batch-resultaten
+## <a name="fix-the-app"></a>De app oplossen
 
 Het doel van deze sectie is om alle de uitingen voorspeld correct voor **GetJobInformation** door de app op te lossen. 
 
@@ -119,7 +124,7 @@ U vraagt zich misschien ook af over het verwijderen van uitingen van **ApplyForJ
 
 De eerste oplossing is het toevoegen van meer uitingen naar **GetJobInformation**. De tweede oplossing is het verminderen van het gewicht van woorden, zoals `resume` en `apply` naar de **ApplyForJob** intentie. 
 
-### <a name="add-more-utterances-to-getjobinformation"></a>Toevoegen van meer uitingen naar **GetJobInformation**
+### <a name="add-more-utterances"></a>Meer utterances toevoegen
 
 1. Sluit het deelvenster van de test batch door het selecteren van de **testen** knop in het bovenste navigatievenster. 
 
@@ -149,7 +154,7 @@ De eerste oplossing is het toevoegen van meer uitingen naar **GetJobInformation*
 
 4. De app door het selecteren van de trein **Train** in het bovenste navigatievenster rechts.
 
-## <a name="verify-the-fix-worked"></a>Controleren of de oplossing heeft gewerkt
+## <a name="verify-the-new-model"></a>Controleer of het nieuwe model
 
 Om te controleren dat de uitingen in de batch-test correct worden voorspeld, moet u de batch-test opnieuw uitvoeren.
 
@@ -171,12 +176,12 @@ Wanneer het eerst schrijven en testen van batch-bestanden, het is raadzaam om te
 
 De waarde van een **taak** entiteit, opgegeven in de test-uitingen is meestal een of twee woorden, met een paar voorbeelden wordt meer woorden. Als _uw eigen_ human resources-app heeft doorgaans taaknamen van vele woorden bestaat, wordt de voorbeeld-uitingen met het label met **taak** entiteit in deze app niet goed werkt.
 
-1. Maak `HumanResources-entities-batch.json` in een teksteditor zoals [VSCode](https://code.visualstudio.com/). Of download [het bestand](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json) vanuit de LUIS-Samples-Github-opslagplaats.
+1. Maak `HumanResources-entities-batch.json` in een teksteditor zoals [VSCode](https://code.visualstudio.com/) of [downloaden](https://github.com/Microsoft/LUIS-Samples/blob/master/documentation-samples/tutorials/HumanResources-entities-batch.json) deze.
 
 
 2. In de JSON-indeling batch-bestand, Voeg een matrix met objecten die uitingen met de **bedoeling** gewenste voorspelde in de test, evenals de locaties van alle entiteiten in de utterance. Aangezien een entiteit op basis van tokens, zorg starten en stoppen van elke entiteit op een teken. Niet beginnen of eindigen van de utterance op een spatie. Dit zorgt ervoor dat een fout opgetreden tijdens het importeren van de batch-bestand.  
 
-   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorial-batch-testing/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
+   [!code-json[Add the intents and entities to the batch test file](~/samples-luis/documentation-samples/tutorials/HumanResources-entities-batch.json "Add the intents and entities to the batch test file")]
 
 
 ## <a name="run-the-batch-with-entities"></a>Voer de batch met entiteiten
@@ -222,15 +227,13 @@ Deze taken blijven voor u te doen.
 
 Toevoegen van een [patroon](luis-concept-patterns.md) voordat de entiteit correct wordt voorspeld, gaat niet om het probleem te verhelpen. Dit is omdat het patroon niet overeen met totdat alle entiteiten in het patroon worden gedetecteerd. 
 
-## <a name="what-has-this-tutorial-accomplished"></a>Wat is er in deze zelfstudie bereikt?
-
-De app nauwkeurigheid is met fouten opsporen in de batch en corrigeren van het model verhoogd. 
-
 ## <a name="clean-up-resources"></a>Resources opschonen
 
 [!INCLUDE [LUIS How to clean up resources](../../../includes/cognitive-services-luis-tutorial-how-to-clean-up-resources.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
+
+De zelfstudie gebruikt een batch-test om problemen met het huidige model. Het model is vast en getest met de batch-bestand om te controleren of dat de wijziging juist is.
 
 > [!div class="nextstepaction"]
 > [Meer informatie over patronen](luis-tutorial-pattern.md)

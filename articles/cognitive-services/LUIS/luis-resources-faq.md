@@ -1,20 +1,21 @@
 ---
-title: Veelgestelde vragen over de Language Understanding (LUIS) in Azure | Microsoft Docs
-description: Vind antwoorden op veelgestelde vragen over Language Understanding (LUIS)
+title: Veelgestelde vragen - Language Understanding (LUIS)
+titleSuffix: Azure Cognitive Services
+description: In dit artikel bevat antwoorden op veelgestelde vragen over Language Understanding (LUIS).
 author: diberry
 manager: cjgronlund
 services: cognitive-services
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 07/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: a266055c7685dca87d985775584a9ea7a4bda883
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: c338f874f426eef047f29e958877368c61db7e62
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43128517"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630253"
 ---
 # <a name="language-understanding-faq"></a>Veelgestelde vragen over de Language Understanding
 
@@ -63,7 +64,7 @@ Cortana vooraf gebouwde apps zijn afgeschaft in 2017. Ze worden niet meer onders
 LUIS [basis van woordgrenzen](luis-glossary.md#token) de utterance op basis van de [cultuur](luis-supported-languages.md#tokenization). Zowel de oorspronkelijke waarde en de waarde van de tokens zijn beschikbaar voor [gegevensextractie](luis-concept-data-extraction.md#tokenized-entity-returned).
 
 ### <a name="how-do-i-create-and-assign-a-luis-endpoint-key"></a>Hoe ik maken en toewijzen van een LUIS eindpuntsleutel?
-[Maken van de eindpuntsleutel](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure voor uw [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) niveau. [Toewijzen van de sleutel](luis-how-to-manage-keys.md#assign-endpoint-key) op de **[publiceren](luis-how-to-publish-app.md)** pagina. Er is geen overeenkomende API voor deze actie. Vervolgens moet u de HTTP-aanvraag naar het eindpunt naar [gebruikt u de nieuwe eindpuntsleutel](luis-concept-keys.md#use-endpoint-key-in-query).
+[Maken van de eindpuntsleutel](luis-how-to-azure-subscription.md#create-luis-endpoint-key) in Azure voor uw [service](https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services/) niveau. [Toewijzen van de sleutel](luis-how-to-manage-keys.md#assign-endpoint-key) op de **[sleutels en eindpunten](luis-how-to-manage-keys.md)** pagina. Er is geen overeenkomende API voor deze actie. Vervolgens moet u de HTTP-aanvraag naar het eindpunt naar [gebruikt u de nieuwe eindpuntsleutel](luis-concept-keys.md#use-endpoint-key-in-query).
 
 ### <a name="how-do-i-interpret-luis-scores"></a>Hoe ik LUIS scores worden geïnterpreteerd? 
 Uw systeem moet de hoogste score intentie, ongeacht de waarde ervan gebruiken. Bijvoorbeeld, betekent een score lager (minder dan 50%) 0,5 niet noodzakelijkerwijs dat LUIS weinig vertrouwen heeft. Biedt meer trainingsgegevens, kan u helpen verhogen van de score van de meest waarschijnlijke intentie.
@@ -120,8 +121,13 @@ In Azure vertegenwoordigt een tenant de client of organisatie die is gekoppeld a
 ![Tenant-ID in Azure portal](./media/luis-manage-keys/luis-assign-key-tenant-id.png)
 
 <a name="why-are-there-more-subscription-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
-### <a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>Waarom zijn er meer eindpunt sleutels op mijn app pagina publiceren dan ik heb toegewezen aan de app? 
-Elke LUIS-app heeft ontwerpen/starter sleutel. LUIS-eindpunt sleutels gemaakt tijdens de periode van algemene beschikbaarheid worden weergegeven op uw pagina publiceren weergegeven, ongeacht of u ze hebt toegevoegd aan de app. Dit is gedaan om de migratie van de algemene beschikbaarheid te vereenvoudigen. Geen nieuwe LUIS eindpunt sleutels worden niet weergegeven op de pagina publiceren. 
+<a name="why-are-there-more-endpoint-keys-on-my-apps-publish-page-than-i-assigned-to-the-app"></a>
+
+
+### <a name="why-are-there-more-endpoint-keys-assigned-to-my-app-than-i-assigned"></a>Waarom zijn er meer eindpunt sleutels die zijn toegewezen aan mijn app dan ik heb toegewezen? 
+Elke LUIS-app beschikt over de authoring/starter-sleutel in de lijst met eindpunten gemakkelijker te maken. Deze sleutel kan slechts een paar eindpunt treffers, zodat u LUIS kunt uitproberen.  
+
+Als uw app bestond voordat LUIS is algemeen beschikbaar (GA), worden automatisch LUIS eindpunt sleutels in uw abonnement toegewezen. Dit is gedaan om de migratie van de algemene beschikbaarheid te vereenvoudigen. Geen nieuwe LUIS eindpunt sleutels in Azure portal zijn _niet_ automatisch toegewezen aan LUIS. 
 
 ## <a name="app-management"></a>App-beheer
 

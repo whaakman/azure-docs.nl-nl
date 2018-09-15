@@ -1,22 +1,23 @@
 ---
-title: Registreren voor Text Analytics-API(Microsoft Cognitive Services in Azure) | Microsoft Docs
+title: Aanmelden voor de Tekstanalyse-API
+titleSuffix: Azure Cognitive Services
 description: Instructies voor hoe u zich registreert voor het gebruik van tekstanalyse en gebruik binnen limieten.
 services: cognitive-services
 author: HeidiSteen
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: text-analytics
-ms.topic: get-started-article
-ms.date: 3/07/2018
+ms.topic: conceptual
+ms.date: 09/12/2018
 ms.author: heidist
-ms.openlocfilehash: dfa5ba138a2e0db75dfc097ca2430fe9c82e826f
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
-ms.translationtype: HT
+ms.openlocfilehash: a369d6028cc2957113de01dab0371ad5305a0c68
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39623247"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605523"
 ---
-# <a name="how-to-sign-up-for-text-analytics-api"></a>Registreren voor Text Analytics-API
+# <a name="how-to-sign-up-for-the-text-analytics-api"></a>Hoe u zich registreert voor de Tekstanalyse-API
 
 Text Analytics-resources zijn 24-7 beschikbaar in de cloud. Voordat u uw inhoud kunt uploaden voor analyse, moet u zich registreren om een toegangssleutel te verkrijgen. Voor elke aanroep naar de API is een toegangssleutel in de aanvraag vereist.
 

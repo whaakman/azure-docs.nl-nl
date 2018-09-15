@@ -11,21 +11,21 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/20/2018
+ms.date: 09/13/2018
 ms.author: magoedte; bwren
 ms.component: na
-ms.openlocfilehash: 386aad94461fa3f2ceafb7564342797eefa2f086
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 996502ffe5a31fcfa1b73dab9a041c336c4ea98f
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42060854"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45602628"
 ---
 # <a name="viewing-and-analyzing-data-in-log-analytics"></a>Weergeven en analyseren van gegevens in Log Analytics
 Er zijn twee opties beschikbaar zijn in de Azure-portal voor het analyseren van gegevens die zijn opgeslagen in Log analytics en voor het maken van query's voor ad-hoc-analyse. De query's die u maakt gebruik van deze portals kunnen worden gebruikt voor andere onderdelen, zoals waarschuwingen en dashboards.
 
-## <a name="log-analytics-page-preview"></a>Pagina voor log Analytics (preview)
-Open de pagina logboekanalyse van **Logboeken (preview)** in het menu van Log Analytics. Dit is een nieuwe ervaring voor het werken met gegevens aan het logboek en het maken van query's. U kunt een inleiding tot deze portal en controleren van de functies op [aan de slag met de Log Analytics-pagina in de Azure-portal](query-language/get-started-analytics-portal.md).
+## <a name="log-analytics-page"></a>Log Analytics-pagina
+Open de pagina logboekanalyse van **logboeken** in het menu van Log Analytics. Dit is een nieuwe ervaring voor het werken met gegevens aan het logboek en het maken van query's. U kunt een inleiding tot deze portal en controleren van de functies op [aan de slag met de Log Analytics-pagina in de Azure-portal](query-language/get-started-analytics-portal.md).
 
 De pagina Log Analytics biedt de volgende verbeteringen ten opzichte van de [zoeken in logboeken](#log-search) optreden.
 
@@ -55,8 +55,8 @@ Uw browser vereist toegang tot de volgende adressen voor toegang tot de Log Anal
 | docs.loganalytics.io   | Dynamisch | 80,443 |
 
 
-## <a name="log-search"></a>Zoekopdrachten in logboeken
-Open de pagina voor het zoeken van logboek van **logboeken** in het menu van Log Analytics of van **Log Analytics** in het menu van Azure Monitor. Dit is geschikt voor het analyseren van logboekgegevens met behulp van eenvoudige query's. Het biedt meerdere functies voor bewerken query's zonder een volledige kennis van de querytaal.  U krijgt een overzicht van deze functies in [zoekopdrachten in Logboeken maken in Azure Log Analytics met behulp van zoeken in logboeken](log-analytics-log-search-log-search-portal.md). 
+## <a name="log-search-classic"></a>Zoeken in Logboeken (klassiek)
+Open de pagina voor het zoeken van logboek van **Logboeken (klassiek)** in het menu van Log Analytics of van **Log Analytics** in het menu van Azure Monitor. Dit is geschikt voor het analyseren van logboekgegevens met behulp van eenvoudige query's. Het biedt meerdere functies voor bewerken query's zonder een volledige kennis van de querytaal.  U krijgt een overzicht van deze functies in [zoekopdrachten in Logboeken maken in Azure Log Analytics met behulp van zoeken in logboeken](log-analytics-log-search-log-search-portal.md). 
 
 
 ![Meld u pagina zoeken](media/log-analytics-log-search-portals/log-search-portal.png)

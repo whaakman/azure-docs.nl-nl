@@ -4,17 +4,17 @@ description: Uitleg over en voorbeelden van de meest algemene taken in Azure Aut
 services: automation
 ms.service: automation
 ms.component: dsc
-author: DCtheGeek
-ms.author: dacoulte
+author: bobbytreed
+ms.author: robreed
 ms.date: 08/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9a18855d11c0b367b7d58ffb0f4c62e752c05b89
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: fc1c870d06d6bf4a0db941b261e9aebd317fdcb1
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40004229"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634352"
 ---
 # <a name="getting-started-with-azure-automation-state-configuration"></a>Aan de slag met Azure Automation State Configuration
 
@@ -123,7 +123,7 @@ Nadat u een compilatie start, kunt u het weergeven in de **compilatietaken** teg
 
 ## <a name="viewing-node-configurations"></a>Knooppuntconfiguraties weergeven
 
-Voltooiing van een Compilatietaak maakt u een of meer nieuwe knooppuntconfiguraties. De configuratie van een knooppunt is een MOF-document dat is geïmplementeerd naar de pull-server en klaar om te worden opgehaald en toegepast door een of meer knooppunten. U kunt de knooppuntconfiguraties weergeven in uw Automation-account in de **State configuration (DSC)** pagina. De configuratie van een knooppunt heeft een naam met het formulier *ConfigurationName*.* Knooppuntnaam*.
+Voltooiing van een Compilatietaak maakt u een of meer nieuwe knooppuntconfiguraties. De configuratie van een knooppunt is een MOF-document dat is geïmplementeerd naar de pull-server en klaar om te worden opgehaald en toegepast door een of meer knooppunten. U kunt de knooppuntconfiguraties weergeven in uw Automation-account in de **State configuration (DSC)** pagina. De configuratie van een knooppunt heeft een naam met het formulier *ConfigurationName*. *Knooppuntnaam*.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 1. Aan de linkerkant, klikt u op **alle resources** en vervolgens de naam van uw Automation-account.

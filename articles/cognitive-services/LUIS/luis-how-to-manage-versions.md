@@ -1,108 +1,66 @@
 ---
-title: Versies in LUIS-apps in Azure beheren | Microsoft Docs
-description: Informatie over het beheren van versies in Language Understanding (LUIS)-toepassingen.
+title: Versies in LUIS-apps beheren
+titleSuffix: Azure Cognitive Services
+description: Versies kunnen u bouwt en publiceert verschillende modellen. Er is een goede gewoonte om te klonen van de huidige actieve model naar een andere versie van de app voordat u wijzigingen in het model.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
 ms.component: language-understanding
 ms.topic: article
-ms.date: 03/29/2017
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: 4941cf533f1b860ead07a416d5af6f62a1978305
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: dcb7f47ae7ade4ee0a18801934f36576fc75f4ae
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39226591"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45629471"
 ---
 # <a name="manage-versions"></a>Versies beheren
 
-Telkens wanneer u werkt op het model, maak een andere [versie](luis-concept-version.md) van de app. 
+Versies kunnen u bouwt en publiceert verschillende modellen. Er is een goede gewoonte om te klonen van de huidige actieve model met een andere [versie](luis-concept-version.md) van de app voordat u wijzigingen in het model. 
 
-## <a name="set-active-version"></a>Actieve versie instellen
-Als u wilt werken met versies, opent u uw app door het selecteren van de naam op **mijn Apps** pagina en selecteer vervolgens **instellingen** in de bovenste balk.
+Als u wilt werken met versies, opent u uw app door het selecteren van de naam op **mijn Apps** pagina en selecteer vervolgens **beheren** in de bovenste balk, schakelt u vervolgens **versies** in het linkernavigatievenster. 
 
-![Pagina-versies](./media/luis-how-to-manage-versions/settings.png)
+De lijst met versies laten zien welke versies worden gepubliceerd, waarin ze worden gepubliceerd, en welke versie momenteel actief is. 
 
-De **instellingen** op de pagina kunt u instellingen voor de hele app met inbegrip van versies en samenwerkers kunt configureren. 
+[![](./media/luis-how-to-manage-versions/versions-import.png "Sectie, pagina-versies beheren")](./media/luis-how-to-manage-versions/versions-import.png#lightbox)
 
 ## <a name="clone-a-version"></a>Een versie klonen
-1. Op de **instellingen** pagina nadat de App-instellingen en deelnemers secties, vinden de rij met de versie die u wilt klonen. Selecteer het weglatingsteken (***...*** ) knop helemaal rechts. 
 
-    ![Eigenschappen van de rij versie](./media/luis-how-to-manage-versions/version-section.png)
+1. Selecteer de versie die u wilt klonen Selecteer **kloon** via de werkbalk. 
 
-2. Selecteer **kloon** in de lijst.
-
-    ![Versie rij eigenschappen keuze](./media/luis-how-to-manage-versions/version-three-dots-modal.png)
-
-3. In de **kloon versie** in het dialoogvenster, typ een naam voor de nieuwe versie, zoals '0.2'.
+2. In de **kloon versie** in het dialoogvenster, typ een naam voor de nieuwe versie, zoals '0.2'.
 
    ![Dialoogvenster van de kloon-versie](./media/luis-how-to-manage-versions/version-clone-version-dialog.png)
  
- > [!NOTE]
- > Versie-ID kan bestaan alleen uit tekens, cijfers of '.' en mag niet langer zijn dan 10 tekens.
+     > [!NOTE]
+     > Versie-ID kan bestaan alleen uit tekens, cijfers of '.' en mag niet langer zijn dan 10 tekens.
  
  Een nieuwe versie met de opgegeven naam gemaakt en ingesteld als de actieve versie.
- 
-  ![Versie is gemaakt en toegevoegd aan de lijst](./media/luis-how-to-manage-versions/new-version.png)
-
- > [!NOTE]
- > Zoals weergegeven in de voorgaande afbeelding, een gepubliceerde versie is gekoppeld aan een gekleurde is ingeschakeld, die aangeeft van het type van de site waar deze is gepubliceerd: productie (groen), fasering (rood), en beide (zwart). De training en publiceren datums worden weergegeven voor elke gepubliceerde versie.
 
 ## <a name="set-active-version"></a>Actieve versie instellen
-1. Op de **instellingen** pagina, in de **versies** lijst, selecteer het weglatingsteken (***...*** ) knop aan de rechterkant.
 
-2. Selecteer in het pop-lijst **instellen als actief**.
+Selecteer een versie in de lijst en selecteer vervolgens **Maak actief** via de werkbalk. 
 
-    ![Actieve versie instellen](./media/luis-how-to-manage-versions/set-active-version.png)
-
-    De actieve versie wordt gemarkeerd door een lichtblauw, zoals wordt weergegeven in de volgende schermafbeelding:
-
-    ![De actieve versie](./media/luis-how-to-manage-versions/set-active-version-done.png) 
-
+[![](./media/luis-how-to-manage-versions/versions-other.png "Sectie, pagina-versies beheren")](./media/luis-how-to-manage-versions/versions-other.png#lightbox)
 
 ## <a name="import-version"></a>Importversie
-U kunt een versie van een JSON-bestand importeren. Nadat u een versie importeert, wordt de nieuwe versie de actieve versie.
 
-**Een versie importeren:**
+1. Selecteer **importeren versie** via de werkbalk. 
 
-1. Op de **instellingen** weergeeft, schakelt **de nieuwe versie importeren** knop.
+2. In de **de nieuwe versie importeren** pop-upvenster, geef de nieuwe naam voor de versie van tien tekens. U hoeft in te stellen van een versie-ID als de versie in het JSON-bestand al in de app bestaat.
 
-    ![Knop importeren](./media/luis-how-to-manage-versions/import-version.png)
+    ![Sectie, pagina-versies beheren](./media/luis-how-to-manage-versions/versions-import-pop-up.png)
 
-2. Selecteer **Bladeren** en kiest u het JSON-bestand.
+    Nadat u een versie importeert, wordt de nieuwe versie de actieve versie.
 
-    ![Het dialoogvenster versie importeren](./media/luis-how-to-manage-versions/import-version-dialog.png)
+<a name = "export-version"></a>
 
-U hoeft in te stellen van een versie-ID als de versie in het JSON-bestand al in de app bestaat.
+## <a name="other-actions"></a>Andere acties
 
-## <a name="export-version"></a>Versie exporteren
-U kunt een versie exporteren naar een JSON-bestand.
+* Naar **verwijderen** een versie gebruikt, selecteert u een versie in de lijst en vervolgens **verwijderen** via de werkbalk. Selecteer **OK**. 
+* Naar **naam** een versie gebruikt, selecteert u een versie in de lijst en vervolgens **Wijzig de naam van** via de werkbalk. Voer nieuwe naam en selecteer **gedaan**. 
+* Naar **exporteren** een versie gebruikt, selecteert u een versie in de lijst en vervolgens **Export app** via de werkbalk. Het bestand wordt gedownload naar uw lokale computer. 
 
-**Voor het exporteren van een versie:**
-
-1. Op de **instellingen** pagina, in de **versies** lijst, selecteer het weglatingsteken (***...*** ) knop aan de rechterkant.
-
-2. Selecteer **exporteren** in de POP-lijst van acties en selecteer waar u het bestand op te slaan.
-
-## <a name="delete-a-version"></a>Een versie verwijderen
-U kunt de versies verwijderen, maar u hebt ten minste één versie van de app wilt behouden. U kunt alle versies, behalve de actieve versie verwijderen. 
-
-1. Op de **instellingen** pagina, in de **versies** lijst, selecteer het weglatingsteken (***...*** ) knop aan de rechterkant.
-
-2. Selecteer **verwijderen** in de POP-lijst van acties en selecteer waar u het bestand op te slaan.
-
-    ![Versie bevestiging van verwijderen](./media/luis-how-to-manage-versions/delete-menu.png) 
-
-
-## <a name="rename-a-version"></a>Wijzig de naam van een versie
-U kunt de naam van versies wijzigen, zolang de versienaam van de nog niet in gebruik.  
-
-1. Op de **instellingen** pagina, in de **versies** lijst, selecteer het weglatingsteken (***...*** ) knop aan de rechterkant.
-
-2. Selecteer **naam** in het pop-lijst met acties.
-
-3. Voer de versienaam van de nieuwe en selecteer **gedaan**.
-
-    ![Wijzig de naam van versie bevestigen](./media/luis-how-to-manage-versions/rename-popup.png) 

@@ -6,22 +6,24 @@ manager: timlt
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 03/12/2018
+ms.date: 09/14/2018
 ms.author: dobett
-ms.openlocfilehash: b57a448459101150363d595910cefcde991f1f92
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: f5d493628df68e0afbe05137b0d7386d6c40f7d4
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721806"
+ms.lasthandoff: 09/14/2018
+ms.locfileid: "45605739"
 ---
 # <a name="understand-and-use-azure-iot-hub-sdks"></a>Begrijpen en gebruiken van Azure IoT Hub SDK 's
 
-Er zijn twee soorten software development kits (SDK's) voor het werken met IoT Hub:
+Er zijn drie soorten software development kits (SDK's) voor het werken met IoT Hub:
 
 * **Apparaat-SDK's** kunt u het bouwen van apps die worden uitgevoerd op uw IoT-apparaten met behulp van apparaatclient of module. Deze apps verzenden van telemetrie naar uw IoT-hub en eventueel berichten, taak, methode of dubbele updates ontvangen van uw IoT-hub.  U kunt ook module client schrijven [modules](https://docs.microsoft.com/azure/iot-edge/iot-edge-modules) voor [Azure IoT Edge-runtime](https://docs.microsoft.com/en-us/azure/iot-edge/about-iot-edge).
 
 * **Service-SDK's** kunt u uw IoT-hub, beheren en (optioneel) berichten te verzenden, taken plannen, directe methoden aanroepen of gewenste eigenschap updates verzenden naar uw IoT-apparaten of modules.
+
+* **Device Provisioning-SDK's** kunt u voor het inrichten van apparaten naar uw IoT-Hub met behulp van de [Device Provisioning Service](../iot-dps/about-iot-dps.md).
 
 Meer informatie over de voordelen van het ontwikkelen met behulp van Azure IoT SDK's [hier][lnk-benefits-blog].
 
@@ -107,7 +109,29 @@ Azure IoT Hub-service SDK voor iOS:
 > [!NOTE]
 > Raadpleeg het Leesmij-bestanden in de GitHub-opslagplaatsen voor informatie over het gebruik van taal en platform-specifieke Pakketbeheer binaire bestanden en afhankelijkheden voor netwerkapparaten installeren op uw ontwikkelcomputer.
 
+## <a name="device-provisioning-sdks"></a>SDK's voor apparaatinrichting
 
+De **Microsoft Azure Provisioning SDK's** kunt u voor het inrichten van apparaten naar uw IoT-Hub met behulp van de [Device Provisioning Service](../iot-dps/about-iot-dps.md).
+
+Azure Provisioning apparaat- en service-SDK's voor C#:
+* [Provisioning device SDK-client](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/provisioning/device)
+* [Provisioning serviceclient SDK](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/provisioning/service)
+
+Azure Provisioning apparaat- en service-SDK's voor Java:
+* [Provisioning device SDK-client](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning-device-client)
+* [Provisioning serviceclient SDK](https://github.com/Azure/azure-iot-sdk-java/blob/master/provisioning/provisioning-service-client)
+
+Azure Provisioning apparaat- en service-SDK's voor Node.js:
+* [Provisioning device SDK-client](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device)
+* [Provisioning serviceclient SDK](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/service)
+
+Azure Provisioning apparaat- en service-SDK's voor Python:
+* [Provisioning device SDK-client](https://github.com/Azure/azure-iot-sdk-python/blob/master/provisioning_device_client)
+* [Provisioning serviceclient SDK](https://github.com/Azure/azure-iot-sdk-python/tree/master/provisioning_service_client)
+
+Azure Provisioning apparaat- en service-SDK's voor C:
+* [Provisioning device SDK-client](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning_client)
+* [Provisioning serviceclient SDK](https://github.com/Azure/azure-iot-sdk-c/blob/master/provisioning/service)
 
 ## <a name="next-steps"></a>Volgende stappen
 

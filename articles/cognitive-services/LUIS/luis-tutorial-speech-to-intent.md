@@ -1,26 +1,24 @@
 ---
-title: Gebruik spraak SDK voor C# met LUIS - Azure | Microsoft Docs
-titleSuffix: Azure
-description: Gebruik het spraak SDK voor C#-voorbeeld te spreken in microfoon en LUIS-voorspellingen intentie en entiteiten geretourneerd.
+title: Gebruik spraak SDK voor C# met LUIS
+titleSuffix: Azure Cognitive Services
+description: De spraak-service kunt u een enkele aanvraag gebruiken voor het ontvangen van audio en LUIS voorspelling JSON-objecten retourneren. In dit artikel, downloaden en gebruiken om een C#-project in Visual Studio te spreken een utterance in een microfoon LUIS voorspelling informatie ontvangen. De spraak-NuGet-pakket, al is opgenomen als een verwijzing maakt gebruik van het project.
 services: cognitive-services
 author: diberry
 manager: cjgronlund
 ms.service: cognitive-services
-ms.technology: luis
+ms.technology: language-understanding
 ms.topic: article
-ms.date: 06/26/2018
+ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: aadca428fa076d697cc0f893673672850ddc27d4
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 8eff6ff3d0263708158f2fea82380e88ba4638ad
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124393"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633624"
 ---
 # <a name="integrate-speech-service"></a>Integreer Speech-service
-De [spraakservice](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u gebruikmaken van een enkele aanvraag voor het ontvangen van audio en LUIS voorspelling JSON-objecten retourneren.
-
-In dit artikel, downloaden en gebruiken om een C#-project in Visual Studio te spreken een utterance in een microfoon LUIS voorspelling informatie ontvangen. Het project gebruikmaakt van de gesproken tekst [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) pakket, al is opgenomen als een verwijzing. 
+De [spraakservice](https://docs.microsoft.com/azure/cognitive-services/Speech-Service/) kunt u gebruikmaken van een enkele aanvraag voor het ontvangen van audio en LUIS voorspelling JSON-objecten retourneren. In dit artikel, downloaden en gebruiken om een C#-project in Visual Studio te spreken een utterance in een microfoon LUIS voorspelling informatie ontvangen. Het project gebruikmaakt van de gesproken tekst [NuGet](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech/) pakket, al is opgenomen als een verwijzing. 
 
 Voor dit artikel, moet u een gratis [LUIS] [ LUIS] website-account voor het importeren van de toepassing.
 
@@ -32,12 +30,13 @@ De intenties en uitingen voor dit artikel zijn van het Human Resources LUIS-app 
 
 Deze app heeft intenties en entiteiten uitingen met betrekking tot het Human Resources-domein. Voorbeeld-uitingen zijn onder andere:
 
-```
-Who is John Smith's manager?
-Who does John Smith manage?
-Where is Form 123456?
-Do I have any paid time off?
-```
+|Voorbeelden van utterances|
+|--|
+|Wie is de manager van John Smith?|
+|Wie het beheren van John Smith?|
+|Waar bevindt zich formulier 123456?|
+|Heb ik een betaalde tijd uitgeschakeld?|
+
 
 ## <a name="add-keyphrase-prebuilt-entity"></a>Toevoegen van KeyPhrase vooraf gemaakte entiteiten
 Na het importeren van de app, selecteer **entiteiten**, klikt u vervolgens **vooraf gemaakte entiteiten beheren**. Voeg de **KeyPhrase** entiteit. De entiteit KeyPhrase sleutels onderwerp van de utterance worden uitgepakt.
@@ -45,19 +44,18 @@ Na het importeren van de app, selecteer **entiteiten**, klikt u vervolgens **voo
 ## <a name="train-and-publish-the-app"></a>De app trainen en publiceren
 1. Selecteer in de bovenste, rechts navigatiebalk de **trainen** knop met het trainen van de LUIS-app.
 
-2. Selecteer **publiceren** naar de pagina publiceren. 
+2. Selecteer **beheren** in de rechterbovenhoek van de balk, schakelt u vervolgens **sleutels en eindpunten** in het linkernavigatievenster. 
 
-3. Aan de onderkant van de **publiceren** pagina, voegt u de LUIS-sleutel hebt gemaakt de [maken LUIS eindpuntsleutel](#create-luis-endpoint-key) sectie.
+3. Op de **sleutels en eindpunten** pagina, wijzen de LUIS-sleutel hebt gemaakt de [maken LUIS eindpuntsleutel](#create-luis-endpoint-key) sectie.
 
-4. De LUIS-app publiceren door het selecteren van de **publiceren** knop aan de rechterkant van de site publiceren. 
-
-  Op de **publiceren** pagina, het verzamelen van de app-ID, het publiceren van de regio en abonnements-ID van de LUIS-sleutel hebt gemaakt de [maken LUIS eindpuntsleutel](#create-luis-endpoint-key) sectie. U moet de code voor het gebruik van deze waarden verderop in dit artikel te wijzigen. 
-
-  Deze waarden zijn opgenomen in de eindpunt-URL aan de onderkant van de **publiceren** pagina voor de sleutel die u hebt gemaakt. 
+  Op deze pagina, verzamelen van de app-ID, de regio te publiceren en abonnements-ID van de sleutel LUIS gemaakt in de [maken LUIS eindpuntsleutel](#create-luis-endpoint-key) sectie. U moet de code voor het gebruik van deze waarden verderop in dit artikel te wijzigen. 
   
   Voer **niet** gratis starter-toets gebruiken voor deze oefening. Alleen een **Language Understanding** sleutel hebt gemaakt in Azure portal werkt voor deze oefening. 
 
   https://**regio**.api.cognitive.microsoft.com/luis/v2.0/apps/**APPID**?-abonnementssleutel =**LUISKEY**& q =
+
+
+4. De LUIS-app publiceren door het selecteren van de **publiceren** knop in de rechterbovenhoek van de balk. 
 
 ## <a name="audio-device"></a>Audio-apparaat
 In dit artikel wordt de audio-apparaat op uw computer. Die een hoofdtelefoon, microfoon of een ingebouwde audio-apparaat kan zijn. Controleer de audio invoer niveaus om te zien als u dan u gewend bent als u wilt dat uw spraak gedetecteerd door de audio-apparaat harder te spreken. 
