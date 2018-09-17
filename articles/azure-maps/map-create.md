@@ -3,18 +3,18 @@ title: Een kaart maken met Azure Maps | Microsoft Docs
 description: Over het maken van een Javascript-kaart
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 09/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: c5d48e2e7316f33a565fc61a769a29c00834eed5
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 0e292bfd38402d5a36be217746fd352ce4627177
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43343366"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45633313"
 ---
 # <a name="create-a-map"></a>Een kaart maken
 
@@ -42,21 +42,23 @@ In de bovenstaande code een [toewijzingsobject](https://docs.microsoft.com/javas
 
 In de bovenstaande code een [toewijzingsobject](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest) is samengesteld `new atlas.Map()`. Eigenschappen van de kaart zoals begrenzingsvak maken deel uit van [CameraBoundsOptions](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest). CameraBoundsOptions kunnen worden gedefinieerd [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds) functie van de kaart-klasse.
 
-## <a name="try-out-the-code"></a>De code uitproberen 
+## <a name="try-out-the-code"></a>De code uitproberen
 
-Bekijk de bovenstaande voorbeeldcode. U kunt de JavaScript-code op het tabblad JS aan de linkerkant bewerken en de wijzigingen van de kaart weergeven op het tabblad resultaat aan de rechterkant ziet. U kunt ook klikt u op de knop 'Bewerken op CodePen' en de code in CodePen bewerken. 
+Bekijk de bovenstaande voorbeeldcode. U kunt de JavaScript-code op het tabblad JS aan de linkerkant bewerken en de wijzigingen van de kaart weergeven op het tabblad resultaat aan de rechterkant ziet. U kunt ook klikt u op de knop 'Bewerken op CodePen' en de code in CodePen bewerken.
 
 <a id="relatedReference"></a>
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de klassen en methoden die in dit artikel worden gebruikt: 
-* [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [setCamera](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamera)
-    * [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#setcamerabounds)
-    
-Zie de volgende artikelen voor meer codevoorbeelden van toevoegen aan uw kaarten: 
-* [Kies een stijl kaart](choose-map-style.md)
-* [Kaart-besturingselementen toevoegen](map-add-controls.md)
-    
+Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 
+> [!div class="nextstepaction"]
+> [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+Zie de codevoorbeelden functionaliteit toevoegen aan uw app:
+
+> [!div class="nextstepaction"]
+> [Kies een stijl kaart](choose-map-style.md)
+
+> [!div class="nextstepaction"]
+> [Kaart-besturingselementen toevoegen](map-add-controls.md)

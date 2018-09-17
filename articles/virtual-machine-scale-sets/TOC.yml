@@ -1,258 +1,273 @@
+items:
 - name: Documentatie over virtuele-machineschaalsets
   href: index.yml
 - name: Overzicht
   items:
-    - name: Wat zijn schaalsets voor virtuele machines?
-      href: overview.md
+  - name: Wat zijn schaalsets voor virtuele machines?
+    href: overview.md
 - name: Snelstartgidsen
-  expanded: true
   items:
-    - name: Maken in Azure Portal
-      href: quick-create-portal.md
-    - name: Maken met Azure CLI 2.0
-      href: quick-create-cli.md
-    - name: Maken met Azure PowerShell
-      href: quick-create-powershell.md
-    - name: Maken met een sjabloon
-      items:
-        - name: Linux-schaalset
-          href: quick-create-template-linux.md
-        - name: Windows-schaalset
-          href: quick-create-template-windows.md
+  - name: Maken in Azure Portal
+    href: quick-create-portal.md
+  - name: Maken met Azure CLI 2.0
+    href: quick-create-cli.md
+  - name: Maken met Azure PowerShell
+    href: quick-create-powershell.md
+  - name: Maken met een sjabloon
+    items:
+    - name: Linux-schaalset
+      href: quick-create-template-linux.md
+    - name: Windows-schaalset
+      href: quick-create-template-windows.md
+  expanded: true
 - name: Zelfstudies
   items:
-    - name: 1 - Schaalset maken/beheren
-      items:
-        - name: Azure CLI 2.0
-          href: tutorial-create-and-manage-cli.md
-        - name: Azure PowerShell
-          href: tutorial-create-and-manage-powershell.md
-    - name: 2 - Gegevensschijven gebruiken
-      items:
-        - name: Azure CLI 2.0
-          href: tutorial-use-disks-cli.md
-        - name: Azure PowerShell
-          href: tutorial-use-disks-powershell.md
-    - name: 3 - Een aangepaste VM-installatiekopie gebruiken
-      items:
-        - name: Azure CLI 2.0
-          href: tutorial-use-custom-image-cli.md
-        - name: Azure PowerShell
-          href: tutorial-use-custom-image-powershell.md
-    - name: 4 - Apps implementeren in een schaalset
-      items:
-        - name: Azure CLI 2.0
-          href: tutorial-install-apps-cli.md
-        - name: Azure PowerShell
-          href: tutorial-install-apps-powershell.md
-        - name: Template
-          href: tutorial-install-apps-template.md
-    - name: 5 - Een schaalset automatisch schalen
-      items:
-        - name: Azure CLI 2.0
-          href: tutorial-autoscale-cli.md
-        - name: Azure PowerShell
-          href: tutorial-autoscale-powershell.md
-        - name: Template
-          href: tutorial-autoscale-template.md
+  - name: 1 - Schaalset maken/beheren
+    items:
+    - name: Azure CLI 2.0
+      href: tutorial-create-and-manage-cli.md
+    - name: Azure PowerShell
+      href: tutorial-create-and-manage-powershell.md
+  - name: 2 - Gegevensschijven gebruiken
+    items:
+    - name: Azure CLI 2.0
+      href: tutorial-use-disks-cli.md
+    - name: Azure PowerShell
+      href: tutorial-use-disks-powershell.md
+  - name: 3 - Een aangepaste VM-installatiekopie gebruiken
+    items:
+    - name: Azure CLI 2.0
+      href: tutorial-use-custom-image-cli.md
+    - name: Azure PowerShell
+      href: tutorial-use-custom-image-powershell.md
+  - name: 4 - Apps implementeren in een schaalset
+    items:
+    - name: Azure CLI 2.0
+      href: tutorial-install-apps-cli.md
+    - name: Azure PowerShell
+      href: tutorial-install-apps-powershell.md
+    - name: Template
+      href: tutorial-install-apps-template.md
+  - name: 5 - Een schaalset automatisch schalen
+    items:
+    - name: Azure CLI 2.0
+      href: tutorial-autoscale-cli.md
+    - name: Azure PowerShell
+      href: tutorial-autoscale-powershell.md
+    - name: Template
+      href: tutorial-autoscale-template.md
 - name: Voorbeelden
   items:
-    - name: Azure CLI 2.0
-      href: cli-samples.md
-    - name: PowerShell
-      href: powershell-samples.md
+  - name: Azure CLI 2.0
+    href: cli-samples.md
+  - name: PowerShell
+    href: powershell-samples.md
 - name: Concepten
   items:
-    - name: Azure Resource Manager
-      href: ../azure-resource-manager/resource-group-overview.md
-      maintainContext: true
-    - name: Regio’s en beschikbaarheid
-      href: ../virtual-machines/windows/regions-and-availability.md
-      maintainContext: true
-    - name: VM-typen en -groottes
-      href: ../virtual-machines/windows/sizes.md
-      maintainContext: true
+  - name: Azure Resource Manager
+    href: ../azure-resource-manager/resource-group-overview.md
+    maintainContext: true
+  - name: Regio’s en beschikbaarheid
+    href: ../virtual-machines/windows/regions-and-availability.md
+    maintainContext: true
+  - name: VM-typen en -groottes
+    href: ../virtual-machines/windows/sizes.md
+    items:
+    - name: Algemeen doel
+      href: ../virtual-machines/windows/sizes-general.md
       items:
-        - name: Algemeen doel
-          href: ../virtual-machines/windows/sizes-general.md
-          maintainContext: true
-          items:
-            - name: B-serie 'burstable'
-              href: ../virtual-machines/windows/b-series-burstable.md
-              maintainContext: true
-        - name: Geoptimaliseerde rekenkracht
-          href: ../virtual-machines/windows/sizes-compute.md
-          maintainContext: true
-        - name: Geoptimaliseerd geheugen
-          href: ../virtual-machines/windows/sizes-memory.md
-          maintainContext: true
-          items:
-            - name: Beperkte vCPU's
-              href: ../virtual-machines/windows/constrained-vcpu.md
-              maintainContext: true
-        - name: Geoptimaliseerde opslag
-          href: ../virtual-machines/windows/sizes-storage.md
-          maintainContext: true
-        - name: Geoptimaliseerde GPU
-          href: ../virtual-machines/windows/sizes-gpu.md
-          maintainContext: true
-          items:
-            - name: GPU-stuurprogramma's instellen
-              href: ../virtual-machines/windows/n-series-driver-setup.md
-              maintainContext: true
-        - name: Krachtig rekenvermogen
-          href: ../virtual-machines/windows/sizes-hpc.md
-          maintainContext: true
-        - name: Azure Compute Units (ACU)
-          href: ../virtual-machines/windows/acu.md
-          maintainContext: true
-        - name: Benchmarkscores
-          href: ../virtual-machines/windows/compute-benchmark-scores.md
-          maintainContext: true
-    - name: Goedgekeurde Linux-versies
-      href: ../virtual-machines/linux/endorsed-distros.md
+      - name: B-serie 'burstable'
+        href: ../virtual-machines/windows/b-series-burstable.md
+        maintainContext: true
       maintainContext: true
-    - name: Onderhoud en updates
-      href: ../virtual-machines/windows/maintenance-and-updates.md
+    - name: Geoptimaliseerde rekenkracht
+      href: ../virtual-machines/windows/sizes-compute.md
       maintainContext: true
-    - name: File Storage
-      href: ../virtual-machines/windows/about-disks-and-vhds.md
-      maintainContext: true
+    - name: Geoptimaliseerd geheugen
+      href: ../virtual-machines/windows/sizes-memory.md
       items:
-        - name: Beheerde schijven
-          href: ../virtual-machines/windows/managed-disks-overview.md
-          maintainContext: true
-        - name: Premium Storage
-          href: ../virtual-machines/windows/premium-storage.md
-          maintainContext: true
-        - name: Prestaties van Premium Storage
-          href: ../virtual-machines/windows/premium-storage-performance.md
-          maintainContext: true
-        - name: Standard Storage
-          href: ../virtual-machines/windows/standard-storage.md
-          maintainContext: true
-        - name: Schaalbaarheidsdoelen voor schijven
-          href: ../virtual-machines/windows/disk-scalability-targets.md
-          maintainContext: true
-        - name: Back-up en herstel na noodgeval voor schijven
-          href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
-          maintainContext: true
-    - name: Netwerken
-      href: ../virtual-machines/windows/network-overview.md
+      - name: Beperkte vCPU's
+        href: ../virtual-machines/windows/constrained-vcpu.md
+        maintainContext: true
       maintainContext: true
-    - name: Automatisering van infrastructuur
-      href: ../virtual-machines/windows/infrastructure-automation.md
+    - name: Geoptimaliseerde opslag
+      href: ../virtual-machines/windows/sizes-storage.md
       maintainContext: true
-    - name: Beveiliging en beleid
-      href: ../virtual-machines/windows/security-policy.md
-      maintainContext: true
-    - name: Bewaking
-      href: ../virtual-machines/windows/monitor.md
-      maintainContext: true
-    - name: High Performance Computing
-      href: ../virtual-machines/windows/high-performance-computing.md
-      maintainContext: true
-    - name: Overwegingen bij de implementatie
+    - name: Geoptimaliseerde GPU
+      href: ../virtual-machines/windows/sizes-gpu.md
       items:
-        - name: vCPU-quota
-          href: ../virtual-machines/windows/quotas.md
-          maintainContext: true
+      - name: GPU-stuurprogramma's instellen
+        href: ../virtual-machines/windows/n-series-driver-setup.md
+        maintainContext: true
+      maintainContext: true
+    - name: Krachtig rekenvermogen
+      href: ../virtual-machines/windows/sizes-hpc.md
+      maintainContext: true
+    - name: Azure Compute Units (ACU)
+      href: ../virtual-machines/windows/acu.md
+      maintainContext: true
+    - name: Benchmarkscores
+      href: ../virtual-machines/windows/compute-benchmark-scores.md
+      maintainContext: true
+    maintainContext: true
+  - name: Goedgekeurde Linux-versies
+    href: ../virtual-machines/linux/endorsed-distros.md
+    maintainContext: true
+  - name: Onderhoud en updates
+    href: ../virtual-machines/windows/maintenance-and-updates.md
+    maintainContext: true
+  - name: File Storage
+    href: ../virtual-machines/windows/about-disks-and-vhds.md
+    items:
+    - name: Beheerde schijven
+      href: ../virtual-machines/windows/managed-disks-overview.md
+      maintainContext: true
+    - name: Premium Storage
+      href: ../virtual-machines/windows/premium-storage.md
+      maintainContext: true
+    - name: Prestaties van Premium Storage
+      href: ../virtual-machines/windows/premium-storage-performance.md
+      maintainContext: true
+    - name: Standard Storage
+      href: ../virtual-machines/windows/standard-storage.md
+      maintainContext: true
+    - name: Schaalbaarheidsdoelen voor schijven
+      href: ../virtual-machines/windows/disk-scalability-targets.md
+      maintainContext: true
+    - name: Back-up en herstel na noodgeval voor schijven
+      href: ../virtual-machines/windows/backup-and-disaster-recovery-for-azure-iaas-disks.md
+      maintainContext: true
+    maintainContext: true
+  - name: Netwerken
+    href: ../virtual-machines/windows/network-overview.md
+    maintainContext: true
+  - name: Automatisering van infrastructuur
+    href: ../virtual-machines/windows/infrastructure-automation.md
+    maintainContext: true
+  - name: Beveiliging en beleid
+    href: ../virtual-machines/windows/security-policy.md
+    maintainContext: true
+  - name: Bewaking
+    href: ../virtual-machines/windows/monitor.md
+    maintainContext: true
+  - name: High Performance Computing
+    href: ../virtual-machines/windows/high-performance-computing.md
+    maintainContext: true
+  - name: Overwegingen bij de implementatie
+    items:
+    - name: vCPU-quota
+      href: ../virtual-machines/windows/quotas.md
+      maintainContext: true
 - name: Procedures
   items:
-    - name: Plannen en ontwerpen
+  - name: Plannen en ontwerpen
+    items:
+    - name: Overwegingen bij het ontwerpen
+      href: virtual-machine-scale-sets-design-overview.md
+    - name: Exemplaar-id's begrijpen
+      href: virtual-machine-scale-sets-instance-ids.md
+  - name: Een sjabloon maken
+    items:
+    - name: Meer informatie over schaalsetsjablonen
+      href: virtual-machine-scale-sets-mvss-start.md
+    - name: Een bestaand virtueel netwerk gebruiken
+      href: virtual-machine-scale-sets-mvss-existing-vnet.md
+    - name: Een aangepaste installatiekopie gebruiken
+      href: virtual-machine-scale-sets-mvss-custom-image.md
+    - name: Automatisch schalen op basis van een gast met een Linux-schaalsetsjabloon
+      href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
+  - name: Implementeren
+    items:
+    - name: Ansible
       items:
-        - name: Overwegingen bij het ontwerpen
-          href: virtual-machine-scale-sets-design-overview.md
-        - name: Exemplaar-id's begrijpen
-          href: virtual-machine-scale-sets-instance-ids.md
-    - name: Een sjabloon maken
+      - name: Schaalsets maken en beheren
+        href: /azure/ansible/ansible-create-configure-vmss
+        maintainContext: true
+      - name: Apps implementeren in schaalsets
+        href: /azure/ansible/ansible-deploy-app-vmss
+        maintainContext: true
+    - name: Maken met Visual Studio
+      href: virtual-machine-scale-sets-vs-create.md
+    - name: Beschikbaarheidszones gebruiken
+      href: virtual-machine-scale-sets-use-availability-zones.md
+    - name: Een schaalset automatisch schalen
+      href: virtual-machine-scale-sets-autoscale-overview.md
       items:
-        - name: Meer informatie over schaalsetsjablonen
-          href: virtual-machine-scale-sets-mvss-start.md
-        - name: Een bestaand virtueel netwerk gebruiken
-          href: virtual-machine-scale-sets-mvss-existing-vnet.md
-        - name: Een aangepaste installatiekopie gebruiken
-          href: virtual-machine-scale-sets-mvss-custom-image.md
-        - name: Automatisch schalen op basis van een gast met een Linux-schaalsetsjabloon
-          href: virtual-machine-scale-sets-mvss-guest-based-autoscale-linux.md
-    - name: Implementeren
+      - name: Azure Portal gebruiken
+        href: virtual-machine-scale-sets-autoscale-portal.md
+      - name: Geavanceerd automatisch schalen
+        href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md
+    - name: Toepassingen op schaalsets
+      href: virtual-machine-scale-sets-deploy-app.md
+    - name: Gegevensschijven met schaalsets gebruiken
+      href: virtual-machine-scale-sets-attached-disks.md
+    - name: Schijven in schaalsets versleutelen
       items:
-        - name: Maken met Visual Studio
-          href: virtual-machine-scale-sets-vs-create.md
-        - name: Beschikbaarheidszones gebruiken
-          href: virtual-machine-scale-sets-use-availability-zones.md
-        - name: Een schaalset automatisch schalen
-          href: virtual-machine-scale-sets-autoscale-overview.md
-          items:
-            - name: Azure Portal gebruiken
-              href: virtual-machine-scale-sets-autoscale-portal.md
-            - name: Geavanceerd automatisch schalen
-              href: ../monitoring-and-diagnostics/insights-advanced-autoscale-virtual-machine-scale-sets.md
-        - name: Toepassingen op schaalsets
-          href: virtual-machine-scale-sets-deploy-app.md
-        - name: Gegevensschijven met schaalsets gebruiken
-          href: virtual-machine-scale-sets-attached-disks.md
-        - name: Schijven in schaalsets versleutelen
-          items:
-            - name: PowerShell gebruiken
-              href: virtual-machine-scale-sets-encrypt-disks-ps.md
-            - name: Azure CLI 2.0 gebruiken
-              href: virtual-machine-scale-sets-encrypt-disks-cli.md
-        - name: Met grote schaalsets werken
-          href: virtual-machine-scale-sets-placement-groups.md
-        - name: Een sjabloon voor schaalsets converteren voor gebruik van beheerde schijven
-          href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: Lage prioriteit gebruiken
-          href: virtual-machine-scale-sets-use-low-priority.md
-    - name: Beheren
+      - name: PowerShell gebruiken
+        href: virtual-machine-scale-sets-encrypt-disks-ps.md
+      - name: Azure CLI 2.0 gebruiken
+        href: virtual-machine-scale-sets-encrypt-disks-cli.md
+    - name: Met grote schaalsets werken
+      href: virtual-machine-scale-sets-placement-groups.md
+    - name: Een sjabloon voor schaalsets converteren voor gebruik van beheerde schijven
+      href: virtual-machine-scale-sets-convert-template-to-md.md
+    - name: Lage prioriteit gebruiken
+      href: virtual-machine-scale-sets-use-low-priority.md
+  - name: Beheren
+    items:
+    - name: Veelvoorkomende beheertaken
       items:
-        - name: Veelvoorkomende beheertaken
-          items:
-            - name: Azure CLI 2.0 gebruiken
-              href: virtual-machine-scale-sets-manage-cli.md
-            - name: Azure PowerShell gebruiken
-              href: virtual-machine-scale-sets-manage-powershell.md
-        - name: Verticaal schalen in een schaalset
-          href: virtual-machine-scale-sets-vertical-scale-reprovision.md
-        - name: Automatische upgrades voor het besturingssysteem
-          href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: Een schaalset wijzigen
-          href: virtual-machine-scale-sets-upgrade-scale-set.md
-        - name: DSC en schaalsets gebruiken
-          href: virtual-machine-scale-sets-dsc.md
-        - name: Netwerken voor schaalsets
-          href: virtual-machine-scale-sets-networking.md
-        - name: Een sjabloon converteren voor beheerde schijven
-          href: virtual-machine-scale-sets-convert-template-to-md.md
-        - name: Gepland onderhoud
-          href: virtual-machine-scale-sets-maintenance-notifications.md
-    - name: Problemen oplossen
-      items:
-        - name: Automatisch schalen
-          href: virtual-machine-scale-sets-troubleshoot.md
-    - name: Veelgestelde vragen
-      items:
-        - name: Veelgestelde vragen over schaalsets
-          href: virtual-machine-scale-sets-faq.md
+      - name: Azure CLI 2.0 gebruiken
+        href: virtual-machine-scale-sets-manage-cli.md
+      - name: Azure PowerShell gebruiken
+        href: virtual-machine-scale-sets-manage-powershell.md
+    - name: Verticaal schalen in een schaalset
+      href: virtual-machine-scale-sets-vertical-scale-reprovision.md
+    - name: Automatische upgrades voor het besturingssysteem
+      href: virtual-machine-scale-sets-automatic-upgrade.md
+    - name: Een schaalset wijzigen
+      href: virtual-machine-scale-sets-upgrade-scale-set.md
+    - name: DSC en schaalsets gebruiken
+      href: virtual-machine-scale-sets-dsc.md
+    - name: Netwerken voor schaalsets
+      href: virtual-machine-scale-sets-networking.md
+    - name: Een sjabloon converteren voor beheerde schijven
+      href: virtual-machine-scale-sets-convert-template-to-md.md
+    - name: Gepland onderhoud
+      href: virtual-machine-scale-sets-maintenance-notifications.md
+  - name: Problemen oplossen
+    items:
+    - name: Automatisch schalen
+      href: virtual-machine-scale-sets-troubleshoot.md
+  - name: Veelgestelde vragen
+    items:
+    - name: Veelgestelde vragen over schaalsets
+      href: virtual-machine-scale-sets-faq.md
 - name: Naslaginformatie
   items:
-    - name: Azure PowerShell
-      href: /powershell/azure/overview
-    - name: Azure-CLI
-      href: ../virtual-machines/azure-cli-arm-commands.md
-    - name: REST
-      href: /rest/api/virtualmachinescalesets/
+  - name: Azure PowerShell
+    href: /powershell/azure/overview
+  - name: Azure-CLI
+    href: ../virtual-machines/azure-cli-arm-commands.md
+  - name: REST
+    href: /rest/api/virtualmachinescalesets/
 - name: Resources
   items:
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: Prijzen
-      items:
-        - name: Linux
-          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'
-        - name: Windows
-          href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/'
-    - name: Prijscalculator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/azure-vm-scale-set'
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=compute
+  - name: Prijzen
+    items:
+    - name: Linux
+      href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/
+    - name: Windows
+      href: https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/windows/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/azure-vm-scale-set
+ms.openlocfilehash: 4700df5aa7d3f0a253ef66cd612187f2d187aa11
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714323"

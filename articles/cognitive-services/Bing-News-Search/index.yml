@@ -1,0 +1,71 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 68a431418292cd5b1aaff376c4e20a95d0e20c57
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624120"
+documentType: LandingData
+title: Documentatie voor Bing Nieuws zoeken
+metadata:
+  title: Documentatie voor Bing Nieuws zoeken -zelfstudies, snelstarts, API-verwijzingen | Microsoft Docs
+  description: Informatie over het gebruik van de Bing Nieuws zoeken-API om nieuws te vinden op het web dat relevant is voor query's van gebruikers. Zelfstudies laten zien hoe u apps maakt die gebruikmaken van de service.
+  services: cognitive-services
+  author: mikedodaro
+  manager: rosh
+  ms.service: bing-video-search
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 11/02/2017
+  ms.author: v-gedod
+abstract:
+  description: De Bing Nieuws zoeken-API biedt een ervaring die vergelijkbaar is met die van Bing Nieuws door nieuwsartikelen te retourneren die volgens Bing relevant zijn voor de query van een gebruiker.
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Ga aan de slag met de Bing Nieuws zoeken-API door een query te maken en het JSON-antwoord te bekijken:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      href: csharp
+      text: C&#35;
+    - image:
+        src: media/index/logo_java.svg
+      href: java
+      text: Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      href: nodejs
+      text: Node.js
+    - image:
+        src: media/index/logo_php.svg
+      href: php
+      text: PHP
+    - image:
+        src: media/index/logo_python.svg
+      href: python
+      text: Python
+    - image:
+        src: media/index/logo_ruby.svg
+      href: ruby
+      text: Ruby
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: 'Apps ontwikkelen die gebruikmaken van de Bing Nieuws zoeken-API:'
+  - type: paragraph
+    text: <a href="tutorial-bing-news-search-single-page-app">Web-app van één pagina</a> &#124; <a href="tutorial-bing-news-search-single-page-app-source">Broncode</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API's
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v7-reference">Bing Nieuws zoeken-API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-news-api-v5-reference">Bing Nieuws zoeken-API v5</a></p>
+    - title: SDK's
+      html: <p><a href="sdk.md">Bing Zoeken-SDK</a></p>

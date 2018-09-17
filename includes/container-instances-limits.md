@@ -1,13 +1,13 @@
 | Resource | Standaardlimiet |
 | --- | :--- |
-| Containergroepen per [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) | 20<sup>1</sup> |
+| Containergroepen per [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) | 100<sup>1</sup> |
 | Aantal containers per containergroep | 60 |
 | Aantal volumes per containergroep | 20 |
 | Poorten per IP-adres | 5 |
-| Aangemaakte containers per uur |60<sup>1</sup> |
-| Aangemaakte containers per 5 minuten | 20<sup>1</sup> |
-| Verwijderde containers per uur | 150<sup>1</sup> |
-| Verwijderde containers per 5 minuten | 50<sup>1</sup> |
+| Aangemaakte containers per uur |300<sup>1</sup> |
+| Aangemaakte containers per 5 minuten | 100<sup>1</sup> |
+| Verwijderde containers per uur | 300<sup>1</sup> |
+| Verwijderde containers per 5 minuten | 100<sup>1</sup> |
 | Meerdere containers per containergroep | Alleen voor Linux<sup>2</sup> |
 | Azure Files-volumes | Alleen voor Linux<sup>2</sup> |
 | GitRepo-volumes | Alleen voor Linux<sup>2</sup> |

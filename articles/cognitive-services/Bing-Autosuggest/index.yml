@@ -1,0 +1,70 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 88413db5556e20632112444e3779bb5eee0ecf8e
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624248"
+documentType: LandingData
+title: Documentatie voor Bing Automatische suggesties
+metadata:
+  document_id: ce69fd12-adf8-11e7-abc4-cec278b6b50a
+  title: Documentatie voor Bing Automatische suggesties - zelfstudies, snelstarts, API-verwijzingen | Microsoft Docs
+  description: Meer informatie over het gebruik van Bing Automatische suggesties voor voorgestelde query’s op basis van een gedeeltelijke query. Zelfstudies laten zien hoe u apps maakt die gebruikmaken van de service.
+  services: cognitive-services
+  author: v-jaswel
+  manager: kamrani
+  ms.service: autosuggest
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 10/10/2017
+  ms.author: v-jaswel
+abstract:
+  description: Met Bing Automatische suggesties kunt u een gedeeltelijke query-zoekterm naar Bing verzenden en een lijst ontvangen met voorgestelde query’s van andere gebruikers.  Terwijl de gebruiker bijvoorbeeld een teken van zijn eigen zoekterm invoert, zou u deze API aanroepen en de vervolgkeuzelijst van het zoekvak vullen met de voorgestelde queryreeksen. Ontdek met onze snelstartgidsen, zelfstudies en voorbeelden hoe u de Automatische suggesties-API gebruikt.
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Ga aan de slag met de Bing Automatische suggesties-API door een query te maken en het JSON-antwoord te bekijken:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/index/logo_csharp.svg
+      href: quickstarts/csharp
+      text: C&#35;
+    - image:
+        src: media/index/logo_java.svg
+      href: quickstarts/java
+      text: Java
+    - image:
+        src: media/index/logo_nodejs.svg
+      href: quickstarts/nodejs
+      text: Node.js
+    - image:
+        src: media/index/logo_php.svg
+      href: quickstarts/php
+      text: PHP
+    - image:
+        src: media/index/logo_python.svg
+      href: quickstarts/python
+      text: Python
+    - image:
+        src: media/index/logo_ruby.svg
+      href: quickstarts/ruby
+      text: Ruby
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: 'Leer apps te ontwikkelen die gebruikmaken van de Bing Automatische suggesties-API:'
+  - type: paragraph
+    text: <a href="tutorials/autosuggest.md">Web-app van één pagina</a> &#124; <a href="tutorials/autosuggest-source.md">Broncode</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API's
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v7-reference">Bing Automatische suggesties-API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-autosuggest-api-v5-reference">Bing Automatische suggesties-API v5</p>

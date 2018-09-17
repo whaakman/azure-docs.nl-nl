@@ -1,0 +1,64 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 85613f24d7bfed03a94733509aa5cb91e59f4333
+ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "35624261"
+documentType: LandingData
+title: Documentatie voor Bing Aangepaste zoekopdrachten
+metadata:
+  title: Documentatie voor Bing Aangepaste zoekopdrachten - zelfstudies, API-verwijzing - Microsoft Cognitive Services | Microsoft Docs
+  description: Meer informatie over het gebruik van het Bing Aangepaste zoekopdrachtenportaal om exemplaren voor aangepast zoeken te maken
+  services: cognitive-services
+  author: v-deken
+  manager: cgronlun
+  layout: LandingPage
+  ms.service: cognitive-services
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 05/07/2018
+  ms.author: v-deken
+abstract:
+  description: Meer informatie over het gebruik van Bing Aangepaste zoekopdrachten om op maat gemaakte zoekervaringen te maken voor onderwerpen die u interesseren. Als u bijvoorbeeld een fietswebsite hebt die een zoekervaring biedt, kunt u de domeinen, subsites en webpagina’s opgeven waarin Bing zoekt. Aan de hand van snelstarts, zelfstudies, API-verwijzingen en voorbeelden leert u hoe.
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: 'Uw aangepaste weergave van het internet doorzoeken:'
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: media/logo_Csharp.svg
+      href: call-endpoint-csharp
+      text: C&#35;
+    - image:
+        src: media/logo_java.svg
+      href: call-endpoint-java
+      text: Java
+    - image:
+        src: media/logo_nodejs.svg
+      href: call-endpoint-nodejs
+      text: Node.js
+    - image:
+        src: media/logo_python.svg
+      href: call-endpoint-python
+      text: Python
+- title: Stapsgewijze zelfstudie
+  items:
+  - type: paragraph
+    text: 'Leer apps te ontwikkelen die gebruikmaken van de Bing Aangepaste zoekopdrachten-API:'
+  - type: paragraph
+    text: <a href="tutorials/custom-search-web-page">Een Aangepaste zoekopdrachten-webpagina bouwen</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: cards
+    className: cardsD
+    items:
+    - title: API's
+      html: <p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-search-api-v7-reference">Bing Aangepaste zoekopdrachten-API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-autosuggest-api-v7-reference">Bing Automatische suggesties-API v7</a></p><p><a href="https://docs.microsoft.com/rest/api/cognitiveservices/bing-custom-images-api-v7-reference">Bing Aangepast zoeken voor afbeeldingen-API v7</a></p>
+    - title: SDK's
+      html: <p><a href="sdk.md">Bing Zoeken-SDK</a></p>

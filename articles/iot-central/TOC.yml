@@ -36,45 +36,9 @@ items:
     href: concepts-connectivity.md
 - name: Handleidingen
   items:
-  - name: Beheerder
-    items:
-    - name: Een toepassing maken en beheren als een CSP
-      href: howto-create-and-manage-applications-as-CSP.md
-    - name: Uw toepassing beheren
-      href: howto-administer.md
-    - name: Uw gegevens exporteren
-      href: howto-export-data.md
-    - name: Uw gegevens visualiseren in Power BI
-      href: howto-connect-powerbi.md
-  - name: Opbouwfunctie
-    items:
-    - name: De sjabloon van het apparaat instellen
-      href: howto-set-up-template.md
-    - name: Versie van de sjabloon van het apparaat
-      href: howto-version-devicetemplate.md
-    - name: Telemetrie-regel maken
-      href: howto-create-telemetry-rules.md
-    - name: Een gebeurtenisregel maken
-      href: howto-create-event-rules.md
-    - name: Webhookacties op basis van regels maken
-      href: howto-create-webhooks.md
-    - name: Werkstromen bouwen in Microsoft Flow
-      href: howto-add-microsoft-flow.md
-    - name: Azure Functions activeren
-      href: howto-trigger-azure-functions.md
-    - name: Startpagina configureren
-      href: howto-configure-homepage.md
-    - name: Installatiekopieën voorbereiden en uploaden
-      href: howto-prepare-images.md
-  - name: Operator
-    items:
-    - name: Uw apparaten beheren
-      href: howto-manage-devices.md
-    - name: Apparaatsets gebruiken
-      href: howto-use-device-sets.md
-    - name: Aangepaste analyses maken
-      href: howto-create-analytics.md
-  - name: Ontwikkelaar apparaat
+  - name: Een app maken
+    href: howto-create-application.md
+  - name: Apparaten verbinden
     items:
     - name: Een Node.js-toepassing (algemeen) voorbereiden en aansluiten
       href: howto-connect-nodejs.md
@@ -86,6 +50,46 @@ items:
       href: howto-connect-raspberry-pi-csharp.md
     - name: Een Windows-IoT Core-apparaat voorbereiden en aansluiten
       href: howto-connect-windowsiotcore.md
+  - name: Apparaten beheren
+    items:
+    - name: Een sjabloon van het apparaat instellen
+      href: howto-set-up-template.md
+    - name: Uw apparaten beheren
+      href: howto-manage-devices.md
+    - name: Apparaatsets gebruiken
+      href: howto-use-device-sets.md
+    - name: Versie van de sjabloon van het apparaat
+      href: howto-version-devicetemplate.md
+  - name: Bewaking en analytische gegevens
+    items:
+    - name: Telemetrie-regel maken
+      href: howto-create-telemetry-rules.md
+    - name: Een gebeurtenisregel maken
+      href: howto-create-event-rules.md
+    - name: Aangepaste analyses maken
+      href: howto-create-analytics.md
+  - name: Acties en uitbreidingsmogelijkheden
+    items:
+    - name: Webhookacties op basis van regels maken
+      href: howto-create-webhooks.md
+    - name: Werkstromen bouwen in Microsoft Flow
+      href: howto-add-microsoft-flow.md
+    - name: Azure Functions activeren
+      href: howto-trigger-azure-functions.md
+    - name: Uw gegevens exporteren
+      href: howto-export-data.md
+    - name: Uw gegevens visualiseren in Power BI
+      href: howto-connect-powerbi.md
+  - name: Beheer
+    items:
+    - name: Uw toepassing beheren
+      href: howto-administer.md
+    - name: Een toepassing maken en beheren als een CSP
+      href: howto-create-and-manage-applications-as-CSP.md
+    - name: Startpagina configureren
+      href: howto-configure-homepage.md
+    - name: Installatiekopieën voorbereiden en uploaden
+      href: howto-prepare-images.md
 - name: Verwant
   items:
   - name: Oplossingen
@@ -118,9 +122,9 @@ items:
     href: iot-central-customer-data-requests.md
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-iot-central
-ms.openlocfilehash: 83afcefb0e8fa90253e917ba700644b21bb61100
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 6cfa705fbcdf7c876dd78fb28210742eb5562e8a
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44348919"
+ms.lasthandoff: 09/12/2018
+ms.locfileid: "44714595"
