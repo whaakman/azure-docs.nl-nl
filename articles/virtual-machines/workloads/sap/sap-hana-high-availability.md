@@ -1,6 +1,6 @@
 ---
-title: SAP HANA-Systeemreplicatie instellen op Azure virtual machines (VM's) | Microsoft Docs
-description: Hoge beschikbaarheid van SAP HANA op Azure virtual machines (VM's) maken.
+title: Hoge beschikbaarheid van SAP HANA op Azure VM's in SUSE Linux Enterprise Server | Microsoft Docs
+description: Hoge beschikbaarheid van SAP HANA op Azure VM's in SUSE Linux Enterprise Server
 services: virtual-machines-linux
 documentationcenter: ''
 author: MSSedusch
@@ -13,14 +13,14 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 08/16/2018
 ms.author: sedusch
-ms.openlocfilehash: 7a0797d79da95db77174a3e067a1e84276f286a5
-ms.sourcegitcommit: f057c10ae4f26a768e97f2cb3f3faca9ed23ff1b
+ms.openlocfilehash: dfcb5c7c0b487b8379d89a9b285bae1ca1a9c774
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42057203"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45634520"
 ---
-# <a name="high-availability-of-sap-hana-on-azure-virtual-machines"></a>Hoge beschikbaarheid van SAP HANA op Azure virtual machines
+# <a name="high-availability-of-sap-hana-on-azure-vms-on-suse-linux-enterprise-server"></a>Hoge beschikbaarheid van SAP HANA op Azure VM's in SUSE Linux Enterprise Server
 
 [dbms-guide]:dbms-guide.md
 [deployment-guide]:deployment-guide.md
@@ -110,7 +110,7 @@ Volg deze stappen voor het implementeren van de sjabloon:
     - **Beschikbaarheid van het systeem**: Selecteer **HA**.
     - **Admin Username en het wachtwoord van beheerder**: een nieuwe gebruiker wordt gemaakt die kan worden gebruikt voor aanmelding bij de machine.
     - **Nieuwe of bestaande Subnet**: bepaalt of een nieuw virtueel netwerk en subnet moeten worden gemaakt of een bestaand subnet gebruikt. Als u al een virtueel netwerk dat verbonden met uw on-premises netwerk hebt, selecteert u **bestaande**.
-    - **Subnet-ID**: de ID van het subnet waarmee de virtuele machines moet worden verbonden. Voor de virtuele machine verbinding met uw on-premises netwerk, selecteert u het subnet van het virtuele netwerk VPN of Azure ExpressRoute. De ID meestal, lijkt **/subscriptions/\<abonnements-ID > /resourceGroups/\<groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/\<virtuele-netwerknaam > /subnets/ \<subnetnaam >**.
+    - **Subnet-ID**: als u wilt de virtuele machine implementeren in een bestaand VNet waarin u een subnet dat is gedefinieerd hebben de virtuele machine moet worden toegewezen aan de ID van dat specifieke subnet een naam. De ID meestal, lijkt **/subscriptions/\<abonnements-ID > /resourceGroups/\<groepsnaam voor accountresources > /providers/Microsoft.Network/virtualNetworks/\<virtuele-netwerknaam > /subnets/ \<subnetnaam >**.
 
 ### <a name="manual-deployment"></a>Handmatige implementatie
 
@@ -969,7 +969,7 @@ Opmerking: De volgende tests zijn ontworpen om te worden uitgevoerd in de volgor
    <pre><code>hn1adm@hn1-db-1:/usr/sap/HN1/HDB03> HDB stop
    </code></pre>
 
-   Pacemaker detecteert de gestopte HANA-instantie en de bron is mislukt op knooppunt hn1-db-1 markeren. Voer de volgende opdracht voor het opschonen van de status mislukt. Pacemaker moet vervolgens automatisch opnieuw opgestart de HANA-instantie.
+   Pacemaker detecteert de gestopte HANA-instantie en de bron is mislukt op knooppunt hn1-db-1 markeren. Pacemaker moet automatisch de HANA-exemplaar opnieuw opstarten. Voer de volgende opdracht voor het opschonen van de status mislukt.
 
    <pre><code># run as root
    hn1-db-1:~ # crm resource cleanup msl_SAPHana_HN1_HDB03 hn1-db-1
