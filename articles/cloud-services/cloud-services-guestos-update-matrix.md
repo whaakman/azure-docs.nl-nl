@@ -3,8 +3,7 @@ title: Meer informatie over de meest recente Azure Guest OS Releases | Microsoft
 description: De meest recente release nieuws en de compatibiliteit van de SDK voor Azure Cloud Services-Gastbesturingssysteem.
 services: cloud-services
 documentationcenter: na
-author: RichardScheel
-manager: timlt
+author: raiye
 editor: ''
 ms.assetid: 6306cafe-1153-44c7-8554-623b03d59a34
 ms.service: cloud-services
@@ -12,14 +11,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 9/12/2018
-ms.author: RichardScheel
-ms.openlocfilehash: 8d49742e90e09a8836309db165b07074645df00a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.date: 9/13/2018
+ms.author: raiye
+ms.openlocfilehash: 239482151384ff555d86e3d639bfe1d75b0d0ceb
+ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576167"
+ms.locfileid: "45604889"
 ---
 # <a name="azure-guest-os-releases-and-sdk-compatibility-matrix"></a>Azure Guest OS releases en SDK compatibiliteitsmatrix
 Biedt dat u met actuele informatie over de meest recente Azure Guest OS releases voor Cloud Services. Deze informatie helpt u bij het plannen van uw upgradepad voordat een Gastbesturingssysteem wordt uitgeschakeld. Als u uw rollen gebruiken configureert *automatische* Guest OS-updates zoals beschreven in [Azure Gast OS Update-instellingen][Azure Guest OS Update Settings], niet is het essentieel dat u deze pagina hebt gelezen.
