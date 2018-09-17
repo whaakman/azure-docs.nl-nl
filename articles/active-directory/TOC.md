@@ -323,37 +323,8 @@
 
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
 
-## Toegangsbeoordelingen
-### [Overzicht toegangsbeoordelingen](active-directory-azure-ad-controls-access-reviews-overview.md)
-### [Complete an access review](active-directory-azure-ad-controls-complete-access-review.md) (Een toegangscontrole voltooien)
-### [Create an access review](active-directory-azure-ad-controls-create-access-review.md) (Een toegangscontrole maken)
-### [How to perform an access review](active-directory-azure-ad-controls-perform-access-review.md) (Een toegangscontrole uitvoeren)
-### [Uw toegang controleren](active-directory-azure-ad-controls-how-to-review-your-access.md)
-### [Toegang voor gasten met toegangsbeoordelingen](active-directory-azure-ad-controls-manage-guest-access-with-access-reviews.md)
-### [Gebruikerstoegang met beoordelingen beheren](active-directory-azure-ad-controls-manage-user-access-with-access-reviews.md)
-### [Programma's en besturingselementen beheren](active-directory-azure-ad-controls-manage-programs-controls.md)
-### [Resultaten van de toegangsbeoordeling ophalen](active-directory-azure-ad-controls-retrieve-access-review.md)
-
-## [Gebruiksvoorwaarden](active-directory-tou.md)
-
 ## Uw identiteiten beveiligen
 
-### Azure AD-identiteitsbeveiliging
-#### [Overzicht](identity-protection/overview.md)
-#### [Inschakelen](identity-protection/enable.md)
-#### [Beveiligingslekken detecteren](identity-protection/vulnerabilities.md)
-#### [Risicogebeurtenissen](active-directory-identity-protection-risk-events.md)
-#### [Meldingen](identity-protection/notifications.md)
-#### [Aanmeldingservaring](identity-protection/flows.md)
-#### [Risicogebeurtenissen simuleren](identity-protection/playbook.md)
-#### [Gebruikers deblokkeren](identity-protection/howto-unblock-user.md)
-#### [Registratiebeleid voor meervoudige verificatie configureren](identity-protection/howto-mfa-policy.md)
-#### [Aanmeldingsrisicobeleid configureren](identity-protection/howto-sign-in-risk-policy.md)
-#### [Gebruikersrisicobeleid configureren](identity-protection/howto-user-risk-policy.md)
-#### [Toegang blokkeren wanneer er een sessierisico wordt gedetecteerd](identity-protection/quickstart-sign-in-risk-policy.md)
-#### [Veelgestelde vragen](identity-protection/faqs.md)
-#### [Woordenlijst](identity-protection/glossary.md)
-#### [Microsoft Graph](identity-protection/graph-get-started.md)
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
 ## [AD FS in Azure implementeren](active-directory-aadconnect-azure-adfs.md)
