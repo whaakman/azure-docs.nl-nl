@@ -3,14 +3,14 @@
 
 # Overzicht
 ## [Overzicht van Data Lake Storage Gen1](data-lake-store-overview.md)
-## [Data Lake Store Gen1 vergelijken met Azure Storage](data-lake-store-comparison-with-blob-storage.md)
-## [Data Lake Storage Gen1 voor de verwerking van big data](data-lake-store-data-scenarios.md)
-## [Open-sourcetoepassingen die met Data Lake Storage Gen1 kunnen samenwerken](data-lake-store-compatible-oss-other-applications.md)
+## [Vergelijken met Azure Storage](data-lake-store-comparison-with-blob-storage.md)
+## [Verwerken van big data](data-lake-store-data-scenarios.md)
+## [Werken met open source-toepassingen](data-lake-store-compatible-oss-other-applications.md)
 ## [Aanbevolen procedures](data-lake-store-best-practices.md)
 
 # Aan de slag
-## [Portal gebruiken](data-lake-store-get-started-portal.md)
-## [PowerShell gebruiken](data-lake-store-get-started-powershell.md)
+## [Azure Portal gebruiken](data-lake-store-get-started-portal.md)
+## [Azure PowerShell gebruiken](data-lake-store-get-started-powershell.md)
 ## [Azure CLI 2.0 gebruiken](data-lake-store-get-started-cli-2.0.md)
 
 
