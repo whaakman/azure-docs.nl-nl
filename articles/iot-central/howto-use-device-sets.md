@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpfr
-ms.openlocfilehash: d0b802842d60d68bab36e87913a84c5e40b8e431
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 28706ad77f48ae826b621ebdd920d26f3b87178a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206068"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731971"
 ---
 # <a name="use-device-sets-in-your-azure-iot-central-application"></a>Hiermee stelt u apparaten gebruikt in uw Azure IoT Central-toepassing
 
@@ -50,7 +50,7 @@ Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **Dashboard**
 
 1. Kies de **Dashboard** tabblad.
 
-1. Schakel **ontwerpmodus**.
+1. Klik op **sjabloon bewerken**.
 
     ![Ontwerpmodus op](media/howto-use-device-sets/image3.png)
 
@@ -58,9 +58,6 @@ Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **Dashboard**
 
 1. Een tegel koppeling toevoegen:
     1. Kies **koppeling** in het rechterdeelvenster.
-
-        ![Kies koppeling](media/howto-use-device-sets/image6.png)
-
     1. Geef uw koppeling een **titel**.
     1. Kies een URL worden geopend wanneer de koppeling wordt geklikt.
     1. Geef uw koppeling een beschrijving waarin wordt weergegeven onder de **titel**.
@@ -87,38 +84,26 @@ Nadat u uw apparaat instellen hebt gemaakt, kunt u configureren de **Dashboard**
     > [!NOTE]
     > U kunt meerdere afbeeldingen, koppelingen en rasters toevoegen.
   
-    1. Uitschakelen **ontwerpmodus**.
+    1. Klik op **Gereed**.
 
     ![Ontwerpmodus uitschakelen](media/howto-use-device-sets/image10.png)
 
 
 ### <a name="configuring-location-map-in-your-device-sets-dashboard"></a>Dashboard instellen locatiekaart configureren in uw apparaat 
-U kunt toevoegen om een locatiekaart voor het visualiseren van de locatie van uw apparaten ingesteld op een kaart. 
+U kunt toevoegen om een locatiekaart voor het visualiseren van de locatie van uw apparaten ingesteld op een kaart.
 
 Als u wilt toevoegen aan een locatiekaart op uw apparaat wordt ingesteld dashboard hebt u geconfigureerde locatie-eigenschap in de sjabloon voor het apparaat, Zie [maakt u een locatie-eigenschap aangestuurd door Azure Maps](howto-set-up-template.md).
 
 
-1. Op het Dashboard voor Sets, kaart te selecteren uit de bibliotheek. 
+1. Selecteer de kaart uit de bibliotheek op uw Dashboard apparaat instellen.
 
     ![Dashboard Maps wordt ingesteld voor apparaat](media/howto-use-device-sets/LocationMaps1.png)
 
-
 2. Geef een titel in en kies de locatie-eigenschap die u eerder hebt geconfigureerd als onderdeel van de eigenschap van uw apparaat.
-
-    ![Dashboard-toewijzingen configureren](media/howto-use-device-sets/LocationMaps2.png)
-
 3. Opslaan en u ziet de kaart tegel weergeven van de locatie van uw apparaten in het apparaat ingesteld.
-
-    ![Dashboard-toewijzingen opslaan](media/howto-use-device-sets/LocationMaps3.png)
-
-
-5. U hebt geconfigureerd met inbegrip van de locatie van de kaart voor het visualiseren van alle apparaten-locatie in een oogopslag nu als een operator-dashboard voor de sets bekijkt, kan ze alle tegels zien! 
-
-    ![Maps-Operator dashboardweergave](media/howto-use-device-sets/LocationMaps4.png)
-
-    U kunt zich grootte van de kaart om de gewenste grootte te wijzigen.
-
-    Te klikken op een pincode op de kaart wordt weergegeven de apparaatgegevens, naam en locatie. U kunt klikken op het pop-upvenster om naar de eigenschappenpagina van het apparaat te gaan.  
+4. U hebt geconfigureerd met inbegrip van de locatie van de kaart voor het visualiseren van alle apparaten-locatie in een oogopslag nu als een operator-dashboard voor de sets bekijkt, kan ze alle tegels zien! 
+    
+[!NOTE] U kunt zich grootte van de kaart om de gewenste grootte te wijzigen. Te klikken op een pincode op de kaart wordt weergegeven de apparaatgegevens, naam en locatie. U kunt klikken op het pop-upvenster om naar de eigenschappenpagina van het apparaat te gaan.  
 
 
 ## <a name="configure-the-list-for-your-device-set"></a>De lijst voor het instellen van uw apparaat configureren

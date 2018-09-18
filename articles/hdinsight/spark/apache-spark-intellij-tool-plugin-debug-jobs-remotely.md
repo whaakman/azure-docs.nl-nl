@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/28/2017
-ms.openlocfilehash: bc1f1dd577231f5b22474f6cd3dc622480209dd9
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 1a7fcc11bf1b98d5feaeae07264e556acce2b14b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43042915"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736070"
 ---
 # <a name="use-azure-toolkit-for-intellij-to-debug-spark-applications-remotely-in-hdinsight-through-vpn"></a>Azure-Toolkit voor IntelliJ fouten opsporen in Spark-toepassingen op afstand in HDInsight via VPN-verbinding
 
@@ -132,7 +132,7 @@ Het is raadzaam dat u ook een Apache Spark-cluster maken in Azure HDInsight die 
     Deze bestanden toevoegen aan uw project, kopieert u deze onder de **/src** map in de projectstructuur van uw, bijvoorbeeld `<your project directory>\src`.
 1. Update de `core-site.xml` -bestand naar de volgende wijzigingen aanbrengen:
 
-   a. Vervang de versleutelde sleutel. De `core-site.xml` bestand bevat de versleutelde sleutel voor het opslagaccount dat is gekoppeld aan het cluster. In de `core-site.xml` -bestand dat u hebt toegevoegd aan het project, de versleutelde sleutel vervangen door de werkelijke opslag-sleutel die is gekoppeld aan het standaardopslagaccount. Zie voor meer informatie, [beheren van uw toegangssleutels voor opslag](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+   a. Vervang de versleutelde sleutel. De `core-site.xml` bestand bevat de versleutelde sleutel voor het opslagaccount dat is gekoppeld aan het cluster. In de `core-site.xml` -bestand dat u hebt toegevoegd aan het project, de versleutelde sleutel vervangen door de werkelijke opslag-sleutel die is gekoppeld aan het standaardopslagaccount. Zie voor meer informatie, [beheren van uw toegangssleutels voor opslag](../../storage/common/storage-account-manage.md#access-keys).
 
            <property>
                  <name>fs.azure.account.key.hdistoragecentral.blob.core.windows.net</name>

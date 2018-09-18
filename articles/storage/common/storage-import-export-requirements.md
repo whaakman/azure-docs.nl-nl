@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/19/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 10e8fb6ac5bcce278de3924ebd3a0d9f90392217
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 18c27e4059ea06fcc52863b2d7671c14167dae75
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528051"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732750"
 ---
 # <a name="azure-importexport-system-requirements"></a>Azure Import/Export-systeemvereisten
 
@@ -32,12 +32,15 @@ Voor het voorbereiden van de harde schijven met het hulpprogramma WAImportExport
 
 ## <a name="supported-storage-accounts"></a>Ondersteunde opslagaccounts
 
-Azure Import/Export-service ondersteunt de volgende [Azure storage-accounts](storage-account-options.md).
+Azure Import/Export-service ondersteunt de volgende typen opslagaccounts:
+
+- Opslagaccounts voor algemeen gebruik v2
 - Storage-accounts voor algemeen gebruik v1 (zowel klassieke als Azure Resource Manager-implementaties)
 - Blob Storage-accounts
-- Opslagaccounts voor algemeen gebruik v2
 
-Elke taak kan worden gebruikt voor het overbrengen van gegevens naar of van slechts één opslagaccount. Een taak één import/export kan niet met andere woorden, omvatten voor meerdere opslagaccounts. Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-create-storage-account.md#create-a-storage-account).
+Zie voor meer informatie over de storage-accounts, [overzicht van Azure storage-accounts](storage-account-overview.md).
+
+Elke taak kan worden gebruikt voor het overbrengen van gegevens naar of van slechts één opslagaccount. Een taak één import/export kan niet met andere woorden, omvatten voor meerdere opslagaccounts. Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-quickstart-create-account.md).
 
 > [!IMPORTANT] 
 > De Azure Import Export-service biedt geen ondersteuning voor storage-accounts waarbij de [Virtual Network-Service-eindpunten](../../virtual-network/virtual-network-service-endpoints-overview.md) functie is ingeschakeld. 

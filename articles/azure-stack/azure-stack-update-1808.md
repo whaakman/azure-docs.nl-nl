@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: 921e9df11cd79e9d2558d9ca6a490a8da064deb8
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 877ea4c143d74414c3d733c446da57060322b11d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630338"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982095"
 ---
 # <a name="azure-stack-1808-update"></a>Azure Stack 1808 update
 
@@ -57,7 +57,7 @@ Deze update bevat de volgende verbeteringen voor Azure Stack.
 
 - <!-- | IS ASDK--> **Blockchain sjablonen**. U kunt nu uitvoeren [Ethereum consortium implementaties](azure-stack-ethereum.md) in Azure Stack. Vindt u drie nieuwe sjablonen in de [Azure Stack Quick Start-sjablonen](https://github.com/Azure/AzureStack-QuickStart-Templates). Hiermee kunt de gebruiker om te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk met minimale kennis van Azure en Ethereum. Het doel van de sjablonen is het eenvoudig te voor gebruikers voor setup dev/test Blockchain-implementaties in een paar stappen.
 
-
+- <!-- | IS ASDK--> **De API-versie profiel 2017-03-09-profiel is bijgewerkt naar 2018-03-01-hybride**. API-profielen opgeven voor de Azure-resource-provider en de API-versie voor Azure REST-eindpunten. Zie voor meer informatie over profielen [beheren API-versieprofielen in Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
  ### <a name="fixed-issues"></a>Problemen opgelost
 - <!-- IS ASDK--> We het probleem voor het maken van een beschikbaarheidsset in de portal dat heeft geresulteerd in de set met een domein met fouten en een updatedomein van 1 is opgelost. 
@@ -142,6 +142,17 @@ Deze update bevat ook de oplossing voor het speculatieve uitvoering kant kanaal 
 Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 ### <a name="portal"></a>Portal
+
+- <!-- TBD - IS ASDK --> U ziet een leeg dashboard in de portal. Als u wilt herstellen in het dashboard, klikt u op **Dashboard bewerken**, klik met de rechtermuisknop en selecteer **opnieuw ingesteld op standaardstatus**.
+
+- <!-- 2930718 - IS ASDK --> In de beheerdersportal bij het openen van de details van elk gebruikersabonnement na het sluiten van de blade en te klikken op **Recent**, de naam van het abonnement wordt niet weergegeven.
+
+- <!-- 3060156 - IS ASDK --> In de beheerder en de gebruiker portals, te klikken op de portal-instellingen en selecteer **verwijdert u alle instellingen en privédashboards** werkt niet zoals verwacht. Er wordt een foutmelding weergegeven. 
+
+- <!-- 2930799 - IS ASDK --> In de beheerder en de gebruiker-portals, onder **alle services**, de asset **DDoS-beschermingsplannen** ten onrechte wordt weergegeven. Het is niet beschikbaar in Azure Stack. Als u probeert te maken, er een foutbericht weergegeven waarin staat dat de portal kan het marketplace-item niet maken. 
+
+- <!-- 2930820 - IS ASDK --> In de beheerder en de gebruiker-portals, als u 'Docker', zoekt wordt het item onjuist geretourneerd. Het is niet beschikbaar in Azure Stack. Als u probeert te maken, wordt een blade met een indicatie van de fout weergegeven. 
+
 - <!-- 2967387 – IS, ASDK --> Het account waarmee u zich aanmeldt bij de portal voor Azure Stack-beheerder of gebruiker worden weergegeven als **onbekende gebruiker**. Dit treedt op wanneer het account beschikt niet over een een *eerste* of *laatste* naam die is opgegeven. U kunt dit probleem omzeilen, het gebruikersaccount voor de naam van de eerste of laatste te bewerken. U moet vervolgens Meld u af en meld u vervolgens terug naar de portal. 
 
 -  <!--  2873083 - IS ASDK --> Wanneer gebruikt u de portal voor het maken van een virtuele-machineschaalset instellen (VMSS), de *exemplaargrootte* vervolgkeuzelijst niet juist geladen wanneer u Internet Explorer gebruikt. U kunt dit probleem omzeilen, gebruikt u een andere browser tijdens het gebruik van de portal voor het maken van een VMSS.  
@@ -151,8 +162,6 @@ Hier volgen na de installatie bekende problemen voor deze buildversie.
 - <!--2760466 – IS  ASDK --> Wanneer u een nieuwe Azure Stack-omgeving met deze versie installeert, de waarschuwing die aangeeft *activering vereist* mogelijk niet weergegeven. [Activering](azure-stack-registration.md) is vereist voordat u de marketplace-publicatie kunt gebruiken.  
 
 - <!-- TBD - IS ASDK --> De twee administratieve abonnementstypen die waren [geïntroduceerd in versie 1804](azure-stack-update-1804.md#new-features) mag niet worden gebruikt. De abonnementstypen zijn **softwarelicentiecontrole abonnement**, en **verbruik abonnement**. Deze abonnementstypen zijn zichtbaar in de nieuwe Azure Stack-omgevingen vanaf versie 1804 maar nog niet klaar voor gebruik. U moet echter ook doorgaan met de **Provider standaard** abonnementstype.
-
-- <!-- TBD - IS --> U ziet een leeg dashboard in de portal. Als u wilt herstellen in het dashboard, selecteert u het tandwielpictogram in de rechterbovenhoek van de portal en selecteer vervolgens **standaardinstellingen herstellen**.
 
 - <!-- TBD - IS ASDK --> Verwijderen van zwevende resources leidt van gebruiker-abonnementen. Als tijdelijke oplossing, eerst Gebruikersbronnen of de hele resourcegroep verwijderen en verwijder vervolgens gebruikersabonnementen.
 

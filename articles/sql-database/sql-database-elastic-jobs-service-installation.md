@@ -1,60 +1,65 @@
 ---
-title: Taken voor elastische database installeren | Microsoft Docs
-description: Installatie van de functie elastische taak doorlopen.
+title: Taken voor elastic database installeren | Microsoft Docs
+description: Helpen bij de installatie van de functie voor elastische taken.
 services: sql-database
 manager: craigg
 author: ddove
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: sstein
-ms.openlocfilehash: 5760ca693f347068e03770b348d88b3b2adbf678
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: e59fc7caf0fa9f02a2182f86295f1a9e59d98788
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34645609"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733553"
 ---
-# <a name="installing-elastic-database-jobs-overview"></a>Overzicht van de taken installeren elastische Database
-[**Elastische Database taken** ](sql-database-elastic-jobs-overview.md) kan worden geïnstalleerd via PowerShell of via de Azure portal. U kunt toegang krijgen als u wilt maken en beheren van taken met de PowerShell-API alleen als u het PowerShell-pakket installeert. De PowerShell APIs Geef ook aanzienlijk meer functionaliteit dan de portal op dit moment.
+# <a name="installing-elastic-database-jobs-overview"></a>Overzicht van de taken van Elastic Database installeren
 
-Als u al hebt geïnstalleerd **elastische Database taken** via de Portal van een bestaand **elastische pool**, de meest recente Powershell voorbeeldweergave scripts voor uw bestaande installatie upgraden. Het is raadzaam een upgrade naar de meest recente **elastische Database taken** onderdelen om te profiteren van nieuwe functionaliteit beschikbaar gesteld via de PowerShell APIs.
+[!INCLUDE [elastic-database-jobs-deprecation](../../includes/sql-database-elastic-jobs-deprecate.md)]
+
+
+
+[**Taken voor elastic Database** ](sql-database-elastic-jobs-overview.md) kan worden geïnstalleerd via PowerShell of via de Azure-portal. U kunt toegang krijgen als u wilt maken en beheren van taken met behulp van de PowerShell-API alleen als u het PowerShell-pakket installeert. Daarnaast bieden de PowerShell-APIs meer functionaliteit dan de portal op dit moment.
+
+Als u al hebt geïnstalleerd **taken voor Elastic Database** via de Portal vanaf een bestaande **elastische pool**, de meest recente Powershell-voorbeeld bevat de scripts voor het upgraden van uw bestaande installatie. Het is raadzaam een upgrade naar de meest recente **taken voor Elastic Database** onderdelen om te profiteren van nieuwe functionaliteit die via de PowerShell-APIs.
 
 ## <a name="prerequisites"></a>Vereisten
 * Een Azure-abonnement. Zie voor een gratis proefversie [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
 * Azure PowerShell. Installeer de nieuwste versie met de [Web Platform Installer](http://go.microsoft.com/fwlink/p/?linkid=320376). Zie voor gedetailleerde informatie [Installeren en configureren van Azure PowerShell](/powershell/azure/overview).
-* [NuGet-opdrachtregelprogramma](https://nuget.org/nuget.exe) wordt gebruikt om de taken elastische Database pakket te installeren. Zie voor meer informatie http://docs.nuget.org/docs/start-here/installing-nuget.
+* [NuGet-opdrachtregelprogramma](https://nuget.org/nuget.exe) wordt gebruikt om de Elastic Database jobs-pakket te installeren. Zie voor meer informatie, http://docs.nuget.org/docs/start-here/installing-nuget.
 
-## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Downloaden en importeren van de elastische Database taken PowerShell-pakket
+## <a name="download-and-import-the-elastic-database-jobs-powershell-package"></a>Downloaden en importeren van het pakket met elastische taken PowerShell
 1. Start Microsoft Azure PowerShell-opdrachtvenster en navigeer naar de map waar u NuGet-opdrachtregelprogramma (nuget.exe) gedownload.
-2. Downloaden en importeren **elastische Database taken** pakket in de huidige map met de volgende opdracht:
+2. Downloaden en importeren **taken voor Elastic Database** pakket in de huidige map met de volgende opdracht:
    
         PS C:\>.\nuget install Microsoft.Azure.SqlDatabase.Jobs -prerelease
    
-    De **elastische Database taken** bestanden worden geplaatst in de lokale map in een map met de naam **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x** waar *x.x.xxxx.x* weerspiegelt het versienummer. De PowerShell-cmdlets (met inbegrip van de vereiste client-dll's) bevinden zich in de **tools\ElasticDatabaseJobs** submappen en de PowerShell-scripts te installeren, upgraden en verwijderen ook bevinden zich in de **extra** onderliggende map.
-3. Navigeer naar de submap van de hulpprogramma's onder de map Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x door hulpprogramma's voor een cd, bijvoorbeeld in te voeren:
+    De **taken voor Elastic Database** bestanden worden geplaatst in de lokale map in een map met de naam **Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x** waar *x.x.xxxx.x* weerspiegelt de het versienummer. De PowerShell-cmdlets (met inbegrip van de vereiste client-dll's) bevinden zich in de **tools\ElasticDatabaseJobs** submappen en de PowerShell-scripts om te installeren, upgraden en verwijderen ook bevinden zich in de **extra** onderliggende map.
+3. Navigeer naar de onderliggende map van de hulpprogramma's onder de map Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x door te typen cd-hulpprogramma's, bijvoorbeeld:
    
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
-4. Voer het script.\InstallElasticDatabaseJobsCmdlets.ps1 om te kopiëren van de map ElasticDatabaseJobs naar $home\Documents\WindowsPowerShell\Modules. Hiermee wordt de module voor gebruik, bijvoorbeeld ook automatisch geïmporteerd:
+4. Voer het script.\InstallElasticDatabaseJobsCmdlets.ps1 om te kopiëren van de map ElasticDatabaseJobs naar $home\Documents\WindowsPowerShell\Modules. Dit wordt ook automatisch Importeer de module voor gebruik, bijvoorbeeld:
    
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobsCmdlets.ps1
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobsCmdlets.ps1
 
-## <a name="install-the-elastic-database-jobs-components-using-powershell"></a>De elastische taken databaseonderdelen installeren met behulp van PowerShell
-1. Start een Microsoft Azure PowerShell-opdrachtvenster en navigeer naar de submap \tools onder de map Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x: Typ cd \tools
+## <a name="install-the-elastic-database-jobs-components-using-powershell"></a>Installeer de onderdelen van Elastic Database-taken met behulp van PowerShell
+1. Start een Microsoft Azure PowerShell-opdrachtvenster en navigeer naar de onderliggende map \tools onder de map Microsoft.Azure.SqlDatabase.Jobs.x.x.xxx.x: Typ cd \tools
    
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*>cd tools
 
-2. De.\InstallElasticDatabaseJobs.ps1 PowerShell-script uitvoeren en waarden voor de aangevraagde variabelen opgeven. Dit script maakt de onderdelen beschreven in [elastische Database taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing) samen met de Azure-Cloudservice voor het gebruik van de afhankelijke onderdelen op de juiste wijze configureren.
+2. De.\InstallElasticDatabaseJobs.ps1 PowerShell-script uitvoeren en waarden voor de aangevraagde variabelen opgeven. Met dit script maakt u de onderdelen die worden beschreven [elastische taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing) samen met de Azure-Cloudservice voor het gebruik van de afhankelijke onderdelen op de juiste wijze configureren.
 
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
         PS C:\*Microsoft.Azure.SqlDatabase.Jobs.x.x.xxxx.x*\tools>.\InstallElasticDatabaseJobs.ps1
 
-Wanneer u deze opdracht een venster uitvoert weergegeven waarin een **gebruikersnaam** en **wachtwoord**. Dit is niet uw Azure-referenties, voer de gebruikersnaam en wachtwoord op dat de administrator-aanmeldgegevens die u wilt maken voor de nieuwe server.
+Bij het uitvoeren met deze opdracht een venster weergegeven waarin een **gebruikersnaam** en **wachtwoord**. Dit is niet uw Azure-referenties, voer de gebruikersnaam en wachtwoord op dat de referenties die u wilt maken voor de nieuwe server.
 
-De parameters die worden geleverd op voor dit voorbeeld aanroepen kunnen worden gewijzigd voor de gewenste instellingen. Het volgende bevat meer informatie over het gedrag van elke parameter:
+De parameters op voor dit voorbeeld-aanroepen die kunnen worden gewijzigd voor de gewenste instellingen. Hieronder vindt u meer informatie over het gedrag van elke parameter:
 
 <table style="width:100%">
   <tr>
@@ -64,7 +69,7 @@ De parameters die worden geleverd op voor dit voorbeeld aanroepen kunnen worden 
 
 <tr>
     <td>ResourceGroupName</td>
-    <td>Bevat de naam van de Azure-resourcegroep gemaakt om de zojuist gemaakte Azure onderdelen bevatten. Deze parameter wordt standaard ingesteld op '__ElasticDatabaseJob'. Het is niet raadzaam om deze waarde te wijzigen.</td>
+    <td>Naam van de Azure-resourcegroep gemaakt waartoe de zojuist gemaakte Azure-onderdelen bevat. Deze parameter wordt standaard ingesteld op '__ElasticDatabaseJob'. Het wordt niet aanbevolen om deze waarde te wijzigen.</td>
     </tr>
 
 </tr>
@@ -76,43 +81,43 @@ De parameters die worden geleverd op voor dit voorbeeld aanroepen kunnen worden 
 
 <tr>
     <td>ServiceWorkerCount</td>
-    <td>Geeft het aantal werknemers van de service te installeren. Deze parameter wordt standaard ingesteld op 1. Een hoger aantal werknemers kan worden gebruikt voor het schalen van de service en voor maximale beschikbaarheid. Het verdient aanbeveling gebruik '2' voor implementaties die hoge beschikbaarheid van de service vereist.</td>
+    <td>Geeft het aantal werknemers van de service te installeren. Deze parameter wordt standaard ingesteld op 1. Een groter aantal werknemers kan worden gebruikt om uit de service te schalen en hoge beschikbaarheid. Het verdient "2" gebruiken voor implementaties die hoge beschikbaarheid van de service nodig hebt.</td>
     </tr>
 
 </tr>
     <tr>
     <td>ServiceVmSize</td>
-    <td>De VM-grootte biedt voor gebruik in de Cloud-Service. Deze parameter wordt standaard ingesteld op A0. Parameterwaarden van A0/A1/A2/A3, waardoor de werkrol de grootte van een extra klein/klein/gemiddeld/groot, respectievelijk gebruiken worden geaccepteerd. Voor meer informatie over grootten voor worker-rol, Zie [elastische Database taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Biedt de VM-grootte voor gebruik binnen de Service in de Cloud. Deze parameter wordt standaard ingesteld op A0. Parameterwaarden van A0/A1/A2/A3, waardoor de werkrol te gebruiken een grootte ExtraSmall/kleine/gemiddeld/groot, respectievelijk worden geaccepteerd. Voor meer informatie over de rolgrootten werknemer, Zie [elastische taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>
     <tr>
     <td>SqlServerDatabaseSlo</td>
-    <td>Biedt de serviceniveaudoelstelling voor een Standard-editie. Deze parameter de standaardwaarde S0. Parameterwaarden van S0/S1/S2/S3/S4/S6/S9/S12, waardoor de Azure SQL Database te gebruiken van de respectieve SLO worden geaccepteerd. Zie voor meer informatie over SQL Database Slo's [elastische Database taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Biedt de compute-grootte voor een Standard-editie. Deze parameter standaard S0. Parameterwaarden van S0/S1/S2/S3/S4/S6/S9/S12 zijn geaccepteerd dit leidt ertoe de Azure SQL Database dat om de grootte van het respectieve compute gebruiken. Zie voor meer informatie over SQL Database-compute-grootten [elastische taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </tr>
     <tr>
     <td>SqlServerAdministratorUserName</td>
-    <td>Biedt de beheerder gebruikersnaam op voor de nieuwe Azure SQL Database-server. Wanneer niet wordt opgegeven, wordt een PowerShell-venster referenties geopend om de referenties gevraagd.</td>
+    <td>Biedt de beheerdersnaam voor de nieuwe Azure SQL Database-server. Als niet is opgegeven, wordt u vragen om de referenties een PowerShell-referenties-venster geopend.</td>
 </tr>
 
 </tr>
     <tr>
     <td>SqlServerAdministratorPassword</td>
-    <td>Biedt het beheerderswachtwoord voor de nieuwe Azure SQL Database-server. Wanneer niet wordt opgegeven, wordt een PowerShell-venster referenties geopend om de referenties gevraagd.</td>
+    <td>Biedt het beheerderswachtwoord voor de nieuwe Azure SQL Database-server. Als niet is opgegeven, wordt u vragen om de referenties een PowerShell-referenties-venster geopend.</td>
 </tr>
 </table>
 
-Voor systemen die zijn gericht op met een groot aantal taken op basis van een groot aantal databases parallel worden uitgevoerd, wordt aanbevolen, zoals parameters opgeven: - ServiceWorkerCount 2 - ServiceVmSize A2 - SqlServerDatabaseSlo S2.
+Voor systemen die zijn gericht op met een groot aantal taken die op basis van een groot aantal databases parallel worden uitgevoerd, wordt aanbevolen, zoals parameters opgeven: - ServiceWorkerCount 2 - ServiceVmSize A2 - SqlServerDatabaseSlo S2.
 
     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>Unblock-File .\InstallElasticDatabaseJobs.ps1
     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>.\InstallElasticDatabaseJobs.ps1 -ServiceWorkerCount 2 -ServiceVmSize A2 -SqlServerDatabaseSlo S2
 
-## <a name="update-an-existing-elastic-database-jobs-components-installation-using-powershell"></a>Bijwerken van een bestaande onderdelen installatie voor elastische Database taken met behulp van PowerShell
-**Elastische Database taken** binnen een bestaande installatie van de schaal en hoge beschikbaarheid kunnen worden bijgewerkt. Dit proces kan bij toekomstige upgrades van servicecode zonder te verwijderen en opnieuw maken van de database. Dit proces kan ook worden gebruikt binnen dezelfde versie om de VM-grootte van de service of het aantal worker-server te wijzigen.
+## <a name="update-an-existing-elastic-database-jobs-components-installation-using-powershell"></a>Bijwerken van een bestaande onderdelen installatie voor Elastic Database-taken met behulp van PowerShell
+**Taken voor elastic Database** binnen een bestaande installatie voor schaalbaarheid en hoge beschikbaarheid kunnen worden bijgewerkt. Dit proces kan bij toekomstige upgrades van de servicecode zonder dat u wilt verwijderen en opnieuw maken van de database. Dit proces kan ook worden gebruikt binnen dezelfde versie om de VM-grootte van de service of het aantal worker-server te wijzigen.
 
-Voer het volgende script met de parameters die zijn bijgewerkt met de waarden van uw keuze voor het bijwerken van de installatie van een VM-grootte.
+Voer het volgende script met de parameters die zijn bijgewerkt met de waarden van uw keuze voor het bijwerken van de VM-grootte van een installatie.
 
     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>Unblock-File .\UpdateElasticDatabaseJobs.ps1
     PS C:\*Microsoft.Azure.SqlDatabase.Jobs.dll.x.x.xxx.x*\tools>.\UpdateElasticDatabaseJobs.ps1 -ServiceVmSize A1 -ServiceWorkerCount 2
@@ -125,7 +130,7 @@ Voer het volgende script met de parameters die zijn bijgewerkt met de waarden va
 
   <tr>
     <td>ResourceGroupName</td>
-    <td>Geeft de naam van de Azure-resourcegroep gebruikt wanneer de onderdelen van de taak elastische Database in eerste instantie zijn geïnstalleerd. Deze parameter wordt standaard ingesteld op '__ElasticDatabaseJob'. Aangezien het niet aangeraden wordt om deze waarde te wijzigen, mag u geen om op te geven van deze parameter.</td>
+    <td>Geeft de naam van de Azure-resource die wordt gebruikt wanneer de onderdelen van Elastic Database-taak in eerste instantie zijn geïnstalleerd. Deze parameter wordt standaard ingesteld op '__ElasticDatabaseJob'. Aangezien dit niet aangeraden wordt om deze waarde te wijzigen, moet u al dan niet mogen deze parameter opgeeft.</td>
     </tr>
 </tr>
 
@@ -133,44 +138,44 @@ Voer het volgende script met de parameters die zijn bijgewerkt met de waarden va
 
   <tr>
     <td>ServiceWorkerCount</td>
-    <td>Geeft het aantal werknemers van de service te installeren.  Deze parameter wordt standaard ingesteld op 1.  Een hoger aantal werknemers kan worden gebruikt voor het schalen van de service en voor maximale beschikbaarheid.  Het verdient aanbeveling gebruik '2' voor implementaties die hoge beschikbaarheid van de service vereist.</td>
+    <td>Geeft het aantal werknemers van de service te installeren.  Deze parameter wordt standaard ingesteld op 1.  Een groter aantal werknemers kan worden gebruikt om uit de service te schalen en hoge beschikbaarheid.  Het verdient "2" gebruiken voor implementaties die hoge beschikbaarheid van de service nodig hebt.</td>
 </tr>
 
 </tr>
 
     <tr>
     <td>ServiceVmSize</td>
-    <td>De VM-grootte biedt voor gebruik in de Cloud-Service. Deze parameter wordt standaard ingesteld op A0. Parameterwaarden van A0/A1/A2/A3, waardoor de werkrol de grootte van een extra klein/klein/gemiddeld/groot, respectievelijk gebruiken worden geaccepteerd. Voor meer informatie over grootten voor worker-rol, Zie [elastische Database taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
+    <td>Biedt de VM-grootte voor gebruik binnen de Service in de Cloud. Deze parameter wordt standaard ingesteld op A0. Parameterwaarden van A0/A1/A2/A3, waardoor de werkrol te gebruiken een grootte ExtraSmall/kleine/gemiddeld/groot, respectievelijk worden geaccepteerd. Voor meer informatie over de rolgrootten werknemer, Zie [elastische taken onderdelen en prijzen](sql-database-elastic-jobs-overview.md#components-and-pricing).</td>
 </tr>
 
 </table>
 
-## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>De elastische taken databaseonderdelen installeren via de Portal
-Zodra u hebt [een elastische pool gemaakt](sql-database-elastic-pool-manage-portal.md), kunt u installeren **elastische Database taken** onderdelen waarmee het uitvoeren van beheertaken voor elke database in de elastische groep. In tegenstelling tot wanneer met behulp van de **elastische Database taken** APIs PowerShell, de interface van de portal is momenteel beperkt tot alleen uitvoeren op basis van een bestaande toepassingen.
+## <a name="install-the-elastic-database-jobs-components-using-the-portal"></a>Installeer de onderdelen van Elastic Database-taken met behulp van de Portal
+Als u eenmaal hebt [gemaakt van een elastische pool](sql-database-elastic-pool-manage-portal.md), u kunt installeren **taken voor Elastic Database** onderdelen voor het uitvoeren van beheertaken voor elke database in de elastische pool inschakelen. In tegenstelling tot wanneer met behulp van de **taken voor Elastic Database** PowerShell-APIs, de interface van de portal is momenteel beperkt tot alleen uitvoeren op basis van een bestaande pool.
 
 **Geschatte duur:** 10 minuten.
 
-1. Uit de dashboardweergave van de elastische groep via de [Azure-portal](https://portal.azure.com/#) , klikt u op **maken taak**.
-2. Als u een taak voor het eerst maakt, moet u **elastische Database taken** door te klikken op **PREVIEW-voorwaarden**.
+1. In de dashboardweergave van de elastische groep via de [Azure-portal](https://portal.azure.com/#) , klikt u op **maken taak**.
+2. Als u een taak voor het eerst maakt, moet u installeren **taken voor Elastic Database** door te klikken op **voorwaarden voor PREVIEW**.
 3. De voorwaarden accepteren door te klikken op het selectievakje in.
-4. Klik in de weergave 'Services installeren' **taak REFERENTIES**.
+4. Klik in de weergave "Services installeren" op **TAAKREFERENTIES**.
    
-    ![De services te installeren][1]
-5. Typ een gebruikersnaam en wachtwoord voor een database-beheerder. Een nieuwe Azure SQL Database-server is gemaakt als onderdeel van de installatie. In deze nieuwe server bekend als de database, een nieuwe database gemaakt en gebruikt voor de metagegevens voor elastische Database taken bevatten. De gebruikersnaam en wachtwoord hier gemaakte worden omwille van de logboekregistratie in voor de database gebruikt. Een afzonderlijke referentie wordt gebruikt voor de uitvoering van het script op basis van de databases in de pool.
+    ![Installeren van de services][1]
+5. Typ een gebruikersnaam en wachtwoord voor de beheerder van een database. Als onderdeel van de installatie van wordt een nieuwe Azure SQL Database-server gemaakt. In deze nieuwe server is een nieuwe database, de database, ook wel gemaakt en gebruikt voor het bevat de metagegevens voor de taken voor Elastic Database. De gebruikersnaam en wachtwoord hier gemaakt worden gebruikt voor het aanmelden bij de database. Een afzonderlijke referentie wordt gebruikt voor de uitvoering van het script op basis van de databases in de groep.
    
     ![Maak een gebruikersnaam en wachtwoord][2]
-6. Klik op de knop OK. De onderdelen voor u gemaakt in een paar minuten in een nieuw [resourcegroep](../azure-resource-manager/resource-group-overview.md). De nieuwe resourcegroep is vastgemaakt aan de start board, zoals hieronder wordt weergegeven. Taken nadat deze is gemaakt, elastische database (Cloudservice, SQL-Database, Service Bus en opslag) worden gemaakt in de groep.
+6. Klik op de knop OK. De onderdelen worden voor u gemaakt in een paar minuten een nieuwe [resourcegroep](../azure-resource-manager/resource-group-overview.md). De nieuwe resourcegroep is vastgemaakt aan het begin-bord, zoals hieronder wordt weergegeven. Nadat deze is gemaakt, elastische databasetaken (Cloud Service, SQL-Database, Service Bus en opslag) worden gemaakt in de groep.
    
     ![resourcegroep in start board][3]
-7. Als u probeert te maken of beheren van een taak, terwijl de taken van de elastische database wordt geïnstalleerd bij het opgeven van **referenties** ziet u het volgende bericht.
+7. Als u probeert te maken of een taak beheren als taken voor elastic database wordt geïnstalleerd bij het opgeven van **referenties** ziet u het volgende bericht weergegeven.
    
-    ![Implementatie nog in voortgang][4]
+    ![De implementatie wordt nog steeds wordt uitgevoerd][4]
 
-Als het verwijderen vereist is, moet u de resourcegroep verwijderen. Zie [verwijderen van de onderdelen van de taak elastische Database](sql-database-elastic-jobs-uninstall.md).
+Als verwijdering vereist is, verwijdert u de resourcegroep. Zie [verwijderen van de elastische taak databaseonderdelen](sql-database-elastic-jobs-uninstall.md).
 
 ## <a name="next-steps"></a>Volgende stappen
-Zorg ervoor dat een referentie met de juiste rechten heeft voor uitvoering van het script wordt gemaakt op elke database in de groep, Zie voor meer informatie [SQL Database beveiligen](sql-database-manage-logins.md).
-Zie [maken en beheren van de taken voor een elastische Database](sql-database-elastic-jobs-create-and-manage.md) aan de slag.
+Zorg ervoor dat een referentie met de juiste rechten heeft voor de uitvoering van het script is gemaakt voor elke database in de groep, Zie voor meer informatie [beveiligen van uw SQL-Database](sql-database-manage-logins.md).
+Zie [maken en beheren van een elastische databasetaken](sql-database-elastic-jobs-create-and-manage.md) aan de slag.
 
 <!--Image references-->
 [1]: ./media/sql-database-elastic-jobs-service-installation/screen-1.png

@@ -6,15 +6,15 @@ author: jovanpop-msft
 manager: craigg
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/14/2018
 ms.author: jovanpop
 ms.reviewer: carlrab, sashan
-ms.openlocfilehash: 1aab8dfd3a4bcc33cddb71dec08157ee7eb68f8d
-ms.sourcegitcommit: 465ae78cc22eeafb5dfafe4da4b8b2138daf5082
+ms.openlocfilehash: b35eafd8c154b6550104a87bfadce6ec528e911a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44324645"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732513"
 ---
 # <a name="high-availability-and-azure-sql-database"></a>Hoge beschikbaarheid en Azure SQL-Database
 
@@ -23,8 +23,8 @@ Azure SQL Database is de maximaal beschikbare database Platform as a Service dat
 Azure-platform volledig elke Azure SQL-Database wordt beheerd en zonder verlies van gegevens en een hoog percentage van de beschikbaarheid van gegevens wordt gegarandeerd. Azure regelt automatisch toepassen van patches, back-ups, replicatie, foutdetectie, onderliggende mogelijke hardware, software of netwerkstoringen, distribueren oplossingen voor problemen, failovers, upgrades van de database en andere onderhoudstaken. SQL Server-technici hebben geïmplementeerd de bekendste procedures ervoor te zorgen dat alle onderhoudsbewerkingen wordt uitgevoerd in minder dan 0,01% tijd van de levensduur van uw database. Deze architectuur is ontworpen om ervoor te zorgen dat vastgelegde gegevens nooit kwijt is en dat er onderhoudsbewerkingen worden uitgevoerd zonder gevolgen voor werkbelasting. Er zijn geen onderhoudsvensters of downtimes moeten waarvoor u de werkbelasting stoppen terwijl de database wordt bijgewerkt of onderhouden. Ingebouwde hoge beschikbaarheid in Azure SQL Database zorgt ervoor dat de database kan enkel storingspunt in de softwarearchitectuur niet.
 
 Azure SQL Database is gebaseerd op SQL Server Database Engine-architectuur die wordt aangepast aan de cloudomgeving om ervoor te zorgen, zelfs in het geval van infrastructuuruitval voor 99,99% beschikbaarheid. Er zijn twee hoge beschikbaarheid architectuur modellen die worden gebruikt in Azure SQL Database (van beide ervoor te zorgen dat de beschikbaarheid van 99,99%):
-- Standard/voor algemeen gebruik-model dat is gebaseerd op een scheiding van berekening en opslag. Deze architectuur is gebaseerd op hoge beschikbaarheid en betrouwbaarheid van de storage-laag, maar dat er enkele mogelijke prestatievermindering tijdens onderhoudswerkzaamheden.
-- Premium/kritieke bedrijfsmodel die is gebaseerd op een cluster van database-engine verwerkt. Deze architectuur is gebaseerd op een feit dat er altijd een quorum met knooppunten voor beschikbare database-engine en heeft minimale prestatie-impact op de werkbelasting, zelfs tijdens onderhoudswerkzaamheden.
+- Standard/voor algemeen gebruik service tier model dat is gebaseerd op een scheiding van berekening en opslag. Deze architectuur is gebaseerd op hoge beschikbaarheid en betrouwbaarheid van de storage-laag, maar dat er enkele mogelijke prestatievermindering tijdens onderhoudswerkzaamheden.
+- Kritieke-Premium/business laag-model dat is gebaseerd op een cluster van database-engine verwerkt. Deze architectuur is gebaseerd op een feit dat er altijd een quorum met knooppunten voor beschikbare database-engine en heeft minimale prestatie-impact op de werkbelasting, zelfs tijdens onderhoudswerkzaamheden.
 
 Azure upgrades en patches onderliggende besturingssysteem, stuurprogramma's en SQL Server Database Engine transparant met de minimale uitvaltijd voor eindgebruikers. Azure SQL-Database wordt uitgevoerd op de laatste stabiele versie van SQL Server Database Engine en Windows-besturingssysteem en de meeste van de gebruikers niet ziet dat de upgrades continu worden uitgevoerd.
 
@@ -59,7 +59,7 @@ Bedrijfskritiek cluster biedt bovendien ingebouwde alleen-lezen-knooppunt kan wo
 
 De quorum-set replica's voor de lokale opslag-configuraties worden standaard gemaakt in hetzelfde datacenter. Dankzij de introductie van [Azure Availability Zones](../availability-zones/az-overview.md), hebt u de mogelijkheid om de verschillende replica's in de quorum-sets voor verschillende beschikbaarheidszones in dezelfde regio. Om te voorkomen een single point of failure, is de controle-ring ook gedupliceerd in meerdere zones als drie gateway ringen (GW). De routering naar een specifieke gateway ring wordt bepaald door [Azure Traffic Manager](../traffic-manager/traffic-manager-overview.md) (ATM). Omdat de configuratie van de zone-redundante geen extra databaseredundantie maakt, het gebruik van de Beschikbaarheidszones (preview) in de Servicelagen Premium en bedrijfskritiek is beschikbaar op zonder extra kosten. Als u een zone-redundante database selecteert, kunt u uw databases Premium en bedrijfskritiek flexibele aan een veel grotere set van fouten, met inbegrip van datacenter catastrofale uitval, zonder deze te wijzigen van de toepassingslogica. U kunt ook een bestaande Premium en bedrijfskritiek databases of pools converteren naar de configuratie van de zone-redundante.
 
-Omdat de redundante zone quorum-set replica's in verschillende datacenters met een onderlinge afstand heeft, kan de verhoogde netwerklatentie verhoogt de tijd die doorvoeren en dus van invloed zijn op de prestaties van sommige OLTP-workloads. U kunt altijd terugkeren naar de configuratie met één zone door de instelling van de redundantie zone uit te schakelen. Dit proces is een grootte van gegevens en is vergelijkbaar met de normale service level objective (SLO)-update. De database of pool aan het einde van het proces is gemigreerd vanuit een redundante ring zone naar een enkele zone-ring of vice versa.
+Omdat de redundante zone quorum-set replica's in verschillende datacenters met een onderlinge afstand heeft, kan de verhoogde netwerklatentie verhoogt de tijd die doorvoeren en dus van invloed zijn op de prestaties van sommige OLTP-workloads. U kunt altijd terugkeren naar de configuratie met één zone door de instelling van de redundantie zone uit te schakelen. Dit proces is een grootte van gegevens en is vergelijkbaar met de reguliere service tier-update. De database of pool aan het einde van het proces is gemigreerd vanuit een redundante ring zone naar een enkele zone-ring of vice versa.
 
 > [!IMPORTANT]
 > Zone-redundante databases en elastische pools zijn momenteel alleen ondersteund in de Premium-servicelaag. Tijdens de preview-versie, back-ups en audit records worden opgeslagen in de RA-GRS-opslag en daarom mogelijk niet automatisch beschikbaar in het geval van een storing in de hele zone. 
@@ -69,7 +69,7 @@ De zone-redundante-versie van de architectuur voor hoge beschikbaarheid wordt aa
 ![hoge beschikbaarheid architectuur zone-redundant](./media/sql-database-high-availability/high-availability-architecture-zone-redundant.png)
 
 ## <a name="read-scale-out"></a>Uitschaling lezen
-Zoals wordt beschreven, Servicelagen Premium en bedrijfskritiek gebruikmaken van de quorum-sets en altijd op technologie voor hoge beschikbaarheid in één zone en de zone-redundante configuraties. Een van de voordelen van AlwaysOn is dat de replica's altijd de transactioneel consistente status hebben. Omdat de replica's hetzelfde prestatieniveau als de primaire hebben, de toepassing kan profiteren van deze extra capaciteit voor het onderhoud van de alleen-lezen werkbelastingen zonder extra kosten (lezen scale-out). Op deze manier de alleen-lezen query's worden geïsoleerd van de belangrijkste workload voor lezen / schrijven en heeft geen invloed op de prestaties. Lezen van de functie scale-out is bedoeld voor de toepassingen die logisch zijn gescheiden van alleen-lezen-werkbelastingen, zoals analytics en daarom kan gebruikmaken van deze extra capaciteit zonder verbinding te maken met de primaire. 
+Zoals wordt beschreven, Servicelagen Premium en bedrijfskritiek gebruikmaken van de quorum-sets en altijd op technologie voor hoge beschikbaarheid in één zone en de zone-redundante configuraties. Een van de voordelen van AlwaysOn is dat de replica's altijd de transactioneel consistente status hebben. Omdat de replica's de dezelfde compute groot is als de primaire hebben, de toepassing kan profiteren van deze extra capaciteit voor het onderhoud van de alleen-lezen werkbelastingen zonder extra kosten (lezen scale-out). Op deze manier de alleen-lezen query's worden geïsoleerd van de belangrijkste workload voor lezen / schrijven en heeft geen invloed op de prestaties. Lezen van de functie scale-out is bedoeld voor de toepassingen die logisch zijn gescheiden van alleen-lezen-werkbelastingen, zoals analytics en daarom kan gebruikmaken van deze extra capaciteit zonder verbinding te maken met de primaire. 
 
 Voor het gebruik van de functie Read Scale-Out met een bepaalde database, moet u expliciet deze activeren bij het maken van de database of later door het wijzigen van de configuratie met behulp van PowerShell door het aanroepen van de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) of de [New-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets of via de REST-API van Azure Resource Manager met behulp de [Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate) methode.
 

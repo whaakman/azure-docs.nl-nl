@@ -6,15 +6,15 @@ author: srdan-bozovic-msft
 manager: craigg
 ms.custom: managed instance
 ms.topic: conceptual
-ms.date: 05/21/2018
+ms.date: 09/14/2018
 ms.author: srbozovi
 ms.reviewer: bonova, carlrab
-ms.openlocfilehash: 82e8836892b033ccbb3c3ad9806257348afe3702
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 5e4d96df7d6a43418aad92fdf6509a5ca7ec623a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42818399"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734655"
 ---
 # <a name="connect-your-application-to-azure-sql-database-managed-instance"></a>Verbinding maken tussen uw toepassing en het beheerde exemplaar van Azure SQL Database
 
@@ -25,13 +25,10 @@ U kunt kiezen voor het hosten van de toepassing in de cloud met Azure App Servic
 De keuze die u hebt gemaakt, kunt u deze naar een beheerd exemplaar (preview).  
 
 ![hoge beschikbaarheid](./media/sql-database-managed-instance/application-deployment-topologies.png)  
-
 ## <a name="connect-an-application-inside-the-same-vnet"></a>Verbinding maken met een toepassing in hetzelfde VNet 
 
 Dit scenario is de eenvoudigste. Virtuele machines binnen het VNet worden rechtstreeks met elkaar verbonden, zelfs als deze zich in verschillende subnetten. Dit betekent dat dat is alles wat u nodig voor de toepassing in een omgeving voor Azure-toepassingen of de virtuele Machine verbinden met de verbindingsreeks op de juiste wijze instellen.  
  
-In het geval u de verbinding te maken kan, moet u controleren of er een Netwerkbeveiligingsgroep die is ingesteld op het subnet van de toepassing. In dit geval moet u uitgaande verbindingen op de SQL-poort 1433, evenals 11000 12000 bereik van poorten voor de omleiding van openen. 
-
 ## <a name="connect-an-application-inside-a-different-vnet"></a>Verbinding maken met een toepassing in een ander VNet 
 
 In dit scenario is iets wat ingewikkelder omdat Managed Instance privé IP-adres in een eigen VNet is. Als u wilt verbinden, moet een toepassing toegang tot het VNet waarop Managed Instance wordt geïmplementeerd. Ja, u moet eerst een verbinding tussen de toepassing en het beheerde exemplaar VNet te maken. De VNets hoeven niet te worden in hetzelfde abonnement voor dit scenario te werken. 
@@ -55,6 +52,19 @@ Er zijn twee opties verbinding maken tussen on-premises en Azure-VNet:
  
 Als hebt u on-premises naar Azure-verbinding is gemaakt en u kunt geen verbinding met Managed Instance maken, controleert u of uw firewall open uitgaande verbinding op SQL-poort 1433, evenals 11000 12000 bereik van poorten voor de omleiding van heeft. 
 
+## <a name="connect-an-application-on-the-developers-box"></a>Verbinding maken met een toepassing in het vak voor ontwikkelaars
+
+Voor het beheerde exemplaar kan alleen worden verkregen via een privé IP-adres dus als u wilt openen vanaf uw developer-box, moet u eerst een verbinding tussen uw developer-box en het beheerde exemplaar VNet te maken. Om dit te doen, een punt-naar-Site-verbinding met een VNet met behulp van systeemeigen Azure certificaatverificatie te configureren. Zie voor meer informatie, [configureren van een punt-naar-site-verbinding verbinding maken met een Azure SQL Database Managed Instance vanaf on-premises computer](sql-database-managed-instance-configure-p2s.md).
+
+## <a name="connect-from-on-premises-with-vnet-peering"></a>Verbinding maken vanaf on-premises met VNet-peering
+Een ander scenario geïmplementeerd door klanten is waarop het VPN-gateway is geïnstalleerd in een apart virtueel netwerk en een abonnement van de ene host Managed Instance. De twee virtuele etworks vervolgens aan elkaar zijn gekoppeld. Het volgende voorbeeld architectuur diagram laat zien hoe deze kan worden geïmplementeerd.
+
+![VNet-peering](./media/sql-database-managed-instance-connect-app/vnet-peering.png)
+
+Zodra u de basisinfrastructuur instellen hebt, moet u een instelling te wijzigen zodat de VPN-Gateway kunt zien de IP-adressen in het virtuele netwerk dat als host fungeert voor het beheerde exemplaar. Om dit te doen, breng de volgende zeer specifieke wijzigingen onder de **Peering instellingen**.
+1.  In het VNet die als host fungeert voor de VPN-gateway, gaat u naar **Peerings**, klikt u vervolgens met het beheerde exemplaar gekoppeld VNet-verbinding, en klik vervolgens op **Gatewayoverdracht toestaan**.
+2.  In het VNet die als host fungeert voor het beheerde exemplaar, gaat u naar **Peerings**, klikt u vervolgens op de VPN-Gateway gekoppeld VNet-verbinding, en klik vervolgens op **externe gateways gebruiken**.
+
 ## <a name="connect-an-azure-app-service-hosted-application"></a>Verbinding maken met een toepassing met Azure App Service die wordt gehost 
 
 Voor het beheerde exemplaar kan alleen worden verkregen via een privé IP-adres om te kunnen openen vanaf Azure App Service moet u eerst een verbinding tussen de toepassing en het beheerde exemplaar VNet te maken. Zie [uw app integreren met een Azure Virtual Network](../app-service/web-sites-integrate-with-vnet.md).  
@@ -71,11 +81,48 @@ In dit scenario is geïllustreerd in het volgende diagram:
 
 ![geïntegreerde app-peering](./media/sql-database-managed-instance/integrated-app-peering.png)
  
-## <a name="connect-an-application-on-the-developers-box"></a>Verbinding maken met een toepassing in het vak voor ontwikkelaars 
+## <a name="troubleshooting-connectivity-issues"></a>Het oplossen van problemen met de netwerkverbinding
 
-Voor het beheerde exemplaar kan alleen worden verkregen via een privé IP-adres dus als u wilt openen vanaf uw developer-box, moet u eerst een verbinding tussen uw developer-box en het beheerde exemplaar VNet te maken.  
- 
-Een punt-naar-Site-verbinding met een VNet met behulp van systeemeigen Azure-certificaatverificatie verificatie artikelen configureren ([Azure-portal](../vpn-gateway/vpn-gateway-howto-point-to-site-resource-manager-portal.md), [PowerShell](../vpn-gateway/vpn-gateway-howto-point-to-site-rm-ps.md), [Azure CLI](../vpn-gateway/vpn-gateway-howto-point-to-site-classic-azure-portal.md)) in detail weergeeft hoe het kan worden uitgevoerd. 
+Voor het oplossen van problemen met de netwerkverbinding, controleert u het volgende:
+- Als u geen verbinding maken met beheerd exemplaar van een virtuele machine van Azure binnen het hetzelfde VNet maar een ander subnet, moet u controleren of er een Netwerkbeveiligingsgroep die is ingesteld op VM-subnet dat toegang blokkeert. Daarnaast merk op dat u uitgaande verbindingen op de SQL-poort 1433, evenals poorten openen in bereik van 11000 12000 moet omdat die nodig zijn om verbinding te maken via een omleiding binnen de grenzen van Azure. 
+- Zorg ervoor dat BGP doorgiftetaak is ingesteld op **ingeschakeld** voor de routetabel die zijn gekoppeld aan het VNet.
+- Als u P2S VPN, controleert u de configuratie in de Azure portal om te controleren of **Inkomend/uitgaand verkeer** getallen. Niet-nulwaarde getallen geven aan dat Azure routeren van verkeer naar/vanuit on-premises.
+
+   ![Inkomend/uitgaand verkeer cijfers](./media/sql-database-managed-instance-connect-app/ingress-egress-numbers.png)
+
+- Controleer of de clientcomputer (dat wordt uitgevoerd de VPN-client) routevermeldingen voor alle vnet's die u nodig hebt voor toegang tot heeft. De routes worden opgeslagen in `%AppData%\ Roaming\Microsoft\Network\Connections\Cm\<GUID>\routes.txt`.
+
+
+   ![route.txt](./media/sql-database-managed-instance-connect-app/route-txt.png)
+
+   Zoals u in deze afbeelding, zijn er twee vermeldingen voor elke VNet die betrokken zijn en een derde vermelding voor het VPN-eindpunt dat is geconfigureerd in de Portal.
+
+   Een andere manier om te controleren of de routes is via de volgende opdracht uit. De uitvoer ziet u de routes naar de verschillende subnetten: 
+
+   ```cmd
+   C:\ >route print -4
+   ===========================================================================
+   Interface List
+   14...54 ee 75 67 6b 39 ......Intel(R) Ethernet Connection (3) I218-LM
+   57...........................rndatavnet
+   18...94 65 9c 7d e5 ce ......Intel(R) Dual Band Wireless-AC 7265
+   1...........................Software Loopback Interface 1
+   Adapter===========================================================================
+   
+   IPv4 Route Table
+   ===========================================================================
+   Active Routes:
+   Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0       10.83.72.1     10.83.74.112     35
+         10.0.0.0    255.255.255.0         On-link       172.26.34.2     43
+     
+         10.4.0.0    255.255.255.0         On-link       172.26.34.2     43
+   ===========================================================================
+   Persistent Routes:
+   None
+   ```
+
+- Als u VNet-peering, zorgt u ervoor dat u de instructies voor de instelling hebt gevolgd [Gatewayoverdracht toestaan en externe Gateways gebruiken](#connect-from-on-premises-with-vnet-peering). 
 
 ## <a name="required-versions-of-drivers-and-tools"></a>Vereiste versies van stuurprogramma's en hulpprogramma 's
 
@@ -93,5 +140,5 @@ De volgende minimale versies van de hulpprogramma's en stuurprogramma's worden a
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over Managed Instance [wat is een beheerd exemplaar](sql-database-managed-instance.md).
+- Zie [Wat is een beheerd exemplaar (preview)?](sql-database-managed-instance.md) voor meer informatie over beheerde exemplaren.
 - Zie voor een zelfstudie wordt uitgelegd hoe u een nieuwe Managed Instance maakt u [maken van een beheerd exemplaar](sql-database-managed-instance-get-started.md).

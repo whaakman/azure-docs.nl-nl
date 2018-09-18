@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: ea9ff8f93ede3b9ec5e7eed83c6049b0c23de7e8
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 94de5566db2395a3daf24c99a43cca6853e12cce
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205456"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736968"
 ---
 # <a name="connect-an-mxchip-iot-devkit-device-to-your-azure-iot-central-application"></a>Een apparaat MXChip IoT DevKit verbinden met uw Azure IoT Central-toepassing
 
@@ -43,26 +43,34 @@ Voor volledige informatie over de configuratie van de verwijzen naar [MXChip sja
 
 ## <a name="add-a-real-device"></a>Echt apparaat toevoegen
 
-Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **MXChip** apparaat sjabloon en maak een notitie van de verbindingsreeks van het apparaat. Zie voor meer informatie, [een echt apparaat toevoegen aan uw Azure IoT Central toepassing](tutorial-add-device.md).
+Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **MXChip** apparaat sjabloon en maak een notitie van de verbindingsgegevens van het apparaat (**bereik-ID, apparaat-ID en primaire sleutel**).
+
+1. Voeg een **echt apparaat** van Device Explorer, klikt u op **+ Nieuw > echte** om toe te voegen een echt apparaat.
+    * Voer de apparaat-Id **<span style="color:Red">(moet zich bevinden in kleine letters)</span>** of gebruikt u de voorgestelde apparaat-id.
+    * Voer de naam van het apparaat of de voorgestelde naam gebruiken
+    
+    ![Apparaat toevoegen](media\concepts-connectivity\add-device.png)
+
+
+1. Zoals Verbindingsdetails ophalen **bereik-ID, apparaat-ID en primaire sleutel** voor het apparaat door te klikken op **Connect** op de Apparaatpagina.
+ 
+    ![Verbindingsdetails](media\concepts-connectivity\device-connect.PNG)
+
+3. Zorg ervoor dat deze details op te slaan als u temporaritly verbinding verbroken via internet bij het voorbereiden van het apparaat DevKit. 
+
 
 ### <a name="prepare-the-devkit-device"></a>Het apparaat DevKit voorbereiden
 
 > [!NOTE]
 > Als u het apparaat eerder hebt gebruikt en Wi-Fi referenties opgeslagen en wilt configureren van het apparaat voor het gebruik van een ander Wi-Fi-netwerk, een verbindingsreeks of een telemetrie-meting hebt, drukt u op zowel de **A** en **B** tegelijkertijd knoppen op het bord. Als dit niet werkt, drukt u op **opnieuw** knop en probeer het opnieuw.
 
-#### <a name="before-you-start-configuring-the-device"></a>Voordat u begint met het configureren van het apparaat:
-1. Uw IoT-centraal-India **voorbeeld Devkits** Ga naar `Device Explorer` ->  `select MXChip Template`  ->  `Click on +New and choose **Real** Device`  ->  `Connect this device` (in de rechterbovenhoek) 
-2. Kopieer de primaire verbindingsreeks
-3. Zorg ervoor dat u de verbindingsreeks opslaan als u temporaritly verbinding verbroken via internet bij het voorbereiden van het apparaat DevKit. 
 
 
 #### <a name="to-prepare-the-devkit-device"></a>Het apparaat DevKit voorbereiden:
 
 
-1. Download de meest recente vooraf gebouwde Azure IoT Central firmware voor de MXChip uit de [releases](https://github.com/Azure/iot-central-firmware/releases) pagina op GitHub. De bestandsnaam downloaden op de releasepagina ziet eruit als `AZ3166-IoT-Central-X.X.X.bin`.
-
+1. Download de meest recente vooraf gebouwde Azure IoT Central firmware voor de MXChip uit de [releases](http://aka.ms/iotcentral-docs-MXChip-releases) pagina op GitHub.
 1. Verbind het apparaat DevKit naar uw ontwikkelmachine met behulp van een USB-kabel. In Windows, wordt een bestand explorer-venster geopend op een station dat is toegewezen aan de opslag op het apparaat DevKit. Bijvoorbeeld: het station kan worden aangeroepen **AZ3166 (D:)**.
-
 1. Sleep de **iotCentral.bin** -bestand op het station-venster. Wanneer het kopiëren voltooid is, wordt het apparaat opnieuw wordt opgestart met de nieuwe firmware.
 
 1. Wanneer het apparaat DevKit opnieuw wordt opgestart, wordt het volgende scherm wordt weergegeven:
@@ -75,7 +83,7 @@ Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **MXChip** appa
     ```
 
     > [!NOTE]
-    > Als u iets anders van het scherm weergegeven, drukt u op de **A** en **B** knoppen op het apparaat op hetzelfde moment opnieuw opstarten van het apparaat. 
+    > Als het scherm wordt weergegeven iets anders, opnieuw instellen van het apparaat en druk op de **A** en **B** knoppen op het apparaat op hetzelfde moment opnieuw opstarten van het apparaat. 
 
 1. Het apparaat is nu in de toegangsmodus punt (AP). U kunt met dit Wi-Fi-toegangspunt voor het verbinden van uw computer of mobiel apparaat.
 
@@ -89,7 +97,7 @@ Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **MXChip** appa
     - de naam van uw Wi-Fi-netwerk toevoegen 
     - het wachtwoord voor het Wi-Fi-netwerk
     - PIN-CODE die wordt weergegeven op het apparaat LCD 
-    - de verbindingsreeks van uw apparaat (u moet al opgeslagen dit de stappen te volgen) vindt u de verbindingsreeks op `https://apps.iotcentral.com` -> `Device Explorer` -> `Device` -> `Select or Create a new Real Device` -> `Connect this device` (in de rechterbovenhoek)
+    - details van de verbinding **bereik-Id, apparaat-Id en primaire sleutel** van uw apparaat (u moet al opgeslagen dit de stappen te volgen)      
     - Selecteer alle beschikbare telemetrie metingen. 
 
 1. Nadat u hebt gekozen **apparaat configureren**, ziet u deze pagina:
@@ -99,7 +107,6 @@ Voeg in uw Azure IoT Central-toepassing een echt apparaat uit de **MXChip** appa
 1. Druk op de **opnieuw** knop op uw apparaat.
 
 
-
 ## <a name="view-the-telemetry"></a>De telemetrie bekijken
 
 Wanneer het apparaat DevKit opnieuw wordt opgestart, ziet u het scherm op het apparaat:
@@ -107,6 +114,9 @@ Wanneer het apparaat DevKit opnieuw wordt opgestart, ziet u het scherm op het ap
 * Het aantal berichten over telemetrie verzonden.
 * Het aantal fouten.
 * Het aantal gewenste eigenschappen die worden ontvangen en het aantal gerapporteerde eigenschappen die worden verzonden.
+
+> [!NOTE]
+> Als het apparaat wordt weergegeven tijdens het verbinding maken met controle worden doorlopen als het apparaat is *geblokkeerd* in IoT Central, en *opheffen van blokkeringen* het apparaat, zodat deze verbinding met de app maken kan.
 
 Schud het apparaat increment het aantal gerapporteerde eigenschappen die worden verzonden. Het apparaat verzendt een willekeurig getal als de **Die nummer** apparaateigenschap.
 

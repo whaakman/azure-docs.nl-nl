@@ -1,23 +1,23 @@
 ---
-title: De herkennen afgedrukt en handgeschreven tekst
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Concepten met betrekking tot het herkennen van gedrukte en handgeschreven tekst in afbeeldingen met behulp van de Computer Vision in Azure Cognitive Services.
+title: Voor het herkennen van afdrukken en handgeschreven tekst - Computer Vision
+titleSuffix: Azure Cognitive Services
+description: Concepten met betrekking tot het herkennen van afdrukken en handgeschreven tekst in afbeeldingen met behulp van de Computer Vision-API.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: bdfef668eddc712d2637dcf53a01f193a3204880
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 49cba0e9b6958beb07b6f074e6dc748679514525
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725357"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985308"
 ---
-# <a name="recognizing-printed-and-handwritten-text"></a>De herkennen afgedrukt en handgeschreven tekst
+# <a name="recognizing-printed-and-handwritten-text"></a>Afgedrukte en handgeschreven tekst herkennen
 
 Computer Vision kunt detecteren en extraheer gedrukte of handgeschreven tekst uit afbeeldingen van verschillende objecten met verschillende oppervlakken en achtergronden, zoals ontvangstbevestigingen voor e-mails, posters, visitekaartjes, letters en whiteboards.
 

@@ -4,24 +4,39 @@ description: Beschrijft hoe u een evaluatie met behulp van machineafhankelijkhed
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 07/05/2018
+ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 4b83380558c10bc4f96d56f89a5cc2b7b53edc2e
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 31cbec8eab499fac116eac6fa2addac4ec2a340b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39621076"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737089"
 ---
 # <a name="group-machines-using-machine-dependency-mapping"></a>Machines groeperen met behulp van machine-afhankelijkheidstoewijzing
 
 In dit artikel wordt beschreven hoe u een groep machines voor [Azure Migrate](migrate-overview.md) beoordelen door te visualiseren afhankelijkheden van machines. Doorgaans gebruikt u deze methode als u wilt beoordelen van groepen van virtuele machines met een hogere mate van vertrouwen door machineafhankelijkheden cross controleren voordat u een evaluatie uitvoert. Visualisatie van afhankelijkheden kunt u effectief plan uw migratie naar Azure. Hiermee kunt u ervoor zorgen dat er niets is overgebleven en onverwachte storingen niet wordt uitgevoerd wanneer u naar Azure migreert. U kunt alle onderling afhankelijk zijn systemen die tegelijk migreren en bepalen of een actief systeem gebruikers nog steeds bedient of een kandidaat is voor het buiten gebruik stellen in plaats van de migratie moeten detecteren.
 
 
-## <a name="prepare-machines-for-dependency-mapping"></a>Computers voorbereiden voor afhankelijkheidstoewijzing
-Als u afhankelijkheden van machines, die u wilt downloaden en installeren van agents op elke on-premises computer die u wilt evalueren. Bovendien, als u computers geen verbinding met internet hebt, moet u om te downloaden en installeren [OMS-gateway](../log-analytics/log-analytics-oms-gateway.md) hierop.
+## <a name="prepare-for-dependency-visualization"></a>Voorbereiden voor visualisatie van afhankelijkheden
+Azure Migrate maakt gebruik van de oplossing Serviceoverzicht in Log Analytics om in te schakelen visualisatie van afhankelijkheden van machines.
+
+### <a name="associate-a-log-analytics-workspace"></a>Een Log Analytics-werkruimte koppelen
+Als u wilt gebruikmaken van de visualisatie van afhankelijkheden, moet u een Log Analytics-werkruimte, nieuwe of bestaande koppelen met een Azure Migrate-project. U kunt alleen maken of koppelen van een werkruimte in hetzelfde abonnement waar het migratieproject is gemaakt.
+
+- Een Log Analytics-werkruimte koppelen aan een project in **overzicht**, gaat u naar **Essentials** sectie van het project, klikt u op **configuratie is vereist**
+
+    ![Log Analytics-werkruimte koppelen](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- Wanneer u een nieuwe werkruimte maakt, moet u een naam opgeven voor de werkruimte. De werkruimte wordt vervolgens gemaakt in hetzelfde abonnement als de migration-project en in een regio in dezelfde [Azure-Geografie](https://azure.microsoft.com/global-infrastructure/geographies/) als het migratieproject.
+- De **gebruik bestaande** optie een lijst met alleen deze werkruimten die zijn gemaakt in regio's waar Serviceoverzicht beschikbaar is. Hebt u een werkruimte in een regio waar Serviceoverzicht niet beschikbaar is, wordt deze niet weergegeven in de vervolgkeuzelijst.
+
+> [!NOTE]
+> U kunt de werkruimte die is gekoppeld aan een migratieproject niet wijzigen.
 
 ### <a name="download-and-install-the-vm-agents"></a>De VM-agents downloaden en installeren
+Wanneer u een werkruimte configureert, moet u om te downloaden en installeren van agents op elke on-premises computer die u wilt evalueren. Bovendien, als u computers geen verbinding met internet hebt, moet u om te downloaden en installeren [OMS-gateway](../log-analytics/log-analytics-oms-gateway.md) hierop.
+
 1. In **overzicht**, klikt u op **beheren** > **Machines**, en selecteer de vereiste machine.
 2. In de **afhankelijkheden** kolom, klikt u op **agents installeren**.
 3. Op de **afhankelijkheden** pagina, downloaden en installeren van de Microsoft Monitoring Agent (MMA) en de agent voor afhankelijkheden op elke virtuele machine die u wilt evalueren.

@@ -1,25 +1,25 @@
 ---
-title: Met een beschrijving van afbeeldingen
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Concepten met betrekking tot het met een beschrijving van afbeeldingen met behulp van de Computer Vision in Azure Cognitive Services.
+title: Met een beschrijving van afbeeldingen - Computer Vision
+titleSuffix: Azure Cognitive Services
+description: Concepten met betrekking tot afbeeldingen met behulp van de Computer Vision-API te beschrijven.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: be59055a2c6cd1366c8c52370fa97158ab8d6c88
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a65e3ea2fb28ca8a2250fb3e39860eb5e08c18f4
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725353"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981978"
 ---
-# <a name="describing-images"></a>Met een beschrijving van afbeeldingen
+# <a name="describing-images"></a>Afbeeldingen beschrijven
 
-De computer Vision-algoritmen analyseren de inhoud in een afbeelding. Deze analyse vormt de basis vormt voor een 'description', weergegeven als leesbare taal in volledige zinnen. De beschrijving bevat een overzicht van wat er in de afbeelding is gevonden. De computer Vision-algoritmen genereren verschillende beschrijvingen op basis van de visuele kenmerken die zijn geïdentificeerd in de afbeelding. De beschrijvingen worden geëvalueerd en hiervoor wordt een betrouwbaarheidsscore gegenereerd. Vervolgens wordt er een lijst geretourneerd die is geordend van de hoogste naar de laagste betrouwbaarheidsscore.
+De computer Vision-algoritmen analyseren de inhoud in een afbeelding. Deze analyse vormt de basis vormt voor een 'description', weergegeven als leesbare taal in volledige zinnen. De beschrijving bevat een overzicht van wat er in de afbeelding is gevonden. De computer Vision-algoritmen genereren verschillende beschrijvingen op basis van de visuele kenmerken die zijn geïdentificeerd in de afbeelding. De beschrijving wordt geëvalueerd en een betrouwbaarheidsscore gegenereerd. Vervolgens wordt er een lijst geretourneerd die is geordend van de hoogste naar de laagste betrouwbaarheidsscore.
 
 ## <a name="image-description-example"></a>Voorbeeld van de installatiekopie van een softwarebeschrijving
 

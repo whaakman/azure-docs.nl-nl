@@ -9,12 +9,12 @@ ms.devlang: NA
 ms.topic: conceptual
 ms.date: 08/07/2018
 ms.author: heidist
-ms.openlocfilehash: 72d1630ecaeada3acf8b49952a31ccd3ae8634aa
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 68d546fc4c853f1a19230b8aee7e86519aaa7e4c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39617955"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729031"
 ---
 # <a name="what-is-cognitive-search"></a>Wat is cognitive search?
 
@@ -31,7 +31,7 @@ De cognitieve vaardigheden in Azure Search zijn gebaseerd op de dezelfde AI-algo
 Natuurlijke taal en verwerking van afbeeldingen wordt toegepast tijdens de fase van de gegevensopname met steeds deel van de samenstelling van een document in een doorzoekbare index in Azure Search resultaten. Gegevens worden als een Azure data source en vervolgens via een indexing-pijplijn met behulp van afhankelijk van wat wordt gepusht [ingebouwde vaardigheden](cognitive-search-predefined-skills.md) u nodig hebt. De architectuur worden uitgebreid, zodat als de ingebouwde vaardigheden niet voldoende, kunt u maken en koppelen [aangepaste vaardigheden](cognitive-search-create-custom-skill-example.md) aangepaste verwerking te integreren. Voorbeelden zijn een aangepaste entiteit module of document classificatie die gericht is op een specifiek domein, zoals Financiën, wetenschappelijke publicaties of diergeneeskunde.
 
 > [!NOTE]
-> Cognitieve zoekopdrachten bevindt zich in de openbare preview en wordt momenteel uitvoering van vaardigheden gratis aangeboden. De prijzen voor deze functionaliteit worden op een later moment bekend gemaakt. 
+> Cognitief zoeken is een openbare preview. Uitvoering van vaardigheden en uitpakken van de installatiekopie en normalisering worden momenteel gratis aangeboden. Op een later tijdstip, worden de prijzen van deze mogelijkheden aangekondigd. 
 
 ## <a name="components-of-cognitive-search"></a>Onderdelen van cognitief zoeken
 

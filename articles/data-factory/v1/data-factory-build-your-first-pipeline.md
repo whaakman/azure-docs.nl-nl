@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/22/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 8f86bcf5ecf38f0f1054fce82b66e63f0509f1c8
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 63ae8699af5213634eeac7dfc5045a3fc888b6c0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42054532"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734249"
 ---
 # <a name="tutorial-build-your-first-pipeline-to-transform-data-using-hadoop-cluster"></a>Zelfstudie: Uw eerste pijplijn voor het transformeren van gegevens met behulp van Hadoop-cluster maken
 > [!div class="op_single_selector"]
@@ -85,7 +85,7 @@ In het voorbeeld hierboven wordt weergegeven, wordt de eerste regel (met 2016-01
 Voordat u met deze zelfstudie begint, moet u aan de volgende vereisten voldoen:
 
 1. U moet beschikken over een **Azure-abonnement**. Als u geen Azure-abonnement hebt, kunt u in enkele minuten een gratis proefaccount maken. Zie het artikel [Gratis proefversie](https://azure.microsoft.com/pricing/free-trial/) voor informatie over het verkrijgen van een gratis proefaccount.
-2. U moet gebruikmaken van **Azure Storage**. U gebruikt een Azure-opslagaccount om de gegevens in deze zelfstudie op te slaan. Zie het artikel [Een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md) als u geen account Azure-opslagaccount hebt. Nadat u de storage-account hebt gemaakt, noteer de **accountnaam** en **toegangssleutel**. Zie [View, copy and regenerate storage access keys](../../storage/common/storage-create-storage-account.md#view-and-copy-storage-access-keys) (Toegangssleutels voor opslag weergeven, kopiëren en opnieuw genereren).
+2. U moet gebruikmaken van **Azure Storage**. U gebruikt een Azure-opslagaccount om de gegevens in deze zelfstudie op te slaan. Zie het artikel [Een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md) als u geen account Azure-opslagaccount hebt. Nadat u de storage-account hebt gemaakt, noteer de **accountnaam** en **toegangssleutel**. Zie [View, copy and regenerate storage access keys](../../storage/common/storage-account-manage.md#access-keys) (Toegangssleutels voor opslag weergeven, kopiëren en opnieuw genereren).
 3. Downloaden en bekijken van de Hive-querybestand (**HQL**) dat zich bevindt in: [ https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql ](https://adftutorialfiles.blob.core.windows.net/hivetutorial/partitionweblogs.hql). Deze query transformeert invoergegevens om uitvoergegevens te produceren. 
 4. Downloaden en bekijken van de voorbeeld-invoerbestand (**input.log**) dat zich bevindt in: [https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log](https://adftutorialfiles.blob.core.windows.net/hivetutorial/input.log)
 5. Maak een blobcontainer met de naam **adfgetstarted** in de Azure Blob-opslag. 

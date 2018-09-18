@@ -7,14 +7,14 @@ author: MladjoA
 ms.service: sql-database
 ms.custom: scale out apps
 ms.topic: conceptual
-ms.date: 07/03/2018
+ms.date: 09/14/2018
 ms.author: mlandzic
-ms.openlocfilehash: 52fce1cf1acb5e084c629c9cad6486d6a599b4fd
-ms.sourcegitcommit: e0834ad0bad38f4fb007053a472bde918d69f6cb
+ms.openlocfilehash: a57e354651255e2d3ff723e978222d1a5a9fa002
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37435762"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733343"
 ---
 # <a name="azure-sql-database-elastic-query-overview-preview"></a>Azure SQL Database elastische query overzicht (preview)
 
@@ -28,7 +28,7 @@ Query's op Azure SQL-databases volledig in T-SQL. Hiermee voor alleen-lezen quer
 
 ### <a name="available-on-standard-tier"></a>Beschikbaar in standard-laag
 
-Elastische query's wordt ondersteund op zowel Standard als Premium-prestatielaag. Zie de sectie over de beperkingen van Preview hieronder op presteert voor lagere prestatielagen.
+Elastische query's wordt ondersteund op de Standard- en Premium-Servicelagen. Zie de sectie over de beperkingen van Preview hieronder op presteert voor lagere service-lagen.
 
 ### <a name="push-parameters-to-remote-databases"></a>Push-parameters met externe databases
 
@@ -101,7 +101,7 @@ Met elastische query's voor het uitvoeren van rapportage taken via een shard, da
 
 > [!NOTE]
 > Elastische query uitvoeren op Database (hoofdknooppunt) is een afzonderlijke database of kan de dezelfde database die als host fungeert voor de shard-toewijzing.
-> Welke configuratie u kiest, zorg ervoor dat die laag service en de prestaties van de database is hoog genoeg is voor het afhandelen van de verwachte hoeveelheid aanmelding/queryaanvragen.
+> Welke configuratie u kiest, zorg ervoor dat serviceniveau en compute van de grootte van de database is hoog genoeg is voor het afhandelen van de verwachte hoeveelheid aanmelding/queryaanvragen.
 
 De volgende stappen uit configureren elastische databasequery's voor horizontale partitionering scenario's waarvoor toegang tot een set met tabellen die zich op (meestal) verschillende externe SQL-databases:
 
@@ -133,7 +133,7 @@ Elastische query's is opgenomen in de kosten van Azure SQL Database-databases. H
 
 ## <a name="preview-limitations"></a>Beperkingen voor Preview
 
-* Uw eerste elastische query uit te voeren met een paar minuten op de van de Standard-prestatielaag kan duren. Deze tijd is noodzakelijk om te laden van de functionaliteit van elastische query's; het laden van de prestaties worden verbeterd met hogere prestatielagen.
+* Uw eerste elastische query uit te voeren met een paar minuten op het serviceniveau Standard kan duren. Deze tijd is noodzakelijk om te laden van de functionaliteit van elastische query's; het laden van de prestaties worden verbeterd met hogere service-lagen en compute-grootten.
 * Scripts van externe gegevensbronnen of externe tabellen van SSMS of SSDT is nog niet ondersteund.
 * Import/Export voor SQL DB ondersteunt nog geen externe gegevensbronnen en externe tabellen. Als u gebruiken voor importeren/exporteren wilt, deze objecten verwijderen voordat u exporteert en vervolgens opnieuw maken na het importeren.
 * Elastische query's ondersteunt momenteel alleen alleen-lezen toegang tot externe tabellen. U kunt volledige T-SQL-functionaliteit echter gebruiken voor de database waarin de externe tabel is gedefinieerd. Dit kan handig zijn bij, zoals tijdelijke resultaten met, bijvoorbeeld voordoen, < column_list > in < local_table > Selecteer of voor het definiëren van opgeslagen procedures op de database elastische query's die verwijzen naar externe tabellen zijn.

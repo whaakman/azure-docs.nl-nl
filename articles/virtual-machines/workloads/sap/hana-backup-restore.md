@@ -11,15 +11,15 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 09/10/2018
+ms.date: 09/17/2018
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 912d4e1af3e1a4d07efddafa38bda5697b226787
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: cca9a12b0512ca502d143f4a88c959e1bfc4f90e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44392251"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985878"
 ---
 # <a name="backup-and-restore"></a>Back-ups en herstellen
 
@@ -456,8 +456,8 @@ Hier volgt een voorbeeld van een cron-planning in/etc/crontab:
 ```
 00 1-23 * * * ./azure_hana_backup.pl hana hourlyhana 15min 46
 10 00 * * *  ./azure_hana_backup.pl hana dailyhana 15min 28
-00,05,10,15,20,25,30,35,40,45,50,55 * * * *  Perform SAP HANA transaction log backup
-22 12 * * *  ./azure_hana_backup.pl log dailylogback 3min 28
+00,05,10,15,20,25,30,35,40,45,50,55 * * * * ./azure_hana_backup.pl logs regularlogback 3min 28
+22 12 * * *  ./azure_hana_backup.pl logs dailylogback 3min 28
 30 00 * * *  ./azure_hana_backup.pl boot TypeI dailyboot 15min 28
 ```
 In het vorige voorbeeld is een momentopname van een uurtarief gecombineerde die betrekking heeft op de volumes die de gegevens/hana/bevatten en /hana/shared (inclusief/usr/sap) locaties. Gebruik dit type momentopname voor een snellere point-in-time-herstel in de afgelopen twee dagen. Er is bovendien een momentopname van een dagelijks op deze volumes. Dus, hebt u twee dagen dekking door momentopnamen van per uur, plus vier weken dekking door dagelijkse momentopnamen. De transactie logboek back-upvolume is bovendien back-ups dagelijks. Deze back-ups worden gehouden en vier weken. Zoals u in de derde regel van crontab ziet, worden de back-up van het transactielogboek HANA is gepland om uit te voeren om de 5 minuten. De uitvoertijd van de verschillende cron-taken die uitvoeren van de storage-momentopnamen worden gespreid, zodat deze momentopnamen worden niet uitgevoerd in één keer op een bepaald punt in tijd. 
@@ -466,8 +466,8 @@ In het volgende voorbeeld voert u een momentopname van een gecombineerde die bet
 
 ```
 10 0-23 * * * ./azure_hana_backup.pl hana hourlyhana 15min 48
-0,5,10,15,20,25,30,35,40,45,50,55 * * * *  Perform SAP HANA transaction log backup
-2,7,12,17,22,27,32,37,42,47,52,57 * * * *  ./azure_hana_backup.pl log logback 3min 48
+0,5,10,15,20,25,30,35,40,45,50,55 * * * * ./azure_hana_backup.pl logs regularlogback 3min 28
+2,7,12,17,22,27,32,37,42,47,52,57 * * * *  ./azure_hana_backup.pl logs logback 3min 48
 30 00 * * *  ./azure_hana_backup.pl boot TypeII dailyboot 15min 28
 ```
 

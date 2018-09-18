@@ -1,24 +1,24 @@
 ---
 title: Azure SQL Database-Servicelagen - DTU | Microsoft Docs
-description: Meer informatie over Servicelagen voor enkele en groep databases om prestatieniveaus en opslagruimten te bieden.
+description: Meer informatie over Servicelagen voor enkele en groep databases voor compute-grootten en opslaggrootte.
 services: sql-database
 author: sachinpMSFT
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: d0250d508ca6d21ee09c9402e10d2fdb025529ac
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 27e6e12efc28bb8ee1cdaa9ec62d7ca8c4c68f38
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42061398"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729736"
 ---
-# <a name="choosing-a-dtu-based-service-tier-performance-level-and-storage-resources"></a>Een DTU-servicelaag en prestatieniveau storage-resources te kiezen 
+# <a name="choosing-a-dtu-based-service-tier-compute-size-and-storage-resources"></a>Als u kiest een DTU-servicelaag, compute-grootte en storage-resources 
 
-Service-lagen van elkaar worden onderscheiden door een bereik van de prestaties met een vaste hoeveelheid inbegrepen opslag, vaste bewaarperiode voor back-ups en vaste prijs. Alle service-lagen bieden flexibiliteit van prestatieniveau wisselt zonder uitvaltijd. Individuele databases en elastische pools worden gefactureerd per uur op basis van de servicelaag en prestaties.
+Service-lagen van elkaar worden onderscheiden door een bereik van de compute-grootten met een vaste hoeveelheid inbegrepen opslag, vaste bewaarperiode voor back-ups en vaste prijs. Alle service-lagen bieden flexibiliteit voor het wijzigen van de compute-grootten zonder uitvaltijd. Individuele databases en elastische pools worden gefactureerd per uur op basis van de servicelaag en compute-grootte.
 
 > [!IMPORTANT]
 > SQL Database Managed Instance, ondersteunt momenteel in openbare preview-versie geen een op DTU gebaseerde aankoopmodel. Zie voor meer informatie, [Azure SQL Database Managed Instance](sql-database-managed-instance.md). 
@@ -40,7 +40,7 @@ Een servicelaag kiezen afhankelijk is voornamelijk van zakelijke continuïteit-,
 
 ## <a name="single-database-dtu-and-storage-limits"></a>DTU- en opslaglimieten van individuele database
 
-Prestatieniveaus worden uitgedrukt in termen van DTU’s (DTU’s: Database Transaction Units) voor enkelvoudige databases en eDTU’s (eDTU’s: elastische DTU’s) voor elastische pools. Zie voor meer informatie over dtu's en Edtu's [wat zijn dtu's en edtu's](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
+COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en Edtu's [wat zijn dtu's en edtu's](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?
 
 ||Basic|Standard|Premium|
 | :-- | --: | --: | --: | --: |
@@ -73,7 +73,7 @@ Prestatieniveaus worden uitgedrukt in termen van DTU’s (DTU’s: Database Tran
 Fysieke kenmerken (CPU, geheugen, i/o) die is gekoppeld aan elke meting DTU gekalibreerd met behulp van een benchmark die echte database-workload wordt gesimuleerd.
 
 ### <a name="correlating-benchmark-results-to-real-world-database-performance"></a>Benchmarkresultaten op de prestaties van de echte wereld database correleren
-Het is belangrijk om te begrijpen dat alle benchmarks representatieve en indicatieve slechts zijn. De transactietarieven bereikt met de benchmark-toepassing zich niet hetzelfde als die kunnen worden behaald met andere toepassingen. De benchmark bestaat uit een verzameling van andere transactie typen worden uitgevoerd op basis van een schema met een scala aan tabellen en gegevenstypen. Terwijl de benchmark de dezelfde basisbewerkingen die gemeenschappelijk voor alle OLTP-werkbelastingen oefent zijn, vertegenwoordigt een specifieke klasse van de database of een toepassing niet meer. Het doel van de benchmark-is voor een redelijke handleiding voor de relatieve prestaties van een database die kan worden verwacht voor het omhoog of omlaag schalen tussen prestatieniveaus. Verschillende combinaties van werkbelastingen optreden en reageren op verschillende manieren in werkelijkheid databases van verschillende grootte en complexiteit zijn. Bijvoorbeeld, een i/o-intensieve toepassingen sneller i/o-drempelwaarden kan bereikt of een toepassing CPU-intensieve CPU-limieten sneller bereikt. Er is geen garantie dat een bepaalde database wordt geschaald op dezelfde manier als u de benchmark onder toenemende belasting.
+Het is belangrijk om te begrijpen dat alle benchmarks representatieve en indicatieve slechts zijn. De transactietarieven bereikt met de benchmark-toepassing zich niet hetzelfde als die kunnen worden behaald met andere toepassingen. De benchmark bestaat uit een verzameling van andere transactie typen worden uitgevoerd op basis van een schema met een scala aan tabellen en gegevenstypen. Terwijl de benchmark de dezelfde basisbewerkingen die gemeenschappelijk voor alle OLTP-werkbelastingen oefent zijn, vertegenwoordigt een specifieke klasse van de database of een toepassing niet meer. Het doel van de benchmark-is voor een redelijke handleiding voor de relatieve prestaties van een database die kan worden verwacht wanneer u omhoog of omlaag schalen tussen compute-grootten. Verschillende combinaties van werkbelastingen optreden en reageren op verschillende manieren in werkelijkheid databases van verschillende grootte en complexiteit zijn. Bijvoorbeeld, een i/o-intensieve toepassingen sneller i/o-drempelwaarden kan bereikt of een toepassing CPU-intensieve CPU-limieten sneller bereikt. Er is geen garantie dat een bepaalde database wordt geschaald op dezelfde manier als u de benchmark onder toenemende belasting.
 
 De benchmark- en de methoden worden hieronder in detail beschreven.
 
@@ -155,5 +155,5 @@ De belangrijkste metrische gegevens in de benchmark zijn doorvoer en reactietijd
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over specifieke prestatieniveaus en opties voor opslag beschikbaar voor individuele databases, [SQL Database DTU gebaseerde resourcelimieten voor individuele databases](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels).
-- Zie voor meer informatie over specifieke prestatieniveaus en opties voor opslag beschikbaar voor elastische pools, [SQL Database DTU gebaseerde resourcelimieten](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor individuele databases Reken, [SQL Database DTU gebaseerde resourcelimieten voor individuele databases](sql-database-dtu-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes).
+- Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor elastische pools Reken, [SQL Database DTU gebaseerde resourcelimieten](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

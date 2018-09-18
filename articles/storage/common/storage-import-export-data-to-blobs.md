@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 2484d01c268757ef612ba7b397b80b8ea4c4e76a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 39287e4d90e4f6f42dd1f79d5457853e253bd736
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528136"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737053"
 ---
 # <a name="use-the-azure-importexport-service-to-import-data-to-azure-blob-storage"></a>De Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Blob Storage
 
@@ -25,7 +25,7 @@ Voordat u een import-taak voor het overdragen van gegevens naar Azure Blob-opsla
 
 - Een actief Azure-abonnement dat kan worden gebruikt voor de Import/Export-service hebben.
 - Ten minste één Azure Storage-account met een opslagcontainer hebben. Overzicht van de [ondersteunde opslagaccounts en typen gegevensopslag voor Import/Export-service](storage-import-export-requirements.md). 
-    - Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-create-storage-account.md#create-a-storage-account). 
+    - Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-quickstart-create-account.md). 
     - Voor informatie over de storage-container, gaat u naar [maken van een opslagcontainer](../blobs/storage-quickstart-blobs-portal.md#create-a-container).
 - Schijven van voldoende [ondersteunde typen](storage-import-export-requirements.md#supported-disks). 
 - Een Windows-systeem met een [ondersteunde besturingssysteemversie](storage-import-export-requirements.md#supported-operating-systems). 

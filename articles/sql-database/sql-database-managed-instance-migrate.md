@@ -11,12 +11,12 @@ ms.custom: managed instance
 ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: bonova
-ms.openlocfilehash: 276d36562aece7101465752528f59008e1ee7607
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: cf3f7e131b177634318a6114b4f1efefcb9a9cec
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44050320"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985657"
 ---
 # <a name="sql-server-instance-migration-to-azure-sql-database-managed-instance"></a>SQL Server-exemplaar migratie naar Azure SQL Database Managed Instance
 
@@ -39,7 +39,7 @@ Op hoog niveau, is het proces van de database-migratie ziet eruit zoals:
 
 Bepaal eerst of Managed Instance compatibel met de vereisten voor de database van uw toepassing is. Beheerd exemplaar is zodanig ontworpen dat eenvoudige lift- and -shift-migratie voor de meeste van bestaande toepassingen die gebruikmaken van on-premises SQL Server of op virtuele machines. Echter, u hebt mogelijk soms functies of mogelijkheden die nog niet worden ondersteund en de kosten van de implementatie van een tijdelijke oplossing zijn te hoog. 
 
-Gebruik [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) voor het detecteren van potentieel compatibiliteit die invloed hebben op database-functionaliteit op Azure SQL Database. DMA biedt nog geen ondersteuning voor beheerd exemplaar als doel van de migratie, maar het wordt aanbevolen om analyse uitvoeren op Azure SQL-Database en zorgvuldig lijst gerapporteerde functiepariteit en compatibiliteitsproblemen op basis van de productdocumentatie. Zie de [verschillen tussen Azure SQL Database Singleton en Managed Instance](sql-database-features.md) om te controleren of zijn er enkele gerapporteerde blokkeren van problemen die niet blockers in het beheerde exemplaar, omdat de meeste van de blokkering problemen te voorkomen dat een migratie naar Azure SQL Database zijn verwijderd met Managed Instance. Voor het exemplaar, functies, zoals query's die databaseoverschrijdend, transacties tussen databases binnen dezelfde instantie, gekoppelde server met andere SQL bronnen, CLR, globale tijdelijke tabellen, exemplaar niveau weergaven, Service Broker en dergelijke zijn beschikbaar in beheerde instanties. 
+Gebruik [Data Migration Assistant (DMA)](https://docs.microsoft.com/sql/dma/dma-overview) voor het detecteren van potentieel compatibiliteit die invloed hebben op database-functionaliteit op Azure SQL Database. DMA biedt nog geen ondersteuning voor beheerd exemplaar als doel van de migratie, maar het wordt aanbevolen om analyse uitvoeren op Azure SQL-Database en zorgvuldig lijst gerapporteerde functiepariteit en compatibiliteitsproblemen op basis van de productdocumentatie. Zie [Azure SQL Database-functies](sql-database-features.md) om te controleren of er zijn enkele gerapporteerde belemmeringen dat niet blockers in het beheerde exemplaar, omdat de meeste van de blokkering problemen te voorkomen dat een migratie naar Azure SQL Database zijn verwijderd met beheerde Het exemplaar. Voor het exemplaar, functies, zoals query's die databaseoverschrijdend, transacties tussen databases binnen dezelfde instantie, gekoppelde server met andere SQL bronnen, CLR, globale tijdelijke tabellen, exemplaar niveau weergaven, Service Broker en dergelijke zijn beschikbaar in beheerde instanties. 
 
 Als er enkele blokkerende problemen die niet worden verwijderd in Azure SQL Managed Instance gerapporteerd zijn, moet u mogelijk rekening houden met een andere optie, zoals [SQL Server op virtuele Machines in Azure](https://azure.microsoft.com/services/virtual-machines/sql-server/). Hier volgen enkele voorbeelden:
 

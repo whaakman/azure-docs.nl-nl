@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 07/17/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: a7456bedeb6bc870ad5d6892fe697fb2dfcd3bc1
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: a85fb6ce211e6089f67cb2e2f265fbda06a25b10
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39527801"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735083"
 ---
 # <a name="use-the-azure-importexport-service-to-export-data-from-azure-blob-storage"></a>De Azure Import/Export-service gebruiken voor het exporteren van gegevens uit Azure Blob storage
 In dit artikel bevat stapsgewijze instructies over het gebruik van de Azure Import/Export-service veilig grote hoeveelheden gegevens exporteren uit Azure Blob-opslag. De service vereist dat u voor het verzenden van lege stations in de Azure-datacenter. De service exporteert gegevens van uw opslagaccount naar de stations en wordt vervolgens geleverd de schijven terug.
@@ -23,7 +23,7 @@ In dit artikel bevat stapsgewijze instructies over het gebruik van de Azure Impo
 Voordat u een exporttaak bekijken om over te dragen gegevens uit Azure Blob-opslag maakt, zorgvuldig controleren en voer de volgende lijst met vereisten voor deze service. U moet:
 
 - Een actief Azure-abonnement dat kan worden gebruikt voor de Import/Export-service hebben.
-- Ten minste één Azure Storage-account hebben. Overzicht van de [ondersteunde opslagaccounts en typen gegevensopslag voor Import/Export-service](storage-import-export-requirements.md). Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-create-storage-account.md#create-a-storage-account).
+- Ten minste één Azure Storage-account hebben. Overzicht van de [ondersteunde opslagaccounts en typen gegevensopslag voor Import/Export-service](storage-import-export-requirements.md). Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-quickstart-create-account.md).
 - Schijven van voldoende [ondersteunde typen](storage-import-export-requirements.md#supported-disks).
 - Een FedEx/DHL-account hebben.  
     - Het account moet geldig zijn, saldo moet hebben en moet return verzending mogelijkheden hebben.

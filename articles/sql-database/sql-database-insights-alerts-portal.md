@@ -7,14 +7,14 @@ services: sql-database
 ms.service: sql-database
 ms.custom: monitor and tune
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: aamalvea
-ms.openlocfilehash: aec4ce2e4fb22872673c977816ffbe8616567885
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 43702de9f0da3b5b82c304cf9289768f7a8264fc
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44718222"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732631"
 ---
 # <a name="use-azure-portal-to-create-alerts-for-azure-sql-database-and-data-warehouse"></a>Azure portal gebruiken om waarschuwingen te maken voor Azure SQL Database en Data Warehouse
 
@@ -108,7 +108,7 @@ Als u een waarschuwing hebt gemaakt, kunt u dit selecteren en:
 | SQL data warehouse | connection_successful | Geslaagde verbindingen | Totaal | 10 minuten |
 | SQL data warehouse | connection_failed | Mislukte verbindingen | Totaal | 10 minuten |
 | SQL data warehouse | blocked_by_firewall | Geblokkeerd door Firewall | Totaal | 10 minuten |
-| SQL data warehouse | service_level_objective | Serviceniveaudoelstelling van de database | Totaal | 10 minuten |
+| SQL data warehouse | service_level_objective | De servicelaag van de database | Totaal | 10 minuten |
 | SQL data warehouse | dwu_limit | dwu-limiet | Maximum | 10 minuten |
 | SQL data warehouse | dwu_consumption_percent | DWU-percentage | Gemiddeld | 10 minuten |
 | SQL data warehouse | dwu_used | Gebruikte DWU | Gemiddeld | 10 minuten |

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 07/26/2018
 ms.author: adigan
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4839b1aaa56be1ad93fa1dd685ca3176d1cc8a27
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: c59653bf3709f7798fd92a44fa420b99f2cbc6b6
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42054535"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733552"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup-rapporten configureren
 In dit artikel wordt stap voor het configureren van rapporten voor Azure Backup met behulp van de Recovery Services-kluis en voor toegang tot deze rapporten met Power BI besproken. Nadat u deze stappen uitvoert, kunt u rechtstreeks naar Power BI om alle rapporten weer te geven, aanpassen en maken van rapporten gaan. 
@@ -83,7 +83,7 @@ Nadat storage-account configureren met behulp van de recovery services-kluis-rap
 4. Voer de naam van het opslagaccount in stap 5 hierboven hebt geconfigureerd en klik op **volgende** knop.
 
     ![De opslagaccountnaam invoeren](./media/backup-azure-configure-reports/content-pack-storage-account-name.png)    
-5. Voer de opslagaccountsleutel voor dit opslagaccount. U kunt [bekijken en kopiëren van de toegangssleutels voor opslag](../storage/common/storage-create-storage-account.md#manage-your-storage-account) door te navigeren naar uw opslagaccount in Azure portal. 
+5. Voer de opslagaccountsleutel voor dit opslagaccount. U kunt [bekijken en kopiëren van de toegangssleutels voor opslag](../storage/common/storage-account-manage.md#access-keys) door te navigeren naar uw opslagaccount in Azure portal. 
 
      ![Storage-account invoeren](./media/backup-azure-configure-reports/content-pack-storage-account-key.png) <br/>
      

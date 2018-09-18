@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 01/17/2018
 ms.author: renash
 ms.component: files
-ms.openlocfilehash: b261ec5fb0ad437202df1a8fd8683a095cb1bb96
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 03280f87b4b49b3e42091c6b1572a7f050afb336
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42060768"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983140"
 ---
 # <a name="overview-of-share-snapshots-for-azure-files"></a>Overzicht van share-momentopnamen voor Azure Files 
 Azure Files biedt de mogelijkheid voor share-momentopnamen van bestandsshares. Momentopnamen vastleggen van de status van de share op dat punt in tijd delen. In dit artikel wordt beschreven welke mogelijkheden bieden voor momentopnamen van shares en hoe u kunt profiteren van deze in uw aangepaste situatie.
@@ -32,7 +32,7 @@ Nadat u een bestandsshare maakt, kunt u periodiek een share-momentopname van de 
 ## <a name="capabilities"></a>Functionaliteit
 Momentopname van een share is een point-in-time, alleen-lezen kopie van uw gegevens. U kunt maken, verwijderen en momentopnamen beheren met behulp van de REST-API. Dezelfde mogelijkheden zijn ook beschikbaar in de client-bibliotheek, Azure CLI en Azure portal. 
 
-U kunt momentopnamen van een share weergeven met behulp van de REST-API en de SMB. U kunt de lijst met versies van de map of het bestand ophalen en u kunt een specifieke versie rechtstreeks als een station koppelen. 
+U kunt momentopnamen van een share weergeven met behulp van de REST-API en de SMB. U kunt de lijst met versies van de map of het bestand ophalen en u kunt een specifieke versie rechtstreeks als een station koppelen (alleen beschikbaar op Windows - Zie [limieten](#limits)). 
 
 Nadat een share-momentopname is gemaakt, kan deze worden gelezen, gekopieerd, of verwijderd, maar niet gewijzigd. U kunt een hele share-momentopname niet kopiëren naar een ander opslagaccount. U moet doen dat door bestand, met behulp van AzCopy of andere mechanismen voor kopiëren.
 
@@ -62,6 +62,8 @@ Momentopnamen tellen niet mee voor uw limiet van 5 TB delen. Er is geen limiet v
 Het maximum aantal momentopnamen van shares die Azure Files vandaag kunnen is 200. Nadat 200 momentopnamen hebt u oudere momentopnamen van shares verwijderen om het nieuwe te maken. 
 
 Er is geen limiet voor de gelijktijdige aanroepen voor het maken van momentopnamen van shares. Er is geen limiet voor de hoeveelheid ruimte die share momentopnamen van een bepaalde bestandsshare kunnen gebruiken. 
+
+Het is vandaag de dag niet mogelijk om te koppelen van momentopnamen van shares op Linux. Dit komt doordat de Linux SMB-client biedt geen ondersteuning voor momentopnamen koppelen, zoals Windows biedt.
 
 ## <a name="copying-data-back-to-a-share-from-share-snapshot"></a>Kopiëren van gegevens naar een share vanuit een momentopname van bestandsshare
 Kopieerbewerkingen die betrekking hebben op bestanden en momentopnamen van bestandsshares volgt u deze regels:

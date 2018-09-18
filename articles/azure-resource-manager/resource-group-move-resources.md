@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/07/2018
 ms.author: tomfitz
-ms.openlocfilehash: 807026d2de40de1b14d2eb1d9eeb9da0aade4ad7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 0b0ddedde49208a85628cdfc226f870a32ff7170
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297751"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985861"
 ---
 # <a name="move-resources-to-new-resource-group-or-subscription"></a>Resources verplaatsen naar een nieuwe resourcegroep of abonnement
 
@@ -170,7 +170,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * App Service-apps (web-apps) - Zie [beperkingen voor App Service](#app-service-limitations)
 * App Service Certificates
 * Application Insights
-* Automatisering
+* Automation
 * Azure Active Directory B2C
 * Azure Cosmos DB
 * Azure DevOps - Azure DevOps-organisaties met niet-Microsoft-extensie aankopen moet [hun aankopen annuleren](https://go.microsoft.com/fwlink/?linkid=871160) voordat hij verder kan het account voor abonnementen.
@@ -183,7 +183,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * CDN
 * Cloud Services - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
 * Cognitive Services
-* Containerregister
+* Container Registry
 * Content Moderator
 * Cost Management
 * Customer Insights
@@ -213,12 +213,12 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die kunnen wor
 * Openbaar IP-adres - Zie [openbaar IP-beperkingen](#pip-limitations)
 * Redis-Cache - als de Redis-Cache-exemplaar is geconfigureerd met een virtueel netwerk, het exemplaar kan niet worden verplaatst naar een ander abonnement. Zie [beperkingen in virtuele netwerken](#virtual-networks-limitations).
 * Scheduler
-* Zoeken
+* Search
 * Service Bus
 * Service Fabric
 * Service Fabric Mesh
 * SignalR-Service
-* Storage
+* Opslag - storage-accounts in verschillende regio's kan niet worden verplaatst in dezelfde bewerking. Gebruik in plaats daarvan de afzonderlijke bewerkingen voor elke regio.
 * Opslag (klassiek) - Zie [klassieke Implementatiebeperkingen](#classic-deployment-limitations)
 * Stream Analytics - status voor Stream Analytics taken bij het uitvoeren van in kunnen niet worden verplaatst.
 * SQL Database-server - database en server moet zich in dezelfde resourcegroep bevinden. Wanneer u een SQL-server hebt verplaatst, worden ook alle bijbehorende databases verplaatst. Dit gedrag is van toepassing op Azure SQL Database en Azure SQL Data Warehouse-databases.
@@ -236,7 +236,7 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 
 * AD Domain Services
 * Hybride AD Health-Service
-* Toepassingsgateway
+* Application Gateway
 * Azure Database for MySQL
 * Azure Database for PostgreSQL
 * Azure Database Migration
@@ -245,11 +245,11 @@ De volgende lijst bevat een algemeen overzicht van Azure-services die niet worde
 * Batch AI
 * Certificaten - App Service-certificaten kunnen worden verplaatst, maar de geüploade certificaten hebben [beperkingen](#app-service-limitations).
 * Container Instances
-* Containerservice
+* Container Service
 * Data Box
 * Dev-opslagruimten
 * Dynamics LCS
-* Express Route
+* ExpressRoute
 * Kubernetes Service
 * Lab-Services - verplaatsen naar de nieuwe resourcegroep in hetzelfde abonnement is ingeschakeld, maar de verplaatsing van kruislings abonnement is niet ingeschakeld.
 * Load Balancers - Zie [beperkingen van de Load Balancer](#lb-limitations)
@@ -314,9 +314,9 @@ Wanneer u een Web-App verplaatst _voor abonnementen_, gelden de volgende beperki
 
 - De doelresourcegroep mag geen bestaande App Service-resources. App Service-resources zijn onder andere:
     - Web Apps
-    - App Service-plannen
+    - App Service-abonnementen
     - Geüpload of geïmporteerd SSL-certificaten
-    - App-serviceomgevingen
+    - App Service-omgevingen
 - Alle App Service-resources in de resourcegroep, moeten tegelijk worden verplaatst.
 - App Service-resources kunnen alleen worden verplaatst uit de resourcegroep waarin ze oorspronkelijk zijn gemaakt. Als een resource App Service niet langer in de oorspronkelijke resourcegroep is, het moet worden teruggezet naar die oorspronkelijke resourcegroep eerst en vervolgens kunnen worden verplaatst tussen abonnementen.
 

@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 3ba1f7a5759f037ce4bcfafcef40d0b247692f58
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 57e83376747b9a3e2d30dec37d4a378a167580e5
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577034"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733107"
 ---
 # <a name="choose-a-cloud-sql-server-option-azure-sql-paas-database-or-sql-server-on-azure-vms-iaas"></a>Kies een SQL Server-cloudoptie: Azure SQL (PaaS) Database of SQL Server op Azure Virtual Machines (IaaS)
 
@@ -89,7 +89,7 @@ Of u nu een startup bent die geld nodig heeft of een team in een goedlopend bedr
 
 #### <a name="billing-and-licensing-basics"></a>Grondbeginselen facturering en licenties
 
-Op dit moment **SQL-Database** wordt verkocht als een service en is beschikbaar in verschillende Servicelagen met andere prijzen voor resources, die allemaal worden per uur gefactureerd tegen een vast tarief op basis van de service servicelaag en het prestatieniveau dat u kiest. Met SQL Database Managed Instance kunt u ook uw eigen licentie brengen. Zie voor meer informatie over meenemen van uw eigen licentie [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). Bovendien wordt uitgaand internetverkeer in rekening gebracht bij u tegen het reguliere [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/). U kunt dynamisch aanpassen Servicelagen en prestatieniveaus zodat deze overeenkomen met de uiteenlopende doorvoerbehoeften van uw toepassing. Voor de meest recente informatie over de huidige ondersteunde servicecategorieën, Zie [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). U kunt ook maken [elastische pools](sql-database-elastic-pool.md) pieken voor het delen van resources met database-exemplaren te verlagen en geschikt voor gebruik.
+Op dit moment **SQL-Database** wordt verkocht als een service en is beschikbaar in verschillende Servicelagen met andere prijzen voor resources, die allemaal worden per uur gefactureerd tegen een vast tarief op basis van de servicelaag en compute-grootte die u kiest. Met SQL Database Managed Instance kunt u ook uw eigen licentie brengen. Zie voor meer informatie over meenemen van uw eigen licentie [License Mobility through Software Assurance on Azure](https://azure.microsoft.com/pricing/license-mobility/). Bovendien wordt uitgaand internetverkeer in rekening gebracht bij u tegen het reguliere [tarief voor gegevensoverdracht](https://azure.microsoft.com/pricing/details/data-transfers/). U kunt dynamisch aanpassen van de service-lagen en compute-grootten zodat deze overeenkomt met de uiteenlopende doorvoerbehoeften van uw toepassing. Voor de meest recente informatie over de huidige ondersteunde servicecategorieën, Zie [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). U kunt ook maken [elastische pools](sql-database-elastic-pool.md) pieken voor het delen van resources met database-exemplaren te verlagen en geschikt voor gebruik.
 
 Met **SQL Database** wordt de databasesoftware automatisch geconfigureerd, hersteld en bijgewerkt door Microsoft, waardoor uw beheerkosten worden verlaagd. Bovendien kunt u met de [ingebouwde back-up](sql-database-automated-backups.md)mogelijkheden aanzienlijk op kosten besparen, vooral wanneer u een groot aantal databases hebt. 
 

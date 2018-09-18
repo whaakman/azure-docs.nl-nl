@@ -52,35 +52,35 @@ items:
   items:
   - name: App maken
     items:
-    - name: 1. Met aangepast domein
+    - name: 1. Gebruikersintenties bepalen
       href: luis-quickstart-intents-only.md
-    - name: 2. Vooraf gemaakte intenties en entiteiten toevoegen
+    - name: 2. Gemeenschappelijke intenties identificeren
       href: luis-tutorial-prebuilt-intents-entities.md
-    - name: 3. Een entiteit in de vorm van een reguliere expressie toevoegen
+    - name: 3. Goed opgemaakte gegevens herkennen
       href: luis-quickstart-intents-regex-entity.md
-    - name: 4. Een lijstentiteit toevoegen
+    - name: 4. Exacte tekstovereenkomsten herkennen
       href: luis-quickstart-intent-and-list-entity.md
-    - name: 5. Een hiërarchische entiteit toevoegen
+    - name: 5. Contextgerelateerde gegevens herkennen
       href: luis-quickstart-intent-and-hier-entity.md
-    - name: 6. Een samengestelde entiteit toevoegen
+    - name: 6. Gerelateerde gegevens groeperen en herkennen
       href: luis-tutorial-composite-entity.md
-    - name: 7. De entiteit Simple en een woordgroepenlijst toevoegen
+    - name: 7. Namen herkennen
       href: luis-quickstart-primary-and-secondary-data.md
-    - name: 8. KeyPhrase-entiteit toevoegen
+    - name: 8. Belangrijke woordgroepen herkennen
       href: luis-quickstart-intent-and-key-phrase.md
-    - name: 9. Sentimentanalyse toevoegen
+    - name: 9. Gevoel herkennen
       href: luis-quickstart-intent-and-sentiment-analysis.md
   - name: App verbeteren
     items:
-    - name: Eindpuntuitingen controleren
+    - name: 1. Onzekere voorspellingen herstellen
       href: luis-tutorial-review-endpoint-utterances.md
-    - name: Met batch-test
+    - name: 2. Batchgewijs gegevenssets testen
       href: luis-tutorial-batch-testing.md
-    - name: Met patronen
+    - name: 3. Algemene vormen voor uitingen toevoegen
       href: luis-tutorial-pattern.md
-    - name: Met rollen
+    - name: 4. Contextgerelateerde patronen herkennen
       href: luis-tutorial-pattern-roles.md
-    - name: Met entiteit Pattern.any
+    - name: 5. Vrije vorm-gegevens herkennen
       href: luis-tutorial-pattern-any.md
 - name: Voorbeelden
   items:
@@ -200,7 +200,7 @@ items:
       href: luis-interactive-test.md
     - name: Batchgewijs testen
       href: luis-how-to-batch-test.md
-  - name: App publiceren
+  - name: Publiceren
     href: luis-how-to-publish-app.md
   - name: Vooraf gemaakte modellen gebruiken
     items:
@@ -364,9 +364,9 @@ items:
     href: https://blog.botframework.com/category/luis/
   - name: Knowledge Base
     href: https://cognitive.uservoice.com/knowledgebase/topics/127872-luis-language-understanding-intelligent-service
-ms.openlocfilehash: a64c1a61193e6c998eeb8d9953ca3382277f27e3
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 6c8c1e93de904de2624a34a8e81bcb225cbce6d6
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43842003"
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45630276"

@@ -3,18 +3,18 @@ title: Replicatie van HBase-cluster in virtuele Azure-netwerken instellen
 description: Meer informatie over het instellen van HBase-replicatie van een HDInsight-versie naar een andere voor taakverdeling, hoge beschikbaarheid, zonder enige uitvaltijd migratie en updates en herstel na noodgevallen.
 services: hdinsight,virtual-network
 author: jasonwhowell
+ms.author: jasonh
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 05/11/2018
-ms.author: jasonh
-ms.openlocfilehash: 624165f5ee1140ade9b9ce03c5249d297c8d83f1
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/15/2018
+ms.openlocfilehash: 0d675b3efa165f36b93d791975a8007a68b02e12
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43047480"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734755"
 ---
 # <a name="set-up-hbase-cluster-replication-in-azure-virtual-networks"></a>Replicatie van HBase-cluster in virtuele Azure-netwerken instellen
 
@@ -135,7 +135,7 @@ Gebruik de volgende procedure voor het installeren van de binding voor:
     sudo apt-get install bind9 -y
     ```
 
-3. Voor het configureren van de binding voor het doorsturen van aanvragen voor naamomzetting met uw on-premises DNS-server, gebruikt u de volgende tekst als de inhoud van de `/etc/bind/named.conf.options` bestand:
+3. Binding voor het doorsturen van aanvragen voor naamomzetting met uw on-premises DNS-server configureren. Om dit te doen, gebruikt u de volgende tekst als de inhoud van de `/etc/bind/named.conf.options` bestand:
 
     ```
     acl goodclients {
@@ -151,7 +151,7 @@ Gebruik de volgende procedure voor het installeren van de binding voor:
         allow-query { goodclients; };
 
         forwarders {
-            168.63.129.16 #This is the Azure DNS server
+            168.63.129.16; #This is the Azure DNS server
         };
 
         dnssec-validation auto;

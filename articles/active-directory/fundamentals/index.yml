@@ -1,0 +1,53 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 4c9f26c36b0cf79c8bd28e57fc7bdec5dda22764
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45636322"
+documentType: LandingData
+title: Documentatie over de basisprincipes van Azure Active Directory
+metadata:
+  document_id: 
+  title: Documentatie over de basisprincipes van Azure Active Directory
+  description: Meer informatie over de basisbegrippen en processen die beschikbaar zijn terwijl u Azure Active Directory gebruikt.
+  services: active-directory
+  ms.component: fundamentals
+  author: eross-msft
+  manager: mtillman
+  ms.service: active-directory
+  ms.topic: landing-page
+  ms.date: 09/07/2018
+  ms.author: lizross
+abstract:
+  description: Meer informatie over de basisbegrippen en processen voor Azure Active Directory (Azure AD), waaronder over het maken van basisgebruikers en -groepen, en over het maken van een basisomgeving waarmee u aan de slag kunt.
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: Leer hoe u aan de slag kunt gaan met de Azure Active Directory-portal.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_portal.png
+      text: Azure AD openen om een tenant te maken
+      href: active-directory-access-create-new-tenant.md
+    - image:
+        src: ./media/index/i_tasks.png
+      text: Groepen en leden bekijken
+      href: active-directory-groups-view-azure-portal.md
+- title: Stapsgewijze handleidingen
+  items:
+  - type: paragraph
+    text: Leer hoe u basistaken uitvoert die u kunt instellen in uw Azure Active Directory-omgeving
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-get-started-premium">Meld u aan voor Azure AD Premium</a>
+    - html: <a href="/azure/active-directory/fundamentals/add-custom-domain">Een aangepaste domeinnaam toevoegen</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-groups-create-azure-portal">Een basisgroep maken en leden toevoegen</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners">Groepseigenaren toevoegen</a>
+    - html: <a href="/azure/active-directory/fundamentals/add-users-azure-active-directory">Een nieuwe gebruiker toevoegen</a>
+    - html: <a href="/azure/active-directory/fundamentals/active-directory-users-assign-role-azure-portal">Rollen toewijzen aan gebruikers</a>
+    - html: <a href="/azure/active-directory/fundamentals/license-users-groups">Licenties toewijzen aan gebruikers</a>

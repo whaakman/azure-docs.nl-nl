@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 8/27/2018
+ms.date: 09/14/2018
 ms.author: sashan
-ms.openlocfilehash: c0fa4a9868aa19032888aa50a0d300dd2e88fcca
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: d7c3a672224bd7a167956d7699541880de11bef9
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43124814"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737036"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Alleen-lezen replica's gebruiken om te laden saldo alleen-lezen query workloads (preview)
 
@@ -26,7 +26,7 @@ Elke database in de Premium-laag ([DTU gebaseerde aankoopmodel](sql-database-ser
 
 ![Alleen-lezen replica 's](media/sql-database-managed-instance/business-critical-service-tier.png)
 
-Deze replica's worden ingericht met hetzelfde prestatieniveau als de alleen-lezen-replica die worden gebruikt door de normale databaseverbindingen. De **Read Scale-Out** functie kunt u saldo SQL-Database alleen-lezen-werkbelastingen met behulp van de capaciteit van een van de alleen-lezen replica's in plaats van het delen van de replica voor lezen / schrijven. Op deze manier de alleen-lezen-werkbelasting worden geïsoleerd van de belangrijkste workload voor lezen / schrijven en heeft geen invloed op de prestaties. De functie is bedoeld voor de toepassingen die logisch zijn gescheiden van de alleen-lezen werkbelastingen, zoals analytics, en daarom kunnen krijgen prestatievoordelen met behulp van deze extra capaciteit zonder extra kosten.
+Deze replica's worden ingericht met de dezelfde compute-grootte als de alleen-lezen-replica die worden gebruikt door de normale databaseverbindingen. De **Read Scale-Out** functie kunt u saldo SQL-Database alleen-lezen-werkbelastingen met behulp van de capaciteit van een van de alleen-lezen replica's in plaats van het delen van de replica voor lezen / schrijven. Op deze manier de alleen-lezen-werkbelasting worden geïsoleerd van de belangrijkste workload voor lezen / schrijven en heeft geen invloed op de prestaties. De functie is bedoeld voor de toepassingen die logisch zijn gescheiden van de alleen-lezen werkbelastingen, zoals analytics, en daarom kunnen krijgen prestatievoordelen met behulp van deze extra capaciteit zonder extra kosten.
 
 Voor het gebruik van de functie Read Scale-Out met een bepaalde database, moet u expliciet inschakelen dit bij het maken van de database of later door het wijzigen van de configuratie met behulp van PowerShell door het aanroepen van de [Set-AzureRmSqlDatabase](/powershell/module/azurerm.sql/set-azurermsqldatabase) of de [ Nieuwe-AzureRmSqlDatabase](/powershell/module/azurerm.sql/new-azurermsqldatabase) cmdlets of via de REST-API van Azure Resource Manager met behulp de [Databases - maken of bijwerken](/rest/api/sql/databases/createorupdate) methode. 
 

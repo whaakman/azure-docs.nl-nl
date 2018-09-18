@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 5/04/2018
 ms.author: deguhath
-ms.openlocfilehash: d3a7bc59654ace8dbe647b5a780985fa1556f1da
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: f9e456ec28695c63384f1c4fdd4b04ec37fefc14
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055485"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45728808"
 ---
 # <a name="move-data-to-an-azure-sql-database-for-azure-machine-learning"></a>Gegevens voor Azure Machine Learning verplaatsen naar een Azure SQL-database
 In dit onderwerp worden de opties voor het verplaatsen van gegevens uit platte bestanden (CSV-bestand of TSV-indeling) of gegevens die zijn opgeslagen in een on-premises SQL Server naar een Azure SQL-database. Deze taken voor het verplaatsen van gegevens naar de cloud maken deel uit van het Team Data Science Process.
@@ -42,7 +42,7 @@ De volgende tabel geeft een overzicht van de opties voor het verplaatsen van geg
 De procedures die hier wordt beschreven, vereist dat u hebt:
 
 * Een **Azure-abonnement**. Als u geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
-* Een **Azure storage-account**. U kunt een Azure storage-account gebruiken voor het opslaan van de gegevens in deze zelfstudie. Zie het artikel [Een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md) als u geen account Azure-opslagaccount hebt. Nadat u het opslagaccount hebt gemaakt, moet u de accountsleutel ophalen die wordt gebruikt voor toegang tot de opslag. Zie [beheren van uw toegangssleutels voor opslag](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+* Een **Azure storage-account**. U kunt een Azure storage-account gebruiken voor het opslaan van de gegevens in deze zelfstudie. Zie het artikel [Een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md) als u geen account Azure-opslagaccount hebt. Nadat u het opslagaccount hebt gemaakt, moet u de accountsleutel ophalen die wordt gebruikt voor toegang tot de opslag. Zie [beheren van uw toegangssleutels voor opslag](../../storage/common/storage-account-manage.md#access-keys).
 * Toegang tot een **Azure SQL Database**. Als u een Azure SQL-Database moet instellen [aan de slag met Microsoft Azure SQL Database](../../sql-database/sql-database-get-started.md) bevat informatie over hoe u een nieuw exemplaar van een Azure SQL-Database inricht.
 * Geïnstalleerd en geconfigureerd **Azure PowerShell** lokaal. Zie voor instructies [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 

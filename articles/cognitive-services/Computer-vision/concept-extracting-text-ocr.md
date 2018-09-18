@@ -1,23 +1,23 @@
 ---
-title: Uitpakken van tekst met OCR
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Concepten met betrekking tot het extraheren van tekst met optische tekenherkenning met behulp van de Computer Vision in Azure Cognitive Services.
+title: Tekst met OCR - Computer Vision extraheren
+titleSuffix: Azure Cognitive Services
+description: Concepten met betrekking tot het extraheren van tekst met optische tekenherkenning () met behulp van de Computer Vision-API.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: 07efe49c53b13094f3f67db3b3becb57a7c473d8
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: af88063a68cef4953da8357596ce64e4510e8d36
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725424"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985443"
 ---
-# <a name="extracting-text-with-ocr"></a>Uitpakken van tekst met OCR
+# <a name="extracting-text-with-ocr"></a>Tekst extraheren met OCr
 
 Computer Vision-technologie voor optische tekenherkenning (OCR) detecteert tekstinhoud in een afbeelding en worden de herkende tekst naar een machinaal leesbare tekenstroom geëxtraheerd. U kunt het resultaat voor zoeken en talloze andere doeleinden, zoals medische dossiers, beveiliging en bankieren. Hij detecteert de taal automatisch. OCR bespaart tijd en biedt gebruikers gemak door ze om foto's van tekst in plaats van de tekst te transcriberen.
 

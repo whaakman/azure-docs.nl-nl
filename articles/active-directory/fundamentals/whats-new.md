@@ -14,16 +14,16 @@ ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: lizross
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 0fa220822c65065538db70df8a74de2fcca51938
-ms.sourcegitcommit: a1140e6b839ad79e454186ee95b01376233a1d1f
+ms.openlocfilehash: e62dd48af69dd54abd26c21d7510ec872500e274
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43143676"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737427"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Wat is er nieuw in Azure Active Directory?
 
->Te worden geïnformeerd over wanneer u terug naar deze pagina voor updates door toe te voegen deze [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=en-us) aan uw ![RSS-pictogram](./media/whats-new/feed-icon-16x16.png) reader-feed.
+>Te worden geïnformeerd over wanneer u terug naar deze pagina voor updates door toe te voegen deze [URL](https://docs.microsoft.com/api/search/rss?search=%22whats%20new%20in%20azure%20active%20directory%22&locale=docs.microsoft.com/) aan uw ![RSS-pictogram](./media/whats-new/feed-icon-16x16.png) reader-feed.
 
 Azure AD ontvangt verbeteringen regelmatig. Als u wilt bijhouden met de meest recente ontwikkelingen, vindt in dit artikel u informatie over:
 

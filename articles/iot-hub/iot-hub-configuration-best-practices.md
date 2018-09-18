@@ -7,12 +7,12 @@ ms.date: 06/24/2018
 ms.topic: conceptual
 ms.service: iot-hub
 services: iot-hub
-ms.openlocfilehash: 571aa5a080ae4622a23fdb20d712327d4ec6fbf9
-ms.sourcegitcommit: 1aedb52f221fb2a6e7ad0b0930b4c74db354a569
+ms.openlocfilehash: 5eb0ba659961d809d0ae471034b03263f87e3894
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/17/2018
-ms.locfileid: "42054700"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985495"
 ---
 # <a name="best-practices-for-device-configuration-within-an-iot-solution"></a>Aanbevolen procedures voor de configuratie van het apparaat in een IoT-oplossing
 
@@ -55,7 +55,7 @@ Hier volgen de aanbevolen procedures voor hardwarefabrikanten en omgaan met inge
 
 Hier volgen de aanbevolen procedures voor ontwikkelaars van de IoT-oplossingen die aan systemen op basis van in Azure werken:
 
-* **Implementeer [apparaatdubbels](iot-hub-devguide-device-twins.md):** apparaatdubbels inschakelen voor het synchroniseren van gewenst Configuratiebeheer vanuit de cloud en voor het rapporteren van de huidige configuratie- en apparaat-eigenschappen. De beste manier voor het implementeren van apparaatdubbels in cloud solutions toepassingen is via de [Azure IoT SDK's](https://github.com/Azure/azure-iot-sdks.) apparaatdubbels zijn bij uitstek geschikt voor de configuratie, omdat ze:
+* **Implementeer [apparaatdubbels](iot-hub-devguide-device-twins.md):** apparaatdubbels inschakelen voor het synchroniseren van gewenst Configuratiebeheer vanuit de cloud en voor het rapporteren van de huidige configuratie- en apparaat-eigenschappen. De beste manier voor het implementeren van apparaatdubbels in cloud solutions toepassingen is via de [Azure IoT SDK's](https://github.com/Azure/azure-iot-sdks). Apparaatdubbels zijn bij uitstek geschikt voor de configuratie, omdat ze:
 
     * Ondersteuning voor bidirectionele communicatie.
     * Voor beide apparaatstatussen verbonden en niet-verbonden toestaan. 

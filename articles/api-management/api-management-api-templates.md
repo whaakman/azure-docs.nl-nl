@@ -14,15 +14,15 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/09/2017
 ms.author: apimpm
-ms.openlocfilehash: 9abbdda2300fd8d51bec372624f0349455cf2b01
-ms.sourcegitcommit: d98d99567d0383bb8d7cbe2d767ec15ebf2daeb2
+ms.openlocfilehash: 74f7956a0b705748228216b3f1aa52607ff55614
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/10/2018
-ms.locfileid: "33937041"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983492"
 ---
 # <a name="api-templates-in-azure-api-management"></a>API-sjablonen in Azure API Management
-Azure API Management biedt de mogelijkheid voor het aanpassen van de inhoud van developer portal-pagina's met behulp van een set van sjablonen die hun inhoud configureren. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [resources String](api-management-template-resources.md#strings), [Glyph-resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u aanzienlijke flexibiliteit voor het configureren van de inhoud van de pagina's naar wens met behulp van deze sjablonen.  
+Met Azure API Management biedt u de mogelijkheid om aan te passen van de inhoud van ontwikkelaarsportalpagina's met behulp van een set van sjablonen die hun inhoud hebt geconfigureerd. Met behulp van [DotLiquid](http://dotliquidmarkup.org/) syntaxis en de editor van uw keuze, zoals [DotLiquid voor ontwerpers](https://github.com/dotliquid/dotliquid/wiki/DotLiquid-for-Designers), en een opgegeven set gelokaliseerde [tekenreeks resources](api-management-template-resources.md#strings), [Glyph resources](api-management-template-resources.md#glyphs), en [pagina besturingselementen](api-management-page-controls.md), hebt u geweldige flexibiliteit voor het configureren van de inhoud van de pagina's naar eigen inzicht met behulp van deze sjablonen.  
   
 De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarsportal aanpassen.  
   
@@ -39,12 +39,12 @@ De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarspor
     -   [Ruby](#Ruby)  
 
 > [!NOTE]
->  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie, maar nog worden gewijzigd vanwege continu verbeteringen. U kunt de live standaardsjablonen weergeven in de ontwikkelaarsportal door te navigeren naar de gewenste afzonderlijke sjablonen. Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
+>  Standaard-voorbeeldsjablonen zijn opgenomen in de volgende documentatie, maar kunnen worden gewijzigd vanwege de continue verbeteringen. U kunt de live standaardsjablonen weergeven in de portal voor ontwikkelaars door te navigeren naar de gewenste afzonderlijke sjablonen. Zie voor meer informatie over het werken met sjablonen [over het aanpassen van de API Management-ontwikkelaarsportal met behulp van sjablonen](https://azure.microsoft.com/documentation/articles/api-management-developer-portal-templates/).  
   
 ##  <a name="APIList"></a> API-lijst  
- De **API lijst** sjabloon kunt u de hoofdtekst van de lijst met API-pagina in de ontwikkelaarsportal aanpassen.  
+ De **API-lijst** sjabloon kunt u de hoofdtekst van de pagina van de lijst met API in de ontwikkelaarsportal aanpassen.  
   
- ![Developer Portal API lijst](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Developer Portal API-Sjabloonlijst")  
+ ![Developer Portal API-lijst](./media/api-management-api-templates/APIM-Developer-Portal-Templates-API-List.png "APIM Developer Portal sjablonen API-lijst")  
   
 ### <a name="default-template"></a>Standaardsjabloon  
   
@@ -87,9 +87,9 @@ De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarspor
   
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
-|API 's|Verzameling van [API-overzicht](api-management-template-data-model-reference.md#APISummary) entiteiten.|De API's zichtbaar is voor de huidige gebruiker.|  
+|API 's|Verzameling van [API-overzicht](api-management-template-data-model-reference.md#APISummary) entiteiten.|De API's zichtbaar voor de huidige gebruiker.|  
   
-### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
+### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
 ```json  
 {  
@@ -109,10 +109,10 @@ De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarspor
 }  
 ```  
   
-##  <a name="Product"></a> bewerking  
- De **bewerking** sjabloon kunt u de hoofdtekst van de pagina bewerking in de ontwikkelaarsportal aanpassen.  
+##  <a name="Product"></a> Bewerking  
+ De **bewerking** sjabloon kunt u de hoofdtekst van de bewerking-pagina in de ontwikkelaarsportal aanpassen.  
   
- ![Developer Portal bewerking pagina](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "Ontwikkelaarsportal APIM sjablonen bewerking pagina")  
+ ![Developer Portal bewerking pagina](./media/api-management-api-templates/APIM-Developer-Portal-templates-Operation-page.png "APIM-Ontwikkelaarsportal sjablonen bewerking pagina")  
   
 ### <a name="default-template"></a>Standaardsjabloon  
   
@@ -343,16 +343,16 @@ De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarspor
 |Eigenschap|Type|Beschrijving|  
 |--------------|----------|-----------------|  
 |apiId|tekenreeks|De id van de huidige API.|  
-|apiName|tekenreeks|De naam van de API.|  
+|ApiName|tekenreeks|De naam van de API.|  
 |apiDescription|tekenreeks|Een beschrijving van de API.|  
 |api|[API-overzicht](api-management-template-data-model-reference.md#APISummary) entiteit.|De huidige API.|  
 |bewerking|[Bewerking](api-management-template-data-model-reference.md#Operation)|De bewerking die momenteel wordt weergegeven.|  
 |sampleUrl|tekenreeks|De URL voor de huidige bewerking.|  
-|operationMenu|[Bewerking menu](api-management-template-data-model-reference.md#Menu)|Een menu voor deze API-bewerkingen.|  
-|consoleUrl|URI|De URI voor de **Try it** knop.|  
+|operationMenu|[Bewerking menu](api-management-template-data-model-reference.md#Menu)|Een menu met bewerkingen voor deze API.|  
+|consoleUrl|URI|De URI voor de **uitproberen** knop.|  
 |voorbeelden|Verzameling van [codevoorbeeld](api-management-template-data-model-reference.md#Sample) entiteiten.|De codevoorbeelden voor de huidige bewerking...|  
   
-### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
+### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
 ```json  
 {  
@@ -640,7 +640,7 @@ De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarspor
 ```  
   
 ##  <a name="CodeSamples"></a> Codevoorbeelden  
- De volgende sjablonen kunnen u de instantie van de afzonderlijke codevoorbeelden op de pagina bewerking aanpassen.  
+ De volgende sjablonen kunnen u het aanpassen van de hoofdtekst van de afzonderlijke codevoorbeelden op de pagina van de bewerking.  
   
  ![Developer Portal sjablonen codevoorbeelden](./media/api-management-api-templates/APIM-Developer-Portal-Templates-Code-samples.png "codevoorbeelden APIM Developer Portal-sjablonen")  
   
@@ -661,7 +661,7 @@ De sjablonen in deze sectie kunt u de inhoud van de API's in de ontwikkelaarspor
 -   [Ruby](#Ruby)  
   
 ###  <a name="Curl"></a> CURL  
- De **DocumentationSamplesCurl** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ De **DocumentationSamplesCurl** sjabloon kunt u dit codevoorbeeld in de sectie met voorbeeldcode voorbeelden van de pagina bewerking aanpassen.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
@@ -679,12 +679,12 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ De code-voorbeeldsjablonen staan niet toe dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
- [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
+ [Codevoorbeeld](api-management-template-data-model-reference.md#Sample) entiteit.  
   
-#### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
+#### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
 ```json  
 {  
@@ -714,7 +714,7 @@ curl -v -X {{method}} "{{scheme}}://{{host}}{{path}}{{query | escape }}"
 ```  
   
 ###  <a name="CSharp"></a> C#  
- De **DocumentationSamplesCsharp** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ De **DocumentationSamplesCsharp** sjabloon kunt u dit codevoorbeeld in de sectie met voorbeeldcode voorbeelden van de pagina bewerking aanpassen.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
@@ -858,12 +858,12 @@ namespace CSHttpClientSample
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ De code-voorbeeldsjablonen staan niet toe dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
- [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
+ [Codevoorbeeld](api-management-template-data-model-reference.md#Sample) entiteit.  
   
-#### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
+#### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
 ```json  
 {  
@@ -893,7 +893,7 @@ namespace CSHttpClientSample
 ```  
   
 ###  <a name="Stub"></a> Java  
- De **DocumentationSamplesJava** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ De **DocumentationSamplesJava** sjabloon kunt u dit codevoorbeeld in de sectie met voorbeeldcode voorbeelden van de pagina bewerking aanpassen.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
@@ -954,12 +954,12 @@ public class JavaSample
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ De code-voorbeeldsjablonen staan niet toe dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
- [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
+ [Codevoorbeeld](api-management-template-data-model-reference.md#Sample) entiteit.  
   
-#### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
+#### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
 ```json  
 {  
@@ -989,7 +989,7 @@ public class JavaSample
 ```  
   
 ###  <a name="JavaScript"></a> JavaScript  
- De **DocumentationSamplesJs** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ De **DocumentationSamplesJs** sjabloon kunt u dit codevoorbeeld in de sectie met voorbeeldcode voorbeelden van de pagina bewerking aanpassen.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
@@ -1043,12 +1043,12 @@ public class JavaSample
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ De code-voorbeeldsjablonen staan niet toe dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
- [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
+ [Codevoorbeeld](api-management-template-data-model-reference.md#Sample) entiteit.  
   
-#### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
+#### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
 ```json  
 {  
@@ -1078,7 +1078,7 @@ public class JavaSample
 ```  
   
 ###  <a name="ObjectiveC"></a> Objective-C  
- De **DocumentationSamplesObjc** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ De **DocumentationSamplesObjc** sjabloon kunt u dit codevoorbeeld in de sectie met voorbeeldcode voorbeelden van de pagina bewerking aanpassen.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
@@ -1155,12 +1155,12 @@ int main(int argc, const char * argv[])
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ De code-voorbeeldsjablonen staan niet toe dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
- [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
+ [Codevoorbeeld](api-management-template-data-model-reference.md#Sample) entiteit.  
   
-#### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
+#### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
 ```json  
 {  
@@ -1190,13 +1190,13 @@ int main(int argc, const char * argv[])
 ```  
   
 ###  <a name="PHP"></a> PHP  
- De **DocumentationSamplesPhp** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ De **DocumentationSamplesPhp** sjabloon kunt u dit codevoorbeeld in de sectie met voorbeeldcode voorbeelden van de pagina bewerking aanpassen.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
 ```xml  
 <?php  
-// This sample uses the Apache HTTP client from HTTP Components (http://hc.apache.org/httpcomponents-client-ga/)  
+// This sample uses the HTTP_Request2 PHP library (https://github.com/pear/HTTP_Request2)  
 require_once 'HTTP/Request2.php';  
   
 $request = new Http_Request2('{{scheme}}://{{host}}{{path}}');  
@@ -1245,12 +1245,12 @@ catch (HttpException $ex)
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ De code-voorbeeldsjablonen staan niet toe dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
- [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
+ [Codevoorbeeld](api-management-template-data-model-reference.md#Sample) entiteit.  
   
-#### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
+#### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
 ```json  
 {  
@@ -1280,7 +1280,7 @@ catch (HttpException $ex)
 ```  
   
 ###  <a name="Python"></a> Python  
- De **DocumentationSamplesPython** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ De **DocumentationSamplesPython** sjabloon kunt u dit codevoorbeeld in de sectie met voorbeeldcode voorbeelden van de pagina bewerking aanpassen.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
@@ -1363,12 +1363,12 @@ except Exception as e:
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ De code-voorbeeldsjablonen staan niet toe dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
- [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
+ [Codevoorbeeld](api-management-template-data-model-reference.md#Sample) entiteit.  
   
-#### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
+#### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
 ```json  
 {  
@@ -1398,7 +1398,7 @@ except Exception as e:
 ```  
   
 ###  <a name="Ruby"></a> Ruby  
- De **DocumentationSamplesRuby** sjabloon kunt u dit codevoorbeeld in de sectie code voorbeelden van de pagina bewerking aanpassen.  
+ De **DocumentationSamplesRuby** sjabloon kunt u dit codevoorbeeld in de sectie met voorbeeldcode voorbeelden van de pagina bewerking aanpassen.  
   
 #### <a name="default-template"></a>Standaardsjabloon  
   
@@ -1434,12 +1434,12 @@ puts response.body
 ```  
   
 #### <a name="controls"></a>Besturingselementen  
- De code-voorbeeldsjablonen niet toestaan dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
+ De code-voorbeeldsjablonen staan niet toe dat het gebruik van een [pagina besturingselementen](api-management-page-controls.md).  
   
 #### <a name="data-model"></a>Gegevensmodel  
- [Voorbeeld van code](api-management-template-data-model-reference.md#Sample) entiteit.  
+ [Codevoorbeeld](api-management-template-data-model-reference.md#Sample) entiteit.  
   
-#### <a name="sample-template-data"></a>Voorbeeldgegevens voor sjabloon  
+#### <a name="sample-template-data"></a>Voorbeeldgegevens voor de sjabloon  
   
 ```json  
 {  
@@ -1469,4 +1469,4 @@ puts response.body
 ```
 
 ## <a name="next-steps"></a>Volgende stappen
-Zie voor meer informatie over het werken met sjablonen [het aanpassen van de API Management portal voor ontwikkelaars met behulp van sjablonen](api-management-developer-portal-templates.md).
+Zie voor meer informatie over het werken met sjablonen [over het aanpassen van de API Management-ontwikkelaarsportal met behulp van sjablonen](api-management-developer-portal-templates.md).

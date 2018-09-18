@@ -8,14 +8,14 @@ ms.reviewer: carlrab
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 04/04/2018
+ms.date: 09/14/2018
 ms.author: v-daljep
-ms.openlocfilehash: 100cb939c0d7297b92af3255382745355aa8d271
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 9c2bb85d9c0bb02b7eb698dbee07f488c2ad0b62
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722109"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733178"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Oplossen van prestatieproblemen met de Azure SQL Database met intelligente inzichten
 
@@ -283,7 +283,7 @@ Wijzigingen in de database-scoped configuratie kunnen worden ingesteld voor elke
 
 ### <a name="troubleshooting"></a>Problemen oplossen
 
-De uitvoer databasebereik configuratiewijzigingen die onlangs zijn aangebracht waardoor prestatievermindering in vergelijking met het gedrag van het vorige zeven dagen werkbelasting-diagnoselogboek. U kunt de configuratiewijzigingen in de vorige waarden herstellen. U kunt ook waarde door waarde afstemmen totdat het gewenste prestatieniveau is bereikt. U kunt database-scope-configuratiewaarden kopiëren uit een database vergelijkbaar met voldoende prestaties. Als u niet om op te lossen van de prestaties, terugkeren naar de standaardwaarden van de standaard-SQL-Database en proberen te starten vanaf deze basislijn aanpassen.
+De uitvoer databasebereik configuratiewijzigingen die onlangs zijn aangebracht waardoor prestatievermindering in vergelijking met het gedrag van het vorige zeven dagen werkbelasting-diagnoselogboek. U kunt de configuratiewijzigingen in de vorige waarden herstellen. U kunt ook waarde door waarde afstemmen totdat de gewenste compute-grootte is bereikt. U kunt database-scope-configuratiewaarden kopiëren uit een database vergelijkbaar met voldoende prestaties. Als u niet om op te lossen van de prestaties, terugkeren naar de standaardwaarden van de standaard-SQL-Database en proberen te starten vanaf deze basislijn aanpassen.
 
 Zie voor meer informatie over het optimaliseren van binnen het bereik van database-configuratie en T-SQL-syntaxis voor het wijzigen van de configuratie [Alter database scoped configuration (Transact-SQL)](https://msdn.microsoft.com/library/mt629158.aspx).
 

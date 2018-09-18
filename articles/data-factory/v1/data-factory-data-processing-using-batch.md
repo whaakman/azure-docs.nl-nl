@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 6ad3b4c1f59f5c46fd31aa24d6d2ceb4d7411abd
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 511a0122b37f5f34097da38a645790d99212ad18
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055759"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737410"
 ---
 # <a name="process-large-scale-datasets-by-using-data-factory-and-batch"></a>Grootschalige gegevenssets verwerken met behulp van Data Factory en Batch
 > [!NOTE]
@@ -556,7 +556,7 @@ Gekoppelde services worden gegevensarchieven of compute-services aan een data fa
 
    ![Nieuwe gegevensopslag](./media/data-factory-data-processing-using-batch/image7.png)
 
-1. Vervang de **accountnaam** door de naam van uw opslagaccount. Vervang de **accountsleutel** met de toegangssleutel van uw opslagaccount. Zie voor meer informatie over het verkrijgen van uw toegangssleutel voor opslag, [weergeven, kopiëren en opnieuw genereren opslag toegangssleutels](../../storage/common/storage-create-storage-account.md#manage-your-storage-account).
+1. Vervang de **accountnaam** door de naam van uw opslagaccount. Vervang de **accountsleutel** met de toegangssleutel van uw opslagaccount. Zie voor meer informatie over het verkrijgen van uw toegangssleutel voor opslag, [weergeven, kopiëren en opnieuw genereren opslag toegangssleutels](../../storage/common/storage-account-manage.md#access-keys).
 
 1. Selecteer in de opdrachtbalk **Implementeren** om de gekoppelde service te implementeren.
 

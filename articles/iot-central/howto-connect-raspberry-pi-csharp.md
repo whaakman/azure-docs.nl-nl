@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 63843797cca7fe84cdb9ce91d2282b1c0c288f0c
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: a9390ac9046ad1e0ec5a1689052ee99bf76ec6f4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39205133"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734232"
 ---
 # <a name="connect-a-raspberry-pi-to-your-azure-iot-central-application-c"></a>Verbinding maken met een Raspberry Pi aan uw Azure IoT Central-toepassing (C#)
 
@@ -262,6 +262,9 @@ Als u wilt de volgende stappen hebt voltooid, kunt u Visual Studio Code. Zie voo
 ## <a name="run-your-net-application"></a>Uw .NET-toepassing uitvoeren
 
 Uw apparaat-specifieke verbindingsreeks toevoegen aan de code voor het apparaat om te verifiëren met Azure IoT Central. U hebt deze verbindingsreeks wanneer u uw echt apparaat toegevoegd aan uw Azure IoT Central-toepassing.
+
+  > [!NOTE]
+   > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instrustions naar [de apparaat-verbindingsreeks ophalen](concepts-connectivity.md#getting-device-connection-string) en Ga door met de rest van de zelfstudie.
 
 1. Vervang `{your device connection string}` in de **Program.cs** -bestand met de verbindingsreeks die u eerder hebt genoteerd.
 

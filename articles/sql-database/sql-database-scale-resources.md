@@ -6,15 +6,15 @@ author: jovanpop-msft
 ms.reviewer: carlrab
 ms.service: sql-database
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/14/2018
 ms.author: jovanpop
 manager: craigg
-ms.openlocfilehash: 2378a4d5bb7d7f52ee2e96224db01e5e386b4c46
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 0a1077acf5e436dd5fc49e65876ed65bf4c95b9c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42060793"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731753"
 ---
 # <a name="scale-database-resources"></a>Resources op database
 
@@ -29,7 +29,7 @@ U hoeft niet te hoeven maken over het aanschaffen van hardware en het wijzigen v
 ![Databaseprestaties schalen](media/sql-database-scalability/scale-performance.svg)
 
 Azure SQL Database biedt een [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) of de [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md). 
--   De [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) biedt een combinatie van rekenkracht, geheugen en i/o-resources in drie Servicelagen voor lichte tot zware workloads van databases: Basic, Standard en Premium. Prestatieniveaus binnen elke laag bieden een andere combinatie van deze resources, waaraan u extra opslagbronnen kunt toevoegen.
+-   De [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) biedt een combinatie van rekenkracht, geheugen en i/o-resources in drie Servicelagen voor lichte tot zware workloads van databases: Basic, Standard en Premium. COMPUTE-grootten in elke laag bieden een andere combinatie van deze resources, waaraan u extra opslagbronnen kunt toevoegen.
 -   De [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md) kunt u het aantal vCores, het bedrag of geheugen, en de hoeveelheid en de snelheid van de opslag kiezen.
 U kunt uw eerste app ontwikkelen op één enkele kleine database voor slechts enkele euro's per maand. Vervolgens kunt u op elk gewenst moment handmatig of programmatisch de servicelaag wijzigen, zodat deze beter past bij de behoeften van uw oplossing. U kunt het prestatieniveau aanpassen zonder uitvaltijd voor uw app of voor uw klanten. Dankzij dynamische schaalbaarheid kan uw database op een transparante manier snel reageren op veranderende resourcevereisten en betaalt u alleen voor de resources die u nodig hebt wanneer u ze nodig.
 
@@ -52,7 +52,7 @@ Alle drie versies van Azure SQL Database bieden een mogelijkheid voor het dynami
 
 ## <a name="alternative-scale-methods"></a>Schaal van alternatieve methoden
 Schalen van resources is de eenvoudigste en de meest efficiënte manier om prestaties te verbeteren van uw database zonder code van de database of de toepassing te wijzigen.
-In sommige gevallen, zelfs de hoogste prestatielagen en prestatieoptimalisatie van de mogelijk niet verwerken uw werkbelasting op geslaagd en goedkope manier. In dat geval hebt u andere opties voor het schalen van uw database:
+In sommige gevallen, zelfs de hoogste Servicelagen, compute-grootten en optimalisaties mogelijk niet verwerken uw werkbelasting op geslaagd en goedkope manier. In dat geval hebt u deze extra opties voor het schalen van uw database:
 -   [Read scale-out](sql-database-read-scale-out.md) is een functie die beschikbaar zijn in waar u ontvangt een alleen-lezen replica van uw gegevens waar u de veeleisende alleen-lezen query's, zoals rapporten kunt uitvoeren. Rood alleen-lezen replica wordt uw workload alleen-lezen worden verwerkt zonder gebruik van bronnen op uw primaire database.
 -   [Database sharding](sql-database-elastic-scale-introduction.md) is een set technieken waarmee u uw gegevens splitsen in meerdere databases en ze onafhankelijk worden geschaald.
 

@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 01/10/2018
 ms.author: shlo
 robots: noindex
-ms.openlocfilehash: 4c7dddcb5e39eb1f72fb59af753ab167bc44d3e3
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 2c00e42284783439b0a01f6ba6bab31be053b1c9
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42060647"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736407"
 ---
 # <a name="invoke-spark-programs-from-azure-data-factory-pipelines"></a>Spark-programma's van Azure Data Factory-pijplijnen aanroepen
 
@@ -109,7 +109,7 @@ In deze stap koppelt u uw opslagaccount aan uw data factory. Een gegevensset die
 
    ![AzureStorageLinkedService](./media/data-factory-build-your-first-pipeline-using-editor/azure-storage-linked-service.png)
 
-1. Vervang **accountnaam** en **accountsleutel** met de naam en sleutel van uw storage-account. Raadpleeg de informatie over het weergeven, kopiëren en opnieuw genereren van toegangssleutels voor opslag in [Uw opslagaccount beheren](../../storage/common/storage-create-storage-account.md#manage-your-storage-account) als u meer wilt weten over het verkrijgen van uw toegangssleutel voor opslag.
+1. Vervang **accountnaam** en **accountsleutel** met de naam en sleutel van uw storage-account. Raadpleeg de informatie over het weergeven, kopiëren en opnieuw genereren van toegangssleutels voor opslag in [Uw opslagaccount beheren](../../storage/common/storage-account-manage.md#access-keys) als u meer wilt weten over het verkrijgen van uw toegangssleutel voor opslag.
 
 1. Selecteer voor het implementeren van de gekoppelde service, **implementeren** op de opdrachtbalk. Nadat de gekoppelde service is geïmplementeerd, verdwijnt het venster Draft-1. U ziet **AzureStorageLinkedService** in de structuurweergave links.
 

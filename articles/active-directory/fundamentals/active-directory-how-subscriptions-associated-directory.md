@@ -1,70 +1,70 @@
 ---
-title: Een bestaand Azure-abonnement toevoegen aan Azure Active Directory | Microsoft Docs
-description: Een bestaand abonnement toevoegen aan Azure Active Directory
+title: Een bestaande Azure-abonnement toevoegen aan uw Azure Active Directory-tenant | Microsoft Docs
+description: Leer hoe u een bestaande Azure-abonnement toevoegen aan uw Azure Active Directory-tenant.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
 ms.topic: conceptual
-ms.date: 12/12/2017
+ms.date: 09/13/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: oldportal;it-pro;
-ms.openlocfilehash: 6b0933e9aa732cb9a01a454764fb0425465ec078
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.custom: it-pro
+ms.openlocfilehash: dd62b22eca40a214c5b08a9bc48815e40fe90e47
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39503308"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984074"
 ---
-# <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Een Azure-abonnement koppelen of toevoegen aan Azure Active Directory
+# <a name="how-to-associate-or-add-an-azure-subscription-to-azure-active-directory"></a>Hoe: koppelen of een Azure-abonnement toevoegen aan Azure Active Directory
+Het Azure-abonnement heeft een vertrouwensrelatie met Azure Active Directory (Azure AD), wat betekent dat het abonnement Azure AD om te verifiëren van gebruikers, services en apparaten vertrouwt. Meerdere abonnementen kunnen dezelfde Azure AD-directory vertrouwen, maar elk abonnement kan alleen een één directory vertrouwen.
 
-In dit artikel vindt u informatie over de relatie tussen een Azure-abonnement en Azure Active Directory (Azure AD), en instructies voor het toevoegen van een bestaand abonnement aan uw Azure AD-directory. Uw Azure-abonnement heeft een vertrouwensrelatie met Azure AD, wat betekent dat de directory wordt vertrouwd voor de authenticatie van gebruikers, services en apparaten. Meerdere abonnementen kunnen dezelfde directory vertrouwen, maar een abonnement kan slechts één directory vertrouwen. 
+Als uw abonnement is verlopen, verliest u toegang tot alle andere resources die zijn gekoppeld aan het abonnement. De Azure AD-directory blijft echter in Azure, zodat u kunt koppelen en beheren van de directory met behulp van een ander Azure-abonnement.
 
-De vertrouwensrelatie die een abonnement heeft met een directory is anders dan de relatie die een abonnement heeft met andere resources in Azure (websites, databases, enzovoort). Als een abonnement is verlopen, wordt de toegang tot de andere resources die zijn gekoppeld aan het abonnement, ook geblokkeerd. Een Azure AD-directory blijft echter wel aanwezig in Azure, en u kunt er een ander abonnement aan koppelen om de directory te beheren met het nieuwe abonnement.
+Alle gebruikers hebben één "" basisdirectory voor verificatie. Uw gebruikers kunnen echter ook gasten zijn in andere directory's zijn. U ziet de startpagina en Gast mappen voor elke gebruiker in Azure AD.
 
-Alle gebruikers hebben één basisdirectory waarmee ze worden geverifieerd, maar ze kunnen ook gasten zijn in andere directory’s. In Azure AD kunt u de directory’s zien waarvan uw gebruikersaccount lid of gast is.
+>[!Important]
+>Alle [Role-Based Access Control (RBAC)](../../role-based-access-control/role-assignments-portal.md) gebruikers met toegewezen toegang, samen met alle abonnementsbeheerders toegang nadat het abonnement gaan directorywijzigingen verloren. Bovendien hebt u een sleutelkluizen, moeten ze ook worden beïnvloed door het verplaatsen van het abonnement. Om op te lossen die, moet u [wijzigen van de tenant-ID voor key vault](../../key-vault/key-vault-subscription-move-fix.md) voordat bewerkingen wordt hervat.
+
 
 ## <a name="before-you-begin"></a>Voordat u begint
+Voordat u kunt koppelen of uw abonnement toevoegt, moet u de volgende taken uitvoeren:
 
-* U moet zich aanmelden met een account waarvoor u als RBAC-eigenaar toegang heeft tot het abonnement.
-* U moet zich aanmelden met een account dat bestaat in zowel de huidige directory die aan het abonnement is gekoppeld als in de directory waaraan u het abonnement wilt toevoegen. Zie [Hoe voegen beheerders van Azure Active Directory gebruikers van B2B-samenwerking toe?](../b2b/add-users-administrator.md) voor meer informatie over het verkrijgen van toegang tot een andere directory.
-* Deze functie is niet beschikbaar voor CSP- (MS-AZR-0145P, MS-AZR-0146P, MS-AZR-159P) en Microsoft Imagine-abonnementen (MS-AZR-0144P).
+- Meld u aan met een account dat:
+    - Heeft **RBAC-eigenaar** toegang tot het abonnement.
 
+    - Er bestaat in zowel de huidige map die is gekoppeld aan het abonnement en de nieuwe map die is waar u het abonnement voortaan koppelen. Zie voor meer informatie over het verkrijgen van toegang tot een andere map [hoe voeg door Azure Active Directory-beheerders de gebruikers van B2B-samenwerking toe?](../b2b/add-users-administrator.md).
+
+- Zorg ervoor dat u niet een Azure Cloud Service Providers (CSP)-abonnement (MS-AZR - 0145P, MS - AZR - 0146P, MS - AZR - 159P), een abonnement op Microsoft Internal (MS-AZR - 0015P) of een Microsoft Imagine-abonnement (MS-AZR - 0144P).
+    
 ## <a name="to-associate-an-existing-subscription-to-your-azure-ad-directory"></a>Een bestaand abonnement koppelen aan uw Azure AD Directory
+1. Meld u aan en selecteer het abonnement dat u gebruiken wilt in de [pagina met abonnementen in Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
 
-1. Meld u aan en selecteer een abonnement op de [pagina met abonnementen in Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade).
-2. Klik op **Directory wijzigen**.
+2. Selecteer **Wijzig de map**.
 
-    ![Schermafbeelding van de knop Directory wijzigen](./media/active-directory-how-subscriptions-associated-directory/edit-directory-button.PNG)
-3. Bekijk de waarschuwingen. Alle [RBAC](../../role-based-access-control/role-assignments-portal.md)-gebruikers (Role-Based Access Control, op rollen gebaseerd toegangsbeheer) met toegewezen toegang en alle abonnementsbeheerders verliezen toegang wanneer de directory van het abonnement wordt gewijzigd.
-4. Selecteer een directory.
+    ![De pagina abonnementen, met de wijziging directory optie gemarkeerd](media/active-directory-how-subscriptions-associated-directory/change-directory-button.png)
 
-    ![Schermafbeelding waarin de directory wordt gewijzigd](./media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.PNG)
-5. Klik op **Wijzigen**.
-6. Gelukt! Gebruik de directorywisselaar om naar de nieuwe directory te gaan. Het kan maximaal 10 minuten duren voordat alles goed wordt weergegeven.
+3. Bekijk eventuele waarschuwingen die worden weergegeven, en selecteer vervolgens **wijziging**.
 
-    ![Schermafbeelding met het bericht dat het overschakelen naar een andere directory is geslaagd](./media/active-directory-how-subscriptions-associated-directory/edit-directory-success.PNG)
+    ![Wijzig de directory-pagina met de map wijzigen](media/active-directory-how-subscriptions-associated-directory/edit-directory-ui.png)
 
-    ![Schermafbeelding van de wisselaar](./media/active-directory-how-subscriptions-associated-directory/directory-switcher.PNG)
+    De map wordt gewijzigd voor het abonnement en u krijgt een bericht weergegeven.
 
+    ![Geslaagd](media/active-directory-how-subscriptions-associated-directory/edit-directory-success.png)    
 
-Alle Azure-sleutelkluizen die u hebt, worden ook beïnvloed door de verplaatsing van een abonnement. [Wijzig daarom de tenant-ID van de sleutelkluis](../../key-vault/key-vault-subscription-move-fix.md) voordat u nieuwe bewerkingen uitvoert.
+4. Gebruik de directorywisselaar om naar de nieuwe adreslijst te gaan. Het kan maximaal 10 minuten duren voordat alles goed wordt weergegeven.
 
-Het wijzigen van de abonnementsdirectory is een bewerking op serviceniveau. Dit heeft geen invloed op het eigendom van het abonnement. De accountbeheerder kan de servicebeheerder nog steeds wijzigen met behulp van het [Account-centrum](https://account.azure.com/subscriptions). Als u de originele directory wilt verwijderen, moet u het eigendom van het abonnement overdragen op een nieuwe accountbeheerder. Zie [Eigendom van een Azure-abonnement naar een ander account overdragen](../../billing/billing-subscription-transfer.md) voor meer informatie over het overdragen van het eigendom. 
+    ![Overschakelen naar directorypagina](media/active-directory-how-subscriptions-associated-directory/directory-switcher.png)
+
+Wijzigen van de abonnementsdirectory is een bewerking op serviceniveau, zodat deze niet van invloed op abonnement eigendom. De accountbeheerder kan nog steeds wijzigen voor de servicebeheerder van de [Accountcentrum](https://account.azure.com/subscriptions). Als de oorspronkelijke map verwijderen, moet u overbrengen van de abonnementsfacturering over aan een nieuwe accountbeheerder. Zie [Eigendom van een Azure-abonnement naar een ander account overdragen](../../billing/billing-subscription-transfer.md) voor meer informatie over het overdragen van het eigendom. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie [Een Azure Active Directory-tenant verkrijgen](../develop/quickstart-create-new-tenant.md) voor meer informatie over het gratis maken van een nieuwe Azure AD-directory.
-* Zie [Eigendom van een Azure-abonnement naar een ander account overdragen](../../billing/billing-subscription-transfer.md) voor meer informatie over het overdragen van het eigendom van een Azure-abonnement.
-* Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
-* Zie [Beheerdersrollen toewijzen in Azure Active Directory](../users-groups-roles/directory-assign-admin-roles.md) voor meer informatie over het toewijzen van rollen in Azure AD.
+- Het maken van een nieuwe Azure AD-tenant, Zie [toegang tot Azure Active Directory om een nieuwe tenant maken](active-directory-access-create-new-tenant.md)
 
-<!--Image references-->
-[1]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_PassThruAuth.png
-[2]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_OrgAccountSubscription.png
-[3]: ./media/active-directory-how-subscriptions-associated-directory/WAAD_SignInDisambiguation.PNG
+- Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
+
+- Zie voor meer informatie over het toewijzen van rollen in Azure AD, [directory-rollen toewijzen aan gebruikers met Azure Active Directory](active-directory-users-assign-role-azure-portal.md)

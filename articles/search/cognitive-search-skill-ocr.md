@@ -1,5 +1,5 @@
 ---
-title: OCR cognitieve zoeken kwalificatie (Azure Search) | Microsoft Docs
+title: OCR cognitief zoeken vaardigheid (Azure Search) | Microsoft Docs
 description: Haal de tekst uit-bestanden in een Azure Search verrijking-pijplijn.
 services: search
 manager: pablocas
@@ -11,23 +11,25 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 478afe81ed739b98487973eb092ee9cad0aa17fd
-ms.sourcegitcommit: 0c490934b5596204d175be89af6b45aafc7ff730
+ms.openlocfilehash: 234651ad3672982e4de9617561a926712697945a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37058963"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734030"
 ---
-# <a name="ocr-cognitive-skill"></a>OCR cognitieve kwalificatie
+# <a name="ocr-cognitive-skill"></a>OCR cognitieve vaardigheden
 
-De **OCR** kwalificatie extraheert tekst van de afbeeldingsbestanden. Ondersteunde bestandsindelingen zijn onder andere:
+De **OCR** vaardigheid haalt tekst op uit de afbeeldingsbestanden. Ondersteunde bestandsindelingen zijn onder andere:
 
 + . JPEG
 + . JPG
 + . PNG
 + . BMP
-+ . GIF
++ . GIF-BESTAND
 
+> [!NOTE]
+> Cognitief zoeken is een openbare preview. Uitvoering van vaardigheden en uitpakken van de installatiekopie en normalisering worden momenteel gratis aangeboden. Op een later tijdstip, worden de prijzen van deze mogelijkheden aangekondigd. 
 
 ## <a name="skill-parameters"></a>Kwalificatie parameters
 
@@ -35,25 +37,25 @@ Parameters zijn hoofdlettergevoelig.
 
 | Parameternaam     | Beschrijving |
 |--------------------|-------------|
-| detectOrientation | Hiermee kunt automatische detectie van afdrukstand. <br/> Geldige waarden: true / false.|
-|defaultLanguageCode | <p>  Taalcode van de ingevoerde tekst. Enkele ondersteunde talen: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (Tsjechisch) <br/>da (Denemarken) <br/>NL (Nederlands) <br/>NL (Engels) <br/>Fi (Fins)  <br/>FR (Frans) <br/>  de (Duits) <br/>EL (Grieks) <br/> hu (Hongaars) <br/> Deze (Italiaans) <br/>  Japan (Japans) <br/> Ko (Koreaans) <br/> NB (Noors) <br/>   PL (Pools) <br/> PT (Portugees) <br/>  RU (Russisch) <br/>  ES (Spaans) <br/>  SV (Zweeds) <br/>  TR (Turks) <br/> ar (Arabisch) <br/> ro (Roemeens) <br/> SR-Cyrl (SerbianCyrillic) <br/> SR-Latn (SerbianLatin) <br/>  SK (Slowaaks). <br/>  UNK (onbekend) <br/><br/> Als de taalcode niet opgegeven of null is, is de taal autodetected. </p> |
-| textExtractionAlgorithm | 'afgedrukt' of 'geschreven'. De tekst 'geschreven' erkenning OCR-algoritme is momenteel in preview en alleen ondersteund in het Engels. |
+| detectOrientation | Hiermee kunt automatische detectie van de afdrukstand. <br/> Geldige waarden: true / false.|
+|defaultLanguageCode | <p>  De taalcode van de invoertekst. Enkele ondersteunde talen: <br/> zh-Hans (ChineseSimplified) <br/> zh-Hant (ChineseTraditional) <br/>CS (Tsjechië) <br/>da (Denemarken) <br/>NL (Nederlands) <br/>NL-(Engels) <br/>Fi (Fins)  <br/>FR (Frans) <br/>  de (Duits) <br/>EL (Grieks) <br/> hu (Hongaars) <br/> Deze (Italiaans) <br/>  Japan (Japans) <br/> Ko (Koreaans) <br/> NB (Noors) <br/>   PL (Pools) <br/> PT (Portugees) <br/>  RU (Russisch) <br/>  ES (Spaans) <br/>  SV (Zweeds) <br/>  TR (Turks) <br/> ar (Arabisch) <br/> ro (Roemeens) <br/> SR-Cyrl (SerbianCyrillic) <br/> SR-Latn (SerbianLatin) <br/>  SK (Slowakije). <br/>  UNK (onbekend) <br/><br/> Als de taal niet opgegeven of null zijn is, is de taal autodetected. </p> |
+| textExtractionAlgorithm | "afgedrukt" of 'handgeschreven'. De "handgeschreven" tekst herkenning van OCR-algoritme is momenteel in preview en alleen ondersteund in het Engels. |
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
-| Voer een naam      | Beschrijving                                          |
+| Voer een naam in      | Beschrijving                                          |
 |---------------|------------------------------------------------------|
-| installatiekopie         | Complex Type. Momenteel wordt alleen werkt met '/ document/normalized_images' veld, die wordt geproduceerd door de Azure Blob-indexeerfunctie wanneer ```imageAction``` is ingesteld op ```generateNormalizedImages```. Zie de [voorbeeld](#sample-output) voor meer informatie.|
+| image         | Complexe Type. Momenteel wordt alleen werkt met "/ document/normalized_images"-veld, die worden geproduceerd door de indexeerfunctie Azure Blob als ```imageAction``` is ingesteld op ```generateNormalizedImages```. Zie de [voorbeeld](#sample-output) voor meer informatie.|
 
 
 ## <a name="skill-outputs"></a>Kwalificatie uitvoer
-| Naam voor uitvoer     | Beschrijving                   |
+| Naam van de uitvoer     | Beschrijving                   |
 |---------------|-------------------------------|
-| tekst          | De tekst zonder opmaak is geëxtraheerd uit de afbeelding.   |
-| layoutText    | Complex type dat beschrijft de uitgepakte tekst, evenals de locatie waar de tekst is gevonden.|
+| tekst          | Tekst zonder opmaak is geëxtraheerd uit de afbeelding.   |
+| layoutText    | Complexe type dat beschrijft de geëxtraheerde tekst, evenals de locatie waar de tekst is gevonden.|
 
 
-## <a name="sample-definition"></a>Voorbeeld-definitie
+## <a name="sample-definition"></a>Van voorbeelddefinitie
 
 ```json
 {
@@ -86,7 +88,7 @@ Parameters zijn hoofdlettergevoelig.
 ```
 <a name="sample-output"></a>
 
-## <a name="sample-text-and-layouttext-output"></a>Tekst- en layoutText voorbeelduitvoer
+## <a name="sample-text-and-layouttext-output"></a>Voorbeeld van de tekst en layoutText uitvoer
 
 ```json
 {
@@ -124,11 +126,11 @@ Parameters zijn hoofdlettergevoelig.
 }
 ```
 
-## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Voorbeeld: Samenvoegen van tekst opgehaald uit ingesloten afbeeldingen met de inhoud van het document.
+## <a name="sample-merging-text-extracted-from-embedded-images-with-the-content-of-the-document"></a>Voorbeeld: Samenvoegen uit ingesloten afbeeldingen met de inhoud van het document geëxtraheerde tekst.
 
-Een algemene gebruiksvoorbeeld voor tekst fusie is de mogelijkheid om het samenvoegen van de tekstweergave van installatiekopieën (tekst uit een kwalificatie OCR of het bijschrift van een afbeelding) in het veld inhoud van een document. 
+Een veelvoorkomende use-case voor tekst samenvoegen is de mogelijkheid om samen te voegen van de tekstweergave van installatiekopieën (tekst uit een OCR-vaardigheden of het bijschrift van een installatiekopie) in het veld inhoud van een document. 
 
-Het volgende voorbeeld vaardigheden maakt een *merged_text* veld bevat de tekstinhoud van het document, evenals de tekst OCRed van elk van de installatiekopieën die zijn ingesloten in dat document. 
+De vaardigheden van het volgende voorbeeld maakt een *merged_text* veld bevat de tekstinhoud van het document, evenals de tekst OCRed van elk van de installatiekopieën die zijn ingesloten in dat document. 
 
 #### <a name="request-body-syntax"></a>Syntaxis aanvraagbody
 ```json
@@ -181,7 +183,7 @@ Het volgende voorbeeld vaardigheden maakt een *merged_text* veld bevat de teksti
   ]
 }
 ```
-Het bovenstaande vaardigheden voorbeeld wordt ervan uitgegaan dat een veld genormaliseerd installatiekopieën bestaat. Als dit veld worden gegenereerd, stel de *imageAction* configuratie in de definitie van de indexeerfunctie *generateNormalizedImages* zoals hieronder wordt weergegeven:
+Het bovenstaande voorbeeld van de vaardigheden wordt ervan uitgegaan dat een veld genormaliseerd installatiekopieën bestaat. Voor het genereren van dit veld, stel de *imageAction* configuratie in de definitie van de indexeerfunctie *generateNormalizedImages* zoals hieronder wordt weergegeven:
 
 ```json
 {  
@@ -197,6 +199,6 @@ Het bovenstaande vaardigheden voorbeeld wordt ervan uitgegaan dat een veld genor
 
 ## <a name="see-also"></a>Zie ook
 + [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md)
-+ [TextMerger kwalificatie](cognitive-search-skill-textmerger.md)
-+ [Het definiëren van een vaardigheden](cognitive-search-defining-skillset.md)
-+ [Maak indexeerfunctie (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer)
++ [TextMerger vaardigheid](cognitive-search-skill-textmerger.md)
++ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)
++ [Indexeerfunctie (REST) maken](https://docs.microsoft.com/rest/api/searchservice/create-indexer)

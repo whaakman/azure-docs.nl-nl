@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 40c7b2865795f8c6a5cfbabe4d59aea1715d4a57
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 889f3928ee72c035035abb635eb71ec0b06a3b45
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42055488"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730150"
 ---
-# <a name="create-an-eevent-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maak een regel eEvent en meldingen in uw Azure IoT Central-toepassing instellen
+# <a name="create-an-event-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maken van een regel voor gebeurtenissen en meldingen in uw Azure IoT Central-toepassing instellen
+
+*In dit artikel is van toepassing op operators, opbouwfuncties en beheerders.*
 
 U kunt Azure IoT Central gebruiken voor het bewaken van uw verbonden apparaten op afstand. Azure IoT Central regels zorgen ervoor dat u bewaak uw apparaten in bijna realtime en automatisch acties aanroepen, zoals een e-mail verzenden of Microsoft Flow activeren. In een paar klikken kunt u de voorwaarde waarvoor u wilt controleren van de gegevens van uw apparaat en de bijbehorende actie configureren. In dit artikel wordt uitgelegd hoe u regels maken om te controleren gebeurtenissen die worden verzonden door het apparaat.
 
@@ -37,10 +39,10 @@ De apparaat-sjabloon moet ten minste één gebeurtenis meting gedefinieerd hebbe
     ![Nog geen regels](media\howto-create-event-rules\Rules_Landing_Page.png)
 
 
-1. Op de **regels** tabblad **+ nieuwe regel** om te zien welke typen regels die u kunt maken.
+1. Op de **regels** tabblad **sjabloon bewerken** en vervolgens **+ nieuwe regel** om te zien welke typen regels die u kunt maken.
 
 
-1. Klik op de **gebeurtenis** tegel om een regel te maken.
+1. Klik op de **gebeurtenis** tegel om een gebeurtenis bewaking van de regel te maken.
 
     ![Regeltypen](media\howto-create-event-rules\Rule_Types.png)
 
@@ -92,6 +94,8 @@ Deze sectie leest u over het instellen van acties moet worden uitgevoerd wanneer
    ![Actie configureren](media\howto-create-event-rules\Configure_Action.png)
 
 1. Als u wilt de regel niet opslaan, kiest u **opslaan**. De regel meteen live binnen een paar minuten en start de bewaking van de gebeurtenissen worden verzonden naar uw toepassing. Wanneer de voorwaarde die is opgegeven in de regel overeenkomt, wordt de geconfigureerde e-mailactie geactiveerd door de regel.
+
+1. Kies **gedaan** om af te sluiten de **sjabloon bewerken** modus.
 
 U kunt andere acties toevoegen aan de regel, zoals Microsoft Flow en webhooks. U kunt maximaal 5 acties per regel toevoegen.
 

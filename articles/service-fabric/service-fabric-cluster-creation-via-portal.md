@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 09/06/2018
 ms.author: aljo
-ms.openlocfilehash: e56c60f67dcfe5c11191942a812d2c670055dfd8
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: fbca9c746863b852a9ddd46d00a65d4133961718
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092645"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984370"
 ---
 # <a name="create-a-service-fabric-cluster-in-azure-using-the-azure-portal"></a>Een Service Fabric-cluster maken in Azure met behulp van de Azure-portal
 > [!div class="op_single_selector"]
@@ -123,7 +123,7 @@ Configureer uw clusterknooppunten. Knooppunttypen definiëren de VM-grootten, he
 7. **Inschakelen van omgekeerde proxy**.  De [Service Fabric reverse proxy](service-fabric-reverseproxy.md) helpt microservices die worden uitgevoerd in een Service Fabric-cluster detecteren en communiceren met andere services die http-eindpunten hebben.
 8. Onder **+ optionele instellingen weergeven**, cluster configureren **diagnostics**. Diagnostische gegevens zijn standaard ingeschakeld in uw cluster om te helpen bij het oplossen van problemen. Als u wilt uitschakelen, wijzigen van de diagnostische gegevens over de **Status** overzet naar **uit**. Het uitschakelen van diagnostische gegevens wordt **niet** aanbevolen. Als u al Application Insights-project dat wordt gemaakt hebt, geeft vervolgens de sleutel, zodat de toepassingstraceringen worden doorgestuurd naar het.
 9. **DNS-service opnemen**.  De [DNS-service](service-fabric-dnsservice.md) een optionele service waarmee u andere services met behulp van het DNS-protocol.
-10. Selecteer de **Fabric upgrademodus** u wilt instellen van uw cluster op. Selecteer **automatische**, als u wilt dat het systeem automatisch kiezen van de meest recente versie en een upgrade uitvoert voor het cluster toe. De modus instellen op **handmatig**, als u wilt kiezen van een ondersteunde versie. Zie voor meer informatie over de upgrademodus voor infrastructuur het [service-fabric-cluster-upgrade document.] [service-fabric-cluster-upgrade]
+10. Selecteer de **Fabric upgrademodus** u wilt instellen van uw cluster op. Selecteer **automatische**, als u wilt dat het systeem automatisch kiezen van de meest recente versie en een upgrade uitvoert voor het cluster toe. De modus instellen op **handmatig**, als u wilt kiezen van een ondersteunde versie. Voor meer informatie over de infrastructuur modus, Zie upgraden de [service-fabric-cluster-upgrade-document.][service-fabric-cluster-upgrade]
 
 > [!NOTE]
 > We ondersteunen alleen clusters die ondersteunde versies van Service Fabric worden uitgevoerd. Door het selecteren van de **handmatig** modus u onderneemt op de verantwoordelijkheid voor uw cluster upgraden naar een ondersteunde versie.
@@ -225,7 +225,8 @@ Op dit moment hebt u een beveiligd cluster met behulp van certificaten voor behe
 [service-fabric-connect-and-communicate-with-services]: service-fabric-connect-and-communicate-with-services.md
 [service-fabric-health-introduction]: service-fabric-health-introduction.md
 [service-fabric-reliable-services-backup-restore]: service-fabric-reliable-services-backup-restore.md
-<!--[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md#remote-connect-to-a-virtual-machine-scale-set-instance-or-a-cluster-node --> [remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md [service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.mdd
+[remote-connect-to-a-vm-scale-set]: service-fabric-cluster-nodetypes.md
+[service-fabric-cluster-upgrade]: service-fabric-cluster-upgrade.md
 
 <!--Image references-->
 [SearchforServiceFabricClusterTemplate]: ./media/service-fabric-cluster-creation-via-portal/SearchforServiceFabricClusterTemplate.png

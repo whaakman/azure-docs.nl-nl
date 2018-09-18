@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 07/03/2018
-ms.openlocfilehash: c731fd78ed7052697b3a5bd7c4da3a743e5a208d
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 4518011fbeaefbb32403f5b37e434e7315beffa0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299610"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734921"
 ---
 # <a name="use-a-u-sql-database-project-to-develop-a-u-sql-database-for-azure-data-lake"></a>Een project U-SQL-database gebruiken voor het ontwikkelen van een U-SQL-database voor Azure Data Lake
 
@@ -94,7 +94,7 @@ U kunt een U-SQL-database via een project U-SQL-database of een pakket .usqldbpa
 
 `PackageDeploymentTool.exe` biedt de programmering en opdrachtregelinterfaces die helpen bij het implementeren van U-SQL-databases. De SDK is opgenomen in de [U-SQL SDK Nuget-pakket](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), dat zich bevindt op `build/runtime/PackageDeploymentTool.exe`.
 
-[Meer informatie over de SDK en hoe u een CI/CD-pijplijn voor de implementatie van de U-SQL-database instellen](data-lake-analytics-cicd-overview.md#deploy-u-sql-database-through-azure-devops).
+[Meer informatie over de SDK en hoe u een CI/CD-pijplijn voor de implementatie van de U-SQL-database instellen](data-lake-analytics-cicd-overview.md).
 
 ## <a name="reference-a-u-sql-database-project"></a>Verwijzen naar een U-SQL-database-project
 

@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: c55667e61e35186f63f49082db0c3adadd66ff68
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: b46e365ea3903a8f2c805717df13d361c823148d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633378"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985593"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 update
 
@@ -172,6 +172,9 @@ Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveilig
 Hier volgen na de installatie bekende problemen voor deze buildversie.
 
 ### <a name="portal"></a>Portal
+
+- De mogelijkheid om te [een nieuwe ondersteuningsaanvraag openen in de vervolgkeuzelijst](azure-stack-manage-portals.md#quick-access-to-help-and-support) binnen de beheerder van de portal is niet beschikbaar. Voor Azure Stack in plaats daarvan gebruik geïntegreerde systemen, de volgende koppeling: [ https://aka.ms/newsupportrequest ](https://aka.ms/newsupportrequest).
+
 - <!-- 2931230 – IS  ASDK --> Abonnementen die zijn toegevoegd aan een gebruikersabonnement als een aanvullende plan kunnen niet worden verwijderd, zelfs wanneer u het abonnement uit het gebruikersabonnement verwijderen. Het abonnement blijft totdat de abonnementen die verwijzen naar het aanvullende plan worden ook verwijderd. 
 
 - <!--2760466 – IS  ASDK --> Wanneer u een nieuwe Azure Stack-omgeving met deze versie installeert, de waarschuwing die aangeeft *activering vereist* mogelijk niet weergegeven. [Activering](azure-stack-registration.md) is vereist voordat u de marketplace-publicatie kunt gebruiken.  

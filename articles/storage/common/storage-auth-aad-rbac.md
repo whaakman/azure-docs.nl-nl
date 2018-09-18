@@ -1,6 +1,6 @@
 ---
-title: RBAC gebruiken voor het beheer van rechten voor het Azure Storage-containers en wachtrijen (Preview) | Microsoft Docs
-description: Op rollen gebaseerd toegangsbeheer (RBA) het toewijzen van rollen voor toegang tot Azure Storage-gegevens aan gebruikers, groepen, service-principals van toepassingen of beheerde service-identiteiten gebruiken Azure Storage biedt ondersteuning voor ingebouwde en aangepaste rollen voor toegangsrechten tot containers en wachtrijen.
+title: RBAC gebruiken voor het beheren van toegangsrechten tot containers en wachtrijen (preview) - Azure Storage | Microsoft Docs
+description: Op rollen gebaseerd toegangsbeheer (RBAC) het toewijzen van rollen voor toegang tot blob- en wachtrijservices gegevens aan gebruikers, groepen, service-principals van toepassingen of beheerde service-identiteiten gebruiken Azure Storage biedt ondersteuning voor ingebouwde en aangepaste rollen voor toegangsrechten tot containers en wachtrijen.
 services: storage
 author: tamram
 ms.service: storage
@@ -8,20 +8,20 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 2a85277c72b63f248fa6d2b06cc1daa1ccbf5ce5
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: c26eee05a59a10036138f81086b3f6a9e0de6d5d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298672"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737291"
 ---
 # <a name="manage-access-rights-to-azure-storage-data-with-rbac-preview"></a>Beheer van rechten voor het Azure Storage-gegevens met RBAC (Preview)
 
 Azure Active Directory (Azure AD) machtigt toegangsrechten tot beveiligde bronnen via [op rollen gebaseerd toegangsbeheer (RBAC)](https://docs.microsoft.com/azure/role-based-access-control/overview). Azure Storage definieert een aantal ingebouwde RBAC-rollen die algemene sets machtigingen die wordt gebruikt voor toegang tot containers of wachtrijen omvatten. Wanneer een RBAC-rol is toegewezen aan een Azure AD-identiteit die identiteit krijgt toegang tot deze resources, op basis van het opgegeven bereik. Toegang kan worden gericht op het niveau van het abonnement, de resourcegroep, de storage-account of een afzonderlijke container of de wachtrij. Hier kunt u toegangsrechten voor Azure Storage-resources met behulp van de Azure portal, opdrachtregelprogramma's van Azure en Azure Management-API's. 
 
-Een Azure AD-identiteit is mogelijk een gebruiker, groep of toepassing service-principal of wordt een *beheerde service-identiteit*. Een beveiligings-principal kan een gebruiker, groep of service-principal van toepassing zijn. Een [beheerde service-identiteit](../../active-directory/managed-identities-azure-resources/overview.md) is automatisch beheerde identiteit gebruikt voor het verifiëren van toepassingen die worden uitgevoerd in virtuele machines van Azure, functie-apps, virtuele-machineschaalsets en anderen. Zie voor een overzicht van identiteit in Azure AD, [over Azure-identiteitsoplossingen](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
+Een Azure AD-identiteit is mogelijk een gebruiker, groep of toepassingsservice-principal of een beheerde identiteit voor Azure-resources kan zijn. Een beveiligings-principal kan een gebruiker, groep of service-principal van toepassing zijn. Een [beheerde identiteit voor de Azure-resources](../../active-directory/managed-identities-azure-resources/overview.md) is automatisch beheerde identiteit gebruikt voor het verifiëren van toepassingen die worden uitgevoerd in virtuele machines van Azure, functie-apps, virtuele-machineschaalsets en anderen. Zie voor een overzicht van identiteit in Azure AD, [over Azure-identiteitsoplossingen](https://docs.microsoft.com/azure/active-directory/understand-azure-identity-solutions).
 
-## <a name="rbac-roles-for-azure-storage"></a>RBAC-rollen voor Azure Storage
+## <a name="rbac-roles-for-blobs-and-queues"></a>RBAC-rollen voor blobs en wachtrijen
 
 Azure Storage ondersteunt zowel ingebouwde als aangepaste RBAC-rollen. Azure Storage biedt deze ingebouwde RBAC-rollen voor gebruik met Azure AD:
 

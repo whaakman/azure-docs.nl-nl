@@ -10,12 +10,12 @@ ms.component: language-understanding
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: diberry
-ms.openlocfilehash: ac1c3b4ac49cd8934316eb5653af8f5af2cf801a
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 5573bd36761fb56f0731f886bd705327625f06fe
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630151"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734502"
 ---
 # <a name="collaborating"></a>Samenwerken
 
@@ -34,7 +34,7 @@ Het account dat wordt gemaakt van een app is eigenaar van de. Elke app heeft é�
 ## <a name="authorization-roles"></a>Autorisatie-rollen
 LUIS biedt geen ondersteuning voor verschillende rollen voor eigenaren en samenwerkers met één uitzondering. De eigenaar is het enige account dat de app kunt verwijderen.
 
-Als u geïnteresseerd bent in het beheren van toegang tot het model, kunt u overwegen segmentering van het model in kleinere LUIS-apps, waarbij elke kleinere app een beperkte set van deelnemers heeft. Gebruik [verzending](https://github.com/Microsoft/botbuilder-tools/tree/master/Dispatch) om toe te staan een bovenliggende LUIS-app voor het beheren van de coördinatie tussen bovenliggende en onderliggende apps.
+Als u geïnteresseerd bent in het beheren van toegang tot het model, kunt u overwegen segmentering van het model in kleinere LUIS-apps, waarbij elke kleinere app een beperkte set van deelnemers heeft. Gebruik [verzending](https://aka.ms/dispatch-tool) om toe te staan een bovenliggende LUIS-app voor het beheren van de coördinatie tussen bovenliggende en onderliggende apps.
 
 ## <a name="transfer-ownership"></a>Eigendom overdragen
 LUIS biedt geen overdracht van eigendom, maar samenwerker kunt exporteren van de app en maak vervolgens een app door het te importeren. Houd er rekening mee dat de nieuwe app heeft een andere App-ID. De nieuwe app moet worden getraind, gepubliceerd, en het nieuwe eindpunt wordt gebruikt.

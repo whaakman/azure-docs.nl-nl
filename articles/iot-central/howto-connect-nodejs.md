@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 55ce85702804d99d806220d7f0a4ea0820975f4f
-ms.sourcegitcommit: 30221e77dd199ffe0f2e86f6e762df5a32cdbe5f
+ms.openlocfilehash: 8a5d880d0238e38fbbaa9de22fc1baf604f0fc07
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39206034"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733461"
 ---
 # <a name="connect-a-generic-client-application-to-your-azure-iot-central-application-nodejs"></a>Verbinding maken met een algemene clienttoepassing aan uw Azure IoT Central-toepassing (Node.js)
 
@@ -129,7 +129,11 @@ De volgende stappen laten zien over het maken van een clienttoepassing die het e
     var client = clientFromConnectionString(connectionString);
     ```
 
-    Bijwerken van de tijdelijke aanduiding `{your device connection string}` met de verbindingsreeks van uw apparaat. U hebt deze waarde gekopieerd uit de pagina met Verbindingsdetails wanneer u uw echt apparaat toegevoegd. In dit voorbeeld wordt geïnitialiseerd `targetTemperature` op nul, eventueel tilt u de huidige lezen van het apparaat of -waarde van het dubbele apparaat. 
+  > [!NOTE]
+   > Azure IoT Central is overgeschakeld naar het gebruik van Azure IoT Hub Device Provisioning service (DPS) voor alle apparaatverbindingen, volgt u deze instrustions naar [de apparaat-verbindingsreeks ophalen](concepts-connectivity.md#getting-device-connection-string) en Ga door met de rest van de zelfstudie.
+
+
+    Bijwerken van de tijdelijke aanduiding `{your device connection string}` door de verbindingsreeks van het apparaat. In dit voorbeeld wordt geïnitialiseerd `targetTemperature` op nul, eventueel tilt u de huidige lezen van het apparaat of -waarde van het dubbele apparaat. 
 
 1. Voor het verzenden van telemetrie, status en gebeurtenis metingen aan uw Azure IoT Central-toepassing, voeg de volgende functie naar het bestand:
 

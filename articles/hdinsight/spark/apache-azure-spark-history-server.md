@@ -8,30 +8,30 @@ ms.author: jejiang
 ms.reviewer: jasonh
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 07/12/2018
-ms.openlocfilehash: b514f23f2e8a43f99fd5bf5c3afb5ed625ad4472
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.date: 09/14/2018
+ms.openlocfilehash: 65617aa87ec8f28b13951f1a2196eb2ccedf5c85
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43046572"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729753"
 ---
 # <a name="use-extended-spark-history-server-to-debug-and-diagnose-spark-applications"></a>Server van de geschiedenis van uitgebreide Spark gebruiken om te fouten opsporen en diagnosticeren van Spark-toepassingen
 
-Dit artikel bevat instructies over het gebruik van uitgebreide Spark geschiedenis Server fouten opsporen en diagnosticeren van Spark-toepassingen is voltooid en wordt uitgevoerd. De extensie bevat momenteel gegevens tabbladen en graph. Gebruikers kunnen de gegevens voor invoer en uitvoer van de Spark-taak controleren in het tabblad gegevens. Gebruikers kunnen in graph-tabblad, controleert u de gegevensstroom en herhaling van de taakgrafiek.
+Dit artikel bevat instructies over het gebruik van uitgebreide Spark geschiedenis Server fouten opsporen en diagnosticeren van Spark-toepassingen is voltooid en wordt uitgevoerd. De extensie bevat het tabblad data en graph tabbladen en diagnose. Op de **gegevens** tabblad gebruikers kunnen de gegevens voor invoer en uitvoer van de Spark-taak controleren. Op de **Graph** tabblad gebruikers kunnen de gegevens stromen af te handelen van de taakgrafiek controleren. Op de **diagnose** tabblad gebruiker kan verwijzen naar **gegevens scheeftrekken**, **Tijdverschilbereik** en **Executor gebruiksanalyse**.
 
-## <a name="open-the-spark-history-server"></a>Open de Spark-geschiedenis-Server
+## <a name="get-access-to-spark-history-server"></a>Toegang krijgen tot Spark geschiedenis-Server
 
 Spark geschiedenis-Server is de web-UI voor Spark-toepassingen is voltooid en wordt uitgevoerd. 
 
-### <a name="to-open-the-spark-history-server-web-ui-from-azure-portal"></a>De Webgebruikersinterface van Spark geschiedenis Server openen vanuit Azure portal
+### <a name="open-the-spark-history-server-web-ui-from-azure-portal"></a>De Webgebruikersinterface van Spark geschiedenis Server openen vanuit Azure portal
 
 1. Uit de [Azure-portal](https://portal.azure.com/), opent u het Spark-cluster. Zie voor meer informatie, [clusters tonen en vermelden](../hdinsight-administer-use-portal-linux.md#list-and-show-clusters).
 2. Van **snelkoppelingen**, klikt u op **Clusterdashboard**, en klik vervolgens op **Spark geschiedenis Server**. Wanneer u hierom wordt gevraagd, voert u de beheerdersreferenties voor de Spark-cluster. 
 
     ![Spark-geschiedenis Server](./media/apache-azure-spark-history-server/launch-history-server.png "Spark-geschiedenis-Server")
 
-### <a name="to-open-the-spark-history-server-web-ui-by-url"></a>De Spark geschiedenis van Server-Webinterface op URL openen
+### <a name="open-the-spark-history-server-web-ui-by-url"></a>Open de Spark-geschiedenis Server-Webgebruikersinterface op URL
 Open de Server van de geschiedenis van Spark door te bladeren naar de volgende URL vervangen <ClusterName> met de naam van de Spark-cluster van de klant.
 
    ```
@@ -43,7 +43,7 @@ De Spark-geschiedenis Server web UI ziet eruit zoals:
 ![Server voor HDInsight Spark-geschiedenis](./media/apache-azure-spark-history-server/hdinsight-spark-history-server.png)
 
 
-## <a name="open-the-data-tab-from-spark-history-server"></a>Open het tabblad gegevens van Spark geschiedenis-Server
+## <a name="data-tab-in-spark-history-server"></a>Het tabblad Data in Spark geschiedenis-Server
 Selecteer de taak-ID en klik vervolgens op **gegevens** op het menu aan de gegevensweergave.
 
 + Controleer de **invoer**, **uitvoer**, en **tabelbewerkingen** door de tabbladen afzonderlijk selecteren.
@@ -87,7 +87,7 @@ Selecteer de taak-ID en klik vervolgens op **gegevens** op het menu aan de gegev
     ![Graph-feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
 
 
-## <a name="open-the-graph-tab-from-spark-history-server"></a>Het tabblad Graph openen vanuit Spark geschiedenis-Server
+## <a name="graph-tab-in-spark-history-server"></a>Graph-tabblad in Spark geschiedenis-Server
 Selecteer de taak-ID en klik vervolgens op **Graph** in het menu hulpprogramma om de taak graph beeld te krijgen.
 
 + Overzicht van uw taak controleren door de gegenereerde taakgrafiek. 
@@ -108,16 +108,19 @@ Selecteer de taak-ID en klik vervolgens op **Graph** in het menu hulpprogramma o
 
     + Groen voor geslaagd: de taak is voltooid.
     + Oranje voor geprobeerd: exemplaren van de taken die is mislukt, maar niet van invloed op het uiteindelijke resultaat van de taak. Deze taken heeft dubbele of probeer exemplaren die later mogelijk wel.
-    + Rood voor is mislukt: de taak is mislukt.
     + Blauwe voor het uitvoeren: de taak wordt uitgevoerd.
-    + Witte voor overgeslagen of nog: de taak wacht op om uit te voeren of de fase is overgeslagen.
+    + Voor de wachttijd-wit of overgeslagen: de taak wacht op om uit te voeren of de fase is overgeslagen.
+    + Rood voor is mislukt: de taak is mislukt.
 
     ![Graph-kleurvoorbeeld uitgevoerd](./media/apache-azure-spark-history-server/sparkui-graph-color-running.png)
  
+    De weergave overgeslagen fase in wit.
+    ![Kleurvoorbeeld Graph, overslaan](./media/apache-azure-spark-history-server/sparkui-graph-color-skip.png)
+
     ![Kleurvoorbeeld Graph, is mislukt](./media/apache-azure-spark-history-server/sparkui-graph-color-failed.png)
  
     > [!NOTE]
-    > Afspelen voor elke taak is toegestaan. Wanneer een taak heeft geen elke fase of nog niet hebt voltooid, worden afspelen wordt niet ondersteund.
+    > Afspelen voor elke taak is toegestaan. Afspelen wordt niet ondersteund voor onvolledige taak.
 
 
 + Muis schuift als u wilt inzoomen in/uit de taakgrafiek of klik op **-/ uitzoomen om passend** gemakkelijk aanpassen aan scherm.
@@ -127,6 +130,12 @@ Selecteer de taak-ID en klik vervolgens op **Graph** in het menu hulpprogramma o
 + Beweeg de muisaanwijzer op knooppunt van de grafiek om te zien van de knopinfo wanneer er mislukte taken en klik op het podium om fase pagina te openen.
 
     ![Knopinfo van de grafiek](./media/apache-azure-spark-history-server/sparkui-graph-tooltip.png)
+
++ In job graph tabblad fasen hebben knopinfo en het kleine pictogram weergegeven als ze beschikken over taken die voldoen aan de volgende voorwaarden:
+    + Gegevensverschil: gegevens gelezen grootte > gemiddelde gegevens gelezen grootte van alle taken in deze fase * 2 en gegevens gelezen grootte > 10 MB
+    + Tijdverschil: uitvoeringstijd > gemiddelde uitvoeringstijd van alle taken in deze fase * 2 en uitvoeringstijd > 2 minuten
+
+    ![scheeftrekken grafiekpictogram](./media/apache-azure-spark-history-server/sparkui-graph-skew-icon.png)
 
 + Het knooppunt van de grafiek taak worden de volgende gegevens van elke fase van de weergegeven:
     + ID.
@@ -147,6 +156,47 @@ Selecteer de taak-ID en klik vervolgens op **Graph** in het menu hulpprogramma o
 + Feedback met problemen verzenden door te klikken op **Geef ons feedback**.
 
     ![Graph-feedback](./media/apache-azure-spark-history-server/sparkui-graph-feedback.png)
+
+
+## <a name="diagnosis-tab-in-spark-history-server"></a>Tabblad diagnose in Spark geschiedenis-Server
+Selecteer de taak-ID en klik vervolgens op **diagnose** in het menu Extra om uw werk diagnose weergeven. Bevat het tabblad diagnose **gegevens scheeftrekken**, **Tijdverschilbereik**, en **Executor gebruiksanalyse**.
+    
++ Controleer de **gegevens scheeftrekken**, **Tijdverschilbereik**, en **Executor gebruiksanalyse** door respectievelijk de tabbladen selecteren.
+
+    ![Diagnose tabbladen](./media/apache-azure-spark-history-server/sparkui-diagnosis-tabs.png)
+
+### <a name="data-skew"></a>Gegevensverschil
+Klik op **gegevens scheeftrekken** tabblad, het bijbehorende ongelijke taken worden weergegeven op basis van de opgegeven parameters. 
+
++ **Geef Parameters** -de eerste sectie worden de parameters die worden gebruikt voor het detecteren van gegevens is een Gegevensverschil weergegeven. De regel van de ingebouwde is: taak gegevens lezen is groter dan 3 keer van de gemiddelde taakgegevens lezen en de taakgegevens lezen is meer dan 10MB. Als u wilt voor het definiëren van uw eigen regel voor ongelijke taken, kunt u de parameters, de **ongelijkmatig fase**, en **scheeftrekken Char** sectie dienovereenkomstig worden vernieuwd.
+
++ **Fase ook ongelijkmatig** -fasen die taken die voldoen aan de bovenstaande criteria hebben ongelijkmatig in de tweede sectie weergegeven. Als er meer dan één ongelijke taak in een fase, wordt in de faseringstabel ongelijke alleen de meest ongelijke taak (bijvoorbeeld de grootste gegevens voor gegevens scheeftrekken) weergegeven.
+
+    ![Gegevens scheeftrekken sectie2 zetten](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section2.png)
+
++ **Grafiek scheeftrekken** : bij een rij in de faseringstabel scheeftrekken is geselecteerd, weergegeven als de scheeftrekken grafiek meer taakdetails distributies op basis van gegevens die zijn gelezen en uitvoeringstijd. De ongelijke taken worden in rood gemarkeerd en de normale taken zijn gemarkeerd in het blauw. Ter overweging prestaties, in de grafiek alleen maximaal 100 voorbeeldtaken weergegeven. De taakdetails worden weergegeven in het Configuratiescherm rechts en onderaan.
+
+    ![Gegevens scheeftrekken section3](./media/apache-azure-spark-history-server/sparkui-diagnosis-dataskew-section3.png)
+
+### <a name="time-skew"></a>Tijd scheeftrekken
+De **Tijdverschilbereik** tabblad ongelijke taken op basis van uitvoeringstijd van de taak wordt weergegeven. 
+
++ **Geef Parameters** -de eerste sectie worden de parameters die worden gebruikt voor het detecteren van de tijd scheeftrekken weergegeven. De standaardcriteria voor het detecteren van tijdverschil zijn: uitvoeringstijd van de taak is groter dan 3 keer van de gemiddelde uitvoeringstijd en tijd waarop de uitvoering van de taak is meer dan 30 seconden. U kunt de parameters op basis van uw behoeften kunt wijzigen. De **ongelijkmatig fase** en **scheeftrekken grafiek** net als de bijbehorende fasen en taken informatie geven de **gegevens scheeftrekken** hierboven een tab voor.
+
++ Klik op **Tijdverschilbereik**, en vervolgens gefilterd resultaat wordt weergegeven in **ongelijkmatig fase** sectie op basis van de parameters die zijn ingesteld in de sectie **Parameters opgeven**. Klik op een item in **ongelijkmatig fase** sectie, en vervolgens het bijbehorende schema is opgesteld in section3 en de taakdetails worden weergegeven in het Configuratiescherm rechts en onderaan.
+
+    ![Tijd scheeftrekken sectie2 zetten](./media/apache-azure-spark-history-server/sparkui-diagnosis-timeskew-section2.png)
+
+### <a name="executor-usage-analysis"></a>Gebruiksanalyse Executor
+De Executor-Gebruiksgrafiek visualiseert Spark werkelijke executor toewijzing en uitgevoerd status van de taak.  
+
++ Klik op **Executor gebruiksanalyse**, en vervolgens de vier typen curven over het gebruik van executor zijn opgesteld, met inbegrip van **toegewezen Executor**, **Executor uitgevoerd**, **inactieve Executor**, en **max. Executor exemplaren**. Met betrekking tot toegewezen Executor elke 'Executor toegevoegd' of 'Executor verwijderd' gebeurtenis wordt vergroten of verkleinen van de toegewezen Executor, kunt u 'Gebeurtenis tijdlijn' controleren op het tabblad 'Taken' voor meer vergelijking.
+
+    ![Executor-tabblad](./media/apache-azure-spark-history-server/sparkui-diagnosis-executors.png)
+
++ Klik op het Kleurenpictogram om te selecteren of hef de selectie van de bijbehorende inhoud van alle concepten.
+
+    ![Grafiek selecteren](./media/apache-azure-spark-history-server/sparkui-diagnosis-select-chart.png)
 
 
 ## <a name="faq"></a>Veelgestelde vragen
@@ -268,7 +318,7 @@ Als u upgraden met hotfix wilt, gebruikt u het onderstaande script spark-enhance
     ![uploaden van logboek of hotfix bijwerken](./media/apache-azure-spark-history-server/sparkui-upload2.png)
 
 
-## <a name="known-issue"></a>Bekend probleem
+## <a name="known-issues"></a>Bekende problemen
 
 1.  Op dit moment werkt alleen voor 2.3 Spark-cluster.
 

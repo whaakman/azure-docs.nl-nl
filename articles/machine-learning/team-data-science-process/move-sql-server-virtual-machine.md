@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/04/2017
 ms.author: deguhath
-ms.openlocfilehash: 2c26c26f201e9b500018b4851ac0bc462820a8e5
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: d6567b18984a6369a4a9e653270d0b788272aba4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42054119"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729906"
 ---
 # <a name="move-data-to-sql-server-on-an-azure-virtual-machine"></a>Gegevens verplaatsen naar SQL Server op een virtuele Azure-machine
 In dit onderwerp worden de opties voor het verplaatsen van gegevens uit platte bestanden (CSV-bestand of TSV-indeling) of van een on-premises SQL Server naar SQL Server op een Azure-machine. Deze taken voor het verplaatsen van gegevens naar de cloud maken deel uit van het Team Data Science Process.
@@ -49,7 +49,7 @@ Merk op dat in dit document wordt ervan uitgegaan dat de SQL-opdrachten worden u
 In deze zelfstudie wordt ervan uitgegaan dat u hebt:
 
 * Een **Azure-abonnement**. Als u geen abonnement hebt, kunt u zich aanmelden voor een [gratis proefversie](https://azure.microsoft.com/pricing/free-trial/).
-* Een **Azure storage-account**. U gebruikt een Azure storage-account voor het opslaan van gegevens in deze zelfstudie. Zie het artikel [Een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md) als u geen account Azure-opslagaccount hebt. Nadat u de storage-account hebt gemaakt, moet u het ophalen van de accountsleutel gebruikt voor toegang tot de opslag. Zie [beheren van uw toegangssleutels voor opslag](../../storage/common/storage-create-storage-account.md#manage-your-storage-access-keys).
+* Een **Azure storage-account**. U gebruikt een Azure storage-account voor het opslaan van gegevens in deze zelfstudie. Zie het artikel [Een opslagaccount maken](../../storage/common/storage-quickstart-create-account.md) als u geen account Azure-opslagaccount hebt. Nadat u de storage-account hebt gemaakt, moet u het ophalen van de accountsleutel gebruikt voor toegang tot de opslag. Zie [beheren van uw toegangssleutels voor opslag](../../storage/common/storage-account-manage.md#access-keys).
 * Ingericht **SQL Server op een Azure-VM**. Zie voor instructies [een virtuele machine van Azure SQL-Server instellen als IPython Notebook-server voor geavanceerde analyses](../data-science-virtual-machine/setup-sql-server-virtual-machine.md).
 * Geïnstalleerd en geconfigureerd **Azure PowerShell** lokaal. Zie voor instructies [hoe u Azure PowerShell installeren en configureren](/powershell/azure/overview).
 

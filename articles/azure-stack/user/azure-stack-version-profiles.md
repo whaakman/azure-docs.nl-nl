@@ -10,15 +10,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/17/2018
 ms.author: sethm
 ms.reviewer: sijuman
-ms.openlocfilehash: db60aaacfb2ba60dbe73663cb415e2a3baea5400
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 270587f484216d130848ee3c7bdc8ae1c1df0afc
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42745796"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982140"
 ---
 # <a name="manage-api-version-profiles-in-azure-stack"></a>Beheren van API-versieprofielen in Azure Stack
 
@@ -46,7 +46,7 @@ Dit onderwerp helpt u:
     Uitgebracht op een halfjaarlijkse uitgebracht, deze release is gericht op consistentie en stabiliteit in meerdere clouds. Dit profiel is bedoeld voor optimale Azure Stack-compatibiliteit.
     - **jjjj-mm-dd-profiel** optimale stabiliteit en de nieuwste functies kunnen uitwisselen.
 
-### <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Azure API-profielen en compatibiliteit met Azure Stack
+## <a name="azure-api-profiles-and-azure-stack-compatibility"></a>Azure API-profielen en compatibiliteit met Azure Stack
 
 De nieuwste Azure-API-profielen zijn niet compatibel met Azure Stack. U kunt de volgende naamconventies gebruiken om te identificeren welke profielen wilt gebruiken voor uw Azure Stack-oplossingen.
 

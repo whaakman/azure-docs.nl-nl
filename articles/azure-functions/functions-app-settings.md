@@ -8,14 +8,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/22/2018
+ms.date: 09/16/2018
 ms.author: glenga
-ms.openlocfilehash: 9f6746f1bf8fb65e39933afa00b74a2b8266a1a9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: f7299b9193c5ab24431feb9c73a0a3cf97596da3
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44095433"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734938"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Naslaginformatie over App-instellingen voor Azure Functions
 
@@ -152,18 +152,15 @@ De standaardwaarde is '6.5.0'.
 |---|------------|
 |WEBSITE\_KNOOPPUNT\_DEFAULT_VERSION|6.5.0|
 
-## <a name="websiterunfromzip"></a>WEBSITE\_UITVOEREN\_FROM\_ZIP
+## <a name="websiterunfrompackage"></a>WEBSITE\_UITVOEREN\_FROM\_PAKKET
 
 Hiermee kunt uw functie-app om uit te voeren vanuit een gekoppelde pakketbestand.
 
-> [!NOTE]
-> Deze instelling is voor een preview-functie.
-
 |Sleutel|Voorbeeldwaarde|
 |---|------------|
-|WEBSITE\_UITVOEREN\_FROM\_ZIP|1|
+|WEBSITE\_UITVOEREN\_FROM\_PAKKET|1|
 
-Geldige waarden zijn een URL die wordt omgezet naar de locatie van een pakketbestand implementatie of `1`. Als de waarde `1`, het pakket moet zich in de `d:\home\data\SitePackages` map. Wanneer u zip-implementatie met deze instelling gebruikt, wordt het pakket automatisch geüpload naar deze locatie.  Zie voor meer informatie, [uw functies worden uitgevoerd vanuit een pakketbestand](run-functions-from-deployment-package.md).
+Geldige waarden zijn een URL die wordt omgezet naar de locatie van een pakketbestand implementatie of `1`. Als de waarde `1`, het pakket moet zich in de `d:\home\data\SitePackages` map. Wanneer u zip-implementatie met deze instelling gebruikt, wordt het pakket automatisch geüpload naar deze locatie. In preview, deze instelling is de naam `WEBSITE_RUN_FROM_ZIP`. Zie voor meer informatie, [uw functies worden uitgevoerd vanuit een pakketbestand](run-functions-from-deployment-package.md).
 
 ## <a name="next-steps"></a>Volgende stappen
 

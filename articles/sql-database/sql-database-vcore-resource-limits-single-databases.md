@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/05/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: c1ea223bf00dea32fb150cf141be7b5ea3239215
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: ca6d36a4f06865b630e869623752bc5d488b6251
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44055417"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732937"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-a-single-database"></a>Azure SQL Database vCore gebaseerde model limieten voor één database aanschaffen
 
@@ -26,14 +26,14 @@ Zie voor DTU gebaseerde aankopen model limieten, [SQL Database DTU gebaseerde re
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
 
 
-## <a name="single-database-storage-sizes-and-performance-levels"></a>Individuele database: opslaggrootte en prestatieniveaus
+## <a name="single-database-storage-sizes-and-compute-sizes"></a>Individuele database: opslaggrootte en compute-grootten
 
-De volgende tabellen ziet voor individuele databases, de beschikbare resources voor een individuele database op elke servicelaag en het prestatieniveau van een serviceniveau. U kunt de servicelaag, het prestatieniveau en de hoeveelheid opslagruimte voor het gebruik van een individuele database instellen de [Azure-portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), de [Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), of de [REST-API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
+Voor individuele databases in de volgende tabellen tonen de beschikbare resources voor een individuele database op elke servicelaag en compute grootte. U kunt de servicelaag, rekencapaciteit en hoeveelheid opslagruimte voor het gebruik van een individuele database instellen de [Azure-portal](sql-database-single-databases-manage.md#azure-portal-manage-logical-servers-and-databases), [Transact-SQL](sql-database-single-databases-manage.md#transact-sql-manage-logical-servers-and-databases), [PowerShell](sql-database-single-databases-manage.md#powershell-manage-logical-servers-and-databases), wordt de [ Azure CLI](sql-database-single-databases-manage.md#azure-cli-manage-logical-servers-and-databases), of de [REST-API](sql-database-single-databases-manage.md#rest-api-manage-logical-servers-and-databases).
 
 ### <a name="general-purpose-service-tier"></a>Categorie van de service Algemeen gebruik
 
 #### <a name="generation-4-compute-platform"></a>Computerplatform generatie 4
-|Prestatieniveau|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
+|COMPUTE-grootte|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W genereren|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -55,7 +55,7 @@ De volgende tabellen ziet voor individuele databases, de beschikbare resources v
 |||
 
 #### <a name="generation-5-compute-platform"></a>Computerplatform generatie 5
-|Prestatieniveau|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
+|COMPUTE-grootte|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40| GP_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |
 |H/W genereren|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
@@ -79,7 +79,7 @@ De volgende tabellen ziet voor individuele databases, de beschikbare resources v
 ### <a name="business-critical-service-tier"></a>Kritieke-bedrijfslaag
 
 #### <a name="generation-4-compute-platform"></a>Computerplatform generatie 4
-|Prestatieniveau|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|COMPUTE-grootte|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W genereren|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -101,7 +101,7 @@ De volgende tabellen ziet voor individuele databases, de beschikbare resources v
 |||
 
 #### <a name="generation-5-compute-platform"></a>Computerplatform generatie 5
-|Prestatieniveau|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|COMPUTE-grootte|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |---: | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W genereren|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|

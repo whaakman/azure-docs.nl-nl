@@ -1,23 +1,23 @@
 ---
-title: Kleurenschema's detecteren
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Concepten met betrekking tot het kleurenschema detecteren in afbeeldingen met behulp van de Computer Vision in Azure Cognitive Services.
+title: Kleurenschema - Computer Vision-detecteren
+titleSuffix: Azure Cognitive Services
+description: Concepten met betrekking tot het kleurenschema detecteren in afbeeldingen met behulp van de Computer Vision-API.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: 66abab93ba9c1152d18428e66d648c6ba690aaa0
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: c01433ed3ef1279bf3db9bdcf76e57aad2208895
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725347"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983594"
 ---
-# <a name="detecting-color-schemes"></a>Kleurenschema's detecteren
+# <a name="detecting-color-schemes"></a>Kleurenschema’s detecteren
 
 Computer Vision extraheert kleuren uit een afbeelding. De kleuren worden vervolgens in drie verschillende contexten geanalyseerd: de dominante voorgrondkleur, de dominante achtergrondkleur en de dominante kleuren voor de installatiekopie als geheel. Ze worden in 12 dominante Accentkleuren gegroepeerd. Deze Accentkleuren zijn zwart, blauw, brown, grijs, groen, oranje, roze, paars, rood, groenblauwe, wit en geel. Computer Vision analyseert de kleuren die is geëxtraheerd uit een afbeelding om terug te keren een accentkleur dat de meest levendige kleur voor de installatiekopie voor gebruikers, door een combinatie van dominante kleuren en de verzadiging vertegenwoordigt. Afhankelijk van de kleuren in een afbeelding, kunnen de eenvoudige zwart-wit of Accentkleuren in hexadecimale kleurcodes worden geretourneerd. Computer Vision ook retourneert een Booleaanse waarde die aangeeft of een installatiekopie van een zwart- wit.
 

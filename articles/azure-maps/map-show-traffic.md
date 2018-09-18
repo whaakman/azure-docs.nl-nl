@@ -3,22 +3,22 @@ title: Verkeer met Azure-kaarten weergeven | Microsoft Docs
 description: Hoe verkeersgegevens weergeven op een Javascript-kaart
 author: jingjing-z
 ms.author: jinzh
-ms.date: 05/07/2018
+ms.date: 09/14/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 2499822db587dbf47dccedf6039d0fb5823c58b5
-ms.sourcegitcommit: b5ac31eeb7c4f9be584bb0f7d55c5654b74404ff
+ms.openlocfilehash: 6d5c721ab84c28bae9415dceeaa09fd12cc05824
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/23/2018
-ms.locfileid: "42746075"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733011"
 ---
 # <a name="show-traffic-on-the-map"></a>Verkeer op de kaart weergeven
 
-Dit artikel ziet u hoe u informatie over verkeer en incidenten weergeven op de kaart. 
+Dit artikel ziet u hoe u informatie over verkeer en incidenten weergeven op de kaart.
 
 ## <a name="understand-the-code"></a>De code begrijpen
 
@@ -31,12 +31,20 @@ Maakt gebruik van het tweede codeblok [setTraffic](https://docs.microsoft.com/ja
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de klassen en methoden die in dit artikel worden gebruikt: 
-* [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [setTraffic](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#settraffic)
+Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 
-Zie de volgende artikelen voor meer codevoorbeelden van toevoegen aan uw kaarten: 
-* [Interactie met de kaart – muisgebeurtenissen](./map-events.md)
-* [Het bouwen van een toegankelijke-kaart](./map-accessibility.md)
+> [!div class="nextstepaction"]
+> [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
 
-Bekijk onze [voorbeeld codetabel](http://aka.ms/AzureMapsSamples) voor meer scenario's voor toewijzing.
+Zie de volgende artikelen voor volledige codevoorbeelden:
+
+> [!div class="nextstepaction"]
+> [Voorbeeld-codetabel](http://aka.ms/AzureMapsSamples)
+
+Uw gebruikerservaringen verbeteren:
+
+> [!div class="nextstepaction"]
+> [Interactie met muisgebeurtenissen toewijzen](./map-events.md)
+
+> [!div class="nextstepaction"]
+> [Het bouwen van een toegankelijke-kaart](./map-accessibility.md)

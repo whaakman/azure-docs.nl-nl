@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: mysql
 ms.topic: article
 ms.date: 06/30/2018
-ms.openlocfilehash: c18faa94f207b98400fece366a23a68c3d7bc58c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: d73c0cc6416145fa3764d2ef938d6de7a4195c1b
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45633177"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982875"
 ---
 # <a name="limitations-in-azure-database-for-mysql"></a>Beperkingen in Azure Database for MySQL
 De volgende secties beschrijven capaciteit, ondersteuning voor de opslag-engine, bevoegdheden ondersteuning, gegevens manipuleren instructie ondersteuning en functionele limieten in de database-service. Zie ook [algemene beperkingen](https://dev.mysql.com/doc/mysql-reslimits-excerpt/5.6/en/limits.html) van toepassing op de MySQL-database-engine.
@@ -80,9 +80,6 @@ Wanneer verbindingen de limiet overschrijdt, wordt de volgende fout:
 
 ### <a name="vnet-service-endpoints"></a>VNet-service-eindpunten
 - Ondersteuning voor VNet-service-eindpunten is alleen voor algemeen gebruik en geoptimaliseerd voor geheugen-servers.
-
-### <a name="subscription-management"></a>Abonnementsbeheer
-- Dynamisch verplaatsen van vooraf gemaakte servers in het abonnement en resourcegroep wordt momenteel niet ondersteund.
 
 ## <a name="current-known-issues"></a>Huidige bekende problemen
 - MySQL-server-exemplaar wordt de juiste server-versie nadat de verbinding tot stand is gebracht. Als u de juiste server-exemplaar-engine-versie, gebruikt de `select version();` opdracht.

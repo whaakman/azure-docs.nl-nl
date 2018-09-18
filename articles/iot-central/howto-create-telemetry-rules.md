@@ -8,14 +8,16 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 5913df2d4dc286fad63760c95f54e0dbc717acdc
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 1b82ac3bf67370a2c39e85bf5691da38539edb74
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42058442"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729305"
 ---
 # <a name="create-a-telemetry-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>Maak een regel Telemetrie en meldingen in uw Azure IoT Central-toepassing instellen
+
+*In dit artikel is van toepassing op operators, opbouwfuncties en beheerders.*
 
 U kunt Azure IoT Central gebruiken voor het bewaken van uw verbonden apparaten op afstand. Azure IoT Central regels zorgen ervoor dat u bewaak uw apparaten in bijna realtime en automatisch acties aanroepen, zoals een e-mail verzenden of Microsoft Flow activeren. In een paar klikken kunt u de voorwaarde waarvoor u wilt controleren van de gegevens van uw apparaat en de bijbehorende actie configureren. In dit artikel wordt uitgelegd hoe u regels maken om te controleren van de telemetrie die is verzonden door het apparaat.
 
@@ -36,9 +38,9 @@ De apparaat-sjabloon moet ten minste één telemetrie meting gedefinieerd hebben
 
     ![Nog geen regels](media\howto-create-telemetry-rules\Rules_Landing_Page.png)
 
-1. Op de **regels** tabblad **+ nieuwe regel** om te zien welke typen regels die u kunt maken.
+1. Op de **regels** tabblad **sjabloon bewerken** en vervolgens **+ nieuwe regel** om te zien welke typen regels die u kunt maken.
 
-1. Klik op de **telemetrie** tegel om een regel voor het controleren van telemetrie van apparaten te maken.
+1. Klik op **telemetrie** om een regel voor het controleren van telemetrie van apparaten te maken.
 
     ![Regeltypen](media\howto-create-telemetry-rules\Rule_Types.png)
 
@@ -86,6 +88,8 @@ Deze sectie leest u over het instellen van acties moet worden uitgevoerd wanneer
    ![Actie configureren](media\howto-create-telemetry-rules\Configure_Action.png)
 
 1. Als u wilt de regel niet opslaan, kiest u **opslaan**. De regel meteen live binnen een paar minuten en start de bewaking van telemetrie wordt verzonden naar uw toepassing. Wanneer de voorwaarde die is opgegeven in de regel overeenkomt, wordt de geconfigureerde e-mailactie geactiveerd door de regel.
+
+1. Kies **gedaan** om af te sluiten de **sjabloon bewerken** modus.
 
 U kunt andere acties toevoegen aan de regel, zoals Microsoft Flow en webhooks. U kunt maximaal 5 acties per regel toevoegen.
 

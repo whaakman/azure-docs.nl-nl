@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 02/28/2017
 ms.author: seguler
 ms.component: common
-ms.openlocfilehash: c076ae96f8aba648196dc5222db3da3da68673ff
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 86a14d12f6621524ef26e2a869d4be532105dc77
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39528388"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732333"
 ---
 # <a name="using-azure-storage-with-a-hudson-continuous-integration-solution"></a>Azure Storage gebruiken met een Hudson CI-oplossing
 ## <a name="overview"></a>Overzicht
@@ -53,7 +53,7 @@ U moet de volgende voor het gebruik van de Blob-service met uw Hudson CI-oplossi
      
       Tijdens een typische Hudson CI-oplossing kan worden ingesteld voor het uitvoeren als een service, de war Hudson uitgevoerd op de opdrachtregel is voldoende voor deze zelfstudie.
 * Een Azure-account. U kunt zich aanmelden voor een Azure-account op <http://www.azure.com>.
-* Een Azure Storage-account. Als u nog een storage-account hebt, kunt u maken met de stappen in [een Opslagaccount maken](../common/storage-create-storage-account.md#create-a-storage-account).
+* Een Azure Storage-account. Als u nog een storage-account hebt, kunt u maken met de stappen in [een Opslagaccount maken](../common/storage-quickstart-create-account.md).
 * Vertrouwd zijn met de Hudson CI-oplossing wordt aanbevolen maar niet vereist, zoals de volgende inhoud maakt gebruik van een eenvoudige voorbeeld om weer te geven de stappen die nodig zijn bij het gebruik van de Blob-service als een opslagplaats voor Hudson CI build-artefacten.
 
 ## <a name="how-to-use-the-blob-service-with-hudson-ci"></a>De Blob-service gebruiken met Hudson CI

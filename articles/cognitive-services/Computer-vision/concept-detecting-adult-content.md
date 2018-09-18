@@ -1,21 +1,21 @@
 ---
-title: Met een beschrijving van erotische en ongepaste inhoud
-titleSuffix: Computer Vision - Cognitive Services - Azure
-description: Concepten met betrekking tot het detecteren van erotische en ongepaste inhoud in afbeeldingen met behulp van de Computer Vision in Azure Cognitive Services.
+title: Met een beschrijving van erotische en ongepaste inhoud - Computer Vision
+titleSuffix: Azure Cognitive Services
+description: Concepten met betrekking tot het detecteren van erotische en ongepaste inhoud in afbeeldingen met behulp van de Computer Vision-APi.
 services: cognitive-services
 author: deken
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 08/29/2018
 ms.author: v-deken
-ms.openlocfilehash: 8ddf7f99ed796c3eb4c4a2eb05e9cb27c26cf7a1
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: b1ba8e7556b6ba134624548142bf73e84d875c6a
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44725365"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984519"
 ---
 # <a name="detecting-adult-and-racy-content"></a>Erotische en ongepaste inhoud detecteren
 

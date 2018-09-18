@@ -1,20 +1,21 @@
 ---
-title: Abonnementssleutels ophalen voor de Computer Vision-API | Microsoft Docs
-description: Informatie over het verkrijgen van abonnementssleutels voor aanroepen naar de Computer Vision-API in Cognitive Services.
+title: Abonnementssleutels ophalen voor de Computer Vision-API
+titlesuffix: Azure Cognitive Services
+description: Informatie over het verkrijgen van abonnementssleutels voor aanroepen naar de Computer Vision-API in Azure Cognitive Services.
 services: cognitive-services
 author: KellyDF
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: computer-vision
 ms.topic: article
 ms.date: 05/19/2017
 ms.author: kefre
-ms.openlocfilehash: 682266df9e1a1f8209904697358d10bbaa633cf1
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: db4d589bb0c7611e632a90f2174ad8e9c415bf6a
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35760229"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985419"
 ---
 # <a name="how-to-obtain-subscription-keys"></a>Abonnementssleutels ophalen
 
@@ -41,4 +42,4 @@ Als u de regio voor uw abonnementssleutel nadat u hebt verkregen van de sleutel 
 
 ### <a name="related-links"></a>Verwante koppelingen:
 
-* [Prijsopties voor cognitieve API's van Microsoft](https://azure.microsoft.com/pricing/details/cognitive-services/)
+* [Prijsopties voor Azure Cognitive Services-API 's](https://azure.microsoft.com/pricing/details/cognitive-services/)

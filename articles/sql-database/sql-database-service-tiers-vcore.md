@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/30/2018
+ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: 8266d9e3530969154ac9c8c877badda9f8b4fed3
-ms.sourcegitcommit: 1fb353cfca800e741678b200f23af6f31bd03e87
+ms.openlocfilehash: 93b017482006507d616d9125cd17fd2f14389d59
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43307269"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983043"
 ---
 # <a name="choosing-a-vcore-service-tier-compute-memory-storage-and-io-resources"></a>Een vCore-servicelaag kiezen, Reken-, geheugen, opslag- en i/o-resources
 
@@ -26,7 +26,7 @@ vCore-model kunt u gebruiken [Azure Hybrid Use Benefit voor SQL Server](../virtu
 
 ## <a name="service-tier-characteristics"></a>Service tier kenmerken
 
-Het vCore-model biedt twee Servicelagen voor algemeen gebruik en bedrijfskritiek. Service-lagen van elkaar worden onderscheiden door een bereik van de prestaties, hoge beschikbaarheid ontwerpen, foutisolatie, soorten opslag en i/o-bereik. De klant moet afzonderlijk configureren voor de vereiste periode voor de opslag en de bewaarperiode voor back-ups.
+Het vCore-model biedt twee Servicelagen voor algemeen gebruik en bedrijfskritiek. Service-lagen van elkaar worden onderscheiden door een bereik van de compute-grootten, ontwerp voor hoge beschikbaarheid, foutisolatie, soorten opslag en i/o-bereik. De klant moet afzonderlijk configureren voor de vereiste periode voor de opslag en de bewaarperiode voor back-ups.
 
 De volgende tabel kunt u weten wat de verschillen tussen deze twee lagen:
 
@@ -53,10 +53,10 @@ Zie [Veelgestelde vragen over SQL-Database](sql-database-faq.md) voor antwoorden
 
 Overweeg de volgende:
 - De toegewezen opslag wordt gebruikt door de gegevensbestanden (MDF) en logboekbestanden bestanden (LDF).
-- Elk prestatieniveau van één database ondersteunt een maximale databasegrootte, met een maximale standaardgrootte van 32 GB.
+- Elke individuele database compute-grootte ondersteunt een maximale databasegrootte, met een maximale standaardgrootte van 32 GB.
 - Wanneer u de grootte van de vereiste één database (grootte van het MDF) configureert, wordt 30% van de extra opslag automatisch toegevoegd ter ondersteuning van LDF
 - Maximale grootte in het beheerde exemplaar moet worden opgegeven in veelvouden van 32 GB.
-- U kunt de grootte van een singleton-database tussen 10 GB en de maximale ondersteunde selecteren
+- U kunt de grootte van een individuele database tussen 10 GB en de maximale ondersteunde selecteren
  - Voor Standard-opslag, vergroten of verkleinen in stappen van 10 GB
  - Voor Premium-opslag, vergroten of verkleinen in stappen van 250 GB
 - In de categorie Algemeen gebruik-service `tempdb` maakt gebruik van een gekoppelde SSD en deze kosten voor opslag is opgenomen in het vCore-prijs.
@@ -113,13 +113,13 @@ Migratie van failover-groepen met meerdere databases moet afzonderlijke migratie
 
 ### <a name="creation-of-a-geo-replication-secondary"></a>Het maken van een secundaire geo-replicatie
 
-U kunt alleen een geo-secundaire met behulp van dezelfde servicelaag als de primaire maken. Voor de database met de snelheid voor het genereren van hoge logboek, is het raadzaam dat de secundaire server met hetzelfde prestatieniveau als de primaire is gemaakt. Als u een geo-secundaire in de elastische pool voor een enkele primaire database maakt, wordt aanbevolen dat de groep heeft de `maxVCore` instellen die overeenkomt met het prestatieniveau van de primaire database. Als u een geo-secundaire in de elastische pool voor een primaire in een andere elastische pool maakt, wordt aanbevolen dat de groepen dezelfde hebben `maxVCore` instellingen
+U kunt alleen een geo-secundaire met behulp van dezelfde servicelaag als de primaire maken. Voor de database met de snelheid voor het genereren van hoge logboek, is het raadzaam dat de secundaire wordt gemaakt met de dezelfde compute groot is als de primaire. Als u een geo-secundaire in de elastische pool voor een enkele primaire database maakt, wordt aanbevolen dat de groep heeft de `maxVCore` instellen die overeenkomt met de compute-grootte van de primaire database. Als u een geo-secundaire in de elastische pool voor een primaire in een andere elastische pool maakt, wordt aanbevolen dat de groepen dezelfde hebben `maxVCore` instellingen
 
 ### <a name="using-database-copy-to-convert-a-dtu-based-database-to-a-vcore-based-database"></a>Met behulp van database-exemplaar een database op basis van DTU te converteren naar een op vCore gebaseerde database.
 
-U kunt een database met een prestatieniveau van DTU gebaseerde kopiëren naar een database met een op vCore gebaseerde prestaties niveau zonder beperkingen of speciale combineren, zolang de doel-prestatieniveau biedt ondersteuning voor de maximale grootte van de brondatabase. Dit is omdat het database-exemplaar wordt gemaakt van een momentopname van gegevens vanaf de begintijd van de kopieerbewerking en geen synchronisatie van gegevens tussen de bron en het doel voert. 
+U kunt een database met een grootte op basis van DTU compute kopiëren naar een database met een grootte vCore gebaseerde computercapaciteit zonder beperkingen of speciale combineren, zolang de doelgrootte berekenen biedt ondersteuning voor de maximale grootte van de brondatabase. Dit is omdat het database-exemplaar wordt gemaakt van een momentopname van gegevens vanaf de begintijd van de kopieerbewerking en geen synchronisatie van gegevens tussen de bron en het doel voert. 
 
 ## <a name="next-steps"></a>Volgende stappen
 
-- Zie voor meer informatie over specifieke prestatieniveaus en opties voor opslag beschikbaar voor individuele database [SQL Database vCore gebaseerde resourcelimieten voor individuele databases](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-performance-levels)
-- Zie voor meer informatie over specifieke prestatieniveaus en opslag beschikbare keuzen voor elastische pools [SQL Database vCore gebaseerde resourcelimieten voor elastische pools](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels).
+- Zie voor meer informatie over specifieke-grootten en opties voor opslag beschikbaar voor individuele database Reken, [SQL Database vCore gebaseerde resourcelimieten voor individuele databases](sql-database-vcore-resource-limits-single-databases.md#single-database-storage-sizes-and-compute-sizes)
+- Voor meer informatie over specifieke grootten COMPUTE en opties voor opslag beschikbaar voor elastische pools Zie [SQL Database vCore gebaseerde resourcelimieten voor elastische pools](sql-database-vcore-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes).

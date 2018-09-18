@@ -12,12 +12,12 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: d80914fcd1f667924b52122b39f95871c1e21532
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: a8ee92d117a416d638f62b573dfb155f67bf66e0
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298009"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983136"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
 
@@ -95,6 +95,13 @@ context.bindings.myOutput = {
 
 Houd er rekening mee dat u kiezen kunt voor het definiëren van uitvoer binding gegevens met de `context.done` methode in plaats van de `context.binding` object (Zie hieronder).
 
+### <a name="contextbindingdata-property"></a>de eigenschap context.bindingData
+
+```
+context.bindingData
+```
+Retourneert een benoemde-object dat gegevens van trigger metagegevens en de functie aanroepen bevat (`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`). Zie voor een voorbeeld van de metagegevens van de trigger, [event hubs voorbeeld](functions-bindings-event-hubs.md#trigger---javascript-example).
+
 ### <a name="contextdone-method"></a>methode context.Done
 ```
 context.done([err],[propertyBag])
@@ -124,7 +131,7 @@ context.log(message)
 Kunt u schrijven naar de streaminglogboeken functie op het standaardniveau voor tracering. Op `context.log`, extra logboekregistratie methoden zijn beschikbaar waarmee u de functie Logboeken op andere traceringsniveaus:
 
 
-| Wijze                 | Beschrijving                                |
+| Methode                 | Beschrijving                                |
 | ---------------------- | ------------------------------------------ |
 | **fout (_bericht_)**   | Schrijft naar foutniveau logboekregistratie of lager.   |
 | **waarschuwing (_bericht_)**    | Schrijft naar waarschuwingsniveau logboekregistratie of lager. |
@@ -262,8 +269,9 @@ Wanneer u met HTTP-triggers werkt, kunt u de HTTP-aanvraag en respons objecten i
     ```javascript
     context.bindings.response = { status: 201, body: "Insert succeeded." };
     ```
++ _[Alleen-antwoord]_  Door het aanroepen van `context.res.send(body?: any)`. Een HTTP-antwoord wordt gemaakt met invoer `body` als hoofdtekst van het antwoord. `context.done()` impliciet wordt genoemd.
 
-+ [Alleen-antwoord] Door het aanroepen van `context.done()`. Een speciaal soort HTTP-binding retourneert het antwoord dat is doorgegeven aan de `context.done()` methode. De volgende HTTP-Uitvoerbinding definieert een `$return` uitvoerparameter:
++ _[Alleen-antwoord]_  Door het aanroepen van `context.done()`. Een speciaal soort HTTP-binding retourneert het antwoord dat is doorgegeven aan de `context.done()` methode. De volgende HTTP-Uitvoerbinding definieert een `$return` uitvoerparameter:
 
     ```json
     {

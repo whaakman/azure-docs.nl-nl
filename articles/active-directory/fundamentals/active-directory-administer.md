@@ -1,26 +1,25 @@
 ---
-title: Overzicht van Azure AD-tenant | Microsoft Docs
-description: In dit artikel wordt uitgelegd wat een Azure AD-tenant is en hoe u Azure beheert via Azure Active Directory
+title: Beheren van uw Azure Active Directory-tenant | Microsoft Docs
+description: Meer informatie over wat een Azure AD-tenant is en het beheren van Azure met behulp van Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
-ms.date: 08/23/2017
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.custom: it-pro;oldportal
-ms.openlocfilehash: b18ff1f59a46e98544159b488294e2d3f7bd9cd7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+custom: it-pro
+ms.openlocfilehash: 2a548a16a6b896ae1c1297badcef6154b64977f1
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767427"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737172"
 ---
-# <a name="manage-your-azure-ad-directory"></a>Uw Azure AD-directory beheren
+# <a name="manage-your-azure-active-directory-tenant"></a>Beheren van uw Azure Active Directory-tenant
 
 ## <a name="what-is-an-azure-ad-tenant"></a>Wat is een Azure AD-tenant?
 In Azure Active Directory (Azure AD) is een tenant het exclusieve exemplaar van een Azure Active-directory dat uw organisatie na aanmelding voor een Microsoft-cloudservice (zoals Azure of Office 365) krijgt toegewezen. Elke Azure AD-directory is uniek en werkt afzonderlijk van andere Azure AD-directory’s. Net zoals een kantoorgebouw een beveiligd bedrijfsmiddel is van uw organisatie, is ook een Azure AD-directory ontworpen als een beveiligd bedrijfsmiddel dat alleen door uw organisatie kan worden gebruikt. De architectuur van Azure AD zorgt ervoor dat klantgegevens en identiteitsgegevens van elkaar zijn gescheiden, zodat gebruikers en beheerders van de ene Azure AD-directory niet per ongeluk of opzettelijk gegevens in een andere directory kunnen weergeven.

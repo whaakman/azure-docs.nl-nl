@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/14/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 8faf6713a5fd8287b5f9e30976e80172c2c42f05
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: ddd0fa21cebb6a6a25965b6d5e49b04cfdcc0466
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45631290"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737002"
 ---
 # <a name="configure-active-geo-replication-for-azure-sql-database-in-the-azure-portal-and-initiate-failover"></a>Actieve geo-replicatie configureren voor Azure SQL Database in Azure portal en failover initiëren
 
@@ -35,7 +35,7 @@ De volgende stappen maakt u een nieuwe secundaire database in een partnerschap g
 
 Als u wilt toevoegen van een secundaire database, moet u de abonnement-eigenaar of mede-eigenaar zijn.
 
-De secundaire database heeft dezelfde naam als de primaire database en is standaard hetzelfde serviceniveau. De secundaire database kan zijn een individuele database of een database in een elastische pool. Zie voor meer informatie, [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
+De secundaire database heeft dezelfde naam als de primaire database en dezelfde service-laag en grootte compute is standaard. De secundaire database kan zijn een individuele database of een database in een elastische pool. Zie voor meer informatie, [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md) en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).
 Nadat de secundaire server is gemaakt en seeding, begint de gegevens die van de primaire database worden gerepliceerd naar de nieuwe secundaire database.
 
 > [!NOTE]

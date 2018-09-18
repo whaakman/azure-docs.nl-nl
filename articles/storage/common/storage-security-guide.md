@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.author: cshoe
 ms.component: common
-ms.openlocfilehash: 912ae17fb7bb5d5cecad0af5b53d817b2faeef02
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 268459fde7a622079656e637d2c51562cea358a4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39522198"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730946"
 ---
 # <a name="azure-storage-security-guide"></a>Azure Storage-beveiligingshandleiding
 
@@ -142,20 +142,13 @@ Een ander niveau van beveiliging voor uw storage-sleutels met behulp van Azure K
 
 Een ander voordeel van het gebruik van Azure Key Vault is dat u kunt ook toegang tot uw sleutels met behulp van Azure Active Directory beheren. Dit betekent dat u kunt toegang verlenen tot het aantal toepassingen waarvoor de sleutels ophalen uit Azure Key Vault en weten dat andere toepassingen pas weer toegang krijgen tot de sleutels zonder deze machtiging verlenen specifiek.
 
-Opmerking: het is raadzaam gebruik slechts één van de sleutels in al uw toepassingen op hetzelfde moment. Als u met sleutel 1 op bepaalde plaatsen en sleutel 2 in andere, wordt het niet mogelijk uw om sleutels te rouleren zonder dat een toepassing toegang verliezen.
+> [!NOTE]
+> Microsoft adviseert om slechts één van de sleutels in al uw toepassingen op hetzelfde moment. Als u met sleutel 1 op bepaalde plaatsen en sleutel 2 in andere, wordt het niet mogelijk uw om sleutels te rouleren zonder dat een toepassing toegang verliezen.
 
 #### <a name="resources"></a>Resources
-* [Over Azure Storage-Accounts](storage-create-storage-account.md#regenerate-storage-access-keys)
 
-  In dit artikel biedt een overzicht van storage-accounts en weergeven, kopiëren en opnieuw genereren van toegangssleutels voor opslag.
+* [Instellingen van opslagaccount in Azure portal beheren](storage-account-manage.md)
 * [Azure Storage Resource Provider REST API-verwijzing](https://msdn.microsoft.com/library/mt163683.aspx)
-
-  In dit artikel bevat koppelingen naar specifieke artikelen over het ophalen van de storage-accountsleutels en opnieuw genereren van de opslagaccountsleutels voor een Azure-Account met behulp van de REST-API. Opmerking: Dit is voor Resource Manager-opslagaccounts.
-* [Bewerkingen op storage-accounts](https://msdn.microsoft.com/library/ee460790.aspx)
-
-  In dit artikel in de Storage-Service Manager REST API Reference bevat koppelingen naar specifieke artikelen op te halen en het opnieuw genereren van sleutels voor de opslagaccount met behulp van de REST-API. Opmerking: Dit is voor de klassieke opslagaccounts.
-
-  Dit artikel leest hoe u Active Directory gebruiken voor het beheren van toegang tot uw Azure Storage-sleutels in Azure Key Vault. U ziet ook hoe u een Azure Automation-taak voor het opnieuw genereren van de sleutels op uurbasis.
 
 ## <a name="data-plane-security"></a>Beveiliging van gegevens vlak
 Beveiliging van gegevens vlak verwijst naar de methoden voor het beveiligen van de gegevensobjecten die zijn opgeslagen in Azure Storage: blobs, wachtrijen, tabellen en bestanden. We hebben gezien methoden voor het versleutelen van de gegevens en de beveiliging tijdens de overdracht van de gegevens, maar hoe u doen over het beheren van toegang tot de objecten?

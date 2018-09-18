@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 0920489daf99445a9d715d0858cf68ae45e6a178
-ms.sourcegitcommit: 744747d828e1ab937b0d6df358127fcf6965f8c8
+ms.openlocfilehash: a0e0b8e2de3c944698cdbc6b1b11351f70e77276
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42059439"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729889"
 ---
 # <a name="resources-limits-for-elastic-pools-using-the-dtu-based-purchasing-model"></a>Limieten voor elastische pools met behulp van het op DTU gebaseerde aankoopmodel resources 
 
@@ -25,9 +25,9 @@ Zie voor DTU gebaseerde aankopen model resourcelimieten voor individuele databas
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Elastische pool: opslaggrootte en prestatieniveaus
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Elastische pool: opslaggrootte en compute-grootten
 
-Voor SQL Database elastische pools tonen de volgende tabellen de resources die beschikbaar zijn op elke servicelaag en het prestatieniveau van een serviceniveau. U kunt de servicelaag, het prestatieniveau en de opslag met behulp van bedrag instellen de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), wordt de [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), of de [REST-API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+Voor SQL Database elastische pools in de volgende tabellen weergeven van de beschikbare resources in elke servicelaag en compute-grootte. U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), wordt de [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), of de [REST-API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
 > De resourcelimieten van afzonderlijke databases in elastische pools zijn algemeen hetzelfde als voor individuele databases buiten groepen op basis van dtu's en de service tier. De maximale gelijktijdige werknemers voor een S2-database is bijvoorbeeld 120 werknemers. De maximale gelijktijdige werknemers voor een database in een Standard-pool is dus ook 120 werknemers als het maximale aantal DTU per database in de pool is 50 dtu's (dit is gelijk aan S2).

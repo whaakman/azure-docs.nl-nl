@@ -1,87 +1,89 @@
 ---
-title: Een aangepast domein toevoegen aan Azure AD | Microsoft Docs
-description: In deze snelstartgids wordt uitgelegd hoe u een aangepaste domein toevoegt in Azure Active Directory.
+title: Uw aangepaste domein toevoegen aan Azure Active Directory | Microsoft Docs
+description: Informatie over het toevoegen van een aangepast domein met behulp van de Azure Active Directory-portal.
 services: active-directory
 author: eross-msft
 manager: mtillman
 ms.service: active-directory
 ms.workload: identity
 ms.component: fundamentals
-ms.topic: quickstart
-ms.date: 11/14/2017
+ms.topic: conceptual
+ms.date: 09/10/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b8963ba45d84013feb81341980c6d537c8a43dc5
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+ms.openlocfilehash: b33f2e809ae5758e41f7a76680347b9487f3f461
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37767380"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735325"
 ---
-# <a name="quickstart-add-a-custom-domain-name-to-azure-active-directory"></a>Snelstartgids: Een aangepaste domeinnaam toevoegen aan Azure Active Directory
+# <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Hoe: de naam van uw aangepaste domein met behulp van de Azure Active Directory-portal toevoegen
+Elke nieuwe Azure AD-tenant wordt geleverd met een initiële domeinnaam *domainname*. onmicrosoft.com. U niet wijzigen of verwijderen van de initiële domeinnaam, maar u kunt de namen van uw organisatie toevoegen aan de lijst. Toevoegen van aangepaste domeinnamen, helpt u bij het maken van de gebruikersnamen die bekend bij uw gebruikers, zoals zijn _alain@contoso.com_.
 
-Elke Azure AD-directory heeft in eerste instantie een domeinnaam in de vorm van *domeinnaam*.onmicrosoft.com. Deze initiële domeinnaam kan niet worden gewijzigd of verwijderd, maar wat u wel kunt doen, is ook uw zakelijke domeinnaam toevoegen aan Azure AD. Stel dat uw organisatie verschillende domeinnamen gebruikt om zaken te doen en gebruikers zich aanmelden met uw zakelijke domeinnaam. U kunt dan aangepast domeinnamen toevoegen aan Azure AD, zodat u in de directory gebruikersnamen kunt toewijzen die bekend zijn bij uw gebruikers, zoals 'alice@contoso.com' in plaats van 'alice@*domeinnaam*.onmicrosoft.com'. Het proces is eenvoudig:
+>[!Note]
+>U moet dit hele proces, van begin tot eind, voor elk van uw aangepaste domeinnamen herhalen.
 
-1. Voeg de aangepaste domeinnaam toe aan uw directory.
-2. Voeg een DNS-vermelding voor de domeinnaam toe aan de domeinnaamregistrar.
-3. Verifieer de aangepaste domeinnaam in Azure AD.
+## <a name="add-a-custom-domain-name"></a>Een aangepaste domeinnaam toevoegen
+U moet eerst uw aangepaste domeinnaam toevoegen aan de Azure AD-tenant.
 
-## <a name="add-the-custom-domain-name-to-your-directory"></a>Voeg de aangepaste domeinnaam toe aan uw directory.
-1. Meld u aan bij [Azure Portal](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) met een account van een globale beheerder voor de directory.
-2. Selecteer aan de linkerkant **Namen van aangepaste domeinen**.
-3. Selecteer **Aangepast domein toevoegen**.
-   
-   ![De opdracht Toevoegen selecteren](./media/add-custom-domain/add-custom-domain.png)
-5. Typ op de blade **Aangepaste-domeinnaam** de naam van uw aangepaste domein in het vak, bijvoorbeeld 'contoso.com', en selecteer vervolgens **Domein toevoegen**. Vergeet niet de extensie .com, .net of een andere extensie van het hoogste niveau toe te voegen.
-6. Ga naar ***domeinnaam*** (de naam van het nieuwe domein is de titel) en noteer de gegevens van de DNS-vermelding. Deze hebt u later nodig om de aangepaste domeinnaam te controleren in Azure AD.
-   
-   ![Gegevens van DNS-vermelding verzamelen](./media/add-custom-domain/get-dns-info.png)
+### <a name="to-add-a-custom-domain-name"></a>Een aangepaste domeinnaam toevoegen
+1. Aanmelden bij de [Azure AD-portal](https://portal.azure.com/) met behulp van een globale beheerdersaccount voor de map.
 
-> [!TIP]
-> Als u van plan bent om uw on-premises Windows Server AD te federeren met Azure AD, moet u het selectievakje **Ik wil dit domein configureren voor eenmalige aanmelding met mijn lokale Active Directory** inschakelen wanneer u het hulpprogramma Azure AD Connect uitvoert om uw directory's te synchroniseren. Daarnaast moet u dezelfde domeinnaam registreren die u selecteert voor het federeren met uw on-premises directory in de stap **Azure AD-domein** in de wizard. [In deze instructies](./../connect/active-directory-aadconnect-get-started-custom.md#verify-the-azure-ad-domain-selected-for-federation) ziet u hoe die stap van de wizard eruitziet. Als u het hulpprogramma Azure AD Connect niet hebt, kunt u het [hier](http://go.microsoft.com/fwlink/?LinkId=615771) downloaden.
+2. Selecteer **Azure Active Directory**, selecteer **aangepaste-domeinnamen**, en selecteer vervolgens **aangepast domein toevoegen**.
 
-## <a name="add-a-dns-entry-for-the-domain-name-at-the-domain-name-registrar"></a>Voeg een DNS-vermelding voor de domeinnaam toe aan de domeinnaamregistrar.
-De volgende stap voor het gebruik van de aangepaste domeinnaam met Azure AD bestaat uit het bijwerken van het DNS-zonebestand voor het domein. Azure AD kan nu controleren of uw organisatie eigenaar is van de aangepaste domeinnaam. U kunt [Azure DNS](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) gebruiken voor uw Azure/Office 365/externe DNS-records in Azure. U kunt de DNS-vermelding ook toevoegen bij [een andere DNS-registrar](https://support.office.com/article/Create-DNS-records-for-Office-365-when-you-manage-your-DNS-records-b0f3fdca-8a80-4e8e-9ef3-61e8a2a9ab23/).
+    ![Fabrikam - aangepast domein namen blade met de optie aangepast domein toevoegen gemarkeerd](media/add-custom-domain/add-custom-domain.png)
 
-1. Meld u aan bij de domeinnaamregistrar voor het domein. Als u geen toegang hebt om de DNS-vermelding bij te werken, vraagt u de persoon die of het team dat wel over deze toegang beschikt om stap 2 uit te voeren en u te laten weten wanneer deze is voltooid.
-2. Werk het DNS-zonebestand voor het domein bij, door de DNS-vermelding toe te voegen die u van Azure AD hebt ontvangen. De DNS-vermelding leidt niet tot veranderingen in het gedrag van bijvoorbeeld mailroutering of webhosting.
+3. Typ de naam van uw nieuwe bedrijfsdomein in de **aangepaste domeinnaam** vak (bijvoorbeeld _contoso.com_), en selecteer vervolgens **domein toevoegen**.
 
-## <a name="verify-the-custom-domain-name-in-azure-ad"></a>Verifieer de aangepaste domeinnaam in Azure AD.
-Nadat u de DNS-vermelding hebt toegevoegd, kunt u de domeinnaam bij Azure AD verifiëren. Een domeinnaam kan alleen worden geverifieerd nadat de DNS-records zijn doorgegeven. Deze doorgifte duurt vaak slechts enkele seconden, maar het kan ook wel eens een uur of langer duren. Als de verificatie de eerste keer niet werkt, probeer het dan later nog eens.
+    >[!Important]
+    >U moet opnemen .com, .net of andere op het hoogste niveau extensie voor deze goed te laten werken.
 
-1. Meld u aan bij [Azure AD](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Overview) met een account met globale beheerdersrechten voor de tenant.
-2. Selecteer **Namen van aangepaste domeinen**.
-3. Selecteer de niet-geverifieerde domeinnaam die u wilt controleren.
-4. Controleer de gegevens en selecteer **Controleren** om de verificatie te voltooien.
+    ![Fabrikam - aangepast domein namen blade met domain-knop toevoegen gemarkeerd](media/add-custom-domain/add-custom-domain-blade.png)
 
-Nu kunt u [gebruikersnamen toewijzen die uw aangepaste domeinnaam omvatten](../users-groups-roles/domains-manage.md). U kunt cloudgebaseerde gebruikersaccounts maken of eerder gesynchroniseerde gegevens van on-premises gebruikersaccounts bijwerken, met behulp van uw aangepaste domeinnaam. U kunt domeinachtervoegsels van gesynchroniseerde gebruikersaccounts ook wijzigen met [Microsoft PowerShell](https://msdn.microsoft.com/library/azure/e1ef403f-3347-4409-8f46-d72dafa116e0#BKMK_ManageDomains) of de [Graph API](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/domains-operations).
+4. Kopieer de gegevens van de DNS-vermelding van de **Contoso** blade.
 
-> [!TIP]
-> U kunt maximaal 900 beheerde domeinnamen toevoegen. Als u alle domeinen wilt configureren voor on-premises federatie met Active Directory, kunt u maximaal 450 domeinnamen toevoegen in elke directory. Zie [Federatieve en beheerde domeinnamen](https://docs.microsoft.com/azure/active-directory/active-directory-add-domain-concepts#federated-and-managed-domain-names) voor meer informatie.
+    ![Contoso-blade met de gegevens van DNS-vermelding](media/add-custom-domain/contoso-blade-with-dns-info.png)
 
-## <a name="troubleshooting"></a>Problemen oplossen
-Als het niet lukt om een aangepaste domeinnaam te verifiëren, probeert u deze oplossingen:
+## <a name="add-your-domain-name-with-a-domain-name-registrar"></a>Uw domeinnaam met een domeinnaamregistrar toevoegen
+Vervolgens moet u de DNS-zonebestand voor uw nieuwe aangepaste domein bijwerken. U kunt [DNS-zones](https://docs.microsoft.com/azure/dns/dns-getstarted-portal) voor uw Azure, Office 365, of externe DNS-records, of u de nieuwe DNS-vermelding met behulp van een andere DNS-registratieservice kunt toevoegen (bijvoorbeeld [InterNIC](https://go.microsoft.com/fwlink/p/?LinkId=402770)).
 
-1. **Wacht een uur**. DNS-records moeten zijn doorgegeven voordat Azure AD het domein kan verifiëren. Dit proces kan een uur of langer duren.
-2. **Controleer of de DNS-record is opgegeven en of deze juist is**. Voer deze stap uit op de website van de domeinnaamregistrar voor het domein. Azure AD kan de domeinnaam niet verifiëren als: 
-  * De DNS-vermelding niet aanwezig is in het DNS-zonebestand
-  * Deze niet exact overeenkomt met de DNS-vermelding die Azure AD u heeft doorgegeven. 
-  
-  Als u geen toegang hebt tot de site van de domeinnaamregistrar om de DNS-records voor het domein bij te werken, deel de DNS-vermelding dan met de persoon die of het team dat in uw organisatie deze toegang heeft en vraag om de DNS-vermelding toe te voegen.
-3. **Verwijder de domeinnaam uit andere mappen in Azure AD**. Een domeinnaam kan maar in één map worden geverifieerd. Als een domeinnaam momenteel is geverifieerd in een andere directory, kan de naam pas worden geverifieerd in uw nieuwe directory als u de naam uit de andere directory hebt verwijderd. Zie [Aangepaste domeinnamen beheren](../users-groups-roles/domains-manage.md) voor meer informatie over het verwijderen van domeinnamen.    
+### <a name="to-add-your-domain-name"></a>Uw domeinnaam toevoegen 
+1. Aanmelden bij de domeinnaamregistrar voor uw aangepaste domein. Als u niet de juiste machtigingen voor het bijwerken van uw inzending hebt, moet u contact opnemen met iemand met de juiste machtigingen.
 
-Herhaal de stappen in dit artikel om al uw domeinnamen toe te voegen.
+2. Nadat de DNS-vermelding is bijgewerkt met de registrar, moet u de DNS-zonebestand bijwerken met de informatie die wordt geleverd door Azure AD.
 
-## <a name="learn-more"></a>Meer informatie
-[Conceptueel overzicht van aangepaste domeinnamen in Azure AD](../users-groups-roles/domains-manage.md)
+    >[!Note]
+    >De DNS-vermelding verandert niet de werking van uw mailroutering of webhosting.
 
-[Aangepaste domeinnamen beheren](../users-groups-roles/domains-manage.md)
+## <a name="verify-your-custom-domain-name"></a>Controleer of de naam van uw aangepaste domein
+Nadat u uw aangepaste domeinnaam hebt geregistreerd, duurt het een paar seconden aan een paar uur voordat de DNS-gegevens doorgegeven aan waar Azure AD dit als geldig zien kunt.
+
+### <a name="to-verify-your-custom-domain-name"></a>Om te controleren of uw aangepaste domeinnaam
+1. Aanmelden bij de [Azure AD-portal](https://portal.azure.com/) met behulp van een globale beheerdersaccount voor de map.
+
+2. Selecteer **Azure Active Directory**, en selecteer vervolgens **aangepaste-domeinnamen**.
+
+3. Op de **Fabrikam - aangepaste-domeinnamen** blade, selecteert u de aangepaste domeinnaam **Contoso**.
+
+    ![Fabrikam - aangepast domein namen blade met contoso gemarkeerd](media/add-custom-domain/custom-blade-with-contoso-highlighted.png)
+
+4. Op de **Contoso** Selecteer **controleren** om te controleren of uw aangepaste domein juist is geregistreerd en is geldig voor Azure AD.
+
+    ![Contoso-blade met DNS-vermeldingsgegevens en de knop controleren](media/add-custom-domain/contoso-blade-with-dns-info-verify.png)
+
+### <a name="common-verification-issues"></a>Veelvoorkomende problemen met verificatie
+Als Azure AD een aangepaste domeinnaam niet verifiëren kan, probeert u de volgende suggesties:
+- **Wacht ten minste een uur en probeer het opnieuw**. DNS-records moeten worden doorgegeven voordat Azure AD kunt controleren of dat het domein en dit proces kunnen een uur of langer duren.
+
+- **Zorg ervoor dat de DNS-record klopt.** Ga terug naar de site domein naam registrar en zorg ervoor dat de vermelding wordt weergegeven, en dat deze overeenkomt met de DNS-vermeldingsgegevens geleverd door Azure AD.
+
+    Als u de record op de site registrar niet bijwerken, moet u de vermelding delen met iemand die de juiste machtigingen voor de vermelding toevoegen en controleer of dat deze juist is.
+
+- **Zorg ervoor dat de domeinnaam niet al in een andere map.** De naam van een domein kan alleen worden geverifieerd in een bepaalde map, wat betekent dat als de domeinnaam van uw is momenteel geverifieerd in een andere directory, het kan ook worden geverifieerd in de nieuwe map. U lost dit probleem duplicatie, moet u de domeinnaam verwijderen uit de oude map. Zie voor meer informatie over het verwijderen van domeinnamen [aangepaste domeinnamen beheren](../users-groups-roles/domains-manage.md).    
 
 ## <a name="next-steps"></a>Volgende stappen
-In deze snelstartgids hebt u geleerd hoe u een aangepast domein toevoegt aan Azure AD. 
+- Gebruikers toevoegen aan uw domein, Zie [aangepaste domeinnamen beheren](../users-groups-roles/domains-manage.md).
 
-Gebruik de volgende koppeling om een nieuw aangepast domein toe te voegen in Azure AD via Azure Portal.
-
-> [!div class="nextstepaction"]
-> [Een aangepast domein toevoegen](https://aad.portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/QuickStart) 
+- Als u beschikt over on-premises versies van Windows-Server die u wilt gebruiken samen met Azure Active Directory, raadpleegt u [uw on-premises directory's integreren met Azure Active Directory](../connect/active-directory-aadconnect.md).

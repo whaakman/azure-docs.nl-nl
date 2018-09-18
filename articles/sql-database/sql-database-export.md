@@ -1,74 +1,74 @@
 ---
-title: Een Azure SQL database naar een Bacpac-bestand exporteren | Microsoft Docs
-description: Een Azure SQL database exporteren naar een Bacpac-bestand met de Azure portal
+title: Een Azure SQL-database exporteren naar een BACPAC-bestand | Microsoft Docs
+description: Een Azure SQL-database exporteren naar een BACPAC-bestand met de Azure portal
 services: sql-database
 author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
 ms.topic: conceptual
-ms.openlocfilehash: c2f29d8c660e3d39f91bcdd97209d2e88f5ae864
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: c117b3d56e6b032bff5983a707621d649e608d98
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34647949"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732156"
 ---
-# <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Een Azure SQL database naar een Bacpac-bestand exporteren
+# <a name="export-an-azure-sql-database-to-a-bacpac-file"></a>Een Azure SQL-database naar een BACPAC-bestand exporteren
 
-Als u exporteren van een database wilt voor het archiveren of voor het verplaatsen naar een ander platform, kunt u het databaseschema en de gegevens naar exporteren een [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) bestand. Een Bacpac-bestand is een ZIP-bestand met de extensie BACPAC die de metagegevens en gegevens uit een SQL Server-database. Een Bacpac-bestand worden opgeslagen in Azure blob-opslag of in de lokale opslag in een on-premises locatie en later geïmporteerd terug in Azure SQL Database of in een lokale installatie van SQL Server. 
+Wanneer u nodig hebt voor het exporteren van een database voor het archiveren of voor het verplaatsen naar een ander platform, kunt u de database-schema en gegevens te exporteren een [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) bestand. Een BACPAC-bestand is een ZIP-bestand met de extensie van de metagegevens en gegevens uit een SQL Server-database met BACPAC. Een BACPAC-bestand kan worden opgeslagen in Azure blob-opslag of in de lokale opslag in een on-premises locatie en later geïmporteerd terug naar Azure SQL Database of een installatie van de on-premises SQL Server. 
 
 > [!IMPORTANT] 
-> Azure SQL Database geautomatiseerde exporteren buiten gebruik werd gesteld op 1 maart 2017. U kunt [lange bewaartermijn van de back-](sql-database-long-term-retention.md
-) of [Azure Automation](https://github.com/Microsoft/azure-docs/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md) periodiek archiveren SQL-databases met behulp van PowerShell volgens een planning van uw keuze. Voor een steekproef, downloadt u de [PowerShell-voorbeeldscript](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export) vanuit Github.
+> Azure SQL Database functie voor geautomatiseerde Export is op 1 maart 2017 stopgezet. U kunt [langetermijnretentie](sql-database-long-term-retention.md
+) of [Azure Automation](https://github.com/Microsoft/azure-docs/blob/2461f706f8fc1150e69312098640c0676206a531/articles/automation/automation-intro.md) periodiek archiveren SQL-databases met behulp van PowerShell volgens een schema van uw keuze. Voor het voorbeeld downloaden de [PowerShell-script voorbeeld](https://github.com/Microsoft/sql-server-samples/tree/master/samples/manage/azure-automation-automated-export) vanuit Github.
 >
 
 ## <a name="considerations-when-exporting-an-azure-sql-database"></a>Overwegingen bij het exporteren van een Azure SQL database
 
-* Exporteren van een transactioneel consistent, moet u ervoor zorgen die geen schrijven activiteit optreedt tijdens het exporteren, of dat u gaat exporteren vanuit een [transactioneel consistent kopiëren](sql-database-copy.md) van uw Azure SQL database.
-* Als u naar blob storage exporteert, is de maximale grootte van een Bacpac-bestand 200 GB. Als u wilt archiveren een groter Bacpac-bestand, exporteren naar de lokale opslag.
-* Een Bacpac-bestand exporteren naar Azure premium-opslag met behulp van de methoden die worden beschreven in dit artikel wordt niet ondersteund.
-* Als de exportbewerking uit Azure SQL Database groter is dan 20 uur, kan worden geannuleerd. U kunt voor het verhogen van de prestaties tijdens het exporteren:
-  * Tijdelijk verhogen uw serviceniveau.
-  * Niet langer alle lees- en schrijfbewerkingen tijdens het exporteren.
-  * Gebruik een [geclusterde index](https://msdn.microsoft.com/library/ms190457.aspx) met niet-null-waarden voor alle grote tabellen. Exporteren van een kan zonder geclusterde indexen mislukken als het duurt langer dan 6 tot 12 uur. Dit komt doordat de export-service een tabelscan moet om te exporteren van de hele tabel te voltooien. Een goede manier om te bepalen als uw tabellen zijn geoptimaliseerd voor het exporteren is het uitvoeren van **DBCC SHOW_STATISTICS** en zorg ervoor dat de *RANGE_HI_KEY* niet null is en goed verdeling van de waarde heeft. Zie voor meer informatie [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
+* Exporteren van een transactioneel consistent, moet u ervoor zorgen die geen schrijven activiteit plaatsvindt tijdens het exporteren, of dat u wilt exporteren uit een [transactioneel consistente kopie](sql-database-copy.md) van uw Azure SQL-database.
+* Als u naar blob-opslag exporteert, is de maximale grootte van een BACPAC-bestand 200 GB. Als u wilt archiveren in een grotere BACPAC-bestand, exporteren naar de lokale opslag.
+* Een BACPAC-bestand exporteren naar Azure premium storage met behulp van de methoden die worden beschreven in dit artikel wordt niet ondersteund.
+* Als de exportbewerking uit Azure SQL-Database groter is dan 20 uur, kan worden geannuleerd. Voor betere prestaties tijdens het exporteren, kunt u het volgende doen:
+  * Tijdelijk de grootte van uw compute vergroten.
+  * Niet meer alle lezen en schrijven van activiteit tijdens het exporteren.
+  * Gebruik een [geclusterde index](https://msdn.microsoft.com/library/ms190457.aspx) met niet-null-waarden voor alle grote tabellen. Zonder geclusterde indexen, worden een export kan mislukken als het langer duurt dan 6 of 12 uur. Dit komt doordat de export-service een tabelscan moet om te exporteren van de hele tabel te voltooien. Een goede manier om te bepalen als uw tabellen zijn geoptimaliseerd voor exporteren is om uit te voeren **DBCC SHOW_STATISTICS** en zorg ervoor dat de *RANGE_HI_KEY* niet null is en de waarde ervan is goed distributie. Zie voor meer informatie, [DBCC SHOW_STATISTICS](https://msdn.microsoft.com/library/ms174384.aspx).
 
 > [!NOTE]
-> BACPACs zijn niet bedoeld om te worden gebruikt voor back-up en herstelbewerkingen. Azure SQL Database maakt automatisch een back-ups voor de database van elke gebruiker. Zie voor meer informatie [Business Continuity Overview](sql-database-business-continuity.md) en [back-ups van SQL-Database](sql-database-automated-backups.md).  
+> BACPACs zijn niet bedoeld om te worden gebruikt voor back-up en herstelbewerkingen. Azure SQL Database maakt automatisch back-ups voor elke gebruikersdatabase. Zie voor meer informatie, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md) en [back-ups van SQL-Database](sql-database-automated-backups.md).  
 > 
 
-## <a name="export-to-a-bacpac-file-using-the-azure-portal"></a>Exporteren naar een Bacpac-bestand met de Azure portal
+## <a name="export-to-a-bacpac-file-using-the-azure-portal"></a>Exporteren naar een BACPAC-bestand met de Azure portal
 
-Exporteren van een database met de [Azure-portal](https://portal.azure.com), open de pagina voor de database en klik op **exporteren** op de werkbalk. De Bacpac-bestandsnaam opgeven, geeft u de Azure-opslagaccount en container voor het exporteren en geef de referenties op om verbinding maken met de brondatabase.  
+Voor het exporteren van een database met de [Azure-portal](https://portal.azure.com), opent u de pagina voor uw database en klik op **exporteren** op de werkbalk. Het BACPAC-bestandsnaam opgeven, geeft u de Azure-opslagaccount en container voor het exporteren en geef de referenties verbinding maken met de brondatabase.  
 
-![Database wordt geëxporteerd](./media/sql-database-export/database-export.png)
+![database exporteren](./media/sql-database-export/database-export.png)
 
-Open de pagina voor de logische server met de database wordt geëxporteerd als u wilt de voortgang van de exportbewerking. Schuif omlaag naar **Operations** en klik vervolgens op **voor importeren/exporteren** geschiedenis.
+Voor het controleren van de voortgang van de exportbewerking, open de pagina voor de logische server met de database die wordt geëxporteerd. Schuif omlaag naar **Operations** en klik vervolgens op **Import/Export** geschiedenis.
 
 ![Geschiedenis exporteren](./media/sql-database-export/export-history.png)
 ![geschiedenis status exporteren](./media/sql-database-export/export-history2.png)
 
-## <a name="export-to-a-bacpac-file-using-the-sqlpackage-utility"></a>Exporteren naar een Bacpac-bestand met het hulpprogramma SQLPackage
+## <a name="export-to-a-bacpac-file-using-the-sqlpackage-utility"></a>Exporteren naar een BACPAC-bestand met het hulpprogramma SQLPackage
 
-Exporteren van een SQL-database met de [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) opdrachtregelhulpprogramma Zie [parameters en eigenschappen exporteren](https://msdn.microsoft.com/library/hh550080.aspx#Export Parameters and Properties). Het hulpprogramma SQLPackage wordt geleverd met de nieuwste versies van [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) en [SQL Server Data Tools voor Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), of u kunt de nieuwste versie van downloaden [SqlPackage ](https://www.microsoft.com/download/details.aspx?id=53876) rechtstreeks vanuit het Microsoft download center.
+Voor het exporteren van een SQL-database met de [SqlPackage](https://msdn.microsoft.com/library/hh550080.aspx) opdrachtregel-hulpprogramma, Zie [exporteren parameters en eigenschappen](https://msdn.microsoft.com/library/hh550080.aspx#Export Parameters and Properties). Het hulpprogramma SQLPackage wordt geleverd met de nieuwste versies van [SQL Server Management Studio](https://msdn.microsoft.com/library/mt238290.aspx) en [SQL Server Data Tools voor Visual Studio](https://msdn.microsoft.com/library/mt204009.aspx), maar u kunt de nieuwste versie van downloaden [SqlPackage ](https://www.microsoft.com/download/details.aspx?id=53876) rechtstreeks vanuit het Microsoft download center.
 
-U wordt aangeraden het gebruik van het hulpprogramma SQLPackage voor schaal en prestaties in de meeste productieomgevingen. Raadpleeg dit blogartikel van het SQL Server-klantadviesteam over migratie met behulp van BACPAC-bestanden: [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migreren van SQL Server naar Azure SQL Database met BACPAC-bestanden).
+We raden het gebruik van het hulpprogramma SQLPackage voor schaalbaarheid en prestaties in de meeste productieomgevingen. Raadpleeg dit blogartikel van het SQL Server-klantadviesteam over migratie met behulp van BACPAC-bestanden: [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migreren van SQL Server naar Azure SQL Database met BACPAC-bestanden).
 
-In dit voorbeeld ziet u hoe een database met behulp van SqlPackage.exe met verificatie van Active Directory-universele exporteren:
+In dit voorbeeld laat zien hoe een database met SqlPackage.exe met Active Directory universele authenticatie exporteren:
 
 ```cmd
 SqlPackage.exe /a:Export /tf:testExport.bacpac /scs:"Data Source=apptestserver.database.windows.net;Initial Catalog=MyDB;" /ua:True /tid:"apptest.onmicrosoft.com"
 ```
 
-## <a name="export-to-a-bacpac-file-using-sql-server-management-studio-ssms"></a>Exporteren naar een Bacpac-bestand met behulp van SQL Server Management Studio (SSMS)
+## <a name="export-to-a-bacpac-file-using-sql-server-management-studio-ssms"></a>Exporteren naar een BACPAC-bestand met behulp van SQL Server Management Studio (SSMS)
 
-De nieuwste versies van SQL Server Management Studio bieden ook een wizard voor het exporteren van een Azure SQL Database naar een Bacpac-bestand. Zie de [exporteren van een Gegevenslaagtoepassing](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
+De nieuwste versies van SQL Server Management Studio bieden ook een wizard voor het exporteren van een Azure SQL Database naar een BACPAC-bestand. Zie de [exporteren van een Data-tier-toepassing](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application).
 
-## <a name="export-to-a-bacpac-file-using-powershell"></a>Exporteren naar een Bacpac-bestand met behulp van PowerShell
+## <a name="export-to-a-bacpac-file-using-powershell"></a>Exporteren naar een BACPAC-bestand met behulp van PowerShell
 
-Gebruik de [nieuw AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet een aanvraag van de database exporteren voor de Azure SQL Database-service. De exportbewerking kan enige tijd duren, afhankelijk van de grootte van uw database.
+Gebruik de [New-AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-azurermsqldatabaseexport) cmdlet voor het indienen van een aanvraag van de database exporteren naar de Azure SQL Database-service. De exportbewerking kan enige tijd duren, afhankelijk van de grootte van uw database.
 
  ```powershell
  $exportRequest = New-AzureRmSqlDatabaseExport -ResourceGroupName $ResourceGroupName -ServerName $ServerName `
@@ -76,7 +76,7 @@ Gebruik de [nieuw AzureRmSqlDatabaseExport](/powershell/module/azurerm.sql/new-a
    -AdministratorLogin $creds.UserName -AdministratorLoginPassword $creds.Password
  ```
 
-Gebruiken om te controleren van de status van de aanvraag exporteren, de [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet. Met dit onmiddellijk na de aanvraag meestal retourneert **Status: InProgress**. Wanneer er **Status: geslaagd** het exporteren is voltooid.
+Om te controleren of de status van de aanvraag voor exporteren, gebruikt u de [Get-AzureRmSqlDatabaseImportExportStatus](/powershell/module/azurerm.sql/get-azurermsqldatabaseimportexportstatus) cmdlet. Met dit onmiddellijk na de aanvraag meestal retourneert **Status: InProgress**. Wanneer de melding **Status: geslaagd** het exporteren is voltooid.
 
 ```powershell
 $exportStatus = Get-AzureRmSqlDatabaseImportExportStatus -OperationStatusLink $exportRequest.OperationStatusLink
@@ -93,9 +93,9 @@ $exportStatus
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Zie voor meer informatie over langdurig bewaren van back-up van een back-up van Azure SQL database als een alternatief voor een database voor archief doeleinden geëxporteerd, [lange bewaartermijn van de back-](sql-database-long-term-retention.md).
+* Zie voor meer informatie over langetermijnretentie van back-up van een Azure SQL database-back-up als een alternatief voor een database voor archief doeleinden geëxporteerd, [langetermijnretentie](sql-database-long-term-retention.md).
 - Raadpleeg dit blogartikel van het SQL Server-klantadviesteam over migratie met behulp van BACPAC-bestanden: [Migrating from SQL Server to Azure SQL Database using BACPAC Files](https://blogs.msdn.microsoft.com/sqlcat/2016/10/20/migrating-from-sql-server-to-azure-sql-database-using-bacpac-files/) (Migreren van SQL Server naar Azure SQL Database met BACPAC-bestanden).
-* Zie voor meer informatie over het importeren van een BACPAC met een SQL Server-database, [een BACPCAC importeren in een SQL Server-database](https://msdn.microsoft.com/library/hh710052.aspx).
-* Zie voor meer informatie over het exporteren van een BACPAC van een SQL Server-database, [exporteren van een Gegevenslaagtoepassing](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) en [migreren van uw eerste database](sql-database-migrate-your-sql-server-database.md).
-* Als u vanuit SQL Server als een prelude voor de migratie naar Azure SQL Database exporteert, raadpleegt u [een SQL Server-database migreren naar Azure SQL Database](sql-database-cloud-migrate.md).
-* Voor informatie over het beheren en delen opslagsleutels en gedeelde toegang signitures veilig, Zie [Azure Storage-beveiligingshandleiding](https://docs.microsoft.com/azure/storage/common/storage-security-guide).
+* Zie voor meer informatie over het importeren van een BACPAC naar een SQL Server-database, [een BACPCAC importeren naar een SQL Server-database](https://msdn.microsoft.com/library/hh710052.aspx).
+* Zie voor meer informatie over het exporteren van een BACPAC van een SQL Server-database, [exporteren van een Data-tier-toepassing](https://docs.microsoft.com/sql/relational-databases/data-tier-applications/export-a-data-tier-application) en [migreren van uw eerste database](sql-database-migrate-your-sql-server-database.md).
+* Als u van SQL Server als een voorproefje op voor de migratie naar Azure SQL Database exporteert, Zie [een SQL Server-database migreren naar Azure SQL Database](sql-database-cloud-migrate.md).
+* Voor informatie over het beheren en te delen opslagsleutels en gedeelde toegang signitures veilig, Zie [Azure Storage-beveiligingshandleiding](https://docs.microsoft.com/azure/storage/common/storage-security-guide).

@@ -9,12 +9,12 @@ ms.topic: article
 ms.date: 06/02/2017
 ms.author: rogarana
 ms.component: common
-ms.openlocfilehash: d09505e4738243576dbde64fa6daba22d054bc8e
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 10b0d475113e5fcd413c7e62f88dcd434fc72a52
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053264"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732768"
 ---
 # <a name="using-the-azure-cli-20-with-azure-storage"></a>De Azure CLI 2.0 gebruiken met Azure Storage
 
@@ -31,7 +31,7 @@ Deze handleiding wordt ervan uitgegaan dat u inzicht in de basisbeginselen van A
 
 ### <a name="accounts"></a>Accounts
 * **Azure-account**: als u nog een Azure-abonnement hebt [maken van een gratis Azure-account](https://azure.microsoft.com/free/).
-* **Opslagaccount**: zie [Een opslagaccount maken](storage-create-storage-account.md#create-a-storage-account) in [Over Azure-opslagaccounts](storage-create-storage-account.md).
+* **Opslagaccount**: zie [Een opslagaccount maken](storage-quickstart-create-account.md) in [Over Azure-opslagaccounts](storage-create-storage-account.md).
 
 ### <a name="install-the-azure-cli-20"></a>Azure CLI 2.0 installeren
 

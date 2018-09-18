@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/18/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 3daf0e214c2c10d682e908ca430f4852df105926
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: c6ef868d80e628f9120acc0775179e89ccd03674
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38755644"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979484"
 ---
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
 | vcpu's per [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) <sup>1</sup> |20 |10.000 |
 | [Medebeheerders](../articles/billing-add-change-azure-subscription-administrator.md) per abonnement |200 |200 |
-| [Storage-accounts](../articles/storage/common/storage-create-storage-account.md) per regio per abonnement<sup>2</sup> |200 |250 |
+| [Storage-accounts](../articles/storage/common/storage-quickstart-create-account.md) per regio per abonnement<sup>2</sup> |200 |250 |
 | [Cloudservices](../articles/cloud-services/cloud-services-choose-me.md) per abonnement |20 |200 |
 | [Lokale netwerken](http://msdn.microsoft.com/library/jj157100.aspx) per abonnement |10 |500 |
 | SQL Database-servers per abonnement |6 |200 |

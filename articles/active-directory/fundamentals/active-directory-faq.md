@@ -1,26 +1,22 @@
 ---
-title: Veelgestelde vragen over Azure AD | Microsoft Docs
-description: Veelgestelde vragen over Azure Active Directory bevat antwoorden op algemene vragen over Azure en Azure Active Directory, wachtwoordbeheer en toegang tot toepassingen.
+title: Azure Active Directory - Veelgestelde vragen over | Microsoft Docs
+description: Meer veelgestelde vragen en antwoorden over Azure en Azure Active Directory, wachtwoordbeheer en toegang tot toepassingen.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.assetid: b8207760-9714-4871-93d5-f9893de31c8f
 ms.service: active-directory
 ms.component: fundamentals
 ms.workload: identity
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.date: 12/14/2017
 ms.author: lizross
-ms.openlocfilehash: cc9b5810085d3300861735a95a94e577bf61d70e
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 53c38eee1befe7c83f739deeb0e85711e7313e60
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346046"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730106"
 ---
 # <a name="azure-active-directory-faq"></a>Veelgestelde vragen over Azure Active Directory
 Azure Active Directory (Azure AD) is een uitgebreide IDaaS-oplossing (Identity as a Service) waarin alle aspecten van identiteit, toegangsbeheer en beveiliging zijn opgenomen.

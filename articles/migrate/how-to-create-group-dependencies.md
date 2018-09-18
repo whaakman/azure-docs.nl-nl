@@ -4,28 +4,43 @@ description: Beschrijft hoe u een evaluatie met afhankelijkheidstoewijzing groep
 author: rayne-wiselman
 ms.service: azure-migrate
 ms.topic: article
-ms.date: 06/19/2018
+ms.date: 09/17/2018
 ms.author: raynew
-ms.openlocfilehash: 37c4ce8638c8f0481151449317d6cd387b61b256
-ms.sourcegitcommit: 35ceadc616f09dd3c88377a7f6f4d068e23cceec
+ms.openlocfilehash: 4f5ab4565191b38c07b2071609a57db2525860e3
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39622895"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733411"
 ---
 # <a name="refine-a-group-using-group-dependency-mapping"></a>Een groep met afhankelijkheidstoewijzing groep verfijnen
 
-In dit artikel wordt beschreven hoe u een groep verfijnen door te visualiseren afhankelijkheden van alle computers in de groep. Doorgaans gebruikt u deze methode als u lidmaatschap voor een bestaande groep verfijnen op groepsafhankelijkheden cross controleren wilt voordat u een evaluatie uitvoert. Een groep met visualisatie van afhankelijkheden verfijnen kunt help effectief plannen van uw migratie naar Azure.You kan detecteren alle onderling afhankelijke systemen die moeten tegelijk migreren. Hiermee kunt u ervoor zorgen dat er niets is overgebleven en onverwachte storingen niet wordt uitgevoerd wanneer u naar Azure migreert. 
+In dit artikel wordt beschreven hoe u een groep verfijnen door te visualiseren afhankelijkheden van alle computers in de groep. Doorgaans gebruikt u deze methode als u lidmaatschap voor een bestaande groep verfijnen op groepsafhankelijkheden cross controleren wilt voordat u een evaluatie uitvoert. Een groep met visualisatie van afhankelijkheden verfijnen, kunt u effectief plan uw migratie naar Azure. U kunt alle onderling afhankelijk zijn systemen die nodig hebt voor het migreren van elkaar detecteren. Hiermee kunt u ervoor zorgen dat er niets is overgebleven en onverwachte storingen niet wordt uitgevoerd wanneer u naar Azure migreert.
 
 
 > [!NOTE]
 > Groepen waarvoor u wenst te visualiseren afhankelijkheden mag niet meer dan 10 machines bevatten. Als u meer dan 10 machines in de groep hebt, raden wij u aan deze opsplitsen in kleinere groepen gebruikmaken van de functie voor visualisatie van afhankelijkheden.
 
 
-# <a name="prepare-the-group-for-dependency-visualization"></a>Voorbereiden van de groep voor visualisatie van afhankelijkheden
-Als u afhankelijkheden van een groep, die u wilt downloaden en installeren van agents op elke on-premises computer die deel uitmaakt van de groep. Bovendien, als u computers geen verbinding met internet hebt, moet u om te downloaden en installeren [OMS-gateway](../log-analytics/log-analytics-oms-gateway.md) hierop.
+## <a name="prepare-for-dependency-visualization"></a>Voorbereiden voor visualisatie van afhankelijkheden
+Azure Migrate maakt gebruik van de oplossing Serviceoverzicht in Log Analytics om in te schakelen visualisatie van afhankelijkheden van machines.
+
+### <a name="associate-a-log-analytics-workspace"></a>Een Log Analytics-werkruimte koppelen
+Als u wilt gebruikmaken van de visualisatie van afhankelijkheden, moet u een Log Analytics-werkruimte, nieuwe of bestaande koppelen met een Azure Migrate-project. U kunt alleen maken of koppelen van een werkruimte in hetzelfde abonnement waar het migratieproject is gemaakt.
+
+- Een Log Analytics-werkruimte koppelen aan een project in **overzicht**, gaat u naar **Essentials** sectie van het project, klikt u op **configuratie is vereist**
+
+    ![Log Analytics-werkruimte koppelen](./media/concepts-dependency-visualization/associate-workspace.png)
+
+- Wanneer u een nieuwe werkruimte maakt, moet u een naam opgeven voor de werkruimte. De werkruimte wordt vervolgens gemaakt in hetzelfde abonnement als de migration-project en in een regio in dezelfde [Azure-Geografie](https://azure.microsoft.com/global-infrastructure/geographies/) als het migratieproject.
+- De **gebruik bestaande** optie een lijst met alleen deze werkruimten die zijn gemaakt in regio's waar Serviceoverzicht beschikbaar is. Hebt u een werkruimte in een regio waar Serviceoverzicht niet beschikbaar is, wordt deze niet weergegeven in de vervolgkeuzelijst.
+
+> [!NOTE]
+> U kunt de werkruimte die is gekoppeld aan een migratieproject niet wijzigen.
 
 ### <a name="download-and-install-the-vm-agents"></a>De VM-agents downloaden en installeren
+Als u afhankelijkheden van een groep, die u wilt downloaden en installeren van agents op elke on-premises computer die deel uitmaakt van de groep. Bovendien, als u computers geen verbinding met internet hebt, moet u om te downloaden en installeren [OMS-gateway](../log-analytics/log-analytics-oms-gateway.md) hierop.
+
 1. In **overzicht**, klikt u op **beheren** > **groepen**, gaat u naar de vereiste groep.
 2. In de lijst met computers in de **agent voor afhankelijkheden** kolom, klikt u op **vereist installatie** om te zien van instructies over het downloaden en installeren van de agents.
 3. Op de **afhankelijkheden** downloaden en installeren van Microsoft Monitoring Agent (MMA) en de agent voor afhankelijkheden op elke virtuele machine die deel uitmaakt van de groep.
@@ -37,8 +52,8 @@ De agent installeren op een Windows-machine:
 
 1. Dubbelklik op de gedownloade agent.
 2. Klik op de pagina **Welkom** op **Volgende**. Klik op de pagina **Licentievoorwaarden** op **Akkoord** om de licentie te accepteren.
-3. In **doelmap**, houden of wijzigen van de standaardinstallatiemap > **volgende**. 
-4. In **installatieopties voor Agent**, selecteer **Azure Log Analytics** > **volgende**. 
+3. In **doelmap**, houden of wijzigen van de standaardinstallatiemap > **volgende**.
+4. In **installatieopties voor Agent**, selecteer **Azure Log Analytics** > **volgende**.
 5. Klik op **toevoegen** om toe te voegen een nieuwe Log Analytics-werkruimte. Plak in de werkruimte-ID en de sleutel die u hebt gekopieerd uit de portal. Klik op **Volgende**.
 
 
@@ -66,7 +81,7 @@ Wanneer u agents hebt geïnstalleerd op alle computers van de groep, kunt u de a
 3. De kaart van afhankelijkheden voor de groep bevat de volgende gegevens:
     - Inkomende (Clients) en uitgaande (Server) TCP-verbindingen naar/van de machines die deel uitmaken van de groep
         - De afhankelijke machines waarop geen de MMA- en afhankelijkheidsmonitors agent is geïnstalleerd zijn gegroepeerd op poortnummers
-        - De dependenct-machines waarvoor de MMA en de agent voor afhankelijkheden geïnstalleerd worden als afzonderlijke vakken weergegeven 
+        - De afhankelijke machines waarvoor de MMA en de agent voor afhankelijkheden geïnstalleerd worden als afzonderlijke vakken weergegeven
     - Processen die op de machine, kunt u elk VM-vak om de processen weer te geven uitbreiden
     - Eigenschappen, zoals Fully Qualified Domain Name, besturingssysteem, enzovoort van MAC-adres van elke machine die u kunt klikken op elke VM-vak om deze gegevens weer te geven
 

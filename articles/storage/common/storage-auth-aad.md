@@ -1,6 +1,6 @@
 ---
-title: Verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview) | Microsoft Docs
-description: Verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview).
+title: Verifiëren van toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory (Preview) | Microsoft Docs
+description: Verifiëren van toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory (Preview).
 services: storage
 author: tamram
 ms.service: storage
@@ -8,18 +8,18 @@ ms.topic: article
 ms.date: 09/07/2018
 ms.author: tamram
 ms.component: common
-ms.openlocfilehash: 802eefb7ed8191525a8a4a6601b620ca5dfd5faa
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: d48eee711e5d43c2113c3a21d87386b350c6b01f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300610"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731889"
 ---
-# <a name="authenticate-access-to-azure-storage-using-azure-active-directory-preview"></a>Verifiëren van toegang tot Azure Storage met behulp van Azure Active Directory (Preview)
+# <a name="authenticate-access-to-azure-blobs-and-queues-using-azure-active-directory-preview"></a>Verifiëren van toegang tot Azure-blobs en wachtrijen met behulp van Azure Active Directory (Preview)
 
 Azure Storage biedt ondersteuning voor verificatie en autorisatie met Azure Active Directory (AD) voor de services Blob en wachtrij. U kunt met Azure AD, op rollen gebaseerd toegangsbeheer (RBAC) gebruiken om toegang te verlenen aan gebruikers, groepen of service-principals van toepassing. 
 
-Toepassingen die toegang hebben tot Azure Storage met behulp van Azure AD toestemming geven biedt uitstekende beveiliging en gebruiksgemak ten opzichte van andere opties voor autorisatie. Terwijl u kunt echter ook doorgaan met de gedeelde sleutel autorisatie met uw toepassingen, heeft met behulp van Azure AD de noodzaak voor het opslaan van uw toegangssleutel voor uw code. Op deze manier kunt u echter ook doorgaan met handtekeningen voor gedeelde toegang (SAS) om te voorzien in specifieke toegang tot resources in uw storage-account te verlenen, maar Azure AD biedt vergelijkbare mogelijkheden zonder de noodzaak om te beheren van SAS-tokens of zorgen over het intrekken van een SAS waarmee is geknoeid.
+Verifiëren van gebruikers of toepassingen die gebruikmaken van Azure AD-referenties biedt uitstekende beveiliging en gebruiksgemak ten opzichte van andere middelen van autorisatie. Terwijl u kunt echter ook doorgaan met de gedeelde sleutel autorisatie met uw toepassingen, heeft met behulp van Azure AD de noodzaak voor het opslaan van uw toegangssleutel voor uw code. U kunt ook blijven gebruiken van handtekeningen voor gedeelde toegang (SAS) om te voorzien in specifieke toegang tot resources in uw opslagaccount verlenen, maar Azure AD biedt vergelijkbare mogelijkheden zonder de noodzaak om te beheren van SAS-tokens of zorgen over het intrekken van een SAS waarmee is geknoeid. Microsoft raadt u aan met behulp van Azure AD-verificatie voor uw Azure Storage-toepassingen indien mogelijk.
 
 ## <a name="about-the-preview"></a>Over de Preview-versie
 

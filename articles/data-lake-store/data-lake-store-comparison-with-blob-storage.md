@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: nitinme
-ms.openlocfilehash: 3cc38e7ede9882e78e509738351696a64c938c40
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: d24a268cf389dfe9dec914b2d27bbe8e466ea675
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391405"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737189"
 ---
 # <a name="comparing-azure-data-lake-storage-gen1-and-azure-blob-storage"></a>Vergelijking van Azure Data Lake Storage Gen1 en Azure Blob-opslag
 De tabel in dit artikel bevat een overzicht van de verschillen tussen Azure Data Lake Storage Gen1 en Azure Blob Storage langs een aantal belangrijke aspecten van de verwerking van big data. Azure Blob-opslag is een algemeen gebruik, schaalbare opslag die is ontworpen voor een groot aantal scenario's voor opslag. Azure Data Lake Storage Gen1 is een zeer grote opslagruimte die is geoptimaliseerd voor workloads voor analyse van big data.
@@ -31,9 +31,9 @@ De tabel in dit artikel bevat een overzicht van de verschillen tussen Azure Data
 | API |REST-API via HTTPS |REST-API via HTTP/HTTPS |
 | Server-side-API |[WebHDFS compatibele REST-API](https://msdn.microsoft.com/library/azure/mt693424.aspx) |[Azure Blob Storage REST-API](https://msdn.microsoft.com/library/azure/dd135733.aspx) |
 | Hadoop-bestand System-Client |Ja |Ja |
-| Gegevensbewerkingen - verificatie |Op basis van [Azure Active Directory-identiteiten](../active-directory/develop/authentication-scenarios.md) |Op basis van gedeelde geheimen - [toegangssleutels](../storage/common/storage-create-storage-account.md#manage-your-storage-account) en [gedeelde toegangssleutels handtekening](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
+| Gegevensbewerkingen - verificatie |Op basis van [Azure Active Directory-identiteiten](../active-directory/develop/authentication-scenarios.md) |Op basis van gedeelde geheimen - [toegangssleutels](../storage/common/storage-account-manage.md#access-keys) en [gedeelde toegangssleutels handtekening](../storage/common/storage-dotnet-shared-access-signature-part-1.md). |
 | Gegevensbewerkingen - verificatieprotocol |OAuth 2.0. Oproepen moeten bevatten een ongeldig JWT (JSON Web Token) dat is uitgegeven door Azure Active Directory |Hash-based Message Authentication Code (HMAC). Aanroepen, moeten een Base64-gecodeerd SHA-256-hash bevatten over een deel van de HTTP-aanvraag. |
-| Gegevensbewerkingen - autorisatie |POSIX-toegangsbeheerlijsten (ACL's).  ACL's op basis van Azure Active Directory-identiteiten kunnen worden ingesteld op het niveau van bestanden en mappen. |Gebruik voor autorisatie accountniveau – [toegangssleutels van Account](../storage/common/storage-create-storage-account.md#manage-your-storage-account)<br>Gebruik voor het account, container of blob autorisatie - [handtekeningsleutels voor gedeelde toegang](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
+| Gegevensbewerkingen - autorisatie |POSIX-toegangsbeheerlijsten (ACL's).  ACL's op basis van Azure Active Directory-identiteiten kunnen worden ingesteld op het niveau van bestanden en mappen. |Gebruik voor autorisatie accountniveau – [toegangssleutels van Account](../storage/common/storage-account-manage.md#access-keys)<br>Gebruik voor het account, container of blob autorisatie - [handtekeningsleutels voor gedeelde toegang](../storage/common/storage-dotnet-shared-access-signature-part-1.md) |
 | Gegevensbewerkingen - controle |Beschikbaar. Zie [hier](data-lake-store-diagnostic-logs.md) voor meer informatie. |Beschikbaar |
 | Van Versleutelingsgegevens in rust |<ul><li>Transparant en serverzijde</li> <ul><li>Met de service beheerde sleutels</li><li>Met de klant beheerde sleutels in Azure Key Vault</li></ul></ul> |<ul><li>Transparant en serverzijde</li> <ul><li>Met de service beheerde sleutels</li><li>Met de klant beheerde sleutels in Azure Key Vault (preview)</li></ul><li>Clientversleuteling</li></ul> |
 | Bewerkingen (bijvoorbeeld-Account maken) |[Op rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md) (RBAC) verstrekt door Azure voor accountbeheer |[Op rollen gebaseerd toegangsbeheer](../role-based-access-control/overview.md) (RBAC) verstrekt door Azure voor accountbeheer |

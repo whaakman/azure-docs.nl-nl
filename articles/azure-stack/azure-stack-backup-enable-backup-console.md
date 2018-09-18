@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: jeffgilb
-ms.openlocfilehash: 1373e98b8edac81ebdb15aaf36d8bbfc910029fe
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: fdcc4f51f49e8eb133deeeecd070c55511cda464
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026182"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985793"
 ---
 # <a name="enable-backup-for-azure-stack-from-the-administration-portal"></a>Back-up inschakelen voor Azure Stack vanuit de beheerportal
 Schakel de infrastructuur voor Backup-Service via de beheerportal zodat Azure Stack-back-ups kunt genereren. U kunt deze back-ups gebruiken om te herstellen van uw omgeving met behulp van de cloudherstel in geval van [een onherstelbare fout](.\azure-stack-backup-recover-data.md). Het doel van cloudherstel is om ervoor te zorgen dat uw operators en gebruikers zich weer in de portal aanmelden kunnen nadat het herstel is voltooid. Gebruikers hebben hun abonnementen hersteld met inbegrip van machtigingen voor toegang op basis van rollen en functies, oorspronkelijke plannen, aanbiedingen, en eerder gedefinieerde compute, opslag en netwerkquota.
@@ -62,7 +62,7 @@ Beheerders en gebruikers zijn die verantwoordelijk is voor back-up en herstellen
 ## <a name="start-backup"></a>Back-up starten
 Voor het starten van een back-up, klikt u op **back-up nu** starten van een on-demand back-up. Een on-demand back-up wordt de tijd voor de volgende geplande back-up niet worden gewijzigd. Nadat de taak is voltooid, kunt u Bevestig de instellingen in **Essentials**:
 
-![Azure Stack - back-up op aanvraag](media\azure-stack-backup\scheduled-backup.png).
+![Azure Stack - back-up op aanvraag](media\azure-stack-backup\scheduled-backup.png)
 
 U kunt ook de PowerShell-cmdlet uitvoeren **Start AzsBackup** op uw computer Azure Stack-beheer. Zie voor meer informatie, [maakt u een Back-up van Azure Stack](azure-stack-backup-back-up-azure-stack.md).
 

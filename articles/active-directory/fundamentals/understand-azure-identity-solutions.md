@@ -1,27 +1,25 @@
 ---
-title: Inzicht in Azure-identiteitsoplossingen | Microsoft Docs
-description: Aan de hand van dit artikel doet u basiskennis op over begrippen, concepten en aanbevelingen voor identiteitsoplossingen van Microsoft Azure zodat u de beste governancebeslissingen voor uw organisatie kunt nemen.
-keywords: ''
+title: Wat is Microsoft Azure Identity? | Microsoft Docs
+description: Meer informatie over de voorwaarden van Microsoft Azure identity-oplossing, concepten en aanbevelingen voor u het beste identity governance beslissing voor uw organisatie.
+services: active-directory
 author: eross-msft
 manager: mtillman
-ms.reviewer: jsnow
-ms.author: lizross
-ms.date: 7/17/2017
-ms.topic: overview
-ms.prod: ''
-ms.service: azure-directory
+ms.service: active-directory
 ms.component: fundamentals
-ms.technology: ''
-ms.assetid: ''
-ms.custom: it-pro
-ms.openlocfilehash: ec84cdb4e226eea4d16d28d63acd7be59241b973
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
-ms.translationtype: HT
+ms.workload: identity
+ms.topic: conceptual
+ms.date: 7/17/2017
+ms.author: lizross
+ms.reviewer: jsnow
+custom: it-pro
+ms.openlocfilehash: db14dbf298596a9fdc189c27ea8608d472c58a35
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346913"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737240"
 ---
-# <a name="understand-azure-identity-solutions"></a>Inzicht in Azure-identiteitsoplossingen
+# <a name="what-is-microsoft-azure-identity"></a>Wat is Microsoft Azure-identiteit?
 Microsoft Azure Active Directory (Azure AD) is een cloudoplossing voor identiteits- en toegangsbeheer die voorziet in adreslijstservices, identiteitsgovernance en toegangsbeheer voor toepassingen. Met Azure AD kunt u snel gebruikmaken van [eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) bij duizenden vooraf geïntegreerde commerciële en aangepaste apps in de [Azure AD-toepassingsgalerie](https://azure.microsoft.com/marketplace/active-directory/all/). Veel van deze apps gebruikt u waarschijnlijk al, bijvoorbeeld Office 365, Salesforce.com, Box, ServiceNow en Workday.
 
 Er wordt automatisch een Azure AD-directory gekoppeld aan een Azure-abonnement wanneer dit wordt gemaakt. Azure AD fungeert als identiteitsservice in Azure en biedt alle functies voor identiteits- en toegangsbeheer voor cloudresources. Deze resources kunnen gebruikers, apps en groepen voor een individuele tenant (organisatie) bevatten, zoals te zien is in onderstaand diagram:

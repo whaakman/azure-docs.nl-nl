@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: andrl
-ms.openlocfilehash: 2c3e4806aef506ef9016699b46eadd5f8a187224
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 2da00f700f5cc234455cc686377e5863f1c35bdd
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056823"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734468"
 ---
 # <a name="set-and-get-throughput-for-azure-cosmos-db-containers-and-database"></a>Instellen en opvragen van doorvoer voor Azure Cosmos DB-containers en -database
 
@@ -61,7 +61,7 @@ In de volgende gedeelten leert u de stappen die zijn vereist voor het configurer
 2. Selecteer in de linker navigatie **alle resources** en zoek uw Azure Cosmos DB-account.  
 3. U kunt doorvoer configureren tijdens het maken van de doorvoer van een database of een update voor een bestaande database.  
 4. Als u wilt toewijzen doorvoer tijdens het maken van een database, opent u de **Data Explorer** blade en selecteer **nieuwe Database**  
-5. Vul de **Database-id** waarde selectievakje **inrichten doorvoer** optie en configureer doorvoercapaciteit. Een database kan worden ingericht met minimale doorvoercapaciteit 50.000 RU/s.  
+5. Vul de **Database-id** waarde selectievakje **inrichten doorvoer** optie en configureer doorvoercapaciteit.  
 
    ![Doorvoer instellen met de optie voor de nieuwe database](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -74,7 +74,7 @@ In de volgende gedeelten leert u de stappen die zijn vereist voor het configurer
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).  
 2. Selecteer in de linker navigatie **alle resources** en zoek uw Azure Cosmos DB-account.  
 3. Een database maken en toewijzen van doorvoer toe. Open de **Data Explorer** blade en selecteer **nieuwe Database**  
-4. Vul de **Database-id** waarde selectievakje **inrichten doorvoer** optie en configureer doorvoercapaciteit. Een database kan worden ingericht met minimale doorvoercapaciteit 50.000 RU/s.  
+4. Vul de **Database-id** waarde selectievakje **inrichten doorvoer** optie en configureer doorvoercapaciteit.  
 
    ![Doorvoer instellen met de optie voor de nieuwe database](./media/set-throughput/set-throughput-with-new-database-option.png)
 
@@ -107,33 +107,6 @@ Houd rekening met provisioning doorvoer op een afzonderlijke container in de vol
 * Hebt u een kleiner aantal Azure Cosmos DB-containers.  
 
 * Als u wilt de gegarandeerde doorvoer voor een bepaalde container gesteund door een SLA aan.
-
-## <a name="throughput-ranges"></a>Doorvoer bereiken
-
-De volgende tabel bevat de doorvoer beschikbaar voor containers:
-
-<table border="0" cellspacing="0" cellpadding="0">
-    <tbody>
-        <tr>
-            <td valign="top"><p></p></td>
-            <td valign="top"><p><strong>Container van één partitie</strong></p></td>
-            <td valign="top"><p><strong>Gepartitioneerde Container</strong></p></td>
-            <td valign="top"><p><strong>Instellen van Containers</strong></p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Minimaal doorvoer</p></td>
-            <td valign="top"><p>400 aanvraageenheden per seconde</p></td>
-            <td valign="top"><p>1000 aanvraageenheden per seconde</p></td>
-            <td valign="top"><p>50.000 aanvraageenheden per seconde</p></td>
-        </tr>
-        <tr>
-            <td valign="top"><p>Maximale doorvoer</p></td>
-            <td valign="top"><p>10.000 aanvraageenheden per seconde</p></td>
-            <td valign="top"><p>Onbeperkt</p></td>
-            <td valign="top"><p>Onbeperkt</p></td>
-        </tr>
-    </tbody>
-</table>
 
 <a id="set-throughput-sdk"></a>
 

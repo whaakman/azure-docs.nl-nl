@@ -10,20 +10,20 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/17/2017
+ms.date: 09/17/2018
 ms.author: mbullwin
-ms.openlocfilehash: 191913500daf7f1ab20f92c7e951f58598d5d14e
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: bf247748415822d5ba1a0e652fdeff384d8e8db1
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35643947"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982048"
 ---
 # <a name="monitor-multi-component-applications-with-application-insights-preview"></a>Bewaken van toepassingen met meerdere onderdelen met Application Insights (preview)
 
 U kunt de apps die bestaan uit meerdere server-onderdelen, functies of services met bewaken [Azure Application Insights](app-insights-overview.md). De status van de onderdelen en de relaties tussen deze worden weergegeven op één Toepassingsoverzicht. U kunt afzonderlijke bewerkingen via meerdere onderdelen met automatische HTTP correlatie traceren. Diagnostische gegevens over containers kunnen worden geïntegreerd en verband houden met de toepassingstelemetrie. Gebruik één Application Insights-resource voor alle onderdelen van uw toepassing. 
 
-![Overzicht van de toepassing met meerdere onderdelen](./media/app-insights-monitor-multi-role-apps/app-map.png)
+![Overzicht van de toepassing met meerdere onderdelen](./media/app-insights-monitor-multi-role-apps/application-map-001.png)
 
 We gebruiken 'onderdeel' hier om een werkende deel van een grote toepassing. Bijvoorbeeld, een typische zakelijke toepassing kan bestaan uit de clientcode die wordt uitgevoerd in webbrowsers, communicatie met een of meer web-app services, die op zijn beurt back gebruiken-endservices. Server-onderdelen mogelijk on-premises gehost op in de cloud, of Azure-web- en werkrollen rollen kunnen worden, of kunnen uitvoeren in, zoals Docker of Service Fabric-containers. 
 
@@ -33,7 +33,7 @@ De sleutel techniek hier is het verzenden van telemetrie van elk onderdeel in uw
 
 Voor meer informatie over hoe overschrijf de `cloud_RoleName` eigenschap Zie [eigenschappen toevoegen: ITelemetryInitializer](app-insights-api-filtering-sampling.md#add-properties-itelemetryinitializer).  
 
-In sommige gevallen kan dit niet altijd geschikt en u mogelijk liever gebruik van afzonderlijke resources voor verschillende groepen van onderdelen. Bijvoorbeeld, moet u mogelijk verschillende bronnen worden gebruikt voor beheer of facturering. Met behulp van afzonderlijke resources betekent dat er geen alle onderdelen weergegeven op één Toepassingsoverzicht; en dat u geen query uitvoeren voor onderdelen in [Analytics](app-insights-analytics.md). U hebt ook het instellen van de afzonderlijke resources.
+In sommige gevallen kan dit niet altijd geschikt en u mogelijk liever gebruik van afzonderlijke resources voor verschillende groepen van onderdelen. Bijvoorbeeld, moet u mogelijk verschillende bronnen worden gebruikt voor beheer of facturering.
 
 Met deze voorbehoud veronderstellen we in de rest van dit document dat u wilt verzenden van gegevens uit meerdere onderdelen naar een Application Insights-resource.
 

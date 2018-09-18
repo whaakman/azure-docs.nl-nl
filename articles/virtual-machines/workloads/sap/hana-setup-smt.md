@@ -14,12 +14,12 @@ ms.workload: infrastructure
 ms.date: 09/10/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5e729c2e3a802df15973fc6a43ee42265d1de654
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: f387c1afe88f2bba476309b2e2e01942d2b7ae5b
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44164726"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982622"
 ---
 # <a name="setting-up-smt-server-for-suse-linux"></a>SMT-server instellen voor SUSE Linux
 SAP HANA grote instanties hebt geen directe verbinding met Internet. Het is daarom niet een eenvoudig proces aan zoals eenheden registreren bij de OS-provider te downloaden en toepassen van patches. Als SUSE Linux, een oplossing worden kan voor het instellen van een SMT-server in een Azure-VM. Terwijl de virtuele Azure-machine moet worden gehost in een Azure-VNet is verbonden met de HANA grote instantie. Met dergelijke een SMT-server, kan de eenheid HANA grote instantie registreren en downloaden van patches. 
@@ -33,11 +33,11 @@ Als voorwaarde voor de installatie van een SMT-server die voldoet aan vereisten 
 
 ## <a name="installation-of-smt-server-on-azure-vm"></a>Installatie van SMT-server op Azure VM
 
-In deze stap installeert u het SMT-server in een Azure-VM. De eerste meting is te melden bij de [SUSE klant Center](https://scc.suse.com/)
+In deze stap installeert u het SMT-server in een Azure-VM. De eerste meting is te melden bij de [SUSE klant Center](https://scc.suse.com/).
 
 Als u bent aangemeld, geeft gaat u naar de organisatie--> referenties van de organisatie. In deze sectie vindt u de referenties die nodig zijn voor het instellen van de SMT-server.
 
-De derde stap is het installeren van een SUSE Linux-VM in de Azure-VNet. Voor het implementeren van de virtuele machine, neemt u een installatiekopie van de galerie SLES 12 SP2 van Azure. Een DNS-naam niet definiëren in het implementatieproces en gebruik geen statische IP-adressen zoals te zien is in deze schermafbeelding
+De derde stap is het installeren van een SUSE Linux-VM in de Azure-VNet. Voor het implementeren van de virtuele machine, neemt u een installatiekopie van de galerie SLES 12 SP2 van Azure (Selecteer SUSE BYOS afbeelding). Een DNS-naam niet definiëren in het implementatieproces en gebruik geen statische IP-adressen zoals te zien is in deze schermafbeelding
 
 ![VM-implementatie voor SMT-server](./media/hana-installation/image3_vm_deployment.png)
 
@@ -56,7 +56,28 @@ echo "export NCURSES_NO_UTF8_ACS=1" >> .bashrc
 
 Na deze opdrachten wordt uitgevoerd, opnieuw opstarten van uw bash voor het activeren van de instellingen. Start vervolgens YAST.
 
-In YAST, gaat u naar het onderhoud van Software en zoek naar smt. Selecteer smt, die automatisch wordt overgeschakeld naar yast2 smt zoals hieronder wordt weergegeven
+Verbind uw VM (smtserver) met de SUSE-site.
+
+```
+smtserver:~ # SUSEConnect -r <registration code> -e s<email address> --url https://scc.suse.com
+Registered SLES_SAP 12.2 x86_64
+To server: https://scc.suse.com
+Using E-Mail: email address
+Successfully registered system.
+```
+
+Zodra de virtuele machine is verbonden met de SUSE-site, moet u het smt-pakketten installeren. Gebruik de volgende putty opdracht om het smt-pakketten te installeren.
+
+```
+smtserver:~ # zypper in smt
+Refreshing service 'SUSE_Linux_Enterprise_Server_for_SAP_Applications_12_SP2_x86_64'.
+Loading repository data...
+Reading installed packages...
+Resolving package dependencies...
+```
+
+
+U kunt ook YAST hulpprogramma gebruiken om het smt-pakketten te installeren. In YAST, gaat u naar het onderhoud van Software en zoek naar smt. Selecteer smt, die automatisch wordt overgeschakeld naar yast2 smt zoals hieronder wordt weergegeven
 
 ![SMT in yast](./media/hana-installation/image5_smt_in_yast.PNG)
 

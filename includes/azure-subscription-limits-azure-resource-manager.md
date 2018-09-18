@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 08/22/2018
 ms.author: jroth
 ms.custom: include file
-ms.openlocfilehash: 08cd67e86666cdc9c9fc1b0f4ef98cf3ea7a156c
-ms.sourcegitcommit: a62cbb539c056fe9fcd5108d0b63487bd149d5c3
+ms.openlocfilehash: 2d0fa179e7d1ae87372536d315175f1406baf21a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/22/2018
-ms.locfileid: "43435597"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45979651"
 ---
 | Resource | Standaardlimiet | Maximumaantal |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "43435597"
 | Totaal aantal VM-cores per [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per regio | Contact opnemen met ondersteuning |
 | VM’s per reeks (Dv2, F, enz.), cores per [abonnement](../articles/billing-buy-sign-up-azure-subscription.md) |20<sup>1</sup> per regio | Contact opnemen met ondersteuning |
 | [Medebeheerders](../articles/billing-add-change-azure-subscription-administrator.md) per abonnement |Onbeperkt |Onbeperkt |
-| [Storage-accounts](../articles/storage/common/storage-create-storage-account.md) per regio per abonnement |200 |200<sup>2</sup> |
+| [Storage-accounts](../articles/storage/common/storage-quickstart-create-account.md) per regio per abonnement |200 |200<sup>2</sup> |
 | [Resourcegroepen](../articles/azure-resource-manager/resource-group-overview.md) per abonnement |980 |980 |
 | [Beschikbaarheidssets](../articles/virtual-machines/windows/manage-availability.md#configure-multiple-virtual-machines-in-an-availability-set-for-redundancy) per abonnement |2000 per regio |2000 per regio |
 | Leesbewerkingen Resource Manager-API |15.000 per uur |15.000 per uur |

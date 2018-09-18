@@ -8,15 +8,15 @@ manager: craigg
 ms.service: sql-database
 ms.subservice: elastic-pool
 ms.custom: DBs & servers
-ms.date: 07/27/2018
+ms.date: 09/14/2018
 ms.author: ninarn
 ms.topic: conceptual
-ms.openlocfilehash: ffc74eafed81c3dad836cfe70050244cb66a820b
-ms.sourcegitcommit: d0ea925701e72755d0b62a903d4334a3980f2149
+ms.openlocfilehash: 39c127569ea3ea5339c90554e1e899212f1b3f6a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/09/2018
-ms.locfileid: "40003736"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735509"
 ---
 # <a name="elastic-pools-help-you-manage-and-scale-multiple-azure-sql-databases"></a>Elastische pools kunt u beheren en schalen van meerdere Azure SQL-databases
 
@@ -55,7 +55,7 @@ De volgende afbeelding toont een voorbeeld van een database die doorgaans weinig
 
    ![een individuele database die geschikt is voor een groep](./media/sql-database-elastic-pool/one-database.png)
 
-Gedurende de geïllustreerde periode van vijf minuten piekt DB1 tot 90 DTU's, maar het gemiddelde gebruik is nog geen vijf DTU's. Er is een S3-prestatieniveau vereist om deze werkbelasting in een individuele database uit te voeren, maar in dat geval worden de meeste resources tijdens perioden van weinig activiteit niet benut.
+Gedurende de geïllustreerde periode van vijf minuten piekt DB1 tot 90 DTU's, maar het gemiddelde gebruik is nog geen vijf DTU's. Een S3-compute-grootte is vereist voor het uitvoeren van deze werkbelasting in een individuele database, maar in dat geval de meeste resources niet-gebruikte tijdens perioden van weinig activiteit.
 
 Met een groep kunnen deze ongebruikte DTU’s worden gedeeld met meerdere databases, wat de benodigde DTU's en de totale kosten vermindert.
 
@@ -65,7 +65,7 @@ Stel dat er in het vorige voorbeeld meer databases zijn die een soortgelijk gebr
 
    ![twintig databases met een gebruikspatroon dat geschikt is voor een groep](./media/sql-database-elastic-pool/twenty-databases.png)
 
-Het gezamenlijke DTU-gebruik van alle 20 databases wordt aangegeven door de zwarte lijn in voorgaande afbeelding. U ziet dat het totale DTU-gebruik nooit hoger is dan honderd DTU’s en dat de twintig databases gedurende deze periode honderd eDTU's kunnen delen. Dit resulteert in een twintigvoudige vermindering in DTU's en een dertienvoudige prijsvermindering ten opzichte van wanneer elke database in S3-prestaties voor individuele databases wordt geplaatst.
+Het gezamenlijke DTU-gebruik van alle 20 databases wordt aangegeven door de zwarte lijn in voorgaande afbeelding. U ziet dat het totale DTU-gebruik nooit hoger is dan honderd DTU’s en dat de twintig databases gedurende deze periode honderd eDTU's kunnen delen. Dit resulteert in 20 maal zo in dtu's en een 13 prijsvermindering ten opzichte van wanneer elke database in S3 compute-grootten voor individuele databases.
 
 Dit voorbeeld is om de volgende redenen ideaal:
 
@@ -75,21 +75,21 @@ Dit voorbeeld is om de volgende redenen ideaal:
 
 De prijs van een groep is een functie van de groep eDTU's. Hoewel de prijs per eDTU voor een groep 1,5 x groter is dan de prijs per DTU voor een individuele database, **kunnen eDTU's in een groep door veel databases worden gedeeld en zijn er dus minder eDTU's nodig**. Deze verschillen in prijsbepaling en het delen van eDTU's vormen de basis van de mogelijke prijsbesparing die groepen kunnen bieden.
 
-De volgende vuistregels voor databaseaantallen en databasegebruik helpen ervoor te zorgen dat een groep lagere kosten met zich meebrengt, vergeleken met het gebruik van prestatieniveaus voor individuele databases.
+De volgende vuistregels voor databaseaantallen en Databasegebruik helpen ervoor te zorgen dat een pool lagere kosten in vergelijking met het gebruik van compute-grootten voor individuele databases.
 
 ### <a name="minimum-number-of-databases"></a>Minimum aantal databases
 
 Als de totale hoeveelheid resources voor individuele databases meer dan 1,5 keer de resources die nodig zijn voor de groep, en vervolgens een elastische pool rendabeler is.
 
 ***Voorbeeld van aankopen model op basis van DTU***<br>
-Er zijn ten minste twee S3-databases of ten minste 15 S0-databases nodig wil een groep van 100 eDTU's rendabeler zijn dan het gebruik van de prestatieniveaus voor individuele databases.
+Ten minste twee S3-databases of ten minste 15 S0-databases nodig zijn voor een groep van 100 edtu's rendabeler zijn dan het gebruik van compute-grootten voor individuele databases.
 
 ### <a name="maximum-number-of-concurrently-peaking-databases"></a>Maximum aantal gelijktijdig piekende databases
 
 Resources worden gedeeld, niet alle databases in een groep gebruiken resources tot de limiet die beschikbaar voor individuele databases. Hoe minder databases gelijktijdig pieken, des te lager de resources van de groep kunnen worden ingesteld en des te rendabeler de groep wordt. In het algemeen zou moeten niet meer dan 2/3 (of 67%) van de databases in de pool tegelijkertijd pieken tot hun resources-limiet.
 
 ***Voorbeeld van aankopen model op basis van DTU***<br>
-Om de kosten voor drie S3-databases in een groep van 200 eDTU's te verlagen, kunnen maximaal twee van deze databases tegelijkertijd pieken in hun gebruik. Of, als meer dan twee van deze vier S3-databases gelijktijdig pieken, zou de groep moeten worden uitgebreid tot meer dan 200 eDTU's. Als de groep wordt uitgebreid tot meer dan 200 eDTU's, moeten er meer S3-databases aan de groep worden toegevoegd om de kosten lager te houden dan bij prestatieniveaus voor individuele databases.
+Om de kosten voor drie S3-databases in een groep van 200 eDTU's te verlagen, kunnen maximaal twee van deze databases tegelijkertijd pieken in hun gebruik. Of, als meer dan twee van deze vier S3-databases gelijktijdig pieken, zou de groep moeten worden uitgebreid tot meer dan 200 eDTU's. Als de groep wordt uitgebreid tot meer dan 200 edtu's, moeten er meer S3-databases worden toegevoegd aan de groep kosten lager zijn dan compute grootten voor individuele databases te houden.
 
 In dit voorbeeld wordt geen rekening gehouden met het gebruik van andere databases in de groep. Als alle databases voortdurend in enige mate gebruik maken van eDTU's, kan minder dan 2/3 (of 67%) van de databases tegelijkertijd pieken.
 
@@ -123,7 +123,7 @@ Als u het hulpprogramma niet kunt gebruiken, kunnen de volgende stappen u helpen
 2. Schat hoeveel opslagruimte de groep nodig heeft door het aantal bytes op te tellen dat nodig is voor alle databases in de groep. Bepaal daarna hoe groot de eDTU-groep moet zijn om aan deze hoeveelheid opslag te voldoen.
 3. Voor de DTU gebaseerde aankoopmodel, zet u de grootste waarde van de eDTU-schatting uit stap 1 en stap 2. Voor het op vCore gebaseerde aankoopmodel, nemen de vCore-schatting uit stap 1.
 4. Zie de [pagina met prijzen van SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/) en zoek de kleinste groepsomvang die groter is dan de schatting van stap 3.
-5. Vergelijk de prijs van de groep uit stap 5 met de prijs voor het gebruik van de juiste prestatieniveaus voor individuele databases.
+5. Vergelijk de prijs van de groep uit stap 5 met de prijs van het gebruik van de juiste Reken-grootten voor individuele databases.
 
 ## <a name="using-other-sql-database-features-with-elastic-pools"></a>Met behulp van andere functies van SQL Database met elastische pools
 
@@ -151,7 +151,7 @@ Er zijn twee manieren kunt u een elastische pool maken in Azure portal.
 > [!NOTE]
 > U kunt meerdere groepen maken op een server, maar u kunt geen databases van verschillende servers toevoegen aan dezelfde groep.
 
-De servicelaag van de pool bepaalt welke functies beschikbaar zijn voor de elastic in de groep en de maximale hoeveelheid resources die beschikbaar zijn voor elke database. Zie voor meer informatie, Resource-limieten voor elastische pools in de [DTU-model](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-performance-levels). Zie voor vCore gebaseerde resourcelimieten voor elastische pools, [vCore gebaseerde resourcelimieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md).
+De servicelaag van de pool bepaalt welke functies beschikbaar zijn voor de elastic in de groep en de maximale hoeveelheid resources die beschikbaar zijn voor elke database. Zie voor meer informatie, Resource-limieten voor elastische pools in de [DTU-model](sql-database-dtu-resource-limits-elastic-pools.md#elastic-pool-storage-sizes-and-compute-sizes). Zie voor vCore gebaseerde resourcelimieten voor elastische pools, [vCore gebaseerde resourcelimieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
 Configureer de bronnen en prijzen van de groep, klikt u op **groep configureren**. Selecteer vervolgens een servicelaag, databases aan de groep toevoegen en configureren van de resourcelimieten voor de groep en de bijbehorende databases.
 

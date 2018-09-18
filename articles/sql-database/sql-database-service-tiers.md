@@ -6,15 +6,15 @@ author: CarlRabeler
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/17/2018
+ms.date: 09/14/2018
 manager: craigg
 ms.author: carlrab
-ms.openlocfilehash: a4bf21f972da1aa92d6f127e8cbabb89a9c31489
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4fe75d8d350ee2d2a97b9d7efb10ff3c1675168d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44719950"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737094"
 ---
 # <a name="azure-sql-database-purchasing-models-and-resources"></a>Azure SQL Database-modellen en -bronnen aanschaffen 
 
@@ -26,7 +26,7 @@ De volgende tabel en de grafiek vergelijken en deze twee aankopen modellen contr
 
 |**Aankopen model**|**Beschrijving**|**Het meest geschikt voor**|
 |---|---|---|
-|Model op basis van DTU|Dit model is gebaseerd op een gecombineerde meting van compute, opslag- en i/o-resources. Prestatieniveaus worden uitgedrukt in termen van DTU’s (DTU’s: Database Transaction Units) voor enkelvoudige databases en eDTU’s (eDTU’s: elastische DTU’s) voor elastische pools. Zie voor meer informatie over dtu's en Edtu's [wat zijn dtu's en edtu's](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?|Bij beste voor klanten die eenvoudige, vooraf geconfigureerde opties willen.| 
+|Model op basis van DTU|Dit model is gebaseerd op een gecombineerde meting van compute, opslag- en i/o-resources. COMPUTE-grootten worden uitgedrukt in termen van Database Transaction Units (dtu's) voor individuele databases en elastische Database Transaction Units (edtu's) voor elastische pools. Zie voor meer informatie over dtu's en Edtu's [wat zijn dtu's en edtu's](sql-database-service-tiers.md#what-are-database-transaction-units-dtus)?|Bij beste voor klanten die eenvoudige, vooraf geconfigureerde opties willen.| 
 |Model op basis van vCore|Dit model kunt u reken- en opslagresources onafhankelijk van elkaar te kiezen. Ook kunt u Azure Hybrid Benefit voor SQL Server gebruiken om te krijgen van kosten te besparen.|Bij beste voor klanten die flexibiliteit, controle en transparantie waarde.|
 ||||  
 
@@ -50,22 +50,22 @@ Het op vCore gebaseerde aankoopmodel kunt u onafhankelijk reken- en opslagresour
 > Reken-, IOs-, gegevens en opslaan van Logboeken worden in rekening gebracht per database of elastische pool. Back-ups opslag wordt in rekening gebracht per elke database. Raadpleeg voor meer informatie van Managed Instance kosten [Azure SQL Database Managed Instance](sql-database-managed-instance.md).
 > **Beperkingen regio:** het vCore-aanschafmodel is nog niet beschikbaar in de volgende regio's: West-Europa, Frankrijk-centraal, UK-Zuid, UK-West en Australië-Zuidoost.
 
-Als uw database of elastische pool meer dan 300 DTU conversie naar vCore verbruikt kan uw kosten verlagen. U kunt converteren met behulp van uw API van keuze of de Azure-portal, zonder uitvaltijd. Conversie is echter niet vereist. Als het DTU-aankoopmodel voldoet aan uw prestaties en zakelijke vereisten, moet u deze blijven gebruiken. Als u converteren van het DTU-model naar het vCore-model wilt, moet u het prestatieniveau dat met behulp van de volgende vuistregel: elke 100 DTU in Standard-laag moet ten minste 1 vCore in de categorie Algemeen gebruik; elke 125 DTU in Premium-laag moet ten minste 1 vCore in de laag bedrijfskritiek.
+Als uw database of elastische pool meer dan 300 DTU conversie naar vCore verbruikt kan uw kosten verlagen. U kunt converteren met behulp van uw API van keuze of de Azure-portal, zonder uitvaltijd. Conversie is echter niet vereist. Als het DTU-aankoopmodel voldoet aan uw prestaties en zakelijke vereisten, moet u deze blijven gebruiken. Als u converteren van het DTU-model naar het vCore-model wilt, moet u de grootte van de compute met behulp van de volgende vuistregel: elke 100 DTU in Standard-laag moet ten minste 1 vCore in de categorie Algemeen gebruik; elke 125 DTU in Premium-laag moet ten minste 1 vCore in de laag bedrijfskritiek.
 
 ## <a name="dtu-based-purchasing-model"></a>DTU gebaseerde aankoopmodel
 
 De Database Transaction Unit (DTU) vertegenwoordigt een samengestelde meting van CPU, geheugen, leest en schrijft. Het op DTU gebaseerde aankoopmodel biedt een reeks vooraf geconfigureerde bundels van rekenresources en inbegrepen opslag op verschillende niveaus van de schijf van de prestaties van toepassingen. Klanten die de voorkeur geeft aan de eenvoud van een vooraf geconfigureerde bundel en vaste betalingen elke maand, vindt het dtu model beter geschikt is voor hun behoeften. In de DTU gebaseerde aankoopmodel, klanten kunnen kiezen uit **Basic**, **Standard**, en **Premium** Servicelagen voor zowel [enkelvoudige databases](sql-database-single-database-scale.md) en [elastische pools](sql-database-elastic-pool.md). Dit aankoopmodel is niet beschikbaar in [instanties die worden beheerd](sql-database-managed-instance.md).
 
 ### <a name="what-are-database-transaction-units-dtus"></a>Wat zijn Database Transaction Units (dtu's)?
-Voor een individuele Azure SQL-database op een bepaald prestatieniveau binnen een [servicelaag](sql-database-single-database-scale.md), garandeert Microsoft een bepaald niveau van resources voor die database (onafhankelijk van een andere database in de Azure-cloud), biedt een voorspelbare prestatieniveau. De hoeveelheid resources wordt berekend als een getal van Database Transaction Units of dtu's en is een gecombineerde meting van compute, opslag- en i/o-resources. De verhouding tussen deze resources werd oorspronkelijk bepaald door een [OLTP-benchmark werkbelasting](sql-database-benchmark-overview.md), ontworpen om u te zijn van echte OLTP-workloads. Wanneer uw workload hoger is dan de hoeveelheid van elk van deze resources, is de doorvoer van uw beperkte - wat resulteert in tragere prestaties en time-outs. De resources die worden gebruikt voor uw werkbelasting niet invloed hebben op de beschikbare resources voor andere SQL-databases in de Azure-cloud en de resources die worden gebruikt door andere werkbelastingen niet invloed hebben op de beschikbare resources voor uw SQL-database.
+Compute voor één Azure SQL-database op een specifieke grootte binnen een [servicelaag](sql-database-single-database-scale.md), garandeert Microsoft een bepaald niveau van resources voor die database (onafhankelijk van een andere database in de Azure-cloud), bieden een voorspelbaar niveau van de prestaties. De hoeveelheid resources wordt berekend als een getal van Database Transaction Units of dtu's en is een gecombineerde meting van compute, opslag- en i/o-resources. De verhouding tussen deze resources werd oorspronkelijk bepaald door een [OLTP-benchmark werkbelasting](sql-database-benchmark-overview.md), ontworpen om u te zijn van echte OLTP-workloads. Wanneer uw workload hoger is dan de hoeveelheid van elk van deze resources, is de doorvoer van uw beperkte - wat resulteert in tragere prestaties en time-outs. De resources die worden gebruikt voor uw werkbelasting niet invloed hebben op de beschikbare resources voor andere SQL-databases in de Azure-cloud en de resources die worden gebruikt door andere werkbelastingen niet invloed hebben op de beschikbare resources voor uw SQL-database.
 
 ![selectiekader](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-Dtu's zijn handig voor het begrijpen van de relatieve hoeveelheid resources tussen Azure SQL-databases op verschillende prestatieniveaus en service-lagen. Bijvoorbeeld, verdubbeling van het aantal dtu's door het verhogen van het prestatieniveau van een database is gelijk aan de set met resources waarover die database verdubbelen. Zo biedt een Premium P11-database met 1750 DTU's 350 keer meer DTU aan rekenvermogen dan een Basic-database met 5 DTU's.  
+Dtu's zijn handig voor het begrijpen van de relatieve hoeveelheid resources tussen Azure SQL-databases op verschillende en service-lagen. Bijvoorbeeld, verdubbeling van het aantal dtu's door het compute vergroten van een database is gelijk aan de set met resources waarover die database verdubbelen. Zo biedt een Premium P11-database met 1750 DTU's 350 keer meer DTU aan rekenvermogen dan een Basic-database met 5 DTU's.  
 
 Gebruiken om te krijgen van inzicht in het gebruik van resources (DTU) van uw werkbelasting, [Azure SQL Database Query Performance Insight](sql-database-query-performance.md) aan:
 
-- Identificeer de populairste query's op aantal CPU/duur/uitvoeringen die mogelijk kan worden afgestemd voor betere prestaties. Bijvoorbeeld, een i/o-intensieve query mogelijk baat bij het gebruik van [in het geheugen optimalisatietechnieken](sql-database-in-memory.md) beter gebruikmaken van het beschikbare geheugen op een bepaalde laag en de prestaties serviceniveau.
+- Identificeer de populairste query's op aantal CPU/duur/uitvoeringen die mogelijk kan worden afgestemd voor betere prestaties. Bijvoorbeeld, een i/o-intensieve query mogelijk baat bij het gebruik van [in het geheugen optimalisatietechnieken](sql-database-in-memory.md) beter gebruikmaken van het beschikbare geheugen op een bepaalde servicelaag en compute-grootte.
 - Zoom in op de details van een query, de tekst en de geschiedenis van Resourcegebruik weergeven.
 - Prestaties voor gegevenstoegang aanbevelingen die laten zien van acties die worden uitgevoerd door voor het afstemmen [SQL Database Advisor](sql-database-advisor.md).
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/12/2018
 ms.author: mabrigg
-ms.openlocfilehash: 975c5c2c5f0da7a6db946c6d1032b485947134d2
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 058e1f9abbf094fb49a21191f60195df53615451
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717695"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985291"
 ---
 # <a name="using-the-administrator-portal-in-azure-stack"></a>Met behulp van de beheerdersportal in Azure Stack
 
@@ -71,6 +71,8 @@ De beheerder en gebruiker portals worden ondersteund door afzonderlijke exemplar
 ### <a name="customize-the-dashboard"></a>Het dashboard aanpassen
 
 Het dashboard bevat een reeks standaardtegels. U kunt selecteren **dashboard bewerken** wijzigen van het standaarddashboard, of selecteer **nieuw dashboard** om toe te voegen een aangepast dashboard. U kunt eenvoudig tegels toevoegen aan een dashboard. Bijvoorbeeld, kunt u **+ een resource maken**, met de rechtermuisknop op **aanbiedingen + plannen**, en selecteer vervolgens **vastmaken aan dashboard**.
+
+Soms ziet u mogelijk een leeg dashboard in de portal. Als u wilt herstellen in het dashboard, klikt u op **Dashboard bewerken**, en klik met de rechtermuisknop en selecteer **opnieuw ingesteld op standaardstatus**.
 
 ### <a name="quick-access-to-online-documentation"></a>Snelle toegang tot de online documentatie
 

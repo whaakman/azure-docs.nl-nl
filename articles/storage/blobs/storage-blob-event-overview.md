@@ -8,12 +8,12 @@ ms.date: 01/30/2018
 ms.topic: article
 ms.service: storage
 ms.component: blobs
-ms.openlocfilehash: c6dfb8ac36f3b5d51cc1d6126449b458f8f4946c
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: 0f726769b9e4266e310f9f50b1a7ef768c0c1d55
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377426"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735881"
 ---
 # <a name="reacting-to-blob-storage-events"></a>Reageren op gebeurtenissen van Blob storage
 
@@ -28,7 +28,7 @@ Kijk eens [Route Blob-opslaggebeurtenissen aan een aangepaste web-eindpunt - CLI
 ![Event Grid-Model](./media/storage-blob-event-overview/event-grid-functional-model.png)
 
 ## <a name="blob-storage-accounts"></a>Blob Storage-accounts
-Gebeurtenissen van BLOB storage zijn beschikbaar in [Blob storage-accounts](../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-storage-accounts) en [opslagaccounts voor algemeen gebruik v2](../common/storage-account-options.md#general-purpose-v2-accounts). **GPv2-accounts (v2 voor algemeen gebruik)** zijn opslagaccounts die alle functies voor alle opslagservices ondersteunen, waaronder Blobs, Files, Queues en Tables. Een **Blob-opslagaccount** is een opslagaccount dat speciaal is bedoeld om ongestructureerde gegevens als blobs (objecten) op te slaan in Azure Storage. Blob-opslagaccounts zijn vergelijkbaar met de opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs. Voor toepassingen die alleen blok- of toevoeg-blob-opslag nodig hebben, wordt het gebruik van Blob-opslagaccounts aangeraden. 
+Gebeurtenissen van BLOB storage zijn beschikbaar in opslagaccounts voor algemeen gebruik v2 en Blob storage-accounts. **Algemeen gebruik v2** storage-accounts ondersteunen alle functies voor alle storage-services, waaronder Blobs, bestanden, wachtrijen en tabellen. Een **Blob-opslagaccount** is een opslagaccount dat speciaal is bedoeld om ongestructureerde gegevens als blobs (objecten) op te slaan in Azure Storage. Blob-opslagaccounts zijn vergelijkbaar met de opslagaccounts voor algemeen gebruik en bieden dezelfde hoogwaardige kenmerken op het gebied van duurzaamheid, beschikbaarheid, schaalbaarheid en prestaties waarover u nu al beschikt, inclusief 100 procent API-consistentie voor blok-blobs en toevoeg-blobs. Zie voor meer informatie, [overzicht van Azure storage-account](../common/storage-account-overview.md).
 
 ## <a name="available-blob-storage-events"></a>Beschikbare gebeurtenissen van Blob storage
 Maakt gebruik van Event grid [gebeurtenisabonnementen](../../event-grid/concepts.md#event-subscriptions) gebeurtenis om berichten te routeren voor abonnees.  Gebeurtenisabonnementen voor BLOB-opslag kunnen twee soorten gebeurtenissen omvatten:  

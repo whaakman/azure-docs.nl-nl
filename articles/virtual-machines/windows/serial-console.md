@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 785b0137624cc6d940f4944e0357d0a5774561df
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 1597e850219ddbab1a0714072c47e12016aa2069
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634707"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736885"
 ---
 # <a name="virtual-machine-serial-console"></a>Seriële Console van virtuele Machine
 
@@ -64,9 +64,8 @@ Nieuwere Windows Server-installatiekopieën in Azure heeft [speciale beheerconso
 * `bcdedit /emssettings EMSPORT:1 EMSBAUDRATE:115200`
 3. Opnieuw opstarten van het systeem voor de console SAC zijn ingeschakeld
 
-![](../media/virtual-machines-serial-console/virtual-machine-windows-serial-console-connect.gif)
 
-Als de benodigde SAC kan offline worden ingeschakeld 
+Indien nodig, kan de SAC ook worden ingeschakeld offline:
 
 1. De windows-schijf die u wilt dat SAC geconfigureerd voor als een gegevensschijf aan bestaande virtuele machine koppelen. 
 2. Voer de volgende opdrachten vanaf een opdrachtprompt met beheerdersrechten. 

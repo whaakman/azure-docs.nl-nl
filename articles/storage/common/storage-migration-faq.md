@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/11/2018
 ms.author: genli
 ms.component: common
-ms.openlocfilehash: ecc5948c84f7659e950c360c3b19d1985b0ab81c
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: 3c671fe6dcb1af25bfb0aa09fecf8ad5e5ceb97b
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39521486"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732257"
 ---
 # <a name="frequently-asked-questions-about-azure-storage-migration"></a>Veelgestelde vragen over Azure Storage-migratie
 
@@ -256,7 +256,7 @@ Zodat andere personen toegang tot de storage-resources:
 
 -   De token van een shared access signature (SAS) gebruiken voor toegang tot een resource. 
 
--   Een gebruiker voorzien van de primaire of secundaire sleutel voor het opslagaccount. Zie voor meer informatie, [uw opslagaccount beheren](storage-create-storage-account.md#manage-your-storage-account).
+-   Een gebruiker voorzien van de primaire of secundaire sleutel voor het opslagaccount. Zie voor meer informatie, [uw opslagaccount beheren](storage-account-manage.md#access-keys).
 
 -   Het toegangsbeleid voor anonieme toegang wijzigen. Zie voor meer informatie, [anonieme gebruikersmachtigingen verlenen voor containers en blobs](../blobs/storage-manage-access-to-resources.md#grant-anonymous-users-permissions-to-containers-and-blobs).
 

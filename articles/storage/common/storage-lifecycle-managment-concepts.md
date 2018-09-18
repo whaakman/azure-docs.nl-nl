@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/30/2018
 ms.author: yzheng
 ms.component: common
-ms.openlocfilehash: edc0cf7c8700e1ab728109bc9cbfda8135a59ee9
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 6b7a361213a0236d71fe41566ba71c28b2958cd7
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574728"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736339"
 ---
 # <a name="managing-the-azure-blob-storage-lifecycle-preview"></a>Beheer van de levenscyclus van Azure Blob Storage (Preview)
 
@@ -30,7 +30,7 @@ Houd rekening met een set gegevens die vaak tijdens de eerste fase van de levens
 
 ## <a name="storage-account-support"></a>Ondersteuning voor Storage-account
 
-Levenscyclusbeheerbeleid is beschikbaar bij zowel algemeen gebruik v2 (GPv2)-account en Blob Storage-account. U kunt een bestaande account voor algemeen gebruik (GPv1) converteren naar een GPv2-account via een eenvoudig éénkliksproces in Azure portal. Zie [opties voor Azure Storage-account](../common/storage-account-options.md) voor meer informatie.  
+Levenscyclusbeheerbeleid is beschikbaar bij zowel algemeen gebruik v2 (GPv2)-account en Blob Storage-account. U kunt een bestaande account voor algemeen gebruik (GPv1) converteren naar een GPv2-account via een eenvoudig éénkliksproces in Azure portal. Zie voor meer informatie over de storage-accounts, [overzicht van Azure storage-account](../common/storage-account-overview.md) voor meer informatie.  
 
 ## <a name="pricing"></a>Prijzen 
 

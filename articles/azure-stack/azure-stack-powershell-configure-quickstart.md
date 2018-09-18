@@ -11,14 +11,14 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 5d988e8a8a32924b8424a07cf20c75f0e8f8cf4d
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 75b7f9c78418883344ce3c066135fe0847f649ac
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391071"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981958"
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Aan de slag met PowerShell in Azure Stack
 
@@ -28,53 +28,62 @@ In deze snelstartgids helpt u bij het installeren en configureren van een Azure 
 
 In dit artikel is een verkorte versie van de stappen die worden beschreven in de [PowerShell installeren]( azure-stack-powershell-install.md), [hulpprogramma's downloaden]( azure-stack-powershell-download.md), en [voordeAzureStack-operatorsPowerShell-omgevingconfigureren]( azure-stack-powershell-configure-admin.md) artikelen. Met behulp van de scripts in dit artikel, kunt u PowerShell instellen voor Azure Stack-omgevingen die zijn geïmplementeerd met Azure Active Directory of Active Directory Federation Services (AD FS).  
 
+## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>PowerShell instellen voor implementaties op basis van Azure Active Directory  
 
-## <a name="set-up-powershell-for-azure-active-directory-based-deployments"></a>PowerShell instellen voor implementaties op basis van Azure Active Directory
+Meld u aan uw Azure Stack Development Kit, of een externe Windows-client als u via VPN-verbinding verbonden bent. Open een PowerShell ISE-sessie met verhoogde bevoegdheden en voer de volgende scripts.
 
-<a name="sign-in-to-your-azure-stack-development-kit-or-a-windows-based-external-client-if-you-are-connected-through-vpn-open-an-elevated-powershell-ise-session-and-then-run-the-following-script"></a>Meld u aan uw Azure Stack Development Kit, of een externe Windows-client als u via VPN-verbinding verbonden bent. Open een PowerShell ISE-sessie met verhoogde bevoegdheden en voer het volgende script. 
--  
-- Zorg ervoor dat u het bijwerken van de **TenantName**, **ArmEndpoint**, en **GraphAudience** variabelen die nodig zijn voor de configuratie van uw omgeving:
+Zorg ervoor dat u het bijwerken van de **TenantName**, **ArmEndpoint**, en **GraphAudience** variabelen die nodig zijn voor de configuratie van uw omgeving:
 
-```powershell
+```PowerShell  
 # Specify Azure Active Directory tenant name.
 $TenantName = "<mydirectory>.onmicrosoft.com"
 
 # Set the module repository and the execution policy.
-Set-PSRepository `
-  -Name "PSGallery" `
-  -InstallationPolicy Trusted
+Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
-Set-ExecutionPolicy RemoteSigned `
-  -force
+Set-ExecutionPolicy RemoteSigned -force
 
-# Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions, and then run the following command:
-Get-Module -ListAvailable -Name Azure* | `
-  Uninstall-Module
+# Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions, and then run the following commands:
+Get-Module -ListAvailable -Name Azure* | Uninstall-Module
+Get-Module Azs.* -ListAvailable | Uninstall-Module -force
 
 # Install PowerShell for Azure Stack.
-Install-Module `
-  -Name AzureRm.BootStrapper `
-  -Force
+Install-Module -Name AzureRm.BootStrapper -Force
+```
 
-Use-AzureRmProfile `
-  -Profile 2017-03-09-profile `
-  -Force
+Laden van de API-profiel en de beheerder van de module voor uw versie van Azure Stack.
 
-Install-Module `
-  -Name AzureStack `
-  -RequiredVersion 1.2.11 `
-  -Force 
+  - Azure Stack 1808 of hoger.
 
+  ```PowerShell  
+    Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.5.0 -Force
+  ```
+
+  - Azure Stack 1807 of een eerdere versie.
+
+  ```PowerShell  
+    Use-AzureRmProfile -Profile 2017-03-09-profile -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.4.0 -Force
+  ```
+
+  - Azure Stack 1804 of een eerdere versie.
+
+  ```PowerShell  
+    Use-AzureRmProfile -Profile 2017-03-09-profile -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+  ```
+
+Download de Azure Stack-tools en maak verbinding.
+
+```PowerShell  
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12 
 invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-  -OutFile master.zip
+  https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
 
-expand-archive master.zip `
-  -DestinationPath . `
-  -Force
+expand-archive master.zip -DestinationPath . -Force
 
 cd AzureStack-Tools-master
 
@@ -84,63 +93,81 @@ Import-Module .\Connect\AzureStack.Connect.psm1
   $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
 # Register an AzureRM environment that targets your Azure Stack instance
-  Add-AzureRMEnvironment `
-    -Name "AzureStackAdmin" `
-    -ArmEndpoint $ArmEndpoint
+  Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
 
 # Get the Active Directory tenantId that is used to deploy Azure Stack
-  $TenantID = Get-AzsDirectoryTenantId `
-    -AADTenantName $TenantName `
-    -EnvironmentName "AzureStackAdmin"
+  $TenantID = Get-AzsDirectoryTenantId -AADTenantName $TenantName -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-  Add-AzureRmAccount `
-    -EnvironmentName "AzureStackAdmin" `
-    -TenantId $TenantID 
+  Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID 
 ```
 
 ## <a name="set-up-powershell-for-ad-fs-based-deployments"></a>PowerShell instellen voor AD FS-implementaties
 
 U kunt het volgende script gebruiken als u Azure Stack wanneer verbonden met internet. Maar als u Azure Stack zonder verbinding met internet, gebruiken de [manier van PowerShell verbroken](azure-stack-powershell-install.md) en de cmdlets voor het configureren van PowerShell blijft hetzelfde zoals wordt weergegeven in dit script. Meld u aan uw Azure Stack Development Kit, of een externe Windows-client als u via VPN-verbinding verbonden bent. Open een PowerShell ISE-sessie met verhoogde bevoegdheden en voer het volgende script. Zorg ervoor dat u het bijwerken van de **ArmEndpoint** en **GraphAudience** variabelen die nodig zijn voor de configuratie van uw omgeving:
 
-```powershell
+```PowerShell  
 
 # Set the module repository and the execution policy.
-Set-PSRepository `
-  -Name "PSGallery" `
-  -InstallationPolicy Trusted
+Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted
 
-Set-ExecutionPolicy RemoteSigned `
-  -force
+Set-ExecutionPolicy RemoteSigned -force
 
 # Uninstall any existing Azure PowerShell modules. To uninstall, close all the active PowerShell sessions and run the following command:
-Get-Module -ListAvailable -Name Azure* | `
-  Uninstall-Module
+Get-Module -ListAvailable -Name Azure* | Uninstall-Module
 
 # Install PowerShell for Azure Stack.
-Install-Module `
-  -Name AzureRm.BootStrapper `
-  -Force
+Install-Module -Name AzureRm.BootStrapper -Force
+```
 
-Use-AzureRmProfile `
-  -Profile 2017-03-09-profile `
-  -Force
+Laden van de API-profiel en de beheerder van de module voor uw versie van Azure Stack.
 
-Install-Module `
-  -Name AzureStack `
-  -RequiredVersion 1.2.11 `
-  -Force 
+  - Azure Stack 1808 of hoger.
 
+    ````PowerShell  
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+      $Path = "<Path that is used to save the packages>"
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 2.3.0
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.5.0
+    ````
+
+  - Azure Stack 1807 of een eerdere versie.
+
+    > [!Note]  
+    Een upgrade van de 1.2.11 versie, Zie de [Migratiehandleiding](https://aka.ms/azspowershellmigration).
+
+    ````PowerShell  
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+      $Path = "<Path that is used to save the packages>"
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.4.0
+    ````
+
+  - Azure Stack 1804 of een eerdere versie.
+
+    ````PowerShell  
+    Import-Module -Name PowerShellGet -ErrorAction Stop
+    Import-Module -Name PackageManagement -ErrorAction Stop
+
+      $Path = "<Path that is used to save the packages>"
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureRM -Path $Path -Force -RequiredVersion 1.2.11
+      Save-Package -ProviderName NuGet -Source https://www.powershellgallery.com/api/v2 -Name AzureStack -Path $Path -Force -RequiredVersion 1.3.0
+    ````
+
+Download de Azure Stack-tools en maak verbinding.
+
+```PowerShell  
 # Download Azure Stack tools from GitHub and import the connect module.
 cd \
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 invoke-webrequest `
-  https://github.com/Azure/AzureStack-Tools/archive/master.zip `
-  -OutFile master.zip
+https://github.com/Azure/AzureStack-Tools/archive/master.zip -OutFile master.zip
 
-expand-archive master.zip `
-  -DestinationPath . `
-  -Force
+expand-archive master.zip -DestinationPath . -Force
 
 cd AzureStack-Tools-master
 
@@ -150,26 +177,20 @@ Import-Module .\Connect\AzureStack.Connect.psm1
 $ArmEndpoint = "<Resource Manager endpoint for your environment>"
 
 # Register an AzureRM environment that targets your Azure Stack instance
-Add-AzureRMEnvironment `
-    -Name "AzureStackAdmin" `
-    -ArmEndpoint $ArmEndpoint
+Add-AzureRMEnvironment -Name "AzureStackAdmin" -ArmEndpoint $ArmEndpoint
 
 # Get the Active Directory tenantId that is used to deploy Azure Stack     
-$TenantID = Get-AzsDirectoryTenantId `
-    -ADFS `
-    -EnvironmentName "AzureStackAdmin"
+$TenantID = Get-AzsDirectoryTenantId -ADFS -EnvironmentName "AzureStackAdmin"
 
 # Sign in to your environment
-Add-AzureRmAccount `
-    -EnvironmentName "AzureStackAdmin" `
-    -TenantId $TenantID
+Add-AzureRmAccount -EnvironmentName "AzureStackAdmin" -TenantId $TenantID
 ```
 
 ## <a name="test-the-connectivity"></a>De connectiviteit testen
 
 Nu u PowerShell hebt geconfigureerd, kunt u de configuratie testen door een resourcegroep te maken:
 
-```powershell
+```PowerShell  
 New-AzureRMResourceGroup -Name "ContosoVMRG" -Location Local
 ```
 
@@ -180,6 +201,5 @@ Nadat de resourcegroep is gemaakt, de **Inrichtingsstatus** eigenschap is ingest
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [CLI installeren en configureren](azure-stack-connect-cli.md)
-
-* [Sjablonen ontwikkelen](user/azure-stack-develop-templates.md)
+ - [CLI installeren en configureren](azure-stack-connect-cli.md)
+ - [Sjablonen ontwikkelen](user/azure-stack-develop-templates.md)

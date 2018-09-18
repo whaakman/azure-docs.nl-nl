@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: develop apps
 ms.topic: conceptual
-ms.date: 07/16/2018
+ms.date: 09/14/2018
 ms.author: sstein
-ms.openlocfilehash: d97ec2cc67da7c4bc1479c55a9a7c35c0c754532
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 643add4e0e4732734e9ef763a587755bf8700605
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092525"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730999"
 ---
 # <a name="sql-error-codes-for-sql-database-client-applications-database-connection-errors-and-other-issues"></a>SQL-foutcodes voor SQL Database-clienttoepassingen: Database-verbindingsfouten en andere problemen
 
@@ -111,7 +111,7 @@ De volgende fouten zijn met betrekking tot het maken en gebruiken van elastische
 | 40857 |EX_USER |Elastische pool niet vinden voor de server: '%ls', naam elastische groep: '%ls'. |naam van de server. de naam van de elastische pool |Opgegeven elastische pool bestaat niet in de opgegeven server. |Geef een geldige elastische pool-naam. |
 | 40858 |EX_USER |Elastische pool '%ls' bestaat al in de server: '%ls' |naam van de elastische groep, de naam van server |Opgegeven elastische pool bestaat al in de opgegeven logische server. |Geef de naam van een nieuwe elastische pool. |
 | 40859 |EX_USER |Elastische groep biedt geen ondersteuning voor servicelaag '%ls'. |elastische groepservicelaag |Laag van de opgegeven service wordt niet ondersteund voor het inrichten van de elastische pool. |Geef de juiste editie of laat de servicelaag veld leeg als u de standaard-servicelaag. |
-| 40860 |EX_USER |Combinatie van elastische groep '%ls' en service doelstelling '%ls' is ongeldig. |naam van de elastische pool. naam van serviceniveaudoelstelling |Elastische pool en service doelstelling samen kan worden opgegeven als servicedoelstelling is opgegeven als 'ElasticPool'. |Geef de juiste combinatie van elastische pool en servicedoelstelling. |
+| 40860 |EX_USER |Combinatie van elastische groep '%ls' en service doelstelling '%ls' is ongeldig. |naam van de elastische pool. servicelaag |Elastische pool- en service-laag kan samen worden opgegeven als resourcetype is opgegeven als 'ElasticPool'. |Juiste combinatie van elastische pool en servicelaag opgeven. |
 | 40861 |EX_USER |De database-editie is %. *ls kunnen niet anders dan de elastische groepservicelaag is ' %.* ls'. |database-editie, elastische groepservicelaag |De database-editie is anders dan de elastische pool-servicelaag. |Geef een database-editie die verschilt van de elastische pool-servicelaag.  Houd er rekening mee dat de database-editie niet hoeft te worden opgegeven. |
 | 40862 |EX_USER |De naam van de elastische groep moet worden opgegeven als de servicedoelstelling voor de elastische pool is opgegeven. |Geen |Elastische pool servicedoelstelling vormt geen unieke identificatie voor een elastische pool. |Geef de naam van de elastische groep bij het gebruik van de servicedoelstelling voor de elastische pool. |
 | 40864 |EX_USER |Het aantal dtu's voor de elastische groep moet ten minste (%d) dtu's voor servicelaag ' % * ls'. |Dtu's voor elastische pool; elastische pool-servicelaag. |Er wordt geprobeerd om in te stellen van het aantal dtu's voor de elastische groep onder de ondergrens. |Probeer het opnieuw instellen van het aantal dtu's voor de elastische groep aan ten minste het minimum. |
@@ -139,7 +139,7 @@ De volgende fouten vallen niet in de vorige categorieën.
 | Foutcode | Severity | Beschrijving |
 | ---:| ---:|:--- |
 | 15006 |16 |(AdministratorLogin) is niet een geldige naam omdat deze ongeldige tekens bevat. |
-| 18452 |14 |Aanmelden is mislukt. De aanmelding is afkomstig uit een niet-vertrouwd domein en kan niet worden gebruikt met Windows authentication.%.&#x2a;ls (Windows-aanmeldingen worden niet ondersteund in deze versie van SQL Server.) |
+| 18452 |14 |Aanmelding mislukt. De aanmelding is afkomstig uit een niet-vertrouwd domein en kan niet worden gebruikt met Windows authentication.%.&#x2a;ls (Windows-aanmeldingen worden niet ondersteund in deze versie van SQL Server.) |
 | 18456 |14 |Aanmelding mislukt voor gebruiker '%.&#x2a;ls'.%.&#x2a;ls%.&#x2a;ls(de aanmelding is mislukt voor gebruiker "%.&#x2a;ls". Wijzigen van het wachtwoord is mislukt. Wachtwoord wijzigen tijdens het aanmelden wordt niet ondersteund in deze versie van SQL Server.) |
 | 18470 |14 |Aanmelding mislukt voor gebruiker '%.&#x2a;ls'. Reden: Het account is disabled.%.&#x2a;ls |
 | 40014 |16 |Meerdere databases kunnen niet worden gebruikt in dezelfde transactie. |

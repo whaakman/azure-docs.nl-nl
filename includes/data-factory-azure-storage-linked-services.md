@@ -6,7 +6,7 @@ De **gekoppelde Azure Storage-service** kunt u een Azure storage-account koppele
 | type |De eigenschap type moet worden ingesteld op: **AzureStorage** |Ja |
 | connectionString |Geef informatie op die nodig zijn voor het verbinding maken met Azure storage voor de connectionString-eigenschap. |Ja |
 
-Zie het volgende artikel voor stappen voor het weergeven/kopieert u de accountsleutel voor een Azure Storage: [weergeven, kopiëren en opnieuw genereren opslag toegangssleutels](../articles/storage/common/storage-create-storage-account.md#manage-your-storage-account).
+Zie de volgende sectie voor stappen voor het weergeven/kopiëren de accountsleutel voor een Azure Storage: [toegangssleutels](../articles/storage/common/storage-account-manage.md#access-keys).
 
 **Voorbeeld:**  
 

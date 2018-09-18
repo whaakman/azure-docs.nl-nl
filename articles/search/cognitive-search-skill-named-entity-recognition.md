@@ -1,6 +1,6 @@
 ---
-title: Met de naam voor entiteit cognitieve zoeken kwalificatie (Azure Search) | Microsoft Docs
-description: Benoemde entiteiten voor de persoon, locatie en organisatie extraheren uit tekst in een Azure Search-pijplijn cognitieve zoeken.
+title: Met de naam van entiteit erkenning cognitief zoeken vaardigheid (Azure Search) | Microsoft Docs
+description: Benoemde entiteiten voor persoon, locatie en organisatie extraheren uit tekst in een Azure Search cognitief zoeken-pijplijn.
 services: search
 manager: pablocas
 author: luiscabrer
@@ -10,16 +10,19 @@ ms.workload: search
 ms.topic: conceptual
 ms.date: 05/01/2018
 ms.author: luisca
-ms.openlocfilehash: 73ffcf5e2ced63fddaf0f5ef2ca7e72a7d94b966
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 653a4675d546432eea8478ba6203be1df71ec4f4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33791040"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731390"
 ---
-#    <a name="named-entity-recognition-cognitive-skill"></a>Benoemde entiteit erkenning cognitieve kwalificatie
+#    <a name="named-entity-recognition-cognitive-skill"></a>Met de naam entiteit erkenning cognitieve vaardigheden
 
-De **met de naam entiteit erkenning** kwalificatie benoemde eenheden geëxtraheerd uit de tekst. Beschikbare entiteiten bevatten de typen `person`, `location`, en `organization`.
+De **herkenning van entiteit met de naam** vaardigheid extraheert benoemde entiteiten uit tekst. Beschikbare entiteiten bevatten de typen `person`, `location`, en `organization`.
+
+> [!NOTE]
+> Cognitief zoeken is een openbare preview. Uitvoering van vaardigheden en uitpakken van de installatiekopie en normalisering worden momenteel gratis aangeboden. Op een later tijdstip, worden de prijzen van deze mogelijkheden aangekondigd. 
 
 ## <a name="odatatype"></a>@odata.type  
 Microsoft.Skills.Text.NamedEntityRecognitionSkill
@@ -30,27 +33,27 @@ Parameters zijn hoofdlettergevoelig.
 
 | Parameternaam     | Beschrijving |
 |--------------------|-------------|
-| categorieën    | Matrix van categorieën die moet worden opgehaald.  Mogelijke categorietypen: `"Person"`, `"Location"`, `"Organization"`. Als er geen categorie is opgegeven, worden alle typen geretourneerd.|
-|defaultLanguageCode |  Taalcode van de ingevoerde tekst. De volgende talen worden ondersteund: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`|
+| categorieën    | Matrix van categorieën die moeten worden geëxtraheerd.  Mogelijke categorietypen: `"Person"`, `"Location"`, `"Organization"`. Als er geen categorie is opgegeven, worden alle typen worden geretourneerd.|
+|defaultLanguageCode |  De taalcode van de invoertekst. De volgende talen worden ondersteund: `ar, cs, da, de, en, es, fi, fr, he, hu, it, ko, pt-br, pt`|
 | minimumPrecision  | Een getal tussen 0 en 1. Als de precisie lager is dan deze waarde is, wordt de entiteit wordt niet geretourneerd. De standaardwaarde is 0.|
 
 ## <a name="skill-inputs"></a>Kwalificatie invoer
 
-| Voer een naam      | Beschrijving                   |
+| Voer een naam in      | Beschrijving                   |
 |---------------|-------------------------------|
 | languageCode  | Optioneel. De standaardwaarde is `"en"`.  |
-| Tekst          | De tekst te analyseren.          |
+| tekst          | De tekst die moet worden geanalyseerd.          |
 
 ## <a name="skill-outputs"></a>Kwalificatie uitvoer
 
-| Naam voor uitvoer     | Beschrijving                   |
+| Naam van de uitvoer     | Beschrijving                   |
 |---------------|-------------------------------|
-| personen      | Een matrix met tekenreeksen waar elke tekenreeks de naam van een persoon vertegenwoordigt. |
-| Locaties  | Een matrix met tekenreeksen, waarbij elke tekenreeks staat voor een locatie. |
-| Organisaties  | Een matrix met tekenreeksen, waarbij elke tekenreeks staat voor een organisatie. |
-| entiteiten | Een matrix van complexe typen. Elk complex type bevat de volgende velden: <ul><li>categorie (`"person"`, `"organization"`, of `"location"`)</li> <li>waarde (de entiteitsnaam van de werkelijke)</li><li>offset (de locatie waar het is gevonden in de tekst)</li><li>vertrouwen (een waarde tussen 0 en 1 die aangeeft dat vertrouwen dat de waarde een feitelijke entiteit is)</li></ul> |
+| personen      | Een matrix met tekenreeksen waarbij elke tekenreeks de naam van een persoon vertegenwoordigt. |
+| locaties  | Een matrix met tekenreeksen waarbij elke tekenreeks een locatie vertegenwoordigt. |
+| organizations  | Een matrix met tekenreeksen waarbij elke tekenreeks een organisatie vertegenwoordigt. |
+| entiteiten | Een matrix met complexe typen. Elk complexe type bevat de volgende velden: <ul><li>categorie (`"person"`, `"organization"`, of `"location"`)</li> <li>waarde (de naam van de werkelijke entiteit)</li><li>offset (de locatie waar deze is gevonden in de tekst)</li><li>vertrouwen (een waarde tussen 0 en 1 die aangeeft dat vertrouwen dat de waarde een feitelijke entiteit is)</li></ul> |
 
-##  <a name="sample-definition"></a>Voorbeeld-definitie
+##  <a name="sample-definition"></a>Van voorbeelddefinitie
 
 ```json
   {
@@ -71,7 +74,7 @@ Parameters zijn hoofdlettergevoelig.
     ]
   }
 ```
-##  <a name="sample-input"></a>Voorbeeldinvoer
+##  <a name="sample-input"></a>Van Voorbeeldinvoer
 
 ```json
 {
@@ -135,9 +138,9 @@ Parameters zijn hoofdlettergevoelig.
 
 
 ## <a name="error-cases"></a>Foutgevallen
-Als u een niet-ondersteunde taalcode opgeeft, of als de inhoud komt niet overeen met de taal die is opgegeven, een fout is geretourneerd en er zijn geen entiteiten worden opgehaald.
+Als u een niet-ondersteunde taalcode opgeeft, of als de inhoud komt niet overeen met de taal die is opgegeven, is een fout, Ga terug en geen entiteiten worden opgehaald.
 
 ## <a name="see-also"></a>Zie ook
 
 + [Vooraf gedefinieerde vaardigheden](cognitive-search-predefined-skills.md)
-+ [Het definiëren van een vaardigheden](cognitive-search-defining-skillset.md)
++ [Hoe u een set vaardigheden definiëren](cognitive-search-defining-skillset.md)

@@ -1,18 +1,18 @@
 ---
 title: Azure Storage gebruiken als een back-end van Terraform
-description: Een inleiding tot Terrafom status opslaan in Azure Storage.
+description: Een inleiding tot het opslaan van Terraform-status in Azure Storage.
 services: terraform
 author: neilpeterson
 ms.service: terraform
 ms.topic: article
 ms.date: 09/13/2018
 ms.author: nepeters
-ms.openlocfilehash: c27c6bc5f2071203c9a9dd5a94e73c0cb4626598
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 2bee9f73f430e18fe159eed142b265cc1934860e
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45608303"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984964"
 ---
 # <a name="store-terraform-state-in-azure-storage"></a>Status van de Store Terraform in Azure Storage
 
@@ -26,7 +26,7 @@ Terraform bevat het concept van een status-back-end die externe opslag voor de s
 
 ## <a name="configure-storage-account"></a>Storage-account configureren
 
-Voordat u een back-end Azure Storage, moet een storage-account worden gemaakt. Het storage-account kan worden gemaakt met de Azure-portal, PowerShell, de Azure CLI of Terraform zelf. Gebruik het volgende voorbeeld de store-account configureren met de Azure CLI.
+Voordat u een back-end Azure Storage, moet een storage-account worden gemaakt. Het storage-account kan worden gemaakt met de Azure-portal, PowerShell, de Azure CLI of Terraform zelf. Gebruik het volgende voorbeeld om te configureren van het storage-account met de Azure CLI.
 
 ```azurecli-interactive
 #!/bin/bash
@@ -35,7 +35,7 @@ RESOURCE_GROUP_NAME=tfstatestorage
 STORAGE_ACCOUNT_NAME=tfstatestorage$RANDOM
 CONTAINER_NAME=tfstatestorage
 
-# Ceeate resoruce group
+# Create resource group
 az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 # Create storage account
@@ -49,7 +49,7 @@ az storage container create --name $CONTAINER_NAME --account-name $STORAGE_ACCOU
 
 echo "storage_account_name: $STORAGE_ACCOUNT_NAME"
 echo "container_name: $CONTAINER_NAME"
-echo "ARM_ACCESS_KEY: $ACCOUNT_KEY"
+echo "access_key: $ACCOUNT_KEY"
 ```
 
 Noteer de naam van het opslagaccount, de containernaam en de toegangssleutel voor opslag. Deze waarden nodig zijn bij het configureren van de externe status.
@@ -91,7 +91,7 @@ terraform {
 }
 
 resource "azurerm_resource_group" "state-demo-secure" {
-  name     = "state-demoe"
+  name     = "state-demo"
   location = "eastus"
 }
 ```
@@ -102,7 +102,7 @@ Nu de configuratie met initialiseren *Terraform init* en voer vervolgens de conf
 
 Wanneer u een Azure Storage-Blob voor status-opslag, wordt de blob is automatisch vergrendeld voordat u een bewerking waarbij de status schrijft. Deze configuratie wordt voorkomen dat meerdere gelijktijdige bewerkingen, die leiden beschadiging tot kunnen. Zie voor meer informatie, [status vergrendelen] [ terraform-state-lock] op de Terraform-documentatie.
 
-De vergrendeling kan Zie zijn bij het onderzoek van de blob al de Azure portal of andere hulpprogramma's voor Azure management.
+De vergrendeling kan worden gezien bij het onderzoek van de blob al de Azure portal of andere hulpprogramma's voor Azure management.
 
 ![Azure-blob met vergrendeling](media/terraform-backend/lock.png)
 

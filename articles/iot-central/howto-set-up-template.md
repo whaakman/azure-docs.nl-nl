@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: dafa58c5356c89351ab0eb711e4095b767aee1ae
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 1cff44e8430af0a544da948b33a15439fae56d8e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44298163"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735645"
 ---
-# <a name="set-up-a-device-template"></a>Een apparaat-sjabloon instellen
+# <a name="set-up-a-device-template"></a>Een sjabloon van het apparaat instellen
 
 Een apparaat-sjabloon is een blauwdruk die definieert de kenmerken en het gedrag van een type apparaat dat is verbonden met een Microsoft Azure IoT Central-toepassing.
 
@@ -74,8 +74,6 @@ U kunt bijvoorbeeld een nieuwe meting van de temperatuur-telemetrie toevoegen:
 
 Nadat u hebt geselecteerd **gedaan**, wordt de **temperatuur** meting wordt weergegeven in de lijst met metingen. Een operator ziet de visualisatie van de temperatuurgegevens die het verzamelen van het apparaat.
 
-![Meting graph](./media/howto-set-up-template/measurementsgraph.png)
-
 ### <a name="create-an-event-measurement"></a>Een gebeurtenis meting maken
 Selecteer om een nieuwe meting van de gebeurtenis toe **sjabloon bewerken**, en klik vervolgens op de **+ nieuwe meting** knop. Selecteer **gebeurtenis** als de meting, te typen en de details op de **gebeurtenis maken** formulier.
 
@@ -89,7 +87,7 @@ Nadat u hebt geselecteerd **gedaan**, wordt de **ventilator Motor fout** meting 
 
 ![Gebeurtenis meting grafiek](./media/howto-set-up-template/eventmeasurementschart.png)
 
-Als u wilt meer informatie over de gebeurtenis weergeven, selecteert u het pictogram van de gebeurtenis in de grafiek:
+Als u wilt meer informatie over de gebeurtenis weergeven, selecteert u het pictogram van de gebeurtenis in de grafiek.
 
 ![Details voor de gebeurtenis "Ventilator Motor Error"](./media/howto-set-up-template/eventmeasurementsdetail.png)
 
@@ -108,9 +106,6 @@ Nadat u hebt geselecteerd **gedaan**, wordt de **ventilator modus** meting van d
 ![Status meting grafiek](./media/howto-set-up-template/statemeasurementschart.png)
 
 Als het apparaat te veel gegevenspunten in een kleine duur verzendt, is de meting van de status wordt weergegeven met een ander visueel element, zoals wordt weergegeven in de volgende schermafbeelding. Als u op de grafiek klikt, worden alle gegevenspunten binnen deze periode worden in chronologische volgorde weergegeven. U kunt ook het tijdsbereik voor het weergeven van de meting in de grafiek getekend verfijnen.
-
-![Details voor de meting van de status 'Statische ventilator modus'](./media/howto-set-up-template/statemeasurementsdetail.png)
-
 
 ## <a name="settings"></a>Instellingen
 
@@ -182,11 +177,7 @@ U kunt een locatie-eigenschap maken als een eigenschap van de toepassing met beh
    - **Locatie als een adres**
    - **Locatie als coördinaten** 
 
-4. Selecteer **opslaan** en **gedaan**. 
-
-   ![Locatie-eigenschap met de installatie-adres toegevoegd](./media/howto-set-up-template/locationcloudproperty3.png)
-
-Een operator kan nu de locatiewaarde in het veld locatie formulier bijwerken. 
+4. Selecteer **opslaan** en **gedaan**. Een operator kan nu de locatiewaarde in het veld locatie formulier bijwerken. 
 
 #### <a name="add-location-as-a-device-property"></a>Locatie als de apparaateigenschap van een toevoegen 
 
@@ -261,11 +252,7 @@ Als u een locatie-eigenschap eerder in geconfigureerd [maakt u een locatie-eigen
 
    ![Tegel met de geselecteerde locatie worden toegewezen](./media/howto-set-up-template/locationcloudproperty6map.png) 
 
-U kunt het formaat van de kaart naar de gewenste grootte.
-
-Als een operator bekijkt het dashboard, kunnen ze nu alle dashboardtegels die u hebt geconfigureerd, inclusief een overzicht van de locatie zien.
-
-![Tegels op het dashboard](./media/howto-set-up-template/locationcloudproperty7map.png) 
+U kunt het formaat van de kaart naar de gewenste grootte. Als een operator bekijkt het dashboard, kunnen ze nu alle dashboardtegels die u hebt geconfigureerd, inclusief een overzicht van de locatie zien.
 
 ## <a name="next-steps"></a>Volgende stappen
 

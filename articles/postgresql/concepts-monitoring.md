@@ -1,6 +1,6 @@
 ---
-title: Bewaken in Azure-Database voor PostgreSQL
-description: In dit artikel beschrijft de metrische gegevens voor bewaking en waarschuwingen voor de Azure-Database voor PostgreSQL, met inbegrip van CPU-, opslag- en verbinding statistieken.
+title: Bewaking in Azure Database for PostgreSQL
+description: Dit artikel beschrijft de metrische gegevens voor bewaking en waarschuwingen voor Azure Database voor PostgreSQL, met inbegrip van CPU, opslag en verbinding statistieken.
 services: postgresql
 author: rachel-msft
 ms.author: raagyema
@@ -8,35 +8,40 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
-ms.date: 02/28/2018
-ms.openlocfilehash: d0a57fe6d7b1040c32f6d67e2bf0259176c72099
-ms.sourcegitcommit: c765cbd9c379ed00f1e2394374efa8e1915321b9
+ms.date: 09/17/2018
+ms.openlocfilehash: 17b12514e32ad8d1548d834d72e0f7564fe78143
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 02/28/2018
-ms.locfileid: "29687605"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985776"
 ---
-# <a name="monitoring-in-azure-database-for-postgresql"></a>Bewaken in Azure-Database voor PostgreSQL
-Het bewaken van gegevens over uw servers, kunt u problemen op te optimaliseren voor uw workload. Azure PostgreSQL-Database biedt verschillende metrische gegevens die geven inzicht in het gedrag van de resources die de server PostgreSQL ondersteunen. 
+# <a name="monitoring-in-azure-database-for-postgresql"></a>Bewaking in Azure Database for PostgreSQL
+Gegevens over uw servers te controleren, kunt u problemen op te optimaliseren voor uw workload. Azure Database voor PostgreSQL biedt verschillende metrische gegevens geven inzicht in het gedrag van de resources voor het ondersteunen van de PostgreSQL-server. 
 
 ## <a name="metrics"></a>Metrische gegevens
-Alle Azure metrische gegevens hebben een frequentie van één minuut en elke metriek biedt 30 dagen van de geschiedenis. U kunt waarschuwingen configureren op de metrische gegevens. Zie voor stapsgewijze instructies [waarschuwingen instellen](howto-alert-on-metric.md). Andere taken omvatten het instellen van automatische acties, geavanceerde analyses uitvoeren en archiveren van de geschiedenis. Zie voor meer informatie de [overzicht van Azure metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+Alle metrische gegevens van Azure hebben een frequentie van één minuut en elke metrische waarde biedt 30 dagen van de geschiedenis. U kunt waarschuwingen configureren op de metrische gegevens. Zie voor stapsgewijze instructies [over het instellen van waarschuwingen](howto-alert-on-metric.md). Andere taken omvatten het instellen van geautomatiseerde acties, het uitvoeren van geavanceerde analyses en het archiveren van geschiedenis. Zie voor meer informatie de [overzicht van metrische gegevens van Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
 
-### <a name="list-of-metrics"></a>Lijst met metrische gegevens
-Deze metrische gegevens zijn beschikbaar voor Azure-Database voor PostgreSQL:
+### <a name="list-of-metrics"></a>Overzicht van metrische gegevens
+Deze metrische gegevens zijn beschikbaar voor Azure Database voor PostgreSQL:
 
-|Gegevens|Metrische weergavenaam|Eenheid|Beschrijving|
+|Gegevens|De naam van de metrische gegevens weergeven|Eenheid|Beschrijving|
 |---|---|---|---|---|
-|cpu_percent|CPU-percentage|Procent|Het percentage van CPU in gebruik.|
+|cpu_percent|CPU-percentage|Procent|Het percentage van CPU gebruikt.|
 |memory_percent|Percentage geheugen|Procent|Het percentage gebruikt geheugen.|
-|io_consumption_percent|I/o-percentage|Procent|Het percentage IO in gebruik.|
-|storage_percent|Opslagpercentage|Procent|Het percentage van de opslag die worden gebruikt buiten de server's maximale.|
-|storage_used|Gebruikte opslag|Bytes|De hoeveelheid opslagruimte in gebruik. De opslag die wordt gebruikt door de service bevat de bestanden van de database, transactielogboeken en de server-Logboeken.|
-|storage_limit|Opslaglimiet bereikt|Bytes|De maximale opslagcapaciteit voor deze server.|
-|active_connections|Totaal aantal actieve verbindingen|Count|Het aantal actieve verbindingen met de server.|
-|connections_failed|Totaal aantal mislukte verbindingen|Count|Het aantal mislukte verbindingen met de server.|
+|io_consumption_percent|I/o-percentage|Procent|Het percentage i/o in gebruik.|
+|storage_percent|Opslagpercentage|Procent|Het percentage van de opslag die buiten de server wordt gebruikt's maximaal.|
+|storage_used|Gebruikte opslag|Bytes|De hoeveelheid opslagruimte wordt gebruikt. De opslag die wordt gebruikt door de service omvat bestanden van de database, transactielogboeken en de serverlogboeken.|
+|storage_limit|Limiet voor opslag|Bytes|De maximale opslag voor deze server.|
+|serverlog_storage_percent|Server Log opslag procent|Procent|Het percentage van de server logboekopslag gebruikt buiten maximale serveropslag logboek van de server.|
+|serverlog_storage_usage|Server logboekopslag gebruikt|Bytes|De hoeveelheid opslag van de server-logboek in gebruik.|
+|serverlog_storage_limit|Limiet voor opslag van server-logboek|Bytes|De maximale server logboekopslag voor deze server.|
+|active_connections|Actieve verbindingen|Count|Het aantal actieve verbindingen met de server.|
+|connections_failed|Mislukte verbindingen|Count|Het aantal mislukte verbindingen met de server.|
+|network_bytes_egress|Netwerk uit|Bytes|Uitgaand netwerkverkeer voor actieve verbindingen.|
+|network_bytes_ingress|Netwerk in|Bytes|Netwerk In voor de actieve verbindingen.|
 
 
 ## <a name="next-steps"></a>Volgende stappen
-- Zie [waarschuwingen instellen](howto-alert-on-metric.md) voor hulp bij het maken van een waarschuwing op een waarde.
-- Zie voor meer informatie over de toegang tot en met de Azure-portal, de REST-API of de CLI metrische gegevens exporteren, de [overzicht van Azure metrische gegevens](../monitoring-and-diagnostics/monitoring-overview-metrics.md).
+- Zie [over het instellen van waarschuwingen](howto-alert-on-metric.md) voor hulp bij het maken van een waarschuwing voor metrische gegevens.
+- Zie voor meer informatie over het openen en exporteren van metrische gegevens met behulp van de Azure portal, de REST-API of de CLI de [overzicht van metrische gegevens van Azure](../monitoring-and-diagnostics/monitoring-overview-metrics.md).

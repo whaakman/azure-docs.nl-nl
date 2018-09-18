@@ -6,14 +6,14 @@ manager: timlt
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: conceptual
-ms.date: 03/14/2018
+ms.date: 08/31/2018
 ms.author: dobett
-ms.openlocfilehash: 5d7d6522dc663f13ce40cc638ba90ac4043d435c
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: fcc11347d06cde43c79ef4272f5c2ad87555c040
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38611409"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734485"
 ---
 # <a name="connect-your-device-to-the-remote-monitoring-solution-accelerator-linux"></a>Uw apparaat aansluiten op de oplossingsversnellers bewaking op afstand (Linux)
 
@@ -21,142 +21,33 @@ ms.locfileid: "38611409"
 
 Deze zelfstudie leert u hoe u een fysiek apparaat verbinden met de oplossingsverbetering voor externe controle.
 
-## <a name="create-a-c-client-project-on-linux"></a>Een client-C-project maken in Linux
-
 Net als bij de meeste embedded-toepassingen die worden uitgevoerd op apparaten met beperkte, is de clientcode voor de apparaattoepassing geschreven in C. In deze zelfstudie bouwt u de toepassing op een machine met Ubuntu (Linux).
 
-Als u wilt deze stappen hebt voltooid, moet u een apparaat met Ubuntu versie 15.04 of hoger. Voordat u doorgaat, moet u de vereiste pakketten installeren op uw Ubuntu-apparaat met de volgende opdracht:
+## <a name="prerequisites"></a>Vereisten
 
-```sh
-sudo apt-get install cmake gcc g++
-```
+Als u wilt de stappen in deze handleiding hebt voltooid, moet u een apparaat met Ubuntu versie 15.04 of hoger. Voordat u doorgaat, [uw Linux-ontwikkelomgeving instellen](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/devbox_setup.md#linux).
 
-### <a name="install-the-client-libraries-on-your-device"></a>De clientbibliotheken installeren op uw apparaat
+## <a name="view-the-code"></a>De code weergeven
 
-De Azure IoT Hub-clientbibliotheken zijn beschikbaar als een pakket dat u op uw Ubuntu-apparaten met installeren kunt de **apt-get** opdracht. De volgende stappen voor het installeren van het pakket met de IoT Hub-client-bibliotheek en koptekst bestanden op uw computer Ubuntu:
+De [voorbeeldcode](https://github.com/Azure/azure-iot-sdk-c/tree/master/samples/solutions/remote_monitoring) gebruikt in deze handleiding is beschikbaar in de Azure IoT C SDK's GitHub-opslagplaats.
 
-1. In een shell toevoegen de AzureIoT-opslagplaats naar uw computer:
+### <a name="download-the-source-code-and-prepare-the-project"></a>De broncode downloaden en voorbereiden van het project
 
-    ```sh
-    sudo add-apt-repository ppa:aziotsdklinux/ppa-azureiot
-    sudo apt-get update
-    ```
+Om voor te bereiden op het project, klonen of downloaden de [opslagplaats Azure IoT C SDKs](https://github.com/Azure/azure-iot-sdk-c) vanuit GitHub.
 
-1. Installeer de azure-iot-sdk-c-dev-pakket
+Het voorbeeld bevindt zich de **samples/oplossingen/remote_monitoring** map.
 
-    ```sh
-    sudo apt-get install -y azure-iot-sdk-c-dev
-    ```
+Open de **remote_monitoring.c** -bestand in de **samples/oplossingen/remote_monitoring** map in een teksteditor.
 
-### <a name="install-the-parson-json-parser"></a>Installeer de parser Parson JSON
-
-De IoT Hub-clientbibliotheken gebruiken de parser Parson JSON parseren bericht nettoladingen. Kloon de Parson GitHub-opslagplaats met de volgende opdracht in een geschikte map op uw computer:
-
-```sh
-git clone https://github.com/kgabis/parson.git
-```
-
-### <a name="prepare-your-project"></a>Voorbereiden van uw project
-
-Maak een map op uw computer Ubuntu `remote_monitoring`. In de `remote_monitoring` map:
-
-- Maken van de vier bestanden `main.c`, `remote_monitoring.c`, `remote_monitoring.h`, en `CMakeLists.txt`.
-- Maken van de map met de naam `parson`.
-
-Kopieer de bestanden `parson.c` en `parson.h` uit het lokale exemplaar van de opslagplaats Parson in de `remote_monitoring/parson` map.
-
-Open in een teksteditor en de `remote_monitoring.c` bestand. Voeg de volgende `#include` instructies toe:
-
-```c
-#include "iothubtransportmqtt.h"
-#include "schemalib.h"
-#include "iothub_client.h"
-#include "serializer_devicetwin.h"
-#include "schemaserializer.h"
-#include "azure_c_shared_utility/threadapi.h"
-#include "azure_c_shared_utility/platform.h"
-#include <string.h>
-```
-
-[!INCLUDE [iot-suite-connecting-code](../../includes/iot-suite-connecting-code.md)]
-
-## <a name="add-code-to-run-the-app"></a>Code voor het uitvoeren van de app toevoegen
-
-Open in een teksteditor en de `remote_monitoring.h` bestand. Voeg de volgende code toe:
-
-```c
-void remote_monitoring_run(void);
-```
-
-Open in een teksteditor en de `main.c` bestand. Voeg de volgende code toe:
-
-```c
-#include "remote_monitoring.h"
-
-int main(void)
-{
-  remote_monitoring_run();
-
-  return 0;
-}
-```
+[!INCLUDE [iot-accelerators-connecting-code](../../includes/iot-accelerators-connecting-code.md)]
 
 ## <a name="build-and-run-the-application"></a>De toepassing bouwen en uitvoeren.
 
-De volgende stappen wordt beschreven hoe u *CMake* om uw clienttoepassing te bouwen.
+De volgende stappen wordt beschreven hoe u *CMake* om de clienttoepassing te bouwen. De clienttoepassing voor externe controle is gebouwd als onderdeel van het bouwproces voor de SDK.
 
-1. Open in een teksteditor en de **CMakeLists.txt** -bestand in de `remote_monitoring` map.
+1. Bewerk de **remote_monitoring.c** vervangen door het bestand `<connectionstring>` met de apparaatverbindingsreeks die u hebt genoteerd aan het begin van deze gebruiksaanwijzing wanneer u een apparaat toegevoegd aan de solution accelerator.
 
-1. Voeg de volgende instructies voor het definiëren van het bouwen van uw clienttoepassing:
-
-    ```cmake
-    macro(compileAsC99)
-      if (CMAKE_VERSION VERSION_LESS "3.1")
-        if (CMAKE_C_COMPILER_ID STREQUAL "GNU")
-          set (CMAKE_C_FLAGS "--std=c99 ${CMAKE_C_FLAGS}")
-          set (CMAKE_CXX_FLAGS "--std=c++11 ${CMAKE_CXX_FLAGS}")
-        endif()
-      else()
-        set (CMAKE_C_STANDARD 99)
-        set (CMAKE_CXX_STANDARD 11)
-      endif()
-    endmacro(compileAsC99)
-
-    cmake_minimum_required(VERSION 2.8.11)
-    compileAsC99()
-
-    set(AZUREIOT_INC_FOLDER "${CMAKE_SOURCE_DIR}" "${CMAKE_SOURCE_DIR}/parson" "/usr/include/azureiot" "/usr/include/azureiot/inc")
-
-    include_directories(${AZUREIOT_INC_FOLDER})
-
-    set(sample_application_c_files
-        ./parson/parson.c
-        ./remote_monitoring.c
-        ./main.c
-    )
-
-    set(sample_application_h_files
-        ./parson/parson.h
-        ./remote_monitoring.h
-    )
-
-    add_executable(sample_app ${sample_application_c_files} ${sample_application_h_files})
-
-    target_link_libraries(sample_app
-        serializer
-        iothub_client
-        iothub_client_mqtt_transport
-        aziotsharedutil
-        umqtt
-        pthread
-        curl
-        ssl
-        crypto
-        m
-    )
-    ```
-
-1. In de `remote_monitoring` map, maakt u een map voor het opslaan van de *maken* bestanden die CMake genereert. Voer vervolgens de **cmake** en **maken** opdrachten als volgt:
+1. Ga naar de hoofdmap van de gekloonde kopie van de [opslagplaats Azure IoT C SDKs](https://github.com/Azure/azure-iot-sdk-c) opslagplaats en de volgende opdrachten om de clienttoepassing te bouwen:
 
     ```sh
     mkdir cmake
@@ -168,7 +59,12 @@ De volgende stappen wordt beschreven hoe u *CMake* om uw clienttoepassing te bou
 1. Voer de clienttoepassing en verzenden van telemetrie naar IoT Hub:
 
     ```sh
-    ./sample_app
+    ./samples/solutions/remote_monitoring/remote_monitoring_client
     ```
+
+    De console worden berichten weergegeven:
+
+    - De toepassing verzendt voorbeeld telemetrie naar de solution accelerator.
+    - Reageert op methoden aangeroepen vanuit het dashboard van de oplossing.
 
 [!INCLUDE [iot-suite-visualize-connecting](../../includes/iot-suite-visualize-connecting.md)]

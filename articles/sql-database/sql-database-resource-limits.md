@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 08/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 3b05f553e591de2660e9842f316de0cb6f80c852
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: 5d070c1d65ea15450589e1b590eaf926c10e749f
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42054529"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736186"
 ---
 # <a name="overview-azure-sql-database-resource-limits"></a>Overzicht van Azure SQL Database-resourcebeperkingen 
 
@@ -47,7 +47,7 @@ Dit artikel bevat een overzicht van de resource van Azure SQL Database beperkt e
 Wanneer Databasegebruik voor rekenkracht (gemeten door het aantal dtu's en edtu's of vCores) toeneemt, wordt latentie van query vergroot en kan zelfs time-out. In deze omstandigheden vindt query's kunnen in de wachtrij geplaatst door de service en vindt u bronnen voor uitvoering als resource zijn gratis.
 Als hoge compute-gebruik worden aangetroffen, wordt een risicobeperking opties zijn onder andere:
 
-- Het prestatieniveau van de database of elastische pool voor de database met meer rekenresources te vergroten. Zie [schalen van één database-resources](sql-database-single-database-scale.md) en [resources voor elastische pool schalen](sql-database-elastic-pool-scale.md).
+- Het compute vergroten van de database of elastische pool voor de database met meer rekenresources. Zie [schalen van één database-resources](sql-database-single-database-scale.md) en [resources voor elastische pool schalen](sql-database-elastic-pool-scale.md).
 - Query's te verminderen van het Resourcegebruik van elke query te optimaliseren. Zie voor meer informatie, [Query afstemmen/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ### <a name="storage"></a>Storage
@@ -62,10 +62,10 @@ Als hoge ruimteverbruik worden aangetroffen, wordt een risicobeperking opties zi
 
 ### <a name="sessions-and-workers-requests"></a>Sessies en werknemers (aanvragen) 
 
-Het maximum aantal sessies en -werkrollen worden bepaald door de servicelaag en het prestatieniveau serviceniveau (dtu's en edtu's). Nieuwe aanvragen zijn afgewezen als sessie- of werkrollen limieten zijn bereikt en clients een foutbericht weergegeven wordt. Terwijl het aantal verbindingen beschikbaar kan worden beheerd door de toepassing, is het aantal gelijktijdige werknemers vaak mogelijk moeilijker te schatten en beheren. Dit geldt met name tijdens perioden van piekbelasting wanneer database resourcelimieten zijn bereikt en werknemers zich opstapelen vanwege langer uitvoeren van query's. 
+Het maximum aantal sessies en -werkrollen worden bepaald door de service tier en compute-grootte (dtu's en edtu's). Nieuwe aanvragen zijn afgewezen als sessie- of werkrollen limieten zijn bereikt en clients een foutbericht weergegeven wordt. Terwijl het aantal verbindingen beschikbaar kan worden beheerd door de toepassing, is het aantal gelijktijdige werknemers vaak mogelijk moeilijker te schatten en beheren. Dit geldt met name tijdens perioden van piekbelasting wanneer database resourcelimieten zijn bereikt en werknemers zich opstapelen vanwege langer uitvoeren van query's. 
 
 Als hoog gebruik van sessie- of werkrollen worden aangetroffen, wordt een risicobeperking opties zijn onder andere:
-- Het serviceniveau voor servicelaag of het prestatieniveau van de database of elastische pool te vergroten. Zie [schalen van één database-resources](sql-database-single-database-scale.md) en [resources voor elastische pool schalen](sql-database-elastic-pool-scale.md).
+- Vergroten van de service tier of compute-grootte van de database of elastische pool. Zie [schalen van één database-resources](sql-database-single-database-scale.md) en [resources voor elastische pool schalen](sql-database-elastic-pool-scale.md).
 - Optimaliseren query's om te verlagen van het Resourcegebruik van elke query als de oorzaak van het toegenomen worker-gebruik is vanwege conflicten over rekenresources. Zie voor meer informatie, [Query afstemmen/Hinting](sql-database-performance-guidance.md#query-tuning-and-hinting).
 
 ## <a name="next-steps"></a>Volgende stappen

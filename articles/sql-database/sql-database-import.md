@@ -6,19 +6,19 @@ author: CarlRabeler
 manager: craigg
 ms.service: sql-database
 ms.custom: load & move data
-ms.date: 09/04/2018
+ms.date: 09/14/2018
 ms.author: carlrab
 ms.topic: conceptual
-ms.openlocfilehash: 6df71f50129ec6901d0b8688b0a6d3619260cf22
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: eefffdc425a300a8a4caa358494fbdc4fd84e356
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634221"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983981"
 ---
 # <a name="import-a-bacpac-file-to-a-new-azure-sql-database"></a>Een BACPAC-bestand importeren naar een nieuwe Azure SQL Database
 
-Wanneer moet u een database importeren vanuit een archief of wanneer u migreert vanaf een ander platform, kunt u het databaseschema en de gegevens van importeren een [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) bestand. Een BACPAC-bestand is een ZIP-bestand met de extensie van de metagegevens en gegevens uit een SQL Server-database met BACPAC. Een BACPAC-bestand kan worden geïmporteerd uit Azure blob-opslag (alleen standard storage) of van de lokale opslag in een on-premises locatie. Voor maximale snelheid van de invoer, wordt aangeraden dat u een hogere servicelaag en het prestatieniveau serviceniveau, zoals een P6 opgeven en vervolgens te schalen om zo nodig omlaag na het importeren voltooid is. Het databasecompatibiliteitsniveau na het importeren is ook gebaseerd op het compatibiliteitsniveau van de brondatabase. 
+Wanneer moet u een database importeren vanuit een archief of wanneer u migreert vanaf een ander platform, kunt u het databaseschema en de gegevens van importeren een [BACPAC](https://msdn.microsoft.com/library/ee210546.aspx#Anchor_4) bestand. Een BACPAC-bestand is een ZIP-bestand met de extensie van de metagegevens en gegevens uit een SQL Server-database met BACPAC. Een BACPAC-bestand kan worden geïmporteerd uit Azure blob-opslag (alleen standard storage) of van de lokale opslag in een on-premises locatie. Voor maximale snelheid van de invoer, wordt aangeraden dat u een hogere servicelaag opgeven en grootte, zoals een P6 compute en en schaal vervolgens u zo nodig omlaag na het importeren voltooid is. Het databasecompatibiliteitsniveau na het importeren is ook gebaseerd op het compatibiliteitsniveau van de brondatabase. 
 
 > [!IMPORTANT] 
 > Nadat u uw database naar Azure SQL Database migreren, kunt u de database op het huidige compatibiliteitsniveau (niveau 100 voor de database AdventureWorks2008R2) of op een hoger niveau. Zie [ALTER DATABASE Compatibility Level](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-compatibility-level) (Compatibiliteitsniveau ALTER DATABASE) voor meer informatie over de implicaties en opties bij het hanteren van een database op een bepaald compatibiliteitsniveau. Zie ook [ALTER DATABASE SCOPED CONFIGURATION](https://docs.microsoft.com/sql/t-sql/statements/alter-database-scoped-configuration-transact-sql) voor informatie over aanvullende instellingen op databaseniveau in verband met compatibiliteitsniveaus.   >
@@ -104,7 +104,7 @@ $importStatus
 Zie voor een ander scriptvoorbeeld [een database uit een BACPAC-bestand importeren](scripts/sql-database-import-from-bacpac-powershell.md).
 
 ## <a name="limitations"></a>Beperkingen
-- Importeren met een database in een elastische pool wordt niet ondersteund. U kunt gegevens importeren in een singleton-database en vervolgens de database te verplaatsen naar een pool.
+- Importeren met een database in een elastische pool wordt niet ondersteund. U kunt gegevens importeren in een individuele database en vervolgens de database te verplaatsen naar een pool.
 
 ## <a name="import-using-other-methods"></a>Importeren met behulp van andere methoden
 

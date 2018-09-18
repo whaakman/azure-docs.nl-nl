@@ -1,21 +1,21 @@
 ---
-title: Het kiezen van de capaciteit voor uw implementatie QnA Maker - Microsoft Cognitive Services | Microsoft Docs
-titleSuffix: Azure
+title: Capaciteit van de resource voor de implementatie - QnA Maker
+titleSuffix: Azure Cognitive Services
 description: een handleiding voor het kiezen van de capaciteit voor uw implementatie QnA Maker
 services: cognitive-services
 author: nstulasi
-manager: sangitap
+manager: cgronlun
 ms.service: cognitive-services
-ms.component: QnAMaker
+ms.component: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: saneppal
-ms.openlocfilehash: 71af374fbd08fe1f7568bc1ece2a65af2de3ad19
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.date: 09/12/2018
+ms.author: nstulasi
+ms.openlocfilehash: e2c9239ccd42e2464c85172be0e91492bd8f6718
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45573363"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736781"
 ---
 # <a name="choosing-capacity-for-your-qna-maker-deployment"></a>Capaciteit voor uw implementatie QnA Maker kiezen
 
@@ -24,7 +24,7 @@ De QnA Maker-service heeft een afhankelijkheid op drie Azure-resources:
 2.  Azure Search (voor het opslaan van vragen en antwoorden supereenvoudig)
 3.  App Insights (optioneel, voor het opslaan van chatlogs en telemetrie)
 
-Voordat u uw QnA Maker-service maakt, moet u bepalen welke segmenten van de bovenstaande services is geschikt voor u. 
+Voordat u uw QnA Maker-service maakt, moet u bepalen welke laag van de bovenstaande services is geschikt voor u. 
 
 Er zijn doorgaans drie parameters die u moet overwegen:
 1. **De doorvoer die u nodig hebt van de service**: Selecteer de juiste [App Plan](https://azure.microsoft.com/en-in/pricing/details/app-service/plans/) voor uw appservice op basis van uw behoeften. U kunt [omhoog schalen](https://docs.microsoft.com/azure/app-service/web-sites-scale) of u de App. Dit moet ook van invloed zijn op uw Azure Search-SKU-selectie, Zie meer informatie [hier](https://docs.microsoft.com/azure/search/search-sku-tier).
@@ -38,7 +38,7 @@ De volgende tabel biedt richtlijnen op hoog niveau.
 |                        | QnA Maker-Management | App Service | Azure Search | Beperkingen                      |
 | ---------------------- | -------------------- | ----------- | ------------ | -------------------------------- |
 | Experiment        | Gratis SKU             | Gratis versie   | Gratis versie    | Maximaal 2 kB's, 50 MB's publiceren  |
-| Dev/Test-omgeving   | Standaard SKU         | Gedeeld      | Basic        | Publiceren van maximaal 4 kB's, grootte van 2GB    |
+| Dev/Test-omgeving   | Standaard SKU         | Gedeeld      | Basic        | Publiceren van maximaal 4 kB's, grootte van 2 GB    |
 | Productie-omgeving | Standaard SKU         | Basic       | Standard     | Maximaal 49 kB's, 25 GB grootte publiceren |
 
 Zie voor het upgraden van uw stack QnA Maker, [uw QnA Maker-service upgraden](../How-To/upgrade-qnamaker-service.md).

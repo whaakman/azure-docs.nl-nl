@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: a0ff6c09eb0a6fffe0ce82fe9ccb3bc43970ad68
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 5ae57764e2950d027e832eccec5393d4aec4486a
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44024615"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45981829"
 ---
 # <a name="try-the-speech-service-for-free"></a>Speech Service gratis uitproberen
 
@@ -130,7 +130,7 @@ Een bron van de spraak-service toevoegen aan uw Azure-account:
 1. Onder **snelstartgids**, selecteer de **sleutels** koppeling onder stap 1 om de abonnementssleutels van uw weer te geven. Elk abonnement heeft twee sleutels; u kunt beide sleutels gebruiken in uw toepassing. Selecteer de knop naast elke sleutel te kopiëren naar het Klembord plakken in uw code.
 
 > [!NOTE]
-> U kunt een onbeperkt aantal standard-laag-abonnementen maken in een of meerdere regio's. U kunt echter slechts één gratis-laag-abonnement maken.
+> U kunt een onbeperkt aantal standard-laag-abonnementen maken in een of meerdere regio's. U kunt echter slechts één gratis-laag-abonnement maken. Modelimplementaties op de gratis laag die nog niet-gebruikte 7 dagen is uit bedrijf is genomen automatisch.
 
 ## <a name="next-steps"></a>Volgende stappen
 

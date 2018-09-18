@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: how-to
 ms.topic: conceptual
-ms.date: 08/15/2018
+ms.date: 09/14/2018
 ms.author: moslake
-ms.openlocfilehash: 498e83e7c312480af6d2eff7d44bd13aee9c55fd
-ms.sourcegitcommit: d2f2356d8fe7845860b6cf6b6545f2a5036a3dd6
+ms.openlocfilehash: 09b7df861f65a5fb4b3c9727f61f73a0ff4e0d65
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/16/2018
-ms.locfileid: "42060579"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730228"
 ---
 # <a name="manage-file-space-in-azure-sql-database"></a>Ruimte in Azure SQL Database beheren
 Dit artikel beschrijft de verschillende typen opslagruimte in Azure SQL Database en de stappen die kunnen worden uitgevoerd wanneer de bestandsruimte voor databases toegewezen en elastische pools moet expliciet worden beheerd.
@@ -27,7 +27,7 @@ De meeste storage space metrische gegevens weergegeven in de Azure-portal en de 
 - T-SQL: [sys.resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)
 - T-SQL: [sys.elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database)
 
-Er zijn patronen van werkbelasting waarbij de toewijzing van onderliggende gegevensbestanden voor databases die groter is dan de hoeveelheid gebruikte gegevenspagina's kan worden.  Dit kan gebeuren wanneer de ruimte gebruikt toeneemt en gegevens worden vervolgens verwijderd.  Dit komt doordat de toegewezen ruimte niet automatisch wordt opgeëist wanneer gegevens worden verwijderd.  In dergelijke scenario's, kan de toegewezen ruimte voor een database of een groep van toepassingen groter zijn dan de ondersteunde limieten te voorkomen dat de groei van gegevens of te voorkomen dat prestaties laagwijzigingen en vereisen verkleinen gegevensbestanden te beperken.
+Er zijn patronen van werkbelasting waarbij de toewijzing van onderliggende gegevensbestanden voor databases die groter is dan de hoeveelheid gebruikte gegevenspagina's kan worden.  Dit kan gebeuren wanneer de ruimte gebruikt toeneemt en gegevens worden vervolgens verwijderd.  Dit komt doordat de toegewezen ruimte niet automatisch wordt opgeëist wanneer gegevens worden verwijderd.  In dergelijke scenario's kan de toegewezen ruimte voor een database of een groep van toepassingen groter zijn dan de ondersteunde limieten te voorkomen dat de groei van gegevens of te voorkomen dat de servicelaag en verkleiningen compute en vereisen verkleinen gegevensbestanden te beperken.
 
 Gegevensbestanden als u wilt vrijmaken van ongebruikte toegewezen ruimte vanwege de mogelijke impact op de prestaties van de database niet automatisch wordt verkleind door de SQL-database-service.  Klanten kunnen echter gegevensbestanden via de self-service-verkleinen op een tijdstip van hun keuze met de volgende stappen wordt beschreven in [Reclaim ongebruikte ruimte toegewezen](#reclaim-unused-allocated-space). 
 

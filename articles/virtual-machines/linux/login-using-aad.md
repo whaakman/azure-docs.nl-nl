@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 614375c95f4af3a5fbeeb4368ff8c577372e6381
-ms.sourcegitcommit: aa988666476c05787afc84db94cfa50bc6852520
+ms.openlocfilehash: 1ce03c55a346adf846619c50f09eb063e6b6f639
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37934554"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734621"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Meld u aan bij een virtuele Linux-machine in Azure met behulp van Azure Active Directory-verificatie (Preview)
 
@@ -179,4 +179,4 @@ Deel uw feedback over deze preview-functie of het rapport problemen zijn met het
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie voor meer informatie over Azure Active Directory, [wat is Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) en [aan de slag met Azure Active Directory](../../active-directory/fundamentals/get-started-azure-ad.md)
+Zie voor meer informatie over Azure Active Directory, [wat is Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md)

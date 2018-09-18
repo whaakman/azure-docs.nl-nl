@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 04/01/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: ee06039242afe5b5e92cf2fecc4c3fa9bff0b78b
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.openlocfilehash: 10720f42f7a9b10b42ccaaaad81acca369592f6a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39214366"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731207"
 ---
 # <a name="daxkocsi-used-azure-to-accelerate-its-development-cycle-and-to-enhance-its-customer-services-and-performance"></a>Daxko/CSI gebruikt Azure om de ontwikkeling versnellen en voor het verbeteren van de klantenservices en prestaties
 ![Daxko/CSI-Logo](./media/sql-database-implementation-daxko/csidaxkologo25.png)
@@ -59,7 +59,7 @@ Vandaag de dag worden ongeveer 99 procent van CSI-Software-klanten gehost in Azu
 ## <a name="azure-elastic-pools-free-up-it-resources"></a>Azure elastische pools vrij te maken de IT-bronnen
 Verschillende functies van Azure hebben bijgedragen CSI-Software shift wordt de infrastructuur en bewerkingen die zijn gericht op de functie en ontwikkeling die zijn gericht. Misschien is het grootste voordeel van elastische pools.
 
-CSI-Software biedt momenteel ongeveer 550 databases voor klanten. Voordat de elastische pools was het moeilijk te beheren die veel databases binnen een laag-structuur. OPS-managers had om toe te wijzen prestatielagen op basis van de burst-behoeften van klanten, die belangrijke IT-resource overhead vereist. Met elastische pools kunnen managers tenants een premium of standard-pool, waar nodig, toewijzen en verplaats klanten op basis van grootte en nodig hebt. Klanten voelde de gevolgen van de elastische pools bijna onmiddellijk. voor elastische pools klanten time-outs en andere problemen waren tijdens perioden van burst gebruik, maar met elastische pools klanten activiteitsbursts indien nodig kunnen ondervinden en ze kunnen echter ook doorgaan met SpectrumNG zonder problemen.
+CSI-Software biedt momenteel ongeveer 550 databases voor klanten. Voordat de elastische pools was het moeilijk te beheren die veel databases binnen een laag-structuur. OPS-managers moest het toewijzen van service-lagen en compute-grootten op basis van de burst-behoeften van klanten, die belangrijke IT-resource overhead vereist. Met elastische pools kunnen managers tenants een premium of standard-pool, waar nodig, toewijzen en verplaats klanten op basis van grootte en nodig hebt. Klanten voelde de gevolgen van de elastische pools bijna onmiddellijk. voor elastische pools klanten time-outs en andere problemen waren tijdens perioden van burst gebruik, maar met elastische pools klanten activiteitsbursts indien nodig kunnen ondervinden en ze kunnen echter ook doorgaan met SpectrumNG zonder problemen.
 
 ## <a name="azure-active-geo-replication-accelerates-reporting"></a>Azure active geo-replicatie versnelt melden
 Klanten met verschillende CSI-Software ook profiteren van Azure active geo-replicatie. Met actieve geo-replicatie, kunnen tot maximaal vier leesbare secundaire databases worden geconfigureerd in het datacenter in dezelfde of verschillende regio's. CSI-Software maakt gebruik van actieve geo-replicatie op twee manieren: eerst de secundaire databases zijn beschikbaar in het geval van storing in een datacenter of de onmogelijkheid verbinding maken met de primaire database. en ten tweede secundaire databases kunnen worden gelezen en kunnen worden gebruikt voor de offload van alleen-lezen-werkbelastingen, zoals rapportage van taken. Sommige klanten CSI-Software gebruiken dit voordeel te versnellen reporting werkstromen.

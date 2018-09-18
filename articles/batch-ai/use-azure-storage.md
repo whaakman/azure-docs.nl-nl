@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 08/14/2018
 ms.author: danlep
 ms.custom: mvc
-ms.openlocfilehash: 6a9897e94bf8f58ca4000f68ff30bfc6eece6249
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: a2b6b3334176cb6fdd86c17b4d11cb03a42dd4bf
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44057129"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731799"
 ---
 # <a name="store-batch-ai-job-input-and-output-with-azure-storage"></a>Batch AI-Taakinvoer en uitvoer met Azure Storage Store
 
@@ -30,7 +30,7 @@ Azure Storage is Microsoft's oplossing voor opslag in de cloud. Batch AI biedt o
 
 Als u Azure Storage voor uw omgeving Batch AI kiest, wordt aangeraden dat u uw invoerbestanden (zoals gegevenssets) opslaan in een Blob-container met hogere doorvoer en u uw training-uitvoer opslaan in een bestandsshare, die ondersteuning biedt voor streaming (zodat lezen van logboeken met uitvoergegevens terwijl de taak wordt gelijktijdig uitgevoerd). 
 
-Voordat u Azure Storage gebruiken kunt, moet u [maken van een Azure Storage-account](../storage/common/storage-create-storage-account.md#create-a-storage-account). Batch AI biedt ondersteuning voor de volumes koppelen van beide voor algemeen gebruik v1 (GPv1) en algemeen gebruik v2 (GPv2) Azure Storage-accounts. De Azure Storage-account kan meerdere Blob-containers houdt of instanties van de bestandsshare-bestand. Houd rekening met de vereisten van uw kosten en prestaties bij het kiezen van een storage-account [optie](../storage/common/storage-account-options.md). 
+Voordat u Azure Storage gebruiken kunt, moet u [maken van een Azure Storage-account](../storage/common/storage-quickstart-create-account.md). Batch AI biedt ondersteuning voor de volumes koppelen van beide voor algemeen gebruik v1 (GPv1) en algemeen gebruik v2 (GPv2) Azure Storage-accounts. De Azure Storage-account kan meerdere Blob-containers houdt of instanties van de bestandsshare-bestand. Houd rekening met de vereisten van uw kosten en prestaties bij het kiezen van het type van de storage-account te maken. Zie voor meer informatie, [overzicht van Azure storage-account](../storage/common/storage-account-overview.md). 
 
 Een Blob-container maken en uploaden van uw gegevensset naar een Azure Blob-container, kies een van de volgende methoden:
 - [Azure-portal](../storage/blobs/storage-quickstart-blobs-portal.md) voor het uploaden van met een web gebaseerde gebruikersinterface geopend. Als u wilt een klein aantal bestanden uploaden, biedt Azure portal de eenvoudigste bewerking.

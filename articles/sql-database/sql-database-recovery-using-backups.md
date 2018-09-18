@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 09/14/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 75805cad43f015f1741193ec5a1ead1fa7603f41
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: bcb533fbaa788498734776147c9bd053d35bef60
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058138"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733559"
 ---
 # <a name="recover-an-azure-sql-database-using-automated-database-backups"></a>Een Azure SQL-database met behulp van geautomatiseerde databaseback-ups herstellen
 SQL Database biedt deze opties voor het gebruik van de database recovery [automatische databaseback-ups](sql-database-automated-backups.md) en [back-ups met langetermijnretentie](sql-database-long-term-retention.md). U kunt van een databaseback-up te herstellen:
@@ -32,7 +32,7 @@ Een herstelde database maakt een kosten extra opslagruimte in de volgende omstan
 - Herstellen van P11-P15 S4-S12 of P1 – P6 als de maximale databasegrootte groter is dan 500 GB.
 - Herstellen van P1 – P6 voor S4-S12 als de maximale grootte van de database groter dan 250 GB is.
 
-De extra kosten zijn omdat de maximale grootte van de herstelde database groter dan de hoeveelheid opslag die is opgenomen voor het prestatieniveau is en alle extra opslagruimte die boven de inbegrepen hoeveelheid in rekening extra gebracht wordt.  Informatie over prijzen van extra opslagruimte, Zie de [pagina met prijzen van SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/).  Als de werkelijke hoeveelheid ruimte die lager dan de hoeveelheid opslag die is opgenomen is, kan klikt u vervolgens deze extra kosten worden vermeden door de maximale grootte van de database voor de hoeveelheid die inclusief te beperken.  
+De extra kosten zijn omdat de maximale grootte van de herstelde database groter dan de hoeveelheid opslag die is opgenomen voor de compute-grootte is en alle extra opslagruimte die boven de inbegrepen hoeveelheid in rekening extra gebracht wordt.  Informatie over prijzen van extra opslagruimte, Zie de [pagina met prijzen van SQL-Database](https://azure.microsoft.com/pricing/details/sql-database/).  Als de werkelijke hoeveelheid ruimte die lager dan de hoeveelheid opslag die is opgenomen is, kan klikt u vervolgens deze extra kosten worden vermeden door de maximale grootte van de database voor de hoeveelheid die inclusief te beperken.  
 
 > [!NOTE]
 > [Automatische databaseback-ups](sql-database-automated-backups.md) worden gebruikt bij het maken van een [kopiëren van de database](sql-database-copy.md). 
@@ -43,7 +43,7 @@ De extra kosten zijn omdat de maximale grootte van de herstelde database groter 
 De hersteltijd om terug te zetten van een database met behulp van geautomatiseerde databaseback-ups wordt beïnvloed door diverse factoren: 
 
 * De grootte van de database
-* Het prestatieniveau van de database
+* De compute-grootte van de database
 * Het aantal betrokken transactielogboeken
 * De hoeveelheid activiteit die moet opnieuw worden afgespeeld om te herstellen naar het herstelpunt
 * De bandbreedte van het netwerk als het herstellen naar een andere regio 
@@ -72,11 +72,11 @@ U kunt een bestaande database naar een eerder tijdstip herstellen in de tijd als
 > Zie voor een voorbeeld van PowerShell-script waarin wordt getoond hoe om uit te voeren van een point-in-time-terugzetten van een database, [herstellen van een SQL-database met behulp van PowerShell](scripts/sql-database-restore-database-powershell.md).
 >
 
-De database kan worden hersteld naar een willekeurig niveau van de servicelaag of het prestatieniveau voor service, en als individuele database of in een elastische pool. Zorg ervoor dat er voldoende bronnen op de logische server of in de elastische groep waarop u de database wilt herstellen. Als u klaar bent, is de herstelde database een normale, volledig toegankelijk zijn, online-database. De herstelde database gelden de normale tarieven op basis van de servicelaag en het prestatieniveau van een serviceniveau. U doet geen kosten in rekening totdat het herstellen van de database is voltooid.
+De database kan worden hersteld met elke servicelaag of de grootte van de compute, en als individuele database of in een elastische pool. Zorg ervoor dat er voldoende bronnen op de logische server of in de elastische groep waarop u de database wilt herstellen. Als u klaar bent, is de herstelde database een normale, volledig toegankelijk zijn, online-database. De herstelde database gelden de normale tarieven op basis van de servicelaag en de rekencapaciteit. U doet geen kosten in rekening totdat het herstellen van de database is voltooid.
 
 U kunt in het algemeen een database herstellen naar een eerder tijdstip voor herstel voor. Wanneer doet, kunt u de herstelde database behandelen als vervanging voor de oorspronkelijke database of deze gebruiken voor het ophalen van gegevens uit en werk vervolgens de oorspronkelijke database. 
 
-* ***Vervanging van de database:*** als de herstelde database is bedoeld als vervanging voor de oorspronkelijke database, moet u controleren of het prestatieniveau en/of servicelaag geschikt zijn en schalen van de database indien nodig. U kunt Wijzig de naam van de oorspronkelijke database en geef de herstelde database of de oorspronkelijke naam met behulp van de [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) opdracht in T-SQL. 
+* ***Vervanging van de database:*** als de herstelde database is bedoeld als vervanging voor de oorspronkelijke database, moet u controleren of de grootte van de compute en/of servicelaag geschikt zijn en schalen van de database indien nodig. U kunt Wijzig de naam van de oorspronkelijke database en geef de herstelde database of de oorspronkelijke naam met behulp van de [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-database) opdracht in T-SQL. 
 * ***Gegevensherstel:*** als u van plan bent voor het ophalen van gegevens uit de herstelde database te herstellen van een gebruiker of toepassing fout, moet u om te schrijven en uitvoeren van de scripts voor het herstel van gegevens die nodig zijn om gegevens te extraheren uit de herstelde database naar de oorspronkelijke database. Hoewel de herstelbewerking lang duren kan om uit te voeren, is het herstellen van de database is zichtbaar in de lijst van de database tijdens het herstelproces. Als u de database tijdens de terugzetbewerking verwijdert, de herstelbewerking is geannuleerd en u betaalt geen voor de database die u hebt niet de terugzetbewerking niet voltooien. 
 
 ### <a name="azure-portal"></a>Azure Portal
@@ -146,7 +146,7 @@ Zoals eerder is besproken, naast de Azure portal, kan databaseherstel worden uit
 |  | |
 
 ## <a name="summary"></a>Samenvatting
-Automatische back-ups beveiligen uw databases van gebruiker en toepassingsfouten, per ongeluk database verwijderen en langdurige uitval. Deze ingebouwde mogelijkheid is beschikbaar voor alle Servicelagen en prestatieniveaus. 
+Automatische back-ups beveiligen uw databases van gebruiker en toepassingsfouten, per ongeluk database verwijderen en langdurige uitval. Deze ingebouwde mogelijkheid is beschikbaar voor alle service-lagen en compute-grootten. 
 
 ## <a name="next-steps"></a>Volgende stappen
 * Zie voor een overzicht voor zakelijke continuïteit en scenario's, [overzicht voor zakelijke continuïteit](sql-database-business-continuity.md).

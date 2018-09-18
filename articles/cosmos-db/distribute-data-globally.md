@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/26/2018
 ms.author: sngun
-ms.openlocfilehash: 19e47e0dba1a89ea32f42ef0bafc26f8c59b4ad7
-ms.sourcegitcommit: f94f84b870035140722e70cab29562e7990d35a3
+ms.openlocfilehash: 4defdabde19b2dcf7f9872fd6da1b63b0d244913
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43288299"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983815"
 ---
 # <a name="how-to-distribute-data-globally-with-azure-cosmos-db"></a>Hoe u gegevens globaal distribueren met Azure Cosmos DB
 Azure is overal - heeft een wereldwijde footprint in meer dan 50 geografische regio's en continu wordt uitgebreid. Met wereldwijde aanwezigheid is een van de unieke mogelijkheden die Azure voor de ontwikkelaars biedt de mogelijkheid om te bouwen, implementeren en beheren van wereldwijd gedistribueerde toepassingen eenvoudig. 
@@ -28,7 +28,7 @@ Azure is overal - heeft een wereldwijde footprint in meer dan 50 geografische re
 
 Zoals we hebben geleerd tijdens het maken van Azure Cosmos DB, mag niet toe te voegen wereldwijde distributie niet hoeft bezig. Kan niet 'bout-in' op een systeem van de database 'één site'. De mogelijkheden die door een wereldwijd gedistribueerde database omvatten dan dat van traditionele geografische disaster recovery (Geo-DR) door 'single-site' databases aangeboden. Geo-DR-mogelijkheid bieden één site-databases zijn een strikte subset van wereldwijd gedistribueerde databases. 
 
-Met Azure Cosmos DB kant en klare wereldwijde distributie, ontwikkelaars hoeven niet te hun eigen hulpprogramma replicatie bouwen met behulp van hetzij de Lambda-patroon (bijvoorbeeld [AWS DynamoDB replicatie](https://github.com/awslabs/dynamodb-cross-region-library/blob/master/README.md)) via het databaselogboek of door "dubbele schrijfbewerkingen" uitvoeren in meerdere regio's. We doen *niet* raden deze methoden, omdat het onmogelijk is om de juistheid van deze methoden en leveren geluidskaart Sla's. 
+Met Azure Cosmos DB kant en klare wereldwijde distributie hebt het ontwikkelaars niet voor het bouwen van hun eigen hulpprogramma replicatie met behulp van het patroon Lambda via het databaselogboek of door het uitvoeren van "dubbele schrijfbewerkingen" in meerdere regio's. We doen *niet* raden deze methoden, omdat het onmogelijk is om de juistheid van deze methoden en leveren geluidskaart Sla's. 
 
 In dit artikel krijgt u een overzicht van Azure Cosmos DB globale distributie mogelijkheden. We beschrijven ook Azure Cosmos DB unieke benadering voor het leveren van uitgebreide Sla's. 
 

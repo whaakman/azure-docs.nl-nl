@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 08/23/2018
 ms.author: alkohli
-ms.openlocfilehash: d54394a8dc74d04f1922a78826b10a4a421d193b
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: aad5b2d2e451f33a3f4f365fa0702eef5d698e4e
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42814587"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729160"
 ---
 # <a name="migrate-data-from-storsimple-5000-7000-series-to-azure-file-sync"></a>Gegevens van de StorSimple 5000-7000-serie migreren naar Azure File Sync
 
@@ -56,8 +56,7 @@ Hier vindt u de vereisten voor uw verouderde 5000 of 7000 serie apparaat van de 
 - StorSimple-volumes op de host zijn gekoppeld en bestandsshares bevatten.
 - De host heeft onvoldoende lokale opslag om uw lokaal in cache opgeslagen gegevens te bevatten.
 - De eigenaar van niveau toegang tot de Azure-abonnement dat u gebruiken wilt voor Azure File Sync implementeren. U ondervindt mogelijk problemen bij het maken van een cloudeindpunt om daar de synchronisatiegroep als u geen eigenaar of beheerdersmachtigingen.
-- Toegang tot een [algemeen gebruik v2-opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-account-options) met een Azure-bestandsshare die u wilt synchroniseren. Ga voor meer informatie naar 
- - Hoe u [maken van een opslagaccount voor algemeen gebruik v2](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=portal#create-a-general-purpose-storage-account).
+- Toegang tot een [voor algemeen gebruik v2-opslagaccount](https://docs.microsoft.com/azure/storage/common/storage-account-overview) met een Azure-bestandsshare die u wilt synchroniseren. Zie voor meer informatie, [een opslagaccount maken](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
  - Hoe u [maken van een Azure-bestandsshare](https://docs.microsoft.com/azure/storage/files/storage-how-to-create-file-share#create-file-share-through-the-azure-portal).
 
 ## <a name="migration-process"></a>Migratieproces

@@ -1,6 +1,6 @@
 ---
 title: Directory-rollen toewijzen aan gebruikers met Azure Active Directory | Microsoft Docs
-description: Klik hier voor meer informatie over het directory-rollen toewijzen aan gebruikers met Azure Active Directory.
+description: Informatie over het directory-rollen toewijzen aan gebruikers met Azure Active Directory.
 services: active-directory
 author: eross-msft
 manager: mtillman
@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: lizross
 ms.reviewer: jeffsta
-ms.openlocfilehash: 02eb55509a3708517dff4c14640826a3a21f1df0
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: b73df5ec0381e83c54c8cd9f8c0335448def0c6d
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45603716"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45733039"
 ---
 # <a name="how-to-assign-roles-and-administrators-to-users-with-azure-active-directory"></a>Hoe: rollen en beheerders toewijzen aan gebruikers met Azure Active Directory
 Als een gebruiker in uw organisatie heeft toestemming nodig voor Azure Active Directory (Azure AD)-resources beheren, moet u de gebruiker een juiste rol in Azure AD, op basis van de acties die de gebruiker moet toestemming om uit te voeren.

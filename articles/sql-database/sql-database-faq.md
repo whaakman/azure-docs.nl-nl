@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: reference
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: 218bd9031193d4987fdc1e0ae2bf302bdb028673
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 479f7df740e75ae44a5198414036ff0b0c216471
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604498"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730644"
 ---
 # <a name="sql-database-faq"></a>Veelgestelde vragen over SQL Database
 
@@ -41,7 +41,7 @@ In veel gevallen kunnen toepassingen profiteren van de eenvoud van een vooraf ge
 Beide modellen, zowel die op basis van DTU als vCores, blijven naast elkaar bestaan. We starten van het vCore-model in reactie op aanvragen van klanten om meer duidelijkheid over hun databaseresources en de mogelijkheid om hun reken- en opslagresources afzonderlijk schalen. Het vCore-model kan ook nog meer te besparen voor klanten met actieve Software Assurance via de Azure Hybrid Benefit voor SQL Server.
 
 ## <a name="how-should-i-choose-between-the-dtu-based-purchasing-model-vs-the-vcore-based-purchasing-model"></a>Hoe moet ik kiezen tussen de vs aankopen model op basis van DTU op vCore gebaseerde aankoopmodel? 
-De Data Transmission Unit (DTU) is gebaseerd op gecombineerde meetgegevens van CPU, geheugen en lees- en schrijfbewerkingen. De DTU -prestatieniveaus staan voor vooraf geconfigureerde bundels met resources die bedoeld zijn voor verschillende prestatieniveaus van toepassingen. Klanten die u geen wilt zorgen te maken over de onderliggende resources en de voorkeur van een vooraf geconfigureerde bundel tijdens een vast bedrag per maand betalen vinden het dtu model beter geschikt is voor hun behoeften. Het vCore-model wordt echter voor klanten die meer inzicht in de onderliggende resources nodig of moeten ze onafhankelijk van elkaar voor optimale prestaties schalen, worden de beste keuze.  Bovendien, als een klant een actieve Software Assurance (SA) voor SQL Server heeft, ze kunnen gebruikmaken van hun bestaande investeringen en bespaar tot wel 30% met [Azure Hybrid Use Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Binnen elk aanschafmodellen bieden de voordelen van een volledig beheerde service zoals geautomatiseerde back-ups, software-updates en patches. 
+De Data Transmission Unit (DTU) is gebaseerd op gecombineerde meetgegevens van CPU, geheugen en lees- en schrijfbewerkingen. De grootte op basis van DTU compute vertegenwoordigen vooraf geconfigureerde bundels van resources op verschillende niveaus van de schijf van de prestaties van toepassingen. Klanten die u geen wilt zorgen te maken over de onderliggende resources en de voorkeur van een vooraf geconfigureerde bundel tijdens een vast bedrag per maand betalen vinden het dtu model beter geschikt is voor hun behoeften. Het vCore-model wordt echter voor klanten die meer inzicht in de onderliggende resources nodig of moeten ze onafhankelijk van elkaar voor optimale prestaties schalen, worden de beste keuze.  Bovendien, als een klant een actieve Software Assurance (SA) voor SQL Server heeft, ze kunnen gebruikmaken van hun bestaande investeringen en bespaar tot wel 30% met [Azure Hybrid Use Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md).  Binnen elk aanschafmodellen bieden de voordelen van een volledig beheerde service zoals geautomatiseerde back-ups, software-updates en patches. 
 
 ## <a name="what-is-the-azure-hybrid-benefit-for-sql-server"></a>Wat is Azure Hybrid Benefit voor SQL Server? 
 De [Azure Hybrid Use Benefit voor SQL Server](../virtual-machines/windows/hybrid-use-benefit-licensing.md) helpt u bij de waarde van uw huidige licentie-investeringen maximaliseren en Versnel de migratie naar de cloud. Azure Hybrid Benefit voor SQL Server is een Azure-voordeel waarmee u uw SQL Server-licenties met Software Assurance gebruiken voor een gereduceerd tarief ('basistarief') voor SQL-Database. Azure Hybrid Benefit voor SQL Server is beschikbaar in openbare preview-versie van het op vCore gebaseerde aankoopmodel voor SQL-Database, individuele databases en elastische pools. U kunt dit voordeel toepassen, zelfs als de SKU actief is, maar houd er rekening mee dat het basistarief wordt toegepast vanaf het moment dat u dit in de Azure-portal selecteren. Er worden niet met terugwerkende kracht tegoeden verleend.
@@ -78,8 +78,8 @@ Voor back-upopslag van één database in rekening gebracht op het pro rata gefac
 ## <a name="how-do-i-select-the-right-sku-when-converting-an-existing-database-to-the-new-service-tiers"></a>Hoe selecteer ik de juiste SKU bij het converteren van een bestaande database naar de nieuwe service-lagen? 
 Voor bestaande SQL Database-toepassingen met behulp van het dtu model, is de categorie Algemeen gebruik-service worden vergeleken met de Standard-laag. De service-laag bedrijfskritiek is vergelijkbaar met de Premium-laag. In beide gevallen moet u ten minste 1 vCore toewijzen voor elke 100 DTU die gebruikmaakt van uw toepassing in het dtu model.
 
-## <a name="do-the-new-vcore-based-service-tiers-offer-the-performance-levels-compatible-with-all-existing-service-level-objectives-slos"></a>De prestatieniveaus die compatibel is met alle bestaande serviceniveaudoelstellingen (Slo's) bieden u de nieuwe vCore-gebaseerde service-lagen?
-De nieuwe op vCore gebaseerde Servicelagen bieden vergelijkbare keuzes voor alle elastische pools en databases met behulp van 100 dtu's of meer.  We blijven meer Slo's na verloop van tijd voor sub 100 DTU-werkbelastingen toevoegen.
+## <a name="do-the-new-vcore-based-service-tiers-offer-the-compute-sizes-compatible-with-all-existing-compute-sizes"></a>De nieuwe op vCore gebaseerde Servicelagen bieden dat de compute-grootten die compatibel is met alle bestaande compute grootten?
+De nieuwe op vCore gebaseerde Servicelagen bieden vergelijkbare keuzes voor alle elastische pools en databases met behulp van 100 dtu's of meer.  We blijven er meer rekenkracht grootten na verloop van tijd voor sub 100 DTU-werkbelastingen toevoegen.
 
 ## <a name="are-there-any-database-feature-differences-between-the-existing-dtu-based-and-new-vcore-based-service-tiers"></a>Zijn er database Functieverschillen tussen de bestaande lagen, op basis van DTU en de nieuwe vCore-gebaseerde service? 
 De nieuwe Servicelagen ondersteuning voor een hoofdverzameling van de functies die beschikbaar zijn met de huidige DTU gebaseerde aanbiedingen. De aanvullende functies bevatten een aantal extra dynamische beheerweergave (DMV's) en extra configuratie-opties. 
@@ -110,7 +110,7 @@ Omdat het vCore-model onafhankelijke controle over de hoeveelheid ingerichte Com
 ## <a name="how-often-can-i-adjust-the-resources-per-pool"></a>Hoe vaak kan ik de bronnen per groep van toepassingen aanpassen?
 Zo vaak als u wilt. Zie [elastische pools beheren](sql-database-elastic-pool.md).
 
-## <a name="how-long-does-it-take-to-change-the-service-tier-or-performance-level-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Hoe lang duurt het voordat de servicelaag of het prestatieniveau van één database wijzigen of een database verplaatsen naar en uit een elastische pool?
+## <a name="how-long-does-it-take-to-change-the-service-tier-or-compute-size-of-a-single-database-or-move-a-database-in-and-out-of-an-elastic-pool"></a>Hoe lang duurt het wijzigen van de servicelaag of compute van de grootte van een individuele database of een database verplaatsen naar en uit een elastische pool?
 Wijzigen van de servicelaag van een database en verplaatsen naar en uit een pool, moet de database worden gekopieerd op het platform als een achtergrondbewerking. Wijzigen van de servicelaag kan enkele minuten duren tot enkele uren, afhankelijk van de grootte van de databases. In beide gevallen worden in de databases online en beschikbaar blijven tijdens de verplaatsing. Zie voor meer informatie over het wijzigen van individuele databases [wijzigen van de servicelaag van een database](sql-database-service-tiers-dtu.md). 
 
 ## <a name="when-should-i-use-a-single-database-vs-elastic-databases"></a>Wanneer moet ik een individuele database en elastische databases gebruiken?
@@ -120,7 +120,7 @@ In het algemeen elastische pools zijn ontworpen voor een typische [software-as-a
 Facturen van de SQL-Database op een voorspelbaar uurtarief op basis van de [aanschaffen model](sql-database-service-tiers-dtu.md). Werkelijk gebruik wordt berekend en pro-rata per uur betaald, zodat uw rekening kunnen delen van een uur weergeven. Als een database 12 uur per maand bestaat, ziet uw factuur u bijvoorbeeld het gebruik van 0,5 dag. 
 
 ## <a name="what-if-a-single-database-is-active-for-less-than-an-hour-or-uses-a-higher-service-tier-for-less-than-an-hour"></a>Wat gebeurt er als een individuele database korter dan een uur actief is of korter dan een uur een hogere servicelaag gebruikt?
-U wordt gefactureerd voor elk uur bestaat in een database met behulp van de hoogste servicelaag en prestatieniveau dat tijdens dat uur, ongeacht het gebruik of of de database minder dan een uur actief is toegepast. Als u een individuele database maken en deze vijf minuten later verwijdert weerspiegelt uw factuur een post voor één database-uur. 
+U worden in rekening gebracht voor elk uur bestaat in een database met behulp van de hoogste servicelaag + compute-grootte die tijdens dat uur, ongeacht het gebruik of of de database minder dan een uur actief is toegepast. Als u een individuele database maken en deze vijf minuten later verwijdert weerspiegelt uw factuur een post voor één database-uur. 
 
 Voorbeelden:
 
@@ -141,8 +141,8 @@ Op basis van DTU aankopen model voorbeelden:
 Elastische pools worden gefactureerd via de volgende kenmerken:
 
 * Een elastische pool wordt gefactureerd nadat deze de is gemaakt, zelfs wanneer er geen databases in de groep zijn.
-* Een elastische pool is per uur gefactureerd. Dit is dezelfde softwarelicentiecontrole frequentie als voor de prestatieniveaus van individuele databases.
-* Als een elastische pool wordt uitgebreid, klikt u vervolgens de groep is niet in rekening gebracht op basis van de nieuwe hoeveelheid resources tot het wijzigen van de grootte bewerking is voltooid. Dit volgt hetzelfde patroon als het wijzigen van de prestaties van individuele databases.
+* Een elastische pool is per uur gefactureerd. Dit is dezelfde softwarelicentiecontrole frequentie als voor de compute-grootten van individuele databases.
+* Als een elastische pool wordt uitgebreid, klikt u vervolgens de groep is niet in rekening gebracht op basis van de nieuwe hoeveelheid resources tot het wijzigen van de grootte bewerking is voltooid. Dit volgt hetzelfde patroon als het wijzigen van de compute-grootte van afzonderlijke databases.
 * De prijs van een elastische pool is gebaseerd op de resources van de groep. De prijs van een elastische pool is onafhankelijk van het aantal en het gebruik van de elastische databases binnen het.
 
 Zie voor meer informatie, [prijzen van SQL Database](https://azure.microsoft.com/pricing/details/sql-database/), [DTU gebaseerde aankoopmodel](sql-database-service-tiers-dtu.md), en [vCore gebaseerde aankoopmodel](sql-database-service-tiers-vcore.md).

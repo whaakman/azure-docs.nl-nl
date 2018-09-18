@@ -8,12 +8,12 @@ services: devops
 custom: jenkins
 ms.date: 07/31/2018
 ms.component: common
-ms.openlocfilehash: 549150abc630cd247927b4ba7042d0bdf0e8b88a
-ms.sourcegitcommit: 9819e9782be4a943534829d5b77cf60dea4290a2
+ms.openlocfilehash: b7ac5c277b45ae5c005a284d5c38e55099c11e33
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/06/2018
-ms.locfileid: "39524386"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735559"
 ---
 # <a name="using-azure-storage-with-a-jenkins-continuous-integration-solution"></a>Azure Storage gebruiken met een Jenkins CI-oplossing
 
@@ -48,7 +48,7 @@ Voordelen van het gebruik van de Blob-service voor het hosten van uw build-artef
      
       Tijdens een typische Jenkins CI-oplossing kan worden ingesteld voor het uitvoeren als een service, die de Jenkins-war wordt uitgevoerd op de opdrachtregel is voldoende voor deze zelfstudie.
 * Een Azure-account. U kunt zich aanmelden voor een Azure-account op <http://www.azure.com>.
-* Een Azure Storage-account. Als u nog een storage-account hebt, kunt u maken met de stappen in [een Opslagaccount maken](../common/storage-create-storage-account.md#create-a-storage-account).
+* Een Azure Storage-account. Als u nog een storage-account hebt, kunt u maken met de stappen in [een Opslagaccount maken](../common/storage-quickstart-create-account.md).
 * Vertrouwd zijn met de Jenkins CI-oplossing wordt aanbevolen maar niet vereist, zoals de volgende inhoud maakt gebruik van een eenvoudige voorbeeld om weer te geven de stappen die nodig zijn bij het gebruik van de Blob-service als een opslagplaats voor Jenkins CI build-artefacten.
 
 ## <a name="how-to-use-the-blob-service-with-jenkins-ci"></a>De Blob-service gebruiken met Jenkins CI
@@ -57,7 +57,7 @@ Voor het gebruik van de Blob-service met Jenkins, moet u de Azure Storage-invoeg
 ## <a name="how-to-install-the-azure-storage-plugin"></a>De Azure Storage-invoegtoepassing installeren
 1. Selecteer in het dashboard van Jenkins **Manage Jenkins**.
 2. In de **Manage Jenkins** weergeeft, schakelt **Plug-ins beheren**.
-3. Selecteer de **beschikbaar** tabblad.
+3. Selecteer het tabblad **Beschikbaar**.
 4. In de **artefact opleggen aan Uploaders** sectie selectievakje **Microsoft Azure Storage-invoegtoepassing**.
 5. Selecteer een **installeren zonder opnieuw opstarten** of **nu downloaden en installeren na opnieuw opstarten**.
 6. Start opnieuw op Jenkins.
@@ -140,9 +140,9 @@ Deze sectie bevat een overzicht van de onderdelen van de Blob-service.
   
     `http://example.blob.core.windows.net/myjob/2014-04-14_23-57-00/1/hello.txt`
 
-## <a name="troubleshooting-the-jenkins-plugin"></a>De Jenkins-invoegtoepassing oplossen
+## <a name="troubleshooting-the-jenkins-plugin"></a>Problemen met de Jenkins-invoegtoepassing oplossen
 
-Als u er fouten met de Jenkins-invoegtoepassingen optreden, dient u een probleem in de [Jenkins JIRA](https://issues.jenkins-ci.org/) voor het specifieke onderdeel.
+Als u problemen ondervindt met de Jenkins-invoegtoepassingen, kunt u in [Jenkins JIRA](https://issues.jenkins-ci.org/) een ticket openen voor het specifieke onderdeel.
 
 ## <a name="next-steps"></a>Volgende stappen
 * [Voldoen aan Jenkins](https://wiki.jenkins-ci.org/display/JENKINS/Meet+Jenkins)

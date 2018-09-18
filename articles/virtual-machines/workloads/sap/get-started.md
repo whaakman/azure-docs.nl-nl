@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 09/13/2018
 ms.author: rclaus
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0cf6291cb12366c4f710092c1b36c8cb0b8c14fb
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 2deacb7d15f370c9182c3239493ed60f735d738c
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45578392"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45736832"
 ---
 # <a name="using-azure-for-hosting-and-running-sap-workload-scenarios"></a>Met behulp van Azure voor het hosten en uitvoeren van SAP-workloadscenario 's
 
@@ -103,23 +103,11 @@ Met betrekking tot niet-HANA-databases onder de werkbelasting SAP op azure is de
 
 Controleer de sectie SAP HANA op Azure Virtual Machines voor SAP HANA-databases op Azure.
 
-De volgende documenten zijn beschikbaar voor hoge beschikbaarheid van SAP-workloads op Azure:
+Het document vermelding is voor hoge beschikbaarheid van SAP-workloads op Azure:
 
 - [Azure virtuele Machines hoge beschikbaarheid voor SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-start)
-- [Architectuur voor hoge beschikbaarheid en scenario's voor SAP NetWeaver](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios)
-- [Gebruikmaken van Azure-infrastructuur virtuele machine opnieuw op om u te ' hogere beschikbaarheid ' van een SAP-systeem](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-higher-availability-architecture-scenarios)
-- [Cluster een SAP ASCS/SCS-exemplaar op een Windows-failovercluster met behulp van een gedeelde clusterschijf in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-shared-disk)
-- [Cluster van een SAP ASCS/SCS-exemplaar op een Windows-failovercluster met behulp van een bestandsshare in Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-guide-wsfc-file-share)
-- [Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server voor SAP-toepassingen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)
-- [Voorbereiden van de Azure-infrastructuur voor SAP HA met behulp van een Windows-failovercluster en een gedeelde schijf voor SAP ASCS/SCS](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-shared-disk)
-- [Azure-infrastructuur voor hoge beschikbaarheid van SAP met behulp van een Windows failover cluster en de bestandsshare voor SAP ASCS/SCS-instanties voorbereiden](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-infrastructure-wsfc-file-share)
-- [Hoge beschikbaarheid voor NFS op Azure VM's in SUSE Linux Enterprise Server](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)
-- [Pacemaker op SUSE Linux Enterprise Server in Azure instellen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)
-- [https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-shared-disk)
-- [Hoge beschikbaarheid van SAP NetWeaver op een Windows failover cluster en bestandsshare voor SAP ASCS/SCS-exemplaren op Azure installeren](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-installation-wsfc-file-share)
-- [Hoge beschikbaarheid voor SAP NetWeaver op Azure VM's in SUSE Linux Enterprise Server voor SAP-toepassingen](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)
-- [SAP ASCS/SCS-exemplaar multi-SID hoge beschikbaarheid met Windows Server Failover Clustering en gedeelde schijf op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
-- [SAP ASCS/SCS-exemplaar multi-SID hoge beschikbaarheid met Windows Server Failover Clustering en bestandsshare op Azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-file-share)
+
+De post-document verwijst naar verschillende andere architectuur en scenario documenten. In de volgende scenario documenten vindt u koppelingen naar gedetailleerde technische documenten uitleg over de implementatie en configuratie van de verschillende hoge beschikbaarheid-methoden. De verschillende documenten van het opzetten en configureren van hoge beschikbaarheid voor de werkbelasting van SAP NetWeaver zijn die betrekking hebben op Linux, evenals de Windows-besturingssystemen.
 
 
 Voor de integratie tussen Azure Active Directory (AAD) en SAP-Services en Single-Sign-On, documenten, zoals:
@@ -136,7 +124,7 @@ Voor de integratie van Azure-Services in SAP-onderdelen van lijkt de lijst met d
 
 - [SAP HANA gebruiken in Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-sap-hana)
 - [DirectQuery en SAP HANA](https://docs.microsoft.com/power-bi/desktop-directquery-sap-hana)
-- [De SAP BW-Connector gebruiken in Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-sap-bw-connector) 
+- [De SAP BW-connector gebruiken in Power BI Desktop](https://docs.microsoft.com/power-bi/desktop-sap-bw-connector) 
 - [Azure Data Factory biedt integratie van SAP HANA- en Business Warehouse-gegevens](https://azure.microsoft.com/blog/azure-data-factory-offer-sap-hana-and-business-warehouse-data-integration)
 
 

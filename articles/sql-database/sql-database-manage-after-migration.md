@@ -7,17 +7,17 @@ manager: craigg
 ms.service: sql-database
 ms.custom: migrate
 ms.topic: conceptual
-ms.date: 06/20/2018
+ms.date: 09/14/2018
 ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: d82cc3ee1074e326c9e4dee7fd65e338cb95e19f
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4b48f360c95170a36d1e79b075403d541c8b66ed
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44722228"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983930"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud, beheer van uw database in Azure SQL Database
 
@@ -36,9 +36,9 @@ In dit artikel komen enkele van de belangrijkste kenmerken van Azure SQL-databas
 Mogelijkheden voor zakelijke continuïteit en noodherstel recovery kunnen u uw bedrijf, zoals gewoonlijk blijven in geval van een ramp. De noodherstel mogelijk een database op gebeurtenis (bijvoorbeeld iemand deze per ongeluk komt een belangrijke tabel) of een datacenter op gebeurtenis (regionale ramp, bijvoorbeeld een tsunami). 
 
 ### <a name="how-do-i-create-and-manage-backups-on-sql-database"></a>Hoe ik maken en beheren van back-ups op SQL-Database?
-Maak u geen back-ups op Azure SQL DB en dat komt omdat u niet hoeft te. SQL-Database automatisch back-ups van databases voor u, zodat u niet meer over het plannen, nemen en beheren van back-ups moet zorgen. Het platform wordt een volledige back-up elke week, differentiële dat back-up elke paar uur en een logboek back-up om de 5 minuten om te controleren of het herstel na noodgevallen is efficiënt, en de minimale verlies van gegevens. De eerste volledige back-up gebeurt er als u een database maken. Deze back-ups voor u beschikbaar zijn voor een bepaalde periode de "bewaarperiode' genoemd en is afhankelijk van de prestatielaag die u kiest.  SQL Database biedt u de mogelijkheid om te herstellen naar een bepaald tijdstip binnen deze bewaarperiode periode met [punt in tijd herstel (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
+Maak u geen back-ups op Azure SQL DB en dat komt omdat u niet hoeft te. SQL-Database automatisch back-ups van databases voor u, zodat u niet meer over het plannen, nemen en beheren van back-ups moet zorgen. Het platform wordt een volledige back-up elke week, differentiële dat back-up elke paar uur en een logboek back-up om de 5 minuten om te controleren of het herstel na noodgevallen is efficiënt, en de minimale verlies van gegevens. De eerste volledige back-up gebeurt er als u een database maken. Deze back-ups voor u beschikbaar zijn voor een bepaalde periode de "bewaarperiode' genoemd en is afhankelijk van de servicelaag die u kiest. SQL Database biedt u de mogelijkheid om te herstellen naar een bepaald tijdstip binnen deze bewaarperiode periode met [punt in tijd herstel (PITR)](sql-database-recovery-using-backups.md#point-in-time-restore).
 
-|Prestatielaag|Bewaarperiode in dagen|
+|Servicelaag|Bewaarperiode in dagen|
 |---|:---:|
 |Basic|7|
 |Standard|35|
@@ -202,7 +202,7 @@ U kunt gebruikmaken van de intelligente inzichten van het platform voor het bewa
 
    ![Bewaking van grafiek2](./media/sql-database-manage-after-migration/chart.png)
 
-U kunt ook waarschuwingen door middel van deze grafiek configureren. Deze waarschuwingen kunnen u reageren op de voorwaarden van de resource met een e-mailadres, het schrijven naar een HTTPS/HTTP-eindpunt of een actie uitvoert. Zie de [databaseprestaties bewaken in SQL-Database](sql-database-single-database-monitor.md) voor gedetailleerde instructies.
+U kunt ook waarschuwingen door middel van deze grafiek configureren. Deze waarschuwingen kunnen u reageren op de voorwaarden van de resource met een e-mailadres, het schrijven naar een HTTPS/HTTP-eindpunt of een actie uitvoert. Zie voor meer informatie, [waarschuwingen maken](sql-database-insights-alerts-portal.md).
 
 - **Dynamische beheerweergaven**: U kunt een query de [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamische Beheerweergave om terug te keren resource verbruik statistieken geschiedenis van het afgelopen uur en de [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system catalogusweergave om terug te keren geschiedenis voor de afgelopen 14 dagen.
 - **Query Performance Insight**: [Query Performance Insight](sql-database-query-performance.md) kunt u een historisch overzicht bekijken van de top-resource-intensieve query's en langlopende query's voor een specifieke database. TOP-query's door gebruik van resources, de duur en de frequentie van de uitvoering, kunt u snel identificeren. U kunt query's bijhouden en regressie detecteren. Deze functie moet [Query Store](/sql/relational-databases/performance/monitoring-performance-by-using-the-query-store) zijn ingeschakeld en actief voor de database.
@@ -218,21 +218,21 @@ De aanpak van het oplossen van problemen met de prestaties aanzienlijk kan profi
 
 Bij het oplossen van prestaties is het belangrijk om te bepalen of het is gewoon de toepassing of het maken van back-database die wordt die invloed hebben op prestaties van uw toepassing. Vaak is het prestatieprobleem ligt in de toepassingslaag. De architectuur of de data access-patroon kan het zijn. Neem bijvoorbeeld dat een intensieve toepassing die is gevoelig voor netwerklatentie. In dit geval uw toepassing heeft omdat er veel korte aanvragen heen en weer ("intensieve') tussen de toepassing en de server en in een overbelaste netwerk, dat deze interactie snel toevoegen. In dit geval de prestaties verbeteren, kunt u [Batchquery's](sql-database-performance-guidance.md#batch-queries). Met behulp van batches kunt u dankzij omdat nu uw aanvragen in een batch verwerkt; dus, helpt u bij het beperken van de retour-latentie en verbeteren de toepassingsprestaties van uw. 
 
-Bovendien, als u merkt dat een verslechtering van de in de algehele prestaties van uw database, kunt u bewaken de [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) en [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamic management views om informatie over verbruik voor CPU, IO en geheugen. De prestaties van uw wordt mogelijk beïnvloed omdat de database wordt pas over van resources. Kan het zijn dat u wilt wijzigen van het prestatieniveau en/of servicelaag op basis van de groeiende en werklastvraag verkleinen. 
+Bovendien, als u merkt dat een verslechtering van de in de algehele prestaties van uw database, kunt u bewaken de [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) en [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) dynamic management views om informatie over verbruik voor CPU, IO en geheugen. De prestaties van uw wordt mogelijk beïnvloed omdat de database wordt pas over van resources. Kan het zijn dat wellicht moet u de compute-grootte wijzigen en/of servicelaag op basis van de groeiende en werklastvraag verkleinen. 
 
 Zie voor een uitgebreide set met aanbevelingen voor het afstemmen van prestaties,: [afstemmen van uw database](sql-database-performance-guidance.md#tune-your-database).
 
-### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-performance-level"></a>Hoe voorkom ik dat ik de servicelaag en het prestatieniveau niveau van de betreffende service gebruik?
-SQL Database biedt verschillende Servicelagen Basic, Standard en Premium. Elke servicelaag krijgt u een gegarandeerde voorspelbare prestaties die zijn gekoppeld aan dit serviceniveau. Afhankelijk van uw werkbelasting wellicht u pieken van activiteit waar uw gebruik van resources mogelijk bereikt van het maximum van het huidige prestatieniveau die u in. In dergelijke gevallen is het nuttig om eerst door het evalueren van of alle afstemmen kunt (bijvoorbeeld toe te voegen of te wijzigen van een index enz.). Als u nog steeds problemen beperken, kunt u overwegen om naar een hoger prestatieniveau of serviceniveau. 
+### <a name="how-do-i-ensure-i-am-using-the-appropriate-service-tier-and-compute-size"></a>Hoe voorkom ik dat ik ben met behulp van de juiste service-laag en grootte berekenen?
+SQL Database biedt verschillende Servicelagen Basic, Standard en Premium. Elke servicelaag krijgt u een gegarandeerde voorspelbare prestaties die zijn gekoppeld aan dat serviceniveau. Afhankelijk van uw werkbelasting wellicht u pieken van activiteit waar uw gebruik van resources mogelijk bereikt van het maximum van de huidige compute-grootte die u in. In dergelijke gevallen is het nuttig om eerst door het evalueren van of alle afstemmen kunt (bijvoorbeeld toe te voegen of te wijzigen van een index enz.). Als u nog steeds problemen beperken, kunt u overwegen om naar een hogere servicelaag of compute-grootte. 
 
-|**Serviceniveau**|**Veelvoorkomende Use-Casescenario 's**|
+|**Servicelaag**|**Veelvoorkomende Use-Casescenario 's**|
 |---|---|
 |**Basic**|Toepassingen met een paar gebruikers en een database waarvoor geen hoge eisen voor gelijktijdigheid, schaal en prestaties. |
 |**Standard**|Toepassingen met een aanzienlijke hoeveelheid vereisten voor gelijktijdigheid, schaal en prestaties in combinatie met een lage tot gemiddelde i/o-aanvragen. |
 |**Premium**|Toepassingen met een groot aantal gelijktijdige gebruikers, hoge CPU/geheugen en hoge i/o-vereist. Hoge gelijktijdigheid, hoge doorvoer en latentie gevoelige apps kunnen gebruikmaken van de Premium-niveau. |
 |||
 
-Om te controleren of dat u op het juiste prestatieniveau bent, kunt u het gebruik van de resources query's en -database via een van de bovengenoemde manieren 'Hoe controleer ik het gebruik van de prestaties en resource in SQL-Database' controleren. U vindt dat uw query's / databases consistent worden uitgevoerd op CPU/geheugen enz. u kunt omhoog schalen naar een hoger prestatieniveau ' hot '. Op dezelfde manier als u Houd er rekening mee dat, zelfs tijdens de piekuren die hebt u gebruikt u de resources zo veel mogelijk; Houd rekening met van het huidige prestatieniveau omlaag te schalen. 
+Om te controleren of dat u bent op de juiste compute-grootte, kunt u het gebruik van de resources query's en -database via een van de bovengenoemde manieren 'Hoe controleer ik het gebruik van de prestaties en resource in SQL-Database' controleren. U vindt dat uw query's / databases consistent worden uitgevoerd op CPU/geheugen enz. u kunt omhoog schalen naar een hogere compute-grootte ' hot '. Op dezelfde manier als u Houd er rekening mee dat, zelfs tijdens de piekuren die hebt u gebruikt u de resources zo veel mogelijk; Houd rekening met van de huidige grootte van de compute omlaag te schalen. 
 
 Als u een patroon van SaaS-app of een database consolidatie scenario hebt, kunt u overwegen een elastische pool om kosten te optimaliseren. Elastische pool is een uitstekende manier om de consolidatie van de database en kosten optimaliseren te realiseren. Meer informatie over het beheren van meerdere databases met behulp van de elastische Pool, Zie: [pools en databases beheren](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases). 
 

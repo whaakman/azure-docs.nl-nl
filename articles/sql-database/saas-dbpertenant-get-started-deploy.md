@@ -10,12 +10,12 @@ ms.custom: scale out apps
 ms.topic: conceptual
 ms.date: 04/01/2018
 ms.author: genemi
-ms.openlocfilehash: cc3e870d67f3c38fe4173275b6fd210d0c4ee05a
-ms.sourcegitcommit: 1d850f6cae47261eacdb7604a9f17edc6626ae4b
+ms.openlocfilehash: 87560f3fb34c281b6802ef5079fd1445caba6db8
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "39423540"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983628"
 ---
 # <a name="deploy-and-explore-a-multitenant-saas-app-that-uses-the-database-per-tenant-pattern-with-sql-database"></a>Implementeren en een multitenant SaaS-app die gebruikmaakt van het patroon van de database-per-tenant met SQL Database verkennen
 
@@ -83,7 +83,7 @@ Terwijl de toepassing is geïmplementeerd, moet u de bron-code en scripts downlo
 > Uitvoerbare inhoud (scripts en DLL's) mogelijk geblokkeerd door Windows als ZIP-bestanden worden gedownload vanuit een externe bron en uitgepakt. Volg de stappen voor het deblokkeren van het ZIP-bestand voordat u de scripts hebt uitgepakt. Opheffen van de blokkering wordt in dat de scripts mogen worden uitgevoerd.
 
 1. Blader naar de [WingtipTicketsSaaS DbPerTenant GitHub-opslagplaats][github-wingtip-dpt].
-1. Selecteer **klonen of downloaden**.
+1. Selecteer **Klonen of downloaden**.
 1. Selecteer **ZIP downloaden**, en sla het bestand.
 1. Met de rechtermuisknop op de **WingtipTicketsSaaS-DbPerTenant-master.zip** bestand en selecteer vervolgens **eigenschappen**.
 1. Op de **algemene** tabblad **opheffen van blokkeringen** > **toepassen**.
@@ -242,7 +242,7 @@ Blader naar de server **tenants1-dpt -&lt;gebruiker&gt;**, en selecteer **Pool1*
 - De eerste grafiek met het label **Resourcegebruik**, toont pool-eDTU-gebruik.
 - Het tweede diagram toont de eDTU-gebruik van de vijf meest actieve databases in de groep.
 
-De twee grafieken ziet u dat elastische pools en SQL-Database goed geschikt voor werkbelastingen van onvoorspelbare SaaS-toepassingen zijn. De grafieken weergegeven dat vier databases worden elke bursting tot maar liefst 40 edtu's en nog comfortabel alle databases worden ondersteund door een pool van 50 eDTU. De 50 eDTU-groep kan zelfs zwaardere werkbelastingen te ondersteunen. Als de databases worden ingericht als zelfstandige databases, moet elk criterium een S2 (50 DTU) voor de ondersteuning van de pieken. De kosten van vier zelfstandige S2-databases zijn bijna drie keer de prijs van de groep. In praktijksituaties Voer SQL-Database-klanten maximaal 500 databases in pools van 200 eDTU. Zie voor meer informatie de [zelfstudie over prestatiebewaking](saas-dbpertenant-performance-monitoring.md).
+De twee grafieken ziet u dat elastische pools en SQL-Database goed geschikt voor werkbelastingen van onvoorspelbare SaaS-toepassingen zijn. De grafieken weergegeven dat vier databases worden elke bursting tot maar liefst 40 edtu's en nog comfortabel alle databases worden ondersteund door een pool van 50 eDTU. De 50 eDTU-groep kan zelfs zwaardere werkbelastingen te ondersteunen. Als de databases worden ingericht als individuele databases, moet elk criterium een S2 (50 DTU) voor de ondersteuning van de pieken. De kosten van vier zelfstandige S2-databases zijn bijna drie keer de prijs van de groep. In praktijksituaties Voer SQL-Database-klanten maximaal 500 databases in pools van 200 eDTU. Zie voor meer informatie de [zelfstudie over prestatiebewaking](saas-dbpertenant-performance-monitoring.md).
 
 ## <a name="additional-resources"></a>Aanvullende resources
 

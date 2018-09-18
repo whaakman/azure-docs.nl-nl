@@ -11,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/17/2018
 git ms.author: sethm
 ms.reviewer: misainat
-ms.openlocfilehash: ad596e2f63d3ef5fb82fe52699fef3a79e835274
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 7770f4c45d974e8ce5750dbd3aee0d8393281151
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634809"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984438"
 ---
 # <a name="azure-stack-development-kit-release-notes"></a>Releaseopmerkingen voor Azure Stack Development Kit  
 In dit artikel bevat informatie over verbeteringen, correcties en bekende problemen in Azure Stack Development Kit. Als u niet zeker weet welke versie u uitvoert, kunt u [de portal gebruiken om te controleren](.\.\azure-stack-updates.md#determine-the-current-version).
@@ -46,6 +46,8 @@ Deze versie bevat de volgende verbeteringen en oplossingen voor Azure Stack.
 - <!-- | IS ASDK--> **Marketplace-item voor Kubernetes**. U kunt nu met behulp van Kubernetes-clusters implementeren de [Kubernetes Marketplace-item](/azure/azure-stack/azure-stack-solution-template-kubernetes-cluster-add). Gebruikers kunnen selecteert u het Kubernetes-item en vul een aantal parameters voor het implementeren van een Kubernetes-cluster in Azure Stack. Het doel van de sjablonen is het eenvoudig te voor gebruikers voor setup dev/test Kubernetes-implementaties in een paar stappen.
 
 - <!-- | IS ASDK--> **Blockchain sjablonen**. U kunt nu uitvoeren [Ethereum consortium implementaties](/azure/azure-stack/azure-stack-ethereum) in Azure Stack. Vindt u drie nieuwe sjablonen in de [Azure Stack Quick Start-sjablonen](https://github.com/Azure/AzureStack-QuickStart-Templates). Hiermee kunt de gebruiker om te implementeren en configureren van een consortium voor meerdere leden Ethereum-netwerk met minimale kennis van Azure en Ethereum. Het doel van de sjablonen is het eenvoudig te voor gebruikers voor setup dev/test Blockchain-implementaties in een paar stappen.
+
+- <!-- | IS ASDK--> **De API-versie profiel 2017-03-09-profiel is bijgewerkt naar 2018-03-01-hybride**. API-profielen opgeven voor de Azure-resource-provider en de API-versie voor Azure REST-eindpunten. Zie voor meer informatie over profielen [beheren API-versieprofielen in Azure Stack](/azure/azure-stack/user/azure-stack-version-profiles).
 
 
 ### <a name="fixed-issues"></a>Problemen opgelost

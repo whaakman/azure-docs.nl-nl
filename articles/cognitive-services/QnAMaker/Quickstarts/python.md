@@ -1,20 +1,21 @@
 ---
-title: Python-Quickstart voor Microsoft QnA Maker-API (V4) - Azure Cognitive Services | Microsoft Docs
+title: 'Snelstartgids: Python voor QnA Maker-API (V4)'
+titleSuffix: Azure Cognitive Services
 description: Get-informatie en codevoorbeelden om u te helpen snel aan de slag met behulp van de Microsoft Translator Text-API in Microsoft Cognitive Services op Azure.
 services: cognitive-services
-documentationcenter: ''
-author: v-jaswel
+author: diberry
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: qna-maker
 ms.topic: article
-ms.date: 05/07/2018
-ms.author: v-jaswel
-ms.openlocfilehash: c0d02a0f586857f6dd303fc98407da71b2addb9b
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.date: 09/12/2018
+ms.author: diberry
+ms.openlocfilehash: 6e87268d5b26642f2ea6eedbfef096c3792bb715
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37869116"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734845"
 ---
 # <a name="quickstart-for-microsoft-qna-maker-api-with-python"></a>Snelstartgids voor Microsoft QnA Maker-API met Python 
 <a name="HOLTop"></a>
@@ -40,18 +41,18 @@ In dit artikel leest u hoe u de [QnA Maker-API van Microsoft](../Overview/overvi
 
 U moet [Python 3.x](https://www.python.org/downloads/) deze code uit te voeren.
 
-Hebt u een [Cognitive Services-API-account](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **QnA Maker-API van Microsoft**. U moet een betaald abonnement-sleutel van uw [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
+U moet beschikken over een [account voor Cognitive Services-API](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) met **Microsoft QnA Maker-API**. U hebt een betaalde abonnementssleutel nodig op het [Azure-dashboard](https://portal.azure.com/#create/Microsoft.CognitiveServices).
 
 <a name="Create"></a>
 
-## <a name="create-knowledge-base"></a>Kennisdatabase maken
+## <a name="create-knowledge-base"></a>Een Knowledge Base maken
 
-De volgende code maakt een nieuwe knowledge base, met behulp van de [maken](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff) methode.
+Met de volgende code wordt een nieuwe knowledge base gemaakt met behulp van de methode [Create](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff).
 
-1. Maak een nieuwe Python-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Python-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -146,7 +147,7 @@ while False == done:
 
 **Antwoord kennisdatabase maken**
 
-Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -181,12 +182,12 @@ Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in he
 
 ## <a name="update-knowledge-base"></a>Kennisdatabase bijwerken
 
-De volgende code werkt een bestaande knowledge base, met behulp van de [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600) methode.
+Met de volgende code wordt een bestaande knowledge base bijgewerkt met behulp van de methode [Update](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da7600).
 
-1. Maak een nieuwe Python-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Python-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -286,7 +287,7 @@ while False == done:
 
 **Antwoord kennisdatabase bijwerken**
 
-Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -312,9 +313,9 @@ Press any key to continue.
 
 <a name="Status"></a>
 
-## <a name="get-request-status"></a>Aanvraagstatus van ophalen
+## <a name="get-request-status"></a>De aanvraagstatus ophalen
 
-U kunt aanroepen de [bewerking](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) methode om te controleren of de status van een aanvraag maken of bijwerken van een kennisdatabase. Als u wilt zien hoe deze methode wordt gebruikt, raadpleegt u de voorbeeldcode voor het [maken](#Create) of [Update](#Update) methode.
+U kunt de methode [Operation](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/operations_getoperationdetails) aanroepen om de status van een aanvraag voor het maken of bijwerken van een kennisdatabase te controleren. Bekijk de voorbeeldcode voor de methode [Create](#Create) of [Update](#Update) om te zien hoe deze methode wordt gebruikt.
 
 [Terug naar boven](#HOLTop)
 
@@ -322,12 +323,12 @@ U kunt aanroepen de [bewerking](https://westus.dev.cognitive.microsoft.com/docs/
 
 ## <a name="publish-knowledge-base"></a>Kennisdatabase publiceren
 
-De volgende code wordt gepubliceerd voor een bestaande knowledge base, met behulp van de [publiceren](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe) methode.
+Met de volgende code wordt een bestaande knowledge base gepubliceerd met behulp van de methode [Publish](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fe).
 
-1. Maak een nieuwe Python-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Python-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -375,7 +376,7 @@ print (pretty_print(result))
 
 **Antwoord kennisdatabase publiceren**
 
-Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -391,10 +392,10 @@ Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in he
 
 De volgende code wordt vervangen door de inhoud van de opgegeven knowledge base, met behulp van de [vervangen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_publish) methode.
 
-1. Maak een nieuwe Python-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Python-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -463,7 +464,7 @@ print (pretty_print(result))
 
 **Knowledge base-antwoord vervangen**
 
-Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -479,10 +480,10 @@ Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in he
 
 De volgende code wordt gedownload van de inhoud van de opgegeven knowledge base, met behulp van de [downloaden kennisdatabase](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_download) methode.
 
-1. Maak een nieuwe Python-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Python-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -527,7 +528,7 @@ print (pretty_print(result))
 
 **Downloaden van knowledge base-antwoord**
 
-Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -568,12 +569,12 @@ Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in he
 
 De volgende code verkrijgt u antwoorden op een vraag met behulp van de opgegeven knowledge base, met behulp van de **antwoorden genereren** methode.
 
-1. Maak een nieuwe Python-project in uw favoriete IDE.
-1. Voeg de code hieronder.
+1. Maak een nieuw Python-project in uw favoriete IDE.
+1. Voeg de onderstaande code toe.
 1. Vervang de `host` waarde met de naam van de Website voor uw abonnement QnA Maker. Zie voor meer informatie [een QnA Maker-service maken](../How-To/set-up-qnamaker-service-azure.md).
 1. Vervang de `endpoint_key` waarde met een sleutel geldig eindpunt voor uw abonnement. Let op: dit is niet hetzelfde als de abonnementssleutel van uw. Krijgt u uw eindpunt-sleutels met behulp van de [endpoint-sleutels ophalen](#GetKeys) methode.
 1. Vervang de `kb` waarde met de ID van de knowledge base die u wilt zoeken naar antwoorden. Houd er rekening mee deze kennisdatabase moet al zijn gepubliceerd met behulp van de [publiceren](#Publish) methode.
-1. Voer het programma.
+1. Voer het programma uit.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -628,7 +629,7 @@ print (pretty_print(result))
 
 **Antwoorden antwoord ophalen**
 
-Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -656,10 +657,10 @@ Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in he
 
 De volgende code haalt informatie over de opgegeven knowledge base, met behulp van de [kennisdatabase informatie](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasedetails) methode.
 
-1. Maak een nieuwe Python-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Python-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -701,7 +702,7 @@ print (pretty_print(result))
 
 **Kennisdatabase details antwoord ophalen**
 
-Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -729,10 +730,10 @@ Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in he
 
 De volgende code haalt informatie over alle knowledge bases voor een opgegeven gebruiker, met behulp van de [knowledge bases voor gebruiker ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_getknowledgebasesforuser) methode.
 
-1. Maak een nieuwe Python-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Python-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -771,7 +772,7 @@ print (pretty_print(result))
 
 **Knowledge bases reactie van gebruiker ophalen**
 
-Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -815,10 +816,10 @@ Press any key to continue.
 
 De volgende code verwijdert de opgegeven knowledge base, met behulp van de [verwijderen kennisdatabase](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/knowledgebases_delete) methode.
 
-1. Maak een nieuwe Python-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Python-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -866,7 +867,7 @@ print (pretty_print(result))
 
 **Knowledge base-antwoord verwijderen**
 
-Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -882,10 +883,10 @@ Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in he
 
 De volgende code verkrijgt de huidige sleutels van het eindpunt met behulp van de [endpoint-sleutels ophalen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_getendpointkeys) methode.
 
-1. Maak een nieuwe Python-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Python-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -924,7 +925,7 @@ print (pretty_print(result))
 
 **Eindpunt sleutels antwoord ophalen**
 
-Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -941,10 +942,10 @@ Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in he
 
 De volgende code worden opnieuw gegenereerd door de huidige sleutels van het eindpunt met behulp van de [eindpunt sleutels vernieuwen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/endpointkeys_refreshendpointkeys) methode.
 
-1. Maak een nieuwe Python-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Python-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -992,7 +993,7 @@ print (pretty_print(result))
 
 **Eindpunt sleutels antwoord vernieuwen**
 
-Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -1009,10 +1010,10 @@ Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in he
 
 De volgende code verkrijgt de huidige wijzigingen van word, met behulp van de [downloaden wijzigingen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fc) methode.
 
-1. Maak een nieuwe Python-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Python-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -1051,7 +1052,7 @@ print (pretty_print(result))
 
 **Word wijzigingen antwoord ophalen**
 
-Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -1074,10 +1075,10 @@ Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in he
 
 De volgende code wordt vervangen door de huidige wijzigingen van word, met behulp van de [vervangen wijzigingen](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75fd) methode.
 
-1. Maak een nieuwe Python-project in uw favoriete IDE.
-2. Voeg de code hieronder.
-3. Vervang de `key` waarde met een geldige toegangssleutel voor uw abonnement.
-4. Voer het programma.
+1. Maak een nieuw Python-project in uw favoriete IDE.
+2. Voeg de onderstaande code toe.
+3. Vervang de waarde `key` door een geldige toegangssleutel voor uw abonnement.
+4. Voer het programma uit.
 
 ```python
 # -*- coding: utf-8 -*-
@@ -1135,7 +1136,7 @@ print (pretty_print(result))
 
 **Word wijzigingen antwoord vervangen**
 
-Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in het volgende voorbeeld: 
+Een geslaagd antwoord wordt geretourneerd in de JSON-indeling, zoals u kunt zien in het volgende voorbeeld: 
 
 ```json
 {
@@ -1148,8 +1149,8 @@ Een geslaagde respons wordt geretourneerd in JSON, zoals wordt weergegeven in he
 ## <a name="next-steps"></a>Volgende stappen
 
 > [!div class="nextstepaction"]
-> [Naslaginformatie over REST-API voor QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
+> [Naslaginformatie over REST API voor QnA Maker (V4)](https://westus.dev.cognitive.microsoft.com/docs/services/5a93fcf85b4ccd136866eb37/operations/5ac266295b4ccd1554da75ff)
 
 ## <a name="see-also"></a>Zie ook 
 
-[QnA Maker-overzicht](../Overview/overview.md)
+[Overzicht van QnA Maker](../Overview/overview.md)

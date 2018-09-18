@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1b4d97c1e8c4360028cb249b7e1a61f9fc26e9f2
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 609dc8aa1305833fb3677de6fbe95cf490237a4a
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300525"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45731118"
 ---
 ## <a name="configuring-homepage"></a>Startpagina configureren
 
@@ -27,7 +27,7 @@ Selecteren **bewerken**, de bibliotheek voor het dashboard wordt geopend in een 
 
 ![Bibliotheek voor het dashboard](media\howto-configure-homepage\image2.png)
 
-Bijvoorbeeld, u kunt toevoegen een **instellingen en eigenschappen** tegel om een selectie van de huidige waarden van instellingen en eigenschappen weer te geven. Om dit te doen, selecteert u eerst een **apparaat sjabloon** Selecteer vervolgens een **apparaatexemplaar**. Nadat u dat de tegel geeft een titel en selecteer een **instelling** of een **eigenschap** om weer te geven. In dit geval is geselecteerd **ventilatorsnelheid**. Te klikken op **gedaan** zorgt ervoor dat deze tegel worden weergegeven op de startpagina.
+Bijvoorbeeld, u kunt toevoegen een **instellingen en eigenschappen** tegel om een selectie van de huidige waarden van instellingen en eigenschappen weer te geven. Om dit te doen, selecteert u eerst een **apparaat sjabloon** Selecteer vervolgens een **apparaatexemplaar**. Nadat u dat de tegel geeft een titel en selecteer een **instelling** of een **eigenschap** om weer te geven. In dit geval is geselecteerd **ingesteld temperatuur**. Te klikken op **gedaan** zorgt ervoor dat deze tegel worden weergegeven op de startpagina.
 
 !['Apparaatdetails configureren' formulier met details voor instellingen en eigenschappen](media\howto-configure-homepage\image3.png)
 

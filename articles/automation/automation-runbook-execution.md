@@ -9,12 +9,12 @@ ms.author: gwallace
 ms.date: 05/08/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: eb6516400d362fe60adc05590353ec003c70e059
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 6e449c1216fabf64da2b2abb59a7066fa30e332d
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42055056"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45982974"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Uitvoeren van Runbook in Azure Automation
 
@@ -59,7 +59,7 @@ U kunt een samengevatte status van alle runbooktaken weergeven of Zoom in op det
 
 Aan de rechterkant van het geselecteerde Automation-account, ziet u een overzicht van alle van de runbooktaken voor een geselecteerde Automation-account onder **taakstatistieken** tegel.
 
-![Taakstatistieken tegel](./media/automation-runbook-execution/automation-account-job-status-summary.png).
+![Taakstatistieken tegel](./media/automation-runbook-execution/automation-account-job-status-summary.png)
 
 Deze tegel toont een telling en grafische weergave van de taak de status voor alle taken die worden uitgevoerd.
 

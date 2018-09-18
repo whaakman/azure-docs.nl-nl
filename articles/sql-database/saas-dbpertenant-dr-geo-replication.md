@@ -10,18 +10,18 @@ ms.custom: saas apps
 ms.topic: conceptual
 ms.date: 04/09/2018
 ms.author: ayolubek
-ms.openlocfilehash: f2ad92118c00f08e5dcdd4a8a12f007308b3fbd1
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.openlocfilehash: 1af13857bdde06b70cb8d01db8d9668cc6ce99e6
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "34645790"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45983964"
 ---
 # <a name="disaster-recovery-for-a-multi-tenant-saas-application-using-database-geo-replication"></a>Herstel na noodgevallen voor een multitenant SaaS-toepassing met behulp van de database geo-replicatie
 
 In deze zelfstudie maakt kennis u met een volledige noodherstelscenario voor een multitenant SaaS-toepassing geïmplementeerd met behulp van de database-per-tenant-model. Ter bescherming van de app na een storing, gebruikt u [ _geo-replicatie_ ](https://docs.microsoft.com/azure/sql-database/sql-database-geo-replication-overview) te maken van replica's voor de catalogus en tenant-databases in een andere regio. Als er een storing optreedt, schakelt snel u over naar deze replica's naar het normale zakelijke activiteiten te hervatten. Bij failover worden de databases in de oorspronkelijke regio secundaire replica's van de databases in de herstelregio voor. Zodra deze replica's weer online komt achterstand ze automatisch naar de status van de databases in de herstelregio voor. Nadat de onderbreking opgelost is, schakelt u terug naar de databases in de oorspronkelijke productieregio.
 
-Deze zelfstudie worden de failover en failback-werkstromen. U leert hoe u:
+Deze zelfstudie worden de failover en failback-werkstromen. U leert het volgende:
 > [!div classs="checklist"]
 
 >* Databases en elastische groep configuratie-informatie in de tenantcatalogus synchroniseren
@@ -51,7 +51,7 @@ Een DR-plan op basis van geo-replicatie bestaat uit drie onderdelen:
 Alle onderdelen moeten worden afgewogen, met name als besturingssysteem op schaal. Het plan moet over het algemeen verschillende doelstellingen te bereiken:
 
 * Instellen
-    * Tot stand brengen en onderhouden van een mirror-image-omgeving in de herstelregio voor. Het maken van de elastische pools en repliceren van zelfstandige databases in deze omgeving recovery capaciteit in de herstelregio gereserveerd. Onderhoud van deze omgeving omvat het repliceren van de nieuwe tenant-databases zoals deze zijn ingericht.  
+    * Tot stand brengen en onderhouden van een mirror-image-omgeving in de herstelregio voor. Het maken van de elastische pools en repliceren van een individuele databases in deze omgeving recovery capaciteit in de herstelregio gereserveerd. Onderhoud van deze omgeving omvat het repliceren van de nieuwe tenant-databases zoals deze zijn ingericht.  
 * Herstel
     * Wanneer een gereduceerde Herstelomgeving wordt gebruikt om dagelijkse kosten te minimaliseren, moeten pools en individuele databases worden opgeschaald naar volledige operationele capaciteit in de herstelregio verkrijgen
     * Nieuwe tenants worden ingericht in de herstelregio zo snel mogelijk inschakelen  
@@ -158,7 +158,7 @@ Het herstelscript worden de volgende taken uitgevoerd:
 
 1. Markeert alle bestaande tenants in de catalogus herstellen als offline als u wilt toegang tot de tenant-databases voorkomen voordat ze failover is uitgevoerd.
 
-1. Werkt u de configuratie van alle elastische pools en gerepliceerde zelfstandige databases in de herstelregio voor het spiegelen van de configuratie in de oorspronkelijke regio. (Deze taak is alleen nodig als groepen of gerepliceerde databases in de omgeving voor herstel zijn verkleind tijdens normale bewerkingen om kosten te verlagen).
+1. Werkt u de configuratie van alle elastische pools en gerepliceerde individuele databases in de herstelregio voor het spiegelen van de configuratie in de oorspronkelijke regio. (Deze taak is alleen nodig als groepen of gerepliceerde databases in de omgeving voor herstel zijn verkleind tijdens normale bewerkingen om kosten te verlagen).
 
 1. Hiermee kunt het Traffic Manager-eindpunt voor de web-app in de herstelregio voor. Dit eindpunt inschakelt, kan de toepassing voor het inrichten van nieuwe tenants. Bestaande tenants worden in deze fase nog steeds offline.
 
@@ -185,7 +185,7 @@ Nu is er een storing in de regio waarin de toepassing is geïmplementeerd en voe
     * De herstelregio is de _gekoppelde regio_ die zijn gekoppeld aan de Azure-regio waarin u de toepassing is geïmplementeerd. Zie voor meer informatie, [gekoppelde Azure-regio's](https://docs.microsoft.com/azure/best-practices-availability-paired-regions). 
 
 3. Controleer de status van het herstelproces in het PowerShell-venster.
-    ![failover-proces](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
+    ![Failover-proces](media/saas-dbpertenant-dr-geo-replication/failover-process.png)
 
 > [!Note]
 > Als u wilt verkennen de code voor de recovery-taken, de PowerShell-scripts in de map van de ...\Learning Modules\Business bedrijfscontinuïteit en noodherstel Recovery\DR-FailoverToReplica\RecoveryJobs bekijken

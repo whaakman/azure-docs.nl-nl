@@ -1,0 +1,91 @@
+items:
+- name: Documentatie over basisprincipes
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: What is Azure Active Directory? (Engelstalig)
+    href: active-directory-whatis.md
+  - name: Wat is er nieuw in Azure Active Directory?
+    href: whats-new.md
+  expanded: true
+- name: Snelstartgidsen
+  items:
+  - name: De portal openen en een tenant maken
+    href: active-directory-access-create-new-tenant.md
+  - name: Uw groepen met toegewezen leden bekijken
+    href: active-directory-groups-view-azure-portal.md
+- name: Concepten
+  items:
+  - name: Azure-identiteitsbeheer
+    href: identity-fundamentals.md
+  - name: Groepen en toegangsbeheer
+    href: active-directory-manage-groups.md
+  - name: Groepslicenties
+    href: active-directory-licensing-whatis-azure-portal.md
+  - name: Azure AD-architectuur
+    href: active-directory-architecture.md
+  - name: Standaardmachtigingen voor gebruikers
+    href: users-default-permissions.md
+  - name: Opslag van identiteitsgegevens voor de EU
+    href: active-directory-data-storage-eu.md
+- name: Handleidingen
+  items:
+  - name: Organisatie
+    items:
+    - name: Meld u aan voor Azure AD Premium
+      href: active-directory-get-started-premium.md
+    - name: Meld u als organisatie aan voor Azure AD
+      href: sign-up-organization.md
+    - name: Een aangepaste domeinnaam toevoegen
+      href: add-custom-domain.md
+    - name: Huisstijl van bedrijf toevoegen
+      href: customize-branding.md
+    - name: Een Azure-abonnement koppelen
+      href: active-directory-how-subscriptions-associated-directory.md
+  - name: Groepen
+    items:
+    - name: Een groep maken en leden toevoegen
+      href: active-directory-groups-create-azure-portal.md
+    - name: Groepsleden toevoegen of verwijderen
+      href: active-directory-groups-members-azure-portal.md
+    - name: Een groep en de leden ervan verwijderen
+      href: active-directory-groups-delete-group.md
+    - name: Een groep toevoegen aan of verwijderen uit een andere groep
+      href: active-directory-groups-membership-azure-portal.md
+    - name: Groepsinformatie bewerken
+      href: active-directory-groups-settings-azure-portal.md
+    - name: Groepseigenaren toevoegen of verwijderen
+      href: active-directory-accessmanagement-managing-group-owners.md
+  - name: Gebruikers
+    items:
+    - name: Een nieuwe gebruiker toevoegen of verwijderen
+      href: add-users-azure-active-directory.md
+    - name: Gegevens van gebruikersprofiel toevoegen of wijzigen
+      href: active-directory-users-profile-azure-portal.md
+    - name: Het wachtwoord van een gebruiker opnieuw instellen
+      href: active-directory-users-reset-password-azure-portal.md
+    - name: Rollen toewijzen aan gebruikers
+      href: active-directory-users-assign-role-azure-portal.md
+    - name: Licenties van gebruikers toewijzen of verwijderen
+      href: license-users-groups.md
+    - name: Een verwijderde gebruiker herstellen
+      href: active-directory-users-restore.md
+  expanded: true
+- name: Resources
+  items:
+  - name: Ondersteuning vragen voor Azure Active Directory
+    href: active-directory-troubleshooting-support-howto.md
+  - name: Veelgestelde vragen over Azure Active Directory
+    href: active-directory-faq.md
+  - name: Azure Active Directory-implementatieplannen
+    href: active-directory-deployment-plans.md
+  - name: Uw Azure AD-directory beheren
+    href: active-directory-administer.md
+  - name: Azure-identiteitsoplossingen
+    href: understand-azure-identity-solutions.md
+ms.openlocfilehash: 70f51f82b34423cdde57109f384dcae851dc0d50
+ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/15/2018
+ms.locfileid: "45636288"

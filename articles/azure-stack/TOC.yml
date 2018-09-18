@@ -28,6 +28,8 @@ items:
     href: azure-stack-tutorial-sql-server.md
   - name: Aanbieding Web Apps
     href: azure-stack-tutorial-app-service.md
+  - name: Ethereum implementeren
+    href: azure-stack-ethereum.md
 - name: Concepten
   items:
   - name: Datacenter-integratie
@@ -99,18 +101,28 @@ items:
     href: azure-stack-manage-basics.md
 - name: Handleidingen
   items:
-  - name: Verzamelen van telemetrie configureren
-    href: azure-stack-telemetry.md
-  - name: Azure Stack registreren
-    href: azure-stack-registration.md
-  - name: Beheren
+  - name: Beheren van Azure Stack
     items:
+    - name: Verzamelen van telemetrie configureren
+      href: azure-stack-telemetry.md
+    - name: Azure Stack registreren
+      href: azure-stack-registration.md
     - name: Regiobeheer
       href: azure-stack-region-management.md
     - name: De beheerdersportal gebruiken
       href: azure-stack-manage-portals.md
     - name: Verbinding maken met Azure Stack
       href: azure-stack-connect-azure-stack.md
+    - name: Verbinding maken met Azure
+      items:
+      - name: Verbinding maken via VPN
+        href: azure-stack-connect-vpn.md
+      - name: Over VPN-gateway
+        href: azure-stack-vpn-gateway-about-vpn-gateways.md
+      - name: Instellingen voor VPN gateway
+        href: azure-stack-vpn-gateway-settings.md
+      - name: Verbinding maken via ExpressRoute
+        href: azure-stack-connect-expressroute.md
     - name: CLI inschakelen voor gebruikers
       href: azure-stack-cli-admin.md
     - name: Beheeromgeving instellen
@@ -149,6 +161,8 @@ items:
         href: azure-stack-manage-storage-physical-memory-capacity.md
       - name: Schaal eenheid knooppunten toevoegen
         href: azure-stack-add-scale-node.md
+      - name: Openbare IP-adressen toevoegen
+        href: azure-stack-add-ips.md
     - name: Hardware vervangen
       items:
       - name: Knooppunt-acties
@@ -159,25 +173,6 @@ items:
         href: azure-stack-replace-disk.md
       - name: Onderdeel vervangen
         href: azure-stack-replace-component.md
-    - name: Back-up van Azure Stack
-      href: azure-stack-backup-infrastructure-backup.md
-      items:
-      - name: Back-up inschakelen voor Azure Stack vanuit de beheerconsole
-        href: azure-stack-backup-enable-backup-console.md
-      - name: Back-up inschakelen voor Azure Stack met PowerShell
-        href: azure-stack-backup-enable-backup-powershell.md
-      - name: Back-up van Azure Stack
-        href: azure-stack-backup-back-up-azure-stack.md
-      - name: Back-up van bestanden en toepassingen in Azure Stack
-        href: ../backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
-      - name: Azure Stack-VM's repliceren naar Azure
-        href: ../site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
-      - name: Herstel na onherstelbare gegevensverlies
-        href: azure-stack-backup-recover-data.md
-      - name: Aanbevolen procedures voor back-up
-        href: azure-stack-backup-best-practices.md
-      - name: Back-verwijzing
-        href: azure-stack-backup-reference.md
   - name: Beveiliging, naleving en identiteit
     items:
     - name: Beveiligingsoverzicht
@@ -202,144 +197,150 @@ items:
       href: azure-stack-rotate-secrets.md
     - name: Bijwerken van antivirussoftware
       href: azure-stack-security-av.md
-  - name: Services aanbieden
+  - name: De Marketplace vullen
     items:
-    - name: Overzicht van het service-aanbod
-      href: azure-stack-offer-services-overview.md
-    - name: Plannen, aanbiedingen en quota maken
+    - name: Overzicht van Marketplace
+      href: azure-stack-marketplace.md
+    - name: Marketplace-items downloaden
+      href: azure-stack-download-azure-marketplace-item.md
+    - name: Azure Marketplace-items voor Azure Stack
+      href: azure-stack-marketplace-azure-items.md
+    - name: Een Marketplace-item maken en publiceren
+      href: azure-stack-create-and-publish-marketplace-item.md
+    - name: Gebruik het hulpprogramma voor marketplace publiceren
+      href: azure-stack-marketplace-publisher.md
+    - name: Ondersteunde gastbesturingssystemen voor Azure Stack
+      href: azure-stack-supported-os.md
+    - name: Een aangepaste VM-installatiekopie toevoegen
+      href: azure-stack-add-vm-image.md
+    - name: Bieden van een virtuele-machineschaalset
+      href: azure-stack-compute-add-scalesets.md
+    - name: Aanbieding virtuele Linux-machines
+      href: azure-stack-linux.md
+    - name: Een Red Hat virtuele machine toevoegen
+      href: azure-stack-redhat-create-upload-vhd.md
+    - name: Bieden van een Kubernetes-Cluster
+      href: azure-stack-solution-template-kubernetes-cluster-add.md
+  - name: Services aanbieden
+    href: azure-stack-offer-services-overview.md
+  - name: Overzicht van PaaS-services
+    href: azure-stack-tools-paas-services.md
+  - name: SQL als PaaS aanbieden
+    href: azure-stack-sql-resource-provider.md
+    items:
+    - name: De SQL Server-resourceprovider implementeren
+      href: azure-stack-sql-resource-provider-deploy.md
+    - name: Toevoegen van de SQL-servers die als host fungeert
+      href: azure-stack-sql-resource-provider-hosting-servers.md
+    - name: SQL-databases maken
+      href: azure-stack-sql-resource-provider-databases.md
+    - name: De resourceprovider van SQL Server bijwerken
+      href: azure-stack-sql-resource-provider-update.md
+    - name: De resourceprovider van SQL Server beheren
+      href: azure-stack-sql-resource-provider-maintain.md
+    - name: Verwijderen van de SQL Server-resourceprovider
+      href: azure-stack-sql-resource-provider-remove.md
+  - name: MySQL als PaaS aanbieden
+    href: azure-stack-mysql-resource-provider.md
+    items:
+    - name: De MySQL-Server-resourceprovider implementeren
+      href: azure-stack-mysql-resource-provider-deploy.md
+    - name: Toevoegen van de MySQL-servers die als host fungeert
+      href: azure-stack-mysql-resource-provider-hosting-servers.md
+    - name: MySQL-Databases maken
+      href: azure-stack-mysql-resource-provider-databases.md
+    - name: De resourceprovider van MySQL-Server bijwerken
+      href: azure-stack-mysql-resource-provider-update.md
+    - name: Resourceprovider van MySQL-Server onderhouden
+      href: azure-stack-mysql-resource-provider-maintain.md
+    - name: De resourceprovider van MySQL-Server verwijderen
+      href: azure-stack-mysql-resource-provider-remove.md
+  - name: App Service als PaaS aanbieden
+    href: azure-stack-app-service-overview.md
+    items:
+    - name: App Service-capaciteitsplanning
+      href: azure-stack-app-service-capacity-planning.md
+    - name: Voordat u aan de slag gaat
+      href: azure-stack-app-service-before-you-get-started.md
+    - name: Over het distribueren van Azure App Service in Azure Stack in domeinen met fouten
+      href: azure-stack-app-service-fault-domain-update.md
+    - name: App Service-resourceprovider implementeren
+      href: azure-stack-app-service-deploy.md
+    - name: App Service offline implementeren
+      href: azure-stack-app-service-deploy-offline.md
+    - name: App Service bijwerken
+      href: azure-stack-app-service-update.md
+    - name: App Service Offline bijwerken
+      href: azure-stack-app-service-update-offline.md
+    - name: Meer webwerkrollen toevoegen
+      href: azure-stack-app-service-add-worker-roles.md
+    - name: Implementatiebronnen configureren
+      href: azure-stack-app-service-configure-deployment-sources.md
+    - name: App Service op de opmerkingen bij de release van Azure Stack
       items:
-      - name: Overzicht van plannen, aanbiedingen, quota en abonnementen
-        href: azure-stack-plan-offer-quota-overview.md
-      - name: Een plan maken
-        href: azure-stack-create-plan.md
-      - name: Een invoegtoepassing maken
-        href: create-add-on-plan.md
-      - name: Een aanbieding maken
-        href: azure-stack-create-offer.md
-      - name: Abonneren op een aanbieding
-        href: azure-stack-subscribe-plan-provision-vm.md
-      - name: Aanbiedingen in Azure Stack delegeren
-        href: azure-stack-delegated-provider.md
-      - name: Quotatypen
-        href: azure-stack-quota-types.md
-    - name: Overzicht van PaaS-services
-      href: azure-stack-tools-paas-services.md
-    - name: SQL als PaaS aanbieden
-      href: azure-stack-sql-resource-provider.md
-      items:
-      - name: De SQL Server-resourceprovider implementeren
-        href: azure-stack-sql-resource-provider-deploy.md
-      - name: Toevoegen van de SQL-servers die als host fungeert
-        href: azure-stack-sql-resource-provider-hosting-servers.md
-      - name: SQL-databases maken
-        href: azure-stack-sql-resource-provider-databases.md
-      - name: De resourceprovider van SQL Server bijwerken
-        href: azure-stack-sql-resource-provider-update.md
-      - name: De resourceprovider van SQL Server beheren
-        href: azure-stack-sql-resource-provider-maintain.md
-      - name: Verwijderen van de SQL Server-resourceprovider
-        href: azure-stack-sql-resource-provider-remove.md
-    - name: MySQL als PaaS aanbieden
-      href: azure-stack-mysql-resource-provider.md
-      items:
-      - name: De MySQL-Server-resourceprovider implementeren
-        href: azure-stack-mysql-resource-provider-deploy.md
-      - name: Toevoegen van de MySQL-servers die als host fungeert
-        href: azure-stack-mysql-resource-provider-hosting-servers.md
-      - name: MySQL-Databases maken
-        href: azure-stack-mysql-resource-provider-databases.md
-      - name: De resourceprovider van MySQL-Server bijwerken
-        href: azure-stack-mysql-resource-provider-update.md
-      - name: Resourceprovider van MySQL-Server onderhouden
-        href: azure-stack-mysql-resource-provider-maintain.md
-      - name: De resourceprovider van MySQL-Server verwijderen
-        href: azure-stack-mysql-resource-provider-remove.md
-    - name: App Service als PaaS aanbieden
-      items:
-      - name: Overzicht App Service op Azure Stack
-        href: azure-stack-app-service-overview.md
-      - name: Capaciteitsplanning
-        href: azure-stack-app-service-capacity-planning.md
-      - name: Voordat u aan de slag gaat
-        href: azure-stack-app-service-before-you-get-started.md
-      - name: Over het distribueren van Azure App Service in Azure Stack in domeinen met fouten
-        href: azure-stack-app-service-fault-domain-update.md
-      - name: App Service-resourceprovider implementeren
-        href: azure-stack-app-service-deploy.md
-      - name: App Service offline implementeren
-        href: azure-stack-app-service-deploy-offline.md
-      - name: App Service bijwerken
-        href: azure-stack-app-service-update.md
-      - name: App Service Offline bijwerken
-        href: azure-stack-app-service-update-offline.md
-      - name: Meer webwerkrollen toevoegen
-        href: azure-stack-app-service-add-worker-roles.md
-      - name: Implementatiebronnen configureren
-        href: azure-stack-app-service-configure-deployment-sources.md
       - name: App Service op Azure Stack update 1 release-opmerkingen
         href: azure-stack-app-service-release-notes-update-one.md
       - name: App Service op de opmerkingen bij de release van de Azure Stack update 2
         href: azure-stack-app-service-release-notes-update-two.md
       - name: App Service op de opmerkingen bij de release van de Azure Stack update 3
         href: azure-stack-app-service-release-notes-update-three.md
-    - name: Ethereum implementeren
-      href: azure-stack-ethereum.md
-    - name: De Marketplace vullen
+  - name: Plannen, aanbiedingen en quota maken
+    items:
+    - name: Overzicht van plannen, aanbiedingen, quota en abonnementen
+      href: azure-stack-plan-offer-quota-overview.md
+    - name: Een plan maken
+      href: azure-stack-create-plan.md
+    - name: Een invoegtoepassing maken
+      href: create-add-on-plan.md
+    - name: Een aanbieding maken
+      href: azure-stack-create-offer.md
+    - name: Abonneren op een aanbieding
+      href: azure-stack-subscribe-plan-provision-vm.md
+    - name: Aanbiedingen in Azure Stack delegeren
+      href: azure-stack-delegated-provider.md
+    - name: Quotatypen
+      href: azure-stack-quota-types.md
+  - name: Gebruik en facturering
+    href: azure-stack-billing-and-chargeback.md
+    items:
+    - name: Beheren van gebruik en facturering als een CSP
+      href: azure-stack-add-manage-billing-as-a-csp.md
       items:
-      - name: Overzicht van Marketplace
-        href: azure-stack-marketplace.md
-      - name: Marketplace-items downloaden
-        href: azure-stack-download-azure-marketplace-item.md
-      - name: Azure Marketplace-items voor Azure Stack
-        href: azure-stack-marketplace-azure-items.md
-      - name: Een Marketplace-item maken en publiceren
-        href: azure-stack-create-and-publish-marketplace-item.md
-      - name: Gebruik het hulpprogramma voor marketplace publiceren
-        href: azure-stack-marketplace-publisher.md
-      - name: Ondersteunde gastbesturingssystemen voor Azure Stack
-        href: azure-stack-supported-os.md
-      - name: Een aangepaste VM-installatiekopie toevoegen
-        href: azure-stack-add-vm-image.md
-      - name: Bieden van een virtuele-machineschaalset
-        href: azure-stack-compute-add-scalesets.md
-      - name: Aanbieding virtuele Linux-machines
-        href: azure-stack-linux.md
-      - name: Een Red Hat virtuele machine toevoegen
-        href: azure-stack-redhat-create-upload-vhd.md
-      - name: Bieden van een Kubernetes-Cluster
-        href: azure-stack-solution-template-kubernetes-cluster-add.md
-    - name: Gebruik en facturering
-      href: azure-stack-billing-and-chargeback.md
+      - name: Toevoegen van tenants voor het gebruik en facturering
+        href: azure-stack-csp-howto-register-tenants.md
+      - name: Tenant-registratie beheren
+        href: azure-stack-csp-ref-operations.md
+    - name: Gebruik en facturering van verwijzing
       items:
-      - name: Beheren van gebruik en facturering als een CSP
-        href: azure-stack-add-manage-billing-as-a-csp.md
-        items:
-        - name: Toevoegen van tenants voor het gebruik en facturering
-          href: azure-stack-csp-howto-register-tenants.md
-        - name: Tenant-registratie beheren
-          href: azure-stack-csp-ref-operations.md
-      - name: Gebruik en facturering van verwijzing
-        items:
-        - name: Rapportage over gebruiksgegevens
-          href: azure-stack-usage-reporting.md
-        - name: Infrastructuur voor gebruiksrapporten voor Cloud-serviceproviders
-          href: azure-stack-csp-ref-infrastructure.md
-        - name: API voor providergebruik
-          href: azure-stack-provider-resource-api.md
-        - name: API voor tenantgebruik
-          href: azure-stack-tenant-resource-usage-api.md
-        - name: Veelgestelde vragen over gebruik
-          href: azure-stack-usage-related-faq.md
-    - name: Verbinding maken met Azure
-      items:
-      - name: Verbinding maken via VPN
-        href: azure-stack-connect-vpn.md
-      - name: Over VPN-gateway
-        href: azure-stack-vpn-gateway-about-vpn-gateways.md
-      - name: Instellingen voor VPN gateway
-        href: azure-stack-vpn-gateway-settings.md
-      - name: Verbinding maken via ExpressRoute
-        href: azure-stack-connect-expressroute.md
+      - name: Rapportage over gebruiksgegevens
+        href: azure-stack-usage-reporting.md
+      - name: Infrastructuur voor gebruiksrapporten voor Cloud-serviceproviders
+        href: azure-stack-csp-ref-infrastructure.md
+      - name: API voor providergebruik
+        href: azure-stack-provider-resource-api.md
+      - name: API voor tenantgebruik
+        href: azure-stack-tenant-resource-usage-api.md
+      - name: Veelgestelde vragen over gebruik
+        href: azure-stack-usage-related-faq.md
+  - name: Back-up van Azure Stack
+    href: azure-stack-backup-infrastructure-backup.md
+    items:
+    - name: Back-up inschakelen voor Azure Stack vanuit de beheerconsole
+      href: azure-stack-backup-enable-backup-console.md
+    - name: Back-up inschakelen voor Azure Stack met PowerShell
+      href: azure-stack-backup-enable-backup-powershell.md
+    - name: Back-up van Azure Stack
+      href: azure-stack-backup-back-up-azure-stack.md
+    - name: Back-up van bestanden en toepassingen in Azure Stack
+      href: ../backup/backup-mabs-files-applications-azure-stack.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+    - name: Azure Stack-VM's repliceren naar Azure
+      href: ../site-recovery/azure-stack-site-recovery.md?toc=/azure/azure-stack/toc.json&bc=/azure/azure-stack/breadcrumb/toc.json
+    - name: Herstel na onherstelbare gegevensverlies
+      href: azure-stack-backup-recover-data.md
+    - name: Aanbevolen procedures voor back-up
+      href: azure-stack-backup-best-practices.md
+    - name: Back-verwijzing
+      href: azure-stack-backup-reference.md
   - name: Problemen oplossen
     items:
     - name: Bekende problemen
@@ -372,9 +373,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-stack
   - name: Training en certificering
     href: https://docs.microsoft.com/azure/azure-stack/azure-stack-train-and-cert
-ms.openlocfilehash: 2334accb56409bf77b52153a9e0d279cddd1d352
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: c6032eb4482dafaebcc376f3f22102a15f6f4cf4
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44026661"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45985610"

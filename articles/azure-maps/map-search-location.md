@@ -9,43 +9,38 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: b324d0a68fde8f47072a087330f2e40a99378984
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 78ffa42bcf57b7163afc13b2550abdbae240ef00
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44299471"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45729227"
 ---
 # <a name="show-search-results-on-the-map"></a>Zoekresultaten weergeven op de kaart
 
-In dit artikel wordt beschreven hoe u zoeken naar de locatie van belang en de lijst met zoekresultaten weergeven op de kaart. 
+In dit artikel wordt beschreven hoe u zoeken naar de locatie van belang en de lijst met zoekresultaten weergeven op de kaart.
 
-Er zijn twee manieren om te zoeken naar een locatie van belang, één manier is met behulp van een servicemodule om een zoekaanvraag en de andere is het maken van een zoekaanvraag via een [XMLHttpRequest](https://xhr.spec.whatwg.org/) naar [Azure Maps Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy). We bespreken beide hieronder.
+Er zijn twee manieren om te zoeken naar een locatie van belang zijn. Een manier is een servicemodule gebruiken om te maken van een zoekaanvraag. De andere manier is om te zoeken vragen via een [XMLHttpRequest](https://xhr.spec.whatwg.org/) naar [Azure Maps Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy). Beide methoden worden hieronder besproken.
 
-## <a name="making-a-search-request-via-service-module"></a>Maken van een zoekaanvraag via de servicemodule
-
-### <a name="understand-the-code"></a>De code begrijpen
+## <a name="make-a-search-request-via-service-module"></a>Een zoekopdracht indienen via de servicemodule
 
 <iframe height='500' scrolling='no' title='Zoekresultaten weergeven op een kaart (Service-Module)' src='//codepen.io/azuremaps/embed/zLdYEB/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/zLdYEB/'>zoekresultaten weergeven op een kaart (Service-Module)</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In de bovenstaande code wordt het eerste vereiste blok van code vormt een kaartobject en waarmee een client-service wordt gemaakt. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
+Het eerste vereiste blok van code vormt een kaartobject en de clientservice wordt geïnitialiseerd. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
 
-Het tweede blok van code maakt gebruik van Fuzzy zoekopdrachten [Azure Maps Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) om te zoeken naar nuttige plaats. Fuzzy zoeken-API kan elke combinatie van fuzzy invoer verwerken. Het antwoord van de service fuzzy zoeken wordt vervolgens geparseerd in de GeoJSON-notatie gebruiken de [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) methode. De pincodes worden vervolgens toegevoegd aan de kaart om de punten van belang zijn op de kaart weer te geven.
+Het tweede blok van code gebruikt de [Azure Maps Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) om te zoeken naar nuttige plaats. Fuzzy zoeken-API kan elke combinatie van fuzzy invoer verwerken. Het antwoord van de service fuzzy zoeken wordt vervolgens geparseerd in de GeoJSON-notatie gebruiken de [getGeoJsonSearchResponse](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.geojson.geojsonsearchresponse?view=azure-iot-typescript-latest#geojsonsearchresponse) methode. De pincodes worden vervolgens toegevoegd aan de kaart om de punten van belang zijn op de kaart weer te geven.
 
 Het laatste blok van code Hiermee past u de grenzen van de camera voor de kaart met behulp van de kaart [setCameraBounds](https://docs.microsoft.com/javascript/api/azure-maps-control/models.cameraboundsoptions?view=azure-iot-typescript-latest) eigenschap.
 
-
-##  <a name="making-a-search-request-via-xmlhttprequest"></a>Maken van een zoekaanvraag via XMLHttpRequest
-
-### <a name="understand-the-code"></a>De code begrijpen
+## <a name="make-a-search-request-via-xmlhttprequest"></a>Een aanvraag zoeken via XMLHttpRequest
 
 <iframe height='500' scrolling='no' title='Zoekresultaten op een kaart weergeven' src='//codepen.io/azuremaps/embed/KQbaeM/?height=265&theme-id=0&default-tab=js,result&embed-version=2' frameborder='no' allowtransparency='true' allowfullscreen='true' style='width: 100%;'>Zie de Pen <a href='https://codepen.io/azuremaps/pen/KQbaeM/'>zoekresultaten weergeven op een kaart</a> Azure kaarten (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) op <a href='https://codepen.io'>CodePen</a>.
 </iframe>
 
-In de bovenstaande code wordt het eerste vereiste blok van code een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
+Het eerste vereiste blok van code wordt een kaartobject. U kunt zien [maken van een kaart](./map-create.md) voor instructies.
 
-Het tweede codeblok wordt search resultaten laag toegevoegd aan de kaart. De laag van de resultaten zoeken, wordt de lijst met zoekresultaten zoals kledingwinkelketen op de kaart weergegeven.
+Het tweede codeblok wordt search resultaten laag toegevoegd aan de kaart. De laag van de resultaten zoeken, wordt de lijst met zoekresultaten zoals kledingwinkelketen op de kaart weergegeven. Pincodes worden toegevoegd met behulp van [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins).
 
 Het derde blok van code verzendt een [XMLHttpRequest](https://xhr.spec.whatwg.org/) naar [Azure Maps Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy) om te zoeken naar het punt van belang zijn. Fuzzy zoeken-API kan elke combinatie van fuzzy invoer verwerken.
 
@@ -53,12 +48,20 @@ Het laatste blok van code parseert het antwoord en past u de Hiermee past u de g
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de klassen en methoden die in dit artikel worden gebruikt: 
+Meer informatie over **Fuzzy zoekopdrachten**:
 
-* [Azure kaarten-Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
-* [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addPins](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addpins)
-    
-Zie de volgende artikelen voor meer codevoorbeelden van toevoegen aan uw kaarten: 
-* [Gegevens ophalen uit een coördinaat](./map-get-information-from-coordinate.md)
-* [Routebeschrijving van A naar B](./map-route.md)
+> [!div class="nextstepaction"]
+> [Azure kaarten-Fuzzy zoeken-API](https://docs.microsoft.com/rest/api/maps/search/getsearchfuzzy)
+
+Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
+
+> [!div class="nextstepaction"]
+> [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+Zie de volgende artikelen voor volledige codevoorbeelden:
+
+> [!div class="nextstepaction"]
+> [Gegevens ophalen uit een coördinaat](./map-get-information-from-coordinate.md)
+
+> [!div class="nextstepaction"]
+> [Routebeschrijving van A naar B](./map-route.md)

@@ -14,12 +14,12 @@ ms.component: report-monitor
 ms.date: 12/06/2017
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: 752e71f3c6b22a6d9f1e2392b58c01deef9de89c
-ms.sourcegitcommit: e2348a7a40dc352677ae0d7e4096540b47704374
+ms.openlocfilehash: 2cfdd5b903b8ffd9702745df150fe578d42e5a11
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43782157"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735829"
 ---
 # <a name="how-to-use-the-azure-active-directory-power-bi-content-pack"></a>Azure Active Directory Power BI Content Pack gebruiken
 
@@ -28,50 +28,11 @@ ms.locfileid: "43782157"
 |Op dit moment het Azure AD Power BI-inhoudspakket maakt gebruik van de Azure AD Graph-API's voor het ophalen van gegevens uit uw Azure AD-tenant. Als gevolg hiervan, ziet u mogelijk enkele verschillen tussen de gegevens die beschikbaar zijn in het inhoudspakket en de gegevens die worden opgehaald met behulp van de [Microsoft Graph-API's voor het melden van](concept-reporting-api.md). |
 |  |
 
-Voor u als IT-beheerder is het enorm belangrijk om te weten hoe uw gebruikers functies van Azure Active Directory implementeren en gebruiken. Deze informatie is vereist om uw IT-infrastructuur en communicatie te plannen om zo het gebruik van AAD-functies te vergroten en het rendement te optimaliseren. Power BI Content Pack voor Azure Active Directory biedt u de mogelijkheid om uw gegevens verder te analyseren, zodat u begrijpt hoe u deze gegevens kunt gebruiken voor het verzamelen van inzichten die nog beter laten zien hoe Azure Active Directory wordt ingezet voor de verschillende toepassingsmogelijkheden die een belangrijke rol spelen in uw organisatie.  Met de integratie van Azure Active Directory-API's in Power BI kunt u eenvoudig de vooraf samengestelde inhoudspakketten downloaden en met behulp van de krachtige visualisatie-opties van Power BI inzicht verkrijgen in alle activiteiten binnen uw Azure Active Directory. U kunt uw eigen dashboard maken en dit dashboard vervolgens eenvoudig delen met andere personen binnen uw organisatie. 
+Als IT-beheerder moet u begrijpen hoe uw gebruikers vast en Azure Active Directory-functies gebruiken. Hiermee kunt u het plannen van uw IT-infrastructuur en communicatie met het-gebruik verhogen en optimaal gebruikmaken van Azure AD-functies. Power BI-inhoudspakket voor Azure Active Directory biedt u de mogelijkheid voor verdere analyse van uw gegevens voor het verzamelen van uitgebreidere inzicht in wat met uw directory gebeurt er. Met de integratie van Azure Active Directory-API's in Power BI, kunt u eenvoudig de vooraf gemaakte inhoudspakket downloaden en krijgt u inzicht in alle activiteiten binnen uw Azure Active Directory met behulp van de krachtige visualisatie-ervaring die Power BI biedt. U kunt uw eigen dashboard maken en dit dashboard vervolgens eenvoudig delen met andere personen binnen uw organisatie. 
 
-In dit onderwerp krijgt u stapsgewijze instructies voor het installeren en gebruiken van het inhoudspakket in uw omgeving.
+## <a name="install-the-content-pack"></a>Het inhoudspakket installeren
 
-## <a name="installation"></a>Installatie  
-
-**Power BI Content Pack installeren:**
-
-1. Meld u aan bij [Power BI](https://app.powerbi.com/groups/me/getdata/services) met uw Power BI-account (dit is hetzelfde account als uw O365- of Azure AD-account).
-
-2. Selecteer onderaan in het navigatiedeelvenster aan de linkerkant de optie **Gegevens ophalen**.
-
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/01.png)
- 
-3. Klik in het vak **Services** op **Ophalen**.
-   
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/02.png)
-
-4.  Zoek naar **Azure Active Directory**.
-
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/03.png)
- 
-5.  Als u daarom wordt gevraagd, typt u de id van uw Azure AD-tenant en klikt u vervolgens op **Volgende**.
-
-    > [!TIP] 
-    > Als u een snelle manier zoekt om de Tenant-ID voor uw Office 365 / Azure AD-tenant op te halen, kunt u zich aanmelden bij de Azure AD-portal, inzoomen op de map en de **map-ID** op de [ **eigenschappenpagina** kopiëren](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/Properties).
-
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/04.png) 
-
-6.  Klik op **Aanmelden**. 
- 
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/05.png) 
-
-
-
-7.  Voer uw gebruikersnaam en wachtwoord in en klik vervolgens op **Aanmelden**.
- 
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/06.png) 
-
-8.  Klik in het volgende dialoogvenster op **Accepteren**.
- 
-9.  Wanneer het dashboard Activiteitenlogboeken van Azure Active Directory is gemaakt, klikt u erop.
- 
-    ![Azure Active Directory Power BI Content Pack](./media/howto-power-bi-content-pack/08.png) 
+Bekijk de [snelstartgids](quickstart-install-power-bi-content-pack.md) voor het installeren van de Azure AD Power BI-inhoudspakket.
 
 ## <a name="what-can-i-do-with-this-content-pack"></a>Wat kan ik doen met dit inhoudspakket?
 
@@ -155,4 +116,6 @@ Raadpleeg onze [handleiding voor het oplossen van problemen](troubleshoot-conten
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Zie [Azure Active Directory-rapportage](overview-reports.md) voor een overzicht van de rapportage.
+* [Installeren van Power BI-inhoudspakket](quickstart-install-power-bi-content-pack.md).
+* [Inhoudspakketfouten oplossen](troubleshoot-content-pack.md).
+* [Wat zijn Azure AD-rapporten? ](overview-reports.md).

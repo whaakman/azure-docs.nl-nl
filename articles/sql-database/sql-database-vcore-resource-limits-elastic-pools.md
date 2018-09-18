@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 09/14/2018
 ms.author: carlrab
-ms.openlocfilehash: af9d34b0c3b59cbf012d16de27bb4c60a809f619
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 19693e394b0bd3a589ead25e2ddfa2fa88e92bad
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630952"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730376"
 ---
 # <a name="azure-sql-database-vcore-based-purchasing-model-limits-for-elastic-pools"></a>Azure SQL Database vCore gebaseerde model limieten voor elastische pools aanschaffen
 
@@ -25,17 +25,17 @@ Zie voor DTU gebaseerde aankopen model limieten, [SQL Database DTU gebaseerde re
 > [!IMPORTANT]
 > In sommige gevallen is het wellicht voor het verkleinen van een database voor het vrijmaken van ongebruikte ruimte. Zie voor meer informatie, [bestandsruimte in Azure SQL Database beheren](sql-database-file-space-management.md).
 
-## <a name="elastic-pool-storage-sizes-and-performance-levels"></a>Elastische pool: opslaggrootte en prestatieniveaus
+## <a name="elastic-pool-storage-sizes-and-compute-sizes"></a>Elastische pool: opslaggrootte en compute-grootten
 
-Voor SQL Database elastische pools tonen de volgende tabellen de resources die beschikbaar zijn op elke servicelaag en het prestatieniveau van een serviceniveau. U kunt de servicelaag, het prestatieniveau en de opslag met behulp van bedrag instellen de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), wordt de [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), of de [REST-API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
+Voor SQL Database elastische pools in de volgende tabellen weergeven van de beschikbare resources in elke servicelaag en compute-grootte. U kunt de servicelaag, rekencapaciteit en opslag met behulp van bedrag instellen de [Azure-portal](sql-database-elastic-pool-manage.md#azure-portal-manage-elastic-pools-and-pooled-databases), [PowerShell](sql-database-elastic-pool-manage.md#powershell-manage-elastic-pools-and-pooled-databases), wordt de [Azure CLI](sql-database-elastic-pool-manage.md#azure-cli-manage-elastic-pools-and-pooled-databases), of de [REST-API](sql-database-elastic-pool-manage.md#rest-api-manage-elastic-pools-and-pooled-databases).
 
 > [!NOTE]
-> De resourcelimieten van afzonderlijke databases in elastische pools zijn algemeen hetzelfde als voor individuele databases buiten pools met hetzelfde prestatieniveau. Bijvoorbeeld, is de maximale gelijktijdige werknemers voor een database GP_Gen4_1 200 werknemers. De maximale gelijktijdige werknemers voor een database in een pool GP_Gen4_1 is dus ook 200 werknemers. Opmerking: het totale aantal gelijktijdige werknemers in de groep GP_Gen4_1 is 210.
+> De resourcelimieten van afzonderlijke databases in elastische pools zijn algemeen hetzelfde als voor individuele databases buiten pools met dezelfde grootte berekenen. Bijvoorbeeld, is de maximale gelijktijdige werknemers voor een database GP_Gen4_1 200 werknemers. De maximale gelijktijdige werknemers voor een database in een pool GP_Gen4_1 is dus ook 200 werknemers. Opmerking: het totale aantal gelijktijdige werknemers in de groep GP_Gen4_1 is 210.
 
 ### <a name="general-purpose-service-tier"></a>Categorie van de service Algemeen gebruik
 
 #### <a name="generation-4-compute-platform"></a>Computerplatform generatie 4
-|Prestatieniveau|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
+|COMPUTE-grootte|GP_Gen4_1|GP_Gen4_2|GP_Gen4_4|GP_Gen4_8|GP_Gen4_16|GP_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W genereren|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -59,7 +59,7 @@ Voor SQL Database elastische pools tonen de volgende tabellen de resources die b
 |||
 
 #### <a name="generation-5-compute-platform"></a>Computerplatform generatie 5
-|Prestatieniveau|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
+|COMPUTE-grootte|GP_Gen5_2|GP_Gen5_4|GP_Gen5_8|GP_Gen5_16|GP_Gen5_24|GP_Gen5_32|GP_Gen5_40|GP_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W genereren|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|
@@ -85,7 +85,7 @@ Voor SQL Database elastische pools tonen de volgende tabellen de resources die b
 ### <a name="business-critical-service-tier"></a>Kritieke-bedrijfslaag
 
 #### <a name="generation-4-compute-platform"></a>Computerplatform generatie 4
-|Prestatieniveau|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
+|COMPUTE-grootte|BC_Gen4_1|BC_Gen4_2|BC_Gen4_4|BC_Gen4_8|BC_Gen4_16|BC_Gen4_24|
 |:--- | --: |--: |--: |--: |--: |--: |
 |H/W genereren|4|4|4|4|4|4|
 |vCores|1|2|4|8|16|24|
@@ -100,7 +100,7 @@ Voor SQL Database elastische pools tonen de volgende tabellen de resources die b
 |I/o-latentie (bij benadering)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|1-2 ms (schrijven)<br>1-2 ms (lezen)|
 |Maximaal aantal gelijktijdige werknemers (aanvragen)|210|420|840|1680|3360|5040|
 |Maximaal toegestane sessies|30.000|30.000|30.000|30.000|30.000|30.000|
-|Maximaal aantal databases per pool|Niet ondersteund|50|100|100|100|100|
+|Maximaal aantal databases per pool|Slechts één DB's worden ondersteund voor deze compute-grootte|50|100|100|100|100|
 |Min./Max. elastische pool vcore-opties per database|N/A|0, 0,25, 0,5, 1, 2|0, 0,25, 0,5, 1, 2, 4|0, 0,25, 0,5, 1, 2, 4, 8|0, 0,25, 0,5, 1, 2, 4, 8, 16|0, 0,25, 0,5, 1, 2, 4, 8, 16, 24 uur per dag|
 |Aantal replica's|3|3|3|3|3|3|
 |Multi-z|N/A|N/A|N/A|N/A|N/A|N/A|
@@ -109,7 +109,7 @@ Voor SQL Database elastische pools tonen de volgende tabellen de resources die b
 |||
 
 #### <a name="generation-5-compute-platform"></a>Computerplatform generatie 5
-|Prestatieniveau|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
+|COMPUTE-grootte|BC_Gen5_2|BC_Gen5_4|BC_Gen5_8|BC_Gen5_16|BC_Gen5_24|BC_Gen5_32|BC_Gen5_40|BC_Gen5_80|
 |:--- | --: |--: |--: |--: |--: |--: |--: |--: |
 |H/W genereren|5|5|5|5|5|5|5|5|
 |vCores|2|4|8|16|24|32|40|80|

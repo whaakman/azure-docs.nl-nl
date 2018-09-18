@@ -3,7 +3,7 @@ title: Wat zijn Azure-Beschikbaarheidszones? | Microsoft Docs
 description: Beschikbaarheidszones bieden hoge beschikbaarheid en robuuste om toepassingen te maken in Azure, fysiek gescheiden locaties die u gebruiken kunt om uit te voeren van uw resources.
 services: ''
 documentationcenter: ''
-author: iainfoulds
+author: cynthn
 manager: jeconnoc
 editor: ''
 tags: ''
@@ -13,15 +13,15 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/27/2018
-ms.author: iainfou
+ms.date: 08/31/2018
+ms.author: cynthn
 ms.custom: mvc I am an ITPro and application developer, and I want to protect (use Availability Zones) my applications and data against data center failure (to build Highly Available applications).
-ms.openlocfilehash: 6a4dcc2cd3b196221b881783c79ddb0adaa6f38b
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 488f7fa123692a908c36619e17166cee27d17612
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42056829"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735863"
 ---
 # <a name="what-are-availability-zones-in-azure"></a>Wat zijn Beschikbaarheidszones in Azure?
 Beschikbaarheidszones is een aanbieding die uw toepassingen en gegevens beveiligt tegen storingen in datacenters hoge beschikbaarheid. Beschikbaarheidszones zijn unieke fysieke locaties binnen een Azure-regio. Elke zone bestaat uit een of meer datacenters die zijn uitgerust met onafhankelijke voeding, koeling en netwerken. Om ervoor te zorgen tolerantie, is er een minimum van drie afzonderlijke zones in alle ingeschakelde regio's. De fysieke scheiding tussen Beschikbaarheidszones binnen een regio beschermt toepassingen en gegevens tegen storingen in datacenters. Zone-redundante services repliceren uw toepassingen en gegevens in meerdere Beschikbaarheidszones om te beschermen tegen enkele punten van de fout. Met Beschikbaarheidszones biedt Azure branche aanbevolen VM uptime SLA van 99,99%. In de volledige [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) wordt de gegarandeerde beschikbaarheid van Azure als geheel uitgelegd.
@@ -40,10 +40,13 @@ Bouw uw toepassingsarchitectuur met behulp van de combinatie van de Beschikbaarh
 ## <a name="regions-that-support-availability-zones"></a>Regio's die ondersteuning voor Beschikbaarheidszones
 
 - US - centraal
-- Frankrijk - centraal
 - VS-Oost 2 (Preview)
-- Europa -west
+- Frankrijk - centraal
+- Europa - noord
 - Zuidoost-Azië (Preview)
+- Europa -west
+- US - west 2
+
 
 
 ## <a name="services-that-support-availability-zones"></a>Services die ondersteuning voor Beschikbaarheidszones bieden

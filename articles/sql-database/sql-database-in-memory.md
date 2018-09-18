@@ -9,12 +9,12 @@ ms.custom: develop databases
 ms.topic: conceptual
 ms.date: 07/16/2018
 ms.author: jodebrui
-ms.openlocfilehash: f4e056e9f8461085df6ae447672e2c9ec91aa3ca
-ms.sourcegitcommit: e32ea47d9d8158747eaf8fee6ebdd238d3ba01f7
+ms.openlocfilehash: 5fd0d487371acdf8d0b3301cc881aa2f059a9f41
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/17/2018
-ms.locfileid: "39092400"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45984149"
 ---
 # <a name="optimize-performance-by-using-in-memory-technologies-in-sql-database"></a>Prestaties optimaliseren met behulp van technologieën In het geheugen in SQL-Database
 
@@ -72,7 +72,7 @@ Uitgebreide video's over de technologieën:
 
 In-Memory OLTP bevat tabellen geoptimaliseerd voor geheugen, die worden gebruikt voor het opslaan van gebruikersgegevens. Deze tabellen zijn vereist om in het geheugen te passen. Omdat u geheugen rechtstreeks in de service SQL Database beheert, hebben we het concept van een quotum voor gebruikersgegevens. Dit idee wordt aangeduid als *In-Memory OLTP-opslag*.
 
-Elke ondersteunde zelfstandige database prijscategorie en elke elastische pool prijscategorie bevat een bepaalde hoeveelheid In-Memory OLTP-opslag. Zie [DTU gebaseerde resourcelimieten - individuele database](sql-database-dtu-resource-limits-single-databases.md), [DTU gebaseerde resourcelimieten - elastische pools](sql-database-dtu-resource-limits-elastic-pools.md),[vCore gebaseerde resourcelimieten - individuele databases](sql-database-vcore-resource-limits-single-databases.md) en [vCore gebaseerde resourcelimieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md).
+Elke ondersteunde één database prijscategorie en elke elastische pool prijscategorie voorziet in een bepaalde hoeveelheid In-Memory OLTP-opslag. Zie [DTU gebaseerde resourcelimieten - individuele database](sql-database-dtu-resource-limits-single-databases.md), [DTU gebaseerde resourcelimieten - elastische pools](sql-database-dtu-resource-limits-elastic-pools.md),[vCore gebaseerde resourcelimieten - individuele databases](sql-database-vcore-resource-limits-single-databases.md) en [vCore gebaseerde resourcelimieten - elastische pools](sql-database-vcore-resource-limits-elastic-pools.md).
 
 De volgende items tellen mee voor uw opslaglimiet In-Memory OLTP:
 

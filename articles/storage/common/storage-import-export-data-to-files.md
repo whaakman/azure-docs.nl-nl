@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 09/10/2018
 ms.author: alkohli
 ms.component: common
-ms.openlocfilehash: 6cbaaeed75f160a2281fdce0949397b9a14bf981
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 1be7dd9ce537d0999ace01eafa46318e42df9f20
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347916"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45732444"
 ---
 # <a name="use-azure-importexport-service-to-import-data-to-azure-files"></a>Azure Import/Export-service gebruiken om gegevens te importeren naar Azure Files
 
@@ -21,12 +21,12 @@ In dit artikel bevat stapsgewijze instructies over het gebruik van de Azure Impo
 
 De Import/Export-service ondersteunt alleen importeren van Azure Files naar Azure Storage. Het exporteren van Azure-bestanden wordt niet ondersteund.
 
-## <a name="prerequisites"></a>Vereiste onderdelen
+## <a name="prerequisites"></a>Vereisten
 
 Voordat u een importtaak om over te dragen van gegevens naar Azure Files maakt, zorgvuldig controleren en voer de volgende lijst met vereisten. U moet:
 
 - Een actief Azure-abonnement voor gebruik met Import/Export-service hebben.
-- Ten minste één Azure Storage-account hebben. Overzicht van de [ondersteunde opslagaccounts en typen gegevensopslag voor Import/Export-service](storage-import-export-requirements.md). Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-create-storage-account.md#create-a-storage-account).
+- Ten minste één Azure Storage-account hebben. Overzicht van de [ondersteunde opslagaccounts en typen gegevensopslag voor Import/Export-service](storage-import-export-requirements.md). Zie voor meer informatie over het maken van een nieuw opslagaccount [over het maken van een Storage-Account](storage-quickstart-create-account.md).
 - Schijven van voldoende [ondersteunde typen](storage-import-export-requirements.md#supported-disks). 
 - Een Windows-systeem met een [ondersteunde besturingssysteemversie](storage-import-export-requirements.md#supported-operating-systems).
 - [De WAImportExport versie 2 downloaden](https://www.microsoft.com/download/details.aspx?id=55280) op het Windows-systeem. Pak deze uit naar de standaardmap `waimportexport`. Bijvoorbeeld `C:\WaImportExport`.

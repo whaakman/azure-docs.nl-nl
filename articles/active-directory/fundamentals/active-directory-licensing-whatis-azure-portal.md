@@ -1,28 +1,26 @@
 ---
-title: Wat zijn licenties op basis van groepen in Azure AD? | Microsoft Docs
-description: Beschrijving van licenties op basis van groepen in Azure Active Directory, werking en aanbevolen procedures
+title: Wat is licentieverlening in Azure Active Directory op basis van groep? | Microsoft Docs
+description: Meer informatie over Azure Active Directory-groep op basis van licentieverlening, met inbegrip van hoe het werkt en best practices.
 services: active-directory
 keywords: Azure AD-licenties
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
 ms.component: fundamentals
-ms.topic: overview
+ms.topic: conceptual
 ms.workload: identity
 ms.date: 06/13/2018
 ms.author: lizross
 ms.reviewer: krbain
 ms.custom: it-pro
-ms.openlocfilehash: 5f5aab6a8514636e8be09deb773748080871b9d4
-ms.sourcegitcommit: e0a678acb0dc928e5c5edde3ca04e6854eb05ea6
-ms.translationtype: HT
+ms.openlocfilehash: 7848b52bcf5204a871920cbfab8a0e95223654d4
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/13/2018
-ms.locfileid: "39005228"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45735898"
 ---
-# <a name="group-based-licensing-basics-in-azure-active-directory"></a>Basisbeginselen van licenties op basis van groepen in Azure Active Directory
+# <a name="what-is-group-based-licensing-in-azure-active-directory"></a>Wat is licentieverlening in Azure Active Directory op basis van groep?
 
 Voor betaalde Microsoft-cloudservices, zoals Office 365, Enterprise Mobility + Security, Dynamics 365 en andere vergelijkbare producten, zijn licenties vereist. Deze licenties worden toegewezen aan elke gebruiker die toegang tot deze services nodig heeft. Om licenties te beheren gebruiken beheerders een van de beheerportals (Office of Azure) en PowerShell-cmdlets. Azure AD (Azure Active Directory) is de onderliggende infrastructuur die ondersteuning biedt voor identiteitsbeheer in alle Microsoft-cloudservices. In Azure AD wordt informatie opgeslagen over de statussen van licentietoewijzingen voor gebruikers.
 
