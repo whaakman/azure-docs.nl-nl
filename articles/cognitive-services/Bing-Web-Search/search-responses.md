@@ -1,23 +1,23 @@
 ---
-title: Antwoorden van de Bing webzoekopdrachten-API | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Meer informatie over de antwoord-typen en antwoorden van de Bing webzoekopdrachten-API.
+title: Reacties op webzoekopdrachten - Bing webzoekopdrachten-API
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over de typen antwoord en antwoorden van door de Bing webzoekopdrachten-API.
 services: cognitive-services
 author: erhopf
 manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 8/13/2018
 ms.author: erhopf
-ms.openlocfilehash: 13e9792f3d5765047dabb4cdef59e85a47a69aba
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: f3a4c8bb024aa5e92365b72b8cc2180cc6f4d6d4
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42889432"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123773"
 ---
-# <a name="bing-web-search-responses"></a>Bing webzoekopdrachten-antwoorden  
+# <a name="bing-web-search-api-response-structure-and-answer-types"></a>Bing webzoekopdrachten-API-reactie structuur en -antwoordsessie-typen  
 
 Als u Bing webzoekopdrachten een zoekaanvraag verzendt, wordt een [ `SearchResponse` ](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#searchresponse) object in de hoofdtekst van het antwoord. Het object bevat een veld voor elk antwoord dat Bing bepaald relevant zijn voor de query is. In dit voorbeeld wordt een antwoordobject als Bing geretourneerd alle antwoorden op:
 

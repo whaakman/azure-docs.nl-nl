@@ -9,12 +9,12 @@ editor: jasonwhowell
 ms.service: postgresql
 ms.topic: article
 ms.date: 02/28/2018
-ms.openlocfilehash: aafe474ef23d499f505f0e1dab7623e5d032cc84
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 707803e1f69a3146772e71ff711a48b510d8c9fc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391705"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127564"
 ---
 # <a name="backup-and-restore-in-azure-database-for-postgresql"></a>Back-up en herstel in Azure Database voor PostgreSQL
 
@@ -66,6 +66,8 @@ Mogelijk moet u de volgende transactielogboekback-up moeten worden genomen voord
 ### <a name="geo-restore"></a>Geo-herstel
 
 Als u uw server voor geografisch redundante back-ups hebt geconfigureerd, kunt u een server herstellen naar een andere Azure-regio waar de service beschikbaar is. Geo-restore is de standaardoptie voor herstel wanneer uw server is niet beschikbaar vanwege een incident in de regio waar de server wordt gehost. Als een grootschalige incident in een regio, resulteert in niet-beschikbaarheid van uw databasetoepassing, kunt u een server uit de geografisch redundante back-ups herstellen naar een server in een andere regio. Er is een vertraging tussen wanneer een back-up is gemaakt en wanneer deze worden gerepliceerd naar andere regio. Deze vertraging mag maximaal een uur, dus als er zich een noodgeval voordoet, kan er van één uur gegevens verloren gaan.
+
+Tijdens de geo-restore zijn de serverconfiguraties die kunnen worden gewijzigd bewerking voor compute, vCore, bewaarperiode voor back- en redundantieopties voor back-up. Wisselende prijscategorie (Basic, algemeen gebruik of geoptimaliseerd voor geheugen) of opslaggrootte wordt niet ondersteund.
 
 ### <a name="perform-post-restore-tasks"></a>Voer taken na herstellen
 

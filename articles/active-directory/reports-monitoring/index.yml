@@ -1,0 +1,54 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 2217adbbb9e5222e6c33bfcdce41c30396c7f231
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45740317"
+documentType: LandingData
+title: Azure AD-rapporten en -controle
+metadata:
+  document_id: 
+  title: 'Documentatie voor Azure Active Directory-rapporten en -controle: zelfstudies, snelstarts, concepten | Microsoft Docs'
+  description: Meer informatie over hoe u oplossingen voor rapporten en controle van Azure Active Directory kunt configureren en testen
+  services: active-directory
+  ms.component: report-monitor
+  author: priyamohanram
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 08/14/2018
+  ms.author: priyamo
+abstract:
+  description: Ontdek hoe u beveiligings- en controlerapporten voor uw omgeving kunt bekijken of houd ze gedurende een periode in de gaten voor inzicht in gebruikspatronen. Met Azure AD-rapporten krijgt u inzicht in de beveiliging en gebruikspatronen van uw omgeving. U kunt dan bijvoorbeeld de volgende vragen beantwoorden:<ul><li>Hoe worden de toepassingen of services gebruikt door de gebruikers?</li><li>Wat zijn de potentiële risico's die invloed hebben op de status van de omgeving?</li><li>Hoe los ik problemen op die ertoe leiden dat gebruikers hun werk niet kunnen doen?</li>
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: Meer informatie over hoe u activiteitenrapporten kunt downloaden en uw logboeken kunt doorsturen naar een Azure-opslagaccount
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-sign-in-report">Een aanmeldrapport downloaden</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-download-audit-report">Een controlerapport downloaden</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-install-power-bi-content-pack">Het Power BI-inhoudspakket voor rapporten installeren</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/quickstart-azure-monitor-route-logs-to-storage-account">Logboeken naar opslagaccount doorsturen</a>
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Meer informatie over hoe u toegang krijgt tot uw rapporten en activiteitenlogboeken streamt naar uw gewenste controlesysteem
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates">Programmatisch toegang krijgen tot de API voor rapportage met behulp van certificaten</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub">Activiteitenlogboeken streamen naar een Event Hub</a>
+- title: Naslaginformatie
+  items:
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/reports-monitoring/reference-sign-ins-error-codes">Foutcodes voor aanmelding</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-audit-log-schema">Schema voor auditlogboek van Azure AD in Azure Monitor</a>
+    - html: <a href="/azure/active-directory/reports-monitoring/reference-azure-monitor-sign-ins-log-schema">Schema voor aanmeldlogboek van Azure AD in Azure Monitor</a>

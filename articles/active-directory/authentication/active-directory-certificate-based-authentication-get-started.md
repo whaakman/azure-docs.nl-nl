@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: annaba
-ms.openlocfilehash: 62ee6aae825d822a1d87858ea6a7eab953a33318
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 2f6b9ee7a23341f27272a4614bed6be5ae422ce0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345171"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297264"
 ---
 # <a name="get-started-with-certificate-based-authentication-in-azure-active-directory"></a>Aan de slag met verificatie op basis van certificaten in Azure Active Directory
 
@@ -29,7 +29,7 @@ Configuratie van deze functie elimineert de noodzaak om een combinatie van gebru
 In dit onderwerp:
 
 - Biedt u de stappen voor het configureren en gebruikmaken van verificatie op basis van certificaten voor gebruikers van tenants in Office 365 Enterprise, Business, onderwijs en US Government-abonnementen. Deze functie is beschikbaar in preview in Office 365 China, US Government Defense en Amerikaanse overheid federale overheid plannen.
-- Wordt ervan uitgegaan dat u al een [openbare-sleutelinfrastructuur (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) en [AD FS](../connect/active-directory-aadconnectfed-whatis.md) geconfigureerd.
+- Wordt ervan uitgegaan dat u al een [openbare-sleutelinfrastructuur (PKI)](https://go.microsoft.com/fwlink/?linkid=841737) en [AD FS](../hybrid/how-to-connect-fed-whatis.md) geconfigureerd.
 
 ## <a name="requirements"></a>Vereisten
 

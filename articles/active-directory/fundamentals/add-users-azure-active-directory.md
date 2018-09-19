@@ -12,12 +12,12 @@ ms.date: 09/04/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 ms.custom: it-pro
-ms.openlocfilehash: 533c02f842918c5c27aaaf421a4f828022de6b8f
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 782363144a6b1dd87aff515c38588b6ce70b61bd
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604959"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295101"
 ---
 # <a name="how-to-add-or-delete-users-using-azure-active-directory"></a>Hoe: toevoegen of verwijderen van gebruikers met Azure Active Directory
 Nieuwe gebruikers toevoegen of verwijderen van bestaande gebruikers in uw Azure Active Directory (Azure AD)-tenant met behulp van Azure AD.
@@ -55,7 +55,7 @@ U kunt een nieuwe gebruiker met de Azure Active Directory maken.
     De gebruiker is gemaakt en toegevoegd aan uw Azure AD-tenant.
 
 ## <a name="add-a-new-user-within-a-hybrid-environment"></a>Voeg een nieuwe gebruiker in een hybride omgeving
-Als u een omgeving met zowel Azure Active Directory (cloud) en Windows Server Active Directory (on-premises) hebt, kunt u nieuwe gebruikers toevoegen door te synchroniseren van de bestaande gegevens van de gebruiker-account. Zie voor meer informatie over hybride omgevingen en gebruikers [uw on-premises directory's integreren met Azure Active Directory](../connect/active-directory-aadconnect.md).
+Als u een omgeving met zowel Azure Active Directory (cloud) en Windows Server Active Directory (on-premises) hebt, kunt u nieuwe gebruikers toevoegen door te synchroniseren van de bestaande gegevens van de gebruiker-account. Zie voor meer informatie over hybride omgevingen en gebruikers [uw on-premises directory's integreren met Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 
 ## <a name="delete-a-user"></a>Een gebruiker verwijderen
 U kunt een bestaande gebruiker met behulp van Azure Active Directory verwijderen.

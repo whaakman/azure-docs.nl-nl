@@ -1,6 +1,6 @@
 ---
-title: Azure opdrachtregelprogramma 2.0 gebruikersinterface aan de slag met Azure Data Lake Storage Gen1 | Microsoft Docs
-description: Een Data Lake Store-account maken en basisbewerkingen uitvoeren met de platformoverschrijdende opdrachtregelinterface van Azure 2.0
+title: Opdrachtregelinterface van Azure 2.0-gebruikersinterface aan de slag met Azure Data Lake Storage Gen1 | Microsoft Docs
+description: Azure platformoverschrijdende opdrachtregel 2.0 gebruiken voor een Data Lake Storage Gen1-account maakt en basisbewerkingen uitvoert
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -10,14 +10,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/27/2018
 ms.author: nitinme
-ms.openlocfilehash: acd1182fdc66374e9abbc4964207417a7de3aadb
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: b75fc3a96ce4e46fbd9efb03aa2ea9c2c4aaa15c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37035966"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124776"
 ---
-# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-cli-20"></a>Aan de slag met Azure Data Lake Storage Gen1 met Azure CLI 2.0
+# <a name="get-started-with-azure-data-lake-storage-gen1-using-azure-cli-20"></a>Aan de slag met Azure Data Lake Storage Gen1 met behulp van Azure CLI 2.0
 > [!div class="op_single_selector"]
 > * [Portal](data-lake-store-get-started-portal.md)
 > * [PowerShell](data-lake-store-get-started-powershell.md)
@@ -27,9 +27,9 @@ ms.locfileid: "37035966"
 
 [!INCLUDE [data-lake-storage-gen1-rename-note.md](../../includes/data-lake-storage-gen1-rename-note.md)]
 
-Ontdek hoe u met de Azure CLI 2.0 een Azure Data Lake Store-account maakt en basisbewerkingen uitvoert, zoals het maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account enzovoort. Zie voor meer informatie over Data Lake Store [overzicht van Data Lake Storage Gen1](data-lake-store-overview.md).
+Leer hoe u Azure CLI 2.0 gebruiken voor een Azure Data Lake Storage Gen1-account maken en uitvoeren van basisbewerkingen, zoals het maken van mappen, uploaden en downloaden van gegevensbestanden, verwijderen van uw account, enzovoort. Zie voor meer informatie over Data Lake Storage Gen1 [overzicht van Data Lake Storage Gen1](data-lake-store-overview.md).
 
-De Azure CLI 2.0 is de nieuwe opdrachtregelervaring van Azure voor het beheer van Azure-resources. Deze kan worden gebruikt in Mac OS, Linux en Windows. Zie [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure) (Overzicht van Azure CLI 2.0) voor meer informatie. U kunt ook zoeken in de [Naslaggegevens van Azure Data Lake Store CLI 2.0](https://docs.microsoft.com/cli/azure/dls), voor een volledige lijst met opdrachten en syntaxis.
+De Azure CLI 2.0 is de nieuwe opdrachtregelervaring van Azure voor het beheer van Azure-resources. Deze kan worden gebruikt in Mac OS, Linux en Windows. Zie [Overview of Azure CLI 2.0](https://docs.microsoft.com/cli/azure) (Overzicht van Azure CLI 2.0) voor meer informatie. U kunt ook zoeken op de [Azure Data Lake Storage Gen1 CLI 2.0-verwijzing](https://docs.microsoft.com/cli/azure/dls) voor een volledige lijst met opdrachten en syntaxis.
 
 
 ## <a name="prerequisites"></a>Vereisten
@@ -41,7 +41,7 @@ Voordat u dit artikel gaat lezen, moet u beschikken over het volgende:
 
 ## <a name="authentication"></a>Verificatie
 
-In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store gebruikt waarbij u zich als een eindgebruiker aanmeldt. Het toegangsniveau voor het account en bestandssysteem van Data Lake Store wordt vervolgens bepaald door het toegangsniveau van de aangemelde gebruiker. Er zijn echter ook andere manieren om te verifiëren in Data Lake Store, zoals **verificatie door eindgebruikers** en **service-naar-serviceverificatie**. Zie [Eindgebruikersverificatie](data-lake-store-end-user-authenticate-using-active-directory.md) of [Service-to-serviceverificatie](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
+In dit artikel wordt een eenvoudigere verificatiemethode met Data Lake Storage Gen1 waar u zich aanmeldt als een eindgebruiker aanmeldt. Het toegangsniveau voor de Gen1 Data Lake Storage-account en een nieuw bestandssysteem wordt vervolgens bepaald door het toegangsniveau van de aangemelde gebruiker. Er zijn echter andere manieren ook om te verifiëren met Data Lake Storage Gen1, zoals **verificatie door eindgebruikers** of **service-naar-serviceverificatie**. Zie [Verificatie door eindgebruikers](data-lake-store-end-user-authenticate-using-active-directory.md) of [Service-to-serviceverificatie](data-lake-store-authenticate-using-active-directory.md) voor instructies en meer informatie over verificatie.
 
 
 ## <a name="log-in-to-your-azure-subscription"></a>Aanmelden bij uw Azure-abonnement
@@ -52,7 +52,7 @@ In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store ge
     az login
     ```
 
-    U ontvangt een code die u in de volgende stap nodig hebt. Een webbrowser gebruiken om de pagina te openen https://aka.ms/devicelogin en voer de code te verifiëren. U wordt gevraagd om u aan te melden met uw referenties.
+    U ontvangt een code die u in de volgende stap nodig hebt. Gebruik een webbrowser om de pagina te openen https://aka.ms/devicelogin en voer de code om te verifiëren. U wordt gevraagd om u aan te melden met uw referenties.
 
 2. Wanneer u bent aangemeld, wordt er een venster weergegeven met alle Azure-abonnementen die aan uw account zijn gekoppeld. Gebruik de volgende opdracht als u een specifiek abonnement wilt gebruiken.
    
@@ -60,41 +60,41 @@ In dit artikel wordt een eenvoudigere verificatiemethode voor Data Lake Store ge
     az account set --subscription <subscription id> 
     ```
 
-## <a name="create-an-azure-data-lake-store-account"></a>Een Azure Data Lake Store-account maken
+## <a name="create-an-azure-data-lake-storage-gen1-account"></a>Een Azure Data Lake Storage Gen1-account maken
 
-1. Maak een nieuwe resourcegroep. Geef in de volgende opdracht de parameterwaarden op die u wilt gebruiken. Als de locatienaam spaties bevat, moet deze tussen dubbele aanhalingstekens worden geplaatst. Bijvoorbeeld “VS-oost 2”. 
+1. Maak een nieuwe resourcegroep. Geef in de volgende opdracht de parameterwaarden op die u wilt gebruiken. Als de locatienaam spaties bevat, moet deze tussen dubbele aanhalingstekens worden geplaatst. Bijvoorbeeld 'US - oost 2'. 
    
     ```azurecli
     az group create --location "East US 2" --name myresourcegroup
     ```
 
-2. Maak de Data Lake Store-account.
+2. Het Gen1 van Data Lake Storage-account maken.
    
     ```azurecli
-    az dls account create --account mydatalakestore --resource-group myresourcegroup
+    az dls account create --account mydatalakestoragegen1 --resource-group myresourcegroup
     ```
 
-## <a name="create-folders-in-a-data-lake-store-account"></a>Mappen maken in een Data Lake Store-account
+## <a name="create-folders-in-a-data-lake-storage-gen1-account"></a>Mappen maken in een Data Lake Storage Gen1-account
 
-U kunt mappen maken onder uw Azure Data Lake Store-account voor het beheren en opslaan van gegevens. Gebruik de volgende opdracht om in de hoofdmap van Data Lake Store een map te maken met de naam **mynewfolder**.
+U kunt mappen maken onder uw Azure Data Lake Storage Gen1-account te beheren en opslaan van gegevens. Gebruik de volgende opdracht om te maken van een map met de naam **mynewfolder** in de hoofdmap van het Data Lake Storage Gen1-account.
 
 ```azurecli
-az dls fs create --account mydatalakestore --path /mynewfolder --folder
+az dls fs create --account mydatalakestoragegen1 --path /mynewfolder --folder
 ```
 
 > [!NOTE]
-> Met de parameter `--folder` geeft u aan dat u een map wilt maken. Zonder deze parameter maakt de opdracht een leeg bestand met de naam mynewfolder in de hoofdmap van het Data Lake Store-account.
+> Met de parameter `--folder` geeft u aan dat u een map wilt maken. Als deze parameter niet aanwezig is, maakt de opdracht een leeg bestand met de naam mynewfolder in de hoofdmap van het Data Lake Storage Gen1-account.
 > 
 >
 
-## <a name="upload-data-to-a-data-lake-store-account"></a>Gegevens uploaden naar een Data Lake Store-account
+## <a name="upload-data-to-a-data-lake-storage-gen1-account"></a>Gegevens uploaden naar een Gen1 van Data Lake Storage-account
 
-U kunt gegevens direct naar het hoogste niveau in Data Lake Store uploaden of naar een map die u in het account hebt gemaakt. De codefragmenten hieronder laten zien hoe u voorbeeldgegevens uploadt naar de map (**mynewfolder**) die u in de voorgaande sectie hebt gemaakt.
+U kunt gegevens uploaden naar Data Lake Storage Gen1 rechtstreeks op het hoogste niveau doen of naar een map die u in het account hebt gemaakt. De codefragmenten hieronder laten zien hoe u voorbeeldgegevens uploadt naar de map (**mynewfolder**) die u in de voorgaande sectie hebt gemaakt.
 
 Als u nog geen voorbeeldgegevens hebt om te uploaden, kunt u de map **Ambulance Data** uit de [Azure Data Lake Git-opslagplaats](https://github.com/MicrosoftBigData/usql/tree/master/Examples/Samples/Data/AmbulanceData) gebruiken. Download het bestand en sla het in een lokale map op uw computer op, bijvoorbeeld C:\sampledata\.
 
 ```azurecli
-az dls fs upload --account mydatalakestore --source-path "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" --destination-path "/mynewfolder/vehicle1_09142014.csv"
+az dls fs upload --account mydatalakestoragegen1 --source-path "C:\SampleData\AmbulanceData\vehicle1_09142014.csv" --destination-path "/mynewfolder/vehicle1_09142014.csv"
 ```
 
 > [!NOTE]
@@ -103,12 +103,12 @@ az dls fs upload --account mydatalakestore --source-path "C:\SampleData\Ambulanc
 >
 
 
-## <a name="list-files-in-a-data-lake-store-account"></a>Bestanden in een Data Lake Store-account weergeven
+## <a name="list-files-in-a-data-lake-storage-gen1-account"></a>Lijst met bestanden in een Data Lake Storage Gen1-account
 
-Gebruik de volgende opdracht om de bestanden in een Data Lake Store-account weer te geven.
+Gebruik de volgende opdracht om de bestanden in een Data Lake Storage Gen1 account weer te geven.
 
 ```azurecli
-az dls fs list --account mydatalakestore --path /mynewfolder
+az dls fs list --account mydatalakestoragegen1 --path /mynewfolder
 ```
 
 De uitvoer ziet er ongeveer als volgt uit:
@@ -131,18 +131,18 @@ De uitvoer ziet er ongeveer als volgt uit:
         }
     ]
 
-## <a name="rename-download-and-delete-data-from-a-data-lake-store-account"></a>Gegevens in een Data Lake Store-account een nieuwe naam geven, downloaden en verwijderen 
+## <a name="rename-download-and-delete-data-from-a-data-lake-storage-gen1-account"></a>Wijzig de naam, downloaden en gegevens uit een Data Lake Storage Gen1-account verwijderen 
 
 * **Als u de naam van een bestand wilt wijzigen**, gebruikt u de volgende opdracht:
   
     ```azurecli
-    az dls fs move --account mydatalakestore --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
+    az dls fs move --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014.csv --destination-path /mynewfolder/vehicle1_09142014_copy.csv
     ```
 
 * **Als u een bestand wilt downloaden**, gebruikt u de volgende opdracht: Zorg ervoor dat het doelpad dat u opgeeft al bestaat.
   
     ```azurecli     
-    az dls fs download --account mydatalakestore --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"
+    az dls fs download --account mydatalakestoragegen1 --source-path /mynewfolder/vehicle1_09142014_copy.csv --destination-path "C:\mysampledata\vehicle1_09142014_copy.csv"
     ```
 
     > [!NOTE]
@@ -153,35 +153,35 @@ De uitvoer ziet er ongeveer als volgt uit:
 * **Als u een bestand wilt verwijderen**, gebruikt u de volgende opdracht:
   
     ```azurecli
-    az dls fs delete --account mydatalakestore --path /mynewfolder/vehicle1_09142014_copy.csv
+    az dls fs delete --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014_copy.csv
     ```
 
     Als u de map **mynewfolder** en het bestand **vehicle1_09142014_copy.csv** met één opdracht wilt verwijderen, gebruikt u de parameter --recurse
 
     ```azurecli
-    az dls fs delete --account mydatalakestore --path /mynewfolder --recurse
+    az dls fs delete --account mydatalakestoragegen1 --path /mynewfolder --recurse
     ```
 
-## <a name="work-with-permissions-and-acls-for-a-data-lake-store-account"></a>Machtigingen en ACL's gebruiken voor een Data Lake Store-account
+## <a name="work-with-permissions-and-acls-for-a-data-lake-storage-gen1-account"></a>Werken met machtigingen en ACL's voor een Data Lake Storage Gen1-account
 
-In deze sectie vindt u informatie over het beheer van ACL's en machtigingen met de Azure CLI 2.0. Zie [Toegangsbeheer in Azure Data Lake Store](data-lake-store-access-control.md) voor gedetailleerde informatie over de implementatie van ACL's in Azure Data Lake Store.
+In deze sectie vindt u informatie over het beheer van ACL's en machtigingen met de Azure CLI 2.0. Zie voor gedetailleerde informatie over hoe ACL's zijn geïmplementeerd in Azure Data Lake Storage Gen1, [toegangsbeheer in Azure Data Lake Storage Gen1](data-lake-store-access-control.md).
 
 * Gebruik de volgende opdracht als u **de eigenaar van een bestand/map wilt bijwerken**:
 
     ```azurecli
-    az dls fs access set-owner --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv --group 80a3ed5f-959e-4696-ba3c-d3c8b2db6766 --owner 6361e05d-c381-4275-a932-5535806bb323
+    az dls fs access set-owner --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014.csv --group 80a3ed5f-959e-4696-ba3c-d3c8b2db6766 --owner 6361e05d-c381-4275-a932-5535806bb323
     ```
 
 * Gebruik de volgende opdracht als u **de machtigingen voor een bestand/map wilt bijwerken**:
 
     ```azurecli
-    az dls fs access set-permission --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv --permission 777
+    az dls fs access set-permission --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014.csv --permission 777
     ```
     
 * Gebruik de volgende opdracht als u **de ACL's voor een gegeven pad wilt ophalen**:
 
     ```azurecli
-    az dls fs access show --account mydatalakestore --path /mynewfolder/vehicle1_09142014.csv
+    az dls fs access show --account mydatalakestoragegen1 --path /mynewfolder/vehicle1_09142014.csv
     ```
 
     De uitvoer moet er ongeveer als volgt uitzien:
@@ -201,38 +201,38 @@ In deze sectie vindt u informatie over het beheer van ACL's en machtigingen met 
 * Gebruik de volgende opdracht als u **een item voor een ACL wilt instellen**:
 
     ```azurecli
-    az dls fs access set-entry --account mydatalakestore --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323:-w-
+    az dls fs access set-entry --account mydatalakestoragegen1 --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323:-w-
     ```
 
 * Gebruik de volgende opdracht als u **een item voor een ACL wilt verwijderen**:
 
     ```azurecli
-    az dls fs access remove-entry --account mydatalakestore --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323
+    az dls fs access remove-entry --account mydatalakestoragegen1 --path /mynewfolder --acl-spec user:6360e05d-c381-4275-a932-5535806bb323
     ```
 
 * Gebruik de volgende opdracht als u **een complete standaard-ACL wilt verwijderen**:
 
     ```azurecli
-    az dls fs access remove-all --account mydatalakestore --path /mynewfolder --default-acl
+    az dls fs access remove-all --account mydatalakestoragegen1 --path /mynewfolder --default-acl
     ```
 
 * Gebruik de volgende opdracht als u **een complete niet-standaard-ACL wilt verwijderen**:
 
     ```azurecli
-    az dls fs access remove-all --account mydatalakestore --path /mynewfolder
+    az dls fs access remove-all --account mydatalakestoragegen1 --path /mynewfolder
     ```
     
-## <a name="delete-a-data-lake-store-account"></a>Een Data Lake Store-account verwijderen
-Gebruik de volgende opdracht om een Data Lake Store-account te verwijderen.
+## <a name="delete-a-data-lake-storage-gen1-account"></a>Een Data Lake Storage Gen1-account verwijderen
+Gebruik de volgende opdracht om een Data Lake Storage Gen1-account te verwijderen.
 
 ```azurecli
-az dls account delete --account mydatalakestore
+az dls account delete --account mydatalakestoragegen1
 ```
 
 Wanneer dit wordt gevraagd, typt u **Y** om het account te verwijderen.
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Azure Data Lake Store gebruiken voor big data-vereisten](data-lake-store-data-scenarios.md) 
-* [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
-* [Azure Data Lake Analytics gebruiken met Data Lake Store](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
-* [Azure HDInsight gebruiken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md)
+* [Azure Data Lake Storage Gen1 gebruiken voor big data-vereisten](data-lake-store-data-scenarios.md) 
+* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
+* [Azure Data Lake Analytics gebruiken met Data Lake Storage Gen1](../data-lake-analytics/data-lake-analytics-get-started-portal.md)
+* [Azure HDInsight gebruiken met Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md)

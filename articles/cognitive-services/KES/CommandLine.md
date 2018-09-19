@@ -1,23 +1,26 @@
 ---
-title: Knowledge Exploration Service-opdrachtregelinterface | Microsoft Docs
-description: Gebruik de KES-opdrachtregelinterface voor het bouwen van de index en grammatica-bestanden van gestructureerde gegevens en ze vervolgens te implementeren als webservices in de Microsoft Cognitive Services.
+title: Opdrachtregelinterface - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Gebruik de opdrachtregelinterface voor het bouwen van de index en grammatica-bestanden van gestructureerde gegevens, en vervolgens als webservices te implementeren.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/24/2016
 ms.author: paulhsu
-ms.openlocfilehash: 71a6f5ac93e5605182a55de1bae9a99c5c3eddf4
-ms.sourcegitcommit: dc646da9fbefcc06c0e11c6a358724b42abb1438
+ms.openlocfilehash: 7ec2282317019275b15a8e506753408c75a68561
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/18/2018
-ms.locfileid: "39136352"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127134"
 ---
 # <a name="command-line-interface"></a>Opdrachtregelinterface
-De KES command line interface biedt de mogelijkheid om te bouwen index en grammatica-bestanden van gestructureerde gegevens en ze te implementeren als webservices.  Het maakt gebruik van de algemene syntaxis: `kes.exe <command> <required_args> [<optional_args>]`.  U kunt uitvoeren `kes.exe` zonder argumenten om een lijst van opdrachten, weer te geven of `kes.exe <command>` om een lijst met argumenten die beschikbaar zijn voor de opgegeven opdracht weer te geven.  Hieronder volgt een lijst van beschikbare opdrachten:
+
+De opdrachtregelinterface voor Knowledge Exploration Service (KES) biedt de mogelijkheid om te bouwen index en grammatica-bestanden van gestructureerde gegevens en ze te implementeren als webservices.  Het maakt gebruik van de algemene syntaxis: `kes.exe <command> <required_args> [<optional_args>]`.  U kunt uitvoeren `kes.exe` zonder argumenten om een lijst van opdrachten, weer te geven of `kes.exe <command>` om een lijst met argumenten die beschikbaar zijn voor de opgegeven opdracht weer te geven.  Hieronder volgt een lijst van beschikbare opdrachten:
+
 * build_index
 * build_grammar
 * host_service

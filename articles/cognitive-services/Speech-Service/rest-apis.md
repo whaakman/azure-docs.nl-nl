@@ -8,33 +8,218 @@ ms.technology: speech
 ms.topic: article
 ms.date: 05/09/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 64dce26303c0e700da54d371af5cb275b1613d70
-ms.sourcegitcommit: 2ad510772e28f5eddd15ba265746c368356244ae
+ms.openlocfilehash: 7d5656d6599e1d8d2a3e85b9d41bcce6490e1511
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/28/2018
-ms.locfileid: "43122100"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124164"
 ---
 # <a name="speech-service-rest-apis"></a>Spraakservice REST-API 's
 
-De REST-API's van de uniforme spraakherkenning-service zijn vergelijkbaar met de API's uit de [Speech-API](https://docs.microsoft.com/azure/cognitive-services/Speech) (voorheen bekend als de Bing Speech-Service). De eindpunten afwijken van de eindpunten die worden gebruikt door de vorige Speech-service.
+De REST-API's van de uniforme spraakherkenning-service zijn vergelijkbaar met de API's uit de [Bing Speech-API](https://docs.microsoft.com/azure/cognitive-services/Speech). De eindpunten afwijken van de eindpunten die worden gebruikt door de Bing Speech-service. Regionale eindpunten beschikbaar zijn en moet u een abonnementssleutel die overeenkomt met het eindpunt dat u gebruikt.
 
 ## <a name="speech-to-text"></a>Spraak naar tekst
 
-In de Speech to Text-API, wordt alleen de eindpunten die worden gebruikt verschillen van de vorige spraakservice spraak Recognition-API. De nieuwe eindpunten worden weergegeven in de onderstaande tabel. Gebruik de naam die overeenkomt met de regio van uw abonnement.
+De eindpunten voor de spraak-naar-tekst REST-API worden weergegeven in de onderstaande tabel. Gebruik de naam die overeenkomt met de regio van uw abonnement.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-speech-to-text.md)]
-
-De spraak-naar-tekst-API is anders is vergelijkbaar met de [REST-API](https://docs.microsoft.com/azure/cognitive-services/speech/getstarted/getstartedrest) voor de vorige Speech-API.
-
-De spraak-naar-tekst REST-API ondersteunt alleen korte uitingen. Aanvragen kunnen maximaal 10 seconden audio bevatten en een maximum van 14 seconden algehele laatste. De REST-API retourneert alleen de laatste resultaten, geen tijdelijke of gedeeltelijke resultaten.
 
 > [!NOTE]
 > Als u het akoestisch model of de taalmodel of de uitspraak van aangepast, kunt u uw aangepast eindpunt gebruiken.
 
+Deze API ondersteunt alleen korte uitingen. Aanvragen kunnen maximaal 10 seconden audio bevatten en een maximum van 14 seconden algehele laatste. De REST-API retourneert alleen de laatste resultaten, geen tijdelijke of gedeeltelijke resultaten. De spraak-Service heeft ook een [batch transcriptie](batch-transcription.md) API die langer audio kunt transcriberen.
+
+### <a name="query-parameters"></a>Queryparameters
+
+De volgende parameters kunnen worden opgenomen in de querytekenreeks van de REST-aanvraag.
+
+|Parameternaam|Vereist/optioneel|Betekenis|
+|-|-|-|
+|`language`|Vereist|De id van de taal die moet worden herkend. Zie [ondersteunde talen](supported-languages.md#speech-to-text).|
+|`format`|Optioneel<br>Standaard: `simple`|Resultaat opmaken, `simple` of `detailed`. Eenvoudige tot de resultaten behoren `RecognitionStatus`, `DisplayText`, `Offset`, en de duur. Gedetailleerde resultaten bevatten meerdere kandidaten met vertrouwen waarden en vier verschillende manieren.|
+|`profanity`|Optioneel<br>Standaard: `masked`|Klik hier voor meer informatie over het afhandelen van grof taalgebruik in herkenningsresultaten. Mogelijk `masked` (grof taalgebruik vervangen door sterretjes), `removed` (Hiermee verwijdert u alle grof taalgebruik,) of `raw` (inclusief grof taalgebruik).
+
+### <a name="request-headers"></a>Aanvraagheaders
+
+De volgende velden worden in de HTTP-aanvraagheader verzonden.
+
+|Koptekst|Betekenis|
+|------|-------|
+|`Ocp-Apim-Subscription-Key`|Uw abonnementssleutel van spraak-service. Een van beide deze header of `Authorization` moet worden opgegeven.|
+|`Authorization`|Een verificatietoken voorafgegaan door het woord `Bearer`. Een van beide deze header of `Ocp-Apim-Subscription-Key` moet worden opgegeven. Zie [verificatie](#authentication).|
+|`Content-type`|Beschrijft de indeling en codec van de gegevens. Op dit moment deze waarde moet `audio/wav; codec=audio/pcm; samplerate=16000`.|
+|`Transfer-Encoding`|Optioneel. Indien opgegeven, moet `chunked` om toe te staan van audiogegevens in meerdere kleine segmenten in plaats van één bestand worden verzonden.|
+|`Expect`|Als u gesegmenteerde overdracht, stuurt u `Expect: 100-continue`. De spraakservice erkent de eerste aanvraag en wacht op de aanvullende gegevens.|
+|`Accept`|Optioneel. Indien opgegeven, moet de bevatten `application/json`, zoals de Speech-service de resultaten in JSON-indeling bevat. (Sommige Web aanvraag frameworks bieden een niet-compatibele standaardwaarde als u niets opgeeft, dus het is raadzaam om altijd opnemen `Accept`)|
+
+### <a name="audio-format"></a>Audio-indeling
+
+De audio wordt verzonden in de hoofdtekst van de HTTP `PUT` aanvragen en moeten zich op 16-bits WAV-indeling met één PCM-kanaal (mono) op 16 KHz.
+
+### <a name="chunked-transfer"></a>Gesegmenteerde overdracht
+
+Gesegmenteerde overdrachtscodering overdracht (`Transfer-Encoding: chunked`) kunt u Verminder de latentie van de spraakherkenning omdat hierdoor de Speech-service om te beginnen met de verwerking van het audiobestand terwijl deze wordt verzonden. De REST-API biedt geen tijdelijke of gedeeltelijke resultaten; Deze optie is bedoeld uitsluitend het reactievermogen verbeteren.
+
+De volgende code ziet u hoe u verzendt audio in segmenten. `request` is een HTTPWebRequest-object dat is verbonden met het juiste REST-eindpunt. `audioFile` is het pad naar een audio-bestand op schijf.
+
+```csharp
+using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
+{
+
+    /*
+    * Open a request stream and write 1024 byte chunks in the stream one at a time.
+    */
+    byte[] buffer = null;
+    int bytesRead = 0;
+    using (Stream requestStream = request.GetRequestStream())
+    {
+        /*
+        * Read 1024 raw bytes from the input audio file.
+        */
+        buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
+        while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
+        {
+            requestStream.Write(buffer, 0, bytesRead);
+        }
+
+        // Flush
+        requestStream.Flush();
+    }
+}
+```
+
+### <a name="example-request"></a>Van de voorbeeldaanvraag
+
+Hier volgt een typische aanvraag.
+
+```HTTP
+POST speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
+Accept: application/json;text/xml
+Content-Type: audio/wav; codec=audio/pcm; samplerate=16000
+Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY
+Host: westus.stt.speech.microsoft.com
+Transfer-Encoding: chunked
+Expect: 100-continue
+```
+
+### <a name="http-status"></a>HTTP-status
+
+De HTTP-status van het antwoord geeft aan dat het slagen of algemene fouten.
+
+HTTP-code|Betekenis|Mogelijke oorzaak
+-|-|-|
+100|Doorgaan|De eerste aanvraag is geaccepteerd. Doorgaan met het verzenden van de rest van de gegevens. (Met gesegmenteerde overdracht gebruikt.)
+200|OK|De aanvraag is uitgevoerd. de antwoordtekst is een JSON-object.
+400|Ongeldig verzoek|De taalcode die niet opgegeven of is niet een ondersteunde taal; Ongeldig audio-bestand.
+401|Niet geautoriseerd|Abonnementssleutel of autorisatie-token is ongeldig in de regio is opgegeven of ongeldig eindpunt.
+403|Verboden|Ontbrekende abonnementssleutel of autorisatie token.
+
+### <a name="json-response"></a>JSON-antwoord
+
+Resultaten worden geretourneerd in JSON-indeling. De `simple` indeling bevat alleen de volgende op het hoogste niveau velden.
+
+|Veldnaam|Inhoud|
+|-|-|
+|`RecognitionStatus`|Status, zoals `Success` voor geslaagde opname. Zie de volgende tabel.|
+|`DisplayText`|De herkende tekst na het hoofdlettergebruik, interpunctie, inverse tekst normalisering (conversie van de gesproken tekst voor kortere formulieren, zoals 200 voor '200' of 'Dr. Smith' voor 'doctor smith'), en grof taalgebruik maskeren. Alleen op succes is geïnstalleerd.|
+|`Offset`|De tijd (in eenheden van 100 nanoseconden) waarmee de herkende spraak in de audiostream begint.|
+|`Duration`|De duur (in eenheden van 100 nanoseconden) van de herkende spraak in de audio-stream.|
+
+De `RecognitionStatus` veld mag de volgende waarden bevatten.
+
+|Statuswaarde|Beschrijving
+|-|-|
+| `Success` | De opname is voltooid en het veld weergavetekst aanwezig is. |
+| `NoMatch` | Spraak is gedetecteerd in de audiostream, maar er zijn geen woorden uit de doeltaal zijn afgestemd. Betekent meestal dat de opname-taal is een andere taal dan het account dat de gebruiker spreekt. |
+| `InitialSilenceTimeout` | Het begin van de audiostream bevat alleen stilte en de time-out voor spraak-service. |
+| `BabbleTimeout` | Het begin van de audiostream bevat alleen ruis, en de time-out voor spraak-service. |
+| `Error` | De opname-service is een interne fout opgetreden en kan niet worden voortgezet. Probeer het opnieuw, indien mogelijk. |
+
+> [!NOTE]
+> Als de gebruiker alleen grof taalgebruik spreekt, en de `profanity` queryparameter is ingesteld op `remove`, de service heeft geen spraak resultaat retourneren, tenzij de opname-modus is `interactive`. In dit geval de service retourneert een resultaat spraak met een `RecognitionStatus` van `NoMatch`. 
+
+De `detailed` indeling bevat dezelfde velden als de `simple` opmaken, samen met een `NBest` veld. De `NBest` veld is een lijst met alternatieve een perfecte ervaring bij van de dezelfde spraak, geclassificeerd van meest waarschijnlijke te minste waarschijnlijk. De eerste vermelding is hetzelfde als de belangrijkste herkenningsresultaat. Elke vermelding bevat de volgende velden:
+
+|Veldnaam|Inhoud|
+|-|-|
+|`Confidence`|De betrouwbaarheidsscore van de vermelding van 0,0 (geen vertrouwen) 1.0 (volledig vertrouwen)
+|`Lexical`|De lexicale vorm van de herkende tekst: de werkelijke woorden herkend.
+|`ITN`|De inverse-normalized-tekst ("canonieke") vorm van de herkende tekst, met telefoon getallen, getallen, afkortingen ("doctor smith' op 'dr smith') en andere transformaties toegepast.
+|`MaskedITN`| Het formulier toevoegen met grof taalgebruik maskering toegepast, indien aangevraagd.
+|`Display`| Het formulier weergegeven van de herkende tekst, met interpunctie hoofdletters en kleine letters toegevoegd. Hetzelfde als `DisplayText` in het resultaat op het hoogste niveau.
+
+### <a name="sample-responses"></a>Voorbeeld van reacties
+
+Hieronder volgt een typische antwoord voor `simple` herkenning.
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "DisplayText": "Remind me to buy 5 pencils.",
+  "Offset": "1236645672289",
+  "Duration": "1236645672289"
+}
+```
+
+Hieronder vindt u een typische antwoord voor `detailed` herkenning.
+
+```json
+{
+  "RecognitionStatus": "Success",
+  "Offset": "1236645672289",
+  "Duration": "1236645672289",
+  "NBest": [
+      {
+        "Confidence" : "0.87",
+        "Lexical" : "remind me to buy five pencils",
+        "ITN" : "remind me to buy 5 pencils",
+        "MaskedITN" : "remind me to buy 5 pencils",
+        "Display" : "Remind me to buy 5 pencils.",
+      },
+      {
+        "Confidence" : "0.54",
+        "Lexical" : "rewind me to buy five pencils",
+        "ITN" : "rewind me to buy 5 pencils",
+        "MaskedITN" : "rewind me to buy 5 pencils",
+        "Display" : "Rewind me to buy 5 pencils.",
+      }
+  ]
+}
+```
+
 ## <a name="text-to-speech"></a>Tekst naar spraak
 
-De nieuwe Text to Speech-API biedt ondersteuning voor 24-KHz audio-uitvoer. De `X-Microsoft-OutputFormat` header kan nu de volgende waarden bevatten.
+Hieronder vindt u de REST-eindpunten voor de spraakservice Text to Speech-API. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
+
+[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+
+> [!NOTE]
+> Als u een aangepaste spraakstijl hebt gemaakt, kunt u de bijbehorende aangepast eindpunt gebruiken.
+
+De spraak-Service ondersteunt 24-KHz audio-uitvoer naast de 16-Khz uitvoer door Bing Speech ondersteund. Vier 24-KHz uitvoerindelingen zijn beschikbaar voor gebruik in de `X-Microsoft-OutputFormat` HTTP-header, twee 24-KHz stemmen, zijn `Jessa24kRUS` en `Guy24kRUS`.
+
+Landinstelling | Taal   | Geslacht | De toewijzing van service
+-------|------------|--------|------------
+nl-NL  | Amerikaans-Engels | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, Jessa24kRUS)" 
+nl-NL  | Amerikaans-Engels | Man   | "Microsoft Server spraak tekst en spraak, spraak (en-US, Guy24kRUS)"
+
+Een volledige lijst met beschikbare stemmen is beschikbaar in [ondersteunde talen](supported-languages.md#text-to-speech).
+
+### <a name="request-headers"></a>Aanvraagheaders
+
+De volgende velden worden in de HTTP-aanvraagheader verzonden.
+
+|Koptekst|Betekenis|
+|------|-------|
+|`Authorization`|Een verificatietoken voorafgegaan door het woord `Bearer`. Vereist. Zie [verificatie](#authentication).|
+|`Content-Type`|De invoer inhoudstype: `application/ssml+xml`.|
+|`X-Microsoft-OutputFormat`|De uitvoer audio-indeling. Zie de volgende tabel.|
+|`X-Search-AppId`|Hex-bewerkbare GUID (geen streepjes) die een unieke identificatie van de clienttoepassing. Dit kan zijn dat de store-ID. IT is niet een store-app, kunt u GUID.|
+|`X-Search-ClientId`|Hex-bewerkbare GUID (geen streepjes) die een unieke identificatie van het exemplaar van een toepassing voor elke installatie.|
+|`User-Agent`|De naam van de toepassing. Vereist. moet minder dan 255 tekens bevatten.|
+
+De beschikbare audio uitvoerindelingen (`X-Microsoft-OutputFormat`) een bitrate en een codering.
 
 |||
 |-|-|
@@ -45,22 +230,48 @@ De nieuwe Text to Speech-API biedt ondersteuning voor 24-KHz audio-uitvoer. De `
 `riff-24khz-16bit-mono-pcm`        | `audio-24khz-160kbitrate-mono-mp3`
 `audio-24khz-96kbitrate-mono-mp3`  | `audio-24khz-48kbitrate-mono-mp3`
 
-De spraak-service biedt nu twee 24-KHz stemmen:
+### <a name="request-body"></a>Aanvraagtekst
 
-Landinstelling | Taal   | Geslacht | De toewijzing van service
--------|------------|--------|------------
-nl-NL  | Amerikaans-Engels | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (en-US, Jessa24kRUS)" 
-nl-NL  | Amerikaans-Engels | Man   | "Microsoft Server spraak tekst en spraak, spraak (en-US, Guy24kRUS)"
+De tekst voor spraaksynthese wordt verzonden als de instantie van een HTTP `POST` aanvraag in tekst zonder opmaak of [spraak synthese Markup Language](speech-synthesis-markup.md) (SSML)-indeling met UTF-8 tekstcodering. Als u wilt een stem dan standaard-stem van de service gebruiken, moet u SSML gebruiken.
 
-Hieronder vindt u de REST-eindpunten voor de uniforme spraakherkenning service Text to Speech-API. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
+### <a name="sample-request"></a>Voorbeeld van een aanvraag
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+De volgende HTTP-aanvraag gebruikt een SSML-instantie voor het kiezen van de stem. De hoofdtekst van het mag niet langer zijn dan 1000 tekens zijn.
 
-Deze verschillen in waarmee u rekening moet houden wanneer u naar verwijst de [REST API-documentatie](https://docs.microsoft.com/azure/cognitive-services/speech/api-reference-rest/bingvoiceoutput) voor de vorige Speech-API.
+```xml
+POST /cognitiveservices/v1 HTTP/1.1
+
+X-Microsoft-OutputFormat: raw-16khz-16bit-mono-pcm
+Content-Type: application/ssml+xml
+Host: westus.tts.speech.microsoft.com
+Content-Length: 225
+Authorization: Bearer [Base64 access_token]
+
+<speak version='1.0' xml:lang='en-US'><voice xml:lang='en-US' xml:gender='Female' 
+    name='Microsoft Server Speech Text to Speech Voice (en-US, ZiraRUS)'>
+        Microsoft Speech Service Text-to-Speech API
+</voice></speak>
+```
+
+### <a name="http-response"></a>HTTP-antwoord
+
+De HTTP-status van het antwoord geeft aan dat het slagen of algemene fouten.
+
+HTTP-code|Betekenis|Mogelijke oorzaak
+-|-|-|
+200|OK|De aanvraag is uitgevoerd. de antwoordtekst is een geluidsbestand.
+400|Ongeldig verzoek|Vereiste headerveld ontbreekt, document SSML van waarde te lang, of is ongeldig.
+401|Niet geautoriseerd|Abonnementssleutel of autorisatie-token is ongeldig in de regio is opgegeven of ongeldig eindpunt.
+403|Verboden|Ontbrekende abonnementssleutel of autorisatie token.
+413|Aanvraagentiteit te groot|De ingevoerde tekst is langer dan 1000 tekens.
+
+Als de HTTP-status `200 OK`, de hoofdtekst van het antwoord bevat een audio-bestand in de gewenste indeling. Dit bestand kan worden afgespeeld, zoals deze wordt overgedragen en in een buffer of het bestand later afspelen of ander gebruik opgeslagen.
 
 ## <a name="authentication"></a>Verificatie
 
-Een aanvraag verzenden naar de spraakservice REST-API vereist dat een toegangstoken. U een token verkrijgen door te geven van uw abonnementssleutel voor een regionale spraakservice `issueToken` eindpunt, wordt weergegeven in de onderstaande tabel. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
+Een aanvraag verzenden naar de spraakservice REST-API is een abonnementssleutel of een toegangstoken vereist. In het algemeen is het eenvoudigste de abonnementssleutel om rechtstreeks te verzenden; de spraakservice haalt het toegangstoken vervolgens voor u. Echter, als u wilt responstijd te minimaliseren, kunt u in plaats daarvan een toegangstoken gebruiken.
+
+U een token verkrijgen door middel van uw abonnementssleutel voor een regionale spraakservice `issueToken` eindpunt, wordt weergegeven in de onderstaande tabel. Gebruik het eindpunt dat overeenkomt met de regio van uw abonnement.
 
 [!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-token-service.md)]
 
@@ -121,40 +332,40 @@ curl -v -X POST
 De C#-klasse hieronder ziet u hoe u een toegangstoken verkrijgen. Geef uw abonnementssleutel voor spraak-service door bij het instantiëren van de klasse. Als uw abonnement niet in de regio VS-West is, wijzigt u de hostnaam van `FetchTokenUri` op de juiste wijze.
 
 ```cs
-    /*
-     * This class demonstrates how to get a valid access token.
-     */
-    public class Authentication
+/*
+    * This class demonstrates how to get a valid access token.
+    */
+public class Authentication
+{
+    public static readonly string FetchTokenUri =
+        "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
+    private string subscriptionKey;
+    private string token;
+
+    public Authentication(string subscriptionKey)
     {
-        public static readonly string FetchTokenUri =
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
-        private string subscriptionKey;
-        private string token;
+        this.subscriptionKey = subscriptionKey;
+        this.token = FetchTokenAsync(FetchTokenUri, subscriptionKey).Result;
+    }
 
-        public Authentication(string subscriptionKey)
+    public string GetAccessToken()
+    {
+        return this.token;
+    }
+
+    private async Task<string> FetchTokenAsync(string fetchUri, string subscriptionKey)
+    {
+        using (var client = new HttpClient())
         {
-            this.subscriptionKey = subscriptionKey;
-            this.token = FetchTokenAsync(FetchTokenUri, subscriptionKey).Result;
-        }
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            UriBuilder uriBuilder = new UriBuilder(fetchUri);
 
-        public string GetAccessToken()
-        {
-            return this.token;
-        }
-
-        private async Task<string> FetchTokenAsync(string fetchUri, string subscriptionKey)
-        {
-            using (var client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-                UriBuilder uriBuilder = new UriBuilder(fetchUri);
-
-                var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
-                Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
-                return await result.Content.ReadAsStringAsync();
-            }
+            var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
+            Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
+            return await result.Content.ReadAsStringAsync();
         }
     }
+}
 ```
 
 ### <a name="using-a-token"></a>Met behulp van een token
@@ -182,84 +393,84 @@ Het verificatietoken verloopt na tien minuten. Autorisatie vernieuwen door het v
 De volgende C#-code is een vervanging drop-in voor de klasse die eerder is weergegeven. De `Authentication` klasse automatisch verkrijgt een nieuw toegangstoken om 9 minuten een timer te gebruiken. Deze aanpak zorgt ervoor dat een geldig token altijd beschikbaar is terwijl uw programma wordt uitgevoerd.
 
 > [!NOTE]
-> In plaats van een timer te gebruiken, kunt u een timestamp van wanneer het huidige token is verkregen, is een nieuwe sleutel aanvragen alleen als het huidige token is bijna verloopt opslaan. Deze aanpak voorkomt u onnodig aanvragen van de nieuwe tokens en is mogelijk beter geschikt voor programma's die incidentele spraak-aanvragen.
+> In plaats van een timer te gebruiken, kunt u een timestamp van wanneer de laatste token is opgehaald en vervolgens een nieuwe sleutel aanvragen alleen als het bijna verloopt opslaan. Deze aanpak voorkomt u onnodig aanvragen van de nieuwe tokens en is mogelijk beter geschikt voor programma's die incidentele spraak-aanvragen.
 
 Als voorheen, zorg ervoor dat de `FetchTokenUri` waarde komt overeen met de regio van uw abonnement. Uw abonnementssleutel doorgegeven bij het instantiëren van de klasse.
 
 ```cs
-    /*
-     * This class demonstrates how to maintain a valid access token.
-     */
-    public class Authentication
+/*
+    * This class demonstrates how to maintain a valid access token.
+    */
+public class Authentication
+{
+    public static readonly string FetchTokenUri = 
+        "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
+    private string subscriptionKey;
+    private string token;
+    private Timer accessTokenRenewer;
+
+    //Access token expires every 10 minutes. Renew it every 9 minutes.
+    private const int RefreshTokenDuration = 9;
+
+    public Authentication(string subscriptionKey)
     {
-        public static readonly string FetchTokenUri = 
-            "https://westus.api.cognitive.microsoft.com/sts/v1.0/issueToken";
-        private string subscriptionKey;
-        private string token;
-        private Timer accessTokenRenewer;
+        this.subscriptionKey = subscriptionKey;
+        this.token = FetchToken(FetchTokenUri, subscriptionKey).Result;
 
-        //Access token expires every 10 minutes. Renew it every 9 minutes.
-        private const int RefreshTokenDuration = 9;
+        // renew the token on set duration.
+        accessTokenRenewer = new Timer(new TimerCallback(OnTokenExpiredCallback),
+                                        this,
+                                        TimeSpan.FromMinutes(RefreshTokenDuration),
+                                        TimeSpan.FromMilliseconds(-1));
+    }
 
-        public Authentication(string subscriptionKey)
+    public string GetAccessToken()
+    {
+        return this.token;
+    }
+
+    private void RenewAccessToken()
+    {
+        this.token = FetchToken(FetchTokenUri, this.subscriptionKey).Result;
+        Console.WriteLine("Renewed token.");
+    }
+
+    private void OnTokenExpiredCallback(object stateInfo)
+    {
+        try
         {
-            this.subscriptionKey = subscriptionKey;
-            this.token = FetchToken(FetchTokenUri, subscriptionKey).Result;
-
-            // renew the token on set duration.
-            accessTokenRenewer = new Timer(new TimerCallback(OnTokenExpiredCallback),
-                                           this,
-                                           TimeSpan.FromMinutes(RefreshTokenDuration),
-                                           TimeSpan.FromMilliseconds(-1));
+            RenewAccessToken();
         }
-
-        public string GetAccessToken()
+        catch (Exception ex)
         {
-            return this.token;
+            Console.WriteLine(string.Format("Failed renewing access token. Details: {0}", ex.Message));
         }
-
-        private void RenewAccessToken()
-        {
-            this.token = FetchToken(FetchTokenUri, this.subscriptionKey).Result;
-            Console.WriteLine("Renewed token.");
-        }
-
-        private void OnTokenExpiredCallback(object stateInfo)
+        finally
         {
             try
             {
-                RenewAccessToken();
+                accessTokenRenewer.Change(TimeSpan.FromMinutes(RefreshTokenDuration), TimeSpan.FromMilliseconds(-1));
             }
             catch (Exception ex)
             {
-                Console.WriteLine(string.Format("Failed renewing access token. Details: {0}", ex.Message));
-            }
-            finally
-            {
-                try
-                {
-                    accessTokenRenewer.Change(TimeSpan.FromMinutes(RefreshTokenDuration), TimeSpan.FromMilliseconds(-1));
-                }
-                catch (Exception ex)
-                {
-                    Console.WriteLine(string.Format("Failed to reschedule the timer to renew access token. Details: {0}", ex.Message));
-                }
-            }
-        }
-
-        private async Task<string> FetchToken(string fetchUri, string subscriptionKey)
-        {
-            using (var client = new HttpClient())
-            {
-                client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
-                UriBuilder uriBuilder = new UriBuilder(fetchUri);
-
-                var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
-                Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
-                return await result.Content.ReadAsStringAsync();
+                Console.WriteLine(string.Format("Failed to reschedule the timer to renew access token. Details: {0}", ex.Message));
             }
         }
     }
+
+    private async Task<string> FetchToken(string fetchUri, string subscriptionKey)
+    {
+        using (var client = new HttpClient())
+        {
+            client.DefaultRequestHeaders.Add("Ocp-Apim-Subscription-Key", subscriptionKey);
+            UriBuilder uriBuilder = new UriBuilder(fetchUri);
+
+            var result = await client.PostAsync(uriBuilder.Uri.AbsoluteUri, null);
+            Console.WriteLine("Token Uri: {0}", uriBuilder.Uri.AbsoluteUri);
+            return await result.Content.ReadAsStringAsync();
+        }
+    }
+}
 ```
 
 ## <a name="next-steps"></a>Volgende stappen

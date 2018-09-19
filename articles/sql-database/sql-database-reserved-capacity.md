@@ -8,14 +8,14 @@ manager: craigg
 ms.service: sql-database
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/18/2018
 ms.author: carlrab
-ms.openlocfilehash: 84fb916a5620bc7d91f01b9aebfd3eae8346f6bf
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e14f65c16706f8285b6ce390e75f95ea1a8bede6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45729432"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295487"
 ---
 # <a name="prepay-for-sql-database-compute-resources-with-azure-sql-database-reserved-capacity"></a>Betaal vooruit voor SQL Database-compute-resources met Azure SQL Database gereserveerde capaciteit
 
@@ -65,6 +65,10 @@ Bijvoorbeeld: Stel dat u een algemene, Gen5 – 16 vCore elastische pool en twee
 Als u nodig hebt om te annuleren van uw SQL-Database gereserveerde capaciteit, kunnen er een kosten voor vroegtijdige beëindiging van 12%. Restituties zijn gebaseerd op de laagste prijzen van uw aankoopprijs of de huidige prijs van de reservering. Restituties zijn beperkt tot 50.000 per jaar. U ontvangt restitutie is het resterende bedrag naar rato minus de kosten voor vroegtijdige beëindiging van 12%. Om aan te vragen bij een annulering, gaat u naar de reservering in de Azure portal en selecteer **gerestitueerd** een ondersteuningsaanvraag wilt maken.
 
 Als u wijzigen van de SQL-Database gereserveerde capaciteitsreservering naar een andere regio, resourcetype, servicelaag of term wilt, kunt u het uitwisselen voor een andere reservering van gelijke of grotere waarde. De begindatum van de termijn voor de nieuwe reservering niet meegenomen in de reservering uitgewisseld. De 1 of 3 jaar term wordt gestart wanneer u de nieuwe reservering maakt. Om aan te vragen bij een uitwisseling, gaat u naar de reservering in Azure portal en selecteer **Exchange** een ondersteuningsaanvraag wilt maken.
+
+## <a name="vcore-size-flexibility"></a>vCore grootte flexibiliteit
+
+vCore grootte flexibiliteit kunt u omhoog of omlaag schalen binnen een prestatielaag en de regio, zonder verlies van het voordeel voor gereserveerde capaciteit. SQL-Database gereserveerde capaciteit biedt u ook de flexibiliteit om tijdelijk uw hot-databases verplaatsen tussen pools en individuele databases als onderdeel van uw normale bewerkingen (in dezelfde regio en de prestaties laag) zonder verlies van de gereserveerde capaciteit profiteren. Doordat een buffer niet toegepast op uw reservering kunt u de prestaties van pieken effectief beheren zonder uw budget overschrijdt.
 
 ## <a name="next-steps"></a>Volgende stappen
 

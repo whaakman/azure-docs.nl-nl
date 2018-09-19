@@ -1,55 +1,58 @@
 ---
-title: Evalueren van de methode in kennis exploratie Service API | Microsoft Docs
-description: Informatie over het gebruik van de methode evalueren in het Knowledge exploratie Service (KES) API in cognitieve Services.
+title: Methode - Knowledge Exploration Service API evalueren
+titlesuffix: Azure Cognitive Services
+description: Informatie over het gebruik van de methode Evaluate in de Knowledge Exploration Service KES () API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: fc3d73b326b565cfe40d1b82cc419357b28a801a
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 45b25ec5cfc6e198b9b125675f4942463cef247a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344501"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128261"
 ---
 # <a name="evaluate-method"></a>Methode evalueren
-De *evalueren* methode evalueert en retourneert de uitvoer van een structured query-expressie op basis van de index.
 
-Normaal gesproken worden een expressie opgehaald uit een antwoord aan de methode interpret.  Maar u kunt ook samenstellen query-expressies zelf (Zie [Structured Query-expressie](Expressions.md)).  
+De *evalueren* methode evalueert en retourneert de uitvoer van een gestructureerde query-expressie op basis van de indexgegevens.
+
+Normaal gesproken worden een expressie opgehaald uit een antwoord aan de methode interpreteren.  Maar u kunt ook samenstellen query-expressies zelf (Zie [gestructureerde Query-expressie](Expressions.md)).  
 
 ## <a name="request"></a>Aanvraag 
+
 `http://<host>/evaluate?expr=<expr>&attributes=<attrs>[&<options>]`   
 
 Naam|Waarde|Beschrijving
 ----|----|----
-expr       | Tekenreeks | Structured query-expressie waarmee een subset van de index entiteiten worden geselecteerd.
-kenmerken | Tekenreeks | Door komma's gescheiden lijst met kenmerken in reactie op te nemen.
-count      | Nummer (standaard = 10) | Maximum aantal resultaten te retourneren.
-offset     | Nummer (standaard = 0) | De index van het eerste resultaat te retourneren.
-OrderBy |   Tekenreeks | Naam van kenmerk gebruikt om te sorteren van de resultaten, gevolgd door de optionele sorteervolgorde (standaard = asc): '*attrname*[: (asc&#124;desc)] '.  Als niet wordt opgegeven, worden de resultaten geretourneerd door natuurlijke logboek kans verkleinen.
-timeout  | Nummer (standaard = 1000) | Time-out in milliseconden. Alleen resultaten berekend voordat de time-out is verstreken, worden geretourneerd.
+markering       | Tekenreeks met tekst | Gestructureerde query-expressie die een subset van entiteiten van de index geselecteerd.
+Kenmerken | Tekenreeks met tekst | Met door komma's gescheiden lijst van kenmerken om op te nemen in de reactie.
+count      | Getal (standaard = 10) | Maximum aantal resultaten dat moet worden geretourneerd.
+offset     | Getal (standaard = 0) | De index van het eerste resultaat om terug te keren.
+sorteren op |   Tekenreeks met tekst | Naam van het kenmerk dat wordt gebruikt om de resultaten, gevolgd door de optionele sorteervolgorde te sorteren (standaard = asc): "*attrname*[: (asc&#124;desc)] '.  Indien niet opgegeven, worden de resultaten worden geretourneerd door het natuurlijke logboek kans te verkleinen.
+timeout  | Getal (standaard = 1000) | Time-out in milliseconden. Alleen de resultaten berekend voordat de time-out is verstreken, worden geretourneerd.
 
-Met behulp van de *aantal* en *offset* parameters, een groot aantal resultaten kan worden verkregen stapsgewijs voor meerdere aanvragen.
+Met behulp van de *aantal* en *offset* parameters, een groot aantal resultaten kan worden verkregen incrementeel ten opzichte van meerdere aanvragen.
   
 ## <a name="response-json"></a>Antwoord (JSON)
 JSONPath|Beschrijving
 ----|----
-$.expr | *expr* parameter van de aanvraag.
-$.entities | Matrix van 0 of meer object entiteiten die overeenkomt met de structured query-expressie. 
-$.aborted | True als de aanvraag is een time-out.
+$.expr | *markering* parameter van de aanvraag.
+$.entities | Matrix van 0 of meer object entiteiten die overeenkomen met de structured query-expressie. 
+$.aborted | Waar, als de aanvraag is een time-out.
 
 Elke entiteit bevat een *logprob* waarde en de waarden van de aangevraagde kenmerken.
 
 ## <a name="example"></a>Voorbeeld
-In het voorbeeld academic publicaties geeft de volgende aanvraag een structured query-expressie (mogelijk uit de uitvoer van een *interpreteren* aanvraag) en enkele kenmerken voor de bovenste 2 overeenkomende entiteiten worden opgehaald:
+In het voorbeeld academische publicaties, geeft de volgende aanvraag een gestructureerde query-expressie (mogelijk afkomstig zijn van de uitvoer van een *interpreteren* aanvraag) en worden enkele kenmerken voor de bovenste 2 die overeenkomen met entiteiten opgehaald:
 
 `http://<host>/evaluate?expr=Composite(Author.Name=='jaime teevan')&attributes=Title,Y,Author.Name,Author.Id&count=2`
 
-Het antwoord bevat de bovenste 2 ("count = 2 ') waarschijnlijk overeenkomende entiteiten.  De titel, jaar, de naam van auteur en de auteur van id-kenmerken worden voor elke entiteit geretourneerd.  Opmerking hoe de structuur van samengestelde kenmerkwaarden die overeenkomt met de manier waarop die ze worden opgegeven in het gegevensbestand. 
+Het antwoord bevat de top 2 ("count = 2") waarschijnlijk die overeenkomen met entiteiten.  Voor elke entiteit maakt, worden de titel, jaar, de naam van auteur en de auteur van id-kenmerken geretourneerd.  Houd er rekening mee hoe de waarden voor het kenmerken van de structuur van samengestelde overeenkomt met de manier waarop die deze zijn opgegeven in het gegevensbestand. 
 
 ```json
 {

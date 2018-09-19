@@ -12,22 +12,22 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/31/2018
+ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 8efb629575f94c8970dd68113eeb27a9dd36e643
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.openlocfilehash: cd5530cf27b88f0f1ccba392c0ea2d714fedcd66
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44158752"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129774"
 ---
 # <a name="adaptive-application-controls-in-azure-security-center"></a>Adaptieve toepassingsbesturingselementen in Azure Security Center
 Lees hoe u toepassingsbeheer configureert in Azure Security Center met behulp van dit stapsgewijze overzicht.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Wat zijn adaptieve toepassingsbesturingselementen in Security Center?
-Adaptieve toepassingsbesturingselementen helpen bepalen welke toepassingen kunnen worden uitgevoerd op uw virtuele machines die zich in Azure bevinden. Dit biedt u diverse voordelen, waaronder de mogelijkheid om uw virtuele machines beter bestand te maken tegen schadelijke software. Security Center maakt gebruik van machine learning om de toepassingen te analyseren die op de virtuele machine worden uitgevoerd. Ook helpt het u op basis van deze informatie regels voor opname in de whitelist toe te passen. Met deze mogelijkheid wordt het configureren en onderhouden van whitelists aanzienlijk eenvoudiger. U kunt hiermee het volgende:
+Besturingselementen voor adaptieve toepassingen is een oplossing voor het in de whitelist van intelligente, geautomatiseerde end-to-end-toepassingen van Azure Security Center. Hiermee kunt u bepalen welke toepassingen kunnen worden uitgevoerd op uw virtuele machines die zich in Azure, die onder andere voordelen hiervan is dat uw virtuele machines tegen schadelijke software. Security Center maakt gebruik van machine learning voor het analyseren van de toepassingen die worden uitgevoerd op uw virtuele machines en helpt u bij het toepassen van de specifieke basis van deze informatie in de whitelist. Deze mogelijkheid vereenvoudigt het proces van het configureren en onderhouden van beleidsregels voor toepassingen in een whitelist opnemen, zodat u kunt:
 
-- Pogingen om schadelijke toepassingen uit te voeren, blokkeren of hier een waarschuwing over verzenden, waaronder pogingen die anders mogelijk worden gemist door antimalwareoplossingen.
+- Blokkeren of waarschuwing op pogingen tot uitvoering van schadelijke toepassingen, waaronder pogingen die anders mogelijk worden gemist door antimalwareoplossingen.
 - Voldoen aan het beveiligingsbeleid van uw organisatie waarin alleen het gebruik van gelicentieerde software is toegestaan.
 - Vermijden dat in uw omgeving ongewenste software wordt gebruikt.
 - Vermijden dat oude en niet-ondersteunde apps worden uitgevoerd.
@@ -35,7 +35,7 @@ Adaptieve toepassingsbesturingselementen helpen bepalen welke toepassingen kunne
 - De IT-afdeling in staat stellen de toegang tot gevoelige gegevens te beheren via het gebruik van apps.
 
 ## <a name="how-to-enable-adaptive-application-controls"></a>Hoe worden adaptieve toepassingsbesturingselementen ingeschakeld?
-Met adaptieve toepassingsbesturingselementen kunt u een set toepassingen definiëren die in de geconfigureerde groepen mogen worden uitgevoerd. Deze functie is alleen beschikbaar voor Windows-machines (alle versies, klassieke implementatie of Azure Resource Manager-implementatie). Met de onderstaande stappen kunt u de whitelist met toepassingen in Security Center configureren:
+Besturingselementen voor adaptieve toepassingen helpen u bij het definiëren van een set toepassingen die mogen worden uitgevoerd op de geconfigureerde groepen virtuele machines. Deze functie is alleen beschikbaar voor Windows-machines (alle versies, klassieke implementatie of Azure Resource Manager-implementatie). Met de onderstaande stappen kunt u de whitelist met toepassingen in Security Center configureren:
 
 1. Open het dashboard van **Security Center**.
 2. Ga naar het deelvenster aan de linkerkant en selecteer **Adaptieve toepassingsbesturingselementen** onder **Geavanceerde cloudbeveiliging**.
@@ -66,48 +66,49 @@ De sectie **Groepen virtuele machines** bevat drie tabbladen:
 
   - **NAAM**: de naam van het abonnement en de groep
   - **VM's**: het aantal virtuele machines in de groep
-  - **STATUS**: de status van de aanbevelingen (in de meeste gevallen 'open')
+  - **STATUS**: de status van de aanbevelingen
   - **ERNST**: de ernst van de aanbevelingen
 
-2. Selecteer een resourcegroep om de optie **Regels voor toepassingsbeheer maken** te openen.
+2. Klik op een groep te openen de **regels voor toepassingsbeheer maken** optie.
 
   ![Regels voor toepassingsbeheer](./media/security-center-adaptive-application/security-center-adaptive-application-fig4.png)
 
-3. Bekijk in **VM's selecteren** de lijst met aanbevolen virtuele machines en schakel alle virtuele machines uit waarop u geen toepassingsbeheer wilt toepassen. Vervolgens ziet u twee lijsten:
+3. In de **VM's selecteren**, Controleer de lijst met aanbevolen virtuele machines en schakel uit wat u niet wilt dat een toepassing whitelising beleid toepassen op. Vervolgens ziet u twee lijsten:
 
-  - **Aanbevolen toepassingen**: een lijst met toepassingen die vaak op de virtuele machines in deze groep voorkomen, en dus aanbevolen zijn voor controleregels voor toepassingen door Security Center.
-  - **Meer toepassingen**: een lijst met toepassingen die minder frequent op de virtuele machines in deze groep voorkomen of die worden aangeduid als Exploitables (zie hieronder meer), en worden aanbevolen voor controle voordat de regels worden toegepast.
+  - **Aanbevolen toepassingen**: een lijst met toepassingen die vaak op de virtuele machines in deze groep, en worden aanbevolen om mag worden uitgevoerd.
+  - **Meer toepassingen**: een lijst met toepassingen die minder frequent op de virtuele machines in deze groep of die worden aangeduid als Exploitables (Zie hieronder meer), en aanbevolen voor controle.
 
 4. Bekijk de toepassingen in elk van de lijsten en schakel uit wat u niet wilt toepassen. Elke lijst bevat:
 
-  - **NAAM**: de gegevens van een toepassing of het volledige pad van de toepassing
-  - **BESTANDSTYPEN**: het bestandstype van de toepassing. Dit kan EXE, Script of MSI zijn.
-  - **EXPLOITEERBAAR**: er wordt een waarschuwingspictogram weergegeven als de toepassingen door een aanvaller kunnen worden gebruikt om opname in de whitelist met toepassingen te omzeilen. U wordt aanbevolen om deze toepassingen te controleren voordat ze worden goedgekeurd.
+  - **NAAM**: informatie over het certificaat of het volledige pad van een toepassing
+  - **BESTANDSTYPEN**: het bestandstype van de toepassing. Dit kan EXE, Script, MSI-bestand of elk permutatie van de volgende typen zijn.
+  - **EXPLOITEERBAAR**: een waarschuwingspictogram geeft aan dat als een bepaalde toepassing door een aanvaller kan worden gebruikt om een oplossing voor het in de whitelist aan over te slaan. U wordt aanbevolen om deze toepassingen te controleren voordat ze worden goedgekeurd.
   - **GEBRUIKERS**: gebruikers die worden aanbevolen om een toepassing uit te mogen voeren
 
-5. Selecteer **Maken** nadat u uw selecties hebt gemaakt.
+5. Selecteer **Maken** nadat u uw selecties hebt gemaakt. <br>
+Nadat u maken selecteert, maakt Azure Security Center automatisch de juiste regels boven op de ingebouwde toepassing opname in de whitelist oplossing die beschikbaar op Windows-servers (AppLocker).
 
 
 > [!NOTE]
 > - Security Center heeft minimaal twee weken aan gegevens nodig om een basislijn te maken en de unieke aanbevelingen per groep virtuele machines te vullen. Voor nieuwe klanten van de Security Center-standaardcategorie worden groepen virtuele machines in het begin weergegeven op het tabblad *Geen aanbeveling*.
 > - Adaptieve toepassingsbesturingselementen in Security Center bieden geen ondersteuning voor virtuele machines waarvoor al een AppLocker-beleid is ingeschakeld door een groepsbeleidsobject (GPO) of een lokaal beveiligingsbeleid.
-> -  Als best practice voor beveiliging probeert Security Center standaard altijd een uitgeverregel te maken voor de toepassingen die in de whitelist moeten worden opgenomen. Alleen als een toepassing niet de gegevens van een uitgever bevat (ofwel niet is ondertekend), wordt er een padregel gemaakt voor het volledige pad van de specifieke EXE.
+> -  Als een best practice Security Center wordt altijd geprobeerd om te maken van een uitgeversregel voor toepassingen die zijn geselecteerd worden toegestaan en alleen als een toepassing geen gegevens van een uitgever bevat (ofwel niet is ondertekend), wordt een padregel gemaakt voor het volledige pad van de specifieke toepassing.
 >   
 
 ### <a name="editing-and-monitoring-a-group-configured-with-application-control"></a>Een groep die met toepassingsbeheer is geconfigureerd, bewerken en bewaken
 
-1. Als u een groep wilt bewerken en controleren die is geconfigureerd met toepassingsbeheer, gaat u terug naar de pagina **Adaptieve toepassingsbesturingselementen** en selecteert u **GECONFIGUREERD** onder **Groepen virtuele machines**:
+1. Als u wilt bewerken en controleren van een groep die is geconfigureerd met een toepassing in de whitelist-beleid, gaat u terug naar de **besturingselementen voor adaptieve toepassingen** pagina en selecteer **geconfigureerd** onder **groepen virtuele machines**:
 
   ![Groepen](./media/security-center-adaptive-application/security-center-adaptive-application-fig5.png)
 
   De lijst bevat:
 
-  - **NAAM**: de naam van het abonnement en de groep
+  - **Naam**: de naam van het abonnement en de groep
   - **VM's**: het aantal virtuele machines in de groep
-  - **MODUS**: de controlemodus legt pogingen tot uitvoering van niet in de whitelist opgenomen toepassingen vast. Afdwingen zorgt ervoor dat niet in de whitelist opgenomen toepassingen niet worden uitgevoerd.
-  - **PROBLEMEN**: eventuele actuele overtredingen
+  - **Modus**: controlemodus legt pogingen tot uitvoering van niet-goedgekeurde toepassingen. Afdwingen van wordt niet toe dat niet-goedgekeurde toepassingen worden uitgevoerd
+  - **Waarschuwingen**: eventuele actuele overtredingen
 
-2. Selecteer een groep om wijzigingen in aan te brengen op de pagina **Beleid voor toepassingsbeheer bewerken**.
+2. Klik op een groep te wijzigen in de **beleid voor toepassingsbeheer bewerken** pagina.
 
   ![Beveiliging](./media/security-center-adaptive-application/security-center-adaptive-application-fig6.png)
 
@@ -116,61 +117,40 @@ De sectie **Groepen virtuele machines** bevat drie tabbladen:
   - **Controle**: in deze modus worden de regels niet afgedwongen door de oplossing voor toepassingsbeheer en wordt alleen de activiteit op de beveiligde virtuele machines gecontroleerd. Dit wordt aanbevolen voor scenario's waarin u eerst het algehele gedrag wilt observeren voordat de uitvoering van een app op de doel-VM wordt geblokkeerd.
   - **Afdwingen**: in deze modus worden de regels wel afgedwongen door de oplossing voor toepassingsbeheer. Ook worden toepassingen die niet mogen worden uitgevoerd, geblokkeerd.
 
-  Zoals eerder vermeld, wordt een nieuw beleid voor toepassingsbeheer altijd standaard geconfigureerd in de modus *Controle*. Onder **Beleidsuitbreiding** kunt u uw eigen toepassingspaden toevoegen die u in de whitelist wilt opnemen. Nadat u deze paden hebt toegevoegd, maakt Security Center de juiste regels voor deze toepassingen, naast de regels die al aanwezig zijn.
+   > [!NOTE]
+   > Zoals eerder vermeld, wordt een nieuw beleid voor toepassingsbeheer altijd standaard geconfigureerd in de modus *Controle*. 
+   >
 
-  In de sectie **Recente problemen** worden eventuele actuele overtredingen vermeld.
+4. Onder **beleidsuitbreiding**, kunt u een pad naar toepassing die u wilt toestaan dat toevoegen. Nadat u deze paden hebt toegevoegd, kan Security Center werkt het beleid voor het whielisting van toepassing op de virtuele machines in de geselecteerde groep van virtuele machines en maakt de juiste regels voor deze toepassingen, naast de regels die al aanwezig.
 
-  ![Problemen](./media/security-center-adaptive-application/security-center-adaptive-application-fig7.png)
+5. Bekijk de actuele overtredingen vermeld in de **recente waarschuwingen** sectie. Klik op elke regel worden omgeleid naar de **waarschuwingen** pagina in Azure Security Center en alle waarschuwingen die zijn gedetecteerd door Azure Security Center op de bijbehorende virtuele machines weergeven.
+  - **Waarschuwingen**: eventuele schendingen die zijn geregistreerd.
+  - **Nee. van virtuele machines**: het aantal virtuele machines met dit type waarschuwing.
 
-  Deze lijst bevat:
-  - **Problemen**: eventuele overtredingen die zijn geregistreerd, waaronder de volgende:
+6. Onder **uitgeverregels**, **padregels voor opname in de whitelist**, en **hash-regels voor opname in de whitelist** ziet u welke opname in de whitelist regels momenteel zijn geconfigureerd op de virtuele machines in een groep, op basis van het type regelverzameling. Voor elke regel kunt u het volgende zien:
 
-      - **ViolationsBlocked**: wanneer de oplossing in de modus Afdwingen is ingesteld en er wordt geprobeerd een toepassing uit te voeren die niet in de whitelist is opgenomen.
-      - **ViolationsAudited**: wanneer de oplossing in de modus Controle is ingesteld en er een toepassing die niet in de whitelist is opgenomen, wordt uitgevoerd.
+  - **Regel**: de specifieke parameters opgegeven op basis waarvan een toepassing wordt gecontroleerd door AppLocker om te bepalen of een toepassing is toegestaan om uit te voeren.
+  - **Bestandstype**: de bestandstypen die worden gedekt door een specifieke regel. Dit kan een van de volgende zijn: EXE, Script, MSI-bestand of elk permutatie van deze bestandstypen.
+  - **Gebruikers**: de naam of het aantal gebruikers die gemachtigd zijn om uit te voeren van een toepassing die wordt gedekt door een toepassing in de whitelist aan-regel.
 
- - **AANTAL VM’s**: het aantal virtuele machines met dit type probleem.
+   ![Regels voor opname in de whitelist](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
 
-  Als u op een regel klikt, wordt u doorgestuurd naar de pagina [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs), waar u informatie over alle virtuele machines met dit type overtreding kunt zien. Als u op de drie punten aan het einde van elke regel klikt, kunt u die specifieke vermelding verwijderen. In de sectie **Geconfigureerde virtuele machines** worden de virtuele machines weergegeven waarop deze regels van toepassing zijn.
+7. Klik op de drie puntjes aan het einde van elke regel als u wilt de specifieke regel verwijderen of de toegestane gebruikers bewerken.
 
-  ![Geconfigureerde virtuele machines](./media/security-center-adaptive-application/security-center-adaptive-application-fig8.png)
-
-  De lijst onder **Uitgeverregels voor opname in de whitelist** bevat het volgende:
-
-  - **REGEL**: toepassingen waarvoor een uitgeverregel is gemaakt op basis van de gegevens van het certificaat dat voor elke toepassing is gevonden
-  - **BESTANDSTYPE**: de bestandstypen die worden gedekt door een specifieke uitgeversregel. Dit kan een van de volgende zijn: EXE, Script of MSI.
-  - **GEBRUIKERS**: het aantal gebruikers dat elke toepassing kan uitvoeren
-
-  Zie [Uitgeverregels in Applocker](https://docs.microsoft.com/windows/device-security/applocker/understanding-the-publisher-rule-condition-in-applocker) voor meer informatie.
-
-  ![Regels voor opname in de whitelist](./media/security-center-adaptive-application/security-center-adaptive-application-fig9.png)
-
-  Als u op de drie punten aan het einde van elke regel klikt, kunt u die specifieke regel verwijderen of de toegestane gebruikers bewerken.
-
-  In de sectie **Regels voor opname van paden in de whitelist** wordt het gehele toepassingspad (met inbegrip van het uitvoerbare bestand) weergegeven voor de toepassingen die niet zijn ondertekend met een digitaal certificaat, maar nog steeds actueel zijn in de regels voor opname in de whitelist.
-
-  > [!NOTE]
-  > Als best practice voor beveiliging probeert Security Center standaard altijd een uitgeverregel te maken voor de EXE’s die in de whitelist moeten worden opgenomen. Alleen als een EXE niet de gegevens van een uitgever bevat (ofwel niet is ondertekend), wordt er een padregel gemaakt voor het volledige pad van de specifieke EXE.
-
-  ![Regels voor opname in de whitelist voor paden](./media/security-center-adaptive-application/security-center-adaptive-application-fig10.png)
-
-  De lijst bevat:
-  - **NAAM**: de volledige patch van het uitvoerbare bestand
-  - **BESTANDSTYPE**: de bestandstypen die worden gedekt door een specifieke padregel. Dit kan een van de volgende zijn: EXE, Script of MSI.
-  - **GEBRUIKERS**: het aantal gebruikers dat elke toepassing kan uitvoeren
-
-  Als u op de drie punten aan het einde van elke regel klikt, kunt u die specifieke regel verwijderen of de toegestane gebruikers bewerken.
-
-4. Nadat u wijzigingen hebt aangebracht op de pagina **Adaptieve toepassingsbesturingselementen**, klikt u op de knop **Opslaan**. Als u de wijzigingen toch niet wilt toepassen, klikt u op **Verwijderen**.
+8. Nadat u wijzigingen aanbrengen in een **besturingselementen voor adaptieve toepassingen** beleid, klikt u op **opslaan**.
 
 ### <a name="not-recommended-list"></a>De lijst Niet aanbevolen
 
-Security Center raadt alleen opname in de whitelist aan voor virtuele machines waarop een stabiele set toepassingen wordt uitgevoerd. Opname in de whitelist wordt niet aanbevolen als de toepassingen op de bijbehorende virtuele machines voortdurend wisselen.
+Security Center raadt alleen opname in de whitelist toepassingsbeleid voor virtuele machines waarop een stabiele set toepassingen wordt uitgevoerd. Opname in de whitelist wordt niet aanbevolen als de toepassingen op de bijbehorende virtuele machines voortdurend wisselen.
 
 ![Aanbeveling](./media/security-center-adaptive-application/security-center-adaptive-application-fig11.png)
 
 De lijst bevat:
 - **NAAM**: de naam van het abonnement en de groep
 - **VM's**: het aantal virtuele machines in de groep
+
+Azure Security Center kunt u een toepassing in de whitelist om beleid te definiëren op niet-aanbevolen VM-groepen ook. Volg dezelfde principes als eerder zijn beschreven, een toepassing in de whitelist om beleid te configureren op deze groepen ook.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit document hebt u geleerd hoe u gebruik kunt maken van adaptieve toepassingsbesturingselementen in Azure Security Center om toepassingen die op virtuele Azure-machines worden uitgevoerd, op te nemen in de whitelist. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:

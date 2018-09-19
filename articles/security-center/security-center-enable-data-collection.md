@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/23/2018
+ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 9043c6583a15d3be9d0d468e83a4bf79b3121794
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 313697d73d1e269691f1af4f021545049a907d66
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44304115"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127088"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Verzamelen van gegevens in Azure Security Center
 Security Center verzamelt gegevens van uw virtuele Azure-machines (VM's) en niet-Azure-computers om te controleren op beveiligingsproblemen en bedreigingen. De gegevens worden verzameld met behulp van de MMA, die verschillende configuraties en gebeurtenislogboeken met betrekking tot beveiliging van de machine leest en de gegevens kopieert naar uw werkruimte voor analyse. Voorbeelden van dergelijke gegevens zijn: besturingssysteem systeemtype en versie, besturingssysteemlogboeken (Windows-gebeurtenislogboeken), actieve processen, computernaam, IP-adressen en aangemelde gebruiker. De Microsoft Monitoring Agent kopieert ook crashdumpbestanden naar uw werkruimte.
@@ -34,7 +34,8 @@ Dit artikel bevat richtlijnen over hoe u Microsoft Monitoring Agent installeren 
 > - Verzamelen van gegevens voor virtuele-machineschaalset is momenteel niet ondersteund.
 
 
-## <a name="enable-automatic-provisioning-of-microsoft-monitoring-agent"></a>Automatische inrichting van Microsoft Monitoring Agent inschakelen     
+## Automatische inrichting van Microsoft Monitoring Agent inschakelen <a name="auto-provision-mma"></a>
+
 Het verzamelen van de gegevens van de machines die u moet beschikken over de Microsoft Monitoring Agent is geïnstalleerd.  Installatie van de agent automatisch kan worden (aanbevolen) of u kunt de agent handmatig installeren.  
 
 >[!NOTE]
@@ -291,14 +292,14 @@ U kunt Microsoft Monitoring Agent, handmatig installeren, zodat Security Center 
 
 
 
-## <a name="troubleshooting"></a>Probleemoplossing
+## <a name="troubleshooting"></a>Problemen oplossen
 
 -   Zie voor het identificeren van problemen met de installatie automatisch inrichten, [problemen met de status van de agentstatus](security-center-troubleshooting-guide.md#mon-agent).
 
 -  Zie voor het identificeren van de netwerkvereisten voor monitoring agent [probleemoplossing monitoring agent netwerkvereisten](security-center-troubleshooting-guide.md#mon-network-req).
--   Zie voor het identificeren van handmatige onboarding-problemen, [het onboarding-problemen van Operations Management Suite oplossen](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues)
+-   Zie voor het identificeren van handmatige onboarding-problemen, [Operations Management Suite-onboarding oplossen](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
-- Zie voor het identificeren van niet-bewaakte VM's en computers problemen, [niet-bewaakte VM's en computers](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers)
+- Zie voor het identificeren van niet-bewaakte VM's en computers problemen, [niet-bewaakte VM's en computers](security-center-virtual-machine-protection.md#unmonitored-vms-and-computers).
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe gegevens verzamelen en automatische inrichting in Security Center werkt. Zie de volgende onderwerpen voor meer informatie over het Beveiligingscentrum:

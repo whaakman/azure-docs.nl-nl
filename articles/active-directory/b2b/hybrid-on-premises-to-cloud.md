@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 0cbcb6095c59089008bd9a95b9bb0a3ddaa70a58
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 722ab51d0f591b8f16924d1d5661385267b7f0e6
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45984039"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295152"
 ---
 # <a name="grant-locally-managed-partner-accounts-access-to-cloud-resources-using-azure-ad-b2b-collaboration"></a>Verleen partner lokaal beheerde accounts toegang bronnen in de cloud met behulp van Azure AD B2B-samenwerking
 
@@ -32,17 +32,17 @@ Er zijn twee algemene benaderingen gebruikt voor deze voor:
 - Een niet-gebruikte on-premises Active Directory-kenmerk (bijvoorbeeld extensionAttribute1) om te gebruiken als het bronkenmerk aanwijzen. 
 - U kunt ook de waarde voor UserType-kenmerk zijn afgeleid van andere eigenschappen. Bijvoorbeeld, u wilt synchroniseren van alle gebruikers als Gast als hun on-premises Active Directory-UserPrincipalName-kenmerk met het domein eindigt *@partners.contoso.com*.
  
-Zie voor gedetailleerde kenmerk [schakelt u de synchronisatie van UserType](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype). 
+Zie voor gedetailleerde kenmerk [schakelt u de synchronisatie van UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype). 
 
 ## <a name="configure-azure-ad-connect-to-sync-users-to-the-cloud"></a>Azure AD Connect om gebruikers te synchroniseren naar de cloud configureren
 
 Nadat u het kenmerk unieke hebt geïdentificeerd, kunt u Azure AD Connect voor deze gebruikers synchroniseren met de cloud als Azure AD B2B-gebruikers configureren (dat wil zeggen, de gebruikers met UserType = Gast). Vanuit het oogpunt van een autorisatie zijn deze gebruikers te onderscheiden van B2B-gebruikers die zijn gemaakt via het uitnodigingsproces voor Azure AD B2B-samenwerking.
 
-Zie voor de implementatie-instructies, [schakelt u de synchronisatie van UserType](../connect/active-directory-aadconnectsync-change-the-configuration.md#enable-synchronization-of-usertype).
+Zie voor de implementatie-instructies, [schakelt u de synchronisatie van UserType](../hybrid/how-to-connect-sync-change-the-configuration.md#enable-synchronization-of-usertype).
 
 ## <a name="next-steps"></a>Volgende stappen
 
 - [Azure Active Directory B2B-samenwerking voor hybride organisaties](hybrid-organizations.md)
 - [GRANT B2B-gebruikers in Azure AD-toegang tot uw on-premises toepassingen](hybrid-cloud-to-on-premises.md)
-- Zie voor een overzicht van Azure AD Connect, [uw on-premises directory's integreren met Azure Active Directory](../connect/active-directory-aadconnect.md).
+- Zie voor een overzicht van Azure AD Connect, [uw on-premises directory's integreren met Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 

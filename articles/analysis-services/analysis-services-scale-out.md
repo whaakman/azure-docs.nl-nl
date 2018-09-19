@@ -5,15 +5,15 @@ author: minewiskan
 manager: kfile
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 09/13/2018
+ms.date: 09/18/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: e494c2bc90f6db1f3a850fccff88efdf26f43012
-ms.sourcegitcommit: 616e63d6258f036a2863acd96b73770e35ff54f8
+ms.openlocfilehash: 7c0aa2d43001100a392f8882316b7998838d90b9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45604228"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121924"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services-uitschalen
 
@@ -27,7 +27,7 @@ U kunt een querypool met maximaal zeven extra query replica resources (acht in t
 
 Ongeacht het aantal queryreplica's in een querypool hebt, zijn de verwerkingsworkloads niet verdeeld over queryreplica's. Een enkele server fungeert als de verwerkingsserver. Queryreplica's fungeren alleen query's op de modellen gesynchroniseerd tussen de replica van elke query in de query-groep. 
 
-Bij het uitschalen, worden nieuwe query-replica's toegevoegd aan de querypool incrementeel. Duurt het tot vijf minuten voor nieuwe query replica resources moeten worden opgenomen in de query-groep. gereed voor clientverbindingen en query's ontvangen. Wanneer alle nieuwe query-replica's zijn en wordt uitgevoerd, worden nieuwe clientverbindingen zijn verdeeld over alle resources in de query. Bestaande clientverbindingen zijn niet gewijzigd van de resource die momenteel zijn verbonden met.  Wanneer u, worden bestaande clientverbindingen met een query pool-resource die wordt verwijderd van de querypool beëindigd. Ze zijn verbonden aan een andere query pool resource wanneer de schaal in de bewerking is voltooid, wat tot vijf minuten kan duren.
+Bij het uitschalen, worden nieuwe query-replica's toegevoegd aan de querypool incrementeel. Het kan tot vijf minuten voor nieuwe query replica resources moeten worden opgenomen in de query-groep duren. Wanneer alle nieuwe query-replica's zijn en wordt uitgevoerd, worden nieuwe clientverbindingen zijn verdeeld over alle resources in de query. Bestaande clientverbindingen zijn niet gewijzigd van de resource die momenteel zijn verbonden met.  Wanneer u, worden bestaande clientverbindingen met een query pool-resource die wordt verwijderd van de querypool beëindigd. Ze zijn verbonden aan een andere query pool resource wanneer de schaal in de bewerking is voltooid, wat tot vijf minuten kan duren.
 
 Bij het verwerken van modellen, nadat de bewerkingen zijn voltooid, moet een synchronisatie tussen de verwerkingsserver en de replica van de query's worden uitgevoerd. Bij het automatiseren van bewerkingen voor de verwerking, is het belangrijk dat u een synchronisatiebewerking na voltooiing van de verwerkingen configureren. Synchronisatie kan handmatig worden uitgevoerd in de portal of met behulp van PowerShell of REST-API. 
 
@@ -63,7 +63,6 @@ Het aantal query's die kunt u configureren worden beperkt door het uw server bev
 
 Tabellaire modellen op de primaire server worden gesynchroniseerd met de replicaservers. Wanneer synchronisatie voltooid is, begint de querypool binnenkomende query's tussen de replicaservers distribueren. 
 
-
 ## <a name="synchronization"></a>Synchronisatie 
 
 Wanneer u een nieuwe query-replica's inricht, worden uw modellen automatisch gerepliceerd met Azure Analysis Services in alle replica's. U kunt ook een handmatige synchronisatie uitvoeren met behulp van de portal of REST-API. Wanneer u uw modellen verwerkt, moet u een synchronisatie uitvoeren, zodat de updates zijn gesynchroniseerd tussen uw queryreplica's.
@@ -90,8 +89,6 @@ Als u wilt dat het aantal query's, gebruikt u [Set-AzureRmAnalysisServicesServer
 
 Gebruiken om uit te voeren synchronisatie, [synchronisatie AzureAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/azurerm.analysisservices/sync-azureanalysisservicesinstance).
 
-
-
 ## <a name="connections"></a>Verbindingen
 
 Op de overzichtspagina van uw server zijn er twee servernamen. Als u scale-out voor een server nog niet hebt geconfigureerd, werken de namen van beide op dezelfde manier. Wanneer u scale-out voor een server configureert, moet u de naam van de juiste server, afhankelijk van het verbindingstype opgeven. 
@@ -107,7 +104,6 @@ Voor SSMS, SSDT en verbindingsreeksen in PowerShell, Azure-functie-apps en AMO, 
 **Probleem:** gebruikers de foutmelding **kan geen server vinden '\<naam van de server >' exemplaar in de verbindingsmodus 'Alleen-lezen'.**
 
 **Oplossing:** bij het selecteren van de **scheiden van de verwerkingsserver van de querypool** optie, client-verbindingen met behulp van de standaard-verbindingsreeks (zonder: rw) worden omgeleid naar de pool queryreplica's. Als de replica's in de groep van de query nog niet zijn nog online omdat synchronisatie niet is voltooid, wordt omgeleid clientverbindingen kunnen mislukken. Om te voorkomen dat een mislukte verbindingen, kies niet voor het scheiden van de verwerkingsserver van de querypool totdat een bewerking waarbij de scale-out en synchroniseren zijn voltooid. U kunt de metrische gegevens over geheugen en QPU gebruiken voor het bewaken van de synchronisatiestatus.
-
 
 ## <a name="related-information"></a>Gerelateerde informatie
 

@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/26/2017
 ms.author: maheshu
-ms.openlocfilehash: 4467c193b5ff70a304b4ec5f632276ca14551b08
-ms.sourcegitcommit: 9222063a6a44d4414720560a1265ee935c73f49e
+ms.openlocfilehash: d30d164a3e2896b1a300bf665ca09f57ce97fdf3
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/03/2018
-ms.locfileid: "39501988"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295866"
 ---
 # <a name="azure-active-directory-ad-domain-services"></a>Azure Active Directory (AD) Domain Services
 ## <a name="overview"></a>Overzicht
@@ -65,7 +65,7 @@ Enkele van de meest kenmerkende aspecten van het beheerde domein die is ingerich
 ### <a name="azure-ad-domain-services-for-hybrid-organizations"></a>Azure AD Domain Services voor hybride organisaties
 Organisaties met een hybride IT-infrastructuur gebruiken een combinatie van cloudresources en on-premises bronnen. Zulke organisaties synchroniseren van identiteitsgegevens van hun on-premises directory met hun Azure AD-tenant. Hybride organisaties zoeken voor het migreren van meer van hun on-premises toepassingen naar de cloud, met name verouderde directory-toepassingen, Azure AD Domain Services kunnen nuttig zijn voor deze.
 
-Litware Corporation heeft geïmplementeerd [Azure AD Connect](../active-directory/active-directory-aadconnect.md)voor het synchroniseren van identiteitsgegevens uit hun on-premises directory met hun Azure AD-tenant. De gegevens van de identiteit die is gesynchroniseerd bevat gebruikersaccounts, hun referentie-hashes voor verificatie (Wachtwoordsynchronisatie van) en groepslidmaatschappen.
+Litware Corporation heeft geïmplementeerd [Azure AD Connect](../active-directory/hybrid/whatis-hybrid-identity.md)voor het synchroniseren van identiteitsgegevens uit hun on-premises directory met hun Azure AD-tenant. De gegevens van de identiteit die is gesynchroniseerd bevat gebruikersaccounts, hun referentie-hashes voor verificatie (Wachtwoordsynchronisatie van) en groepslidmaatschappen.
 
 > [!NOTE]
 > **Wachtwoordsynchronisatie is verplicht voor hybride organisaties het gebruik van Azure AD Domain Services**. Deze vereiste is omdat de referenties van gebruikers in het beheerde domein geleverd door Azure AD Domain Services, zijn nodig om deze gebruikers via NTLM of Kerberos-verificatiemethoden te verifiëren.

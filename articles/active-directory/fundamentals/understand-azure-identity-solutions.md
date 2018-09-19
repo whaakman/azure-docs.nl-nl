@@ -12,12 +12,12 @@ ms.date: 7/17/2017
 ms.author: lizross
 ms.reviewer: jsnow
 custom: it-pro
-ms.openlocfilehash: db14dbf298596a9fdc189c27ea8608d472c58a35
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e22f5ced30e30d6f53a1d29c8be2f318161d4fc0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737240"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294846"
 ---
 # <a name="what-is-microsoft-azure-identity"></a>Wat is Microsoft Azure-identiteit?
 Microsoft Azure Active Directory (Azure AD) is een cloudoplossing voor identiteits- en toegangsbeheer die voorziet in adreslijstservices, identiteitsgovernance en toegangsbeheer voor toepassingen. Met Azure AD kunt u snel gebruikmaken van [eenmalige aanmelding](https://docs.microsoft.com/azure/active-directory/active-directory-enterprise-apps-manage-sso) bij duizenden vooraf geïntegreerde commerciële en aangepaste apps in de [Azure AD-toepassingsgalerie](https://azure.microsoft.com/marketplace/active-directory/all/). Veel van deze apps gebruikt u waarschijnlijk al, bijvoorbeeld Office 365, Salesforce.com, Box, ServiceNow en Workday.
@@ -106,7 +106,7 @@ Hieronder volgen enkele veelvoorkomende identiteits- en toegangsscenario's met a
 ## <a name="where-can-i-learn-more"></a>Waar vind ik meer informatie?
 We bieden online tal van goede bronnen met allerlei informatie over Azure AD. Hieronder volgt een lijst van artikelen waarmee u aan de slag kunt:
 
-* [Uw directory geschikt maken voor hybride beheer met Azure AD Connect](../connect/active-directory-aadconnect.md)
+* [Uw directory geschikt maken voor hybride beheer met Azure AD Connect](../hybrid/whatis-hybrid-identity.md)
 * [Extra beveiliging voor de verbonden wereld](../authentication/multi-factor-authentication.md)
 * [Automate User Provisioning and Deprovisioning to SaaS Applications with Azure Active Directory](../manage-apps/user-provisioning.md) (Automatisch gebruikers inrichten en de inrichting ongedaan maken voor SaaS-toepassingen met Azure Active Directory)
 * [Overal uw wachtwoorden beheren](../user-help/active-directory-passwords-update-your-own-password.md)

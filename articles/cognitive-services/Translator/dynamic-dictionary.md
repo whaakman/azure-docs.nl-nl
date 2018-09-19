@@ -1,22 +1,23 @@
 ---
-title: Microsoft Translator tekst-API dynamische woordenlijst | Microsoft Docs
-description: Het gebruik van de functie dynamische woordenlijst van de Microsoft Translator Text-API.
+title: Translator tekst-API dynamische woordenlijst
+titlesuffix: Azure Cognitive Services
+description: Het gebruik van de functie dynamische woordenlijst van de Translator Text-API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
-ms.topic: article
+ms.topic: conceptual
 ms.date: 12/14/2017
 ms.author: v-jansko
-ms.openlocfilehash: dbc754093827730b8709d67f314e5b327518ef50
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 56558a2da5f29611d90021e9efb292720d1cea35
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "41987978"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128125"
 ---
-# <a name="how-to-use-the-dynamic-dictionary-feature-of-the-microsoft-translator-text-api"></a>Het gebruik van de functie dynamische woordenlijst van de Microsoft Translator Text-API
+# <a name="how-to-use-the-dynamic-dictionary-feature-of-the-translator-text-api"></a>Het gebruik van de functie dynamische woordenlijst van de Translator Text-API
 
 Als u de vertaling die u wilt toepassen op een woord of woordgroep al kent, kunt u deze opgeven als aantekeningen in de aanvraag. Alleen is de dynamische-woordenlijst voor samenstellingen, zoals de namen van de juiste en product veilig. 
 

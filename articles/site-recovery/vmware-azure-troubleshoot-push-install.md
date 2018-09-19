@@ -8,93 +8,94 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.author: ramamill
-ms.date: 07/06/2018
-ms.openlocfilehash: 8d5db03eeebb659414ea1f554e5b34c938fd2795
-ms.sourcegitcommit: a1e1b5c15cfd7a38192d63ab8ee3c2c55a42f59c
+ms.date: 09/17/2018
+ms.openlocfilehash: d77b252351c15bea13b0fa1fb42fa062d508fbdc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/10/2018
-ms.locfileid: "37952906"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126986"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Problemen met de Mobility-Service push-installatie
 
-In dit artikel wordt beschreven hoe u oplossen van veelvoorkomende fouten die u tegenkomen kan wanneer u probeert te installeren van Azure Site Recovery Mobility Service op de bronserver beveiliging in te schakelen.
+De installatie van mobiliteitsservice is een belangrijke stap tijdens replicatie inschakelen. Het succes van deze stap is afhankelijk van uitsluitend op voldoen aan de vereisten van en werken met ondersteunde configuraties. De meest voorkomende fouten die u tijdens de installatie van Mobility service te maken krijgt zijn vanwege
 
-## <a name="error-78007---the-requested-operation-could-not-be-completed"></a>Fout 78007 - de aangevraagde bewerking kan niet worden voltooid.
-Deze fout kan worden gegenereerd door de service om verschillende redenen. Kies de bijbehorende providerfout probleem verder oplossen.
+* Connectiviteit/referentie-fouten
+* Niet-ondersteunde besturingssystemen
 
-* [Fout 95103](#error-95103---protection-could-not-be-enabled-ep0854) 
-* [Fout 95105](#error-95105---protection-could-not-be-enabled-ep0856) 
-* [Fout 95107](#error-95107---protection-could-not-be-enabled-ep0858) 
-* [Fout 95108](#error-95108---protection-could-not-be-enabled-ep0859) 
-* [Fout 95117](#error-95117---protection-could-not-be-enabled-ep0865) 
-* [Fout 95213](#error-95213---protection-could-not-be-enabled-ep0874) 
-* [Fout 95224](#error-95224---protection-could-not-be-enabled-ep0883) 
-* [Fout 95265](#error-95265---protection-could-not-be-enabled-ep0902) 
+Wanneer u replicatie inschakelt, installeren probeert om Azure Site Recovery mobility service-agent op uw virtuele machine. Als onderdeel hiervan probeert configuratieserver te verbinden met de virtuele machine en kopieer de Agent. Om in te schakelen is geïnstalleerd, volgt u de stapsgewijze richtlijnen voor probleemoplossing hieronder
 
+## <a name="credentials-check-errorid-95107--95108"></a>Controleer de referenties (Aanroepstatus: 95107 & 95108)
 
-## <a name="error-95105---protection-could-not-be-enabled-ep0856"></a>Fout 95105 - beveiliging kan niet worden ingeschakeld (EP0856)
+* Controleer of het gebruikersaccount dat is gekozen tijdens replicatie inschakelen is **geldig, nauwkeurige**.
+* Azure Site Recovery vereist **administrator-bevoegdheden** om uit te voeren van push-installatie.
+  * Voor Windows, controleert u of als het gebruikersaccount beheerderstoegang heeft lokaal of domein, op de bronmachine.
+  * Als u niet een domeinaccount gebruikt, moet u toegangsbeheer voor externe gebruikers op de lokale computer uitschakelen.
+    * Schakel externe gebruiker Access control, onder HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System registersleutel een nieuwe DWORD toevoegen: LocalAccountTokenFilterPolicy. Stel de waarde in op 1. Voor het uitvoeren van deze stap, voer de volgende opdracht vanaf de opdrachtprompt:
 
-**Foutcode** | **Mogelijke oorzaken** | **Fout-specifieke aanbevelingen**
---- | --- | ---
-95105 </br>**Bericht:** Push-installatie van Mobility Service naar de bronmachine is mislukt met foutcode **EP0856**. <br> Een van beide **bestands- en printerdeling** is niet toegestaan op de bron-machine of er zijn problemen met de netwerkverbinding tussen de processerver en de bron-VM-netwerk.| **Bestands- en printerdeling** is niet ingeschakeld. | Toestaan dat **bestands- en printerdeling** in Windows Firewall op de bronmachine. Op de bronmachine onder **Windows Firewall** > **toestaan een app of functie via Firewall**, selecteer **bestands- en printerdeling voor alle profielen**. </br> Controleer daarnaast de volgende vereisten om de push-installatie is voltooid.<br> Meer informatie over [problemen met het oplossen van WMI](#troubleshoot-wmi-issues).
+         `REG ADD HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System /v LocalAccountTokenFilterPolicy /t REG_DWORD /d 1`
+  * Voor Linux, moet u het root-account voor de installatie van de mobility-agent.
 
+Als u wijzigen van de referenties van de gekozen gebruikersaccount wilt, volgt u de instructies [hier](vmware-azure-manage-configuration-server.md#modify-credentials-for-mobility-service-installation).
 
-## <a name="error-95107---protection-could-not-be-enabled-ep0858"></a>Fout 95107 - beveiliging kan niet worden ingeschakeld (EP0858)
+## <a name="connectivity-check-errorid-95117--97118"></a>**Controle van gatewayconnectiviteit (Aanroepstatus: 95117 & 97118)**
 
-**Foutcode** | **Mogelijke oorzaken** | **Fout-specifieke aanbevelingen**
---- | --- | ---
-95107 </br>**Bericht:** Push-installatie van Mobility Service naar de bronmachine is mislukt met foutcode **EP0858**. <br> De referenties die zijn opgegeven voor het installeren van de Mobility-Service zijn onjuist of het gebruikersaccount heeft onvoldoende bevoegdheden. | De referenties van de gebruiker is opgegeven voor het installeren van de Mobility-Service op de bronmachine zijn onjuist. | Zorg ervoor dat de referenties van de gebruiker opgegeven voor de bronmachine op de configuratieserver juist zijn. <br> Als u wilt toevoegen of bewerken van gebruikersreferenties, gaat u naar de configuratieserver en selecteer **Cspsconfigtool** > **-account beheren**. </br> Controleer daarnaast het volgende [vereisten](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) de push-installatie is voltooid.
+* Zorg ervoor dat u bent uw bron-VM vanaf de configuratieserver te pingen. Als u uitbreidbare processerver hebt gekozen tijdens replicatie inschakelen, controleert u of dat u bent uw bron-VM vanaf de processerver te pingen.
+  * Vanaf de opdrachtregel van de bronserver machine, kunt u Telnet gebruiken om te pingen van de configuratieserver / uitbreidbare processerver met https-poort (standaard 9443), zoals hieronder wordt weergegeven om te zien of er problemen met de netwerkverbinding of de firewall port blokkerende problemen zijn.
 
+     `telnet <CS/ scale-out PS IP address> <port>`
 
-## <a name="error-95117---protection-could-not-be-enabled-ep0865"></a>Fout 95117 - beveiliging kan niet worden ingeschakeld (EP0865)
+  * Als u kan geen verbinding maken, kunt u de binnenkomende poort 9443 op de configuratieserver / uitbreidbare processerver.
+  * Controleer de status van service **InMage Scout VX Agent-Sentinel/Outpost**. Start de service, als deze niet wordt uitgevoerd.
 
-**Foutcode** | **Mogelijke oorzaken** | **Fout-specifieke aanbevelingen**
---- | --- | ---
-95117 </br>**Bericht:** Push-installatie van Mobility Service naar de bronmachine is mislukt met foutcode **EP0865**. <br> Op de broncomputer is niet actief of er zijn problemen met de netwerkverbinding tussen de processerver en de broncomputer. | Problemen met de netwerkverbinding tussen de processerver en de bronserver. | Controleer de connectiviteit tussen de processerver en de bronserver. </br> Controleer daarnaast het volgende [vereisten](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) de push-installatie is voltooid.|
+* Bovendien kunt u voor **virtuele Linux-machine**,
+  * Controleer of de meest recente openssh, openssh-server en openssl-pakketten zijn geïnstalleerd.
+  * Controleer en zorg ervoor dat de Secure Shell (SSH) is ingeschakeld en wordt uitgevoerd op poort 22.
+  * SFTP-services moeten worden uitgevoerd. SFTP-subsysteem en wachtwoordverificatie verificatie in het bestand sshd_config in te schakelen
+    * Meld u aan als hoofdgebruiker.
+    * Ga naar /etc/ssh/sshd_config, zoek de regel die met PasswordAuthentication begint.
+    * Verwijder opmerkingen bij de regel en wijzig de waarde op Ja
+    * Zoek de regel die met het subsysteem begint en verwijder opmerkingen bij de regel
+    * Start de service sshd.
+* Een poging om verbinding te kan zijn mislukt of er is geen juiste reactie na een bepaalde periode, tot stand gebrachte verbinding is mislukt omdat de verbonden host niet heeft gereageerd.
+* Het is mogelijk een connectiviteit/netwerk/domein probleem. Het kan ook voorkomen vanwege DNS-naam van het probleem of TCP-poort uitputting probleem oplossen. Controleer of er dergelijke bekende problemen in uw domein zijn.
 
-## <a name="error-95103---protection-could-not-be-enabled-ep0854"></a>Fout 95103 - beveiliging kan niet worden ingeschakeld (EP0854)
+## <a name="file-and-printer-sharing-services-check-errorid-95105--95106"></a>Bestands- en printerdeling services selectievakje (Aanroepstatus: 95105 & 95106)
 
-**Foutcode** | **Mogelijke oorzaken** | **Fout-specifieke aanbevelingen**
---- | --- | ---
-95103 </br>**Bericht:** Push-installatie van Mobility Service naar de bronmachine is mislukt met foutcode **EP0854**. <br> Een Windows Management Instrumentation (WMI) is niet toegestaan op de broncomputer of er zijn problemen met de netwerkverbinding tussen de processerver en de broncomputer.| WMI wordt in Windows Firewall geblokkeerd. | WMI in Windows Firewall toestaan. Onder **Windows Firewall** > **toestaan een app of functie via Firewall**, selecteer **WMI voor alle profielen**. </br> Controleer daarnaast het volgende [vereisten](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) de push-installatie is voltooid.|
+Nadat de connectiviteitscontrole, controleren of bestands- en printerdeling sharing-service is ingeschakeld op uw virtuele machine.
 
-## <a name="error-95213---protection-could-not-be-enabled-ep0874"></a>Fout 95213 - beveiliging kan niet worden ingeschakeld (EP0874)
+Voor **windows 2008 R2 en eerdere versies**,
 
-**Foutcode** | **Mogelijke oorzaken** | **Fout-specifieke aanbevelingen**
---- | --- | ---
-95213 </br>**Bericht:** installatie van Mobility Service op de broncomputer % SourceIP; is mislukt met foutcode **EP0874**. <br> | De versie van het besturingssysteem op de bronmachine wordt niet ondersteund. <br>| Zorg ervoor dat de bron-VM versie van het besturingssysteem wordt ondersteund. Lees de [ondersteuningsmatrix](https://aka.ms/asr-os-support). </br> Controleer daarnaast het volgende [vereisten](https://aka.ms/pushinstallerror) de push-installatie is voltooid.| 
+* Bestands- en printerdeling via Windows Firewall inschakelen
+  * Open het Configuratiescherm -> systeem en beveiliging > Windows Firewall -> in het linkerdeelvenster, klik op Geavanceerd instellingen -> klikt u op regels voor binnenkomende verbindingen in de consolestructuur.
+  * Zoek de regels voor bestands- en printerdeling (NB-Session-In) en -bestand en printerdeling (SMB-In). Voor elke regel met de rechtermuisknop op de regel en klik vervolgens op **regel inschakelen**.
+* Om in te schakelen met Groepsbeleid, het delen van bestanden
+  * Ga naar Start, typ gpmc.msc en zoeken.
+  * Open in het navigatiedeelvenster van de volgende mappen: beleid voor lokale Computer, Gebruikersconfiguratie Beheersjablonen, Windows-onderdelen en netwerk delen.
+  * Dubbelklik in het deelvenster met details op **te voorkomen dat gebruikers in het delen van bestanden in hun profiel**. Als u de instelling voor Groepsbeleid uitschakelen en inschakelen van de gebruiker de mogelijkheid om bestanden te delen, klikt u op uitgeschakeld. Klik op OK om uw wijzigingen hebt opgeslagen. Voor meer informatie, klikt u op [hier](https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/cc754359(v=ws.10)).
 
+Voor **hoger**, volg de instructies [hier](vmware-azure-install-mobility-service.md#install-mobility-service-by-push-installation-from-azure-site-recovery) om in te schakelen van bestands- en printerdeling
 
-## <a name="error-95108---protection-could-not-be-enabled-ep0859"></a>Fout 95108 - beveiliging kan niet worden ingeschakeld (EP0859)
+## <a name="windows-management-instrumentation-wmi-configuration-check"></a>Windows Management Instrumentation (WMI)-configuratiecontrole
 
-**Foutcode** | **Mogelijke oorzaken** | **Fout-specifieke aanbevelingen**
---- | --- | ---
-95108 </br>**Bericht:** Push-installatie van Mobility Service naar de bronmachine is mislukt met foutcode **EP0859**. <br>| De referenties die zijn opgegeven voor het installeren van de Mobility-Service zijn onjuist of het gebruikersaccount heeft onvoldoende bevoegdheden. <br>| Zorg ervoor dat de opgegeven referenties zijn de **hoofdmap** van accountreferenties. Als u wilt toevoegen of bewerken van gebruikersreferenties, gaat u naar de configuratieserver en selecteer de **Cspsconfigtool** pictogram van de snelkoppeling op het bureaublad. Selecteer **-account beheren** toevoegen of bewerken van referenties.|
+Nadat de bestands- en printerdeling services controleren, schakelt u WMI-service via de firewall.
 
-## <a name="error-95265---protection-could-not-be-enabled-ep0902"></a>Fout 95265 - beveiliging kan niet worden ingeschakeld (EP0902)
+* In het Configuratiescherm, klik op beveiliging en klik vervolgens op Windows Firewall.
+* Klik op instellingen wijzigen en klik vervolgens op het tabblad Uitzonderingen.
+* Schakel het selectievakje voor Windows Management Instrumentation (WMI) WMI-verkeer via de firewall inschakelen in het venster uitzonderingen. 
 
-**Foutcode** | **Mogelijke oorzaken** | **Fout-specifieke aanbevelingen**
---- | --- | ---
-95265 </br>**Bericht:** Push-installatie van Mobility Service op de bronmachine is voltooid, maar de bronmachine moet opnieuw worden opgestart voor bepaalde systeemwijzigingen van kracht te laten worden. <br>| Een oudere versie van Mobility Service is al geïnstalleerd op de server.| Replicatie van de virtuele machine naadloos wordt voortgezet.<br> Start opnieuw op de server tijdens het volgende onderhoudsvenster om de voordelen van de nieuwe uitbreidingen in Mobility-Service.|
+U kunt ook de WMI-verkeer via de firewall aan de opdrachtprompt inschakelen. Gebruik de volgende opdracht `netsh advfirewall firewall set rule group="windows management instrumentation (wmi)" new enable=yes`
+Andere artikelen over probleemoplossing van WMI kunnen worden gevonden op de volgende artikelen.
 
-
-## <a name="error-95224---protection-could-not-be-enabled-ep0883"></a>Fout 95224 - beveiliging kan niet worden ingeschakeld (EP0883)
-
-**Foutcode** | **Mogelijke oorzaken** | **Fout-specifieke aanbevelingen**
---- | --- | ---
-95224 </br>**Bericht:** Push-installatie van Mobility Service naar de bronmachine % SourceIP; is mislukt met foutcode **EP0883**. Systeem opnieuw wordt opgestart vanuit een eerdere installatie of update is in behandeling.| Het systeem is niet opnieuw opgestart tijdens het verwijderen van een oudere of niet-compatibele versie van Mobility Service.| Zorg ervoor dat er geen versie van Mobility Service op de server bestaat. <br> Start de server opnieuw en voer de taak beveiliging inschakelen opnieuw uit.|
-
-## <a name="resource-to-troubleshoot-push-installation-problems"></a>Resource voor het oplossen van problemen met push-installatie
-
-#### <a name="troubleshoot-file-and-print-sharing-issues"></a>Bestand problemen op te delen problemen met afdrukken
-* [In- of uitschakelen met Groepsbeleid voor het delen van bestanden](https://technet.microsoft.com/library/cc754359(v=ws.10).aspx)
-* [Bestands- en printerdeling via Windows Firewall inschakelen](https://technet.microsoft.com/library/ff633412(v=ws.10).aspx)
-
-#### <a name="troubleshoot-wmi-issues"></a>WMI-problemen oplossen
 * [WMI-basistest](https://blogs.technet.microsoft.com/askperf/2007/06/22/basic-wmi-testing/)
 * [WMI-probleemoplossing](https://msdn.microsoft.com/library/aa394603(v=vs.85).aspx)
 * [Het oplossen van problemen met WMI-scripts en WMI-services](https://technet.microsoft.com/library/ff406382.aspx#H22)
+
+## <a name="unsupported-operating-systems"></a>Niet-ondersteunde besturingssystemen
+
+Een andere meest voorkomende reden voor mislukken kan worden veroorzaakt door niet-ondersteund besturingssysteem. Zorg ervoor dat u gebruikmaakt van de ondersteunde versie van het besturingssysteem/Kernel voor geslaagde installatie van de Mobility-service.
+
+Raadpleeg voor meer informatie over welke besturingssystemen worden ondersteund door Azure Site Recovery, onze [matrix ondersteuningsdocument](vmware-physical-azure-support-matrix.md#replicated-machines).
 
 ## <a name="next-steps"></a>Volgende stappen
 

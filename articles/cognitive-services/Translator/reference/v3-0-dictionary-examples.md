@@ -1,28 +1,29 @@
 ---
-title: Microsoft Translator tekst API woordenlijst voorbeelden methode | Microsoft Docs
-description: Gebruik de methode Microsoft Translator tekst API woordenlijst voorbeelden.
+title: Translator Text-API-woordenlijst voorbeelden methode
+titlesuffix: Azure Cognitive Services
+description: Gebruik de methode Translator Text-API-woordenlijst voorbeelden.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 9960f3be42090edaec1df935d70e4c1a0d25b691
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 1e6bd1b7ddb38d0fad33ab9d282f8edc4ff8c765
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345606"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129126"
 ---
-# <a name="text-api-30-dictionary-examples"></a>Tekst API 3.0: Voorbeelden woordenlijst
+# <a name="translator-text-api-30-dictionary-examples"></a>Translator Text-API 3.0: Woordenlijst voorbeelden
 
-Biedt voorbeelden die laten zien hoe de voorwaarden in de woordenlijst in de context worden gebruikt. Deze bewerking wordt gebruikt in combinatie met [woordenboek](.\v3-0-dictionary-lookup.md).
+Biedt voorbeelden die laten zien hoe de voorwaarden in de woordenlijst in de context worden gebruikt. Deze bewerking wordt gebruikt in combinatie met [Dictionary lookup](.\v3-0-dictionary-lookup.md).
 
 ## <a name="request-url"></a>Aanvraag-URL
 
-Verzenden van een `POST` aanvraag voor het:
+Verzendt een `POST` aanvragen:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0
@@ -30,26 +31,26 @@ https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.
 
 ## <a name="request-parameters"></a>Aanvraagparameters
 
-Aanvragen in de queryreeks doorgegeven parameters zijn:
+Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
 
 <table width="100%">
   <th width="20%">Queryparameter</th>
   <th>Beschrijving</th>
   <tr>
     <td>API-versie</td>
-    <td>*Vereiste parameter*.<br/>De versie van de API die door de client wordt aangevraagd. De waarde moet `3.0`.</td>
+    <td>*Vereiste parameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
   </tr>
   <tr>
     <td>uit</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de ingevoerde tekst. De taal van de bron moet een van de [ondersteunde talen](.\v3-0-languages.md) opgenomen in de `dictionary` bereik.</td>
+    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de invoertekst. De source-taal moet een van de [ondersteunde talen](.\v3-0-languages.md) opgenomen in de `dictionary` bereik.</td>
   </tr>
   <tr>
     <td>tot</td>
-    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de uitvoertekst. De taal van het doel moet een van de [ondersteunde talen](.\v3-0-languages.md) opgenomen in de `dictionary` bereik.</td>
+    <td>*Vereiste parameter*.<br/>Hiermee geeft u de taal van de uitvoertekst. De doeltaal moet een van de [ondersteunde talen](.\v3-0-languages.md) opgenomen in de `dictionary` bereik.</td>
   </tr>
 </table>
 
-Aanvraagheaders omvatten:
+Aanvraagheaders zijn onder andere:
 
 <table width="100%">
   <th width="20%">Headers</th>
@@ -68,7 +69,7 @@ Aanvraagheaders omvatten:
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Optioneel*.<br/>Een client gegenereerde GUID als unieke identificatie van de aanvraag. U kunt deze header weglaten als u de trace-ID aanwezig in de query-tekenreeks met een queryparameter met de naam `ClientTraceId`.</td>
+    <td>*Optioneel*.<br/>Een client gegenereerde GUID voor het aanduiden van de aanvraag. U kunt deze header weglaten als u de trace-ID opnemen in de querytekenreeks met behulp van een queryparameter met de naam `ClientTraceId`.</td>
   </tr>
 </table> 
 
@@ -76,9 +77,9 @@ Aanvraagheaders omvatten:
 
 De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met de volgende eigenschappen:
 
-  * `Text`: Een tekenreeks opgeven van de termijn opzoeken. Dit is de waarde van een `normalizedText` veld van de back-vertalingen van een eerdere [woordenboek](.\v3-0-dictionary-lookup.md) aanvraag. Het kan ook worden veroorzaakt de waarde van de `normalizedSource` veld.
+  * `Text`: Een tekenreeks op te geven de term te zoeken. Dit moet de waarde van een `normalizedText` veld uit de back-vertalingen van een vorige [Dictionary lookup](.\v3-0-dictionary-lookup.md) aanvraag. Het kan ook worden de waarde van de `normalizedSource` veld.
 
-  * `Translation`: Een tekenreeks waarmee de vertaalde tekst die eerder zijn geretourneerd door de [woordenboek](.\v3-0-dictionary-lookup.md) bewerking. Dit is de waarde van de `normalizedTarget` veld in de `translations` lijst met de [woordenboek](.\v3-0-dictionary-lookup.md) antwoord. De service wordt voorbeelden voor het specifieke bron doel word-paar geretourneerd.
+  * `Translation`: Een tekenreeks op te geven de vertaalde tekst die eerder zijn geretourneerd door de [Dictionary lookup](.\v3-0-dictionary-lookup.md) bewerking. Dit moet de waarde van de `normalizedTarget` veld in de `translations` lijst van de [Dictionary lookup](.\v3-0-dictionary-lookup.md) antwoord. Voorbeelden voor het specifieke bron-doel word-paar retourneert de service.
 
 Er is een voorbeeld:
 
@@ -91,38 +92,38 @@ Er is een voorbeeld:
 Er gelden de volgende beperkingen:
 
 * De matrix kan maximaal 10 elementen hebben.
-* De tekstwaarde van een matrixelement kan niet groter zijn dan 100 tekens inclusief spaties.
+* De tekstwaarde van een element van de matrix niet langer zijn dan 100 tekens inclusief spaties.
 
-## <a name="response-body"></a>Antwoordtekst
+## <a name="response-body"></a>De hoofdtekst van antwoord
 
 Een geslaagde reactie is een JSON-matrix met één resultaat voor elke tekenreeks in de invoermatrix. Een resultaatobject bevat de volgende eigenschappen:
 
-  * `normalizedSource`: Een tekenreeks waarin de genormaliseerde vorm van de bronterm. In het algemeen dit moet identiek zijn aan de waarde van de `Text` veld bij de overeenkomende lijstindex in de hoofdtekst van de aanvraag.
+  * `normalizedSource`: Een tekenreeks waarin de gestandaardiseerde vorm van de bronterm. Over het algemeen dit moet identiek zijn aan de waarde van de `Text` veld in de overeenkomende lijstindex in de hoofdtekst van de aanvraag.
     
-  * `normalizedTarget`: Een tekenreeks waarin de genormaliseerde vorm van de doelterm. In het algemeen dit moet identiek zijn aan de waarde van de `Translation` veld bij de overeenkomende lijstindex in de hoofdtekst van de aanvraag.
+  * `normalizedTarget`: Een tekenreeks waarin de gestandaardiseerde vorm van de doelterm. Over het algemeen dit moet identiek zijn aan de waarde van de `Translation` veld in de overeenkomende lijstindex in de hoofdtekst van de aanvraag.
   
-  * `examples`: Een lijst met voorbeelden voor het (bron termijn, doelterm) paar. Elk element van de lijst is een object met de volgende eigenschappen:
+  * `examples`: Een lijst met voorbeelden voor de (bronterm, doelterm) paar. Elk element van de lijst is een object met de volgende eigenschappen:
 
-    * `sourcePrefix`: De tekenreeks voor het samenvoegen van _voordat_ de waarde van `sourceTerm` vormt een compleet voorbeeld. Voeg een spatie, geen omdat deze nog wordt weergegeven wanneer deze moet worden. Deze waarde kan een lege tekenreeks zijn.
+    * `sourcePrefix`: De tekenreeks om samen te voegen _voordat_ de waarde van `sourceTerm` om te vormen een compleet voorbeeld. Voeg een spatie, omdat er nog wordt weergegeven wanneer deze moet worden. Deze waarde kan een lege tekenreeks zijn.
 
-    * `sourceTerm`: Een tekenreeks die gelijk is aan de werkelijke term wordt opgezocht. De tekenreeks wordt toegevoegd met `sourcePrefix` en `sourceSuffix` vormen het complete voorbeeld. De waarde ervan wordt gescheiden, zodat deze kan worden gemarkeerd in de gebruikersinterface, bijvoorbeeld door vet deze.
+    * `sourceTerm`: Een tekenreeks gelijk is aan de werkelijke term opgezocht. De tekenreeks wordt toegevoegd met `sourcePrefix` en `sourceSuffix` om te vormen het complete voorbeeld. De waarde wordt gescheiden, zodat deze kan worden gemarkeerd in een gebruikersinterface, bijvoorbeeld door vet deze.
 
-    * `sourceSuffix`: De tekenreeks voor het samenvoegen van _nadat_ de waarde van `sourceTerm` vormt een compleet voorbeeld. Voeg een spatie, geen omdat deze nog wordt weergegeven wanneer deze moet worden. Deze waarde kan een lege tekenreeks zijn.
+    * `sourceSuffix`: De tekenreeks om samen te voegen _nadat_ de waarde van `sourceTerm` om te vormen een compleet voorbeeld. Voeg een spatie, omdat er nog wordt weergegeven wanneer deze moet worden. Deze waarde kan een lege tekenreeks zijn.
 
-    * `targetPrefix`: Een tekenreeks die vergelijkbaar is met `sourcePrefix` maar voor het doel.
+    * `targetPrefix`: Een tekenreeks die vergelijkbaar is met `sourcePrefix` , maar voor het doel.
 
-    * `targetTerm`: Een tekenreeks die vergelijkbaar is met `sourceTerm` maar voor het doel.
+    * `targetTerm`: Een tekenreeks die vergelijkbaar is met `sourceTerm` , maar voor het doel.
 
-    * `targetSuffix`: Een tekenreeks die vergelijkbaar is met `sourceSuffix` maar voor het doel.
+    * `targetSuffix`: Een tekenreeks die vergelijkbaar is met `sourceSuffix` , maar voor het doel.
 
     > [!NOTE]
     > Als er geen voorbeelden in de woordenlijst, het antwoord is 200 (OK), maar de `examples` lijst is een lege lijst.
 
 ## <a name="examples"></a>Voorbeelden
 
-In dit voorbeeld laat zien hoe voor het opzoeken van voorbeelden voor het paar bestaat uit de Engelse term `fly` en de Spaanse vertaling `volar`.
+In dit voorbeeld laat zien hoe voor het opzoeken van voorbeelden voor het paar van de Engelse term opgebouwd `fly` en de Spaans vertaling `volar`.
 
-# <a name="curltabcurl"></a>[cURL](#tab/curl)
+# <a name="curltabcurl"></a>[CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly', 'Translation':'volar'}]"
@@ -130,7 +131,7 @@ curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/examples?
 
 ---
 
-De hoofdtekst van de reactie (afgekort voor de duidelijkheid) is:
+De hoofdtekst van antwoord (afgekort voor de duidelijkheid) is:
 
 ```
 [

@@ -9,12 +9,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 05/30/2018
-ms.openlocfilehash: d5132cf2414045ca1343354215b2a4564f696190
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: efdc9cfbbe9a78571e0a56437e512d0cbbc18b3e
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43044767"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297267"
 ---
 # <a name="plan-azure-domain-joined-hadoop-clusters-in-hdinsight"></a>Azure Hadoop-clusters in aan domein gekoppelde HDInsight plannen
 
@@ -61,7 +61,7 @@ Zie voor meer informatie, [configureren aan domein gekoppelde HDInsight-clusters
 
 Als u een on-premises Active Directory-exemplaar of meer complexe Active Directory-instellingen voor uw domein hebt, kunt u deze identiteiten met Azure AD synchroniseren met behulp van Azure AD Connect. Vervolgens kunt u Azure AD DS op deze Active Directory-tenant. 
 
-Omdat Kerberos is afhankelijk van wachtwoord-hashes, moet u [wachtwoordhashsynchronisatie op Azure AD DS inschakelen](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Als u Federatie met Active Directory Federation Services (AD FS), kunt u eventueel instellen van synchronisatie van wachtwoordhashes als een back-up als uw AD FS-infrastructuur is mislukt. Zie voor meer informatie, [synchronisatie van wachtwoordhashes met Azure AD Connect-synchronisatie inschakelen](../../active-directory/connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md). 
+Omdat Kerberos is afhankelijk van wachtwoord-hashes, moet u [wachtwoordhashsynchronisatie op Azure AD DS inschakelen](../../active-directory-domain-services/active-directory-ds-getting-started-password-sync.md). Als u Federatie met Active Directory Federation Services (AD FS), kunt u eventueel instellen van synchronisatie van wachtwoordhashes als een back-up als uw AD FS-infrastructuur is mislukt. Zie voor meer informatie, [synchronisatie van wachtwoordhashes met Azure AD Connect-synchronisatie inschakelen](../../active-directory/hybrid/how-to-connect-password-hash-synchronization.md). 
 
 Met behulp van on-premises Active Directory of Active Directory op IaaS-VM's alleen zonder Azure AD en Azure AD DS, is geen ondersteunde configuratie voor aan domein gekoppelde HDInsight-clusters.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: reference
 ms.date: 05/22/2018
 ms.author: barclayn
-ms.openlocfilehash: 359648a843375477ea56ab791533208c11af9c81
-ms.sourcegitcommit: 0fcd6e1d03e1df505cf6cb9e6069dc674e1de0be
+ms.openlocfilehash: 807b8a17570dfdcefa07a42719b7b0b24e4f31d7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/14/2018
-ms.locfileid: "42059432"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297159"
 ---
 # <a name="azure-key-vault-customer-data-features"></a>Azure Key Vault klant functies
 
@@ -37,7 +37,7 @@ De volgende informatie geeft klantgegevens in Azure Key Vault:
 - Certificaatcontactpersonen mag gebruiker e-mailadressen, namen en telefoonnummers
 - Certificaatverleners mag e-mailadressen, namen, telefoonnummers, accountreferenties en organisatie-details
 - Willekeurige labels kunnen worden toegepast op objecten in Azure Key Vault. Deze objecten bevatten kluizen, sleutels, geheimen, certificaten en storage-accounts. De labels die worden gebruikt mogelijk persoonlijke gegevens bevatten.
-- Azure Key Vault toegang tot logboeken bevatten de object-id's [UPN's](../active-directory/connect/active-directory-aadconnect-userprincipalname.md), en IP-adressen voor elke aanroep van de REST-API
+- Azure Key Vault toegang tot logboeken bevatten de object-id's [UPN's](../active-directory/hybrid/plan-connect-userprincipalname.md), en IP-adressen voor elke aanroep van de REST-API
 - Diagnostische logboeken in Azure Key Vault kunnen-object-id's en IP-adressen voor REST API-aanroepen bevatten
 
 ## <a name="deleting-customer-data"></a>Verwijderen van klantgegevens

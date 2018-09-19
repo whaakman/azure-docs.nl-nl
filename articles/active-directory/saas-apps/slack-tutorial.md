@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/16/2018
+ms.date: 09/14/2018
 ms.author: jeedes
-ms.openlocfilehash: b742f3eb9124093bcf0c3c912bbae0367cdcce56
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5b1099e46cf1aa2fd4b948fee8407cfd859390ce
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44053836"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129111"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-slack"></a>Zelfstudie: Azure Active Directory-integratie met Slack
 
@@ -217,6 +217,9 @@ Het doel van deze sectie is het maken van een gebruiker met de naam van Britta S
 
 > [!NOTE]
 > Als u een gebruiker handmatig hebt gemaakt wilt, moet u contact opnemen met [Slack ondersteuningsteam](https://slack.com/help/contact).
+
+> [!NOTE]
+> Azure AD Connect is het hulpprogramma voor synchronisatie die on-premises Active Directory-identiteiten met Azure AD kan worden gesynchroniseerd en vervolgens deze gesynchroniseerde gebruikers kunnen ook toepassingen wilt gebruiken als een andere cloudgebruikers.
 
 ### <a name="assigning-the-azure-ad-test-user"></a>Toewijzen aan de gebruiker van de test Azure AD
 

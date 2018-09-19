@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 08/05/2018
+ms.date: 09/21/2018
 ms.author: rkarlin
-ms.openlocfilehash: 2a079456813a67eb40d5cf42bcdd2c91fbc631d3
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: cb13da7ad9387b7170882752b1620c2756bc3675
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297036"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124147"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Beheer van de virtuele machine toegang met just-in-tijd
 
@@ -108,6 +108,9 @@ Onder **JIT-VM-configuratie**, kunt u ook toevoegen en configureren van een nieu
 
 3. Selecteer **OK**.
 
+> [!NOTE]
+>Wanneer JIT-VM-toegang is ingeschakeld voor een VM, Azure Security Center maakt weigeren alle regels voor binnenkomend verkeer voor de geselecteerde poorten in de netwerkbeveiligingsgroepen die zijn gekoppeld. De regels is de hoogste prioriteit van uw Netwerkbeveiligingsgroepen of lagere prioriteit dan de bestaande regels die er nog. Dit is afhankelijk van een analyse uitgevoerd door Azure Security Center waarmee wordt bepaald of een regel beveiligd is.
+>
 ## <a name="requesting-access-to-a-vm"></a>Aanvragen van toegang tot een virtuele machine
 
 Om aan te vragen tot een virtuele machine:
@@ -162,8 +165,6 @@ U krijgt inzicht in VM-activiteiten met zoeken in Logboeken. Logboeken weergeven
 
   **Activiteitenlogboek** biedt een gefilterde weergave van de vorige bewerkingen voor die virtuele machine samen met de tijd, datum en -abonnement.
 
-  ![Het activiteitenlogboek weergeven][5]
-
 U kunt de logboekgegevens downloaden door te selecteren **Klik hier om alle items te downloaden als CSV-bestand**.
 
 Wijzigen van de filters en selecteer **toepassen** een zoeken en het logboek te maken.
@@ -172,15 +173,62 @@ Wijzigen van de filters en selecteer **toepassen** een zoeken en het logboek te 
 
 De just in time-VM-toegang functie via de API van Azure Security Center kan worden gebruikt. U kunt informatie over de geconfigureerde VM's, nieuwe visuals toevoegen, aanvragen van toegang tot een virtuele machine, en meer, via deze API. Zie [Jit-netwerkbeleid](https://docs.microsoft.com/rest/api/securitycenter/jitnetworkaccesspolicies), voor meer informatie over de just in time REST-API.
 
-### <a name="configuring-a-just-in-time-policy-for-a-vm"></a>Configureren van een just in time-beleid voor een virtuele machine
+## <a name="using-just-in-time-vm-access-via-powershell"></a>Met behulp van just-in-time-VM-toegang via PowerShell 
 
-Het configureren van een just in time-beleid op een specifieke virtuele machine, moet u deze opdracht uitvoert in uw PowerShell-sessie: Set-ASCJITAccessPolicy.
-Voer de cmdlet-documentatie voor meer informatie.
+Gebruik de just in time VM access-oplossing via PowerShell, gebruikt u de officiële Azure Security Center PowerShell-cmdlets en met name `Set-AzureRmJitNetworkAccessPolicy`.
+
+Het volgende voorbeeld wordt een just in time-VM toegangsbeleid op een specifieke virtuele machine en Hiermee stelt u het volgende:
+1.  Sluit poort 22 en 3389.
+2.  Stel een maximale periode van drie uur voor elk, zodat ze kunnen worden geopend per aanvraag goedgekeurd.
+3.  Kan de gebruiker die toegang aanvraagt tot het beheren van de bron-IP-adressen en kan de gebruiker tot stand brengen van een geslaagde sessie op een goedgekeurde just-in-time toegangsaanvraag.
+
+Voer het volgende in PowerShell om dit te doen:
+
+1.  Toewijzen van een variabele waarin de just in time-VM toegangsbeleid voor een virtuele machine:
+
+        $JitPolicy = (@{
+         id="/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
+        ports=(@{
+             number=22;
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
+             maxRequestAccessDuration="PT3H"},
+             @{
+             number=3389;
+             protocol="*";
+             allowedSourceAddressPrefix=@("*");
+             maxRequestAccessDuration="PT3H"})})
+
+2.  Voeg de virtuele machine just-in-time VM access-beleid op een matrix:
+    
+        $JitPolicyArr=@($JitPolicy)
+
+3.  Configureer de just in time-VM toegangsbeleid op de geselecteerde virtuele machine:
+    
+        Set-AzureRmJitNetworkAccessPolicy -Kind "Basic" -Location "LOCATION" -Name "default" -ResourceGroupName "RESOURCEGROUP" -VirtualMachine $JitPolicyArr 
 
 ### <a name="requesting-access-to-a-vm"></a>Aanvragen van toegang tot een virtuele machine
 
-Voor toegang tot een specifieke virtuele machine die is beveiligd met de just in time-oplossing, moet u deze opdracht uitvoert in uw PowerShell-sessie: aanroepen ASCJITAccess.
-Voer de cmdlet-documentatie voor meer informatie.
+In het volgende voorbeeld ziet u een just in time VM access aanvraag naar een specifieke virtuele machine in welke poort 22 wordt aangevraagd, worden geopend voor een specifiek IP-adres en voor een bepaalde hoeveelheid tijd:
+
+Voer het volgende in PowerShell:
+1.  De eigenschappen van de virtuele machine aanvraag-toegang configureren
+
+        $JitPolicyVm1 = (@{
+          id="/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Compute/virtualMachines/VMNAME"
+        ports=(@{
+           number=22;
+           endTimeUtc="2018-09-17T17:00:00.3658798Z";
+           allowedSourceAddressPrefix=@("IPV4ADDRESS")})})
+2.  Voeg de aanvraagparameters van de VM-toegang in een matrix:
+
+        $JitPolicyArr=@($JitPolicyVm1)
+3.  Verzenden van de aanvraag voor toegang (Gebruik de resource-ID u hebt verkregen in stap 1)
+
+        Start-AzureRmJitNetworkAccessPolicy -ResourceId "/subscriptions/SUBSCRIPTIONID/resourceGroups/RESOURCEGROUP/providers/Microsoft.Security/locations/LOCATION/jitNetworkAccessPolicies/default" -VirtualMachine $JitPolicyArr
+
+Zie voor meer informatie de documentatie van de PowerShell-cmdlet.
+
 
 ## <a name="next-steps"></a>Volgende stappen
 In dit artikel hebt u geleerd hoe just-in-time-VM-toegang in Security Center helpt dat u toegang tot uw Azure virtual machines beheren.

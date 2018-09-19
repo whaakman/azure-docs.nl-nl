@@ -4,37 +4,42 @@ description: bestand opnemen
 services: functions
 author: ggailey777
 manager: jeconnoc
-ms.service: functions
+ms.service: azure-functions
 ms.topic: include
-ms.date: 08/12/2018
+ms.date: 09/12/2018
 ms.author: glenga
 ms.custom: include file
-ms.openlocfilehash: 3cbe634d862682a5f6b06c2cfc77a4d3b03954f9
-ms.sourcegitcommit: 58c5cd866ade5aac4354ea1fe8705cee2b50ba9f
+ms.openlocfilehash: 2808264b4641bda49a53677ebe216a3b53b7d0d9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42811592"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293759"
 ---
-De code voor alle functies in een specifieke functie-app bevindt zich in een hoofdmap (`wwwroot`) die een host-configuratiebestand als een of meer submappen bevat. Elke submap bevat de code voor een afzonderlijke functie, zoals in het volgende voorbeeld:
+De code voor alle functies in een specifieke functie-app bevindt zich in een hoofdmap van het project met een configuratiebestand voor de host en een of meer submappen. Elke submap bevat de code voor een afzonderlijke functie, zoals in de volgende afbeelding:
 
 ```
-wwwroot
+FunctionApp
  | - host.json
- | - mynodefunction
+ | - Myfirstfunction
  | | - function.json
- | | - index.js
- | | - node_modules
- | | | - ... packages ...
- | | - package.json
- | - mycsharpfunction
+ | | - ...  
+ | - mysecondfunction
  | | - function.json
- | | - run.csx
+ | | - ...  
+ | - SharedCode
  | - bin
- | | - mycompiledcsharp.dll
 ```
 
-Het bestand host.json bevat een runtime-specifieke configuraties en bevindt zich in de hoofdmap van de functie-app. Zie voor meer informatie over de instellingen die beschikbaar zijn, de [naslaginformatie over host.json](../articles/azure-functions/functions-host-json.md).
+In versie 2.x van de Functions-runtime, alle functies in de functie-app moet dezelfde taal werknemer delen.  
 
-Elke functie heeft een map met een of meer codebestanden, de configuratie van de function.json en andere afhankelijkheden. Voor een C#-klassebibliotheekproject, de gecompileerde klasse bibliotheek (.dll)-bestand is geïmplementeerd in de `bin` submap.
+De [host.json](../articles/azure-functions/functions-host-json.md) bestand, dat een runtime-specifieke configuraties bevat, is in de hoofdmap van de functie-app. Een `bin` map bevat pakketten en andere bibliotheekbestanden die vereist zijn voor de functie-app. Zie de taal-specifieke vereisten voor een functie-app-project:
+
+* [C# klassebibliotheek (.csproj)](../articles/azure-functions/functions-dotnet-class-library.md#functions-class-library-project)
+* [C# script (.csx)](../articles/azure-functions/functions-reference-csharp.md#folder-structure)
+* [F #-script](../articles/azure-functions/functions-reference-fsharp.md#folder-structure)
+* [Java](../articles/azure-functions/functions-reference-java.md#folder-structure)
+* [JavaScript](../articles/azure-functions/functions-reference-node.md#folder-structure)
+
+
 

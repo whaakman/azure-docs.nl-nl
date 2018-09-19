@@ -9,12 +9,12 @@ ms.author: eustacea
 ms.date: 07/30/2018
 ms.topic: article
 ms.service: iot-edge
-ms.openlocfilehash: 9b4801048c391aae6e95f4181464255ecf6151fc
-ms.sourcegitcommit: 99a6a439886568c7ff65b9f73245d96a80a26d68
+ms.openlocfilehash: 4594685291396b8b80e62abe57be109f0abbd81d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39359963"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126340"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge-beveiligingsbeheer
 
@@ -109,7 +109,7 @@ IoT Edge-runtime worden bijgehouden en de versie van de IoT Edge security-daemon
 
 ### <a name="hardware-security-module-platform-abstraction-layer-hsm-pal"></a>Hardware security module platform abstraction layer (HSM PAL)
 
-De HSM-PAL isoleert alle hoofdmap van de vertrouwensrelatie hardware voor het isoleren van de ontwikkelaar of gebruiker van IoT Edge van de complexiteit.  Het omvat een combinatie van de programmeur API (Application Interface) en trans domein communicatie procedures, bijvoorbeeld de communicatie tussen een standard uitvoeringsomgeving en een veilige enclave.  De daadwerkelijke implementatie van de HSM-PAL, is afhankelijk van de specifieke beveiligde hardware wordt gebruikt.  Begin van haar bestaan maakt het gebruik van vrijwel elke beveiligde silicon hardware voor de IoT-ecosysteem.
+De HSM-PAL isoleert alle hoofdmap van de vertrouwensrelatie hardware voor het isoleren van de ontwikkelaar of gebruiker van IoT Edge van de complexiteit.  Het omvat een combinatie van Application Programming Interface (API) en trans domein communicatie procedures, bijvoorbeeld de communicatie tussen een standard uitvoeringsomgeving en een veilige enclave.  De daadwerkelijke implementatie van de HSM-PAL, is afhankelijk van de specifieke beveiligde hardware wordt gebruikt.  Begin van haar bestaan maakt het gebruik van vrijwel elke beveiligde silicon hardware voor de IoT-ecosysteem.
 
 ## <a name="secure-silicon-root-of-trust-hardware"></a>Beveiligde silicon hoofdmap van de vertrouwensrelatie hardware
 

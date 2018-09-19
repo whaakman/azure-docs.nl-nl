@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 69dea0aa3eaa9de3ed94b934e5fa3c6e6a3ec24d
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6fb60955f1d436e13234243c0e83f1487cb7f7d0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45632837"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127717"
 ---
 # <a name="virtual-machine-serial-console"></a>Seriële Console van virtuele Machine
 
@@ -29,7 +29,7 @@ De seriële Console van de virtuele Machine op Azure biedt toegang tot een op te
 Voor de seriële console-documentatie voor Windows-VM's, [Klik hier](../windows/serial-console.md).
 
 > [!Note] 
-> Seriële Console voor virtuele machines is algemeen beschikbaar in de globale Azure-regio's. Op dit moment is seriële console nog niet beschikbaar Azure Government or Azure China-cloud.
+> Seriële Console voor virtuele machines is algemeen beschikbaar in de globale Azure-regio's. Op dit moment is seriële console nog niet beschikbaar in Azure Government or Azure China-clouds.
 
 
 ## <a name="prerequisites"></a>Vereisten 

@@ -3,7 +3,7 @@ title: Bestandsintegriteit controleren in Azure Security Center | Microsoft Docs
 description: " Informatie over het inschakelen van de functie bestandsintegriteit controleren in Azure Security Center. "
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: MBaldwin
 editor: ''
 ms.assetid: 411d7bae-c9d4-4e83-be63-9f2f2312b075
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/06/2018
-ms.author: terrylan
-ms.openlocfilehash: e8455dddf62c16cb5ebcf20622580fad82d783a7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.date: 09/21/2018
+ms.author: rkarlin
+ms.openlocfilehash: 56aa756230dc908157a5a3d244d379215935cd2f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44296225"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124113"
 ---
 # <a name="file-integrity-monitoring-in-azure-security-center"></a>Bestandsintegriteit controleren in Azure Security Center
 Informatie over het configureren van bestand integriteit controleren (FIM) in Azure Security Center gebruikt deze stapsgewijze kennismaking.
@@ -182,6 +182,14 @@ Onder **voor het bijhouden van wijzigingen bewerken** kunt:
   ![Ingeschakeld ingesteld op false][19]
 
 6. Selecteer **Opslaan**.
+
+## <a name="folder-and-path-monitoring-using-wildcards"></a>Map- en pad bewaking met jokertekens
+
+Jokertekens gebruiken voor het vereenvoudigen van bijhouden in mappen. De volgende regels van toepassing wanneer u de map bewaking met jokertekens configureren:
+-   Jokertekens zijn vereist voor het bijhouden van meerdere bestanden.
+-   Jokertekens kunnen alleen worden gebruikt in het laatste segment van een pad, zoals C:\folder\file of /etc/*.conf
+-   Als een omgevingsvariabele een pad dat is niet geldig bevat, validatie slaagt maar het pad mislukken wanneer inventarisatie wordt uitgevoerd.
+-   Bij het instellen van het pad te voorkomen dat algemene paden, zoals c:\*. * zal dit leiden tot te veel mappen wordt gebruikt.
 
 ## <a name="disable-fim"></a>FIM uitschakelen
 U kunt FIM uitschakelen. FIM maakt gebruik van de oplossing wijzigingen bijhouden in Azure bij te houden en wijzigingen in uw omgeving identificeren. FIM uitschakelt, kunt u de oplossing wijzigingen bijhouden verwijderen uit de geselecteerde werkruimte.

@@ -9,16 +9,16 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: bsiva
-ms.openlocfilehash: 62dd02d53c14635a386a8c6fa3fbfbd6f91a88f7
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: dbc092a9a6984a74cb59f287f12b06892c68fe4a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37921083"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296886"
 ---
 # <a name="set-up-disaster-recovery-for-azure-virtual-machines-using-azure-powershell"></a>Instellen van herstel na noodgevallen voor Azure-machines met behulp van Azure PowerShell
 
-In dit artikel ziet u hoe u kunt instellen en testen herstel na noodgevallen voor Azure-machines met behulp van Azure PowerShell. 
+In dit artikel ziet u hoe u kunt instellen en testen herstel na noodgevallen voor Azure-machines met behulp van Azure PowerShell.
 
 In deze zelfstudie leert u procedures om het volgende te doen:
 
@@ -93,13 +93,13 @@ $DataDisk1VhdURI = $VM.StorageProfile.DataDisks[0].Vhd
 
 ## <a name="create-a-recovery-services-vault"></a>Een Recovery Services-kluis maken
 
-Maak een resourcegroep waarin u wilt maken van de Recovery Services-kluis. 
+Maak een resourcegroep waarin u wilt maken van de Recovery Services-kluis.
 
 > [!IMPORTANT]
 > * De Recovery services-kluis en de virtuele machines die wordt beveiligd, moeten zich in verschillende Azure-locaties.
 > * De resourcegroep van de Recovery services-kluis en de virtuele machines die wordt beveiligd, moet zich in verschillende Azure-locaties.
 > * De Recovery services-kluis en de resourcegroep waartoe deze behoort, kunnen zich in dezelfde Azure-locatie.
- 
+
 In het voorbeeld in dit artikel is de virtuele machine die wordt beveiligd in de regio VS-Oost. De herstelregio geselecteerd voor herstel na noodgevallen is de regio VS-West 2. De recovery services-kluis en de resourcegroep van de kluis zijn beide in de herstelregio (VS-West 2)
 
 ```azurepowershell
@@ -110,10 +110,10 @@ New-AzureRmResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
 ResourceGroupName : a2ademorecoveryrg
 Location          : westus2
 ProvisioningState : Succeeded
-Tags              : 
+Tags              :
 ResourceId        : /subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/a2ademorecoveryrg
 ```
-   
+
 Maak een Recovery services-kluis. In het voorbeeld hieronder een Recovery Services-kluis met de naam a2aDemoRecoveryVault wordt gemaakt in de regio VS-West 2.
 
 ```azurepowershell
@@ -130,15 +130,15 @@ Location          : westus2
 ResourceGroupName : a2ademorecoveryrg
 SubscriptionId    : xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
 Properties        : Microsoft.Azure.Commands.RecoveryServices.ARSVaultProperties
-``` 
+```
 ## <a name="set-the-vault-context"></a>De kluiscontext instellen
 
 > [!TIP]
 > De Azure Site Recovery PowerShell-module (AzureRm.RecoveryServices.SiteRecovery-module) wordt geleverd met eenvoudig te gebruiken-aliassen voor de meeste cmdlets. De cmdlets in de module verstaan het  *\<bewerking >-**AzureRmRecoveryServicesAsr**\<Object >* en gelijkwaardige aliassen die de vorm hebben  *\<Bewerking >-**ASR**\<Object >*. In dit artikel wordt de cmdlet-aliassen voor betere leesbaarheid.
 
-Stel de context van de kluis voor gebruik in de PowerShell-sessie. Om dit te doen, download de kluis settings-bestand op en importeer het gedownloade bestand in de PowerShell-sessie om in te stellen van de context van de kluis. 
+Stel de context van de kluis voor gebruik in de PowerShell-sessie. Om dit te doen, download de kluis settings-bestand op en importeer het gedownloade bestand in de PowerShell-sessie om in te stellen van de context van de kluis.
 
-Nadat deze is ingesteld, de volgende Azure Site Recovery-bewerkingen in de PowerShell-sessie worden uitgevoerd in de context van de geselecteerde kluis. 
+Nadat deze is ingesteld, de volgende Azure Site Recovery-bewerkingen in de PowerShell-sessie worden uitgevoerd in de context van de geselecteerde kluis.
 
  ```azurepowershell
 #Download the vault settings file for the vault.
@@ -165,16 +165,16 @@ Remove-Item -Path $Vaultsettingsfile.FilePath
 De fabric-object in de kluis vertegenwoordigt een Azure-regio. Het primaire fabric-object, is het fabric-object gemaakt voor de Azure-regio die deel uitmaken van virtuele machines die wordt beveiligd op de kluis op. In het voorbeeld in dit artikel is de virtuele machine die wordt beveiligd in de regio VS-Oost.
 
 > [!NOTE]
-> Azure Site Recovery-bewerkingen worden asynchroon uitgevoerd. premiumstorageaccount1 De taak voor het bijhouden van object gebruiken om op te halen van de meest recente status voor de taak (Get-ASRJob) en het controleren van de status van de bewerking.
+> Azure Site Recovery-bewerkingen worden asynchroon uitgevoerd. Wanneer u een bewerking hebt gestart, wordt een Azure Site Recovery-taak wordt verzonden en wordt een taak voor het bijhouden van object wordt geretourneerd. De taak voor het bijhouden van object gebruiken om op te halen van de meest recente status voor de taak (Get-ASRJob) en het controleren van de status van de bewerking.
 
 ```azurepowershell
 #Create Primary ASR fabric
-$TempASRJob = New-ASRFabric -Azure -Location 'East US'  -Name "A2Ademo-EastUS" 
+$TempASRJob = New-ASRFabric -Azure -Location 'East US'  -Name "A2Ademo-EastUS"
 
 # Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
         #If the job hasn't completed, sleep for 10 seconds before checking the job status again
-        sleep 10; 
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -191,11 +191,11 @@ De recovery-infrastructuur-object vertegenwoordigt het herstel van Azure-locatie
 
 ```azurepowershell
 #Create Recovery ASR fabric
-$TempASRJob = New-ASRFabric -Azure -Location 'West US 2'  -Name "A2Ademo-WestUS" 
+$TempASRJob = New-ASRFabric -Azure -Location 'West US 2'  -Name "A2Ademo-WestUS"
 
 # Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -215,8 +215,8 @@ De beveiligingscontainer is een container die wordt gebruikt om gerepliceerde it
 $TempASRJob = New-AzureRmRecoveryServicesAsrProtectionContainer -InputObject $PrimaryFabric -Name "A2AEastUSProtectionContainer"
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -231,8 +231,8 @@ $PrimaryProtContainer = Get-ASRProtectionContainer -Fabric $PrimaryFabric -Name 
 $TempASRJob = New-AzureRmRecoveryServicesAsrProtectionContainer -InputObject $RecoveryFabric -Name "A2AWestUSProtectionContainer"
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -250,8 +250,8 @@ $RecoveryProtContainer = Get-ASRProtectionContainer -Fabric $RecoveryFabric -Nam
 $TempASRJob = New-ASRPolicy -AzureToAzure -Name "A2APolicy" -RecoveryPointRetentionInHours 24 -ApplicationConsistentSnapshotFrequencyInHours 4
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -269,8 +269,8 @@ Een toewijzing van beveiligingscontainer wijst de primaire beveiliging-container
 $TempASRJob = New-ASRProtectionContainerMapping -Name "A2APrimaryToRecovery" -Policy $ReplicationPolicy -PrimaryProtectionContainer $PrimaryProtContainer -RecoveryProtectionContainer $RecoveryProtContainer
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -285,12 +285,12 @@ $EusToWusPCMapping = Get-ASRProtectionContainerMapping -ProtectionContainer $Pri
 Na een failover, wanneer u klaar bent om te worden overgebracht naar de virtuele machine terug naar de oorspronkelijke Azure-regio u failback. Failback-proces, de virtuele machine is omgekeerde gerepliceerd van de mislukte via regio naar de oorspronkelijke regio. Omgekeerde replicatie overschakelen de rollen van de oorspronkelijke regio en de herstelregio. De oorspronkelijke regio wordt nu de nieuwe herstelregio en wat oorspronkelijk was de herstelregio nu wordt de primaire regio. De toewijzing van beveiligingscontainer voor omgekeerde replicatie geeft de geschakelde rollen van de oorspronkelijke en recovery-regio's.
 
 ```azurepowershell
-#Create Protection container mapping (for failback) between the Recovery and Primary Protection Containers with the Replication policy 
+#Create Protection container mapping (for failback) between the Recovery and Primary Protection Containers with the Replication policy
 $TempASRJob = New-ASRProtectionContainerMapping -Name "A2ARecoveryToPrimary" -Policy $ReplicationPolicy -PrimaryProtectionContainer $RecoveryProtContainer -RecoveryProtectionContainer $PrimaryProtContainer
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -307,7 +307,7 @@ Een cache-opslagaccount is een standaard opslagaccount in dezelfde Azure-regio a
 $EastUSCacheStorageAccount = New-AzureRmStorageAccount -Name "a2acachestorage" -ResourceGroupName "A2AdemoRG" -Location 'East US' -SkuName Standard_LRS -Kind Storage
 ```
 
-Het doelopslagaccount is voor virtuele machines niet met behulp van beheerde schijven, het opslagaccount (s) in de herstelregio waarnaar de schijven van de virtuele machine worden gerepliceerd. Het doelopslagaccount is een standard storage-account of een premium storage-account. Selecteer het type opslagaccount dat vereist is op basis van de veranderingssnelheid van gegevens (i/o schrijven tarief) voor de schijven en de Azure Site Recovery ondersteunde verloop limieten voor het opslagtype.
+Voor virtuele machines **niet met behulp van beheerde schijven**, het doelopslagaccount is het opslagaccount (s) in de herstelregio waarnaar de schijven van de virtuele machine worden gerepliceerd. Het doelopslagaccount is een standard storage-account of een premium storage-account. Selecteer het type opslagaccount dat vereist is op basis van de veranderingssnelheid van gegevens (i/o schrijven tarief) voor de schijven en de Azure Site Recovery ondersteunde verloop limieten voor het opslagtype.
 
 ```azurepowershell
 #Create Target storage account in the recovery region. In this case a Standard Storage account
@@ -332,7 +332,7 @@ Virtuele netwerken in de primaire regio een netwerktoewijzing toegewezen aan vir
 - Ophalen van de primaire virtuele netwerk (het vnet waarmee de virtuele machine is verbonden met)
    ```azurepowershell
     #Retrieve the virtual network that the virtual machine is connected to
-    
+
     #Get first network interface card(nic) of the virtual machine
     $SplitNicArmId = $VM.NetworkProfile.NetworkInterfaces[0].Id.split("/")
 
@@ -355,35 +355,72 @@ Virtuele netwerken in de primaire regio een netwerktoewijzing toegewezen aan vir
    ```azurepowershell
     #Create an ASR network mapping between the primary Azure virtual network and the recovery Azure virtual network
     $TempASRJob = New-ASRNetworkMapping -AzureToAzure -Name "A2AEusToWusNWMapping" -PrimaryFabric $PrimaryFabric -PrimaryAzureNetworkId $EastUSPrimaryNetwork -RecoveryFabric $RecoveryFabric -RecoveryAzureNetworkId $WestUSRecoveryNetwork
-    
+
     #Track Job status to check for completion
-    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-            sleep 10; 
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+            sleep 10;
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
-    
+
     #Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
     Write-Output $TempASRJob.State
-    
+
    ```
 - Netwerktoewijzing voor de omgekeerde richting (failback) maken
     ```azurepowershell
     #Create an ASR network mapping for failback between the recovery Azure virtual network and the primary Azure virtual network
     $TempASRJob = New-ASRNetworkMapping -AzureToAzure -Name "A2AWusToEusNWMapping" -PrimaryFabric $RecoveryFabric -PrimaryAzureNetworkId $WestUSRecoveryNetwork -RecoveryFabric $PrimaryFabric -RecoveryAzureNetworkId $EastUSPrimaryNetwork
-    
+
     #Track Job status to check for completion
-    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-            sleep 10; 
+    while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+            sleep 10;
             $TempASRJob = Get-ASRJob -Job $TempASRJob
     }
-        
+
     #Check if the Job completed successfully. The updated job state of a successfuly completed job should be "Succeeded"
     Write-Output $TempASRJob.State
     ```
 
 ## <a name="replicate-azure-virtual-machine"></a>Virtuele Azure-machines repliceren
 
-Virtuele machine van Azure worden gerepliceerd.
+Virtuele machine van Azure met repliceren **beheerde schijven**.
+
+```azurepowershell
+
+#Get the resource group that the virtual machine must be created in when failed over.
+$RecoveryRG = Get-AzureRmResourceGroup -Name "a2ademorecoveryrg" -Location "West US 2"
+
+#Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
+
+#OsDisk
+$OSdiskId =  $vm.StorageProfile.OsDisk.ManagedDisk.Id
+$RecoveryOSDiskAccountType = $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.OsDisk.ManagedDisk.StorageAccountType
+
+$OSDiskReplicationConfig = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -managed -LogStorageAccountId $storageAccount.Id `
+         -DiskId $OSdiskId -RecoveryResourceGroupId  $ RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -RecoveryOSDiskAccountType $RecoveryOSDiskAccountType
+
+# Data disk
+$datadiskId1  = $vm.StorageProfile.DataDisks[0].ManagedDisk.id
+$RecoveryReplicaDiskAccountType =  $vm.StorageProfile.DataDisks[0]. StorageAccountType
+$RecoveryTargetDiskAccountType = $vm.StorageProfile.DataDisks[0]. StorageAccountType
+
+$DataDisk1ReplicationConfig  = New-AzureRmRecoveryServicesAsrAzureToAzureDiskReplicationConfig -managed -LogStorageAccountId $storageAccount.Id `
+         -DiskId $datadiskId1 -RecoveryResourceGroupId  $ RecoveryRG.ResourceId -RecoveryReplicaDiskAccountType  $RecoveryReplicaDiskAccountType `
+         -RecoveryTargetDiskAccountType $RecoveryTargetDiskAccountType
+
+#Create a list of disk replication configuration objects for the disks of the virtual machine that are to be replicated.
+$diskconfigs = @()
+$diskconfigs += $OSDiskReplicationConfig, $DataDisk1ReplicationConfig
+
+
+#Start replication by creating replication protected item. Using a GUID for the name of the replication protected item to ensure uniqueness of name.
+$TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
+
+```
+
+Virtuele machine van Azure met repliceren **niet-beheerde schijven**.
 
 ```azurepowershell
 #Specify replication properties for each disk of the VM that is to be replicated (create disk replication configuration)
@@ -405,8 +442,8 @@ $RecoveryRG = Get-AzureRmResourceGroup -Name "a2ademorecoveryrg" -Location "West
 $TempASRJob = New-ASRReplicationProtectedItem -AzureToAzure -AzureVmId $VM.Id -Name (New-Guid).Guid -ProtectionContainerMapping $EusToWusPCMapping -AzureToAzureDiskReplicationConfiguration $diskconfigs -RecoveryResourceGroupId $RecoveryRG.ResourceId
 
 #Track Job status to check for completion
-while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){ 
-        sleep 10; 
+while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStarted")){
+        sleep 10;
         $TempASRJob = Get-ASRJob -Job $TempASRJob
 }
 
@@ -415,9 +452,9 @@ while (($TempASRJob.State -eq "InProgress") -or ($TempASRJob.State -eq "NotStart
 Write-Output $TempASRJob.State
 ```
 
-Zodra de begin-replicatiebewerking is gelukt, worden gegevens van virtuele machines wordt gerepliceerd naar de herstelregio voor. 
+Zodra de begin-replicatiebewerking is gelukt, worden gegevens van virtuele machines wordt gerepliceerd naar de herstelregio voor.
 
-Het replicatieproces wordt gestart door een kopie van de replicerende schijven van de virtuele machine in de herstelregio in eerste instantie seeding. Deze fase wordt de fase van de initiële replicatie genoemd. 
+Het replicatieproces wordt gestart door een kopie van de replicerende schijven van de virtuele machine in de herstelregio in eerste instantie seeding. Deze fase wordt de fase van de initiële replicatie genoemd.
 
 Nadat de eerste replicatie is voltooid, wordt replicatie naar de differentiële synchronisatiefase verplaatst. Op dit moment de virtuele machine is beveiligd en een testfailover kan erop worden uitgevoerd. De replicatiestatus van het gerepliceerde item voor de virtuele machine gaat naar de status 'Beveiligd' nadat de initiële replicatie is voltooid.
 
@@ -473,7 +510,7 @@ EndTime          : 4/25/2018 4:33:06 AM
 TargetObjectId   : ce86206c-bd78-53b4-b004-39b722c1ac3a
 TargetObjectType : ProtectionEntity
 TargetObjectName : azuredemovm
-AllowedActions   : 
+AllowedActions   :
 Tasks            : {Prerequisites check for test failover, Create test virtual machine, Preparing the virtual machine, Start the virtual machine}
 Errors           : {}
 ```
@@ -544,7 +581,7 @@ EndTime          : 4/25/2018 4:51:01 AM
 TargetObjectId   : ce86206c-bd78-53b4-b004-39b722c1ac3a
 TargetObjectType : ProtectionEntity
 TargetObjectName : azuredemovm
-AllowedActions   : 
+AllowedActions   :
 Tasks            : {Prerequisite check, Commit}
 Errors           : {}
 ```

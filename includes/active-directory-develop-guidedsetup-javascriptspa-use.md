@@ -1,7 +1,31 @@
-## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Gebruik de Microsoft Authentication Library (MSAL) aan te melden als de gebruiker
+---
+title: bestand opnemen
+description: bestand opnemen
+services: active-directory
+documentationcenter: dev-center-name
+author: navyasric
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/17/2018
+ms.author: nacanuma
+ms.custom: include file
+ms.openlocfilehash: 94d57abc95dabf1da579f6d2105ca6c74140a86f
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293720"
+---
+## <a name="use-the-microsoft-authentication-library-msal-to-sign-in-the-user"></a>Gebruik de Microsoft Authentication Library (MSAL) aan te melden bij de gebruiker
 
-1.  Maak een bestand met de naam `app.js`. Als u Visual Studio gebruikt, selecteert u het project (basismap project), klik met de rechtermuisknop en selecteer: `Add`  >  `New Item`  >  `JavaScript File`:
-2.  Voeg de volgende code naar uw `app.js` bestand:
+1.  Maak een bestand met de naam `app.js`. Als u van Visual Studio gebruikmaakt, selecteer het project (project-basismap), klik met de rechtermuisknop en selecteer: `Add`  >  `New Item`  >  `JavaScript File`:
+2.  Voeg de volgende code aan uw `app.js` bestand:
 
 ```javascript
 // Graph API endpoint to show user profile
@@ -113,32 +137,32 @@ function showError(endpoint, error, errorDesc) {
 <!--start-collapse-->
 ### <a name="more-information"></a>Meer informatie
 
-Nadat een gebruiker op de *'Microsoft Graph API aanroepen'* knop voor de eerste keer `callGraphApi` methodeaanroepen `loginRedirect` aan te melden als de gebruiker. Deze methode resulteert in het omleiden van de gebruiker de *Microsoft Azure Active Directory-v2-eindpunt* te vragen en referenties van de gebruiker te valideren. Als gevolg van een geslaagde aanmelden, de gebruiker wordt omgeleid naar de oorspronkelijke *index.html* pagina en een token wordt ontvangen, verwerkt door `msal.js` en de gegevens in het token in de cache wordt opgeslagen. Dit token wordt ook wel de *token ID* en algemene informatie over de gebruiker, zoals de weergavenaam van de gebruiker bevat. Als u wilt dat alle gegevens die door dit token voor andere doeleinden te gebruiken, moet u ervoor zorgen dat dit token is gevalideerd door uw back-endserver om te waarborgen dat het token is uitgegeven voor een geldige gebruiker voor uw toepassing.
+Nadat een gebruiker op de *'Microsoft Graph API aanroepen'* knop voor het eerst `callGraphApi` methodeaanroepen `loginRedirect` aan te melden bij de gebruiker. Deze methode resulteert in het omleiden van de gebruiker naar de *Microsoft Azure Active Directory v2-eindpunt* te vragen en referenties van de gebruiker te valideren. Als gevolg van een geslaagde aanmelding wordt de gebruiker wordt omgeleid naar de oorspronkelijke *index.html* pagina en een token wordt ontvangen, verwerkt door `msal.js` en de informatie in het token in de cache is opgeslagen. Dit token wordt ook wel de *ID-token* en bevat algemene informatie over de gebruiker, zoals de naam van de gebruiker weergegeven. Als u alle gegevens die door dit token voor andere doeleinden gebruiken wilt, moet u om ervoor te zorgen dat dit token wordt gevalideerd door uw back-endserver om te waarborgen dat het token is uitgegeven voor een geldige gebruiker voor uw toepassing.
 
-De SPA die worden gegenereerd door deze handleiding maakt geen gebruik van het token ID rechtstreeks – in plaats daarvan wordt aangeroepen `acquireTokenSilent` en/of `acquireTokenRedirect` aan te schaffen een *toegangstoken* gebruikt voor het zoeken van de Microsoft Graph API. Als u een steekproef die het valideert het token ID moet, Bekijk [dit](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "Github active-directory-javascript-singlepageapp-dotnet-webapi-v2 voorbeeld") voorbeeldtoepassing in GitHub – het voorbeeld maakt gebruik van een ASP .NET-web-API voor validatie van tokens.
+De beveiligd-WACHTWOORDVERIFICATIE die worden gegenereerd door deze handleiding maakt geen gebruik van de ID-token dat rechtstreeks: in plaats daarvan wordt de `acquireTokenSilent` en/of `acquireTokenRedirect` aan te schaffen een *toegangstoken* gebruikt om te vragen van de Microsoft Graph API. Als u een voorbeeld waarin het ID-token valideert, kijk dan eens [dit](https://github.com/Azure-Samples/active-directory-javascript-singlepageapp-dotnet-webapi-v2 "active-directory-javascript-singlepageapp-dotnet-webapi-v2 voorbeeld Github") voorbeeldtoepassing in GitHub – het voorbeeld maakt gebruik van een ASP .NET-web-API voor validatie van tokens.
 
 #### <a name="getting-a-user-token-interactively"></a>Een gebruiker ophalen interactief token
 
-Na de initiële aanmelden, u niet wilt gebruikers vragen om te verifiëren, elke keer dat ze nodig hebben om aan te vragen van een token voor toegang tot een bron – dus *acquireTokenSilent* de meeste gevallen moet worden gebruikt voor het verkrijgen van tokens. Er zijn echter situaties die u wilt afdwingen dat gebruikers om te communiceren met Azure Active Directory-v2-eindpunt: voorbeelden zijn:
+Na de eerste aanmelding wordt u niet wilt gebruikers vragen om te verifiëren telkens wanneer ze nodig hebben om aan te vragen van een token te krijgen tot een resource – dus *acquireTokenSilent* de meeste gevallen moet worden gebruikt voor het verkrijgen van tokens. Er zijn echter situaties die u wilt afdwingen dat gebruikers om te communiceren met Azure Active Directory v2-eindpunt: enkele voorbeelden zijn:
 - Gebruikers willen hun referenties opnieuw invoeren omdat het wachtwoord is verlopen
-- Uw toepassing vraagt toegang tot een resource die de gebruiker toestemming geven moet aan
+- Uw toepassing aanvraagt toegang tot een resource die de gebruiker moet toestemming geven
 - Tweeledige verificatie is vereist
 
-Het aanroepen van de *acquireTokenRedirect(scope)* ertoe leiden dat gebruikers omleiden naar het Azure Active Directory-v2-eindpunt (of *acquireTokenPopup(scope)* resultaat op een pop-upvenster) waar gebruikers moeten communiceren door het bevestigen van hun referenties, het toestemming verlenen aan de vereiste resource of voltooien van rekening de twee te houden met verificatie.
+Aanroepen van de *acquireTokenRedirect(scope)* resulteren in gebruikers omleiden naar de Azure Active Directory v2-eindpunt (of *acquireTokenPopup(scope)* resultaat in een pop-upvenster) waar gebruikers nodig hebben om te communiceren door hun referenties bevestigen, de toestemming verlenen aan de vereiste resource of voltooien van factor de twee authentication.
 
-#### <a name="getting-a-user-token-silently"></a>Een gebruiker ophalen achtergrond token
-De ` acquireTokenSilent` methode verwerkt token acquisities van organisaties en verlenging zonder tussenkomst van de gebruiker. Na `loginRedirect` (of `loginPopup`) wordt uitgevoerd voor de eerste keer `acquireTokenSilent` is de methode die vaak worden gebruikt voor het verkrijgen van tokens die worden gebruikt voor toegang tot beveiligde bronnen voor volgende aanroepen - aanroepen aan te vragen of vernieuwen van tokens op de achtergrond worden aangebracht.
-`acquireTokenSilent` kan mislukken in sommige gevallen – bijvoorbeeld van de gebruiker het wachtwoord is verlopen. Uw toepassing kan verwerken van deze uitzondering op twee manieren:
+#### <a name="getting-a-user-token-silently"></a>Een gebruiker ophalen op de achtergrond token
+De ` acquireTokenSilent` methode wordt gebruikt voor token-aankopen en verlenging zonder tussenkomst van de gebruiker. Na `loginRedirect` (of `loginPopup`) wordt uitgevoerd voor de eerste keer `acquireTokenSilent` is de methode die vaak worden gebruikt om te verkrijgen van tokens gebruikt voor toegang tot beveiligde resources voor volgende aanroepen - aanroepen aan te vragen of vernieuwen van tokens op de achtergrond worden gemaakt.
+`acquireTokenSilent` mislukken in sommige gevallen, bijvoorbeeld van de gebruiker het wachtwoord is verlopen. Uw toepassing kan verwerken deze uitzondering op twee manieren:
 
-1.  Voer een aanroep naar `acquireTokenRedirect` onmiddellijk, wat ertoe leidt de gebruiker aan te melden. Dit patroon wordt meestal gebruikt in toepassingen met online wanneer er geen niet-geverifieerde inhoud in de toepassing beschikbaar is voor de gebruiker is. Dit patroon maakt gebruik van de steekproef die worden gegenereerd door deze Begeleide installatie.
+1.  Aanroepen van `acquireTokenRedirect` onmiddellijk, wat ertoe leidt dat u wordt gevraagd de gebruiker zich aanmeldt. Dit patroon wordt vaak gebruikt in online toepassingen waarbij er geen niet-geverifieerde inhoud in de toepassing beschikbaar voor de gebruiker. Dit patroon maakt gebruik van de steekproef die worden gegenereerd door deze Begeleide installatie.
 
-2. Toepassingen kunnen ook een visuele indicatie maken voor de gebruiker die een interactief aanmelden is vereist, zodat de gebruiker het juiste moment aan te melden kunt selecteren of de toepassing opnieuw kunt `acquireTokenSilent` op een later tijdstip. Dit wordt meestal gebruikt wanneer de gebruiker andere functies van de toepassing gebruiken kunt zonder wordt onderbroken: er bijvoorbeeld niet-geverifieerde inhoud beschikbaar is in de toepassing is. In dit geval wordt bepalen de gebruiker wanneer ze aanmelden willen voor toegang tot de beveiligde bron, of om de verouderde gegevens te vernieuwen.
+2. Toepassingen kunnen ook een visuele indicatie maken voor de gebruiker dat een interactief aanmelden is vereist, zodat de gebruiker kan het juiste moment aan te melden bij selecteren, of de toepassing opnieuw kunt `acquireTokenSilent` op een later tijdstip. Dit wordt meestal gebruikt wanneer de gebruiker andere functionaliteit van de toepassing gebruiken kunt zonder onderbroken: er bijvoorbeeld niet-geverifieerde inhoud beschikbaar in de toepassing is. In dit geval kan de gebruiker beslissen wanneer ze willen Meld u aan voor toegang tot de beveiligde bron of om de verouderde gegevens te vernieuwen.
 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>De Microsoft Graph API met behulp van het token dat u zojuist hebt verkregen aanroepen
+## <a name="call-the-microsoft-graph-api-using-the-token-you-just-obtained"></a>Aanroepen van de Microsoft Graph-API met behulp van het token dat u zojuist hebt verkregen.
 
-Voeg de volgende code naar uw `app.js` bestand:
+Voeg de volgende code aan uw `app.js` bestand:
 
 ```javascript
 /**
@@ -194,13 +218,13 @@ function callWebApiWithToken(endpoint, token, responseElement, showTokenElement)
 
 ### <a name="more-information-on-making-a-rest-call-against-a-protected-api"></a>Meer informatie over het maken van een REST-aanroep op basis van een beveiligde API
 
-In de voorbeeldtoepassing die is gemaakt door deze handleiding worden de `callWebApiWithToken()` methode wordt gebruikt voor het maken van een HTTP `GET` aanvragen op basis van een beveiligde bron die is een token vereist en vervolgens de inhoud naar de aanroeper wordt geretourneerd. Met deze methode wordt het token verkregen in de *HTTP-autorisatie-header*. Voor de voorbeeldtoepassing die is gemaakt door deze handleiding, de bron is de Microsoft Graph API *mij* eindpunt – waarin informatie over het profiel van de gebruiker.
+In de voorbeeldtoepassing die is gemaakt door deze handleiding worden de `callWebApiWithToken()` methode wordt gebruikt om een HTTP `GET` aanvragen op basis van een beveiligde resource waarvoor een token en vervolgens de inhoud wordt geretourneerd voor de oproepende functie. Met deze methode wordt het verkregen token in de *HTTP-autorisatie-header*. Voor de voorbeeldtoepassing in deze handleiding is gemaakt, de bron is de Microsoft Graph API *me* eindpunt – Hiermee worden de profielgegevens van de gebruiker.
 
 <!--end-collapse-->
 
-## <a name="add-a-method-to-sign-out-the-user"></a>Een methode voor het ondertekenen van de gebruiker toevoegen
+## <a name="add-a-method-to-sign-out-the-user"></a>Toevoegen van een methode voor de gebruiker afmelden
 
-Voeg de volgende code naar uw `app.js` bestand:
+Voeg de volgende code aan uw `app.js` bestand:
 
 ```javascript
 /**

@@ -1,57 +1,58 @@
 ---
-title: CalcHistogram-methode in kennis exploratie Service API | Microsoft Docs
-description: Informatie over het gebruik van de methode CalcHistogram in het Knowledge exploratie Service (KES) API in cognitieve Services.
+title: Methode CalcHistogram - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Informatie over het gebruik van de methode CalcHistogram in de Knowledge Exploration Service KES () API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 6ed694b0cc9cf41b815cc54b9f6d12adb2b7cd64
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 0ca43d6f6879198b8f80794c1948439e15f312ad
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344488"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122753"
 ---
 # <a name="calchistogram-method"></a>calchistogram methode
-De *calchistogram* methode berekent de objecten die overeenkomt met een structured query-expressie en berekent de verdeling van de kenmerkwaarden.
+De *calchistogram* methode berekent de objecten die overeenkomen met een structured query-expressie en berekent de verdeling van de kenmerkwaarden.
 
 ## <a name="request"></a>Aanvraag
 `http://<host>/calchistogram?expr=<expr>[&options]` 
 
 Naam|Waarde|Beschrijving
 ----|-----|-----------
-expr | Tekenreeks | Structured query-expressie waarmee de index entiteiten waarover histogrammen berekenen.
-kenmerken | Tekenreeks (standaard = "") | Door komma's gescheiden lijst met kenmerk opgenomen in het antwoord.
-count   | Nummer (standaard = 10) | Het aantal resultaten te retourneren.
-offset  | Nummer (standaard = 0) | De index van het eerste resultaat te retourneren.
+markering | Tekenreeks met tekst | Gestructureerde query-expressie waarmee de index-entiteiten die voor het berekenen van histogrammen.
+Kenmerken | Tekenreeks (standaard = "") | Door komma's gescheiden lijst van kenmerk opgenomen in het antwoord.
+count   | Getal (standaard = 10) | Het aantal resultaten dat moet worden geretourneerd.
+offset  | Getal (standaard = 0) | De index van het eerste resultaat om terug te keren.
 
 ## <a name="response-json"></a>Antwoord (JSON)
 JSONPath | Beschrijving
 ----|----
-$.expr | *expr* parameter van de aanvraag.
+$.expr | *markering* parameter van de aanvraag.
 $.num_entities | Totaal aantal overeenkomende entiteiten.
 $.histograms |  Matrix van histogrammen, één voor elk kenmerk aangevraagd.
-$.histograms [\*] .attribute | Naam van het kenmerk gedurende welke de histogram is berekend.
-$.histograms [\*] .distinct_values | Het aantal afzonderlijke waarden tussen die overeenkomt met de entiteiten voor dit kenmerk.
-$.histograms [\*] .total_count | Totaal aantal exemplaren van de waarde tussen entiteiten voor dit kenmerk overeenkomen.
+$.histograms [\*] .attribute | De naam van het kenmerk waarover het histogram is berekend.
+$.histograms [\*] .distinct_values | Het aantal distinctieve waarden tussen die overeenkomen met entiteiten voor dit kenmerk.
+$.histograms [\*] .total_count | Totaal aantal instanties van de waarde tussen die overeenkomen met entiteiten voor dit kenmerk.
 $.histograms [\*] .histogram | Histogramgegevens voor dit kenmerk.
 $.histograms [\*] .histogram [\*] .value | Waarde van het kenmerk.
-$.histograms [\*] .histogram [\*] .logprob  | Totaal aantal natuurlijke logboek waarschijnlijkheid die overeenkomt met de entiteiten met de waarde van dit kenmerk.
+$.histograms [\*] .histogram [\*] .logprob  | Totaal aantal natuurlijke logboek waarschijnlijkheid die overeenkomen met entiteiten met de waarde van dit kenmerk.
 $.histograms [\*] .histogram [\*] .count    | Het aantal overeenkomende entiteiten met de waarde van dit kenmerk.
-$.aborted | True als de aanvraag is een time-out.
+$.aborted | Waar, als de aanvraag is een time-out.
 
 ### <a name="example"></a>Voorbeeld
-In het voorbeeld academic publicaties berekend het volgende een histogram van de publicatie aantallen per jaar en op trefwoord voor een bepaalde auteur sinds 2013:
+In de academische publicaties worden bijvoorbeeld berekent de volgende een histogram met publicatie aantallen per jaar en door het sleutelwoord voor een bepaalde auteur sinds 2013:
 
 `http://<host>/calchistogram?expr=And(Composite(Author.Name=='jaime teevan'),Year>=2013)&attributes=Year,Keyword&count=4`
 
-Het antwoord geeft aan dat er 37 documenten die overeenkomt met de query-expressie.  Voor de *jaar* kenmerk, zijn er 3 afzonderlijke waarden, één voor elk jaar sinds 2013.  Het totale aantal via de 3 afzonderlijke waarden is 37.  Voor elk *jaar*, het histogram ziet u de waarde, de totale natuurlijke logboek kans en de telling van de entiteiten die overeenkomt met.     
+Het antwoord geeft aan dat er 37 documenten die overeenkomt met de query-expressie.  Voor de *jaar* kenmerk, er zijn 3 verschillende waarden, één voor elk jaar sinds 2013.  Het totale aantal gedurende de 3 afzonderlijke waarden is 37.  Voor elk *jaar*, het histogram geeft de waarde, totale natuurlijke logboek kans en aantal die overeenkomen met entiteiten.     
 
-Het histogram voor *sleutelwoord* geeft aan dat er 34 distinct trefwoorden. Als een artikel is mogelijk gekoppeld aan meerdere trefwoorden, is het totale aantal (53) kan niet groter zijn dan het aantal overeenkomende entiteiten.  Hoewel er 34 afzonderlijke waarden zijn, het antwoord alleen bevat de eerste 4 omdat het ' aantal = 4 "parameter.
+Het histogram voor *sleutelwoord* geeft aan dat 34 afzonderlijke trefwoorden. Als een document gekoppeld aan meerdere trefwoorden worden kan, kan het totale aantal (53) groter zijn dan het aantal overeenkomende entiteiten.  Hoewel er afzonderlijke waarden 34 zijn, bevat het antwoord alleen de top 4 vanwege het ' aantal = 4 "parameter.
 
 ```json
 {

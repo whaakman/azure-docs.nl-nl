@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/10/2018
 ms.author: tomfitz
-ms.openlocfilehash: 8cac3c8d3a1877ad7c93efc0954c2f07ecaa0a29
-ms.sourcegitcommit: a2ae233e20e670e2f9e6b75e83253bd301f5067c
+ms.openlocfilehash: 8b09170c31691be34cea577eb82c8cce3402be96
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/13/2018
-ms.locfileid: "42060567"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294648"
 ---
 # <a name="using-linked-and-nested-templates-when-deploying-azure-resources"></a>Met behulp van gekoppelde en geneste sjablonen bij het implementeren van Azure-resources
 
@@ -28,6 +28,8 @@ Voor het implementeren van uw oplossing, kunt u één enkele sjabloon of een bel
 Voor kleine tot middelgrote oplossingen is één enkele sjabloon gemakkelijker te begrijpen en onderhouden. U kunt alle resources en -waarden in een enkel bestand zien. Gekoppelde sjablonen kunnen u de oplossing in de betreffende onderdelen opdelen en sjablonen gebruiken voor geavanceerde scenario's.
 
 Wanneer met behulp van gekoppelde sjabloon maakt u een belangrijkste sjabloon waarmee de parameterwaarden die zijn ontvangen tijdens de implementatie. De belangrijkste sjabloon bevat alle gekoppelde sjablonen en geeft waarden aan deze sjablonen indien nodig.
+
+Zie voor een zelfstudie [zelfstudie: gekoppelde Azure Resource Manager-sjablonen maken](./resource-manager-tutorial-create-linked-templates.md).
 
 ## <a name="link-or-nest-a-template"></a>Een koppeling of nesten van een sjabloon
 
@@ -491,12 +493,13 @@ De volgende voorbeelden ziet veelvoorkomende toepassingen van gekoppelde sjablon
 
 |Belangrijkste sjabloon  |Gekoppelde sjabloon |Beschrijving  |
 |---------|---------| ---------|
-|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[gekoppelde sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retourneert de tekenreeks van gekoppelde sjabloon. |
-|[Load Balancer met openbare IP-adres](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[gekoppelde sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Openbare IP-adres van de gekoppelde sjabloon retourneert en stelt u die waarde in de load balancer. |
-|[Meerdere IP-adressen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [gekoppelde sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Hiermee maakt u meerdere openbare IP-adressen in gekoppelde sjabloon.  |
+|[Hello World](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworldparent.json) |[Gekoppelde sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/helloworld.json) | Retourneert de tekenreeks van gekoppelde sjabloon. |
+|[Load Balancer met openbare IP-adres](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip-parentloadbalancer.json) |[Gekoppelde sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/public-ip.json) |Openbare IP-adres van de gekoppelde sjabloon retourneert en stelt u die waarde in de load balancer. |
+|[Meerdere IP-adressen](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip-parent.json) | [Gekoppelde sjabloon](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/linkedtemplates/static-public-ip.json) |Hiermee maakt u meerdere openbare IP-adressen in gekoppelde sjabloon.  |
 
 ## <a name="next-steps"></a>Volgende stappen
 
+* Zie voor een zelfstudie doorloopt, [zelfstudie: gekoppelde Azure Resource Manager-sjablonen maken](./resource-manager-tutorial-create-linked-templates.md).
 * Zie voor meer informatie over het definiëren van de implementatievolgorde voor uw resources, [afhankelijkheden definiëren in Azure Resource Manager-sjablonen](resource-group-define-dependencies.md).
 * Zie voor informatie over het definiëren van een resource, maar veel exemplaren van het maken, [meerdere exemplaren van resources maken in Azure Resource Manager](resource-group-create-multiple.md).
 * Zie voor stappen voor het instellen van een sjabloon in een storage-account en het genereren van een SAS-token, [resources implementeren met Resource Manager-sjablonen en Azure PowerShell](resource-group-template-deploy.md) of [resources implementeren met Resource Manager-sjablonen en Azure CLI](resource-group-template-deploy-cli.md).

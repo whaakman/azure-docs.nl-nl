@@ -12,12 +12,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 7d29cd3801bf997bf5c28ed0845996725aaf1840
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 8b0681165fe84dd54f3b81f610c6698998e881de
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44093648"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125490"
 ---
 # <a name="create-your-first-function-with-java-and-eclipse-preview"></a>Uw eerste functie maken met Java en Eclipse (Preview)
 
@@ -77,7 +77,7 @@ Selecteer de **uitvoeren** menu's en open **Debug Configurations**. Kies **Remot
 
 ![Functies debuggen in Eclipse](media/functions-create-first-java-eclipse/debug-configuration-eclipse.PNG)
 
-Onderbrekingspunten instellen en controleren van objecten in de functie met behulp van de IDE. Wanneer u klaar bent, stop de foutopsporing en de actieve functie host. Slechts één functie host kan worden actieve en actieve lokaal op tegelijk.
+Onderbrekingspunten instellen en controleren van objecten in de functie met behulp van de IDE. Wanneer u klaar bent, stop de foutopsporing en de actieve functie host. Slechts één functie host kan actieve en actieve lokaal op een tijdstip zijn.
 
 ## <a name="deploy-the-function-to-azure"></a>De functie implementeren in Azure
 

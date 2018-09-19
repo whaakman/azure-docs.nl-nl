@@ -1,6 +1,6 @@
 ---
-title: 'Verificatie van de eindgebruiker: Python met Data Lake Store met Azure Active Directory | Microsoft Docs'
-description: Meer informatie over het bereiken van de eindgebruiker verificatie met Data Lake Store met Azure Active Directory met behulp van Python
+title: 'Verificatie van eindgebruikers: Python met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het bereiken van eindgebruikersverificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory met Python
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 60cdcc2c12272b48d61de0afcdd3c361f1795f37
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 1ba7dbd9436a15989564a806a7c8f586c01e5243
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624111"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128066"
 ---
-# <a name="end-user-authentication-with-data-lake-store-using-python"></a>Verificatie van de eindgebruiker met Data Lake Store met behulp van Python
+# <a name="end-user-authentication-with-azure-data-lake-storage-gen1-using-python"></a>Verificatie van de eindgebruiker met Azure Data Lake Storage Gen1 met behulp van Python
 > [!div class="op_single_selector"]
 > * [Java gebruiken](data-lake-store-end-user-authenticate-java-sdk.md)
 > * [.NET-SDK gebruiken](data-lake-store-end-user-authenticate-net-sdk.md)
@@ -27,12 +27,12 @@ ms.locfileid: "34624111"
 > 
 > 
 
-In dit artikel leert u hoe u met de SDK voor Python eindgebruiker Authentication uitvoeren met Azure Data Lake Store. Verificatie van de eindgebruiker kan verder worden gesplitst in twee categorieën worden onderverdeeld:
+In dit artikel leert u over het gebruik van de Python-SDK voor verificatie van eindgebruikers met Azure Data Lake Storage Gen1. Verificatie van de eindgebruiker kan verder worden gesplitst in twee categorieën:
 
-* Verificatie van de eindgebruiker zonder multi-factor authentication
-* Verificatie van de eindgebruiker met meervoudige verificatie
+* Verificatie van eindgebruikers zonder multi-factor authentication
+* Verificatie van eindgebruikers met multi-factor authentication
 
-Deze beide opties worden besproken in dit artikel. Zie voor de verificatie van de service-naar-service met Data Lake Store met behulp van Python, [authentication Service-naar-service met Data Lake Store met behulp van Python](data-lake-store-service-to-service-authenticate-python.md).
+Deze beide opties worden in dit artikel besproken. Zie voor service-naar-serviceverificatie met Data Lake Storage Gen1 met behulp van Python, [Service-naar-serviceverificatie met Data Lake Storage Gen1 met behulp van Python](data-lake-store-service-to-service-authenticate-python.md).
 
 ## <a name="prerequisites"></a>Vereisten
 
@@ -40,15 +40,15 @@ Deze beide opties worden besproken in dit artikel. Zie voor de verificatie van d
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Maak een 'Systeemeigen' Azure Active Directory-toepassing**. U moet voltooid van de stappen in [eindgebruiker verificatie met Data Lake Store met Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
+* **Maken van een Azure Active Directory-toepassing voor 'Native'**. U moet zijn voltooid de stappen in [eindgebruikersverificatie met Data Lake Storage Gen1 met behulp van Azure Active Directory](data-lake-store-end-user-authenticate-using-active-directory.md).
 
 ## <a name="install-the-modules"></a>De modules installeren
 
-U moet drie modules installeren voordat u Data Lake Store kunt gebruiken met Python.
+Werken met Data Lake Storage Gen1 met behulp van Python, u moet drie modules installeren.
 
 * Module `azure-mgmt-resource`, die Azure-modules bevat voor Active Directory enzovoort.
-* Module `azure-mgmt-datalake-store`, die de accountbeheerbewerkingen voor Azure Data Lake Store bevat. Zie [Naslaginformatie over Azure Data Lake Store-beheermodule](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python) voor meer informatie over deze module.
-* Module `azure-datalake-store`, die de bestandssysteembewerkingen voor Azure Data Lake Store bevat. Zie [Naslaginformatie over Azure Data Lake Store-bestandssysteemmodule](http://azure-datalake-store.readthedocs.io/en/latest/) voor meer informatie over deze module.
+* De `azure-mgmt-datalake-store` module, deze de accountbeheerbewerkingen voor Azure Data Lake Storage Gen1 bevat. Zie voor meer informatie over deze module [Azure Data Lake-opslagbeheer Gen1 Moduleverwijzing](https://docs.microsoft.com/python/api/azure.mgmt.datalake.store?view=azure-python).
+* De `azure-datalake-store` module, deze de bestandssysteembewerkingen voor Azure Data Lake Storage Gen1 bevat. Zie voor meer informatie over deze module [Moduleverwijzing voor azure-datalake-store-bestandssysteem](http://azure-datalake-store.readthedocs.io/en/latest/).
 
 Gebruik de volgende opdrachten om de modules te installeren.
 
@@ -68,11 +68,11 @@ pip install azure-datalake-store
     ## Use this for Azure AD authentication
     from msrestazure.azure_active_directory import AADTokenCredentials
 
-    ## Required for Azure Data Lake Store account management
+    ## Required for Azure Data Lake Storage Gen1 account management
     from azure.mgmt.datalake.store import DataLakeStoreAccountManagementClient
     from azure.mgmt.datalake.store.models import DataLakeStoreAccount
 
-    ## Required for Azure Data Lake Store filesystem management
+    ## Required for Azure Data Lake Storage Gen1 filesystem management
     from azure.datalake.store import core, lib, multithread
 
     # Common Azure imports
@@ -86,11 +86,11 @@ pip install azure-datalake-store
 
 3. Sla de wijzigingen in mysample.py op.
 
-## <a name="end-user-authentication-with-multi-factor-authentication"></a>Verificatie van de eindgebruiker met meervoudige verificatie
+## <a name="end-user-authentication-with-multi-factor-authentication"></a>Verificatie van eindgebruikers met multi-factor authentication
 
 ### <a name="for-account-management"></a>Voor accountbeheer
 
-Het volgende fragment voor verificatie met Azure AD voor accountbeheerbewerkingen op een Data Lake Store-account gebruiken. Het volgende fragment kan worden gebruikt om een toepassing te verifiëren met Multi-Factor Authentication. Geef de waarden onder voor een bestaande Azure AD **systeemeigen** toepassing.
+Gebruik het volgende codefragment om te verifiëren met Azure AD voor accountbeheerbewerkingen in een Data Lake Storage Gen1-account. Het volgende fragment kan worden gebruikt om een toepassing te verifiëren met Multi-Factor Authentication. Geef de waarden hieronder voor een bestaande Azure AD **systeemeigen** toepassing.
 
     authority_host_url = "https://login.microsoftonline.com"
     tenant = "FILL-IN-HERE"
@@ -107,17 +107,17 @@ Het volgende fragment voor verificatie met Azure AD voor accountbeheerbewerkinge
 
 ### <a name="for-filesystem-operations"></a>Voor bestandssysteembewerkingen
 
-Gebruik dit om te verifiëren met Azure AD voor Bestandssysteembewerkingen op een Data Lake Store-account. Het volgende fragment kan worden gebruikt om een toepassing te verifiëren met Multi-Factor Authentication. Geef de waarden onder voor een bestaande Azure AD **systeemeigen** toepassing.
+Gebruik dit om te verifiëren met Azure AD bestandssysteembewerkingen in een Data Lake Storage Gen1-account. Het volgende fragment kan worden gebruikt om een toepassing te verifiëren met Multi-Factor Authentication. Geef de waarden hieronder voor een bestaande Azure AD **systeemeigen** toepassing.
 
     adlCreds = lib.auth(tenant_id='FILL-IN-HERE', resource = 'https://datalake.azure.net/')
 
-## <a name="end-user-authentication-without-multi-factor-authentication"></a>Verificatie van de eindgebruiker zonder multi-factor authentication
+## <a name="end-user-authentication-without-multi-factor-authentication"></a>Verificatie van eindgebruikers zonder multi-factor authentication
 
-Dit is afgeschaft. Zie voor meer informatie [Azure Authentication met behulp van Python SDK](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python#mgmt-auth-token).
+Dit is afgeschaft. Zie voor meer informatie, [Azure-verificatie met behulp van Python SDK](https://docs.microsoft.com/python/azure/python-sdk-azure-authenticate?view=azure-python#mgmt-auth-token).
    
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe eindgebruikers verificatie gebruiken om te verifiëren met Azure Data Lake Store met behulp van Python. U kunt nu de volgende artikelen die over het gebruik van Python communiceren werken met Azure Data Lake Store bekijken.
+In dit artikel hebt u geleerd hoe u verificatie van eindgebruikers om u te verifiëren met Azure Data Lake Storage Gen1 met behulp van Python. U kunt nu de volgende artikelen die over hoe praten u Python gebruikt om te werken met Azure Data Lake Storage Gen1 kijken.
 
-* [Accountbeheerbewerkingen op Data Lake Store met behulp van Python](data-lake-store-get-started-python.md)
-* [Bewerkingen van de gegevens in Data Lake Store met behulp van Python](data-lake-store-data-operations-python.md)
+* [Accountbeheerbewerkingen in Data Lake Storage Gen1 met behulp van Python](data-lake-store-get-started-python.md)
+* [Bewerkingen van de gegevens in Data Lake Storage Gen1 met behulp van Python](data-lake-store-data-operations-python.md)
 

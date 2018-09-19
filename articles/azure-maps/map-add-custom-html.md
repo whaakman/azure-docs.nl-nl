@@ -9,16 +9,16 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5060839be244f55700b40735e598964a0b7b6709
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: e5cfbc7ddc10edf9b21afce73e3b7f8795fcdac9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382042"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121954"
 ---
 # <a name="add-custom-html-to-the-map"></a>Een aangepaste HTML toevoegen aan de kaart
 
-In dit artikel wordt beschreven hoe u een aangepaste HTML, zoals een afbeeldingsbestand toevoegen aan de kaart. 
+In dit artikel wordt beschreven hoe u een aangepaste HTML, zoals een afbeeldingsbestand toevoegen aan de kaart.
 
 ## <a name="understand-the-code"></a>De code begrijpen
 
@@ -33,11 +33,15 @@ Maakt gebruik van het laatste blok van code [addHtml](https://docs.microsoft.com
 
 ## <a name="next-steps"></a>Volgende stappen
 
-Meer informatie over de klassen en methoden die in dit artikel worden gebruikt: 
-* [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
-    * [addHtml](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addhtml)
-    
-Zie de volgende artikelen voor meer codevoorbeelden van toevoegen aan uw kaarten: 
-* [Zoekresultaten tonen](./map-search-location.md)
-* [Gegevens ophalen uit een coördinaat](./map-get-information-from-coordinate.md)
+Meer informatie over de klassen en methoden die in dit artikel worden gebruikt:
 
+> [!div class="nextstepaction"]
+> [Kaart](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)
+
+Zie de volgende artikelen voor meer codevoorbeelden van toevoegen aan uw kaarten:
+
+> [!div class="nextstepaction"]
+> [Zoekresultaten tonen](./map-search-location.md)
+
+> [!div class="nextstepaction"]
+> [Gegevens ophalen uit een coördinaat](./map-get-information-from-coordinate.md)

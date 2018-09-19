@@ -10,11 +10,12 @@ ms.author: jehunte
 ms.date: 03/30/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: d5f9bae34dabba71861adc9b2aeb0d33b8a1e226
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: 30569c3a89de320769d433b5b3a4af9cf4e08e66
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35643980"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>Een virtuele Azure-machine met inventarisverzameling beheren
 
@@ -34,14 +35,14 @@ Meld u aan bij [Azure Portal](https://portal.azure.com/).
 
 1. Selecteer in het linkerdeelvenster van de Azure-portal de optie **Virtuele machines**.
 2. Selecteer een virtuele machine in de lijst met virtuele machine.
-3. Op de **Resource** menu onder **Operations**, selecteer **inventaris**.
+3. Op de **Resource** menu onder **Operations**, selecteer **voorraad**.
 4. Selecteer een Log Analytics-werkruimte om de gegevenslogboeken op te slaan.
     Als er geen werkruimte beschikbaar is voor deze regio, wordt u gevraagd om een standaardwerkruimte en een Automation-account te maken.
 5. Selecteer **Inschakelen** om de onboarding voor uw computer te starten.
 
    ![Opties voor onboarding weergeven](./media/automation-vm-inventory/inventory-onboarding-options.png)
 
-    In een statusbalk ziet u de melding dat de oplossing wordt ingeschakeld. Dit proces duurt maximaal 15 minuten. Gedurende deze tijd kunt u het venster sluiten of kunt u deze openen en er een melding wanneer de oplossing is ingeschakeld. U kunt de implementatiestatus controleren vanuit het deelvenster met meldingen.
+    In een statusbalk ziet u de melding dat de oplossing wordt ingeschakeld. Dit proces duurt maximaal 15 minuten. Gedurende deze tijd kunt u het venster sluiten of kunt u deze openen en het ontvangt u een melding wanneer de oplossing is ingeschakeld. U kunt de implementatiestatus controleren vanuit het deelvenster met meldingen.
 
    ![De inventarisoplossing onmiddellijk na de onboarding weergeven](./media/automation-vm-inventory/inventory-onboarded.png)
 
@@ -51,7 +52,7 @@ Wanneer de implementatie is voltooid, verdwijnt de statusbalk. Het systeem is no
 
 Standaard worden software-, Windows Services- en Linux-daemons geconfigureerd voor verzameling. Als u Windows-register- en bestandsinventarisgegevens wilt verzamelen, configureer dan de instellingen voor de inventarisverzameling.
 
-1. In de **inventaris** weergave, selecteer de **instellingen bewerken** knop aan de bovenkant van het venster.
+1. In de **voorraad** weergave, selecteer de **instellingen bewerken** knop aan de bovenkant van het venster.
 2. Als u een nieuwe instelling voor de verzameling wilt toevoegen, selecteert u de tabbladen **Windows-register**, **Windows-bestanden** en **Linux-bestanden** om naar de instellingencategorie te gaan die u wilt toevoegen.
 3. Selecteer de relevante categorie en klik op **toevoegen** aan de bovenkant van het venster.
 
@@ -88,6 +89,24 @@ De volgende tabellen bevatten informatie over elke eigenschap die kan worden gec
 |Sudo gebruiken     | Deze instelling bepaalt of sudo wordt gebruikt bij het controleren op het item.         |
 |Koppelingen     | Deze instelling bepaalt hoe symbolische koppelingen worden afgehandeld bij het doorlopen van mappen.<br> **Negeren** - Symbolische koppelingen worden genegeerd en de bestanden/mappen waarnaar wordt verwezen, worden niet opgenomen<br>**Volgen** - Symbolische koppelingen worden gevolgd tijdens recursie en de bestanden/mappen waarnaar wordt verwezen, worden opgenomen<br>**Beheren** - Symbolische koppelingen worden gevolgd en de afhandeling van de geretourneerde inhoud kan worden gewijzigd      |
 
+## <a name="manage-machine-groups"></a>Computergroepen beheren
+
+Inventarisatie kunt u maken en weergeven van computergroepen in Log Analytics. Computergroepen zijn verzamelingen van computers die zijn gedefinieerd door een query in Log Analytics.
+
+Naar weergave uw machine groepen selecteren de **Machine groepen** tabblad op de pagina inventaris.
+
+![Machine-groepen op de pagina inventaris weergeven](./media/automation-vm-inventory/inventory-machine-groups.png)
+
+Een computergroep selecteren in de lijst, wordt de pagina van de groepen Machine geopend. Deze pagina bevat informatie over de Machinegroep. Deze gegevens omvatten de log analytics-query die wordt gebruikt voor het definiëren van de groep. Aan de onderkant van de pagina wordt een lijst met resultatenpagina's van de machines die deel van die groep uitmaken.
+
+![Machine groep-pagina weergeven](./media/automation-vm-inventory/machine-group-page.png)
+
+Klik op de **+ kloon** knop voor het klonen van de Machinegroep. Hier moet u geven de groep een nieuwe naam en een alias voor de groep. De definitie van de kan op dit moment worden gewijzigd. Na het wijzigen van de query drukt u op **valideren query** om een voorbeeld van de machines die zouden worden geselecteerd. Wanneer u tevreden met de groep bent klikt u op **maken** om de Machinegroep te maken
+
+Als u maken van een nieuwe mchine-groep wilt, selecteert u **+ maken van een computergroep**. Deze knop opent u de **maakt u een pagina van de groep machine** waar u de nieuwe groep kunt definiëren. Klik op **maken** om de groep te maken.
+
+![Nieuwe computergroep maken](./media/automation-vm-inventory/create-new-group.png)
+
 ## <a name="disconnect-your-virtual-machine-from-management"></a>De virtuele machine loskoppelen van beheer
 
 Ga als volgt te werk om uw virtuele machine te verwijderen uit inventarisbeheer:
@@ -102,4 +121,4 @@ Ga als volgt te werk om uw virtuele machine te verwijderen uit inventarisbeheer:
 ## <a name="next-steps"></a>Volgende stappen
 
 * Zie [Track software changes in your environment with the Change Tracking solution](../log-analytics/log-analytics-change-tracking.md) (Wijzigingen in uw omgeving bijhouden met de oplossing Wijzigingen bijhouden) voor meer informatie over het beheren van wijzigingen in bestands- en registerinstellingen.
-* Zie voor meer informatie over het beheren van Windows en pakket-updates op uw virtuele machines, [oplossing voor het beheer van de Update in Azure](../operations-management-suite/oms-solution-update-management.md).
+* Zie voor meer informatie over het beheren van Windows en pakketupdates op uw virtuele machines, [de updatebeheer-oplossing in Azure](../operations-management-suite/oms-solution-update-management.md).

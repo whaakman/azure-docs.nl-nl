@@ -1,21 +1,22 @@
 ---
-title: Met behulp van de positie om weer te geven van zoekresultaten | Microsoft Docs
+title: Met behulp van de positie om weer te geven van zoekresultaten
+titleSuffix: Azure Cognitive Services
 description: Ziet u hoe u het antwoord Bing RankingResponse zoekresultaten in positie volgorde weergeven.
 services: cognitive-services
 author: bradumbaugh
-manager: bking
+manager: cgronlun
 ms.assetid: 2575A80C-FC74-4631-AE5D-8101CF2591D3
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/08/2017
 ms.author: brumbaug
-ms.openlocfilehash: 0dd3a2057e73adda3224e7cebe7c492572f94105
-ms.sourcegitcommit: 974c478174f14f8e4361a1af6656e9362a30f515
+ms.openlocfilehash: 3e55830fcfdbea91581a75fcfc343fd522485c5a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "41987600"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123399"
 ---
 # <a name="build-a-console-app-search-client-in-c"></a>Bouw een console-client-app zoeken in C#
 
@@ -45,8 +46,8 @@ Noem de toepassing **MyConsoleSearchApp**, en klik vervolgens op **OK**.
 
 JSON.net kunt u werken met de JSON-antwoord geretourneerd door de API. Voeg de NuGet-pakket toe aan uw project:
 
-- In **Solution Explorer** met de rechtermuisknop op het project en selecteer **NuGet-pakketten beheren...** . 
-- Op de **Bladeren** tabblad, zoek `Newtonsoft.Json`. Selecteer de meest recente versie en klik vervolgens op **installeren**. 
+- In **Solution Explorer** met de rechtermuisknop op het project en selecteer **NuGet-pakketten beheren...** .
+- Op de **Bladeren** tabblad, zoek `Newtonsoft.Json`. Selecteer de meest recente versie en klik vervolgens op **installeren**.
 - Klik op de **OK** knop op de **wijzigingen controleren** venster.
 - Sluit de Visual Studio-tabblad met de titel **NuGet: MyConsoleSearchApp**.
 
@@ -60,7 +61,7 @@ In deze zelfstudie is afhankelijk van de `System.Web` assembly. Voeg een verwijz
 
 ## <a name="add-some-necessary-using-statements"></a>Sommige vereiste using-instructies toevoegen
 
-De code in deze zelfstudie vereist drie extra met behulp van instructies. Toevoegen van deze instructies onder de bestaande `using` instructies aan het begin van **Program.cs**: 
+De code in deze zelfstudie vereist drie extra met behulp van instructies. Toevoegen van deze instructies onder de bestaande `using` instructies aan het begin van **Program.cs**:
 
 ```csharp
 using System.Web;
@@ -145,7 +146,7 @@ Zorg ervoor dat u de waarde van `Ocp-Apim-Subscription-Key` naar de abonnementss
 
 ## <a name="display-ranked-results"></a>Gerangschikte resultaten weergeven
 
-Voordat u die laat zien hoe u de resultaten weergeven in gerangschikte volgorde, kijk eens een voorbeeldantwoord voor web zoeken: 
+Voordat u die laat zien hoe u de resultaten weergeven in gerangschikte volgorde, kijk eens een voorbeeldantwoord voor web zoeken:
 
 ```json
 {
@@ -171,7 +172,7 @@ Voordat u die laat zien hoe u de resultaten weergeven in gerangschikte volgorde,
         },
 
         ...
-        
+
         ],
         "someResultsRemoved" : true
     },
@@ -184,7 +185,7 @@ Voordat u die laat zien hoe u de resultaten weergeven in gerangschikte volgorde,
         }
 
         ...
-        
+
         ]
     },
     "rankingResponse" : {
@@ -220,7 +221,7 @@ Voordat u die laat zien hoe u de resultaten weergeven in gerangschikte volgorde,
 }
 ```
 
-De `rankingResponse` JSON-object ([documentatie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) beschrijft de juiste volgorde voor zoekresultaten. Het bevat een of meer van de volgende, geprioriteerde groepen: 
+De `rankingResponse` JSON-object ([documentatie](https://docs.microsoft.com/rest/api/cognitiveservices/bing-web-api-v7-reference#rankingresponse)) beschrijft de juiste volgorde voor zoekresultaten. Het bevat een of meer van de volgende, geprioriteerde groepen:
 
 - `pole`: De lijst met zoekresultaten om op te halen van de meest zichtbaar behandeling (bijvoorbeeld weergegeven boven de hoofdlijnen en zijbalk).
 - `mainline`: De lijst met zoekresultaten om weer te geven in de hoofdlijnen.
@@ -273,7 +274,7 @@ static void DisplayAllRankedResults(Newtonsoft.Json.Linq.JObject responseObjects
 Deze methode:
 
 - Wordt uitgevoerd via de `rankingResponse` groepen die het antwoord bevat
-- De items in elke groep worden weergegeven door aan te roepen `DisplaySpecificResults(...)` 
+- De items in elke groep worden weergegeven door aan te roepen `DisplaySpecificResults(...)`
 
 In **Program.cs**, voeg de volgende twee methoden toe:
 

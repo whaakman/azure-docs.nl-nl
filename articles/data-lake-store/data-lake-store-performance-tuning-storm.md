@@ -1,6 +1,6 @@
 ---
-title: Azure Data Lake Store Storm prestaties afstemmen richtlijnen | Microsoft Docs
-description: Azure Data Lake Store Storm prestaties afstemmen richtlijnen
+title: Azure Data Lake Storage Gen1 Storm prestaties richtlijnen over het afstemmen | Microsoft Docs
+description: Azure Data Lake Storage Gen1 Storm prestaties richtlijnen over het afstemmen
 services: data-lake-store
 documentationcenter: ''
 author: stewu
@@ -12,130 +12,130 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/19/2016
 ms.author: stewu
-ms.openlocfilehash: 5ebca90ffd679de1c30d1bc324bf4f1c3b9f6f70
-ms.sourcegitcommit: eb75f177fc59d90b1b667afcfe64ac51936e2638
+ms.openlocfilehash: aa4d42a53e6fb8ea236a9d544102aab3dff19013
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/16/2018
-ms.locfileid: "34198857"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129230"
 ---
-# <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-store"></a>Prestaties afstemmen richtlijnen voor Storm op HDInsight en Azure Data Lake Store
+# <a name="performance-tuning-guidance-for-storm-on-hdinsight-and-azure-data-lake-storage-gen1"></a>Richtlijnen voor Storm op HDInsight en Azure Data Lake Storage Gen1 afstemmen van prestaties
 
-Begrijpen factoren die u overwegen moeten bij het afstemmen van de prestaties van een Azure-Storm-topologie. Bijvoorbeeld, is het belangrijk om te begrijpen van de kenmerken van het werk dat door de spouts en de bolts (of het werk is voor i/o- of geheugenintensief). In dit artikel bevat informatie over een reeks prestaties afstemmen richtlijnen over het oplossen van veelvoorkomende problemen.
+Begrijp de factoren die moeten worden overwogen bij het afstemmen van de prestaties van een Azure-Storm-topologie. Bijvoorbeeld, is het belangrijk om te begrijpen van de kenmerken van het werk dat door de spouts en de bolts (of het werk is voor i/o- of geheugen intensieve). In dit artikel bevat informatie over een scala aan richtlijnen, met inbegrip van algemene problemen met het afstemmen van de prestaties.
 
 ## <a name="prerequisites"></a>Vereisten
 
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
-* **Een Azure Data Lake Store-account**. Zie [Aan de slag met Azure Data Lake Store](data-lake-store-get-started-portal.md) voor instructies over hoe u zo’n account maakt.
-* **Een Azure HDInsight-cluster** met toegang tot een Data Lake Store-account. Zie [een HDInsight-cluster maken met Data Lake Store](data-lake-store-hdinsight-hadoop-use-portal.md). Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
-* **Een Storm-cluster op Data Lake Store met**. Zie voor meer informatie [Storm op HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
-* **Prestaties afstemmen richtlijnen voor het Data Lake Store**.  Raadpleeg voor algemene prestaties concepten, [Data Lake Store prestaties afstemmen richtlijnen](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
+* **Een account met Azure Data Lake Storage Gen1**. Zie voor instructies over het maken van een [aan de slag met Azure Data Lake Storage Gen1](data-lake-store-get-started-portal.md).
+* **Een Azure HDInsight-cluster** met toegang tot een Gen1 van Data Lake Storage-account. Zie [een HDInsight-cluster maken met Data Lake Storage Gen1](data-lake-store-hdinsight-hadoop-use-portal.md). Zorg ervoor dat u extern bureaublad inschakelen voor het cluster.
+* **Een Storm-cluster uitgevoerd op Data Lake Storage Gen1**. Zie voor meer informatie, [Storm op HDInsight](https://docs.microsoft.com/azure/hdinsight/hdinsight-storm-overview).
+* **Richtlijnen voor het Data Lake Storage Gen1 afstemmen van prestaties**.  Zie voor de prestaties van de algemene concepten, [Data Lake Storage Gen1 afstemmen Prestatierichtlijnen](https://docs.microsoft.com/azure/data-lake-store/data-lake-store-performance-tuning-guidance).  
 
 ## <a name="tune-the-parallelism-of-the-topology"></a>De parallelle uitvoering van de topologie afstemmen
 
-U kunt mogelijk de prestaties verbeteren door het verhogen van de gelijktijdigheid van de i/o en naar Data Lake Store. Een Storm-topologie bevat een set van configuraties om te bepalen van de parallelle uitvoering:
-* Het aantal werkprocessen (de werknemers worden evenredig verdeeld over de virtuele machines).
-* Aantal spout executor exemplaren.
-* Aantal bolt executor exemplaren.
-* Aantal spout taken.
-* Het aantal taken dat bolt.
+U kunt mogelijk de prestaties verbeteren door de waarde voor concurrency van de i/o en naar Data Lake Storage Gen1 verhogen. Een Storm-topologie bevat een set configuraties om te bepalen van de parallelle uitvoering:
+* Het aantal werkprocessen (de werknemers zijn evenredig verdeeld over de VM's).
+* Het aantal spout executor-exemplaren.
+* Het aantal bolt executor-exemplaren.
+* Het aantal spout-taken.
+* Het aantal taken bolt.
 
-Overweeg het volgende op een cluster met 4 VM's en 4 werkprocessen, 32 spout Executor en 32 spout-taken en 256 bolt Executor en 512 bolt taken:
+Bijvoorbeeld: op een cluster met 4 virtuele machines en 4 werkprocessen, 32 spout Executor en 32 spout taken en 256 bolt Executor en 512 bolt taken, houd rekening met het volgende:
 
-Elke supervisor, dat een werkrolknooppunt is, heeft één werknemer proces van de virtuele machine (JVM) Java. Dit proces JVM beheert 4 spout threads en 64 bolt threads. Binnen elke thread worden taken worden opeenvolgend uitgevoerd. Elke thread spout heeft 1 taak met de bovenstaande configuratie, en elke thread bolt heeft 2 taken.
+Elke supervisor, die een worker-knooppunt is, heeft één werknemer proces voor virtuele Java virtuele machine (JVM). Dit proces JVM beheert 4 spout-threads en 64 bolt threads. Binnen elke thread worden taken worden opeenvolgend uitgevoerd. Elke thread spout heeft 1 taak met de vorige configuratie, en elke thread bolt heeft 2 taken.
 
-Hier worden de verschillende onderdelen die zijn betrokken in Storm, en hoe ze invloed hebben op het niveau van parallelle uitvoering die u hebt:
-* Het hoofdknooppunt (Nimbus in Storm genoemd) wordt gebruikt voor het verzenden en beheren van taken. Deze knooppunten hebben geen invloed op de mate van parallelle uitvoering.
-* De leidinggevende-knooppunten. In HDInsight, dit komt overeen met een werkrolknooppunt Azure VM.
-* De worker-taken zijn Storm processen in de virtuele machines. Elke worker-taak komt overeen met een JVM-exemplaar. Storm distribueert het aantal werkprocessen dat u met de werkrolknooppunten zo gelijkmatig mogelijk opgeeft.
-* Spout en Bolts executor-exemplaren. Elk exemplaar executor overeenkomt met een thread die binnen de werknemers (JVMs) worden uitgevoerd.
-* Storm-taken. Dit zijn logische taken dat elk van deze threads uitgevoerd. Dit verandert niet het niveau van parallelle uitvoering, zodat u evalueren moet als u meerdere taken per executor of niet nodig.
+Hier volgen de verschillende onderdelen betrokken in Storm, en hoe ze van invloed op het niveau van parallelle uitvoering die u hebt:
+* Het hoofdknooppunt (Nimbus in Storm genoemd) wordt gebruikt voor het indienen en beheren van taken. Deze knooppunten hebben geen invloed op de mate van parallelle uitvoering.
+* De supervisorknooppunten. In HDInsight, dit komt overeen met een werkrolknooppunt virtuele Azure-machine.
+* De worker-taken zijn Storm-processen die worden uitgevoerd in de virtuele machines. Elke werknemertaak komt overeen met een JVM-exemplaar. Storm verdeelt het aantal werkprocessen die u met de werkrolknooppunten zo gelijkmatig mogelijk opgeeft.
+* Spout en executor-exemplaren voor bolt. Elk exemplaar executor komt overeen met een thread die binnen de werknemers (JVMs) worden uitgevoerd.
+* Storm-taken. Dit zijn logische taken dat elk van deze threads uitvoeren. Het niveau van parallelle uitvoering, worden niet gewijzigd, zodat u evalueren moet als u meerdere taken per executor nodig of niet hebt.
 
-### <a name="get-the-best-performance-from-data-lake-store"></a>De beste prestaties ophalen uit Data Lake Store
+### <a name="get-the-best-performance-from-data-lake-storage-gen1"></a>De beste prestaties ophalen uit Data Lake Storage Gen1
 
-Als u werkt met Data Lake Store, krijgt u de beste prestaties als u het volgende doen:
-* Coalesce uw kleine voegt in grotere (bij voorkeur 4 MB).
-* Als veel gelijktijdige aanvragen, zoals u kunt doen. Omdat elke thread bolt blokkerende leest doet, die u wilt hebben ergens in het bereik van 8-12-threads per core. Hierdoor blijft de NIC en de CPU goed worden gebruikt. Een grotere virtuele machine kunt meer gelijktijdige aanvragen.  
+Als u werkt met Data Lake Storage Gen1, krijgt u de beste prestaties als u het volgende doen:
+* Samenvoegen uw kleine voegt naar grotere virtuele (in het ideale geval 4 MB).
+* Als veel gelijktijdige aanvragen kunt u doen. Omdat elke thread bolt blokkerende leesbewerkingen presteert, die u wilt hebben ergens in het bereik van 8-12-threads per kern. Hierdoor blijft de NIC en de CPU en gebruikt. Een grotere virtuele machine kunt meer gelijktijdige aanvragen.  
 
 ### <a name="example-topology"></a>Voorbeeldtopologie
 
-Stel dat u hebt een 8 worker-knooppunten met een D13v2 Azure VM. Deze VM is 8 cores zodat tussen de 8 worker-knooppunten die u 64 totaal aantal kernen hebt.
+Stel, dat u hebt een 8 worker-knooppunt-cluster met een D13v2 Azure virtuele machine. Deze virtuele machine heeft 8 kernen, zodat tussen de 8 worker-knooppunten die u 64 totaal aantal kerngeheugens hebt.
 
-Stel, dat we 8 bolt threads per core doen. Gegeven 64 kernen betekent dit dat we willen 512 totale bolt executor exemplaren (dat wil zeggen, threads). Stel dat in dit geval we beginnen met een JVM per VM en hoofdzakelijk gelijktijdigheid van de thread binnen de JVM gebruiken als u de gelijktijdigheid van taken. Dit betekent dat moet 8 worker-taken (één per virtuele machine van Azure) en 512 bolt Executor. In deze configuratie Storm probeert voor het distribueren van de werknemers gelijkmatig over worker-knooppunten (ook wel bekend als supervisor knooppunten), zodat elk werkrolknooppunt 1 JVM. Nu binnen de toezicht-houders wil Storm de Executor tussen toezichthouders gelijkmatig distribueren, threads zodat elke supervisor (dat wil zeggen, JVM) 8 elk.
+Stel dat we doen 8 bolt threads per kern. Opgegeven 64 kernen betekent dat we willen 512 totale bolt executor-exemplaren (dat wil zeggen, threads). Stel dat in dit geval we beginnen met een JVM per VM en vooral de gelijktijdigheid van de thread binnen de JVM gebruiken om te bereiken van gelijktijdigheid. Dit betekent dat we moet 8 worker-taken (één per Azure-VM) en 512 bolt Executor. Storm probeert deze configuratie voor het distribueren van de werknemers gelijkmatig over worker-knooppunten (ook wel bekend als supervisorknooppunten), zodat elke worker-knooppunt 1 JVM. Nu binnen de toezichthouders wil Storm de Executor tussen supervisors gelijkmatig verdelen, threads zodat elke supervisor (dat wil zeggen, JVM) 8 elk.
 
-## <a name="tune-additional-parameters"></a>Extra parameters optimaliseren
-Nadat u de eenvoudige topologie hebt, kunt u overwegen of u wilt aanpassen op een van de parameters:
-* **Aantal JVMs per werkrolknooppunt.** Als er een grote hoeveelheden gegevensstructuur (bijvoorbeeld een opzoektabel) is een afzonderlijk exemplaar in die u als host fungeren in elke JVM-geheugen vereist. U kunt ook kunt u de gegevensstructuur in veel threads hebt u minder JVMs. Voor de bolt i/o maakt het aantal JVMs geen zoveel mogelijk van een verschil als het aantal threads dat via deze JVMs toegevoegd. Voor het gemak is het een goed idee om één JVM per worker. Afhankelijk van wat uw bolt doet of welke toepassingen u verwerking vereist, maar mogelijk moet u dit nummer wijzigen.
-* **Het aantal spout Executor.** Omdat het voorgaande voorbeeld bolts gebruikt voor het schrijven naar Data Lake Store, is het aantal spouts niet direct relevant zijn voor de prestaties bolt. Afhankelijk van de hoeveelheid verwerking of i/o-gebeurt er in de spout, is het echter een goed idee om af te stemmen de spouts voor de beste prestaties. Zorg ervoor dat er voldoende spouts kunnen de bolts bezet houden. De frequenties van de uitvoer van de spouts moeten overeenkomen met de doorvoer van de bolts. De configuratie van de werkelijke is afhankelijk van de spout.
-* **Het aantal taken.** Elke bolt wordt uitgevoerd met één thread. Extra taken per bolt bieden niet extra gelijktijdigheid van taken. De enige keer dat ze van het voordeel zijn is als het proces van de tuple zijn bevestigd dat een groot deel van uw uitvoeringstijd bolt. Het is een goed idee om groep dat veel tuples in een grotere toevoegen voordat u een bevestiging vanuit de bolt verzenden. In de meeste gevallen dus bieden meerdere taken geen extra voordelen.
-* **Lokaal of groepering in willekeurige volgorde.** Wanneer deze instelling is ingeschakeld, worden tuples worden verzonden naar bolts binnen hetzelfde werkproces. Dit vermindert tussen processen aanroepen voor communicatie en netwerken. Dit wordt aanbevolen voor de meeste topologieën.
+## <a name="tune-additional-parameters"></a>Aanvullende parameters optimaliseren
+Nadat u de basistopologie hebt, kunt u overwegen of u wilt een van de parameters aanpassen:
+* **Aantal JVMs per worker-knooppunt.** Als u beschikt over de structuur van een grote hoeveelheden gegevens (bijvoorbeeld een lookup-tabel) is die u als host fungeren in elke JVM-geheugen vereist een afzonderlijk exemplaar. U kunt ook de gegevensstructuur veel threads gebruiken, hebt u minder JVMs. Voor i/o van het bolt maakt het aantal JVMs geen zoveel mogelijk van een verschil als het aantal threads dat in deze JVMs toegevoegd. Voor het gemak is het een goed idee om één JVM per worker. Afhankelijk van wat uw bolt doet of welke toepassing u verwerking vereist, maar mogelijk moet u dit nummer wijzigen.
+* **Het aantal spout Executor.** Omdat het voorgaande voorbeeld bolts voor het schrijven naar Data Lake Storage Gen1 gebruikt, is het aantal spouts niet rechtstreeks relevant zijn voor de prestaties bolt. Echter, afhankelijk van de hoeveelheid verwerking of i/o in de spout gebeurt, is het een goed idee om af te stemmen de spouts voor de beste prestaties. Zorg ervoor dat u onvoldoende spouts hebt kunnen de bolts Bezig te houden. De tarieven van de uitvoer van de spouts moeten overeenkomen met de doorvoer van de bolts. De daadwerkelijke configuratie is afhankelijk van de spout.
+* **Het aantal taken.** Elke bolt wordt uitgevoerd als een enkele thread. Extra taken per bolt niet elke extra gelijktijdigheid te bieden. De enige keer dat ze van voordeel zijn is als het proces van de tuple zijn bevestigd dat een groot deel van de uitvoeringstijd bolt. Het is een goed idee om groep dat veel tuples in een grotere toevoegen voordat u een bevestiging vanuit de bolt verzenden. In de meeste gevallen bieden meerdere taken dus geen extra voordelen.
+* **Lokale of groepering in willekeurige volgorde.** Wanneer deze instelling is ingeschakeld, worden tuples worden verzonden naar bolts binnen hetzelfde werkproces. Dit vermindert het aanroepen van communicatie en netwerk tussen processen. Dit wordt aanbevolen voor de meeste topologieën.
 
-Dit eenvoudige scenario is een goed uitgangspunt. Testen met uw eigen gegevens aanpassen van de voorgaande parameters voor optimale prestaties.
+Dit eenvoudige scenario is een goed uitgangspunt. Testen met uw eigen gegevens aanpassen van de bovenstaande parameters om optimale prestaties te behalen.
 
 ## <a name="tune-the-spout"></a>De spout afstemmen
 
 U kunt de volgende instellingen voor het afstemmen van de spout wijzigen.
 
-- **Tuple time-out: topology.message.timeout.secs**. Deze instelling bepaalt de hoeveelheid tijd nodig is voltooid en bevestiging, ontvangen een bericht voordat wordt beschouwd als mislukt.
+- **Tuple time-out: topology.message.timeout.secs**. Deze instelling bepaalt de hoeveelheid tijd nodig is om te voltooien en bevestiging, ontvangen een bericht voordat deze wordt beschouwd als mislukt.
 
-- **Maximaal geheugen per werkproces: worker.childopts**. Deze instelling kunt u aanvullende opdrachtregelparameters voor de Java-werknemers opgeven. De meest gebruikte instelling hier is XmX waarmee wordt bepaald van de maximale hoeveelheid geheugen toegewezen aan een JVM-heap.
+- **Maximaal geheugen per werkproces: worker.childopts**. Deze instelling kunt u aanvullende opdrachtregelparameters voor de Java-werknemers opgeven. De meest gebruikte instelling hier is XmX, waarmee wordt bepaald hoe de maximale hoeveelheid geheugen toegewezen aan van een JVM-heap.
 
-- **Maximum aantal spout in behandeling: topology.max.spout.pending**. Deze instelling bepaalt het aantal tuples die in vlucht (nog niet op alle knooppunten in de topologie bevestigd) per thread spout op elk gewenst moment.
+- **Maximum aantal spout in behandeling: topology.max.spout.pending**. Deze instelling bepaalt het aantal tuples die in vlucht (nog niet bevestigd op alle knooppunten in de topologie) per spout-thread op elk gewenst moment.
 
- Een goede berekening te doen is het schatten van de grootte van elk van uw tuples. Vervolgens bepalen hoeveel geheugen een spout thread heeft. Het totale geheugen toegewezen aan een thread, gedeeld door deze waarde geeft de bovengrens voor de maximale spout in behandeling zijnde parameter.
+ Er is een goede berekening te doen om in te schatten van de grootte van elk van uw tuples. Vervolgens bepaalt hoeveel geheugen een spout-thread heeft. Het totale geheugen toegewezen aan een thread, gedeeld door deze waarde geeft de bovengrens voor de maximale spout in afwachting van parameter.
 
 ## <a name="tune-the-bolt"></a>De bolt afstemmen
-Wanneer u naar Data Lake Store schrijft, moet u een synchronisatiebeleid grootte (buffer aan de clientzijde) ingesteld op 4 MB. Een domeincontrollerlocaties leeg of hsync() wordt vervolgens alleen uitgevoerd wanneer de buffergrootte is de waarde. Het Data Lake Store-stuurprogramma op de worker VM komt automatisch deze buffering, tenzij u expliciet een hsync() uitvoeren.
+Bij het schrijven naar Data Lake Storage Gen1, moet u het beleid in een grootte-synchronisatie (buffer aan de clientzijde) instellen op 4 MB. Een leegmaken of hsync() wordt vervolgens uitgevoerd alleen wanneer de buffergrootte is de op deze waarde. Het Data Lake Storage Gen1-stuurprogramma op de worker-virtuele machine wordt automatisch deze buffer, tenzij u expliciet een hsync() uitvoeren.
 
-De standaard Data Lake Store Storm bolt heeft een grootte sync Beleidsparameter (fileBufferSize), die kan worden gebruikt om af te stemmen met deze parameter.
+De standaard Data Lake Storage Gen1 Storm-bolt heeft een grootte van synchronisatie-Beleidsparameter (fileBufferSize) die kan worden gebruikt om af te stemmen met deze parameter.
 
-In de I/O-intensieve topologieën is het een goed idee om elke bolt thread naar een eigen bestand te schrijven en het beleid in een bestand rotatie (fileRotationSize) instellen. Wanneer het bestand een bepaalde grootte bereikt, wordt de stroom wordt automatisch gewist en een nieuw bestand wordt geschreven naar. De aanbevolen grootte voor rotatie is 1 GB.
+In I/O-intensieve topologieën is het een goed idee om elke bolt thread naar een eigen bestand te schrijven en om in te stellen van een bestandsbeleid draaiing (fileRotationSize). Wanneer het bestand een bepaalde grootte bereikt, wordt de stroom moet automatisch worden leeggemaakt en een nieuw bestand wordt geschreven naar. De aanbevolen grootte voor rotatie is 1 GB.
 
 ### <a name="handle-tuple-data"></a>Tuple gegevens verwerken
 
-In de Storm houdt een spout een tuple totdat deze expliciet wordt bevestigd door de bolt. Als een tuple is gelezen door de bolt maar is niet zijn bevestigd, kan de spout niet hebben gehandhaafd in de back-end van Data Lake Store. Nadat een tuple is bevestigd, wordt de spout persistentie kan worden gegarandeerd door de bolt en kunt vervolgens de brongegevens verwijderen uit welke bron is het lezen van.  
+In Storm houdt een spout een tuple totdat deze expliciet wordt bevestigd door de bolt. Als een tuple is gelezen door de bolt, maar is nog niet bevestigd, kan de spout niet hebben permanent in Data Lake Storage Gen1 back-end. Nadat een tuple is bevestigd, wordt de spout persistentie kan worden gegarandeerd door de bolt en kunt vervolgens de brongegevens verwijderen uit welke bron is het lezen van.  
 
-Voor optimale prestaties op Data Lake Store, hebt u de bolt buffer is 4 MB aan gegevens van de tuple. Vervolgens terug te schrijven naar het Data Lake Store einde als één 4 MB geheugen schrijven. Nadat de gegevens is geschreven naar de store (door de aanroepende hflush()) de bolt kunt erkent de gegevens terug naar de spout. Dit is wat de voorbeeld-bolt hier opgegeven doet. Het is ook aanvaardbaar is voor een groter aantal tuples voordat de aanroep hflush() is uitgevoerd en de tuples bevestigd bevatten. Dit verhoogt echter het aantal tuples in vlucht dat de spout moet bevatten en daarom verhoogt de hoeveelheid geheugen vereist is per JVM.
+Voor de beste prestaties op Data Lake Storage Gen1, hebt u de bolt 4 MB aan gegevens van de tuple van de buffer. Vervolgens terug te schrijven naar het Data Lake Storage Gen1 end als een schrijfbewerking van 4 MB. Nadat de gegevens is geschreven naar het archief (aanroepende hflush()) de bolt kunt erkent de gegevens terug naar de spout. Dit is wat de voorbeeld-bolt hier opgegeven doet. Het is ook aanvaardbaar is voor het opslaan van een groter aantal tuples voordat de aanroep hflush() is uitgevoerd en de tuples bevestigd. Dit verhoogt echter het aantal tuples in vertragingen van vluchten dat de spout nodig heeft om op te slaan, en daarom verhoogt de hoeveelheid geheugen die vereist is per JVM.
 
 > [!NOTE]
-Toepassingen hebben een vereiste voor het bevestigen van tuples vaker (op gegevensgroottes minder dan 4 MB) om andere redenen voor slechte prestaties. Echter, die invloed kunnen zijn op de i/o-doorvoer naar de back-end voor opslag. Weeg zorgvuldig deze afweging tegen de bolt i/o-prestaties.
+Toepassingen hebben een vereiste voor het bevestigen van tuples vaker (bij gegevensgroottes kleiner is dan 4 MB) voor andere niet-prestaties. Echter dat mogelijk invloed hebben op de i/o-doorvoer naar de back-end van de opslag. Zorgvuldig afwegen dit negatieve gevolgen voor de op basis van de bolt i/o-prestaties.
 
-De frequentie van binnenkomst van tuples niet hoog is, zodat de buffer die is 4 MB lang duurt om op te vullen, dan kunt u dit door beperkende:
-* Het aantal bolts te verminderen, dus er zijn minder buffers te vullen.
-* Elke x leegmaakacties of elk y milliseconden met een beleid op basis van tijd of het aantal is gebaseerd, waarbij een hflush() is geactiveerd en de tot nu toe geteld tuples back zijn bevestigd.
+Als de frequentie van binnenkomst van tuples niet hoog is, is zodat de buffer 4 MB lang duurt om in te vullen, houd rekening met beperkende dit door:
+* Het aantal bolts te verminderen, dus er zijn minder buffers in te vullen.
+* Elke x leegmaakacties of elke y milliseconden met een beleid op basis van tijd of op basis van aantal, waarbij een hflush() is geactiveerd en de tuples samengevoegd tot nu toe zijn bevestigd terug.
 
-Houd er rekening mee dat de doorvoer in dit geval lager is, maar met een langzame snelheid van gebeurtenissen, maximale doorvoer niet de doelstelling van het grootste toch is. Deze oplossingen te beperken van de totale tijd die het duurt voordat een tuple doorstromen naar de store. Dit kan van belang als u wilt dat een realtime pijplijn zelfs met een snelheid van de lage gebeurtenissen. Let ook op dat als uw tuple frequentie van binnenkomst laag is, u met de parameter topology.message.timeout_secs aanpassen moet zodat de tuples geen time-out terwijl ze in de buffer opgeslagen of verwerkt.
+Houd er rekening mee dat de doorvoer in dit geval lager is, maar met een trage snelheid van gebeurtenissen, maximale doorvoer niet de grootste doelstelling toch is. Deze oplossingen te beperken van de totale tijd die nodig is voor een tuple doorstromen naar de store. Dit kan van belang als u wilt dat een realtime pijplijn zelfs met een lage snelheid. Let ook op als uw tuple frequentie van binnenkomst laag is, aan te met de parameter topology.message.timeout_secs passen moet, zodat de tuples geen time-out terwijl ze buffer wordt opgeslagen of verwerkt.
 
-## <a name="monitor-your-topology-in-storm"></a>Uw Storm-topologie bewaken  
+## <a name="monitor-your-topology-in-storm"></a>Bewaken van uw Storm-topologie  
 Terwijl uw topologie wordt uitgevoerd, kunt u het bewaken in de gebruikersinterface van Storm. Hier volgen de belangrijkste parameters om te kijken naar:
 
-* **Latentie van totale proces worden uitgevoerd.** Dit is de gemiddelde tijd die nodig is een tuple moet worden verzonden door de spout, verwerkt door de bolt en bevestigd.
+* **Totaal aantal proces tot uitvoering van latentie.** Dit is de gemiddelde tijd die nodig is een tuple moet worden gegenereerd door de spout, verwerkt door de bolt en bevestigd.
 
-* **Totaal aantal bolt proces latentie.** Dit is de gemiddelde tijd besteed aan de tuple van de bolt totdat het ontvangt een bevestiging.
+* **Totaal aantal bolt proceslatentie.** Dit is de gemiddelde tijd besteed aan de tuple van de bolt totdat er een bevestiging.
 
-* **Totaal aantal bolt uitvoeren latentie.** Dit is de gemiddelde tijd besteed door de bolt in de execute-methode.
+* **Totaal aantal bolt latentie voor uitvoering.** Dit is de gemiddelde tijd besteed aan het door de bolt in de execute-methode.
 
-* **Aantal fouten.** Dit verwijst naar het aantal tuples die niet volledig moeten worden verwerkt voordat ze een time-out opgetreden.
+* **Het aantal fouten.** Dit verwijst naar het aantal tuples die niet volledig worden verwerkt voordat ze een time-out.
 
-* **De capaciteit.** Dit is een meting van hoeveel van uw systeem is. Als dit nummer 1 is, worden uw bolts snel ze kunnen werken. Als deze kleiner dan 1 is, verhoogt u de parallelle uitvoering. Als deze groter dan 1 is, verlaagt u de parallelle uitvoering.
+* **De capaciteit.** Dit is een maateenheid voor hoe bezet is van uw systeem. Als dit nummer 1 is, worden uw bolts zo snel mogelijk kunnen werken. Als dit minder dan 1 is, verhoogt u de parallelle uitvoering. Als dit groter dan 1 is, beperkt u de parallelle uitvoering.
 
 ## <a name="troubleshoot-common-problems"></a>Algemene problemen
 Hier volgen enkele algemene probleemoplossing-scenario's.
-* **Er zijn veel tuples time-out opgetreden.** Bekijk elk knooppunt in de topologie om te bepalen waar de knelpunt is. De meest voorkomende reden hiervoor is dat de bolts zich niet bij de spouts te houden. Dit leidt tot tuples vertraging van de interne buffers tijdens het wachten op worden verwerkt. Houd rekening met de time-outwaarde vergroten of verkleinen van de maximale spout in behandeling.
+* **Veel tuples time-outs zijn opgetreden.** Zoeken op elk knooppunt in de topologie om te bepalen waar het knelpunt is. De meest voorkomende reden hiervoor is dat de bolts zijn niet in staat om te blijven met de spouts. Dit leidt tot tuples overvol van de interne buffers tijdens het wachten op om te worden verwerkt. Houd rekening met de time-outwaarde vergroten of verkleinen van de maximale spout in behandeling.
 
-* **Er is een latentie van hoge totale proces worden uitgevoerd, maar een proces bolt lage latentie.** In dit geval is het mogelijk dat de tuples worden niet wordt bevestigd snel genoeg. Controleer of er een voldoende aantal acknowledgers zijn. Een andere mogelijkheid is dat ze nog in de wachtrij te lang voordat deze worden verwerkt de bolts. De maximale spout in behandeling zijnde afnemen.
+* **Er is een latentie van de uitvoering van hoge totale proces, maar de latentie voor een lage bolt-verwerking.** In dit geval is het mogelijk dat de tuples worden niet worden bevestigd snel genoeg. Controleer of er een voldoende aantal acknowledgers zijn. Een andere mogelijkheid is dat ze te in de wachtrij te lang vinden zijn voordat deze worden verwerkt de bolts. Hiermee verkleint u de maximale spout in behandeling.
 
-* **Er is een bolt hoge latentie uitvoeren.** Dit betekent dat de methode execute() van uw bolt duurt te lang is. De code optimaliseren of kijken schrijven grootten en gedrag leegmaken.
+* **Er is een hoge bolt latentie voor uitvoering.** Dit betekent dat de methode Execute()) van uw bolt te lang duurt. Optimaliseren van de code of Ga naar schrijfgrootten en gedrag leegmaken.
 
-### <a name="data-lake-store-throttling"></a>Beperking van Data Lake Store
-Als u op de ondergrenzen van de bandbreedte die worden geleverd door de Data Lake Store, kunt u taakfouten ziet. Controleer de logboeken van de taak voor de beperking van fouten. U kunt de parallelle uitvoering verlagen door het vergroten van de container.    
+### <a name="data-lake-storage-gen1-throttling"></a>Data Lake Storage Gen1 beperking
+Als u de grenzen van de bandbreedte die door Data Lake Storage Gen1 bereikt, ziet u mogelijk mislukte taken. Raadpleeg de logboeken van de taak voor de beperking van fouten. U kunt de parallelle uitvoering verlagen door het vergroten van de container.    
 
-Om te zien als u zijn ophalen beperkt, schakelt u de logboekregistratie aan de clientzijde voor foutopsporing:
+Inschakelen om te controleren als u ophalen beperkt, logboekregistratie aan de clientzijde voor de foutopsporing:
 
-1. In **Ambari** > **Storm** > **Config** > **geavanceerde storm-worker-log4j**, wijzigen **&lt;root niveau = 'info'&gt;** naar  **&lt;root niveau = 'debug'&gt;**. Alle knooppunten/start de service opnieuw voor de configuratie van kracht te laten worden.
-2. Monitor voor de Storm-topologie op de worker-knooppunten Logboeken (onder /var/log/storm/worker-artifacts /&lt;TopologyName&gt;/&lt;poort&gt;/worker.log) voor Data Lake Store uitzonderingen beperking.
+1. In **Ambari** > **Storm** > **Config** > **geavanceerde storm-worker-log4j**, wijzigen **&lt;hoofd-niveau = 'info'&gt;** naar  **&lt;hoofd-niveau = "debug"&gt;**. Alle knooppunten/start de service opnieuw voor de configuratie van kracht te laten worden.
+2. Monitor voor de Storm-topologie-op de worker-knooppunten Logboeken (onder /var/log/storm/worker-artifacts /&lt;TopologyName&gt;/&lt;poort&gt;/worker.log) voor Data Lake Storage Gen1 beperking uitzonderingen.
 
 ## <a name="next-steps"></a>Volgende stappen
-Aanvullende prestaties afstemmen voor Storm in kan worden verwezen [deze blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
+Prestaties afstemmen voor Storm kan naar worden verwezen [deze blog](https://blogs.msdn.microsoft.com/shanyu/2015/05/14/performance-tuning-for-hdinsight-storm-and-microsoft-azure-eventhubs/).
 
-Zie voor een extra voorbeeld wilt uitvoeren, [zo'n op GitHub](https://github.com/hdinsight/storm-performance-automation).
+Zie voor een aanvullende voorbeeld om uit te voeren, [deze een op GitHub](https://github.com/hdinsight/storm-performance-automation).

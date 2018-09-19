@@ -1,19 +1,20 @@
 ---
-title: Gebruik en vereisten voor de Bing Web zoeken-API's weer te geven | Microsoft Docs
-description: Gegevens uit de Bing Web zoeken-API's gebruiken voor het verbeteren van de resultaten van zoekopdrachten op het web.
+title: Gebruik en weergavevereisten - Bing webzoekopdrachten-API
+titleSuffix: Azure Cognitive Services
+description: Vereisten voor het weergeven van de zoekresultaten van de Bing webzoekopdrachten-API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/15/2018
 ms.author: scottwhi
-ms.openlocfilehash: e9fd17ee3b95f4aa797db854854894ae950c3ec8
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6a0732b683f726d19bf929b546baebee2ba955f9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345672"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124215"
 ---
 [!INCLUDE [cognitive-services-bing-use-and-display-requirements](../../../includes/cognitive-services-bing-use-and-display-requirements.md)]

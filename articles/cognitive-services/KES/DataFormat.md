@@ -1,28 +1,30 @@
 ---
-title: De indeling van de gegevens in de kennis exploratie Service API | Microsoft Docs
-description: Meer informatie over de indeling van de gegevens in het Knowledge exploratie Service (KES) API in cognitieve Services.
+title: Gegevensindeling - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Meer informatie over de gegevensindeling in de Knowledge Exploration Service KES () API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: a763505ac6458d68df74ae73e71029b81202ec8b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 2c67ff1f7a3713b9418458bb7904a35808532293
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344439"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129281"
 ---
-# <a name="data-format"></a>Indeling van gegevens
-Het gegevensbestand beschrijving van de lijst met objecten om te indexeren.
-Elke regel in het bestand geeft de kenmerkwaarden van een object in [JSON-indeling](http://json.org/) met UTF-8-codering.
-Naast de kenmerken zijn gedefinieerd de [schema](SchemaFormat.md), elk object heeft een optionele 'logprob'-kenmerk waarmee de kans relatieve logboek tussen de objecten.
-Wanneer de service weer objecten in de volgorde van de kans verkleinen, kunnen we 'logprob' gebruiken om aan te geven van de afzender volgorde van de overeenkomende objecten.
-Een waarschijnlijkheid gegeven *p* tussen 0 en 1, de bijbehorende logboekbestanden kans worden berekend als logboek (*p*), waarbij log() de functie natuurlijke log.
-Wanneer u geen waarde voor logprob is opgegeven, wordt de standaardwaarde 0 gebruikt.
+# <a name="data-format"></a>Gegevensindeling
+
+Bestand met de beschrijving van de lijst van objecten om te indexeren.
+Elke regel in het bestand bevat de waarden van het kenmerk van een object in [JSON-indeling](http://json.org/) met UTF-8-codering.
+Naast de kenmerken die zijn gedefinieerd de [schema](SchemaFormat.md), elk object is een optionele 'logprob'-kenmerk dat Hiermee geeft u de kans dat relatieve log tussen de objecten.
+Wanneer de service objecten in de volgorde wordt van de kans te verkleinen, kunnen we 'logprob' gebruiken om aan te geven van de geretourneerde volgorde van de overeenkomende objecten.
+De kans gegeven *p* tussen 0 en 1, de bijbehorende logboekbestanden kans wordt berekend als het logboek (*p*), waarbij log() staat voor de functie natuurlijke logboek.
+Als er geen waarde is opgegeven voor logprob, wordt de standaardwaarde 0 gebruikt.
 
 ```json
 {"logprob":-5.3, "Title":"latent dirichlet allocation", "Year":2003, "Author":{"Name":"david m blei", "Affiliation":"uc berkeley"}, "Author":{"Name":"andrew y ng", "Affiliation":"stanford"}, "Author":{"Name":"michael i jordan", "Affiliation":"uc berkeley"}}
@@ -30,9 +32,9 @@ Wanneer u geen waarde voor logprob is opgegeven, wordt de standaardwaarde 0 gebr
 ...
 ```
 
-De waarde is voor String, GUID en Blob-kenmerken weergegeven als een JSON-tekenreeks tussen aanhalingstekens.  Voor numerieke kenmerken (Int32, Int64, Double), wordt de waarde weergegeven als een JSON-nummer.  Voor samengestelde kenmerken heeft de waarde een JSON-object waarmee de onderliggende kenmerkwaarden.  Post voor snellere index builds de objecten door het logboek kans verkleinen.
+De waarde is voor String en GUID Blob kenmerken weergegeven als een JSON-tekenreeks tussen aanhalingstekens.  Voor numerieke kenmerken (Int32, Int64, Double), wordt de waarde weergegeven als een JSON-nummer.  Voor samengestelde kenmerken heeft de waarde een JSON-object waarmee de onderliggende kenmerkwaarden.  Post voor snellere builds voor index de objecten door log kans te verkleinen.
 
-In het algemeen heeft een kenmerk 0 of meer waarden.  Als een kenmerk geen waarde heeft, wordt u gewoon van de JSON.  Als een kenmerk 2 of meer waarden heeft, kunnen we de kenmerk-waardepaar in het JSON-object herhaalt.  We kunnen ook een JSON-matrix met de meerdere waarden met het kenmerk toewijzen.
+In het algemeen kan een kenmerk 0 of meer waarden hebben.  Als een kenmerk geen waarde heeft, verwijderen we deze gewoon uit de JSON.  Als een kenmerk 2 of meer waarden heeft, kunnen we de kenmerk-waardepaar in het JSON-object herhalen.  We kunnen ook een JSON-matrix met de meerdere waarden aan het kenmerk toewijzen.
 
 ```json
 {"logprob":0, "Title":"0 keyword"}

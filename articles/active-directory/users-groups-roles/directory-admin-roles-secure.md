@@ -13,12 +13,12 @@ ms.workload: identity
 ms.component: users-groups-roles
 ms.custom: it-pro
 ms.reviewer: martincoetzer, MarkMorow
-ms.openlocfilehash: ead6202b0365df770382077618795cd6b6e57cd2
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 55ce6398d89e56f92874d0ec135377d2a08cf075
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44346726"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297806"
 ---
 # <a name="securing-privileged-access-for-hybrid-and-cloud-deployments-in-azure-ad"></a>Beveiligen van bevoegde toegang voor cloud- en hybride implementaties in Azure AD
 
@@ -159,7 +159,7 @@ Zorg ervoor dat alle gebruikers zijn aangemeld bij hun administratoraccounts en 
 
 #### <a name="turn-on-password-hash-synchronization"></a>Wachtwoord-hashsynchronisatie inschakelen
 
-Wachtwoord-hashsynchronisatie is een functie die wordt gebruikt om te synchroniseren-hashes van gebruiker wachtwoord-hashes van een on-premises Active Directory-exemplaar naar een cloud-gebaseerde Azure AD-exemplaar. Zelfs dat als u besluit het gebruik van Federatie met Active Directory Federation Services (AD FS) of andere id-providers, kunt u eventueel instellen van wachtwoord-hashsynchronisatie als een back-up in geval uw on-premises infrastructuur, zoals AD of AD FS-servers mislukt of wordt tijdelijk niet beschikbaar. Hierdoor kunnen gebruikers zich aanmeldt bij de service met behulp van het wachtwoord dat ze gebruiken voor het aanmelden bij hun on-premises AD-exemplaar. Bovendien kan Identity Protection voor het detecteren van verdachte referenties door het vergelijken van de wachtwoord-hashes met wachtwoorden die bekend is dat inbreuk worden gepleegd, als een gebruiker leunt op hun e-mailadres en wachtwoord op andere services die niet is verbonden met Azure AD.  Zie voor meer informatie, [implementeren u wachtwoord-hashsynchronisatie met Azure AD Connect-synchronisatie](./../connect/active-directory-aadconnectsync-implement-password-hash-synchronization.md).
+Wachtwoord-hashsynchronisatie is een functie die wordt gebruikt om te synchroniseren-hashes van gebruiker wachtwoord-hashes van een on-premises Active Directory-exemplaar naar een cloud-gebaseerde Azure AD-exemplaar. Zelfs dat als u besluit het gebruik van Federatie met Active Directory Federation Services (AD FS) of andere id-providers, kunt u eventueel instellen van wachtwoord-hashsynchronisatie als een back-up in geval uw on-premises infrastructuur, zoals AD of AD FS-servers mislukt of wordt tijdelijk niet beschikbaar. Hierdoor kunnen gebruikers zich aanmeldt bij de service met behulp van het wachtwoord dat ze gebruiken voor het aanmelden bij hun on-premises AD-exemplaar. Bovendien kan Identity Protection voor het detecteren van verdachte referenties door het vergelijken van de wachtwoord-hashes met wachtwoorden die bekend is dat inbreuk worden gepleegd, als een gebruiker leunt op hun e-mailadres en wachtwoord op andere services die niet is verbonden met Azure AD.  Zie voor meer informatie, [implementeren u wachtwoord-hashsynchronisatie met Azure AD Connect-synchronisatie](../hybrid/how-to-connect-password-hash-synchronization.md).
 
 #### <a name="require-multi-factor-authentication-mfa-for-users-in-all-privileged-roles-as-well-as-exposed-users"></a>Multi-factor authentication (MFA) vereist voor gebruikers in alle bevoorrechte rollen, evenals de beschikbaar gemaakte gebruikers
 

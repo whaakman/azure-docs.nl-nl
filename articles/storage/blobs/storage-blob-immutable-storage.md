@@ -1,27 +1,27 @@
 ---
-title: Onveranderbare opslag voor Azure Blob storage (preview) | Microsoft Docs
+title: Onveranderbare opslag voor Azure Storage-Blobs | Microsoft Docs
 description: Azure Storage biedt ondersteuning voor blobopslag (object) waarmee gebruikers gegevens opslaan in een status bewaarinterval, niet kan worden gewijzigd voor een opgegeven interval WORM (één keer schrijven, lezen veel).
 services: storage
-author: sangsinh
+author: MichaelHauss
 ms.service: storage
 ms.topic: article
-ms.date: 05/29/2018
-ms.author: sangsinh
+ms.date: 09/18/2018
+ms.author: mihauss
 ms.component: blobs
-ms.openlocfilehash: cfc25906e926e8dd6687eeccd311a38653772c4d
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: e6b016d437011f8e9ebe3e2d3a6f3c9f737f6ecc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398995"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129570"
 ---
-# <a name="store-business-critical-data-in-azure-blob-storage-preview"></a>Store kritieke zakelijke gegevens in Azure Blob-opslag (preview)
+# <a name="store-business-critical-data-in-azure-blob-storage"></a>Store kritieke zakelijke gegevens in Azure Blob-opslag
 
 Onveranderbare opslag voor Azure-blobopslag (object) kan gebruikers bedrijfskritieke gegevens opslaan in een status WORM (één keer schrijven, lezen veel). Deze status maakt de gegevens niet kan worden gewist en niet kan worden gewijzigd voor een gebruiker opgegeven interval. BLOBs kunnen worden gemaakt en lezen, maar niet gewijzigd of verwijderd voor de duur van de retentie-interval.
 
 ## <a name="overview"></a>Overzicht
 
-Onveranderbare storage kunt financiële instellingen en verwante bedrijven--name handelaar organisaties--voor het veilig opslaan van gegevens.
+Onveranderbare storage kunt financiële instellingen en verwante bedrijven--name handelaar organisaties--voor het veilig opslaan van gegevens. Het kan ook worden gebruikt in elk scenario kritieke gegevens beveiligen tegen verwijderen.  
 
 Typische toepassingen zijn onder andere:
 
@@ -35,11 +35,11 @@ Onveranderbare opslag maakt:
 
 - **Ondersteuning voor op tijd gebaseerd bewaren groepsbeleid**: gebruikers een beleid voor het opslaan van gegevens voor een opgegeven interval instellen.
 
-- **Ondersteuning van Groepsbeleid juridisch**: wanneer het bewaarinterval is niet bekend, gebruikers juridische bewaring voor het opslaan van gegevens immutably totdat de juridische bewaring is uitgeschakeld kunnen instellen.  Als een juridische bewaring is ingesteld, kunnen blobs worden gemaakt en gelezen, maar niet worden gewijzigd of verwijderd. Elke juridische bewaring is gekoppeld aan een gebruiker gedefinieerde alfanumerieke label, dat wordt gebruikt als een tekenreeks-id (zoals een case-ID).
+- **Ondersteuning van Groepsbeleid juridisch**: wanneer het bewaarinterval is niet bekend, gebruikers juridische bewaring voor het opslaan van gegevens immutably totdat de juridische bewaring is uitgeschakeld kunnen instellen.  Als een juridische bewaring is ingesteld, kunnen blobs worden gemaakt en gelezen, maar niet worden gewijzigd of verwijderd. Elke juridische bewaring wordt gekoppeld aan een door de gebruiker gedefinieerd alfanumeriek label dat wordt gebruikt als een tekenreeks-id (bijvoorbeeld een casus-id).
 
-- **Ondersteuning voor alle lagen blob**: WORM beleidsregels zijn onafhankelijk van de Azure Blob storage-laag en zijn van toepassing op alle lagen: hot, cool en archive Storage. Gebruikers kunnen de gegevens opslaan in de meeste kosten geoptimaliseerd laag voor hun workloads behoud van gegevens onveranderbaarheid.
+- **Ondersteuning voor alle lagen blob**: WORM beleidsregels zijn onafhankelijk van de Azure Blob storage-laag en zijn van toepassing op alle lagen: hot, cool en archive Storage. Gebruikers kunnen gegevens naar de prijscategorie meest kosten geoptimaliseerd voor hun workloads overgang behoud van gegevens onveranderbaarheid.
 
-- **Configuratie van de container op serverniveau**: gebruikers kunnen configureren voor op tijd gebaseerd bewaarbeleid en juridisch tags op het niveau van de container. Met behulp van eenvoudige container-niveau instellingen, kunnen gebruikers maken en op tijd gebaseerd bewaarbeleid; vergrendelen retentie-intervallen; uitbreiden Stel en juridische bewaring; en nog veel meer. Dit beleid van toepassing op alle blobs in de container, bestaande en nieuwe.
+- **Configuratie van de container op serverniveau**: gebruikers kunnen configureren voor op tijd gebaseerd bewaarbeleid en juridisch tags op het niveau van de container. Met behulp van eenvoudige container-niveau instellingen, kunnen gebruikers maken en op tijd gebaseerd bewaarbeleid vergrendelen, bewaren intervallen uitbreiden, instellen en schakel juridische bewaring en nog veel meer. Dit beleid van toepassing op alle blobs in de container, bestaande en nieuwe.
 
 - **Ondersteuning voor logboekregistratie controleren**: elke container bevat een logboek. Het bevat maximaal vijf tijd gebaseerd bewaren-opdrachten voor het beleid voor het vergrendelde op tijd gebaseerd bewaren, met een maximum van drie logboeken voor extensies van retentie-interval. Het logboek bevat voor het bewaren op basis van tijd, de gebruikers-ID, het opdrachttype, de tijdstempels en de retentie-interval. Het logboek bevat de gebruikers-ID, het opdrachttype, de tijdstempels voor juridische bewaring en juridisch tags. Dit logboek worden bewaard gedurende de levensduur van de container, in overeenstemming met de seconde 17a-4(f)-regelgeving. De [Azure Activity Log](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-activity-logs) ziet u een meer uitgebreide logboek van alle het besturingselement vlak activiteiten. Het is de verantwoordelijkheid van de gebruiker voor het opslaan van deze logboeken permanent mogelijk zijn vereist voor wettelijke of andere doeleinden.
 
@@ -54,13 +54,13 @@ Wanneer een op tijd gebaseerd bewaarbeleid of een juridische bewaring wordt toeg
 > [!IMPORTANT]
 > Een op tijd gebaseerd bewaarbeleid moet *vergrendeld* voor de blob in een onveranderbare (schrijven en verwijderen die zijn beveiligd) staat voor seconde 17a-4(f) en andere voorschriften. Het is raadzaam dat u het beleid in een redelijk tijdsbestek, meestal binnen 24 uur vergrendelen. U kunt beter geen de *ontgrendeld* staat voor enig doel dan op korte termijn functie proefversies.
 
-Wanneer een op tijd gebaseerd bewaarbeleid wordt toegepast op een container, alle blobs in de container blijft in de onveranderbare staat voor de duur van de *effectieve* bewaarperiode. De effectieve retentieperiode voor bestaande blobs is gelijk aan het verschil tussen het tijdstip waarop de blob is gemaakt en de door de gebruiker opgegeven retentieperiode. 
+Wanneer een op tijd gebaseerd bewaarbeleid wordt toegepast op een container, alle blobs in de container blijft in de onveranderbare staat voor de duur van de *effectieve* bewaarperiode. De effectieve retentieperiode voor bestaande blobs is gelijk aan het verschil tussen het tijdstip waarop de blob is gemaakt en de door de gebruiker opgegeven retentieperiode.
 
-Voor nieuwe blobs is de effectieve retentieperiode gelijk aan de door de gebruiker opgegeven retentieperiode. Omdat gebruikers de retentie-interval wijzigen kunnen, onveranderbare storage maakt gebruik van de meest recente waarde van de gebruiker opgegeven bewaarinterval voor het berekenen van de daadwerkelijke bewaarperiode.
+Voor nieuwe blobs is de effectieve retentieperiode gelijk aan de door de gebruiker opgegeven retentieperiode. Omdat gebruikers het bewaarinterval uitbreiden kunnen, onveranderbare storage maakt gebruik van de meest recente waarde van de gebruiker opgegeven bewaarinterval voor het berekenen van de daadwerkelijke bewaarperiode.
 
 > [!TIP]
 > Voorbeeld:
-> 
+>
 > Een gebruiker maakt een op tijd gebaseerd bewaarbeleid met een retentie-interval van vijf jaar.
 >
 > De bestaande blob in die container, testblob1, is één jaar geleden gemaakt. De daadwerkelijke bewaarperiode voor testblob1 is vier jaar.
@@ -77,35 +77,30 @@ De volgende tabel bevat de typen van blob-bewerkingen die zijn uitgeschakeld voo
 
 |Scenario  |BLOB-status  |BLOB-bewerkingen niet toegestaan  |
 |---------|---------|---------|
-|Effectieve retentieperiode voor de blob is nog niet verlopen en/of wettelijke bewaring is ingesteld     |Onveranderbaar: beveiligd tegen verwijderen en schrijven         |Delete Container, Delete Blob, Put Blob1, Put Block, Put Block List, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
-|Effectieve retentieperiode voor blob is verlopen     |Alleen beveiligd tegen schrijven (verwijderen is toegestaan)         |Put Blob, Put Block, Put Block List, Set Blob Metadata, Put Page, Set Blob Properties, Snapshot Blob, Incremental Copy Blob, Append Block         |
+|Effectieve retentieperiode voor de blob is nog niet verlopen en/of wettelijke bewaring is ingesteld     |Onveranderbaar: beveiligd tegen verwijderen en schrijven         |Verwijderen van Container, Blob-, Put Blob verwijderen<sup>1</sup>, plaatsen blok<sup>1</sup>, Put, lijst met geblokkeerde websites<sup>1</sup>, instellen van de metagegevens van de Blob, pagina, stelt u eigenschappen van de Blob, momentopname maken van Blob, incrementeel kopiëren van de Blob, Blok toevoegen         |
+|Effectieve retentieperiode voor blob is verlopen     |Alleen beveiligd tegen schrijven (verwijderen is toegestaan)         |Blob plaatsen<sup>1</sup>, plaatsen blok<sup>1</sup>, Put, lijst met geblokkeerde websites<sup>1</sup>, instellen van de metagegevens van de Blob, pagina, instellen van Blob-eigenschappen, Blob-momentopname, incrementeel kopiëren van de Blob, blok toevoegen         |
 |Alle juridische bevat uitgeschakeld en niet op tijd gebaseerd bewaarbeleid is ingesteld op de container     |Veranderlijk         |Geen         |
 |Er is geen WORM-beleid is gemaakt (op basis van tijd bewaren of juridische bewaring)     |Veranderlijk         |Geen         |
 
+<sup>1</sup> de toepassing kan deze bewerking voor het maken van een blob eenmaal aanroepen. Alle verdere bewerkingen in de blob zijn niet toegestaan.
+
 > [!NOTE]
-> De eerste plaats Blob en de blokkeringslijst plaatsen en Put-blokken bewerkingen die nodig zijn voor een blob maken zijn in de eerste twee scenario's uit de voorgaande tabel toegestaan. Alle volgende bewerkingen zijn niet toegestaan.
 >
-> Onveranderbare storage is alleen beschikbaar in GPv2- en Blob storage-accounts. Deze moet worden gemaakt via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
+> Onveranderbare opslag is alleen beschikbaar in algemeen gebruik V2 en Blob Storage-Accounts. Het account moet worden gemaakt via [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview).
 
 ## <a name="pricing"></a>Prijzen
 
-Er is geen extra kosten voor het gebruik van deze functie. De prijs is onveranderbaar gegevens op dezelfde manier als normale, veranderlijke gegevens. Zie voor details over de prijzen, de [Azure Storage-pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/blobs/).
+Er is geen extra kosten voor het gebruik van deze functie. De prijs is onveranderbaar gegevens op dezelfde manier als normale, veranderlijke gegevens. Informatie over prijzen voor Azure Blob Storage, Zie de [Azure Storage-pagina met prijzen](https://azure.microsoft.com/pricing/details/storage/blobs/).
 
-### <a name="restrictions"></a>Beperkingen
-
-Tijdens de openbare preview gelden de volgende beperkingen:
-
-- *Sla geen productie- of business-kritische gegevens.*
-- Alle preview en NDA beperkingen zijn van toepassing.
 
 ## <a name="getting-started"></a>Aan de slag
 
-De meest recente versies van de [Azure-portal](http://portal.azure.com), [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest), en [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) onveranderbare storage ondersteuning voor Azure Blob-opslag.
+De meest recente versies van de [Azure-portal](http://portal.azure.com) en [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) en de preview-versie van [Azure PowerShell](https://github.com/Azure/azure-powershell/releases/tag/Azure.Storage.v4.4.0-preview-May2018) onveranderbare storage ondersteuning voor Azure Blob-opslag.
 
 ### <a name="azure-portal"></a>Azure Portal
 
 1. Maak een nieuwe container of selecteer een bestaande container om de blobs op te slaan die u in onveranderbare toestand wilt bewaren.
- De container moet zich in een GPv2-opslagaccount bevinden.
+ De container moet zich in een GPv2- of blob storage-account.
 2. Selecteer **toegangsbeleid** in de containerinstellingen van de. Selecteer vervolgens **+ beleid toevoegen** onder **onveranderbare blob storage**.
 
     ![Containerinstellingen in de portal](media/storage-blob-immutable-storage/portal-image-1.png)
@@ -134,11 +129,9 @@ De meest recente versies van de [Azure-portal](http://portal.azure.com), [Azure 
 
     !['Naam van de tag' vak onder het beleidstype](media/storage-blob-immutable-storage/portal-image-set-legal-hold-tags.png)
 
+8. Schakel een juridische bewaring, hoeft u de tag te verwijderen.
+
 ### <a name="azure-cli-20"></a>Azure CLI 2.0
-
-Installeer de [Azure CLI-extensie](http://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) met behulp van `az extension add -n storage-preview`.
-
-Als u al de extensie geïnstalleerd hebt, gebruik de volgende opdracht om in te schakelen onveranderbare opslag: `az extension update -n storage-preview`.
 
 De functie is opgenomen in de volgende opdrachtgroepen: `az storage container immutability-policy` en `az storage container legal-hold`. Voer `-h` op deze om te zien van de opdrachten.
 
@@ -160,7 +153,8 @@ De volgende clientbibliotheken bieden ondersteuning voor onveranderbare opslag v
 
 - [.NET-clientbibliotheek versie 7.2.0-preview en hoger](https://www.nuget.org/packages/Microsoft.Azure.Management.Storage/7.2.0-preview)
 - [Node.js-clientbibliotheek versie 4.0.0 en hoger](https://www.npmjs.com/package/azure-arm-storage)
-- [Python-clientbibliotheek versie 2.0.0 Release Candidate 2 en hoger](https://pypi.org/project/azure-mgmt-storage/2.0.0rc1/)
+- [Python-clientbibliotheek versie 2.0.0 Release Candidate 2 en hoger](https://pypi.org/project/azure-mgmt-storage/2.0.0rc2/)
+- [Java-clientbibliotheek](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/storage/resource-manager/Microsoft.Storage/preview/2018-03-01-preview)
 
 ## <a name="supported-values"></a>Ondersteunde waarden
 
@@ -176,15 +170,15 @@ De volgende clientbibliotheken bieden ondersteuning voor onveranderbare opslag v
 
 **Is de functie voor alleen blok-blobs, of voor pagina- en toevoeg-blobs ook toepassing?**
 
-Onveranderbare opslag kan worden gebruikt met elk blobtype.  Maar we raden aan voornamelijk voor blok-blobs te gebruiken. In tegenstelling tot blok-blobs, pagina-blobs en toevoeg-blobs moeten worden gemaakt buiten de container van een WORM, en vervolgens gekopieerd. Nadat u deze blobs naar een container WORM niet verder kopiëren *voegt* aan een toevoeg-blob of wijzigingen aan een pagina-blob zijn toegestaan.
+Onveranderbare opslag kan worden gebruikt met elk blobtype, maar het beste voornamelijk voor blok-blobs te gebruiken. In tegenstelling tot blok-blobs, pagina-blobs en toevoeg-blobs moeten worden gemaakt buiten de container van een WORM, en vervolgens gekopieerd. Nadat u deze blobs naar een container WORM niet verder kopiëren *voegt* aan een toevoeg-blob of wijzigingen aan een pagina-blob zijn toegestaan.
 
 **Moet ik altijd een nieuw opslagaccount maken om deze functie te gebruiken?**
 
-U kunt onveranderbare storage gebruiken met een bestaande GPv2-accounts of voor nieuwe opslagaccounts als het accounttype GPv2. Deze functie is alleen beschikbaar voor Blob-opslag.
+U kunt de onveranderbare storage gebruiken met elke bestaande of nieuwe General Purpose V2 of Blob Storage-Accounts. Deze functie is alleen beschikbaar voor Blob-opslag.
 
 **Wat gebeurt er als ik een container probeer te verwijderen die een *vergrendeld* retentiebeleid op basis van tijd of een juridische bewaring heeft?**
 
-De Container verwijderen-bewerking mislukt als deze ten minste één blob aan een vergrendelde op tijd gebaseerd bewaarbeleid of een juridische bewaring. Dit is waar, zelfs als de gegevens [voorlopig verwijderde](storage-blob-soft-delete.md). De bewerking Container verwijderen slaagt als deze geen blob bevat die een actieve retentieperiode of een juridische bewaring heeft. Voordat u de container kunt verwijderen, moet u de blobs verwijderen. 
+De bewerking verwijderen Container mislukken als er ten minste één blob bestaat met een vergrendelde op tijd gebaseerd bewaarbeleid of een juridische bewaring. De Container verwijderen-bewerking slaagt alleen als er geen blob met een actieve bewaarinterval bestaat en er geen juridische bewaring zijn. Voordat u de container kunt verwijderen, moet u de blobs verwijderen.
 
 **Wat gebeurt er als ik een opslagaccount probeer te verwijderen met een WORM-container die een *vergrendeld* retentiebeleid op basis van tijd of een juridische bewaring heeft?**
 
@@ -192,7 +186,7 @@ De verwijdering van het opslagaccount mislukt als er minimaal één WORM-contain
 
 **Kan ik de gegevens verplaatsen tussen verschillende blob-lagen (dynamische toegang, statische toegang, archieftoegang) als de blob de status onveranderbaar heeft?**
 
-Ja, met de opdracht Set Blob Tier kunt u gegevens tussen de blob-lagen verplaatsen met behoud met de onveranderbare status van de gegevens. Onveranderbare opslag wordt ondersteund op de lagen hot, cool en koude blob.
+Ja, met de opdracht Set Blob Tier kunt u gegevens tussen de blob-lagen verplaatsen met behoud met de onveranderbare status van de gegevens. Onveranderbare opslag wordt ondersteund op hot, cool en archive blob-lagen.
 
 **Wat gebeurt er als ik niet meer betaal en mijn retentieperiode niet is verlopen?**
 
@@ -209,6 +203,8 @@ Onveranderbare opslag is momenteel alleen beschikbaar in Azure openbare regio's.
 ## <a name="sample-powershell-code"></a>PowerShell-voorbeeldcode
 
 De volgende PowerShell-voorbeeldscript wordt ter referentie. Dit script maakt een nieuw opslagaccount en -container. Deze vervolgens ziet u hoe in te stellen en wissen juridische bewaring, maken en vergrendelen van een op tijd gebaseerd bewaarbeleid (ook wel bekend als een beleid voor onveranderbaarheid), het bewaarinterval uitbreiden.
+
+Instellen en testen van de Azure Storage-account:
 
 ```powershell
 $ResourceGroup = "<Enter your resource group>”
@@ -258,115 +254,128 @@ Remove-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
 # Remove a container with a container object
 $containerObject2 = Get-AzureRmStorageContainer -StorageAccount $accountObject -Name $container2
 Remove-AzureRmStorageContainer -InputObject $containerObject2
+```
 
+Stel en juridische bewaring:
+
+```powershell
 # Set a legal hold
 Add-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container -Tag tag1,tag2
+    -StorageAccountName $StorageAccount -Name $container -Tag <tag1>,<tag2>,...
 
-# Set a legal hold with an account object
-Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag tag3
+# with an account object
+Add-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>
 
-# Set a legal hold with a container object
-Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag tag4,tag5
+# with a container object
+Add-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>,<tag5>,...
 
 # Clear a legal hold
 Remove-AzureRmStorageContainerLegalHold -ResourceGroupName $ResourceGroup `
-    -StorageAccountName $StorageAccount -Name $container -Tag tag2
+    -StorageAccountName $StorageAccount -Name $container -Tag <tag2>
 
-# Clear a legal hold with an account object
-Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag tag3,tag5
+# with an account object
+Remove-AzureRmStorageContainerLegalHold -StorageAccount $accountObject -Name $container -Tag <tag3>,<tag5>
 
-# Clear a legal hold with a container object
-Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag tag4
+# with a container object
+Remove-AzureRmStorageContainerLegalHold -Container $containerObject -Tag <tag4>
+```
 
-# Create or update an immutability policy
-## with an account name or container name
-
+Maken of bijwerken van beleid voor onveranderbaarheid:
+```powershell
+# with an account name or container name
 Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container -ImmutabilityPeriod 10
 
-## with an account object
+# with an account object
 Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -ImmutabilityPeriod 1 -Etag $policy.Etag
 
-## with a container object
+# with a container object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 7
 
-## with an immutability policy object
+# with an immutability policy object
 Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -ImmutabilityPeriod 5
+```
 
+Beleid voor onveranderbaarheid ophalen:
+```powershell
 # Get an immutability policy
 Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName $ResourceGroup `
     -StorageAccountName $StorageAccount -ContainerName $container
 
-# Get an immutability policy with an account object
+# with an account object
 Get-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container
 
-# Get an immutability policy with a container object
+# with a container object
 Get-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject
+```
 
-# Lock an immutability policy (add -Force to dismiss the prompt)
-## with an immutability policy object
-
+Beleid voor onveranderbaarheid vergrendelen (add - Force voor het verwijderen van de prompt):
+```powershell
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy -force
 
-## with an account name or container name
+# with an account name or container name
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
-## with an account object
+# with an account object
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -Etag $policy.Etag
 
-## with a container object
+# with a container object
 $policy = Lock-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -Etag $policy.Etag -force
+```
 
-# Extend an immutability policy
-## with an immutability policy object
+Beleid voor onveranderbaarheid uitbreiden:
+```powershell
 
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy `
     $policy -ImmutabilityPeriod 11 -ExtendPolicy
 
-## with an account name or container name
+# with an account name or container name
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -ImmutabilityPeriod 11 -Etag $policy.Etag -ExtendPolicy
 
-## with an account object
+# with an account object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -StorageAccount `
     $accountObject -ContainerName $container -ImmutabilityPeriod 12 -Etag `
     $policy.Etag -ExtendPolicy
 
-## with a container object
+# with a container object
 $policy = Set-AzureRmStorageContainerImmutabilityPolicy -Container `
     $containerObject -ImmutabilityPeriod 13 -Etag $policy.Etag -ExtendPolicy
+```
 
-# Remove an immutability policy (add -Force to dismiss the prompt)
-## with an immutability policy object
+Een beleid voor Onveranderbaarheid van verwijderen (add - Force voor het verwijderen van de prompt):
+```powershell
+# with an immutability policy object
 $policy = Get-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container
 Remove-AzureRmStorageContainerImmutabilityPolicy -ImmutabilityPolicy $policy
 
-## with an account name or container name
+# with an account name or container name
 Remove-AzureRmStorageContainerImmutabilityPolicy -ResourceGroupName `
     $ResourceGroup -StorageAccountName $StorageAccount -ContainerName $container `
     -Etag $policy.Etag
 
-## with an account object
+# with an account object
 Remove-AzureRmStorageContainerImmutabilityPolicy -StorageAccount $accountObject `
     -ContainerName $container -Etag $policy.Etag
 
-## with a container object
+# with a container object
 Remove-AzureRmStorageContainerImmutabilityPolicy -Container $containerObject `
     -Etag $policy.Etag
-    
+
 ```

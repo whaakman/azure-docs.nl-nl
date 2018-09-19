@@ -1,27 +1,27 @@
 ---
-title: Meld u aan Translator Text-API | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
+title: Meld u aan Translator Text-API
+titleSuffix: Azure Cognitive Services
 description: Hoe u zich registreert voor de Translator Text-API.
 services: cognitive-services
 author: noellelacharite
-manager: nolachar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: translator-text
 ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: nolachar
-ms.openlocfilehash: 2aa293acfa1a9e3fd95a64f6981bd8dc9747b6b6
-ms.sourcegitcommit: fc5555a0250e3ef4914b077e017d30185b4a27e6
+ms.openlocfilehash: 18d2926be9d358b90e5b34754e689604aef85522
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/02/2018
-ms.locfileid: "36265554"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128310"
 ---
 # <a name="how-to-sign-up-for-the-translator-text-api"></a>Hoe u zich registreert voor de Translator Text-API
 
 ## <a name="sign-in-to-the-azure-portal"></a>Aanmelden bij Azure Portal
 
-- Hebt u geen account? U kunt maken een [gratis account](https://azure.microsoft.com/free/) om te experimenteren zonder kosten.
+- Hebt u geen account? U kunt een [gratis account](https://azure.microsoft.com/free/) maken als u kosteloos wilt experimenteren.
 - Hebt u al een account? [Aanmelden](https://ms.portal.azure.com/)
 
 ## <a name="create-a-subscription-to-the-translator-text-api"></a>Een abonnement op de Translator Text-API maken

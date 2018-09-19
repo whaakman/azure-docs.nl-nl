@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: 6348a6d003aa3efcd1b9c45e61438e0ac4b4c8d5
-ms.sourcegitcommit: 8ebcecb837bbfb989728e4667d74e42f7a3a9352
+ms.openlocfilehash: 14607e01c0bd51ca9ae98f969c9cd6e1c8c62bb9
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/21/2018
-ms.locfileid: "42061410"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294268"
 ---
 # <a name="integrate-your-remote-desktop-gateway-infrastructure-using-the-network-policy-server-nps-extension-and-azure-ad"></a>De infrastructuur van uw extern bureaublad-Gateway met behulp van de extensie voor Network Policy Server (NPS) en Azure AD integreren
 
@@ -82,7 +82,7 @@ De functieservice NPS biedt de RADIUS-server en client-functionaliteit, evenals 
 Voor informatie over het installeren van de NPS-rolservice service WindowsServer 2012 of ouder, Zie [installeren van een NAP-statusbeleidsserver](https://technet.microsoft.com/library/dd296890.aspx). Zie voor een beschrijving van aanbevolen procedures voor NPS, met inbegrip van de aanbeveling voor het installeren van NPS op een domeincontroller [aanbevolen procedures voor NPS](https://technet.microsoft.com/library/cc771746).
 
 ### <a name="azure-active-directory-synched-with-on-premises-active-directory"></a>Azure Active Directory worden gesynchroniseerd met on-premises Active Directory
-Voor het gebruik van de NPS-extensie, moeten on-premises gebruikers worden gesynchroniseerd met Azure AD en ingeschakeld voor MFA. In deze sectie wordt ervan uitgegaan dat on-premises gebruikers zijn gesynchroniseerd met Azure AD met behulp van AD Connect. Voor meer informatie over Azure AD connect, Zie [uw on-premises directory's integreren met Azure Active Directory](../connect/active-directory-aadconnect.md). 
+Voor het gebruik van de NPS-extensie, moeten on-premises gebruikers worden gesynchroniseerd met Azure AD en ingeschakeld voor MFA. In deze sectie wordt ervan uitgegaan dat on-premises gebruikers zijn gesynchroniseerd met Azure AD met behulp van AD Connect. Voor meer informatie over Azure AD connect, Zie [uw on-premises directory's integreren met Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>Azure Active Directory-GUID-ID
 Voor het installeren van NPS-extensie, moet u weten de GUID van de Azure AD. Hieronder vindt u instructies voor het vinden van de GUID van de Azure AD.
@@ -374,4 +374,4 @@ In de afbeelding hieronder van Microsoft Message Analyzer netwerkverkeer gefilte
 
 [Extern bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Uw on-premises directory's integreren met Azure Active Directory](../connect/active-directory-aadconnect.md)
+[Uw on-premises directory's integreren met Azure Active Directory](../hybrid/whatis-hybrid-identity.md)

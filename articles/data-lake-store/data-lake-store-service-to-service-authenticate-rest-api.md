@@ -1,6 +1,6 @@
 ---
-title: 'Verificatie van de service-naar-service: REST-API met Data Lake Store met Azure Active Directory | Microsoft Docs'
-description: Meer informatie over het bereiken van de service to service-verificatie met Data Lake Store met Azure Active Directory met REST-API
+title: 'Service-naar-serviceverificatie: REST-API met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het bereiken van service-naar-serviceverificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory met behulp van REST-API
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ffa9b7408475820735e35a82edc0b1751abeb08a
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: dd282091d41538b7e3dc08eb0b3d82539fa0bb4f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34624846"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295594"
 ---
-# <a name="service-to-service-authentication-with-data-lake-store-using-rest-api"></a>Verificatie met Data Lake Store met REST-API-services
+# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-rest-api"></a>Service-naar-serviceverificatie met Azure Data Lake Storage Gen1 met behulp van REST-API
 > [!div class="op_single_selector"]
 > * [Java gebruiken](data-lake-store-service-to-service-authenticate-java.md)
 > * [.NET-SDK gebruiken](data-lake-store-service-to-service-authenticate-net-sdk.md)
@@ -27,15 +27,15 @@ ms.locfileid: "34624846"
 > 
 > 
 
-In dit artikel leert u hoe u met de REST-API Authentication service-naar-service uitvoeren met Azure Data Lake Store. Zie voor de verificatie van de eindgebruiker met Data Lake Store met REST-API, [eindgebruiker verificatie met Data Lake Store met REST-API](data-lake-store-end-user-authenticate-rest-api.md).
+In dit artikel leert u over het gebruik van de REST-API-service-naar-serviceverificatie met Azure Data Lake Storage Gen1 doen. Zie voor verificatie van eindgebruikers met Data Lake Storage Gen1 met behulp van REST-API, [eindgebruikersverificatie met Data Lake Storage Gen1 met behulp van REST-API](data-lake-store-end-user-authenticate-rest-api.md).
 
 ## <a name="prerequisites"></a>Vereisten
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Maken van een Azure Active Directory 'Web' toepassing**. U moet voltooid van de stappen in [authentication Service-naar-service met Data Lake Store met Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Maken van een Azure Active Directory-toepassing voor 'Web'**. U moet zijn voltooid de stappen in [Service-naar-serviceverificatie met Data Lake Storage Gen1 met behulp van Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 ## <a name="service-to-service-authentication"></a>Verificatie van service-tot-service
-In dit scenario biedt de toepassing eigen referenties om de bewerkingen te voeren. Hiervoor moet u een POST-aanvraag, zoals weergegeven in het volgende fragment uitgeven: 
+In dit scenario biedt de toepassing eigen referenties om uit te voeren van de bewerkingen. Hiervoor moet u een POST-aanvraag, zoals weergegeven in het volgende codefragment uitgeven: 
 
     curl -X POST https://login.microsoftonline.com/<TENANT-ID>/oauth2/token  \
       -F grant_type=client_credentials \
@@ -43,15 +43,15 @@ In dit scenario biedt de toepassing eigen referenties om de bewerkingen te voere
       -F client_id=<CLIENT-ID> \
       -F client_secret=<AUTH-KEY>
 
-De uitvoer van de aanvraag bevat een verificatietoken (aangeduid met `access-token` in de onderstaande uitvoer) dat u vervolgens gaat met de REST-API-aanroepen doorgeven. Het verificatietoken opslaan in een tekstbestand; u hebt deze bij het aanroepen van de REST aan de Data Lake Store.
+De uitvoer van de aanvraag bevat een verificatietoken (aangeduid door `access-token` in de onderstaande uitvoer) dat u vervolgens met de REST API-aanroepen doorgeven. Het verificatietoken opslaan in een tekstbestand; u moet deze bij het maken van de REST-aanroepen naar Data Lake Storage Gen1.
 
     {"token_type":"Bearer","expires_in":"3599","expires_on":"1458245447","not_before":"1458241547","resource":"https://management.core.windows.net/","access_token":"<REDACTED>"}
 
 In dit artikel wordt de **niet-interactieve** benadering gebruikt. Zie [Service-naar-service-aanroepen met referenties](https://msdn.microsoft.com/library/azure/dn645543.aspx) voor meer informatie over niet-interactieve (service-naar-service) aanroepen. 
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel hebt u geleerd hoe service to service-verificatie gebruiken om te verifiëren met Azure Data Lake Store met REST-API. U kunt nu de volgende artikelen die uitleggen hoe de REST-API gebruiken om te werken met Azure Data Lake Store bekijken.
+In dit artikel hebt u geleerd hoe u service-naar-serviceverificatie gebruiken om te verifiëren met Data Lake Storage Gen1 met behulp van REST-API. U kunt nu de volgende artikelen die bespreken hoe u de REST-API gebruiken om te werken met Data Lake Storage Gen1 kijken.
 
-* [Accountbeheerbewerkingen op Data Lake Store met REST-API](data-lake-store-get-started-rest-api.md)
-* [Bewerkingen van de gegevens in Data Lake Store met REST-API](data-lake-store-data-operations-rest-api.md)
+* [Accountbeheerbewerkingen in Data Lake Storage Gen1 met behulp van REST-API](data-lake-store-get-started-rest-api.md)
+* [Bewerkingen van de gegevens in Data Lake Storage Gen1 met behulp van REST-API](data-lake-store-data-operations-rest-api.md)
 

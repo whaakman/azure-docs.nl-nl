@@ -12,12 +12,12 @@ ms.workload: On Demand
 ms.date: 07/25/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: c653f1f5366e7dac43f51d5daf1f0b13d93674ce
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 5e45bff827a8c376d4b35ee88f1f000c2b122443
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44721979"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298231"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
@@ -59,11 +59,11 @@ De volgende tabel worden de ERT en RPO vergeleken voor elke servicelaag voor de 
 
 ## <a name="recover-a-database-to-the-existing-server"></a>Een database aan de bestaande server herstellen
 
-SQL-Database voert automatisch wekelijks een combinatie van volledige databaseback-ups, differentiële back-ups per uur en transactie logboekback-ups elke 5 - 10 minuten ter bescherming van uw bedrijf tegen gegevensverlies. De back-ups worden opgeslagen in de RA-GRS-opslag gedurende 35 dagen voor alle service-lagen, behalve de Servicelagen Basic DTU waarin de back-ups voor zeven dagen worden opgeslagen. Zie voor meer informatie, [automatische databaseback-ups](sql-database-automated-backups.md). U kunt een bestaande databaseformulier de geautomatiseerde back-ups naar een eerder tijdstip in herstellen tijd als een nieuwe database op dezelfde logische server met behulp van de Azure-portal, PowerShell of de REST-API. Zie voor meer informatie, [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
+SQL-Database voert automatisch een combinatie van volledige databaseback-ups wekelijks, differentiële back-ups in het algemeen genomen elke 12 uur en transactie logboekback-ups elke 5-10 minuten voor uw bedrijf beschermen tegen gegevensverlies. De back-ups worden opgeslagen in de RA-GRS-opslag gedurende 35 dagen voor alle service-lagen, behalve de Servicelagen Basic DTU waarin de back-ups voor zeven dagen worden opgeslagen. Zie voor meer informatie, [automatische databaseback-ups](sql-database-automated-backups.md). U kunt een bestaande databaseformulier de geautomatiseerde back-ups naar een eerder tijdstip in herstellen tijd als een nieuwe database op dezelfde logische server met behulp van de Azure-portal, PowerShell of de REST-API. Zie voor meer informatie, [Point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore).
 
 Als de maximale ondersteunde point-in-time restore (PITR) bewaarperiode is niet voldoende voor uw toepassing, kunt u deze uitbreiden door het configureren van een op de lange termijn (LTR) bewaarbeleid voor de database (s). Zie voor meer informatie, [langetermijnretentie](sql-database-long-term-retention.md).
 
-U kunt deze automatische databaseback-ups gebruiken om een database te herstellen na diverse storingen, zowel binnen uw datacenter als naar een ander datacenter. Bij het gebruik van automatische databaseback-ups is de geschatte duur van het herstel afhankelijk van diverse factoren, waaronder het totale aantal databases dat op hetzelfde moment in dezelfde regio moet worden hersteld, de grootte van de database, de transactielogboekgrootte en de netwerkbandbreedte. De hersteltijd is meestal minder dan 12 uur. Het duurt langer om een zeer groot of zeer actieve database te herstellen. Zie voor meer informatie over de hersteltijd, [database hersteltijd](sql-database-recovery-using-backups.md#recovery-time). Wanneer er naar een andere gegevensregio wordt hersteld, is het mogelijke gegevensverlies beperkt tot 1 uur door de geografisch redundante opslag van differentiële back-ups die elk uur worden uitgevoerd.
+U kunt deze automatische databaseback-ups gebruiken om een database te herstellen na diverse storingen, zowel binnen uw datacenter als naar een ander datacenter. Bij het gebruik van automatische databaseback-ups is de geschatte duur van het herstel afhankelijk van diverse factoren, waaronder het totale aantal databases dat op hetzelfde moment in dezelfde regio moet worden hersteld, de grootte van de database, de transactielogboekgrootte en de netwerkbandbreedte. De hersteltijd is meestal minder dan 12 uur. Het duurt langer om een zeer groot of zeer actieve database te herstellen. Zie voor meer informatie over de hersteltijd, [database hersteltijd](sql-database-recovery-using-backups.md#recovery-time). Wanneer er naar een andere gegevensregio wordt hersteld, is het mogelijke gegevensverlies beperkt tot 1 uur met gebruik van geografisch redundante back-ups.
 
 Gebruik van geautomatiseerde back-ups en [point-in-time restore](sql-database-recovery-using-backups.md#point-in-time-restore) als uw mechanisme voor zakelijke continuïteit en herstel als uw toepassing:
 
@@ -122,7 +122,7 @@ Als u actieve geo-replicatie en automatische failover-groepen als uw herstelmech
 > 
 
 ### <a name="perform-a-geo-restore"></a>Geo-herstel uitvoeren
-Als u automatische back-ups met geografisch redundante opslagreplicatie als uw herstelmechanisme [een databaseherstelbewerking met behulp van geo-herstel initiëren](sql-database-disaster-recovery.md#recover-using-geo-restore). Herstel vindt doorgaans plaats binnen 12 uur, met gegevensverlies van maximaal een uur (dit is afhankelijk van wanneer de laatste differentiële back-up per uur is gemaakt en gerepliceerd). Totdat het herstellen is voltooid, kan de database geen transacties registreren en niet reageren op query's. Terwijl dit Hiermee herstelt u een database naar de laatst wordt beschikbare punt in tijd, de geo-secundaire herstelt naar een bepaald tijdstip momenteel niet ondersteund.
+Als u automatische back-ups met geografisch redundante opslagreplicatie als uw herstelmechanisme [een databaseherstelbewerking met behulp van geo-herstel initiëren](sql-database-disaster-recovery.md#recover-using-geo-restore). Herstel vindt doorgaans plaats binnen 12 uur - verlies van gegevens van maximaal één uur bepaald door wanneer de laatste logboekback-up is gemaakt en geo-gerepliceerd naar andere regio. Totdat het herstellen is voltooid, kan de database geen transacties registreren en niet reageren op query's. Terwijl dit Hiermee herstelt u een database naar de laatst wordt beschikbare punt in tijd, de geo-secundaire herstelt naar een bepaald tijdstip momenteel niet ondersteund.
 
 > [!NOTE]
 > Als het datacenter weer online komt voordat u uw toepassing naar de herstelde database schakelt, kunt u het herstel annuleren.  

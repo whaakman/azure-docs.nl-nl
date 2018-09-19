@@ -313,40 +313,40 @@ items:
     items:
     - name: Controleren en afstemmen
       href: sql-database-troubleshoot-performance.md
-    - name: Prestatiebewaking
-      href: sql-database-single-database-monitor.md
-    - name: Prestatie-aanbevelingen
-      href: sql-database-advisor.md
-    - name: Verwerking van intelligente query's
+    - name: Intelligente prestaties
       items:
+      - name: Prestatiebewaking
+        href: sql-database-single-database-monitor.md
       - name: Verwerking van intelligente query's
         href: https://docs.microsoft.com/sql/relational-databases/performance/intelligent-query-processing?toc=/azure/sql-database/toc.json
       - name: Verwerking van adaptieve query’s
         href: https://docs.microsoft.com/sql/relational-databases/performance/adaptive-query-processing?toc=/azure/sql-database/toc.json
-    - name: Automatisch instellen
-      items:
       - name: Automatisch instellen
-        href: sql-database-automatic-tuning.md
-      - name: Automatisch instellen inschakelen
-        href: sql-database-automatic-tuning-enable.md
-      - name: E-mailmeldingen inschakelen
-        href: sql-database-automatic-tuning-email-notifications.md
-    - name: Intelligent Insights
-      items:
+        items:
+        - name: Automatisch instellen
+          href: sql-database-automatic-tuning.md
+        - name: Automatisch instellen inschakelen
+          href: sql-database-automatic-tuning-enable.md
+        - name: Prestatie-aanbevelingen
+          href: sql-database-advisor.md
+        - name: Aanbevelingen voor prestaties
+          href: sql-database-performance.md
+        - name: Prestatie-aanbevelingen toepassen
+          href: sql-database-advisor-portal.md
+        - name: E-mailmeldingen inschakelen
+          href: sql-database-automatic-tuning-email-notifications.md
       - name: Intelligent Insights
-        href: sql-database-intelligent-insights.md
-      - name: Diagnostische logboeken
-        href: sql-database-metrics-diag-logging.md
-      - name: Logboeken met diagnostische gegevens gebruiken
-        href: sql-database-intelligent-insights-use-diagnostics-log.md
-      - name: Probleemoplossing voor prestaties
-        href: sql-database-intelligent-insights-troubleshoot-performance.md
-    - name: Aanbevelingen voor prestaties
-      href: sql-database-performance.md
-    - name: Query Performance Insight gebruiken
-      href: sql-database-query-performance.md
-    - name: Prestatie-aanbevelingen toepassen
-      href: sql-database-advisor-portal.md
+        items:
+        - name: Intelligent Insights
+          href: sql-database-intelligent-insights.md
+        - name: Diagnostische logboeken
+          href: sql-database-metrics-diag-logging.md
+        - name: Logboeken met diagnostische gegevens gebruiken
+          href: sql-database-intelligent-insights-use-diagnostics-log.md
+        - name: Probleemoplossing voor prestaties
+          href: sql-database-intelligent-insights-troubleshoot-performance.md
+      - name: Query Performance Insight gebruiken
+        href: sql-database-query-performance.md
     - name: Handmatig instellen
       items:
       - name: Handmatig instellen
@@ -616,9 +616,9 @@ items:
     href: /azure/architecture/
   - name: Verhalen van klanten
     href: http://customers.microsoft.com/en-us/search?sq=%22Azure%20SQL%20Database%22&ff=&p=0&so=story_publish_date%20desc
-ms.openlocfilehash: 97b7f99440510e8a4a72cb0e3b18c54839f0c0c6
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: fe88a6f7559e6c5c44c2bf39e3167dd379f4b006
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45634469"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730089"

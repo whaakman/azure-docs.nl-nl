@@ -1,6 +1,6 @@
 ---
-title: '.NET SDK: Accountbeheerbewerkingen in Azure Data Lake Store | Microsoft Docs'
-description: Azure Data Lake Store .NET SDK gebruiken voor het uitvoeren van accountbeheerbewerkingen in de Data Lake Store
+title: '.NET SDK: Accountbeheerbewerkingen in Azure Data Lake Storage Gen1 | Microsoft Docs'
+description: Azure Data Lake Storage Gen1 .NET SDK gebruiken voor het uitvoeren van accountbeheerbewerkingen in Data Lake Storage Gen1
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: ee3c528345232090227c413aebaebe7cc265bc76
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: 2ed9f534c0eb27601243428f8e4b9d95db5d16b0
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35644074"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123909"
 ---
-# <a name="account-management-operations-on-azure-data-lake-store-using-net-sdk"></a>Accountbeheerbewerkingen - Aan de slag met Azure Data Lake Store met .NET SDK
+# <a name="account-management-operations-on-azure-data-lake-storage-gen1-using-net-sdk"></a>Accountbeheerbewerkingen in Azure Data Lake Storage Gen1 met .NET SDK
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-get-started-net-sdk.md)
 > * [REST API](data-lake-store-get-started-rest-api.md)
@@ -27,9 +27,9 @@ ms.locfileid: "35644074"
 >
 >
 
-In dit artikel leert u hoe u .NET SDK gebruikt voor het uitvoeren van accountbeheerbewerkingen in Data Lake Store. Voorbeelden van accountbeheerbewerkingen zijn het maken van een Data Lake Store-account, het weergeven van de accounts in een Azure-abonnement, het verwijderen van de accounts enzovoort.
+In dit artikel leert u hoe u kunt uitvoeren van accountbeheerbewerkingen in Azure Data Lake Storage Gen1 met .NET SDK. Accountbeheerbewerkingen zijn het maken van een Data Lake Storage Gen1 account, het weergeven van de accounts in een Azure-abonnement verwijderen van de accounts enzovoort.
 
-Als u wilt weten hoe u .NET SDK gebruikt voor het uitvoeren van gegevensbeheerbewerkingen in Data Lake Store, raadpleegt u [Bestandssysteembewerkingen - Aan de slag met Azure Data Lake Store met .NET SDK](data-lake-store-data-operations-net-sdk.md).
+Zie voor instructies over het uitvoeren van gegevensbeheerbewerkingen in Data Lake Storage Gen1 met .NET SDK [bestandssysteembewerkingen in Data Lake Storage Gen1 met .NET SDK](data-lake-store-data-operations-net-sdk.md).
 
 ## <a name="prerequisites"></a>Vereisten
 * **Visual Studio 2013, 2015 of 2017**. In onderstaande instructies wordt Visual Studio 2017 gebruikt.
@@ -89,7 +89,7 @@ Als u wilt weten hoe u .NET SDK gebruikt voor het uitvoeren van gegevensbeheerbe
 
                 private static void Main(string[] args)
                 {
-                    _adlsAccountName = "<DATA-LAKE-STORE-NAME>.azuredatalakestore.net"; 
+                    _adlsAccountName = "<DATA-LAKE-STORAGE-GEN1-NAME>.azuredatalakestore.net"; 
                     _resourceGroupName = "<RESOURCE-GROUP-NAME>"; 
                     _location = "East US 2";
                     _subId = "<SUBSCRIPTION-ID>";                    
@@ -101,26 +101,26 @@ In de rest van het artikel ziet u het gebruik van de beschikbare .NET-methoden v
 
 ## <a name="authentication"></a>Verificatie
 
-* Zie [End-user authentication with Data Lake Store using .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md) (Eindgebruikersverificatie met Data Lake Store met behulp van .NET SDK) voor de verificatie van eindgebruikers voor uw toepassing.
-* Zie [Service-to-service authentication with Data Lake Store using .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md) (Service-naar-serviceverificatie met Data Lake Store met behulp van .NET SDK) voor service-naar-serviceverificatie voor uw toepassing.
+* Zie voor verificatie van eindgebruikers voor uw toepassing, [eindgebruikersverificatie met Data Lake Storage Gen1 met .NET SDK](data-lake-store-end-user-authenticate-net-sdk.md).
+* Zie voor service-naar-serviceverificatie voor uw toepassing, [Service-naar-serviceverificatie met Data Lake Storage Gen1 met .NET SDK](data-lake-store-service-to-service-authenticate-net-sdk.md).
 
 ## <a name="create-client-object"></a>Clientobject maken
-In het volgende codefragment wordt het clientobject voor het Data Lake Store-account gemaakt dat wordt gebruikt voor het uitgeven van accountbeheeraanvragen voor de service, zoals het maken of verwijderen van accounts.
+Het volgende fragment wordt het clientobject Gen1 van Data Lake Storage-account, die wordt gebruikt voor het account management-aanvragen verzenden naar de service, zoals het maken, verwijderen van account, enzovoort.
 
     // Create client objects and set the subscription ID
     _adlsClient = new DataLakeStoreAccountManagementClient(armCreds) { SubscriptionId = _subId };
     
-## <a name="create-a-data-lake-store-account"></a>Een Data Lake Store-account maken
-In het volgende codefragment wordt een Data Lake Store-account gemaakt in het Azure-abonnement dat u hebt opgegeven tijdens het maken van het clientobject voor het Data Lake Store-account.
+## <a name="create-a-data-lake-storage-gen1-account"></a>Een Data Lake Storage Gen1-account maken
+Het volgende fragment maakt een Gen1 van Data Lake Storage-account in de Azure-abonnement die u hebt opgegeven tijdens het maken van het clientobject voor het Data Lake Storage Gen1-account.
 
-    // Create Data Lake Store account
+    // Create Data Lake Storage Gen1 account
     var adlsParameters = new DataLakeStoreAccount(location: _location);
     _adlsClient.Account.Create(_resourceGroupName, _adlsAccountName, adlsParameters);
 
-## <a name="list-all-data-lake-store-accounts-within-a-subscription"></a>Alle Data Lake Store-accounts binnen een abonnement weergeven
-Voeg de volgende methode toe aan uw klassedefinitie. Het volgende codefragment bevat alle Data Lake Store-accounts binnen een bepaald Azure-abonnement.
+## <a name="list-all-data-lake-storage-gen1-accounts-within-a-subscription"></a>Lijst van alle Gen1 van Data Lake Storage-accounts binnen een abonnement
+Voeg de volgende methode toe aan uw klassedefinitie. Het volgende codefragment bevat alle Gen1 van Data Lake Storage-accounts binnen een Azure-abonnement.
 
-    // List all Data Lake Store accounts within the subscription
+    // List all Data Lake Storage Gen1 accounts within the subscription
     public static List<DataLakeStoreAccountBasic> ListAdlStoreAccounts()
     {
         var response = _adlsClient.Account.List(_adlsAccountName);
@@ -135,15 +135,15 @@ Voeg de volgende methode toe aan uw klassedefinitie. Het volgende codefragment b
         return accounts;
     }
 
-## <a name="delete-a-data-lake-store-account"></a>Een Data Lake Store-account verwijderen
-In het volgende fragment wordt het Data Lake Store-account verwijderd dat u eerder hebt gemaakt.
+## <a name="delete-a-data-lake-storage-gen1-account"></a>Een Data Lake Storage Gen1-account verwijderen
+Het volgende codefragment worden de Gen1 van Data Lake Storage-account dat u eerder hebt gemaakt.
 
-    // Delete Data Lake Store account
+    // Delete Data Lake Storage Gen1 account
     _adlsClient.Account.Delete(_resourceGroupName, _adlsAccountName);
 
 ## <a name="see-also"></a>Zie ook
-* [Bestandssysteembewerkingen - Aan de slag met Azure Data Lake Store met .NET SDK](data-lake-store-data-operations-net-sdk.md)
-* [Naslaginformatie over Data Lake Store .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
+* [Bestandssysteembewerkingen in Data Lake Storage Gen1 met .NET SDK](data-lake-store-data-operations-net-sdk.md)
+* [Naslaginformatie over Data Lake Storage Gen1 .NET SDK](https://docs.microsoft.com/dotnet/api/overview/azure/data-lake-store?view=azure-dotnet)
 
 ## <a name="next-steps"></a>Volgende stappen
-* [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
+* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)

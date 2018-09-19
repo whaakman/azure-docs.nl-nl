@@ -9,12 +9,12 @@ ms.reviewer: jasonwhowell
 ms.assetid: b1584d16-e0d2-4019-ad1f-f04be8c5b430
 ms.topic: conceptual
 ms.date: 03/21/2017
-ms.openlocfilehash: 0830f4a6cffb8c1b2dacc8452e52477bb3a3ec91
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 1e6c71a68c4357d82d086f3e2ca098e4039def5a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43039365"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295747"
 ---
 # <a name="get-started-with-azure-data-lake-analytics-using-the-azure-portal"></a>Aan de slag met Azure Data Lake Analytics met het Azure-portal
 [!INCLUDE [get-started-selector](../../includes/data-lake-analytics-selector-get-started.md)]
@@ -27,7 +27,7 @@ Voordat u met deze zelfstudie begint, moet u een **Azure-abonnement** hebben. Zi
 
 ## <a name="create-a-data-lake-analytics-account"></a>Een Data Lake Analytics-account maken
 
-U maakt nu tegelijkertijd een Data Lake Analytics- en een Data Lake Store-account.  Deze stap is eenvoudig en duurt maar ongeveer 60 seconden om te voltooien.
+U maakt nu een Data Lake Analytics en een account met Azure Data Lake Storage Gen1 op hetzelfde moment.  Deze stap is eenvoudig en duurt maar ongeveer 60 seconden om te voltooien.
 
 1. Meld u aan bij [Azure Portal](https://portal.azure.com).
 2. Klik op **Een resource maken** >  **Gegevens en analyses** > **Data Lake Analytics**.
@@ -36,14 +36,14 @@ U maakt nu tegelijkertijd een Data Lake Analytics- en een Data Lake Store-accoun
    * **Abonnement**: kies het Azure-abonnement dat u gebruikt voor het Analytics-account.
    * **Resourcegroep**. Selecteer een bestaande Azure-resourcegroep of maak een nieuwe.
    * **Locatie**. Selecteer een Azure-datacenter voor het Data Lake Analytics-account.
-   * **Data Lake Store**: volg de instructies voor het maken van een nieuw Data Lake Store-account of selecteer een bestaand account. 
+   * **Data Lake Storage Gen1**: Volg de instructies voor het maken van een nieuw Data Lake Storage Gen1-account of Selecteer een bestaande resourcegroep. 
 4. U kunt ervoor kiezen om een prijscategorie te selecteren voor uw Data Lake Analytics-account.
 5. Klik op **Create**. 
 
 
 ## <a name="your-first-u-sql-script"></a>Uw eerste U-SQL-script
 
-De volgende tekst is een zeer eenvoudig U-SQL-script. Het scrip is alleen bedoeld om een kleine gegevensset in het script mee te definiëren en deze gegevensset vervolgens naar de standaard Data Lake Store te schrijven als een bestand met de naam `/data.csv`.
+De volgende tekst is een zeer eenvoudig U-SQL-script. Deze methode wordt een kleine gegevensset in het script definiëren en vervolgens schrijven die gegevensset naar het standaardaccount voor Data Lake Storage Gen1 als een bestand met de naam `/data.csv`.
 
 ```
 @a  = 

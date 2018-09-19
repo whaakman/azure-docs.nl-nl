@@ -3,7 +3,7 @@ title: bestand opnemen
 description: bestand opnemen
 services: active-directory
 documentationcenter: dev-center-name
-author: andretms
+author: navyasric
 manager: mtillman
 editor: ''
 ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
@@ -12,50 +12,50 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
-ms.author: andret
+ms.date: 09/17/2018
+ms.author: nacanuma
 ms.custom: include file
-ms.openlocfilehash: 24a5baade2168df603f5505baeaaf8e1c3ea2411
-ms.sourcegitcommit: c851842d113a7078c378d78d94fea8ff5948c337
+ms.openlocfilehash: 724166d402f81fa3a2c977d107111f5a0c32571d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/18/2018
-ms.locfileid: "36205224"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293645"
 ---
-## <a name="setting-up-your-web-server-or-project"></a>Instellen van uw webserver of -project
+## <a name="setting-up-your-web-server-or-project"></a>Instellen van uw webserver of project
 
-> Voorkeur voor het downloaden van dit voorbeeld project in plaats daarvan? 
-> - [De Visual Studio-project downloaden](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
+> Voorkeur voor het downloaden van dit voorbeeldproject in plaats daarvan?
+> - [Het Visual Studio-project downloaden](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/VisualStudio.zip)
 >
 > of
-> - [De project-bestanden downloaden](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) voor een lokale webserver, zoals Python
+> - [Download de projectbestanden](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/core.zip) voor een lokale webserver, zoals knooppunt
 >
-> En ga vervolgens verder met de [configuratiestap](#register-your-application) voor het configureren van het codevoorbeeld voordat deze wordt uitgevoerd.
+> En ga vervolgens verder met de [configuratiestap](#register-your-application) configureren in het codevoorbeeld voordat deze wordt uitgevoerd.
 
 ## <a name="prerequisites"></a>Vereisten
-Een lokale webserver zoals [Python http.server](https://www.python.org/downloads/), [HTTP-server](https://www.npmjs.com/package/http-server/), [.NET Core](https://www.microsoft.com/net/core), of IIS Express integratie met [Visual Studio 2017](https://www.visualstudio.com/downloads/) Deze begeleide setup uit te voeren is vereist. 
+Een lokale webserver zoals [Node.js](https://nodejs.org/en/download/), [.NET Core](https://www.microsoft.com/net/core), of integratie met IIS Express [Visual Studio 2017](https://www.visualstudio.com/downloads/) is vereist voor het uitvoeren van deze zelfstudie.
 
-Instructies in deze handleiding zijn gebaseerd op zowel Python en Visual Studio 2017, maar gerust ontwikkelomgeving of webserver.
+Instructies in deze handleiding zijn gebaseerd op Node.js en Visual Studio 2017, maar gebruik een andere ontwikkelomgeving of webserver.
 
-## <a name="create-your-project"></a>Uw project maken 
+## <a name="create-your-project"></a>Uw project maken
 
-> ### <a name="option-1-visual-studio"></a>Optie 1: Visual Studio 
-> Als u met behulp van Visual Studio en een nieuw project maakt, volgt u onderstaande stappen voor het maken van een nieuwe Visual Studio-oplossing:
+> ### <a name="option-1-visual-studio"></a>Optie 1: Visual Studio
+> Als u met behulp van Visual Studio en een nieuw project maakt, volgt u de stappen hieronder om een nieuwe Visual Studio-oplossing maken:
 > 1.    In Visual Studio:  `File` > `New` > `Project`
 > 2.    Onder `Visual C#\Web`, selecteer `ASP.NET Web Application (.NET Framework)`
-> 3.    Naam van uw toepassing en klik op *OK*
+> 3.    Geef uw toepassing en klikt u op *OK*
 > 4.    Onder `New ASP.NET Web Application`, selecteer `Empty`
 
 <p/><!-- -->
 
-> ### <a name="option-2-python-other-web-servers"></a>Optie 2: Python / andere webservers
-> Zorg ervoor dat u hebt geïnstalleerd [Python](https://www.python.org/downloads/), volg de onderstaande stappen:
+> ### <a name="option-2-node-other-web-servers"></a>Optie 2: Knooppunt / andere webservers
+> Zorg ervoor dat u hebt geïnstalleerd [Node.js](https://nodejs.org/en/download/), volg de onderstaande stappen:
 > - Maak een map voor het hosten van uw toepassing.
 
 
-## <a name="create-your-single-page-applications-ui"></a>De gebruikersinterface van uw toepassing één pagina maken
-1.  Maak een *index.html* -bestand voor de SPA JavaScript. Als u Visual Studio gebruikt, selecteert u het project (basismap project), klik met de rechtermuisknop en selecteer: `Add`  >  `New Item`  >  `HTML page` en noem deze index.html
-2.  Voeg de volgende code naar de pagina:
+## <a name="create-your-single-page-applications-ui"></a>Maken van de gebruikersinterface van uw toepassing met één pagina
+1.  Maak een *index.html* -bestand voor uw JavaScript beveiligd-WACHTWOORDVERIFICATIE. Als u van Visual Studio gebruikmaakt, selecteer het project (project-basismap), klik met de rechtermuisknop en selecteer: `Add`  >  `New Item`  >  `HTML page` en noem het index.html
+2.  Voeg de volgende code naar uw pagina:
 ```html
 <!DOCTYPE html>
 <html>

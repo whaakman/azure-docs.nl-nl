@@ -12,21 +12,53 @@ ms.devlang: nodejs
 ms.topic: reference
 ms.date: 03/04/2018
 ms.author: glenga
-ms.openlocfilehash: a8ee92d117a416d638f62b573dfb155f67bf66e0
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 72b93de029af750f55bf53fcc82e22ad91b45f69
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983136"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296342"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Handleiding voor ontwikkelaars van Azure Functions-JavaScript
+Deze handleiding bevat informatie over de complexiteit van het schrijven van Azure Functions met JavaScript.
 
-De JavaScript-ervaring voor Azure Functions kunt u eenvoudig voor het exporteren van een functie die wordt doorgegeven als een `context` -object om te communiceren met de runtime en voor het ontvangen en verzenden van gegevens via bindingen.
+Een JavaScript-functie is een geëxporteerde `function` die wordt uitgevoerd wanneer ze worden geactiveerd ([triggers zijn geconfigureerd in de function.json](functions-triggers-bindings.md)). Elke functie wordt doorgegeven een `context` -object dat wordt gebruikt voor het ontvangen en verzenden die gegevens bindt, logboekregistratie en communiceert met de runtime.
 
-In dit artikel wordt ervan uitgegaan dat u al hebt gelezen de [referentie voor ontwikkelaars van Azure Functions](functions-reference.md).
+In dit artikel wordt ervan uitgegaan dat u al hebt gelezen de [referentie voor ontwikkelaars van Azure Functions](functions-reference.md). Het is ook raadzaam dat u een zelfstudie onder 'Quickstarts' hebt gevolgd om te [uw eerste functie maken](functions-create-first-function-vs-code.md).
+
+## <a name="folder-structure"></a>mapstructuur
+
+De vereiste mapstructuur voor een JavaScript-project ziet er als volgt uit. Houd er rekening mee dat deze standaardinstelling kan worden gewijzigd: Zie de [scriptbestand](functions-reference-node.md#using-scriptfile) sectie hieronder voor meer informatie.
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - index.js
+ | | - function.json
+ | - MySecondFunction
+ | | - index.js
+ | | - function.json
+ | - SharedCode
+ | | - myFirstHelperFunction.js
+ | | - mySecondHelperFunction.js
+ | - node_modules
+ | - host.json
+ | - package.json
+ | - extensions.csproj
+ | - bin
+```
+
+In de hoofdmap van het project, er is een gedeelde [host.json](functions-host-json.md) -bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een map met een eigen codebestand (.js) en de binding-configuratiebestand (function.json).
+
+De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
 
 ## <a name="exporting-a-function"></a>Exporteren van een functie
-Elke JavaScript-functie moet een enkel exporteren `function` via `module.exports` voor de runtime functie voor het vinden en voer deze uit. Altijd moet rekening houden met deze functie een `context` object als de eerste parameter.
+
+JavaScript-functies moeten worden geëxporteerd [ `module.exports` ](https://nodejs.org/api/modules.html#modules_module_exports) (of [ `exports` ](https://nodejs.org/api/modules.html#modules_exports)). De geëxporteerde functie moet in het geval standaard alleen exporteren uit het bestand en het exporteren met de naam `run`, of het exporteren met de naam `index`. De standaardlocatie van de functie is `index.js`, waarbij `index.js` deelt dezelfde bovenliggende map als de bijbehorende `function.json`. Houd er rekening mee dat de naam van `function.json`van bovenliggende map is altijd de naam van uw functie. 
+
+Meer informatie over het configureren van de locatie van de en naam van de functie exporteren, [configureren van uw functie-ingangspunt](functions-reference-node.md#configure-function-entry-point) hieronder.
+
+Altijd moet rekening houden met de geëxporteerde functie-ingangspunt een `context` object als de eerste parameter.
 
 ```javascript
 // You must include a context, other arguments are optional
@@ -45,7 +77,7 @@ module.exports = function(context) {
 };
 ```
 
-Invoer- en trigger-Bindingen (bindingen van `direction === "in"`) kunnen worden doorgegeven aan de functie als parameters. Ze worden doorgegeven aan de functie in dezelfde volgorde als waarin ze zijn gedefinieerd in *function.json*. U kunt dynamisch invoer met de JavaScript verwerken [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) object. Als u hebt bijvoorbeeld `function(context, a, b)` en wijzig deze in `function(context, a)`, krijgt u nog steeds de waarde van `b` in functiecode door te verwijzen naar `arguments[2]`.
+Triggers en bindingen voor invoer (bindingen van `direction === "in"`) kunnen worden doorgegeven aan de functie als parameters. Ze worden doorgegeven aan de functie in dezelfde volgorde als waarin ze zijn gedefinieerd in *function.json*. U kunt ook dynamisch invoer met de JavaScript verwerken [ `arguments` ](https://msdn.microsoft.com/library/87dw3w1k.aspx) object. Als u hebt bijvoorbeeld `function(context, a, b)` en wijzig deze in `function(context, a)`, krijgt u nog steeds de waarde van `b` in functiecode door te verwijzen naar `arguments[2]`.
 
 Alle bindingen, ongeacht de richting, ook worden doorgegeven in de `context` object met de `context.bindings` eigenschap.
 
@@ -56,9 +88,9 @@ De `context` object is altijd de eerste parameter voor een functie en moet worde
 
 ```javascript
 // You must include a context, but other arguments are optional
-module.exports = function(context) {
+module.exports = function(ctx) {
     // function logic goes here :)
-    context.done();
+    ctx.done();
 };
 ```
 
@@ -109,7 +141,7 @@ context.done([err],[propertyBag])
 
 Informeert de runtime die uw code is voltooid. Als uw functie gebruikmaakt van de JavaScript [ `async function` ](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Statements/async_function) declaratie (beschikbaar met behulp van knooppunt 8 + in functies versie 2.x), u hoeft niet te gebruiken `context.done()`. De `context.done` callback impliciet wordt genoemd.
 
-Als uw functie niet een functie asynchrone is **moet worden aangeroepen `context.done`**  om te informeren over de runtime die uw functie voltooid is. Als deze ontbreekt, wordt de uitvoering time-out.
+Als uw functie niet een functie asynchrone is **moet worden aangeroepen** `context.done` om te informeren over de runtime die uw functie voltooid is. Als deze ontbreekt, wordt de uitvoering time-out.
 
 De `context.done` methode kunt u weer zowel een gebruiker gedefinieerde fout doorgeven aan de runtime- en uitvoergegevens van de binding met een JSON-object. Eigenschappen doorgegeven aan `context.done` overschrijft alles instellen op de `context.bindings` object.
 
@@ -164,7 +196,7 @@ Opties voor `dataType` zijn: `binary`, `stream`, en `string`.
 
 ## <a name="writing-trace-output-to-the-console"></a>Trace-uitvoer schrijven naar de console 
 
-In de functies, gebruikt u de `context.log` methoden trace-uitvoer schrijven naar de console. In functies v1.x, u niet gebruiken `console.log` te schrijven naar de console. Traceren in v2.x van functies, ouputs via `console.log` zijn vastgelegd op het niveau van de functie-App. Dit betekent dat de uitvoer van `console.log` zijn niet gekoppeld aan een specifieke functie-aanroep.
+In de functies, gebruikt u de `context.log` methoden trace-uitvoer schrijven naar de console. Traceren in v2.x van functies, ouputs via `console.log` zijn vastgelegd op het niveau van de functie-App. Dit betekent dat de uitvoer van `console.log` zijn niet gekoppeld aan een specifieke functieaanroepen en kan daarom niet worden weergegeven in een specifieke functie Logboeken. Ze zullen echter doorgeven naar Application Insights. In functies v1.x, u niet gebruiken `console.log` te schrijven naar de console. 
 
 Als u aanroept `context.log()`, het bericht is geschreven naar de console op het standaardniveau van trace die is de _info_ traceerniveau. De volgende code schrijft naar de console op het traceerniveau informatie:
 
@@ -295,22 +327,10 @@ De volgende tabel ziet u de Node.js-versie die wordt gebruikt door elke primaire
 | 1.x | 6.11.2 (vergrendeld door de runtime) |
 | 2.x  | _Actieve LTS_ en _huidige_ Node.js-versies (8.11.1 en 10.6.0 aanbevolen). De-versie instellen met behulp van de WEBSITE_NODE_DEFAULT_VERSION [app-instelling](functions-how-to-use-azure-function-app-settings.md#settings).|
 
-U kunt zien dat de huidige versie die door de runtime wordt gebruikt door af te drukken `process.version` van elke functie.
+U kunt zien dat de huidige versie die door de runtime wordt gebruikt door de bovenstaande appinstelling te controleren of door te drukken `process.version` van elke functie.
 
-## <a name="package-management"></a>Pakketbeheer
-De volgende stappen kunnen u pakketten opnemen in uw functie-app: 
-
-1. Ga naar `https://<function_app_name>.scm.azurewebsites.net`.
-
-2. Klik op **Foutopsporingsconsole** > **CMD**.
-
-3. Ga naar `D:\home\site\wwwroot`, en sleep vervolgens uw package.json-bestand naar de **wwwroot** map in het bovenste gedeelte van de pagina.  
-    U kunt ook bestanden uploaden naar uw functie-app op andere manieren. Zie voor meer informatie, [het bijwerken van de functie app-bestanden](functions-reference.md#fileupdate). 
-
-4. Nadat het package.json-bestand is geüpload, voert u de `npm install` opdracht in de **Kudu-console voor uitvoering op afstand**.  
-    Met deze actie wordt gedownload van de pakketten die zijn aangegeven in het package.json-bestand en de functie-app opnieuw wordt opgestart.
-
-Nadat de pakketten die u moet zijn geïnstalleerd, u deze importeren naar de functie door het aanroepen van `require('packagename')`, zoals in het volgende voorbeeld:
+## <a name="dependency-management"></a>Beheer van afhankelijkheden
+Als u wilt gebruiken van community-bibliotheken in uw JavaScript-code, zoals wordt weergegeven in het onderstaande voorbeeld, moet u ervoor zorgen dat alle afhankelijkheden zijn geïnstalleerd op uw functie-App in Azure.
 
 ```javascript
 // Import the underscore.js library
@@ -323,7 +343,26 @@ module.exports = function(context) {
         .where(context.bindings.myInput.names, {first: 'Carla'});
 ```
 
-U moet definiëren een `package.json` bestand in de hoofdmap van uw functie-app. Het bestand te definiëren, kunt alle functies in de app delen de dezelfde in de cache-pakketten, waardoor de beste prestaties. Als een conflict zich voordoet, kunt u deze oplossen door toe te voegen een `package.json` bestand in de map van een specifieke functie.  
+Let op: u moet definiëren een `package.json` bestand in de hoofdmap van uw functie-app. Het bestand te definiëren, kunt alle functies in de app delen de dezelfde in de cache-pakketten, waardoor de beste prestaties. Als een conflict zich voordoet, kunt u deze oplossen door toe te voegen een `package.json` bestand in de map van een specifieke functie.  
+
+Er zijn twee manieren om pakketten te installeren op uw functie-App: 
+
+### <a name="deploying-with-dependencies"></a>Implementeren met afhankelijkheden
+1. Alle vereiste pakketten installeren door lokaal uit te voeren `npm install`.
+
+2. Implementeer uw code en zorg ervoor dat de `node_modules` map is opgenomen in de implementatie. 
+
+
+### <a name="using-kudu"></a>Kudu gebruiken
+1. Ga naar `https://<function_app_name>.scm.azurewebsites.net`.
+
+2. Klik op **Foutopsporingsconsole** > **CMD**.
+
+3. Ga naar `D:\home\site\wwwroot`, en sleep vervolgens uw package.json-bestand naar de **wwwroot** map in het bovenste gedeelte van de pagina.  
+    U kunt ook bestanden uploaden naar uw functie-app op andere manieren. Zie voor meer informatie, [het bijwerken van de functie app-bestanden](functions-reference.md#fileupdate). 
+
+4. Nadat het package.json-bestand is geüpload, voert u de `npm install` opdracht in de **Kudu-console voor uitvoering op afstand**.  
+    Met deze actie wordt gedownload van de pakketten die zijn aangegeven in het package.json-bestand en de functie-app opnieuw wordt opgestart.
 
 ## <a name="environment-variables"></a>Omgevingsvariabelen
 Als u een omgevingsvariabele of een app-instelling waarde, gebruikt u `process.env`, zoals hier wordt weergegeven de `GetEnvironmentVariable` functie:
@@ -344,9 +383,74 @@ function GetEnvironmentVariable(name)
     return name + ": " + process.env[name];
 }
 ```
+
+## <a name="configure-function-entry-point"></a>Functie-ingangspunt configureren
+
+De `function.json` eigenschappen `scriptFile` en `entryPoint` kan worden gebruikt om de locatie en naam van de geëxporteerde functie configureren. Dit kunnen belangrijk als uw JavaScript transpiled zijn.
+
+### <a name="using-scriptfile"></a>Met behulp van `scriptFile`
+
+Een JavaScript-functie wordt standaard uitgevoerd vanuit `index.js`, een bestand met dezelfde bovenliggende map als het bijbehorende gedeelde `function.json`.
+
+`scriptFile` kan worden gebruikt voor het ophalen van een mapstructuur die er als uitzien volgt:
+```
+FunctionApp
+ | - host.json
+ | - myNodeFunction
+ | | - function.json
+ | - lib
+ | | - nodeFunction.js
+ | - node_modules
+ | | - ... packages ...
+ | - package.json
+```
+
+De `function.json` voor `myNodeFunction` moet bevatten een `scriptFile` eigenschap die verwijst naar het bestand met de geëxporteerde functie om uit te voeren.
+```json
+{
+  "scriptFile": "../lib/nodeFunction.js",
+  "bindings": [
+    ...
+  ]
+}
+```
+
+### <a name="using-entrypoint"></a>Met behulp van `entryPoint`
+
+In `scriptFile` (of `index.js`), een functie moet worden geëxporteerd met behulp van `module.exports` om te kunnen worden gevonden en worden uitgevoerd. De functie die wordt uitgevoerd wanneer geactiveerd is standaard de enige exporteren vanuit dat bestand, de uitvoer met de naam `run`, of het exporteren met de naam `index`.
+
+Dit kan worden geconfigureerd met behulp van `entryPoint` in `function.json`:
+```json
+{
+  "entryPoint": "logFoo",
+  "bindings": [
+    ...
+  ]
+}
+```
+
+In v2.x van functies, die ondersteuning biedt voor de `this` parameter in de gebruikersfuncties de functiecode kan vervolgens als volgt zijn:
+```javascript
+class MyObj {
+    constructor() {
+        this.foo = 1;
+    };
+    
+    function logFoo(context) { 
+        context.log("Foo is " + this.foo); 
+        context.done(); 
+    }
+}
+
+const myObj = new MyObj();
+module.exports = myObj;
+```
+
+In dit voorbeeld is het belangrijk te weten dat hoewel een object wordt geëxporteerd, er geen garandeert dat zijn rond staat tussen uitvoerbewerkingen te behouden.
+
 ## <a name="considerations-for-javascript-functions"></a>Overwegingen voor JavaScript-functies
 
-Wanneer u met JavaScript-functies werkt, worden op de hoogte van de overwegingen voor in de volgende twee secties.
+Wanneer u met JavaScript-functies werkt, worden op de hoogte van de overwegingen met betrekking tot in de volgende secties.
 
 ### <a name="choose-single-vcpu-app-service-plans"></a>Kies één vCPU Appservice-plannen
 
@@ -354,6 +458,9 @@ Wanneer u een functie-app die gebruikmaakt van de App Service-plan maakt, wordt 
 
 ### <a name="typescript-and-coffeescript-support"></a>Ondersteuning voor typeScript en CoffeeScript
 Omdat direct-ondersteuning nog niet voor het compileren van automatische TypeScript of CoffeeScript via de runtime bestaat, moet deze ondersteuning buiten de runtime worden verwerkt tijdens de implementatie. 
+
+### <a name="cold-start"></a>Koude Start
+Bij het ontwikkelen van Azure Functions in de serverloze hostingmodel, koude start worden realiteit. 'Koude start' verwijst naar het feit dat wanneer uw functie-App wordt gestart voor het eerst na een periode van inactiviteit, duurt het langer om opnieuw te starten. Voor JavaScript-functies met grote afhankelijkheidsstructuren in het bijzonder, kan dit leiden tot belangrijke vertraging. Als u wilt het proces, indien mogelijk, aanvankelijke [uw functies worden uitgevoerd als een pakketbestand](run-functions-from-deployment-package.md). Veel implementatiemethoden kiezen voor dit model standaard, maar als u grote koude starts ondervindt en niet worden uitgevoerd vanuit een pakketbestand, kan dit een enorme verbetering.
 
 ## <a name="next-steps"></a>Volgende stappen
 Zie de volgende bronnen voor meer informatie:

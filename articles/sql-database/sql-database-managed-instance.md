@@ -9,14 +9,14 @@ ms.service: sql-database
 ms.subservice: managed-instance
 ms.custom: DBs & servers
 ms.topic: conceptual
-ms.date: 09/11/2018
+ms.date: 09/14/2018
 ms.author: bonova
-ms.openlocfilehash: 7a2b98f0a78c82b65d7d29181a048ab59f237107
-ms.sourcegitcommit: 794bfae2ae34263772d1f214a5a62ac29dcec3d2
+ms.openlocfilehash: 113f171f5ad4bcc8ee9abc2935a9741f7c23c3b0
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44391926"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45734215"
 ---
 # <a name="what-is-a-managed-instance-preview"></a>Wat is een Managed Instance (preview)?
 
@@ -61,7 +61,7 @@ De volgende tabel vindt u informatie over de optimale configuratie van uw Reken-
 ||Gen 4|Gen 5|
 |----|------|-----|
 |Hardware|Intel E5-2673 v3 (Haswell) processors van 2,4 GHz, gekoppeld SSD vCore = 1 PP (fysieke kernen)|Intel E5-2673 v4 (Broadwell) processors van 2,3 GHz, snelle eNVM SSD, vCore = 1 LP (hyper-thread)|
-|Prestatieniveaus|8, 16, 24 vCores|8, 16, 24 uur per dag, 32, 40, 64, 80 vCores|
+|COMPUTE-grootten|8, 16, 24 vCores|8, 16, 24 uur per dag, 32, 40, 64, 80 vCores|
 |Geheugen|7 GB per vCore|5.5 GB per vCore|
 ||||
 

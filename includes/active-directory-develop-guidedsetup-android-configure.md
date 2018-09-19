@@ -1,28 +1,49 @@
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: f0e584a4a4a54fc04b5539b56d5c901bfaa42bcc
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293758"
+---
 ## <a name="register-your-application"></a>Uw toepassing registreren
-U kunt uw toepassing op twee manieren registreren, zoals beschreven in de volgende twee secties.
+U kunt uw toepassing registreren op twee manieren, zoals beschreven in de volgende twee secties.
 
-### <a name="option-1-express-mode"></a>Optie 1: Snelle modus
-U kunt snel uw toepassing registreren als volgt:
-1. Ga naar de [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
-2.  In de **toepassingsnaam** Voer een naam voor uw toepassing.
+### <a name="option-1-express"></a>Optie 1: Express
+1. Ga naar de [Microsoft Portal voor Appregistratie](https://apps.dev.microsoft.com/portal/register-app?appType=mobileAndDesktopApp&appTech=android&step=configure).
+2.  In **toepassingsnaam**, voer een naam in voor uw toepassing.
 
-3. Zorg ervoor dat de **Begeleide instelprocedure** selectievakje is geselecteerd en selecteer vervolgens **maken**.
+3. Zorg ervoor dat de **begeleide installatie** selectievakje is geselecteerd en selecteer vervolgens **maken**.
 
 4. Volg de instructies voor het verkrijgen van de toepassings-ID en plak deze in uw code.
 
-### <a name="option-2-advanced-mode"></a>Optie 2: Geavanceerde modus
-Uw toepassing registreren en de registratiegegevens van uw toepassing toevoegen aan uw oplossing, kunt u het volgende:
-1. Als u al uw toepassing nog niet hebt geregistreerd, gaat u naar de [Portal voor registratie van Microsoft-toepassing](https://apps.dev.microsoft.com/portal/register-app).
-2. In de **toepassingsnaam** Voer een naam voor uw toepassing. 
+### <a name="option-2-advanced"></a>Optie 2: geavanceerde 
+1. Ga naar de [Microsoft Portal voor Appregistratie](https://apps.dev.microsoft.com/portal/register-app).
+2. In de **toepassingsnaam** voert u een naam voor uw toepassing. 
 
-3. Zorg ervoor dat de **Begeleide instelprocedure** selectievakje is uitgeschakeld en selecteer vervolgens **maken**.
+3. Zorg ervoor dat de **begeleide installatie** selectievakje is uitgeschakeld, en selecteer vervolgens **maken**.
 
-4. Selecteer **toevoegen Platform**, selecteer **systeemeigen toepassing**, en selecteer vervolgens **opslaan**.
+4. Selecteer **Platform toevoegen**, selecteer **systeemeigen toepassing**, en selecteer vervolgens **opslaan**.
 
 5. Onder **app** > **java** > **{host}. { naamruimte}** Open `MainActivity`. 
 
-6.  Vervang *[Voer de toepassing Id hier]* in de volgende regel met de toepassings-ID die u zojuist hebt geregistreerd:
+6.  Vervang *[Voer hier de toepassings-Id]* met uw toepassing / Client-ID:
 
     ```java
     final static String CLIENT_ID = "[Enter the application Id here]";
@@ -30,7 +51,7 @@ Uw toepassing registreren en de registratiegegevens van uw toepassing toevoegen 
 <!-- Workaround for Docs conversion bug -->
 7. Onder **app** > **manifesten**, open de *AndroidManifest.xml* bestand.
 
-8. In de `manifest\application` knooppunt, de volgende activiteit toevoegen. In dat geval registers doet een `BrowserTabActivity` activiteit waarmee het besturingssysteem op uw toepassing hervatten nadat de verificatie is voltooid:
+8. In de `manifest\application`, voeg de volgende activiteit. De `BrowserTabActivity` activiteit waarmee Microsoft om aan te roepen terug naar uw toepassing nadat deze de verificatie is voltooid:
 
     ```xml
     <!--Intent filter to capture System Browser calling back to our app after sign-in-->
@@ -49,4 +70,4 @@ Uw toepassing registreren en de registratiegegevens van uw toepassing toevoegen 
     </activity>
     ```
 <!-- Workaround for Docs conversion bug -->
-9. In de `BrowserTabActivity` knooppunt vervangen `[Enter the application Id here]` met de toepassings-ID.
+9. In de `BrowserTabActivity`, Vervang `[Enter the application Id here]` met de toepassing / Client-ID.

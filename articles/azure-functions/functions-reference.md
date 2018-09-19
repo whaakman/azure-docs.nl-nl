@@ -12,12 +12,12 @@ ms.devlang: multiple
 ms.topic: reference
 ms.date: 10/12/2017
 ms.author: glenga
-ms.openlocfilehash: d2b05c83f77a58e224760d90d111b270d71a6514
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: d97766b0a8c0df3b414d78f563406530f67c313b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092424"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125368"
 ---
 # <a name="azure-functions-developers-guide"></a>Azure Functions-handleiding voor ontwikkelaars
 In Azure Functions delen specifieke functies een paar core technische concepten en -onderdelen, ongeacht de taal of binding die u gebruikt. Voordat u verder met het leren werken met gegevens die specifiek zijn voor een bepaalde taal of binding, moet u lezen in dit overzicht wordt gegeven die van toepassing op alle hiervan.
@@ -62,15 +62,13 @@ De runtime of scripthost, is de onderliggende host voor de WebJobs SDK die luist
 
 Om te kunnen HTTP-triggers, is er ook een webhost die is ontworpen om te blijven in het zicht van de scripthost in productiescenario's. Twee hosts die beëindigen helpt om te isoleren van de scripthost uit het voorste deel verkeer die worden beheerd door de web-host.
 
-## <a name="folder-structure"></a>Mapstructuur
+## <a name="folder-structure"></a>mapstructuur
 [!INCLUDE [functions-folder-structure](../../includes/functions-folder-structure.md)]
 
-Bij het instellen van een project voor het implementeren van functies aan een functie-app in Azure App Service, kunt u deze mapstructuur behandelen als de code van uw site. Kunt u bestaande hulpprogramma's, zoals continue integratie en implementatie, of aangepaste implementatie scripts voor installatie van het pakket tijd implementeren of transpilation code.
+Bij het instellen van een project voor het implementeren van functies aan een functie-app in Azure, kunt u deze mapstructuur behandelen als de code van uw site. Wordt u aangeraden [pakket implementatie](deployment-zip-push.md) aan uw project implementeren in uw functie-app in Azure. U kunt ook bestaande hulpprogramma's zoals [continue integratie en implementatie](functions-continuous-deployment.md) en Azure DevOps.
 
 > [!NOTE]
-> Zorg ervoor dat u implementeert uw `host.json` bestanden en mappen rechtstreeks naar werken de `wwwroot` map. Neem niet de `wwwroot` map in uw implementaties. Anders krijgt u uiteindelijk met `wwwroot\wwwroot` mappen. 
-> 
-> 
+> Zorg ervoor dat u implementeert uw `host.json` bestanden en mappen rechtstreeks naar werken de `wwwroot` map. Neem niet de `wwwroot` map in uw implementaties. Anders krijgt u uiteindelijk met `wwwroot\wwwroot` mappen.
 
 ## <a id="fileupdate"></a> Het bijwerken van de functie app-bestanden
 De functie-editor die is ingebouwd in de Azure-portal kunt u werken de *function.json* bestand en het codebestand voor een functie. Uploaden of andere updatebestanden zoals *package.json* of *project.json* of afhankelijkheden, die u moet gebruiken van andere methoden voor het implementeren.

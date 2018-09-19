@@ -1,25 +1,27 @@
 ---
-title: Semantische interpretatie in kennis exploratie Service API | Microsoft Docs
-description: Informatie over het semantische interpretatie in het Knowledge exploratie Service (KES) API in cognitieve Services gebruiken.
+title: Semantische interpretatie - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Informatie over het gebruik van semantische interpretatie in de Knowledge Exploration Service KES () API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 022188464eb7269b69f96a058b444167b587387c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 5fcc7b760b5445e57b41787d8818ef11ed926e6c
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344550"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129349"
 ---
 # <a name="semantic-interpretation"></a>Semantische interpretatie
-Semantische uitvoer koppelt semantische interpretatie aan elk geïnterpreteerde pad via de grammatica.  In het bijzonder de service beoordeelt wat de volgorde van de instructies in de `tag` elementen doorkruist door de interpretatie berekenen van de uiteindelijke uitvoer.  
 
-Een instructie is mogelijk een toewijzing van een letterlijke waarde of een variabele aan een andere variabele.  Het kan ook de uitvoer van een functie met 0 of meer parameters toewijzen aan een variabele.  Elke parameter van de functie kan worden opgegeven met een letterlijke waarde of een variabele.  Als de functie geen uitvoer retourneert, wordt de toewijzing weggelaten.
+Semantische interpretatie koppelt semantische uitvoer aan elk geïnterpreteerde pad via de grammatica.  In het bijzonder de service beoordeelt wat de volgorde van de instructies in de `tag` elementen door de interpretatie voor het berekenen van de uiteindelijke uitvoer doorlopen.  
+
+Een instructie is mogelijk een toewijzing van een letterlijke tekenreeks of een variabele naar een andere variabele.  Het kan ook de uitvoer van een functie met een 0 of meer parameters toewijzen aan een variabele.  Elke parameter van de functie kan worden opgegeven met een letterlijke tekenreeks of een variabele.  Als de functie geen uitvoer retourneert, wordt de toewijzing wordt weggelaten.
 
 ```xml
 <tag>x = 1; y = x;</tag>
@@ -27,40 +29,43 @@ Een instructie is mogelijk een toewijzing van een letterlijke waarde of een vari
 <tag>AssertEquals(x, 1);</tag>
 ```
 
-Een variabele wordt opgegeven met een naam-id die begint met een letter en bestaat alleen uit letters (A-Z), cijfers (0-9) en het onderstrepingsteken (\_).  Het type impliciet is afgeleid van de letterlijke waarde of -functie uitvoer waarde toegewezen. 
+Een variabele is opgegeven met behulp van een naam-id die begint met een letter en bestaat alleen uit letters (A-Z), cijfers (0-9) en het onderstrepingsteken (\_).  Het type is impliciet afgeleid van de letterlijke waarde of functie waarde is toegewezen aan deze uitvoer. 
 
-Hieronder volgt een lijst van ondersteunde gegevenstypen:
+Hieronder volgt een lijst met ondersteunde gegevenstypen:
 
 |Type|Beschrijving|Voorbeelden|
 |----|----|----|
-|Reeks|Reeks 0 of meer tekens bevatten|"Hello World!"<br/>""|
+|Reeks|Volgorde van 0 of meer tekens|"Hallo wereld!"<br/>""|
 |BOOL|Booleaanse waarde|true<br/>false|
-|Int32|32-bits geheel getal met teken.  -2.1e9-2.1e9|123<br/>-321|
-|Int64|64-bits geheel getal met teken. -9.2e18 en 9.2e18|9876543210|
-|Double|Dubbele precisie met drijvende komma. 1.7E +/-308 (15 cijfers)|123.456789<br/>1.23456789e2|
-|GUID|Globaal unieke id|'602DD052-CC47-4B23-A16A-26B52D30C05B'|
-|Query’s uitvoeren|Query-expressie waarmee een subset van gegevensobjecten in de index|All()<br/>En (*W1*, *k2*)|
+|Int32|32-bits ondertekende integer.  -2.1e9-2.1e9|123<br/>-321|
+|Int64|64-bits ondertekende integer. -9.2e18 en 9.2e18|9876543210|
+|Double-waarde|Dubbele precisie met drijvende komma. 1.7E +/-308 (15 cijfers)|123.456789<br/>1.23456789e2|
+|GUID|Unieke id|"602DD052-CC47-4B23-A16A-26B52D30C05B"|
+|Query’s uitvoeren|Query-expressie waarmee een subset van objecten in de index|All()<br/>En (*q1*, *q2*)|
 
-<a name="semantic-functions"></a>
 ## <a name="semantic-functions"></a>Semantische functies
-Er is een ingebouwde verzameling semantische functies.  Ze kunnen de constructie van geavanceerde query's en contextafhankelijke controle bieden over interpretatie voor de grammatica.
 
-### <a name="and-function"></a>En de functie
+Er is een ingebouwde set semantische functies.  Ze staan de constructie van geavanceerde query's en contextafhankelijk controle bieden over een perfecte ervaring bij grammatica.
+
+### <a name="and-function"></a>And -functie
+
 `query = And(query1, query2);`
 
-Retourneert een query bestaat uit het snijpunt van twee invoer query's.
+Retourneert een query die is samengesteld uit het snijpunt van de twee ingevoerde query's.
 
-### <a name="or-function"></a>Of functie
+### <a name="or-function"></a>Anders werkt
+
 `query = Or(query1, query2);`
 
-Retourneert een query bestaat uit de samenvoeging van twee invoer query's.
+Retourneert een query die is samengesteld uit de vereniging van de twee ingevoerde query's.
 
 ### <a name="all-function"></a>Alle functie
+
 `query = All();`
 
-Retourneert een query die alle gegevensobjecten bevat.
+Retourneert een query uitvoert met alle objecten voor gegevens.
 
-In het volgende voorbeeld gebruiken we de functie All() iteratief bouwen van een query op basis van het snijpunt van 1 of meer trefwoorden.
+In het volgende voorbeeld gebruiken we de functie All() iteratief bouwen van een query die is gebaseerd op het snijpunt van 1 of meer trefwoorden.
 
 ```
 <tag>query = All();</tag>
@@ -70,10 +75,11 @@ In het volgende voorbeeld gebruiken we de functie All() iteratief bouwen van een
 </item>
 ```
 
-### <a name="none-function"></a>Geen werken
+### <a name="none-function"></a>Geen functie
+
 `query = None();`
 
-Retourneert een query die geen gegevensobjecten bevat.
+Retourneert een query die geen objecten bevat.
 
 In het volgende voorbeeld gebruiken we de functie None() iteratief bouwen van een query op basis van de samenvoeging van 1 of meer trefwoorden.
 
@@ -85,15 +91,16 @@ In het volgende voorbeeld gebruiken we de functie None() iteratief bouwen van ee
 </item>
 ```
 
-### <a name="query-function"></a>Queryfunctie
+### <a name="query-function"></a>Functie voor query
+
 ```
 query = Query(attrName, value)
 query = Query(attrName, value, op)
 ```
 
-Retourneert een query die alleen gegevensobjecten bevat waarvan het kenmerk *attrName* overeenkomt met de waarde *waarde* volgens de opgegeven bewerking *op*, die standaard ingesteld op 'eq'.  Normaal gesproken gebruikt een `attrref` element voor het maken van een query op basis van de overeenkomende invoer voor de query-tekenreeks.  Als een waarde is opgegeven of andere wijze worden verkregen, kan de functie Query() kan worden gebruikt voor het maken van een query die overeenkomt met deze waarde.
+Retourneert een query die alleen objecten bevat waarvan het kenmerk *attrName* komt overeen met de waarde *waarde* op basis van de opgegeven bewerking *op*, die standaard ingesteld op 'eq'.  Meestal gebruikt een `attrref` element te maken van een query op basis van de overeenkomende invoer voor de query-tekenreeks.  Als een waarde wordt opgegeven of via andere middelen verkregen, kan de functie Query() kan worden gebruikt om een query die overeenkomt met deze waarde te maken.
 
-In het volgende voorbeeld gebruiken we de Query()-functie voor het implementeren van ondersteuning voor het opgeven van academic publicaties vanuit een bepaalde tien jaar.
+In het volgende voorbeeld gebruiken we de functie Query() voor het implementeren van ondersteuning voor het opgeven van academische publicaties vanaf een bepaalde decennium.
 
 ```xml
 written in the 90s
@@ -104,53 +111,57 @@ written in the 90s
 </tag>
 ```
 
-<a name="composite-function"/>
 ### <a name="composite-function"></a>Samengestelde functie
+
 `query = Composite(innerQuery);`
 
-Retourneert een query die ingekapseld een *innerQuery* bestaat uit overeenkomsten met onderliggende kenmerken van een gemeenschappelijk samengestelde kenmerk *kenmerk*.  De inkapseling moet het samengestelde kenmerk *%{attr/* van alle overeenkomende gegevensobject hebben van ten minste één waarde die afzonderlijk voldoet aan de *innerQuery*.  Houd er rekening mee dat er een query op onderliggende kenmerken van een samengesteld kenmerk heeft te integreren met behulp van de functie Composite() voordat deze kan worden gecombineerd met andere query's.
+Retourneert een query die wordt ingekapseld een *innerQuery* bestaat van overeenkomsten op basis van onderliggende kenmerken van een gemeenschappelijk samengestelde kenmerk *%{attr/*.  De inkapseling moet het samengestelde kenmerk *%{attr/* van een overeenkomende gegevensobject dat ten minste één waarde die afzonderlijk voldoet aan de *innerQuery*.  Houd er rekening mee dat een query op onderliggende kenmerken van een samengestelde kenmerk heeft te integreren met behulp van de functie Composite() voordat deze kan worden gecombineerd met andere query's.
 
-Bijvoorbeeld retourneert de volgende query academic publicaties door 'harry shum' terwijl hij op 'microsoft':
+De volgende query retourneert bijvoorbeeld academische publicaties door "harry shum" terwijl hij op 'microsoft is':
 ```
 Composite(And(Query("academic#Author.Name", "harry shum"), 
               Query("academic#Author.Affiliation", "microsoft")));
 ```
 
-De volgende query retourneert aan de andere kant academic publicaties waarin een van de auteurs is 'harry shum' en een van de verwantschappen 'microsoft':
+De volgende query retourneert aan de andere kant academische publicaties daar een van de auteurs "harry shum' en een van de lidmaatschappen is 'microsoft':
 ```
 And(Composite(Query("academic#Author.Name", "harry shum"), 
     Composite(Query("academic#Author.Affiliation", "microsoft")));
 ```
 
 ### <a name="getvariable-function"></a>De functie GetVariable
+
 `value = GetVariable(name, scope);`
 
-Retourneert de waarde van variabele *naam* gedefinieerd onder de opgegeven *bereik*.  *naam* is een id die begint met een letter en bestaat alleen uit letters (A-Z), cijfers (0-9) en het onderstrepingsteken (_).  *bereik* kan worden ingesteld op 'aanvraag' of 'systeem'.  Houd er rekening mee dat variabelen gedefinieerd onder verschillende bereiken van elkaar verschillen zijn, inclusief gedefinieerd via de uitvoer van de semantische functies.
+Retourneert de waarde van variabele *naam* gedefinieerd onder het opgegeven *bereik*.  *naam* is een id die begint met een letter en bestaat alleen uit letters (A-Z), cijfers (0-9) en het onderstrepingsteken (_).  *bereik* kan worden ingesteld op 'aanvragen' of 'systeem'.  Houd er rekening mee dat variabelen die zijn gedefinieerd onder verschillende bereiken, verschilt van elkaar worden verbonden, inclusief resources via de uitvoer van semantische functies gedefinieerd.
 
-Aanvraag bereik variabelen worden gedeeld door alle interpretaties binnen de huidige interpret-aanvraag.  Ze kunnen worden gebruikt voor het zoeken naar interpretatie voor de controle over de grammatica.
+Aanvraag bereik variabelen zijn verdeeld over alle interpretaties binnen de huidige interpreteren-aanvraag.  Ze kunnen worden gebruikt voor het beheren van de zoekopdracht voor een perfecte ervaring bij via de grammatica.
 
-Systeemvariabelen zijn vooraf gedefinieerd door de service en kunnen worden gebruikt voor het ophalen van verschillende statistische gegevens over de huidige status van het systeem.  Hieronder volgt de reeks momenteel ondersteunde systeemvariabelen:
+Systeemvariabelen zijn vooraf gedefinieerd door de service en kunnen worden gebruikt om op te halen van verschillende statistische gegevens over de huidige status van het systeem.  Hieronder volgt de set met ondersteunde systeemvariabelen:
 
 |Naam|Type|Beschrijving|
 |----|----|----|
-|IsAtEndOfQuery|BOOL|waar als de huidige interpretatie heeft komt overeen met alle tekst in de invoer voor de query|
-|IsBeyondEndOfQuery|BOOL|waar als de huidige interpretatie voltooiingen afgezien van de tekst van de invoer voor de query heeft voorgesteld|
+|IsAtEndOfQuery|BOOL|True als de huidige interpretatie heeft overeenkomende alle invoer voor de query-tekst|
+|IsBeyondEndOfQuery|BOOL|True als de huidige interpretatie voltooiingen buiten de tekst van de invoer voor de query is voorgesteld|
 
 ### <a name="setvariable-function"></a>De functie SetVariable
+
 `SetVariable(name, value, scope);`
 
-Wijst *waarde* aan de variabele *naam* onder het opgegeven *bereik*.  *naam* is een id die begint met een letter en bestaat alleen uit letters (A-Z), cijfers (0-9) en het onderstrepingsteken (_).  Op dit moment de enige geldige waarde voor *bereik* is 'vragen'.  Er zijn geen variabelen worden ingesteld.
+Toegewezen *waarde* aan variabele *naam* onder de opgegeven *bereik*.  *naam* is een id die begint met een letter en bestaat alleen uit letters (A-Z), cijfers (0-9) en het onderstrepingsteken (_).  Op dit moment de enige geldige waarde voor *bereik* is 'aanvragen'.  Er zijn geen instelbare systeemvariabelen.
 
-Aanvraag bereik variabelen worden gedeeld door alle interpretaties binnen de huidige interpret-aanvraag.  Ze kunnen worden gebruikt voor het zoeken naar interpretatie voor de controle over de grammatica.
+Aanvraag bereik variabelen zijn verdeeld over alle interpretaties binnen de huidige interpreteren-aanvraag.  Ze kunnen worden gebruikt voor het beheren van de zoekopdracht voor een perfecte ervaring bij via de grammatica.
 
 ### <a name="assertequals-function"></a>De functie AssertEquals
+
 `AssertEquals(value1, value2);`
 
-Als *value1* en *value2* zijn gelijkwaardig, is de functie kan worden uitgevoerd en heeft geen bijwerkingen.  Anders wordt de functie mislukt en wordt de interpretatie geweigerd.
+Als *value1* en *value2* equivalent, de functie is voltooid en heeft geen bijwerkingen zijn.  Anders de functie mislukt en de interpretatie worden geweigerd.
 
 ### <a name="assertnotequals-function"></a>De functie AssertNotEquals
+
 `AssertNotEquals(value1, value2);`
 
-Als *value1* en *value2* niet equivalent zijn, de functie kan worden uitgevoerd en heeft geen bijwerkingen zijn.  Anders wordt de functie mislukt en wordt de interpretatie geweigerd.
+Als *value1* en *value2* zijn geen equivalent, de functie is voltooid en heeft geen bijwerkingen.  Anders de functie mislukt en de interpretatie worden geweigerd.
 
 

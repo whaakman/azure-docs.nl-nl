@@ -1,20 +1,21 @@
 ---
 title: Landen, regio's en talen die worden ondersteund door de Bing webzoekopdrachten-API
+titleSuffix: Azure Cognitive Services
 description: Ontdek welke landen/regio's en talen worden ondersteund door de Bing webzoekopdrachten-API.
 services: cognitive-services
 author: v-jerkin
-manager: jhubbard
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-web-search
 ms.topic: article
 ms.date: 8/16/2018
 ms.author: erhopf
-ms.openlocfilehash: 87384a8aeabfe0c4a178344235debcc586cdf3de
-ms.sourcegitcommit: f1e6e61807634bce56a64c00447bf819438db1b8
+ms.openlocfilehash: b954814d1c26e8afd24e0bb13e74c493f0fd2c55
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/24/2018
-ms.locfileid: "42888468"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125116"
 ---
 # <a name="countries-regions-and-languages-supported-by-the-bing-web-search-api"></a>Landen, regio's en talen die worden ondersteund door de Bing webzoekopdrachten-API
 
@@ -44,7 +45,7 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Indonesië|Id|
 |Italië|IT|
 |Japan|JP|
-|Zuid-Korea|KR|
+|Korea|KR|
 |Maleisië|MIJN|
 |Mexico|MX|
 |Nederland|NL|
@@ -55,7 +56,7 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Portugal|PT|
 |Filippijnen|PH|
 |Rusland|RU|
-|Saudi-Arabië|SA|
+|Saoedi-Arabië|SA|
 |Zuid-Afrika|ZA|
 |Spanje|ES|
 |Zweden|TWEEDE EDITIE|
@@ -70,12 +71,12 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Land/regio|Taal|Code van de markt|
 |-------|--------|-----------|
 |Argentinië|Spaans|ES-AR|
-|Australië|Engels|en-AU|
+|Australië|Nederlands|en-AU|
 |Oostenrijk|Duits|de-AT|
 |België|Nederlands|NL-worden|
 |België|Frans|FR-worden|
 |Brazilië|Portugees|pt-BR|
-|Canada|Engels|NL-CA|
+|Canada|Nederlands|NL-CA|
 |Canada|Frans|fr-CA|
 |Chili|Spaans|ES-CL|
 |Denemarken|Deens|da-DK|
@@ -83,29 +84,29 @@ U kunt ook opgeven de markt op met de `mkt` queryparameter, en een code van de *
 |Frankrijk|Frans|fr-FR|
 |Duitsland|Duits|de-DE|
 |Hongkong|Traditioneel Chinees|zh-HK|
-|India|Engels|NL-IN|
-|Indonesië|Engels|NL-ID|
+|India|Nederlands|NL-IN|
+|Indonesië|Nederlands|NL-ID|
 |Italië|Italiaans|IT-IT|
 |Japan|Japans|ja-JP|
-|Zuid-Korea|Koreaans|ko-KR|
-|Maleisië|Engels|en Mijn|
+|Korea|Koreaans|ko-KR|
+|Maleisië|Nederlands|en Mijn|
 |Mexico|Spaans|es-MX|
 |Nederland|Nederlands|NL-NL|
-|Nieuw-Zeeland|Engels|NL-NZ|
+|Nieuw-Zeeland|Nederlands|NL-NZ|
 |Noorwegen|Noors|uit den boze|
 |China|Chinees|zh-CN|
 |Polen|Pools|pl-PL|
 |Portugal|Portugees|pt-PT|
-|Filippijnen|Engels|NL-PH|
+|Filippijnen|Nederlands|NL-PH|
 |Rusland|Russisch|ru-RU|
-|Saudi-Arabië|Arabisch|ar-SA|
-|Zuid-Afrika|Engels|NL-ZA|
+|Saoedi-Arabië|Arabisch|ar-SA|
+|Zuid-Afrika|Nederlands|NL-ZA|
 |Spanje|Spaans|es-ES|
 |Zweden|Zweeds|SV-SE|
 |Zwitserland|Frans|FR-h|
 |Zwitserland|Duits|de CH|
 |Taiwan|Traditioneel Chinees|zh-TW|
 |Turkije|Turks|tr-TR|
-|Verenigd Koninkrijk|Engels|en-GB|
-|Verenigde Staten|Engels|nl-NL|
+|Verenigd Koninkrijk|Nederlands|en-GB|
+|Verenigde Staten|Nederlands|nl-NL|
 |Verenigde Staten|Spaans|ES-US|

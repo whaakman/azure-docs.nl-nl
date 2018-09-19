@@ -1,246 +1,258 @@
+items:
 - name: Overzicht
   items:
-    - name: Inleiding
-      href: storage-files-introduction.md
-    - name: 'Kies blobs, bestanden of gegevensschijven'
-      href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Veelgestelde vragen
-      href: storage-files-faq.md
+  - name: Inleiding
+    href: storage-files-introduction.md
+  - name: Kies blobs, bestanden of gegevensschijven
+    href: ../common/storage-decide-blobs-files-disks.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Veelgestelde vragen
+    href: storage-files-faq.md
 - name: Aan de slag
   items:
-    - name: Create a storage account
-      href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Een bestandsshare maken
-      href: storage-how-to-create-file-share.md
-    - name: Koppelen in Windows
-      href: storage-how-to-use-files-windows.md
-    - name: Koppelen in Linux
-      href: storage-how-to-use-files-linux.md
-    - name: Koppelen in MacOS
-      href: storage-how-to-use-files-mac.md
-    - name: Beheren met Azure Portal
-      href: storage-how-to-use-files-portal.md
-    - name: Beheren met PowerShell
-      href: storage-how-to-use-files-powershell.md
-    - name: Beheren met de Azure CLI
-      href: storage-how-to-use-files-cli.md
-    - name: Beheren met Storage Explorer
-      href: storage-how-to-use-files-storage-explorer.md
+  - name: Create a storage account
+    href: ../common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Een bestandsshare maken
+    href: storage-how-to-create-file-share.md
+  - name: Koppelen in Windows
+    href: storage-how-to-use-files-windows.md
+  - name: Koppelen in Linux
+    href: storage-how-to-use-files-linux.md
+  - name: Koppelen in MacOS
+    href: storage-how-to-use-files-mac.md
+  - name: Beheren met Azure Portal
+    href: storage-how-to-use-files-portal.md
+  - name: Beheren met PowerShell
+    href: storage-how-to-use-files-powershell.md
+  - name: Beheren met de Azure CLI
+    href: storage-how-to-use-files-cli.md
+  - name: Beheren met Storage Explorer
+    href: storage-how-to-use-files-storage-explorer.md
 - name: Procedures
   items:
-    - name: Plannen
+  - name: Plannen
+    items:
+    - name: Planning voor de implementatie van Azure Files
+      href: storage-files-planning.md
+    - name: Planning voor de implementatie van Azure Files Sync
+      href: storage-sync-files-planning.md
+    - name: Informatie over opslagaccounts
+      href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       items:
-        - name: Planning voor de implementatie van Azure Files
-          href: storage-files-planning.md
-        - name: Planning voor de implementatie van Azure Files Sync
-          href: storage-sync-files-planning.md
-        - name: Informatie over opslagaccounts
-          href: ../common/storage-account-options.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Informatie over momentopnamen van bestandsshares
-          href: storage-snapshots-files.md
-        - name: De gegevensredundantie
-          items:
-            - name: Redundantieoverzicht
-              href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Lokaal redundante opslag
-              href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Zoneredundante opslag
-              href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Geografisch redundante opslag
-              href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Schaalbaarheids- en prestatiedoelen
-          href: storage-files-scale-targets.md
-        - name: Richtlijnen voor herstel na noodgevallen
-          href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Releaseopmerkingen Azure File Sync
-          href: storage-files-release-notes.md
-    - name: Implementeren
+      - name: Een opslagaccount beheren
+        href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Een opslagaccount upgraden
+        href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Informatie over momentopnamen van bestandsshares
+      href: storage-snapshots-files.md
+    - name: De gegevensredundantie
       items:
-        - name: Azure Files implementeren
-          href: storage-files-deployment-guide.md
-        - name: Azure Files Sync implementeren
-          href: storage-sync-files-deployment-guide.md
-        - name: Proxy- en firewallinstellingen van Azure File Sync
-          href: storage-sync-files-firewall-and-proxy.md
-    - name: Beheren
-      items:
-        - name: Een server registreren bij Azure Files Sync
-          href: storage-sync-files-server-registration.md
-        - name: Een Azure Files Sync-servereindpunt toevoegen
-          href: storage-sync-files-server-endpoint.md
-        - name: 'PowerShell voor Chinese, Duitse en overheids-clouds'
-          href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Azure Automation
-          href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Ontwikkelen
-      items:
-        - name: Gelijktijdigheid beheren
-          href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: .NET
-          href: storage-dotnet-how-to-use-files.md
-        - name: Java
-          href: storage-java-how-to-use-file-storage.md
-        - name: C++
-          href: storage-c-plus-plus-how-to-use-files.md
-        - name: Python
-          href: storage-python-how-to-use-file-storage.md
-        - name: Voorbeelden
-          items:
-            - name: .NET
-              href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-            - name: Java
-              href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Verbindingsreeksen configureren
-          href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Beveiligen
-      items:
-        - name: Beveiligingshandleiding
-          href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Firewalls en virtuele netwerken configureren
-          href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Versleuteling van data-at-rest
-          href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Veilige overdracht vereisen
-          href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Gedeelde sleutelverificatie
-          href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
-        - name: Shared Access Signatures (SAS)
-          href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Beveiligde TLS voor Azure Storage-client inschakelen
-          href: ../common/storage-security-tls.md
-        - name: Nalevingsaanbiedingen
-          href: ../common/storage-compliance-offerings.md
-    - name: Controleren en problemen oplossen
-      items:
-        - name: Problemen met Azure Files-verbindingen oplossen - Windows
-          href: storage-troubleshoot-windows-file-connection-problems.md
-        - name: Problemen met Azure Files-verbindingen oplossen - Linux
-          href: storage-troubleshoot-linux-file-connection-problems.md
-        - name: Problemen met Azure Files Sync oplossen
-          href: storage-sync-files-troubleshoot.md
-        - name: Zelfstudie voor problemen oplossen
-          href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: 'Controleren, problemen vaststellen en problemen oplossen'
-          href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Metrische gegevens en logboekregistratie
-          items:
-            - name: Metrische gegevens in Azure Monitor
-              href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Migreren naar nieuwe metrische gegevens
-              href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Storage Analytics
-              href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-            - name: Meetwaarden inschakelen en weergeven (klassiek)
-              href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
-    - name: Gegevens overdragen
-      items:
-        - name: Gegevens verplaatsen van en naar opslag
-          href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: AzCopy in Windows
-          href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: AzCopy in Linux
-          href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Redundantieoverzicht
+        href: ../common/storage-redundancy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Lokaal redundante opslag
+        href: ../common/storage-redundancy-lrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Zoneredundante opslag
+        href: ../common/storage-redundancy-zrs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Geografisch redundante opslag
+        href: ../common/storage-redundancy-grs.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Schaalbaarheids- en prestatiedoelen
+      href: storage-files-scale-targets.md
+    - name: Richtlijnen voor herstel na noodgevallen
+      href: ../common/storage-disaster-recovery-guidance.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Releaseopmerkingen Azure File Sync
+      href: storage-files-release-notes.md
+  - name: Implementeren
+    items:
+    - name: Azure Files implementeren
+      href: storage-files-deployment-guide.md
+    - name: Azure Files Sync implementeren
+      href: storage-sync-files-deployment-guide.md
+    - name: Proxy- en firewallinstellingen van Azure File Sync
+      href: storage-sync-files-firewall-and-proxy.md
+  - name: Beheren
+    items:
+    - name: Een server registreren bij Azure Files Sync
+      href: storage-sync-files-server-registration.md
+    - name: Een Azure Files Sync-servereindpunt toevoegen
+      href: storage-sync-files-server-endpoint.md
+    - name: PowerShell voor Chinese, Duitse en overheids-clouds
+      href: ../common/storage-powershell-independent-clouds.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Azure Automation
+      href: ../common/storage-manage-with-automation.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Ontwikkelen
+    items:
+    - name: Gelijktijdigheid beheren
+      href: ../common/storage-concurrency.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: .NET
+      href: storage-dotnet-how-to-use-files.md
+    - name: Java
+      href: storage-java-how-to-use-file-storage.md
+    - name: C++
+      href: storage-c-plus-plus-how-to-use-files.md
+    - name: Python
+      href: storage-python-how-to-use-file-storage.md
     - name: Voorbeelden
-      href: 'https://azure.microsoft.com/documentation/samples/?service=storage&term=file'
+      items:
+      - name: .NET
+        href: ../common/storage-samples-dotnet.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Java
+        href: ../common/storage-samples-java.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Verbindingsreeksen configureren
+      href: ../common/storage-configure-connection-string.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Beveiligen
+    items:
+    - name: Beveiligingshandleiding
+      href: ../common/storage-security-guide.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Firewalls en virtuele netwerken configureren
+      href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Versleuteling van data-at-rest
+      href: ../common/storage-service-encryption.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Veilige overdracht vereisen
+      href: ../common/storage-require-secure-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Gedeelde sleutelverificatie
+      href: /rest/api/storageservices/Authorization-for-the-Azure-Storage-Services
+    - name: Shared Access Signatures (SAS)
+      href: ../common/storage-dotnet-shared-access-signature-part-1.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Beveiligde TLS voor Azure Storage-client inschakelen
+      href: ../common/storage-security-tls.md
+    - name: Nalevingsaanbiedingen
+      href: ../common/storage-compliance-offerings.md
+  - name: Controleren en problemen oplossen
+    items:
+    - name: Problemen met Azure Files-verbindingen oplossen - Windows
+      href: storage-troubleshoot-windows-file-connection-problems.md
+    - name: Problemen met Azure Files-verbindingen oplossen - Linux
+      href: storage-troubleshoot-linux-file-connection-problems.md
+    - name: Problemen met Azure Files Sync oplossen
+      href: storage-sync-files-troubleshoot.md
+    - name: Zelfstudie voor problemen oplossen
+      href: ../common/storage-e2e-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Controleren, problemen vaststellen en problemen oplossen
+      href: ../common/storage-monitoring-diagnosing-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Metrische gegevens en logboekregistratie
+      items:
+      - name: Metrische gegevens in Azure Monitor
+        href: ../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Migreren naar nieuwe metrische gegevens
+        href: ../common/storage-metrics-migration.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Storage Analytics
+        href: ../common/storage-analytics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+      - name: Meetwaarden inschakelen en weergeven (klassiek)
+        href: ../common/storage-enable-and-view-metrics.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Gegevens overdragen
+    items:
+    - name: Gegevens verplaatsen van en naar opslag
+      href: ../common/storage-moving-data.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: AzCopy in Windows
+      href: ../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: AzCopy in Linux
+      href: ../common/storage-use-azcopy-linux.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Voorbeelden
+    href: https://azure.microsoft.com/documentation/samples/?service=storage&term=file
 - name: Naslaginformatie
   items:
-    - name: PowerShell
-      href: /powershell/module/azure.storage
-    - name: Azure-CLI
-      href: /cli/azure/storage
-    - name: .NET
-      items:
-        - name: 'Blobs, wachtrijen, tabellen en bestanden'
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/client'
-        - name: Gegevensverplaatsing
-          href: 'https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement'
-        - name: Resource Manager
-          href: 'https://docs.microsoft.com/dotnet/api/overview/azure/storage/management'
-    - name: Java
-      items:
-        - name: 'Blobs, wachtrijen, tabellen en bestanden'
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/client'
-        - name: Resource Manager
-          href: 'https://docs.microsoft.com/java/api/overview/azure/storage/management'
-    - name: Node.js
-      href: 'https://docs.microsoft.com/javascript/api/overview/azure/storage'
-    - name: Ruby
-      href: 'http://azure.github.io/azure-storage-ruby'
-    - name: PHP
-      href: 'http://azure.github.io/azure-storage-php/'
-    - name: Python
-      href: 'https://docs.microsoft.com/python/api/overview/azure/storage'
-    - name: C++
-      href: 'http://azure.github.io/azure-storage-cpp'
-    - name: iOS
-      href: 'http://azure.github.io/azure-storage-ios/'
-    - name: Android
-      href: 'http://azure.github.io/azure-storage-android'
-    - name: REST
-      items:
-        - name: 'Blobs, wachtrijen, tabellen en bestanden'
-          href: /rest/api/storageservices
-        - name: Resourceprovider
-          href: /rest/api/storagerp
-        - name: Import/Export
-          href: /rest/api/storageimportexport
+  - name: PowerShell
+    href: /powershell/module/azure.storage
+  - name: Azure-CLI
+    href: /cli/azure/storage
+  - name: .NET
+    items:
+    - name: Blobs, wachtrijen, tabellen en bestanden
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/client
+    - name: Gegevensverplaatsing
+      href: https://docs.microsoft.com/dotnet/api/microsoft.windowsazure.storage.datamovement
+    - name: Resource Manager
+      href: https://docs.microsoft.com/dotnet/api/overview/azure/storage/management
+  - name: Java
+    items:
+    - name: Blobs, wachtrijen, tabellen en bestanden
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/client
+    - name: Resource Manager
+      href: https://docs.microsoft.com/java/api/overview/azure/storage/management
+  - name: Node.js
+    href: https://docs.microsoft.com/javascript/api/overview/azure/storage
+  - name: Ruby
+    href: http://azure.github.io/azure-storage-ruby
+  - name: PHP
+    href: http://azure.github.io/azure-storage-php/
+  - name: Python
+    href: https://docs.microsoft.com/python/api/overview/azure/storage
+  - name: C++
+    href: http://azure.github.io/azure-storage-cpp
+  - name: iOS
+    href: http://azure.github.io/azure-storage-ios/
+  - name: Android
+    href: http://azure.github.io/azure-storage-android
+  - name: REST
+    items:
+    - name: Blobs, wachtrijen, tabellen en bestanden
+      href: /rest/api/storageservices
+    - name: Resourceprovider
+      href: /rest/api/storagerp
+    - name: Import/Export
+      href: /rest/api/storageimportexport
 - name: Resources
   items:
-    - name: Azure-roadmap
-      href: 'https://azure.microsoft.com/roadmap/?category=storage'
-    - name: Azure Storage-clienthulpprogramma's
-      href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Stack Overflow
-      href: 'http://stackoverflow.com/questions/tagged/windows-azure-storage'
-    - name: Forum
-      href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata'
-    - name: Prijzen
-      href: 'https://azure.microsoft.com/pricing/details/storage/blobs/'
-    - name: Prijscalculator
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Service-updates
-      href: 'https://azure.microsoft.com/updates/?product=storage'
-    - name: Video's
-      href: 'https://azure.microsoft.com/documentation/videos/index/?services=storage'
-    - name: Azure Opslagverkenner
+  - name: Azure-roadmap
+    href: https://azure.microsoft.com/roadmap/?category=storage
+  - name: Azure Storage-clienthulpprogramma's
+    href: ../common/storage-explorers.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: Stack Overflow
+    href: http://stackoverflow.com/questions/tagged/windows-azure-storage
+  - name: Forum
+    href: https://social.msdn.microsoft.com/forums/azure/home?forum=windowsazuredata
+  - name: Prijzen
+    href: https://azure.microsoft.com/pricing/details/storage/blobs/
+  - name: Prijscalculator
+    href: https://azure.microsoft.com/pricing/calculator/
+  - name: Service-updates
+    href: https://azure.microsoft.com/updates/?product=storage
+  - name: Video's
+    href: https://azure.microsoft.com/documentation/videos/index/?services=storage
+  - name: Azure Opslagverkenner
+    items:
+    - name: Opslagverkenner
+      href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Releaseopmerkingen voor Opslagverkenner
+      href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Problemen met Opslagverkenner oplossen
+      href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+    - name: Toegankelijkheid van Storage Explorer
+      href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
+  - name: NuGet-pakketten
+    items:
+    - name: Azure Storage-clientbibliotheek voor .NET
+      href: https://www.nuget.org/packages/WindowsAzure.Storage/
+    - name: Azure Storage-bibliotheek voor gegevensverplaatsing
+      href: https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/
+    - name: Azure Configuration Manager
+      href: https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/
+  - name: Broncode
+    items:
+    - name: .NET
       items:
-        - name: Opslagverkenner
-          href: ../../vs-azure-tools-storage-manage-with-storage-explorer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Releaseopmerkingen voor Opslagverkenner
-          href: ../../vs-azure-tools-storage-explorer-relnotes.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Problemen met Opslagverkenner oplossen
-          href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-        - name: Toegankelijkheid van Storage Explorer
-          href: ../../vs-azure-tools-storage-explorer-accessibility.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: NuGet-pakketten
-      items:
-        - name: Azure Storage-clientbibliotheek voor .NET
-          href: 'https://www.nuget.org/packages/WindowsAzure.Storage/'
-        - name: Azure Storage-bibliotheek voor gegevensverplaatsing
-          href: 'https://www.nuget.org/packages/Microsoft.Azure.Storage.DataMovement/'
-        - name: Azure Configuration Manager
-          href: 'https://www.nuget.org/packages/Microsoft.WindowsAzure.ConfigurationManager/'
-    - name: Broncode
-      items:
-        - name: .NET
-          items:
-            - name: 'Blob, wachtrij, tabel en bestand'
-              href: 'https://github.com/Azure/azure-storage-net'
-            - name: Gegevensverplaatsing
-              href: 'https://github.com/Azure/azure-storage-net-data-movement'
-            - name: Resourceprovider
-              href: 'https://github.com/Azure/azure-sdk-for-net'
-        - name: Node.js
-          href: 'http://azure.github.io/azure-storage-node/'
-        - name: Java
-          href: 'https://github.com/Azure/azure-storage-java'
-        - name: C++
-          href: 'https://github.com/Azure/azure-storage-cpp'
-        - name: PHP
-          href: 'https://github.com/Azure/azure-storage-php'
-        - name: Python
-          href: 'https://github.com/Azure/azure-storage-python'
-        - name: Ruby
-          href: 'https://github.com/Azure/azure-storage-ruby'
-        - name: iOS
-          href: 'https://github.com/Azure/azure-storage-ios'
+      - name: Blob, wachtrij, tabel en bestand
+        href: https://github.com/Azure/azure-storage-net
+      - name: Gegevensverplaatsing
+        href: https://github.com/Azure/azure-storage-net-data-movement
+      - name: Resourceprovider
+        href: https://github.com/Azure/azure-sdk-for-net
+    - name: Node.js
+      href: http://azure.github.io/azure-storage-node/
+    - name: Java
+      href: https://github.com/Azure/azure-storage-java
+    - name: C++
+      href: https://github.com/Azure/azure-storage-cpp
+    - name: PHP
+      href: https://github.com/Azure/azure-storage-php
+    - name: Python
+      href: https://github.com/Azure/azure-storage-python
+    - name: Ruby
+      href: https://github.com/Azure/azure-storage-ruby
+    - name: iOS
+      href: https://github.com/Azure/azure-storage-ios
+ms.openlocfilehash: 9de934ffb0ce898a54a405ff953123513e713c60
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730695"

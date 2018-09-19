@@ -1,28 +1,29 @@
 ---
-title: Microsoft Translator tekst API detecteren methode | Microsoft Docs
-description: Gebruik de methode Microsoft Translator tekst API detecteren.
+title: Translator Text-API detecteren methode
+titlesuffix: Azure Cognitive Services
+description: Gebruik de methode voor het detecteren van Translator Text-API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 7e81e91230e1ada4423d77d22134b1b64df65d9d
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6698960cca39fb49fe8ba6e79b957be469ea7c50
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345604"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126119"
 ---
-# <a name="text-api-30-detect"></a>Tekst API 3.0: detecteren
+# <a name="translator-text-api-30-detect"></a>Translator Text-API 3.0: detecteren
 
-Geeft de taal van tekst.
+Hiermee geeft u de taal van een stuk tekst.
 
 ## <a name="request-url"></a>Aanvraag-URL
 
-Verzenden van een `POST` aanvraag voor het:
+Verzendt een `POST` aanvragen:
 
 ```HTTP
 https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
@@ -30,18 +31,18 @@ https://api.cognitive.microsofttranslator.com/detect?api-version=3.0
 
 ## <a name="request-parameters"></a>Aanvraagparameters
 
-Aanvragen in de queryreeks doorgegeven parameters zijn:
+Parameters van de aanvraag doorgegeven aan de query-tekenreeks zijn:
 
 <table width="100%">
   <th width="20%">Queryparameter</th>
   <th>Beschrijving</th>
   <tr>
     <td>API-versie</td>
-    <td>*Vereiste parameter*.<br/>De versie van de API die door de client wordt aangevraagd. De waarde moet `3.0`.</td>
+    <td>*Vereiste parameter*.<br/>De versie van de API die is aangevraagd door de client. De waarde moet liggen `3.0`.</td>
   </tr>
 </table> 
 
-Aanvraagheaders omvatten:
+Aanvraagheaders zijn onder andere:
 
 <table width="100%">
   <th width="20%">Headers</th>
@@ -60,13 +61,13 @@ Aanvraagheaders omvatten:
   </tr>
   <tr>
     <td>X-ClientTraceId</td>
-    <td>*Optioneel*.<br/>Een client gegenereerde GUID als unieke identificatie van de aanvraag. Opmerking u kunt deze header weglaten als u de trace-ID aanwezig in de query-tekenreeks met een queryparameter met de naam `ClientTraceId`.</td>
+    <td>*Optioneel*.<br/>Een client gegenereerde GUID voor het aanduiden van de aanvraag. Houd er rekening mee dat u deze header weglaten kunt als u de trace-ID opnemen in de querytekenreeks met behulp van een queryparameter met de naam `ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="request-body"></a>Aanvraagtekst
 
-De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met een string-eigenschap met de naam `Text`. Taaldetectie wordt toegepast op de waarde van de `Text` eigenschap. De aanvraagtekst voor een voorbeeld ziet er zo uit:
+De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-object met de tekenreekseigenschap van een met de naam `Text`. Taaldetectie wordt toegepast op de waarde van de `Text` eigenschap. Aanvraagtekst voorbeeld ziet er zo uit:
 
 ```json
 [
@@ -77,24 +78,24 @@ De hoofdtekst van de aanvraag is een JSON-matrix. Elk matrixelement is een JSON-
 Er gelden de volgende beperkingen:
 
 * De matrix kan maximaal 100 elementen hebben.
-* De tekstwaarde van een matrixelement kan niet groter zijn dan 10.000 tekens inclusief spaties.
-* De volledige tekst is opgenomen in de aanvraag kan niet groter zijn dan 50.000 tekens inclusief spaties.
+* De tekstwaarde van een element van de matrix niet langer zijn dan 10.000 tekens inclusief spaties.
+* De volledige tekst is opgenomen in de aanvraag kan niet langer zijn dan 50.000 tekens inclusief spaties.
 
-## <a name="response-body"></a>Antwoordtekst
+## <a name="response-body"></a>De hoofdtekst van antwoord
 
 Een geslaagde reactie is een JSON-matrix met één resultaat voor elke tekenreeks in de invoermatrix. Een resultaatobject bevat de volgende eigenschappen:
 
   * `language`: De code van de gedetecteerde taal.
 
-  * `score`: Een float-waarde die aangeeft het vertrouwen in het resultaat. De score tussen nul en één is en een lage score geeft aan dat een lage vertrouwen.
+  * `score`: Een float-waarde die aangeeft van het vertrouwen in het resultaat. De score tussen 0 en een en een lage score geeft aan dat een lage vertrouwen.
 
-  * `isTranslationSupported`: Een Booleaanse waarde die ingesteld op true is als de gedetecteerde taal een van de talen die worden ondersteund voor de tekstvertaling van is.
+  * `isTranslationSupported`: Een Booleaanse waarde die ingesteld op true is als de gedetecteerde taal een van de talen die worden ondersteund voor tekstomzetting is.
 
-  * `isTransliterationSupported`: Een Booleaanse waarde die ingesteld op true is als de gedetecteerde taal een van de talen die worden ondersteund voor transliteration is.
+  * `isTransliterationSupported`: Een Booleaanse waarde die ingesteld op true is als de gedetecteerde taal een van de ondersteunde voor vele talen is.
   
-  * `alternatives`: Er is een matrix van andere mogelijke talen. Elk element van de matrix is een ander object met dezelfde eigenschappen die hierboven worden genoemd: `language`, `score`, `isTranslationSupported` en `isTransliterationSupported`.
+  * `alternatives`: Een matrix met andere mogelijke talen. Elk element van de matrix is een ander object met dezelfde eigenschappen die hierboven worden vermeld: `language`, `score`, `isTranslationSupported` en `isTransliterationSupported`.
 
-Er is een voorbeeld van JSON-antwoord:
+Een voorbeeld-JSON-antwoord is:
 
 ```json
 [
@@ -128,32 +129,32 @@ Er is een voorbeeld van JSON-antwoord:
   <th>Beschrijving</th>
   <tr>
     <td>X-RequestId</td>
-    <td>De waarde is gegenereerd door de service voor het identificeren van de aanvraag. Het wordt gebruikt voor het oplossen van problemen.</td>
+    <td>De waarde die wordt gegenereerd door de service voor het identificeren van de aanvraag. Het wordt gebruikt voor het oplossen van problemen.</td>
   </tr>
 </table> 
 
-## <a name="response-status-codes"></a>Statuscodes van antwoorden
+## <a name="response-status-codes"></a>Antwoord-statuscodes
 
-Hier volgen de mogelijke HTTP-statuscodes die een aanvraag als resultaat geeft. 
+Hier volgen de mogelijke HTTP-statuscodes die een aanvraag retourneert. 
 
 <table width="100%">
   <th width="20%">Statuscode</th>
   <th>Beschrijving</th>
   <tr>
     <td>200</td>
-    <td>Gelukt.</td>
+    <td>Geslaagd.</td>
   </tr>
   <tr>
     <td>400</td>
-    <td>Een van de queryparameters is ontbreekt of ongeldig. Aanvraagparameters voordat u probeert te corrigeren.</td>
+    <td>Een van de queryparameters is ontbreekt of is ongeldig. De parameters van de juiste aanvraag voordat opnieuw wordt geprobeerd.</td>
   </tr>
   <tr>
     <td>401</td>
-    <td>De aanvraag kan niet worden geverifieerd. Controleer of de referenties opgegeven en geldig zijn.</td>
+    <td>De aanvraag kan niet worden geverifieerd. Controleer of de referenties opgegeven en is geldig zijn.</td>
   </tr>
   <tr>
     <td>403</td>
-    <td>De aanvraag is niet gemachtigd. Controleer het foutbericht voor meer informatie. Dit betekent meestal dat alle gratis vertalingen opgegeven met een proefabonnement van zijn gebruikt.</td>
+    <td>De aanvraag is niet gemachtigd. Controleer het foutbericht voor meer informatie. Dit betekent meestal dat alle gratis vertalingen voorzien van een proefabonnement zijn verbruikt.</td>
   </tr>
   <tr>
     <td>429</td>
@@ -161,19 +162,19 @@ Hier volgen de mogelijke HTTP-statuscodes die een aanvraag als resultaat geeft.
   </tr>
   <tr>
     <td>500</td>
-    <td>Er is een onverwachte fout opgetreden. Als de fout zich blijft voordoen, met rapporteren: datum en tijd van de fout, aanvraag-id van antwoordheader `X-RequestId`, en de client-id van de aanvraag-header `X-ClientTraceId`.</td>
+    <td>Er is een onverwachte fout opgetreden. Als de fout zich blijft voordoen, rapporteren met: datum en tijd van de fout, aanvraag-id van de reactieheader `X-RequestId`, en de client-id van aanvraagheader `X-ClientTraceId`.</td>
   </tr>
   <tr>
     <td>503</td>
-    <td>De server is tijdelijk niet beschikbaar. De aanvraag opnieuw proberen. Als de fout zich blijft voordoen, met rapporteren: datum en tijd van de fout, aanvraag-id van antwoordheader `X-RequestId`, en de client-id van de aanvraag-header `X-ClientTraceId`.</td>
+    <td>De server is tijdelijk niet beschikbaar. De aanvraag opnieuw. Als de fout zich blijft voordoen, rapporteren met: datum en tijd van de fout, aanvraag-id van de reactieheader `X-RequestId`, en de client-id van aanvraagheader `X-ClientTraceId`.</td>
   </tr>
 </table> 
 
 ## <a name="examples"></a>Voorbeelden
 
-Het volgende voorbeeld laat zien hoe talen die worden ondersteund voor tekstvertaling ophalen.
+Het volgende voorbeeld ziet hoe u talen die worden ondersteund voor tekstvertaling ophaalt.
 
-# <a name="curltabcurl"></a>[cURL](#tab/curl)
+# <a name="curltabcurl"></a>[CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/detect?api-version=3.0" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'What language is this text written in?'}]"

@@ -15,12 +15,12 @@ ms.component: report-monitor
 ms.date: 05/10/2018
 ms.author: priyamo
 ms.reviewer: dhanyahk
-ms.openlocfilehash: f1683321e23eff82e73dc9bb44941fc390633b8c
-ms.sourcegitcommit: 3f8f973f095f6f878aa3e2383db0d296365a4b18
+ms.openlocfilehash: c2e131776fb9f2c5e87c363d0d57e655bc34448f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/20/2018
-ms.locfileid: "42058753"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294217"
 ---
 # <a name="azure-active-directory-reporting-faq"></a>Azure Active Directory reporting FAQ
 
@@ -169,3 +169,7 @@ In dit artikel bevat antwoorden op veelgestelde vragen over Azure Active Directo
 **V: de beleidsnaam in het rapport voor alle aanmelden komt niet overeen met de naam van het beleid in de CA. Waarom is dat?**
 
 **A:** de naam van het beleid in het rapport voor alle aanmelden is gebaseerd op de naam van de CA-beleid op het moment van de aanmelding. Dit kan niet consistent met de naam van het beleid in de CA zijn, als u de beleidsnaam later, dat wil zeggen, na de aanmelding bijgewerkt.
+
+**V: Mijn aanmelding is geblokkeerd vanwege een beleid voor voorwaardelijke toegang, maar het rapport van aanmeldingsactiviteiten bevat of de aanmelding is geslaagd. Waarom is dat?**
+
+**A:** op dit moment dat het rapport niet nauwkeurige resultaten voor Exchange ActiveSync-scenario's kan weergeven wanneer voorwaardelijke toegang wordt toegepast. Kunnen er gevallen wanneer het resultaat aanmelden in het rapport een geslaagde aanmelding bevat, maar de aanmelding daadwerkelijk is mislukt vanwege een beleid voor voorwaardelijke toegang. 

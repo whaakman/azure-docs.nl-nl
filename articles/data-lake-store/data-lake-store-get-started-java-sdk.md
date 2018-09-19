@@ -1,6 +1,6 @@
 ---
-title: 'Java SDK: Bestandssysteembewerkingen in Azure Data Lake Store | Microsoft Docs'
-description: Gebruik Azure Data Lake Store Java SDK om bestandssysteembewerkingen uit te voeren op Data Lake Store, bijvoorbeeld om mappen te maken enzovoort.
+title: 'Java SDK: bestandssysteembewerkingen in Azure Data Lake Storage Gen1 | Microsoft Docs'
+description: Gebruik Azure Data Lake Storage Gen1 Java SDK voor het uitvoeren van bestandssysteembewerkingen in Data Lake Storage Gen1 zoals om mappen te maken enzovoort.
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: 8f2dd4d001ae7322a351844146925c23b90f0916
-ms.sourcegitcommit: e8f443ac09eaa6ef1d56a60cd6ac7d351d9271b9
+ms.openlocfilehash: a91593c1bae3002be8b7e423b627f1baf19e86e2
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "35646081"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129184"
 ---
-# <a name="filesystem-operations-on-data-lake-store-using-java-sdk"></a>Bestandssysteembewerkingen - Aan de slag met Azure Data Lake Store met Java SDK
+# <a name="filesystem-operations-on-azure-data-lake-storage-gen1-using-java-sdk"></a>Bestandssysteembewerkingen in Azure Data Lake Storage Gen1 met behulp van Java-SDK
 > [!div class="op_single_selector"]
 > * [.NET SDK](data-lake-store-data-operations-net-sdk.md)
 > * [Java-SDK](data-lake-store-get-started-java-sdk.md)
@@ -28,13 +28,13 @@ ms.locfileid: "35646081"
 >
 > 
 
-Lees hoe u met de Azure Data Lake Store Java SDK basisbewerkingen uitvoert, zoals het maken van mappen, het uploaden en downloaden van gegevensbestanden enzovoort. Zie [Azure Data Lake Store](data-lake-store-overview.md) voor meer informatie over Data Lake.
+Informatie over het gebruik van de Azure Data Lake Storage Gen1 Java SDK basisbewerkingen, zoals het maken van mappen, uploaden en downloaden van gegevensbestanden enzovoort uitvoert. Zie voor meer informatie over Data Lake Storage Gen1 [Azure Data Lake Storage Gen1](data-lake-store-overview.md).
 
-U kunt de Java SDK API-documenten voor Azure Data Lake Store openen via [Azure Data Lake Store Java API-documenten](https://azure.github.io/azure-data-lake-store-java/javadoc/).
+U hebt toegang tot de Java SDK API-documenten voor Data Lake Storage Gen1 op [Azure Data Lake Storage Gen1 Java API-documenten](https://azure.github.io/azure-data-lake-store-java/javadoc/).
 
 ## <a name="prerequisites"></a>Vereisten
 * Java Development Kit (JDK 7 of hoger met Java versie 1.7 of hoger)
-* Azure Data Lake Store-account. Volg de instructies in [Aan de slag met Azure Data Lake Store met Azure Portal](data-lake-store-get-started-portal.md).
+* Data Lake Storage Gen1-account. Volg de instructies op [aan de slag met Azure Data Lake Storage Gen1 met behulp van de Azure-portal](data-lake-store-get-started-portal.md).
 * [Maven](https://maven.apache.org/install.html). In deze zelfstudie wordt Maven gebruikt voor build- en projectafhankelijkheden. Hoewel het mogelijk is te ontwikkelen zonder een buildsysteem als Maven of Gradle, maken deze systemen het veel eenvoudiger om afhankelijkheden te beheren.
 * (Optioneel) Een IDE zoals [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), [Eclipse](https://www.eclipse.org/downloads/) of vergelijkbaar.
 
@@ -58,7 +58,7 @@ Dit codevoorbeeld beschikbaar [in GitHub](https://azure.microsoft.com/documentat
           </dependency>
         </dependencies>
    
-    De eerste afhankelijkheid is om Data Lake Store SDK (`azure-data-lake-store-sdk`) vanuit de Maven-opslag te gebruiken. De tweede afhankelijkheid dient om op te geven welk framework voor logboekregistratie (`slf4j-nop`) voor deze toepassing moet worden gebruikt. Maakt gebruik van de Data Lake Store SDK [slf4j](http://www.slf4j.org/) logboekregistratie gevel, kunt u kiezen uit een aantal populaire logboekregistratie frameworks als log4j, logback, enz., logboekregistratie Java of niet vastleggen. In dit voorbeeld wordt logboekregistratie uitgeschakeld. Daarom wordt de binding **slf4j-nop** gebruikt. [Hier](http://www.slf4j.org/manual.html#projectDep) vindt u andere opties voor logboekregistratie voor uw toepassing.
+    De eerste afhankelijkheid is het gebruik van de Data Lake Storage-SDK met Gen1 (`azure-data-lake-store-sdk`) vanuit de maven-opslagplaats. De tweede afhankelijkheid dient om op te geven welk framework voor logboekregistratie (`slf4j-nop`) voor deze toepassing moet worden gebruikt. Maakt gebruik van de Data Lake Storage-SDK met Gen1 [slf4j](http://www.slf4j.org/) logboekregistratie gevel, kunt u kiezen uit een aantal populaire logboekregistratie frameworks als log4j, logback, enz., logboekregistratie Java of niet vastleggen. In dit voorbeeld wordt logboekregistratie uitgeschakeld. Daarom wordt de binding **slf4j-nop** gebruikt. [Hier](http://www.slf4j.org/manual.html#projectDep) vindt u andere opties voor logboekregistratie voor uw toepassing.
 
 3. Voeg de volgende importinstructies toe aan uw toepassing.
 
@@ -75,20 +75,20 @@ Dit codevoorbeeld beschikbaar [in GitHub](https://azure.microsoft.com/documentat
 
 ## <a name="authentication"></a>Verificatie
 
-* Zie [End-user-authentication with Data Lake Store using Java](data-lake-store-end-user-authenticate-java-sdk.md) (Eindgebruikersverificatie met Data Lake Store met behulp van Java) voor de verificatie van eindgebruikers voor uw toepassing.
-* Zie [Service-to-service authentication with Data Lake Store using Java](data-lake-store-service-to-service-authenticate-java.md) (Service-naar-serviceverificatie met Data Lake Store met behulp van Java) voor service-naar-serviceverificatie voor uw toepassing.
+* Zie voor verificatie van eindgebruikers voor uw toepassing, [eindgebruiker End-User-authentication met Data Lake Storage Gen1 met behulp van Java](data-lake-store-end-user-authenticate-java-sdk.md).
+* Zie voor service-naar-serviceverificatie voor uw toepassing, [Service-naar-serviceverificatie met Data Lake Storage Gen1 met behulp van Java](data-lake-store-service-to-service-authenticate-java.md).
 
-## <a name="create-an-azure-data-lake-store-client"></a>Een Azure Data Lake Store-client maken
-Voor het maken van een [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/)-object moet u de Data Lake Store-accountnaam en de tokenprovider opgeven die zijn gegenereerd tijdens uw verificatie bij Data Lake Store (zie de sectie [Verificatie](#authentication)). De Data Lake Store-accountnaam moet een volledig gekwalificeerde domeinnaam zijn. Vervang bijvoorbeeld **FILL-IN-HERE** met iets als **mydatalakestore.azuredatalakestore.net**.
+## <a name="create-a-data-lake-storage-gen1-client"></a>Maak een Data Lake Storage Gen1-client
+Het maken van een [ADLStoreClient](https://azure.github.io/azure-data-lake-store-java/javadoc/) object moet u de naam van het Data Lake Storage Gen1 en de tokenprovider die zijn gegenereerd tijdens uw verificatie bij Data Lake Storage Gen1 opgeven (Zie [verificatie](#authentication) sectie). De naam van het Data Lake Storage Gen1 moet een volledig gekwalificeerde domeinnaam. Vervang bijvoorbeeld **Fill-in-HERE** door iets zoals **mydatalakestoragegen1.azuredatalakestore.net**.
 
     private static String accountFQDN = "FILL-IN-HERE";  // full account FQDN, not just the account name
     ADLStoreClient client = ADLStoreClient.createClient(accountFQDN, provider);
 
-De codefragmenten in de volgende secties bevatten voorbeelden van enkele veelvoorkomende bestandssysteembewerkingen. Bekijk de volledige [Data Lake Store Java SDK API-documenten](https://azure.github.io/azure-data-lake-store-java/javadoc/) van het **ADLStoreClient**-object om andere bewerkingen te bekijken.
+De codefragmenten in de volgende secties bevatten voorbeelden van enkele veelvoorkomende bestandssysteembewerkingen. U kunt de volledige kijken [Data Lake Storage Gen1 Java SDK API-documenten](https://azure.github.io/azure-data-lake-store-java/javadoc/) van de **ADLStoreClient** object om te zien van andere bewerkingen.
 
 ## <a name="create-a-directory"></a>Een map maken
 
-In het volgende codefragment wordt een mapstructuur gemaakt in de hoofdmap van het Data Lake Store-account dat u hebt opgegeven.
+Het volgende codefragment wordt een mapstructuur gemaakt in de hoofdmap van het Data Lake Storage Gen1-account dat u hebt opgegeven.
 
     // create directory
     client.createDirectory("/a/b/w");
@@ -134,7 +134,7 @@ De definitie van functie `getSampleContent` die in het bovenstaande codefragment
 
 ## <a name="read-a-file"></a>Een bestand lezen
 
-In het volgende codefragment wordt inhoud gelezen uit een bestand in het Data Lake Store-account.
+Het volgende codefragment wordt inhoud gelezen uit een bestand in een Data Lake Storage Gen1-account.
 
     // Read File
     InputStream in = client.getReadStream(filename);
@@ -149,7 +149,7 @@ In het volgende codefragment wordt inhoud gelezen uit een bestand in het Data La
 
 ## <a name="concatenate-files"></a>Bestanden samenvoegen
 
-In het volgende codefragment worden twee bestanden in het Data Lake Store-account samengevoegd. Als dit lukt, worden de twee bestaande bestanden vervangen door het samengevoegde bestand.
+Het volgende codefragment worden samengevoegd in twee bestanden in een Data Lake Storage Gen1-account. Als dit lukt, worden de twee bestaande bestanden vervangen door het samengevoegde bestand.
 
     // concatenate the two files into one
     List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
@@ -158,7 +158,7 @@ In het volgende codefragment worden twee bestanden in het Data Lake Store-accoun
 
 ## <a name="rename-a-file"></a>De naam van een bestand wijzigen
 
-In het volgende codefragment wordt de naam gewijzigd van een bestand in het Data Lake Store-account.
+Het volgende codefragment wijzigt de naam van een bestand in een Data Lake Storage Gen1-account.
 
     //rename the file
     client.rename("/a/b/f.txt", "/a/b/g.txt");
@@ -166,7 +166,7 @@ In het volgende codefragment wordt de naam gewijzigd van een bestand in het Data
 
 ## <a name="get-metadata-for-a-file"></a>Metagegevens ophalen voor een bestand
 
-In het volgende codefragment worden de metagegevens opgehaald voor een bestand in het Data Lake Store-account.
+Het volgende codefragment haalt de metagegevens voor een bestand in een Data Lake Storage Gen1-account.
 
     // get file metadata
     DirectoryEntry ent = client.getDirectoryEntry(filename);
@@ -197,7 +197,7 @@ De definitie van functie `printDirectoryInfo` die in het bovenstaande codefragme
 
 ## <a name="delete-files-and-folders"></a>Bestanden en mappen verwijderen
 
-In het volgende fragment worden recursief de opgegeven bestanden en mappen in een Data Lake Store-account verwijderd.
+Het volgende codefragment wordt de opgegeven bestanden en mappen in een Data Lake Storage Gen1-account, recursief verwijderd.
 
     // delete directory along with all the subdirectories and files in it
     client.deleteRecursive("/a");
@@ -210,6 +210,6 @@ In het volgende fragment worden recursief de opgegeven bestanden en mappen in ee
 
 ## <a name="next-steps"></a>Volgende stappen
 * [JavaDoc verkennen voor de Java-SDK](https://azure.github.io/azure-data-lake-store-java/javadoc/)
-* [Gegevens in Data Lake Store beveiligen](data-lake-store-secure-data.md)
+* [Gegevens beveiligen in Data Lake Storage Gen1](data-lake-store-secure-data.md)
 
 

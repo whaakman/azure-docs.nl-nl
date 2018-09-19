@@ -10,12 +10,12 @@ ms.author: mimart
 author: msmimart
 manager: mtillman
 ms.reviewer: sasubram
-ms.openlocfilehash: 7363a4f78faaae77a8ee476921ade9d3b1368929
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 65f43eb28ef2ef51409469934d59e1add7e83666
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983026"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297211"
 ---
 # <a name="grant-b2b-users-in-azure-ad-access-to-your-on-premises-applications"></a>GRANT B2B-gebruikers in Azure AD-toegang tot uw on-premises toepassingen
 
@@ -85,5 +85,5 @@ Zorg ervoor dat u de juiste licenties voor clienttoegang (CAL's) voor externe ga
 
 - [Azure Active Directory B2B-samenwerking voor hybride organisaties](hybrid-organizations.md)
 
-- Zie voor een overzicht van Azure AD Connect, [uw on-premises directory's integreren met Azure Active Directory](../connect/active-directory-aadconnect.md).
+- Zie voor een overzicht van Azure AD Connect, [uw on-premises directory's integreren met Azure Active Directory](../hybrid/whatis-hybrid-identity.md).
 

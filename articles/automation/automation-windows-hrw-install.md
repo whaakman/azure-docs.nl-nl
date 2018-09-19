@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: process-automation
 author: georgewallace
 ms.author: gwallace
-ms.date: 04/25/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 0d98aef3e75130bbab7871733f709bf5e2ffdbcb
-ms.sourcegitcommit: f983187566d165bc8540fdec5650edcc51a6350a
+ms.openlocfilehash: 62c171381201f3cedee869aba301859a7047f5ce
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/13/2018
-ms.locfileid: "45541246"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294902"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Een Windows Hybrid Runbook Worker implementeren
 
@@ -30,7 +30,7 @@ Als u wilt installeren en configureren van een Windows Hybrid Runbook Worker, ku
 De minimale vereisten voor een Windows Hybrid Runbook Worker zijn:
 
 * WindowsServer 2012 of hoger.
-* Windows PowerShell 4.0 of hoger ([WMF 4.0 downloaden](https://www.microsoft.com/download/details.aspx?id=40855)). We raden aan Windows PowerShell 5.1 ([downloaden van WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)) voor extra betrouwbaarheid.
+* Windows PowerShell 5.1 of hoger ([downloaden van WMF 5.1](https://www.microsoft.com/download/details.aspx?id=54616)).
 * .NET framework 4.6.2 of hoger.
 * Twee cores.
 * 4 GB aan RAM-geheugen.
@@ -63,8 +63,8 @@ Voer de volgende stappen uit voor het automatiseren van de installatie en config
      > [!NOTE]
      > Op dit moment de enige Automation-regio's ondersteund voor integratie met Log Analytics zijn **Australië-Zuidoost**, **VS-Oost 2**, **Zuidoost-Azië**, en  **West-Europa**. Als uw Automation-account zich niet in een van deze regio's, wordt het script maakt u een Log Analytics-werkruimte maar waarschuwt u dat deze niet kan ze aan elkaar koppelen.
 
-1. Open op uw computer **Windows PowerShell** uit de **Start** scherm in de beheerdersmodus.
-1. Blader naar de map waarin het script dat u hebt gedownload vanaf de opdrachtregel-shell PowerShell. Wijzig de waarden voor de parameters *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, en *- WorkspaceName*. Voer het script.
+2. Open op uw computer **Windows PowerShell** uit de **Start** scherm in de beheerdersmodus.
+3. Blader naar de map waarin het script dat u hebt gedownload vanaf de opdrachtregel-shell PowerShell. Wijzig de waarden voor de parameters *- AutomationAccountName*, *- AAResourceGroupName*, *- OMSResourceGroupName*, *- HybridGroupName*, *- SubscriptionId*, en *- WorkspaceName*. Voer het script.
 
      > [!NOTE]
      > U wordt gevraagd om te verifiëren met Azure, nadat u het script hebt uitgevoerd. U *moet* Meld u aan met een account dat lid is van de rol Abonnementsbeheerders en CO-beheerder van het abonnement.
@@ -75,9 +75,9 @@ Voer de volgende stappen uit voor het automatiseren van de installatie en config
    -SubscriptionId <AzureSubscriptionId> -WorkspaceName <NameOfLogAnalyticsWorkspace>
    ```
 
-1. U wordt gevraagd om akkoord gaan met NuGet installeren en u wordt gevraagd om te verifiëren met uw Azure-referenties.
+4. U wordt gevraagd om akkoord gaan met NuGet installeren en u wordt gevraagd om te verifiëren met uw Azure-referenties.
 
-1. Nadat het script is voltooid, de **Hybrid Worker-groepen** pagina ziet u de nieuwe groep en het aantal leden. Als het een bestaande groep, wordt het aantal leden wordt verhoogd. U kunt de groep in de lijst selecteren op de **Hybrid Worker-groepen** pagina en selecteer de **Hybrid Workers** tegel. Op de **Hybrid Workers** pagina, ziet u elk lid van de groep die wordt vermeld.
+5. Nadat het script is voltooid, de **Hybrid Worker-groepen** pagina ziet u de nieuwe groep en het aantal leden. Als het een bestaande groep, wordt het aantal leden wordt verhoogd. U kunt de groep in de lijst selecteren op de **Hybrid Worker-groepen** pagina en selecteer de **Hybrid Workers** tegel. Op de **Hybrid Workers** pagina, ziet u elk lid van de groep die wordt vermeld.
 
 ### <a name="manual-deployment"></a>Handmatige implementatie
 

@@ -9,12 +9,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/10/2018
 ms.author: sujayt
-ms.openlocfilehash: 105c1d97a812841e82a0c364ec7dda097c0dd399
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 1fa5451b852a564ef3f0858fdfe0ab0091117508
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44717366"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296019"
 ---
 # <a name="support-matrix-for-replicating-from-one-azure-region-to-another"></a>Ondersteuningsmatrix voor het repliceren van de ene Azure-regio naar een andere
 
@@ -171,7 +171,8 @@ Standard Managed disks | Ondersteund in Azure-regio's waar Azure Site Recovery w
 Premium beheerde schijven | Ondersteund in Azure-regio's waar Azure Site Recovery wordt ondersteund. |
 Opslagruimten | Ondersteund |         
 Versleuteling-at-rest (SSE) | Ondersteund | SSE is de standaardinstelling op storage-accounts.   
-Azure Disk Encryption (ADE) | Niet ondersteund |
+Azure Disk Encryption (ADE) voor Windows-besturingssysteem | VM's zijn ingeschakeld voor [versleuteling met Azure AD-app](https://aka.ms/ade-aad-app) worden ondersteund |
+Azure Disk Encryption (ADE) voor Linux-besturingssysteem | Niet ondersteund |
 Hot toevoegen of verwijderen-schijf | Niet ondersteund | Als u toevoegen of verwijderen van de gegevensschijf op de virtuele machine, moet u replicatie uitschakelen en inschakelen van replicatie opnieuw voor de virtuele machine.
 Schijf uitsluiten | Niet ondersteund|   Tijdelijke schijf is uitgesloten standaard.
 Storage Spaces Direct  | Niet ondersteund|

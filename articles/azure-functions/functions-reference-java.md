@@ -9,14 +9,14 @@ keywords: Azure functions, functies, gebeurtenisverwerking, webhooks, dynamisch 
 ms.service: azure-functions
 ms.devlang: java
 ms.topic: conceptual
-ms.date: 08/10/2018
+ms.date: 09/14/2018
 ms.author: routlaw
-ms.openlocfilehash: f0dc471e8875ad0d738fce10421c3586752148b9
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: f6c5eb4a3ace1fcca1bbbef321371d55a0ce8da9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092306"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123484"
 ---
 # <a name="azure-functions-java-developer-guide"></a>Azure Functions Java-handleiding voor ontwikkelaars
 
@@ -26,7 +26,35 @@ ms.locfileid: "44092306"
 
 Uw Azure-functie moet een stateless klassenmethode waarmee invoer worden verwerkt en geeft een resultaat. Hoewel u instantiemethoden schrijven kunt, moet de exemplaarvelden van een van de klasse niet de functie afhankelijk. Alle methoden van de functie moet een `public` toegang modifier.
 
-U kunt meer dan één functie plaatsen in een project. Plaats uw functies in afzonderlijke JAR-bestanden.
+## <a name="folder-structure"></a>mapstructuur
+
+De mapstructuur van een Java-project ziet er als volgt uit:
+
+```
+FunctionsProject
+ | - src
+ | | - main
+ | | | - java
+ | | | | - FunctionApp
+ | | | | | - MyFirstFunction.java
+ | | | | | - MySecondFunction.java
+ | - target
+ | | - azure-functions
+ | | | - FunctionApp
+ | | | | - FunctionApp.jar
+ | | | | - host.json
+ | | | | - MyFirstFunction
+ | | | | | - function.json
+ | | | | - MySecondFunction
+ | | | | | - function.json
+ | | | | - bin
+ | | | | - lib
+ | - pom.xml
+```
+
+Er is een gedeelde [host.json] (functions-host-json.md)-bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een eigen codebestand (startactiviteit) en de binding-configuratiebestand (function.json).
+
+U kunt meer dan één functie plaatsen in een project. Plaats uw functies in afzonderlijke JAR-bestanden. De FunctionApp in de doelmap is wat wordt geïmplementeerd naar uw functie-app in Azure.
 
 ## <a name="triggers-and-annotations"></a>Triggers en aantekeningen
 

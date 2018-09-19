@@ -1,36 +1,37 @@
 ---
-title: Microsoft Translator tekst API V3.0 verwijzing | Microsoft Docs
-description: Documentatie voor de API V3.0 Microsoft Translator tekst.
+title: Naslaginformatie Translator Text-API-V3.0
+titlesuffix: Azure Cognitive Services
+description: Referentiedocumentatie voor de V3.0 Translator Text-API.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: cfaa9584e833b137b417d9074fbfcf606eb21388
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 9282d8af30cbfb3346394bcd71510faf8d8c8a21
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344847"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129383"
 ---
-#<a name="translator-text-api-v30"></a>Conversieprogramma tekst API v3.0
+# <a name="translator-text-api-v30"></a>Translator Text-API v3.0
 
 ## <a name="whats-new"></a>Wat is nieuw?
 
-Versie 3 van de Microsoft Translator tekst API biedt een moderne JSON gebaseerde Web-API. De bruikbaarheid verbetert en prestaties van de door de consolidatie van bestaande functies in minder bewerkingen en het beschikt over nieuwe functies.
+Versie 3 van de Translator Text-API biedt een moderne JSON gebaseerde Web-API. Het verbetert de gebruiksvriendelijkheid en prestaties door te consolideren van bestaande functies in minder bewerkingen en het beschikt over nieuwe functies.
 
- * Transliteration tekst in één taal converteren van een script naar een ander script.
- * De vertaling naar meerdere talen in één aanvraag.
- * Taal wordt gedetecteerd, NAT en transliteration in een aanvraag.
- * Woordenlijst voor lookup alternatieve vertalingen van een term, om back-vertalingen en voorbeelden weergegeven van termen die in de context worden gebruikt.
- * Meer informatieve resultaten taal.
+ * Vele converteren van tekst in één taal van één script naar een ander script.
+ * De vertaling voor meerdere talen in één aanvraag.
+ * Taaldetectie, vertaling en vele in één aanvraag.
+ * Woordenlijst voor alternatieve vertalingen opzoeken van een term zoeken naar back-vertalingen en voorbeelden die laten zien termen die in de context worden gebruikt.
+ * Taal meer informatieve resultaten.
 
 ## <a name="base-urls"></a>Basis-URL 's
 
-Tekst API v3.0 is beschikbaar in de volgende cloud:
+Tekst-API v3.0 is beschikbaar in de volgende cloud:
 
 | Beschrijving | Regio | Basis-URL                                        |
 |-------------|--------|-------------------------------------------------|
@@ -39,17 +40,17 @@ Tekst API v3.0 is beschikbaar in de volgende cloud:
 
 ## <a name="authentication"></a>Verificatie
 
-Abonneren op conversieprogramma tekst API in Microsoft cognitieve Services en uw abonnementssleutel (beschikbaar in de Azure-portal) gebruiken om te verifiëren. 
+Abonneren op Translator Text-API in Microsoft Cognitive Services en uw abonnementssleutel (beschikbaar in Azure portal) gebruiken om te verifiëren. 
 
-De eenvoudigste manier is uw Azure geheime sleutel doorgeven aan de NAT-service met behulp van de aanvraag-header `Ocp-Apim-Subscription-Key`.
+De eenvoudigste manier is om door te geven van uw Azure-geheime sleutel naar de Translator-service met behulp van aanvraagheader `Ocp-Apim-Subscription-Key`.
 
-Een alternatief is het gebruik van uw geheime sleutel van een verificatietoken ophalen van de service voor beveiligingstokens. Vervolgens moet u het verificatietoken doorgegeven met het conversieprogramma service via de `Authorization` aanvraag-header. Voor een verificatietoken controleert een `POST` aanvraag naar de volgende URL:
+Een alternatief is het gebruik van de geheime sleutel van een verificatietoken ophalen van de service voor beveiligingstokens. Vervolgens kunt u het Autorisatietoken doorgeven aan de Translator service met behulp de `Authorization` aanvraagheader. Als u wilt een verificatietoken hebt verkregen, moet u een `POST` aanvraag voor de volgende URL:
 
-| Omgeving     | Service-URL voor webverificatie                                |
+| Omgeving     | Service-URL webverificatie                                |
 |-----------------|-----------------------------------------------------------|
 | Azure           | `https://api.cognitive.microsoft.com/sts/v1.0/issueToken` |
 
-Dit zijn voorbeeld verzoeken voor het verkrijgen van een token krijgen een geheime sleutel:
+Hier vindt u voorbeeld verzoeken voor het verkrijgen van een token krijgen een geheime sleutel:
 
 ```
 // Pass secret key using header
@@ -58,38 +59,38 @@ curl --header 'Ocp-Apim-Subscription-Key: <your-key>' --data "" 'https://api.cog
 curl --data "" 'https://api.cognitive.microsoft.com/sts/v1.0/issueToken?Subscription-Key=<your-key>'
 ```
 
-De aanvraag is gelukt retourneert het gecodeerde toegangstoken als tekst zonder opmaak in de hoofdtekst van het antwoord. Het token geldig is doorgegeven aan de NAT-service als bearer-token in de autorisatie.
+Een geslaagde aanvraag retourneert het gecodeerde toegangstoken als tekst zonder opmaak in de hoofdtekst van de reactie. De geldige token wordt doorgegeven aan de Translator-service als een bearer-token in de autorisatie.
 
 ```
 Authorization: Bearer <Base64-access_token>
 ```
 
-Een verificatietoken is geldig voor 10 minuten. Het token moet opnieuw worden gebruikt bij meerdere roept de API-conversieprogramma's. Echter, als u uw programma aanvragen aan de API-vertaler gedurende een lange periode, vervolgens uw programma moet aanvragen een nieuw toegangstoken op gezette tijden (bijvoorbeeld elke 8 minuten).
+Een verificatietoken is geldig voor 10 minuten. Het token moet opnieuw worden gebruikt bij het maken van meerdere aanroepen naar de Translator-API's. Echter, als uw programma aanvragen naar de API van Translator gedurende een lange periode maakt, vervolgens uw programma moet aanvragen een nieuw toegangstoken op gezette tijden (bijvoorbeeld elke 8 minuten).
 
-Om samen te vatten, bevat een clientaanvraag naar de API-vertaler één autorisatie-header die afkomstig zijn uit de volgende tabel:
+Om samen te vatten, bevat een clientaanvraag naar de API van Translator één autorisatie-header die is overgenomen uit de volgende tabel:
 
 <table width="100%">
   <th width="30%">Headers</th>
   <th>Beschrijving</th>
   <tr>
     <td>OCP-Apim-Subscription-Key</td>
-    <td>*Gebruikt met abonnement cognitieve Services als u uw geheime sleutel doorgeeft*.<br/>De waarde is de Azure geheime sleutel voor uw abonnement aan conversieprogramma tekst API.</td>
+    <td>*Gebruiken met Cognitive Services-abonnement als u de geheime sleutel doorgeeft*.<br/>De waarde is de Azure geheime sleutel voor uw abonnement op Translator Text-API.</td>
   </tr>
   <tr>
     <td>Autorisatie</td>
-    <td>*Gebruiken met abonnement cognitieve Services als u geen verificatietoken doorgeeft.*<br/>De waarde is de Bearer-token: ' Bearer <token>'.</td>
+    <td>*Met Cognitive Services-abonnement gebruiken als u een verificatietoken doorgeeft.*<br/>De waarde is het Bearer-token: ' Bearer <token>'.</td>
   </tr>
 </table> 
 
 ## <a name="errors"></a>Fouten
 
-Een antwoord van de standaardfout is een JSON-object met de naam/waarde-paar met de naam `error`. De waarde is ook een JSON-object met eigenschappen:
+Een reactie van de standaardfout is een JSON-object met de naam/waarde-paar met de naam `error`. De waarde is ook een JSON-object met eigenschappen:
 
   * `code`: Een server gedefinieerde foutcode.
 
-  * `message`: Een tekenreeks die een leesbare weergave van de fout geeft.
+  * `message`: Een tekenreeks die een leesbare weergave van de fout.
 
-Een klant een gratis proefabonnement zou bijvoorbeeld de volgende fout ontvangen wanneer de beschikbare quota is verbruikt:
+Een klant met een gratis proefabonnement zou bijvoorbeeld het volgende foutbericht krijgt, zodra het gratis quotum is bereikt:
 
 ```
 {

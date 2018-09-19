@@ -12,14 +12,14 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/06/2018
+ms.date: 09/17/2018
 ms.author: jeedes
-ms.openlocfilehash: e100859a184db2b6298dd02a1bb7bb238de27d51
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: e7cb3049f680f81026e09388066001413922600a
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44096222"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123844"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-silverback"></a>Zelfstudie: Azure Active Directory-integratie met Silverback
 
@@ -38,7 +38,7 @@ Als u wilt graag meer informatie over de integratie van de SaaS-app met Azure AD
 Voor het configureren van Azure AD-integratie met Silverback, moet u de volgende items:
 
 - Een Azure AD-abonnement
-- Een Silverback eenmalige aanmelding ingeschakeld abonnement
+- Een actief abonnement op Silverback
 
 > [!NOTE]
 > Als u wilt testen van de stappen in deze zelfstudie, raden we niet met behulp van een productie-omgeving.
@@ -107,11 +107,11 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Silverback domein en URL's, eenmalige aanmelding informatie](./media/silverback-tutorial/tutorial_silverback_url.png)
 
-    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<YOURSILVERBACKURL>/ssp`
+    a. In de **aanmeldings-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<YOURSILVERBACKURL>.com/ssp`
 
-    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `https://<YOURSILVERBACKURL>`
+    b. In de **id** tekstvak, een URL met behulp van het volgende patroon: `<YOURSILVERBACKURL>.com`
 
-    c. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<YOURSILVERBACKURL>/sts/authorize/login`
+    c. In de **antwoord-URL** tekstvak, een URL met behulp van het volgende patroon: `https://<YOURSILVERBACKURL>.com/sts/authorize/login`
 
     > [!NOTE] 
     > Deze waarden zijn niet echt. Werk deze waarden met de werkelijke aanmeldings-URL, id en antwoord-URL. Neem contact op met [Silverback Client ondersteuningsteam](mailto:helpdesk@matrix42.com) om deze waarden te verkrijgen. 
@@ -124,7 +124,31 @@ In deze sectie maakt u schakelt Azure AD eenmalige aanmelding in de Azure-portal
 
     ![Configureren van eenmalige aanmelding opslaan](./media/silverback-tutorial/tutorial_general_400.png)
 
-6. Het configureren van eenmalige aanmelding op **Silverback** zijde, moet u voor het verzenden van de **App-Url voor federatieve metagegevens** naar [Silverback ondersteuningsteam](mailto:helpdesk@matrix42.com). Ze stelt u deze optie om de SAML SSO-verbinding instellen goed aan beide zijden.
+6.  Meld u aan bij uw Silverback-Server als beheerder en voer de volgende stappen uit:
+
+    a.  Navigeer naar **Admin** > **verificatieprovider**.
+
+    b. Op de **verificatie-instellingen voor Provider** pagina, voert u de volgende stappen uit:
+
+    ![De beheerder ](./media/silverback-tutorial/tutorial_silverback_admin.png)
+
+    c.  Klik op **importeren vanaf URL**.
+    
+    d.  Plak de gekopieerde metagegevens-URL en klik op **OK**.
+    
+    e.  Controleer of met **OK** en vervolgens de waarden worden automatisch ingevuld.
+    
+    f.  Schakel **weergeven op de aanmeldingspagina**.
+    
+    g.  Schakel **dynamische maken door gebruiker** als u wilt met Azure AD gemachtigde gebruikers automatisch toevoegen (optioneel).
+    
+    h.  Maak een **titel** voor de knop op de selfserviceportal.
+
+    i.  Upload een **pictogram** door te klikken op **bestand kiezen**.
+    
+    j.  Selecteer de achtergrond **kleur** voor de knop.
+    
+    k.  Klik op **Opslaan**.
 
 ### <a name="create-an-azure-ad-test-user"></a>Maak een testgebruiker Azure AD
 
@@ -160,7 +184,34 @@ Het doel van deze sectie is het maken van een testgebruiker in Azure portal Brit
  
 ### <a name="create-a-silverback-test-user"></a>Maak een testgebruiker Silverback
 
-In deze sectie maakt u een gebruiker met de naam van Britta Simon in Silverback. Werken met [Silverback ondersteuningsteam](mailto:helpdesk@matrix42.com) om toe te voegen de gebruikers in het Silverback-platform. Gebruikers moeten worden gemaakt en worden geactiveerd voordat u eenmalige aanmelding gebruiken.
+Als u wilt dat Azure AD-gebruikers zich aanmelden bij Silverback, moeten ze worden ingericht voor Silverback. In Silverback is inrichten een handmatige taak.
+
+**Voor het inrichten van een gebruikersaccount, moet u de volgende stappen uitvoeren:**
+
+1. Meld u aan met uw Silverback-Server als beheerder.
+
+2. Navigeer naar **gebruikers** en **toevoegen van een nieuwe apparaatgebruiker**.
+
+3. Op de **Basic** pagina, voert u de volgende stappen uit:
+
+    ![De gebruiker ](./media/silverback-tutorial/tutorial_silverback_user.png)
+
+    a. In **gebruikersnaam** tekst voert u de naam van gebruiker, zoals **Julia**.
+
+    b. In **voornaam** tekst voert u de voornaam van de gebruiker, zoals **Julia**.
+
+    c. In **achternaam** tekst voert u de achternaam van de gebruiker, zoals **Simon**.
+
+    d. In **e-mailadres** tekst vak, voer het e-mailadres van gebruiker, zoals **Brittasimon@contoso.com**.
+
+    e. In de **wachtwoord** tekst vak, Voer uw wachtwoord.
+    
+    f. In de **wachtwoord bevestigen** tekstvak, uw wachtwoord opnieuw invoeren en bevestigen.
+
+    g. Klik op **Opslaan**.
+
+>[!NOTE]
+>Als u niet wilt dat elke gebruiker handmatig maken inschakelen de **dynamische maken door gebruiker** selectievakje onder **Admin** > **verificatieprovider**.
 
 ### <a name="assign-the-azure-ad-test-user"></a>De Azure AD-testgebruiker toewijzen
 

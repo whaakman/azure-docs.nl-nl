@@ -9,14 +9,14 @@ keywords: Azure-functies, functies, gebeurtenisverwerking, webhooks, dynamisch b
 ms.service: azure-functions
 ms.devlang: dotnet
 ms.topic: reference
-ms.date: 12/12/2017
+ms.date: 09/12/2018
 ms.author: glenga
-ms.openlocfilehash: 9f538b48918bdde923c6dbf3999302e45b955035
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 54ac616f97ba034893721ff62fc6157dd045b5f8
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44092407"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126817"
 ---
 # <a name="azure-functions-c-developer-reference"></a>Azure Functions C# referentie voor ontwikkelaars
 
@@ -36,10 +36,24 @@ In dit artikel wordt ervan uitgegaan dat u de volgende artikelen al hebt gelezen
 In Visual Studio, de **Azure Functions** projectsjabloon, maken een C#-klasse bibliotheek-project gemaakt met de volgende bestanden:
 
 * [host.JSON](functions-host-json.md) -configuratie-instellingen die van invloed zijn op alle functies in het project bij het uitvoeren van lokaal of in Azure worden opgeslagen.
-* [Local.Settings.JSON](functions-run-local.md#local-settings-file) -app-instellingen en verbindingsreeksen die worden gebruikt bij het uitvoeren van lokaal worden opgeslagen.
+* [Local.Settings.JSON](functions-run-local.md#local-settings-file) -app-instellingen en verbindingsreeksen die worden gebruikt bij het uitvoeren van lokaal worden opgeslagen. Dit bestand bevat geheimen en niet worden gepubliceerd in uw functie-app in Azure. In plaats daarvan moet u [app-instellingen toevoegen aan uw functie-app](functions-develop-vs.md#function-app-settings).
+
+Wanneer u het project bouwt, wordt in een mapstructuur die lijkt op het volgende wordt gegenereerd in de build directory uitvoer:
+
+```
+<framework.version>
+ | - bin
+ | - MyFirstFunction
+ | | - function.json
+ | - MySecondFunction
+ | | - function.json
+ | - host.json
+```
+
+Deze map is wat wordt geïmplementeerd naar uw functie-app in Azure. De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn [toegevoegd aan het project als NuGet-pakketten](functions-triggers-bindings.md#c-class-library-with-visual-studio-2017).
 
 > [!IMPORTANT]
-> De buildproces maakt een *function.json* -bestand voor elke functie. Dit *function.json* bestand is niet bedoeld voor rechtstreeks worden bewerkt. Bindingsconfiguratie wijzigen kan of de functie uitschakelen door dit bestand te bewerken. U kunt een functie uitschakelen met de [uitschakelen](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs/DisableAttribute.cs) kenmerk. Bijvoorbeeld, een Booleaanse app-instelling MY_TIMER_DISABLED toevoegen en toepassen `[Disable("MY_TIMER_DISABLED")]` naar uw functie. U kunt vervolgens in- en uitschakelen door het appinstelling te wijzigen.
+> De buildproces maakt een *function.json* -bestand voor elke functie. Dit *function.json* bestand is niet bedoeld voor rechtstreeks worden bewerkt. Bindingsconfiguratie wijzigen kan of de functie uitschakelen door dit bestand te bewerken. Zie voor informatie over het uitschakelen van een functie, [functies uitschakelen](disable-function.md#functions-2x---c-class-libraries).
 
 ## <a name="methods-recognized-as-functions"></a>Methoden die als functies
 

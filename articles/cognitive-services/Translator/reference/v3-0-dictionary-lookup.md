@@ -1,22 +1,23 @@
 ---
-title: Microsoft Translator Text-API-woordenlijst Lookup methode | Microsoft Docs
-description: Gebruik de Microsoft Translator Text-API Dictionary Lookup-methode.
+title: Translator Text-API-woordenlijst Lookup methode
+titlesuffix: Azure Cognitive Services
+description: Gebruik de Translator Text-API Dictionary Lookup-methode.
 services: cognitive-services
 author: Jann-Skotdal
-manager: chriswendt1
+manager: cgronlun
 ms.service: cognitive-services
-ms.technology: microsoft translator
-ms.topic: article
+ms.component: translator-text
+ms.topic: reference
 ms.date: 03/29/2018
 ms.author: v-jansko
-ms.openlocfilehash: 5a186f60dc099b095c00056d965aa92618c2c708
-ms.sourcegitcommit: ab3b2482704758ed13cccafcf24345e833ceaff3
+ms.openlocfilehash: 41b610f3504a8eb6619613e3ad0aa7c1c4cf9f66
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/06/2018
-ms.locfileid: "37868082"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46127837"
 ---
-# <a name="text-api-30-dictionary-lookup"></a>Tekst-API 3.0: Woordenlijst opzoeken
+# <a name="translator-text-api-30-dictionary-lookup"></a>Translator Text-API 3.0: Woordenlijst opzoeken
 
 Biedt alternatieve vertalingen voor een woord en een klein aantal idiomatisch zinnen. Elke vertaling heeft een part-of-speech en een lijst met back-vertalingen. De back-vertalingen inschakelen om te begrijpen van de vertaling in de context van een gebruiker. De [woordenlijst voorbeeld](.\v3-0-dictionary-examples.md) bewerking kunt verder inzoomen op Zie dit voorbeeld wordt van elk paar vertaling.
 
@@ -55,7 +56,7 @@ Aanvraagheaders zijn onder andere:
   <th width="20%">Headers</th>
   <th>Beschrijving</th>
   <tr>
-    <td>_Een autorisatie_<br/>_koptekst_</td>
+    <td>_Een autorisatie_<br/>_Koptekst_</td>
     <td>*Vereiste aanvraagheader*.<br/>Zie [beschikbare opties voor verificatie](./v3-0-reference.md#authentication).</td>
   </tr>
   <tr>
@@ -139,7 +140,7 @@ Een geslaagde reactie is een JSON-matrix met één resultaat voor elke tekenreek
 
 In dit voorbeeld laat zien hoe voor het opzoeken van alternatieve vertalingen in het Spaans van de Engelse term `fly` .
 
-# <a name="curltabcurl"></a>[cURL](#tab/curl)
+# <a name="curltabcurl"></a>[CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly'}]"
@@ -190,7 +191,7 @@ De hoofdtekst van antwoord (afgekort voor de duidelijkheid) is:
 
 Dit voorbeeld laat zien wat er gebeurt wanneer de term wordt opgezocht niet voor het paar geldig woordenlijst bestaat.
 
-# <a name="curltabcurl"></a>[cURL](#tab/curl)
+# <a name="curltabcurl"></a>[CURL](#tab/curl)
 
 ```
 curl -X POST "https://api.cognitive.microsofttranslator.com/dictionary/lookup?api-version=3.0&from=en&to=es" -H "X-ClientTraceId: 875030C7-5380-40B8-8A03-63DACCF69C11" -H "Ocp-Apim-Subscription-Key: <client-secret>" -H "Content-Type: application/json" -d "[{'Text':'fly123456'}]"

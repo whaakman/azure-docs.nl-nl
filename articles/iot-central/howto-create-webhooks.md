@@ -3,19 +3,21 @@ title: Webhooks maken van regels in Azure IoT Central | Microsoft Docs
 description: Webhooks maken in Azure IoT Central op andere toepassingen automatisch een melding wanneer de regels worden geactiveerd.
 author: viv-liu
 ms.author: viviali
-ms.date: 07/17/2018
+ms.date: 09/17/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 1e21076cafe21e6c0efcdf5a8146278eabd9ebc4
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 896d4e9c775fa0b0c8eb062d11d141901daa7242
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39228012"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295973"
 ---
 # <a name="create-webhook-actions-on-rules-in-azure-iot-central"></a>Webhookacties op regels in Azure IoT Central maken
+
+*In dit onderwerp is van toepassing op builders en beheerders.*
 
 Webhooks kunt u uw IoT Central-app verbinden met andere toepassingen en services voor externe bewaking en meldingen. Webhooks geven door andere toepassingen en services dat u verbinding maken wanneer een regel wordt geactiveerd in uw IoT Central-app automatisch aan. Uw IoT Central-app wordt een POST-aanvraag naar de andere toepassing HTTP-eindpunt verzenden wanneer een regel wordt geactiveerd. De nettolading bevat Apparaatdetails en de details van de regel-trigger. 
 
@@ -25,11 +27,11 @@ In dit voorbeeld maakt u verbinding met RequestBin om te worden geïnformeerd wa
 1. Open [RequestBin](http://requestbin.net/). 
 1. Maak een nieuwe RequestBin en kopieer de **Bin-URL**. 
 1. Maak een [telemetrie regel](howto-create-telemetry-rules.md) of een [gebeurtenis regel](howto-create-event-rules.md). De regel niet opslaan en voeg een nieuwe actie toe.
-![Webhook maken van het scherm](media/howto-create-webhooks/webhookcreate.png)
+![Webhook maken van het scherm](media/howto-create-webhooks/webhookcreate.PNG)
 1. Kies de webhookactie en een weergavenaam invoeren en plakt u de Bin-URL als de Callback-URL. 
-1. De regel niet opslaan
+1. De regel niet opslaan.
 
-Nu wanneer de regel wordt gestart, u een nieuwe aanvraag in RequestBin worden weergegeven ziet.
+Nu wanneer de regel wordt geactiveerd, u een nieuwe aanvraag in RequestBin worden weergegeven ziet.
 
 ## <a name="payload"></a>Nettolading
 Wanneer een regel wordt geactiveerd, wordt een HTTP POST-aanvraag die naar de callback-URL met een json-payload met de metingen, apparaat, regel en toepassingsgegevens. Voor een regel telemetrie, kan de nettolading van de er uitzien als het volgende:
@@ -42,6 +44,7 @@ Wanneer een regel wordt geactiveerd, wordt een HTTP POST-aanvraag die naar de ca
         "id":"ID",
         "name":  "Refrigerator1",
         "simulated" : true,
+        "deviceId": "deviceID",
         "deviceTemplate":{
             "id": "ID",
             "version":"1.0.0"

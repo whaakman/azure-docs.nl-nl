@@ -1,75 +1,75 @@
 ---
-title: Release-opmerkingen voor de Service Face-API | Microsoft Docs
-titleSuffix: Microsoft Cognitive Services
-description: Release-opmerkingen voor de Face-API-Service bevatten een geschiedenis van wijzigingen in de release voor verschillende versies.
+title: Opmerkingen bij de release - Face-API-Service
+titleSuffix: Azure Cognitive Services
+description: Opmerkingen bij de release voor de Face-API-Service bevatten een geschiedenis van wijzigingen in de release voor verschillende versies.
 services: cognitive-services
 author: SteveMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: face-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: 918b3ea5dbaaa44e4eee1a679354c7becffd4686
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6fd3d33d40b0ed142127e46dd7c9173de39947c7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345640"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46121988"
 ---
-# <a name="face-api-release-notes"></a>Face-API-Release-opmerkingen
+# <a name="face-api-release-notes"></a>Opmerkingen bij de Release van Face-API
 
-In dit artikel heeft betrekking op Microsoft Face-API-Service, versie 1.0.
+In dit artikel geldt voor de Face-API-Service, versie 1.0.
 
 ### <a name="release-changes-in-may-2018"></a>Wijzigingen van de release in mei 2018
 
-* Verbeterde `gender` kenmerk ook en aanzienlijk verbeterd `age`, `glasses`, `facialHair`, `hair`, `makeup` kenmerken. Gebruik ze via [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parameter. 
+* Verbeterde `gender` kenmerk aanzienlijk en ook verbeterd `age`, `glasses`, `facialHair`, `hair`, `makeup` kenmerken. Gebruik via [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parameter. 
 
-* Verbeterde invoer installatiekopie maximale bestandsgrootte van 4 MB tot 6 MB in [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) en [LargePersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42).
+* Verbeterde afbeelding maximale bestandsgrootte van 4 MB tot 6 MB in [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250), [LargeFaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a158c10d2de3616c086f2d3), [PersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) en [LargePersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599adf2a3a7b9412a4d53f42).
 
-### <a name="release-changes-in-march-2018"></a>Wijzigingen in maart 2018 release
+### <a name="release-changes-in-march-2018"></a>Release-wijzigingen in maart 2018
 
-* Toegevoegde miljoen Scale Container: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) en [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). Meer informatie in [het gebruik van de functie voor grootschalige](Face-API-How-to-Topics/how-to-use-large-scale.md).
+* Containergroepen toegevoegd miljoen-schaal: [LargeFaceList](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/5a157b68d2de3616c086f2cc) en [LargePersonGroup](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/599acdee6ac60f11b48b5a9d). Meer informatie in [over het gebruik van de functie voor grootschalige](Face-API-How-to-Topics/how-to-use-large-scale.md).
 
-* Verhoogd [geconfronteerd: bepalen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) `maxNumOfCandidatesReturned` parameter vanuit [1, 5] naar [1, 100] en standaard 10.
+* Verhoogd [geconfronteerd - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) `maxNumOfCandidatesReturned` parameter uit [1, 5] naar [1, 100] en standaard 10.
 
 ### <a name="release-changes-in-may-2017"></a>Wijzigingen van de release in mei 2017
 
 * Toegevoegd `hair`, `makeup`, `accessory`, `occlusion`, `blur`, `exposure`, en `noise` kenmerken in [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parameter.
 
-* 10K personen ondersteund in een PersonGroup en [geconfronteerd: bepalen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+* 10K personen worden ondersteund in een PersonGroup en [geconfronteerd - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
 * Paginering in ondersteund [PersonGroup persoon - lijst](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395241) met optionele parameters: `start` en `top`.
 
-* Ondersteunde gelijktijdigheid in vlakken tegen verschillende FaceLists en andere personen in PersonGroup toevoegen/verwijderen.
+* Ondersteunde gelijktijdigheid van taken bij het toevoegen/verwijderen van gezichten op basis van verschillende FaceLists en andere personen in PersonGroup.
 
-### <a name="release-changes-in-march-2017"></a>Wijzigingen in maart 2017 release
+### <a name="release-changes-in-march-2017"></a>Release-wijzigingen in maart 2017
 * Toegevoegd `emotion` kenmerk in [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) `returnFaceAttributes` parameter.
 
-* Vaste de face kan niet opnieuw worden gedetecteerd met rechthoek geretourneerd van [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) als `targetFace` in [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) en [PersonGroup persoon - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
+* Vaste het gezicht kan niet opnieuw worden gedetecteerd met rechthoek geretourneerd door [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236) als `targetFace` in [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) en [PersonGroup persoon - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
-* Een vaste grootte van de waarneembaar face om ervoor te zorgen dat geldt uitsluitend tussen 36 x 36 naar 4096 x 4096 pixels.
+* De grootte van de face-detecteerbare om te controleren of dat het is uitsluitend tussen 36 x 36 naar 4096 x 4096 pixels opgelost.
 
-### <a name="release-changes-in-november-2016"></a>Release van wijzigingen in November 2016
-* Face Storage Standard abonnement voor het opslaan van aanvullende persistente vlakken bij gebruik van toegevoegd [PersonGroup persoon - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) of [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) voor identificatie of gelijkenis overeenkomen. De opgeslagen afbeeldingen worden in rekening gebracht volgens $0,5 per 1000 vlakken en deze snelheid is naar rato per dag. Gratis laag abonnementen blijven worden beperkt tot 1000 totale personen.
+### <a name="release-changes-in-november-2016"></a>Release-wijzigingen in November 2016
+* Face Storage Standard-abonnement extra permanente gezichten opslaan wanneer u toegevoegd [PersonGroup persoon - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) of [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) voor identificatie of gelijkenis die overeenkomt met. De opgeslagen afbeeldingen worden in rekening gebracht op $0,5 per 1000 gezichten en dit tarief is per dagelijks Pro rata. De laag gratis abonnementen nog steeds beperkt tot 1000 totale personen.
 
-### <a name="release-changes-in-october-2016"></a>Release van wijzigingen in oktober 2016
-* Het foutbericht van meer dan een gezicht in de targetFace van "Er zijn meer dan één face in de afbeelding' aan 'Is er meer dan één face in de afbeelding' gewijzigd in [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) en [PersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
+### <a name="release-changes-in-october-2016"></a>Wijzigingen van de release oktober 2016
+* Het foutbericht van meer dan één gezicht in de targetFace van 'Zijn meer dan één gezicht in de afbeelding' naar 'Is er meer dan één gezicht in de afbeelding' gewijzigd in [FaceList - Face toevoegen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395250) en [PersonGroup persoon - toevoegen Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b).
 
-### <a name="release-changes-in-july-2016"></a>Release van wijzigingen in juli 2016
-* Face ondersteund met persoon object verificatie in [geconfronteerd: Controleer](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
+### <a name="release-changes-in-july-2016"></a>Wijzigingen van de release in juli 2016
+* Face ondersteund tot persoon object verificatie in [geconfronteerd: controleren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a).
 
-* Optionele toegevoegd `mode` parameter inschakelen van de selectie van de twee modi van werkende: `matchPerson` en `matchFace` in [Face - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) en de standaardwaarde is `matchPerson`.
+* Optionele toegevoegd `mode` parameter selectie van de twee modi van de werkende inschakelen: `matchPerson` en `matchFace` in [Face - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) en de standaardwaarde is `matchPerson`.
 
-* Optionele toegevoegd `confidenceThreshold` parameter voor de gebruiker in te stellen de drempelwaarde van of een face behoort tot een persoon-object in [geconfronteerd: bepalen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
+* Optionele toegevoegd `confidenceThreshold` parameter voor de gebruiker om in te stellen de drempelwaarde van een gezicht is of een object persoon in [geconfronteerd - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239).
 
-* Optionele toegevoegd `start` en `top` parameters in [PersonGroup - lijst](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395248) zodat de gebruiker het beginpunt en het totale aantal PersonGroups naar lijst op te geven.
+* Optionele toegevoegd `start` en `top` parameters in [PersonGroup - lijst](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395248) zodat de gebruiker het beginpunt en het totale aantal PersonGroups aan lijst op te geven.
 
-### <a name="v10-changes-from-v0"></a>V1.0 wordt gewijzigd van V0
-* Service-eindpunt hoofdmap van bijgewerkt ```https://westus.api.cognitive.microsoft.com/face/v0/``` naar ```https://westus.api.cognitive.microsoft.com/face/v1.0/```. Wijzigingen zijn toegepast op: [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [geconfronteerd: bepalen](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Face - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) en [geconfronteerd - groep](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
+### <a name="v10-changes-from-v0"></a>Wijzigingen van V0 V1.0
+* Root-service-eindpunt van bijgewerkt ```https://westus.api.cognitive.microsoft.com/face/v0/``` naar ```https://westus.api.cognitive.microsoft.com/face/v1.0/```. Wijzigingen zijn toegepast op: [geconfronteerd - detecteren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236), [geconfronteerd - identificeren](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239), [Face - Zoek vergelijkbare](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395237) en [geconfronteerd - groep](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238).
 
-* De minimale waarneembaar face-grootte is bijgewerkt en 36 x 36 pixels. Vlakken kleiner zijn dan 36 x 36 pixels niet gedetecteerd.
+* De grootte van de minimale detecteerbare face bijgewerkt naar 36 x 36 pixels. Gezichten die kleiner zijn dan 36 x 36 pixels niet gedetecteerd.
 
-* De gegevens PersonGroup en persoon in Face V0 afgeschaft. Deze gegevens zijn niet toegankelijk met de service Face V1.0.
+* De gegevens PersonGroup en persoon in Face V0 afgeschaft. Deze gegevens kan niet worden geopend met de Face V1.0-service.
 
 * Het eindpunt V0 van Face-API op 30 juni 2016 afgeschaft.

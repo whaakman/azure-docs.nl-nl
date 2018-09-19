@@ -1,6 +1,6 @@
 ---
-title: 'Verificatie van de service-naar-service: Java met Data Lake Store met Azure Active Directory | Microsoft Docs'
-description: Meer informatie over het bereiken van authentication service-naar-service met Data Lake Store met Azure Active Directory met Java
+title: 'Service-naar-serviceverificatie: Java met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory | Microsoft Docs'
+description: Meer informatie over het bereiken van service-naar-serviceverificatie met Azure Data Lake Storage Gen1 met behulp van Azure Active Directory met behulp van Java
 services: data-lake-store
 documentationcenter: ''
 author: nitinme
@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 05/29/2018
 ms.author: nitinme
-ms.openlocfilehash: c8ef983871f3fb1ec47522571ce95843bdd2d313
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
+ms.openlocfilehash: 86cc5148c862c18c01cec2951fc58e2932c17ca8
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34625862"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298146"
 ---
-# <a name="service-to-service-authentication-with-data-lake-store-using-java"></a>Service to service-verificatie met Data Lake Store met Java
+# <a name="service-to-service-authentication-with-azure-data-lake-storage-gen1-using-java"></a>Service-naar-serviceverificatie met Azure Data Lake Storage Gen1 met behulp van Java
 > [!div class="op_single_selector"]
 > * [Java gebruiken](data-lake-store-service-to-service-authenticate-java.md)
 > * [.NET-SDK gebruiken](data-lake-store-service-to-service-authenticate-net-sdk.md)
@@ -27,16 +27,16 @@ ms.locfileid: "34625862"
 > 
 >  
 
-In dit artikel hebt u meer informatie over het gebruik van de Java SDK voor verificatie met Azure Data Lake Store-service-naar-service. Verificatie van de eindgebruiker met Data Lake Store met Java SDK wordt niet ondersteund.
+In dit artikel leert u over het gebruik van de Java-SDK-service-naar-serviceverificatie met Azure Data Lake Storage Gen1 doen. Eindgebruikersverificatie met Data Lake Storage Gen1 met behulp van Java-SDK wordt niet ondersteund.
 
 ## <a name="prerequisites"></a>Vereisten
 * **Een Azure-abonnement**. Zie [Gratis proefversie van Azure ophalen](https://azure.microsoft.com/pricing/free-trial/).
 
-* **Maken van een Azure Active Directory 'Web' toepassing**. U moet voltooid van de stappen in [authentication Service-naar-service met Data Lake Store met Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
+* **Maken van een Azure Active Directory-toepassing voor 'Web'**. U moet zijn voltooid de stappen in [Service-naar-serviceverificatie met Data Lake Storage Gen1 met behulp van Azure Active Directory](data-lake-store-service-to-service-authenticate-using-active-directory.md).
 
 * [Maven](https://maven.apache.org/install.html). In deze zelfstudie wordt Maven gebruikt voor build- en projectafhankelijkheden. Hoewel het mogelijk is te ontwikkelen zonder een buildsysteem als Maven of Gradle, maken deze systemen het veel eenvoudiger om afhankelijkheden te beheren.
 
-* (Optioneel) Een IDE zoals [IntelliJ IDEA](https://www.jetbrains.com/idea/download/), [Eclipse](https://www.eclipse.org/downloads/) of vergelijkbaar.
+* (Optioneel) Een IDE zoals [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) of [Eclipse](https://www.eclipse.org/downloads/) of vergelijkbare.
 
 ## <a name="service-to-service-authentication"></a>Verificatie van service-tot-service
 1. Maak een Maven-project met behulp van [mvn archetype](https://maven.apache.org/guides/getting-started/maven-in-five-minutes.html) vanaf de opdrachtregel of met behulp van een IDE. [Hier](https://www.jetbrains.com/help/idea/2016.1/creating-and-running-your-first-java-application.html) vindt u instructies over het maken van een Java-project met behulp van IntelliJ. [Hier](http://help.eclipse.org/mars/index.jsp?topic=%2Forg.eclipse.jdt.doc.user%2FgettingStarted%2Fqs-3.htm) vindt u instructies over het maken van een Java-project met behulp van Eclipse.
@@ -56,7 +56,7 @@ In dit artikel hebt u meer informatie over het gebruik van de Java SDK voor veri
           </dependency>
         </dependencies>
    
-    De eerste afhankelijkheid is om Data Lake Store SDK (`azure-data-lake-store-sdk`) vanuit de Maven-opslag te gebruiken. De tweede afhankelijkheid dient om op te geven welk framework voor logboekregistratie (`slf4j-nop`) voor deze toepassing moet worden gebruikt. De Data Lake Store SDK gebruikt een [slf4j](http://www.slf4j.org/)-façade voor logboekregistratie, waarmee u uit een aantal populaire frameworks voor logboekregistratie, zoals log4j, Java logging, logback enzovoort, of voor geen logboekregistratie kunt kiezen. In dit voorbeeld wordt logboekregistratie uitgeschakeld. Daarom wordt de binding **slf4j-nop** gebruikt. [Hier](http://www.slf4j.org/manual.html#projectDep) vindt u andere opties voor logboekregistratie voor uw toepassing.
+    De eerste afhankelijkheid is het gebruik van de Data Lake Storage-SDK met Gen1 (`azure-data-lake-store-sdk`) vanuit de maven-opslagplaats. De tweede afhankelijkheid dient om op te geven welk framework voor logboekregistratie (`slf4j-nop`) voor deze toepassing moet worden gebruikt. Maakt gebruik van de Data Lake Storage-SDK met Gen1 [slf4j](http://www.slf4j.org/) logboekregistratie gevel, kunt u kiezen uit een aantal populaire logboekregistratie frameworks als log4j, logback, enz., logboekregistratie Java of niet vastleggen. In dit voorbeeld wordt logboekregistratie uitgeschakeld. Daarom wordt de binding **slf4j-nop** gebruikt. [Hier](http://www.slf4j.org/manual.html#projectDep) vindt u andere opties voor logboekregistratie voor uw toepassing.
 
 3. Voeg de volgende importinstructies toe aan uw toepassing.
 
@@ -67,7 +67,7 @@ In dit artikel hebt u meer informatie over het gebruik van de Java SDK voor veri
         import com.microsoft.azure.datalake.store.oauth2.AccessTokenProvider;
         import com.microsoft.azure.datalake.store.oauth2.ClientCredsTokenProvider;
 
-4. Gebruik het volgende fragment in uw Java-toepassing voor het token voor de Active Directory-webtoepassing hebt gemaakt met een van de subklassen van eerder behulp verkrijgen `AccessTokenProvider` (het volgende voorbeeld wordt `ClientCredsTokenProvider`). De tokenprovider slaat de referenties die worden gebruikt voor het ophalen van het token, op in de cache en vernieuwt het token automatisch als het bijna is verlopen. Het is mogelijk te maken van uw eigen subklassen van `AccessTokenProvider` zodat tokens worden verkregen door de code van uw klant. Nu gaan we gebruiken de vraagcode die is opgegeven in de SDK.
+4. Het volgende codefragment in uw Java-toepassing gebruiken om op te halen van het token voor de Active Directory-webtoepassing u hebt gemaakt met het eerder met behulp van een van de subklassen `AccessTokenProvider` (het volgende voorbeeld wordt `ClientCredsTokenProvider`). De tokenprovider slaat de referenties die worden gebruikt voor het ophalen van het token, op in de cache en vernieuwt het token automatisch als het bijna is verlopen. Het is mogelijk te maken van uw eigen subklassen van `AccessTokenProvider` zodat tokens worden verkregen door code van de klant. Nu dit voorbeeld gebruiken we die is opgegeven in de SDK.
 
     Vervang **FILL-IN-HERE** met de daadwerkelijke waarden voor de Azure Active Directory-webtoepassing.
 
@@ -77,11 +77,11 @@ In dit artikel hebt u meer informatie over het gebruik van de Java SDK voor veri
     
         AccessTokenProvider provider = new ClientCredsTokenProvider(authTokenEndpoint, clientId, clientKey);   
 
-De Data Lake Store SDK biedt handige methoden om de beveiligingstokens te beheren die nodig zijn om te communiceren met het Data Lake Store-account. Dit zijn echter niet de enige methoden die met SDK kunnen worden gebruikt. U kunt elke andere methode voor het verkrijgen van een token gebruiken. Zo kunt u de [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java) gebruiken, of uw persoonlijke code.
+De Data Lake Storage Gen1 SDK biedt handige methoden waarmee u kunnen de beveiligingstokens die nodig zijn om te communiceren met het Gen1 van Data Lake Storage-account beheren. Dit zijn echter niet de enige methoden die met SDK kunnen worden gebruikt. U kunt elke andere methode voor het verkrijgen van een token gebruiken. Zo kunt u de [Azure Active Directory SDK](https://github.com/AzureAD/azure-activedirectory-library-for-java) gebruiken, of uw persoonlijke code.
 
 ## <a name="next-steps"></a>Volgende stappen
-In dit artikel leert u hebt geleerd hoe eindgebruikers verificatie gebruiken om te verifiëren met Azure Data Lake Store Java SDK gebruiken. U kunt nu de volgende artikelen die uitleggen hoe de Java SDK gebruiken om te werken met Azure Data Lake Store bekijken.
+In dit artikel hebt u geleerd hoe u verificatie van eindgebruikers om u te verifiëren met Data Lake Storage Gen1 met behulp van Java-SDK. U kunt nu de volgende artikelen die bespreken hoe u de Java SDK gebruiken om te werken met Data Lake Storage Gen1 kijken.
 
-* [Bewerkingen van de gegevens in Data Lake Store met Java SDK](data-lake-store-get-started-java-sdk.md)
+* [Bewerkingen van de gegevens in Data Lake Storage Gen1 met behulp van Java-SDK](data-lake-store-get-started-java-sdk.md)
 
 

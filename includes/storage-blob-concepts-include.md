@@ -8,14 +8,16 @@ ms.topic: include
 ms.date: 04/09/2018
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: 63593ff5f02f5e37fc25c988c4cef071a03a00b4
-ms.sourcegitcommit: 150a40d8ba2beaf9e22b6feff414f8298a8ef868
+ms.openlocfilehash: a934a1b75e85e03b6803be5c8afcd8fe74b0fad5
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/27/2018
-ms.locfileid: "37066030"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45739195"
 ---
 Azure Blob Storage is Microsoft's oplossing voor opslag van objecten in de cloud. Blob Storage is geoptimaliseerd voor het opslaan van grote hoeveelheden ongestructureerde gegevens, zoals tekst of binaire gegevens.
+
+Zeer schaalbare oplossing voor objectopslag van ongestructureerde gegevens
 
 Blob-opslag is ideaal voor:
 
@@ -36,7 +38,7 @@ Bij Blob-opslag worden drie resources beschikbaar gemaakt: uw opslagaccount, de 
 
 ### <a name="storage-account"></a>Opslagaccount
 
-Alle gegevensobjecten in Azure Storage zijn toegankelijk via een opslagaccount. Zie [Over Azure-opslagaccounts](../articles/storage/common/storage-create-storage-account.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie.
+Alle gegevensobjecten in Azure Storage zijn toegankelijk via een opslagaccount. Zie [Overzicht van Azure-opslagaccount](../articles/storage/common/storage-account-overview.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) voor meer informatie.
 
 ### <a name="container"></a>Container
 

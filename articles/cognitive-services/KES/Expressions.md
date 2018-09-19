@@ -1,83 +1,90 @@
 ---
-title: Query-expressies in de API-Service exploratie kennis gestructureerd | Microsoft Docs
-description: Informatie over het gebruik van structured query-expressies in het Knowledge exploratie Service (KES) API in cognitieve Services.
+title: Gestructureerde query-expressies - Knowledge Exploration Service API
+titlesuffix: Azure Cognitive Services
+description: Informatie over het gebruik van gestructureerde query-expressies in de Knowledge Exploration Service KES () API.
 services: cognitive-services
 author: bojunehsu
-manager: stesp
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: knowledge-exploration
-ms.topic: article
+ms.topic: conceptual
 ms.date: 03/26/2016
 ms.author: paulhsu
-ms.openlocfilehash: 070ee311a1153bc9fb59870dce68f385a43b15f1
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: bdde2dfc9ab8e8ffdf7123c916538a8c98ecfce9
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344517"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129162"
 ---
-# <a name="structured-query-expression"></a>Structured Query-expressie
-Een structured query-expressie bevat een reeks bewerkingen worden geëvalueerd op basis van de index.  Het bestaat kenmerk query-expressies en een hoger niveau functies.  Gebruik de [ *evalueren* ](evaluateMethod.md) methode voor het berekenen van de objecten die overeenkomt met de expressie.  Hier volgt een voorbeeld van het domein academic publicaties die als resultaat publicaties geschreven door Jaime Teevan sinds het jaar 2013 geeft.
+# <a name="structured-query-expression"></a>Gestructureerde Query-expressie
+
+Een gestructureerde query-expressie bevat een reeks bewerkingen om te beoordelen op basis van de gegevensindex.  Deze bestaat uit kenmerk query-expressies en functies op een hoger niveau.  Gebruik de [ *evalueren* ](evaluateMethod.md) methode voor het berekenen van de objecten die overeenkomen met de expressie.  Hier volgt een voorbeeld van het domein academische publicaties die als resultaat publicaties die zijn geschreven door Jaime Teevan sinds het jaar 2013 geeft.
 
 `And(Composite(Author.Name=='jaime teevan'),Y>=2013)`
 
-Structured query-expressies kunnen worden verkregen bij [ *interpreteren* ](interpretMethod.md) aanvragen, waarbij de semantische uitvoer van elke interpretatie is een structured query-expressie die als resultaat geeft de index-objecten die overeenkomt met de invoer natuurlijke taal query.  U kunt ook kunnen ze worden handmatig geschreven met behulp van de syntaxis van de in deze sectie beschreven.
+Gestructureerde query-expressies kunnen worden verkregen uit [ *interpreteren* ](interpretMethod.md) aanvragen, waarbij de semantische uitvoer van elke interpretatie is een gestructureerde query-expressie die wordt geretourneerd van de index-objecten die overeenkomen met de query van de invoer van natuurlijke taal.  U kunt ook kunnen deze worden handmatig geschreven met behulp van de syntaxis van de in deze sectie beschreven.
 
 ## <a name="attribute-query-expression"></a>Kenmerk Query-expressie
-Een query-expressie van het kenmerk identificeert een set objecten op basis van overeenkomst met een bepaald kenmerk.  Verschillende overeenkomende bewerkingen worden ondersteund, afhankelijk van het kenmerktype en geïndexeerde bewerking opgegeven in de [schema](SchemaFormat.md):
+
+Een kenmerk query-expressie wordt een set van objecten op basis van overeenkomst op basis van een specifiek kenmerk geïdentificeerd.  Verschillende overeenkomende bewerkingen worden ondersteund, afhankelijk van het kenmerktype en geïndexeerde bewerking opgegeven in de [schema](SchemaFormat.md):
 
 | Type | Bewerking | Voorbeelden |
 |------|-------------|------------|
 | Reeks | is gelijk aan | Titel = 'latente semantische analyse' (canonieke + synoniemen) |
 | Reeks | is gelijk aan | Author.Name=='susan t dumais (canonieke alleen)|
 | Reeks | starts_with | Titel = 'latente s'... |
-| Int64-Int32/Double | is gelijk aan | Jaar 2000 = |
-| Int64-Int32/Double | starts_with | Jaar = '20'... (een decimale waarde beginnen met '20') |
-| Int64-Int32/Double | is_between | Jaar&lt;2000 <br/> Jaar&lt;= 2000 <br/> Jaar&gt;2000 <br/> Jaar&gt;= 2000 <br/> Year=[2010,2012) *(bevat alleen links grenswaarde: 2010, 2011)* <br/> Jaar = [2000,2012] *(beide waarden bevat: 2010, 2011, 2012)* |
+| Int32/Int64/Double-waarde | is gelijk aan | Jaar 2000 = |
+| Int32/Int64/Double-waarde | starts_with | Jaar = "20"... (een decimale waarde beginnen met "20") |
+| Int32/Int64/Double-waarde | is_between | Jaar&lt;2000 <br/> Jaar&lt;= 2000 <br/> Jaar&gt;2000 <br/> Jaar&gt;= 2000 <br/> Year=[2010,2012) *(alleen links grenswaarde bevat: 2010, 2011)* <br/> Jaar = [2000,2012] *(beide waarden bevat: 2010, 2011, 2012)* |
 | Date | is gelijk aan | Geboortedatum ='1984-05-14' |
-| Date | is_between | Geboortedatum&lt;='03-2008/14' <br/> PublishDate = ['2000-01-01', ' 2009-12-31'] |
+| Date | is_between | Geboortedatum&lt;=' 2008/03/14' <br/> Publicatiedatum = ['2000-01-01', ' 31-12-2009'] |
 | GUID | is gelijk aan | Id = '602DD052-CC47-4B23-A16A-26B52D30C05B' |
 
 
-Bijvoorbeeld de expressie "Title = 'latente s'... ' komt overeen met alle academic publicaties met de titel met de tekenreeks"latente s begint".  Om deze expressie niet evalueren, moet het kenmerk titel de bewerking 'starts_with' opgeven in het schema gebruikt om de index te maken.
+Bijvoorbeeld, de expressie "Title = 'latente s'... ' komt overeen met alle academische publicaties waarvan u de titel met de tekenreeks"latente s begint".  Als u wilt evalueren deze expressie, moet de titel van het kenmerk de bewerking 'starts_with' opgeven in het schema dat wordt gebruikt voor het bouwen van de index.
 
-Voor kenmerken met een bijbehorende synoniemen, kan een query-expressie objecten waarvan de canonieke waarde overeenkomt met de opgegeven tekenreeks met de operator "==" of objecten waarbij een van de waarden van de canonieke/synoniem overeenkomen met de operator '=' opgeven.  Zowel de operator 'is gelijk aan' worden opgegeven in de kenmerkdefinitie is vereist.
+Voor kenmerken met een bijbehorende synoniemen, kan een query-expressie waarvan de canonieke waarde komt overeen met een opgegeven tekenreeks met de operator "==" of objecten waarbij een van de canonieke/synoniem waarden overeenkomen met de operator "=" objecten opgeven.  Zowel de operator "is gelijk aan" moet worden opgegeven in de kenmerkdefinitie van het is vereist.
 
 
 ## <a name="functions"></a>Functions
-Er is een ingebouwde verzameling functies waarmee de constructie van meer geavanceerde query-expressies basic kenmerk query's.
 
-### <a name="and-function"></a>En de functie
+Er is een ingebouwde verzameling functies waarmee de opbouw van complexere query-expressies basic kenmerk query's.
+
+### <a name="and-function"></a>And -functie
+
 `And(expr1, expr2)`
 
-Retourneert het snijpunt van de twee ingevoerde queryexpressies.
+Retourneert het snijpunt van de twee ingevoerde query-expressies.
 
-Het volgende voorbeeld retourneert academic publicaties die zijn gepubliceerd in het jaar 2000 over het ophalen van informatie:
+Het volgende voorbeeld retourneert de academische publicaties die zijn gepubliceerd in het jaar 2000 over het ophalen van informatie:
 
 `And(Year=2000, Keyword=='information retrieval')`
 
-### <a name="or-function"></a>Of functie
+### <a name="or-function"></a>Anders werkt
+
 `Or(expr1, expr2)`
 
-Retourneert de vereniging van de twee ingevoerde queryexpressies.
+Retourneert de samenvoeging van de twee ingevoerde query-expressies.
 
-Het volgende voorbeeld retourneert academic publicaties die zijn gepubliceerd in het jaar 2000 over het ophalen van informatie of modellering van gebruiker:
+Het volgende voorbeeld retourneert de academische publicaties die zijn gepubliceerd in het jaar 2000 over het ophalen van gegevens of gebruiker modellen:
 
 `And(Year=2000, Or(Keyword='information retrieval', Keyword='user modeling'))`
 
 ### <a name="composite-function"></a>Samengestelde functie
+
 `Composite(expr)`
 
-Retourneert een expressie die een interne expressie ingekapseld bestaat uit een query uitgevoerd naar de submap kenmerken van een gemeenschappelijk samengesteld kenmerk.  De inkapseling moet het samengestelde kenmerk van een overeenkomende gegevensobject hebben van ten minste één waarde die afzonderlijk voldoet aan de interne expressie.  Houd er rekening mee dat er een query-expressie op onderliggende kenmerken van een samengesteld kenmerk heeft te integreren met behulp van de functie Composite() voordat deze kan worden gecombineerd met andere query-expressies.
+Retourneert een expressie die een binnenste expressie ingekapseld bestaat uit de query's op onderliggende kenmerken van een gemeenschappelijk samengesteld kenmerk.  De inkapseling vereist het samengestelde kenmerk van overeenkomende gegevensobject dat ten minste één waarde die afzonderlijk voldoet aan de interne expressie.  Houd er rekening mee dat een query-expressie op onderliggende kenmerken van een samengestelde kenmerk heeft te integreren met behulp van de functie Composite() voordat deze kan worden gecombineerd met andere query-expressies.
 
-Bijvoorbeeld retourneert de volgende expressie academic publicaties door 'harry shum' terwijl hij op 'microsoft':
+De volgende expressie retourneert bijvoorbeeld academische publicaties door "harry shum" terwijl hij op 'microsoft is':
 
 ```
 Composite(And(Author.Name="harry shum", 
               Author.Affiliation="microsoft"))
 ```
 
-De volgende expressie retourneert aan de andere kant academic publicaties waarin een van de auteurs is 'harry shum' en een van de verwantschappen 'microsoft':
+De volgende expressie retourneert aan de andere kant academische publicaties daar een van de auteurs "harry shum' en een van de lidmaatschappen is 'microsoft':
 
 ```
 And(Composite(Author.Name="harry shum"), 

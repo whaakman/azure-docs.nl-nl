@@ -9,12 +9,12 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 05/17/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 5ae57764e2950d027e832eccec5393d4aec4486a
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: cbb73b199255af7e7a91b1586b331acde035bfd7
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981829"
+ms.locfileid: "46124509"
 ---
 # <a name="try-the-speech-service-for-free"></a>Speech Service gratis uitproberen
 
@@ -26,7 +26,7 @@ Ten slotte biedt de Speech-service een gratis, klein volume laag die geschikt is
 
 ## <a name="free-trial"></a>Gratis proefversie
 
-De gratis proefversie van 30 dagen hebt u toegang tot de S0 standard prijscategorie gedurende een beperkte periode. 
+De gratis proefversie van 30 dagen hebt u toegang tot de standaardprijscategorie voor gedurende een beperkte periode.
 
 Om u te registreren voor een gratis proefversie van 30 dagen:
 
@@ -44,58 +44,30 @@ Om u te registreren voor een gratis proefversie van 30 dagen:
 
    ![Ga akkoord met voorwaarden](media/index/try-speech-api-free-trial3.png)
 
-1. Meld u aan met uw Microsoft, Facebook, LinkedIn of GitHub-account. Of, kunt u zich registreren voor een gratis Microsoft-account:
+1. Meld u aan met uw Microsoft, Facebook, LinkedIn of GitHub-account.
 
-    * Ga naar de [portal voor Microsoft-account](https://account.microsoft.com/account).
-    * Selecteer **aanmelden bij Microsoft**.
+    U kunt zich aanmelden voor een gratis Microsoft-account op de [portal voor Microsoft-account](https://account.microsoft.com/account). Als u wilt beginnen, klikt u op **aanmelden bij Microsoft** en wanneer u wordt gevraagd aan te melden, klikt u vervolgens **maken.** Volg de stappen voor het maken en te controleren of uw nieuwe Microsoft-account.
 
-    ![Aanmelden](media/index/try-speech-api-free-trial4.png)
-
-    * Wanneer u wordt gevraagd aan te melden, selecteert u **maakt u er een**.
-
-    ![Nieuw account maken](media/index/try-speech-api-free-trial5.png)
-
-    * In de stappen die volgen, Voer uw e-mailadres of telefoonnummer, een wachtwoord toewijst en volg de instructies om uw nieuwe Microsoft-account te verifiëren.
-
-Nadat u zich hebt aangemeld, begint de gratis proefversie. De weergegeven webpagina worden alle van de Azure Cognitive Services-services waarvoor u momenteel proefabonnementen hebt weergegeven. Twee abonnementssleutels worden vermeld naast **spraakservices**. U kunt beide sleutels gebruiken in uw toepassingen.
+Nadat u zich bij probeer Cognitive Services aanmelden, begint de gratis proefversie. De weergegeven webpagina worden alle van de Azure Cognitive Services-services waarvoor u momenteel proefabonnementen hebt weergegeven. Twee abonnementssleutels worden vermeld naast **spraakservices**. U kunt beide sleutels gebruiken in uw toepassingen.
 
 > [!NOTE]
-> Alle gratis proefabonnementen komen in de regio VS-West. Wanneer u aanvragen, moet u het eindpunt dat overeenkomt met gebruiken voor uw regio.
+> Alle gratis proefabonnementen komen in de regio VS-West. Wanneer u aanvragen, zorg ervoor dat u de `westus` eindpunt.
 
 ## <a name="new-azure-account"></a>Nieuwe Azure-account
 
 Nieuwe Azure-accounts, ontvangen een tegoed van $200-services die beschikbaar is gedurende maximaal 30 dagen. U kunt dit tegoed kunt gebruiken om het verder verkennen de Speech-service of om te beginnen met de ontwikkeling van toepassingen.
 
-Om u te registreren voor een nieuwe Azure-account:
+Als u zich voor een nieuwe Azure-account, gaat u naar de [Azure registratiepagina](https://azure.microsoft.com/free/ai/), klikt u op **gratis starten** en maak een nieuwe Azure-account met behulp van uw Microsoft-account.
 
-1. Ga naar de [Azure registratiepagina](https://azure.microsoft.com/free/ai/). 
+U kunt zich aanmelden voor een gratis Microsoft-account op de [portal voor Microsoft-account](https://account.microsoft.com/account). Als u wilt beginnen, klikt u op **aanmelden bij Microsoft** en wanneer u wordt gevraagd aan te melden, klikt u vervolgens **maken.** Volg de stappen voor het maken en te controleren of uw nieuwe Microsoft-account.
 
-1. Selecteer **begin gratis**.
-
-    ![Start gratis](media/index/try-speech-api-new-azure1.png)
-
-1. Meld u aan met uw Microsoft-account. Als u geen een:
-
-    * Ga naar de [portal voor Microsoft-account](https://account.microsoft.com/account).
-    * Selecteer **aanmelden bij Microsoft**.
-    * Wanneer u wordt gevraagd aan te melden, selecteert u **maken.**
-    * In de stappen die volgen, Voer uw e-mailadres of telefoonnummer, een wachtwoord toewijst en volg de instructies om uw nieuwe Microsoft-account te verifiëren.
-
-1. Voer de rest van de gegevens die zich aanmelden voor een account heeft aangevraagd. Geef uw land/regio en uw naam en een telefoonnummer en e-mailadres opgeven.
-
-    ![Gegevens invoeren](media/index/try-speech-api-new-azure2.png)
-
-    Uw identiteit verifiëren via de telefoon en door te geven van een creditcardnummer. (Uw creditcard worden niet in rekening gebracht.) kip, de gebruiker van Azure-overeenkomst te accepteren. 
-
-    ![Overeenkomst te accepteren](media/index/try-speech-api-new-azure3.png)
-
-Uw gratis Azure-account wordt gemaakt. Volg de stappen in de volgende sectie om te beginnen een abonnement op de spraak-service.
+Volg de stappen in de volgende sectie voor een abonnement op de spraak-service starten na het maken van uw Azure-account.
 
 ## <a name="create-a-speech-resource-in-azure"></a>Een spraak-resource maken in Azure
 
-Een bron van de spraak-service toevoegen aan uw Azure-account:
+Een bron van de spraak-service (gratis of betaalde laag) toevoegen aan uw Azure-account:
 
-1. Aanmelden bij de [Azure-portal](https://ms.portal.azure.com/) met behulp van uw Microsoft-account.
+1. Aanmelden bij de [Azure-portal](https://ms.portal.azure.com/) met uw Microsoft-account.
 
 1. Selecteer **een resource maken** op linksboven in de portal.
 
@@ -107,7 +79,7 @@ Een bron van de spraak-service toevoegen aan uw Azure-account:
 
     ![Selecteer spraak (preview)](media/index/try-speech-api-create-speech2.png)
 
-1. Onder **spraak (preview)**, selecteer de **maken** knop.
+1. Onder **spraak (preview)**, klikt u op de **maken** knop.
 
     ![Selecteer de knop maken](media/index/try-speech-api-create-speech3.png)
 
@@ -116,7 +88,7 @@ Een bron van de spraak-service toevoegen aan uw Azure-account:
     * Een naam voor de nieuwe resource. De naam van de kunt u onderscheid maken tussen meerdere abonnementen voor dezelfde service.
     * Kies het Azure-abonnement waaraan de nieuwe resource is gekoppeld om te bepalen hoe de kosten worden in rekening gebracht.
     * Kies de regio waarin de resource zal worden gebruikt. De spraak-service is momenteel beschikbaar in regio's Oost-Azië, Noord-Europa en VS-West.
-    * Kies de prijscategorie, een van beide F0 (maximaal gratis abonnement) of S0 (standard-abonnement). Selecteer **volledige prijsgegevens weergeven** voor volledige informatie over prijzen en gebruik quota's voor elke laag.
+    * Op een gratis of betaalde prijscategorie kiezen. Klik op **volledige prijsgegevens weergeven** voor volledige informatie over prijzen en gebruik quota's voor elke laag.
     * Maak een nieuwe resourcegroep voor dit abonnement spraak of het abonnement toewijzen aan een bestaande resourcegroep. Resourcegroepen houdt u uw verschillende Azure-abonnementen ingedeeld.
     * Voor een gemakkelijke manier toegang tot uw abonnement in de toekomst, selecteert u de **vastmaken aan dashboard** selectievakje.
     * Selecteer **maken.**
@@ -127,10 +99,22 @@ Een bron van de spraak-service toevoegen aan uw Azure-account:
 
     ![Snelstartgids-Configuratiescherm](media/index/try-speech-api-create-speech5.png)
 
-1. Onder **snelstartgids**, selecteer de **sleutels** koppeling onder stap 1 om de abonnementssleutels van uw weer te geven. Elk abonnement heeft twee sleutels; u kunt beide sleutels gebruiken in uw toepassing. Selecteer de knop naast elke sleutel te kopiëren naar het Klembord plakken in uw code.
+1. Onder **snelstartgids**, klikt u op de **sleutels** koppeling onder stap 1 om de abonnementssleutels van uw weer te geven. Elk abonnement heeft twee sleutels; u kunt beide sleutels gebruiken in uw toepassing. Selecteer de knop naast elke sleutel te kopiëren naar het Klembord plakken in uw code.
 
 > [!NOTE]
 > U kunt een onbeperkt aantal standard-laag-abonnementen maken in een of meerdere regio's. U kunt echter slechts één gratis-laag-abonnement maken. Modelimplementaties op de gratis laag die nog niet-gebruikte 7 dagen is uit bedrijf is genomen automatisch.
+
+## <a name="switch-to-a-new-subscription"></a>Overschakelen naar een nieuw abonnement
+
+Als u wilt overschakelen van één abonnement naar een andere, vervangen bijvoorbeeld wanneer de gratis proefversie verloopt of bij het publiceren van uw toepassing, door de regio en abonnement sleutel in uw code de regio en abonnement sleutel van de nieuwe Azure-resource.
+
+> [!NOTE]
+> Sleutels voor een gratis proefversie worden gemaakt in de VS-West (`westus`) regio. Een abonnement dat is gemaakt via het Azure-dashboard mogelijk in een andere regio, indien gewenst.
+
+* Als uw toepassing gebruikmaakt van een [spraak SDK](speech-sdk.md), geef u de regiocode zoals `westus`, bij het instantiëren van `RecognizerFactory`. 
+* Als uw toepassing een van de spraakservice gebruikt [REST-API's](rest-apis.md), de regio is onderdeel van het eindpunt-URI die u gebruikt bij het maken van aanvragen.
+
+Sleutels die zijn gemaakt voor een regio zijn alleen geldig in deze regio. Er wordt geprobeerd om ze te gebruiken met andere regio's leidt tot verificatiefouten.
 
 ## <a name="next-steps"></a>Volgende stappen
 

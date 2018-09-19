@@ -14,17 +14,40 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 04/03/2017
 ms.author: terrylan
-ms.openlocfilehash: 0b3b8082412b12a0fffbaea04409a8bbb3f4ac15
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 45f5dc840f015793912e314ab3d47e54a409708e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44295374"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46126663"
 ---
 # <a name="protecting-azure-sql-service-and-data-in-azure-security-center"></a>Beveiligen van Azure SQL-service en -gegevens in Azure Security Center
 Azure Security Center analyseert de beveiligingsstatus van uw Azure-resources. Wanneer Security Center potentiële beveiligingsproblemen worden geïdentificeerd, worden er aanbevelingen die u bij het proces begeleiden van het configureren van de benodigde besturingselementen.  Aanbevelingen zijn van toepassing op Azure-resource-typen: virtuele machines (VM's), netwerk-, SQL en gegevens en toepassingen.
 
 In dit artikel biedt aanbevelingen die betrekking hebben op Azure SQL-service en de gegevens. Aanbevelingen voor centreren rond het inschakelen van controle voor Azure SQL-servers en databases, het inschakelen van versleuteling voor SQL-databases en inschakelen van versleuteling van uw Azure storage-account.  Gebruik de onderstaande tabel als referentie om te begrijpen van de beschikbare SQL-service en aanbevelingen en wat elke doet als u deze toepast.
+### <a name="monitor-data-security"></a>Gegevensbeveiliging bewaken
+
+Wanneer u klikt op **Gegevensbeveiliging** in de sectie **Preventie**, wordt **Gegevensbronnen** geopend met aanbevelingen voor SQL en opslag. Ook bevat de blade [aanbevelingen](security-center-sql-service-recommendations.md) voor de algemene integriteitsstatus van de database. Lees voor meer informatie over de versleuteling van opslag [Versleuteling inschakelen voor een Azure-opslagaccount in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
+
+![Gegevensbronnen](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
+
+U kunt onder **SQL-aanbevelingen** op elke aanbeveling klikken voor meer informatie over verdere acties die u kunt ondernemen om een probleem te verhelpen. In het volgende voorbeeld is de aanbeveling **Databasecontrole en detectie van bedreigingen in SQL-databases** uitgevouwen.
+
+![Details over een SQL-aanbeveling](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
+
+**Controle en detectie van bedreigingen in SQL-databases inschakelen** bevat de volgende informatie:
+
+* Een lijst met SQL-databases
+* De server waarop deze zich bevinden
+* Informatie over of deze instelling is overgenomen van de server of dat deze uniek is in deze database
+* De huidige status
+* De ernst van het probleem
+
+Als u op de database klikt om deze aanbeveling op te volgen, wordt **Controle en detectie van bedreigingen** geopend, zoals wordt weergegeven in het volgende scherm.
+
+![Controle en detectie van bedreigingen](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
+
+Als u controle wilt inschakelen, hoeft u alleen maar **AAN** te selecteren onder de optie **Controle**.
 
 ## <a name="available-sql-service-and-data-recommendations"></a>Beschikbare SQL-service en aanbevelingen
 | Aanbeveling | Beschrijving |

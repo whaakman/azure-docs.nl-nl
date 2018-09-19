@@ -1,38 +1,39 @@
 ---
-title: De methode Analyzers in de Lingistic Analysis-API | Microsoft Docs
-description: De analyzers REST-API bevat een lijst van analyzers die momenteel worden ondersteund door de service in cognitieve Microsoft-Services.
+title: De methode voor analyse - Lingistic analyse-API
+titlesuffix: Azure Cognitive Services
+description: De analyzers REST-API bevat een lijst van de analyzers die momenteel worden ondersteund door de linguïstische analyse-API.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/30/2016
 ms.author: lesun
-ms.openlocfilehash: 3fc243a0da77c5bae9009929f2b82e1353347752
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: b443bbd6377f0720c8be86bbe2b7a3e8ab8cb880
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344434"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129009"
 ---
-# <a name="analyzers-method"></a>Analyzers methode
+# <a name="analyzers-method"></a>Methode voor analyse
 
-De **analyzers** REST-API bevat een lijst van analyzers momenteel ondersteund door de service.
-Het antwoord bevat de [namen](Analyzer-Names.md) en de talen die worden ondersteund door elk (zoals 'en' voor Engels).
+De **analyzers** REST-API bevat een lijst van de analyzers die momenteel worden ondersteund door de service.
+Het antwoord bevat de [namen](Analyzer-Names.md) en de talen die worden ondersteund door elk (zoals 'en' voor het Engels).
 
 ## <a name="request-parameters"></a>Aanvraagparameters
 Geen
 
 <br>
 
-## <a name="response-parameters"></a>Antwoord parameters
+## <a name="response-parameters"></a>Antwoord-parameters
 Naam | Type | Beschrijving
 -----|------|--------------
-Talen | lijst met tekenreeksen | lijst met twee letter ISO taalcodes vermeld waarvoor deze analyzer kan worden gebruikt.
+Talen | lijst met tekenreeksen | lijst met twee letter ISO taalcodes waarvoor deze analyzer kan worden gebruikt.
 id   | tekenreeks | unieke ID voor deze analyzer
-Type | tekenreeks | het algemene type hier analyzer
-Specificatie | tekenreeks | de naam van de specificatie die is gebruikt voor deze analyzer
+type | tekenreeks | het uitgebreide type analyzer hier
+Specificatie | tekenreeks | de naam van de specificatie die wordt gebruikt voor deze analyzer
 Implementatie | tekenreeks | Beschrijving van het model en/of het algoritme achter deze analyzer
 
 <br>

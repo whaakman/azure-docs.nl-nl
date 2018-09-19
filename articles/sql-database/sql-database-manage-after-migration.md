@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 4b48f360c95170a36d1e79b075403d541c8b66ed
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 9ca8c42d99f3bd7548c685f03328084865a09906
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45983930"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295781"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud, beheer van uw database in Azure SQL Database
 
@@ -73,12 +73,12 @@ Er zijn [twee verificatiemethoden](sql-database-control-access.md#authentication
 - [Azure Active Directory-verificatie](sql-database-aad-authentication.md)
 - SQL-verificatie. 
 
-De traditionele windows-verificatie wordt niet ondersteund. Azure Active Directory (AD) is een gecentraliseerde service voor identiteits- en toegangsbeheer. Met dit kunt u heel eenvoudig een eenmalige aanmelding toegang (SSO) bieden tot alle personeel in uw organisatie. Dit betekent dat de referenties worden verdeeld over alle Azure-services voor eenvoudigere verificatie. Biedt ondersteuning voor AAD [MFA (Multi-factor Authentication)](sql-database-ssms-mfa-authentication.md) en een met een [enkele muisklikken](../active-directory/connect/active-directory-aadconnect-get-started-express.md) AAD kan worden geïntegreerd met Windows Server Active Directory. SQL-verificatie werkt precies zoals u hebt gebruikt deze in het verleden. U een gebruikersnaam en wachtwoord opgeven en u kunt verificatie van gebruikers voor elke database op een bepaalde logische server. Zo kan SQL-Database en SQL Data Warehouse te bieden van multi-factor authentication en Gast gebruikersaccounts in een Azure AD-domein. Als u een Active Directory on-premises al hebt, kunt u de map met Azure Active Directory voor uw directory uitbreiden naar Azure federeren.
+De traditionele windows-verificatie wordt niet ondersteund. Azure Active Directory (AD) is een gecentraliseerde service voor identiteits- en toegangsbeheer. Met dit kunt u heel eenvoudig een eenmalige aanmelding toegang (SSO) bieden tot alle personeel in uw organisatie. Dit betekent dat de referenties worden verdeeld over alle Azure-services voor eenvoudigere verificatie. Biedt ondersteuning voor AAD [MFA (Multi-factor Authentication)](sql-database-ssms-mfa-authentication.md) en een met een [enkele muisklikken](../active-directory/hybrid/how-to-connect-install-express.md) AAD kan worden geïntegreerd met Windows Server Active Directory. SQL-verificatie werkt precies zoals u hebt gebruikt deze in het verleden. U een gebruikersnaam en wachtwoord opgeven en u kunt verificatie van gebruikers voor elke database op een bepaalde logische server. Zo kan SQL-Database en SQL Data Warehouse te bieden van multi-factor authentication en Gast gebruikersaccounts in een Azure AD-domein. Als u een Active Directory on-premises al hebt, kunt u de map met Azure Active Directory voor uw directory uitbreiden naar Azure federeren.
 
 |**Als u...**|**SQL-Database / SQL Data Warehouse**|
 |---|---|
 |De voorkeur geeft niet aan Azure Active Directory (AD) in Azure|Gebruik [SQL-verificatie](sql-database-security-overview.md)|
-|Gebruikte AD op SQL Server on-premises|[AD met Azure AD federeren](../active-directory/connect/active-directory-aadconnect.md), en Azure AD-verificatie gebruiken. Hiermee kunt u eenmalige aanmelding.|
+|Gebruikte AD op SQL Server on-premises|[AD met Azure AD federeren](../active-directory/hybrid/whatis-hybrid-identity.md), en Azure AD-verificatie gebruiken. Hiermee kunt u eenmalige aanmelding.|
 |Moet multi-factor authentication (MFA) afdwingen|MFA vereist als een beleid via [voorwaardelijke toegang van Microsoft](sql-database-conditional-access.md), en gebruik [Azure AD universele authenticatie met ondersteuning voor MFA](sql-database-ssms-mfa-authentication.md).|
 |Gast-account van Microsoft-accounts (live.com, outlook.com) of andere domeinen (gmail.com)|Gebruik [Azure AD universele authenticatie](sql-database-ssms-mfa-authentication.md) in SQL Database/Data Warehouse, die gebruikmaakt van [Azure AD B2B-samenwerking](../active-directory/active-directory-b2b-what-is-azure-ad-b2b.md).|
 |Zijn aangemeld bij Windows met behulp van uw Azure AD-referenties van een federatief domein|Gebruik [Azure AD-geïntegreerde verificatie](sql-database-aad-authentication-configure.md).|

@@ -12,7 +12,6 @@
 
 
 # Aan de slag
-## [Aan de slag met Azure AD](fundamentals/get-started-azure-ad.md)
 ## [Meld u aan voor Azure AD Premium](fundamentals/active-directory-get-started-premium.md)
 ## [Een aangepaste domeinnaam toevoegen](fundamentals/add-custom-domain.md)
 ## [Een bedrijfshuisstijl toevoegen](fundamentals/customize-branding.md)
@@ -20,6 +19,7 @@
 ## [Licenties toewijzen aan een gebruikers](fundamentals/license-users-groups.md)
 ## [Self-service voor wachtwoord opnieuw instellen configureren](authentication/quickstart-sspr.md)
 ## [Privacy-informatie van uw organisatie toevoegen in Azure AD](active-directory-properties-area.md)
+## [Een nieuwe tenant maken in Azure Active Directory](fundamentals/active-directory-access-create-new-tenant.md)
 
 
 # Procedures
@@ -91,11 +91,13 @@
 ### [Gebruikers die risico lopen](reports-monitoring/concept-user-at-risk.md)
 ### [Riskante aanmeldingen](reports-monitoring/concept-risky-sign-ins.md)
 ### [Risicogebeurtenissen](reports-monitoring/concept-risk-events.md)
-### [Logboeken monitoren met behulp van Azure Monitor](reports-monitoring/overview-activity-logs-in-azure-monitor.md)
+### [Logboeken monitoren met behulp van Azure Monitor](reports-monitoring/concept-activity-logs-in-azure-monitor.md)
 ### [Veelgestelde vragen](reports-monitoring/reports-faq.md)
 
 ### Taken
-#### [Benoemde locaties configureren](active-directory-named-locations.md)
+#### [Een aanmeldrapport downloaden](reports-monitoring/quickstart-download-sign-in-report.md)
+#### [Een controlerapport downloaden](reports-monitoring/quickstart-download-audit-report.md)
+#### [Benoemde locaties configureren](reports-monitoring/quickstart-configure-named-locations.md)
 #### [Activiteitenrapporten vinden](reports-monitoring/howto-find-activity-reports.md)
 #### [Het inhoudspakket voor Azure AD Power BI gebruiken](reports-monitoring/howto-power-bi-content-pack.md)
 #### [Gebruikers herstellen voor wie wordt aangegeven dat ze risico lopen](reports-monitoring/howto-remediate-users-flagged-for-risk.md)

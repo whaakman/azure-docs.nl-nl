@@ -1,0 +1,132 @@
+---
+title: 'Azure AD Connect: Apparaat terugschrijven inschakelen | Microsoft Docs'
+description: Dit document wordt uitgelegd hoe apparaat terugschrijven met Azure AD Connect inschakelen
+services: active-directory
+documentationcenter: ''
+author: billmath
+manager: femila
+editor: curtand
+ms.assetid: c0ff679c-7ed5-4d6e-ac6c-b2b6392e7892
+ms.service: active-directory
+ms.workload: identity
+ms.tgt_pltfrm: na
+ms.devlang: na
+ms.topic: article
+ms.date: 05/08/2018
+ms.component: hybrid
+ms.author: billmath
+ms.openlocfilehash: b98b9e0a10f142cb0177e7e5ea831b61f79a4b7a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46311092"
+---
+# <a name="azure-ad-connect-enabling-device-writeback"></a>Azure AD Connect: Apparaat terugschrijven inschakelen
+> [!NOTE]
+> Een abonnement op Azure AD Premium is vereist voor write-back van apparaat.
+> 
+> 
+
+De volgende documentatie bevat informatie over het inschakelen van de functie apparaat terugschrijven van wachtwoorden in Azure AD Connect. Write-back van apparaat wordt gebruikt in de volgende scenario's:
+
+* Inschakelen van voorwaardelijke toegang op basis van apparaten naar AD FS (2012 R2 of hoger) toepassingen (relying party trusts) die zijn beveiligd.
+
+Dit biedt extra beveiliging en zekerheid dat de toegang tot toepassingen te tot vertrouwde apparaten krijgen. Zie voor meer informatie over voorwaardelijke toegang, [risico beheren met voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md) en [instellen van On-premises voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie](../active-directory-conditional-access-automatic-device-registration-setup.md).
+
+> [!IMPORTANT]
+> <li>Apparaten moeten zich in hetzelfde forest als de gebruikers. Omdat apparaten moeten worden teruggeschreven naar één forest, ondersteunt deze functie momenteel geen een implementatie met meerdere forests van de gebruiker.</li>
+> <li>Slechts één apparaat registratie configuratieobject kan worden toegevoegd aan de on-premises Active Directory-forest. Deze functie is niet compatibel is met een topologie waarbij de on-premises Active Directory is gesynchroniseerd met meerdere Azure AD-mappen.</li>
+
+## <a name="part-1-install-azure-ad-connect"></a>Deel 1: Installeer Azure AD Connect
+Installeer Azure AD Connect met aangepaste of snelle instellingen. Microsoft raadt aan om te beginnen met alle gebruikers en groepen zijn gesynchroniseerd voordat u Write-back van apparaat inschakelen.
+
+## <a name="part-2-enable-device-writeback-in-azure-ad-connect"></a>Deel 2: Enable apparaat terugschrijven in Azure AD Connect
+1. Voer de installatiewizard opnieuw uit. Selecteer **Apparaatopties configureren** pagina van de aanvullende taken en klik op **volgende**. 
+
+    ![Apparaatopties configureren](./media/how-to-connect-device-writeback/deviceoptions.png)
+
+    >[!NOTE]
+    > De nieuwe opties voor het apparaat configureren is alleen beschikbaar in versie 1.1.819.0 en nieuwer.
+
+2. Selecteer op de pagina van de opties voor apparaat **Write-back van apparaat configureren**. Optie voor **Write-back van apparaat uitschakelen** niet meer beschikbaar totdat Write-back van apparaat is ingeschakeld. Klik op **volgende** te verplaatsen naar de volgende pagina in de wizard.
+    ![Gekozen apparaat bewerking](./media/how-to-connect-device-writeback/configuredevicewriteback1.png)
+
+3. Op de pagina Write-back ziet u het opgegeven domein als de standaard apparaat terugschrijven-forest.
+   ![Aangepaste installatie Write-back van apparaat doelforest](./media/how-to-connect-device-writeback/writebackforest.png)
+
+4. **Apparaatcontainer** pagina biedt de mogelijkheid van de voorbereiding van de active directory met behulp van een van de twee beschikbare opties:
+
+    a. **Enterprise-beheerdersreferenties opgeven**: als de referenties voor ondernemingsadministrator worden opgegeven voor het forest waarin apparaten moeten worden teruggeschreven, Azure AD Connect bereidt het forest automatisch tijdens de configuratie van Write-back van apparaat.
+
+    b. **PowerShell-script downloaden**: Azure AD Connect auto-genereert een PowerShell-script dat de active directory voor write-back van apparaat voorbereiden kunt. Als de referenties voor ondernemingsadministrator kunnen niet worden opgegeven in de Azure AD Connect, is het nodig om te downloaden van het PowerShell-script. De gedownloade PowerShell-script bieden **CreateDeviceContainer.psq** naar de enterprise-beheerder van het forest waarin apparaten worden teruggeschreven naar.
+    ![Active Directory-forest voorbereiden](./media/how-to-connect-device-writeback/devicecontainercreds.png)
+    
+    De volgende bewerkingen worden uitgevoerd voor het voorbereiden van de active directory-forest:
+    * Als ze niet al bestaan, maakt en configureert u de nieuwe containers en objecten onder CN = registratie apparaatconfiguratie, CN = Services, CN = configuratie, [forest-DN-naam].
+    * Als ze niet al bestaan, maakt en configureert u de nieuwe containers en objecten onder CN = RegisteredDevices, [domein-DN-naam]. Apparaatobjecten wordt in deze container gemaakt.
+    * Hiermee stelt u vereiste machtigingen op het Azure AD Connector-account voor het beheren van apparaten in uw Active Directory.
+    * Alleen moet worden uitgevoerd op één forest, zelfs als Azure AD Connect wordt geïnstalleerd op meerdere forests.
+
+## <a name="verify-devices-are-synchronized-to-active-directory"></a>Controleer of de dat apparaten worden gesynchroniseerd met Active Directory
+Write-back van apparaat, moet nu goed werkt. Let erop dat duurt tot 3 uur voor apparaatobjecten om te worden geschreven terug naar AD.  Om te controleren of uw apparaten correct zijn die wordt gesynchroniseerd, het volgende doen nadat de synchronisatieregels hebt voltooid:
+
+1. Start Active Directory-beheercentrum.
+2. Vouw RegisteredDevices, binnen het domein dat wordt is gefedereerd.
+
+   ![Active Directory-beheercentrum ingeschreven apparaten](./media/how-to-connect-device-writeback/devicewriteback5.png)
+
+3. Er wordt het huidige geregistreerde apparaten weergegeven.
+
+   ![Active Directory-beheercentrum geregistreerd lijst met apparaten](./media/how-to-connect-device-writeback/devicewriteback6.png)
+
+## <a name="enable-conditional-access"></a>Voorwaardelijke toegang inschakelen (Engelstalig artikel)
+Gedetailleerde instructies voor het inschakelen van dit scenario zijn beschikbaar binnen [instellen van On-premises voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie](../active-directory-conditional-access-automatic-device-registration-setup.md).
+
+## <a name="troubleshooting"></a>Problemen oplossen
+### <a name="the-writeback-checkbox-is-still-disabled"></a>Het selectievakje terugschrijven is nog steeds uitgeschakeld
+Als het selectievakje voor write-back van apparaat is niet ingeschakeld, zelfs als u de bovenstaande stappen hebt gevolgd, de volgende stappen leidt u door wat de installatiewizard wordt gecontroleerd voordat u het selectievakje is ingeschakeld.
+
+Eerste dingen eerste:
+
+* Zorg ervoor dat ten minste één forest Windows Server 2012R2 heeft. Het objecttype van het apparaat moet aanwezig zijn.
+* Als de installatiewizard wordt al uitgevoerd, worden klikt u vervolgens eventuele wijzigingen niet gedetecteerd. In dit geval, voltooi de installatiewizard en start deze opnieuw.
+* Zorg ervoor dat het account dat u in het script voor initialisatie opgeeft daadwerkelijk de juiste gebruiker door de Active Directory-Connector gebruikt. U kunt dit controleren door de volgende stappen uit:
+  * Open in het startmenu **Synchronization Service**.
+  * Open de **Connectors** tabblad.
+  * De Connector met het type Active Directory Domain Services zoeken en te selecteren.
+  * Onder **acties**, selecteer **eigenschappen**.
+  * Ga naar **verbinding maken met Active Directory-Forest**. Controleer of dat door de naam van het domein en de gebruikersnaam worden opgegeven op deze overeenkomst scherm die door het account dat is opgegeven voor het script.
+    ![Connector-account in Sync Service Manager](./media/how-to-connect-device-writeback/connectoraccount.png)
+
+Controleer of de configuratie in Active Directory:
+
+* Controleren dat de Device Registration Service bevindt zich in de onderstaande locatie (CN DeviceRegistrationService, CN = apparaat registratieservices, CN = registratie apparaatconfiguratie, CN = Services, CN = configuratie) onder de configuratienaamgevingscontext.
+
+![Oplossen, DeviceRegistrationService in de configuratie van naamruimte](./media/how-to-connect-device-writeback/troubleshoot1.png)
+
+* Controleer of er is slechts één configuratieobject door te zoeken naar de naamruimte van de configuratie. Als er meer dan één, verwijder het duplicaat.
+
+![Problemen oplossen, de dubbele objecten zoeken](./media/how-to-connect-device-writeback/troubleshoot2.png)
+
+* Controleer of het kenmerk msDS-DeviceLocation aanwezig is en heeft een waarde op het object Device Registration Service. Opzoeken van deze locatie en zorg ervoor dat het met het objectType msDS-DeviceContainer aanwezig is.
+
+![Oplossen, msDS-DeviceLocation](./media/how-to-connect-device-writeback/troubleshoot3.png)
+
+![Oplossen, RegisteredDevices objectklasse](./media/how-to-connect-device-writeback/troubleshoot4.png)
+
+* Controleer of het account voor de Active Directory-Connector heeft de vereiste machtigingen voor de container voor geregistreerde apparaten die met de vorige stap is gevonden. Dit is de verwachte machtigingen voor deze container:
+
+![Problemen op, Controleer de machtigingen op de container](./media/how-to-connect-device-writeback/troubleshoot5.png)
+
+* Controleer of de Active Directory-account machtigingen heeft op de CN = registratie apparaatconfiguratie, CN = Services, CN = Configuration-object.
+
+![Problemen op, Controleer de machtigingen op de configuratie van apparaatregistratie](./media/how-to-connect-device-writeback/troubleshoot6.png)
+
+## <a name="additional-information"></a>Aanvullende gegevens
+* [Risico beheren met voorwaardelijke toegang](../active-directory-conditional-access-azure-portal.md)
+* [Instellen van On-premises voorwaardelijke toegang met behulp van Azure Active Directory-apparaatregistratie](../active-directory-device-registration-on-premises-setup.md)
+
+## <a name="next-steps"></a>Volgende stappen
+Lees meer over het [integreren van uw on-premises identiteiten met Azure Active Directory](whatis-hybrid-identity.md).
+

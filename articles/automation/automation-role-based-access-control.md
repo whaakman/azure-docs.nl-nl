@@ -10,16 +10,16 @@ ms.author: gwallace
 ms.date: 05/17/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: fd96a6cfebe44bd02e3f44a44d91119ad1c2c5a9
-ms.sourcegitcommit: 266fe4c2216c0420e415d733cd3abbf94994533d
-ms.translationtype: HT
+ms.openlocfilehash: fe35f26fe73661901fa85da65e353fe66adf5d47
+ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/01/2018
-ms.locfileid: "34598749"
+ms.lasthandoff: 09/13/2018
+ms.locfileid: "35644375"
 ---
 # <a name="role-based-access-control-in-azure-automation"></a>Op rollen gebaseerd toegangsbeheer in Azure Automation
 
-Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over toegangsbeheer voor Azure-resources. Met behulp van [RBAC](../role-based-access-control/overview.md), kunt u taken scheiden binnen uw team en de hoeveelheid toegang verlenen aan gebruikers, groepen en toepassingen die ze nodig hebben om hun taken uitvoeren. Op rollen gebaseerde toegang kan worden verleend aan gebruikers via de Azure-portal, Azure-opdrachtregelprogramma's of Azure Management-API's.
+Met op rollen gebaseerd toegangsbeheer (RBAC) beschikt u over toegangsbeheer voor Azure-resources. Met behulp van [RBAC](../role-based-access-control/overview.md), kunt u taken scheiden binnen uw team en alleen de mate van toegang verlenen aan gebruikers, groepen en toepassingen die ze nodig hebben om hun werk. Op rollen gebaseerde toegang kan worden verleend aan gebruikers via de Azure-portal, Azure-opdrachtregelprogramma's of Azure Management-API's.
 
 ## <a name="roles-in-automation-accounts"></a>Rollen in Automation-accounts
 
@@ -27,21 +27,21 @@ In Azure Automation wordt toegang verleend door de juiste RBAC-rol toe te wijzen
 
 | **Rol** | **Beschrijving** |
 |:--- |:--- |
-| Eigenaar |De rol eigenaar geeft toegang tot alle bronnen en acties binnen een Automation-account met inbegrip van toegang verlenen aan andere gebruikers, groepen en toepassingen voor het beheren van het Automation-account. |
+| Eigenaar |De rol eigenaar geeft toegang tot alle resources en acties binnen een Automation-account, inclusief het bieden van toegang aan andere gebruikers, groepen en toepassingen voor het beheren van het Automation-account. |
 | Inzender |De rol van Bijdrager maakt het mogelijk om alles te beheren, behalve de toegangsrechten van andere gebruikers te wijzigen naar een Automation-account. |
 | Lezer |Met de rol van Lezer kunt u alle resources in een Automation-account bekijken, maar niets wijzigen. |
-| Automation-operator |De rol Automation-Operator kunt u de runbooknaam van het en de eigenschappen weergeven en maken en beheren van taken voor alle runbooks in een Automation-account. Deze rol is handig als u niet wilt dat uw Automation-accountresources zoals referentieassets en runbooks worden weergegeven of gewijzigd, maar u wel wilt toestaan dat leden van uw organisatie deze runbooks uitvoeren. |
-|Operator voor Automation-taak|De rol Automation-taak Operator kunt u maken en beheren van taken voor alle runbooks in een Automation-account.|
-|Operator voor Automation-runbook|De rol Automation-Runbook-Operator kunt u de naam en de eigenschappen van een runbook weergeven.|
-| Inzender van Log Analytics | De rol Inzender van Log Analytics kunt u alle bewakingsgegevens lezen en bewerken van controle-instellingen. Controle-instellingen bewerken bevat de VM-extensie toevoegen aan virtuele machines, toegangscodes voor opslag om te kunnen verzamelen van Logboeken van de Azure-opslag configureren lezen maken en configureren Automation-accounts, oplossingen toevoegen en configureren van Azure diagnostics op alle Azure-resources.|
-| Lezer van Log Analytics | De rol logboekweergave Analytics kunt u weergeven en doorzoeken alle bewaking gegevens, evenals een weergave controle-instellingen. Dit omvat de configuratie van Azure diagnostics weergeven op alle Azure-resources. |
-| Controlebijdrager | De rol Inzender bewaking kunt u alle controlegegevens en update controle-instellingen lezen.|
-| Controlelezer | De rol Lezer bewaking kunt u alle bewakingsgegevens lezen. |
+| Automation-operator |De rol Automation-Operator kunt u de runbooknaam van het en eigenschappen weergeven en taken voor alle runbooks in een Automation-account maken en beheren. Deze rol is handig als u niet wilt dat uw Automation-accountresources zoals referentieassets en runbooks worden weergegeven of gewijzigd, maar u wel wilt toestaan dat leden van uw organisatie deze runbooks uitvoeren. |
+|Operator voor Automation-taak|De rol Operator voor Automation kunt u taken voor alle runbooks in een Automation-account maken en beheren.|
+|Operator voor Automation-runbook|De rol Operator voor Automation-Runbook kunt u de naam en de eigenschappen van een runbook weergeven.|
+| Inzender van Log Analytics | De rol Inzender van Log Analytics kunt u alle controlegegevens lezen en bewerken van instellingen voor controle. Bewerken van instellingen voor controle houdt het toevoegen van de VM-extensie voor VM's, het lezen van opslagaccountsleutels om te kunnen verzamelen van Logboeken van Azure-opslag, het maken en configureren van Automation-accounts, oplossingen toe te voegen en Azure diagnostics configureren op alle Azure-resources.|
+| Lezer van Log Analytics | De rol Lezer van Log Analytics kunt u bekijken en zoeken van alle bewaking gegevens, evenals controle-instellingen weergeven. Dit omvat de configuratie van Azure diagnostics op alle Azure-resources bekijken. |
+| Controlebijdrager | De rol Inzender controle kunt u lezen alle bewakingsgegevens en controle-instellingen bijwerken.|
+| Controlelezer | De rol van lezer controle kunt u alle controlegegevens lezen. |
 | Beheerder van gebruikerstoegang |De beheerdersrol gebruiker toegang kunt u gebruikerstoegang tot Azure Automation-accounts beheren. |
 
 ## <a name="role-permissions"></a>Rolmachtigingen
 
-De volgende tabellen beschrijven de specifieke machtigingen toegekend aan elke rol. Dit kunnen bijvoorbeeld acties, waardoor machtigingen en NotActions die ze beperken.
+De volgende tabellen beschrijven de specifieke machtigingen die aan elke rol. Dit kunnen bijvoorbeeld acties, welke machtigingen geven, en NotActions, die ze beperken.
 
 ### <a name="owner"></a>Eigenaar
 
@@ -49,23 +49,23 @@ Een eigenaar kan alles beheren, inclusief toegang. De volgende tabel ziet u de m
 
 |Acties|Beschrijving|
 |---|---|
-|Microsoft.Automation/automationAccounts/|Maken en beheren van bronnen van alle typen.|
+|Microsoft.Automation/automationAccounts/|Maken en beheren van resources van alle typen.|
 
 ### <a name="contributor"></a>Inzender
 
-Een medewerker kan alles beheren behalve toegang. De volgende tabel ziet u de machtigingen verleend en geweigerd voor de rol:
+Een medewerker kan alles beheren behalve toegang. De volgende tabel ziet u de machtigingen verleend en wordt geweigerd voor de rol:
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/|Maken en beheren van bronnen van alle typen|
-|**Niet-acties**||
+|Microsoft.Automation/automationAccounts/|Maken en beheren van resources van alle typen|
+|**Geen acties**||
 |Microsoft.Authorization/*/Delete| Rollen en roltoewijzingen verwijderen.       |
-|Microsoft.Authorization/*/Write     |  Rollen en roltoewijzingen maken.       |
-|Microsoft.Authorization/elevateAccess/Action    | Hiermee stelt u de mogelijkheid te maken van de beheerder van een gebruiker toegang geweigerd.       |
+|Microsoft.Authorization/*/Write     |  Maak rollen en roltoewijzingen.       |
+|Microsoft.Authorization/elevateAccess/Action    | De mogelijkheid om te maken van een Administrator voor gebruikerstoegang weigert.       |
 
 ### <a name="reader"></a>Lezer
 
-Een lezer zien alle resources in een Automation-account, maar geen wijzigingen kunt aanbrengen.
+Een lezer kunt alle resources weergeven in een Automation-account, maar geen wijzigingen kunt aanbrengen.
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
@@ -73,137 +73,146 @@ Een lezer zien alle resources in een Automation-account, maar geen wijzigingen k
 
 ### <a name="automation-operator"></a>Automation-operator
 
-Er is een Automation-Operator kunnen maken en beheren van taken en runbooknamen en eigenschappen voor alle runbooks in een Automation-account lezen.  Opmerking: Als u wilt beheren van beheerderstoegang tot afzonderlijke runbooks en vervolgens niet instellen van deze rol, en in plaats daarvan de rollen 'Automation-taak Operator' en 'Automation-Runbook-Operator' gebruiken in combinatie. De volgende tabel ziet u de machtigingen voor de rol:
+Er is een Automation-Operator kunt maken en beheren van taken en runbooknamen en de eigenschappen voor alle runbooks in een Automation-account lezen.  Opmerking: Als u wilt voor het beheren van beheerderstoegang tot afzonderlijke runbooks en vervolgens niet instellen van deze rol, en in plaats daarvan de rollen 'Operator voor Automation-taak' en 'Operator voor Automation-Runbook' gebruiken in combinatie. De volgende tabel ziet u de machtigingen voor de rol:
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Autorisatie worden gelezen.|
+|Microsoft.Automation/automationAccounts/hybridRunbookWorkerGroups/read|Resources voor de Hybrid Runbook Worker gelezen.|
 |Microsoft.Automation/automationAccounts/jobs/read|Lijst met taken van het runbook.|
-|Microsoft.Automation/automationAccounts/jobs/resume/action|Hervatten van een taak die is onderbroken.|
-|Microsoft.Automation/automationAccounts/jobs/stop/action|Annuleren van een taak wordt uitgevoerd.|
-|Microsoft.Automation/automationAccounts/jobs/streams/read|Lees de taak stromen en de uitvoer.|
+|Microsoft.Automation/automationAccounts/jobs/resume/action|Hervat een taak die is onderbroken.|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|Een taak wordt geannuleerd.|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|Lees de Taakstromen en de uitvoer.|
+|Microsoft.Automation/automationAccounts/jobs/output/read|De uitvoer van een taak ophalen.|
 |Microsoft.Automation/automationAccounts/jobs/suspend/action|Onderbreken van een taak wordt uitgevoerd.|
 |Microsoft.Automation/automationAccounts/jobs/write|Taken maken.|
-|Microsoft.Resources/subscriptions/resourceGroups/read      |Lezen van rollen en roltoewijzingen.         |
-|Microsoft.Resources/deployments/*      |Maken en beheren van resourcegroepimplementaties.         |
+|Microsoft.Automation/automationAccounts/jobSchedules/read|Een Azure Automation-taakschema ophalen.|
+|Microsoft.Automation/automationAccounts/jobSchedules/write|Maak een Azure Automation-taakschema.|
+|Microsoft.Automation/automationAccounts/linkedWorkspace/read|Ophalen van de werkruimte die is gekoppeld aan het automation-account.|
+|Microsoft.Automation/automationAccounts/read|Maak een Azure Automation-account.|
+|Microsoft.Automation/automationAccounts/runbooks/read|Ophalen van een Azure Automation-runbook.|
+|Microsoft.Automation/automationAccounts/schedules/read|Een Azure Automation-planningsasset ophalen.|
+|Microsoft.Automation/automationAccounts/schedules/write|Maken of bijwerken van een Azure Automation-planningsasset.|
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Rollen en roltoewijzingen lezen.         |
+|Microsoft.Resources/deployments/*      |Maken en beheren van implementaties van resource-groep.         |
 |Microsoft.Insights/alertRules/*      | Maken en beheren van regels voor waarschuwingen.        |
 |Microsoft.Support/* |Maak en ondersteuningstickets beheren.|
 
 ### <a name="automation-job-operator"></a>Operator voor Automation-taak
 
-Een rol Automation-taak Operator krijgt bij het Automation-accountbereik. Hierdoor kan de operatormachtigingen maken en beheren van taken voor alle runbooks in het account. De volgende tabel ziet u de machtigingen voor de rol:
+Een rol Operator voor Automation krijgt bij het Automation-accountbereik. Hiermee wordt de operatormachtigingen voor het maken en beheren van taken voor alle runbooks in het account. De volgende tabel ziet u de machtigingen voor de rol:
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
 |Microsoft.Authorization/*/read|Autorisatie worden gelezen.|
 |Microsoft.Automation/automationAccounts/jobs/read|Lijst met taken van het runbook.|
-|Microsoft.Automation/automationAccounts/jobs/resume/action|Hervatten van een taak die is onderbroken.|
-|Microsoft.Automation/automationAccounts/jobs/stop/action|Annuleren van een taak wordt uitgevoerd.|
-|Microsoft.Automation/automationAccounts/jobs/streams/read|Lees de taak stromen en de uitvoer.|
+|Microsoft.Automation/automationAccounts/jobs/resume/action|Hervat een taak die is onderbroken.|
+|Microsoft.Automation/automationAccounts/jobs/stop/action|Een taak wordt geannuleerd.|
+|Microsoft.Automation/automationAccounts/jobs/streams/read|Lees de Taakstromen en de uitvoer.|
 |Microsoft.Automation/automationAccounts/jobs/suspend/action|Onderbreken van een taak wordt uitgevoerd.|
 |Microsoft.Automation/automationAccounts/jobs/write|Taken maken.|
-|Microsoft.Resources/subscriptions/resourceGroups/read      |  Lezen van rollen en roltoewijzingen.       |
-|Microsoft.Resources/deployments/*      |Maken en beheren van resourcegroepimplementaties.         |
+|Microsoft.Resources/subscriptions/resourceGroups/read      |  Rollen en roltoewijzingen lezen.       |
+|Microsoft.Resources/deployments/*      |Maken en beheren van implementaties van resource-groep.         |
 |Microsoft.Insights/alertRules/*      | Maken en beheren van regels voor waarschuwingen.        |
 |Microsoft.Support/* |Maak en ondersteuningstickets beheren.|
 
 ### <a name="automation-runbook-operator"></a>Operator voor Automation-runbook
 
-Een rol Automation-Runbook-Operator wordt verleend op het bereik van het Runbook. Een Automation-Runbook-Operator kunt weergeven, de naam en de eigenschappen van het runbook.  Deze rol in combinatie met de rol 'Automation-taak Operator' kunnen de operator ook maken en beheren van taken voor het runbook. De volgende tabel ziet u de machtigingen voor de rol:
+Een Operator voor Automation-Runbook-rol wordt verleend op het bereik van het Runbook. Een Operator voor Automation-Runbook kunt weergeven, de naam en de eigenschappen van het runbook.  Deze rol in combinatie met de rol 'Automation-taak Operator' kunt de operator op die ook maken en beheren van taken voor het runbook. De volgende tabel ziet u de machtigingen voor de rol:
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
-|Microsoft.Automation/automationAccounts/runbooks/read     | Lijst van de runbooks.        |
+|Microsoft.Automation/automationAccounts/runbooks/read     | Lijst met runbooks.        |
 |Microsoft.Authorization/*/read      | Autorisatie worden gelezen.        |
-|Microsoft.Resources/subscriptions/resourceGroups/read      |Lezen van rollen en roltoewijzingen.         |
-|Microsoft.Resources/deployments/*      | Maken en beheren van resourcegroepimplementaties.         |
+|Microsoft.Resources/subscriptions/resourceGroups/read      |Rollen en roltoewijzingen lezen.         |
+|Microsoft.Resources/deployments/*      | Maken en beheren van implementaties van resource-groep.         |
 |Microsoft.Insights/alertRules/*      | Maken en beheren van regels voor waarschuwingen.        |
 |Microsoft.Support/*      | Maak en ondersteuningstickets beheren.        |
 
 ### <a name="log-analytics-contributor"></a>Inzender van Log Analytics
 
-Log Analytics medewerker kunnen alle bewakingsgegevens lezen en bewerken van controle-instellingen. Controle-instellingen bewerken bevat de VM-extensie toevoegen aan virtuele machines; lezen van toegangscodes voor opslag om te kunnen verzamelen van Logboeken van Azure Storage; configureren maken en configureren van Automation-accounts; toevoegen van oplossingen; en het configureren van Azure diagnostics op alle Azure-resources. De volgende tabel ziet u de machtigingen voor de rol:
+Een inzender van Log Analytics kan alle controlegegevens lezen en bewerken van instellingen voor controle. Bewerken van instellingen voor controle houdt het toevoegen van de VM-extensie voor virtuele machines; lezen van opslagaccountsleutels om te kunnen verzamelen van Logboeken van Azure Storage; configureren het maken en configureren van Automation-accounts; toevoegen van oplossingen en Azure diagnostics configureren op alle Azure-resources. De volgende tabel ziet u de machtigingen voor de rol:
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
-|* / lezen|Bronnen van alle typen, met uitzondering van geheimen lezen.|
+|* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
 |Microsoft.Automation/automationAccounts/*|Automation-accounts beheren.|
-|Microsoft.ClassicCompute/virtualMachines/extensions/*|Maken en beheren van uitbreidingen van de virtuele machine.|
-|Microsoft.ClassicStorage/storageAccounts/listKeys/action|Lijst met klassieke opslagaccountsleutels.|
-|Microsoft.Compute/virtualMachines/extensions/*|Maken en beheren van uitbreidingen voor klassieke virtuele machine.|
-|Microsoft.Insights/alertRules/*|Waarschuwingsregels voor lezen, schrijven, verwijderen.|
-|Microsoft.Insights/diagnosticSettings/*|Diagnostische instellingen voor lezen, schrijven, verwijderen.|
+|Microsoft.ClassicCompute/virtualMachines/extensions/*|Maken en beheren van extensies voor virtuele machines.|
+|Microsoft.ClassicStorage/storageAccounts/listKeys/action|Lijst met sleutels voor klassieke opslagaccount.|
+|Microsoft.Compute/virtualMachines/extensions/*|Maken en beheren van extensies voor klassieke virtuele machines.|
+|Microsoft.Insights/alertRules/*|Waarschuwingsregels voor lezen/schrijven/verwijderen.|
+|Microsoft.Insights/diagnosticSettings/*|Diagnostische instellingen lezen, schrijven en verwijderen.|
 |Microsoft.OperationalInsights/*|Log Analytics beheren.|
-|Microsoft.OperationsManagement/*|Oplossingen in werkruimten beheren.|
-|Microsoft.Resources/deployments/*|Maken en beheren van resourcegroepimplementaties.|
-|Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Maken en beheren van resourcegroepimplementaties.|
-|Microsoft.Storage/storageAccounts/listKeys/action|Toegangscodes voor opslag weergeven.|
+|Microsoft.OperationsManagement/*|Beheren van oplossingen in werkruimten.|
+|Microsoft.Resources/deployments/*|Maken en beheren van implementaties van resource-groep.|
+|Microsoft.Resources/subscriptions/resourcegroups/deployments/*|Maken en beheren van implementaties van resource-groep.|
+|Microsoft.Storage/storageAccounts/listKeys/action|Lijst met sleutels voor het opslagaccount.|
 |Microsoft.Support/*|Maak en ondersteuningstickets beheren.|
 
 ### <a name="log-analytics-reader"></a>Lezer van Log Analytics
 
-Een Log Analytics-lezer kunt weergeven en zoeken van alle bewakingsgegevens en controle-instellingen, met inbegrip van de configuratie van Azure diagnostics weergeven op alle Azure-resources weergeven. De volgende tabel ziet u de machtigingen verleend of geweigerd voor de rol:
+Een lezer van Log Analytics kunt bekijken en zoeken van alle bewakingsgegevens en de controle-instellingen, inclusief het weergeven van de configuratie van Azure diagnostics op alle Azure-resources weergeven. De volgende tabel ziet u de machtigingen verleend of geweigerd voor de rol:
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
-|* / lezen|Bronnen van alle typen, met uitzondering van geheimen lezen.|
-|Microsoft.OperationalInsights/workspaces/analytics/query/action|Query's in logboekanalyse beheren.|
-|Microsoft.OperationalInsights/workspaces/search/action|Log Analytics gegevens zoeken.|
+|* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
+|Microsoft.OperationalInsights/workspaces/analytics/query/action|Query's in Log Analytics beheren.|
+|Microsoft.OperationalInsights/workspaces/search/action|Zoeken naar Log Analytics-gegevens.|
 |Microsoft.Support/*|Maak en ondersteuningstickets beheren.|
-|**Niet-acties**| |
-|Microsoft.OperationalInsights/workspaces/sharedKeys/read|Kan niet lezen van de sleutels voor gedeelde toegang.|
+|**Geen acties**| |
+|Microsoft.OperationalInsights/workspaces/sharedKeys/read|Kan de gedeelde toegangssleutel gelezen.|
 
 ### <a name="monitoring-contributor"></a>Controlebijdrager
 
-Een inzender bewaking kan alle bewakingsgegevens lezen en bijwerken van controle-instellingen. De volgende tabel ziet u de machtigingen voor de rol:
+Een bijdrager bewaking kan alle controlegegevens lezen en controle-instellingen bijwerken. De volgende tabel ziet u de machtigingen voor de rol:
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
-|* / lezen|Bronnen van alle typen, met uitzondering van geheimen lezen.|
+|* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
 |Microsoft.AlertsManagement/alerts/*|Waarschuwingen beheren.|
 |Microsoft.AlertsManagement/alertsSummary/*|De waarschuwing dashboard beheren.|
-|Microsoft.Insights/AlertRules/*|Waarschuwingsregels beheren.|
+|Microsoft.Insights/AlertRules/*|Regels voor waarschuwingen beheren.|
 |Microsoft.Insights/components/*|Application Insights-onderdelen beheren.|
 |Microsoft.Insights/DiagnosticSettings/*|Diagnostische instellingen beheren.|
-|Microsoft.Insights/eventtypes/*|Activiteitenlogboek gebeurtenissen (management gebeurtenissen) in een abonnement weergeven. Deze machtiging is van toepassing op de portal zowel programmatische toegang tot het activiteitenlogboek.|
-|Microsoft.Insights/LogDefinitions/*|Deze machtiging is vereist voor gebruikers die toegang nodig tot activiteitenlogboeken via de portal. Lijst met logboekbestanden categorieën in het activiteitenlogboek.|
+|Microsoft.Insights/eventtypes/*|Lijst met gebeurtenissen in activiteitenlogboeken (van Beheergebeurtenissen) in een abonnement. Deze machtiging is van toepassing op zowel programmatische als portal toegang tot het activiteitenlogboek.|
+|Microsoft.Insights/LogDefinitions/*|Deze machtiging is vereist voor gebruikers die toegang nodig tot activiteitenlogboeken via de portal. Logboekcategorieën lijst in het activiteitenlogboek.|
 |Microsoft.Insights/MetricDefinitions/*|Metrische definities (lijst met beschikbare metrische gegevens typen voor een resource) lezen.|
-|Microsoft.Insights/Metrics/*|Metrische gegevens voor een resource lezen.|
-|Microsoft.Insights/Register/Action|Registreer de provider Microsoft.Insights.|
+|Microsoft.Insights/Metrics/*|De metrische gegevens voor een resource lezen.|
+|Microsoft.Insights/Register/Action|De Microsoft.Insights-provider hebt geregistreerd.|
 |Microsoft.Insights/webtests/*|Application Insights-webtests beheren.|
-|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Log Analytics-oplossing packs beheren.|
+|Microsoft.OperationalInsights/workspaces/intelligencepacks/*|Oplossingspakketten Log Analytics beheren.|
 |Microsoft.OperationalInsights/workspaces/savedSearches/*|Log Analytics opgeslagen zoekopdrachten beheren.|
-|Microsoft.OperationalInsights/workspaces/search/action|Log Analytics-werkruimten zoeken.|
-|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Lijst met sleutels voor een werkruimte voor logboekanalyse.|
-|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Log Analytics inzicht opslagconfiguraties beheren.|
+|Microsoft.OperationalInsights/workspaces/search/action|Zoeken naar Log Analytics-werkruimten.|
+|Microsoft.OperationalInsights/workspaces/sharedKeys/action|Lijst met sleutels voor een Log Analytics-werkruimte.|
+|Microsoft.OperationalInsights/workspaces/storageinsightconfigs/*|Log Analytics insight opslagconfiguraties beheren.|
 |Microsoft.Support/*|Maak en ondersteuningstickets beheren.|
-|Microsoft.WorkloadMonitor/workloads/*|Werkbelasting moet worden beheerd.|
+|Microsoft.WorkloadMonitor/workloads/*|Workloads beheren.|
 
 ### <a name="monitoring-reader"></a>Controlelezer
 
-Alle bewaking gegevens kunnen worden gelezen door een lezer bewaking. De volgende tabel ziet u de machtigingen voor de rol:
+Een lezer bewaking kan alle controlegegevens lezen. De volgende tabel ziet u de machtigingen voor de rol:
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
-|* / lezen|Bronnen van alle typen, met uitzondering van geheimen lezen.|
-|Microsoft.OperationalInsights/workspaces/search/action|Log Analytics-werkruimten zoeken.|
+|* / lezen|Bronnen van alle typen, met uitzondering van geheimen worden gelezen.|
+|Microsoft.OperationalInsights/workspaces/search/action|Zoeken naar Log Analytics-werkruimten.|
 |Microsoft.Support/*|Maken en ondersteuningstickets beheren|
 
 ### <a name="user-access-administrator"></a>Beheerder van gebruikerstoegang
 
-Een beheerder voor gebruikerstoegang kunt gebruikerstoegang tot Azure-resources te beheren. De volgende tabel ziet u de machtigingen voor de rol:
+Een Administrator voor gebruikerstoegang beheren de gebruikerstoegang tot Azure-resources. De volgende tabel ziet u de machtigingen voor de rol:
 
 |**Acties**  |**Beschrijving**  |
 |---------|---------|
-|* / lezen|Alle bronnen lezen|
+|* / lezen|Lezen van alle resources|
 |Microsoft.Authorization/*|Machtigingen beheren|
 |Microsoft.Support/*|Maken en ondersteuningstickets beheren|
 
 ## <a name="onboarding"></a>Onboarding
 
-De volgende tabellen tonen de minimaal vereiste machtigingen die nodig zijn voor onboarding virtuele machines voor het bijhouden van wijzigingen of beheeroplossingen bijwerken.
+De volgende tabellen de minimaal vereiste machtigingen die nodig zijn voor onboarding van virtuele machines voor het bijhouden van weergeven of bijwerken van oplossingen voor beheer.
 
-### <a name="onboarding-from-a-virtual-machine"></a>Voorbereiding van een virtuele machine
+### <a name="onboarding-from-a-virtual-machine"></a>Onboarding van een virtuele machine
 
 |**Actie**  |**Machtiging**  |**Minimale bereik**  |
 |---------|---------|---------|
@@ -211,47 +220,47 @@ De volgende tabellen tonen de minimaal vereiste machtigingen die nodig zijn voor
 |Schrijven van nieuwe resourcegroep      | Microsoft.Resources/subscriptions/resourceGroups/write        | Abonnement          |
 |Nieuwe standaard werkruimte maken      | Microsoft.OperationalInsights/workspaces/write         | Resourcegroep         |
 |Nieuw Account maken      |  Microsoft.Automation/automationAccounts/write        |Resourcegroep         |
-|Koppeling werkruimte en -account      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Werkruimte</br>Automation-account
+|Koppeling werkruimte en account      |Microsoft.OperationalInsights/workspaces/write</br>Microsoft.Automation/automationAccounts/read|Werkruimte</br>Automation-account
 |Oplossing maken      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write |Resourcegroep          |
-|De extensie MMA maken      | Microsoft.Compute/virtualMachines/write         | Virtuele machine         |
-|Maken van opgeslagen zoekopdracht      | Microsoft.OperationalInsights/workspaces/write          | Werkruimte         |
-|Configuratie van de scope maken      | Microsoft.OperationalInsights/workspaces/write          | Werkruimte         |
-|Koppeling bereik config-oplossing      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Oplossing         |
-|Voorbereiden op status controleren - werkruimte lezen      | Microsoft.OperationalInsights/workspaces/read         | Werkruimte         |
-|Controle van de installatiestatus onboarding - lezen eigenschap van de werkruimte van account gekoppeld     | Microsoft.Automation/automationAccounts/read      | Automation-account        |
-|Voorbereiden op status controleren - oplossing lezen      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Oplossing         |
-|Onboarding status check - virtuele machine lezen      | Microsoft.Compute/virtualMachines/read         | Virtuele machine         |
-|Voorbereiden op status controleren - account lezen      | Microsoft.Automation/automationAccounts/read  |  Automation-account   |
+|Maken van de MMA-extensie      | Microsoft.Compute/virtualMachines/write         | Virtuele machine         |
+|Opgeslagen zoekactie maken      | Microsoft.OperationalInsights/workspaces/write          | Werkruimte         |
+|Bereik-configuratie maken      | Microsoft.OperationalInsights/workspaces/write          | Werkruimte         |
+|Koppeling oplossing voor het bereik config      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Oplossing         |
+|Onboardingstatus van de werkruimte worden gecontroleerd: lezen      | Microsoft.OperationalInsights/workspaces/read         | Werkruimte         |
+|Controleren van de onboarding - lezen eigenschap van de werkruimte van account gekoppeld     | Microsoft.Automation/automationAccounts/read      | Automation-account        |
+|Onboardingstatus van de controleren - oplossing lezen      | Microsoft.OperationalInsights/workspaces/intelligencepacks/read          | Oplossing         |
+|Controleren van de onboarding - lezen-VM      | Microsoft.Compute/virtualMachines/read         | Virtuele machine         |
+|Onboardingstatus van de controleren - account lezen      | Microsoft.Automation/automationAccounts/read  |  Automation-account   |
 
 ### <a name="onboarding-from-automation-account"></a>Onboarding van Automation-account
 
 |**Actie**  |**Machtiging** |**Minimale bereik**  |
 |---------|---------|---------|
-|Maak nieuwe implementatie     | Microsoft.Resources/deployments/*        | Abonnement         |
+|Nieuwe implementatie maken     | Microsoft.Resources/deployments/*        | Abonnement         |
 |Nieuwe resourcegroep maken     | Microsoft.Resources/subscriptions/resourceGroups/write         | Abonnement        |
 |Blade AutomationOnboarding - nieuwe werkruimte maken     |Microsoft.OperationalInsights/workspaces/write           | Resourcegroep        |
 |AutomationOnboarding blade - gekoppelde werkruimte lezen     | Microsoft.Automation/automationAccounts/read        | Automation-account       |
 |AutomationOnboarding blade - oplossing     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read         | Oplossing        |
-|AutomationOnboarding blade - werkruimte lezen     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Werkruimte        |
-|Koppeling voor de werkruimte en Account maken     | Microsoft.OperationalInsights/workspaces/write        | Werkruimte        |
+|AutomationOnboarding blade - werkruimte te lezen     | Microsoft.OperationalInsights/workspaces/intelligencepacks/read        | Werkruimte        |
+|Koppeling voor werkruimte en Account maken     | Microsoft.OperationalInsights/workspaces/write        | Werkruimte        |
 |Account voor schoenendoos schrijven      | Microsoft.Automation/automationAccounts/write        | Account        |
 |Oplossing maken      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write        | Resourcegroep         |
-|Maken en bewerken opgeslagen zoekopdracht     | Microsoft.OperationalInsights/workspaces/write        | Werkruimte        |
+|Maak/opgeslagen zoekopdracht bewerken     | Microsoft.OperationalInsights/workspaces/write        | Werkruimte        |
 |Bereik config maken/bewerken     | Microsoft.OperationalInsights/workspaces/write        | Werkruimte        |
-|Koppeling bereik config-oplossing      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Oplossing         |
-|**Stap 2 - vrijgeven meerdere virtuele machines**     |         |         |
-|VMOnboarding blade - extensie MMA maken     | Microsoft.Compute/virtualMachines/write           | Virtuele machine        |
-|Maken / bewerken van de opgeslagen zoekopdracht     | Microsoft.OperationalInsights/workspaces/write           | Werkruimte        |
-|Maken / bewerken bereik config  | Microsoft.OperationalInsights/workspaces/write   | Werkruimte|
+|Koppeling oplossing voor het bereik config      | Microsoft.OperationalInsights/workspaces/intelligencepacks/write         | Oplossing         |
+|**Stap 2: onboarding meerdere virtuele machines**     |         |         |
+|VMOnboarding blade - extensie van de MMA maken     | Microsoft.Compute/virtualMachines/write           | Virtuele machine        |
+|Maken / bewerken van opgeslagen zoekopdracht     | Microsoft.OperationalInsights/workspaces/write           | Werkruimte        |
+|Maken / bewerken van bereik config  | Microsoft.OperationalInsights/workspaces/write   | Werkruimte|
 
 ## <a name="update-management"></a>Updatebeheer
 
-Updatebeheer is bereikt op meerdere services om de service te bieden. De volgende tabel ziet u de machtigingen om de update management-implementaties beheren:
+Updatebeheer bereikt over meerdere services om de service te bieden. De volgende tabel ziet u de machtigingen die nodig zijn voor management-update-implementaties beheren:
 
 |**Resource**  |**Rol**  |**Bereik**  |
 |---------|---------|---------|
 |Automation-account     | Inzender van Log Analytics       | Automation-account        |
-|Automation-account    | Inzender voor virtuele machines        | De resourcegroep voor het account        |
+|Automation-account    | Inzender voor virtuele machines        | Resourcegroep voor het account        |
 |Log Analytics-werkruimte     | Inzender van Log Analytics| Log Analytics-werkruimte        |
 |Log Analytics-werkruimte |Lezer van Log Analytics| Abonnement|
 |Oplossing     |Inzender van Log Analytics         | Oplossing|
@@ -259,50 +268,50 @@ Updatebeheer is bereikt op meerdere services om de service te bieden. De volgend
 
 ## <a name="configure-rbac-for-your-automation-account"></a>RBAC configureren voor uw Automation-account
 
-De volgende sectie ziet u het RBAC configureren op uw Automation-Account via de [portal](#configure-rbac-using-the-azure-portal) en [PowerShell](#configure-rbac-using-powershell)
+In de volgende sectie ziet u hoe u RBAC configureren voor uw Automation-Account via de [portal](#configure-rbac-using-the-azure-portal) en [PowerShell](#configure-rbac-using-powershell)
 
-### <a name="configure-rbac-using-the-azure-portal"></a>RBAC met Azure portal configureren
+### <a name="configure-rbac-using-the-azure-portal"></a>RBAC met behulp van de Azure-portal configureren
 
 1. Meld u aan bij de [Azure-portal](https://portal.azure.com/) en open uw Automation-account via de pagina Automation-accounts.
-2. Klik op de **toegangsbeheer (IAM)** besturingselement in de linkerbovenhoek. Hiermee opent u de **toegangsbeheer (IAM)** pagina waar u kunt nieuwe gebruikers, groepen toevoegen en toepassingen voor het beheren van uw Automation-account en bestaande rollen die kunnen worden geconfigureerd voor het Automation-account weergeven.
+2. Klik op de **toegangsbeheer (IAM)** besturingselement in de linkerbovenhoek. Hiermee opent u de **toegangsbeheer (IAM)** pagina waar u nieuwe gebruikers, groepen, kunt toevoegen en toepassingen voor het beheren van uw Automation-account en bestaande rollen die kunnen worden geconfigureerd voor het Automation-account kunt weergeven.
 
    ![De knop Toegang](media/automation-role-based-access-control/automation-01-access-button.png)
 
 #### <a name="add-a-new-user-and-assign-a-role"></a>Een nieuwe gebruiker toevoegen en een rol toewijzen
 
-1. Van de **toegangsbeheer (IAM)** pagina, klikt u op **+ toevoegen** openen de **machtigingen toevoegen** pagina waar u kunt een gebruiker, groep of toepassing toevoegen en een rol aan ze toewijzen.
+1. Uit de **toegangsbeheer (IAM)** pagina, klikt u op **+ toevoegen** openen de **machtigingen toevoegen** pagina waar u kunt een gebruiker, groep of toepassing toevoegen, en hieraan een rol kunt toewijzen.
 
-2. Selecteer een rol in de lijst met beschikbare rollen. U kunt een van de beschikbare ingebouwde rol die ondersteuning biedt voor een Automation-account of elke aangepaste rol die u hebt gedefinieerd.
+2. Selecteer een rol in de lijst met beschikbare rollen. U kunt een van de beschikbare ingebouwde rollen die ondersteuning biedt voor een Automation-account of een aangepaste rol die u hebt gedefinieerd.
 
-3. Typ de gebruikersnaam van de gebruiker die u wilt toekennen van machtigingen voor het in de **Selecteer** veld. Selecteer de gebruiker in de lijst en klikt u op **opslaan**.
+3. Typ de gebruikersnaam van de gebruiker die u wilt machtigen voor in de **Selecteer** veld. Selecteer de gebruiker in de lijst en klikt u op **opslaan**.
 
    ![Gebruikers toevoegen](media/automation-role-based-access-control/automation-04-add-users.png)
 
-   Nu u de gebruiker is toegevoegd ziet aan de **gebruikers** pagina met de geselecteerde rol is toegewezen
+   Nu u de gebruiker is toegevoegd ziet aan de **gebruikers** pagina met de geselecteerde rol
 
    ![Gebruikers weergeven](media/automation-role-based-access-control/automation-05-list-users.png)
 
    U kunt ook een rol aan de gebruiker toewijzen via de pagina **Rollen**.
-4. Klik op **rollen** van de **toegangsbeheer (IAM)** pagina openen de **rollen** pagina. Via deze pagina kunt u het volgende bekijken: de naam van de rol, het aantal gebruikers en de groepen die aan die rol zijn toegewezen.
+4. Klik op **rollen** uit de **toegangsbeheer (IAM)** pagina wordt geopend de **rollen** pagina. Via deze pagina kunt u het volgende bekijken: de naam van de rol, het aantal gebruikers en de groepen die aan die rol zijn toegewezen.
 
     ![Rol toewijzen vanaf pagina Gebruikers](media/automation-role-based-access-control/automation-06-assign-role-from-users-blade.png)
 
    > [!NOTE]
-   > Op rollen gebaseerde toegangsbeheer kan alleen worden ingesteld bij het Automation-accountbereik en niet op een resource onder het Automation-account.
+   > Op rollen gebaseerd toegangsbeheer kan alleen worden ingesteld op het Automation-accountbereik en niet op een resource onder het Automation-account.
 
 #### <a name="remove-a-user"></a>Een gebruiker verwijderen
 
-U kunt de toegangsrechten voor een gebruiker die het Automation-account niet beheert of die niet meer werkt voor de organisatie verwijderen. Hieronder vindt u de stappen voor het verwijderen van een gebruiker:
+De toegangsmachtigingen voor een gebruiker die het Automation-account niet beheert, of die niet meer werkt voor de organisatie, kunt u verwijderen. Hieronder vindt u de stappen voor het verwijderen van een gebruiker:
 
-1. Van de **toegangsbeheer (IAM)** pagina, selecteert u de gebruiker wilt verwijderen en klik op **verwijderen**.
+1. Uit de **toegangsbeheer (IAM)** pagina, selecteert u de gebruiker wilt verwijderen en klik op **verwijderen**.
 2. Klik op de pagina met toewijzingsdetails op de knop **Verwijderen**.
 3. Klik op **Ja** om het verwijderen te bevestigen.
 
    ![Gebruikers verwijderen](media/automation-role-based-access-control/automation-08-remove-users.png)
 
-### <a name="configure-rbac-using-powershell"></a>Met behulp van PowerShell RBAC configureren
+### <a name="configure-rbac-using-powershell"></a>RBAC met behulp van PowerShell configureren
 
-Op rollen gebaseerde toegang kan ook worden geconfigureerd voor een Automation-account met de volgende [Azure PowerShell-cmdlets](../role-based-access-control/role-assignments-powershell.md):
+Rollen gebaseerde toegang kan ook worden geconfigureerd voor een Automation-account met behulp van de volgende [Azure PowerShell-cmdlets](../role-based-access-control/role-assignments-powershell.md):
 
 [Get-AzureRmRoleDefinition](https://msdn.microsoft.com/library/mt603792.aspx) geeft een lijst van alle RBAC-rollen die beschikbaar in Azure Active Directory zijn. U kunt deze opdracht samen met de eigenschap **Naam** gebruiken om alle acties die kunnen worden uitgevoerd door een specifieke rol weer te geven.
 
@@ -310,7 +319,7 @@ Op rollen gebaseerde toegang kan ook worden geconfigureerd voor een Automation-a
 Get-AzureRmRoleDefinition -Name 'Automation Operator'
 ```
 
-Hier volgt een voorbeeld van uitvoer:
+Hier volgt de voorbeelduitvoer:
 
 ```azurepowershell
 Name             : Automation Operator
@@ -323,14 +332,14 @@ NotActions       : {}
 AssignableScopes : {/}
 ```
 
-[Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) geeft een lijst van Azure AD RBAC-roltoewijzingen bij het opgegeven bereik. Zonder parameters worden met deze opdracht alle roltoewijzingen geretourneerd die onder het abonnement zijn gemaakt. Gebruik de parameter **ExpandPrincipalGroups** om toegangstoewijzingen voor de opgegeven gebruiker weer te geven en voor de groepen waarvan de gebruiker lid is.
+[Get-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt619413.aspx) worden Azure AD RBAC-roltoewijzingen bij het opgegeven bereik. Zonder parameters worden met deze opdracht alle roltoewijzingen geretourneerd die onder het abonnement zijn gemaakt. Gebruik de parameter **ExpandPrincipalGroups** om toegangstoewijzingen voor de opgegeven gebruiker weer te geven en voor de groepen waarvan de gebruiker lid is.
     **Voorbeeld:** gebruik de volgende opdracht om alle gebruikers en de bijbehorende rollen binnen een Automation-account weer te geven.
 
 ```azurepowershell-interactive
 Get-AzureRMRoleAssignment -scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-Hier volgt een voorbeeld van uitvoer:
+Hier volgt de voorbeelduitvoer:
 
 ```powershell
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myResourceGroup/providers/Microsoft.Automation/automationAccounts/myAutomationAccount/provid
@@ -344,14 +353,14 @@ ObjectId           : 15f26a47-812d-489a-8197-3d4853558347
 ObjectType         : User
 ```
 
-[Nieuwe AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) toegang toewijzen aan gebruikers, groepen en toepassingen naar een bepaald bereik.
+[Nieuwe-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt603580.aspx) toegang toewijzen aan gebruikers, groepen en toepassingen naar een bepaald bereik.
     **Voorbeeld:** gebruik van de volgende opdracht om toe te wijzen de rol 'Automation-Operator' voor een gebruiker in het Automation-accountbereik.
 
 ```azurepowershell-interactive
 New-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to grant access> -RoleDefinitionName 'Automation operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-Hier volgt een voorbeeld van uitvoer:
+Hier volgt de voorbeelduitvoer:
 
 ```azurepowershell
 RoleAssignmentId   : /subscriptions/00000000-0000-0000-0000-000000000000/resourcegroups/myResourceGroup/Providers/Microsoft.Automation/automationAccounts/myAutomationAccount/provid
@@ -372,17 +381,17 @@ Gebruik [Remove-AzureRmRoleAssignment](https://msdn.microsoft.com/library/mt6037
 Remove-AzureRmRoleAssignment -SignInName <sign-in Id of a user you wish to remove> -RoleDefinitionName 'Automation Operator' -Scope '/subscriptions/<SubscriptionID>/resourcegroups/<Resource Group Name>/Providers/Microsoft.Automation/automationAccounts/<Automation account name>'
 ```
 
-Vervang in de voorgaande voorbeelden **Id aanmelden**, **abonnements-Id**, **Resourcegroepnaam**, en **Automation-accountnaam** met uw accountdetails. Kies **Ja** om te bevestigen voordat u verdergaat met het verwijderen van de roltoewijzing voor de gebruiker.
+Vervang in de voorgaande voorbeelden **Id voor aanmelden**, **abonnements-Id**, **groepsnaam voor accountresources**, en **Automation-accountnaam** met uw accountgegevens. Kies **Ja** om te bevestigen voordat u verdergaat met het verwijderen van de roltoewijzing voor de gebruiker.
 
 ### <a name="user-experience-for-automation-operator-role---automation-account"></a>Gebruikerservaring voor de rol Automation-operator - Automation-Account
 
-Wanneer een gebruiker het Automation-account dat ze worden toegewezen aan die is toegewezen aan de rol Automation-Operator in het bereik van het Automation-Account bekijkt, ze kunnen alleen de lijst met runbooks, runbooktaken, weergeven en schema's die zijn gemaakt in de Automation-account, maar kunnen geen weergeven hun definitie. De gebruiker kan de runbooktaak starten, stoppen, onderbreken, hervatten of plannen. De gebruiker heeft geen toegang tot andere Automation-resources zoals configuraties, hybrid worker-groepen of DSC-knooppunten.
+Wanneer een gebruiker, het Automation-account dat ze worden toegewezen aan die is toegewezen aan de rol Automation-Operator in het bereik Automation-Account bekijkt, ze kunnen alleen de lijst met runbooks, runbooktaken, weergeven en schema's gemaakt in het Automation-account, maar niet de hun de definitie. De gebruiker kan de runbooktaak starten, stoppen, onderbreken, hervatten of plannen. De gebruiker heeft geen toegang tot andere Automation-resources, zoals configuraties, hybrid worker-groepen of DSC-knooppunten.
 
-![Geen toegang tot bronnen](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
+![Geen toegang tot resources](media/automation-role-based-access-control/automation-10-no-access-to-resources.png)
 
 ## <a name="configure-rbac-for-runbooks"></a>RBAC configureren voor Runbooks
 
-Azure Automation kunt u RBAC toewijzen aan specifieke runbooks. Voer hiervoor het volgende script voor een gebruiker toevoegen aan een specifiek runbook. Het volgende script kan worden uitgevoerd door een Automation-Account Administrator of Tenantbeheerder.
+Azure Automation kunt u RBAC toewijzen aan specifieke runbooks. Hiervoor voert u het volgende script voor een gebruiker toevoegen aan een specifiek runbook. Het volgende script kan worden uitgevoerd door een Automation-accountbeheerder of Tenantbeheerder.
 
 ```azurepowershell-interactive
 $rgName = "<Resource Group Name>" # Resource Group name for the Automation Account
@@ -403,13 +412,13 @@ New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Job 
 New-AzureRmRoleAssignment -ObjectId $userId -RoleDefinitionName "Automation Runbook Operator" -Scope $rb.ResourceId
 ```
 
-Eenmaal hebt uitgevoerd, hebben de gebruikers zich aanmelden bij de Azure-portal en bekijk **alle Resources**. In de lijst zien ze het Runbook dat ze zijn toegevoegd als een **Automation-Runbook-Operator** voor.
+Eenmaal is uitgevoerd, laat de gebruiker zich aanmeldt bij de Azure-portal en de weergave **alle Resources**. In de lijst zien ze het Runbook dat ze zijn toegevoegd als een **Operator voor Automation-Runbook** voor.
 
 ![Runbook RBAC in de portal](./media/automation-role-based-access-control/runbook-rbac.png)
 
-### <a name="user-experience-for-automation-operator-role---runbook"></a>Gebruikerservaring voor de rol Automation-operator - Runbook
+### <a name="user-experience-for-automation-operator-role---runbook"></a>Gebruikerservaring voor de rol Automation - Runbook
 
-Wanneer een gebruiker die de rol Automation-Operator van het Runbook bereik weergaven een Runbook dat ze worden toegewezen aan is toegewezen, kunnen ze alleen het runbook starten en de runbooktaken weergeven.
+Wanneer een gebruiker, die aan de rol Automation-Operator in het bereik instellen voor Runbook een Runbook dat ze worden toegewezen aan is toegewezen, kunnen ze alleen het runbook starten en de runbooktaken weergeven.
 
 ![Heeft alleen toegang tot het starten](media/automation-role-based-access-control/automation-only-start.png)
 

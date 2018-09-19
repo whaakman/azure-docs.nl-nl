@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 07/03/2018
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 846b76bddbc771a924a1d710cd333dfa4623f5ec
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
+ms.openlocfilehash: a629c598c94e44713f8990871c46272dc48b1359
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37449830"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296274"
 ---
 # <a name="authentication-and-user-permissions"></a>Verificatie en gebruikersmachtigingen
 Azure Analysis Services gebruikt Azure Active Directory (Azure AD) voor beheer en verificatie. Een gebruiker maken, beheren of verbinding maken met een Azure Analysis Services server moet een geldige gebruikers-id een [Azure AD-tenant](../active-directory/fundamentals/active-directory-administer.md) in hetzelfde abonnement.
@@ -33,7 +33,7 @@ Afhankelijk van de clienttoepassing of -hulpprogramma dat u wilt gebruiken, kan 
 
 Power BI Desktop, SSDT en SSMS ondersteuning voor universele verificatie van Active Directory, een interactieve methode die ondersteuning biedt voor Azure multi-factor Authentication (MFA). Azure MFA helpt beveiligen de toegang tot gegevens en toepassingen terwijl er een eenvoudige aanmeldprocedure. Het biedt een robuuste verificatie met verschillende opties voor verificatie (telefoonoproep, SMS-bericht, smartcards en pincode of mobiele app-meldingen). Interactieve MFA met Azure AD kan resulteren in een pop-updialoogvenster voor validatie. **Universele authenticatie wordt aanbevolen**.
 
-Als ze zich aanmelden bij Azure met behulp van een Windows-account en universele authenticatie niet is ingeschakeld of beschikbaar (Excel), [Active Directory Federation Services (AD FS)](../active-directory/connect/active-directory-aadconnect-azure-adfs.md) is vereist. Met Federatie, Azure AD en Office 365-gebruikers worden geverifieerd met behulp van on-premises referenties en toegang tot Azure-resources.
+Als ze zich aanmelden bij Azure met behulp van een Windows-account en universele authenticatie niet is ingeschakeld of beschikbaar (Excel), [Active Directory Federation Services (AD FS)](../active-directory/hybrid/how-to-connect-fed-azure-adfs.md) is vereist. Met Federatie, Azure AD en Office 365-gebruikers worden geverifieerd met behulp van on-premises referenties en toegang tot Azure-resources.
 
 ### <a name="sql-server-management-studio-ssms"></a>SQL Server Management Studio (SSMS)
 Azure Analysis Services-servers ondersteunen verbindingen van [SSMS V17.1](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms) en hoger met behulp van Windows-verificatie, wachtwoordverificatie voor Active Directory en Active Directory universele authenticatie. In het algemeen wordt aangeraden dat u Active Directory universele authenticatie gebruiken, omdat:

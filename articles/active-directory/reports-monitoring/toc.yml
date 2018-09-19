@@ -1,0 +1,110 @@
+items:
+- name: Documentatie over rapporten en controle
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Wat zijn Azure AD-rapporten?
+    href: overview-reports.md
+- name: Snelstartgidsen
+  items:
+  - name: Rapporten
+    items:
+    - name: Een aanmeldrapport downloaden
+      href: quickstart-download-sign-in-report.md
+    - name: Een controlerapport downloaden
+      href: quickstart-download-audit-report.md
+    - name: Benoemde locaties configureren
+      href: quickstart-configure-named-locations.md
+    - name: Inhoudspakket voor Power BI installeren
+      href: quickstart-install-power-bi-content-pack.md
+  - name: Bewaking
+    items:
+    - name: Logboeken naar opslagaccount doorsturen
+      href: quickstart-azure-monitor-route-logs-to-storage-account.md
+  expanded: true
+- name: Zelfstudies
+  items:
+  - name: Rapporten
+    items:
+    - name: Toegang krijgen tot de API voor rapportage met behulp van certificaten
+      href: tutorial-access-api-with-certificates.md
+  - name: Bewaking
+    items:
+    - name: Logboeken naar Event Hub streamen
+      href: tutorial-azure-monitor-stream-logs-to-event-hub.md
+    - name: Activiteitenlogboeken met Splunk integreren
+      href: tutorial-integrate-activity-logs-with-splunk.md
+- name: Concepten
+  items:
+  - name: Rapporten
+    items:
+    - name: Controlelogboeken
+      href: concept-audit-logs.md
+    - name: Aanmeldingslogboeken
+      href: concept-sign-ins.md
+    - name: Riskante aanmeldingen
+      href: concept-risky-sign-ins.md
+    - name: Risicogebeurtenissen
+      href: concept-risk-events.md
+    - name: Gebruikers die risico lopen
+      href: concept-user-at-risk.md
+    - name: API's voor rapportage
+      href: concept-reporting-api.md
+  - name: Bewaking
+    items:
+    - name: Azure AD-logboeken in Azure Monitor
+      href: concept-activity-logs-in-azure-monitor.md
+- name: Handleidingen
+  items:
+  - name: Rapporten
+    items:
+    - name: Activiteitenrapporten vinden
+      href: howto-find-activity-reports.md
+    - name: Gebruikers herstellen voor wie wordt aangegeven dat ze risico lopen
+      href: howto-remediate-users-flagged-for-risk.md
+    - name: Power BI-inhoudspakket voor Azure AD-rapporten gebruiken
+      href: howto-power-bi-content-pack.md
+    - name: Vereisten voor API voor rapportage configureren
+      href: howto-configure-prerequisites-for-reporting-api.md
+  - name: Bewaking
+    items:
+    - name: Activiteitenlogboeken met SumoLogic integreren
+      href: howto-integrate-activity-logs-with-sumologic.md
+  - name: Problemen oplossen
+    items:
+    - name: Ontbrekende controlegegevens
+      href: troubleshoot-missing-audit-data.md
+    - name: Ontbrekende gegevens in download
+      href: troubleshoot-missing-data-download.md
+    - name: Geen toegang tot Graph API's voor rapportage
+      href: troubleshoot-graph-api.md
+    - name: Fouten in Power BI-inhoudspakket
+      href: troubleshoot-content-pack.md
+  expanded: true
+- name: Naslaginformatie
+  items:
+  - name: Rapporten
+    items:
+    - name: Activiteiten controleren
+      href: reference-audit-activities.md
+    - name: Beleid voor gegevensretentie
+      href: reference-reports-data-retention.md
+    - name: Wachttijden voor rapportage
+      href: reference-reports-latencies.md
+    - name: Foutcodes voor aanmelding
+      href: reference-sign-ins-error-codes.md
+    - name: Veelgestelde vragen
+      href: reports-faq.md
+  - name: Bewaking
+    items:
+    - name: Schema van auditlogboek
+      href: reference-azure-monitor-audit-log-schema.md
+    - name: Schema van aanmeldingslogboek
+      href: reference-azure-monitor-sign-ins-log-schema.md
+  expanded: true
+ms.openlocfilehash: 20321358f74157bda02740d536dd30e7a21f5588
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45740283"

@@ -1,5 +1,5 @@
 items:
-- name: Documentatie over Azure AD-toepassingsbeheer
+- name: Documentatie over toepassingsbeheer
   href: index.yml
 - name: Overzicht
   items:
@@ -236,6 +236,8 @@ items:
       href: access-panel-troubleshoot-self-service-access.md
   - name: Migratie
     items:
+    - name: Migratieresources
+      href: migration-resources.md
     - name: Een ADFS-app migreren naar Azure
       href: migrate-adfs-apps-to-azure.md
   - name: Problemen met aanmelden van gebruikers oplossen
@@ -282,9 +284,9 @@ items:
     href: http://stackoverflow.com/questions/tagged/azure-active-directory
   - name: Video's
     href: https://azure.microsoft.com/documentation/videos/index/?services=active-directory
-ms.openlocfilehash: 24452d3c2d5991f9dc81b9d740ec9473e2b8a1e0
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 8bd998373a65aa1ef171c665f3b9fbd38acadfa2
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
 ms.translationtype: HT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579885"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45737070"

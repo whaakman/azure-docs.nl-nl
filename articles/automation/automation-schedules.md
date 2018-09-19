@@ -6,15 +6,15 @@ ms.service: automation
 ms.component: shared-capabilities
 author: georgewallace
 ms.author: gwallace
-ms.date: 05/08/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 211d79f387697ce850ac645ef65338c216e2bd76
-ms.sourcegitcommit: a3a0f42a166e2e71fa2ffe081f38a8bd8b1aeb7b
+ms.openlocfilehash: 3d8492d2a8982c9c85bfc91867f7eb6c2da04e58
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/01/2018
-ms.locfileid: "43382192"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294761"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Een runbook in Azure Automation plannen
 
@@ -50,7 +50,10 @@ U kunt een nieuw schema voor runbooks maken in Azure portal of met Windows Power
 1. Selecteer in de Azure portal, in uw automation-account **planningen** onder de sectie **gedeelde bronnen** aan de linkerkant.
 1. Klik op **toevoegen van een schema** aan de bovenkant van de pagina.
 1. Op de **nieuwe planning** deelvenster, typ een **naam** en eventueel een **beschrijving** voor het nieuwe schema.
-1. Selecteer of het schema wordt één keer uitgevoerd of volgens een terugkerende planning door te schakelen **eenmaal** of **terugkeerpatroon**. Als u selecteert **eenmaal** geven een **begintijd**, en klik vervolgens op **maken**. Als u selecteert **terugkeerpatroon**, Geef een **begintijd** en de frequentie voor hoe vaak u wilt dat het runbook moet worden herhaald - door **uur**, **dag**, **week**, of door **maand**. Als u selecteert **week** of **maand** uit de vervolgkeuzelijst de **terugkeerpatroon optie** wordt weergegeven in het deelvenster en bij het selecteren, de **terugkeerpatroon optie** deelvenster wordt weergegeven en kunt u de dag van week selecteren als u hebt geselecteerd **week**. Als u hebt geselecteerd **maand**, kunt u kiezen door **weekdagen** of specifieke dagen van de maand in de kalender en tot slot wilt u uitvoeren op de laatste dag van de maand of niet, en klik vervolgens op **OK**.
+1. Selecteer of het schema wordt één keer uitgevoerd of volgens een terugkerende planning door te schakelen **eenmaal** of **periodiek**. Als u selecteert **eenmaal** geven een **begintijd**, en klik vervolgens op **maken**. Als u selecteert **periodiek**, Geef een **begintijd** en voor **herhalen elke**, selecteert u de frequentie voor hoe vaak u wilt dat het runbook moet worden herhaald - door **uur**, **dag**, **week**, of door **maand**.
+    1. Als u selecteert **week**, vindt u een lijst van de dagen van de week om uit te kiezen. Aantal dagen als u wilt selecteren. De eerste uitvoering van het schema gebeurt op de eerste dag na de starttijd hebt geselecteerd.
+    2. Als u selecteert **maand**, krijgt u verschillende opties. Voor de **maandelijkse als** optie, selecteert u **maanddagen** of **weekdagen**. Als u ervoor kiest **maanddagen** een agenda wordt weergegeven waarmee u zoveel dagen als u wilt kiezen. Als u ervoor een datum, bijvoorbeeld de 31e die niet wordt uitgevoerd in de huidige maand kiest, wordt de planning wordt niet uitgevoerd. Als u wilt dat het schema uit te voeren op de laatste dag, kiest u **Ja** onder **worden uitgevoerd op de laatste dag van maand**. Als u ervoor kiest **weekdagen**, wordt de **herhalen elke** optie wordt weergegeven. Kies **eerste**, **tweede**, **derde**, **vierde**, of **laatste**. Kies ten slotte een dag moet worden herhaald op.
+1. Klik wanneer klaar **maken**.
 
 ### <a name="to-create-a-new-schedule-with-windows-powershell"></a>Een nieuw schema maken met Windows PowerShell
 
@@ -73,9 +76,9 @@ Een runbook kan worden gekoppeld aan meerdere planningen kan, en een schema meer
 ### <a name="to-link-a-schedule-to-a-runbook-with-the-azure-portal"></a>Een planning koppelen aan een runbook met de Azure-portal
 
 1. Selecteer in de Azure portal, in uw automation-account **Runbooks** onder de sectie **procesautomatisering** aan de linkerkant.
-1. Klik op de naam van het runbook om te plannen.
-1. Als het runbook is momenteel niet gekoppeld aan een schema, krijgt u de optie voor het maken van een nieuw schema of een koppeling naar een bestaande planning schema.
-1. Als het runbook parameters heeft, kunt u de optie **instellingen (standaard: Azure) voor uitvoeren wijzigen** en de **Parameters** deelvenster wordt weergegeven waarin u overeenkomstig de gegevens kunt invoeren.
+2. Klik op de naam van het runbook om te plannen.
+3. Als het runbook is momenteel niet gekoppeld aan een schema, krijgt u de optie voor het maken van een nieuw schema of een koppeling naar een bestaande planning schema.
+4. Als het runbook parameters heeft, kunt u de optie **instellingen (standaard: Azure) voor uitvoeren wijzigen** en de **Parameters** deelvenster wordt weergegeven waarin u overeenkomstig de gegevens kunt invoeren.
 
 ### <a name="to-link-a-schedule-to-a-runbook-with-windows-powershell"></a>Een planning koppelen aan een runbook met Windows PowerShell
 

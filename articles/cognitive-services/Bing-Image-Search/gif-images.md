@@ -1,22 +1,24 @@
 ---
-title: GIF-afbeeldingen - Microsoft Cognitive Services ophalen | Microsoft Docs
+title: Bing afbeeldingen zoeken-API voor afbeeldingen, GIF - ophalen
+titleSuffix: Azure Cognitive Services
 description: Het gebruik van de Bing afbeeldingen zoeken-API voor meer informatie over GIF-afbeeldingen.
 services: cognitive-services
 author: MikeDodaro
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: bing-image-search
 ms.topic: article
 ms.date: 04/24/2018
 ms.author: rosh, v-gedod
-ms.openlocfilehash: 7f1d02067d2ef31f56eefe40736b6f02b58940b8
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 30a266a1dc0441485b4f6ba70876ac32c3de0e14
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45577146"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296466"
 ---
-# <a name="search-for-gif-images"></a>GIF-afbeeldingen zoeken
+# <a name="search-for-gif-images-using-the-bing-image-search-api"></a>Zoeken naar GIF-afbeeldingen met behulp van de Bing afbeeldingen zoeken-API
+
 De Bing afbeeldingen zoeken-API kunt u ook over de hele Web voor de meest relevante GIF-afbeeldingen zoeken.  Ontwikkelaars kunnen aantrekkelijke GIF-bestanden in verschillende scenario's voor conversatie integreren. 
 
 De volgende URL is een query voor GIF-animaties.
@@ -27,7 +29,7 @@ De [q](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-
 
 Als voorbeelden van resultaten weergeven, gebruikt u de volgende URL in op bing.com gezocht.
 ````
-https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif 
+https://www.bing.com/images/search?q=interesting&qft=%20filterui%3Aphoto-animatedgif
 
 ````
 ## <a name="query-parameters"></a>Queryparameters
@@ -39,7 +41,7 @@ Zie voor meer informatie over queryparameters en opties voor de [afbeeldingen zo
 - U kunt opgeven [maxFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#maxfilesize) en [minFileSize](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#minfilesize) parameters. Het is raadzaam instellen van de maxFileSize 2000000 = meerderheid van GIF-bestanden in de index zijn dan 2MB.  Hierdoor kunnen er ook voor het beheren van de gegevensgrootte als bandbreedte een probleem, zoals in mobiele mobiele scenario's is.
 - Ter verbetering van de merkbare prestaties laden van de miniatuur van het eerste voordat het laden van de bron-url.  
 - Probeer met behulp van onze trending gif-zoekacties uit voor eerste uitvoering of landingspagina pagina ervaring waar u een gebruikersquery nog hebt, het [API trending afbeeldingen](trending-images.md).
-- Er zijn drie instellingen voor de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) parameter.  De `strict` optie inhoud voor volwassenen blokkeren. 
+- Er zijn drie instellingen voor de [safeSearch](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#safesearch) parameter.  De `strict` optie inhoud voor volwassenen blokkeren.
 - Zie [mkt](supported-countries-markets.md) voor een volledige lijst met talen en ondersteunde locaties.
 - *AnimatedGifHttps* alleen retourneert bewegende GIF-afbeeldingen die afkomstig van een https-adres zijn. Voor beveiliging vereist veel toepassingen verbinding met koppelingen naar externe websites via https. De Apple App Store vereist bijvoorbeeld verbinding met de web-services via HTTPS, waarmee gebruikersgegevens veilig overgedragen worden gecodeerd.
 

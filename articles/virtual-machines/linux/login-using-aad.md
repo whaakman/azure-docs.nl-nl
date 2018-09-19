@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 06/17/2018
 ms.author: cynthn
-ms.openlocfilehash: 1ce03c55a346adf846619c50f09eb063e6b6f639
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 2201455477af2bd871f8e8e401536d45af4a02f7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45734621"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294644"
 ---
 # <a name="log-in-to-a-linux-virtual-machine-in-azure-using-azure-active-directory-authentication-preview"></a>Meld u aan bij een virtuele Linux-machine in Azure met behulp van Azure Active Directory-verificatie (Preview)
 
@@ -35,7 +35,7 @@ Er zijn tal van voordelen van het gebruik van Azure AD-verificatie voor aanmeldi
   - U hoeft te bekommeren verlies/diefstal van referenties, gebruikers zwakke referenties enzovoort configureren doordat uw vertrouwen op de lokale administrator-accounts.
   - Help de beveiligde virtuele Linux-machines ook de complexiteit van wachtwoorden en het wachtwoord levensduur beleid geconfigureerd voor uw Azure AD-directory.
   - U kunt nog veiliger aanmelden bij virtuele machines van Azure multi-factor authentication configureren.
-  - De mogelijkheid om aan te melden bij virtuele Linux-machines met Azure Active Directory werkt ook voor klanten die gebruikmaken van [Federation Services](../../active-directory/connect/active-directory-aadconnectfed-whatis.md).
+  - De mogelijkheid om aan te melden bij virtuele Linux-machines met Azure Active Directory werkt ook voor klanten die gebruikmaken van [Federation Services](../../active-directory/hybrid/how-to-connect-fed-whatis.md).
 
 - **Naadloze samenwerking:** With Role-Based toegangsbeheer (RBAC), kunt u opgeven die kunnen zich aanmelden bij een bepaalde virtuele machine als een gewone gebruiker of met administrator-bevoegdheden. Wanneer gebruikers lid worden, of uw team laat, kunt u het beleid voor de virtuele machine toegang zo nodig het RBAC bijwerken. Deze ervaring is veel eenvoudiger dan dat u hoeft te verwijderen van virtuele machines als u wilt verwijderen van onnodige openbare SSH-sleutels. Wanneer werknemers uw bedrijf verlaat en hun gebruikersaccount is uitgeschakeld of verwijderd uit Azure AD, hebben ze niet langer toegang tot uw resources.
 

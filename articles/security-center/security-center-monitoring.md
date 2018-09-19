@@ -1,9 +1,9 @@
 ---
-title: Beveiliging bewaken in Azure Security Center | Microsoft Docs
-description: Dit artikel helpt u aan de slag te gaan met de bewakingsmogelijkheden in Azure Security Center.
+title: Resource beveiliging hygiëne in Azure Security Center | Microsoft Docs
+description: In dit artikel helpt u bij het bewaken van uw resource beveiliging hygiëne in Azure Security Center.
 services: security-center
 documentationcenter: na
-author: TerryLanfear
+author: rkarlin
 manager: mbaldwin
 editor: ''
 ms.assetid: 3bd5b122-1695-495f-ad9a-7c2a4cd1c808
@@ -12,111 +12,40 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 06/26/2018
-ms.author: terrylan
-ms.openlocfilehash: 8fe2195559d807ef72b54603c8b4118ada705880
-ms.sourcegitcommit: 2d961702f23e63ee63eddf52086e0c8573aec8dd
+ms.date: 9/21/2018
+ms.author: rkarlin
+ms.openlocfilehash: 361fc2c6931dcfaed062bd39b75be7bef059b467
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44162866"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46122059"
 ---
-# <a name="security-health-monitoring-in-azure-security-center"></a>Beveiligingsstatus bewaken in Azure Security Center
-Dit artikel bevat informatie over het gebruik van de bewakingsmogelijkheden in Azure Security Center om naleving van het beleid te controleren.
+# <a name="monitoring-resource-security-hygiene-in-azure-security-center"></a>Resource beveiliging hygiëne in Azure Security Center bewaken
+Dit artikel helpt u de bewakingsmogelijkheden in Azure Security Center gebruikt om te controleren of de resourcebeveiliging van uw als nauwe als mogelijke en monitor naleving van beleid.
 
-## <a name="what-is-security-health-monitoring"></a>Wat houdt de bewaking van de beveiligingsstatus in?
-Bij het woord bewaking wordt misschien gesuggereerd dat er wordt gewacht tot een gebeurtenis plaatsvindt en dat er dan op de situatie wordt gereageerd. Bij beveiligingsbewaking is er echter sprake van een proactieve strategie waarbij uw resources worden gecontroleerd om systemen op te sporen die niet voldoen aan de standaarden of aanbevolen procedures van de organisatie.
+## <a name="what-is-resource-security-hygiene"></a>Wat is resource beveiliging hygiëne?
+Bij het woord bewaking wordt misschien gesuggereerd dat er wordt gewacht tot een gebeurtenis plaatsvindt en dat er dan op de situatie wordt gereageerd. Resource beveiliging hygiëne verwijst naar het met een proactieve strategie waarbij uw resources voor het identificeren van systemen die niet voldoen aan de standaarden van de organisatie of aanbevolen procedures worden gecontroleerd.
 
-## <a name="monitoring-security-health"></a>Beveiligingsstatus bewaken
-Nadat u een [beveiligingsbeleid](security-center-policies.md) voor de resources van een abonnement hebt ingeschakeld, analyseert Security Center de beveiliging van uw resources om mogelijke beveiligingsproblemen op te sporen. Informatie over uw netwerkconfiguratie is onmiddellijk beschikbaar. Afhankelijk van het aantal virtuele machines en computers waarop de agent is geïnstalleerd, kan het een uur of langer duren voordat informatie is verzameld over configuratie van de VM's en de computer, zoals de status van de beveiligingsupdates en de configuratie van het besturingssysteem. U kunt de beveiligingsstatus van uw resources en eventuele problemen bekijken in het gedeelte **Preventie**. U kunt ook een overzicht van die problemen op de tegel **Aanbevelingen** bekijken.
+## <a name="resource-security-hygiene"></a>Beveiligingscontroles van resources
+Nadat u een [beveiligingsbeleid](security-center-policies.md) voor de resources van een abonnement hebt ingeschakeld, analyseert Security Center de beveiliging van uw resources om mogelijke beveiligingsproblemen op te sporen. Informatie over uw netwerkconfiguratie is onmiddellijk beschikbaar. Afhankelijk van het aantal virtuele machines en computers waarop de agent is geïnstalleerd, kan het een uur of langer duren voordat informatie is verzameld over configuratie van de VM's en de computer, zoals de status van de beveiligingsupdates en de configuratie van het besturingssysteem. U vindt een volledige lijst van problemen en manieren om uw netwerk beveiligen en herstellen van risico's in de **aanbevelingen** tegel.
+
+U kunt de beveiligingsstatus van uw resources en eventuele problemen per resourcetype bekijken:
+
+- Zie voor het bewaken van de status van uw computerbronnen en uw apps en ontvangen van aanbevelingen voor het verbeteren van de beveiliging, [bescherming van uw computers en toepassingen in Azure Security Center](security-center-virtual-machine-protection.md)
+- Zie voor het bewaken van uw netwerkbronnen, zoals virtuele machines, netwerkbeveiligingsgroepen en -eindpunten en ontvangen van aanbevelingen voor het verbeteren van de beveiliging, [beveiligen van uw netwerk in Azure Security Center](security-center-network-recommendations.md) voor meer informatie informatie. 
+- Zie voor het bewaken van uw gegevens en resources, zoals SQL-servers en storage-accounts, en ontvangen van aanbevelingen voor het verbeteren van de beveiliging, [beveiligen van Azure SQL-service en de gegevens in Azure Security Center](security-center-sql-service-recommendations.md) voor meer informatie . 
+- Zie voor het bewaken van uw resources identiteits- en toegangsbeheer, met inbegrip van MFA en account machtigingen, en ontvangen van aanbevelingen voor het verbeteren van de beveiliging, [identiteit en toegang bewaken in Azure Security Center](security-center-identity-access.md) voor meer informatie. 
+- Zie voor het controleren van Just in Time-toegang tot uw resources, [beheer van de virtuele machine toegang met just-in-time](security-center-just-in-time.md) voor meer informatie. 
+
 
 Zie [Beveiligingsaanbevelingen implementeren in Azure Security Center](security-center-recommendations.md) voor meer informatie over het toepassen van aanbevelingen.
 
-Onder **Beveiligingsstatus van de resource** kunt u de beveiligingsstatus van uw resources bewaken. In het volgende voorbeeld ziet u dat in de tegel van elke resource (Compute en apps, Netwerken, Gegevensbeveiliging, en Identiteit en toegang) het totale aantal geïdentificeerde problemen weergegeven.
+
 
 ![De tegel Beveiligingsstatus van de resource](./media/security-center-monitoring/security-center-monitoring-fig1-newUI-2017.png)
 
 
-### <a name="monitor-compute--apps"></a>Compute en apps bewaken
-Zie [Uw computers en toepassingen beveiligen in Azure Security Center](security-center-virtual-machine-recommendations.md) voor meer informatie.
-
-### <a name="monitor-virtual-networks"></a>Virtuele netwerken bewaken
-Wanneer u op de tegel **Netwerken** klikt, wordt de blade **Netwerken** geopend met meer details, zoals op de volgende schermafbeelding wordt weergegeven:
-
-![De blade Netwerken](./media/security-center-monitoring/security-center-monitoring-fig9-new3.png)
-
-#### <a name="networking-recommendations"></a>Aanbevelingen voor netwerken
-Net als bij de informatie over de resourcestatus van virtuele machines ziet u hier bovenin een overzicht van de problemen en onderin een lijst met bewaakte netwerken.
-
-In het gedeelte met een uitsplitsing van de netwerkstatussen vindt u de mogelijke beveiligingsproblemen en [aanbevelingen](security-center-network-recommendations.md). Mogelijke aandachtspunten zijn:
-
-* NGFW (Next Generation Firewall) is niet geïnstalleerd
-* De netwerkbeveiligingsgroepen op subnetten zijn niet ingeschakeld
-* De netwerkbeveiligingsgroepen op virtuele machines zijn niet ingeschakeld
-* Externe toegang via openbaar extern eindpunt beperken
-* Status van internetgerichte eindpunten in orde
-
-Wanneer u op een aanbeveling klikt, krijgt u meer informatie over de aanbeveling, zoals weergegeven in het volgende voorbeeld:
-
-![Details voor een aanbeveling in Netwerken](./media/security-center-monitoring/security-center-monitoring-fig9-ga.png)
-
-In dit voorbeeld bevat **Ontbrekende netwerkbeveiligingsgroepen voor subnetten configureren** een lijst met subnetten en virtuele machines zonder beveiliging van netwerkbeveiligingsgroepen. Als u op het subnet klikt waarop u de netwerkbeveiligingsgroep wilt toepassen, wordt **Een netwerkbeveiligingsgroep kiezen** geopend. Hier selecteert u de meest geschikte netwerkbeveiligingsgroep voor het subnet of maakt u een nieuwe netwerkbeveiligingsgroep.
-
-#### <a name="internet-facing-endpoints-section"></a>Sectie Internetgerichte eindpunten
-De sectie **Internetgerichte eindpunten** bevat de virtuele machines die momenteel zijn geconfigureerd met een internetgericht eindpunt en de huidige status.
-
-![Virtuele machines die zijn geconfigureerd met een internetgericht eindpunt en status](./media/security-center-monitoring/security-center-monitoring-fig10-ga.png)
-
-Deze tabel bevat de eindpuntnaam die de virtuele machine vertegenwoordigt, het internetgerichte IP-adres en de huidige status van de ernst van de netwerkbeveiligingsgroep en de NGFW. De tabel is gesorteerd op ernst:
-
-* Rood (bovenaan): hoge prioriteit en moet onmiddellijk worden opgelost
-* Oranje: gemiddelde prioriteit en moet zo snel mogelijk worden opgelost
-* Groen (laatste): integriteitsstatus
-
-#### <a name="networking-topology-section"></a>Sectie Netwerktopologie
-In de sectie **Netwerktopologie** ziet u een hiërarchische weergave van de resources, zoals te zien is op de onderstaande schermafbeelding:
-
-![Hiërarchische weergave van resources in de sectie Netwerktopologie](./media/security-center-monitoring/security-center-monitoring-fig121-new4.png)
-
-Deze tabel is gesorteerd (virtuele machines en subnetten) op ernst:
-
-* Rood (bovenaan): hoge prioriteit en moet onmiddellijk worden opgelost
-* Oranje: gemiddelde prioriteit en moet zo snel mogelijk worden opgelost
-* Groen (laatste): integriteitsstatus
-
-In deze topologieweergave bevat het eerste niveau [virtuele netwerken](../virtual-network/virtual-networks-overview.md), [virtuele netwerkgateways](../vpn-gateway/vpn-gateway-howto-site-to-site-classic-portal.md) en [virtuele netwerken (klassiek)](../virtual-network/virtual-networks-create-vnet-classic-pportal.md). Het tweede niveau bevat subnetten en het derde niveau bevat de virtuele machines die horen bij deze subnetten. In de rechterkolom bevindt zich de huidige status van de netwerkbeveiligingsgroep voor deze resources, zoals in het volgende voorbeeld wordt weergegeven:
-
-![Status van de netwerkbeveiligingsgroep in de sectie Netwerktopologie](./media/security-center-monitoring/security-center-monitoring-fig12-ga.png)
-
-Het onderste gedeelte van deze blade bevat de aanbevelingen voor deze virtuele machine, vergelijkbaar met wat eerder is beschreven. U kunt op een aanbeveling klikken voor meer informatie of om het benodigde beveiligingsbeheer of de benodigde beveiligingsconfiguratie toe te passen.
-
-### <a name="monitor-data-security"></a>Gegevensbeveiliging bewaken
-
-Wanneer u klikt op **Gegevensbeveiliging** in de sectie **Preventie**, wordt **Gegevensbronnen** geopend met aanbevelingen voor SQL en opslag. Ook bevat de blade [aanbevelingen](security-center-sql-service-recommendations.md) voor de algemene integriteitsstatus van de database. Lees voor meer informatie over de versleuteling van opslag [Versleuteling inschakelen voor een Azure-opslagaccount in Azure Security Center](security-center-enable-encryption-for-storage-account.md).
-
-![Gegevensbronnen](./media/security-center-monitoring/security-center-monitoring-fig13-newUI-2017.png)
-
-U kunt onder **SQL-aanbevelingen** op elke aanbeveling klikken voor meer informatie over verdere acties die u kunt ondernemen om een probleem te verhelpen. In het volgende voorbeeld is de aanbeveling **Databasecontrole en detectie van bedreigingen in SQL-databases** uitgevouwen.
-
-![Details over een SQL-aanbeveling](./media/security-center-monitoring/security-center-monitoring-fig14-ga-new.png)
-
-**Controle en detectie van bedreigingen in SQL-databases inschakelen** bevat de volgende informatie:
-
-* Een lijst met SQL-databases
-* De server waarop deze zich bevinden
-* Informatie over of deze instelling is overgenomen van de server of dat deze uniek is in deze database
-* De huidige status
-* De ernst van het probleem
-
-Als u op de database klikt om deze aanbeveling op te volgen, wordt **Controle en detectie van bedreigingen** geopend, zoals wordt weergegeven in het volgende scherm.
-
-![Controle en detectie van bedreigingen](./media/security-center-monitoring/security-center-monitoring-fig15-ga.png)
-
-Als u controle wilt inschakelen, hoeft u alleen maar **AAN** te selecteren onder de optie **Controle**.
-
-### <a name="monitor-identity--access"></a>Identiteit en toegang
-
-Zie [Identiteit en toegang bewaken in Azure Security Center](security-center-identity-access.md) voor meer informatie.
 
 ## <a name="see-also"></a>Zie ook
 In dit artikel hebt u kunnen lezen hoe u de bewakingsmogelijkheden in Azure Security Center gebruikt. Zie de volgende onderwerpen voor meer informatie over het Azure Beveiligingscentrum:

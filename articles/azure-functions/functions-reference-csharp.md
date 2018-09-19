@@ -11,12 +11,12 @@ ms.devlang: dotnet
 ms.topic: reference
 ms.date: 12/12/2017
 ms.author: glenga
-ms.openlocfilehash: 3bdb5bc2aa47a51cc95a4274fbf20ba5d0515130
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 9a75e7ed8ce25384d39afb22ef50b5453ef543ba
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094278"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129672"
 ---
 # <a name="azure-functions-c-script-csx-developer-reference"></a>Azure Functions C#-script (.csx) referentie voor ontwikkelaars
 
@@ -34,7 +34,30 @@ De C#-script-ervaring voor Azure Functions is gebaseerd op de [Azure WebJobs SDK
 
 De *.csx* indeling kunt u minder 'standaard' schrijven en te concentreren op het schrijven van slechts een C#-functie. In plaats van de wrapping alles in een naamruimte en klassenaam, definieert u alleen een `Run` methode. Een assembly-verwijzingen en naamruimten aan het begin van het bestand zoals gebruikelijk bevatten.
 
-Een functie-app *.csx* bestanden worden gecompileerd wanneer een exemplaar wordt geïnitialiseerd. Deze compilatiestap betekent onder andere koude start duurt mogelijk langer voor C#-script-functies in vergelijking met C#-klassebibliotheken. Deze compilatiestap is ook waarom C#-script-functies zijn bewerkt in de Azure-Portal, terwijl C#-klassebibliotheken niet.
+Een functie-app *.csx* bestanden worden gecompileerd wanneer een exemplaar wordt geïnitialiseerd. Deze compilatiestap betekent onder andere koude start duurt mogelijk langer voor C#-script-functies in vergelijking met C#-klassebibliotheken. Deze compilatiestap is ook waarom C#-script-functies zijn bewerkt in Azure portal, terwijl C#-klassebibliotheken niet.
+
+## <a name="folder-structure"></a>mapstructuur
+
+De mapstructuur voor een project C#-script ziet er als volgt uit:
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.csx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+Er is een gedeelde [host.json] (functions-host-json.md)-bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een eigen codebestand (.csx) en de binding-configuratiebestand (function.json).
+
+De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
 
 ## <a name="binding-to-arguments"></a>Binding met argumenten
 
@@ -336,8 +359,10 @@ De volgende assembly's kunnen worden verwezen door eenvoudige-naam (bijvoorbeeld
 ## <a name="referencing-custom-assemblies"></a>Verwijst naar een aangepaste assembly 's
 
 Als u wilt verwijzen naar een aangepaste assembly, kunt u ofwel een *gedeelde* assembly of een *persoonlijke* assembly:
-- Gedeelde assembly's worden verdeeld over alle functies in een functie-app. Om te verwijzen naar een aangepaste assembly, uploadt u de assembly naar een map met de naam `bin` in uw [functie-app-hoofdmap](functions-reference.md#folder-structure) (wwwroot). 
-- Privé-assembly's maken deel uit van een bepaalde functie context en ondersteuning voor sideloading van verschillende versies. Privé-assembly's moeten worden geüpload een `bin` map in de functie-map. Verwijzen naar de assembly's met behulp van de bestandsnaam, zoals `#r "MyAssembly.dll"`. 
+
+* Gedeelde assembly's worden verdeeld over alle functies in een functie-app. Om te verwijzen naar een aangepaste assembly, uploadt u de assembly naar een map met de naam `bin` in uw [functie-app-hoofdmap](functions-reference.md#folder-structure) (wwwroot).
+
+* Privé-assembly's maken deel uit van een bepaalde functie context en ondersteuning voor sideloading van verschillende versies. Privé-assembly's moeten worden geüpload een `bin` map in de functie-map. Verwijzen naar de assembly's met behulp van de bestandsnaam, zoals `#r "MyAssembly.dll"`.
 
 Zie de sectie voor informatie over het uploaden van bestanden naar de map van uw functie op [van Pakketbeheer](#using-nuget-packages).
 

@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: michmcla
-ms.openlocfilehash: c1247dfca6dea638da2113fef940b97ad3348b9a
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 0754b13704810816b1650010a00185031ca41f5d
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39160277"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297568"
 ---
 # <a name="integrate-your-vpn-infrastructure-with-azure-mfa-by-using-the-network-policy-server-extension-for-azure"></a>Uw VPN-infrastructuur integreren met Azure MFA met behulp van de Network Policy Server-extensie voor Azure
 
@@ -122,7 +122,7 @@ Als de Microsoft Azure Active Directory PowerShell-Module nog niet aanwezig is, 
 
 Voor het gebruik van de NPS-extensie, moeten on-premises gebruikers worden gesynchroniseerd met Azure Active Directory en ingeschakeld voor MFA. Deze handleiding wordt ervan uitgegaan dat on-premises gebruikers worden gesynchroniseerd met Azure Active Directory via Azure AD Connect. Hieronder vindt u instructies voor het inschakelen van gebruikers voor MFA.
 
-Zie voor meer informatie over Azure AD Connect [uw on-premises directory's integreren met Azure Active Directory](../connect/active-directory-aadconnect.md). 
+Zie voor meer informatie over Azure AD Connect [uw on-premises directory's integreren met Azure Active Directory](../hybrid/whatis-hybrid-identity.md). 
 
 ### <a name="azure-active-directory-guid-id"></a>Azure Active Directory-GUID-ID 
 
@@ -393,7 +393,7 @@ Voor het gebruik van het script, bieden u de extensie met uw beheerdersreferenti
 
 6. De server opnieuw opstarten.
 
-### <a name="verify-the-configuration"></a>Controleer de configuratie
+### <a name="verify-the-configuration"></a>De configuratie controleren
 Als u wilt controleren of de configuratie, moet u een nieuwe VPN-verbinding met de VPN-server maken. Nadat u hebt uw referenties zijn ingevoerd voor primaire verificatie, wacht de VPN-verbinding voor de secundaire verificatie te voltooien voordat de verbinding tot stand is gebracht, zoals hieronder wordt weergegeven. 
 
 ![Het VPN-instellingen van Windows-venster](./media/howto-mfa-nps-extension-vpn/image42.png)
@@ -453,5 +453,5 @@ Zie voor meer informatie, [uw bestaande NPS-infrastructuur integreren met Azure 
 
 [Extern bureaublad-gateway en Azure Multi-Factor Authentication-server met behulp van RADIUS](howto-mfaserver-nps-rdg.md)
 
-[Uw on-premises directory's integreren met Azure Active Directory](../connect/active-directory-aadconnect.md)
+[Uw on-premises directory's integreren met Azure Active Directory](../hybrid/whatis-hybrid-identity.md)
 

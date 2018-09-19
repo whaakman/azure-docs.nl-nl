@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 05/09/2018
+ms.date: 09/18/2018
 ms.author: kumud
-ms.openlocfilehash: 6c196d16258e4bf000f998899086c7a6d0197fba
-ms.sourcegitcommit: 387d7edd387a478db181ca639db8a8e43d0d75f7
+ms.openlocfilehash: 8c3d632063c8ed9347aa870d0971cc09dc1a658e
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/10/2018
-ms.locfileid: "42056824"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129536"
 ---
 # <a name="traffic-manager-frequently-asked-questions-faq"></a>Traffic Manager Frequently Asked Questions (FAQ)
 
@@ -72,7 +72,7 @@ U kunt dit probleem omzeilen, wordt u aangeraden een HTTP-omleiding voor verkeer
 Volledige ondersteuning voor zonder voorvoegsel zijn domeinen in Traffic Manager wordt bijgehouden in de functie gewerkt. U kunt registreren voor deze functieaanvraag door het ondersteuningsteam van het [uw stem op deze op de site voor gebruikersfeedback van onze community](https://feedback.azure.com/forums/217313-networking/suggestions/5485350-support-apex-naked-domains-more-seamlessly).
 
 ### <a name="does-traffic-manager-consider-the-client-subnet-address-when-handling-dns-queries"></a>Traffic Manager rekening houden met het adres van client subnet bij het verwerken van DNS-query's? 
-Ja, naast de bron-IP-adres van de DNS-query wordt ontvangen (dit is meestal het IP-adres van de DNS-resolver), bij het uitvoeren van zoekopdrachten voor methoden voor het geografisch en prestaties doorsturen, traffic manager ook rekening gehouden met het adres van client subnet als het opgenomen in de query door de resolver die de aanvraag namens de eindgebruiker.  
+Ja, naast de bron-IP-adres van de DNS-query wordt ontvangen (dit is meestal het IP-adres van de DNS-resolver), bij het uitvoeren van zoekopdrachten voor geografisch, prestaties en een Subnet routeringsmethoden, traffic manager ook rekening gehouden met het adres van client subnet als het is opgenomen in de query door de resolver die de aanvraag namens de eindgebruiker.  
 Specifiek, [RFC 7871 – Subnet van de Client in DNS-query's](https://tools.ietf.org/html/rfc7871) die zorgt voor een [uitbreidingsmechanisme voor DNS (EDNS0)](https://tools.ietf.org/html/rfc2671) waarmee op het adres van client subnet kan doorgeven van resolvers die dit ondersteunen.
 
 ### <a name="what-is-dns-ttl-and-how-does-it-impact-my-users"></a>Wat is DNS TTL en hoe is deze van invloed op mijn gebruikers?
@@ -133,6 +133,39 @@ Een regio kan worden toegewezen aan slechts één eindpunt binnen een profiel al
 ### <a name="are-there-any-restrictions-on-the-api-version-that-supports-this-routing-type"></a>Zijn er beperkingen voor de API-versie die ondersteuning biedt voor deze routeringstype?
 
 Ja, alleen API-versie 2017-03-01 en nieuwere ondersteunt de geografische routering van het type. Alle oudere versies van de API kunnen worden gebruikt voor het gemaakte profielen van geografische routeringstype of geografische regio's toewijzen aan eindpunten. Als een oudere API-versie wordt gebruikt om op te halen van profielen van een Azure-abonnement, wordt een profiel van de geografische routering type wordt niet geretourneerd. Bovendien, wanneer u een oudere API-versie, een profiel geretourneerd die eindpunten zijn met de toewijzing van een geografische regio, beschikt niet over de toewijzing van de geografische regio die wordt weergegeven.
+
+## <a name="traffic-manager-subnet-traffic-routing-method"></a>Methode voor verkeersroutering voor Traffic Manager-Subnet
+
+### <a name="what-are-some-use-cases-where-subnet-routing-is-useful"></a>Wat zijn enkele gebruiksvoorbeelden waar subnet routering nuttig is?
+Subnet routeren, kunt u onderscheid maken tussen de ervaring die om u voor specifieke sets van gebruikers die zijn geïdentificeerd door de bron-IP-adres van de IP-adres van de DNS-aanvragen te leveren. Een voorbeeld is de andere inhoud weergeven als gebruikers verbinding met een website voor uw zakelijke hoofdkantoor. Een andere zou worden gebruikers beperken van bepaalde internetproviders alleen toegang hebben tot de eindpunten die ondersteuning bieden voor alleen IPv4-verbindingen als de ISP's suboptimale prestaties hebt als IPv6 wordt gebruikt.
+Een andere reden voor het gebruik van de routeringsmethode Subnet is in combinatie met andere profielen in een geneste profiel ingesteld. Bijvoorbeeld, als u wilt gebruiken uw gebruikers geografische routeringsmethode voor geofencing, maar voor een specifieke provider die u wilt een andere routeringsmethode doen, kunt je een profiel withy Subnet routeringsmethode als het profiel van de bovenliggende en die Internet-provider voor het gebruik van een specifieke onderliggende pro overschrijven bestands- en standaard geografische profiel hebben voor iedereen.
+
+### <a name="how-does-traffic-manager-know-the-ip-address-of-the-end-user"></a>Hoe weet Traffic Manager het IP-adres van de eindgebruiker
+Een DNS-resolver gebruik eindgebruikerapparaten doorgaans voor de DNS-zoekactie in hun naam. De uitgaande IP-adres van dergelijke resolvers zijn Traffic Manager wordt weergegeven als de bron-IP-adres. Bovendien de routeringsmethode Subnet wordt ook gezocht om te zien of er EDNS0 uitgebreide Client Subnet (ECS) informatie die is doorgegeven aan de aanvraag. Als ECS informatie aanwezig is, is dat het adres dat is gebruikt om te bepalen de routering. In het ontbreken van ECS informatie, wordt de bron-IP-adres van de query gebruikt voor routeringsdoeleinden.
+
+### <a name="how-can-i-specify-ip-addresses-when-using-subnet-routing"></a>Hoe kan ik IP-adressen opgeven bij het gebruik van Subnet routering?
+De IP-adressen wilt koppelen aan een eindpunt kunnen op twee manieren worden opgegeven. U kunt de notatie quad stippellijn met decimaal octet eerst met een begin- en -adressen gebruiken om op te geven van het bereik (bijvoorbeeld 1.2.3.4-5.6.7.8 of 3.4.5.6-3.4.5.6). Ten tweede kunt u de CIDR-notatie om op te geven van het bereik (bijvoorbeeld 1.2.3.0/24). U kunt meerdere bereikwaarden opgeven en beide typen notatie kunt gebruiken in een set met bereik. Er gelden enkele beperkingen.
+-   U kunt geen adresbereiken overlappen omdat elke IP moet worden toegewezen aan slechts aan één eindpunt
+-   Het beginadres kan niet meer dan het eindadres
+-   In het geval van de CIDR-notatie, het IP-adres voor de '/' moet het beginadres van bereik (bijvoorbeeld 1.2.3.0/24 is geldig maar 1.2.3.4.4/24 is niet geldig)
+
+### <a name="how-can-i-specify-a-fallback-endpoint-when-using-subnet-routing"></a>Hoe kan ik een fallback-eindpunt opgeven bij het gebruik van Subnet routering?
+Als u een eindpunt met geen subnetten aan is toegewezen hebt, wordt een profiel met Routering van het Subnet een aanvraag die niet met de andere eindpunten overeenkomt hier omgeleid. Het is raadzaam dat u een alternatieve eindpunt in uw profiel hebt omdat Traffic Manager wordt een antwoord NXDOMAIN als een aanvraag binnenkomt en het is niet toegewezen aan elke eindpunten of als deze is toegewezen aan een eindpunt, maar dat eindpunt niet in orde is.
+
+### <a name="what-happens-if-an-endpoint-is-disabled-in-a-subnet-routing-type-profile"></a>Wat gebeurt er als een eindpunt is uitgeschakeld in een Subnet routering type profiel?
+In een profiel met Routering van het Subnet, hebt u een eindpunt dat is uitgeschakeld, Traffic Manager gedraagt zich alsof dit eindpunt en de subnet-toewijzingen heeft bestaat niet. Als een query die zou hebben overeenkomt met de IP-adrestoewijzing wordt ontvangen en het eindpunt is uitgeschakeld, Traffic Manager een fallback-eindpunt (één met geen toewijzingen) wordt geretourneerd of als deze een eindpunt niet aanwezig is is, wordt een antwoord NXDOMAIN
+
+## <a name="traffic-manager-multivalue-traffic-routing-method"></a>Methode voor verkeersroutering voor Traffic Manager met meerdere waarden
+
+### <a name="what-are-some-use-cases-where-multivalue-routing-is-useful"></a>Wat zijn gebruiksdoeleinden waarin met meerdere waarden routering nuttig is?
+Meerdere eindpunten in orde-routering met meerdere waarden worden geretourneerd in een enkele query-antwoord. Het belangrijkste voordeel hiervan is dat, als een eindpunt niet in orde is, de client meer opties zonder dat een andere DNS-aanroep (die mogelijk dezelfde waarde retourneren van een upstream-cache) opnieuw uit te voeren. Dit is van toepassing voor gevoelige toepassingen beschikbaarheid die wil de downtime te minimaliseren.
+Een andere toepassing voor meerdere waarden routeringsmethode is als een eindpunt 'dual-homed' naar zowel IPv4 is en IPv6-adressen en u beide opties wilt om de verkeersbelasting bij het maken van verbinding met het eindpunt van de oproepende functie geven.
+
+### <a name="how-many-endpoints-are-returned-when-multivalue-routing-is-used"></a>Het aantal eindpunten worden geretourneerd wanneer met meerdere waarden routering wordt gebruikt?
+Kunt u het maximum aantal endopints moeten worden geretourneerd en meerdere waarden retourneert niet vaker dan die veel eindpunten in orde wanneer een query wordt ontvangen. De maximaal mogelijke waarde voor deze configuratie is 10.
+
+### <a name="will-i-get-the-same-set-of-endpoints-when-multivalue-routing-is-used"></a>Krijg ik dezelfde set eindpunten wanneer met meerdere waarden routering wordt gebruikt?
+We kunnen niet garanderen dat de dezelfde set met eindpunten in elke query wordt geretourneerd. Dit wordt ook beïnvloed door het feit dat mogelijk enkele van de eindpunten gaan op het moment waarop ze niet in het antwoord opgenomen worden niet in orde
 
 ## <a name="real-user-measurements"></a>Real-user-metingen
 
@@ -257,7 +290,7 @@ Ja. Cloudservice 'staging' sleuven kan in Traffic Manager worden geconfigureerd 
 
 Traffic Manager biedt momenteel geen IPv6-addressible naamservers. Traffic Manager kan echter nog steeds worden gebruikt door de IPv6-clients verbinding maken met IPv6-eindpunten. Een client maakt DNS-aanvragen niet rechtstreeks aan Traffic Manager. De client gebruikt in plaats daarvan een recursieve DNS-service. Een IPv6-client verzendt aanvragen naar de recursieve DNS-service via IPv6. De recursieve-service moet vervolgens verbinding kunnen maken met de naamservers van Traffic Manager met behulp van IPv4.
 
-Traffic Manager reageert met de DNS-naam van het eindpunt. Ter ondersteuning van een IPv6-eindpunt, moet een DNS-AAAA-record die de DNS-naam van het eindpunt verwijst naar het IPv6-adres bestaan. Traffic Manager-statuscontroles ondersteunen alleen IPv4-adressen. De service moet een IPv4-eindpunt op hetzelfde DNS-naam beschikbaar maken.
+Traffic Manager reageert met de DNS-naam of IP-adres van het eindpunt. Ter ondersteuning van een IPv6-eindpunt, zijn er twee opties. U kunt het eindpunt toevoegen als een DNA-naam met een gekoppelde AAAA-record en Traffic Manager wordt controle van gatewayservicestatus dat eindpunt en als een CNAME-record typt in het query-antwoord geretourneerd. U kunt ook een eindpunt toevoegen direct met behulp van de IPv6-adres en Traffic Manager een AAAA-record type in het queryantwoord wordt geretourneerd. 
 
 ### <a name="can-i-use-traffic-manager-with-more-than-one-web-app-in-the-same-region"></a>Kan ik Traffic Manager gebruiken met meer dan één Web-App in dezelfde regio?
 
@@ -300,6 +333,46 @@ Traffic manager biedt geen een validatie van het servercertificaat, met inbegrip
 * SNI-serverzijde certificaten worden niet ondersteund
 * Clientcertificaten worden niet ondersteund.
 
+### <a name="do-i-use-an-ip-address-or-a-dns-name-when-adding-an-endpoint"></a>Gebruik ik een IP-adres of een DNS-naam bij het toevoegen van een eindpunt?
+Traffic Manager ondersteunt het gebruik van eindpunten met behulp van drie manieren om te verwijzen ze – als een DNS-naam, als een IPv4-adres en als een IPv6-adres. Als het eindpunt wordt toegevoegd als een IPv4- of IPv6-adres het query-antwoord niet van het type record A of AAAA, respectievelijk. Als het eindpunt is toegevoegd als een DNS-naam, worden de query-antwoord van CNAME-recordtype. . Houd er rekening mee dat eindpunten toe te voegen als IPv4 of IPv6-adres mag alleen het eindpunt is is van het type 'Extern'.
+Alle methoden Routering en controle-instellingen worden ondersteund door de drie typen van de eindpunt-adressering.
+
+### <a name="what-types-of-ip-addresses-can-i-use-when-adding-an-endpoint"></a>Welke typen IP-adressen kan ik gebruiken bij het toevoegen van een eindpunt?
+Traffic Manager kunt u IPv4 of IPv6-adressen gebruiken om op te geven van eindpunten. Er zijn enkele beperkingen die hieronder worden:
+- Adressen die overeenkomen met de gereserveerde privé IP-adresruimten zijn niet toegestaan. Deze adressen zijn apparaten die worden beschreven in RFC 1918, RFC 6890, RFC 5737, RFC 3068, RFC 2544 en RFC 5771
+- Het adres mag poortnummers (u kunt de poorten die worden gebruikt in de configuratie-instellingen van het certificaatprofiel opgeven) 
+- Er zijn geen eindpunten in hetzelfde profiel kunnen hebben hetzelfde doel-IP-adres
+
+### <a name="can-i-use-different-endpoint-addressing-types-within-a-single-profile"></a>Kan ik een ander eindpunt adressering typen binnen één profiel gebruiken?
+Nee, Traffic Manager kunt u geen om adressering typen in een profiel, met uitzondering van het geval van een profiel met met meerdere waarden routeringstype waar u met IPv4 combineren kunt en IPv6-adressen typen eindpunten
+
+### <a name="what-happens-when-an-incoming-querys-record-type-is-different-from-the-record-type-associated-with-the-addressing-type-of-the-endpoints"></a>Wat gebeurt er wanneer een binnenkomende query recordtype af van het recordtype die zijn gekoppeld aan het adresschema type van de eindpunten wijkt?
+Wanneer een query wordt ontvangen op basis van een profiel, wordt het eindpunt dat moet worden geretourneerd aan de hand van de routeringsmethode die is opgegeven en de status van de eindpunten eerst Traffic Manager gevonden. Deze vervolgens kijkt naar het recordtype die is opgegeven in de binnenkomende query en het recordtype die zijn gekoppeld aan het eindpunt voordat een antwoord op basis van de onderstaande tabel wordt geretourneerd.
+
+Voor profielen met de routeringsmethode die dan met meerdere waarden:
+|Binnenkomende queryaanvraag|    Eindpunttype|  Respons|
+|--|--|--|
+|ALLE |  A / AAAA / CNAME |  Doel-eindpunt| 
+|A |    A / CNAME | Doel-eindpunt|
+|A |    AAAA |  NODATA |
+|AAAA | AAAA / CNAME |  Doel-eindpunt|
+|AAAA | A | NODATA |
+|CNAME |    CNAME | Doel-eindpunt|
+|CNAME  |A / AAAA | NODATA |
+|
+Voor profielen met routeringsmethode ingesteld op meerdere waarden:
+
+|Binnenkomende queryaanvraag|    Eindpunttype | Respons|
+|--|--|--|
+|ALLE |  Combinatie van A en AAAA | Doeleindpunten|
+|A |    Combinatie van A en AAAA | Alleen doeleindpunten van type A|
+|AAAA   |Combinatie van A en AAAA|     Alleen doeleindpunten van het type AAAA|
+|CNAME |    Combinatie van A en AAAA | NODATA |
+
+### <a name="can-i-use-a-profile-with-ipv4--ipv6-addressed-endpoints-in-a-nested-profile"></a>Kan ik een profiel gebruiken met IPv4 / IPv6-eindpunten in een geneste profiel opgelost?
+Ja, u kunt met de uitzondering dat een profiel van het type met meerdere waarden mag niet een bovenliggende-profiel in een geneste profiel instellen.
+
+
 ### <a name="i-stopped-an-azure-cloud-service--web-application-endpoint-in-my-traffic-manager-profile-but-i-am-not-receiving-any-traffic-even-after-i-restarted-it-how-can-i-fix-this"></a>Ik ben gestopt met een Azure-cloud-service / web-toepassingseindpunt in mijn Traffic Manager-profiel, maar ik krijg geen verkeer dat is zelfs nadat ik deze opnieuw opgestart. Hoe kan ik dit oplossen?
 
 Wanneer een Azure cloud service / web-toepassingseindpunt wordt gestopt Traffic Manager stopt de status controleren en de statuscontrole opnieuw wordt opgestart nadat er wordt gedetecteerd dat het eindpunt opnieuw is opgestart. Om te voorkomen dat deze vertraging, uitschakelen en vervolgens dat eindpunt in Traffic Manager-profiel weer inschakelen nadat u het eindpunt opnieuw starten.   
@@ -326,9 +399,13 @@ Met behulp van deze instellingen, krijgt Traffic Manager u een failover onder 10
 
 Traffic Manager-instellingen voor controle zijn op een per profiel niveau. Als u nodig hebt met een ander controle-instelling voor slechts één eindpunt, deze kan worden gedaan door dit eindpunt als een [genest profiel](traffic-manager-nested-profiles.md) waarvan bewakingsinstellingen verschillen van het profiel van de bovenliggende.
 
-### <a name="what-host-header-do-endpoint-health-checks-use"></a>Welke host-header wilt eindpunt statuscontroles gebruiken?
+### <a name="how-can-i-assign-http-headers-to-the-traffic-manager-health-checks-to-my-endpoints"></a>Hoe kan ik van HTTP-headers op het Traffic Manager statuscontroles naar Mijn eindpunten toewijzen?
+Traffic Manager kunt u aangepaste kopteksten in de HTTP (S) statuscontroles met dat het maken van uw eindpunten opgeven. Als u opgeven van een aangepaste header wilt, kunt u dat doen op het niveau van het profiel (van toepassing zijn op alle eindpunten) of op het niveau van het eindpunt opgeven. Als een header is gedefinieerd op beide niveaus, wordt het niveau van het profiel een overschreven door de versie die is opgegeven op het niveau van het eindpunt.
+Een veelvoorkomende use-case voor dit is hostheaders op te geven zodat Traffic Manager-aanvragen kunnen correct ophalen doorgestuurd naar een eindpunt die wordt gehost in een omgeving met meerdere tenants. Een andere gebruiksvoorbeeld hiervan is het identificeren van Traffic Manager-aanvragen uit van een eindpunt-logboeken voor HTTP (S)-aanvraag
 
-Traffic Manager maakt gebruik van host-headers in HTTP en HTTPS statuscontroles. De host-header wordt gebruikt door Traffic Manager is de naam van de doel-eindpunt in het profiel is geconfigureerd. De waarde die wordt gebruikt in de host-header niet uit de eigenschap target afzonderlijk opgeven.
+## <a name="what-host-header-do-endpoint-health-checks-use"></a>Welke host-header wilt eindpunt statuscontroles gebruiken?
+Als er geen aangepaste host-header-instelling is opgegeven, is de host-header die door Traffic Manager gebruikt de DNS-naam van de doel-eindpunt in het profiel is geconfigureerd als die beschikbaar is. 
+
 
 ### <a name="what-are-the-ip-addresses-from-which-the-health-checks-originate"></a>Wat zijn de IP-adressen van waaruit de statuscontroles afkomstig zijn?
 

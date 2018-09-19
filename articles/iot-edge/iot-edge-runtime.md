@@ -8,12 +8,12 @@ ms.date: 08/13/2018
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f832b05969c028880f6e375ff4a2ee8dc7a7eaf4
-ms.sourcegitcommit: 4ea0cea46d8b607acd7d128e1fd4a23454aa43ee
+ms.openlocfilehash: 3f3a8c8a8bce59d1757e9ad53c8ebdbd06a7f33f
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/15/2018
-ms.locfileid: "42058365"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294166"
 ---
 # <a name="understand-the-azure-iot-edge-runtime-and-its-architecture"></a>De Azure IoT Edge-runtime en de bijbehorende architectuur begrijpen
 
@@ -23,7 +23,7 @@ IoT Edge-runtime voert de volgende functies op IoT Edge-apparaten:
 
 * Installeert workloads op het apparaat en werkt deze bij.
 * Onderhoudt de Azure IoT Edge-beveiligingsstandaarden op het apparaat.
-* Zorgt ervoor dat [IoT Edge-modules] [ lnk-modules] altijd worden uitgevoerd.
+* Zorgt ervoor dat [IoT Edge-modules] [lnk-modules] altijd worden uitgevoerd.
 * Rapporteert de status van de module aan de cloud voor externe bewaking.
 * Vergemakkelijkt de communicatie tussen downstream leaf-apparaten en IoT Edge-apparaten.
 * Vergemakkelijkt de communicatie tussen modules op het IoT Edge-apparaat.
@@ -117,7 +117,7 @@ Voor meer informatie over het Azure IoT Edge security-framework, leest u over de
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Informatie over Azure IoT Edge-modules][lnk-modules]
+[Informatie over Azure IoT Edge-certificaten][lnk-certs]
 
 <!-- Images -->
 [1]: ./media/iot-edge-runtime/Pipeline.png
@@ -126,4 +126,4 @@ Voor meer informatie over het Azure IoT Edge security-framework, leest u over de
 [4]: ./media/iot-edge-runtime/ModuleEndpointsWithRoutes.png
 
 <!-- Links -->
-[lnk-modules]: iot-edge-modules.md
+[lnk-certs]: iot-edge-certs.md

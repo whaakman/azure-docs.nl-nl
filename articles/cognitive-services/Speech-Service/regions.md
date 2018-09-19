@@ -8,12 +8,12 @@ ms.technology: speech
 ms.topic: article
 ms.date: 06/28/2018
 ms.author: mahilleb
-ms.openlocfilehash: 1cb00035dc8f1cdeabd1beb22ca69f47bf4bd89e
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: d651a0a9e006e996db44b82eeaf0a1242a4114e0
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44379567"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296087"
 ---
 # <a name="regions-of-the-speech-service"></a>Regio's van de spraak-service
 
@@ -35,16 +35,17 @@ In de [spraak SDK](speech-sdk.md), regio's zijn opgegeven als een tekenreeks (bi
 
 De volgende tabel bevat de beschikbare regio's voor **spraakherkenning** en **vertaling**:
 
-Regio| Waarde voor parameter regio in de spraak-SDK| Portal
--|-
-US - west| `westus`| https://westus.cris.ai
-VS - west 2| `westus2`| https://westus2.cris.ai
-US - oost| `eastus`| https://eastus.cris.ai
-US - oost 2| `eastus2`| https://eastus2.cris.ai
-Azië - oost| `eastasia`| https://eastasia.cris.ai
-Azië - zuidoost| `southeastasia`| https://southeastasia.cris.ai
-Europa - noord| `northeurope`| https://northeurope.cris.ai
-Europa -west|  `westeurope`| https://westeurope.cris.ai
+  Regio | Parameter voor spraak-SDK | Portal
+ ------|-------|--------
+ US - west | `westus` | https://westus.cris.ai
+ VS - west 2 | `westus2` | https://westus2.cris.ai 
+ US - oost | `eastus` | https://eastus.cris.ai
+ US - oost 2 | `eastus2` | https://eastus2.cris.ai
+ Azië - oost | `eastasia` | https://eastasia.cris.ai
+ Azië - zuidoost | `southeastasia` | https://southeastasia.cris.ai
+ Europa - noord | `northeurope` | https://northeurope.cris.ai
+ Europa -west | `westeurope` | https://westeurope.cris.ai
+
 
 ### <a name="regions-for-intent-recognition"></a>Regio's voor intentieherkenning
 

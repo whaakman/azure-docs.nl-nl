@@ -10,28 +10,28 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: e613ff742096077fe1765d4b855b6c7d409cc228
-ms.sourcegitcommit: 1478591671a0d5f73e75aa3fb1143e59f4b04e6a
+ms.openlocfilehash: 1ae74f7c43e763962224683954b28e5941136c08
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/19/2018
-ms.locfileid: "39158944"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295815"
 ---
 # <a name="how-to-configure-password-writeback"></a>Instructies: Het terugschrijven van wachtwoorden configureren
 
-Het is raadzaam dat u de functie voor automatisch bijwerken van [Azure AD Connect](./../connect/active-directory-aadconnect-get-started-express.md) wanneer u het terugschrijven van wachtwoorden.
+Het is raadzaam dat u de functie voor automatisch bijwerken van [Azure AD Connect](../hybrid/how-to-connect-install-express.md) wanneer u het terugschrijven van wachtwoorden.
 
-De volgende stappen wordt ervan uitgegaan dat u Azure AD Connect al hebt geconfigureerd in uw omgeving met behulp van de [Express](./../connect/active-directory-aadconnect-get-started-express.md) of [aangepaste](./../connect/active-directory-aadconnect-get-started-custom.md) instellingen.
+De volgende stappen wordt ervan uitgegaan dat u Azure AD Connect al hebt geconfigureerd in uw omgeving met behulp van de [Express](../hybrid/how-to-connect-install-express.md) of [aangepaste](../hybrid/how-to-connect-install-custom.md) instellingen.
 
-1. Als u wilt configureren en schakel wachtwoord terugschrijven, meld u aan met uw Azure AD Connect-server en start de **Azure AD Connect** configuratiewizard.
-2. Op de **Welkom** weergeeft, schakelt **configureren**.
-3. Op de **extra taken** weergeeft, schakelt **aanpassen Synchronisatieopties**, en selecteer vervolgens **volgende**.
-4. Op de **verbinding maken met Azure AD** pagina, voer de referenties van een globale beheerder en selecteer vervolgens **volgende**.
-5. Op de **verbinding maken met mappen** en **domein/OE** pagina's filteren, selecteert u **volgende**.
-6. Op de **optionele functies** pagina, schakel het selectievakje in naast **wachtwoord terugschrijven** en selecteer **volgende**.
+1. Als u het terugschrijven van wachtwoorden wilt configureren en inschakelen, meld u zich aan bij de Azure AD Connect-server en start u de configuratiewizard **Azure AD Connect**.
+2. Selecteer **Configureren** op de **welkomstpagina**.
+3. Op de pagina **Extra taken** selecteert u **Synchronisatieopties aanpassen** en vervolgens **Volgende**.
+4. Op de pagina **Verbinding maken met Azure AD** voert u de referenties van een globale beheerder in en selecteert u **Volgende**.
+5. Op de pagina's **Verbinding maken met directory´s** en **domein/OE filteren** selecteert u **Volgende**.
+6. Op de pagina **Optionele functies** schakelt u het selectievakje in naast **Wachtwoord terugschrijven** en selecteert u **Volgende**.
    ![Wachtwoord terugschrijven inschakelen in Azure AD Connect][Writeback]
-7. Op de **klaar om te configureren** weergeeft, schakelt **configureren** en wacht totdat het proces is voltooid.
-8. Wanneer u de configuratie voltooien ziet, selecteert u **afsluiten**.
+7. Op de pagina **Gereed om te configureren** selecteert u **Configureren** wacht u tot het proces is voltooid.
+8. Als u ziet dat de configuratie is voltooid, selecteert u **Afsluiten**.
 
 Voor het oplossen van problemen met taken met betrekking tot het terugschrijven van wachtwoorden, Zie de sectie [problemen met wachtwoord terugschrijven oplossen](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback) in ons artikel over probleemoplossing.
 

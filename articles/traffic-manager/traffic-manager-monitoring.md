@@ -3,8 +3,8 @@ title: Eindpuntbewaking van Azure Traffic Manager | Microsoft Docs
 description: In dit artikel krijgt u inzicht in hoe Traffic Manager eindpuntbewaking en failover automatisch eindpunt gebruikt om u te helpen Azure-klanten toepassingen met hoge beschikbaarheid implementeren
 services: traffic-manager
 documentationcenter: ''
-author: kumudd
-manager: timlt
+author: KumudD
+manager: jeconnoc
 editor: ''
 ms.assetid: fff25ac3-d13a-4af9-8916-7c72e3d64bc7
 ms.service: traffic-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/22/2017
 ms.author: kumud
-ms.openlocfilehash: 0124c70916d1c9a6f6b818a68f13d7a189a1b70f
-ms.sourcegitcommit: d4c076beea3a8d9e09c9d2f4a63428dc72dd9806
+ms.openlocfilehash: c28b0ccfb565cb6bd4809a321d5e57f04475dceb
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/01/2018
-ms.locfileid: "39398832"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123885"
 ---
 # <a name="traffic-manager-endpoint-monitoring"></a>Eindpuntcontrole van Traffic Manager
 
@@ -32,17 +32,19 @@ Als u wilt controleren-eindpunt configureren, moet u de volgende instellingen op
 * **Protocol**. Kies HTTP, HTTPS of TCP als protocol gebruikt bij het scannen van het eindpunt van Traffic Manager, om te controleren of de status. Bewaking van HTTPS wordt niet gecontroleerd dat of uw SSL-certificaat geldig is--er alleen wordt gecontroleerd of het certificaat aanwezig is.
 * **Poort**. Kies de poort die wordt gebruikt voor de aanvraag.
 * **Pad**. Deze configuratie-instelling is alleen geldig voor de protocollen HTTP en HTTPS, voor welke opgeven van het pad naar de instelling vereist is. Het leveren van deze instelling voor de TCP-protocol resulteert in een fout bewaking. Geef het relatieve pad en de naam van de webpagina of het bestand dat gebruikmaakt van de bewaking voor HTTP en HTTPS-protocol. Een slash (/) is een geldige vermelding voor het relatieve pad. Deze waarde geeft aan dat het bestand in de hoofdmap (standaard is).
+* **Instellingen voor aangepaste header** dit configuratie-instelling kunt u toevoegen aan specifieke HTTP-headers voor de status controleert Traffic Manager verzendt naar eindpunten onder een profiel toevoegen. De aangepaste kopteksten kunnen worden opgegeven op het niveau van een profiel van toepassing zijn voor alle eindpunten in dit profiel en/of op het niveau van een eindpunt alleen van toepassing op dit eindpunt. U kunt aangepaste headers gebruiken voor het met statuscontroles naar eindpunten in een omgeving met meerdere tenants correct worden doorgestuurd naar de bestemming door een host-header op te geven. U kunt deze instelling ook gebruiken door toe te voegen unieke kopteksten die kunnen worden gebruikt voor het identificeren van Traffic Manager afkomstig is van HTTP (S)-aanvragen en ze anders verwerkt.
+* **Verwachte status code bereiken** deze instelling kunt u meerdere succes code bereiken in de indeling 200 299, 301 301 opgeven. Als deze statuscodes zijn ontvangen als antwoord van een eindpunt als een controle van gatewayservicestatus is gestart, worden deze eindpunten als in orde gemarkeerd in Traffic Manager. U kunt maximaal 8 statusbereik code opgeven. Deze instelling geldt alleen voor HTTP en HTTPS-protocol en voor alle eindpunten. Deze instelling is op het niveau van het Traffic Manager-profiel en wordt standaard de waarde 200 is gedefinieerd als de code van de status geslaagd.
 * **Testinterval**. Deze waarde wordt bepaald hoe vaak een eindpunt is ingeschakeld voor de status van een testinterval Traffic Manager-agent. U kunt hier de twee waarden opgeven: 30 seconden (normaal zoeken) en 10 seconden (snelle probing). Als er geen waarden zijn opgegeven, wordt het profiel wordt ingesteld op een standaardwaarde van 30 seconden. Ga naar de [prijzen van Traffic Manager](https://azure.microsoft.com/pricing/details/traffic-manager) pagina voor meer informatie over de prijzen voor snelle testinterval.
 * **Aantal mislukte aanmeldingen getolereerd**. Deze waarde wordt bepaald hoeveel storingen die een testinterval Traffic Manager-agent maximaal voordat u dit eindpunt als niet in orde markeert wordt toegestaan. De waarde kan liggen tussen 0 en 9. Een waarde van 0 wordt aangegeven dat een controle storing kan leiden tot dit eindpunt moet worden gemarkeerd als niet in orde. Als er geen waarde is opgegeven, wordt de standaardwaarde van 3.
-* **Time-out voor bewaking**. Deze eigenschap geeft u de hoeveelheid tijd die het testinterval Traffic Manager-agent moet worden gewacht voordat u overweegt een fout te controleren wanneer een statustest voor de controle wordt verzonden naar het eindpunt. Als het scannen van Interval is ingesteld op 30 seconden, kunt u de time-outwaarde tussen 5 en 10 seconden instellen. Als er geen waarde is opgegeven, wordt een standaardwaarde van 10 seconden. Als het scannen van Interval is ingesteld op 10 seconden, kunt u de time-outwaarde tussen 5 en 9 seconden instellen. Als er geen time-outwaarde is opgegeven, wordt een standaardwaarde van 9 seconden.
+* **Time-out voor testen**. Deze eigenschap geeft u de hoeveelheid tijd die het testinterval Traffic Manager-agent moet worden gewacht voordat u overweegt een fout te controleren wanneer een statustest voor de controle wordt verzonden naar het eindpunt. Als het scannen van Interval is ingesteld op 30 seconden, kunt u de time-outwaarde tussen 5 en 10 seconden instellen. Als er geen waarde is opgegeven, wordt een standaardwaarde van 10 seconden. Als het scannen van Interval is ingesteld op 10 seconden, kunt u de time-outwaarde tussen 5 en 9 seconden instellen. Als er geen time-outwaarde is opgegeven, wordt een standaardwaarde van 9 seconden.
 
-![Eindpuntcontrole van Traffic Manager](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
+    ![Eindpuntcontrole van Traffic Manager](./media/traffic-manager-monitoring/endpoint-monitoring-settings.png)
 
-**Afbeelding 1: Traffic Manager-eindpuntbewaking**
+    **Afbeelding: Eindpuntcontrole van Traffic Manager**
 
 ## <a name="how-endpoint-monitoring-works"></a>Eindpuntbewaking werking
 
-Als het controle-protocol is ingesteld als HTTP of HTTPS, maakt de testinterval Traffic Manager-agent een GET-aanvraag naar het eindpunt met het protocol, poort en relatief pad opgegeven. Als deze wordt in een reactie 200 OK, is dat eindpunt in orde beschouwd. Als het antwoord is een andere waarde, of als er geen reactie wordt ontvangen binnen de time-outperiode die is opgegeven, klikt u vervolgens de Traffic Manager probing agent opnieuw probeert overeenkomstig de instelling van het aantal verdragen van fouten (opnieuw probeert worden uitgevoerd als deze instelling 0 is). Als het aantal achtereenvolgende mislukte pogingen hoger dan de instelling aantal mislukte aanmeldingen getolereerd is, is dit eindpunt als niet in orde gemarkeerd. 
+Als het controle-protocol is ingesteld als HTTP of HTTPS, maakt de testinterval Traffic Manager-agent een GET-aanvraag naar het eindpunt met het protocol, poort en relatief pad opgegeven. Als deze wordt in een reactie 200 OK, of een van de antwoorden geconfigureerd de ** verwachte statuscode * bereiken ** en vervolgens dit eindpunt is in orde beschouwd. Als het antwoord is een andere waarde, of als er geen reactie wordt ontvangen binnen de time-outperiode die is opgegeven, klikt u vervolgens de Traffic Manager probing agent opnieuw probeert overeenkomstig de instelling van het aantal verdragen van fouten (opnieuw probeert worden uitgevoerd als deze instelling 0 is). Als het aantal achtereenvolgende mislukte pogingen hoger dan de instelling aantal mislukte aanmeldingen getolereerd is, is dit eindpunt als niet in orde gemarkeerd. 
 
 Als het controle-protocol TCP, initieert de testinterval Traffic Manager-agent een TCP-verbindingsaanvraag met behulp van de opgegeven poort. Als het eindpunt op de aanvraag met een antwoord om de verbinding te maken reageert, die controle van gatewayservicestatus is gemarkeerd als een succes en de testinterval Traffic Manager-agent de TCP-verbinding wordt hersteld. Als het antwoord is een andere waarde, of als er geen reactie wordt ontvangen binnen de time-outperiode opgegeven, de Traffic Manager probing agent opnieuw probeert overeenkomstig de instelling aantal mislukte aanmeldingen getolereerd is (opnieuw probeert zijn gemaakt als deze instelling 0 is). Als het aantal achtereenvolgende mislukte pogingen hoger dan de instelling aantal mislukte aanmeldingen getolereerd is, is dit eindpunt niet in orde gemarkeerd.
 
@@ -101,7 +103,7 @@ Traffic Manager controleert periodiek de status van elk eindpunt, inclusief niet
 
 Een eindpunt is niet in orde als een van de volgende gebeurtenissen optreedt:
 - Als de controle-protocol HTTP of HTTPS is:
-    - Een niet-200-respons wordt ontvangen (met inbegrip van een andere 2xx-code of een 301/302-omleiding).
+    - Een niet-200-respons, of een antwoord dat niet de status dat is opgegeven in de **code statusbereik verwacht** instelt, wordt ontvangen (met inbegrip van een andere 2xx-code of een 301/302-omleiding).
 - Als de controle-protocol TCP is: 
     - Een antwoord dan ACK of SYN-ACK wordt ontvangen in reactie op de synchronisatie-aanvraag verzonden door Traffic Manager om een verbinding tot stand brengen.
 - Een time-out opgetreden. 
@@ -109,14 +111,14 @@ Een eindpunt is niet in orde als een van de volgende gebeurtenissen optreedt:
 
 Zie voor meer informatie over het oplossen van problemen met mislukte controles [probleemoplossing gedegradeerd op Azure Traffic Manager](traffic-manager-troubleshooting-degraded.md). 
 
-De volgende tijdlijn in afbeelding 2 is een gedetailleerde beschrijving van het bewakingsproces van Traffic Manager-eindpunt met de volgende instellingen: HTTP protocol bewaking is, het testinterval-interval is 30 seconden, het aantal verdragen fouten is 3, time-outwaarde is 10 seconden en de DNS TTL is 30 seconden.
+De tijdlijn van de volgende afbeelding is een gedetailleerde beschrijving van het bewakingsproces van Traffic Manager-eindpunt met de volgende instellingen: HTTP protocol bewaking is, het testinterval-interval is 30 seconden, het aantal verdragen fouten is 3, time-outwaarde is 10 seconden en de DNS TTL is 30 seconden.
 
 ![Traffic Manager-eindpunt failover en failback-reeks](./media/traffic-manager-monitoring/timeline.png)
 
-**Afbeelding 2: Traffic manager-eindpunt failovers en herstel-reeks**
+**Afbeelding: Traffic manager-eindpunt failovers en herstel-reeks**
 
 1. **OPHALEN**. Voor elk eindpunt voert de Traffic Manager-controle van systeem een GET-aanvraag op het pad dat is opgegeven in de instellingen voor controle.
-2. **200 OK**. Het bewakingssysteem wordt verwacht dat een HTTP 200 OK dat wordt geretourneerd binnen 10 seconden. Wanneer deze dit antwoord ontvangt, wordt gedetecteerd dat de service beschikbaar is.
+2. **200 OK of aangepaste code bereik opgegeven controle-instellingen voor Traffic Manager-profiel** . Het bewakingssysteem wordt verwacht dat een HTTP 200 OK of de of aangepaste code bereik opgegeven Traffic Manager-profiel bewaking instellingen dat wordt geretourneerd binnen 10 seconden. Wanneer deze dit antwoord ontvangt, wordt gedetecteerd dat de service beschikbaar is.
 3. **30 seconden tussen controles**. De statuscontrole van het eindpunt wordt herhaald elke 30 seconden.
 4. **Service is niet beschikbaar**. De service niet beschikbaar is. Traffic Manager weet niet tot de volgende statuscontrole.
 5. **Probeert te krijgen tot de controlepad**. Het bewakingssysteem een GET-aanvraag wordt uitgevoerd, maar geen antwoord ontvangen binnen de time-outperiode van 10 seconden (u kunt ook een niet-200-respons kan worden ontvangen). Vervolgens probeert deze drie keer meer intervallen van 30 seconden. Als een van de pogingen geslaagd is, klikt u vervolgens het aantal pogingen wordt opnieuw ingesteld.
@@ -137,6 +139,8 @@ Wanneer een eindpunt de status gedegradeerd heeft, is het niet meer in reactie o
 * **Gewogen**. Elk willekeurig eindpunt dat beschikbaar wordt gekozen in willekeurige volgorde op basis van hun toegewezen gewicht en het gewicht van de andere beschikbare eindpunten.
 * **Prestaties**. Het eindpunt die het dichtst bij de eindgebruiker wordt geretourneerd. Als dit eindpunt niet beschikbaar is, wordt verkeer in Traffic Manager verplaatst naar de eindpunten in de volgende dichtstbijzijnde Azure-regio. U kunt alternatieve failover plannen voor verkeer routeren configureren met behulp van [geneste Traffic Manager-profielen](traffic-manager-nested-profiles.md#example-4-controlling-performance-traffic-routing-between-multiple-endpoints-in-the-same-region).
 * **Geografische**. Het eindpunt dat is toegewezen aan het leveren van de geografische locatie op basis van de queryaanvraag van IP wordt geretourneerd. Als dit eindpunt niet beschikbaar is, een ander eindpunt kan niet worden geselecteerd voor failover, omdat een geografische locatie kan worden toegewezen aan één eindpunt in een profiel alleen (meer informatie vindt u in de [Veelgestelde vragen over](traffic-manager-FAQs.md#traffic-manager-geographic-traffic-routing-method)). Als een best practice bij het gebruik van de geografische routering, raden we onze klanten geneste Traffic Manager-profielen met meer dan één eindpunt gebruiken als de eindpunten van het profiel.
+* **Meerdere waarden** meerdere eindpunten die zijn toegewezen aan IPv4/IPv6-adressen worden geretourneerd. Wanneer een query wordt ontvangen voor dit profiel, gezonde eindpunten worden geretourneerd op basis van de **Maximum record aantal werkers** waarde die u hebt opgegeven. Het aantal antwoorden is twee eindpunten.
+* **Subnet** het eindpunt dat is toegewezen aan een reeks IP-adresbereiken wordt geretourneerd. Wanneer een aanvraag wordt ontvangen van IP-adres, het eindpunt heeft geretourneerd die voor dat IP-adres is toegewezen. 
 
 Zie voor meer informatie, [methoden voor Traffic Manager traffic routing](traffic-manager-routing-methods.md).
 

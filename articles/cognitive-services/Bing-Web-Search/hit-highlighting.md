@@ -1,21 +1,22 @@
 ---
-title: Decoration markeringen gebruiken om te markeren van tekst | Microsoft Docs
-description: Laat zien hoe om in te schakelen in de reacties op webzoekopdrachten grafische tekstelementen.
+title: Decoration markeringen gebruiken om te markeren van tekst - Bing webzoekopdrachten-API
+titleSuffix: Azure Cognitive Services
+description: Informatie over het gebruik van grafische tekstelementen en markeren in de lijst met zoekresultaten met behulp van de Bing webzoekopdrachten-API.
 services: cognitive-services
 author: swhite-msft
-manager: ehansen
+manager: cgronlun
 ms.assetid: 5365B568-EA55-4D97-8FBE-0AF60158D4D5
 ms.service: cognitive-services
 ms.component: bing-web-search
-ms.topic: article
+ms.topic: conceptual
 ms.date: 04/15/2017
 ms.author: scottwhi
-ms.openlocfilehash: 09b970e8521dd17cdfb79068adc94b59b61365a8
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: d007451625dca5d816fe0274a7f6328caa48011b
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38598204"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129502"
 ---
 # <a name="using-decoration-markers-to-highlight-text"></a>Met behulp van markeringen decoration markeren van tekst
 

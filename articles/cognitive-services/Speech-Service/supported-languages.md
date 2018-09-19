@@ -1,5 +1,5 @@
 ---
-title: Microsoft Cognitive Services voor ondersteunde talen - Speech-service
+title: Spraakservice ondersteunde talen - Azure Cognitive Services
 description: Een lijst van de talen die worden ondersteund door de spraak-service.
 titleSuffix: Microsoft Cognitive Services
 services: cognitive-services
@@ -9,16 +9,16 @@ ms.component: speech-service
 ms.topic: article
 ms.date: 04/28/2018
 ms.author: v-jerkin
-ms.openlocfilehash: 704534ed50e12e7f9290cb321ad3b9e1b99117d5
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: a4307ee0ff210dafee5afe51bd9cb90db9be22e5
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377885"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295425"
 ---
 # <a name="supported-languages-for-speech-service"></a>Ondersteunde talen voor spraak-service
 
-Andere talen worden ondersteund voor verschillende functies voor spraak-services. De onderstaande tabellen geven een overzicht van ondersteuning voor talen.
+Andere talen worden ondersteund voor verschillende functies voor spraak-service. De volgende tabellen geven een overzicht van ondersteuning voor talen.
 
 ## <a name="speech-to-text"></a>Spraak naar tekst
 
@@ -105,24 +105,24 @@ ja-JP | Japans |Vrouw | "Microsoft Server tekst naar spraak stem (ja-JP, Ayumi, 
 | | |Man | "Microsoft Server tekst naar spraak stem (ja-JP, Ichiro, Apollo)"
 | | |Vrouw | "Microsoft Server tekst naar spraak stem (ja-JP, HarukaRUS)"
 ko-KR | Koreaans |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (ko-KR, HeamiRUS)"
-ms-MY | Maleis|Man | "Microsoft Server-stem tekst naar spraak (ms-mijn Rizwan)"
-nb-NO | Noors|Vrouw | "Microsoft Server-stem tekst naar spraak (nb-NO HuldaRUS)"
-NL-NL | Nederlands|Vrouw | "Microsoft Server tekst naar spraak stem (nl-NL, HannaRUS)"
-pl-PL | Pools|Vrouw | "Microsoft Server tekst naar spraak stem (pl-PL, PaulinaRUS)"
-pt-BR | Portugees (Brazilië)|Vrouw | "Microsoft Server tekst naar spraak stem (pt-BR, HeloisaRUS)"
+ms-MY | Maleis | Man | "Microsoft Server-stem tekst naar spraak (ms-mijn Rizwan)"
+nb-NO | Noors | Vrouw | "Microsoft Server-stem tekst naar spraak (nb-NO HuldaRUS)"
+NL-NL | Nederlands | Vrouw | "Microsoft Server tekst naar spraak stem (nl-NL, HannaRUS)"
+pl-PL | Pools | Vrouw | "Microsoft Server tekst naar spraak stem (pl-PL, PaulinaRUS)"
+pt-BR | Portugees (Brazilië) | Vrouw | "Microsoft Server tekst naar spraak stem (pt-BR, HeloisaRUS)"
 | | |Man | "Microsoft Server tekst naar spraak stem (pt-BR, Daniel, Apollo)"
-pt-PT | Portugees (Portugal)|Vrouw | "Microsoft Server tekst naar spraak stem (pt-PT, HeliaRUS)"
-ro-RO | Roemeens|Man | "Microsoft Server spraak tekst en spraak, spraak (ro-RO, Andrei)"
+pt-PT | Portugees (Portugal) | Vrouw | "Microsoft Server tekst naar spraak stem (pt-PT, HeliaRUS)"
+ro-RO | Roemeens | Man | "Microsoft Server spraak tekst en spraak, spraak (ro-RO, Andrei)"
 ru-RU |Russisch| Vrouw | "Microsoft Server tekst naar spraak stem (ru-RU, Irina, Apollo)"
 | | |Man | "Microsoft Server tekst naar spraak stem (ru-RU, Pavel, Apollo)"
 | | |Vrouw | "Microsoft Server tekst naar spraak stem (ru-RU, EkaterinaRUS)"
-sk-SK | Slowaaks|Man | "Microsoft Server tekst naar spraak stem (sk-SK, Filip)"
-sl-SI | Sloveens|Man | "Microsoft Server tekst naar spraak stem (sl-SI, Lado)"
-SV-SE | Zweeds|Vrouw | "Microsoft Server spraak tekst en spraak, spraak (sv-SE, HedvigRUS)"
-TA-IN | Tamil (India) |Man | "Microsoft Server spraak tekst en spraak, spraak (ta-IN, Valluvar)"
-e-e | Thais|Man | "Microsoft Server tekst naar spraak stem (th-TH, Pattara)"
-tr-TR |Turks| Vrouw | "Microsoft Server tekst naar spraak stem (tr-TR, SedaRUS)"
-vi-VN | Vietnamees|Man | "Microsoft Server-stem tekst naar spraak (vi-VN, een)"
+sk-SK | Slowaaks | Man | "Microsoft Server tekst naar spraak stem (sk-SK, Filip)"
+sl-SI | Sloveens | Man | "Microsoft Server tekst naar spraak stem (sl-SI, Lado)"
+SV-SE | Zweeds | Vrouw | "Microsoft Server spraak tekst en spraak, spraak (sv-SE, HedvigRUS)"
+TA-IN | Tamil (India) | Man | "Microsoft Server spraak tekst en spraak, spraak (ta-IN, Valluvar)"
+e-e | Thais | Man | "Microsoft Server tekst naar spraak stem (th-TH, Pattara)"
+tr-TR |Turks | Vrouw | "Microsoft Server tekst naar spraak stem (tr-TR, SedaRUS)"
+vi-VN | Vietnamees | Man | "Microsoft Server-stem tekst naar spraak (vi-VN, een)"
 zh-CN | Chinees (vasteland)|Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-CN, HuihuiRUS)"
 | | |Vrouw | "Microsoft Server spraak tekst en spraak, spraak (zh-CN, Yaoyao, Apollo)"
 | | |Man | "Microsoft Server spraak tekst en spraak, spraak (zh-CN, Kangkang, Apollo)"
@@ -144,9 +144,9 @@ Stem aanpassing is beschikbaar voor Amerikaans Engels (en-US), vasteland Chinees
 
 ## <a name="speech-translation"></a>Spraakomzetting
 
-De **Spraakomzetting** API biedt ondersteuning voor verschillende talen voor spraak-naar-spraak- en spraak naar tekst converteren. De source-taal moet altijd zijn uit de onderstaande tabel voor spraak-taal. De beschikbare talen voor doel, is afhankelijk van of het doel van de vertaling spraak of tekst is.
+De **Spraakomzetting** API biedt ondersteuning voor verschillende talen voor spraak-naar-spraak- en spraak naar tekst converteren. De source-taal moet altijd in de volgende tabel voor spraak-taal. De beschikbare talen voor doel, is afhankelijk van of het doel van de vertaling spraak of tekst is.
 
-U kunt de lijst met talen programmatisch met behulp van de REST-API-eindpunt voor talen verkrijgen. De lijst bevat de taalcode voor elke, evenals de naam van de taal in het Engels, of in een andere ondersteunde taal. Deze lijst wordt bijgewerkt door de Microsoft Translator-service wanneer een nieuwe taal beschikbaar.
+U kunt de lijst met talen via een programma verkrijgen met behulp van de REST-API-eindpunt voor talen. De lijst bevat de taalcode voor elke, evenals de naam van de taal in het Engels of in een andere ondersteunde taal. Deze lijst wordt bijgewerkt door de Microsoft Translator-service wanneer een nieuwe taal beschikbaar.
 
 ### <a name="speech-languages"></a>Talen voor spraak
 

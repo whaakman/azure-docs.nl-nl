@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/17/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: justini
-ms.openlocfilehash: b46e365ea3903a8f2c805717df13d361c823148d
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: 53f01ad6e8a801c69ea93c54e805807cb8eed34d
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/18/2018
-ms.locfileid: "45985593"
+ms.locfileid: "46127819"
 ---
 # <a name="azure-stack-1807-update"></a>Azure Stack 1807 update
 
@@ -158,14 +158,10 @@ Klik op de hiervoor vermelde koppelingen voor meer informatie over deze beveilig
 - <!-- 2830461 - IS --> In bepaalde omstandigheden wanneer een update uw aandacht vereist, kan de bijbehorende waarschuwing niet worden gegenereerd. De status van de nauwkeurige, nog steeds worden weergegeven in de portal en wordt niet negatief beïnvloed.
 
 ### <a name="post-update-steps"></a>Stappen na het bijwerken
+Na de installatie van deze update toepasselijke Hotfixes te installeren. Raadpleeg voor meer informatie de volgende knowledge base-artikelen, evenals onze [beleid onderhoud](azure-stack-servicing-policy.md). 
+- [KB 4464231 – Azure Stack Hotfix Azure Stack Hotfix 1.1807.1.78]( https://support.microsoft.com/help/4464231)
 
-- <!-- 2933866 – IS --> **Verbeterde status voor de mislukte update-installaties.** Deze versie introduceert twee categorieën in de nieuwe status voor Operators meer details over mislukte update-installaties. De twee categorieën zijn *PreparationFailed*, en *InstallationFailed*. Na de installatie van deze versie, ziet u mogelijk gegevens voor de vorige update-installatiefouten herzien om deze nieuwe categorieën weer te geven. 
-
-<!-- *There are no post-update steps for update 1807.* -->
-
-<!-- After the installation of this update, install any applicable Hotfixes. For more information view the following knowledge base articles, as well as our [Servicing Policy](azure-stack-servicing-policy.md).  
- - Link to KB  
- -->
+ <!-- 2933866 – IS --> Na de installatie van deze update kunt u zien **verbeterde status voor de mislukte update-installaties.** Dit kan dus ook informatie over eerdere update-installatiefouten worden aangepast om de twee nieuwe status categorieën weer te geven. De nieuwe status categorieën zijn *PreparationFailed*, en *InstallationFailed*.  
 
 ## <a name="known-issues-post-installation"></a>Bekende problemen (na de installatie)
 

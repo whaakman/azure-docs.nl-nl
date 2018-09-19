@@ -1,69 +1,83 @@
+items:
 - name: Documentatie over Azure Table Storage
   items:
-    - name: Overzicht van Azure Table Storage
-      href: table-storage-overview.md
-    - name: Kiezen tussen Table Storage en Table API
-      href: /azure/cosmos-db/table-support
-      maintainContext: true
+  - name: Overzicht van Azure Table Storage
+    href: table-storage-overview.md
+  - name: Kiezen tussen Table Storage en Table API
+    href: /azure/cosmos-db/table-support
+    maintainContext: true
 - name: Snelstartgidsen
   items:
-    - name: Create a storage account
-      href: /azure/storage/common/storage-quickstart-create-account
-      maintainContext: true
-    - name: Een tabel maken in Azure Portal
-      href: table-storage-quickstart-portal.md
+  - name: Create a storage account
+    href: /azure/storage/common/storage-quickstart-create-account
+    maintainContext: true
+  - name: Een tabel maken in Azure Portal
+    href: table-storage-quickstart-portal.md
 - name: Voorbeelden
   items:
-    - name: .NET
-      href: /azure/cosmos-db/table-storage-how-to-use-dotnet
-      maintainContext: true
-    - name: 'F#'
-      href: 'https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage'
-      maintainContext: true
-    - name: Java
-      href: /azure/cosmos-db/table-storage-how-to-use-java
-      maintainContext: true
-    - name: Node.js
-      href: /azure/cosmos-db/table-storage-how-to-use-nodejs
-      maintainContext: true
-    - name: C++
-      href: /azure/cosmos-db/table-storage-how-to-use-c-plus
-      maintainContext: true
-    - name: PHP
-      href: /azure/cosmos-db/table-storage-how-to-use-php
-      maintainContext: true
-    - name: Python
-      href: /azure/cosmos-db/table-storage-how-to-use-python
-      maintainContext: true
-    - name: Ruby
-      href: /azure/cosmos-db/table-storage-how-to-use-ruby
-      maintainContext: true
-    - name: PowerShell
-      href: /azure/storage/tables/table-storage-how-to-use-powershell
-      maintainContext: true
+  - name: .NET
+    href: /azure/cosmos-db/table-storage-how-to-use-dotnet
+    maintainContext: true
+  - name: F#
+    href: https://docs.microsoft.com/dotnet/articles/fsharp/using-fsharp-on-azure/table-storage
+    maintainContext: true
+  - name: Java
+    href: /azure/cosmos-db/table-storage-how-to-use-java
+    maintainContext: true
+  - name: Node.js
+    href: /azure/cosmos-db/table-storage-how-to-use-nodejs
+    maintainContext: true
+  - name: C++
+    href: /azure/cosmos-db/table-storage-how-to-use-c-plus
+    maintainContext: true
+  - name: PHP
+    href: /azure/cosmos-db/table-storage-how-to-use-php
+    maintainContext: true
+  - name: Python
+    href: /azure/cosmos-db/table-storage-how-to-use-python
+    maintainContext: true
+  - name: Ruby
+    href: /azure/cosmos-db/table-storage-how-to-use-ruby
+    maintainContext: true
+  - name: PowerShell
+    href: /azure/storage/tables/table-storage-how-to-use-powershell
+    maintainContext: true
 - name: Concepten
   items:
-    - name: Schaalbare en beter bruikbare tabellen ontwerpen
-      href: table-storage-design.md
-    - name: Richtlijnen voor tabelontwerp
-      href: table-storage-design-guidelines.md
-    - name: Ontwerp voor query's
-      href: table-storage-design-for-query.md
-    - name: Ontwerp voor gegevenswijziging
-      href: table-storage-design-for-modification.md
-    - name: Tabelgegevens versleutelen
-      href: table-storage-design-encrypt-data.md
-    - name: Relaties modelleren
-      href: table-storage-design-modeling.md
-    - name: Tabelontwerppatronen
-      href: table-storage-design-patterns.md
+  - name: Opslagaccounts
+    href: ../common/storage-account-overview.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    items:
+    - name: Een opslagaccount beheren
+      href: ../common/storage-account-manage.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+    - name: Een opslagaccount upgraden
+      href: ../common/storage-account-upgrade.md?toc=%2fazure%2fstorage%2ftables%2ftoc.json
+  - name: Schaalbare en beter bruikbare tabellen ontwerpen
+    href: table-storage-design.md
+  - name: Richtlijnen voor tabelontwerp
+    href: table-storage-design-guidelines.md
+  - name: Ontwerp voor query's
+    href: table-storage-design-for-query.md
+  - name: Ontwerp voor gegevenswijziging
+    href: table-storage-design-for-modification.md
+  - name: Tabelgegevens versleutelen
+    href: table-storage-design-encrypt-data.md
+  - name: Relaties modelleren
+    href: table-storage-design-modeling.md
+  - name: Tabelontwerppatronen
+    href: table-storage-design-patterns.md
 - name: Handleidingen
   items:
-    - name: De opslagemulator gebruiken
-      href: /azure/storage/common/storage-use-emulator
-      maintainContext: true
+  - name: De opslagemulator gebruiken
+    href: /azure/storage/common/storage-use-emulator
+    maintainContext: true
 - name: Resources
   items:
-    - name: REST-API's voor Table Storage
-      href: 'https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api'
-      maintainContext: true
+  - name: REST-API's voor Table Storage
+    href: https://docs.microsoft.com/rest/api/storageservices/table-service-rest-api
+    maintainContext: true
+ms.openlocfilehash: 08c4f97011d8eef508c96bb2d1d7d62122094245
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45728977"

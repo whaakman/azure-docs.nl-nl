@@ -12,12 +12,12 @@ ms.date: 09/10/2018
 ms.author: lizross
 ms.reviewer: elkuzmen
 ms.custom: it-pro
-ms.openlocfilehash: b33f2e809ae5758e41f7a76680347b9487f3f461
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: e49e362528f5fcd00a13a9fc1b233e62a569fe5a
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45735325"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297943"
 ---
 # <a name="how-to-add-your-custom-domain-name-using-the-azure-active-directory-portal"></a>Hoe: de naam van uw aangepaste domein met behulp van de Azure Active Directory-portal toevoegen
 Elke nieuwe Azure AD-tenant wordt geleverd met een initiële domeinnaam *domainname*. onmicrosoft.com. U niet wijzigen of verwijderen van de initiële domeinnaam, maar u kunt de namen van uw organisatie toevoegen aan de lijst. Toevoegen van aangepaste domeinnamen, helpt u bij het maken van de gebruikersnamen die bekend bij uw gebruikers, zoals zijn _alain@contoso.com_.
@@ -31,9 +31,14 @@ U moet eerst uw aangepaste domeinnaam toevoegen aan de Azure AD-tenant.
 ### <a name="to-add-a-custom-domain-name"></a>Een aangepaste domeinnaam toevoegen
 1. Aanmelden bij de [Azure AD-portal](https://portal.azure.com/) met behulp van een globale beheerdersaccount voor de map.
 
+<<<<<<< HEAD
+> [!TIP]
+> Als u van plan bent om uw on-premises Windows Server AD te federeren met Azure AD, moet u het selectievakje **Ik wil dit domein configureren voor eenmalige aanmelding met mijn lokale Active Directory** inschakelen wanneer u het hulpprogramma Azure AD Connect uitvoert om uw directory's te synchroniseren. Daarnaast moet u dezelfde domeinnaam registreren die u selecteert voor het federeren met uw on-premises directory in de stap **Azure AD-domein** in de wizard. [In deze instructies](../hybrid/how-to-connect-install-custom.md#verify-the-azure-ad-domain-selected-for-federation) ziet u hoe die stap van de wizard eruitziet. Als u het hulpprogramma Azure AD Connect niet hebt, kunt u het [hier](http://go.microsoft.com/fwlink/?LinkId=615771) downloaden.
+=======
 2. Selecteer **Azure Active Directory**, selecteer **aangepaste-domeinnamen**, en selecteer vervolgens **aangepast domein toevoegen**.
+>>>>>>> 73f447b1499ba1f189efb6832ad759f1230e55a2
 
-    ![Fabrikam - aangepast domein namen blade met de optie aangepast domein toevoegen gemarkeerd](media/add-custom-domain/add-custom-domain.png)
+    ![Fabrikam - Custom domain names blade, with Add custom domain option highlighted](media/add-custom-domain/add-custom-domain.png)
 
 3. Typ de naam van uw nieuwe bedrijfsdomein in de **aangepaste domeinnaam** vak (bijvoorbeeld _contoso.com_), en selecteer vervolgens **domein toevoegen**.
 

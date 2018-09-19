@@ -1,7 +1,30 @@
+---
+title: bestand opnemen
+description: bestand opnemen
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: na
+ms.workload: identity
+ms.date: 09/13/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: cf6ded1252528a0bbfac9c7378f03384cc484c50
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46293608"
+---
+## <a name="use-msal-to-get-a-token"></a>MSAL gebruiken om op te halen van een token 
 
-## <a name="use-msal-to-get-a-token-for-the-microsoft-graph-api"></a>Gebruik MSAL voor een token voor de Microsoft Graph-API
-
-1.  Onder **app** > **java** > **{domein}. { AppName}** Open `MainActivity`. 
+1.  Onder **app** > **java** > **{domain}. { AppName}** Open `MainActivity`. 
 2.  Voeg de volgende import toe:
 
     ```java
@@ -220,21 +243,19 @@
 <!--start-collapse-->
 ### <a name="more-information"></a>Meer informatie
 #### <a name="get-a-user-token-interactively"></a>Een gebruiker interactief token ophalen
-Het aanroepen van de `AcquireTokenAsync` methode resulteert in een venster waarin gebruikers zich aanmelden. Toepassingen vereisen meestal gebruikers zich aanmelden in interactief de eerste keer dat ze nodig hebben voor toegang tot een beveiligde bron. Ze wellicht ook aan te melden bij een achtergrond te verkrijgen van een token mislukt (bijvoorbeeld wanneer een gebruiker het wachtwoord is verlopen).
+Aanroepen van de `AcquireTokenAsync` methode wordt een venster waarin wordt gevraagd om gebruikers te aan te melden of hun account selecteren. Toepassingen in het algemeen moet de gebruiker vragen voor een eerste interactie, maar kan worden uitgevoerd op de achtergrond vanaf dat moment op. 
 
-#### <a name="get-a-user-token-silently"></a>Een gebruiker achtergrond token ophalen
-De `AcquireTokenSilentAsync` methode token acquisities van organisaties en vernieuwingen zonder tussenkomst van de gebruiker worden verwerkt. Na `AcquireTokenAsync` wordt uitgevoerd voor de eerste keer `AcquireTokenSilentAsync` is de gebruikelijke methode gebruiken om toegang te verkrijgen van tokens die toegang beveiligde bronnen voor volgende aanroepen tot omdat aanroepen naar aanvragen of vernieuwen van tokens op de achtergrond worden gemaakt.
+#### <a name="get-a-user-token-silently"></a>Een gebruiker op de achtergrond token ophalen
+De `AcquireTokenSilentAsync` methode wordt een token zonder tussenkomst van de gebruiker opgehaald.  `AcquireTokenSilentAsync` kunnen worden behandeld als een best-effort-aanvraag met een terugval naar `AcquireTokenAsync` wanneer de gebruiker moet zich opnieuw aanmeldt of doen enkele extra autorisatie, zoals meervoudige verificatie 
 
-Uiteindelijk de `AcquireTokenSilentAsync` methode mislukken. Oorzaak van de fout is mogelijk dat de gebruiker heeft zich afgemeld of het wachtwoord op een ander apparaat gewijzigd. Wanneer MSAL detecteert dat het probleem doordat een interactieve actie kan worden omgezet, wordt deze gebeurtenis wordt gestart een `MsalUiRequiredException` uitzondering. Uw toepassing kan verwerken van deze uitzondering op twee manieren:
+Wanneer `AcquireTokenSilentAsync` mislukt, genereert een `MsalUiRequiredException`. Uw toepassing kan verwerken deze uitzondering op twee manieren:
 
-* Er kan een aanroep van tegen `AcquireTokenAsync` onmiddellijk. Deze aanroep resulteert in vraagt de gebruiker aan te melden. Dit patroon wordt meestal gebruikt in de on line toepassingen wanneer er geen beschikbare offline inhoud voor de gebruiker is. De steekproef die worden gegenereerd door deze Begeleide instelprocedure volgt dit patroon die u kunt zien in actie de eerste keer dat u het voorbeeld uitvoert. 
-    * Omdat er geen gebruiker heeft de toepassing gebruikt `PublicClientApp.Users.FirstOrDefault()` bevat een null-waarde en een `MsalUiRequiredException` uitzondering gegenereerd. 
-    * De code in het voorbeeld de uitzondering wordt verwerkt door het aanroepen van `AcquireTokenAsync`, wat ertoe leidt de gebruiker aan te melden. 
-
-* Het kan in plaats daarvan een visuele indicatie opleveren voor gebruikers die een interactief aanmelden vereist is, zodat ze het juiste moment aan te melden kunnen selecteren. Of de toepassing opnieuw kunt `AcquireTokenSilentAsync` later. Dit patroon wordt vaak gebruikt als gebruikers andere toepassingsfunctionaliteit van de zonder onderbreking--bijvoorbeeld gebruiken kunnen wanneer u offline inhoud is beschikbaar in de toepassing. In dit geval bepalen gebruikers wanneer ze aanmelden willen bij de toegang tot de beveiligde bron of de verouderde gegevens te vernieuwen. U kunt ook de toepassing opnieuw kunt bepalen `AcquireTokenSilentAsync` wanneer het netwerk is hersteld nadat u hebt tijdelijk niet beschikbaar zijn. 
+* Bel `AcquireTokenAsync` onmiddellijk. Deze aanroep leidt de gebruiker zich aanmeldt. Dit patroon in online toepassingen wordt gebruikt wanneer er geen beschikbare offline inhoud voor de gebruiker is. Het voorbeeld dat is gegenereerd door deze zelfstudie volgt dit patroon, die u kunt zien in actie de eerste keer dat u het voorbeeld uitvoert.
+* Een visuele indicatie opleveren voor gebruikers die een interactieve aanmelding vereist is. Bel `AcquireTokenAsync` wanneer de gebruiker klaar is.
+* Probeer `AcquireTokenSilentAsync` later opnieuw. Dit patroon wordt vaak gebruikt wanneer gebruikers de functionaliteit van andere toepassing zonder onderbreking--bijvoorbeeld gebruiken kunnen bij offline-inhoud beschikbaar in de toepassing is. De toepassing kunt bepalen om opnieuw te proberen `AcquireTokenSilentAsync` wanneer het netwerk is hersteld na zijn tijdelijk niet beschikbaar. 
 <!--end-collapse-->
 
-## <a name="call-the-microsoft-graph-api-by-using-the-token-you-just-obtained"></a>De Microsoft Graph-API aanroepen via het token dat u zojuist hebt verkregen
+## <a name="call-the-microsoft-graph-api"></a>De Microsoft Graph API aanroepen 
 Voeg de volgende methoden in de `MainActivity` klasse:
 
 ```java
@@ -294,10 +315,10 @@ private void updateGraphUI(JSONObject graphResponse) {
 <!--start-collapse-->
 ### <a name="more-information-about-making-a-rest-call-against-a-protected-api"></a>Meer informatie over het maken van een REST-aanroep op basis van een beveiligde API
 
-In deze voorbeeldtoepassing `callGraphAPI` aanroepen `getAccessToken` en maakt vervolgens een HTTP `GET` -aanvraag in voor een resource die is een token vereist en retourneert de inhoud. Deze methode wordt het token verkregen in de HTTP-autorisatie-header. Voor dit voorbeeld wordt de resource is de Microsoft Graph API *mij* eindpunt waarin informatie over het profiel van de gebruiker.
+In deze voorbeeldtoepassing `callGraphAPI()` maakt gebruik van `getAccessToken()` om op te halen van het nieuwe toegangstoken.  De app gebruikt het token in een HTTP- `GET` aanvraag met de Microsoft Graph-API. 
 <!--end-collapse-->
 
-## <a name="set-up-sign-out"></a>Afmelden instellen
+## <a name="set-up-sign-out"></a>Meld u af instellen
 
 Voeg de volgende methoden in de `MainActivity` klasse:
 
@@ -351,9 +372,10 @@ private void updateSignedOutUI() {
 }
 ```
 <!--start-collapse-->
-### <a name="more-information-about-user-sign-out"></a>Meer informatie over gebruikers afmelden
+### <a name="more-information-about-user-sign-out"></a>Meer informatie over de gebruiker afmelden
 
-De `onSignOutClicked` methode in de bovenstaande code worden gebruikers verwijderd uit de cache van de gebruiker MSAL, waardoor effectief MSAL vergeten van de huidige gebruiker, zodat een toekomstige aanvraag voor een token verkrijgen slaagt alleen als interactief zijn wordt gemaakt.
+De `onSignOutClicked()` methode gebruikers worden verwijderd uit de cache MSAL. MSAL hoeft niet langer een status voor de aangemelde gebruiker en ze buiten de toepassing moeten worden aangemeld. 
 
-Hoewel de toepassing in dit voorbeeld één gebruikers ondersteunt, ondersteunt MSAL scenario's waarbij meerdere accounts kunnen worden ondertekend op hetzelfde moment. Een voorbeeld is een e-mailtoepassing waar een gebruiker heeft meerdere accounts.
+### <a name="more-information-on-multi-account-scenarios"></a>Meer informatie over scenario's met meerdere account
+MSAL biedt ook ondersteuning voor scenario's, als u meerdere accounts zijn ingelogd op hetzelfde moment. Veel e-mail-apps kunnen bijvoorbeeld meerdere accounts zijn aangemeld op hetzelfde moment. 
 <!--end-collapse-->

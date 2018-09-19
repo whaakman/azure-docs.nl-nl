@@ -12,12 +12,12 @@ ms.devlang: fsharp
 ms.topic: reference
 ms.date: 09/09/2016
 ms.author: syclebsc
-ms.openlocfilehash: ec4260363aa0af3062a6d61db44a75d9ebd599db
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: 5593f76511f43106d6743a158b051e118ef2a4a6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44090741"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125252"
 ---
 # <a name="azure-functions-f-developer-reference"></a>Naslaginformatie voor F #-ontwikkelaars van Azure Functions
 
@@ -29,6 +29,29 @@ In dit artikel wordt ervan uitgegaan dat u al hebt gelezen de [referentie voor o
 Een `.fsx` bestand is een F #-script. Deze kan worden beschouwd als een F #-project dat opgenomen in één bestand. Het bestand bevat zowel de code voor uw programma (in dit geval uw Azure-functie) en richtlijnen voor het beheren van afhankelijkheden.
 
 Wanneer u gebruikt een `.fsx` voor een Azure-functie, vaak vereiste assembly's worden automatisch opgenomen voor u, zodat u zich kunt richten op de functie in plaats van 'standaard'-code.
+
+## <a name="folder-structure"></a>mapstructuur
+
+De mapstructuur voor een project F #-script ziet er als volgt uit:
+
+```
+FunctionsProject
+ | - MyFirstFunction
+ | | - run.fsx
+ | | - function.json
+ | | - function.proj
+ | - MySecondFunction
+ | | - run.fsx
+ | | - function.json
+ | | - function.proj
+ | - host.json
+ | - extensions.csproj
+ | - bin
+```
+
+Er is een gedeelde [host.json] (functions-host-json.md)-bestand dat kan worden gebruikt voor het configureren van de functie-app. Elke functie heeft een eigen codebestand (.fsx) en de binding-configuratiebestand (function.json).
+
+De binding-extensies vereist in [versie 2.x](functions-versions.md) van de functies runtime zijn gedefinieerd in de `extensions.csproj` bestand met de werkelijke dll-bestanden in de `bin` map. Als u lokaal ontwikkelt, moet u [bindinguitbreidingen registreren](functions-triggers-bindings.md#local-development-azure-functions-core-tools). Bij het ontwikkelen van functies in Azure portal, geldt deze registratie voor u.
 
 ## <a name="binding-to-arguments"></a>Binding met argumenten
 Elke binding ondersteunt een enkele set argumenten, zoals beschreven in de [Azure Functions-triggers en bindingen naslaginformatie](functions-triggers-bindings.md). Bijvoorbeeld, is een van de bindingen van het argument die biedt ondersteuning voor een blobtrigger een POCO, die kan worden uitgedrukt met behulp van een F #-record. Bijvoorbeeld:

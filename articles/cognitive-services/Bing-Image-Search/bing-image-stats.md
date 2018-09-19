@@ -1,22 +1,22 @@
 ---
-title: Bing-analyse voor Bing Web Search API's | Microsoft Docs
-titleSuffix: Cognitive Services
+title: Bing afbeeldingen zoeken-analytics - Bing afbeeldingen zoeken-API
+titleSuffix: Azure Cognitive Services
 description: Beschrijft hoe u analyses verkrijgen voor de Bing afbeeldingen-API.
 services: cognitive-services
 author: swhite-msft
-manager: rosh
+manager: cgronlun
 ms.service: cognitive-services
 ms.technology: bing-image-search
 ms.topic: article
 ms.date: 04/10/2018
 ms.author: scottwhi
-ms.openlocfilehash: d75d0156ab44dcbc626a222b5539f61bf5b7b81f
-ms.sourcegitcommit: 0a84b090d4c2fb57af3876c26a1f97aac12015c5
+ms.openlocfilehash: e0e7362873d566ec9bbe4dadfdaf3b1d34cc1d8c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/11/2018
-ms.locfileid: "38582647"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46293968"
 ---
-# <a name="how-to-get-analytics-for-bing-images-api"></a>Over het verkrijgen van analytics voor Bing afbeeldingen-API
+# <a name="how-to-get-analytics-for-the-bing-image-search-api"></a>Over het verkrijgen van analyses voor de Bing afbeeldingen zoeken-API
 
 [!INCLUDE [cognitive-services-bing-statistics](../../../includes/cognitive-services-bing-statistics.md)]

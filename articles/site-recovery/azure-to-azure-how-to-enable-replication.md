@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: asgang
-ms.openlocfilehash: e7cd3032053b3628b94f93f3c7e00b6890afd4ca
-ms.sourcegitcommit: a06c4177068aafc8387ddcd54e3071099faf659d
+ms.openlocfilehash: 7002e8a63ca0223a38ba099b17955a86034fa057
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/09/2018
-ms.locfileid: "37916279"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46295458"
 ---
 # <a name="replicate-azure-virtual-machines-to-another-azure-region"></a>Virtuele Azure-machines repliceren naar een andere Azure-regio
 
@@ -36,6 +36,7 @@ Replicatie inschakelen. Deze procedure wordt ervan uitgegaan dat de primaire Azu
     - **Bron**: het punt van herkomst van de virtuele machines, die in dit geval **Azure**.
     - **Bronlocatie**: de Azure-regio waar u wilt beveiligen van uw virtuele machines. In dit voorbeeld is de locatie van de Oost-Azië
     - **Implementatiemodel**: Azure-implementatiemodel van de bronmachines.
+    - **Abonnement van bron**: het abonnement waartoe de virtuele bronmachines behoren. Dit kan elk abonnement zijn binnen dezelfde Azure Active Directory-tenant waar uw Recovery Services-kluis zich bevindt.
     - **Resourcegroep**: de resourcegroep waartoe de virtuele bronmachines behoren. Alle virtuele machines onder de geselecteerde resourcegroep worden weergegeven voor beveiliging in de volgende stap.
 
     ![Replicatie inschakelen](./media/site-recovery-replicate-azure-to-azure/enabledrwizard1.png)
@@ -46,6 +47,7 @@ Replicatie inschakelen. Deze procedure wordt ervan uitgegaan dat de primaire Azu
 4. In **instellingen**, kunt u eventueel target-site-instellingen configureren:
 
     - **Doellocatie**: de locatie waar de brongegevens van de virtuele machine worden gerepliceerd. Afhankelijk van de locatie van uw geselecteerde machines, biedt Site Recovery u de lijst met geschikte doelregio's. U wordt aangeraden dat u de doellocatie hetzelfde als de locatie voor de Recovery Services-kluis.
+    - **Doelabonnement**: het doelabonnement dat wordt gebruikt voor herstel na noodgevallen. Standaard is het doelabonnement niet hetzelfde als het bronabonnement.
     - **Doelresourcegroep**: de resourcegroep waarin alle uw gerepliceerde virtuele machines behoren. Azure Site Recovery maakt standaard een nieuwe resourcegroep in de doelregio met de naam met achtervoegsel 'asr'. In het geval resourcegroep hebt gemaakt met Azure Site Recovery al bestaat, wordt dit opnieuw gebruikt. U kunt ook aanpassen zoals wordt weergegeven in de onderstaande sectie. De locatie van de doelresourcegroep kan zijn van andere Azure-regio's met uitzondering van de regio waarin de virtuele bronmachines worden gehost.
     - **Virtueelnetwerk als doel**: Site Recovery maakt standaard een nieuw virtueel netwerk in de doelregio met de naam met achtervoegsel 'asr'. Dit is toegewezen aan de bron-netwerk en voor eventuele toekomstige beveiliging gebruikt. [Meer informatie](site-recovery-network-mapping-azure-to-azure.md) over netwerktoewijzing.
     - **Doelopslagaccounts (als de bron-VM maakt geen gebruik van schijven beheerde)**: Site Recovery maakt standaard een nieuw doel-opslagaccount mimicking de opslagconfiguratie van de bron-VM. In het geval er bestaat al een storage-account, wordt dit opnieuw gebruikt.
@@ -60,7 +62,9 @@ Replicatie inschakelen. Deze procedure wordt ervan uitgegaan dat de primaire Azu
 
 U kunt de standaardinstellingen van de doel-gebruikt door Site Recovery kunt wijzigen.
 
-1. Klik op **aanpassen:** standaardinstellingen wijzigen:
+1. Klik op **aanpassen:** naast 'Doelabonnement' om te wijzigen van het doelabonnement standaard. Selecteer het abonnement uit de lijst met alle abonnementen die beschikbaar zijn in dezelfde Azure Active Directory (AAD)-tenant.
+
+2. Klik op **aanpassen:** standaardinstellingen wijzigen:
     - In **doelresourcegroep**, selecteer de resourcegroep in de lijst met alle resourcegroepen in de doellocatie van het abonnement.
     - In **virtueel doelnetwerk**, het netwerk selecteren uit een lijst van het virtuele netwerk op de doellocatie.
     - In **beschikbaarheidsset**, u beschikbaarheid instellen op de virtuele machine, kunt toevoegen als ze deel uitmaken van een beschikbaarheidsset in de bronregio.

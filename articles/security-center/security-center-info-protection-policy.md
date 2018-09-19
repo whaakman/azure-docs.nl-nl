@@ -1,5 +1,5 @@
 ---
-title: Aanpassen van de information protection-beleid in Azure Security Center | Microsoft Docs
+title: Aanpassen van de SQL information protection-beleid in Azure Security Center | Microsoft Docs
 description: Informatie over het aanpassen van beleidsregels voor gegevensbeveiliging in Azure Security Center.
 services: security-center
 documentationcenter: na
@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/12/2018
+ms.date: 09/20/2018
 ms.author: rkarlin
-ms.openlocfilehash: 4b454f712b8cb65c69b183979a2fe2e97495d12e
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: ac4aa3c8aafae24736cc7b48a9ca4e8ba9fd0742
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44724086"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46125184"
 ---
-# <a name="customize-the-information-protection-policy-in-azure-security-center-preview"></a>Aanpassen van de information protection-beleid in Azure Security Center (Preview)
+# <a name="customize-the-sql-information-protection-policy-in-azure-security-center-preview"></a>Aanpassen van de SQL information protection-beleid in Azure Security Center (Preview)
  
-Een information protection-beleid kan worden gedefinieerd en die is afgestemd op uw gehele Azure-tenant, in Azure Security Center.
+Een SQL information protection-beleid kan worden gedefinieerd en die is afgestemd op uw gehele Azure-tenant, in Azure Security Center.
 
 Beveiliging van gegevens is een geavanceerde beveiliging-mogelijkheid voor het detecteren, classificeren, labelen en beveiligen van gevoelige gegevens in uw Azure-gegevensbronnen. Detecteren en classificeren van uw meest gevoelige gegevens (business, financiën, gezondheidszorg, persoonlijke gegevens, enzovoort) kan een cruciale rol spelen in uw organisatie informatie protection-status. Deze kan dienen als infrastructuur voor:
 - Helpen voldoen aan de privacystandaarden en wettelijke vereisten

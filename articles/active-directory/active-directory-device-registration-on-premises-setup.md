@@ -17,12 +17,12 @@ ms.date: 07/23/2018
 ms.author: markvi
 ms.reviewer: jairoc
 ms.custom: seohack1
-ms.openlocfilehash: 38d024de0fd2490d33f7c06498d3ff8d0d06e503
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 3b4c9de16c7248cbd3087689544d70fe22c858fd
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42058426"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296410"
 ---
 # <a name="setting-up-on-premises-conditional-access-by-using-azure-active-directory-device-registration"></a>Instellen van on-premises voorwaardelijke toegang met behulp van Azure Active Directory device Registration service
 Wanneer u vereisen dat gebruikers met workplace join hun persoonlijke apparaten aan de apparaatregistratieservice van Azure Active Directory (Azure AD), kunnen hun apparaten worden gemarkeerd als bekend is bij uw organisatie. Hieronder volgt een stapsgewijze handleiding voor het inschakelen van voorwaardelijke toegang tot on-premises toepassingen met behulp van Active Directory Federation Services (AD FS) in Windows Server 2012 R2.
@@ -88,7 +88,7 @@ Volg de stappen in de controlelijst voor het inschakelen en configureren van de 
 ## <a name="part-3-enable-device-writeback-in-azure-ad"></a>Deel 3: Enable apparaat terugschrijven in Azure AD
 | Taak | Referentie |
 | --- | --- |
-| Deel twee van "Enabling device writeback in Azure AD Connect." Nadat u klaar bent, kunt u terugkeren naar deze handleiding. |[Apparaat terugschrijven inschakelen in Azure AD Connect](./connect/active-directory-aadconnect-feature-device-writeback.md) |
+| Deel twee van "Enabling device writeback in Azure AD Connect." Nadat u klaar bent, kunt u terugkeren naar deze handleiding. |[Apparaat terugschrijven inschakelen in Azure AD Connect](hybrid/how-to-connect-device-writeback.md) |
 
 ## <a name="optional-part-4-enable-multi-factor-authentication"></a>[Optioneel] Deel 4: Schakel multi-factor Authentication
 Sterk aanbevolen dat u een van de verschillende opties voor meervoudige verificatie configureren. Als u wilt de meervoudige verificatie vereisen, Zie [kiest u de multi-factor Authentication-beveiligingsoplossing voor u](authentication/concept-mfa-whichversion.md). Het bevat een beschrijving van elke oplossing en koppelingen naar hulp bij het configureren van de oplossing van uw keuze.
@@ -107,9 +107,9 @@ De implementatie is voltooid en u enkele scenario's kunt uitproberen. Gebruik de
 
 **Zie:**
 
-- [Uw on-premises directory's integreren met Azure Active Directory](./connect/active-directory-aadconnect.md) : als u wilt bekijken conceptuele informatie.
+- [Uw on-premises directory's integreren met Azure Active Directory](hybrid/whatis-hybrid-identity.md) : als u wilt bekijken conceptuele informatie.
 
-- [Aangepaste installatie van Azure AD Connect](./connect/active-directory-aadconnect-get-started-custom.md) - voor de installatie-instructies.
+- [Aangepaste installatie van Azure AD Connect](hybrid/how-to-connect-install-custom.md) - voor de installatie-instructies.
 
 
 ## <a name="upgrade-your-active-directory-domain-services-schema"></a>Uw Active Directory Domain Services-schema bijwerken

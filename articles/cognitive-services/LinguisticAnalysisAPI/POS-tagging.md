@@ -1,79 +1,79 @@
 ---
-title: Onderdeel van spraak tags in de taalkundige analyse API | Microsoft Docs
-description: Meer informatie over hoe deel uit van spraak tags toevoegen in Microsoft cognitieve Services identificeert de categorie of spraak van elk woord van tekst.
+title: Part-of-Speech Tagging - linguïstische analyse-API
+description: Meer informatie over hoe Part-of-Speech tags in de linguïstische analyse-API identificeert de categorie of spraak van elk woord uit tekst.
 services: cognitive-services
 author: RichardSunMS
-manager: wkwok
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: linguistic-analysis
-ms.topic: article
+ms.topic: conceptual
 ms.date: 09/27/2016
 ms.author: lesun
-ms.openlocfilehash: 90fd5b05c2dabdac88c6c8da288ab629177be38d
-ms.sourcegitcommit: d1eefa436e434a541e02d938d9cb9fcef4e62604
+ms.openlocfilehash: 636b8bc4ef41674d1e9ca12111aecee05870f381
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/28/2018
-ms.locfileid: "37082635"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46124565"
 ---
-# <a name="part-of-speech-tagging"></a>Onderdeel van spraak Tagging
+# <a name="part-of-speech-tagging"></a>Part-of-Speech Tagging
 
-## <a name="background-and-motivation"></a>Achtergrond en doel
+## <a name="background-and-motivation"></a>Achtergrond en motivatie
 
-Zodra een tekst is gescheiden in zinnen en tokens, worden de volgende stap van de analyse is het identificeren van de categorie of een deel van spraak van elk woord.
-Deze categorieën zoals omvatten *zelfstandig naamwoord* (die doorgaans vertegenwoordigt mensen, plaatsen, dingen, ideeën, etc.) en *term* (die doorgaans vertegenwoordigt acties, verandert van status, enzovoort. Voor sommige woorden, het onderdeel van spraak ondubbelzinnig is (bijvoorbeeld *quagmire* is in feite een zelfstandig naamwoord), maar voor veel andere is het moeilijk te zien.
-*Tabel* kan een plaats waar u zich bevinden (of 2D-indeling van de getallen), maar u kunt ook 'tabel een discussie'.
+Zodra een SMS-bericht is gescheiden in zinnen en tokens, wordt de volgende stap van de analyse is het identificeren van de categorie of part-of-speech van elk woord.
+Categorieën, zoals het gaat hierbij *zelfstandig naamwoord* (algemeen die mensen, plaatsen, dingen, ideeën, enz.) en *term* (algemeen die acties, verandert van status, enzovoort. Voor sommige woorden, de part-of-speech eenduidig is (bijvoorbeeld *quagmire* is eigenlijk alleen een zelfstandig naamwoord), maar voor nog veel meer, is het moeilijk te zien.
+*Tabel* kan moet een plaats waar u zich bevinden (of 2D-indeling van de getallen), maar u kunt ook 'tabel een discussie'.
 
-## <a name="list-of-part-of-speech-tags"></a>Lijst met deel uit van spraak labels
+## <a name="list-of-part-of-speech-tags"></a>Lijst met Part-of-Speech Tags
 
-| Label | Beschrijving | Voorbeeld woorden |
+| Label | Beschrijving | Voorbeeld van de woorden |
 |-----|-------------|---------------|
 | $ | dollar | $ |
 | \`\` | aanhalingsteken openen | \` \`\` |
 | '' | aanhalingsteken sluiten | ' '' |
 | ( | openingshaakje | ( [ { |
-| ) | sluithaakje | ) ] } |
-| , | door komma 's | , |
+| ) | haakje sluiten | ) ] } |
+| ,  | door komma 's | ,  |
 | -- | streepje | -- |
 | . | zin eindteken | . ! ? |
-| : | dubbele punt of weglatingsteken | : ; ... |
+| : | dubbele punt of de drie puntjes | : ; ... |
 | CC | combinatie, coördineren | en maar of nog|
-| CD | cijfer kardinaalcurveverbindingslijn | negen 20 1980 ' 96 |
+| CD | cijfer, kardinaalcurve | negen 20 1980 ' 96 |
 | DT | determiner |een de een alle beide geen van beide|
-| EX | Er zijn existentieel: | Er |
-| FW | afwijkende word | enfant terrible hoi polloi je ne sais quoi |
-| IN | voorzetsel of samen te brengen| in binnenste als bij of |
-| JJ | bijvoeglijk naamwoord of een cijfer, rangtelwoord | achtste vrij execrable multimodale |
-| JJR | bijvoeglijk naamwoord, vergelijkende | beter sneller goedkoper |
-| JJS | bijvoeglijk naamwoord, superlative | aanbevolen snelste goedkoopste | 
-| LS | lijst item markering | (a) (b) 1 2 A B A. B. |
-| MD | modale assistent | kan mogelijk wordt wordt kan mogelijk moeten zou |
-| NN | zelfstandig naamwoord, algemene, enkelvoud of massaopslag | achtergebleven geld schoen |
-| NNP | de juiste, enkelvoudige zelfstandig naamwoord, | Kennedy Roosevelt Chicago Weehauken |
-| NNPS | de juiste, meervoud zelfstandig naamwoord, | Springfields struiken |
-| NNS | zelfstandig naamwoord, algemene, meervoud | stukken muizen velden |
-| PDT | vooraf determiner | alle beide half veel behoorlijk dergelijke ervoor dat dit |
-| POS | genitive markering | ' de |
-| PRP | Overeenkomst, persoonlijke | ze hij deze ik we ze u |
-| PRP$ | overeenkomst possessive | haar zijn de mijn onze hun uw |
-| RB | bewerkingsparameter | klinisch alleen |
-| RBR | bewerkingsparameter vergelijkende | verder versomberden grander graver groter grimmer moeilijker zwaardere gezonder zwaardere hoger echter groter hoger minder complex omslachtiger minder perfect minder lonelier langer harder kleine meer... |
-| RESOURCESTRUCTUUR | bewerkingsparameter superlative | aanbevolen grootste bluntest vroegste verst eerste verst moeilijkst heartiest hoogste grootste minst minder meeste dichtstbijzijnde tweede strengste slechtste |
-| RP | Partikel | op uitgeschakeld over-omhoog |
-| SYM | symbool | % & |
-| TOT | 'tot' als voorzetsel of infinitive markering | tot |
-| KƆˈNƐKSI | Tussenwerpsel | kɔˈnɛksi Prettige kerstdagen howdy Hallo |
-| VB | term baseform | Verleen snel toewijzen |
-| VBD | term verleden tijd | gegeven toegewezen flew |
-| VBG | term, aanwezig participle of gerundium | Geeft Vliegende toewijzen |
-| VBN | term verleden participle | krijgt toegewezen flown |
-| VBP | term, aanwezig tijd, niet 3e persoon enkelvoud | Verleen snel toewijzen |
-| VBZ | term, aanwezig tijd, 3e persoon enkelvoud | Geeft bestanden wordt toegewezen |
+| EX | Er zijn existentieel: | Er zijn |
+| FW | refererende word | enfant terrible hoi polloi je ne sais quoi |
+| IN | voorzetsel of samen te brengen| in binnen als bij of |
+| JJ | bijvoeglijk naamwoord of cijfer, volgnummer | achtste vrij execrable multimodale |
+| JJR | bijvoeglijk naamwoord, vergelijkende | sneller beter goedkoper |
+| JJS | bijvoeglijk naamwoord, superlative | beste snelste goedkoopste | 
+| LS | lijst met item-markering | (a) (b) 1 2 A B A. B. |
+| MD | modale assistent | kan mogelijk moeten wordt kan mogelijk moeten zou |
+| NN | zelfstandig naamwoord, algemene, rapportgebruiker of massaopslag | achtergebleven geld schoen |
+| NNP | de juiste, singuliere zelfstandig naamwoord, | Kennedy Roosevelt Chicago Weehauken |
+| NNPS | de juiste, plural zelfstandig naamwoord, | Springfields struiken |
+| NNS | zelfstandig naamwoord, algemene, plural | onderdelen muizen velden |
+| PDT | vooraf determiner | alle beide halve veel helemaal dergelijke ervoor dat dit |
+| POS | genitive markering | ' van |
+| PRP | Overeenkomst, persoonlijke | ze hij het ik we ze u |
+| PRP$ | Overeenkomst, possessive | haar zijn de mijn onze hun uw |
+| DEGRESSIEVE | bewerkingsparameter | klinisch alleen |
+| RBR | bewerkingsparameter, vergelijkende | meer versomberden grander graver groter grimmer moeilijker zwaardere gezondere zwaardere hogere echter groter hoger slanker zijn omslachtiger minder perfect minder lonelier meer harder kleine meer... |
+| RESOURCESTRUCTUUR | bewerkingsparameter, superlative | beste grootste bluntest vroegste verst eerste verst moeilijkst heartiest hoogste grootste minst minder meeste dichtstbijzijnde tweede strengste slechtste |
+| RP | Particle | op off-up maken van informatie over |
+| SYM | Symbool | % & |
+| TOT | "tot" als voorzetsel of infinitive markering | tot |
+| OJEE | Tussenwerpsel | ojee zeer Blije howdy Hallo |
+| VB | term baseform | Geef elk gewenst moment toewijzen |
+| VBD | term verleden tijd | heeft toegewezen flew |
+| VBG | term, aanwezig participle of gerundium | toegewezen Vliegende geven |
+| VBN | term verleden participle | toegewezen krijgen alleen gesynchroniseerd |
+| VBP | term, de tegenwoordige aanwezig, niet 3e persoon rapportgebruiker | Geef elk gewenst moment toewijzen |
+| VBZ | term, de tegenwoordige aanwezig, 3e persoon rapportgebruiker | biedt wijst vliegt naar |
 | WDT | W determiner | die welke die |
-| WP | W overeenkomst | wie wie |
-| WP$ | W-overeenkomst possessive | waarvan |
-| WRB | W bewerkingsparameter | hoe echter wanneer waar |
+| WO | W-overeenkomst | wie wie |
+| WO$ | W-overeenkomst, possessive | waarvan |
+| WRB | W-bewerkingsparameter | hoe echter wanneer waar |
 
 ## <a name="specification"></a>Specificatie
 
-Als voor tokeniseren, wij zijn afhankelijk van de specificatie van het [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).
+Als voor tokeniseren, we zijn afhankelijk van de specificatie van de [Penn Treebank](https://catalog.ldc.upenn.edu/ldc99t42).

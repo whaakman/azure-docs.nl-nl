@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 06/18/2018
 ms.author: asmalser
-ms.openlocfilehash: 930ca49a63e34214ec197d8dd37f38361b34fe90
-ms.sourcegitcommit: af9cb4c4d9aaa1fbe4901af4fc3e49ef2c4e8d5e
+ms.openlocfilehash: 917baa4b0d983df858c64cd0fa5b697b0fbb316c
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44347032"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298265"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning-preview"></a>Zelfstudie: Configureren van Workday voor automatisch gebruikers inrichten (preview)
 
@@ -67,7 +67,7 @@ Deze oplossing voor gebruikersinrichting van Workday bevindt zich momenteel in o
 
 Controleer de onderstaande vereisten voordat u begint met uw Workday-integratie, en lees de volgende richtlijnen over het afstemmen op uw huidige Active Directory-architectuur en gebruikers vereisten inrichten met de oplossing(en) geleverd door Azure Active Directory.
 
-### <a name="prerequisites"></a>Vereiste onderdelen
+### <a name="prerequisites"></a>Vereisten
 
 Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items hebt:
 
@@ -75,7 +75,7 @@ Het scenario in deze zelfstudie wordt ervan uitgegaan dat u al de volgende items
 * Een tenant van de implementatie van Workday voor test-en integratie
 * Beheerdersmachtigingen in Workday een system integration-gebruiker maken en hierin wijzigingen voor het testen van gegevens van werknemers voor testdoeleinden
 * Voor het inrichten van gebruikers met Active Directory, een domein-server met Windows-Service 2012 of hoger is vereist op de host de [on-premises synchronisatieagent](https://go.microsoft.com/fwlink/?linkid=847801)
-* [Azure AD Connect](../connect/active-directory-aadconnect.md) voor de synchronisatie tussen Active Directory en Azure AD
+* [Azure AD Connect](../hybrid/whatis-hybrid-identity.md) voor de synchronisatie tussen Active Directory en Azure AD
 
 ### <a name="solution-architecture"></a>Oplossingsarchitectuur
 
@@ -200,9 +200,9 @@ In deze stap maakt u moet hiervoor toestemming domeinbeveiliging beleid voor de 
 | ---------- | ---------- | 
 | Get- en Put | Werknemersgegevens: Openbare Worker rapporten |
 | Get- en Put | Werknemersgegevens: Neem contact op met werkgegevens |
-| Get | Werknemersgegevens: Alle functies |
-| Get | Werknemersgegevens: Huidige bezetting van informatie |
-| Get | Werknemersgegevens: Functie in werknemersprofiel |
+| Ophalen | Werknemersgegevens: Alle functies |
+| Ophalen | Werknemersgegevens: Huidige bezetting van informatie |
+| Ophalen | Werknemersgegevens: Functie in werknemersprofiel |
 
 
 ### <a name="activate-security-policy-changes"></a>Wijzigingen in het beveiligingsbeleid activeren
@@ -504,11 +504,11 @@ Hoe u inrichten met Azure Active Directory configureren afhankelijk van uw provi
 
 | Scenario | Oplossing |
 | -------- | -------- |
-| **Gebruikers moeten worden ingericht voor Active Directory en Azure AD** | Gebruik  **[AAD Connect](../connect/active-directory-aadconnect.md)** |
-| **Gebruikers moeten alleen worden ingericht met Active Directory** | Gebruik  **[AAD Connect](../connect/active-directory-aadconnect.md)** |
+| **Gebruikers moeten worden ingericht voor Active Directory en Azure AD** | Gebruik  **[AAD Connect](../hybrid/whatis-hybrid-identity.md)** |
+| **Gebruikers moeten alleen worden ingericht met Active Directory** | Gebruik  **[AAD Connect](../hybrid/whatis-hybrid-identity.md)** |
 | **Gebruikers moeten worden ingericht met alleen Azure AD (alleen voor de cloud)** | Gebruik de **Workday voor het inrichten van Azure Active Directory** -app in de app-galerie |
 
-Zie voor instructies over het instellen van Azure AD Connect de [documentatie voor Azure AD Connect](../connect/active-directory-aadconnect.md).
+Zie voor instructies over het instellen van Azure AD Connect de [documentatie voor Azure AD Connect](../hybrid/whatis-hybrid-identity.md).
 
 De volgende secties beschrijven het instellen van een verbinding tussen Workday en Azure AD voor het inrichten van gebruikers alleen in de cloud.
 

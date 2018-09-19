@@ -1,6 +1,7 @@
 ---
-title: Query's verzenden naar de Bing afbeeldingen zoeken-API | Microsoft Docs
-description: Meer informatie over het verzenden en aanpassen van zoekquery's verzonden naar de Bing afbeeldingen zoeken-API.
+title: Verzenden van de installatiekopie van query's, Bing afbeeldingen zoeken-API
+titleSuffix: Azure Cognitive Services
+description: Meer informatie over het aanpassen van zoekquery's verzonden naar de Bing afbeeldingen zoeken-API.
 services: cognitive-services
 author: aahill
 manager: cgronlun
@@ -10,12 +11,12 @@ ms.component: bing-image-search
 ms.topic: conceptual
 ms.date: 8/8/2018
 ms.author: aahi
-ms.openlocfilehash: bf0db0b6d2aa54a853ba86b570ca05fba902dbc1
-ms.sourcegitcommit: ebd06cee3e78674ba9e6764ddc889fc5948060c4
+ms.openlocfilehash: 5d2dcc60a8707394ec07a76e3286929db365c651
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44049555"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296512"
 ---
 # <a name="send-queries-to-the-bing-image-search-api"></a>Query's verzenden naar de Bing afbeeldingen zoeken-API
 
@@ -102,7 +103,7 @@ The following shows an example of the pivot queries.
 
 ## <a name="expand-the-query"></a>Vouw de query
 
-Als Bing de query kan uitbreiden om de oorspronkelijke zoekopdracht te beperken, bevat het object [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) het veld `queryExpansions`. Bijvoorbeeld, als de query is *Microsoft Surface*, de uitgebreide query's mogelijk: 
+Als Bing de query kan uitbreiden om de oorspronkelijke zoekopdracht te beperken, bevat het object [Images](https://docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference#images) het veld `queryExpansions`. Bijvoorbeeld, als de query is *Microsoft Surface*, de uitgebreide query's mogelijk:
 - Microsoft Surface **Pro 3**.
 - Microsoft Surface **RT**.
 - Microsoft Surface **Phone**.

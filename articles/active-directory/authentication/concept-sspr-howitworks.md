@@ -10,12 +10,12 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: mtillman
 ms.reviewer: sahenry
-ms.openlocfilehash: 54e6b4f5804e7390b7574aa60b4d3a76df15da11
-ms.sourcegitcommit: 17fe5fe119bdd82e011f8235283e599931fa671a
+ms.openlocfilehash: 5416c8ada8fcc7f630d68f223b88c50209d14438
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/11/2018
-ms.locfileid: "42058359"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46296393"
 ---
 # <a name="how-it-works-azure-ad-self-service-password-reset"></a>Hoe het werkt: Azure AD Self-service voor wachtwoord opnieuw instellen
 
@@ -161,8 +161,8 @@ Als u installeren, configureren en Azure AD Connect inschakelen, hebt u de volge
 Deze pagina vindt u een snel de status van de on-premises Write-backclient, een van de volgende berichten wordt weergegeven op basis van de huidige configuratie:
 
 * Uw On-premises Write-backclient is actief en werkend.
-* Azure AD is online en is verbonden met uw on-premises Write-backclient. Echter, het lijkt erop dat de geïnstalleerde versie van Azure AD Connect verouderd is. Houd rekening met [een upgrade van Azure AD Connect](./../connect/active-directory-aadconnect-upgrade-previous-version.md) om ervoor te zorgen dat u de nieuwste connectiviteitsfuncties en belangrijke bugfixes beschikt hebt.
-* Helaas kan niet worden gecontroleerd de status van uw on-premises Write-back-client omdat de geïnstalleerde versie van Azure AD Connect verouderd is. [Azure AD Connect upgraden](./../connect/active-directory-aadconnect-upgrade-previous-version.md) kunnen om te controleren of de status van de verbinding.
+* Azure AD is online en is verbonden met uw on-premises Write-backclient. Echter, het lijkt erop dat de geïnstalleerde versie van Azure AD Connect verouderd is. Houd rekening met [een upgrade van Azure AD Connect](../hybrid/how-to-upgrade-previous-version.md) om ervoor te zorgen dat u de nieuwste connectiviteitsfuncties en belangrijke bugfixes beschikt hebt.
+* Helaas kan niet worden gecontroleerd de status van uw on-premises Write-back-client omdat de geïnstalleerde versie van Azure AD Connect verouderd is. [Azure AD Connect upgraden](../hybrid/how-to-upgrade-previous-version.md) kunnen om te controleren of de status van de verbinding.
 * Helaas, het lijkt erop dat we nu kan geen verbinding met uw on-premises Write-backclient. [Azure AD Connect oplossen](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) om de verbinding te herstellen.
 * Helaas geen verbinding maken met uw on-premises Write omdat wachtwoord terugschrijven niet juist is geconfigureerd. [Configureer wachtwoord terugschrijven](howto-sspr-writeback.md) om de verbinding te herstellen.
 * Helaas, het lijkt erop dat we nu kan geen verbinding met uw on-premises Write-backclient. Dit kan zijn veroorzaakt door tijdelijke problemen aan onze kant. Als het probleem zich blijft voordoen, [los problemen met Azure AD Connect](active-directory-passwords-troubleshoot.md#troubleshoot-password-writeback-connectivity) om de verbinding te herstellen.

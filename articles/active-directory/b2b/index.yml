@@ -1,0 +1,59 @@
+### YamlMime:YamlDocument
+ms.openlocfilehash: 45ce7413a3974ec8018db3c5287aa922a76f072b
+ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "45986678"
+documentType: LandingData
+title: Documentatie voor Azure Active Directory B2B
+metadata:
+  document_id: 
+  title: 'Documentatie voor Azure Active Directory B2B: zelfstudies, snelstarts, concepten, naslaginformatie | Microsoft Docs'
+  description: Ontdek hoe u B2B-toegang voor gastgebruikers kunt gebruiken om veilig resources te delen en samen te werken met externe partners.
+  services: active-directory
+  ms.component: authentication
+  author: msmimart
+  manager: mtillman
+  ms.service: active-directory
+  ms.tgt_pltfrm: na
+  ms.devlang: na
+  ms.topic: landing-page
+  ms.date: 09/10/2018
+  ms.author: mimart
+abstract:
+  description: Ontdek hoe u met Azure AD B2B-samenwerking (business-to-business) kunt gebruiken om de toepassingen en services van uw bedrijf veilig te delen met gastgebruikers en externe partners van andere organisaties, zonder controle te verliezen over uw eigen bedrijfsgegevens.  Dit zijn enkele van de belangrijkste functies:<ul><li>Via een eenvoudig uitnodigings- en inwisselproces kunnen gastgebruikers aan de slag gaan met de resources die u met hen wilt delen.</li><li>Uw gastgebruikers en externe partners beheren hun eigen identiteiten met Azure AD, sociale e-mailaccounts of een andere id-provider.</li><li>U kunt uw bedrijfsresources beveiligen met Azure AD-functies als meervoudige verificatie.</li><li>U kunt met API's de gebruikerservaring aanpassen, bijvoorbeeld met een selfservice-portal voor aanmelding.</li></ul>Met de volgende bronnen kunt u snel aan de slag.
+  aside:
+    image:
+      alt: 
+      height: 110
+      src: ./media/index/video.png
+      width: 246
+    title: Azure AD B2B uitgelegd
+    href: https://www.youtube.com/watch?v=AhwrweCBdsc
+    width: 246
+sections:
+- title: QuickStarts van vijf minuten
+  items:
+  - type: paragraph
+    text: Ontdek hoe u gastgebruikers kunt uitnodigen en aan de slag kunt gaan met B2B-samenwerking.
+  - type: list
+    style: icon48
+    items:
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Gastgebruikers toevoegen in de Azure-portal
+      href: b2b-quickstart-add-guest-users-portal.md
+    - image:
+        src: ./media/index/i_security-management.png
+      text: Een gastgebruiker toevoegen met PowerShell
+      href: b2b-quickstart-invite-powershell.md
+- title: Zelfstudies met stapsgewijze instructies
+  items:
+  - type: paragraph
+    text: Meer informatie over hoe u B2B-samenwerking instelt en uw bedrijfsresources beveiligt.
+  - type: list
+    style: unordered
+    items:
+    - html: <a href="/azure/active-directory/b2b/tutorial-bulk-invite">B2B-gastgebruikers in bulk uitnodigen met PowerShell</a>
+    - html: <a href="/azure/active-directory/b2b/b2b-tutorial-require-mfa">Meervoudige verificatie voor B2B-gastgebruikers forceren</a>

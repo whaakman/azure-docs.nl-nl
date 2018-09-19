@@ -20,7 +20,7 @@
 #### [Containers](./marketplace-containers.md)
 #### [Adviesservices](./consulting-services.md)  
 #### [Publicatiehandleiding voor Office 365, Dynamics 365 en Power BI](./appsource-offer-publishing-guide.md)
-#### [Uw marketplace-proefversie inschakelen met Azure Active Directory](./enable-trial-using-azure-ad.md)
+#### [Een Microsoft AppSource- en Azure Marketplace-vermelding inschakelen met Azure Active Directory](./enable-appsource-marketplace-using-azure-ad.md)
 
 ### [Laat uw bedrijf groeien via de marketplace](./grow-your-business-with-azure-marketplace.md)  
 #### [Voorkeursoplossingen](./preferred-solutions.md) 

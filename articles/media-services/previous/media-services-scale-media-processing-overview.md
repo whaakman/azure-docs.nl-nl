@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/30/2018
 ms.author: juliako
-ms.openlocfilehash: 81fab8903c0101d0e4aae8a392f05129651cd762
-ms.sourcegitcommit: f86e5d5b6cb5157f7bde6f4308a332bfff73ca0f
+ms.openlocfilehash: a17c08cc66b13a5ec15d32be7e9ec738da73e219
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/31/2018
-ms.locfileid: "39369140"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46129051"
 ---
 # <a name="scaling-media-processing-overview"></a>Verwerking van Media schalingsoverzicht
 Deze pagina geeft een overzicht van hoe en waarom mediaverwerking schalen. 
@@ -35,7 +35,7 @@ De volgende tabel kunt u besluit bij de keuze tussen verschillende snelheden voo
 | Scenario's | **S1** | **S2** | **S3** |
 | --- | --- | --- | --- |
 | Beoogde use-case |Single-bitrate codering. <br/>Bestanden op SD of onder oplossingen, tijd niet gevoelige, lage kosten. |Single-bitrate en meerdere bitrate codering.<br/>Normaal gebruik voor zowel SD en HD-codering. |Single-bitrate en meerdere bitrate codering.<br/>Volledige HD en 4K resolutie van video's. Tijd gevoelige en snellere doorlooptijd codering. |
-| Benchmark |Coderen naar een single-bitrate MP4-bestand met de dezelfde resolutie duurt ongeveer 11 minuten. |Codering met "H264 Single-Bitrate 720p" vooraf duurt ongeveer 5 minuten.<br/><br/>Codering met ' H264 Multiple Bitrate 720p "vooraf ingestelde duurt ongeveer 11,5 minuten. |Codering met "H264 Single-Bitrate 1080p" vooraf duurt ongeveer 2.7 minuten.<br/><br/>Codering met ' H264 Multiple Bitrate 1080p "vooraf ingestelde duurt ongeveer 5,7 minuten. |
+| Benchmark voor video van 5 minuten |Coderen naar een single-bitrate MP4-bestand met de dezelfde resolutie duurt ongeveer 11 minuten. |Codering met "H264 Single-Bitrate 720p" vooraf duurt ongeveer 5 minuten.<br/><br/>Codering met ' H264 Multiple Bitrate 720p "vooraf ingestelde duurt ongeveer 11,5 minuten. |Codering met "H264 Single-Bitrate 1080p" vooraf duurt ongeveer 2.7 minuten.<br/><br/>Codering met ' H264 Multiple Bitrate 1080p "vooraf ingestelde duurt ongeveer 5,7 minuten. |
 
 
 ## <a name="considerations"></a>Overwegingen

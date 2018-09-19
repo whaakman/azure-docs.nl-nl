@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/28/2017
 ms.author: lizross
 ms.reviewer: piotrci
-ms.openlocfilehash: 437831736d80214ce569b41de7b13c2d051aaf40
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 3ec8472285ecc7512e2eedc8b9ac850ef8e9cf87
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45572818"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46298017"
 ---
 # <a name="learn-about-access-management-using-azure-active-directory-groups"></a>Meer informatie over het beheer van toegang met behulp van Azure Active Directory-groepen
 Azure Active Directory (Azure AD) helpt u bij het beheren van uw cloud-gebaseerde apps, on-premises toepassingen en uw resources met behulp van groepen van uw organisatie. Uw resources kunnen deel uitmaken van de map, zoals machtigingen voor het beheren van objecten door middel van rollen in de directory, of extern naar de map, zoals software as a Service (SaaS)-apps, Azure-services, SharePoint-sites, en on-premises resources.
@@ -58,4 +58,4 @@ Nu dat u een deel van een inleiding tot beheer van toegang met behulp van groepe
 
 - [Groepen gebruiken voor toegang tot een geïntegreerde SaaS-app toewijzen](../users-groups-roles/groups-saasapps.md)
 
-- [De groep van een on-premises naar Azure met Azure AD Connect synchroniseren](../connect/active-directory-aadconnect.md)
+- [De groep van een on-premises naar Azure met Azure AD Connect synchroniseren](../hybrid/whatis-hybrid-identity.md)

@@ -12,12 +12,12 @@ ms.date: 08/23/2018
 ms.author: lizross
 ms.reviewer: jeffsta
 custom: it-pro
-ms.openlocfilehash: 2a548a16a6b896ae1c1297badcef6154b64977f1
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: eb9cf7c21613ab91cc0b8e41a4454835d18f2c34
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737172"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46297925"
 ---
 # <a name="manage-your-azure-active-directory-tenant"></a>Beheren van uw Azure Active Directory-tenant
 
@@ -42,7 +42,7 @@ Het is raadzaam om voor registratie bij andere Microsoft-services, het beheerder
 
 Als u zich bijvoorbeeld registreert voor een abonnement op Microsoft Intune en u daarna de on-premises Active Directory synchroniseert met uw Azure AD-directory, kunt u zich registreren voor een andere Microsoft-service, zoals Office 365, en eenvoudig beschikken over dezelfde voordelen van directoryintegratie als bij Microsoft Intune.
 
-Zie [Uw on-premises directory's integreren met Azure Active Directory](../connect/active-directory-aadconnect.md) voor meer informatie over de integratie van uw on-premises directory in Azure AD.
+Zie [Uw on-premises directory's integreren met Azure Active Directory](../hybrid/whatis-hybrid-identity.md) voor meer informatie over de integratie van uw on-premises directory in Azure AD.
 
 ### <a name="associate-an-existing-azure-ad-directory-with-a-new-azure-subscription"></a>Een bestaande Azure AD-directory koppelen aan een nieuw Azure-abonnement
 U kunt een nieuw Azure-abonnement koppelen aan dezelfde directory waarmee aanmeldingsbewerkingen voor een bestaand Office 365- of Microsoft Intune-abonnement worden geverifieerd. Zie [Transfer ownership of an Azure subscription to another account](../../billing/billing-subscription-transfer.md) (Eigendom van een Azure-abonnement naar een ander account overdragen) voor meer informatie over dit scenario.

@@ -6,53 +6,77 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 07/06/2018
 ms.author: raynew
-ms.openlocfilehash: 1d2f194eb6a2186fc1e8451a7022d26cd1013bb2
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 8877234502ff662954dc6fe0c19d8252db42d7d6
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44022393"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46123553"
 ---
 # <a name="manage-the-configuration-server-for-vmware-vms"></a>De configuratieserver voor VMware-VM's beheren
 
 Instellen van een on-premises configuratieserver wanneer u [Azure Site Recovery](site-recovery-overview.md) voor herstel na noodgevallen van virtuele VMware-machines en fysieke servers naar Azure. De configuratieserver coördineert de communicatie tussen on-premises VMware- en Azure en beheert de gegevensreplicatie. In dit artikel bevat een overzicht van algemene taken voor het beheren van de configuratieserver nadat deze geïmplementeerd.
 
-
-
-## <a name="modify-vmware-settings"></a>VMware-instellingen wijzigen
+## <a name="access-configuration-server"></a>Configuratieserver voor toegang
 
 De configuratieserver kunt u als volgt openen:
-    - Meld u aan de virtuele machine waarop deze geïmplementeerd, en Start Azure Site Recovery Configuration Manager op de snelkoppeling op het bureaublad.
-    - U kunt ook de configuratieserver van op afstand openen **https://*ConfigurationServerName*/:44315 /**. Meld u aan met beheerdersreferenties.
 
-### <a name="modify-vmware-server-settings"></a>Instellingen voor VMware-server wijzigen
+* Aanmelden bij de virtuele machine waarop deze geïmplementeerd, en Start **Azure Site Recovery Configuration Manager** van de snelkoppeling op het bureaublad.
+* U kunt ook openen de configuratieserver op afstand van https://*ConfigurationServerName*/:44315 /. Meld u aan met beheerdersreferenties.
 
-1. Als u wilt een andere VMware-server koppelen aan de configuratieserver, na het aanmelden, selecteer **vCenter Server/vSphere ESXi-server toevoegen**.
+## <a name="modify-vmware-server-settings"></a>Instellingen voor VMware-server wijzigen
+
+1. Om te koppelen van een andere VMware-server met de configuratieserver na [aanmelden](#access-configuration-server), selecteer **vCenter Server/vSphere ESXi-server toevoegen**.
 2. Voer de details in en selecteer vervolgens **OK**.
 
+## <a name="modify-credentials-for-automatic-discovery"></a>Referenties wijzigen voor automatische detectie
 
-### <a name="modify-credentials-for-automatic-discovery"></a>Referenties wijzigen voor automatische detectie
-
-1. Selecteer voor het bijwerken van de referenties waarmee verbinding wordt gemaakt met de VMware-server voor automatische detectie van virtuele VMware-machines na het aanmelden, **bewerken**.
+1. De referenties waarmee verbinding wordt gemaakt met de VMware-server voor automatische detectie van virtuele VMware-machines na het bijwerken [aanmelden](#access-configuration-server), kiest u het account en klikt u op **bewerken**.
 2. Geef de nieuwe referenties op en selecteer vervolgens **OK**.
 
     ![Wijzigen van VMware](./media/vmware-azure-manage-configuration-server/modify-vmware-server.png)
 
+U kunt ook de referenties via CSPSConfigtool.exe wijzigen.
+
+1. Meld u aan bij de configuratieserver en start CSPSConfigtool.exe
+2. Kiezen welk account u wilt wijzigen en klik op **bewerken**.
+3. De gewijzigde referenties invoeren en klikt u op **Ok**
 
 ## <a name="modify-credentials-for-mobility-service-installation"></a>Referenties wijzigen voor de installatie van Mobility Service
 
 Wijzig de referenties die worden gebruikt voor het installeren van Mobility Service automatisch op de VMware-VM's die u voor replicatie inschakelen.
 
-1. Na het aanmelden, selecteer **referenties voor virtuele machine beheren**
-2. Geef de nieuwe referenties op en selecteer vervolgens **OK**.
+1. Na [aanmelden](#access-configuration-server), selecteer **referenties voor virtuele machine beheren**
+2. Kiezen welk account u wilt wijzigen en klik op **bewerken**
+3. Geef de nieuwe referenties op en selecteer vervolgens **OK**.
 
     ![Referenties van de Mobility-Service wijzigen](./media/vmware-azure-manage-configuration-server/modify-mobility-credentials.png)
+
+U kunt ook referenties via CSPSConfigtool.exe wijzigen.
+
+1. Meld u aan bij de configuratieserver en start CSPSConfigtool.exe
+2. Kiezen welk account u wilt wijzigen en klik op **bewerken**
+3. De nieuwe referenties invoeren en klikt u op **Ok**.
+
+## <a name="add-credentials-for-mobility-service-installation"></a>Referenties voor de installatie van de Mobility-service toevoegen
+
+Als u referenties toevoegen tijdens de implementatie van de configuratieserver, OVF hebt gemist
+
+1. Na [aanmelden](#access-configuration-server), selecteer **referenties voor virtuele machine beheren**.
+2. Klik op **referenties voor virtuele machine toevoegen**.
+    ![toevoegen-mobility-referenties](media/vmware-azure-manage-configuration-server/add-mobility-credentials.png)
+3. Geef de nieuwe referenties op en klik op **toevoegen**.
+
+U kunt ook referenties via CSPSConfigtool.exe toevoegen.
+
+1. Meld u aan bij de configuratieserver en start CSPSConfigtool.exe
+2. Klik op **toevoegen**, voert u de nieuwe referenties en klikt u op **Ok**.
 
 ## <a name="modify-proxy-settings"></a>Proxy-instellingen wijzigen
 
 Wijzig de proxy-instellingen die worden gebruikt door de configuratie van server-machine voor internettoegang tot Azure. Als u een proces-servercomputer naast de standaard-processerver die wordt uitgevoerd op de servercomputer van de configuratie hebt, kunt u de instellingen op beide computers wijzigen.
 
-1. Na het aanmelden bij de configuratieserver, selecteer **verbindingen beheren**.
+1. Na [aanmelden](#access-configuration-server) naar de configuratieserver, selecteert u **verbindingen beheren**.
 2. Werk de proxy-waarden. Selecteer vervolgens **opslaan** om de instellingen te werken.
 
 ## <a name="add-a-network-adapter"></a>Een netwerkadapter toevoegen
@@ -60,7 +84,7 @@ Wijzig de proxy-instellingen die worden gebruikt door de configuratie van server
 De Open Virtualization Format (OVF)-sjabloon implementeert de configuratieserver VM met één netwerkadapter.
 
 - U kunt [een extra adapter toevoegen aan de virtuele machine](vmware-azure-deploy-configuration-server.md#add-an-additional-adapter), maar moet u deze toevoegen voordat u de configuratieserver in de kluis registreert.
-- Om toe te voegen een adapter nadat u de configuratieserver in de kluis registreert, moet u de adapter toevoegen in de VM-eigenschappen. Vervolgens moet u de server in de kluis registreren.
+- Om toe te voegen een adapter nadat u de configuratieserver in de kluis registreert, moet u de adapter toevoegen in de VM-eigenschappen. Moet u [opnieuw registreren](#reregister-a-configuration-server-in-the-same-vault) de server in de kluis.
 
 
 ## <a name="reregister-a-configuration-server-in-the-same-vault"></a>Een configuratieserver in dezelfde kluis registreren
@@ -87,7 +111,8 @@ Als u wilt, kunt u de configuratieserver in dezelfde kluis registreren. Hebt u e
   ```
           net stop obengine
           net start obengine
-  ```
+   ```
+
 
 ## <a name="register-a-configuration-server-with-a-different-vault"></a>Een configuratieserver registreren bij een andere kluis
 

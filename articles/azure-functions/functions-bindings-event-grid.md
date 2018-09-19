@@ -9,14 +9,14 @@ keywords: ''
 ms.service: azure-functions
 ms.devlang: multiple
 ms.topic: reference
-ms.date: 08/23/2018
+ms.date: 09/04/2018
 ms.author: glenga
-ms.openlocfilehash: 6d15405ef22f47dc8a94c07d9d09d343a743408e
-ms.sourcegitcommit: af60bd400e18fd4cf4965f90094e2411a22e1e77
+ms.openlocfilehash: a52ba16d7c8548d378d1b13a85fc1fd1070144e8
+ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/07/2018
-ms.locfileid: "44094549"
+ms.lasthandoff: 09/18/2018
+ms.locfileid: "46128380"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Trigger Gebeurtenisraster voor Azure Functions
 
@@ -308,23 +308,40 @@ Zie voor meer informatie over het maken van abonnementen met behulp van de Azure
 
 Een abonnement maken met behulp van [de Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest), gebruikt u de [az eventgrid gebeurtenisabonnement maken](https://docs.microsoft.com/cli/azure/eventgrid/event-subscription?view=azure-cli-latest#az-eventgrid-event-subscription-create) opdracht.
 
-De opdracht moet de eindpunt-URL die de functie activeert. Het volgende voorbeeld ziet u het URL-patroon:
+De opdracht moet de eindpunt-URL die de functie activeert. Het volgende voorbeeld ziet u de versie-specifieke URL-patroon:
 
-```
-https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
-```
+#### <a name="version-2x-runtime"></a>Runtime versie 2.x
+
+    https://{functionappname}.azurewebsites.net/runtime/webhooks/eventgrid?functionName={functionname}&code={systemkey}
+
+#### <a name="version-1x-runtime"></a>Versie 1.x runtime
+
+    https://{functionappname}.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName={functionname}&code={systemkey}
 
 De systeemsleutel is een autorisatiesleutel die moet worden opgenomen in de eindpunt-URL voor een Event Grid-trigger. De volgende sectie wordt uitgelegd hoe u de systeemsleutel ophalen.
 
 Hier volgt een voorbeeld waarin ze zich op blob storage-accounts (met een tijdelijke aanduiding voor de systeemsleutel abonneren):
 
+#### <a name="version-2x-runtime"></a>Runtime versie 2.x
+
 ```azurecli
 az eventgrid resource event-subscription create -g myResourceGroup \
 --provider-namespace Microsoft.Storage --resource-type storageAccounts \
---resource-name glengablobstorage --name myFuncSub  \
+--resource-name myblobstorage12345 --name myFuncSub  \
 --included-event-types Microsoft.Storage.BlobCreated \
 --subject-begins-with /blobServices/default/containers/images/blobs/ \
---endpoint https://glengastorageevents.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=LUwlnhIsNtSiUjv/sNtSiUjvsNtSiUjvsNtSiUjvYb7XDonDUr/RUg==
+--endpoint https://mystoragetriggeredfunction.azurewebsites.net/runtime/webhooks/eventgrid?functionName=imageresizefunc&code=<key>
+```
+
+#### <a name="version-1x-runtime"></a>Versie 1.x runtime
+
+```azurecli
+az eventgrid resource event-subscription create -g myResourceGroup \
+--provider-namespace Microsoft.Storage --resource-type storageAccounts \
+--resource-name myblobstorage12345 --name myFuncSub  \
+--included-event-types Microsoft.Storage.BlobCreated \
+--subject-begins-with /blobServices/default/containers/images/blobs/ \
+--endpoint https://mystoragetriggeredfunction.azurewebsites.net/admin/extensions/EventGridExtensionConfig?functionName=imageresizefunc&code=<key>
 ```
 
 Zie voor meer informatie over het maken van een abonnement [de blob storage-Quick-Start](../storage/blobs/storage-blob-event-quickstart.md#subscribe-to-your-storage-account) of de andere snelstartgidsen van Event Grid.
@@ -334,10 +351,10 @@ Zie voor meer informatie over het maken van een abonnement [de blob storage-Quic
 U kunt de systeemsleutel krijgen met behulp van de volgende API (HTTP GET):
 
 ```
-http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={adminkey}
+http://{functionappname}.azurewebsites.net/admin/host/systemkeys/eventgridextensionconfig_extension?code={masterkey}
 ```
 
-Dit is een beheer-API, zodat u hiervoor de functie-app [hoofdsleutel](functions-bindings-http-webhook.md#authorization-keys). Is niet hetzelfde als de systeemsleutel (voor het aanroepen van een functie van de trigger Gebeurtenisraster) met de hoofdsleutel (voor administratieve taken uitvoeren voor de functie-app). Wanneer u zich op een Event Grid-onderwerp abonneert, moet u de sleutel van het systeem. 
+Dit is een beheer-API, zodat u hiervoor de functie-app [hoofdsleutel](functions-bindings-http-webhook.md#authorization-keys). Is niet hetzelfde als de systeemsleutel (voor het aanroepen van een functie van de trigger Gebeurtenisraster) met de hoofdsleutel (voor administratieve taken uitvoeren voor de functie-app). Wanneer u zich op een Event Grid-onderwerp abonneert, moet u de sleutel van het systeem.
 
 Hier volgt een voorbeeld van het antwoord dat de systeemsleutel biedt:
 
@@ -354,7 +371,12 @@ Hier volgt een voorbeeld van het antwoord dat de systeemsleutel biedt:
 }
 ```
 
-Zie voor meer informatie, [sleutels voor de verificatieregel](functions-bindings-http-webhook.md#authorization-keys) in het referentieartikel van HTTP-trigger. 
+U kunt de hoofdsleutel ophalen voor uw functie-app uit de **functie app-instellingen** tabblad in de portal.
+
+> [!IMPORTANT]
+> De hoofdsleutel biedt beheerderstoegang tot uw functie-app. Geen deze sleutel delen met derden of deze in native clienttoepassingen te distribueren.
+
+Zie voor meer informatie, [sleutels voor de verificatieregel](functions-bindings-http-webhook.md#authorization-keys) in het referentieartikel van HTTP-trigger.
 
 U kunt ook kunt u een HTTP PUT om op te geven van de sleutelwaarde uzelf verzenden.
 
@@ -475,7 +497,7 @@ https://{subdomain}.ngrok.io/admin/extensions/EventGridExtensionConfig?functionN
 ``` 
 Gebruik dit patroon eindpunt voor functies 2.x:
 ```
-https://{subdomain}.ngrok.io/runtime/webhooks/EventGridExtensionConfig?functionName={functionName}
+https://{subdomain}.ngrok.io/runtime/webhooks/eventgrid?functionName={functionName}
 ``` 
 De `functionName` parameter moet de naam die is opgegeven de `FunctionName` kenmerk.
 

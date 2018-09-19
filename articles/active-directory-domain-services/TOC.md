@@ -43,6 +43,7 @@
 ### [Een organisatie-eenheid maken in een beheerd domein](active-directory-ds-admin-guide-create-ou.md)
 ### [Een beheerd serviceaccount voor groepen maken in een beheerd domein](active-directory-ds-create-gmsa.md)
 ### [Groepsbeleid in een beheerd domein beheren](active-directory-ds-admin-guide-administer-group-policy.md)
+### [Wachtwoordbeleid op een beheerd domein configureren](active-directory-ds-password-policy.md)
 ## [Een virtueel netwerk selecteren](active-directory-ds-networking.md)
 ## Toepassingen implementeren
 ### [Ondersteuning voor profielsynchronisatie voor SharePoint Server configureren](active-directory-ds-enable-sharepoint-profile-sync.md)

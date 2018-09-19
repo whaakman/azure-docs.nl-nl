@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/18/2017
 ms.author: glenga
-ms.openlocfilehash: 468c6486274b8bf1dc202716f525c39face91862
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: f8aa37dbc2d3fb5f560d899626a84a2ab86ff223
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44297295"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46294574"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Aan de slag-handleiding voor Azure-ontwikkelaars
 
@@ -154,7 +154,7 @@ Azure biedt verschillende manieren voor het gebruik van containers in uw toepass
 
     >**Aan de slag**: [gebruiken een aangepaste Docker-installatiekopie voor App Service on Linux](../../app-service/containers/quickstart-docker-go.md).
 
-### <a name="authentication"></a>Authenticatie
+### <a name="authentication"></a>Verificatie
 
 Is het cruciaal niet alleen weten wie uw toepassingen gebruikt, maar ook om te voorkomen dat onbevoegde toegang tot uw resources. Azure biedt verschillende manieren om uw app-clients te verifiëren.
 
@@ -172,7 +172,7 @@ Is het cruciaal niet alleen weten wie uw toepassingen gebruikt, maar ook om te v
 
 Zie voor meer informatie over aanbevolen procedures voor beveiliging in Azure, [Azure-beveiliging aanbevolen procedures en patronen](../../security/security-best-practices-and-patterns.md).
 
-### <a name="monitoring"></a>Controle
+### <a name="monitoring"></a>Bewaking
 
 Met uw toepassing en worden uitgevoerd in Azure, moet u kunnen zijn voor het bewaken van prestaties, Bekijk voor problemen en Zie hoe klanten uw app gebruiken. Azure biedt verschillende controle-opties.
 
@@ -261,7 +261,7 @@ Ontwikkelaars zoals we meteen in de code en probeer het aan de slag zo snel moge
 
 ### <a name="what-is-an-azure-account"></a>Wat is een Azure-account?
 
-Als u wilt maken of te werken met een Azure-abonnement, moet u een Azure-account hebben. Een Azure-account is gewoon een identiteit in Azure AD of in een map, zoals de organisatie van een werk- of schoolaccount, dat wordt vertrouwd door Azure AD. Als u geen deel van die een organisatie uitmaken, kunt u altijd een abonnement maken met behulp van uw Microsoft-Account, dat wordt vertrouwd door Azure AD. Zie voor meer informatie over het integreren van on-premises Windows Server Active Directory met Azure AD, [uw on-premises identiteiten integreren met Azure Active Directory](../../active-directory/active-directory-aadconnect.md).
+Als u wilt maken of te werken met een Azure-abonnement, moet u een Azure-account hebben. Een Azure-account is gewoon een identiteit in Azure AD of in een map, zoals de organisatie van een werk- of schoolaccount, dat wordt vertrouwd door Azure AD. Als u geen deel van die een organisatie uitmaken, kunt u altijd een abonnement maken met behulp van uw Microsoft-Account, dat wordt vertrouwd door Azure AD. Zie voor meer informatie over het integreren van on-premises Windows Server Active Directory met Azure AD, [uw on-premises identiteiten integreren met Azure Active Directory](../../active-directory/hybrid/whatis-hybrid-identity.md).
 
 Voor elk Azure-abonnement is er een vertrouwensrelatie met een Azure AD-exemplaar. Dit betekent dat er op die directory wordt vertrouwd voor het verifiëren van gebruikers, services en apparaten. Meerdere abonnementen kunnen dezelfde directory vertrouwen, maar een abonnement vertrouwt slechts één directory. Zie voor meer informatie, [hoe Azure-abonnementen zijn gekoppeld aan Azure Active Directory](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md).
 
@@ -295,7 +295,7 @@ Wanneer u toegang tot Azure-resources toestaan, maar het is altijd een aanbevole
 
 Azure Resource Manager kunt u aangepaste labels toewijzen aan afzonderlijke resources. Tags zijn sleutel-waardeparen, kunnen nuttig zijn wanneer u nodig hebt om resources voor facturering of bewaking te organiseren. Tags bieden een manier om bij te houden van resources in meerdere resourcegroepen. U kunt tags in de portal, in de Azure Resource Manager-sjabloon of via een programma, met behulp van de REST-API, Azure CLI of PowerShell. U kunt meerdere labels toewijzen aan elke resource. Zie voor meer informatie, [met tags voor het ordenen van uw Azure-resources](../../resource-group-using-tags.md).
 
-### <a name="billing"></a>Facturering
+### <a name="billing"></a>Billing
 
 Zijn belangrijke opmerkingen bij de verplaatsing van on-premises computers naar de cloud gehoste services, bijhouden en het gebruik van de service en de bijbehorende kosten schatten. Het is belangrijk dat u om in te schatten nieuwe resources kosten om uit te voeren op maandbasis. U moet ook mogelijk om te projecteren hoe de facturering eruitziet voor een bepaalde maand op basis van de huidige uitgaven.
 
