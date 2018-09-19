@@ -26,22 +26,22 @@
 ## Plannen en ontwerpen
 ### [Inzicht in de Azure AD-architectuur](fundamentals/active-directory-architecture.md)
 ### [Claimtoewijzing in Azure Active Directory](active-directory-claims-mapping.md)
-### [Een hybride identiteitsoplossing implementeren](active-directory-hybrid-identity-design-considerations-overview.md)
+### [Een hybride identiteitsoplossing implementeren](hybrid/plan-hybrid-identity-design-considerations-overview.md)
 #### Vereisten bepalen
-##### [Identity](active-directory-hybrid-identity-design-considerations-business-needs.md)
-##### [Directory-synchronisatie](active-directory-hybrid-identity-design-considerations-directory-sync-requirements.md)
-##### [Multi-Factor Authentication](active-directory-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
-##### [Levenscyclus van identiteit plannen](active-directory-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
-#### [Plan voor gegevensbeveiliging](active-directory-hybrid-identity-design-considerations-data-protection-strategy.md)
-##### [Gegevensbeveiliging](active-directory-hybrid-identity-design-considerations-dataprotection-requirements.md)
-##### [Inhoudsbeheer](active-directory-hybrid-identity-design-considerations-contentmgt-requirements.md)
-##### [Toegangsbeheer](active-directory-hybrid-identity-design-considerations-accesscontrol-requirements.md)
-##### [Reageren op incidenten](active-directory-hybrid-identity-design-considerations-incident-response-requirements.md)
+##### [Identity](hybrid/plan-hybrid-identity-design-considerations-business-needs.md)
+##### [Directory-synchronisatie](hybrid/plan-hybrid-identity-design-considerations-directory-sync-requirements.md)
+##### [Multi-Factor Authentication](hybrid/plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md)
+##### [Levenscyclus van identiteit plannen](hybrid/plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md)
+#### [Plan voor gegevensbeveiliging](hybrid/plan-hybrid-identity-design-considerations-data-protection-strategy.md)
+##### [Gegevensbeveiliging](hybrid/plan-hybrid-identity-design-considerations-dataprotection-requirements.md)
+##### [Inhoudsbeheer](hybrid/plan-hybrid-identity-design-considerations-contentmgt-requirements.md)
+##### [Toegangsbeheer](hybrid/plan-hybrid-identity-design-considerations-accesscontrol-requirements.md)
+##### [Reageren op incidenten](hybrid/plan-hybrid-identity-design-considerations-incident-response-requirements.md)
 #### Levenscyclus van identiteit plannen
-##### [Taken](active-directory-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
-##### [Acceptatiestrategie](active-directory-hybrid-identity-design-considerations-identity-adoption-strategy.md)
-#### [Volgende stappen](active-directory-hybrid-identity-design-considerations-nextsteps.md)
-#### [Hulpprogramma's vergelijken](active-directory-hybrid-identity-design-considerations-tools-comparison.md)
+##### [Taken](hybrid/plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md)
+##### [Acceptatiestrategie](hybrid/plan-hybrid-identity-design-considerations-identity-adoption-strategy.md)
+#### [Volgende stappen](hybrid/plan-hybrid-identity-design-considerations-nextsteps.md)
+#### [Hulpprogramma's vergelijken](hybrid/plan-hybrid-identity-design-considerations-tools-comparison.md)
 
 ## Gebruikers beheren
 ### [Nieuwe gebruikers toevoegen aan Azure AD](fundamentals/add-users-azure-active-directory.md)
@@ -309,7 +309,7 @@
 
 
 ## Uw directory beheren
-### [Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 ### Aangepaste domeinnamen
 #### [Snelstartgids](fundamentals/add-custom-domain.md)
 ### [Uw directory beheren](fundamentals/active-directory-administer.md)
@@ -321,7 +321,7 @@
 #### [Problemen oplossen](active-directory-windows-enterprise-state-roaming-troubleshooting.md)
 
 
-### [On-premises identiteiten integreren met Azure AD Connect](./connect/active-directory-aadconnect.md)
+### [On-premises identiteiten integreren met Azure AD Connect](hybrid/whatis-hybrid-identity.md)
 
 ### [De levensduur van tokens configureren](active-directory-configurable-token-lifetimes.md)
 
@@ -329,7 +329,7 @@
 
 ### [Privileged Identity Management](privileged-identity-management/pim-configure.md?toc=%2fazure%2factive-directory%2ftoc.json)
 
-## [AD FS in Azure implementeren](active-directory-aadconnect-azure-adfs.md)
+## [AD FS in Azure implementeren](hybrid/how-to-connect-fed-azure-adfs.md)
 ### [Hoge beschikbaarheid](active-directory-adfs-in-azure-with-azure-traffic-manager.md)
 ### [Hash-algoritme van de handtekening wijzigen](active-directory-federation-sha256-guidance.md)
 
@@ -349,8 +349,8 @@
 
 # Verwant
 ## [Multi-Factor Authentication](/azure/multi-factor-authentication/)
-## [Azure AD Connect](./connect/active-directory-aadconnect.md)
-## [Azure AD Connect Health (Engelstalig)](./connect-health/active-directory-aadconnect-health.md)
+## [Azure AD Connect](hybrid/whatis-hybrid-identity.md)
+## [Azure AD Connect Health (Engelstalig)](hybrid/whatis-hybrid-identity-health.md)
 ## [Azure AD for Developers](./develop/active-directory-how-to-integrate.md)
 ## [Azure AD Privileged Identity Management](./privileged-identity-management/pim-configure.md)
 
