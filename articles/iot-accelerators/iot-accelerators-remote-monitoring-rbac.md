@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 08/06/2018
 ms.topic: conceptual
-ms.openlocfilehash: fccdc4ac40878060b94d495b8895e2a128c9477c
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: a56cb92dc8870bf3fff6de0b1d5d907a0898c216
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44716108"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364292"
 ---
 # <a name="configure-role-based-access-controls-in-the-remote-monitoring-solution-accelerator"></a>Op rollen gebaseerd toegangsbeheer in de oplossingsverbetering voor externe controle configureren
 
@@ -240,6 +240,8 @@ public async Task DeleteAsync(string id)
 ## <a name="next-steps"></a>Volgende stappen
 
 In dit artikel hebt u geleerd hoe op rollen gebaseerde toegang besturingselementen zijn geïmplementeerd in de oplossingsverbetering voor externe controle.
+
+Zie [toegangsbeheer configureren voor de Verkenner van Time Series Insights](iot-accelerators-remote-monitoring-rbac-tsi.md) voor informatie over het beheren van toegang tot de Time Series Insights explorer in de oplossingsverbetering voor externe controle.
 
 Zie voor meer informatie over de oplossingsverbetering voor externe controle [architectuur voor externe controle](iot-accelerators-remote-monitoring-sample-walkthrough.md)
 

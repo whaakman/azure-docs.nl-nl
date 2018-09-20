@@ -14,22 +14,40 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/14/2018
 ms.author: alsin
-ms.openlocfilehash: 9952720e917dc9202630b2feda0fadd0402d9eb6
-ms.sourcegitcommit: 5a9be113868c29ec9e81fd3549c54a71db3cec31
+ms.openlocfilehash: e3745efdd0d0ea159afcda177c306f5865ac2aad
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/11/2018
-ms.locfileid: "44377867"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366831"
 ---
 # <a name="use-serial-console-to-access-grub-and-single-user-mode"></a>Seriële Console gebruiken voor toegang tot WORMGATEN en de modus voor één gebruiker
-Modus voor één gebruiker is een minimale omgeving met een minimale functionaliteit. Kan het nuttig zijn voor onderzoeken opstartproblemen of netwerkproblemen minder services kunnen worden uitgevoerd op de achtergrond en, afhankelijk van de (uitvoeringsniveau), een bestandssysteem kan niet ook worden automatisch gekoppeld. Dit is nuttig voor situaties zoals een beschadigd bestandssysteem, een verbroken fstab onderzoeken of de netwerkverbinding (onjuiste iptables configureren).
+WORMGATEN is het eindtotaal Unified Bootloader. Vanaf WORMGATEN, u kunt wijzigen van de opstartconfiguratie om op te starten in de modus voor één gebruiker, onder andere. 
 
-Voor toegang tot WORMGATEN, moet u opnieuw opstarten van uw virtuele machine terwijl de seriële console-blade geopend. Dit kan worden gedaan met een SysRq `'b'` opdracht of knop door te klikken op de computer opnieuw op de blade overzicht. Bepaalde distributies moeten toetsenbordinvoer om weer te geven van WORMGATEN, terwijl anderen automatisch worden WORMGATEN voor een paar seconden bij het opstarten weergeven en invoer van de gebruiker om te annuleren de time-out met toetsenbordinvoer toestaan. 
+Modus voor één gebruiker is een minimale omgeving met een minimale functionaliteit. Kan het nuttig zijn voor het onderzoeken van opstartproblemen bij, bestandssysteem problemen of netwerkproblemen. Minder services kunnen worden uitgevoerd op de achtergrond en, afhankelijk van de (uitvoeringsniveau), een bestandssysteem kan niet ook worden automatisch gekoppeld.
 
-Bepaalde distributies automatisch meer doorlaat u in de modus voor één gebruiker of noodherstelmodus bevinden als de virtuele machine niet kan opstarten. Andere, nodig aanvullende instellingen echter voordat ze u automatisch in de modus voor één gebruiker of noodgevallen kunnen verwijderen.
+Modus voor één gebruiker is ook handig in situaties waar uw virtuele machine kan alleen worden geconfigureerd om te accepteren van SSH-sleutels om aan te melden. In dit geval wordt u mogelijk modus voor één gebruiker gebruiken om te maken van een account met wachtwoordverificatie. 
 
-U wordt om ervoor te zorgen dat WORMGATEN is ingeschakeld op de virtuele machine om te kunnen toegangsmodus voor één gebruiker. Afhankelijk van uw distributie worden sommige work instellen om ervoor te zorgen dat de GRUB is ingeschakeld. 
+Om in te voeren modus voor één gebruiker, moet u WORMGATEN invoeren wanneer uw virtuele machine wordt opgestart, en de configuratie van de opstartinstallatiekopie in WORMGATEN wijzigen. Dit kan worden gedaan met de seriële console van de virtuele machine.
 
+## <a name="general-grub-access"></a>Algemene GRUB-toegang
+Voor toegang tot WORMGATEN, moet u opnieuw opstarten van uw virtuele machine terwijl de seriële console-blade geopend. Bepaalde distributies moeten toetsenbordinvoer om weer te geven van WORMGATEN, terwijl anderen automatisch worden WORMGATEN voor een paar seconden weergeven en toetsenbord gebruikersinvoer om te annuleren de time-out toestaan. 
+
+U wordt om ervoor te zorgen dat WORMGATEN is ingeschakeld op de virtuele machine om te kunnen toegangsmodus voor één gebruiker. Afhankelijk van uw distributie worden sommige work instellen om ervoor te zorgen dat de GRUB is ingeschakeld. Distributie-specifieke informatie vindt u hieronder.
+
+### <a name="reboot-your-vm-to-access-grub-in-serial-console"></a>Opnieuw opstarten van uw virtuele machine voor toegang tot WORMGATEN in seriële Console
+Opnieuw opstarten van uw virtuele machine met de seriële console-blade geopend kan worden gedaan met een SysRq `'b'` als de opdracht [SysRq](./serial-console-nmi-sysrq.md) is ingeschakeld, of door te klikken op het opstarten van de knop op de blade overzicht (open de virtuele machine in een nieuw browsertabblad te starten zonder sluiten de seriële console-blade). Volg de instructies distributie-specifieke hieronder voor meer informatie over wat u kunt verwachten van WORMGATEN wanneer u de computer opnieuw opstart.
+
+## <a name="general-single-user-mode-access"></a>Algemene modus voor één gebruiker toegang
+Handmatige toegang tot de modus voor één gebruiker is mogelijk in situaties waar u niet een account hebt geconfigureerd met wachtwoordverificatie nodig. U moet de WORMGATEN configuratie handmatig invoeren modus voor één gebruiker. Nadat u dit hebt gedaan, gaat u naar [gebruikersmodus voor één gebruiker opnieuw instellen of het toevoegen van een wachtwoord](#-Use-Single-User-Mode-to-reset-or-add-a-password) voor verdere instructies.
+
+In gevallen waarin de virtuele machine kan niet op te starten, worden distributies vaak automatisch verwijderen u in de modus voor één gebruiker of noodherstelmodus bevindt. Andere, nodig aanvullende instellingen echter voordat ze u in de modus voor één gebruiker of noodgevallen automatisch (zoals het instellen van een hoofdwachtwoord) kunnen verwijderen.
+
+### <a name="use-single-user-mode-to-reset-or-add-a-password"></a>Modus voor één gebruiker opnieuw instellen of het toevoegen van een wachtwoord gebruiken
+Wanneer u in de modus voor één gebruiker bent, kunt u het volgende als u wilt toevoegen van een nieuwe gebruiker met sudo-machtigingen doen:
+1. Voer `useradd <username>` een gebruiker toevoegen
+1. Voer `sudo usermod -a -G sudo <username>` aan de nieuwe gebruiker bevoegdheden op hoofdniveau
+1. Gebruik `passwd <username>` om in te stellen van het wachtwoord voor de nieuwe gebruiker. Kunt u zich vervolgens aanmelden als de nieuwe gebruiker
 
 ## <a name="access-for-red-hat-enterprise-linux-rhel"></a>Toegang voor Red Hat Enterprise Linux (RHEL)
 RHEL doorlaat u in de modus voor één gebruiker automatisch als het niet normaal mag opstarten. Als u geen toegang tot de hoofdmap voor de modus voor één gebruiker hebt ingesteld, u heeft geen een hoofdwachtwoord en geen om aan te melden. Er is een oplossing (Zie 'Handmatig invoeren van modus voor één gebruiker' hieronder), maar het voorstel is het instellen van toegang tot de hoofdmap in eerste instantie.
@@ -101,7 +119,14 @@ Volg de instructies voor RHEL hierboven om in te schakelen van modus voor één 
 Ubuntu-installatiekopieën hebben een hoofdwachtwoord niet nodig. Als het systeem wordt opgestart in de modus voor één gebruiker, kunt u deze kunt gebruiken zonder aanvullende referenties. 
 
 ### <a name="grub-access-in-ubuntu"></a>In Ubuntu WORMGATEN toegang
-Voor toegang tot WORMGATEN, houdt u 'Esc' ingedrukt terwijl de virtuele machine wordt opgestart.
+Voor toegang tot WORMGATEN, houdt u 'Esc' ingedrukt terwijl de virtuele machine wordt opgestart. 
+
+Standaard wordt het scherm WORMGATEN niet op de automatisch weergegeven door Ubuntu-installatiekopieën. Dit kan worden gewijzigd met de volgende instructies:
+1. Open `/etc/default/grub.d/50-cloudimg-settings.cfg` in een teksteditor van uw keuze
+1. Wijzig de `GRUB_TIMEOUT` waarde naar een andere waarde dan nul
+1. Open `/etc/default/grub` in een teksteditor van uw keuze
+1. Opmerkingen bij de `GRUB_HIDDEN_TIMEOUT=1` regel
+1. Voer `sudo update-grub` uit.
 
 ### <a name="single-user-mode-in-ubuntu"></a>Modus voor één gebruiker in Ubuntu
 Ubuntu doorlaat u in de modus voor één gebruiker automatisch als het niet normaal mag opstarten. Als u wilt handmatig invoeren modus voor één gebruiker, gebruik de volgende instructies:

@@ -10,14 +10,14 @@ ms.workload: data-services
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/16/2018
+ms.date: 09/18/2018
 ms.author: douglasl
-ms.openlocfilehash: 57c691271c2b2673ade40d600162934341e18a81
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 94c4a3fbd1c854401c42af5787c22db0e5dd6083
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300237"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364974"
 ---
 # <a name="continuous-integration-and-deployment-in-azure-data-factory"></a>Continue integratie en implementatie in Azure Data Factory
 
@@ -48,7 +48,7 @@ Selecteer **bestand laden** voor het selecteren van de geëxporteerde Resource M
 
 ![](media/continuous-integration-deployment/continuous-integration-image5.png)
 
-**Tekenreeksen voor databaseverbindingen**. U kunt de informatie die is vereist voor het maken van verbindingsreeksen in de artikelen over de afzonderlijke connectors vinden. Bijvoorbeeld, voor Azure SQL Database, Zie [gegevens kopiëren naar of van Azure SQL Database met behulp van Azure Data Factory](connector-azure-sql-database.md). Om te controleren of de juiste verbindingsreeks - voor een gekoppelde service, bijvoorbeeld: kunt u ook openen codeweergave voor de resource in de gebruikersinterface van Data Factory. In de weergave van code, maar het wachtwoord of account sleutel gedeelte van de verbindingsreeks verwijderd. Als codeweergave wilt openen, selecteert u het pictogram gemarkeerd in de volgende schermopname.
+**Tekenreeksen voor databaseverbindingen**. U kunt de informatie die is vereist voor het maken van verbindingsreeksen in de artikelen over de afzonderlijke connectors vinden. Bijvoorbeeld, voor Azure SQL Database, Zie [gegevens kopiëren naar of van Azure SQL Database met behulp van Azure Data Factory](connector-azure-sql-database.md). Om te controleren of de juiste verbindingsreeks - voor een gekoppelde service, bijvoorbeeld: kunt u ook openen codeweergave voor de resource in de gebruikersinterface van Data Factory. In de weergave van code, maar het wachtwoord of account sleutel gedeelte van de verbindingsreeks verwijderd. Als codeweergave wilt openen, selecteert u het pictogram gemarkeerd in de volgende schermafbeelding.
 
 ![Open-code weer te geven van de verbindingsreeks](media/continuous-integration-deployment/continuous-integration-codeview.png)
 
@@ -81,7 +81,7 @@ Hier volgen de stappen voor het instellen van een versie van Azure DevOps-Servic
 
 -   Een [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) met de geheimen.
 
-### <a name="set-up-a-azure-devops-services-release"></a>Instellen van een versie van Azure DevOps-Services
+### <a name="set-up-an-azure-devops-services-release"></a>Instellen van een versie van Azure DevOps-Services
 
 1.  Ga naar de pagina Azure DevOps-Services in hetzelfde project als het account dat is geconfigureerd met de Data Factory.
 
@@ -799,9 +799,9 @@ else {
 
 ## <a name="use-custom-parameters-with-the-resource-manager-template"></a>Aangepaste parameters met de Resource Manager-sjabloon gebruiken
 
-U kunt aangepaste parameters voor de Resource Manager-sjabloon definiëren. U hoeft alleen te hebben van een bestand met de naam `arm-template-parameters-definition.json` in de hoofdmap van de opslagplaats. (Naam van het bestand moet overeenkomen met de naam exact hieronder.) Data Factory probeert te lezen van het bestand, vanuit welke vertakking u momenteel werkt, niet alleen de vertakking samenwerking. Als er geen bestand wordt gevonden, wordt in Data Factory maakt gebruik van de standaarddefinities.
+U kunt aangepaste parameters voor de Resource Manager-sjabloon definiëren. U hoeft alleen te hebben van een bestand met de naam `arm-template-parameters-definition.json` in de hoofdmap van de opslagplaats. (Naam van het bestand moet overeenkomen met de naam exact hieronder.) Data Factory probeert te lezen van het bestand, vanuit welke vertakking u momenteel werkt, niet alleen de vertakking samenwerking. Als er geen bestand wordt gevonden, wordt de Data Factory wordt de standaardparameters en waarden.
 
-Het volgende voorbeeld ziet een voorbeeldbestand voor parameters. Dit voorbeeld gebruiken als uitgangspunt om uw eigen aangepaste parameters-bestand te maken. Als het bestand dat u zich niet in de juiste JSON-indeling, wordt in Data Factory voert een foutbericht weergegeven in de browserconsole en keert terug naar de standaarddefinities die wordt weergegeven in de gebruikersinterface van Data Factory.
+Het volgende voorbeeld ziet een voorbeeldbestand voor parameters. Dit voorbeeld gebruiken als uitgangspunt om uw eigen aangepaste parameters-bestand te maken. Als het bestand dat u zich niet in de juiste JSON-indeling, wordt in Data Factory voert een foutbericht weergegeven in de browserconsole en keert terug naar de standaard-parameters en waarden die worden weergegeven in de gebruikersinterface van Data Factory.
 
 ```json
 {

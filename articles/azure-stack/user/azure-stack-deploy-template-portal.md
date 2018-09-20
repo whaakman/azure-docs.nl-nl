@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/12/2018
+ms.date: 09/18/2018
 ms.author: sethm
 ms.reviewer: ''
-ms.openlocfilehash: b2f4fbca2dcbdd537302746c7b6109e467ea31d7
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 4013b7136fd365b1d37348cfc1f0b46cce787ce2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720222"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363120"
 ---
 # <a name="deploy-templates-using-the-azure-stack-portal"></a>Sjablonen implementeren met behulp van de Azure Stack-portal
 
@@ -40,4 +40,6 @@ De portal kunt u Azure Resource Manager-sjablonen implementeren met Azure Stack.
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* [Sjablonen implementeren met PowerShell](azure-stack-deploy-template-powershell.md)
+Zie voor meer informatie over het implementeren van sjablonen:
+
+[Sjablonen implementeren met PowerShell](azure-stack-deploy-template-powershell.md)

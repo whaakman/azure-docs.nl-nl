@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 08/07/2018
 ms.author: harijay
-ms.openlocfilehash: 6fb60955f1d436e13234243c0e83f1487cb7f7d0
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 1ede114f670dc7b1f610dff7cf076329e50f9240
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46127717"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367777"
 ---
 # <a name="virtual-machine-serial-console"></a>Seriële Console van virtuele Machine
 
@@ -44,7 +44,7 @@ Voor de seriële console-documentatie voor Windows-VM's, [Klik hier](../windows/
 
     ![](../media/virtual-machines-serial-console/virtual-machine-serial-console-reset-password.png)
 
-* Zie voor specifieke instellingen voor Linux-distributies, [toegang tot de seriële console voor Linux](#access-serial-console-for-linux)
+* Zie voor specifieke instellingen voor Linux-distributies, [toegang tot de seriële console voor Linux](#Serial-Console-Linux-distro-availability)
 
 
 
@@ -52,15 +52,18 @@ Voor de seriële console-documentatie voor Windows-VM's, [Klik hier](../windows/
 Seriële console voor virtuele machines is alleen toegankelijk via [Azure-portal](https://portal.azure.com). Hieronder volgen de stappen voor toegang tot de seriële console voor virtuele machines via de portal 
 
   1. De Azure-portal openen
-  2. Selecteer de virtuele machines in het menu links.
-  3. Klik op de virtuele machine in de lijst. De overzichtspagina voor de virtuele machine wordt geopend.
-  4. Schuif omlaag naar de ondersteuning en probleemoplossing sectie en klik op de optie 'Seriële console'. Een nieuw deelvenster met de seriële console opent en start de verbinding.
+  1. (Deze stap overslaan als de virtuele machine heeft een gebruiker die gebruikmaakt van wachtwoordverificatie) Toevoegen van een gebruiker met verificatie voor gebruikersnaam en wachtwoord door te klikken op de blade 'Wachtwoord opnieuw instellen'
+  1. Selecteer de virtuele machines in het menu links.
+  1. Klik op de virtuele machine in de lijst. De overzichtspagina voor de virtuele machine wordt geopend.
+  1. Schuif omlaag naar de ondersteuning en probleemoplossing sectie en klik op de optie 'Seriële console'. Een nieuw deelvenster met de seriële console opent en start de verbinding.
 
 ![](../media/virtual-machines-serial-console/virtual-machine-linux-serial-console-connect.gif)
 
+### 
 
 > [!NOTE] 
-> Seriële console vereist een lokale gebruiker met een wachtwoord dat is geconfigureerd. VM's alleen worden geconfigureerd met een openbare SSH-sleutel wordt op dit moment geen toegang tot de seriële console. Gebruik voor het maken van een lokale gebruiker met wachtwoord de [VM-extensie voor toegang](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension) (ook beschikbaar in de portal door te klikken op 'Wachtwoord opnieuw instellen') en een lokale gebruiker te maken met een wachtwoord.
+> Seriële console vereist een lokale gebruiker met een wachtwoord dat is geconfigureerd. Op dit moment zich VM's alleen worden geconfigureerd met een openbare SSH-sleutel niet aanmelden bij de seriële console. Gebruik voor het maken van een lokale gebruiker met wachtwoord de [VM-extensie voor toegang](https://docs.microsoft.com/azure/virtual-machines/linux/using-vmaccess-extension), beschikbaar in de portal door te klikken op 'Wachtwoord opnieuw instellen' in de portal en maak een lokale gebruiker met een wachtwoord.
+> U kunt het administrator-wachtwoord ook opnieuw instellen in uw account door [WORMGATEN gebruiken om te verwijderen in de modus voor één gebruiker](./serial-console-grub-single-user-mode.md).
 
 ## <a name="serial-console-linux-distro-availability"></a>Seriële Console Linux-distributie-beschikbaarheid
 In de volgorde voor de seriële console te laten functioneren, moet het gastbesturingssysteem worden geconfigureerd om te lezen en schrijven van consoleberichten naar de seriële poort. De meeste [Azure Linux-distributies die zijn goedgekeurd](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) hebben van de seriële console standaard geconfigureerd. Eenvoudig te klikken op de seriële Console-sectie in Azure portal biedt toegang tot de console. 
@@ -208,6 +211,8 @@ A. Uw installatiekopie is waarschijnlijk niet goed is geconfigureerd voor toegan
 **Q. Seriële console beschikbaar is voor Virtual Machine Scale Sets?**
 
 A. Toegang tot de seriële console voor schaalsetinstanties virtuele machine wordt niet ondersteund op dit moment.
+
+**Q. Stel ik mijn virtuele machine met behulp van alleen het sleutelverificatie SSH, kan ik daar nog steeds de seriële console verbinding met mijn virtuele machine te gebruiken?** A. Ja. Seriële console vereist niet de SSH-sleutels, dus hoeft u een combinatie van gebruikersnaam en wachtwoord is ingesteld. U kunt dit doen met behulp van de blade 'Wachtwoord opnieuw instellen' in de portal en deze referenties gebruikt voor aanmelding bij de seriële console.
 
 ## <a name="next-steps"></a>Volgende stappen
 * Seriële Console te gebruiken [WORMGATEN opstart en geef de modus voor één gebruiker](serial-console-grub-single-user-mode.md)

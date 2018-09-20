@@ -1,20 +1,21 @@
 ---
-title: Uw model Custom Vision Service exporteren naar mobiele - Custom Vision Service - Azure Cognitive Services | Microsoft Docs
+title: Uw model exporteren naar mobiele - Custom Vision Service
+titlesuffix: Azure Cognitive Services
 description: Informatie over het exporteren van het model voor gebruik bij het maken van mobiele toepassingen.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/03/2018
 ms.author: anroth
-ms.openlocfilehash: 63ebe17ff9a179ed7e9bd399fa94f20740c26f3a
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 50417e9e1722e69c24185c05ea5e286e6b13e8c7
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45574467"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364938"
 ---
 # <a name="export-your-model-for-use-with-mobile-devices"></a>Exporteren van het model voor gebruik met een mobiel apparaat
 

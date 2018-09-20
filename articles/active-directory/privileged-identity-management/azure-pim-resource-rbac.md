@@ -15,12 +15,12 @@ ms.workload: identity
 ms.component: pim
 ms.date: 03/30/2018
 ms.author: rolyon
-ms.openlocfilehash: aee172bc6fc77aaac8d2d52037a481fdb976d308
-ms.sourcegitcommit: 63613e4c7edf1b1875a2974a29ab2a8ce5d90e3b
+ms.openlocfilehash: ce7c96d92938c4e3b4cc0b53271df48350083754
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/29/2018
-ms.locfileid: "43188965"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465228"
 ---
 # <a name="view-who-has-azure-resource-roles-in-pim"></a>Weergave met Azure resource-rollen in PIM
 
@@ -38,11 +38,11 @@ Met Azure Active Directory Privileged Identity Management (PIM), die u kunt behe
 
 ## <a name="view-activation-and-azure-resource-activity"></a>Activering en Azure-resource-activiteit bekijken
 
-In het geval dat u nodig hebt om te zien welke verschillende resources heeft een specifieke gebruiker ondernomen acties, kunt u de Azure-Resource-activiteit die is gekoppeld aan een bepaalde activeringsperiode (voor in aanmerking komende gebruikers) bekijken. Begin met het selecteren van een gebruiker vanuit de weergave van de leden of in de lijst met leden in een specifieke rol. Het resultaat wordt een grafische weergave van acties van de gebruiker op de Azure-Resources op datum en de recente rolactiveringen diezelfde periode van tijd weergegeven.
+In het geval dat u nodig hebt om te zien welke verschillende resources heeft een specifieke gebruiker ondernomen acties, kunt u de Azure-resource-activiteit die is gekoppeld aan een bepaalde activeringsperiode (voor in aanmerking komende gebruikers) bekijken. Begin met het selecteren van een gebruiker vanuit de weergave van de leden of in de lijst met leden in een specifieke rol. Het resultaat wordt een grafische weergave van acties van de gebruiker op de Azure-resources op datum en de recente rolactiveringen diezelfde periode van tijd weergegeven.
 
 ![](media/azure-pim-resource-rbac/user-details.png)
 
-Selecteren van een specifieke rol moet worden geactiveerd, ziet de details van rolactivering en de bijbehorende Azure-Resource-activiteit die is opgetreden bij die gebruiker actief is.
+Selecteren van een specifieke rol moet worden geactiveerd, ziet de details van rolactivering en de bijbehorende Azure-resource-activiteit die is opgetreden bij die gebruiker actief is.
 
 ![](media/azure-pim-resource-rbac/audits.png)
 

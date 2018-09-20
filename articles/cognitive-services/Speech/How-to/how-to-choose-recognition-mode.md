@@ -1,32 +1,33 @@
 ---
-title: Herkenningsmodus kiezen | Microsoft Docs
-description: Klik hier voor meer informatie over het kiezen van de beste opname-modus.
+title: Bing Speech erkenning modus kiezen | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Klik hier voor meer informatie over het kiezen van de beste opname-modus in Bing Speech.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 4f02b683dde16b537ae5554e6435c068f0fcb808
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6ea11054e3062c0a265701f6d7fdd136cb692213
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344671"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366400"
 ---
-# <a name="speech-recognition-modes"></a>Spraak erkenning modi
+# <a name="bing-speech-recognition-modes"></a>Bing Speech-opname-modi
 
-Microsoft *spraak naar tekst* API's ondersteunen meerdere modi van spraakherkenning. Kies in de modus die het beste herkenningsresultaten voor uw toepassing produceert.
+De Bing Speech to Text-API's ondersteunen meerdere modi van spraakherkenning. Kies de modus waarin de resultaten van de beste erkenning voor uw toepassing.
 
 | Modus | Beschrijving |
 |---|---|
-| *interactieve* | 'Opdracht en controle' herkenning van interactieve gebruiker toepassingsscenario's. Gebruikers uitspreken woordgroepen bedoeld als opdrachten naar een toepassing. |
-| *dicteren* | Continue erkenning voor dicteren scenario's. Gebruikers uitspreken langer zinnen die worden weergegeven als tekst. Gebruikers vast een meer formele spreken stijl. |
-| *gesprek* | Continue recognition voor uitwisselingen tussen mensen ze. Gebruikers een minder formele spreken stijl vast en kunnen schakelen tussen langer zinnen en kortere zinnen.
+| *Interactieve* | 'Command and control' erkenning van toepassingsscenario's interactieve gebruiker. Gebruikers spreken woordgroepen bedoeld als opdrachten naar een toepassing. |
+| *Dicteren* | Continue erkenning voor dicteren scenario's. Gebruikers spreken langer zinnen die worden weergegeven als tekst. Gebruikers vast een meer formele spreekstijl. |
+| *Gesprek* | Continue erkenning van gesprekken tussen mensen te transcriberen. Gebruikers een minder formele spreekstijl vast en kunnen schakelen tussen langer zinnen en kortere zinnen.
 
 > [!NOTE]
-> Deze modi zijn van toepassing wanneer u de [REST-API's](../GetStarted/GetStartedREST.md). De [clientbibliotheken](../GetStarted/GetStartedClientLibraries.md) verschillende parameters gebruiken om op te geven voor de modus. Zie voor meer informatie de clientbibliotheek van uw keuze.
+> Deze modi van toepassing zijn wanneer u de [REST-API's](../GetStarted/GetStartedREST.md). De [clientbibliotheken](../GetStarted/GetStartedClientLibraries.md) verschillende parameters gebruiken om op te geven van opname-modus. Zie voor meer informatie de clientbibliotheek van uw keuze.
 
 Zie voor meer informatie de [erkenning modi](../concepts.md#recognition-modes) pagina.

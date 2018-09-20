@@ -1,6 +1,6 @@
 ---
 title: Aanbevolen procedures voor beveiliging van gegevens en versleuteling | Microsoft Docs
-description: In dit artikel biedt een set met aanbevolen procedures voor beveiliging van gegevens en ingebouwde mogelijkheden van Azure met behulp van versleuteling.
+description: In dit artikel biedt een set van aanbevolen procedures voor beveiliging van gegevens en ingebouwde mogelijkheden van Azure met behulp van versleuteling.
 services: security
 documentationcenter: na
 author: barclayn
@@ -12,155 +12,131 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 04/26/2018
+ms.date: 09/19/2018
 ms.author: barclayn
-ms.openlocfilehash: 574ca8a68bf6e532331a4b6f1106e472c8ab0449
-ms.sourcegitcommit: e2adef58c03b0a780173df2d988907b5cb809c82
+ms.openlocfilehash: 263c04fd15240f365f2325c69d5cb25aa1a539f0
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 04/28/2018
-ms.locfileid: "32193577"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465874"
 ---
-# <a name="azure-data-security-and-encryption-best-practices"></a>Best Practices voor beveiliging van gegevens van Azure en versleuteling
+# <a name="azure-data-security-and-encryption-best-practices"></a>Aanbevolen procedures voor Azure-gegevensbeveiliging en -versleuteling
+Ter bescherming van gegevens in de cloud, moet u rekening voor de mogelijke statussen in die uw gegevens zich kunnen voordoen en welke besturingselementen beschikbaar zijn voor die status zijn. Aanbevolen procedures voor Azure-gegevensbeveiliging en -versleuteling betrekking op de volgende gegevens statussen:
 
-Een van de sleutels voor bescherming van gegevens in de cloud is accounting voor de mogelijke statussen in die uw gegevens zich kunnen voordoen, en welke besturingselementen beschikbaar zijn voor die status. Omwille van de Azure data zijn versleuteling best practices voor beveiliging en de aanbevelingen om de statussen van de volgende gegevens:
+- Inactieve: dit bevat alle informatie opslagobjecten, containers, en typen die statisch bestaat op de fysieke media of magnetische of optische schijven.
+- In-transit: wanneer gegevens worden overgebracht tussen onderdelen, locaties of programma's, is onderweg zijn. Voorbeelden zijn overdracht via het netwerk via een servicebus (van on-premises naar cloud en vice versa, met inbegrip van hybride verbindingen, zoals ExpressRoute), of tijdens een i/o-proces.
 
-* In rust: Dit omvat alle informatie opslagobjecten, containers en typen die statisch bestaan op de fysieke media, worden deze magnetische of optische schijf.
-* In Transit: Wanneer gegevens worden overgebracht tussen onderdelen, locaties of programma's, zoals via het netwerk via een servicebus (van on-premises naar cloud en vice versa, inclusief hybride verbindingen zoals ExpressRoute) of tijdens een i/o, dit wordt beschouwd als worden in beweging.
+In dit artikel bespreken we een aantal Azure-gegevens en encryption best practices. Deze aanbevolen procedures zijn afgeleid van onze ervaring met Azure-gegevensbeveiliging en -versleuteling en de ervaringen van klanten zoals zelf.
 
-In dit artikel wordt een verzameling van Azure data encryption best practices voor beveiliging en besproken. Deze aanbevolen procedures zijn afgeleid van onze ervaring met beveiliging van gegevens van Azure en versleuteling en de ervaringen van klanten zoals zelf.
+Voor elke best practice wordt uitgelegd:
 
-Voor elke aanbevolen procedure wordt uitgelegd:
-
-* Wat de beste handelswijze is
-* Waarom u wilt dat het beste inschakelen
-* Wat zijn het resultaat als u niet de aanbevolen procedure inschakelen
+* Wat de beste manier is
+* Waarom u deze wilt inschakelen, die best practices
+* Wat kan het resultaat zijn als u een failover naar de aanbevolen procedure inschakelen
 * Mogelijke alternatieven voor de aanbevolen procedure
-* Hoe u kunt informatie over het inschakelen van de aanbevolen procedure
+* Hoe u meer informatie kunt krijgen om in te schakelen van de aanbevolen procedure
 
-In dit artikel Azure-gegevensbeveiliging en Best Practices voor versleuteling is gebaseerd op een advies consensus en mogelijkheden van Azure-platform en functiesets, als deze bestaan in de tijd die in dit artikel is geschreven. Adviezen en technologieën op den duur veranderen en dit artikel wordt regelmatig gecontroleerd op basis van deze wijzigingen worden bijgewerkt.
+In dit artikel Azure-gegevensbeveiliging en aanbevolen procedures voor versleuteling is gebaseerd op een advies consensus en mogelijkheden van Azure-platform en functiesets, zoals ze bestaan op het moment dat dit artikel is geschreven. Adviezen en -technologieën na verloop van tijd worden gewijzigd en regelmatig op basis van deze wijzigingen in dit artikel wordt bijgewerkt.
 
-Azure data beveiligings- en aanbevolen procedures in dit artikel wordt beschreven, zijn onder andere:
+## <a name="choose-a-key-management-solution"></a>Kies een oplossing voor sleutelbeheer
+Beveiligen van uw sleutels is essentieel voor het beveiligen van uw gegevens in de cloud.
 
-* Multi-factor authentication afdwingen
-* Gebruik rollen gebaseerd toegangsbeheer (RBAC)
-* Virtuele machines van Azure versleutelen
-* Hardware security modellen gebruiken
-* Met beveiligde werkstations beheren
-* SQL-gegevensversleuteling inschakelt
-* De gegevens onderweg te beschermen
-* Bestand niveau gegevensversleuteling afdwingen
+[Azure Key Vault](../key-vault/key-vault-overview.md) beveiligt cryptografische sleutels en geheimen die toepassingen en services in de cloud gebruiken. Key Vault stroomlijnt het beheerproces voor sleutels en zorgt dat u de controle houdt over de sleutels waarmee uw gegevens toegankelijk zijn en worden versleuteld. Ontwikkelaars kunnen sleutels voor ontwikkelen en testen in minuten maken en ze vervolgens te migreren naar productiesleutels die worden. Beveiligingsadministrator kunnen wanneer dit nodig is machtigingen aan sleutels verlenen (en intrekken).
 
-## <a name="enforce-multi-factor-authentication"></a>Multi-factor Authentication afdwingen
+U kunt Key Vault gebruiken voor het maken van meerdere beveiligde containers, die kluizen worden genoemd. Deze kluizen worden ondersteund door HSM's. Kluizen verminderen de kans op onbedoeld verlies van beveiligingsinformatie door de opslag van toepassingsgeheimen te centraliseren. Sleutelkluizen bepaalt ook en meld u de toegang tot alles wat erin is opgeslagen. Azure Key Vault kan verwerken aanvragen en vernieuwen van Transport Layer Security (TLS)-certificaten. Het biedt functies voor een robuuste oplossing voor de levensduur van certificaten beheren.
 
-De eerste stap bij de toegang tot gegevens en beheer in Microsoft Azure is de gebruiker te verifiëren. [Azure multi-factor Authentication (MFA)](../active-directory/authentication/multi-factor-authentication.md) is een methode voor het verifiëren van de identiteit van gebruiker met een andere methode dan alleen een gebruikersnaam en wachtwoord. Deze verificatie methode helpt beveiliging toegang tot gegevens en toepassingen en te voldoen aan de behoeften van de gebruiker voor een eenvoudig proces aanmelden.
+Azure Key Vault is ontworpen ter ondersteuning van toepassingssleutels en -geheimen. Key Vault is niet bedoeld om te worden van een archief voor wachtwoorden van gebruikers.
 
-Door Azure MFA inschakelen voor uw gebruikers, kunt u een tweede beveiligingslaag wilt toevoegen aan de gebruikersaanmeldingen en transacties. In dit geval een transactie kan toegang krijgen tot een document dat zich in een bestandsserver of op uw SharePoint Online. Azure MFA ook helpt IT verminderen de kans dat een verdachte referenties toegang tot gegevens van de organisatie hebben.
+Hieronder vindt u aanbevolen beveiligingsprocedures voor het gebruik van Key Vault.
 
-Bijvoorbeeld: als u Azure MFA voor uw gebruikers afdwingen en configureren voor het gebruik van een telefoongesprek of SMS-bericht als verificatie als referentie voor de gebruiker is geknoeid, toegang tot alle bronnen omdat hij geen toegang tot het telefoonnummer van de gebruiker de aanvaller niet mogelijk. Organisaties die deze extra beschermingslaag identiteit niet toevoegt zijn vatbaarder zijn voor de aanval diefstal van referenties, wat tot inbreuk op gegevens leiden kan.
+**Beste**: toegang verlenen aan gebruikers, groepen en toepassingen binnen een bepaald bereik.   
+**Details**: gebruik RBAC van vooraf gedefinieerde rollen. Bijvoorbeeld, om toegang te verlenen aan een gebruiker voor het beheren van sleutelkluizen, zou u de vooraf gedefinieerde rol toewijzen [Inzender voor Key Vault](../role-based-access-control/built-in-roles.md) aan deze gebruiker op een bepaald bereik. Het bereik zou in dit geval zijn een abonnement, een resourcegroep of alleen een specifieke key vault. Als de vooraf gedefinieerde rollen niet aansluiten bij uw behoeften, kunt u [uw eigen rollen definiëren](../role-based-access-control/custom-roles.md).
 
-Een alternatief voor organisaties die u behouden van de verificatie besturingselement wilt on-premises is [Azure multi-factor Authentication-Server](../active-directory/authentication/howto-mfaserver-deploy.md), ook wel MFA lokale. Met deze methode zich u nog steeds multi-factor authentication, terwijl de MFA-server on-premises afdwingen.
+**Beste**: controle welke gebruikers toegang hebben tot.   
+**Details**: toegang tot een key vault wordt geregeld via twee afzonderlijke interfaces: beheer- en gegevenslaag. Het toegangsbeheer van de beheerlaag en het toegangsbeheer van de gegevenslaag werken onafhankelijk van elkaar.
 
-Lees het artikel voor meer informatie over Azure MFA [aan de slag met Azure multi-factor Authentication in de cloud](../active-directory/authentication/howto-mfa-getstarted.md).
+Gebruik RBAC om te bepalen welke gebruikers toegang hebben tot. Als u toegang verlenen een toepassing wilt voor het gebruik van sleutels in een key vault, hoeft u alleen te verlenen van machtigingen voor toegang tot de gegevenslaag door toegangsbeleid van key vault gebruiken en geen toegang tot de beheerlaag is nodig voor deze toepassing. Daarentegen als u wilt dat een gebruiker kan eigenschappen van de kluis lezen en tags maar geen toegang heeft tot de sleutels, geheimen of certificaten, kunt u deze gebruiker lezen-toegang verlenen met behulp van RBAC en geen toegang tot het gegevensvlak is vereist.
 
-## <a name="use-role-based-access-control-rbac"></a>Gebruik rollen gebaseerd toegangsbeheer (RBAC)
+**Beste**: certificaten Store in uw key vault. De certificaten zijn van hoge waarde. In de verkeerde handen vallen kan de beveiliging van uw toepassing of de beveiliging van uw gegevens worden aangetast.   
+**Details**: Azure Resource Manager kunt veilig implementeren van certificaten die zijn opgeslagen in Azure Key Vault naar Azure VM's wanneer de virtuele machines worden geïmplementeerd. Door in te stellen geschikte toegangsbeleid voor key vault, bepalen u ook wie er toegang tot uw certificaat. Een ander voordeel is dat u al uw certificaten op één locatie in Azure Key Vault beheren. Zie [certificaten implementeren op virtuele machines uit de Sleutelkluis door de klant beheerde](https://blogs.technet.microsoft.com/kv/2016/09/14/updated-deploy-certificates-to-vms-from-customer-managed-key-vault/) voor meer informatie.
 
-Toegang beperken op basis de [moet weten](https://en.wikipedia.org/wiki/Need_to_know) en [minimale bevoegdheden](https://en.wikipedia.org/wiki/Principle_of_least_privilege) beveiligingsprincipes. Dit is noodzakelijk voor organisaties die willen beveiligingsbeleid instellen voor toegang tot gegevens. Azure op rollen gebaseerde toegangsbeheer (RBAC) kan worden gebruikt om machtigingen te wijzen aan gebruikers, groepen en toepassingen op een bepaalde scope. Het bereik van een roltoewijzing kan dit een abonnement, resourcegroep of één resource.
+**Beste**: Zorg ervoor dat u de verwijdering van sleutelkluizen of key vault-objecten kunt herstellen.   
+**Details**: verwijdering van sleutel-kluizen of key vault-objecten kunnen worden onbedoelde of schadelijke. Schakel de functie voor voorlopig verwijderen en verwijderen van functies voor gegevensbeveiliging van Key Vault, met name voor sleutels die worden gebruikt om gegevens in rust te versleutelen. Verwijderen van deze sleutels is gelijk aan het verlies van gegevens, zodat u kunt herstellen van verwijderde kluizen en objecten kluis, indien nodig. Oefen Key Vault-recovery-bewerkingen op gezette tijden.
 
-U kunt gebruikmaken van [ingebouwde RBAC-rollen](../role-based-access-control/built-in-roles.md) in Azure rechten toewijzen aan gebruikers. Overweeg het gebruik van *Storage Account Inzender* voor cloudoperators die nodig zijn voor het beheren van storage-accounts en *klassieke Storage Account Inzender* rol voor het beheren van klassieke opslagaccounts. Voor cloudoperators die nodig zijn voor het beheren van virtuele machines en storage-account, kunt toevoegen aan *Virtual Machine Contributor* rol.
+> [!NOTE]
+> Als een gebruiker inzendersrechten (RBAC) voor de beheerlaag van een sleutelkluis heeft, kunnen ze zichzelf toegang verlenen tot de gegevenslaag door in te stellen van een toegangsbeleid voor key vault. Het is raadzaam dat u precies wie heeft Inzender-toegang tot uw key vaults bepalen, om ervoor te zorgen dat alleen gemachtigde personen kunnen openen en beheren van uw sleutelkluizen, sleutels, geheimen en certificaten.
+>
+>
 
-Organisaties die niet afgedwongen door toegangsbeheer gegevens dankzij het gebruik van mogelijkheden, zoals RBAC mogelijk meer bevoegdheden beschikt dan nodig is voor hun gebruikers geven. Dit kan leiden tot inbreuk op gegevens door sommige gebruikers toegang hebben tot gegevens die ze in eerste instantie mag geen te laten.
+## <a name="manage-with-secure-workstations"></a>Beheren met beveiligde werkstations
+> [!NOTE]
+> De beheerder van abonnement of de eigenaar moet een werkstation voor beveiligde toegang of een werkstation met bevoegde toegang te gebruiken.
+>
+>
 
-U kunt meer informatie over Azure RBAC lezen van het artikel [rollen gebaseerd toegangsbeheer](../role-based-access-control/role-assignments-portal.md).
+Omdat de meeste aanvallen zijn gericht de eindgebruiker, wordt het eindpunt een van de primaire punten van een aanval. Een aanvaller die het eindpunt wordt aangetast, kunt de referenties van de gebruiker toegang te krijgen tot gegevens van de organisatie gebruiken. De meeste endpoint-aanvallen te profiteren van het feit dat gebruikers beheerders in hun lokale werkstation zijn.
 
-## <a name="encrypt-azure-virtual-machines"></a>Virtuele Machines van Azure versleutelen
+**Beste**: een beveiligd beheerwerkstation gebruiken om gevoelige accounts, taken en gegevens te beveiligen.   
+**Details**: gebruik een [werkstation met bevoegde toegang](https://technet.microsoft.com/library/mt634654.aspx) te verminderen van de kwetsbaarheid van werkstations. Deze beveiligde beheerwerkstations kunt u sommige van deze aanvallen te beperken en zorg ervoor dat uw gegevens veiliger.
 
-Voor veel organisaties [gegevensversleuteling in rust](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is een verplichte stap naar privacy, naleving en gegevens onafhankelijkheid van gegevens. Azure Disk Encryption kunnen IT-beheerders voor het versleutelen van de schijven voor Windows en Linux IaaS virtuele Machine (VM). Azure Disk Encryption maakt gebruik van de branche standaard BitLocker-functie van Windows en de functie DM-Crypt van Linux voor volumeversleuteling voor het besturingssysteem en de gegevensschijven.
+**Beste**: Zorg ervoor dat de endpoint protection.   
+**Details**: beveiligingsbeleid afdwingen op alle apparaten die worden gebruikt voor het gebruiken van gegevens, ongeacht de locatie van gegevens (cloud of on-premises).
 
-U kunt gebruikmaken van Azure Disk Encryption om te helpen beveiligen en bescherming van uw gegevens om te voldoen aan uw organisatie beveiligings- en nalevingsvereisten. Organisaties moeten ook rekening houden met behulp van versleuteling op risico's met betrekking tot niet-geautoriseerde gegevenstoegang verminderen. Het is ook raadzaam stations voordat gevoelige gegevens schrijven naar ze te versleutelen.
+## <a name="protect-data-at-rest"></a>Gegevens in rust beveiligen
+[Gegevensversleuteling in rust](https://blogs.microsoft.com/cybertrust/2015/09/10/cloud-security-controls-series-encrypting-data-at-rest/) is een verplichte stap voor privacy, naleving en onafhankelijkheid van gegevens.
 
-Zorg ervoor dat voor het versleutelen van uw VM gegevensvolumes en opstartvolume beveiligen van gegevens in rust in uw Azure storage-account. De versleutelingssleutels en geheimen beveiligen door gebruik te [Azure Key Vault](../key-vault/key-vault-whatis.md).
+**Beste**: schijfversleuteling voor het beveiligen van uw gegevens toe te passen.   
+**Details**: Gebruik [Azure Disk Encryption](azure-security-disk-encryption.md). Hiermee kunt IT-beheerders voor het versleutelen van Windows en Linux IaaS-VM-schijven. Schijfversleuteling combineert de industriestandaard Windows BitLocker-functie en de dm-crypt-functie van Linux om volumeversleuteling voor het besturingssysteem en de gegevensschijven te bieden.
 
-Overweeg de versleuteling van de volgende aanbevolen procedures voor de lokale Windows-Servers:
+Azure Storage en Azure SQL Database versleutelen van data-at-rest standaard, en veel services bieden versleuteling als een optie. Azure Key Vault kunt u sleutels die u kunt openen en versleutelen van uw gegevens beheren. Zie [ondersteuning voor Azure-resource providers codering model voor meer informatie](azure-security-encryption-atrest.md#azure-resource-providers-encryption-model-support).
 
-* Gebruik [BitLocker](https://technet.microsoft.com/library/dn306081.aspx) voor gegevensversleuteling
-* Sla de herstelgegevens in AD DS.
-* Als er zorgen zijn dat BitLocker-sleutels zijn aangetast, is het raadzaam dat u ofwel formatteren van de schijf verwijderen van alle exemplaren van de BitLocker-metagegevens uit het station of ontsleutelen en te versleutelen van het hele station opnieuw.
+**Aanbevolen procedures**: wanneer u versleuteling gebruikt om te beperken van risico's met betrekking tot onbevoegde toegang tot gegevens.   
+**Details**: uw schijven te versleutelen voordat u gevoelige gegevens naar die stations wegschrijven.
 
-Organisaties die niet gegevensversleuteling afdwingen vaker worden blootgesteld aan problemen met de gegevensintegriteit, zoals schadelijke of rogue gebruikers gegevens stelen en onbevoegde toegang tot gegevens in een versleutelde indeling accounts waarmee is geknoeid. Naast deze risico's, moeten bedrijven die voldoen aan de regelgeving vanuit de sector, bewijzen dat zij zijn toegewijd en de juiste beveiligingscontroles gebruikt voor het verbeteren van de beveiliging van gegevens.
+Organisaties die geen gegevensversleuteling afdwingen worden meer blootgesteld aan problemen met de integriteit van gegevens. Onbevoegde of rogue gebruikers kunnen bijvoorbeeld gegevens in de accounts waarmee is geknoeid stelen of ongeoorloofde toegang verlenen tot gegevens gecodeerd in duidelijke indeling. Bedrijven moeten ook bewijzen dat ze toegewijd en met juiste beveiligingsmaatregelen zijn voor het verbeteren van de beveiliging van hun gegevens om te voldoen aan regelgeving vanuit de sector.
 
-U kunt meer informatie over Azure Disk Encryption lezen van het artikel [Azure Disk Encryption for Windows en Linux IaaS VM's](azure-security-disk-encryption.md).
+## <a name="protect-data-in-transit"></a>Gegevens tijdens overdracht beveiligen
+Beveiligen van gegevens die onderweg zijn, moet een essentieel onderdeel van uw strategie voor gegevensbescherming. Omdat gegevens heen en van veel locaties verplaatsen is, het algemeen wordt aangeraden dat u altijd SSL/TLS-protocollen gebruikt voor het uitwisselen van gegevens op verschillende locaties. In sommige gevallen wilt u mogelijk het hele communicatiekanaal tussen uw on-premises en cloud isoleren infrastructuren met behulp van een VPN.
 
-## <a name="use-hardware-security-modules"></a>Gebruik van Hardware Security Modules
-Geheime codes versleuteling-oplossingen gebruiken om gegevens te versleutelen. Het is daarom essentieel dat deze sleutels veilig worden opgeslagen. Sleutelbeheer wordt een integraal onderdeel van gegevensbeveiliging, aangezien deze zal worden gebruikt voor het opslaan van de geheime codes die worden gebruikt om gegevens te versleutelen.
+Voor gegevens verplaatsen tussen uw on-premises infrastructuur en Azure, kunt u passende beveiligingsmaatregelen zoals HTTPS- of VPN. Gebruiken bij het verzenden van versleuteld verkeer tussen een Azure-netwerk en een on-premises locatie via het openbare internet [Azure VPN-Gateway](https://docs.microsoft.com/azure/vpn-gateway/).
 
-Maakt gebruik van Azure schijfversleuteling [Azure Key Vault](https://azure.microsoft.com/services/key-vault/) om te controleren en beheren van schijf versleutelingssleutels en geheimen in uw abonnement sleutelkluis, terwijl u ervoor te zorgen dat alle gegevens in de virtuele machine-schijven zijn versleuteld in rust in uw Azure-opslag. Gebruik Azure Sleutelkluis sleutels en gebruik van beleidsregels controleren.
+Hieronder vindt u aanbevolen procedures die specifiek zijn voor het gebruik van Azure VPN-Gateway, SSL/TLS- en HTTPS.
 
-Er zijn veel intrinsieke risico's die betrekking hebben op de juiste beveiligingscontroles niet hoeft in voor het beveiligen van de geheime codes die zijn gebruikt om uw gegevens te versleutelen. Als aanvallers toegang tot de geheime codes hebt, worden ze kunnen de gegevens ontsleutelen en mogelijk toegang hebben tot vertrouwelijke informatie.
+**Beste**: beveiligde toegang vanaf meerdere werkstations die zich on-premises naar een Azure-netwerk bevinden.   
+**Details**: Gebruik [site-naar-site VPN](../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md).
 
-U meer informatie over algemene aanbevelingen voor certificaatbeheer in Azure door te lezen van het artikel [Certificate Management in Azure: tips](https://blogs.msdn.microsoft.com/azuresecurity/2015/07/13/certificate-management-in-azure-dos-and-donts/).
+**Beste**: veilige toegang vanaf een afzonderlijk werkstation zich on-premises naar een Azure-netwerk.   
+**Details**: Gebruik [punt-naar-site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md).
 
-Lees voor meer informatie over Azure Sleutelkluis [aan de slag met Azure Key Vault](../key-vault/key-vault-get-started.md).
+**Beste**: het verplaatsen van grotere gegevenssets via een speciale snelle WAN-verbinding.   
+**Details**: Gebruik [ExpressRoute](../expressroute/expressroute-introduction.md). Als u gebruiken van ExpressRoute wilt, kunt u ook de gegevens op het toepassingsniveau van de versleutelen met behulp van [SSL/TLS](https://support.microsoft.com/kb/257591) of andere protocollen voor extra beveiliging.
 
-## <a name="manage-with-secure-workstations"></a>Met beveiligde werkstations beheren
-Aangezien de meeste van deze aanvallen als doel de eindgebruiker, wordt het eindpunt in een van de primaire punten van een aanval. Als een aanvaller wordt het eindpunt aangetast, kan hij gebruikmaken van referenties om toegang krijgen tot gegevens van de organisatie van de gebruiker. De meeste eindpunt aanvallen zijn kunnen profiteren van het feit dat eindgebruikers beheerders in hun lokale werkstations.
+**Beste**: interactie met Azure Storage via Azure portal.   
+**Details**: alle transacties plaatsvinden via HTTPS. U kunt ook [REST API voor Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx) via HTTPS om te communiceren met [Azure Storage](https://azure.microsoft.com/services/storage/) en [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
 
-U kunt deze risico's verminderen met behulp van een beveiligd beheerwerkstation. Het is raadzaam dat u een [Privileged Access Workstations (PAW)](https://technet.microsoft.com/library/mt634654.aspx) om de kwetsbaarheid in werkstations te beperken. Deze beveiligde beheerwerkstations kunnen helpen u bij het beperken van enkele van deze aanvallen zodat uw gegevens is veiliger. Zorg ervoor dat PAW gebruiken om te beperken en uw werkstation vergrendelen. Dit is een belangrijke stap in het hoge beveiliging garantie voor gevoelige accounts, taken en gegevensbeveiliging te bieden.
+Organisaties die niet voldoen aan het beveiligen van gegevens die onderweg zijn, zijn vatbaar voor [man-in-the-middle-aanvallen](https://technet.microsoft.com/library/gg195821.aspx), [niet kan worden afgeluisterd](https://technet.microsoft.com/library/gg195641.aspx), en sessiehijacking. Deze aanvallen mag de eerste stap bij het toegang krijgen tot vertrouwelijke gegevens.
 
-Gebrek van endpoint protection mogelijk risico voor uw gegevens, zorg ervoor dat u het beveiligingsbeleid afdwingen op alle apparaten die worden gebruikt voor gegevens, ongeacht de locatie van gegevens (cloud of on-premises) gebruiken.
+## <a name="secure-email-documents-and-sensitive-data"></a>Beveiligen van e-mail, documenten en gevoelige gegevens
+U wilt beheren en beveiligen van e-mail, documenten en gevoelige gegevens die u buiten uw bedrijf delen. [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/) is een cloud-gebaseerde oplossing waarmee een organisatie te classificeren, labelen en beveiligen van documenten en e-mailberichten. Dit kan automatisch worden gedaan door beheerders die regels en voorwaarden door gebruikers of een combinatie waarbij gebruikers aanbevelingen krijgen handmatig te definiëren.
 
-U kunt meer informatie over de juiste rechten toegang tot werkstation met het lezen van het artikel [bevoegde toegang beveiligen](https://technet.microsoft.com/library/mt631194.aspx).
+Classificatie kan worden geïdentificeerd op altijd, ongeacht waar de gegevens worden opgeslagen of met wie ze worden gedeeld. De labels bevatten visuele markeringen, zoals een koptekst, voettekst of watermerk. Metagegevens wordt toegevoegd aan bestanden en e-mailkopteksten in niet-versleutelde tekst. De ongecodeerde tekst zorgt ervoor dat andere services, zoals oplossingen voor preventie van gegevensverlies, kunnen de classificatie identificeren en passende actie kunnen ondernemen.
 
-## <a name="enable-sql-data-encryption"></a>SQL-gegevensversleuteling inschakelt
-[Azure SQL Database transparante gegevensversleuteling](https://msdn.microsoft.com/library/dn948096.aspx) (TDE) beschermt tegen de dreiging van schadelijke activiteiten door te voeren realtime versleuteling en ontsleuteling van de database, gekoppelde back-ups en transactielogbestanden in rust zonder vereist wijzigingen in de toepassing.  TDE versleutelt de opslag van een volledige database met behulp van een symmetrische sleutel, naam van de databaseversleutelingssleutel.
+De beveiligingstechnologie maakt gebruik van Azure Rights Management (Azure RMS). Deze technologie is geïntegreerd met andere Microsoft-cloudservices en -toepassingen, zoals Office 365 en Azure Active Directory. Deze beveiligingstechnologie maakt gebruik van autorisatiebeleidsregels voor versleuteling, identiteit en. Blijft beveiliging die wordt toegepast via Azure RMS met de documenten en e‑mailberichten, onafhankelijk van de locatie: binnen of buiten uw organisatie, netwerken, bestandsservers en toepassingen.
 
-Zelfs als de volledige opslag wordt gecodeerd, is het erg belangrijk voor het versleutelen van uw database zelf ook. Dit is een implementatie van de verdediging in de diepte benadering voor gegevensbescherming. Als u [Azure SQL Database](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx) en bescherming van gevoelige gegevens zoals creditcard of burgerservicenummers wilt, kunt u databases met FIPS 140-2-gevalideerde 256 bits AES-versleuteling dat voldoet aan de vereisten van veel industrienormen (bijv, HIPAA, PCI) coderen.
+Deze oplossing voor gegevensbeveiliging behoudt u de controle over uw gegevens, zelfs wanneer deze worden gedeeld met anderen. U kunt ook Azure RMS gebruiken met uw eigen line-of-business-toepassingen en gegevensbeveiligingsoplossingen van softwareleveranciers, ongeacht of deze toepassingen en oplossingen zich on-premises of in de cloud.
 
-Het is belangrijk te begrijpen of bestanden betrekking heeft op [uitbreiding van de buffer](https://msdn.microsoft.com/library/dn133176.aspx) (BPE) worden niet versleuteld wanneer een database worden versleuteld met TDE. Moet u versleuteling op bestandsniveau hulpprogramma's zoals BitLocker of de [Encrypting File System](https://technet.microsoft.com/library/cc700811.aspx) (EFS) voor de BPE gerelateerde bestanden.
+We raden aan dat u:
 
-Sinds een geautoriseerde gebruiker zoals een beveiligingsbeheerder of een databasebeheerder toegang tot de gegevens zelfs als de database is versleuteld met TDE, moet u ook Volg de onderstaande aanbevelingen:
+- [Azure Information Protection implementeert](https://docs.microsoft.com/azure/information-protection/deployment-roadmap) voor uw organisatie.
+- Labels die overeenkomen met uw zakelijke vereisten van toepassing. Bijvoorbeeld: een label met de naam 'zeer vertrouwelijk' voor alle documenten en e-mailberichten die topgeheime gegevens bevatten, om te classificeren en beveiligen van deze gegevens worden toegepast. Alleen geautoriseerde gebruikers kunnen vervolgens toegang tot deze gegevens, met de beperkingen die u opgeeft.
+- Configureer [Gebruiksregistratie voor Azure RMS](https://docs.microsoft.com/azure/information-protection/log-analyze-usage) zodat u kunt controleren hoe uw organisatie gebruikmaakt van de beveiligingsservice.
 
-* SQL-verificatie op het databaseniveau van de
-* Azure AD-verificatie met behulp van RBAC-rollen
-* Gebruikers en toepassingen moeten afzonderlijke accounts voor verificatie gebruiken. Deze manier kunt u de machtigingen voor gebruikers en toepassingen beperken en de risico's van schadelijke activiteiten te verminderen
-* Beveiliging van de database op gebruikersniveau implementeren met behulp van de vaste databaserollen (zoals db_datareader of db_datawriter), of u kunt aangepaste rollen voor uw toepassing expliciete machtigen om objecten in de geselecteerde database maken
+Organisaties die zwakke op [gegevensclassificatie](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) en bestandsbeveiliging mogelijk gevoeliger voor gegevenslekken of misbruik van gegevens. Met de juiste Bestandsbeveiliging, kunt u gegevensstromen krijgt u inzicht in uw bedrijf, riskant gedrag detecteren en corrigerende maatregelen treffen, toegang tot documenten volgen, enzovoort analyseren.
 
-Organisaties die geen gebruik van niveau versleuteling van de database maakt mogelijk gevoeliger voor aanvallen kunnen leiden die gegevens in SQL-databases.
+## <a name="next-steps"></a>Volgende stappen
+Zie [Azure-beveiliging aanbevolen procedures en patronen](security-best-practices-and-patterns.md) voor meer best practices voor beveiliging moeten worden gebruikt wanneer bent u het ontwerpen, implementeren en beheren van uw cloudoplossingen met behulp van Azure.
 
-U meer informatie over SQL TDE versleuteling door te lezen van het artikel [Transparent Data Encryption met Azure SQL Database](https://msdn.microsoft.com/library/0bf7e8ff-1416-4923-9c4c-49341e208c62.aspx).
-
-## <a name="protect-data-in-transit"></a>De gegevens onderweg te beschermen
-
-Beveiligen van gegevens die onderweg moet essentieel onderdeel van uw strategie voor gegevensbescherming. Omdat de gegevens wordt heen en weer worden verplaatst vanaf verschillende locaties, is de algemene aanbeveling dat u altijd SSL/TLS-protocollen gebruiken voor het uitwisselen van gegevens op verschillende locaties. In sommige gevallen wilt u mogelijk het hele communicatiekanaal tussen uw on-premises en cloud isoleren infrastructuur met behulp van een virtueel particulier netwerk (VPN).
-
-Gegevens verplaatsen tussen uw on-premises infrastructuur en Azure, moet u passende beveiligingsmaatregelen zoals HTTPS- of VPN.
-
-Voor organisaties die nodig zijn om de toegang van meerdere werkstations die zich on-premises naar Azure te beveiligen, gebruikt u [Azure site-naar-site VPN](../vpn-gateway/vpn-gateway-site-to-site-create.md).
-
-Voor organisaties die nodig zijn om de toegang van een werkstation zich on-premises naar Azure te beveiligen, gebruikt u [punt-naar-Site VPN](../vpn-gateway/vpn-gateway-point-to-site-create.md).
-
-Grotere gegevenssets kan worden verplaatst via een speciale snelle WAN-verbinding, zoals [ExpressRoute](https://azure.microsoft.com/services/expressroute/). Als u kiest voor ExpressRoute, kunt u ook de gegevens op het niveau van de toepassing met behulp van coderen [SSL/TLS](https://support.microsoft.com/kb/257591) of andere protocollen voor extra beveiliging.
-
-Als u met Azure Storage via de Azure-Portal communiceert, worden alle transacties plaatsvinden via HTTPS. [REST API voor Storage](https://msdn.microsoft.com/library/azure/dd179355.aspx) via HTTPS kan ook worden gebruikt om te communiceren met [Azure Storage](https://azure.microsoft.com/services/storage/) en [Azure SQL Database](https://azure.microsoft.com/services/sql-database/).
-
-Organisaties die niet voldoen aan het beveiligen van gegevens die onderweg zijn vatbaar voor [man-in-the-middle-aanvallen](https://technet.microsoft.com/library/gg195821.aspx), [afgeluisterd](https://technet.microsoft.com/library/gg195641.aspx) en sessiehijacking. Deze aanvallen kunnen worden de eerste stap bij het toegang krijgen tot vertrouwelijke gegevens.
-
-U kunt meer informatie over Azure VPN-optie lezen van het artikel [Planning en ontwerp voor VPN-Gateway](../vpn-gateway/vpn-gateway-plan-design.md).
-
-## <a name="enforce-file-level-data-encryption"></a>Bestand niveau gegevensversleuteling afdwingen
-
-Een andere beschermingslaag die het niveau van beveiliging voor uw gegevens kunt verhogen met het versleutelen van het bestand zelf, ongeacht de locatie van het bestand.
-
-[Azure RMS](https://technet.microsoft.com/library/jj585026.aspx) maakt gebruik van beleidsregels voor versleuteling, identiteit en verificatie om te helpen uw bestanden en e-mail te beveiligen. Azure RMS werkt op meerdere apparaten, telefoons, tablets en pc's voor beveiliging binnen uw organisatie en buiten uw organisatie. Deze mogelijkheid is mogelijk omdat Azure RMS wordt toegevoegd een beveiligingsniveau dat aan de gegevens gekoppeld blijft, zelfs wanneer deze de fysieke grenzen van uw organisatie.
-
-Wanneer u Azure RMS gebruikt om uw bestanden te beveiligen, gebruikt u industriestandaard cryptografie met volledige ondersteuning van [FIPS 140-2](http://csrc.nist.gov/groups/STM/cmvp/standards.html). Wanneer u Azure RMS-gegevensbeveiliging gebruikmaken, hebt u de zekerheid dat de beveiliging blijft van toepassing op het bestand, zelfs als deze wordt gekopieerd naar opslag die niet onder het beheer van IT, zoals een cloudopslagservice. Dezelfde vindt plaats voor bestanden die worden gedeeld via e-mail, het bestand is beveiligd als bijlage aan een e-mailbericht met instructies voor het openen van de beveiligde bijlage.
-
-Bij het plannen van de overstap op Azure RMS raden we het volgende:
-
-* Installeer de [app RMS sharing](https://technet.microsoft.com/library/dn339006.aspx). Deze app kan worden geïntegreerd met Office-toepassingen door installatie van een Office-invoegtoepassing zodat gebruikers kunnen bestanden eenvoudig rechtstreeks beveiligen.
-* Configureer toepassingen en services voor ondersteuning van Azure RMS
-* Maak [aangepaste sjablonen](https://technet.microsoft.com/library/dn642472.aspx) die overeenstemming met uw zakelijke vereisten. Bijvoorbeeld: een sjabloon voor bovenste geheime gegevens die moet worden toegepast op alle bovenste geheim gerelateerde e-mailberichten.
-
-Organisaties die zich op zwakke [gegevensclassificatie](http://download.microsoft.com/download/0/A/3/0A3BE969-85C5-4DD2-83B6-366AA71D1FE3/Data-Classification-for-Cloud-Readiness.pdf) en bestandsbeveiliging vatbaar voor lekken van gegevens. Zonder de juiste bestandsbeveiliging niet organisaties kunnen zakelijke inzichten te verkrijgen, op misbruik kunt controleren en te voorkomen dat schadelijke toegang tot bestanden.
-
-U meer informatie over Azure RMS door te lezen van het artikel [aan de slag met Azure Rights Management](https://technet.microsoft.com/library/jj585016.aspx).
+De volgende resources zijn beschikbaar, voor meer algemene informatie over Azure-beveiliging en gerelateerde Microsoft-services:
+* [Azure-Team Beveiligingsblog](https://blogs.msdn.microsoft.com/azuresecurity/) - voor up-to-date informatie over het laatste nieuws over Azure-beveiliging
+* [Microsoft Security Response Center](https://technet.microsoft.com/library/dn440717.aspx) - hier Microsoft beveiligingsproblemen, met inbegrip van problemen met Azure, kunnen u ook via e-mail secure@microsoft.com

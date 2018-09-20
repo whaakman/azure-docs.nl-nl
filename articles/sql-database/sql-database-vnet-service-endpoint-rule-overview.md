@@ -8,15 +8,15 @@ author: DhruvMsft
 manager: craigg
 ms.custom: VNet Service endpoints
 ms.topic: conceptual
-ms.date: 08/28/2018
+ms.date: 09/18/2018
 ms.reviewer: vanto
 ms.author: dmalik
-ms.openlocfilehash: e1c05b56a1a7cc57b4d85d696df324438d916f11
-ms.sourcegitcommit: c29d7ef9065f960c3079660b139dd6a8348576ce
+ms.openlocfilehash: 51a9c1e2528833f0931e0bff30a9ec8a78eb99e0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/12/2018
-ms.locfileid: "44720717"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367335"
 ---
 # <a name="use-virtual-network-service-endpoints-and-rules-for-azure-sql-database-and-sql-data-warehouse"></a>Gebruik Virtual Network-service-eindpunten en regels voor Azure SQL Database en SQL Data Warehouse
 
@@ -125,7 +125,7 @@ U hebt de mogelijkheid van het gebruik van [op rollen gebaseerd toegangsbeheer (
 
 De functie van de regels voor virtueel netwerk heeft voor Azure SQL Database, de volgende beperkingen:
 
-- Een Web-App kunnen worden toegewezen aan een privé IP-adres in een VNet/subnet. Zelfs als de service-eindpunten van het opgegeven VNet/subnet zijn ingeschakeld, worden verbindingen van de Web-App naar de server een Azure openbare IP-bron niet de bron van een VNet/subnet hebben. Als u wilt verbinding hebben met een Web-App naar een server met VNet-firewallregels inschakelen, moet u **alle Azure-services toestaan** op de server.
+- Een Web-App kunnen worden toegewezen aan een privé IP-adres in een VNet/subnet. Zelfs als de service-eindpunten van het opgegeven VNet/subnet zijn ingeschakeld, worden verbindingen van de Web-App naar de server een Azure openbare IP-bron niet de bron van een VNet/subnet hebben. Als u wilt verbinding hebben met een Web-App naar een server met VNet-firewallregels inschakelen, moet u **kunnen Azure-services tot server** op de server.
 
 - In de firewall voor uw SQL-Database, is elke regel van het virtuele netwerk verwijst naar een subnet. Alle deze subnetten waarnaar wordt verwezen, moeten worden gehost in dezelfde geografische regio die als host fungeert voor de SQL-Database.
 
@@ -157,23 +157,23 @@ FYI: Re ARM, 'Azure Service Management (ASM)' was the old name of 'classic deplo
 When searching for blogs about ASM, you probably need to use this old and now-forbidden name.
 -->
 
-## <a name="impact-of-removing-allow-all-azure-services"></a>Gevolgen van het verwijderen van 'Alle Azure-Services toestaan'
+## <a name="impact-of-removing-allow-azure-services-to-access-server"></a>Gevolgen van het toestaan van Azure-services voor toegang tot server verwijderen
 
-Veel gebruikers wilt verwijderen **alle Azure-Services toestaan** van hun Azure SQL-Servers en vervang deze door een VNet-firewallregel.
+Veel gebruikers wilt verwijderen **kunnen Azure-services tot server** van hun Azure SQL-Servers en vervang deze door een VNet-firewallregel.
 Echter verwijderen van dit van invloed op de volgende Azure-SQLDB-functies:
 
 #### <a name="import-export-service"></a>Import Export-Service
-Azure SQLDB Import Export-Service wordt uitgevoerd op virtuele machines in Azure. Deze VM's zijn niet in uw VNet en daarom een Azure-IP-adres ophalen bij het verbinden met uw database. Over het verwijderen van **alle Azure-Services toestaan** deze VM's niet mogelijk toegang tot uw databases.
+Azure SQLDB Import Export-Service wordt uitgevoerd op virtuele machines in Azure. Deze VM's zijn niet in uw VNet en daarom een Azure-IP-adres ophalen bij het verbinden met uw database. Over het verwijderen van **kunnen Azure-services tot server** deze VM's niet mogelijk toegang tot uw databases.
 U kunt het probleem omzeilen. Uitvoeren van het BACPAC-importeren of exporteren rechtstreeks in uw code met behulp van de DACFx-API. Zorg ervoor dat deze is geïmplementeerd in een virtuele machine die zich in de VNet-subnet waarvoor u de firewallregel hebt ingesteld.
 
 #### <a name="sql-database-query-editor"></a>SQL Database Query-Editor
-De Azure SQL Database Query-Editor wordt geïmplementeerd op virtuele machines in Azure. Deze VM's zijn niet in uw VNet. Daarom wordt bij de virtuele machines een Azure IP-adres ophalen bij het verbinden met uw database. Over het verwijderen van **alle Azure-Services toestaan**, deze VM's niet mogelijk toegang tot uw databases.
+De Azure SQL Database Query-Editor wordt geïmplementeerd op virtuele machines in Azure. Deze VM's zijn niet in uw VNet. Daarom wordt bij de virtuele machines een Azure IP-adres ophalen bij het verbinden met uw database. Over het verwijderen van **kunnen Azure-services tot server**, deze VM's niet mogelijk toegang tot uw databases.
 
 #### <a name="table-auditing"></a>Tabel controleren
 Op dit moment zijn er twee manieren om te controleren voor uw SQL-Database inschakelen. Tabelcontrole niet lukt nadat u service-eindpunten op uw Azure SQL-Server hebt ingeschakeld. Risicobeperking hier is om te verplaatsen naar de controlefunctie voor blobs.
 
 #### <a name="impact-on-data-sync"></a>Gevolgen voor gegevenssynchronisatie
-Azure SQLDB heeft de gegevenssynchronisatie-functie die verbinding maakt met uw databases met behulp van Azure-IP-adressen. Wanneer u service-eindpunten gebruikt, is het waarschijnlijk dat u wordt uitgeschakeld **alle Azure-Services toestaan** toegang tot uw logische server. Hierdoor wordt de functie Data Sync.
+Azure SQLDB heeft de gegevenssynchronisatie-functie die verbinding maakt met uw databases met behulp van Azure-IP-adressen. Wanneer u service-eindpunten gebruikt, is het waarschijnlijk dat u wordt uitgeschakeld **kunnen Azure-services tot server** toegang tot uw logische server. Hierdoor wordt de functie Data Sync.
 
 ## <a name="impact-of-using-vnet-service-endpoints-with-azure-storage"></a>Gevolgen van het gebruik van VNet-Service-eindpunten met Azure storage
 

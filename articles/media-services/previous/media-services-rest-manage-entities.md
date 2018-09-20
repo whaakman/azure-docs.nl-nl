@@ -1,8 +1,8 @@
 ---
-title: Het beheren van Media Services-entiteiten met REST | Microsoft Docs
+title: Beheren van Media Services-entiteiten met REST | Microsoft Docs
 description: Informatie over het beheren van Media Services-entiteiten met REST-API.
 author: juliako
-manager: cfowler
+manager: femila
 editor: ''
 services: media-services
 documentationcenter: ''
@@ -12,41 +12,41 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/10/2017
+ms.date: 08/19/2017
 ms.author: juliako
-ms.openlocfilehash: 0fa7b080f360ab5f4fc50e146620f395fd57ee7a
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: e5c035c4bcf449ecf20a9dfb072ce3ab480110a9
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33790256"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364326"
 ---
-# <a name="managing-media-services-entities-with-rest"></a>Media Services-entiteiten met REST beheren 
+# <a name="managing-media-services-entities-with-rest"></a>Beheren van Media Services-entiteiten met REST 
 > [!div class="op_single_selector"]
 > * [REST](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)
 > 
 > 
 
-Microsoft Azure Media Services is een REST gebaseerde service gebouwd op OData v3. U kunt toevoegen, query, bijwerken en delete entiteiten op ongeveer dezelfde manier kunt u op een willekeurige andere OData-service. Uitzonderingen moeten worden aangeroepen om, indien van toepassing. Zie voor meer informatie over OData [Open Data Protocol documentatie](http://www.odata.org/documentation/).
+Microsoft Azure Media Services is een op REST gebaseerde service die is gebouwd op OData v3. U kunt toevoegen, query, bijwerken en verwijderen entiteiten in veel dezelfde manier kunt u op een andere OData-service. Uitzonderingen genoemd indien van toepassing. Zie voor meer informatie over OData [Open Data Protocol documentatie](http://www.odata.org/documentation/).
 
-Dit onderwerp leest u hoe u voor het beheren van Azure Media Services-entiteiten met REST.
+Dit onderwerp ziet u hoe u Azure Media Services entiteiten beheren met REST.
 
 >[!NOTE]
-> Vanaf 1 april 2017 wordt elke taakrecord in uw account die ouder is dan 90 dagen, automatisch verwijderd, samen met de bijbehorende onderliggende taakrecords, zelfs als het totale aantal records lager is dan het maximale quotum. Bijvoorbeeld: op 1 April 2017 elke record taak in uw account die ouder zijn dan 31 December 2016, worden automatisch verwijderd. Als u nodig hebt bij de archivering van gegevens van de taak/taak, kunt u de code in dit onderwerp beschreven.
+> Vanaf 1 april 2017 wordt elke taakrecord in uw account die ouder is dan 90 dagen, automatisch verwijderd, samen met de bijbehorende onderliggende taakrecords, zelfs als het totale aantal records lager is dan het maximale quotum. Bijvoorbeeld op 1 April 2017 wordt worden elke taakrecord in uw account die ouder zijn dan 31 December 2016, automatisch verwijderd. Als u nodig hebt voor het archiveren van de taak gegevens, kunt u de code die in dit onderwerp beschreven.
 
 ## <a name="considerations"></a>Overwegingen  
 
-Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie [Setup voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md).
+Bij het openen van entiteiten in Media Services, moet u specifieke header-velden en waarden instellen in uw HTTP-aanvragen. Zie voor meer informatie, [instellen voor het ontwikkelen van Media Services REST API](media-services-rest-how-to-use.md).
 
 ## <a name="connect-to-media-services"></a>Verbinding met Media Services maken
 
-Zie voor meer informatie over de verbinding maken met de AMS API [toegang tot de API van Azure Media Services met Azure AD authentication](media-services-use-aad-auth-to-access-ams-api.md). 
+Zie voor meer informatie over het verbinding maken met de AMS-API [toegang tot de API van Azure Media Services met Azure AD-verificatie](media-services-use-aad-auth-to-access-ams-api.md). 
 
-## <a name="adding-entities"></a>Toevoegen van entiteiten
-Elke entiteit in Media Services wordt toegevoegd aan een entiteit ingesteld, zoals activa, via een HTTP POST-aanvraag.
+## <a name="adding-entities"></a>Entiteiten toevoegen
+Elke entiteit in Media Services wordt toegevoegd aan een entiteitsset, zoals activa, via een HTTP POST-aanvraag.
 
-Het volgende voorbeeld laat zien hoe een AccessPolicy maken.
+Het volgende voorbeeld ziet hoe u een AccessPolicy maakt.
 
     POST https://media.windows.net/API/AccessPolicies HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -61,9 +61,9 @@ Het volgende voorbeeld laat zien hoe een AccessPolicy maken.
 
     {"Name": "DownloadPolicy", "DurationInMinutes" : "300", "Permissions" : 1}
 
-## <a name="querying-entities"></a>Opvragen van entiteiten
-Uitvoeren van query's en entiteiten aanbieding is eenvoudig en alleen omvat een ophalen van HTTP-aanvraag en optionele OData-bewerkingen.
-Het volgende voorbeeld wordt een lijst met alle MediaProcessor entiteiten opgehaald.
+## <a name="querying-entities"></a>Een query uitvoeren op entiteiten
+Query's en diensten aanbieden is eenvoudig en alleen bestaat uit een GET HTTP-aanvraag en optionele OData-bewerkingen.
+Het volgende voorbeeld wordt een lijst met alle MediaProcessor entiteiten.
 
     GET https://media.windows.net/API/MediaProcessors HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -74,7 +74,7 @@ Het volgende voorbeeld wordt een lijst met alle MediaProcessor entiteiten opgeha
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
-U kunt ook een specifieke entiteit of alle entiteitsets die is gekoppeld aan een specifieke entiteit, zoals in de volgende voorbeelden ophalen:
+U kunt ook een bepaalde entiteit of alle entiteitsets die zijn gekoppeld aan een bepaalde entiteit, zoals in de volgende voorbeelden ophalen:
 
     GET https://media.windows.net/API/JobTemplates('nb:jtid:UUID:e81192f5-576f-b247-b781-70a790c20e7c') HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -105,7 +105,7 @@ Het volgende voorbeeld retourneert alleen de eigenschap State van alle taken.
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
-Het volgende voorbeeld worden alle JobTemplates met de naam 'SampleTemplate'.
+Het volgende voorbeeld retourneert alle JobTemplates met de naam "SampleTemplate."
 
     GET https://media.windows.net/API/JobTemplates?$filter=startswith(Name,%20'SampleTemplate') HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -117,14 +117,14 @@ Het volgende voorbeeld worden alle JobTemplates met de naam 'SampleTemplate'.
     Host: media.windows.net
 
 > [!NOTE]
-> De $expand-bewerking wordt niet ondersteund in Media Services, evenals de niet-ondersteunde LINQ methoden van LINQ overwegingen (WCF Data Services).
+> De $expand bewerking wordt niet ondersteund in Media Services, evenals de niet-ondersteunde LINQ-methoden die worden beschreven in het LINQ-overwegingen (WCF Data Services).
 > 
 > 
 
-## <a name="enumerating-through-large-collections-of-entities"></a>Door grote verzamelingen van entiteiten opsommen
-Tijdens het opvragen van entiteiten, is er een limiet van 1000 entiteiten in één keer wordt geretourneerd omdat openbare REST v2 queryresultaten tot 1000 resultaten beperkt. Gebruik **overslaan** en **boven** opsommen via de grote verzameling entiteiten. 
+## <a name="enumerating-through-large-collections-of-entities"></a>Tot en met grote verzamelingen entiteiten opsommen
+Bij het opvragen van entiteiten, is er een limiet van 1000 entiteiten in één keer wordt geretourneerd omdat openbare REST v2 queryresultaten tot 1000 resultaten beperkt. Gebruik **overslaan** en **boven** om te inventariseren door het grote aantal entiteiten. 
 
-Het volgende voorbeeld ziet u hoe u **overslaan** en **boven** overslaan van de eerste 2000 taken en ophalen van de volgende 1000 taken.  
+Het volgende voorbeeld ziet u hoe u **overslaan** en **boven** overslaan van de eerste 2000 taken en de volgende 1000 taken ophalen.  
 
     GET https://media.windows.net/api/Jobs()?$skip=2000&$top=1000 HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -132,13 +132,13 @@ Het volgende voorbeeld ziet u hoe u **overslaan** en **boven** overslaan van de 
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337078831&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=suFkxhvPWxQVMjOYelOJfYEWkyTWJCBc02pF0N7NghI%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: media.windows.net
 
 ## <a name="updating-entities"></a>Entiteiten bijwerken
-Afhankelijk van het entiteitstype en de status van deze, kunt u eigenschappen op die entiteit via een PATCH bijwerken plaatsen of samenvoegen HTTP-aanvragen. Zie voor meer informatie over deze bewerkingen [PATCH/PUT/MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
+Afhankelijk van het entiteitstype en de status die deel uitmaakt, kunt u eigenschappen van die entiteit via een PATCH bijwerken PUT- of samenvoegen HTTP-aanvragen. Zie voor meer informatie over deze bewerkingen, [PATCH/PUT/MERGE](https://msdn.microsoft.com/library/dd541276.aspx).
 
-Het volgende voorbeeld laat zien hoe de eigenschap Name in een entiteit Asset bijwerken.
+Het volgende codevoorbeeld toont het bijwerken van de eigenschap Name op een entiteit Asset.
 
     MERGE https://media.windows.net/API/Assets('nb:cid:UUID:80782407-3f87-4e60-a43e-5e4454232f60') HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -146,7 +146,7 @@ Het volgende voorbeeld laat zien hoe de eigenschap Name in een entiteit Asset bi
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337083279&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=DMLQXWah4jO0icpfwyws5k%2b1aCDfz9KDGIGao20xk6g%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: media.windows.net
     Content-Length: 21
     Expect: 100-continue
@@ -154,9 +154,9 @@ Het volgende voorbeeld laat zien hoe de eigenschap Name in een entiteit Asset bi
     {"Name" : "NewName" }
 
 ## <a name="deleting-entities"></a>Entiteiten verwijderen
-Entiteiten kunnen worden verwijderd in een Media Services met behulp van een verwijderd HTTP-aanvraag. Afhankelijk van de entiteit zijn de volgorde waarin u entiteiten verwijderen belangrijk. Bijvoorbeeld: entiteiten zoals activa vereisen dat u intrekken (of verwijderen) alle Locators die verwijzen naar dat bepaalde actief voordat u verwijdert de Asset.
+Entiteiten kunnen worden verwijderd in Media Services met behulp van een verwijderen HTTP-aanvraag. Afhankelijk van de entiteit zijn de volgorde waarin u entiteiten verwijderen belangrijk. Bijvoorbeeld: entiteiten zoals activa vereisen dat u intrekken (of verwijderen) alle Locators die verwijzen naar die bepaalde Asset voordat u verwijdert de Asset.
 
-Het volgende voorbeeld laat zien hoe een Locator die is gebruikt voor het uploaden van een bestand naar de blobopslag verwijderen.
+Het volgende voorbeeld ziet hoe u een Locator die is gebruikt voor het uploaden van een bestand naar blobopslag te verwijderen.
 
     DELETE https://media.windows.net/API/Locators('nb:lid:UUID:76dcc8e8-4230-463d-97b0-ce25c41b5c8d') HTTP/1.1
     Content-Type: application/json;odata=verbose
@@ -164,7 +164,7 @@ Het volgende voorbeeld laat zien hoe een Locator die is gebruikt voor het upload
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     x-ms-version: 2.17
-    Authorization: Bearer http%3a%2f%2fschemas.xmlsoap.org%2fws%2f2005%2f05%2fidentity%2fclaims%2fnameidentifier=youraccountname&urn%3aSubscriptionId=2f84471d-b1ae-4e75-aa09-010f0fc0cf5b&http%3a%2f%2fschemas.microsoft.com%2faccesscontrolservice%2f2010%2f07%2fclaims%2fidentityprovider=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&Audience=urn%3aWindowsAzureMediaServices&ExpiresOn=1337067658&Issuer=https%3a%2f%2fwamsprodglobal001acs.accesscontrol.windows.net%2f&HMACSHA256=dithjGvlXR9HlyAf5DE99N5OCYkPAxsHIcsTSjm9%2fVE%3d
+    Authorization: Bearer <ENCODED JWT TOKEN>
     Host: media.windows.net
     Content-Length: 0
 

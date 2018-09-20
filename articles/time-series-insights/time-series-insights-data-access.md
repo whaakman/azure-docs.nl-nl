@@ -10,12 +10,12 @@ ms.reviewer: v-mamcge, jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/15/2017
-ms.openlocfilehash: 97c9480d6f2b75d83252bfb6410d7b5f946757ef
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 7cb5dc5b170103f98d56abc920f36dd85f855961
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39630650"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364808"
 ---
 # <a name="grant-data-access-to-a-time-series-insights-environment-using-azure-portal"></a>Gegevenstoegang verlenen tot een Time Series Insights-omgeving met Azure Portal
 
@@ -34,39 +34,10 @@ Beleid voor gegevenstoegang verleent machtigingen voor het uitvoeren van gegeven
 
 De twee typen beleid maken een duidelijke scheiding mogelijk tussen toegang tot het beheer van de omgeving en toegang tot de gegevens in de omgeving. Het is bijvoorbeeld mogelijk het instellen van een omgeving zodanig dat de eigenaar/maker van de omgeving is verwijderd uit de toegang tot gegevens. Bovendien gebruikers en services die zijn toegestaan voor het lezen van gegevens van de omgeving mogelijk geen toegang worden verleend aan de configuratie van de omgeving.
 
-## <a name="grant-data-access"></a>Gegevenstoegang verlenen
-Volg deze stappen voor het verlenen van toegang tot gegevens voor een gebruiker-principal:
-
-1. Meld u aan bij [Azure Portal](https://portal.azure.com).
-
-2. Ga naar uw Time Series Insights-omgeving. Type **Time Series** in de **zoeken** vak. Selecteer **Time Series-omgeving** in de lijst met zoekresultaten. 
-
-3. Selecteer uw Time Series Insights-omgeving in de lijst.
-   
-4. Selecteer **beleid voor gegevenstoegang**en selecteer vervolgens **+ toevoegen**.
-  ![Beheren van de Time Series Insights-bron - omgeving](media/data-access/getstarted-grant-data-access1.png)
-
-5. Selecteer **gebruiker selecteren**.  Zoeken naar de gebruiker de naam of e-mailadres om te vinden van de gebruiker die u wilt toevoegen. Klik op **Selecteer** de selectie te bevestigen. 
-
-   ![Beheren van de Time Series Insights-bron - toevoegen](media/data-access/getstarted-grant-data-access2.png)
-
-6. Selecteer **rol selecteren**. Kies de juiste rol voor de gebruiker:
-   - Selecteer **Inzender** als u wilt toestaan dat gebruiker referentiegegevens en delen die zijn opgeslagen query's en perspectieven met andere gebruikers van de omgeving wijzigen. 
-   - Selecteer anders **lezer** querygegevens van gebruikers toestaan in de omgeving en persoonlijke (niet-gedeelde) query's opslaan in de omgeving.
-
-   Selecteer **Ok** de keuze van de rol te bevestigen.
-
-   ![Beheren van de Time Series Insights-bron - gebruiker selecteren](media/data-access/getstarted-grant-data-access3.png)
-
-8. Selecteer **Ok** in de **gebruikersrol selecteren** pagina.
-
-   ![Beheren van de Time Series Insights-bron - rol selecteren](media/data-access/getstarted-grant-data-access4.png)
-
-9. De **beleid voor gegevenstoegang** pagina vindt u de gebruikers en de rollen zijn voor elke gebruiker.
-
-   ![Beheren van de Time Series Insights-bron - resultaten](media/data-access/getstarted-grant-data-access5.png)
+[!INCLUDE [iot-tsi-data-access](../../includes/iot-tsi-data-access.md)]
 
 ## <a name="next-steps"></a>Volgende stappen
+
 * Informatie over [een Event Hub-gebeurtenisbron toevoegen aan uw Azure Time Series Insights-omgeving](time-series-insights-how-to-add-an-event-source-eventhub.md).
 * [Gebeurtenissen verzenden](time-series-insights-send-events.md) naar de gebeurtenisbron.
 * Uw omgeving bekijken in [Verkenner van Time Series Insights](https://insights.timeseries.azure.com).

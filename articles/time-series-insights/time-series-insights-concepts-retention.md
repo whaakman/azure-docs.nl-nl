@@ -10,15 +10,22 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/09/2018
-ms.openlocfilehash: 204a9d64d14fe190cb0de73c964bb95b4b9b475f
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e265a66b841530d1133d760ebdcdf56046d1aee1
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628763"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364104"
 ---
 # <a name="understand-data-retention-in-time-series-insights"></a>Inzicht in Gegevensretentie in Time Series Insights
+
 Dit artikel beschrijft de twee instellingen die van invloed zijn op het bewaren van gegevens in uw omgeving Time Series Insights (TSI).
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-time-series-insights-data-retention-and-how-to-plan-for-itbr"></a>In deze video behandelen we bewaren van Time Series Insights-gegevens en het plannen voor deze.</br>
+
+> [!VIDEO https://www.youtube.com/embed/03x6zKDQ6DU]
 
 Elke TSI-omgeving heeft een instelling die regelt **gegevensretentietijd**. De waarde omvat van 1 tot 400 dagen. De gegevens worden verwijderd op basis van de omgeving capaciteit of bewaring opslagduur (1-400), afhankelijk van wat het eerste komt.
 

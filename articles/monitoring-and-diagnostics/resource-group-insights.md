@@ -9,15 +9,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.devlang: multiple
 ms.topic: conceptual
-ms.date: 08/29/2018
+ms.date: 09/19/2018
 ms.reviewer: mbullwin
 ms.author: daviste
-ms.openlocfilehash: 723006d37ed0570e32790a0bb70a3dce5a87ade8
-ms.sourcegitcommit: 0c64460a345c89a6b579b1d7e273435a5ab4157a
+ms.openlocfilehash: 7e0a68efc93d0f907edfb38dbc548ac95a35b3e1
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/31/2018
-ms.locfileid: "43345178"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465806"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Resourcegroepen bewaken met Azure Monitor (preview)
 
@@ -109,6 +109,11 @@ Prestaties biedt een eigen galerie van werkmappen. Voor App Service biedt de wer
 In dit geval, als u bewerken selecteert ziet u dat deze set visualisaties wordt aangestuurd door Azure Monitor metrische gegevens.
 
  ![Schermafbeelding van de Prestatieweergave met metrische gegevens over Azure](.\media\resource-group-insights\0012-performance-metrics.png)
+
+## <a name="troubleshooting"></a>Problemen oplossen
+
+### <a name="enabling-access-to-alerts"></a>Toegang tot waarschuwingen inschakelen
+Azure Monitor voor resourcegroepen moet bepaalde machtigingen voor toegang tot de status van de waarschuwing van de resources in uw resourcegroep. Als u een foutbericht weergegeven ziet bij het laden van waarschuwingen, hebt u voldoende machtigingen. Vraag uw beheerder om een machtiging de **eigenaar** of **Inzender** rol voor het abonnement met de resourcegroep.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -1,50 +1,59 @@
 ---
-title: Reageren op Azure Media Services-gebeurtenissen | Microsoft Docs
-description: Gebruik Azure gebeurtenis raster om u te abonneren op Media Services-gebeurtenissen.
+title: Reageren op gebeurtenissen voor Azure Media Services | Microsoft Docs
+description: Gebruik Azure Event Grid om u te abonneren op gebeurtenissen voor Media Services.
 services: media-services
 documentationcenter: ''
 author: Juliako
-manager: cfowler
+manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: article
-ms.date: 03/19/2018
+ms.date: 09/19/2018
 ms.author: juliako
-ms.openlocfilehash: 969957d53824bd70440e5529b83bc830bb5d9cc4
-ms.sourcegitcommit: e221d1a2e0fb245610a6dd886e7e74c362f06467
+ms.openlocfilehash: 143fec2ddb168b0fff0e419fa5767e9718637241
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 05/07/2018
-ms.locfileid: "33788149"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465534"
 ---
-# <a name="reacting-to-media-services-events"></a>Reageren op Media Services-gebeurtenissen
+# <a name="reacting-to-media-services-events"></a>Reageren op gebeurtenissen voor Media Services
 
-Media Services-gebeurtenissen kunnen toepassingen om te reageren op verschillende gebeurtenissen (bijvoorbeeld: de taak statuswijzigingsgebeurtenis) met behulp van moderne zonder server architecturen. Zonder de noodzaak van complexe code of goedkoper en inefficiënt polling-services. In plaats daarvan gebeurtenissen worden gepusht via [Azure gebeurtenis raster](https://azure.microsoft.com/services/event-grid/) naar gebeurtenis-handlers zoals [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), of deze zelfs uw eigen Webhook en u enige betalen voor wat u gebruikt. Zie voor meer informatie over prijzen [gebeurtenis raster prijzen](https://azure.microsoft.com/pricing/details/event-grid/).
+Media Services-gebeurtenissen kunnen toepassingen om te reageren op verschillende gebeurtenissen (bijvoorbeeld de taak statuswijzigingsgebeurtenis) met behulp van moderne architecturen zonder servers. Dit gebeurt zonder de noodzaak voor complexe code of kostbaar en inefficiënt polling-services. In plaats daarvan de gebeurtenissen worden gepusht via [Azure Event Grid](https://azure.microsoft.com/services/event-grid/) naar gebeurtenis-handlers zoals [Azure Functions](https://azure.microsoft.com/services/functions/), [Azure Logic Apps](https://azure.microsoft.com/services/logic-apps/), of zelfs naar uw eigen Webhook en u betaalt voor wat u gebruikt. Zie voor meer informatie over de prijzen [prijzen van Event Grid](https://azure.microsoft.com/pricing/details/event-grid/).
 
-Beschikbaarheid voor Media Services-gebeurtenissen is gekoppeld aan de gebeurtenis raster [beschikbaarheid](../../event-grid/overview.md) en zijn binnenkort beschikbaar in andere regio's zoals het raster gebeurtenis.  
+De beschikbaarheid van Media Services-gebeurtenissen is gekoppeld aan Event Grid [beschikbaarheid](../../event-grid/overview.md) en worden pas beschikbaar in andere regio's als Event Grid.  
 
 ## <a name="available-media-services-events"></a>Beschikbare Media Services-gebeurtenissen
 
-Gebruikt voor gebeurtenis raster [gebeurtenisabonnementen](../../event-grid/concepts.md#event-subscriptions) gebeurtenis om berichten te routeren naar abonnees.  Abonnementen voor Media Services-gebeurtenissen kunnen op dit moment is het volgende gebeurtenistype bevatten:  
+Maakt gebruik van Event grid [gebeurtenisabonnementen](../../event-grid/concepts.md#event-subscriptions) gebeurtenis om berichten te routeren voor abonnees.  Media Services-gebeurtenisabonnementen kunnen op dit moment de volgende gebeurtenissen omvatten:  
 
-|De naam van gebeurtenis|Beschrijving|
+|Naam van de gebeurtenis|Beschrijving|
 |----------|-----------|
-| Microsoft.Media.JobStateChange| Deze gebeurtenis treedt op wanneer de status van de wijzigingen van de taak. |
+| Microsoft.Media.JobStateChange| Treedt op wanneer een status van de wijzigingen van de taak. |
+| Microsoft.Media.LiveEventConnectionRejected | Codering van is verbinding geweigerd. |
+| Microsoft.Media.LiveEventEncoderConnected | Coderingsprogramma maakt verbinding met live-gebeurtenis. |
+| Microsoft.Media.LiveEventEncoderDisconnected | Coderingsprogramma wordt verbroken. |
+| Microsoft.Media.LiveEventIncomingDataChunkDropped | Gegevenssegment van Media-server wordt geweigerd omdat het te laat is of een tijdstempel in de overlappende (tijdstempel van nieuwe gegevenssegment is kleiner dan de eindtijd van het vorige gegevenssegment). |
+| Microsoft.Media.LiveEventIncomingStreamReceived | Media-server ontvangt de eerste gegevenssegment voor elk nummer in de stroom of de verbinding. |
+| Microsoft.Media.LiveEventIncomingStreamsOutOfSync | Media-server detecteert audio en video-streams, is niet gesynchroniseerd. Als een waarschuwing gebruiken, omdat de gebruikerservaring wordt mogelijk niet beïnvloed. |
+| Microsoft.Media.LiveEventIncomingVideoStreamsOutOfSync | Media-server detecteert dat een van de twee video stromen die afkomstig zijn van externe encoders zijn niet synchroon. Als een waarschuwing gebruiken, omdat de gebruikerservaring wordt mogelijk niet beïnvloed. |
+| Microsoft.Media.LiveEventIngestHeartbeat | Elke 20 seconden voor elk nummer gepubliceerd bij het uitvoeren van live-gebeurtenis. Biedt statussamenvatting opnemen. |
+| Microsoft.Media.LiveEventTrackDiscontinuityDetected | Media-server detecteert onderbreking in de binnenkomende bijhouden. |
 
-## <a name="event-schema"></a>Gebeurtenis-Schema
+## <a name="event-schema"></a>Gebeurtenisschema
 
-Media Services-gebeurtenissen bevatten alle informatie die u nodig hebt om te reageren op wijzigingen in uw gegevens.  Omdat de eigenschap eventType begint met 'Microsoft.Media.', kunt u een Media Services-gebeurtenis identificeren.
+Media Services-gebeurtenissen bevatten alle informatie die u nodig hebt om te reageren op wijzigingen in uw gegevens.  Omdat de eigenschap type gebeurtenis begint met "Microsoft.Media.", kunt u een Media Services-gebeurtenis identificeren.
 
-Zie voor meer informatie [Media Services-schema's voor gebeurtenis](media-services-event-schemas.md).
+Zie voor meer informatie, [Media Services-gebeurtenisschema](media-services-event-schemas.md).
 
-## <a name="practices-for-consuming-events"></a>Procedures voor het gebruiken van gebeurtenissen
+## <a name="practices-for-consuming-events"></a>Procedures voor het gebruik van gebeurtenissen
 
 Toepassingen die Media Services-gebeurtenissen verwerken moeten volgen enkele aanbevolen procedures:
 
-* Als u meerdere abonnementen kunnen worden geconfigureerd op route-gebeurtenissen naar de dezelfde gebeurtenis-handler, is het belangrijk niet te mogen nemen gebeurtenissen zijn van een bepaalde bron, maar om te controleren van het onderwerp van het bericht om ervoor te zorgen dat ze afkomstig zijn van het opslagaccount dat u verwacht.
-* Op dezelfde manier, Controleer of de eventType één u klaarstaan om te verwerken en niet vanuit gegaan voor dat alle gebeurtenissen die u ontvangt zal de typen die u verwacht.
-* Velden die u niet begrijpt negeren.  Deze oefening kunt zorgen ervoor dat u robuuste op nieuwe functies die in de toekomst kunnen worden toegevoegd.
+* Als u meerdere abonnementen kunnen worden geconfigureerd om gebeurtenissen routeren naar de dezelfde gebeurtenis-handler, is het belangrijk niet wordt ervan uitgegaan dat gebeurtenissen worden van een specifieke bron, maar om te controleren of het onderwerp van het bericht om ervoor te zorgen dat het afkomstig is van het opslagaccount dat u verwacht.
+* Op dezelfde manier, Controleer of het type gebeurtenis een u bent voorbereid om te verwerken en kan niet vanuit gegaan is dat alle gebeurtenissen die u ontvangt zal de typen die u verwacht.
+* Velden die u niet machtig bent negeren.  Met deze procedure krijgt u flexibele houden bij de nieuwe functies die in de toekomst kunnen worden toegevoegd.
 * De overeenkomsten van voorvoegsel en het achtervoegsel 'onderwerp' gebruiken om te beperken van gebeurtenissen naar een bepaalde gebeurtenis.
 
 ## <a name="next-steps"></a>Volgende stappen

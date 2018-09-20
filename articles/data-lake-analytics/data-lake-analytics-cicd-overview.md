@@ -10,12 +10,12 @@ ms.service: data-lake-analytics
 ms.topic: conceptual
 ms.workload: big-data
 ms.date: 09/14/2018
-ms.openlocfilehash: a0fd7ff86fe7502ddc54e2533c5f79950b5f8082
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: 740549e1ed1447781707c5e4b9fdc6961075d017
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45731135"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364785"
 ---
 # <a name="how-to-set-up-a-cicd-pipeline-for-azure-data-lake-analytics"></a>Een CI/CD-pijplijn instellen voor Azure Data Lake Analytics  
 
@@ -84,9 +84,9 @@ De definitie van de argumenten en waarden zijn als volgt:
 * **DataRoot =<DataRoot path>**. DataRoot is alleen nodig voor SyntaxCheck modus. Wanneer deze SyntaxCheck modus voor het script wordt gemaakt, controleert MSBuild de verwijzingen naar objecten in de database in het script. Voordat u gebouw, instellen van een overeenkomende lokale omgeving waarin de waarnaar wordt verwezen, objecten uit de U-SQL-database in de map DataRoot van de build-machine. U kunt ook de databaseafhankelijkheden door beheren [verwijst naar een U-SQL-database-project](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project). MSBuild alleen verwijzingen in de database-object, bestanden niet gecontroleerd.
 * **EnableDeployment = true** of **false**. EnableDeployment wordt aangegeven als het is toegestaan om te distribueren waarnaar wordt verwezen, U-SQL-databases tijdens het bouwproces. Als u verwijst naar een project U-SQL-database en de database-objecten in uw U-SQL-script gebruiken, stel deze parameter in op **waar**.
 
-### <a name="continuous-integration-with-azure-devops-pipelines"></a>Continue integratie met Azure DevOps-pijplijnen
+### <a name="continuous-integration-through-azure-pipelines"></a>Continue integratie met Azure-pijplijnen
 
-Naast de opdrachtregel, kunt u de Visual Studio-Build of een taak MSBuild ook gebruiken voor het bouwen van U-SQL-projecten in de service Azure DevOps-pijplijnen (pijplijnen). Als u een build-pijplijn instelt, zorg ervoor dat u twee taken toevoegen in de build-pijplijn: de taak van een NuGet herstellen en een MSBuild-taak.
+Naast de opdrachtregel, kunt u ook de Visual Studio-Build of een taak MSBuild U-SQL-projecten in Azure pijplijnen bouwen gebruiken. Als u een build-pijplijn instelt, zorg ervoor dat u twee taken toevoegen in de build-pijplijn: de taak van een NuGet herstellen en een MSBuild-taak.
 
 ![MSBuild-taak voor een U-SQL-project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
@@ -94,7 +94,7 @@ Naast de opdrachtregel, kunt u de Visual Studio-Build of een taak MSBuild ook ge
 
     ![NuGet terugzetten taak voor een U-SQL-project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.  MSBuild-argumenten in hulpprogramma's voor het bouwen van Visual Studio of in een taak MSBuild ingesteld zoals wordt weergegeven in het volgende voorbeeld. Of u de variabelen voor deze argumenten in de pijplijnen build-pijplijn kunt definiëren.
+2.  MSBuild-argumenten in hulpprogramma's voor het bouwen van Visual Studio of in een taak MSBuild ingesteld zoals wordt weergegeven in het volgende voorbeeld. Of u de variabelen voor deze argumenten in de Azure-pijplijnen build-pijplijn kunt definiëren.
 
     ![CI/CD MSBuild-variabelen voor een U-SQL project definiëren](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables.png) 
 
@@ -115,15 +115,15 @@ Nadat u een build uitvoert, alle scripts in de U-SQL project zijn gebouwd en uit
 
 Azure Data Lake biedt en Testprojecten voor U-SQL-scripts en C# UDO/UDAG/UDF:
 * Meer informatie over het [testcases voor U-SQL-scripts en uitgebreide C#-code toevoegen](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
-* Meer informatie over het [testcases uitvoeren in Azure DevOps](data-lake-analytics-cicd-test.md#run-test-cases-in-azure-devops).
+* Meer informatie over het [testcases uitvoeren in Azure pijplijnen](data-lake-analytics-cicd-test.md#run-test-cases-in-azure-devops).
 
 ## <a name="deploy-a-u-sql-job"></a>Implementaties van een U-SQL-taak
 
-Nadat u code bij het bouwen en testen verifieert, kunt u U-SQL-taken rechtstreeks vanuit Azure DevOps via een Azure PowerShell-taken kunt indienen. U kunt het script ook implementeren op Azure Data Lake Store of Azure Blob storage en [de geplande taken worden uitgevoerd via Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+Nadat u code bij het bouwen en testen verifieert, kunt u U-SQL-taken rechtstreeks vanuit Azure pijplijnen via een Azure PowerShell-taken kunt indienen. U kunt het script ook implementeren op Azure Data Lake Store of Azure Blob storage en [de geplande taken worden uitgevoerd via Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
 
-### <a name="submit-u-sql-jobs-through-azure-devops-pipelines"></a>Verzenden van U-SQL-taken via Azure DevOps-pijplijnen
+### <a name="submit-u-sql-jobs-through-azure-pipelines"></a>U-SQL-taken via Azure pijplijnen verzenden
 
-De build-uitvoer van het project U-SQL is een zip-bestand met de naam **USQLProjectName.usqlpack**. Het zip-bestand bevat alle U-SQL-scripts in het project. U kunt de [Azure PowerShell-taak](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in pijplijnen met de volgende PowerShell-voorbeeldscript voor het verzenden van U-SQL-taken rechtstreeks vanuit de service Azure DevOps-pijplijnen.
+De build-uitvoer van het project U-SQL is een zip-bestand met de naam **USQLProjectName.usqlpack**. Het zip-bestand bevat alle U-SQL-scripts in het project. U kunt de [Azure PowerShell-taak](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in pijplijnen met de volgende PowerShell-voorbeeldscript voor het verzenden van U-SQL-taken rechtstreeks vanuit Azure pijplijnen.
 
 ```powershell
 <#
@@ -230,9 +230,9 @@ Main
 
 ### <a name="deploy-u-sql-jobs-through-azure-data-factory"></a>U-SQL-taken via Azure Data Factory implementeren
 
-U kunt U-SQL-taken rechtstreeks vanuit de service Azure DevOps pijplijnen indienen. Of u kunt de ingebouwde scripts uploaden naar Azure Data Lake Store of Azure Blob-opslag en [de geplande taken worden uitgevoerd via Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
+U kunt U-SQL-taken rechtstreeks vanuit Azure pijplijnen indienen. Of u kunt de ingebouwde scripts uploaden naar Azure Data Lake Store of Azure Blob-opslag en [de geplande taken worden uitgevoerd via Azure Data Factory](https://docs.microsoft.com/azure/data-factory/transform-data-using-data-lake-analytics).
 
-Gebruik de [Azure PowerShell-taak](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Azure DevOps met de volgende PowerShell-voorbeeldscript de U-SQL-scripts uploaden naar een Azure Data Lake Store-account:
+Gebruik de [Azure PowerShell-taak](https://docs.microsoft.com/azure/devops/pipelines/tasks/deploy/azure-powershell?view=vsts) in Azure-pijplijnen met de volgende PowerShell-voorbeeldscript de U-SQL-scripts uploaden naar een Azure Data Lake Store-account:
 
 ```powershell
 <#
@@ -319,9 +319,9 @@ msbuild DatabaseProject.usqldbproj /p:USQLSDKPath=packages\Microsoft.Azure.DataL
 
 Het argument `USQLSDKPath=<U-SQL Nuget package>\build\runtime` verwijst naar het installatiepad van het NuGet-pakket voor de U-SQL-taalservice.
 
-### <a name="continuous-integration-with-the-azure-devops-pipelines-service"></a>Continue integratie met de service Azure DevOps-pijplijnen
+### <a name="continuous-integration-with-azure-pipelines"></a>Continue integratie met Azure-pijplijnen
 
-Naast de opdrachtregel, kunt u Visual Studio bouwen of een taak MSBuild om U-SQL database-projecten in Azure DevOps-pijplijnen te bouwen. Als u een build-taak instelt, zorg ervoor dat u twee taken toevoegen in de build-pijplijn: de taak van een NuGet herstellen en een MSBuild-taak.
+Naast de opdrachtregel, kunt u Visual Studio bouwen of een taak MSBuild om U-SQL database-projecten in Azure-pijplijnen te bouwen. Als u een build-taak instelt, zorg ervoor dat u twee taken toevoegen in de build-pijplijn: de taak van een NuGet herstellen en een MSBuild-taak.
 
    ![CI/CD MSBuild-taak voor een U-SQL-project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-task.png) 
 
@@ -330,7 +330,7 @@ Naast de opdrachtregel, kunt u Visual Studio bouwen of een taak MSBuild om U-SQL
 
     ![CI/CD-NuGet-taak voor een U-SQL-project](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-nuget-task.png)
 
-2.  MSBuild-argumenten in hulpprogramma's voor het bouwen van Visual Studio of in een taak MSBuild ingesteld zoals wordt weergegeven in het volgende voorbeeld. Of u de variabelen voor deze argumenten in de Azure DevOps-build-pijplijn kunt definiëren.
+2.  MSBuild-argumenten in hulpprogramma's voor het bouwen van Visual Studio of in een taak MSBuild ingesteld zoals wordt weergegeven in het volgende voorbeeld. Of u de variabelen voor deze argumenten in de Azure-pijplijnen build-pijplijn kunt definiëren.
 
    ![CI/CD MSBuild-variabelen voor een project U-SQL-database definiëren](./media/data-lake-analytics-cicd-overview/data-lake-analytics-set-vsts-msbuild-variables-database-project.png) 
 
@@ -350,16 +350,16 @@ Rechtstreeks toe te voegen testcases voor tabelfuncties en opgeslagen procedures
 2.  Voeg een databaseverwijzing aan het project U-SQL. Als u de functie met tabelwaarden en de definitie van de opgeslagen procedure, moet u verwijzen naar de databaseproject met daarin de DDL-instructie. Meer informatie over [verwijzingen van de database](data-lake-analytics-data-lake-tools-develop-usql-database.md#reference-a-u-sql-database-project).
 3.  Voeg testcases voor U-SQL-scripts waarmee tabelfuncties en opgeslagen procedures worden aangeroepen. Meer informatie over het [testcases voor U-SQL-scripts toevoegen](data-lake-analytics-cicd-test.md#test-u-sql-scripts).
 
-## <a name="deploy-u-sql-database-through-the-azure-devops-pipelines-service"></a>U-SQL-database via de service Azure DevOps pijplijnen implementeren
+## <a name="deploy-u-sql-database-through-azure-pipelines"></a>U-SQL-database via Azure pijplijnen implementeren
 
 `PackageDeploymentTool.exe` bevat het programmeren en opdrachtregelinterfaces die helpen bij het implementeren van U-SQL-database-implementatiepakketten, **.usqldbpack**. De SDK is opgenomen in de [U-SQL SDK NuGet-pakket](https://www.nuget.org/packages/Microsoft.Azure.DataLake.USQL.SDK/), dat zich bevindt op **build/runtime/PackageDeploymentTool.exe**. Met behulp van `PackageDeploymentTool.exe`, kunt u U-SQL-databases op zowel de Azure Data Lake Analytics en de lokale accounts implementeren.
 
 > [!NOTE]
 >
-> PowerShell-opdrachtregel ondersteuning en pijplijnen vrijgevingstaak ondersteuning voor de implementatie van de U-SQL-database momenteel in behandeling is.
+> PowerShell-opdrachtregel ondersteuning en Azure pijplijnen vrijgevingstaak ondersteuning voor de implementatie van de U-SQL-database momenteel in behandeling is.
 >
 
-De volgende stappen voor het instellen van een database-Implementatietaak in pijplijnen:
+De volgende stappen voor het instellen van een taak database implementatie in Azure pijplijnen:
 
 1. Een PowerShell-Script-taak in een build toevoegen of release-pijplijn en voer de volgende PowerShell-script. Deze taak helpt bij het ophalen van de Azure SDK-afhankelijkheden voor `PackageDeploymentTool.exe` en `PackageDeploymentTool.exe`. U kunt instellen dat de **- AzureSDK** en **- DBDeploymentTool** parameters om de afhankelijkheden en deployment tool uit naar specifieke mappen te laden. Geeft de **- AzureSDK** pad naar `PackageDeploymentTool.exe` als de **- AzureSDKPath** parameter in stap 2. 
 

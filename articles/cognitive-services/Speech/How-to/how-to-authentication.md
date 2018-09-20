@@ -1,35 +1,36 @@
 ---
-title: Aanmelden bij de Service Microsoft Speech | Microsoft Docs
-description: Aanvraag-verificatie te gebruiken Microsoft Speech-API
+title: Bing Speech verifiëren | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Verificatie van de aanvraag naar de Bing Speech-API gebruiken
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: e36168cf3ff938af44f1028c2d26fd475d60b148
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 93171dba435172565215560e437dc56c9436baac
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344683"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366451"
 ---
-# <a name="authenticate-to-the-speech-api"></a>Authenticatie bij de Speech-API
+# <a name="authenticate-to-the-speech-api"></a>Verifiëren bij de spraak-API
 
-Spraak Service ondersteunt verificatie met behulp van:
+Bing Speech biedt ondersteuning voor verificatie met behulp van:
 
 - De abonnementssleutel van een.
 - Een verificatietoken.
 
-## <a name="use-a-subscription-key"></a>Een abonnementssleutel wordt gebruikt
+## <a name="use-a-subscription-key"></a>Gebruik een abonnementssleutel
 
-Spraak als Service wilt gebruiken, moet u eerst abonneren op de Speech-API die deel uitmaakt van cognitieve Services (eerder Project Oxford). Krijgt u gratis proefabonnement sleutels van de [abonnement cognitieve Services](https://azure.microsoft.com/try/cognitive-services/) pagina. Nadat u de Speech-API selecteert, selecteert u **API-sleutel ophalen** ophalen van de sleutel. Het resultaat een primaire en secundaire sleutel. Beide sleutels zijn gekoppeld aan hetzelfde contingent, zodat u van sleutel kunt gebruiken.
+Voor het gebruik van spraak-Service, moet u eerst abonneren op de spraak-API die deel uitmaakt van Cognitive Services (eerder Project Oxford). U krijgt een gratis proefabonnement sleutels uit de [Cognitive Services-abonnement](https://azure.microsoft.com/try/cognitive-services/) pagina. Nadat u de spraak-API selecteert, selecteert u **API-sleutel ophalen** om op te halen van de sleutel. Het resultaat een primaire en secundaire sleutel. Beide sleutels zijn gekoppeld aan dezelfde quota, zodat u beide sleutels kunt gebruiken.
 
-Voor de lange termijn gebruiken of een grotere quota, zich aanmelden voor een [Azure-account](https://azure.microsoft.com/free/).
+Voor langdurig gebruik of een verbeterd quotum, zich aanmelden voor een [Azure-account](https://azure.microsoft.com/free/).
 
-De REST-API-spraak, hebt u nodig om door te geven van de abonnementssleutel in de `Ocp-Apim-Subscription-Key` veld in de aanvraagheader.
+Voor het gebruik van de REST-API voor spraakherkenning, moet u de abonnementssleutel in doorgeven de `Ocp-Apim-Subscription-Key` veld in de aanvraagheader.
 
 Naam| Indeling| Beschrijving
 ----|-------|------------
@@ -48,26 +49,26 @@ Expect: 100-continue
 ```
 
 > [!IMPORTANT]
-> Als u [clientbibliotheken](../GetStarted/GetStartedClientLibraries.md) in uw toepassing controleren dat u het verificatietoken met de abonnementssleutel van uw krijgen kunt, zoals beschreven in de volgende sectie. De abonnement-toets de clientbibliotheken gebruiken een verificatietoken ophalen en het token vervolgens gebruiken voor verificatie.
+> Als u [clientbibliotheken](../GetStarted/GetStartedClientLibraries.md) in uw toepassing, Controleer of dat u het Autorisatietoken met de abonnementssleutel van uw krijgen kunt, zoals beschreven in de volgende sectie. De clientbibliotheken gebruiken de abonnementssleutel een Autorisatietoken verkrijgen en het token vervolgens gebruiken voor verificatie.
 
-## <a name="use-an-authorization-token"></a>Een verificatietoken gebruiken
+## <a name="use-an-authorization-token"></a>Gebruik een verificatietoken
 
-U kunt ook een verificatietoken voor verificatie gebruiken als bewijs van verificatie/autorisatie. Als u dit token, moet u eerst aanvragen de abonnementssleutel van een van de Speech-API, zoals beschreven in de [voorgaande sectie](#use-a-subscription-key).
+U kunt ook een verificatietoken voor verificatie gebruiken als bewijs van verificatie/autorisatie. Als u dit token, moet u eerst een abonnementssleutel bij aanschaffen de spraak-API, zoals beschreven in de [voorgaande sectie](#use-a-subscription-key).
 
 ### <a name="get-an-authorization-token"></a>Een verificatietoken ophalen
 
-Nadat u de sleutel van een geldig abonnement hebt, moet u een POST-aanvraag verzenden naar de service voor beveiligingstokens van cognitieve Services. In het antwoord verschijnt het verificatietoken als een JSON Web Token (JWT).
+Nadat u de sleutel van een geldig abonnement hebt, moet u een POST-aanvraag verzenden naar de service voor beveiligingstokens van Cognitive Services. In het antwoord ontvangt u het Autorisatietoken als een JSON Web Token (JWT).
 
 > [!NOTE]
-> Het token heeft een vervaldatum van 10 minuten. Zie de volgende sectie voor het vernieuwen van het token.
+> Het token heeft een vervaldatum van 10 minuten. Als u wilt vernieuwen het token, Zie de volgende sectie.
 
-De token service URI zich hier bevindt:
+De token service-URI bevindt zich hier:
 
 ```
 https://api.cognitive.microsoft.com/sts/v1.0/issueToken
 ```
 
-De volgende voorbeeldcode laat zien hoe een toegangstoken ophalen. Vervang `YOUR_SUBSCRIPTION_KEY` met de abonnementssleutel van uw eigen:
+Het volgende codevoorbeeld laat zien hoe u een toegangstoken. Vervang `YOUR_SUBSCRIPTION_KEY` door uw eigen abonnementssleutel:
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
 
@@ -85,9 +86,9 @@ $OAuthToken
 
 ```
 
-# <a name="curltabcurl"></a>[cURL](#tab/curl)
+# <a name="curltabcurl"></a>[CURL](#tab/curl)
 
-Het voorbeeld wordt curl op Linux met bash. Als deze niet beschikbaar op uw platform is, moet u mogelijk curl installeren. In het voorbeeld werkt ook op Cygwin op Windows, Git Bash, zsh en andere shells.
+Het voorbeeld wordt curl gebruikt op Linux met bash. Als deze niet beschikbaar is op uw platform, moet u mogelijk curl installeren. Het voorbeeld werkt ook op Cygwin op Windows, Git Bash, zsh en andere shells.
 
 ```
 curl -v -X POST "https://api.cognitive.microsoft.com/sts/v1.0/issueToken" -H "Content-type: application/x-www-form-urlencoded" -H "Content-Length: 0" -H "Ocp-Apim-Subscription-Key: YOUR_SUBSCRIPTION_KEY"
@@ -145,16 +146,16 @@ Content-Length: 0
 Connection: Keep-Alive
 ```
 
-Als u niet een autorisatie token van de service voor beveiligingstokens, Controleer of de abonnementssleutel van uw nog geldig is. Als u een gratis proefversie sleutel gebruikt, gaat u naar de [abonnement cognitieve Services](https://azure.microsoft.com/try/cognitive-services/) pagina, klikt u op 'Aanmelden' om te melden met behulp van het account dat u gebruikt voor het toepassen van de gratis proefversie sleutel en controleer of de abonnementssleutel is verlopen of is groter dan de quota.
+Als u niet een autorisatie token van de service voor beveiligingstokens, moet u controleren of uw abonnementssleutel nog geldig is. Als u een gratis proefversie sleutel gebruikt, gaat u naar de [Cognitive Services-abonnement](https://azure.microsoft.com/try/cognitive-services/) pagina, klikt u op 'Aanmelden' als u wilt zich aanmelden met het account dat u gebruikt voor het toepassen van de gratis proefversie sleutel en controleer of de abonnementssleutel is verlopen of is groter dan de quotum.
 
 ### <a name="use-an-authorization-token-in-a-request"></a>Een verificatietoken gebruiken in een aanvraag
 
-Elke keer dat u de Speech-API aanroepen, u moet doorgeven van de Autorisatietoken in de `Authorization` header. De `Authorization` header moet een toegangstoken JWT bevatten.
+Telkens wanneer u de spraak-API aanroept, moet u het autorisatie-token in de `Authorization` header. De `Authorization` header moet een JWT-toegangstoken bevatten.
 
-Het volgende voorbeeld laat zien hoe een verificatietoken gebruiken wanneer u de spraak REST-API aanroept.
+Het volgende voorbeeld ziet hoe u een verificatietoken gebruikt wanneer u de Speech REST-API aanroept.
 
 > [!NOTE]
-> Vervang `YOUR_AUDIO_FILE` met het pad naar uw vooraf opgenomen audio-bestand. Vervang `YOUR_ACCESS_TOKEN` door het verificatietoken dat u in de vorige stap verkregen [een verificatietoken ophalen](#get-an-authorization-token).
+> Vervang `YOUR_AUDIO_FILE` met het pad naar uw vooraf opgenomen audiobestand. Vervang `YOUR_ACCESS_TOKEN` door het Autorisatietoken u in de vorige stap hebt verkregen [een verificatietoken ophalen](#get-an-authorization-token).
 
 # <a name="powershelltabpowershell"></a>[PowerShell](#tab/Powershell)
 
@@ -180,7 +181,7 @@ $RecoResponse
 
 ```
 
-# <a name="curltabcurl"></a>[cURL](#tab/curl)
+# <a name="curltabcurl"></a>[CURL](#tab/curl)
 
 ```
 curl -v -X POST "https://speech.platform.bing.com/speech/recognition/interactive/cognitiveservices/v1?language=en-us&format=detailed" -H "Transfer-Encoding: chunked" -H "Authorization: Bearer YOUR_ACCESS_TOKEN" -H "Content-type: audio/wav; codec=audio/pcm; samplerate=16000" --data-binary @YOUR_AUDIO_FILE
@@ -227,11 +228,11 @@ using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 
 ---
 
-### <a name="renew-an-authorization-token"></a>Een verificatietoken vernieuwen
+### <a name="renew-an-authorization-token"></a>Een verificatietoken te vernieuwen
 
-Het verificatietoken verloopt na een bepaalde periode (momenteel 10 minuten). U moet het verificatietoken te verlengen voordat deze verloopt.
+Het verificatietoken is verlopen na een bepaalde periode (momenteel 10 minuten). U moet het verificatietoken te vernieuwen voordat het verloopt.
 
-De volgende code is een voorbeeld van de implementatie in C# van het vernieuwen van het verificatietoken:
+De volgende code is een voorbeeld van de implementatie in C# van hoe u om de Autorisatietoken te verlengen:
 
 ```cs
     /*

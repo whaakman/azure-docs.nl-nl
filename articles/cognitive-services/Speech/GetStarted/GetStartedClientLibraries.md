@@ -1,20 +1,21 @@
 ---
-title: Aan de slag met de Microsoft Speech-API met behulp van de Bing Speech-clientbibliotheken | Microsoft Docs
-description: Dankzij de clientbibliotheken Microsoft Speech Service in Microsoft Cognitive Services gebruiken voor het ontwikkelen van toepassingen die Converteer gesproken audio naar tekst.
+title: Aan de slag met de Bing Speech-API met behulp van clientbibliotheken | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: De Bing Speech-clientbibliotheken in Microsoft Cognitive Services gebruiken voor het ontwikkelen van toepassingen die Converteer gesproken audio naar tekst.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 6fb490def6807204943a1ce3ba3c53186055102b
-ms.sourcegitcommit: 161d268ae63c7ace3082fc4fad732af61c55c949
+ms.openlocfilehash: 8e0c95b73db057c429c57da8c026822436c6c3b4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/27/2018
-ms.locfileid: "43048454"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367271"
 ---
 # <a name="get-started-with-bing-speech-service-client-libraries"></a>Aan de slag met de Bing Speech-Service-clientbibliotheken
 
@@ -43,3 +44,4 @@ In mei 2018, wij hebben ook uitgegeven de nieuwe [Spraakservice](../../speech-se
 ## <a name="license"></a>Licentie
 
 Alle Cognitive Services-SDK's en voorbeelden hebben een licentie voor de MIT-licentie. Zie voor meer informatie, [licentie](https://github.com/Microsoft/Cognitive-Speech-STT-JavaScript/blob/master/LICENSE.md).
+

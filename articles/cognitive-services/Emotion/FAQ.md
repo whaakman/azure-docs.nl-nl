@@ -1,39 +1,40 @@
 ---
-title: Veelgestelde vragen over emotion-API | Microsoft Docs
-description: Vind antwoorden op veelgestelde vragen over de Emotion-API in cognitieve Services.
+title: Veelgestelde vragen - Emotion-API
+titlesuffix: Azure Cognitive Services
+description: Krijg antwoorden op veelgestelde vragen over de Emotion-API.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: emotion-api
-ms.topic: article
+ms.topic: conceptual
 ms.date: 01/26/2017
 ms.author: anroth
-ms.openlocfilehash: 8532d7c00fd8d7b01d84b5e55cb9bbc60241789c
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 56b3f2899f1e77c1a2b840285e2c69bdb8987ff4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344472"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363085"
 ---
 # <a name="emotion-api-frequently-asked-questions"></a>Veelgestelde vragen over de emotion-API
  
 > [!IMPORTANT]
-> Video API Preview eindigt op 30 oktober 2017. Het nieuwe [Video indexeerfunctie API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) eenvoudig inzichten extraheren van video's en ervaringen van inhoud, zoals de lijst met zoekresultaten verbeteren doordat gesproken woorden, vlakken tekens en emoties. [Meer informatie](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
+> Voorbeeld van de video-API eindigt op 30 oktober 2017. Probeer de nieuwe [Video Indexer API Preview](https://azure.microsoft.com/services/cognitive-services/video-indexer/) eenvoudig inzichten ophalen uit video's en inhoud sneller wordt ontdekt, zoals de lijst met zoekresultaten verbeteren door het detecteren van gesproken woorden, gezichten, tekens en emoties. [Meer informatie](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview).
 
-### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-emotion-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Als u antwoorden op uw vragen in deze Veelgestelde vragen vinden kunt, probeert de Emotion-API-community op vragen [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) of neem contact op met Help en ondersteuning op [UserVoice](https://cognitive.uservoice.com/).  
+### <a name="if-you-cant-find-answers-to-your-questions-in-this-faq-try-asking-the-emotion-api-community-on-stackoverflowhttpsstackoverflowcomquestionstaggedproject-oxfordormicrosoft-cognitive-or-contact-help-and-support-on-uservoicehttpscognitiveuservoicecom"></a>Als u antwoorden op uw vragen niet in deze Veelgestelde vragen vinden, misschien dat de Emotion-API-community op [StackOverflow](https://stackoverflow.com/questions/tagged/project-oxford+or+microsoft-cognitive) of neem contact op met Help en ondersteuning op [UserVoice](https://cognitive.uservoice.com/).  
 
 -----
 
-**Vraag**: *welke typen installatiekopieën Profiteer van het beste resultaat is van een Emotion-API?*
+**Vraag**: *welke typen installatiekopieën krijgt het beste resultaat is van de Emotion-API?*
 
-**Antwoord**: obstakels, volledige voorzijde analyseert installatiekopieën gebruiken voor de beste resultaten. Betrouwbaarheid afneemt met gedeeltelijke voorzijde vlakken en Emotion-API kan emoties in afbeeldingen waarbij de face 45 graden gedraaid of meer is niet herkend.
+**Antwoord**: obstakels, volledige voorzijde gezichtsherkenning installatiekopieën gebruiken voor de beste resultaten. Betrouwbaarheid afneemt met gedeeltelijke voorzijde gezichten en emoties in afbeeldingen waar het gezicht 45 graden gedraaid of meer is mogelijk niet herkend door Emotion-API.
 
 -----
 
 **Vraag**: *hoeveel emoties kunt Emotion-API identificeren?*
 
-**Antwoord**: Emotion-API herkent acht verschillende universeel geaccepteerd emoties: 
+**Antwoord**: Emotion-API herkent emoties van acht verschillende universeel geaccepteerd: 
 * Geluk
 * Droefheid
 * Verrassing
@@ -45,18 +46,18 @@ ms.locfileid: "35344472"
 
 -----
 
-**Vraag**: *Is er een manier om een live videostream doorgeven aan de API en het resultaat tegelijkertijd ophalen?*
+**Vraag**: *Is er manier om een live videostream doorgeven aan de API en tegelijkertijd het resultaat ophalen?*
 
-**Antwoord**: de installatiekopie op basis emotion-API gebruiken en deze op elk frame aanroepen of frames voor prestaties overslaan.  Video Frame voor Frame Analysis voorbeelden zijn beschikbaar.
+**Antwoord**: gebruik van de installatiekopie op basis van emotion-API en deze op elk frame aanroepen of overgeslagen frames voor prestaties.  Video Frame-voor-Frame Analysis-voorbeelden zijn beschikbaar.
 
 -----
 
-**Vraag**: *ik ben doorgeven van de binaire gegevens in, maar geeft mij: 'ongeldig face-installatiekopie.**
+**Vraag**: *ik ben doorgeven van de binaire gegevens in, maar het geeft me: "ongeldig gezicht.**
 
-**Antwoord**: dit betekent dat de algoritme een probleem bij het parseren van de installatiekopie heeft.  
-* De indelingen ondersteunde invoer installatiekopie bevat JPEG-, PNG, GIF (het eerste frame), BMP. 
-* De grootte van de installatiekopie-bestand mag niet groter zijn dan 4MB zijn
-* Het bereik van de grootte waarneembaar face is 36 x 36 naar 4096 x 4096 pixels. Vlakken buiten dit bereik wordt niet gedetecteerd.
-* Sommige vlakken kunnen niet worden herkend vanwege technische problemen, bijvoorbeeld zeer grote face hoeken (head-ven) groot Occlusie. Voorzijde en in de buurt binnen handbereik hebt de beste resultaten
+**Antwoord**: dit betekent dat de algoritme is een opgetreden bij het parseren van de installatiekopie.  
+* De ondersteunde bestandsindelingen voor invoer bevat JPEG, PNG-, GIF-bestand (het eerste frame), BMP. 
+* De grootte van de installatiekopie-bestand moet niet groter zijn dan 4MB
+* Het bereik van de grootte detecteerbare gezicht is 36 x 36 naar 4096 x 4096 pixels. Gezichten buiten dit bereik niet gedetecteerd
+* Sommige gezichten worden mogelijk niet gedetecteerd vanwege technische problemen, bijvoorbeeld zeer grote face hoeken (hoofd-houding), grote bedekking. Gezichten voorzijde en in de buurt binnen handbereik hebben de beste resultaten
 
 -----

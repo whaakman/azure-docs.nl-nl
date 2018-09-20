@@ -11,12 +11,12 @@ ms.workload: azure-vs
 ms.topic: conceptual
 ms.date: 04/15/2018
 ms.author: ghogen
-ms.openlocfilehash: d2ab34b3737ec00e4adc464f6d2255203fb6ae08
-ms.sourcegitcommit: 3d0295a939c07bf9f0b38ebd37ac8461af8d461f
+ms.openlocfilehash: 9cf49ae97da3bf67300bdc222c86bb712aeaed37
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "43840616"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465789"
 ---
 # <a name="add-key-vault-to-your-web-application-by-using-visual-studio-connected-services"></a>Key Vault toevoegen aan uw web-App met behulp van Visual Studio verbonden Services
 
@@ -39,7 +39,8 @@ Zie voor meer informatie over de wijzigingen Connected Services voor het inschak
 
    ![Kies "Beveiligde geheimen met Azure Key Vault"](media/vs-key-vault-add-connected-service/KeyVaultConnectedService1.PNG)
 
-   Als u bent aangemeld bij Visual Studio en Azure-abonnement dat is gekoppeld aan uw account hebt, wordt een pagina weergegeven met een vervolgkeuzelijst met uw abonnementen.
+   Als u bent aangemeld bij Visual Studio en Azure-abonnement dat is gekoppeld aan uw account hebt, wordt een pagina weergegeven met een vervolgkeuzelijst met uw abonnementen. Zorg ervoor dat u bent aangemeld bij Visual Studio, en dat het account dat u bent aangemeld met hetzelfde account dat u voor uw Azure-abonnement gebruiken.
+
 1. Selecteer het abonnement dat u wilt gebruiken, en kies vervolgens een nieuwe of bestaande Key Vault of kies de koppeling bewerken om te wijzigen van de automatisch gegenereerde naam.
 
    ![Selecteer uw abonnement](media/vs-key-vault-add-connected-service/KeyVaultConnectedService3.PNG)

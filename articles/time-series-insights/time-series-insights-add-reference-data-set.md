@@ -10,12 +10,12 @@ ms.reviewer: jasonh, kfile, anshan
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 02/15/2018
-ms.openlocfilehash: 2cf9c8baf715acf0eef36d640c22f355435c9ca5
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: 45520a556d109158987dd47e33a1efb52a1cd356
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39631041"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364734"
 ---
 # <a name="create-a-reference-data-set-for-your-time-series-insights-environment-using-the-azure-portal"></a>Een referentiegegevensset voor uw Time Series Insights-omgeving met behulp van de Azure portal maken
 
@@ -24,6 +24,12 @@ In dit artikel wordt beschreven hoe u een referentiegegevensset toevoegen aan uw
 Een Referentiegegevensset is een verzameling van items die de ervaring van de gebeurtenissen uit uw gebeurtenisbron. De engine voor Time Series Insights inkomende lid wordt van elke gebeurtenis uit uw gebeurtenisbron aan de desbetreffende gegevensrij in uw referentiegegevensset. Deze uitgebreide gebeurtenis is vervolgens beschikbaar voor query’s. Deze koppeling is gebaseerd op de primaire sleutel of meer kolommen gedefinieerd in uw referentiegegevensset.
 
 Referentiegegevens is niet met terugwerkende kracht gekoppeld. Dit betekent dat alleen de gegevens van de huidige en toekomstige inkomend is afgestemd en toegevoegd aan de verwijzing datum is ingesteld, zodra deze is geconfigureerd en geüpload.
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-time-series-insights-reference-data-modelbr"></a>In deze video behandelen we Time Series Insight referentie-gegevensmodel.</br>
+
+> [!VIDEO https://www.youtube.com/embed/Z0NuWQUMv1o]
 
 ## <a name="add-a-reference-data-set"></a>Een referentiegegevensset toevoegen
 
@@ -63,7 +69,7 @@ Referentiegegevens is niet met terugwerkende kracht gekoppeld. Dit betekent dat 
 
    ![Naslaginformatie over gegevens toevoegen](media/add-reference-data-set/parse_data.png)
 
-9. Controleer elke kolom als u wilt zien van het gegevenstype is uitgegaan en indien nodig, het gegevenstype wijzigen.  Selecteer het type gegevens symbool in de kolomkop: ** # ** voor dubbele (numerieke gegevens), **T | F** Boole-waarden, of **Abc** voor tekenreeks.
+9. Controleer elke kolom als u wilt zien van het gegevenstype is uitgegaan en indien nodig, het gegevenstype wijzigen.  Selecteer het type gegevens symbool in de kolomkop: **#** voor dubbele (numerieke gegevens), **T | F** Boole-waarden, of **Abc** voor tekenreeks.
 
    ![Kies de gegevenstypen van de kolomkoppen.](media/add-reference-data-set/choose_datatypes.png)
 
@@ -71,7 +77,7 @@ Referentiegegevens is niet met terugwerkende kracht gekoppeld. Dit betekent dat 
 
 11. Klik op **toevoegen van een rij** of **een kolom toevoegen** om toe te voegen meer verwijzing gegevenswaarden, indien nodig.
 
-12. Typ een waarde in de **de rijen filteren... ** veld om te controleren van bepaalde rijen naar behoefte. Het filter is handig voor het bekijken van gegevens, maar wordt niet toegepast wanneer de gegevens worden geüpload.
+12. Typ een waarde in de **de rijen filteren...**  veld om te controleren van bepaalde rijen naar behoefte. Het filter is handig voor het bekijken van gegevens, maar wordt niet toegepast wanneer de gegevens worden geüpload.
  
 13. Naam van de gegevensset, door het invullen van de **naam van gegevensset** veld boven het gegevensraster.
 
@@ -81,7 +87,7 @@ Referentiegegevens is niet met terugwerkende kracht gekoppeld. Dit betekent dat 
 
    ![Selecteer de sleutel kolom(men).](media/add-reference-data-set/set_primary_key.png)
 
-   Selecteer desgewenst de ** + ** om toe te voegen een kolom voor de secundaire sleutel als een samengestelde primaire sleutel. Als u nodig hebt om de selectie ongedaan te maken, kiest u de waarde is leeg in de vervolgkeuzelijst om te verwijderen van de secundaire sleutel.
+   Selecteer desgewenst de **+** om toe te voegen een kolom voor de secundaire sleutel als een samengestelde primaire sleutel. Als u nodig hebt om de selectie ongedaan te maken, kiest u de waarde is leeg in de vervolgkeuzelijst om te verwijderen van de secundaire sleutel.
 
 15.  Als u wilt de gegevens uploaden, selecteert u de **rijen uploaden** knop.
 

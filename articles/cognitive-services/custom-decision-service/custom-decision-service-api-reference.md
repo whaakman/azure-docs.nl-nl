@@ -1,30 +1,31 @@
 ---
-title: API - cognitieve Azure-Services | Microsoft Docs
-description: Een volledig en gebruiksvriendelijk API handleiding voor Azure-Service voor het besluit van aangepaste, een cloud-gebaseerde API voor de contextuele besluitvorming die ervaring biedt.
+title: API-verwijzing - Custom Decision Service
+titlesuffix: Azure Cognitive Services
+description: Een volledige API-handleiding voor Custom Decision Service.
 services: cognitive-services
 author: slivkins
-manager: slivkins
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/11/2018
 ms.author: slivkins
-ms.reviewer: marcozo, alekh
-ms.openlocfilehash: 403b17e33394016a07a7b33ba1bcbfe6afdcc05b
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 3d9b87241946a04ae71fabde9958b24ad626c0db
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345597"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364020"
 ---
 # <a name="api"></a>API
 
-Azure aangepaste besluit Service biedt twee API's die worden aangeroepen voor elke beslissing: de [rangschikking API](#ranking-api) voor het invoeren van de volgorde van acties en de [derden API](#reward-api) voor uitvoer van de prijs. Bovendien bieden u een [actie ingesteld API](#action-set-api-customer-provided) om op te geven welke acties moeten Azure aangepaste besluit Service. In dit artikel bevat informatie over deze drie API's. Een typisch scenario is hieronder gebruikt om weer te geven wanneer u aangepaste besluit Service optimaliseert de volgorde van artikelen.
+Azure Custom Decision Service biedt twee API's die worden aangeroepen voor elk besluit: de [Trefwoordenrangschikking API](#ranking-api) voor het invoeren van de volgorde van de acties en de [beloning API](#reward-api) om uit te voeren van de prijs. Daarnaast bieden u een [actie ingesteld API](#action-set-api-customer-provided) om op te geven welke acties moeten Azure Custom Decision Service. In dit artikel bevat informatie over deze drie API's. Een typisch scenario is hieronder gebruikt om weer te geven wanneer Custom Decision Service de rangorde van artikelen optimaliseert.
 
-## <a name="ranking-api"></a>Ranking API
+## <a name="ranking-api"></a>Volgorde-API
 
-De ranking-API maakt gebruikt van een standaard [JSONP](https://en.wikipedia.org/wiki/JSONP)-stijl communicatiepatronen te optimaliseren latentie en overslaan van de [dezelfde oorsprong beleid](https://en.wikipedia.org/wiki/Same-origin_policy). De laatste verhindert JavaScript ophalen van gegevens van buiten de oorsprong van de pagina.
+De classificatie-API maakt gebruikt van een standaard [JSONP](https://en.wikipedia.org/wiki/JSONP)-stijl communicatiepatroon om de latentie te optimaliseren en overslaan van de [beleid voor zelfde oorsprong](https://en.wikipedia.org/wiki/Same-origin_policy). De laatste verboden JavaScript uit het ophalen van gegevens die zich buiten de oorsprong van de pagina.
 
-In dit fragment invoegen in de HTML-kop van uw voorpagina (waarbij een aangepaste lijst met artikelen worden weergegeven):
+Dit fragment invoegen in de HTML-kop van de front-pagina (indien een aangepaste lijst met artikelen worden weergegeven):
 
 ```html
 // define the "callback function" to render UI
@@ -40,13 +41,13 @@ In dit fragment invoegen in de HTML-kop van uw voorpagina (waarbij een aangepast
 ```
 
 > [!IMPORTANT]
-> De callback-functie moet worden gedefinieerd vóór de aanroep naar de API positie.
+> De callback-functie moet worden gedefinieerd voordat de aanroep naar de API positie.
 
 > [!TIP]
-> Ter verbetering van de latentie van de API rangschikking wordt blootgesteld via HTTP in plaats van HTTPS, zoals in `http://ds.microsoft.com/api/v2/<appId>/rank/*`.
-> Een HTTPS-eindpunt moet echter worden gebruikt als de voorpagina worden geleverd via HTTPS.
+> Voor een betere latentie, de Trefwoordenrangschikking-API is beschikbaar via HTTP in plaats van HTTPS, zoals in `http://ds.microsoft.com/api/v2/<appId>/rank/*`.
+> Een HTTPS-eindpunt moet echter worden gebruikt als de front-pagina wordt geleverd via HTTPS.
 
-Als parameters niet gebruikt worden, is het HTTP-antwoord van de API rangschikking een JSONP opgemaakte tekenreeks:
+Als parameters niet gebruikt worden, is het HTTP-antwoord van de API Trefwoordenrangschikking een tekenreeks in-en JSONP-indeling:
 
 ```json
 callback({
@@ -57,36 +58,36 @@ callback({
                  {"id":"<A2>","lastRefresh":"2017-04-30T22:34:25.3401438Z"}]});
 ```
 
-De browser voert deze tekenreeks als een aanroep van de `callback()` functie.
+De browser vervolgens deze tekenreeks wordt uitgevoerd als een aanroep naar de `callback()` functie.
 
-De parameter voor de callback-functie in het voorgaande voorbeeld is het volgende schema:
+De parameter voor de callbackfunctie in het voorgaande voorbeeld is het volgende schema:
 
-- `ranking` Geeft de positie van URL's moet worden weergegeven.
-- `eventId` wordt intern gebruikt door aangepaste besluit Service overeenkomen met deze ranking met de bijbehorende klikken.
-- `appId` kan de functie voor retouraanroepen onderscheid maken tussen meerdere toepassingen van aangepaste besluit-Service wordt uitgevoerd op dezelfde webpagina.
-- `actionSets` Geeft een lijst van elke actie die moet worden gebruikt in de volgorde API-aanroep samen met de UTC-timestamp van de laatste voltooide vernieuwing. De actie set-feeds van aangepaste besluit Service worden regelmatig vernieuwd. Bijvoorbeeld, als een deel van de actie-sets niet actueel zijn, de callback-functie mogelijk terugvallen op de rangschikking van hun standaard.
+- `ranking` biedt de rangorde van URL's moet worden weergegeven.
+- `eventId` wordt intern gebruikt door Custom Decision Service zodat deze overeenkomt met deze classificatie met de bijbehorende klikken.
+- `appId` Hiermee staat de callbackfunctie onderscheid maken tussen meerdere toepassingen van Custom Decision Service die wordt uitgevoerd op de webpagina van de dezelfde.
+- `actionSets` Geeft een lijst van elke actie die moet worden gebruikt in de volgorde API-aanroep samen met de UTC-timestamp van de laatste geslaagde vernieuwing. Custom Decision Service wordt regelmatig vernieuwd voor de actie set-feeds. Bijvoorbeeld, als deel van de sets actie niet actueel zijn, de callback-functie mogelijk terugvallen op hun positie standaard.
 
 > [!IMPORTANT]
-> De opgegeven actie sets worden verwerkt en wordt mogelijk verwijderd om de volgorde van de standaard van artikelen. De volgorde van de standaard haalt vervolgens opnieuw geordend en in het HTTP-antwoord geretourneerd. Hier wordt de standaard-volgorde gedefinieerd:
+> De opgegeven actie-sets zijn verwerkt, en mogelijk verwijderd, om de standaard-volgorde van artikelen. De rangorde van de standaard opgehaald vervolgens opnieuw geordend en in het HTTP-antwoord geretourneerd. Hier wordt de standaard-volgorde gedefinieerd:
 >
-> - Binnen elke set actie worden de artikelen weggehaald naar de meest recente 15 artikelen (als meer dan 15 worden geretourneerd).
-> - Wanneer meerdere actie sets zijn opgegeven, moeten ze worden samengevoegd in dezelfde volgorde als in de API-aanroep. De oorspronkelijke ordening van de artikelen bewaard binnen elke set actie. Duplicaten zijn verwijderd en vervangen door de eerdere exemplaren.
+> - De artikelen zijn binnen elke set actie de 15 meest recente artikelen verwijderd (als er meer dan 15 worden geretourneerd).
+> - Wanneer u meerdere sets van actie zijn opgegeven, moeten ze worden samengevoegd in dezelfde volgorde als in de API-aanroep. De oorspronkelijke positie van de artikelen bewaard binnen elke set actie. Dubbele waarden zijn verwijderd en vervangen door de eerdere exemplaren.
 > - De eerste `n` artikelen worden bewaard in de samengevoegde lijst met artikelen, waarbij `n=20` standaard.
 
-### <a name="ranking-api-with-parameters"></a>Ranking API met parameters
+### <a name="ranking-api-with-parameters"></a>Volgorde-API met parameters
 
-De positie API kunt deze parameters:
+De rangorde-API kunt deze parameters:
 
-- `details=1` en `details=2` voegt aanvullende details over elk vermeld in artikel `ranking`.
-- `limit=<n>` Hiermee geeft u het maximale aantal van de artikelen in de volgorde van de standaard. `n` moet liggen tussen `2` en `30` (of anders wordt deze afgekapt tot `2` of `30`respectievelijk).
+- `details=1` en `details=2` Hiermee voegt u aanvullende informatie over elk die worden vermeld in artikel `ranking`.
+- `limit=<n>` Hiermee geeft u het maximale aantal van de artikelen in de standaard-classificatie. `n` moet liggen tussen `2` en `30` (of anders wordt deze afgekapt tot `2` of `30`respectievelijk).
 - `dnt=1` Hiermee schakelt u gebruikerscookies.
 
 Parameters kunnen worden gecombineerd in standaard, syntaxis in de tekenreeks, bijvoorbeeld `details=2&dnt=1`.
 
 > [!IMPORTANT]
-> De standaardinstelling in Europa moet `dnt=1` totdat de klant ermee akkoord naar de banner cookie gaat. Deze moet ook de standaardinstelling voor websites die zijn gericht op minderjarigen. Zie voor meer informatie de [gebruiksvoorwaarden](https://www.microsoft.com/cognitive-services/en-us/legal/CognitiveServicesTerms20160804).
+> De standaardinstelling in Europa moet `dnt=1` totdat de klant stemt ermee in op de banner van de cookie. Ook moet de standaardinstelling voor websites die zijn gericht op minderjarigen. Zie voor meer informatie de [gebruiksvoorwaarden](https://www.microsoft.com/cognitive-services/en-us/legal/CognitiveServicesTerms20160804).
 
-De `details=1` element voegt elk artikel `guid`, als deze wordt geleverd door de API voor het instellen van actie. Het HTTP-antwoord:
+De `details=1` element voegt van elk artikel `guid`, als deze wordt geleverd door de API voor het instellen van actie. Het HTTP-antwoord:
 
 ```json
 callback({
@@ -99,7 +100,7 @@ callback({
                  {"id":"<A2>","lastRefresh":"timeStamp2"}]});
 ```
 
-De `details=2` element voegt meer details die aangepaste besluit Service uit de artikelen Zoekmachineoptimalisatie metatags extraheren mogelijk [featurization code](https://github.com/Microsoft/mwt-ds/tree/master/Crawl):
+De `details=2` element voegt meer details die Custom Decision Service aan artikelen Zoekmachineoptimalisatie metatags onttrekken kunnen [parametrisatie code](https://github.com/Microsoft/mwt-ds/tree/master/Crawl):
 
 - `title` van `<meta property="og:title" content="..." />` of `<meta property="twitter:title" content="..." />` of `<title>...</title>`
 - `description` van `<meta property="og:description" ... />` of `<meta property="twitter:description" content="..." />` of `<meta property="description" content="..." />`
@@ -125,11 +126,11 @@ De `<details>` element:
 [{"guid":"123"}, {"description":"some text", "ds_id":"234", "image":"ImageUrl1", "title":"some text"}]
 ```
 
-## <a name="reward-api"></a>Derden API
+## <a name="reward-api"></a>Beloning API
 
-Maakt gebruik van aangepaste besluit Service alleen op de bovenste sleuf klikt. Bij elke muisklik wordt geïnterpreteerd als een compensatie van 1. Het ontbreken van een klik wordt geïnterpreteerd als een compensatie van 0. Muisklikken worden vergeleken met de bijbehorende classificatie met behulp van de gebeurtenis-id's die worden gegenereerd door de [rangschikking API](#ranking-api) aanroepen. Indien nodig, event id's kunnen worden doorgegeven via sessiecookies.
+Aangepaste Decision Service maakt gebruik van klikken op de bovenste site. Elke muisklik wordt geïnterpreteerd als een beloning van 1. Het ontbreken van een klik wordt geïnterpreteerd als een beloning van 0. Klikken met de bijbehorende classificatie wordt voldaan met behulp van de gebeurtenis-id's die worden gegenereerd door de [Trefwoordenrangschikking API](#ranking-api) aanroepen. Indien nodig, event id's kunnen worden doorgegeven via sessiecookies.
 
-Plaats deze code op de front-pagina voor het afhandelen van een klik op de bovenste sleuf:
+Voor het afhandelen van een klik op de bovenste site, zet u deze code op de front-pagina:
 
 ```javascript
 $.ajax({
@@ -138,21 +139,21 @@ $.ajax({
     contentType: "application/json" })
 ```
 
-Hier `data` is het argument voor de `callback()` functioneren, zoals eerder beschreven. Met behulp van `data` in de op zorgvuldig te werk gaan afhandeling van code vereist. Een voorbeeld wordt weergegeven in deze [zelfstudie](custom-decision-service-tutorial-news.md#use-the-apis).
+Hier `data` is het argument voor de `callback()` functioneren, zoals eerder beschreven. Met behulp van `data` in de op zorgvuldig te werk gaan verwerken code vereist. Een voorbeeld ziet u in deze [zelfstudie](custom-decision-service-tutorial-news.md#use-the-apis).
 
-Alleen voor testdoeleinden, kan de API van derden worden aangeroepen [cURL](https://en.wikipedia.org/wiki/CURL):
+Alleen voor testdoeleinden, de API van derden kan worden aangeroepen [cURL](https://en.wikipedia.org/wiki/CURL):
 
 ```sh
 curl -v https://ds.microsoft.com/api/v2/<appId>/reward/<eventId> -X POST -d 1 -H "Content-Type: application/json"
 ```
 
-Het verwachte resultaat is een HTTP-antwoord van 200 (OK). U ziet de prijs van 1 voor deze gebeurtenis in het logboek (als de sleutel van een Azure storage-account is opgegeven in de portal).
+Het verwachte resultaat is een HTTP-respons van 200 (OK). U ziet de prijs van 1 voor deze gebeurtenis in het logboek (als de sleutel van een Azure storage-account is opgegeven in de portal).
 
-## <a name="action-set-api-customer-provided"></a>Actie ingesteld API (de klant is opgegeven)
+## <a name="action-set-api-customer-provided"></a>Actie ingesteld API (klantgeleverde)
 
-Op hoog niveau resulteert de API voor het instellen van actie een lijst met artikelen (acties). Elk artikel is opgegeven door de URL en (optioneel) titel van het artikel en de publicatiedatum. U kunt dat verschillende actie wordt ingesteld op de portal. Een andere actie ingesteld API moet worden gebruikt voor elke set actie als een unieke URL.
+De API voor het instellen van actie retourneert op hoog niveau, een lijst met artikelen (acties). Elk artikel wordt opgegeven door de URL en (optioneel) de titel van het artikel en de publicatiedatum. U kunt dat verschillende actie wordt ingesteld op de portal. Een andere actie instellen-API moet worden gebruikt voor elke actie, als een afzonderlijke URL.
 
-Elke actie ingesteld API kan worden geïmplementeerd op twee manieren: als een RSS-feed of als een Atom-feed. Ofwel een moet voldoen aan de standaard en retourneren een juiste XML. RSS volgt hier een voorbeeld:
+Elke API voor het instellen van actie kan worden geïmplementeerd op twee manieren: als een RSS-feed of een Atom-feed. Ofwel een moet voldoen aan de standaard en een juiste XML geretourneerd. RSS volgt hier een voorbeeld:
 
 ```xml
 <rss version="2.0">
@@ -170,20 +171,20 @@ Elke actie ingesteld API kan worden geïmplementeerd op twee manieren: als een R
 </rss>
 ```
 
-Elke site op het hoogste `<item>` element een actie beschrijft:
+Elke op het hoogste niveau `<item>` -element een actie worden beschreven:
 
 - `<link>` is verplicht en wordt gebruikt als een actie-ID.
 - `<date>` wordt genegeerd als deze kleiner dan of gelijk aan 15 items is; anders is het verplicht.
   - Als er meer dan 15 items, worden 15 meest recente die gebruikt.
   - Het moet de standaardindeling voor RSS- of Atom, respectievelijk:
-    - [RFC 822](https://tools.ietf.org/html/rfc822) voor RSS: bijvoorbeeld: `"Fri, 28 Apr 2017 18:02:06 GMT"`
-    - [RFC 3339](https://tools.ietf.org/html/rfc3339) voor Atom: bijvoorbeeld: `"2016-12-19T16:39:57-08:00"`
+    - [RFC 822](https://tools.ietf.org/html/rfc822) voor RSS: bijvoorbeeld `"Fri, 28 Apr 2017 18:02:06 GMT"`
+    - [RFC 3339](https://tools.ietf.org/html/rfc3339) voor Atom: bijvoorbeeld `"2016-12-19T16:39:57-08:00"`
 - `<title>` is optioneel en wordt gebruikt voor het genereren van functies die het artikel wordt beschreven.
-- `<guid>` is optioneel en doorgegeven via het systeem voor de callbackfunctie (als de `?details` parameter is opgegeven in de volgorde API-aanroep).
+- `<guid>` is optioneel en is doorgegeven via het systeem de callback-functie (als de `?details` parameter is opgegeven in de volgorde API-aanroep).
 
-Andere elementen in een `<item>` worden genegeerd.
+Andere elementen binnen een `<item>` worden genegeerd.
 
 De Atom-feed versie gebruikt dezelfde XML-syntaxis en conventies.
 
 > [!TIP]
-> Als uw systeem gebruikmaakt van een eigen artikel-id's, ze kunnen worden doorgegeven in de functie voor retouraanroepen door met `<guid>`.
+> Als uw systeem een eigen artikel-id's gebruikt, ze kunnen worden doorgegeven in de callback-functie door met behulp van `<guid>`.

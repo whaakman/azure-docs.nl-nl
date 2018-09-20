@@ -13,12 +13,12 @@ ms.component: pim
 ms.date: 07/23/2018
 ms.author: rolyon
 ms.custom: pim ; H1Hack27Feb2017;oldportal;it-pro;
-ms.openlocfilehash: cf0c9b76a7edace9f2a9147823b292e218e20bf7
-ms.sourcegitcommit: f3bd5c17a3a189f144008faf1acb9fabc5bc9ab7
+ms.openlocfilehash: 63f4c4c48dd0fed3130dc99929a0e84c3cba2026
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/10/2018
-ms.locfileid: "44300270"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466044"
 ---
 # <a name="azure-ad-directory-roles-you-can-manage-in-pim"></a>Azure AD-maprollen die kunt u in PIM beheren
 <!-- **PLACEHOLDER: Need description of how this works. Azure PIM uses roles from MSODS objects.**-->
@@ -34,19 +34,19 @@ Er is geen verschil in de toegang voor iemand met een permanente ten opzichte va
 ## <a name="roles-managed-in-pim"></a>Rollen in PIM beheerd
 Privileged Identity Management kunt u gebruikers toewijzen aan de algemene beheerdersrollen, met inbegrip van:
 
-* **Globale beheerder** (ook wel bekend als Company administrator) heeft toegang tot alle beheerfuncties. U kunt meer dan één globale beheerder hebben in uw organisatie. De persoon die zich aanmeldt om aan te schaffen Office 365 automatisch wordt een globale beheerder.
-* **Beheerder met bevoorrechte rol** beheert Azure AD PIM en updates van roltoewijzingen voor andere gebruikers.  
+* **Globale beheerder** (ook wel bekend als Company Administrator) heeft toegang tot alle beheerfuncties. U kunt meer dan één globale beheerder hebben in uw organisatie. De persoon die zich aanmeldt om aan te schaffen Office 365 automatisch wordt een globale beheerder.
+* **Rol van beheerder in beschermde modus** beheert Azure AD PIM en updates van roltoewijzingen voor andere gebruikers.  
 * **Factureringsbeheerder** doet aankopen, beheert abonnementen, beheert ondersteuningstickets en bewaakt de servicestatus.
 * **Wachtwoordbeheerder** stelt wachtwoorden opnieuw, beheert serviceaanvragen en bewaakt de servicestatus. Wachtwoordbeheerders zijn beperkt tot het opnieuw instellen van wachtwoorden voor gebruikers.
 * **Servicebeheerder** beheert serviceaanvragen en bewaakt de servicestatus.
   
   > [!NOTE]
-  > Als u van Office 365 gebruikmaakt, klikt u vervolgens alvorens de beheerdersrol toe te wijzen aan een gebruiker eerst de gebruiker met beheerdersrechten machtigingen toewijzen aan een service, zoals Exchange Online.
+  > Als u van Office 365 gebruikmaakt, vervolgens alvorens de rol servicebeheerder toe te wijzen aan een gebruiker, eerst gebruiker met beheerdersrechten machtigingen toewijzen aan een service, zoals Exchange Online.
   > 
   > 
-* **Gebruikerstoegangbeheerder** stelt wachtwoorden opnieuw, bewaakt de servicestatus en beheert gebruikersaccounts, gebruikersgroepen en serviceaanvragen. De beheerder van de gebruiker kan een globale beheerder verwijderen, andere beheerdersrollen maken of wachtwoorden opnieuw instellen voor globale, facturerings- en servicebeheerders.
+* **Gebruikersbeheerder** stelt wachtwoorden opnieuw, bewaakt de servicestatus en beheert gebruikersaccounts, gebruikersgroepen en serviceaanvragen. De beheerder van de gebruiker kan een globale beheerder verwijderen, andere beheerdersrollen maken of wachtwoorden opnieuw instellen voor globale, facturerings- en servicebeheerders.
 * **Exchange-beheerder** over beheerderstoegang beschikt tot Exchange Online via de Exchange-beheercentrum (tijdens elke Exportactie), en bijna alle taken kunt uitvoeren in Exchange Online.
-* **SharePoint-beheerder (Preview)** over beheerderstoegang beschikt tot SharePoint Online via de SharePoint Online-beheercentrum, en bijna alle taken kunt uitvoeren in SharePoint Online. Deze functie is momenteel in preview. In aanmerking komende gebruikers kunnen met behulp van deze rol in SharePoint na het activeren van in PIM vertragingen optreden.
+* **SharePoint-servicebeheerder** over beheerderstoegang beschikt tot SharePoint Online via de SharePoint Online-beheercentrum, en bijna alle taken kunt uitvoeren in SharePoint Online. In aanmerking komende gebruikers kunnen met behulp van deze rol in SharePoint na het activeren van in PIM vertragingen optreden.
 * **Skype voor bedrijven-beheerder** over beheerderstoegang beschikt tot Skype voor bedrijven via het Skype voor bedrijven-beheercentrum, en bijna alle taken kunt uitvoeren in Skype voor bedrijven Online.
 
 Lees deze artikelen voor meer informatie over [beheerdersrollen toewijzen in Azure AD](../users-groups-roles/directory-assign-admin-roles.md) en [beheerdersrollen toewijzen in Office 365](https://support.office.com/article/Assigning-admin-roles-in-Office-365-eac4d046-1afd-4f1a-85fc-8219c79e1504).

@@ -1,23 +1,24 @@
 ---
-title: Aan de slag met Microsoft spraak Service | Microsoft Docs
-description: Microsoft Speech Service gebruiken.
+title: Aan de slag met Microsoft Speech Service | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Microsoft Speech-Service gebruiken.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 09/15/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 9f9058706e2504b8c9ee8a7509e7380c415074a3
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: c5fe00134bc7e9cd3017d7b2e84db60b36981a68
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344667"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368117"
 ---
-# <a name="get-started-with-speech-service"></a>Aan de slag met spraak-Service
+# <a name="get-started-with-bing-speech"></a>Aan de slag met de Bing Speech
 
 Als u de Microsoft-service voor spraak wilt audio naar tekst wilt converteren, Zie de spraakherkenning [REST-API's](GetStartedREST.md) of de [clientbibliotheken](GetStartedClientLibraries.md).
 
-Voor het gebruik van de service van Microsoft-naar-spraak, Zie de [Text to Speech-API-verwijzing](../api-reference-rest/bingvoiceoutput.md).
+Zie voor het gebruik van de Text to Speech-service van Microsoft, de [Text to Speech-API-verwijzing](../api-reference-rest/bingvoiceoutput.md).

@@ -7,14 +7,14 @@ manager: craigg
 ms.service: sql-database
 ms.custom: monitor & tune
 ms.topic: conceptual
-ms.date: 09/14/2018
+ms.date: 09/18/2018
 ms.author: sashan
-ms.openlocfilehash: d7c3a672224bd7a167956d7699541880de11bef9
-ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.openlocfilehash: d29886b5c8693e4465053c8816fc38376a51fafc
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/17/2018
-ms.locfileid: "45737036"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46363597"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads-preview"></a>Alleen-lezen replica's gebruiken om te laden saldo alleen-lezen query workloads (preview)
 
@@ -119,7 +119,7 @@ Zie voor meer informatie, [Databases - maken of bijwerken](/rest/api/sql/databas
 Als u gebruikmaakt van lezen scale-out laden saldo alleen-lezen-workloads op een database die is geo-replicatie (bijvoorbeeld als een lid van een failovergroep). Zorg ervoor dat meer scale-out is ingeschakeld op zowel de primaire en de geo-replicatie secundaire databases. Hierdoor wordt hetzelfde load balancing effect wanneer uw toepassing verbinding met de nieuwe primaire na een failover maakt. Als u verbinding met de secundaire database met geo-replicatie met leesschaal ingeschakeld maakt, de sessies met `ApplicationIntent=ReadOnly` worden doorgestuurd naar een van de replica's dezelfde manier als we verbindingen routeren op de primaire database.  De sessies zonder `ApplicationIntent=ReadOnly` worden doorgestuurd naar de primaire replica van de secundaire geo-replicatie, die ook is alleen-lezen. Omdat secundaire database via geo-replicatie een ander eindpunt heeft als de primaire database is, in het verleden voor toegang tot de secundaire het is niet vereist om in te stellen `ApplicationIntent=ReadOnly`. Om ervoor te zorgen voor neerwaartse compatibiliteit `sys.geo_replication_links` DMV toont `secondary_allow_connections=2` (alle clientverbinding is toegestaan).
 
 > [!NOTE]
-> Tijdens de preview, round robin gaat niet uitvoeren of een andere met gelijke taakverdeling routering tussen de lokale replica's van de secundaire database. 
+> Tijdens de Preview-versie, round robin of een andere load wordt balanced routering tussen de lokale replica's van de secundaire database niet ondersteund. 
 
 
 ## <a name="next-steps"></a>Volgende stappen

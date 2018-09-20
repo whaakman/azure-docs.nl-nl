@@ -12,15 +12,15 @@ ms.workload: na
 pms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/10/2018
+ms.date: 09/19/2018
 ms.author: jeffgilb
 ms.reviewer: brbartle
-ms.openlocfilehash: 92c0ad6dfde4fc83a912b4a3387d8b586e72809c
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6a929c0226734a95e088e78307f2bbcc0571adef
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630440"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364598"
 ---
 # <a name="register-azure-stack-with-azure"></a>Azure Stack registreren bij Azure
 
@@ -45,18 +45,18 @@ U moet de volgende voldaan voordat u registreert:
 
 Voordat u registreert Azure Stack met Azure, moet u het volgende hebben:
 
-- De abonnements-ID voor een Azure-abonnement. Als u de ID, aanmelden bij Azure, klikt u op **alle services**. Klik vervolgens onder de **algemene** categorie, selecteer **abonnementen**, klik op het abonnement dat u gebruiken wilt, en klikt u onder **Essentials** vindt u de abonnement-ID.
+- De abonnements-ID voor een Azure-abonnement. Alleen EA, CSP of CSP van gedeelde services abonnementen worden ondersteund voor registratie. CSP's nodig hebt om te bepalen of u wilt [gebruikt u een abonnement CSP of CSPSS](azure-stack-add-manage-billing-as-a-csp.md#create-a-csp-or-cspss-subscription).<br><br>Als u de ID, aanmelden bij Azure, klikt u op **alle services**. Klik vervolgens onder de **algemene** categorie, selecteer **abonnementen**, klik op het abonnement dat u gebruiken wilt, en klikt u onder **Essentials** vindt u de abonnement-ID.
 
   > [!Note]  
   > Duitsland-cloudabonnementen worden momenteel niet ondersteund.
 
-- De gebruikersnaam en wachtwoord voor een account dat eigenaar van het abonnement (MSA/2FA accounts worden ondersteund).
+- De gebruikersnaam en wachtwoord voor een account dat eigenaar van het abonnement.
 
 - Het gebruikersaccount moet toegang hebben tot het Azure-abonnement en machtigingen hebben voor het maken van toepassingen met identiteit en service-principals in de map die is gekoppeld aan dat abonnement.
 
 - De Azure Stack-resourceprovider geregistreerd (Zie de sectie Azure Stack-Resourceprovider registreren hieronder voor meer informatie).
 
-Na de registratie is Azure Active Directory-globale beheerder toestemming niet vereist. Bepaalde bewerkingen is echter mogelijk de referentie van de globale beheerder. Bijvoorbeeld, een resource provider installatieprogramma script of een nieuwe functie die een machtiging worden verleend. U kunt tijdelijk opnieuw installeren van de account hoofdbeheerder machtigingen of gebruik een afzonderlijke globale beheerder-account dat is eigenaar van de *providerabonnement standaard*.
+Na de registratie is Azure Active Directory-globale beheerder toestemming niet vereist. Bepaalde bewerkingen is echter mogelijk de referentie van de globale beheerder. Bijvoorbeeld, een resource provider installatieprogramma script of een nieuwe functie die een machtiging worden verleend. U kunt tijdelijk reactiveren van het account algemeen beheerder-bevoegdheden of gebruik een afzonderlijke globale beheerder-account dat is eigenaar van de *providerabonnement standaard*.
 
 Als u geen Azure-abonnement dat aan deze vereisten voldoet, kunt u [maken van een gratis Azure-account hier](https://azure.microsoft.com/free/?b=17.06). Registreren van Azure Stack maakt geen kosten op uw Azure-abonnement.
 

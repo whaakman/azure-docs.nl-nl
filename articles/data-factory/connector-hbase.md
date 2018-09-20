@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2018
 ms.author: jingwang
-ms.openlocfilehash: f47e85b47f262e30e9160f11604220aa8055be5d
-ms.sourcegitcommit: cb61439cf0ae2a3f4b07a98da4df258bfb479845
+ms.openlocfilehash: 10867974c6f1c3fae6965b1888db3c4448b26a38
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/05/2018
-ms.locfileid: "43701714"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364088"
 ---
 # <a name="copy-data-from-hbase-using-azure-data-factory"></a>Gegevens kopiëren van HBase met Azure Data Factory 
 
@@ -45,7 +45,7 @@ De volgende eigenschappen worden ondersteund voor HBase gekoppelde service:
 | type | De eigenschap type moet worden ingesteld op: **HBase** | Ja |
 | host | Het IP-adres of de hostnaam naam van de HBase-server. (d.w.z.)  `[clustername].azurehdinsight.net`, ' 192.168.222.160·)  | Ja |
 | poort | De TCP-poort die de HBase-exemplaar gebruikt om te luisteren naar clientverbindingen. De standaardwaarde is 9090. Als u verbinding met Azure HDInsights maken, geeft u poort 443. | Nee |
-| httpPath | De gedeeltelijke URL overeenkomt met de HBase-server. (dat wil zeggen `/hbaserest0`)  | Nee |
+| httpPath | De gedeeltelijke URL overeenkomt met de HBase-server, bijvoorbeeld `/hbaserest0` bij het gebruik van HDInsights cluster. | Nee |
 | authenticationType | De verificatiemethode om toegang te gebruiken voor verbinding met de HBase-server. <br/>Toegestane waarden zijn: **anoniem**, **Basic** | Ja |
 | gebruikersnaam | De gebruikersnaam die wordt gebruikt voor verbinding met de HBase-exemplaar.  | Nee |
 | wachtwoord | Het wachtwoord dat overeenkomt met de naam van de gebruiker. Dit veld markeren als een SecureString Bewaar deze zorgvuldig in Data Factory, of [verwijzen naar een geheim opgeslagen in Azure Key Vault](store-credentials-in-key-vault.md). | Nee |
@@ -56,7 +56,7 @@ De volgende eigenschappen worden ondersteund voor HBase gekoppelde service:
 | connectVia | De [Integration Runtime](concepts-integration-runtime.md) moet worden gebruikt verbinding maken met het gegevensarchief. U kunt de zelfgehoste Cloudintegratieruntime of Azure Integration Runtime gebruiken (als uw gegevensarchief openbaar toegankelijk zijn is). Als niet is opgegeven, wordt de standaard Azure Integration Runtime. |Nee |
 
 >[!NOTE]
->Als uw cluster biedt geen ondersteuning voor sticky sessies, zoals HDInsight, expliciet knooppuntindex toevoegen aan het einde van de instelling van de HTTP-pad, bijvoorbeeld geeft `/hbaserest0` in plaats van `/hbaserest`.
+>Als uw cluster biedt geen ondersteuning voor sticky sessie zoals HDInsight, expliciet knooppuntindex toevoegen aan het einde van de instelling van de HTTP-pad, bijvoorbeeld opgeven `/hbaserest0` in plaats van `/hbaserest`.
 
 **Voorbeeld voor HDInsights HBase:**
 

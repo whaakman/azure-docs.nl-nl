@@ -1,7 +1,7 @@
 ---
-title: Aangepaste zoeken SDK C# Quick Start | Microsoft Docs
+title: Aangepaste Search SDK-C# snelstartgids | Microsoft Docs
 titleSuffix: Cognitive Services
-description: Het instellen van aangepaste zoeken SDK C#-consoletoepassing.
+description: Setup Custom Search SDK C#-consoletoepassing.
 services: cognitive-services
 author: mikedodaro
 manager: rosh
@@ -10,35 +10,36 @@ ms.component: bing-custom-search
 ms.topic: article
 ms.date: 01/31/2018
 ms.author: rosh
-ms.openlocfilehash: 59b208b53bec974433c50c0e2304dc96bd9bd09e
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 6b41dfbde0c2af776ee2c35220f731e40de334a0
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35344421"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367845"
 ---
-# <a name="custom-search-sdk-c-quickstart"></a>Aangepaste zoeken SDK C# Quick Start
+# <a name="custom-search-sdk-c-quickstart"></a>C#-snelstart voor Aangepaste zoekopdrachten SDK
 
-De Bing aangepaste Search SDK bevat de functionaliteit van de REST-API voor het zoeken van de entiteit en parseren van de resultaten.
+De Bing Custom Search SDK bevat de functionaliteit van de REST-API voor entiteiten zoeken en parseren van de resultaten.
 
-## <a name="application-dependencies"></a>Afhankelijkheden voor toepassingen
+De broncode voor dit voorbeeld is beschikbaar via [Github](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7/BingCustomWebSearch).
+## <a name="application-dependencies"></a>Afhankelijkheden van de toepassing
 
-Als u een consoletoepassing met de Bing aangepaste Search SDK instelt, blader naar de `Manage NuGet Packages` optie in Solution Explorer in Visual Studio. Voeg de `Microsoft.Azure.CognitiveServices.Search.CustomSearch` pakket.
+Als u een consoletoepassing met behulp van de Bing Custom Search SDK instelt, blader naar de `Manage NuGet Packages` optie vanuit de Solution Explorer in Visual Studio. Voeg het pakket `Microsoft.Azure.CognitiveServices.Search.CustomSearch` toe.
 
-Installeren van de [NuGet aangepaste zoekactie](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) pakket installeert ook afhankelijkheden, met inbegrip van de volgende assembly's:
+Installeren van de [NuGet Custom Search](https://www.nuget.org/packages/Microsoft.Azure.CognitiveServices.Search.CustomSearch/1.2.0) pakket ook afhankelijkheden, met inbegrip van de volgende assembly's geïnstalleerd:
 * Microsoft.Rest.ClientRuntime
 * Microsoft.Rest.ClientRuntime.Azure
 * Newtonsoft.Json
 
 ## <a name="entity-search-client"></a>Entiteit zoeken client
 
-Voor het maken van een exemplaar van de client CustomSearchAPI toevoegen met behulp van instructies:
+Voor het maken van een exemplaar van de client CustomSearchAPI using-instructies toevoegen:
 ```
 using Microsoft.Azure.CognitiveServices.Search.CustomSearch;
 
 ```
 
-Exemplaar maken van de client aangepaste zoekactie: Vervang `YOUR-CUSTOM-SEARCH-KEY` en `YOUR-CUSTOM-CONFIG-ID` met uw toegangssleutel en de API-eindpuntconfiguratie ID toegewezen op [mijn exemplaren](https://www.customsearch.ai/).
+Exemplaar maken van de client aangepaste zoekopdrachten: Vervang `YOUR-CUSTOM-SEARCH-KEY` en `YOUR-CUSTOM-CONFIG-ID` met uw toegangssleutel en de configuratie van de API-eindpunten ID toegewezen op [mijn exemplaren](https://www.customsearch.ai/).
 ```
 var client = new CustomSearchAPI(new ApiKeyServiceClientCredentials("YOUR-CUSTOM-SEARCH-KEY"));
 
@@ -50,7 +51,7 @@ var webData = client.CustomInstance.SearchAsync(query: "Xbox", customConfig: Int
 ```
 ## <a name="parse-the-results"></a>Parseren van de resultaten
 
-De `SearchAsync` methode retourneert een `WebData` object met `WebPages` aangetroffen voor de query. Deze code vindt u het eerste resultaat en haalt de `Name` en `URL`.
+De `SearchAsync` methode retourneert een `WebData` -object dat bevat `WebPages` als deze worden gevonden voor de query. Met deze code vindt u het eerste resultaat en wordt de `Name` en `URL`.
 ```
 var webData = client.CustomInstance.SearchAsync(query: "Xbox", customConfig: Int32.Parse("YOUR-CUSTOM-CONFIG-ID")).Result;
  
@@ -79,9 +80,9 @@ else
 }
 
 ```
-## <a name="complete-console-application"></a>Volledige consoletoepassing
+## <a name="complete-console-application"></a>Consoletoepassing voltooien
 
-De volgende code van de query 'Xbox' gezocht en wordt aangegeven `Name` en `URL` voor eerste Webresultaat.
+De volgende code wordt gezocht voor query 'Xbox' en afgedrukt `Name` en `URL` voor eerste Webresultaat.
 ```
 using System;
 using System.Linq;
@@ -141,4 +142,4 @@ namespace CustomSrchSDK
 
 ## <a name="next-steps"></a>Volgende stappen
 
-[Cognitieve services .NET SDK-voorbeelden](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)
+[Voorbeelden voor Cognitive Services .NET SDK](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/BingSearchv7)

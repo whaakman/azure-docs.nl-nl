@@ -12,15 +12,15 @@ ms.devlang: na
 ms.topic: include
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/19/2018
+ms.date: 09/19/2018
 ms.author: andret
 ms.custom: include file
-ms.openlocfilehash: c5d61da61f6ec98a1cac37ce9b12b28019ce2ae1
-ms.sourcegitcommit: d211f1d24c669b459a3910761b5cacb4b4f46ac9
+ms.openlocfilehash: 7f8e9e8d333b87113783c566222b2d7ea57c411e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/06/2018
-ms.locfileid: "44058339"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368448"
 ---
 ## <a name="set-up-your-project"></a>Instellen van uw project
 
@@ -33,27 +33,26 @@ De toepassing die u met deze handleiding maakt geeft een knop die wordt gebruikt
 >
 
 Voor het maken van uw toepassing, het volgende doen:
+
 1. Selecteer in Visual Studio, **bestand** > **nieuw** > **Project**.
 2. Onder **sjablonen**, selecteer **Visual C#**.
-3. Selecteer **WPF-App** of **Aplikaci WPF**, afhankelijk van de versie van Visual Studio-versie die u gebruikt.
+3. Selecteer **WPF-App (.NET Framework)**, afhankelijk van de versie van Visual Studio-versie die u gebruikt.
 
 ## <a name="add-msal-to-your-project"></a>MSAL toevoegen aan uw project
+
 1. Selecteer in Visual Studio, **extra** > **NuGet Package Manager**> **Package Manager Console**.
 2. Plak de volgende Azure PowerShell-opdracht in het venster Package Manager Console:
 
     ```powershell
-    Install-Package Microsoft.Identity.Client -Pre -Version 1.1.4-preview0002
+    Install-Package Microsoft.Identity.Client -Pre
     ```
 
     > [!NOTE] 
-    > Met deze opdracht installeert Microsoft Authentication Library. MSAL verwerkt ophalen, opslaan in cache en vernieuwen van gebruikerstokens die worden gebruikt voor toegang tot de API's die worden beveiligd door Azure Active Directory v2.
+    > Met deze opdracht installeert Microsoft Authentication Library. MSAL verwerkt ophalen, opslaan in cache en vernieuwen van gebruikerstokens die worden gebruikt voor toegang tot de API's die worden beveiligd door Azure Active Directory v2.0
     >
 
-    > [!NOTE]
-    > In deze Quick Start niet gebruiken, maar de meest recente versie van MSAL.NET, maar er wordt gewerkt aan het bijwerken
-    > 
-
 ## <a name="add-the-code-to-initialize-msal"></a>Voeg de code voor het initialiseren van MSAL
+
 In deze stap maakt u een klasse voor het afhandelen van interactie met MSAL, zoals de verwerking van tokens.
 
 1. Open de *App.xaml.cs* bestand en voeg de referentie voor MSAL toe aan de klasse:
@@ -97,4 +96,3 @@ Een *MainWindow.xaml* bestand automatisch moet worden gemaakt als onderdeel van 
     </StackPanel>
 </Grid>
 ```
-

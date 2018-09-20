@@ -9,12 +9,12 @@ ms.custom: DBs & servers
 ms.topic: conceptual
 ms.date: 01/24/2018
 ms.author: dhruv
-ms.openlocfilehash: 8159a9eb8d8829ed01609cebc3ae41713892f6cf
-ms.sourcegitcommit: ab9514485569ce511f2a93260ef71c56d7633343
+ms.openlocfilehash: 6066462d0a7f31698745275c3c6d65c4e09d9cc5
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/15/2018
-ms.locfileid: "45630171"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364122"
 ---
 # <a name="azure-sql-database-connectivity-architecture"></a>Azure SQL Database Connectivity-architectuur 
 
@@ -51,13 +51,16 @@ Als u verbinding vanaf buiten Azure maakt, uw verbindingen hebben een verbinding
 ![overzicht van netwerkarchitectuur](./media/sql-database-connectivity-architecture/connectivity-from-outside-azure.png)
 
 > [!IMPORTANT]
-> Wanneer u service-eindpunten met Azure SQL Database is het uw beleid **Proxy** standaard. Om in te schakelen connectiviteit vanuit in uw Vnet, kunt u uitgaande verbindingen naar de Azure SQL Database-Gateway-IP-adressen die is opgegeven in de onderstaande lijst. Bij het gebruik van service-eindpunten is het raadzaam het verbindingsbeleid naar wijzigen **omleiden** voor betere prestaties. Als u het verbindingsbeleid naar wijzigt **omleiden** dient niet voldoende zijn voor uitgaand verkeer toestaan op uw NSG aan Azure-SQLDB-gateway IP-adressen die hieronder worden vermeld, moet u toestaan uitgaand naar alle Azure SQLDB IP-adressen. Dit kan worden bewerkstelligd met behulp van de servicetags NSG (Netwerkbeveiligingsgroepen). Zie voor meer informatie, [servicetags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
+> Wanneer u service-eindpunten met Azure SQL Database is het uw beleid **Proxy** standaard. Als u wilt inschakelen in uw VNet verbinding, moet u uitgaande verbindingen naar de Azure SQL Database-Gateway-IP-adressen die is opgegeven in de onderstaande lijst toestaan. Bij het gebruik van service-eindpunten is het raadzaam het verbindingsbeleid naar wijzigen **omleiden** voor betere prestaties. Als u het verbindingsbeleid naar wijzigt **omleiden** dient niet voldoende zijn voor uitgaand verkeer toestaan op uw NSG aan Azure-SQLDB-gateway IP-adressen die hieronder worden vermeld, moet u toestaan uitgaand naar alle Azure SQLDB IP-adressen. Dit kan worden bewerkstelligd met behulp van de servicetags NSG (Netwerkbeveiligingsgroepen). Zie voor meer informatie, [servicetags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 ## <a name="azure-sql-database-gateway-ip-addresses"></a>Azure SQL Database-gateway-IP-adressen
 
 Als u wilt verbinding maken met een Azure SQL database vanuit on-premises bronnen, die u wilt toestaan dat uitgaand netwerkverkeer naar de Azure SQL Database-gateway voor uw Azure-regio. Uw verbindingen worden alleen via de gateway gaan wanneer u verbinding maakt in de Proxy-modus, dit de standaardinstelling is bij het verbinden van on-premises bronnen.
 
 De volgende tabel geeft een lijst van de primaire en secundaire IP-adressen van de Azure SQL Database-gateway voor alle regio's van gegevens. Voor sommige regio's zijn er twee IP-adressen. In deze regio's, het primaire IP-adres is het huidige IP-adres van de gateway en het tweede IP-adres is een failover-IP-adres. De failover-adres is het adres waarop we uw server te houden van de van hoge servicebeschikbaarheid mogelijk verplaatsen. Voor deze regio's raden wij u uitgaand naar beide IP-adressen toestaat. Het tweede IP-adres is eigendom van Microsoft en luistert niet op alle services totdat deze is geactiveerd door Azure SQL Database om verbindingen te accepteren.
+
+> [!IMPORTANT]
+> Als u verbinding vanaf binnen Azure maakt het verbindingsbeleid zich **omleiden** standaard (met uitzondering van de opdracht als u van service-eindpunten gebruikmaakt). Het wordt niet voldoende om toe te staan de volgende IP-adressen zijn. U moet alle Azure SQL Database IP-adressen toestaan. Als u verbinding vanaf binnen een VNet maakt, kan dit worden bewerkstelligd met behulp van de servicetags NSG (Netwerkbeveiligingsgroepen). Zie voor meer informatie, [servicetags](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags).
 
 | Naam regio | Primaire IP-adres | Secundaire IP-adres |
 | --- | --- |--- |

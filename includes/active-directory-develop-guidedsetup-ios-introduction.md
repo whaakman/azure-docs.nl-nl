@@ -1,4 +1,27 @@
-
+---
+title: bestand opnemen
+description: bestand opnemen
+services: active-directory
+documentationcenter: dev-center-name
+author: andretms
+manager: mtillman
+editor: ''
+ms.assetid: 820acdb7-d316-4c3b-8de9-79df48ba3b06
+ms.service: active-directory
+ms.devlang: na
+ms.topic: include
+ms.tgt_pltfrm: ios
+ms.workload: identity
+ms.date: 09/19/2018
+ms.author: andret
+ms.custom: include file
+ms.openlocfilehash: 93a1772eba291b5141a0bba4ee9a777feb51ab9e
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
+ms.translationtype: MT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46466146"
+---
 # <a name="call-the-microsoft-graph-api-from-an-ios-application"></a>De Microsoft Graph-API aanroepen vanuit een iOS-toepassing
 
 Deze handleiding wordt beschreven hoe een toepassing systeemeigen iOS (Swift) API's waarvoor access tokens van het v2.0-eindpunt voor Microsoft Azure Active Directory (Azure AD) kunt aanroepen. De handleiding wordt uitgelegd hoe u voor toegangstokens verkrijgen en ze gebruiken in aanroepen naar de Microsoft Graph API en andere API's.
@@ -6,7 +29,7 @@ Deze handleiding wordt beschreven hoe een toepassing systeemeigen iOS (Swift) AP
 Nadat u de oefeningen in deze handleiding hebt voltooid, kan uw toepassing een beveiligde API oproept vanuit een bedrijf of organisatie die Azure AD is. Uw toepassing kunt maken van beveiligde API-aanroepen met behulp van persoonlijke accounts, zoals outlook.com, live.com en andere, evenals de werk-of schoolaccount.
 
 ## <a name="prerequisites"></a>Vereisten
-- XCode-versie 8.x is vereist voor het voorbeeld dat is gemaakt in deze handleiding. U kunt downloaden XCode uit de [iTunes website](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode downloaden URL").
+- XCode-versie 10.x is vereist voor het voorbeeld dat is gemaakt in deze handleiding. U kunt downloaden XCode uit de [iTunes website](https://geo.itunes.apple.com/us/app/xcode/id497799835?mt=12 "XCode downloaden URL").
 - De [Carthage](https://github.com/Carthage/Carthage) afhankelijkheidsbeheerder is vereist voor Pakketbeheer.
 
 ## <a name="how-this-guide-works"></a>De werking van deze handleiding

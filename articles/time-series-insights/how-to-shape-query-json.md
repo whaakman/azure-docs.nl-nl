@@ -8,16 +8,22 @@ ms.service: time-series-insights
 ms.topic: article
 ms.date: 05/24/2018
 ms.author: anshan
-ms.openlocfilehash: 11bea78315ff7ebb4b0c167dbb687ce940907527
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: b9d5e922a9a0a5f50e2ced896f5957fbc90d7eb4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628909"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364360"
 ---
 # <a name="how-to-shape-json-to-maximize-query-performance"></a>Hoe u kunt vormgeven JSON naar het maximaliseren van de prestaties van query 's 
 
 In dit artikel bevat richtlijnen voor het vormgeven van JSON naar de efficiëntie van uw Azure Time Series Insights (TSI)-query's te maximaliseren.
+
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-best-practices-around-shaping-json-to-meet-your-storage-needsbr"></a>In deze video behandelen we de aanbevolen procedures voor vormgeven JSON om te voldoen aan uw opslagbehoeften.</br>
+
+> [!VIDEO https://www.youtube.com/embed/b2BD5hwbg5I]
 
 ## <a name="best-practices"></a>Aanbevolen procedures
 
@@ -181,7 +187,7 @@ Houd rekening met de volgende in het vorige voorbeeld, en die vergelijkbaar is m
 
 - Eigenschappen van onnodige zijn vermeden, om de reden dat wordt vermeld in het eerste voorbeeld.
 
-- referentiegegevens wordt gebruikt om te beperken van het aantal bytes dat via het netwerk wordt overgedragen door de introductie van **deviceId**, voor een unieke combinatie van een **messageId** en **deviceLocation**. Een samengestelde sleutel wordt gebruikt, **series.tagId**, voor de unieke combinatie van **type** en **unit.**. De samengestelde sleutel kan de **deviceId** en **series.tagId** paar moet worden gebruikt om te verwijzen naar vier waarden: **messageId, deviceLocation, typt,** en **eenheid **. Deze gegevens is samengevoegd met de telemetrische gegevens gelijktijdig met inkomend verkeer, en vervolgens opgeslagen in TSI voor het uitvoeren van query's.
+- referentiegegevens wordt gebruikt om te beperken van het aantal bytes dat via het netwerk wordt overgedragen door de introductie van **deviceId**, voor een unieke combinatie van een **messageId** en **deviceLocation**. Een samengestelde sleutel wordt gebruikt, **series.tagId**, voor de unieke combinatie van **type** en **unit.**. De samengestelde sleutel kan de **deviceId** en **series.tagId** paar moet worden gebruikt om te verwijzen naar vier waarden: **messageId, deviceLocation, typt,** en **eenheid** . Deze gegevens is samengevoegd met de telemetrische gegevens gelijktijdig met inkomend verkeer, en vervolgens opgeslagen in TSI voor het uitvoeren van query's.
 
 - twee lagen van geneste worden gebruikt om de reden dat wordt vermeld in het eerste voorbeeld.
 

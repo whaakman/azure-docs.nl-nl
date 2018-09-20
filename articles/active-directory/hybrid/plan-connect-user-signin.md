@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 05/31/2018
 ms.component: hybrid
 ms.author: billmath
-ms.openlocfilehash: 33072732053325f29dc44e4a46b809c1afaa93f4
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 38086d0e975956aefe4fcde4eda67d939d58f617
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46312646"
+ms.locfileid: "46365839"
 ---
 # <a name="azure-ad-connect-user-sign-in-options"></a>Azure AD Connect-aanmelden-gebruikersopties
 Azure Active Directory (Azure AD) Connect kan uw gebruikers zich aanmelden bij zowel cloud en on-premises resources met behulp van dezelfde wachtwoorden. Dit artikel beschrijft de belangrijkste concepten voor elk identiteitsmodel aan bij het kiezen van de identiteit die u gebruiken wilt voor aanmelding bij Azure AD.
@@ -114,7 +114,7 @@ De UPN van de gebruiker heeft de indeling username@domain. Bijvoorbeeld, een Act
 ### <a name="user-principal-name-in-azure-ad"></a>UPN-naam in Azure AD
 De Azure AD Connect-wizard gebruikt het kenmerk userPrincipalName of kunt u opgeven dat het kenmerk (in een aangepaste installatie) van on-premises worden gebruikt als de user principal name in Azure AD. Dit is de waarde die wordt gebruikt voor aanmelding bij Azure AD. Als de waarde van het kenmerk userPrincipalName niet overeenkomt met een geverifieerd domein in Azure AD, klikt u vervolgens Azure AD vervangen door een standaard. onmicrosoft.com-waarde.
 
-Alle directory's in Azure Active Directory wordt geleverd met een ingebouwde domeinnaam, met de indeling contoso.onmicrosoft.com, waarmee u aan de slag met Azure of andere Microsoft-services. U kunt verbeteren en vereenvoudigen van de aanmeldingservaring met behulp van aangepaste domeinen. Zie voor meer informatie over aangepaste domeinnamen in Azure AD en het controleren van een domein [uw aangepaste domeinnaam toevoegen aan Azure Active Directory](../fundamentals/add-custom-domain.md#add-a-custom-domain-name).
+Alle directory's in Azure Active Directory wordt geleverd met een ingebouwde domeinnaam, met de indeling contoso.onmicrosoft.com, waarmee u aan de slag met Azure of andere Microsoft-services. U kunt verbeteren en vereenvoudigen van de aanmeldingservaring met behulp van aangepaste domeinen. Zie voor meer informatie over aangepaste domeinnamen in Azure AD en het controleren van een domein [uw aangepaste domeinnaam toevoegen aan Azure Active Directory](../fundamentals/add-custom-domain.md).
 
 ## <a name="azure-ad-sign-in-configuration"></a>Aanmeldconfiguratie Azure AD
 ### <a name="azure-ad-sign-in-configuration-with-azure-ad-connect"></a>Azure AD-aanmelden-configuratie met Azure AD Connect

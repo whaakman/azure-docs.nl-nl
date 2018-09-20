@@ -8,13 +8,13 @@ manager: kfile
 editor: jasonwhowell
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/19/2018
-ms.openlocfilehash: 94d196ceecc0b63b9f0b0fe94f71363dc2086c30
-ms.sourcegitcommit: 248c2a76b0ab8c3b883326422e33c61bd2735c6c
+ms.date: 09/22/2018
+ms.openlocfilehash: b8d5208992e8f12fae3c010748b2c494e0d50ee8
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/23/2018
-ms.locfileid: "39213647"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465654"
 ---
 # <a name="migrate-your-postgresql-database-using-dump-and-restore"></a>Migreren van de PostgreSQL-database met behulp van dumpen en terugzetten
 U kunt [pg_dump](https://www.postgresql.org/docs/9.3/static/app-pgdump.html) om op te halen van een PostgreSQL-database naar een dumpbestand en [pg_restore](https://www.postgresql.org/docs/9.3/static/app-pgrestore.html) de PostgreSQL-database herstellen vanuit een archiefbestand die zijn gemaakt door pg_dump.
@@ -41,7 +41,7 @@ pg_dump -Fc -v --host=localhost --username=masterlogin --dbname=testdb > testdb.
 > 
 
 ## <a name="restore-the-data-into-the-target-azure-database-for-postrgesql-using-pgrestore"></a>Herstel de gegevens in de doel-Azure Database voor PostrgeSQL pg_restore gebruiken
-Als u de doel-database hebt gemaakt, kunt u de opdracht pg_restore en de d-,--dbname-parameter voor het terugzetten van de gegevens in de doeldatabase uit het dumpbestand.
+Nadat u de doel-database hebt gemaakt, kunt u de opdracht pg_restore en de d-,--dbname-parameter voor het terugzetten van de gegevens in de doeldatabase uit het dumpbestand.
 ```bash
 pg_restore -v --no-owner –-host=<server name> --port=<port> --username=<user@servername> --dbname=<target database name> <database>.dump
 ```
@@ -57,6 +57,34 @@ In dit voorbeeld kunt u de gegevens terugzetten vanaf het dumpbestand **testdb.d
 ```bash
 pg_restore -v --no-owner --host=mydemoserver.postgres.database.azure.com --port=5432 --username=mylogin@mydemoserver --dbname=mypgsqldb testdb.dump
 ```
+
+## <a name="optimizing-the-migration-process"></a>Het migratieproces optimaliseren
+
+Een manier om uw bestaande PostgreSQL-database migreren naar Azure Database for PostgreSQL-service is het back-up van de database op de bron- en deze herstellen in Azure. Om te beperken van de tijd die nodig is om de migratie te voltooien, kunt u overwegen de volgende parameters met de back-up en herstel van opdrachten.
+
+> [!NOTE]
+> Zie de artikelen voor informatie over de gedetailleerde syntaxis, [pg_dump](https://www.postgresql.org/docs/9.6/static/app-pgdump.html) en [pg_restore](https://www.postgresql.org/docs/9.6/static/app-pgrestore.html).
+>
+
+### <a name="for-the-backup"></a>Voor de back-up
+- Een back-up met de switch Fc - zodat u de terugzetbewerking parallel uitvoeren kunt snelheid verhogen. Bijvoorbeeld:
+
+    ```
+    pg_dump -h MySourceServerName -U MySourceUserName -Fc -d MySourceDatabaseName > Z:\Data\Backups\MyDatabaseBackup.dump
+    ```
+
+### <a name="for-the-restore"></a>Voor het herstellen
+- Kopieer de back-upbestanden in een Azure-blob/store en het herstellen van daaruit uitvoeren. Deze moet sneller dan de terugzetbewerking doen via het Internet. 
+- Het standaard moet worden gedaan, maar het dumpbestand om te controleren dat de instructies van de index maken na het invoegen van de gegevens zijn geopend. Als dit niet het geval is, verplaatst u de instructies van de index maken nadat de gegevens worden ingevoegd.
+- Herstellen met de schakelopties -Fc- en -j *#* naar parallel het terugzetten. *#* is het aantal kernen op de doelserver. U kunt ook proberen met *#* ingesteld op twee keer het aantal kernen van de doelserver om te zien van de impact. Bijvoorbeeld:
+
+    ```
+    pg_restore -h MyTargetServer.postgres.database.azure.com -U MyAzurePostgreSQLUserName -Fc -j 4 -d MyTargetDatabase Z:\Data\Backups\MyDatabaseBackup.dump
+    ```
+
+- U kunt ook het dumpbestand bewerken door de opdracht toe te voegen *synchronous_commit instellen = uit;* aan het begin en de opdracht *synchronous_commit instellen = on;* aan het einde. Niet te schakelen op aan het einde, voordat de apps de gegevens wijzigen, kan dit leiden tot volgende verlies van gegevens.
+
+Houd er rekening mee te testen en valideren van deze opdrachten in een testomgeving voordat u ze in productie gebruiken.
 
 ## <a name="next-steps"></a>Volgende stappen
 - Zie voor het migreren van een PostgreSQL-database met behulp van exporteren en importeren, [migreren van de PostgreSQL-database met behulp van exporteren en importeren](howto-migrate-using-export-and-import.md).

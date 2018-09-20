@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/17/2018
 ms.author: mabrigg
-ms.openlocfilehash: 75b7f9c78418883344ce3c066135fe0847f649ac
-ms.sourcegitcommit: 776b450b73db66469cb63130c6cf9696f9152b6a
+ms.openlocfilehash: db253c921354ea132dc6b043dcb6f0b96cdbfd88
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "45981958"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368168"
 ---
 # <a name="get-up-and-running-with-powershell-in-azure-stack"></a>Aan de slag met PowerShell in Azure Stack
 
@@ -57,21 +57,21 @@ Laden van de API-profiel en de beheerder van de module voor uw versie van Azure 
 
   ```PowerShell  
     Use-AzureRmProfile -Profile 2018-03-01-hybrid -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.5.0 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.5.0
   ```
 
   - Azure Stack 1807 of een eerdere versie.
 
   ```PowerShell  
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.4.0 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.4.0
   ```
 
   - Azure Stack 1804 of een eerdere versie.
 
   ```PowerShell  
     Use-AzureRmProfile -Profile 2017-03-09-profile -Force
-    Install-Module -Name AzureStack -RequiredVersion 1.2.11 -Force
+    Install-Module -Name AzureStack -RequiredVersion 1.2.11
   ```
 
 Download de Azure Stack-tools en maak verbinding.

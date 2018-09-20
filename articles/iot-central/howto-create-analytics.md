@@ -1,21 +1,25 @@
 ---
-title: Maken van aangepaste analytics voor uw toepassing met Azure IoT Central | Microsoft Docs
-description: Als operator, over het maken van aangepaste analytics voor uw Azure IoT Central-toepassing.
+title: Analyseer uw apparaatgegevens in uw Azure IoT Central-toepassing | Microsoft Docs
+description: Analyseer gegevens van uw apparaat in uw Azure IoT Central-toepassing.
 author: lmasieri
 ms.author: lmasieri
-ms.date: 08/26/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 0a78c534605b6eab08d5b12674689f0459e80b26
-ms.sourcegitcommit: 2b2129fa6413230cf35ac18ff386d40d1e8d0677
+ms.openlocfilehash: bf86e769aff4a9b03d5df1b1aef702814c605fa4
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/30/2018
-ms.locfileid: "43247093"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368083"
 ---
 # <a name="how-to-use-analytics-to-analyze-your-device-data"></a>Analytics gebruiken om de apparaatgegevens van uw te analyseren
+
+
+*In dit artikel is van toepassing op operators, opbouwfuncties en beheerders.*
+
 
 Microsoft Azure IoT Central biedt uitgebreide analysemogelijkheden, zinvol zijn van grote hoeveelheden gegevens van uw apparaten. Als u wilt beginnen, gaat u naar **Analytics** in het navigatiemenu links. 
 

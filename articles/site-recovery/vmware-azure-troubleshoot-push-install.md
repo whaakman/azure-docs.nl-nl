@@ -1,6 +1,6 @@
 ---
 title: Azure Site Recovery probleemoplossing van VMware naar Azure | Microsoft Docs
-description: Fouten bij het repliceren van virtuele machines van Azure oplossen.
+description: Mobility service-push-Installatiefouten bij het repliceren van virtuele machines van Azure oplossen.
 services: site-recovery
 author: Rajeswari-Mamilla
 manager: rochakm
@@ -8,22 +8,23 @@ ms.service: site-recovery
 ms.devlang: na
 ms.topic: article
 ms.author: ramamill
-ms.date: 09/17/2018
-ms.openlocfilehash: d77b252351c15bea13b0fa1fb42fa062d508fbdc
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.date: 09/19/2018
+ms.openlocfilehash: 32b579ac680204a909c19e7125711d298b08b26a
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46126986"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46365482"
 ---
 # <a name="troubleshoot-mobility-service-push-installation-issues"></a>Problemen met de Mobility-Service push-installatie
 
 De installatie van mobiliteitsservice is een belangrijke stap tijdens replicatie inschakelen. Het succes van deze stap is afhankelijk van uitsluitend op voldoen aan de vereisten van en werken met ondersteunde configuraties. De meest voorkomende fouten die u tijdens de installatie van Mobility service te maken krijgt zijn vanwege
 
-* Connectiviteit/referentie-fouten
+* Referentie/bevoegdheden fouten
+* Fouten in de basisnetwerkverbinding
 * Niet-ondersteunde besturingssystemen
 
-Wanneer u replicatie inschakelt, installeren probeert om Azure Site Recovery mobility service-agent op uw virtuele machine. Als onderdeel hiervan probeert configuratieserver te verbinden met de virtuele machine en kopieer de Agent. Om in te schakelen is geïnstalleerd, volgt u de stapsgewijze richtlijnen voor probleemoplossing hieronder
+Wanneer u replicatie inschakelt, installeren probeert om Azure Site Recovery mobility service-agent op uw virtuele machine. Als onderdeel hiervan probeert configuratieserver te verbinden met de virtuele machine en kopieer de Agent. Volg de stapsgewijze richtlijnen voor probleemoplossing hieronder zodat geslaagde installatie.
 
 ## <a name="credentials-check-errorid-95107--95108"></a>Controleer de referenties (Aanroepstatus: 95107 & 95108)
 

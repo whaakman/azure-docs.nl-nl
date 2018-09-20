@@ -11,17 +11,27 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
 ms.date: 11/30/2017
-ms.openlocfilehash: dfdc538719b0c7571ba04f4134819d7142f109d3
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: f4a9d09aa701d490e8391d68435e672ff49c771c
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39629137"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364225"
 ---
 # <a name="azure-time-series-insights-explorer"></a>Azure Time Series Insights explorer
 In dit artikel behandelt de verschillende functies en opties die beschikbaar zijn binnen de Time Series Insights explorer web-app. U gebruikt Verkenner van Time Series Insights in uw webbrowser om visualisaties van uw gegevens te maken.
  
 Azure Time Series Insights is een volledig beheerde service voor analyse, opslag en visualisatie die het eenvoudig maakt om miljarden IoT-gebeurtenissen tegelijkertijd te verkennen en te analyseren. Dit biedt u een algemeen overzicht van uw gegevens, waarmee u snel uw IoT-oplossing te valideren en kostbare stilstand van essentiële apparaten te vermijden. U kunt verborgen trends, anomalieën te herkennen, te detecteren en oorzaak-gevolganalyses bijna in realtime uitvoeren. De Verkenner van Time Series Insights is momenteel in openbare preview.
+
+## <a name="video"></a>Video:
+
+In deze video behandelen we opvragen van gegevens met behulp van de Verkenner van Time Series Insights. 
+
+Deze video is gebaseerd op Video Time Series Insights:  
+<span style="color:blue">Begint ophalen met Time Series Insights met behulp van een Azure IoT-oplossingsversnellers.</span>
+</br>
+
+> [!VIDEO https://www.youtube.com/embed/SHFPZvrR71s]
 
 ## <a name="prerequisites"></a>Vereisten
 

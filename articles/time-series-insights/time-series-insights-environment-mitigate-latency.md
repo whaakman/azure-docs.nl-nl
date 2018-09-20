@@ -11,12 +11,12 @@ ms.devlang: csharp
 ms.workload: big-data
 ms.topic: troubleshooting
 ms.date: 11/27/2017
-ms.openlocfilehash: a404eb1393f9e99c2e2932c2d23724051f1b72a0
-ms.sourcegitcommit: 4de6a8671c445fae31f760385710f17d504228f8
+ms.openlocfilehash: e301afaa2fed2b00599fbdde8178203965280c0d
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/08/2018
-ms.locfileid: "39628484"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364979"
 ---
 # <a name="monitor-and-mitigate-throttling-to-reduce-latency-in-azure-time-series-insights"></a>Controleren en om te verminderen latentie in Azure Time Series Insights Aanvraagbeperkingen minimaliseren
 Wanneer de hoeveelheid inkomende gegevens groter is dan de configuratie van uw omgeving, kunt u latentie of beperkingen in Azure Time Series Insights kan optreden.
@@ -30,6 +30,11 @@ U bent waarschijnlijk om latentie en beperkingen wanneer u:
 - Grote hoeveelheden historische gebeurtenissen verzenden naar een gebeurtenisbron, wat resulteert in een vertraging (Time Series Insights moet voor meer informatie).
 - Neem deel aan referentiegegevens met telemetrie, wat resulteert in de gebeurtenis groter.  Een gegevenspakket ingressed met een pakketgrootte van 32 KB wordt beschouwd als 32-gebeurtenissen van een beperking perspectief, elke grootte van 1 KB. De toegestane maximale gebeurtenisgrootte is 32 KB; gegevenspakketten die groter zijn dan 32 KB worden afgebroken.
 
+## <a name="video"></a>Video: 
+
+### <a name="in-this-video-we-cover-time-series-insights-data-ingress-behavior-and-how-to-plan-for-itbr"></a>In deze video behandelen we gedrag voor inkomend verkeer van Time Series Insights-gegevens en het plannen voor deze.</br>
+
+> [!VIDEO https://www.youtube.com/embed/npeZLAd9lxo]
 
 ## <a name="monitor-latency-and-throttling-with-alerts"></a>Latentie en aanvraagbeperking en waarschuwingen bewaken
 

@@ -4,18 +4,20 @@ description: Het exporteren van gegevens vanuit uw Azure IoT Central-toepassing
 services: iot-central
 author: viv-liu
 ms.author: viviali
-ms.date: 07/3/2018
+ms.date: 09/18/2018
 ms.topic: article
-ms.prod: azure-iot-central
+ms.service: azure-iot-central
 manager: peterpr
-ms.openlocfilehash: 5defbf7021936e3cc77250ccc453cb3887c77617
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: a1a7e6a62a88057cc8bc512a0c46de79a55ccd53
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45576439"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46368134"
 ---
 # <a name="export-your-data-in-azure-iot-central"></a>Uw gegevens in Azure IoT Central exporteren
+
+*In dit onderwerp is bedoeld voor beheerders.*
 
 In dit artikel wordt beschreven hoe u de functie continue export gebruiken in Azure IoT Central periodiek gegevens exporteren naar uw Azure Blob storage-account. U kunt exporteren **metingen**, **apparaten**, en **apparaatsjablonen** naar bestanden met de [Apache AVRO](https://avro.apache.org/docs/current/index.html) indeling. De geëxporteerde gegevens kunnen worden gebruikt voor analyses koude pad, zoals modellen voor training in Azure Machine Learning of op de lange termijn trendanalyse in Microsoft Power BI.
 
@@ -36,7 +38,7 @@ In dit artikel wordt beschreven hoe u de functie continue export gebruiken in Az
 De metingen die apparaten verzenden worden naar uw opslagaccount eenmaal per minuut geëxporteerd. De gegevens hebben de nieuwe berichten ontvangen met IoT Central van alle apparaten in die tijd. De geëxporteerde AVRO-bestanden gebruiken dezelfde indeling als de berichtbestanden geëxporteerd door [IoT Hub-berichtroutering](https://docs.microsoft.com/azure/iot-hub/iot-hub-csharp-csharp-process-d2c) naar Blob-opslag.
 
 > [!NOTE]
-> De apparaten die het verzenden van de metingen worden vertegenwoordigd door de apparaat-id's (Zie de volgende gedeelten). Als u de namen van de apparaten, de apparaat-momentopnamen te exporteren. Elke berichtenrecord correleren met behulp van de **connectionDeviceId** die overeenkomt met de apparaat-ID.
+> De apparaten die het verzenden van de metingen worden vertegenwoordigd door de apparaat-id's (Zie de volgende gedeelten). Als u de namen van de apparaten, de apparaat-momentopnamen te exporteren. Elke berichtenrecord correleren met behulp van de **connectionDeviceId** die overeenkomt met de **deviceId** van de record van apparaat.
 
 Het volgende voorbeeld ziet u een record in een gedecodeerde AVRO-bestand:
 
@@ -45,9 +47,9 @@ Het volgende voorbeeld ziet u een record in een gedecodeerde AVRO-bestand:
     "EnqueuedTimeUtc": "2018-06-11T00:00:08.2250000Z",
     "Properties": {},
     "SystemProperties": {
-        "connectionDeviceId": "2383d8ba-c98c-403a-b4d5-8963859643bb",
+        "connectionDeviceId": "<connectionDeviceId>",
         "connectionAuthMethod": "{\"scope\":\"hub\",\"type\":\"sas\",\"issuer\":\"iothub\",\"acceptingIpFilterRule\":null}",
-        "connectionDeviceGenerationId": "636614021491644195",
+        "connectionDeviceGenerationId": "<generationId>",
         "enqueuedTime": "2018-06-11T00:00:08.2250000Z"
     },
     "Body": "{\"humidity\":80.59100954598546,\"magnetometerX\":0.29451796907056726,\"magnetometerY\":0.5550332126050068,\"magnetometerZ\":-0.04116681874733441,\"connectivity\":\"connected\",\"opened\":\"triggered\"}"
@@ -56,12 +58,13 @@ Het volgende voorbeeld ziet u een record in een gedecodeerde AVRO-bestand:
 
 ### <a name="devices"></a>Apparaten
 
-Wanneer voortdurende gegevensexport eerst is ingeschakeld, wordt een momentopname van een enkel met alle apparaten wordt geëxporteerd. De snapshot bevat:
-- Apparaat-id's.
-- Apparaatnamen.
-- Apparaat sjabloon-id.
-- Eigenschapswaarden.
-- Waarden instellen.
+Wanneer voortdurende gegevensexport eerst is ingeschakeld, wordt een momentopname van een enkel met alle apparaten wordt geëxporteerd. Elk apparaat bevat:
+- `id` van het apparaat in IoT Central
+- `name` van het apparaat
+- `deviceId` van [Device Provisioning Service](https://aka.ms/iotcentraldocsdps)
+- Sjabloon van apparaatgegevens
+- Waarden van eigenschappen
+- Waarden in te stellen
 
 Een nieuwe momentopname is eenmaal per minuut geschreven. De snapshot bevat:
 
@@ -73,15 +76,16 @@ Een nieuwe momentopname is eenmaal per minuut geschreven. De snapshot bevat:
 >
 > De apparaat-sjabloon die elk apparaat hoort wordt vertegenwoordigd door een sjabloon voor apparaat-ID. Als u de naam van de sjabloon van het apparaat, exporteert u de momentopnamen van de sjabloon apparaat.
 
-Elke record in het gedecodeerde AVRO-bestand ziet eruit zoals:
+Een record in het gedecodeerde AVRO-bestand kan er als volgt uitzien:
 
 ```json
 {
-    "id": "2383d8ba-c98c-403a-b4d5-8963859643bb",
+    "id": "<id>",
     "name": "Refrigerator 2",
     "simulated": true,
+    "deviceId": "<deviceId>",
     "deviceTemplate": {
-        "id": "c318d580-39fc-4aca-b995-843719821049",
+        "id": "<template id>",
         "version": "1.0.0"
     },
     "properties": {
@@ -104,8 +108,10 @@ Elke record in het gedecodeerde AVRO-bestand ziet eruit zoals:
 
 ### <a name="device-templates"></a>Apparaatsjablonen
 
-Wanneer voortdurende gegevensexport eerst is ingeschakeld, wordt een momentopname van een enkel met alle apparaatsjablonen geëxporteerd. De snapshot bevat: 
-- Apparaat sjabloon-id.
+Wanneer voortdurende gegevensexport eerst is ingeschakeld, wordt een momentopname van een enkel met alle apparaatsjablonen geëxporteerd. Elke sjabloon apparaat bevat:
+- `id` van de sjabloon voor apparaat
+- `name` van de sjabloon voor apparaat
+- `version` van de sjabloon voor apparaat
 - Meting gegevenstypen en min/max-waarden.
 - Typen eigenschappen voor gegevens en standaardwaarden.
 - Gegevenstypen en standaardwaarden instellen.
@@ -118,11 +124,11 @@ Een nieuwe momentopname is eenmaal per minuut geschreven. De snapshot bevat:
 > [!NOTE]
 > Apparaatsjablonen verwijderd sinds de laatste momentopname worden niet geëxporteerd. De momentopnamen hebt op dit moment geen indicatoren voor verwijderde sjablonen.
 
-Elke record in het gedecodeerde AVRO-bestand ziet eruit zoals:
+Een record in het gedecodeerde AVRO-bestand kan er als volgt:
 
 ```json
 {
-    "id": "c318d580-39fc-4aca-b995-843719821049",
+    "id": "<id>",
     "name": "Refrigerated Vending Machine",
     "version": "1.0.0",
     "measurements": {
@@ -209,16 +215,16 @@ Elke record in het gedecodeerde AVRO-bestand ziet eruit zoals:
 
 4. Onder **beheer**, selecteer **gegevensexport**.
 
-   ![Voortdurende gegevensexport configureren](media/howto-export-data/continuousdataexport.PNG)
-
 5. In de **opslagaccount** vervolgkeuzelijst uw storage-account te selecteren. In de **Container** vervolgkeuzelijst vak, selecteert u de container. Onder **gegevens naar de export**, elk type gegevens wilt exporteren door het type in te stellen **op**.
 
 6. Instellen om in te schakelen voortdurende gegevensexport, **gegevensexport** naar **op**. Selecteer **Opslaan**.
 
+  ![Voortdurende gegevensexport configureren](media/howto-export-data/continuousdataexport.PNG)
+
 7. Na een paar minuten uw gegevens in uw storage-account worden weergegeven. Blader naar uw storage-account. Selecteer **door blobs Bladeren** > uw container. U ziet drie mappen voor het exporteren van gegevens. De standaardpaden voor de AVRO-bestanden met de exportgegevens zijn:
-    - Berichten: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
-    - Apparaten: {container}/devices/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
-    - Apparaatsjablonen: {container}/deviceTemplates/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/00.avro
+    - Berichten: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - Apparaten: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
+    - Apparaatsjablonen: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}.avro
 
 ## <a name="read-exported-avro-files"></a>Lezen geëxporteerd AVRO-bestanden
 
@@ -280,7 +286,7 @@ def parse(filePath):
     transformed = pd.DataFrame()
 
     # The device ID is available in the id column.
-    transformed["device_id"] = devices["id"]
+    transformed["device_id"] = devices["deviceId"]
 
     # The template ID and version are present in a dictionary under
     # the deviceTemplate column.
@@ -395,7 +401,7 @@ public static async Task Run(string filePath)
                 {
                     // Get the field value directly. You can also yield return
                     // records and make the function IEnumerable<AvroRecord>.
-                    var deviceId = record.GetField<string>("id");
+                    var deviceId = record.GetField<string>("deviceId");
 
                     // The device template information is stored in a sub-record
                     // under the deviceTemplate field.
@@ -411,7 +417,7 @@ public static async Task Run(string filePath)
                     var fanSpeed = deviceSettingsRecord["fanSpeed"];
                     
                     Console.WriteLine(
-                        "ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
+                        "Device ID: {0}, Template ID: {1}, Template Version: {2}, Fan Speed: {3}",
                         deviceId,
                         templateId,
                         templateVersion,
@@ -524,8 +530,8 @@ const avro = require('avsc');
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the device ID from the id property.
-        const deviceId = record.id;
+        // Fetch the device ID from the deviceId property.
+        const deviceId = record.deviceId;
 
         // Fetch the template ID and version from the deviceTemplate property.
         const deviceTemplateId = record.deviceTemplate.id;
@@ -535,7 +541,7 @@ async function parse(filePath) {
         const fanSpeed = record.settings.device.fanSpeed;
 
         // Log the retrieved device ID and humidity.
-        console.log(`ID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
+        console.log(`deviceID: ${deviceId}, Template ID: ${deviceTemplateId}, Template Version: ${deviceTemplateVersion}, Fan Speed: ${fanSpeed}`);
     }
 }
 

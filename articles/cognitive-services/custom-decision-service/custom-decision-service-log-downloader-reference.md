@@ -1,34 +1,36 @@
 ---
-title: LogDownloader - cognitieve Azure-Services | Microsoft Docs
-description: Download de logboekbestanden die door Azure aangepaste besluit Service worden gemaakt.
+title: LogDownloader - Custom Decision Service
+titlesuffix: Azure Cognitive Services
+description: Download de logboekbestanden die worden geproduceerd door Azure Custom Decision Service.
 services: cognitive-services
 author: marco-rossi29
-manager: marco-rossi29
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/09/2018
 ms.author: marossi
-ms.openlocfilehash: 783b534b3b3f4bb7f5d9f073f491690759edfea5
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: 8c5ab0e297690f1fbdb41a2627dd63c3ea522d1b
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345464"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366795"
 ---
 # <a name="logdownloader"></a>LogDownloader
 
-Downloaden van de logboekbestanden die worden geproduceerd door Azure aangepaste besluit Service en het genereren van de *.gz* bestanden die worden gebruikt door experimenteren.
+Downloaden van de logboekbestanden die worden geproduceerd door Azure Custom Decision Service en genereert de *.gz* bestanden die worden gebruikt door experimenten.
 
 ## <a name="prerequisites"></a>Vereisten
 
-- Python 3: Geïnstalleerd en op uw pad. U wordt aangeraden de 64-bits versie grote bestanden moeten worden verwerkt.
+- Python 3: Geïnstalleerd en op het pad. U wordt aangeraden de 64-bits-versie voor het afhandelen van grote bestanden.
 - De *mwt-Microsoft-ds* opslagplaats: [kloon de opslagplaats](https://github.com/Microsoft/mwt-ds).
-- De *azure-opslag-blob* pakket: voor details over de installatie, gaat u naar [bibliotheek van Microsoft Azure-opslag voor Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
-- Voer uw Azure-opslag-verbindingsreeks in *mwt-ds/DataScience/ds.config*: Volg de *my_app_id: my_connectionString* sjabloon. U kunt meerdere opgeven `app_id`. Bij het uitvoeren van `LogDownloader.py`, als de invoer `app_id` is niet gevonden in `ds.config`, `LogDownloader.py` maakt gebruik van de `$Default` verbindingsreeks.
+- De *azure-storage-blob* pakket: voor installatiegegevens, gaat u naar [Microsoft Azure Storage-clientbibliotheek voor Python](https://github.com/Azure/azure-storage-python#option-1-via-pypi).
+- Voer uw Azure storage-verbindingsreeks in *mwt-ds/DataScience/ds.config*: Volg de *my_app_id: my_connectionString* sjabloon. Kunt u meerdere `app_id`. Bij het uitvoeren van `LogDownloader.py`, als de invoer `app_id` is niet gevonden in `ds.config`, `LogDownloader.py` maakt gebruik van de `$Default` verbindingsreeks.
 
 ## <a name="usage"></a>Gebruik
 
-Ga naar `mwt-ds/DataScience` en voer `LogDownloader.py` met de relevante argumenten, zoals beschreven in de volgende code:
+Ga naar `mwt-ds/DataScience` en uit te voeren `LogDownloader.py` met de relevante argumenten, zoals beschreven in de volgende code:
 
 ```cmd
 python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
@@ -39,40 +41,40 @@ python LogDownloader.py [-h] -a APP_ID -l LOG_DIR [-s START_DATE]
 
 ### <a name="parameters"></a>Parameters
 
-| Invoer | Beschrijving | Normaal |
+| Invoer | Beschrijving | Standaard |
 | --- | --- | --- |
 | `-h`, `--help` | Ziet u de help-bericht en afsluiten. | |
-| `-a APP_ID`, `--app_id APP_ID` | De app-ID (dat wil zeggen, de Azure Storage-blob-containernaam). | Vereist |
-| `-l LOG_DIR`, `--log_dir LOG_DIR` | De basismap voor het downloaden van gegevens (een submap is gemaakt).  | Vereist |
-| `-s START_DATE`, `--start_date START_DATE` | Het downloaden begindatum (opgenomen), in *jjjj-MM-DD* indeling. | `None` |
+| `-a APP_ID`, `--app_id APP_ID` | De app-ID (dat wil zeggen, de Azure Storage blob-containernaam). | Vereist |
+| `-l LOG_DIR`, `--log_dir LOG_DIR` | De basismap voor het downloaden van gegevens (een submap wordt gemaakt).  | Vereist |
+| `-s START_DATE`, `--start_date START_DATE` | Het downloaden van de begindatum (opgenomen), in *jjjj-MM-DD* indeling. | `None` |
 | `-e END_DATE`, `--end_date END_DATE` | De downloaden einddatum (opgenomen), in *jjjj-MM-DD* indeling. | `None` |
-| `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | De modus overschrijven te gebruiken. | |
-| | `0`: Nooit overschrijven; Vraag de gebruiker of BLOB's worden momenteel gebruikt. | Normaal | |
-| | `1`: Vraagt de gebruiker hoe verder te gaan wanneer de bestanden verschillende grootten hebben of wanneer de blobs momenteel in gebruik. | |
-| | `2`: Altijd boven; blobs downloaden die momenteel worden gebruikt. | |
-| | `3`: Nooit overschrijven en ook als de groter is, zonder gebruikersbevestiging; blobs downloaden die momenteel worden gebruikt. | |
-| | `4`: Nooit overschrijven en ook als de groter is, zonder gebruikersbevestiging; blobs overslaan momenteel gebruikt. | |
+| `-o OVERWRITE_MODE`, `--overwrite_mode OVERWRITE_MODE` | De modus voor overschrijven om te gebruiken. | |
+| | `0`: Nooit overschrijven; Vraag de gebruiker of-blobs die momenteel worden gebruikt. | Standaard | |
+| | `1`: Vraagt de gebruiker voor de vervolgacties wanneer de bestanden verschillende grootte hebben of wanneer de blobs zijn momenteel wordt gebruikt. | |
+| | `2`: Altijd overschreven; Download blobs die momenteel worden gebruikt. | |
+| | `3`: Nooit overschrijven en toevoeg-als de grootte groter is, zonder te vragen; Download blobs die momenteel worden gebruikt. | |
+| | `4`: Nooit overschrijven en toevoeg-als de grootte groter is, zonder te vragen; blobs overslaan die momenteel worden gebruikt. | |
 | `--dry_run` | Afdrukken welke blobs zou zijn gedownload, zonder te downloaden. | `False` |
 | `--create_gzip` | Maak een *gzip* -bestand voor Vowpal Wabbit. | `False` |
-| `--delta_mod_t DELTA_MOD_T` | Het tijdvenster in seconden, voor het detecteren of een bestand momenteel in gebruik is. | `3600` per seconde (`1` uur) |
+| `--delta_mod_t DELTA_MOD_T` | De tijdsduur in seconden, voor het detecteren van of een bestand gebruikt wordt. | `3600` per seconde (`1` uur) |
 | `--verbose` | Meer details afdrukken. | `False` |
-| `-v VERSION`, `--version VERSION` | De versie van de downloadprogramma voor het logboek moet worden gebruikt. | |
-| | `1`: Voor ook Logboeken (alleen voor neerwaartse compatibiliteit). | Afgeschaft |
-| | `2`: Voor gekookte Logboeken. | Normaal |
+| `-v VERSION`, `--version VERSION` | De versie van de downloader logboek moet worden gebruikt. | |
+| | `1`: Voor ook Logboeken (alleen voor compatibiliteit met eerdere versies). | Afgeschaft |
+| | `2`: Voor gekookte Logboeken. | Standaard |
 
 ### <a name="examples"></a>Voorbeelden
 
-Gebruik de volgende code voor een vulprocedure van downloaden van de gegevens in uw Azure Storage-blob-container:
+Voor het droge uitvoeren van het downloaden van de gegevens in uw Azure Storage blob-container, gebruik de volgende code:
 ```cmd
 python LogDownloader.py -a your_app_id -l d:\data --dry_run
 ```
 
-Voor het downloaden van alleen de logboeken die zijn gemaakt sinds 1 januari 2018 met `overwrite_mode=4`, de volgende code gebruiken:
+Alleen logboeken die zijn gemaakt sinds 1 januari 2018 met downloaden `overwrite_mode=4`, gebruik de volgende code:
 ```cmd
 python LogDownloader.py -a your_app_id -l d:\data -s 2018-1-1 -o 4
 ```
 
-Maken van een *gzip* bestand met de gedownloade bestanden samenvoegen, gebruikt u de volgende code:
+Maakt een *gzip* bestand samenvoegen van de gedownloade bestanden, gebruik de volgende code:
 ```cmd
 python LogDownloader.py -a your_app_id -l d:\data -s 2018-1-1 -o 4 --create_gzip
 ```

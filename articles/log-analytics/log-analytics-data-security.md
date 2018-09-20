@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 07/11/2018
+ms.date: 09/19/2018
 ms.author: magoedte
 ms.component: na
-ms.openlocfilehash: af8c0b6a4aa0c3b6e25f92dc450faa22a01ee374
-ms.sourcegitcommit: e2ea404126bdd990570b4417794d63367a417856
+ms.openlocfilehash: 42b157a63b76474f6c9482da75072878fe9291e0
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/14/2018
-ms.locfileid: "45579164"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46465993"
 ---
 # <a name="log-analytics-data-security"></a>Meld u Analytics-gegevensbeveiliging
 Dit document is bedoeld om specifieke informatie van de Azure Log Analytics ter aanvulling van de gegevens op te geven [Azure Trust Center](../security/security-microsoft-trust-center.md).  
@@ -44,7 +44,7 @@ Als u wilt controleren of de beveiliging van gegevens die onderweg zijn naar Log
 
 De [PCI Security Standards Council heeft onlangs](https://www.pcisecuritystandards.org/) heeft een [deadline van 30 juni 2018](https://www.pcisecuritystandards.org/pdfs/PCI_SSC_Migrating_from_SSL_and_Early_TLS_Resource_Guide.pdf) om uit te schakelen van oudere versies van TLS/SSL en upgrade voor de protocollen beter kunt beveiligen. Nadat Azure ondersteuning voor oudere, komt als uw agents niet kunnen via ten minste communiceren TLS 1.2 u niet mogelijk zou zijn om gegevens te verzenden naar Log Analytics. 
 
-We raden niet expliciet de agent alleen gebruik van TLS 1.2, tenzij dit echt nodig als dit platform op rijniveau functies waarmee u automatisch detecteren en te profiteren van de nieuwere veiliger kunt verbreken zodra ze beschikbaar komen zoals protocollen instellen Als TLS 1.3. 
+We raden niet expliciet instelling uw agent alleen gebruik van TLS 1.2, tenzij dit absoluut noodzakelijk is, omdat deze functies waarmee u kunt automatisch detecteren en te profiteren van de nieuwere veiliger protocollen zodra deze beschikbaar is, bijvoorbeeld van beveiliging op het platform kunt verbreken Als TLS 1.3. 
 
 ### <a name="platform-specific-guidance"></a>Platform-specifieke richtlijnen
 
@@ -117,11 +117,11 @@ Log Analytics-software ontwikkel- en service van het team informatie beveiliging
 
 Elk teamlid ontwikkeling ontvangt beveiligingstraining formele aanvraag. Intern, gebruiken we een versiebeheersysteem voor softwareontwikkeling. Elk softwareproject is beveiligd door het systeem voor versiebeheer.
 
-Microsoft heeft een beveiliging en naleving team dat verantwoordelijk is voor en alle services in Microsoft beoordeelt. Information security officers maken van het team en ze niet zijn gekoppeld aan de technische afdelingen die Log Analytics ontwikkelt. De security officers hebben hun eigen Managementketen en uitvoering van een onafhankelijke evaluaties van producten en services om ervoor te zorgen voor beveiliging en naleving.
+Microsoft heeft een beveiliging en naleving team dat verantwoordelijk is voor en alle services in Microsoft beoordeelt. Information security officers maken van het team en ze niet zijn gekoppeld aan het engineering-teams die Log Analytics ontwikkelt. De security officers hebben hun eigen Managementketen en uitvoering van een onafhankelijke evaluaties van producten en services om ervoor te zorgen voor beveiliging en naleving.
 
 Raad van bestuur van Microsoft is op de hoogte met in een jaarrapport over alle informatie beveiligingsprogramma's bij Microsoft.
 
-De Log Analytics-software ontwikkel- en service-team werkt actief met de teams Microsoft Legal en naleving en andere IT-partners aan te schaffen verschillende certificeringen.
+De ontwikkeling van Log Analytics-software en service-team werkt actief met de teams Microsoft Legal en naleving en andere IT-partners aan te schaffen verschillende certificeringen.
 
 ## <a name="certifications-and-attestations"></a>Certificeringen en verklaringen
 Azure Log Analytics voldoet aan de volgende vereisten:
@@ -176,7 +176,7 @@ Zoals hierboven beschreven, wordt de gegevens van de beheerserver of rechtstreek
 ## <a name="3-the-log-analytics-service-receives-and-processes-data"></a>3. De Log Analytics-service ontvangt en verwerkt gegevens
 De Log Analytics-service zorgt ervoor dat binnenkomende gegevens van een vertrouwde bron is door het valideren van certificaten en de integriteit van gegevens met Azure-verificatie. De niet-verwerkte onbewerkte gegevens wordt vervolgens opgeslagen in een Azure Event Hub in de regio die de gegevens uiteindelijk worden opgeslagen in rust. Het type van de gegevens die zijn opgeslagen, is afhankelijk van de soorten oplossingen die zijn geïmporteerd en gebruikt om gegevens te verzamelen. Vervolgens wordt de met Log Analytics service processen de onbewerkte gegevens en neemt deze in de database.
 
-De bewaarperiode van de verzamelde gegevens opgeslagen in de database, is afhankelijk van de geselecteerde prijsstelling. Voor de *gratis* laag, verzamelde gegevens zijn beschikbaar voor zeven dagen. Voor de *betaald* laag, verzamelde gegevens gedurende 31 dagen standaard beschikbaar is, maar kan worden uitgebreid tot 730 dagen. Gegevens worden opgeslagen in Azure storage om te controleren of de vertrouwelijkheid van de gegevens versleuteld. De afgelopen twee weken aan gegevens, worden ook opgeslagen in de cache op basis van SSD en deze cache is momenteel niet versleuteld.  Wij van plan bent te dergelijke codering in de latere helft van 2018.  
+De bewaarperiode van de verzamelde gegevens opgeslagen in de database, is afhankelijk van de geselecteerde prijsstelling. Voor de *gratis* laag, verzamelde gegevens zijn beschikbaar voor de zeven dagen. Voor de *betaald* laag, verzamelde gegevens gedurende 31 dagen standaard beschikbaar is, maar kan worden uitgebreid tot 730 dagen. Gegevens worden opgeslagen versleuteld in rust in Azure storage om te controleren of de vertrouwelijkheid van gegevens, en de gegevens worden gerepliceerd binnen de regio met lokaal redundante opslag (LRS). De afgelopen twee weken aan gegevens, worden ook opgeslagen in de cache op basis van SSD en deze cache is momenteel niet versleuteld.  We werken op dit moment ter ondersteuning van SSD-gebaseerde cache te coderen.      
 
 ## <a name="4-use-log-analytics-to-access-the-data"></a>4. Log Analytics gebruiken voor toegang tot de gegevens
 Voor toegang tot uw Log Analytics-werkruimte moet u zich aanmeldt bij de Azure-portal met behulp van de organisatie-account of een Microsoft-account dat u eerder hebt ingesteld. Al het verkeer tussen de portal en de Log Analytics-service worden verzonden via een beveiligde HTTPS-kanaal. Wanneer u de portal, een sessie-ID is gegenereerd op de gebruiker-client (webbrowser) en gegevens worden opgeslagen in een lokale cache totdat de sessie wordt beëindigd. Wanneer is afgesloten, wordt de cache verwijderd. Client-side-cookies niet persoonlijk identificeerbare informatie bevatten, worden niet automatisch verwijderd. Sessiecookies HTTPOnly zijn gemarkeerd en worden beveiligd. Na een vooraf bepaald niet-actieve periode, is de Azure portal-sessie beëindigd.

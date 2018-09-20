@@ -3,17 +3,17 @@ title: Kaart-besturingselementen toevoegen in Azure Maps | Microsoft Docs
 description: Het zoombesturingselement, presentatie-besturingselement, draaien control en een stijl datumkiezer toevoegen aan een kaart in de Azure-kaarten.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 08/29/2018
+ms.date: 09/18/2018
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: ddbb621561d8fcef3637e036be004d17aea76f40
-ms.sourcegitcommit: f10653b10c2ad745f446b54a31664b7d9f9253fe
+ms.openlocfilehash: 4410c2ec5851ff210ca8a5fb4f482e5e12d0b8e8
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 09/18/2018
-ms.locfileid: "46129298"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46367794"
 ---
 # <a name="add-map-controls-to-azure-maps"></a>Kaart-besturingselementen toevoegen aan Azure Maps
 
@@ -63,7 +63,7 @@ Het derde blok van code maakt een uitzoomen-object met behulp van de atlas [Zoom
 
 De vierde codeblok wordt gemaakt van een presentatie-Control-object met behulp van de atlas [PitchControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.pitchcontrol?view=azure-iot-typescript-latest) en voegt deze toe aan de kaart met behulp van de kaart [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode.
 
-Het laatste blok van code voegt een Stijlkiezer-object toe aan de kaart met behulp van de atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) en voegt deze toe aan de kaart met behulp van de kaart [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode.
+Het laatste blok van code wordt een Stijlkiezer-object gemaakt met behulp van de atlas [StyleControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.control.stylecontrol?view=azure-iot-typescript-latest#stylecontrol) en voegt deze toe aan de kaart met behulp van de kaart [addControl](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#addcontrol) methode.
 
 ## <a name="next-steps"></a>Volgende stappen
 

@@ -12,12 +12,12 @@ ms.author: josack
 ms.suite: sql
 ms.prod_service: sql-database
 ms.component: data-movement
-ms.openlocfilehash: 9ca8c42d99f3bd7548c685f03328084865a09906
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 7cad09a3fc02d0c25f164f7e45974019ff9bbb71
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46295781"
+ms.locfileid: "46367913"
 ---
 # <a name="new-dba-in-the-cloud--managing-your-database-in-azure-sql-database"></a>Nieuwe DBA in de cloud, beheer van uw database in Azure SQL Database
 
@@ -98,7 +98,7 @@ Een firewall voorkomt dat toegang tot uw server een externe entiteit door toe te
 U kunt firewallregels op serverniveau of op het databaseniveau van de maken. Server-level firewall-regels kunnen gemaakt via de portal of via SSMS. Zie voor meer informatie over het instellen van een server en database-level firewall-regel,: [firewallregels in SQL-Database maken](sql-database-security-tutorial.md#create-a-server-level-firewall-rule-in-the-azure-portal).
 
 #### <a name="service-endpoints"></a>Service-eindpunten
-Uw SQL-database is standaard geconfigureerd voor alle Azure-services toestaan': wat betekent dat elke virtuele Machine in Azure probeert verbinding maken met uw database. Deze pogingen nog steeds hoeft te geverifieerd. Echter, als u niet toegankelijk zijn via een Azure-IP-adressen van uw database wilt, kunt u uitschakelen 'Alle Azure-services toestaan'. Bovendien kunt u configureren [VNET-Service-eindpunten](sql-database-vnet-service-endpoint-rule-overview.md).
+Uw SQL-database is standaard geconfigureerd voor 'Azure-services tot server toestaan': wat betekent dat elke virtuele Machine in Azure probeert verbinding maken met uw database. Deze pogingen nog steeds hoeft te geverifieerd. Echter, als u niet toegankelijk zijn via een Azure-IP-adressen van uw database wilt, kunt u uitschakelen 'Azure-services tot server toestaan'. Bovendien kunt u configureren [VNET-Service-eindpunten](sql-database-vnet-service-endpoint-rule-overview.md).
 
 Service-eindpunten (SE) kunnen u uw kritieke Azure-resources alleen voor uw eigen persoonlijke virtueel netwerk in Azure beschikbaar. Op deze manier elimineren u in feite openbare toegang tot uw resources. Het verkeer tussen uw virtuele netwerk naar Azure blijft in het Azure-backbone-netwerk. U krijgt de geforceerde tunnels routering uit te voeren zonder SE. Het virtuele netwerk zorgt ervoor dat het verkeer van internet voor uw organisatie en de Azure-Service in op dezelfde route. Service-eindpunten kunt u optimaliseren dit omdat de pakketten stroom rechtstreeks vanuit uw virtuele netwerk naar de service op Azure-backbone-netwerk.
 

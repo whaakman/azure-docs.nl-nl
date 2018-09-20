@@ -9,15 +9,15 @@ ms.service: sql-database
 ms.custom: business continuity
 ms.topic: conceptual
 ms.workload: On Demand
-ms.date: 07/25/2018
+ms.date: 09/19/2018
 ms.author: sashan
 ms.reviewer: carlrab
-ms.openlocfilehash: 5e45bff827a8c376d4b35ee88f1f000c2b122443
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 803dddd13ab3b18b6f161be9c0004d18c8d69f1e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46298231"
+ms.locfileid: "46364191"
 ---
 # <a name="overview-of-business-continuity-with-azure-sql-database"></a>Overzicht van bedrijfscontinuïteit met Azure SQL Database
 
@@ -122,12 +122,10 @@ Als u actieve geo-replicatie en automatische failover-groepen als uw herstelmech
 > 
 
 ### <a name="perform-a-geo-restore"></a>Geo-herstel uitvoeren
-Als u automatische back-ups met geografisch redundante opslagreplicatie als uw herstelmechanisme [een databaseherstelbewerking met behulp van geo-herstel initiëren](sql-database-disaster-recovery.md#recover-using-geo-restore). Herstel vindt doorgaans plaats binnen 12 uur - verlies van gegevens van maximaal één uur bepaald door wanneer de laatste logboekback-up is gemaakt en geo-gerepliceerd naar andere regio. Totdat het herstellen is voltooid, kan de database geen transacties registreren en niet reageren op query's. Terwijl dit Hiermee herstelt u een database naar de laatst wordt beschikbare punt in tijd, de geo-secundaire herstelt naar een bepaald tijdstip momenteel niet ondersteund.
+Als u gebruikmaakt van de automatische back-ups met geografisch redundante opslag (standaard ingeschakeld), kunt u herstellen de database via [geo-herstel](sql-database-disaster-recovery.md#recover-using-geo-restore). Herstel vindt doorgaans plaats binnen 12 uur - verlies van gegevens van maximaal één uur bepaald door de wanneer de laatste per uur differentiële back-up is gemaakt en gerepliceerd. Totdat het herstellen is voltooid, kan de database geen transacties registreren en niet reageren op query's. Opmerking: de database naar de laatst beschikbare punt in tijd geo-herstel alleen hersteld.
 
 > [!NOTE]
 > Als het datacenter weer online komt voordat u uw toepassing naar de herstelde database schakelt, kunt u het herstel annuleren.  
->
->
 
 ### <a name="perform-post-failover--recovery-tasks"></a>Taken na failover/hersteltaken uitvoeren
 Na herstel via een van beide herstelmechanismen moet u de volgende aanvullende taken uitvoeren voordat uw gebruikers en toepassingen opnieuw actief zijn:

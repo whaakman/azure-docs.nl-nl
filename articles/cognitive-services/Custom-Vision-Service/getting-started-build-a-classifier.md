@@ -1,20 +1,21 @@
 ---
-title: Een classificatie met Custom Vision Service - Azure Cognitive Services maken | Microsoft Docs
+title: Het bouwen van een classificatie - Custom Vision Service
+titlesuffix: Azure Cognitive Services
 description: Informatie over het gebruik van de Custom Vision Service om te maken van een classificatie voor die objecten in foto's kan onderscheiden.
 services: cognitive-services
 author: anrothMSFT
-manager: corncar
+manager: cgronlun
 ms.service: cognitive-services
 ms.component: custom-vision
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/02/2018
 ms.author: anroth
-ms.openlocfilehash: c5183078d2f9d5eb16abef4f5df240f77eea6b8b
-ms.sourcegitcommit: 44fa77f66fb68e084d7175a3f07d269dcc04016f
+ms.openlocfilehash: 998900e72511a95336e4a94289c794e2a8e59feb
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/24/2018
-ms.locfileid: "39223366"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46364233"
 ---
 # <a name="how-to-build-a-classifier-with-custom-vision"></a>Over het bouwen van een classificatie met Custom Vision
 
@@ -55,7 +56,7 @@ Als u wilt een nieuw project maakt, gebruikt u de volgende stappen uit:
 
 3. Voer een naam en een beschrijving op voor het project. Selecteer vervolgens een van de beschikbare domeinen. Elk domein optimaliseert de classificatie voor specifieke typen van installatiekopieën, zoals beschreven in de volgende tabel:
 
-    |Domein|Doel|
+    |Domain|Doel|
     |---|---|
     |__Algemene__| Geoptimaliseerd voor een grote verscheidenheid aan taken voor bestandsclassificatie installatiekopie. Als geen van de andere domeinen geschikt zijn, of u niet zeker weet welk domein om te kiezen, selecteert u het algemene domein. |
     |__Voedsel__|Geoptimaliseerd voor foto's van maaltijden zoals u ze in een restaurant zou zien. Als u wilt voor het classificeren van foto's van individuele vruchten of fruit, gebruikt u het domein Food.|

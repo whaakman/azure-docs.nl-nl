@@ -12,15 +12,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/15/2018
+ms.date: 09/19/2018
 ms.author: sethm
 ms.reviewer: jeffgo
-ms.openlocfilehash: d09dec2f327d8b5911a4e55832ba106838c7ebc3
-ms.sourcegitcommit: 30c7f9994cf6fcdfb580616ea8d6d251364c0cd1
+ms.openlocfilehash: 21fd3a33181542d86eccc4292ae68f7ce25e0a05
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 08/18/2018
-ms.locfileid: "42054107"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366723"
 ---
 # <a name="azure-resource-manager-template-considerations"></a>Overwegingen met betrekking tot Azure Resource Manager-sjabloon
 
@@ -34,15 +34,17 @@ De sjabloon die u van plan bent om te implementeren moet alleen gebruiken voor M
 
 ## <a name="public-namespaces"></a>Openbare-naamruimten
 
-Omdat Azure Stack wordt gehost in uw datacenter, heeft andere service-eindpunt naamruimten dan de openbare cloud van Azure. Als gevolg hiervan niet vastgelegd openbare eindpunten in Azure Resource Manager-sjablonen wanneer u probeert te implementeren voor Azure Stack. U kunt dynamisch bouwen met service-eindpunten met behulp van de *verwijzing* en *samenvoegen* functies voor het ophalen van waarden van de resourceprovider tijdens de implementatie. Bijvoorbeeld, in plaats van hardcoderen *blob.core.windows.net* in uw sjabloon, haalt de [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-simple-windows-vm/azuredeploy.json#L201) dynamisch instellen de *osDisk.URI* eindpunt:
+Omdat Azure Stack wordt gehost in uw datacenter, heeft andere service-eindpunt naamruimten dan de openbare cloud van Azure. Als gevolg hiervan niet vastgelegd openbare eindpunten in Azure Resource Manager-sjablonen wanneer u probeert te implementeren voor Azure Stack. U kunt dynamisch bouwen met service-eindpunten met behulp van de *verwijzing* en *samenvoegen* functies voor het ophalen van waarden van de resourceprovider tijdens de implementatie. Bijvoorbeeld, in plaats van hardcoderen *blob.core.windows.net* in uw sjabloon, haalt de [primaryEndpoints.blob](https://github.com/Azure/AzureStack-QuickStart-Templates/blob/master/101-vm-windows-create/azuredeploy.json#L175) dynamisch instellen de *osDisk.URI* eindpunt:
 
-     "osDisk": {"name": "osdisk","vhd": {"uri":
-     "[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
-      '/',variables('OSDiskName'),'.vhd')]"}}
+```json
+"osDisk": {"name": "osdisk","vhd": {"uri":
+"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, variables('vmStorageAccountContainerName'),
+ '/',variables('OSDiskName'),'.vhd')]"}}
+```
 
 ## <a name="api-versioning"></a>API-versiebeheer
 
-Azure-versies kunnen verschillen tussen Azure en Azure Stack. Elke resource vereist de **apiVersion** kenmerk, waarin de mogelijkheden die zijn gedefinieerd. De volgende API-versies zijn om te controleren of de compatibiliteit van de API-versie in Azure Stack, geldig zijn voor elke Resource Provider:
+Azure-versies kunnen verschillen tussen Azure en Azure Stack. Elke resource vereist de **apiVersion** kenmerk, waarin de mogelijkheden die zijn gedefinieerd. De volgende API-versies zijn om te controleren of de compatibiliteit van de API-versie in Azure Stack, geldig zijn voor elke resourceprovider:
 
 | Resourceprovider | apiVersion |
 | --- | --- |
@@ -54,7 +56,7 @@ Azure-versies kunnen verschillen tussen Azure en Azure Stack. Elke resource vere
 
 ## <a name="template-functions"></a>Sjabloonfuncties
 
-Azure Resource Manager [functies](../../azure-resource-manager/resource-group-template-functions.md) bieden mogelijkheden voor het ontwikkelen van dynamische sjablonen. Als u bijvoorbeeld kunt u functies voor taken, zoals:
+Azure Resource Manager [functies](../../azure-resource-manager/resource-group-template-functions.md) bieden mogelijkheden voor het ontwikkelen van dynamische sjablonen. Een voorbeeld: u kunt functies voor taken zoals:
 
 * Samenvoegen of bijsnijden tekenreeksen.
 * Verwijzen naar waarden van andere bronnen.
@@ -67,20 +69,22 @@ Deze functies zijn niet beschikbaar in Azure Stack:
 
 ## <a name="resource-location"></a>Resourcelocatie
 
-Een locatiekenmerk Azure Resource Manager-sjablonen gebruiken om resources tijdens de implementatie. In Azure verwijzen locaties naar een regio, zoals VS-West of Zuid-Amerika. In Azure Stack zijn locaties verschillend, omdat Azure Stack in uw datacenter is. U moet verwijzen naar de locatie voor resourcegroep als u afzonderlijke resources implementeren om ervoor te zorgen sjablonen zijn overdraagbare tussen Azure en Azure Stack. U kunt dit doen met `[resourceGroup().Location]` om te controleren of alle resources overnemen locatie voor de resourcegroep. Het volgende fragment wordt een voorbeeld van het gebruik van deze functie tijdens de implementatie van een storage-account:
+Azure Resource Manager-sjablonen gebruiken een `location` kenmerk voor het plaatsen van bronnen tijdens de implementatie. In Azure verwijzen locaties naar een regio, zoals VS-West of Zuid-Amerika. In Azure Stack zijn locaties verschillend, omdat Azure Stack in uw datacenter is. U moet verwijzen naar de locatie voor resourcegroep als u afzonderlijke resources implementeren om ervoor te zorgen sjablonen worden overgedragen tussen Azure en Azure Stack. U kunt dit doen met `[resourceGroup().Location]` om te controleren of alle resources overnemen locatie voor de resourcegroep. De volgende code is een voorbeeld van het gebruik van deze functie tijdens de implementatie van een storage-account:
 
-    "resources": [
-    {
-      "name": "[variables('storageAccountName')]",
-      "type": "Microsoft.Storage/storageAccounts",
-      "apiVersion": "[variables('apiVersionStorage')]",
-      "location": "[resourceGroup().location]",
-      "comments": "This storage account is used to store the VM disks",
-      "properties": {
-      "accountType": "Standard_GRS"
-      }
-    }
-    ]
+```json
+"resources": [
+{
+  "name": "[variables('storageAccountName')]",
+  "type": "Microsoft.Storage/storageAccounts",
+  "apiVersion": "[variables('apiVersionStorage')]",
+  "location": "[resourceGroup().location]",
+  "comments": "This storage account is used to store the VM disks",
+  "properties": {
+  "accountType": "Standard_GRS"
+  }
+}
+]
+```
 
 ## <a name="next-steps"></a>Volgende stappen
 

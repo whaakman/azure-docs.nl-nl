@@ -1,66 +1,68 @@
 ---
-title: Experimenteren - cognitieve Azure-Services | Microsoft Docs
-description: Dit artikel is een handleiding voor Azure aangepaste besluit Service experimenteren.
+title: Experimenten - Custom Decision Service
+titlesuffix: Azure Cognitive Services
+description: In dit artikel is een handleiding voor experimenten met Custom Decision Service.
 services: cognitive-services
 author: marco-rossi29
-manager: marco-rossi29
+manager: cgronlun
 ms.service: cognitive-services
-ms.topic: article
+ms.component: custom-decision-service
+ms.topic: conceptual
 ms.date: 05/10/2018
 ms.author: marossi
-ms.openlocfilehash: b0ac0bc049d556423493f0c48dd9a548929bcd41
-ms.sourcegitcommit: 95d9a6acf29405a533db943b1688612980374272
+ms.openlocfilehash: eec2c82b779fa5421bc9ac58107ef56f8c71bd1e
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 06/23/2018
-ms.locfileid: "35345598"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366545"
 ---
 # <a name="experimentation"></a>Experiment
 
-De theorie van de volgende [contextuele bandieten (CB)](https://www.microsoft.com/en-us/research/blog/contextual-bandit-breakthrough-enables-deeper-personalization/), aangepaste besluit Service herhaaldelijk toetsenbordinvoer een context, een actie onderneemt en toetsenbordinvoer van een compensatie voor de gekozen actie. Een voorbeeld is de inhoud personalisatie: Beschrijving van de context van een gebruiker, acties candidate artikelen zijn en de prijs meet hoeveel van de gebruiker het aanbevolen artikel bevallen.
+De theorie van de volgende [contextuele bandieten (CB)](https://www.microsoft.com/en-us/research/blog/contextual-bandit-breakthrough-enables-deeper-personalization/), Custom Decision Service herhaaldelijk observeert een context, actie onderneemt, en een beloning voor de gekozen actie toetsenbordinvoer. Een voorbeeld is personalisatie van inhoud: Beschrijving van de context van een gebruiker, acties zijn candidate verhalen en de prijs meet hoeveel van de gebruiker het aanbevolen verhaal leuk vinden.
 
-Aangepaste besluit Service produceert een beleid zoals dit uit contexten wordt toegewezen aan acties. Met een specifiek doel-beleid dat u wilt weten van de verwachte derden. Een manier om een schatting maken van de prijs is het een beleidsregel gebruiken om online en laat deze acties (bijvoorbeeld aanbevelen artikelen die voor gebruikers). Deze online evaluatie kan echter zijn kostbare van twee redenen:
+Custom Decision Service maakt een beleid, zoals het van contexten wordt toegewezen aan acties. Met een specifiek doel-beleid, die u wilt weten van de verwachte beloning. Een manier om te schatten van de prijs is het gebruik van een beleid voor online en laat deze acties (bijvoorbeeld aanbevolen artikelen aan gebruikers). Deze online evaluatie kan echter zijn kostbare om twee redenen:
 
-* Gebruikers in een beleid niet getest, experimentele worden getoond.
-* Deze niet kan worden uitgebreid naar meerdere doel beleidsregels te evalueren.
+* Gebruikers aan een beleid niet getest, experimentele beschikbaar worden gemaakt.
+* Het schalen niet naar meerdere doel beleidsregels te evalueren.
 
-Evaluatie van het uit het beleid is een alternatieve paradigma. Als u de logboeken van een bestaand online systeem volgen van een beleid voor logboekregistratie hebt, kunt beleidsevaluatie uit schatting maken van de verwachte voordelen van de nieuwe doel-beleidsregels.
+Evaluatie van het uit het beleid is een alternatieve paradigma. Als u logboeken van een bestaand online systeem die volgen op een beleid voor logboekregistratie hebt, kunt beleidsevaluatie uit schatting maken van de verwachte voordelen van de nieuwe doel-beleidsregels.
 
-Met behulp van het logboekbestand zoekt experimenteren het beleid met de hoogste geschatte, verwacht prijs vinden. Doel beleidsregels zijn parameters gebruikt [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki) argumenten. Het script test in de standaardmodus tal van Vowpal Wabbit argumenten door toe te voegen aan de `--base_command`. Het script voert de volgende handelingen uit:
+Met behulp van het logboekbestand, zoekt experimenten te vinden van het beleid met de hoogste geschatte, verwachte prijs. Beleid voor doel bestaan parameters door [Vowpal Wabbit](https://github.com/JohnLangford/vowpal_wabbit/wiki) argumenten. In de standaardmodus, het script een verscheidenheid aan Vowpal Wabbit argumenten getest door toe te voegen aan de `--base_command`. Het script voert de volgende handelingen uit:
 
-* Naamruimten van de eerste automatisch detecteert functies `--auto_lines` regels van het bestand voor invoer.
-* Voert een eerste vegen uit via de hyper-parameters (`learning rate`, `L1 regularization`, en `power_t`).
-* Evaluatie van het beleid wordt getest `--cb_type` (inverse investeringsneiging score (`ips`) of tweemaal robuuste (`dr`). Zie voor meer informatie [contextuele bandieten voorbeeld](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example).
+* Naamruimten van de eerste automatisch gedetecteerd functies `--auto_lines` regels van het invoerbestand.
+* Een eerste opschoning van hyper-parameters uitvoert (`learning rate`, `L1 regularization`, en `power_t`).
+* Evaluatie van het beleid test `--cb_type` (inverse neiging zullen zijn score (`ips`) of dubbel robuuste (`dr`). Zie voor meer informatie, [contextuele bandieten voorbeeld](https://github.com/JohnLangford/vowpal_wabbit/wiki/Contextual-Bandit-Example).
 * Tests randnummers.
 * Tests kwadratische interactieve functies:
-   * **brute kracht fase**: test alle combinaties met `--q_bruteforce_terms` paren of minder.
-   * **greedy fase**: voegt het beste paar totdat er is geen verbetering voor `--q_greedy_stop` afgerond.
-* Voert een tweede vegen uit via de hyper-parameters (`learning rate`, `L1 regularization`, en `power_t`).
+   * **brute-force fase**: alle combinaties met test `--q_bruteforce_terms` paren of minder.
+   * **greedy fase**: voegt het beste paar totdat er is geen verbetering voor `--q_greedy_stop` wordt afgerond.
+* Een tweede opschoning van hyper-parameters uitvoert (`learning rate`, `L1 regularization`, en `power_t`).
 
-De parameters waarmee deze stappen omvatten een aantal argumenten Vowpal Wabbit:
+De parameters waarmee deze stappen bevatten sommige argumenten Vowpal Wabbit:
 - Opties voor gegevensbewerking voorbeeld:
-  - gedeelde naamruimten.
+  - gedeelde naamruimten
   - actie-naamruimten
   - marginale naamruimten
   - kwadratische functies
-- Opties voor bijwerken regel
+- Opties voor de regel bijwerken
   - leertempo
   - L1 regularisatie
-  - t power-waarde
+  - t-waarde voor energiebeheer
 
 Zie voor een gedetailleerde uitleg van de bovenstaande argumenten [Vowpal Wabbit opdrachtregelargumenten](https://github.com/JohnLangford/vowpal_wabbit/wiki/Command-line-arguments).
 
 ## <a name="prerequisites"></a>Vereisten
-- Vowpal Wabbit: Geïnstalleerd en op uw pad.
-  - Windows: [gebruik de `.msi` installer](https://github.com/eisber/vowpal_wabbit/releases).
-  - Andere platforms: [ophalen van de broncode](https://github.com/JohnLangford/vowpal_wabbit/releases).
-- Python 3: Geïnstalleerd en op uw pad.
+- Vowpal Wabbit: Geïnstalleerd en op het pad.
+  - Windows: [gebruiken de `.msi` installatieprogramma](https://github.com/eisber/vowpal_wabbit/releases).
+  - Andere platforms: [Haal de broncode](https://github.com/JohnLangford/vowpal_wabbit/releases).
+- Python 3: Geïnstalleerd en op het pad.
 - NumPy: Gebruik de package manager van uw keuze.
 - De *mwt-Microsoft-ds* opslagplaats: [kloon de opslagplaats](https://github.com/Microsoft/mwt-ds).
-- Besluit Service JSON-logboekbestand: omvat standaard de base opdracht `--dsjson`, waardoor de JSON van de beslissing bij het parseren van het bestand invoergegevens. [Ophalen van een voorbeeld van deze indeling](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
+- Besluit Service JSON-logboekbestand: omvat standaard de base opdracht `--dsjson`, waardoor Decision Service JSON parseren van het bestand invoergegevens. [Ophalen van een voorbeeld van deze indeling](https://github.com/JohnLangford/vowpal_wabbit/blob/master/test/train-sets/decisionservice.json).
 
 ## <a name="usage"></a>Gebruik
-Ga naar `mwt-ds/DataScience` en voer `Experimentation.py` met de relevante argumenten, zoals beschreven in de volgende code:
+Ga naar `mwt-ds/DataScience` en uit te voeren `Experimentation.py` met de relevante argumenten, zoals beschreven in de volgende code:
 
 ```cmd
 python Experimentation.py [-h] -f FILE_PATH [-b BASE_COMMAND] [-p N_PROC]
@@ -75,22 +77,22 @@ python Experimentation.py [-h] -f FILE_PATH [-b BASE_COMMAND] [-p N_PROC]
 Een logboek van de resultaten wordt toegevoegd aan de *mwt-ds/DataScience/experiments.csv* bestand.
 
 ### <a name="parameters"></a>Parameters
-| Invoer | Beschrijving | Normaal |
+| Invoer | Beschrijving | Standaard |
 | --- | --- | --- |
 | `-h`, `--help` | Help-bericht en afsluiten weergeven. | |
-| `-f FILE_PATH`, `--file_path FILE_PATH` | Pad voor de gegevensbestanden (`.json` of `.json.gz` indeling - elke regel is een `dsjson`). | Vereist |  
-| `-b BASE_COMMAND`, `--base_command BASE_COMMAND` | Base Vowpal Wabbit-opdracht.  | `vw --cb_adf --dsjson -c` |  
+| `-f FILE_PATH`, `--file_path FILE_PATH` | Pad naar bestand (`.json` of `.json.gz` indeling - elke regel is een `dsjson`). | Vereist |  
+| `-b BASE_COMMAND`, `--base_command BASE_COMMAND` | Basis Vowpal Wabbit-opdracht.  | `vw --cb_adf --dsjson -c` |  
 | `-p N_PROC`, `--n_proc N_PROC` | Het aantal parallelle processen te gebruiken. | Logische processors |  
-| `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | Gedeeld onderdeel naamruimten (bijvoorbeeld `abc` betekent naamruimten `a`, `b`, en `c`).  | Automatische detectie van gegevensbestand |  
-| `-a ACTION_NAMESPACES, --action_namespaces ACTION_NAMESPACES` | Naamruimten van de functie in te grijpen. | Automatische detectie van gegevensbestand |  
-| `-m MARGINAL_NAMESPACES, --marginal_namespaces MARGINAL_NAMESPACES` | Marginale functie naamruimten. | Automatische detectie van gegevensbestand |  
-| `--auto_lines AUTO_LINES` | Aantal regels van de gegevens bestand om te scannen voor functies naamruimten automatisch detecteren. | `100` |  
-| `--only_hp` | Sweep alleen via de hyper-parameters (`learning rate`, `L1 regularization`, en `power_t`). | `False` |  
-| `-l LR_MIN_MAX_STEPS`, `--lr_min_max_steps LR_MIN_MAX_STEPS` | Het bereik van Learning als positieve waarden `min,max,steps`. | `1e-5,0.5,4` |  
+| `-s SHARED_NAMESPACES, --shared_namespaces SHARED_NAMESPACES` | Gedeelde functie naamruimten (bijvoorbeeld `abc` betekent naamruimten `a`, `b`, en `c`).  | Automatische detectie van bestand |  
+| `-a ACTION_NAMESPACES, --action_namespaces ACTION_NAMESPACES` | Actie functie naamruimten. | Automatische detectie van bestand |  
+| `-m MARGINAL_NAMESPACES, --marginal_namespaces MARGINAL_NAMESPACES` | Functie voor marginale naamruimten. | Automatische detectie van bestand |  
+| `--auto_lines AUTO_LINES` | Het aantal gegevens bestandsregels om te scannen voor het automatisch detecteren van functies naamruimten. | `100` |  
+| `--only_hp` | Zwaaihoek alleen via de hyper-parameters (`learning rate`, `L1 regularization`, en `power_t`). | `False` |  
+| `-l LR_MIN_MAX_STEPS`, `--lr_min_max_steps LR_MIN_MAX_STEPS` | Leren werken met het bereik als positieve waarden `min,max,steps`. | `1e-5,0.5,4` |  
 | `-r REG_MIN_MAX_STEPS`, `--reg_min_max_steps REG_MIN_MAX_STEPS` | L1 regularisatie bereik als positieve waarden `min,max,steps`. | `1e-9,0.1,5` |  
 | `-t PT_MIN_MAX_STEPS`, `--pt_min_max_steps PT_MIN_MAX_STEPS` | Power_t bereik als positieve waarden `min,max,step`. | `1e-9,0.5,5` |  
 | `--q_bruteforce_terms Q_BRUTEFORCE_TERMS` | Het aantal kwadratische paren om te testen in brute-force-fase. | `2` |  
-| `--q_greedy_stop Q_GREEDY_STOP` | Rondt zonder verbeteringen, waarna kwadratische greedy zoeken fase is stopgezet. | `3` |  
+| `--q_greedy_stop Q_GREEDY_STOP` | Rondt af zonder verbeteringen, waarna kwadratische greedy zoeken fase is gestopt. | `3` |  
 
 ### <a name="examples"></a>Voorbeelden
 De vooraf ingestelde standaardwaarden gebruiken:
@@ -98,7 +100,7 @@ De vooraf ingestelde standaardwaarden gebruiken:
 python Experimentation.py -f D:\multiworld\data.json
 ```
 
-Oftewel Vowpal Wabbit ook kunt opnemen `.json.gz` bestanden:
+Oftewel Vowpal Wabbit ook kan opnemen `.json.gz` bestanden:
 ```cmd
 python Experimentation.py -f D:\multiworld\data.json.gz
 ```
