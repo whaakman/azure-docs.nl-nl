@@ -9,6 +9,7 @@
 ## [SQL Server migreren naar online Azure SQL DB](tutorial-sql-server-azure-sql-online.md)
 ## [SQL Server migreren naar een met Azure SQL-database beheerd offline exemplaar](tutorial-sql-server-to-managed-instance.md)
 ## [MySQL migreren naar Azure DB voor offline MySQL](tutorial-mysql-azure-mysql-online.md)
+## [PostgreSQL migreren naar Azure DB voor PostgreSQL online](tutorial-postgresql-azure-postgresql-online.md)
 
 # Handleidingen
 ## [PowerShell gebruiken om SQL Server te migreren naar Azure SQL DB](howto-sql-server-to-azure-sql-powershell.md)
@@ -18,6 +19,7 @@
 # Resources
 ## [Bekende problemen - Online migratie naar Azure SQL DB](known-issues-azure-sql-online.md)
 ## [Bekende problemen - Online migratie naar Azure DB voor MySQL](known-issues-azure-mysql-online.md)
+## [Bekende problemen - Online migratie naar Azure DB voor PostgreSQL](known-issues-azure-postgresql-online.md)
 ## [Feedback van gebruikers](https://feedback.azure.com/forums/906100-azure-database-migration-service)
 ## [Azure-roadmap](https://azure.microsoft.com/roadmap/)
 ## [Handleiding voor databasemigratie](https://aka.ms/datamigration)

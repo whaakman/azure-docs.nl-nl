@@ -1,0 +1,291 @@
+items:
+- name: Documentatie voor hybride identiteit
+  href: index.yml
+- name: Overzicht
+  items:
+  - name: Wat is hybride identiteit?
+    href: whatis-hybrid-identity.md
+    maintainContext: true
+- name: Zelfstudies
+  items:
+  - name: Een enkele AD-forestomgeving integreren in de cloud met PHS
+    href: tutorial-password-hash-sync.md
+  - name: Een enkele AD-forestomgeving integreren in de cloud met PTA
+    href: tutorial-passthrough-authentication.md
+  - name: Een enkele AD-forestomgeving federeren in de cloud
+    href: tutorial-federation.md
+  expanded: true
+- name: Concepten
+  items:
+  - name: Azure AD Connect Sync
+    items:
+    - name: 'Azure AD Connect Sync: technische concepten'
+      href: how-to-connect-sync-technical-concepts.md
+    - name: Inzicht in Azure AD Connect Sync-architectuur
+      href: concept-azure-ad-connect-sync-architecture.md
+    - name: Inzicht in declaratieve inrichting
+      href: concept-azure-ad-connect-sync-declarative-provisioning.md
+    - name: Inzicht in verklarende inrichtingsexpressies
+      href: concept-azure-ad-connect-sync-declarative-provisioning-expressions.md
+    - name: Inzicht in de standaardconfiguratie
+      href: concept-azure-ad-connect-sync-default-configuration.md
+    - name: Inzicht krijgen in gebruikers en contactpersonen
+      href: concept-azure-ad-connect-sync-user-and-contacts.md
+    - name: Inzicht in schaduwkenmerken
+      href: how-to-connect-syncservice-shadow-attributes.md
+  - name: Tolerantie voor synchronisatie- en duplicatiekenmerken identificeren
+    href: how-to-connect-syncservice-duplicate-attribute-resiliency.md
+- name: Handleidingen
+  items:
+  - name: Installatie en upgrade
+    items:
+    - name: Installatie-roadmap
+      href: how-to-connect-install-roadmap.md
+    - name: Installatievereisten
+      href: how-to-connect-install-prerequisites.md
+    - name: Kies het installatietype
+      href: how-to-connect-install-select-installation.md
+    - name: Installeer Azure AD Connect met Express-instellingen (synchronisatie van wachtwoord-hashes)
+      href: how-to-connect-install-express.md
+    - name: Azure AD Connect met federatie installeren of andere aangepaste instellingen
+      href: how-to-connect-install-custom.md
+    - name: Azure AD Connect installeren met Pass-through-verificatie (PTA)
+      href: how-to-connect-pta-quick-start.md
+    - name: Azure AD Connect Health installeren
+      href: how-to-connect-health-agent-install.md
+    - name: Automatische upgrade
+      href: how-to-connect-install-automatic-upgrade.md
+    - name: De installatiewizard een tweede keer uitvoeren
+      href: how-to-connect-installation-wizard.md
+    - name: Upgraden naar een nieuwe versie van Azure AD Connect
+      href: how-to-upgrade-previous-version.md
+    - name: Upgraden van DirSync of Azure AD Sync
+      href: how-to-dirsync-upgrade-get-started.md
+    - name: Installeren met behulp van een bestaande ADSync-database
+      href: how-to-connect-install-existing-database.md
+    - name: Installeren met behulp van gedelegeerde SQL-beheerdersmachtigingen
+      href: how-to-connect-install-sql-delegation.md
+    - name: Preview-agents voor PTA bijwerken
+      href: how-to-connect-pta-upgrade-preview-authentication-agents.md
+    - name: Azure AD Connect-database verplaatsen van SQL Express naar SQL Server
+      href: how-to-connect-install-move-db.md
+    - name: Als u Azure AD al hebt
+      href: how-to-connect-install-existing-tenant.md
+    - name: Taken na de installatie
+      href: how-to-connect-post-installation.md
+  - name: Plannen en ontwerpen
+    items:
+    - name: Ontwerpconcepten
+      href: plan-connect-design-concepts.md
+    - name: Topologieën voor Azure AD Connect
+      href: plan-connect-topologies.md
+    - name: Hoe gebruikers zich aanmelden
+      href: plan-connect-user-signin.md
+    - name: Speciale overwegingen voor exemplaren
+      href: reference-connect-instances.md
+    - name: Ontwerpoverwegingen voor hybride identiteit
+      items:
+      - name: Overzicht van ontwerpoverwegingen voor hybride identiteit
+        href: plan-hybrid-identity-design-considerations-overview.md
+      - name: Identiteitsvereisten vaststellen
+        href: plan-hybrid-identity-design-considerations-business-needs.md
+      - name: Synchronisatievereisten vaststellen
+        href: plan-hybrid-identity-design-considerations-directory-sync-requirements.md
+      - name: Vereisten voor meervoudige verificatie vaststellen
+        href: plan-hybrid-identity-design-considerations-multifactor-auth-requirements.md
+      - name: Acceptatiestrategie voor levenscyclus vaststellen
+        href: plan-hybrid-identity-design-considerations-lifecycle-adoption-strategy.md
+      - name: Een strategie voor gegevensbescherming vaststellen
+        href: plan-hybrid-identity-design-considerations-data-protection-strategy.md
+      - name: Vereisten voor gegevensbescherming plannen
+        href: plan-hybrid-identity-design-considerations-dataprotection-requirements.md
+      - name: Vereisten voor inhoudsbeheer vaststellen
+        href: plan-hybrid-identity-design-considerations-contentmgt-requirements.md
+      - name: Vereisten voor toegangsbeheer vaststellen
+        href: plan-hybrid-identity-design-considerations-accesscontrol-requirements.md
+      - name: Vereisten voor reageren op incidenten vaststellen
+        href: plan-hybrid-identity-design-considerations-incident-response-requirements.md
+      - name: De levenscyclus van een hybride identiteit plannen
+        href: plan-hybrid-identity-design-considerations-hybrid-id-management-tasks.md
+      - name: Een acceptatiestrategie vaststellen
+        href: plan-hybrid-identity-design-considerations-identity-adoption-strategy.md
+      - name: Ontwerpoverwegingen voor hybride identiteit - Volgende stappen
+        href: plan-hybrid-identity-design-considerations-nextsteps.md
+      - name: Vergelijkingshulpprogramma's voor hybride identiteit
+        href: plan-hybrid-identity-design-considerations-tools-comparison.md
+  - name: Azure AD Connect beheren
+    items:
+    - name: Wat is synchronisatie van wachtwoord-hashes?
+      href: how-to-connect-password-hash-synchronization.md
+    - name: Write-back van apparaat inschakelen
+      href: how-to-connect-device-writeback.md
+    - name: Apparaatopties
+      href: how-to-connect-device-options.md
+    - name: Aanvullende functies in Azure AD Connect
+      href: how-to-connect-preview.md
+    - name: Onopzettelijke verwijderingen voorkomen
+      href: how-to-connect-sync-feature-prevent-accidental-deletes.md
+    - name: AD-prullenbak inschakelen
+      href: how-to-connect-sync-recycle-bin.md
+    - name: Het wachtwoord van het Azure AD Sync-serviceaccount wijzigen
+      href: how-to-connect-sync-change-serviceacct-pass.md
+    - name: Het Azure AD Connector-account wijzigen
+      href: how-to-connect-azureadaccount.md
+    - name: Het wachtwoord voor het AD DS-account wijzigen
+      href: how-to-connect-sync-change-addsacct-pass.md
+  - name: Federation Services beheren
+    items:
+    - name: Wat is federatie met Azure AD Connect?
+      href: how-to-connect-fed-whatis.md
+    - name: Federatie met Azure AD Connect beheren
+      href: how-to-connect-fed-management.md
+    - name: Ondersteuning van meerdere domeinen voor federeren
+      href: how-to-connect-install-multiple-domains.md
+    - name: Meerdere exemplaren van Azure AD federeren met één exemplaar van AD FS
+      href: how-to-connect-fed-single-adfs-multitenant-federation.md
+    - name: Federatiecertificaten voor O365 en Azure AD vernieuwen
+      href: how-to-connect-fed-o365-certs.md
+    - name: De SSL-certificaten voor AD FS bijwerken
+      href: how-to-connect-fed-ssl-update.md
+    - name: De AD FS-vertrouwensrelatie beheren met Azure AD
+      href: how-to-connect-azure-ad-trust.md
+    - name: Azure AD-federation compatibiliteitslijst
+      href: how-to-connect-fed-compatibility.md
+    - name: Een SAML 2.0-server gebruiken als u id-provider
+      href: how-to-connect-fed-saml-idp.md
+    - name: Taken na configuratie voor hybride Azure AD-koppeling
+      href: how-to-connect-fed-hybrid-azure-ad-join-post-config-tasks.md
+  - name: Pass-through-verificatie beheren
+    items:
+    - name: Wat is pass-through-verificatie?
+      href: how-to-connect-pta.md
+    - name: Aan de slag met pass-through-verificatie
+      href: how-to-connect-pta-quick-start.md
+    - name: Hoe pass-through-verificatie werkt
+      href: how-to-connect-pta-how-it-works.md
+    - name: Grondig beveiligingsonderzoek van pass-through-verificatie
+      href: how-to-connect-pta-security-deep-dive.md
+    - name: Pass-through-verificatie en gebruikersprivacy
+      href: how-to-connect-pta-user-privacy.md
+    - name: Huidige beperkingen van pass-through-verificatie
+      href: how-to-connect-pta-security-deep-dive.md
+    - name: Veelgestelde vragen over pass-through-verificatie
+      href: how-to-connect-pta-faq.md
+  - name: Eenmalige aanmelding beheren
+    items:
+    - name: Wat is eenmalige aanmelding?
+      href: how-to-connect-sso.md
+    - name: Aan de slag met eenmalige aanmelding
+      href: how-to-connect-sso-quick-start.md
+    - name: Hoe eenmalige aanmelding werkt
+      href: how-to-connect-sso-how-it-works.md
+    - name: Eenmalige aanmelding en gebruikersprivacy
+      href: how-to-connect-sso-user-privacy.md
+    - name: Veelgestelde vragen over eenmalige aanmelding
+      href: how-to-connect-sso-faq.md
+  - name: Manage Azure AD Connect Health
+    items:
+    - name: Azure AD Connect Health Operations (Engelstalig)
+      href: how-to-connect-health-operations.md
+    - name: Azure AD Connect Health gebruiken met AD FS
+      href: how-to-connect-health-adfs.md
+    - name: Azure AD Connect Health gebruiken voor synchronisatie
+      href: how-to-connect-health-sync.md
+    - name: Azure AD Connect Health gebruiken met AD DS
+      href: how-to-connect-health-adds.md
+    - name: Health-servicegegevens zijn verouderd
+      href: how-to-connect-health-data-freshness.md
+    - name: Fouten met dubbele kenmerksynchronisatie vaststellen
+      href: how-to-connect-health-diagnose-sync-errors.md
+    - name: Azure AD Connect Health-waarschuwingscatalogus
+      href: how-to-connect-health-alert-catalog.md
+  - name: Azure AD Connect Sync beheren
+    items:
+    - name: Wat is Azure AD Connect Sync?
+      href: how-to-connect-sync-whatis.md
+    - name: Azure AD Connect-synchronisatiefuncties
+      href: how-to-connect-syncservice-features.md
+    - name: Operationele taken beheren
+      href: how-to-connect-sync-operations.md
+    - name: Aanbevolen procedures voor het wijzigen van de standaardconfiguratie
+      href: how-to-connect-sync-best-practices-changing-default-configuration.md
+    - name: De standaardconfiguratie wijzigen
+      href: how-to-connect-sync-change-the-configuration.md
+    - name: Mapuitbreidingen beheren
+      href: how-to-connect-sync-feature-directory-extensions.md
+    - name: Voorkeurslocatie voor gegevens configureren
+      href: how-to-connect-sync-feature-preferreddatalocation.md
+    - name: Filtering configureren
+      href: how-to-connect-sync-configure-filtering.md
+    - name: De scheduler beheren
+      href: how-to-connect-sync-feature-scheduler.md
+    - name: Azure AD Connect Sync-servicebeheer
+      items:
+      - name: Wat is Azure AD Connect Sync-servicebeheer?
+        href: how-to-connect-sync-service-manager-ui.md
+      - name: Het bewerkingstabblad van de servicemanager beheren
+        href: how-to-connect-sync-service-manager-ui-operations.md
+      - name: Connectors gebruiken met de servicebeheerder
+        href: how-to-connect-sync-service-manager-ui-connectors.md
+      - name: Metaverse-ontwerper
+        href: how-to-connect-sync-service-manager-ui-mvdesigner.md
+      - name: Metaverse zoeken
+        href: how-to-connect-sync-service-manager-ui-mvsearch.md
+  - name: Problemen oplossen
+    items:
+    - name: Connectiviteit
+      href: tshoot-connect-connectivity.md
+    - name: Fouten tijdens synchronisatie
+      href: tshoot-connect-sync-errors.md
+    - name: Object is niet gesynchroniseerd
+      href: tshoot-connect-object-not-syncing.md
+    - name: Synchronisatie van object met behulp van de taak voor het oplossen van problemen
+      href: tshoot-connect-objectsync.md
+    - name: Synchronisatie van wachtwoord-hashes
+      href: tshoot-connect-password-hash-synchronization.md
+    - name: Pass-through-verificatie
+      href: tshoot-connect-pass-through-authentication.md
+    - name: Eenmalige aanmelding
+      href: tshoot-connect-sso.md
+    - name: LargeObject-fout veroorzaakt door userCertificate
+      href: tshoot-connect-largeobjecterror-usercertificate.md
+    - name: Probleem met LocalDB met limiet van 10 GB oplossen
+      href: tshoot-connect-recover-from-localdb-10gb-limit.md
+    - name: SQL-verbinding
+      href: tshoot-connect-tshoot-sql-connectivity.md
+- name: Naslaginformatie
+  items:
+  - name: Voor hybride identiteit benodigde poorten en protocollen
+    href: reference-connect-ports.md
+  - name: Azure AD Connect-versiegeschiedenis
+    href: reference-connect-version-history.md
+  - name: Versiegeschiedenis van Azure AD Connect Health
+    href: reference-connect-health-version-history.md
+  - name: Geschiedenis van connectorversie
+    href: reference-connect-sync-connector-version-history.md
+  - name: Accounts en machtigingen
+    href: reference-connect-accounts-permissions.md
+  - name: Azure AD Connect FAQ
+    href: reference-connect-faq.md
+  - name: Veelgestelde vragen over Azure AD Connect Health
+    href: reference-connect-health-faq.md
+  - name: Azure AD Connect-gebruikersprivacy
+    href: reference-connect-user-privacy.md
+  - name: Azure AD Connect Health-gebruikersprivacy
+    href: reference-connect-health-user-privacy.md
+  - name: Azure AD Connect in Duitsland
+    href: reference-connect-germany.md
+  - name: Afschaffing van DirSync
+    href: reference-connect-dirsync-deprecated.md
+  - name: Gesynchroniseerde kenmerken
+    href: reference-connect-sync-attributes-synchronized.md
+  - name: Functieverwijzing
+    href: reference-connect-sync-functions-reference.md
+  - name: Azure AD-federation compatibiliteitslijst
+    href: how-to-connect-fed-compatibility.md
+ms.openlocfilehash: e0485c86f365c93362fed792a41ec835680a1ee7
+ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.translationtype: HT
+ms.contentlocale: nl-NL
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46300473"

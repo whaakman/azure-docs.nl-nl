@@ -22,7 +22,7 @@
 ### [DistCp gebruiken](data-lake-store-copy-data-wasb-distcp.md)
 ### [Sqoop gebruiken](data-lake-store-data-transfer-sql-sqoop.md)
 ### [Gegevens uploaden uit offlinebronnen](data-lake-store-offline-bulk-data-upload.md)
-### [Data Lake Store migreren tussen regio's](data-lake-store-migration-cross-region.md)
+### [Data Lake Storage Gen1 migreren tussen regio's](data-lake-store-migration-cross-region.md)
 
 ## Beveiligde gegevens
 ### [Beveiligingsoverzicht](data-lake-store-security-overview.md)
