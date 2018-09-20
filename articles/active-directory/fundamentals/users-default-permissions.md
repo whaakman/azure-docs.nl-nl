@@ -1,26 +1,25 @@
 ---
-title: Standaardgebruikersmachtigingen vergelijken in Azure AD | Microsoft Docs
-description: Machtigingen van leden, gasten, app-eigenaren en groepseigenaren vergelijken
+title: Wat zijn de standaardmachtigingen van de gebruiker in Azure Active Directory? | Microsoft Docs
+description: Meer informatie over de andere gebruikersmachtigingen beschikbaar zijn in Azure Active Directory.
 services: active-directory
-documentationcenter: ''
 author: eross-msft
 manager: mtillman
-editor: ''
 ms.service: active-directory
-ms.workload: identity
 ms.component: fundamentals
-ms.topic: overview
+ms.workload: identity
+ms.topic: conceptual
 ms.date: 01/29/2018
 ms.author: lizross
 ms.reviewer: vincesm
-ms.openlocfilehash: e2571a6854d2c3de2425547b69c5435286182ef7
-ms.sourcegitcommit: 86cb3855e1368e5a74f21fdd71684c78a1f907ac
-ms.translationtype: HT
+custom: it-pro
+ms.openlocfilehash: 9a9bd33dce4b2be9e15df2745dd25338cdb42702
+ms.sourcegitcommit: 1b561b77aa080416b094b6f41fce5b6a4721e7d5
+ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/03/2018
-ms.locfileid: "37448149"
+ms.lasthandoff: 09/17/2018
+ms.locfileid: "45730476"
 ---
-# <a name="default-user-permissions-in-azure-active-directory"></a>Standaardgebruikersmachtigingen in Azure Active Directory
+# <a name="what-are-the-default-user-permissions-in-azure-active-directory"></a>Wat zijn de standaardmachtigingen van de gebruiker in Azure Active Directory?
 
 In Azure Active Directory (Azure AD) wordt aan alle gebruikers een reeks standaardmachtigingen verleend. De toegang van een gebruiker wordt bepaald door het type gebruiker, zijn/haar [rollidmaatschappen](https://docs.microsoft.com/azure/active-directory/active-directory-users-assign-role-azure-portal) en eigendom van afzonderlijke objecten. Dit artikel beschrijft deze standaardmachtigingen en bevat een vergelijking van de standaardinstellingen voor lid- en gastgebruikers.
 
@@ -52,7 +51,7 @@ Machtiging | Uitleg van de instelling
 ---------- | ------------
 De mogelijkheid beveiligingsgroepen te maken | Als u deze optie op Nee instelt, kunnen gebruikers geen beveiligingsgroepen maken. Globale beheerders en gebruikersaccountbeheerders kunnen nog steeds beveiligingsgroepen maken. Zie [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](../users-groups-roles/groups-settings-cmdlets.md) voor meer informatie.
 De mogelijkheid Office 365-groepen te maken | Als u deze optie op Nee instelt, kunnen gebruikers geen Office 365-groepen maken. Als u deze optie op Sommige instelt, kan een beperkte selectie van gebruikers Office 365-groepen maken. Globale beheerders en gebruikersaccountbeheerders kunnen nog steeds Office 365-groepen maken. Zie [Azure Active Directory-cmdlets voor het configureren van groepsinstellingen](../users-groups-roles/groups-settings-cmdlets.md) voor meer informatie.
-De toegang tot de Azure AD-beheerportal beperken | Als u deze optie op Nee instelt, hebben gebruikers geen toegang tot de Azure Active Directory-portal.
+De toegang tot de Azure AD-beheerportal beperken | Deze optie instelt op Nee, wordt voorkomen dat gebruikers toegang tot Azure Active Directory.
 Mogelijkheid om andere gebruikers te lezen | Deze instelling is alleen beschikbaar in PowerShell. Als u deze optie instelt op $false, voorkomt u dat alle niet-beheerders gebruikersgegevens uit de map lezen. Hiermee voorkomt u niet dat andere gebruikersgegevens in andere Microsoft-services, zoals Exchange Online, worden gelezen. Deze instelling is alleen bedoeld voor speciale omstandigheden en het wordt niet aanbevolen deze op $false in te stellen.
 
 ## <a name="object-ownership"></a>Eigendom van objecten
@@ -70,7 +69,7 @@ Wanneer een gebruiker een groep maakt, wordt deze automatisch toegevoegd als een
 
 ## <a name="next-steps"></a>Volgende stappen
 
-* Als u meer wilt weten over het wijzigen van de beheerders van een Azure-abonnement, ziet u [Azure-beheerdersrollen toevoegen of wijzigen](../../billing/billing-add-change-azure-subscription-administrator.md)
+* Zie voor meer informatie over hoe u Azure AD-beheerdersrollen toewijzen [een gebruiker toewijzen aan beheerdersrollen in Azure Active Directory](active-directory-users-assign-role-azure-portal.md)
 * Als u meer wilt weten over hoe de toegang tot resources wordt beheerd in Microsoft Azure, ziet u [Inzicht krijgen in toegang tot resources in Azure](../../role-based-access-control/rbac-and-directory-admin-roles.md)
 * Zie [Hoe Azure-abonnementen worden gekoppeld aan Azure Active Directory](active-directory-how-subscriptions-associated-directory.md) voor meer informatie over hoe Azure Active Directory aan uw Azure-abonnement wordt gekoppeld
 * [Gebruikers beheren](add-users-azure-active-directory.md)

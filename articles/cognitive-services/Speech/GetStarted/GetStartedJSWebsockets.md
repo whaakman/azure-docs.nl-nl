@@ -1,20 +1,21 @@
 ---
-title: Aan de slag met de Microsoft Speech-API in JavaScript | Microsoft Docs
-description: Gebruik de Microsoft Speech-API in Cognitive Services toepassingen te ontwikkelen die doorlopend Converteer gesproken audio naar tekst.
+title: Aan de slag met de Bing Speech-API in JavaScript | Microsoft Docs
+titlesuffix: Azure Cognitive Services
+description: Gebruik de Bing Speech-API in Cognitive Services toepassingen te ontwikkelen die doorlopend Converteer gesproken audio naar tekst.
 services: cognitive-services
 author: zhouwangzw
 manager: wolfma
 ms.service: cognitive-services
 ms.component: bing-speech
 ms.topic: article
-ms.date: 12/21/2017
+ms.date: 09/18/2018
 ms.author: zhouwang
-ms.openlocfilehash: 04332c453d22122e65a758a65b09e17300e07f02
-ms.sourcegitcommit: 7208bfe8878f83d5ec92e54e2f1222ffd41bf931
+ms.openlocfilehash: 024f359362aba3f7d4f99b7dd36954a755c4d1f2
+ms.sourcegitcommit: ce526d13cd826b6f3e2d80558ea2e289d034d48f
 ms.translationtype: MT
 ms.contentlocale: nl-NL
-ms.lasthandoff: 07/14/2018
-ms.locfileid: "39040535"
+ms.lasthandoff: 09/19/2018
+ms.locfileid: "46366077"
 ---
 # <a name="get-started-with-the-speech-recognition-api-in-javascript"></a>Aan de slag met de spraak-API in JavaScript
 
@@ -38,7 +39,7 @@ In deze sectie begeleidt we u stapsgewijs door de stappen voor het laden van een
 
 ### <a name="open-the-sample-directly"></a>Open het voorbeeld rechtstreeks
 
-Een abonnementssleutel verkrijgen, zoals hierboven beschreven. Open vervolgens de [koppeling naar het voorbeeld](https://htmlpreview.github.io/?https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Hiermee wordt de pagina laden in de standaardbrowser (weergegeven met behulp van [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
+Een abonnementssleutel verkrijgen, zoals hierboven beschreven. Open vervolgens de [koppeling naar het voorbeeld](https://htmlpreview.github.io/? https://github.com/Azure-Samples/SpeechToText-WebSockets-Javascript/blob/preview/samples/browser/Sample.html). Hiermee wordt de pagina laden in de standaardbrowser (weergegeven met behulp van [htmlPreview](https://github.com/htmlpreview/htmlpreview.github.com)).
 
 ### <a name="open-the-sample-from-a-local-copy"></a>Open het voorbeeld van een lokale kopie
 

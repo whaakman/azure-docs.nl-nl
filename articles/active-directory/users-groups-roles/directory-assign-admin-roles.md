@@ -1,6 +1,6 @@
 ---
-title: Beheerdersrollen toewijzen in Azure Active Directory | Microsoft Docs
-description: Een beheerdersrol kunt gebruikers toevoegen, beheerdersrollen toewijzen, gebruikerswachtwoorden opnieuw instellen, Gebruikerslicenties beheren of domeinen beheren. Een gebruiker aan wie een beheerdersrol is toegewezen, heeft dezelfde machtigingen van alle cloudservices waarop uw organisatie is geabonneerd.
+title: Beheerdersrollen in Azure Active Directory verwijst | Microsoft Docs
+description: Een beheerdersrol kunt gebruikers toevoegen, beheerdersrollen toewijzen, gebruikerswachtwoorden opnieuw instellen, Gebruikerslicenties beheren of domeinen beheren.
 services: active-directory
 documentationcenter: ''
 author: curtand
@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.workload: identity
 ms.component: users-groups-roles
 ms.topic: article
-ms.date: 09/07/2018
+ms.date: 09/19/2018
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
-ms.openlocfilehash: 985fd559c0af0306dc5b0868a8d7ccc66ca790f8
-ms.sourcegitcommit: cf606b01726df2c9c1789d851de326c873f4209a
+ms.openlocfilehash: 04deb1168c8c5c0977d0f20c9307ce10d2d12d35
+ms.sourcegitcommit: 06724c499837ba342c81f4d349ec0ce4f2dfd6d6
 ms.translationtype: MT
 ms.contentlocale: nl-NL
 ms.lasthandoff: 09/19/2018
-ms.locfileid: "46296699"
+ms.locfileid: "46466112"
 ---
 # <a name="assigning-administrator-roles-in-azure-active-directory"></a>Beheerrollen toewijzen in Azure Active Directory
 
@@ -327,7 +327,8 @@ Volledige toegang om apparaten te beheren in Azure AD.
 | **Acties** | **Beschrijving** |
 | --- | --- |
 | Microsoft.AAD.Directory/Devices/DELETE | Apparaten verwijderen in Azure Active Directory. |
-| Microsoft.AAD.Directory/Devices/update | Werk de eigenschap accountEnabled op apparaten in Azure Active Directory |
+| Microsoft.AAD.Directory/Devices/disable | Apparaten in Azure Active Directory uitschakelen. |
+| Microsoft.AAD.Directory/Devices/Enable | Inschakelen dat apparaten in Azure Active Directory. |
 | microsoft.aad.reports/allEntities/read | Lees Azure AD-rapporten. |
 | microsoft.azure.serviceHealth/allEntities/allTasks | Lees en Azure Service Health configureren. |
 | Microsoft.Office365.serviceHealth/allEntities/allTasks | Lees en configureer de Office 365-servicestatus. |
